@@ -1,0 +1,6553 @@
+
+// Copyright (C) 2015 Luca Piccioni
+// 
+// This library is free software; you can redistribute it and/or
+// modify it under the terms of the GNU Lesser General Public
+// License as published by the Free Software Foundation; either
+// version 2.1 of the License, or (at your option) any later version.
+// 
+// This library is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+// Lesser General Public License for more details.
+// 
+// You should have received a copy of the GNU Lesser General Public
+// License along with this library; if not, write to the Free Software
+// Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301
+// USA
+
+using System;
+using System.Diagnostics;
+using System.Runtime.InteropServices;
+using System.Text;
+
+namespace OpenGL
+{
+	public partial class Gl
+	{
+		/// <summary>
+		/// Value of GL_FIXED symbol.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_4_1")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0")]
+		[RequiredByFeature("GL_ES_VERSION_2_0")]
+		[RequiredByFeature("GL_ARB_ES2_compatibility")]
+		public const int FIXED = 0x140C;
+
+		/// <summary>
+		/// Value of GL_IMPLEMENTATION_COLOR_READ_TYPE symbol.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_4_1")]
+		[RequiredByFeature("GL_ES_VERSION_2_0")]
+		[RequiredByFeature("GL_ARB_ES2_compatibility")]
+		public const int IMPLEMENTATION_COLOR_READ_TYPE = 0x8B9A;
+
+		/// <summary>
+		/// Value of GL_IMPLEMENTATION_COLOR_READ_FORMAT symbol.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_4_1")]
+		[RequiredByFeature("GL_ES_VERSION_2_0")]
+		[RequiredByFeature("GL_ARB_ES2_compatibility")]
+		public const int IMPLEMENTATION_COLOR_READ_FORMAT = 0x8B9B;
+
+		/// <summary>
+		/// Value of GL_LOW_FLOAT symbol.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_4_1")]
+		[RequiredByFeature("GL_ES_VERSION_2_0")]
+		[RequiredByFeature("GL_ARB_ES2_compatibility")]
+		public const int LOW_FLOAT = 0x8DF0;
+
+		/// <summary>
+		/// Value of GL_MEDIUM_FLOAT symbol.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_4_1")]
+		[RequiredByFeature("GL_ES_VERSION_2_0")]
+		[RequiredByFeature("GL_ARB_ES2_compatibility")]
+		public const int MEDIUM_FLOAT = 0x8DF1;
+
+		/// <summary>
+		/// Value of GL_HIGH_FLOAT symbol.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_4_1")]
+		[RequiredByFeature("GL_ES_VERSION_2_0")]
+		[RequiredByFeature("GL_ARB_ES2_compatibility")]
+		public const int HIGH_FLOAT = 0x8DF2;
+
+		/// <summary>
+		/// Value of GL_LOW_INT symbol.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_4_1")]
+		[RequiredByFeature("GL_ES_VERSION_2_0")]
+		[RequiredByFeature("GL_ARB_ES2_compatibility")]
+		public const int LOW_INT = 0x8DF3;
+
+		/// <summary>
+		/// Value of GL_MEDIUM_INT symbol.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_4_1")]
+		[RequiredByFeature("GL_ES_VERSION_2_0")]
+		[RequiredByFeature("GL_ARB_ES2_compatibility")]
+		public const int MEDIUM_INT = 0x8DF4;
+
+		/// <summary>
+		/// Value of GL_HIGH_INT symbol.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_4_1")]
+		[RequiredByFeature("GL_ES_VERSION_2_0")]
+		[RequiredByFeature("GL_ARB_ES2_compatibility")]
+		public const int HIGH_INT = 0x8DF5;
+
+		/// <summary>
+		/// Value of GL_SHADER_COMPILER symbol.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_4_1")]
+		[RequiredByFeature("GL_ES_VERSION_2_0")]
+		[RequiredByFeature("GL_ARB_ES2_compatibility")]
+		public const int SHADER_COMPILER = 0x8DFA;
+
+		/// <summary>
+		/// Value of GL_SHADER_BINARY_FORMATS symbol.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_4_1")]
+		[RequiredByFeature("GL_ES_VERSION_2_0")]
+		[RequiredByFeature("GL_ARB_ES2_compatibility")]
+		public const int SHADER_BINARY_FORMATS = 0x8DF8;
+
+		/// <summary>
+		/// Value of GL_NUM_SHADER_BINARY_FORMATS symbol.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_4_1")]
+		[RequiredByFeature("GL_ES_VERSION_2_0")]
+		[RequiredByFeature("GL_ARB_ES2_compatibility")]
+		public const int NUM_SHADER_BINARY_FORMATS = 0x8DF9;
+
+		/// <summary>
+		/// Value of GL_MAX_VERTEX_UNIFORM_VECTORS symbol.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_4_1")]
+		[RequiredByFeature("GL_ES_VERSION_2_0")]
+		[RequiredByFeature("GL_ARB_ES2_compatibility")]
+		public const int MAX_VERTEX_UNIFORM_VECTORS = 0x8DFB;
+
+		/// <summary>
+		/// Value of GL_MAX_VARYING_VECTORS symbol.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_4_1")]
+		[RequiredByFeature("GL_ES_VERSION_2_0")]
+		[RequiredByFeature("GL_ARB_ES2_compatibility")]
+		public const int MAX_VARYING_VECTORS = 0x8DFC;
+
+		/// <summary>
+		/// Value of GL_MAX_FRAGMENT_UNIFORM_VECTORS symbol.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_4_1")]
+		[RequiredByFeature("GL_ES_VERSION_2_0")]
+		[RequiredByFeature("GL_ARB_ES2_compatibility")]
+		public const int MAX_FRAGMENT_UNIFORM_VECTORS = 0x8DFD;
+
+		/// <summary>
+		/// Value of GL_RGB565 symbol.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_4_1")]
+		[RequiredByFeature("GL_ES_VERSION_2_0")]
+		[RequiredByFeature("GL_ARB_ES2_compatibility")]
+		public const int RGB565 = 0x8D62;
+
+		/// <summary>
+		/// Value of GL_PROGRAM_BINARY_RETRIEVABLE_HINT symbol.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_4_1")]
+		[RequiredByFeature("GL_ES_VERSION_3_0")]
+		[RequiredByFeature("GL_ARB_get_program_binary")]
+		public const int PROGRAM_BINARY_RETRIEVABLE_HINT = 0x8257;
+
+		/// <summary>
+		/// Value of GL_PROGRAM_BINARY_LENGTH symbol.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_4_1")]
+		[RequiredByFeature("GL_ES_VERSION_3_0")]
+		[RequiredByFeature("GL_ARB_get_program_binary")]
+		public const int PROGRAM_BINARY_LENGTH = 0x8741;
+
+		/// <summary>
+		/// Value of GL_NUM_PROGRAM_BINARY_FORMATS symbol.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_4_1")]
+		[RequiredByFeature("GL_ES_VERSION_3_0")]
+		[RequiredByFeature("GL_ARB_get_program_binary")]
+		public const int NUM_PROGRAM_BINARY_FORMATS = 0x87FE;
+
+		/// <summary>
+		/// Value of GL_PROGRAM_BINARY_FORMATS symbol.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_4_1")]
+		[RequiredByFeature("GL_ES_VERSION_3_0")]
+		[RequiredByFeature("GL_ARB_get_program_binary")]
+		public const int PROGRAM_BINARY_FORMATS = 0x87FF;
+
+		/// <summary>
+		/// Value of GL_VERTEX_SHADER_BIT symbol.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_4_1")]
+		[RequiredByFeature("GL_ES_VERSION_3_1")]
+		[RequiredByFeature("GL_ARB_separate_shader_objects")]
+		public const uint VERTEX_SHADER_BIT = 0x00000001;
+
+		/// <summary>
+		/// Value of GL_FRAGMENT_SHADER_BIT symbol.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_4_1")]
+		[RequiredByFeature("GL_ES_VERSION_3_1")]
+		[RequiredByFeature("GL_ARB_separate_shader_objects")]
+		public const uint FRAGMENT_SHADER_BIT = 0x00000002;
+
+		/// <summary>
+		/// Value of GL_GEOMETRY_SHADER_BIT symbol.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_4_1")]
+		[RequiredByFeature("GL_ARB_separate_shader_objects")]
+		public const uint GEOMETRY_SHADER_BIT = 0x00000004;
+
+		/// <summary>
+		/// Value of GL_TESS_CONTROL_SHADER_BIT symbol.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_4_1")]
+		[RequiredByFeature("GL_ARB_separate_shader_objects")]
+		public const uint TESS_CONTROL_SHADER_BIT = 0x00000008;
+
+		/// <summary>
+		/// Value of GL_TESS_EVALUATION_SHADER_BIT symbol.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_4_1")]
+		[RequiredByFeature("GL_ARB_separate_shader_objects")]
+		public const uint TESS_EVALUATION_SHADER_BIT = 0x00000010;
+
+		/// <summary>
+		/// Value of GL_ALL_SHADER_BITS symbol.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_4_1")]
+		[RequiredByFeature("GL_ES_VERSION_3_1")]
+		[RequiredByFeature("GL_ARB_separate_shader_objects")]
+		public const uint ALL_SHADER_BITS = 0xFFFFFFFF;
+
+		/// <summary>
+		/// Value of GL_PROGRAM_SEPARABLE symbol.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_4_1")]
+		[RequiredByFeature("GL_ES_VERSION_3_1")]
+		[RequiredByFeature("GL_ARB_separate_shader_objects")]
+		public const int PROGRAM_SEPARABLE = 0x8258;
+
+		/// <summary>
+		/// Value of GL_ACTIVE_PROGRAM symbol.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_4_1")]
+		[RequiredByFeature("GL_ES_VERSION_3_1")]
+		[RequiredByFeature("GL_ARB_separate_shader_objects")]
+		public const int ACTIVE_PROGRAM = 0x8259;
+
+		/// <summary>
+		/// Value of GL_PROGRAM_PIPELINE_BINDING symbol.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_4_1")]
+		[RequiredByFeature("GL_ES_VERSION_3_1")]
+		[RequiredByFeature("GL_ARB_separate_shader_objects")]
+		public const int PROGRAM_PIPELINE_BINDING = 0x825A;
+
+		/// <summary>
+		/// Value of GL_MAX_VIEWPORTS symbol.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_4_1")]
+		[RequiredByFeature("GL_ARB_viewport_array")]
+		public const int MAX_VIEWPORTS = 0x825B;
+
+		/// <summary>
+		/// Value of GL_VIEWPORT_SUBPIXEL_BITS symbol.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_4_1")]
+		[RequiredByFeature("GL_ARB_viewport_array")]
+		public const int VIEWPORT_SUBPIXEL_BITS = 0x825C;
+
+		/// <summary>
+		/// Value of GL_VIEWPORT_BOUNDS_RANGE symbol.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_4_1")]
+		[RequiredByFeature("GL_ARB_viewport_array")]
+		public const int VIEWPORT_BOUNDS_RANGE = 0x825D;
+
+		/// <summary>
+		/// Value of GL_LAYER_PROVOKING_VERTEX symbol.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_4_1")]
+		[RequiredByFeature("GL_ARB_viewport_array")]
+		public const int LAYER_PROVOKING_VERTEX = 0x825E;
+
+		/// <summary>
+		/// Value of GL_VIEWPORT_INDEX_PROVOKING_VERTEX symbol.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_4_1")]
+		[RequiredByFeature("GL_ARB_viewport_array")]
+		public const int VIEWPORT_INDEX_PROVOKING_VERTEX = 0x825F;
+
+		/// <summary>
+		/// Value of GL_UNDEFINED_VERTEX symbol.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_4_1")]
+		[RequiredByFeature("GL_ARB_viewport_array")]
+		public const int UNDEFINED_VERTEX = 0x8260;
+
+		/// <summary>
+		/// release resources consumed by the implementation's shader compiler
+		/// </summary>
+		/// <remarks>
+		/// glReleaseShaderCompiler provides a hint to the implementation that it may free internal resources associated with its 
+		/// shadercompiler. glCompileShader may subsequently be called and the implementation may at that time reallocate resources 
+		/// previouslyfreed by the call to glReleaseShaderCompiler. 
+		/// </remarks>
+		/// <seealso cref="Gl.CompileShader"/>
+		/// <seealso cref="Gl.LinkProgram"/>
+		public static void ReleaseShaderCompiler()
+		{
+			Debug.Assert(Delegates.pglReleaseShaderCompiler != null, "pglReleaseShaderCompiler not implemented");
+			Delegates.pglReleaseShaderCompiler();
+			CallLog("glReleaseShaderCompiler()");
+			DebugCheckErrors();
+		}
+
+		/// <summary>
+		/// load pre-compiled shader binaries
+		/// </summary>
+		/// <param name="count">
+		/// Specifies the number of shader object handles contained in shaders. 
+		/// </param>
+		/// <param name="shaders">
+		/// Specifies the address of an array of shader handles into which to load pre-compiled shader binaries. 
+		/// </param>
+		/// <param name="binaryformat">
+		/// A <see cref="T:int"/>.
+		/// </param>
+		/// <param name="binary">
+		/// Specifies the address of an array of bytes containing pre-compiled binary shader code. 
+		/// </param>
+		/// <param name="length">
+		/// Specifies the length of the array whose address is given in binary. 
+		/// </param>
+		/// <remarks>
+		/// glShaderBinary loads pre-compiled shader binary code into the count shader objects whose handles are given in shaders. 
+		/// binarypoints to length bytes of binary shader code stored in client memory. binaryFormat specifies the format of the 
+		/// pre-compiledcode. 
+		/// The binary image contained in binary will be decoded according to the extension specification defining the specified 
+		/// binaryFormattoken. OpenGL does not define any specific binary formats, but it does provide a mechanism to obtain token 
+		/// vauesfor such formats provided by such extensions. 
+		/// Depending on the types of the shader objects in shaders, glShaderBinary will individually load binary vertex or fragment 
+		/// shaders,or load an executable binary that contains an optimized pair of vertex and fragment shaders stored in the same 
+		/// binary.
+		/// <para>
+		/// The following errors can be generated:
+		/// - GL_INVALID_OPERATION is generated if more than one of the handles in shaders refers to the same shader object. 
+		/// - GL_INVALID_ENUM is generated if binaryFormat is not an accepted value. 
+		/// - GL_INVALID_VALUE is generated if the data pointed to by binary does not match the format specified by binaryFormat. 
+		/// </para>
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - glGet with parameter GL_NUM_SHADER_BINARY_FORMATS. 
+		/// - glGet with parameter GL_SHADER_BINARY_FORMATS. 
+		/// </para>
+		/// </remarks>
+		/// <seealso cref="Gl.GetProgram"/>
+		/// <seealso cref="Gl.GetProgramBinary"/>
+		/// <seealso cref="Gl.ProgramBinary"/>
+		public static void ShaderBinary(Int32 count, UInt32[] shaders, int binaryformat, IntPtr binary, Int32 length)
+		{
+			unsafe {
+				fixed (UInt32* p_shaders = shaders)
+				{
+					Debug.Assert(Delegates.pglShaderBinary != null, "pglShaderBinary not implemented");
+					Delegates.pglShaderBinary(count, p_shaders, binaryformat, binary, length);
+					CallLog("glShaderBinary({0}, {1}, {2}, {3}, {4})", count, shaders, binaryformat, binary, length);
+				}
+			}
+			DebugCheckErrors();
+		}
+
+		/// <summary>
+		/// load pre-compiled shader binaries
+		/// </summary>
+		/// <param name="count">
+		/// Specifies the number of shader object handles contained in shaders. 
+		/// </param>
+		/// <param name="shaders">
+		/// Specifies the address of an array of shader handles into which to load pre-compiled shader binaries. 
+		/// </param>
+		/// <param name="binaryformat">
+		/// A <see cref="T:int"/>.
+		/// </param>
+		/// <param name="binary">
+		/// Specifies the address of an array of bytes containing pre-compiled binary shader code. 
+		/// </param>
+		/// <param name="length">
+		/// Specifies the length of the array whose address is given in binary. 
+		/// </param>
+		/// <remarks>
+		/// glShaderBinary loads pre-compiled shader binary code into the count shader objects whose handles are given in shaders. 
+		/// binarypoints to length bytes of binary shader code stored in client memory. binaryFormat specifies the format of the 
+		/// pre-compiledcode. 
+		/// The binary image contained in binary will be decoded according to the extension specification defining the specified 
+		/// binaryFormattoken. OpenGL does not define any specific binary formats, but it does provide a mechanism to obtain token 
+		/// vauesfor such formats provided by such extensions. 
+		/// Depending on the types of the shader objects in shaders, glShaderBinary will individually load binary vertex or fragment 
+		/// shaders,or load an executable binary that contains an optimized pair of vertex and fragment shaders stored in the same 
+		/// binary.
+		/// <para>
+		/// The following errors can be generated:
+		/// - GL_INVALID_OPERATION is generated if more than one of the handles in shaders refers to the same shader object. 
+		/// - GL_INVALID_ENUM is generated if binaryFormat is not an accepted value. 
+		/// - GL_INVALID_VALUE is generated if the data pointed to by binary does not match the format specified by binaryFormat. 
+		/// </para>
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - glGet with parameter GL_NUM_SHADER_BINARY_FORMATS. 
+		/// - glGet with parameter GL_SHADER_BINARY_FORMATS. 
+		/// </para>
+		/// </remarks>
+		/// <seealso cref="Gl.GetProgram"/>
+		/// <seealso cref="Gl.GetProgramBinary"/>
+		/// <seealso cref="Gl.ProgramBinary"/>
+		public static void ShaderBinary(Int32 count, UInt32[] shaders, int binaryformat, Object binary, Int32 length)
+		{
+			GCHandle pin_binary = GCHandle.Alloc(binary, GCHandleType.Pinned);
+			try {
+				ShaderBinary(count, shaders, binaryformat, pin_binary.AddrOfPinnedObject(), length);
+			} finally {
+				pin_binary.Free();
+			}
+		}
+
+		/// <summary>
+		/// retrieve the range and precision for numeric formats supported by the shader compiler
+		/// </summary>
+		/// <param name="shadertype">
+		/// A <see cref="T:int"/>.
+		/// </param>
+		/// <param name="precisiontype">
+		/// A <see cref="T:int"/>.
+		/// </param>
+		/// <param name="range">
+		/// Specifies the address of array of two integers into which encodings of the implementation's numeric range are returned. 
+		/// </param>
+		/// <param name="precision">
+		/// Specifies the address of an integer into which the numeric precision of the implementation is written. 
+		/// </param>
+		/// <remarks>
+		/// glGetShaderPrecisionFormat retrieves the numeric range and precision for the implementation's representation of 
+		/// quantitiesin different numeric formats in specified shader type. shaderType specifies the type of shader for which the 
+		/// numericprecision and range is to be retrieved and must be one of GL_VERTEX_SHADER or GL_FRAGMENT_SHADER. precisionType 
+		/// specifiesthe numeric format to query and must be one of GL_LOW_FLOAT, GL_MEDIUM_FLOATGL_HIGH_FLOAT, GL_LOW_INT, 
+		/// GL_MEDIUM_INT,or GL_HIGH_INT. 
+		/// range points to an array of two integers into which the format's numeric range will be returned. If min and max are the 
+		/// smallestvalues representable in the format, then the values returned are defined to be: range[0] = floor(log2(|min|)) 
+		/// andrange[1] = floor(log2(|max|)). 
+		/// precision specifies the address of an integer into which will be written the log2 value of the number of bits of 
+		/// precisionof the format. If the smallest representable value greater than 1 is 1 + eps, then the integer addressed by 
+		/// precisionwill contain floor(-log2(eps)). 
+		/// <para>
+		/// The following errors can be generated:
+		/// - GL_INVALID_ENUM is generated if shaderType or precisionType is not an accepted value. 
+		/// </para>
+		/// </remarks>
+		public static void GetShaderPrecisionFormat(int shadertype, int precisiontype, Int32[] range, Int32[] precision)
+		{
+			unsafe {
+				fixed (Int32* p_range = range)
+				fixed (Int32* p_precision = precision)
+				{
+					Debug.Assert(Delegates.pglGetShaderPrecisionFormat != null, "pglGetShaderPrecisionFormat not implemented");
+					Delegates.pglGetShaderPrecisionFormat(shadertype, precisiontype, p_range, p_precision);
+					CallLog("glGetShaderPrecisionFormat({0}, {1}, {2}, {3})", shadertype, precisiontype, range, precision);
+				}
+			}
+			DebugCheckErrors();
+		}
+
+		/// <summary>
+		/// specify mapping of depth values from normalized device coordinates to window coordinates
+		/// </summary>
+		/// <param name="n">
+		/// A <see cref="T:float"/>.
+		/// </param>
+		/// <param name="f">
+		/// A <see cref="T:float"/>.
+		/// </param>
+		/// <remarks>
+		/// After clipping and division by w, depth coordinates range from -1 to 1, corresponding to the near and far clipping 
+		/// planes.glDepthRange specifies a linear mapping of the normalized depth coordinates in this range to window depth 
+		/// coordinates.Regardless of the actual depth buffer implementation, window coordinate depth values are treated as though 
+		/// theyrange from 0 through 1 (like color components). Thus, the values accepted by glDepthRange are both clamped to this 
+		/// rangebefore they are accepted. 
+		/// The setting of (0,1) maps the near plane to 0 and the far plane to 1. With this mapping, the depth buffer range is fully 
+		/// utilized.
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - glGet with argument GL_DEPTH_RANGE 
+		/// </para>
+		/// </remarks>
+		/// <seealso cref="Gl.DepthFunc"/>
+		/// <seealso cref="Gl.PolygonOffset"/>
+		/// <seealso cref="Gl.Viewport"/>
+		/// <seealso cref="Gl.removedTypes"/>
+		public static void DepthRange(float n, float f)
+		{
+			if        (Delegates.pglDepthRangef != null) {
+				Delegates.pglDepthRangef(n, f);
+				CallLog("glDepthRangef({0}, {1})", n, f);
+			} else if (Delegates.pglDepthRangefOES != null) {
+				Delegates.pglDepthRangefOES(n, f);
+				CallLog("glDepthRangefOES({0}, {1})", n, f);
+			} else
+				throw new NotImplementedException("glDepthRangef (and other aliases) are not implemented");
+			DebugCheckErrors();
+		}
+
+		/// <summary>
+		/// specify the clear value for the depth buffer
+		/// </summary>
+		/// <param name="d">
+		/// A <see cref="T:float"/>.
+		/// </param>
+		/// <remarks>
+		/// glClearDepth specifies the depth value used by glClear to clear the depth buffer. Values specified by glClearDepth are 
+		/// clampedto the range 01. 
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - glGet with argument GL_DEPTH_CLEAR_VALUE 
+		/// </para>
+		/// </remarks>
+		/// <seealso cref="Gl.Clear"/>
+		/// <seealso cref="Gl.removedTypes"/>
+		public static void ClearDepth(float d)
+		{
+			if        (Delegates.pglClearDepthf != null) {
+				Delegates.pglClearDepthf(d);
+				CallLog("glClearDepthf({0})", d);
+			} else if (Delegates.pglClearDepthfOES != null) {
+				Delegates.pglClearDepthfOES(d);
+				CallLog("glClearDepthfOES({0})", d);
+			} else
+				throw new NotImplementedException("glClearDepthf (and other aliases) are not implemented");
+			DebugCheckErrors();
+		}
+
+		/// <summary>
+		/// return a binary representation of a program object's compiled and linked executable source
+		/// </summary>
+		/// <param name="program">
+		/// Specifies the name of a program object whose binary representation to retrieve. 
+		/// </param>
+		/// <param name="bufSize">
+		/// Specifies the size of the buffer whose address is given by binary. 
+		/// </param>
+		/// <param name="length">
+		/// Specifies the address of a variable to receive the number of bytes written into binary. 
+		/// </param>
+		/// <param name="binaryFormat">
+		/// Specifies the address of a variable to receive a token indicating the format of the binary data returned by the GL. 
+		/// </param>
+		/// <param name="binary">
+		/// Specifies the address an array into which the GL will return program's binary representation. 
+		/// </param>
+		/// <remarks>
+		/// glGetProgramBinary returns a binary representation of the compiled and linked executable for program into the array of 
+		/// byteswhose address is specified in binary. The maximum number of bytes that may be written into binary is specified by 
+		/// bufSize.If the program binary is greater in size than bufSize bytes, then an error is generated, otherwise the actual 
+		/// numberof bytes written into binary is returned in the variable whose address is given by length. If length is NULL, then 
+		/// nolength is returned. 
+		/// The format of the program binary written into binary is returned in the variable whose address is given by binaryFormat, 
+		/// andmay be implementation dependent. The binary produced by the GL may subsequently be returned to the GL by calling 
+		/// glProgramBinary,with binaryFormat and length set to the values returned by glGetProgramBinary, and passing the returned 
+		/// binarydata in the binary parameter. 
+		/// <para>
+		/// The following errors can be generated:
+		/// - GL_INVALID_OPERATION is generated if bufSize is less than the size of GL_PROGRAM_BINARY_LENGTH for program. 
+		/// - GL_INVALID_OPERATION is generated if GL_LINK_STATUS for the program object is false. 
+		/// </para>
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - glGetProgram with argument GL_PROGRAM_BINARY_LENGTH 
+		/// </para>
+		/// </remarks>
+		/// <seealso cref="Gl.GetProgram"/>
+		/// <seealso cref="Gl.ProgramBinary"/>
+		public static void GetProgramBinary(UInt32 program, Int32 bufSize, out Int32 length, out int binaryFormat, IntPtr binary)
+		{
+			unsafe {
+				fixed (Int32* p_length = &length)
+				fixed (int* p_binaryFormat = &binaryFormat)
+				{
+					if        (Delegates.pglGetProgramBinary != null) {
+						Delegates.pglGetProgramBinary(program, bufSize, p_length, p_binaryFormat, binary);
+						CallLog("glGetProgramBinary({0}, {1}, {2}, {3}, {4})", program, bufSize, length, binaryFormat, binary);
+					} else if (Delegates.pglGetProgramBinaryOES != null) {
+						Delegates.pglGetProgramBinaryOES(program, bufSize, p_length, p_binaryFormat, binary);
+						CallLog("glGetProgramBinaryOES({0}, {1}, {2}, {3}, {4})", program, bufSize, length, binaryFormat, binary);
+					} else
+						throw new NotImplementedException("glGetProgramBinary (and other aliases) are not implemented");
+				}
+			}
+			DebugCheckErrors();
+		}
+
+		/// <summary>
+		/// load a program object with a program binary
+		/// </summary>
+		/// <param name="program">
+		/// Specifies the name of a program object into which to load a program binary. 
+		/// </param>
+		/// <param name="binaryFormat">
+		/// Specifies the format of the binary data in binary. 
+		/// </param>
+		/// <param name="binary">
+		/// Specifies the address an array containing the binary to be loaded into program. 
+		/// </param>
+		/// <param name="length">
+		/// Specifies the number of bytes contained in binary. 
+		/// </param>
+		/// <remarks>
+		/// glProgramBinary loads a program object with a program binary previously returned from glGetProgramBinary. binaryFormat 
+		/// andbinary must be those returned by a previous call to glGetProgramBinary, and length must be the length returned by 
+		/// glGetProgramBinary,or by glGetProgram when called with pname set to GL_PROGRAM_BINARY_LENGTH. If these conditions are 
+		/// notmet, loading the program binary will fail and program's GL_LINK_STATUS will be set to GL_FALSE. 
+		/// A program object's program binary is replaced by calls to glLinkProgram or glProgramBinary. When linking success or 
+		/// failureis concerned, glProgramBinary can be considered to perform an implicit linking operation. glLinkProgram and 
+		/// glProgramBinaryboth set the program object's GL_LINK_STATUS to GL_TRUE or GL_FALSE. 
+		/// A successful call to glProgramBinary will reset all uniform variables to their initial values. The initial value is 
+		/// eitherthe value of the variable's initializer as specified in the original shader source, or zero if no initializer was 
+		/// present.Additionally, all vertex shader input and fragment shader output assignments that were in effect when the 
+		/// programwas linked before saving are restored with glProgramBinary is called. 
+		/// <para>
+		/// The following errors can be generated:
+		/// - GL_INVALID_OPERATION is generated if program is not the name of an existing program object. 
+		/// - GL_INVALID_ENUM is generated if binaryFormat is not a value recognized by the implementation. 
+		/// </para>
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - glGetProgram with argument GL_PROGRAM_BINARY_LENGTH 
+		/// - glGet with argument GL_NUM_PROGRAM_BINARY_FORMATS 
+		/// - glGet with argument GL_PROGRAM_BINARY_FORMATS 
+		/// </para>
+		/// </remarks>
+		/// <seealso cref="Gl.GetProgram"/>
+		/// <seealso cref="Gl.GetProgramBinary"/>
+		public static void ProgramBinary(UInt32 program, int binaryFormat, IntPtr binary, Int32 length)
+		{
+			if        (Delegates.pglProgramBinary != null) {
+				Delegates.pglProgramBinary(program, binaryFormat, binary, length);
+				CallLog("glProgramBinary({0}, {1}, {2}, {3})", program, binaryFormat, binary, length);
+			} else if (Delegates.pglProgramBinaryOES != null) {
+				Delegates.pglProgramBinaryOES(program, binaryFormat, binary, length);
+				CallLog("glProgramBinaryOES({0}, {1}, {2}, {3})", program, binaryFormat, binary, length);
+			} else
+				throw new NotImplementedException("glProgramBinary (and other aliases) are not implemented");
+			DebugCheckErrors();
+		}
+
+		/// <summary>
+		/// load a program object with a program binary
+		/// </summary>
+		/// <param name="program">
+		/// Specifies the name of a program object into which to load a program binary. 
+		/// </param>
+		/// <param name="binaryFormat">
+		/// Specifies the format of the binary data in binary. 
+		/// </param>
+		/// <param name="binary">
+		/// Specifies the address an array containing the binary to be loaded into program. 
+		/// </param>
+		/// <param name="length">
+		/// Specifies the number of bytes contained in binary. 
+		/// </param>
+		/// <remarks>
+		/// glProgramBinary loads a program object with a program binary previously returned from glGetProgramBinary. binaryFormat 
+		/// andbinary must be those returned by a previous call to glGetProgramBinary, and length must be the length returned by 
+		/// glGetProgramBinary,or by glGetProgram when called with pname set to GL_PROGRAM_BINARY_LENGTH. If these conditions are 
+		/// notmet, loading the program binary will fail and program's GL_LINK_STATUS will be set to GL_FALSE. 
+		/// A program object's program binary is replaced by calls to glLinkProgram or glProgramBinary. When linking success or 
+		/// failureis concerned, glProgramBinary can be considered to perform an implicit linking operation. glLinkProgram and 
+		/// glProgramBinaryboth set the program object's GL_LINK_STATUS to GL_TRUE or GL_FALSE. 
+		/// A successful call to glProgramBinary will reset all uniform variables to their initial values. The initial value is 
+		/// eitherthe value of the variable's initializer as specified in the original shader source, or zero if no initializer was 
+		/// present.Additionally, all vertex shader input and fragment shader output assignments that were in effect when the 
+		/// programwas linked before saving are restored with glProgramBinary is called. 
+		/// <para>
+		/// The following errors can be generated:
+		/// - GL_INVALID_OPERATION is generated if program is not the name of an existing program object. 
+		/// - GL_INVALID_ENUM is generated if binaryFormat is not a value recognized by the implementation. 
+		/// </para>
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - glGetProgram with argument GL_PROGRAM_BINARY_LENGTH 
+		/// - glGet with argument GL_NUM_PROGRAM_BINARY_FORMATS 
+		/// - glGet with argument GL_PROGRAM_BINARY_FORMATS 
+		/// </para>
+		/// </remarks>
+		/// <seealso cref="Gl.GetProgram"/>
+		/// <seealso cref="Gl.GetProgramBinary"/>
+		public static void ProgramBinary(UInt32 program, int binaryFormat, Object binary, Int32 length)
+		{
+			GCHandle pin_binary = GCHandle.Alloc(binary, GCHandleType.Pinned);
+			try {
+				ProgramBinary(program, binaryFormat, pin_binary.AddrOfPinnedObject(), length);
+			} finally {
+				pin_binary.Free();
+			}
+		}
+
+		/// <summary>
+		/// specify a parameter for a program object
+		/// </summary>
+		/// <param name="program">
+		/// Specifies the name of a program object whose parameter to modify. 
+		/// </param>
+		/// <param name="pname">
+		/// Specifies the name of the parameter to modify. 
+		/// </param>
+		/// <param name="value">
+		/// Specifies the new value of the parameter specified by pname for program. 
+		/// </param>
+		/// <remarks>
+		/// glProgramParameter specifies a new value for the parameter nameed by pname for the program object program. 
+		/// If pname is GL_PROGRAM_BINARY_RETRIEVABLE_HINT, value should be GL_FALSE or GL_TRUE to indicate to the implementation 
+		/// theintention of the application to retrieve the program's binary representation with glGetProgramBinary. The 
+		/// implementationmay use this information to store information that may be useful for a future query of the program's 
+		/// binary.It is recommended to set GL_PROGRAM_BINARY_RETRIEVABLE_HINT for the program to GL_TRUE before calling 
+		/// glLinkProgram,and using the program at run-time if the binary is to be retrieved later. 
+		/// If pname is GL_PROGRAM_SEPARABLE, value must be GL_TRUE or GL_FALSE and indicates whether program can be bound to 
+		/// individualpipeline stages via glUseProgramStages. A program's GL_PROGRAM_SEPARABLE parameter must be set to 
+		/// GL_TRUEbeforeglLinkProgramis called in order for it to be usable with a program pipeline object. The initial state of 
+		/// GL_PROGRAM_SEPARABLEis GL_FALSE. 
+		/// <para>
+		/// The following errors can be generated:
+		/// - GL_INVALID_OPERATION is generated if program is not the name of an existing program object. 
+		/// - GL_INVALID_ENUM is generated if pname is not one of the accepted values. 
+		/// - GL_INVALID_VALUE is generated if value is not a valid value for the parameter named by pname. 
+		/// </para>
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - glGetProgram. 
+		/// </para>
+		/// </remarks>
+		/// <seealso cref="Gl.GetProgram"/>
+		/// <seealso cref="Gl.GetProgramBinary"/>
+		/// <seealso cref="Gl.ProgramBinary"/>
+		public static void ProgramParameter(UInt32 program, int pname, Int32 value)
+		{
+			if        (Delegates.pglProgramParameteri != null) {
+				Delegates.pglProgramParameteri(program, pname, value);
+				CallLog("glProgramParameteri({0}, {1}, {2})", program, pname, value);
+			} else if (Delegates.pglProgramParameteriARB != null) {
+				Delegates.pglProgramParameteriARB(program, pname, value);
+				CallLog("glProgramParameteriARB({0}, {1}, {2})", program, pname, value);
+			} else if (Delegates.pglProgramParameteriEXT != null) {
+				Delegates.pglProgramParameteriEXT(program, pname, value);
+				CallLog("glProgramParameteriEXT({0}, {1}, {2})", program, pname, value);
+			} else
+				throw new NotImplementedException("glProgramParameteri (and other aliases) are not implemented");
+			DebugCheckErrors();
+		}
+
+		/// <summary>
+		/// bind stages of a program object to a program pipeline
+		/// </summary>
+		/// <param name="pipeline">
+		/// Specifies the program pipeline object to which to bind stages from program. 
+		/// </param>
+		/// <param name="stages">
+		/// Specifies a set of program stages to bind to the program pipeline object. 
+		/// </param>
+		/// <param name="program">
+		/// Specifies the program object containing the shader executables to use in pipeline. 
+		/// </param>
+		/// <remarks>
+		/// glUseProgramStages binds executables from a program object associated with a specified set of shader stages to the 
+		/// programpipeline object given by pipeline. pipeline specifies the program pipeline object to which to bind the 
+		/// executables.stages contains a logical combination of bits indicating the shader stages to use within program with the 
+		/// programpipeline object pipeline. stages must be a logical combination of GL_VERTEX_SHADER_BIT, 
+		/// GL_TESS_CONTROL_SHADER_BIT,GL_TESS_EVALUATION_SHADER_BIT, GL_GEOMETRY_SHADER_BIT, GL_FRAGMENT_SHADER_BIT and 
+		/// GL_COMPUTE_SHADER_BIT.Additionally, the special value GL_ALL_SHADER_BITS may be specified to indicate that all 
+		/// executablescontained in program should be installed in pipeline. 
+		/// If program refers to a program object with a valid shader attached for an indicated shader stage, glUseProgramStages 
+		/// installsthe executable code for that stage in the indicated program pipeline object pipeline. If program is zero, or 
+		/// refersto a program object with no valid shader executable for a given stage, it is as if the pipeline object has no 
+		/// programmablestage configured for the indicated shader stages. If stages contains bits other than those listed above, and 
+		/// isnot equal to GL_ALL_SHADER_BITS, an error is generated. 
+		/// <para>
+		/// The following errors can be generated:
+		/// - GL_INVALID_VALUE is generated if shaders contains set bits that are not recognized, and is not the reserved value 
+		///   GL_ALL_SHADER_BITS.
+		/// - GL_INVALID_OPERATION is generated if program refers to a program object that was not linked with its 
+		///   GL_PROGRAM_SEPARABLEstatus set. 
+		/// - GL_INVALID_OPERATION is generated if program refers to a program object that has not been successfully linked. 
+		/// - GL_INVALID_OPERATION is generated if pipeline is not a name previously returned from a call to glGenProgramPipelines or 
+		///   ifsuch a name has been deleted by a call to glDeleteProgramPipelines. 
+		/// </para>
+		/// </remarks>
+		/// <seealso cref="Gl.GenProgramPipelines"/>
+		/// <seealso cref="Gl.DeleteProgramPipelines"/>
+		/// <seealso cref="Gl.IsProgramPipeline"/>
+		public static void UseProgramStage(UInt32 pipeline, uint stages, UInt32 program)
+		{
+			Debug.Assert(Delegates.pglUseProgramStages != null, "pglUseProgramStages not implemented");
+			Delegates.pglUseProgramStages(pipeline, stages, program);
+			CallLog("glUseProgramStages({0}, {1}, {2})", pipeline, stages, program);
+			DebugCheckErrors();
+		}
+
+		/// <summary>
+		/// set the active program object for a program pipeline object
+		/// </summary>
+		/// <param name="pipeline">
+		/// Specifies the program pipeline object to set the active program object for. 
+		/// </param>
+		/// <param name="program">
+		/// Specifies the program object to set as the active program pipeline object pipeline. 
+		/// </param>
+		/// <remarks>
+		/// glActiveShaderProgram sets the linked program named by program to be the active program for the program pipeline object 
+		/// pipeline.The active program in the active program pipeline object is the target of calls to glUniform when no program 
+		/// hasbeen made current through a call to glUseProgram. 
+		/// <para>
+		/// The following errors can be generated:
+		/// - GL_INVALID_OPERATION is generated if pipeline is not a name previously returned from a call to glGenProgramPipelines or 
+		///   ifsuch a name has been deleted by a call to glDeleteProgramPipelines. 
+		/// - GL_INVALID_OPERATION is generated if program refers to a program object that has not been successfully linked. 
+		/// </para>
+		/// </remarks>
+		/// <seealso cref="Gl.GenProgramPipelines"/>
+		/// <seealso cref="Gl.DeleteProgramPipelines"/>
+		/// <seealso cref="Gl.IsProgramPipeline"/>
+		/// <seealso cref="Gl.UseProgram"/>
+		/// <seealso cref="Gl.Uniform"/>
+		public static void ActiveShaderProgram(UInt32 pipeline, UInt32 program)
+		{
+			Debug.Assert(Delegates.pglActiveShaderProgram != null, "pglActiveShaderProgram not implemented");
+			Delegates.pglActiveShaderProgram(pipeline, program);
+			CallLog("glActiveShaderProgram({0}, {1})", pipeline, program);
+			DebugCheckErrors();
+		}
+
+		/// <summary>
+		/// create a stand-alone program from an array of null-terminated source code strings
+		/// </summary>
+		/// <param name="type">
+		/// Specifies the type of shader to create. 
+		/// </param>
+		/// <param name="count">
+		/// Specifies the number of source code strings in the array strings. 
+		/// </param>
+		/// <param name="strings">
+		/// Specifies the address of an array of pointers to source code strings from which to create the program object. 
+		/// </param>
+		/// <remarks>
+		/// glCreateShaderProgram creates a program object containing compiled and linked shaders for a single stage specified by 
+		/// type.strings refers to an array of count strings from which to create the shader executables. 
+		/// glCreateShaderProgram is equivalent (assuming no errors are generated) to: 
+		/// The program object created by glCreateShaderProgram has its GL_PROGRAM_SEPARABLE status set to GL_TRUE. 
+		/// <para>
+		/// The following errors can be generated:
+		/// - GL_INVALID_ENUM is generated if if type is not an accepted shader type. 
+		/// - GL_INVALID_VALUE is generated if count is negative. 
+		/// - Other errors are generated if the supplied shader code fails to compile and link, as described for the commands in the 
+		///   pseudocodesequence above, but all such errors are generated without any side effects of executing those commands. 
+		/// </para>
+		/// </remarks>
+		/// <seealso cref="Gl.CreateShader"/>
+		/// <seealso cref="Gl.CreateProgram"/>
+		/// <seealso cref="Gl.CompileShader"/>
+		/// <seealso cref="Gl.LinkProgram"/>
+		public static UInt32 CreateShaderProgram(int type, Int32 count, String[] strings)
+		{
+			UInt32 retValue;
+
+			Debug.Assert(Delegates.pglCreateShaderProgramv != null, "pglCreateShaderProgramv not implemented");
+			retValue = Delegates.pglCreateShaderProgramv(type, count, strings);
+			CallLog("glCreateShaderProgramv({0}, {1}, {2}) = {3}", type, count, strings, retValue);
+			DebugCheckErrors();
+
+			return (retValue);
+		}
+
+		/// <summary>
+		/// bind a program pipeline to the current context
+		/// </summary>
+		/// <param name="pipeline">
+		/// Specifies the name of the pipeline object to bind to the context. 
+		/// </param>
+		/// <remarks>
+		/// glBindProgramPipeline binds a program pipeline object to the current context. pipeline must be a name previously 
+		/// returnedfrom a call to glGenProgramPipelines. If no program pipeline exists with name pipeline then a new pipeline 
+		/// objectis created with that name and initialized to the default state vector. 
+		/// When a program pipeline object is bound using glBindProgramPipeline, any previous binding is broken and is replaced with 
+		/// abinding to the specified pipeline object. If pipeline is zero, the previous binding is broken and is not replaced, 
+		/// leavingno pipeline object bound. If no current program object has been established by glUseProgram, the program objects 
+		/// usedfor each stage and for uniform updates are taken from the bound program pipeline object, if any. If there is a 
+		/// currentprogram object established by glUseProgram, the bound program pipeline object has no effect on rendering or 
+		/// uniformupdates. When a bound program pipeline object is used for rendering, individual shader executables are taken from 
+		/// itsprogram objects. 
+		/// <para>
+		/// The following errors can be generated:
+		/// - GL_INVALID_OPERATION is generated if pipeline is not zero or a name previously returned from a call to 
+		///   glGenProgramPipelinesor if such a name has been deleted by a call to glDeleteProgramPipelines. 
+		/// </para>
+		/// </remarks>
+		/// <seealso cref="Gl.CreateShader"/>
+		/// <seealso cref="Gl.CreateProgram"/>
+		/// <seealso cref="Gl.CompileShader"/>
+		/// <seealso cref="Gl.LinkProgram"/>
+		/// <seealso cref="Gl.GenProgramPipelines"/>
+		/// <seealso cref="Gl.DeleteProgramPipelines"/>
+		/// <seealso cref="Gl.IsProgramPipeline"/>
+		public static void BindProgramPipeline(UInt32 pipeline)
+		{
+			Debug.Assert(Delegates.pglBindProgramPipeline != null, "pglBindProgramPipeline not implemented");
+			Delegates.pglBindProgramPipeline(pipeline);
+			CallLog("glBindProgramPipeline({0})", pipeline);
+			DebugCheckErrors();
+		}
+
+		/// <summary>
+		/// delete program pipeline objects
+		/// </summary>
+		/// <param name="n">
+		/// Specifies the number of program pipeline objects to delete. 
+		/// </param>
+		/// <param name="pipelines">
+		/// Specifies an array of names of program pipeline objects to delete. 
+		/// </param>
+		/// <remarks>
+		/// glDeleteProgramPipelines deletes the n program pipeline objects whose names are stored in the array pipelines. Unused 
+		/// namesin pipelines are ignored, as is the name zero. After a program pipeline object is deleted, its name is again unused 
+		/// andit has no contents. If program pipeline object that is currently bound is deleted, the binding for that object 
+		/// revertsto zero and no program pipeline object becomes current. 
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - glGet with argument GL_PROGRAM_PIPELINE_BINDING 
+		/// </para>
+		/// </remarks>
+		/// <seealso cref="Gl.GenProgramPipelines"/>
+		/// <seealso cref="Gl.BindProgramPipeline"/>
+		/// <seealso cref="Gl.IsProgramPipeline"/>
+		/// <seealso cref="Gl.UseShaderPrograms"/>
+		/// <seealso cref="Gl.UseProgram"/>
+		public static void DeleteProgramPipelines(Int32 n, UInt32[] pipelines)
+		{
+			unsafe {
+				fixed (UInt32* p_pipelines = pipelines)
+				{
+					Debug.Assert(Delegates.pglDeleteProgramPipelines != null, "pglDeleteProgramPipelines not implemented");
+					Delegates.pglDeleteProgramPipelines(n, p_pipelines);
+					CallLog("glDeleteProgramPipelines({0}, {1})", n, pipelines);
+				}
+			}
+			DebugCheckErrors();
+		}
+
+		/// <summary>
+		/// reserve program pipeline object names
+		/// </summary>
+		/// <param name="n">
+		/// Specifies the number of program pipeline object names to reserve. 
+		/// </param>
+		/// <param name="pipelines">
+		/// Specifies an array of into which the reserved names will be written. 
+		/// </param>
+		/// <remarks>
+		/// glGenProgramPipelines returns n previously unused program pipeline object names in pipelines. These names are marked as 
+		/// used,for the purposes of glGenProgramPipelines only, but they acquire program pipeline state only when they are first 
+		/// bound.
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - glGet with argument GL_PROGRAM_PIPELINE_BINDING 
+		/// - glIsProgramPipeline 
+		/// </para>
+		/// </remarks>
+		/// <seealso cref="Gl.DeleteProgramPipelines"/>
+		/// <seealso cref="Gl.BindProgramPipeline"/>
+		/// <seealso cref="Gl.IsProgramPipeline"/>
+		/// <seealso cref="Gl.UseShaderPrograms"/>
+		/// <seealso cref="Gl.UseProgram"/>
+		public static void GenProgramPipelines(Int32 n, UInt32[] pipelines)
+		{
+			unsafe {
+				fixed (UInt32* p_pipelines = pipelines)
+				{
+					Debug.Assert(Delegates.pglGenProgramPipelines != null, "pglGenProgramPipelines not implemented");
+					Delegates.pglGenProgramPipelines(n, p_pipelines);
+					CallLog("glGenProgramPipelines({0}, {1})", n, pipelines);
+				}
+			}
+			DebugCheckErrors();
+		}
+
+		/// <summary>
+		/// determine if a name corresponds to a program pipeline object
+		/// </summary>
+		/// <param name="pipeline">
+		/// Specifies a value that may be the name of a program pipeline object. 
+		/// </param>
+		/// <remarks>
+		/// glIsProgramPipeline returns GL_TRUE if pipeline is currently the name of a program pipeline object. If pipeline is zero, 
+		/// orif pipeline is not the name of a program pipeline object, or if an error occurs, glIsProgramPipeline returns GL_FALSE. 
+		/// Ifpipeline is a name returned by glGenProgramPipelines, but that has not yet been bound through a call to 
+		/// glBindProgramPipeline,then the name is not a program pipeline object and glIsProgramPipeline returns GL_FALSE. 
+		/// </remarks>
+		/// <seealso cref="Gl.GenProgramPipelines"/>
+		/// <seealso cref="Gl.BindProgramPipeline"/>
+		/// <seealso cref="Gl.DeleteProgramPipeline"/>
+		public static bool IsProgramPipeline(UInt32 pipeline)
+		{
+			bool retValue;
+
+			Debug.Assert(Delegates.pglIsProgramPipeline != null, "pglIsProgramPipeline not implemented");
+			retValue = Delegates.pglIsProgramPipeline(pipeline);
+			CallLog("glIsProgramPipeline({0}) = {1}", pipeline, retValue);
+			DebugCheckErrors();
+
+			return (retValue);
+		}
+
+		/// <summary>
+		/// retrieve properties of a program pipeline object
+		/// </summary>
+		/// <param name="pipeline">
+		/// Specifies the name of a program pipeline object whose parameter retrieve. 
+		/// </param>
+		/// <param name="pname">
+		/// Specifies the name of the parameter to retrieve. 
+		/// </param>
+		/// <param name="params">
+		/// A <see cref="T:Int32[]"/>.
+		/// </param>
+		/// <remarks>
+		/// glGetProgramPipelineiv retrieves the value of a property of the program pipeline object pipeline. pname specifies the 
+		/// nameof the parameter whose value to retrieve. The value of the parameter is written to the variable whose address is 
+		/// givenby params. 
+		/// If pname is GL_ACTIVE_PROGRAM, the name of the active program object of the program pipeline object is returned in 
+		/// params.
+		/// If pname is GL_VERTEX_SHADER, the name of the current program object for the vertex shader type of the program pipeline 
+		/// objectis returned in params. 
+		/// If pname is GL_TESS_CONTROL_SHADER, the name of the current program object for the tessellation control shader type of 
+		/// theprogram pipeline object is returned in params. 
+		/// If pname is GL_TESS_EVALUATION_SHADER, the name of the current program object for the tessellation evaluation shader 
+		/// typeof the program pipeline object is returned in params. 
+		/// If pname is GL_GEOMETRY_SHADER, the name of the current program object for the geometry shader type of the program 
+		/// pipelineobject is returned in params. 
+		/// If pname is GL_FRAGMENT_SHADER, the name of the current program object for the fragment shader type of the program 
+		/// pipelineobject is returned in params. 
+		/// If pname is GL_INFO_LOG_LENGTH, the length of the info log, including the null terminator, is returned in params. If 
+		/// thereis no info log, zero is returned. 
+		/// <para>
+		/// The following errors can be generated:
+		/// - GL_INVALID_OPERATION is generated if pipeline is not zero or a name previously returned from a call to 
+		///   glGenProgramPipelinesor if such a name has been deleted by a call to glDeleteProgramPipelines. 
+		/// - GL_INVALID_ENUM is generated if pname is not one of the accepted values. 
+		/// </para>
+		/// </remarks>
+		/// <seealso cref="Gl.GetProgramPipelines"/>
+		/// <seealso cref="Gl.BindProgramPipeline"/>
+		/// <seealso cref="Gl.DeleteProgramPipelines"/>
+		public static void GetProgramPipeline(UInt32 pipeline, int pname, Int32[] @params)
+		{
+			unsafe {
+				fixed (Int32* p_params = @params)
+				{
+					Debug.Assert(Delegates.pglGetProgramPipelineiv != null, "pglGetProgramPipelineiv not implemented");
+					Delegates.pglGetProgramPipelineiv(pipeline, pname, p_params);
+					CallLog("glGetProgramPipelineiv({0}, {1}, {2})", pipeline, pname, @params);
+				}
+			}
+			DebugCheckErrors();
+		}
+
+		/// <summary>
+		/// Specify the value of a uniform variable for a specified program object
+		/// </summary>
+		/// <param name="program">
+		/// Specifies the handle of the program containing the uniform variable to be modified. 
+		/// </param>
+		/// <param name="location">
+		/// Specifies the location of the uniform variable to be modified. 
+		/// </param>
+		/// <param name="v0">
+		/// For the scalar commands, specifies the new values to be used for the specified uniform variable. 
+		/// </param>
+		/// <remarks>
+		/// glProgramUniform modifies the value of a uniform variable or a uniform variable array. The location of the uniform 
+		/// variableto be modified is specified by location, which should be a value returned by glGetUniformLocation. 
+		/// glProgramUniformoperates on the program object specified by program. 
+		/// The commands glProgramUniform{1|2|3|4}{f|i|ui} are used to change the value of the uniform variable specified by 
+		/// locationusing the values passed as arguments. The number specified in the command should match the number of components 
+		/// inthe data type of the specified uniform variable (e.g., 1 for float, int, unsigned int, bool; 2 for vec2, ivec2, uvec2, 
+		/// bvec2,etc.). The suffix f indicates that floating-point values are being passed; the suffix i indicates that integer 
+		/// valuesare being passed; the suffix ui indicates that unsigned integer values are being passed, and this type should also 
+		/// matchthe data type of the specified uniform variable. The i variants of this function should be used to provide values 
+		/// foruniform variables defined as int, ivec2, ivec3, ivec4, or arrays of these. The ui variants of this function should be 
+		/// usedto provide values for uniform variables defined as unsigned int, uvec2, uvec3, uvec4, or arrays of these. The f 
+		/// variantsshould be used to provide values for uniform variables of type float, vec2, vec3, vec4, or arrays of these. 
+		/// Eitherthe i, ui or f variants may be used to provide values for uniform variables of type bool, bvec2, bvec3, bvec4, or 
+		/// arraysof these. The uniform variable will be set to false if the input value is 0 or 0.0f, and it will be set to true 
+		/// otherwise.
+		/// All active uniform variables defined in a program object are initialized to 0 when the program object is linked 
+		/// successfully.They retain the values assigned to them by a call to glProgramUniform until the next successful link 
+		/// operationoccurs on the program object, when they are once again initialized to 0. 
+		/// The commands glProgramUniform{1|2|3|4}{f|i|ui}v can be used to modify a single uniform variable or a uniform variable 
+		/// array.These commands pass a count and a pointer to the values to be loaded into a uniform variable or a uniform variable 
+		/// array.A count of 1 should be used if modifying the value of a single uniform variable, and a count of 1 or greater can 
+		/// beused to modify an entire array or part of an array. When loading n elements starting at an arbitrary position m in a 
+		/// uniformvariable array, elements m + n - 1 in the array will be replaced with the new values. If m + n - 1 is larger than 
+		/// thesize of the uniform variable array, values for all array elements beyond the end of the array will be ignored. The 
+		/// numberspecified in the name of the command indicates the number of components for each element in value, and it should 
+		/// matchthe number of components in the data type of the specified uniform variable (e.g., 1 for float, int, bool; 2 for 
+		/// vec2,ivec2, bvec2, etc.). The data type specified in the name of the command must match the data type for the specified 
+		/// uniformvariable as described previously for glProgramUniform{1|2|3|4}{f|i|ui}. 
+		/// For uniform variable arrays, each element of the array is considered to be of the type indicated in the name of the 
+		/// command(e.g., glProgramUniform3f or glProgramUniform3fv can be used to load a uniform variable array of type vec3). The 
+		/// numberof elements of the uniform variable array to be modified is specified by count 
+		/// The commands glProgramUniformMatrix{2|3|4|2x3|3x2|2x4|4x2|3x4|4x3}fv are used to modify a matrix or an array of 
+		/// matrices.The numbers in the command name are interpreted as the dimensionality of the matrix. The number 2 indicates a 2 
+		/// ×2 matrix (i.e., 4 values), the number 3 indicates a 3 × 3 matrix (i.e., 9 values), and the number 4 indicates a 4 × 4 
+		/// matrix(i.e., 16 values). Non-square matrix dimensionality is explicit, with the first number representing the number of 
+		/// columnsand the second number representing the number of rows. For example, 2x4 indicates a 2 × 4 matrix with 2 columns 
+		/// and4 rows (i.e., 8 values). If transpose is GL_FALSE, each matrix is assumed to be supplied in column major order. If 
+		/// transposeis GL_TRUE, each matrix is assumed to be supplied in row major order. The count argument indicates the number 
+		/// ofmatrices to be passed. A count of 1 should be used if modifying the value of a single matrix, and a count greater than 
+		/// 1can be used to modify an array of matrices. 
+		/// <para>
+		/// The following errors can be generated:
+		/// - GL_INVALID_OPERATION is generated if program does not refer to a program object owned by the GL. 
+		/// - GL_INVALID_OPERATION is generated if the size of the uniform variable declared in the shader does not match the size 
+		///   indicatedby the glProgramUniform command. 
+		/// - GL_INVALID_OPERATION is generated if one of the signed or unsigned integer variants of this function is used to load a 
+		///   uniformvariable of type float, vec2, vec3, vec4, or an array of these, or if one of the floating-point variants of this 
+		///   functionis used to load a uniform variable of type int, ivec2, ivec3, ivec4, unsigned int, uvec2, uvec3, uvec4, or an 
+		///   arrayof these. 
+		/// - GL_INVALID_OPERATION is generated if one of the signed integer variants of this function is used to load a uniform 
+		///   variableof type unsigned int, uvec2, uvec3, uvec4, or an array of these. 
+		/// - GL_INVALID_OPERATION is generated if one of the unsigned integer variants of this function is used to load a uniform 
+		///   variableof type int, ivec2, ivec3, ivec4, or an array of these. 
+		/// - GL_INVALID_OPERATION is generated if location is an invalid uniform location for program and location is not equal to 
+		///   -1.
+		/// - GL_INVALID_VALUE is generated if count is less than 0. 
+		/// - GL_INVALID_OPERATION is generated if count is greater than 1 and the indicated uniform variable is not an array 
+		///   variable.
+		/// - GL_INVALID_OPERATION is generated if a sampler is loaded using a command other than glProgramUniform1i and 
+		///   glProgramUniform1iv.
+		/// </para>
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - glGetActiveUniform with the handle of a program object and the index of an active uniform variable 
+		/// - glGetUniform with the handle of a program object and the location of a uniform variable 
+		/// - glGetUniformLocation with the handle of a program object and the name of a uniform variable 
+		/// </para>
+		/// </remarks>
+		/// <seealso cref="Gl.LinkProgram"/>
+		/// <seealso cref="Gl.UseProgram"/>
+		public static void ProgramUniform1(UInt32 program, Int32 location, Int32 v0)
+		{
+			if        (Delegates.pglProgramUniform1i != null) {
+				Delegates.pglProgramUniform1i(program, location, v0);
+				CallLog("glProgramUniform1i({0}, {1}, {2})", program, location, v0);
+			} else if (Delegates.pglProgramUniform1iEXT != null) {
+				Delegates.pglProgramUniform1iEXT(program, location, v0);
+				CallLog("glProgramUniform1iEXT({0}, {1}, {2})", program, location, v0);
+			} else
+				throw new NotImplementedException("glProgramUniform1i (and other aliases) are not implemented");
+			DebugCheckErrors();
+		}
+
+		/// <summary>
+		/// Specify the value of a uniform variable for a specified program object
+		/// </summary>
+		/// <param name="program">
+		/// Specifies the handle of the program containing the uniform variable to be modified. 
+		/// </param>
+		/// <param name="location">
+		/// Specifies the location of the uniform variable to be modified. 
+		/// </param>
+		/// <param name="count">
+		/// For the vector commands (glProgramUniform*v), specifies the number of elements that are to be modified. This should be 1 
+		/// ifthe targeted uniform variable is not an array, and 1 or more if it is an array. 
+		/// </param>
+		/// <param name="value">
+		/// For the vector and matrix commands, specifies a pointer to an array of count values that will be used to update the 
+		/// specifieduniform variable. 
+		/// </param>
+		/// <remarks>
+		/// glProgramUniform modifies the value of a uniform variable or a uniform variable array. The location of the uniform 
+		/// variableto be modified is specified by location, which should be a value returned by glGetUniformLocation. 
+		/// glProgramUniformoperates on the program object specified by program. 
+		/// The commands glProgramUniform{1|2|3|4}{f|i|ui} are used to change the value of the uniform variable specified by 
+		/// locationusing the values passed as arguments. The number specified in the command should match the number of components 
+		/// inthe data type of the specified uniform variable (e.g., 1 for float, int, unsigned int, bool; 2 for vec2, ivec2, uvec2, 
+		/// bvec2,etc.). The suffix f indicates that floating-point values are being passed; the suffix i indicates that integer 
+		/// valuesare being passed; the suffix ui indicates that unsigned integer values are being passed, and this type should also 
+		/// matchthe data type of the specified uniform variable. The i variants of this function should be used to provide values 
+		/// foruniform variables defined as int, ivec2, ivec3, ivec4, or arrays of these. The ui variants of this function should be 
+		/// usedto provide values for uniform variables defined as unsigned int, uvec2, uvec3, uvec4, or arrays of these. The f 
+		/// variantsshould be used to provide values for uniform variables of type float, vec2, vec3, vec4, or arrays of these. 
+		/// Eitherthe i, ui or f variants may be used to provide values for uniform variables of type bool, bvec2, bvec3, bvec4, or 
+		/// arraysof these. The uniform variable will be set to false if the input value is 0 or 0.0f, and it will be set to true 
+		/// otherwise.
+		/// All active uniform variables defined in a program object are initialized to 0 when the program object is linked 
+		/// successfully.They retain the values assigned to them by a call to glProgramUniform until the next successful link 
+		/// operationoccurs on the program object, when they are once again initialized to 0. 
+		/// The commands glProgramUniform{1|2|3|4}{f|i|ui}v can be used to modify a single uniform variable or a uniform variable 
+		/// array.These commands pass a count and a pointer to the values to be loaded into a uniform variable or a uniform variable 
+		/// array.A count of 1 should be used if modifying the value of a single uniform variable, and a count of 1 or greater can 
+		/// beused to modify an entire array or part of an array. When loading n elements starting at an arbitrary position m in a 
+		/// uniformvariable array, elements m + n - 1 in the array will be replaced with the new values. If m + n - 1 is larger than 
+		/// thesize of the uniform variable array, values for all array elements beyond the end of the array will be ignored. The 
+		/// numberspecified in the name of the command indicates the number of components for each element in value, and it should 
+		/// matchthe number of components in the data type of the specified uniform variable (e.g., 1 for float, int, bool; 2 for 
+		/// vec2,ivec2, bvec2, etc.). The data type specified in the name of the command must match the data type for the specified 
+		/// uniformvariable as described previously for glProgramUniform{1|2|3|4}{f|i|ui}. 
+		/// For uniform variable arrays, each element of the array is considered to be of the type indicated in the name of the 
+		/// command(e.g., glProgramUniform3f or glProgramUniform3fv can be used to load a uniform variable array of type vec3). The 
+		/// numberof elements of the uniform variable array to be modified is specified by count 
+		/// The commands glProgramUniformMatrix{2|3|4|2x3|3x2|2x4|4x2|3x4|4x3}fv are used to modify a matrix or an array of 
+		/// matrices.The numbers in the command name are interpreted as the dimensionality of the matrix. The number 2 indicates a 2 
+		/// ×2 matrix (i.e., 4 values), the number 3 indicates a 3 × 3 matrix (i.e., 9 values), and the number 4 indicates a 4 × 4 
+		/// matrix(i.e., 16 values). Non-square matrix dimensionality is explicit, with the first number representing the number of 
+		/// columnsand the second number representing the number of rows. For example, 2x4 indicates a 2 × 4 matrix with 2 columns 
+		/// and4 rows (i.e., 8 values). If transpose is GL_FALSE, each matrix is assumed to be supplied in column major order. If 
+		/// transposeis GL_TRUE, each matrix is assumed to be supplied in row major order. The count argument indicates the number 
+		/// ofmatrices to be passed. A count of 1 should be used if modifying the value of a single matrix, and a count greater than 
+		/// 1can be used to modify an array of matrices. 
+		/// <para>
+		/// The following errors can be generated:
+		/// - GL_INVALID_OPERATION is generated if program does not refer to a program object owned by the GL. 
+		/// - GL_INVALID_OPERATION is generated if the size of the uniform variable declared in the shader does not match the size 
+		///   indicatedby the glProgramUniform command. 
+		/// - GL_INVALID_OPERATION is generated if one of the signed or unsigned integer variants of this function is used to load a 
+		///   uniformvariable of type float, vec2, vec3, vec4, or an array of these, or if one of the floating-point variants of this 
+		///   functionis used to load a uniform variable of type int, ivec2, ivec3, ivec4, unsigned int, uvec2, uvec3, uvec4, or an 
+		///   arrayof these. 
+		/// - GL_INVALID_OPERATION is generated if one of the signed integer variants of this function is used to load a uniform 
+		///   variableof type unsigned int, uvec2, uvec3, uvec4, or an array of these. 
+		/// - GL_INVALID_OPERATION is generated if one of the unsigned integer variants of this function is used to load a uniform 
+		///   variableof type int, ivec2, ivec3, ivec4, or an array of these. 
+		/// - GL_INVALID_OPERATION is generated if location is an invalid uniform location for program and location is not equal to 
+		///   -1.
+		/// - GL_INVALID_VALUE is generated if count is less than 0. 
+		/// - GL_INVALID_OPERATION is generated if count is greater than 1 and the indicated uniform variable is not an array 
+		///   variable.
+		/// - GL_INVALID_OPERATION is generated if a sampler is loaded using a command other than glProgramUniform1i and 
+		///   glProgramUniform1iv.
+		/// </para>
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - glGetActiveUniform with the handle of a program object and the index of an active uniform variable 
+		/// - glGetUniform with the handle of a program object and the location of a uniform variable 
+		/// - glGetUniformLocation with the handle of a program object and the name of a uniform variable 
+		/// </para>
+		/// </remarks>
+		/// <seealso cref="Gl.LinkProgram"/>
+		/// <seealso cref="Gl.UseProgram"/>
+		public static void ProgramUniform1(UInt32 program, Int32 location, Int32 count, Int32[] value)
+		{
+			unsafe {
+				fixed (Int32* p_value = value)
+				{
+					if        (Delegates.pglProgramUniform1iv != null) {
+						Delegates.pglProgramUniform1iv(program, location, count, p_value);
+						CallLog("glProgramUniform1iv({0}, {1}, {2}, {3})", program, location, count, value);
+					} else if (Delegates.pglProgramUniform1ivEXT != null) {
+						Delegates.pglProgramUniform1ivEXT(program, location, count, p_value);
+						CallLog("glProgramUniform1ivEXT({0}, {1}, {2}, {3})", program, location, count, value);
+					} else
+						throw new NotImplementedException("glProgramUniform1iv (and other aliases) are not implemented");
+				}
+			}
+			DebugCheckErrors();
+		}
+
+		/// <summary>
+		/// Specify the value of a uniform variable for a specified program object
+		/// </summary>
+		/// <param name="program">
+		/// Specifies the handle of the program containing the uniform variable to be modified. 
+		/// </param>
+		/// <param name="location">
+		/// Specifies the location of the uniform variable to be modified. 
+		/// </param>
+		/// <param name="v0">
+		/// For the scalar commands, specifies the new values to be used for the specified uniform variable. 
+		/// </param>
+		/// <remarks>
+		/// glProgramUniform modifies the value of a uniform variable or a uniform variable array. The location of the uniform 
+		/// variableto be modified is specified by location, which should be a value returned by glGetUniformLocation. 
+		/// glProgramUniformoperates on the program object specified by program. 
+		/// The commands glProgramUniform{1|2|3|4}{f|i|ui} are used to change the value of the uniform variable specified by 
+		/// locationusing the values passed as arguments. The number specified in the command should match the number of components 
+		/// inthe data type of the specified uniform variable (e.g., 1 for float, int, unsigned int, bool; 2 for vec2, ivec2, uvec2, 
+		/// bvec2,etc.). The suffix f indicates that floating-point values are being passed; the suffix i indicates that integer 
+		/// valuesare being passed; the suffix ui indicates that unsigned integer values are being passed, and this type should also 
+		/// matchthe data type of the specified uniform variable. The i variants of this function should be used to provide values 
+		/// foruniform variables defined as int, ivec2, ivec3, ivec4, or arrays of these. The ui variants of this function should be 
+		/// usedto provide values for uniform variables defined as unsigned int, uvec2, uvec3, uvec4, or arrays of these. The f 
+		/// variantsshould be used to provide values for uniform variables of type float, vec2, vec3, vec4, or arrays of these. 
+		/// Eitherthe i, ui or f variants may be used to provide values for uniform variables of type bool, bvec2, bvec3, bvec4, or 
+		/// arraysof these. The uniform variable will be set to false if the input value is 0 or 0.0f, and it will be set to true 
+		/// otherwise.
+		/// All active uniform variables defined in a program object are initialized to 0 when the program object is linked 
+		/// successfully.They retain the values assigned to them by a call to glProgramUniform until the next successful link 
+		/// operationoccurs on the program object, when they are once again initialized to 0. 
+		/// The commands glProgramUniform{1|2|3|4}{f|i|ui}v can be used to modify a single uniform variable or a uniform variable 
+		/// array.These commands pass a count and a pointer to the values to be loaded into a uniform variable or a uniform variable 
+		/// array.A count of 1 should be used if modifying the value of a single uniform variable, and a count of 1 or greater can 
+		/// beused to modify an entire array or part of an array. When loading n elements starting at an arbitrary position m in a 
+		/// uniformvariable array, elements m + n - 1 in the array will be replaced with the new values. If m + n - 1 is larger than 
+		/// thesize of the uniform variable array, values for all array elements beyond the end of the array will be ignored. The 
+		/// numberspecified in the name of the command indicates the number of components for each element in value, and it should 
+		/// matchthe number of components in the data type of the specified uniform variable (e.g., 1 for float, int, bool; 2 for 
+		/// vec2,ivec2, bvec2, etc.). The data type specified in the name of the command must match the data type for the specified 
+		/// uniformvariable as described previously for glProgramUniform{1|2|3|4}{f|i|ui}. 
+		/// For uniform variable arrays, each element of the array is considered to be of the type indicated in the name of the 
+		/// command(e.g., glProgramUniform3f or glProgramUniform3fv can be used to load a uniform variable array of type vec3). The 
+		/// numberof elements of the uniform variable array to be modified is specified by count 
+		/// The commands glProgramUniformMatrix{2|3|4|2x3|3x2|2x4|4x2|3x4|4x3}fv are used to modify a matrix or an array of 
+		/// matrices.The numbers in the command name are interpreted as the dimensionality of the matrix. The number 2 indicates a 2 
+		/// ×2 matrix (i.e., 4 values), the number 3 indicates a 3 × 3 matrix (i.e., 9 values), and the number 4 indicates a 4 × 4 
+		/// matrix(i.e., 16 values). Non-square matrix dimensionality is explicit, with the first number representing the number of 
+		/// columnsand the second number representing the number of rows. For example, 2x4 indicates a 2 × 4 matrix with 2 columns 
+		/// and4 rows (i.e., 8 values). If transpose is GL_FALSE, each matrix is assumed to be supplied in column major order. If 
+		/// transposeis GL_TRUE, each matrix is assumed to be supplied in row major order. The count argument indicates the number 
+		/// ofmatrices to be passed. A count of 1 should be used if modifying the value of a single matrix, and a count greater than 
+		/// 1can be used to modify an array of matrices. 
+		/// <para>
+		/// The following errors can be generated:
+		/// - GL_INVALID_OPERATION is generated if program does not refer to a program object owned by the GL. 
+		/// - GL_INVALID_OPERATION is generated if the size of the uniform variable declared in the shader does not match the size 
+		///   indicatedby the glProgramUniform command. 
+		/// - GL_INVALID_OPERATION is generated if one of the signed or unsigned integer variants of this function is used to load a 
+		///   uniformvariable of type float, vec2, vec3, vec4, or an array of these, or if one of the floating-point variants of this 
+		///   functionis used to load a uniform variable of type int, ivec2, ivec3, ivec4, unsigned int, uvec2, uvec3, uvec4, or an 
+		///   arrayof these. 
+		/// - GL_INVALID_OPERATION is generated if one of the signed integer variants of this function is used to load a uniform 
+		///   variableof type unsigned int, uvec2, uvec3, uvec4, or an array of these. 
+		/// - GL_INVALID_OPERATION is generated if one of the unsigned integer variants of this function is used to load a uniform 
+		///   variableof type int, ivec2, ivec3, ivec4, or an array of these. 
+		/// - GL_INVALID_OPERATION is generated if location is an invalid uniform location for program and location is not equal to 
+		///   -1.
+		/// - GL_INVALID_VALUE is generated if count is less than 0. 
+		/// - GL_INVALID_OPERATION is generated if count is greater than 1 and the indicated uniform variable is not an array 
+		///   variable.
+		/// - GL_INVALID_OPERATION is generated if a sampler is loaded using a command other than glProgramUniform1i and 
+		///   glProgramUniform1iv.
+		/// </para>
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - glGetActiveUniform with the handle of a program object and the index of an active uniform variable 
+		/// - glGetUniform with the handle of a program object and the location of a uniform variable 
+		/// - glGetUniformLocation with the handle of a program object and the name of a uniform variable 
+		/// </para>
+		/// </remarks>
+		/// <seealso cref="Gl.LinkProgram"/>
+		/// <seealso cref="Gl.UseProgram"/>
+		public static void ProgramUniform1(UInt32 program, Int32 location, float v0)
+		{
+			if        (Delegates.pglProgramUniform1f != null) {
+				Delegates.pglProgramUniform1f(program, location, v0);
+				CallLog("glProgramUniform1f({0}, {1}, {2})", program, location, v0);
+			} else if (Delegates.pglProgramUniform1fEXT != null) {
+				Delegates.pglProgramUniform1fEXT(program, location, v0);
+				CallLog("glProgramUniform1fEXT({0}, {1}, {2})", program, location, v0);
+			} else
+				throw new NotImplementedException("glProgramUniform1f (and other aliases) are not implemented");
+			DebugCheckErrors();
+		}
+
+		/// <summary>
+		/// Specify the value of a uniform variable for a specified program object
+		/// </summary>
+		/// <param name="program">
+		/// Specifies the handle of the program containing the uniform variable to be modified. 
+		/// </param>
+		/// <param name="location">
+		/// Specifies the location of the uniform variable to be modified. 
+		/// </param>
+		/// <param name="count">
+		/// For the vector commands (glProgramUniform*v), specifies the number of elements that are to be modified. This should be 1 
+		/// ifthe targeted uniform variable is not an array, and 1 or more if it is an array. 
+		/// </param>
+		/// <param name="value">
+		/// For the vector and matrix commands, specifies a pointer to an array of count values that will be used to update the 
+		/// specifieduniform variable. 
+		/// </param>
+		/// <remarks>
+		/// glProgramUniform modifies the value of a uniform variable or a uniform variable array. The location of the uniform 
+		/// variableto be modified is specified by location, which should be a value returned by glGetUniformLocation. 
+		/// glProgramUniformoperates on the program object specified by program. 
+		/// The commands glProgramUniform{1|2|3|4}{f|i|ui} are used to change the value of the uniform variable specified by 
+		/// locationusing the values passed as arguments. The number specified in the command should match the number of components 
+		/// inthe data type of the specified uniform variable (e.g., 1 for float, int, unsigned int, bool; 2 for vec2, ivec2, uvec2, 
+		/// bvec2,etc.). The suffix f indicates that floating-point values are being passed; the suffix i indicates that integer 
+		/// valuesare being passed; the suffix ui indicates that unsigned integer values are being passed, and this type should also 
+		/// matchthe data type of the specified uniform variable. The i variants of this function should be used to provide values 
+		/// foruniform variables defined as int, ivec2, ivec3, ivec4, or arrays of these. The ui variants of this function should be 
+		/// usedto provide values for uniform variables defined as unsigned int, uvec2, uvec3, uvec4, or arrays of these. The f 
+		/// variantsshould be used to provide values for uniform variables of type float, vec2, vec3, vec4, or arrays of these. 
+		/// Eitherthe i, ui or f variants may be used to provide values for uniform variables of type bool, bvec2, bvec3, bvec4, or 
+		/// arraysof these. The uniform variable will be set to false if the input value is 0 or 0.0f, and it will be set to true 
+		/// otherwise.
+		/// All active uniform variables defined in a program object are initialized to 0 when the program object is linked 
+		/// successfully.They retain the values assigned to them by a call to glProgramUniform until the next successful link 
+		/// operationoccurs on the program object, when they are once again initialized to 0. 
+		/// The commands glProgramUniform{1|2|3|4}{f|i|ui}v can be used to modify a single uniform variable or a uniform variable 
+		/// array.These commands pass a count and a pointer to the values to be loaded into a uniform variable or a uniform variable 
+		/// array.A count of 1 should be used if modifying the value of a single uniform variable, and a count of 1 or greater can 
+		/// beused to modify an entire array or part of an array. When loading n elements starting at an arbitrary position m in a 
+		/// uniformvariable array, elements m + n - 1 in the array will be replaced with the new values. If m + n - 1 is larger than 
+		/// thesize of the uniform variable array, values for all array elements beyond the end of the array will be ignored. The 
+		/// numberspecified in the name of the command indicates the number of components for each element in value, and it should 
+		/// matchthe number of components in the data type of the specified uniform variable (e.g., 1 for float, int, bool; 2 for 
+		/// vec2,ivec2, bvec2, etc.). The data type specified in the name of the command must match the data type for the specified 
+		/// uniformvariable as described previously for glProgramUniform{1|2|3|4}{f|i|ui}. 
+		/// For uniform variable arrays, each element of the array is considered to be of the type indicated in the name of the 
+		/// command(e.g., glProgramUniform3f or glProgramUniform3fv can be used to load a uniform variable array of type vec3). The 
+		/// numberof elements of the uniform variable array to be modified is specified by count 
+		/// The commands glProgramUniformMatrix{2|3|4|2x3|3x2|2x4|4x2|3x4|4x3}fv are used to modify a matrix or an array of 
+		/// matrices.The numbers in the command name are interpreted as the dimensionality of the matrix. The number 2 indicates a 2 
+		/// ×2 matrix (i.e., 4 values), the number 3 indicates a 3 × 3 matrix (i.e., 9 values), and the number 4 indicates a 4 × 4 
+		/// matrix(i.e., 16 values). Non-square matrix dimensionality is explicit, with the first number representing the number of 
+		/// columnsand the second number representing the number of rows. For example, 2x4 indicates a 2 × 4 matrix with 2 columns 
+		/// and4 rows (i.e., 8 values). If transpose is GL_FALSE, each matrix is assumed to be supplied in column major order. If 
+		/// transposeis GL_TRUE, each matrix is assumed to be supplied in row major order. The count argument indicates the number 
+		/// ofmatrices to be passed. A count of 1 should be used if modifying the value of a single matrix, and a count greater than 
+		/// 1can be used to modify an array of matrices. 
+		/// <para>
+		/// The following errors can be generated:
+		/// - GL_INVALID_OPERATION is generated if program does not refer to a program object owned by the GL. 
+		/// - GL_INVALID_OPERATION is generated if the size of the uniform variable declared in the shader does not match the size 
+		///   indicatedby the glProgramUniform command. 
+		/// - GL_INVALID_OPERATION is generated if one of the signed or unsigned integer variants of this function is used to load a 
+		///   uniformvariable of type float, vec2, vec3, vec4, or an array of these, or if one of the floating-point variants of this 
+		///   functionis used to load a uniform variable of type int, ivec2, ivec3, ivec4, unsigned int, uvec2, uvec3, uvec4, or an 
+		///   arrayof these. 
+		/// - GL_INVALID_OPERATION is generated if one of the signed integer variants of this function is used to load a uniform 
+		///   variableof type unsigned int, uvec2, uvec3, uvec4, or an array of these. 
+		/// - GL_INVALID_OPERATION is generated if one of the unsigned integer variants of this function is used to load a uniform 
+		///   variableof type int, ivec2, ivec3, ivec4, or an array of these. 
+		/// - GL_INVALID_OPERATION is generated if location is an invalid uniform location for program and location is not equal to 
+		///   -1.
+		/// - GL_INVALID_VALUE is generated if count is less than 0. 
+		/// - GL_INVALID_OPERATION is generated if count is greater than 1 and the indicated uniform variable is not an array 
+		///   variable.
+		/// - GL_INVALID_OPERATION is generated if a sampler is loaded using a command other than glProgramUniform1i and 
+		///   glProgramUniform1iv.
+		/// </para>
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - glGetActiveUniform with the handle of a program object and the index of an active uniform variable 
+		/// - glGetUniform with the handle of a program object and the location of a uniform variable 
+		/// - glGetUniformLocation with the handle of a program object and the name of a uniform variable 
+		/// </para>
+		/// </remarks>
+		/// <seealso cref="Gl.LinkProgram"/>
+		/// <seealso cref="Gl.UseProgram"/>
+		public static void ProgramUniform1(UInt32 program, Int32 location, Int32 count, float[] value)
+		{
+			unsafe {
+				fixed (float* p_value = value)
+				{
+					if        (Delegates.pglProgramUniform1fv != null) {
+						Delegates.pglProgramUniform1fv(program, location, count, p_value);
+						CallLog("glProgramUniform1fv({0}, {1}, {2}, {3})", program, location, count, value);
+					} else if (Delegates.pglProgramUniform1fvEXT != null) {
+						Delegates.pglProgramUniform1fvEXT(program, location, count, p_value);
+						CallLog("glProgramUniform1fvEXT({0}, {1}, {2}, {3})", program, location, count, value);
+					} else
+						throw new NotImplementedException("glProgramUniform1fv (and other aliases) are not implemented");
+				}
+			}
+			DebugCheckErrors();
+		}
+
+		/// <summary>
+		/// Binding for glProgramUniform1d.
+		/// </summary>
+		/// <param name="program">
+		/// A <see cref="T:UInt32"/>.
+		/// </param>
+		/// <param name="location">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="v0">
+		/// A <see cref="T:double"/>.
+		/// </param>
+		public static void ProgramUniform1(UInt32 program, Int32 location, double v0)
+		{
+			Debug.Assert(Delegates.pglProgramUniform1d != null, "pglProgramUniform1d not implemented");
+			Delegates.pglProgramUniform1d(program, location, v0);
+			CallLog("glProgramUniform1d({0}, {1}, {2})", program, location, v0);
+			DebugCheckErrors();
+		}
+
+		/// <summary>
+		/// Binding for glProgramUniform1dv.
+		/// </summary>
+		/// <param name="program">
+		/// A <see cref="T:UInt32"/>.
+		/// </param>
+		/// <param name="location">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="count">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="value">
+		/// A <see cref="T:double[]"/>.
+		/// </param>
+		public static void ProgramUniform1(UInt32 program, Int32 location, Int32 count, double[] value)
+		{
+			unsafe {
+				fixed (double* p_value = value)
+				{
+					Debug.Assert(Delegates.pglProgramUniform1dv != null, "pglProgramUniform1dv not implemented");
+					Delegates.pglProgramUniform1dv(program, location, count, p_value);
+					CallLog("glProgramUniform1dv({0}, {1}, {2}, {3})", program, location, count, value);
+				}
+			}
+			DebugCheckErrors();
+		}
+
+		/// <summary>
+		/// Specify the value of a uniform variable for a specified program object
+		/// </summary>
+		/// <param name="program">
+		/// Specifies the handle of the program containing the uniform variable to be modified. 
+		/// </param>
+		/// <param name="location">
+		/// Specifies the location of the uniform variable to be modified. 
+		/// </param>
+		/// <param name="v0">
+		/// For the scalar commands, specifies the new values to be used for the specified uniform variable. 
+		/// </param>
+		/// <remarks>
+		/// glProgramUniform modifies the value of a uniform variable or a uniform variable array. The location of the uniform 
+		/// variableto be modified is specified by location, which should be a value returned by glGetUniformLocation. 
+		/// glProgramUniformoperates on the program object specified by program. 
+		/// The commands glProgramUniform{1|2|3|4}{f|i|ui} are used to change the value of the uniform variable specified by 
+		/// locationusing the values passed as arguments. The number specified in the command should match the number of components 
+		/// inthe data type of the specified uniform variable (e.g., 1 for float, int, unsigned int, bool; 2 for vec2, ivec2, uvec2, 
+		/// bvec2,etc.). The suffix f indicates that floating-point values are being passed; the suffix i indicates that integer 
+		/// valuesare being passed; the suffix ui indicates that unsigned integer values are being passed, and this type should also 
+		/// matchthe data type of the specified uniform variable. The i variants of this function should be used to provide values 
+		/// foruniform variables defined as int, ivec2, ivec3, ivec4, or arrays of these. The ui variants of this function should be 
+		/// usedto provide values for uniform variables defined as unsigned int, uvec2, uvec3, uvec4, or arrays of these. The f 
+		/// variantsshould be used to provide values for uniform variables of type float, vec2, vec3, vec4, or arrays of these. 
+		/// Eitherthe i, ui or f variants may be used to provide values for uniform variables of type bool, bvec2, bvec3, bvec4, or 
+		/// arraysof these. The uniform variable will be set to false if the input value is 0 or 0.0f, and it will be set to true 
+		/// otherwise.
+		/// All active uniform variables defined in a program object are initialized to 0 when the program object is linked 
+		/// successfully.They retain the values assigned to them by a call to glProgramUniform until the next successful link 
+		/// operationoccurs on the program object, when they are once again initialized to 0. 
+		/// The commands glProgramUniform{1|2|3|4}{f|i|ui}v can be used to modify a single uniform variable or a uniform variable 
+		/// array.These commands pass a count and a pointer to the values to be loaded into a uniform variable or a uniform variable 
+		/// array.A count of 1 should be used if modifying the value of a single uniform variable, and a count of 1 or greater can 
+		/// beused to modify an entire array or part of an array. When loading n elements starting at an arbitrary position m in a 
+		/// uniformvariable array, elements m + n - 1 in the array will be replaced with the new values. If m + n - 1 is larger than 
+		/// thesize of the uniform variable array, values for all array elements beyond the end of the array will be ignored. The 
+		/// numberspecified in the name of the command indicates the number of components for each element in value, and it should 
+		/// matchthe number of components in the data type of the specified uniform variable (e.g., 1 for float, int, bool; 2 for 
+		/// vec2,ivec2, bvec2, etc.). The data type specified in the name of the command must match the data type for the specified 
+		/// uniformvariable as described previously for glProgramUniform{1|2|3|4}{f|i|ui}. 
+		/// For uniform variable arrays, each element of the array is considered to be of the type indicated in the name of the 
+		/// command(e.g., glProgramUniform3f or glProgramUniform3fv can be used to load a uniform variable array of type vec3). The 
+		/// numberof elements of the uniform variable array to be modified is specified by count 
+		/// The commands glProgramUniformMatrix{2|3|4|2x3|3x2|2x4|4x2|3x4|4x3}fv are used to modify a matrix or an array of 
+		/// matrices.The numbers in the command name are interpreted as the dimensionality of the matrix. The number 2 indicates a 2 
+		/// ×2 matrix (i.e., 4 values), the number 3 indicates a 3 × 3 matrix (i.e., 9 values), and the number 4 indicates a 4 × 4 
+		/// matrix(i.e., 16 values). Non-square matrix dimensionality is explicit, with the first number representing the number of 
+		/// columnsand the second number representing the number of rows. For example, 2x4 indicates a 2 × 4 matrix with 2 columns 
+		/// and4 rows (i.e., 8 values). If transpose is GL_FALSE, each matrix is assumed to be supplied in column major order. If 
+		/// transposeis GL_TRUE, each matrix is assumed to be supplied in row major order. The count argument indicates the number 
+		/// ofmatrices to be passed. A count of 1 should be used if modifying the value of a single matrix, and a count greater than 
+		/// 1can be used to modify an array of matrices. 
+		/// <para>
+		/// The following errors can be generated:
+		/// - GL_INVALID_OPERATION is generated if program does not refer to a program object owned by the GL. 
+		/// - GL_INVALID_OPERATION is generated if the size of the uniform variable declared in the shader does not match the size 
+		///   indicatedby the glProgramUniform command. 
+		/// - GL_INVALID_OPERATION is generated if one of the signed or unsigned integer variants of this function is used to load a 
+		///   uniformvariable of type float, vec2, vec3, vec4, or an array of these, or if one of the floating-point variants of this 
+		///   functionis used to load a uniform variable of type int, ivec2, ivec3, ivec4, unsigned int, uvec2, uvec3, uvec4, or an 
+		///   arrayof these. 
+		/// - GL_INVALID_OPERATION is generated if one of the signed integer variants of this function is used to load a uniform 
+		///   variableof type unsigned int, uvec2, uvec3, uvec4, or an array of these. 
+		/// - GL_INVALID_OPERATION is generated if one of the unsigned integer variants of this function is used to load a uniform 
+		///   variableof type int, ivec2, ivec3, ivec4, or an array of these. 
+		/// - GL_INVALID_OPERATION is generated if location is an invalid uniform location for program and location is not equal to 
+		///   -1.
+		/// - GL_INVALID_VALUE is generated if count is less than 0. 
+		/// - GL_INVALID_OPERATION is generated if count is greater than 1 and the indicated uniform variable is not an array 
+		///   variable.
+		/// - GL_INVALID_OPERATION is generated if a sampler is loaded using a command other than glProgramUniform1i and 
+		///   glProgramUniform1iv.
+		/// </para>
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - glGetActiveUniform with the handle of a program object and the index of an active uniform variable 
+		/// - glGetUniform with the handle of a program object and the location of a uniform variable 
+		/// - glGetUniformLocation with the handle of a program object and the name of a uniform variable 
+		/// </para>
+		/// </remarks>
+		/// <seealso cref="Gl.LinkProgram"/>
+		/// <seealso cref="Gl.UseProgram"/>
+		public static void ProgramUniform1(UInt32 program, Int32 location, UInt32 v0)
+		{
+			if        (Delegates.pglProgramUniform1ui != null) {
+				Delegates.pglProgramUniform1ui(program, location, v0);
+				CallLog("glProgramUniform1ui({0}, {1}, {2})", program, location, v0);
+			} else if (Delegates.pglProgramUniform1uiEXT != null) {
+				Delegates.pglProgramUniform1uiEXT(program, location, v0);
+				CallLog("glProgramUniform1uiEXT({0}, {1}, {2})", program, location, v0);
+			} else
+				throw new NotImplementedException("glProgramUniform1ui (and other aliases) are not implemented");
+			DebugCheckErrors();
+		}
+
+		/// <summary>
+		/// Specify the value of a uniform variable for a specified program object
+		/// </summary>
+		/// <param name="program">
+		/// Specifies the handle of the program containing the uniform variable to be modified. 
+		/// </param>
+		/// <param name="location">
+		/// Specifies the location of the uniform variable to be modified. 
+		/// </param>
+		/// <param name="count">
+		/// For the vector commands (glProgramUniform*v), specifies the number of elements that are to be modified. This should be 1 
+		/// ifthe targeted uniform variable is not an array, and 1 or more if it is an array. 
+		/// </param>
+		/// <param name="value">
+		/// For the vector and matrix commands, specifies a pointer to an array of count values that will be used to update the 
+		/// specifieduniform variable. 
+		/// </param>
+		/// <remarks>
+		/// glProgramUniform modifies the value of a uniform variable or a uniform variable array. The location of the uniform 
+		/// variableto be modified is specified by location, which should be a value returned by glGetUniformLocation. 
+		/// glProgramUniformoperates on the program object specified by program. 
+		/// The commands glProgramUniform{1|2|3|4}{f|i|ui} are used to change the value of the uniform variable specified by 
+		/// locationusing the values passed as arguments. The number specified in the command should match the number of components 
+		/// inthe data type of the specified uniform variable (e.g., 1 for float, int, unsigned int, bool; 2 for vec2, ivec2, uvec2, 
+		/// bvec2,etc.). The suffix f indicates that floating-point values are being passed; the suffix i indicates that integer 
+		/// valuesare being passed; the suffix ui indicates that unsigned integer values are being passed, and this type should also 
+		/// matchthe data type of the specified uniform variable. The i variants of this function should be used to provide values 
+		/// foruniform variables defined as int, ivec2, ivec3, ivec4, or arrays of these. The ui variants of this function should be 
+		/// usedto provide values for uniform variables defined as unsigned int, uvec2, uvec3, uvec4, or arrays of these. The f 
+		/// variantsshould be used to provide values for uniform variables of type float, vec2, vec3, vec4, or arrays of these. 
+		/// Eitherthe i, ui or f variants may be used to provide values for uniform variables of type bool, bvec2, bvec3, bvec4, or 
+		/// arraysof these. The uniform variable will be set to false if the input value is 0 or 0.0f, and it will be set to true 
+		/// otherwise.
+		/// All active uniform variables defined in a program object are initialized to 0 when the program object is linked 
+		/// successfully.They retain the values assigned to them by a call to glProgramUniform until the next successful link 
+		/// operationoccurs on the program object, when they are once again initialized to 0. 
+		/// The commands glProgramUniform{1|2|3|4}{f|i|ui}v can be used to modify a single uniform variable or a uniform variable 
+		/// array.These commands pass a count and a pointer to the values to be loaded into a uniform variable or a uniform variable 
+		/// array.A count of 1 should be used if modifying the value of a single uniform variable, and a count of 1 or greater can 
+		/// beused to modify an entire array or part of an array. When loading n elements starting at an arbitrary position m in a 
+		/// uniformvariable array, elements m + n - 1 in the array will be replaced with the new values. If m + n - 1 is larger than 
+		/// thesize of the uniform variable array, values for all array elements beyond the end of the array will be ignored. The 
+		/// numberspecified in the name of the command indicates the number of components for each element in value, and it should 
+		/// matchthe number of components in the data type of the specified uniform variable (e.g., 1 for float, int, bool; 2 for 
+		/// vec2,ivec2, bvec2, etc.). The data type specified in the name of the command must match the data type for the specified 
+		/// uniformvariable as described previously for glProgramUniform{1|2|3|4}{f|i|ui}. 
+		/// For uniform variable arrays, each element of the array is considered to be of the type indicated in the name of the 
+		/// command(e.g., glProgramUniform3f or glProgramUniform3fv can be used to load a uniform variable array of type vec3). The 
+		/// numberof elements of the uniform variable array to be modified is specified by count 
+		/// The commands glProgramUniformMatrix{2|3|4|2x3|3x2|2x4|4x2|3x4|4x3}fv are used to modify a matrix or an array of 
+		/// matrices.The numbers in the command name are interpreted as the dimensionality of the matrix. The number 2 indicates a 2 
+		/// ×2 matrix (i.e., 4 values), the number 3 indicates a 3 × 3 matrix (i.e., 9 values), and the number 4 indicates a 4 × 4 
+		/// matrix(i.e., 16 values). Non-square matrix dimensionality is explicit, with the first number representing the number of 
+		/// columnsand the second number representing the number of rows. For example, 2x4 indicates a 2 × 4 matrix with 2 columns 
+		/// and4 rows (i.e., 8 values). If transpose is GL_FALSE, each matrix is assumed to be supplied in column major order. If 
+		/// transposeis GL_TRUE, each matrix is assumed to be supplied in row major order. The count argument indicates the number 
+		/// ofmatrices to be passed. A count of 1 should be used if modifying the value of a single matrix, and a count greater than 
+		/// 1can be used to modify an array of matrices. 
+		/// <para>
+		/// The following errors can be generated:
+		/// - GL_INVALID_OPERATION is generated if program does not refer to a program object owned by the GL. 
+		/// - GL_INVALID_OPERATION is generated if the size of the uniform variable declared in the shader does not match the size 
+		///   indicatedby the glProgramUniform command. 
+		/// - GL_INVALID_OPERATION is generated if one of the signed or unsigned integer variants of this function is used to load a 
+		///   uniformvariable of type float, vec2, vec3, vec4, or an array of these, or if one of the floating-point variants of this 
+		///   functionis used to load a uniform variable of type int, ivec2, ivec3, ivec4, unsigned int, uvec2, uvec3, uvec4, or an 
+		///   arrayof these. 
+		/// - GL_INVALID_OPERATION is generated if one of the signed integer variants of this function is used to load a uniform 
+		///   variableof type unsigned int, uvec2, uvec3, uvec4, or an array of these. 
+		/// - GL_INVALID_OPERATION is generated if one of the unsigned integer variants of this function is used to load a uniform 
+		///   variableof type int, ivec2, ivec3, ivec4, or an array of these. 
+		/// - GL_INVALID_OPERATION is generated if location is an invalid uniform location for program and location is not equal to 
+		///   -1.
+		/// - GL_INVALID_VALUE is generated if count is less than 0. 
+		/// - GL_INVALID_OPERATION is generated if count is greater than 1 and the indicated uniform variable is not an array 
+		///   variable.
+		/// - GL_INVALID_OPERATION is generated if a sampler is loaded using a command other than glProgramUniform1i and 
+		///   glProgramUniform1iv.
+		/// </para>
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - glGetActiveUniform with the handle of a program object and the index of an active uniform variable 
+		/// - glGetUniform with the handle of a program object and the location of a uniform variable 
+		/// - glGetUniformLocation with the handle of a program object and the name of a uniform variable 
+		/// </para>
+		/// </remarks>
+		/// <seealso cref="Gl.LinkProgram"/>
+		/// <seealso cref="Gl.UseProgram"/>
+		public static void ProgramUniform1(UInt32 program, Int32 location, Int32 count, UInt32[] value)
+		{
+			unsafe {
+				fixed (UInt32* p_value = value)
+				{
+					if        (Delegates.pglProgramUniform1uiv != null) {
+						Delegates.pglProgramUniform1uiv(program, location, count, p_value);
+						CallLog("glProgramUniform1uiv({0}, {1}, {2}, {3})", program, location, count, value);
+					} else if (Delegates.pglProgramUniform1uivEXT != null) {
+						Delegates.pglProgramUniform1uivEXT(program, location, count, p_value);
+						CallLog("glProgramUniform1uivEXT({0}, {1}, {2}, {3})", program, location, count, value);
+					} else
+						throw new NotImplementedException("glProgramUniform1uiv (and other aliases) are not implemented");
+				}
+			}
+			DebugCheckErrors();
+		}
+
+		/// <summary>
+		/// Specify the value of a uniform variable for a specified program object
+		/// </summary>
+		/// <param name="program">
+		/// Specifies the handle of the program containing the uniform variable to be modified. 
+		/// </param>
+		/// <param name="location">
+		/// Specifies the location of the uniform variable to be modified. 
+		/// </param>
+		/// <param name="v0">
+		/// For the scalar commands, specifies the new values to be used for the specified uniform variable. 
+		/// </param>
+		/// <param name="v1">
+		/// For the scalar commands, specifies the new values to be used for the specified uniform variable. 
+		/// </param>
+		/// <remarks>
+		/// glProgramUniform modifies the value of a uniform variable or a uniform variable array. The location of the uniform 
+		/// variableto be modified is specified by location, which should be a value returned by glGetUniformLocation. 
+		/// glProgramUniformoperates on the program object specified by program. 
+		/// The commands glProgramUniform{1|2|3|4}{f|i|ui} are used to change the value of the uniform variable specified by 
+		/// locationusing the values passed as arguments. The number specified in the command should match the number of components 
+		/// inthe data type of the specified uniform variable (e.g., 1 for float, int, unsigned int, bool; 2 for vec2, ivec2, uvec2, 
+		/// bvec2,etc.). The suffix f indicates that floating-point values are being passed; the suffix i indicates that integer 
+		/// valuesare being passed; the suffix ui indicates that unsigned integer values are being passed, and this type should also 
+		/// matchthe data type of the specified uniform variable. The i variants of this function should be used to provide values 
+		/// foruniform variables defined as int, ivec2, ivec3, ivec4, or arrays of these. The ui variants of this function should be 
+		/// usedto provide values for uniform variables defined as unsigned int, uvec2, uvec3, uvec4, or arrays of these. The f 
+		/// variantsshould be used to provide values for uniform variables of type float, vec2, vec3, vec4, or arrays of these. 
+		/// Eitherthe i, ui or f variants may be used to provide values for uniform variables of type bool, bvec2, bvec3, bvec4, or 
+		/// arraysof these. The uniform variable will be set to false if the input value is 0 or 0.0f, and it will be set to true 
+		/// otherwise.
+		/// All active uniform variables defined in a program object are initialized to 0 when the program object is linked 
+		/// successfully.They retain the values assigned to them by a call to glProgramUniform until the next successful link 
+		/// operationoccurs on the program object, when they are once again initialized to 0. 
+		/// The commands glProgramUniform{1|2|3|4}{f|i|ui}v can be used to modify a single uniform variable or a uniform variable 
+		/// array.These commands pass a count and a pointer to the values to be loaded into a uniform variable or a uniform variable 
+		/// array.A count of 1 should be used if modifying the value of a single uniform variable, and a count of 1 or greater can 
+		/// beused to modify an entire array or part of an array. When loading n elements starting at an arbitrary position m in a 
+		/// uniformvariable array, elements m + n - 1 in the array will be replaced with the new values. If m + n - 1 is larger than 
+		/// thesize of the uniform variable array, values for all array elements beyond the end of the array will be ignored. The 
+		/// numberspecified in the name of the command indicates the number of components for each element in value, and it should 
+		/// matchthe number of components in the data type of the specified uniform variable (e.g., 1 for float, int, bool; 2 for 
+		/// vec2,ivec2, bvec2, etc.). The data type specified in the name of the command must match the data type for the specified 
+		/// uniformvariable as described previously for glProgramUniform{1|2|3|4}{f|i|ui}. 
+		/// For uniform variable arrays, each element of the array is considered to be of the type indicated in the name of the 
+		/// command(e.g., glProgramUniform3f or glProgramUniform3fv can be used to load a uniform variable array of type vec3). The 
+		/// numberof elements of the uniform variable array to be modified is specified by count 
+		/// The commands glProgramUniformMatrix{2|3|4|2x3|3x2|2x4|4x2|3x4|4x3}fv are used to modify a matrix or an array of 
+		/// matrices.The numbers in the command name are interpreted as the dimensionality of the matrix. The number 2 indicates a 2 
+		/// ×2 matrix (i.e., 4 values), the number 3 indicates a 3 × 3 matrix (i.e., 9 values), and the number 4 indicates a 4 × 4 
+		/// matrix(i.e., 16 values). Non-square matrix dimensionality is explicit, with the first number representing the number of 
+		/// columnsand the second number representing the number of rows. For example, 2x4 indicates a 2 × 4 matrix with 2 columns 
+		/// and4 rows (i.e., 8 values). If transpose is GL_FALSE, each matrix is assumed to be supplied in column major order. If 
+		/// transposeis GL_TRUE, each matrix is assumed to be supplied in row major order. The count argument indicates the number 
+		/// ofmatrices to be passed. A count of 1 should be used if modifying the value of a single matrix, and a count greater than 
+		/// 1can be used to modify an array of matrices. 
+		/// <para>
+		/// The following errors can be generated:
+		/// - GL_INVALID_OPERATION is generated if program does not refer to a program object owned by the GL. 
+		/// - GL_INVALID_OPERATION is generated if the size of the uniform variable declared in the shader does not match the size 
+		///   indicatedby the glProgramUniform command. 
+		/// - GL_INVALID_OPERATION is generated if one of the signed or unsigned integer variants of this function is used to load a 
+		///   uniformvariable of type float, vec2, vec3, vec4, or an array of these, or if one of the floating-point variants of this 
+		///   functionis used to load a uniform variable of type int, ivec2, ivec3, ivec4, unsigned int, uvec2, uvec3, uvec4, or an 
+		///   arrayof these. 
+		/// - GL_INVALID_OPERATION is generated if one of the signed integer variants of this function is used to load a uniform 
+		///   variableof type unsigned int, uvec2, uvec3, uvec4, or an array of these. 
+		/// - GL_INVALID_OPERATION is generated if one of the unsigned integer variants of this function is used to load a uniform 
+		///   variableof type int, ivec2, ivec3, ivec4, or an array of these. 
+		/// - GL_INVALID_OPERATION is generated if location is an invalid uniform location for program and location is not equal to 
+		///   -1.
+		/// - GL_INVALID_VALUE is generated if count is less than 0. 
+		/// - GL_INVALID_OPERATION is generated if count is greater than 1 and the indicated uniform variable is not an array 
+		///   variable.
+		/// - GL_INVALID_OPERATION is generated if a sampler is loaded using a command other than glProgramUniform1i and 
+		///   glProgramUniform1iv.
+		/// </para>
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - glGetActiveUniform with the handle of a program object and the index of an active uniform variable 
+		/// - glGetUniform with the handle of a program object and the location of a uniform variable 
+		/// - glGetUniformLocation with the handle of a program object and the name of a uniform variable 
+		/// </para>
+		/// </remarks>
+		/// <seealso cref="Gl.LinkProgram"/>
+		/// <seealso cref="Gl.UseProgram"/>
+		public static void ProgramUniform2(UInt32 program, Int32 location, Int32 v0, Int32 v1)
+		{
+			if        (Delegates.pglProgramUniform2i != null) {
+				Delegates.pglProgramUniform2i(program, location, v0, v1);
+				CallLog("glProgramUniform2i({0}, {1}, {2}, {3})", program, location, v0, v1);
+			} else if (Delegates.pglProgramUniform2iEXT != null) {
+				Delegates.pglProgramUniform2iEXT(program, location, v0, v1);
+				CallLog("glProgramUniform2iEXT({0}, {1}, {2}, {3})", program, location, v0, v1);
+			} else
+				throw new NotImplementedException("glProgramUniform2i (and other aliases) are not implemented");
+			DebugCheckErrors();
+		}
+
+		/// <summary>
+		/// Specify the value of a uniform variable for a specified program object
+		/// </summary>
+		/// <param name="program">
+		/// Specifies the handle of the program containing the uniform variable to be modified. 
+		/// </param>
+		/// <param name="location">
+		/// Specifies the location of the uniform variable to be modified. 
+		/// </param>
+		/// <param name="count">
+		/// For the vector commands (glProgramUniform*v), specifies the number of elements that are to be modified. This should be 1 
+		/// ifthe targeted uniform variable is not an array, and 1 or more if it is an array. 
+		/// </param>
+		/// <param name="value">
+		/// For the vector and matrix commands, specifies a pointer to an array of count values that will be used to update the 
+		/// specifieduniform variable. 
+		/// </param>
+		/// <remarks>
+		/// glProgramUniform modifies the value of a uniform variable or a uniform variable array. The location of the uniform 
+		/// variableto be modified is specified by location, which should be a value returned by glGetUniformLocation. 
+		/// glProgramUniformoperates on the program object specified by program. 
+		/// The commands glProgramUniform{1|2|3|4}{f|i|ui} are used to change the value of the uniform variable specified by 
+		/// locationusing the values passed as arguments. The number specified in the command should match the number of components 
+		/// inthe data type of the specified uniform variable (e.g., 1 for float, int, unsigned int, bool; 2 for vec2, ivec2, uvec2, 
+		/// bvec2,etc.). The suffix f indicates that floating-point values are being passed; the suffix i indicates that integer 
+		/// valuesare being passed; the suffix ui indicates that unsigned integer values are being passed, and this type should also 
+		/// matchthe data type of the specified uniform variable. The i variants of this function should be used to provide values 
+		/// foruniform variables defined as int, ivec2, ivec3, ivec4, or arrays of these. The ui variants of this function should be 
+		/// usedto provide values for uniform variables defined as unsigned int, uvec2, uvec3, uvec4, or arrays of these. The f 
+		/// variantsshould be used to provide values for uniform variables of type float, vec2, vec3, vec4, or arrays of these. 
+		/// Eitherthe i, ui or f variants may be used to provide values for uniform variables of type bool, bvec2, bvec3, bvec4, or 
+		/// arraysof these. The uniform variable will be set to false if the input value is 0 or 0.0f, and it will be set to true 
+		/// otherwise.
+		/// All active uniform variables defined in a program object are initialized to 0 when the program object is linked 
+		/// successfully.They retain the values assigned to them by a call to glProgramUniform until the next successful link 
+		/// operationoccurs on the program object, when they are once again initialized to 0. 
+		/// The commands glProgramUniform{1|2|3|4}{f|i|ui}v can be used to modify a single uniform variable or a uniform variable 
+		/// array.These commands pass a count and a pointer to the values to be loaded into a uniform variable or a uniform variable 
+		/// array.A count of 1 should be used if modifying the value of a single uniform variable, and a count of 1 or greater can 
+		/// beused to modify an entire array or part of an array. When loading n elements starting at an arbitrary position m in a 
+		/// uniformvariable array, elements m + n - 1 in the array will be replaced with the new values. If m + n - 1 is larger than 
+		/// thesize of the uniform variable array, values for all array elements beyond the end of the array will be ignored. The 
+		/// numberspecified in the name of the command indicates the number of components for each element in value, and it should 
+		/// matchthe number of components in the data type of the specified uniform variable (e.g., 1 for float, int, bool; 2 for 
+		/// vec2,ivec2, bvec2, etc.). The data type specified in the name of the command must match the data type for the specified 
+		/// uniformvariable as described previously for glProgramUniform{1|2|3|4}{f|i|ui}. 
+		/// For uniform variable arrays, each element of the array is considered to be of the type indicated in the name of the 
+		/// command(e.g., glProgramUniform3f or glProgramUniform3fv can be used to load a uniform variable array of type vec3). The 
+		/// numberof elements of the uniform variable array to be modified is specified by count 
+		/// The commands glProgramUniformMatrix{2|3|4|2x3|3x2|2x4|4x2|3x4|4x3}fv are used to modify a matrix or an array of 
+		/// matrices.The numbers in the command name are interpreted as the dimensionality of the matrix. The number 2 indicates a 2 
+		/// ×2 matrix (i.e., 4 values), the number 3 indicates a 3 × 3 matrix (i.e., 9 values), and the number 4 indicates a 4 × 4 
+		/// matrix(i.e., 16 values). Non-square matrix dimensionality is explicit, with the first number representing the number of 
+		/// columnsand the second number representing the number of rows. For example, 2x4 indicates a 2 × 4 matrix with 2 columns 
+		/// and4 rows (i.e., 8 values). If transpose is GL_FALSE, each matrix is assumed to be supplied in column major order. If 
+		/// transposeis GL_TRUE, each matrix is assumed to be supplied in row major order. The count argument indicates the number 
+		/// ofmatrices to be passed. A count of 1 should be used if modifying the value of a single matrix, and a count greater than 
+		/// 1can be used to modify an array of matrices. 
+		/// <para>
+		/// The following errors can be generated:
+		/// - GL_INVALID_OPERATION is generated if program does not refer to a program object owned by the GL. 
+		/// - GL_INVALID_OPERATION is generated if the size of the uniform variable declared in the shader does not match the size 
+		///   indicatedby the glProgramUniform command. 
+		/// - GL_INVALID_OPERATION is generated if one of the signed or unsigned integer variants of this function is used to load a 
+		///   uniformvariable of type float, vec2, vec3, vec4, or an array of these, or if one of the floating-point variants of this 
+		///   functionis used to load a uniform variable of type int, ivec2, ivec3, ivec4, unsigned int, uvec2, uvec3, uvec4, or an 
+		///   arrayof these. 
+		/// - GL_INVALID_OPERATION is generated if one of the signed integer variants of this function is used to load a uniform 
+		///   variableof type unsigned int, uvec2, uvec3, uvec4, or an array of these. 
+		/// - GL_INVALID_OPERATION is generated if one of the unsigned integer variants of this function is used to load a uniform 
+		///   variableof type int, ivec2, ivec3, ivec4, or an array of these. 
+		/// - GL_INVALID_OPERATION is generated if location is an invalid uniform location for program and location is not equal to 
+		///   -1.
+		/// - GL_INVALID_VALUE is generated if count is less than 0. 
+		/// - GL_INVALID_OPERATION is generated if count is greater than 1 and the indicated uniform variable is not an array 
+		///   variable.
+		/// - GL_INVALID_OPERATION is generated if a sampler is loaded using a command other than glProgramUniform1i and 
+		///   glProgramUniform1iv.
+		/// </para>
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - glGetActiveUniform with the handle of a program object and the index of an active uniform variable 
+		/// - glGetUniform with the handle of a program object and the location of a uniform variable 
+		/// - glGetUniformLocation with the handle of a program object and the name of a uniform variable 
+		/// </para>
+		/// </remarks>
+		/// <seealso cref="Gl.LinkProgram"/>
+		/// <seealso cref="Gl.UseProgram"/>
+		public static void ProgramUniform2(UInt32 program, Int32 location, Int32 count, Int32[] value)
+		{
+			unsafe {
+				fixed (Int32* p_value = value)
+				{
+					if        (Delegates.pglProgramUniform2iv != null) {
+						Delegates.pglProgramUniform2iv(program, location, count, p_value);
+						CallLog("glProgramUniform2iv({0}, {1}, {2}, {3})", program, location, count, value);
+					} else if (Delegates.pglProgramUniform2ivEXT != null) {
+						Delegates.pglProgramUniform2ivEXT(program, location, count, p_value);
+						CallLog("glProgramUniform2ivEXT({0}, {1}, {2}, {3})", program, location, count, value);
+					} else
+						throw new NotImplementedException("glProgramUniform2iv (and other aliases) are not implemented");
+				}
+			}
+			DebugCheckErrors();
+		}
+
+		/// <summary>
+		/// Specify the value of a uniform variable for a specified program object
+		/// </summary>
+		/// <param name="program">
+		/// Specifies the handle of the program containing the uniform variable to be modified. 
+		/// </param>
+		/// <param name="location">
+		/// Specifies the location of the uniform variable to be modified. 
+		/// </param>
+		/// <param name="v0">
+		/// For the scalar commands, specifies the new values to be used for the specified uniform variable. 
+		/// </param>
+		/// <param name="v1">
+		/// For the scalar commands, specifies the new values to be used for the specified uniform variable. 
+		/// </param>
+		/// <remarks>
+		/// glProgramUniform modifies the value of a uniform variable or a uniform variable array. The location of the uniform 
+		/// variableto be modified is specified by location, which should be a value returned by glGetUniformLocation. 
+		/// glProgramUniformoperates on the program object specified by program. 
+		/// The commands glProgramUniform{1|2|3|4}{f|i|ui} are used to change the value of the uniform variable specified by 
+		/// locationusing the values passed as arguments. The number specified in the command should match the number of components 
+		/// inthe data type of the specified uniform variable (e.g., 1 for float, int, unsigned int, bool; 2 for vec2, ivec2, uvec2, 
+		/// bvec2,etc.). The suffix f indicates that floating-point values are being passed; the suffix i indicates that integer 
+		/// valuesare being passed; the suffix ui indicates that unsigned integer values are being passed, and this type should also 
+		/// matchthe data type of the specified uniform variable. The i variants of this function should be used to provide values 
+		/// foruniform variables defined as int, ivec2, ivec3, ivec4, or arrays of these. The ui variants of this function should be 
+		/// usedto provide values for uniform variables defined as unsigned int, uvec2, uvec3, uvec4, or arrays of these. The f 
+		/// variantsshould be used to provide values for uniform variables of type float, vec2, vec3, vec4, or arrays of these. 
+		/// Eitherthe i, ui or f variants may be used to provide values for uniform variables of type bool, bvec2, bvec3, bvec4, or 
+		/// arraysof these. The uniform variable will be set to false if the input value is 0 or 0.0f, and it will be set to true 
+		/// otherwise.
+		/// All active uniform variables defined in a program object are initialized to 0 when the program object is linked 
+		/// successfully.They retain the values assigned to them by a call to glProgramUniform until the next successful link 
+		/// operationoccurs on the program object, when they are once again initialized to 0. 
+		/// The commands glProgramUniform{1|2|3|4}{f|i|ui}v can be used to modify a single uniform variable or a uniform variable 
+		/// array.These commands pass a count and a pointer to the values to be loaded into a uniform variable or a uniform variable 
+		/// array.A count of 1 should be used if modifying the value of a single uniform variable, and a count of 1 or greater can 
+		/// beused to modify an entire array or part of an array. When loading n elements starting at an arbitrary position m in a 
+		/// uniformvariable array, elements m + n - 1 in the array will be replaced with the new values. If m + n - 1 is larger than 
+		/// thesize of the uniform variable array, values for all array elements beyond the end of the array will be ignored. The 
+		/// numberspecified in the name of the command indicates the number of components for each element in value, and it should 
+		/// matchthe number of components in the data type of the specified uniform variable (e.g., 1 for float, int, bool; 2 for 
+		/// vec2,ivec2, bvec2, etc.). The data type specified in the name of the command must match the data type for the specified 
+		/// uniformvariable as described previously for glProgramUniform{1|2|3|4}{f|i|ui}. 
+		/// For uniform variable arrays, each element of the array is considered to be of the type indicated in the name of the 
+		/// command(e.g., glProgramUniform3f or glProgramUniform3fv can be used to load a uniform variable array of type vec3). The 
+		/// numberof elements of the uniform variable array to be modified is specified by count 
+		/// The commands glProgramUniformMatrix{2|3|4|2x3|3x2|2x4|4x2|3x4|4x3}fv are used to modify a matrix or an array of 
+		/// matrices.The numbers in the command name are interpreted as the dimensionality of the matrix. The number 2 indicates a 2 
+		/// ×2 matrix (i.e., 4 values), the number 3 indicates a 3 × 3 matrix (i.e., 9 values), and the number 4 indicates a 4 × 4 
+		/// matrix(i.e., 16 values). Non-square matrix dimensionality is explicit, with the first number representing the number of 
+		/// columnsand the second number representing the number of rows. For example, 2x4 indicates a 2 × 4 matrix with 2 columns 
+		/// and4 rows (i.e., 8 values). If transpose is GL_FALSE, each matrix is assumed to be supplied in column major order. If 
+		/// transposeis GL_TRUE, each matrix is assumed to be supplied in row major order. The count argument indicates the number 
+		/// ofmatrices to be passed. A count of 1 should be used if modifying the value of a single matrix, and a count greater than 
+		/// 1can be used to modify an array of matrices. 
+		/// <para>
+		/// The following errors can be generated:
+		/// - GL_INVALID_OPERATION is generated if program does not refer to a program object owned by the GL. 
+		/// - GL_INVALID_OPERATION is generated if the size of the uniform variable declared in the shader does not match the size 
+		///   indicatedby the glProgramUniform command. 
+		/// - GL_INVALID_OPERATION is generated if one of the signed or unsigned integer variants of this function is used to load a 
+		///   uniformvariable of type float, vec2, vec3, vec4, or an array of these, or if one of the floating-point variants of this 
+		///   functionis used to load a uniform variable of type int, ivec2, ivec3, ivec4, unsigned int, uvec2, uvec3, uvec4, or an 
+		///   arrayof these. 
+		/// - GL_INVALID_OPERATION is generated if one of the signed integer variants of this function is used to load a uniform 
+		///   variableof type unsigned int, uvec2, uvec3, uvec4, or an array of these. 
+		/// - GL_INVALID_OPERATION is generated if one of the unsigned integer variants of this function is used to load a uniform 
+		///   variableof type int, ivec2, ivec3, ivec4, or an array of these. 
+		/// - GL_INVALID_OPERATION is generated if location is an invalid uniform location for program and location is not equal to 
+		///   -1.
+		/// - GL_INVALID_VALUE is generated if count is less than 0. 
+		/// - GL_INVALID_OPERATION is generated if count is greater than 1 and the indicated uniform variable is not an array 
+		///   variable.
+		/// - GL_INVALID_OPERATION is generated if a sampler is loaded using a command other than glProgramUniform1i and 
+		///   glProgramUniform1iv.
+		/// </para>
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - glGetActiveUniform with the handle of a program object and the index of an active uniform variable 
+		/// - glGetUniform with the handle of a program object and the location of a uniform variable 
+		/// - glGetUniformLocation with the handle of a program object and the name of a uniform variable 
+		/// </para>
+		/// </remarks>
+		/// <seealso cref="Gl.LinkProgram"/>
+		/// <seealso cref="Gl.UseProgram"/>
+		public static void ProgramUniform2(UInt32 program, Int32 location, float v0, float v1)
+		{
+			if        (Delegates.pglProgramUniform2f != null) {
+				Delegates.pglProgramUniform2f(program, location, v0, v1);
+				CallLog("glProgramUniform2f({0}, {1}, {2}, {3})", program, location, v0, v1);
+			} else if (Delegates.pglProgramUniform2fEXT != null) {
+				Delegates.pglProgramUniform2fEXT(program, location, v0, v1);
+				CallLog("glProgramUniform2fEXT({0}, {1}, {2}, {3})", program, location, v0, v1);
+			} else
+				throw new NotImplementedException("glProgramUniform2f (and other aliases) are not implemented");
+			DebugCheckErrors();
+		}
+
+		/// <summary>
+		/// Specify the value of a uniform variable for a specified program object
+		/// </summary>
+		/// <param name="program">
+		/// Specifies the handle of the program containing the uniform variable to be modified. 
+		/// </param>
+		/// <param name="location">
+		/// Specifies the location of the uniform variable to be modified. 
+		/// </param>
+		/// <param name="count">
+		/// For the vector commands (glProgramUniform*v), specifies the number of elements that are to be modified. This should be 1 
+		/// ifthe targeted uniform variable is not an array, and 1 or more if it is an array. 
+		/// </param>
+		/// <param name="value">
+		/// For the vector and matrix commands, specifies a pointer to an array of count values that will be used to update the 
+		/// specifieduniform variable. 
+		/// </param>
+		/// <remarks>
+		/// glProgramUniform modifies the value of a uniform variable or a uniform variable array. The location of the uniform 
+		/// variableto be modified is specified by location, which should be a value returned by glGetUniformLocation. 
+		/// glProgramUniformoperates on the program object specified by program. 
+		/// The commands glProgramUniform{1|2|3|4}{f|i|ui} are used to change the value of the uniform variable specified by 
+		/// locationusing the values passed as arguments. The number specified in the command should match the number of components 
+		/// inthe data type of the specified uniform variable (e.g., 1 for float, int, unsigned int, bool; 2 for vec2, ivec2, uvec2, 
+		/// bvec2,etc.). The suffix f indicates that floating-point values are being passed; the suffix i indicates that integer 
+		/// valuesare being passed; the suffix ui indicates that unsigned integer values are being passed, and this type should also 
+		/// matchthe data type of the specified uniform variable. The i variants of this function should be used to provide values 
+		/// foruniform variables defined as int, ivec2, ivec3, ivec4, or arrays of these. The ui variants of this function should be 
+		/// usedto provide values for uniform variables defined as unsigned int, uvec2, uvec3, uvec4, or arrays of these. The f 
+		/// variantsshould be used to provide values for uniform variables of type float, vec2, vec3, vec4, or arrays of these. 
+		/// Eitherthe i, ui or f variants may be used to provide values for uniform variables of type bool, bvec2, bvec3, bvec4, or 
+		/// arraysof these. The uniform variable will be set to false if the input value is 0 or 0.0f, and it will be set to true 
+		/// otherwise.
+		/// All active uniform variables defined in a program object are initialized to 0 when the program object is linked 
+		/// successfully.They retain the values assigned to them by a call to glProgramUniform until the next successful link 
+		/// operationoccurs on the program object, when they are once again initialized to 0. 
+		/// The commands glProgramUniform{1|2|3|4}{f|i|ui}v can be used to modify a single uniform variable or a uniform variable 
+		/// array.These commands pass a count and a pointer to the values to be loaded into a uniform variable or a uniform variable 
+		/// array.A count of 1 should be used if modifying the value of a single uniform variable, and a count of 1 or greater can 
+		/// beused to modify an entire array or part of an array. When loading n elements starting at an arbitrary position m in a 
+		/// uniformvariable array, elements m + n - 1 in the array will be replaced with the new values. If m + n - 1 is larger than 
+		/// thesize of the uniform variable array, values for all array elements beyond the end of the array will be ignored. The 
+		/// numberspecified in the name of the command indicates the number of components for each element in value, and it should 
+		/// matchthe number of components in the data type of the specified uniform variable (e.g., 1 for float, int, bool; 2 for 
+		/// vec2,ivec2, bvec2, etc.). The data type specified in the name of the command must match the data type for the specified 
+		/// uniformvariable as described previously for glProgramUniform{1|2|3|4}{f|i|ui}. 
+		/// For uniform variable arrays, each element of the array is considered to be of the type indicated in the name of the 
+		/// command(e.g., glProgramUniform3f or glProgramUniform3fv can be used to load a uniform variable array of type vec3). The 
+		/// numberof elements of the uniform variable array to be modified is specified by count 
+		/// The commands glProgramUniformMatrix{2|3|4|2x3|3x2|2x4|4x2|3x4|4x3}fv are used to modify a matrix or an array of 
+		/// matrices.The numbers in the command name are interpreted as the dimensionality of the matrix. The number 2 indicates a 2 
+		/// ×2 matrix (i.e., 4 values), the number 3 indicates a 3 × 3 matrix (i.e., 9 values), and the number 4 indicates a 4 × 4 
+		/// matrix(i.e., 16 values). Non-square matrix dimensionality is explicit, with the first number representing the number of 
+		/// columnsand the second number representing the number of rows. For example, 2x4 indicates a 2 × 4 matrix with 2 columns 
+		/// and4 rows (i.e., 8 values). If transpose is GL_FALSE, each matrix is assumed to be supplied in column major order. If 
+		/// transposeis GL_TRUE, each matrix is assumed to be supplied in row major order. The count argument indicates the number 
+		/// ofmatrices to be passed. A count of 1 should be used if modifying the value of a single matrix, and a count greater than 
+		/// 1can be used to modify an array of matrices. 
+		/// <para>
+		/// The following errors can be generated:
+		/// - GL_INVALID_OPERATION is generated if program does not refer to a program object owned by the GL. 
+		/// - GL_INVALID_OPERATION is generated if the size of the uniform variable declared in the shader does not match the size 
+		///   indicatedby the glProgramUniform command. 
+		/// - GL_INVALID_OPERATION is generated if one of the signed or unsigned integer variants of this function is used to load a 
+		///   uniformvariable of type float, vec2, vec3, vec4, or an array of these, or if one of the floating-point variants of this 
+		///   functionis used to load a uniform variable of type int, ivec2, ivec3, ivec4, unsigned int, uvec2, uvec3, uvec4, or an 
+		///   arrayof these. 
+		/// - GL_INVALID_OPERATION is generated if one of the signed integer variants of this function is used to load a uniform 
+		///   variableof type unsigned int, uvec2, uvec3, uvec4, or an array of these. 
+		/// - GL_INVALID_OPERATION is generated if one of the unsigned integer variants of this function is used to load a uniform 
+		///   variableof type int, ivec2, ivec3, ivec4, or an array of these. 
+		/// - GL_INVALID_OPERATION is generated if location is an invalid uniform location for program and location is not equal to 
+		///   -1.
+		/// - GL_INVALID_VALUE is generated if count is less than 0. 
+		/// - GL_INVALID_OPERATION is generated if count is greater than 1 and the indicated uniform variable is not an array 
+		///   variable.
+		/// - GL_INVALID_OPERATION is generated if a sampler is loaded using a command other than glProgramUniform1i and 
+		///   glProgramUniform1iv.
+		/// </para>
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - glGetActiveUniform with the handle of a program object and the index of an active uniform variable 
+		/// - glGetUniform with the handle of a program object and the location of a uniform variable 
+		/// - glGetUniformLocation with the handle of a program object and the name of a uniform variable 
+		/// </para>
+		/// </remarks>
+		/// <seealso cref="Gl.LinkProgram"/>
+		/// <seealso cref="Gl.UseProgram"/>
+		public static void ProgramUniform2(UInt32 program, Int32 location, Int32 count, float[] value)
+		{
+			unsafe {
+				fixed (float* p_value = value)
+				{
+					if        (Delegates.pglProgramUniform2fv != null) {
+						Delegates.pglProgramUniform2fv(program, location, count, p_value);
+						CallLog("glProgramUniform2fv({0}, {1}, {2}, {3})", program, location, count, value);
+					} else if (Delegates.pglProgramUniform2fvEXT != null) {
+						Delegates.pglProgramUniform2fvEXT(program, location, count, p_value);
+						CallLog("glProgramUniform2fvEXT({0}, {1}, {2}, {3})", program, location, count, value);
+					} else
+						throw new NotImplementedException("glProgramUniform2fv (and other aliases) are not implemented");
+				}
+			}
+			DebugCheckErrors();
+		}
+
+		/// <summary>
+		/// Binding for glProgramUniform2d.
+		/// </summary>
+		/// <param name="program">
+		/// A <see cref="T:UInt32"/>.
+		/// </param>
+		/// <param name="location">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="v0">
+		/// A <see cref="T:double"/>.
+		/// </param>
+		/// <param name="v1">
+		/// A <see cref="T:double"/>.
+		/// </param>
+		public static void ProgramUniform2(UInt32 program, Int32 location, double v0, double v1)
+		{
+			Debug.Assert(Delegates.pglProgramUniform2d != null, "pglProgramUniform2d not implemented");
+			Delegates.pglProgramUniform2d(program, location, v0, v1);
+			CallLog("glProgramUniform2d({0}, {1}, {2}, {3})", program, location, v0, v1);
+			DebugCheckErrors();
+		}
+
+		/// <summary>
+		/// Binding for glProgramUniform2dv.
+		/// </summary>
+		/// <param name="program">
+		/// A <see cref="T:UInt32"/>.
+		/// </param>
+		/// <param name="location">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="count">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="value">
+		/// A <see cref="T:double[]"/>.
+		/// </param>
+		public static void ProgramUniform2(UInt32 program, Int32 location, Int32 count, double[] value)
+		{
+			unsafe {
+				fixed (double* p_value = value)
+				{
+					Debug.Assert(Delegates.pglProgramUniform2dv != null, "pglProgramUniform2dv not implemented");
+					Delegates.pglProgramUniform2dv(program, location, count, p_value);
+					CallLog("glProgramUniform2dv({0}, {1}, {2}, {3})", program, location, count, value);
+				}
+			}
+			DebugCheckErrors();
+		}
+
+		/// <summary>
+		/// Specify the value of a uniform variable for a specified program object
+		/// </summary>
+		/// <param name="program">
+		/// Specifies the handle of the program containing the uniform variable to be modified. 
+		/// </param>
+		/// <param name="location">
+		/// Specifies the location of the uniform variable to be modified. 
+		/// </param>
+		/// <param name="v0">
+		/// For the scalar commands, specifies the new values to be used for the specified uniform variable. 
+		/// </param>
+		/// <param name="v1">
+		/// For the scalar commands, specifies the new values to be used for the specified uniform variable. 
+		/// </param>
+		/// <remarks>
+		/// glProgramUniform modifies the value of a uniform variable or a uniform variable array. The location of the uniform 
+		/// variableto be modified is specified by location, which should be a value returned by glGetUniformLocation. 
+		/// glProgramUniformoperates on the program object specified by program. 
+		/// The commands glProgramUniform{1|2|3|4}{f|i|ui} are used to change the value of the uniform variable specified by 
+		/// locationusing the values passed as arguments. The number specified in the command should match the number of components 
+		/// inthe data type of the specified uniform variable (e.g., 1 for float, int, unsigned int, bool; 2 for vec2, ivec2, uvec2, 
+		/// bvec2,etc.). The suffix f indicates that floating-point values are being passed; the suffix i indicates that integer 
+		/// valuesare being passed; the suffix ui indicates that unsigned integer values are being passed, and this type should also 
+		/// matchthe data type of the specified uniform variable. The i variants of this function should be used to provide values 
+		/// foruniform variables defined as int, ivec2, ivec3, ivec4, or arrays of these. The ui variants of this function should be 
+		/// usedto provide values for uniform variables defined as unsigned int, uvec2, uvec3, uvec4, or arrays of these. The f 
+		/// variantsshould be used to provide values for uniform variables of type float, vec2, vec3, vec4, or arrays of these. 
+		/// Eitherthe i, ui or f variants may be used to provide values for uniform variables of type bool, bvec2, bvec3, bvec4, or 
+		/// arraysof these. The uniform variable will be set to false if the input value is 0 or 0.0f, and it will be set to true 
+		/// otherwise.
+		/// All active uniform variables defined in a program object are initialized to 0 when the program object is linked 
+		/// successfully.They retain the values assigned to them by a call to glProgramUniform until the next successful link 
+		/// operationoccurs on the program object, when they are once again initialized to 0. 
+		/// The commands glProgramUniform{1|2|3|4}{f|i|ui}v can be used to modify a single uniform variable or a uniform variable 
+		/// array.These commands pass a count and a pointer to the values to be loaded into a uniform variable or a uniform variable 
+		/// array.A count of 1 should be used if modifying the value of a single uniform variable, and a count of 1 or greater can 
+		/// beused to modify an entire array or part of an array. When loading n elements starting at an arbitrary position m in a 
+		/// uniformvariable array, elements m + n - 1 in the array will be replaced with the new values. If m + n - 1 is larger than 
+		/// thesize of the uniform variable array, values for all array elements beyond the end of the array will be ignored. The 
+		/// numberspecified in the name of the command indicates the number of components for each element in value, and it should 
+		/// matchthe number of components in the data type of the specified uniform variable (e.g., 1 for float, int, bool; 2 for 
+		/// vec2,ivec2, bvec2, etc.). The data type specified in the name of the command must match the data type for the specified 
+		/// uniformvariable as described previously for glProgramUniform{1|2|3|4}{f|i|ui}. 
+		/// For uniform variable arrays, each element of the array is considered to be of the type indicated in the name of the 
+		/// command(e.g., glProgramUniform3f or glProgramUniform3fv can be used to load a uniform variable array of type vec3). The 
+		/// numberof elements of the uniform variable array to be modified is specified by count 
+		/// The commands glProgramUniformMatrix{2|3|4|2x3|3x2|2x4|4x2|3x4|4x3}fv are used to modify a matrix or an array of 
+		/// matrices.The numbers in the command name are interpreted as the dimensionality of the matrix. The number 2 indicates a 2 
+		/// ×2 matrix (i.e., 4 values), the number 3 indicates a 3 × 3 matrix (i.e., 9 values), and the number 4 indicates a 4 × 4 
+		/// matrix(i.e., 16 values). Non-square matrix dimensionality is explicit, with the first number representing the number of 
+		/// columnsand the second number representing the number of rows. For example, 2x4 indicates a 2 × 4 matrix with 2 columns 
+		/// and4 rows (i.e., 8 values). If transpose is GL_FALSE, each matrix is assumed to be supplied in column major order. If 
+		/// transposeis GL_TRUE, each matrix is assumed to be supplied in row major order. The count argument indicates the number 
+		/// ofmatrices to be passed. A count of 1 should be used if modifying the value of a single matrix, and a count greater than 
+		/// 1can be used to modify an array of matrices. 
+		/// <para>
+		/// The following errors can be generated:
+		/// - GL_INVALID_OPERATION is generated if program does not refer to a program object owned by the GL. 
+		/// - GL_INVALID_OPERATION is generated if the size of the uniform variable declared in the shader does not match the size 
+		///   indicatedby the glProgramUniform command. 
+		/// - GL_INVALID_OPERATION is generated if one of the signed or unsigned integer variants of this function is used to load a 
+		///   uniformvariable of type float, vec2, vec3, vec4, or an array of these, or if one of the floating-point variants of this 
+		///   functionis used to load a uniform variable of type int, ivec2, ivec3, ivec4, unsigned int, uvec2, uvec3, uvec4, or an 
+		///   arrayof these. 
+		/// - GL_INVALID_OPERATION is generated if one of the signed integer variants of this function is used to load a uniform 
+		///   variableof type unsigned int, uvec2, uvec3, uvec4, or an array of these. 
+		/// - GL_INVALID_OPERATION is generated if one of the unsigned integer variants of this function is used to load a uniform 
+		///   variableof type int, ivec2, ivec3, ivec4, or an array of these. 
+		/// - GL_INVALID_OPERATION is generated if location is an invalid uniform location for program and location is not equal to 
+		///   -1.
+		/// - GL_INVALID_VALUE is generated if count is less than 0. 
+		/// - GL_INVALID_OPERATION is generated if count is greater than 1 and the indicated uniform variable is not an array 
+		///   variable.
+		/// - GL_INVALID_OPERATION is generated if a sampler is loaded using a command other than glProgramUniform1i and 
+		///   glProgramUniform1iv.
+		/// </para>
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - glGetActiveUniform with the handle of a program object and the index of an active uniform variable 
+		/// - glGetUniform with the handle of a program object and the location of a uniform variable 
+		/// - glGetUniformLocation with the handle of a program object and the name of a uniform variable 
+		/// </para>
+		/// </remarks>
+		/// <seealso cref="Gl.LinkProgram"/>
+		/// <seealso cref="Gl.UseProgram"/>
+		public static void ProgramUniform2(UInt32 program, Int32 location, UInt32 v0, UInt32 v1)
+		{
+			if        (Delegates.pglProgramUniform2ui != null) {
+				Delegates.pglProgramUniform2ui(program, location, v0, v1);
+				CallLog("glProgramUniform2ui({0}, {1}, {2}, {3})", program, location, v0, v1);
+			} else if (Delegates.pglProgramUniform2uiEXT != null) {
+				Delegates.pglProgramUniform2uiEXT(program, location, v0, v1);
+				CallLog("glProgramUniform2uiEXT({0}, {1}, {2}, {3})", program, location, v0, v1);
+			} else
+				throw new NotImplementedException("glProgramUniform2ui (and other aliases) are not implemented");
+			DebugCheckErrors();
+		}
+
+		/// <summary>
+		/// Specify the value of a uniform variable for a specified program object
+		/// </summary>
+		/// <param name="program">
+		/// Specifies the handle of the program containing the uniform variable to be modified. 
+		/// </param>
+		/// <param name="location">
+		/// Specifies the location of the uniform variable to be modified. 
+		/// </param>
+		/// <param name="count">
+		/// For the vector commands (glProgramUniform*v), specifies the number of elements that are to be modified. This should be 1 
+		/// ifthe targeted uniform variable is not an array, and 1 or more if it is an array. 
+		/// </param>
+		/// <param name="value">
+		/// For the vector and matrix commands, specifies a pointer to an array of count values that will be used to update the 
+		/// specifieduniform variable. 
+		/// </param>
+		/// <remarks>
+		/// glProgramUniform modifies the value of a uniform variable or a uniform variable array. The location of the uniform 
+		/// variableto be modified is specified by location, which should be a value returned by glGetUniformLocation. 
+		/// glProgramUniformoperates on the program object specified by program. 
+		/// The commands glProgramUniform{1|2|3|4}{f|i|ui} are used to change the value of the uniform variable specified by 
+		/// locationusing the values passed as arguments. The number specified in the command should match the number of components 
+		/// inthe data type of the specified uniform variable (e.g., 1 for float, int, unsigned int, bool; 2 for vec2, ivec2, uvec2, 
+		/// bvec2,etc.). The suffix f indicates that floating-point values are being passed; the suffix i indicates that integer 
+		/// valuesare being passed; the suffix ui indicates that unsigned integer values are being passed, and this type should also 
+		/// matchthe data type of the specified uniform variable. The i variants of this function should be used to provide values 
+		/// foruniform variables defined as int, ivec2, ivec3, ivec4, or arrays of these. The ui variants of this function should be 
+		/// usedto provide values for uniform variables defined as unsigned int, uvec2, uvec3, uvec4, or arrays of these. The f 
+		/// variantsshould be used to provide values for uniform variables of type float, vec2, vec3, vec4, or arrays of these. 
+		/// Eitherthe i, ui or f variants may be used to provide values for uniform variables of type bool, bvec2, bvec3, bvec4, or 
+		/// arraysof these. The uniform variable will be set to false if the input value is 0 or 0.0f, and it will be set to true 
+		/// otherwise.
+		/// All active uniform variables defined in a program object are initialized to 0 when the program object is linked 
+		/// successfully.They retain the values assigned to them by a call to glProgramUniform until the next successful link 
+		/// operationoccurs on the program object, when they are once again initialized to 0. 
+		/// The commands glProgramUniform{1|2|3|4}{f|i|ui}v can be used to modify a single uniform variable or a uniform variable 
+		/// array.These commands pass a count and a pointer to the values to be loaded into a uniform variable or a uniform variable 
+		/// array.A count of 1 should be used if modifying the value of a single uniform variable, and a count of 1 or greater can 
+		/// beused to modify an entire array or part of an array. When loading n elements starting at an arbitrary position m in a 
+		/// uniformvariable array, elements m + n - 1 in the array will be replaced with the new values. If m + n - 1 is larger than 
+		/// thesize of the uniform variable array, values for all array elements beyond the end of the array will be ignored. The 
+		/// numberspecified in the name of the command indicates the number of components for each element in value, and it should 
+		/// matchthe number of components in the data type of the specified uniform variable (e.g., 1 for float, int, bool; 2 for 
+		/// vec2,ivec2, bvec2, etc.). The data type specified in the name of the command must match the data type for the specified 
+		/// uniformvariable as described previously for glProgramUniform{1|2|3|4}{f|i|ui}. 
+		/// For uniform variable arrays, each element of the array is considered to be of the type indicated in the name of the 
+		/// command(e.g., glProgramUniform3f or glProgramUniform3fv can be used to load a uniform variable array of type vec3). The 
+		/// numberof elements of the uniform variable array to be modified is specified by count 
+		/// The commands glProgramUniformMatrix{2|3|4|2x3|3x2|2x4|4x2|3x4|4x3}fv are used to modify a matrix or an array of 
+		/// matrices.The numbers in the command name are interpreted as the dimensionality of the matrix. The number 2 indicates a 2 
+		/// ×2 matrix (i.e., 4 values), the number 3 indicates a 3 × 3 matrix (i.e., 9 values), and the number 4 indicates a 4 × 4 
+		/// matrix(i.e., 16 values). Non-square matrix dimensionality is explicit, with the first number representing the number of 
+		/// columnsand the second number representing the number of rows. For example, 2x4 indicates a 2 × 4 matrix with 2 columns 
+		/// and4 rows (i.e., 8 values). If transpose is GL_FALSE, each matrix is assumed to be supplied in column major order. If 
+		/// transposeis GL_TRUE, each matrix is assumed to be supplied in row major order. The count argument indicates the number 
+		/// ofmatrices to be passed. A count of 1 should be used if modifying the value of a single matrix, and a count greater than 
+		/// 1can be used to modify an array of matrices. 
+		/// <para>
+		/// The following errors can be generated:
+		/// - GL_INVALID_OPERATION is generated if program does not refer to a program object owned by the GL. 
+		/// - GL_INVALID_OPERATION is generated if the size of the uniform variable declared in the shader does not match the size 
+		///   indicatedby the glProgramUniform command. 
+		/// - GL_INVALID_OPERATION is generated if one of the signed or unsigned integer variants of this function is used to load a 
+		///   uniformvariable of type float, vec2, vec3, vec4, or an array of these, or if one of the floating-point variants of this 
+		///   functionis used to load a uniform variable of type int, ivec2, ivec3, ivec4, unsigned int, uvec2, uvec3, uvec4, or an 
+		///   arrayof these. 
+		/// - GL_INVALID_OPERATION is generated if one of the signed integer variants of this function is used to load a uniform 
+		///   variableof type unsigned int, uvec2, uvec3, uvec4, or an array of these. 
+		/// - GL_INVALID_OPERATION is generated if one of the unsigned integer variants of this function is used to load a uniform 
+		///   variableof type int, ivec2, ivec3, ivec4, or an array of these. 
+		/// - GL_INVALID_OPERATION is generated if location is an invalid uniform location for program and location is not equal to 
+		///   -1.
+		/// - GL_INVALID_VALUE is generated if count is less than 0. 
+		/// - GL_INVALID_OPERATION is generated if count is greater than 1 and the indicated uniform variable is not an array 
+		///   variable.
+		/// - GL_INVALID_OPERATION is generated if a sampler is loaded using a command other than glProgramUniform1i and 
+		///   glProgramUniform1iv.
+		/// </para>
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - glGetActiveUniform with the handle of a program object and the index of an active uniform variable 
+		/// - glGetUniform with the handle of a program object and the location of a uniform variable 
+		/// - glGetUniformLocation with the handle of a program object and the name of a uniform variable 
+		/// </para>
+		/// </remarks>
+		/// <seealso cref="Gl.LinkProgram"/>
+		/// <seealso cref="Gl.UseProgram"/>
+		public static void ProgramUniform2(UInt32 program, Int32 location, Int32 count, UInt32[] value)
+		{
+			unsafe {
+				fixed (UInt32* p_value = value)
+				{
+					if        (Delegates.pglProgramUniform2uiv != null) {
+						Delegates.pglProgramUniform2uiv(program, location, count, p_value);
+						CallLog("glProgramUniform2uiv({0}, {1}, {2}, {3})", program, location, count, value);
+					} else if (Delegates.pglProgramUniform2uivEXT != null) {
+						Delegates.pglProgramUniform2uivEXT(program, location, count, p_value);
+						CallLog("glProgramUniform2uivEXT({0}, {1}, {2}, {3})", program, location, count, value);
+					} else
+						throw new NotImplementedException("glProgramUniform2uiv (and other aliases) are not implemented");
+				}
+			}
+			DebugCheckErrors();
+		}
+
+		/// <summary>
+		/// Specify the value of a uniform variable for a specified program object
+		/// </summary>
+		/// <param name="program">
+		/// Specifies the handle of the program containing the uniform variable to be modified. 
+		/// </param>
+		/// <param name="location">
+		/// Specifies the location of the uniform variable to be modified. 
+		/// </param>
+		/// <param name="v0">
+		/// For the scalar commands, specifies the new values to be used for the specified uniform variable. 
+		/// </param>
+		/// <param name="v1">
+		/// For the scalar commands, specifies the new values to be used for the specified uniform variable. 
+		/// </param>
+		/// <param name="v2">
+		/// For the scalar commands, specifies the new values to be used for the specified uniform variable. 
+		/// </param>
+		/// <remarks>
+		/// glProgramUniform modifies the value of a uniform variable or a uniform variable array. The location of the uniform 
+		/// variableto be modified is specified by location, which should be a value returned by glGetUniformLocation. 
+		/// glProgramUniformoperates on the program object specified by program. 
+		/// The commands glProgramUniform{1|2|3|4}{f|i|ui} are used to change the value of the uniform variable specified by 
+		/// locationusing the values passed as arguments. The number specified in the command should match the number of components 
+		/// inthe data type of the specified uniform variable (e.g., 1 for float, int, unsigned int, bool; 2 for vec2, ivec2, uvec2, 
+		/// bvec2,etc.). The suffix f indicates that floating-point values are being passed; the suffix i indicates that integer 
+		/// valuesare being passed; the suffix ui indicates that unsigned integer values are being passed, and this type should also 
+		/// matchthe data type of the specified uniform variable. The i variants of this function should be used to provide values 
+		/// foruniform variables defined as int, ivec2, ivec3, ivec4, or arrays of these. The ui variants of this function should be 
+		/// usedto provide values for uniform variables defined as unsigned int, uvec2, uvec3, uvec4, or arrays of these. The f 
+		/// variantsshould be used to provide values for uniform variables of type float, vec2, vec3, vec4, or arrays of these. 
+		/// Eitherthe i, ui or f variants may be used to provide values for uniform variables of type bool, bvec2, bvec3, bvec4, or 
+		/// arraysof these. The uniform variable will be set to false if the input value is 0 or 0.0f, and it will be set to true 
+		/// otherwise.
+		/// All active uniform variables defined in a program object are initialized to 0 when the program object is linked 
+		/// successfully.They retain the values assigned to them by a call to glProgramUniform until the next successful link 
+		/// operationoccurs on the program object, when they are once again initialized to 0. 
+		/// The commands glProgramUniform{1|2|3|4}{f|i|ui}v can be used to modify a single uniform variable or a uniform variable 
+		/// array.These commands pass a count and a pointer to the values to be loaded into a uniform variable or a uniform variable 
+		/// array.A count of 1 should be used if modifying the value of a single uniform variable, and a count of 1 or greater can 
+		/// beused to modify an entire array or part of an array. When loading n elements starting at an arbitrary position m in a 
+		/// uniformvariable array, elements m + n - 1 in the array will be replaced with the new values. If m + n - 1 is larger than 
+		/// thesize of the uniform variable array, values for all array elements beyond the end of the array will be ignored. The 
+		/// numberspecified in the name of the command indicates the number of components for each element in value, and it should 
+		/// matchthe number of components in the data type of the specified uniform variable (e.g., 1 for float, int, bool; 2 for 
+		/// vec2,ivec2, bvec2, etc.). The data type specified in the name of the command must match the data type for the specified 
+		/// uniformvariable as described previously for glProgramUniform{1|2|3|4}{f|i|ui}. 
+		/// For uniform variable arrays, each element of the array is considered to be of the type indicated in the name of the 
+		/// command(e.g., glProgramUniform3f or glProgramUniform3fv can be used to load a uniform variable array of type vec3). The 
+		/// numberof elements of the uniform variable array to be modified is specified by count 
+		/// The commands glProgramUniformMatrix{2|3|4|2x3|3x2|2x4|4x2|3x4|4x3}fv are used to modify a matrix or an array of 
+		/// matrices.The numbers in the command name are interpreted as the dimensionality of the matrix. The number 2 indicates a 2 
+		/// ×2 matrix (i.e., 4 values), the number 3 indicates a 3 × 3 matrix (i.e., 9 values), and the number 4 indicates a 4 × 4 
+		/// matrix(i.e., 16 values). Non-square matrix dimensionality is explicit, with the first number representing the number of 
+		/// columnsand the second number representing the number of rows. For example, 2x4 indicates a 2 × 4 matrix with 2 columns 
+		/// and4 rows (i.e., 8 values). If transpose is GL_FALSE, each matrix is assumed to be supplied in column major order. If 
+		/// transposeis GL_TRUE, each matrix is assumed to be supplied in row major order. The count argument indicates the number 
+		/// ofmatrices to be passed. A count of 1 should be used if modifying the value of a single matrix, and a count greater than 
+		/// 1can be used to modify an array of matrices. 
+		/// <para>
+		/// The following errors can be generated:
+		/// - GL_INVALID_OPERATION is generated if program does not refer to a program object owned by the GL. 
+		/// - GL_INVALID_OPERATION is generated if the size of the uniform variable declared in the shader does not match the size 
+		///   indicatedby the glProgramUniform command. 
+		/// - GL_INVALID_OPERATION is generated if one of the signed or unsigned integer variants of this function is used to load a 
+		///   uniformvariable of type float, vec2, vec3, vec4, or an array of these, or if one of the floating-point variants of this 
+		///   functionis used to load a uniform variable of type int, ivec2, ivec3, ivec4, unsigned int, uvec2, uvec3, uvec4, or an 
+		///   arrayof these. 
+		/// - GL_INVALID_OPERATION is generated if one of the signed integer variants of this function is used to load a uniform 
+		///   variableof type unsigned int, uvec2, uvec3, uvec4, or an array of these. 
+		/// - GL_INVALID_OPERATION is generated if one of the unsigned integer variants of this function is used to load a uniform 
+		///   variableof type int, ivec2, ivec3, ivec4, or an array of these. 
+		/// - GL_INVALID_OPERATION is generated if location is an invalid uniform location for program and location is not equal to 
+		///   -1.
+		/// - GL_INVALID_VALUE is generated if count is less than 0. 
+		/// - GL_INVALID_OPERATION is generated if count is greater than 1 and the indicated uniform variable is not an array 
+		///   variable.
+		/// - GL_INVALID_OPERATION is generated if a sampler is loaded using a command other than glProgramUniform1i and 
+		///   glProgramUniform1iv.
+		/// </para>
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - glGetActiveUniform with the handle of a program object and the index of an active uniform variable 
+		/// - glGetUniform with the handle of a program object and the location of a uniform variable 
+		/// - glGetUniformLocation with the handle of a program object and the name of a uniform variable 
+		/// </para>
+		/// </remarks>
+		/// <seealso cref="Gl.LinkProgram"/>
+		/// <seealso cref="Gl.UseProgram"/>
+		public static void ProgramUniform3(UInt32 program, Int32 location, Int32 v0, Int32 v1, Int32 v2)
+		{
+			if        (Delegates.pglProgramUniform3i != null) {
+				Delegates.pglProgramUniform3i(program, location, v0, v1, v2);
+				CallLog("glProgramUniform3i({0}, {1}, {2}, {3}, {4})", program, location, v0, v1, v2);
+			} else if (Delegates.pglProgramUniform3iEXT != null) {
+				Delegates.pglProgramUniform3iEXT(program, location, v0, v1, v2);
+				CallLog("glProgramUniform3iEXT({0}, {1}, {2}, {3}, {4})", program, location, v0, v1, v2);
+			} else
+				throw new NotImplementedException("glProgramUniform3i (and other aliases) are not implemented");
+			DebugCheckErrors();
+		}
+
+		/// <summary>
+		/// Specify the value of a uniform variable for a specified program object
+		/// </summary>
+		/// <param name="program">
+		/// Specifies the handle of the program containing the uniform variable to be modified. 
+		/// </param>
+		/// <param name="location">
+		/// Specifies the location of the uniform variable to be modified. 
+		/// </param>
+		/// <param name="count">
+		/// For the vector commands (glProgramUniform*v), specifies the number of elements that are to be modified. This should be 1 
+		/// ifthe targeted uniform variable is not an array, and 1 or more if it is an array. 
+		/// </param>
+		/// <param name="value">
+		/// For the vector and matrix commands, specifies a pointer to an array of count values that will be used to update the 
+		/// specifieduniform variable. 
+		/// </param>
+		/// <remarks>
+		/// glProgramUniform modifies the value of a uniform variable or a uniform variable array. The location of the uniform 
+		/// variableto be modified is specified by location, which should be a value returned by glGetUniformLocation. 
+		/// glProgramUniformoperates on the program object specified by program. 
+		/// The commands glProgramUniform{1|2|3|4}{f|i|ui} are used to change the value of the uniform variable specified by 
+		/// locationusing the values passed as arguments. The number specified in the command should match the number of components 
+		/// inthe data type of the specified uniform variable (e.g., 1 for float, int, unsigned int, bool; 2 for vec2, ivec2, uvec2, 
+		/// bvec2,etc.). The suffix f indicates that floating-point values are being passed; the suffix i indicates that integer 
+		/// valuesare being passed; the suffix ui indicates that unsigned integer values are being passed, and this type should also 
+		/// matchthe data type of the specified uniform variable. The i variants of this function should be used to provide values 
+		/// foruniform variables defined as int, ivec2, ivec3, ivec4, or arrays of these. The ui variants of this function should be 
+		/// usedto provide values for uniform variables defined as unsigned int, uvec2, uvec3, uvec4, or arrays of these. The f 
+		/// variantsshould be used to provide values for uniform variables of type float, vec2, vec3, vec4, or arrays of these. 
+		/// Eitherthe i, ui or f variants may be used to provide values for uniform variables of type bool, bvec2, bvec3, bvec4, or 
+		/// arraysof these. The uniform variable will be set to false if the input value is 0 or 0.0f, and it will be set to true 
+		/// otherwise.
+		/// All active uniform variables defined in a program object are initialized to 0 when the program object is linked 
+		/// successfully.They retain the values assigned to them by a call to glProgramUniform until the next successful link 
+		/// operationoccurs on the program object, when they are once again initialized to 0. 
+		/// The commands glProgramUniform{1|2|3|4}{f|i|ui}v can be used to modify a single uniform variable or a uniform variable 
+		/// array.These commands pass a count and a pointer to the values to be loaded into a uniform variable or a uniform variable 
+		/// array.A count of 1 should be used if modifying the value of a single uniform variable, and a count of 1 or greater can 
+		/// beused to modify an entire array or part of an array. When loading n elements starting at an arbitrary position m in a 
+		/// uniformvariable array, elements m + n - 1 in the array will be replaced with the new values. If m + n - 1 is larger than 
+		/// thesize of the uniform variable array, values for all array elements beyond the end of the array will be ignored. The 
+		/// numberspecified in the name of the command indicates the number of components for each element in value, and it should 
+		/// matchthe number of components in the data type of the specified uniform variable (e.g., 1 for float, int, bool; 2 for 
+		/// vec2,ivec2, bvec2, etc.). The data type specified in the name of the command must match the data type for the specified 
+		/// uniformvariable as described previously for glProgramUniform{1|2|3|4}{f|i|ui}. 
+		/// For uniform variable arrays, each element of the array is considered to be of the type indicated in the name of the 
+		/// command(e.g., glProgramUniform3f or glProgramUniform3fv can be used to load a uniform variable array of type vec3). The 
+		/// numberof elements of the uniform variable array to be modified is specified by count 
+		/// The commands glProgramUniformMatrix{2|3|4|2x3|3x2|2x4|4x2|3x4|4x3}fv are used to modify a matrix or an array of 
+		/// matrices.The numbers in the command name are interpreted as the dimensionality of the matrix. The number 2 indicates a 2 
+		/// ×2 matrix (i.e., 4 values), the number 3 indicates a 3 × 3 matrix (i.e., 9 values), and the number 4 indicates a 4 × 4 
+		/// matrix(i.e., 16 values). Non-square matrix dimensionality is explicit, with the first number representing the number of 
+		/// columnsand the second number representing the number of rows. For example, 2x4 indicates a 2 × 4 matrix with 2 columns 
+		/// and4 rows (i.e., 8 values). If transpose is GL_FALSE, each matrix is assumed to be supplied in column major order. If 
+		/// transposeis GL_TRUE, each matrix is assumed to be supplied in row major order. The count argument indicates the number 
+		/// ofmatrices to be passed. A count of 1 should be used if modifying the value of a single matrix, and a count greater than 
+		/// 1can be used to modify an array of matrices. 
+		/// <para>
+		/// The following errors can be generated:
+		/// - GL_INVALID_OPERATION is generated if program does not refer to a program object owned by the GL. 
+		/// - GL_INVALID_OPERATION is generated if the size of the uniform variable declared in the shader does not match the size 
+		///   indicatedby the glProgramUniform command. 
+		/// - GL_INVALID_OPERATION is generated if one of the signed or unsigned integer variants of this function is used to load a 
+		///   uniformvariable of type float, vec2, vec3, vec4, or an array of these, or if one of the floating-point variants of this 
+		///   functionis used to load a uniform variable of type int, ivec2, ivec3, ivec4, unsigned int, uvec2, uvec3, uvec4, or an 
+		///   arrayof these. 
+		/// - GL_INVALID_OPERATION is generated if one of the signed integer variants of this function is used to load a uniform 
+		///   variableof type unsigned int, uvec2, uvec3, uvec4, or an array of these. 
+		/// - GL_INVALID_OPERATION is generated if one of the unsigned integer variants of this function is used to load a uniform 
+		///   variableof type int, ivec2, ivec3, ivec4, or an array of these. 
+		/// - GL_INVALID_OPERATION is generated if location is an invalid uniform location for program and location is not equal to 
+		///   -1.
+		/// - GL_INVALID_VALUE is generated if count is less than 0. 
+		/// - GL_INVALID_OPERATION is generated if count is greater than 1 and the indicated uniform variable is not an array 
+		///   variable.
+		/// - GL_INVALID_OPERATION is generated if a sampler is loaded using a command other than glProgramUniform1i and 
+		///   glProgramUniform1iv.
+		/// </para>
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - glGetActiveUniform with the handle of a program object and the index of an active uniform variable 
+		/// - glGetUniform with the handle of a program object and the location of a uniform variable 
+		/// - glGetUniformLocation with the handle of a program object and the name of a uniform variable 
+		/// </para>
+		/// </remarks>
+		/// <seealso cref="Gl.LinkProgram"/>
+		/// <seealso cref="Gl.UseProgram"/>
+		public static void ProgramUniform3(UInt32 program, Int32 location, Int32 count, Int32[] value)
+		{
+			unsafe {
+				fixed (Int32* p_value = value)
+				{
+					if        (Delegates.pglProgramUniform3iv != null) {
+						Delegates.pglProgramUniform3iv(program, location, count, p_value);
+						CallLog("glProgramUniform3iv({0}, {1}, {2}, {3})", program, location, count, value);
+					} else if (Delegates.pglProgramUniform3ivEXT != null) {
+						Delegates.pglProgramUniform3ivEXT(program, location, count, p_value);
+						CallLog("glProgramUniform3ivEXT({0}, {1}, {2}, {3})", program, location, count, value);
+					} else
+						throw new NotImplementedException("glProgramUniform3iv (and other aliases) are not implemented");
+				}
+			}
+			DebugCheckErrors();
+		}
+
+		/// <summary>
+		/// Specify the value of a uniform variable for a specified program object
+		/// </summary>
+		/// <param name="program">
+		/// Specifies the handle of the program containing the uniform variable to be modified. 
+		/// </param>
+		/// <param name="location">
+		/// Specifies the location of the uniform variable to be modified. 
+		/// </param>
+		/// <param name="v0">
+		/// For the scalar commands, specifies the new values to be used for the specified uniform variable. 
+		/// </param>
+		/// <param name="v1">
+		/// For the scalar commands, specifies the new values to be used for the specified uniform variable. 
+		/// </param>
+		/// <param name="v2">
+		/// For the scalar commands, specifies the new values to be used for the specified uniform variable. 
+		/// </param>
+		/// <remarks>
+		/// glProgramUniform modifies the value of a uniform variable or a uniform variable array. The location of the uniform 
+		/// variableto be modified is specified by location, which should be a value returned by glGetUniformLocation. 
+		/// glProgramUniformoperates on the program object specified by program. 
+		/// The commands glProgramUniform{1|2|3|4}{f|i|ui} are used to change the value of the uniform variable specified by 
+		/// locationusing the values passed as arguments. The number specified in the command should match the number of components 
+		/// inthe data type of the specified uniform variable (e.g., 1 for float, int, unsigned int, bool; 2 for vec2, ivec2, uvec2, 
+		/// bvec2,etc.). The suffix f indicates that floating-point values are being passed; the suffix i indicates that integer 
+		/// valuesare being passed; the suffix ui indicates that unsigned integer values are being passed, and this type should also 
+		/// matchthe data type of the specified uniform variable. The i variants of this function should be used to provide values 
+		/// foruniform variables defined as int, ivec2, ivec3, ivec4, or arrays of these. The ui variants of this function should be 
+		/// usedto provide values for uniform variables defined as unsigned int, uvec2, uvec3, uvec4, or arrays of these. The f 
+		/// variantsshould be used to provide values for uniform variables of type float, vec2, vec3, vec4, or arrays of these. 
+		/// Eitherthe i, ui or f variants may be used to provide values for uniform variables of type bool, bvec2, bvec3, bvec4, or 
+		/// arraysof these. The uniform variable will be set to false if the input value is 0 or 0.0f, and it will be set to true 
+		/// otherwise.
+		/// All active uniform variables defined in a program object are initialized to 0 when the program object is linked 
+		/// successfully.They retain the values assigned to them by a call to glProgramUniform until the next successful link 
+		/// operationoccurs on the program object, when they are once again initialized to 0. 
+		/// The commands glProgramUniform{1|2|3|4}{f|i|ui}v can be used to modify a single uniform variable or a uniform variable 
+		/// array.These commands pass a count and a pointer to the values to be loaded into a uniform variable or a uniform variable 
+		/// array.A count of 1 should be used if modifying the value of a single uniform variable, and a count of 1 or greater can 
+		/// beused to modify an entire array or part of an array. When loading n elements starting at an arbitrary position m in a 
+		/// uniformvariable array, elements m + n - 1 in the array will be replaced with the new values. If m + n - 1 is larger than 
+		/// thesize of the uniform variable array, values for all array elements beyond the end of the array will be ignored. The 
+		/// numberspecified in the name of the command indicates the number of components for each element in value, and it should 
+		/// matchthe number of components in the data type of the specified uniform variable (e.g., 1 for float, int, bool; 2 for 
+		/// vec2,ivec2, bvec2, etc.). The data type specified in the name of the command must match the data type for the specified 
+		/// uniformvariable as described previously for glProgramUniform{1|2|3|4}{f|i|ui}. 
+		/// For uniform variable arrays, each element of the array is considered to be of the type indicated in the name of the 
+		/// command(e.g., glProgramUniform3f or glProgramUniform3fv can be used to load a uniform variable array of type vec3). The 
+		/// numberof elements of the uniform variable array to be modified is specified by count 
+		/// The commands glProgramUniformMatrix{2|3|4|2x3|3x2|2x4|4x2|3x4|4x3}fv are used to modify a matrix or an array of 
+		/// matrices.The numbers in the command name are interpreted as the dimensionality of the matrix. The number 2 indicates a 2 
+		/// ×2 matrix (i.e., 4 values), the number 3 indicates a 3 × 3 matrix (i.e., 9 values), and the number 4 indicates a 4 × 4 
+		/// matrix(i.e., 16 values). Non-square matrix dimensionality is explicit, with the first number representing the number of 
+		/// columnsand the second number representing the number of rows. For example, 2x4 indicates a 2 × 4 matrix with 2 columns 
+		/// and4 rows (i.e., 8 values). If transpose is GL_FALSE, each matrix is assumed to be supplied in column major order. If 
+		/// transposeis GL_TRUE, each matrix is assumed to be supplied in row major order. The count argument indicates the number 
+		/// ofmatrices to be passed. A count of 1 should be used if modifying the value of a single matrix, and a count greater than 
+		/// 1can be used to modify an array of matrices. 
+		/// <para>
+		/// The following errors can be generated:
+		/// - GL_INVALID_OPERATION is generated if program does not refer to a program object owned by the GL. 
+		/// - GL_INVALID_OPERATION is generated if the size of the uniform variable declared in the shader does not match the size 
+		///   indicatedby the glProgramUniform command. 
+		/// - GL_INVALID_OPERATION is generated if one of the signed or unsigned integer variants of this function is used to load a 
+		///   uniformvariable of type float, vec2, vec3, vec4, or an array of these, or if one of the floating-point variants of this 
+		///   functionis used to load a uniform variable of type int, ivec2, ivec3, ivec4, unsigned int, uvec2, uvec3, uvec4, or an 
+		///   arrayof these. 
+		/// - GL_INVALID_OPERATION is generated if one of the signed integer variants of this function is used to load a uniform 
+		///   variableof type unsigned int, uvec2, uvec3, uvec4, or an array of these. 
+		/// - GL_INVALID_OPERATION is generated if one of the unsigned integer variants of this function is used to load a uniform 
+		///   variableof type int, ivec2, ivec3, ivec4, or an array of these. 
+		/// - GL_INVALID_OPERATION is generated if location is an invalid uniform location for program and location is not equal to 
+		///   -1.
+		/// - GL_INVALID_VALUE is generated if count is less than 0. 
+		/// - GL_INVALID_OPERATION is generated if count is greater than 1 and the indicated uniform variable is not an array 
+		///   variable.
+		/// - GL_INVALID_OPERATION is generated if a sampler is loaded using a command other than glProgramUniform1i and 
+		///   glProgramUniform1iv.
+		/// </para>
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - glGetActiveUniform with the handle of a program object and the index of an active uniform variable 
+		/// - glGetUniform with the handle of a program object and the location of a uniform variable 
+		/// - glGetUniformLocation with the handle of a program object and the name of a uniform variable 
+		/// </para>
+		/// </remarks>
+		/// <seealso cref="Gl.LinkProgram"/>
+		/// <seealso cref="Gl.UseProgram"/>
+		public static void ProgramUniform3(UInt32 program, Int32 location, float v0, float v1, float v2)
+		{
+			if        (Delegates.pglProgramUniform3f != null) {
+				Delegates.pglProgramUniform3f(program, location, v0, v1, v2);
+				CallLog("glProgramUniform3f({0}, {1}, {2}, {3}, {4})", program, location, v0, v1, v2);
+			} else if (Delegates.pglProgramUniform3fEXT != null) {
+				Delegates.pglProgramUniform3fEXT(program, location, v0, v1, v2);
+				CallLog("glProgramUniform3fEXT({0}, {1}, {2}, {3}, {4})", program, location, v0, v1, v2);
+			} else
+				throw new NotImplementedException("glProgramUniform3f (and other aliases) are not implemented");
+			DebugCheckErrors();
+		}
+
+		/// <summary>
+		/// Specify the value of a uniform variable for a specified program object
+		/// </summary>
+		/// <param name="program">
+		/// Specifies the handle of the program containing the uniform variable to be modified. 
+		/// </param>
+		/// <param name="location">
+		/// Specifies the location of the uniform variable to be modified. 
+		/// </param>
+		/// <param name="count">
+		/// For the vector commands (glProgramUniform*v), specifies the number of elements that are to be modified. This should be 1 
+		/// ifthe targeted uniform variable is not an array, and 1 or more if it is an array. 
+		/// </param>
+		/// <param name="value">
+		/// For the vector and matrix commands, specifies a pointer to an array of count values that will be used to update the 
+		/// specifieduniform variable. 
+		/// </param>
+		/// <remarks>
+		/// glProgramUniform modifies the value of a uniform variable or a uniform variable array. The location of the uniform 
+		/// variableto be modified is specified by location, which should be a value returned by glGetUniformLocation. 
+		/// glProgramUniformoperates on the program object specified by program. 
+		/// The commands glProgramUniform{1|2|3|4}{f|i|ui} are used to change the value of the uniform variable specified by 
+		/// locationusing the values passed as arguments. The number specified in the command should match the number of components 
+		/// inthe data type of the specified uniform variable (e.g., 1 for float, int, unsigned int, bool; 2 for vec2, ivec2, uvec2, 
+		/// bvec2,etc.). The suffix f indicates that floating-point values are being passed; the suffix i indicates that integer 
+		/// valuesare being passed; the suffix ui indicates that unsigned integer values are being passed, and this type should also 
+		/// matchthe data type of the specified uniform variable. The i variants of this function should be used to provide values 
+		/// foruniform variables defined as int, ivec2, ivec3, ivec4, or arrays of these. The ui variants of this function should be 
+		/// usedto provide values for uniform variables defined as unsigned int, uvec2, uvec3, uvec4, or arrays of these. The f 
+		/// variantsshould be used to provide values for uniform variables of type float, vec2, vec3, vec4, or arrays of these. 
+		/// Eitherthe i, ui or f variants may be used to provide values for uniform variables of type bool, bvec2, bvec3, bvec4, or 
+		/// arraysof these. The uniform variable will be set to false if the input value is 0 or 0.0f, and it will be set to true 
+		/// otherwise.
+		/// All active uniform variables defined in a program object are initialized to 0 when the program object is linked 
+		/// successfully.They retain the values assigned to them by a call to glProgramUniform until the next successful link 
+		/// operationoccurs on the program object, when they are once again initialized to 0. 
+		/// The commands glProgramUniform{1|2|3|4}{f|i|ui}v can be used to modify a single uniform variable or a uniform variable 
+		/// array.These commands pass a count and a pointer to the values to be loaded into a uniform variable or a uniform variable 
+		/// array.A count of 1 should be used if modifying the value of a single uniform variable, and a count of 1 or greater can 
+		/// beused to modify an entire array or part of an array. When loading n elements starting at an arbitrary position m in a 
+		/// uniformvariable array, elements m + n - 1 in the array will be replaced with the new values. If m + n - 1 is larger than 
+		/// thesize of the uniform variable array, values for all array elements beyond the end of the array will be ignored. The 
+		/// numberspecified in the name of the command indicates the number of components for each element in value, and it should 
+		/// matchthe number of components in the data type of the specified uniform variable (e.g., 1 for float, int, bool; 2 for 
+		/// vec2,ivec2, bvec2, etc.). The data type specified in the name of the command must match the data type for the specified 
+		/// uniformvariable as described previously for glProgramUniform{1|2|3|4}{f|i|ui}. 
+		/// For uniform variable arrays, each element of the array is considered to be of the type indicated in the name of the 
+		/// command(e.g., glProgramUniform3f or glProgramUniform3fv can be used to load a uniform variable array of type vec3). The 
+		/// numberof elements of the uniform variable array to be modified is specified by count 
+		/// The commands glProgramUniformMatrix{2|3|4|2x3|3x2|2x4|4x2|3x4|4x3}fv are used to modify a matrix or an array of 
+		/// matrices.The numbers in the command name are interpreted as the dimensionality of the matrix. The number 2 indicates a 2 
+		/// ×2 matrix (i.e., 4 values), the number 3 indicates a 3 × 3 matrix (i.e., 9 values), and the number 4 indicates a 4 × 4 
+		/// matrix(i.e., 16 values). Non-square matrix dimensionality is explicit, with the first number representing the number of 
+		/// columnsand the second number representing the number of rows. For example, 2x4 indicates a 2 × 4 matrix with 2 columns 
+		/// and4 rows (i.e., 8 values). If transpose is GL_FALSE, each matrix is assumed to be supplied in column major order. If 
+		/// transposeis GL_TRUE, each matrix is assumed to be supplied in row major order. The count argument indicates the number 
+		/// ofmatrices to be passed. A count of 1 should be used if modifying the value of a single matrix, and a count greater than 
+		/// 1can be used to modify an array of matrices. 
+		/// <para>
+		/// The following errors can be generated:
+		/// - GL_INVALID_OPERATION is generated if program does not refer to a program object owned by the GL. 
+		/// - GL_INVALID_OPERATION is generated if the size of the uniform variable declared in the shader does not match the size 
+		///   indicatedby the glProgramUniform command. 
+		/// - GL_INVALID_OPERATION is generated if one of the signed or unsigned integer variants of this function is used to load a 
+		///   uniformvariable of type float, vec2, vec3, vec4, or an array of these, or if one of the floating-point variants of this 
+		///   functionis used to load a uniform variable of type int, ivec2, ivec3, ivec4, unsigned int, uvec2, uvec3, uvec4, or an 
+		///   arrayof these. 
+		/// - GL_INVALID_OPERATION is generated if one of the signed integer variants of this function is used to load a uniform 
+		///   variableof type unsigned int, uvec2, uvec3, uvec4, or an array of these. 
+		/// - GL_INVALID_OPERATION is generated if one of the unsigned integer variants of this function is used to load a uniform 
+		///   variableof type int, ivec2, ivec3, ivec4, or an array of these. 
+		/// - GL_INVALID_OPERATION is generated if location is an invalid uniform location for program and location is not equal to 
+		///   -1.
+		/// - GL_INVALID_VALUE is generated if count is less than 0. 
+		/// - GL_INVALID_OPERATION is generated if count is greater than 1 and the indicated uniform variable is not an array 
+		///   variable.
+		/// - GL_INVALID_OPERATION is generated if a sampler is loaded using a command other than glProgramUniform1i and 
+		///   glProgramUniform1iv.
+		/// </para>
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - glGetActiveUniform with the handle of a program object and the index of an active uniform variable 
+		/// - glGetUniform with the handle of a program object and the location of a uniform variable 
+		/// - glGetUniformLocation with the handle of a program object and the name of a uniform variable 
+		/// </para>
+		/// </remarks>
+		/// <seealso cref="Gl.LinkProgram"/>
+		/// <seealso cref="Gl.UseProgram"/>
+		public static void ProgramUniform3(UInt32 program, Int32 location, Int32 count, float[] value)
+		{
+			unsafe {
+				fixed (float* p_value = value)
+				{
+					if        (Delegates.pglProgramUniform3fv != null) {
+						Delegates.pglProgramUniform3fv(program, location, count, p_value);
+						CallLog("glProgramUniform3fv({0}, {1}, {2}, {3})", program, location, count, value);
+					} else if (Delegates.pglProgramUniform3fvEXT != null) {
+						Delegates.pglProgramUniform3fvEXT(program, location, count, p_value);
+						CallLog("glProgramUniform3fvEXT({0}, {1}, {2}, {3})", program, location, count, value);
+					} else
+						throw new NotImplementedException("glProgramUniform3fv (and other aliases) are not implemented");
+				}
+			}
+			DebugCheckErrors();
+		}
+
+		/// <summary>
+		/// Binding for glProgramUniform3d.
+		/// </summary>
+		/// <param name="program">
+		/// A <see cref="T:UInt32"/>.
+		/// </param>
+		/// <param name="location">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="v0">
+		/// A <see cref="T:double"/>.
+		/// </param>
+		/// <param name="v1">
+		/// A <see cref="T:double"/>.
+		/// </param>
+		/// <param name="v2">
+		/// A <see cref="T:double"/>.
+		/// </param>
+		public static void ProgramUniform3(UInt32 program, Int32 location, double v0, double v1, double v2)
+		{
+			Debug.Assert(Delegates.pglProgramUniform3d != null, "pglProgramUniform3d not implemented");
+			Delegates.pglProgramUniform3d(program, location, v0, v1, v2);
+			CallLog("glProgramUniform3d({0}, {1}, {2}, {3}, {4})", program, location, v0, v1, v2);
+			DebugCheckErrors();
+		}
+
+		/// <summary>
+		/// Binding for glProgramUniform3dv.
+		/// </summary>
+		/// <param name="program">
+		/// A <see cref="T:UInt32"/>.
+		/// </param>
+		/// <param name="location">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="count">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="value">
+		/// A <see cref="T:double[]"/>.
+		/// </param>
+		public static void ProgramUniform3(UInt32 program, Int32 location, Int32 count, double[] value)
+		{
+			unsafe {
+				fixed (double* p_value = value)
+				{
+					Debug.Assert(Delegates.pglProgramUniform3dv != null, "pglProgramUniform3dv not implemented");
+					Delegates.pglProgramUniform3dv(program, location, count, p_value);
+					CallLog("glProgramUniform3dv({0}, {1}, {2}, {3})", program, location, count, value);
+				}
+			}
+			DebugCheckErrors();
+		}
+
+		/// <summary>
+		/// Specify the value of a uniform variable for a specified program object
+		/// </summary>
+		/// <param name="program">
+		/// Specifies the handle of the program containing the uniform variable to be modified. 
+		/// </param>
+		/// <param name="location">
+		/// Specifies the location of the uniform variable to be modified. 
+		/// </param>
+		/// <param name="v0">
+		/// For the scalar commands, specifies the new values to be used for the specified uniform variable. 
+		/// </param>
+		/// <param name="v1">
+		/// For the scalar commands, specifies the new values to be used for the specified uniform variable. 
+		/// </param>
+		/// <param name="v2">
+		/// For the scalar commands, specifies the new values to be used for the specified uniform variable. 
+		/// </param>
+		/// <remarks>
+		/// glProgramUniform modifies the value of a uniform variable or a uniform variable array. The location of the uniform 
+		/// variableto be modified is specified by location, which should be a value returned by glGetUniformLocation. 
+		/// glProgramUniformoperates on the program object specified by program. 
+		/// The commands glProgramUniform{1|2|3|4}{f|i|ui} are used to change the value of the uniform variable specified by 
+		/// locationusing the values passed as arguments. The number specified in the command should match the number of components 
+		/// inthe data type of the specified uniform variable (e.g., 1 for float, int, unsigned int, bool; 2 for vec2, ivec2, uvec2, 
+		/// bvec2,etc.). The suffix f indicates that floating-point values are being passed; the suffix i indicates that integer 
+		/// valuesare being passed; the suffix ui indicates that unsigned integer values are being passed, and this type should also 
+		/// matchthe data type of the specified uniform variable. The i variants of this function should be used to provide values 
+		/// foruniform variables defined as int, ivec2, ivec3, ivec4, or arrays of these. The ui variants of this function should be 
+		/// usedto provide values for uniform variables defined as unsigned int, uvec2, uvec3, uvec4, or arrays of these. The f 
+		/// variantsshould be used to provide values for uniform variables of type float, vec2, vec3, vec4, or arrays of these. 
+		/// Eitherthe i, ui or f variants may be used to provide values for uniform variables of type bool, bvec2, bvec3, bvec4, or 
+		/// arraysof these. The uniform variable will be set to false if the input value is 0 or 0.0f, and it will be set to true 
+		/// otherwise.
+		/// All active uniform variables defined in a program object are initialized to 0 when the program object is linked 
+		/// successfully.They retain the values assigned to them by a call to glProgramUniform until the next successful link 
+		/// operationoccurs on the program object, when they are once again initialized to 0. 
+		/// The commands glProgramUniform{1|2|3|4}{f|i|ui}v can be used to modify a single uniform variable or a uniform variable 
+		/// array.These commands pass a count and a pointer to the values to be loaded into a uniform variable or a uniform variable 
+		/// array.A count of 1 should be used if modifying the value of a single uniform variable, and a count of 1 or greater can 
+		/// beused to modify an entire array or part of an array. When loading n elements starting at an arbitrary position m in a 
+		/// uniformvariable array, elements m + n - 1 in the array will be replaced with the new values. If m + n - 1 is larger than 
+		/// thesize of the uniform variable array, values for all array elements beyond the end of the array will be ignored. The 
+		/// numberspecified in the name of the command indicates the number of components for each element in value, and it should 
+		/// matchthe number of components in the data type of the specified uniform variable (e.g., 1 for float, int, bool; 2 for 
+		/// vec2,ivec2, bvec2, etc.). The data type specified in the name of the command must match the data type for the specified 
+		/// uniformvariable as described previously for glProgramUniform{1|2|3|4}{f|i|ui}. 
+		/// For uniform variable arrays, each element of the array is considered to be of the type indicated in the name of the 
+		/// command(e.g., glProgramUniform3f or glProgramUniform3fv can be used to load a uniform variable array of type vec3). The 
+		/// numberof elements of the uniform variable array to be modified is specified by count 
+		/// The commands glProgramUniformMatrix{2|3|4|2x3|3x2|2x4|4x2|3x4|4x3}fv are used to modify a matrix or an array of 
+		/// matrices.The numbers in the command name are interpreted as the dimensionality of the matrix. The number 2 indicates a 2 
+		/// ×2 matrix (i.e., 4 values), the number 3 indicates a 3 × 3 matrix (i.e., 9 values), and the number 4 indicates a 4 × 4 
+		/// matrix(i.e., 16 values). Non-square matrix dimensionality is explicit, with the first number representing the number of 
+		/// columnsand the second number representing the number of rows. For example, 2x4 indicates a 2 × 4 matrix with 2 columns 
+		/// and4 rows (i.e., 8 values). If transpose is GL_FALSE, each matrix is assumed to be supplied in column major order. If 
+		/// transposeis GL_TRUE, each matrix is assumed to be supplied in row major order. The count argument indicates the number 
+		/// ofmatrices to be passed. A count of 1 should be used if modifying the value of a single matrix, and a count greater than 
+		/// 1can be used to modify an array of matrices. 
+		/// <para>
+		/// The following errors can be generated:
+		/// - GL_INVALID_OPERATION is generated if program does not refer to a program object owned by the GL. 
+		/// - GL_INVALID_OPERATION is generated if the size of the uniform variable declared in the shader does not match the size 
+		///   indicatedby the glProgramUniform command. 
+		/// - GL_INVALID_OPERATION is generated if one of the signed or unsigned integer variants of this function is used to load a 
+		///   uniformvariable of type float, vec2, vec3, vec4, or an array of these, or if one of the floating-point variants of this 
+		///   functionis used to load a uniform variable of type int, ivec2, ivec3, ivec4, unsigned int, uvec2, uvec3, uvec4, or an 
+		///   arrayof these. 
+		/// - GL_INVALID_OPERATION is generated if one of the signed integer variants of this function is used to load a uniform 
+		///   variableof type unsigned int, uvec2, uvec3, uvec4, or an array of these. 
+		/// - GL_INVALID_OPERATION is generated if one of the unsigned integer variants of this function is used to load a uniform 
+		///   variableof type int, ivec2, ivec3, ivec4, or an array of these. 
+		/// - GL_INVALID_OPERATION is generated if location is an invalid uniform location for program and location is not equal to 
+		///   -1.
+		/// - GL_INVALID_VALUE is generated if count is less than 0. 
+		/// - GL_INVALID_OPERATION is generated if count is greater than 1 and the indicated uniform variable is not an array 
+		///   variable.
+		/// - GL_INVALID_OPERATION is generated if a sampler is loaded using a command other than glProgramUniform1i and 
+		///   glProgramUniform1iv.
+		/// </para>
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - glGetActiveUniform with the handle of a program object and the index of an active uniform variable 
+		/// - glGetUniform with the handle of a program object and the location of a uniform variable 
+		/// - glGetUniformLocation with the handle of a program object and the name of a uniform variable 
+		/// </para>
+		/// </remarks>
+		/// <seealso cref="Gl.LinkProgram"/>
+		/// <seealso cref="Gl.UseProgram"/>
+		public static void ProgramUniform3(UInt32 program, Int32 location, UInt32 v0, UInt32 v1, UInt32 v2)
+		{
+			if        (Delegates.pglProgramUniform3ui != null) {
+				Delegates.pglProgramUniform3ui(program, location, v0, v1, v2);
+				CallLog("glProgramUniform3ui({0}, {1}, {2}, {3}, {4})", program, location, v0, v1, v2);
+			} else if (Delegates.pglProgramUniform3uiEXT != null) {
+				Delegates.pglProgramUniform3uiEXT(program, location, v0, v1, v2);
+				CallLog("glProgramUniform3uiEXT({0}, {1}, {2}, {3}, {4})", program, location, v0, v1, v2);
+			} else
+				throw new NotImplementedException("glProgramUniform3ui (and other aliases) are not implemented");
+			DebugCheckErrors();
+		}
+
+		/// <summary>
+		/// Specify the value of a uniform variable for a specified program object
+		/// </summary>
+		/// <param name="program">
+		/// Specifies the handle of the program containing the uniform variable to be modified. 
+		/// </param>
+		/// <param name="location">
+		/// Specifies the location of the uniform variable to be modified. 
+		/// </param>
+		/// <param name="count">
+		/// For the vector commands (glProgramUniform*v), specifies the number of elements that are to be modified. This should be 1 
+		/// ifthe targeted uniform variable is not an array, and 1 or more if it is an array. 
+		/// </param>
+		/// <param name="value">
+		/// For the vector and matrix commands, specifies a pointer to an array of count values that will be used to update the 
+		/// specifieduniform variable. 
+		/// </param>
+		/// <remarks>
+		/// glProgramUniform modifies the value of a uniform variable or a uniform variable array. The location of the uniform 
+		/// variableto be modified is specified by location, which should be a value returned by glGetUniformLocation. 
+		/// glProgramUniformoperates on the program object specified by program. 
+		/// The commands glProgramUniform{1|2|3|4}{f|i|ui} are used to change the value of the uniform variable specified by 
+		/// locationusing the values passed as arguments. The number specified in the command should match the number of components 
+		/// inthe data type of the specified uniform variable (e.g., 1 for float, int, unsigned int, bool; 2 for vec2, ivec2, uvec2, 
+		/// bvec2,etc.). The suffix f indicates that floating-point values are being passed; the suffix i indicates that integer 
+		/// valuesare being passed; the suffix ui indicates that unsigned integer values are being passed, and this type should also 
+		/// matchthe data type of the specified uniform variable. The i variants of this function should be used to provide values 
+		/// foruniform variables defined as int, ivec2, ivec3, ivec4, or arrays of these. The ui variants of this function should be 
+		/// usedto provide values for uniform variables defined as unsigned int, uvec2, uvec3, uvec4, or arrays of these. The f 
+		/// variantsshould be used to provide values for uniform variables of type float, vec2, vec3, vec4, or arrays of these. 
+		/// Eitherthe i, ui or f variants may be used to provide values for uniform variables of type bool, bvec2, bvec3, bvec4, or 
+		/// arraysof these. The uniform variable will be set to false if the input value is 0 or 0.0f, and it will be set to true 
+		/// otherwise.
+		/// All active uniform variables defined in a program object are initialized to 0 when the program object is linked 
+		/// successfully.They retain the values assigned to them by a call to glProgramUniform until the next successful link 
+		/// operationoccurs on the program object, when they are once again initialized to 0. 
+		/// The commands glProgramUniform{1|2|3|4}{f|i|ui}v can be used to modify a single uniform variable or a uniform variable 
+		/// array.These commands pass a count and a pointer to the values to be loaded into a uniform variable or a uniform variable 
+		/// array.A count of 1 should be used if modifying the value of a single uniform variable, and a count of 1 or greater can 
+		/// beused to modify an entire array or part of an array. When loading n elements starting at an arbitrary position m in a 
+		/// uniformvariable array, elements m + n - 1 in the array will be replaced with the new values. If m + n - 1 is larger than 
+		/// thesize of the uniform variable array, values for all array elements beyond the end of the array will be ignored. The 
+		/// numberspecified in the name of the command indicates the number of components for each element in value, and it should 
+		/// matchthe number of components in the data type of the specified uniform variable (e.g., 1 for float, int, bool; 2 for 
+		/// vec2,ivec2, bvec2, etc.). The data type specified in the name of the command must match the data type for the specified 
+		/// uniformvariable as described previously for glProgramUniform{1|2|3|4}{f|i|ui}. 
+		/// For uniform variable arrays, each element of the array is considered to be of the type indicated in the name of the 
+		/// command(e.g., glProgramUniform3f or glProgramUniform3fv can be used to load a uniform variable array of type vec3). The 
+		/// numberof elements of the uniform variable array to be modified is specified by count 
+		/// The commands glProgramUniformMatrix{2|3|4|2x3|3x2|2x4|4x2|3x4|4x3}fv are used to modify a matrix or an array of 
+		/// matrices.The numbers in the command name are interpreted as the dimensionality of the matrix. The number 2 indicates a 2 
+		/// ×2 matrix (i.e., 4 values), the number 3 indicates a 3 × 3 matrix (i.e., 9 values), and the number 4 indicates a 4 × 4 
+		/// matrix(i.e., 16 values). Non-square matrix dimensionality is explicit, with the first number representing the number of 
+		/// columnsand the second number representing the number of rows. For example, 2x4 indicates a 2 × 4 matrix with 2 columns 
+		/// and4 rows (i.e., 8 values). If transpose is GL_FALSE, each matrix is assumed to be supplied in column major order. If 
+		/// transposeis GL_TRUE, each matrix is assumed to be supplied in row major order. The count argument indicates the number 
+		/// ofmatrices to be passed. A count of 1 should be used if modifying the value of a single matrix, and a count greater than 
+		/// 1can be used to modify an array of matrices. 
+		/// <para>
+		/// The following errors can be generated:
+		/// - GL_INVALID_OPERATION is generated if program does not refer to a program object owned by the GL. 
+		/// - GL_INVALID_OPERATION is generated if the size of the uniform variable declared in the shader does not match the size 
+		///   indicatedby the glProgramUniform command. 
+		/// - GL_INVALID_OPERATION is generated if one of the signed or unsigned integer variants of this function is used to load a 
+		///   uniformvariable of type float, vec2, vec3, vec4, or an array of these, or if one of the floating-point variants of this 
+		///   functionis used to load a uniform variable of type int, ivec2, ivec3, ivec4, unsigned int, uvec2, uvec3, uvec4, or an 
+		///   arrayof these. 
+		/// - GL_INVALID_OPERATION is generated if one of the signed integer variants of this function is used to load a uniform 
+		///   variableof type unsigned int, uvec2, uvec3, uvec4, or an array of these. 
+		/// - GL_INVALID_OPERATION is generated if one of the unsigned integer variants of this function is used to load a uniform 
+		///   variableof type int, ivec2, ivec3, ivec4, or an array of these. 
+		/// - GL_INVALID_OPERATION is generated if location is an invalid uniform location for program and location is not equal to 
+		///   -1.
+		/// - GL_INVALID_VALUE is generated if count is less than 0. 
+		/// - GL_INVALID_OPERATION is generated if count is greater than 1 and the indicated uniform variable is not an array 
+		///   variable.
+		/// - GL_INVALID_OPERATION is generated if a sampler is loaded using a command other than glProgramUniform1i and 
+		///   glProgramUniform1iv.
+		/// </para>
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - glGetActiveUniform with the handle of a program object and the index of an active uniform variable 
+		/// - glGetUniform with the handle of a program object and the location of a uniform variable 
+		/// - glGetUniformLocation with the handle of a program object and the name of a uniform variable 
+		/// </para>
+		/// </remarks>
+		/// <seealso cref="Gl.LinkProgram"/>
+		/// <seealso cref="Gl.UseProgram"/>
+		public static void ProgramUniform3(UInt32 program, Int32 location, Int32 count, UInt32[] value)
+		{
+			unsafe {
+				fixed (UInt32* p_value = value)
+				{
+					if        (Delegates.pglProgramUniform3uiv != null) {
+						Delegates.pglProgramUniform3uiv(program, location, count, p_value);
+						CallLog("glProgramUniform3uiv({0}, {1}, {2}, {3})", program, location, count, value);
+					} else if (Delegates.pglProgramUniform3uivEXT != null) {
+						Delegates.pglProgramUniform3uivEXT(program, location, count, p_value);
+						CallLog("glProgramUniform3uivEXT({0}, {1}, {2}, {3})", program, location, count, value);
+					} else
+						throw new NotImplementedException("glProgramUniform3uiv (and other aliases) are not implemented");
+				}
+			}
+			DebugCheckErrors();
+		}
+
+		/// <summary>
+		/// Specify the value of a uniform variable for a specified program object
+		/// </summary>
+		/// <param name="program">
+		/// Specifies the handle of the program containing the uniform variable to be modified. 
+		/// </param>
+		/// <param name="location">
+		/// Specifies the location of the uniform variable to be modified. 
+		/// </param>
+		/// <param name="v0">
+		/// For the scalar commands, specifies the new values to be used for the specified uniform variable. 
+		/// </param>
+		/// <param name="v1">
+		/// For the scalar commands, specifies the new values to be used for the specified uniform variable. 
+		/// </param>
+		/// <param name="v2">
+		/// For the scalar commands, specifies the new values to be used for the specified uniform variable. 
+		/// </param>
+		/// <param name="v3">
+		/// For the scalar commands, specifies the new values to be used for the specified uniform variable. 
+		/// </param>
+		/// <remarks>
+		/// glProgramUniform modifies the value of a uniform variable or a uniform variable array. The location of the uniform 
+		/// variableto be modified is specified by location, which should be a value returned by glGetUniformLocation. 
+		/// glProgramUniformoperates on the program object specified by program. 
+		/// The commands glProgramUniform{1|2|3|4}{f|i|ui} are used to change the value of the uniform variable specified by 
+		/// locationusing the values passed as arguments. The number specified in the command should match the number of components 
+		/// inthe data type of the specified uniform variable (e.g., 1 for float, int, unsigned int, bool; 2 for vec2, ivec2, uvec2, 
+		/// bvec2,etc.). The suffix f indicates that floating-point values are being passed; the suffix i indicates that integer 
+		/// valuesare being passed; the suffix ui indicates that unsigned integer values are being passed, and this type should also 
+		/// matchthe data type of the specified uniform variable. The i variants of this function should be used to provide values 
+		/// foruniform variables defined as int, ivec2, ivec3, ivec4, or arrays of these. The ui variants of this function should be 
+		/// usedto provide values for uniform variables defined as unsigned int, uvec2, uvec3, uvec4, or arrays of these. The f 
+		/// variantsshould be used to provide values for uniform variables of type float, vec2, vec3, vec4, or arrays of these. 
+		/// Eitherthe i, ui or f variants may be used to provide values for uniform variables of type bool, bvec2, bvec3, bvec4, or 
+		/// arraysof these. The uniform variable will be set to false if the input value is 0 or 0.0f, and it will be set to true 
+		/// otherwise.
+		/// All active uniform variables defined in a program object are initialized to 0 when the program object is linked 
+		/// successfully.They retain the values assigned to them by a call to glProgramUniform until the next successful link 
+		/// operationoccurs on the program object, when they are once again initialized to 0. 
+		/// The commands glProgramUniform{1|2|3|4}{f|i|ui}v can be used to modify a single uniform variable or a uniform variable 
+		/// array.These commands pass a count and a pointer to the values to be loaded into a uniform variable or a uniform variable 
+		/// array.A count of 1 should be used if modifying the value of a single uniform variable, and a count of 1 or greater can 
+		/// beused to modify an entire array or part of an array. When loading n elements starting at an arbitrary position m in a 
+		/// uniformvariable array, elements m + n - 1 in the array will be replaced with the new values. If m + n - 1 is larger than 
+		/// thesize of the uniform variable array, values for all array elements beyond the end of the array will be ignored. The 
+		/// numberspecified in the name of the command indicates the number of components for each element in value, and it should 
+		/// matchthe number of components in the data type of the specified uniform variable (e.g., 1 for float, int, bool; 2 for 
+		/// vec2,ivec2, bvec2, etc.). The data type specified in the name of the command must match the data type for the specified 
+		/// uniformvariable as described previously for glProgramUniform{1|2|3|4}{f|i|ui}. 
+		/// For uniform variable arrays, each element of the array is considered to be of the type indicated in the name of the 
+		/// command(e.g., glProgramUniform3f or glProgramUniform3fv can be used to load a uniform variable array of type vec3). The 
+		/// numberof elements of the uniform variable array to be modified is specified by count 
+		/// The commands glProgramUniformMatrix{2|3|4|2x3|3x2|2x4|4x2|3x4|4x3}fv are used to modify a matrix or an array of 
+		/// matrices.The numbers in the command name are interpreted as the dimensionality of the matrix. The number 2 indicates a 2 
+		/// ×2 matrix (i.e., 4 values), the number 3 indicates a 3 × 3 matrix (i.e., 9 values), and the number 4 indicates a 4 × 4 
+		/// matrix(i.e., 16 values). Non-square matrix dimensionality is explicit, with the first number representing the number of 
+		/// columnsand the second number representing the number of rows. For example, 2x4 indicates a 2 × 4 matrix with 2 columns 
+		/// and4 rows (i.e., 8 values). If transpose is GL_FALSE, each matrix is assumed to be supplied in column major order. If 
+		/// transposeis GL_TRUE, each matrix is assumed to be supplied in row major order. The count argument indicates the number 
+		/// ofmatrices to be passed. A count of 1 should be used if modifying the value of a single matrix, and a count greater than 
+		/// 1can be used to modify an array of matrices. 
+		/// <para>
+		/// The following errors can be generated:
+		/// - GL_INVALID_OPERATION is generated if program does not refer to a program object owned by the GL. 
+		/// - GL_INVALID_OPERATION is generated if the size of the uniform variable declared in the shader does not match the size 
+		///   indicatedby the glProgramUniform command. 
+		/// - GL_INVALID_OPERATION is generated if one of the signed or unsigned integer variants of this function is used to load a 
+		///   uniformvariable of type float, vec2, vec3, vec4, or an array of these, or if one of the floating-point variants of this 
+		///   functionis used to load a uniform variable of type int, ivec2, ivec3, ivec4, unsigned int, uvec2, uvec3, uvec4, or an 
+		///   arrayof these. 
+		/// - GL_INVALID_OPERATION is generated if one of the signed integer variants of this function is used to load a uniform 
+		///   variableof type unsigned int, uvec2, uvec3, uvec4, or an array of these. 
+		/// - GL_INVALID_OPERATION is generated if one of the unsigned integer variants of this function is used to load a uniform 
+		///   variableof type int, ivec2, ivec3, ivec4, or an array of these. 
+		/// - GL_INVALID_OPERATION is generated if location is an invalid uniform location for program and location is not equal to 
+		///   -1.
+		/// - GL_INVALID_VALUE is generated if count is less than 0. 
+		/// - GL_INVALID_OPERATION is generated if count is greater than 1 and the indicated uniform variable is not an array 
+		///   variable.
+		/// - GL_INVALID_OPERATION is generated if a sampler is loaded using a command other than glProgramUniform1i and 
+		///   glProgramUniform1iv.
+		/// </para>
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - glGetActiveUniform with the handle of a program object and the index of an active uniform variable 
+		/// - glGetUniform with the handle of a program object and the location of a uniform variable 
+		/// - glGetUniformLocation with the handle of a program object and the name of a uniform variable 
+		/// </para>
+		/// </remarks>
+		/// <seealso cref="Gl.LinkProgram"/>
+		/// <seealso cref="Gl.UseProgram"/>
+		public static void ProgramUniform4(UInt32 program, Int32 location, Int32 v0, Int32 v1, Int32 v2, Int32 v3)
+		{
+			if        (Delegates.pglProgramUniform4i != null) {
+				Delegates.pglProgramUniform4i(program, location, v0, v1, v2, v3);
+				CallLog("glProgramUniform4i({0}, {1}, {2}, {3}, {4}, {5})", program, location, v0, v1, v2, v3);
+			} else if (Delegates.pglProgramUniform4iEXT != null) {
+				Delegates.pglProgramUniform4iEXT(program, location, v0, v1, v2, v3);
+				CallLog("glProgramUniform4iEXT({0}, {1}, {2}, {3}, {4}, {5})", program, location, v0, v1, v2, v3);
+			} else
+				throw new NotImplementedException("glProgramUniform4i (and other aliases) are not implemented");
+			DebugCheckErrors();
+		}
+
+		/// <summary>
+		/// Specify the value of a uniform variable for a specified program object
+		/// </summary>
+		/// <param name="program">
+		/// Specifies the handle of the program containing the uniform variable to be modified. 
+		/// </param>
+		/// <param name="location">
+		/// Specifies the location of the uniform variable to be modified. 
+		/// </param>
+		/// <param name="count">
+		/// For the vector commands (glProgramUniform*v), specifies the number of elements that are to be modified. This should be 1 
+		/// ifthe targeted uniform variable is not an array, and 1 or more if it is an array. 
+		/// </param>
+		/// <param name="value">
+		/// For the vector and matrix commands, specifies a pointer to an array of count values that will be used to update the 
+		/// specifieduniform variable. 
+		/// </param>
+		/// <remarks>
+		/// glProgramUniform modifies the value of a uniform variable or a uniform variable array. The location of the uniform 
+		/// variableto be modified is specified by location, which should be a value returned by glGetUniformLocation. 
+		/// glProgramUniformoperates on the program object specified by program. 
+		/// The commands glProgramUniform{1|2|3|4}{f|i|ui} are used to change the value of the uniform variable specified by 
+		/// locationusing the values passed as arguments. The number specified in the command should match the number of components 
+		/// inthe data type of the specified uniform variable (e.g., 1 for float, int, unsigned int, bool; 2 for vec2, ivec2, uvec2, 
+		/// bvec2,etc.). The suffix f indicates that floating-point values are being passed; the suffix i indicates that integer 
+		/// valuesare being passed; the suffix ui indicates that unsigned integer values are being passed, and this type should also 
+		/// matchthe data type of the specified uniform variable. The i variants of this function should be used to provide values 
+		/// foruniform variables defined as int, ivec2, ivec3, ivec4, or arrays of these. The ui variants of this function should be 
+		/// usedto provide values for uniform variables defined as unsigned int, uvec2, uvec3, uvec4, or arrays of these. The f 
+		/// variantsshould be used to provide values for uniform variables of type float, vec2, vec3, vec4, or arrays of these. 
+		/// Eitherthe i, ui or f variants may be used to provide values for uniform variables of type bool, bvec2, bvec3, bvec4, or 
+		/// arraysof these. The uniform variable will be set to false if the input value is 0 or 0.0f, and it will be set to true 
+		/// otherwise.
+		/// All active uniform variables defined in a program object are initialized to 0 when the program object is linked 
+		/// successfully.They retain the values assigned to them by a call to glProgramUniform until the next successful link 
+		/// operationoccurs on the program object, when they are once again initialized to 0. 
+		/// The commands glProgramUniform{1|2|3|4}{f|i|ui}v can be used to modify a single uniform variable or a uniform variable 
+		/// array.These commands pass a count and a pointer to the values to be loaded into a uniform variable or a uniform variable 
+		/// array.A count of 1 should be used if modifying the value of a single uniform variable, and a count of 1 or greater can 
+		/// beused to modify an entire array or part of an array. When loading n elements starting at an arbitrary position m in a 
+		/// uniformvariable array, elements m + n - 1 in the array will be replaced with the new values. If m + n - 1 is larger than 
+		/// thesize of the uniform variable array, values for all array elements beyond the end of the array will be ignored. The 
+		/// numberspecified in the name of the command indicates the number of components for each element in value, and it should 
+		/// matchthe number of components in the data type of the specified uniform variable (e.g., 1 for float, int, bool; 2 for 
+		/// vec2,ivec2, bvec2, etc.). The data type specified in the name of the command must match the data type for the specified 
+		/// uniformvariable as described previously for glProgramUniform{1|2|3|4}{f|i|ui}. 
+		/// For uniform variable arrays, each element of the array is considered to be of the type indicated in the name of the 
+		/// command(e.g., glProgramUniform3f or glProgramUniform3fv can be used to load a uniform variable array of type vec3). The 
+		/// numberof elements of the uniform variable array to be modified is specified by count 
+		/// The commands glProgramUniformMatrix{2|3|4|2x3|3x2|2x4|4x2|3x4|4x3}fv are used to modify a matrix or an array of 
+		/// matrices.The numbers in the command name are interpreted as the dimensionality of the matrix. The number 2 indicates a 2 
+		/// ×2 matrix (i.e., 4 values), the number 3 indicates a 3 × 3 matrix (i.e., 9 values), and the number 4 indicates a 4 × 4 
+		/// matrix(i.e., 16 values). Non-square matrix dimensionality is explicit, with the first number representing the number of 
+		/// columnsand the second number representing the number of rows. For example, 2x4 indicates a 2 × 4 matrix with 2 columns 
+		/// and4 rows (i.e., 8 values). If transpose is GL_FALSE, each matrix is assumed to be supplied in column major order. If 
+		/// transposeis GL_TRUE, each matrix is assumed to be supplied in row major order. The count argument indicates the number 
+		/// ofmatrices to be passed. A count of 1 should be used if modifying the value of a single matrix, and a count greater than 
+		/// 1can be used to modify an array of matrices. 
+		/// <para>
+		/// The following errors can be generated:
+		/// - GL_INVALID_OPERATION is generated if program does not refer to a program object owned by the GL. 
+		/// - GL_INVALID_OPERATION is generated if the size of the uniform variable declared in the shader does not match the size 
+		///   indicatedby the glProgramUniform command. 
+		/// - GL_INVALID_OPERATION is generated if one of the signed or unsigned integer variants of this function is used to load a 
+		///   uniformvariable of type float, vec2, vec3, vec4, or an array of these, or if one of the floating-point variants of this 
+		///   functionis used to load a uniform variable of type int, ivec2, ivec3, ivec4, unsigned int, uvec2, uvec3, uvec4, or an 
+		///   arrayof these. 
+		/// - GL_INVALID_OPERATION is generated if one of the signed integer variants of this function is used to load a uniform 
+		///   variableof type unsigned int, uvec2, uvec3, uvec4, or an array of these. 
+		/// - GL_INVALID_OPERATION is generated if one of the unsigned integer variants of this function is used to load a uniform 
+		///   variableof type int, ivec2, ivec3, ivec4, or an array of these. 
+		/// - GL_INVALID_OPERATION is generated if location is an invalid uniform location for program and location is not equal to 
+		///   -1.
+		/// - GL_INVALID_VALUE is generated if count is less than 0. 
+		/// - GL_INVALID_OPERATION is generated if count is greater than 1 and the indicated uniform variable is not an array 
+		///   variable.
+		/// - GL_INVALID_OPERATION is generated if a sampler is loaded using a command other than glProgramUniform1i and 
+		///   glProgramUniform1iv.
+		/// </para>
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - glGetActiveUniform with the handle of a program object and the index of an active uniform variable 
+		/// - glGetUniform with the handle of a program object and the location of a uniform variable 
+		/// - glGetUniformLocation with the handle of a program object and the name of a uniform variable 
+		/// </para>
+		/// </remarks>
+		/// <seealso cref="Gl.LinkProgram"/>
+		/// <seealso cref="Gl.UseProgram"/>
+		public static void ProgramUniform4(UInt32 program, Int32 location, Int32 count, Int32[] value)
+		{
+			unsafe {
+				fixed (Int32* p_value = value)
+				{
+					if        (Delegates.pglProgramUniform4iv != null) {
+						Delegates.pglProgramUniform4iv(program, location, count, p_value);
+						CallLog("glProgramUniform4iv({0}, {1}, {2}, {3})", program, location, count, value);
+					} else if (Delegates.pglProgramUniform4ivEXT != null) {
+						Delegates.pglProgramUniform4ivEXT(program, location, count, p_value);
+						CallLog("glProgramUniform4ivEXT({0}, {1}, {2}, {3})", program, location, count, value);
+					} else
+						throw new NotImplementedException("glProgramUniform4iv (and other aliases) are not implemented");
+				}
+			}
+			DebugCheckErrors();
+		}
+
+		/// <summary>
+		/// Specify the value of a uniform variable for a specified program object
+		/// </summary>
+		/// <param name="program">
+		/// Specifies the handle of the program containing the uniform variable to be modified. 
+		/// </param>
+		/// <param name="location">
+		/// Specifies the location of the uniform variable to be modified. 
+		/// </param>
+		/// <param name="v0">
+		/// For the scalar commands, specifies the new values to be used for the specified uniform variable. 
+		/// </param>
+		/// <param name="v1">
+		/// For the scalar commands, specifies the new values to be used for the specified uniform variable. 
+		/// </param>
+		/// <param name="v2">
+		/// For the scalar commands, specifies the new values to be used for the specified uniform variable. 
+		/// </param>
+		/// <param name="v3">
+		/// For the scalar commands, specifies the new values to be used for the specified uniform variable. 
+		/// </param>
+		/// <remarks>
+		/// glProgramUniform modifies the value of a uniform variable or a uniform variable array. The location of the uniform 
+		/// variableto be modified is specified by location, which should be a value returned by glGetUniformLocation. 
+		/// glProgramUniformoperates on the program object specified by program. 
+		/// The commands glProgramUniform{1|2|3|4}{f|i|ui} are used to change the value of the uniform variable specified by 
+		/// locationusing the values passed as arguments. The number specified in the command should match the number of components 
+		/// inthe data type of the specified uniform variable (e.g., 1 for float, int, unsigned int, bool; 2 for vec2, ivec2, uvec2, 
+		/// bvec2,etc.). The suffix f indicates that floating-point values are being passed; the suffix i indicates that integer 
+		/// valuesare being passed; the suffix ui indicates that unsigned integer values are being passed, and this type should also 
+		/// matchthe data type of the specified uniform variable. The i variants of this function should be used to provide values 
+		/// foruniform variables defined as int, ivec2, ivec3, ivec4, or arrays of these. The ui variants of this function should be 
+		/// usedto provide values for uniform variables defined as unsigned int, uvec2, uvec3, uvec4, or arrays of these. The f 
+		/// variantsshould be used to provide values for uniform variables of type float, vec2, vec3, vec4, or arrays of these. 
+		/// Eitherthe i, ui or f variants may be used to provide values for uniform variables of type bool, bvec2, bvec3, bvec4, or 
+		/// arraysof these. The uniform variable will be set to false if the input value is 0 or 0.0f, and it will be set to true 
+		/// otherwise.
+		/// All active uniform variables defined in a program object are initialized to 0 when the program object is linked 
+		/// successfully.They retain the values assigned to them by a call to glProgramUniform until the next successful link 
+		/// operationoccurs on the program object, when they are once again initialized to 0. 
+		/// The commands glProgramUniform{1|2|3|4}{f|i|ui}v can be used to modify a single uniform variable or a uniform variable 
+		/// array.These commands pass a count and a pointer to the values to be loaded into a uniform variable or a uniform variable 
+		/// array.A count of 1 should be used if modifying the value of a single uniform variable, and a count of 1 or greater can 
+		/// beused to modify an entire array or part of an array. When loading n elements starting at an arbitrary position m in a 
+		/// uniformvariable array, elements m + n - 1 in the array will be replaced with the new values. If m + n - 1 is larger than 
+		/// thesize of the uniform variable array, values for all array elements beyond the end of the array will be ignored. The 
+		/// numberspecified in the name of the command indicates the number of components for each element in value, and it should 
+		/// matchthe number of components in the data type of the specified uniform variable (e.g., 1 for float, int, bool; 2 for 
+		/// vec2,ivec2, bvec2, etc.). The data type specified in the name of the command must match the data type for the specified 
+		/// uniformvariable as described previously for glProgramUniform{1|2|3|4}{f|i|ui}. 
+		/// For uniform variable arrays, each element of the array is considered to be of the type indicated in the name of the 
+		/// command(e.g., glProgramUniform3f or glProgramUniform3fv can be used to load a uniform variable array of type vec3). The 
+		/// numberof elements of the uniform variable array to be modified is specified by count 
+		/// The commands glProgramUniformMatrix{2|3|4|2x3|3x2|2x4|4x2|3x4|4x3}fv are used to modify a matrix or an array of 
+		/// matrices.The numbers in the command name are interpreted as the dimensionality of the matrix. The number 2 indicates a 2 
+		/// ×2 matrix (i.e., 4 values), the number 3 indicates a 3 × 3 matrix (i.e., 9 values), and the number 4 indicates a 4 × 4 
+		/// matrix(i.e., 16 values). Non-square matrix dimensionality is explicit, with the first number representing the number of 
+		/// columnsand the second number representing the number of rows. For example, 2x4 indicates a 2 × 4 matrix with 2 columns 
+		/// and4 rows (i.e., 8 values). If transpose is GL_FALSE, each matrix is assumed to be supplied in column major order. If 
+		/// transposeis GL_TRUE, each matrix is assumed to be supplied in row major order. The count argument indicates the number 
+		/// ofmatrices to be passed. A count of 1 should be used if modifying the value of a single matrix, and a count greater than 
+		/// 1can be used to modify an array of matrices. 
+		/// <para>
+		/// The following errors can be generated:
+		/// - GL_INVALID_OPERATION is generated if program does not refer to a program object owned by the GL. 
+		/// - GL_INVALID_OPERATION is generated if the size of the uniform variable declared in the shader does not match the size 
+		///   indicatedby the glProgramUniform command. 
+		/// - GL_INVALID_OPERATION is generated if one of the signed or unsigned integer variants of this function is used to load a 
+		///   uniformvariable of type float, vec2, vec3, vec4, or an array of these, or if one of the floating-point variants of this 
+		///   functionis used to load a uniform variable of type int, ivec2, ivec3, ivec4, unsigned int, uvec2, uvec3, uvec4, or an 
+		///   arrayof these. 
+		/// - GL_INVALID_OPERATION is generated if one of the signed integer variants of this function is used to load a uniform 
+		///   variableof type unsigned int, uvec2, uvec3, uvec4, or an array of these. 
+		/// - GL_INVALID_OPERATION is generated if one of the unsigned integer variants of this function is used to load a uniform 
+		///   variableof type int, ivec2, ivec3, ivec4, or an array of these. 
+		/// - GL_INVALID_OPERATION is generated if location is an invalid uniform location for program and location is not equal to 
+		///   -1.
+		/// - GL_INVALID_VALUE is generated if count is less than 0. 
+		/// - GL_INVALID_OPERATION is generated if count is greater than 1 and the indicated uniform variable is not an array 
+		///   variable.
+		/// - GL_INVALID_OPERATION is generated if a sampler is loaded using a command other than glProgramUniform1i and 
+		///   glProgramUniform1iv.
+		/// </para>
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - glGetActiveUniform with the handle of a program object and the index of an active uniform variable 
+		/// - glGetUniform with the handle of a program object and the location of a uniform variable 
+		/// - glGetUniformLocation with the handle of a program object and the name of a uniform variable 
+		/// </para>
+		/// </remarks>
+		/// <seealso cref="Gl.LinkProgram"/>
+		/// <seealso cref="Gl.UseProgram"/>
+		public static void ProgramUniform4(UInt32 program, Int32 location, float v0, float v1, float v2, float v3)
+		{
+			if        (Delegates.pglProgramUniform4f != null) {
+				Delegates.pglProgramUniform4f(program, location, v0, v1, v2, v3);
+				CallLog("glProgramUniform4f({0}, {1}, {2}, {3}, {4}, {5})", program, location, v0, v1, v2, v3);
+			} else if (Delegates.pglProgramUniform4fEXT != null) {
+				Delegates.pglProgramUniform4fEXT(program, location, v0, v1, v2, v3);
+				CallLog("glProgramUniform4fEXT({0}, {1}, {2}, {3}, {4}, {5})", program, location, v0, v1, v2, v3);
+			} else
+				throw new NotImplementedException("glProgramUniform4f (and other aliases) are not implemented");
+			DebugCheckErrors();
+		}
+
+		/// <summary>
+		/// Specify the value of a uniform variable for a specified program object
+		/// </summary>
+		/// <param name="program">
+		/// Specifies the handle of the program containing the uniform variable to be modified. 
+		/// </param>
+		/// <param name="location">
+		/// Specifies the location of the uniform variable to be modified. 
+		/// </param>
+		/// <param name="count">
+		/// For the vector commands (glProgramUniform*v), specifies the number of elements that are to be modified. This should be 1 
+		/// ifthe targeted uniform variable is not an array, and 1 or more if it is an array. 
+		/// </param>
+		/// <param name="value">
+		/// For the vector and matrix commands, specifies a pointer to an array of count values that will be used to update the 
+		/// specifieduniform variable. 
+		/// </param>
+		/// <remarks>
+		/// glProgramUniform modifies the value of a uniform variable or a uniform variable array. The location of the uniform 
+		/// variableto be modified is specified by location, which should be a value returned by glGetUniformLocation. 
+		/// glProgramUniformoperates on the program object specified by program. 
+		/// The commands glProgramUniform{1|2|3|4}{f|i|ui} are used to change the value of the uniform variable specified by 
+		/// locationusing the values passed as arguments. The number specified in the command should match the number of components 
+		/// inthe data type of the specified uniform variable (e.g., 1 for float, int, unsigned int, bool; 2 for vec2, ivec2, uvec2, 
+		/// bvec2,etc.). The suffix f indicates that floating-point values are being passed; the suffix i indicates that integer 
+		/// valuesare being passed; the suffix ui indicates that unsigned integer values are being passed, and this type should also 
+		/// matchthe data type of the specified uniform variable. The i variants of this function should be used to provide values 
+		/// foruniform variables defined as int, ivec2, ivec3, ivec4, or arrays of these. The ui variants of this function should be 
+		/// usedto provide values for uniform variables defined as unsigned int, uvec2, uvec3, uvec4, or arrays of these. The f 
+		/// variantsshould be used to provide values for uniform variables of type float, vec2, vec3, vec4, or arrays of these. 
+		/// Eitherthe i, ui or f variants may be used to provide values for uniform variables of type bool, bvec2, bvec3, bvec4, or 
+		/// arraysof these. The uniform variable will be set to false if the input value is 0 or 0.0f, and it will be set to true 
+		/// otherwise.
+		/// All active uniform variables defined in a program object are initialized to 0 when the program object is linked 
+		/// successfully.They retain the values assigned to them by a call to glProgramUniform until the next successful link 
+		/// operationoccurs on the program object, when they are once again initialized to 0. 
+		/// The commands glProgramUniform{1|2|3|4}{f|i|ui}v can be used to modify a single uniform variable or a uniform variable 
+		/// array.These commands pass a count and a pointer to the values to be loaded into a uniform variable or a uniform variable 
+		/// array.A count of 1 should be used if modifying the value of a single uniform variable, and a count of 1 or greater can 
+		/// beused to modify an entire array or part of an array. When loading n elements starting at an arbitrary position m in a 
+		/// uniformvariable array, elements m + n - 1 in the array will be replaced with the new values. If m + n - 1 is larger than 
+		/// thesize of the uniform variable array, values for all array elements beyond the end of the array will be ignored. The 
+		/// numberspecified in the name of the command indicates the number of components for each element in value, and it should 
+		/// matchthe number of components in the data type of the specified uniform variable (e.g., 1 for float, int, bool; 2 for 
+		/// vec2,ivec2, bvec2, etc.). The data type specified in the name of the command must match the data type for the specified 
+		/// uniformvariable as described previously for glProgramUniform{1|2|3|4}{f|i|ui}. 
+		/// For uniform variable arrays, each element of the array is considered to be of the type indicated in the name of the 
+		/// command(e.g., glProgramUniform3f or glProgramUniform3fv can be used to load a uniform variable array of type vec3). The 
+		/// numberof elements of the uniform variable array to be modified is specified by count 
+		/// The commands glProgramUniformMatrix{2|3|4|2x3|3x2|2x4|4x2|3x4|4x3}fv are used to modify a matrix or an array of 
+		/// matrices.The numbers in the command name are interpreted as the dimensionality of the matrix. The number 2 indicates a 2 
+		/// ×2 matrix (i.e., 4 values), the number 3 indicates a 3 × 3 matrix (i.e., 9 values), and the number 4 indicates a 4 × 4 
+		/// matrix(i.e., 16 values). Non-square matrix dimensionality is explicit, with the first number representing the number of 
+		/// columnsand the second number representing the number of rows. For example, 2x4 indicates a 2 × 4 matrix with 2 columns 
+		/// and4 rows (i.e., 8 values). If transpose is GL_FALSE, each matrix is assumed to be supplied in column major order. If 
+		/// transposeis GL_TRUE, each matrix is assumed to be supplied in row major order. The count argument indicates the number 
+		/// ofmatrices to be passed. A count of 1 should be used if modifying the value of a single matrix, and a count greater than 
+		/// 1can be used to modify an array of matrices. 
+		/// <para>
+		/// The following errors can be generated:
+		/// - GL_INVALID_OPERATION is generated if program does not refer to a program object owned by the GL. 
+		/// - GL_INVALID_OPERATION is generated if the size of the uniform variable declared in the shader does not match the size 
+		///   indicatedby the glProgramUniform command. 
+		/// - GL_INVALID_OPERATION is generated if one of the signed or unsigned integer variants of this function is used to load a 
+		///   uniformvariable of type float, vec2, vec3, vec4, or an array of these, or if one of the floating-point variants of this 
+		///   functionis used to load a uniform variable of type int, ivec2, ivec3, ivec4, unsigned int, uvec2, uvec3, uvec4, or an 
+		///   arrayof these. 
+		/// - GL_INVALID_OPERATION is generated if one of the signed integer variants of this function is used to load a uniform 
+		///   variableof type unsigned int, uvec2, uvec3, uvec4, or an array of these. 
+		/// - GL_INVALID_OPERATION is generated if one of the unsigned integer variants of this function is used to load a uniform 
+		///   variableof type int, ivec2, ivec3, ivec4, or an array of these. 
+		/// - GL_INVALID_OPERATION is generated if location is an invalid uniform location for program and location is not equal to 
+		///   -1.
+		/// - GL_INVALID_VALUE is generated if count is less than 0. 
+		/// - GL_INVALID_OPERATION is generated if count is greater than 1 and the indicated uniform variable is not an array 
+		///   variable.
+		/// - GL_INVALID_OPERATION is generated if a sampler is loaded using a command other than glProgramUniform1i and 
+		///   glProgramUniform1iv.
+		/// </para>
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - glGetActiveUniform with the handle of a program object and the index of an active uniform variable 
+		/// - glGetUniform with the handle of a program object and the location of a uniform variable 
+		/// - glGetUniformLocation with the handle of a program object and the name of a uniform variable 
+		/// </para>
+		/// </remarks>
+		/// <seealso cref="Gl.LinkProgram"/>
+		/// <seealso cref="Gl.UseProgram"/>
+		public static void ProgramUniform4(UInt32 program, Int32 location, Int32 count, float[] value)
+		{
+			unsafe {
+				fixed (float* p_value = value)
+				{
+					if        (Delegates.pglProgramUniform4fv != null) {
+						Delegates.pglProgramUniform4fv(program, location, count, p_value);
+						CallLog("glProgramUniform4fv({0}, {1}, {2}, {3})", program, location, count, value);
+					} else if (Delegates.pglProgramUniform4fvEXT != null) {
+						Delegates.pglProgramUniform4fvEXT(program, location, count, p_value);
+						CallLog("glProgramUniform4fvEXT({0}, {1}, {2}, {3})", program, location, count, value);
+					} else
+						throw new NotImplementedException("glProgramUniform4fv (and other aliases) are not implemented");
+				}
+			}
+			DebugCheckErrors();
+		}
+
+		/// <summary>
+		/// Binding for glProgramUniform4d.
+		/// </summary>
+		/// <param name="program">
+		/// A <see cref="T:UInt32"/>.
+		/// </param>
+		/// <param name="location">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="v0">
+		/// A <see cref="T:double"/>.
+		/// </param>
+		/// <param name="v1">
+		/// A <see cref="T:double"/>.
+		/// </param>
+		/// <param name="v2">
+		/// A <see cref="T:double"/>.
+		/// </param>
+		/// <param name="v3">
+		/// A <see cref="T:double"/>.
+		/// </param>
+		public static void ProgramUniform4(UInt32 program, Int32 location, double v0, double v1, double v2, double v3)
+		{
+			Debug.Assert(Delegates.pglProgramUniform4d != null, "pglProgramUniform4d not implemented");
+			Delegates.pglProgramUniform4d(program, location, v0, v1, v2, v3);
+			CallLog("glProgramUniform4d({0}, {1}, {2}, {3}, {4}, {5})", program, location, v0, v1, v2, v3);
+			DebugCheckErrors();
+		}
+
+		/// <summary>
+		/// Binding for glProgramUniform4dv.
+		/// </summary>
+		/// <param name="program">
+		/// A <see cref="T:UInt32"/>.
+		/// </param>
+		/// <param name="location">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="count">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="value">
+		/// A <see cref="T:double[]"/>.
+		/// </param>
+		public static void ProgramUniform4(UInt32 program, Int32 location, Int32 count, double[] value)
+		{
+			unsafe {
+				fixed (double* p_value = value)
+				{
+					Debug.Assert(Delegates.pglProgramUniform4dv != null, "pglProgramUniform4dv not implemented");
+					Delegates.pglProgramUniform4dv(program, location, count, p_value);
+					CallLog("glProgramUniform4dv({0}, {1}, {2}, {3})", program, location, count, value);
+				}
+			}
+			DebugCheckErrors();
+		}
+
+		/// <summary>
+		/// Specify the value of a uniform variable for a specified program object
+		/// </summary>
+		/// <param name="program">
+		/// Specifies the handle of the program containing the uniform variable to be modified. 
+		/// </param>
+		/// <param name="location">
+		/// Specifies the location of the uniform variable to be modified. 
+		/// </param>
+		/// <param name="v0">
+		/// For the scalar commands, specifies the new values to be used for the specified uniform variable. 
+		/// </param>
+		/// <param name="v1">
+		/// For the scalar commands, specifies the new values to be used for the specified uniform variable. 
+		/// </param>
+		/// <param name="v2">
+		/// For the scalar commands, specifies the new values to be used for the specified uniform variable. 
+		/// </param>
+		/// <param name="v3">
+		/// For the scalar commands, specifies the new values to be used for the specified uniform variable. 
+		/// </param>
+		/// <remarks>
+		/// glProgramUniform modifies the value of a uniform variable or a uniform variable array. The location of the uniform 
+		/// variableto be modified is specified by location, which should be a value returned by glGetUniformLocation. 
+		/// glProgramUniformoperates on the program object specified by program. 
+		/// The commands glProgramUniform{1|2|3|4}{f|i|ui} are used to change the value of the uniform variable specified by 
+		/// locationusing the values passed as arguments. The number specified in the command should match the number of components 
+		/// inthe data type of the specified uniform variable (e.g., 1 for float, int, unsigned int, bool; 2 for vec2, ivec2, uvec2, 
+		/// bvec2,etc.). The suffix f indicates that floating-point values are being passed; the suffix i indicates that integer 
+		/// valuesare being passed; the suffix ui indicates that unsigned integer values are being passed, and this type should also 
+		/// matchthe data type of the specified uniform variable. The i variants of this function should be used to provide values 
+		/// foruniform variables defined as int, ivec2, ivec3, ivec4, or arrays of these. The ui variants of this function should be 
+		/// usedto provide values for uniform variables defined as unsigned int, uvec2, uvec3, uvec4, or arrays of these. The f 
+		/// variantsshould be used to provide values for uniform variables of type float, vec2, vec3, vec4, or arrays of these. 
+		/// Eitherthe i, ui or f variants may be used to provide values for uniform variables of type bool, bvec2, bvec3, bvec4, or 
+		/// arraysof these. The uniform variable will be set to false if the input value is 0 or 0.0f, and it will be set to true 
+		/// otherwise.
+		/// All active uniform variables defined in a program object are initialized to 0 when the program object is linked 
+		/// successfully.They retain the values assigned to them by a call to glProgramUniform until the next successful link 
+		/// operationoccurs on the program object, when they are once again initialized to 0. 
+		/// The commands glProgramUniform{1|2|3|4}{f|i|ui}v can be used to modify a single uniform variable or a uniform variable 
+		/// array.These commands pass a count and a pointer to the values to be loaded into a uniform variable or a uniform variable 
+		/// array.A count of 1 should be used if modifying the value of a single uniform variable, and a count of 1 or greater can 
+		/// beused to modify an entire array or part of an array. When loading n elements starting at an arbitrary position m in a 
+		/// uniformvariable array, elements m + n - 1 in the array will be replaced with the new values. If m + n - 1 is larger than 
+		/// thesize of the uniform variable array, values for all array elements beyond the end of the array will be ignored. The 
+		/// numberspecified in the name of the command indicates the number of components for each element in value, and it should 
+		/// matchthe number of components in the data type of the specified uniform variable (e.g., 1 for float, int, bool; 2 for 
+		/// vec2,ivec2, bvec2, etc.). The data type specified in the name of the command must match the data type for the specified 
+		/// uniformvariable as described previously for glProgramUniform{1|2|3|4}{f|i|ui}. 
+		/// For uniform variable arrays, each element of the array is considered to be of the type indicated in the name of the 
+		/// command(e.g., glProgramUniform3f or glProgramUniform3fv can be used to load a uniform variable array of type vec3). The 
+		/// numberof elements of the uniform variable array to be modified is specified by count 
+		/// The commands glProgramUniformMatrix{2|3|4|2x3|3x2|2x4|4x2|3x4|4x3}fv are used to modify a matrix or an array of 
+		/// matrices.The numbers in the command name are interpreted as the dimensionality of the matrix. The number 2 indicates a 2 
+		/// ×2 matrix (i.e., 4 values), the number 3 indicates a 3 × 3 matrix (i.e., 9 values), and the number 4 indicates a 4 × 4 
+		/// matrix(i.e., 16 values). Non-square matrix dimensionality is explicit, with the first number representing the number of 
+		/// columnsand the second number representing the number of rows. For example, 2x4 indicates a 2 × 4 matrix with 2 columns 
+		/// and4 rows (i.e., 8 values). If transpose is GL_FALSE, each matrix is assumed to be supplied in column major order. If 
+		/// transposeis GL_TRUE, each matrix is assumed to be supplied in row major order. The count argument indicates the number 
+		/// ofmatrices to be passed. A count of 1 should be used if modifying the value of a single matrix, and a count greater than 
+		/// 1can be used to modify an array of matrices. 
+		/// <para>
+		/// The following errors can be generated:
+		/// - GL_INVALID_OPERATION is generated if program does not refer to a program object owned by the GL. 
+		/// - GL_INVALID_OPERATION is generated if the size of the uniform variable declared in the shader does not match the size 
+		///   indicatedby the glProgramUniform command. 
+		/// - GL_INVALID_OPERATION is generated if one of the signed or unsigned integer variants of this function is used to load a 
+		///   uniformvariable of type float, vec2, vec3, vec4, or an array of these, or if one of the floating-point variants of this 
+		///   functionis used to load a uniform variable of type int, ivec2, ivec3, ivec4, unsigned int, uvec2, uvec3, uvec4, or an 
+		///   arrayof these. 
+		/// - GL_INVALID_OPERATION is generated if one of the signed integer variants of this function is used to load a uniform 
+		///   variableof type unsigned int, uvec2, uvec3, uvec4, or an array of these. 
+		/// - GL_INVALID_OPERATION is generated if one of the unsigned integer variants of this function is used to load a uniform 
+		///   variableof type int, ivec2, ivec3, ivec4, or an array of these. 
+		/// - GL_INVALID_OPERATION is generated if location is an invalid uniform location for program and location is not equal to 
+		///   -1.
+		/// - GL_INVALID_VALUE is generated if count is less than 0. 
+		/// - GL_INVALID_OPERATION is generated if count is greater than 1 and the indicated uniform variable is not an array 
+		///   variable.
+		/// - GL_INVALID_OPERATION is generated if a sampler is loaded using a command other than glProgramUniform1i and 
+		///   glProgramUniform1iv.
+		/// </para>
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - glGetActiveUniform with the handle of a program object and the index of an active uniform variable 
+		/// - glGetUniform with the handle of a program object and the location of a uniform variable 
+		/// - glGetUniformLocation with the handle of a program object and the name of a uniform variable 
+		/// </para>
+		/// </remarks>
+		/// <seealso cref="Gl.LinkProgram"/>
+		/// <seealso cref="Gl.UseProgram"/>
+		public static void ProgramUniform4(UInt32 program, Int32 location, UInt32 v0, UInt32 v1, UInt32 v2, UInt32 v3)
+		{
+			if        (Delegates.pglProgramUniform4ui != null) {
+				Delegates.pglProgramUniform4ui(program, location, v0, v1, v2, v3);
+				CallLog("glProgramUniform4ui({0}, {1}, {2}, {3}, {4}, {5})", program, location, v0, v1, v2, v3);
+			} else if (Delegates.pglProgramUniform4uiEXT != null) {
+				Delegates.pglProgramUniform4uiEXT(program, location, v0, v1, v2, v3);
+				CallLog("glProgramUniform4uiEXT({0}, {1}, {2}, {3}, {4}, {5})", program, location, v0, v1, v2, v3);
+			} else
+				throw new NotImplementedException("glProgramUniform4ui (and other aliases) are not implemented");
+			DebugCheckErrors();
+		}
+
+		/// <summary>
+		/// Specify the value of a uniform variable for a specified program object
+		/// </summary>
+		/// <param name="program">
+		/// Specifies the handle of the program containing the uniform variable to be modified. 
+		/// </param>
+		/// <param name="location">
+		/// Specifies the location of the uniform variable to be modified. 
+		/// </param>
+		/// <param name="count">
+		/// For the vector commands (glProgramUniform*v), specifies the number of elements that are to be modified. This should be 1 
+		/// ifthe targeted uniform variable is not an array, and 1 or more if it is an array. 
+		/// </param>
+		/// <param name="value">
+		/// For the vector and matrix commands, specifies a pointer to an array of count values that will be used to update the 
+		/// specifieduniform variable. 
+		/// </param>
+		/// <remarks>
+		/// glProgramUniform modifies the value of a uniform variable or a uniform variable array. The location of the uniform 
+		/// variableto be modified is specified by location, which should be a value returned by glGetUniformLocation. 
+		/// glProgramUniformoperates on the program object specified by program. 
+		/// The commands glProgramUniform{1|2|3|4}{f|i|ui} are used to change the value of the uniform variable specified by 
+		/// locationusing the values passed as arguments. The number specified in the command should match the number of components 
+		/// inthe data type of the specified uniform variable (e.g., 1 for float, int, unsigned int, bool; 2 for vec2, ivec2, uvec2, 
+		/// bvec2,etc.). The suffix f indicates that floating-point values are being passed; the suffix i indicates that integer 
+		/// valuesare being passed; the suffix ui indicates that unsigned integer values are being passed, and this type should also 
+		/// matchthe data type of the specified uniform variable. The i variants of this function should be used to provide values 
+		/// foruniform variables defined as int, ivec2, ivec3, ivec4, or arrays of these. The ui variants of this function should be 
+		/// usedto provide values for uniform variables defined as unsigned int, uvec2, uvec3, uvec4, or arrays of these. The f 
+		/// variantsshould be used to provide values for uniform variables of type float, vec2, vec3, vec4, or arrays of these. 
+		/// Eitherthe i, ui or f variants may be used to provide values for uniform variables of type bool, bvec2, bvec3, bvec4, or 
+		/// arraysof these. The uniform variable will be set to false if the input value is 0 or 0.0f, and it will be set to true 
+		/// otherwise.
+		/// All active uniform variables defined in a program object are initialized to 0 when the program object is linked 
+		/// successfully.They retain the values assigned to them by a call to glProgramUniform until the next successful link 
+		/// operationoccurs on the program object, when they are once again initialized to 0. 
+		/// The commands glProgramUniform{1|2|3|4}{f|i|ui}v can be used to modify a single uniform variable or a uniform variable 
+		/// array.These commands pass a count and a pointer to the values to be loaded into a uniform variable or a uniform variable 
+		/// array.A count of 1 should be used if modifying the value of a single uniform variable, and a count of 1 or greater can 
+		/// beused to modify an entire array or part of an array. When loading n elements starting at an arbitrary position m in a 
+		/// uniformvariable array, elements m + n - 1 in the array will be replaced with the new values. If m + n - 1 is larger than 
+		/// thesize of the uniform variable array, values for all array elements beyond the end of the array will be ignored. The 
+		/// numberspecified in the name of the command indicates the number of components for each element in value, and it should 
+		/// matchthe number of components in the data type of the specified uniform variable (e.g., 1 for float, int, bool; 2 for 
+		/// vec2,ivec2, bvec2, etc.). The data type specified in the name of the command must match the data type for the specified 
+		/// uniformvariable as described previously for glProgramUniform{1|2|3|4}{f|i|ui}. 
+		/// For uniform variable arrays, each element of the array is considered to be of the type indicated in the name of the 
+		/// command(e.g., glProgramUniform3f or glProgramUniform3fv can be used to load a uniform variable array of type vec3). The 
+		/// numberof elements of the uniform variable array to be modified is specified by count 
+		/// The commands glProgramUniformMatrix{2|3|4|2x3|3x2|2x4|4x2|3x4|4x3}fv are used to modify a matrix or an array of 
+		/// matrices.The numbers in the command name are interpreted as the dimensionality of the matrix. The number 2 indicates a 2 
+		/// ×2 matrix (i.e., 4 values), the number 3 indicates a 3 × 3 matrix (i.e., 9 values), and the number 4 indicates a 4 × 4 
+		/// matrix(i.e., 16 values). Non-square matrix dimensionality is explicit, with the first number representing the number of 
+		/// columnsand the second number representing the number of rows. For example, 2x4 indicates a 2 × 4 matrix with 2 columns 
+		/// and4 rows (i.e., 8 values). If transpose is GL_FALSE, each matrix is assumed to be supplied in column major order. If 
+		/// transposeis GL_TRUE, each matrix is assumed to be supplied in row major order. The count argument indicates the number 
+		/// ofmatrices to be passed. A count of 1 should be used if modifying the value of a single matrix, and a count greater than 
+		/// 1can be used to modify an array of matrices. 
+		/// <para>
+		/// The following errors can be generated:
+		/// - GL_INVALID_OPERATION is generated if program does not refer to a program object owned by the GL. 
+		/// - GL_INVALID_OPERATION is generated if the size of the uniform variable declared in the shader does not match the size 
+		///   indicatedby the glProgramUniform command. 
+		/// - GL_INVALID_OPERATION is generated if one of the signed or unsigned integer variants of this function is used to load a 
+		///   uniformvariable of type float, vec2, vec3, vec4, or an array of these, or if one of the floating-point variants of this 
+		///   functionis used to load a uniform variable of type int, ivec2, ivec3, ivec4, unsigned int, uvec2, uvec3, uvec4, or an 
+		///   arrayof these. 
+		/// - GL_INVALID_OPERATION is generated if one of the signed integer variants of this function is used to load a uniform 
+		///   variableof type unsigned int, uvec2, uvec3, uvec4, or an array of these. 
+		/// - GL_INVALID_OPERATION is generated if one of the unsigned integer variants of this function is used to load a uniform 
+		///   variableof type int, ivec2, ivec3, ivec4, or an array of these. 
+		/// - GL_INVALID_OPERATION is generated if location is an invalid uniform location for program and location is not equal to 
+		///   -1.
+		/// - GL_INVALID_VALUE is generated if count is less than 0. 
+		/// - GL_INVALID_OPERATION is generated if count is greater than 1 and the indicated uniform variable is not an array 
+		///   variable.
+		/// - GL_INVALID_OPERATION is generated if a sampler is loaded using a command other than glProgramUniform1i and 
+		///   glProgramUniform1iv.
+		/// </para>
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - glGetActiveUniform with the handle of a program object and the index of an active uniform variable 
+		/// - glGetUniform with the handle of a program object and the location of a uniform variable 
+		/// - glGetUniformLocation with the handle of a program object and the name of a uniform variable 
+		/// </para>
+		/// </remarks>
+		/// <seealso cref="Gl.LinkProgram"/>
+		/// <seealso cref="Gl.UseProgram"/>
+		public static void ProgramUniform4(UInt32 program, Int32 location, Int32 count, UInt32[] value)
+		{
+			unsafe {
+				fixed (UInt32* p_value = value)
+				{
+					if        (Delegates.pglProgramUniform4uiv != null) {
+						Delegates.pglProgramUniform4uiv(program, location, count, p_value);
+						CallLog("glProgramUniform4uiv({0}, {1}, {2}, {3})", program, location, count, value);
+					} else if (Delegates.pglProgramUniform4uivEXT != null) {
+						Delegates.pglProgramUniform4uivEXT(program, location, count, p_value);
+						CallLog("glProgramUniform4uivEXT({0}, {1}, {2}, {3})", program, location, count, value);
+					} else
+						throw new NotImplementedException("glProgramUniform4uiv (and other aliases) are not implemented");
+				}
+			}
+			DebugCheckErrors();
+		}
+
+		/// <summary>
+		/// Specify the value of a uniform variable for a specified program object
+		/// </summary>
+		/// <param name="program">
+		/// Specifies the handle of the program containing the uniform variable to be modified. 
+		/// </param>
+		/// <param name="location">
+		/// Specifies the location of the uniform variable to be modified. 
+		/// </param>
+		/// <param name="count">
+		/// For the vector commands (glProgramUniform*v), specifies the number of elements that are to be modified. This should be 1 
+		/// ifthe targeted uniform variable is not an array, and 1 or more if it is an array. 
+		/// </param>
+		/// <param name="transpose">
+		/// For the matrix commands, specifies whether to transpose the matrix as the values are loaded into the uniform variable. 
+		/// </param>
+		/// <param name="value">
+		/// For the vector and matrix commands, specifies a pointer to an array of count values that will be used to update the 
+		/// specifieduniform variable. 
+		/// </param>
+		/// <remarks>
+		/// glProgramUniform modifies the value of a uniform variable or a uniform variable array. The location of the uniform 
+		/// variableto be modified is specified by location, which should be a value returned by glGetUniformLocation. 
+		/// glProgramUniformoperates on the program object specified by program. 
+		/// The commands glProgramUniform{1|2|3|4}{f|i|ui} are used to change the value of the uniform variable specified by 
+		/// locationusing the values passed as arguments. The number specified in the command should match the number of components 
+		/// inthe data type of the specified uniform variable (e.g., 1 for float, int, unsigned int, bool; 2 for vec2, ivec2, uvec2, 
+		/// bvec2,etc.). The suffix f indicates that floating-point values are being passed; the suffix i indicates that integer 
+		/// valuesare being passed; the suffix ui indicates that unsigned integer values are being passed, and this type should also 
+		/// matchthe data type of the specified uniform variable. The i variants of this function should be used to provide values 
+		/// foruniform variables defined as int, ivec2, ivec3, ivec4, or arrays of these. The ui variants of this function should be 
+		/// usedto provide values for uniform variables defined as unsigned int, uvec2, uvec3, uvec4, or arrays of these. The f 
+		/// variantsshould be used to provide values for uniform variables of type float, vec2, vec3, vec4, or arrays of these. 
+		/// Eitherthe i, ui or f variants may be used to provide values for uniform variables of type bool, bvec2, bvec3, bvec4, or 
+		/// arraysof these. The uniform variable will be set to false if the input value is 0 or 0.0f, and it will be set to true 
+		/// otherwise.
+		/// All active uniform variables defined in a program object are initialized to 0 when the program object is linked 
+		/// successfully.They retain the values assigned to them by a call to glProgramUniform until the next successful link 
+		/// operationoccurs on the program object, when they are once again initialized to 0. 
+		/// The commands glProgramUniform{1|2|3|4}{f|i|ui}v can be used to modify a single uniform variable or a uniform variable 
+		/// array.These commands pass a count and a pointer to the values to be loaded into a uniform variable or a uniform variable 
+		/// array.A count of 1 should be used if modifying the value of a single uniform variable, and a count of 1 or greater can 
+		/// beused to modify an entire array or part of an array. When loading n elements starting at an arbitrary position m in a 
+		/// uniformvariable array, elements m + n - 1 in the array will be replaced with the new values. If m + n - 1 is larger than 
+		/// thesize of the uniform variable array, values for all array elements beyond the end of the array will be ignored. The 
+		/// numberspecified in the name of the command indicates the number of components for each element in value, and it should 
+		/// matchthe number of components in the data type of the specified uniform variable (e.g., 1 for float, int, bool; 2 for 
+		/// vec2,ivec2, bvec2, etc.). The data type specified in the name of the command must match the data type for the specified 
+		/// uniformvariable as described previously for glProgramUniform{1|2|3|4}{f|i|ui}. 
+		/// For uniform variable arrays, each element of the array is considered to be of the type indicated in the name of the 
+		/// command(e.g., glProgramUniform3f or glProgramUniform3fv can be used to load a uniform variable array of type vec3). The 
+		/// numberof elements of the uniform variable array to be modified is specified by count 
+		/// The commands glProgramUniformMatrix{2|3|4|2x3|3x2|2x4|4x2|3x4|4x3}fv are used to modify a matrix or an array of 
+		/// matrices.The numbers in the command name are interpreted as the dimensionality of the matrix. The number 2 indicates a 2 
+		/// ×2 matrix (i.e., 4 values), the number 3 indicates a 3 × 3 matrix (i.e., 9 values), and the number 4 indicates a 4 × 4 
+		/// matrix(i.e., 16 values). Non-square matrix dimensionality is explicit, with the first number representing the number of 
+		/// columnsand the second number representing the number of rows. For example, 2x4 indicates a 2 × 4 matrix with 2 columns 
+		/// and4 rows (i.e., 8 values). If transpose is GL_FALSE, each matrix is assumed to be supplied in column major order. If 
+		/// transposeis GL_TRUE, each matrix is assumed to be supplied in row major order. The count argument indicates the number 
+		/// ofmatrices to be passed. A count of 1 should be used if modifying the value of a single matrix, and a count greater than 
+		/// 1can be used to modify an array of matrices. 
+		/// <para>
+		/// The following errors can be generated:
+		/// - GL_INVALID_OPERATION is generated if program does not refer to a program object owned by the GL. 
+		/// - GL_INVALID_OPERATION is generated if the size of the uniform variable declared in the shader does not match the size 
+		///   indicatedby the glProgramUniform command. 
+		/// - GL_INVALID_OPERATION is generated if one of the signed or unsigned integer variants of this function is used to load a 
+		///   uniformvariable of type float, vec2, vec3, vec4, or an array of these, or if one of the floating-point variants of this 
+		///   functionis used to load a uniform variable of type int, ivec2, ivec3, ivec4, unsigned int, uvec2, uvec3, uvec4, or an 
+		///   arrayof these. 
+		/// - GL_INVALID_OPERATION is generated if one of the signed integer variants of this function is used to load a uniform 
+		///   variableof type unsigned int, uvec2, uvec3, uvec4, or an array of these. 
+		/// - GL_INVALID_OPERATION is generated if one of the unsigned integer variants of this function is used to load a uniform 
+		///   variableof type int, ivec2, ivec3, ivec4, or an array of these. 
+		/// - GL_INVALID_OPERATION is generated if location is an invalid uniform location for program and location is not equal to 
+		///   -1.
+		/// - GL_INVALID_VALUE is generated if count is less than 0. 
+		/// - GL_INVALID_OPERATION is generated if count is greater than 1 and the indicated uniform variable is not an array 
+		///   variable.
+		/// - GL_INVALID_OPERATION is generated if a sampler is loaded using a command other than glProgramUniform1i and 
+		///   glProgramUniform1iv.
+		/// </para>
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - glGetActiveUniform with the handle of a program object and the index of an active uniform variable 
+		/// - glGetUniform with the handle of a program object and the location of a uniform variable 
+		/// - glGetUniformLocation with the handle of a program object and the name of a uniform variable 
+		/// </para>
+		/// </remarks>
+		/// <seealso cref="Gl.LinkProgram"/>
+		/// <seealso cref="Gl.UseProgram"/>
+		public static void ProgramUniformMatrix2(UInt32 program, Int32 location, Int32 count, bool transpose, float[] value)
+		{
+			unsafe {
+				fixed (float* p_value = value)
+				{
+					if        (Delegates.pglProgramUniformMatrix2fv != null) {
+						Delegates.pglProgramUniformMatrix2fv(program, location, count, transpose, p_value);
+						CallLog("glProgramUniformMatrix2fv({0}, {1}, {2}, {3}, {4})", program, location, count, transpose, value);
+					} else if (Delegates.pglProgramUniformMatrix2fvEXT != null) {
+						Delegates.pglProgramUniformMatrix2fvEXT(program, location, count, transpose, p_value);
+						CallLog("glProgramUniformMatrix2fvEXT({0}, {1}, {2}, {3}, {4})", program, location, count, transpose, value);
+					} else
+						throw new NotImplementedException("glProgramUniformMatrix2fv (and other aliases) are not implemented");
+				}
+			}
+			DebugCheckErrors();
+		}
+
+		/// <summary>
+		/// Specify the value of a uniform variable for a specified program object
+		/// </summary>
+		/// <param name="program">
+		/// Specifies the handle of the program containing the uniform variable to be modified. 
+		/// </param>
+		/// <param name="location">
+		/// Specifies the location of the uniform variable to be modified. 
+		/// </param>
+		/// <param name="count">
+		/// For the vector commands (glProgramUniform*v), specifies the number of elements that are to be modified. This should be 1 
+		/// ifthe targeted uniform variable is not an array, and 1 or more if it is an array. 
+		/// </param>
+		/// <param name="transpose">
+		/// For the matrix commands, specifies whether to transpose the matrix as the values are loaded into the uniform variable. 
+		/// </param>
+		/// <param name="value">
+		/// For the vector and matrix commands, specifies a pointer to an array of count values that will be used to update the 
+		/// specifieduniform variable. 
+		/// </param>
+		/// <remarks>
+		/// glProgramUniform modifies the value of a uniform variable or a uniform variable array. The location of the uniform 
+		/// variableto be modified is specified by location, which should be a value returned by glGetUniformLocation. 
+		/// glProgramUniformoperates on the program object specified by program. 
+		/// The commands glProgramUniform{1|2|3|4}{f|i|ui} are used to change the value of the uniform variable specified by 
+		/// locationusing the values passed as arguments. The number specified in the command should match the number of components 
+		/// inthe data type of the specified uniform variable (e.g., 1 for float, int, unsigned int, bool; 2 for vec2, ivec2, uvec2, 
+		/// bvec2,etc.). The suffix f indicates that floating-point values are being passed; the suffix i indicates that integer 
+		/// valuesare being passed; the suffix ui indicates that unsigned integer values are being passed, and this type should also 
+		/// matchthe data type of the specified uniform variable. The i variants of this function should be used to provide values 
+		/// foruniform variables defined as int, ivec2, ivec3, ivec4, or arrays of these. The ui variants of this function should be 
+		/// usedto provide values for uniform variables defined as unsigned int, uvec2, uvec3, uvec4, or arrays of these. The f 
+		/// variantsshould be used to provide values for uniform variables of type float, vec2, vec3, vec4, or arrays of these. 
+		/// Eitherthe i, ui or f variants may be used to provide values for uniform variables of type bool, bvec2, bvec3, bvec4, or 
+		/// arraysof these. The uniform variable will be set to false if the input value is 0 or 0.0f, and it will be set to true 
+		/// otherwise.
+		/// All active uniform variables defined in a program object are initialized to 0 when the program object is linked 
+		/// successfully.They retain the values assigned to them by a call to glProgramUniform until the next successful link 
+		/// operationoccurs on the program object, when they are once again initialized to 0. 
+		/// The commands glProgramUniform{1|2|3|4}{f|i|ui}v can be used to modify a single uniform variable or a uniform variable 
+		/// array.These commands pass a count and a pointer to the values to be loaded into a uniform variable or a uniform variable 
+		/// array.A count of 1 should be used if modifying the value of a single uniform variable, and a count of 1 or greater can 
+		/// beused to modify an entire array or part of an array. When loading n elements starting at an arbitrary position m in a 
+		/// uniformvariable array, elements m + n - 1 in the array will be replaced with the new values. If m + n - 1 is larger than 
+		/// thesize of the uniform variable array, values for all array elements beyond the end of the array will be ignored. The 
+		/// numberspecified in the name of the command indicates the number of components for each element in value, and it should 
+		/// matchthe number of components in the data type of the specified uniform variable (e.g., 1 for float, int, bool; 2 for 
+		/// vec2,ivec2, bvec2, etc.). The data type specified in the name of the command must match the data type for the specified 
+		/// uniformvariable as described previously for glProgramUniform{1|2|3|4}{f|i|ui}. 
+		/// For uniform variable arrays, each element of the array is considered to be of the type indicated in the name of the 
+		/// command(e.g., glProgramUniform3f or glProgramUniform3fv can be used to load a uniform variable array of type vec3). The 
+		/// numberof elements of the uniform variable array to be modified is specified by count 
+		/// The commands glProgramUniformMatrix{2|3|4|2x3|3x2|2x4|4x2|3x4|4x3}fv are used to modify a matrix or an array of 
+		/// matrices.The numbers in the command name are interpreted as the dimensionality of the matrix. The number 2 indicates a 2 
+		/// ×2 matrix (i.e., 4 values), the number 3 indicates a 3 × 3 matrix (i.e., 9 values), and the number 4 indicates a 4 × 4 
+		/// matrix(i.e., 16 values). Non-square matrix dimensionality is explicit, with the first number representing the number of 
+		/// columnsand the second number representing the number of rows. For example, 2x4 indicates a 2 × 4 matrix with 2 columns 
+		/// and4 rows (i.e., 8 values). If transpose is GL_FALSE, each matrix is assumed to be supplied in column major order. If 
+		/// transposeis GL_TRUE, each matrix is assumed to be supplied in row major order. The count argument indicates the number 
+		/// ofmatrices to be passed. A count of 1 should be used if modifying the value of a single matrix, and a count greater than 
+		/// 1can be used to modify an array of matrices. 
+		/// <para>
+		/// The following errors can be generated:
+		/// - GL_INVALID_OPERATION is generated if program does not refer to a program object owned by the GL. 
+		/// - GL_INVALID_OPERATION is generated if the size of the uniform variable declared in the shader does not match the size 
+		///   indicatedby the glProgramUniform command. 
+		/// - GL_INVALID_OPERATION is generated if one of the signed or unsigned integer variants of this function is used to load a 
+		///   uniformvariable of type float, vec2, vec3, vec4, or an array of these, or if one of the floating-point variants of this 
+		///   functionis used to load a uniform variable of type int, ivec2, ivec3, ivec4, unsigned int, uvec2, uvec3, uvec4, or an 
+		///   arrayof these. 
+		/// - GL_INVALID_OPERATION is generated if one of the signed integer variants of this function is used to load a uniform 
+		///   variableof type unsigned int, uvec2, uvec3, uvec4, or an array of these. 
+		/// - GL_INVALID_OPERATION is generated if one of the unsigned integer variants of this function is used to load a uniform 
+		///   variableof type int, ivec2, ivec3, ivec4, or an array of these. 
+		/// - GL_INVALID_OPERATION is generated if location is an invalid uniform location for program and location is not equal to 
+		///   -1.
+		/// - GL_INVALID_VALUE is generated if count is less than 0. 
+		/// - GL_INVALID_OPERATION is generated if count is greater than 1 and the indicated uniform variable is not an array 
+		///   variable.
+		/// - GL_INVALID_OPERATION is generated if a sampler is loaded using a command other than glProgramUniform1i and 
+		///   glProgramUniform1iv.
+		/// </para>
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - glGetActiveUniform with the handle of a program object and the index of an active uniform variable 
+		/// - glGetUniform with the handle of a program object and the location of a uniform variable 
+		/// - glGetUniformLocation with the handle of a program object and the name of a uniform variable 
+		/// </para>
+		/// </remarks>
+		/// <seealso cref="Gl.LinkProgram"/>
+		/// <seealso cref="Gl.UseProgram"/>
+		public static void ProgramUniformMatrix3(UInt32 program, Int32 location, Int32 count, bool transpose, float[] value)
+		{
+			unsafe {
+				fixed (float* p_value = value)
+				{
+					if        (Delegates.pglProgramUniformMatrix3fv != null) {
+						Delegates.pglProgramUniformMatrix3fv(program, location, count, transpose, p_value);
+						CallLog("glProgramUniformMatrix3fv({0}, {1}, {2}, {3}, {4})", program, location, count, transpose, value);
+					} else if (Delegates.pglProgramUniformMatrix3fvEXT != null) {
+						Delegates.pglProgramUniformMatrix3fvEXT(program, location, count, transpose, p_value);
+						CallLog("glProgramUniformMatrix3fvEXT({0}, {1}, {2}, {3}, {4})", program, location, count, transpose, value);
+					} else
+						throw new NotImplementedException("glProgramUniformMatrix3fv (and other aliases) are not implemented");
+				}
+			}
+			DebugCheckErrors();
+		}
+
+		/// <summary>
+		/// Specify the value of a uniform variable for a specified program object
+		/// </summary>
+		/// <param name="program">
+		/// Specifies the handle of the program containing the uniform variable to be modified. 
+		/// </param>
+		/// <param name="location">
+		/// Specifies the location of the uniform variable to be modified. 
+		/// </param>
+		/// <param name="count">
+		/// For the vector commands (glProgramUniform*v), specifies the number of elements that are to be modified. This should be 1 
+		/// ifthe targeted uniform variable is not an array, and 1 or more if it is an array. 
+		/// </param>
+		/// <param name="transpose">
+		/// For the matrix commands, specifies whether to transpose the matrix as the values are loaded into the uniform variable. 
+		/// </param>
+		/// <param name="value">
+		/// For the vector and matrix commands, specifies a pointer to an array of count values that will be used to update the 
+		/// specifieduniform variable. 
+		/// </param>
+		/// <remarks>
+		/// glProgramUniform modifies the value of a uniform variable or a uniform variable array. The location of the uniform 
+		/// variableto be modified is specified by location, which should be a value returned by glGetUniformLocation. 
+		/// glProgramUniformoperates on the program object specified by program. 
+		/// The commands glProgramUniform{1|2|3|4}{f|i|ui} are used to change the value of the uniform variable specified by 
+		/// locationusing the values passed as arguments. The number specified in the command should match the number of components 
+		/// inthe data type of the specified uniform variable (e.g., 1 for float, int, unsigned int, bool; 2 for vec2, ivec2, uvec2, 
+		/// bvec2,etc.). The suffix f indicates that floating-point values are being passed; the suffix i indicates that integer 
+		/// valuesare being passed; the suffix ui indicates that unsigned integer values are being passed, and this type should also 
+		/// matchthe data type of the specified uniform variable. The i variants of this function should be used to provide values 
+		/// foruniform variables defined as int, ivec2, ivec3, ivec4, or arrays of these. The ui variants of this function should be 
+		/// usedto provide values for uniform variables defined as unsigned int, uvec2, uvec3, uvec4, or arrays of these. The f 
+		/// variantsshould be used to provide values for uniform variables of type float, vec2, vec3, vec4, or arrays of these. 
+		/// Eitherthe i, ui or f variants may be used to provide values for uniform variables of type bool, bvec2, bvec3, bvec4, or 
+		/// arraysof these. The uniform variable will be set to false if the input value is 0 or 0.0f, and it will be set to true 
+		/// otherwise.
+		/// All active uniform variables defined in a program object are initialized to 0 when the program object is linked 
+		/// successfully.They retain the values assigned to them by a call to glProgramUniform until the next successful link 
+		/// operationoccurs on the program object, when they are once again initialized to 0. 
+		/// The commands glProgramUniform{1|2|3|4}{f|i|ui}v can be used to modify a single uniform variable or a uniform variable 
+		/// array.These commands pass a count and a pointer to the values to be loaded into a uniform variable or a uniform variable 
+		/// array.A count of 1 should be used if modifying the value of a single uniform variable, and a count of 1 or greater can 
+		/// beused to modify an entire array or part of an array. When loading n elements starting at an arbitrary position m in a 
+		/// uniformvariable array, elements m + n - 1 in the array will be replaced with the new values. If m + n - 1 is larger than 
+		/// thesize of the uniform variable array, values for all array elements beyond the end of the array will be ignored. The 
+		/// numberspecified in the name of the command indicates the number of components for each element in value, and it should 
+		/// matchthe number of components in the data type of the specified uniform variable (e.g., 1 for float, int, bool; 2 for 
+		/// vec2,ivec2, bvec2, etc.). The data type specified in the name of the command must match the data type for the specified 
+		/// uniformvariable as described previously for glProgramUniform{1|2|3|4}{f|i|ui}. 
+		/// For uniform variable arrays, each element of the array is considered to be of the type indicated in the name of the 
+		/// command(e.g., glProgramUniform3f or glProgramUniform3fv can be used to load a uniform variable array of type vec3). The 
+		/// numberof elements of the uniform variable array to be modified is specified by count 
+		/// The commands glProgramUniformMatrix{2|3|4|2x3|3x2|2x4|4x2|3x4|4x3}fv are used to modify a matrix or an array of 
+		/// matrices.The numbers in the command name are interpreted as the dimensionality of the matrix. The number 2 indicates a 2 
+		/// ×2 matrix (i.e., 4 values), the number 3 indicates a 3 × 3 matrix (i.e., 9 values), and the number 4 indicates a 4 × 4 
+		/// matrix(i.e., 16 values). Non-square matrix dimensionality is explicit, with the first number representing the number of 
+		/// columnsand the second number representing the number of rows. For example, 2x4 indicates a 2 × 4 matrix with 2 columns 
+		/// and4 rows (i.e., 8 values). If transpose is GL_FALSE, each matrix is assumed to be supplied in column major order. If 
+		/// transposeis GL_TRUE, each matrix is assumed to be supplied in row major order. The count argument indicates the number 
+		/// ofmatrices to be passed. A count of 1 should be used if modifying the value of a single matrix, and a count greater than 
+		/// 1can be used to modify an array of matrices. 
+		/// <para>
+		/// The following errors can be generated:
+		/// - GL_INVALID_OPERATION is generated if program does not refer to a program object owned by the GL. 
+		/// - GL_INVALID_OPERATION is generated if the size of the uniform variable declared in the shader does not match the size 
+		///   indicatedby the glProgramUniform command. 
+		/// - GL_INVALID_OPERATION is generated if one of the signed or unsigned integer variants of this function is used to load a 
+		///   uniformvariable of type float, vec2, vec3, vec4, or an array of these, or if one of the floating-point variants of this 
+		///   functionis used to load a uniform variable of type int, ivec2, ivec3, ivec4, unsigned int, uvec2, uvec3, uvec4, or an 
+		///   arrayof these. 
+		/// - GL_INVALID_OPERATION is generated if one of the signed integer variants of this function is used to load a uniform 
+		///   variableof type unsigned int, uvec2, uvec3, uvec4, or an array of these. 
+		/// - GL_INVALID_OPERATION is generated if one of the unsigned integer variants of this function is used to load a uniform 
+		///   variableof type int, ivec2, ivec3, ivec4, or an array of these. 
+		/// - GL_INVALID_OPERATION is generated if location is an invalid uniform location for program and location is not equal to 
+		///   -1.
+		/// - GL_INVALID_VALUE is generated if count is less than 0. 
+		/// - GL_INVALID_OPERATION is generated if count is greater than 1 and the indicated uniform variable is not an array 
+		///   variable.
+		/// - GL_INVALID_OPERATION is generated if a sampler is loaded using a command other than glProgramUniform1i and 
+		///   glProgramUniform1iv.
+		/// </para>
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - glGetActiveUniform with the handle of a program object and the index of an active uniform variable 
+		/// - glGetUniform with the handle of a program object and the location of a uniform variable 
+		/// - glGetUniformLocation with the handle of a program object and the name of a uniform variable 
+		/// </para>
+		/// </remarks>
+		/// <seealso cref="Gl.LinkProgram"/>
+		/// <seealso cref="Gl.UseProgram"/>
+		public static void ProgramUniformMatrix4(UInt32 program, Int32 location, Int32 count, bool transpose, float[] value)
+		{
+			unsafe {
+				fixed (float* p_value = value)
+				{
+					if        (Delegates.pglProgramUniformMatrix4fv != null) {
+						Delegates.pglProgramUniformMatrix4fv(program, location, count, transpose, p_value);
+						CallLog("glProgramUniformMatrix4fv({0}, {1}, {2}, {3}, {4})", program, location, count, transpose, value);
+					} else if (Delegates.pglProgramUniformMatrix4fvEXT != null) {
+						Delegates.pglProgramUniformMatrix4fvEXT(program, location, count, transpose, p_value);
+						CallLog("glProgramUniformMatrix4fvEXT({0}, {1}, {2}, {3}, {4})", program, location, count, transpose, value);
+					} else
+						throw new NotImplementedException("glProgramUniformMatrix4fv (and other aliases) are not implemented");
+				}
+			}
+			DebugCheckErrors();
+		}
+
+		/// <summary>
+		/// Binding for glProgramUniformMatrix2dv.
+		/// </summary>
+		/// <param name="program">
+		/// A <see cref="T:UInt32"/>.
+		/// </param>
+		/// <param name="location">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="count">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="transpose">
+		/// A <see cref="T:bool"/>.
+		/// </param>
+		/// <param name="value">
+		/// A <see cref="T:double[]"/>.
+		/// </param>
+		public static void ProgramUniformMatrix2(UInt32 program, Int32 location, Int32 count, bool transpose, double[] value)
+		{
+			unsafe {
+				fixed (double* p_value = value)
+				{
+					Debug.Assert(Delegates.pglProgramUniformMatrix2dv != null, "pglProgramUniformMatrix2dv not implemented");
+					Delegates.pglProgramUniformMatrix2dv(program, location, count, transpose, p_value);
+					CallLog("glProgramUniformMatrix2dv({0}, {1}, {2}, {3}, {4})", program, location, count, transpose, value);
+				}
+			}
+			DebugCheckErrors();
+		}
+
+		/// <summary>
+		/// Binding for glProgramUniformMatrix3dv.
+		/// </summary>
+		/// <param name="program">
+		/// A <see cref="T:UInt32"/>.
+		/// </param>
+		/// <param name="location">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="count">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="transpose">
+		/// A <see cref="T:bool"/>.
+		/// </param>
+		/// <param name="value">
+		/// A <see cref="T:double[]"/>.
+		/// </param>
+		public static void ProgramUniformMatrix3(UInt32 program, Int32 location, Int32 count, bool transpose, double[] value)
+		{
+			unsafe {
+				fixed (double* p_value = value)
+				{
+					Debug.Assert(Delegates.pglProgramUniformMatrix3dv != null, "pglProgramUniformMatrix3dv not implemented");
+					Delegates.pglProgramUniformMatrix3dv(program, location, count, transpose, p_value);
+					CallLog("glProgramUniformMatrix3dv({0}, {1}, {2}, {3}, {4})", program, location, count, transpose, value);
+				}
+			}
+			DebugCheckErrors();
+		}
+
+		/// <summary>
+		/// Binding for glProgramUniformMatrix4dv.
+		/// </summary>
+		/// <param name="program">
+		/// A <see cref="T:UInt32"/>.
+		/// </param>
+		/// <param name="location">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="count">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="transpose">
+		/// A <see cref="T:bool"/>.
+		/// </param>
+		/// <param name="value">
+		/// A <see cref="T:double[]"/>.
+		/// </param>
+		public static void ProgramUniformMatrix4(UInt32 program, Int32 location, Int32 count, bool transpose, double[] value)
+		{
+			unsafe {
+				fixed (double* p_value = value)
+				{
+					Debug.Assert(Delegates.pglProgramUniformMatrix4dv != null, "pglProgramUniformMatrix4dv not implemented");
+					Delegates.pglProgramUniformMatrix4dv(program, location, count, transpose, p_value);
+					CallLog("glProgramUniformMatrix4dv({0}, {1}, {2}, {3}, {4})", program, location, count, transpose, value);
+				}
+			}
+			DebugCheckErrors();
+		}
+
+		/// <summary>
+		/// Specify the value of a uniform variable for a specified program object
+		/// </summary>
+		/// <param name="program">
+		/// Specifies the handle of the program containing the uniform variable to be modified. 
+		/// </param>
+		/// <param name="location">
+		/// Specifies the location of the uniform variable to be modified. 
+		/// </param>
+		/// <param name="count">
+		/// For the vector commands (glProgramUniform*v), specifies the number of elements that are to be modified. This should be 1 
+		/// ifthe targeted uniform variable is not an array, and 1 or more if it is an array. 
+		/// </param>
+		/// <param name="transpose">
+		/// For the matrix commands, specifies whether to transpose the matrix as the values are loaded into the uniform variable. 
+		/// </param>
+		/// <param name="value">
+		/// For the vector and matrix commands, specifies a pointer to an array of count values that will be used to update the 
+		/// specifieduniform variable. 
+		/// </param>
+		/// <remarks>
+		/// glProgramUniform modifies the value of a uniform variable or a uniform variable array. The location of the uniform 
+		/// variableto be modified is specified by location, which should be a value returned by glGetUniformLocation. 
+		/// glProgramUniformoperates on the program object specified by program. 
+		/// The commands glProgramUniform{1|2|3|4}{f|i|ui} are used to change the value of the uniform variable specified by 
+		/// locationusing the values passed as arguments. The number specified in the command should match the number of components 
+		/// inthe data type of the specified uniform variable (e.g., 1 for float, int, unsigned int, bool; 2 for vec2, ivec2, uvec2, 
+		/// bvec2,etc.). The suffix f indicates that floating-point values are being passed; the suffix i indicates that integer 
+		/// valuesare being passed; the suffix ui indicates that unsigned integer values are being passed, and this type should also 
+		/// matchthe data type of the specified uniform variable. The i variants of this function should be used to provide values 
+		/// foruniform variables defined as int, ivec2, ivec3, ivec4, or arrays of these. The ui variants of this function should be 
+		/// usedto provide values for uniform variables defined as unsigned int, uvec2, uvec3, uvec4, or arrays of these. The f 
+		/// variantsshould be used to provide values for uniform variables of type float, vec2, vec3, vec4, or arrays of these. 
+		/// Eitherthe i, ui or f variants may be used to provide values for uniform variables of type bool, bvec2, bvec3, bvec4, or 
+		/// arraysof these. The uniform variable will be set to false if the input value is 0 or 0.0f, and it will be set to true 
+		/// otherwise.
+		/// All active uniform variables defined in a program object are initialized to 0 when the program object is linked 
+		/// successfully.They retain the values assigned to them by a call to glProgramUniform until the next successful link 
+		/// operationoccurs on the program object, when they are once again initialized to 0. 
+		/// The commands glProgramUniform{1|2|3|4}{f|i|ui}v can be used to modify a single uniform variable or a uniform variable 
+		/// array.These commands pass a count and a pointer to the values to be loaded into a uniform variable or a uniform variable 
+		/// array.A count of 1 should be used if modifying the value of a single uniform variable, and a count of 1 or greater can 
+		/// beused to modify an entire array or part of an array. When loading n elements starting at an arbitrary position m in a 
+		/// uniformvariable array, elements m + n - 1 in the array will be replaced with the new values. If m + n - 1 is larger than 
+		/// thesize of the uniform variable array, values for all array elements beyond the end of the array will be ignored. The 
+		/// numberspecified in the name of the command indicates the number of components for each element in value, and it should 
+		/// matchthe number of components in the data type of the specified uniform variable (e.g., 1 for float, int, bool; 2 for 
+		/// vec2,ivec2, bvec2, etc.). The data type specified in the name of the command must match the data type for the specified 
+		/// uniformvariable as described previously for glProgramUniform{1|2|3|4}{f|i|ui}. 
+		/// For uniform variable arrays, each element of the array is considered to be of the type indicated in the name of the 
+		/// command(e.g., glProgramUniform3f or glProgramUniform3fv can be used to load a uniform variable array of type vec3). The 
+		/// numberof elements of the uniform variable array to be modified is specified by count 
+		/// The commands glProgramUniformMatrix{2|3|4|2x3|3x2|2x4|4x2|3x4|4x3}fv are used to modify a matrix or an array of 
+		/// matrices.The numbers in the command name are interpreted as the dimensionality of the matrix. The number 2 indicates a 2 
+		/// ×2 matrix (i.e., 4 values), the number 3 indicates a 3 × 3 matrix (i.e., 9 values), and the number 4 indicates a 4 × 4 
+		/// matrix(i.e., 16 values). Non-square matrix dimensionality is explicit, with the first number representing the number of 
+		/// columnsand the second number representing the number of rows. For example, 2x4 indicates a 2 × 4 matrix with 2 columns 
+		/// and4 rows (i.e., 8 values). If transpose is GL_FALSE, each matrix is assumed to be supplied in column major order. If 
+		/// transposeis GL_TRUE, each matrix is assumed to be supplied in row major order. The count argument indicates the number 
+		/// ofmatrices to be passed. A count of 1 should be used if modifying the value of a single matrix, and a count greater than 
+		/// 1can be used to modify an array of matrices. 
+		/// <para>
+		/// The following errors can be generated:
+		/// - GL_INVALID_OPERATION is generated if program does not refer to a program object owned by the GL. 
+		/// - GL_INVALID_OPERATION is generated if the size of the uniform variable declared in the shader does not match the size 
+		///   indicatedby the glProgramUniform command. 
+		/// - GL_INVALID_OPERATION is generated if one of the signed or unsigned integer variants of this function is used to load a 
+		///   uniformvariable of type float, vec2, vec3, vec4, or an array of these, or if one of the floating-point variants of this 
+		///   functionis used to load a uniform variable of type int, ivec2, ivec3, ivec4, unsigned int, uvec2, uvec3, uvec4, or an 
+		///   arrayof these. 
+		/// - GL_INVALID_OPERATION is generated if one of the signed integer variants of this function is used to load a uniform 
+		///   variableof type unsigned int, uvec2, uvec3, uvec4, or an array of these. 
+		/// - GL_INVALID_OPERATION is generated if one of the unsigned integer variants of this function is used to load a uniform 
+		///   variableof type int, ivec2, ivec3, ivec4, or an array of these. 
+		/// - GL_INVALID_OPERATION is generated if location is an invalid uniform location for program and location is not equal to 
+		///   -1.
+		/// - GL_INVALID_VALUE is generated if count is less than 0. 
+		/// - GL_INVALID_OPERATION is generated if count is greater than 1 and the indicated uniform variable is not an array 
+		///   variable.
+		/// - GL_INVALID_OPERATION is generated if a sampler is loaded using a command other than glProgramUniform1i and 
+		///   glProgramUniform1iv.
+		/// </para>
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - glGetActiveUniform with the handle of a program object and the index of an active uniform variable 
+		/// - glGetUniform with the handle of a program object and the location of a uniform variable 
+		/// - glGetUniformLocation with the handle of a program object and the name of a uniform variable 
+		/// </para>
+		/// </remarks>
+		/// <seealso cref="Gl.LinkProgram"/>
+		/// <seealso cref="Gl.UseProgram"/>
+		public static void ProgramUniformMatrix2x3(UInt32 program, Int32 location, Int32 count, bool transpose, float[] value)
+		{
+			unsafe {
+				fixed (float* p_value = value)
+				{
+					if        (Delegates.pglProgramUniformMatrix2x3fv != null) {
+						Delegates.pglProgramUniformMatrix2x3fv(program, location, count, transpose, p_value);
+						CallLog("glProgramUniformMatrix2x3fv({0}, {1}, {2}, {3}, {4})", program, location, count, transpose, value);
+					} else if (Delegates.pglProgramUniformMatrix2x3fvEXT != null) {
+						Delegates.pglProgramUniformMatrix2x3fvEXT(program, location, count, transpose, p_value);
+						CallLog("glProgramUniformMatrix2x3fvEXT({0}, {1}, {2}, {3}, {4})", program, location, count, transpose, value);
+					} else
+						throw new NotImplementedException("glProgramUniformMatrix2x3fv (and other aliases) are not implemented");
+				}
+			}
+			DebugCheckErrors();
+		}
+
+		/// <summary>
+		/// Specify the value of a uniform variable for a specified program object
+		/// </summary>
+		/// <param name="program">
+		/// Specifies the handle of the program containing the uniform variable to be modified. 
+		/// </param>
+		/// <param name="location">
+		/// Specifies the location of the uniform variable to be modified. 
+		/// </param>
+		/// <param name="count">
+		/// For the vector commands (glProgramUniform*v), specifies the number of elements that are to be modified. This should be 1 
+		/// ifthe targeted uniform variable is not an array, and 1 or more if it is an array. 
+		/// </param>
+		/// <param name="transpose">
+		/// For the matrix commands, specifies whether to transpose the matrix as the values are loaded into the uniform variable. 
+		/// </param>
+		/// <param name="value">
+		/// For the vector and matrix commands, specifies a pointer to an array of count values that will be used to update the 
+		/// specifieduniform variable. 
+		/// </param>
+		/// <remarks>
+		/// glProgramUniform modifies the value of a uniform variable or a uniform variable array. The location of the uniform 
+		/// variableto be modified is specified by location, which should be a value returned by glGetUniformLocation. 
+		/// glProgramUniformoperates on the program object specified by program. 
+		/// The commands glProgramUniform{1|2|3|4}{f|i|ui} are used to change the value of the uniform variable specified by 
+		/// locationusing the values passed as arguments. The number specified in the command should match the number of components 
+		/// inthe data type of the specified uniform variable (e.g., 1 for float, int, unsigned int, bool; 2 for vec2, ivec2, uvec2, 
+		/// bvec2,etc.). The suffix f indicates that floating-point values are being passed; the suffix i indicates that integer 
+		/// valuesare being passed; the suffix ui indicates that unsigned integer values are being passed, and this type should also 
+		/// matchthe data type of the specified uniform variable. The i variants of this function should be used to provide values 
+		/// foruniform variables defined as int, ivec2, ivec3, ivec4, or arrays of these. The ui variants of this function should be 
+		/// usedto provide values for uniform variables defined as unsigned int, uvec2, uvec3, uvec4, or arrays of these. The f 
+		/// variantsshould be used to provide values for uniform variables of type float, vec2, vec3, vec4, or arrays of these. 
+		/// Eitherthe i, ui or f variants may be used to provide values for uniform variables of type bool, bvec2, bvec3, bvec4, or 
+		/// arraysof these. The uniform variable will be set to false if the input value is 0 or 0.0f, and it will be set to true 
+		/// otherwise.
+		/// All active uniform variables defined in a program object are initialized to 0 when the program object is linked 
+		/// successfully.They retain the values assigned to them by a call to glProgramUniform until the next successful link 
+		/// operationoccurs on the program object, when they are once again initialized to 0. 
+		/// The commands glProgramUniform{1|2|3|4}{f|i|ui}v can be used to modify a single uniform variable or a uniform variable 
+		/// array.These commands pass a count and a pointer to the values to be loaded into a uniform variable or a uniform variable 
+		/// array.A count of 1 should be used if modifying the value of a single uniform variable, and a count of 1 or greater can 
+		/// beused to modify an entire array or part of an array. When loading n elements starting at an arbitrary position m in a 
+		/// uniformvariable array, elements m + n - 1 in the array will be replaced with the new values. If m + n - 1 is larger than 
+		/// thesize of the uniform variable array, values for all array elements beyond the end of the array will be ignored. The 
+		/// numberspecified in the name of the command indicates the number of components for each element in value, and it should 
+		/// matchthe number of components in the data type of the specified uniform variable (e.g., 1 for float, int, bool; 2 for 
+		/// vec2,ivec2, bvec2, etc.). The data type specified in the name of the command must match the data type for the specified 
+		/// uniformvariable as described previously for glProgramUniform{1|2|3|4}{f|i|ui}. 
+		/// For uniform variable arrays, each element of the array is considered to be of the type indicated in the name of the 
+		/// command(e.g., glProgramUniform3f or glProgramUniform3fv can be used to load a uniform variable array of type vec3). The 
+		/// numberof elements of the uniform variable array to be modified is specified by count 
+		/// The commands glProgramUniformMatrix{2|3|4|2x3|3x2|2x4|4x2|3x4|4x3}fv are used to modify a matrix or an array of 
+		/// matrices.The numbers in the command name are interpreted as the dimensionality of the matrix. The number 2 indicates a 2 
+		/// ×2 matrix (i.e., 4 values), the number 3 indicates a 3 × 3 matrix (i.e., 9 values), and the number 4 indicates a 4 × 4 
+		/// matrix(i.e., 16 values). Non-square matrix dimensionality is explicit, with the first number representing the number of 
+		/// columnsand the second number representing the number of rows. For example, 2x4 indicates a 2 × 4 matrix with 2 columns 
+		/// and4 rows (i.e., 8 values). If transpose is GL_FALSE, each matrix is assumed to be supplied in column major order. If 
+		/// transposeis GL_TRUE, each matrix is assumed to be supplied in row major order. The count argument indicates the number 
+		/// ofmatrices to be passed. A count of 1 should be used if modifying the value of a single matrix, and a count greater than 
+		/// 1can be used to modify an array of matrices. 
+		/// <para>
+		/// The following errors can be generated:
+		/// - GL_INVALID_OPERATION is generated if program does not refer to a program object owned by the GL. 
+		/// - GL_INVALID_OPERATION is generated if the size of the uniform variable declared in the shader does not match the size 
+		///   indicatedby the glProgramUniform command. 
+		/// - GL_INVALID_OPERATION is generated if one of the signed or unsigned integer variants of this function is used to load a 
+		///   uniformvariable of type float, vec2, vec3, vec4, or an array of these, or if one of the floating-point variants of this 
+		///   functionis used to load a uniform variable of type int, ivec2, ivec3, ivec4, unsigned int, uvec2, uvec3, uvec4, or an 
+		///   arrayof these. 
+		/// - GL_INVALID_OPERATION is generated if one of the signed integer variants of this function is used to load a uniform 
+		///   variableof type unsigned int, uvec2, uvec3, uvec4, or an array of these. 
+		/// - GL_INVALID_OPERATION is generated if one of the unsigned integer variants of this function is used to load a uniform 
+		///   variableof type int, ivec2, ivec3, ivec4, or an array of these. 
+		/// - GL_INVALID_OPERATION is generated if location is an invalid uniform location for program and location is not equal to 
+		///   -1.
+		/// - GL_INVALID_VALUE is generated if count is less than 0. 
+		/// - GL_INVALID_OPERATION is generated if count is greater than 1 and the indicated uniform variable is not an array 
+		///   variable.
+		/// - GL_INVALID_OPERATION is generated if a sampler is loaded using a command other than glProgramUniform1i and 
+		///   glProgramUniform1iv.
+		/// </para>
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - glGetActiveUniform with the handle of a program object and the index of an active uniform variable 
+		/// - glGetUniform with the handle of a program object and the location of a uniform variable 
+		/// - glGetUniformLocation with the handle of a program object and the name of a uniform variable 
+		/// </para>
+		/// </remarks>
+		/// <seealso cref="Gl.LinkProgram"/>
+		/// <seealso cref="Gl.UseProgram"/>
+		public static void ProgramUniformMatrix3x2(UInt32 program, Int32 location, Int32 count, bool transpose, float[] value)
+		{
+			unsafe {
+				fixed (float* p_value = value)
+				{
+					if        (Delegates.pglProgramUniformMatrix3x2fv != null) {
+						Delegates.pglProgramUniformMatrix3x2fv(program, location, count, transpose, p_value);
+						CallLog("glProgramUniformMatrix3x2fv({0}, {1}, {2}, {3}, {4})", program, location, count, transpose, value);
+					} else if (Delegates.pglProgramUniformMatrix3x2fvEXT != null) {
+						Delegates.pglProgramUniformMatrix3x2fvEXT(program, location, count, transpose, p_value);
+						CallLog("glProgramUniformMatrix3x2fvEXT({0}, {1}, {2}, {3}, {4})", program, location, count, transpose, value);
+					} else
+						throw new NotImplementedException("glProgramUniformMatrix3x2fv (and other aliases) are not implemented");
+				}
+			}
+			DebugCheckErrors();
+		}
+
+		/// <summary>
+		/// Specify the value of a uniform variable for a specified program object
+		/// </summary>
+		/// <param name="program">
+		/// Specifies the handle of the program containing the uniform variable to be modified. 
+		/// </param>
+		/// <param name="location">
+		/// Specifies the location of the uniform variable to be modified. 
+		/// </param>
+		/// <param name="count">
+		/// For the vector commands (glProgramUniform*v), specifies the number of elements that are to be modified. This should be 1 
+		/// ifthe targeted uniform variable is not an array, and 1 or more if it is an array. 
+		/// </param>
+		/// <param name="transpose">
+		/// For the matrix commands, specifies whether to transpose the matrix as the values are loaded into the uniform variable. 
+		/// </param>
+		/// <param name="value">
+		/// For the vector and matrix commands, specifies a pointer to an array of count values that will be used to update the 
+		/// specifieduniform variable. 
+		/// </param>
+		/// <remarks>
+		/// glProgramUniform modifies the value of a uniform variable or a uniform variable array. The location of the uniform 
+		/// variableto be modified is specified by location, which should be a value returned by glGetUniformLocation. 
+		/// glProgramUniformoperates on the program object specified by program. 
+		/// The commands glProgramUniform{1|2|3|4}{f|i|ui} are used to change the value of the uniform variable specified by 
+		/// locationusing the values passed as arguments. The number specified in the command should match the number of components 
+		/// inthe data type of the specified uniform variable (e.g., 1 for float, int, unsigned int, bool; 2 for vec2, ivec2, uvec2, 
+		/// bvec2,etc.). The suffix f indicates that floating-point values are being passed; the suffix i indicates that integer 
+		/// valuesare being passed; the suffix ui indicates that unsigned integer values are being passed, and this type should also 
+		/// matchthe data type of the specified uniform variable. The i variants of this function should be used to provide values 
+		/// foruniform variables defined as int, ivec2, ivec3, ivec4, or arrays of these. The ui variants of this function should be 
+		/// usedto provide values for uniform variables defined as unsigned int, uvec2, uvec3, uvec4, or arrays of these. The f 
+		/// variantsshould be used to provide values for uniform variables of type float, vec2, vec3, vec4, or arrays of these. 
+		/// Eitherthe i, ui or f variants may be used to provide values for uniform variables of type bool, bvec2, bvec3, bvec4, or 
+		/// arraysof these. The uniform variable will be set to false if the input value is 0 or 0.0f, and it will be set to true 
+		/// otherwise.
+		/// All active uniform variables defined in a program object are initialized to 0 when the program object is linked 
+		/// successfully.They retain the values assigned to them by a call to glProgramUniform until the next successful link 
+		/// operationoccurs on the program object, when they are once again initialized to 0. 
+		/// The commands glProgramUniform{1|2|3|4}{f|i|ui}v can be used to modify a single uniform variable or a uniform variable 
+		/// array.These commands pass a count and a pointer to the values to be loaded into a uniform variable or a uniform variable 
+		/// array.A count of 1 should be used if modifying the value of a single uniform variable, and a count of 1 or greater can 
+		/// beused to modify an entire array or part of an array. When loading n elements starting at an arbitrary position m in a 
+		/// uniformvariable array, elements m + n - 1 in the array will be replaced with the new values. If m + n - 1 is larger than 
+		/// thesize of the uniform variable array, values for all array elements beyond the end of the array will be ignored. The 
+		/// numberspecified in the name of the command indicates the number of components for each element in value, and it should 
+		/// matchthe number of components in the data type of the specified uniform variable (e.g., 1 for float, int, bool; 2 for 
+		/// vec2,ivec2, bvec2, etc.). The data type specified in the name of the command must match the data type for the specified 
+		/// uniformvariable as described previously for glProgramUniform{1|2|3|4}{f|i|ui}. 
+		/// For uniform variable arrays, each element of the array is considered to be of the type indicated in the name of the 
+		/// command(e.g., glProgramUniform3f or glProgramUniform3fv can be used to load a uniform variable array of type vec3). The 
+		/// numberof elements of the uniform variable array to be modified is specified by count 
+		/// The commands glProgramUniformMatrix{2|3|4|2x3|3x2|2x4|4x2|3x4|4x3}fv are used to modify a matrix or an array of 
+		/// matrices.The numbers in the command name are interpreted as the dimensionality of the matrix. The number 2 indicates a 2 
+		/// ×2 matrix (i.e., 4 values), the number 3 indicates a 3 × 3 matrix (i.e., 9 values), and the number 4 indicates a 4 × 4 
+		/// matrix(i.e., 16 values). Non-square matrix dimensionality is explicit, with the first number representing the number of 
+		/// columnsand the second number representing the number of rows. For example, 2x4 indicates a 2 × 4 matrix with 2 columns 
+		/// and4 rows (i.e., 8 values). If transpose is GL_FALSE, each matrix is assumed to be supplied in column major order. If 
+		/// transposeis GL_TRUE, each matrix is assumed to be supplied in row major order. The count argument indicates the number 
+		/// ofmatrices to be passed. A count of 1 should be used if modifying the value of a single matrix, and a count greater than 
+		/// 1can be used to modify an array of matrices. 
+		/// <para>
+		/// The following errors can be generated:
+		/// - GL_INVALID_OPERATION is generated if program does not refer to a program object owned by the GL. 
+		/// - GL_INVALID_OPERATION is generated if the size of the uniform variable declared in the shader does not match the size 
+		///   indicatedby the glProgramUniform command. 
+		/// - GL_INVALID_OPERATION is generated if one of the signed or unsigned integer variants of this function is used to load a 
+		///   uniformvariable of type float, vec2, vec3, vec4, or an array of these, or if one of the floating-point variants of this 
+		///   functionis used to load a uniform variable of type int, ivec2, ivec3, ivec4, unsigned int, uvec2, uvec3, uvec4, or an 
+		///   arrayof these. 
+		/// - GL_INVALID_OPERATION is generated if one of the signed integer variants of this function is used to load a uniform 
+		///   variableof type unsigned int, uvec2, uvec3, uvec4, or an array of these. 
+		/// - GL_INVALID_OPERATION is generated if one of the unsigned integer variants of this function is used to load a uniform 
+		///   variableof type int, ivec2, ivec3, ivec4, or an array of these. 
+		/// - GL_INVALID_OPERATION is generated if location is an invalid uniform location for program and location is not equal to 
+		///   -1.
+		/// - GL_INVALID_VALUE is generated if count is less than 0. 
+		/// - GL_INVALID_OPERATION is generated if count is greater than 1 and the indicated uniform variable is not an array 
+		///   variable.
+		/// - GL_INVALID_OPERATION is generated if a sampler is loaded using a command other than glProgramUniform1i and 
+		///   glProgramUniform1iv.
+		/// </para>
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - glGetActiveUniform with the handle of a program object and the index of an active uniform variable 
+		/// - glGetUniform with the handle of a program object and the location of a uniform variable 
+		/// - glGetUniformLocation with the handle of a program object and the name of a uniform variable 
+		/// </para>
+		/// </remarks>
+		/// <seealso cref="Gl.LinkProgram"/>
+		/// <seealso cref="Gl.UseProgram"/>
+		public static void ProgramUniformMatrix2x4(UInt32 program, Int32 location, Int32 count, bool transpose, float[] value)
+		{
+			unsafe {
+				fixed (float* p_value = value)
+				{
+					if        (Delegates.pglProgramUniformMatrix2x4fv != null) {
+						Delegates.pglProgramUniformMatrix2x4fv(program, location, count, transpose, p_value);
+						CallLog("glProgramUniformMatrix2x4fv({0}, {1}, {2}, {3}, {4})", program, location, count, transpose, value);
+					} else if (Delegates.pglProgramUniformMatrix2x4fvEXT != null) {
+						Delegates.pglProgramUniformMatrix2x4fvEXT(program, location, count, transpose, p_value);
+						CallLog("glProgramUniformMatrix2x4fvEXT({0}, {1}, {2}, {3}, {4})", program, location, count, transpose, value);
+					} else
+						throw new NotImplementedException("glProgramUniformMatrix2x4fv (and other aliases) are not implemented");
+				}
+			}
+			DebugCheckErrors();
+		}
+
+		/// <summary>
+		/// Specify the value of a uniform variable for a specified program object
+		/// </summary>
+		/// <param name="program">
+		/// Specifies the handle of the program containing the uniform variable to be modified. 
+		/// </param>
+		/// <param name="location">
+		/// Specifies the location of the uniform variable to be modified. 
+		/// </param>
+		/// <param name="count">
+		/// For the vector commands (glProgramUniform*v), specifies the number of elements that are to be modified. This should be 1 
+		/// ifthe targeted uniform variable is not an array, and 1 or more if it is an array. 
+		/// </param>
+		/// <param name="transpose">
+		/// For the matrix commands, specifies whether to transpose the matrix as the values are loaded into the uniform variable. 
+		/// </param>
+		/// <param name="value">
+		/// For the vector and matrix commands, specifies a pointer to an array of count values that will be used to update the 
+		/// specifieduniform variable. 
+		/// </param>
+		/// <remarks>
+		/// glProgramUniform modifies the value of a uniform variable or a uniform variable array. The location of the uniform 
+		/// variableto be modified is specified by location, which should be a value returned by glGetUniformLocation. 
+		/// glProgramUniformoperates on the program object specified by program. 
+		/// The commands glProgramUniform{1|2|3|4}{f|i|ui} are used to change the value of the uniform variable specified by 
+		/// locationusing the values passed as arguments. The number specified in the command should match the number of components 
+		/// inthe data type of the specified uniform variable (e.g., 1 for float, int, unsigned int, bool; 2 for vec2, ivec2, uvec2, 
+		/// bvec2,etc.). The suffix f indicates that floating-point values are being passed; the suffix i indicates that integer 
+		/// valuesare being passed; the suffix ui indicates that unsigned integer values are being passed, and this type should also 
+		/// matchthe data type of the specified uniform variable. The i variants of this function should be used to provide values 
+		/// foruniform variables defined as int, ivec2, ivec3, ivec4, or arrays of these. The ui variants of this function should be 
+		/// usedto provide values for uniform variables defined as unsigned int, uvec2, uvec3, uvec4, or arrays of these. The f 
+		/// variantsshould be used to provide values for uniform variables of type float, vec2, vec3, vec4, or arrays of these. 
+		/// Eitherthe i, ui or f variants may be used to provide values for uniform variables of type bool, bvec2, bvec3, bvec4, or 
+		/// arraysof these. The uniform variable will be set to false if the input value is 0 or 0.0f, and it will be set to true 
+		/// otherwise.
+		/// All active uniform variables defined in a program object are initialized to 0 when the program object is linked 
+		/// successfully.They retain the values assigned to them by a call to glProgramUniform until the next successful link 
+		/// operationoccurs on the program object, when they are once again initialized to 0. 
+		/// The commands glProgramUniform{1|2|3|4}{f|i|ui}v can be used to modify a single uniform variable or a uniform variable 
+		/// array.These commands pass a count and a pointer to the values to be loaded into a uniform variable or a uniform variable 
+		/// array.A count of 1 should be used if modifying the value of a single uniform variable, and a count of 1 or greater can 
+		/// beused to modify an entire array or part of an array. When loading n elements starting at an arbitrary position m in a 
+		/// uniformvariable array, elements m + n - 1 in the array will be replaced with the new values. If m + n - 1 is larger than 
+		/// thesize of the uniform variable array, values for all array elements beyond the end of the array will be ignored. The 
+		/// numberspecified in the name of the command indicates the number of components for each element in value, and it should 
+		/// matchthe number of components in the data type of the specified uniform variable (e.g., 1 for float, int, bool; 2 for 
+		/// vec2,ivec2, bvec2, etc.). The data type specified in the name of the command must match the data type for the specified 
+		/// uniformvariable as described previously for glProgramUniform{1|2|3|4}{f|i|ui}. 
+		/// For uniform variable arrays, each element of the array is considered to be of the type indicated in the name of the 
+		/// command(e.g., glProgramUniform3f or glProgramUniform3fv can be used to load a uniform variable array of type vec3). The 
+		/// numberof elements of the uniform variable array to be modified is specified by count 
+		/// The commands glProgramUniformMatrix{2|3|4|2x3|3x2|2x4|4x2|3x4|4x3}fv are used to modify a matrix or an array of 
+		/// matrices.The numbers in the command name are interpreted as the dimensionality of the matrix. The number 2 indicates a 2 
+		/// ×2 matrix (i.e., 4 values), the number 3 indicates a 3 × 3 matrix (i.e., 9 values), and the number 4 indicates a 4 × 4 
+		/// matrix(i.e., 16 values). Non-square matrix dimensionality is explicit, with the first number representing the number of 
+		/// columnsand the second number representing the number of rows. For example, 2x4 indicates a 2 × 4 matrix with 2 columns 
+		/// and4 rows (i.e., 8 values). If transpose is GL_FALSE, each matrix is assumed to be supplied in column major order. If 
+		/// transposeis GL_TRUE, each matrix is assumed to be supplied in row major order. The count argument indicates the number 
+		/// ofmatrices to be passed. A count of 1 should be used if modifying the value of a single matrix, and a count greater than 
+		/// 1can be used to modify an array of matrices. 
+		/// <para>
+		/// The following errors can be generated:
+		/// - GL_INVALID_OPERATION is generated if program does not refer to a program object owned by the GL. 
+		/// - GL_INVALID_OPERATION is generated if the size of the uniform variable declared in the shader does not match the size 
+		///   indicatedby the glProgramUniform command. 
+		/// - GL_INVALID_OPERATION is generated if one of the signed or unsigned integer variants of this function is used to load a 
+		///   uniformvariable of type float, vec2, vec3, vec4, or an array of these, or if one of the floating-point variants of this 
+		///   functionis used to load a uniform variable of type int, ivec2, ivec3, ivec4, unsigned int, uvec2, uvec3, uvec4, or an 
+		///   arrayof these. 
+		/// - GL_INVALID_OPERATION is generated if one of the signed integer variants of this function is used to load a uniform 
+		///   variableof type unsigned int, uvec2, uvec3, uvec4, or an array of these. 
+		/// - GL_INVALID_OPERATION is generated if one of the unsigned integer variants of this function is used to load a uniform 
+		///   variableof type int, ivec2, ivec3, ivec4, or an array of these. 
+		/// - GL_INVALID_OPERATION is generated if location is an invalid uniform location for program and location is not equal to 
+		///   -1.
+		/// - GL_INVALID_VALUE is generated if count is less than 0. 
+		/// - GL_INVALID_OPERATION is generated if count is greater than 1 and the indicated uniform variable is not an array 
+		///   variable.
+		/// - GL_INVALID_OPERATION is generated if a sampler is loaded using a command other than glProgramUniform1i and 
+		///   glProgramUniform1iv.
+		/// </para>
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - glGetActiveUniform with the handle of a program object and the index of an active uniform variable 
+		/// - glGetUniform with the handle of a program object and the location of a uniform variable 
+		/// - glGetUniformLocation with the handle of a program object and the name of a uniform variable 
+		/// </para>
+		/// </remarks>
+		/// <seealso cref="Gl.LinkProgram"/>
+		/// <seealso cref="Gl.UseProgram"/>
+		public static void ProgramUniformMatrix4x2(UInt32 program, Int32 location, Int32 count, bool transpose, float[] value)
+		{
+			unsafe {
+				fixed (float* p_value = value)
+				{
+					if        (Delegates.pglProgramUniformMatrix4x2fv != null) {
+						Delegates.pglProgramUniformMatrix4x2fv(program, location, count, transpose, p_value);
+						CallLog("glProgramUniformMatrix4x2fv({0}, {1}, {2}, {3}, {4})", program, location, count, transpose, value);
+					} else if (Delegates.pglProgramUniformMatrix4x2fvEXT != null) {
+						Delegates.pglProgramUniformMatrix4x2fvEXT(program, location, count, transpose, p_value);
+						CallLog("glProgramUniformMatrix4x2fvEXT({0}, {1}, {2}, {3}, {4})", program, location, count, transpose, value);
+					} else
+						throw new NotImplementedException("glProgramUniformMatrix4x2fv (and other aliases) are not implemented");
+				}
+			}
+			DebugCheckErrors();
+		}
+
+		/// <summary>
+		/// Specify the value of a uniform variable for a specified program object
+		/// </summary>
+		/// <param name="program">
+		/// Specifies the handle of the program containing the uniform variable to be modified. 
+		/// </param>
+		/// <param name="location">
+		/// Specifies the location of the uniform variable to be modified. 
+		/// </param>
+		/// <param name="count">
+		/// For the vector commands (glProgramUniform*v), specifies the number of elements that are to be modified. This should be 1 
+		/// ifthe targeted uniform variable is not an array, and 1 or more if it is an array. 
+		/// </param>
+		/// <param name="transpose">
+		/// For the matrix commands, specifies whether to transpose the matrix as the values are loaded into the uniform variable. 
+		/// </param>
+		/// <param name="value">
+		/// For the vector and matrix commands, specifies a pointer to an array of count values that will be used to update the 
+		/// specifieduniform variable. 
+		/// </param>
+		/// <remarks>
+		/// glProgramUniform modifies the value of a uniform variable or a uniform variable array. The location of the uniform 
+		/// variableto be modified is specified by location, which should be a value returned by glGetUniformLocation. 
+		/// glProgramUniformoperates on the program object specified by program. 
+		/// The commands glProgramUniform{1|2|3|4}{f|i|ui} are used to change the value of the uniform variable specified by 
+		/// locationusing the values passed as arguments. The number specified in the command should match the number of components 
+		/// inthe data type of the specified uniform variable (e.g., 1 for float, int, unsigned int, bool; 2 for vec2, ivec2, uvec2, 
+		/// bvec2,etc.). The suffix f indicates that floating-point values are being passed; the suffix i indicates that integer 
+		/// valuesare being passed; the suffix ui indicates that unsigned integer values are being passed, and this type should also 
+		/// matchthe data type of the specified uniform variable. The i variants of this function should be used to provide values 
+		/// foruniform variables defined as int, ivec2, ivec3, ivec4, or arrays of these. The ui variants of this function should be 
+		/// usedto provide values for uniform variables defined as unsigned int, uvec2, uvec3, uvec4, or arrays of these. The f 
+		/// variantsshould be used to provide values for uniform variables of type float, vec2, vec3, vec4, or arrays of these. 
+		/// Eitherthe i, ui or f variants may be used to provide values for uniform variables of type bool, bvec2, bvec3, bvec4, or 
+		/// arraysof these. The uniform variable will be set to false if the input value is 0 or 0.0f, and it will be set to true 
+		/// otherwise.
+		/// All active uniform variables defined in a program object are initialized to 0 when the program object is linked 
+		/// successfully.They retain the values assigned to them by a call to glProgramUniform until the next successful link 
+		/// operationoccurs on the program object, when they are once again initialized to 0. 
+		/// The commands glProgramUniform{1|2|3|4}{f|i|ui}v can be used to modify a single uniform variable or a uniform variable 
+		/// array.These commands pass a count and a pointer to the values to be loaded into a uniform variable or a uniform variable 
+		/// array.A count of 1 should be used if modifying the value of a single uniform variable, and a count of 1 or greater can 
+		/// beused to modify an entire array or part of an array. When loading n elements starting at an arbitrary position m in a 
+		/// uniformvariable array, elements m + n - 1 in the array will be replaced with the new values. If m + n - 1 is larger than 
+		/// thesize of the uniform variable array, values for all array elements beyond the end of the array will be ignored. The 
+		/// numberspecified in the name of the command indicates the number of components for each element in value, and it should 
+		/// matchthe number of components in the data type of the specified uniform variable (e.g., 1 for float, int, bool; 2 for 
+		/// vec2,ivec2, bvec2, etc.). The data type specified in the name of the command must match the data type for the specified 
+		/// uniformvariable as described previously for glProgramUniform{1|2|3|4}{f|i|ui}. 
+		/// For uniform variable arrays, each element of the array is considered to be of the type indicated in the name of the 
+		/// command(e.g., glProgramUniform3f or glProgramUniform3fv can be used to load a uniform variable array of type vec3). The 
+		/// numberof elements of the uniform variable array to be modified is specified by count 
+		/// The commands glProgramUniformMatrix{2|3|4|2x3|3x2|2x4|4x2|3x4|4x3}fv are used to modify a matrix or an array of 
+		/// matrices.The numbers in the command name are interpreted as the dimensionality of the matrix. The number 2 indicates a 2 
+		/// ×2 matrix (i.e., 4 values), the number 3 indicates a 3 × 3 matrix (i.e., 9 values), and the number 4 indicates a 4 × 4 
+		/// matrix(i.e., 16 values). Non-square matrix dimensionality is explicit, with the first number representing the number of 
+		/// columnsand the second number representing the number of rows. For example, 2x4 indicates a 2 × 4 matrix with 2 columns 
+		/// and4 rows (i.e., 8 values). If transpose is GL_FALSE, each matrix is assumed to be supplied in column major order. If 
+		/// transposeis GL_TRUE, each matrix is assumed to be supplied in row major order. The count argument indicates the number 
+		/// ofmatrices to be passed. A count of 1 should be used if modifying the value of a single matrix, and a count greater than 
+		/// 1can be used to modify an array of matrices. 
+		/// <para>
+		/// The following errors can be generated:
+		/// - GL_INVALID_OPERATION is generated if program does not refer to a program object owned by the GL. 
+		/// - GL_INVALID_OPERATION is generated if the size of the uniform variable declared in the shader does not match the size 
+		///   indicatedby the glProgramUniform command. 
+		/// - GL_INVALID_OPERATION is generated if one of the signed or unsigned integer variants of this function is used to load a 
+		///   uniformvariable of type float, vec2, vec3, vec4, or an array of these, or if one of the floating-point variants of this 
+		///   functionis used to load a uniform variable of type int, ivec2, ivec3, ivec4, unsigned int, uvec2, uvec3, uvec4, or an 
+		///   arrayof these. 
+		/// - GL_INVALID_OPERATION is generated if one of the signed integer variants of this function is used to load a uniform 
+		///   variableof type unsigned int, uvec2, uvec3, uvec4, or an array of these. 
+		/// - GL_INVALID_OPERATION is generated if one of the unsigned integer variants of this function is used to load a uniform 
+		///   variableof type int, ivec2, ivec3, ivec4, or an array of these. 
+		/// - GL_INVALID_OPERATION is generated if location is an invalid uniform location for program and location is not equal to 
+		///   -1.
+		/// - GL_INVALID_VALUE is generated if count is less than 0. 
+		/// - GL_INVALID_OPERATION is generated if count is greater than 1 and the indicated uniform variable is not an array 
+		///   variable.
+		/// - GL_INVALID_OPERATION is generated if a sampler is loaded using a command other than glProgramUniform1i and 
+		///   glProgramUniform1iv.
+		/// </para>
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - glGetActiveUniform with the handle of a program object and the index of an active uniform variable 
+		/// - glGetUniform with the handle of a program object and the location of a uniform variable 
+		/// - glGetUniformLocation with the handle of a program object and the name of a uniform variable 
+		/// </para>
+		/// </remarks>
+		/// <seealso cref="Gl.LinkProgram"/>
+		/// <seealso cref="Gl.UseProgram"/>
+		public static void ProgramUniformMatrix3x4(UInt32 program, Int32 location, Int32 count, bool transpose, float[] value)
+		{
+			unsafe {
+				fixed (float* p_value = value)
+				{
+					if        (Delegates.pglProgramUniformMatrix3x4fv != null) {
+						Delegates.pglProgramUniformMatrix3x4fv(program, location, count, transpose, p_value);
+						CallLog("glProgramUniformMatrix3x4fv({0}, {1}, {2}, {3}, {4})", program, location, count, transpose, value);
+					} else if (Delegates.pglProgramUniformMatrix3x4fvEXT != null) {
+						Delegates.pglProgramUniformMatrix3x4fvEXT(program, location, count, transpose, p_value);
+						CallLog("glProgramUniformMatrix3x4fvEXT({0}, {1}, {2}, {3}, {4})", program, location, count, transpose, value);
+					} else
+						throw new NotImplementedException("glProgramUniformMatrix3x4fv (and other aliases) are not implemented");
+				}
+			}
+			DebugCheckErrors();
+		}
+
+		/// <summary>
+		/// Specify the value of a uniform variable for a specified program object
+		/// </summary>
+		/// <param name="program">
+		/// Specifies the handle of the program containing the uniform variable to be modified. 
+		/// </param>
+		/// <param name="location">
+		/// Specifies the location of the uniform variable to be modified. 
+		/// </param>
+		/// <param name="count">
+		/// For the vector commands (glProgramUniform*v), specifies the number of elements that are to be modified. This should be 1 
+		/// ifthe targeted uniform variable is not an array, and 1 or more if it is an array. 
+		/// </param>
+		/// <param name="transpose">
+		/// For the matrix commands, specifies whether to transpose the matrix as the values are loaded into the uniform variable. 
+		/// </param>
+		/// <param name="value">
+		/// For the vector and matrix commands, specifies a pointer to an array of count values that will be used to update the 
+		/// specifieduniform variable. 
+		/// </param>
+		/// <remarks>
+		/// glProgramUniform modifies the value of a uniform variable or a uniform variable array. The location of the uniform 
+		/// variableto be modified is specified by location, which should be a value returned by glGetUniformLocation. 
+		/// glProgramUniformoperates on the program object specified by program. 
+		/// The commands glProgramUniform{1|2|3|4}{f|i|ui} are used to change the value of the uniform variable specified by 
+		/// locationusing the values passed as arguments. The number specified in the command should match the number of components 
+		/// inthe data type of the specified uniform variable (e.g., 1 for float, int, unsigned int, bool; 2 for vec2, ivec2, uvec2, 
+		/// bvec2,etc.). The suffix f indicates that floating-point values are being passed; the suffix i indicates that integer 
+		/// valuesare being passed; the suffix ui indicates that unsigned integer values are being passed, and this type should also 
+		/// matchthe data type of the specified uniform variable. The i variants of this function should be used to provide values 
+		/// foruniform variables defined as int, ivec2, ivec3, ivec4, or arrays of these. The ui variants of this function should be 
+		/// usedto provide values for uniform variables defined as unsigned int, uvec2, uvec3, uvec4, or arrays of these. The f 
+		/// variantsshould be used to provide values for uniform variables of type float, vec2, vec3, vec4, or arrays of these. 
+		/// Eitherthe i, ui or f variants may be used to provide values for uniform variables of type bool, bvec2, bvec3, bvec4, or 
+		/// arraysof these. The uniform variable will be set to false if the input value is 0 or 0.0f, and it will be set to true 
+		/// otherwise.
+		/// All active uniform variables defined in a program object are initialized to 0 when the program object is linked 
+		/// successfully.They retain the values assigned to them by a call to glProgramUniform until the next successful link 
+		/// operationoccurs on the program object, when they are once again initialized to 0. 
+		/// The commands glProgramUniform{1|2|3|4}{f|i|ui}v can be used to modify a single uniform variable or a uniform variable 
+		/// array.These commands pass a count and a pointer to the values to be loaded into a uniform variable or a uniform variable 
+		/// array.A count of 1 should be used if modifying the value of a single uniform variable, and a count of 1 or greater can 
+		/// beused to modify an entire array or part of an array. When loading n elements starting at an arbitrary position m in a 
+		/// uniformvariable array, elements m + n - 1 in the array will be replaced with the new values. If m + n - 1 is larger than 
+		/// thesize of the uniform variable array, values for all array elements beyond the end of the array will be ignored. The 
+		/// numberspecified in the name of the command indicates the number of components for each element in value, and it should 
+		/// matchthe number of components in the data type of the specified uniform variable (e.g., 1 for float, int, bool; 2 for 
+		/// vec2,ivec2, bvec2, etc.). The data type specified in the name of the command must match the data type for the specified 
+		/// uniformvariable as described previously for glProgramUniform{1|2|3|4}{f|i|ui}. 
+		/// For uniform variable arrays, each element of the array is considered to be of the type indicated in the name of the 
+		/// command(e.g., glProgramUniform3f or glProgramUniform3fv can be used to load a uniform variable array of type vec3). The 
+		/// numberof elements of the uniform variable array to be modified is specified by count 
+		/// The commands glProgramUniformMatrix{2|3|4|2x3|3x2|2x4|4x2|3x4|4x3}fv are used to modify a matrix or an array of 
+		/// matrices.The numbers in the command name are interpreted as the dimensionality of the matrix. The number 2 indicates a 2 
+		/// ×2 matrix (i.e., 4 values), the number 3 indicates a 3 × 3 matrix (i.e., 9 values), and the number 4 indicates a 4 × 4 
+		/// matrix(i.e., 16 values). Non-square matrix dimensionality is explicit, with the first number representing the number of 
+		/// columnsand the second number representing the number of rows. For example, 2x4 indicates a 2 × 4 matrix with 2 columns 
+		/// and4 rows (i.e., 8 values). If transpose is GL_FALSE, each matrix is assumed to be supplied in column major order. If 
+		/// transposeis GL_TRUE, each matrix is assumed to be supplied in row major order. The count argument indicates the number 
+		/// ofmatrices to be passed. A count of 1 should be used if modifying the value of a single matrix, and a count greater than 
+		/// 1can be used to modify an array of matrices. 
+		/// <para>
+		/// The following errors can be generated:
+		/// - GL_INVALID_OPERATION is generated if program does not refer to a program object owned by the GL. 
+		/// - GL_INVALID_OPERATION is generated if the size of the uniform variable declared in the shader does not match the size 
+		///   indicatedby the glProgramUniform command. 
+		/// - GL_INVALID_OPERATION is generated if one of the signed or unsigned integer variants of this function is used to load a 
+		///   uniformvariable of type float, vec2, vec3, vec4, or an array of these, or if one of the floating-point variants of this 
+		///   functionis used to load a uniform variable of type int, ivec2, ivec3, ivec4, unsigned int, uvec2, uvec3, uvec4, or an 
+		///   arrayof these. 
+		/// - GL_INVALID_OPERATION is generated if one of the signed integer variants of this function is used to load a uniform 
+		///   variableof type unsigned int, uvec2, uvec3, uvec4, or an array of these. 
+		/// - GL_INVALID_OPERATION is generated if one of the unsigned integer variants of this function is used to load a uniform 
+		///   variableof type int, ivec2, ivec3, ivec4, or an array of these. 
+		/// - GL_INVALID_OPERATION is generated if location is an invalid uniform location for program and location is not equal to 
+		///   -1.
+		/// - GL_INVALID_VALUE is generated if count is less than 0. 
+		/// - GL_INVALID_OPERATION is generated if count is greater than 1 and the indicated uniform variable is not an array 
+		///   variable.
+		/// - GL_INVALID_OPERATION is generated if a sampler is loaded using a command other than glProgramUniform1i and 
+		///   glProgramUniform1iv.
+		/// </para>
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - glGetActiveUniform with the handle of a program object and the index of an active uniform variable 
+		/// - glGetUniform with the handle of a program object and the location of a uniform variable 
+		/// - glGetUniformLocation with the handle of a program object and the name of a uniform variable 
+		/// </para>
+		/// </remarks>
+		/// <seealso cref="Gl.LinkProgram"/>
+		/// <seealso cref="Gl.UseProgram"/>
+		public static void ProgramUniformMatrix4x3(UInt32 program, Int32 location, Int32 count, bool transpose, float[] value)
+		{
+			unsafe {
+				fixed (float* p_value = value)
+				{
+					if        (Delegates.pglProgramUniformMatrix4x3fv != null) {
+						Delegates.pglProgramUniformMatrix4x3fv(program, location, count, transpose, p_value);
+						CallLog("glProgramUniformMatrix4x3fv({0}, {1}, {2}, {3}, {4})", program, location, count, transpose, value);
+					} else if (Delegates.pglProgramUniformMatrix4x3fvEXT != null) {
+						Delegates.pglProgramUniformMatrix4x3fvEXT(program, location, count, transpose, p_value);
+						CallLog("glProgramUniformMatrix4x3fvEXT({0}, {1}, {2}, {3}, {4})", program, location, count, transpose, value);
+					} else
+						throw new NotImplementedException("glProgramUniformMatrix4x3fv (and other aliases) are not implemented");
+				}
+			}
+			DebugCheckErrors();
+		}
+
+		/// <summary>
+		/// Binding for glProgramUniformMatrix2x3dv.
+		/// </summary>
+		/// <param name="program">
+		/// A <see cref="T:UInt32"/>.
+		/// </param>
+		/// <param name="location">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="count">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="transpose">
+		/// A <see cref="T:bool"/>.
+		/// </param>
+		/// <param name="value">
+		/// A <see cref="T:double[]"/>.
+		/// </param>
+		public static void ProgramUniformMatrix2x3(UInt32 program, Int32 location, Int32 count, bool transpose, double[] value)
+		{
+			unsafe {
+				fixed (double* p_value = value)
+				{
+					Debug.Assert(Delegates.pglProgramUniformMatrix2x3dv != null, "pglProgramUniformMatrix2x3dv not implemented");
+					Delegates.pglProgramUniformMatrix2x3dv(program, location, count, transpose, p_value);
+					CallLog("glProgramUniformMatrix2x3dv({0}, {1}, {2}, {3}, {4})", program, location, count, transpose, value);
+				}
+			}
+			DebugCheckErrors();
+		}
+
+		/// <summary>
+		/// Binding for glProgramUniformMatrix3x2dv.
+		/// </summary>
+		/// <param name="program">
+		/// A <see cref="T:UInt32"/>.
+		/// </param>
+		/// <param name="location">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="count">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="transpose">
+		/// A <see cref="T:bool"/>.
+		/// </param>
+		/// <param name="value">
+		/// A <see cref="T:double[]"/>.
+		/// </param>
+		public static void ProgramUniformMatrix3x2(UInt32 program, Int32 location, Int32 count, bool transpose, double[] value)
+		{
+			unsafe {
+				fixed (double* p_value = value)
+				{
+					Debug.Assert(Delegates.pglProgramUniformMatrix3x2dv != null, "pglProgramUniformMatrix3x2dv not implemented");
+					Delegates.pglProgramUniformMatrix3x2dv(program, location, count, transpose, p_value);
+					CallLog("glProgramUniformMatrix3x2dv({0}, {1}, {2}, {3}, {4})", program, location, count, transpose, value);
+				}
+			}
+			DebugCheckErrors();
+		}
+
+		/// <summary>
+		/// Binding for glProgramUniformMatrix2x4dv.
+		/// </summary>
+		/// <param name="program">
+		/// A <see cref="T:UInt32"/>.
+		/// </param>
+		/// <param name="location">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="count">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="transpose">
+		/// A <see cref="T:bool"/>.
+		/// </param>
+		/// <param name="value">
+		/// A <see cref="T:double[]"/>.
+		/// </param>
+		public static void ProgramUniformMatrix2x4(UInt32 program, Int32 location, Int32 count, bool transpose, double[] value)
+		{
+			unsafe {
+				fixed (double* p_value = value)
+				{
+					Debug.Assert(Delegates.pglProgramUniformMatrix2x4dv != null, "pglProgramUniformMatrix2x4dv not implemented");
+					Delegates.pglProgramUniformMatrix2x4dv(program, location, count, transpose, p_value);
+					CallLog("glProgramUniformMatrix2x4dv({0}, {1}, {2}, {3}, {4})", program, location, count, transpose, value);
+				}
+			}
+			DebugCheckErrors();
+		}
+
+		/// <summary>
+		/// Binding for glProgramUniformMatrix4x2dv.
+		/// </summary>
+		/// <param name="program">
+		/// A <see cref="T:UInt32"/>.
+		/// </param>
+		/// <param name="location">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="count">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="transpose">
+		/// A <see cref="T:bool"/>.
+		/// </param>
+		/// <param name="value">
+		/// A <see cref="T:double[]"/>.
+		/// </param>
+		public static void ProgramUniformMatrix4x2(UInt32 program, Int32 location, Int32 count, bool transpose, double[] value)
+		{
+			unsafe {
+				fixed (double* p_value = value)
+				{
+					Debug.Assert(Delegates.pglProgramUniformMatrix4x2dv != null, "pglProgramUniformMatrix4x2dv not implemented");
+					Delegates.pglProgramUniformMatrix4x2dv(program, location, count, transpose, p_value);
+					CallLog("glProgramUniformMatrix4x2dv({0}, {1}, {2}, {3}, {4})", program, location, count, transpose, value);
+				}
+			}
+			DebugCheckErrors();
+		}
+
+		/// <summary>
+		/// Binding for glProgramUniformMatrix3x4dv.
+		/// </summary>
+		/// <param name="program">
+		/// A <see cref="T:UInt32"/>.
+		/// </param>
+		/// <param name="location">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="count">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="transpose">
+		/// A <see cref="T:bool"/>.
+		/// </param>
+		/// <param name="value">
+		/// A <see cref="T:double[]"/>.
+		/// </param>
+		public static void ProgramUniformMatrix3x4(UInt32 program, Int32 location, Int32 count, bool transpose, double[] value)
+		{
+			unsafe {
+				fixed (double* p_value = value)
+				{
+					Debug.Assert(Delegates.pglProgramUniformMatrix3x4dv != null, "pglProgramUniformMatrix3x4dv not implemented");
+					Delegates.pglProgramUniformMatrix3x4dv(program, location, count, transpose, p_value);
+					CallLog("glProgramUniformMatrix3x4dv({0}, {1}, {2}, {3}, {4})", program, location, count, transpose, value);
+				}
+			}
+			DebugCheckErrors();
+		}
+
+		/// <summary>
+		/// Binding for glProgramUniformMatrix4x3dv.
+		/// </summary>
+		/// <param name="program">
+		/// A <see cref="T:UInt32"/>.
+		/// </param>
+		/// <param name="location">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="count">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="transpose">
+		/// A <see cref="T:bool"/>.
+		/// </param>
+		/// <param name="value">
+		/// A <see cref="T:double[]"/>.
+		/// </param>
+		public static void ProgramUniformMatrix4x3(UInt32 program, Int32 location, Int32 count, bool transpose, double[] value)
+		{
+			unsafe {
+				fixed (double* p_value = value)
+				{
+					Debug.Assert(Delegates.pglProgramUniformMatrix4x3dv != null, "pglProgramUniformMatrix4x3dv not implemented");
+					Delegates.pglProgramUniformMatrix4x3dv(program, location, count, transpose, p_value);
+					CallLog("glProgramUniformMatrix4x3dv({0}, {1}, {2}, {3}, {4})", program, location, count, transpose, value);
+				}
+			}
+			DebugCheckErrors();
+		}
+
+		/// <summary>
+		/// validate a program pipeline object against current GL state
+		/// </summary>
+		/// <param name="pipeline">
+		/// Specifies the name of a program pipeline object to validate. 
+		/// </param>
+		/// <remarks>
+		/// glValidateProgramPipeline instructs the implementation to validate the shader executables contained in pipeline against 
+		/// thecurrent GL state. The implementation may use this as an opportunity to perform any internal shader modifications that 
+		/// maybe required to ensure correct operation of the installed shaders given the current GL state. 
+		/// After a program pipeline has been validated, its validation status is set to GL_TRUE. The validation status of a program 
+		/// pipelineobject may be queried by calling glGetProgramPipeline with parameter GL_VALIDATE_STATUS. 
+		/// If pipeline is a name previously returned from a call to glGenProgramPipelines but that has not yet been bound by a call 
+		/// toglBindProgramPipeline, a new program pipeline object is created with name pipeline and the default state vector. 
+		/// <para>
+		/// The following errors can be generated:
+		/// - GL_INVALID_OPERATION is generated if pipeline is not a name previously returned from a call to glGenProgramPipelines or 
+		///   ifsuch a name has been deleted by a call to glDeleteProgramPipelines. 
+		/// </para>
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - glGetProgramPipeline with parameter GL_VALIDATE_STATUS. 
+		/// </para>
+		/// </remarks>
+		/// <seealso cref="Gl.GenProgramPipelines"/>
+		/// <seealso cref="Gl.BindProgramPipeline"/>
+		/// <seealso cref="Gl.DeleteProgramPipelines"/>
+		public static void ValidateProgramPipeline(UInt32 pipeline)
+		{
+			Debug.Assert(Delegates.pglValidateProgramPipeline != null, "pglValidateProgramPipeline not implemented");
+			Delegates.pglValidateProgramPipeline(pipeline);
+			CallLog("glValidateProgramPipeline({0})", pipeline);
+			DebugCheckErrors();
+		}
+
+		/// <summary>
+		/// retrieve the info log string from a program pipeline object
+		/// </summary>
+		/// <param name="pipeline">
+		/// Specifies the name of a program pipeline object from which to retrieve the info log. 
+		/// </param>
+		/// <param name="bufSize">
+		/// Specifies the maximum number of characters, including the null terminator, that may be written into infoLog. 
+		/// </param>
+		/// <param name="length">
+		/// Specifies the address of a variable into which will be written the number of characters written into infoLog. 
+		/// </param>
+		/// <param name="infoLog">
+		/// Specifies the address of an array of characters into which will be written the info log for pipeline. 
+		/// </param>
+		/// <remarks>
+		/// glGetProgramPipelineInfoLog retrieves the info log for the program pipeline object pipeline. The info log, including its 
+		/// nullterminator, is written into the array of characters whose address is given by infoLog. The maximum number of 
+		/// charactersthat may be written into infoLog is given by bufSize, and the actual number of characters written into infoLog 
+		/// isreturned in the integer whose address is given by length. If length is NULL, no length is returned. 
+		/// The actual length of the info log for the program pipeline may be determined by calling glGetProgramPipeline with pname 
+		/// setto GL_INFO_LOG_LENGTH. 
+		/// <para>
+		/// The following errors can be generated:
+		/// - GL_INVALID_OPERATION is generated if pipeline is not a name previously returned from a call to glGenProgramPipelines or 
+		///   ifsuch a name has been deleted by a call to glDeleteProgramPipelines. 
+		/// </para>
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - glGetProgramPipeline with parameter GL_INFO_LOG_LENGTH. 
+		/// </para>
+		/// </remarks>
+		/// <seealso cref="Gl.GenProgramPipelines"/>
+		/// <seealso cref="Gl.BindProgramPipeline"/>
+		/// <seealso cref="Gl.DeleteProgramPipelines"/>
+		/// <seealso cref="Gl.GetProgramPipeline"/>
+		public static void GetProgramPipelineInfoLog(UInt32 pipeline, Int32 bufSize, out Int32 length, [Out] StringBuilder infoLog)
+		{
+			unsafe {
+				fixed (Int32* p_length = &length)
+				{
+					Debug.Assert(Delegates.pglGetProgramPipelineInfoLog != null, "pglGetProgramPipelineInfoLog not implemented");
+					Delegates.pglGetProgramPipelineInfoLog(pipeline, bufSize, p_length, infoLog);
+					CallLog("glGetProgramPipelineInfoLog({0}, {1}, {2}, {3})", pipeline, bufSize, length, infoLog);
+				}
+			}
+			DebugCheckErrors();
+		}
+
+		/// <summary>
+		/// Specifies the value of a generic vertex attribute
+		/// </summary>
+		/// <param name="index">
+		/// Specifies the index of the generic vertex attribute to be modified. 
+		/// </param>
+		/// <param name="x">
+		/// A <see cref="T:double"/>.
+		/// </param>
+		/// <remarks>
+		/// The glVertexAttrib family of entry points allows an application to pass generic vertex attributes in numbered locations. 
+		/// Generic attributes are defined as four-component values that are organized into an array. The first entry of this array 
+		/// isnumbered 0, and the size of the array is specified by the implementation-dependent constant GL_MAX_VERTEX_ATTRIBS. 
+		/// Individualelements of this array can be modified with a glVertexAttrib call that specifies the index of the element to 
+		/// bemodified and a value for that element. 
+		/// These commands can be used to specify one, two, three, or all four components of the generic vertex attribute specified 
+		/// byindex. A 1 in the name of the command indicates that only one value is passed, and it will be used to modify the first 
+		/// componentof the generic vertex attribute. The second and third components will be set to 0, and the fourth component 
+		/// willbe set to 1. Similarly, a 2 in the name of the command indicates that values are provided for the first two 
+		/// components,the third component will be set to 0, and the fourth component will be set to 1. A 3 in the name of the 
+		/// commandindicates that values are provided for the first three components and the fourth component will be set to 1, 
+		/// whereasa 4 in the name indicates that values are provided for all four components. 
+		/// The letters s, f, i, d, ub, us, and ui indicate whether the arguments are of type short, float, int, double, unsigned 
+		/// byte,unsigned short, or unsigned int. When v is appended to the name, the commands can take a pointer to an array of 
+		/// suchvalues. 
+		/// Additional capitalized letters can indicate further alterations to the default behavior of the glVertexAttrib function: 
+		/// The commands containing N indicate that the arguments will be passed as fixed-point values that are scaled to a 
+		/// normalizedrange according to the component conversion rules defined by the OpenGL specification. Signed values are 
+		/// understoodto represent fixed-point values in the range [-1,1], and unsigned values are understood to represent 
+		/// fixed-pointvalues in the range [0,1]. 
+		/// The commands containing I indicate that the arguments are extended to full signed or unsigned integers. 
+		/// The commands containing P indicate that the arguments are stored as packed components within a larger natural type. 
+		/// The commands containing L indicate that the arguments are full 64-bit quantities and should be passed directly to shader 
+		/// inputsdeclared as 64-bit double precision types. 
+		/// OpenGL Shading Language attribute variables are allowed to be of type mat2, mat3, or mat4. Attributes of these types may 
+		/// beloaded using the glVertexAttrib entry points. Matrices must be loaded into successive generic attribute slots in 
+		/// columnmajor order, with one column of the matrix in each generic attribute slot. 
+		/// A user-defined attribute variable declared in a vertex shader can be bound to a generic attribute index by calling 
+		/// glBindAttribLocation.This allows an application to use more descriptive variable names in a vertex shader. A subsequent 
+		/// changeto the specified generic vertex attribute will be immediately reflected as a change to the corresponding attribute 
+		/// variablein the vertex shader. 
+		/// The binding between a generic vertex attribute index and a user-defined attribute variable in a vertex shader is part of 
+		/// thestate of a program object, but the current value of the generic vertex attribute is not. The value of each generic 
+		/// vertexattribute is part of current state, just like standard vertex attributes, and it is maintained even if a different 
+		/// programobject is used. 
+		/// An application may freely modify generic vertex attributes that are not bound to a named vertex shader attribute 
+		/// variable.These values are simply maintained as part of current state and will not be accessed by the vertex shader. If a 
+		/// genericvertex attribute bound to an attribute variable in a vertex shader is not updated while the vertex shader is 
+		/// executing,the vertex shader will repeatedly use the current value for the generic vertex attribute. 
+		/// <para>
+		/// The following errors can be generated:
+		/// - GL_INVALID_VALUE is generated if index is greater than or equal to GL_MAX_VERTEX_ATTRIBS. 
+		/// - GL_INVALID_ENUM is generated if glVertexAttribP* is used with a type other than GL_INT_2_10_10_10_REV, 
+		///   GL_UNSIGNED_INT_2_10_10_10_REV,or GL_UNSIGNED_INT_10F_11F_11F_REV. 
+		/// - GL_INVALID_ENUM is generated if glVertexAttribL is used with a type other than GL_DOUBLE. 
+		/// </para>
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - glGet with the argument GL_CURRENT_PROGRAM 
+		/// - glGetActiveAttrib with argument program and the index of an active attribute variable 
+		/// - glGetAttribLocation with argument program and an attribute variable name 
+		/// - glGetVertexAttrib with arguments GL_CURRENT_VERTEX_ATTRIB and index 
+		/// </para>
+		/// </remarks>
+		/// <seealso cref="Gl.BindAttribLocation"/>
+		/// <seealso cref="Gl.VertexAttribPointer"/>
+		public static void VertexAttribL1(UInt32 index, double x)
+		{
+			if        (Delegates.pglVertexAttribL1d != null) {
+				Delegates.pglVertexAttribL1d(index, x);
+				CallLog("glVertexAttribL1d({0}, {1})", index, x);
+			} else if (Delegates.pglVertexAttribL1dEXT != null) {
+				Delegates.pglVertexAttribL1dEXT(index, x);
+				CallLog("glVertexAttribL1dEXT({0}, {1})", index, x);
+			} else
+				throw new NotImplementedException("glVertexAttribL1d (and other aliases) are not implemented");
+			DebugCheckErrors();
+		}
+
+		/// <summary>
+		/// Specifies the value of a generic vertex attribute
+		/// </summary>
+		/// <param name="index">
+		/// Specifies the index of the generic vertex attribute to be modified. 
+		/// </param>
+		/// <param name="x">
+		/// A <see cref="T:double"/>.
+		/// </param>
+		/// <param name="y">
+		/// A <see cref="T:double"/>.
+		/// </param>
+		/// <remarks>
+		/// The glVertexAttrib family of entry points allows an application to pass generic vertex attributes in numbered locations. 
+		/// Generic attributes are defined as four-component values that are organized into an array. The first entry of this array 
+		/// isnumbered 0, and the size of the array is specified by the implementation-dependent constant GL_MAX_VERTEX_ATTRIBS. 
+		/// Individualelements of this array can be modified with a glVertexAttrib call that specifies the index of the element to 
+		/// bemodified and a value for that element. 
+		/// These commands can be used to specify one, two, three, or all four components of the generic vertex attribute specified 
+		/// byindex. A 1 in the name of the command indicates that only one value is passed, and it will be used to modify the first 
+		/// componentof the generic vertex attribute. The second and third components will be set to 0, and the fourth component 
+		/// willbe set to 1. Similarly, a 2 in the name of the command indicates that values are provided for the first two 
+		/// components,the third component will be set to 0, and the fourth component will be set to 1. A 3 in the name of the 
+		/// commandindicates that values are provided for the first three components and the fourth component will be set to 1, 
+		/// whereasa 4 in the name indicates that values are provided for all four components. 
+		/// The letters s, f, i, d, ub, us, and ui indicate whether the arguments are of type short, float, int, double, unsigned 
+		/// byte,unsigned short, or unsigned int. When v is appended to the name, the commands can take a pointer to an array of 
+		/// suchvalues. 
+		/// Additional capitalized letters can indicate further alterations to the default behavior of the glVertexAttrib function: 
+		/// The commands containing N indicate that the arguments will be passed as fixed-point values that are scaled to a 
+		/// normalizedrange according to the component conversion rules defined by the OpenGL specification. Signed values are 
+		/// understoodto represent fixed-point values in the range [-1,1], and unsigned values are understood to represent 
+		/// fixed-pointvalues in the range [0,1]. 
+		/// The commands containing I indicate that the arguments are extended to full signed or unsigned integers. 
+		/// The commands containing P indicate that the arguments are stored as packed components within a larger natural type. 
+		/// The commands containing L indicate that the arguments are full 64-bit quantities and should be passed directly to shader 
+		/// inputsdeclared as 64-bit double precision types. 
+		/// OpenGL Shading Language attribute variables are allowed to be of type mat2, mat3, or mat4. Attributes of these types may 
+		/// beloaded using the glVertexAttrib entry points. Matrices must be loaded into successive generic attribute slots in 
+		/// columnmajor order, with one column of the matrix in each generic attribute slot. 
+		/// A user-defined attribute variable declared in a vertex shader can be bound to a generic attribute index by calling 
+		/// glBindAttribLocation.This allows an application to use more descriptive variable names in a vertex shader. A subsequent 
+		/// changeto the specified generic vertex attribute will be immediately reflected as a change to the corresponding attribute 
+		/// variablein the vertex shader. 
+		/// The binding between a generic vertex attribute index and a user-defined attribute variable in a vertex shader is part of 
+		/// thestate of a program object, but the current value of the generic vertex attribute is not. The value of each generic 
+		/// vertexattribute is part of current state, just like standard vertex attributes, and it is maintained even if a different 
+		/// programobject is used. 
+		/// An application may freely modify generic vertex attributes that are not bound to a named vertex shader attribute 
+		/// variable.These values are simply maintained as part of current state and will not be accessed by the vertex shader. If a 
+		/// genericvertex attribute bound to an attribute variable in a vertex shader is not updated while the vertex shader is 
+		/// executing,the vertex shader will repeatedly use the current value for the generic vertex attribute. 
+		/// <para>
+		/// The following errors can be generated:
+		/// - GL_INVALID_VALUE is generated if index is greater than or equal to GL_MAX_VERTEX_ATTRIBS. 
+		/// - GL_INVALID_ENUM is generated if glVertexAttribP* is used with a type other than GL_INT_2_10_10_10_REV, 
+		///   GL_UNSIGNED_INT_2_10_10_10_REV,or GL_UNSIGNED_INT_10F_11F_11F_REV. 
+		/// - GL_INVALID_ENUM is generated if glVertexAttribL is used with a type other than GL_DOUBLE. 
+		/// </para>
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - glGet with the argument GL_CURRENT_PROGRAM 
+		/// - glGetActiveAttrib with argument program and the index of an active attribute variable 
+		/// - glGetAttribLocation with argument program and an attribute variable name 
+		/// - glGetVertexAttrib with arguments GL_CURRENT_VERTEX_ATTRIB and index 
+		/// </para>
+		/// </remarks>
+		/// <seealso cref="Gl.BindAttribLocation"/>
+		/// <seealso cref="Gl.VertexAttribPointer"/>
+		public static void VertexAttribL2(UInt32 index, double x, double y)
+		{
+			if        (Delegates.pglVertexAttribL2d != null) {
+				Delegates.pglVertexAttribL2d(index, x, y);
+				CallLog("glVertexAttribL2d({0}, {1}, {2})", index, x, y);
+			} else if (Delegates.pglVertexAttribL2dEXT != null) {
+				Delegates.pglVertexAttribL2dEXT(index, x, y);
+				CallLog("glVertexAttribL2dEXT({0}, {1}, {2})", index, x, y);
+			} else
+				throw new NotImplementedException("glVertexAttribL2d (and other aliases) are not implemented");
+			DebugCheckErrors();
+		}
+
+		/// <summary>
+		/// Specifies the value of a generic vertex attribute
+		/// </summary>
+		/// <param name="index">
+		/// Specifies the index of the generic vertex attribute to be modified. 
+		/// </param>
+		/// <param name="x">
+		/// A <see cref="T:double"/>.
+		/// </param>
+		/// <param name="y">
+		/// A <see cref="T:double"/>.
+		/// </param>
+		/// <param name="z">
+		/// A <see cref="T:double"/>.
+		/// </param>
+		/// <remarks>
+		/// The glVertexAttrib family of entry points allows an application to pass generic vertex attributes in numbered locations. 
+		/// Generic attributes are defined as four-component values that are organized into an array. The first entry of this array 
+		/// isnumbered 0, and the size of the array is specified by the implementation-dependent constant GL_MAX_VERTEX_ATTRIBS. 
+		/// Individualelements of this array can be modified with a glVertexAttrib call that specifies the index of the element to 
+		/// bemodified and a value for that element. 
+		/// These commands can be used to specify one, two, three, or all four components of the generic vertex attribute specified 
+		/// byindex. A 1 in the name of the command indicates that only one value is passed, and it will be used to modify the first 
+		/// componentof the generic vertex attribute. The second and third components will be set to 0, and the fourth component 
+		/// willbe set to 1. Similarly, a 2 in the name of the command indicates that values are provided for the first two 
+		/// components,the third component will be set to 0, and the fourth component will be set to 1. A 3 in the name of the 
+		/// commandindicates that values are provided for the first three components and the fourth component will be set to 1, 
+		/// whereasa 4 in the name indicates that values are provided for all four components. 
+		/// The letters s, f, i, d, ub, us, and ui indicate whether the arguments are of type short, float, int, double, unsigned 
+		/// byte,unsigned short, or unsigned int. When v is appended to the name, the commands can take a pointer to an array of 
+		/// suchvalues. 
+		/// Additional capitalized letters can indicate further alterations to the default behavior of the glVertexAttrib function: 
+		/// The commands containing N indicate that the arguments will be passed as fixed-point values that are scaled to a 
+		/// normalizedrange according to the component conversion rules defined by the OpenGL specification. Signed values are 
+		/// understoodto represent fixed-point values in the range [-1,1], and unsigned values are understood to represent 
+		/// fixed-pointvalues in the range [0,1]. 
+		/// The commands containing I indicate that the arguments are extended to full signed or unsigned integers. 
+		/// The commands containing P indicate that the arguments are stored as packed components within a larger natural type. 
+		/// The commands containing L indicate that the arguments are full 64-bit quantities and should be passed directly to shader 
+		/// inputsdeclared as 64-bit double precision types. 
+		/// OpenGL Shading Language attribute variables are allowed to be of type mat2, mat3, or mat4. Attributes of these types may 
+		/// beloaded using the glVertexAttrib entry points. Matrices must be loaded into successive generic attribute slots in 
+		/// columnmajor order, with one column of the matrix in each generic attribute slot. 
+		/// A user-defined attribute variable declared in a vertex shader can be bound to a generic attribute index by calling 
+		/// glBindAttribLocation.This allows an application to use more descriptive variable names in a vertex shader. A subsequent 
+		/// changeto the specified generic vertex attribute will be immediately reflected as a change to the corresponding attribute 
+		/// variablein the vertex shader. 
+		/// The binding between a generic vertex attribute index and a user-defined attribute variable in a vertex shader is part of 
+		/// thestate of a program object, but the current value of the generic vertex attribute is not. The value of each generic 
+		/// vertexattribute is part of current state, just like standard vertex attributes, and it is maintained even if a different 
+		/// programobject is used. 
+		/// An application may freely modify generic vertex attributes that are not bound to a named vertex shader attribute 
+		/// variable.These values are simply maintained as part of current state and will not be accessed by the vertex shader. If a 
+		/// genericvertex attribute bound to an attribute variable in a vertex shader is not updated while the vertex shader is 
+		/// executing,the vertex shader will repeatedly use the current value for the generic vertex attribute. 
+		/// <para>
+		/// The following errors can be generated:
+		/// - GL_INVALID_VALUE is generated if index is greater than or equal to GL_MAX_VERTEX_ATTRIBS. 
+		/// - GL_INVALID_ENUM is generated if glVertexAttribP* is used with a type other than GL_INT_2_10_10_10_REV, 
+		///   GL_UNSIGNED_INT_2_10_10_10_REV,or GL_UNSIGNED_INT_10F_11F_11F_REV. 
+		/// - GL_INVALID_ENUM is generated if glVertexAttribL is used with a type other than GL_DOUBLE. 
+		/// </para>
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - glGet with the argument GL_CURRENT_PROGRAM 
+		/// - glGetActiveAttrib with argument program and the index of an active attribute variable 
+		/// - glGetAttribLocation with argument program and an attribute variable name 
+		/// - glGetVertexAttrib with arguments GL_CURRENT_VERTEX_ATTRIB and index 
+		/// </para>
+		/// </remarks>
+		/// <seealso cref="Gl.BindAttribLocation"/>
+		/// <seealso cref="Gl.VertexAttribPointer"/>
+		public static void VertexAttribL3(UInt32 index, double x, double y, double z)
+		{
+			if        (Delegates.pglVertexAttribL3d != null) {
+				Delegates.pglVertexAttribL3d(index, x, y, z);
+				CallLog("glVertexAttribL3d({0}, {1}, {2}, {3})", index, x, y, z);
+			} else if (Delegates.pglVertexAttribL3dEXT != null) {
+				Delegates.pglVertexAttribL3dEXT(index, x, y, z);
+				CallLog("glVertexAttribL3dEXT({0}, {1}, {2}, {3})", index, x, y, z);
+			} else
+				throw new NotImplementedException("glVertexAttribL3d (and other aliases) are not implemented");
+			DebugCheckErrors();
+		}
+
+		/// <summary>
+		/// Specifies the value of a generic vertex attribute
+		/// </summary>
+		/// <param name="index">
+		/// Specifies the index of the generic vertex attribute to be modified. 
+		/// </param>
+		/// <param name="x">
+		/// A <see cref="T:double"/>.
+		/// </param>
+		/// <param name="y">
+		/// A <see cref="T:double"/>.
+		/// </param>
+		/// <param name="z">
+		/// A <see cref="T:double"/>.
+		/// </param>
+		/// <param name="w">
+		/// A <see cref="T:double"/>.
+		/// </param>
+		/// <remarks>
+		/// The glVertexAttrib family of entry points allows an application to pass generic vertex attributes in numbered locations. 
+		/// Generic attributes are defined as four-component values that are organized into an array. The first entry of this array 
+		/// isnumbered 0, and the size of the array is specified by the implementation-dependent constant GL_MAX_VERTEX_ATTRIBS. 
+		/// Individualelements of this array can be modified with a glVertexAttrib call that specifies the index of the element to 
+		/// bemodified and a value for that element. 
+		/// These commands can be used to specify one, two, three, or all four components of the generic vertex attribute specified 
+		/// byindex. A 1 in the name of the command indicates that only one value is passed, and it will be used to modify the first 
+		/// componentof the generic vertex attribute. The second and third components will be set to 0, and the fourth component 
+		/// willbe set to 1. Similarly, a 2 in the name of the command indicates that values are provided for the first two 
+		/// components,the third component will be set to 0, and the fourth component will be set to 1. A 3 in the name of the 
+		/// commandindicates that values are provided for the first three components and the fourth component will be set to 1, 
+		/// whereasa 4 in the name indicates that values are provided for all four components. 
+		/// The letters s, f, i, d, ub, us, and ui indicate whether the arguments are of type short, float, int, double, unsigned 
+		/// byte,unsigned short, or unsigned int. When v is appended to the name, the commands can take a pointer to an array of 
+		/// suchvalues. 
+		/// Additional capitalized letters can indicate further alterations to the default behavior of the glVertexAttrib function: 
+		/// The commands containing N indicate that the arguments will be passed as fixed-point values that are scaled to a 
+		/// normalizedrange according to the component conversion rules defined by the OpenGL specification. Signed values are 
+		/// understoodto represent fixed-point values in the range [-1,1], and unsigned values are understood to represent 
+		/// fixed-pointvalues in the range [0,1]. 
+		/// The commands containing I indicate that the arguments are extended to full signed or unsigned integers. 
+		/// The commands containing P indicate that the arguments are stored as packed components within a larger natural type. 
+		/// The commands containing L indicate that the arguments are full 64-bit quantities and should be passed directly to shader 
+		/// inputsdeclared as 64-bit double precision types. 
+		/// OpenGL Shading Language attribute variables are allowed to be of type mat2, mat3, or mat4. Attributes of these types may 
+		/// beloaded using the glVertexAttrib entry points. Matrices must be loaded into successive generic attribute slots in 
+		/// columnmajor order, with one column of the matrix in each generic attribute slot. 
+		/// A user-defined attribute variable declared in a vertex shader can be bound to a generic attribute index by calling 
+		/// glBindAttribLocation.This allows an application to use more descriptive variable names in a vertex shader. A subsequent 
+		/// changeto the specified generic vertex attribute will be immediately reflected as a change to the corresponding attribute 
+		/// variablein the vertex shader. 
+		/// The binding between a generic vertex attribute index and a user-defined attribute variable in a vertex shader is part of 
+		/// thestate of a program object, but the current value of the generic vertex attribute is not. The value of each generic 
+		/// vertexattribute is part of current state, just like standard vertex attributes, and it is maintained even if a different 
+		/// programobject is used. 
+		/// An application may freely modify generic vertex attributes that are not bound to a named vertex shader attribute 
+		/// variable.These values are simply maintained as part of current state and will not be accessed by the vertex shader. If a 
+		/// genericvertex attribute bound to an attribute variable in a vertex shader is not updated while the vertex shader is 
+		/// executing,the vertex shader will repeatedly use the current value for the generic vertex attribute. 
+		/// <para>
+		/// The following errors can be generated:
+		/// - GL_INVALID_VALUE is generated if index is greater than or equal to GL_MAX_VERTEX_ATTRIBS. 
+		/// - GL_INVALID_ENUM is generated if glVertexAttribP* is used with a type other than GL_INT_2_10_10_10_REV, 
+		///   GL_UNSIGNED_INT_2_10_10_10_REV,or GL_UNSIGNED_INT_10F_11F_11F_REV. 
+		/// - GL_INVALID_ENUM is generated if glVertexAttribL is used with a type other than GL_DOUBLE. 
+		/// </para>
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - glGet with the argument GL_CURRENT_PROGRAM 
+		/// - glGetActiveAttrib with argument program and the index of an active attribute variable 
+		/// - glGetAttribLocation with argument program and an attribute variable name 
+		/// - glGetVertexAttrib with arguments GL_CURRENT_VERTEX_ATTRIB and index 
+		/// </para>
+		/// </remarks>
+		/// <seealso cref="Gl.BindAttribLocation"/>
+		/// <seealso cref="Gl.VertexAttribPointer"/>
+		public static void VertexAttribL4(UInt32 index, double x, double y, double z, double w)
+		{
+			if        (Delegates.pglVertexAttribL4d != null) {
+				Delegates.pglVertexAttribL4d(index, x, y, z, w);
+				CallLog("glVertexAttribL4d({0}, {1}, {2}, {3}, {4})", index, x, y, z, w);
+			} else if (Delegates.pglVertexAttribL4dEXT != null) {
+				Delegates.pglVertexAttribL4dEXT(index, x, y, z, w);
+				CallLog("glVertexAttribL4dEXT({0}, {1}, {2}, {3}, {4})", index, x, y, z, w);
+			} else
+				throw new NotImplementedException("glVertexAttribL4d (and other aliases) are not implemented");
+			DebugCheckErrors();
+		}
+
+		/// <summary>
+		/// Specifies the value of a generic vertex attribute
+		/// </summary>
+		/// <param name="index">
+		/// Specifies the index of the generic vertex attribute to be modified. 
+		/// </param>
+		/// <param name="v">
+		/// For the vector commands (glVertexAttrib*v), specifies a pointer to an array of values to be used for the generic vertex 
+		/// attribute.
+		/// </param>
+		/// <remarks>
+		/// The glVertexAttrib family of entry points allows an application to pass generic vertex attributes in numbered locations. 
+		/// Generic attributes are defined as four-component values that are organized into an array. The first entry of this array 
+		/// isnumbered 0, and the size of the array is specified by the implementation-dependent constant GL_MAX_VERTEX_ATTRIBS. 
+		/// Individualelements of this array can be modified with a glVertexAttrib call that specifies the index of the element to 
+		/// bemodified and a value for that element. 
+		/// These commands can be used to specify one, two, three, or all four components of the generic vertex attribute specified 
+		/// byindex. A 1 in the name of the command indicates that only one value is passed, and it will be used to modify the first 
+		/// componentof the generic vertex attribute. The second and third components will be set to 0, and the fourth component 
+		/// willbe set to 1. Similarly, a 2 in the name of the command indicates that values are provided for the first two 
+		/// components,the third component will be set to 0, and the fourth component will be set to 1. A 3 in the name of the 
+		/// commandindicates that values are provided for the first three components and the fourth component will be set to 1, 
+		/// whereasa 4 in the name indicates that values are provided for all four components. 
+		/// The letters s, f, i, d, ub, us, and ui indicate whether the arguments are of type short, float, int, double, unsigned 
+		/// byte,unsigned short, or unsigned int. When v is appended to the name, the commands can take a pointer to an array of 
+		/// suchvalues. 
+		/// Additional capitalized letters can indicate further alterations to the default behavior of the glVertexAttrib function: 
+		/// The commands containing N indicate that the arguments will be passed as fixed-point values that are scaled to a 
+		/// normalizedrange according to the component conversion rules defined by the OpenGL specification. Signed values are 
+		/// understoodto represent fixed-point values in the range [-1,1], and unsigned values are understood to represent 
+		/// fixed-pointvalues in the range [0,1]. 
+		/// The commands containing I indicate that the arguments are extended to full signed or unsigned integers. 
+		/// The commands containing P indicate that the arguments are stored as packed components within a larger natural type. 
+		/// The commands containing L indicate that the arguments are full 64-bit quantities and should be passed directly to shader 
+		/// inputsdeclared as 64-bit double precision types. 
+		/// OpenGL Shading Language attribute variables are allowed to be of type mat2, mat3, or mat4. Attributes of these types may 
+		/// beloaded using the glVertexAttrib entry points. Matrices must be loaded into successive generic attribute slots in 
+		/// columnmajor order, with one column of the matrix in each generic attribute slot. 
+		/// A user-defined attribute variable declared in a vertex shader can be bound to a generic attribute index by calling 
+		/// glBindAttribLocation.This allows an application to use more descriptive variable names in a vertex shader. A subsequent 
+		/// changeto the specified generic vertex attribute will be immediately reflected as a change to the corresponding attribute 
+		/// variablein the vertex shader. 
+		/// The binding between a generic vertex attribute index and a user-defined attribute variable in a vertex shader is part of 
+		/// thestate of a program object, but the current value of the generic vertex attribute is not. The value of each generic 
+		/// vertexattribute is part of current state, just like standard vertex attributes, and it is maintained even if a different 
+		/// programobject is used. 
+		/// An application may freely modify generic vertex attributes that are not bound to a named vertex shader attribute 
+		/// variable.These values are simply maintained as part of current state and will not be accessed by the vertex shader. If a 
+		/// genericvertex attribute bound to an attribute variable in a vertex shader is not updated while the vertex shader is 
+		/// executing,the vertex shader will repeatedly use the current value for the generic vertex attribute. 
+		/// <para>
+		/// The following errors can be generated:
+		/// - GL_INVALID_VALUE is generated if index is greater than or equal to GL_MAX_VERTEX_ATTRIBS. 
+		/// - GL_INVALID_ENUM is generated if glVertexAttribP* is used with a type other than GL_INT_2_10_10_10_REV, 
+		///   GL_UNSIGNED_INT_2_10_10_10_REV,or GL_UNSIGNED_INT_10F_11F_11F_REV. 
+		/// - GL_INVALID_ENUM is generated if glVertexAttribL is used with a type other than GL_DOUBLE. 
+		/// </para>
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - glGet with the argument GL_CURRENT_PROGRAM 
+		/// - glGetActiveAttrib with argument program and the index of an active attribute variable 
+		/// - glGetAttribLocation with argument program and an attribute variable name 
+		/// - glGetVertexAttrib with arguments GL_CURRENT_VERTEX_ATTRIB and index 
+		/// </para>
+		/// </remarks>
+		/// <seealso cref="Gl.BindAttribLocation"/>
+		/// <seealso cref="Gl.VertexAttribPointer"/>
+		public static void VertexAttribL1(UInt32 index, double[] v)
+		{
+			unsafe {
+				fixed (double* p_v = v)
+				{
+					if        (Delegates.pglVertexAttribL1dv != null) {
+						Delegates.pglVertexAttribL1dv(index, p_v);
+						CallLog("glVertexAttribL1dv({0}, {1})", index, v);
+					} else if (Delegates.pglVertexAttribL1dvEXT != null) {
+						Delegates.pglVertexAttribL1dvEXT(index, p_v);
+						CallLog("glVertexAttribL1dvEXT({0}, {1})", index, v);
+					} else
+						throw new NotImplementedException("glVertexAttribL1dv (and other aliases) are not implemented");
+				}
+			}
+			DebugCheckErrors();
+		}
+
+		/// <summary>
+		/// Specifies the value of a generic vertex attribute
+		/// </summary>
+		/// <param name="index">
+		/// Specifies the index of the generic vertex attribute to be modified. 
+		/// </param>
+		/// <param name="v">
+		/// For the vector commands (glVertexAttrib*v), specifies a pointer to an array of values to be used for the generic vertex 
+		/// attribute.
+		/// </param>
+		/// <remarks>
+		/// The glVertexAttrib family of entry points allows an application to pass generic vertex attributes in numbered locations. 
+		/// Generic attributes are defined as four-component values that are organized into an array. The first entry of this array 
+		/// isnumbered 0, and the size of the array is specified by the implementation-dependent constant GL_MAX_VERTEX_ATTRIBS. 
+		/// Individualelements of this array can be modified with a glVertexAttrib call that specifies the index of the element to 
+		/// bemodified and a value for that element. 
+		/// These commands can be used to specify one, two, three, or all four components of the generic vertex attribute specified 
+		/// byindex. A 1 in the name of the command indicates that only one value is passed, and it will be used to modify the first 
+		/// componentof the generic vertex attribute. The second and third components will be set to 0, and the fourth component 
+		/// willbe set to 1. Similarly, a 2 in the name of the command indicates that values are provided for the first two 
+		/// components,the third component will be set to 0, and the fourth component will be set to 1. A 3 in the name of the 
+		/// commandindicates that values are provided for the first three components and the fourth component will be set to 1, 
+		/// whereasa 4 in the name indicates that values are provided for all four components. 
+		/// The letters s, f, i, d, ub, us, and ui indicate whether the arguments are of type short, float, int, double, unsigned 
+		/// byte,unsigned short, or unsigned int. When v is appended to the name, the commands can take a pointer to an array of 
+		/// suchvalues. 
+		/// Additional capitalized letters can indicate further alterations to the default behavior of the glVertexAttrib function: 
+		/// The commands containing N indicate that the arguments will be passed as fixed-point values that are scaled to a 
+		/// normalizedrange according to the component conversion rules defined by the OpenGL specification. Signed values are 
+		/// understoodto represent fixed-point values in the range [-1,1], and unsigned values are understood to represent 
+		/// fixed-pointvalues in the range [0,1]. 
+		/// The commands containing I indicate that the arguments are extended to full signed or unsigned integers. 
+		/// The commands containing P indicate that the arguments are stored as packed components within a larger natural type. 
+		/// The commands containing L indicate that the arguments are full 64-bit quantities and should be passed directly to shader 
+		/// inputsdeclared as 64-bit double precision types. 
+		/// OpenGL Shading Language attribute variables are allowed to be of type mat2, mat3, or mat4. Attributes of these types may 
+		/// beloaded using the glVertexAttrib entry points. Matrices must be loaded into successive generic attribute slots in 
+		/// columnmajor order, with one column of the matrix in each generic attribute slot. 
+		/// A user-defined attribute variable declared in a vertex shader can be bound to a generic attribute index by calling 
+		/// glBindAttribLocation.This allows an application to use more descriptive variable names in a vertex shader. A subsequent 
+		/// changeto the specified generic vertex attribute will be immediately reflected as a change to the corresponding attribute 
+		/// variablein the vertex shader. 
+		/// The binding between a generic vertex attribute index and a user-defined attribute variable in a vertex shader is part of 
+		/// thestate of a program object, but the current value of the generic vertex attribute is not. The value of each generic 
+		/// vertexattribute is part of current state, just like standard vertex attributes, and it is maintained even if a different 
+		/// programobject is used. 
+		/// An application may freely modify generic vertex attributes that are not bound to a named vertex shader attribute 
+		/// variable.These values are simply maintained as part of current state and will not be accessed by the vertex shader. If a 
+		/// genericvertex attribute bound to an attribute variable in a vertex shader is not updated while the vertex shader is 
+		/// executing,the vertex shader will repeatedly use the current value for the generic vertex attribute. 
+		/// <para>
+		/// The following errors can be generated:
+		/// - GL_INVALID_VALUE is generated if index is greater than or equal to GL_MAX_VERTEX_ATTRIBS. 
+		/// - GL_INVALID_ENUM is generated if glVertexAttribP* is used with a type other than GL_INT_2_10_10_10_REV, 
+		///   GL_UNSIGNED_INT_2_10_10_10_REV,or GL_UNSIGNED_INT_10F_11F_11F_REV. 
+		/// - GL_INVALID_ENUM is generated if glVertexAttribL is used with a type other than GL_DOUBLE. 
+		/// </para>
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - glGet with the argument GL_CURRENT_PROGRAM 
+		/// - glGetActiveAttrib with argument program and the index of an active attribute variable 
+		/// - glGetAttribLocation with argument program and an attribute variable name 
+		/// - glGetVertexAttrib with arguments GL_CURRENT_VERTEX_ATTRIB and index 
+		/// </para>
+		/// </remarks>
+		/// <seealso cref="Gl.BindAttribLocation"/>
+		/// <seealso cref="Gl.VertexAttribPointer"/>
+		public static void VertexAttribL2(UInt32 index, double[] v)
+		{
+			unsafe {
+				fixed (double* p_v = v)
+				{
+					if        (Delegates.pglVertexAttribL2dv != null) {
+						Delegates.pglVertexAttribL2dv(index, p_v);
+						CallLog("glVertexAttribL2dv({0}, {1})", index, v);
+					} else if (Delegates.pglVertexAttribL2dvEXT != null) {
+						Delegates.pglVertexAttribL2dvEXT(index, p_v);
+						CallLog("glVertexAttribL2dvEXT({0}, {1})", index, v);
+					} else
+						throw new NotImplementedException("glVertexAttribL2dv (and other aliases) are not implemented");
+				}
+			}
+			DebugCheckErrors();
+		}
+
+		/// <summary>
+		/// Specifies the value of a generic vertex attribute
+		/// </summary>
+		/// <param name="index">
+		/// Specifies the index of the generic vertex attribute to be modified. 
+		/// </param>
+		/// <param name="v">
+		/// For the vector commands (glVertexAttrib*v), specifies a pointer to an array of values to be used for the generic vertex 
+		/// attribute.
+		/// </param>
+		/// <remarks>
+		/// The glVertexAttrib family of entry points allows an application to pass generic vertex attributes in numbered locations. 
+		/// Generic attributes are defined as four-component values that are organized into an array. The first entry of this array 
+		/// isnumbered 0, and the size of the array is specified by the implementation-dependent constant GL_MAX_VERTEX_ATTRIBS. 
+		/// Individualelements of this array can be modified with a glVertexAttrib call that specifies the index of the element to 
+		/// bemodified and a value for that element. 
+		/// These commands can be used to specify one, two, three, or all four components of the generic vertex attribute specified 
+		/// byindex. A 1 in the name of the command indicates that only one value is passed, and it will be used to modify the first 
+		/// componentof the generic vertex attribute. The second and third components will be set to 0, and the fourth component 
+		/// willbe set to 1. Similarly, a 2 in the name of the command indicates that values are provided for the first two 
+		/// components,the third component will be set to 0, and the fourth component will be set to 1. A 3 in the name of the 
+		/// commandindicates that values are provided for the first three components and the fourth component will be set to 1, 
+		/// whereasa 4 in the name indicates that values are provided for all four components. 
+		/// The letters s, f, i, d, ub, us, and ui indicate whether the arguments are of type short, float, int, double, unsigned 
+		/// byte,unsigned short, or unsigned int. When v is appended to the name, the commands can take a pointer to an array of 
+		/// suchvalues. 
+		/// Additional capitalized letters can indicate further alterations to the default behavior of the glVertexAttrib function: 
+		/// The commands containing N indicate that the arguments will be passed as fixed-point values that are scaled to a 
+		/// normalizedrange according to the component conversion rules defined by the OpenGL specification. Signed values are 
+		/// understoodto represent fixed-point values in the range [-1,1], and unsigned values are understood to represent 
+		/// fixed-pointvalues in the range [0,1]. 
+		/// The commands containing I indicate that the arguments are extended to full signed or unsigned integers. 
+		/// The commands containing P indicate that the arguments are stored as packed components within a larger natural type. 
+		/// The commands containing L indicate that the arguments are full 64-bit quantities and should be passed directly to shader 
+		/// inputsdeclared as 64-bit double precision types. 
+		/// OpenGL Shading Language attribute variables are allowed to be of type mat2, mat3, or mat4. Attributes of these types may 
+		/// beloaded using the glVertexAttrib entry points. Matrices must be loaded into successive generic attribute slots in 
+		/// columnmajor order, with one column of the matrix in each generic attribute slot. 
+		/// A user-defined attribute variable declared in a vertex shader can be bound to a generic attribute index by calling 
+		/// glBindAttribLocation.This allows an application to use more descriptive variable names in a vertex shader. A subsequent 
+		/// changeto the specified generic vertex attribute will be immediately reflected as a change to the corresponding attribute 
+		/// variablein the vertex shader. 
+		/// The binding between a generic vertex attribute index and a user-defined attribute variable in a vertex shader is part of 
+		/// thestate of a program object, but the current value of the generic vertex attribute is not. The value of each generic 
+		/// vertexattribute is part of current state, just like standard vertex attributes, and it is maintained even if a different 
+		/// programobject is used. 
+		/// An application may freely modify generic vertex attributes that are not bound to a named vertex shader attribute 
+		/// variable.These values are simply maintained as part of current state and will not be accessed by the vertex shader. If a 
+		/// genericvertex attribute bound to an attribute variable in a vertex shader is not updated while the vertex shader is 
+		/// executing,the vertex shader will repeatedly use the current value for the generic vertex attribute. 
+		/// <para>
+		/// The following errors can be generated:
+		/// - GL_INVALID_VALUE is generated if index is greater than or equal to GL_MAX_VERTEX_ATTRIBS. 
+		/// - GL_INVALID_ENUM is generated if glVertexAttribP* is used with a type other than GL_INT_2_10_10_10_REV, 
+		///   GL_UNSIGNED_INT_2_10_10_10_REV,or GL_UNSIGNED_INT_10F_11F_11F_REV. 
+		/// - GL_INVALID_ENUM is generated if glVertexAttribL is used with a type other than GL_DOUBLE. 
+		/// </para>
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - glGet with the argument GL_CURRENT_PROGRAM 
+		/// - glGetActiveAttrib with argument program and the index of an active attribute variable 
+		/// - glGetAttribLocation with argument program and an attribute variable name 
+		/// - glGetVertexAttrib with arguments GL_CURRENT_VERTEX_ATTRIB and index 
+		/// </para>
+		/// </remarks>
+		/// <seealso cref="Gl.BindAttribLocation"/>
+		/// <seealso cref="Gl.VertexAttribPointer"/>
+		public static void VertexAttribL3(UInt32 index, double[] v)
+		{
+			unsafe {
+				fixed (double* p_v = v)
+				{
+					if        (Delegates.pglVertexAttribL3dv != null) {
+						Delegates.pglVertexAttribL3dv(index, p_v);
+						CallLog("glVertexAttribL3dv({0}, {1})", index, v);
+					} else if (Delegates.pglVertexAttribL3dvEXT != null) {
+						Delegates.pglVertexAttribL3dvEXT(index, p_v);
+						CallLog("glVertexAttribL3dvEXT({0}, {1})", index, v);
+					} else
+						throw new NotImplementedException("glVertexAttribL3dv (and other aliases) are not implemented");
+				}
+			}
+			DebugCheckErrors();
+		}
+
+		/// <summary>
+		/// Specifies the value of a generic vertex attribute
+		/// </summary>
+		/// <param name="index">
+		/// Specifies the index of the generic vertex attribute to be modified. 
+		/// </param>
+		/// <param name="v">
+		/// For the vector commands (glVertexAttrib*v), specifies a pointer to an array of values to be used for the generic vertex 
+		/// attribute.
+		/// </param>
+		/// <remarks>
+		/// The glVertexAttrib family of entry points allows an application to pass generic vertex attributes in numbered locations. 
+		/// Generic attributes are defined as four-component values that are organized into an array. The first entry of this array 
+		/// isnumbered 0, and the size of the array is specified by the implementation-dependent constant GL_MAX_VERTEX_ATTRIBS. 
+		/// Individualelements of this array can be modified with a glVertexAttrib call that specifies the index of the element to 
+		/// bemodified and a value for that element. 
+		/// These commands can be used to specify one, two, three, or all four components of the generic vertex attribute specified 
+		/// byindex. A 1 in the name of the command indicates that only one value is passed, and it will be used to modify the first 
+		/// componentof the generic vertex attribute. The second and third components will be set to 0, and the fourth component 
+		/// willbe set to 1. Similarly, a 2 in the name of the command indicates that values are provided for the first two 
+		/// components,the third component will be set to 0, and the fourth component will be set to 1. A 3 in the name of the 
+		/// commandindicates that values are provided for the first three components and the fourth component will be set to 1, 
+		/// whereasa 4 in the name indicates that values are provided for all four components. 
+		/// The letters s, f, i, d, ub, us, and ui indicate whether the arguments are of type short, float, int, double, unsigned 
+		/// byte,unsigned short, or unsigned int. When v is appended to the name, the commands can take a pointer to an array of 
+		/// suchvalues. 
+		/// Additional capitalized letters can indicate further alterations to the default behavior of the glVertexAttrib function: 
+		/// The commands containing N indicate that the arguments will be passed as fixed-point values that are scaled to a 
+		/// normalizedrange according to the component conversion rules defined by the OpenGL specification. Signed values are 
+		/// understoodto represent fixed-point values in the range [-1,1], and unsigned values are understood to represent 
+		/// fixed-pointvalues in the range [0,1]. 
+		/// The commands containing I indicate that the arguments are extended to full signed or unsigned integers. 
+		/// The commands containing P indicate that the arguments are stored as packed components within a larger natural type. 
+		/// The commands containing L indicate that the arguments are full 64-bit quantities and should be passed directly to shader 
+		/// inputsdeclared as 64-bit double precision types. 
+		/// OpenGL Shading Language attribute variables are allowed to be of type mat2, mat3, or mat4. Attributes of these types may 
+		/// beloaded using the glVertexAttrib entry points. Matrices must be loaded into successive generic attribute slots in 
+		/// columnmajor order, with one column of the matrix in each generic attribute slot. 
+		/// A user-defined attribute variable declared in a vertex shader can be bound to a generic attribute index by calling 
+		/// glBindAttribLocation.This allows an application to use more descriptive variable names in a vertex shader. A subsequent 
+		/// changeto the specified generic vertex attribute will be immediately reflected as a change to the corresponding attribute 
+		/// variablein the vertex shader. 
+		/// The binding between a generic vertex attribute index and a user-defined attribute variable in a vertex shader is part of 
+		/// thestate of a program object, but the current value of the generic vertex attribute is not. The value of each generic 
+		/// vertexattribute is part of current state, just like standard vertex attributes, and it is maintained even if a different 
+		/// programobject is used. 
+		/// An application may freely modify generic vertex attributes that are not bound to a named vertex shader attribute 
+		/// variable.These values are simply maintained as part of current state and will not be accessed by the vertex shader. If a 
+		/// genericvertex attribute bound to an attribute variable in a vertex shader is not updated while the vertex shader is 
+		/// executing,the vertex shader will repeatedly use the current value for the generic vertex attribute. 
+		/// <para>
+		/// The following errors can be generated:
+		/// - GL_INVALID_VALUE is generated if index is greater than or equal to GL_MAX_VERTEX_ATTRIBS. 
+		/// - GL_INVALID_ENUM is generated if glVertexAttribP* is used with a type other than GL_INT_2_10_10_10_REV, 
+		///   GL_UNSIGNED_INT_2_10_10_10_REV,or GL_UNSIGNED_INT_10F_11F_11F_REV. 
+		/// - GL_INVALID_ENUM is generated if glVertexAttribL is used with a type other than GL_DOUBLE. 
+		/// </para>
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - glGet with the argument GL_CURRENT_PROGRAM 
+		/// - glGetActiveAttrib with argument program and the index of an active attribute variable 
+		/// - glGetAttribLocation with argument program and an attribute variable name 
+		/// - glGetVertexAttrib with arguments GL_CURRENT_VERTEX_ATTRIB and index 
+		/// </para>
+		/// </remarks>
+		/// <seealso cref="Gl.BindAttribLocation"/>
+		/// <seealso cref="Gl.VertexAttribPointer"/>
+		public static void VertexAttribL4(UInt32 index, double[] v)
+		{
+			unsafe {
+				fixed (double* p_v = v)
+				{
+					if        (Delegates.pglVertexAttribL4dv != null) {
+						Delegates.pglVertexAttribL4dv(index, p_v);
+						CallLog("glVertexAttribL4dv({0}, {1})", index, v);
+					} else if (Delegates.pglVertexAttribL4dvEXT != null) {
+						Delegates.pglVertexAttribL4dvEXT(index, p_v);
+						CallLog("glVertexAttribL4dvEXT({0}, {1})", index, v);
+					} else
+						throw new NotImplementedException("glVertexAttribL4dv (and other aliases) are not implemented");
+				}
+			}
+			DebugCheckErrors();
+		}
+
+		/// <summary>
+		/// define an array of generic vertex attribute data
+		/// </summary>
+		/// <param name="index">
+		/// Specifies the index of the generic vertex attribute to be modified. 
+		/// </param>
+		/// <param name="size">
+		/// Specifies the number of components per generic vertex attribute. Must be 1, 2, 3, 4. Additionally, the symbolic constant 
+		/// GL_BGRAis accepted by glVertexAttribPointer. The initial value is 4. 
+		/// </param>
+		/// <param name="type">
+		/// Specifies the data type of each component in the array. The symbolic constants GL_BYTE, GL_UNSIGNED_BYTE, GL_SHORT, 
+		/// GL_UNSIGNED_SHORT,GL_INT, and GL_UNSIGNED_INT are accepted by glVertexAttribPointer and glVertexAttribIPointer. 
+		/// AdditionallyGL_HALF_FLOAT, GL_FLOAT, GL_DOUBLE, GL_FIXED, GL_INT_2_10_10_10_REV, GL_UNSIGNED_INT_2_10_10_10_REV and 
+		/// GL_UNSIGNED_INT_10F_11F_11F_REVare accepted by glVertexAttribPointer. GL_DOUBLE is also accepted by 
+		/// glVertexAttribLPointerand is the only token accepted by the type parameter for that function. The initial value is 
+		/// GL_FLOAT.
+		/// </param>
+		/// <param name="stride">
+		/// Specifies the byte offset between consecutive generic vertex attributes. If stride is 0, the generic vertex attributes 
+		/// areunderstood to be tightly packed in the array. The initial value is 0. 
+		/// </param>
+		/// <param name="pointer">
+		/// Specifies a offset of the first component of the first generic vertex attribute in the array in the data store of the 
+		/// buffercurrently bound to the GL_ARRAY_BUFFER target. The initial value is 0. 
+		/// </param>
+		/// <remarks>
+		/// glVertexAttribPointer, glVertexAttribIPointer and glVertexAttribLPointer specify the location and data format of the 
+		/// arrayof generic vertex attributes at index index to use when rendering. size specifies the number of components per 
+		/// attributeand must be 1, 2, 3, 4, or GL_BGRA. type specifies the data type of each component, and stride specifies the 
+		/// bytestride from one attribute to the next, allowing vertices and attributes to be packed into a single array or stored 
+		/// inseparate arrays. 
+		/// For glVertexAttribPointer, if normalized is set to GL_TRUE, it indicates that values stored in an integer format are to 
+		/// bemapped to the range [-1,1] (for signed values) or [0,1] (for unsigned values) when they are accessed and converted to 
+		/// floatingpoint. Otherwise, values will be converted to floats directly without normalization. 
+		/// For glVertexAttribIPointer, only the integer types GL_BYTE, GL_UNSIGNED_BYTE, GL_SHORT, GL_UNSIGNED_SHORT, GL_INT, 
+		/// GL_UNSIGNED_INTare accepted. Values are always left as integer values. 
+		/// glVertexAttribLPointer specifies state for a generic vertex attribute array associated with a shader attribute variable 
+		/// declaredwith 64-bit double precision components. type must be GL_DOUBLE. index, size, and stride behave as described for 
+		/// glVertexAttribPointerand glVertexAttribIPointer. 
+		/// If pointer is not NULL, a non-zero named buffer object must be bound to the GL_ARRAY_BUFFER target (see glBindBuffer), 
+		/// otherwisean error is generated. pointer is treated as a byte offset into the buffer object's data store. The buffer 
+		/// objectbinding (GL_ARRAY_BUFFER_BINDING) is saved as generic vertex attribute array state 
+		/// (GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING)for index index. 
+		/// When a generic vertex attribute array is specified, size, type, normalized, stride, and pointer are saved as vertex 
+		/// arraystate, in addition to the current vertex array buffer object binding. 
+		/// To enable and disable a generic vertex attribute array, call glEnableVertexAttribArray and glDisableVertexAttribArray 
+		/// withindex. If enabled, the generic vertex attribute array is used when glDrawArrays, glMultiDrawArrays, glDrawElements, 
+		/// glMultiDrawElements,or glDrawRangeElements is called. 
+		/// <para>
+		/// The following errors can be generated:
+		/// - GL_INVALID_VALUE is generated if index is greater than or equal to GL_MAX_VERTEX_ATTRIBS. 
+		/// - GL_INVALID_VALUE is generated if size is not 1, 2, 3, 4 or (for glVertexAttribPointer), GL_BGRA. 
+		/// - GL_INVALID_ENUM is generated if type is not an accepted value. 
+		/// - GL_INVALID_VALUE is generated if stride is negative. 
+		/// - GL_INVALID_OPERATION is generated if size is GL_BGRA and type is not GL_UNSIGNED_BYTE, GL_INT_2_10_10_10_REV or 
+		///   GL_UNSIGNED_INT_2_10_10_10_REV.
+		/// - GL_INVALID_OPERATION is generated if type is GL_INT_2_10_10_10_REV or GL_UNSIGNED_INT_2_10_10_10_REV and size is not 4 
+		///   orGL_BGRA. 
+		/// - GL_INVALID_OPERATION is generated if type is GL_UNSIGNED_INT_10F_11F_11F_REV and size is not 3. 
+		/// - GL_INVALID_OPERATION is generated by glVertexAttribPointer if size is GL_BGRA and noramlized is GL_FALSE. 
+		/// - GL_INVALID_OPERATION is generated if zero is bound to the GL_ARRAY_BUFFER buffer object binding point and the pointer 
+		///   argumentis not NULL. 
+		/// </para>
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - glGet with argument GL_MAX_VERTEX_ATTRIBS 
+		/// - glGetVertexAttrib with arguments index and GL_VERTEX_ATTRIB_ARRAY_ENABLED 
+		/// - glGetVertexAttrib with arguments index and GL_VERTEX_ATTRIB_ARRAY_SIZE 
+		/// - glGetVertexAttrib with arguments index and GL_VERTEX_ATTRIB_ARRAY_TYPE 
+		/// - glGetVertexAttrib with arguments index and GL_VERTEX_ATTRIB_ARRAY_NORMALIZED 
+		/// - glGetVertexAttrib with arguments index and GL_VERTEX_ATTRIB_ARRAY_STRIDE 
+		/// - glGetVertexAttrib with arguments index and GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING 
+		/// - glGet with argument GL_ARRAY_BUFFER_BINDING 
+		/// - glGetVertexAttribPointerv with arguments index and GL_VERTEX_ATTRIB_ARRAY_POINTER 
+		/// </para>
+		/// </remarks>
+		/// <seealso cref="Gl.BindAttribLocation"/>
+		/// <seealso cref="Gl.BindBuffer"/>
+		/// <seealso cref="Gl.DisableVertexAttribArray"/>
+		/// <seealso cref="Gl.DrawArrays"/>
+		/// <seealso cref="Gl.DrawElements"/>
+		/// <seealso cref="Gl.DrawRangeElements"/>
+		/// <seealso cref="Gl.EnableVertexAttribArray"/>
+		/// <seealso cref="Gl.MultiDrawArrays"/>
+		/// <seealso cref="Gl.MultiDrawElements"/>
+		/// <seealso cref="Gl.VertexAttrib"/>
+		public static void VertexAttribLPointer(UInt32 index, Int32 size, int type, Int32 stride, IntPtr pointer)
+		{
+			if        (Delegates.pglVertexAttribLPointer != null) {
+				Delegates.pglVertexAttribLPointer(index, size, type, stride, pointer);
+				CallLog("glVertexAttribLPointer({0}, {1}, {2}, {3}, {4})", index, size, type, stride, pointer);
+			} else if (Delegates.pglVertexAttribLPointerEXT != null) {
+				Delegates.pglVertexAttribLPointerEXT(index, size, type, stride, pointer);
+				CallLog("glVertexAttribLPointerEXT({0}, {1}, {2}, {3}, {4})", index, size, type, stride, pointer);
+			} else
+				throw new NotImplementedException("glVertexAttribLPointer (and other aliases) are not implemented");
+			DebugCheckErrors();
+		}
+
+		/// <summary>
+		/// define an array of generic vertex attribute data
+		/// </summary>
+		/// <param name="index">
+		/// Specifies the index of the generic vertex attribute to be modified. 
+		/// </param>
+		/// <param name="size">
+		/// Specifies the number of components per generic vertex attribute. Must be 1, 2, 3, 4. Additionally, the symbolic constant 
+		/// GL_BGRAis accepted by glVertexAttribPointer. The initial value is 4. 
+		/// </param>
+		/// <param name="type">
+		/// Specifies the data type of each component in the array. The symbolic constants GL_BYTE, GL_UNSIGNED_BYTE, GL_SHORT, 
+		/// GL_UNSIGNED_SHORT,GL_INT, and GL_UNSIGNED_INT are accepted by glVertexAttribPointer and glVertexAttribIPointer. 
+		/// AdditionallyGL_HALF_FLOAT, GL_FLOAT, GL_DOUBLE, GL_FIXED, GL_INT_2_10_10_10_REV, GL_UNSIGNED_INT_2_10_10_10_REV and 
+		/// GL_UNSIGNED_INT_10F_11F_11F_REVare accepted by glVertexAttribPointer. GL_DOUBLE is also accepted by 
+		/// glVertexAttribLPointerand is the only token accepted by the type parameter for that function. The initial value is 
+		/// GL_FLOAT.
+		/// </param>
+		/// <param name="stride">
+		/// Specifies the byte offset between consecutive generic vertex attributes. If stride is 0, the generic vertex attributes 
+		/// areunderstood to be tightly packed in the array. The initial value is 0. 
+		/// </param>
+		/// <param name="pointer">
+		/// Specifies a offset of the first component of the first generic vertex attribute in the array in the data store of the 
+		/// buffercurrently bound to the GL_ARRAY_BUFFER target. The initial value is 0. 
+		/// </param>
+		/// <remarks>
+		/// glVertexAttribPointer, glVertexAttribIPointer and glVertexAttribLPointer specify the location and data format of the 
+		/// arrayof generic vertex attributes at index index to use when rendering. size specifies the number of components per 
+		/// attributeand must be 1, 2, 3, 4, or GL_BGRA. type specifies the data type of each component, and stride specifies the 
+		/// bytestride from one attribute to the next, allowing vertices and attributes to be packed into a single array or stored 
+		/// inseparate arrays. 
+		/// For glVertexAttribPointer, if normalized is set to GL_TRUE, it indicates that values stored in an integer format are to 
+		/// bemapped to the range [-1,1] (for signed values) or [0,1] (for unsigned values) when they are accessed and converted to 
+		/// floatingpoint. Otherwise, values will be converted to floats directly without normalization. 
+		/// For glVertexAttribIPointer, only the integer types GL_BYTE, GL_UNSIGNED_BYTE, GL_SHORT, GL_UNSIGNED_SHORT, GL_INT, 
+		/// GL_UNSIGNED_INTare accepted. Values are always left as integer values. 
+		/// glVertexAttribLPointer specifies state for a generic vertex attribute array associated with a shader attribute variable 
+		/// declaredwith 64-bit double precision components. type must be GL_DOUBLE. index, size, and stride behave as described for 
+		/// glVertexAttribPointerand glVertexAttribIPointer. 
+		/// If pointer is not NULL, a non-zero named buffer object must be bound to the GL_ARRAY_BUFFER target (see glBindBuffer), 
+		/// otherwisean error is generated. pointer is treated as a byte offset into the buffer object's data store. The buffer 
+		/// objectbinding (GL_ARRAY_BUFFER_BINDING) is saved as generic vertex attribute array state 
+		/// (GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING)for index index. 
+		/// When a generic vertex attribute array is specified, size, type, normalized, stride, and pointer are saved as vertex 
+		/// arraystate, in addition to the current vertex array buffer object binding. 
+		/// To enable and disable a generic vertex attribute array, call glEnableVertexAttribArray and glDisableVertexAttribArray 
+		/// withindex. If enabled, the generic vertex attribute array is used when glDrawArrays, glMultiDrawArrays, glDrawElements, 
+		/// glMultiDrawElements,or glDrawRangeElements is called. 
+		/// <para>
+		/// The following errors can be generated:
+		/// - GL_INVALID_VALUE is generated if index is greater than or equal to GL_MAX_VERTEX_ATTRIBS. 
+		/// - GL_INVALID_VALUE is generated if size is not 1, 2, 3, 4 or (for glVertexAttribPointer), GL_BGRA. 
+		/// - GL_INVALID_ENUM is generated if type is not an accepted value. 
+		/// - GL_INVALID_VALUE is generated if stride is negative. 
+		/// - GL_INVALID_OPERATION is generated if size is GL_BGRA and type is not GL_UNSIGNED_BYTE, GL_INT_2_10_10_10_REV or 
+		///   GL_UNSIGNED_INT_2_10_10_10_REV.
+		/// - GL_INVALID_OPERATION is generated if type is GL_INT_2_10_10_10_REV or GL_UNSIGNED_INT_2_10_10_10_REV and size is not 4 
+		///   orGL_BGRA. 
+		/// - GL_INVALID_OPERATION is generated if type is GL_UNSIGNED_INT_10F_11F_11F_REV and size is not 3. 
+		/// - GL_INVALID_OPERATION is generated by glVertexAttribPointer if size is GL_BGRA and noramlized is GL_FALSE. 
+		/// - GL_INVALID_OPERATION is generated if zero is bound to the GL_ARRAY_BUFFER buffer object binding point and the pointer 
+		///   argumentis not NULL. 
+		/// </para>
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - glGet with argument GL_MAX_VERTEX_ATTRIBS 
+		/// - glGetVertexAttrib with arguments index and GL_VERTEX_ATTRIB_ARRAY_ENABLED 
+		/// - glGetVertexAttrib with arguments index and GL_VERTEX_ATTRIB_ARRAY_SIZE 
+		/// - glGetVertexAttrib with arguments index and GL_VERTEX_ATTRIB_ARRAY_TYPE 
+		/// - glGetVertexAttrib with arguments index and GL_VERTEX_ATTRIB_ARRAY_NORMALIZED 
+		/// - glGetVertexAttrib with arguments index and GL_VERTEX_ATTRIB_ARRAY_STRIDE 
+		/// - glGetVertexAttrib with arguments index and GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING 
+		/// - glGet with argument GL_ARRAY_BUFFER_BINDING 
+		/// - glGetVertexAttribPointerv with arguments index and GL_VERTEX_ATTRIB_ARRAY_POINTER 
+		/// </para>
+		/// </remarks>
+		/// <seealso cref="Gl.BindAttribLocation"/>
+		/// <seealso cref="Gl.BindBuffer"/>
+		/// <seealso cref="Gl.DisableVertexAttribArray"/>
+		/// <seealso cref="Gl.DrawArrays"/>
+		/// <seealso cref="Gl.DrawElements"/>
+		/// <seealso cref="Gl.DrawRangeElements"/>
+		/// <seealso cref="Gl.EnableVertexAttribArray"/>
+		/// <seealso cref="Gl.MultiDrawArrays"/>
+		/// <seealso cref="Gl.MultiDrawElements"/>
+		/// <seealso cref="Gl.VertexAttrib"/>
+		public static void VertexAttribLPointer(UInt32 index, Int32 size, int type, Int32 stride, Object pointer)
+		{
+			GCHandle pin_pointer = GCHandle.Alloc(pointer, GCHandleType.Pinned);
+			try {
+				VertexAttribLPointer(index, size, type, stride, pin_pointer.AddrOfPinnedObject());
+			} finally {
+				pin_pointer.Free();
+			}
+		}
+
+		/// <summary>
+		/// Return a generic vertex attribute parameter
+		/// </summary>
+		/// <param name="index">
+		/// Specifies the generic vertex attribute parameter to be queried. 
+		/// </param>
+		/// <param name="pname">
+		/// Specifies the symbolic name of the vertex attribute parameter to be queried. Accepted values are 
+		/// GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING,GL_VERTEX_ATTRIB_ARRAY_ENABLED, GL_VERTEX_ATTRIB_ARRAY_SIZE, 
+		/// GL_VERTEX_ATTRIB_ARRAY_STRIDE,GL_VERTEX_ATTRIB_ARRAY_TYPE, GL_VERTEX_ATTRIB_ARRAY_NORMALIZED, 
+		/// GL_VERTEX_ATTRIB_ARRAY_INTEGER,GL_VERTEX_ATTRIB_ARRAY_DIVISOR, or GL_CURRENT_VERTEX_ATTRIB. 
+		/// </param>
+		/// <param name="params">
+		/// A <see cref="T:double[]"/>.
+		/// </param>
+		/// <remarks>
+		/// glGetVertexAttrib returns in params the value of a generic vertex attribute parameter. The generic vertex attribute to 
+		/// bequeried is specified by index, and the parameter to be queried is specified by pname. 
+		/// The accepted parameter names are as follows: 
+		/// All of the parameters except GL_CURRENT_VERTEX_ATTRIB represent state stored in the currently bound vertex array object. 
+		/// <para>
+		/// The following errors can be generated:
+		/// - GL_INVALID_OPERATION is generated if pname is not GL_CURRENT_VERTEX_ATTRIB and there is no currently bound vertex array 
+		///   object.
+		/// - GL_INVALID_VALUE is generated if index is greater than or equal to GL_MAX_VERTEX_ATTRIBS. 
+		/// - GL_INVALID_ENUM is generated if pname is not an accepted value. 
+		/// - GL_INVALID_OPERATION is generated if index is 0 and pname is GL_CURRENT_VERTEX_ATTRIB. 
+		/// </para>
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - glGet with argument GL_MAX_VERTEX_ATTRIBS 
+		/// - glGetVertexAttribPointerv with arguments index and GL_VERTEX_ATTRIB_ARRAY_POINTER 
+		/// </para>
+		/// </remarks>
+		/// <seealso cref="Gl.BindAttribLocation"/>
+		/// <seealso cref="Gl.BindBuffer"/>
+		/// <seealso cref="Gl.DisableVertexAttribArray"/>
+		/// <seealso cref="Gl.EnableVertexAttribArray"/>
+		/// <seealso cref="Gl.VertexAttrib"/>
+		/// <seealso cref="Gl.VertexAttribDivisor"/>
+		/// <seealso cref="Gl.VertexAttribPointer"/>
+		public static void GetVertexAttribL(UInt32 index, int pname, double[] @params)
+		{
+			unsafe {
+				fixed (double* p_params = @params)
+				{
+					if        (Delegates.pglGetVertexAttribLdv != null) {
+						Delegates.pglGetVertexAttribLdv(index, pname, p_params);
+						CallLog("glGetVertexAttribLdv({0}, {1}, {2})", index, pname, @params);
+					} else if (Delegates.pglGetVertexAttribLdvEXT != null) {
+						Delegates.pglGetVertexAttribLdvEXT(index, pname, p_params);
+						CallLog("glGetVertexAttribLdvEXT({0}, {1}, {2})", index, pname, @params);
+					} else
+						throw new NotImplementedException("glGetVertexAttribLdv (and other aliases) are not implemented");
+				}
+			}
+			DebugCheckErrors();
+		}
+
+		/// <summary>
+		/// Binding for glViewportArrayv.
+		/// </summary>
+		/// <param name="first">
+		/// A <see cref="T:UInt32"/>.
+		/// </param>
+		/// <param name="count">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="v">
+		/// A <see cref="T:float[]"/>.
+		/// </param>
+		public static void ViewportArray(UInt32 first, Int32 count, float[] v)
+		{
+			unsafe {
+				fixed (float* p_v = v)
+				{
+					if        (Delegates.pglViewportArrayv != null) {
+						Delegates.pglViewportArrayv(first, count, p_v);
+						CallLog("glViewportArrayv({0}, {1}, {2})", first, count, v);
+					} else if (Delegates.pglViewportArrayvNV != null) {
+						Delegates.pglViewportArrayvNV(first, count, p_v);
+						CallLog("glViewportArrayvNV({0}, {1}, {2})", first, count, v);
+					} else
+						throw new NotImplementedException("glViewportArrayv (and other aliases) are not implemented");
+				}
+			}
+			DebugCheckErrors();
+		}
+
+		/// <summary>
+		/// Binding for glViewportIndexedf.
+		/// </summary>
+		/// <param name="index">
+		/// A <see cref="T:UInt32"/>.
+		/// </param>
+		/// <param name="x">
+		/// A <see cref="T:float"/>.
+		/// </param>
+		/// <param name="y">
+		/// A <see cref="T:float"/>.
+		/// </param>
+		/// <param name="w">
+		/// A <see cref="T:float"/>.
+		/// </param>
+		/// <param name="h">
+		/// A <see cref="T:float"/>.
+		/// </param>
+		public static void ViewportIndexed(UInt32 index, float x, float y, float w, float h)
+		{
+			if        (Delegates.pglViewportIndexedf != null) {
+				Delegates.pglViewportIndexedf(index, x, y, w, h);
+				CallLog("glViewportIndexedf({0}, {1}, {2}, {3}, {4})", index, x, y, w, h);
+			} else if (Delegates.pglViewportIndexedfNV != null) {
+				Delegates.pglViewportIndexedfNV(index, x, y, w, h);
+				CallLog("glViewportIndexedfNV({0}, {1}, {2}, {3}, {4})", index, x, y, w, h);
+			} else
+				throw new NotImplementedException("glViewportIndexedf (and other aliases) are not implemented");
+			DebugCheckErrors();
+		}
+
+		/// <summary>
+		/// Binding for glViewportIndexedfv.
+		/// </summary>
+		/// <param name="index">
+		/// A <see cref="T:UInt32"/>.
+		/// </param>
+		/// <param name="v">
+		/// A <see cref="T:float[]"/>.
+		/// </param>
+		public static void ViewportIndexed(UInt32 index, float[] v)
+		{
+			unsafe {
+				fixed (float* p_v = v)
+				{
+					if        (Delegates.pglViewportIndexedfv != null) {
+						Delegates.pglViewportIndexedfv(index, p_v);
+						CallLog("glViewportIndexedfv({0}, {1})", index, v);
+					} else if (Delegates.pglViewportIndexedfvNV != null) {
+						Delegates.pglViewportIndexedfvNV(index, p_v);
+						CallLog("glViewportIndexedfvNV({0}, {1})", index, v);
+					} else
+						throw new NotImplementedException("glViewportIndexedfv (and other aliases) are not implemented");
+				}
+			}
+			DebugCheckErrors();
+		}
+
+		/// <summary>
+		/// define the scissor box for multiple viewports
+		/// </summary>
+		/// <param name="first">
+		/// Specifies the index of the first viewport whose scissor box to modify. 
+		/// </param>
+		/// <param name="count">
+		/// Specifies the number of scissor boxes to modify. 
+		/// </param>
+		/// <param name="v">
+		/// Specifies the address of an array containing the left, bottom, width and height of each scissor box, in that order. 
+		/// </param>
+		/// <remarks>
+		/// glScissorArrayv defines rectangles, called scissor boxes, in window coordinates for each viewport. first specifies the 
+		/// indexof the first scissor box to modify and count specifies the number of scissor boxes to modify. first must be less 
+		/// thanthe value of GL_MAX_VIEWPORTS, and first + count must be less than or equal to the value of GL_MAX_VIEWPORTS. v 
+		/// specifiesthe address of an array containing integers specifying the lower left corner of the scissor boxes, and the 
+		/// widthand height of the scissor boxes, in that order. 
+		/// To enable and disable the scissor test, call glEnable and glDisable with argument GL_SCISSOR_TEST. The test is initially 
+		/// disabledfor all viewports. While the test is enabled, only pixels that lie within the scissor box can be modified by 
+		/// drawingcommands. Window coordinates have integer values at the shared corners of frame buffer pixels. glScissor(0,0,1,1) 
+		/// allowsmodification of only the lower left pixel in the window, and glScissor(0,0,0,0) doesn't allow modification of any 
+		/// pixelsin the window. 
+		/// When the scissor test is disabled, it is as though the scissor box includes the entire window. 
+		/// <para>
+		/// The following errors can be generated:
+		/// - GL_INVALID_VALUE is generated if first is greater than or equal to the value of GL_MAX_VIEWPORTS. 
+		/// - GL_INVALID_VALUE is generated if first + count is greater than or equal to the value of GL_MAX_VIEWPORTS. 
+		/// - GL_INVALID_VALUE is generated if any width or height specified in the array v is negative. 
+		/// </para>
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - glGet with argument GL_SCISSOR_BOX 
+		/// - glIsEnabled with argument GL_SCISSOR_TEST 
+		/// </para>
+		/// </remarks>
+		/// <seealso cref="Gl.Enable"/>
+		/// <seealso cref="Gl.Viewport"/>
+		/// <seealso cref="Gl.ViewportIndexed"/>
+		/// <seealso cref="Gl.ViewportArray"/>
+		public static void ScissorArray(UInt32 first, Int32 count, Int32[] v)
+		{
+			unsafe {
+				fixed (Int32* p_v = v)
+				{
+					if        (Delegates.pglScissorArrayv != null) {
+						Delegates.pglScissorArrayv(first, count, p_v);
+						CallLog("glScissorArrayv({0}, {1}, {2})", first, count, v);
+					} else if (Delegates.pglScissorArrayvNV != null) {
+						Delegates.pglScissorArrayvNV(first, count, p_v);
+						CallLog("glScissorArrayvNV({0}, {1}, {2})", first, count, v);
+					} else
+						throw new NotImplementedException("glScissorArrayv (and other aliases) are not implemented");
+				}
+			}
+			DebugCheckErrors();
+		}
+
+		/// <summary>
+		/// define the scissor box for a specific viewport
+		/// </summary>
+		/// <param name="index">
+		/// Specifies the index of the viewport whose scissor box to modify. 
+		/// </param>
+		/// <param name="left">
+		/// Specify the coordinate of the bottom left corner of the scissor box, in pixels. 
+		/// </param>
+		/// <param name="bottom">
+		/// Specify the coordinate of the bottom left corner of the scissor box, in pixels. 
+		/// </param>
+		/// <param name="width">
+		/// Specify ths dimensions of the scissor box, in pixels. 
+		/// </param>
+		/// <param name="height">
+		/// Specify ths dimensions of the scissor box, in pixels. 
+		/// </param>
+		/// <remarks>
+		/// glScissorIndexed defines the scissor box for a specified viewport. index specifies the index of scissor box to modify. 
+		/// indexmust be less than the value of GL_MAX_VIEWPORTS. For glScissorIndexed, left, bottom, width and height specify the 
+		/// left,bottom, width and height of the scissor box, in pixels, respectively. For glScissorIndexedv, v specifies the 
+		/// addressof an array containing integers specifying the lower left corner of the scissor box, and the width and height of 
+		/// thescissor box, in that order. 
+		/// To enable and disable the scissor test, call glEnable and glDisable with argument GL_SCISSOR_TEST. The test is initially 
+		/// disabledfor all viewports. While the test is enabled, only pixels that lie within the scissor box can be modified by 
+		/// drawingcommands. Window coordinates have integer values at the shared corners of frame buffer pixels. glScissor(0,0,1,1) 
+		/// allowsmodification of only the lower left pixel in the window, and glScissor(0,0,0,0) doesn't allow modification of any 
+		/// pixelsin the window. 
+		/// When the scissor test is disabled, it is as though the scissor box includes the entire window. 
+		/// <para>
+		/// The following errors can be generated:
+		/// - GL_INVALID_VALUE is generated if index is greater than or equal to the value of GL_MAX_VIEWPORTS. 
+		/// - GL_INVALID_VALUE is generated if any width or height specified in the array v is negative. 
+		/// </para>
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - glGet with argument GL_SCISSOR_BOX 
+		/// - glIsEnabled with argument GL_SCISSOR_TEST 
+		/// </para>
+		/// </remarks>
+		/// <seealso cref="Gl.Enable"/>
+		/// <seealso cref="Gl.Scissor"/>
+		/// <seealso cref="Gl.ScissorArray"/>
+		public static void ScissorIndexed(UInt32 index, Int32 left, Int32 bottom, Int32 width, Int32 height)
+		{
+			if        (Delegates.pglScissorIndexed != null) {
+				Delegates.pglScissorIndexed(index, left, bottom, width, height);
+				CallLog("glScissorIndexed({0}, {1}, {2}, {3}, {4})", index, left, bottom, width, height);
+			} else if (Delegates.pglScissorIndexedNV != null) {
+				Delegates.pglScissorIndexedNV(index, left, bottom, width, height);
+				CallLog("glScissorIndexedNV({0}, {1}, {2}, {3}, {4})", index, left, bottom, width, height);
+			} else
+				throw new NotImplementedException("glScissorIndexed (and other aliases) are not implemented");
+			DebugCheckErrors();
+		}
+
+		/// <summary>
+		/// define the scissor box for a specific viewport
+		/// </summary>
+		/// <param name="index">
+		/// Specifies the index of the viewport whose scissor box to modify. 
+		/// </param>
+		/// <param name="v">
+		/// For glScissorIndexedv, specifies the address of an array containing the left, bottom, width and height of each scissor 
+		/// box,in that order. 
+		/// </param>
+		/// <remarks>
+		/// glScissorIndexed defines the scissor box for a specified viewport. index specifies the index of scissor box to modify. 
+		/// indexmust be less than the value of GL_MAX_VIEWPORTS. For glScissorIndexed, left, bottom, width and height specify the 
+		/// left,bottom, width and height of the scissor box, in pixels, respectively. For glScissorIndexedv, v specifies the 
+		/// addressof an array containing integers specifying the lower left corner of the scissor box, and the width and height of 
+		/// thescissor box, in that order. 
+		/// To enable and disable the scissor test, call glEnable and glDisable with argument GL_SCISSOR_TEST. The test is initially 
+		/// disabledfor all viewports. While the test is enabled, only pixels that lie within the scissor box can be modified by 
+		/// drawingcommands. Window coordinates have integer values at the shared corners of frame buffer pixels. glScissor(0,0,1,1) 
+		/// allowsmodification of only the lower left pixel in the window, and glScissor(0,0,0,0) doesn't allow modification of any 
+		/// pixelsin the window. 
+		/// When the scissor test is disabled, it is as though the scissor box includes the entire window. 
+		/// <para>
+		/// The following errors can be generated:
+		/// - GL_INVALID_VALUE is generated if index is greater than or equal to the value of GL_MAX_VIEWPORTS. 
+		/// - GL_INVALID_VALUE is generated if any width or height specified in the array v is negative. 
+		/// </para>
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - glGet with argument GL_SCISSOR_BOX 
+		/// - glIsEnabled with argument GL_SCISSOR_TEST 
+		/// </para>
+		/// </remarks>
+		/// <seealso cref="Gl.Enable"/>
+		/// <seealso cref="Gl.Scissor"/>
+		/// <seealso cref="Gl.ScissorArray"/>
+		public static void ScissorIndexed(UInt32 index, Int32[] v)
+		{
+			unsafe {
+				fixed (Int32* p_v = v)
+				{
+					if        (Delegates.pglScissorIndexedv != null) {
+						Delegates.pglScissorIndexedv(index, p_v);
+						CallLog("glScissorIndexedv({0}, {1})", index, v);
+					} else if (Delegates.pglScissorIndexedvNV != null) {
+						Delegates.pglScissorIndexedvNV(index, p_v);
+						CallLog("glScissorIndexedvNV({0}, {1})", index, v);
+					} else
+						throw new NotImplementedException("glScissorIndexedv (and other aliases) are not implemented");
+				}
+			}
+			DebugCheckErrors();
+		}
+
+		/// <summary>
+		/// specify mapping of depth values from normalized device coordinates to window coordinates for a specified set of viewports
+		/// </summary>
+		/// <param name="first">
+		/// Specifies the index of the first viewport whose depth range to update. 
+		/// </param>
+		/// <param name="count">
+		/// Specifies the number of viewports whose depth range to update. 
+		/// </param>
+		/// <param name="v">
+		/// Specifies the address of an array containing the near and far values for the depth range of each modified viewport. 
+		/// </param>
+		/// <remarks>
+		/// After clipping and division by w, depth coordinates range from -1 to 1, corresponding to the near and far clipping 
+		/// planes.Each viewport has an independent depth range specified as a linear mapping of the normalized depth coordinates in 
+		/// thisrange to window depth coordinates. Regardless of the actual depth buffer implementation, window coordinate depth 
+		/// valuesare treated as though they range from 0 through 1 (like color components). glDepthRangeArray specifies a linear 
+		/// mappingof the normalized depth coordinates in this range to window depth coordinates for each viewport in the range 
+		/// [first,first + count). Thus, the values accepted by glDepthRangeArray are both clamped to this range before they are 
+		/// accepted.
+		/// The first parameter specifies the index of the first viewport whose depth range to modify and must be less than the 
+		/// valueof GL_MAX_VIEWPORTS. count specifies the number of viewports whose depth range to modify. first + count must be 
+		/// lessthan or equal to the value of GL_MAX_VIEWPORTS. v specifies the address of an array of pairs of double precision 
+		/// floatingpoint values representing the near and far values of the depth range for each viewport, in that order. 
+		/// The setting of (0,1) maps the near plane to 0 and the far plane to 1. With this mapping, the depth buffer range is fully 
+		/// utilized.
+		/// <para>
+		/// The following errors can be generated:
+		/// - GL_INVALID_VALUE is generated if first is greater than or equal to the value of GL_MAX_VIEWPORTS. 
+		/// - GL_INVALID_VALUE is generated if first + count is greater than or equal to the value of GL_MAX_VIEWPORTS. 
+		/// </para>
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - glGet with argument GL_DEPTH_RANGE 
+		/// </para>
+		/// </remarks>
+		/// <seealso cref="Gl.DepthFunc"/>
+		/// <seealso cref="Gl.DepthRange"/>
+		/// <seealso cref="Gl.DepthRangeIndexed"/>
+		/// <seealso cref="Gl.PolygonOffset"/>
+		/// <seealso cref="Gl.ViewportArray"/>
+		/// <seealso cref="Gl.Viewport"/>
+		/// <seealso cref="Gl.removedTypes"/>
+		public static void DepthRangeArray(UInt32 first, Int32 count, double[] v)
+		{
+			unsafe {
+				fixed (double* p_v = v)
+				{
+					Debug.Assert(Delegates.pglDepthRangeArrayv != null, "pglDepthRangeArrayv not implemented");
+					Delegates.pglDepthRangeArrayv(first, count, p_v);
+					CallLog("glDepthRangeArrayv({0}, {1}, {2})", first, count, v);
+				}
+			}
+			DebugCheckErrors();
+		}
+
+		/// <summary>
+		/// specify mapping of depth values from normalized device coordinates to window coordinates for a specified viewport
+		/// </summary>
+		/// <param name="index">
+		/// Specifies the index of the viewport whose depth range to update. 
+		/// </param>
+		/// <param name="n">
+		/// A <see cref="T:double"/>.
+		/// </param>
+		/// <param name="f">
+		/// A <see cref="T:double"/>.
+		/// </param>
+		/// <remarks>
+		/// After clipping and division by w, depth coordinates range from -1 to 1, corresponding to the near and far clipping 
+		/// planes.Each viewport has an independent depth range specified as a linear mapping of the normalized depth coordinates in 
+		/// thisrange to window depth coordinates. Regardless of the actual depth buffer implementation, window coordinate depth 
+		/// valuesare treated as though they range from 0 through 1 (like color components). glDepthRangeIndexed specifies a linear 
+		/// mappingof the normalized depth coordinates in this range to window depth coordinates for a specified viewport. Thus, the 
+		/// valuesaccepted by glDepthRangeIndexed are both clamped to this range before they are accepted. 
+		/// The index parameter specifies the index of first viewport whose depth range to modify and must be less than the value of 
+		/// GL_MAX_VIEWPORTS.nearVal and farVal specify near and far values of the depth range for the specified viewport, 
+		/// respectively.
+		/// The setting of (0,1) maps the near plane to 0 and the far plane to 1. With this mapping, the depth buffer range is fully 
+		/// utilized.
+		/// <para>
+		/// The following errors can be generated:
+		/// - GL_INVALID_VALUE is generated if index is greater than or equal to the value of GL_MAX_VIEWPORTS. 
+		/// </para>
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - glGet with argument GL_DEPTH_RANGE 
+		/// </para>
+		/// </remarks>
+		/// <seealso cref="Gl.DepthFunc"/>
+		/// <seealso cref="Gl.DepthRange"/>
+		/// <seealso cref="Gl.DepthRangeArray"/>
+		/// <seealso cref="Gl.PolygonOffset"/>
+		/// <seealso cref="Gl.ViewportArray"/>
+		/// <seealso cref="Gl.Viewport"/>
+		/// <seealso cref="Gl.removedTypes"/>
+		public static void DepthRangeIndexed(UInt32 index, double n, double f)
+		{
+			Debug.Assert(Delegates.pglDepthRangeIndexed != null, "pglDepthRangeIndexed not implemented");
+			Delegates.pglDepthRangeIndexed(index, n, f);
+			CallLog("glDepthRangeIndexed({0}, {1}, {2})", index, n, f);
+			DebugCheckErrors();
+		}
+
+		/// <summary>
+		/// return the value or values of a selected parameter
+		/// </summary>
+		/// <param name="target">
+		/// Specifies the parameter value to be returned for indexed versions of glGet. The symbolic constants in the list below are 
+		/// accepted.
+		/// </param>
+		/// <param name="index">
+		/// Specifies the index of the particular element being queried. 
+		/// </param>
+		/// <param name="data">
+		/// Returns the value or values of the specified parameter. 
+		/// </param>
+		/// <remarks>
+		/// These commands return values for simple state variables in GL. pname is a symbolic constant indicating the state 
+		/// variableto be returned, and data is a pointer to an array of the indicated type in which to place the returned data. 
+		/// Type conversion is performed if data has a different type than the state variable value being requested. If 
+		/// glGetBooleanvis called, a floating-point (or integer) value is converted to GL_FALSE if and only if it is 0.0 (or 0). 
+		/// Otherwise,it is converted to GL_TRUE. If glGetIntegerv is called, boolean values are returned as GL_TRUE or GL_FALSE, 
+		/// andmost floating-point values are rounded to the nearest integer value. Floating-point colors and normals, however, are 
+		/// returnedwith a linear mapping that maps 1.0 to the most positive representable integer value and -1.0 to the most 
+		/// negativerepresentable integer value. If glGetFloatv or glGetDoublev is called, boolean values are returned as GL_TRUE or 
+		/// GL_FALSE,and integer values are converted to floating-point values. 
+		/// The following symbolic constants are accepted by pname: 
+		/// Many of the boolean parameters can also be queried more easily using glIsEnabled. 
+		/// <para>
+		/// The following errors can be generated:
+		/// - GL_INVALID_ENUM is generated if pname is not an accepted value. 
+		/// - GL_INVALID_VALUE is generated on any of glGetBooleani_v, glGetIntegeri_v, or glGetInteger64i_v if index is outside of 
+		///   thevalid range for the indexed state target. 
+		/// </para>
+		/// </remarks>
+		/// <seealso cref="Gl.GetActiveUniform"/>
+		/// <seealso cref="Gl.GetAttachedShaders"/>
+		/// <seealso cref="Gl.GetAttribLocation"/>
+		/// <seealso cref="Gl.GetBufferParameter"/>
+		/// <seealso cref="Gl.GetBufferPointerv"/>
+		/// <seealso cref="Gl.GetBufferSubData"/>
+		/// <seealso cref="Gl.GetCompressedTexImage"/>
+		/// <seealso cref="Gl.GetError"/>
+		/// <seealso cref="Gl.GetProgram"/>
+		/// <seealso cref="Gl.GetProgramInfoLog"/>
+		/// <seealso cref="Gl.GetQueryiv"/>
+		/// <seealso cref="Gl.GetQueryObject"/>
+		/// <seealso cref="Gl.GetShader"/>
+		/// <seealso cref="Gl.GetShaderInfoLog"/>
+		/// <seealso cref="Gl.GetShaderSource"/>
+		/// <seealso cref="Gl.GetString"/>
+		/// <seealso cref="Gl.GetTexImage"/>
+		/// <seealso cref="Gl.GetTexLevelParameter"/>
+		/// <seealso cref="Gl.GetTexParameter"/>
+		/// <seealso cref="Gl.GetUniform"/>
+		/// <seealso cref="Gl.GetUniformLocation"/>
+		/// <seealso cref="Gl.GetVertexAttrib"/>
+		/// <seealso cref="Gl.GetVertexAttribPointerv"/>
+		/// <seealso cref="Gl.IsEnabled"/>
+		public static void GetFloat(int target, UInt32 index, float[] data)
+		{
+			unsafe {
+				fixed (float* p_data = data)
+				{
+					if        (Delegates.pglGetFloati_v != null) {
+						Delegates.pglGetFloati_v(target, index, p_data);
+						CallLog("glGetFloati_v({0}, {1}, {2})", target, index, data);
+					} else if (Delegates.pglGetFloatIndexedvEXT != null) {
+						Delegates.pglGetFloatIndexedvEXT(target, index, p_data);
+						CallLog("glGetFloatIndexedvEXT({0}, {1}, {2})", target, index, data);
+					} else if (Delegates.pglGetFloati_vNV != null) {
+						Delegates.pglGetFloati_vNV(target, index, p_data);
+						CallLog("glGetFloati_vNV({0}, {1}, {2})", target, index, data);
+					} else if (Delegates.pglGetFloati_vEXT != null) {
+						Delegates.pglGetFloati_vEXT(target, index, p_data);
+						CallLog("glGetFloati_vEXT({0}, {1}, {2})", target, index, data);
+					} else
+						throw new NotImplementedException("glGetFloati_v (and other aliases) are not implemented");
+				}
+			}
+			DebugCheckErrors();
+		}
+
+		/// <summary>
+		/// return the value or values of a selected parameter
+		/// </summary>
+		/// <param name="target">
+		/// Specifies the parameter value to be returned for indexed versions of glGet. The symbolic constants in the list below are 
+		/// accepted.
+		/// </param>
+		/// <param name="index">
+		/// Specifies the index of the particular element being queried. 
+		/// </param>
+		/// <param name="data">
+		/// Returns the value or values of the specified parameter. 
+		/// </param>
+		/// <remarks>
+		/// These commands return values for simple state variables in GL. pname is a symbolic constant indicating the state 
+		/// variableto be returned, and data is a pointer to an array of the indicated type in which to place the returned data. 
+		/// Type conversion is performed if data has a different type than the state variable value being requested. If 
+		/// glGetBooleanvis called, a floating-point (or integer) value is converted to GL_FALSE if and only if it is 0.0 (or 0). 
+		/// Otherwise,it is converted to GL_TRUE. If glGetIntegerv is called, boolean values are returned as GL_TRUE or GL_FALSE, 
+		/// andmost floating-point values are rounded to the nearest integer value. Floating-point colors and normals, however, are 
+		/// returnedwith a linear mapping that maps 1.0 to the most positive representable integer value and -1.0 to the most 
+		/// negativerepresentable integer value. If glGetFloatv or glGetDoublev is called, boolean values are returned as GL_TRUE or 
+		/// GL_FALSE,and integer values are converted to floating-point values. 
+		/// The following symbolic constants are accepted by pname: 
+		/// Many of the boolean parameters can also be queried more easily using glIsEnabled. 
+		/// <para>
+		/// The following errors can be generated:
+		/// - GL_INVALID_ENUM is generated if pname is not an accepted value. 
+		/// - GL_INVALID_VALUE is generated on any of glGetBooleani_v, glGetIntegeri_v, or glGetInteger64i_v if index is outside of 
+		///   thevalid range for the indexed state target. 
+		/// </para>
+		/// </remarks>
+		/// <seealso cref="Gl.GetActiveUniform"/>
+		/// <seealso cref="Gl.GetAttachedShaders"/>
+		/// <seealso cref="Gl.GetAttribLocation"/>
+		/// <seealso cref="Gl.GetBufferParameter"/>
+		/// <seealso cref="Gl.GetBufferPointerv"/>
+		/// <seealso cref="Gl.GetBufferSubData"/>
+		/// <seealso cref="Gl.GetCompressedTexImage"/>
+		/// <seealso cref="Gl.GetError"/>
+		/// <seealso cref="Gl.GetProgram"/>
+		/// <seealso cref="Gl.GetProgramInfoLog"/>
+		/// <seealso cref="Gl.GetQueryiv"/>
+		/// <seealso cref="Gl.GetQueryObject"/>
+		/// <seealso cref="Gl.GetShader"/>
+		/// <seealso cref="Gl.GetShaderInfoLog"/>
+		/// <seealso cref="Gl.GetShaderSource"/>
+		/// <seealso cref="Gl.GetString"/>
+		/// <seealso cref="Gl.GetTexImage"/>
+		/// <seealso cref="Gl.GetTexLevelParameter"/>
+		/// <seealso cref="Gl.GetTexParameter"/>
+		/// <seealso cref="Gl.GetUniform"/>
+		/// <seealso cref="Gl.GetUniformLocation"/>
+		/// <seealso cref="Gl.GetVertexAttrib"/>
+		/// <seealso cref="Gl.GetVertexAttribPointerv"/>
+		/// <seealso cref="Gl.IsEnabled"/>
+		public static void GetDouble(int target, UInt32 index, double[] data)
+		{
+			unsafe {
+				fixed (double* p_data = data)
+				{
+					if        (Delegates.pglGetDoublei_v != null) {
+						Delegates.pglGetDoublei_v(target, index, p_data);
+						CallLog("glGetDoublei_v({0}, {1}, {2})", target, index, data);
+					} else if (Delegates.pglGetDoubleIndexedvEXT != null) {
+						Delegates.pglGetDoubleIndexedvEXT(target, index, p_data);
+						CallLog("glGetDoubleIndexedvEXT({0}, {1}, {2})", target, index, data);
+					} else if (Delegates.pglGetDoublei_vEXT != null) {
+						Delegates.pglGetDoublei_vEXT(target, index, p_data);
+						CallLog("glGetDoublei_vEXT({0}, {1}, {2})", target, index, data);
+					} else
+						throw new NotImplementedException("glGetDoublei_v (and other aliases) are not implemented");
+				}
+			}
+			DebugCheckErrors();
+		}
+
+	}
+
+}

@@ -1,0 +1,526 @@
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="3.5">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{ABB8DFA8-473A-4FC1-85C0-E21680772A58}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>OpenGL</RootNamespace>
+    <AssemblyName>OpenGL.Net</AssemblyName>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>2.0</OldToolsVersion>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <DocumentationFile>
+    </DocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <DocumentationFile>bin\Release\OpenGL.Net.xml</DocumentationFile>
+    <NoWarn>419,1570,1574</NoWarn>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="3DFX\Gl.3DFX_multisample.cs" />
+    <Compile Include="3DFX\Gl.3DFX_tbuffer.cs" />
+    <Compile Include="3DFX\Gl.3DFX_texture_compression_FXT1.cs" />
+    <Compile Include="3DFX\Wgl.3DFX_multisample.cs" />
+    <Compile Include="3DL\Wgl.3DL_stereo_control.cs" />
+    <Compile Include="AMD\Gl.AMD_blend_minmax_factor.cs" />
+    <Compile Include="AMD\Gl.AMD_debug_output.cs" />
+    <Compile Include="AMD\Gl.AMD_depth_clamp_separate.cs" />
+    <Compile Include="AMD\Gl.AMD_draw_buffers_blend.cs" />
+    <Compile Include="AMD\Gl.AMD_interleaved_elements.cs" />
+    <Compile Include="AMD\Gl.AMD_multi_draw_indirect.cs" />
+    <Compile Include="AMD\Gl.AMD_name_gen_delete.cs" />
+    <Compile Include="AMD\Gl.AMD_occlusion_query_event.cs" />
+    <Compile Include="AMD\Gl.AMD_performance_monitor.cs" />
+    <Compile Include="AMD\Gl.AMD_pinned_memory.cs" />
+    <Compile Include="AMD\Gl.AMD_query_buffer_object.cs" />
+    <Compile Include="AMD\Gl.AMD_sample_positions.cs" />
+    <Compile Include="AMD\Gl.AMD_sparse_texture.cs" />
+    <Compile Include="AMD\Gl.AMD_stencil_operation_extended.cs" />
+    <Compile Include="AMD\Gl.AMD_transform_feedback4.cs" />
+    <Compile Include="AMD\Gl.AMD_vertex_shader_tessellator.cs" />
+    <Compile Include="AMD\Wgl.AMD_gpu_association.cs" />
+    <Compile Include="APPLE\Gl.APPLE_aux_depth_stencil.cs" />
+    <Compile Include="APPLE\Gl.APPLE_client_storage.cs" />
+    <Compile Include="APPLE\Gl.APPLE_element_array.cs" />
+    <Compile Include="APPLE\Gl.APPLE_fence.cs" />
+    <Compile Include="APPLE\Gl.APPLE_float_pixels.cs" />
+    <Compile Include="APPLE\Gl.APPLE_flush_buffer_range.cs" />
+    <Compile Include="APPLE\Gl.APPLE_object_purgeable.cs" />
+    <Compile Include="APPLE\Gl.APPLE_rgb_422.cs" />
+    <Compile Include="APPLE\Gl.APPLE_row_bytes.cs" />
+    <Compile Include="APPLE\Gl.APPLE_specular_vector.cs" />
+    <Compile Include="APPLE\Gl.APPLE_texture_range.cs" />
+    <Compile Include="APPLE\Gl.APPLE_transform_hint.cs" />
+    <Compile Include="APPLE\Gl.APPLE_vertex_array_object.cs" />
+    <Compile Include="APPLE\Gl.APPLE_vertex_array_range.cs" />
+    <Compile Include="APPLE\Gl.APPLE_vertex_program_evaluators.cs" />
+    <Compile Include="APPLE\Gl.APPLE_ycbcr_422.cs" />
+    <Compile Include="ARB\Gl.ARB_bindless_texture.cs" />
+    <Compile Include="ARB\Gl.ARB_cl_event.cs" />
+    <Compile Include="ARB\Gl.ARB_color_buffer_float.cs" />
+    <Compile Include="ARB\Gl.ARB_compute_variable_group_size.cs" />
+    <Compile Include="ARB\Gl.ARB_debug_output.cs" />
+    <Compile Include="ARB\Gl.ARB_depth_texture.cs" />
+    <Compile Include="ARB\Gl.ARB_draw_buffers.cs" />
+    <Compile Include="ARB\Gl.ARB_draw_buffers_blend.cs" />
+    <Compile Include="ARB\Gl.ARB_draw_instanced.cs" />
+    <Compile Include="ARB\Gl.ARB_fragment_program.cs" />
+    <Compile Include="ARB\Gl.ARB_fragment_shader.cs" />
+    <Compile Include="ARB\Gl.ARB_geometry_shader4.cs" />
+    <Compile Include="ARB\Gl.ARB_half_float_pixel.cs" />
+    <Compile Include="ARB\Gl.ARB_imaging.cs" />
+    <Compile Include="ARB\Gl.ARB_indirect_parameters.cs" />
+    <Compile Include="ARB\Gl.ARB_instanced_arrays.cs" />
+    <Compile Include="ARB\Gl.ARB_internalformat_query2.cs" />
+    <Compile Include="ARB\Gl.ARB_matrix_palette.cs" />
+    <Compile Include="ARB\Gl.ARB_multisample.cs" />
+    <Compile Include="ARB\Gl.ARB_multitexture.cs" />
+    <Compile Include="ARB\Gl.ARB_occlusion_query.cs" />
+    <Compile Include="ARB\Gl.ARB_pipeline_statistics_query.cs" />
+    <Compile Include="ARB\Gl.ARB_pixel_buffer_object.cs" />
+    <Compile Include="ARB\Gl.ARB_point_parameters.cs" />
+    <Compile Include="ARB\Gl.ARB_point_sprite.cs" />
+    <Compile Include="ARB\Gl.ARB_robustness.cs" />
+    <Compile Include="ARB\Gl.ARB_sample_shading.cs" />
+    <Compile Include="ARB\Gl.ARB_shader_objects.cs" />
+    <Compile Include="ARB\Gl.ARB_shading_language_100.cs" />
+    <Compile Include="ARB\Gl.ARB_shading_language_include.cs" />
+    <Compile Include="ARB\Gl.ARB_shadow.cs" />
+    <Compile Include="ARB\Gl.ARB_shadow_ambient.cs" />
+    <Compile Include="ARB\Gl.ARB_sparse_buffer.cs" />
+    <Compile Include="ARB\Gl.ARB_sparse_texture.cs" />
+    <Compile Include="ARB\Gl.ARB_texture_border_clamp.cs" />
+    <Compile Include="ARB\Gl.ARB_texture_buffer_object.cs" />
+    <Compile Include="ARB\Gl.ARB_texture_compression.cs" />
+    <Compile Include="ARB\Gl.ARB_texture_compression_bptc.cs" />
+    <Compile Include="ARB\Gl.ARB_texture_cube_map.cs" />
+    <Compile Include="ARB\Gl.ARB_texture_cube_map_array.cs" />
+    <Compile Include="ARB\Gl.ARB_texture_env_combine.cs" />
+    <Compile Include="ARB\Gl.ARB_texture_env_dot3.cs" />
+    <Compile Include="ARB\Gl.ARB_texture_float.cs" />
+    <Compile Include="ARB\Gl.ARB_texture_gather.cs" />
+    <Compile Include="ARB\Gl.ARB_texture_mirrored_repeat.cs" />
+    <Compile Include="ARB\Gl.ARB_texture_rectangle.cs" />
+    <Compile Include="ARB\Gl.ARB_transform_feedback_overflow_query.cs" />
+    <Compile Include="ARB\Gl.ARB_transpose_matrix.cs" />
+    <Compile Include="ARB\Gl.ARB_vertex_blend.cs" />
+    <Compile Include="ARB\Gl.ARB_vertex_buffer_object.cs" />
+    <Compile Include="ARB\Gl.ARB_vertex_program.cs" />
+    <Compile Include="ARB\Gl.ARB_vertex_shader.cs" />
+    <Compile Include="ARB\Gl.ARB_window_pos.cs" />
+    <Compile Include="ARB\Wgl.ARB_buffer_region.cs" />
+    <Compile Include="ARB\Wgl.ARB_context_flush_control.cs" />
+    <Compile Include="ARB\Wgl.ARB_create_context.cs" />
+    <Compile Include="ARB\Wgl.ARB_create_context_profile.cs" />
+    <Compile Include="ARB\Wgl.ARB_create_context_robustness.cs" />
+    <Compile Include="ARB\Wgl.ARB_extensions_string.cs" />
+    <Compile Include="ARB\Wgl.ARB_framebuffer_sRGB.cs" />
+    <Compile Include="ARB\Wgl.ARB_make_current_read.cs" />
+    <Compile Include="ARB\Wgl.ARB_multisample.cs" />
+    <Compile Include="ARB\Wgl.ARB_pbuffer.cs" />
+    <Compile Include="ARB\Wgl.ARB_pixel_format.cs" />
+    <Compile Include="ARB\Wgl.ARB_pixel_format_float.cs" />
+    <Compile Include="ARB\Wgl.ARB_render_texture.cs" />
+    <Compile Include="ARB\Wgl.ARB_robustness_application_isolation.cs" />
+    <Compile Include="ATI\Gl.ATI_draw_buffers.cs" />
+    <Compile Include="ATI\Gl.ATI_element_array.cs" />
+    <Compile Include="ATI\Gl.ATI_envmap_bumpmap.cs" />
+    <Compile Include="ATI\Gl.ATI_fragment_shader.cs" />
+    <Compile Include="ATI\Gl.ATI_map_object_buffer.cs" />
+    <Compile Include="ATI\Gl.ATI_meminfo.cs" />
+    <Compile Include="ATI\Gl.ATI_pixel_format_float.cs" />
+    <Compile Include="ATI\Gl.ATI_pn_triangles.cs" />
+    <Compile Include="ATI\Gl.ATI_separate_stencil.cs" />
+    <Compile Include="ATI\Gl.ATI_texture_env_combine3.cs" />
+    <Compile Include="ATI\Gl.ATI_texture_float.cs" />
+    <Compile Include="ATI\Gl.ATI_texture_mirror_once.cs" />
+    <Compile Include="ATI\Gl.ATI_text_fragment_shader.cs" />
+    <Compile Include="ATI\Gl.ATI_vertex_array_object.cs" />
+    <Compile Include="ATI\Gl.ATI_vertex_attrib_array_object.cs" />
+    <Compile Include="ATI\Gl.ATI_vertex_streams.cs" />
+    <Compile Include="ATI\Wgl.ATI_pixel_format_float.cs" />
+    <Compile Include="EXT\Gl.EXT_422_pixels.cs" />
+    <Compile Include="EXT\Gl.EXT_abgr.cs" />
+    <Compile Include="EXT\Gl.EXT_bgra.cs" />
+    <Compile Include="EXT\Gl.EXT_bindable_uniform.cs" />
+    <Compile Include="EXT\Gl.EXT_blend_color.cs" />
+    <Compile Include="EXT\Gl.EXT_blend_equation_separate.cs" />
+    <Compile Include="EXT\Gl.EXT_blend_func_separate.cs" />
+    <Compile Include="EXT\Gl.EXT_blend_minmax.cs" />
+    <Compile Include="EXT\Gl.EXT_blend_subtract.cs" />
+    <Compile Include="EXT\Gl.EXT_clip_volume_hint.cs" />
+    <Compile Include="EXT\Gl.EXT_cmyka.cs" />
+    <Compile Include="EXT\Gl.EXT_color_subtable.cs" />
+    <Compile Include="EXT\Gl.EXT_compiled_vertex_array.cs" />
+    <Compile Include="EXT\Gl.EXT_convolution.cs" />
+    <Compile Include="EXT\Gl.EXT_coordinate_frame.cs" />
+    <Compile Include="EXT\Gl.EXT_copy_texture.cs" />
+    <Compile Include="EXT\Gl.EXT_cull_vertex.cs" />
+    <Compile Include="EXT\Gl.EXT_debug_label.cs" />
+    <Compile Include="EXT\Gl.EXT_debug_marker.cs" />
+    <Compile Include="EXT\Gl.EXT_depth_bounds_test.cs" />
+    <Compile Include="EXT\Gl.EXT_direct_state_access.cs" />
+    <Compile Include="EXT\Gl.EXT_draw_buffers2.cs" />
+    <Compile Include="EXT\Gl.EXT_draw_instanced.cs" />
+    <Compile Include="EXT\Gl.EXT_draw_range_elements.cs" />
+    <Compile Include="EXT\Gl.EXT_fog_coord.cs" />
+    <Compile Include="EXT\Gl.EXT_framebuffer_blit.cs" />
+    <Compile Include="EXT\Gl.EXT_framebuffer_multisample.cs" />
+    <Compile Include="EXT\Gl.EXT_framebuffer_multisample_blit_scaled.cs" />
+    <Compile Include="EXT\Gl.EXT_framebuffer_object.cs" />
+    <Compile Include="EXT\Gl.EXT_framebuffer_sRGB.cs" />
+    <Compile Include="EXT\Gl.EXT_geometry_shader4.cs" />
+    <Compile Include="EXT\Gl.EXT_gpu_program_parameters.cs" />
+    <Compile Include="EXT\Gl.EXT_gpu_shader4.cs" />
+    <Compile Include="EXT\Gl.EXT_histogram.cs" />
+    <Compile Include="EXT\Gl.EXT_index_array_formats.cs" />
+    <Compile Include="EXT\Gl.EXT_index_func.cs" />
+    <Compile Include="EXT\Gl.EXT_index_material.cs" />
+    <Compile Include="EXT\Gl.EXT_light_texture.cs" />
+    <Compile Include="EXT\Gl.EXT_multisample.cs" />
+    <Compile Include="EXT\Gl.EXT_multi_draw_arrays.cs" />
+    <Compile Include="EXT\Gl.EXT_packed_depth_stencil.cs" />
+    <Compile Include="EXT\Gl.EXT_packed_float.cs" />
+    <Compile Include="EXT\Gl.EXT_packed_pixels.cs" />
+    <Compile Include="EXT\Gl.EXT_paletted_texture.cs" />
+    <Compile Include="EXT\Gl.EXT_pixel_buffer_object.cs" />
+    <Compile Include="EXT\Gl.EXT_pixel_transform.cs" />
+    <Compile Include="EXT\Gl.EXT_point_parameters.cs" />
+    <Compile Include="EXT\Gl.EXT_polygon_offset.cs" />
+    <Compile Include="EXT\Gl.EXT_polygon_offset_clamp.cs" />
+    <Compile Include="EXT\Gl.EXT_provoking_vertex.cs" />
+    <Compile Include="EXT\Gl.EXT_raster_multisample.cs" />
+    <Compile Include="EXT\Gl.EXT_rescale_normal.cs" />
+    <Compile Include="EXT\Gl.EXT_secondary_color.cs" />
+    <Compile Include="EXT\Gl.EXT_separate_shader_objects.cs" />
+    <Compile Include="EXT\Gl.EXT_separate_specular_color.cs" />
+    <Compile Include="EXT\Gl.EXT_shader_image_load_store.cs" />
+    <Compile Include="EXT\Gl.EXT_shared_texture_palette.cs" />
+    <Compile Include="EXT\Gl.EXT_stencil_clear_tag.cs" />
+    <Compile Include="EXT\Gl.EXT_stencil_two_side.cs" />
+    <Compile Include="EXT\Gl.EXT_stencil_wrap.cs" />
+    <Compile Include="EXT\Gl.EXT_subtexture.cs" />
+    <Compile Include="EXT\Gl.EXT_texture.cs" />
+    <Compile Include="EXT\Gl.EXT_texture3D.cs" />
+    <Compile Include="EXT\Gl.EXT_texture_array.cs" />
+    <Compile Include="EXT\Gl.EXT_texture_buffer_object.cs" />
+    <Compile Include="EXT\Gl.EXT_texture_compression_latc.cs" />
+    <Compile Include="EXT\Gl.EXT_texture_compression_rgtc.cs" />
+    <Compile Include="EXT\Gl.EXT_texture_compression_s3tc.cs" />
+    <Compile Include="EXT\Gl.EXT_texture_cube_map.cs" />
+    <Compile Include="EXT\Gl.EXT_texture_env_combine.cs" />
+    <Compile Include="EXT\Gl.EXT_texture_env_dot3.cs" />
+    <Compile Include="EXT\Gl.EXT_texture_filter_anisotropic.cs" />
+    <Compile Include="EXT\Gl.EXT_texture_integer.cs" />
+    <Compile Include="EXT\Gl.EXT_texture_lod_bias.cs" />
+    <Compile Include="EXT\Gl.EXT_texture_mirror_clamp.cs" />
+    <Compile Include="EXT\Gl.EXT_texture_object.cs" />
+    <Compile Include="EXT\Gl.EXT_texture_perturb_normal.cs" />
+    <Compile Include="EXT\Gl.EXT_texture_shared_exponent.cs" />
+    <Compile Include="EXT\Gl.EXT_texture_snorm.cs" />
+    <Compile Include="EXT\Gl.EXT_texture_sRGB.cs" />
+    <Compile Include="EXT\Gl.EXT_texture_sRGB_decode.cs" />
+    <Compile Include="EXT\Gl.EXT_texture_swizzle.cs" />
+    <Compile Include="EXT\Gl.EXT_timer_query.cs" />
+    <Compile Include="EXT\Gl.EXT_transform_feedback.cs" />
+    <Compile Include="EXT\Gl.EXT_vertex_array.cs" />
+    <Compile Include="EXT\Gl.EXT_vertex_attrib_64bit.cs" />
+    <Compile Include="EXT\Gl.EXT_vertex_shader.cs" />
+    <Compile Include="EXT\Gl.EXT_vertex_weighting.cs" />
+    <Compile Include="EXT\Gl.EXT_x11_sync_object.cs" />
+    <Compile Include="EXT\Wgl.EXT_create_context_es2_profile.cs" />
+    <Compile Include="EXT\Wgl.EXT_create_context_es_profile.cs" />
+    <Compile Include="EXT\Wgl.EXT_depth_float.cs" />
+    <Compile Include="EXT\Wgl.EXT_display_color_table.cs" />
+    <Compile Include="EXT\Wgl.EXT_extensions_string.cs" />
+    <Compile Include="EXT\Wgl.EXT_framebuffer_sRGB.cs" />
+    <Compile Include="EXT\Wgl.EXT_make_current_read.cs" />
+    <Compile Include="EXT\Wgl.EXT_multisample.cs" />
+    <Compile Include="EXT\Wgl.EXT_pbuffer.cs" />
+    <Compile Include="EXT\Wgl.EXT_pixel_format.cs" />
+    <Compile Include="EXT\Wgl.EXT_pixel_format_packed_float.cs" />
+    <Compile Include="EXT\Wgl.EXT_swap_control.cs" />
+    <Compile Include="Gl.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Gl.Delegates.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Gl.Enums.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Gl.Imports.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Gl.Orphans.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Gl.VERSION_1_0.cs" />
+    <Compile Include="Gl.VERSION_1_1.cs" />
+    <Compile Include="Gl.VERSION_1_2.cs" />
+    <Compile Include="Gl.VERSION_1_3.cs" />
+    <Compile Include="Gl.VERSION_1_4.cs" />
+    <Compile Include="Gl.VERSION_1_5.cs" />
+    <Compile Include="Gl.VERSION_2_0.cs" />
+    <Compile Include="Gl.VERSION_2_1.cs" />
+    <Compile Include="Gl.VERSION_3_0.cs" />
+    <Compile Include="Gl.VERSION_3_1.cs" />
+    <Compile Include="Gl.VERSION_3_2.cs" />
+    <Compile Include="Gl.VERSION_3_3.cs" />
+    <Compile Include="Gl.VERSION_4_0.cs" />
+    <Compile Include="Gl.VERSION_4_1.cs" />
+    <Compile Include="Gl.VERSION_4_2.cs" />
+    <Compile Include="Gl.VERSION_4_3.cs" />
+    <Compile Include="Gl.VERSION_4_4.cs" />
+    <Compile Include="Gl.VERSION_4_5.cs" />
+    <Compile Include="GREMEDY\Gl.GREMEDY_frame_terminator.cs" />
+    <Compile Include="GREMEDY\Gl.GREMEDY_string_marker.cs" />
+    <Compile Include="HP\Gl.HP_convolution_border_modes.cs" />
+    <Compile Include="HP\Gl.HP_image_transform.cs" />
+    <Compile Include="HP\Gl.HP_occlusion_test.cs" />
+    <Compile Include="HP\Gl.HP_texture_lighting.cs" />
+    <Compile Include="I3D\Wgl.I3D_digital_video_control.cs" />
+    <Compile Include="I3D\Wgl.I3D_gamma.cs" />
+    <Compile Include="I3D\Wgl.I3D_genlock.cs" />
+    <Compile Include="I3D\Wgl.I3D_image_buffer.cs" />
+    <Compile Include="I3D\Wgl.I3D_swap_frame_lock.cs" />
+    <Compile Include="I3D\Wgl.I3D_swap_frame_usage.cs" />
+    <Compile Include="IBM\Gl.IBM_cull_vertex.cs" />
+    <Compile Include="IBM\Gl.IBM_multimode_draw_arrays.cs" />
+    <Compile Include="IBM\Gl.IBM_rasterpos_clip.cs" />
+    <Compile Include="IBM\Gl.IBM_static_data.cs" />
+    <Compile Include="IBM\Gl.IBM_texture_mirrored_repeat.cs" />
+    <Compile Include="IBM\Gl.IBM_vertex_array_lists.cs" />
+    <Compile Include="INGR\Gl.INGR_blend_func_separate.cs" />
+    <Compile Include="INGR\Gl.INGR_color_clamp.cs" />
+    <Compile Include="INGR\Gl.INGR_interlace_read.cs" />
+    <Compile Include="INTEL\Gl.INTEL_map_texture.cs" />
+    <Compile Include="INTEL\Gl.INTEL_parallel_arrays.cs" />
+    <Compile Include="INTEL\Gl.INTEL_performance_query.cs" />
+    <Compile Include="KHR\Gl.KHR_blend_equation_advanced.cs" />
+    <Compile Include="KHR\Gl.KHR_blend_equation_advanced_coherent.cs" />
+    <Compile Include="KHR\Gl.KHR_robustness.cs" />
+    <Compile Include="KHR\Gl.KHR_texture_compression_astc_hdr.cs" />
+    <Compile Include="MESAX\Gl.MESAX_texture_stack.cs" />
+    <Compile Include="MESA\Gl.MESA_pack_invert.cs" />
+    <Compile Include="MESA\Gl.MESA_resize_buffers.cs" />
+    <Compile Include="MESA\Gl.MESA_window_pos.cs" />
+    <Compile Include="MESA\Gl.MESA_ycbcr_texture.cs" />
+    <Compile Include="NVX\Gl.NVX_conditional_render.cs" />
+    <Compile Include="NVX\Gl.NVX_gpu_memory_info.cs" />
+    <Compile Include="NV\Gl.NV_bindless_multi_draw_indirect.cs" />
+    <Compile Include="NV\Gl.NV_bindless_multi_draw_indirect_count.cs" />
+    <Compile Include="NV\Gl.NV_bindless_texture.cs" />
+    <Compile Include="NV\Gl.NV_blend_equation_advanced.cs" />
+    <Compile Include="NV\Gl.NV_blend_equation_advanced_coherent.cs" />
+    <Compile Include="NV\Gl.NV_compute_program5.cs" />
+    <Compile Include="NV\Gl.NV_conditional_render.cs" />
+    <Compile Include="NV\Gl.NV_conservative_raster.cs" />
+    <Compile Include="NV\Gl.NV_copy_depth_to_color.cs" />
+    <Compile Include="NV\Gl.NV_copy_image.cs" />
+    <Compile Include="NV\Gl.NV_deep_texture3D.cs" />
+    <Compile Include="NV\Gl.NV_depth_buffer_float.cs" />
+    <Compile Include="NV\Gl.NV_depth_clamp.cs" />
+    <Compile Include="NV\Gl.NV_draw_texture.cs" />
+    <Compile Include="NV\Gl.NV_evaluators.cs" />
+    <Compile Include="NV\Gl.NV_explicit_multisample.cs" />
+    <Compile Include="NV\Gl.NV_fence.cs" />
+    <Compile Include="NV\Gl.NV_fill_rectangle.cs" />
+    <Compile Include="NV\Gl.NV_float_buffer.cs" />
+    <Compile Include="NV\Gl.NV_fog_distance.cs" />
+    <Compile Include="NV\Gl.NV_fragment_coverage_to_color.cs" />
+    <Compile Include="NV\Gl.NV_fragment_program.cs" />
+    <Compile Include="NV\Gl.NV_fragment_program2.cs" />
+    <Compile Include="NV\Gl.NV_framebuffer_mixed_samples.cs" />
+    <Compile Include="NV\Gl.NV_framebuffer_multisample_coverage.cs" />
+    <Compile Include="NV\Gl.NV_geometry_program4.cs" />
+    <Compile Include="NV\Gl.NV_gpu_program4.cs" />
+    <Compile Include="NV\Gl.NV_gpu_program5.cs" />
+    <Compile Include="NV\Gl.NV_gpu_shader5.cs" />
+    <Compile Include="NV\Gl.NV_half_float.cs" />
+    <Compile Include="NV\Gl.NV_internalformat_sample_query.cs" />
+    <Compile Include="NV\Gl.NV_light_max_exponent.cs" />
+    <Compile Include="NV\Gl.NV_multisample_coverage.cs" />
+    <Compile Include="NV\Gl.NV_multisample_filter_hint.cs" />
+    <Compile Include="NV\Gl.NV_occlusion_query.cs" />
+    <Compile Include="NV\Gl.NV_packed_depth_stencil.cs" />
+    <Compile Include="NV\Gl.NV_parameter_buffer_object.cs" />
+    <Compile Include="NV\Gl.NV_path_rendering.cs" />
+    <Compile Include="NV\Gl.NV_path_rendering_shared_edge.cs" />
+    <Compile Include="NV\Gl.NV_pixel_data_range.cs" />
+    <Compile Include="NV\Gl.NV_point_sprite.cs" />
+    <Compile Include="NV\Gl.NV_present_video.cs" />
+    <Compile Include="NV\Gl.NV_primitive_restart.cs" />
+    <Compile Include="NV\Gl.NV_register_combiners.cs" />
+    <Compile Include="NV\Gl.NV_register_combiners2.cs" />
+    <Compile Include="NV\Gl.NV_sample_locations.cs" />
+    <Compile Include="NV\Gl.NV_shader_buffer_load.cs" />
+    <Compile Include="NV\Gl.NV_shader_buffer_store.cs" />
+    <Compile Include="NV\Gl.NV_shader_thread_group.cs" />
+    <Compile Include="NV\Gl.NV_tessellation_program5.cs" />
+    <Compile Include="NV\Gl.NV_texgen_emboss.cs" />
+    <Compile Include="NV\Gl.NV_texgen_reflection.cs" />
+    <Compile Include="NV\Gl.NV_texture_barrier.cs" />
+    <Compile Include="NV\Gl.NV_texture_env_combine4.cs" />
+    <Compile Include="NV\Gl.NV_texture_expand_normal.cs" />
+    <Compile Include="NV\Gl.NV_texture_multisample.cs" />
+    <Compile Include="NV\Gl.NV_texture_rectangle.cs" />
+    <Compile Include="NV\Gl.NV_texture_shader.cs" />
+    <Compile Include="NV\Gl.NV_texture_shader2.cs" />
+    <Compile Include="NV\Gl.NV_texture_shader3.cs" />
+    <Compile Include="NV\Gl.NV_transform_feedback.cs" />
+    <Compile Include="NV\Gl.NV_transform_feedback2.cs" />
+    <Compile Include="NV\Gl.NV_uniform_buffer_unified_memory.cs" />
+    <Compile Include="NV\Gl.NV_vdpau_interop.cs" />
+    <Compile Include="NV\Gl.NV_vertex_array_range.cs" />
+    <Compile Include="NV\Gl.NV_vertex_array_range2.cs" />
+    <Compile Include="NV\Gl.NV_vertex_attrib_integer_64bit.cs" />
+    <Compile Include="NV\Gl.NV_vertex_buffer_unified_memory.cs" />
+    <Compile Include="NV\Gl.NV_vertex_program.cs" />
+    <Compile Include="NV\Gl.NV_vertex_program4.cs" />
+    <Compile Include="NV\Gl.NV_video_capture.cs" />
+    <Compile Include="NV\Wgl.NV_copy_image.cs" />
+    <Compile Include="NV\Wgl.NV_delay_before_swap.cs" />
+    <Compile Include="NV\Wgl.NV_DX_interop.cs" />
+    <Compile Include="NV\Wgl.NV_float_buffer.cs" />
+    <Compile Include="NV\Wgl.NV_gpu_affinity.cs" />
+    <Compile Include="NV\Wgl.NV_multisample_coverage.cs" />
+    <Compile Include="NV\Wgl.NV_present_video.cs" />
+    <Compile Include="NV\Wgl.NV_render_depth_texture.cs" />
+    <Compile Include="NV\Wgl.NV_render_texture_rectangle.cs" />
+    <Compile Include="NV\Wgl.NV_swap_group.cs" />
+    <Compile Include="NV\Wgl.NV_vertex_array_range.cs" />
+    <Compile Include="NV\Wgl.NV_video_capture.cs" />
+    <Compile Include="NV\Wgl.NV_video_output.cs" />
+    <Compile Include="OES\Gl.OES_byte_coordinates.cs" />
+    <Compile Include="OES\Gl.OES_compressed_paletted_texture.cs" />
+    <Compile Include="OES\Gl.OES_fixed_point.cs" />
+    <Compile Include="OES\Gl.OES_query_matrix.cs" />
+    <Compile Include="OES\Gl.OES_read_format.cs" />
+    <Compile Include="OES\Gl.OES_single_precision.cs" />
+    <Compile Include="OML\Gl.OML_interlace.cs" />
+    <Compile Include="OML\Gl.OML_resample.cs" />
+    <Compile Include="OML\Gl.OML_subsample.cs" />
+    <Compile Include="OML\Wgl.OML_sync_control.cs" />
+    <Compile Include="PGI\Gl.PGI_misc_hints.cs" />
+    <Compile Include="PGI\Gl.PGI_vertex_hints.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RemovedByFeatureAttribute.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="REND\Gl.REND_screen_coordinates.cs" />
+    <Compile Include="RequiredByFeatureAttribute.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="S3\Gl.S3_s3tc.cs" />
+    <Compile Include="SGIS\Gl.SGIS_detail_texture.cs" />
+    <Compile Include="SGIS\Gl.SGIS_fog_function.cs" />
+    <Compile Include="SGIS\Gl.SGIS_generate_mipmap.cs" />
+    <Compile Include="SGIS\Gl.SGIS_multisample.cs" />
+    <Compile Include="SGIS\Gl.SGIS_pixel_texture.cs" />
+    <Compile Include="SGIS\Gl.SGIS_point_line_texgen.cs" />
+    <Compile Include="SGIS\Gl.SGIS_point_parameters.cs" />
+    <Compile Include="SGIS\Gl.SGIS_sharpen_texture.cs" />
+    <Compile Include="SGIS\Gl.SGIS_texture4D.cs" />
+    <Compile Include="SGIS\Gl.SGIS_texture_border_clamp.cs" />
+    <Compile Include="SGIS\Gl.SGIS_texture_color_mask.cs" />
+    <Compile Include="SGIS\Gl.SGIS_texture_edge_clamp.cs" />
+    <Compile Include="SGIS\Gl.SGIS_texture_filter4.cs" />
+    <Compile Include="SGIS\Gl.SGIS_texture_lod.cs" />
+    <Compile Include="SGIS\Gl.SGIS_texture_select.cs" />
+    <Compile Include="SGIX\Gl.SGIX_async.cs" />
+    <Compile Include="SGIX\Gl.SGIX_async_histogram.cs" />
+    <Compile Include="SGIX\Gl.SGIX_async_pixel.cs" />
+    <Compile Include="SGIX\Gl.SGIX_blend_alpha_minmax.cs" />
+    <Compile Include="SGIX\Gl.SGIX_calligraphic_fragment.cs" />
+    <Compile Include="SGIX\Gl.SGIX_clipmap.cs" />
+    <Compile Include="SGIX\Gl.SGIX_convolution_accuracy.cs" />
+    <Compile Include="SGIX\Gl.SGIX_depth_texture.cs" />
+    <Compile Include="SGIX\Gl.SGIX_flush_raster.cs" />
+    <Compile Include="SGIX\Gl.SGIX_fog_offset.cs" />
+    <Compile Include="SGIX\Gl.SGIX_fragment_lighting.cs" />
+    <Compile Include="SGIX\Gl.SGIX_framezoom.cs" />
+    <Compile Include="SGIX\Gl.SGIX_igloo_interface.cs" />
+    <Compile Include="SGIX\Gl.SGIX_instruments.cs" />
+    <Compile Include="SGIX\Gl.SGIX_interlace.cs" />
+    <Compile Include="SGIX\Gl.SGIX_ir_instrument1.cs" />
+    <Compile Include="SGIX\Gl.SGIX_list_priority.cs" />
+    <Compile Include="SGIX\Gl.SGIX_pixel_texture.cs" />
+    <Compile Include="SGIX\Gl.SGIX_pixel_tiles.cs" />
+    <Compile Include="SGIX\Gl.SGIX_polynomial_ffd.cs" />
+    <Compile Include="SGIX\Gl.SGIX_reference_plane.cs" />
+    <Compile Include="SGIX\Gl.SGIX_resample.cs" />
+    <Compile Include="SGIX\Gl.SGIX_scalebias_hint.cs" />
+    <Compile Include="SGIX\Gl.SGIX_shadow.cs" />
+    <Compile Include="SGIX\Gl.SGIX_shadow_ambient.cs" />
+    <Compile Include="SGIX\Gl.SGIX_sprite.cs" />
+    <Compile Include="SGIX\Gl.SGIX_subsample.cs" />
+    <Compile Include="SGIX\Gl.SGIX_tag_sample_buffer.cs" />
+    <Compile Include="SGIX\Gl.SGIX_texture_add_env.cs" />
+    <Compile Include="SGIX\Gl.SGIX_texture_coordinate_clamp.cs" />
+    <Compile Include="SGIX\Gl.SGIX_texture_lod_bias.cs" />
+    <Compile Include="SGIX\Gl.SGIX_texture_multi_buffer.cs" />
+    <Compile Include="SGIX\Gl.SGIX_texture_scale_bias.cs" />
+    <Compile Include="SGIX\Gl.SGIX_vertex_preclip.cs" />
+    <Compile Include="SGIX\Gl.SGIX_ycrcb.cs" />
+    <Compile Include="SGIX\Gl.SGIX_ycrcba.cs" />
+    <Compile Include="SGI\Gl.SGI_color_matrix.cs" />
+    <Compile Include="SGI\Gl.SGI_color_table.cs" />
+    <Compile Include="SGI\Gl.SGI_texture_color_table.cs" />
+    <Compile Include="SUNX\Gl.SUNX_constant_data.cs" />
+    <Compile Include="SUN\Gl.SUN_convolution_border_modes.cs" />
+    <Compile Include="SUN\Gl.SUN_global_alpha.cs" />
+    <Compile Include="SUN\Gl.SUN_mesh_array.cs" />
+    <Compile Include="SUN\Gl.SUN_slice_accum.cs" />
+    <Compile Include="SUN\Gl.SUN_triangle_list.cs" />
+    <Compile Include="SUN\Gl.SUN_vertex.cs" />
+    <Compile Include="Wgl.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Wgl.Delegates.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Wgl.Imports.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Wgl.Orphans.cs" />
+    <Compile Include="Wgl.VERSION_1_0.cs" />
+    <Compile Include="WIN\Gl.WIN_phong_shading.cs" />
+    <Compile Include="WIN\Gl.WIN_specular_fog.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

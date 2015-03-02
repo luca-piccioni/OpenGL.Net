@@ -1,0 +1,231 @@
+
+// Copyright (C) 2015 Luca Piccioni
+// 
+// This library is free software; you can redistribute it and/or
+// modify it under the terms of the GNU Lesser General Public
+// License as published by the Free Software Foundation; either
+// version 2.1 of the License, or (at your option) any later version.
+// 
+// This library is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+// Lesser General Public License for more details.
+// 
+// You should have received a copy of the GNU Lesser General Public
+// License along with this library; if not, write to the Free Software
+// Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301
+// USA
+
+using System;
+using System.Diagnostics;
+using System.Runtime.InteropServices;
+using System.Text;
+
+namespace OpenGL
+{
+	public partial class Wgl
+	{
+		/// <summary>
+		/// Binding for wglGetSyncValuesOML.
+		/// </summary>
+		/// <param name="hdc">
+		/// A <see cref="T:IntPtr"/>.
+		/// </param>
+		/// <param name="ust">
+		/// A <see cref="T:Int64[]"/>.
+		/// </param>
+		/// <param name="msc">
+		/// A <see cref="T:Int64[]"/>.
+		/// </param>
+		/// <param name="sbc">
+		/// A <see cref="T:Int64[]"/>.
+		/// </param>
+		public static bool GetSyncValuesOML(IntPtr hdc, Int64[] ust, Int64[] msc, Int64[] sbc)
+		{
+			bool retValue;
+
+			unsafe {
+				fixed (Int64* p_ust = ust)
+				fixed (Int64* p_msc = msc)
+				fixed (Int64* p_sbc = sbc)
+				{
+					Debug.Assert(Delegates.pwglGetSyncValuesOML != null, "pwglGetSyncValuesOML not implemented");
+					retValue = Delegates.pwglGetSyncValuesOML(hdc, p_ust, p_msc, p_sbc);
+					CallLog("wglGetSyncValuesOML({0}, {1}, {2}, {3}) = {4}", hdc, ust, msc, sbc, retValue);
+				}
+			}
+			DebugCheckErrors();
+
+			return (retValue);
+		}
+
+		/// <summary>
+		/// Binding for wglGetMscRateOML.
+		/// </summary>
+		/// <param name="hdc">
+		/// A <see cref="T:IntPtr"/>.
+		/// </param>
+		/// <param name="numerator">
+		/// A <see cref="T:Int32[]"/>.
+		/// </param>
+		/// <param name="denominator">
+		/// A <see cref="T:Int32[]"/>.
+		/// </param>
+		public static bool GetMscRateOML(IntPtr hdc, Int32[] numerator, Int32[] denominator)
+		{
+			bool retValue;
+
+			unsafe {
+				fixed (Int32* p_numerator = numerator)
+				fixed (Int32* p_denominator = denominator)
+				{
+					Debug.Assert(Delegates.pwglGetMscRateOML != null, "pwglGetMscRateOML not implemented");
+					retValue = Delegates.pwglGetMscRateOML(hdc, p_numerator, p_denominator);
+					CallLog("wglGetMscRateOML({0}, {1}, {2}) = {3}", hdc, numerator, denominator, retValue);
+				}
+			}
+			DebugCheckErrors();
+
+			return (retValue);
+		}
+
+		/// <summary>
+		/// Binding for wglSwapBuffersMscOML.
+		/// </summary>
+		/// <param name="hdc">
+		/// A <see cref="T:IntPtr"/>.
+		/// </param>
+		/// <param name="target_msc">
+		/// A <see cref="T:Int64"/>.
+		/// </param>
+		/// <param name="divisor">
+		/// A <see cref="T:Int64"/>.
+		/// </param>
+		/// <param name="remainder">
+		/// A <see cref="T:Int64"/>.
+		/// </param>
+		public static Int64 SwapBuffersMscOML(IntPtr hdc, Int64 target_msc, Int64 divisor, Int64 remainder)
+		{
+			Int64 retValue;
+
+			Debug.Assert(Delegates.pwglSwapBuffersMscOML != null, "pwglSwapBuffersMscOML not implemented");
+			retValue = Delegates.pwglSwapBuffersMscOML(hdc, target_msc, divisor, remainder);
+			CallLog("wglSwapBuffersMscOML({0}, {1}, {2}, {3}) = {4}", hdc, target_msc, divisor, remainder, retValue);
+			DebugCheckErrors();
+
+			return (retValue);
+		}
+
+		/// <summary>
+		/// Binding for wglSwapLayerBuffersMscOML.
+		/// </summary>
+		/// <param name="hdc">
+		/// A <see cref="T:IntPtr"/>.
+		/// </param>
+		/// <param name="fuPlanes">
+		/// A <see cref="T:int"/>.
+		/// </param>
+		/// <param name="target_msc">
+		/// A <see cref="T:Int64"/>.
+		/// </param>
+		/// <param name="divisor">
+		/// A <see cref="T:Int64"/>.
+		/// </param>
+		/// <param name="remainder">
+		/// A <see cref="T:Int64"/>.
+		/// </param>
+		public static Int64 SwapLayerBuffersMscOML(IntPtr hdc, int fuPlanes, Int64 target_msc, Int64 divisor, Int64 remainder)
+		{
+			Int64 retValue;
+
+			Debug.Assert(Delegates.pwglSwapLayerBuffersMscOML != null, "pwglSwapLayerBuffersMscOML not implemented");
+			retValue = Delegates.pwglSwapLayerBuffersMscOML(hdc, fuPlanes, target_msc, divisor, remainder);
+			CallLog("wglSwapLayerBuffersMscOML({0}, {1}, {2}, {3}, {4}) = {5}", hdc, fuPlanes, target_msc, divisor, remainder, retValue);
+			DebugCheckErrors();
+
+			return (retValue);
+		}
+
+		/// <summary>
+		/// Binding for wglWaitForMscOML.
+		/// </summary>
+		/// <param name="hdc">
+		/// A <see cref="T:IntPtr"/>.
+		/// </param>
+		/// <param name="target_msc">
+		/// A <see cref="T:Int64"/>.
+		/// </param>
+		/// <param name="divisor">
+		/// A <see cref="T:Int64"/>.
+		/// </param>
+		/// <param name="remainder">
+		/// A <see cref="T:Int64"/>.
+		/// </param>
+		/// <param name="ust">
+		/// A <see cref="T:Int64[]"/>.
+		/// </param>
+		/// <param name="msc">
+		/// A <see cref="T:Int64[]"/>.
+		/// </param>
+		/// <param name="sbc">
+		/// A <see cref="T:Int64[]"/>.
+		/// </param>
+		public static bool WaitForMscOML(IntPtr hdc, Int64 target_msc, Int64 divisor, Int64 remainder, Int64[] ust, Int64[] msc, Int64[] sbc)
+		{
+			bool retValue;
+
+			unsafe {
+				fixed (Int64* p_ust = ust)
+				fixed (Int64* p_msc = msc)
+				fixed (Int64* p_sbc = sbc)
+				{
+					Debug.Assert(Delegates.pwglWaitForMscOML != null, "pwglWaitForMscOML not implemented");
+					retValue = Delegates.pwglWaitForMscOML(hdc, target_msc, divisor, remainder, p_ust, p_msc, p_sbc);
+					CallLog("wglWaitForMscOML({0}, {1}, {2}, {3}, {4}, {5}, {6}) = {7}", hdc, target_msc, divisor, remainder, ust, msc, sbc, retValue);
+				}
+			}
+			DebugCheckErrors();
+
+			return (retValue);
+		}
+
+		/// <summary>
+		/// Binding for wglWaitForSbcOML.
+		/// </summary>
+		/// <param name="hdc">
+		/// A <see cref="T:IntPtr"/>.
+		/// </param>
+		/// <param name="target_sbc">
+		/// A <see cref="T:Int64"/>.
+		/// </param>
+		/// <param name="ust">
+		/// A <see cref="T:Int64[]"/>.
+		/// </param>
+		/// <param name="msc">
+		/// A <see cref="T:Int64[]"/>.
+		/// </param>
+		/// <param name="sbc">
+		/// A <see cref="T:Int64[]"/>.
+		/// </param>
+		public static bool WaitForSbcOML(IntPtr hdc, Int64 target_sbc, Int64[] ust, Int64[] msc, Int64[] sbc)
+		{
+			bool retValue;
+
+			unsafe {
+				fixed (Int64* p_ust = ust)
+				fixed (Int64* p_msc = msc)
+				fixed (Int64* p_sbc = sbc)
+				{
+					Debug.Assert(Delegates.pwglWaitForSbcOML != null, "pwglWaitForSbcOML not implemented");
+					retValue = Delegates.pwglWaitForSbcOML(hdc, target_sbc, p_ust, p_msc, p_sbc);
+					CallLog("wglWaitForSbcOML({0}, {1}, {2}, {3}, {4}) = {5}", hdc, target_sbc, ust, msc, sbc, retValue);
+				}
+			}
+			DebugCheckErrors();
+
+			return (retValue);
+		}
+
+	}
+
+}

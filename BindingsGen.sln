@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BindingsGen", "BindingsGen\BindingsGen.csproj", "{6CE61C1E-E93A-404A-89B7-1E8EA3BAF663}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenGL.Net", "OpenGL.Net\OpenGL.Net.csproj", "{ABB8DFA8-473A-4FC1-85C0-E21680772A58}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6CE61C1E-E93A-404A-89B7-1E8EA3BAF663}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6CE61C1E-E93A-404A-89B7-1E8EA3BAF663}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6CE61C1E-E93A-404A-89B7-1E8EA3BAF663}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6CE61C1E-E93A-404A-89B7-1E8EA3BAF663}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ABB8DFA8-473A-4FC1-85C0-E21680772A58}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ABB8DFA8-473A-4FC1-85C0-E21680772A58}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ABB8DFA8-473A-4FC1-85C0-E21680772A58}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ABB8DFA8-473A-4FC1-85C0-E21680772A58}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

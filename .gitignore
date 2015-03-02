@@ -1,0 +1,6 @@
+/*.suo
+/BindingsGen/BindingsGen/*.user
+/BindingsGen/obj
+/BindingsGen/bin
+/OpenGL.Net/obj
+/OpenGL.Net/bin

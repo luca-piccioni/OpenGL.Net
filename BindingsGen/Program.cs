@@ -39,9 +39,11 @@ namespace BindingsGen
 			RegistryDocumentation.Touch();
 
 			// OpenGL
-			ctx = new RegistryContext("Gl", Path.Combine(BasePath, "GLSpecs/gl.xml"));
-			glRegistryProcessor = new RegistryProcessor(ctx.Registry);
-			GenerateCommandsAndEnums(glRegistryProcessor, ctx);
+			if (false) {
+				ctx = new RegistryContext("Gl", Path.Combine(BasePath, "GLSpecs/gl.xml"));
+				glRegistryProcessor = new RegistryProcessor(ctx.Registry);
+				GenerateCommandsAndEnums(glRegistryProcessor, ctx);
+			}
 
 			// OpenGL for Windows
 			ctx = new RegistryContext("Wgl", Path.Combine(BasePath, "GLSpecs/wgl.xml"));
@@ -51,38 +53,12 @@ namespace BindingsGen
 
         internal static readonly string BasePath = "../../../";
 
-		private static void GenerateEnums(RegistryProcessor glRegistryProcessor, RegistryContext ctx)
-		{
-			glRegistryProcessor.GenerateEnums(ctx, Path.Combine(BasePath, "OpenGL.NET/GlEnums.cs"), delegate(Enumerant item) {
-				return (((item.Api == null) || (item.Api == "gl")) && (item.ParentEnumerantBlock.Vendor == null));
-			});
-
-            glRegistryProcessor.GenerateEnums(ctx, Path.Combine(BasePath, "OpenGL.NET/GlEnumsEXT.cs"), delegate(Enumerant item)
-            {
-                return (((item.Api == null) || (item.Api == "gl")) && (item.ParentEnumerantBlock.Vendor == "EXT"));
-            });
-
-			// Extension specific commands
-			foreach (string word in ctx.ExtensionsDictionary.Words) {
-				string extension = word;
-
-                if (extension == "INGR")
-                    continue;
-
-				glRegistryProcessor.GenerateEnums(ctx, Path.Combine(BasePath, String.Format("OpenGL.NET/GlEnums{0}.cs", extension)), delegate(Enumerant item) {
-                    return (((item.Api == null) || (item.Api == "gl")) && (item.ParentEnumerantBlock.Vendor == extension));
-				});
-			}
-
-			glRegistryProcessor.GenerateStronglyTypedEnums(ctx, Path.Combine(BasePath, "OpenGL.NET/GlEnumsStrong.cs"), null);
-		}
-
 		private static void GenerateCommands(RegistryProcessor glRegistryProcessor, RegistryContext ctx)
 		{
 			List<Command> commands = ctx.Registry.Commands;
 			Dictionary<string, bool> serializedCommands = new Dictionary<string, bool>(commands.Count);
 
-			foreach (IFeature feature in ctx.Registry.AllFeatures) {
+			foreach (IFeature feature in ctx.Registry.AllFeatures(ctx)) {
 				List<Command> featureCommands = new List<Command>();
 
 				foreach (FeatureCommand featureCommand in feature.Requirements) {
@@ -104,7 +80,7 @@ namespace BindingsGen
 				if (featureCommands.Count == 0)
 					continue;
 
-				glRegistryProcessor.GenerateCommands(ctx, Path.Combine(BasePath, String.Format("OpenGL.NET/GlFuncts_{0}.cs", feature.Name)), delegate(RegistryContext cctx, SourceStreamWriter sw)
+				glRegistryProcessor.GenerateCommands(ctx, GetFeatureFilePath(feature, ctx), delegate(RegistryContext cctx, SourceStreamWriter sw)
 				{
 					foreach (Command command in featureCommands) {
 						command.GenerateImplementations(sw, cctx);
@@ -115,25 +91,6 @@ namespace BindingsGen
 
 			glRegistryProcessor.GenerateCommandsImports(ctx, Path.Combine(BasePath, "OpenGL.NET/GlFunctsDelegates.cs"), null);
 			glRegistryProcessor.GenerateCommandsDelegates(ctx, Path.Combine(BasePath, "OpenGL.NET/GlFunctsPointers.cs"), null);
-
-			return;
-
-			// Extension commands commonly imlemented
-            glRegistryProcessor.GenerateCommands(ctx, Path.Combine(BasePath, "OpenGL.NET/GlFunctsEXT.cs"), delegate(Command item)
-            {
-				return (item.Prototype.Name.EndsWith("EXT") && (item.Alias == null));
-			});
-
-			// Extension specific commands
-			foreach (string word in ctx.ExtensionsDictionary.Words) {
-				string extension = word;
-
-				glRegistryProcessor.GenerateCommands(ctx, Path.Combine(BasePath, String.Format("OpenGL.NET/GlFuncts{0}.cs", extension)), delegate(Command item) {
-					return (item.Prototype.Name.EndsWith(extension) && (item.Alias == null));
-				});
-			}
-
-			
 		}
 
 		private static void GenerateCommandsAndEnums(RegistryProcessor glRegistryProcessor, RegistryContext ctx)
@@ -147,14 +104,14 @@ namespace BindingsGen
 
 			#region By features and extensions
 
-			foreach (IFeature feature in ctx.Registry.AllFeatures)
+			foreach (IFeature feature in ctx.Registry.AllFeatures(ctx))
 			{
 				List<Command> featureCommands = new List<Command>();
 				List<Enumerant> featureEnums = new List<Enumerant>();
 
 				foreach (FeatureCommand featureCommand in feature.Requirements)
 				{
-					if (featureCommand.Api != null && featureCommand.Api != "gl")
+					if (featureCommand.Api != null && featureCommand.Api != ctx.Class.ToLower())
 						continue;
 
 					foreach (FeatureCommand.Item featureCommandItem in featureCommand.Commands) {
@@ -183,7 +140,7 @@ namespace BindingsGen
 				if ((featureCommands.Count == 0) && (featureEnums.Count == 0))
 					continue;
 
-				glRegistryProcessor.GenerateCommands(ctx, Path.Combine(BasePath, String.Format("OpenGL.NET/{0}.{1}.cs", ctx.Class, feature.Name.Substring(ctx.Class.Length + 1))), delegate(RegistryContext cctx, SourceStreamWriter sw)
+				glRegistryProcessor.GenerateCommands(ctx, GetFeatureFilePath(feature, ctx), delegate(RegistryContext cctx, SourceStreamWriter sw)
 				{
 					foreach (Enumerant enumerant in featureEnums)
 					{
@@ -234,6 +191,26 @@ namespace BindingsGen
 					}
 				});
 			}
+		}
+
+		private static string GetFeatureFilePath(IFeature feature, RegistryContext ctx)
+		{
+			string path = String.Format("OpenGL.NET/{0}.{1}.cs", ctx.Class, feature.Name.Substring(ctx.Class.Length + 1));
+			string featureName = feature.Name.Substring(ctx.Class.Length + 1);
+			int separatorIndex = featureName.IndexOf('_');
+
+			if (separatorIndex >= 0) {
+				string ext = featureName.Substring(0, separatorIndex);
+
+				if (ctx.ExtensionsDictionary.HasWord(ext)) {
+					string extensionDir = Path.Combine(BasePath, String.Format("OpenGL.NET/{0}", ext));
+					if (!Directory.Exists(extensionDir))
+						Directory.CreateDirectory(extensionDir);
+					path = String.Format("OpenGL.NET/{2}/{0}.{1}.cs", ctx.Class, featureName, ext);
+				}
+			}
+
+			return (Path.Combine(BasePath, path));
 		}
 	}
 }

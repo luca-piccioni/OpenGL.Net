@@ -15,21 +15,21 @@
 
 	<!-- Constant renaming: 'GL_FOO' -> 'GL.FOO' -->
 	<xsl:template match="constant">
-		<xsl:variable name="prefix">&lt;see cref="Gl.</xsl:variable>
+		<xsl:variable name="prefix">&lt;see_cref="Gl.</xsl:variable>
 		<xsl:variable name="postfix">"/&gt;</xsl:variable>
 		<xsl:value-of select="concat($prefix, substring(., 4), $postfix)" disable-output-escaping="yes"/>
 	</xsl:template>
 
 	<!-- Function renaming: 'glFoo' -> 'Gl.Foo' -->
 	<xsl:template match="function">
-		<xsl:variable name="prefix">&lt;see cref="Gl.</xsl:variable>
+		<xsl:variable name="prefix">&lt;see_cref="Gl.</xsl:variable>
 		<xsl:variable name="postfix">"/&gt;</xsl:variable>
 		<xsl:value-of select="concat($prefix, substring(., 3), $postfix)" disable-output-escaping="yes"/>
 	</xsl:template>
 
 	<!-- Parameter reference: 'param' -> <paramref name="param" /> -->
 	<xsl:template match="parameter">
-		<xsl:variable name="prefix">&lt;paramref name="</xsl:variable>
+		<xsl:variable name="prefix">&lt;paramref_name="</xsl:variable>
 		<xsl:variable name="postfix">"/&gt;</xsl:variable>
 		<xsl:value-of select="concat($prefix, ., $postfix)" disable-output-escaping="yes"/>
 	</xsl:template>

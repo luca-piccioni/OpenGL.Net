@@ -152,7 +152,7 @@ namespace BindingsGen
 						paramDoc = GetDocumentationLines(xmlIdentifier.InnerXml, DocumentationXslTranformMan2);
 				}
 
-				sw.WriteLine("/// <param name=\"{0}\">", param.ImplementationName);
+				sw.WriteLine("/// <param name=\"{0}\">", param.Name);
 				foreach (string line in paramDoc)
 					sw.WriteLine("/// {0}", line);
 				sw.WriteLine("/// </param>");
@@ -279,7 +279,7 @@ namespace BindingsGen
 				List<string> paramDoc = new List<string>();
 
 				// Default
-				paramDoc.Add(String.Format("A <see cref=\"{0}\"/>.", param.GetImplementationType(ctx, command)));
+				paramDoc.Add(String.Format("A <see cref=\"T:{0}\"/>.", param.GetImplementationType(ctx, command)));
 
 				if (root != null) {
 					string xpath = String.Format("/x:refentry/x:refsect1[@xml:id='parameters']/x:variablelist/x:varlistentry[x:term/x:parameter/text() = '{0}']/x:listitem/x:para", param.ImportName);
@@ -289,7 +289,7 @@ namespace BindingsGen
 						paramDoc = GetDocumentationLines(xmlIdentifier.InnerXml, DocumentationXslTranformMan4);
 				}
 
-				sw.WriteLine("/// <param name=\"{0}\">", param.ImplementationName);
+				sw.WriteLine("/// <param name=\"{0}\">", param.Name);
 				foreach (string line in paramDoc)
 					sw.WriteLine("/// {0}", line);
 				sw.WriteLine("/// </param>");
@@ -379,6 +379,10 @@ namespace BindingsGen
 				transform.Transform(xmlDocumentation.DocumentElement.CreateNavigator(), xsltArgs, sw);
 
 				transformedXml = sw.ToString();
+
+				// Untag elements
+				transformedXml = transformedXml.Replace("see_cref", "see cref");
+				transformedXml = transformedXml.Replace("paramref_name", "paramref name");
 			}
 
 			return (transformedXml);
@@ -446,6 +450,7 @@ namespace BindingsGen
 				if (documentationLine.Length + documentationTokens[i].Length > MAX_LINE_LENGTH) {
 					documentationLines.Add(documentationLine.ToString());
 					documentationLine = new StringBuilder();
+					documentationLine.Append(documentationTokens[i]);
 				} else {
 					documentationLine.Append(documentationTokens[i]);
 					documentationLine.Append(" ");
@@ -651,7 +656,7 @@ namespace BindingsGen
 								webResponse = webRequest.GetResponse();
 								done = true;
 								Console.WriteLine(". done!");
-							} catch (Exception e) {
+							} catch (Exception) {
 								Console.Write(".");
 								tries++;
 							}

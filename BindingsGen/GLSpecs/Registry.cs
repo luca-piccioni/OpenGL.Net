@@ -16,6 +16,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.Text.RegularExpressions;
 using System.Xml.Serialization;
 
 namespace BindingsGen.GLSpecs
@@ -137,28 +138,31 @@ namespace BindingsGen.GLSpecs
 		[XmlArrayItem("extension")]
 		public readonly List<Extension> Extensions = new List<Extension>();
 
-		public IEnumerable<IFeature> AllFeatures
+		public IEnumerable<IFeature> AllFeatures(RegistryContext ctx)
 		{
-			get
-			{
-				foreach (Feature feature in Features)
+			foreach (Feature feature in Features) {
+				if (feature.Api == ctx.Class.ToLower())
 					yield return feature;
-
-				List<Extension> extensions = new List<Extension>(Extensions);
-
-				extensions.Sort(delegate(Extension x, Extension y) {
-					int xIndex = ExtensionIndices.GetIndex(x.Name);
-					int yIndex = ExtensionIndices.GetIndex(y.Name);
-
-					if (xIndex != yIndex)
-						return (xIndex.CompareTo(yIndex));
-					else
-						return (x.Name.CompareTo(y.Name));
-				});
-
-				foreach (Extension extension in extensions)
-					yield return extension;
 			}
+
+			List<Extension> extensions = new List<Extension>(Extensions);
+
+			extensions.RemoveAll(delegate(Extension item) {
+				return (item.Supported != null && !Regex.IsMatch(ctx.Class.ToLowerInvariant(), item.Supported));
+			});
+
+			extensions.Sort(delegate(Extension x, Extension y) {
+				int xIndex = ExtensionIndices.GetIndex(x.Name);
+				int yIndex = ExtensionIndices.GetIndex(y.Name);
+
+				if (xIndex != yIndex)
+					return (xIndex.CompareTo(yIndex));
+				else
+					return (x.Name.CompareTo(y.Name));
+			});
+
+			foreach (Extension extension in extensions)
+				yield return extension;
 		}
 
 		#endregion
