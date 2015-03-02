@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<map>
+	<token src="GetInteger" dst="Get" />
+	<token src="GetInteger" dst="Get" />
+	<token src="GetFloat" dst="Get" />
+</map>
