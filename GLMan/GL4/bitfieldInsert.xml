@@ -1,0 +1,110 @@
+<!DOCTYPE refentry [ <!ENTITY % mathent SYSTEM "math.ent"> %mathent; ]>
+
+<!-- Converted by db4-upgrade version 1.1 -->
+
+<refentry xmlns="http://docbook.org/ns/docbook" version="5.0" xml:id="bitfieldInsert">
+    <info>
+        <copyright>
+            <year>2011-2014</year>
+            <holder>Khronos Group</holder>
+        </copyright>
+    </info>
+    <refmeta>
+        <refentrytitle>bitfieldInsert</refentrytitle>
+        <manvolnum>3G</manvolnum>
+    </refmeta>
+    <refnamediv>
+        <refname>bitfieldInsert</refname>
+        <refpurpose>insert a range of bits into an integer</refpurpose>
+    </refnamediv>
+    <refsynopsisdiv><title>Declaration</title>
+        <funcsynopsis>
+            <funcprototype>
+                <funcdef>genIType <function>bitfieldInsert</function></funcdef>
+                <paramdef>genIType <parameter>base</parameter></paramdef>
+                <paramdef>genIType <parameter>insert</parameter></paramdef>
+                <paramdef>int <parameter>offset</parameter></paramdef>
+                <paramdef>int <parameter>bits</parameter></paramdef>
+            </funcprototype>            <funcprototype>
+                <funcdef>genUType <function>bitfieldInsert</function></funcdef>
+                <paramdef>genUType <parameter>base</parameter></paramdef>
+                <paramdef>genUType <parameter>insert</parameter></paramdef>
+                <paramdef>int <parameter>offset</parameter></paramdef>
+                <paramdef>int <parameter>bits</parameter></paramdef>
+            </funcprototype>
+        </funcsynopsis>
+    </refsynopsisdiv>
+    <refsect1 xml:id="parameters"><title>Parameters</title>
+        <variablelist>
+        <varlistentry>
+            <term><parameter>base</parameter></term>
+            <listitem>
+                <para>
+                    Specifies the integer into which to insert <parameter>insert</parameter>.
+                </para>
+            </listitem>
+        </varlistentry>
+        <varlistentry>
+            <term><parameter>insert</parameter></term>
+            <listitem>
+                <para>
+                    Specifies the the value of the bits to insert.
+                </para>
+            </listitem>
+        </varlistentry>
+        <varlistentry>
+            <term><parameter>offset</parameter></term>
+            <listitem>
+                <para>
+                    Specifies the index of the first bit to insert.
+                </para>
+            </listitem>
+        </varlistentry>
+        <varlistentry>
+            <term><parameter>bits</parameter></term>
+            <listitem>
+                <para>
+                    Specifies the number of bits to insert.
+                </para>
+            </listitem>
+        </varlistentry>
+        </variablelist>
+    </refsect1>
+    <refsect1 xml:id="description"><title>Description</title>
+        <para>
+            <function>bitfieldInsert</function> inserts the <parameter>bits</parameter> least significant bits of <parameter>insert</parameter>
+            into <parameter>base</parameter> at offset <parameter>offset</parameter>. The returned value will have bits
+            [<parameter>offset</parameter>, <parameter>offset</parameter> + <parameter>bits</parameter> + 1] taken from [0, <parameter>bits</parameter> - 1]
+            of <parameter>insert</parameter> and all other bits taken directly from the corresponding bits of <parameter>base</parameter>. If
+            <parameter>bits</parameter> is zero, the result will simply be the original value of <parameter>base</parameter>. The result will
+            be undefined if <parameter>offset</parameter> or <parameter>bits</parameter> is negative, or if the sum of <parameter>offset</parameter>
+            and <parameter>bits</parameter> is greater than the number of bits used to store the operand.
+        </para>
+    </refsect1>
+    <refsect1 xml:id="versions"><title>Version Support</title>
+        <informaltable>
+            <tgroup cols="13" align="left">
+                <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="funchead.xml" xpointer="xpointer(/*/*)"/>
+                <tbody>
+                    <row>
+                        <entry>bitfieldInsert</entry>
+                        <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="version.xml" xpointer="xpointer(/*/*[@role='40']/*)"/>
+                    </row>
+                </tbody>
+            </tgroup>
+        </informaltable>
+    </refsect1>
+    <refsect1 xml:id="seealso"><title>See Also</title>
+        <para>
+            <citerefentry><refentrytitle>bitfieldExtract</refentrytitle></citerefentry>
+        </para>
+    </refsect1>
+    <refsect1 xml:id="Copyright"><title>Copyright</title>
+        <para>
+            Copyright <trademark class="copyright"/> 2011-2014 Khronos Group.
+            This material may be distributed subject to the terms and conditions set forth in
+            the Open Publication License, v 1.0, 8 June 1999.
+            <link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://opencontent.org/openpub/">http://opencontent.org/openpub/</link>.
+        </para>
+    </refsect1>
+</refentry>

@@ -1,0 +1,180 @@
+<!DOCTYPE refentry [ <!ENTITY % mathent SYSTEM "math.ent"> %mathent; ]>
+
+<!-- Converted by db4-upgrade version 1.1 -->
+
+<refentry xmlns="http://docbook.org/ns/docbook" version="5.0" xml:id="textureGather">
+    <info>
+        <copyright>
+            <year>2011-2014</year>
+            <holder>Khronos Group</holder>
+        </copyright>
+    </info>
+    <refmeta>
+        <refentrytitle>textureGather</refentrytitle>
+        <manvolnum>3G</manvolnum>
+    </refmeta>
+    <refnamediv>
+        <refname>textureGather</refname>
+        <refpurpose>gathers four texels from a texture</refpurpose>
+    </refnamediv>
+    <refsynopsisdiv><title>Declaration</title>
+        <funcsynopsis>
+            <funcprototype>
+                <funcdef>gvec4 <function>textureGather</function></funcdef>
+                <paramdef>gsampler2D <parameter>sampler</parameter></paramdef>
+                <paramdef>vec2 <parameter>P</parameter></paramdef>
+                <paramdef>[int <parameter>comp]</parameter></paramdef>
+            </funcprototype>
+            <funcprototype>
+                <funcdef>gvec4 <function>textureGather</function></funcdef>
+                <paramdef>gsampler2DArray <parameter>sampler</parameter></paramdef>
+                <paramdef>vec3 <parameter>P</parameter></paramdef>
+                <paramdef>[int <parameter>comp]</parameter></paramdef>
+            </funcprototype>
+            <funcprototype>
+                <funcdef>gvec4 <function>textureGather</function></funcdef>
+                <paramdef>gsamplerCube <parameter>sampler</parameter></paramdef>
+                <paramdef>vec3 <parameter>P</parameter></paramdef>
+                <paramdef>[int <parameter>comp]</parameter></paramdef>
+            </funcprototype>
+            <funcprototype>
+                <funcdef>gvec4 <function>textureGather</function></funcdef>
+                <paramdef>gsamplerCubeArray <parameter>sampler</parameter></paramdef>
+                <paramdef>vec4 <parameter>P</parameter></paramdef>
+                <paramdef>[int <parameter>comp]</parameter></paramdef>
+            </funcprototype>
+            <funcprototype>
+                <funcdef>gvec4 <function>textureGather</function></funcdef>
+                <paramdef>gsampler2DRect <parameter>sampler</parameter></paramdef>
+                <paramdef>vec3 <parameter>P</parameter></paramdef>
+                <paramdef>[int <parameter>comp]</parameter></paramdef>
+            </funcprototype>
+            <funcprototype>
+                <funcdef>vec4 <function>textureGather</function></funcdef>
+                <paramdef>gsampler2DShadow <parameter>sampler</parameter></paramdef>
+                <paramdef>vec2 <parameter>P</parameter></paramdef>
+                <paramdef>float <parameter>refZ</parameter></paramdef>
+            </funcprototype>
+            <funcprototype>
+                <funcdef>vec4 <function>textureGather</function></funcdef>
+                <paramdef>gsampler2DArrayShadow <parameter>sampler</parameter></paramdef>
+                <paramdef>vec3 <parameter>P</parameter></paramdef>
+                <paramdef>float <parameter>refZ</parameter></paramdef>
+            </funcprototype>
+            <funcprototype>
+                <funcdef>vec4 <function>textureGather</function></funcdef>
+                <paramdef>gsamplerCubeShadow <parameter>sampler</parameter></paramdef>
+                <paramdef>vec3 <parameter>P</parameter></paramdef>
+                <paramdef>float <parameter>refZ</parameter></paramdef>
+            </funcprototype>
+            <funcprototype>
+                <funcdef>vec4 <function>textureGather</function></funcdef>
+                <paramdef>gsamplerCubeArrayShadow <parameter>sampler</parameter></paramdef>
+                <paramdef>vec4 <parameter>P</parameter></paramdef>
+                <paramdef>float <parameter>refZ</parameter></paramdef>
+            </funcprototype>
+            <funcprototype>
+                <funcdef>vec4 <function>textureGather</function></funcdef>
+                <paramdef>gsampler2DRectShadow <parameter>sampler</parameter></paramdef>
+                <paramdef>vec3 <parameter>P</parameter></paramdef>
+                <paramdef>float <parameter>refZ</parameter></paramdef>
+            </funcprototype>
+        </funcsynopsis>
+    </refsynopsisdiv>
+    <refsect1 xml:id="parameters"><title>Parameters</title>
+        <variablelist>
+        <varlistentry>
+            <term><parameter>sampler</parameter></term>
+            <listitem>
+                <para>
+                    Specifies the sampler to which the texture from which texels will be retrieved is bound.
+                </para>
+            </listitem>
+        </varlistentry>
+        <varlistentry>
+            <term><parameter>P</parameter></term>
+            <listitem>
+                <para>
+                    Specifies the texture coordinates at which texture will be sampled.
+                </para>
+            </listitem>
+        </varlistentry>
+        <varlistentry>
+            <term><parameter>comp</parameter></term>
+            <listitem>
+                <para>
+                    Specifies the component of the source texture that will be used to generate the resulting vector.
+                </para>
+            </listitem>
+        </varlistentry>
+        <varlistentry>
+            <term><parameter>refZ</parameter></term>
+            <listitem>
+                <para>
+                    Specifies the reference Z value used in the comparison for shadow forms.
+                </para>
+            </listitem>
+        </varlistentry>
+        </variablelist>
+    </refsect1>
+    <refsect1 xml:id="description"><title>Description</title>
+        <para>
+            <function>textureGather</function> returns the value:
+        </para>
+        <para>
+<programlisting>    vec4(Sample_i0_j1(P, base).comp,
+         Sample_i1_j1(P, base).comp,
+         Sample_i1_j0(P, base).comp,
+         Sample_i0_j1(P, base).comp);</programlisting>
+    </para>
+    <para>
+        If specified, the value of <parameter>comp</parameter> must ba constant integer expression with a value
+        of 0, 1, 2, or 3, identifying the x, y, z or w component of the four-component vector lookup result for each
+        texel, respectively. If <parameter>comp</parameter> is not specified, it is treated as 0, selecting the x
+        component of each texel to generate the result.
+    </para>
+    </refsect1>
+    <refsect1 xml:id="versions"><title>Version Support</title>
+        <informaltable>
+            <tgroup cols="13" align="left">
+                <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="funchead.xml" xpointer="xpointer(/*/*)"/>
+                <tbody>
+                    <row>
+                        <entry>textureGather</entry>
+                        <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="version.xml" xpointer="xpointer(/*/*[@role='40']/*)"/>
+                    </row>
+                </tbody>
+            </tgroup>
+        </informaltable>
+    </refsect1>
+    <refsect1 xml:id="seealso"><title>See Also</title>
+        <para>
+            <citerefentry><refentrytitle>texelFetch</refentrytitle></citerefentry>,
+            <citerefentry><refentrytitle>texelFetchOffset</refentrytitle></citerefentry>,
+            <citerefentry><refentrytitle>texture</refentrytitle></citerefentry>,
+            <citerefentry><refentrytitle>textureGatherOffset</refentrytitle></citerefentry>,
+            <citerefentry><refentrytitle>textureGatherOffsets</refentrytitle></citerefentry>,
+            <citerefentry><refentrytitle>textureGrad</refentrytitle></citerefentry>,
+            <citerefentry><refentrytitle>textureGradOffset</refentrytitle></citerefentry>,
+            <citerefentry><refentrytitle>textureLod</refentrytitle></citerefentry>,
+            <citerefentry><refentrytitle>textureLodOffset</refentrytitle></citerefentry>,
+            <citerefentry><refentrytitle>textureOffset</refentrytitle></citerefentry>,
+            <citerefentry><refentrytitle>textureProj</refentrytitle></citerefentry>,
+            <citerefentry><refentrytitle>textureProjGrad</refentrytitle></citerefentry>,
+            <citerefentry><refentrytitle>textureProjGradOffset</refentrytitle></citerefentry>,
+            <citerefentry><refentrytitle>textureProjLod</refentrytitle></citerefentry>,
+            <citerefentry><refentrytitle>textureProjLodOffset</refentrytitle></citerefentry>,
+            <citerefentry><refentrytitle>textureProjOffset</refentrytitle></citerefentry>,
+            <citerefentry><refentrytitle>textureQueryLod</refentrytitle></citerefentry>,
+            <citerefentry><refentrytitle>textureSize</refentrytitle></citerefentry>
+        </para>
+    </refsect1>
+    <refsect1 xml:id="Copyright"><title>Copyright</title>
+        <para>
+            Copyright <trademark class="copyright"/> 2011-2014 Khronos Group.
+            This material may be distributed subject to the terms and conditions set forth in
+            the Open Publication License, v 1.0, 8 June 1999.
+            <link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://opencontent.org/openpub/">http://opencontent.org/openpub/</link>.
+        </para>
+    </refsect1>
+</refentry>

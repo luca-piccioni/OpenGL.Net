@@ -1,0 +1,68 @@
+<!DOCTYPE refentry [ <!ENTITY % mathent SYSTEM "math.ent"> %mathent; ]>
+
+<!-- Converted by db4-upgrade version 1.1 -->
+
+<refentry xmlns="http://docbook.org/ns/docbook" version="5.0" xml:id="gl_SamplePosition">
+    <info>
+        <copyright>
+            <year>2011-2014</year>
+            <holder>Khronos Group</holder>
+        </copyright>
+    </info>
+    <refmeta>
+        <refentrytitle>gl_SamplePosition</refentrytitle>
+        <manvolnum>3G</manvolnum>
+    </refmeta>
+    <refnamediv>
+        <refname>gl_SamplePosition</refname>
+        <refpurpose>contains the location of the current sample within the current fragment</refpurpose>
+    </refnamediv>
+    <refsynopsisdiv>
+        <title>Declaration</title>
+        <fieldsynopsis>
+            <modifier>in</modifier>
+            <type>vec2</type>
+            <varname>gl_SamplePosition</varname>
+        </fieldsynopsis>
+    </refsynopsisdiv>
+    <refsect1 xml:id="description"><title>Description</title>
+        <para>
+            <varname>gl_SamplePosition</varname> is a fragment language input variable that contains
+            the location within a fragment of the sample currently being processed. The x and y components
+            of <varname>gl_SamplePosition</varname> contain the sub-pixel coordinate of the current
+            sample and will have values in the range 0.0 to 1.0. The sub-pixel coordinates of the center
+            of the pixel are always (0.5, 0.5). Any static use of <varname>gl_SamplePosition</varname>
+            causes the entire fragment shader to be evaluated per-sample rather than per-fragment. When rendering
+            to a non-multisample buffer, or if multisample rasterization is disabled, <varname>gl_SamplePosition</varname>
+            will be (0.5, 0.5).
+        </para>
+    </refsect1>
+    <refsect1 xml:id="versions"><title>Version Support</title>
+        <informaltable>
+            <tgroup cols="13" align="left">
+                <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="funchead.xml" xpointer="xpointer(/*/*)"/>
+                <tbody>
+                    <row>
+                        <entry>gl_SamplePosition</entry>
+                        <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="version.xml" xpointer="xpointer(/*/*[@role='40']/*)"/>
+                    </row>
+                </tbody>
+            </tgroup>
+        </informaltable>
+    </refsect1>
+    <refsect1 xml:id="seealso"><title>See Also</title>
+        <para>
+            <citerefentry><refentrytitle>gl_SampleID</refentrytitle></citerefentry>,
+            <citerefentry><refentrytitle>gl_SampleMask</refentrytitle></citerefentry>,
+            <citerefentry><refentrytitle>gl_FragCoord</refentrytitle></citerefentry>
+        </para>
+    </refsect1>
+    <refsect1 xml:id="Copyright"><title>Copyright</title>
+        <para>
+            Copyright <trademark class="copyright"/> 2011-2014 Khronos Group.
+            This material may be distributed subject to the terms and conditions set forth in
+            the Open Publication License, v 1.0, 8 June 1999.
+            <link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://opencontent.org/openpub/">http://opencontent.org/openpub/</link>.
+        </para>
+    </refsect1>
+</refentry>

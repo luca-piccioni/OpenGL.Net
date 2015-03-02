@@ -1,0 +1,79 @@
+<!DOCTYPE refentry [ <!ENTITY % mathent SYSTEM "math.ent"> %mathent; ]>
+
+<!-- Converted by db4-upgrade version 1.1 -->
+
+<refentry xmlns="http://docbook.org/ns/docbook" version="5.0" xml:id="memoryBarrier">
+    <info>
+        <copyright>
+            <year>2011-2014</year>
+            <holder>Khronos Group</holder>
+        </copyright>
+    </info>
+    <refmeta>
+            <refentrytitle>memoryBarrier</refentrytitle>
+        <manvolnum>3G</manvolnum>
+    </refmeta>
+    <refnamediv>
+        <refname>memoryBarrier</refname>
+        <refpurpose>controls the ordering of memory transactions issued by a single shader invocation</refpurpose>
+    </refnamediv>
+    <refsynopsisdiv><title>Declaration</title>
+        <funcsynopsis>
+            <funcprototype>
+                <funcdef>uint <function>memoryBarrier</function></funcdef>
+                <paramdef>void</paramdef>
+            </funcprototype>
+        </funcsynopsis>
+    </refsynopsisdiv>
+    <refsect1 xml:id="description"><title>Description</title>
+        <para>
+            <function>memoryBarrier</function> waits on the completion of all memory accesses resulting from the use of
+            image variables or atomic counters and then returns with no other effect.  When this function returns, the
+            results of any memory stores performed using coherent variables performed prior to the call will be visible
+            to any future coherent memory access to the same addresses from other shader invocations.  In particular,
+            the values written this way in one shader stage are guaranteed to be visible to coherent memory accesses
+            performed by shader invocations in subsequent stages when those invocations were triggered by the
+            execution of the original shader invocation (e.g., fragment shader invocations for a primitive resulting
+            from a particular geometry shader invocation).
+        </para>
+    </refsect1>
+    <refsect1 xml:id="versions"><title>Version Support</title>
+        <informaltable>
+            <tgroup cols="13" align="left">
+                <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="funchead.xml" xpointer="xpointer(/*/*)"/>
+                <tbody>
+                    <row>
+                        <entry>memoryBarrier</entry>
+                        <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="version.xml" xpointer="xpointer(/*/*[@role='40']/*)"/>
+                    </row>
+                </tbody>
+            </tgroup>
+        </informaltable>
+    </refsect1>
+    <refsect1 xml:id="seealso"><title>See Also</title>
+        <para>
+            <citerefentry><refentrytitle>imageLoad</refentrytitle></citerefentry>,
+            <citerefentry><refentrytitle>imageStore</refentrytitle></citerefentry>,
+            <citerefentry><refentrytitle>imageAtomicAdd</refentrytitle></citerefentry>,
+            <citerefentry><refentrytitle>imageAtomicMin</refentrytitle></citerefentry>,
+            <citerefentry><refentrytitle>imageAtomicMax</refentrytitle></citerefentry>,
+            <citerefentry><refentrytitle>imageAtomicXor</refentrytitle></citerefentry>,
+            <citerefentry><refentrytitle>imageAtomicOr</refentrytitle></citerefentry>,
+            <citerefentry><refentrytitle>imageAtomicAnd</refentrytitle></citerefentry>,
+            <citerefentry><refentrytitle>imageAtomicExchange</refentrytitle></citerefentry>,
+            <citerefentry><refentrytitle>imageAtomicCompSwap</refentrytitle></citerefentry>,
+            <citerefentry><refentrytitle>groupMemoryBarrier</refentrytitle></citerefentry>,
+            <citerefentry><refentrytitle>memoryBarrierImage</refentrytitle></citerefentry>,
+            <citerefentry><refentrytitle>memoryBarrierBuffer</refentrytitle></citerefentry>,
+            <citerefentry><refentrytitle>memoryBarrierShared</refentrytitle></citerefentry>
+        </para>
+    </refsect1>
+    <refsect1 xml:id="Copyright"><title>Copyright</title>
+        <para>
+            Copyright <trademark class="copyright"/> 2011-2014 Khronos Group.
+            This material may be distributed subject to the terms and conditions set forth in
+            the Open Publication License, v 1.0, 8 June 1999.
+            <link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://opencontent.org/openpub/">http://opencontent.org/openpub/</link>.
+        </para>
+    </refsect1>
+</refentry>

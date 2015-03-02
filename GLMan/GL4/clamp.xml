@@ -1,0 +1,162 @@
+<!DOCTYPE refentry [ <!ENTITY % mathent SYSTEM "math.ent"> %mathent; ]>
+
+<!-- Converted by db4-upgrade version 1.1 -->
+
+<refentry xmlns="http://docbook.org/ns/docbook" version="5.0" xml:id="clamp">
+    <info>
+        <copyright>
+            <year>2011-2014</year>
+            <holder>Khronos Group</holder>
+        </copyright>
+    </info>
+    <refmeta>
+        <refentrytitle>clamp</refentrytitle>
+        <manvolnum>3G</manvolnum>
+    </refmeta>
+    <refnamediv>
+        <refname>clamp</refname>
+        <refpurpose>constrain a value to lie between two further values</refpurpose>
+    </refnamediv>
+    <refsynopsisdiv><title>Declaration</title>
+        <funcsynopsis>
+            <funcprototype>
+                <funcdef>genType <function>clamp</function></funcdef>
+                <paramdef>genType <parameter>x</parameter></paramdef>
+                <paramdef>genType <parameter>minVal</parameter></paramdef>
+                <paramdef>genType <parameter>maxVal</parameter></paramdef>
+            </funcprototype>
+        </funcsynopsis>
+        <funcsynopsis>
+            <funcprototype>
+                <funcdef>genType <function>clamp</function></funcdef>
+                <paramdef>genType <parameter>x</parameter></paramdef>
+                <paramdef>float <parameter>minVal</parameter></paramdef>
+                <paramdef>float <parameter>maxVal</parameter></paramdef>
+            </funcprototype>
+        </funcsynopsis>
+        <funcsynopsis>
+            <funcprototype>
+                <funcdef>genDType <function>clamp</function></funcdef>
+                <paramdef>genDType <parameter>x</parameter></paramdef>
+                <paramdef>genDType <parameter>minVal</parameter></paramdef>
+                <paramdef>genDType <parameter>maxVal</parameter></paramdef>
+            </funcprototype>
+        </funcsynopsis>
+        <funcsynopsis>
+            <funcprototype>
+                <funcdef>genDType <function>clamp</function></funcdef>
+                <paramdef>genDType <parameter>x</parameter></paramdef>
+                <paramdef>double <parameter>minVal</parameter></paramdef>
+                <paramdef>double <parameter>maxVal</parameter></paramdef>
+            </funcprototype>
+        </funcsynopsis>
+        <funcsynopsis>
+            <funcprototype>
+                <funcdef>genIType <function>clamp</function></funcdef>
+                <paramdef>genIType <parameter>x</parameter></paramdef>
+                <paramdef>genIType <parameter>minVal</parameter></paramdef>
+                <paramdef>genIType <parameter>maxVal</parameter></paramdef>
+            </funcprototype>
+        </funcsynopsis>
+        <funcsynopsis>
+            <funcprototype>
+                <funcdef>genIType <function>clamp</function></funcdef>
+                <paramdef>genIType <parameter>x</parameter></paramdef>
+                <paramdef>int <parameter>minVal</parameter></paramdef>
+                <paramdef>int <parameter>maxVal</parameter></paramdef>
+            </funcprototype>
+        </funcsynopsis>
+        <funcsynopsis>
+            <funcprototype>
+                <funcdef>genUType <function>clamp</function></funcdef>
+                <paramdef>genUType <parameter>x</parameter></paramdef>
+                <paramdef>genUType <parameter>minVal</parameter></paramdef>
+                <paramdef>genUType <parameter>maxVal</parameter></paramdef>
+            </funcprototype>
+        </funcsynopsis>
+        <funcsynopsis>
+            <funcprototype>
+                <funcdef>genUType <function>clamp</function></funcdef>
+                <paramdef>genUType <parameter>x</parameter></paramdef>
+                <paramdef>uint <parameter>minVal</parameter></paramdef>
+                <paramdef>uint <parameter>maxVal</parameter></paramdef>
+            </funcprototype>
+        </funcsynopsis>
+    </refsynopsisdiv>
+    <refsect1 xml:id="parameters"><title>Parameters</title>
+        <variablelist>
+        <varlistentry>
+            <term><parameter>x</parameter></term>
+            <listitem>
+                <para>
+                    Specify the value to constrain.
+                </para>
+            </listitem>
+        </varlistentry>
+        <varlistentry>
+            <term><parameter>minVal</parameter></term>
+            <listitem>
+                <para>
+                    Specify the lower end of the range into which to constrain <parameter>x</parameter>.
+                </para>
+            </listitem>
+        </varlistentry>
+        <varlistentry>
+            <term><parameter>maxVal</parameter></term>
+            <listitem>
+                <para>
+                    Specify the upper end of the range into which to constrain <parameter>x</parameter>.
+                </para>
+            </listitem>
+        </varlistentry>
+        </variablelist>
+    </refsect1>
+    <refsect1 xml:id="description"><title>Description</title>
+        <para>
+            <function>clamp</function> returns the value of <parameter>x</parameter> constrained to the
+            range <parameter>minVal</parameter> to <parameter>maxVal</parameter>. The returned value is
+            computed as
+            <citerefentry><refentrytitle>min</refentrytitle></citerefentry>(<citerefentry><refentrytitle>max</refentrytitle></citerefentry>(<parameter>x</parameter>,
+            <parameter>minVal</parameter>), <parameter>maxVal</parameter>).
+        </para>
+    </refsect1>
+    <refsect1 xml:id="versions"><title>Version Support</title>
+        <informaltable>
+            <tgroup cols="13" align="left">
+                <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="funchead.xml" xpointer="xpointer(/*/*)"/>
+                <tbody>
+                    <row>
+                        <entry>clamp (genType)</entry>
+                        <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="version.xml" xpointer="xpointer(/*/*[@role='11']/*)"/>
+                    </row>
+                    <row>
+                        <entry>clamp (genIType)</entry>
+                        <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="version.xml" xpointer="xpointer(/*/*[@role='13']/*)"/>
+                    </row>
+                    <row>
+                        <entry>clamp (genUType)</entry>
+                        <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="version.xml" xpointer="xpointer(/*/*[@role='13']/*)"/>
+                    </row>
+                    <row>
+                        <entry>clamp (genDType)</entry>
+                        <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="version.xml" xpointer="xpointer(/*/*[@role='40']/*)"/>
+                    </row>
+                </tbody>
+            </tgroup>
+        </informaltable>
+    </refsect1>
+    <refsect1 xml:id="seealso"><title>See Also</title>
+        <para>
+            <citerefentry><refentrytitle>min</refentrytitle></citerefentry>,
+            <citerefentry><refentrytitle>max</refentrytitle></citerefentry>
+        </para>
+    </refsect1>
+    <refsect1 xml:id="Copyright"><title>Copyright</title>
+        <para>
+            Copyright <trademark class="copyright"/> 2011-2014 Khronos Group.
+            This material may be distributed subject to the terms and conditions set forth in
+            the Open Publication License, v 1.0, 8 June 1999.
+            <link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://opencontent.org/openpub/">http://opencontent.org/openpub/</link>.
+        </para>
+    </refsect1>
+</refentry>

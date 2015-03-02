@@ -1,0 +1,108 @@
+<!DOCTYPE refentry [ <!ENTITY % mathent SYSTEM "math.ent"> %mathent; ]>
+
+<!-- Converted by db4-upgrade version 1.1 -->
+
+<refentry xmlns="http://docbook.org/ns/docbook" version="5.0" xml:id="umulExtended">
+    <info>
+        <copyright>
+            <year>2011-2014</year>
+            <holder>Khronos Group</holder>
+        </copyright>
+    </info>
+    <refmeta>
+        <refentrytitle>umulExtended</refentrytitle>
+        <manvolnum>3G</manvolnum>
+    </refmeta>
+    <refnamediv>
+        <refname>umulExtended</refname>
+        <refpurpose>perform a 32- by 32-bit multiply to produce a 64-bit result</refpurpose>
+    </refnamediv>
+    <refsynopsisdiv><title>Declaration</title>
+        <funcsynopsis>
+            <funcprototype>
+                <funcdef>void <function>umulExtended</function></funcdef>
+                <paramdef>genUType <parameter>x</parameter></paramdef>
+                <paramdef>genUType <parameter>y</parameter></paramdef>
+                <paramdef>out genUType <parameter>msb</parameter></paramdef>
+                <paramdef>out genUType <parameter>lsb</parameter></paramdef>
+            </funcprototype>            <funcprototype>
+                <funcdef>void <function>imulExtended</function></funcdef>
+                <paramdef>genIType <parameter>x</parameter></paramdef>
+                <paramdef>genIType <parameter>y</parameter></paramdef>
+                <paramdef>out genIType <parameter>msb</parameter></paramdef>
+                <paramdef>out genIType <parameter>lsb</parameter></paramdef>
+            </funcprototype>
+        </funcsynopsis>
+    </refsynopsisdiv>
+    <refsect1 xml:id="parameters"><title>Parameters</title>
+        <variablelist>
+        <varlistentry>
+            <term><parameter>x</parameter></term>
+            <listitem>
+                <para>
+                    Specifies the first multiplicand.
+                </para>
+            </listitem>
+        </varlistentry>
+        <varlistentry>
+            <term><parameter>y</parameter></term>
+            <listitem>
+                <para>
+                    Specifies the second multiplicand..
+                </para>
+            </listitem>
+        </varlistentry>
+        <varlistentry>
+            <term><parameter>msb</parameter></term>
+            <listitem>
+                <para>
+                    Specifies the variable to receive the most significant word of the product.
+                </para>
+            </listitem>
+        </varlistentry>
+        <varlistentry>
+            <term><parameter>lsb</parameter></term>
+            <listitem>
+                <para>
+                    Specifies the variable to receive the least significant word of the product.
+                </para>
+            </listitem>
+        </varlistentry>
+        </variablelist>
+    </refsect1>
+    <refsect1 xml:id="description"><title>Description</title>
+        <para>
+            <function>umulExtended</function> and <function>imulExtended</function> perform multiplication of the two 32-bit integer
+            quantities <parameter>x</parameter> and <parameter>y</parameter>, producing a 64-bit integer result. The 32 least
+            significant bits of this product are returned in <parameter>lsb</parameter> and the 32 most significant bits are returned
+            in <parameter>msb</parameter>. <function>umulExtended</function> and <function>imulExtended</function> perform
+            unsigned and signed multiplication, respectively.
+        </para>
+    </refsect1>
+    <refsect1 xml:id="versions"><title>Version Support</title>
+        <informaltable>
+            <tgroup cols="13" align="left">
+                <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="funchead.xml" xpointer="xpointer(/*/*)"/>
+                <tbody>
+                    <row>
+                        <entry>umulExtended</entry>
+                        <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="version.xml" xpointer="xpointer(/*/*[@role='40']/*)"/>
+                    </row>
+                </tbody>
+            </tgroup>
+        </informaltable>
+    </refsect1>
+    <refsect1 xml:id="seealso"><title>See Also</title>
+        <para>
+            <citerefentry><refentrytitle>uaddCarry</refentrytitle></citerefentry>
+        </para>
+    </refsect1>
+    <refsect1 xml:id="Copyright"><title>Copyright</title>
+        <para>
+            Copyright <trademark class="copyright"/> 2011-2014 Khronos Group.
+            This material may be distributed subject to the terms and conditions set forth in
+            the Open Publication License, v 1.0, 8 June 1999.
+            <link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://opencontent.org/openpub/">http://opencontent.org/openpub/</link>.
+        </para>
+    </refsect1>
+</refentry>

@@ -1,0 +1,70 @@
+<!DOCTYPE refentry [ <!ENTITY % mathent SYSTEM "math.ent"> %mathent; ]>
+
+<!-- Converted by db4-upgrade version 1.1 -->
+
+<refentry xmlns="http://docbook.org/ns/docbook" version="5.0" xml:id="gl_SampleMaskIn">
+    <info>
+        <copyright>
+            <year>2011-2014</year>
+            <holder>Khronos Group</holder>
+        </copyright>
+    </info>
+    <refmeta>
+        <refentrytitle>gl_SampleMaskIn</refentrytitle>
+        <manvolnum>3G</manvolnum>
+    </refmeta>
+    <refnamediv>
+        <refname>gl_SampleMaskIn</refname>
+        <refpurpose>contains the computed sample coverage mask for the current fragment</refpurpose>
+    </refnamediv>
+    <refsynopsisdiv>
+        <title>Declaration</title>
+        <fieldsynopsis>
+            <modifier>in</modifier>
+            <type>int</type>
+            <varname>gl_SampleMaskIn[]</varname>
+        </fieldsynopsis>
+    </refsynopsisdiv>
+    <refsect1 xml:id="description"><title>Description</title>
+        <para>
+            <varname>gl_SampleMaskIn</varname> is a fragment language that indicates the
+            set of samples covered by the primitive generating the fragment during
+            multisample rasterization. It has a sample bit set if and only if the sample
+            is considered covered for this fragment shader invocation. Bit
+            <emphasis>B</emphasis> of mask <varname>gl_SampleMask[M]</varname>
+            corresponds to sample 32 * <emphasis>M</emphasis> + <emphasis>B</emphasis>.
+            The array has <function>ceil</function>(<emphasis>s</emphasis> / 32) elements
+            where <emphasis>s</emphasis> is the maximum number of color samples supported
+            by the implementation.
+        </para>
+    </refsect1>
+    <refsect1 xml:id="versions"><title>Version Support</title>
+        <informaltable>
+            <tgroup cols="13" align="left">
+                <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="varhead.xml" xpointer="xpointer(/*/*)"/>
+                <tbody>
+                    <row>
+                        <entry>gl_SampleMaskIn</entry>
+                        <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="version.xml" xpointer="xpointer(/*/*[@role='40']/*)"/>
+                    </row>
+                </tbody>
+            </tgroup>
+        </informaltable>
+    </refsect1>
+    <refsect1 xml:id="seealso"><title>See Also</title>
+        <para>
+            <citerefentry><refentrytitle>gl_SampleMask</refentrytitle></citerefentry>,
+            <citerefentry><refentrytitle>gl_SampleID</refentrytitle></citerefentry>,
+            <citerefentry><refentrytitle>gl_SamplePosition</refentrytitle></citerefentry>,
+            <citerefentry><refentrytitle>gl_FragCoord</refentrytitle></citerefentry>
+        </para>
+    </refsect1>
+    <refsect1 xml:id="Copyright"><title>Copyright</title>
+        <para>
+            Copyright <trademark class="copyright"/> 2011-2014 Khronos Group.
+            This material may be distributed subject to the terms and conditions set forth in
+            the Open Publication License, v 1.0, 8 June 1999.
+            <link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://opencontent.org/openpub/">http://opencontent.org/openpub/</link>.
+        </para>
+    </refsect1>
+</refentry>

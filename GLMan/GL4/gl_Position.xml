@@ -1,0 +1,93 @@
+<!DOCTYPE refentry [ <!ENTITY % mathent SYSTEM "math.ent"> %mathent; ]>
+
+<!-- Converted by db4-upgrade version 1.1 -->
+
+<refentry xmlns="http://docbook.org/ns/docbook" version="5.0" xml:id="gl_Position">
+    <info>
+        <copyright>
+            <year>2011-2014</year>
+            <holder>Khronos Group</holder>
+        </copyright>
+    </info>
+    <refmeta>
+        <refentrytitle>gl_Position</refentrytitle>
+        <manvolnum>3G</manvolnum>
+    </refmeta>
+    <refnamediv>
+        <refname>gl_Position</refname>
+        <refpurpose>contains the position of the current vertex</refpurpose>
+    </refnamediv>
+    <refsynopsisdiv>
+        <title>Declaration</title>
+        <para>
+            <varname>gl_Position</varname> is a member of the
+            <varname>gl_PerVertex</varname> named block:
+<programlisting>    out gl_PerVertex {
+        vec4 gl_Position;
+        float gl_PointSize;
+        float gl_ClipDistance[];
+    };</programlisting>
+        </para>
+    </refsynopsisdiv>
+    <refsect1 xml:id="description"><title>Description</title>
+        <para>
+            In the vertex, tessellation evaluation and geometry languages, a single
+            global instance of the <varname>gl_PerVertex</varname> named block is available and
+            its <varname>gl_Position</varname> member is an output that receives the
+            homogeneous vertex position. It may be written at any time during shader execution.
+            The value written to <varname>gl_Position</varname> will be used by primitive assembly,
+            clipping, culling and other fixed functionality operations, if present, that operate on
+            primitives after vertex processing has occurred.
+        </para>
+        <para>
+            In the tessellation control language, the <varname>gl_PerVertex</varname> named block
+            is used to construct an array, <varname>gl_out[]</varname>, whose <varname>gl_Position</varname>
+            members hold the homogeneous control point position, which become available as inputs to the subsequent
+            tessellation evaluation shader.
+        </para>
+        <para>
+            The value of <varname>gl_Position</varname> (or the <varname>gl_Position</varname> member of the <varname>gl_out[]</varname>
+            array, in the case of the tessellation control shader)
+            is undefined after the vertex, tessellation control, and tessellation evaluation
+            shading stages if the corresponding shader executable does
+            not write to gl_Position. It is also undefined after the geometry processing stage if the geometry shader executable calls
+            <citerefentry><refentrytitle>EmitVertex</refentrytitle></citerefentry> without having
+            written <varname>gl_Position</varname> since the last call to <citerefentry><refentrytitle>EmitVertex</refentrytitle></citerefentry>
+            (or hasn't written it at all).
+        </para>
+        <para>
+            In the tessellation control, tessellation evaluation and geometry languages,
+            the <varname>gl_PerVertex</varname> named block is used to construct an array, <varname>gl_in[]</varname>
+            of per-vertex or per-control point inputs whose content represents the corresponding
+            outputs written by the previous stage.
+         </para>
+    </refsect1>
+    <refsect1 xml:id="versions"><title>Version Support</title>
+        <informaltable>
+            <tgroup cols="13" align="left">
+                <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="funchead.xml" xpointer="xpointer(/*/*)"/>
+                <tbody>
+                    <row>
+                        <entry>gl_Position</entry>
+                        <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="version.xml" xpointer="xpointer(/*/*[@role='11']/*)"/>
+                    </row>
+                </tbody>
+            </tgroup>
+        </informaltable>
+        <para>Versions 1.10 to 1.40 - vertex shader only.</para>
+        <para>Versions 1.50 to 3.30 - vertex and geometry shaders only.</para>
+    </refsect1>
+    <refsect1 xml:id="seealso"><title>See Also</title>
+        <para>
+            <citerefentry><refentrytitle>gl_PointSize</refentrytitle></citerefentry>, <citerefentry><refentrytitle>gl_ClipDistance</refentrytitle></citerefentry>
+        </para>
+    </refsect1>
+    <refsect1 xml:id="Copyright"><title>Copyright</title>
+        <para>
+            Copyright <trademark class="copyright"/> 2011-2014 Khronos Group.
+            This material may be distributed subject to the terms and conditions set forth in
+            the Open Publication License, v 1.0, 8 June 1999.
+            <link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://opencontent.org/openpub/">http://opencontent.org/openpub/</link>.
+        </para>
+    </refsect1>
+</refentry>

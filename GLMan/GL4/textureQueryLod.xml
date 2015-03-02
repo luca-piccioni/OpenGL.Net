@@ -1,0 +1,164 @@
+<!DOCTYPE refentry [ <!ENTITY % mathent SYSTEM "math.ent"> %mathent; ]>
+
+<!-- Converted by db4-upgrade version 1.1 -->
+
+<refentry xmlns="http://docbook.org/ns/docbook" version="5.0" xml:id="textureQueryLod">
+    <info>
+        <copyright>
+            <year>2011-2014</year>
+            <holder>Khronos Group</holder>
+        </copyright>
+    </info>
+    <refmeta>
+        <refentrytitle>textureQueryLod</refentrytitle>
+        <manvolnum>3G</manvolnum>
+    </refmeta>
+    <refnamediv>
+        <refname>textureQueryLod</refname>
+        <refpurpose>compute the level-of-detail that would be used to sample from a texture</refpurpose>
+    </refnamediv>
+    <refsynopsisdiv><title>Declaration</title>
+        <funcsynopsis>
+            <funcprototype>
+                <funcdef>vec2 <function>textureQueryLod</function></funcdef>
+                <paramdef>gsampler1D <parameter>sampler</parameter></paramdef>
+                <paramdef>float <parameter>P</parameter></paramdef>
+            </funcprototype>
+            <funcprototype>
+                <funcdef>vec2 <function>textureQueryLod</function></funcdef>
+                <paramdef>gsampler2D <parameter>sampler</parameter></paramdef>
+                <paramdef>vec2 <parameter>P</parameter></paramdef>
+            </funcprototype>
+            <funcprototype>
+                <funcdef>vec2 <function>textureQueryLod</function></funcdef>
+                <paramdef>gsampler3D <parameter>sampler</parameter></paramdef>
+                <paramdef>vec3 <parameter>P</parameter></paramdef>
+            </funcprototype>
+            <funcprototype>
+                <funcdef>vec2 <function>textureQueryLod</function></funcdef>
+                <paramdef>gsamplerCube <parameter>sampler</parameter></paramdef>
+                <paramdef>vec3 <parameter>P</parameter></paramdef>
+            </funcprototype>
+            <funcprototype>
+                <funcdef>vec2 <function>textureQueryLod</function></funcdef>
+                <paramdef>gsampler1DArray <parameter>sampler</parameter></paramdef>
+                <paramdef>float <parameter>P</parameter></paramdef>
+            </funcprototype>
+            <funcprototype>
+                <funcdef>vec2 <function>textureQueryLod</function></funcdef>
+                <paramdef>gsampler2DDArray <parameter>sampler</parameter></paramdef>
+                <paramdef>vec2 <parameter>P</parameter></paramdef>
+            </funcprototype>
+            <funcprototype>
+                <funcdef>vec2 <function>textureQueryLod</function></funcdef>
+                <paramdef>gsamplerCubeArray <parameter>sampler</parameter></paramdef>
+                <paramdef>vec3 <parameter>P</parameter></paramdef>
+            </funcprototype>
+            <funcprototype>
+                <funcdef>vec2 <function>textureQueryLod</function></funcdef>
+                <paramdef>gsampler1DShadow <parameter>sampler</parameter></paramdef>
+                <paramdef>float <parameter>P</parameter></paramdef>
+            </funcprototype>
+            <funcprototype>
+                <funcdef>vec2 <function>textureQueryLod</function></funcdef>
+                <paramdef>gsampler2DShadow <parameter>sampler</parameter></paramdef>
+                <paramdef>vec2 <parameter>P</parameter></paramdef>
+            </funcprototype>
+            <funcprototype>
+                <funcdef>vec2 <function>textureQueryLod</function></funcdef>
+                <paramdef>gsamplerCubeShadow <parameter>sampler</parameter></paramdef>
+                <paramdef>vec3 <parameter>P</parameter></paramdef>
+            </funcprototype>
+            <funcprototype>
+                <funcdef>vec2 <function>textureQueryLod</function></funcdef>
+                <paramdef>gsampler1DArrayShadow <parameter>sampler</parameter></paramdef>
+                <paramdef>float <parameter>P</parameter></paramdef>
+            </funcprototype>
+            <funcprototype>
+                <funcdef>vec2 <function>textureQueryLod</function></funcdef>
+                <paramdef>gsampler2DArrayShadow <parameter>sampler</parameter></paramdef>
+                <paramdef>vec2 <parameter>P</parameter></paramdef>
+            </funcprototype>
+            <funcprototype>
+                <funcdef>vec2 <function>textureQueryLod</function></funcdef>
+                <paramdef>gsamplerCubeArrayShadow <parameter>sampler</parameter></paramdef>
+                <paramdef>vec3 <parameter>P</parameter></paramdef>
+            </funcprototype>
+        </funcsynopsis>
+    </refsynopsisdiv>
+    <refsect1 xml:id="parameters"><title>Parameters</title>
+        <variablelist>
+        <varlistentry>
+            <term><parameter>sampler</parameter></term>
+            <listitem>
+                <para>
+                    Specifies the sampler to which the texture whose level-of-detail will be queried is bound.
+                </para>
+            </listitem>
+        </varlistentry>
+        <varlistentry>
+            <term><parameter>P</parameter></term>
+            <listitem>
+                <para>
+                    Specifies the texture coordinates at which the level-of-detail will be queried.
+                </para>
+            </listitem>
+        </varlistentry>
+        </variablelist>
+    </refsect1>
+    <refsect1 xml:id="description"><title>Description</title>
+        <para>
+            <emphasis>Available only in the fragment shader</emphasis>,
+            <function>textureQueryLod</function> computes the level-of-detail that would be used to sample from
+            a texture. The mipmap array(s) that would be accessed is returned in the <emphasis>x</emphasis> component
+            of the return value. The computed level-of-detail relative to the base level is returned in the
+            <emphasis>y</emphasis> component of the return value.
+        </para>
+        <para>
+            If called on an incomplete texture, the result of the operation is undefined.
+        </para>
+    </refsect1>
+    <refsect1 xml:id="versions"><title>Version Support</title>
+        <informaltable>
+            <tgroup cols="13" align="left">
+                <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="funchead.xml" xpointer="xpointer(/*/*)"/>
+                <tbody>
+                    <row>
+                        <entry>textureQueryLod</entry>
+                        <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="version.xml" xpointer="xpointer(/*/*[@role='40']/*)"/>
+                    </row>
+                </tbody>
+            </tgroup>
+        </informaltable>
+    </refsect1>
+    <refsect1 xml:id="seealso"><title>See Also</title>
+        <para>
+            <citerefentry><refentrytitle>texelFetch</refentrytitle></citerefentry>,
+            <citerefentry><refentrytitle>texelFetchOffset</refentrytitle></citerefentry>,
+            <citerefentry><refentrytitle>texture</refentrytitle></citerefentry>,
+            <citerefentry><refentrytitle>textureGather</refentrytitle></citerefentry>,
+            <citerefentry><refentrytitle>textureGatherOffset</refentrytitle></citerefentry>,
+            <citerefentry><refentrytitle>textureGatherOffsets</refentrytitle></citerefentry>,
+            <citerefentry><refentrytitle>textureGrad</refentrytitle></citerefentry>,
+            <citerefentry><refentrytitle>textureGradOffset</refentrytitle></citerefentry>,
+            <citerefentry><refentrytitle>textureLod</refentrytitle></citerefentry>,
+            <citerefentry><refentrytitle>textureLodOffset</refentrytitle></citerefentry>,
+            <citerefentry><refentrytitle>textureOffset</refentrytitle></citerefentry>,
+            <citerefentry><refentrytitle>textureProj</refentrytitle></citerefentry>,
+            <citerefentry><refentrytitle>textureProjGrad</refentrytitle></citerefentry>,
+            <citerefentry><refentrytitle>textureProjGradOffset</refentrytitle></citerefentry>,
+            <citerefentry><refentrytitle>textureProjLod</refentrytitle></citerefentry>,
+            <citerefentry><refentrytitle>textureProjLodOffset</refentrytitle></citerefentry>,
+            <citerefentry><refentrytitle>textureProjOffset</refentrytitle></citerefentry>,
+            <citerefentry><refentrytitle>textureSize</refentrytitle></citerefentry>
+        </para>
+    </refsect1>
+    <refsect1 xml:id="Copyright"><title>Copyright</title>
+        <para>
+            Copyright <trademark class="copyright"/> 2011-2014 Khronos Group.
+            This material may be distributed subject to the terms and conditions set forth in
+            the Open Publication License, v 1.0, 8 June 1999.
+            <link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://opencontent.org/openpub/">http://opencontent.org/openpub/</link>.
+        </para>
+    </refsect1>
+</refentry>

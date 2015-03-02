@@ -1,0 +1,144 @@
+<!DOCTYPE refentry [ <!ENTITY % mathent SYSTEM "math.ent"> %mathent; ]>
+
+<!-- Converted by db4-upgrade version 1.1 -->
+
+<refentry xmlns="http://docbook.org/ns/docbook" version="5.0" xml:id="transpose">
+    <info>
+        <copyright>
+            <year>2011-2014</year>
+            <holder>Khronos Group</holder>
+        </copyright>
+    </info>
+    <refmeta>
+        <refentrytitle>transpose</refentrytitle>
+        <manvolnum>3G</manvolnum>
+    </refmeta>
+    <refnamediv>
+        <refname>transpose</refname>
+        <refpurpose>calculate the transpose of a matrix</refpurpose>
+    </refnamediv>
+    <refsynopsisdiv><title>Declaration</title>
+        <funcsynopsis>
+            <funcprototype>
+                <funcdef>mat2 <function>transpose</function></funcdef>
+                <paramdef>mat2 <parameter>m</parameter></paramdef>
+            </funcprototype>
+            <funcprototype>
+                <funcdef>mat3 <function>transpose</function></funcdef>
+                <paramdef>mat3 <parameter>m</parameter></paramdef>
+            </funcprototype>
+            <funcprototype>
+                <funcdef>mat4 <function>transpose</function></funcdef>
+                <paramdef>mat4 <parameter>m</parameter></paramdef>
+            </funcprototype>
+            <funcprototype>
+                <funcdef>mat2x3 <function>transpose</function></funcdef>
+                <paramdef>mat3x2 <parameter>m</parameter></paramdef>
+            </funcprototype>
+            <funcprototype>
+                <funcdef>mat2x4 <function>transpose</function></funcdef>
+                <paramdef>mat4x2 <parameter>m</parameter></paramdef>
+            </funcprototype>
+            <funcprototype>
+                <funcdef>mat3x2 <function>transpose</function></funcdef>
+                <paramdef>mat2x3 <parameter>m</parameter></paramdef>
+            </funcprototype>
+            <funcprototype>
+                <funcdef>mat3x4 <function>transpose</function></funcdef>
+                <paramdef>mat4x3 <parameter>m</parameter></paramdef>
+            </funcprototype>
+            <funcprototype>
+                <funcdef>mat4x2 <function>transpose</function></funcdef>
+                <paramdef>mat2x4 <parameter>m</parameter></paramdef>
+            </funcprototype>
+            <funcprototype>
+                <funcdef>mat4x3 <function>transpose</function></funcdef>
+                <paramdef>mat3x4 <parameter>m</parameter></paramdef>
+            </funcprototype>
+            <funcprototype>
+                <funcdef>dmat2 <function>transpose</function></funcdef>
+                <paramdef>dmat2 <parameter>m</parameter></paramdef>
+            </funcprototype>
+            <funcprototype>
+                <funcdef>dmat3 <function>transpose</function></funcdef>
+                <paramdef>dmat3 <parameter>m</parameter></paramdef>
+            </funcprototype>
+            <funcprototype>
+                <funcdef>dmat4 <function>transpose</function></funcdef>
+                <paramdef>dmat4 <parameter>m</parameter></paramdef>
+            </funcprototype>
+            <funcprototype>
+                <funcdef>dmat2x3 <function>transpose</function></funcdef>
+                <paramdef>dmat3x2 <parameter>m</parameter></paramdef>
+            </funcprototype>
+            <funcprototype>
+                <funcdef>dmat2x4 <function>transpose</function></funcdef>
+                <paramdef>dmat4x2 <parameter>m</parameter></paramdef>
+            </funcprototype>
+            <funcprototype>
+                <funcdef>dmat3x2 <function>transpose</function></funcdef>
+                <paramdef>dmat2x3 <parameter>m</parameter></paramdef>
+            </funcprototype>
+            <funcprototype>
+                <funcdef>dmat3x4 <function>transpose</function></funcdef>
+                <paramdef>dmat4x3 <parameter>m</parameter></paramdef>
+            </funcprototype>
+            <funcprototype>
+                <funcdef>dmat4x2 <function>transpose</function></funcdef>
+                <paramdef>dmat2x4 <parameter>m</parameter></paramdef>
+            </funcprototype>
+            <funcprototype>
+                <funcdef>dmat4x3 <function>transpose</function></funcdef>
+                <paramdef>dmat3x4 <parameter>m</parameter></paramdef>
+            </funcprototype>
+        </funcsynopsis>
+    </refsynopsisdiv>
+    <refsect1 xml:id="parameters"><title>Parameters</title>
+        <variablelist>
+        <varlistentry>
+            <term><parameter>m</parameter></term>
+            <listitem>
+                <para>
+                    Specifies the matrix of which to take the transpose.
+                </para>
+            </listitem>
+        </varlistentry>
+        </variablelist>
+    </refsect1>
+    <refsect1 xml:id="description"><title>Description</title>
+        <para>
+            <function>transpose</function> returns the transpose of the matrix <parameter>m</parameter>.
+        </para>
+    </refsect1>
+    <refsect1 xml:id="versions"><title>Version Support</title>
+        <informaltable>
+            <tgroup cols="13" align="left">
+                <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="funchead.xml" xpointer="xpointer(/*/*)"/>
+                <tbody>
+                    <row>
+                        <entry>transpose (float)</entry>
+                        <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="version.xml" xpointer="xpointer(/*/*[@role='12']/*)"/>
+                    </row>
+                    <row>
+                        <entry>transpose (double)</entry>
+                        <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="version.xml" xpointer="xpointer(/*/*[@role='40']/*)"/>
+                    </row>
+                </tbody>
+            </tgroup>
+        </informaltable>
+    </refsect1>
+    <refsect1 xml:id="seealso"><title>See Also</title>
+        <para>
+            <citerefentry><refentrytitle>determinant</refentrytitle></citerefentry>,
+            <citerefentry><refentrytitle>inverse</refentrytitle></citerefentry>
+        </para>
+    </refsect1>
+    <refsect1 xml:id="Copyright"><title>Copyright</title>
+        <para>
+            Copyright <trademark class="copyright"/> 2011-2014 Khronos Group.
+            This material may be distributed subject to the terms and conditions set forth in
+            the Open Publication License, v 1.0, 8 June 1999.
+            <link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://opencontent.org/openpub/">http://opencontent.org/openpub/</link>.
+        </para>
+    </refsect1>
+</refentry>

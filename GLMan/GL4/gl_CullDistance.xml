@@ -1,0 +1,109 @@
+<!DOCTYPE refentry [ <!ENTITY % mathent SYSTEM "math.ent"> %mathent; ]>
+
+<refentry xmlns="http://docbook.org/ns/docbook" version="5.0" xml:id="gl_CullDistance">
+    <info>
+        <copyright>
+            <year>2014</year>
+            <holder>Khronos Group</holder>
+        </copyright>
+    </info>
+    <refmeta>
+        <refentrytitle>gl_CullDistance</refentrytitle>
+        <manvolnum>3G</manvolnum>
+    </refmeta>
+    <refnamediv>
+        <refname>gl_CullDistance</refname>
+        <refpurpose>provides a mechanism for controlling user culling</refpurpose>
+    </refnamediv>
+    <refsynopsisdiv>
+        <title>Declaration</title>
+        <para>
+            <varname>gl_CullDistance</varname> is a member of the
+            <varname>gl_PerVertex</varname> named block:
+        <programlisting>    out gl_PerVertex {
+        vec4 gl_Position;
+        float gl_PointSize;
+        float gl_ClipDistance[];
+        float gl_CullDistance[];
+    };</programlisting>
+        </para>
+        <para>
+            In fragment shaders, it is intrinsically declared as:
+            <fieldsynopsis>
+                <modifier>in</modifier>
+                <type>float</type>
+                <varname>gl_CullDistance[]</varname>
+            </fieldsynopsis>
+        </para>
+    </refsynopsisdiv>
+    <refsect1 xml:id="description"><title>Description</title>
+        <para>
+            The <varname>gl_CullDistance</varname> variable provides a
+            mechanism for controlling user culling. The element
+            <parameter>gl_CullDistance</parameter>[<emphasis>i</emphasis>]
+            specifies a cull distance for each plane <emphasis>i</emphasis>.
+            A distance of 0.0 means that the vertex is on the plane, a
+            positive distance means that the vertex is insider the cull
+            volume, and a negative distance means that the point is outside
+            the cull volume. Primitives whose vertices all have a negative
+            clip distance for plane <emphasis>i</emphasis> will be
+            discarded.
+        </para>
+        <para>
+            The <varname>gl_CullDistance</varname> array is predeclared as
+            unsized and must be sized by the shader either by redeclaring it
+            with an size or by indexing it only with integral constant
+            expressions. The size determines the number and set of enabled
+            cull distances and can be at most
+            <varname>gl_MaxCullDistances</varname>. The number of varying
+            components consumed by <varname>gl_CullDistance</varname> will
+            match the size of the array. Shaders writing
+            <varname>gl_CullDistance</varname> must write all enabled
+            distances, or culling results are undefined.
+        </para>
+        <para>
+            As an output variable, 
+            <varname>gl_CullDistance</varname> provides the place for the
+            shader to write these distances. As an input in all but the
+            fragment language, it reads the values written in the previous
+            shader stage. In the fragment language, the
+            <varname>gl_CullDistance</varname> array contains linearly
+            interpolated values for the vertex values written by a shader to
+            the <varname>gl_CullDistance</varname> vertex output variable.
+        </para>
+        <para>
+            It is a compile-time or link-time error for the set of shaders
+            forming a program to have the sum of the sizes of the
+            <varname>gl_ClipDistance</varname> and
+            <varname>gl_CullDistance</varname> arrays to be larger than
+            <varname>gl_MaxCombinedClipAndCullDistances</varname>.
+        </para>
+    </refsect1>
+    <refsect1 xml:id="versions"><title>Version Support</title>
+        <informaltable>
+            <tgroup cols="13" align="left">
+                <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="varhead.xml" xpointer="xpointer(/*/*)"/>
+                <tbody>
+                    <row>
+                        <entry>gl_CullDistance</entry>
+                        <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="version.xml" xpointer="xpointer(/*/*[@role='45']/*)"/>
+                    </row>
+                </tbody>
+            </tgroup>
+        </informaltable>
+    </refsect1>
+    <refsect1 xml:id="seealso"><title>See Also</title>
+        <para>
+            <citerefentry><refentrytitle>gl_ClipDistance</refentrytitle></citerefentry>,
+            <citerefentry><refentrytitle>gl_PointSize</refentrytitle></citerefentry>
+        </para>
+    </refsect1>
+    <refsect1 xml:id="Copyright"><title>Copyright</title>
+        <para>
+            Copyright <trademark class="copyright"/> 2014 Khronos Group.
+            This material may be distributed subject to the terms and conditions set forth in
+            the Open Publication License, v 1.0, 8 June 1999.
+            <link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://opencontent.org/openpub/">http://opencontent.org/openpub/</link>.
+        </para>
+    </refsect1>
+</refentry>

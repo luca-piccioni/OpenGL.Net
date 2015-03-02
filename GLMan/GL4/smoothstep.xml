@@ -1,0 +1,129 @@
+<!DOCTYPE refentry [ <!ENTITY % mathent SYSTEM "math.ent"> %mathent; ]>
+
+<!-- Converted by db4-upgrade version 1.1 -->
+
+<refentry xmlns="http://docbook.org/ns/docbook" version="5.0" xml:id="smoothstep">
+    <info>
+        <copyright>
+            <year>2011-2014</year>
+            <holder>Khronos Group</holder>
+        </copyright>
+    </info>
+    <refmeta>
+        <refentrytitle>smoothstep</refentrytitle>
+        <manvolnum>3G</manvolnum>
+    </refmeta>
+    <refnamediv>
+        <refname>smoothstep</refname>
+        <refpurpose>perform Hermite interpolation between two values</refpurpose>
+    </refnamediv>
+    <refsynopsisdiv><title>Declaration</title>
+        <funcsynopsis>
+            <funcprototype>
+                <funcdef>genType <function>smoothstep</function></funcdef>
+                <paramdef>genType <parameter>edge0</parameter></paramdef>
+                <paramdef>genType <parameter>edge1</parameter></paramdef>
+                <paramdef>genType <parameter>x</parameter></paramdef>
+            </funcprototype>
+        </funcsynopsis>
+        <funcsynopsis>
+            <funcprototype>
+                <funcdef>genType <function>smoothstep</function></funcdef>
+                <paramdef>float <parameter>edge0</parameter></paramdef>
+                <paramdef>float <parameter>edge1</parameter></paramdef>
+                <paramdef>genType <parameter>x</parameter></paramdef>
+            </funcprototype>
+        </funcsynopsis>
+        <funcsynopsis>
+            <funcprototype>
+                <funcdef>genDType <function>smoothstep</function></funcdef>
+                <paramdef>genDType <parameter>edge0</parameter></paramdef>
+                <paramdef>genDType <parameter>edge1</parameter></paramdef>
+                <paramdef>genDType <parameter>x</parameter></paramdef>
+            </funcprototype>
+        </funcsynopsis>
+        <funcsynopsis>
+            <funcprototype>
+                <funcdef>genDType <function>smoothstep</function></funcdef>
+                <paramdef>double <parameter>edge0</parameter></paramdef>
+                <paramdef>double <parameter>edge1</parameter></paramdef>
+                <paramdef>genDType <parameter>x</parameter></paramdef>
+            </funcprototype>
+        </funcsynopsis>
+    </refsynopsisdiv>
+    <refsect1 xml:id="parameters"><title>Parameters</title>
+        <variablelist>
+        <varlistentry>
+            <term><parameter>edge0</parameter></term>
+            <listitem>
+                <para>
+                    Specifies the value of the lower edge of the Hermite function.
+                </para>
+            </listitem>
+        </varlistentry>
+        <varlistentry>
+            <term><parameter>edge1</parameter></term>
+            <listitem>
+                <para>
+                    Specifies the value of the upper edge of the Hermite function.
+                </para>
+            </listitem>
+        </varlistentry>
+        <varlistentry>
+            <term><parameter>x</parameter></term>
+            <listitem>
+                <para>
+                    Specifies the source value for interpolation.
+                </para>
+            </listitem>
+        </varlistentry>
+        </variablelist>
+    </refsect1>
+    <refsect1 xml:id="description"><title>Description</title>
+        <para>
+            <function>smoothstep</function> performs smooth Hermite interpolation between 0 and
+            1 when <parameter>edge0</parameter> &lt; <parameter>x</parameter> &lt; <parameter>edge1</parameter>.
+            This is useful in cases where a threshold function with a smooth transition is desired.
+            <function>smoothstep</function> is equivalent to:
+        </para>
+        <para>
+<programlisting>    genType t;  /* Or genDType t; */
+    t = clamp((x - edge0) / (edge1 - edge0), 0.0, 1.0);
+    return t * t * (3.0 - 2.0 * t);</programlisting>
+        </para>
+        <para>
+            Results are undefined if <parameter>edge0</parameter> &ge; <parameter>edge1</parameter>.
+        </para>
+    </refsect1>
+    <refsect1 xml:id="versions"><title>Version Support</title>
+        <informaltable>
+            <tgroup cols="13" align="left">
+                <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="funchead.xml" xpointer="xpointer(/*/*)"/>
+                <tbody>
+                    <row>
+                        <entry>smoothstep (genType)</entry>
+                        <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="version.xml" xpointer="xpointer(/*/*[@role='13']/*)"/>
+                    </row>
+                    <row>
+                        <entry>smoothstep (genDType)</entry>
+                        <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="version.xml" xpointer="xpointer(/*/*[@role='40']/*)"/>
+                    </row>
+                </tbody>
+            </tgroup>
+        </informaltable>
+    </refsect1>
+    <refsect1 xml:id="seealso"><title>See Also</title>
+        <para>
+            <citerefentry><refentrytitle>mix</refentrytitle></citerefentry>,
+            <citerefentry><refentrytitle>step</refentrytitle></citerefentry>
+        </para>
+    </refsect1>
+    <refsect1 xml:id="Copyright"><title>Copyright</title>
+        <para>
+            Copyright <trademark class="copyright"/> 2011-2014 Khronos Group.
+            This material may be distributed subject to the terms and conditions set forth in
+            the Open Publication License, v 1.0, 8 June 1999.
+            <link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://opencontent.org/openpub/">http://opencontent.org/openpub/</link>.
+        </para>
+    </refsect1>
+</refentry>

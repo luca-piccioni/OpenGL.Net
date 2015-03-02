@@ -1,0 +1,237 @@
+<!DOCTYPE refentry [ <!ENTITY % mathent SYSTEM "math.ent"> %mathent; ]>
+
+<!-- Converted by db4-upgrade version 1.1 -->
+
+<refentry xmlns="http://docbook.org/ns/docbook" version="5.0" xml:id="imageAtomicAdd">
+    <info>
+        <copyright>
+            <year>2011-2014</year>
+            <holder>Khronos Group</holder>
+        </copyright>
+    </info>
+    <refmeta>
+        <refentrytitle>imageAtomicAdd</refentrytitle>
+        <manvolnum>3G</manvolnum>
+    </refmeta>
+    <refnamediv>
+        <refname>imageAtomicAdd</refname>
+        <refpurpose>atomically add a value to an existing value in memory and return the original value</refpurpose>
+    </refnamediv>
+    <refsynopsisdiv><title>Declaration</title>
+        <funcsynopsis>
+            <funcprototype>
+                <funcdef>uint <function>imageAtomicAdd</function></funcdef>
+                <paramdef>gimage1D <parameter>image</parameter></paramdef>
+                <paramdef>int <parameter>P</parameter></paramdef>
+                <paramdef>uint <parameter>data</parameter></paramdef>
+            </funcprototype>
+            <funcprototype>
+                <funcdef>uint <function>imageAtomicAdd</function></funcdef>
+                <paramdef>gimage2D <parameter>image</parameter></paramdef>
+                <paramdef>ivec2 <parameter>P</parameter></paramdef>
+                <paramdef>uint <parameter>data</parameter></paramdef>
+            </funcprototype>
+            <funcprototype>
+                <funcdef>uint <function>imageAtomicAdd</function></funcdef>
+                <paramdef>gimage3D <parameter>image</parameter></paramdef>
+                <paramdef>ivec3 <parameter>P</parameter></paramdef>
+                <paramdef>uint <parameter>data</parameter></paramdef>
+            </funcprototype>
+            <funcprototype>
+                <funcdef>uint <function>imageAtomicAdd</function></funcdef>
+                <paramdef>gimage2DRect <parameter>image</parameter></paramdef>
+                <paramdef>ivec2 <parameter>P</parameter></paramdef>
+                <paramdef>uint <parameter>data</parameter></paramdef>
+            </funcprototype>
+            <funcprototype>
+                <funcdef>uint <function>imageAtomicAdd</function></funcdef>
+                <paramdef>gimageCube <parameter>image</parameter></paramdef>
+                <paramdef>ivec3 <parameter>P</parameter></paramdef>
+                <paramdef>uint <parameter>data</parameter></paramdef>
+            </funcprototype>
+            <funcprototype>
+                <funcdef>uint <function>imageAtomicAdd</function></funcdef>
+                <paramdef>gbufferImage <parameter>image</parameter></paramdef>
+                <paramdef>int <parameter>P</parameter></paramdef>
+                <paramdef>uint <parameter>data</parameter></paramdef>
+            </funcprototype>
+            <funcprototype>
+                <funcdef>uint <function>imageAtomicAdd</function></funcdef>
+                <paramdef>gimage1DArray <parameter>image</parameter></paramdef>
+                <paramdef>ivec2 <parameter>P</parameter></paramdef>
+                <paramdef>uint <parameter>data</parameter></paramdef>
+            </funcprototype>
+            <funcprototype>
+                <funcdef>uint <function>imageAtomicAdd</function></funcdef>
+                <paramdef>gimage2DArray <parameter>image</parameter></paramdef>
+                <paramdef>ivec3 <parameter>P</parameter></paramdef>
+                <paramdef>uint <parameter>data</parameter></paramdef>
+            </funcprototype>
+            <funcprototype>
+                <funcdef>uint <function>imageAtomicAdd</function></funcdef>
+                <paramdef>gimageCubeArray <parameter>image</parameter></paramdef>
+                <paramdef>ivec3 <parameter>P</parameter></paramdef>
+                <paramdef>uint <parameter>data</parameter></paramdef>
+            </funcprototype>
+            <funcprototype>
+                <funcdef>uint <function>imageAtomicAdd</function></funcdef>
+                <paramdef>gimage2DMS <parameter>image</parameter></paramdef>
+                <paramdef>ivec2 <parameter>P</parameter></paramdef>
+                <paramdef>int <parameter>sample</parameter></paramdef>
+                <paramdef>uint <parameter>data</parameter></paramdef>
+            </funcprototype>
+            <funcprototype>
+                <funcdef>uint <function>imageAtomicAdd</function></funcdef>
+                <paramdef>gimage2DMSArray <parameter>image</parameter></paramdef>
+                <paramdef>ivec3 <parameter>P</parameter></paramdef>
+                <paramdef>int <parameter>sample</parameter></paramdef>
+                <paramdef>uint <parameter>data</parameter></paramdef>
+            </funcprototype>
+            <funcprototype>
+                <funcdef>int <function>imageAtomicAdd</function></funcdef>
+                <paramdef>gimage1D <parameter>image</parameter></paramdef>
+                <paramdef>int <parameter>P</parameter></paramdef>
+                <paramdef>int <parameter>data</parameter></paramdef>
+            </funcprototype>
+            <funcprototype>
+                <funcdef>int <function>imageAtomicAdd</function></funcdef>
+                <paramdef>gimage2D <parameter>image</parameter></paramdef>
+                <paramdef>ivec2 <parameter>P</parameter></paramdef>
+                <paramdef>int <parameter>data</parameter></paramdef>
+            </funcprototype>
+            <funcprototype>
+                <funcdef>int <function>imageAtomicAdd</function></funcdef>
+                <paramdef>gimage3D <parameter>image</parameter></paramdef>
+                <paramdef>ivec3 <parameter>P</parameter></paramdef>
+                <paramdef>int <parameter>data</parameter></paramdef>
+            </funcprototype>
+            <funcprototype>
+                <funcdef>int <function>imageAtomicAdd</function></funcdef>
+                <paramdef>gimage2DRect <parameter>image</parameter></paramdef>
+                <paramdef>ivec2 <parameter>P</parameter></paramdef>
+                <paramdef>int <parameter>data</parameter></paramdef>
+            </funcprototype>
+            <funcprototype>
+                <funcdef>int <function>imageAtomicAdd</function></funcdef>
+                <paramdef>gimageCube <parameter>image</parameter></paramdef>
+                <paramdef>ivec3 <parameter>P</parameter></paramdef>
+                <paramdef>int <parameter>data</parameter></paramdef>
+            </funcprototype>
+            <funcprototype>
+                <funcdef>int <function>imageAtomicAdd</function></funcdef>
+                <paramdef>gbufferImage <parameter>image</parameter></paramdef>
+                <paramdef>int <parameter>P</parameter></paramdef>
+                <paramdef>int <parameter>data</parameter></paramdef>
+            </funcprototype>
+            <funcprototype>
+                <funcdef>int <function>imageAtomicAdd</function></funcdef>
+                <paramdef>gimage1DArray <parameter>image</parameter></paramdef>
+                <paramdef>ivec2 <parameter>P</parameter></paramdef>
+                <paramdef>int <parameter>data</parameter></paramdef>
+            </funcprototype>
+            <funcprototype>
+                <funcdef>int <function>imageAtomicAdd</function></funcdef>
+                <paramdef>gimage2DArray <parameter>image</parameter></paramdef>
+                <paramdef>ivec3 <parameter>P</parameter></paramdef>
+                <paramdef>int <parameter>data</parameter></paramdef>
+            </funcprototype>
+            <funcprototype>
+                <funcdef>int <function>imageAtomicAdd</function></funcdef>
+                <paramdef>gimageCubeArray <parameter>image</parameter></paramdef>
+                <paramdef>ivec3 <parameter>P</parameter></paramdef>
+                <paramdef>int <parameter>data</parameter></paramdef>
+            </funcprototype>
+            <funcprototype>
+                <funcdef>int <function>imageAtomicAdd</function></funcdef>
+                <paramdef>gimage2DMS <parameter>image</parameter></paramdef>
+                <paramdef>ivec2 <parameter>P</parameter></paramdef>
+                <paramdef>int <parameter>sample</parameter></paramdef>
+                <paramdef>int <parameter>data</parameter></paramdef>
+            </funcprototype>
+            <funcprototype>
+                <funcdef>int <function>imageAtomicAdd</function></funcdef>
+                <paramdef>gimage2DMSArray <parameter>image</parameter></paramdef>
+                <paramdef>ivec3 <parameter>P</parameter></paramdef>
+                <paramdef>int <parameter>sample</parameter></paramdef>
+                <paramdef>int <parameter>data</parameter></paramdef>
+            </funcprototype>
+        </funcsynopsis>
+    </refsynopsisdiv>
+    <refsect1 xml:id="parameters"><title>Parameters</title>
+        <variablelist>
+        <varlistentry>
+            <term><parameter>image</parameter></term>
+            <listitem>
+                <para>
+                    Specify the image unit into which to add <parameter>data</parameter>.
+                </para>
+            </listitem>
+        </varlistentry>
+        <varlistentry>
+            <term><parameter>P</parameter></term>
+            <listitem>
+                <para>
+                    Specify the coordinate at which to add the data.
+                </para>
+            </listitem>
+        </varlistentry>
+        <varlistentry>
+            <term><parameter>sample</parameter></term>
+            <listitem>
+                <para>
+                    When present, specifies the sample within the image to add into.
+                </para>
+            </listitem>
+        </varlistentry>
+        <varlistentry>
+            <term><parameter>data</parameter></term>
+            <listitem>
+                <para>
+                    Specifies the data to add into the image.
+                </para>
+            </listitem>
+        </varlistentry>
+        </variablelist>
+    </refsect1>
+    <refsect1 xml:id="description"><title>Description</title>
+        <para>
+            <function>imageAtomicAdd</function> atomically computes a new value by adding the value of <parameter>data</parameter>
+            to the contents of the texel at coordinate <parameter>P</parameter> and <parameter>sample</parameter> in the
+            image bound to uint <parameter>image</parameter>, stores that value into the image and returns the original value.
+        </para>
+    </refsect1>
+    <refsect1 xml:id="versions"><title>Version Support</title>
+        <informaltable>
+            <tgroup cols="13" align="left">
+                <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="funchead.xml" xpointer="xpointer(/*/*)"/>
+                <tbody>
+                    <row>
+                        <entry>imageAtomicAdd</entry>
+                        <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="version.xml" xpointer="xpointer(/*/*[@role='42']/*)"/>
+                    </row>
+                </tbody>
+            </tgroup>
+        </informaltable>
+    </refsect1>
+    <refsect1 xml:id="seealso"><title>See Also</title>
+        <para>
+            <citerefentry><refentrytitle>imageLoad</refentrytitle></citerefentry>,
+            <citerefentry><refentrytitle>imageStore</refentrytitle></citerefentry>,
+            <citerefentry><refentrytitle>imageAtomicMin</refentrytitle></citerefentry>,
+            <citerefentry><refentrytitle>imageAtomicMax</refentrytitle></citerefentry>,
+            <citerefentry><refentrytitle>imageAtomicAnd</refentrytitle></citerefentry>,
+            <citerefentry><refentrytitle>imageAtomicOr</refentrytitle></citerefentry>,
+            <citerefentry><refentrytitle>imageAtomicXor</refentrytitle></citerefentry>,
+            <citerefentry><refentrytitle>imageAtomicExchange</refentrytitle></citerefentry>,
+            <citerefentry><refentrytitle>imageAtomicCompSwap</refentrytitle></citerefentry>
+        </para>
+    </refsect1>
+    <refsect1 xml:id="Copyright"><title>Copyright</title>
+        <para>
+            Copyright <trademark class="copyright"/> 2011-2014 Khronos Group.
+            This material may be distributed subject to the terms and conditions set forth in
+            the Open Publication License, v 1.0, 8 June 1999.
+            <link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://opencontent.org/openpub/">http://opencontent.org/openpub/</link>.
+        </para>
+    </refsect1>
+</refentry>

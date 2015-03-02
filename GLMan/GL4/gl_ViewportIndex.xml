@@ -1,0 +1,94 @@
+<!DOCTYPE refentry [ <!ENTITY % mathent SYSTEM "math.ent"> %mathent; ]>
+
+<!-- Converted by db4-upgrade version 1.1 -->
+
+<refentry xmlns="http://docbook.org/ns/docbook" version="5.0" xml:id="gl_ViewportIndex">
+    <info>
+        <copyright>
+            <year>2011-2014</year>
+            <holder>Khronos Group</holder>
+        </copyright>
+    </info>
+    <refmeta>
+        <refentrytitle>gl_ViewportIndex</refentrytitle>
+        <manvolnum>3G</manvolnum>
+    </refmeta>
+    <refnamediv>
+        <refname>gl_ViewportIndex</refname>
+        <refpurpose>contains the index of the viewport to be used in viewport transformation and scissoring</refpurpose>
+    </refnamediv>
+    <refsynopsisdiv>
+        <title>Declaration</title>
+        <para>
+            <programlisting>// In geometry shaders</programlisting>
+            <fieldsynopsis>
+                <modifier>out</modifier>
+                <type>int</type>
+                <varname>gl_ViewportIndex</varname>
+            </fieldsynopsis>
+        </para>
+        <para>
+            <programlisting>// In fragment shaders</programlisting>
+            <fieldsynopsis>
+                <modifier>in</modifier>
+                <type>int</type>
+                <varname>gl_ViewportIndex</varname>
+            </fieldsynopsis>
+        </para>
+    </refsynopsisdiv>
+    <refsect1 xml:id="description"><title>Description</title>
+        <para>
+            In the geometry language, <varname>gl_ViewportIndex</varname> is used to specify the index
+            of the viewport to which the next primitive emitted from the shader should be drawn. Primitives generated
+            by the geometry shader will undergo viewport transformation and scissor testing using the viewport
+            transformation and scissor rectangle selected by the value of <varname>gl_ViewportIndex</varname>.
+            The viewport index used will come from one of the vertices in the primitive being shaded. However, which
+            vertex the viewport index comes from is implementation-defined, and so it is recommended to use the same
+            viewport index for all vertices of a primitive. If a geometry shader does not assign a value to
+            <varname>gl_ViewportIndex</varname>, viewport transform and scissor rectangle zero will be used.
+            If a geometry shader statically assigns a value to <varname>gl_ViewportIndex</varname> and there
+            is a path through the shader that does not assign a value to <varname>gl_ViewportIndex</varname>,
+            the value of <varname>gl_ViewportIndex</varname> is undefined for executions of the shader that take
+            that path.
+        </para>
+        <para>
+            In the fragment language, <varname>gl_ViewportIndex</varname> will have the same value that was written to the
+            output variable <varname>gl_ViewportIndex</varname> in the geometry stage.  If the geometry stage does not dynamically
+            assign to <varname>gl_ViewportIndex</varname>, the value of <varname>gl_ViewportIndex</varname> in the fragment shader will be undefined. If
+            the geometry stage makes no static assignment to <varname>gl_ViewportIndex</varname>, the fragment stage will read zero.
+            Otherwise, the fragment stage will read the same value written by the geometry stage, even if that value is
+            out of range. If a fragment shader contains a static access to <varname>gl_ViewportIndex</varname>, it will count against the
+            implementation defined limit for the maximum number of inputs to the fragment stage.
+        </para>
+    </refsect1>
+    <refsect1 xml:id="versions"><title>Version Support</title>
+        <informaltable>
+            <tgroup cols="13" align="left">
+                <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="funchead.xml" xpointer="xpointer(/*/*)"/>
+                <tbody>
+                    <row>
+                        <entry>gl_ViewportIndex (geometry stage)</entry>
+                        <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="version.xml" xpointer="xpointer(/*/*[@role='15']/*)"/>
+                    </row>
+                    <row>
+                        <entry>gl_ViewportIndex (fragment stage)</entry>
+                        <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="version.xml" xpointer="xpointer(/*/*[@role='43']/*)"/>
+                    </row>
+                </tbody>
+            </tgroup>
+        </informaltable>
+    </refsect1>
+    <refsect1 xml:id="seealso"><title>See Also</title>
+        <para>
+            <citerefentry><refentrytitle>gl_Layer</refentrytitle></citerefentry>
+        </para>
+    </refsect1>
+    <refsect1 xml:id="Copyright"><title>Copyright</title>
+        <para>
+            Copyright <trademark class="copyright"/> 2011-2014 Khronos Group.
+            This material may be distributed subject to the terms and conditions set forth in
+            the Open Publication License, v 1.0, 8 June 1999.
+            <link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://opencontent.org/openpub/">http://opencontent.org/openpub/</link>.
+        </para>
+    </refsect1>
+</refentry>

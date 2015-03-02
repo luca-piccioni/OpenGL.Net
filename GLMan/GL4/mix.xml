@@ -1,0 +1,178 @@
+<!DOCTYPE refentry [ <!ENTITY % mathent SYSTEM "math.ent"> %mathent; ]>
+
+<!-- Converted by db4-upgrade version 1.1 -->
+
+<refentry xmlns="http://docbook.org/ns/docbook" version="5.0" xml:id="mix">
+    <info>
+        <copyright>
+            <year>2011-2014</year>
+            <holder>Khronos Group</holder>
+        </copyright>
+    </info>
+    <refmeta>
+        <refentrytitle>mix</refentrytitle>
+        <manvolnum>3G</manvolnum>
+    </refmeta>
+    <refnamediv>
+        <refname>mix</refname>
+        <refpurpose>linearly interpolate between two values</refpurpose>
+    </refnamediv>
+    <refsynopsisdiv><title>Declaration</title>
+        <funcsynopsis>
+            <funcprototype>
+                <funcdef>genType <function>mix</function></funcdef>
+                <paramdef>genType <parameter>x</parameter></paramdef>
+                <paramdef>genType <parameter>y</parameter></paramdef>
+                <paramdef>genType <parameter>a</parameter></paramdef>
+            </funcprototype>
+        </funcsynopsis>
+        <funcsynopsis>
+            <funcprototype>
+                <funcdef>genType <function>mix</function></funcdef>
+                <paramdef>genType <parameter>x</parameter></paramdef>
+                <paramdef>genType <parameter>y</parameter></paramdef>
+                <paramdef>float <parameter>a</parameter></paramdef>
+            </funcprototype>
+        </funcsynopsis>
+        <funcsynopsis>
+            <funcprototype>
+                <funcdef>genDType <function>mix</function></funcdef>
+                <paramdef>genDType <parameter>x</parameter></paramdef>
+                <paramdef>genDType <parameter>y</parameter></paramdef>
+                <paramdef>genDType <parameter>a</parameter></paramdef>
+            </funcprototype>
+        </funcsynopsis>
+        <funcsynopsis>
+            <funcprototype>
+                <funcdef>genDType <function>mix</function></funcdef>
+                <paramdef>genDType <parameter>x</parameter></paramdef>
+                <paramdef>genDType <parameter>y</parameter></paramdef>
+                <paramdef>double <parameter>a</parameter></paramdef>
+            </funcprototype>
+        </funcsynopsis>
+        <funcsynopsis>
+            <funcprototype>
+                <funcdef>genType <function>mix</function></funcdef>
+                <paramdef>genType <parameter>x</parameter></paramdef>
+                <paramdef>genType <parameter>y</parameter></paramdef>
+                <paramdef>genBType <parameter>a</parameter></paramdef>
+            </funcprototype>
+        </funcsynopsis>
+        <funcsynopsis>
+            <funcprototype>
+                <funcdef>genDType <function>mix</function></funcdef>
+                <paramdef>genDType <parameter>x</parameter></paramdef>
+                <paramdef>genDType <parameter>y</parameter></paramdef>
+                <paramdef>genBType <parameter>a</parameter></paramdef>
+            </funcprototype>
+        </funcsynopsis>
+        <funcsynopsis>
+            <funcprototype>
+                <funcdef>genIType <function>mix</function></funcdef>
+                <paramdef>genIType <parameter>x</parameter></paramdef>
+                <paramdef>genIType <parameter>y</parameter></paramdef>
+                <paramdef>genBType <parameter>a</parameter></paramdef>
+            </funcprototype>
+        </funcsynopsis>
+        <funcsynopsis>
+            <funcprototype>
+                <funcdef>genUType <function>mix</function></funcdef>
+                <paramdef>genUType <parameter>x</parameter></paramdef>
+                <paramdef>genUType <parameter>y</parameter></paramdef>
+                <paramdef>genBType <parameter>a</parameter></paramdef>
+            </funcprototype>
+        </funcsynopsis>
+        <funcsynopsis>
+            <funcprototype>
+                <funcdef>genBType <function>mix</function></funcdef>
+                <paramdef>genBType <parameter>x</parameter></paramdef>
+                <paramdef>genBType <parameter>y</parameter></paramdef>
+                <paramdef>genBType <parameter>a</parameter></paramdef>
+            </funcprototype>
+        </funcsynopsis>
+    </refsynopsisdiv>
+    <refsect1 xml:id="parameters"><title>Parameters</title>
+        <variablelist>
+        <varlistentry>
+            <term><parameter>x</parameter></term>
+            <listitem>
+                <para>
+                    Specify the start of the range in which to interpolate.
+                </para>
+            </listitem>
+        </varlistentry>
+        <varlistentry>
+            <term><parameter>y</parameter></term>
+            <listitem>
+                <para>
+                    Specify the end of the range in which to interpolate.
+                </para>
+            </listitem>
+        </varlistentry>
+        <varlistentry>
+            <term><parameter>a</parameter></term>
+            <listitem>
+                <para>
+                    Specify the value to use to interpolate between <parameter>x</parameter> and <parameter>y</parameter>.
+                </para>
+            </listitem>
+        </varlistentry>
+        </variablelist>
+    </refsect1>
+    <refsect1 xml:id="description"><title>Description</title>
+        <para>
+            <function>mix</function> performs a linear interpolation between
+            <parameter>x</parameter> and <parameter>y</parameter> using
+            <parameter>a</parameter> to weight between them. The return
+            value is computed as $x \times (1 - a) + y \times a$.
+        </para>
+        <para>
+            The variants of <function>mix</function> where
+            <parameter>a</parameter> is <constant>genBType</constant> select
+            which vector each returned component comes from. For a component
+            of <parameter>a</parameter> that is false, the corresponding
+            component of <parameter>x</parameter> is returned. For a
+            component of <parameter>a</parameter> that is true, the
+            corresponding component of <parameter>y</parameter> is returned.
+            Components of <parameter>x</parameter> and
+            <parameter>y</parameter> that are not selected are allowed to be
+            invalid floating-point values and will have no effect on the
+            results.
+        </para>
+    </refsect1>
+    <refsect1 xml:id="versions"><title>Version Support</title>
+        <informaltable>
+            <tgroup cols="13" align="left">
+                <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="funchead.xml" xpointer="xpointer(/*/*)"/>
+                <tbody>
+                    <row>
+                        <entry>mix(genType)</entry>
+                        <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="version.xml" xpointer="xpointer(/*/*[@role='11']/*)"/>
+                    </row>
+                    <row>
+                        <entry>mix(genDType)</entry>
+                        <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="version.xml" xpointer="xpointer(/*/*[@role='40']/*)"/>
+                    </row>
+                    <row>
+                        <entry>mix(genIType), mix(genUType), mix(genBType)</entry>
+                        <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="version.xml" xpointer="xpointer(/*/*[@role='45']/*)"/>
+                    </row>
+                </tbody>
+            </tgroup>
+        </informaltable>
+    </refsect1>
+    <refsect1 xml:id="seealso"><title>See Also</title>
+        <para>
+            <citerefentry><refentrytitle>min</refentrytitle></citerefentry>,
+            <citerefentry><refentrytitle>max</refentrytitle></citerefentry>
+        </para>
+    </refsect1>
+    <refsect1 xml:id="Copyright"><title>Copyright</title>
+        <para>
+            Copyright <trademark class="copyright"/> 2011-2014 Khronos Group.
+            This material may be distributed subject to the terms and conditions set forth in
+            the Open Publication License, v 1.0, 8 June 1999.
+            <link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://opencontent.org/openpub/">http://opencontent.org/openpub/</link>.
+        </para>
+    </refsect1>
+</refentry>

@@ -1,0 +1,103 @@
+<!DOCTYPE refentry [ <!ENTITY % mathent SYSTEM "math.ent"> %mathent; ]>
+
+<!-- Converted by db4-upgrade version 1.1 -->
+
+<refentry xmlns="http://docbook.org/ns/docbook" version="5.0" xml:id="bitfieldExtract">
+    <info>
+        <copyright>
+            <year>2011-2014</year>
+            <holder>Khronos Group</holder>
+        </copyright>
+    </info>
+    <refmeta>
+        <refentrytitle>bitfieldExtract</refentrytitle>
+        <manvolnum>3G</manvolnum>
+    </refmeta>
+    <refnamediv>
+        <refname>bitfieldExtract</refname>
+        <refpurpose>extract a range of bits from an integer</refpurpose>
+    </refnamediv>
+    <refsynopsisdiv><title>Declaration</title>
+        <funcsynopsis>
+            <funcprototype>
+                <funcdef>genIType <function>bitfieldExtract</function></funcdef>
+                <paramdef>genIType <parameter>value</parameter></paramdef>
+                <paramdef>int <parameter>offset</parameter></paramdef>
+                <paramdef>int <parameter>bits</parameter></paramdef>
+            </funcprototype>            <funcprototype>
+                <funcdef>genUType <function>bitfieldExtract</function></funcdef>
+                <paramdef>genUType <parameter>value</parameter></paramdef>
+                <paramdef>int <parameter>offset</parameter></paramdef>
+                <paramdef>int <parameter>bits</parameter></paramdef>
+            </funcprototype>
+        </funcsynopsis>
+    </refsynopsisdiv>
+    <refsect1 xml:id="parameters"><title>Parameters</title>
+        <variablelist>
+        <varlistentry>
+            <term><parameter>value</parameter></term>
+            <listitem>
+                <para>
+                    Specifies the integer from which to extract bits.
+                </para>
+            </listitem>
+        </varlistentry>
+        <varlistentry>
+            <term><parameter>offset</parameter></term>
+            <listitem>
+                <para>
+                    Specifies the index of the first bit to extract.
+                </para>
+            </listitem>
+        </varlistentry>
+        <varlistentry>
+            <term><parameter>bits</parameter></term>
+            <listitem>
+                <para>
+                    Specifies the number of bits to extract.
+                </para>
+            </listitem>
+        </varlistentry>
+        </variablelist>
+    </refsect1>
+    <refsect1 xml:id="description"><title>Description</title>
+        <para>
+            <function>bitfieldExtract</function> extracts a subset of the bits of <parameter>value</parameter> and returns
+            it in the least significant bits of the result. The range of bits extracted is [<parameter>offset</parameter>, <parameter>offset</parameter> + <parameter>bits</parameter> + 1].
+        </para>
+        <para>
+            For unsigned data types, the most significant bits of the result will be set to zero. For signed data types, the most significant bits will be set to the value of
+            bit <parameter>offset</parameter> + <parameter>base</parameter> - 1 (i.e., it is <emphasis>sign extended</emphasis> to the width of the return type).
+        </para>
+        <para>
+            If <parameter>bits</parameter> is zero, the result will be zero. The result will be undefined if <parameter>offset</parameter> or <parameter>bits</parameter> is negative,
+            or if the sum of <parameter>offset</parameter> and <parameter>bits</parameter> is greater than the number of bits used to store the operand.
+        </para>
+    </refsect1>
+    <refsect1 xml:id="versions"><title>Version Support</title>
+        <informaltable>
+            <tgroup cols="13" align="left">
+                <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="funchead.xml" xpointer="xpointer(/*/*)"/>
+                <tbody>
+                    <row>
+                        <entry>bitfieldInsert</entry>
+                        <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="version.xml" xpointer="xpointer(/*/*[@role='40']/*)"/>
+                    </row>
+                </tbody>
+            </tgroup>
+        </informaltable>
+    </refsect1>
+    <refsect1 xml:id="seealso"><title>See Also</title>
+        <para>
+            <citerefentry><refentrytitle>bitfieldExtract</refentrytitle></citerefentry>
+        </para>
+    </refsect1>
+    <refsect1 xml:id="Copyright"><title>Copyright</title>
+        <para>
+            Copyright <trademark class="copyright"/> 2011-2014 Khronos Group.
+            This material may be distributed subject to the terms and conditions set forth in
+            the Open Publication License, v 1.0, 8 June 1999.
+            <link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://opencontent.org/openpub/">http://opencontent.org/openpub/</link>.
+        </para>
+    </refsect1>
+</refentry>

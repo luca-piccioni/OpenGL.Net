@@ -1,0 +1,136 @@
+<!DOCTYPE refentry [ <!ENTITY % mathent SYSTEM "math.ent"> %mathent; ]>
+
+<!-- Converted by db4-upgrade version 1.1 -->
+
+<refentry xmlns="http://docbook.org/ns/docbook" version="5.0" xml:id="atan">
+    <info>
+        <copyright>
+            <year>2011-2014</year>
+            <holder>Khronos Group</holder>
+        </copyright>
+    </info>
+    <refmeta>
+        <refentrytitle>atan</refentrytitle>
+        <manvolnum>3G</manvolnum>
+    </refmeta>
+    <refnamediv>
+        <refname>atan</refname>
+        <refpurpose>return the arc-tangent of the parameters</refpurpose>
+    </refnamediv>
+    <refsynopsisdiv><title>Declaration</title>
+        <funcsynopsis>
+            <funcprototype>
+                <funcdef>genType <function>atan</function></funcdef>
+                <paramdef>genType <parameter>y</parameter></paramdef>
+                <paramdef>genType <parameter>x</parameter></paramdef>
+            </funcprototype>
+        </funcsynopsis>
+        <funcsynopsis>
+            <funcprototype>
+                <funcdef>genType <function>atan</function></funcdef>
+                <paramdef>genType <parameter>y_over_x</parameter></paramdef>
+            </funcprototype>
+        </funcsynopsis>
+    </refsynopsisdiv>
+    <refsect1 xml:id="parameters"><title>Parameters</title>
+        <variablelist>
+        <varlistentry>
+            <term><parameter>y</parameter></term>
+            <listitem>
+                <para>
+                    Specify the numerator of the fraction whose arctangent to return.
+                </para>
+            </listitem>
+        </varlistentry>
+        <varlistentry>
+            <term><parameter>x</parameter></term>
+            <listitem>
+                <para>
+                    Specify the denominator of the fraction whose arctangent to return.
+                </para>
+            </listitem>
+        </varlistentry>
+        <varlistentry>
+            <term><parameter>y_over_x</parameter></term>
+            <listitem>
+                <para>
+                    Specify the fraction whose arctangent to return.
+                </para>
+            </listitem>
+        </varlistentry>
+        </variablelist>
+    </refsect1>
+    <refsect1 xml:id="description"><title>Description</title>
+        <para>
+            <function>atan</function> returns the angle whose trigonometric arctangent is
+            <inlineequation><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                <!-- eqn: b sub 0: -->
+                <mml:mfrac>
+                    <mml:mrow>
+                        <mml:mi mathvariant="italic">y</mml:mi>
+                    </mml:mrow>
+                    <mml:mrow>
+                        <mml:mi mathvariant="italic">x</mml:mi>
+                    </mml:mrow>
+                </mml:mfrac>
+            </mml:math></inlineequation> or <inlineequation><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">y_over_x</mml:mi></mml:math></inlineequation>,
+            depending on which overload is invoked. In the first overload, the signs of <inlineequation><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">y</mml:mi></mml:math></inlineequation>
+            and <inlineequation><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">x</mml:mi></mml:math></inlineequation> are used to determine the quadrant
+            that the angle lies in. The values returned by <function>atan</function> in this case are in the range
+            <inlineequation><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                <mml:list order="numeric">
+                    <mml:mrow><mml:mo>&minus;</mml:mo><mml:pi definitionURL="" encoding=""/></mml:mrow>
+                    <mml:pi definitionURL="" encoding=""/>
+                </mml:list>
+            </mml:math></inlineequation>. Results are undefined if <inlineequation><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">x</mml:mi></mml:math></inlineequation> is zero.
+        </para>
+        <para>
+            For the second overload, <function>atan</function> returns the angle whose tangent is
+            <inlineequation><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">y_over_x</mml:mi></mml:math></inlineequation>. Values
+            returned in this case are in the range
+            <inlineequation><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                <mml:list order="numeric">
+                    <mml:mrow>
+                        <mml:mo>&minus;</mml:mo>
+                        <mml:mfrac>
+                            <mml:pi definitionURL="" encoding=""/>
+                            <mml:mn>2</mml:mn>
+                        </mml:mfrac>
+                    </mml:mrow>
+                    <mml:mfrac>
+                        <mml:pi definitionURL="" encoding=""/>
+                        <mml:mn>2</mml:mn>
+                    </mml:mfrac>
+                </mml:list>
+            </mml:math></inlineequation>.
+        </para>
+    </refsect1>
+    <refsect1 xml:id="versions"><title>Version Support</title>
+        <informaltable>
+            <tgroup cols="13" align="left">
+                <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="funchead.xml" xpointer="xpointer(/*/*)"/>
+                <tbody>
+                    <row>
+                        <entry>atan</entry>
+                        <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="version.xml" xpointer="xpointer(/*/*[@role='11']/*)"/>
+                    </row>
+                </tbody>
+            </tgroup>
+        </informaltable>
+    </refsect1>
+    <refsect1 xml:id="seealso"><title>See Also</title>
+        <para>
+            <citerefentry><refentrytitle>sin</refentrytitle></citerefentry>,
+            <citerefentry><refentrytitle>cos</refentrytitle></citerefentry>,
+            <citerefentry><refentrytitle>tan</refentrytitle></citerefentry>
+        </para>
+    </refsect1>
+    <refsect1 xml:id="Copyright"><title>Copyright</title>
+        <para>
+            Copyright <trademark class="copyright"/> 2011-2014 Khronos Group.
+            This material may be distributed subject to the terms and conditions set forth in
+            the Open Publication License, v 1.0, 8 June 1999.
+            <link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://opencontent.org/openpub/">http://opencontent.org/openpub/</link>.
+        </para>
+    </refsect1>
+</refentry>

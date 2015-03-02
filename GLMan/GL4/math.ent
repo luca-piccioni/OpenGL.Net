@@ -1,0 +1,37 @@
+<!-- 
+    Math entities used by the Khronos man pages. The SYSTEM identifiers are
+    for local copies rather than the normative URLs, because even though
+    they are installed along with mathml2.dtd, they are not added to the XML
+    catalog. %isoamsb and %isogrk3 are used only by the GLSL ref pages, the
+    others are needed by both API and GLSL.
+ -->
+
+<!ENTITY % isoamsb
+      PUBLIC "-//W3C//ENTITIES Added Math Symbols: Binary Operators for MathML 2.0//EN"
+             "isoamsb.ent" >
+%isoamsb;
+<!ENTITY % isoamsc PUBLIC
+    "-//W3C//ENTITIES Added Math Symbols: Delimiters//EN//XML"
+     "isoamsc.ent"
+>
+%isoamsc;
+<!ENTITY % isogrk3
+      PUBLIC "-//W3C//ENTITIES Greek Symbols for MathML 2.0//EN"
+             "isogrk3.ent" >
+%isogrk3;
+<!ENTITY % isotech PUBLIC
+    "-//W3C//ENTITIES General Technical//EN//XML"
+    "isotech.ent"
+>
+%isotech;
+<!ENTITY % isonum PUBLIC
+    "-//W3C//ENTITIES Numeric and Special Graphic//EN//XML"
+    "isonum.ent"
+>
+%isonum;
+<!ENTITY % mmlextra PUBLIC
+    "-//W3C//ENTITIES Additional MathML Symbols//EN//XML"
+    "mmlextra.ent"
+>
+%mmlextra;
+

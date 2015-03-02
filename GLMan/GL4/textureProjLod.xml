@@ -1,0 +1,148 @@
+<!DOCTYPE refentry [ <!ENTITY % mathent SYSTEM "math.ent"> %mathent; ]>
+
+<!-- Converted by db4-upgrade version 1.1 -->
+
+<refentry xmlns="http://docbook.org/ns/docbook" version="5.0" xml:id="textureProjLod">
+    <info>
+        <copyright>
+            <year>2011-2014</year>
+            <holder>Khronos Group</holder>
+        </copyright>
+    </info>
+    <refmeta>
+        <refentrytitle>textureProjLod</refentrytitle>
+        <manvolnum>3G</manvolnum>
+    </refmeta>
+    <refnamediv>
+        <refname>textureProjLod</refname>
+        <refpurpose>perform a texture lookup with projection and explicit level-of-detail</refpurpose>
+    </refnamediv>
+    <refsynopsisdiv><title>Declaration</title>
+        <funcsynopsis>
+            <funcprototype>
+                <funcdef>gvec4 <function>textureProjLod</function></funcdef>
+                <paramdef>gsampler1D <parameter>sampler</parameter></paramdef>
+                <paramdef>vec2 <parameter>P</parameter></paramdef>
+                <paramdef>float <parameter>lod</parameter></paramdef>
+            </funcprototype>
+            <funcprototype>
+                <funcdef>gvec4 <function>textureProjLod</function></funcdef>
+                <paramdef>gsampler1D <parameter>sampler</parameter></paramdef>
+                <paramdef>vec4 <parameter>P</parameter></paramdef>
+                <paramdef>float <parameter>lod</parameter></paramdef>
+            </funcprototype>
+            <funcprototype>
+                <funcdef>gvec4 <function>textureProjLod</function></funcdef>
+                <paramdef>gsampler2D <parameter>sampler</parameter></paramdef>
+                <paramdef>vec3 <parameter>P</parameter></paramdef>
+                <paramdef>float <parameter>lod</parameter></paramdef>
+            </funcprototype>
+            <funcprototype>
+                <funcdef>gvec4 <function>textureProjLod</function></funcdef>
+                <paramdef>gsampler2D <parameter>sampler</parameter></paramdef>
+                <paramdef>vec4 <parameter>P</parameter></paramdef>
+                <paramdef>float <parameter>lod</parameter></paramdef>
+            </funcprototype>
+            <funcprototype>
+                <funcdef>gvec4 <function>textureProjLod</function></funcdef>
+                <paramdef>gsampler3D <parameter>sampler</parameter></paramdef>
+                <paramdef>vec4 <parameter>P</parameter></paramdef>
+                <paramdef>float <parameter>lod</parameter></paramdef>
+            </funcprototype>
+            <funcprototype>
+                <funcdef>float <function>textureProjLod</function></funcdef>
+                <paramdef>sampler1DShadow <parameter>sampler</parameter></paramdef>
+                <paramdef>vec4 <parameter>P</parameter></paramdef>
+                <paramdef>float <parameter>lod</parameter></paramdef>
+            </funcprototype>
+            <funcprototype>
+                <funcdef>float <function>textureProjLod</function></funcdef>
+                <paramdef>sampler2DShadow <parameter>sampler</parameter></paramdef>
+                <paramdef>vec4 <parameter>P</parameter></paramdef>
+                <paramdef>float <parameter>lod</parameter></paramdef>
+            </funcprototype>
+        </funcsynopsis>
+    </refsynopsisdiv>
+    <refsect1 xml:id="parameters"><title>Parameters</title>
+        <variablelist>
+        <varlistentry>
+            <term><parameter>sampler</parameter></term>
+            <listitem>
+                <para>
+                    Specifies the sampler to which the texture from which texels will be retrieved is bound.
+                </para>
+            </listitem>
+        </varlistentry>
+        <varlistentry>
+            <term><parameter>P</parameter></term>
+            <listitem>
+                <para>
+                    Specifies the texture coordinates at which texture will be sampled.
+                </para>
+            </listitem>
+        </varlistentry>
+        <varlistentry>
+            <term><parameter>lod</parameter></term>
+            <listitem>
+                <para>
+                    Specifies the explicit level-of-detail from which to fetch texels.
+                </para>
+            </listitem>
+        </varlistentry>
+        </variablelist>
+    </refsect1>
+    <refsect1 xml:id="description"><title>Description</title>
+        <para>
+            <function>textureProjLod</function> performs a texture lookup with projection from an explicitly specified level-of-detail. The texture coordinates
+            consumed from <parameter>P</parameter>, not including the last component of <parameter>P</parameter>,
+            are divided by the last component of <parameter>P</parameter>. The resulting <inlineequation><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:msup><mml:mn>3</mml:mn><mml:mi>rd</mml:mi></mml:msup></mml:math></inlineequation>
+            component of <parameter>P</parameter> in the shadow forms is used as
+            <inlineequation><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:msub><mml:mi>D</mml:mi><mml:mi>ref</mml:mi></mml:msub></mml:math></inlineequation>.
+            After these values are computed, the texture lookup proceeds as in <citerefentry><refentrytitle>textureLod</refentrytitle></citerefentry>,
+            with <parameter>lod</parameter> used to specify the level-of-detail from which the texture will be sampled.
+        </para>
+    </refsect1>
+    <refsect1 xml:id="versions"><title>Version Support</title>
+        <informaltable>
+            <tgroup cols="13" align="left">
+                <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="funchead.xml" xpointer="xpointer(/*/*)"/>
+                <tbody>
+                    <row>
+                        <entry>textureProjLod</entry>
+                        <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="version.xml" xpointer="xpointer(/*/*[@role='13']/*)"/>
+                    </row>
+                </tbody>
+            </tgroup>
+        </informaltable>
+    </refsect1>
+    <refsect1 xml:id="seealso"><title>See Also</title>
+        <para>
+            <citerefentry><refentrytitle>texelFetch</refentrytitle></citerefentry>,
+            <citerefentry><refentrytitle>texelFetchOffset</refentrytitle></citerefentry>,
+            <citerefentry><refentrytitle>texture</refentrytitle></citerefentry>,
+            <citerefentry><refentrytitle>textureGather</refentrytitle></citerefentry>,
+            <citerefentry><refentrytitle>textureGatherOffset</refentrytitle></citerefentry>,
+            <citerefentry><refentrytitle>textureGatherOffsets</refentrytitle></citerefentry>,
+            <citerefentry><refentrytitle>textureGrad</refentrytitle></citerefentry>,
+            <citerefentry><refentrytitle>textureGradOffset</refentrytitle></citerefentry>,
+            <citerefentry><refentrytitle>textureLod</refentrytitle></citerefentry>,
+            <citerefentry><refentrytitle>textureLodOffset</refentrytitle></citerefentry>,
+            <citerefentry><refentrytitle>textureOffset</refentrytitle></citerefentry>,
+            <citerefentry><refentrytitle>textureProj</refentrytitle></citerefentry>,
+            <citerefentry><refentrytitle>textureProjGrad</refentrytitle></citerefentry>,
+            <citerefentry><refentrytitle>textureProjGradOffset</refentrytitle></citerefentry>,
+            <citerefentry><refentrytitle>textureProjLodOffset</refentrytitle></citerefentry>,
+            <citerefentry><refentrytitle>textureProjOffset</refentrytitle></citerefentry>,
+            <citerefentry><refentrytitle>textureQueryLod</refentrytitle></citerefentry>,
+            <citerefentry><refentrytitle>textureSize</refentrytitle></citerefentry>
+        </para>
+    </refsect1>
+    <refsect1 xml:id="Copyright"><title>Copyright</title>
+        <para>
+            Copyright <trademark class="copyright"/> 2011-2014 Khronos Group.
+            This material may be distributed subject to the terms and conditions set forth in
+            the Open Publication License, v 1.0, 8 June 1999.
+            <link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://opencontent.org/openpub/">http://opencontent.org/openpub/</link>.
+        </para>
+    </refsect1>
+</refentry>

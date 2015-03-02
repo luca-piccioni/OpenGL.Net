@@ -1,0 +1,102 @@
+<!DOCTYPE refentry [ <!ENTITY % mathent SYSTEM "math.ent"> %mathent; ]>
+
+<!-- Converted by db4-upgrade version 1.1 -->
+
+<refentry xmlns="http://docbook.org/ns/docbook" version="5.0" xml:id="faceforward">
+    <info>
+        <copyright>
+            <year>2011-2014</year>
+            <holder>Khronos Group</holder>
+        </copyright>
+    </info>
+    <refmeta>
+        <refentrytitle>faceforward</refentrytitle>
+        <manvolnum>3G</manvolnum>
+    </refmeta>
+    <refnamediv>
+        <refname>faceforward</refname>
+        <refpurpose>return a vector pointing in the same direction as another</refpurpose>
+    </refnamediv>
+    <refsynopsisdiv><title>Declaration</title>
+        <funcsynopsis>
+            <funcprototype>
+                <funcdef>genType <function>faceforward</function></funcdef>
+                <paramdef>genType <parameter>N</parameter></paramdef>
+                <paramdef>genType <parameter>I</parameter></paramdef>
+                <paramdef>genType <parameter>Nref</parameter></paramdef>
+            </funcprototype>
+            <funcprototype>
+                <funcdef>genDType <function>faceforward</function></funcdef>
+                <paramdef>genDType <parameter>N</parameter></paramdef>
+                <paramdef>genDType <parameter>I</parameter></paramdef>
+                <paramdef>genDType <parameter>Nref</parameter></paramdef>
+            </funcprototype>
+        </funcsynopsis>
+    </refsynopsisdiv>
+    <refsect1 xml:id="parameters"><title>Parameters</title>
+        <variablelist>
+        <varlistentry>
+            <term><parameter>N</parameter></term>
+            <listitem>
+                <para>
+                    Specifies the vector to orient.
+                </para>
+            </listitem>
+        </varlistentry>
+        <varlistentry>
+            <term><parameter>I</parameter></term>
+            <listitem>
+                <para>
+                    Specifies the incident vector.
+                </para>
+            </listitem>
+        </varlistentry>
+        <varlistentry>
+            <term><parameter>Nref</parameter></term>
+            <listitem>
+                <para>
+                    Specifies the reference vector.
+                </para>
+            </listitem>
+        </varlistentry>
+        </variablelist>
+    </refsect1>
+    <refsect1 xml:id="description"><title>Description</title>
+        <para>
+            <function>faceforward</function> orients a vector to point away from a surface as defined by its normal.
+            If <citerefentry><refentrytitle>dot</refentrytitle></citerefentry><code>(<parameter>Nref</parameter>, <parameter>I</parameter>) &lt; 0</code>
+            <function>faceforward</function> returns <parameter>N</parameter>, otherwise it returns <code>-<parameter>N</parameter></code>.
+        </para>
+    </refsect1>
+    <refsect1 xml:id="versions"><title>Version Support</title>
+        <informaltable>
+            <tgroup cols="13" align="left">
+                <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="funchead.xml" xpointer="xpointer(/*/*)"/>
+                <tbody>
+                    <row>
+                        <entry>faceforward (genType)</entry>
+                        <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="version.xml" xpointer="xpointer(/*/*[@role='11']/*)"/>
+                    </row>
+                    <row>
+                        <entry>faceforward (genDType)</entry>
+                        <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="version.xml" xpointer="xpointer(/*/*[@role='40']/*)"/>
+                    </row>
+                </tbody>
+            </tgroup>
+        </informaltable>
+    </refsect1>
+    <refsect1 xml:id="seealso"><title>See Also</title>
+        <para>
+            <citerefentry><refentrytitle>reflect</refentrytitle></citerefentry>,
+            <citerefentry><refentrytitle>refract</refentrytitle></citerefentry>
+        </para>
+    </refsect1>
+    <refsect1 xml:id="Copyright"><title>Copyright</title>
+        <para>
+            Copyright <trademark class="copyright"/> 2011-2014 Khronos Group.
+            This material may be distributed subject to the terms and conditions set forth in
+            the Open Publication License, v 1.0, 8 June 1999.
+            <link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://opencontent.org/openpub/">http://opencontent.org/openpub/</link>.
+        </para>
+    </refsect1>
+</refentry>

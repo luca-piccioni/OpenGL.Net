@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<funchead xmlns="http://docbook.org/ns/docbook" version="5.0">
+    <!-- Table header for GLSL function Version Support section. All these
+         elements are included within a
+            <tgroup cols="13" align="left">
+         element, followed by per-variable <tbody> support rows.
+         Similar but not identical to apifunchead.xml for API pages. -->
+    <colspec colwidth="1.1*" />
+    <colspec colwidth="1*" align="center" colname="firstvers" />
+    <colspec colwidth="1*" align="center" />
+    <colspec colwidth="1*" align="center" />
+    <colspec colwidth="1*" align="center" />
+    <colspec colwidth="1*" align="center" />
+    <colspec colwidth="1*" align="center" />
+    <colspec colwidth="1*" align="center" />
+    <colspec colwidth="1*" align="center" />
+    <colspec colwidth="1*" align="center" />
+    <colspec colwidth="1*" align="center" />
+    <colspec colwidth="1*" align="center" />
+    <colspec colwidth="1*" align="center" colname="lastvers" />
+    <spanspec spanname="allvers" namest="firstvers" nameend="lastvers" />
+    <thead>
+        <row>
+            <entry rowsep="0">
+                <!-- Until morerows= is fixed WRT cell borders, do this --> 
+            </entry>
+            <entry spanname="allvers">
+                <emphasis role="bold">OpenGL Shading Language Version</emphasis>
+            </entry>
+        </row>
+        <row>
+            <entry>
+                <emphasis role="bold">Function Name</emphasis>
+            </entry>
+            <entry>
+                <emphasis role="bold">1.10</emphasis>
+            </entry>
+            <entry>
+                <emphasis role="bold">1.20</emphasis>
+            </entry>
+            <entry>
+                <emphasis role="bold">1.30</emphasis>
+            </entry>
+            <entry>
+                <emphasis role="bold">1.40</emphasis>
+            </entry>
+            <entry>
+                <emphasis role="bold">1.50</emphasis>
+            </entry>
+            <entry>
+                <emphasis role="bold">3.30</emphasis>
+            </entry>
+            <entry>
+                <emphasis role="bold">4.00</emphasis>
+            </entry>
+            <entry>
+                <emphasis role="bold">4.10</emphasis>
+            </entry>
+            <entry>
+                <emphasis role="bold">4.20</emphasis>
+            </entry>
+            <entry>
+                <emphasis role="bold">4.30</emphasis>
+            </entry>
+            <entry>
+                <emphasis role="bold">4.40</emphasis>
+            </entry>
+            <entry>
+                <emphasis role="bold">4.50</emphasis>
+            </entry>
+        </row>
+    </thead>
+</funchead>

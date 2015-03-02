@@ -1,0 +1,162 @@
+<!DOCTYPE refentry [ <!ENTITY % mathent SYSTEM "math.ent"> %mathent; ]>
+
+<!-- Converted by db4-upgrade version 1.1 -->
+
+<refentry xmlns="http://docbook.org/ns/docbook" version="5.0" xml:id="texelFetchOffset">
+    <info>
+        <copyright>
+            <year>2011-2014</year>
+            <holder>Khronos Group</holder>
+        </copyright>
+    </info>
+    <refmeta>
+        <refentrytitle>texelFetchOffset</refentrytitle>
+        <manvolnum>3G</manvolnum>
+    </refmeta>
+    <refnamediv>
+        <refname>texelFetchOffset</refname>
+        <refpurpose>perform a lookup of a single texel within a texture with an offset</refpurpose>
+    </refnamediv>
+    <refsynopsisdiv><title>Declaration</title>
+        <funcsynopsis>
+            <funcprototype>
+                <funcdef>gvec4 <function>texelFetchOffset</function></funcdef>
+                <paramdef>gsampler1D <parameter>sampler</parameter></paramdef>
+                <paramdef>int <parameter>P</parameter></paramdef>
+                <paramdef>int <parameter>lod</parameter></paramdef>
+                <paramdef>int <parameter>offset</parameter></paramdef>
+            </funcprototype>
+            <funcprototype>
+                <funcdef>gvec4 <function>texelFetchOffset</function></funcdef>
+                <paramdef>gsampler2D <parameter>sampler</parameter></paramdef>
+                <paramdef>ivec2 <parameter>P</parameter></paramdef>
+                <paramdef>int <parameter>lod</parameter></paramdef>
+                <paramdef>int <parameter>offset</parameter></paramdef>
+            </funcprototype>
+            <funcprototype>
+                <funcdef>gvec4 <function>texelFetchOffset</function></funcdef>
+                <paramdef>gsampler3D <parameter>sampler</parameter></paramdef>
+                <paramdef>ivec3 <parameter>P</parameter></paramdef>
+                <paramdef>int <parameter>lod</parameter></paramdef>
+                <paramdef>int <parameter>offset</parameter></paramdef>
+            </funcprototype>
+            <funcprototype>
+                <funcdef>gvec4 <function>texelFetchOffset</function></funcdef>
+                <paramdef>gsampler2DRect <parameter>sampler</parameter></paramdef>
+                <paramdef>ivec2 <parameter>P</parameter></paramdef>
+                <paramdef>int <parameter>offset</parameter></paramdef>
+            </funcprototype>
+            <funcprototype>
+                <funcdef>gvec4 <function>texelFetchOffset</function></funcdef>
+                <paramdef>gsampler1DArray <parameter>sampler</parameter></paramdef>
+                <paramdef>ivec2 <parameter>P</parameter></paramdef>
+                <paramdef>int <parameter>lod</parameter></paramdef>
+                <paramdef>int <parameter>offset</parameter></paramdef>
+            </funcprototype>
+            <funcprototype>
+                <funcdef>gvec4 <function>texelFetchOffset</function></funcdef>
+                <paramdef>gsampler2DArray <parameter>sampler</parameter></paramdef>
+                <paramdef>ivec3 <parameter>P</parameter></paramdef>
+                <paramdef>int <parameter>lod</parameter></paramdef>
+                <paramdef>int <parameter>offset</parameter></paramdef>
+            </funcprototype>
+        </funcsynopsis>
+    </refsynopsisdiv>
+    <refsect1 xml:id="parameters"><title>Parameters</title>
+        <variablelist>
+        <varlistentry>
+            <term><parameter>sampler</parameter></term>
+            <listitem>
+                <para>
+                    Specifies the sampler to which the texture from which texels will be retrieved is bound.
+                </para>
+            </listitem>
+        </varlistentry>
+        <varlistentry>
+            <term><parameter>P</parameter></term>
+            <listitem>
+                <para>
+                    Specifies the texture coordinates at which texture will be sampled.
+                </para>
+            </listitem>
+        </varlistentry>
+        <varlistentry>
+            <term><parameter>lod</parameter></term>
+            <listitem>
+                <para>
+                    If present, specifies the level-of-detail within the texture from which the texel will be fetched.
+                </para>
+            </listitem>
+        </varlistentry>
+        <varlistentry>
+            <term><parameter>offset</parameter></term>
+            <listitem>
+                <para>
+                    Specifies offset, in texels that will be applied to <parameter>P</parameter> before looking up the texel.
+                </para>
+            </listitem>
+        </varlistentry>
+        </variablelist>
+    </refsect1>
+    <refsect1 xml:id="description"><title>Description</title>
+        <para>
+            <function>texelFetchOffset</function> performs a lookup of a single texel from texture coordinate <parameter>P</parameter>
+            in the texture bound to <parameter>sampler</parameter>. Before fetching the texel, the offset specified in <parameter>offset</parameter>
+            is added to <parameter>P</parameter>. <parameter>offset</parameter> must be a constant expression. The array layer is specified in the last component of
+            <parameter>P</parameter> for array forms. The <parameter>lod</parameter> parameter (if present) specifies the level-of-detail
+            from which the texel will be fetched. The <parameter>sample</parameter> parameter specifies which sample within the texel will be
+            returned when reading from a multi-sample texure.
+        </para>
+    </refsect1>
+    <refsect1 xml:id="versions"><title>Version Support</title>
+        <informaltable>
+            <tgroup cols="13" align="left">
+                <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="funchead.xml" xpointer="xpointer(/*/*)"/>
+                <tbody>
+                    <row>
+                        <entry>texelFetchOffset</entry>
+                        <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="version.xml" xpointer="xpointer(/*/*[@role='13']/*)"/>
+                    </row>
+                    <row>
+                        <entry>texelFetchOffset (gsampler2DRect)</entry>
+                        <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="version.xml" xpointer="xpointer(/*/*[@role='14']/*)"/>
+                    </row>
+                    <row>
+                        <entry>texelFetchOffset (gsampler2DMS, gsampler2DMSArray)</entry>
+                        <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="version.xml" xpointer="xpointer(/*/*[@role='15']/*)"/>
+                    </row>
+                </tbody>
+            </tgroup>
+        </informaltable>
+    </refsect1>
+    <refsect1 xml:id="seealso"><title>See Also</title>
+        <para>
+            <citerefentry><refentrytitle>texelFetch</refentrytitle></citerefentry>,
+            <citerefentry><refentrytitle>texture</refentrytitle></citerefentry>,
+            <citerefentry><refentrytitle>textureGather</refentrytitle></citerefentry>,
+            <citerefentry><refentrytitle>textureGatherOffset</refentrytitle></citerefentry>,
+            <citerefentry><refentrytitle>textureGatherOffsets</refentrytitle></citerefentry>,
+            <citerefentry><refentrytitle>textureGrad</refentrytitle></citerefentry>,
+            <citerefentry><refentrytitle>textureGradOffset</refentrytitle></citerefentry>,
+            <citerefentry><refentrytitle>textureLod</refentrytitle></citerefentry>,
+            <citerefentry><refentrytitle>textureLodOffset</refentrytitle></citerefentry>,
+            <citerefentry><refentrytitle>textureOffset</refentrytitle></citerefentry>,
+            <citerefentry><refentrytitle>textureProj</refentrytitle></citerefentry>,
+            <citerefentry><refentrytitle>textureProjGrad</refentrytitle></citerefentry>,
+            <citerefentry><refentrytitle>textureProjGradOffset</refentrytitle></citerefentry>,
+            <citerefentry><refentrytitle>textureProjLod</refentrytitle></citerefentry>,
+            <citerefentry><refentrytitle>textureProjLodOffset</refentrytitle></citerefentry>,
+            <citerefentry><refentrytitle>textureProjOffset</refentrytitle></citerefentry>,
+            <citerefentry><refentrytitle>textureQueryLod</refentrytitle></citerefentry>,
+            <citerefentry><refentrytitle>textureSize</refentrytitle></citerefentry>
+        </para>
+    </refsect1>
+    <refsect1 xml:id="Copyright"><title>Copyright</title>
+        <para>
+            Copyright <trademark class="copyright"/> 2011-2014 Khronos Group.
+            This material may be distributed subject to the terms and conditions set forth in
+            the Open Publication License, v 1.0, 8 June 1999.
+            <link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://opencontent.org/openpub/">http://opencontent.org/openpub/</link>.
+        </para>
+    </refsect1>
+</refentry>

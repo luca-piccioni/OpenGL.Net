@@ -1,0 +1,69 @@
+<!DOCTYPE refentry [ <!ENTITY % mathent SYSTEM "math.ent"> %mathent; ]>
+
+<!-- Converted by db4-upgrade version 1.1 -->
+
+<refentry xmlns="http://docbook.org/ns/docbook" version="5.0" xml:id="memoryBarrierImage">
+    <info>
+        <copyright>
+            <year>2012-2014</year>
+            <holder>Khronos Group</holder>
+        </copyright>
+    </info>
+    <refmeta>
+            <refentrytitle>memoryBarrierImage</refentrytitle>
+        <manvolnum>3G</manvolnum>
+    </refmeta>
+    <refnamediv>
+        <refname>memoryBarrierImage</refname>
+        <refpurpose>controls the ordering of operations on image variables issued by a single shader invocation</refpurpose>
+    </refnamediv>
+    <refsynopsisdiv><title>Declaration</title>
+        <funcsynopsis>
+            <funcprototype>
+                <funcdef>void <function>memoryBarrierImage</function></funcdef>
+                <paramdef>void</paramdef>
+            </funcprototype>
+        </funcsynopsis>
+    </refsynopsisdiv>
+    <refsect1 xml:id="description"><title>Description</title>
+        <para>
+            <function>memoryBarrierImage</function> waits on the completion of all memory accesses resulting
+            from the use of image variables and then returns with no other effect.  When this function returns, the
+            results of any modifications to the content of image variables will be visible
+            to any access to the same buffer from other shader invocations.  In particular,
+            any modifications made in one shader stage are guaranteed to be visible to accesses
+            performed by shader invocations in subsequent stages when those invocations were triggered by the
+            execution of the original shader invocation (e.g., fragment shader invocations for a primitive resulting
+            from a particular geometry shader invocation).
+        </para>
+    </refsect1>
+    <refsect1 xml:id="versions"><title>Version Support</title>
+        <informaltable>
+            <tgroup cols="13" align="left">
+                <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="funchead.xml" xpointer="xpointer(/*/*)"/>
+                <tbody>
+                    <row>
+                        <entry>memoryBarrierImage</entry>
+                        <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="version.xml" xpointer="xpointer(/*/*[@role='43']/*)"/>
+                    </row>
+                </tbody>
+            </tgroup>
+        </informaltable>
+    </refsect1>
+    <refsect1 xml:id="seealso"><title>See Also</title>
+        <para>
+            <citerefentry><refentrytitle>memoryBarrier</refentrytitle></citerefentry>,
+            <citerefentry><refentrytitle>memoryBarrierShared</refentrytitle></citerefentry>,
+            <citerefentry><refentrytitle>memoryBarrierBuffer</refentrytitle></citerefentry>,
+            <citerefentry><refentrytitle>groupMemoryBarrier</refentrytitle></citerefentry>
+        </para>
+    </refsect1>
+    <refsect1 xml:id="Copyright"><title>Copyright</title>
+        <para>
+            Copyright <trademark class="copyright"/> 2011-2014 Khronos Group.
+            This material may be distributed subject to the terms and conditions set forth in
+            the Open Publication License, v 1.0, 8 June 1999.
+            <link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://opencontent.org/openpub/">http://opencontent.org/openpub/</link>.
+        </para>
+    </refsect1>
+</refentry>

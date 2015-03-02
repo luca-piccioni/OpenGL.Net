@@ -1,0 +1,97 @@
+<!DOCTYPE refentry [ <!ENTITY % mathent SYSTEM "math.ent"> %mathent; ]>
+
+<!-- Converted by db4-upgrade version 1.1 -->
+
+<refentry xmlns="http://docbook.org/ns/docbook" version="5.0" xml:id="inverse">
+    <info>
+        <copyright>
+            <year>2011-2014</year>
+            <holder>Khronos Group</holder>
+        </copyright>
+    </info>
+    <refmeta>
+        <refentrytitle>inverse</refentrytitle>
+        <manvolnum>3G</manvolnum>
+    </refmeta>
+    <refnamediv>
+        <refname>inverse</refname>
+        <refpurpose>calculate the inverse of a matrix</refpurpose>
+    </refnamediv>
+    <refsynopsisdiv><title>Declaration</title>
+        <funcsynopsis>
+            <funcprototype>
+                <funcdef>mat2 <function>inverse</function></funcdef>
+                <paramdef>mat2 <parameter>m</parameter></paramdef>
+            </funcprototype>
+            <funcprototype>
+                <funcdef>mat3 <function>inverse</function></funcdef>
+                <paramdef>mat3 <parameter>m</parameter></paramdef>
+            </funcprototype>
+            <funcprototype>
+                <funcdef>mat4 <function>inverse</function></funcdef>
+                <paramdef>mat4 <parameter>m</parameter></paramdef>
+            </funcprototype>
+            <funcprototype>
+                <funcdef>dmat2 <function>inverse</function></funcdef>
+                <paramdef>dmat2 <parameter>m</parameter></paramdef>
+            </funcprototype>
+            <funcprototype>
+                <funcdef>dmat3 <function>inverse</function></funcdef>
+                <paramdef>dmat3 <parameter>m</parameter></paramdef>
+            </funcprototype>
+            <funcprototype>
+                <funcdef>dmat4 <function>inverse</function></funcdef>
+                <paramdef>dmat4 <parameter>m</parameter></paramdef>
+            </funcprototype>
+        </funcsynopsis>
+    </refsynopsisdiv>
+    <refsect1 xml:id="parameters"><title>Parameters</title>
+        <variablelist>
+        <varlistentry>
+            <term><parameter>m</parameter></term>
+            <listitem>
+                <para>
+                    Specifies the matrix of which to take the inverse.
+                </para>
+            </listitem>
+        </varlistentry>
+        </variablelist>
+    </refsect1>
+    <refsect1 xml:id="description"><title>Description</title>
+        <para>
+            <function>inverse</function> returns the inverse of the matrix <parameter>m</parameter>. The values in the
+            returned matrix are undefined if <parameter>m</parameter> is singular or poorly-conditioned (nearly singular).
+        </para>
+    </refsect1>
+    <refsect1 xml:id="versions"><title>Version Support</title>
+        <informaltable>
+            <tgroup cols="13" align="left">
+                <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="funchead.xml" xpointer="xpointer(/*/*)"/>
+                <tbody>
+                    <row>
+                        <entry>inverse (float)</entry>
+                        <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="version.xml" xpointer="xpointer(/*/*[@role='14']/*)"/>
+                    </row>
+                    <row>
+                        <entry>inverse (double)</entry>
+                        <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="version.xml" xpointer="xpointer(/*/*[@role='40']/*)"/>
+                    </row>
+                </tbody>
+            </tgroup>
+        </informaltable>
+    </refsect1>
+    <refsect1 xml:id="seealso"><title>See Also</title>
+        <para>
+            <citerefentry><refentrytitle>transpose</refentrytitle></citerefentry>,
+            <citerefentry><refentrytitle>determinant</refentrytitle></citerefentry>
+        </para>
+    </refsect1>
+    <refsect1 xml:id="Copyright"><title>Copyright</title>
+        <para>
+            Copyright <trademark class="copyright"/> 2011-2014 Khronos Group.
+            This material may be distributed subject to the terms and conditions set forth in
+            the Open Publication License, v 1.0, 8 June 1999.
+            <link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://opencontent.org/openpub/">http://opencontent.org/openpub/</link>.
+        </para>
+    </refsect1>
+</refentry>

@@ -1,0 +1,98 @@
+<!DOCTYPE refentry [ <!ENTITY % mathent SYSTEM "math.ent"> %mathent; ]>
+
+<!-- Converted by db4-upgrade version 1.1 -->
+
+<refentry xmlns="http://docbook.org/ns/docbook" version="5.0" xml:id="gl_PointSize">
+    <info>
+        <copyright>
+            <year>2011-2014</year>
+            <holder>Khronos Group</holder>
+        </copyright>
+    </info>
+    <refmeta>
+        <refentrytitle>gl_PointSize</refentrytitle>
+        <manvolnum>3G</manvolnum>
+    </refmeta>
+    <refnamediv>
+        <refname>gl_PointSize</refname>
+        <refpurpose>contains size of rasterized points, in pixels</refpurpose>
+    </refnamediv>
+    <refsynopsisdiv>
+        <title>Declaration</title>
+        <para>
+            <varname>gl_PointSize</varname> is a member of the
+            <varname>gl_PerVertex</varname> named block:
+<programlisting>    out gl_PerVertex {
+        vec4 gl_Position;
+        float gl_PointSize;
+        float gl_ClipDistance[];
+    };</programlisting>
+        </para>
+    </refsynopsisdiv>
+    <refsect1 xml:id="description"><title>Description</title>
+        <para>
+            In the vertex, tessellation evaluation and geometry languages, a single
+            global instance of the <varname>gl_PerVertex</varname> named block is available and
+            its <varname>gl_PointSize</varname> member is an output that receives the
+            intended size of the point to be rasterized, in pixels. It may be written at any time
+            during shader execution. If <constant>GL_PROGRAM_POINT_SIZE</constant> is enabled,
+            <varname>gl_PointSize</varname> is used to determine the size of rasterized
+            points, otherwise it is ignored by the rasterization stage.
+        </para>
+        <para>
+            In the tessellation control language, the <varname>gl_PerVertex</varname> named block
+            is used to construct an array, <varname>gl_out[]</varname>, whose members become
+            available as inputs to the subsequent tessellation evaluation shader.
+        </para>
+        <para>
+            The value of <varname>gl_PointSize</varname> (or the <varname>gl_PointSize</varname> member of the <varname>gl_out[]</varname>
+            array, in the case of the tessellation control shader)
+            is undefined after the vertex, tessellation control, and tessellation evaluation
+            shading stages if the corresponding shader executable does
+            not write to gl_PointSize. It is also undefined after the geometry processing stage if the geometry shader executable calls
+            <citerefentry><refentrytitle>EmitVertex</refentrytitle></citerefentry> without having
+            written <varname>gl_PointSize</varname> since the last call to <citerefentry><refentrytitle>EmitVertex</refentrytitle></citerefentry>
+            (or hasn't written it at all).
+        </para>
+        <para>
+            In the tessellation control, tessellation evaluation and geometry languages,
+            the <varname>gl_PerVertex</varname> named block is used to construct an array, <varname>gl_in[]</varname>
+            of per-vertex or per-control point inputs whose content represents the corresponding
+            outputs written by the previous stage.
+         </para>
+    </refsect1>
+    <refsect1 xml:id="versions"><title>Version Support</title>
+        <informaltable>
+            <tgroup cols="13" align="left">
+                <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="varhead.xml" xpointer="xpointer(/*/*)"/>
+                <tbody>
+                    <row>
+                        <entry>gl_PointSize (vertex shader)</entry>
+                        <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="version.xml" xpointer="xpointer(/*/*[@role='11']/*)"/>
+                    </row>
+                    <row>
+                        <entry>gl_PointSize (geometry shader)</entry>
+                        <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="version.xml" xpointer="xpointer(/*/*[@role='15']/*)"/>
+                    </row>
+                    <row>
+                        <entry>gl_PointSize (tessellation evaluation shader)</entry>
+                        <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="version.xml" xpointer="xpointer(/*/*[@role='40']/*)"/>
+                    </row>
+                </tbody>
+            </tgroup>
+        </informaltable>
+    </refsect1>
+    <refsect1 xml:id="seealso"><title>See Also</title>
+        <para>
+            <citerefentry><refentrytitle>gl_Position</refentrytitle></citerefentry>, <citerefentry><refentrytitle>gl_ClipDistance</refentrytitle></citerefentry>
+        </para>
+    </refsect1>
+    <refsect1 xml:id="Copyright"><title>Copyright</title>
+        <para>
+            Copyright <trademark class="copyright"/> 2011-2014 Khronos Group.
+            This material may be distributed subject to the terms and conditions set forth in
+            the Open Publication License, v 1.0, 8 June 1999.
+            <link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://opencontent.org/openpub/">http://opencontent.org/openpub/</link>.
+        </para>
+    </refsect1>
+</refentry>

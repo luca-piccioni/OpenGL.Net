@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<table xmlns="http://docbook.org/ns/docbook" version="5.0">
+    <title>Base Internal Formats</title>
+    <tgroup cols="3" align="left">
+        <colspec/>
+        <colspec/>
+        <colspec/>
+        <thead>
+            <row>
+                <entry>
+                    <emphasis role="bold">Base Internal Format</emphasis>
+                </entry>
+                <entry>
+                    <emphasis role="bold">RGBA, Depth and Stencil Values</emphasis>
+                </entry>
+                <entry>
+                    <emphasis role="bold">Internal Components</emphasis>
+                </entry>
+            </row>
+        </thead>
+        <tbody>
+            <row>
+                <entry><constant>GL_DEPTH_COMPONENT</constant></entry>
+                <entry>Depth</entry>
+                <entry>D</entry>
+            </row>
+            <row>
+                <entry><constant>GL_DEPTH_STENCIL</constant></entry>
+                <entry>Depth, Stencil</entry>
+                <entry>D, S</entry>
+            </row>
+            <row>
+                <entry><constant>GL_RED</constant></entry>
+                <entry>Red</entry>
+                <entry>R</entry>
+            </row>
+            <row>
+                <entry><constant>GL_RG</constant></entry>
+                <entry>Red, Green</entry>
+                <entry>R, G</entry>
+            </row>
+            <row>
+                <entry><constant>GL_RGB</constant></entry>
+                <entry>Red, Green, Blue</entry>
+                <entry>R, G, B</entry>
+            </row>
+            <row>
+                <entry><constant>GL_RGBA</constant></entry>
+                <entry>Red, Green, Blue, Alpha</entry>
+                <entry>R, G, B, A</entry>
+            </row>
+        </tbody>
+    </tgroup>
+</table>

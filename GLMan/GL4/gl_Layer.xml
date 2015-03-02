@@ -1,0 +1,171 @@
+<!DOCTYPE refentry [ <!ENTITY % mathent SYSTEM "math.ent"> %mathent; ]>
+
+<!-- Converted by db4-upgrade version 1.1 -->
+
+<refentry xmlns="http://docbook.org/ns/docbook" version="5.0" xml:id="gl_Layer">
+    <info>
+        <copyright>
+            <year>2012-2014</year>
+            <holder>Khronos Group</holder>
+        </copyright>
+    </info>
+    <refmeta>
+        <refentrytitle>gl_Layer</refentrytitle>
+        <manvolnum>3G</manvolnum>
+    </refmeta>
+    <refnamediv>
+        <refname>gl_Layer</refname>
+        <refpurpose>contains the selected layer of a multi-layer framebuffer attachment</refpurpose>
+    </refnamediv>
+    <refsynopsisdiv>
+        <title>Declaration</title>
+        <para>
+            <programlisting>// Geometry stage</programlisting>
+            <fieldsynopsis>
+                <modifier>out</modifier>
+                <type>int</type>
+                <varname>gl_Layer</varname>
+            </fieldsynopsis>
+        </para>
+        <para>
+            <programlisting>// Fragment stage</programlisting>
+            <fieldsynopsis>
+                <modifier>in</modifier>
+                <type>int</type>
+                <varname>gl_Layer</varname>
+            </fieldsynopsis>
+        </para>
+    </refsynopsisdiv>
+    <refsect1 xml:id="description"><title>Description</title>
+        <para>
+            In the geometry language, <varname>gl_Layer</varname> is used to select a specific
+            layer (or face and layer of cube map) in a multi-layer framebuffer attachment. The actual
+            layer used will come from one of the vertices in the primitive being shaded. Which vertex
+            the layer comes from is undefined and as such it is recommended to write the same value
+            to <varname>gl_Layer</varname> for all vertices in the primitive. If a shader statically
+            assigns a value to <varname>gl_Layer</varname>, layered rendering mode is enabled.
+            If a shader statically assigns a value to <varname>gl_Layer</varname>, and there is an execution path through
+            the shader that does not set <varname>gl_Layer</varname>, then the value of <varname>gl_Layer</varname>
+            is undefined for invocations of the shader that take that path.
+        </para>
+        <para>
+            When used with an array of cube map textures, the <varname>gl_Layer</varname> output variable
+            takes on a special value. Instead of referring to only the layer, it is used to select a cube map
+            face and a layer. Setting <varname>gl_Layer</varname> to the value
+            <inlineequation><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi>layer</mml:mi><mml:mo>*</mml:mo><mml:mn>6</mml:mn><mml:mo>+</mml:mo><mml:mi>face</mml:mi></mml:math></inlineequation>
+            will render to <inlineequation><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi>face</mml:mi></mml:math></inlineequation>
+            of the cube defined in <inlineequation><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi>layer</mml:mi></mml:math></inlineequation>.
+            The face values are as follows:
+        <informaltable>
+            <tgroup cols="2" align="left">
+                <colspec colwidth="1.1*"/>
+                <colspec colwidth="1*" align="center"/>
+                <thead>
+                    <row>
+                        <entry>
+                            <emphasis role="bold"> Face Value </emphasis>
+                        </entry> 
+                        <entry>
+                            <emphasis role="bold"> Resulting Target </emphasis>
+                        </entry>
+                    </row>
+                </thead>
+                <tbody>
+                    <row>
+                        <entry>
+                            0
+                        </entry>
+                        <entry>
+                            <constant>GL_TEXTURE_CUBEMAP_POSITIVE_X</constant>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            1
+                        </entry>
+                        <entry>
+                            <constant>GL_TEXTURE_CUBEMAP_NEGATIVE_X</constant>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            2
+                        </entry>
+                        <entry>
+                            <constant>GL_TEXTURE_CUBEMAP_POSITIVE_Y</constant>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            3
+                        </entry>
+                        <entry>
+                            <constant>GL_TEXTURE_CUBEMAP_NEGATIVE_Y</constant>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            4
+                        </entry>
+                        <entry>
+                            <constant>GL_TEXTURE_CUBEMAP_POSITIVE_Z</constant>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            5
+                        </entry>
+                        <entry>
+                            <constant>GL_TEXTURE_CUBEMAP_NEGATIVE_Z</constant>
+                        </entry>
+                    </row>
+                </tbody>
+            </tgroup>
+        </informaltable>
+        </para>
+        <para>
+            For example, to render to the positive y cube map face located in the 5<superscript>th</superscript> layer of the
+            cube map array, <varname>gl_Layer</varname> should be set to
+            <inlineequation><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mn>5</mml:mn><mml:mo>*</mml:mo><mml:mn>6</mml:mn><mml:mo>+</mml:mo><mml:mn>2</mml:mn></mml:math></inlineequation>.
+        </para>
+        <para>
+            The input variable <varname>gl_Layer</varname> in the fragment language will have the same value that was written to the
+            output variable <varname>gl_Layer</varname> in the geometry language. If the geometry stage does not dynamically assign a
+            value to <varname>gl_Layer</varname>, the value of <varname>gl_Layer</varname> in the fragment stage will be undefined.  If the geometry stage
+            makes no static assignment to <varname>gl_Layer</varname>, the input <varname>gl_Layer</varname> in the fragment stage will be zero.  Otherwise,
+            the fragment stage will read the same value written by the geometry stage, even if that value is out of
+            range.  If a fragment shader contains a static access to <varname>gl_Layer</varname>, it will count against the implementation
+            defined limit for the maximum number of inputs to the fragment stage.
+        </para>
+    </refsect1>
+    <refsect1 xml:id="versions"><title>Version Support</title>
+        <informaltable>
+            <tgroup cols="13" align="left">
+                <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="funchead.xml" xpointer="xpointer(/*/*)"/>
+                <tbody>
+                    <row>
+                        <entry>gl_Layer (geometry stage)</entry>
+                        <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="version.xml" xpointer="xpointer(/*/*[@role='15']/*)"/>
+                    </row>
+                    <row>
+                        <entry>gl_Layer (fragment stage)</entry>
+                        <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="version.xml" xpointer="xpointer(/*/*[@role='43']/*)"/>
+                    </row>
+                </tbody>
+            </tgroup>
+        </informaltable>
+    </refsect1>
+    <refsect1 xml:id="seealso"><title>See Also</title>
+        <para>
+            <citerefentry><refentrytitle>gl_ViewportIndex</refentrytitle></citerefentry>
+        </para>
+    </refsect1>
+    <refsect1 xml:id="Copyright"><title>Copyright</title>
+        <para>
+            Copyright <trademark class="copyright"/> 2011-2014 Khronos Group.
+            This material may be distributed subject to the terms and conditions set forth in
+            the Open Publication License, v 1.0, 8 June 1999.
+            <link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://opencontent.org/openpub/">http://opencontent.org/openpub/</link>.
+        </para>
+    </refsect1>
+</refentry>

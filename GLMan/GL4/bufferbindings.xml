@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<informaltable xmlns="http://docbook.org/ns/docbook" version="5.0">
+    <tgroup cols="2" align="left">
+        <colspec colnum="1" colname="col1" colwidth="1*"/>
+        <colspec colnum="2" colname="col2" colwidth="2*"/>
+        <thead>
+            <row>
+                <entry><emphasis role="bold">Buffer Binding Target</emphasis></entry>
+                <entry><emphasis role="bold">Purpose</emphasis></entry>
+            </row>
+        </thead>
+        <tbody>
+            <row>
+                <entry><constant>GL_ARRAY_BUFFER</constant></entry>
+                <entry>Vertex attributes</entry>
+            </row>
+            <row>
+                <entry><constant>GL_ATOMIC_COUNTER_BUFFER</constant></entry>
+                <entry>Atomic counter storage</entry>
+            </row>
+            <row>
+                <entry><constant>GL_COPY_READ_BUFFER</constant></entry>
+                <entry>Buffer copy source</entry>
+            </row>
+            <row>
+                <entry><constant>GL_COPY_WRITE_BUFFER</constant></entry>
+                <entry>Buffer copy destination</entry>
+            </row>
+            <row>
+                <entry><constant>GL_DISPATCH_INDIRECT_BUFFER</constant></entry>
+                <entry>Indirect compute dispatch commands</entry>
+            </row>
+            <row>
+                <entry><constant>GL_DRAW_INDIRECT_BUFFER</constant></entry>
+                <entry>Indirect command arguments</entry>
+            </row>
+            <row>
+                <entry><constant>GL_ELEMENT_ARRAY_BUFFER</constant></entry>
+                <entry>Vertex array indices</entry>
+            </row>
+            <row>
+                <entry><constant>GL_PIXEL_PACK_BUFFER</constant></entry>
+                <entry>Pixel read target</entry>
+            </row>
+            <row>
+                <entry><constant>GL_PIXEL_UNPACK_BUFFER</constant></entry>
+                <entry>Texture data source</entry>
+            </row>
+            <row>
+                <entry><constant>GL_QUERY_BUFFER</constant></entry>
+                <entry>Query result buffer</entry>
+            </row>
+            <row>
+                <entry><constant>GL_SHADER_STORAGE_BUFFER</constant></entry>
+                <entry>Read-write storage for shaders</entry>
+            </row>
+            <row>
+                <entry><constant>GL_TEXTURE_BUFFER</constant></entry>
+                <entry>Texture data buffer</entry>
+            </row>
+            <row>
+                <entry><constant>GL_TRANSFORM_FEEDBACK_BUFFER</constant></entry>
+                <entry>Transform feedback buffer</entry>
+            </row>
+            <row>
+                <entry><constant>GL_UNIFORM_BUFFER</constant></entry>
+                <entry>Uniform block storage</entry>
+            </row>
+        </tbody>
+    </tgroup>
+</informaltable>

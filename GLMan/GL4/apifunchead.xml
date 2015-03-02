@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<funchead xmlns="http://docbook.org/ns/docbook" version="5.0">
+    <!-- Table header for OpenGL feature Version Support section. All these
+         elements are included within a
+            <tgroup cols="13" align="left">
+         element, followed by per-variable <tbody> support rows.
+         Similar but not identical to funchead.xml for GLSL pages. -->
+    <colspec colwidth="1.1*" />
+    <colspec colwidth="1*" align="center" colname="firstvers" />
+    <colspec colwidth="1*" align="center" />
+    <colspec colwidth="1*" align="center" />
+    <colspec colwidth="1*" align="center" />
+    <colspec colwidth="1*" align="center" />
+    <colspec colwidth="1*" align="center" />
+    <colspec colwidth="1*" align="center" />
+    <colspec colwidth="1*" align="center" />
+    <colspec colwidth="1*" align="center" />
+    <colspec colwidth="1*" align="center" />
+    <colspec colwidth="1*" align="center" />
+    <colspec colwidth="1*" align="center" colname="lastvers" />
+    <spanspec spanname="allvers" namest="firstvers" nameend="lastvers" />
+    <thead>
+        <row>
+            <entry rowsep="0">
+                <!-- Until morerows= is fixed WRT cell borders, do this --> 
+            </entry>
+            <entry spanname="allvers">
+                <emphasis role="bold">OpenGL Version</emphasis>
+            </entry>
+        </row>
+        <row>
+            <entry>
+                <emphasis role="bold">Function / Feature Name</emphasis>
+            </entry>
+            <entry>
+                <emphasis role="bold">2.0</emphasis>
+            </entry>
+            <entry>
+                <emphasis role="bold">2.1</emphasis>
+            </entry>
+            <entry>
+                <emphasis role="bold">3.0</emphasis>
+            </entry>
+            <entry>
+                <emphasis role="bold">3.1</emphasis>
+            </entry>
+            <entry>
+                <emphasis role="bold">3.2</emphasis>
+            </entry>
+            <entry>
+                <emphasis role="bold">3.3</emphasis>
+            </entry>
+            <entry>
+                <emphasis role="bold">4.0</emphasis>
+            </entry>
+            <entry>
+                <emphasis role="bold">4.1</emphasis>
+            </entry>
+            <entry>
+                <emphasis role="bold">4.2</emphasis>
+            </entry>
+            <entry>
+                <emphasis role="bold">4.3</emphasis>
+            </entry>
+            <entry>
+                <emphasis role="bold">4.4</emphasis>
+            </entry>
+            <entry>
+                <emphasis role="bold">4.5</emphasis>
+            </entry>
+        </row>
+    </thead>
+</funchead>

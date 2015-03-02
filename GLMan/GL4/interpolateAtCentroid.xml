@@ -1,0 +1,86 @@
+<!DOCTYPE refentry [ <!ENTITY % mathent SYSTEM "math.ent"> %mathent; ]>
+
+<!-- Converted by db4-upgrade version 1.1 -->
+
+<refentry xmlns="http://docbook.org/ns/docbook" version="5.0" xml:id="interpolateAtCentroid">
+    <info>
+        <copyright>
+            <year>2011-2014</year>
+            <holder>Khronos Group</holder>
+        </copyright>
+    </info>
+    <refmeta>
+        <refentrytitle>interpolateAtCentroid</refentrytitle>
+        <manvolnum>3G</manvolnum>
+    </refmeta>
+    <refnamediv>
+        <refname>interpolateAtCentroid</refname>
+        <refpurpose>sample a varying at the centroid of a pixel</refpurpose>
+    </refnamediv>
+    <refsynopsisdiv><title>Declaration</title>
+        <funcsynopsis>
+            <funcprototype>
+                <funcdef>float <function>interpolateAtCentroid</function></funcdef>
+                <paramdef>float <parameter>interpolant</parameter></paramdef>
+            </funcprototype>
+            <funcprototype>
+                <funcdef>vec2 <function>interpolateAtCentroid</function></funcdef>
+                <paramdef>vec2 <parameter>interpolant</parameter></paramdef>
+            </funcprototype>
+            <funcprototype>
+                <funcdef>vec3 <function>interpolateAtCentroid</function></funcdef>
+                <paramdef>vec3 <parameter>interpolant</parameter></paramdef>
+            </funcprototype>
+            <funcprototype>
+                <funcdef>vec4 <function>interpolateAtCentroid</function></funcdef>
+                <paramdef>vec4 <parameter>interpolant</parameter></paramdef>
+            </funcprototype>
+        </funcsynopsis>
+    </refsynopsisdiv>
+    <refsect1 xml:id="parameters"><title>Parameters</title>
+        <variablelist>
+        <varlistentry>
+            <term><parameter>interpolant</parameter></term>
+            <listitem>
+                <para>
+                    Specifies the interpolant to be sampled at the pixel centroid.
+                </para>
+            </listitem>
+        </varlistentry>
+        </variablelist>
+    </refsect1>
+    <refsect1 xml:id="description"><title>Description</title>
+        <para>
+            <function>interpolateAtCentroid</function> returns the value of the input varying <parameter>interpolant</parameter>
+            sampled at a location inside both the pixel and the primitive being processed. The value obtained would be the value
+            assigned to the input variable if declared with the <code>centroid</code> qualifier.
+        </para>
+    </refsect1>
+    <refsect1 xml:id="versions"><title>Version Support</title>
+        <informaltable>
+            <tgroup cols="13" align="left">
+                <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="funchead.xml" xpointer="xpointer(/*/*)"/>
+                <tbody>
+                    <row>
+                        <entry>interpolateAtCentroid</entry>
+                        <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="version.xml" xpointer="xpointer(/*/*[@role='40']/*)"/>
+                    </row>
+                </tbody>
+            </tgroup>
+        </informaltable>
+    </refsect1>
+    <refsect1 xml:id="seealso"><title>See Also</title>
+        <para>
+            <citerefentry><refentrytitle>interpolateAtSample</refentrytitle></citerefentry>,
+            <citerefentry><refentrytitle>interpolateAtOffset</refentrytitle></citerefentry>
+        </para>
+    </refsect1>
+    <refsect1 xml:id="Copyright"><title>Copyright</title>
+        <para>
+            Copyright <trademark class="copyright"/> 2011-2014 Khronos Group.
+            This material may be distributed subject to the terms and conditions set forth in
+            the Open Publication License, v 1.0, 8 June 1999.
+            <link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://opencontent.org/openpub/">http://opencontent.org/openpub/</link>.
+        </para>
+    </refsect1>
+</refentry>

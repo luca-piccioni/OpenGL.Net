@@ -1,0 +1,77 @@
+<!DOCTYPE refentry [ <!ENTITY % mathent SYSTEM "math.ent"> %mathent; ]>
+
+<!-- Converted by db4-upgrade version 1.1 -->
+
+<refentry xmlns="http://docbook.org/ns/docbook" version="5.0" xml:id="gl_SampleMask">
+    <info>
+        <copyright>
+            <year>2011-2014</year>
+            <holder>Khronos Group</holder>
+        </copyright>
+    </info>
+    <refmeta>
+        <refentrytitle>gl_SampleMask</refentrytitle>
+        <manvolnum>3G</manvolnum>
+    </refmeta>
+    <refnamediv>
+        <refname>gl_SampleMask</refname>
+        <refpurpose>specifies the sample coverage mask for the current fragment</refpurpose>
+    </refnamediv>
+    <refsynopsisdiv>
+        <title>Declaration</title>
+        <fieldsynopsis>
+            <modifier>out</modifier>
+            <type>int</type>
+            <varname>gl_SampleMask[]</varname>
+        </fieldsynopsis>
+    </refsynopsisdiv>
+    <refsect1 xml:id="description"><title>Description</title>
+        <para>
+            <varname>gl_SampleMask</varname> is a fragment language output array that may be
+            used to set the sample mask for the fragment being processed. Coverage for the current
+            fragment will become the logical AND of the coverage mask and the output <varname>gl_SampleMask</varname>.
+            That is, setting a bit in <varname>gl_SampleMask</varname> to zero will cause the
+            corresponding sample to be considered uncovered for the purposes of multisample fragment operations. However,
+            setting sample mask bits back to one will never enable samples not covered by the original primitive.
+            Bit <emphasis>B</emphasis> of mask <varname>gl_SampleMask[M]</varname> corresponds to sample
+            32 * <emphasis>M</emphasis> + <emphasis>B</emphasis>. This array must be sized in the fragment shader
+            either implicitly or explicitly to be the same size as the implementation-dependent maximum
+            sample-mask (as an array of 32-bit elements), determined by the maximum number of samples.
+            If the fragment shader statically assigns a value to <varname>gl_SampleMask</varname>, the
+            sample mask will be undefined for any array elements of any fragment shader invocation that
+            fails to assign a value. If a shader does not statically assign a value to <varname>gl_SampleMask</varname>,
+            the sample mask has no effect on the processing of a fragment.
+            If the fragment shader is being evaluated at any  frequency other than per-fragment, bits within
+            the sample mask not corresponding to the current fragment shader invocation are ignored.
+        </para>
+    </refsect1>
+    <refsect1 xml:id="versions"><title>Version Support</title>
+        <informaltable>
+            <tgroup cols="13" align="left">
+                <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="varhead.xml" xpointer="xpointer(/*/*)"/>
+                <tbody>
+                    <row>
+                        <entry>gl_SampleMask</entry>
+                        <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="version.xml" xpointer="xpointer(/*/*[@role='40']/*)"/>
+                    </row>
+                </tbody>
+            </tgroup>
+        </informaltable>
+    </refsect1>
+    <refsect1 xml:id="seealso"><title>See Also</title>
+        <para>
+            <citerefentry><refentrytitle>gl_SampleMaskIn</refentrytitle></citerefentry>,
+            <citerefentry><refentrytitle>gl_SampleID</refentrytitle></citerefentry>,
+            <citerefentry><refentrytitle>gl_SamplePosition</refentrytitle></citerefentry>,
+            <citerefentry><refentrytitle>gl_FragCoord</refentrytitle></citerefentry>
+        </para>
+    </refsect1>
+    <refsect1 xml:id="Copyright"><title>Copyright</title>
+        <para>
+            Copyright <trademark class="copyright"/> 2011-2014 Khronos Group.
+            This material may be distributed subject to the terms and conditions set forth in
+            the Open Publication License, v 1.0, 8 June 1999.
+            <link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://opencontent.org/openpub/">http://opencontent.org/openpub/</link>.
+        </para>
+    </refsect1>
+</refentry>

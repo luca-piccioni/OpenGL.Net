@@ -1,0 +1,123 @@
+<!DOCTYPE refentry [ <!ENTITY % mathent SYSTEM "math.ent"> %mathent; ]>
+
+<!-- Converted by db4-upgrade version 1.1 -->
+
+<refentry xmlns="http://docbook.org/ns/docbook" version="5.0" xml:id="fma">
+    <info>
+        <copyright>
+            <year>2011-2014</year>
+            <holder>Khronos Group</holder>
+        </copyright>
+    </info>
+    <refmeta>
+        <refentrytitle>fma</refentrytitle>
+        <manvolnum>3G</manvolnum>
+    </refmeta>
+    <refnamediv>
+        <refname>fma</refname>
+        <refpurpose>perform a fused multiply-add operation</refpurpose>
+    </refnamediv>
+    <refsynopsisdiv><title>Declaration</title>
+        <funcsynopsis>
+            <funcprototype>
+                <funcdef>genType <function>fma</function></funcdef>
+                <paramdef>genType <parameter>a</parameter></paramdef>
+                <paramdef>genType <parameter>b</parameter></paramdef>
+                <paramdef>genType <parameter>c</parameter></paramdef>
+            </funcprototype>
+            <funcprototype>
+                <funcdef>genDType <function>fma</function></funcdef>
+                <paramdef>genDType <parameter>a</parameter></paramdef>
+                <paramdef>genDType <parameter>b</parameter></paramdef>
+                <paramdef>genDType <parameter>c</parameter></paramdef>
+            </funcprototype>
+        </funcsynopsis>
+    </refsynopsisdiv>
+    <refsect1 xml:id="parameters"><title>Parameters</title>
+        <variablelist>
+        <varlistentry>
+            <term><parameter>a</parameter></term>
+            <listitem>
+                <para>
+                    Specifies the first multiplicand.
+                </para>
+            </listitem>
+        </varlistentry>
+        <varlistentry>
+            <term><parameter>b</parameter></term>
+            <listitem>
+                <para>
+                    Specifies the second multiplicand.
+                </para>
+            </listitem>
+        </varlistentry>
+        <varlistentry>
+            <term><parameter>c</parameter></term>
+            <listitem>
+                <para>
+                    Specifies the value to be added to the result.
+                </para>
+            </listitem>
+        </varlistentry>
+        </variablelist>
+    </refsect1>
+    <refsect1 xml:id="description"><title>Description</title>
+        <para>
+            <function>fma</function> performs, where possible, a fused multiply-add operation,
+            returning <code>a * b + c</code>.
+            In use cases where the return value is eventually consumed by a variable declared as
+            <code>precise</code>:
+            <itemizedlist>
+                <listitem>
+                    <para>
+                        <function>fma</function>() is considered a single operation, whereas the
+                        expression <code>a * b + c</code> consumed by a variable declared as <code>precise</code>
+                        is considered two operations.
+                    </para>
+                </listitem>
+                <listitem>
+                    <para>
+                        The precision of <function>fma</function>() can differ from the precision
+                        of the expression <code>a * b + c</code>.
+                    </para>
+                </listitem>
+                <listitem>
+                    <para>
+                        <function>fma</function>() will be computed with the same precision as any
+                        other <function>fma</function>() consumed by a <code>precise</code> variable,
+                        giving invariant results for the same input values of <parameter>a</parameter>,
+                        <parameter>b</parameter> and <parameter>c</parameter>.
+                    </para>
+                </listitem>
+            </itemizedlist>
+            Otherwise, in the absense of <code>precise</code> consumption, there are no
+            special constraints on the number of operations or difference in precision between
+            <function>fma</function>() and the expression <code>a * b + c</code>.
+        </para>
+    </refsect1>
+    <refsect1 xml:id="versions"><title>Version Support</title>
+        <informaltable>
+            <tgroup cols="13" align="left">
+                <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="funchead.xml" xpointer="xpointer(/*/*)"/>
+                <tbody>
+                    <row>
+                        <entry>fma (genType)</entry>
+                        <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="version.xml" xpointer="xpointer(/*/*[@role='40']/*)"/>
+                    </row>
+                    <row>
+                        <entry>fma (genDType)</entry>
+                        <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="version.xml" xpointer="xpointer(/*/*[@role='40']/*)"/>
+                    </row>
+                </tbody>
+            </tgroup>
+        </informaltable>
+    </refsect1>
+    <refsect1 xml:id="Copyright"><title>Copyright</title>
+        <para>
+            Copyright <trademark class="copyright"/> 2011-2014 Khronos Group.
+            This material may be distributed subject to the terms and conditions set forth in
+            the Open Publication License, v 1.0, 8 June 1999.
+            <link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://opencontent.org/openpub/">http://opencontent.org/openpub/</link>.
+        </para>
+    </refsect1>
+</refentry>

@@ -1,0 +1,120 @@
+<!DOCTYPE refentry [ <!ENTITY % mathent SYSTEM "math.ent"> %mathent; ]>
+
+<refentry xmlns="http://docbook.org/ns/docbook" version="5.0" xml:id="gl_ClipDistance">
+    <info>
+        <copyright>
+            <year>2011-2014</year>
+            <holder>Khronos Group</holder>
+        </copyright>
+    </info>
+    <refmeta>
+        <refentrytitle>gl_ClipDistance</refentrytitle>
+        <manvolnum>3G</manvolnum>
+    </refmeta>
+    <refnamediv>
+        <refname>gl_ClipDistance</refname>
+        <refpurpose>provides a forward-compatible mechanism for vertex clipping</refpurpose>
+    </refnamediv>
+    <refsynopsisdiv>
+        <title>Declaration</title>
+        <para>
+            <varname>gl_ClipDistance</varname> is a member of the
+            <varname>gl_PerVertex</varname> named block:
+        <programlisting>    out gl_PerVertex {
+        vec4 gl_Position;
+        float gl_PointSize;
+        float gl_ClipDistance[];
+    };</programlisting>
+        </para>
+        <para>
+            In fragment shaders, it is intrinsically declared as:
+            <fieldsynopsis>
+                <modifier>in</modifier>
+                <type>float</type>
+                <varname>gl_ClipDistance[]</varname>
+            </fieldsynopsis>
+        </para>
+    </refsynopsisdiv>
+    <refsect1 xml:id="description"><title>Description</title>
+        <para>
+            The <varname>gl_ClipDistance</varname> variable provides a forward compatible
+            mechanism for controlling user clipping. The element <parameter>gl_ClipDistance</parameter>[<emphasis>i</emphasis>]
+            specifies a clip distance for each user clip plane <emphasis>i</emphasis>. A distance of 0.0 means that
+            the vertex is on the plane, a positive distance means that the vertex is insider the clip plane, and a negative
+            distance means that the point is outside the clip plane. The clip distances will be linearly interpolated across
+            the primitive and the portion of the primitive with interpolated distances less than 0.0 will be clipped.
+        </para>
+        <para>
+            The <varname>gl_ClipDistance</varname> array is initially predeclared as unsized and must be
+            sized by the shader either by redeclaring it with an explicit size, or by indexing it
+            with only integral constant expressions. The array must be sized to include all
+            clip planes that are enabled via the OpenGL API; if the size does not include all enabled planes,
+            results are undefined. The size may be at most <varname>gl_MaxClipDistances</varname>. The number
+            of varying components consumed by <varname>gl_ClipDistance</varname> will match the size of the
+            array, no matter how many planes are enabled. The shader must also set all values in <varname>gl_ClipDistance</varname>
+            that have been enabled via the OpenGL API, or results are undefined. Values written into
+            <varname>gl_ClipDistance</varname> planes that are not enabled have no effect.
+        </para>
+        <para>
+            In the vertex, tessellation evaluation and geometry languages, a single
+            global instance of the <varname>gl_PerVertex</varname> named block is available and
+            its <varname>gl_ClipDistance</varname> member is an output that receives the
+            clip distances for the current vertex. It may be written at any time during shader execution.
+            The value written to <varname>gl_ClipDistance</varname> will be used by primitive assembly,
+            clipping, culling and other fixed functionality operations, if present, that operate on
+            primitives after vertex processing has occurred.
+        </para>
+        <para>
+            In the tessellation control language, the <varname>gl_PerVertex</varname> named block
+            is used to construct an array, <varname>gl_out[]</varname>, whose <varname>gl_ClipDistance</varname>
+            members hold clip distances for each of the control points, which become available as inputs to the subsequent
+            tessellation evaluation shader.
+        </para>
+        <para>
+            The value of <varname>gl_ClipDistance</varname> (or the <varname>gl_ClipDistance</varname> member of the <varname>gl_out[]</varname>
+            array, in the case of the tessellation control shader)
+            is undefined after the vertex, tessellation control, and tessellation evaluation
+            shading stages if the corresponding shader executable does
+            not write to gl_ClipDistance. It is also undefined after the geometry processing stage if the geometry shader executable calls
+            <citerefentry><refentrytitle>EmitVertex</refentrytitle></citerefentry> without having
+            written <varname>gl_ClipDistance</varname> since the last call to <citerefentry><refentrytitle>EmitVertex</refentrytitle></citerefentry>
+            (or hasn't written it at all).
+        </para>
+        <para>
+            In the tessellation control, tessellation evaluation and geoemetry languages,
+            the <varname>gl_PerVertex</varname> named block is used to construct an array, <varname>gl_in[]</varname>
+            of per-vertex or per-control point inputs whose content represents the corresponding
+            outputs written by the previous stage. Only elements of the <varname>gl_ClipDistance</varname>
+            array that correspond to enabled clip planes have defined values.
+         </para>
+    </refsect1>
+    <refsect1 xml:id="versions"><title>Version Support</title>
+        <informaltable>
+            <tgroup cols="13" align="left">
+                <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="varhead.xml" xpointer="xpointer(/*/*)"/>
+                <tbody>
+                    <row>
+                        <entry>gl_ClipDistance</entry>
+                        <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="version.xml" xpointer="xpointer(/*/*[@role='13']/*)"/>
+                    </row>
+                </tbody>
+            </tgroup>
+        </informaltable>
+        <para>Versions 1.30 to 1.40 - vertex shader only.</para>
+        <para>Versions 1.50 to 3.30 - vertex and geometry shaders only.</para>
+    </refsect1>
+    <refsect1 xml:id="seealso"><title>See Also</title>
+        <para>
+            <citerefentry><refentrytitle>gl_CullDistance</refentrytitle></citerefentry>,
+            <citerefentry><refentrytitle>gl_PointSize</refentrytitle></citerefentry>
+        </para>
+    </refsect1>
+    <refsect1 xml:id="Copyright"><title>Copyright</title>
+        <para>
+            Copyright <trademark class="copyright"/> 2011-2014 Khronos Group.
+            This material may be distributed subject to the terms and conditions set forth in
+            the Open Publication License, v 1.0, 8 June 1999.
+            <link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://opencontent.org/openpub/">http://opencontent.org/openpub/</link>.
+        </para>
+    </refsect1>
+</refentry>

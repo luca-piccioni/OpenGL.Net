@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root xmlns="http://docbook.org/ns/docbook" version="5.0">
+    <!-- Element sets are selected with XInclude from the row elements below
+         using the role attribute to obtain table elements for the "Version
+         Support" sections of the API man pages. The role element is based
+         on the GL API version (role=21 means OpenGL 2.1, etc.). 
+         It is similar but not identical to version.xml for GLSL pages. -->
+    <row role="20">
+        <entry>&#x2714;</entry>
+        <entry>&#x2714;</entry>
+        <entry>&#x2714;</entry>
+        <entry>&#x2714;</entry>
+        <entry>&#x2714;</entry>
+        <entry>&#x2714;</entry>
+        <entry>&#x2714;</entry>
+        <entry>&#x2714;</entry>
+        <entry>&#x2714;</entry>
+        <entry>&#x2714;</entry>
+        <entry>&#x2714;</entry>
+        <entry>&#x2714;</entry>
+    </row>
+    <row role="21">
+        <entry>-</entry>
+        <entry>&#x2714;</entry>
+        <entry>&#x2714;</entry>
+        <entry>&#x2714;</entry>
+        <entry>&#x2714;</entry>
+        <entry>&#x2714;</entry>
+        <entry>&#x2714;</entry>
+        <entry>&#x2714;</entry>
+        <entry>&#x2714;</entry>
+        <entry>&#x2714;</entry>
+        <entry>&#x2714;</entry>
+        <entry>&#x2714;</entry>
+    </row>
+    <row role="30">
+        <entry>-</entry>
+        <entry>-</entry>
+        <entry>&#x2714;</entry>
+        <entry>&#x2714;</entry>
+        <entry>&#x2714;</entry>
+        <entry>&#x2714;</entry>
+        <entry>&#x2714;</entry>
+        <entry>&#x2714;</entry>
+        <entry>&#x2714;</entry>
+        <entry>&#x2714;</entry>
+        <entry>&#x2714;</entry>
+        <entry>&#x2714;</entry>
+    </row>
+    <row role="31">
+        <entry>-</entry>
+        <entry>-</entry>
+        <entry>-</entry>
+        <entry>&#x2714;</entry>
+        <entry>&#x2714;</entry>
+        <entry>&#x2714;</entry>
+        <entry>&#x2714;</entry>
+        <entry>&#x2714;</entry>
+        <entry>&#x2714;</entry>
+        <entry>&#x2714;</entry>
+        <entry>&#x2714;</entry>
+        <entry>&#x2714;</entry>
+    </row>
+    <row role="32">
+        <entry>-</entry>
+        <entry>-</entry>
+        <entry>-</entry>
+        <entry>-</entry>
+        <entry>&#x2714;</entry>
+        <entry>&#x2714;</entry>
+        <entry>&#x2714;</entry>
+        <entry>&#x2714;</entry>
+        <entry>&#x2714;</entry>
+        <entry>&#x2714;</entry>
+        <entry>&#x2714;</entry>
+        <entry>&#x2714;</entry>
+    </row>
+    <row role="33">
+        <entry>-</entry>
+        <entry>-</entry>
+        <entry>-</entry>
+        <entry>-</entry>
+        <entry>-</entry>
+        <entry>&#x2714;</entry>
+        <entry>&#x2714;</entry>
+        <entry>&#x2714;</entry>
+        <entry>&#x2714;</entry>
+        <entry>&#x2714;</entry>
+        <entry>&#x2714;</entry>
+        <entry>&#x2714;</entry>
+    </row>
+    <row role="40">
+        <entry>-</entry>
+        <entry>-</entry>
+        <entry>-</entry>
+        <entry>-</entry>
+        <entry>-</entry>
+        <entry>-</entry>
+        <entry>&#x2714;</entry>
+        <entry>&#x2714;</entry>
+        <entry>&#x2714;</entry>
+        <entry>&#x2714;</entry>
+        <entry>&#x2714;</entry>
+        <entry>&#x2714;</entry>
+    </row>
+    <row role="41">
+        <entry>-</entry>
+        <entry>-</entry>
+        <entry>-</entry>
+        <entry>-</entry>
+        <entry>-</entry>
+        <entry>-</entry>
+        <entry>-</entry>
+        <entry>&#x2714;</entry>
+        <entry>&#x2714;</entry>
+        <entry>&#x2714;</entry>
+        <entry>&#x2714;</entry>
+        <entry>&#x2714;</entry>
+    </row>
+    <row role="42">
+        <entry>-</entry>
+        <entry>-</entry>
+        <entry>-</entry>
+        <entry>-</entry>
+        <entry>-</entry>
+        <entry>-</entry>
+        <entry>-</entry>
+        <entry>-</entry>
+        <entry>&#x2714;</entry>
+        <entry>&#x2714;</entry>
+        <entry>&#x2714;</entry>
+        <entry>&#x2714;</entry>
+    </row>
+    <row role="43">
+        <entry>-</entry>
+        <entry>-</entry>
+        <entry>-</entry>
+        <entry>-</entry>
+        <entry>-</entry>
+        <entry>-</entry>
+        <entry>-</entry>
+        <entry>-</entry>
+        <entry>-</entry>
+        <entry>&#x2714;</entry>
+        <entry>&#x2714;</entry>
+        <entry>&#x2714;</entry>
+    </row>
+    <row role="44">
+        <entry>-</entry>
+        <entry>-</entry>
+        <entry>-</entry>
+        <entry>-</entry>
+        <entry>-</entry>
+        <entry>-</entry>
+        <entry>-</entry>
+        <entry>-</entry>
+        <entry>-</entry>
+        <entry>-</entry>
+        <entry>&#x2714;</entry>
+        <entry>&#x2714;</entry>
+    </row>
+    <row role="45">
+        <entry>-</entry>
+        <entry>-</entry>
+        <entry>-</entry>
+        <entry>-</entry>
+        <entry>-</entry>
+        <entry>-</entry>
+        <entry>-</entry>
+        <entry>-</entry>
+        <entry>-</entry>
+        <entry>-</entry>
+        <entry>-</entry>
+        <entry>&#x2714;</entry>
+    </row>
+</root>

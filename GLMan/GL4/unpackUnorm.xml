@@ -1,0 +1,113 @@
+<!DOCTYPE refentry [ <!ENTITY % mathent SYSTEM "math.ent"> %mathent; ]>
+
+<!-- Converted by db4-upgrade version 1.1 -->
+
+<refentry xmlns="http://docbook.org/ns/docbook" version="5.0" xml:id="unpackUnorm">
+    <info>
+        <copyright>
+            <year>2011-2014</year>
+            <holder>Khronos Group</holder>
+        </copyright>
+    </info>
+    <refmeta>
+        <refentrytitle>unpackUnorm</refentrytitle>
+        <manvolnum>3G</manvolnum>
+    </refmeta>
+    <refnamediv>
+        <refname>unpackUnorm2x16, unpackUnorm4x8, unpackSnorm4x8</refname>
+        <refpurpose>unpack floating-point values from an unsigned integer</refpurpose>
+    </refnamediv>
+    <refsynopsisdiv><title>Declaration</title>
+        <funcsynopsis>
+            <funcprototype>
+                <funcdef>vec2 <function>unpackUnorm2x16</function></funcdef>
+                <paramdef>uint <parameter>p</parameter></paramdef>
+            </funcprototype>
+            <funcprototype>
+                <funcdef>vec2 <function>unpackSnorm2x16</function></funcdef>
+                <paramdef>uint <parameter>p</parameter></paramdef>
+            </funcprototype>
+            <funcprototype>
+                <funcdef>vec4 <function>unpackUnorm4x8</function></funcdef>
+                <paramdef>uint <parameter>p</parameter></paramdef>
+            </funcprototype>
+            <funcprototype>
+                <funcdef>vec4 <function>unpackSnorm4x8</function></funcdef>
+                <paramdef>uint <parameter>p</parameter></paramdef>
+            </funcprototype>
+        </funcsynopsis>
+    </refsynopsisdiv>
+    <refsect1 xml:id="parameters"><title>Parameters</title>
+        <variablelist>
+        <varlistentry>
+            <term><parameter>p</parameter></term>
+            <listitem>
+                <para>
+                    Specifies an unsigned integer containing packed floating-point values.
+                </para>
+            </listitem>
+        </varlistentry>
+        </variablelist>
+    </refsect1>
+    <refsect1 xml:id="description"><title>Description</title>
+        <para>
+            <function>unpackUnorm2x16</function>, <function>unpackSnorm2x16</function>, <function>unpackUnorm4x8</function> and <function>unpackSnorm4x8</function> unpack
+            single 32-bit unsigned integers, specified in the parameter <parameter>p</parameter> into a pair of 16-bit unsigned integers,
+            four 8-bit unsigned integers or four 8-bit signed integers. Then, each component is converted to a normalized floating-point
+            value to generate the returned two- or four-component vector.
+        </para>
+        <para>
+            The conversion for unpacked fixed point value <emphasis>f</emphasis> to floating-point is performed as follows:
+            <itemizedlist>
+                <listitem><para><function>packUnorm2x16</function>: <code>f / 65535.0</code></para></listitem>
+                <listitem><para><function>packSnorm2x16</function>: <code><function>clamp</function>(f / 32727.0, -1.0, 1.0)</code></para></listitem>
+                <listitem><para><function>packUnorm4x8</function>: <code>f / 255.0</code></para></listitem>
+                <listitem><para><function>packSnorm4x8</function>: <code><function>clamp</function>(f / 127.0, -1.0, 1.0)</code></para></listitem>
+            </itemizedlist>
+        </para>
+        <para>
+            The first component of the returned vector will be extracted from the least significant bits of the input;
+            the last component will be extracted from the most significant bits.
+        </para>
+    </refsect1>
+    <refsect1 xml:id="versions"><title>Version Support</title>
+        <informaltable>
+            <tgroup cols="13" align="left">
+                <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="funchead.xml" xpointer="xpointer(/*/*)"/>
+                <tbody>
+                    <row>
+                        <entry>unpackUnorm2x16</entry>
+                        <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="version.xml" xpointer="xpointer(/*/*[@role='41']/*)"/>
+                    </row>
+                    <row>
+                        <entry>unpackSnorm2x16</entry>
+                        <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="version.xml" xpointer="xpointer(/*/*[@role='42']/*)"/>
+                    </row>
+                    <row>
+                        <entry>unpackUnorm4x8</entry>
+                        <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="version.xml" xpointer="xpointer(/*/*[@role='41']/*)"/>
+                    </row>
+                    <row>
+                        <entry>unpackSnorm4x8</entry>
+                        <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="version.xml" xpointer="xpointer(/*/*[@role='41']/*)"/>
+                    </row>
+                </tbody>
+            </tgroup>
+        </informaltable>
+    </refsect1>
+    <refsect1 xml:id="seealso"><title>See Also</title>
+        <para>
+            <citerefentry><refentrytitle>packUnorm2x16</refentrytitle></citerefentry>,
+            <citerefentry><refentrytitle>packUnorm4x8</refentrytitle></citerefentry>,
+            <citerefentry><refentrytitle>packSnorm4x8</refentrytitle></citerefentry>
+        </para>
+    </refsect1>
+    <refsect1 xml:id="Copyright"><title>Copyright</title>
+        <para>
+            Copyright <trademark class="copyright"/> 2011-2014 Khronos Group.
+            This material may be distributed subject to the terms and conditions set forth in
+            the Open Publication License, v 1.0, 8 June 1999.
+            <link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://opencontent.org/openpub/">http://opencontent.org/openpub/</link>.
+        </para>
+    </refsect1>
+</refentry>

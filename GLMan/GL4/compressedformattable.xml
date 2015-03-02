@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<table xmlns="http://docbook.org/ns/docbook" version="5.0">
+    <title>Compressed Internal Formats</title>
+    <tgroup cols="3" align="left">
+        <colspec/>
+        <colspec/>
+        <colspec/>
+        <thead>
+            <row>
+                <entry>
+                    <emphasis role="bold">Compressed Internal Format</emphasis>
+                </entry>
+                <entry>
+                    <emphasis role="bold">Base Internal Format</emphasis>
+                </entry>
+                <entry>
+                    <emphasis role="bold">Type</emphasis>
+                </entry>
+            </row>
+        </thead>
+        <tbody>
+            <row>
+                <entry><constant>GL_COMPRESSED_RED</constant></entry>
+                <entry><constant>GL_RED</constant></entry>
+                <entry>Generic</entry>
+            </row>
+            <row>
+                <entry><constant>GL_COMPRESSED_RG</constant></entry>
+                <entry><constant>GL_RG</constant></entry>
+                <entry>Generic</entry>
+            </row>
+            <row>
+                <entry><constant>GL_COMPRESSED_RGB</constant></entry>
+                <entry><constant>GL_RGB</constant></entry>
+                <entry>Generic</entry>
+            </row>
+            <row>
+                <entry><constant>GL_COMPRESSED_RGBA</constant></entry>
+                <entry><constant>GL_RGBA</constant></entry>
+                <entry>Generic</entry>
+            </row>
+            <row>
+                <entry><constant>GL_COMPRESSED_SRGB</constant></entry>
+                <entry><constant>GL_RGB</constant></entry>
+                <entry>Generic</entry>
+            </row>
+            <row>
+                <entry><constant>GL_COMPRESSED_SRGB_ALPHA</constant></entry>
+                <entry><constant>GL_RGBA</constant></entry>
+                <entry>Generic</entry>
+            </row>
+            <row>
+                <entry><constant>GL_COMPRESSED_RED_RGTC1</constant></entry>
+                <entry><constant>GL_RED</constant></entry>
+                <entry>Specific</entry>
+            </row>
+            <row>
+                <entry><constant>GL_COMPRESSED_SIGNED_RED_RGTC1</constant></entry>
+                <entry><constant>GL_RED</constant></entry>
+                <entry>Specific</entry>
+            </row>
+            <row>
+                <entry><constant>GL_COMPRESSED_RG_RGTC2</constant></entry>
+                <entry><constant>GL_RG</constant></entry>
+                <entry>Specific</entry>
+            </row>
+            <row>
+                <entry><constant>GL_COMPRESSED_SIGNED_RG_RGTC2</constant></entry>
+                <entry><constant>GL_RG</constant></entry>
+                <entry>Specific</entry>
+            </row>
+            <row>
+                <entry><constant>GL_COMPRESSED_RGBA_BPTC_UNORM</constant></entry>
+                <entry><constant>GL_RGBA</constant></entry>
+                <entry>Specific</entry>
+            </row>
+            <row>
+                <entry><constant>GL_COMPRESSED_SRGB_ALPHA_BPTC_UNORM</constant></entry>
+                <entry><constant>GL_RGBA</constant></entry>
+                <entry>Specific</entry>
+            </row>
+            <row>
+                <entry><constant>GL_COMPRESSED_RGB_BPTC_SIGNED_FLOAT</constant></entry>
+                <entry><constant>GL_RGB</constant></entry>
+                <entry>Specific</entry>
+            </row>
+            <row>
+                <entry><constant>GL_COMPRESSED_RGB_BPTC_UNSIGNED_FLOAT</constant></entry>
+                <entry><constant>GL_RGB</constant></entry>
+                <entry>Specific</entry>
+            </row>
+        </tbody>
+    </tgroup>
+</table>

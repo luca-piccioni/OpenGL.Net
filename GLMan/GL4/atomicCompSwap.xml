@@ -1,0 +1,107 @@
+<!DOCTYPE refentry [ <!ENTITY % mathent SYSTEM "math.ent"> %mathent; ]>
+
+<!-- Converted by db4-upgrade version 1.1 -->
+
+<refentry xmlns="http://docbook.org/ns/docbook" version="5.0" xml:id="atomicCompSwap">
+    <info>
+        <copyright>
+            <year>2012-2014</year>
+            <holder>Khronos Group</holder>
+        </copyright>
+    </info>
+    <refmeta>
+        <refentrytitle>atomicCompSwap</refentrytitle>
+        <manvolnum>3G</manvolnum>
+    </refmeta>
+    <refnamediv>
+        <refname>atomicCompSwap</refname>
+        <refpurpose>perform an atomic compare-exchange operation to a variable</refpurpose>
+    </refnamediv>
+    <refsynopsisdiv><title>Declaration</title>
+        <funcsynopsis>
+            <funcprototype>
+                <funcdef>int <function>atomicCompSwap</function></funcdef>
+                <paramdef>inout int <parameter>mem</parameter></paramdef>
+                <paramdef>uint <parameter>compare</parameter></paramdef>
+                <paramdef>uint <parameter>data</parameter></paramdef>
+            </funcprototype>
+            <funcprototype>
+                <funcdef>uint <function>atomicCompSwap</function></funcdef>
+                <paramdef>inout uint <parameter>mem</parameter></paramdef>
+                <paramdef>uint <parameter>compare</parameter></paramdef>
+                <paramdef>uint <parameter>data</parameter></paramdef>
+            </funcprototype>
+        </funcsynopsis>
+    </refsynopsisdiv>
+    <refsect1 xml:id="parameters"><title>Parameters</title>
+        <variablelist>
+        <varlistentry>
+            <term><parameter>mem</parameter></term>
+            <listitem>
+                <para>
+                    The variable to use as the target of the operation.
+                </para>
+            </listitem>
+        </varlistentry>
+        <varlistentry>
+            <term><parameter>data</parameter></term>
+            <listitem>
+                <para>
+                    The data to be compared and potentially exchanged with <parameter>mem</parameter>.
+                </para>
+            </listitem>
+        </varlistentry>
+        </variablelist>
+    </refsect1>
+    <refsect1 xml:id="description"><title>Description</title>
+        <para>
+            <function>atomicCompSwap</function> performs an atomic comparison of <parameter>compare</parameter> with the contents of
+            <parameter>mem</parameter>. If the content of <parameter>mem</parameter> is equal to <parameter>compare</parameter>,
+            then the content of <parameter>data</parameter> is written into <parameter>mem</parameter>,
+            otherwise the content of <parameter>mem</parameter> is unmodifed.
+            The function returns the original content of <parameter>mem</parameter> regardless of the
+            outcome of the comparison. The contents of the memory being updated by the atomic operation are
+            guaranteed not to be modified by any other assignment or atomic memory function in any shader
+            invocation between the time the original value is read and the time the new value is written.
+        </para>
+        <para>
+            Atomic memory functions are supported only for a limited set of variables.  A shader will fail to compile
+            if the value passed to the mem argument of an atomic memory function does not correspond to a buffer or
+            shared variable. It is acceptable to pass an element of an array or a single component of a vector to the
+            mem argument of an atomic memory function, as long as the underlying array or vector is a buffer or
+            shared variable.
+        </para>
+    </refsect1>
+    <refsect1 xml:id="versions"><title>Version Support</title>
+        <informaltable>
+            <tgroup cols="13" align="left">
+                <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="funchead.xml" xpointer="xpointer(/*/*)"/>
+                <tbody>
+                    <row>
+                        <entry>atomicCompSwap</entry>
+                        <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="version.xml" xpointer="xpointer(/*/*[@role='43']/*)"/>
+                    </row>
+                </tbody>
+            </tgroup>
+        </informaltable>
+    </refsect1>
+    <refsect1 xml:id="seealso"><title>See Also</title>
+        <para>
+            <citerefentry><refentrytitle>atomicAdd</refentrytitle></citerefentry>,
+            <citerefentry><refentrytitle>atomicAnd</refentrytitle></citerefentry>,
+            <citerefentry><refentrytitle>atomicOr</refentrytitle></citerefentry>,
+            <citerefentry><refentrytitle>atomicXor</refentrytitle></citerefentry>,
+            <citerefentry><refentrytitle>atomicMin</refentrytitle></citerefentry>,
+            <citerefentry><refentrytitle>atomicMax</refentrytitle></citerefentry>,
+            <citerefentry><refentrytitle>atomicExchange</refentrytitle></citerefentry>
+        </para>
+    </refsect1>
+    <refsect1 xml:id="Copyright"><title>Copyright</title>
+        <para>
+            Copyright <trademark class="copyright"/> 2011-2014 Khronos Group.
+            This material may be distributed subject to the terms and conditions set forth in
+            the Open Publication License, v 1.0, 8 June 1999.
+            <link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://opencontent.org/openpub/">http://opencontent.org/openpub/</link>.
+        </para>
+    </refsect1>
+</refentry>

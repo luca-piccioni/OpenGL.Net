@@ -1,0 +1,100 @@
+<!DOCTYPE refentry [ <!ENTITY % mathent SYSTEM "math.ent"> %mathent; ]>
+
+<refentry xmlns="http://docbook.org/ns/docbook" version="5.0" xml:id="fwidth">
+    <info>
+        <copyright>
+            <year>2011-2014</year>
+            <holder>Khronos Group</holder>
+        </copyright>
+    </info>
+    <refmeta>
+        <refentrytitle>fwidth</refentrytitle>
+        <manvolnum>3G</manvolnum>
+    </refmeta>
+    <refnamediv>
+        <refname>fwidth</refname>
+        <refpurpose>return the sum of the absolute value of derivatives in x and y</refpurpose>
+    </refnamediv>
+    <refsynopsisdiv><title>Declaration</title>
+        <funcsynopsis>
+            <funcprototype>
+                <funcdef>genType <function>fwidth</function></funcdef>
+                <paramdef>genType <parameter>p</parameter></paramdef>
+            </funcprototype>
+            <funcprototype>
+                <funcdef>genType <function>fwidthCoarse</function></funcdef>
+                <paramdef>genType <parameter>p</parameter></paramdef>
+            </funcprototype>
+            <funcprototype>
+                <funcdef>genType <function>fwidthFine</function></funcdef>
+                <paramdef>genType <parameter>p</parameter></paramdef>
+            </funcprototype>
+        </funcsynopsis>
+    </refsynopsisdiv>
+    <refsect1 xml:id="parameters"><title>Parameters</title>
+        <variablelist>
+        <varlistentry>
+            <term><parameter>p</parameter></term>
+            <listitem>
+                <para>
+                    Specifies the expression of which to take the partial
+                    derivative.
+                </para>
+            </listitem>
+        </varlistentry>
+        </variablelist>
+    </refsect1>
+    <refsect1 xml:id="description"><title>Description</title>
+        <para>
+            <emphasis>Available only in the fragment shader</emphasis>,
+            these functions return the sum of the absolute derivatives in
+            $x$ and $y$ using local differencing for the input argument
+            <parameter>p</parameter>.  
+            <function>fwidth</function> is equivalent to
+            <code>
+                <function>abs</function>(<parameter>dFdx</parameter>(p)) +
+                <function>abs</function>(<parameter>dFdy</parameter>(p))
+            </code>.
+            <function>fwidthCoarse</function> is equivalent to
+            <code>
+                <function>abs</function>(<parameter>dFdxCoarse</parameter>(p)) +
+                <function>abs</function>(<parameter>dFdyCoarse</parameter>(p))
+            </code>.
+            <function>fwidthFine</function> is equivalent to
+            <code>
+                <function>abs</function>(<parameter>dFdxFine</parameter>(p)) +
+                <function>abs</function>(<parameter>dFdyFine</parameter>(p))
+            </code>.
+        </para>
+    </refsect1>
+    <refsect1 xml:id="versions"><title>Version Support</title>
+        <informaltable>
+            <tgroup cols="13" align="left">
+                <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="funchead.xml" xpointer="xpointer(/*/*)"/>
+                <tbody>
+                    <row>
+                        <entry>fwidth</entry>
+                        <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="version.xml" xpointer="xpointer(/*/*[@role='11']/*)"/>
+                    </row>
+                    <row>
+                        <entry>fwidthCoarse, fwidthFine</entry>
+                        <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="version.xml" xpointer="xpointer(/*/*[@role='45']/*)"/>
+                    </row>
+                </tbody>
+            </tgroup>
+        </informaltable>
+    </refsect1>
+    <refsect1 xml:id="seealso"><title>See Also</title>
+        <para>
+            <citerefentry><refentrytitle>dFdx</refentrytitle></citerefentry>
+        </para>
+    </refsect1>
+    <refsect1 xml:id="Copyright"><title>Copyright</title>
+        <para>
+            Copyright <trademark class="copyright"/> 2011-2014 Khronos Group.
+            This material may be distributed subject to the terms and conditions set forth in
+            the Open Publication License, v 1.0, 8 June 1999.
+            <link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://opencontent.org/openpub/">http://opencontent.org/openpub/</link>.
+        </para>
+    </refsect1>
+</refentry>

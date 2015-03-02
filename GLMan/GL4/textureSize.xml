@@ -1,0 +1,187 @@
+<!DOCTYPE refentry [ <!ENTITY % mathent SYSTEM "math.ent"> %mathent; ]>
+
+<!-- Converted by db4-upgrade version 1.1 -->
+
+<refentry xmlns="http://docbook.org/ns/docbook" version="5.0" xml:id="textureSize">
+    <info>
+        <copyright>
+            <year>2011-2014</year>
+            <holder>Khronos Group</holder>
+        </copyright>
+    </info>
+    <refmeta>
+        <refentrytitle>textureSize</refentrytitle>
+        <manvolnum>3G</manvolnum>
+    </refmeta>
+    <refnamediv>
+        <refname>textureSize</refname>
+        <refpurpose>retrieve the dimensions of a level of a texture</refpurpose>
+    </refnamediv>
+    <refsynopsisdiv><title>Declaration</title>
+        <funcsynopsis>
+            <funcprototype>
+                <funcdef>int <function>textureSize</function></funcdef>
+                <paramdef>gsampler1D <parameter>sampler</parameter></paramdef>
+                <paramdef>int <parameter>lod</parameter></paramdef>
+            </funcprototype>
+            <funcprototype>
+                <funcdef>ivec2 <function>textureSize</function></funcdef>
+                <paramdef>gsampler2D <parameter>sampler</parameter></paramdef>
+                <paramdef>int <parameter>lod</parameter></paramdef>
+            </funcprototype>
+            <funcprototype>
+                <funcdef>ivec3 <function>textureSize</function></funcdef>
+                <paramdef>gsampler3D <parameter>sampler</parameter></paramdef>
+                <paramdef>int <parameter>lod</parameter></paramdef>
+            </funcprototype>
+            <funcprototype>
+                <funcdef>ivec2 <function>textureSize</function></funcdef>
+                <paramdef>gsamplerCube <parameter>sampler</parameter></paramdef>
+                <paramdef>int <parameter>lod</parameter></paramdef>
+            </funcprototype>
+            <funcprototype>
+                <funcdef>int <function>textureSize</function></funcdef>
+                <paramdef>sampler1DShadow <parameter>sampler</parameter></paramdef>
+                <paramdef>int <parameter>lod</parameter></paramdef>
+            </funcprototype>
+            <funcprototype>
+                <funcdef>ivec2 <function>textureSize</function></funcdef>
+                <paramdef>sampler2DShadow <parameter>sampler</parameter></paramdef>
+                <paramdef>int <parameter>lod</parameter></paramdef>
+            </funcprototype>
+            <funcprototype>
+                <funcdef>ivec2 <function>textureSize</function></funcdef>
+                <paramdef>samplerCubeShadow <parameter>sampler</parameter></paramdef>
+                <paramdef>int <parameter>lod</parameter></paramdef>
+            </funcprototype>
+            <funcprototype>
+                <funcdef>ivec3 <function>textureSize</function></funcdef>
+                <paramdef>samplerCubeArray <parameter>sampler</parameter></paramdef>
+                <paramdef>int <parameter>lod</parameter></paramdef>
+            </funcprototype>
+            <funcprototype>
+                <funcdef>ivec3 <function>textureSize</function></funcdef>
+                <paramdef>samplerCubeArrayShadow <parameter>sampler</parameter></paramdef>
+                <paramdef>int <parameter>lod</parameter></paramdef>
+            </funcprototype>
+            <funcprototype>
+                <funcdef>ivec2 <function>textureSize</function></funcdef>
+                <paramdef>gsamplerRect <parameter>sampler</parameter></paramdef>
+            </funcprototype>
+            <funcprototype>
+                <funcdef>ivec2 <function>textureSize</function></funcdef>
+                <paramdef>gsamplerRectShadow <parameter>sampler</parameter></paramdef>
+            </funcprototype>
+            <funcprototype>
+                <funcdef>ivec2 <function>textureSize</function></funcdef>
+                <paramdef>gsampler1DArray <parameter>sampler</parameter></paramdef>
+                <paramdef>int <parameter>lod</parameter></paramdef>
+            </funcprototype>
+            <funcprototype>
+                <funcdef>ivec3 <function>textureSize</function></funcdef>
+                <paramdef>gsampler2DArray <parameter>sampler</parameter></paramdef>
+                <paramdef>int <parameter>lod</parameter></paramdef>
+            </funcprototype>            <funcprototype>
+                <funcdef>ivec2 <function>textureSize</function></funcdef>
+                <paramdef>sampler1DArrayShadow <parameter>sampler</parameter></paramdef>
+                <paramdef>int <parameter>lod</parameter></paramdef>
+            </funcprototype>
+            <funcprototype>
+                <funcdef>ivec3 <function>textureSize</function></funcdef>
+                <paramdef>sampler2DArrayShadow <parameter>sampler</parameter></paramdef>
+                <paramdef>int <parameter>lod</parameter></paramdef>
+            </funcprototype>
+            <funcprototype>
+                <funcdef>int <function>textureSize</function></funcdef>
+                <paramdef>gsamplerBuffer <parameter>sampler</parameter></paramdef>
+            </funcprototype>
+            <funcprototype>
+                <funcdef>ivec2 <function>textureSize</function></funcdef>
+                <paramdef>gsampler2DMS <parameter>sampler</parameter></paramdef>
+            </funcprototype>
+            <funcprototype>
+                <funcdef>ivec3 <function>textureSize</function></funcdef>
+                <paramdef>gsampler2DMSArray <parameter>sampler</parameter></paramdef>
+            </funcprototype>
+        </funcsynopsis>
+    </refsynopsisdiv>
+    <refsect1 xml:id="parameters"><title>Parameters</title>
+        <variablelist>
+        <varlistentry>
+            <term><parameter>sampler</parameter></term>
+            <listitem>
+                <para>
+                    Specifies the sampler to which the texture whose dimensions to retrieve is bound.
+                </para>
+            </listitem>
+        </varlistentry>
+        <varlistentry>
+            <term><parameter>lod</parameter></term>
+            <listitem>
+                <para>
+                    Specifies the level of the texture for which to retrieve the dimensions.
+                </para>
+            </listitem>
+        </varlistentry>
+        </variablelist>
+    </refsect1>
+    <refsect1 xml:id="description"><title>Description</title>
+        <para>
+            <function>textureSize</function> returns the dimensions of level <parameter>lod</parameter> (if present)
+            of the texture bound to <parameter>sampler</parameter>. The components in the return value are filled in,
+            in order, with the width, height and depth of the texture. For the array forms, the last component of the
+            return value is the number of layers in the texture array.
+        </para>
+    </refsect1>
+    <refsect1 xml:id="versions"><title>Version Support</title>
+        <informaltable>
+            <tgroup cols="13" align="left">
+                <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="funchead.xml" xpointer="xpointer(/*/*)"/>
+                <tbody>
+                    <row>
+                        <entry>textureSize</entry>
+                        <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="version.xml" xpointer="xpointer(/*/*[@role='13']/*)"/>
+                    </row>
+                    <row>
+                        <entry>textureSize (samplerBuffer, samplerRect{Shadow})</entry>
+                        <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="version.xml" xpointer="xpointer(/*/*[@role='14']/*)"/>
+                    </row>
+                    <row>
+                        <entry>textureSize (samplerCube{Shadow})</entry>
+                        <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="version.xml" xpointer="xpointer(/*/*[@role='40']/*)"/>
+                    </row>
+                </tbody>
+            </tgroup>
+        </informaltable>
+    </refsect1>
+    <refsect1 xml:id="seealso"><title>See Also</title>
+        <para>
+            <citerefentry><refentrytitle>texelFetch</refentrytitle></citerefentry>,
+            <citerefentry><refentrytitle>texelFetchOffset</refentrytitle></citerefentry>,
+            <citerefentry><refentrytitle>texture</refentrytitle></citerefentry>,
+            <citerefentry><refentrytitle>textureGather</refentrytitle></citerefentry>,
+            <citerefentry><refentrytitle>textureGatherOffset</refentrytitle></citerefentry>,
+            <citerefentry><refentrytitle>textureGatherOffsets</refentrytitle></citerefentry>,
+            <citerefentry><refentrytitle>textureGrad</refentrytitle></citerefentry>,
+            <citerefentry><refentrytitle>textureGradOffset</refentrytitle></citerefentry>,
+            <citerefentry><refentrytitle>textureLod</refentrytitle></citerefentry>,
+            <citerefentry><refentrytitle>textureLodOffset</refentrytitle></citerefentry>,
+            <citerefentry><refentrytitle>textureOffset</refentrytitle></citerefentry>,
+            <citerefentry><refentrytitle>textureProj</refentrytitle></citerefentry>,
+            <citerefentry><refentrytitle>textureProjGrad</refentrytitle></citerefentry>,
+            <citerefentry><refentrytitle>textureProjGradOffset</refentrytitle></citerefentry>,
+            <citerefentry><refentrytitle>textureProjLod</refentrytitle></citerefentry>,
+            <citerefentry><refentrytitle>textureProjLodOffset</refentrytitle></citerefentry>,
+            <citerefentry><refentrytitle>textureProjOffset</refentrytitle></citerefentry>,
+            <citerefentry><refentrytitle>textureQueryLod</refentrytitle></citerefentry>
+        </para>
+    </refsect1>
+    <refsect1 xml:id="Copyright"><title>Copyright</title>
+        <para>
+            Copyright <trademark class="copyright"/> 2011-2014 Khronos Group.
+            This material may be distributed subject to the terms and conditions set forth in
+            the Open Publication License, v 1.0, 8 June 1999.
+            <link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://opencontent.org/openpub/">http://opencontent.org/openpub/</link>.
+        </para>
+    </refsect1>
+</refentry>

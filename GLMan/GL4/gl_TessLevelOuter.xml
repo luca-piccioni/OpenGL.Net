@@ -1,0 +1,79 @@
+<!DOCTYPE refentry [ <!ENTITY % mathent SYSTEM "math.ent"> %mathent; ]>
+
+<!-- Converted by db4-upgrade version 1.1 -->
+
+<refentry xmlns="http://docbook.org/ns/docbook" version="5.0" xml:id="gl_TessLevelOuter">
+    <info>
+        <copyright>
+            <year>2011-2014</year>
+            <holder>Khronos Group</holder>
+        </copyright>
+    </info>
+    <refmeta>
+        <refentrytitle>gl_TessLevelOuter</refentrytitle>
+        <manvolnum>3G</manvolnum>
+    </refmeta>
+    <refnamediv>
+        <refname>gl_TessLevelOuter</refname>
+        <refpurpose>contains the outer tessellation levels for the current patch</refpurpose>
+    </refnamediv>
+    <refsynopsisdiv>
+        <title>Declaration</title>
+        <para>
+            <programlisting>// In tessellation control shaders</programlisting>
+            <fieldsynopsis>
+                <modifier>out</modifier>
+                <type>float</type>
+                <varname>gl_TessLevelOuter[4]</varname>
+            </fieldsynopsis>
+        </para>
+        <para>
+            <programlisting>// In tessellation evaluation shaders</programlisting>
+            <fieldsynopsis>
+                <modifier>in</modifier>
+                <type>float</type>
+                <varname>gl_TessLevelOuter[4]</varname>
+            </fieldsynopsis>
+        </para>
+    </refsynopsisdiv>
+    <refsect1 xml:id="description"><title>Description</title>
+        <para>
+            Available only in the tessellation control and evaluation languages, <varname>gl_TessLevelOuter</varname>
+            is used to assign values to the corresponding outer tesellation levels of the current patch. The values written
+            into <varname>gl_TessLevelOuter</varname> by the tessellation control shader are used by the tessellation
+            primitive generator to control primitive tessellation and may be read by the subsequent tessellation evaluation shader.
+        </para>
+        <para>
+            As inputs to the tessellation evaluation shader, <varname>gl_TessLevelOuter</varname> contains the values
+            written by the tessellation control shader, if present. If no tessellation control shader is present, it
+            contains the default tessellation level.
+        </para>
+    </refsect1>
+    <refsect1 xml:id="versions"><title>Version Support</title>
+        <informaltable>
+            <tgroup cols="13" align="left">
+                <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="funchead.xml" xpointer="xpointer(/*/*)"/>
+                <tbody>
+                    <row>
+                        <entry>gl_TessLevelOuter</entry>
+                        <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="version.xml" xpointer="xpointer(/*/*[@role='40']/*)"/>
+                    </row>
+                </tbody>
+            </tgroup>
+        </informaltable>
+    </refsect1>
+    <refsect1 xml:id="seealso"><title>See Also</title>
+        <para>
+            <citerefentry><refentrytitle>gl_TessLevelInner</refentrytitle></citerefentry>,
+            <citerefentry><refentrytitle>gl_TessCoord</refentrytitle></citerefentry>
+        </para>
+    </refsect1>
+    <refsect1 xml:id="Copyright"><title>Copyright</title>
+        <para>
+            Copyright <trademark class="copyright"/> 2011-2014 Khronos Group.
+            This material may be distributed subject to the terms and conditions set forth in
+            the Open Publication License, v 1.0, 8 June 1999.
+            <link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://opencontent.org/openpub/">http://opencontent.org/openpub/</link>.
+        </para>
+    </refsect1>
+</refentry>

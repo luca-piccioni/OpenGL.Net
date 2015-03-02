@@ -1,0 +1,121 @@
+<!DOCTYPE refentry [ <!ENTITY % mathent SYSTEM "math.ent"> %mathent; ]>
+
+<refentry xmlns="http://docbook.org/ns/docbook" version="5.0" xml:id="gl_HelperInvocation">
+    <info>
+        <copyright>
+            <year>2014</year>
+            <holder>Khronos Group</holder>
+        </copyright>
+    </info>
+    <refmeta>
+        <refentrytitle>gl_HelperInvocation</refentrytitle>
+        <manvolnum>3G</manvolnum>
+    </refmeta>
+    <refnamediv>
+        <refname>gl_HelperInvocation</refname>
+        <refpurpose>indicates whether a fragment shader invocation is a helper invocation</refpurpose>
+    </refnamediv>
+    <refsynopsisdiv>
+        <title>Declaration</title>
+        <fieldsynopsis>
+            <modifier>in</modifier>
+            <type>bool</type>
+            <varname>gl_HelperInvocation</varname>
+        </fieldsynopsis>
+    </refsynopsisdiv>
+    <refsect1 xml:id="description"><title>Description</title>
+        <para>
+            The value <varname>gl_HelperInvocation</varname> is true if the
+            fragment shader invocation is considered a helper invocation and
+            is false otherwise. A helper invocation is a fragment-shader
+            invocation that is created solely for the purposes of evaluating
+            derivatives for use in non-helper fragment-shader invocations.
+            Such derivatives are computed implicitly in the built-in
+            function
+            <citerefentry><refentrytitle>texture</refentrytitle></citerefentry>(),
+            and explicitly in the derivative functions
+            <citerefentry><refentrytitle>dFdx</refentrytitle></citerefentry>()
+            and <function>dFdy</function>.
+        </para>
+        <para> 
+            Fragment shader helper invocations execute the same shader code
+            as non-helper invocations, but will not have side effects that
+            modify the framebuffer or other shader-accessible memory. In
+            particular:
+        
+            <itemizedlist>
+                <listitem>
+                    <para>
+                        Fragments corresponding to helper invocations are
+                        discarded when shader execution is complete, without
+                        updating the framebuffer.
+                    </para>
+                </listitem>
+                <listitem>
+                    <para>
+                        Stores to image and buffer variables performed by
+                        helper invocations have no effect on the underlying
+                        image or buffer memory.
+                    </para>
+                </listitem>
+                <listitem>
+                    <para>
+                        Atomic operations to image, buffer, or atomic
+                        counter variables performed by helper invocations
+                        have no effect on the underlying image or buffer
+                        memory. The values returned by such atomic
+                        operations are undefined.
+                    </para>
+                </listitem>
+            </itemizedlist>
+        </para>
+        <para>
+            Helper invocations may be generated for pixels not covered by a
+            primitive being rendered. While fragment shader inputs qualified
+            with centroid are normally required to be sampled in the
+            intersection of the pixel and the primitive, the requirement is
+            ignored for such pixels since there is no intersection between
+            the pixel and primitive.
+        </para>
+        <para>
+            Helper invocations may also be generated for fragments that are
+            covered by a primitive being rendered when the fragment is
+            killed by early fragment tests (using the early_fragment_tests
+            qualifier) or where the implementation is able to determine that
+            executing the fragment shader would have no effect other than
+            assisting in computing derivatives for other fragment shader
+            invocations.
+        </para>
+        <para>
+            The set of helper invocations generated when processing any set
+            of primitives is implementation dependent.
+        </para>
+    </refsect1>
+    <refsect1 xml:id="versions"><title>Version Support</title>
+        <informaltable>
+            <tgroup cols="13" align="left">
+                <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="varhead.xml" xpointer="xpointer(/*/*)"/>
+                <tbody>
+                    <row>
+                        <entry>gl_HelperInvocation</entry>
+                        <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="version.xml" xpointer="xpointer(/*/*[@role='45']/*)"/>
+                    </row>
+                </tbody>
+            </tgroup>
+        </informaltable>
+    </refsect1>
+    <refsect1 xml:id="seealso"><title>See Also</title>
+        <para>
+            <citerefentry><refentrytitle>dFdx</refentrytitle></citerefentry>,
+            <citerefentry><refentrytitle>texture</refentrytitle></citerefentry>
+        </para>
+    </refsect1>
+    <refsect1 xml:id="Copyright"><title>Copyright</title>
+        <para>
+            Copyright <trademark class="copyright"/> 2014 Khronos Group.
+            This material may be distributed subject to the terms and conditions set forth in
+            the Open Publication License, v 1.0, 8 June 1999.
+            <link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://opencontent.org/openpub/">http://opencontent.org/openpub/</link>.
+        </para>
+    </refsect1>
+</refentry>
