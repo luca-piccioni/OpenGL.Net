@@ -30,7 +30,7 @@ namespace OpenGL
 		/// </summary>
 		[RequiredByFeature("WGL_ARB_robustness_application_isolation")]
 		[RequiredByFeature("WGL_ARB_robustness_share_group_isolation")]
-		public const uint WGL_CONTEXT_RESET_ISOLATION_BIT_ARB = 0x00000008;
+		public const uint CONTEXT_RESET_ISOLATION_BIT_ARB = 0x00000008;
 
 	}
 

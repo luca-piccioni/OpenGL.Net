@@ -29,7 +29,7 @@ namespace OpenGL
 		/// Value of WGL_DEPTH_FLOAT_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("WGL_EXT_depth_float")]
-		public const int WGL_DEPTH_FLOAT_EXT = 0x2040;
+		public const int DEPTH_FLOAT_EXT = 0x2040;
 
 	}
 

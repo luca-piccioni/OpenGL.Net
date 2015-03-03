@@ -29,25 +29,25 @@ namespace OpenGL
 		/// Value of WGL_DIGITAL_VIDEO_CURSOR_ALPHA_FRAMEBUFFER_I3D symbol.
 		/// </summary>
 		[RequiredByFeature("WGL_I3D_digital_video_control")]
-		public const int WGL_DIGITAL_VIDEO_CURSOR_ALPHA_FRAMEBUFFER_I3D = 0x2050;
+		public const int DIGITAL_VIDEO_CURSOR_ALPHA_FRAMEBUFFER_I3D = 0x2050;
 
 		/// <summary>
 		/// Value of WGL_DIGITAL_VIDEO_CURSOR_ALPHA_VALUE_I3D symbol.
 		/// </summary>
 		[RequiredByFeature("WGL_I3D_digital_video_control")]
-		public const int WGL_DIGITAL_VIDEO_CURSOR_ALPHA_VALUE_I3D = 0x2051;
+		public const int DIGITAL_VIDEO_CURSOR_ALPHA_VALUE_I3D = 0x2051;
 
 		/// <summary>
 		/// Value of WGL_DIGITAL_VIDEO_CURSOR_INCLUDED_I3D symbol.
 		/// </summary>
 		[RequiredByFeature("WGL_I3D_digital_video_control")]
-		public const int WGL_DIGITAL_VIDEO_CURSOR_INCLUDED_I3D = 0x2052;
+		public const int DIGITAL_VIDEO_CURSOR_INCLUDED_I3D = 0x2052;
 
 		/// <summary>
 		/// Value of WGL_DIGITAL_VIDEO_GAMMA_CORRECTED_I3D symbol.
 		/// </summary>
 		[RequiredByFeature("WGL_I3D_digital_video_control")]
-		public const int WGL_DIGITAL_VIDEO_GAMMA_CORRECTED_I3D = 0x2053;
+		public const int DIGITAL_VIDEO_GAMMA_CORRECTED_I3D = 0x2053;
 
 		/// <summary>
 		/// Binding for wglGetDigitalVideoParametersI3D.

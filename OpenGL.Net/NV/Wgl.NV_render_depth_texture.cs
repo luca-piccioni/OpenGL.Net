@@ -29,31 +29,31 @@ namespace OpenGL
 		/// Value of WGL_BIND_TO_TEXTURE_DEPTH_NV symbol.
 		/// </summary>
 		[RequiredByFeature("WGL_NV_render_depth_texture")]
-		public const int WGL_BIND_TO_TEXTURE_DEPTH_NV = 0x20A3;
+		public const int BIND_TO_TEXTURE_DEPTH_NV = 0x20A3;
 
 		/// <summary>
 		/// Value of WGL_BIND_TO_TEXTURE_RECTANGLE_DEPTH_NV symbol.
 		/// </summary>
 		[RequiredByFeature("WGL_NV_render_depth_texture")]
-		public const int WGL_BIND_TO_TEXTURE_RECTANGLE_DEPTH_NV = 0x20A4;
+		public const int BIND_TO_TEXTURE_RECTANGLE_DEPTH_NV = 0x20A4;
 
 		/// <summary>
 		/// Value of WGL_DEPTH_TEXTURE_FORMAT_NV symbol.
 		/// </summary>
 		[RequiredByFeature("WGL_NV_render_depth_texture")]
-		public const int WGL_DEPTH_TEXTURE_FORMAT_NV = 0x20A5;
+		public const int DEPTH_TEXTURE_FORMAT_NV = 0x20A5;
 
 		/// <summary>
 		/// Value of WGL_TEXTURE_DEPTH_COMPONENT_NV symbol.
 		/// </summary>
 		[RequiredByFeature("WGL_NV_render_depth_texture")]
-		public const int WGL_TEXTURE_DEPTH_COMPONENT_NV = 0x20A6;
+		public const int TEXTURE_DEPTH_COMPONENT_NV = 0x20A6;
 
 		/// <summary>
 		/// Value of WGL_DEPTH_COMPONENT_NV symbol.
 		/// </summary>
 		[RequiredByFeature("WGL_NV_render_depth_texture")]
-		public const int WGL_DEPTH_COMPONENT_NV = 0x20A7;
+		public const int DEPTH_COMPONENT_NV = 0x20A7;
 
 	}
 

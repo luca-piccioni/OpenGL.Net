@@ -29,7 +29,7 @@ namespace OpenGL
 		/// Value of WGL_NUM_VIDEO_SLOTS_NV symbol.
 		/// </summary>
 		[RequiredByFeature("WGL_NV_present_video")]
-		public const int WGL_NUM_VIDEO_SLOTS_NV = 0x20F0;
+		public const int NUM_VIDEO_SLOTS_NV = 0x20F0;
 
 		/// <summary>
 		/// Binding for wglEnumerateVideoDevicesNV.

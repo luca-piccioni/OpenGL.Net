@@ -27,7 +27,7 @@ namespace OpenGL
 	/// <summary>
 	/// Modern OpenGL bindings.
 	/// </summary>
-	public partial class Wgl
+	public partial class Wgl : ProcLoader
 	{
 		#region Imports Management
 

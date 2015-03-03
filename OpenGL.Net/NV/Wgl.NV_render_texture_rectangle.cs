@@ -29,19 +29,19 @@ namespace OpenGL
 		/// Value of WGL_BIND_TO_TEXTURE_RECTANGLE_RGB_NV symbol.
 		/// </summary>
 		[RequiredByFeature("WGL_NV_render_texture_rectangle")]
-		public const int WGL_BIND_TO_TEXTURE_RECTANGLE_RGB_NV = 0x20A0;
+		public const int BIND_TO_TEXTURE_RECTANGLE_RGB_NV = 0x20A0;
 
 		/// <summary>
 		/// Value of WGL_BIND_TO_TEXTURE_RECTANGLE_RGBA_NV symbol.
 		/// </summary>
 		[RequiredByFeature("WGL_NV_render_texture_rectangle")]
-		public const int WGL_BIND_TO_TEXTURE_RECTANGLE_RGBA_NV = 0x20A1;
+		public const int BIND_TO_TEXTURE_RECTANGLE_RGBA_NV = 0x20A1;
 
 		/// <summary>
 		/// Value of WGL_TEXTURE_RECTANGLE_NV symbol.
 		/// </summary>
 		[RequiredByFeature("WGL_NV_render_texture_rectangle")]
-		public const int WGL_TEXTURE_RECTANGLE_NV = 0x20A2;
+		public const int TEXTURE_RECTANGLE_NV = 0x20A2;
 
 	}
 

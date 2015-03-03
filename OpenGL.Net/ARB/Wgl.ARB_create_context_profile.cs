@@ -29,19 +29,19 @@ namespace OpenGL
 		/// Value of WGL_CONTEXT_PROFILE_MASK_ARB symbol.
 		/// </summary>
 		[RequiredByFeature("WGL_ARB_create_context_profile")]
-		public const int WGL_CONTEXT_PROFILE_MASK_ARB = 0x9126;
+		public const int CONTEXT_PROFILE_MASK_ARB = 0x9126;
 
 		/// <summary>
 		/// Value of WGL_CONTEXT_CORE_PROFILE_BIT_ARB symbol.
 		/// </summary>
 		[RequiredByFeature("WGL_ARB_create_context_profile")]
-		public const uint WGL_CONTEXT_CORE_PROFILE_BIT_ARB = 0x00000001;
+		public const uint CONTEXT_CORE_PROFILE_BIT_ARB = 0x00000001;
 
 		/// <summary>
 		/// Value of WGL_CONTEXT_COMPATIBILITY_PROFILE_BIT_ARB symbol.
 		/// </summary>
 		[RequiredByFeature("WGL_ARB_create_context_profile")]
-		public const uint WGL_CONTEXT_COMPATIBILITY_PROFILE_BIT_ARB = 0x00000002;
+		public const uint CONTEXT_COMPATIBILITY_PROFILE_BIT_ARB = 0x00000002;
 
 		/// <summary>
 		/// Value of ERROR_INVALID_PROFILE_ARB symbol.

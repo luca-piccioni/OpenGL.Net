@@ -29,49 +29,49 @@ namespace OpenGL
 		/// Value of WGL_DRAW_TO_PBUFFER_ARB symbol.
 		/// </summary>
 		[RequiredByFeature("WGL_ARB_pbuffer")]
-		public const int WGL_DRAW_TO_PBUFFER_ARB = 0x202D;
+		public const int DRAW_TO_PBUFFER_ARB = 0x202D;
 
 		/// <summary>
 		/// Value of WGL_MAX_PBUFFER_PIXELS_ARB symbol.
 		/// </summary>
 		[RequiredByFeature("WGL_ARB_pbuffer")]
-		public const int WGL_MAX_PBUFFER_PIXELS_ARB = 0x202E;
+		public const int MAX_PBUFFER_PIXELS_ARB = 0x202E;
 
 		/// <summary>
 		/// Value of WGL_MAX_PBUFFER_WIDTH_ARB symbol.
 		/// </summary>
 		[RequiredByFeature("WGL_ARB_pbuffer")]
-		public const int WGL_MAX_PBUFFER_WIDTH_ARB = 0x202F;
+		public const int MAX_PBUFFER_WIDTH_ARB = 0x202F;
 
 		/// <summary>
 		/// Value of WGL_MAX_PBUFFER_HEIGHT_ARB symbol.
 		/// </summary>
 		[RequiredByFeature("WGL_ARB_pbuffer")]
-		public const int WGL_MAX_PBUFFER_HEIGHT_ARB = 0x2030;
+		public const int MAX_PBUFFER_HEIGHT_ARB = 0x2030;
 
 		/// <summary>
 		/// Value of WGL_PBUFFER_LARGEST_ARB symbol.
 		/// </summary>
 		[RequiredByFeature("WGL_ARB_pbuffer")]
-		public const int WGL_PBUFFER_LARGEST_ARB = 0x2033;
+		public const int PBUFFER_LARGEST_ARB = 0x2033;
 
 		/// <summary>
 		/// Value of WGL_PBUFFER_WIDTH_ARB symbol.
 		/// </summary>
 		[RequiredByFeature("WGL_ARB_pbuffer")]
-		public const int WGL_PBUFFER_WIDTH_ARB = 0x2034;
+		public const int PBUFFER_WIDTH_ARB = 0x2034;
 
 		/// <summary>
 		/// Value of WGL_PBUFFER_HEIGHT_ARB symbol.
 		/// </summary>
 		[RequiredByFeature("WGL_ARB_pbuffer")]
-		public const int WGL_PBUFFER_HEIGHT_ARB = 0x2035;
+		public const int PBUFFER_HEIGHT_ARB = 0x2035;
 
 		/// <summary>
 		/// Value of WGL_PBUFFER_LOST_ARB symbol.
 		/// </summary>
 		[RequiredByFeature("WGL_ARB_pbuffer")]
-		public const int WGL_PBUFFER_LOST_ARB = 0x2036;
+		public const int PBUFFER_LOST_ARB = 0x2036;
 
 		/// <summary>
 		/// Binding for wglCreatePbufferARB.

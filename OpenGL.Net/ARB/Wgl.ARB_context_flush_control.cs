@@ -29,19 +29,19 @@ namespace OpenGL
 		/// Value of WGL_CONTEXT_RELEASE_BEHAVIOR_ARB symbol.
 		/// </summary>
 		[RequiredByFeature("WGL_ARB_context_flush_control")]
-		public const int WGL_CONTEXT_RELEASE_BEHAVIOR_ARB = 0x2097;
+		public const int CONTEXT_RELEASE_BEHAVIOR_ARB = 0x2097;
 
 		/// <summary>
 		/// Value of WGL_CONTEXT_RELEASE_BEHAVIOR_NONE_ARB symbol.
 		/// </summary>
 		[RequiredByFeature("WGL_ARB_context_flush_control")]
-		public const int WGL_CONTEXT_RELEASE_BEHAVIOR_NONE_ARB = 0;
+		public const int CONTEXT_RELEASE_BEHAVIOR_NONE_ARB = 0;
 
 		/// <summary>
 		/// Value of WGL_CONTEXT_RELEASE_BEHAVIOR_FLUSH_ARB symbol.
 		/// </summary>
 		[RequiredByFeature("WGL_ARB_context_flush_control")]
-		public const int WGL_CONTEXT_RELEASE_BEHAVIOR_FLUSH_ARB = 0x2098;
+		public const int CONTEXT_RELEASE_BEHAVIOR_FLUSH_ARB = 0x2098;
 
 	}
 

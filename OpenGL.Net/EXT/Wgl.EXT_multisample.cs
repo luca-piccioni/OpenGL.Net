@@ -29,13 +29,13 @@ namespace OpenGL
 		/// Value of WGL_SAMPLE_BUFFERS_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("WGL_EXT_multisample")]
-		public const int WGL_SAMPLE_BUFFERS_EXT = 0x2041;
+		public const int SAMPLE_BUFFERS_EXT = 0x2041;
 
 		/// <summary>
 		/// Value of WGL_SAMPLES_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("WGL_EXT_multisample")]
-		public const int WGL_SAMPLES_EXT = 0x2042;
+		public const int SAMPLES_EXT = 0x2042;
 
 	}
 

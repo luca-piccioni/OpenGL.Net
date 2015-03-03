@@ -29,25 +29,25 @@ namespace OpenGL
 		/// Value of WGL_CONTEXT_ROBUST_ACCESS_BIT_ARB symbol.
 		/// </summary>
 		[RequiredByFeature("WGL_ARB_create_context_robustness")]
-		public const uint WGL_CONTEXT_ROBUST_ACCESS_BIT_ARB = 0x00000004;
+		public const uint CONTEXT_ROBUST_ACCESS_BIT_ARB = 0x00000004;
 
 		/// <summary>
 		/// Value of WGL_LOSE_CONTEXT_ON_RESET_ARB symbol.
 		/// </summary>
 		[RequiredByFeature("WGL_ARB_create_context_robustness")]
-		public const int WGL_LOSE_CONTEXT_ON_RESET_ARB = 0x8252;
+		public const int LOSE_CONTEXT_ON_RESET_ARB = 0x8252;
 
 		/// <summary>
 		/// Value of WGL_CONTEXT_RESET_NOTIFICATION_STRATEGY_ARB symbol.
 		/// </summary>
 		[RequiredByFeature("WGL_ARB_create_context_robustness")]
-		public const int WGL_CONTEXT_RESET_NOTIFICATION_STRATEGY_ARB = 0x8256;
+		public const int CONTEXT_RESET_NOTIFICATION_STRATEGY_ARB = 0x8256;
 
 		/// <summary>
 		/// Value of WGL_NO_RESET_NOTIFICATION_ARB symbol.
 		/// </summary>
 		[RequiredByFeature("WGL_ARB_create_context_robustness")]
-		public const int WGL_NO_RESET_NOTIFICATION_ARB = 0x8261;
+		public const int NO_RESET_NOTIFICATION_ARB = 0x8261;
 
 	}
 

@@ -29,19 +29,19 @@ namespace OpenGL
 		/// Value of WGL_ACCESS_READ_ONLY_NV symbol.
 		/// </summary>
 		[RequiredByFeature("WGL_NV_DX_interop")]
-		public const uint WGL_ACCESS_READ_ONLY_NV = 0x00000000;
+		public const uint ACCESS_READ_ONLY_NV = 0x00000000;
 
 		/// <summary>
 		/// Value of WGL_ACCESS_READ_WRITE_NV symbol.
 		/// </summary>
 		[RequiredByFeature("WGL_NV_DX_interop")]
-		public const uint WGL_ACCESS_READ_WRITE_NV = 0x00000001;
+		public const uint ACCESS_READ_WRITE_NV = 0x00000001;
 
 		/// <summary>
 		/// Value of WGL_ACCESS_WRITE_DISCARD_NV symbol.
 		/// </summary>
 		[RequiredByFeature("WGL_NV_DX_interop")]
-		public const uint WGL_ACCESS_WRITE_DISCARD_NV = 0x00000002;
+		public const uint ACCESS_WRITE_DISCARD_NV = 0x00000002;
 
 		/// <summary>
 		/// Binding for wglDXSetResourceShareHandleNV.

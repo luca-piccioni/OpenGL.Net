@@ -29,13 +29,13 @@ namespace OpenGL
 		/// Value of WGL_SAMPLE_BUFFERS_3DFX symbol.
 		/// </summary>
 		[RequiredByFeature("WGL_3DFX_multisample")]
-		public const int WGL_SAMPLE_BUFFERS_3DFX = 0x2060;
+		public const int SAMPLE_BUFFERS_3DFX = 0x2060;
 
 		/// <summary>
 		/// Value of WGL_SAMPLES_3DFX symbol.
 		/// </summary>
 		[RequiredByFeature("WGL_3DFX_multisample")]
-		public const int WGL_SAMPLES_3DFX = 0x2061;
+		public const int SAMPLES_3DFX = 0x2061;
 
 	}
 

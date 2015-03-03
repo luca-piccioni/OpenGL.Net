@@ -29,7 +29,7 @@ namespace OpenGL
 		/// Value of WGL_CONTEXT_ES_PROFILE_BIT_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("WGL_EXT_create_context_es_profile")]
-		public const uint WGL_CONTEXT_ES_PROFILE_BIT_EXT = 0x00000004;
+		public const uint CONTEXT_ES_PROFILE_BIT_EXT = 0x00000004;
 
 	}
 

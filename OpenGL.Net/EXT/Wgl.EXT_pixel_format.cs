@@ -29,271 +29,271 @@ namespace OpenGL
 		/// Value of WGL_NUMBER_PIXEL_FORMATS_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("WGL_EXT_pixel_format")]
-		public const int WGL_NUMBER_PIXEL_FORMATS_EXT = 0x2000;
+		public const int NUMBER_PIXEL_FORMATS_EXT = 0x2000;
 
 		/// <summary>
 		/// Value of WGL_DRAW_TO_WINDOW_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("WGL_EXT_pixel_format")]
-		public const int WGL_DRAW_TO_WINDOW_EXT = 0x2001;
+		public const int DRAW_TO_WINDOW_EXT = 0x2001;
 
 		/// <summary>
 		/// Value of WGL_DRAW_TO_BITMAP_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("WGL_EXT_pixel_format")]
-		public const int WGL_DRAW_TO_BITMAP_EXT = 0x2002;
+		public const int DRAW_TO_BITMAP_EXT = 0x2002;
 
 		/// <summary>
 		/// Value of WGL_ACCELERATION_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("WGL_EXT_pixel_format")]
-		public const int WGL_ACCELERATION_EXT = 0x2003;
+		public const int ACCELERATION_EXT = 0x2003;
 
 		/// <summary>
 		/// Value of WGL_NEED_PALETTE_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("WGL_EXT_pixel_format")]
-		public const int WGL_NEED_PALETTE_EXT = 0x2004;
+		public const int NEED_PALETTE_EXT = 0x2004;
 
 		/// <summary>
 		/// Value of WGL_NEED_SYSTEM_PALETTE_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("WGL_EXT_pixel_format")]
-		public const int WGL_NEED_SYSTEM_PALETTE_EXT = 0x2005;
+		public const int NEED_SYSTEM_PALETTE_EXT = 0x2005;
 
 		/// <summary>
 		/// Value of WGL_SWAP_LAYER_BUFFERS_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("WGL_EXT_pixel_format")]
-		public const int WGL_SWAP_LAYER_BUFFERS_EXT = 0x2006;
+		public const int SWAP_LAYER_BUFFERS_EXT = 0x2006;
 
 		/// <summary>
 		/// Value of WGL_SWAP_METHOD_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("WGL_EXT_pixel_format")]
-		public const int WGL_SWAP_METHOD_EXT = 0x2007;
+		public const int SWAP_METHOD_EXT = 0x2007;
 
 		/// <summary>
 		/// Value of WGL_NUMBER_OVERLAYS_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("WGL_EXT_pixel_format")]
-		public const int WGL_NUMBER_OVERLAYS_EXT = 0x2008;
+		public const int NUMBER_OVERLAYS_EXT = 0x2008;
 
 		/// <summary>
 		/// Value of WGL_NUMBER_UNDERLAYS_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("WGL_EXT_pixel_format")]
-		public const int WGL_NUMBER_UNDERLAYS_EXT = 0x2009;
+		public const int NUMBER_UNDERLAYS_EXT = 0x2009;
 
 		/// <summary>
 		/// Value of WGL_TRANSPARENT_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("WGL_EXT_pixel_format")]
-		public const int WGL_TRANSPARENT_EXT = 0x200A;
+		public const int TRANSPARENT_EXT = 0x200A;
 
 		/// <summary>
 		/// Value of WGL_TRANSPARENT_VALUE_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("WGL_EXT_pixel_format")]
-		public const int WGL_TRANSPARENT_VALUE_EXT = 0x200B;
+		public const int TRANSPARENT_VALUE_EXT = 0x200B;
 
 		/// <summary>
 		/// Value of WGL_SHARE_DEPTH_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("WGL_EXT_pixel_format")]
-		public const int WGL_SHARE_DEPTH_EXT = 0x200C;
+		public const int SHARE_DEPTH_EXT = 0x200C;
 
 		/// <summary>
 		/// Value of WGL_SHARE_STENCIL_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("WGL_EXT_pixel_format")]
-		public const int WGL_SHARE_STENCIL_EXT = 0x200D;
+		public const int SHARE_STENCIL_EXT = 0x200D;
 
 		/// <summary>
 		/// Value of WGL_SHARE_ACCUM_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("WGL_EXT_pixel_format")]
-		public const int WGL_SHARE_ACCUM_EXT = 0x200E;
+		public const int SHARE_ACCUM_EXT = 0x200E;
 
 		/// <summary>
 		/// Value of WGL_SUPPORT_GDI_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("WGL_EXT_pixel_format")]
-		public const int WGL_SUPPORT_GDI_EXT = 0x200F;
+		public const int SUPPORT_GDI_EXT = 0x200F;
 
 		/// <summary>
 		/// Value of WGL_SUPPORT_OPENGL_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("WGL_EXT_pixel_format")]
-		public const int WGL_SUPPORT_OPENGL_EXT = 0x2010;
+		public const int SUPPORT_OPENGL_EXT = 0x2010;
 
 		/// <summary>
 		/// Value of WGL_DOUBLE_BUFFER_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("WGL_EXT_pixel_format")]
-		public const int WGL_DOUBLE_BUFFER_EXT = 0x2011;
+		public const int DOUBLE_BUFFER_EXT = 0x2011;
 
 		/// <summary>
 		/// Value of WGL_STEREO_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("WGL_EXT_pixel_format")]
-		public const int WGL_STEREO_EXT = 0x2012;
+		public const int STEREO_EXT = 0x2012;
 
 		/// <summary>
 		/// Value of WGL_PIXEL_TYPE_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("WGL_EXT_pixel_format")]
-		public const int WGL_PIXEL_TYPE_EXT = 0x2013;
+		public const int PIXEL_TYPE_EXT = 0x2013;
 
 		/// <summary>
 		/// Value of WGL_COLOR_BITS_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("WGL_EXT_pixel_format")]
-		public const int WGL_COLOR_BITS_EXT = 0x2014;
+		public const int COLOR_BITS_EXT = 0x2014;
 
 		/// <summary>
 		/// Value of WGL_RED_BITS_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("WGL_EXT_pixel_format")]
-		public const int WGL_RED_BITS_EXT = 0x2015;
+		public const int RED_BITS_EXT = 0x2015;
 
 		/// <summary>
 		/// Value of WGL_RED_SHIFT_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("WGL_EXT_pixel_format")]
-		public const int WGL_RED_SHIFT_EXT = 0x2016;
+		public const int RED_SHIFT_EXT = 0x2016;
 
 		/// <summary>
 		/// Value of WGL_GREEN_BITS_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("WGL_EXT_pixel_format")]
-		public const int WGL_GREEN_BITS_EXT = 0x2017;
+		public const int GREEN_BITS_EXT = 0x2017;
 
 		/// <summary>
 		/// Value of WGL_GREEN_SHIFT_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("WGL_EXT_pixel_format")]
-		public const int WGL_GREEN_SHIFT_EXT = 0x2018;
+		public const int GREEN_SHIFT_EXT = 0x2018;
 
 		/// <summary>
 		/// Value of WGL_BLUE_BITS_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("WGL_EXT_pixel_format")]
-		public const int WGL_BLUE_BITS_EXT = 0x2019;
+		public const int BLUE_BITS_EXT = 0x2019;
 
 		/// <summary>
 		/// Value of WGL_BLUE_SHIFT_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("WGL_EXT_pixel_format")]
-		public const int WGL_BLUE_SHIFT_EXT = 0x201A;
+		public const int BLUE_SHIFT_EXT = 0x201A;
 
 		/// <summary>
 		/// Value of WGL_ALPHA_BITS_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("WGL_EXT_pixel_format")]
-		public const int WGL_ALPHA_BITS_EXT = 0x201B;
+		public const int ALPHA_BITS_EXT = 0x201B;
 
 		/// <summary>
 		/// Value of WGL_ALPHA_SHIFT_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("WGL_EXT_pixel_format")]
-		public const int WGL_ALPHA_SHIFT_EXT = 0x201C;
+		public const int ALPHA_SHIFT_EXT = 0x201C;
 
 		/// <summary>
 		/// Value of WGL_ACCUM_BITS_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("WGL_EXT_pixel_format")]
-		public const int WGL_ACCUM_BITS_EXT = 0x201D;
+		public const int ACCUM_BITS_EXT = 0x201D;
 
 		/// <summary>
 		/// Value of WGL_ACCUM_RED_BITS_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("WGL_EXT_pixel_format")]
-		public const int WGL_ACCUM_RED_BITS_EXT = 0x201E;
+		public const int ACCUM_RED_BITS_EXT = 0x201E;
 
 		/// <summary>
 		/// Value of WGL_ACCUM_GREEN_BITS_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("WGL_EXT_pixel_format")]
-		public const int WGL_ACCUM_GREEN_BITS_EXT = 0x201F;
+		public const int ACCUM_GREEN_BITS_EXT = 0x201F;
 
 		/// <summary>
 		/// Value of WGL_ACCUM_BLUE_BITS_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("WGL_EXT_pixel_format")]
-		public const int WGL_ACCUM_BLUE_BITS_EXT = 0x2020;
+		public const int ACCUM_BLUE_BITS_EXT = 0x2020;
 
 		/// <summary>
 		/// Value of WGL_ACCUM_ALPHA_BITS_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("WGL_EXT_pixel_format")]
-		public const int WGL_ACCUM_ALPHA_BITS_EXT = 0x2021;
+		public const int ACCUM_ALPHA_BITS_EXT = 0x2021;
 
 		/// <summary>
 		/// Value of WGL_DEPTH_BITS_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("WGL_EXT_pixel_format")]
-		public const int WGL_DEPTH_BITS_EXT = 0x2022;
+		public const int DEPTH_BITS_EXT = 0x2022;
 
 		/// <summary>
 		/// Value of WGL_STENCIL_BITS_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("WGL_EXT_pixel_format")]
-		public const int WGL_STENCIL_BITS_EXT = 0x2023;
+		public const int STENCIL_BITS_EXT = 0x2023;
 
 		/// <summary>
 		/// Value of WGL_AUX_BUFFERS_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("WGL_EXT_pixel_format")]
-		public const int WGL_AUX_BUFFERS_EXT = 0x2024;
+		public const int AUX_BUFFERS_EXT = 0x2024;
 
 		/// <summary>
 		/// Value of WGL_NO_ACCELERATION_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("WGL_EXT_pixel_format")]
-		public const int WGL_NO_ACCELERATION_EXT = 0x2025;
+		public const int NO_ACCELERATION_EXT = 0x2025;
 
 		/// <summary>
 		/// Value of WGL_GENERIC_ACCELERATION_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("WGL_EXT_pixel_format")]
-		public const int WGL_GENERIC_ACCELERATION_EXT = 0x2026;
+		public const int GENERIC_ACCELERATION_EXT = 0x2026;
 
 		/// <summary>
 		/// Value of WGL_FULL_ACCELERATION_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("WGL_EXT_pixel_format")]
-		public const int WGL_FULL_ACCELERATION_EXT = 0x2027;
+		public const int FULL_ACCELERATION_EXT = 0x2027;
 
 		/// <summary>
 		/// Value of WGL_SWAP_EXCHANGE_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("WGL_EXT_pixel_format")]
-		public const int WGL_SWAP_EXCHANGE_EXT = 0x2028;
+		public const int SWAP_EXCHANGE_EXT = 0x2028;
 
 		/// <summary>
 		/// Value of WGL_SWAP_COPY_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("WGL_EXT_pixel_format")]
-		public const int WGL_SWAP_COPY_EXT = 0x2029;
+		public const int SWAP_COPY_EXT = 0x2029;
 
 		/// <summary>
 		/// Value of WGL_SWAP_UNDEFINED_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("WGL_EXT_pixel_format")]
-		public const int WGL_SWAP_UNDEFINED_EXT = 0x202A;
+		public const int SWAP_UNDEFINED_EXT = 0x202A;
 
 		/// <summary>
 		/// Value of WGL_TYPE_RGBA_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("WGL_EXT_pixel_format")]
-		public const int WGL_TYPE_RGBA_EXT = 0x202B;
+		public const int TYPE_RGBA_EXT = 0x202B;
 
 		/// <summary>
 		/// Value of WGL_TYPE_COLORINDEX_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("WGL_EXT_pixel_format")]
-		public const int WGL_TYPE_COLORINDEX_EXT = 0x202C;
+		public const int TYPE_COLORINDEX_EXT = 0x202C;
 
 		/// <summary>
 		/// Binding for wglGetPixelFormatAttribivEXT.

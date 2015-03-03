@@ -29,13 +29,13 @@ namespace OpenGL
 		/// Value of WGL_SAMPLE_BUFFERS_ARB symbol.
 		/// </summary>
 		[RequiredByFeature("WGL_ARB_multisample")]
-		public const int WGL_SAMPLE_BUFFERS_ARB = 0x2041;
+		public const int SAMPLE_BUFFERS_ARB = 0x2041;
 
 		/// <summary>
 		/// Value of WGL_SAMPLES_ARB symbol.
 		/// </summary>
 		[RequiredByFeature("WGL_ARB_multisample")]
-		public const int WGL_SAMPLES_ARB = 0x2042;
+		public const int SAMPLES_ARB = 0x2042;
 
 	}
 

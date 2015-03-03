@@ -29,55 +29,55 @@ namespace OpenGL
 		/// Value of WGL_FLOAT_COMPONENTS_NV symbol.
 		/// </summary>
 		[RequiredByFeature("WGL_NV_float_buffer")]
-		public const int WGL_FLOAT_COMPONENTS_NV = 0x20B0;
+		public const int FLOAT_COMPONENTS_NV = 0x20B0;
 
 		/// <summary>
 		/// Value of WGL_BIND_TO_TEXTURE_RECTANGLE_FLOAT_R_NV symbol.
 		/// </summary>
 		[RequiredByFeature("WGL_NV_float_buffer")]
-		public const int WGL_BIND_TO_TEXTURE_RECTANGLE_FLOAT_R_NV = 0x20B1;
+		public const int BIND_TO_TEXTURE_RECTANGLE_FLOAT_R_NV = 0x20B1;
 
 		/// <summary>
 		/// Value of WGL_BIND_TO_TEXTURE_RECTANGLE_FLOAT_RG_NV symbol.
 		/// </summary>
 		[RequiredByFeature("WGL_NV_float_buffer")]
-		public const int WGL_BIND_TO_TEXTURE_RECTANGLE_FLOAT_RG_NV = 0x20B2;
+		public const int BIND_TO_TEXTURE_RECTANGLE_FLOAT_RG_NV = 0x20B2;
 
 		/// <summary>
 		/// Value of WGL_BIND_TO_TEXTURE_RECTANGLE_FLOAT_RGB_NV symbol.
 		/// </summary>
 		[RequiredByFeature("WGL_NV_float_buffer")]
-		public const int WGL_BIND_TO_TEXTURE_RECTANGLE_FLOAT_RGB_NV = 0x20B3;
+		public const int BIND_TO_TEXTURE_RECTANGLE_FLOAT_RGB_NV = 0x20B3;
 
 		/// <summary>
 		/// Value of WGL_BIND_TO_TEXTURE_RECTANGLE_FLOAT_RGBA_NV symbol.
 		/// </summary>
 		[RequiredByFeature("WGL_NV_float_buffer")]
-		public const int WGL_BIND_TO_TEXTURE_RECTANGLE_FLOAT_RGBA_NV = 0x20B4;
+		public const int BIND_TO_TEXTURE_RECTANGLE_FLOAT_RGBA_NV = 0x20B4;
 
 		/// <summary>
 		/// Value of WGL_TEXTURE_FLOAT_R_NV symbol.
 		/// </summary>
 		[RequiredByFeature("WGL_NV_float_buffer")]
-		public const int WGL_TEXTURE_FLOAT_R_NV = 0x20B5;
+		public const int TEXTURE_FLOAT_R_NV = 0x20B5;
 
 		/// <summary>
 		/// Value of WGL_TEXTURE_FLOAT_RG_NV symbol.
 		/// </summary>
 		[RequiredByFeature("WGL_NV_float_buffer")]
-		public const int WGL_TEXTURE_FLOAT_RG_NV = 0x20B6;
+		public const int TEXTURE_FLOAT_RG_NV = 0x20B6;
 
 		/// <summary>
 		/// Value of WGL_TEXTURE_FLOAT_RGB_NV symbol.
 		/// </summary>
 		[RequiredByFeature("WGL_NV_float_buffer")]
-		public const int WGL_TEXTURE_FLOAT_RGB_NV = 0x20B7;
+		public const int TEXTURE_FLOAT_RGB_NV = 0x20B7;
 
 		/// <summary>
 		/// Value of WGL_TEXTURE_FLOAT_RGBA_NV symbol.
 		/// </summary>
 		[RequiredByFeature("WGL_NV_float_buffer")]
-		public const int WGL_TEXTURE_FLOAT_RGBA_NV = 0x20B8;
+		public const int TEXTURE_FLOAT_RGBA_NV = 0x20B8;
 
 	}
 

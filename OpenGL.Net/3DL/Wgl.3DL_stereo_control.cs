@@ -29,25 +29,25 @@ namespace OpenGL
 		/// Value of WGL_STEREO_EMITTER_ENABLE_3DL symbol.
 		/// </summary>
 		[RequiredByFeature("WGL_3DL_stereo_control")]
-		public const int WGL_STEREO_EMITTER_ENABLE_3DL = 0x2055;
+		public const int STEREO_EMITTER_ENABLE_3DL = 0x2055;
 
 		/// <summary>
 		/// Value of WGL_STEREO_EMITTER_DISABLE_3DL symbol.
 		/// </summary>
 		[RequiredByFeature("WGL_3DL_stereo_control")]
-		public const int WGL_STEREO_EMITTER_DISABLE_3DL = 0x2056;
+		public const int STEREO_EMITTER_DISABLE_3DL = 0x2056;
 
 		/// <summary>
 		/// Value of WGL_STEREO_POLARITY_NORMAL_3DL symbol.
 		/// </summary>
 		[RequiredByFeature("WGL_3DL_stereo_control")]
-		public const int WGL_STEREO_POLARITY_NORMAL_3DL = 0x2057;
+		public const int STEREO_POLARITY_NORMAL_3DL = 0x2057;
 
 		/// <summary>
 		/// Value of WGL_STEREO_POLARITY_INVERT_3DL symbol.
 		/// </summary>
 		[RequiredByFeature("WGL_3DL_stereo_control")]
-		public const int WGL_STEREO_POLARITY_INVERT_3DL = 0x2058;
+		public const int STEREO_POLARITY_INVERT_3DL = 0x2058;
 
 		/// <summary>
 		/// Binding for wglSetStereoEmitterState3DL.

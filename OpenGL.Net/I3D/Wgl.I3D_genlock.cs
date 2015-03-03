@@ -29,55 +29,55 @@ namespace OpenGL
 		/// Value of WGL_GENLOCK_SOURCE_MULTIVIEW_I3D symbol.
 		/// </summary>
 		[RequiredByFeature("WGL_I3D_genlock")]
-		public const int WGL_GENLOCK_SOURCE_MULTIVIEW_I3D = 0x2044;
+		public const int GENLOCK_SOURCE_MULTIVIEW_I3D = 0x2044;
 
 		/// <summary>
 		/// Value of WGL_GENLOCK_SOURCE_EXTERNAL_SYNC_I3D symbol.
 		/// </summary>
 		[RequiredByFeature("WGL_I3D_genlock")]
-		public const int WGL_GENLOCK_SOURCE_EXTERNAL_SYNC_I3D = 0x2045;
+		public const int GENLOCK_SOURCE_EXTERNAL_SYNC_I3D = 0x2045;
 
 		/// <summary>
 		/// Value of WGL_GENLOCK_SOURCE_EXTERNAL_FIELD_I3D symbol.
 		/// </summary>
 		[RequiredByFeature("WGL_I3D_genlock")]
-		public const int WGL_GENLOCK_SOURCE_EXTERNAL_FIELD_I3D = 0x2046;
+		public const int GENLOCK_SOURCE_EXTERNAL_FIELD_I3D = 0x2046;
 
 		/// <summary>
 		/// Value of WGL_GENLOCK_SOURCE_EXTERNAL_TTL_I3D symbol.
 		/// </summary>
 		[RequiredByFeature("WGL_I3D_genlock")]
-		public const int WGL_GENLOCK_SOURCE_EXTERNAL_TTL_I3D = 0x2047;
+		public const int GENLOCK_SOURCE_EXTERNAL_TTL_I3D = 0x2047;
 
 		/// <summary>
 		/// Value of WGL_GENLOCK_SOURCE_DIGITAL_SYNC_I3D symbol.
 		/// </summary>
 		[RequiredByFeature("WGL_I3D_genlock")]
-		public const int WGL_GENLOCK_SOURCE_DIGITAL_SYNC_I3D = 0x2048;
+		public const int GENLOCK_SOURCE_DIGITAL_SYNC_I3D = 0x2048;
 
 		/// <summary>
 		/// Value of WGL_GENLOCK_SOURCE_DIGITAL_FIELD_I3D symbol.
 		/// </summary>
 		[RequiredByFeature("WGL_I3D_genlock")]
-		public const int WGL_GENLOCK_SOURCE_DIGITAL_FIELD_I3D = 0x2049;
+		public const int GENLOCK_SOURCE_DIGITAL_FIELD_I3D = 0x2049;
 
 		/// <summary>
 		/// Value of WGL_GENLOCK_SOURCE_EDGE_FALLING_I3D symbol.
 		/// </summary>
 		[RequiredByFeature("WGL_I3D_genlock")]
-		public const int WGL_GENLOCK_SOURCE_EDGE_FALLING_I3D = 0x204A;
+		public const int GENLOCK_SOURCE_EDGE_FALLING_I3D = 0x204A;
 
 		/// <summary>
 		/// Value of WGL_GENLOCK_SOURCE_EDGE_RISING_I3D symbol.
 		/// </summary>
 		[RequiredByFeature("WGL_I3D_genlock")]
-		public const int WGL_GENLOCK_SOURCE_EDGE_RISING_I3D = 0x204B;
+		public const int GENLOCK_SOURCE_EDGE_RISING_I3D = 0x204B;
 
 		/// <summary>
 		/// Value of WGL_GENLOCK_SOURCE_EDGE_BOTH_I3D symbol.
 		/// </summary>
 		[RequiredByFeature("WGL_I3D_genlock")]
-		public const int WGL_GENLOCK_SOURCE_EDGE_BOTH_I3D = 0x204C;
+		public const int GENLOCK_SOURCE_EDGE_BOTH_I3D = 0x204C;
 
 		/// <summary>
 		/// Binding for wglEnableGenlockI3D.

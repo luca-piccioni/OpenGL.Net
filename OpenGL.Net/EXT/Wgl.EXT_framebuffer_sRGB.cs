@@ -29,7 +29,7 @@ namespace OpenGL
 		/// Value of WGL_FRAMEBUFFER_SRGB_CAPABLE_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("WGL_EXT_framebuffer_sRGB")]
-		public const int WGL_FRAMEBUFFER_SRGB_CAPABLE_EXT = 0x20A9;
+		public const int FRAMEBUFFER_SRGB_CAPABLE_EXT = 0x20A9;
 
 	}
 

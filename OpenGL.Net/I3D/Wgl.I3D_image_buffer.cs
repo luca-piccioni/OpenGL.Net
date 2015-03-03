@@ -29,13 +29,13 @@ namespace OpenGL
 		/// Value of WGL_IMAGE_BUFFER_MIN_ACCESS_I3D symbol.
 		/// </summary>
 		[RequiredByFeature("WGL_I3D_image_buffer")]
-		public const uint WGL_IMAGE_BUFFER_MIN_ACCESS_I3D = 0x00000001;
+		public const uint IMAGE_BUFFER_MIN_ACCESS_I3D = 0x00000001;
 
 		/// <summary>
 		/// Value of WGL_IMAGE_BUFFER_LOCK_I3D symbol.
 		/// </summary>
 		[RequiredByFeature("WGL_I3D_image_buffer")]
-		public const uint WGL_IMAGE_BUFFER_LOCK_I3D = 0x00000002;
+		public const uint IMAGE_BUFFER_LOCK_I3D = 0x00000002;
 
 		/// <summary>
 		/// Binding for wglCreateImageBufferI3D.

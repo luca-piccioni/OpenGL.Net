@@ -30,11 +30,11 @@ namespace OpenGL
 		/// </summary>
 		/// <remarks>
 		/// <para>
-		/// This enumerant is equaivalent to WGL_CONTEXT_ES_PROFILE_BIT_EXT.
+		/// This enumerant is equaivalent to CONTEXT_ES_PROFILE_BIT_EXT.
 		/// </para>
 		/// </remarks>
 		[RequiredByFeature("WGL_EXT_create_context_es2_profile")]
-		public const uint WGL_CONTEXT_ES2_PROFILE_BIT_EXT = 0x00000004;
+		public const uint CONTEXT_ES2_PROFILE_BIT_EXT = 0x00000004;
 
 	}
 

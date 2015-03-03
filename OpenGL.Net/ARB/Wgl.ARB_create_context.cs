@@ -29,37 +29,37 @@ namespace OpenGL
 		/// Value of WGL_CONTEXT_DEBUG_BIT_ARB symbol.
 		/// </summary>
 		[RequiredByFeature("WGL_ARB_create_context")]
-		public const uint WGL_CONTEXT_DEBUG_BIT_ARB = 0x00000001;
+		public const uint CONTEXT_DEBUG_BIT_ARB = 0x00000001;
 
 		/// <summary>
 		/// Value of WGL_CONTEXT_FORWARD_COMPATIBLE_BIT_ARB symbol.
 		/// </summary>
 		[RequiredByFeature("WGL_ARB_create_context")]
-		public const uint WGL_CONTEXT_FORWARD_COMPATIBLE_BIT_ARB = 0x00000002;
+		public const uint CONTEXT_FORWARD_COMPATIBLE_BIT_ARB = 0x00000002;
 
 		/// <summary>
 		/// Value of WGL_CONTEXT_MAJOR_VERSION_ARB symbol.
 		/// </summary>
 		[RequiredByFeature("WGL_ARB_create_context")]
-		public const int WGL_CONTEXT_MAJOR_VERSION_ARB = 0x2091;
+		public const int CONTEXT_MAJOR_VERSION_ARB = 0x2091;
 
 		/// <summary>
 		/// Value of WGL_CONTEXT_MINOR_VERSION_ARB symbol.
 		/// </summary>
 		[RequiredByFeature("WGL_ARB_create_context")]
-		public const int WGL_CONTEXT_MINOR_VERSION_ARB = 0x2092;
+		public const int CONTEXT_MINOR_VERSION_ARB = 0x2092;
 
 		/// <summary>
 		/// Value of WGL_CONTEXT_LAYER_PLANE_ARB symbol.
 		/// </summary>
 		[RequiredByFeature("WGL_ARB_create_context")]
-		public const int WGL_CONTEXT_LAYER_PLANE_ARB = 0x2093;
+		public const int CONTEXT_LAYER_PLANE_ARB = 0x2093;
 
 		/// <summary>
 		/// Value of WGL_CONTEXT_FLAGS_ARB symbol.
 		/// </summary>
 		[RequiredByFeature("WGL_ARB_create_context")]
-		public const int WGL_CONTEXT_FLAGS_ARB = 0x2094;
+		public const int CONTEXT_FLAGS_ARB = 0x2094;
 
 		/// <summary>
 		/// Value of ERROR_INVALID_VERSION_ARB symbol.

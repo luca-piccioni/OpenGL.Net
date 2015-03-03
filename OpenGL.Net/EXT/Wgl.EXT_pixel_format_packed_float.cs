@@ -29,7 +29,7 @@ namespace OpenGL
 		/// Value of WGL_TYPE_RGBA_UNSIGNED_FLOAT_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("WGL_EXT_pixel_format_packed_float")]
-		public const int WGL_TYPE_RGBA_UNSIGNED_FLOAT_EXT = 0x20A8;
+		public const int TYPE_RGBA_UNSIGNED_FLOAT_EXT = 0x20A8;
 
 	}
 

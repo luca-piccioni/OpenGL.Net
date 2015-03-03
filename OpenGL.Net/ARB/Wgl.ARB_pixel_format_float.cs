@@ -29,7 +29,7 @@ namespace OpenGL
 		/// Value of WGL_TYPE_RGBA_FLOAT_ARB symbol.
 		/// </summary>
 		[RequiredByFeature("WGL_ARB_pixel_format_float")]
-		public const int WGL_TYPE_RGBA_FLOAT_ARB = 0x21A0;
+		public const int TYPE_RGBA_FLOAT_ARB = 0x21A0;
 
 	}
 
