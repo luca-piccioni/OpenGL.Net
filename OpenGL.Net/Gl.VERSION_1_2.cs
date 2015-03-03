@@ -351,55 +351,55 @@ namespace OpenGL
 		/// </summary>
 		/// <param name="mode">
 		/// Specifies what kind of primitives to render. Symbolic constants GL_POINTS, GL_LINE_STRIP, GL_LINE_LOOP, GL_LINES, 
-		/// GL_LINE_STRIP_ADJACENCY,GL_LINES_ADJACENCY, GL_TRIANGLE_STRIP, GL_TRIANGLE_FAN, GL_TRIANGLES, 
-		/// GL_TRIANGLE_STRIP_ADJACENCY,GL_TRIANGLES_ADJACENCY and GL_PATCHES are accepted. 
+		/// GL_LINE_STRIP_ADJACENCY, GL_LINES_ADJACENCY, GL_TRIANGLE_STRIP, GL_TRIANGLE_FAN, GL_TRIANGLES, 
+		/// GL_TRIANGLE_STRIP_ADJACENCY, GL_TRIANGLES_ADJACENCY and GL_PATCHES are accepted.
 		/// </param>
 		/// <param name="start">
-		/// Specifies the minimum array index contained in indices. 
+		/// Specifies the minimum array index contained in indices.
 		/// </param>
 		/// <param name="end">
-		/// Specifies the maximum array index contained in indices. 
+		/// Specifies the maximum array index contained in indices.
 		/// </param>
 		/// <param name="count">
-		/// Specifies the number of elements to be rendered. 
+		/// Specifies the number of elements to be rendered.
 		/// </param>
 		/// <param name="type">
-		/// Specifies the type of the values in indices. Must be one of GL_UNSIGNED_BYTE, GL_UNSIGNED_SHORT, or GL_UNSIGNED_INT. 
+		/// Specifies the type of the values in indices. Must be one of GL_UNSIGNED_BYTE, GL_UNSIGNED_SHORT, or GL_UNSIGNED_INT.
 		/// </param>
 		/// <param name="indices">
-		/// Specifies a pointer to the location where the indices are stored. 
+		/// Specifies a pointer to the location where the indices are stored.
 		/// </param>
 		/// <remarks>
 		/// glDrawRangeElements is a restricted form of glDrawElements. mode, start, end, and count match the corresponding 
-		/// argumentsto glDrawElements, with the additional constraint that all values in the arrays count must lie between start 
-		/// andend, inclusive. 
+		/// arguments to glDrawElements, with the additional constraint that all values in the arrays count must lie between start 
+		/// and end, inclusive.
 		/// Implementations denote recommended maximum amounts of vertex and index data, which may be queried by calling glGet with 
-		/// argumentGL_MAX_ELEMENTS_VERTICES and GL_MAX_ELEMENTS_INDICES. If end-start+1 is greater than the value of 
-		/// GL_MAX_ELEMENTS_VERTICES,or if count is greater than the value of GL_MAX_ELEMENTS_INDICES, then the call may operate at 
-		/// reducedperformance. There is no requirement that all vertices in the range startend be referenced. However, the 
-		/// implementationmay partially process unused vertices, reducing performance from what could be achieved with an optimal 
-		/// indexset. 
+		/// argument GL_MAX_ELEMENTS_VERTICES and GL_MAX_ELEMENTS_INDICES. If end-start+1 is greater than the value of 
+		/// GL_MAX_ELEMENTS_VERTICES, or if count is greater than the value of GL_MAX_ELEMENTS_INDICES, then the call may operate at 
+		/// reduced performance. There is no requirement that all vertices in the range startend be referenced. However, the 
+		/// implementation may partially process unused vertices, reducing performance from what could be achieved with an optimal 
+		/// index set.
 		/// When glDrawRangeElements is called, it uses count sequential elements from an enabled array, starting at start to 
-		/// constructa sequence of geometric primitives. mode specifies what kind of primitives are constructed, and how the array 
-		/// elementsconstruct these primitives. If more than one array is enabled, each is used. 
+		/// construct a sequence of geometric primitives. mode specifies what kind of primitives are constructed, and how the array 
+		/// elements construct these primitives. If more than one array is enabled, each is used.
 		/// Vertex attributes that are modified by glDrawRangeElements have an unspecified value after glDrawRangeElements returns. 
-		/// Attributesthat aren't modified maintain their previous values. 
+		/// Attributes that aren't modified maintain their previous values.
 		/// <para>
 		/// The following errors can be generated:
 		/// - It is an error for indices to lie outside the range startend, but implementations may not check for this situation. Such 
-		///   indicescause implementation-dependent behavior. 
-		/// - GL_INVALID_ENUM is generated if mode is not an accepted value. 
-		/// - GL_INVALID_VALUE is generated if count is negative. 
-		/// - GL_INVALID_VALUE is generated if end&lt;start. 
+		///   indices cause implementation-dependent behavior.
+		/// - GL_INVALID_ENUM is generated if mode is not an accepted value.
+		/// - GL_INVALID_VALUE is generated if count is negative.
+		/// - GL_INVALID_VALUE is generated if end&lt;start.
 		/// - GL_INVALID_OPERATION is generated if a geometry shader is active and mode is incompatible with the input primitive type 
-		///   ofthe geometry shader in the currently installed program object. 
+		///   of the geometry shader in the currently installed program object.
 		/// - GL_INVALID_OPERATION is generated if a non-zero buffer object name is bound to an enabled array or the element array and 
-		///   thebuffer object's data store is currently mapped. 
+		///   the buffer object's data store is currently mapped.
 		/// </para>
 		/// <para>
 		/// The associated information is got with the following commands:
-		/// - glGet with argument GL_MAX_ELEMENTS_VERTICES 
-		/// - glGet with argument GL_MAX_ELEMENTS_INDICES 
+		/// - glGet with argument GL_MAX_ELEMENTS_VERTICES
+		/// - glGet with argument GL_MAX_ELEMENTS_INDICES
 		/// </para>
 		/// </remarks>
 		/// <seealso cref="Gl.DrawArrays"/>
@@ -423,55 +423,55 @@ namespace OpenGL
 		/// </summary>
 		/// <param name="mode">
 		/// Specifies what kind of primitives to render. Symbolic constants GL_POINTS, GL_LINE_STRIP, GL_LINE_LOOP, GL_LINES, 
-		/// GL_LINE_STRIP_ADJACENCY,GL_LINES_ADJACENCY, GL_TRIANGLE_STRIP, GL_TRIANGLE_FAN, GL_TRIANGLES, 
-		/// GL_TRIANGLE_STRIP_ADJACENCY,GL_TRIANGLES_ADJACENCY and GL_PATCHES are accepted. 
+		/// GL_LINE_STRIP_ADJACENCY, GL_LINES_ADJACENCY, GL_TRIANGLE_STRIP, GL_TRIANGLE_FAN, GL_TRIANGLES, 
+		/// GL_TRIANGLE_STRIP_ADJACENCY, GL_TRIANGLES_ADJACENCY and GL_PATCHES are accepted.
 		/// </param>
 		/// <param name="start">
-		/// Specifies the minimum array index contained in indices. 
+		/// Specifies the minimum array index contained in indices.
 		/// </param>
 		/// <param name="end">
-		/// Specifies the maximum array index contained in indices. 
+		/// Specifies the maximum array index contained in indices.
 		/// </param>
 		/// <param name="count">
-		/// Specifies the number of elements to be rendered. 
+		/// Specifies the number of elements to be rendered.
 		/// </param>
 		/// <param name="type">
-		/// Specifies the type of the values in indices. Must be one of GL_UNSIGNED_BYTE, GL_UNSIGNED_SHORT, or GL_UNSIGNED_INT. 
+		/// Specifies the type of the values in indices. Must be one of GL_UNSIGNED_BYTE, GL_UNSIGNED_SHORT, or GL_UNSIGNED_INT.
 		/// </param>
 		/// <param name="indices">
-		/// Specifies a pointer to the location where the indices are stored. 
+		/// Specifies a pointer to the location where the indices are stored.
 		/// </param>
 		/// <remarks>
 		/// glDrawRangeElements is a restricted form of glDrawElements. mode, start, end, and count match the corresponding 
-		/// argumentsto glDrawElements, with the additional constraint that all values in the arrays count must lie between start 
-		/// andend, inclusive. 
+		/// arguments to glDrawElements, with the additional constraint that all values in the arrays count must lie between start 
+		/// and end, inclusive.
 		/// Implementations denote recommended maximum amounts of vertex and index data, which may be queried by calling glGet with 
-		/// argumentGL_MAX_ELEMENTS_VERTICES and GL_MAX_ELEMENTS_INDICES. If end-start+1 is greater than the value of 
-		/// GL_MAX_ELEMENTS_VERTICES,or if count is greater than the value of GL_MAX_ELEMENTS_INDICES, then the call may operate at 
-		/// reducedperformance. There is no requirement that all vertices in the range startend be referenced. However, the 
-		/// implementationmay partially process unused vertices, reducing performance from what could be achieved with an optimal 
-		/// indexset. 
+		/// argument GL_MAX_ELEMENTS_VERTICES and GL_MAX_ELEMENTS_INDICES. If end-start+1 is greater than the value of 
+		/// GL_MAX_ELEMENTS_VERTICES, or if count is greater than the value of GL_MAX_ELEMENTS_INDICES, then the call may operate at 
+		/// reduced performance. There is no requirement that all vertices in the range startend be referenced. However, the 
+		/// implementation may partially process unused vertices, reducing performance from what could be achieved with an optimal 
+		/// index set.
 		/// When glDrawRangeElements is called, it uses count sequential elements from an enabled array, starting at start to 
-		/// constructa sequence of geometric primitives. mode specifies what kind of primitives are constructed, and how the array 
-		/// elementsconstruct these primitives. If more than one array is enabled, each is used. 
+		/// construct a sequence of geometric primitives. mode specifies what kind of primitives are constructed, and how the array 
+		/// elements construct these primitives. If more than one array is enabled, each is used.
 		/// Vertex attributes that are modified by glDrawRangeElements have an unspecified value after glDrawRangeElements returns. 
-		/// Attributesthat aren't modified maintain their previous values. 
+		/// Attributes that aren't modified maintain their previous values.
 		/// <para>
 		/// The following errors can be generated:
 		/// - It is an error for indices to lie outside the range startend, but implementations may not check for this situation. Such 
-		///   indicescause implementation-dependent behavior. 
-		/// - GL_INVALID_ENUM is generated if mode is not an accepted value. 
-		/// - GL_INVALID_VALUE is generated if count is negative. 
-		/// - GL_INVALID_VALUE is generated if end&lt;start. 
+		///   indices cause implementation-dependent behavior.
+		/// - GL_INVALID_ENUM is generated if mode is not an accepted value.
+		/// - GL_INVALID_VALUE is generated if count is negative.
+		/// - GL_INVALID_VALUE is generated if end&lt;start.
 		/// - GL_INVALID_OPERATION is generated if a geometry shader is active and mode is incompatible with the input primitive type 
-		///   ofthe geometry shader in the currently installed program object. 
+		///   of the geometry shader in the currently installed program object.
 		/// - GL_INVALID_OPERATION is generated if a non-zero buffer object name is bound to an enabled array or the element array and 
-		///   thebuffer object's data store is currently mapped. 
+		///   the buffer object's data store is currently mapped.
 		/// </para>
 		/// <para>
 		/// The associated information is got with the following commands:
-		/// - glGet with argument GL_MAX_ELEMENTS_VERTICES 
-		/// - glGet with argument GL_MAX_ELEMENTS_INDICES 
+		/// - glGet with argument GL_MAX_ELEMENTS_VERTICES
+		/// - glGet with argument GL_MAX_ELEMENTS_INDICES
 		/// </para>
 		/// </remarks>
 		/// <seealso cref="Gl.DrawArrays"/>
@@ -495,55 +495,55 @@ namespace OpenGL
 		/// </summary>
 		/// <param name="mode">
 		/// Specifies what kind of primitives to render. Symbolic constants GL_POINTS, GL_LINE_STRIP, GL_LINE_LOOP, GL_LINES, 
-		/// GL_LINE_STRIP_ADJACENCY,GL_LINES_ADJACENCY, GL_TRIANGLE_STRIP, GL_TRIANGLE_FAN, GL_TRIANGLES, 
-		/// GL_TRIANGLE_STRIP_ADJACENCY,GL_TRIANGLES_ADJACENCY and GL_PATCHES are accepted. 
+		/// GL_LINE_STRIP_ADJACENCY, GL_LINES_ADJACENCY, GL_TRIANGLE_STRIP, GL_TRIANGLE_FAN, GL_TRIANGLES, 
+		/// GL_TRIANGLE_STRIP_ADJACENCY, GL_TRIANGLES_ADJACENCY and GL_PATCHES are accepted.
 		/// </param>
 		/// <param name="start">
-		/// Specifies the minimum array index contained in indices. 
+		/// Specifies the minimum array index contained in indices.
 		/// </param>
 		/// <param name="end">
-		/// Specifies the maximum array index contained in indices. 
+		/// Specifies the maximum array index contained in indices.
 		/// </param>
 		/// <param name="count">
-		/// Specifies the number of elements to be rendered. 
+		/// Specifies the number of elements to be rendered.
 		/// </param>
 		/// <param name="type">
-		/// Specifies the type of the values in indices. Must be one of GL_UNSIGNED_BYTE, GL_UNSIGNED_SHORT, or GL_UNSIGNED_INT. 
+		/// Specifies the type of the values in indices. Must be one of GL_UNSIGNED_BYTE, GL_UNSIGNED_SHORT, or GL_UNSIGNED_INT.
 		/// </param>
 		/// <param name="indices">
-		/// Specifies a pointer to the location where the indices are stored. 
+		/// Specifies a pointer to the location where the indices are stored.
 		/// </param>
 		/// <remarks>
 		/// glDrawRangeElements is a restricted form of glDrawElements. mode, start, end, and count match the corresponding 
-		/// argumentsto glDrawElements, with the additional constraint that all values in the arrays count must lie between start 
-		/// andend, inclusive. 
+		/// arguments to glDrawElements, with the additional constraint that all values in the arrays count must lie between start 
+		/// and end, inclusive.
 		/// Implementations denote recommended maximum amounts of vertex and index data, which may be queried by calling glGet with 
-		/// argumentGL_MAX_ELEMENTS_VERTICES and GL_MAX_ELEMENTS_INDICES. If end-start+1 is greater than the value of 
-		/// GL_MAX_ELEMENTS_VERTICES,or if count is greater than the value of GL_MAX_ELEMENTS_INDICES, then the call may operate at 
-		/// reducedperformance. There is no requirement that all vertices in the range startend be referenced. However, the 
-		/// implementationmay partially process unused vertices, reducing performance from what could be achieved with an optimal 
-		/// indexset. 
+		/// argument GL_MAX_ELEMENTS_VERTICES and GL_MAX_ELEMENTS_INDICES. If end-start+1 is greater than the value of 
+		/// GL_MAX_ELEMENTS_VERTICES, or if count is greater than the value of GL_MAX_ELEMENTS_INDICES, then the call may operate at 
+		/// reduced performance. There is no requirement that all vertices in the range startend be referenced. However, the 
+		/// implementation may partially process unused vertices, reducing performance from what could be achieved with an optimal 
+		/// index set.
 		/// When glDrawRangeElements is called, it uses count sequential elements from an enabled array, starting at start to 
-		/// constructa sequence of geometric primitives. mode specifies what kind of primitives are constructed, and how the array 
-		/// elementsconstruct these primitives. If more than one array is enabled, each is used. 
+		/// construct a sequence of geometric primitives. mode specifies what kind of primitives are constructed, and how the array 
+		/// elements construct these primitives. If more than one array is enabled, each is used.
 		/// Vertex attributes that are modified by glDrawRangeElements have an unspecified value after glDrawRangeElements returns. 
-		/// Attributesthat aren't modified maintain their previous values. 
+		/// Attributes that aren't modified maintain their previous values.
 		/// <para>
 		/// The following errors can be generated:
 		/// - It is an error for indices to lie outside the range startend, but implementations may not check for this situation. Such 
-		///   indicescause implementation-dependent behavior. 
-		/// - GL_INVALID_ENUM is generated if mode is not an accepted value. 
-		/// - GL_INVALID_VALUE is generated if count is negative. 
-		/// - GL_INVALID_VALUE is generated if end&lt;start. 
+		///   indices cause implementation-dependent behavior.
+		/// - GL_INVALID_ENUM is generated if mode is not an accepted value.
+		/// - GL_INVALID_VALUE is generated if count is negative.
+		/// - GL_INVALID_VALUE is generated if end&lt;start.
 		/// - GL_INVALID_OPERATION is generated if a geometry shader is active and mode is incompatible with the input primitive type 
-		///   ofthe geometry shader in the currently installed program object. 
+		///   of the geometry shader in the currently installed program object.
 		/// - GL_INVALID_OPERATION is generated if a non-zero buffer object name is bound to an enabled array or the element array and 
-		///   thebuffer object's data store is currently mapped. 
+		///   the buffer object's data store is currently mapped.
 		/// </para>
 		/// <para>
 		/// The associated information is got with the following commands:
-		/// - glGet with argument GL_MAX_ELEMENTS_VERTICES 
-		/// - glGet with argument GL_MAX_ELEMENTS_INDICES 
+		/// - glGet with argument GL_MAX_ELEMENTS_VERTICES
+		/// - glGet with argument GL_MAX_ELEMENTS_INDICES
 		/// </para>
 		/// </remarks>
 		/// <seealso cref="Gl.DrawArrays"/>
@@ -563,46 +563,46 @@ namespace OpenGL
 		/// specify a three-dimensional texture image
 		/// </summary>
 		/// <param name="target">
-		/// Specifies the target texture. Must be <see cref="Gl.TEXTURE_3D"/> or <see cref="Gl.PROXY_TEXTURE_3D"/>. 
+		/// Specifies the target texture. Must be <see cref="Gl.TEXTURE_3D"/> or <see cref="Gl.PROXY_TEXTURE_3D"/>.
 		/// </param>
 		/// <param name="level">
-		/// Specifies the level-of-detail number. Level 0 is the base image level. Level n is the nth mipmap reduction image. 
+		/// Specifies the level-of-detail number. Level 0 is the base image level. Level n is the nth mipmap reduction image.
 		/// </param>
 		/// <param name="internalformat">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="width">
 		/// Specifies the width of the texture image including the border if any. If the GL version does not support 
-		/// non-power-of-twosizes, this value must be 2n+2⁡border for some integer n. All implementations support 3D texture images 
-		/// thatare at least 16 texels wide. 
+		/// non-power-of-two sizes, this value must be 2n+2⁡border for some integer n. All implementations support 3D texture images 
+		/// that are at least 16 texels wide.
 		/// </param>
 		/// <param name="height">
 		/// Specifies the height of the texture image including the border if any. If the GL version does not support 
-		/// non-power-of-twosizes, this value must be 2m+2⁡border for some integer m. All implementations support 3D texture images 
-		/// thatare at least 16 texels high. 
+		/// non-power-of-two sizes, this value must be 2m+2⁡border for some integer m. All implementations support 3D texture images 
+		/// that are at least 16 texels high.
 		/// </param>
 		/// <param name="depth">
 		/// Specifies the depth of the texture image including the border if any. If the GL version does not support 
-		/// non-power-of-twosizes, this value must be 2k+2⁡border for some integer k. All implementations support 3D texture images 
-		/// thatare at least 16 texels deep. 
+		/// non-power-of-two sizes, this value must be 2k+2⁡border for some integer k. All implementations support 3D texture images 
+		/// that are at least 16 texels deep.
 		/// </param>
 		/// <param name="border">
-		/// Specifies the width of the border. Must be either 0 or 1. 
+		/// Specifies the width of the border. Must be either 0 or 1.
 		/// </param>
 		/// <param name="format">
 		/// Specifies the format of the pixel data. The following symbolic values are accepted: <see cref="Gl.COLOR_INDEX"/>, <see 
-		/// cref="Gl.RED"/>,<see cref="Gl.GREEN"/>, <see cref="Gl.BLUE"/>, <see cref="Gl.ALPHA"/>, <see cref="Gl.RGB"/>, <see 
-		/// cref="Gl.BGR"/>,<see cref="Gl.RGBA"/>, <see cref="Gl.BGRA"/>, <see cref="Gl.LUMINANCE"/>, and <see 
+		/// cref="Gl.RED"/>, <see cref="Gl.GREEN"/>, <see cref="Gl.BLUE"/>, <see cref="Gl.ALPHA"/>, <see cref="Gl.RGB"/>, <see 
+		/// cref="Gl.BGR"/>, <see cref="Gl.RGBA"/>, <see cref="Gl.BGRA"/>, <see cref="Gl.LUMINANCE"/>, and <see 
 		/// cref="Gl.LUMINANCE_ALPHA"/>.
 		/// </param>
 		/// <param name="type">
 		/// Specifies the data type of the pixel data. The following symbolic values are accepted: <see cref="Gl.UNSIGNED_BYTE"/>, 
-		/// <seecref="Gl.BYTE"/>, <see cref="Gl.BITMAP"/>, <see cref="Gl.UNSIGNED_SHORT"/>, <see cref="Gl.SHORT"/>, <see 
-		/// cref="Gl.UNSIGNED_INT"/>,<see cref="Gl.INT"/>, <see cref="Gl.FLOAT"/>, <see cref="Gl.UNSIGNED_BYTE_3_3_2"/>, <see 
-		/// cref="Gl.UNSIGNED_BYTE_2_3_3_REV"/>,<see cref="Gl.UNSIGNED_SHORT_5_6_5"/>, <see cref="Gl.UNSIGNED_SHORT_5_6_5_REV"/>, 
-		/// <seecref="Gl.UNSIGNED_SHORT_4_4_4_4"/>, <see cref="Gl.UNSIGNED_SHORT_4_4_4_4_REV"/>, <see 
-		/// cref="Gl.UNSIGNED_SHORT_5_5_5_1"/>,<see cref="Gl.UNSIGNED_SHORT_1_5_5_5_REV"/>, <see cref="Gl.UNSIGNED_INT_8_8_8_8"/>, 
-		/// <seecref="Gl.UNSIGNED_INT_8_8_8_8_REV"/>, <see cref="Gl.UNSIGNED_INT_10_10_10_2"/>, and <see 
+		/// <see cref="Gl.BYTE"/>, <see cref="Gl.BITMAP"/>, <see cref="Gl.UNSIGNED_SHORT"/>, <see cref="Gl.SHORT"/>, <see 
+		/// cref="Gl.UNSIGNED_INT"/>, <see cref="Gl.INT"/>, <see cref="Gl.FLOAT"/>, <see cref="Gl.UNSIGNED_BYTE_3_3_2"/>, <see 
+		/// cref="Gl.UNSIGNED_BYTE_2_3_3_REV"/>, <see cref="Gl.UNSIGNED_SHORT_5_6_5"/>, <see cref="Gl.UNSIGNED_SHORT_5_6_5_REV"/>, 
+		/// <see cref="Gl.UNSIGNED_SHORT_4_4_4_4"/>, <see cref="Gl.UNSIGNED_SHORT_4_4_4_4_REV"/>, <see 
+		/// cref="Gl.UNSIGNED_SHORT_5_5_5_1"/>, <see cref="Gl.UNSIGNED_SHORT_1_5_5_5_REV"/>, <see cref="Gl.UNSIGNED_INT_8_8_8_8"/>, 
+		/// <see cref="Gl.UNSIGNED_INT_8_8_8_8_REV"/>, <see cref="Gl.UNSIGNED_INT_10_10_10_2"/>, and <see 
 		/// cref="Gl.UNSIGNED_INT_2_10_10_10_REV"/>.
 		/// </param>
 		/// <param name="pixels">
@@ -610,104 +610,104 @@ namespace OpenGL
 		/// </param>
 		/// <remarks>
 		/// Texturing maps a portion of a specified texture image onto each graphical primitive for which texturing is enabled. To 
-		/// enableand disable three-dimensional texturing, call Gl.Enable and Gl.Disable with argument <see cref="Gl.TEXTURE_3D"/>. 
+		/// enable and disable three-dimensional texturing, call Gl.Enable and Gl.Disable with argument <see cref="Gl.TEXTURE_3D"/>.
 		/// To define texture images, call <see cref="Gl.TexImage3D"/>. The arguments describe the parameters of the texture image, 
-		/// suchas height, width, depth, width of the border, level-of-detail number (see Gl.TexParameter), and number of color 
-		/// componentsprovided. The last three arguments describe how the image is represented in memory; they are identical to the 
-		/// pixelformats used for Gl.DrawPixels. 
+		/// such as height, width, depth, width of the border, level-of-detail number (see Gl.TexParameter), and number of color 
+		/// components provided. The last three arguments describe how the image is represented in memory; they are identical to the 
+		/// pixel formats used for Gl.DrawPixels.
 		/// If <paramref name="target"/> is <see cref="Gl.PROXY_TEXTURE_3D"/>, no data is read from <paramref name="data"/>, but all 
-		/// ofthe texture image state is recalculated, checked for consistency, and checked against the implementation's 
-		/// capabilities.If the implementation cannot handle a texture of the requested texture size, it sets all of the image state 
-		/// to0, but does not generate an error (see Gl.GetError). To query for an entire mipmap array, use an image array level 
-		/// greaterthan or equal to 1. 
+		/// of the texture image state is recalculated, checked for consistency, and checked against the implementation's 
+		/// capabilities. If the implementation cannot handle a texture of the requested texture size, it sets all of the image 
+		/// state to 0, but does not generate an error (see Gl.GetError). To query for an entire mipmap array, use an image array 
+		/// level greater than or equal to 1.
 		/// If <paramref name="target"/> is <see cref="Gl.TEXTURE_3D"/>, data is read from <paramref name="data"/> as a sequence of 
-		/// signedor unsigned bytes, shorts, or longs, or single-precision floating-point values, depending on <paramref 
-		/// name="type"/>.These values are grouped into sets of one, two, three, or four values, depending on <paramref 
-		/// name="format"/>,to form elements. If <paramref name="type"/> is <see cref="Gl.BITMAP"/>, the data is considered as a 
-		/// stringof unsigned bytes (and <paramref name="format"/> must be <see cref="Gl.COLOR_INDEX"/>). Each data byte is treated 
-		/// aseight 1-bit elements, with bit ordering determined by <see cref="Gl.UNPACK_LSB_FIRST"/> (see Gl.PixelStore). 
+		/// signed or unsigned bytes, shorts, or longs, or single-precision floating-point values, depending on <paramref 
+		/// name="type"/>. These values are grouped into sets of one, two, three, or four values, depending on <paramref 
+		/// name="format"/>, to form elements. If <paramref name="type"/> is <see cref="Gl.BITMAP"/>, the data is considered as a 
+		/// string of unsigned bytes (and <paramref name="format"/> must be <see cref="Gl.COLOR_INDEX"/>). Each data byte is treated 
+		/// as eight 1-bit elements, with bit ordering determined by <see cref="Gl.UNPACK_LSB_FIRST"/> (see Gl.PixelStore).
 		/// If a non-zero named buffer object is bound to the <see cref="Gl.PIXEL_UNPACK_BUFFER"/> target (see Gl.BindBuffer) while 
-		/// atexture image is specified, <paramref name="data"/> is treated as a byte offset into the buffer object's data store. 
+		/// a texture image is specified, <paramref name="data"/> is treated as a byte offset into the buffer object's data store.
 		/// The first element corresponds to the lower left corner of the texture image. Subsequent elements progress left-to-right 
-		/// throughthe remaining texels in the lowest row of the texture image, and then in successively higher rows of the texture 
-		/// image.The final element corresponds to the upper right corner of the texture image. 
+		/// through the remaining texels in the lowest row of the texture image, and then in successively higher rows of the texture 
+		/// image. The final element corresponds to the upper right corner of the texture image.
 		/// <paramref name="format"/> determines the composition of each element in <paramref name="data"/>. It can assume one of 
-		/// thesesymbolic values: 
+		/// these symbolic values:
 		/// Refer to the Gl.DrawPixels reference page for a description of the acceptable values for the <paramref name="type"/> 
 		/// parameter.
 		/// If an application wants to store the texture at a certain resolution or in a certain format, it can request the 
-		/// resolutionand format with <paramref name="internalFormat"/>. The GL will choose an internal representation that closely 
-		/// approximatesthat requested by <paramref name="internalFormat"/>, but it may not match exactly. (The representations 
-		/// specifiedby <see cref="Gl.LUMINANCE"/>, <see cref="Gl.LUMINANCE_ALPHA"/>, <see cref="Gl.RGB"/>, and <see 
-		/// cref="Gl.RGBA"/>must match exactly. The numeric values 1, 2, 3, and 4 may also be used to specify the above 
+		/// resolution and format with <paramref name="internalFormat"/>. The GL will choose an internal representation that closely 
+		/// approximates that requested by <paramref name="internalFormat"/>, but it may not match exactly. (The representations 
+		/// specified by <see cref="Gl.LUMINANCE"/>, <see cref="Gl.LUMINANCE_ALPHA"/>, <see cref="Gl.RGB"/>, and <see 
+		/// cref="Gl.RGBA"/> must match exactly. The numeric values 1, 2, 3, and 4 may also be used to specify the above 
 		/// representations.)
 		/// If the <paramref name="internalFormat"/> parameter is one of the generic compressed formats, <see 
-		/// cref="Gl.COMPRESSED_ALPHA"/>,<see cref="Gl.COMPRESSED_INTENSITY"/>, <see cref="Gl.COMPRESSED_LUMINANCE"/>, <see 
-		/// cref="Gl.COMPRESSED_LUMINANCE_ALPHA"/>,<see cref="Gl.COMPRESSED_RGB"/>, or <see cref="Gl.COMPRESSED_RGBA"/>, the GL will 
-		/// replacethe internal format with the symbolic constant for a specific internal format and compress the texture before 
-		/// storage.If no corresponding internal format is available, or the GL can not compress that image for any reason, the 
-		/// internalformat is instead replaced with a corresponding base internal format. 
+		/// cref="Gl.COMPRESSED_ALPHA"/>, <see cref="Gl.COMPRESSED_INTENSITY"/>, <see cref="Gl.COMPRESSED_LUMINANCE"/>, <see 
+		/// cref="Gl.COMPRESSED_LUMINANCE_ALPHA"/>, <see cref="Gl.COMPRESSED_RGB"/>, or <see cref="Gl.COMPRESSED_RGBA"/>, the GL 
+		/// will replace the internal format with the symbolic constant for a specific internal format and compress the texture 
+		/// before storage. If no corresponding internal format is available, or the GL can not compress that image for any reason, 
+		/// the internal format is instead replaced with a corresponding base internal format.
 		/// If the <paramref name="internalFormat"/> parameter is <see cref="Gl.SRGB"/>, <see cref="Gl.SRGB8"/>, <see 
-		/// cref="Gl.SRGB_ALPHA"/>,<see cref="Gl.SRGB8_ALPHA8"/>, <see cref="Gl.SLUMINANCE"/>, <see cref="Gl.SLUMINANCE8"/>, <see 
-		/// cref="Gl.SLUMINANCE_ALPHA"/>,or <see cref="Gl.SLUMINANCE8_ALPHA8"/>, the texture is treated as if the red, green, blue, 
-		/// orluminance components are encoded in the sRGB color space. Any alpha component is left unchanged. The conversion from 
-		/// thesRGB encoded component cs to a linear component cl is: 
-		/// cl={cs12.92ifcs≤0.04045(cs+0.0551.055)2.4ifcs&gt;0.04045 
-		/// Assume cs is the sRGB component in the range [0,1]. 
+		/// cref="Gl.SRGB_ALPHA"/>, <see cref="Gl.SRGB8_ALPHA8"/>, <see cref="Gl.SLUMINANCE"/>, <see cref="Gl.SLUMINANCE8"/>, <see 
+		/// cref="Gl.SLUMINANCE_ALPHA"/>, or <see cref="Gl.SLUMINANCE8_ALPHA8"/>, the texture is treated as if the red, green, blue, 
+		/// or luminance components are encoded in the sRGB color space. Any alpha component is left unchanged. The conversion from 
+		/// the sRGB encoded component cs to a linear component cl is:
+		/// cl={cs12.92ifcs≤0.04045(cs+0.0551.055)2.4ifcs&gt;0.04045
+		/// Assume cs is the sRGB component in the range [0,1].
 		/// Use the <see cref="Gl.PROXY_TEXTURE_3D"/> target to try out a resolution and format. The implementation will update and 
-		/// recomputeits best match for the requested storage resolution and format. To then query this state, call 
-		/// Gl.GetTexLevelParameter.If the texture cannot be accommodated, texture state is set to 0. 
+		/// recompute its best match for the requested storage resolution and format. To then query this state, call 
+		/// Gl.GetTexLevelParameter. If the texture cannot be accommodated, texture state is set to 0.
 		/// A one-component texture image uses only the red component of the RGBA color extracted from <paramref name="data"/>. A 
-		/// two-componentimage uses the R and A values. A three-component image uses the R, G, and B values. A four-component image 
-		/// usesall of the RGBA components. 
+		/// two-component image uses the R and A values. A three-component image uses the R, G, and B values. A four-component image 
+		/// uses all of the RGBA components.
 		/// <para>
 		/// The following errors can be generated:
 		/// - <see cref="Gl.INVALID_ENUM"/> is generated if <paramref name="target"/> is not <see cref="Gl.TEXTURE_3D"/> or <see 
 		///   cref="Gl.PROXY_TEXTURE_3D"/>.
 		/// - <see cref="Gl.INVALID_ENUM"/> is generated if <paramref name="format"/> is not an accepted format constant. Format 
-		///   constantsother than <see cref="Gl.STENCIL_INDEX"/> and <see cref="Gl.DEPTH_COMPONENT"/> are accepted. 
-		/// - <see cref="Gl.INVALID_ENUM"/> is generated if <paramref name="type"/> is not a type constant. 
+		///   constants other than <see cref="Gl.STENCIL_INDEX"/> and <see cref="Gl.DEPTH_COMPONENT"/> are accepted.
+		/// - <see cref="Gl.INVALID_ENUM"/> is generated if <paramref name="type"/> is not a type constant.
 		/// - <see cref="Gl.INVALID_ENUM"/> is generated if <paramref name="type"/> is <see cref="Gl.BITMAP"/> and <paramref 
-		///   name="format"/>is not <see cref="Gl.COLOR_INDEX"/>. 
-		/// - <see cref="Gl.INVALID_VALUE"/> is generated if <paramref name="level"/> is less than 0. 
+		///   name="format"/> is not <see cref="Gl.COLOR_INDEX"/>.
+		/// - <see cref="Gl.INVALID_VALUE"/> is generated if <paramref name="level"/> is less than 0.
 		/// - <see cref="Gl.INVALID_VALUE"/> may be generated if <paramref name="level"/> is greater than log2⁡max, where max is the 
-		///   returnedvalue of <see cref="Gl.MAX_TEXTURE_SIZE"/>. 
+		///   returned value of <see cref="Gl.MAX_TEXTURE_SIZE"/>.
 		/// - <see cref="Gl.INVALID_VALUE"/> is generated if <paramref name="internalFormat"/> is not 1, 2, 3, 4, or one of the 
-		///   acceptedresolution and format symbolic constants. 
+		///   accepted resolution and format symbolic constants.
 		/// - <see cref="Gl.INVALID_VALUE"/> is generated if <paramref name="width"/>, <paramref name="height"/>, or <paramref 
-		///   name="depth"/>is less than 0 or greater than 2 + <see cref="Gl.MAX_TEXTURE_SIZE"/>. 
+		///   name="depth"/> is less than 0 or greater than 2 + <see cref="Gl.MAX_TEXTURE_SIZE"/>.
 		/// - <see cref="Gl.INVALID_VALUE"/> is generated if non-power-of-two textures are not supported and the <paramref 
-		///   name="width"/>,<paramref name="height"/>, or <paramref name="depth"/> cannot be represented as 2k+2⁡border for some 
-		///   integervalue of k. 
-		/// - <see cref="Gl.INVALID_VALUE"/> is generated if <paramref name="border"/> is not 0 or 1. 
+		///   name="width"/>, <paramref name="height"/>, or <paramref name="depth"/> cannot be represented as 2k+2⁡border for some 
+		///   integer value of k.
+		/// - <see cref="Gl.INVALID_VALUE"/> is generated if <paramref name="border"/> is not 0 or 1.
 		/// - <see cref="Gl.INVALID_OPERATION"/> is generated if <paramref name="type"/> is one of <see 
-		///   cref="Gl.UNSIGNED_BYTE_3_3_2"/>,<see cref="Gl.UNSIGNED_BYTE_2_3_3_REV"/>, <see cref="Gl.UNSIGNED_SHORT_5_6_5"/>, or <see 
-		///   cref="Gl.UNSIGNED_SHORT_5_6_5_REV"/>and <paramref name="format"/> is not <see cref="Gl.RGB"/>. 
+		///   cref="Gl.UNSIGNED_BYTE_3_3_2"/>, <see cref="Gl.UNSIGNED_BYTE_2_3_3_REV"/>, <see cref="Gl.UNSIGNED_SHORT_5_6_5"/>, or 
+		///   <see cref="Gl.UNSIGNED_SHORT_5_6_5_REV"/> and <paramref name="format"/> is not <see cref="Gl.RGB"/>.
 		/// - <see cref="Gl.INVALID_OPERATION"/> is generated if <paramref name="type"/> is one of <see 
-		///   cref="Gl.UNSIGNED_SHORT_4_4_4_4"/>,<see cref="Gl.UNSIGNED_SHORT_4_4_4_4_REV"/>, <see cref="Gl.UNSIGNED_SHORT_5_5_5_1"/>, 
-		///   <seecref="Gl.UNSIGNED_SHORT_1_5_5_5_REV"/>, <see cref="Gl.UNSIGNED_INT_8_8_8_8"/>, <see 
-		///   cref="Gl.UNSIGNED_INT_8_8_8_8_REV"/>,<see cref="Gl.UNSIGNED_INT_10_10_10_2"/>, or <see 
-		///   cref="Gl.UNSIGNED_INT_2_10_10_10_REV"/>and <paramref name="format"/> is neither <see cref="Gl.RGBA"/> nor <see 
+		///   cref="Gl.UNSIGNED_SHORT_4_4_4_4"/>, <see cref="Gl.UNSIGNED_SHORT_4_4_4_4_REV"/>, <see 
+		///   cref="Gl.UNSIGNED_SHORT_5_5_5_1"/>, <see cref="Gl.UNSIGNED_SHORT_1_5_5_5_REV"/>, <see cref="Gl.UNSIGNED_INT_8_8_8_8"/>, 
+		///   <see cref="Gl.UNSIGNED_INT_8_8_8_8_REV"/>, <see cref="Gl.UNSIGNED_INT_10_10_10_2"/>, or <see 
+		///   cref="Gl.UNSIGNED_INT_2_10_10_10_REV"/> and <paramref name="format"/> is neither <see cref="Gl.RGBA"/> nor <see 
 		///   cref="Gl.BGRA"/>.
 		/// - <see cref="Gl.INVALID_OPERATION"/> is generated if <paramref name="format"/> or <paramref name="internalFormat"/> is 
-		///   <seecref="Gl.DEPTH_COMPONENT"/>, <see cref="Gl.DEPTH_COMPONENT16"/>, <see cref="Gl.DEPTH_COMPONENT24"/>, or <see 
+		///   <see cref="Gl.DEPTH_COMPONENT"/>, <see cref="Gl.DEPTH_COMPONENT16"/>, <see cref="Gl.DEPTH_COMPONENT24"/>, or <see 
 		///   cref="Gl.DEPTH_COMPONENT32"/>.
 		/// - <see cref="Gl.INVALID_OPERATION"/> is generated if a non-zero buffer object name is bound to the <see 
-		///   cref="Gl.PIXEL_UNPACK_BUFFER"/>target and the buffer object's data store is currently mapped. 
+		///   cref="Gl.PIXEL_UNPACK_BUFFER"/> target and the buffer object's data store is currently mapped.
 		/// - <see cref="Gl.INVALID_OPERATION"/> is generated if a non-zero buffer object name is bound to the <see 
-		///   cref="Gl.PIXEL_UNPACK_BUFFER"/>target and the data would be unpacked from the buffer object such that the memory reads 
-		///   requiredwould exceed the data store size. 
+		///   cref="Gl.PIXEL_UNPACK_BUFFER"/> target and the data would be unpacked from the buffer object such that the memory reads 
+		///   required would exceed the data store size.
 		/// - <see cref="Gl.INVALID_OPERATION"/> is generated if a non-zero buffer object name is bound to the <see 
-		///   cref="Gl.PIXEL_UNPACK_BUFFER"/>target and <paramref name="data"/> is not evenly divisible into the number of bytes 
-		///   neededto store in memory a datum indicated by <paramref name="type"/>. 
+		///   cref="Gl.PIXEL_UNPACK_BUFFER"/> target and <paramref name="data"/> is not evenly divisible into the number of bytes 
+		///   needed to store in memory a datum indicated by <paramref name="type"/>.
 		/// - <see cref="Gl.INVALID_OPERATION"/> is generated if <see cref="Gl.TexImage3D"/> is executed between the execution of 
-		///   Gl.Beginand the corresponding execution of Gl.End. 
+		///   Gl.Begin and the corresponding execution of Gl.End.
 		/// </para>
 		/// <para>
 		/// The associated information is got with the following commands:
-		/// - Gl.GetTexImage 
-		/// - Gl.IsEnabled with argument <see cref="Gl.TEXTURE_3D"/> 
-		/// - Gl.Get with argument <see cref="Gl.PIXEL_UNPACK_BUFFER_BINDING"/> 
+		/// - Gl.GetTexImage
+		/// - Gl.IsEnabled with argument <see cref="Gl.TEXTURE_3D"/>
+		/// - Gl.Get with argument <see cref="Gl.PIXEL_UNPACK_BUFFER_BINDING"/>
 		/// </para>
 		/// </remarks>
 		/// <seealso cref="Gl.ActiveTexture"/>
@@ -757,46 +757,46 @@ namespace OpenGL
 		/// specify a three-dimensional texture image
 		/// </summary>
 		/// <param name="target">
-		/// Specifies the target texture. Must be <see cref="Gl.TEXTURE_3D"/> or <see cref="Gl.PROXY_TEXTURE_3D"/>. 
+		/// Specifies the target texture. Must be <see cref="Gl.TEXTURE_3D"/> or <see cref="Gl.PROXY_TEXTURE_3D"/>.
 		/// </param>
 		/// <param name="level">
-		/// Specifies the level-of-detail number. Level 0 is the base image level. Level n is the nth mipmap reduction image. 
+		/// Specifies the level-of-detail number. Level 0 is the base image level. Level n is the nth mipmap reduction image.
 		/// </param>
 		/// <param name="internalformat">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="width">
 		/// Specifies the width of the texture image including the border if any. If the GL version does not support 
-		/// non-power-of-twosizes, this value must be 2n+2⁡border for some integer n. All implementations support 3D texture images 
-		/// thatare at least 16 texels wide. 
+		/// non-power-of-two sizes, this value must be 2n+2⁡border for some integer n. All implementations support 3D texture images 
+		/// that are at least 16 texels wide.
 		/// </param>
 		/// <param name="height">
 		/// Specifies the height of the texture image including the border if any. If the GL version does not support 
-		/// non-power-of-twosizes, this value must be 2m+2⁡border for some integer m. All implementations support 3D texture images 
-		/// thatare at least 16 texels high. 
+		/// non-power-of-two sizes, this value must be 2m+2⁡border for some integer m. All implementations support 3D texture images 
+		/// that are at least 16 texels high.
 		/// </param>
 		/// <param name="depth">
 		/// Specifies the depth of the texture image including the border if any. If the GL version does not support 
-		/// non-power-of-twosizes, this value must be 2k+2⁡border for some integer k. All implementations support 3D texture images 
-		/// thatare at least 16 texels deep. 
+		/// non-power-of-two sizes, this value must be 2k+2⁡border for some integer k. All implementations support 3D texture images 
+		/// that are at least 16 texels deep.
 		/// </param>
 		/// <param name="border">
-		/// Specifies the width of the border. Must be either 0 or 1. 
+		/// Specifies the width of the border. Must be either 0 or 1.
 		/// </param>
 		/// <param name="format">
 		/// Specifies the format of the pixel data. The following symbolic values are accepted: <see cref="Gl.COLOR_INDEX"/>, <see 
-		/// cref="Gl.RED"/>,<see cref="Gl.GREEN"/>, <see cref="Gl.BLUE"/>, <see cref="Gl.ALPHA"/>, <see cref="Gl.RGB"/>, <see 
-		/// cref="Gl.BGR"/>,<see cref="Gl.RGBA"/>, <see cref="Gl.BGRA"/>, <see cref="Gl.LUMINANCE"/>, and <see 
+		/// cref="Gl.RED"/>, <see cref="Gl.GREEN"/>, <see cref="Gl.BLUE"/>, <see cref="Gl.ALPHA"/>, <see cref="Gl.RGB"/>, <see 
+		/// cref="Gl.BGR"/>, <see cref="Gl.RGBA"/>, <see cref="Gl.BGRA"/>, <see cref="Gl.LUMINANCE"/>, and <see 
 		/// cref="Gl.LUMINANCE_ALPHA"/>.
 		/// </param>
 		/// <param name="type">
 		/// Specifies the data type of the pixel data. The following symbolic values are accepted: <see cref="Gl.UNSIGNED_BYTE"/>, 
-		/// <seecref="Gl.BYTE"/>, <see cref="Gl.BITMAP"/>, <see cref="Gl.UNSIGNED_SHORT"/>, <see cref="Gl.SHORT"/>, <see 
-		/// cref="Gl.UNSIGNED_INT"/>,<see cref="Gl.INT"/>, <see cref="Gl.FLOAT"/>, <see cref="Gl.UNSIGNED_BYTE_3_3_2"/>, <see 
-		/// cref="Gl.UNSIGNED_BYTE_2_3_3_REV"/>,<see cref="Gl.UNSIGNED_SHORT_5_6_5"/>, <see cref="Gl.UNSIGNED_SHORT_5_6_5_REV"/>, 
-		/// <seecref="Gl.UNSIGNED_SHORT_4_4_4_4"/>, <see cref="Gl.UNSIGNED_SHORT_4_4_4_4_REV"/>, <see 
-		/// cref="Gl.UNSIGNED_SHORT_5_5_5_1"/>,<see cref="Gl.UNSIGNED_SHORT_1_5_5_5_REV"/>, <see cref="Gl.UNSIGNED_INT_8_8_8_8"/>, 
-		/// <seecref="Gl.UNSIGNED_INT_8_8_8_8_REV"/>, <see cref="Gl.UNSIGNED_INT_10_10_10_2"/>, and <see 
+		/// <see cref="Gl.BYTE"/>, <see cref="Gl.BITMAP"/>, <see cref="Gl.UNSIGNED_SHORT"/>, <see cref="Gl.SHORT"/>, <see 
+		/// cref="Gl.UNSIGNED_INT"/>, <see cref="Gl.INT"/>, <see cref="Gl.FLOAT"/>, <see cref="Gl.UNSIGNED_BYTE_3_3_2"/>, <see 
+		/// cref="Gl.UNSIGNED_BYTE_2_3_3_REV"/>, <see cref="Gl.UNSIGNED_SHORT_5_6_5"/>, <see cref="Gl.UNSIGNED_SHORT_5_6_5_REV"/>, 
+		/// <see cref="Gl.UNSIGNED_SHORT_4_4_4_4"/>, <see cref="Gl.UNSIGNED_SHORT_4_4_4_4_REV"/>, <see 
+		/// cref="Gl.UNSIGNED_SHORT_5_5_5_1"/>, <see cref="Gl.UNSIGNED_SHORT_1_5_5_5_REV"/>, <see cref="Gl.UNSIGNED_INT_8_8_8_8"/>, 
+		/// <see cref="Gl.UNSIGNED_INT_8_8_8_8_REV"/>, <see cref="Gl.UNSIGNED_INT_10_10_10_2"/>, and <see 
 		/// cref="Gl.UNSIGNED_INT_2_10_10_10_REV"/>.
 		/// </param>
 		/// <param name="pixels">
@@ -804,104 +804,104 @@ namespace OpenGL
 		/// </param>
 		/// <remarks>
 		/// Texturing maps a portion of a specified texture image onto each graphical primitive for which texturing is enabled. To 
-		/// enableand disable three-dimensional texturing, call Gl.Enable and Gl.Disable with argument <see cref="Gl.TEXTURE_3D"/>. 
+		/// enable and disable three-dimensional texturing, call Gl.Enable and Gl.Disable with argument <see cref="Gl.TEXTURE_3D"/>.
 		/// To define texture images, call <see cref="Gl.TexImage3D"/>. The arguments describe the parameters of the texture image, 
-		/// suchas height, width, depth, width of the border, level-of-detail number (see Gl.TexParameter), and number of color 
-		/// componentsprovided. The last three arguments describe how the image is represented in memory; they are identical to the 
-		/// pixelformats used for Gl.DrawPixels. 
+		/// such as height, width, depth, width of the border, level-of-detail number (see Gl.TexParameter), and number of color 
+		/// components provided. The last three arguments describe how the image is represented in memory; they are identical to the 
+		/// pixel formats used for Gl.DrawPixels.
 		/// If <paramref name="target"/> is <see cref="Gl.PROXY_TEXTURE_3D"/>, no data is read from <paramref name="data"/>, but all 
-		/// ofthe texture image state is recalculated, checked for consistency, and checked against the implementation's 
-		/// capabilities.If the implementation cannot handle a texture of the requested texture size, it sets all of the image state 
-		/// to0, but does not generate an error (see Gl.GetError). To query for an entire mipmap array, use an image array level 
-		/// greaterthan or equal to 1. 
+		/// of the texture image state is recalculated, checked for consistency, and checked against the implementation's 
+		/// capabilities. If the implementation cannot handle a texture of the requested texture size, it sets all of the image 
+		/// state to 0, but does not generate an error (see Gl.GetError). To query for an entire mipmap array, use an image array 
+		/// level greater than or equal to 1.
 		/// If <paramref name="target"/> is <see cref="Gl.TEXTURE_3D"/>, data is read from <paramref name="data"/> as a sequence of 
-		/// signedor unsigned bytes, shorts, or longs, or single-precision floating-point values, depending on <paramref 
-		/// name="type"/>.These values are grouped into sets of one, two, three, or four values, depending on <paramref 
-		/// name="format"/>,to form elements. If <paramref name="type"/> is <see cref="Gl.BITMAP"/>, the data is considered as a 
-		/// stringof unsigned bytes (and <paramref name="format"/> must be <see cref="Gl.COLOR_INDEX"/>). Each data byte is treated 
-		/// aseight 1-bit elements, with bit ordering determined by <see cref="Gl.UNPACK_LSB_FIRST"/> (see Gl.PixelStore). 
+		/// signed or unsigned bytes, shorts, or longs, or single-precision floating-point values, depending on <paramref 
+		/// name="type"/>. These values are grouped into sets of one, two, three, or four values, depending on <paramref 
+		/// name="format"/>, to form elements. If <paramref name="type"/> is <see cref="Gl.BITMAP"/>, the data is considered as a 
+		/// string of unsigned bytes (and <paramref name="format"/> must be <see cref="Gl.COLOR_INDEX"/>). Each data byte is treated 
+		/// as eight 1-bit elements, with bit ordering determined by <see cref="Gl.UNPACK_LSB_FIRST"/> (see Gl.PixelStore).
 		/// If a non-zero named buffer object is bound to the <see cref="Gl.PIXEL_UNPACK_BUFFER"/> target (see Gl.BindBuffer) while 
-		/// atexture image is specified, <paramref name="data"/> is treated as a byte offset into the buffer object's data store. 
+		/// a texture image is specified, <paramref name="data"/> is treated as a byte offset into the buffer object's data store.
 		/// The first element corresponds to the lower left corner of the texture image. Subsequent elements progress left-to-right 
-		/// throughthe remaining texels in the lowest row of the texture image, and then in successively higher rows of the texture 
-		/// image.The final element corresponds to the upper right corner of the texture image. 
+		/// through the remaining texels in the lowest row of the texture image, and then in successively higher rows of the texture 
+		/// image. The final element corresponds to the upper right corner of the texture image.
 		/// <paramref name="format"/> determines the composition of each element in <paramref name="data"/>. It can assume one of 
-		/// thesesymbolic values: 
+		/// these symbolic values:
 		/// Refer to the Gl.DrawPixels reference page for a description of the acceptable values for the <paramref name="type"/> 
 		/// parameter.
 		/// If an application wants to store the texture at a certain resolution or in a certain format, it can request the 
-		/// resolutionand format with <paramref name="internalFormat"/>. The GL will choose an internal representation that closely 
-		/// approximatesthat requested by <paramref name="internalFormat"/>, but it may not match exactly. (The representations 
-		/// specifiedby <see cref="Gl.LUMINANCE"/>, <see cref="Gl.LUMINANCE_ALPHA"/>, <see cref="Gl.RGB"/>, and <see 
-		/// cref="Gl.RGBA"/>must match exactly. The numeric values 1, 2, 3, and 4 may also be used to specify the above 
+		/// resolution and format with <paramref name="internalFormat"/>. The GL will choose an internal representation that closely 
+		/// approximates that requested by <paramref name="internalFormat"/>, but it may not match exactly. (The representations 
+		/// specified by <see cref="Gl.LUMINANCE"/>, <see cref="Gl.LUMINANCE_ALPHA"/>, <see cref="Gl.RGB"/>, and <see 
+		/// cref="Gl.RGBA"/> must match exactly. The numeric values 1, 2, 3, and 4 may also be used to specify the above 
 		/// representations.)
 		/// If the <paramref name="internalFormat"/> parameter is one of the generic compressed formats, <see 
-		/// cref="Gl.COMPRESSED_ALPHA"/>,<see cref="Gl.COMPRESSED_INTENSITY"/>, <see cref="Gl.COMPRESSED_LUMINANCE"/>, <see 
-		/// cref="Gl.COMPRESSED_LUMINANCE_ALPHA"/>,<see cref="Gl.COMPRESSED_RGB"/>, or <see cref="Gl.COMPRESSED_RGBA"/>, the GL will 
-		/// replacethe internal format with the symbolic constant for a specific internal format and compress the texture before 
-		/// storage.If no corresponding internal format is available, or the GL can not compress that image for any reason, the 
-		/// internalformat is instead replaced with a corresponding base internal format. 
+		/// cref="Gl.COMPRESSED_ALPHA"/>, <see cref="Gl.COMPRESSED_INTENSITY"/>, <see cref="Gl.COMPRESSED_LUMINANCE"/>, <see 
+		/// cref="Gl.COMPRESSED_LUMINANCE_ALPHA"/>, <see cref="Gl.COMPRESSED_RGB"/>, or <see cref="Gl.COMPRESSED_RGBA"/>, the GL 
+		/// will replace the internal format with the symbolic constant for a specific internal format and compress the texture 
+		/// before storage. If no corresponding internal format is available, or the GL can not compress that image for any reason, 
+		/// the internal format is instead replaced with a corresponding base internal format.
 		/// If the <paramref name="internalFormat"/> parameter is <see cref="Gl.SRGB"/>, <see cref="Gl.SRGB8"/>, <see 
-		/// cref="Gl.SRGB_ALPHA"/>,<see cref="Gl.SRGB8_ALPHA8"/>, <see cref="Gl.SLUMINANCE"/>, <see cref="Gl.SLUMINANCE8"/>, <see 
-		/// cref="Gl.SLUMINANCE_ALPHA"/>,or <see cref="Gl.SLUMINANCE8_ALPHA8"/>, the texture is treated as if the red, green, blue, 
-		/// orluminance components are encoded in the sRGB color space. Any alpha component is left unchanged. The conversion from 
-		/// thesRGB encoded component cs to a linear component cl is: 
-		/// cl={cs12.92ifcs≤0.04045(cs+0.0551.055)2.4ifcs&gt;0.04045 
-		/// Assume cs is the sRGB component in the range [0,1]. 
+		/// cref="Gl.SRGB_ALPHA"/>, <see cref="Gl.SRGB8_ALPHA8"/>, <see cref="Gl.SLUMINANCE"/>, <see cref="Gl.SLUMINANCE8"/>, <see 
+		/// cref="Gl.SLUMINANCE_ALPHA"/>, or <see cref="Gl.SLUMINANCE8_ALPHA8"/>, the texture is treated as if the red, green, blue, 
+		/// or luminance components are encoded in the sRGB color space. Any alpha component is left unchanged. The conversion from 
+		/// the sRGB encoded component cs to a linear component cl is:
+		/// cl={cs12.92ifcs≤0.04045(cs+0.0551.055)2.4ifcs&gt;0.04045
+		/// Assume cs is the sRGB component in the range [0,1].
 		/// Use the <see cref="Gl.PROXY_TEXTURE_3D"/> target to try out a resolution and format. The implementation will update and 
-		/// recomputeits best match for the requested storage resolution and format. To then query this state, call 
-		/// Gl.GetTexLevelParameter.If the texture cannot be accommodated, texture state is set to 0. 
+		/// recompute its best match for the requested storage resolution and format. To then query this state, call 
+		/// Gl.GetTexLevelParameter. If the texture cannot be accommodated, texture state is set to 0.
 		/// A one-component texture image uses only the red component of the RGBA color extracted from <paramref name="data"/>. A 
-		/// two-componentimage uses the R and A values. A three-component image uses the R, G, and B values. A four-component image 
-		/// usesall of the RGBA components. 
+		/// two-component image uses the R and A values. A three-component image uses the R, G, and B values. A four-component image 
+		/// uses all of the RGBA components.
 		/// <para>
 		/// The following errors can be generated:
 		/// - <see cref="Gl.INVALID_ENUM"/> is generated if <paramref name="target"/> is not <see cref="Gl.TEXTURE_3D"/> or <see 
 		///   cref="Gl.PROXY_TEXTURE_3D"/>.
 		/// - <see cref="Gl.INVALID_ENUM"/> is generated if <paramref name="format"/> is not an accepted format constant. Format 
-		///   constantsother than <see cref="Gl.STENCIL_INDEX"/> and <see cref="Gl.DEPTH_COMPONENT"/> are accepted. 
-		/// - <see cref="Gl.INVALID_ENUM"/> is generated if <paramref name="type"/> is not a type constant. 
+		///   constants other than <see cref="Gl.STENCIL_INDEX"/> and <see cref="Gl.DEPTH_COMPONENT"/> are accepted.
+		/// - <see cref="Gl.INVALID_ENUM"/> is generated if <paramref name="type"/> is not a type constant.
 		/// - <see cref="Gl.INVALID_ENUM"/> is generated if <paramref name="type"/> is <see cref="Gl.BITMAP"/> and <paramref 
-		///   name="format"/>is not <see cref="Gl.COLOR_INDEX"/>. 
-		/// - <see cref="Gl.INVALID_VALUE"/> is generated if <paramref name="level"/> is less than 0. 
+		///   name="format"/> is not <see cref="Gl.COLOR_INDEX"/>.
+		/// - <see cref="Gl.INVALID_VALUE"/> is generated if <paramref name="level"/> is less than 0.
 		/// - <see cref="Gl.INVALID_VALUE"/> may be generated if <paramref name="level"/> is greater than log2⁡max, where max is the 
-		///   returnedvalue of <see cref="Gl.MAX_TEXTURE_SIZE"/>. 
+		///   returned value of <see cref="Gl.MAX_TEXTURE_SIZE"/>.
 		/// - <see cref="Gl.INVALID_VALUE"/> is generated if <paramref name="internalFormat"/> is not 1, 2, 3, 4, or one of the 
-		///   acceptedresolution and format symbolic constants. 
+		///   accepted resolution and format symbolic constants.
 		/// - <see cref="Gl.INVALID_VALUE"/> is generated if <paramref name="width"/>, <paramref name="height"/>, or <paramref 
-		///   name="depth"/>is less than 0 or greater than 2 + <see cref="Gl.MAX_TEXTURE_SIZE"/>. 
+		///   name="depth"/> is less than 0 or greater than 2 + <see cref="Gl.MAX_TEXTURE_SIZE"/>.
 		/// - <see cref="Gl.INVALID_VALUE"/> is generated if non-power-of-two textures are not supported and the <paramref 
-		///   name="width"/>,<paramref name="height"/>, or <paramref name="depth"/> cannot be represented as 2k+2⁡border for some 
-		///   integervalue of k. 
-		/// - <see cref="Gl.INVALID_VALUE"/> is generated if <paramref name="border"/> is not 0 or 1. 
+		///   name="width"/>, <paramref name="height"/>, or <paramref name="depth"/> cannot be represented as 2k+2⁡border for some 
+		///   integer value of k.
+		/// - <see cref="Gl.INVALID_VALUE"/> is generated if <paramref name="border"/> is not 0 or 1.
 		/// - <see cref="Gl.INVALID_OPERATION"/> is generated if <paramref name="type"/> is one of <see 
-		///   cref="Gl.UNSIGNED_BYTE_3_3_2"/>,<see cref="Gl.UNSIGNED_BYTE_2_3_3_REV"/>, <see cref="Gl.UNSIGNED_SHORT_5_6_5"/>, or <see 
-		///   cref="Gl.UNSIGNED_SHORT_5_6_5_REV"/>and <paramref name="format"/> is not <see cref="Gl.RGB"/>. 
+		///   cref="Gl.UNSIGNED_BYTE_3_3_2"/>, <see cref="Gl.UNSIGNED_BYTE_2_3_3_REV"/>, <see cref="Gl.UNSIGNED_SHORT_5_6_5"/>, or 
+		///   <see cref="Gl.UNSIGNED_SHORT_5_6_5_REV"/> and <paramref name="format"/> is not <see cref="Gl.RGB"/>.
 		/// - <see cref="Gl.INVALID_OPERATION"/> is generated if <paramref name="type"/> is one of <see 
-		///   cref="Gl.UNSIGNED_SHORT_4_4_4_4"/>,<see cref="Gl.UNSIGNED_SHORT_4_4_4_4_REV"/>, <see cref="Gl.UNSIGNED_SHORT_5_5_5_1"/>, 
-		///   <seecref="Gl.UNSIGNED_SHORT_1_5_5_5_REV"/>, <see cref="Gl.UNSIGNED_INT_8_8_8_8"/>, <see 
-		///   cref="Gl.UNSIGNED_INT_8_8_8_8_REV"/>,<see cref="Gl.UNSIGNED_INT_10_10_10_2"/>, or <see 
-		///   cref="Gl.UNSIGNED_INT_2_10_10_10_REV"/>and <paramref name="format"/> is neither <see cref="Gl.RGBA"/> nor <see 
+		///   cref="Gl.UNSIGNED_SHORT_4_4_4_4"/>, <see cref="Gl.UNSIGNED_SHORT_4_4_4_4_REV"/>, <see 
+		///   cref="Gl.UNSIGNED_SHORT_5_5_5_1"/>, <see cref="Gl.UNSIGNED_SHORT_1_5_5_5_REV"/>, <see cref="Gl.UNSIGNED_INT_8_8_8_8"/>, 
+		///   <see cref="Gl.UNSIGNED_INT_8_8_8_8_REV"/>, <see cref="Gl.UNSIGNED_INT_10_10_10_2"/>, or <see 
+		///   cref="Gl.UNSIGNED_INT_2_10_10_10_REV"/> and <paramref name="format"/> is neither <see cref="Gl.RGBA"/> nor <see 
 		///   cref="Gl.BGRA"/>.
 		/// - <see cref="Gl.INVALID_OPERATION"/> is generated if <paramref name="format"/> or <paramref name="internalFormat"/> is 
-		///   <seecref="Gl.DEPTH_COMPONENT"/>, <see cref="Gl.DEPTH_COMPONENT16"/>, <see cref="Gl.DEPTH_COMPONENT24"/>, or <see 
+		///   <see cref="Gl.DEPTH_COMPONENT"/>, <see cref="Gl.DEPTH_COMPONENT16"/>, <see cref="Gl.DEPTH_COMPONENT24"/>, or <see 
 		///   cref="Gl.DEPTH_COMPONENT32"/>.
 		/// - <see cref="Gl.INVALID_OPERATION"/> is generated if a non-zero buffer object name is bound to the <see 
-		///   cref="Gl.PIXEL_UNPACK_BUFFER"/>target and the buffer object's data store is currently mapped. 
+		///   cref="Gl.PIXEL_UNPACK_BUFFER"/> target and the buffer object's data store is currently mapped.
 		/// - <see cref="Gl.INVALID_OPERATION"/> is generated if a non-zero buffer object name is bound to the <see 
-		///   cref="Gl.PIXEL_UNPACK_BUFFER"/>target and the data would be unpacked from the buffer object such that the memory reads 
-		///   requiredwould exceed the data store size. 
+		///   cref="Gl.PIXEL_UNPACK_BUFFER"/> target and the data would be unpacked from the buffer object such that the memory reads 
+		///   required would exceed the data store size.
 		/// - <see cref="Gl.INVALID_OPERATION"/> is generated if a non-zero buffer object name is bound to the <see 
-		///   cref="Gl.PIXEL_UNPACK_BUFFER"/>target and <paramref name="data"/> is not evenly divisible into the number of bytes 
-		///   neededto store in memory a datum indicated by <paramref name="type"/>. 
+		///   cref="Gl.PIXEL_UNPACK_BUFFER"/> target and <paramref name="data"/> is not evenly divisible into the number of bytes 
+		///   needed to store in memory a datum indicated by <paramref name="type"/>.
 		/// - <see cref="Gl.INVALID_OPERATION"/> is generated if <see cref="Gl.TexImage3D"/> is executed between the execution of 
-		///   Gl.Beginand the corresponding execution of Gl.End. 
+		///   Gl.Begin and the corresponding execution of Gl.End.
 		/// </para>
 		/// <para>
 		/// The associated information is got with the following commands:
-		/// - Gl.GetTexImage 
-		/// - Gl.IsEnabled with argument <see cref="Gl.TEXTURE_3D"/> 
-		/// - Gl.Get with argument <see cref="Gl.PIXEL_UNPACK_BUFFER_BINDING"/> 
+		/// - Gl.GetTexImage
+		/// - Gl.IsEnabled with argument <see cref="Gl.TEXTURE_3D"/>
+		/// - Gl.Get with argument <see cref="Gl.PIXEL_UNPACK_BUFFER_BINDING"/>
 		/// </para>
 		/// </remarks>
 		/// <seealso cref="Gl.ActiveTexture"/>
@@ -951,46 +951,46 @@ namespace OpenGL
 		/// specify a three-dimensional texture image
 		/// </summary>
 		/// <param name="target">
-		/// Specifies the target texture. Must be <see cref="Gl.TEXTURE_3D"/> or <see cref="Gl.PROXY_TEXTURE_3D"/>. 
+		/// Specifies the target texture. Must be <see cref="Gl.TEXTURE_3D"/> or <see cref="Gl.PROXY_TEXTURE_3D"/>.
 		/// </param>
 		/// <param name="level">
-		/// Specifies the level-of-detail number. Level 0 is the base image level. Level n is the nth mipmap reduction image. 
+		/// Specifies the level-of-detail number. Level 0 is the base image level. Level n is the nth mipmap reduction image.
 		/// </param>
 		/// <param name="internalformat">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="width">
 		/// Specifies the width of the texture image including the border if any. If the GL version does not support 
-		/// non-power-of-twosizes, this value must be 2n+2⁡border for some integer n. All implementations support 3D texture images 
-		/// thatare at least 16 texels wide. 
+		/// non-power-of-two sizes, this value must be 2n+2⁡border for some integer n. All implementations support 3D texture images 
+		/// that are at least 16 texels wide.
 		/// </param>
 		/// <param name="height">
 		/// Specifies the height of the texture image including the border if any. If the GL version does not support 
-		/// non-power-of-twosizes, this value must be 2m+2⁡border for some integer m. All implementations support 3D texture images 
-		/// thatare at least 16 texels high. 
+		/// non-power-of-two sizes, this value must be 2m+2⁡border for some integer m. All implementations support 3D texture images 
+		/// that are at least 16 texels high.
 		/// </param>
 		/// <param name="depth">
 		/// Specifies the depth of the texture image including the border if any. If the GL version does not support 
-		/// non-power-of-twosizes, this value must be 2k+2⁡border for some integer k. All implementations support 3D texture images 
-		/// thatare at least 16 texels deep. 
+		/// non-power-of-two sizes, this value must be 2k+2⁡border for some integer k. All implementations support 3D texture images 
+		/// that are at least 16 texels deep.
 		/// </param>
 		/// <param name="border">
-		/// Specifies the width of the border. Must be either 0 or 1. 
+		/// Specifies the width of the border. Must be either 0 or 1.
 		/// </param>
 		/// <param name="format">
 		/// Specifies the format of the pixel data. The following symbolic values are accepted: <see cref="Gl.COLOR_INDEX"/>, <see 
-		/// cref="Gl.RED"/>,<see cref="Gl.GREEN"/>, <see cref="Gl.BLUE"/>, <see cref="Gl.ALPHA"/>, <see cref="Gl.RGB"/>, <see 
-		/// cref="Gl.BGR"/>,<see cref="Gl.RGBA"/>, <see cref="Gl.BGRA"/>, <see cref="Gl.LUMINANCE"/>, and <see 
+		/// cref="Gl.RED"/>, <see cref="Gl.GREEN"/>, <see cref="Gl.BLUE"/>, <see cref="Gl.ALPHA"/>, <see cref="Gl.RGB"/>, <see 
+		/// cref="Gl.BGR"/>, <see cref="Gl.RGBA"/>, <see cref="Gl.BGRA"/>, <see cref="Gl.LUMINANCE"/>, and <see 
 		/// cref="Gl.LUMINANCE_ALPHA"/>.
 		/// </param>
 		/// <param name="type">
 		/// Specifies the data type of the pixel data. The following symbolic values are accepted: <see cref="Gl.UNSIGNED_BYTE"/>, 
-		/// <seecref="Gl.BYTE"/>, <see cref="Gl.BITMAP"/>, <see cref="Gl.UNSIGNED_SHORT"/>, <see cref="Gl.SHORT"/>, <see 
-		/// cref="Gl.UNSIGNED_INT"/>,<see cref="Gl.INT"/>, <see cref="Gl.FLOAT"/>, <see cref="Gl.UNSIGNED_BYTE_3_3_2"/>, <see 
-		/// cref="Gl.UNSIGNED_BYTE_2_3_3_REV"/>,<see cref="Gl.UNSIGNED_SHORT_5_6_5"/>, <see cref="Gl.UNSIGNED_SHORT_5_6_5_REV"/>, 
-		/// <seecref="Gl.UNSIGNED_SHORT_4_4_4_4"/>, <see cref="Gl.UNSIGNED_SHORT_4_4_4_4_REV"/>, <see 
-		/// cref="Gl.UNSIGNED_SHORT_5_5_5_1"/>,<see cref="Gl.UNSIGNED_SHORT_1_5_5_5_REV"/>, <see cref="Gl.UNSIGNED_INT_8_8_8_8"/>, 
-		/// <seecref="Gl.UNSIGNED_INT_8_8_8_8_REV"/>, <see cref="Gl.UNSIGNED_INT_10_10_10_2"/>, and <see 
+		/// <see cref="Gl.BYTE"/>, <see cref="Gl.BITMAP"/>, <see cref="Gl.UNSIGNED_SHORT"/>, <see cref="Gl.SHORT"/>, <see 
+		/// cref="Gl.UNSIGNED_INT"/>, <see cref="Gl.INT"/>, <see cref="Gl.FLOAT"/>, <see cref="Gl.UNSIGNED_BYTE_3_3_2"/>, <see 
+		/// cref="Gl.UNSIGNED_BYTE_2_3_3_REV"/>, <see cref="Gl.UNSIGNED_SHORT_5_6_5"/>, <see cref="Gl.UNSIGNED_SHORT_5_6_5_REV"/>, 
+		/// <see cref="Gl.UNSIGNED_SHORT_4_4_4_4"/>, <see cref="Gl.UNSIGNED_SHORT_4_4_4_4_REV"/>, <see 
+		/// cref="Gl.UNSIGNED_SHORT_5_5_5_1"/>, <see cref="Gl.UNSIGNED_SHORT_1_5_5_5_REV"/>, <see cref="Gl.UNSIGNED_INT_8_8_8_8"/>, 
+		/// <see cref="Gl.UNSIGNED_INT_8_8_8_8_REV"/>, <see cref="Gl.UNSIGNED_INT_10_10_10_2"/>, and <see 
 		/// cref="Gl.UNSIGNED_INT_2_10_10_10_REV"/>.
 		/// </param>
 		/// <param name="pixels">
@@ -998,104 +998,104 @@ namespace OpenGL
 		/// </param>
 		/// <remarks>
 		/// Texturing maps a portion of a specified texture image onto each graphical primitive for which texturing is enabled. To 
-		/// enableand disable three-dimensional texturing, call Gl.Enable and Gl.Disable with argument <see cref="Gl.TEXTURE_3D"/>. 
+		/// enable and disable three-dimensional texturing, call Gl.Enable and Gl.Disable with argument <see cref="Gl.TEXTURE_3D"/>.
 		/// To define texture images, call <see cref="Gl.TexImage3D"/>. The arguments describe the parameters of the texture image, 
-		/// suchas height, width, depth, width of the border, level-of-detail number (see Gl.TexParameter), and number of color 
-		/// componentsprovided. The last three arguments describe how the image is represented in memory; they are identical to the 
-		/// pixelformats used for Gl.DrawPixels. 
+		/// such as height, width, depth, width of the border, level-of-detail number (see Gl.TexParameter), and number of color 
+		/// components provided. The last three arguments describe how the image is represented in memory; they are identical to the 
+		/// pixel formats used for Gl.DrawPixels.
 		/// If <paramref name="target"/> is <see cref="Gl.PROXY_TEXTURE_3D"/>, no data is read from <paramref name="data"/>, but all 
-		/// ofthe texture image state is recalculated, checked for consistency, and checked against the implementation's 
-		/// capabilities.If the implementation cannot handle a texture of the requested texture size, it sets all of the image state 
-		/// to0, but does not generate an error (see Gl.GetError). To query for an entire mipmap array, use an image array level 
-		/// greaterthan or equal to 1. 
+		/// of the texture image state is recalculated, checked for consistency, and checked against the implementation's 
+		/// capabilities. If the implementation cannot handle a texture of the requested texture size, it sets all of the image 
+		/// state to 0, but does not generate an error (see Gl.GetError). To query for an entire mipmap array, use an image array 
+		/// level greater than or equal to 1.
 		/// If <paramref name="target"/> is <see cref="Gl.TEXTURE_3D"/>, data is read from <paramref name="data"/> as a sequence of 
-		/// signedor unsigned bytes, shorts, or longs, or single-precision floating-point values, depending on <paramref 
-		/// name="type"/>.These values are grouped into sets of one, two, three, or four values, depending on <paramref 
-		/// name="format"/>,to form elements. If <paramref name="type"/> is <see cref="Gl.BITMAP"/>, the data is considered as a 
-		/// stringof unsigned bytes (and <paramref name="format"/> must be <see cref="Gl.COLOR_INDEX"/>). Each data byte is treated 
-		/// aseight 1-bit elements, with bit ordering determined by <see cref="Gl.UNPACK_LSB_FIRST"/> (see Gl.PixelStore). 
+		/// signed or unsigned bytes, shorts, or longs, or single-precision floating-point values, depending on <paramref 
+		/// name="type"/>. These values are grouped into sets of one, two, three, or four values, depending on <paramref 
+		/// name="format"/>, to form elements. If <paramref name="type"/> is <see cref="Gl.BITMAP"/>, the data is considered as a 
+		/// string of unsigned bytes (and <paramref name="format"/> must be <see cref="Gl.COLOR_INDEX"/>). Each data byte is treated 
+		/// as eight 1-bit elements, with bit ordering determined by <see cref="Gl.UNPACK_LSB_FIRST"/> (see Gl.PixelStore).
 		/// If a non-zero named buffer object is bound to the <see cref="Gl.PIXEL_UNPACK_BUFFER"/> target (see Gl.BindBuffer) while 
-		/// atexture image is specified, <paramref name="data"/> is treated as a byte offset into the buffer object's data store. 
+		/// a texture image is specified, <paramref name="data"/> is treated as a byte offset into the buffer object's data store.
 		/// The first element corresponds to the lower left corner of the texture image. Subsequent elements progress left-to-right 
-		/// throughthe remaining texels in the lowest row of the texture image, and then in successively higher rows of the texture 
-		/// image.The final element corresponds to the upper right corner of the texture image. 
+		/// through the remaining texels in the lowest row of the texture image, and then in successively higher rows of the texture 
+		/// image. The final element corresponds to the upper right corner of the texture image.
 		/// <paramref name="format"/> determines the composition of each element in <paramref name="data"/>. It can assume one of 
-		/// thesesymbolic values: 
+		/// these symbolic values:
 		/// Refer to the Gl.DrawPixels reference page for a description of the acceptable values for the <paramref name="type"/> 
 		/// parameter.
 		/// If an application wants to store the texture at a certain resolution or in a certain format, it can request the 
-		/// resolutionand format with <paramref name="internalFormat"/>. The GL will choose an internal representation that closely 
-		/// approximatesthat requested by <paramref name="internalFormat"/>, but it may not match exactly. (The representations 
-		/// specifiedby <see cref="Gl.LUMINANCE"/>, <see cref="Gl.LUMINANCE_ALPHA"/>, <see cref="Gl.RGB"/>, and <see 
-		/// cref="Gl.RGBA"/>must match exactly. The numeric values 1, 2, 3, and 4 may also be used to specify the above 
+		/// resolution and format with <paramref name="internalFormat"/>. The GL will choose an internal representation that closely 
+		/// approximates that requested by <paramref name="internalFormat"/>, but it may not match exactly. (The representations 
+		/// specified by <see cref="Gl.LUMINANCE"/>, <see cref="Gl.LUMINANCE_ALPHA"/>, <see cref="Gl.RGB"/>, and <see 
+		/// cref="Gl.RGBA"/> must match exactly. The numeric values 1, 2, 3, and 4 may also be used to specify the above 
 		/// representations.)
 		/// If the <paramref name="internalFormat"/> parameter is one of the generic compressed formats, <see 
-		/// cref="Gl.COMPRESSED_ALPHA"/>,<see cref="Gl.COMPRESSED_INTENSITY"/>, <see cref="Gl.COMPRESSED_LUMINANCE"/>, <see 
-		/// cref="Gl.COMPRESSED_LUMINANCE_ALPHA"/>,<see cref="Gl.COMPRESSED_RGB"/>, or <see cref="Gl.COMPRESSED_RGBA"/>, the GL will 
-		/// replacethe internal format with the symbolic constant for a specific internal format and compress the texture before 
-		/// storage.If no corresponding internal format is available, or the GL can not compress that image for any reason, the 
-		/// internalformat is instead replaced with a corresponding base internal format. 
+		/// cref="Gl.COMPRESSED_ALPHA"/>, <see cref="Gl.COMPRESSED_INTENSITY"/>, <see cref="Gl.COMPRESSED_LUMINANCE"/>, <see 
+		/// cref="Gl.COMPRESSED_LUMINANCE_ALPHA"/>, <see cref="Gl.COMPRESSED_RGB"/>, or <see cref="Gl.COMPRESSED_RGBA"/>, the GL 
+		/// will replace the internal format with the symbolic constant for a specific internal format and compress the texture 
+		/// before storage. If no corresponding internal format is available, or the GL can not compress that image for any reason, 
+		/// the internal format is instead replaced with a corresponding base internal format.
 		/// If the <paramref name="internalFormat"/> parameter is <see cref="Gl.SRGB"/>, <see cref="Gl.SRGB8"/>, <see 
-		/// cref="Gl.SRGB_ALPHA"/>,<see cref="Gl.SRGB8_ALPHA8"/>, <see cref="Gl.SLUMINANCE"/>, <see cref="Gl.SLUMINANCE8"/>, <see 
-		/// cref="Gl.SLUMINANCE_ALPHA"/>,or <see cref="Gl.SLUMINANCE8_ALPHA8"/>, the texture is treated as if the red, green, blue, 
-		/// orluminance components are encoded in the sRGB color space. Any alpha component is left unchanged. The conversion from 
-		/// thesRGB encoded component cs to a linear component cl is: 
-		/// cl={cs12.92ifcs≤0.04045(cs+0.0551.055)2.4ifcs&gt;0.04045 
-		/// Assume cs is the sRGB component in the range [0,1]. 
+		/// cref="Gl.SRGB_ALPHA"/>, <see cref="Gl.SRGB8_ALPHA8"/>, <see cref="Gl.SLUMINANCE"/>, <see cref="Gl.SLUMINANCE8"/>, <see 
+		/// cref="Gl.SLUMINANCE_ALPHA"/>, or <see cref="Gl.SLUMINANCE8_ALPHA8"/>, the texture is treated as if the red, green, blue, 
+		/// or luminance components are encoded in the sRGB color space. Any alpha component is left unchanged. The conversion from 
+		/// the sRGB encoded component cs to a linear component cl is:
+		/// cl={cs12.92ifcs≤0.04045(cs+0.0551.055)2.4ifcs&gt;0.04045
+		/// Assume cs is the sRGB component in the range [0,1].
 		/// Use the <see cref="Gl.PROXY_TEXTURE_3D"/> target to try out a resolution and format. The implementation will update and 
-		/// recomputeits best match for the requested storage resolution and format. To then query this state, call 
-		/// Gl.GetTexLevelParameter.If the texture cannot be accommodated, texture state is set to 0. 
+		/// recompute its best match for the requested storage resolution and format. To then query this state, call 
+		/// Gl.GetTexLevelParameter. If the texture cannot be accommodated, texture state is set to 0.
 		/// A one-component texture image uses only the red component of the RGBA color extracted from <paramref name="data"/>. A 
-		/// two-componentimage uses the R and A values. A three-component image uses the R, G, and B values. A four-component image 
-		/// usesall of the RGBA components. 
+		/// two-component image uses the R and A values. A three-component image uses the R, G, and B values. A four-component image 
+		/// uses all of the RGBA components.
 		/// <para>
 		/// The following errors can be generated:
 		/// - <see cref="Gl.INVALID_ENUM"/> is generated if <paramref name="target"/> is not <see cref="Gl.TEXTURE_3D"/> or <see 
 		///   cref="Gl.PROXY_TEXTURE_3D"/>.
 		/// - <see cref="Gl.INVALID_ENUM"/> is generated if <paramref name="format"/> is not an accepted format constant. Format 
-		///   constantsother than <see cref="Gl.STENCIL_INDEX"/> and <see cref="Gl.DEPTH_COMPONENT"/> are accepted. 
-		/// - <see cref="Gl.INVALID_ENUM"/> is generated if <paramref name="type"/> is not a type constant. 
+		///   constants other than <see cref="Gl.STENCIL_INDEX"/> and <see cref="Gl.DEPTH_COMPONENT"/> are accepted.
+		/// - <see cref="Gl.INVALID_ENUM"/> is generated if <paramref name="type"/> is not a type constant.
 		/// - <see cref="Gl.INVALID_ENUM"/> is generated if <paramref name="type"/> is <see cref="Gl.BITMAP"/> and <paramref 
-		///   name="format"/>is not <see cref="Gl.COLOR_INDEX"/>. 
-		/// - <see cref="Gl.INVALID_VALUE"/> is generated if <paramref name="level"/> is less than 0. 
+		///   name="format"/> is not <see cref="Gl.COLOR_INDEX"/>.
+		/// - <see cref="Gl.INVALID_VALUE"/> is generated if <paramref name="level"/> is less than 0.
 		/// - <see cref="Gl.INVALID_VALUE"/> may be generated if <paramref name="level"/> is greater than log2⁡max, where max is the 
-		///   returnedvalue of <see cref="Gl.MAX_TEXTURE_SIZE"/>. 
+		///   returned value of <see cref="Gl.MAX_TEXTURE_SIZE"/>.
 		/// - <see cref="Gl.INVALID_VALUE"/> is generated if <paramref name="internalFormat"/> is not 1, 2, 3, 4, or one of the 
-		///   acceptedresolution and format symbolic constants. 
+		///   accepted resolution and format symbolic constants.
 		/// - <see cref="Gl.INVALID_VALUE"/> is generated if <paramref name="width"/>, <paramref name="height"/>, or <paramref 
-		///   name="depth"/>is less than 0 or greater than 2 + <see cref="Gl.MAX_TEXTURE_SIZE"/>. 
+		///   name="depth"/> is less than 0 or greater than 2 + <see cref="Gl.MAX_TEXTURE_SIZE"/>.
 		/// - <see cref="Gl.INVALID_VALUE"/> is generated if non-power-of-two textures are not supported and the <paramref 
-		///   name="width"/>,<paramref name="height"/>, or <paramref name="depth"/> cannot be represented as 2k+2⁡border for some 
-		///   integervalue of k. 
-		/// - <see cref="Gl.INVALID_VALUE"/> is generated if <paramref name="border"/> is not 0 or 1. 
+		///   name="width"/>, <paramref name="height"/>, or <paramref name="depth"/> cannot be represented as 2k+2⁡border for some 
+		///   integer value of k.
+		/// - <see cref="Gl.INVALID_VALUE"/> is generated if <paramref name="border"/> is not 0 or 1.
 		/// - <see cref="Gl.INVALID_OPERATION"/> is generated if <paramref name="type"/> is one of <see 
-		///   cref="Gl.UNSIGNED_BYTE_3_3_2"/>,<see cref="Gl.UNSIGNED_BYTE_2_3_3_REV"/>, <see cref="Gl.UNSIGNED_SHORT_5_6_5"/>, or <see 
-		///   cref="Gl.UNSIGNED_SHORT_5_6_5_REV"/>and <paramref name="format"/> is not <see cref="Gl.RGB"/>. 
+		///   cref="Gl.UNSIGNED_BYTE_3_3_2"/>, <see cref="Gl.UNSIGNED_BYTE_2_3_3_REV"/>, <see cref="Gl.UNSIGNED_SHORT_5_6_5"/>, or 
+		///   <see cref="Gl.UNSIGNED_SHORT_5_6_5_REV"/> and <paramref name="format"/> is not <see cref="Gl.RGB"/>.
 		/// - <see cref="Gl.INVALID_OPERATION"/> is generated if <paramref name="type"/> is one of <see 
-		///   cref="Gl.UNSIGNED_SHORT_4_4_4_4"/>,<see cref="Gl.UNSIGNED_SHORT_4_4_4_4_REV"/>, <see cref="Gl.UNSIGNED_SHORT_5_5_5_1"/>, 
-		///   <seecref="Gl.UNSIGNED_SHORT_1_5_5_5_REV"/>, <see cref="Gl.UNSIGNED_INT_8_8_8_8"/>, <see 
-		///   cref="Gl.UNSIGNED_INT_8_8_8_8_REV"/>,<see cref="Gl.UNSIGNED_INT_10_10_10_2"/>, or <see 
-		///   cref="Gl.UNSIGNED_INT_2_10_10_10_REV"/>and <paramref name="format"/> is neither <see cref="Gl.RGBA"/> nor <see 
+		///   cref="Gl.UNSIGNED_SHORT_4_4_4_4"/>, <see cref="Gl.UNSIGNED_SHORT_4_4_4_4_REV"/>, <see 
+		///   cref="Gl.UNSIGNED_SHORT_5_5_5_1"/>, <see cref="Gl.UNSIGNED_SHORT_1_5_5_5_REV"/>, <see cref="Gl.UNSIGNED_INT_8_8_8_8"/>, 
+		///   <see cref="Gl.UNSIGNED_INT_8_8_8_8_REV"/>, <see cref="Gl.UNSIGNED_INT_10_10_10_2"/>, or <see 
+		///   cref="Gl.UNSIGNED_INT_2_10_10_10_REV"/> and <paramref name="format"/> is neither <see cref="Gl.RGBA"/> nor <see 
 		///   cref="Gl.BGRA"/>.
 		/// - <see cref="Gl.INVALID_OPERATION"/> is generated if <paramref name="format"/> or <paramref name="internalFormat"/> is 
-		///   <seecref="Gl.DEPTH_COMPONENT"/>, <see cref="Gl.DEPTH_COMPONENT16"/>, <see cref="Gl.DEPTH_COMPONENT24"/>, or <see 
+		///   <see cref="Gl.DEPTH_COMPONENT"/>, <see cref="Gl.DEPTH_COMPONENT16"/>, <see cref="Gl.DEPTH_COMPONENT24"/>, or <see 
 		///   cref="Gl.DEPTH_COMPONENT32"/>.
 		/// - <see cref="Gl.INVALID_OPERATION"/> is generated if a non-zero buffer object name is bound to the <see 
-		///   cref="Gl.PIXEL_UNPACK_BUFFER"/>target and the buffer object's data store is currently mapped. 
+		///   cref="Gl.PIXEL_UNPACK_BUFFER"/> target and the buffer object's data store is currently mapped.
 		/// - <see cref="Gl.INVALID_OPERATION"/> is generated if a non-zero buffer object name is bound to the <see 
-		///   cref="Gl.PIXEL_UNPACK_BUFFER"/>target and the data would be unpacked from the buffer object such that the memory reads 
-		///   requiredwould exceed the data store size. 
+		///   cref="Gl.PIXEL_UNPACK_BUFFER"/> target and the data would be unpacked from the buffer object such that the memory reads 
+		///   required would exceed the data store size.
 		/// - <see cref="Gl.INVALID_OPERATION"/> is generated if a non-zero buffer object name is bound to the <see 
-		///   cref="Gl.PIXEL_UNPACK_BUFFER"/>target and <paramref name="data"/> is not evenly divisible into the number of bytes 
-		///   neededto store in memory a datum indicated by <paramref name="type"/>. 
+		///   cref="Gl.PIXEL_UNPACK_BUFFER"/> target and <paramref name="data"/> is not evenly divisible into the number of bytes 
+		///   needed to store in memory a datum indicated by <paramref name="type"/>.
 		/// - <see cref="Gl.INVALID_OPERATION"/> is generated if <see cref="Gl.TexImage3D"/> is executed between the execution of 
-		///   Gl.Beginand the corresponding execution of Gl.End. 
+		///   Gl.Begin and the corresponding execution of Gl.End.
 		/// </para>
 		/// <para>
 		/// The associated information is got with the following commands:
-		/// - Gl.GetTexImage 
-		/// - Gl.IsEnabled with argument <see cref="Gl.TEXTURE_3D"/> 
-		/// - Gl.Get with argument <see cref="Gl.PIXEL_UNPACK_BUFFER_BINDING"/> 
+		/// - Gl.GetTexImage
+		/// - Gl.IsEnabled with argument <see cref="Gl.TEXTURE_3D"/>
+		/// - Gl.Get with argument <see cref="Gl.PIXEL_UNPACK_BUFFER_BINDING"/>
 		/// </para>
 		/// </remarks>
 		/// <seealso cref="Gl.ActiveTexture"/>
@@ -1139,87 +1139,87 @@ namespace OpenGL
 		/// specify a three-dimensional texture subimage
 		/// </summary>
 		/// <param name="target">
-		/// Specifies the target to which the texture is bound for glTexSubImage3D. Must be GL_TEXTURE_3D or GL_TEXTURE_2D_ARRAY. 
+		/// Specifies the target to which the texture is bound for glTexSubImage3D. Must be GL_TEXTURE_3D or GL_TEXTURE_2D_ARRAY.
 		/// </param>
 		/// <param name="level">
-		/// Specifies the level-of-detail number. Level 0 is the base image level. Level n is the nth mipmap reduction image. 
+		/// Specifies the level-of-detail number. Level 0 is the base image level. Level n is the nth mipmap reduction image.
 		/// </param>
 		/// <param name="xoffset">
-		/// Specifies a texel offset in the x direction within the texture array. 
+		/// Specifies a texel offset in the x direction within the texture array.
 		/// </param>
 		/// <param name="yoffset">
-		/// Specifies a texel offset in the y direction within the texture array. 
+		/// Specifies a texel offset in the y direction within the texture array.
 		/// </param>
 		/// <param name="zoffset">
-		/// Specifies a texel offset in the z direction within the texture array. 
+		/// Specifies a texel offset in the z direction within the texture array.
 		/// </param>
 		/// <param name="width">
-		/// Specifies the width of the texture subimage. 
+		/// Specifies the width of the texture subimage.
 		/// </param>
 		/// <param name="height">
-		/// Specifies the height of the texture subimage. 
+		/// Specifies the height of the texture subimage.
 		/// </param>
 		/// <param name="depth">
-		/// Specifies the depth of the texture subimage. 
+		/// Specifies the depth of the texture subimage.
 		/// </param>
 		/// <param name="format">
 		/// Specifies the format of the pixel data. The following symbolic values are accepted: GL_RED, GL_RG, GL_RGB, GL_BGR, 
-		/// GL_RGBA,GL_DEPTH_COMPONENT, and GL_STENCIL_INDEX. 
+		/// GL_RGBA, GL_DEPTH_COMPONENT, and GL_STENCIL_INDEX.
 		/// </param>
 		/// <param name="type">
 		/// Specifies the data type of the pixel data. The following symbolic values are accepted: GL_UNSIGNED_BYTE, GL_BYTE, 
-		/// GL_UNSIGNED_SHORT,GL_SHORT, GL_UNSIGNED_INT, GL_INT, GL_FLOAT, GL_UNSIGNED_BYTE_3_3_2, GL_UNSIGNED_BYTE_2_3_3_REV, 
-		/// GL_UNSIGNED_SHORT_5_6_5,GL_UNSIGNED_SHORT_5_6_5_REV, GL_UNSIGNED_SHORT_4_4_4_4, GL_UNSIGNED_SHORT_4_4_4_4_REV, 
-		/// GL_UNSIGNED_SHORT_5_5_5_1,GL_UNSIGNED_SHORT_1_5_5_5_REV, GL_UNSIGNED_INT_8_8_8_8, GL_UNSIGNED_INT_8_8_8_8_REV, 
-		/// GL_UNSIGNED_INT_10_10_10_2,and GL_UNSIGNED_INT_2_10_10_10_REV. 
+		/// GL_UNSIGNED_SHORT, GL_SHORT, GL_UNSIGNED_INT, GL_INT, GL_FLOAT, GL_UNSIGNED_BYTE_3_3_2, GL_UNSIGNED_BYTE_2_3_3_REV, 
+		/// GL_UNSIGNED_SHORT_5_6_5, GL_UNSIGNED_SHORT_5_6_5_REV, GL_UNSIGNED_SHORT_4_4_4_4, GL_UNSIGNED_SHORT_4_4_4_4_REV, 
+		/// GL_UNSIGNED_SHORT_5_5_5_1, GL_UNSIGNED_SHORT_1_5_5_5_REV, GL_UNSIGNED_INT_8_8_8_8, GL_UNSIGNED_INT_8_8_8_8_REV, 
+		/// GL_UNSIGNED_INT_10_10_10_2, and GL_UNSIGNED_INT_2_10_10_10_REV.
 		/// </param>
 		/// <param name="pixels">
-		/// Specifies a pointer to the image data in memory. 
+		/// Specifies a pointer to the image data in memory.
 		/// </param>
 		/// <remarks>
-		/// Texturing maps a portion of a specified texture image onto each graphical primitive for which texturing is enabled. 
+		/// Texturing maps a portion of a specified texture image onto each graphical primitive for which texturing is enabled.
 		/// glTexSubImage3D and glTextureSubImage3D redefine a contiguous subregion of an existing three-dimensional or 
-		/// two-dimensioanlarray texture image. The texels referenced by pixels replace the portion of the existing texture array 
-		/// withx indices xoffset and xoffset+width-1, inclusive, y indices yoffset and yoffset+height-1, inclusive, and z indices 
-		/// zoffsetand zoffset+depth-1, inclusive. For three-dimensional textures, the z index refers to the third dimension. For 
-		/// two-dimensionalarray textures, the z index refers to the slice index. This region may not include any texels outside the 
-		/// rangeof the texture array as it was originally specified. It is not an error to specify a subtexture with zero width, 
-		/// height,or depth but such a specification has no effect. 
+		/// two-dimensioanl array texture image. The texels referenced by pixels replace the portion of the existing texture array 
+		/// with x indices xoffset and xoffset+width-1, inclusive, y indices yoffset and yoffset+height-1, inclusive, and z indices 
+		/// zoffset and zoffset+depth-1, inclusive. For three-dimensional textures, the z index refers to the third dimension. For 
+		/// two-dimensional array textures, the z index refers to the slice index. This region may not include any texels outside 
+		/// the range of the texture array as it was originally specified. It is not an error to specify a subtexture with zero 
+		/// width, height, or depth but such a specification has no effect.
 		/// If a non-zero named buffer object is bound to the GL_PIXEL_UNPACK_BUFFER target (see glBindBuffer) while a texture image 
-		/// isspecified, pixels is treated as a byte offset into the buffer object's data store. 
+		/// is specified, pixels is treated as a byte offset into the buffer object's data store.
 		/// <para>
 		/// The following errors can be generated:
-		/// - GL_INVALID_ENUM is generated if target or the effective target of texture is not GL_TEXTURE_3D or GL_TEXTURE_2D_ARRAY. 
-		/// - GL_INVALID_OPERATION is generated by glTextureSubImage3D if texture is not the name of an existing texture object. 
-		/// - GL_INVALID_ENUM is generated if format is not an accepted format constant. 
-		/// - GL_INVALID_ENUM is generated if type is not a type constant. 
-		/// - GL_INVALID_VALUE is generated if level is less than 0. 
+		/// - GL_INVALID_ENUM is generated if target or the effective target of texture is not GL_TEXTURE_3D or GL_TEXTURE_2D_ARRAY.
+		/// - GL_INVALID_OPERATION is generated by glTextureSubImage3D if texture is not the name of an existing texture object.
+		/// - GL_INVALID_ENUM is generated if format is not an accepted format constant.
+		/// - GL_INVALID_ENUM is generated if type is not a type constant.
+		/// - GL_INVALID_VALUE is generated if level is less than 0.
 		/// - GL_INVALID_VALUE may be generated if level is greater than log2max, where max is the returned value of 
 		///   GL_MAX_TEXTURE_SIZE.
 		/// - GL_INVALID_VALUE is generated if xoffset&lt;-b, xoffset+width&gt;w-b, yoffset&lt;-b, or yoffset+height&gt;h-b, or 
-		///   zoffset&lt;-b,or zoffset+depth&gt;d-b, where w is the GL_TEXTURE_WIDTH, h is the GL_TEXTURE_HEIGHT, d is the 
-		///   GL_TEXTURE_DEPTHand b is the border width of the texture image being modified. Note that w, h, and d include twice the 
-		///   borderwidth. 
-		/// - GL_INVALID_VALUE is generated if width, height, or depth is less than 0. 
+		///   zoffset&lt;-b, or zoffset+depth&gt;d-b, where w is the GL_TEXTURE_WIDTH, h is the GL_TEXTURE_HEIGHT, d is the 
+		///   GL_TEXTURE_DEPTH and b is the border width of the texture image being modified. Note that w, h, and d include twice the 
+		///   border width.
+		/// - GL_INVALID_VALUE is generated if width, height, or depth is less than 0.
 		/// - GL_INVALID_OPERATION is generated if the texture array has not been defined by a previous glTexImage3D or glTexStorage3D 
 		///   operation.
 		/// - GL_INVALID_OPERATION is generated if type is one of GL_UNSIGNED_BYTE_3_3_2, GL_UNSIGNED_BYTE_2_3_3_REV, 
-		///   GL_UNSIGNED_SHORT_5_6_5,or GL_UNSIGNED_SHORT_5_6_5_REV and format is not GL_RGB. 
+		///   GL_UNSIGNED_SHORT_5_6_5, or GL_UNSIGNED_SHORT_5_6_5_REV and format is not GL_RGB.
 		/// - GL_INVALID_OPERATION is generated if type is one of GL_UNSIGNED_SHORT_4_4_4_4, GL_UNSIGNED_SHORT_4_4_4_4_REV, 
-		///   GL_UNSIGNED_SHORT_5_5_5_1,GL_UNSIGNED_SHORT_1_5_5_5_REV, GL_UNSIGNED_INT_8_8_8_8, GL_UNSIGNED_INT_8_8_8_8_REV, 
-		///   GL_UNSIGNED_INT_10_10_10_2,or GL_UNSIGNED_INT_2_10_10_10_REV and format is neither GL_RGBA nor GL_BGRA. 
-		/// - GL_INVALID_OPERATION is generated if format is GL_STENCIL_INDEX and the base internal format is not GL_STENCIL_INDEX. 
+		///   GL_UNSIGNED_SHORT_5_5_5_1, GL_UNSIGNED_SHORT_1_5_5_5_REV, GL_UNSIGNED_INT_8_8_8_8, GL_UNSIGNED_INT_8_8_8_8_REV, 
+		///   GL_UNSIGNED_INT_10_10_10_2, or GL_UNSIGNED_INT_2_10_10_10_REV and format is neither GL_RGBA nor GL_BGRA.
+		/// - GL_INVALID_OPERATION is generated if format is GL_STENCIL_INDEX and the base internal format is not GL_STENCIL_INDEX.
 		/// - GL_INVALID_OPERATION is generated if a non-zero buffer object name is bound to the GL_PIXEL_UNPACK_BUFFER target and the 
-		///   bufferobject's data store is currently mapped. 
+		///   buffer object's data store is currently mapped.
 		/// - GL_INVALID_OPERATION is generated if a non-zero buffer object name is bound to the GL_PIXEL_UNPACK_BUFFER target and the 
-		///   datawould be unpacked from the buffer object such that the memory reads required would exceed the data store size. 
+		///   data would be unpacked from the buffer object such that the memory reads required would exceed the data store size.
 		/// - GL_INVALID_OPERATION is generated if a non-zero buffer object name is bound to the GL_PIXEL_UNPACK_BUFFER target and 
-		///   pixelsis not evenly divisible into the number of bytes needed to store in memory a datum indicated by type. 
+		///   pixels is not evenly divisible into the number of bytes needed to store in memory a datum indicated by type.
 		/// </para>
 		/// <para>
 		/// The associated information is got with the following commands:
-		/// - glGetTexImage 
-		/// - glGet with argument GL_PIXEL_UNPACK_BUFFER_BINDING 
+		/// - glGetTexImage
+		/// - glGet with argument GL_PIXEL_UNPACK_BUFFER_BINDING
 		/// </para>
 		/// </remarks>
 		/// <seealso cref="Gl.ActiveTexture"/>
@@ -1255,87 +1255,87 @@ namespace OpenGL
 		/// specify a three-dimensional texture subimage
 		/// </summary>
 		/// <param name="target">
-		/// Specifies the target to which the texture is bound for glTexSubImage3D. Must be GL_TEXTURE_3D or GL_TEXTURE_2D_ARRAY. 
+		/// Specifies the target to which the texture is bound for glTexSubImage3D. Must be GL_TEXTURE_3D or GL_TEXTURE_2D_ARRAY.
 		/// </param>
 		/// <param name="level">
-		/// Specifies the level-of-detail number. Level 0 is the base image level. Level n is the nth mipmap reduction image. 
+		/// Specifies the level-of-detail number. Level 0 is the base image level. Level n is the nth mipmap reduction image.
 		/// </param>
 		/// <param name="xoffset">
-		/// Specifies a texel offset in the x direction within the texture array. 
+		/// Specifies a texel offset in the x direction within the texture array.
 		/// </param>
 		/// <param name="yoffset">
-		/// Specifies a texel offset in the y direction within the texture array. 
+		/// Specifies a texel offset in the y direction within the texture array.
 		/// </param>
 		/// <param name="zoffset">
-		/// Specifies a texel offset in the z direction within the texture array. 
+		/// Specifies a texel offset in the z direction within the texture array.
 		/// </param>
 		/// <param name="width">
-		/// Specifies the width of the texture subimage. 
+		/// Specifies the width of the texture subimage.
 		/// </param>
 		/// <param name="height">
-		/// Specifies the height of the texture subimage. 
+		/// Specifies the height of the texture subimage.
 		/// </param>
 		/// <param name="depth">
-		/// Specifies the depth of the texture subimage. 
+		/// Specifies the depth of the texture subimage.
 		/// </param>
 		/// <param name="format">
 		/// Specifies the format of the pixel data. The following symbolic values are accepted: GL_RED, GL_RG, GL_RGB, GL_BGR, 
-		/// GL_RGBA,GL_DEPTH_COMPONENT, and GL_STENCIL_INDEX. 
+		/// GL_RGBA, GL_DEPTH_COMPONENT, and GL_STENCIL_INDEX.
 		/// </param>
 		/// <param name="type">
 		/// Specifies the data type of the pixel data. The following symbolic values are accepted: GL_UNSIGNED_BYTE, GL_BYTE, 
-		/// GL_UNSIGNED_SHORT,GL_SHORT, GL_UNSIGNED_INT, GL_INT, GL_FLOAT, GL_UNSIGNED_BYTE_3_3_2, GL_UNSIGNED_BYTE_2_3_3_REV, 
-		/// GL_UNSIGNED_SHORT_5_6_5,GL_UNSIGNED_SHORT_5_6_5_REV, GL_UNSIGNED_SHORT_4_4_4_4, GL_UNSIGNED_SHORT_4_4_4_4_REV, 
-		/// GL_UNSIGNED_SHORT_5_5_5_1,GL_UNSIGNED_SHORT_1_5_5_5_REV, GL_UNSIGNED_INT_8_8_8_8, GL_UNSIGNED_INT_8_8_8_8_REV, 
-		/// GL_UNSIGNED_INT_10_10_10_2,and GL_UNSIGNED_INT_2_10_10_10_REV. 
+		/// GL_UNSIGNED_SHORT, GL_SHORT, GL_UNSIGNED_INT, GL_INT, GL_FLOAT, GL_UNSIGNED_BYTE_3_3_2, GL_UNSIGNED_BYTE_2_3_3_REV, 
+		/// GL_UNSIGNED_SHORT_5_6_5, GL_UNSIGNED_SHORT_5_6_5_REV, GL_UNSIGNED_SHORT_4_4_4_4, GL_UNSIGNED_SHORT_4_4_4_4_REV, 
+		/// GL_UNSIGNED_SHORT_5_5_5_1, GL_UNSIGNED_SHORT_1_5_5_5_REV, GL_UNSIGNED_INT_8_8_8_8, GL_UNSIGNED_INT_8_8_8_8_REV, 
+		/// GL_UNSIGNED_INT_10_10_10_2, and GL_UNSIGNED_INT_2_10_10_10_REV.
 		/// </param>
 		/// <param name="pixels">
-		/// Specifies a pointer to the image data in memory. 
+		/// Specifies a pointer to the image data in memory.
 		/// </param>
 		/// <remarks>
-		/// Texturing maps a portion of a specified texture image onto each graphical primitive for which texturing is enabled. 
+		/// Texturing maps a portion of a specified texture image onto each graphical primitive for which texturing is enabled.
 		/// glTexSubImage3D and glTextureSubImage3D redefine a contiguous subregion of an existing three-dimensional or 
-		/// two-dimensioanlarray texture image. The texels referenced by pixels replace the portion of the existing texture array 
-		/// withx indices xoffset and xoffset+width-1, inclusive, y indices yoffset and yoffset+height-1, inclusive, and z indices 
-		/// zoffsetand zoffset+depth-1, inclusive. For three-dimensional textures, the z index refers to the third dimension. For 
-		/// two-dimensionalarray textures, the z index refers to the slice index. This region may not include any texels outside the 
-		/// rangeof the texture array as it was originally specified. It is not an error to specify a subtexture with zero width, 
-		/// height,or depth but such a specification has no effect. 
+		/// two-dimensioanl array texture image. The texels referenced by pixels replace the portion of the existing texture array 
+		/// with x indices xoffset and xoffset+width-1, inclusive, y indices yoffset and yoffset+height-1, inclusive, and z indices 
+		/// zoffset and zoffset+depth-1, inclusive. For three-dimensional textures, the z index refers to the third dimension. For 
+		/// two-dimensional array textures, the z index refers to the slice index. This region may not include any texels outside 
+		/// the range of the texture array as it was originally specified. It is not an error to specify a subtexture with zero 
+		/// width, height, or depth but such a specification has no effect.
 		/// If a non-zero named buffer object is bound to the GL_PIXEL_UNPACK_BUFFER target (see glBindBuffer) while a texture image 
-		/// isspecified, pixels is treated as a byte offset into the buffer object's data store. 
+		/// is specified, pixels is treated as a byte offset into the buffer object's data store.
 		/// <para>
 		/// The following errors can be generated:
-		/// - GL_INVALID_ENUM is generated if target or the effective target of texture is not GL_TEXTURE_3D or GL_TEXTURE_2D_ARRAY. 
-		/// - GL_INVALID_OPERATION is generated by glTextureSubImage3D if texture is not the name of an existing texture object. 
-		/// - GL_INVALID_ENUM is generated if format is not an accepted format constant. 
-		/// - GL_INVALID_ENUM is generated if type is not a type constant. 
-		/// - GL_INVALID_VALUE is generated if level is less than 0. 
+		/// - GL_INVALID_ENUM is generated if target or the effective target of texture is not GL_TEXTURE_3D or GL_TEXTURE_2D_ARRAY.
+		/// - GL_INVALID_OPERATION is generated by glTextureSubImage3D if texture is not the name of an existing texture object.
+		/// - GL_INVALID_ENUM is generated if format is not an accepted format constant.
+		/// - GL_INVALID_ENUM is generated if type is not a type constant.
+		/// - GL_INVALID_VALUE is generated if level is less than 0.
 		/// - GL_INVALID_VALUE may be generated if level is greater than log2max, where max is the returned value of 
 		///   GL_MAX_TEXTURE_SIZE.
 		/// - GL_INVALID_VALUE is generated if xoffset&lt;-b, xoffset+width&gt;w-b, yoffset&lt;-b, or yoffset+height&gt;h-b, or 
-		///   zoffset&lt;-b,or zoffset+depth&gt;d-b, where w is the GL_TEXTURE_WIDTH, h is the GL_TEXTURE_HEIGHT, d is the 
-		///   GL_TEXTURE_DEPTHand b is the border width of the texture image being modified. Note that w, h, and d include twice the 
-		///   borderwidth. 
-		/// - GL_INVALID_VALUE is generated if width, height, or depth is less than 0. 
+		///   zoffset&lt;-b, or zoffset+depth&gt;d-b, where w is the GL_TEXTURE_WIDTH, h is the GL_TEXTURE_HEIGHT, d is the 
+		///   GL_TEXTURE_DEPTH and b is the border width of the texture image being modified. Note that w, h, and d include twice the 
+		///   border width.
+		/// - GL_INVALID_VALUE is generated if width, height, or depth is less than 0.
 		/// - GL_INVALID_OPERATION is generated if the texture array has not been defined by a previous glTexImage3D or glTexStorage3D 
 		///   operation.
 		/// - GL_INVALID_OPERATION is generated if type is one of GL_UNSIGNED_BYTE_3_3_2, GL_UNSIGNED_BYTE_2_3_3_REV, 
-		///   GL_UNSIGNED_SHORT_5_6_5,or GL_UNSIGNED_SHORT_5_6_5_REV and format is not GL_RGB. 
+		///   GL_UNSIGNED_SHORT_5_6_5, or GL_UNSIGNED_SHORT_5_6_5_REV and format is not GL_RGB.
 		/// - GL_INVALID_OPERATION is generated if type is one of GL_UNSIGNED_SHORT_4_4_4_4, GL_UNSIGNED_SHORT_4_4_4_4_REV, 
-		///   GL_UNSIGNED_SHORT_5_5_5_1,GL_UNSIGNED_SHORT_1_5_5_5_REV, GL_UNSIGNED_INT_8_8_8_8, GL_UNSIGNED_INT_8_8_8_8_REV, 
-		///   GL_UNSIGNED_INT_10_10_10_2,or GL_UNSIGNED_INT_2_10_10_10_REV and format is neither GL_RGBA nor GL_BGRA. 
-		/// - GL_INVALID_OPERATION is generated if format is GL_STENCIL_INDEX and the base internal format is not GL_STENCIL_INDEX. 
+		///   GL_UNSIGNED_SHORT_5_5_5_1, GL_UNSIGNED_SHORT_1_5_5_5_REV, GL_UNSIGNED_INT_8_8_8_8, GL_UNSIGNED_INT_8_8_8_8_REV, 
+		///   GL_UNSIGNED_INT_10_10_10_2, or GL_UNSIGNED_INT_2_10_10_10_REV and format is neither GL_RGBA nor GL_BGRA.
+		/// - GL_INVALID_OPERATION is generated if format is GL_STENCIL_INDEX and the base internal format is not GL_STENCIL_INDEX.
 		/// - GL_INVALID_OPERATION is generated if a non-zero buffer object name is bound to the GL_PIXEL_UNPACK_BUFFER target and the 
-		///   bufferobject's data store is currently mapped. 
+		///   buffer object's data store is currently mapped.
 		/// - GL_INVALID_OPERATION is generated if a non-zero buffer object name is bound to the GL_PIXEL_UNPACK_BUFFER target and the 
-		///   datawould be unpacked from the buffer object such that the memory reads required would exceed the data store size. 
+		///   data would be unpacked from the buffer object such that the memory reads required would exceed the data store size.
 		/// - GL_INVALID_OPERATION is generated if a non-zero buffer object name is bound to the GL_PIXEL_UNPACK_BUFFER target and 
-		///   pixelsis not evenly divisible into the number of bytes needed to store in memory a datum indicated by type. 
+		///   pixels is not evenly divisible into the number of bytes needed to store in memory a datum indicated by type.
 		/// </para>
 		/// <para>
 		/// The associated information is got with the following commands:
-		/// - glGetTexImage 
-		/// - glGet with argument GL_PIXEL_UNPACK_BUFFER_BINDING 
+		/// - glGetTexImage
+		/// - glGet with argument GL_PIXEL_UNPACK_BUFFER_BINDING
 		/// </para>
 		/// </remarks>
 		/// <seealso cref="Gl.ActiveTexture"/>
@@ -1371,87 +1371,87 @@ namespace OpenGL
 		/// specify a three-dimensional texture subimage
 		/// </summary>
 		/// <param name="target">
-		/// Specifies the target to which the texture is bound for glTexSubImage3D. Must be GL_TEXTURE_3D or GL_TEXTURE_2D_ARRAY. 
+		/// Specifies the target to which the texture is bound for glTexSubImage3D. Must be GL_TEXTURE_3D or GL_TEXTURE_2D_ARRAY.
 		/// </param>
 		/// <param name="level">
-		/// Specifies the level-of-detail number. Level 0 is the base image level. Level n is the nth mipmap reduction image. 
+		/// Specifies the level-of-detail number. Level 0 is the base image level. Level n is the nth mipmap reduction image.
 		/// </param>
 		/// <param name="xoffset">
-		/// Specifies a texel offset in the x direction within the texture array. 
+		/// Specifies a texel offset in the x direction within the texture array.
 		/// </param>
 		/// <param name="yoffset">
-		/// Specifies a texel offset in the y direction within the texture array. 
+		/// Specifies a texel offset in the y direction within the texture array.
 		/// </param>
 		/// <param name="zoffset">
-		/// Specifies a texel offset in the z direction within the texture array. 
+		/// Specifies a texel offset in the z direction within the texture array.
 		/// </param>
 		/// <param name="width">
-		/// Specifies the width of the texture subimage. 
+		/// Specifies the width of the texture subimage.
 		/// </param>
 		/// <param name="height">
-		/// Specifies the height of the texture subimage. 
+		/// Specifies the height of the texture subimage.
 		/// </param>
 		/// <param name="depth">
-		/// Specifies the depth of the texture subimage. 
+		/// Specifies the depth of the texture subimage.
 		/// </param>
 		/// <param name="format">
 		/// Specifies the format of the pixel data. The following symbolic values are accepted: GL_RED, GL_RG, GL_RGB, GL_BGR, 
-		/// GL_RGBA,GL_DEPTH_COMPONENT, and GL_STENCIL_INDEX. 
+		/// GL_RGBA, GL_DEPTH_COMPONENT, and GL_STENCIL_INDEX.
 		/// </param>
 		/// <param name="type">
 		/// Specifies the data type of the pixel data. The following symbolic values are accepted: GL_UNSIGNED_BYTE, GL_BYTE, 
-		/// GL_UNSIGNED_SHORT,GL_SHORT, GL_UNSIGNED_INT, GL_INT, GL_FLOAT, GL_UNSIGNED_BYTE_3_3_2, GL_UNSIGNED_BYTE_2_3_3_REV, 
-		/// GL_UNSIGNED_SHORT_5_6_5,GL_UNSIGNED_SHORT_5_6_5_REV, GL_UNSIGNED_SHORT_4_4_4_4, GL_UNSIGNED_SHORT_4_4_4_4_REV, 
-		/// GL_UNSIGNED_SHORT_5_5_5_1,GL_UNSIGNED_SHORT_1_5_5_5_REV, GL_UNSIGNED_INT_8_8_8_8, GL_UNSIGNED_INT_8_8_8_8_REV, 
-		/// GL_UNSIGNED_INT_10_10_10_2,and GL_UNSIGNED_INT_2_10_10_10_REV. 
+		/// GL_UNSIGNED_SHORT, GL_SHORT, GL_UNSIGNED_INT, GL_INT, GL_FLOAT, GL_UNSIGNED_BYTE_3_3_2, GL_UNSIGNED_BYTE_2_3_3_REV, 
+		/// GL_UNSIGNED_SHORT_5_6_5, GL_UNSIGNED_SHORT_5_6_5_REV, GL_UNSIGNED_SHORT_4_4_4_4, GL_UNSIGNED_SHORT_4_4_4_4_REV, 
+		/// GL_UNSIGNED_SHORT_5_5_5_1, GL_UNSIGNED_SHORT_1_5_5_5_REV, GL_UNSIGNED_INT_8_8_8_8, GL_UNSIGNED_INT_8_8_8_8_REV, 
+		/// GL_UNSIGNED_INT_10_10_10_2, and GL_UNSIGNED_INT_2_10_10_10_REV.
 		/// </param>
 		/// <param name="pixels">
-		/// Specifies a pointer to the image data in memory. 
+		/// Specifies a pointer to the image data in memory.
 		/// </param>
 		/// <remarks>
-		/// Texturing maps a portion of a specified texture image onto each graphical primitive for which texturing is enabled. 
+		/// Texturing maps a portion of a specified texture image onto each graphical primitive for which texturing is enabled.
 		/// glTexSubImage3D and glTextureSubImage3D redefine a contiguous subregion of an existing three-dimensional or 
-		/// two-dimensioanlarray texture image. The texels referenced by pixels replace the portion of the existing texture array 
-		/// withx indices xoffset and xoffset+width-1, inclusive, y indices yoffset and yoffset+height-1, inclusive, and z indices 
-		/// zoffsetand zoffset+depth-1, inclusive. For three-dimensional textures, the z index refers to the third dimension. For 
-		/// two-dimensionalarray textures, the z index refers to the slice index. This region may not include any texels outside the 
-		/// rangeof the texture array as it was originally specified. It is not an error to specify a subtexture with zero width, 
-		/// height,or depth but such a specification has no effect. 
+		/// two-dimensioanl array texture image. The texels referenced by pixels replace the portion of the existing texture array 
+		/// with x indices xoffset and xoffset+width-1, inclusive, y indices yoffset and yoffset+height-1, inclusive, and z indices 
+		/// zoffset and zoffset+depth-1, inclusive. For three-dimensional textures, the z index refers to the third dimension. For 
+		/// two-dimensional array textures, the z index refers to the slice index. This region may not include any texels outside 
+		/// the range of the texture array as it was originally specified. It is not an error to specify a subtexture with zero 
+		/// width, height, or depth but such a specification has no effect.
 		/// If a non-zero named buffer object is bound to the GL_PIXEL_UNPACK_BUFFER target (see glBindBuffer) while a texture image 
-		/// isspecified, pixels is treated as a byte offset into the buffer object's data store. 
+		/// is specified, pixels is treated as a byte offset into the buffer object's data store.
 		/// <para>
 		/// The following errors can be generated:
-		/// - GL_INVALID_ENUM is generated if target or the effective target of texture is not GL_TEXTURE_3D or GL_TEXTURE_2D_ARRAY. 
-		/// - GL_INVALID_OPERATION is generated by glTextureSubImage3D if texture is not the name of an existing texture object. 
-		/// - GL_INVALID_ENUM is generated if format is not an accepted format constant. 
-		/// - GL_INVALID_ENUM is generated if type is not a type constant. 
-		/// - GL_INVALID_VALUE is generated if level is less than 0. 
+		/// - GL_INVALID_ENUM is generated if target or the effective target of texture is not GL_TEXTURE_3D or GL_TEXTURE_2D_ARRAY.
+		/// - GL_INVALID_OPERATION is generated by glTextureSubImage3D if texture is not the name of an existing texture object.
+		/// - GL_INVALID_ENUM is generated if format is not an accepted format constant.
+		/// - GL_INVALID_ENUM is generated if type is not a type constant.
+		/// - GL_INVALID_VALUE is generated if level is less than 0.
 		/// - GL_INVALID_VALUE may be generated if level is greater than log2max, where max is the returned value of 
 		///   GL_MAX_TEXTURE_SIZE.
 		/// - GL_INVALID_VALUE is generated if xoffset&lt;-b, xoffset+width&gt;w-b, yoffset&lt;-b, or yoffset+height&gt;h-b, or 
-		///   zoffset&lt;-b,or zoffset+depth&gt;d-b, where w is the GL_TEXTURE_WIDTH, h is the GL_TEXTURE_HEIGHT, d is the 
-		///   GL_TEXTURE_DEPTHand b is the border width of the texture image being modified. Note that w, h, and d include twice the 
-		///   borderwidth. 
-		/// - GL_INVALID_VALUE is generated if width, height, or depth is less than 0. 
+		///   zoffset&lt;-b, or zoffset+depth&gt;d-b, where w is the GL_TEXTURE_WIDTH, h is the GL_TEXTURE_HEIGHT, d is the 
+		///   GL_TEXTURE_DEPTH and b is the border width of the texture image being modified. Note that w, h, and d include twice the 
+		///   border width.
+		/// - GL_INVALID_VALUE is generated if width, height, or depth is less than 0.
 		/// - GL_INVALID_OPERATION is generated if the texture array has not been defined by a previous glTexImage3D or glTexStorage3D 
 		///   operation.
 		/// - GL_INVALID_OPERATION is generated if type is one of GL_UNSIGNED_BYTE_3_3_2, GL_UNSIGNED_BYTE_2_3_3_REV, 
-		///   GL_UNSIGNED_SHORT_5_6_5,or GL_UNSIGNED_SHORT_5_6_5_REV and format is not GL_RGB. 
+		///   GL_UNSIGNED_SHORT_5_6_5, or GL_UNSIGNED_SHORT_5_6_5_REV and format is not GL_RGB.
 		/// - GL_INVALID_OPERATION is generated if type is one of GL_UNSIGNED_SHORT_4_4_4_4, GL_UNSIGNED_SHORT_4_4_4_4_REV, 
-		///   GL_UNSIGNED_SHORT_5_5_5_1,GL_UNSIGNED_SHORT_1_5_5_5_REV, GL_UNSIGNED_INT_8_8_8_8, GL_UNSIGNED_INT_8_8_8_8_REV, 
-		///   GL_UNSIGNED_INT_10_10_10_2,or GL_UNSIGNED_INT_2_10_10_10_REV and format is neither GL_RGBA nor GL_BGRA. 
-		/// - GL_INVALID_OPERATION is generated if format is GL_STENCIL_INDEX and the base internal format is not GL_STENCIL_INDEX. 
+		///   GL_UNSIGNED_SHORT_5_5_5_1, GL_UNSIGNED_SHORT_1_5_5_5_REV, GL_UNSIGNED_INT_8_8_8_8, GL_UNSIGNED_INT_8_8_8_8_REV, 
+		///   GL_UNSIGNED_INT_10_10_10_2, or GL_UNSIGNED_INT_2_10_10_10_REV and format is neither GL_RGBA nor GL_BGRA.
+		/// - GL_INVALID_OPERATION is generated if format is GL_STENCIL_INDEX and the base internal format is not GL_STENCIL_INDEX.
 		/// - GL_INVALID_OPERATION is generated if a non-zero buffer object name is bound to the GL_PIXEL_UNPACK_BUFFER target and the 
-		///   bufferobject's data store is currently mapped. 
+		///   buffer object's data store is currently mapped.
 		/// - GL_INVALID_OPERATION is generated if a non-zero buffer object name is bound to the GL_PIXEL_UNPACK_BUFFER target and the 
-		///   datawould be unpacked from the buffer object such that the memory reads required would exceed the data store size. 
+		///   data would be unpacked from the buffer object such that the memory reads required would exceed the data store size.
 		/// - GL_INVALID_OPERATION is generated if a non-zero buffer object name is bound to the GL_PIXEL_UNPACK_BUFFER target and 
-		///   pixelsis not evenly divisible into the number of bytes needed to store in memory a datum indicated by type. 
+		///   pixels is not evenly divisible into the number of bytes needed to store in memory a datum indicated by type.
 		/// </para>
 		/// <para>
 		/// The associated information is got with the following commands:
-		/// - glGetTexImage 
-		/// - glGet with argument GL_PIXEL_UNPACK_BUFFER_BINDING 
+		/// - glGetTexImage
+		/// - glGet with argument GL_PIXEL_UNPACK_BUFFER_BINDING
 		/// </para>
 		/// </remarks>
 		/// <seealso cref="Gl.ActiveTexture"/>
@@ -1481,68 +1481,68 @@ namespace OpenGL
 		/// copy a three-dimensional texture subimage
 		/// </summary>
 		/// <param name="target">
-		/// Specifies the target texture. Must be <see cref="Gl.TEXTURE_3D"/> 
+		/// Specifies the target texture. Must be <see cref="Gl.TEXTURE_3D"/>
 		/// </param>
 		/// <param name="level">
-		/// Specifies the level-of-detail number. Level 0 is the base image level. Level n is the nth mipmap reduction image. 
+		/// Specifies the level-of-detail number. Level 0 is the base image level. Level n is the nth mipmap reduction image.
 		/// </param>
 		/// <param name="xoffset">
-		/// Specifies a texel offset in the x direction within the texture array. 
+		/// Specifies a texel offset in the x direction within the texture array.
 		/// </param>
 		/// <param name="yoffset">
-		/// Specifies a texel offset in the y direction within the texture array. 
+		/// Specifies a texel offset in the y direction within the texture array.
 		/// </param>
 		/// <param name="zoffset">
-		/// Specifies a texel offset in the z direction within the texture array. 
+		/// Specifies a texel offset in the z direction within the texture array.
 		/// </param>
 		/// <param name="x">
-		/// Specify the window coordinates of the lower left corner of the rectangular region of pixels to be copied. 
+		/// Specify the window coordinates of the lower left corner of the rectangular region of pixels to be copied.
 		/// </param>
 		/// <param name="y">
-		/// Specify the window coordinates of the lower left corner of the rectangular region of pixels to be copied. 
+		/// Specify the window coordinates of the lower left corner of the rectangular region of pixels to be copied.
 		/// </param>
 		/// <param name="width">
-		/// Specifies the width of the texture subimage. 
+		/// Specifies the width of the texture subimage.
 		/// </param>
 		/// <param name="height">
-		/// Specifies the height of the texture subimage. 
+		/// Specifies the height of the texture subimage.
 		/// </param>
 		/// <remarks>
 		/// <see cref="Gl.CopyTexSubImage3D"/> replaces a rectangular portion of a three-dimensional texture image with pixels from 
-		/// thecurrent <see cref="Gl.READ_BUFFER"/> (rather than from main memory, as is the case for Gl.TexSubImage3D). 
+		/// the current <see cref="Gl.READ_BUFFER"/> (rather than from main memory, as is the case for Gl.TexSubImage3D).
 		/// The screen-aligned pixel rectangle with lower left corner at (<paramref name="x"/>,\ <paramref name="y"/>) and with 
-		/// width<paramref name="width"/> and height <paramref name="height"/> replaces the portion of the texture array with x 
-		/// indices<paramref name="xoffset"/> through xoffset+width-1, inclusive, and y indices <paramref name="yoffset"/> through 
-		/// yoffset+height-1,inclusive, at z index <paramref name="zoffset"/> and at the mipmap level specified by <paramref 
+		/// width <paramref name="width"/> and height <paramref name="height"/> replaces the portion of the texture array with x 
+		/// indices <paramref name="xoffset"/> through xoffset+width-1, inclusive, and y indices <paramref name="yoffset"/> through 
+		/// yoffset+height-1, inclusive, at z index <paramref name="zoffset"/> and at the mipmap level specified by <paramref 
 		/// name="level"/>.
 		/// The pixels in the rectangle are processed exactly as if Gl.CopyPixels had been called, but the process stops just before 
-		/// finalconversion. At this point, all pixel component values are clamped to the range 01 and then converted to the 
-		/// texture'sinternal format for storage in the texel array. 
+		/// final conversion. At this point, all pixel component values are clamped to the range 01 and then converted to the 
+		/// texture's internal format for storage in the texel array.
 		/// The destination rectangle in the texture array may not include any texels outside the texture array as it was originally 
-		/// specified.It is not an error to specify a subtexture with zero width or height, but such a specification has no effect. 
+		/// specified. It is not an error to specify a subtexture with zero width or height, but such a specification has no effect.
 		/// If any of the pixels within the specified rectangle of the current <see cref="Gl.READ_BUFFER"/> are outside the read 
-		/// windowassociated with the current rendering context, then the values obtained for those pixels are undefined. 
+		/// window associated with the current rendering context, then the values obtained for those pixels are undefined.
 		/// No change is made to the internalformat, width, height, depth, or border parameters of the specified texture array or to 
-		/// texelvalues outside the specified subregion. 
+		/// texel values outside the specified subregion.
 		/// <para>
 		/// The following errors can be generated:
-		/// - <see cref="Gl.INVALID_ENUM"/> is generated if /<paramref name="target"/> is not <see cref="Gl.TEXTURE_3D"/>. 
+		/// - <see cref="Gl.INVALID_ENUM"/> is generated if /<paramref name="target"/> is not <see cref="Gl.TEXTURE_3D"/>.
 		/// - <see cref="Gl.INVALID_OPERATION"/> is generated if the texture array has not been defined by a previous Gl.TexImage3D 
 		///   operation.
-		/// - <see cref="Gl.INVALID_VALUE"/> is generated if <paramref name="level"/> is less than 0. 
+		/// - <see cref="Gl.INVALID_VALUE"/> is generated if <paramref name="level"/> is less than 0.
 		/// - <see cref="Gl.INVALID_VALUE"/> may be generated if level&gt;log2⁡max, where max is the returned value of <see 
 		///   cref="Gl.MAX_3D_TEXTURE_SIZE"/>.
 		/// - <see cref="Gl.INVALID_VALUE"/> is generated if xoffset&lt;-b, xoffset+width&gt;w-b, yoffset&lt;-b, 
-		///   yoffset+height&gt;h-b,zoffset&lt;-b, or zoffset+1&gt;d-b, where w is the <see cref="Gl.TEXTURE_WIDTH"/>, h is the <see 
-		///   cref="Gl.TEXTURE_HEIGHT"/>,d is the <see cref="Gl.TEXTURE_DEPTH"/>, and b is the <see cref="Gl.TEXTURE_BORDER"/> of the 
-		///   textureimage being modified. Note that w, h, and d include twice the border width. 
+		///   yoffset+height&gt;h-b, zoffset&lt;-b, or zoffset+1&gt;d-b, where w is the <see cref="Gl.TEXTURE_WIDTH"/>, h is the <see 
+		///   cref="Gl.TEXTURE_HEIGHT"/>, d is the <see cref="Gl.TEXTURE_DEPTH"/>, and b is the <see cref="Gl.TEXTURE_BORDER"/> of the 
+		///   texture image being modified. Note that w, h, and d include twice the border width.
 		/// - <see cref="Gl.INVALID_OPERATION"/> is generated if <see cref="Gl.CopyTexSubImage3D"/> is executed between the execution 
-		///   ofGl.Begin and the corresponding execution of Gl.End. 
+		///   of Gl.Begin and the corresponding execution of Gl.End.
 		/// </para>
 		/// <para>
 		/// The associated information is got with the following commands:
-		/// - Gl.GetTexImage 
-		/// - Gl.IsEnabled with argument <see cref="Gl.TEXTURE_3D"/> 
+		/// - Gl.GetTexImage
+		/// - Gl.IsEnabled with argument <see cref="Gl.TEXTURE_3D"/>
 		/// </para>
 		/// </remarks>
 		/// <seealso cref="Gl.CopyPixels"/>
@@ -1582,68 +1582,68 @@ namespace OpenGL
 		/// copy a three-dimensional texture subimage
 		/// </summary>
 		/// <param name="target">
-		/// Specifies the target texture. Must be <see cref="Gl.TEXTURE_3D"/> 
+		/// Specifies the target texture. Must be <see cref="Gl.TEXTURE_3D"/>
 		/// </param>
 		/// <param name="level">
-		/// Specifies the level-of-detail number. Level 0 is the base image level. Level n is the nth mipmap reduction image. 
+		/// Specifies the level-of-detail number. Level 0 is the base image level. Level n is the nth mipmap reduction image.
 		/// </param>
 		/// <param name="xoffset">
-		/// Specifies a texel offset in the x direction within the texture array. 
+		/// Specifies a texel offset in the x direction within the texture array.
 		/// </param>
 		/// <param name="yoffset">
-		/// Specifies a texel offset in the y direction within the texture array. 
+		/// Specifies a texel offset in the y direction within the texture array.
 		/// </param>
 		/// <param name="zoffset">
-		/// Specifies a texel offset in the z direction within the texture array. 
+		/// Specifies a texel offset in the z direction within the texture array.
 		/// </param>
 		/// <param name="x">
-		/// Specify the window coordinates of the lower left corner of the rectangular region of pixels to be copied. 
+		/// Specify the window coordinates of the lower left corner of the rectangular region of pixels to be copied.
 		/// </param>
 		/// <param name="y">
-		/// Specify the window coordinates of the lower left corner of the rectangular region of pixels to be copied. 
+		/// Specify the window coordinates of the lower left corner of the rectangular region of pixels to be copied.
 		/// </param>
 		/// <param name="width">
-		/// Specifies the width of the texture subimage. 
+		/// Specifies the width of the texture subimage.
 		/// </param>
 		/// <param name="height">
-		/// Specifies the height of the texture subimage. 
+		/// Specifies the height of the texture subimage.
 		/// </param>
 		/// <remarks>
 		/// <see cref="Gl.CopyTexSubImage3D"/> replaces a rectangular portion of a three-dimensional texture image with pixels from 
-		/// thecurrent <see cref="Gl.READ_BUFFER"/> (rather than from main memory, as is the case for Gl.TexSubImage3D). 
+		/// the current <see cref="Gl.READ_BUFFER"/> (rather than from main memory, as is the case for Gl.TexSubImage3D).
 		/// The screen-aligned pixel rectangle with lower left corner at (<paramref name="x"/>,\ <paramref name="y"/>) and with 
-		/// width<paramref name="width"/> and height <paramref name="height"/> replaces the portion of the texture array with x 
-		/// indices<paramref name="xoffset"/> through xoffset+width-1, inclusive, and y indices <paramref name="yoffset"/> through 
-		/// yoffset+height-1,inclusive, at z index <paramref name="zoffset"/> and at the mipmap level specified by <paramref 
+		/// width <paramref name="width"/> and height <paramref name="height"/> replaces the portion of the texture array with x 
+		/// indices <paramref name="xoffset"/> through xoffset+width-1, inclusive, and y indices <paramref name="yoffset"/> through 
+		/// yoffset+height-1, inclusive, at z index <paramref name="zoffset"/> and at the mipmap level specified by <paramref 
 		/// name="level"/>.
 		/// The pixels in the rectangle are processed exactly as if Gl.CopyPixels had been called, but the process stops just before 
-		/// finalconversion. At this point, all pixel component values are clamped to the range 01 and then converted to the 
-		/// texture'sinternal format for storage in the texel array. 
+		/// final conversion. At this point, all pixel component values are clamped to the range 01 and then converted to the 
+		/// texture's internal format for storage in the texel array.
 		/// The destination rectangle in the texture array may not include any texels outside the texture array as it was originally 
-		/// specified.It is not an error to specify a subtexture with zero width or height, but such a specification has no effect. 
+		/// specified. It is not an error to specify a subtexture with zero width or height, but such a specification has no effect.
 		/// If any of the pixels within the specified rectangle of the current <see cref="Gl.READ_BUFFER"/> are outside the read 
-		/// windowassociated with the current rendering context, then the values obtained for those pixels are undefined. 
+		/// window associated with the current rendering context, then the values obtained for those pixels are undefined.
 		/// No change is made to the internalformat, width, height, depth, or border parameters of the specified texture array or to 
-		/// texelvalues outside the specified subregion. 
+		/// texel values outside the specified subregion.
 		/// <para>
 		/// The following errors can be generated:
-		/// - <see cref="Gl.INVALID_ENUM"/> is generated if /<paramref name="target"/> is not <see cref="Gl.TEXTURE_3D"/>. 
+		/// - <see cref="Gl.INVALID_ENUM"/> is generated if /<paramref name="target"/> is not <see cref="Gl.TEXTURE_3D"/>.
 		/// - <see cref="Gl.INVALID_OPERATION"/> is generated if the texture array has not been defined by a previous Gl.TexImage3D 
 		///   operation.
-		/// - <see cref="Gl.INVALID_VALUE"/> is generated if <paramref name="level"/> is less than 0. 
+		/// - <see cref="Gl.INVALID_VALUE"/> is generated if <paramref name="level"/> is less than 0.
 		/// - <see cref="Gl.INVALID_VALUE"/> may be generated if level&gt;log2⁡max, where max is the returned value of <see 
 		///   cref="Gl.MAX_3D_TEXTURE_SIZE"/>.
 		/// - <see cref="Gl.INVALID_VALUE"/> is generated if xoffset&lt;-b, xoffset+width&gt;w-b, yoffset&lt;-b, 
-		///   yoffset+height&gt;h-b,zoffset&lt;-b, or zoffset+1&gt;d-b, where w is the <see cref="Gl.TEXTURE_WIDTH"/>, h is the <see 
-		///   cref="Gl.TEXTURE_HEIGHT"/>,d is the <see cref="Gl.TEXTURE_DEPTH"/>, and b is the <see cref="Gl.TEXTURE_BORDER"/> of the 
-		///   textureimage being modified. Note that w, h, and d include twice the border width. 
+		///   yoffset+height&gt;h-b, zoffset&lt;-b, or zoffset+1&gt;d-b, where w is the <see cref="Gl.TEXTURE_WIDTH"/>, h is the <see 
+		///   cref="Gl.TEXTURE_HEIGHT"/>, d is the <see cref="Gl.TEXTURE_DEPTH"/>, and b is the <see cref="Gl.TEXTURE_BORDER"/> of the 
+		///   texture image being modified. Note that w, h, and d include twice the border width.
 		/// - <see cref="Gl.INVALID_OPERATION"/> is generated if <see cref="Gl.CopyTexSubImage3D"/> is executed between the execution 
-		///   ofGl.Begin and the corresponding execution of Gl.End. 
+		///   of Gl.Begin and the corresponding execution of Gl.End.
 		/// </para>
 		/// <para>
 		/// The associated information is got with the following commands:
-		/// - Gl.GetTexImage 
-		/// - Gl.IsEnabled with argument <see cref="Gl.TEXTURE_3D"/> 
+		/// - Gl.GetTexImage
+		/// - Gl.IsEnabled with argument <see cref="Gl.TEXTURE_3D"/>
 		/// </para>
 		/// </remarks>
 		/// <seealso cref="Gl.CopyPixels"/>

@@ -505,17 +505,17 @@ namespace OpenGL
 		/// </summary>
 		/// <param name="mode">
 		/// Specifies what kind of primitives to render. Symbolic constants GL_POINTS, GL_LINE_STRIP, GL_LINE_LOOP, GL_LINES, 
-		/// GL_TRIANGLE_STRIP,GL_TRIANGLE_FAN, GL_TRIANGLES, GL_LINES_ADJACENCY, GL_LINE_STRIP_ADJACENCY, GL_TRIANGLES_ADJACENCY, 
-		/// GL_TRIANGLE_STRIP_ADJACENCYand GL_PATCHES are accepted. 
+		/// GL_TRIANGLE_STRIP, GL_TRIANGLE_FAN, GL_TRIANGLES, GL_LINES_ADJACENCY, GL_LINE_STRIP_ADJACENCY, GL_TRIANGLES_ADJACENCY, 
+		/// GL_TRIANGLE_STRIP_ADJACENCY and GL_PATCHES are accepted.
 		/// </param>
 		/// <param name="count">
-		/// Specifies the number of elements to be rendered. 
+		/// Specifies the number of elements to be rendered.
 		/// </param>
 		/// <param name="type">
-		/// Specifies the type of the values in indices. Must be one of GL_UNSIGNED_BYTE, GL_UNSIGNED_SHORT, or GL_UNSIGNED_INT. 
+		/// Specifies the type of the values in indices. Must be one of GL_UNSIGNED_BYTE, GL_UNSIGNED_SHORT, or GL_UNSIGNED_INT.
 		/// </param>
 		/// <param name="indices">
-		/// Specifies a pointer to the location where the indices are stored. 
+		/// Specifies a pointer to the location where the indices are stored.
 		/// </param>
 		/// <param name="basevertex">
 		/// Specifies a constant that should be added to each element of indices when chosing elements from the enabled vertex 
@@ -523,17 +523,17 @@ namespace OpenGL
 		/// </param>
 		/// <remarks>
 		/// glDrawElementsBaseVertex behaves identically to glDrawElements except that the ith element transferred by the 
-		/// correspondingdraw call will be taken from element indices[i] + basevertex of each enabled array. If the resulting value 
-		/// islarger than the maximum value representable by type, it is as if the calculation were upconverted to 32-bit unsigned 
-		/// integers(with wrapping on overflow conditions). The operation is undefined if the sum would be negative. 
+		/// corresponding draw call will be taken from element indices[i] + basevertex of each enabled array. If the resulting value 
+		/// is larger than the maximum value representable by type, it is as if the calculation were upconverted to 32-bit unsigned 
+		/// integers (with wrapping on overflow conditions). The operation is undefined if the sum would be negative.
 		/// <para>
 		/// The following errors can be generated:
-		/// - GL_INVALID_ENUM is generated if mode is not an accepted value. 
-		/// - GL_INVALID_VALUE is generated if count is negative. 
+		/// - GL_INVALID_ENUM is generated if mode is not an accepted value.
+		/// - GL_INVALID_VALUE is generated if count is negative.
 		/// - GL_INVALID_OPERATION is generated if a geometry shader is active and mode is incompatible with the input primitive type 
-		///   ofthe geometry shader in the currently installed program object. 
+		///   of the geometry shader in the currently installed program object.
 		/// - GL_INVALID_OPERATION is generated if a non-zero buffer object name is bound to an enabled array or the element array and 
-		///   thebuffer object's data store is currently mapped. 
+		///   the buffer object's data store is currently mapped.
 		/// </para>
 		/// </remarks>
 		/// <seealso cref="Gl.DrawElements"/>
@@ -562,17 +562,17 @@ namespace OpenGL
 		/// </summary>
 		/// <param name="mode">
 		/// Specifies what kind of primitives to render. Symbolic constants GL_POINTS, GL_LINE_STRIP, GL_LINE_LOOP, GL_LINES, 
-		/// GL_TRIANGLE_STRIP,GL_TRIANGLE_FAN, GL_TRIANGLES, GL_LINES_ADJACENCY, GL_LINE_STRIP_ADJACENCY, GL_TRIANGLES_ADJACENCY, 
-		/// GL_TRIANGLE_STRIP_ADJACENCYand GL_PATCHES are accepted. 
+		/// GL_TRIANGLE_STRIP, GL_TRIANGLE_FAN, GL_TRIANGLES, GL_LINES_ADJACENCY, GL_LINE_STRIP_ADJACENCY, GL_TRIANGLES_ADJACENCY, 
+		/// GL_TRIANGLE_STRIP_ADJACENCY and GL_PATCHES are accepted.
 		/// </param>
 		/// <param name="count">
-		/// Specifies the number of elements to be rendered. 
+		/// Specifies the number of elements to be rendered.
 		/// </param>
 		/// <param name="type">
-		/// Specifies the type of the values in indices. Must be one of GL_UNSIGNED_BYTE, GL_UNSIGNED_SHORT, or GL_UNSIGNED_INT. 
+		/// Specifies the type of the values in indices. Must be one of GL_UNSIGNED_BYTE, GL_UNSIGNED_SHORT, or GL_UNSIGNED_INT.
 		/// </param>
 		/// <param name="indices">
-		/// Specifies a pointer to the location where the indices are stored. 
+		/// Specifies a pointer to the location where the indices are stored.
 		/// </param>
 		/// <param name="basevertex">
 		/// Specifies a constant that should be added to each element of indices when chosing elements from the enabled vertex 
@@ -580,17 +580,17 @@ namespace OpenGL
 		/// </param>
 		/// <remarks>
 		/// glDrawElementsBaseVertex behaves identically to glDrawElements except that the ith element transferred by the 
-		/// correspondingdraw call will be taken from element indices[i] + basevertex of each enabled array. If the resulting value 
-		/// islarger than the maximum value representable by type, it is as if the calculation were upconverted to 32-bit unsigned 
-		/// integers(with wrapping on overflow conditions). The operation is undefined if the sum would be negative. 
+		/// corresponding draw call will be taken from element indices[i] + basevertex of each enabled array. If the resulting value 
+		/// is larger than the maximum value representable by type, it is as if the calculation were upconverted to 32-bit unsigned 
+		/// integers (with wrapping on overflow conditions). The operation is undefined if the sum would be negative.
 		/// <para>
 		/// The following errors can be generated:
-		/// - GL_INVALID_ENUM is generated if mode is not an accepted value. 
-		/// - GL_INVALID_VALUE is generated if count is negative. 
+		/// - GL_INVALID_ENUM is generated if mode is not an accepted value.
+		/// - GL_INVALID_VALUE is generated if count is negative.
 		/// - GL_INVALID_OPERATION is generated if a geometry shader is active and mode is incompatible with the input primitive type 
-		///   ofthe geometry shader in the currently installed program object. 
+		///   of the geometry shader in the currently installed program object.
 		/// - GL_INVALID_OPERATION is generated if a non-zero buffer object name is bound to an enabled array or the element array and 
-		///   thebuffer object's data store is currently mapped. 
+		///   the buffer object's data store is currently mapped.
 		/// </para>
 		/// </remarks>
 		/// <seealso cref="Gl.DrawElements"/>
@@ -619,17 +619,17 @@ namespace OpenGL
 		/// </summary>
 		/// <param name="mode">
 		/// Specifies what kind of primitives to render. Symbolic constants GL_POINTS, GL_LINE_STRIP, GL_LINE_LOOP, GL_LINES, 
-		/// GL_TRIANGLE_STRIP,GL_TRIANGLE_FAN, GL_TRIANGLES, GL_LINES_ADJACENCY, GL_LINE_STRIP_ADJACENCY, GL_TRIANGLES_ADJACENCY, 
-		/// GL_TRIANGLE_STRIP_ADJACENCYand GL_PATCHES are accepted. 
+		/// GL_TRIANGLE_STRIP, GL_TRIANGLE_FAN, GL_TRIANGLES, GL_LINES_ADJACENCY, GL_LINE_STRIP_ADJACENCY, GL_TRIANGLES_ADJACENCY, 
+		/// GL_TRIANGLE_STRIP_ADJACENCY and GL_PATCHES are accepted.
 		/// </param>
 		/// <param name="count">
-		/// Specifies the number of elements to be rendered. 
+		/// Specifies the number of elements to be rendered.
 		/// </param>
 		/// <param name="type">
-		/// Specifies the type of the values in indices. Must be one of GL_UNSIGNED_BYTE, GL_UNSIGNED_SHORT, or GL_UNSIGNED_INT. 
+		/// Specifies the type of the values in indices. Must be one of GL_UNSIGNED_BYTE, GL_UNSIGNED_SHORT, or GL_UNSIGNED_INT.
 		/// </param>
 		/// <param name="indices">
-		/// Specifies a pointer to the location where the indices are stored. 
+		/// Specifies a pointer to the location where the indices are stored.
 		/// </param>
 		/// <param name="basevertex">
 		/// Specifies a constant that should be added to each element of indices when chosing elements from the enabled vertex 
@@ -637,17 +637,17 @@ namespace OpenGL
 		/// </param>
 		/// <remarks>
 		/// glDrawElementsBaseVertex behaves identically to glDrawElements except that the ith element transferred by the 
-		/// correspondingdraw call will be taken from element indices[i] + basevertex of each enabled array. If the resulting value 
-		/// islarger than the maximum value representable by type, it is as if the calculation were upconverted to 32-bit unsigned 
-		/// integers(with wrapping on overflow conditions). The operation is undefined if the sum would be negative. 
+		/// corresponding draw call will be taken from element indices[i] + basevertex of each enabled array. If the resulting value 
+		/// is larger than the maximum value representable by type, it is as if the calculation were upconverted to 32-bit unsigned 
+		/// integers (with wrapping on overflow conditions). The operation is undefined if the sum would be negative.
 		/// <para>
 		/// The following errors can be generated:
-		/// - GL_INVALID_ENUM is generated if mode is not an accepted value. 
-		/// - GL_INVALID_VALUE is generated if count is negative. 
+		/// - GL_INVALID_ENUM is generated if mode is not an accepted value.
+		/// - GL_INVALID_VALUE is generated if count is negative.
 		/// - GL_INVALID_OPERATION is generated if a geometry shader is active and mode is incompatible with the input primitive type 
-		///   ofthe geometry shader in the currently installed program object. 
+		///   of the geometry shader in the currently installed program object.
 		/// - GL_INVALID_OPERATION is generated if a non-zero buffer object name is bound to an enabled array or the element array and 
-		///   thebuffer object's data store is currently mapped. 
+		///   the buffer object's data store is currently mapped.
 		/// </para>
 		/// </remarks>
 		/// <seealso cref="Gl.DrawElements"/>
@@ -670,23 +670,23 @@ namespace OpenGL
 		/// </summary>
 		/// <param name="mode">
 		/// Specifies what kind of primitives to render. Symbolic constants GL_POINTS, GL_LINE_STRIP, GL_LINE_LOOP, GL_LINES, 
-		/// GL_TRIANGLE_STRIP,GL_TRIANGLE_FAN, GL_TRIANGLES, GL_LINES_ADJACENCY, GL_LINE_STRIP_ADJACENCY, GL_TRIANGLES_ADJACENCY, 
-		/// GL_TRIANGLE_STRIP_ADJACENCYand GL_PATCHES are accepted. 
+		/// GL_TRIANGLE_STRIP, GL_TRIANGLE_FAN, GL_TRIANGLES, GL_LINES_ADJACENCY, GL_LINE_STRIP_ADJACENCY, GL_TRIANGLES_ADJACENCY, 
+		/// GL_TRIANGLE_STRIP_ADJACENCY and GL_PATCHES are accepted.
 		/// </param>
 		/// <param name="start">
-		/// Specifies the minimum array index contained in indices. 
+		/// Specifies the minimum array index contained in indices.
 		/// </param>
 		/// <param name="end">
-		/// Specifies the maximum array index contained in indices. 
+		/// Specifies the maximum array index contained in indices.
 		/// </param>
 		/// <param name="count">
-		/// Specifies the number of elements to be rendered. 
+		/// Specifies the number of elements to be rendered.
 		/// </param>
 		/// <param name="type">
-		/// Specifies the type of the values in indices. Must be one of GL_UNSIGNED_BYTE, GL_UNSIGNED_SHORT, or GL_UNSIGNED_INT. 
+		/// Specifies the type of the values in indices. Must be one of GL_UNSIGNED_BYTE, GL_UNSIGNED_SHORT, or GL_UNSIGNED_INT.
 		/// </param>
 		/// <param name="indices">
-		/// Specifies a pointer to the location where the indices are stored. 
+		/// Specifies a pointer to the location where the indices are stored.
 		/// </param>
 		/// <param name="basevertex">
 		/// Specifies a constant that should be added to each element of indices when chosing elements from the enabled vertex 
@@ -694,21 +694,21 @@ namespace OpenGL
 		/// </param>
 		/// <remarks>
 		/// glDrawRangeElementsBaseVertex is a restricted form of glDrawElementsBaseVertex. mode, start, end, count and basevertex 
-		/// matchthe corresponding arguments to glDrawElementsBaseVertex, with the additional constraint that all values in the 
-		/// arrayindices must lie between start and end, inclusive, prior to adding basevertex. Index values lying outside the range 
-		/// [start,end] are treated in the same way as glDrawElementsBaseVertex. The ith element transferred by the corresponding 
-		/// drawcall will be taken from element indices[i] + basevertex of each enabled array. If the resulting value is larger than 
-		/// themaximum value representable by type, it is as if the calculation were upconverted to 32-bit unsigned integers (with 
-		/// wrappingon overflow conditions). The operation is undefined if the sum would be negative. 
+		/// match the corresponding arguments to glDrawElementsBaseVertex, with the additional constraint that all values in the 
+		/// array indices must lie between start and end, inclusive, prior to adding basevertex. Index values lying outside the 
+		/// range [start, end] are treated in the same way as glDrawElementsBaseVertex. The ith element transferred by the 
+		/// corresponding draw call will be taken from element indices[i] + basevertex of each enabled array. If the resulting value 
+		/// is larger than the maximum value representable by type, it is as if the calculation were upconverted to 32-bit unsigned 
+		/// integers (with wrapping on overflow conditions). The operation is undefined if the sum would be negative.
 		/// <para>
 		/// The following errors can be generated:
-		/// - GL_INVALID_ENUM is generated if mode is not an accepted value. 
-		/// - GL_INVALID_VALUE is generated if count is negative. 
-		/// - GL_INVALID_VALUE is generated if end &lt; start. 
+		/// - GL_INVALID_ENUM is generated if mode is not an accepted value.
+		/// - GL_INVALID_VALUE is generated if count is negative.
+		/// - GL_INVALID_VALUE is generated if end &lt; start.
 		/// - GL_INVALID_OPERATION is generated if a geometry shader is active and mode is incompatible with the input primitive type 
-		///   ofthe geometry shader in the currently installed program object. 
+		///   of the geometry shader in the currently installed program object.
 		/// - GL_INVALID_OPERATION is generated if a non-zero buffer object name is bound to an enabled array or the element array and 
-		///   thebuffer object's data store is currently mapped. 
+		///   the buffer object's data store is currently mapped.
 		/// </para>
 		/// </remarks>
 		/// <seealso cref="Gl.DrawElements"/>
@@ -737,23 +737,23 @@ namespace OpenGL
 		/// </summary>
 		/// <param name="mode">
 		/// Specifies what kind of primitives to render. Symbolic constants GL_POINTS, GL_LINE_STRIP, GL_LINE_LOOP, GL_LINES, 
-		/// GL_TRIANGLE_STRIP,GL_TRIANGLE_FAN, GL_TRIANGLES, GL_LINES_ADJACENCY, GL_LINE_STRIP_ADJACENCY, GL_TRIANGLES_ADJACENCY, 
-		/// GL_TRIANGLE_STRIP_ADJACENCYand GL_PATCHES are accepted. 
+		/// GL_TRIANGLE_STRIP, GL_TRIANGLE_FAN, GL_TRIANGLES, GL_LINES_ADJACENCY, GL_LINE_STRIP_ADJACENCY, GL_TRIANGLES_ADJACENCY, 
+		/// GL_TRIANGLE_STRIP_ADJACENCY and GL_PATCHES are accepted.
 		/// </param>
 		/// <param name="start">
-		/// Specifies the minimum array index contained in indices. 
+		/// Specifies the minimum array index contained in indices.
 		/// </param>
 		/// <param name="end">
-		/// Specifies the maximum array index contained in indices. 
+		/// Specifies the maximum array index contained in indices.
 		/// </param>
 		/// <param name="count">
-		/// Specifies the number of elements to be rendered. 
+		/// Specifies the number of elements to be rendered.
 		/// </param>
 		/// <param name="type">
-		/// Specifies the type of the values in indices. Must be one of GL_UNSIGNED_BYTE, GL_UNSIGNED_SHORT, or GL_UNSIGNED_INT. 
+		/// Specifies the type of the values in indices. Must be one of GL_UNSIGNED_BYTE, GL_UNSIGNED_SHORT, or GL_UNSIGNED_INT.
 		/// </param>
 		/// <param name="indices">
-		/// Specifies a pointer to the location where the indices are stored. 
+		/// Specifies a pointer to the location where the indices are stored.
 		/// </param>
 		/// <param name="basevertex">
 		/// Specifies a constant that should be added to each element of indices when chosing elements from the enabled vertex 
@@ -761,21 +761,21 @@ namespace OpenGL
 		/// </param>
 		/// <remarks>
 		/// glDrawRangeElementsBaseVertex is a restricted form of glDrawElementsBaseVertex. mode, start, end, count and basevertex 
-		/// matchthe corresponding arguments to glDrawElementsBaseVertex, with the additional constraint that all values in the 
-		/// arrayindices must lie between start and end, inclusive, prior to adding basevertex. Index values lying outside the range 
-		/// [start,end] are treated in the same way as glDrawElementsBaseVertex. The ith element transferred by the corresponding 
-		/// drawcall will be taken from element indices[i] + basevertex of each enabled array. If the resulting value is larger than 
-		/// themaximum value representable by type, it is as if the calculation were upconverted to 32-bit unsigned integers (with 
-		/// wrappingon overflow conditions). The operation is undefined if the sum would be negative. 
+		/// match the corresponding arguments to glDrawElementsBaseVertex, with the additional constraint that all values in the 
+		/// array indices must lie between start and end, inclusive, prior to adding basevertex. Index values lying outside the 
+		/// range [start, end] are treated in the same way as glDrawElementsBaseVertex. The ith element transferred by the 
+		/// corresponding draw call will be taken from element indices[i] + basevertex of each enabled array. If the resulting value 
+		/// is larger than the maximum value representable by type, it is as if the calculation were upconverted to 32-bit unsigned 
+		/// integers (with wrapping on overflow conditions). The operation is undefined if the sum would be negative.
 		/// <para>
 		/// The following errors can be generated:
-		/// - GL_INVALID_ENUM is generated if mode is not an accepted value. 
-		/// - GL_INVALID_VALUE is generated if count is negative. 
-		/// - GL_INVALID_VALUE is generated if end &lt; start. 
+		/// - GL_INVALID_ENUM is generated if mode is not an accepted value.
+		/// - GL_INVALID_VALUE is generated if count is negative.
+		/// - GL_INVALID_VALUE is generated if end &lt; start.
 		/// - GL_INVALID_OPERATION is generated if a geometry shader is active and mode is incompatible with the input primitive type 
-		///   ofthe geometry shader in the currently installed program object. 
+		///   of the geometry shader in the currently installed program object.
 		/// - GL_INVALID_OPERATION is generated if a non-zero buffer object name is bound to an enabled array or the element array and 
-		///   thebuffer object's data store is currently mapped. 
+		///   the buffer object's data store is currently mapped.
 		/// </para>
 		/// </remarks>
 		/// <seealso cref="Gl.DrawElements"/>
@@ -804,23 +804,23 @@ namespace OpenGL
 		/// </summary>
 		/// <param name="mode">
 		/// Specifies what kind of primitives to render. Symbolic constants GL_POINTS, GL_LINE_STRIP, GL_LINE_LOOP, GL_LINES, 
-		/// GL_TRIANGLE_STRIP,GL_TRIANGLE_FAN, GL_TRIANGLES, GL_LINES_ADJACENCY, GL_LINE_STRIP_ADJACENCY, GL_TRIANGLES_ADJACENCY, 
-		/// GL_TRIANGLE_STRIP_ADJACENCYand GL_PATCHES are accepted. 
+		/// GL_TRIANGLE_STRIP, GL_TRIANGLE_FAN, GL_TRIANGLES, GL_LINES_ADJACENCY, GL_LINE_STRIP_ADJACENCY, GL_TRIANGLES_ADJACENCY, 
+		/// GL_TRIANGLE_STRIP_ADJACENCY and GL_PATCHES are accepted.
 		/// </param>
 		/// <param name="start">
-		/// Specifies the minimum array index contained in indices. 
+		/// Specifies the minimum array index contained in indices.
 		/// </param>
 		/// <param name="end">
-		/// Specifies the maximum array index contained in indices. 
+		/// Specifies the maximum array index contained in indices.
 		/// </param>
 		/// <param name="count">
-		/// Specifies the number of elements to be rendered. 
+		/// Specifies the number of elements to be rendered.
 		/// </param>
 		/// <param name="type">
-		/// Specifies the type of the values in indices. Must be one of GL_UNSIGNED_BYTE, GL_UNSIGNED_SHORT, or GL_UNSIGNED_INT. 
+		/// Specifies the type of the values in indices. Must be one of GL_UNSIGNED_BYTE, GL_UNSIGNED_SHORT, or GL_UNSIGNED_INT.
 		/// </param>
 		/// <param name="indices">
-		/// Specifies a pointer to the location where the indices are stored. 
+		/// Specifies a pointer to the location where the indices are stored.
 		/// </param>
 		/// <param name="basevertex">
 		/// Specifies a constant that should be added to each element of indices when chosing elements from the enabled vertex 
@@ -828,21 +828,21 @@ namespace OpenGL
 		/// </param>
 		/// <remarks>
 		/// glDrawRangeElementsBaseVertex is a restricted form of glDrawElementsBaseVertex. mode, start, end, count and basevertex 
-		/// matchthe corresponding arguments to glDrawElementsBaseVertex, with the additional constraint that all values in the 
-		/// arrayindices must lie between start and end, inclusive, prior to adding basevertex. Index values lying outside the range 
-		/// [start,end] are treated in the same way as glDrawElementsBaseVertex. The ith element transferred by the corresponding 
-		/// drawcall will be taken from element indices[i] + basevertex of each enabled array. If the resulting value is larger than 
-		/// themaximum value representable by type, it is as if the calculation were upconverted to 32-bit unsigned integers (with 
-		/// wrappingon overflow conditions). The operation is undefined if the sum would be negative. 
+		/// match the corresponding arguments to glDrawElementsBaseVertex, with the additional constraint that all values in the 
+		/// array indices must lie between start and end, inclusive, prior to adding basevertex. Index values lying outside the 
+		/// range [start, end] are treated in the same way as glDrawElementsBaseVertex. The ith element transferred by the 
+		/// corresponding draw call will be taken from element indices[i] + basevertex of each enabled array. If the resulting value 
+		/// is larger than the maximum value representable by type, it is as if the calculation were upconverted to 32-bit unsigned 
+		/// integers (with wrapping on overflow conditions). The operation is undefined if the sum would be negative.
 		/// <para>
 		/// The following errors can be generated:
-		/// - GL_INVALID_ENUM is generated if mode is not an accepted value. 
-		/// - GL_INVALID_VALUE is generated if count is negative. 
-		/// - GL_INVALID_VALUE is generated if end &lt; start. 
+		/// - GL_INVALID_ENUM is generated if mode is not an accepted value.
+		/// - GL_INVALID_VALUE is generated if count is negative.
+		/// - GL_INVALID_VALUE is generated if end &lt; start.
 		/// - GL_INVALID_OPERATION is generated if a geometry shader is active and mode is incompatible with the input primitive type 
-		///   ofthe geometry shader in the currently installed program object. 
+		///   of the geometry shader in the currently installed program object.
 		/// - GL_INVALID_OPERATION is generated if a non-zero buffer object name is bound to an enabled array or the element array and 
-		///   thebuffer object's data store is currently mapped. 
+		///   the buffer object's data store is currently mapped.
 		/// </para>
 		/// </remarks>
 		/// <seealso cref="Gl.DrawElements"/>
@@ -865,17 +865,17 @@ namespace OpenGL
 		/// </summary>
 		/// <param name="mode">
 		/// Specifies what kind of primitives to render. Symbolic constants GL_POINTS, GL_LINE_STRIP, GL_LINE_LOOP, GL_LINES, 
-		/// GL_TRIANGLE_STRIP,GL_TRIANGLE_FAN, GL_TRIANGLES, GL_LINES_ADJACENCY, GL_LINE_STRIP_ADJACENCY, GL_TRIANGLES_ADJACENCY, 
-		/// GL_TRIANGLE_STRIP_ADJACENCYand GL_PATCHES are accepted. 
+		/// GL_TRIANGLE_STRIP, GL_TRIANGLE_FAN, GL_TRIANGLES, GL_LINES_ADJACENCY, GL_LINE_STRIP_ADJACENCY, GL_TRIANGLES_ADJACENCY, 
+		/// GL_TRIANGLE_STRIP_ADJACENCY and GL_PATCHES are accepted.
 		/// </param>
 		/// <param name="count">
-		/// Specifies the number of elements to be rendered. 
+		/// Specifies the number of elements to be rendered.
 		/// </param>
 		/// <param name="type">
-		/// Specifies the type of the values in indices. Must be one of GL_UNSIGNED_BYTE, GL_UNSIGNED_SHORT, or GL_UNSIGNED_INT. 
+		/// Specifies the type of the values in indices. Must be one of GL_UNSIGNED_BYTE, GL_UNSIGNED_SHORT, or GL_UNSIGNED_INT.
 		/// </param>
 		/// <param name="indices">
-		/// Specifies a pointer to the location where the indices are stored. 
+		/// Specifies a pointer to the location where the indices are stored.
 		/// </param>
 		/// <param name="instancecount">
 		/// A <see cref="T:Int32"/>.
@@ -886,17 +886,18 @@ namespace OpenGL
 		/// </param>
 		/// <remarks>
 		/// glDrawElementsInstancedBaseVertex behaves identically to glDrawElementsInstanced except that the ith element transferred 
-		/// bythe corresponding draw call will be taken from element indices[i] + basevertex of each enabled array. If the resulting 
-		/// valueis larger than the maximum value representable by type, it is as if the calculation were upconverted to 32-bit 
-		/// unsignedintegers (with wrapping on overflow conditions). The operation is undefined if the sum would be negative. 
+		/// by the corresponding draw call will be taken from element indices[i] + basevertex of each enabled array. If the 
+		/// resulting value is larger than the maximum value representable by type, it is as if the calculation were upconverted to 
+		/// 32-bit unsigned integers (with wrapping on overflow conditions). The operation is undefined if the sum would be 
+		/// negative.
 		/// <para>
 		/// The following errors can be generated:
-		/// - GL_INVALID_ENUM is generated if mode is not an accepted value. 
-		/// - GL_INVALID_VALUE is generated if count or primcount is negative. 
+		/// - GL_INVALID_ENUM is generated if mode is not an accepted value.
+		/// - GL_INVALID_VALUE is generated if count or primcount is negative.
 		/// - GL_INVALID_OPERATION is generated if a geometry shader is active and mode is incompatible with the input primitive type 
-		///   ofthe geometry shader in the currently installed program object. 
+		///   of the geometry shader in the currently installed program object.
 		/// - GL_INVALID_OPERATION is generated if a non-zero buffer object name is bound to an enabled array or the element array and 
-		///   thebuffer object's data store is currently mapped. 
+		///   the buffer object's data store is currently mapped.
 		/// </para>
 		/// </remarks>
 		/// <seealso cref="Gl.DrawElements"/>
@@ -925,17 +926,17 @@ namespace OpenGL
 		/// </summary>
 		/// <param name="mode">
 		/// Specifies what kind of primitives to render. Symbolic constants GL_POINTS, GL_LINE_STRIP, GL_LINE_LOOP, GL_LINES, 
-		/// GL_TRIANGLE_STRIP,GL_TRIANGLE_FAN, GL_TRIANGLES, GL_LINES_ADJACENCY, GL_LINE_STRIP_ADJACENCY, GL_TRIANGLES_ADJACENCY, 
-		/// GL_TRIANGLE_STRIP_ADJACENCYand GL_PATCHES are accepted. 
+		/// GL_TRIANGLE_STRIP, GL_TRIANGLE_FAN, GL_TRIANGLES, GL_LINES_ADJACENCY, GL_LINE_STRIP_ADJACENCY, GL_TRIANGLES_ADJACENCY, 
+		/// GL_TRIANGLE_STRIP_ADJACENCY and GL_PATCHES are accepted.
 		/// </param>
 		/// <param name="count">
-		/// Specifies the number of elements to be rendered. 
+		/// Specifies the number of elements to be rendered.
 		/// </param>
 		/// <param name="type">
-		/// Specifies the type of the values in indices. Must be one of GL_UNSIGNED_BYTE, GL_UNSIGNED_SHORT, or GL_UNSIGNED_INT. 
+		/// Specifies the type of the values in indices. Must be one of GL_UNSIGNED_BYTE, GL_UNSIGNED_SHORT, or GL_UNSIGNED_INT.
 		/// </param>
 		/// <param name="indices">
-		/// Specifies a pointer to the location where the indices are stored. 
+		/// Specifies a pointer to the location where the indices are stored.
 		/// </param>
 		/// <param name="instancecount">
 		/// A <see cref="T:Int32"/>.
@@ -946,17 +947,18 @@ namespace OpenGL
 		/// </param>
 		/// <remarks>
 		/// glDrawElementsInstancedBaseVertex behaves identically to glDrawElementsInstanced except that the ith element transferred 
-		/// bythe corresponding draw call will be taken from element indices[i] + basevertex of each enabled array. If the resulting 
-		/// valueis larger than the maximum value representable by type, it is as if the calculation were upconverted to 32-bit 
-		/// unsignedintegers (with wrapping on overflow conditions). The operation is undefined if the sum would be negative. 
+		/// by the corresponding draw call will be taken from element indices[i] + basevertex of each enabled array. If the 
+		/// resulting value is larger than the maximum value representable by type, it is as if the calculation were upconverted to 
+		/// 32-bit unsigned integers (with wrapping on overflow conditions). The operation is undefined if the sum would be 
+		/// negative.
 		/// <para>
 		/// The following errors can be generated:
-		/// - GL_INVALID_ENUM is generated if mode is not an accepted value. 
-		/// - GL_INVALID_VALUE is generated if count or primcount is negative. 
+		/// - GL_INVALID_ENUM is generated if mode is not an accepted value.
+		/// - GL_INVALID_VALUE is generated if count or primcount is negative.
 		/// - GL_INVALID_OPERATION is generated if a geometry shader is active and mode is incompatible with the input primitive type 
-		///   ofthe geometry shader in the currently installed program object. 
+		///   of the geometry shader in the currently installed program object.
 		/// - GL_INVALID_OPERATION is generated if a non-zero buffer object name is bound to an enabled array or the element array and 
-		///   thebuffer object's data store is currently mapped. 
+		///   the buffer object's data store is currently mapped.
 		/// </para>
 		/// </remarks>
 		/// <seealso cref="Gl.DrawElements"/>
@@ -985,17 +987,17 @@ namespace OpenGL
 		/// </summary>
 		/// <param name="mode">
 		/// Specifies what kind of primitives to render. Symbolic constants GL_POINTS, GL_LINE_STRIP, GL_LINE_LOOP, GL_LINES, 
-		/// GL_TRIANGLE_STRIP,GL_TRIANGLE_FAN, GL_TRIANGLES, GL_LINES_ADJACENCY, GL_LINE_STRIP_ADJACENCY, GL_TRIANGLES_ADJACENCY, 
-		/// GL_TRIANGLE_STRIP_ADJACENCYand GL_PATCHES are accepted. 
+		/// GL_TRIANGLE_STRIP, GL_TRIANGLE_FAN, GL_TRIANGLES, GL_LINES_ADJACENCY, GL_LINE_STRIP_ADJACENCY, GL_TRIANGLES_ADJACENCY, 
+		/// GL_TRIANGLE_STRIP_ADJACENCY and GL_PATCHES are accepted.
 		/// </param>
 		/// <param name="count">
-		/// Specifies the number of elements to be rendered. 
+		/// Specifies the number of elements to be rendered.
 		/// </param>
 		/// <param name="type">
-		/// Specifies the type of the values in indices. Must be one of GL_UNSIGNED_BYTE, GL_UNSIGNED_SHORT, or GL_UNSIGNED_INT. 
+		/// Specifies the type of the values in indices. Must be one of GL_UNSIGNED_BYTE, GL_UNSIGNED_SHORT, or GL_UNSIGNED_INT.
 		/// </param>
 		/// <param name="indices">
-		/// Specifies a pointer to the location where the indices are stored. 
+		/// Specifies a pointer to the location where the indices are stored.
 		/// </param>
 		/// <param name="instancecount">
 		/// A <see cref="T:Int32"/>.
@@ -1006,17 +1008,18 @@ namespace OpenGL
 		/// </param>
 		/// <remarks>
 		/// glDrawElementsInstancedBaseVertex behaves identically to glDrawElementsInstanced except that the ith element transferred 
-		/// bythe corresponding draw call will be taken from element indices[i] + basevertex of each enabled array. If the resulting 
-		/// valueis larger than the maximum value representable by type, it is as if the calculation were upconverted to 32-bit 
-		/// unsignedintegers (with wrapping on overflow conditions). The operation is undefined if the sum would be negative. 
+		/// by the corresponding draw call will be taken from element indices[i] + basevertex of each enabled array. If the 
+		/// resulting value is larger than the maximum value representable by type, it is as if the calculation were upconverted to 
+		/// 32-bit unsigned integers (with wrapping on overflow conditions). The operation is undefined if the sum would be 
+		/// negative.
 		/// <para>
 		/// The following errors can be generated:
-		/// - GL_INVALID_ENUM is generated if mode is not an accepted value. 
-		/// - GL_INVALID_VALUE is generated if count or primcount is negative. 
+		/// - GL_INVALID_ENUM is generated if mode is not an accepted value.
+		/// - GL_INVALID_VALUE is generated if count or primcount is negative.
 		/// - GL_INVALID_OPERATION is generated if a geometry shader is active and mode is incompatible with the input primitive type 
-		///   ofthe geometry shader in the currently installed program object. 
+		///   of the geometry shader in the currently installed program object.
 		/// - GL_INVALID_OPERATION is generated if a non-zero buffer object name is bound to an enabled array or the element array and 
-		///   thebuffer object's data store is currently mapped. 
+		///   the buffer object's data store is currently mapped.
 		/// </para>
 		/// </remarks>
 		/// <seealso cref="Gl.DrawElements"/>
@@ -1039,35 +1042,35 @@ namespace OpenGL
 		/// </summary>
 		/// <param name="mode">
 		/// Specifies what kind of primitives to render. Symbolic constants GL_POINTS, GL_LINE_STRIP, GL_LINE_LOOP, GL_LINES, 
-		/// GL_LINE_STRIP_ADJACENCY,GL_LINES_ADJACENCY, GL_TRIANGLE_STRIP, GL_TRIANGLE_FAN, GL_TRIANGLES, 
-		/// GL_TRIANGLE_STRIP_ADJACENCY,GL_TRIANGLES_ADJACENCY and GL_PATCHES are accepted. 
+		/// GL_LINE_STRIP_ADJACENCY, GL_LINES_ADJACENCY, GL_TRIANGLE_STRIP, GL_TRIANGLE_FAN, GL_TRIANGLES, 
+		/// GL_TRIANGLE_STRIP_ADJACENCY, GL_TRIANGLES_ADJACENCY and GL_PATCHES are accepted.
 		/// </param>
 		/// <param name="count">
-		/// Points to an array of the elements counts. 
+		/// Points to an array of the elements counts.
 		/// </param>
 		/// <param name="type">
-		/// Specifies the type of the values in indices. Must be one of GL_UNSIGNED_BYTE, GL_UNSIGNED_SHORT, or GL_UNSIGNED_INT. 
+		/// Specifies the type of the values in indices. Must be one of GL_UNSIGNED_BYTE, GL_UNSIGNED_SHORT, or GL_UNSIGNED_INT.
 		/// </param>
 		/// <param name="indices">
-		/// Specifies a pointer to the location where the indices are stored. 
+		/// Specifies a pointer to the location where the indices are stored.
 		/// </param>
 		/// <param name="drawcount">
-		/// Specifies the size of the count, indices and basevertex arrays. 
+		/// Specifies the size of the count, indices and basevertex arrays.
 		/// </param>
 		/// <param name="basevertex">
-		/// Specifies a pointer to the location where the base vertices are stored. 
+		/// Specifies a pointer to the location where the base vertices are stored.
 		/// </param>
 		/// <remarks>
 		/// glMultiDrawElementsBaseVertex behaves identically to glDrawElementsBaseVertex, except that drawcount separate lists of 
-		/// elementsare specifried instead. 
+		/// elements are specifried instead.
 		/// It has the same effect as: for (int i = 0; i &lt; drawcount; i++) if (count[i] &gt; 0) glDrawElementsBaseVertex(mode, 
-		/// count[i],type, indices[i], basevertex[i]); 
+		/// count[i], type, indices[i], basevertex[i]);
 		/// <para>
 		/// The following errors can be generated:
-		/// - GL_INVALID_ENUM is generated if mode is not an accepted value. 
-		/// - GL_INVALID_VALUE is generated if drawcount is negative. 
+		/// - GL_INVALID_ENUM is generated if mode is not an accepted value.
+		/// - GL_INVALID_VALUE is generated if drawcount is negative.
 		/// - GL_INVALID_OPERATION is generated if a non-zero buffer object name is bound to an enabled array or the element array and 
-		///   thebuffer object's data store is currently mapped. 
+		///   the buffer object's data store is currently mapped.
 		/// </para>
 		/// </remarks>
 		/// <seealso cref="Gl.MultiDrawElements"/>
@@ -1101,35 +1104,35 @@ namespace OpenGL
 		/// </summary>
 		/// <param name="mode">
 		/// Specifies what kind of primitives to render. Symbolic constants GL_POINTS, GL_LINE_STRIP, GL_LINE_LOOP, GL_LINES, 
-		/// GL_LINE_STRIP_ADJACENCY,GL_LINES_ADJACENCY, GL_TRIANGLE_STRIP, GL_TRIANGLE_FAN, GL_TRIANGLES, 
-		/// GL_TRIANGLE_STRIP_ADJACENCY,GL_TRIANGLES_ADJACENCY and GL_PATCHES are accepted. 
+		/// GL_LINE_STRIP_ADJACENCY, GL_LINES_ADJACENCY, GL_TRIANGLE_STRIP, GL_TRIANGLE_FAN, GL_TRIANGLES, 
+		/// GL_TRIANGLE_STRIP_ADJACENCY, GL_TRIANGLES_ADJACENCY and GL_PATCHES are accepted.
 		/// </param>
 		/// <param name="count">
-		/// Points to an array of the elements counts. 
+		/// Points to an array of the elements counts.
 		/// </param>
 		/// <param name="type">
-		/// Specifies the type of the values in indices. Must be one of GL_UNSIGNED_BYTE, GL_UNSIGNED_SHORT, or GL_UNSIGNED_INT. 
+		/// Specifies the type of the values in indices. Must be one of GL_UNSIGNED_BYTE, GL_UNSIGNED_SHORT, or GL_UNSIGNED_INT.
 		/// </param>
 		/// <param name="indices">
-		/// Specifies a pointer to the location where the indices are stored. 
+		/// Specifies a pointer to the location where the indices are stored.
 		/// </param>
 		/// <param name="drawcount">
-		/// Specifies the size of the count, indices and basevertex arrays. 
+		/// Specifies the size of the count, indices and basevertex arrays.
 		/// </param>
 		/// <param name="basevertex">
-		/// Specifies a pointer to the location where the base vertices are stored. 
+		/// Specifies a pointer to the location where the base vertices are stored.
 		/// </param>
 		/// <remarks>
 		/// glMultiDrawElementsBaseVertex behaves identically to glDrawElementsBaseVertex, except that drawcount separate lists of 
-		/// elementsare specifried instead. 
+		/// elements are specifried instead.
 		/// It has the same effect as: for (int i = 0; i &lt; drawcount; i++) if (count[i] &gt; 0) glDrawElementsBaseVertex(mode, 
-		/// count[i],type, indices[i], basevertex[i]); 
+		/// count[i], type, indices[i], basevertex[i]);
 		/// <para>
 		/// The following errors can be generated:
-		/// - GL_INVALID_ENUM is generated if mode is not an accepted value. 
-		/// - GL_INVALID_VALUE is generated if drawcount is negative. 
+		/// - GL_INVALID_ENUM is generated if mode is not an accepted value.
+		/// - GL_INVALID_VALUE is generated if drawcount is negative.
 		/// - GL_INVALID_OPERATION is generated if a non-zero buffer object name is bound to an enabled array or the element array and 
-		///   thebuffer object's data store is currently mapped. 
+		///   the buffer object's data store is currently mapped.
 		/// </para>
 		/// </remarks>
 		/// <seealso cref="Gl.MultiDrawElements"/>
@@ -1154,19 +1157,19 @@ namespace OpenGL
 		/// </param>
 		/// <remarks>
 		/// Flatshading a vertex shader varying output means to assign all vetices of the primitive the same value for that output. 
-		/// Thevertex from which these values is derived is known as the provoking vertex and glProvokingVertex specifies which 
-		/// vertexis to be used as the source of data for flat shaded varyings. 
+		/// The vertex from which these values is derived is known as the provoking vertex and glProvokingVertex specifies which 
+		/// vertex is to be used as the source of data for flat shaded varyings.
 		/// provokeMode must be either GL_FIRST_VERTEX_CONVENTION or GL_LAST_VERTEX_CONVENTION, and controls the selection of the 
-		/// vertexwhose values are assigned to flatshaded varying outputs. The interpretation of these values for the supported 
-		/// primitivetypes is: Primitive Type of Polygon i First Vertex Convention Last Vertex Convention point ii independent line 
-		/// 2i- 1 2i line loop ii + 1, if i &lt; n 1, if i = n line strip ii + 1 independent triangle 3i - 2 3i triangle strip ii + 
-		/// 2triangle fan i + 1 i + 2 line adjacency 4i - 2 4i - 1 line strip adjacency i + 1 i + 2 triangle adjacency 6i - 5 6i - 1 
-		/// trianglestrip adjacency 2i - 1 2i + 3 
+		/// vertex whose values are assigned to flatshaded varying outputs. The interpretation of these values for the supported 
+		/// primitive types is: Primitive Type of Polygon i First Vertex Convention Last Vertex Convention point ii independent line 
+		/// 2i - 1 2i line loop ii + 1, if i &lt; n 1, if i = n line strip ii + 1 independent triangle 3i - 2 3i triangle strip ii + 
+		/// 2 triangle fan i + 1 i + 2 line adjacency 4i - 2 4i - 1 line strip adjacency i + 1 i + 2 triangle adjacency 6i - 5 6i - 
+		/// 1 triangle strip adjacency 2i - 1 2i + 3
 		/// If a vertex or geometry shader is active, user-defined varying outputs may be flatshaded by using the flat qualifier 
-		/// whendeclaring the output. 
+		/// when declaring the output.
 		/// <para>
 		/// The following errors can be generated:
-		/// - GL_INVALID_ENUM is generated if provokeMode is not an accepted value. 
+		/// - GL_INVALID_ENUM is generated if provokeMode is not an accepted value.
 		/// </para>
 		/// </remarks>
 		public static void ProvokingVertex(int mode)
@@ -1191,25 +1194,25 @@ namespace OpenGL
 		/// </param>
 		/// <param name="flags">
 		/// Specifies a bitwise combination of flags controlling the behavior of the sync object. No flags are presently defined for 
-		/// thisoperation and flags must be zero.flags is a placeholder for anticipated future extensions of fence sync object 
+		/// this operation and flags must be zero.flags is a placeholder for anticipated future extensions of fence sync object 
 		/// capabilities.
 		/// </param>
 		/// <remarks>
 		/// glFenceSync creates a new fence sync object, inserts a fence command into the GL command stream and associates it with 
-		/// thatsync object, and returns a non-zero name corresponding to the sync object. 
+		/// that sync object, and returns a non-zero name corresponding to the sync object.
 		/// When the specified condition of the sync object is satisfied by the fence command, the sync object is signaled by the 
-		/// GL,causing any glWaitSync, glClientWaitSync commands blocking in sync to unblock. No other state is affected by 
-		/// glFenceSyncor by the execution of the associated fence command. 
+		/// GL, causing any glWaitSync, glClientWaitSync commands blocking in sync to unblock. No other state is affected by 
+		/// glFenceSync or by the execution of the associated fence command.
 		/// condition must be GL_SYNC_GPU_COMMANDS_COMPLETE. This condition is satisfied by completion of the fence command 
-		/// correspondingto the sync object and all preceding commands in the same command stream. The sync object will not be 
-		/// signaleduntil all effects from these commands on GL client and server state and the framebuffer are fully realized. Note 
-		/// thatcompletion of the fence command occurs once the state of the corresponding sync object has been changed, but 
-		/// commandswaiting on that sync object may not be unblocked until after the fence command completes. 
+		/// corresponding to the sync object and all preceding commands in the same command stream. The sync object will not be 
+		/// signaled until all effects from these commands on GL client and server state and the framebuffer are fully realized. 
+		/// Note that completion of the fence command occurs once the state of the corresponding sync object has been changed, but 
+		/// commands waiting on that sync object may not be unblocked until after the fence command completes.
 		/// <para>
 		/// The following errors can be generated:
-		/// - GL_INVALID_ENUM is generated if condition is not GL_SYNC_GPU_COMMANDS_COMPLETE. 
-		/// - GL_INVALID_VALUE is generated if flags is not zero. 
-		/// - Additionally, if glFenceSync fails, it will return zero. 
+		/// - GL_INVALID_ENUM is generated if condition is not GL_SYNC_GPU_COMMANDS_COMPLETE.
+		/// - GL_INVALID_VALUE is generated if flags is not zero.
+		/// - Additionally, if glFenceSync fails, it will return zero.
 		/// </para>
 		/// </remarks>
 		/// <seealso cref="Gl.DeleteSync"/>
@@ -1237,11 +1240,11 @@ namespace OpenGL
 		/// determine if a name corresponds to a sync object
 		/// </summary>
 		/// <param name="sync">
-		/// Specifies a value that may be the name of a sync object. 
+		/// Specifies a value that may be the name of a sync object.
 		/// </param>
 		/// <remarks>
 		/// glIsSync returns GL_TRUE if sync is currently the name of a sync object. If sync is not the name of a sync object, or if 
-		/// anerror occurs, glIsSync returns GL_FALSE. Note that zero is not the name of a sync object. 
+		/// an error occurs, glIsSync returns GL_FALSE. Note that zero is not the name of a sync object.
 		/// </remarks>
 		/// <seealso cref="Gl.FenceSync"/>
 		/// <seealso cref="Gl.WaitSync"/>
@@ -1268,18 +1271,18 @@ namespace OpenGL
 		/// delete a sync object
 		/// </summary>
 		/// <param name="sync">
-		/// The sync object to be deleted. 
+		/// The sync object to be deleted.
 		/// </param>
 		/// <remarks>
 		/// glDeleteSync deletes the sync object specified by sync. If the fence command corresponding to the specified sync object 
-		/// hascompleted, or if no glWaitSync or glClientWaitSync commands are blocking on sync, the object is deleted immediately. 
-		/// Otherwise,sync is flagged for deletion and will be deleted when it is no longer associated with any fence command and is 
-		/// nolonger blocking any glWaitSync or glClientWaitSync command. In either case, after glDeleteSync returns, the name sync 
-		/// isinvalid and can no longer be used to refer to the sync object. 
-		/// glDeleteSync will silently ignore a sync value of zero. 
+		/// has completed, or if no glWaitSync or glClientWaitSync commands are blocking on sync, the object is deleted immediately. 
+		/// Otherwise, sync is flagged for deletion and will be deleted when it is no longer associated with any fence command and 
+		/// is no longer blocking any glWaitSync or glClientWaitSync command. In either case, after glDeleteSync returns, the name 
+		/// sync is invalid and can no longer be used to refer to the sync object.
+		/// glDeleteSync will silently ignore a sync value of zero.
 		/// <para>
 		/// The following errors can be generated:
-		/// - GL_INVALID_VALUE is generated if sync is neither zero or the name of a sync object. 
+		/// - GL_INVALID_VALUE is generated if sync is neither zero or the name of a sync object.
 		/// </para>
 		/// </remarks>
 		/// <seealso cref="Gl.FenceSync"/>
@@ -1302,26 +1305,26 @@ namespace OpenGL
 		/// block and wait for a sync object to become signaled
 		/// </summary>
 		/// <param name="sync">
-		/// The sync object whose status to wait on. 
+		/// The sync object whose status to wait on.
 		/// </param>
 		/// <param name="flags">
-		/// A bitfield controlling the command flushing behavior. flags may be GL_SYNC_FLUSH_COMMANDS_BIT. 
+		/// A bitfield controlling the command flushing behavior. flags may be GL_SYNC_FLUSH_COMMANDS_BIT.
 		/// </param>
 		/// <param name="timeout">
-		/// The timeout, specified in nanoseconds, for which the implementation should wait for sync to become signaled. 
+		/// The timeout, specified in nanoseconds, for which the implementation should wait for sync to become signaled.
 		/// </param>
 		/// <remarks>
 		/// glClientWaitSync causes the client to block and wait for the sync object specified by sync to become signaled. If sync 
-		/// issignaled when glClientWaitSync is called, glClientWaitSync returns immediately, otherwise it will block and wait for 
-		/// upto timeout nanoseconds for sync to become signaled. 
+		/// is signaled when glClientWaitSync is called, glClientWaitSync returns immediately, otherwise it will block and wait for 
+		/// up to timeout nanoseconds for sync to become signaled.
 		/// The return value is one of four status values: GL_ALREADY_SIGNALED indicates that sync was signaled at the time that 
-		/// glClientWaitSyncwas called. GL_TIMEOUT_EXPIRED indicates that at least timeout nanoseconds passed and sync did not 
-		/// becomesignaled. GL_CONDITION_SATISFIED indicates that sync was signaled before the timeout expired. GL_WAIT_FAILED 
-		/// indicatesthat an error occurred. Additionally, an OpenGL error will be generated. 
+		/// glClientWaitSync was called. GL_TIMEOUT_EXPIRED indicates that at least timeout nanoseconds passed and sync did not 
+		/// become signaled. GL_CONDITION_SATISFIED indicates that sync was signaled before the timeout expired. GL_WAIT_FAILED 
+		/// indicates that an error occurred. Additionally, an OpenGL error will be generated.
 		/// <para>
 		/// The following errors can be generated:
-		/// - GL_INVALID_VALUE is generated if sync is not the name of an existing sync object. 
-		/// - GL_INVALID_VALUE is generated if flags contains any unsupported flag. 
+		/// - GL_INVALID_VALUE is generated if sync is not the name of an existing sync object.
+		/// - GL_INVALID_VALUE is generated if flags contains any unsupported flag.
 		/// </para>
 		/// </remarks>
 		/// <seealso cref="Gl.FenceSync"/>
@@ -1348,29 +1351,29 @@ namespace OpenGL
 		/// instruct the GL server to block until the specified sync object becomes signaled
 		/// </summary>
 		/// <param name="sync">
-		/// Specifies the sync object whose status to wait on. 
+		/// Specifies the sync object whose status to wait on.
 		/// </param>
 		/// <param name="flags">
-		/// A bitfield controlling the command flushing behavior. flags may be zero. 
+		/// A bitfield controlling the command flushing behavior. flags may be zero.
 		/// </param>
 		/// <param name="timeout">
-		/// Specifies the timeout that the server should wait before continuing. timeout must be GL_TIMEOUT_IGNORED. 
+		/// Specifies the timeout that the server should wait before continuing. timeout must be GL_TIMEOUT_IGNORED.
 		/// </param>
 		/// <remarks>
 		/// glWaitSync causes the GL server to block and wait until sync becomes signaled. sync is the name of an existing sync 
-		/// objectupon which to wait. flags and timeout are currently not used and must be set to zero and the special value 
-		/// GL_TIMEOUT_IGNORED,respectivelyflags and timeout are placeholders for anticipated future extensions of sync object 
-		/// capabilities.They must have these reserved values in order that existing code calling glWaitSync operate properly in the 
-		/// presenceof such extensions.. glWaitSync will always wait no longer than an implementation-dependent timeout. The 
-		/// durationof this timeout in nanoseconds may be queried by calling glGet with the parameter GL_MAX_SERVER_WAIT_TIMEOUT. 
-		/// Thereis currently no way to determine whether glWaitSync unblocked because the timeout expired or because the sync 
-		/// objectbeing waited on was signaled. 
-		/// If an error occurs, glWaitSync does not cause the GL server to block. 
+		/// object upon which to wait. flags and timeout are currently not used and must be set to zero and the special value 
+		/// GL_TIMEOUT_IGNORED, respectivelyflags and timeout are placeholders for anticipated future extensions of sync object 
+		/// capabilities. They must have these reserved values in order that existing code calling glWaitSync operate properly in 
+		/// the presence of such extensions.. glWaitSync will always wait no longer than an implementation-dependent timeout. The 
+		/// duration of this timeout in nanoseconds may be queried by calling glGet with the parameter GL_MAX_SERVER_WAIT_TIMEOUT. 
+		/// There is currently no way to determine whether glWaitSync unblocked because the timeout expired or because the sync 
+		/// object being waited on was signaled.
+		/// If an error occurs, glWaitSync does not cause the GL server to block.
 		/// <para>
 		/// The following errors can be generated:
-		/// - GL_INVALID_VALUE is generated if sync is not the name of a sync object. 
-		/// - GL_INVALID_VALUE is generated if flags is not zero. 
-		/// - GL_INVALID_VALUE is generated if timeout is not GL_TIMEOUT_IGNORED. 
+		/// - GL_INVALID_VALUE is generated if sync is not the name of a sync object.
+		/// - GL_INVALID_VALUE is generated if flags is not zero.
+		/// - GL_INVALID_VALUE is generated if timeout is not GL_TIMEOUT_IGNORED.
 		/// </para>
 		/// </remarks>
 		/// <seealso cref="Gl.FenceSync"/>
@@ -1393,28 +1396,28 @@ namespace OpenGL
 		/// </summary>
 		/// <param name="pname">
 		/// Specifies the parameter value to be returned for non-indexed versions of glGet. The symbolic constants in the list below 
-		/// areaccepted. 
+		/// are accepted.
 		/// </param>
 		/// <param name="data">
-		/// Returns the value or values of the specified parameter. 
+		/// Returns the value or values of the specified parameter.
 		/// </param>
 		/// <remarks>
 		/// These commands return values for simple state variables in GL. pname is a symbolic constant indicating the state 
-		/// variableto be returned, and data is a pointer to an array of the indicated type in which to place the returned data. 
+		/// variable to be returned, and data is a pointer to an array of the indicated type in which to place the returned data.
 		/// Type conversion is performed if data has a different type than the state variable value being requested. If 
-		/// glGetBooleanvis called, a floating-point (or integer) value is converted to GL_FALSE if and only if it is 0.0 (or 0). 
-		/// Otherwise,it is converted to GL_TRUE. If glGetIntegerv is called, boolean values are returned as GL_TRUE or GL_FALSE, 
-		/// andmost floating-point values are rounded to the nearest integer value. Floating-point colors and normals, however, are 
-		/// returnedwith a linear mapping that maps 1.0 to the most positive representable integer value and -1.0 to the most 
-		/// negativerepresentable integer value. If glGetFloatv or glGetDoublev is called, boolean values are returned as GL_TRUE or 
-		/// GL_FALSE,and integer values are converted to floating-point values. 
-		/// The following symbolic constants are accepted by pname: 
-		/// Many of the boolean parameters can also be queried more easily using glIsEnabled. 
+		/// glGetBooleanv is called, a floating-point (or integer) value is converted to GL_FALSE if and only if it is 0.0 (or 0). 
+		/// Otherwise, it is converted to GL_TRUE. If glGetIntegerv is called, boolean values are returned as GL_TRUE or GL_FALSE, 
+		/// and most floating-point values are rounded to the nearest integer value. Floating-point colors and normals, however, are 
+		/// returned with a linear mapping that maps 1.0 to the most positive representable integer value and -1.0 to the most 
+		/// negative representable integer value. If glGetFloatv or glGetDoublev is called, boolean values are returned as GL_TRUE 
+		/// or GL_FALSE, and integer values are converted to floating-point values.
+		/// The following symbolic constants are accepted by pname:
+		/// Many of the boolean parameters can also be queried more easily using glIsEnabled.
 		/// <para>
 		/// The following errors can be generated:
-		/// - GL_INVALID_ENUM is generated if pname is not an accepted value. 
+		/// - GL_INVALID_ENUM is generated if pname is not an accepted value.
 		/// - GL_INVALID_VALUE is generated on any of glGetBooleani_v, glGetIntegeri_v, or glGetInteger64i_v if index is outside of 
-		///   thevalid range for the indexed state target. 
+		///   the valid range for the indexed state target.
 		/// </para>
 		/// </remarks>
 		/// <seealso cref="Gl.GetActiveUniform"/>
@@ -1463,39 +1466,39 @@ namespace OpenGL
 		/// query the properties of a sync object
 		/// </summary>
 		/// <param name="sync">
-		/// Specifies the sync object whose properties to query. 
+		/// Specifies the sync object whose properties to query.
 		/// </param>
 		/// <param name="pname">
-		/// Specifies the parameter whose value to retrieve from the sync object specified in sync. 
+		/// Specifies the parameter whose value to retrieve from the sync object specified in sync.
 		/// </param>
 		/// <param name="bufSize">
-		/// Specifies the size of the buffer whose address is given in values. 
+		/// Specifies the size of the buffer whose address is given in values.
 		/// </param>
 		/// <param name="length">
-		/// Specifies the address of an variable to receive the number of integers placed in values. 
+		/// Specifies the address of an variable to receive the number of integers placed in values.
 		/// </param>
 		/// <param name="values">
-		/// Specifies the address of an array to receive the values of the queried parameter. 
+		/// Specifies the address of an array to receive the values of the queried parameter.
 		/// </param>
 		/// <remarks>
 		/// glGetSynciv retrieves properties of a sync object. sync specifies the name of the sync object whose properties to 
 		/// retrieve.
 		/// On success, glGetSynciv replaces up to bufSize integers in values with the corresponding property values of the object 
-		/// beingqueried. The actual number of integers replaced is returned in the variable whose address is specified in length. 
-		/// Iflength is NULL, no length is returned. 
+		/// being queried. The actual number of integers replaced is returned in the variable whose address is specified in length. 
+		/// If length is NULL, no length is returned.
 		/// If pname is GL_OBJECT_TYPE, a single value representing the specific type of the sync object is placed in values. The 
-		/// onlytype supported is GL_SYNC_FENCE. 
+		/// only type supported is GL_SYNC_FENCE.
 		/// If pname is GL_SYNC_STATUS, a single value representing the status of the sync object (GL_SIGNALED or GL_UNSIGNALED) is 
-		/// placedin values. 
+		/// placed in values.
 		/// If pname is GL_SYNC_CONDITION, a single value representing the condition of the sync object is placed in values. The 
-		/// onlycondition supported is GL_SYNC_GPU_COMMANDS_COMPLETE. 
+		/// only condition supported is GL_SYNC_GPU_COMMANDS_COMPLETE.
 		/// If pname is GL_SYNC_FLAGS, a single value representing the flags with which the sync object was created is placed in 
-		/// values.No flags are currently supportedflags is expected to be used in future extensions to the sync objects.. 
-		/// If an error occurs, nothing will be written to values or length. 
+		/// values. No flags are currently supportedflags is expected to be used in future extensions to the sync objects..
+		/// If an error occurs, nothing will be written to values or length.
 		/// <para>
 		/// The following errors can be generated:
-		/// - GL_INVALID_VALUE is generated if sync is not the name of a sync object. 
-		/// - GL_INVALID_ENUM is generated if pname is not one of the accepted tokens. 
+		/// - GL_INVALID_VALUE is generated if sync is not the name of a sync object.
+		/// - GL_INVALID_ENUM is generated if pname is not one of the accepted tokens.
 		/// </para>
 		/// </remarks>
 		/// <seealso cref="Gl.FenceSync"/>
@@ -1528,28 +1531,28 @@ namespace OpenGL
 		/// accepted.
 		/// </param>
 		/// <param name="index">
-		/// Specifies the index of the particular element being queried. 
+		/// Specifies the index of the particular element being queried.
 		/// </param>
 		/// <param name="data">
-		/// Returns the value or values of the specified parameter. 
+		/// Returns the value or values of the specified parameter.
 		/// </param>
 		/// <remarks>
 		/// These commands return values for simple state variables in GL. pname is a symbolic constant indicating the state 
-		/// variableto be returned, and data is a pointer to an array of the indicated type in which to place the returned data. 
+		/// variable to be returned, and data is a pointer to an array of the indicated type in which to place the returned data.
 		/// Type conversion is performed if data has a different type than the state variable value being requested. If 
-		/// glGetBooleanvis called, a floating-point (or integer) value is converted to GL_FALSE if and only if it is 0.0 (or 0). 
-		/// Otherwise,it is converted to GL_TRUE. If glGetIntegerv is called, boolean values are returned as GL_TRUE or GL_FALSE, 
-		/// andmost floating-point values are rounded to the nearest integer value. Floating-point colors and normals, however, are 
-		/// returnedwith a linear mapping that maps 1.0 to the most positive representable integer value and -1.0 to the most 
-		/// negativerepresentable integer value. If glGetFloatv or glGetDoublev is called, boolean values are returned as GL_TRUE or 
-		/// GL_FALSE,and integer values are converted to floating-point values. 
-		/// The following symbolic constants are accepted by pname: 
-		/// Many of the boolean parameters can also be queried more easily using glIsEnabled. 
+		/// glGetBooleanv is called, a floating-point (or integer) value is converted to GL_FALSE if and only if it is 0.0 (or 0). 
+		/// Otherwise, it is converted to GL_TRUE. If glGetIntegerv is called, boolean values are returned as GL_TRUE or GL_FALSE, 
+		/// and most floating-point values are rounded to the nearest integer value. Floating-point colors and normals, however, are 
+		/// returned with a linear mapping that maps 1.0 to the most positive representable integer value and -1.0 to the most 
+		/// negative representable integer value. If glGetFloatv or glGetDoublev is called, boolean values are returned as GL_TRUE 
+		/// or GL_FALSE, and integer values are converted to floating-point values.
+		/// The following symbolic constants are accepted by pname:
+		/// Many of the boolean parameters can also be queried more easily using glIsEnabled.
 		/// <para>
 		/// The following errors can be generated:
-		/// - GL_INVALID_ENUM is generated if pname is not an accepted value. 
+		/// - GL_INVALID_ENUM is generated if pname is not an accepted value.
 		/// - GL_INVALID_VALUE is generated on any of glGetBooleani_v, glGetIntegeri_v, or glGetInteger64i_v if index is outside of 
-		///   thevalid range for the indexed state target. 
+		///   the valid range for the indexed state target.
 		/// </para>
 		/// </remarks>
 		/// <seealso cref="Gl.GetActiveUniform"/>
@@ -1594,7 +1597,7 @@ namespace OpenGL
 		/// </summary>
 		/// <param name="target">
 		/// Specifies the target to which the buffer object is bound for glGetBufferParameteriv and glGetBufferParameteri64v. Must 
-		/// beone of the buffer binding targets in the following table: 
+		/// be one of the buffer binding targets in the following table:
 		/// </param>
 		/// <param name="pname">
 		/// A <see cref="T:int"/>.
@@ -1603,14 +1606,14 @@ namespace OpenGL
 		/// A <see cref="T:Int64[]"/>.
 		/// </param>
 		/// <remarks>
-		/// These functions return in data a selected parameter of the specified buffer object. 
-		/// pname names a specific buffer object parameter, as follows: 
+		/// These functions return in data a selected parameter of the specified buffer object.
+		/// pname names a specific buffer object parameter, as follows:
 		/// <para>
 		/// The following errors can be generated:
-		/// - GL_INVALID_ENUM is generated by glGetBufferParameter* if target is not one of the accepted buffer targets. 
-		/// - GL_INVALID_OPERATION is generated by glGetBufferParameter* if zero is bound to target. 
-		/// - GL_INVALID_OPERATION is generated by glGetNamedBufferParameter* if buffer is not the name of an existing buffer object. 
-		/// - GL_INVALID_ENUM is generated if pname is not one of the buffer object parameter names described above. 
+		/// - GL_INVALID_ENUM is generated by glGetBufferParameter* if target is not one of the accepted buffer targets.
+		/// - GL_INVALID_OPERATION is generated by glGetBufferParameter* if zero is bound to target.
+		/// - GL_INVALID_OPERATION is generated by glGetNamedBufferParameter* if buffer is not the name of an existing buffer object.
+		/// - GL_INVALID_ENUM is generated if pname is not one of the buffer object parameter names described above.
 		/// </para>
 		/// </remarks>
 		/// <seealso cref="Gl.BindBuffer"/>
@@ -1635,72 +1638,72 @@ namespace OpenGL
 		/// attach a level of a texture object as a logical buffer of a framebuffer object
 		/// </summary>
 		/// <param name="target">
-		/// Specifies the target to which the framebuffer is bound for all commands exceptglNamedFramebufferTexture. 
+		/// Specifies the target to which the framebuffer is bound for all commands exceptglNamedFramebufferTexture.
 		/// </param>
 		/// <param name="attachment">
-		/// Specifies the attachment point of the framebuffer. 
+		/// Specifies the attachment point of the framebuffer.
 		/// </param>
 		/// <param name="texture">
-		/// Specifies the name of an existing texture object to attach. 
+		/// Specifies the name of an existing texture object to attach.
 		/// </param>
 		/// <param name="level">
-		/// Specifies the mipmap level of the texture object to attach. 
+		/// Specifies the mipmap level of the texture object to attach.
 		/// </param>
 		/// <remarks>
 		/// These commands attach a selected mipmap level or image of a texture object as one of the logical buffers of the 
-		/// specifiedframebuffer object. Textures cannot be attached to the default draw and read framebuffer, so they are not valid 
-		/// targetsof these commands. 
+		/// specified framebuffer object. Textures cannot be attached to the default draw and read framebuffer, so they are not 
+		/// valid targets of these commands.
 		/// For all commands exceptglNamedFramebufferTexture, the framebuffer object is that bound to target, which must be 
-		/// GL_DRAW_FRAMEBUFFER,GL_READ_FRAMEBUFFER, or GL_FRAMEBUFFER. GL_FRAMEBUFFER is equivalent to GL_DRAW_FRAMEBUFFER. 
-		/// For glNamedFramebufferTexture, framebuffer is the name of the framebuffer object. 
+		/// GL_DRAW_FRAMEBUFFER, GL_READ_FRAMEBUFFER, or GL_FRAMEBUFFER. GL_FRAMEBUFFER is equivalent to GL_DRAW_FRAMEBUFFER.
+		/// For glNamedFramebufferTexture, framebuffer is the name of the framebuffer object.
 		/// attachment specifies the logical attachment of the framebuffer and must be GL_COLOR_ATTACHMENTi, GL_DEPTH_ATTACHMENT, 
-		/// GL_STENCIL_ATTACHMENTor GL_DEPTH_STENCIL_ATTACHMENT. i in GL_COLOR_ATTACHMENTi may range from zero to the value of 
-		/// GL_MAX_COLOR_ATTACHMENTSminus one. Attaching a level of a texture to GL_DEPTH_STENCIL_ATTACHMENT is equivalent to 
-		/// attachingthat level to both the GL_DEPTH_ATTACHMENTand the GL_STENCIL_ATTACHMENT attachment points simultaneously. 
+		/// GL_STENCIL_ATTACHMENT or GL_DEPTH_STENCIL_ATTACHMENT. i in GL_COLOR_ATTACHMENTi may range from zero to the value of 
+		/// GL_MAX_COLOR_ATTACHMENTS minus one. Attaching a level of a texture to GL_DEPTH_STENCIL_ATTACHMENT is equivalent to 
+		/// attaching that level to both the GL_DEPTH_ATTACHMENTand the GL_STENCIL_ATTACHMENT attachment points simultaneously.
 		/// For glFramebufferTexture1D, glFramebufferTexture2D and glFramebufferTexture3D, textarget specifies what type of texture 
-		/// isnamed by texture, and for cube map textures, specifies the face that is to be attached. If texture is not zero, it 
-		/// mustbe the name of an existing texture object with effective target textarget unless it is a cube map texture, in which 
-		/// casetextarget must be GL_TEXTURE_CUBE_MAP_POSITIVE_XGL_TEXTURE_CUBE_MAP_NEGATIVE_X, GL_TEXTURE_CUBE_MAP_POSITIVE_Y, 
-		/// GL_TEXTURE_CUBE_MAP_NEGATIVE_Y,GL_TEXTURE_CUBE_MAP_POSITIVE_Z, or GL_TEXTURE_CUBE_MAP_NEGATIVE_Z. 
+		/// is named by texture, and for cube map textures, specifies the face that is to be attached. If texture is not zero, it 
+		/// must be the name of an existing texture object with effective target textarget unless it is a cube map texture, in which 
+		/// case textarget must be GL_TEXTURE_CUBE_MAP_POSITIVE_XGL_TEXTURE_CUBE_MAP_NEGATIVE_X, GL_TEXTURE_CUBE_MAP_POSITIVE_Y, 
+		/// GL_TEXTURE_CUBE_MAP_NEGATIVE_Y, GL_TEXTURE_CUBE_MAP_POSITIVE_Z, or GL_TEXTURE_CUBE_MAP_NEGATIVE_Z.
 		/// If texture is non-zero, the specified level of the texture object named texture is attached to the framebfufer 
-		/// attachmentpoint named by attachment. For glFramebufferTexture1D, glFramebufferTexture2D, and glFramebufferTexture3D, 
-		/// texturemust be zero or the name of an existing texture with an effective target of textarget, or texture must be the 
-		/// nameof an existing cube-map texture and textarget must be one of GL_TEXTURE_CUBE_MAP_POSITIVE_X, 
-		/// GL_TEXTURE_CUBE_MAP_POSITIVE_Y,GL_TEXTURE_CUBE_MAP_POSITIVE_Z, GL_TEXTURE_CUBE_MAP_NEGATIVE_X, 
-		/// GL_TEXTURE_CUBE_MAP_NEGATIVE_Y,or GL_TEXTURE_CUBE_MAP_NEGATIVE_Z. 
+		/// attachment point named by attachment. For glFramebufferTexture1D, glFramebufferTexture2D, and glFramebufferTexture3D, 
+		/// texture must be zero or the name of an existing texture with an effective target of textarget, or texture must be the 
+		/// name of an existing cube-map texture and textarget must be one of GL_TEXTURE_CUBE_MAP_POSITIVE_X, 
+		/// GL_TEXTURE_CUBE_MAP_POSITIVE_Y, GL_TEXTURE_CUBE_MAP_POSITIVE_Z, GL_TEXTURE_CUBE_MAP_NEGATIVE_X, 
+		/// GL_TEXTURE_CUBE_MAP_NEGATIVE_Y, or GL_TEXTURE_CUBE_MAP_NEGATIVE_Z.
 		/// If textarget is GL_TEXTURE_RECTANGLE, GL_TEXTURE_2D_MULTISAMPLE, or GL_TEXTURE_2D_MULTISAMPLE_ARRAY, then level must be 
 		/// zero.
 		/// If textarget is GL_TEXTURE_3D, then level must be greater than or equal to zero and less than or equal to $log_2$ of the 
-		/// valueof GL_MAX_3D_TEXTURE_SIZE. 
+		/// value of GL_MAX_3D_TEXTURE_SIZE.
 		/// If textarget is one of GL_TEXTURE_CUBE_MAP_POSITIVE_X, GL_TEXTURE_CUBE_MAP_POSITIVE_Y, GL_TEXTURE_CUBE_MAP_POSITIVE_Z, 
-		/// GL_TEXTURE_CUBE_MAP_NEGATIVE_X,GL_TEXTURE_CUBE_MAP_NEGATIVE_Y, or GL_TEXTURE_CUBE_MAP_NEGATIVE_Z, then level must be 
-		/// greaterthan or equal to zero and less than or equal to $log_2$ of the value of GL_MAX_CUBE_MAP_TEXTURE_SIZE. 
+		/// GL_TEXTURE_CUBE_MAP_NEGATIVE_X, GL_TEXTURE_CUBE_MAP_NEGATIVE_Y, or GL_TEXTURE_CUBE_MAP_NEGATIVE_Z, then level must be 
+		/// greater than or equal to zero and less than or equal to $log_2$ of the value of GL_MAX_CUBE_MAP_TEXTURE_SIZE.
 		/// For all other values of textarget, level must be greater than or equal to zero and less than or equal to $log_2$ of the 
-		/// valueof GL_MAX_TEXTURE_SIZE. 
-		/// layer specifies the layer of a 2-dimensional image within a 3-dimensional texture. 
+		/// value of GL_MAX_TEXTURE_SIZE.
+		/// layer specifies the layer of a 2-dimensional image within a 3-dimensional texture.
 		/// For glFramebufferTexture1D, if texture is not zero, then textarget must be GL_TEXTURE_1D. For glFramebufferTexture2D, if 
-		/// textureis not zero, textarget must be one of GL_TEXTURE_2D, GL_TEXTURE_RECTANGLE, GL_TEXTURE_CUBE_MAP_POSITIVE_X, 
-		/// GL_TEXTURE_CUBE_MAP_POSITIVE_Y,GL_TEXTURE_CUBE_MAP_POSITIVE_Z, GL_TEXTURE_CUBE_MAP_NEGATIVE_X, 
-		/// GL_TEXTURE_CUBE_MAP_NEGATIVE_Y,GL_TEXTURE_CUBE_MAP_NEGATIVE_Z, or GL_TEXTURE_2D_MULTISAMPLE. For glFramebufferTexture3D, 
-		/// iftexture is not zero, then textarget must be GL_TEXTURE_3D. 
+		/// texture is not zero, textarget must be one of GL_TEXTURE_2D, GL_TEXTURE_RECTANGLE, GL_TEXTURE_CUBE_MAP_POSITIVE_X, 
+		/// GL_TEXTURE_CUBE_MAP_POSITIVE_Y, GL_TEXTURE_CUBE_MAP_POSITIVE_Z, GL_TEXTURE_CUBE_MAP_NEGATIVE_X, 
+		/// GL_TEXTURE_CUBE_MAP_NEGATIVE_Y, GL_TEXTURE_CUBE_MAP_NEGATIVE_Z, or GL_TEXTURE_2D_MULTISAMPLE. For 
+		/// glFramebufferTexture3D, if texture is not zero, then textarget must be GL_TEXTURE_3D.
 		/// For glFramebufferTexture and glNamedFramebufferTexture, if texture is the name of a three-dimensional, cube map array, 
-		/// cubemap, one- or two-dimensional array, or two-dimensional multisample array texture, the specified texture level is an 
-		/// arrayof images, and the framebuffer attachment is considered to be layered. 
+		/// cube map, one- or two-dimensional array, or two-dimensional multisample array texture, the specified texture level is an 
+		/// array of images, and the framebuffer attachment is considered to be layered.
 		/// <para>
 		/// The following errors can be generated:
 		/// - GL_INVALID_ENUM is generated by all commands accepting a target parameter if it is not one of the accepted framebuffer 
 		///   targets.
-		/// - GL_INVALID_OPERATION is generated by all commands accepting a target parameter if zero is bound to that target. 
+		/// - GL_INVALID_OPERATION is generated by all commands accepting a target parameter if zero is bound to that target.
 		/// - GL_INVALID_OPERATION is generated by glNamedFramebufferTexture if framebuffer is not the name of an existing framebuffer 
 		///   object.
-		/// - GL_INVALID_ENUM is generated if attachment is not one of the accepted attachment points. 
-		/// - GL_INVALID_VALUE is generated if texture is not zero or the name of an existing texture object. 
-		/// - GL_INVALID_VALUE is generated if texture is not zero and level is not a supported texture level for texture. 
+		/// - GL_INVALID_ENUM is generated if attachment is not one of the accepted attachment points.
+		/// - GL_INVALID_VALUE is generated if texture is not zero or the name of an existing texture object.
+		/// - GL_INVALID_VALUE is generated if texture is not zero and level is not a supported texture level for texture.
 		/// - GL_INVALID_VALUE is generated by glFramebufferTexture3D if texture is not zero and layer is larger than the value of 
-		///   GL_MAX_3D_TEXTURE_SIZEminus one. 
+		///   GL_MAX_3D_TEXTURE_SIZE minus one.
 		/// - GL_INVALID_OPERATION is generated by all commands accepting a textarget parameter if texture is not zero, and textarget 
-		///   andthe effective target of texture are not compatible. 
-		/// - GL_INVALID_OPERATION is generated by if texture is a buffer texture. 
+		///   and the effective target of texture are not compatible.
+		/// - GL_INVALID_OPERATION is generated by if texture is a buffer texture.
 		/// </para>
 		/// </remarks>
 		/// <seealso cref="Gl.GenFramebuffers"/>
@@ -1733,47 +1736,47 @@ namespace OpenGL
 		/// establish the data storage, format, dimensions, and number of samples of a multisample texture's image
 		/// </summary>
 		/// <param name="target">
-		/// Specifies the target of the operation. target must be GL_TEXTURE_2D_MULTISAMPLE or GL_PROXY_TEXTURE_2D_MULTISAMPLE. 
+		/// Specifies the target of the operation. target must be GL_TEXTURE_2D_MULTISAMPLE or GL_PROXY_TEXTURE_2D_MULTISAMPLE.
 		/// </param>
 		/// <param name="samples">
-		/// The number of samples in the multisample texture's image. 
+		/// The number of samples in the multisample texture's image.
 		/// </param>
 		/// <param name="internalformat">
 		/// The internal format to be used to store the multisample texture's image. internalformat must specify a color-renderable, 
-		/// depth-renderable,or stencil-renderable format. 
+		/// depth-renderable, or stencil-renderable format.
 		/// </param>
 		/// <param name="width">
-		/// The width of the multisample texture's image, in texels. 
+		/// The width of the multisample texture's image, in texels.
 		/// </param>
 		/// <param name="height">
-		/// The height of the multisample texture's image, in texels. 
+		/// The height of the multisample texture's image, in texels.
 		/// </param>
 		/// <param name="fixedsamplelocations">
 		/// Specifies whether the image will use identical sample locations and the same number of samples for all texels in the 
-		/// image,and the sample locations will not depend on the internal format or size of the image. 
+		/// image, and the sample locations will not depend on the internal format or size of the image.
 		/// </param>
 		/// <remarks>
 		/// glTexImage2DMultisample establishes the data storage, format, dimensions and number of samples of a multisample 
-		/// texture'simage. 
+		/// texture's image.
 		/// target must be GL_TEXTURE_2D_MULTISAMPLE or GL_PROXY_TEXTURE_2D_MULTISAMPLE. width and height are the dimensions in 
-		/// texelsof the texture, and must be in the range zero to the value of GL_MAX_TEXTURE_SIZE minus one. samples specifies the 
-		/// numberof samples in the image and must be in the range zero to the value of GL_MAX_SAMPLES minus one. 
-		/// internalformat must be a color-renderable, depth-renderable, or stencil-renderable format. 
+		/// texels of the texture, and must be in the range zero to the value of GL_MAX_TEXTURE_SIZE minus one. samples specifies 
+		/// the number of samples in the image and must be in the range zero to the value of GL_MAX_SAMPLES minus one.
+		/// internalformat must be a color-renderable, depth-renderable, or stencil-renderable format.
 		/// If fixedsamplelocations is GL_TRUE, the image will use identical sample locations and the same number of samples for all 
-		/// texelsin the image, and the sample locations will not depend on the internal format or size of the image. 
+		/// texels in the image, and the sample locations will not depend on the internal format or size of the image.
 		/// When a multisample texture is accessed in a shader, the access takes one vector of integers describing which texel to 
-		/// fetchand an integer corresponding to the sample numbers describing which sample within the texel to fetch. No standard 
-		/// samplinginstructions are allowed on the multisample texture targets. 
+		/// fetch and an integer corresponding to the sample numbers describing which sample within the texel to fetch. No standard 
+		/// sampling instructions are allowed on the multisample texture targets.
 		/// <para>
 		/// The following errors can be generated:
 		/// - GL_INVALID_OPERATION is generated if internalformat is a depth- or stencil-renderable format and samples is greater than 
-		///   thevalue of GL_MAX_DEPTH_TEXTURE_SAMPLES. 
+		///   the value of GL_MAX_DEPTH_TEXTURE_SAMPLES.
 		/// - GL_INVALID_OPERATION is generated if internalformat is a color-renderable format and samples is greater than the value 
-		///   ofGL_MAX_COLOR_TEXTURE_SAMPLES. 
+		///   of GL_MAX_COLOR_TEXTURE_SAMPLES.
 		/// - GL_INVALID_OPERATION is generated if internalformat is a signed or unsigned integer format and samples is greater than 
-		///   thevalue of GL_MAX_INTEGER_SAMPLES. 
-		/// - GL_INVALID_VALUE is generated if either width or height negative or is greater than GL_MAX_TEXTURE_SIZE. 
-		/// - GL_INVALID_VALUE is generated if samples is greater than GL_MAX_SAMPLES. 
+		///   the value of GL_MAX_INTEGER_SAMPLES.
+		/// - GL_INVALID_VALUE is generated if either width or height negative or is greater than GL_MAX_TEXTURE_SIZE.
+		/// - GL_INVALID_VALUE is generated if samples is greater than GL_MAX_SAMPLES.
 		/// </para>
 		/// </remarks>
 		/// <seealso cref="Gl.TexImage3D"/>
@@ -1794,49 +1797,49 @@ namespace OpenGL
 		/// GL_PROXY_TEXTURE_2D_MULTISAMPLE_ARRAY.
 		/// </param>
 		/// <param name="samples">
-		/// The number of samples in the multisample texture's image. 
+		/// The number of samples in the multisample texture's image.
 		/// </param>
 		/// <param name="internalformat">
 		/// The internal format to be used to store the multisample texture's image. internalformat must specify a color-renderable, 
-		/// depth-renderable,or stencil-renderable format. 
+		/// depth-renderable, or stencil-renderable format.
 		/// </param>
 		/// <param name="width">
-		/// The width of the multisample texture's image, in texels. 
+		/// The width of the multisample texture's image, in texels.
 		/// </param>
 		/// <param name="height">
-		/// The height of the multisample texture's image, in texels. 
+		/// The height of the multisample texture's image, in texels.
 		/// </param>
 		/// <param name="depth">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="fixedsamplelocations">
 		/// Specifies whether the image will use identical sample locations and the same number of samples for all texels in the 
-		/// image,and the sample locations will not depend on the internal format or size of the image. 
+		/// image, and the sample locations will not depend on the internal format or size of the image.
 		/// </param>
 		/// <remarks>
 		/// glTexImage3DMultisample establishes the data storage, format, dimensions and number of samples of a multisample 
-		/// texture'simage. 
+		/// texture's image.
 		/// target must be GL_TEXTURE_2D_MULTISAMPLE_ARRAY or GL_PROXY_TEXTURE_2D_MULTISAMPLE_ARRAY. width and heightare the 
-		/// dimensionsin texels of the texture, and must be in the range zero to the value of GL_MAX_TEXTURE_SIZE minus one. depth 
-		/// isthe number of array slices in the array texture's image. samples specifies the number of samples in the image and must 
-		/// bein the range zero to the value of GL_MAX_SAMPLES minus one. 
-		/// internalformat must be a color-renderable, depth-renderable, or stencil-renderable format. 
+		/// dimensions in texels of the texture, and must be in the range zero to the value of GL_MAX_TEXTURE_SIZE minus one. depth 
+		/// is the number of array slices in the array texture's image. samples specifies the number of samples in the image and 
+		/// must be in the range zero to the value of GL_MAX_SAMPLES minus one.
+		/// internalformat must be a color-renderable, depth-renderable, or stencil-renderable format.
 		/// If fixedsamplelocations is GL_TRUE, the image will use identical sample locations and the same number of samples for all 
-		/// texelsin the image, and the sample locations will not depend on the internal format or size of the image. 
+		/// texels in the image, and the sample locations will not depend on the internal format or size of the image.
 		/// When a multisample texture is accessed in a shader, the access takes one vector of integers describing which texel to 
-		/// fetchand an integer corresponding to the sample numbers describing which sample within the texel to fetch. No standard 
-		/// samplinginstructions are allowed on the multisample texture targets. 
+		/// fetch and an integer corresponding to the sample numbers describing which sample within the texel to fetch. No standard 
+		/// sampling instructions are allowed on the multisample texture targets.
 		/// <para>
 		/// The following errors can be generated:
 		/// - GL_INVALID_OPERATION is generated if internalformat is a depth- or stencil-renderable format and samples is greater than 
-		///   thevalue of GL_MAX_DEPTH_TEXTURE_SAMPLES. 
+		///   the value of GL_MAX_DEPTH_TEXTURE_SAMPLES.
 		/// - GL_INVALID_OPERATION is generated if internalformat is a color-renderable format and samples is greater than the value 
-		///   ofGL_MAX_COLOR_TEXTURE_SAMPLES. 
+		///   of GL_MAX_COLOR_TEXTURE_SAMPLES.
 		/// - GL_INVALID_OPERATION is generated if internalformat is a signed or unsigned integer format and samples is greater than 
-		///   thevalue of GL_MAX_INTEGER_SAMPLES. 
-		/// - GL_INVALID_VALUE is generated if either width or height negative or is greater than GL_MAX_TEXTURE_SIZE. 
-		/// - GL_INVALID_VALUE is generated if depth is negative or is greater than GL_MAX_ARRAY_TEXTURE_LAYERS. 
-		/// - GL_INVALID_VALUE is generated if samples is greater than GL_MAX_SAMPLES. 
+		///   the value of GL_MAX_INTEGER_SAMPLES.
+		/// - GL_INVALID_VALUE is generated if either width or height negative or is greater than GL_MAX_TEXTURE_SIZE.
+		/// - GL_INVALID_VALUE is generated if depth is negative or is greater than GL_MAX_ARRAY_TEXTURE_LAYERS.
+		/// - GL_INVALID_VALUE is generated if samples is greater than GL_MAX_SAMPLES.
 		/// </para>
 		/// </remarks>
 		/// <seealso cref="Gl.TexImage3D"/>
@@ -1853,26 +1856,26 @@ namespace OpenGL
 		/// retrieve the location of a sample
 		/// </summary>
 		/// <param name="pname">
-		/// Specifies the sample parameter name. pname must be GL_SAMPLE_POSITION. 
+		/// Specifies the sample parameter name. pname must be GL_SAMPLE_POSITION.
 		/// </param>
 		/// <param name="index">
-		/// Specifies the index of the sample whose position to query. 
+		/// Specifies the index of the sample whose position to query.
 		/// </param>
 		/// <param name="val">
-		/// Specifies the address of an array to receive the position of the sample. 
+		/// Specifies the address of an array to receive the position of the sample.
 		/// </param>
 		/// <remarks>
 		/// glGetMultisamplefv queries the location of a given sample. pname specifies the sample parameter to retrieve and must be 
-		/// GL_SAMPLE_POSITION.index corresponds to the sample for which the location should be returned. The sample location is 
-		/// returnedas two floating-point values in val[0] and val[1], each between 0 and 1, corresponding to the x and y locations 
-		/// respectivelyin the GL pixel space of that sample. (0.5, 0.5) this corresponds to the pixel center. index must be between 
-		/// zeroand the value of GL_SAMPLES minus one. 
+		/// GL_SAMPLE_POSITION. index corresponds to the sample for which the location should be returned. The sample location is 
+		/// returned as two floating-point values in val[0] and val[1], each between 0 and 1, corresponding to the x and y locations 
+		/// respectively in the GL pixel space of that sample. (0.5, 0.5) this corresponds to the pixel center. index must be 
+		/// between zero and the value of GL_SAMPLES minus one.
 		/// If the multisample mode does not have fixed sample locations, the returned values may only reflect the locations of 
-		/// sampleswithin some pixels. 
+		/// samples within some pixels.
 		/// <para>
 		/// The following errors can be generated:
-		/// - GL_INVALID_ENUM is generated if pname is not one GL_SAMPLE_POSITION. 
-		/// - GL_INVALID_VALUE is generated if index is greater than or equal to the value of GL_SAMPLES. 
+		/// - GL_INVALID_ENUM is generated if pname is not one GL_SAMPLE_POSITION.
+		/// - GL_INVALID_VALUE is generated if index is greater than or equal to the value of GL_SAMPLES.
 		/// </para>
 		/// </remarks>
 		/// <seealso cref="Gl.GenFramebuffers"/>
@@ -1899,19 +1902,19 @@ namespace OpenGL
 		/// set the value of a sub-word of the sample mask
 		/// </summary>
 		/// <param name="maskNumber">
-		/// Specifies which 32-bit sub-word of the sample mask to update. 
+		/// Specifies which 32-bit sub-word of the sample mask to update.
 		/// </param>
 		/// <param name="mask">
-		/// Specifies the new value of the mask sub-word. 
+		/// Specifies the new value of the mask sub-word.
 		/// </param>
 		/// <remarks>
-		/// glSampleMaski sets one 32-bit sub-word of the multi-word sample mask, GL_SAMPLE_MASK_VALUE. 
+		/// glSampleMaski sets one 32-bit sub-word of the multi-word sample mask, GL_SAMPLE_MASK_VALUE.
 		/// maskIndex specifies which 32-bit sub-word of the sample mask to update, and mask specifies the new value to use for that 
-		/// sub-word.maskIndex must be less than the value of GL_MAX_SAMPLE_MASK_WORDS. Bit B of mask word M corresponds to sample 
-		/// 32x M + B. 
+		/// sub-word. maskIndex must be less than the value of GL_MAX_SAMPLE_MASK_WORDS. Bit B of mask word M corresponds to sample 
+		/// 32 x M + B.
 		/// <para>
 		/// The following errors can be generated:
-		/// - GL_INVALID_VALUE is generated if maskIndex is greater than or equal to the value of GL_MAX_SAMPLE_MASK_WORDS. 
+		/// - GL_INVALID_VALUE is generated if maskIndex is greater than or equal to the value of GL_MAX_SAMPLE_MASK_WORDS.
 		/// </para>
 		/// </remarks>
 		/// <seealso cref="Gl.GenRenderbuffers"/>

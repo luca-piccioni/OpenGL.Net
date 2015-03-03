@@ -1157,163 +1157,164 @@ namespace OpenGL
 		/// </summary>
 		/// <param name="target">
 		/// Indicates the usage of the internal format. target must be GL_TEXTURE_1D, GL_TEXTURE_1D_ARRAY, GL_TEXTURE_2D, 
-		/// GL_TEXTURE_2D_ARRAY,GL_TEXTURE_3D, GL_TEXTURE_CUBE_MAP, GL_TEXTURE_CUBE_MAP_ARRAY, GL_TEXTURE_RECTANGLE, 
-		/// GL_TEXTURE_BUFFER,GL_RENDERBUFFER, GL_TEXTURE_2D_MULTISAMPLE or GL_TEXTURE_2D_MULTISAMPLE_ARRAY. 
+		/// GL_TEXTURE_2D_ARRAY, GL_TEXTURE_3D, GL_TEXTURE_CUBE_MAP, GL_TEXTURE_CUBE_MAP_ARRAY, GL_TEXTURE_RECTANGLE, 
+		/// GL_TEXTURE_BUFFER, GL_RENDERBUFFER, GL_TEXTURE_2D_MULTISAMPLE or GL_TEXTURE_2D_MULTISAMPLE_ARRAY.
 		/// </param>
 		/// <param name="internalformat">
-		/// Specifies the internal format about which to retrieve information. 
+		/// Specifies the internal format about which to retrieve information.
 		/// </param>
 		/// <param name="pname">
-		/// Specifies the type of information to query. 
+		/// Specifies the type of information to query.
 		/// </param>
 		/// <param name="bufSize">
-		/// Specifies the maximum number of basic machine units that may be written to params by the function. 
+		/// Specifies the maximum number of basic machine units that may be written to params by the function.
 		/// </param>
 		/// <param name="params">
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
 		/// <remarks>
 		/// glGetInternalformativ and glGetInternalformati64v retrieve information about implementation-dependent support for 
-		/// internalformats. target indicates the target with which the internal format will be used and must be one of 
-		/// GL_RENDERBUFFER,GL_TEXTURE_2D_MULTISAMPLE, or GL_TEXTURE_2D_MULTISAMPLE_ARRAY, corresponding to usage as a renderbuffer, 
-		/// two-dimensionalmultisample texture or two-dimensional multisample array texture, respectively. 
+		/// internal formats. target indicates the target with which the internal format will be used and must be one of 
+		/// GL_RENDERBUFFER, GL_TEXTURE_2D_MULTISAMPLE, or GL_TEXTURE_2D_MULTISAMPLE_ARRAY, corresponding to usage as a 
+		/// renderbuffer, two-dimensional multisample texture or two-dimensional multisample array texture, respectively.
 		/// internalformat specifies the internal format about which to retrieve information and must be a color-renderable, 
-		/// depth-renderableor stencil-renderable format. 
+		/// depth-renderable or stencil-renderable format.
 		/// The information retrieved will be written to memory addressed by the pointer specified in params. No more than bufSize 
-		/// basicmachine units will be written to this memory. 
+		/// basic machine units will be written to this memory.
 		/// If pname is GL_NUM_SAMPLE_COUNTS, the number of sample counts that would be returned by querying GL_SAMPLES will be 
-		/// returnedin params. 
+		/// returned in params.
 		/// If pname is GL_SAMPLES, the sample counts supported for internalformat and target are written into params in descending 
-		/// numericorder. Only positive values are returned. Querying GL_SAMPLES with bufSize of one will return just the maximum 
-		/// supportednumber of samples for this format. The maximum value in GL_SAMPLES is guaranteed to be at least the lowest of 
-		/// thefollowing: The value of GL_MAX_INTEGER_SAMPLES if internalformat is a signed or unsigned integer format. The value of 
-		/// GL_MAX_DEPTH_TEXTURE_SAMPLESif internalformat is a depth- or stencil-renderable format and target is 
-		/// GL_TEXTURE_2D_MULTISAMPLE,GL_TEXTURE_2D_MULTISAMPLE_ARRAY. The value of GL_MAX_COLOR_TEXTURE_SAMPLES if internalformat 
-		/// isa color-renderable format and target is GL_TEXTURE_2D_MULTISAMPLE or GL_TEXTURE_2D_MULTISAMPLE_ARRAY. The value of 
+		/// numeric order. Only positive values are returned. Querying GL_SAMPLES with bufSize of one will return just the maximum 
+		/// supported number of samples for this format. The maximum value in GL_SAMPLES is guaranteed to be at least the lowest of 
+		/// the following: The value of GL_MAX_INTEGER_SAMPLES if internalformat is a signed or unsigned integer format. The value 
+		/// of GL_MAX_DEPTH_TEXTURE_SAMPLES if internalformat is a depth- or stencil-renderable format and target is 
+		/// GL_TEXTURE_2D_MULTISAMPLE, GL_TEXTURE_2D_MULTISAMPLE_ARRAY. The value of GL_MAX_COLOR_TEXTURE_SAMPLES if internalformat 
+		/// is a color-renderable format and target is GL_TEXTURE_2D_MULTISAMPLE or GL_TEXTURE_2D_MULTISAMPLE_ARRAY. The value of 
 		/// GL_MAX_SAMPLES.
 		/// If pname is GL_INTERNALFORMAT_SUPPORTED, params is set to GL_TRUE if internalFormat is a supported internal format for 
-		/// targetand to GL_FALSE otherwise. 
+		/// target and to GL_FALSE otherwise.
 		/// If pname is GL_INTERNALFORMAT_PREFERRED, params is set to GL_TRUE if internalFormat is an format for target that is 
-		/// preferredby the implementation and to GL_FALSE otherwise. 
+		/// preferred by the implementation and to GL_FALSE otherwise.
 		/// If pname is GL_INTERNALFORMAT_RED_SIZE, GL_INTERNALFORMAT_GREEN_SIZE, GL_INTERNALFORMAT_BLUE_SIZE, 
-		/// GL_INTERNALFORMAT_ALPHA_SIZE,GL_INTERNALFORMAT_DEPTH_SIZE, GL_INTERNALFORMAT_STENCIL_SIZE, or 
-		/// GL_INTERNALFORMAT_SHARED_SIZEthen params is set to the actual resolutions that would be used for storing image array 
-		/// componentsfor the resource for the red, green, blue, alpha, depth, stencil and shared channels respectively. If 
-		/// internalFormatis a compressed internal format, then params is set to the component resolution of an uncompressed 
-		/// internalformat that produces an image of roughly the same quality as the compressed algorithm. If the internal format is 
-		/// unsupported,or if a particular component is not present in the format, 0 is written to params. 
+		/// GL_INTERNALFORMAT_ALPHA_SIZE, GL_INTERNALFORMAT_DEPTH_SIZE, GL_INTERNALFORMAT_STENCIL_SIZE, or 
+		/// GL_INTERNALFORMAT_SHARED_SIZE then params is set to the actual resolutions that would be used for storing image array 
+		/// components for the resource for the red, green, blue, alpha, depth, stencil and shared channels respectively. If 
+		/// internalFormat is a compressed internal format, then params is set to the component resolution of an uncompressed 
+		/// internal format that produces an image of roughly the same quality as the compressed algorithm. If the internal format 
+		/// is unsupported, or if a particular component is not present in the format, 0 is written to params.
 		/// If pname is GL_INTERNALFORMAT_RED_TYPE, GL_INTERNALFORMAT_GREEN_TYPE, GL_INTERNALFORMAT_BLUE_TYPE, 
-		/// GL_INTERNALFORMAT_ALPHA_TYPE,GL_INTERNALFORMAT_DEPTH_TYPE, or GL_INTERNALFORMAT_STENCIL_TYPE then params is set to a 
-		/// tokenidentifying the data type used to store the respective component. If the internalFormat represents a compressed 
-		/// internalformat then the types returned specify how components are interpreted after decompression. 
+		/// GL_INTERNALFORMAT_ALPHA_TYPE, GL_INTERNALFORMAT_DEPTH_TYPE, or GL_INTERNALFORMAT_STENCIL_TYPE then params is set to a 
+		/// token identifying the data type used to store the respective component. If the internalFormat represents a compressed 
+		/// internal format then the types returned specify how components are interpreted after decompression.
 		/// If pname is GL_MAX_WIDTH, GL_MAX_HEIGHT, GL_MAX_DEPTH, or GL_MAX_LAYERS then pname is filled with the maximum width, 
-		/// height,depth or layer count for textures with internal format internalFormat, respectively. If pname is 
-		/// GL_MAX_COMBINED_DIMENSIONSthen pname is filled with the maximum combined dimensions of a texture of the specified 
-		/// internalformat. 
+		/// height, depth or layer count for textures with internal format internalFormat, respectively. If pname is 
+		/// GL_MAX_COMBINED_DIMENSIONS then pname is filled with the maximum combined dimensions of a texture of the specified 
+		/// internal format.
 		/// If pname is GL_COLOR_COMPONENTS then params is set to the value GL_TRUE if the internal format contains any color 
-		/// component(i.e., red, green, blue or alpha) and to GL_FALSE otherwise. If pname is GL_DEPTH_COMPONENTS or 
-		/// GL_STENCIL_COMPONENTSthen params is set to GL_TRUE if the internal format contains a depth or stencil component, 
-		/// respectively,and to GL_FALSE otherwise. 
+		/// component (i.e., red, green, blue or alpha) and to GL_FALSE otherwise. If pname is GL_DEPTH_COMPONENTS or 
+		/// GL_STENCIL_COMPONENTS then params is set to GL_TRUE if the internal format contains a depth or stencil component, 
+		/// respectively, and to GL_FALSE otherwise.
 		/// If pname is GL_COLOR_RENDERABLE, GL_DEPTH_RENDERABLE or GL_STENCIL_RENDERABLE then params is set to GL_TRUE if the 
-		/// specifiedinternal format is color, depth or stencil renderable, respectively, and to GL_FALSE otherwise. 
+		/// specified internal format is color, depth or stencil renderable, respectively, and to GL_FALSE otherwise.
 		/// If pname is GL_FRAMEBUFFER_RENDERABLE or GL_FRAMEBUFFER_RENDERABLE_LAYERED then params is set to one of GL_FULL_SUPPORT, 
-		/// GL_CAVEAT_SUPPORTor GL_NONE to indicate that framebuffer attachments (layered attachments in the case of 
-		/// GL_FRAMEBUFFER_RENDERABLE_LAYERED)with that internal format are either renderable with no restrictions, renderable with 
-		/// somerestrictions or not renderable at all. 
+		/// GL_CAVEAT_SUPPORT or GL_NONE to indicate that framebuffer attachments (layered attachments in the case of 
+		/// GL_FRAMEBUFFER_RENDERABLE_LAYERED) with that internal format are either renderable with no restrictions, renderable with 
+		/// some restrictions or not renderable at all.
 		/// If pname is GL_FRAMEBUFFER_BLEND, params is set to GL_TRUE to indicate that the internal format is supported for 
-		/// blendingoperations when attached to a framebuffer, and to GL_FALSE otherwise. 
+		/// blending operations when attached to a framebuffer, and to GL_FALSE otherwise.
 		/// If pname is GL_READ_PIXELS then params is set to GL_FULL_SUPPORT, GL_CAVEAT_SUPPORT or GL_NONE to that either full 
-		/// support,limited support or no support at all is supplied for reading pixels from framebuffer attachments in the 
-		/// specifiedinternal format. 
+		/// support, limited support or no support at all is supplied for reading pixels from framebuffer attachments in the 
+		/// specified internal format.
 		/// If pname is GL_READ_PIXELS_FORMAT or GL_READ_PIXELS_TYPE then params is filled with the format or type, respectively, 
-		/// mostrecommended to obtain the highest image quality and performance. For GL_READ_PIXELS_FORMAT, the value returned in 
-		/// paramsis a token that is accepted for the format argument to glReadPixels. For GL_READ_PIXELS_TYPE, the value returned 
-		/// inparams is a token that is accepted for the type argument to glReadPixels. 
+		/// most recommended to obtain the highest image quality and performance. For GL_READ_PIXELS_FORMAT, the value returned in 
+		/// params is a token that is accepted for the format argument to glReadPixels. For GL_READ_PIXELS_TYPE, the value returned 
+		/// in params is a token that is accepted for the type argument to glReadPixels.
 		/// If pname is GL_TEXTURE_IMAGE_FORMAT or GL_TEXTURE_IMAGE_TYPE then params is filled with the implementation-recommended 
-		/// formator type to be used in calls to glTexImage2D and other similar functions. For GL_TEXTURE_IMAGE_FORMAT, params is 
-		/// filledwith a token suitable for use as the format argument to glTexImage2D. For GL_TEXTURE_IMAGE_TYPE, params is filled 
-		/// witha token suitable for use as the type argument to glTexImage2D. 
+		/// format or type to be used in calls to glTexImage2D and other similar functions. For GL_TEXTURE_IMAGE_FORMAT, params is 
+		/// filled with a token suitable for use as the format argument to glTexImage2D. For GL_TEXTURE_IMAGE_TYPE, params is filled 
+		/// with a token suitable for use as the type argument to glTexImage2D.
 		/// If pname is GL_GET_TEXTURE_IMAGE_FORMAT or GL_GET_TEXTURE_IMAGE_TYPE then params is filled with the 
-		/// implementation-recommendedformat or type to be used in calls to glGetTexImage2D and other similar functions. For 
-		/// GL_GET_TEXTURE_IMAGE_FORMAT,params is filled with a token suitable for use as the format argument to glGetTexImage2D. 
-		/// ForGL_GET_TEXTURE_IMAGE_TYPE, params is filled with a token suitable for use as the type argument to glGetTexImage2D. 
+		/// implementation-recommended format or type to be used in calls to glGetTexImage2D and other similar functions. For 
+		/// GL_GET_TEXTURE_IMAGE_FORMAT, params is filled with a token suitable for use as the format argument to glGetTexImage2D. 
+		/// For GL_GET_TEXTURE_IMAGE_TYPE, params is filled with a token suitable for use as the type argument to glGetTexImage2D.
 		/// If pname is GL_MIPMAP then pname is set to GL_TRUE to indicate that the specified internal format supports mipmaps and 
-		/// toGL_FALSE otherwise. 
+		/// to GL_FALSE otherwise.
 		/// If pname is GL_GENERATE_MIPMAP or GL_AUTO_GENERATE_MIPMAP then params is indicates the level of support for manual or 
-		/// automaticmipmap generation for the specified internal format, respectively. Returned values may be one of 
-		/// GL_FULL_SUPPORT,GL_CAVEAT_SUPPORT and GL_NONE to indicate either full support, limited support or no support at all. 
+		/// automatic mipmap generation for the specified internal format, respectively. Returned values may be one of 
+		/// GL_FULL_SUPPORT, GL_CAVEAT_SUPPORT and GL_NONE to indicate either full support, limited support or no support at all.
 		/// If pname is GL_COLOR_ENCODING then the color encoding for the resource is returned in params. Possible values for color 
-		/// buffersare GL_LINEAR or GL_SRGB, for linear or sRGB-encoded color components, respectively. For non-color formats (such 
-		/// asdepth or stencil), or for unsupported resources, the value GL_NONE is returned. 
+		/// buffers are GL_LINEAR or GL_SRGB, for linear or sRGB-encoded color components, respectively. For non-color formats (such 
+		/// as depth or stencil), or for unsupported resources, the value GL_NONE is returned.
 		/// If pname is GL_SRGB_READ, or GL_SRGB_WRITE then params indicates the level of support for reading and writing to sRGB 
-		/// encodedimages, respectively. For GL_SRGB_READ, support for converting from sRGB colorspace on read operations is 
-		/// returnedin params and for GL_SRGB_WRITE, support for converting to sRGB colorspace on write operations to the resource 
-		/// isreturned in params. params may be set to GL_FULL_SUPPORT, GL_CAVEAT_SUPPORT, or GL_NONE to indicate full support, 
-		/// limitedsupport or no support at all, respecitively. 
+		/// encoded images, respectively. For GL_SRGB_READ, support for converting from sRGB colorspace on read operations is 
+		/// returned in params and for GL_SRGB_WRITE, support for converting to sRGB colorspace on write operations to the resource 
+		/// is returned in params. params may be set to GL_FULL_SUPPORT, GL_CAVEAT_SUPPORT, or GL_NONE to indicate full support, 
+		/// limited support or no support at all, respecitively.
 		/// If pname is GL_FILTER the params is set to either GL_TRUE or GL_FALSE to indicate support or lack thereof for filter 
-		/// modesother than GL_NEAREST or GL_NEAREST_MIPMAP for the specified internal format. 
+		/// modes other than GL_NEAREST or GL_NEAREST_MIPMAP for the specified internal format.
 		/// If pname is GL_VERTEX_TEXTURE, GL_TESS_CONTROL_TEXTURE, GL_TESS_EVALUATION_TEXTURE, GL_GEOMETRY_TEXTURE, 
-		/// GL_FRAGMENT_TEXTURE,or GL_COMPUTE_TEXTURE, then the value written to params indicates support for use of the resource as 
-		/// asource of texturing in the vertex, tessellation control, tessellation evaluation, geometry, fragment and compute shader 
-		/// stages,respectively. params may be set to GL_FULL_SUPPORT, GL_CAVEAT_SUPPORT or GL_NONE to indicate full support, 
-		/// limitedsupport or no support at all, respectively. 
+		/// GL_FRAGMENT_TEXTURE, or GL_COMPUTE_TEXTURE, then the value written to params indicates support for use of the resource 
+		/// as a source of texturing in the vertex, tessellation control, tessellation evaluation, geometry, fragment and compute 
+		/// shader stages, respectively. params may be set to GL_FULL_SUPPORT, GL_CAVEAT_SUPPORT or GL_NONE to indicate full 
+		/// support, limited support or no support at all, respectively.
 		/// If pname is GL_TEXTURE_SHADOW, GL_TEXTURE_GATHER or GL_TEXTURE_GATHER_SHADOW then the value written to params indicates 
-		/// thelevel of support for using the resource with a shadow sampler, in gather operations or as a shadow sampler in gather 
-		/// operations,respectively. Returned values may be GL_FULL_SUPPORT, GL_CAVEAT_SUPPORT or GL_NONE to indicate full support, 
-		/// limitedsupport or no support at all, respectively. 
+		/// the level of support for using the resource with a shadow sampler, in gather operations or as a shadow sampler in gather 
+		/// operations, respectively. Returned values may be GL_FULL_SUPPORT, GL_CAVEAT_SUPPORT or GL_NONE to indicate full support, 
+		/// limited support or no support at all, respectively.
 		/// If pname is GL_SHADER_IMAGE_LOAD, GL_SHADER_IMAGE_STORE or GL_SHADER_IMAGE_ATOMIC then the value returned in params 
-		/// indicatesthe level of support for image loads, stores and atomics for resources of the specified internal format. 
-		/// Returnedvalues may be GL_FULL_SUPPORT, GL_CAVEAT_SUPPORT or GL_NONE to indicate full support, limited support or no 
-		/// supportat all, respectively. 
+		/// indicates the level of support for image loads, stores and atomics for resources of the specified internal format. 
+		/// Returned values may be GL_FULL_SUPPORT, GL_CAVEAT_SUPPORT or GL_NONE to indicate full support, limited support or no 
+		/// support at all, respectively.
 		/// If pname is GL_IMAGE_TEXEL_SIZE then the size of a texel when the resource when used as an image texture is returned in 
-		/// params.If the resource is not supported for image textures zero is returned. 
+		/// params. If the resource is not supported for image textures zero is returned.
 		/// If pname is GL_IMAGE_COMPATIBILITY_CLASS then the compatibility class of the resource when used as an image texture is 
-		/// returnedin params. The possible values returned are GL_IMAGE_CLASS_4_X_32, GL_IMAGE_CLASS_2_X_32, GL_IMAGE_CLASS_1_X_32, 
-		/// GL_IMAGE_CLASS_4_X_16,GL_IMAGE_CLASS_2_X_16, GL_IMAGE_CLASS_1_X_16, GL_IMAGE_CLASS_4_X_8, GL_IMAGE_CLASS_2_X_8, 
-		/// GL_IMAGE_CLASS_1_X_8,GL_IMAGE_CLASS_11_11_10, and GL_IMAGE_CLASS_10_10_10_2, which correspond to the 4x32, 2x32, 1x32, 
-		/// 4x16,2x16, 1x16, 4x8, 2x8, 1x8, the class (a) 11/11/10 packed floating-point format, and the class (b) 10/10/10/2 packed 
-		/// formats,respectively. If the resource is not supported for image textures, GL_NONE is returned. 
+		/// returned in params. The possible values returned are GL_IMAGE_CLASS_4_X_32, GL_IMAGE_CLASS_2_X_32, 
+		/// GL_IMAGE_CLASS_1_X_32, GL_IMAGE_CLASS_4_X_16, GL_IMAGE_CLASS_2_X_16, GL_IMAGE_CLASS_1_X_16, GL_IMAGE_CLASS_4_X_8, 
+		/// GL_IMAGE_CLASS_2_X_8, GL_IMAGE_CLASS_1_X_8, GL_IMAGE_CLASS_11_11_10, and GL_IMAGE_CLASS_10_10_10_2, which correspond to 
+		/// the 4x32, 2x32, 1x32, 4x16, 2x16, 1x16, 4x8, 2x8, 1x8, the class (a) 11/11/10 packed floating-point format, and the 
+		/// class (b) 10/10/10/2 packed formats, respectively. If the resource is not supported for image textures, GL_NONE is 
+		/// returned.
 		/// If pname is GL_IMAGE_PIXEL_FORMAT or GL_IMAGE_PIXEL_TYPE then the pixel format or type of the resource when used as an 
-		/// imagetexture is returned in params, respectively. In either case, the resource is not supported for image textures 
-		/// GL_NONEis returned. 
+		/// image texture is returned in params, respectively. In either case, the resource is not supported for image textures 
+		/// GL_NONE is returned.
 		/// If pname is GL_IMAGE_FORMAT_COMPATIBILITY_TYPE, the matching criteria use for the resource when used as an image 
-		/// texturesis returned in params. Possible values returned in params are GL_IMAGE_FORMAT_COMPATIBILITY_BY_SIZE or 
-		/// GL_IMAGE_FORMAT_COMPATIBILITY_BY_CLASS.If the resource is not supported for image textures, GL_NONE is returned. 
+		/// textures is returned in params. Possible values returned in params are GL_IMAGE_FORMAT_COMPATIBILITY_BY_SIZE or 
+		/// GL_IMAGE_FORMAT_COMPATIBILITY_BY_CLASS. If the resource is not supported for image textures, GL_NONE is returned.
 		/// If pname is GL_SIMULTANEOUS_TEXTURE_AND_DEPTH_TEST or GL_SIMULTANEOUS_TEXTURE_AND_STENCIL_TEST, support for using the 
-		/// resourceboth as a source for texture sampling while it is bound as a buffer for depth or stencil test, respectively, is 
-		/// writtento params. Possible values returned are GL_FULL_SUPPORT, GL_CAVEAT_SUPPORT, or GL_NONE to indicate full support, 
-		/// limitedsupport or no support at all. If the resource or operation is not supported, GL_NONE is returned. 
+		/// resource both as a source for texture sampling while it is bound as a buffer for depth or stencil test, respectively, is 
+		/// written to params. Possible values returned are GL_FULL_SUPPORT, GL_CAVEAT_SUPPORT, or GL_NONE to indicate full support, 
+		/// limited support or no support at all. If the resource or operation is not supported, GL_NONE is returned.
 		/// If pname is GL_SIMULTANEOUS_TEXTURE_AND_DEPTH_WRITE or GL_SIMULTANEOUS_TEXTURE_AND_STENCIL_WRITE, support for using the 
-		/// resourceboth as a source for texture sampling while performing depth or stencil writes to the resources, respectively, 
-		/// iswritten to params. Possible values returned are GL_FULL_SUPPORT, GL_CAVEAT_SUPPORT, or GL_NONE to indicate full 
-		/// support,limited support or no support at all. If the resource or operation is not supported, GL_NONE is returned. 
+		/// resource both as a source for texture sampling while performing depth or stencil writes to the resources, respectively, 
+		/// is written to params. Possible values returned are GL_FULL_SUPPORT, GL_CAVEAT_SUPPORT, or GL_NONE to indicate full 
+		/// support, limited support or no support at all. If the resource or operation is not supported, GL_NONE is returned.
 		/// If pname is GL_TEXTURE_COMPRESSED then GL_TRUE is returned in params if internalformat is a compressed internal format. 
-		/// GL_FALSEis returned in params otherwise. 
+		/// GL_FALSE is returned in params otherwise.
 		/// If pname is GL_TEXTURE_COMPRESSED_BLOCK_WIDTH, GL_TEXTURE_COMPRESSED_BLOCK_HEIGHT or GL_TEXTURE_COMPRESSED_BLOCK_SIZE 
-		/// thenthe width, height or total size, respectively of a block (in basic machine units) is returned in params. If the 
-		/// internalformat is not compressed, or the resource is not supported, 0 is returned. 
+		/// then the width, height or total size, respectively of a block (in basic machine units) is returned in params. If the 
+		/// internal format is not compressed, or the resource is not supported, 0 is returned.
 		/// If pname is GL_CLEAR_BUFFER, the level of support for using the resource with glClearBufferData and glClearBufferSubData 
-		/// isreturned in params. Possible values returned are GL_FULL_SUPPORT, GL_CAVEAT_SUPPORT, or GL_NONE to indicate full 
-		/// support,limited support or no support at all, respectively. If the resource or operation is not supported, GL_NONE is 
+		/// is returned in params. Possible values returned are GL_FULL_SUPPORT, GL_CAVEAT_SUPPORT, or GL_NONE to indicate full 
+		/// support, limited support or no support at all, respectively. If the resource or operation is not supported, GL_NONE is 
 		/// returned.
 		/// If pname is GL_TEXTURE_VIEW, the level of support for using the resource with the glTextureView command is returned in 
-		/// params.Possible values returned are GL_FULL_SUPPORT, GL_CAVEAT_SUPPORT, or GL_NONE to indicate full support, limited 
-		/// supportor no support at all, respectively. If the resource or operation is not supported, GL_NONE is returned. 
+		/// params. Possible values returned are GL_FULL_SUPPORT, GL_CAVEAT_SUPPORT, or GL_NONE to indicate full support, limited 
+		/// support or no support at all, respectively. If the resource or operation is not supported, GL_NONE is returned.
 		/// If pname is GL_VIEW_COMPATIBILITY_CLASS then the compatibility class of the resource when used as a texture view is 
-		/// returnedin params. The possible values returned are GL_VIEW_CLASS_128_BITS, GL_VIEW_CLASS_96_BITS, 
-		/// GL_VIEW_CLASS_64_BITS,GL_VIEW_CLASS_48_BITS, GL_VIEW_CLASS_32_BITS, GL_VIEW_CLASS_24_BITS, GL_VIEW_CLASS_16_BITS, 
-		/// GL_VIEW_CLASS_8_BITS,GL_VIEW_CLASS_S3TC_DXT1_RGB, GL_VIEW_CLASS_S3TC_DXT1_RGBA, GL_VIEW_CLASS_S3TC_DXT3_RGBA, 
-		/// GL_VIEW_CLASS_S3TC_DXT5_RGBA,GL_VIEW_CLASS_RGTC1_RED, GL_VIEW_CLASS_RGTC2_RG, GL_VIEW_CLASS_BPTC_UNORM, and 
+		/// returned in params. The possible values returned are GL_VIEW_CLASS_128_BITS, GL_VIEW_CLASS_96_BITS, 
+		/// GL_VIEW_CLASS_64_BITS, GL_VIEW_CLASS_48_BITS, GL_VIEW_CLASS_32_BITS, GL_VIEW_CLASS_24_BITS, GL_VIEW_CLASS_16_BITS, 
+		/// GL_VIEW_CLASS_8_BITS, GL_VIEW_CLASS_S3TC_DXT1_RGB, GL_VIEW_CLASS_S3TC_DXT1_RGBA, GL_VIEW_CLASS_S3TC_DXT3_RGBA, 
+		/// GL_VIEW_CLASS_S3TC_DXT5_RGBA, GL_VIEW_CLASS_RGTC1_RED, GL_VIEW_CLASS_RGTC2_RG, GL_VIEW_CLASS_BPTC_UNORM, and 
 		/// GL_VIEW_CLASS_BPTC_FLOAT.
 		/// If pname is GL_CLEAR_TEXTURE then the presence of support for using the glClearTexImage and glClearTexSubImage commands 
-		/// withthe resource is written to params. Possible values written are GL_FULL_SUPPORT, GL_CAVEAT_SUPPORT, or GL_NONE to 
-		/// indicatefull support, limited support or no support at all, respectively. If the resource or operation is not supported, 
-		/// GL_NONEis returned. 
+		/// with the resource is written to params. Possible values written are GL_FULL_SUPPORT, GL_CAVEAT_SUPPORT, or GL_NONE to 
+		/// indicate full support, limited support or no support at all, respectively. If the resource or operation is not 
+		/// supported, GL_NONE is returned.
 		/// <para>
 		/// The following errors can be generated:
-		/// - GL_INVALID_VALUE is generated if bufSize is negative. 
-		/// - GL_INVALID_ENUM is generated if pname is not GL_SAMPLES or GL_NUM_SAMPLE_COUNTS. 
-		/// - GL_INVALID_ENUM is generated if internalformat is not color-, depth-, or stencil-renderable. 
+		/// - GL_INVALID_VALUE is generated if bufSize is negative.
+		/// - GL_INVALID_ENUM is generated if pname is not GL_SAMPLES or GL_NUM_SAMPLE_COUNTS.
+		/// - GL_INVALID_ENUM is generated if internalformat is not color-, depth-, or stencil-renderable.
 		/// - GL_INVALID_ENUM is generated if target is not one of GL_TEXTURE_2D_MULTISAMPLE, GL_TEXTURE_2D_MULTISAMPLE_ARRAY or 
 		///   GL_RENDERBUFFER.
 		/// </para>
@@ -1336,51 +1337,51 @@ namespace OpenGL
 		/// retrieve information about the set of active atomic counter buffers for a program
 		/// </summary>
 		/// <param name="program">
-		/// The name of a program object from which to retrieve information. 
+		/// The name of a program object from which to retrieve information.
 		/// </param>
 		/// <param name="bufferIndex">
-		/// Specifies index of an active atomic counter buffer. 
+		/// Specifies index of an active atomic counter buffer.
 		/// </param>
 		/// <param name="pname">
-		/// Specifies which parameter of the atomic counter buffer to retrieve. 
+		/// Specifies which parameter of the atomic counter buffer to retrieve.
 		/// </param>
 		/// <param name="params">
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
 		/// <remarks>
 		/// glGetActiveAtomicCounterBufferiv retrieves information about the set of active atomic counter buffers for a program 
-		/// object.program is the name of a program object for which the command glLinkProgram has been issued in the past. It is 
-		/// notnecessary for program to have been linked successfully. The link may have failed because the number of active atomic 
-		/// countersexceeded the limits. 
+		/// object. program is the name of a program object for which the command glLinkProgram has been issued in the past. It is 
+		/// not necessary for program to have been linked successfully. The link may have failed because the number of active atomic 
+		/// counters exceeded the limits.
 		/// bufferIndex specifies the index of an active atomic counter buffer and must be in the range zero to the value of 
-		/// GL_ACTIVE_ATOMIC_COUNTER_BUFFERSminus one. The value of GL_ACTIVE_ATOMIC_COUNTER_BUFFERS for program indicates the 
-		/// numberof active atomic counter buffer and can be queried with glGetProgram. 
+		/// GL_ACTIVE_ATOMIC_COUNTER_BUFFERS minus one. The value of GL_ACTIVE_ATOMIC_COUNTER_BUFFERS for program indicates the 
+		/// number of active atomic counter buffer and can be queried with glGetProgram.
 		/// If no error occurs, the parameter(s) specified by pname are returned in params. If an error is generated, the contents 
-		/// ofparams are not modified. 
+		/// of params are not modified.
 		/// If pname is GL_ATOMIC_COUNTER_BUFFER_BINDING, then the index of the counter buffer binding point associated with the 
-		/// activeatomic counter buffer bufferIndex for program is returned. 
+		/// active atomic counter buffer bufferIndex for program is returned.
 		/// If pname is GL_ATOMIC_COUNTER_BUFFER_DATA_SIZE, then the implementation-dependent minimum total buffer object size, in 
-		/// baseicmachine units, required to hold all active atomic counters in the atomic counter binding point identified by 
-		/// bufferIndexis returned. 
+		/// baseic machine units, required to hold all active atomic counters in the atomic counter binding point identified by 
+		/// bufferIndex is returned.
 		/// If pname is GL_ATOMIC_COUNTER_BUFFER_ACTIVE_ATOMIC_COUNTERS, then the number of active atomic counters for the atomic 
-		/// counterbuffer identified by bufferIndex is returned. 
+		/// counter buffer identified by bufferIndex is returned.
 		/// If pname is GL_ATOMIC_COUNTER_BUFFER_ACTIVE_ATOMIC_COUNTER_INDICES, then a list of the active atomic counter indices for 
-		/// theatomic counter buffer identified by bufferIndex is returned. The number of elements that will be written into params 
-		/// isthe value of GL_ATOMIC_COUNTER_BUFFER_ACTIVE_ATOMIC_COUNTERS for bufferIndex. 
+		/// the atomic counter buffer identified by bufferIndex is returned. The number of elements that will be written into params 
+		/// is the value of GL_ATOMIC_COUNTER_BUFFER_ACTIVE_ATOMIC_COUNTERS for bufferIndex.
 		/// If pname is GL_ATOMIC_COUNTER_BUFFER_REFERENCED_BY_VERTEX_SHADER, 
-		/// GL_ATOMIC_COUNTER_BUFFER_REFERENCED_BY_TESS_CONTROL_SHADER,
-		/// GL_ATOMIC_COUNTER_BUFFER_REFERENCED_BY_TESS_EVALUATION_SHADER,GL_ATOMIC_COUNTER_BUFFER_REFERENCED_BY_GEOMETRY_SHADER, 
-		/// GL_ATOMIC_COUNTER_BUFFER_REFERENCED_BY_FRAGMENT_SHADER,GL_ATOMIC_COUNTER_BUFFER_REFERENCED_BY_COMPUTE_SHADER then a 
-		/// booleanvalue indicating whether the atomic counter buffer identified by bufferIndex is referenced by the vertex, 
-		/// tessellationcontrol, tessellation evaluation, geometry, fragment or compute processing stages of program, respectively, 
-		/// isreturned. 
+		/// GL_ATOMIC_COUNTER_BUFFER_REFERENCED_BY_TESS_CONTROL_SHADER, 
+		/// GL_ATOMIC_COUNTER_BUFFER_REFERENCED_BY_TESS_EVALUATION_SHADER, GL_ATOMIC_COUNTER_BUFFER_REFERENCED_BY_GEOMETRY_SHADER, 
+		/// GL_ATOMIC_COUNTER_BUFFER_REFERENCED_BY_FRAGMENT_SHADER, GL_ATOMIC_COUNTER_BUFFER_REFERENCED_BY_COMPUTE_SHADER then a 
+		/// boolean value indicating whether the atomic counter buffer identified by bufferIndex is referenced by the vertex, 
+		/// tessellation control, tessellation evaluation, geometry, fragment or compute processing stages of program, respectively, 
+		/// is returned.
 		/// <para>
 		/// The following errors can be generated:
 		/// - GL_INVALID_VALUE is generated if program is not the name of a program object for which glLinkProgram has been called in 
-		///   thepast. 
+		///   the past.
 		/// - GL_INVALID_VALUE is generated if bufferIndex is greater than or equal to the value of GL_ACTIVE_ATOMIC_COUNTER_BUFFERS 
-		///   forprogram. 
-		/// - GL_INVALID_ENUM is generated if pname is not one of the accepted tokens. 
+		///   for program.
+		/// - GL_INVALID_ENUM is generated if pname is not one of the accepted tokens.
 		/// </para>
 		/// </remarks>
 		/// <seealso cref="Gl.GetProgram"/>
@@ -1404,64 +1405,64 @@ namespace OpenGL
 		/// bind a level of a texture to an image unit
 		/// </summary>
 		/// <param name="unit">
-		/// Specifies the index of the image unit to which to bind the texture 
+		/// Specifies the index of the image unit to which to bind the texture
 		/// </param>
 		/// <param name="texture">
-		/// Specifies the name of the texture to bind to the image unit. 
+		/// Specifies the name of the texture to bind to the image unit.
 		/// </param>
 		/// <param name="level">
-		/// Specifies the level of the texture that is to be bound. 
+		/// Specifies the level of the texture that is to be bound.
 		/// </param>
 		/// <param name="layered">
-		/// Specifies whether a layered texture binding is to be established. 
+		/// Specifies whether a layered texture binding is to be established.
 		/// </param>
 		/// <param name="layer">
-		/// If layered is GL_FALSE, specifies the layer of texture to be bound to the image unit. Ignored otherwise. 
+		/// If layered is GL_FALSE, specifies the layer of texture to be bound to the image unit. Ignored otherwise.
 		/// </param>
 		/// <param name="access">
-		/// Specifies a token indicating the type of access that will be performed on the image. 
+		/// Specifies a token indicating the type of access that will be performed on the image.
 		/// </param>
 		/// <param name="format">
-		/// Specifies the format that the elements of the image will be treated as for the purposes of formatted stores. 
+		/// Specifies the format that the elements of the image will be treated as for the purposes of formatted stores.
 		/// </param>
 		/// <remarks>
 		/// glBindImageTexture binds a single level of a texture to an image unit for the purpose of reading and writing it from 
-		/// shaders.unit specifies the zero-based index of the image unit to which to bind the texture level. texture specifies the 
-		/// nameof an existing texture object to bind to the image unit. If texture is zero, then any existing binding to the image 
-		/// unitis broken. level specifies the level of the texture to bind to the image unit. 
+		/// shaders. unit specifies the zero-based index of the image unit to which to bind the texture level. texture specifies the 
+		/// name of an existing texture object to bind to the image unit. If texture is zero, then any existing binding to the image 
+		/// unit is broken. level specifies the level of the texture to bind to the image unit.
 		/// If texture is the name of a one-, two-, or three-dimensional array texture, a cube map or cube map array texture, or a 
-		/// two-dimensionalmultisample array texture, then it is possible to bind either the entire array, or only a single layer of 
-		/// thearray to the image unit. In such cases, if layered is GL_TRUE, the entire array is attached to the image unit and 
-		/// layeris ignored. However, if layered is GL_FALSE then layer specifies the layer of the array to attach to the image 
+		/// two-dimensional multisample array texture, then it is possible to bind either the entire array, or only a single layer 
+		/// of the array to the image unit. In such cases, if layered is GL_TRUE, the entire array is attached to the image unit and 
+		/// layer is ignored. However, if layered is GL_FALSE then layer specifies the layer of the array to attach to the image 
 		/// unit.
 		/// access specifies the access types to be performed by shaders and may be set to GL_READ_ONLY, GL_WRITE_ONLY, or 
-		/// GL_READ_WRITEto indicate read-only, write-only or read-write access, respectively. Violation of the access type 
-		/// specifiedin access (for example, if a shader writes to an image bound with access set to GL_READ_ONLY) will lead to 
-		/// undefinedresults, possibly including program termination. 
+		/// GL_READ_WRITE to indicate read-only, write-only or read-write access, respectively. Violation of the access type 
+		/// specified in access (for example, if a shader writes to an image bound with access set to GL_READ_ONLY) will lead to 
+		/// undefined results, possibly including program termination.
 		/// format specifies the format that is to be used when performing formatted stores into the image from shaders. format must 
-		/// becompatible with the texture's internal format and must be one of the formats listed in the following table. 
+		/// be compatible with the texture's internal format and must be one of the formats listed in the following table.
 		/// Internal Image Formats Image Unit Format Format Qualifier 
 		/// GL_RGBA32Frgba32fGL_RGBA16Frgba16fGL_RG32Frg32fGL_RG16Frg16fGL_R11F_G11F_B10Fr11f_g11f_b10fGL_R32Fr32fGL_R16Fr16fGL_RGBA32UIrgba32uiGL_RGBA16UIrgba16uiGL_RGB10_A2UIrgb10_a2uiGL_RGBA8UIrgba8uiGL_RG32UIrg32uiGL_RG16UIrg16uiGL_RG8UIrg8uiGL_R32UIr32uiGL_R16UIr16uiGL_R8UIr8uiGL_RGBA32Irgba32iGL_RGBA16Irgba16iGL_RGBA8Irgba8iGL_RG32Irg32iGL_RG16Irg16iGL_RG8Irg8iGL_R32Ir32iGL_R16Ir16iGL_R8Ir8iGL_RGBA16rgba16GL_RGB10_A2rgb10_a2GL_RGBA8rgba8GL_RG16rg16GL_RG8rg8GL_R16r16GL_R8r8GL_RGBA16_SNORMrgba16_snormGL_RGBA8_SNORMrgba8_snormGL_RG16_SNORMrg16_snormGL_RG8_SNORMrg8_snormGL_R16_SNORMr16_snormGL_R8_SNORMr8_snorm
 		/// When a texture is bound to an image unit, the format parameter for the image unit need not exactly match the texture 
-		/// internalformat as long as the formats are considered compatible as defined in the OpenGL Specification. The matching 
-		/// criterionused for a given texture may be determined by calling glGetTexParameter with value set to 
-		/// GL_IMAGE_FORMAT_COMPATIBILITY_TYPE,with return values of GL_IMAGE_FORMAT_COMPATIBILITY_BY_SIZE and 
-		/// GL_IMAGE_FORMAT_COMPATIBILITY_BY_CLASS,specifying matches by size and class, respectively. 
+		/// internal format as long as the formats are considered compatible as defined in the OpenGL Specification. The matching 
+		/// criterion used for a given texture may be determined by calling glGetTexParameter with value set to 
+		/// GL_IMAGE_FORMAT_COMPATIBILITY_TYPE, with return values of GL_IMAGE_FORMAT_COMPATIBILITY_BY_SIZE and 
+		/// GL_IMAGE_FORMAT_COMPATIBILITY_BY_CLASS, specifying matches by size and class, respectively.
 		/// <para>
 		/// The following errors can be generated:
-		/// - GL_INVALID_VALUE is generated if unit greater than or equal to the value of GL_MAX_IMAGE_UNITS. 
-		/// - GL_INVALID_VALUE is generated if texture is not the name of an existing texture object. 
-		/// - GL_INVALID_VALUE is generated if level or layer is less than zero. 
-		/// - GL_INVALID_ENUM is generated if access or format is not one of the supported tokens. 
+		/// - GL_INVALID_VALUE is generated if unit greater than or equal to the value of GL_MAX_IMAGE_UNITS.
+		/// - GL_INVALID_VALUE is generated if texture is not the name of an existing texture object.
+		/// - GL_INVALID_VALUE is generated if level or layer is less than zero.
+		/// - GL_INVALID_ENUM is generated if access or format is not one of the supported tokens.
 		/// </para>
 		/// <para>
 		/// The associated information is got with the following commands:
-		/// - glGet with argument GL_IMAGE_BINDING_NAME. 
-		/// - glGet with argument GL_IMAGE_BINDING_LEVEL. 
-		/// - glGet with argument GL_IMAGE_BINDING_LAYERED. 
-		/// - glGet with argument GL_IMAGE_BINDING_LAYER. 
-		/// - glGet with argument GL_IMAGE_BINDING_ACCESS. 
-		/// - glGet with argument GL_IMAGE_BINDING_FORMAT. 
+		/// - glGet with argument GL_IMAGE_BINDING_NAME.
+		/// - glGet with argument GL_IMAGE_BINDING_LEVEL.
+		/// - glGet with argument GL_IMAGE_BINDING_LAYERED.
+		/// - glGet with argument GL_IMAGE_BINDING_LAYER.
+		/// - glGet with argument GL_IMAGE_BINDING_ACCESS.
+		/// - glGet with argument GL_IMAGE_BINDING_FORMAT.
 		/// </para>
 		/// </remarks>
 		/// <seealso cref="Gl.GenTextures"/>
@@ -1484,81 +1485,82 @@ namespace OpenGL
 		/// defines a barrier ordering memory transactions
 		/// </summary>
 		/// <param name="barriers">
-		/// Specifies the barriers to insert. 
+		/// Specifies the barriers to insert.
 		/// </param>
 		/// <remarks>
 		/// glMemoryBarrier defines a barrier ordering the memory transactions issued prior to the command relative to those issued 
-		/// afterthe barrier. For the purposes of this ordering, memory transactions performed by shaders are considered to be 
-		/// issuedby the rendering command that triggered the execution of the shader. barriers is a bitfield indicating the set of 
-		/// operationsthat are synchronized with shader stores; the bits used in barriers are as follows: 
+		/// after the barrier. For the purposes of this ordering, memory transactions performed by shaders are considered to be 
+		/// issued by the rendering command that triggered the execution of the shader. barriers is a bitfield indicating the set of 
+		/// operations that are synchronized with shader stores; the bits used in barriers are as follows:
 		/// GL_VERTEX_ATTRIB_ARRAY_BARRIER_BIT If set, vertex data sourced from buffer objects after the barrier will reflect data 
-		/// writtenby shaders prior to the barrier. The set of buffer objects affected by this bit is derived from the buffer object 
-		/// bindingsused for generic vertex attributes derived from the GL_VERTEX_ATTRIB_ARRAY_BUFFER bindings. 
-		/// GL_ELEMENT_ARRAY_BARRIER_BITIf set, vertex array indices sourced from buffer objects after the barrier will reflect data 
-		/// writtenby shaders prior to the barrier. The buffer objects affected by this bit are derived from the 
-		/// GL_ELEMENT_ARRAY_BUFFERbinding. GL_UNIFORM_BARRIER_BIT Shader uniforms sourced from buffer objects after the barrier 
-		/// willreflect data written by shaders prior to the barrier. GL_TEXTURE_FETCH_BARRIER_BIT Texture fetches from shaders, 
-		/// includingfetches from buffer object memory via buffer textures, after the barrier will reflect data written by shaders 
-		/// priorto the barrier. GL_SHADER_IMAGE_ACCESS_BARRIER_BIT Memory accesses using shader image load, store, and atomic 
-		/// built-infunctions issued after the barrier will reflect data written by shaders prior to the barrier. Additionally, 
-		/// imagestores and atomics issued after the barrier will not execute until all memory accesses (e.g., loads, stores, 
-		/// texturefetches, vertex fetches) initiated prior to the barrier complete. GL_COMMAND_BARRIER_BIT Command data sourced 
-		/// frombuffer objects by Draw*Indirect commands after the barrier will reflect data written by shaders prior to the 
-		/// barrier.The buffer objects affected by this bit are derived from the GL_DRAW_INDIRECT_BUFFER binding. 
-		/// GL_PIXEL_BUFFER_BARRIER_BITReads and writes of buffer objects via the GL_PIXEL_PACK_BUFFER and GL_PIXEL_UNPACK_BUFFER 
-		/// bindings(via glReadPixels, glTexSubImage, etc.) after the barrier will reflect data written by shaders prior to the 
-		/// barrier.Additionally, buffer object writes issued after the barrier will wait on the completion of all shader writes 
-		/// initiatedprior to the barrier. GL_TEXTURE_UPDATE_BARRIER_BIT Writes to a texture via glTex(Sub)Image*, 
-		/// glCopyTex(Sub)Image*,glCompressedTex(Sub)Image*, and reads via glGetTexImage after the barrier will reflect data written 
-		/// byshaders prior to the barrier. Additionally, texture writes from these commands issued after the barrier will not 
-		/// executeuntil all shader writes initiated prior to the barrier complete. GL_BUFFER_UPDATE_BARRIER_BIT Reads or writes via 
-		/// glBufferSubData,glCopyBufferSubData, or glGetBufferSubData, or to buffer object memory mapped by glMapBuffer or 
-		/// glMapBufferRangeafter the barrier will reflect data written by shaders prior to the barrier. Additionally, writes via 
-		/// thesecommands issued after the barrier will wait on the completion of any shader writes to the same memory initiated 
-		/// priorto the barrier. GL_FRAMEBUFFER_BARRIER_BIT Reads and writes via framebuffer object attachments after the barrier 
-		/// willreflect data written by shaders prior to the barrier. Additionally, framebuffer writes issued after the barrier will 
-		/// waiton the completion of all shader writes issued prior to the barrier. GL_TRANSFORM_FEEDBACK_BARRIER_BIT Writes via 
-		/// transformfeedback bindings after the barrier will reflect data written by shaders prior to the barrier. Additionally, 
-		/// transformfeedback writes issued after the barrier will wait on the completion of all shader writes issued prior to the 
-		/// barrier.GL_ATOMIC_COUNTER_BARRIER_BIT Accesses to atomic counters after the barrier will reflect writes prior to the 
-		/// barrier.GL_SHADER_STORAGE_BARRIER_BIT Accesses to shader storage blocks after the barrier will reflect writes prior to 
-		/// thebarrier. GL_QUERY_BUFFER_BARRIER_BIT Writes of buffer objects via the GL_QUERY_BUFFER binding after the barrier will 
-		/// reflectdata written by shaders prior to the barrier. Additionally, buffer object writes issued after the barrier will 
-		/// waiton the completion of all shader writes initiated prior to the barrier. 
+		/// written by shaders prior to the barrier. The set of buffer objects affected by this bit is derived from the buffer 
+		/// object bindings used for generic vertex attributes derived from the GL_VERTEX_ATTRIB_ARRAY_BUFFER bindings. 
+		/// GL_ELEMENT_ARRAY_BARRIER_BIT If set, vertex array indices sourced from buffer objects after the barrier will reflect 
+		/// data written by shaders prior to the barrier. The buffer objects affected by this bit are derived from the 
+		/// GL_ELEMENT_ARRAY_BUFFER binding. GL_UNIFORM_BARRIER_BIT Shader uniforms sourced from buffer objects after the barrier 
+		/// will reflect data written by shaders prior to the barrier. GL_TEXTURE_FETCH_BARRIER_BIT Texture fetches from shaders, 
+		/// including fetches from buffer object memory via buffer textures, after the barrier will reflect data written by shaders 
+		/// prior to the barrier. GL_SHADER_IMAGE_ACCESS_BARRIER_BIT Memory accesses using shader image load, store, and atomic 
+		/// built-in functions issued after the barrier will reflect data written by shaders prior to the barrier. Additionally, 
+		/// image stores and atomics issued after the barrier will not execute until all memory accesses (e.g., loads, stores, 
+		/// texture fetches, vertex fetches) initiated prior to the barrier complete. GL_COMMAND_BARRIER_BIT Command data sourced 
+		/// from buffer objects by Draw*Indirect commands after the barrier will reflect data written by shaders prior to the 
+		/// barrier. The buffer objects affected by this bit are derived from the GL_DRAW_INDIRECT_BUFFER binding. 
+		/// GL_PIXEL_BUFFER_BARRIER_BIT Reads and writes of buffer objects via the GL_PIXEL_PACK_BUFFER and GL_PIXEL_UNPACK_BUFFER 
+		/// bindings (via glReadPixels, glTexSubImage, etc.) after the barrier will reflect data written by shaders prior to the 
+		/// barrier. Additionally, buffer object writes issued after the barrier will wait on the completion of all shader writes 
+		/// initiated prior to the barrier. GL_TEXTURE_UPDATE_BARRIER_BIT Writes to a texture via glTex(Sub)Image*, 
+		/// glCopyTex(Sub)Image*, glCompressedTex(Sub)Image*, and reads via glGetTexImage after the barrier will reflect data 
+		/// written by shaders prior to the barrier. Additionally, texture writes from these commands issued after the barrier will 
+		/// not execute until all shader writes initiated prior to the barrier complete. GL_BUFFER_UPDATE_BARRIER_BIT Reads or 
+		/// writes via glBufferSubData, glCopyBufferSubData, or glGetBufferSubData, or to buffer object memory mapped by glMapBuffer 
+		/// or glMapBufferRange after the barrier will reflect data written by shaders prior to the barrier. Additionally, writes 
+		/// via these commands issued after the barrier will wait on the completion of any shader writes to the same memory 
+		/// initiated prior to the barrier. GL_FRAMEBUFFER_BARRIER_BIT Reads and writes via framebuffer object attachments after the 
+		/// barrier will reflect data written by shaders prior to the barrier. Additionally, framebuffer writes issued after the 
+		/// barrier will wait on the completion of all shader writes issued prior to the barrier. GL_TRANSFORM_FEEDBACK_BARRIER_BIT 
+		/// Writes via transform feedback bindings after the barrier will reflect data written by shaders prior to the barrier. 
+		/// Additionally, transform feedback writes issued after the barrier will wait on the completion of all shader writes issued 
+		/// prior to the barrier. GL_ATOMIC_COUNTER_BARRIER_BIT Accesses to atomic counters after the barrier will reflect writes 
+		/// prior to the barrier. GL_SHADER_STORAGE_BARRIER_BIT Accesses to shader storage blocks after the barrier will reflect 
+		/// writes prior to the barrier. GL_QUERY_BUFFER_BARRIER_BIT Writes of buffer objects via the GL_QUERY_BUFFER binding after 
+		/// the barrier will reflect data written by shaders prior to the barrier. Additionally, buffer object writes issued after 
+		/// the barrier will wait on the completion of all shader writes initiated prior to the barrier.
 		/// If barriers is GL_ALL_BARRIER_BITS, shader memory accesses will be synchronized relative to all the operations described 
 		/// above.
 		/// Implementations may cache buffer object and texture image memory that could be written by shaders in multiple caches; 
-		/// forexample, there may be separate caches for texture, vertex fetching, and one or more caches for shader memory 
-		/// accesses.Implementations are not required to keep these caches coherent with shader memory writes. Stores issued by one 
-		/// invocationmay not be immediately observable by other pipeline stages or other shader invocations because the value 
-		/// storedmay remain in a cache local to the processor executing the store, or because data overwritten by the store is 
-		/// stillin a cache elsewhere in the system. When glMemoryBarrier is called, the GL flushes and/or invalidates any caches 
-		/// relevantto the operations specified by the barriers parameter to ensure consistent ordering of operations across the 
+		/// for example, there may be separate caches for texture, vertex fetching, and one or more caches for shader memory 
+		/// accesses. Implementations are not required to keep these caches coherent with shader memory writes. Stores issued by one 
+		/// invocation may not be immediately observable by other pipeline stages or other shader invocations because the value 
+		/// stored may remain in a cache local to the processor executing the store, or because data overwritten by the store is 
+		/// still in a cache elsewhere in the system. When glMemoryBarrier is called, the GL flushes and/or invalidates any caches 
+		/// relevant to the operations specified by the barriers parameter to ensure consistent ordering of operations across the 
 		/// barrier.
 		/// To allow for independent shader invocations to communicate by reads and writes to a common memory address, image 
-		/// variablesin the OpenGL Shading Language may be declared as "coherent". Buffer object or texture image memory accessed 
-		/// throughsuch variables may be cached only if caches are automatically updated due to stores issued by any other shader 
-		/// invocation.If the same address is accessed using both coherent and non-coherent variables, the accesses using variables 
-		/// declaredas coherent will observe the results stored using coherent variables in other invocations. Using variables 
-		/// declaredas "coherent" guarantees only that the results of stores will be immediately visible to shader invocations using 
-		/// similarly-declaredvariables; calling glMemoryBarrier is required to ensure that the stores are visible to other 
+		/// variables in the OpenGL Shading Language may be declared as "coherent". Buffer object or texture image memory accessed 
+		/// through such variables may be cached only if caches are automatically updated due to stores issued by any other shader 
+		/// invocation. If the same address is accessed using both coherent and non-coherent variables, the accesses using variables 
+		/// declared as coherent will observe the results stored using coherent variables in other invocations. Using variables 
+		/// declared as "coherent" guarantees only that the results of stores will be immediately visible to shader invocations 
+		/// using similarly-declared variables; calling glMemoryBarrier is required to ensure that the stores are visible to other 
 		/// operations.
-		/// The following guidelines may be helpful in choosing when to use coherent memory accesses and when to use barriers. 
+		/// The following guidelines may be helpful in choosing when to use coherent memory accesses and when to use barriers.
 		/// Data that are read-only or constant may be accessed without using coherent variables or calling MemoryBarrier(). Updates 
-		/// tothe read-only data via API calls such as glBufferSubData will invalidate shader caches implicitly as required. Data 
-		/// thatare shared between shader invocations at a fine granularity (e.g., written by one invocation, consumed by another 
-		/// invocation)should use coherent variables to read and write the shared data. Data written by one shader invocation and 
-		/// consumedby other shader invocations launched as a result of its execution ("dependent invocations") should use coherent 
-		/// variablesin the producing shader invocation and call memoryBarrier() after the last write. The consuming shader 
-		/// invocationshould also use coherent variables. Data written to image variables in one rendering pass and read by the 
-		/// shaderin a later pass need not use coherent variables or memoryBarrier(). Calling glMemoryBarrier with the 
-		/// SHADER_IMAGE_ACCESS_BARRIER_BITset in barriers between passes is necessary. Data written by the shader in one rendering 
-		/// passand read by another mechanism (e.g., vertex or index buffer pulling) in a later pass need not use coherent variables 
-		/// ormemoryBarrier(). Calling glMemoryBarrier with the appropriate bits set in barriers between passes is necessary. 
+		/// to the read-only data via API calls such as glBufferSubData will invalidate shader caches implicitly as required. Data 
+		/// that are shared between shader invocations at a fine granularity (e.g., written by one invocation, consumed by another 
+		/// invocation) should use coherent variables to read and write the shared data. Data written by one shader invocation and 
+		/// consumed by other shader invocations launched as a result of its execution ("dependent invocations") should use coherent 
+		/// variables in the producing shader invocation and call memoryBarrier() after the last write. The consuming shader 
+		/// invocation should also use coherent variables. Data written to image variables in one rendering pass and read by the 
+		/// shader in a later pass need not use coherent variables or memoryBarrier(). Calling glMemoryBarrier with the 
+		/// SHADER_IMAGE_ACCESS_BARRIER_BIT set in barriers between passes is necessary. Data written by the shader in one rendering 
+		/// pass and read by another mechanism (e.g., vertex or index buffer pulling) in a later pass need not use coherent 
+		/// variables or memoryBarrier(). Calling glMemoryBarrier with the appropriate bits set in barriers between passes is 
+		/// necessary.
 		/// <para>
 		/// The following errors can be generated:
 		/// - GL_INVALID_VALUE is generated if barriers is not the special value GL_ALL_BARRIER_BITS, and has any bits set other than 
-		///   thosedescribed above for glMemoryBarrier or glMemoryBarrierByRegion respectively. 
+		///   those described above for glMemoryBarrier or glMemoryBarrierByRegion respectively.
 		/// </para>
 		/// </remarks>
 		/// <seealso cref="Gl.BindImageTexture"/>
@@ -1678,35 +1680,35 @@ namespace OpenGL
 		/// </summary>
 		/// <param name="mode">
 		/// Specifies what kind of primitives to render. Symbolic constants GL_POINTS, GL_LINE_STRIP, GL_LINE_LOOP, GL_LINES, 
-		/// GL_LINE_STRIP_ADJACENCY,GL_LINES_ADJACENCY, GL_TRIANGLE_STRIP, GL_TRIANGLE_FAN, GL_TRIANGLES, 
-		/// GL_TRIANGLE_STRIP_ADJACENCY,GL_TRIANGLES_ADJACENCY, and GL_PATCHES are accepted. 
+		/// GL_LINE_STRIP_ADJACENCY, GL_LINES_ADJACENCY, GL_TRIANGLE_STRIP, GL_TRIANGLE_FAN, GL_TRIANGLES, 
+		/// GL_TRIANGLE_STRIP_ADJACENCY, GL_TRIANGLES_ADJACENCY, and GL_PATCHES are accepted.
 		/// </param>
 		/// <param name="id">
-		/// Specifies the name of a transform feedback object from which to retrieve a primitive count. 
+		/// Specifies the name of a transform feedback object from which to retrieve a primitive count.
 		/// </param>
 		/// <param name="instancecount">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <remarks>
 		/// glDrawTransformFeedbackInstanced draws multiple copies of a range of primitives of a type specified by mode using a 
-		/// countretrieved from the transform feedback stream specified by stream of the transform feedback object specified by id. 
-		/// CallingglDrawTransformFeedbackInstanced is equivalent to calling glDrawArraysInstanced with mode and primcount as 
-		/// specified,first set to zero, and count set to the number of vertices captured on vertex stream zero the last time 
-		/// transformfeedback was active on the transform feedback object named by id. 
+		/// count retrieved from the transform feedback stream specified by stream of the transform feedback object specified by id. 
+		/// Calling glDrawTransformFeedbackInstanced is equivalent to calling glDrawArraysInstanced with mode and primcount as 
+		/// specified, first set to zero, and count set to the number of vertices captured on vertex stream zero the last time 
+		/// transform feedback was active on the transform feedback object named by id.
 		/// Calling glDrawTransformFeedbackInstanced is equivalent to calling glDrawTransformFeedbackStreamInstanced with stream set 
-		/// tozero. 
+		/// to zero.
 		/// <para>
 		/// The following errors can be generated:
-		/// - GL_INVALID_ENUM is generated if mode is not an accepted value. 
-		/// - GL_INVALID_VALUE is generated if id is not the name of a transform feedback object. 
-		/// - GL_INVALID_VALUE is generated if stream is greater than or equal to the value of GL_MAX_VERTEX_STREAMS. 
+		/// - GL_INVALID_ENUM is generated if mode is not an accepted value.
+		/// - GL_INVALID_VALUE is generated if id is not the name of a transform feedback object.
+		/// - GL_INVALID_VALUE is generated if stream is greater than or equal to the value of GL_MAX_VERTEX_STREAMS.
 		/// - GL_INVALID_OPERATION is generated if a non-zero buffer object name is bound to an enabled array and the buffer object's 
-		///   datastore is currently mapped. 
+		///   data store is currently mapped.
 		/// - GL_INVALID_OPERATION is generated if a geometry shader is active and mode is incompatible with the input primitive type 
-		///   ofthe geometry shader in the currently installed program object. 
-		/// - GL_INVALID_OPERATION is generated if mode is GL_PATCHES and no tessellation control shader is active. 
+		///   of the geometry shader in the currently installed program object.
+		/// - GL_INVALID_OPERATION is generated if mode is GL_PATCHES and no tessellation control shader is active.
 		/// - GL_INVALID_OPERATION is generated if glEndTransformFeedback has never been called while the transform feedback object 
-		///   namedby id was bound. 
+		///   named by id was bound.
 		/// </para>
 		/// </remarks>
 		/// <seealso cref="Gl.DrawArrays"/>
@@ -1728,35 +1730,35 @@ namespace OpenGL
 		/// </summary>
 		/// <param name="mode">
 		/// Specifies what kind of primitives to render. Symbolic constants GL_POINTS, GL_LINE_STRIP, GL_LINE_LOOP, GL_LINES, 
-		/// GL_LINE_STRIP_ADJACENCY,GL_LINES_ADJACENCY, GL_TRIANGLE_STRIP, GL_TRIANGLE_FAN, GL_TRIANGLES, 
-		/// GL_TRIANGLE_STRIP_ADJACENCY,GL_TRIANGLES_ADJACENCY, and GL_PATCHES are accepted. 
+		/// GL_LINE_STRIP_ADJACENCY, GL_LINES_ADJACENCY, GL_TRIANGLE_STRIP, GL_TRIANGLE_FAN, GL_TRIANGLES, 
+		/// GL_TRIANGLE_STRIP_ADJACENCY, GL_TRIANGLES_ADJACENCY, and GL_PATCHES are accepted.
 		/// </param>
 		/// <param name="id">
-		/// Specifies the name of a transform feedback object from which to retrieve a primitive count. 
+		/// Specifies the name of a transform feedback object from which to retrieve a primitive count.
 		/// </param>
 		/// <param name="instancecount">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <remarks>
 		/// glDrawTransformFeedbackInstanced draws multiple copies of a range of primitives of a type specified by mode using a 
-		/// countretrieved from the transform feedback stream specified by stream of the transform feedback object specified by id. 
-		/// CallingglDrawTransformFeedbackInstanced is equivalent to calling glDrawArraysInstanced with mode and primcount as 
-		/// specified,first set to zero, and count set to the number of vertices captured on vertex stream zero the last time 
-		/// transformfeedback was active on the transform feedback object named by id. 
+		/// count retrieved from the transform feedback stream specified by stream of the transform feedback object specified by id. 
+		/// Calling glDrawTransformFeedbackInstanced is equivalent to calling glDrawArraysInstanced with mode and primcount as 
+		/// specified, first set to zero, and count set to the number of vertices captured on vertex stream zero the last time 
+		/// transform feedback was active on the transform feedback object named by id.
 		/// Calling glDrawTransformFeedbackInstanced is equivalent to calling glDrawTransformFeedbackStreamInstanced with stream set 
-		/// tozero. 
+		/// to zero.
 		/// <para>
 		/// The following errors can be generated:
-		/// - GL_INVALID_ENUM is generated if mode is not an accepted value. 
-		/// - GL_INVALID_VALUE is generated if id is not the name of a transform feedback object. 
-		/// - GL_INVALID_VALUE is generated if stream is greater than or equal to the value of GL_MAX_VERTEX_STREAMS. 
+		/// - GL_INVALID_ENUM is generated if mode is not an accepted value.
+		/// - GL_INVALID_VALUE is generated if id is not the name of a transform feedback object.
+		/// - GL_INVALID_VALUE is generated if stream is greater than or equal to the value of GL_MAX_VERTEX_STREAMS.
 		/// - GL_INVALID_OPERATION is generated if a non-zero buffer object name is bound to an enabled array and the buffer object's 
-		///   datastore is currently mapped. 
+		///   data store is currently mapped.
 		/// - GL_INVALID_OPERATION is generated if a geometry shader is active and mode is incompatible with the input primitive type 
-		///   ofthe geometry shader in the currently installed program object. 
-		/// - GL_INVALID_OPERATION is generated if mode is GL_PATCHES and no tessellation control shader is active. 
+		///   of the geometry shader in the currently installed program object.
+		/// - GL_INVALID_OPERATION is generated if mode is GL_PATCHES and no tessellation control shader is active.
 		/// - GL_INVALID_OPERATION is generated if glEndTransformFeedback has never been called while the transform feedback object 
-		///   namedby id was bound. 
+		///   named by id was bound.
 		/// </para>
 		/// </remarks>
 		/// <seealso cref="Gl.DrawArrays"/>
@@ -1778,38 +1780,38 @@ namespace OpenGL
 		/// </summary>
 		/// <param name="mode">
 		/// Specifies what kind of primitives to render. Symbolic constants GL_POINTS, GL_LINE_STRIP, GL_LINE_LOOP, GL_LINES, 
-		/// GL_LINE_STRIP_ADJACENCY,GL_LINES_ADJACENCY, GL_TRIANGLE_STRIP, GL_TRIANGLE_FAN, GL_TRIANGLES, 
-		/// GL_TRIANGLE_STRIP_ADJACENCY,GL_TRIANGLES_ADJACENCY, and GL_PATCHES are accepted. 
+		/// GL_LINE_STRIP_ADJACENCY, GL_LINES_ADJACENCY, GL_TRIANGLE_STRIP, GL_TRIANGLE_FAN, GL_TRIANGLES, 
+		/// GL_TRIANGLE_STRIP_ADJACENCY, GL_TRIANGLES_ADJACENCY, and GL_PATCHES are accepted.
 		/// </param>
 		/// <param name="id">
-		/// Specifies the name of a transform feedback object from which to retrieve a primitive count. 
+		/// Specifies the name of a transform feedback object from which to retrieve a primitive count.
 		/// </param>
 		/// <param name="stream">
-		/// Specifies the index of the transform feedback stream from which to retrieve a primitive count. 
+		/// Specifies the index of the transform feedback stream from which to retrieve a primitive count.
 		/// </param>
 		/// <param name="instancecount">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <remarks>
 		/// glDrawTransformFeedbackStreamInstanced draws multiple copies of a range of primitives of a type specified by mode using 
-		/// acount retrieved from the transform feedback stream specified by stream of the transform feedback object specified by 
-		/// id.Calling glDrawTransformFeedbackStreamInstanced is equivalent to calling glDrawArraysInstanced with mode and primcount 
-		/// asspecified, first set to zero, and count set to the number of vertices captured on vertex stream stream the last time 
-		/// transformfeedback was active on the transform feedback object named by id. 
+		/// a count retrieved from the transform feedback stream specified by stream of the transform feedback object specified by 
+		/// id. Calling glDrawTransformFeedbackStreamInstanced is equivalent to calling glDrawArraysInstanced with mode and 
+		/// primcount as specified, first set to zero, and count set to the number of vertices captured on vertex stream stream the 
+		/// last time transform feedback was active on the transform feedback object named by id.
 		/// Calling glDrawTransformFeedbackInstanced is equivalent to calling glDrawTransformFeedbackStreamInstanced with stream set 
-		/// tozero. 
+		/// to zero.
 		/// <para>
 		/// The following errors can be generated:
-		/// - GL_INVALID_ENUM is generated if mode is not an accepted value. 
-		/// - GL_INVALID_VALUE is generated if id is not the name of a transform feedback object. 
-		/// - GL_INVALID_VALUE is generated if stream is greater than or equal to the value of GL_MAX_VERTEX_STREAMS. 
+		/// - GL_INVALID_ENUM is generated if mode is not an accepted value.
+		/// - GL_INVALID_VALUE is generated if id is not the name of a transform feedback object.
+		/// - GL_INVALID_VALUE is generated if stream is greater than or equal to the value of GL_MAX_VERTEX_STREAMS.
 		/// - GL_INVALID_OPERATION is generated if a non-zero buffer object name is bound to an enabled array and the buffer object's 
-		///   datastore is currently mapped. 
+		///   data store is currently mapped.
 		/// - GL_INVALID_OPERATION is generated if a geometry shader is active and mode is incompatible with the input primitive type 
-		///   ofthe geometry shader in the currently installed program object. 
-		/// - GL_INVALID_OPERATION is generated if mode is GL_PATCHES and no tessellation control shader is active. 
+		///   of the geometry shader in the currently installed program object.
+		/// - GL_INVALID_OPERATION is generated if mode is GL_PATCHES and no tessellation control shader is active.
 		/// - GL_INVALID_OPERATION is generated if glEndTransformFeedback has never been called while the transform feedback object 
-		///   namedby id was bound. 
+		///   named by id was bound.
 		/// </para>
 		/// </remarks>
 		/// <seealso cref="Gl.DrawArrays"/>
@@ -1831,38 +1833,38 @@ namespace OpenGL
 		/// </summary>
 		/// <param name="mode">
 		/// Specifies what kind of primitives to render. Symbolic constants GL_POINTS, GL_LINE_STRIP, GL_LINE_LOOP, GL_LINES, 
-		/// GL_LINE_STRIP_ADJACENCY,GL_LINES_ADJACENCY, GL_TRIANGLE_STRIP, GL_TRIANGLE_FAN, GL_TRIANGLES, 
-		/// GL_TRIANGLE_STRIP_ADJACENCY,GL_TRIANGLES_ADJACENCY, and GL_PATCHES are accepted. 
+		/// GL_LINE_STRIP_ADJACENCY, GL_LINES_ADJACENCY, GL_TRIANGLE_STRIP, GL_TRIANGLE_FAN, GL_TRIANGLES, 
+		/// GL_TRIANGLE_STRIP_ADJACENCY, GL_TRIANGLES_ADJACENCY, and GL_PATCHES are accepted.
 		/// </param>
 		/// <param name="id">
-		/// Specifies the name of a transform feedback object from which to retrieve a primitive count. 
+		/// Specifies the name of a transform feedback object from which to retrieve a primitive count.
 		/// </param>
 		/// <param name="stream">
-		/// Specifies the index of the transform feedback stream from which to retrieve a primitive count. 
+		/// Specifies the index of the transform feedback stream from which to retrieve a primitive count.
 		/// </param>
 		/// <param name="instancecount">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <remarks>
 		/// glDrawTransformFeedbackStreamInstanced draws multiple copies of a range of primitives of a type specified by mode using 
-		/// acount retrieved from the transform feedback stream specified by stream of the transform feedback object specified by 
-		/// id.Calling glDrawTransformFeedbackStreamInstanced is equivalent to calling glDrawArraysInstanced with mode and primcount 
-		/// asspecified, first set to zero, and count set to the number of vertices captured on vertex stream stream the last time 
-		/// transformfeedback was active on the transform feedback object named by id. 
+		/// a count retrieved from the transform feedback stream specified by stream of the transform feedback object specified by 
+		/// id. Calling glDrawTransformFeedbackStreamInstanced is equivalent to calling glDrawArraysInstanced with mode and 
+		/// primcount as specified, first set to zero, and count set to the number of vertices captured on vertex stream stream the 
+		/// last time transform feedback was active on the transform feedback object named by id.
 		/// Calling glDrawTransformFeedbackInstanced is equivalent to calling glDrawTransformFeedbackStreamInstanced with stream set 
-		/// tozero. 
+		/// to zero.
 		/// <para>
 		/// The following errors can be generated:
-		/// - GL_INVALID_ENUM is generated if mode is not an accepted value. 
-		/// - GL_INVALID_VALUE is generated if id is not the name of a transform feedback object. 
-		/// - GL_INVALID_VALUE is generated if stream is greater than or equal to the value of GL_MAX_VERTEX_STREAMS. 
+		/// - GL_INVALID_ENUM is generated if mode is not an accepted value.
+		/// - GL_INVALID_VALUE is generated if id is not the name of a transform feedback object.
+		/// - GL_INVALID_VALUE is generated if stream is greater than or equal to the value of GL_MAX_VERTEX_STREAMS.
 		/// - GL_INVALID_OPERATION is generated if a non-zero buffer object name is bound to an enabled array and the buffer object's 
-		///   datastore is currently mapped. 
+		///   data store is currently mapped.
 		/// - GL_INVALID_OPERATION is generated if a geometry shader is active and mode is incompatible with the input primitive type 
-		///   ofthe geometry shader in the currently installed program object. 
-		/// - GL_INVALID_OPERATION is generated if mode is GL_PATCHES and no tessellation control shader is active. 
+		///   of the geometry shader in the currently installed program object.
+		/// - GL_INVALID_OPERATION is generated if mode is GL_PATCHES and no tessellation control shader is active.
 		/// - GL_INVALID_OPERATION is generated if glEndTransformFeedback has never been called while the transform feedback object 
-		///   namedby id was bound. 
+		///   named by id was bound.
 		/// </para>
 		/// </remarks>
 		/// <seealso cref="Gl.DrawArrays"/>

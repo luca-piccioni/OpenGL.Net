@@ -584,26 +584,26 @@ namespace OpenGL
 		/// specifies minimum rate at which sample shaing takes place
 		/// </summary>
 		/// <param name="value">
-		/// Specifies the rate at which samples are shaded within each covered pixel. 
+		/// Specifies the rate at which samples are shaded within each covered pixel.
 		/// </param>
 		/// <remarks>
 		/// glMinSampleShading specifies the rate at which samples are shaded within a covered pixel. Sample-rate shading is enabled 
-		/// bycalling glEnable with the parameter GL_SAMPLE_SHADING. If GL_MULTISAMPLE or GL_SAMPLE_SHADING is disabled, sample 
-		/// shadinghas no effect. Otherwise, an implementation must provide at least as many unique color values for each covered 
-		/// fragmentas specified by value times samples where samples is the value of GL_SAMPLES for the current framebuffer. At 
-		/// least1 sample for each covered fragment is generated. 
+		/// by calling glEnable with the parameter GL_SAMPLE_SHADING. If GL_MULTISAMPLE or GL_SAMPLE_SHADING is disabled, sample 
+		/// shading has no effect. Otherwise, an implementation must provide at least as many unique color values for each covered 
+		/// fragment as specified by value times samples where samples is the value of GL_SAMPLES for the current framebuffer. At 
+		/// least 1 sample for each covered fragment is generated.
 		/// A value of 1.0 indicates that each sample in the framebuffer should be indpendently shaded. A value of 0.0 effectively 
-		/// allowsthe GL to ignore sample rate shading. Any value between 0.0 and 1.0 allows the GL to shade only a subset of the 
-		/// totalsamples within each covered fragment. Which samples are shaded and the algorithm used to select that subset of the 
-		/// fragment'ssamples is implementation dependent. 
+		/// allows the GL to ignore sample rate shading. Any value between 0.0 and 1.0 allows the GL to shade only a subset of the 
+		/// total samples within each covered fragment. Which samples are shaded and the algorithm used to select that subset of the 
+		/// fragment's samples is implementation dependent.
 		/// <para>
 		/// The following errors can be generated:
-		/// - None. 
+		/// - None.
 		/// </para>
 		/// <para>
 		/// The associated information is got with the following commands:
-		/// - glGet with argument GL_MIN_SAMPLE_SHADING. 
-		/// - glGet with argument GL_SAMPLES. 
+		/// - glGet with argument GL_MIN_SAMPLE_SHADING.
+		/// - glGet with argument GL_SAMPLES.
 		/// </para>
 		/// </remarks>
 		/// <seealso cref="Gl.removedTypes"/>
@@ -767,35 +767,35 @@ namespace OpenGL
 		/// </summary>
 		/// <param name="mode">
 		/// Specifies what kind of primitives to render. Symbolic constants GL_POINTS, GL_LINE_STRIP, GL_LINE_LOOP, GL_LINES, 
-		/// GL_LINE_STRIP_ADJACENCY,GL_LINES_ADJACENCY, GL_TRIANGLE_STRIP, GL_TRIANGLE_FAN, GL_TRIANGLES, 
-		/// GL_TRIANGLE_STRIP_ADJACENCY,GL_TRIANGLES_ADJACENCY, and GL_PATCHES are accepted. 
+		/// GL_LINE_STRIP_ADJACENCY, GL_LINES_ADJACENCY, GL_TRIANGLE_STRIP, GL_TRIANGLE_FAN, GL_TRIANGLES, 
+		/// GL_TRIANGLE_STRIP_ADJACENCY, GL_TRIANGLES_ADJACENCY, and GL_PATCHES are accepted.
 		/// </param>
 		/// <param name="indirect">
-		/// Specifies the address of a structure containing the draw parameters. 
+		/// Specifies the address of a structure containing the draw parameters.
 		/// </param>
 		/// <remarks>
 		/// glDrawArraysIndirect specifies multiple geometric primitives with very few subroutine calls. glDrawArraysIndirect 
-		/// behavessimilarly to glDrawArraysInstancedBaseInstance, execept that the parameters to glDrawArraysInstancedBaseInstance 
-		/// arestored in memory at the address given by indirect. 
+		/// behaves similarly to glDrawArraysInstancedBaseInstance, execept that the parameters to glDrawArraysInstancedBaseInstance 
+		/// are stored in memory at the address given by indirect.
 		/// The parameters addressed by indirect are packed into a structure that takes the form (in C): typedef struct { uint 
-		/// count;uint primCount; uint first; uint baseInstance; } DrawArraysIndirectCommand; const DrawArraysIndirectCommand *cmd = 
-		/// (constDrawArraysIndirectCommand *)indirect; glDrawArraysInstancedBaseInstance(mode, cmd-&gt;first, cmd-&gt;count, 
-		/// cmd-&gt;primCount,cmd-&gt;baseInstance); 
+		/// count; uint primCount; uint first; uint baseInstance; } DrawArraysIndirectCommand; const DrawArraysIndirectCommand *cmd 
+		/// = (const DrawArraysIndirectCommand *)indirect; glDrawArraysInstancedBaseInstance(mode, cmd-&gt;first, cmd-&gt;count, 
+		/// cmd-&gt;primCount, cmd-&gt;baseInstance);
 		/// If a buffer is bound to the GL_DRAW_INDIRECT_BUFFER binding at the time of a call to glDrawArraysIndirect, indirect is 
-		/// interpretedas an offset, in basic machine units, into that buffer and the parameter data is read from the buffer rather 
-		/// thanfrom client memory. 
+		/// interpreted as an offset, in basic machine units, into that buffer and the parameter data is read from the buffer rather 
+		/// than from client memory.
 		/// In contrast to glDrawArraysInstancedBaseInstance, the first member of the parameter structure is unsigned, and 
-		/// out-of-rangeindices do not generate an error. 
+		/// out-of-range indices do not generate an error.
 		/// Vertex attributes that are modified by glDrawArraysIndirect have an unspecified value after glDrawArraysIndirect 
-		/// returns.Attributes that aren't modified remain well defined. 
+		/// returns. Attributes that aren't modified remain well defined.
 		/// <para>
 		/// The following errors can be generated:
-		/// - GL_INVALID_ENUM is generated if mode is not an accepted value. 
+		/// - GL_INVALID_ENUM is generated if mode is not an accepted value.
 		/// - GL_INVALID_OPERATION is generated if a non-zero buffer object name is bound to an enabled array or to the 
-		///   GL_DRAW_INDIRECT_BUFFERbinding and the buffer object's data store is currently mapped. 
+		///   GL_DRAW_INDIRECT_BUFFER binding and the buffer object's data store is currently mapped.
 		/// - GL_INVALID_OPERATION is generated if a geometry shader is active and mode is incompatible with the input primitive type 
-		///   ofthe geometry shader in the currently installed program object. 
-		/// - GL_INVALID_OPERATION is generated if mode is GL_PATCHES and no tessellation control shader is active. 
+		///   of the geometry shader in the currently installed program object.
+		/// - GL_INVALID_OPERATION is generated if mode is GL_PATCHES and no tessellation control shader is active.
 		/// </para>
 		/// </remarks>
 		/// <seealso cref="Gl.DrawArrays"/>
@@ -815,35 +815,35 @@ namespace OpenGL
 		/// </summary>
 		/// <param name="mode">
 		/// Specifies what kind of primitives to render. Symbolic constants GL_POINTS, GL_LINE_STRIP, GL_LINE_LOOP, GL_LINES, 
-		/// GL_LINE_STRIP_ADJACENCY,GL_LINES_ADJACENCY, GL_TRIANGLE_STRIP, GL_TRIANGLE_FAN, GL_TRIANGLES, 
-		/// GL_TRIANGLE_STRIP_ADJACENCY,GL_TRIANGLES_ADJACENCY, and GL_PATCHES are accepted. 
+		/// GL_LINE_STRIP_ADJACENCY, GL_LINES_ADJACENCY, GL_TRIANGLE_STRIP, GL_TRIANGLE_FAN, GL_TRIANGLES, 
+		/// GL_TRIANGLE_STRIP_ADJACENCY, GL_TRIANGLES_ADJACENCY, and GL_PATCHES are accepted.
 		/// </param>
 		/// <param name="indirect">
-		/// Specifies the address of a structure containing the draw parameters. 
+		/// Specifies the address of a structure containing the draw parameters.
 		/// </param>
 		/// <remarks>
 		/// glDrawArraysIndirect specifies multiple geometric primitives with very few subroutine calls. glDrawArraysIndirect 
-		/// behavessimilarly to glDrawArraysInstancedBaseInstance, execept that the parameters to glDrawArraysInstancedBaseInstance 
-		/// arestored in memory at the address given by indirect. 
+		/// behaves similarly to glDrawArraysInstancedBaseInstance, execept that the parameters to glDrawArraysInstancedBaseInstance 
+		/// are stored in memory at the address given by indirect.
 		/// The parameters addressed by indirect are packed into a structure that takes the form (in C): typedef struct { uint 
-		/// count;uint primCount; uint first; uint baseInstance; } DrawArraysIndirectCommand; const DrawArraysIndirectCommand *cmd = 
-		/// (constDrawArraysIndirectCommand *)indirect; glDrawArraysInstancedBaseInstance(mode, cmd-&gt;first, cmd-&gt;count, 
-		/// cmd-&gt;primCount,cmd-&gt;baseInstance); 
+		/// count; uint primCount; uint first; uint baseInstance; } DrawArraysIndirectCommand; const DrawArraysIndirectCommand *cmd 
+		/// = (const DrawArraysIndirectCommand *)indirect; glDrawArraysInstancedBaseInstance(mode, cmd-&gt;first, cmd-&gt;count, 
+		/// cmd-&gt;primCount, cmd-&gt;baseInstance);
 		/// If a buffer is bound to the GL_DRAW_INDIRECT_BUFFER binding at the time of a call to glDrawArraysIndirect, indirect is 
-		/// interpretedas an offset, in basic machine units, into that buffer and the parameter data is read from the buffer rather 
-		/// thanfrom client memory. 
+		/// interpreted as an offset, in basic machine units, into that buffer and the parameter data is read from the buffer rather 
+		/// than from client memory.
 		/// In contrast to glDrawArraysInstancedBaseInstance, the first member of the parameter structure is unsigned, and 
-		/// out-of-rangeindices do not generate an error. 
+		/// out-of-range indices do not generate an error.
 		/// Vertex attributes that are modified by glDrawArraysIndirect have an unspecified value after glDrawArraysIndirect 
-		/// returns.Attributes that aren't modified remain well defined. 
+		/// returns. Attributes that aren't modified remain well defined.
 		/// <para>
 		/// The following errors can be generated:
-		/// - GL_INVALID_ENUM is generated if mode is not an accepted value. 
+		/// - GL_INVALID_ENUM is generated if mode is not an accepted value.
 		/// - GL_INVALID_OPERATION is generated if a non-zero buffer object name is bound to an enabled array or to the 
-		///   GL_DRAW_INDIRECT_BUFFERbinding and the buffer object's data store is currently mapped. 
+		///   GL_DRAW_INDIRECT_BUFFER binding and the buffer object's data store is currently mapped.
 		/// - GL_INVALID_OPERATION is generated if a geometry shader is active and mode is incompatible with the input primitive type 
-		///   ofthe geometry shader in the currently installed program object. 
-		/// - GL_INVALID_OPERATION is generated if mode is GL_PATCHES and no tessellation control shader is active. 
+		///   of the geometry shader in the currently installed program object.
+		/// - GL_INVALID_OPERATION is generated if mode is GL_PATCHES and no tessellation control shader is active.
 		/// </para>
 		/// </remarks>
 		/// <seealso cref="Gl.DrawArrays"/>
@@ -863,35 +863,35 @@ namespace OpenGL
 		/// </summary>
 		/// <param name="mode">
 		/// Specifies what kind of primitives to render. Symbolic constants GL_POINTS, GL_LINE_STRIP, GL_LINE_LOOP, GL_LINES, 
-		/// GL_LINE_STRIP_ADJACENCY,GL_LINES_ADJACENCY, GL_TRIANGLE_STRIP, GL_TRIANGLE_FAN, GL_TRIANGLES, 
-		/// GL_TRIANGLE_STRIP_ADJACENCY,GL_TRIANGLES_ADJACENCY, and GL_PATCHES are accepted. 
+		/// GL_LINE_STRIP_ADJACENCY, GL_LINES_ADJACENCY, GL_TRIANGLE_STRIP, GL_TRIANGLE_FAN, GL_TRIANGLES, 
+		/// GL_TRIANGLE_STRIP_ADJACENCY, GL_TRIANGLES_ADJACENCY, and GL_PATCHES are accepted.
 		/// </param>
 		/// <param name="indirect">
-		/// Specifies the address of a structure containing the draw parameters. 
+		/// Specifies the address of a structure containing the draw parameters.
 		/// </param>
 		/// <remarks>
 		/// glDrawArraysIndirect specifies multiple geometric primitives with very few subroutine calls. glDrawArraysIndirect 
-		/// behavessimilarly to glDrawArraysInstancedBaseInstance, execept that the parameters to glDrawArraysInstancedBaseInstance 
-		/// arestored in memory at the address given by indirect. 
+		/// behaves similarly to glDrawArraysInstancedBaseInstance, execept that the parameters to glDrawArraysInstancedBaseInstance 
+		/// are stored in memory at the address given by indirect.
 		/// The parameters addressed by indirect are packed into a structure that takes the form (in C): typedef struct { uint 
-		/// count;uint primCount; uint first; uint baseInstance; } DrawArraysIndirectCommand; const DrawArraysIndirectCommand *cmd = 
-		/// (constDrawArraysIndirectCommand *)indirect; glDrawArraysInstancedBaseInstance(mode, cmd-&gt;first, cmd-&gt;count, 
-		/// cmd-&gt;primCount,cmd-&gt;baseInstance); 
+		/// count; uint primCount; uint first; uint baseInstance; } DrawArraysIndirectCommand; const DrawArraysIndirectCommand *cmd 
+		/// = (const DrawArraysIndirectCommand *)indirect; glDrawArraysInstancedBaseInstance(mode, cmd-&gt;first, cmd-&gt;count, 
+		/// cmd-&gt;primCount, cmd-&gt;baseInstance);
 		/// If a buffer is bound to the GL_DRAW_INDIRECT_BUFFER binding at the time of a call to glDrawArraysIndirect, indirect is 
-		/// interpretedas an offset, in basic machine units, into that buffer and the parameter data is read from the buffer rather 
-		/// thanfrom client memory. 
+		/// interpreted as an offset, in basic machine units, into that buffer and the parameter data is read from the buffer rather 
+		/// than from client memory.
 		/// In contrast to glDrawArraysInstancedBaseInstance, the first member of the parameter structure is unsigned, and 
-		/// out-of-rangeindices do not generate an error. 
+		/// out-of-range indices do not generate an error.
 		/// Vertex attributes that are modified by glDrawArraysIndirect have an unspecified value after glDrawArraysIndirect 
-		/// returns.Attributes that aren't modified remain well defined. 
+		/// returns. Attributes that aren't modified remain well defined.
 		/// <para>
 		/// The following errors can be generated:
-		/// - GL_INVALID_ENUM is generated if mode is not an accepted value. 
+		/// - GL_INVALID_ENUM is generated if mode is not an accepted value.
 		/// - GL_INVALID_OPERATION is generated if a non-zero buffer object name is bound to an enabled array or to the 
-		///   GL_DRAW_INDIRECT_BUFFERbinding and the buffer object's data store is currently mapped. 
+		///   GL_DRAW_INDIRECT_BUFFER binding and the buffer object's data store is currently mapped.
 		/// - GL_INVALID_OPERATION is generated if a geometry shader is active and mode is incompatible with the input primitive type 
-		///   ofthe geometry shader in the currently installed program object. 
-		/// - GL_INVALID_OPERATION is generated if mode is GL_PATCHES and no tessellation control shader is active. 
+		///   of the geometry shader in the currently installed program object.
+		/// - GL_INVALID_OPERATION is generated if mode is GL_PATCHES and no tessellation control shader is active.
 		/// </para>
 		/// </remarks>
 		/// <seealso cref="Gl.DrawArrays"/>
@@ -913,44 +913,44 @@ namespace OpenGL
 		/// </summary>
 		/// <param name="mode">
 		/// Specifies what kind of primitives to render. Symbolic constants GL_POINTS, GL_LINE_STRIP, GL_LINE_LOOP, GL_LINES, 
-		/// GL_LINE_STRIP_ADJACENCY,GL_LINES_ADJACENCY, GL_TRIANGLE_STRIP, GL_TRIANGLE_FAN, GL_TRIANGLES, 
-		/// GL_TRIANGLE_STRIP_ADJACENCY,GL_TRIANGLES_ADJACENCY, and GL_PATCHES are accepted. 
+		/// GL_LINE_STRIP_ADJACENCY, GL_LINES_ADJACENCY, GL_TRIANGLE_STRIP, GL_TRIANGLE_FAN, GL_TRIANGLES, 
+		/// GL_TRIANGLE_STRIP_ADJACENCY, GL_TRIANGLES_ADJACENCY, and GL_PATCHES are accepted.
 		/// </param>
 		/// <param name="type">
-		/// Specifies the type of data in the buffer bound to the GL_ELEMENT_ARRAY_BUFFER binding. 
+		/// Specifies the type of data in the buffer bound to the GL_ELEMENT_ARRAY_BUFFER binding.
 		/// </param>
 		/// <param name="indirect">
-		/// Specifies the address of a structure containing the draw parameters. 
+		/// Specifies the address of a structure containing the draw parameters.
 		/// </param>
 		/// <remarks>
 		/// glDrawElementsIndirect specifies multiple indexed geometric primitives with very few subroutine calls. 
-		/// glDrawElementsIndirectbehaves similarly to glDrawElementsInstancedBaseVertexBaseInstance, execpt that the parameters to 
-		/// glDrawElementsInstancedBaseVertexBaseInstanceare stored in memory at the address given by indirect. 
+		/// glDrawElementsIndirect behaves similarly to glDrawElementsInstancedBaseVertexBaseInstance, execpt that the parameters to 
+		/// glDrawElementsInstancedBaseVertexBaseInstance are stored in memory at the address given by indirect.
 		/// The parameters addressed by indirect are packed into a structure that takes the form (in C): typedef struct { uint 
-		/// count;uint primCount; uint firstIndex; uint baseVertex; uint baseInstance; } DrawElementsIndirectCommand; 
-		/// glDrawElementsIndirect is equivalent to: 
+		/// count; uint primCount; uint firstIndex; uint baseVertex; uint baseInstance; } DrawElementsIndirectCommand;
+		/// glDrawElementsIndirect is equivalent to:
 		/// void glDrawElementsIndirect(GLenum mode, GLenum type, const void * indirect) { const DrawElementsIndirectCommand *cmd = 
-		/// (constDrawElementsIndirectCommand *)indirect; glDrawElementsInstancedBaseVertexBaseInstance(mode, cmd-&gt;count, type, 
-		/// cmd-&gt;firstIndex+ size-of-type, cmd-&gt;primCount, cmd-&gt;baseVertex, cmd-&gt;baseInstance); } 
+		/// (const DrawElementsIndirectCommand *)indirect; glDrawElementsInstancedBaseVertexBaseInstance(mode, cmd-&gt;count, type, 
+		/// cmd-&gt;firstIndex + size-of-type, cmd-&gt;primCount, cmd-&gt;baseVertex, cmd-&gt;baseInstance); }
 		/// If a buffer is bound to the GL_DRAW_INDIRECT_BUFFER binding at the time of a call to glDrawElementsIndirect, indirect is 
-		/// interpretedas an offset, in basic machine units, into that buffer and the parameter data is read from the buffer rather 
-		/// thanfrom client memory. 
+		/// interpreted as an offset, in basic machine units, into that buffer and the parameter data is read from the buffer rather 
+		/// than from client memory.
 		/// Note that indices stored in client memory are not supported. If no buffer is bound to the GL_ELEMENT_ARRAY_BUFFER 
-		/// binding,an error will be generated. 
+		/// binding, an error will be generated.
 		/// The results of the operation are undefined if the reservedMustBeZero member of the parameter structure is non-zero. 
-		/// However,no error is generated in this case. 
+		/// However, no error is generated in this case.
 		/// Vertex attributes that are modified by glDrawElementsIndirect have an unspecified value after glDrawElementsIndirect 
-		/// returns.Attributes that aren't modified remain well defined. 
+		/// returns. Attributes that aren't modified remain well defined.
 		/// <para>
 		/// The following errors can be generated:
-		/// - GL_INVALID_ENUM is generated if mode is not an accepted value. 
+		/// - GL_INVALID_ENUM is generated if mode is not an accepted value.
 		/// - GL_INVALID_OPERATION is generated if no buffer is bound to the GL_ELEMENT_ARRAY_BUFFER binding, or if such a buffer's 
-		///   datastore is currently mapped. 
+		///   data store is currently mapped.
 		/// - GL_INVALID_OPERATION is generated if a non-zero buffer object name is bound to an enabled array or to the 
-		///   GL_DRAW_INDIRECT_BUFFERbinding and the buffer object's data store is currently mapped. 
+		///   GL_DRAW_INDIRECT_BUFFER binding and the buffer object's data store is currently mapped.
 		/// - GL_INVALID_OPERATION is generated if a geometry shader is active and mode is incompatible with the input primitive type 
-		///   ofthe geometry shader in the currently installed program object. 
-		/// - GL_INVALID_OPERATION is generated if mode is GL_PATCHES and no tessellation control shader is active. 
+		///   of the geometry shader in the currently installed program object.
+		/// - GL_INVALID_OPERATION is generated if mode is GL_PATCHES and no tessellation control shader is active.
 		/// </para>
 		/// </remarks>
 		/// <seealso cref="Gl.DrawArrays"/>
@@ -971,44 +971,44 @@ namespace OpenGL
 		/// </summary>
 		/// <param name="mode">
 		/// Specifies what kind of primitives to render. Symbolic constants GL_POINTS, GL_LINE_STRIP, GL_LINE_LOOP, GL_LINES, 
-		/// GL_LINE_STRIP_ADJACENCY,GL_LINES_ADJACENCY, GL_TRIANGLE_STRIP, GL_TRIANGLE_FAN, GL_TRIANGLES, 
-		/// GL_TRIANGLE_STRIP_ADJACENCY,GL_TRIANGLES_ADJACENCY, and GL_PATCHES are accepted. 
+		/// GL_LINE_STRIP_ADJACENCY, GL_LINES_ADJACENCY, GL_TRIANGLE_STRIP, GL_TRIANGLE_FAN, GL_TRIANGLES, 
+		/// GL_TRIANGLE_STRIP_ADJACENCY, GL_TRIANGLES_ADJACENCY, and GL_PATCHES are accepted.
 		/// </param>
 		/// <param name="type">
-		/// Specifies the type of data in the buffer bound to the GL_ELEMENT_ARRAY_BUFFER binding. 
+		/// Specifies the type of data in the buffer bound to the GL_ELEMENT_ARRAY_BUFFER binding.
 		/// </param>
 		/// <param name="indirect">
-		/// Specifies the address of a structure containing the draw parameters. 
+		/// Specifies the address of a structure containing the draw parameters.
 		/// </param>
 		/// <remarks>
 		/// glDrawElementsIndirect specifies multiple indexed geometric primitives with very few subroutine calls. 
-		/// glDrawElementsIndirectbehaves similarly to glDrawElementsInstancedBaseVertexBaseInstance, execpt that the parameters to 
-		/// glDrawElementsInstancedBaseVertexBaseInstanceare stored in memory at the address given by indirect. 
+		/// glDrawElementsIndirect behaves similarly to glDrawElementsInstancedBaseVertexBaseInstance, execpt that the parameters to 
+		/// glDrawElementsInstancedBaseVertexBaseInstance are stored in memory at the address given by indirect.
 		/// The parameters addressed by indirect are packed into a structure that takes the form (in C): typedef struct { uint 
-		/// count;uint primCount; uint firstIndex; uint baseVertex; uint baseInstance; } DrawElementsIndirectCommand; 
-		/// glDrawElementsIndirect is equivalent to: 
+		/// count; uint primCount; uint firstIndex; uint baseVertex; uint baseInstance; } DrawElementsIndirectCommand;
+		/// glDrawElementsIndirect is equivalent to:
 		/// void glDrawElementsIndirect(GLenum mode, GLenum type, const void * indirect) { const DrawElementsIndirectCommand *cmd = 
-		/// (constDrawElementsIndirectCommand *)indirect; glDrawElementsInstancedBaseVertexBaseInstance(mode, cmd-&gt;count, type, 
-		/// cmd-&gt;firstIndex+ size-of-type, cmd-&gt;primCount, cmd-&gt;baseVertex, cmd-&gt;baseInstance); } 
+		/// (const DrawElementsIndirectCommand *)indirect; glDrawElementsInstancedBaseVertexBaseInstance(mode, cmd-&gt;count, type, 
+		/// cmd-&gt;firstIndex + size-of-type, cmd-&gt;primCount, cmd-&gt;baseVertex, cmd-&gt;baseInstance); }
 		/// If a buffer is bound to the GL_DRAW_INDIRECT_BUFFER binding at the time of a call to glDrawElementsIndirect, indirect is 
-		/// interpretedas an offset, in basic machine units, into that buffer and the parameter data is read from the buffer rather 
-		/// thanfrom client memory. 
+		/// interpreted as an offset, in basic machine units, into that buffer and the parameter data is read from the buffer rather 
+		/// than from client memory.
 		/// Note that indices stored in client memory are not supported. If no buffer is bound to the GL_ELEMENT_ARRAY_BUFFER 
-		/// binding,an error will be generated. 
+		/// binding, an error will be generated.
 		/// The results of the operation are undefined if the reservedMustBeZero member of the parameter structure is non-zero. 
-		/// However,no error is generated in this case. 
+		/// However, no error is generated in this case.
 		/// Vertex attributes that are modified by glDrawElementsIndirect have an unspecified value after glDrawElementsIndirect 
-		/// returns.Attributes that aren't modified remain well defined. 
+		/// returns. Attributes that aren't modified remain well defined.
 		/// <para>
 		/// The following errors can be generated:
-		/// - GL_INVALID_ENUM is generated if mode is not an accepted value. 
+		/// - GL_INVALID_ENUM is generated if mode is not an accepted value.
 		/// - GL_INVALID_OPERATION is generated if no buffer is bound to the GL_ELEMENT_ARRAY_BUFFER binding, or if such a buffer's 
-		///   datastore is currently mapped. 
+		///   data store is currently mapped.
 		/// - GL_INVALID_OPERATION is generated if a non-zero buffer object name is bound to an enabled array or to the 
-		///   GL_DRAW_INDIRECT_BUFFERbinding and the buffer object's data store is currently mapped. 
+		///   GL_DRAW_INDIRECT_BUFFER binding and the buffer object's data store is currently mapped.
 		/// - GL_INVALID_OPERATION is generated if a geometry shader is active and mode is incompatible with the input primitive type 
-		///   ofthe geometry shader in the currently installed program object. 
-		/// - GL_INVALID_OPERATION is generated if mode is GL_PATCHES and no tessellation control shader is active. 
+		///   of the geometry shader in the currently installed program object.
+		/// - GL_INVALID_OPERATION is generated if mode is GL_PATCHES and no tessellation control shader is active.
 		/// </para>
 		/// </remarks>
 		/// <seealso cref="Gl.DrawArrays"/>
@@ -1029,44 +1029,44 @@ namespace OpenGL
 		/// </summary>
 		/// <param name="mode">
 		/// Specifies what kind of primitives to render. Symbolic constants GL_POINTS, GL_LINE_STRIP, GL_LINE_LOOP, GL_LINES, 
-		/// GL_LINE_STRIP_ADJACENCY,GL_LINES_ADJACENCY, GL_TRIANGLE_STRIP, GL_TRIANGLE_FAN, GL_TRIANGLES, 
-		/// GL_TRIANGLE_STRIP_ADJACENCY,GL_TRIANGLES_ADJACENCY, and GL_PATCHES are accepted. 
+		/// GL_LINE_STRIP_ADJACENCY, GL_LINES_ADJACENCY, GL_TRIANGLE_STRIP, GL_TRIANGLE_FAN, GL_TRIANGLES, 
+		/// GL_TRIANGLE_STRIP_ADJACENCY, GL_TRIANGLES_ADJACENCY, and GL_PATCHES are accepted.
 		/// </param>
 		/// <param name="type">
-		/// Specifies the type of data in the buffer bound to the GL_ELEMENT_ARRAY_BUFFER binding. 
+		/// Specifies the type of data in the buffer bound to the GL_ELEMENT_ARRAY_BUFFER binding.
 		/// </param>
 		/// <param name="indirect">
-		/// Specifies the address of a structure containing the draw parameters. 
+		/// Specifies the address of a structure containing the draw parameters.
 		/// </param>
 		/// <remarks>
 		/// glDrawElementsIndirect specifies multiple indexed geometric primitives with very few subroutine calls. 
-		/// glDrawElementsIndirectbehaves similarly to glDrawElementsInstancedBaseVertexBaseInstance, execpt that the parameters to 
-		/// glDrawElementsInstancedBaseVertexBaseInstanceare stored in memory at the address given by indirect. 
+		/// glDrawElementsIndirect behaves similarly to glDrawElementsInstancedBaseVertexBaseInstance, execpt that the parameters to 
+		/// glDrawElementsInstancedBaseVertexBaseInstance are stored in memory at the address given by indirect.
 		/// The parameters addressed by indirect are packed into a structure that takes the form (in C): typedef struct { uint 
-		/// count;uint primCount; uint firstIndex; uint baseVertex; uint baseInstance; } DrawElementsIndirectCommand; 
-		/// glDrawElementsIndirect is equivalent to: 
+		/// count; uint primCount; uint firstIndex; uint baseVertex; uint baseInstance; } DrawElementsIndirectCommand;
+		/// glDrawElementsIndirect is equivalent to:
 		/// void glDrawElementsIndirect(GLenum mode, GLenum type, const void * indirect) { const DrawElementsIndirectCommand *cmd = 
-		/// (constDrawElementsIndirectCommand *)indirect; glDrawElementsInstancedBaseVertexBaseInstance(mode, cmd-&gt;count, type, 
-		/// cmd-&gt;firstIndex+ size-of-type, cmd-&gt;primCount, cmd-&gt;baseVertex, cmd-&gt;baseInstance); } 
+		/// (const DrawElementsIndirectCommand *)indirect; glDrawElementsInstancedBaseVertexBaseInstance(mode, cmd-&gt;count, type, 
+		/// cmd-&gt;firstIndex + size-of-type, cmd-&gt;primCount, cmd-&gt;baseVertex, cmd-&gt;baseInstance); }
 		/// If a buffer is bound to the GL_DRAW_INDIRECT_BUFFER binding at the time of a call to glDrawElementsIndirect, indirect is 
-		/// interpretedas an offset, in basic machine units, into that buffer and the parameter data is read from the buffer rather 
-		/// thanfrom client memory. 
+		/// interpreted as an offset, in basic machine units, into that buffer and the parameter data is read from the buffer rather 
+		/// than from client memory.
 		/// Note that indices stored in client memory are not supported. If no buffer is bound to the GL_ELEMENT_ARRAY_BUFFER 
-		/// binding,an error will be generated. 
+		/// binding, an error will be generated.
 		/// The results of the operation are undefined if the reservedMustBeZero member of the parameter structure is non-zero. 
-		/// However,no error is generated in this case. 
+		/// However, no error is generated in this case.
 		/// Vertex attributes that are modified by glDrawElementsIndirect have an unspecified value after glDrawElementsIndirect 
-		/// returns.Attributes that aren't modified remain well defined. 
+		/// returns. Attributes that aren't modified remain well defined.
 		/// <para>
 		/// The following errors can be generated:
-		/// - GL_INVALID_ENUM is generated if mode is not an accepted value. 
+		/// - GL_INVALID_ENUM is generated if mode is not an accepted value.
 		/// - GL_INVALID_OPERATION is generated if no buffer is bound to the GL_ELEMENT_ARRAY_BUFFER binding, or if such a buffer's 
-		///   datastore is currently mapped. 
+		///   data store is currently mapped.
 		/// - GL_INVALID_OPERATION is generated if a non-zero buffer object name is bound to an enabled array or to the 
-		///   GL_DRAW_INDIRECT_BUFFERbinding and the buffer object's data store is currently mapped. 
+		///   GL_DRAW_INDIRECT_BUFFER binding and the buffer object's data store is currently mapped.
 		/// - GL_INVALID_OPERATION is generated if a geometry shader is active and mode is incompatible with the input primitive type 
-		///   ofthe geometry shader in the currently installed program object. 
-		/// - GL_INVALID_OPERATION is generated if mode is GL_PATCHES and no tessellation control shader is active. 
+		///   of the geometry shader in the currently installed program object.
+		/// - GL_INVALID_OPERATION is generated if mode is GL_PATCHES and no tessellation control shader is active.
 		/// </para>
 		/// </remarks>
 		/// <seealso cref="Gl.DrawArrays"/>
@@ -1526,45 +1526,45 @@ namespace OpenGL
 		/// Returns the value of a uniform variable
 		/// </summary>
 		/// <param name="program">
-		/// Specifies the program object to be queried. 
+		/// Specifies the program object to be queried.
 		/// </param>
 		/// <param name="location">
-		/// Specifies the location of the uniform variable to be queried. 
+		/// Specifies the location of the uniform variable to be queried.
 		/// </param>
 		/// <param name="params">
 		/// A <see cref="T:double[]"/>.
 		/// </param>
 		/// <remarks>
 		/// glGetUniform and glGetnUniform return in params the value(s) of the specified uniform variable. The type of the uniform 
-		/// variablespecified by location determines the number of values returned. If the uniform variable is defined in the shader 
-		/// asa boolean, int, or float, a single value will be returned. If it is defined as a vec2, ivec2, or bvec2, two values 
-		/// willbe returned. If it is defined as a vec3, ivec3, or bvec3, three values will be returned, and so on. To query values 
-		/// storedin uniform variables declared as arrays, call glGetUniform for each element of the array. To query values stored 
-		/// inuniform variables declared as structures, call glGetUniform for each field in the structure. The values for uniform 
-		/// variablesdeclared as a matrix will be returned in column major order. 
+		/// variable specified by location determines the number of values returned. If the uniform variable is defined in the 
+		/// shader as a boolean, int, or float, a single value will be returned. If it is defined as a vec2, ivec2, or bvec2, two 
+		/// values will be returned. If it is defined as a vec3, ivec3, or bvec3, three values will be returned, and so on. To query 
+		/// values stored in uniform variables declared as arrays, call glGetUniform for each element of the array. To query values 
+		/// stored in uniform variables declared as structures, call glGetUniform for each field in the structure. The values for 
+		/// uniform variables declared as a matrix will be returned in column major order.
 		/// The locations assigned to uniform variables are not known until the program object is linked. After linking has 
-		/// occurred,the command glGetUniformLocation can be used to obtain the location of a uniform variable. This location value 
-		/// canthen be passed to glGetUniform or glGetnUniform in order to query the current value of the uniform variable. After a 
-		/// programobject has been linked successfully, the index values for uniform variables remain fixed until the next link 
-		/// commandoccurs. The uniform variable values can only be queried after a link if the link was successful. 
+		/// occurred, the command glGetUniformLocation can be used to obtain the location of a uniform variable. This location value 
+		/// can then be passed to glGetUniform or glGetnUniform in order to query the current value of the uniform variable. After a 
+		/// program object has been linked successfully, the index values for uniform variables remain fixed until the next link 
+		/// command occurs. The uniform variable values can only be queried after a link if the link was successful.
 		/// The only difference between glGetUniform and glGetnUniform is that glGetnUniform will generate an error if size of the 
-		/// paramsbuffer,as described by bufSize, is not large enough to hold the result data. 
+		/// params buffer,as described by bufSize, is not large enough to hold the result data.
 		/// <para>
 		/// The following errors can be generated:
-		/// - GL_INVALID_VALUE is generated if program is not a value generated by OpenGL. 
-		/// - GL_INVALID_OPERATION is generated if program is not a program object. 
-		/// - GL_INVALID_OPERATION is generated if program has not been successfully linked. 
+		/// - GL_INVALID_VALUE is generated if program is not a value generated by OpenGL.
+		/// - GL_INVALID_OPERATION is generated if program is not a program object.
+		/// - GL_INVALID_OPERATION is generated if program has not been successfully linked.
 		/// - GL_INVALID_OPERATION is generated if location does not correspond to a valid uniform variable location for the specified 
-		///   programobject. 
+		///   program object.
 		/// - GL_INVALID_OPERATION is generated by glGetnUniform if the buffer size required to store the requested data is greater 
-		///   thanbufSize. 
+		///   than bufSize.
 		/// </para>
 		/// <para>
 		/// The associated information is got with the following commands:
-		/// - glGetActiveUniform with arguments program and the index of an active uniform variable 
-		/// - glGetProgram with arguments program and GL_ACTIVE_UNIFORMS or GL_ACTIVE_UNIFORM_MAX_LENGTH 
-		/// - glGetUniformLocation with arguments program and the name of a uniform variable 
-		/// - glIsProgram 
+		/// - glGetActiveUniform with arguments program and the index of an active uniform variable
+		/// - glGetProgram with arguments program and GL_ACTIVE_UNIFORMS or GL_ACTIVE_UNIFORM_MAX_LENGTH
+		/// - glGetUniformLocation with arguments program and the name of a uniform variable
+		/// - glIsProgram
 		/// </para>
 		/// </remarks>
 		/// <seealso cref="Gl.CreateProgram"/>
@@ -1587,27 +1587,27 @@ namespace OpenGL
 		/// retrieve the location of a subroutine uniform of a given shader stage within a program
 		/// </summary>
 		/// <param name="program">
-		/// Specifies the name of the program containing shader stage. 
+		/// Specifies the name of the program containing shader stage.
 		/// </param>
 		/// <param name="shadertype">
 		/// Specifies the shader stage from which to query for subroutine uniform index. shadertype must be one of GL_VERTEX_SHADER, 
-		/// GL_TESS_CONTROL_SHADER,GL_TESS_EVALUATION_SHADER, GL_GEOMETRY_SHADER or GL_FRAGMENT_SHADER. 
+		/// GL_TESS_CONTROL_SHADER, GL_TESS_EVALUATION_SHADER, GL_GEOMETRY_SHADER or GL_FRAGMENT_SHADER.
 		/// </param>
 		/// <param name="name">
-		/// Specifies the name of the subroutine uniform whose index to query. 
+		/// Specifies the name of the subroutine uniform whose index to query.
 		/// </param>
 		/// <remarks>
 		/// glGetSubroutineUniformLocation returns the location of the subroutine uniform variable name in the shader stage of type 
-		/// shadertypeattached to program, with behavior otherwise identical to glGetUniformLocation. 
+		/// shadertype attached to program, with behavior otherwise identical to glGetUniformLocation.
 		/// If name is not the name of a subroutine uniform in the shader stage, -1 is returned, but no error is generated. If name 
-		/// isthe name of a subroutine uniform in the shader stage, a value between zero and the value of 
-		/// GL_ACTIVE_SUBROUTINE_LOCATIONSminus one will be returned. Subroutine locations are assigned using consecutive integers 
-		/// inthe range from zero to the value of GL_ACTIVE_SUBROUTINE_LOCATIONS minus one for the shader stage. For active 
-		/// subroutineuniforms declared as arrays, the declared array elements are assigned consecutive locations. 
+		/// is the name of a subroutine uniform in the shader stage, a value between zero and the value of 
+		/// GL_ACTIVE_SUBROUTINE_LOCATIONS minus one will be returned. Subroutine locations are assigned using consecutive integers 
+		/// in the range from zero to the value of GL_ACTIVE_SUBROUTINE_LOCATIONS minus one for the shader stage. For active 
+		/// subroutine uniforms declared as arrays, the declared array elements are assigned consecutive locations.
 		/// <para>
 		/// The following errors can be generated:
-		/// - GL_INVALID_ENUM is generated if shadertype or pname is not one of the accepted values. 
-		/// - GL_INVALID_VALUE is generated if program is not the name of an existing program object. 
+		/// - GL_INVALID_ENUM is generated if shadertype or pname is not one of the accepted values.
+		/// - GL_INVALID_VALUE is generated if program is not the name of an existing program object.
 		/// </para>
 		/// </remarks>
 		/// <seealso cref="Gl.GetProgram"/>
@@ -1630,27 +1630,27 @@ namespace OpenGL
 		/// retrieve the index of a subroutine uniform of a given shader stage within a program
 		/// </summary>
 		/// <param name="program">
-		/// Specifies the name of the program containing shader stage. 
+		/// Specifies the name of the program containing shader stage.
 		/// </param>
 		/// <param name="shadertype">
 		/// Specifies the shader stage from which to query for subroutine uniform index. shadertype must be one of GL_VERTEX_SHADER, 
-		/// GL_TESS_CONTROL_SHADER,GL_TESS_EVALUATION_SHADER, GL_GEOMETRY_SHADER or GL_FRAGMENT_SHADER. 
+		/// GL_TESS_CONTROL_SHADER, GL_TESS_EVALUATION_SHADER, GL_GEOMETRY_SHADER or GL_FRAGMENT_SHADER.
 		/// </param>
 		/// <param name="name">
-		/// Specifies the name of the subroutine uniform whose index to query. 
+		/// Specifies the name of the subroutine uniform whose index to query.
 		/// </param>
 		/// <remarks>
 		/// glGetSubroutineIndex returns the index of a subroutine uniform within a shader stage attached to a program object. 
-		/// programcontains the name of the program to which the shader is attached. shadertype specifies the stage from which to 
-		/// queryshader subroutine index. name contains the null-terminated name of the subroutine uniform whose name to query. 
+		/// program contains the name of the program to which the shader is attached. shadertype specifies the stage from which to 
+		/// query shader subroutine index. name contains the null-terminated name of the subroutine uniform whose name to query.
 		/// If name is not the name of a subroutine uniform in the shader stage, GL_INVALID_INDEX is returned, but no error is 
-		/// generated.If name is the name of a subroutine uniform in the shader stage, a value between zero and the value of 
-		/// GL_ACTIVE_SUBROUTINESminus one will be returned. Subroutine indices are assigned using consecutive integers in the range 
-		/// fromzero to the value of GL_ACTIVE_SUBROUTINES minus one for the shader stage. 
+		/// generated. If name is the name of a subroutine uniform in the shader stage, a value between zero and the value of 
+		/// GL_ACTIVE_SUBROUTINES minus one will be returned. Subroutine indices are assigned using consecutive integers in the 
+		/// range from zero to the value of GL_ACTIVE_SUBROUTINES minus one for the shader stage.
 		/// <para>
 		/// The following errors can be generated:
-		/// - GL_INVALID_ENUM is generated if shadertype or pname is not one of the accepted values. 
-		/// - GL_INVALID_VALUE is generated if program is not the name of an existing program object. 
+		/// - GL_INVALID_ENUM is generated if shadertype or pname is not one of the accepted values.
+		/// - GL_INVALID_VALUE is generated if program is not the name of an existing program object.
 		/// </para>
 		/// </remarks>
 		/// <seealso cref="Gl.GetProgram"/>
@@ -1672,44 +1672,44 @@ namespace OpenGL
 		/// query a property of an active shader subroutine uniform
 		/// </summary>
 		/// <param name="program">
-		/// Specifies the name of the program containing the subroutine. 
+		/// Specifies the name of the program containing the subroutine.
 		/// </param>
 		/// <param name="shadertype">
 		/// Specifies the shader stage from which to query for the subroutine parameter. shadertype must be one of GL_VERTEX_SHADER, 
-		/// GL_TESS_CONTROL_SHADER,GL_TESS_EVALUATION_SHADER, GL_GEOMETRY_SHADER or GL_FRAGMENT_SHADER. 
+		/// GL_TESS_CONTROL_SHADER, GL_TESS_EVALUATION_SHADER, GL_GEOMETRY_SHADER or GL_FRAGMENT_SHADER.
 		/// </param>
 		/// <param name="index">
-		/// Specifies the index of the shader subroutine uniform. 
+		/// Specifies the index of the shader subroutine uniform.
 		/// </param>
 		/// <param name="pname">
 		/// Specifies the parameter of the shader subroutine uniform to query. pname must be GL_NUM_COMPATIBLE_SUBROUTINES, 
-		/// GL_COMPATIBLE_SUBROUTINES,GL_UNIFORM_SIZE or GL_UNIFORM_NAME_LENGTH. 
+		/// GL_COMPATIBLE_SUBROUTINES, GL_UNIFORM_SIZE or GL_UNIFORM_NAME_LENGTH.
 		/// </param>
 		/// <param name="values">
-		/// Specifies the address of a into which the queried value or values will be placed. 
+		/// Specifies the address of a into which the queried value or values will be placed.
 		/// </param>
 		/// <remarks>
 		/// glGetActiveSubroutineUniform queries a parameter of an active shader subroutine uniform. program contains the name of 
-		/// theprogram containing the uniform. shadertype specifies the stage which which the uniform location, given by index, is 
-		/// valid.index must be between zero and the value of GL_ACTIVE_SUBROUTINE_UNIFORMS minus one for the shader stage. 
+		/// the program containing the uniform. shadertype specifies the stage which which the uniform location, given by index, is 
+		/// valid. index must be between zero and the value of GL_ACTIVE_SUBROUTINE_UNIFORMS minus one for the shader stage.
 		/// If pname is GL_NUM_COMPATIBLE_SUBROUTINES, a single integer indicating the number of subroutines that can be assigned to 
-		/// theuniform is returned in values. 
+		/// the uniform is returned in values.
 		/// If pname is GL_COMPATIBLE_SUBROUTINES, an array of integers is returned in values, with each integer specifying the 
-		/// indexof an active subroutine that can be assigned to the selected subroutine uniform. The number of integers returned is 
-		/// thesame as the value returned for GL_NUM_COMPATIBLE_SUBROUTINES. 
+		/// index of an active subroutine that can be assigned to the selected subroutine uniform. The number of integers returned 
+		/// is the same as the value returned for GL_NUM_COMPATIBLE_SUBROUTINES.
 		/// If pname is GL_UNIFORM_SIZE, a single integer is returned in values. If the selected subroutine uniform is an array, the 
-		/// declaredsize of the array is returned; otherwise, one is returned. 
+		/// declared size of the array is returned; otherwise, one is returned.
 		/// If pname is GL_UNIFORM_NAME_LENGTH, a single integer specifying the length of the subroutine uniform name (including the 
-		/// terminatingnull character) is returned in values. 
+		/// terminating null character) is returned in values.
 		/// <para>
 		/// The following errors can be generated:
-		/// - GL_INVALID_ENUM is generated if shadertype or pname is not one of the accepted values. 
-		/// - GL_INVALID_VALUE is generated if index is greater than or equal to the value of GL_ACTIVE_SUBROUTINES. 
-		/// - GL_INVALID_VALUE is generated if program is not the name of an existing program object. 
+		/// - GL_INVALID_ENUM is generated if shadertype or pname is not one of the accepted values.
+		/// - GL_INVALID_VALUE is generated if index is greater than or equal to the value of GL_ACTIVE_SUBROUTINES.
+		/// - GL_INVALID_VALUE is generated if program is not the name of an existing program object.
 		/// </para>
 		/// <para>
 		/// The associated information is got with the following commands:
-		/// - glGetProgramStage with argument GL_ACTIVE_SUBROUTINE_UNIFORMS 
+		/// - glGetProgramStage with argument GL_ACTIVE_SUBROUTINE_UNIFORMS
 		/// </para>
 		/// </remarks>
 		/// <seealso cref="Gl.GetSubroutineIndex"/>
@@ -1732,42 +1732,42 @@ namespace OpenGL
 		/// query the name of an active shader subroutine uniform
 		/// </summary>
 		/// <param name="program">
-		/// Specifies the name of the program containing the subroutine. 
+		/// Specifies the name of the program containing the subroutine.
 		/// </param>
 		/// <param name="shadertype">
 		/// Specifies the shader stage from which to query for the subroutine parameter. shadertype must be one of GL_VERTEX_SHADER, 
-		/// GL_TESS_CONTROL_SHADER,GL_TESS_EVALUATION_SHADER, GL_GEOMETRY_SHADER or GL_FRAGMENT_SHADER. 
+		/// GL_TESS_CONTROL_SHADER, GL_TESS_EVALUATION_SHADER, GL_GEOMETRY_SHADER or GL_FRAGMENT_SHADER.
 		/// </param>
 		/// <param name="index">
-		/// Specifies the index of the shader subroutine uniform. 
+		/// Specifies the index of the shader subroutine uniform.
 		/// </param>
 		/// <param name="bufsize">
-		/// Specifies the size of the buffer whose address is given in name. 
+		/// Specifies the size of the buffer whose address is given in name.
 		/// </param>
 		/// <param name="length">
-		/// Specifies the address of a variable into which is written the number of characters copied into name. 
+		/// Specifies the address of a variable into which is written the number of characters copied into name.
 		/// </param>
 		/// <param name="name">
-		/// Specifies the address of a buffer that will receive the name of the specified shader subroutine uniform. 
+		/// Specifies the address of a buffer that will receive the name of the specified shader subroutine uniform.
 		/// </param>
 		/// <remarks>
 		/// glGetActiveSubroutineUniformName retrieves the name of an active shader subroutine uniform. program contains the name of 
-		/// theprogram containing the uniform. shadertype specifies the stage for which which the uniform location, given by index, 
-		/// isvalid. index must be between zero and the value of GL_ACTIVE_SUBROUTINE_UNIFORMS minus one for the shader stage. 
+		/// the program containing the uniform. shadertype specifies the stage for which which the uniform location, given by index, 
+		/// is valid. index must be between zero and the value of GL_ACTIVE_SUBROUTINE_UNIFORMS minus one for the shader stage.
 		/// The uniform name is returned as a null-terminated string in name. The actual number of characters written into name, 
-		/// excludingthe null terminator is returned in length. If length is NULL, no length is returned. The maximum number of 
-		/// charactersthat may be written into name, including the null terminator, is specified by bufsize. The length of the 
-		/// longestsubroutine uniform name in program and shadertype is given by the value of 
-		/// GL_ACTIVE_SUBROUTINE_UNIFORM_MAX_LENGTH,which can be queried with glGetProgramStage. 
+		/// excluding the null terminator is returned in length. If length is NULL, no length is returned. The maximum number of 
+		/// characters that may be written into name, including the null terminator, is specified by bufsize. The length of the 
+		/// longest subroutine uniform name in program and shadertype is given by the value of 
+		/// GL_ACTIVE_SUBROUTINE_UNIFORM_MAX_LENGTH, which can be queried with glGetProgramStage.
 		/// <para>
 		/// The following errors can be generated:
-		/// - GL_INVALID_ENUM is generated if shadertype or pname is not one of the accepted values. 
-		/// - GL_INVALID_VALUE is generated if index is greater than or equal to the value of GL_ACTIVE_SUBROUTINES. 
-		/// - GL_INVALID_VALUE is generated if program is not the name of an existing program object. 
+		/// - GL_INVALID_ENUM is generated if shadertype or pname is not one of the accepted values.
+		/// - GL_INVALID_VALUE is generated if index is greater than or equal to the value of GL_ACTIVE_SUBROUTINES.
+		/// - GL_INVALID_VALUE is generated if program is not the name of an existing program object.
 		/// </para>
 		/// <para>
 		/// The associated information is got with the following commands:
-		/// - glGetProgramStage with argument GL_ACTIVE_SUBROUTINE_UNIFORMS 
+		/// - glGetProgramStage with argument GL_ACTIVE_SUBROUTINE_UNIFORMS
 		/// </para>
 		/// </remarks>
 		/// <seealso cref="Gl.GetSubroutineIndex"/>
@@ -1790,38 +1790,39 @@ namespace OpenGL
 		/// query the name of an active shader subroutine
 		/// </summary>
 		/// <param name="program">
-		/// Specifies the name of the program containing the subroutine. 
+		/// Specifies the name of the program containing the subroutine.
 		/// </param>
 		/// <param name="shadertype">
-		/// Specifies the shader stage from which to query the subroutine name. 
+		/// Specifies the shader stage from which to query the subroutine name.
 		/// </param>
 		/// <param name="index">
-		/// Specifies the index of the shader subroutine uniform. 
+		/// Specifies the index of the shader subroutine uniform.
 		/// </param>
 		/// <param name="bufsize">
-		/// Specifies the size of the buffer whose address is given in name. 
+		/// Specifies the size of the buffer whose address is given in name.
 		/// </param>
 		/// <param name="length">
-		/// Specifies the address of a variable which is to receive the length of the shader subroutine uniform name. 
+		/// Specifies the address of a variable which is to receive the length of the shader subroutine uniform name.
 		/// </param>
 		/// <param name="name">
-		/// Specifies the address of an array into which the name of the shader subroutine uniform will be written. 
+		/// Specifies the address of an array into which the name of the shader subroutine uniform will be written.
 		/// </param>
 		/// <remarks>
 		/// glGetActiveSubroutineName queries the name of an active shader subroutine uniform from the program object given in 
-		/// program.index specifies the index of the shader subroutine uniform within the shader stage given by stage, and must 
-		/// betweenzero and the value of GL_ACTIVE_SUBROUTINES minus one for the shader stage. 
+		/// program. index specifies the index of the shader subroutine uniform within the shader stage given by stage, and must 
+		/// between zero and the value of GL_ACTIVE_SUBROUTINES minus one for the shader stage.
 		/// The name of the selected subroutine is returned as a null-terminated string in name. The actual number of characters 
-		/// writteninto name, not including the null-terminator, is is returned in length. If length is NULL, no length is returned. 
-		/// Themaximum number of characters that may be written into name, including the null-terminator, is given in bufsize. 
+		/// written into name, not including the null-terminator, is is returned in length. If length is NULL, no length is 
+		/// returned. The maximum number of characters that may be written into name, including the null-terminator, is given in 
+		/// bufsize.
 		/// <para>
 		/// The following errors can be generated:
-		/// - GL_INVALID_VALUE is generated if index is greater than or equal to the value of GL_ACTIVE_SUBROUTINES. 
-		/// - GL_INVALID_VALUE is generated if program is not the name of an existing program object. 
+		/// - GL_INVALID_VALUE is generated if index is greater than or equal to the value of GL_ACTIVE_SUBROUTINES.
+		/// - GL_INVALID_VALUE is generated if program is not the name of an existing program object.
 		/// </para>
 		/// <para>
 		/// The associated information is got with the following commands:
-		/// - glGetProgramStage with argument GL_ACTIVE_SUBROUTINE_UNIFORM_MAX_LENGTH 
+		/// - glGetProgramStage with argument GL_ACTIVE_SUBROUTINE_UNIFORM_MAX_LENGTH
 		/// </para>
 		/// </remarks>
 		/// <seealso cref="Gl.GetSubroutineIndex"/>
@@ -1845,32 +1846,32 @@ namespace OpenGL
 		/// </summary>
 		/// <param name="shadertype">
 		/// Specifies the shader stage from which to query for subroutine uniform index. shadertype must be one of GL_VERTEX_SHADER, 
-		/// GL_TESS_CONTROL_SHADER,GL_TESS_EVALUATION_SHADER, GL_GEOMETRY_SHADER or GL_FRAGMENT_SHADER. 
+		/// GL_TESS_CONTROL_SHADER, GL_TESS_EVALUATION_SHADER, GL_GEOMETRY_SHADER or GL_FRAGMENT_SHADER.
 		/// </param>
 		/// <param name="count">
-		/// Specifies the number of uniform indices stored in indices. 
+		/// Specifies the number of uniform indices stored in indices.
 		/// </param>
 		/// <param name="indices">
-		/// Specifies the address of an array holding the indices to load into the shader subroutine variables. 
+		/// Specifies the address of an array holding the indices to load into the shader subroutine variables.
 		/// </param>
 		/// <remarks>
 		/// glUniformSubroutines loads all active subroutine uniforms for shader stage shadertype of the current program with 
-		/// subroutineindices from indices, storing indices[i] into the uniform at location i. count must be equal to the value of 
-		/// GL_ACTIVE_SUBROUTINE_UNIFORM_LOCATIONSfor the program currently in use at shader stage shadertype. Furthermore, all 
-		/// valuesin indices must be less than the value of GL_ACTIVE_SUBROUTINES for the shader stage. 
+		/// subroutine indices from indices, storing indices[i] into the uniform at location i. count must be equal to the value of 
+		/// GL_ACTIVE_SUBROUTINE_UNIFORM_LOCATIONS for the program currently in use at shader stage shadertype. Furthermore, all 
+		/// values in indices must be less than the value of GL_ACTIVE_SUBROUTINES for the shader stage.
 		/// <para>
 		/// The following errors can be generated:
-		/// - GL_INVALID_OPERATION is generated if no program object is current. 
+		/// - GL_INVALID_OPERATION is generated if no program object is current.
 		/// - GL_INVALID_VALUE is generated if count is not equal to the value of GL_ACTIVE_SUBROUTINE_UNIFORM_LOCATIONS for the 
-		///   shaderstage shadertype of the current program. 
+		///   shader stage shadertype of the current program.
 		/// - GL_INVALID_VALUE is generated if any value in indices is geater than or equal to the value of GL_ACTIVE_SUBROUTINES for 
-		///   theshader stage shadertype of the current program. 
-		/// - GL_INVALID_ENUM is generated if shadertype is not one of the accepted values. 
+		///   the shader stage shadertype of the current program.
+		/// - GL_INVALID_ENUM is generated if shadertype is not one of the accepted values.
 		/// </para>
 		/// <para>
 		/// The associated information is got with the following commands:
-		/// - glGetProgramStage with argument GL_ACTIVE_SUBROUTINES 
-		/// - glGetProgramStage with argument GL_ACTIVE_SUBROUTINE_UNIFORM_LOCATIONS 
+		/// - glGetProgramStage with argument GL_ACTIVE_SUBROUTINES
+		/// - glGetProgramStage with argument GL_ACTIVE_SUBROUTINE_UNIFORM_LOCATIONS
 		/// </para>
 		/// </remarks>
 		/// <seealso cref="Gl.GetProgram"/>
@@ -1895,24 +1896,24 @@ namespace OpenGL
 		/// </summary>
 		/// <param name="shadertype">
 		/// Specifies the shader stage from which to query for subroutine uniform index. shadertype must be one of GL_VERTEX_SHADER, 
-		/// GL_TESS_CONTROL_SHADER,GL_TESS_EVALUATION_SHADER, GL_GEOMETRY_SHADER or GL_FRAGMENT_SHADER. 
+		/// GL_TESS_CONTROL_SHADER, GL_TESS_EVALUATION_SHADER, GL_GEOMETRY_SHADER or GL_FRAGMENT_SHADER.
 		/// </param>
 		/// <param name="location">
-		/// Specifies the location of the subroutine uniform. 
+		/// Specifies the location of the subroutine uniform.
 		/// </param>
 		/// <param name="params">
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
 		/// <remarks>
 		/// glGetUniformSubroutine retrieves the value of the subroutine uniform at location location for shader stage shadertype of 
-		/// thecurrent program. location must be less than the value of GL_ACTIVE_SUBROUTINE_UNIFORM_LOCATIONS for the shader 
-		/// currentlyin use at shader stage shadertype. The value of the subroutine uniform is returned in values. 
+		/// the current program. location must be less than the value of GL_ACTIVE_SUBROUTINE_UNIFORM_LOCATIONS for the shader 
+		/// currently in use at shader stage shadertype. The value of the subroutine uniform is returned in values.
 		/// <para>
 		/// The following errors can be generated:
-		/// - GL_INVALID_ENUM is generated if shadertype is not one of the accepted values. 
+		/// - GL_INVALID_ENUM is generated if shadertype is not one of the accepted values.
 		/// - GL_INVALID_VALUE is generated if location is greater than or equal to the value of 
-		///   GL_ACTIVE_SUBROUTINE_UNIFORM_LOCATIONSfor the shader currently in use at shader stage shadertype. 
-		/// - GL_INVALID_OPERATION is generated if no program is active. 
+		///   GL_ACTIVE_SUBROUTINE_UNIFORM_LOCATIONS for the shader currently in use at shader stage shadertype.
+		/// - GL_INVALID_OPERATION is generated if no program is active.
 		/// </para>
 		/// </remarks>
 		/// <seealso cref="Gl.GetProgram"/>
@@ -1936,39 +1937,39 @@ namespace OpenGL
 		/// retrieve properties of a program object corresponding to a specified shader stage
 		/// </summary>
 		/// <param name="program">
-		/// Specifies the name of the program containing shader stage. 
+		/// Specifies the name of the program containing shader stage.
 		/// </param>
 		/// <param name="shadertype">
 		/// Specifies the shader stage from which to query for the subroutine parameter. shadertype must be one of GL_VERTEX_SHADER, 
-		/// GL_TESS_CONTROL_SHADER,GL_TESS_EVALUATION_SHADER, GL_GEOMETRY_SHADER or GL_FRAGMENT_SHADER. 
+		/// GL_TESS_CONTROL_SHADER, GL_TESS_EVALUATION_SHADER, GL_GEOMETRY_SHADER or GL_FRAGMENT_SHADER.
 		/// </param>
 		/// <param name="pname">
 		/// Specifies the parameter of the shader to query. pname must be GL_ACTIVE_SUBROUTINE_UNIFORMS, 
-		/// GL_ACTIVE_SUBROUTINE_UNIFORM_LOCATIONS,GL_ACTIVE_SUBROUTINES, GL_ACTIVE_SUBROUTINE_UNIFORM_MAX_LENGTH, or 
+		/// GL_ACTIVE_SUBROUTINE_UNIFORM_LOCATIONS, GL_ACTIVE_SUBROUTINES, GL_ACTIVE_SUBROUTINE_UNIFORM_MAX_LENGTH, or 
 		/// GL_ACTIVE_SUBROUTINE_MAX_LENGTH.
 		/// </param>
 		/// <param name="values">
-		/// Specifies the address of a variable into which the queried value or values will be placed. 
+		/// Specifies the address of a variable into which the queried value or values will be placed.
 		/// </param>
 		/// <remarks>
 		/// glGetProgramStage queries a parameter of a shader stage attached to a program object. program contains the name of the 
-		/// programto which the shader is attached. shadertype specifies the stage from which to query the parameter. pname 
-		/// specifieswhich parameter should be queried. The value or values of the parameter to be queried is returned in the 
-		/// variablewhose address is given in values. 
-		/// If pname is GL_ACTIVE_SUBROUTINE_UNIFORMS, the number of active subroutine variables in the stage is returned in values. 
+		/// program to which the shader is attached. shadertype specifies the stage from which to query the parameter. pname 
+		/// specifies which parameter should be queried. The value or values of the parameter to be queried is returned in the 
+		/// variable whose address is given in values.
+		/// If pname is GL_ACTIVE_SUBROUTINE_UNIFORMS, the number of active subroutine variables in the stage is returned in values.
 		/// If pname is GL_ACTIVE_SUBROUTINE_UNIFORM_LOCATIONS, the number of active subroutine variable locations in the stage is 
-		/// returnedin values. 
-		/// If pname is GL_ACTIVE_SUBROUTINES, the number of active subroutines in the stage is returned in values. 
+		/// returned in values.
+		/// If pname is GL_ACTIVE_SUBROUTINES, the number of active subroutines in the stage is returned in values.
 		/// If pname is GL_ACTIVE_SUBROUTINE_UNIFORM_MAX_LENGTH, the length of the longest subroutine uniform for the stage is 
-		/// returnedin values. 
+		/// returned in values.
 		/// If pname is GL_ACTIVE_SUBROUTINE_MAX_LENGTH, the length of the longest subroutine name for the stage is returned in 
-		/// values.The returned name length includes space for the null-terminator. 
+		/// values. The returned name length includes space for the null-terminator.
 		/// If there is no shader present of type shadertype, the returned value will be consistent with a shader containing no 
-		/// subroutinesor subroutine uniforms. 
+		/// subroutines or subroutine uniforms.
 		/// <para>
 		/// The following errors can be generated:
-		/// - GL_INVALID_ENUM is generated if shadertype or pname is not one of the accepted values. 
-		/// - GL_INVALID_VALUE is generated if program is not the name of an existing program object. 
+		/// - GL_INVALID_ENUM is generated if shadertype or pname is not one of the accepted values.
+		/// - GL_INVALID_VALUE is generated if program is not the name of an existing program object.
 		/// </para>
 		/// </remarks>
 		/// <seealso cref="Gl.GetProgram"/>
@@ -1990,29 +1991,29 @@ namespace OpenGL
 		/// </summary>
 		/// <param name="pname">
 		/// Specifies the name of the parameter to set. The symbolc constants GL_PATCH_VERTICES, GL_PATCH_DEFAULT_OUTER_LEVEL, and 
-		/// GL_PATCH_DEFAULT_INNER_LEVELare accepted. 
+		/// GL_PATCH_DEFAULT_INNER_LEVEL are accepted.
 		/// </param>
 		/// <param name="value">
-		/// Specifies the new value for the parameter given by pname. 
+		/// Specifies the new value for the parameter given by pname.
 		/// </param>
 		/// <remarks>
 		/// glPatchParameter specifies the parameters that will be used for patch primitives. pname specifies the parameter to 
-		/// modifyand must be either GL_PATCH_VERTICES, GL_PATCH_DEFAULT_OUTER_LEVEL or GL_PATCH_DEFAULT_INNER_LEVEL. For 
-		/// glPatchParameteri,value specifies the new value for the parameter specified by pname. For glPatchParameterfv, values 
-		/// specifiesthe address of an array containing the new values for the parameter specified by pname. 
+		/// modify and must be either GL_PATCH_VERTICES, GL_PATCH_DEFAULT_OUTER_LEVEL or GL_PATCH_DEFAULT_INNER_LEVEL. For 
+		/// glPatchParameteri, value specifies the new value for the parameter specified by pname. For glPatchParameterfv, values 
+		/// specifies the address of an array containing the new values for the parameter specified by pname.
 		/// When pname is GL_PATCH_VERTICES, value specifies the number of vertices that will be used to make up a single patch 
-		/// primitive.Patch primitives are consumed by the tessellation control shader (if present) and subsequently used for 
-		/// tessellation.When primitives are specified using glDrawArrays or a similar function, each patch will be made from 
-		/// parametercontrol points, each represented by a vertex taken from the enabeld vertex arrays. parameter must be greater 
-		/// thanzero, and less than or equal to the value of GL_MAX_PATCH_VERTICES. 
+		/// primitive. Patch primitives are consumed by the tessellation control shader (if present) and subsequently used for 
+		/// tessellation. When primitives are specified using glDrawArrays or a similar function, each patch will be made from 
+		/// parameter control points, each represented by a vertex taken from the enabeld vertex arrays. parameter must be greater 
+		/// than zero, and less than or equal to the value of GL_MAX_PATCH_VERTICES.
 		/// When pname is GL_PATCH_DEFAULT_OUTER_LEVEL or GL_PATCH_DEFAULT_INNER_LEVEL, values contains the address of an array 
-		/// contiainingthe default outer or inner tessellation levels, respectively, to be used when no tessellation control shader 
-		/// ispresent. 
+		/// contiaining the default outer or inner tessellation levels, respectively, to be used when no tessellation control shader 
+		/// is present.
 		/// <para>
 		/// The following errors can be generated:
-		/// - GL_INVALID_ENUM is generated if pname is not an accepted value. 
+		/// - GL_INVALID_ENUM is generated if pname is not an accepted value.
 		/// - GL_INVALID_VALUE is generated if pname is GL_PATCH_VERTICES and value is less than or equal to zero, or greater than the 
-		///   valueof GL_MAX_PATCH_VERTICES. 
+		///   value of GL_MAX_PATCH_VERTICES.
 		/// </para>
 		/// </remarks>
 		/// <seealso cref="Gl.DrawArrays"/>
@@ -2040,29 +2041,29 @@ namespace OpenGL
 		/// </summary>
 		/// <param name="pname">
 		/// Specifies the name of the parameter to set. The symbolc constants GL_PATCH_VERTICES, GL_PATCH_DEFAULT_OUTER_LEVEL, and 
-		/// GL_PATCH_DEFAULT_INNER_LEVELare accepted. 
+		/// GL_PATCH_DEFAULT_INNER_LEVEL are accepted.
 		/// </param>
 		/// <param name="values">
-		/// Specifies the address of an array containing the new values for the parameter given by pname. 
+		/// Specifies the address of an array containing the new values for the parameter given by pname.
 		/// </param>
 		/// <remarks>
 		/// glPatchParameter specifies the parameters that will be used for patch primitives. pname specifies the parameter to 
-		/// modifyand must be either GL_PATCH_VERTICES, GL_PATCH_DEFAULT_OUTER_LEVEL or GL_PATCH_DEFAULT_INNER_LEVEL. For 
-		/// glPatchParameteri,value specifies the new value for the parameter specified by pname. For glPatchParameterfv, values 
-		/// specifiesthe address of an array containing the new values for the parameter specified by pname. 
+		/// modify and must be either GL_PATCH_VERTICES, GL_PATCH_DEFAULT_OUTER_LEVEL or GL_PATCH_DEFAULT_INNER_LEVEL. For 
+		/// glPatchParameteri, value specifies the new value for the parameter specified by pname. For glPatchParameterfv, values 
+		/// specifies the address of an array containing the new values for the parameter specified by pname.
 		/// When pname is GL_PATCH_VERTICES, value specifies the number of vertices that will be used to make up a single patch 
-		/// primitive.Patch primitives are consumed by the tessellation control shader (if present) and subsequently used for 
-		/// tessellation.When primitives are specified using glDrawArrays or a similar function, each patch will be made from 
-		/// parametercontrol points, each represented by a vertex taken from the enabeld vertex arrays. parameter must be greater 
-		/// thanzero, and less than or equal to the value of GL_MAX_PATCH_VERTICES. 
+		/// primitive. Patch primitives are consumed by the tessellation control shader (if present) and subsequently used for 
+		/// tessellation. When primitives are specified using glDrawArrays or a similar function, each patch will be made from 
+		/// parameter control points, each represented by a vertex taken from the enabeld vertex arrays. parameter must be greater 
+		/// than zero, and less than or equal to the value of GL_MAX_PATCH_VERTICES.
 		/// When pname is GL_PATCH_DEFAULT_OUTER_LEVEL or GL_PATCH_DEFAULT_INNER_LEVEL, values contains the address of an array 
-		/// contiainingthe default outer or inner tessellation levels, respectively, to be used when no tessellation control shader 
-		/// ispresent. 
+		/// contiaining the default outer or inner tessellation levels, respectively, to be used when no tessellation control shader 
+		/// is present.
 		/// <para>
 		/// The following errors can be generated:
-		/// - GL_INVALID_ENUM is generated if pname is not an accepted value. 
+		/// - GL_INVALID_ENUM is generated if pname is not an accepted value.
 		/// - GL_INVALID_VALUE is generated if pname is GL_PATCH_VERTICES and value is less than or equal to zero, or greater than the 
-		///   valueof GL_MAX_PATCH_VERTICES. 
+		///   value of GL_MAX_PATCH_VERTICES.
 		/// </para>
 		/// </remarks>
 		/// <seealso cref="Gl.DrawArrays"/>
@@ -2086,34 +2087,34 @@ namespace OpenGL
 		/// bind a transform feedback object
 		/// </summary>
 		/// <param name="target">
-		/// Specifies the target to which to bind the transform feedback object id. target must be GL_TRANSFORM_FEEDBACK. 
+		/// Specifies the target to which to bind the transform feedback object id. target must be GL_TRANSFORM_FEEDBACK.
 		/// </param>
 		/// <param name="id">
-		/// Specifies the name of a transform feedback object reserved by glGenTransformFeedbacks. 
+		/// Specifies the name of a transform feedback object reserved by glGenTransformFeedbacks.
 		/// </param>
 		/// <remarks>
 		/// glBindTransformFeedback binds the transform feedback object with name id to the current GL state. id must be a name 
-		/// previouslyreturned from a call to glGenTransformFeedbacks. If id has not previously been bound, a new transform feedback 
-		/// objectwith name id and initialized with with the default transform state vector is created. 
+		/// previously returned from a call to glGenTransformFeedbacks. If id has not previously been bound, a new transform 
+		/// feedback object with name id and initialized with with the default transform state vector is created.
 		/// In the initial state, a default transform feedback object is bound and treated as a transform feedback object with a 
-		/// nameof zero. If the name zero is subsequently bound, the default transform feedback object is again bound to the GL 
+		/// name of zero. If the name zero is subsequently bound, the default transform feedback object is again bound to the GL 
 		/// state.
 		/// While a transform feedback buffer object is bound, GL operations on the target to which it is bound affect the bound 
-		/// transformfeedback object, and queries of the target to which a transform feedback object is bound return state from the 
-		/// boundobject. When buffer objects are bound for transform feedback, they are attached to the currently bound transform 
-		/// feedbackobject. Buffer objects are used for trans- form feedback only if they are attached to the currently bound 
-		/// transformfeedback object. 
+		/// transform feedback object, and queries of the target to which a transform feedback object is bound return state from the 
+		/// bound object. When buffer objects are bound for transform feedback, they are attached to the currently bound transform 
+		/// feedback object. Buffer objects are used for trans- form feedback only if they are attached to the currently bound 
+		/// transform feedback object.
 		/// <para>
 		/// The following errors can be generated:
-		/// - GL_INVALID_ENUM is generated if target is not GL_TRANSFORM_FEEDBACK. 
+		/// - GL_INVALID_ENUM is generated if target is not GL_TRANSFORM_FEEDBACK.
 		/// - GL_INVALID_OPERATION is generated if the transform feedback operation is active on the currently bound transform 
-		///   feedbackobject, and that operation is not paused. 
+		///   feedback object, and that operation is not paused.
 		/// - GL_INVALID_OPERATION is generated if id is not zero or the name of a transform feedback object returned from a previous 
-		///   callto glGenTransformFeedbacks, or if such a name has been deleted by glDeleteTransformFeedbacks. 
+		///   call to glGenTransformFeedbacks, or if such a name has been deleted by glDeleteTransformFeedbacks.
 		/// </para>
 		/// <para>
 		/// The associated information is got with the following commands:
-		/// - glGet with argument GL_TRANSFORM_FEEDBACK_BINDING 
+		/// - glGet with argument GL_TRANSFORM_FEEDBACK_BINDING
 		/// </para>
 		/// </remarks>
 		/// <seealso cref="Gl.GenTransformFeedbacks"/>
@@ -2135,19 +2136,19 @@ namespace OpenGL
 		/// delete transform feedback objects
 		/// </summary>
 		/// <param name="n">
-		/// Specifies the number of transform feedback objects to delete. 
+		/// Specifies the number of transform feedback objects to delete.
 		/// </param>
 		/// <param name="ids">
-		/// Specifies an array of names of transform feedback objects to delete. 
+		/// Specifies an array of names of transform feedback objects to delete.
 		/// </param>
 		/// <remarks>
 		/// glDeleteTransformFeedbacks deletes the n transform feedback objects whose names are stored in the array ids. Unused 
-		/// namesin ids are ignored, as is the name zero. After a transform feedback object is deleted, its name is again unused and 
-		/// ithas no contents. If an active transform feedback object is deleted, its name immediately becomes unused, but the 
-		/// underlyingobject is not deleted until it is no longer active. 
+		/// names in ids are ignored, as is the name zero. After a transform feedback object is deleted, its name is again unused 
+		/// and it has no contents. If an active transform feedback object is deleted, its name immediately becomes unused, but the 
+		/// underlying object is not deleted until it is no longer active.
 		/// <para>
 		/// The associated information is got with the following commands:
-		/// - glGet with argument GL_TRANSFORM_FEEDBACK_BINDING 
+		/// - glGet with argument GL_TRANSFORM_FEEDBACK_BINDING
 		/// </para>
 		/// </remarks>
 		/// <seealso cref="Gl.GenTransformFeedbacks"/>
@@ -2179,19 +2180,19 @@ namespace OpenGL
 		/// reserve transform feedback object names
 		/// </summary>
 		/// <param name="n">
-		/// Specifies the number of transform feedback object names to reserve. 
+		/// Specifies the number of transform feedback object names to reserve.
 		/// </param>
 		/// <param name="ids">
-		/// Specifies an array of into which the reserved names will be written. 
+		/// Specifies an array of into which the reserved names will be written.
 		/// </param>
 		/// <remarks>
 		/// glGenTransformFeedbacks returns n previously unused transform feedback object names in ids. These names are marked as 
-		/// used,for the purposes of glGenTransformFeedbacks only, but they acquire transform feedback state only when they are 
-		/// firstbound. 
+		/// used, for the purposes of glGenTransformFeedbacks only, but they acquire transform feedback state only when they are 
+		/// first bound.
 		/// <para>
 		/// The associated information is got with the following commands:
-		/// - glGet with argument GL_TRANSFORM_FEEDBACK_BINDING 
-		/// - glIsTransformFeedback 
+		/// - glGet with argument GL_TRANSFORM_FEEDBACK_BINDING
+		/// - glIsTransformFeedback
 		/// </para>
 		/// </remarks>
 		/// <seealso cref="Gl.DeleteTransformFeedbacks"/>
@@ -2223,13 +2224,13 @@ namespace OpenGL
 		/// determine if a name corresponds to a transform feedback object
 		/// </summary>
 		/// <param name="id">
-		/// Specifies a value that may be the name of a transform feedback object. 
+		/// Specifies a value that may be the name of a transform feedback object.
 		/// </param>
 		/// <remarks>
 		/// glIsTransformFeedback returns GL_TRUE if id is currently the name of a transform feedback object. If id is zero, or if 
-		/// idis not the name of a transform feedback object, or if an error occurs, glIsTransformFeedback returns GL_FALSE. If id 
-		/// isa name returned by glGenTransformFeedbacks, but that has not yet been bound through a call to glBindTransformFeedback, 
-		/// thenthe name is not a transform feedback object and glIsTransformFeedback returns GL_FALSE. 
+		/// id is not the name of a transform feedback object, or if an error occurs, glIsTransformFeedback returns GL_FALSE. If id 
+		/// is a name returned by glGenTransformFeedbacks, but that has not yet been bound through a call to 
+		/// glBindTransformFeedback, then the name is not a transform feedback object and glIsTransformFeedback returns GL_FALSE.
 		/// </remarks>
 		/// <seealso cref="Gl.GenTransformFeedbacks"/>
 		/// <seealso cref="Gl.BindTransformFeedback"/>
@@ -2256,12 +2257,12 @@ namespace OpenGL
 		/// </summary>
 		/// <remarks>
 		/// glPauseTransformFeedback pauses transform feedback operations on the currently active transform feedback object. When 
-		/// transformfeedback operations are paused, transform feedback is still considered active and changing most transform 
-		/// feedbackstate related to the object results in an error. However, a new transform feedback object may be bound while 
-		/// transformfeedback is paused. 
+		/// transform feedback operations are paused, transform feedback is still considered active and changing most transform 
+		/// feedback state related to the object results in an error. However, a new transform feedback object may be bound while 
+		/// transform feedback is paused.
 		/// <para>
 		/// The following errors can be generated:
-		/// - GL_INVALID_OPERATION is generated if the currently bound transform feedback object is not active or is paused. 
+		/// - GL_INVALID_OPERATION is generated if the currently bound transform feedback object is not active or is paused.
 		/// </para>
 		/// </remarks>
 		/// <seealso cref="Gl.GenTransformFeedbacks"/>
@@ -2288,12 +2289,12 @@ namespace OpenGL
 		/// </summary>
 		/// <remarks>
 		/// glResumeTransformFeedback resumes transform feedback operations on the currently active transform feedback object. When 
-		/// transformfeedback operations are paused, transform feedback is still considered active and changing most transform 
-		/// feedbackstate related to the object results in an error. However, a new transform feedback object may be bound while 
-		/// transformfeedback is paused. 
+		/// transform feedback operations are paused, transform feedback is still considered active and changing most transform 
+		/// feedback state related to the object results in an error. However, a new transform feedback object may be bound while 
+		/// transform feedback is paused.
 		/// <para>
 		/// The following errors can be generated:
-		/// - GL_INVALID_OPERATION is generated if the currently bound transform feedback object is not active or is not paused. 
+		/// - GL_INVALID_OPERATION is generated if the currently bound transform feedback object is not active or is not paused.
 		/// </para>
 		/// </remarks>
 		/// <seealso cref="Gl.GenTransformFeedbacks"/>
@@ -2320,28 +2321,28 @@ namespace OpenGL
 		/// </summary>
 		/// <param name="mode">
 		/// Specifies what kind of primitives to render. Symbolic constants GL_POINTS, GL_LINE_STRIP, GL_LINE_LOOP, GL_LINES, 
-		/// GL_LINE_STRIP_ADJACENCY,GL_LINES_ADJACENCY, GL_TRIANGLE_STRIP, GL_TRIANGLE_FAN, GL_TRIANGLES, 
-		/// GL_TRIANGLE_STRIP_ADJACENCY,GL_TRIANGLES_ADJACENCY, and GL_PATCHES are accepted. 
+		/// GL_LINE_STRIP_ADJACENCY, GL_LINES_ADJACENCY, GL_TRIANGLE_STRIP, GL_TRIANGLE_FAN, GL_TRIANGLES, 
+		/// GL_TRIANGLE_STRIP_ADJACENCY, GL_TRIANGLES_ADJACENCY, and GL_PATCHES are accepted.
 		/// </param>
 		/// <param name="id">
-		/// Specifies the name of a transform feedback object from which to retrieve a primitive count. 
+		/// Specifies the name of a transform feedback object from which to retrieve a primitive count.
 		/// </param>
 		/// <remarks>
 		/// glDrawTransformFeedback draws primitives of a type specified by mode using a count retrieved from the transform feedback 
-		/// specifiedby id. Calling glDrawTransformFeedback is equivalent to calling glDrawArrays with mode as specified, first set 
-		/// tozero, and count set to the number of vertices captured on vertex stream zero the last time transform feedback was 
-		/// activeon the transform feedback object named by id. 
+		/// specified by id. Calling glDrawTransformFeedback is equivalent to calling glDrawArrays with mode as specified, first set 
+		/// to zero, and count set to the number of vertices captured on vertex stream zero the last time transform feedback was 
+		/// active on the transform feedback object named by id.
 		/// <para>
 		/// The following errors can be generated:
-		/// - GL_INVALID_ENUM is generated if mode is not an accepted value. 
-		/// - GL_INVALID_VALUE is generated if id is not the name of a transform feedback object. 
+		/// - GL_INVALID_ENUM is generated if mode is not an accepted value.
+		/// - GL_INVALID_VALUE is generated if id is not the name of a transform feedback object.
 		/// - GL_INVALID_OPERATION is generated if a non-zero buffer object name is bound to an enabled array and the buffer object's 
-		///   datastore is currently mapped. 
+		///   data store is currently mapped.
 		/// - GL_INVALID_OPERATION is generated if a geometry shader is active and mode is incompatible with the input primitive type 
-		///   ofthe geometry shader in the currently installed program object. 
-		/// - GL_INVALID_OPERATION is generated if mode is GL_PATCHES and no tessellation control shader is active. 
+		///   of the geometry shader in the currently installed program object.
+		/// - GL_INVALID_OPERATION is generated if mode is GL_PATCHES and no tessellation control shader is active.
 		/// - GL_INVALID_OPERATION is generated if glEndTransformFeedback has never been called while the transform feedback object 
-		///   namedby id was bound. 
+		///   named by id was bound.
 		/// </para>
 		/// </remarks>
 		/// <seealso cref="Gl.DrawArrays"/>
@@ -2367,28 +2368,28 @@ namespace OpenGL
 		/// </summary>
 		/// <param name="mode">
 		/// Specifies what kind of primitives to render. Symbolic constants GL_POINTS, GL_LINE_STRIP, GL_LINE_LOOP, GL_LINES, 
-		/// GL_LINE_STRIP_ADJACENCY,GL_LINES_ADJACENCY, GL_TRIANGLE_STRIP, GL_TRIANGLE_FAN, GL_TRIANGLES, 
-		/// GL_TRIANGLE_STRIP_ADJACENCY,GL_TRIANGLES_ADJACENCY, and GL_PATCHES are accepted. 
+		/// GL_LINE_STRIP_ADJACENCY, GL_LINES_ADJACENCY, GL_TRIANGLE_STRIP, GL_TRIANGLE_FAN, GL_TRIANGLES, 
+		/// GL_TRIANGLE_STRIP_ADJACENCY, GL_TRIANGLES_ADJACENCY, and GL_PATCHES are accepted.
 		/// </param>
 		/// <param name="id">
-		/// Specifies the name of a transform feedback object from which to retrieve a primitive count. 
+		/// Specifies the name of a transform feedback object from which to retrieve a primitive count.
 		/// </param>
 		/// <remarks>
 		/// glDrawTransformFeedback draws primitives of a type specified by mode using a count retrieved from the transform feedback 
-		/// specifiedby id. Calling glDrawTransformFeedback is equivalent to calling glDrawArrays with mode as specified, first set 
-		/// tozero, and count set to the number of vertices captured on vertex stream zero the last time transform feedback was 
-		/// activeon the transform feedback object named by id. 
+		/// specified by id. Calling glDrawTransformFeedback is equivalent to calling glDrawArrays with mode as specified, first set 
+		/// to zero, and count set to the number of vertices captured on vertex stream zero the last time transform feedback was 
+		/// active on the transform feedback object named by id.
 		/// <para>
 		/// The following errors can be generated:
-		/// - GL_INVALID_ENUM is generated if mode is not an accepted value. 
-		/// - GL_INVALID_VALUE is generated if id is not the name of a transform feedback object. 
+		/// - GL_INVALID_ENUM is generated if mode is not an accepted value.
+		/// - GL_INVALID_VALUE is generated if id is not the name of a transform feedback object.
 		/// - GL_INVALID_OPERATION is generated if a non-zero buffer object name is bound to an enabled array and the buffer object's 
-		///   datastore is currently mapped. 
+		///   data store is currently mapped.
 		/// - GL_INVALID_OPERATION is generated if a geometry shader is active and mode is incompatible with the input primitive type 
-		///   ofthe geometry shader in the currently installed program object. 
-		/// - GL_INVALID_OPERATION is generated if mode is GL_PATCHES and no tessellation control shader is active. 
+		///   of the geometry shader in the currently installed program object.
+		/// - GL_INVALID_OPERATION is generated if mode is GL_PATCHES and no tessellation control shader is active.
 		/// - GL_INVALID_OPERATION is generated if glEndTransformFeedback has never been called while the transform feedback object 
-		///   namedby id was bound. 
+		///   named by id was bound.
 		/// </para>
 		/// </remarks>
 		/// <seealso cref="Gl.DrawArrays"/>
@@ -2414,34 +2415,34 @@ namespace OpenGL
 		/// </summary>
 		/// <param name="mode">
 		/// Specifies what kind of primitives to render. Symbolic constants GL_POINTS, GL_LINE_STRIP, GL_LINE_LOOP, GL_LINES, 
-		/// GL_LINE_STRIP_ADJACENCY,GL_LINES_ADJACENCY, GL_TRIANGLE_STRIP, GL_TRIANGLE_FAN, GL_TRIANGLES, 
-		/// GL_TRIANGLE_STRIP_ADJACENCY,GL_TRIANGLES_ADJACENCY, and GL_PATCHES are accepted. 
+		/// GL_LINE_STRIP_ADJACENCY, GL_LINES_ADJACENCY, GL_TRIANGLE_STRIP, GL_TRIANGLE_FAN, GL_TRIANGLES, 
+		/// GL_TRIANGLE_STRIP_ADJACENCY, GL_TRIANGLES_ADJACENCY, and GL_PATCHES are accepted.
 		/// </param>
 		/// <param name="id">
-		/// Specifies the name of a transform feedback object from which to retrieve a primitive count. 
+		/// Specifies the name of a transform feedback object from which to retrieve a primitive count.
 		/// </param>
 		/// <param name="stream">
-		/// Specifies the index of the transform feedback stream from which to retrieve a primitive count. 
+		/// Specifies the index of the transform feedback stream from which to retrieve a primitive count.
 		/// </param>
 		/// <remarks>
 		/// glDrawTransformFeedbackStream draws primitives of a type specified by mode using a count retrieved from the transform 
-		/// feedbackstream specified by stream of the transform feedback object specified by id. Calling 
-		/// glDrawTransformFeedbackStreamis equivalent to calling glDrawArrays with mode as specified, first set to zero, and count 
-		/// setto the number of vertices captured on vertex stream stream the last time transform feedback was active on the 
-		/// transformfeedback object named by id. 
-		/// Calling glDrawTransformFeedback is equivalent to calling glDrawTransformFeedbackStream with stream set to zero. 
+		/// feedback stream specified by stream of the transform feedback object specified by id. Calling 
+		/// glDrawTransformFeedbackStream is equivalent to calling glDrawArrays with mode as specified, first set to zero, and count 
+		/// set to the number of vertices captured on vertex stream stream the last time transform feedback was active on the 
+		/// transform feedback object named by id.
+		/// Calling glDrawTransformFeedback is equivalent to calling glDrawTransformFeedbackStream with stream set to zero.
 		/// <para>
 		/// The following errors can be generated:
-		/// - GL_INVALID_ENUM is generated if mode is not an accepted value. 
-		/// - GL_INVALID_VALUE is generated if id is not the name of a transform feedback object. 
-		/// - GL_INVALID_VALUE is generated if stream is greater than or equal to the value of GL_MAX_VERTEX_STREAMS. 
+		/// - GL_INVALID_ENUM is generated if mode is not an accepted value.
+		/// - GL_INVALID_VALUE is generated if id is not the name of a transform feedback object.
+		/// - GL_INVALID_VALUE is generated if stream is greater than or equal to the value of GL_MAX_VERTEX_STREAMS.
 		/// - GL_INVALID_OPERATION is generated if a non-zero buffer object name is bound to an enabled array and the buffer object's 
-		///   datastore is currently mapped. 
+		///   data store is currently mapped.
 		/// - GL_INVALID_OPERATION is generated if a geometry shader is active and mode is incompatible with the input primitive type 
-		///   ofthe geometry shader in the currently installed program object. 
-		/// - GL_INVALID_OPERATION is generated if mode is GL_PATCHES and no tessellation control shader is active. 
+		///   of the geometry shader in the currently installed program object.
+		/// - GL_INVALID_OPERATION is generated if mode is GL_PATCHES and no tessellation control shader is active.
 		/// - GL_INVALID_OPERATION is generated if glEndTransformFeedback has never been called while the transform feedback object 
-		///   namedby id was bound. 
+		///   named by id was bound.
 		/// </para>
 		/// </remarks>
 		/// <seealso cref="Gl.DrawArrays"/>
@@ -2462,34 +2463,34 @@ namespace OpenGL
 		/// </summary>
 		/// <param name="mode">
 		/// Specifies what kind of primitives to render. Symbolic constants GL_POINTS, GL_LINE_STRIP, GL_LINE_LOOP, GL_LINES, 
-		/// GL_LINE_STRIP_ADJACENCY,GL_LINES_ADJACENCY, GL_TRIANGLE_STRIP, GL_TRIANGLE_FAN, GL_TRIANGLES, 
-		/// GL_TRIANGLE_STRIP_ADJACENCY,GL_TRIANGLES_ADJACENCY, and GL_PATCHES are accepted. 
+		/// GL_LINE_STRIP_ADJACENCY, GL_LINES_ADJACENCY, GL_TRIANGLE_STRIP, GL_TRIANGLE_FAN, GL_TRIANGLES, 
+		/// GL_TRIANGLE_STRIP_ADJACENCY, GL_TRIANGLES_ADJACENCY, and GL_PATCHES are accepted.
 		/// </param>
 		/// <param name="id">
-		/// Specifies the name of a transform feedback object from which to retrieve a primitive count. 
+		/// Specifies the name of a transform feedback object from which to retrieve a primitive count.
 		/// </param>
 		/// <param name="stream">
-		/// Specifies the index of the transform feedback stream from which to retrieve a primitive count. 
+		/// Specifies the index of the transform feedback stream from which to retrieve a primitive count.
 		/// </param>
 		/// <remarks>
 		/// glDrawTransformFeedbackStream draws primitives of a type specified by mode using a count retrieved from the transform 
-		/// feedbackstream specified by stream of the transform feedback object specified by id. Calling 
-		/// glDrawTransformFeedbackStreamis equivalent to calling glDrawArrays with mode as specified, first set to zero, and count 
-		/// setto the number of vertices captured on vertex stream stream the last time transform feedback was active on the 
-		/// transformfeedback object named by id. 
-		/// Calling glDrawTransformFeedback is equivalent to calling glDrawTransformFeedbackStream with stream set to zero. 
+		/// feedback stream specified by stream of the transform feedback object specified by id. Calling 
+		/// glDrawTransformFeedbackStream is equivalent to calling glDrawArrays with mode as specified, first set to zero, and count 
+		/// set to the number of vertices captured on vertex stream stream the last time transform feedback was active on the 
+		/// transform feedback object named by id.
+		/// Calling glDrawTransformFeedback is equivalent to calling glDrawTransformFeedbackStream with stream set to zero.
 		/// <para>
 		/// The following errors can be generated:
-		/// - GL_INVALID_ENUM is generated if mode is not an accepted value. 
-		/// - GL_INVALID_VALUE is generated if id is not the name of a transform feedback object. 
-		/// - GL_INVALID_VALUE is generated if stream is greater than or equal to the value of GL_MAX_VERTEX_STREAMS. 
+		/// - GL_INVALID_ENUM is generated if mode is not an accepted value.
+		/// - GL_INVALID_VALUE is generated if id is not the name of a transform feedback object.
+		/// - GL_INVALID_VALUE is generated if stream is greater than or equal to the value of GL_MAX_VERTEX_STREAMS.
 		/// - GL_INVALID_OPERATION is generated if a non-zero buffer object name is bound to an enabled array and the buffer object's 
-		///   datastore is currently mapped. 
+		///   data store is currently mapped.
 		/// - GL_INVALID_OPERATION is generated if a geometry shader is active and mode is incompatible with the input primitive type 
-		///   ofthe geometry shader in the currently installed program object. 
-		/// - GL_INVALID_OPERATION is generated if mode is GL_PATCHES and no tessellation control shader is active. 
+		///   of the geometry shader in the currently installed program object.
+		/// - GL_INVALID_OPERATION is generated if mode is GL_PATCHES and no tessellation control shader is active.
 		/// - GL_INVALID_OPERATION is generated if glEndTransformFeedback has never been called while the transform feedback object 
-		///   namedby id was bound. 
+		///   named by id was bound.
 		/// </para>
 		/// </remarks>
 		/// <seealso cref="Gl.DrawArrays"/>
@@ -2510,70 +2511,71 @@ namespace OpenGL
 		/// </summary>
 		/// <param name="target">
 		/// Specifies the target type of query object established between glBeginQueryIndexed and the subsequent glEndQueryIndexed. 
-		/// Thesymbolic constant must be one of GL_SAMPLES_PASSED, GL_ANY_SAMPLES_PASSED, GL_PRIMITIVES_GENERATED, 
-		/// GL_TRANSFORM_FEEDBACK_PRIMITIVES_WRITTEN,or GL_TIME_ELAPSED. 
+		/// The symbolic constant must be one of GL_SAMPLES_PASSED, GL_ANY_SAMPLES_PASSED, GL_PRIMITIVES_GENERATED, 
+		/// GL_TRANSFORM_FEEDBACK_PRIMITIVES_WRITTEN, or GL_TIME_ELAPSED.
 		/// </param>
 		/// <param name="index">
-		/// Specifies the index of the query target upon which to begin the query. 
+		/// Specifies the index of the query target upon which to begin the query.
 		/// </param>
 		/// <param name="id">
-		/// Specifies the name of a query object. 
+		/// Specifies the name of a query object.
 		/// </param>
 		/// <remarks>
 		/// glBeginQueryIndexed and glEndQueryIndexed delimit the boundaries of a query object. query must be a name previously 
-		/// returnedfrom a call to glGenQueries. If a query object with name id does not yet exist it is created with the type 
-		/// determinedby target. target must be one of GL_SAMPLES_PASSED, GL_ANY_SAMPLES_PASSED, GL_PRIMITIVES_GENERATED, 
-		/// GL_TRANSFORM_FEEDBACK_PRIMITIVES_WRITTEN,or GL_TIME_ELAPSED. The behavior of the query object depends on its type and is 
-		/// asfollows. 
-		/// index specifies the index of the query target and must be between a target-specific maximum. 
+		/// returned from a call to glGenQueries. If a query object with name id does not yet exist it is created with the type 
+		/// determined by target. target must be one of GL_SAMPLES_PASSED, GL_ANY_SAMPLES_PASSED, GL_PRIMITIVES_GENERATED, 
+		/// GL_TRANSFORM_FEEDBACK_PRIMITIVES_WRITTEN, or GL_TIME_ELAPSED. The behavior of the query object depends on its type and 
+		/// is as follows.
+		/// index specifies the index of the query target and must be between a target-specific maximum.
 		/// If target is GL_SAMPLES_PASSED, id must be an unused name, or the name of an existing occlusion query object. When 
-		/// glBeginQueryIndexedis executed, the query object's samples-passed counter is reset to 0. Subsequent rendering will 
-		/// incrementthe counter for every sample that passes the depth test. If the value of GL_SAMPLE_BUFFERS is 0, then the 
-		/// samples-passedcount is incremented by 1 for each fragment. If the value of GL_SAMPLE_BUFFERS is 1, then the 
-		/// samples-passedcount is incremented by the number of samples whose coverage bit is set. However, implementations, at 
-		/// theirdiscression may instead increase the samples-passed count by the value of GL_SAMPLES if any sample in the fragment 
-		/// iscovered. When glEndQueryIndexed is executed, the samples-passed counter is assigned to the query object's result 
-		/// value.This value can be queried by calling glGetQueryObject with pnameGL_QUERY_RESULT. When target is GL_SAMPLES_PASSED, 
-		/// indexmust be zero. 
+		/// glBeginQueryIndexed is executed, the query object's samples-passed counter is reset to 0. Subsequent rendering will 
+		/// increment the counter for every sample that passes the depth test. If the value of GL_SAMPLE_BUFFERS is 0, then the 
+		/// samples-passed count is incremented by 1 for each fragment. If the value of GL_SAMPLE_BUFFERS is 1, then the 
+		/// samples-passed count is incremented by the number of samples whose coverage bit is set. However, implementations, at 
+		/// their discression may instead increase the samples-passed count by the value of GL_SAMPLES if any sample in the fragment 
+		/// is covered. When glEndQueryIndexed is executed, the samples-passed counter is assigned to the query object's result 
+		/// value. This value can be queried by calling glGetQueryObject with pnameGL_QUERY_RESULT. When target is 
+		/// GL_SAMPLES_PASSED, index must be zero.
 		/// If target is GL_ANY_SAMPLES_PASSED, id must be an unused name, or the name of an existing boolean occlusion query 
-		/// object.When glBeginQueryIndexed is executed, the query object's samples-passed flag is reset to GL_FALSE. Subsequent 
-		/// renderingcauses the flag to be set to GL_TRUE if any sample passes the depth test. When glEndQueryIndexed is executed, 
-		/// thesamples-passed flag is assigned to the query object's result value. This value can be queried by calling 
-		/// glGetQueryObjectwith pnameGL_QUERY_RESULT. When target is GL_ANY_SAMPLES_PASSED, index must be zero. 
+		/// object. When glBeginQueryIndexed is executed, the query object's samples-passed flag is reset to GL_FALSE. Subsequent 
+		/// rendering causes the flag to be set to GL_TRUE if any sample passes the depth test. When glEndQueryIndexed is executed, 
+		/// the samples-passed flag is assigned to the query object's result value. This value can be queried by calling 
+		/// glGetQueryObject with pnameGL_QUERY_RESULT. When target is GL_ANY_SAMPLES_PASSED, index must be zero.
 		/// If target is GL_PRIMITIVES_GENERATED, id must be an unused name, or the name of an existing primitive query object 
-		/// previouslybound to the GL_PRIMITIVES_GENERATED query binding. When glBeginQueryIndexed is executed, the query object's 
-		/// primitives-generatedcounter is reset to 0. Subsequent rendering will increment the counter once for every vertex that is 
-		/// emittedfrom the geometry shader to the stream given by index, or from the vertex shader if index is zero and no geometry 
-		/// shaderis present. When glEndQueryIndexed is executed, the primitives-generated counter for stream index is assigned to 
-		/// thequery object's result value. This value can be queried by calling glGetQueryObject with pnameGL_QUERY_RESULT. When 
-		/// targetis GL_PRIMITIVES_GENERATED, index must be less than the value of GL_MAX_VERTEX_STREAMS. 
+		/// previously bound to the GL_PRIMITIVES_GENERATED query binding. When glBeginQueryIndexed is executed, the query object's 
+		/// primitives-generated counter is reset to 0. Subsequent rendering will increment the counter once for every vertex that 
+		/// is emitted from the geometry shader to the stream given by index, or from the vertex shader if index is zero and no 
+		/// geometry shader is present. When glEndQueryIndexed is executed, the primitives-generated counter for stream index is 
+		/// assigned to the query object's result value. This value can be queried by calling glGetQueryObject with 
+		/// pnameGL_QUERY_RESULT. When target is GL_PRIMITIVES_GENERATED, index must be less than the value of 
+		/// GL_MAX_VERTEX_STREAMS.
 		/// If target is GL_TRANSFORM_FEEDBACK_PRIMITIVES_WRITTEN, id must be an unused name, or the name of an existing primitive 
-		/// queryobject previously bound to the GL_TRANSFORM_FEEDBACK_PRIMITIVES_WRITTEN query binding. When glBeginQueryIndexed is 
-		/// executed,the query object's primitives-written counter for the stream specified by index is reset to 0. Subsequent 
-		/// renderingwill increment the counter once for every vertex that is written into the bound transform feedback buffer(s) 
-		/// forstream index. If transform feedback mode is not activated between the call to glBeginQueryIndexed and 
-		/// glEndQueryIndexed,the counter will not be incremented. When glEndQueryIndexed is executed, the primitives-written 
-		/// counterfor stream index is assigned to the query object's result value. This value can be queried by calling 
-		/// glGetQueryObjectwith pnameGL_QUERY_RESULT. When target is GL_TRANSFORM_FEEDBACK_PRIMITIVES_WRITTEN, index must be less 
-		/// thanthe value of GL_MAX_VERTEX_STREAMS. 
+		/// query object previously bound to the GL_TRANSFORM_FEEDBACK_PRIMITIVES_WRITTEN query binding. When glBeginQueryIndexed is 
+		/// executed, the query object's primitives-written counter for the stream specified by index is reset to 0. Subsequent 
+		/// rendering will increment the counter once for every vertex that is written into the bound transform feedback buffer(s) 
+		/// for stream index. If transform feedback mode is not activated between the call to glBeginQueryIndexed and 
+		/// glEndQueryIndexed, the counter will not be incremented. When glEndQueryIndexed is executed, the primitives-written 
+		/// counter for stream index is assigned to the query object's result value. This value can be queried by calling 
+		/// glGetQueryObject with pnameGL_QUERY_RESULT. When target is GL_TRANSFORM_FEEDBACK_PRIMITIVES_WRITTEN, index must be less 
+		/// than the value of GL_MAX_VERTEX_STREAMS.
 		/// If target is GL_TIME_ELAPSED, id must be an unused name, or the name of an existing timer query object previously bound 
-		/// tothe GL_TIME_ELAPSED query binding. When glBeginQueryIndexed is executed, the query object's time counter is reset to 
-		/// 0.When glEndQueryIndexed is executed, the elapsed server time that has passed since the call to glBeginQueryIndexed is 
-		/// writteninto the query object's time counter. This value can be queried by calling glGetQueryObject with 
-		/// pnameGL_QUERY_RESULT.When target is GL_TIME_ELAPSED, index must be zero. 
+		/// to the GL_TIME_ELAPSED query binding. When glBeginQueryIndexed is executed, the query object's time counter is reset to 
+		/// 0. When glEndQueryIndexed is executed, the elapsed server time that has passed since the call to glBeginQueryIndexed is 
+		/// written into the query object's time counter. This value can be queried by calling glGetQueryObject with 
+		/// pnameGL_QUERY_RESULT. When target is GL_TIME_ELAPSED, index must be zero.
 		/// Querying the GL_QUERY_RESULT implicitly flushes the GL pipeline until the rendering delimited by the query object has 
-		/// completedand the result is available. GL_QUERY_RESULT_AVAILABLE can be queried to determine if the result is immediately 
-		/// availableor if the rendering is not yet complete. 
+		/// completed and the result is available. GL_QUERY_RESULT_AVAILABLE can be queried to determine if the result is 
+		/// immediately available or if the rendering is not yet complete.
 		/// <para>
 		/// The following errors can be generated:
-		/// - GL_INVALID_ENUM is generated if target is not one of the accepted tokens. 
-		/// - GL_INVALID_VALUE is generated if index is greater than the query target-specific maximum. 
+		/// - GL_INVALID_ENUM is generated if target is not one of the accepted tokens.
+		/// - GL_INVALID_VALUE is generated if index is greater than the query target-specific maximum.
 		/// - GL_INVALID_OPERATION is generated if glBeginQueryIndexed is executed while a query object of the same target is already 
 		///   active.
-		/// - GL_INVALID_OPERATION is generated if glEndQueryIndexed is executed when a query object of the same target is not active. 
-		/// - GL_INVALID_OPERATION is generated if id is 0. 
-		/// - GL_INVALID_OPERATION is generated if id is the name of an already active query object. 
-		/// - GL_INVALID_OPERATION is generated if id refers to an existing query object whose type does not does not match target. 
+		/// - GL_INVALID_OPERATION is generated if glEndQueryIndexed is executed when a query object of the same target is not active.
+		/// - GL_INVALID_OPERATION is generated if id is 0.
+		/// - GL_INVALID_OPERATION is generated if id is the name of an already active query object.
+		/// - GL_INVALID_OPERATION is generated if id refers to an existing query object whose type does not does not match target.
 		/// </para>
 		/// </remarks>
 		/// <seealso cref="Gl.BeginQuery"/>
@@ -2596,67 +2598,68 @@ namespace OpenGL
 		/// </summary>
 		/// <param name="target">
 		/// Specifies the target type of query object established between glBeginQueryIndexed and the subsequent glEndQueryIndexed. 
-		/// Thesymbolic constant must be one of GL_SAMPLES_PASSED, GL_ANY_SAMPLES_PASSED, GL_PRIMITIVES_GENERATED, 
-		/// GL_TRANSFORM_FEEDBACK_PRIMITIVES_WRITTEN,or GL_TIME_ELAPSED. 
+		/// The symbolic constant must be one of GL_SAMPLES_PASSED, GL_ANY_SAMPLES_PASSED, GL_PRIMITIVES_GENERATED, 
+		/// GL_TRANSFORM_FEEDBACK_PRIMITIVES_WRITTEN, or GL_TIME_ELAPSED.
 		/// </param>
 		/// <param name="index">
-		/// Specifies the index of the query target upon which to begin the query. 
+		/// Specifies the index of the query target upon which to begin the query.
 		/// </param>
 		/// <remarks>
 		/// glBeginQueryIndexed and glEndQueryIndexed delimit the boundaries of a query object. query must be a name previously 
-		/// returnedfrom a call to glGenQueries. If a query object with name id does not yet exist it is created with the type 
-		/// determinedby target. target must be one of GL_SAMPLES_PASSED, GL_ANY_SAMPLES_PASSED, GL_PRIMITIVES_GENERATED, 
-		/// GL_TRANSFORM_FEEDBACK_PRIMITIVES_WRITTEN,or GL_TIME_ELAPSED. The behavior of the query object depends on its type and is 
-		/// asfollows. 
-		/// index specifies the index of the query target and must be between a target-specific maximum. 
+		/// returned from a call to glGenQueries. If a query object with name id does not yet exist it is created with the type 
+		/// determined by target. target must be one of GL_SAMPLES_PASSED, GL_ANY_SAMPLES_PASSED, GL_PRIMITIVES_GENERATED, 
+		/// GL_TRANSFORM_FEEDBACK_PRIMITIVES_WRITTEN, or GL_TIME_ELAPSED. The behavior of the query object depends on its type and 
+		/// is as follows.
+		/// index specifies the index of the query target and must be between a target-specific maximum.
 		/// If target is GL_SAMPLES_PASSED, id must be an unused name, or the name of an existing occlusion query object. When 
-		/// glBeginQueryIndexedis executed, the query object's samples-passed counter is reset to 0. Subsequent rendering will 
-		/// incrementthe counter for every sample that passes the depth test. If the value of GL_SAMPLE_BUFFERS is 0, then the 
-		/// samples-passedcount is incremented by 1 for each fragment. If the value of GL_SAMPLE_BUFFERS is 1, then the 
-		/// samples-passedcount is incremented by the number of samples whose coverage bit is set. However, implementations, at 
-		/// theirdiscression may instead increase the samples-passed count by the value of GL_SAMPLES if any sample in the fragment 
-		/// iscovered. When glEndQueryIndexed is executed, the samples-passed counter is assigned to the query object's result 
-		/// value.This value can be queried by calling glGetQueryObject with pnameGL_QUERY_RESULT. When target is GL_SAMPLES_PASSED, 
-		/// indexmust be zero. 
+		/// glBeginQueryIndexed is executed, the query object's samples-passed counter is reset to 0. Subsequent rendering will 
+		/// increment the counter for every sample that passes the depth test. If the value of GL_SAMPLE_BUFFERS is 0, then the 
+		/// samples-passed count is incremented by 1 for each fragment. If the value of GL_SAMPLE_BUFFERS is 1, then the 
+		/// samples-passed count is incremented by the number of samples whose coverage bit is set. However, implementations, at 
+		/// their discression may instead increase the samples-passed count by the value of GL_SAMPLES if any sample in the fragment 
+		/// is covered. When glEndQueryIndexed is executed, the samples-passed counter is assigned to the query object's result 
+		/// value. This value can be queried by calling glGetQueryObject with pnameGL_QUERY_RESULT. When target is 
+		/// GL_SAMPLES_PASSED, index must be zero.
 		/// If target is GL_ANY_SAMPLES_PASSED, id must be an unused name, or the name of an existing boolean occlusion query 
-		/// object.When glBeginQueryIndexed is executed, the query object's samples-passed flag is reset to GL_FALSE. Subsequent 
-		/// renderingcauses the flag to be set to GL_TRUE if any sample passes the depth test. When glEndQueryIndexed is executed, 
-		/// thesamples-passed flag is assigned to the query object's result value. This value can be queried by calling 
-		/// glGetQueryObjectwith pnameGL_QUERY_RESULT. When target is GL_ANY_SAMPLES_PASSED, index must be zero. 
+		/// object. When glBeginQueryIndexed is executed, the query object's samples-passed flag is reset to GL_FALSE. Subsequent 
+		/// rendering causes the flag to be set to GL_TRUE if any sample passes the depth test. When glEndQueryIndexed is executed, 
+		/// the samples-passed flag is assigned to the query object's result value. This value can be queried by calling 
+		/// glGetQueryObject with pnameGL_QUERY_RESULT. When target is GL_ANY_SAMPLES_PASSED, index must be zero.
 		/// If target is GL_PRIMITIVES_GENERATED, id must be an unused name, or the name of an existing primitive query object 
-		/// previouslybound to the GL_PRIMITIVES_GENERATED query binding. When glBeginQueryIndexed is executed, the query object's 
-		/// primitives-generatedcounter is reset to 0. Subsequent rendering will increment the counter once for every vertex that is 
-		/// emittedfrom the geometry shader to the stream given by index, or from the vertex shader if index is zero and no geometry 
-		/// shaderis present. When glEndQueryIndexed is executed, the primitives-generated counter for stream index is assigned to 
-		/// thequery object's result value. This value can be queried by calling glGetQueryObject with pnameGL_QUERY_RESULT. When 
-		/// targetis GL_PRIMITIVES_GENERATED, index must be less than the value of GL_MAX_VERTEX_STREAMS. 
+		/// previously bound to the GL_PRIMITIVES_GENERATED query binding. When glBeginQueryIndexed is executed, the query object's 
+		/// primitives-generated counter is reset to 0. Subsequent rendering will increment the counter once for every vertex that 
+		/// is emitted from the geometry shader to the stream given by index, or from the vertex shader if index is zero and no 
+		/// geometry shader is present. When glEndQueryIndexed is executed, the primitives-generated counter for stream index is 
+		/// assigned to the query object's result value. This value can be queried by calling glGetQueryObject with 
+		/// pnameGL_QUERY_RESULT. When target is GL_PRIMITIVES_GENERATED, index must be less than the value of 
+		/// GL_MAX_VERTEX_STREAMS.
 		/// If target is GL_TRANSFORM_FEEDBACK_PRIMITIVES_WRITTEN, id must be an unused name, or the name of an existing primitive 
-		/// queryobject previously bound to the GL_TRANSFORM_FEEDBACK_PRIMITIVES_WRITTEN query binding. When glBeginQueryIndexed is 
-		/// executed,the query object's primitives-written counter for the stream specified by index is reset to 0. Subsequent 
-		/// renderingwill increment the counter once for every vertex that is written into the bound transform feedback buffer(s) 
-		/// forstream index. If transform feedback mode is not activated between the call to glBeginQueryIndexed and 
-		/// glEndQueryIndexed,the counter will not be incremented. When glEndQueryIndexed is executed, the primitives-written 
-		/// counterfor stream index is assigned to the query object's result value. This value can be queried by calling 
-		/// glGetQueryObjectwith pnameGL_QUERY_RESULT. When target is GL_TRANSFORM_FEEDBACK_PRIMITIVES_WRITTEN, index must be less 
-		/// thanthe value of GL_MAX_VERTEX_STREAMS. 
+		/// query object previously bound to the GL_TRANSFORM_FEEDBACK_PRIMITIVES_WRITTEN query binding. When glBeginQueryIndexed is 
+		/// executed, the query object's primitives-written counter for the stream specified by index is reset to 0. Subsequent 
+		/// rendering will increment the counter once for every vertex that is written into the bound transform feedback buffer(s) 
+		/// for stream index. If transform feedback mode is not activated between the call to glBeginQueryIndexed and 
+		/// glEndQueryIndexed, the counter will not be incremented. When glEndQueryIndexed is executed, the primitives-written 
+		/// counter for stream index is assigned to the query object's result value. This value can be queried by calling 
+		/// glGetQueryObject with pnameGL_QUERY_RESULT. When target is GL_TRANSFORM_FEEDBACK_PRIMITIVES_WRITTEN, index must be less 
+		/// than the value of GL_MAX_VERTEX_STREAMS.
 		/// If target is GL_TIME_ELAPSED, id must be an unused name, or the name of an existing timer query object previously bound 
-		/// tothe GL_TIME_ELAPSED query binding. When glBeginQueryIndexed is executed, the query object's time counter is reset to 
-		/// 0.When glEndQueryIndexed is executed, the elapsed server time that has passed since the call to glBeginQueryIndexed is 
-		/// writteninto the query object's time counter. This value can be queried by calling glGetQueryObject with 
-		/// pnameGL_QUERY_RESULT.When target is GL_TIME_ELAPSED, index must be zero. 
+		/// to the GL_TIME_ELAPSED query binding. When glBeginQueryIndexed is executed, the query object's time counter is reset to 
+		/// 0. When glEndQueryIndexed is executed, the elapsed server time that has passed since the call to glBeginQueryIndexed is 
+		/// written into the query object's time counter. This value can be queried by calling glGetQueryObject with 
+		/// pnameGL_QUERY_RESULT. When target is GL_TIME_ELAPSED, index must be zero.
 		/// Querying the GL_QUERY_RESULT implicitly flushes the GL pipeline until the rendering delimited by the query object has 
-		/// completedand the result is available. GL_QUERY_RESULT_AVAILABLE can be queried to determine if the result is immediately 
-		/// availableor if the rendering is not yet complete. 
+		/// completed and the result is available. GL_QUERY_RESULT_AVAILABLE can be queried to determine if the result is 
+		/// immediately available or if the rendering is not yet complete.
 		/// <para>
 		/// The following errors can be generated:
-		/// - GL_INVALID_ENUM is generated if target is not one of the accepted tokens. 
-		/// - GL_INVALID_VALUE is generated if index is greater than the query target-specific maximum. 
+		/// - GL_INVALID_ENUM is generated if target is not one of the accepted tokens.
+		/// - GL_INVALID_VALUE is generated if index is greater than the query target-specific maximum.
 		/// - GL_INVALID_OPERATION is generated if glBeginQueryIndexed is executed while a query object of the same target is already 
 		///   active.
-		/// - GL_INVALID_OPERATION is generated if glEndQueryIndexed is executed when a query object of the same target is not active. 
-		/// - GL_INVALID_OPERATION is generated if id is 0. 
-		/// - GL_INVALID_OPERATION is generated if id is the name of an already active query object. 
-		/// - GL_INVALID_OPERATION is generated if id refers to an existing query object whose type does not does not match target. 
+		/// - GL_INVALID_OPERATION is generated if glEndQueryIndexed is executed when a query object of the same target is not active.
+		/// - GL_INVALID_OPERATION is generated if id is 0.
+		/// - GL_INVALID_OPERATION is generated if id is the name of an already active query object.
+		/// - GL_INVALID_OPERATION is generated if id refers to an existing query object whose type does not does not match target.
 		/// </para>
 		/// </remarks>
 		/// <seealso cref="Gl.BeginQuery"/>
@@ -2679,11 +2682,11 @@ namespace OpenGL
 		/// </summary>
 		/// <param name="target">
 		/// Specifies a query object target. Must be GL_SAMPLES_PASSED, GL_ANY_SAMPLES_PASSED, 
-		/// GL_ANY_SAMPLES_PASSED_CONSERVATIVEGL_PRIMITIVES_GENERATED,GL_TRANSFORM_FEEDBACK_PRIMITIVES_WRITTEN, GL_TIME_ELAPSED, or 
+		/// GL_ANY_SAMPLES_PASSED_CONSERVATIVEGL_PRIMITIVES_GENERATED, GL_TRANSFORM_FEEDBACK_PRIMITIVES_WRITTEN, GL_TIME_ELAPSED, or 
 		/// GL_TIMESTAMP.
 		/// </param>
 		/// <param name="index">
-		/// Specifies the index of the query object target. 
+		/// Specifies the index of the query object target.
 		/// </param>
 		/// <param name="pname">
 		/// Specifies the symbolic name of a query object target parameter. Accepted values are GL_CURRENT_QUERY or 
@@ -2694,15 +2697,15 @@ namespace OpenGL
 		/// </param>
 		/// <remarks>
 		/// glGetQueryIndexediv returns in params a selected parameter of the indexed query object target specified by target and 
-		/// index.index specifies the index of the query object target and must be between zero and a target-specific maxiumum. 
+		/// index. index specifies the index of the query object target and must be between zero and a target-specific maxiumum.
 		/// pname names a specific query object target parameter. When pname is GL_CURRENT_QUERY, the name of the currently active 
-		/// queryfor the specified index of target, or zero if no query is active, will be placed in params. If pname is 
-		/// GL_QUERY_COUNTER_BITS,the implementation-dependent number of bits used to hold the result of queries for target is 
-		/// returnedin params. 
+		/// query for the specified index of target, or zero if no query is active, will be placed in params. If pname is 
+		/// GL_QUERY_COUNTER_BITS, the implementation-dependent number of bits used to hold the result of queries for target is 
+		/// returned in params.
 		/// <para>
 		/// The following errors can be generated:
-		/// - GL_INVALID_ENUM is generated if target or pname is not an accepted value. 
-		/// - GL_INVALID_VALUE is generated if index is greater than or equal to the target-specific maximum. 
+		/// - GL_INVALID_ENUM is generated if target or pname is not an accepted value.
+		/// - GL_INVALID_VALUE is generated if index is greater than or equal to the target-specific maximum.
 		/// </para>
 		/// </remarks>
 		/// <seealso cref="Gl.GetQueryObject"/>
