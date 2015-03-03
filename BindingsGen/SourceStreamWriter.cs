@@ -20,6 +20,9 @@ using System.Text;
 
 namespace BindingsGen
 {
+	/// <summary>
+	/// A <see cref="StreamWriter"/> specilized for writing source code.
+	/// </summary>
 	class SourceStreamWriter : StreamWriter
 	{
 		#region Constructors
@@ -66,11 +69,17 @@ namespace BindingsGen
 
 		#region Indentation
 
+		/// <summary>
+		/// Increment the identation.
+		/// </summary>
 		public void Indent()
 		{
 			mIdentation = mIdentation + '\t';
 		}
 
+		/// <summary>
+		/// Decrement the identation.
+		/// </summary>
 		public void Unindent()
 		{
 			if (mIdentation.Length == 0)
@@ -78,13 +87,16 @@ namespace BindingsGen
 			mIdentation = mIdentation.Substring(1);
 		}
 
+		/// <summary>
+		/// Writes the current identation.
+		/// </summary>
 		public void WriteIdentation()
 		{
 			base.Write(mIdentation);
 		}
 
 		/// <summary>
-		/// 
+		/// The string representing the current identation.
 		/// </summary>
 		private string mIdentation = string.Empty;
 

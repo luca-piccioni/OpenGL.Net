@@ -20,6 +20,9 @@ using System.Xml.Serialization;
 
 namespace BindingsGen.GLSpecs
 {
+	/// <summary>
+	/// Block of command.s
+	/// </summary>
 	public class CommandBlock
 	{
 		/// <summary>
@@ -28,6 +31,9 @@ namespace BindingsGen.GLSpecs
 		[XmlAttribute("namespace")]
 		public String Namespace;
 
+		/// <summary>
+		/// Commands grouped by this CommandBlock.
+		/// </summary>
 		[XmlElement("command")]
 		public readonly List<Command> Commands = new List<Command>();
 	}

@@ -23,6 +23,9 @@ using BindingsGen.GLSpecs;
 
 namespace BindingsGen
 {
+	/// <summary>
+	/// OpenGL registry processor.
+	/// </summary>
 	class RegistryProcessor
 	{
 		#region Constructors

@@ -131,6 +131,9 @@ namespace BindingsGen.GLSpecs
 
 		#region Declared Aliases
 
+		/// <summary>
+		/// List of <see cref="Command"/> that are equivalent to this Command.
+		/// </summary>
 		[XmlIgnore()]
 		public readonly List<Command> Aliases = new List<Command>();
 
@@ -146,18 +149,30 @@ namespace BindingsGen.GLSpecs
 			get { return (Prototype.Name); }
 		}
 
+		/// <summary>
+		/// Generate the command import source code.
+		/// </summary>
+		/// <param name="sw">
+		/// The <see cref="SourceStreamWriter"/> used to write the source code.
+		/// </param>
+		/// <param name="ctx">
+		/// The <see cref="RegistryContext"/> defining the OpenGL registry information.
+		/// </param>
 		internal void GenerateImport(SourceStreamWriter sw, RegistryContext ctx)
 		{
+			// The SuppressUnmanagedCodeSecurity attribute is used to increase P/Invoke performance
 			sw.WriteLine("[SuppressUnmanagedCodeSecurity()]");
+			// Import definition
 			sw.WriteLine("[DllImport(Library, EntryPoint = \"{0}\", ExactSpelling = true)]", ImportName);
 
 			// GLboolean is mapped to 'unsigned char': instruct to marshal return value as 1 byte boolean
 			if (Prototype.Type == "GLboolean")
 				sw.WriteLine("[return: MarshalAs(UnmanagedType.I1)]");
-			// BOOL is mapped to 'unsigned int': instruct to marshal return value as 1 byte boolean
+			// BOOL is mapped to 'unsigned int': instruct to marshal return value as 4 byte boolean
 			if (Prototype.Type == "BOOL")
 				sw.WriteLine("[return: MarshalAs(UnmanagedType.Bool)]");
 
+			// Import declaration
 			sw.WriteIdentation(); sw.Write("internal extern static ");
 			if (IsSafeImplementation == false) sw.Write("unsafe ");
 
@@ -195,10 +210,21 @@ namespace BindingsGen.GLSpecs
 			get { return (Prototype.DelegateReturnType); }
 		}
 
+		/// <summary>
+		/// Generate the command delegate source code.
+		/// </summary>
+		/// <param name="sw">
+		/// The <see cref="SourceStreamWriter"/> used to write the source code.
+		/// </param>
+		/// <param name="ctx">
+		/// The <see cref="RegistryContext"/> defining the OpenGL registry information.
+		/// </param>
 		internal void GenerateDelegate(SourceStreamWriter sw, RegistryContext ctx)
 		{
+			// No sure if it is really necessary
 			sw.WriteLine("[SuppressUnmanagedCodeSecurity()]");
 
+			// Delegate type definition
 			sw.WriteIdentation(); sw.Write("internal ");
 			if (IsSafeImplementation == false) sw.Write("unsafe ");
 			sw.Write("delegate ");
@@ -225,7 +251,11 @@ namespace BindingsGen.GLSpecs
 			sw.Write(");");
 			sw.WriteLine();
 
+			// Required on Windows platform: different threads can bind different OpenGL context, which can have different
+			// entry points
 			sw.WriteLine("[ThreadStatic]");
+
+			// Delegate field
 			sw.WriteLine("internal static {0} {1};", ImportName, DelegateName);
 		}
 
@@ -236,6 +266,9 @@ namespace BindingsGen.GLSpecs
 		/// <summary>
 		/// Get the name of the command implementation (without overloading).
 		/// </summary>
+		/// <param name="ctx">
+		/// The <see cref="RegistryContext"/> defining the OpenGL registry information.
+		/// </param>
 		private string GetImplementationNameBase(RegistryContext ctx)
 		{
 			string implementationName = Prototype.Name;
@@ -271,6 +304,9 @@ namespace BindingsGen.GLSpecs
 		/// <summary>
 		/// Get the implementation return type.
 		/// </summary>
+		/// <param name="ctx">
+		/// The <see cref="RegistryContext"/> defining the OpenGL registry information.
+		/// </param>
 		private string GetImplementationReturnType(RegistryContext ctx)
 		{
 			if ((Prototype.Group != null) && (ctx.Registry.Groups.FindIndex(delegate(EnumerantGroup item) { return (item.Name == Prototype.Group); }) >= 0)) {
@@ -281,6 +317,19 @@ namespace BindingsGen.GLSpecs
 			return (Prototype.ImplementationReturnType);
 		}
 
+		/// <summary>
+		/// Determine whether the command implementation requires fixed statement(s).
+		/// </summary>
+		/// <param name="ctx">
+		/// The <see cref="RegistryContext"/> defining the OpenGL registry information.
+		/// </param>
+		/// <param name="commandParams">
+		/// A <see cref="T:List{CommandParameter}"/> determining the method overload.
+		/// </param>
+		/// <returns>
+		/// It returns a boolean value indicating whether the method implementation parameters requires
+		/// a fixed statement.
+		/// </returns>
 		private bool IsFixedImplementation(RegistryContext ctx, List<CommandParameter> commandParams)
 		{
 			foreach (CommandParameter param in commandParams)
@@ -290,6 +339,19 @@ namespace BindingsGen.GLSpecs
 			return (false);
 		}
 
+		/// <summary>
+		/// Determine whether the command implementation requires GC pinned statement(s).
+		/// </summary>
+		/// <param name="ctx">
+		/// The <see cref="RegistryContext"/> defining the OpenGL registry information.
+		/// </param>
+		/// <param name="commandParams">
+		/// A <see cref="T:List{CommandParameter}"/> determining the method overload.
+		/// </param>
+		/// <returns>
+		/// It returns a boolean value indicating whether the method implementation parameters requires
+		/// a pinned statement.
+		/// </returns>
 		private bool IsPinnedImplementation(RegistryContext ctx, List<CommandParameter> commandParams)
 		{
 			foreach (CommandParameter param in commandParams)
@@ -299,6 +361,13 @@ namespace BindingsGen.GLSpecs
 			return (false);
 		}
 
+		/// <summary>
+		/// Generate a list of function parameters determining the overloaded methods.
+		/// </summary>
+		/// <param name="ctx">
+		/// The <see cref="RegistryContext"/> defining the OpenGL registry information.
+		/// </param>
+		/// <returns></returns>
 		private List<CommandParameter>[] GetOverridenImplementations(RegistryContext ctx)
 		{
 			List<List<CommandParameter>> overridenParameters = new List<List<CommandParameter>>();
@@ -329,6 +398,15 @@ namespace BindingsGen.GLSpecs
 			return (overridenParameters.ToArray());
 		}
 
+		/// <summary>
+		/// Generate the command implementations source code (all overloads).
+		/// </summary>
+		/// <param name="sw">
+		/// The <see cref="SourceStreamWriter"/> used to write the source code.
+		/// </param>
+		/// <param name="ctx">
+		/// The <see cref="RegistryContext"/> defining the OpenGL registry information.
+		/// </param>
 		internal void GenerateImplementations(SourceStreamWriter sw, RegistryContext ctx)
 		{
 			List<CommandParameter>[] overridenParams = GetOverridenImplementations(ctx);
@@ -342,6 +420,18 @@ namespace BindingsGen.GLSpecs
 			}
 		}
 
+		/// <summary>
+		/// Generate the command implementation source code.
+		/// </summary>
+		/// <param name="sw">
+		/// The <see cref="SourceStreamWriter"/> used to write the source code.
+		/// </param>
+		/// <param name="ctx">
+		/// The <see cref="RegistryContext"/> defining the OpenGL registry information.
+		/// </param>
+		/// <param name="commandParams">
+		/// A <see cref="T:List{CommandParameter}"/> determining the method overload.
+		/// </param>
 		private void GenerateImplementation(SourceStreamWriter sw, RegistryContext ctx, List<CommandParameter> commandParams)
 		{
 			bool pinnedImplementation = IsPinnedImplementation(ctx, commandParams);
@@ -352,6 +442,18 @@ namespace BindingsGen.GLSpecs
 				GenerateImplementation_Pinned(sw, ctx, commandParams);
 		}
 
+		/// <summary>
+		/// Generate the command implementation signature and the method documentation.
+		/// </summary>
+		/// <param name="sw">
+		/// The <see cref="SourceStreamWriter"/> used to write the source code.
+		/// </param>
+		/// <param name="ctx">
+		/// The <see cref="RegistryContext"/> defining the OpenGL registry information.
+		/// </param>
+		/// <param name="commandParams">
+		/// A <see cref="T:List{CommandParameter}"/> determining the method overload.
+		/// </param>
 		private void GenerateImplementation_Signature(SourceStreamWriter sw, RegistryContext ctx, List<CommandParameter> commandParams)
 		{
 			// Documentation
@@ -384,6 +486,18 @@ namespace BindingsGen.GLSpecs
 			#endregion
 		}
 
+		/// <summary>
+		/// Generate the command implementation (fixed variant).
+		/// </summary>
+		/// <param name="sw">
+		/// The <see cref="SourceStreamWriter"/> used to write the source code.
+		/// </param>
+		/// <param name="ctx">
+		/// The <see cref="RegistryContext"/> defining the OpenGL registry information.
+		/// </param>
+		/// <param name="commandParams">
+		/// A <see cref="T:List{CommandParameter}"/> determining the method overload.
+		/// </param>
 		private void GenerateImplementation_Default(SourceStreamWriter sw, RegistryContext ctx, List<CommandParameter> commandParams)
 		{
 			List<Command> aliases = new List<Command>();
@@ -610,6 +724,18 @@ namespace BindingsGen.GLSpecs
 			sw.WriteLine("}");
 		}
 
+		/// <summary>
+		/// Generate the command implementation (pinned variant).
+		/// </summary>
+		/// <param name="sw">
+		/// The <see cref="SourceStreamWriter"/> used to write the source code.
+		/// </param>
+		/// <param name="ctx">
+		/// The <see cref="RegistryContext"/> defining the OpenGL registry information.
+		/// </param>
+		/// <param name="commandParams">
+		/// A <see cref="T:List{CommandParameter}"/> determining the method overload.
+		/// </param>
 		private void GenerateImplementation_Pinned(SourceStreamWriter sw, RegistryContext ctx, List<CommandParameter> commandParams)
 		{
 			// Signature
@@ -722,6 +848,15 @@ namespace BindingsGen.GLSpecs
 			}
 		}
 
+		/// <summary>
+		/// Determine whether this command is a "Get" command (that is, it returns information to the caller).
+		/// </summary>
+		/// <param name="ctx">
+		/// The <see cref="RegistryContext"/> defining the OpenGL registry information.
+		/// </param>
+		/// <returns>
+		/// It returns a boolean value indicating whether this Command is a Get command.
+		/// </returns>
 		internal bool IsGetImplementation(RegistryContext ctx)
 		{
 			string implementationName = GetImplementationNameBase(ctx);
@@ -729,6 +864,16 @@ namespace BindingsGen.GLSpecs
 			return (implementationName.StartsWith("Get") || implementationName.StartsWith("Are") || implementationName.StartsWith("Is"));
 		}
 
+		/// <summary>
+		/// Determine the extension postfix of this command.
+		/// </summary>
+		/// <param name="ctx">
+		/// The <see cref="RegistryContext"/> defining the OpenGL registry information.
+		/// </param>
+		/// <returns>
+		/// It returns the string that identifies the extension suffix of this method, if found; otherwise,
+		/// it returns an empty string.
+		/// </returns>
 		internal string GetExtensionPostfix(RegistryContext ctx)
 		{
 			string name = Prototype.Name;

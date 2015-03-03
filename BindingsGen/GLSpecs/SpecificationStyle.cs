@@ -20,8 +20,20 @@ using System.Text.RegularExpressions;
 
 namespace BindingsGen.GLSpecs
 {
+	/// <summary>
+	/// Class determining the OpenGL bindings style.
+	/// </summary>
 	static class SpecificationStyle
 	{
+		/// <summary>
+		/// Convert a camel-case style for OpenGL specification tokens.
+		/// </summary>
+		/// <param name="token">
+		/// The OpenGL specification token to be converted in camel-case.
+		/// </param>
+		/// <returns>
+		/// It returns the camel-case version of <paramref name="token"/>.
+		/// </returns>
 		public static string GetCamelCase(string token)
 		{
 			if (token == null)
@@ -39,6 +51,15 @@ namespace BindingsGen.GLSpecs
 			return (GetLegalCsField(sb.ToString()));
 		}
 
+		/// <summary>
+		/// Get the OpenGL enumerant name.
+		/// </summary>
+		/// <param name="specificationName">
+		/// The OpenGL specification enumerant name to be converted.
+		/// </param>
+		/// <returns>
+		/// It returns the name of the enumerant for the OpenGL binding.
+		/// </returns>
 		public static string GetEnumBindingName(string specificationName)
 		{
 			if (specificationName == null)
@@ -50,6 +71,16 @@ namespace BindingsGen.GLSpecs
 			return (GetLegalCsField(specificationName));
 		}
 
+		/// <summary>
+		/// Convert specific constant patterns in human-readable strings.
+		/// </summary>
+		/// <param name="token">
+		/// The OpenGL specification constant to be converted.
+		/// </param>
+		/// <returns>
+		/// It returns the human-readable version of <paramref name="token"/> if a known pattern is detected, otherwise
+		/// it returns <paramref name="token"/>.
+		/// </returns>
 		public static string GetHumanToken(string token)
 		{
 			if (token == null)
@@ -92,6 +123,11 @@ namespace BindingsGen.GLSpecs
 			return (token);
 		}
 
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="token"></param>
+		/// <returns></returns>
 		private static string GetLegalCsField(string token)
 		{
 			if (token == null)

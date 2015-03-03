@@ -89,6 +89,9 @@ namespace BindingsGen.GLSpecs
 
 		#region Code Generation - Implementation
 
+		/// <summary>
+		/// Determine whether this CommandParameter can be used in a safe context.
+		/// </summary>
 		internal bool IsSafe
 		{
 			get
@@ -102,6 +105,12 @@ namespace BindingsGen.GLSpecs
 			}
 		}
 
+		/// <summary>
+		/// Determine whether this CommandParameter must be used in a fixed context.
+		/// </summary>
+		/// <param name="ctx"></param>
+		/// <param name="parentCommand"></param>
+		/// <returns></returns>
 		internal bool IsFixed(RegistryContext ctx, Command parentCommand)
 		{
 			string implementationType = ManagedImplementationType;
@@ -115,6 +124,12 @@ namespace BindingsGen.GLSpecs
 			return (false);
 		}
 
+		/// <summary>
+		/// Determine whether this CommandParameter must be used in a pinned context.
+		/// </summary>
+		/// <param name="ctx"></param>
+		/// <param name="parentCommand"></param>
+		/// <returns></returns>
 		internal bool IsPinned(RegistryContext ctx, Command parentCommand)
 		{
 			return (Type == "Object");

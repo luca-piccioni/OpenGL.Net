@@ -24,12 +24,17 @@ using BindingsGen.GLSpecs;
 
 namespace BindingsGen
 {
+	/// <summary>
+	/// OpenGL bindings generator.
+	/// </summary>
 	class Program
 	{
 		/// <summary>
 		/// Application entry point.
 		/// </summary>
-		/// <param name="args"></param>
+		/// <param name="args">
+		/// The command line invocation arguments.
+		/// </param>
 		static void Main(string[] args)
 		{
 			RegistryContext ctx;
@@ -39,11 +44,9 @@ namespace BindingsGen
 			RegistryDocumentation.Touch();
 
 			// OpenGL
-			if (false) {
-				ctx = new RegistryContext("Gl", Path.Combine(BasePath, "GLSpecs/gl.xml"));
-				glRegistryProcessor = new RegistryProcessor(ctx.Registry);
-				GenerateCommandsAndEnums(glRegistryProcessor, ctx);
-			}
+			ctx = new RegistryContext("Gl", Path.Combine(BasePath, "GLSpecs/gl.xml"));
+			glRegistryProcessor = new RegistryProcessor(ctx.Registry);
+			GenerateCommandsAndEnums(glRegistryProcessor, ctx);
 
 			// OpenGL for Windows
 			ctx = new RegistryContext("Wgl", Path.Combine(BasePath, "GLSpecs/wgl.xml"));
@@ -51,48 +54,20 @@ namespace BindingsGen
 			GenerateCommandsAndEnums(glRegistryProcessor, ctx);
 		}
 
+		/// <summary>
+		/// Base path to construct correct file paths.
+		/// </summary>
         internal static readonly string BasePath = "../../../";
 
-		private static void GenerateCommands(RegistryProcessor glRegistryProcessor, RegistryContext ctx)
-		{
-			List<Command> commands = ctx.Registry.Commands;
-			Dictionary<string, bool> serializedCommands = new Dictionary<string, bool>(commands.Count);
-
-			foreach (IFeature feature in ctx.Registry.AllFeatures(ctx)) {
-				List<Command> featureCommands = new List<Command>();
-
-				foreach (FeatureCommand featureCommand in feature.Requirements) {
-					if (featureCommand.Api != null && featureCommand.Api != "gl")
-						continue;
-
-					foreach (FeatureCommand.Item featureCommandItem in featureCommand.Commands) {
-						Command command = ctx.Registry.GetCommand(featureCommandItem.Name);
-
-						Debug.Assert(command != null);
-						if (serializedCommands.ContainsKey(command.Prototype.Name))
-							continue;
-
-						serializedCommands.Add(command.Prototype.Name, true);
-						featureCommands.Add(command);
-					}
-				}
-
-				if (featureCommands.Count == 0)
-					continue;
-
-				glRegistryProcessor.GenerateCommands(ctx, GetFeatureFilePath(feature, ctx), delegate(RegistryContext cctx, SourceStreamWriter sw)
-				{
-					foreach (Command command in featureCommands) {
-						command.GenerateImplementations(sw, cctx);
-						sw.WriteLine();
-					}
-				});
-			}
-
-			glRegistryProcessor.GenerateCommandsImports(ctx, Path.Combine(BasePath, "OpenGL.NET/GlFunctsDelegates.cs"), null);
-			glRegistryProcessor.GenerateCommandsDelegates(ctx, Path.Combine(BasePath, "OpenGL.NET/GlFunctsPointers.cs"), null);
-		}
-
+		/// <summary>
+		/// Generate all required files for OpenGL C# bindings.
+		/// </summary>
+		/// <param name="glRegistryProcessor">
+		/// The <see cref="RegistryProcessor"/> that actually process the OpenGL specification.
+		/// </param>
+		/// <param name="ctx">
+		/// The <see cref="RegistryContext"/> that actually parses the OpenGL specification.
+		/// </param>
 		private static void GenerateCommandsAndEnums(RegistryProcessor glRegistryProcessor, RegistryContext ctx)
 		{
 			Dictionary<string, bool> serializedCommands = new Dictionary<string, bool>();
@@ -193,6 +168,18 @@ namespace BindingsGen
 			}
 		}
 
+		/// <summary>
+		/// Get the path of the source file defining feature requirement.
+		/// </summary>
+		/// <param name="feature">
+		/// The <see cref="IFeature"/> that specifies the OpenGL feature.
+		/// </param>
+		/// <param name="ctx">
+		/// The <see cref="RegistryContext"/> that actually parses the OpenGL specification.
+		/// </param>
+		/// <returns>
+		/// It returns the relative path of the file defining <paramref name="feature"/> requirements.
+		/// </returns>
 		private static string GetFeatureFilePath(IFeature feature, RegistryContext ctx)
 		{
 			string path = String.Format("OpenGL.NET/{0}.{1}.cs", ctx.Class, feature.Name.Substring(ctx.Class.Length + 1));

@@ -24,9 +24,21 @@ using System.Xml.Serialization;
 
 namespace BindingsGen.GLSpecs
 {
+	/// <summary>
+	/// Specification words dictionary.
+	/// </summary>
 	[XmlRoot("words")]
 	public class SpecWordsDictionary
 	{
+		/// <summary>
+		/// Loads a <see cref="SpecWordsDictionary"/> from a manifest resource stream.
+		/// </summary>
+		/// <param name="path">
+		/// </param>
+		/// A <see cref="String"/> that specifies the path of the manifest resource.
+		/// <returns>
+		/// It returns the <see cref="SpecWordsDictionary"/> loaded from <paramref name="path"/>.
+		/// </returns>
 		public static SpecWordsDictionary Load(string path)
 		{
 			using (Stream sr = Assembly.GetExecutingAssembly().GetManifestResourceStream(path)) {
@@ -42,16 +54,33 @@ namespace BindingsGen.GLSpecs
 		[XmlElement("word")]
 		public readonly List<string> Words = new List<string>();
 
+		/// <summary>
+		/// Determine whether a word is known.
+		/// </summary>
+		/// <param name="word">
+		/// A <see cref="String"/> that specifies the word to be asserted.
+		/// </param>
+		/// <returns>
+		/// It returns a boolean value indicating whether <paramref name="word"/> is known.
+		/// </returns>
 		public bool HasWord(string word)
 		{
 			return (Words.Contains(word));
 		}
 
 		/// <summary>
-		/// 
+		/// Reduce a <see cref="Command"/> name, removing type suffixes.
 		/// </summary>
-		/// <param name="specificationName"></param>
-		/// <returns></returns>
+		/// <param name="ctx">
+		/// A <see cref="RegistryContext"/> defining OpenGL specification information.
+		/// </param>
+		/// <param name="specificationName">
+		/// A <see cref="String"/> that specifies the command name.
+		/// </param>
+		/// <returns>
+		/// It returns a <see cref="String"/> that is the reduced name (suitable for overriding commands) of
+		/// <paramref name="specificationName"/>.
+		/// </returns>
 		public string GetOverridableName(RegistryContext ctx, string specificationName)
 		{
 			if (String.IsNullOrEmpty(specificationName))

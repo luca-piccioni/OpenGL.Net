@@ -55,7 +55,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="GLSpecs\Command.cs" />
-    <Compile Include="GLSpecs\CommandAlias.cs" />
     <Compile Include="GLSpecs\CommandBlock.cs" />
     <Compile Include="GLSpecs\CommandParameter.cs" />
     <Compile Include="GLSpecs\CommandPrototype.cs" />

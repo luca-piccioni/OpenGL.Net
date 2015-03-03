@@ -18,10 +18,13 @@ using System.Collections.Generic;
 
 namespace BindingsGen.GLSpecs
 {
+	/// <summary>
+	/// OpenGL feature interface.
+	/// </summary>
 	public interface IFeature
 	{
 		/// <summary>
-		/// Get the feature name.
+		/// Get the name of the feature.
 		/// </summary>
 		string Name { get; }
 

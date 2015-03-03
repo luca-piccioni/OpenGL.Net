@@ -21,6 +21,9 @@ using System.Xml.Serialization;
 
 namespace BindingsGen.GLSpecs
 {
+	/// <summary>
+	/// Group feature requirements, removals and types.
+	/// </summary>
 	[DebuggerDisplay("FeatureCommand: Profile={Profile} Comment={Comment} Api={Api}")]
 	public class FeatureCommand
 	{

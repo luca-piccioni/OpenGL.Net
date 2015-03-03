@@ -21,32 +21,39 @@ using System.Xml.Serialization;
 
 namespace BindingsGen.GLSpecs
 {
+	/// <summary>
+	/// Command prototype.
+	/// </summary>
 	[DebuggerDisplay("CommandPrototype: Definition={Definition} Name={Name}")]
 	public class CommandPrototype
 	{
+		#region Specification
+
 		/// <summary>
-		/// 
+		/// The "unsafe" returned type (used in case <see cref="Type"/> is not defined).
 		/// </summary>
 		[XmlText()]
 		public String Definition;
 
 		/// <summary>
-		/// 
+		/// The "unsafe" returned type.
 		/// </summary>
 		[XmlElement("ptype")]
 		public String Type;
 
 		/// <summary>
-		/// 
+		/// The name of the underlying Command.
 		/// </summary>
 		[XmlElement("name")]
 		public String Name;
 
 		/// <summary>
-		/// 
+		/// Determines the returned type, strongly typed (if defined).
 		/// </summary>
 		[XmlAttribute("group")]
 		public String Group;
+
+		#endregion
 
 		#region Code Generation
 

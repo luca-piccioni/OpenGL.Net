@@ -24,33 +24,66 @@ using System.Xml.Serialization;
 
 namespace BindingsGen.GLSpecs
 {
+	/// <summary>
+	/// Maps names/value pairs.
+	/// </summary>
 	[XmlType("typemap")]
 	public class TypeMap
 	{
+		#region Constructors
+
+		/// <summary>
+		/// Static constructor.
+		/// </summary>
 		static TypeMap()
 		{
 			XmlSerializer typeMapSerializer = new XmlSerializer(typeof(TypeMap));
 
+			// Load C# type mapping
 			using (Stream stream = Assembly.GetExecutingAssembly().GetManifestResourceStream("BindingsGen.GLSpecs.CsTypeMap.xml")) {
 				Debug.Assert(stream != null, "stream != null");
 				CsTypeMap = (TypeMap)typeMapSerializer.Deserialize(stream);
 			}
 		}
 
-		public static readonly TypeMap CsTypeMap;
+		#endregion
 
+		#region Type Map
+
+		/// <summary>
+		/// Pair associating a value to a name.
+		/// </summary>
 		public class Pair
 		{
+			/// <summary>
+			/// The name of the pair.
+			/// </summary>
 			[XmlAttribute("name")]
 			public String Name;
 
+			/// <summary>
+			/// The value associated to <see cref="Name"/>.
+			/// </summary>
 			[XmlAttribute("value")]
 			public String Value;
 		}
 
+		/// <summary>
+		/// The pairs.
+		/// </summary>
 		[XmlElement("type")]
 		public readonly List<Pair> Map = new List<Pair>();
 
+		/// <summary>
+		/// Get the value associated to a registered name.
+		/// </summary>
+		/// <param name="type">
+		/// A <see cref="String"/> that specifies the name to map.
+		/// </param>
+		/// <returns>
+		/// It returns the value corresponding to <paramref name="type"/> in the case it is known, otherwise
+		/// it returns <paramref name="type"/>.
+		/// </returns>
 		public string MapType(string type)
 		{
 			Pair value = Map.Find(delegate(Pair item) { return (item.Name == type); });
@@ -59,8 +92,24 @@ namespace BindingsGen.GLSpecs
 			return (value != null ? value.Value : type);
 		}
 
-		#region Language Utilities
+		#endregion
 
+		#region C# Language Utilities
+
+		/// <summary>
+		/// C# type mapping.
+		/// </summary>
+		public static readonly TypeMap CsTypeMap;
+
+		/// <summary>
+		/// Determine whether a token is a reserved C# word.
+		/// </summary>
+		/// <param name="token">
+		/// A <see cref="String"/> that specifies the token to be asserted.
+		/// </param>
+		/// <returns>
+		/// It returns a boolean value indicating whether <paramref name="token"/> is a reserved C# word.
+		/// </returns>
 		public static bool IsCsKeyword(string token)
 		{
 			foreach (string k in sCsKeywords)
