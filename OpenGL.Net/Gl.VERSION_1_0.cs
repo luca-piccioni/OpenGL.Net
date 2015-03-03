@@ -2522,13 +2522,64 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glDisable.
+		/// enable or disable server-side GL capabilities
 		/// </summary>
 		/// <param name="cap">
-		/// A <see cref="T:int"/>.
+		/// Specifies a symbolic constant indicating a GL capability. 
 		/// </param>
 		/// <remarks>
+		/// <see cref="Gl.Enable"/> and Gl.Disable enable and disable various capabilities. Use Gl.IsEnabled or Gl.Get to determine 
+		/// thecurrent setting of any capability. The initial value for each capability with the exception of <see 
+		/// cref="Gl.DITHER"/>and <see cref="Gl.MULTISAMPLE"/> is <see cref="Gl.FALSE"/>. The initial value for <see 
+		/// cref="Gl.DITHER"/>and <see cref="Gl.MULTISAMPLE"/> is <see cref="Gl.TRUE"/>. 
+		/// Both <see cref="Gl.Enable"/> and Gl.Disable take a single argument, <paramref name="cap"/>, which can assume one of the 
+		/// followingvalues: 
+		/// <para>
+		/// The following errors can be generated:
+		/// - <see cref="Gl.INVALID_ENUM"/> is generated if <paramref name="cap"/> is not one of the values listed previously. 
+		/// - <see cref="Gl.INVALID_OPERATION"/> is generated if <see cref="Gl.Enable"/> or Gl.Disable is executed between the 
+		///   executionof Gl.Begin and the corresponding execution of Gl.End. 
+		/// </para>
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - Gl.IsEnabled 
+		/// - Gl.Get 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.ActiveTexture"/>
+		/// <seealso cref="Gl.AlphaFunc"/>
+		/// <seealso cref="Gl.BlendFunc"/>
+		/// <seealso cref="Gl.ClipPlane"/>
+		/// <seealso cref="Gl.ColorMaterial"/>
+		/// <seealso cref="Gl.CullFace"/>
+		/// <seealso cref="Gl.DepthFunc"/>
+		/// <seealso cref="Gl.DepthRange"/>
+		/// <seealso cref="Gl.EnableClientState"/>
+		/// <seealso cref="Gl.Fog"/>
+		/// <seealso cref="Gl.Get"/>
+		/// <seealso cref="Gl.IsEnabled"/>
+		/// <seealso cref="Gl.Light"/>
+		/// <seealso cref="Gl.LightModel"/>
+		/// <seealso cref="Gl.LineWidth"/>
+		/// <seealso cref="Gl.LineStipple"/>
+		/// <seealso cref="Gl.LogicOp"/>
+		/// <seealso cref="Gl.Map1"/>
+		/// <seealso cref="Gl.Map2"/>
+		/// <seealso cref="Gl.Material"/>
+		/// <seealso cref="Gl.Normal"/>
+		/// <seealso cref="Gl.NormalPointer"/>
+		/// <seealso cref="Gl.PointSize"/>
+		/// <seealso cref="Gl.PolygonMode"/>
+		/// <seealso cref="Gl.PolygonOffset"/>
+		/// <seealso cref="Gl.PolygonStipple"/>
+		/// <seealso cref="Gl.SampleCoverage"/>
+		/// <seealso cref="Gl.Scissor"/>
+		/// <seealso cref="Gl.StencilFunc"/>
+		/// <seealso cref="Gl.StencilOp"/>
+		/// <seealso cref="Gl.TexGen"/>
+		/// <seealso cref="Gl.TexImage1D"/>
+		/// <seealso cref="Gl.TexImage2D"/>
+		/// <seealso cref="Gl.TexImage3D"/>
 		public static void Disable(int cap)
 		{
 			Debug.Assert(Delegates.pglDisable != null, "pglDisable not implemented");
@@ -2538,13 +2589,64 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glDisable.
+		/// enable or disable server-side GL capabilities
 		/// </summary>
 		/// <param name="cap">
-		/// A <see cref="T:int"/>.
+		/// Specifies a symbolic constant indicating a GL capability. 
 		/// </param>
 		/// <remarks>
+		/// <see cref="Gl.Enable"/> and Gl.Disable enable and disable various capabilities. Use Gl.IsEnabled or Gl.Get to determine 
+		/// thecurrent setting of any capability. The initial value for each capability with the exception of <see 
+		/// cref="Gl.DITHER"/>and <see cref="Gl.MULTISAMPLE"/> is <see cref="Gl.FALSE"/>. The initial value for <see 
+		/// cref="Gl.DITHER"/>and <see cref="Gl.MULTISAMPLE"/> is <see cref="Gl.TRUE"/>. 
+		/// Both <see cref="Gl.Enable"/> and Gl.Disable take a single argument, <paramref name="cap"/>, which can assume one of the 
+		/// followingvalues: 
+		/// <para>
+		/// The following errors can be generated:
+		/// - <see cref="Gl.INVALID_ENUM"/> is generated if <paramref name="cap"/> is not one of the values listed previously. 
+		/// - <see cref="Gl.INVALID_OPERATION"/> is generated if <see cref="Gl.Enable"/> or Gl.Disable is executed between the 
+		///   executionof Gl.Begin and the corresponding execution of Gl.End. 
+		/// </para>
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - Gl.IsEnabled 
+		/// - Gl.Get 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.ActiveTexture"/>
+		/// <seealso cref="Gl.AlphaFunc"/>
+		/// <seealso cref="Gl.BlendFunc"/>
+		/// <seealso cref="Gl.ClipPlane"/>
+		/// <seealso cref="Gl.ColorMaterial"/>
+		/// <seealso cref="Gl.CullFace"/>
+		/// <seealso cref="Gl.DepthFunc"/>
+		/// <seealso cref="Gl.DepthRange"/>
+		/// <seealso cref="Gl.EnableClientState"/>
+		/// <seealso cref="Gl.Fog"/>
+		/// <seealso cref="Gl.Get"/>
+		/// <seealso cref="Gl.IsEnabled"/>
+		/// <seealso cref="Gl.Light"/>
+		/// <seealso cref="Gl.LightModel"/>
+		/// <seealso cref="Gl.LineWidth"/>
+		/// <seealso cref="Gl.LineStipple"/>
+		/// <seealso cref="Gl.LogicOp"/>
+		/// <seealso cref="Gl.Map1"/>
+		/// <seealso cref="Gl.Map2"/>
+		/// <seealso cref="Gl.Material"/>
+		/// <seealso cref="Gl.Normal"/>
+		/// <seealso cref="Gl.NormalPointer"/>
+		/// <seealso cref="Gl.PointSize"/>
+		/// <seealso cref="Gl.PolygonMode"/>
+		/// <seealso cref="Gl.PolygonOffset"/>
+		/// <seealso cref="Gl.PolygonStipple"/>
+		/// <seealso cref="Gl.SampleCoverage"/>
+		/// <seealso cref="Gl.Scissor"/>
+		/// <seealso cref="Gl.StencilFunc"/>
+		/// <seealso cref="Gl.StencilOp"/>
+		/// <seealso cref="Gl.TexGen"/>
+		/// <seealso cref="Gl.TexImage1D"/>
+		/// <seealso cref="Gl.TexImage2D"/>
+		/// <seealso cref="Gl.TexImage3D"/>
 		public static void Disable(EnableCap cap)
 		{
 			Debug.Assert(Delegates.pglDisable != null, "pglDisable not implemented");
@@ -2554,13 +2656,64 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glEnable.
+		/// enable or disable server-side GL capabilities
 		/// </summary>
 		/// <param name="cap">
-		/// A <see cref="T:int"/>.
+		/// Specifies a symbolic constant indicating a GL capability. 
 		/// </param>
 		/// <remarks>
+		/// <see cref="Gl.Enable"/> and Gl.Disable enable and disable various capabilities. Use Gl.IsEnabled or Gl.Get to determine 
+		/// thecurrent setting of any capability. The initial value for each capability with the exception of <see 
+		/// cref="Gl.DITHER"/>and <see cref="Gl.MULTISAMPLE"/> is <see cref="Gl.FALSE"/>. The initial value for <see 
+		/// cref="Gl.DITHER"/>and <see cref="Gl.MULTISAMPLE"/> is <see cref="Gl.TRUE"/>. 
+		/// Both <see cref="Gl.Enable"/> and Gl.Disable take a single argument, <paramref name="cap"/>, which can assume one of the 
+		/// followingvalues: 
+		/// <para>
+		/// The following errors can be generated:
+		/// - <see cref="Gl.INVALID_ENUM"/> is generated if <paramref name="cap"/> is not one of the values listed previously. 
+		/// - <see cref="Gl.INVALID_OPERATION"/> is generated if <see cref="Gl.Enable"/> or Gl.Disable is executed between the 
+		///   executionof Gl.Begin and the corresponding execution of Gl.End. 
+		/// </para>
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - Gl.IsEnabled 
+		/// - Gl.Get 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.ActiveTexture"/>
+		/// <seealso cref="Gl.AlphaFunc"/>
+		/// <seealso cref="Gl.BlendFunc"/>
+		/// <seealso cref="Gl.ClipPlane"/>
+		/// <seealso cref="Gl.ColorMaterial"/>
+		/// <seealso cref="Gl.CullFace"/>
+		/// <seealso cref="Gl.DepthFunc"/>
+		/// <seealso cref="Gl.DepthRange"/>
+		/// <seealso cref="Gl.EnableClientState"/>
+		/// <seealso cref="Gl.Fog"/>
+		/// <seealso cref="Gl.Get"/>
+		/// <seealso cref="Gl.IsEnabled"/>
+		/// <seealso cref="Gl.Light"/>
+		/// <seealso cref="Gl.LightModel"/>
+		/// <seealso cref="Gl.LineWidth"/>
+		/// <seealso cref="Gl.LineStipple"/>
+		/// <seealso cref="Gl.LogicOp"/>
+		/// <seealso cref="Gl.Map1"/>
+		/// <seealso cref="Gl.Map2"/>
+		/// <seealso cref="Gl.Material"/>
+		/// <seealso cref="Gl.Normal"/>
+		/// <seealso cref="Gl.NormalPointer"/>
+		/// <seealso cref="Gl.PointSize"/>
+		/// <seealso cref="Gl.PolygonMode"/>
+		/// <seealso cref="Gl.PolygonOffset"/>
+		/// <seealso cref="Gl.PolygonStipple"/>
+		/// <seealso cref="Gl.SampleCoverage"/>
+		/// <seealso cref="Gl.Scissor"/>
+		/// <seealso cref="Gl.StencilFunc"/>
+		/// <seealso cref="Gl.StencilOp"/>
+		/// <seealso cref="Gl.TexGen"/>
+		/// <seealso cref="Gl.TexImage1D"/>
+		/// <seealso cref="Gl.TexImage2D"/>
+		/// <seealso cref="Gl.TexImage3D"/>
 		public static void Enable(int cap)
 		{
 			Debug.Assert(Delegates.pglEnable != null, "pglEnable not implemented");
@@ -2570,13 +2723,64 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glEnable.
+		/// enable or disable server-side GL capabilities
 		/// </summary>
 		/// <param name="cap">
-		/// A <see cref="T:int"/>.
+		/// Specifies a symbolic constant indicating a GL capability. 
 		/// </param>
 		/// <remarks>
+		/// <see cref="Gl.Enable"/> and Gl.Disable enable and disable various capabilities. Use Gl.IsEnabled or Gl.Get to determine 
+		/// thecurrent setting of any capability. The initial value for each capability with the exception of <see 
+		/// cref="Gl.DITHER"/>and <see cref="Gl.MULTISAMPLE"/> is <see cref="Gl.FALSE"/>. The initial value for <see 
+		/// cref="Gl.DITHER"/>and <see cref="Gl.MULTISAMPLE"/> is <see cref="Gl.TRUE"/>. 
+		/// Both <see cref="Gl.Enable"/> and Gl.Disable take a single argument, <paramref name="cap"/>, which can assume one of the 
+		/// followingvalues: 
+		/// <para>
+		/// The following errors can be generated:
+		/// - <see cref="Gl.INVALID_ENUM"/> is generated if <paramref name="cap"/> is not one of the values listed previously. 
+		/// - <see cref="Gl.INVALID_OPERATION"/> is generated if <see cref="Gl.Enable"/> or Gl.Disable is executed between the 
+		///   executionof Gl.Begin and the corresponding execution of Gl.End. 
+		/// </para>
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - Gl.IsEnabled 
+		/// - Gl.Get 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.ActiveTexture"/>
+		/// <seealso cref="Gl.AlphaFunc"/>
+		/// <seealso cref="Gl.BlendFunc"/>
+		/// <seealso cref="Gl.ClipPlane"/>
+		/// <seealso cref="Gl.ColorMaterial"/>
+		/// <seealso cref="Gl.CullFace"/>
+		/// <seealso cref="Gl.DepthFunc"/>
+		/// <seealso cref="Gl.DepthRange"/>
+		/// <seealso cref="Gl.EnableClientState"/>
+		/// <seealso cref="Gl.Fog"/>
+		/// <seealso cref="Gl.Get"/>
+		/// <seealso cref="Gl.IsEnabled"/>
+		/// <seealso cref="Gl.Light"/>
+		/// <seealso cref="Gl.LightModel"/>
+		/// <seealso cref="Gl.LineWidth"/>
+		/// <seealso cref="Gl.LineStipple"/>
+		/// <seealso cref="Gl.LogicOp"/>
+		/// <seealso cref="Gl.Map1"/>
+		/// <seealso cref="Gl.Map2"/>
+		/// <seealso cref="Gl.Material"/>
+		/// <seealso cref="Gl.Normal"/>
+		/// <seealso cref="Gl.NormalPointer"/>
+		/// <seealso cref="Gl.PointSize"/>
+		/// <seealso cref="Gl.PolygonMode"/>
+		/// <seealso cref="Gl.PolygonOffset"/>
+		/// <seealso cref="Gl.PolygonStipple"/>
+		/// <seealso cref="Gl.SampleCoverage"/>
+		/// <seealso cref="Gl.Scissor"/>
+		/// <seealso cref="Gl.StencilFunc"/>
+		/// <seealso cref="Gl.StencilOp"/>
+		/// <seealso cref="Gl.TexGen"/>
+		/// <seealso cref="Gl.TexImage1D"/>
+		/// <seealso cref="Gl.TexImage2D"/>
+		/// <seealso cref="Gl.TexImage3D"/>
 		public static void Enable(EnableCap cap)
 		{
 			Debug.Assert(Delegates.pglEnable != null, "pglEnable not implemented");
@@ -5636,16 +5840,63 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glNewList.
+		/// create or replace a display list
 		/// </summary>
 		/// <param name="list">
-		/// A <see cref="T:UInt32"/>.
+		/// Specifies the display-list name. 
 		/// </param>
 		/// <param name="mode">
-		/// A <see cref="T:int"/>.
+		/// Specifies the compilation mode, which can be <see cref="Gl.COMPILE"/> or <see cref="Gl.COMPILE_AND_EXECUTE"/>. 
 		/// </param>
 		/// <remarks>
+		/// Display lists are groups of GL commands that have been stored for subsequent execution. Display lists are created with 
+		/// <seecref="Gl.NewList"/>. All subsequent commands are placed in the display list, in the order issued, until Gl.EndList 
+		/// iscalled. 
+		/// <see cref="Gl.NewList"/> has two arguments. The first argument, <paramref name="list"/>, is a positive integer that 
+		/// becomesthe unique name for the display list. Names can be created and reserved with Gl.GenLists and tested for 
+		/// uniquenesswith Gl.IsList. The second argument, <paramref name="mode"/>, is a symbolic constant that can assume one of 
+		/// twovalues: 
+		/// Certain commands are not compiled into the display list but are executed immediately, regardless of the display-list 
+		/// mode.These commands are Gl.AreTexturesResident, Gl.ColorPointer, Gl.DeleteLists, Gl.DeleteTextures, 
+		/// Gl.DisableClientState,Gl.EdgeFlagPointer, Gl.EnableClientState, Gl.FeedbackBuffer, Gl.Finish, Gl.Flush, Gl.GenLists, 
+		/// Gl.GenTextures,Gl.IndexPointer, Gl.InterleavedArrays, Gl.IsEnabled, Gl.IsList, Gl.IsTexture, Gl.NormalPointer, 
+		/// Gl.PopClientAttrib,Gl.PixelStore, Gl.PushClientAttrib, Gl.ReadPixels, Gl.RenderMode, Gl.SelectBuffer, 
+		/// Gl.TexCoordPointer,Gl.VertexPointer, and all of the Gl.Get commands. 
+		/// Similarly, Gl.TexImage1D, Gl.TexImage2D, and Gl.TexImage3D are executed immediately and not compiled into the display 
+		/// listwhen their first argument is <see cref="Gl.PROXY_TEXTURE_1D"/>, <see cref="Gl.PROXY_TEXTURE_1D"/>, or <see 
+		/// cref="Gl.PROXY_TEXTURE_3D"/>,respectively. 
+		/// When the ARB_imaging extension is supported, Gl.Histogram executes immediately when its argument is <see 
+		/// cref="Gl.PROXY_HISTOGRAM"/>.Similarly, Gl.ColorTable executes immediately when its first argument is <see 
+		/// cref="Gl.PROXY_COLOR_TABLE"/>,<see cref="Gl.PROXY_POST_CONVOLUTION_COLOR_TABLE"/>, or <see 
+		/// cref="Gl.PROXY_POST_COLOR_MATRIX_COLOR_TABLE"/>.
+		/// For OpenGL versions 1.3 and greater, or when the ARB_multitexture extension is supported, Gl.ClientActiveTexture is not 
+		/// compiledinto display lists, but executed immediately. 
+		/// When Gl.EndList is encountered, the display-list definition is completed by associating the list with the unique name 
+		/// <paramrefname="list"/> (specified in the <see cref="Gl.NewList"/> command). If a display list with name <paramref 
+		/// name="list"/>already exists, it is replaced only when Gl.EndList is called. 
+		/// <para>
+		/// The following errors can be generated:
+		/// - <see cref="Gl.INVALID_VALUE"/> is generated if <paramref name="list"/> is 0. 
+		/// - <see cref="Gl.INVALID_ENUM"/> is generated if <paramref name="mode"/> is not an accepted value. 
+		/// - <see cref="Gl.INVALID_OPERATION"/> is generated if Gl.EndList is called without a preceding <see cref="Gl.NewList"/>, or 
+		///   if<see cref="Gl.NewList"/> is called while a display list is being defined. 
+		/// - <see cref="Gl.INVALID_OPERATION"/> is generated if <see cref="Gl.NewList"/> or Gl.EndList is executed between the 
+		///   executionof Gl.Begin and the corresponding execution of Gl.End. 
+		/// - <see cref="Gl.OUT_OF_MEMORY"/> is generated if there is insufficient memory to compile the display list. If the GL 
+		///   versionis 1.1 or greater, no change is made to the previous contents of the display list, if any, and no other change is 
+		///   madeto the GL state. (It is as if no attempt had been made to create the new display list.) 
+		/// </para>
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - Gl.IsList 
+		/// - Gl.Get with argument <see cref="Gl.LIST_INDEX"/> 
+		/// - Gl.Get with argument <see cref="Gl.LIST_MODE"/> 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.CallList"/>
+		/// <seealso cref="Gl.CallLists"/>
+		/// <seealso cref="Gl.DeleteLists"/>
+		/// <seealso cref="Gl.GenLists"/>
 		public static void NewList(UInt32 list, int mode)
 		{
 			Debug.Assert(Delegates.pglNewList != null, "pglNewList not implemented");
@@ -5655,16 +5906,63 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glNewList.
+		/// create or replace a display list
 		/// </summary>
 		/// <param name="list">
-		/// A <see cref="T:UInt32"/>.
+		/// Specifies the display-list name. 
 		/// </param>
 		/// <param name="mode">
-		/// A <see cref="T:int"/>.
+		/// Specifies the compilation mode, which can be <see cref="Gl.COMPILE"/> or <see cref="Gl.COMPILE_AND_EXECUTE"/>. 
 		/// </param>
 		/// <remarks>
+		/// Display lists are groups of GL commands that have been stored for subsequent execution. Display lists are created with 
+		/// <seecref="Gl.NewList"/>. All subsequent commands are placed in the display list, in the order issued, until Gl.EndList 
+		/// iscalled. 
+		/// <see cref="Gl.NewList"/> has two arguments. The first argument, <paramref name="list"/>, is a positive integer that 
+		/// becomesthe unique name for the display list. Names can be created and reserved with Gl.GenLists and tested for 
+		/// uniquenesswith Gl.IsList. The second argument, <paramref name="mode"/>, is a symbolic constant that can assume one of 
+		/// twovalues: 
+		/// Certain commands are not compiled into the display list but are executed immediately, regardless of the display-list 
+		/// mode.These commands are Gl.AreTexturesResident, Gl.ColorPointer, Gl.DeleteLists, Gl.DeleteTextures, 
+		/// Gl.DisableClientState,Gl.EdgeFlagPointer, Gl.EnableClientState, Gl.FeedbackBuffer, Gl.Finish, Gl.Flush, Gl.GenLists, 
+		/// Gl.GenTextures,Gl.IndexPointer, Gl.InterleavedArrays, Gl.IsEnabled, Gl.IsList, Gl.IsTexture, Gl.NormalPointer, 
+		/// Gl.PopClientAttrib,Gl.PixelStore, Gl.PushClientAttrib, Gl.ReadPixels, Gl.RenderMode, Gl.SelectBuffer, 
+		/// Gl.TexCoordPointer,Gl.VertexPointer, and all of the Gl.Get commands. 
+		/// Similarly, Gl.TexImage1D, Gl.TexImage2D, and Gl.TexImage3D are executed immediately and not compiled into the display 
+		/// listwhen their first argument is <see cref="Gl.PROXY_TEXTURE_1D"/>, <see cref="Gl.PROXY_TEXTURE_1D"/>, or <see 
+		/// cref="Gl.PROXY_TEXTURE_3D"/>,respectively. 
+		/// When the ARB_imaging extension is supported, Gl.Histogram executes immediately when its argument is <see 
+		/// cref="Gl.PROXY_HISTOGRAM"/>.Similarly, Gl.ColorTable executes immediately when its first argument is <see 
+		/// cref="Gl.PROXY_COLOR_TABLE"/>,<see cref="Gl.PROXY_POST_CONVOLUTION_COLOR_TABLE"/>, or <see 
+		/// cref="Gl.PROXY_POST_COLOR_MATRIX_COLOR_TABLE"/>.
+		/// For OpenGL versions 1.3 and greater, or when the ARB_multitexture extension is supported, Gl.ClientActiveTexture is not 
+		/// compiledinto display lists, but executed immediately. 
+		/// When Gl.EndList is encountered, the display-list definition is completed by associating the list with the unique name 
+		/// <paramrefname="list"/> (specified in the <see cref="Gl.NewList"/> command). If a display list with name <paramref 
+		/// name="list"/>already exists, it is replaced only when Gl.EndList is called. 
+		/// <para>
+		/// The following errors can be generated:
+		/// - <see cref="Gl.INVALID_VALUE"/> is generated if <paramref name="list"/> is 0. 
+		/// - <see cref="Gl.INVALID_ENUM"/> is generated if <paramref name="mode"/> is not an accepted value. 
+		/// - <see cref="Gl.INVALID_OPERATION"/> is generated if Gl.EndList is called without a preceding <see cref="Gl.NewList"/>, or 
+		///   if<see cref="Gl.NewList"/> is called while a display list is being defined. 
+		/// - <see cref="Gl.INVALID_OPERATION"/> is generated if <see cref="Gl.NewList"/> or Gl.EndList is executed between the 
+		///   executionof Gl.Begin and the corresponding execution of Gl.End. 
+		/// - <see cref="Gl.OUT_OF_MEMORY"/> is generated if there is insufficient memory to compile the display list. If the GL 
+		///   versionis 1.1 or greater, no change is made to the previous contents of the display list, if any, and no other change is 
+		///   madeto the GL state. (It is as if no attempt had been made to create the new display list.) 
+		/// </para>
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - Gl.IsList 
+		/// - Gl.Get with argument <see cref="Gl.LIST_INDEX"/> 
+		/// - Gl.Get with argument <see cref="Gl.LIST_MODE"/> 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.CallList"/>
+		/// <seealso cref="Gl.CallLists"/>
+		/// <seealso cref="Gl.DeleteLists"/>
+		/// <seealso cref="Gl.GenLists"/>
 		public static void NewList(UInt32 list, ListMode mode)
 		{
 			Debug.Assert(Delegates.pglNewList != null, "pglNewList not implemented");
@@ -5674,10 +5972,57 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glEndList.
+		/// create or replace a display list
 		/// </summary>
 		/// <remarks>
+		/// Display lists are groups of GL commands that have been stored for subsequent execution. Display lists are created with 
+		/// <seecref="Gl.NewList"/>. All subsequent commands are placed in the display list, in the order issued, until Gl.EndList 
+		/// iscalled. 
+		/// <see cref="Gl.NewList"/> has two arguments. The first argument, <paramref name="list"/>, is a positive integer that 
+		/// becomesthe unique name for the display list. Names can be created and reserved with Gl.GenLists and tested for 
+		/// uniquenesswith Gl.IsList. The second argument, <paramref name="mode"/>, is a symbolic constant that can assume one of 
+		/// twovalues: 
+		/// Certain commands are not compiled into the display list but are executed immediately, regardless of the display-list 
+		/// mode.These commands are Gl.AreTexturesResident, Gl.ColorPointer, Gl.DeleteLists, Gl.DeleteTextures, 
+		/// Gl.DisableClientState,Gl.EdgeFlagPointer, Gl.EnableClientState, Gl.FeedbackBuffer, Gl.Finish, Gl.Flush, Gl.GenLists, 
+		/// Gl.GenTextures,Gl.IndexPointer, Gl.InterleavedArrays, Gl.IsEnabled, Gl.IsList, Gl.IsTexture, Gl.NormalPointer, 
+		/// Gl.PopClientAttrib,Gl.PixelStore, Gl.PushClientAttrib, Gl.ReadPixels, Gl.RenderMode, Gl.SelectBuffer, 
+		/// Gl.TexCoordPointer,Gl.VertexPointer, and all of the Gl.Get commands. 
+		/// Similarly, Gl.TexImage1D, Gl.TexImage2D, and Gl.TexImage3D are executed immediately and not compiled into the display 
+		/// listwhen their first argument is <see cref="Gl.PROXY_TEXTURE_1D"/>, <see cref="Gl.PROXY_TEXTURE_1D"/>, or <see 
+		/// cref="Gl.PROXY_TEXTURE_3D"/>,respectively. 
+		/// When the ARB_imaging extension is supported, Gl.Histogram executes immediately when its argument is <see 
+		/// cref="Gl.PROXY_HISTOGRAM"/>.Similarly, Gl.ColorTable executes immediately when its first argument is <see 
+		/// cref="Gl.PROXY_COLOR_TABLE"/>,<see cref="Gl.PROXY_POST_CONVOLUTION_COLOR_TABLE"/>, or <see 
+		/// cref="Gl.PROXY_POST_COLOR_MATRIX_COLOR_TABLE"/>.
+		/// For OpenGL versions 1.3 and greater, or when the ARB_multitexture extension is supported, Gl.ClientActiveTexture is not 
+		/// compiledinto display lists, but executed immediately. 
+		/// When Gl.EndList is encountered, the display-list definition is completed by associating the list with the unique name 
+		/// <paramrefname="list"/> (specified in the <see cref="Gl.NewList"/> command). If a display list with name <paramref 
+		/// name="list"/>already exists, it is replaced only when Gl.EndList is called. 
+		/// <para>
+		/// The following errors can be generated:
+		/// - <see cref="Gl.INVALID_VALUE"/> is generated if <paramref name="list"/> is 0. 
+		/// - <see cref="Gl.INVALID_ENUM"/> is generated if <paramref name="mode"/> is not an accepted value. 
+		/// - <see cref="Gl.INVALID_OPERATION"/> is generated if Gl.EndList is called without a preceding <see cref="Gl.NewList"/>, or 
+		///   if<see cref="Gl.NewList"/> is called while a display list is being defined. 
+		/// - <see cref="Gl.INVALID_OPERATION"/> is generated if <see cref="Gl.NewList"/> or Gl.EndList is executed between the 
+		///   executionof Gl.Begin and the corresponding execution of Gl.End. 
+		/// - <see cref="Gl.OUT_OF_MEMORY"/> is generated if there is insufficient memory to compile the display list. If the GL 
+		///   versionis 1.1 or greater, no change is made to the previous contents of the display list, if any, and no other change is 
+		///   madeto the GL state. (It is as if no attempt had been made to create the new display list.) 
+		/// </para>
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - Gl.IsList 
+		/// - Gl.Get with argument <see cref="Gl.LIST_INDEX"/> 
+		/// - Gl.Get with argument <see cref="Gl.LIST_MODE"/> 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.CallList"/>
+		/// <seealso cref="Gl.CallLists"/>
+		/// <seealso cref="Gl.DeleteLists"/>
+		/// <seealso cref="Gl.GenLists"/>
 		public static void EndList()
 		{
 			Debug.Assert(Delegates.pglEndList != null, "pglEndList not implemented");
@@ -5687,13 +6032,32 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glCallList.
+		/// execute a display list
 		/// </summary>
 		/// <param name="list">
-		/// A <see cref="T:UInt32"/>.
+		/// Specifies the integer name of the display list to be executed. 
 		/// </param>
 		/// <remarks>
+		/// <see cref="Gl.CallList"/> causes the named display list to be executed. The commands saved in the display list are 
+		/// executedin order, just as if they were called without using a display list. If <paramref name="list"/> has not been 
+		/// definedas a display list, <see cref="Gl.CallList"/> is ignored. 
+		/// <see cref="Gl.CallList"/> can appear inside a display list. To avoid the possibility of infinite recursion resulting 
+		/// fromdisplay lists calling one another, a limit is placed on the nesting level of display lists during display-list 
+		/// execution.This limit is at least 64, and it depends on the implementation. 
+		/// GL state is not saved and restored across a call to <see cref="Gl.CallList"/>. Thus, changes made to GL state during the 
+		/// executionof a display list remain after execution of the display list is completed. Use Gl.PushAttrib, Gl.PopAttrib, 
+		/// Gl.PushMatrix,and Gl.PopMatrix to preserve GL state across <see cref="Gl.CallList"/> calls. 
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - Gl.Get with argument <see cref="Gl.MAX_LIST_NESTING"/> 
+		/// - Gl.IsList 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.DeleteLists"/>
+		/// <seealso cref="Gl.GenLists"/>
+		/// <seealso cref="Gl.NewList"/>
+		/// <seealso cref="Gl.PushAttrib"/>
+		/// <seealso cref="Gl.PushMatrix"/>
 		public static void CallList(UInt32 list)
 		{
 			Debug.Assert(Delegates.pglCallList != null, "pglCallList not implemented");
@@ -5703,19 +6067,59 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glCallLists.
+		/// execute a list of display lists
 		/// </summary>
 		/// <param name="n">
-		/// A <see cref="T:Int32"/>.
+		/// Specifies the number of display lists to be executed. 
 		/// </param>
 		/// <param name="type">
-		/// A <see cref="T:int"/>.
+		/// Specifies the type of values in <paramref name="lists"/>. Symbolic constants <see cref="Gl.BYTE"/>, <see 
+		/// cref="Gl.UNSIGNED_BYTE"/>,<see cref="Gl.SHORT"/>, <see cref="Gl.UNSIGNED_SHORT"/>, <see cref="Gl.INT"/>, <see 
+		/// cref="Gl.UNSIGNED_INT"/>,<see cref="Gl.FLOAT"/>, <see cref="Gl.2_BYTES"/>, <see cref="Gl.3_BYTES"/>, and <see 
+		/// cref="Gl.4_BYTES"/>are accepted. 
 		/// </param>
 		/// <param name="lists">
-		/// A <see cref="T:IntPtr"/>.
+		/// Specifies the address of an array of name offsets in the display list. The pointer type is void because the offsets can 
+		/// bebytes, shorts, ints, or floats, depending on the value of <paramref name="type"/>. 
 		/// </param>
 		/// <remarks>
+		/// <see cref="Gl.CallLists"/> causes each display list in the list of names passed as <paramref name="lists"/> to be 
+		/// executed.As a result, the commands saved in each display list are executed in order, just as if they were called without 
+		/// usinga display list. Names of display lists that have not been defined are ignored. 
+		/// <see cref="Gl.CallLists"/> provides an efficient means for executing more than one display list. <paramref name="type"/> 
+		/// allowslists with various name formats to be accepted. The formats are as follows: 
+		/// The list of display-list names is not null-terminated. Rather, <paramref name="n"/> specifies how many names are to be 
+		/// takenfrom <paramref name="lists"/>. 
+		/// An additional level of indirection is made available with the Gl.ListBase command, which specifies an unsigned offset 
+		/// thatis added to each display-list name specified in <paramref name="lists"/> before that display list is executed. 
+		/// <see cref="Gl.CallLists"/> can appear inside a display list. To avoid the possibility of infinite recursion resulting 
+		/// fromdisplay lists calling one another, a limit is placed on the nesting level of display lists during display-list 
+		/// execution.This limit must be at least 64, and it depends on the implementation. 
+		/// GL state is not saved and restored across a call to <see cref="Gl.CallLists"/>. Thus, changes made to GL state during 
+		/// theexecution of the display lists remain after execution is completed. Use Gl.PushAttrib, Gl.PopAttrib, Gl.PushMatrix, 
+		/// andGl.PopMatrix to preserve GL state across <see cref="Gl.CallLists"/> calls. 
+		/// <para>
+		/// The following errors can be generated:
+		/// - <see cref="Gl.INVALID_VALUE"/> is generated if <paramref name="n"/> is negative. 
+		/// - <see cref="Gl.INVALID_ENUM"/> is generated if <paramref name="type"/> is not one of <see cref="Gl.BYTE"/>, <see 
+		///   cref="Gl.UNSIGNED_BYTE"/>,<see cref="Gl.SHORT"/>, <see cref="Gl.UNSIGNED_SHORT"/>, <see cref="Gl.INT"/>, <see 
+		///   cref="Gl.UNSIGNED_INT"/>,<see cref="Gl.FLOAT"/>, <see cref="Gl.2_BYTES"/>, <see cref="Gl.3_BYTES"/>, <see 
+		///   cref="Gl.4_BYTES"/>.
+		/// </para>
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - Gl.Get with argument <see cref="Gl.LIST_BASE"/> 
+		/// - Gl.Get with argument <see cref="Gl.MAX_LIST_NESTING"/> 
+		/// - Gl.IsList 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.CallList"/>
+		/// <seealso cref="Gl.DeleteLists"/>
+		/// <seealso cref="Gl.GenLists"/>
+		/// <seealso cref="Gl.ListBase"/>
+		/// <seealso cref="Gl.NewList"/>
+		/// <seealso cref="Gl.PushAttrib"/>
+		/// <seealso cref="Gl.PushMatrix"/>
 		public static void CallLists(Int32 n, int type, IntPtr lists)
 		{
 			Debug.Assert(Delegates.pglCallLists != null, "pglCallLists not implemented");
@@ -5725,19 +6129,59 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glCallLists.
+		/// execute a list of display lists
 		/// </summary>
 		/// <param name="n">
-		/// A <see cref="T:Int32"/>.
+		/// Specifies the number of display lists to be executed. 
 		/// </param>
 		/// <param name="type">
-		/// A <see cref="T:int"/>.
+		/// Specifies the type of values in <paramref name="lists"/>. Symbolic constants <see cref="Gl.BYTE"/>, <see 
+		/// cref="Gl.UNSIGNED_BYTE"/>,<see cref="Gl.SHORT"/>, <see cref="Gl.UNSIGNED_SHORT"/>, <see cref="Gl.INT"/>, <see 
+		/// cref="Gl.UNSIGNED_INT"/>,<see cref="Gl.FLOAT"/>, <see cref="Gl.2_BYTES"/>, <see cref="Gl.3_BYTES"/>, and <see 
+		/// cref="Gl.4_BYTES"/>are accepted. 
 		/// </param>
 		/// <param name="lists">
-		/// A <see cref="T:IntPtr"/>.
+		/// Specifies the address of an array of name offsets in the display list. The pointer type is void because the offsets can 
+		/// bebytes, shorts, ints, or floats, depending on the value of <paramref name="type"/>. 
 		/// </param>
 		/// <remarks>
+		/// <see cref="Gl.CallLists"/> causes each display list in the list of names passed as <paramref name="lists"/> to be 
+		/// executed.As a result, the commands saved in each display list are executed in order, just as if they were called without 
+		/// usinga display list. Names of display lists that have not been defined are ignored. 
+		/// <see cref="Gl.CallLists"/> provides an efficient means for executing more than one display list. <paramref name="type"/> 
+		/// allowslists with various name formats to be accepted. The formats are as follows: 
+		/// The list of display-list names is not null-terminated. Rather, <paramref name="n"/> specifies how many names are to be 
+		/// takenfrom <paramref name="lists"/>. 
+		/// An additional level of indirection is made available with the Gl.ListBase command, which specifies an unsigned offset 
+		/// thatis added to each display-list name specified in <paramref name="lists"/> before that display list is executed. 
+		/// <see cref="Gl.CallLists"/> can appear inside a display list. To avoid the possibility of infinite recursion resulting 
+		/// fromdisplay lists calling one another, a limit is placed on the nesting level of display lists during display-list 
+		/// execution.This limit must be at least 64, and it depends on the implementation. 
+		/// GL state is not saved and restored across a call to <see cref="Gl.CallLists"/>. Thus, changes made to GL state during 
+		/// theexecution of the display lists remain after execution is completed. Use Gl.PushAttrib, Gl.PopAttrib, Gl.PushMatrix, 
+		/// andGl.PopMatrix to preserve GL state across <see cref="Gl.CallLists"/> calls. 
+		/// <para>
+		/// The following errors can be generated:
+		/// - <see cref="Gl.INVALID_VALUE"/> is generated if <paramref name="n"/> is negative. 
+		/// - <see cref="Gl.INVALID_ENUM"/> is generated if <paramref name="type"/> is not one of <see cref="Gl.BYTE"/>, <see 
+		///   cref="Gl.UNSIGNED_BYTE"/>,<see cref="Gl.SHORT"/>, <see cref="Gl.UNSIGNED_SHORT"/>, <see cref="Gl.INT"/>, <see 
+		///   cref="Gl.UNSIGNED_INT"/>,<see cref="Gl.FLOAT"/>, <see cref="Gl.2_BYTES"/>, <see cref="Gl.3_BYTES"/>, <see 
+		///   cref="Gl.4_BYTES"/>.
+		/// </para>
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - Gl.Get with argument <see cref="Gl.LIST_BASE"/> 
+		/// - Gl.Get with argument <see cref="Gl.MAX_LIST_NESTING"/> 
+		/// - Gl.IsList 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.CallList"/>
+		/// <seealso cref="Gl.DeleteLists"/>
+		/// <seealso cref="Gl.GenLists"/>
+		/// <seealso cref="Gl.ListBase"/>
+		/// <seealso cref="Gl.NewList"/>
+		/// <seealso cref="Gl.PushAttrib"/>
+		/// <seealso cref="Gl.PushMatrix"/>
 		public static void CallLists(Int32 n, ListNameType type, IntPtr lists)
 		{
 			Debug.Assert(Delegates.pglCallLists != null, "pglCallLists not implemented");
@@ -5747,19 +6191,59 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glCallLists.
+		/// execute a list of display lists
 		/// </summary>
 		/// <param name="n">
-		/// A <see cref="T:Int32"/>.
+		/// Specifies the number of display lists to be executed. 
 		/// </param>
 		/// <param name="type">
-		/// A <see cref="T:int"/>.
+		/// Specifies the type of values in <paramref name="lists"/>. Symbolic constants <see cref="Gl.BYTE"/>, <see 
+		/// cref="Gl.UNSIGNED_BYTE"/>,<see cref="Gl.SHORT"/>, <see cref="Gl.UNSIGNED_SHORT"/>, <see cref="Gl.INT"/>, <see 
+		/// cref="Gl.UNSIGNED_INT"/>,<see cref="Gl.FLOAT"/>, <see cref="Gl.2_BYTES"/>, <see cref="Gl.3_BYTES"/>, and <see 
+		/// cref="Gl.4_BYTES"/>are accepted. 
 		/// </param>
 		/// <param name="lists">
-		/// A <see cref="T:IntPtr"/>.
+		/// Specifies the address of an array of name offsets in the display list. The pointer type is void because the offsets can 
+		/// bebytes, shorts, ints, or floats, depending on the value of <paramref name="type"/>. 
 		/// </param>
 		/// <remarks>
+		/// <see cref="Gl.CallLists"/> causes each display list in the list of names passed as <paramref name="lists"/> to be 
+		/// executed.As a result, the commands saved in each display list are executed in order, just as if they were called without 
+		/// usinga display list. Names of display lists that have not been defined are ignored. 
+		/// <see cref="Gl.CallLists"/> provides an efficient means for executing more than one display list. <paramref name="type"/> 
+		/// allowslists with various name formats to be accepted. The formats are as follows: 
+		/// The list of display-list names is not null-terminated. Rather, <paramref name="n"/> specifies how many names are to be 
+		/// takenfrom <paramref name="lists"/>. 
+		/// An additional level of indirection is made available with the Gl.ListBase command, which specifies an unsigned offset 
+		/// thatis added to each display-list name specified in <paramref name="lists"/> before that display list is executed. 
+		/// <see cref="Gl.CallLists"/> can appear inside a display list. To avoid the possibility of infinite recursion resulting 
+		/// fromdisplay lists calling one another, a limit is placed on the nesting level of display lists during display-list 
+		/// execution.This limit must be at least 64, and it depends on the implementation. 
+		/// GL state is not saved and restored across a call to <see cref="Gl.CallLists"/>. Thus, changes made to GL state during 
+		/// theexecution of the display lists remain after execution is completed. Use Gl.PushAttrib, Gl.PopAttrib, Gl.PushMatrix, 
+		/// andGl.PopMatrix to preserve GL state across <see cref="Gl.CallLists"/> calls. 
+		/// <para>
+		/// The following errors can be generated:
+		/// - <see cref="Gl.INVALID_VALUE"/> is generated if <paramref name="n"/> is negative. 
+		/// - <see cref="Gl.INVALID_ENUM"/> is generated if <paramref name="type"/> is not one of <see cref="Gl.BYTE"/>, <see 
+		///   cref="Gl.UNSIGNED_BYTE"/>,<see cref="Gl.SHORT"/>, <see cref="Gl.UNSIGNED_SHORT"/>, <see cref="Gl.INT"/>, <see 
+		///   cref="Gl.UNSIGNED_INT"/>,<see cref="Gl.FLOAT"/>, <see cref="Gl.2_BYTES"/>, <see cref="Gl.3_BYTES"/>, <see 
+		///   cref="Gl.4_BYTES"/>.
+		/// </para>
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - Gl.Get with argument <see cref="Gl.LIST_BASE"/> 
+		/// - Gl.Get with argument <see cref="Gl.MAX_LIST_NESTING"/> 
+		/// - Gl.IsList 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.CallList"/>
+		/// <seealso cref="Gl.DeleteLists"/>
+		/// <seealso cref="Gl.GenLists"/>
+		/// <seealso cref="Gl.ListBase"/>
+		/// <seealso cref="Gl.NewList"/>
+		/// <seealso cref="Gl.PushAttrib"/>
+		/// <seealso cref="Gl.PushMatrix"/>
 		public static void CallLists(Int32 n, int type, Object lists)
 		{
 			GCHandle pin_lists = GCHandle.Alloc(lists, GCHandleType.Pinned);
@@ -5771,16 +6255,33 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glDeleteLists.
+		/// delete a contiguous group of display lists
 		/// </summary>
 		/// <param name="list">
-		/// A <see cref="T:UInt32"/>.
+		/// Specifies the integer name of the first display list to delete. 
 		/// </param>
 		/// <param name="range">
-		/// A <see cref="T:Int32"/>.
+		/// Specifies the number of display lists to delete. 
 		/// </param>
 		/// <remarks>
+		/// <see cref="Gl.DeleteLists"/> causes a contiguous group of display lists to be deleted. <paramref name="list"/> is the 
+		/// nameof the first display list to be deleted, and <paramref name="range"/> is the number of display lists to delete. All 
+		/// displaylists d with list&lt;=d&lt;=list+range-1 are deleted. 
+		/// All storage locations allocated to the specified display lists are freed, and the names are available for reuse at a 
+		/// latertime. Names within the range that do not have an associated display list are ignored. If <paramref name="range"/> 
+		/// is0, nothing happens. 
+		/// <para>
+		/// The following errors can be generated:
+		/// - <see cref="Gl.INVALID_VALUE"/> is generated if <paramref name="range"/> is negative. 
+		/// - <see cref="Gl.INVALID_OPERATION"/> is generated if <see cref="Gl.DeleteLists"/> is executed between the execution of 
+		///   Gl.Beginand the corresponding execution of Gl.End. 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.CallList"/>
+		/// <seealso cref="Gl.CallLists"/>
+		/// <seealso cref="Gl.GenLists"/>
+		/// <seealso cref="Gl.IsList"/>
+		/// <seealso cref="Gl.NewList"/>
 		public static void DeleteLists(UInt32 list, Int32 range)
 		{
 			Debug.Assert(Delegates.pglDeleteLists != null, "pglDeleteLists not implemented");
@@ -5790,13 +6291,31 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glGenLists.
+		/// generate a contiguous set of empty display lists
 		/// </summary>
 		/// <param name="range">
-		/// A <see cref="T:Int32"/>.
+		/// Specifies the number of contiguous empty display lists to be generated. 
 		/// </param>
 		/// <remarks>
+		/// <see cref="Gl.GenLists"/> has one argument, <paramref name="range"/>. It returns an integer n such that <paramref 
+		/// name="range"/>contiguous empty display lists, named n, n+1, ..., n+range-1, are created. If <paramref name="range"/> is 
+		/// 0,if there is no group of <paramref name="range"/> contiguous names available, or if any error is generated, no display 
+		/// listsare generated, and 0 is returned. 
+		/// <para>
+		/// The following errors can be generated:
+		/// - <see cref="Gl.INVALID_VALUE"/> is generated if <paramref name="range"/> is negative. 
+		/// - <see cref="Gl.INVALID_OPERATION"/> is generated if <see cref="Gl.GenLists"/> is executed between the execution of 
+		///   Gl.Beginand the corresponding execution of Gl.End. 
+		/// </para>
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - Gl.IsList 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.CallList"/>
+		/// <seealso cref="Gl.CallLists"/>
+		/// <seealso cref="Gl.DeleteLists"/>
+		/// <seealso cref="Gl.NewList"/>
 		public static UInt32 GenLists(Int32 range)
 		{
 			UInt32 retValue;
@@ -5810,13 +6329,25 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glListBase.
+		/// set the display-list base for glCallLists
 		/// </summary>
 		/// <param name="base">
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
 		/// <remarks>
+		/// Gl.CallLists specifies an array of offsets. Display-list names are generated by adding <paramref name="base"/> to each 
+		/// offset.Names that reference valid display lists are executed; the others are ignored. 
+		/// <para>
+		/// The following errors can be generated:
+		/// - <see cref="Gl.INVALID_OPERATION"/> is generated if <see cref="Gl.ListBase"/> is executed between the execution of 
+		///   Gl.Beginand the corresponding execution of Gl.End. 
+		/// </para>
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - Gl.Get with argument <see cref="Gl.LIST_BASE"/> 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.CallLists"/>
 		public static void ListBase(UInt32 @base)
 		{
 			Debug.Assert(Delegates.pglListBase != null, "pglListBase not implemented");
@@ -6054,19 +6585,42 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glColor3b.
+		/// set the current color
 		/// </summary>
 		/// <param name="red">
-		/// A <see cref="T:sbyte"/>.
+		/// Specify new red, green, and blue values for the current color. 
 		/// </param>
 		/// <param name="green">
-		/// A <see cref="T:sbyte"/>.
+		/// Specify new red, green, and blue values for the current color. 
 		/// </param>
 		/// <param name="blue">
-		/// A <see cref="T:sbyte"/>.
+		/// Specify new red, green, and blue values for the current color. 
 		/// </param>
 		/// <remarks>
+		/// The GL stores both a current single-valued color index and a current four-valued RGBA color. <see cref="Gl.Color"/> sets 
+		/// anew four-valued RGBA color. <see cref="Gl.Color"/> has two major variants: <see cref="Gl.Color3"/> and <see 
+		/// cref="Gl.Color4"/>.<see cref="Gl.Color3"/> variants specify new red, green, and blue values explicitly and set the 
+		/// currentalpha value to 1.0 (full intensity) implicitly. <see cref="Gl.Color4"/> variants specify all four color 
+		/// componentsexplicitly. 
+		/// <see cref="Gl.Color3b"/>, <see cref="Gl.Color4b"/>, <see cref="Gl.Color3s"/>, <see cref="Gl.Color4s"/>, <see 
+		/// cref="Gl.Color3i"/>,and <see cref="Gl.Color4i"/> take three or four signed byte, short, or long integers as arguments. 
+		/// Whenv is appended to the name, the color commands can take a pointer to an array of such values. 
+		/// Current color values are stored in floating-point format, with unspecified mantissa and exponent sizes. Unsigned integer 
+		/// colorcomponents, when specified, are linearly mapped to floating-point values such that the largest representable value 
+		/// mapsto 1.0 (full intensity), and 0 maps to 0.0 (zero intensity). Signed integer color components, when specified, are 
+		/// linearlymapped to floating-point values such that the most positive representable value maps to 1.0, and the most 
+		/// negativerepresentable value maps to -1.0. (Note that this mapping does not convert 0 precisely to 0.0.) Floating-point 
+		/// valuesare mapped directly. 
+		/// Neither floating-point nor signed integer values are clamped to the range 01 before the current color is updated. 
+		/// However,color components are clamped to this range before they are interpolated or written into a color buffer. 
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - Gl.Get with argument <see cref="Gl.CURRENT_COLOR"/> 
+		/// - Gl.Get with argument <see cref="Gl.RGBA_MODE"/> 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.Index"/>
+		/// <seealso cref="Gl.SecondaryColor"/>
 		public static void Color3(sbyte red, sbyte green, sbyte blue)
 		{
 			Debug.Assert(Delegates.pglColor3b != null, "pglColor3b not implemented");
@@ -6076,13 +6630,36 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glColor3bv.
+		/// set the current color
 		/// </summary>
 		/// <param name="v">
 		/// A <see cref="T:sbyte[]"/>.
 		/// </param>
 		/// <remarks>
+		/// The GL stores both a current single-valued color index and a current four-valued RGBA color. <see cref="Gl.Color"/> sets 
+		/// anew four-valued RGBA color. <see cref="Gl.Color"/> has two major variants: <see cref="Gl.Color3"/> and <see 
+		/// cref="Gl.Color4"/>.<see cref="Gl.Color3"/> variants specify new red, green, and blue values explicitly and set the 
+		/// currentalpha value to 1.0 (full intensity) implicitly. <see cref="Gl.Color4"/> variants specify all four color 
+		/// componentsexplicitly. 
+		/// <see cref="Gl.Color3b"/>, <see cref="Gl.Color4b"/>, <see cref="Gl.Color3s"/>, <see cref="Gl.Color4s"/>, <see 
+		/// cref="Gl.Color3i"/>,and <see cref="Gl.Color4i"/> take three or four signed byte, short, or long integers as arguments. 
+		/// Whenv is appended to the name, the color commands can take a pointer to an array of such values. 
+		/// Current color values are stored in floating-point format, with unspecified mantissa and exponent sizes. Unsigned integer 
+		/// colorcomponents, when specified, are linearly mapped to floating-point values such that the largest representable value 
+		/// mapsto 1.0 (full intensity), and 0 maps to 0.0 (zero intensity). Signed integer color components, when specified, are 
+		/// linearlymapped to floating-point values such that the most positive representable value maps to 1.0, and the most 
+		/// negativerepresentable value maps to -1.0. (Note that this mapping does not convert 0 precisely to 0.0.) Floating-point 
+		/// valuesare mapped directly. 
+		/// Neither floating-point nor signed integer values are clamped to the range 01 before the current color is updated. 
+		/// However,color components are clamped to this range before they are interpolated or written into a color buffer. 
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - Gl.Get with argument <see cref="Gl.CURRENT_COLOR"/> 
+		/// - Gl.Get with argument <see cref="Gl.RGBA_MODE"/> 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.Index"/>
+		/// <seealso cref="Gl.SecondaryColor"/>
 		public static void Color3(sbyte[] v)
 		{
 			unsafe {
@@ -6097,19 +6674,42 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glColor3d.
+		/// set the current color
 		/// </summary>
 		/// <param name="red">
-		/// A <see cref="T:double"/>.
+		/// Specify new red, green, and blue values for the current color. 
 		/// </param>
 		/// <param name="green">
-		/// A <see cref="T:double"/>.
+		/// Specify new red, green, and blue values for the current color. 
 		/// </param>
 		/// <param name="blue">
-		/// A <see cref="T:double"/>.
+		/// Specify new red, green, and blue values for the current color. 
 		/// </param>
 		/// <remarks>
+		/// The GL stores both a current single-valued color index and a current four-valued RGBA color. <see cref="Gl.Color"/> sets 
+		/// anew four-valued RGBA color. <see cref="Gl.Color"/> has two major variants: <see cref="Gl.Color3"/> and <see 
+		/// cref="Gl.Color4"/>.<see cref="Gl.Color3"/> variants specify new red, green, and blue values explicitly and set the 
+		/// currentalpha value to 1.0 (full intensity) implicitly. <see cref="Gl.Color4"/> variants specify all four color 
+		/// componentsexplicitly. 
+		/// <see cref="Gl.Color3b"/>, <see cref="Gl.Color4b"/>, <see cref="Gl.Color3s"/>, <see cref="Gl.Color4s"/>, <see 
+		/// cref="Gl.Color3i"/>,and <see cref="Gl.Color4i"/> take three or four signed byte, short, or long integers as arguments. 
+		/// Whenv is appended to the name, the color commands can take a pointer to an array of such values. 
+		/// Current color values are stored in floating-point format, with unspecified mantissa and exponent sizes. Unsigned integer 
+		/// colorcomponents, when specified, are linearly mapped to floating-point values such that the largest representable value 
+		/// mapsto 1.0 (full intensity), and 0 maps to 0.0 (zero intensity). Signed integer color components, when specified, are 
+		/// linearlymapped to floating-point values such that the most positive representable value maps to 1.0, and the most 
+		/// negativerepresentable value maps to -1.0. (Note that this mapping does not convert 0 precisely to 0.0.) Floating-point 
+		/// valuesare mapped directly. 
+		/// Neither floating-point nor signed integer values are clamped to the range 01 before the current color is updated. 
+		/// However,color components are clamped to this range before they are interpolated or written into a color buffer. 
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - Gl.Get with argument <see cref="Gl.CURRENT_COLOR"/> 
+		/// - Gl.Get with argument <see cref="Gl.RGBA_MODE"/> 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.Index"/>
+		/// <seealso cref="Gl.SecondaryColor"/>
 		public static void Color3(double red, double green, double blue)
 		{
 			Debug.Assert(Delegates.pglColor3d != null, "pglColor3d not implemented");
@@ -6119,13 +6719,36 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glColor3dv.
+		/// set the current color
 		/// </summary>
 		/// <param name="v">
 		/// A <see cref="T:double[]"/>.
 		/// </param>
 		/// <remarks>
+		/// The GL stores both a current single-valued color index and a current four-valued RGBA color. <see cref="Gl.Color"/> sets 
+		/// anew four-valued RGBA color. <see cref="Gl.Color"/> has two major variants: <see cref="Gl.Color3"/> and <see 
+		/// cref="Gl.Color4"/>.<see cref="Gl.Color3"/> variants specify new red, green, and blue values explicitly and set the 
+		/// currentalpha value to 1.0 (full intensity) implicitly. <see cref="Gl.Color4"/> variants specify all four color 
+		/// componentsexplicitly. 
+		/// <see cref="Gl.Color3b"/>, <see cref="Gl.Color4b"/>, <see cref="Gl.Color3s"/>, <see cref="Gl.Color4s"/>, <see 
+		/// cref="Gl.Color3i"/>,and <see cref="Gl.Color4i"/> take three or four signed byte, short, or long integers as arguments. 
+		/// Whenv is appended to the name, the color commands can take a pointer to an array of such values. 
+		/// Current color values are stored in floating-point format, with unspecified mantissa and exponent sizes. Unsigned integer 
+		/// colorcomponents, when specified, are linearly mapped to floating-point values such that the largest representable value 
+		/// mapsto 1.0 (full intensity), and 0 maps to 0.0 (zero intensity). Signed integer color components, when specified, are 
+		/// linearlymapped to floating-point values such that the most positive representable value maps to 1.0, and the most 
+		/// negativerepresentable value maps to -1.0. (Note that this mapping does not convert 0 precisely to 0.0.) Floating-point 
+		/// valuesare mapped directly. 
+		/// Neither floating-point nor signed integer values are clamped to the range 01 before the current color is updated. 
+		/// However,color components are clamped to this range before they are interpolated or written into a color buffer. 
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - Gl.Get with argument <see cref="Gl.CURRENT_COLOR"/> 
+		/// - Gl.Get with argument <see cref="Gl.RGBA_MODE"/> 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.Index"/>
+		/// <seealso cref="Gl.SecondaryColor"/>
 		public static void Color3(double[] v)
 		{
 			unsafe {
@@ -6140,19 +6763,42 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glColor3f.
+		/// set the current color
 		/// </summary>
 		/// <param name="red">
-		/// A <see cref="T:float"/>.
+		/// Specify new red, green, and blue values for the current color. 
 		/// </param>
 		/// <param name="green">
-		/// A <see cref="T:float"/>.
+		/// Specify new red, green, and blue values for the current color. 
 		/// </param>
 		/// <param name="blue">
-		/// A <see cref="T:float"/>.
+		/// Specify new red, green, and blue values for the current color. 
 		/// </param>
 		/// <remarks>
+		/// The GL stores both a current single-valued color index and a current four-valued RGBA color. <see cref="Gl.Color"/> sets 
+		/// anew four-valued RGBA color. <see cref="Gl.Color"/> has two major variants: <see cref="Gl.Color3"/> and <see 
+		/// cref="Gl.Color4"/>.<see cref="Gl.Color3"/> variants specify new red, green, and blue values explicitly and set the 
+		/// currentalpha value to 1.0 (full intensity) implicitly. <see cref="Gl.Color4"/> variants specify all four color 
+		/// componentsexplicitly. 
+		/// <see cref="Gl.Color3b"/>, <see cref="Gl.Color4b"/>, <see cref="Gl.Color3s"/>, <see cref="Gl.Color4s"/>, <see 
+		/// cref="Gl.Color3i"/>,and <see cref="Gl.Color4i"/> take three or four signed byte, short, or long integers as arguments. 
+		/// Whenv is appended to the name, the color commands can take a pointer to an array of such values. 
+		/// Current color values are stored in floating-point format, with unspecified mantissa and exponent sizes. Unsigned integer 
+		/// colorcomponents, when specified, are linearly mapped to floating-point values such that the largest representable value 
+		/// mapsto 1.0 (full intensity), and 0 maps to 0.0 (zero intensity). Signed integer color components, when specified, are 
+		/// linearlymapped to floating-point values such that the most positive representable value maps to 1.0, and the most 
+		/// negativerepresentable value maps to -1.0. (Note that this mapping does not convert 0 precisely to 0.0.) Floating-point 
+		/// valuesare mapped directly. 
+		/// Neither floating-point nor signed integer values are clamped to the range 01 before the current color is updated. 
+		/// However,color components are clamped to this range before they are interpolated or written into a color buffer. 
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - Gl.Get with argument <see cref="Gl.CURRENT_COLOR"/> 
+		/// - Gl.Get with argument <see cref="Gl.RGBA_MODE"/> 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.Index"/>
+		/// <seealso cref="Gl.SecondaryColor"/>
 		public static void Color3(float red, float green, float blue)
 		{
 			Debug.Assert(Delegates.pglColor3f != null, "pglColor3f not implemented");
@@ -6162,13 +6808,36 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glColor3fv.
+		/// set the current color
 		/// </summary>
 		/// <param name="v">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
 		/// <remarks>
+		/// The GL stores both a current single-valued color index and a current four-valued RGBA color. <see cref="Gl.Color"/> sets 
+		/// anew four-valued RGBA color. <see cref="Gl.Color"/> has two major variants: <see cref="Gl.Color3"/> and <see 
+		/// cref="Gl.Color4"/>.<see cref="Gl.Color3"/> variants specify new red, green, and blue values explicitly and set the 
+		/// currentalpha value to 1.0 (full intensity) implicitly. <see cref="Gl.Color4"/> variants specify all four color 
+		/// componentsexplicitly. 
+		/// <see cref="Gl.Color3b"/>, <see cref="Gl.Color4b"/>, <see cref="Gl.Color3s"/>, <see cref="Gl.Color4s"/>, <see 
+		/// cref="Gl.Color3i"/>,and <see cref="Gl.Color4i"/> take three or four signed byte, short, or long integers as arguments. 
+		/// Whenv is appended to the name, the color commands can take a pointer to an array of such values. 
+		/// Current color values are stored in floating-point format, with unspecified mantissa and exponent sizes. Unsigned integer 
+		/// colorcomponents, when specified, are linearly mapped to floating-point values such that the largest representable value 
+		/// mapsto 1.0 (full intensity), and 0 maps to 0.0 (zero intensity). Signed integer color components, when specified, are 
+		/// linearlymapped to floating-point values such that the most positive representable value maps to 1.0, and the most 
+		/// negativerepresentable value maps to -1.0. (Note that this mapping does not convert 0 precisely to 0.0.) Floating-point 
+		/// valuesare mapped directly. 
+		/// Neither floating-point nor signed integer values are clamped to the range 01 before the current color is updated. 
+		/// However,color components are clamped to this range before they are interpolated or written into a color buffer. 
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - Gl.Get with argument <see cref="Gl.CURRENT_COLOR"/> 
+		/// - Gl.Get with argument <see cref="Gl.RGBA_MODE"/> 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.Index"/>
+		/// <seealso cref="Gl.SecondaryColor"/>
 		public static void Color3(float[] v)
 		{
 			unsafe {
@@ -6183,19 +6852,42 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glColor3i.
+		/// set the current color
 		/// </summary>
 		/// <param name="red">
-		/// A <see cref="T:Int32"/>.
+		/// Specify new red, green, and blue values for the current color. 
 		/// </param>
 		/// <param name="green">
-		/// A <see cref="T:Int32"/>.
+		/// Specify new red, green, and blue values for the current color. 
 		/// </param>
 		/// <param name="blue">
-		/// A <see cref="T:Int32"/>.
+		/// Specify new red, green, and blue values for the current color. 
 		/// </param>
 		/// <remarks>
+		/// The GL stores both a current single-valued color index and a current four-valued RGBA color. <see cref="Gl.Color"/> sets 
+		/// anew four-valued RGBA color. <see cref="Gl.Color"/> has two major variants: <see cref="Gl.Color3"/> and <see 
+		/// cref="Gl.Color4"/>.<see cref="Gl.Color3"/> variants specify new red, green, and blue values explicitly and set the 
+		/// currentalpha value to 1.0 (full intensity) implicitly. <see cref="Gl.Color4"/> variants specify all four color 
+		/// componentsexplicitly. 
+		/// <see cref="Gl.Color3b"/>, <see cref="Gl.Color4b"/>, <see cref="Gl.Color3s"/>, <see cref="Gl.Color4s"/>, <see 
+		/// cref="Gl.Color3i"/>,and <see cref="Gl.Color4i"/> take three or four signed byte, short, or long integers as arguments. 
+		/// Whenv is appended to the name, the color commands can take a pointer to an array of such values. 
+		/// Current color values are stored in floating-point format, with unspecified mantissa and exponent sizes. Unsigned integer 
+		/// colorcomponents, when specified, are linearly mapped to floating-point values such that the largest representable value 
+		/// mapsto 1.0 (full intensity), and 0 maps to 0.0 (zero intensity). Signed integer color components, when specified, are 
+		/// linearlymapped to floating-point values such that the most positive representable value maps to 1.0, and the most 
+		/// negativerepresentable value maps to -1.0. (Note that this mapping does not convert 0 precisely to 0.0.) Floating-point 
+		/// valuesare mapped directly. 
+		/// Neither floating-point nor signed integer values are clamped to the range 01 before the current color is updated. 
+		/// However,color components are clamped to this range before they are interpolated or written into a color buffer. 
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - Gl.Get with argument <see cref="Gl.CURRENT_COLOR"/> 
+		/// - Gl.Get with argument <see cref="Gl.RGBA_MODE"/> 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.Index"/>
+		/// <seealso cref="Gl.SecondaryColor"/>
 		public static void Color3(Int32 red, Int32 green, Int32 blue)
 		{
 			Debug.Assert(Delegates.pglColor3i != null, "pglColor3i not implemented");
@@ -6205,13 +6897,36 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glColor3iv.
+		/// set the current color
 		/// </summary>
 		/// <param name="v">
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
 		/// <remarks>
+		/// The GL stores both a current single-valued color index and a current four-valued RGBA color. <see cref="Gl.Color"/> sets 
+		/// anew four-valued RGBA color. <see cref="Gl.Color"/> has two major variants: <see cref="Gl.Color3"/> and <see 
+		/// cref="Gl.Color4"/>.<see cref="Gl.Color3"/> variants specify new red, green, and blue values explicitly and set the 
+		/// currentalpha value to 1.0 (full intensity) implicitly. <see cref="Gl.Color4"/> variants specify all four color 
+		/// componentsexplicitly. 
+		/// <see cref="Gl.Color3b"/>, <see cref="Gl.Color4b"/>, <see cref="Gl.Color3s"/>, <see cref="Gl.Color4s"/>, <see 
+		/// cref="Gl.Color3i"/>,and <see cref="Gl.Color4i"/> take three or four signed byte, short, or long integers as arguments. 
+		/// Whenv is appended to the name, the color commands can take a pointer to an array of such values. 
+		/// Current color values are stored in floating-point format, with unspecified mantissa and exponent sizes. Unsigned integer 
+		/// colorcomponents, when specified, are linearly mapped to floating-point values such that the largest representable value 
+		/// mapsto 1.0 (full intensity), and 0 maps to 0.0 (zero intensity). Signed integer color components, when specified, are 
+		/// linearlymapped to floating-point values such that the most positive representable value maps to 1.0, and the most 
+		/// negativerepresentable value maps to -1.0. (Note that this mapping does not convert 0 precisely to 0.0.) Floating-point 
+		/// valuesare mapped directly. 
+		/// Neither floating-point nor signed integer values are clamped to the range 01 before the current color is updated. 
+		/// However,color components are clamped to this range before they are interpolated or written into a color buffer. 
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - Gl.Get with argument <see cref="Gl.CURRENT_COLOR"/> 
+		/// - Gl.Get with argument <see cref="Gl.RGBA_MODE"/> 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.Index"/>
+		/// <seealso cref="Gl.SecondaryColor"/>
 		public static void Color3(Int32[] v)
 		{
 			unsafe {
@@ -6226,19 +6941,42 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glColor3s.
+		/// set the current color
 		/// </summary>
 		/// <param name="red">
-		/// A <see cref="T:Int16"/>.
+		/// Specify new red, green, and blue values for the current color. 
 		/// </param>
 		/// <param name="green">
-		/// A <see cref="T:Int16"/>.
+		/// Specify new red, green, and blue values for the current color. 
 		/// </param>
 		/// <param name="blue">
-		/// A <see cref="T:Int16"/>.
+		/// Specify new red, green, and blue values for the current color. 
 		/// </param>
 		/// <remarks>
+		/// The GL stores both a current single-valued color index and a current four-valued RGBA color. <see cref="Gl.Color"/> sets 
+		/// anew four-valued RGBA color. <see cref="Gl.Color"/> has two major variants: <see cref="Gl.Color3"/> and <see 
+		/// cref="Gl.Color4"/>.<see cref="Gl.Color3"/> variants specify new red, green, and blue values explicitly and set the 
+		/// currentalpha value to 1.0 (full intensity) implicitly. <see cref="Gl.Color4"/> variants specify all four color 
+		/// componentsexplicitly. 
+		/// <see cref="Gl.Color3b"/>, <see cref="Gl.Color4b"/>, <see cref="Gl.Color3s"/>, <see cref="Gl.Color4s"/>, <see 
+		/// cref="Gl.Color3i"/>,and <see cref="Gl.Color4i"/> take three or four signed byte, short, or long integers as arguments. 
+		/// Whenv is appended to the name, the color commands can take a pointer to an array of such values. 
+		/// Current color values are stored in floating-point format, with unspecified mantissa and exponent sizes. Unsigned integer 
+		/// colorcomponents, when specified, are linearly mapped to floating-point values such that the largest representable value 
+		/// mapsto 1.0 (full intensity), and 0 maps to 0.0 (zero intensity). Signed integer color components, when specified, are 
+		/// linearlymapped to floating-point values such that the most positive representable value maps to 1.0, and the most 
+		/// negativerepresentable value maps to -1.0. (Note that this mapping does not convert 0 precisely to 0.0.) Floating-point 
+		/// valuesare mapped directly. 
+		/// Neither floating-point nor signed integer values are clamped to the range 01 before the current color is updated. 
+		/// However,color components are clamped to this range before they are interpolated or written into a color buffer. 
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - Gl.Get with argument <see cref="Gl.CURRENT_COLOR"/> 
+		/// - Gl.Get with argument <see cref="Gl.RGBA_MODE"/> 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.Index"/>
+		/// <seealso cref="Gl.SecondaryColor"/>
 		public static void Color3(Int16 red, Int16 green, Int16 blue)
 		{
 			Debug.Assert(Delegates.pglColor3s != null, "pglColor3s not implemented");
@@ -6248,13 +6986,36 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glColor3sv.
+		/// set the current color
 		/// </summary>
 		/// <param name="v">
 		/// A <see cref="T:Int16[]"/>.
 		/// </param>
 		/// <remarks>
+		/// The GL stores both a current single-valued color index and a current four-valued RGBA color. <see cref="Gl.Color"/> sets 
+		/// anew four-valued RGBA color. <see cref="Gl.Color"/> has two major variants: <see cref="Gl.Color3"/> and <see 
+		/// cref="Gl.Color4"/>.<see cref="Gl.Color3"/> variants specify new red, green, and blue values explicitly and set the 
+		/// currentalpha value to 1.0 (full intensity) implicitly. <see cref="Gl.Color4"/> variants specify all four color 
+		/// componentsexplicitly. 
+		/// <see cref="Gl.Color3b"/>, <see cref="Gl.Color4b"/>, <see cref="Gl.Color3s"/>, <see cref="Gl.Color4s"/>, <see 
+		/// cref="Gl.Color3i"/>,and <see cref="Gl.Color4i"/> take three or four signed byte, short, or long integers as arguments. 
+		/// Whenv is appended to the name, the color commands can take a pointer to an array of such values. 
+		/// Current color values are stored in floating-point format, with unspecified mantissa and exponent sizes. Unsigned integer 
+		/// colorcomponents, when specified, are linearly mapped to floating-point values such that the largest representable value 
+		/// mapsto 1.0 (full intensity), and 0 maps to 0.0 (zero intensity). Signed integer color components, when specified, are 
+		/// linearlymapped to floating-point values such that the most positive representable value maps to 1.0, and the most 
+		/// negativerepresentable value maps to -1.0. (Note that this mapping does not convert 0 precisely to 0.0.) Floating-point 
+		/// valuesare mapped directly. 
+		/// Neither floating-point nor signed integer values are clamped to the range 01 before the current color is updated. 
+		/// However,color components are clamped to this range before they are interpolated or written into a color buffer. 
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - Gl.Get with argument <see cref="Gl.CURRENT_COLOR"/> 
+		/// - Gl.Get with argument <see cref="Gl.RGBA_MODE"/> 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.Index"/>
+		/// <seealso cref="Gl.SecondaryColor"/>
 		public static void Color3(Int16[] v)
 		{
 			unsafe {
@@ -6269,19 +7030,42 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glColor3ub.
+		/// set the current color
 		/// </summary>
 		/// <param name="red">
-		/// A <see cref="T:byte"/>.
+		/// Specify new red, green, and blue values for the current color. 
 		/// </param>
 		/// <param name="green">
-		/// A <see cref="T:byte"/>.
+		/// Specify new red, green, and blue values for the current color. 
 		/// </param>
 		/// <param name="blue">
-		/// A <see cref="T:byte"/>.
+		/// Specify new red, green, and blue values for the current color. 
 		/// </param>
 		/// <remarks>
+		/// The GL stores both a current single-valued color index and a current four-valued RGBA color. <see cref="Gl.Color"/> sets 
+		/// anew four-valued RGBA color. <see cref="Gl.Color"/> has two major variants: <see cref="Gl.Color3"/> and <see 
+		/// cref="Gl.Color4"/>.<see cref="Gl.Color3"/> variants specify new red, green, and blue values explicitly and set the 
+		/// currentalpha value to 1.0 (full intensity) implicitly. <see cref="Gl.Color4"/> variants specify all four color 
+		/// componentsexplicitly. 
+		/// <see cref="Gl.Color3b"/>, <see cref="Gl.Color4b"/>, <see cref="Gl.Color3s"/>, <see cref="Gl.Color4s"/>, <see 
+		/// cref="Gl.Color3i"/>,and <see cref="Gl.Color4i"/> take three or four signed byte, short, or long integers as arguments. 
+		/// Whenv is appended to the name, the color commands can take a pointer to an array of such values. 
+		/// Current color values are stored in floating-point format, with unspecified mantissa and exponent sizes. Unsigned integer 
+		/// colorcomponents, when specified, are linearly mapped to floating-point values such that the largest representable value 
+		/// mapsto 1.0 (full intensity), and 0 maps to 0.0 (zero intensity). Signed integer color components, when specified, are 
+		/// linearlymapped to floating-point values such that the most positive representable value maps to 1.0, and the most 
+		/// negativerepresentable value maps to -1.0. (Note that this mapping does not convert 0 precisely to 0.0.) Floating-point 
+		/// valuesare mapped directly. 
+		/// Neither floating-point nor signed integer values are clamped to the range 01 before the current color is updated. 
+		/// However,color components are clamped to this range before they are interpolated or written into a color buffer. 
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - Gl.Get with argument <see cref="Gl.CURRENT_COLOR"/> 
+		/// - Gl.Get with argument <see cref="Gl.RGBA_MODE"/> 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.Index"/>
+		/// <seealso cref="Gl.SecondaryColor"/>
 		public static void Color3(byte red, byte green, byte blue)
 		{
 			Debug.Assert(Delegates.pglColor3ub != null, "pglColor3ub not implemented");
@@ -6291,13 +7075,36 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glColor3ubv.
+		/// set the current color
 		/// </summary>
 		/// <param name="v">
 		/// A <see cref="T:byte[]"/>.
 		/// </param>
 		/// <remarks>
+		/// The GL stores both a current single-valued color index and a current four-valued RGBA color. <see cref="Gl.Color"/> sets 
+		/// anew four-valued RGBA color. <see cref="Gl.Color"/> has two major variants: <see cref="Gl.Color3"/> and <see 
+		/// cref="Gl.Color4"/>.<see cref="Gl.Color3"/> variants specify new red, green, and blue values explicitly and set the 
+		/// currentalpha value to 1.0 (full intensity) implicitly. <see cref="Gl.Color4"/> variants specify all four color 
+		/// componentsexplicitly. 
+		/// <see cref="Gl.Color3b"/>, <see cref="Gl.Color4b"/>, <see cref="Gl.Color3s"/>, <see cref="Gl.Color4s"/>, <see 
+		/// cref="Gl.Color3i"/>,and <see cref="Gl.Color4i"/> take three or four signed byte, short, or long integers as arguments. 
+		/// Whenv is appended to the name, the color commands can take a pointer to an array of such values. 
+		/// Current color values are stored in floating-point format, with unspecified mantissa and exponent sizes. Unsigned integer 
+		/// colorcomponents, when specified, are linearly mapped to floating-point values such that the largest representable value 
+		/// mapsto 1.0 (full intensity), and 0 maps to 0.0 (zero intensity). Signed integer color components, when specified, are 
+		/// linearlymapped to floating-point values such that the most positive representable value maps to 1.0, and the most 
+		/// negativerepresentable value maps to -1.0. (Note that this mapping does not convert 0 precisely to 0.0.) Floating-point 
+		/// valuesare mapped directly. 
+		/// Neither floating-point nor signed integer values are clamped to the range 01 before the current color is updated. 
+		/// However,color components are clamped to this range before they are interpolated or written into a color buffer. 
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - Gl.Get with argument <see cref="Gl.CURRENT_COLOR"/> 
+		/// - Gl.Get with argument <see cref="Gl.RGBA_MODE"/> 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.Index"/>
+		/// <seealso cref="Gl.SecondaryColor"/>
 		public static void Color3(byte[] v)
 		{
 			unsafe {
@@ -6312,19 +7119,42 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glColor3ui.
+		/// set the current color
 		/// </summary>
 		/// <param name="red">
-		/// A <see cref="T:UInt32"/>.
+		/// Specify new red, green, and blue values for the current color. 
 		/// </param>
 		/// <param name="green">
-		/// A <see cref="T:UInt32"/>.
+		/// Specify new red, green, and blue values for the current color. 
 		/// </param>
 		/// <param name="blue">
-		/// A <see cref="T:UInt32"/>.
+		/// Specify new red, green, and blue values for the current color. 
 		/// </param>
 		/// <remarks>
+		/// The GL stores both a current single-valued color index and a current four-valued RGBA color. <see cref="Gl.Color"/> sets 
+		/// anew four-valued RGBA color. <see cref="Gl.Color"/> has two major variants: <see cref="Gl.Color3"/> and <see 
+		/// cref="Gl.Color4"/>.<see cref="Gl.Color3"/> variants specify new red, green, and blue values explicitly and set the 
+		/// currentalpha value to 1.0 (full intensity) implicitly. <see cref="Gl.Color4"/> variants specify all four color 
+		/// componentsexplicitly. 
+		/// <see cref="Gl.Color3b"/>, <see cref="Gl.Color4b"/>, <see cref="Gl.Color3s"/>, <see cref="Gl.Color4s"/>, <see 
+		/// cref="Gl.Color3i"/>,and <see cref="Gl.Color4i"/> take three or four signed byte, short, or long integers as arguments. 
+		/// Whenv is appended to the name, the color commands can take a pointer to an array of such values. 
+		/// Current color values are stored in floating-point format, with unspecified mantissa and exponent sizes. Unsigned integer 
+		/// colorcomponents, when specified, are linearly mapped to floating-point values such that the largest representable value 
+		/// mapsto 1.0 (full intensity), and 0 maps to 0.0 (zero intensity). Signed integer color components, when specified, are 
+		/// linearlymapped to floating-point values such that the most positive representable value maps to 1.0, and the most 
+		/// negativerepresentable value maps to -1.0. (Note that this mapping does not convert 0 precisely to 0.0.) Floating-point 
+		/// valuesare mapped directly. 
+		/// Neither floating-point nor signed integer values are clamped to the range 01 before the current color is updated. 
+		/// However,color components are clamped to this range before they are interpolated or written into a color buffer. 
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - Gl.Get with argument <see cref="Gl.CURRENT_COLOR"/> 
+		/// - Gl.Get with argument <see cref="Gl.RGBA_MODE"/> 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.Index"/>
+		/// <seealso cref="Gl.SecondaryColor"/>
 		public static void Color3(UInt32 red, UInt32 green, UInt32 blue)
 		{
 			Debug.Assert(Delegates.pglColor3ui != null, "pglColor3ui not implemented");
@@ -6334,13 +7164,36 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glColor3uiv.
+		/// set the current color
 		/// </summary>
 		/// <param name="v">
 		/// A <see cref="T:UInt32[]"/>.
 		/// </param>
 		/// <remarks>
+		/// The GL stores both a current single-valued color index and a current four-valued RGBA color. <see cref="Gl.Color"/> sets 
+		/// anew four-valued RGBA color. <see cref="Gl.Color"/> has two major variants: <see cref="Gl.Color3"/> and <see 
+		/// cref="Gl.Color4"/>.<see cref="Gl.Color3"/> variants specify new red, green, and blue values explicitly and set the 
+		/// currentalpha value to 1.0 (full intensity) implicitly. <see cref="Gl.Color4"/> variants specify all four color 
+		/// componentsexplicitly. 
+		/// <see cref="Gl.Color3b"/>, <see cref="Gl.Color4b"/>, <see cref="Gl.Color3s"/>, <see cref="Gl.Color4s"/>, <see 
+		/// cref="Gl.Color3i"/>,and <see cref="Gl.Color4i"/> take three or four signed byte, short, or long integers as arguments. 
+		/// Whenv is appended to the name, the color commands can take a pointer to an array of such values. 
+		/// Current color values are stored in floating-point format, with unspecified mantissa and exponent sizes. Unsigned integer 
+		/// colorcomponents, when specified, are linearly mapped to floating-point values such that the largest representable value 
+		/// mapsto 1.0 (full intensity), and 0 maps to 0.0 (zero intensity). Signed integer color components, when specified, are 
+		/// linearlymapped to floating-point values such that the most positive representable value maps to 1.0, and the most 
+		/// negativerepresentable value maps to -1.0. (Note that this mapping does not convert 0 precisely to 0.0.) Floating-point 
+		/// valuesare mapped directly. 
+		/// Neither floating-point nor signed integer values are clamped to the range 01 before the current color is updated. 
+		/// However,color components are clamped to this range before they are interpolated or written into a color buffer. 
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - Gl.Get with argument <see cref="Gl.CURRENT_COLOR"/> 
+		/// - Gl.Get with argument <see cref="Gl.RGBA_MODE"/> 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.Index"/>
+		/// <seealso cref="Gl.SecondaryColor"/>
 		public static void Color3(UInt32[] v)
 		{
 			unsafe {
@@ -6355,19 +7208,42 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glColor3us.
+		/// set the current color
 		/// </summary>
 		/// <param name="red">
-		/// A <see cref="T:UInt16"/>.
+		/// Specify new red, green, and blue values for the current color. 
 		/// </param>
 		/// <param name="green">
-		/// A <see cref="T:UInt16"/>.
+		/// Specify new red, green, and blue values for the current color. 
 		/// </param>
 		/// <param name="blue">
-		/// A <see cref="T:UInt16"/>.
+		/// Specify new red, green, and blue values for the current color. 
 		/// </param>
 		/// <remarks>
+		/// The GL stores both a current single-valued color index and a current four-valued RGBA color. <see cref="Gl.Color"/> sets 
+		/// anew four-valued RGBA color. <see cref="Gl.Color"/> has two major variants: <see cref="Gl.Color3"/> and <see 
+		/// cref="Gl.Color4"/>.<see cref="Gl.Color3"/> variants specify new red, green, and blue values explicitly and set the 
+		/// currentalpha value to 1.0 (full intensity) implicitly. <see cref="Gl.Color4"/> variants specify all four color 
+		/// componentsexplicitly. 
+		/// <see cref="Gl.Color3b"/>, <see cref="Gl.Color4b"/>, <see cref="Gl.Color3s"/>, <see cref="Gl.Color4s"/>, <see 
+		/// cref="Gl.Color3i"/>,and <see cref="Gl.Color4i"/> take three or four signed byte, short, or long integers as arguments. 
+		/// Whenv is appended to the name, the color commands can take a pointer to an array of such values. 
+		/// Current color values are stored in floating-point format, with unspecified mantissa and exponent sizes. Unsigned integer 
+		/// colorcomponents, when specified, are linearly mapped to floating-point values such that the largest representable value 
+		/// mapsto 1.0 (full intensity), and 0 maps to 0.0 (zero intensity). Signed integer color components, when specified, are 
+		/// linearlymapped to floating-point values such that the most positive representable value maps to 1.0, and the most 
+		/// negativerepresentable value maps to -1.0. (Note that this mapping does not convert 0 precisely to 0.0.) Floating-point 
+		/// valuesare mapped directly. 
+		/// Neither floating-point nor signed integer values are clamped to the range 01 before the current color is updated. 
+		/// However,color components are clamped to this range before they are interpolated or written into a color buffer. 
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - Gl.Get with argument <see cref="Gl.CURRENT_COLOR"/> 
+		/// - Gl.Get with argument <see cref="Gl.RGBA_MODE"/> 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.Index"/>
+		/// <seealso cref="Gl.SecondaryColor"/>
 		public static void Color3(UInt16 red, UInt16 green, UInt16 blue)
 		{
 			Debug.Assert(Delegates.pglColor3us != null, "pglColor3us not implemented");
@@ -6377,13 +7253,36 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glColor3usv.
+		/// set the current color
 		/// </summary>
 		/// <param name="v">
 		/// A <see cref="T:UInt16[]"/>.
 		/// </param>
 		/// <remarks>
+		/// The GL stores both a current single-valued color index and a current four-valued RGBA color. <see cref="Gl.Color"/> sets 
+		/// anew four-valued RGBA color. <see cref="Gl.Color"/> has two major variants: <see cref="Gl.Color3"/> and <see 
+		/// cref="Gl.Color4"/>.<see cref="Gl.Color3"/> variants specify new red, green, and blue values explicitly and set the 
+		/// currentalpha value to 1.0 (full intensity) implicitly. <see cref="Gl.Color4"/> variants specify all four color 
+		/// componentsexplicitly. 
+		/// <see cref="Gl.Color3b"/>, <see cref="Gl.Color4b"/>, <see cref="Gl.Color3s"/>, <see cref="Gl.Color4s"/>, <see 
+		/// cref="Gl.Color3i"/>,and <see cref="Gl.Color4i"/> take three or four signed byte, short, or long integers as arguments. 
+		/// Whenv is appended to the name, the color commands can take a pointer to an array of such values. 
+		/// Current color values are stored in floating-point format, with unspecified mantissa and exponent sizes. Unsigned integer 
+		/// colorcomponents, when specified, are linearly mapped to floating-point values such that the largest representable value 
+		/// mapsto 1.0 (full intensity), and 0 maps to 0.0 (zero intensity). Signed integer color components, when specified, are 
+		/// linearlymapped to floating-point values such that the most positive representable value maps to 1.0, and the most 
+		/// negativerepresentable value maps to -1.0. (Note that this mapping does not convert 0 precisely to 0.0.) Floating-point 
+		/// valuesare mapped directly. 
+		/// Neither floating-point nor signed integer values are clamped to the range 01 before the current color is updated. 
+		/// However,color components are clamped to this range before they are interpolated or written into a color buffer. 
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - Gl.Get with argument <see cref="Gl.CURRENT_COLOR"/> 
+		/// - Gl.Get with argument <see cref="Gl.RGBA_MODE"/> 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.Index"/>
+		/// <seealso cref="Gl.SecondaryColor"/>
 		public static void Color3(UInt16[] v)
 		{
 			unsafe {
@@ -6398,22 +7297,45 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glColor4b.
+		/// set the current color
 		/// </summary>
 		/// <param name="red">
-		/// A <see cref="T:sbyte"/>.
+		/// Specify new red, green, and blue values for the current color. 
 		/// </param>
 		/// <param name="green">
-		/// A <see cref="T:sbyte"/>.
+		/// Specify new red, green, and blue values for the current color. 
 		/// </param>
 		/// <param name="blue">
-		/// A <see cref="T:sbyte"/>.
+		/// Specify new red, green, and blue values for the current color. 
 		/// </param>
 		/// <param name="alpha">
-		/// A <see cref="T:sbyte"/>.
+		/// Specifies a new alpha value for the current color. Included only in the four-argument <see cref="Gl.Color4"/> commands. 
 		/// </param>
 		/// <remarks>
+		/// The GL stores both a current single-valued color index and a current four-valued RGBA color. <see cref="Gl.Color"/> sets 
+		/// anew four-valued RGBA color. <see cref="Gl.Color"/> has two major variants: <see cref="Gl.Color3"/> and <see 
+		/// cref="Gl.Color4"/>.<see cref="Gl.Color3"/> variants specify new red, green, and blue values explicitly and set the 
+		/// currentalpha value to 1.0 (full intensity) implicitly. <see cref="Gl.Color4"/> variants specify all four color 
+		/// componentsexplicitly. 
+		/// <see cref="Gl.Color3b"/>, <see cref="Gl.Color4b"/>, <see cref="Gl.Color3s"/>, <see cref="Gl.Color4s"/>, <see 
+		/// cref="Gl.Color3i"/>,and <see cref="Gl.Color4i"/> take three or four signed byte, short, or long integers as arguments. 
+		/// Whenv is appended to the name, the color commands can take a pointer to an array of such values. 
+		/// Current color values are stored in floating-point format, with unspecified mantissa and exponent sizes. Unsigned integer 
+		/// colorcomponents, when specified, are linearly mapped to floating-point values such that the largest representable value 
+		/// mapsto 1.0 (full intensity), and 0 maps to 0.0 (zero intensity). Signed integer color components, when specified, are 
+		/// linearlymapped to floating-point values such that the most positive representable value maps to 1.0, and the most 
+		/// negativerepresentable value maps to -1.0. (Note that this mapping does not convert 0 precisely to 0.0.) Floating-point 
+		/// valuesare mapped directly. 
+		/// Neither floating-point nor signed integer values are clamped to the range 01 before the current color is updated. 
+		/// However,color components are clamped to this range before they are interpolated or written into a color buffer. 
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - Gl.Get with argument <see cref="Gl.CURRENT_COLOR"/> 
+		/// - Gl.Get with argument <see cref="Gl.RGBA_MODE"/> 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.Index"/>
+		/// <seealso cref="Gl.SecondaryColor"/>
 		public static void Color4(sbyte red, sbyte green, sbyte blue, sbyte alpha)
 		{
 			Debug.Assert(Delegates.pglColor4b != null, "pglColor4b not implemented");
@@ -6423,13 +7345,36 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glColor4bv.
+		/// set the current color
 		/// </summary>
 		/// <param name="v">
 		/// A <see cref="T:sbyte[]"/>.
 		/// </param>
 		/// <remarks>
+		/// The GL stores both a current single-valued color index and a current four-valued RGBA color. <see cref="Gl.Color"/> sets 
+		/// anew four-valued RGBA color. <see cref="Gl.Color"/> has two major variants: <see cref="Gl.Color3"/> and <see 
+		/// cref="Gl.Color4"/>.<see cref="Gl.Color3"/> variants specify new red, green, and blue values explicitly and set the 
+		/// currentalpha value to 1.0 (full intensity) implicitly. <see cref="Gl.Color4"/> variants specify all four color 
+		/// componentsexplicitly. 
+		/// <see cref="Gl.Color3b"/>, <see cref="Gl.Color4b"/>, <see cref="Gl.Color3s"/>, <see cref="Gl.Color4s"/>, <see 
+		/// cref="Gl.Color3i"/>,and <see cref="Gl.Color4i"/> take three or four signed byte, short, or long integers as arguments. 
+		/// Whenv is appended to the name, the color commands can take a pointer to an array of such values. 
+		/// Current color values are stored in floating-point format, with unspecified mantissa and exponent sizes. Unsigned integer 
+		/// colorcomponents, when specified, are linearly mapped to floating-point values such that the largest representable value 
+		/// mapsto 1.0 (full intensity), and 0 maps to 0.0 (zero intensity). Signed integer color components, when specified, are 
+		/// linearlymapped to floating-point values such that the most positive representable value maps to 1.0, and the most 
+		/// negativerepresentable value maps to -1.0. (Note that this mapping does not convert 0 precisely to 0.0.) Floating-point 
+		/// valuesare mapped directly. 
+		/// Neither floating-point nor signed integer values are clamped to the range 01 before the current color is updated. 
+		/// However,color components are clamped to this range before they are interpolated or written into a color buffer. 
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - Gl.Get with argument <see cref="Gl.CURRENT_COLOR"/> 
+		/// - Gl.Get with argument <see cref="Gl.RGBA_MODE"/> 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.Index"/>
+		/// <seealso cref="Gl.SecondaryColor"/>
 		public static void Color4(sbyte[] v)
 		{
 			unsafe {
@@ -6444,22 +7389,45 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glColor4d.
+		/// set the current color
 		/// </summary>
 		/// <param name="red">
-		/// A <see cref="T:double"/>.
+		/// Specify new red, green, and blue values for the current color. 
 		/// </param>
 		/// <param name="green">
-		/// A <see cref="T:double"/>.
+		/// Specify new red, green, and blue values for the current color. 
 		/// </param>
 		/// <param name="blue">
-		/// A <see cref="T:double"/>.
+		/// Specify new red, green, and blue values for the current color. 
 		/// </param>
 		/// <param name="alpha">
-		/// A <see cref="T:double"/>.
+		/// Specifies a new alpha value for the current color. Included only in the four-argument <see cref="Gl.Color4"/> commands. 
 		/// </param>
 		/// <remarks>
+		/// The GL stores both a current single-valued color index and a current four-valued RGBA color. <see cref="Gl.Color"/> sets 
+		/// anew four-valued RGBA color. <see cref="Gl.Color"/> has two major variants: <see cref="Gl.Color3"/> and <see 
+		/// cref="Gl.Color4"/>.<see cref="Gl.Color3"/> variants specify new red, green, and blue values explicitly and set the 
+		/// currentalpha value to 1.0 (full intensity) implicitly. <see cref="Gl.Color4"/> variants specify all four color 
+		/// componentsexplicitly. 
+		/// <see cref="Gl.Color3b"/>, <see cref="Gl.Color4b"/>, <see cref="Gl.Color3s"/>, <see cref="Gl.Color4s"/>, <see 
+		/// cref="Gl.Color3i"/>,and <see cref="Gl.Color4i"/> take three or four signed byte, short, or long integers as arguments. 
+		/// Whenv is appended to the name, the color commands can take a pointer to an array of such values. 
+		/// Current color values are stored in floating-point format, with unspecified mantissa and exponent sizes. Unsigned integer 
+		/// colorcomponents, when specified, are linearly mapped to floating-point values such that the largest representable value 
+		/// mapsto 1.0 (full intensity), and 0 maps to 0.0 (zero intensity). Signed integer color components, when specified, are 
+		/// linearlymapped to floating-point values such that the most positive representable value maps to 1.0, and the most 
+		/// negativerepresentable value maps to -1.0. (Note that this mapping does not convert 0 precisely to 0.0.) Floating-point 
+		/// valuesare mapped directly. 
+		/// Neither floating-point nor signed integer values are clamped to the range 01 before the current color is updated. 
+		/// However,color components are clamped to this range before they are interpolated or written into a color buffer. 
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - Gl.Get with argument <see cref="Gl.CURRENT_COLOR"/> 
+		/// - Gl.Get with argument <see cref="Gl.RGBA_MODE"/> 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.Index"/>
+		/// <seealso cref="Gl.SecondaryColor"/>
 		public static void Color4(double red, double green, double blue, double alpha)
 		{
 			Debug.Assert(Delegates.pglColor4d != null, "pglColor4d not implemented");
@@ -6469,13 +7437,36 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glColor4dv.
+		/// set the current color
 		/// </summary>
 		/// <param name="v">
 		/// A <see cref="T:double[]"/>.
 		/// </param>
 		/// <remarks>
+		/// The GL stores both a current single-valued color index and a current four-valued RGBA color. <see cref="Gl.Color"/> sets 
+		/// anew four-valued RGBA color. <see cref="Gl.Color"/> has two major variants: <see cref="Gl.Color3"/> and <see 
+		/// cref="Gl.Color4"/>.<see cref="Gl.Color3"/> variants specify new red, green, and blue values explicitly and set the 
+		/// currentalpha value to 1.0 (full intensity) implicitly. <see cref="Gl.Color4"/> variants specify all four color 
+		/// componentsexplicitly. 
+		/// <see cref="Gl.Color3b"/>, <see cref="Gl.Color4b"/>, <see cref="Gl.Color3s"/>, <see cref="Gl.Color4s"/>, <see 
+		/// cref="Gl.Color3i"/>,and <see cref="Gl.Color4i"/> take three or four signed byte, short, or long integers as arguments. 
+		/// Whenv is appended to the name, the color commands can take a pointer to an array of such values. 
+		/// Current color values are stored in floating-point format, with unspecified mantissa and exponent sizes. Unsigned integer 
+		/// colorcomponents, when specified, are linearly mapped to floating-point values such that the largest representable value 
+		/// mapsto 1.0 (full intensity), and 0 maps to 0.0 (zero intensity). Signed integer color components, when specified, are 
+		/// linearlymapped to floating-point values such that the most positive representable value maps to 1.0, and the most 
+		/// negativerepresentable value maps to -1.0. (Note that this mapping does not convert 0 precisely to 0.0.) Floating-point 
+		/// valuesare mapped directly. 
+		/// Neither floating-point nor signed integer values are clamped to the range 01 before the current color is updated. 
+		/// However,color components are clamped to this range before they are interpolated or written into a color buffer. 
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - Gl.Get with argument <see cref="Gl.CURRENT_COLOR"/> 
+		/// - Gl.Get with argument <see cref="Gl.RGBA_MODE"/> 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.Index"/>
+		/// <seealso cref="Gl.SecondaryColor"/>
 		public static void Color4(double[] v)
 		{
 			unsafe {
@@ -6490,22 +7481,45 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glColor4f.
+		/// set the current color
 		/// </summary>
 		/// <param name="red">
-		/// A <see cref="T:float"/>.
+		/// Specify new red, green, and blue values for the current color. 
 		/// </param>
 		/// <param name="green">
-		/// A <see cref="T:float"/>.
+		/// Specify new red, green, and blue values for the current color. 
 		/// </param>
 		/// <param name="blue">
-		/// A <see cref="T:float"/>.
+		/// Specify new red, green, and blue values for the current color. 
 		/// </param>
 		/// <param name="alpha">
-		/// A <see cref="T:float"/>.
+		/// Specifies a new alpha value for the current color. Included only in the four-argument <see cref="Gl.Color4"/> commands. 
 		/// </param>
 		/// <remarks>
+		/// The GL stores both a current single-valued color index and a current four-valued RGBA color. <see cref="Gl.Color"/> sets 
+		/// anew four-valued RGBA color. <see cref="Gl.Color"/> has two major variants: <see cref="Gl.Color3"/> and <see 
+		/// cref="Gl.Color4"/>.<see cref="Gl.Color3"/> variants specify new red, green, and blue values explicitly and set the 
+		/// currentalpha value to 1.0 (full intensity) implicitly. <see cref="Gl.Color4"/> variants specify all four color 
+		/// componentsexplicitly. 
+		/// <see cref="Gl.Color3b"/>, <see cref="Gl.Color4b"/>, <see cref="Gl.Color3s"/>, <see cref="Gl.Color4s"/>, <see 
+		/// cref="Gl.Color3i"/>,and <see cref="Gl.Color4i"/> take three or four signed byte, short, or long integers as arguments. 
+		/// Whenv is appended to the name, the color commands can take a pointer to an array of such values. 
+		/// Current color values are stored in floating-point format, with unspecified mantissa and exponent sizes. Unsigned integer 
+		/// colorcomponents, when specified, are linearly mapped to floating-point values such that the largest representable value 
+		/// mapsto 1.0 (full intensity), and 0 maps to 0.0 (zero intensity). Signed integer color components, when specified, are 
+		/// linearlymapped to floating-point values such that the most positive representable value maps to 1.0, and the most 
+		/// negativerepresentable value maps to -1.0. (Note that this mapping does not convert 0 precisely to 0.0.) Floating-point 
+		/// valuesare mapped directly. 
+		/// Neither floating-point nor signed integer values are clamped to the range 01 before the current color is updated. 
+		/// However,color components are clamped to this range before they are interpolated or written into a color buffer. 
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - Gl.Get with argument <see cref="Gl.CURRENT_COLOR"/> 
+		/// - Gl.Get with argument <see cref="Gl.RGBA_MODE"/> 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.Index"/>
+		/// <seealso cref="Gl.SecondaryColor"/>
 		public static void Color4(float red, float green, float blue, float alpha)
 		{
 			Debug.Assert(Delegates.pglColor4f != null, "pglColor4f not implemented");
@@ -6515,13 +7529,36 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glColor4fv.
+		/// set the current color
 		/// </summary>
 		/// <param name="v">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
 		/// <remarks>
+		/// The GL stores both a current single-valued color index and a current four-valued RGBA color. <see cref="Gl.Color"/> sets 
+		/// anew four-valued RGBA color. <see cref="Gl.Color"/> has two major variants: <see cref="Gl.Color3"/> and <see 
+		/// cref="Gl.Color4"/>.<see cref="Gl.Color3"/> variants specify new red, green, and blue values explicitly and set the 
+		/// currentalpha value to 1.0 (full intensity) implicitly. <see cref="Gl.Color4"/> variants specify all four color 
+		/// componentsexplicitly. 
+		/// <see cref="Gl.Color3b"/>, <see cref="Gl.Color4b"/>, <see cref="Gl.Color3s"/>, <see cref="Gl.Color4s"/>, <see 
+		/// cref="Gl.Color3i"/>,and <see cref="Gl.Color4i"/> take three or four signed byte, short, or long integers as arguments. 
+		/// Whenv is appended to the name, the color commands can take a pointer to an array of such values. 
+		/// Current color values are stored in floating-point format, with unspecified mantissa and exponent sizes. Unsigned integer 
+		/// colorcomponents, when specified, are linearly mapped to floating-point values such that the largest representable value 
+		/// mapsto 1.0 (full intensity), and 0 maps to 0.0 (zero intensity). Signed integer color components, when specified, are 
+		/// linearlymapped to floating-point values such that the most positive representable value maps to 1.0, and the most 
+		/// negativerepresentable value maps to -1.0. (Note that this mapping does not convert 0 precisely to 0.0.) Floating-point 
+		/// valuesare mapped directly. 
+		/// Neither floating-point nor signed integer values are clamped to the range 01 before the current color is updated. 
+		/// However,color components are clamped to this range before they are interpolated or written into a color buffer. 
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - Gl.Get with argument <see cref="Gl.CURRENT_COLOR"/> 
+		/// - Gl.Get with argument <see cref="Gl.RGBA_MODE"/> 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.Index"/>
+		/// <seealso cref="Gl.SecondaryColor"/>
 		public static void Color4(float[] v)
 		{
 			unsafe {
@@ -6536,22 +7573,45 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glColor4i.
+		/// set the current color
 		/// </summary>
 		/// <param name="red">
-		/// A <see cref="T:Int32"/>.
+		/// Specify new red, green, and blue values for the current color. 
 		/// </param>
 		/// <param name="green">
-		/// A <see cref="T:Int32"/>.
+		/// Specify new red, green, and blue values for the current color. 
 		/// </param>
 		/// <param name="blue">
-		/// A <see cref="T:Int32"/>.
+		/// Specify new red, green, and blue values for the current color. 
 		/// </param>
 		/// <param name="alpha">
-		/// A <see cref="T:Int32"/>.
+		/// Specifies a new alpha value for the current color. Included only in the four-argument <see cref="Gl.Color4"/> commands. 
 		/// </param>
 		/// <remarks>
+		/// The GL stores both a current single-valued color index and a current four-valued RGBA color. <see cref="Gl.Color"/> sets 
+		/// anew four-valued RGBA color. <see cref="Gl.Color"/> has two major variants: <see cref="Gl.Color3"/> and <see 
+		/// cref="Gl.Color4"/>.<see cref="Gl.Color3"/> variants specify new red, green, and blue values explicitly and set the 
+		/// currentalpha value to 1.0 (full intensity) implicitly. <see cref="Gl.Color4"/> variants specify all four color 
+		/// componentsexplicitly. 
+		/// <see cref="Gl.Color3b"/>, <see cref="Gl.Color4b"/>, <see cref="Gl.Color3s"/>, <see cref="Gl.Color4s"/>, <see 
+		/// cref="Gl.Color3i"/>,and <see cref="Gl.Color4i"/> take three or four signed byte, short, or long integers as arguments. 
+		/// Whenv is appended to the name, the color commands can take a pointer to an array of such values. 
+		/// Current color values are stored in floating-point format, with unspecified mantissa and exponent sizes. Unsigned integer 
+		/// colorcomponents, when specified, are linearly mapped to floating-point values such that the largest representable value 
+		/// mapsto 1.0 (full intensity), and 0 maps to 0.0 (zero intensity). Signed integer color components, when specified, are 
+		/// linearlymapped to floating-point values such that the most positive representable value maps to 1.0, and the most 
+		/// negativerepresentable value maps to -1.0. (Note that this mapping does not convert 0 precisely to 0.0.) Floating-point 
+		/// valuesare mapped directly. 
+		/// Neither floating-point nor signed integer values are clamped to the range 01 before the current color is updated. 
+		/// However,color components are clamped to this range before they are interpolated or written into a color buffer. 
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - Gl.Get with argument <see cref="Gl.CURRENT_COLOR"/> 
+		/// - Gl.Get with argument <see cref="Gl.RGBA_MODE"/> 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.Index"/>
+		/// <seealso cref="Gl.SecondaryColor"/>
 		public static void Color4(Int32 red, Int32 green, Int32 blue, Int32 alpha)
 		{
 			Debug.Assert(Delegates.pglColor4i != null, "pglColor4i not implemented");
@@ -6561,13 +7621,36 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glColor4iv.
+		/// set the current color
 		/// </summary>
 		/// <param name="v">
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
 		/// <remarks>
+		/// The GL stores both a current single-valued color index and a current four-valued RGBA color. <see cref="Gl.Color"/> sets 
+		/// anew four-valued RGBA color. <see cref="Gl.Color"/> has two major variants: <see cref="Gl.Color3"/> and <see 
+		/// cref="Gl.Color4"/>.<see cref="Gl.Color3"/> variants specify new red, green, and blue values explicitly and set the 
+		/// currentalpha value to 1.0 (full intensity) implicitly. <see cref="Gl.Color4"/> variants specify all four color 
+		/// componentsexplicitly. 
+		/// <see cref="Gl.Color3b"/>, <see cref="Gl.Color4b"/>, <see cref="Gl.Color3s"/>, <see cref="Gl.Color4s"/>, <see 
+		/// cref="Gl.Color3i"/>,and <see cref="Gl.Color4i"/> take three or four signed byte, short, or long integers as arguments. 
+		/// Whenv is appended to the name, the color commands can take a pointer to an array of such values. 
+		/// Current color values are stored in floating-point format, with unspecified mantissa and exponent sizes. Unsigned integer 
+		/// colorcomponents, when specified, are linearly mapped to floating-point values such that the largest representable value 
+		/// mapsto 1.0 (full intensity), and 0 maps to 0.0 (zero intensity). Signed integer color components, when specified, are 
+		/// linearlymapped to floating-point values such that the most positive representable value maps to 1.0, and the most 
+		/// negativerepresentable value maps to -1.0. (Note that this mapping does not convert 0 precisely to 0.0.) Floating-point 
+		/// valuesare mapped directly. 
+		/// Neither floating-point nor signed integer values are clamped to the range 01 before the current color is updated. 
+		/// However,color components are clamped to this range before they are interpolated or written into a color buffer. 
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - Gl.Get with argument <see cref="Gl.CURRENT_COLOR"/> 
+		/// - Gl.Get with argument <see cref="Gl.RGBA_MODE"/> 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.Index"/>
+		/// <seealso cref="Gl.SecondaryColor"/>
 		public static void Color4(Int32[] v)
 		{
 			unsafe {
@@ -6582,22 +7665,45 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glColor4s.
+		/// set the current color
 		/// </summary>
 		/// <param name="red">
-		/// A <see cref="T:Int16"/>.
+		/// Specify new red, green, and blue values for the current color. 
 		/// </param>
 		/// <param name="green">
-		/// A <see cref="T:Int16"/>.
+		/// Specify new red, green, and blue values for the current color. 
 		/// </param>
 		/// <param name="blue">
-		/// A <see cref="T:Int16"/>.
+		/// Specify new red, green, and blue values for the current color. 
 		/// </param>
 		/// <param name="alpha">
-		/// A <see cref="T:Int16"/>.
+		/// Specifies a new alpha value for the current color. Included only in the four-argument <see cref="Gl.Color4"/> commands. 
 		/// </param>
 		/// <remarks>
+		/// The GL stores both a current single-valued color index and a current four-valued RGBA color. <see cref="Gl.Color"/> sets 
+		/// anew four-valued RGBA color. <see cref="Gl.Color"/> has two major variants: <see cref="Gl.Color3"/> and <see 
+		/// cref="Gl.Color4"/>.<see cref="Gl.Color3"/> variants specify new red, green, and blue values explicitly and set the 
+		/// currentalpha value to 1.0 (full intensity) implicitly. <see cref="Gl.Color4"/> variants specify all four color 
+		/// componentsexplicitly. 
+		/// <see cref="Gl.Color3b"/>, <see cref="Gl.Color4b"/>, <see cref="Gl.Color3s"/>, <see cref="Gl.Color4s"/>, <see 
+		/// cref="Gl.Color3i"/>,and <see cref="Gl.Color4i"/> take three or four signed byte, short, or long integers as arguments. 
+		/// Whenv is appended to the name, the color commands can take a pointer to an array of such values. 
+		/// Current color values are stored in floating-point format, with unspecified mantissa and exponent sizes. Unsigned integer 
+		/// colorcomponents, when specified, are linearly mapped to floating-point values such that the largest representable value 
+		/// mapsto 1.0 (full intensity), and 0 maps to 0.0 (zero intensity). Signed integer color components, when specified, are 
+		/// linearlymapped to floating-point values such that the most positive representable value maps to 1.0, and the most 
+		/// negativerepresentable value maps to -1.0. (Note that this mapping does not convert 0 precisely to 0.0.) Floating-point 
+		/// valuesare mapped directly. 
+		/// Neither floating-point nor signed integer values are clamped to the range 01 before the current color is updated. 
+		/// However,color components are clamped to this range before they are interpolated or written into a color buffer. 
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - Gl.Get with argument <see cref="Gl.CURRENT_COLOR"/> 
+		/// - Gl.Get with argument <see cref="Gl.RGBA_MODE"/> 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.Index"/>
+		/// <seealso cref="Gl.SecondaryColor"/>
 		public static void Color4(Int16 red, Int16 green, Int16 blue, Int16 alpha)
 		{
 			Debug.Assert(Delegates.pglColor4s != null, "pglColor4s not implemented");
@@ -6607,13 +7713,36 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glColor4sv.
+		/// set the current color
 		/// </summary>
 		/// <param name="v">
 		/// A <see cref="T:Int16[]"/>.
 		/// </param>
 		/// <remarks>
+		/// The GL stores both a current single-valued color index and a current four-valued RGBA color. <see cref="Gl.Color"/> sets 
+		/// anew four-valued RGBA color. <see cref="Gl.Color"/> has two major variants: <see cref="Gl.Color3"/> and <see 
+		/// cref="Gl.Color4"/>.<see cref="Gl.Color3"/> variants specify new red, green, and blue values explicitly and set the 
+		/// currentalpha value to 1.0 (full intensity) implicitly. <see cref="Gl.Color4"/> variants specify all four color 
+		/// componentsexplicitly. 
+		/// <see cref="Gl.Color3b"/>, <see cref="Gl.Color4b"/>, <see cref="Gl.Color3s"/>, <see cref="Gl.Color4s"/>, <see 
+		/// cref="Gl.Color3i"/>,and <see cref="Gl.Color4i"/> take three or four signed byte, short, or long integers as arguments. 
+		/// Whenv is appended to the name, the color commands can take a pointer to an array of such values. 
+		/// Current color values are stored in floating-point format, with unspecified mantissa and exponent sizes. Unsigned integer 
+		/// colorcomponents, when specified, are linearly mapped to floating-point values such that the largest representable value 
+		/// mapsto 1.0 (full intensity), and 0 maps to 0.0 (zero intensity). Signed integer color components, when specified, are 
+		/// linearlymapped to floating-point values such that the most positive representable value maps to 1.0, and the most 
+		/// negativerepresentable value maps to -1.0. (Note that this mapping does not convert 0 precisely to 0.0.) Floating-point 
+		/// valuesare mapped directly. 
+		/// Neither floating-point nor signed integer values are clamped to the range 01 before the current color is updated. 
+		/// However,color components are clamped to this range before they are interpolated or written into a color buffer. 
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - Gl.Get with argument <see cref="Gl.CURRENT_COLOR"/> 
+		/// - Gl.Get with argument <see cref="Gl.RGBA_MODE"/> 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.Index"/>
+		/// <seealso cref="Gl.SecondaryColor"/>
 		public static void Color4(Int16[] v)
 		{
 			unsafe {
@@ -6628,22 +7757,45 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glColor4ub.
+		/// set the current color
 		/// </summary>
 		/// <param name="red">
-		/// A <see cref="T:byte"/>.
+		/// Specify new red, green, and blue values for the current color. 
 		/// </param>
 		/// <param name="green">
-		/// A <see cref="T:byte"/>.
+		/// Specify new red, green, and blue values for the current color. 
 		/// </param>
 		/// <param name="blue">
-		/// A <see cref="T:byte"/>.
+		/// Specify new red, green, and blue values for the current color. 
 		/// </param>
 		/// <param name="alpha">
-		/// A <see cref="T:byte"/>.
+		/// Specifies a new alpha value for the current color. Included only in the four-argument <see cref="Gl.Color4"/> commands. 
 		/// </param>
 		/// <remarks>
+		/// The GL stores both a current single-valued color index and a current four-valued RGBA color. <see cref="Gl.Color"/> sets 
+		/// anew four-valued RGBA color. <see cref="Gl.Color"/> has two major variants: <see cref="Gl.Color3"/> and <see 
+		/// cref="Gl.Color4"/>.<see cref="Gl.Color3"/> variants specify new red, green, and blue values explicitly and set the 
+		/// currentalpha value to 1.0 (full intensity) implicitly. <see cref="Gl.Color4"/> variants specify all four color 
+		/// componentsexplicitly. 
+		/// <see cref="Gl.Color3b"/>, <see cref="Gl.Color4b"/>, <see cref="Gl.Color3s"/>, <see cref="Gl.Color4s"/>, <see 
+		/// cref="Gl.Color3i"/>,and <see cref="Gl.Color4i"/> take three or four signed byte, short, or long integers as arguments. 
+		/// Whenv is appended to the name, the color commands can take a pointer to an array of such values. 
+		/// Current color values are stored in floating-point format, with unspecified mantissa and exponent sizes. Unsigned integer 
+		/// colorcomponents, when specified, are linearly mapped to floating-point values such that the largest representable value 
+		/// mapsto 1.0 (full intensity), and 0 maps to 0.0 (zero intensity). Signed integer color components, when specified, are 
+		/// linearlymapped to floating-point values such that the most positive representable value maps to 1.0, and the most 
+		/// negativerepresentable value maps to -1.0. (Note that this mapping does not convert 0 precisely to 0.0.) Floating-point 
+		/// valuesare mapped directly. 
+		/// Neither floating-point nor signed integer values are clamped to the range 01 before the current color is updated. 
+		/// However,color components are clamped to this range before they are interpolated or written into a color buffer. 
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - Gl.Get with argument <see cref="Gl.CURRENT_COLOR"/> 
+		/// - Gl.Get with argument <see cref="Gl.RGBA_MODE"/> 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.Index"/>
+		/// <seealso cref="Gl.SecondaryColor"/>
 		public static void Color4(byte red, byte green, byte blue, byte alpha)
 		{
 			Debug.Assert(Delegates.pglColor4ub != null, "pglColor4ub not implemented");
@@ -6653,13 +7805,36 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glColor4ubv.
+		/// set the current color
 		/// </summary>
 		/// <param name="v">
 		/// A <see cref="T:byte[]"/>.
 		/// </param>
 		/// <remarks>
+		/// The GL stores both a current single-valued color index and a current four-valued RGBA color. <see cref="Gl.Color"/> sets 
+		/// anew four-valued RGBA color. <see cref="Gl.Color"/> has two major variants: <see cref="Gl.Color3"/> and <see 
+		/// cref="Gl.Color4"/>.<see cref="Gl.Color3"/> variants specify new red, green, and blue values explicitly and set the 
+		/// currentalpha value to 1.0 (full intensity) implicitly. <see cref="Gl.Color4"/> variants specify all four color 
+		/// componentsexplicitly. 
+		/// <see cref="Gl.Color3b"/>, <see cref="Gl.Color4b"/>, <see cref="Gl.Color3s"/>, <see cref="Gl.Color4s"/>, <see 
+		/// cref="Gl.Color3i"/>,and <see cref="Gl.Color4i"/> take three or four signed byte, short, or long integers as arguments. 
+		/// Whenv is appended to the name, the color commands can take a pointer to an array of such values. 
+		/// Current color values are stored in floating-point format, with unspecified mantissa and exponent sizes. Unsigned integer 
+		/// colorcomponents, when specified, are linearly mapped to floating-point values such that the largest representable value 
+		/// mapsto 1.0 (full intensity), and 0 maps to 0.0 (zero intensity). Signed integer color components, when specified, are 
+		/// linearlymapped to floating-point values such that the most positive representable value maps to 1.0, and the most 
+		/// negativerepresentable value maps to -1.0. (Note that this mapping does not convert 0 precisely to 0.0.) Floating-point 
+		/// valuesare mapped directly. 
+		/// Neither floating-point nor signed integer values are clamped to the range 01 before the current color is updated. 
+		/// However,color components are clamped to this range before they are interpolated or written into a color buffer. 
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - Gl.Get with argument <see cref="Gl.CURRENT_COLOR"/> 
+		/// - Gl.Get with argument <see cref="Gl.RGBA_MODE"/> 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.Index"/>
+		/// <seealso cref="Gl.SecondaryColor"/>
 		public static void Color4(byte[] v)
 		{
 			unsafe {
@@ -6674,22 +7849,45 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glColor4ui.
+		/// set the current color
 		/// </summary>
 		/// <param name="red">
-		/// A <see cref="T:UInt32"/>.
+		/// Specify new red, green, and blue values for the current color. 
 		/// </param>
 		/// <param name="green">
-		/// A <see cref="T:UInt32"/>.
+		/// Specify new red, green, and blue values for the current color. 
 		/// </param>
 		/// <param name="blue">
-		/// A <see cref="T:UInt32"/>.
+		/// Specify new red, green, and blue values for the current color. 
 		/// </param>
 		/// <param name="alpha">
-		/// A <see cref="T:UInt32"/>.
+		/// Specifies a new alpha value for the current color. Included only in the four-argument <see cref="Gl.Color4"/> commands. 
 		/// </param>
 		/// <remarks>
+		/// The GL stores both a current single-valued color index and a current four-valued RGBA color. <see cref="Gl.Color"/> sets 
+		/// anew four-valued RGBA color. <see cref="Gl.Color"/> has two major variants: <see cref="Gl.Color3"/> and <see 
+		/// cref="Gl.Color4"/>.<see cref="Gl.Color3"/> variants specify new red, green, and blue values explicitly and set the 
+		/// currentalpha value to 1.0 (full intensity) implicitly. <see cref="Gl.Color4"/> variants specify all four color 
+		/// componentsexplicitly. 
+		/// <see cref="Gl.Color3b"/>, <see cref="Gl.Color4b"/>, <see cref="Gl.Color3s"/>, <see cref="Gl.Color4s"/>, <see 
+		/// cref="Gl.Color3i"/>,and <see cref="Gl.Color4i"/> take three or four signed byte, short, or long integers as arguments. 
+		/// Whenv is appended to the name, the color commands can take a pointer to an array of such values. 
+		/// Current color values are stored in floating-point format, with unspecified mantissa and exponent sizes. Unsigned integer 
+		/// colorcomponents, when specified, are linearly mapped to floating-point values such that the largest representable value 
+		/// mapsto 1.0 (full intensity), and 0 maps to 0.0 (zero intensity). Signed integer color components, when specified, are 
+		/// linearlymapped to floating-point values such that the most positive representable value maps to 1.0, and the most 
+		/// negativerepresentable value maps to -1.0. (Note that this mapping does not convert 0 precisely to 0.0.) Floating-point 
+		/// valuesare mapped directly. 
+		/// Neither floating-point nor signed integer values are clamped to the range 01 before the current color is updated. 
+		/// However,color components are clamped to this range before they are interpolated or written into a color buffer. 
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - Gl.Get with argument <see cref="Gl.CURRENT_COLOR"/> 
+		/// - Gl.Get with argument <see cref="Gl.RGBA_MODE"/> 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.Index"/>
+		/// <seealso cref="Gl.SecondaryColor"/>
 		public static void Color4(UInt32 red, UInt32 green, UInt32 blue, UInt32 alpha)
 		{
 			Debug.Assert(Delegates.pglColor4ui != null, "pglColor4ui not implemented");
@@ -6699,13 +7897,36 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glColor4uiv.
+		/// set the current color
 		/// </summary>
 		/// <param name="v">
 		/// A <see cref="T:UInt32[]"/>.
 		/// </param>
 		/// <remarks>
+		/// The GL stores both a current single-valued color index and a current four-valued RGBA color. <see cref="Gl.Color"/> sets 
+		/// anew four-valued RGBA color. <see cref="Gl.Color"/> has two major variants: <see cref="Gl.Color3"/> and <see 
+		/// cref="Gl.Color4"/>.<see cref="Gl.Color3"/> variants specify new red, green, and blue values explicitly and set the 
+		/// currentalpha value to 1.0 (full intensity) implicitly. <see cref="Gl.Color4"/> variants specify all four color 
+		/// componentsexplicitly. 
+		/// <see cref="Gl.Color3b"/>, <see cref="Gl.Color4b"/>, <see cref="Gl.Color3s"/>, <see cref="Gl.Color4s"/>, <see 
+		/// cref="Gl.Color3i"/>,and <see cref="Gl.Color4i"/> take three or four signed byte, short, or long integers as arguments. 
+		/// Whenv is appended to the name, the color commands can take a pointer to an array of such values. 
+		/// Current color values are stored in floating-point format, with unspecified mantissa and exponent sizes. Unsigned integer 
+		/// colorcomponents, when specified, are linearly mapped to floating-point values such that the largest representable value 
+		/// mapsto 1.0 (full intensity), and 0 maps to 0.0 (zero intensity). Signed integer color components, when specified, are 
+		/// linearlymapped to floating-point values such that the most positive representable value maps to 1.0, and the most 
+		/// negativerepresentable value maps to -1.0. (Note that this mapping does not convert 0 precisely to 0.0.) Floating-point 
+		/// valuesare mapped directly. 
+		/// Neither floating-point nor signed integer values are clamped to the range 01 before the current color is updated. 
+		/// However,color components are clamped to this range before they are interpolated or written into a color buffer. 
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - Gl.Get with argument <see cref="Gl.CURRENT_COLOR"/> 
+		/// - Gl.Get with argument <see cref="Gl.RGBA_MODE"/> 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.Index"/>
+		/// <seealso cref="Gl.SecondaryColor"/>
 		public static void Color4(UInt32[] v)
 		{
 			unsafe {
@@ -6720,22 +7941,45 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glColor4us.
+		/// set the current color
 		/// </summary>
 		/// <param name="red">
-		/// A <see cref="T:UInt16"/>.
+		/// Specify new red, green, and blue values for the current color. 
 		/// </param>
 		/// <param name="green">
-		/// A <see cref="T:UInt16"/>.
+		/// Specify new red, green, and blue values for the current color. 
 		/// </param>
 		/// <param name="blue">
-		/// A <see cref="T:UInt16"/>.
+		/// Specify new red, green, and blue values for the current color. 
 		/// </param>
 		/// <param name="alpha">
-		/// A <see cref="T:UInt16"/>.
+		/// Specifies a new alpha value for the current color. Included only in the four-argument <see cref="Gl.Color4"/> commands. 
 		/// </param>
 		/// <remarks>
+		/// The GL stores both a current single-valued color index and a current four-valued RGBA color. <see cref="Gl.Color"/> sets 
+		/// anew four-valued RGBA color. <see cref="Gl.Color"/> has two major variants: <see cref="Gl.Color3"/> and <see 
+		/// cref="Gl.Color4"/>.<see cref="Gl.Color3"/> variants specify new red, green, and blue values explicitly and set the 
+		/// currentalpha value to 1.0 (full intensity) implicitly. <see cref="Gl.Color4"/> variants specify all four color 
+		/// componentsexplicitly. 
+		/// <see cref="Gl.Color3b"/>, <see cref="Gl.Color4b"/>, <see cref="Gl.Color3s"/>, <see cref="Gl.Color4s"/>, <see 
+		/// cref="Gl.Color3i"/>,and <see cref="Gl.Color4i"/> take three or four signed byte, short, or long integers as arguments. 
+		/// Whenv is appended to the name, the color commands can take a pointer to an array of such values. 
+		/// Current color values are stored in floating-point format, with unspecified mantissa and exponent sizes. Unsigned integer 
+		/// colorcomponents, when specified, are linearly mapped to floating-point values such that the largest representable value 
+		/// mapsto 1.0 (full intensity), and 0 maps to 0.0 (zero intensity). Signed integer color components, when specified, are 
+		/// linearlymapped to floating-point values such that the most positive representable value maps to 1.0, and the most 
+		/// negativerepresentable value maps to -1.0. (Note that this mapping does not convert 0 precisely to 0.0.) Floating-point 
+		/// valuesare mapped directly. 
+		/// Neither floating-point nor signed integer values are clamped to the range 01 before the current color is updated. 
+		/// However,color components are clamped to this range before they are interpolated or written into a color buffer. 
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - Gl.Get with argument <see cref="Gl.CURRENT_COLOR"/> 
+		/// - Gl.Get with argument <see cref="Gl.RGBA_MODE"/> 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.Index"/>
+		/// <seealso cref="Gl.SecondaryColor"/>
 		public static void Color4(UInt16 red, UInt16 green, UInt16 blue, UInt16 alpha)
 		{
 			Debug.Assert(Delegates.pglColor4us != null, "pglColor4us not implemented");
@@ -6745,13 +7989,36 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glColor4usv.
+		/// set the current color
 		/// </summary>
 		/// <param name="v">
 		/// A <see cref="T:UInt16[]"/>.
 		/// </param>
 		/// <remarks>
+		/// The GL stores both a current single-valued color index and a current four-valued RGBA color. <see cref="Gl.Color"/> sets 
+		/// anew four-valued RGBA color. <see cref="Gl.Color"/> has two major variants: <see cref="Gl.Color3"/> and <see 
+		/// cref="Gl.Color4"/>.<see cref="Gl.Color3"/> variants specify new red, green, and blue values explicitly and set the 
+		/// currentalpha value to 1.0 (full intensity) implicitly. <see cref="Gl.Color4"/> variants specify all four color 
+		/// componentsexplicitly. 
+		/// <see cref="Gl.Color3b"/>, <see cref="Gl.Color4b"/>, <see cref="Gl.Color3s"/>, <see cref="Gl.Color4s"/>, <see 
+		/// cref="Gl.Color3i"/>,and <see cref="Gl.Color4i"/> take three or four signed byte, short, or long integers as arguments. 
+		/// Whenv is appended to the name, the color commands can take a pointer to an array of such values. 
+		/// Current color values are stored in floating-point format, with unspecified mantissa and exponent sizes. Unsigned integer 
+		/// colorcomponents, when specified, are linearly mapped to floating-point values such that the largest representable value 
+		/// mapsto 1.0 (full intensity), and 0 maps to 0.0 (zero intensity). Signed integer color components, when specified, are 
+		/// linearlymapped to floating-point values such that the most positive representable value maps to 1.0, and the most 
+		/// negativerepresentable value maps to -1.0. (Note that this mapping does not convert 0 precisely to 0.0.) Floating-point 
+		/// valuesare mapped directly. 
+		/// Neither floating-point nor signed integer values are clamped to the range 01 before the current color is updated. 
+		/// However,color components are clamped to this range before they are interpolated or written into a color buffer. 
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - Gl.Get with argument <see cref="Gl.CURRENT_COLOR"/> 
+		/// - Gl.Get with argument <see cref="Gl.RGBA_MODE"/> 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.Index"/>
+		/// <seealso cref="Gl.SecondaryColor"/>
 		public static void Color4(UInt16[] v)
 		{
 			unsafe {
@@ -6766,13 +8033,29 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glEdgeFlag.
+		/// flag edges as either boundary or nonboundary
 		/// </summary>
 		/// <param name="flag">
-		/// A <see cref="T:bool"/>.
+		/// Specifies the current edge flag value, either <see cref="Gl.TRUE"/> or <see cref="Gl.FALSE"/>. The initial value is <see 
+		/// cref="Gl.TRUE"/>.
 		/// </param>
 		/// <remarks>
+		/// Each vertex of a polygon, separate triangle, or separate quadrilateral specified between a Gl.Begin/Gl.End pair is 
+		/// markedas the start of either a boundary or nonboundary edge. If the current edge flag is true when the vertex is 
+		/// specified,the vertex is marked as the start of a boundary edge. Otherwise, the vertex is marked as the start of a 
+		/// nonboundaryedge. <see cref="Gl.EdgeFlag"/> sets the edge flag bit to <see cref="Gl.TRUE"/> if <paramref name="flag"/> is 
+		/// <seecref="Gl.TRUE"/> and to <see cref="Gl.FALSE"/> otherwise. 
+		/// The vertices of connected triangles and connected quadrilaterals are always marked as boundary, regardless of the value 
+		/// ofthe edge flag. 
+		/// Boundary and nonboundary edge flags on vertices are significant only if <see cref="Gl.POLYGON_MODE"/> is set to <see 
+		/// cref="Gl.POINT"/>or <see cref="Gl.LINE"/>. See Gl.PolygonMode. 
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - Gl.Get with argument <see cref="Gl.EDGE_FLAG"/> 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.Begin"/>
+		/// <seealso cref="Gl.PolygonMode"/>
 		public static void EdgeFlag(bool flag)
 		{
 			Debug.Assert(Delegates.pglEdgeFlag != null, "pglEdgeFlag not implemented");
@@ -6782,13 +8065,29 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glEdgeFlagv.
+		/// flag edges as either boundary or nonboundary
 		/// </summary>
 		/// <param name="flag">
-		/// A <see cref="T:bool[]"/>.
+		/// Specifies the current edge flag value, either <see cref="Gl.TRUE"/> or <see cref="Gl.FALSE"/>. The initial value is <see 
+		/// cref="Gl.TRUE"/>.
 		/// </param>
 		/// <remarks>
+		/// Each vertex of a polygon, separate triangle, or separate quadrilateral specified between a Gl.Begin/Gl.End pair is 
+		/// markedas the start of either a boundary or nonboundary edge. If the current edge flag is true when the vertex is 
+		/// specified,the vertex is marked as the start of a boundary edge. Otherwise, the vertex is marked as the start of a 
+		/// nonboundaryedge. <see cref="Gl.EdgeFlag"/> sets the edge flag bit to <see cref="Gl.TRUE"/> if <paramref name="flag"/> is 
+		/// <seecref="Gl.TRUE"/> and to <see cref="Gl.FALSE"/> otherwise. 
+		/// The vertices of connected triangles and connected quadrilaterals are always marked as boundary, regardless of the value 
+		/// ofthe edge flag. 
+		/// Boundary and nonboundary edge flags on vertices are significant only if <see cref="Gl.POLYGON_MODE"/> is set to <see 
+		/// cref="Gl.POINT"/>or <see cref="Gl.LINE"/>. See Gl.PolygonMode. 
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - Gl.Get with argument <see cref="Gl.EDGE_FLAG"/> 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.Begin"/>
+		/// <seealso cref="Gl.PolygonMode"/>
 		public static void EdgeFlag(bool[] flag)
 		{
 			unsafe {
@@ -6864,13 +8163,26 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glIndexd.
+		/// set the current color index
 		/// </summary>
 		/// <param name="c">
-		/// A <see cref="T:double"/>.
+		/// Specifies the new value for the current color index. 
 		/// </param>
 		/// <remarks>
+		/// <see cref="Gl.Index"/> updates the current (single-valued) color index. It takes one argument, the new value for the 
+		/// currentcolor index. 
+		/// The current index is stored as a floating-point value. Integer values are converted directly to floating-point values, 
+		/// withno special mapping. The initial value is 1. 
+		/// Index values outside the representable range of the color index buffer are not clamped. However, before an index is 
+		/// dithered(if enabled) and written to the frame buffer, it is converted to fixed-point format. Any bits in the integer 
+		/// portionof the resulting fixed-point value that do not correspond to bits in the frame buffer are masked out. 
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - Gl.Get with argument <see cref="Gl.CURRENT_INDEX"/> 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.Color"/>
+		/// <seealso cref="Gl.IndexPointer"/>
 		public static void Index(double c)
 		{
 			Debug.Assert(Delegates.pglIndexd != null, "pglIndexd not implemented");
@@ -6880,13 +8192,26 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glIndexdv.
+		/// set the current color index
 		/// </summary>
 		/// <param name="c">
-		/// A <see cref="T:double[]"/>.
+		/// Specifies the new value for the current color index. 
 		/// </param>
 		/// <remarks>
+		/// <see cref="Gl.Index"/> updates the current (single-valued) color index. It takes one argument, the new value for the 
+		/// currentcolor index. 
+		/// The current index is stored as a floating-point value. Integer values are converted directly to floating-point values, 
+		/// withno special mapping. The initial value is 1. 
+		/// Index values outside the representable range of the color index buffer are not clamped. However, before an index is 
+		/// dithered(if enabled) and written to the frame buffer, it is converted to fixed-point format. Any bits in the integer 
+		/// portionof the resulting fixed-point value that do not correspond to bits in the frame buffer are masked out. 
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - Gl.Get with argument <see cref="Gl.CURRENT_INDEX"/> 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.Color"/>
+		/// <seealso cref="Gl.IndexPointer"/>
 		public static void Index(double[] c)
 		{
 			unsafe {
@@ -6901,13 +8226,26 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glIndexf.
+		/// set the current color index
 		/// </summary>
 		/// <param name="c">
-		/// A <see cref="T:float"/>.
+		/// Specifies the new value for the current color index. 
 		/// </param>
 		/// <remarks>
+		/// <see cref="Gl.Index"/> updates the current (single-valued) color index. It takes one argument, the new value for the 
+		/// currentcolor index. 
+		/// The current index is stored as a floating-point value. Integer values are converted directly to floating-point values, 
+		/// withno special mapping. The initial value is 1. 
+		/// Index values outside the representable range of the color index buffer are not clamped. However, before an index is 
+		/// dithered(if enabled) and written to the frame buffer, it is converted to fixed-point format. Any bits in the integer 
+		/// portionof the resulting fixed-point value that do not correspond to bits in the frame buffer are masked out. 
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - Gl.Get with argument <see cref="Gl.CURRENT_INDEX"/> 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.Color"/>
+		/// <seealso cref="Gl.IndexPointer"/>
 		public static void Index(float c)
 		{
 			Debug.Assert(Delegates.pglIndexf != null, "pglIndexf not implemented");
@@ -6917,13 +8255,26 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glIndexfv.
+		/// set the current color index
 		/// </summary>
 		/// <param name="c">
-		/// A <see cref="T:float[]"/>.
+		/// Specifies the new value for the current color index. 
 		/// </param>
 		/// <remarks>
+		/// <see cref="Gl.Index"/> updates the current (single-valued) color index. It takes one argument, the new value for the 
+		/// currentcolor index. 
+		/// The current index is stored as a floating-point value. Integer values are converted directly to floating-point values, 
+		/// withno special mapping. The initial value is 1. 
+		/// Index values outside the representable range of the color index buffer are not clamped. However, before an index is 
+		/// dithered(if enabled) and written to the frame buffer, it is converted to fixed-point format. Any bits in the integer 
+		/// portionof the resulting fixed-point value that do not correspond to bits in the frame buffer are masked out. 
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - Gl.Get with argument <see cref="Gl.CURRENT_INDEX"/> 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.Color"/>
+		/// <seealso cref="Gl.IndexPointer"/>
 		public static void Index(float[] c)
 		{
 			unsafe {
@@ -6938,13 +8289,26 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glIndexi.
+		/// set the current color index
 		/// </summary>
 		/// <param name="c">
-		/// A <see cref="T:Int32"/>.
+		/// Specifies the new value for the current color index. 
 		/// </param>
 		/// <remarks>
+		/// <see cref="Gl.Index"/> updates the current (single-valued) color index. It takes one argument, the new value for the 
+		/// currentcolor index. 
+		/// The current index is stored as a floating-point value. Integer values are converted directly to floating-point values, 
+		/// withno special mapping. The initial value is 1. 
+		/// Index values outside the representable range of the color index buffer are not clamped. However, before an index is 
+		/// dithered(if enabled) and written to the frame buffer, it is converted to fixed-point format. Any bits in the integer 
+		/// portionof the resulting fixed-point value that do not correspond to bits in the frame buffer are masked out. 
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - Gl.Get with argument <see cref="Gl.CURRENT_INDEX"/> 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.Color"/>
+		/// <seealso cref="Gl.IndexPointer"/>
 		public static void Index(Int32 c)
 		{
 			Debug.Assert(Delegates.pglIndexi != null, "pglIndexi not implemented");
@@ -6954,13 +8318,26 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glIndexiv.
+		/// set the current color index
 		/// </summary>
 		/// <param name="c">
-		/// A <see cref="T:Int32[]"/>.
+		/// Specifies the new value for the current color index. 
 		/// </param>
 		/// <remarks>
+		/// <see cref="Gl.Index"/> updates the current (single-valued) color index. It takes one argument, the new value for the 
+		/// currentcolor index. 
+		/// The current index is stored as a floating-point value. Integer values are converted directly to floating-point values, 
+		/// withno special mapping. The initial value is 1. 
+		/// Index values outside the representable range of the color index buffer are not clamped. However, before an index is 
+		/// dithered(if enabled) and written to the frame buffer, it is converted to fixed-point format. Any bits in the integer 
+		/// portionof the resulting fixed-point value that do not correspond to bits in the frame buffer are masked out. 
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - Gl.Get with argument <see cref="Gl.CURRENT_INDEX"/> 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.Color"/>
+		/// <seealso cref="Gl.IndexPointer"/>
 		public static void Index(Int32[] c)
 		{
 			unsafe {
@@ -6975,13 +8352,26 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glIndexs.
+		/// set the current color index
 		/// </summary>
 		/// <param name="c">
-		/// A <see cref="T:Int16"/>.
+		/// Specifies the new value for the current color index. 
 		/// </param>
 		/// <remarks>
+		/// <see cref="Gl.Index"/> updates the current (single-valued) color index. It takes one argument, the new value for the 
+		/// currentcolor index. 
+		/// The current index is stored as a floating-point value. Integer values are converted directly to floating-point values, 
+		/// withno special mapping. The initial value is 1. 
+		/// Index values outside the representable range of the color index buffer are not clamped. However, before an index is 
+		/// dithered(if enabled) and written to the frame buffer, it is converted to fixed-point format. Any bits in the integer 
+		/// portionof the resulting fixed-point value that do not correspond to bits in the frame buffer are masked out. 
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - Gl.Get with argument <see cref="Gl.CURRENT_INDEX"/> 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.Color"/>
+		/// <seealso cref="Gl.IndexPointer"/>
 		public static void Index(Int16 c)
 		{
 			Debug.Assert(Delegates.pglIndexs != null, "pglIndexs not implemented");
@@ -6991,13 +8381,26 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glIndexsv.
+		/// set the current color index
 		/// </summary>
 		/// <param name="c">
-		/// A <see cref="T:Int16[]"/>.
+		/// Specifies the new value for the current color index. 
 		/// </param>
 		/// <remarks>
+		/// <see cref="Gl.Index"/> updates the current (single-valued) color index. It takes one argument, the new value for the 
+		/// currentcolor index. 
+		/// The current index is stored as a floating-point value. Integer values are converted directly to floating-point values, 
+		/// withno special mapping. The initial value is 1. 
+		/// Index values outside the representable range of the color index buffer are not clamped. However, before an index is 
+		/// dithered(if enabled) and written to the frame buffer, it is converted to fixed-point format. Any bits in the integer 
+		/// portionof the resulting fixed-point value that do not correspond to bits in the frame buffer are masked out. 
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - Gl.Get with argument <see cref="Gl.CURRENT_INDEX"/> 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.Color"/>
+		/// <seealso cref="Gl.IndexPointer"/>
 		public static void Index(Int16[] c)
 		{
 			unsafe {
@@ -7012,19 +8415,44 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glNormal3b.
+		/// set the current normal vector
 		/// </summary>
 		/// <param name="nx">
-		/// A <see cref="T:sbyte"/>.
+		/// Specify the x, y, and z coordinates of the new current normal. The initial value of the current normal is the unit 
+		/// vector,(0, 0, 1). 
 		/// </param>
 		/// <param name="ny">
-		/// A <see cref="T:sbyte"/>.
+		/// Specify the x, y, and z coordinates of the new current normal. The initial value of the current normal is the unit 
+		/// vector,(0, 0, 1). 
 		/// </param>
 		/// <param name="nz">
-		/// A <see cref="T:sbyte"/>.
+		/// Specify the x, y, and z coordinates of the new current normal. The initial value of the current normal is the unit 
+		/// vector,(0, 0, 1). 
 		/// </param>
 		/// <remarks>
+		/// The current normal is set to the given coordinates whenever <see cref="Gl.Normal"/> is issued. Byte, short, or integer 
+		/// argumentsare converted to floating-point format with a linear mapping that maps the most positive representable integer 
+		/// valueto 1.0 and the most negative representable integer value to -1.0. 
+		/// Normals specified with <see cref="Gl.Normal"/> need not have unit length. If <see cref="Gl.NORMALIZE"/> is enabled, then 
+		/// normalsof any length specified with <see cref="Gl.Normal"/> are normalized after transformation. If <see 
+		/// cref="Gl.RESCALE_NORMAL"/>is enabled, normals are scaled by a scaling factor derived from the modelview matrix. <see 
+		/// cref="Gl.RESCALE_NORMAL"/>requires that the originally specified normals were of unit length, and that the modelview 
+		/// matrixcontain only uniform scales for proper results. To enable and disable normalization, call Gl.Enable and Gl.Disable 
+		/// witheither <see cref="Gl.NORMALIZE"/> or <see cref="Gl.RESCALE_NORMAL"/>. Normalization is initially disabled. 
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - Gl.Get with argument <see cref="Gl.CURRENT_NORMAL"/> 
+		/// - Gl.IsEnabled with argument <see cref="Gl.NORMALIZE"/> 
+		/// - Gl.IsEnabled with argument <see cref="Gl.RESCALE_NORMAL"/> 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.Begin"/>
+		/// <seealso cref="Gl.Color"/>
+		/// <seealso cref="Gl.Index"/>
+		/// <seealso cref="Gl.MultiTexCoord"/>
+		/// <seealso cref="Gl.NormalPointer"/>
+		/// <seealso cref="Gl.TexCoord"/>
+		/// <seealso cref="Gl.Vertex"/>
 		public static void Normal3(sbyte nx, sbyte ny, sbyte nz)
 		{
 			Debug.Assert(Delegates.pglNormal3b != null, "pglNormal3b not implemented");
@@ -7034,13 +8462,35 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glNormal3bv.
+		/// set the current normal vector
 		/// </summary>
 		/// <param name="v">
 		/// A <see cref="T:sbyte[]"/>.
 		/// </param>
 		/// <remarks>
+		/// The current normal is set to the given coordinates whenever <see cref="Gl.Normal"/> is issued. Byte, short, or integer 
+		/// argumentsare converted to floating-point format with a linear mapping that maps the most positive representable integer 
+		/// valueto 1.0 and the most negative representable integer value to -1.0. 
+		/// Normals specified with <see cref="Gl.Normal"/> need not have unit length. If <see cref="Gl.NORMALIZE"/> is enabled, then 
+		/// normalsof any length specified with <see cref="Gl.Normal"/> are normalized after transformation. If <see 
+		/// cref="Gl.RESCALE_NORMAL"/>is enabled, normals are scaled by a scaling factor derived from the modelview matrix. <see 
+		/// cref="Gl.RESCALE_NORMAL"/>requires that the originally specified normals were of unit length, and that the modelview 
+		/// matrixcontain only uniform scales for proper results. To enable and disable normalization, call Gl.Enable and Gl.Disable 
+		/// witheither <see cref="Gl.NORMALIZE"/> or <see cref="Gl.RESCALE_NORMAL"/>. Normalization is initially disabled. 
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - Gl.Get with argument <see cref="Gl.CURRENT_NORMAL"/> 
+		/// - Gl.IsEnabled with argument <see cref="Gl.NORMALIZE"/> 
+		/// - Gl.IsEnabled with argument <see cref="Gl.RESCALE_NORMAL"/> 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.Begin"/>
+		/// <seealso cref="Gl.Color"/>
+		/// <seealso cref="Gl.Index"/>
+		/// <seealso cref="Gl.MultiTexCoord"/>
+		/// <seealso cref="Gl.NormalPointer"/>
+		/// <seealso cref="Gl.TexCoord"/>
+		/// <seealso cref="Gl.Vertex"/>
 		public static void Normal3(sbyte[] v)
 		{
 			unsafe {
@@ -7055,19 +8505,44 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glNormal3d.
+		/// set the current normal vector
 		/// </summary>
 		/// <param name="nx">
-		/// A <see cref="T:double"/>.
+		/// Specify the x, y, and z coordinates of the new current normal. The initial value of the current normal is the unit 
+		/// vector,(0, 0, 1). 
 		/// </param>
 		/// <param name="ny">
-		/// A <see cref="T:double"/>.
+		/// Specify the x, y, and z coordinates of the new current normal. The initial value of the current normal is the unit 
+		/// vector,(0, 0, 1). 
 		/// </param>
 		/// <param name="nz">
-		/// A <see cref="T:double"/>.
+		/// Specify the x, y, and z coordinates of the new current normal. The initial value of the current normal is the unit 
+		/// vector,(0, 0, 1). 
 		/// </param>
 		/// <remarks>
+		/// The current normal is set to the given coordinates whenever <see cref="Gl.Normal"/> is issued. Byte, short, or integer 
+		/// argumentsare converted to floating-point format with a linear mapping that maps the most positive representable integer 
+		/// valueto 1.0 and the most negative representable integer value to -1.0. 
+		/// Normals specified with <see cref="Gl.Normal"/> need not have unit length. If <see cref="Gl.NORMALIZE"/> is enabled, then 
+		/// normalsof any length specified with <see cref="Gl.Normal"/> are normalized after transformation. If <see 
+		/// cref="Gl.RESCALE_NORMAL"/>is enabled, normals are scaled by a scaling factor derived from the modelview matrix. <see 
+		/// cref="Gl.RESCALE_NORMAL"/>requires that the originally specified normals were of unit length, and that the modelview 
+		/// matrixcontain only uniform scales for proper results. To enable and disable normalization, call Gl.Enable and Gl.Disable 
+		/// witheither <see cref="Gl.NORMALIZE"/> or <see cref="Gl.RESCALE_NORMAL"/>. Normalization is initially disabled. 
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - Gl.Get with argument <see cref="Gl.CURRENT_NORMAL"/> 
+		/// - Gl.IsEnabled with argument <see cref="Gl.NORMALIZE"/> 
+		/// - Gl.IsEnabled with argument <see cref="Gl.RESCALE_NORMAL"/> 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.Begin"/>
+		/// <seealso cref="Gl.Color"/>
+		/// <seealso cref="Gl.Index"/>
+		/// <seealso cref="Gl.MultiTexCoord"/>
+		/// <seealso cref="Gl.NormalPointer"/>
+		/// <seealso cref="Gl.TexCoord"/>
+		/// <seealso cref="Gl.Vertex"/>
 		public static void Normal3(double nx, double ny, double nz)
 		{
 			Debug.Assert(Delegates.pglNormal3d != null, "pglNormal3d not implemented");
@@ -7077,13 +8552,35 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glNormal3dv.
+		/// set the current normal vector
 		/// </summary>
 		/// <param name="v">
 		/// A <see cref="T:double[]"/>.
 		/// </param>
 		/// <remarks>
+		/// The current normal is set to the given coordinates whenever <see cref="Gl.Normal"/> is issued. Byte, short, or integer 
+		/// argumentsare converted to floating-point format with a linear mapping that maps the most positive representable integer 
+		/// valueto 1.0 and the most negative representable integer value to -1.0. 
+		/// Normals specified with <see cref="Gl.Normal"/> need not have unit length. If <see cref="Gl.NORMALIZE"/> is enabled, then 
+		/// normalsof any length specified with <see cref="Gl.Normal"/> are normalized after transformation. If <see 
+		/// cref="Gl.RESCALE_NORMAL"/>is enabled, normals are scaled by a scaling factor derived from the modelview matrix. <see 
+		/// cref="Gl.RESCALE_NORMAL"/>requires that the originally specified normals were of unit length, and that the modelview 
+		/// matrixcontain only uniform scales for proper results. To enable and disable normalization, call Gl.Enable and Gl.Disable 
+		/// witheither <see cref="Gl.NORMALIZE"/> or <see cref="Gl.RESCALE_NORMAL"/>. Normalization is initially disabled. 
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - Gl.Get with argument <see cref="Gl.CURRENT_NORMAL"/> 
+		/// - Gl.IsEnabled with argument <see cref="Gl.NORMALIZE"/> 
+		/// - Gl.IsEnabled with argument <see cref="Gl.RESCALE_NORMAL"/> 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.Begin"/>
+		/// <seealso cref="Gl.Color"/>
+		/// <seealso cref="Gl.Index"/>
+		/// <seealso cref="Gl.MultiTexCoord"/>
+		/// <seealso cref="Gl.NormalPointer"/>
+		/// <seealso cref="Gl.TexCoord"/>
+		/// <seealso cref="Gl.Vertex"/>
 		public static void Normal3(double[] v)
 		{
 			unsafe {
@@ -7098,19 +8595,44 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glNormal3f.
+		/// set the current normal vector
 		/// </summary>
 		/// <param name="nx">
-		/// A <see cref="T:float"/>.
+		/// Specify the x, y, and z coordinates of the new current normal. The initial value of the current normal is the unit 
+		/// vector,(0, 0, 1). 
 		/// </param>
 		/// <param name="ny">
-		/// A <see cref="T:float"/>.
+		/// Specify the x, y, and z coordinates of the new current normal. The initial value of the current normal is the unit 
+		/// vector,(0, 0, 1). 
 		/// </param>
 		/// <param name="nz">
-		/// A <see cref="T:float"/>.
+		/// Specify the x, y, and z coordinates of the new current normal. The initial value of the current normal is the unit 
+		/// vector,(0, 0, 1). 
 		/// </param>
 		/// <remarks>
+		/// The current normal is set to the given coordinates whenever <see cref="Gl.Normal"/> is issued. Byte, short, or integer 
+		/// argumentsare converted to floating-point format with a linear mapping that maps the most positive representable integer 
+		/// valueto 1.0 and the most negative representable integer value to -1.0. 
+		/// Normals specified with <see cref="Gl.Normal"/> need not have unit length. If <see cref="Gl.NORMALIZE"/> is enabled, then 
+		/// normalsof any length specified with <see cref="Gl.Normal"/> are normalized after transformation. If <see 
+		/// cref="Gl.RESCALE_NORMAL"/>is enabled, normals are scaled by a scaling factor derived from the modelview matrix. <see 
+		/// cref="Gl.RESCALE_NORMAL"/>requires that the originally specified normals were of unit length, and that the modelview 
+		/// matrixcontain only uniform scales for proper results. To enable and disable normalization, call Gl.Enable and Gl.Disable 
+		/// witheither <see cref="Gl.NORMALIZE"/> or <see cref="Gl.RESCALE_NORMAL"/>. Normalization is initially disabled. 
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - Gl.Get with argument <see cref="Gl.CURRENT_NORMAL"/> 
+		/// - Gl.IsEnabled with argument <see cref="Gl.NORMALIZE"/> 
+		/// - Gl.IsEnabled with argument <see cref="Gl.RESCALE_NORMAL"/> 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.Begin"/>
+		/// <seealso cref="Gl.Color"/>
+		/// <seealso cref="Gl.Index"/>
+		/// <seealso cref="Gl.MultiTexCoord"/>
+		/// <seealso cref="Gl.NormalPointer"/>
+		/// <seealso cref="Gl.TexCoord"/>
+		/// <seealso cref="Gl.Vertex"/>
 		public static void Normal3(float nx, float ny, float nz)
 		{
 			Debug.Assert(Delegates.pglNormal3f != null, "pglNormal3f not implemented");
@@ -7120,13 +8642,35 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glNormal3fv.
+		/// set the current normal vector
 		/// </summary>
 		/// <param name="v">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
 		/// <remarks>
+		/// The current normal is set to the given coordinates whenever <see cref="Gl.Normal"/> is issued. Byte, short, or integer 
+		/// argumentsare converted to floating-point format with a linear mapping that maps the most positive representable integer 
+		/// valueto 1.0 and the most negative representable integer value to -1.0. 
+		/// Normals specified with <see cref="Gl.Normal"/> need not have unit length. If <see cref="Gl.NORMALIZE"/> is enabled, then 
+		/// normalsof any length specified with <see cref="Gl.Normal"/> are normalized after transformation. If <see 
+		/// cref="Gl.RESCALE_NORMAL"/>is enabled, normals are scaled by a scaling factor derived from the modelview matrix. <see 
+		/// cref="Gl.RESCALE_NORMAL"/>requires that the originally specified normals were of unit length, and that the modelview 
+		/// matrixcontain only uniform scales for proper results. To enable and disable normalization, call Gl.Enable and Gl.Disable 
+		/// witheither <see cref="Gl.NORMALIZE"/> or <see cref="Gl.RESCALE_NORMAL"/>. Normalization is initially disabled. 
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - Gl.Get with argument <see cref="Gl.CURRENT_NORMAL"/> 
+		/// - Gl.IsEnabled with argument <see cref="Gl.NORMALIZE"/> 
+		/// - Gl.IsEnabled with argument <see cref="Gl.RESCALE_NORMAL"/> 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.Begin"/>
+		/// <seealso cref="Gl.Color"/>
+		/// <seealso cref="Gl.Index"/>
+		/// <seealso cref="Gl.MultiTexCoord"/>
+		/// <seealso cref="Gl.NormalPointer"/>
+		/// <seealso cref="Gl.TexCoord"/>
+		/// <seealso cref="Gl.Vertex"/>
 		public static void Normal3(float[] v)
 		{
 			unsafe {
@@ -7141,19 +8685,44 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glNormal3i.
+		/// set the current normal vector
 		/// </summary>
 		/// <param name="nx">
-		/// A <see cref="T:Int32"/>.
+		/// Specify the x, y, and z coordinates of the new current normal. The initial value of the current normal is the unit 
+		/// vector,(0, 0, 1). 
 		/// </param>
 		/// <param name="ny">
-		/// A <see cref="T:Int32"/>.
+		/// Specify the x, y, and z coordinates of the new current normal. The initial value of the current normal is the unit 
+		/// vector,(0, 0, 1). 
 		/// </param>
 		/// <param name="nz">
-		/// A <see cref="T:Int32"/>.
+		/// Specify the x, y, and z coordinates of the new current normal. The initial value of the current normal is the unit 
+		/// vector,(0, 0, 1). 
 		/// </param>
 		/// <remarks>
+		/// The current normal is set to the given coordinates whenever <see cref="Gl.Normal"/> is issued. Byte, short, or integer 
+		/// argumentsare converted to floating-point format with a linear mapping that maps the most positive representable integer 
+		/// valueto 1.0 and the most negative representable integer value to -1.0. 
+		/// Normals specified with <see cref="Gl.Normal"/> need not have unit length. If <see cref="Gl.NORMALIZE"/> is enabled, then 
+		/// normalsof any length specified with <see cref="Gl.Normal"/> are normalized after transformation. If <see 
+		/// cref="Gl.RESCALE_NORMAL"/>is enabled, normals are scaled by a scaling factor derived from the modelview matrix. <see 
+		/// cref="Gl.RESCALE_NORMAL"/>requires that the originally specified normals were of unit length, and that the modelview 
+		/// matrixcontain only uniform scales for proper results. To enable and disable normalization, call Gl.Enable and Gl.Disable 
+		/// witheither <see cref="Gl.NORMALIZE"/> or <see cref="Gl.RESCALE_NORMAL"/>. Normalization is initially disabled. 
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - Gl.Get with argument <see cref="Gl.CURRENT_NORMAL"/> 
+		/// - Gl.IsEnabled with argument <see cref="Gl.NORMALIZE"/> 
+		/// - Gl.IsEnabled with argument <see cref="Gl.RESCALE_NORMAL"/> 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.Begin"/>
+		/// <seealso cref="Gl.Color"/>
+		/// <seealso cref="Gl.Index"/>
+		/// <seealso cref="Gl.MultiTexCoord"/>
+		/// <seealso cref="Gl.NormalPointer"/>
+		/// <seealso cref="Gl.TexCoord"/>
+		/// <seealso cref="Gl.Vertex"/>
 		public static void Normal3(Int32 nx, Int32 ny, Int32 nz)
 		{
 			Debug.Assert(Delegates.pglNormal3i != null, "pglNormal3i not implemented");
@@ -7163,13 +8732,35 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glNormal3iv.
+		/// set the current normal vector
 		/// </summary>
 		/// <param name="v">
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
 		/// <remarks>
+		/// The current normal is set to the given coordinates whenever <see cref="Gl.Normal"/> is issued. Byte, short, or integer 
+		/// argumentsare converted to floating-point format with a linear mapping that maps the most positive representable integer 
+		/// valueto 1.0 and the most negative representable integer value to -1.0. 
+		/// Normals specified with <see cref="Gl.Normal"/> need not have unit length. If <see cref="Gl.NORMALIZE"/> is enabled, then 
+		/// normalsof any length specified with <see cref="Gl.Normal"/> are normalized after transformation. If <see 
+		/// cref="Gl.RESCALE_NORMAL"/>is enabled, normals are scaled by a scaling factor derived from the modelview matrix. <see 
+		/// cref="Gl.RESCALE_NORMAL"/>requires that the originally specified normals were of unit length, and that the modelview 
+		/// matrixcontain only uniform scales for proper results. To enable and disable normalization, call Gl.Enable and Gl.Disable 
+		/// witheither <see cref="Gl.NORMALIZE"/> or <see cref="Gl.RESCALE_NORMAL"/>. Normalization is initially disabled. 
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - Gl.Get with argument <see cref="Gl.CURRENT_NORMAL"/> 
+		/// - Gl.IsEnabled with argument <see cref="Gl.NORMALIZE"/> 
+		/// - Gl.IsEnabled with argument <see cref="Gl.RESCALE_NORMAL"/> 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.Begin"/>
+		/// <seealso cref="Gl.Color"/>
+		/// <seealso cref="Gl.Index"/>
+		/// <seealso cref="Gl.MultiTexCoord"/>
+		/// <seealso cref="Gl.NormalPointer"/>
+		/// <seealso cref="Gl.TexCoord"/>
+		/// <seealso cref="Gl.Vertex"/>
 		public static void Normal3(Int32[] v)
 		{
 			unsafe {
@@ -7184,19 +8775,44 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glNormal3s.
+		/// set the current normal vector
 		/// </summary>
 		/// <param name="nx">
-		/// A <see cref="T:Int16"/>.
+		/// Specify the x, y, and z coordinates of the new current normal. The initial value of the current normal is the unit 
+		/// vector,(0, 0, 1). 
 		/// </param>
 		/// <param name="ny">
-		/// A <see cref="T:Int16"/>.
+		/// Specify the x, y, and z coordinates of the new current normal. The initial value of the current normal is the unit 
+		/// vector,(0, 0, 1). 
 		/// </param>
 		/// <param name="nz">
-		/// A <see cref="T:Int16"/>.
+		/// Specify the x, y, and z coordinates of the new current normal. The initial value of the current normal is the unit 
+		/// vector,(0, 0, 1). 
 		/// </param>
 		/// <remarks>
+		/// The current normal is set to the given coordinates whenever <see cref="Gl.Normal"/> is issued. Byte, short, or integer 
+		/// argumentsare converted to floating-point format with a linear mapping that maps the most positive representable integer 
+		/// valueto 1.0 and the most negative representable integer value to -1.0. 
+		/// Normals specified with <see cref="Gl.Normal"/> need not have unit length. If <see cref="Gl.NORMALIZE"/> is enabled, then 
+		/// normalsof any length specified with <see cref="Gl.Normal"/> are normalized after transformation. If <see 
+		/// cref="Gl.RESCALE_NORMAL"/>is enabled, normals are scaled by a scaling factor derived from the modelview matrix. <see 
+		/// cref="Gl.RESCALE_NORMAL"/>requires that the originally specified normals were of unit length, and that the modelview 
+		/// matrixcontain only uniform scales for proper results. To enable and disable normalization, call Gl.Enable and Gl.Disable 
+		/// witheither <see cref="Gl.NORMALIZE"/> or <see cref="Gl.RESCALE_NORMAL"/>. Normalization is initially disabled. 
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - Gl.Get with argument <see cref="Gl.CURRENT_NORMAL"/> 
+		/// - Gl.IsEnabled with argument <see cref="Gl.NORMALIZE"/> 
+		/// - Gl.IsEnabled with argument <see cref="Gl.RESCALE_NORMAL"/> 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.Begin"/>
+		/// <seealso cref="Gl.Color"/>
+		/// <seealso cref="Gl.Index"/>
+		/// <seealso cref="Gl.MultiTexCoord"/>
+		/// <seealso cref="Gl.NormalPointer"/>
+		/// <seealso cref="Gl.TexCoord"/>
+		/// <seealso cref="Gl.Vertex"/>
 		public static void Normal3(Int16 nx, Int16 ny, Int16 nz)
 		{
 			Debug.Assert(Delegates.pglNormal3s != null, "pglNormal3s not implemented");
@@ -7206,13 +8822,35 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glNormal3sv.
+		/// set the current normal vector
 		/// </summary>
 		/// <param name="v">
 		/// A <see cref="T:Int16[]"/>.
 		/// </param>
 		/// <remarks>
+		/// The current normal is set to the given coordinates whenever <see cref="Gl.Normal"/> is issued. Byte, short, or integer 
+		/// argumentsare converted to floating-point format with a linear mapping that maps the most positive representable integer 
+		/// valueto 1.0 and the most negative representable integer value to -1.0. 
+		/// Normals specified with <see cref="Gl.Normal"/> need not have unit length. If <see cref="Gl.NORMALIZE"/> is enabled, then 
+		/// normalsof any length specified with <see cref="Gl.Normal"/> are normalized after transformation. If <see 
+		/// cref="Gl.RESCALE_NORMAL"/>is enabled, normals are scaled by a scaling factor derived from the modelview matrix. <see 
+		/// cref="Gl.RESCALE_NORMAL"/>requires that the originally specified normals were of unit length, and that the modelview 
+		/// matrixcontain only uniform scales for proper results. To enable and disable normalization, call Gl.Enable and Gl.Disable 
+		/// witheither <see cref="Gl.NORMALIZE"/> or <see cref="Gl.RESCALE_NORMAL"/>. Normalization is initially disabled. 
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - Gl.Get with argument <see cref="Gl.CURRENT_NORMAL"/> 
+		/// - Gl.IsEnabled with argument <see cref="Gl.NORMALIZE"/> 
+		/// - Gl.IsEnabled with argument <see cref="Gl.RESCALE_NORMAL"/> 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.Begin"/>
+		/// <seealso cref="Gl.Color"/>
+		/// <seealso cref="Gl.Index"/>
+		/// <seealso cref="Gl.MultiTexCoord"/>
+		/// <seealso cref="Gl.NormalPointer"/>
+		/// <seealso cref="Gl.TexCoord"/>
+		/// <seealso cref="Gl.Vertex"/>
 		public static void Normal3(Int16[] v)
 		{
 			unsafe {
@@ -7227,16 +8865,70 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glRasterPos2d.
+		/// specify the raster position for pixel operations
 		/// </summary>
 		/// <param name="x">
-		/// A <see cref="T:double"/>.
+		/// Specify the x, y, z, and w object coordinates (if present) for the raster position. 
 		/// </param>
 		/// <param name="y">
-		/// A <see cref="T:double"/>.
+		/// Specify the x, y, z, and w object coordinates (if present) for the raster position. 
 		/// </param>
 		/// <remarks>
+		/// The GL maintains a 3D position in window coordinates. This position, called the raster position, is used to position 
+		/// pixeland bitmap write operations. It is maintained with subpixel accuracy. See Gl.Bitmap, Gl.DrawPixels, and 
+		/// Gl.CopyPixels.
+		/// The current raster position consists of three window coordinates (x, y, z), a clip coordinate value (w), an eye 
+		/// coordinatedistance, a valid bit, and associated color data and texture coordinates. The w coordinate is a clip 
+		/// coordinate,because w is not projected to window coordinates. <see cref="Gl.RasterPos4"/> specifies object coordinates x, 
+		/// y,z, and w explicitly. <see cref="Gl.RasterPos3"/> specifies object coordinate x, y, and z explicitly, while w is 
+		/// implicitlyset to 1. <see cref="Gl.RasterPos2"/> uses the argument values for x and y while implicitly setting z and w to 
+		/// 0and 1. 
+		/// The object coordinates presented by <see cref="Gl.RasterPos"/> are treated just like those of a Gl.Vertex command: They 
+		/// aretransformed by the current modelview and projection matrices and passed to the clipping stage. If the vertex is not 
+		/// culled,then it is projected and scaled to window coordinates, which become the new current raster position, and the <see 
+		/// cref="Gl.CURRENT_RASTER_POSITION_VALID"/>flag is set. If the vertex is culled, then the valid bit is cleared and the 
+		/// currentraster position and associated color and texture coordinates are undefined. 
+		/// The current raster position also includes some associated color data and texture coordinates. If lighting is enabled, 
+		/// then<see cref="Gl.CURRENT_RASTER_COLOR"/> (in RGBA mode) or <see cref="Gl.CURRENT_RASTER_INDEX"/> (in color index mode) 
+		/// isset to the color produced by the lighting calculation (see Gl.Light, Gl.LightModel, and Gl.ShadeModel). If lighting is 
+		/// disabled,current color (in RGBA mode, state variable <see cref="Gl.CURRENT_COLOR"/>) or color index (in color index 
+		/// mode,state variable <see cref="Gl.CURRENT_INDEX"/>) is used to update the current raster color. <see 
+		/// cref="Gl.CURRENT_RASTER_SECONDARY_COLOR"/>(in RGBA mode) is likewise updated. 
+		/// Likewise, <see cref="Gl.CURRENT_RASTER_TEXTURE_COORDS"/> is updated as a function of <see 
+		/// cref="Gl.CURRENT_TEXTURE_COORDS"/>,based on the texture matrix and the texture generation functions (see Gl.TexGen). 
+		/// Finally,the distance from the origin of the eye coordinate system to the vertex as transformed by only the modelview 
+		/// matrixreplaces <see cref="Gl.CURRENT_RASTER_DISTANCE"/>. 
+		/// Initially, the current raster position is (0, 0, 0, 1), the current raster distance is 0, the valid bit is set, the 
+		/// associatedRGBA color is (1, 1, 1, 1), the associated color index is 1, and the associated texture coordinates are (0, 0, 
+		/// 0,1). In RGBA mode, <see cref="Gl.CURRENT_RASTER_INDEX"/> is always 1; in color index mode, the current raster RGBA 
+		/// coloralways maintains its initial value. 
+		/// <para>
+		/// The following errors can be generated:
+		/// - <see cref="Gl.INVALID_OPERATION"/> is generated if <see cref="Gl.RasterPos"/> is executed between the execution of 
+		///   Gl.Beginand the corresponding execution of Gl.End. 
+		/// </para>
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - Gl.Get with argument <see cref="Gl.CURRENT_RASTER_POSITION"/> 
+		/// - Gl.Get with argument <see cref="Gl.CURRENT_RASTER_POSITION_VALID"/> 
+		/// - Gl.Get with argument <see cref="Gl.CURRENT_RASTER_DISTANCE"/> 
+		/// - Gl.Get with argument <see cref="Gl.CURRENT_RASTER_COLOR"/> 
+		/// - Gl.Get with argument <see cref="Gl.CURRENT_RASTER_SECONDARY_COLOR"/> 
+		/// - Gl.Get with argument <see cref="Gl.CURRENT_RASTER_INDEX"/> 
+		/// - Gl.Get with argument <see cref="Gl.CURRENT_RASTER_TEXTURE_COORDS"/> 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.Bitmap"/>
+		/// <seealso cref="Gl.CopyPixels"/>
+		/// <seealso cref="Gl.DrawArrays"/>
+		/// <seealso cref="Gl.DrawElements"/>
+		/// <seealso cref="Gl.DrawRangeElements"/>
+		/// <seealso cref="Gl.DrawPixels"/>
+		/// <seealso cref="Gl.MultiTexCoord"/>
+		/// <seealso cref="Gl.TexCoord"/>
+		/// <seealso cref="Gl.TexGen"/>
+		/// <seealso cref="Gl.Vertex"/>
+		/// <seealso cref="Gl.WindowPos"/>
 		public static void RasterPos2(double x, double y)
 		{
 			Debug.Assert(Delegates.pglRasterPos2d != null, "pglRasterPos2d not implemented");
@@ -7246,13 +8938,67 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glRasterPos2dv.
+		/// specify the raster position for pixel operations
 		/// </summary>
 		/// <param name="v">
 		/// A <see cref="T:double[]"/>.
 		/// </param>
 		/// <remarks>
+		/// The GL maintains a 3D position in window coordinates. This position, called the raster position, is used to position 
+		/// pixeland bitmap write operations. It is maintained with subpixel accuracy. See Gl.Bitmap, Gl.DrawPixels, and 
+		/// Gl.CopyPixels.
+		/// The current raster position consists of three window coordinates (x, y, z), a clip coordinate value (w), an eye 
+		/// coordinatedistance, a valid bit, and associated color data and texture coordinates. The w coordinate is a clip 
+		/// coordinate,because w is not projected to window coordinates. <see cref="Gl.RasterPos4"/> specifies object coordinates x, 
+		/// y,z, and w explicitly. <see cref="Gl.RasterPos3"/> specifies object coordinate x, y, and z explicitly, while w is 
+		/// implicitlyset to 1. <see cref="Gl.RasterPos2"/> uses the argument values for x and y while implicitly setting z and w to 
+		/// 0and 1. 
+		/// The object coordinates presented by <see cref="Gl.RasterPos"/> are treated just like those of a Gl.Vertex command: They 
+		/// aretransformed by the current modelview and projection matrices and passed to the clipping stage. If the vertex is not 
+		/// culled,then it is projected and scaled to window coordinates, which become the new current raster position, and the <see 
+		/// cref="Gl.CURRENT_RASTER_POSITION_VALID"/>flag is set. If the vertex is culled, then the valid bit is cleared and the 
+		/// currentraster position and associated color and texture coordinates are undefined. 
+		/// The current raster position also includes some associated color data and texture coordinates. If lighting is enabled, 
+		/// then<see cref="Gl.CURRENT_RASTER_COLOR"/> (in RGBA mode) or <see cref="Gl.CURRENT_RASTER_INDEX"/> (in color index mode) 
+		/// isset to the color produced by the lighting calculation (see Gl.Light, Gl.LightModel, and Gl.ShadeModel). If lighting is 
+		/// disabled,current color (in RGBA mode, state variable <see cref="Gl.CURRENT_COLOR"/>) or color index (in color index 
+		/// mode,state variable <see cref="Gl.CURRENT_INDEX"/>) is used to update the current raster color. <see 
+		/// cref="Gl.CURRENT_RASTER_SECONDARY_COLOR"/>(in RGBA mode) is likewise updated. 
+		/// Likewise, <see cref="Gl.CURRENT_RASTER_TEXTURE_COORDS"/> is updated as a function of <see 
+		/// cref="Gl.CURRENT_TEXTURE_COORDS"/>,based on the texture matrix and the texture generation functions (see Gl.TexGen). 
+		/// Finally,the distance from the origin of the eye coordinate system to the vertex as transformed by only the modelview 
+		/// matrixreplaces <see cref="Gl.CURRENT_RASTER_DISTANCE"/>. 
+		/// Initially, the current raster position is (0, 0, 0, 1), the current raster distance is 0, the valid bit is set, the 
+		/// associatedRGBA color is (1, 1, 1, 1), the associated color index is 1, and the associated texture coordinates are (0, 0, 
+		/// 0,1). In RGBA mode, <see cref="Gl.CURRENT_RASTER_INDEX"/> is always 1; in color index mode, the current raster RGBA 
+		/// coloralways maintains its initial value. 
+		/// <para>
+		/// The following errors can be generated:
+		/// - <see cref="Gl.INVALID_OPERATION"/> is generated if <see cref="Gl.RasterPos"/> is executed between the execution of 
+		///   Gl.Beginand the corresponding execution of Gl.End. 
+		/// </para>
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - Gl.Get with argument <see cref="Gl.CURRENT_RASTER_POSITION"/> 
+		/// - Gl.Get with argument <see cref="Gl.CURRENT_RASTER_POSITION_VALID"/> 
+		/// - Gl.Get with argument <see cref="Gl.CURRENT_RASTER_DISTANCE"/> 
+		/// - Gl.Get with argument <see cref="Gl.CURRENT_RASTER_COLOR"/> 
+		/// - Gl.Get with argument <see cref="Gl.CURRENT_RASTER_SECONDARY_COLOR"/> 
+		/// - Gl.Get with argument <see cref="Gl.CURRENT_RASTER_INDEX"/> 
+		/// - Gl.Get with argument <see cref="Gl.CURRENT_RASTER_TEXTURE_COORDS"/> 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.Bitmap"/>
+		/// <seealso cref="Gl.CopyPixels"/>
+		/// <seealso cref="Gl.DrawArrays"/>
+		/// <seealso cref="Gl.DrawElements"/>
+		/// <seealso cref="Gl.DrawRangeElements"/>
+		/// <seealso cref="Gl.DrawPixels"/>
+		/// <seealso cref="Gl.MultiTexCoord"/>
+		/// <seealso cref="Gl.TexCoord"/>
+		/// <seealso cref="Gl.TexGen"/>
+		/// <seealso cref="Gl.Vertex"/>
+		/// <seealso cref="Gl.WindowPos"/>
 		public static void RasterPos2(double[] v)
 		{
 			unsafe {
@@ -7267,16 +9013,70 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glRasterPos2f.
+		/// specify the raster position for pixel operations
 		/// </summary>
 		/// <param name="x">
-		/// A <see cref="T:float"/>.
+		/// Specify the x, y, z, and w object coordinates (if present) for the raster position. 
 		/// </param>
 		/// <param name="y">
-		/// A <see cref="T:float"/>.
+		/// Specify the x, y, z, and w object coordinates (if present) for the raster position. 
 		/// </param>
 		/// <remarks>
+		/// The GL maintains a 3D position in window coordinates. This position, called the raster position, is used to position 
+		/// pixeland bitmap write operations. It is maintained with subpixel accuracy. See Gl.Bitmap, Gl.DrawPixels, and 
+		/// Gl.CopyPixels.
+		/// The current raster position consists of three window coordinates (x, y, z), a clip coordinate value (w), an eye 
+		/// coordinatedistance, a valid bit, and associated color data and texture coordinates. The w coordinate is a clip 
+		/// coordinate,because w is not projected to window coordinates. <see cref="Gl.RasterPos4"/> specifies object coordinates x, 
+		/// y,z, and w explicitly. <see cref="Gl.RasterPos3"/> specifies object coordinate x, y, and z explicitly, while w is 
+		/// implicitlyset to 1. <see cref="Gl.RasterPos2"/> uses the argument values for x and y while implicitly setting z and w to 
+		/// 0and 1. 
+		/// The object coordinates presented by <see cref="Gl.RasterPos"/> are treated just like those of a Gl.Vertex command: They 
+		/// aretransformed by the current modelview and projection matrices and passed to the clipping stage. If the vertex is not 
+		/// culled,then it is projected and scaled to window coordinates, which become the new current raster position, and the <see 
+		/// cref="Gl.CURRENT_RASTER_POSITION_VALID"/>flag is set. If the vertex is culled, then the valid bit is cleared and the 
+		/// currentraster position and associated color and texture coordinates are undefined. 
+		/// The current raster position also includes some associated color data and texture coordinates. If lighting is enabled, 
+		/// then<see cref="Gl.CURRENT_RASTER_COLOR"/> (in RGBA mode) or <see cref="Gl.CURRENT_RASTER_INDEX"/> (in color index mode) 
+		/// isset to the color produced by the lighting calculation (see Gl.Light, Gl.LightModel, and Gl.ShadeModel). If lighting is 
+		/// disabled,current color (in RGBA mode, state variable <see cref="Gl.CURRENT_COLOR"/>) or color index (in color index 
+		/// mode,state variable <see cref="Gl.CURRENT_INDEX"/>) is used to update the current raster color. <see 
+		/// cref="Gl.CURRENT_RASTER_SECONDARY_COLOR"/>(in RGBA mode) is likewise updated. 
+		/// Likewise, <see cref="Gl.CURRENT_RASTER_TEXTURE_COORDS"/> is updated as a function of <see 
+		/// cref="Gl.CURRENT_TEXTURE_COORDS"/>,based on the texture matrix and the texture generation functions (see Gl.TexGen). 
+		/// Finally,the distance from the origin of the eye coordinate system to the vertex as transformed by only the modelview 
+		/// matrixreplaces <see cref="Gl.CURRENT_RASTER_DISTANCE"/>. 
+		/// Initially, the current raster position is (0, 0, 0, 1), the current raster distance is 0, the valid bit is set, the 
+		/// associatedRGBA color is (1, 1, 1, 1), the associated color index is 1, and the associated texture coordinates are (0, 0, 
+		/// 0,1). In RGBA mode, <see cref="Gl.CURRENT_RASTER_INDEX"/> is always 1; in color index mode, the current raster RGBA 
+		/// coloralways maintains its initial value. 
+		/// <para>
+		/// The following errors can be generated:
+		/// - <see cref="Gl.INVALID_OPERATION"/> is generated if <see cref="Gl.RasterPos"/> is executed between the execution of 
+		///   Gl.Beginand the corresponding execution of Gl.End. 
+		/// </para>
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - Gl.Get with argument <see cref="Gl.CURRENT_RASTER_POSITION"/> 
+		/// - Gl.Get with argument <see cref="Gl.CURRENT_RASTER_POSITION_VALID"/> 
+		/// - Gl.Get with argument <see cref="Gl.CURRENT_RASTER_DISTANCE"/> 
+		/// - Gl.Get with argument <see cref="Gl.CURRENT_RASTER_COLOR"/> 
+		/// - Gl.Get with argument <see cref="Gl.CURRENT_RASTER_SECONDARY_COLOR"/> 
+		/// - Gl.Get with argument <see cref="Gl.CURRENT_RASTER_INDEX"/> 
+		/// - Gl.Get with argument <see cref="Gl.CURRENT_RASTER_TEXTURE_COORDS"/> 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.Bitmap"/>
+		/// <seealso cref="Gl.CopyPixels"/>
+		/// <seealso cref="Gl.DrawArrays"/>
+		/// <seealso cref="Gl.DrawElements"/>
+		/// <seealso cref="Gl.DrawRangeElements"/>
+		/// <seealso cref="Gl.DrawPixels"/>
+		/// <seealso cref="Gl.MultiTexCoord"/>
+		/// <seealso cref="Gl.TexCoord"/>
+		/// <seealso cref="Gl.TexGen"/>
+		/// <seealso cref="Gl.Vertex"/>
+		/// <seealso cref="Gl.WindowPos"/>
 		public static void RasterPos2(float x, float y)
 		{
 			Debug.Assert(Delegates.pglRasterPos2f != null, "pglRasterPos2f not implemented");
@@ -7286,13 +9086,67 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glRasterPos2fv.
+		/// specify the raster position for pixel operations
 		/// </summary>
 		/// <param name="v">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
 		/// <remarks>
+		/// The GL maintains a 3D position in window coordinates. This position, called the raster position, is used to position 
+		/// pixeland bitmap write operations. It is maintained with subpixel accuracy. See Gl.Bitmap, Gl.DrawPixels, and 
+		/// Gl.CopyPixels.
+		/// The current raster position consists of three window coordinates (x, y, z), a clip coordinate value (w), an eye 
+		/// coordinatedistance, a valid bit, and associated color data and texture coordinates. The w coordinate is a clip 
+		/// coordinate,because w is not projected to window coordinates. <see cref="Gl.RasterPos4"/> specifies object coordinates x, 
+		/// y,z, and w explicitly. <see cref="Gl.RasterPos3"/> specifies object coordinate x, y, and z explicitly, while w is 
+		/// implicitlyset to 1. <see cref="Gl.RasterPos2"/> uses the argument values for x and y while implicitly setting z and w to 
+		/// 0and 1. 
+		/// The object coordinates presented by <see cref="Gl.RasterPos"/> are treated just like those of a Gl.Vertex command: They 
+		/// aretransformed by the current modelview and projection matrices and passed to the clipping stage. If the vertex is not 
+		/// culled,then it is projected and scaled to window coordinates, which become the new current raster position, and the <see 
+		/// cref="Gl.CURRENT_RASTER_POSITION_VALID"/>flag is set. If the vertex is culled, then the valid bit is cleared and the 
+		/// currentraster position and associated color and texture coordinates are undefined. 
+		/// The current raster position also includes some associated color data and texture coordinates. If lighting is enabled, 
+		/// then<see cref="Gl.CURRENT_RASTER_COLOR"/> (in RGBA mode) or <see cref="Gl.CURRENT_RASTER_INDEX"/> (in color index mode) 
+		/// isset to the color produced by the lighting calculation (see Gl.Light, Gl.LightModel, and Gl.ShadeModel). If lighting is 
+		/// disabled,current color (in RGBA mode, state variable <see cref="Gl.CURRENT_COLOR"/>) or color index (in color index 
+		/// mode,state variable <see cref="Gl.CURRENT_INDEX"/>) is used to update the current raster color. <see 
+		/// cref="Gl.CURRENT_RASTER_SECONDARY_COLOR"/>(in RGBA mode) is likewise updated. 
+		/// Likewise, <see cref="Gl.CURRENT_RASTER_TEXTURE_COORDS"/> is updated as a function of <see 
+		/// cref="Gl.CURRENT_TEXTURE_COORDS"/>,based on the texture matrix and the texture generation functions (see Gl.TexGen). 
+		/// Finally,the distance from the origin of the eye coordinate system to the vertex as transformed by only the modelview 
+		/// matrixreplaces <see cref="Gl.CURRENT_RASTER_DISTANCE"/>. 
+		/// Initially, the current raster position is (0, 0, 0, 1), the current raster distance is 0, the valid bit is set, the 
+		/// associatedRGBA color is (1, 1, 1, 1), the associated color index is 1, and the associated texture coordinates are (0, 0, 
+		/// 0,1). In RGBA mode, <see cref="Gl.CURRENT_RASTER_INDEX"/> is always 1; in color index mode, the current raster RGBA 
+		/// coloralways maintains its initial value. 
+		/// <para>
+		/// The following errors can be generated:
+		/// - <see cref="Gl.INVALID_OPERATION"/> is generated if <see cref="Gl.RasterPos"/> is executed between the execution of 
+		///   Gl.Beginand the corresponding execution of Gl.End. 
+		/// </para>
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - Gl.Get with argument <see cref="Gl.CURRENT_RASTER_POSITION"/> 
+		/// - Gl.Get with argument <see cref="Gl.CURRENT_RASTER_POSITION_VALID"/> 
+		/// - Gl.Get with argument <see cref="Gl.CURRENT_RASTER_DISTANCE"/> 
+		/// - Gl.Get with argument <see cref="Gl.CURRENT_RASTER_COLOR"/> 
+		/// - Gl.Get with argument <see cref="Gl.CURRENT_RASTER_SECONDARY_COLOR"/> 
+		/// - Gl.Get with argument <see cref="Gl.CURRENT_RASTER_INDEX"/> 
+		/// - Gl.Get with argument <see cref="Gl.CURRENT_RASTER_TEXTURE_COORDS"/> 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.Bitmap"/>
+		/// <seealso cref="Gl.CopyPixels"/>
+		/// <seealso cref="Gl.DrawArrays"/>
+		/// <seealso cref="Gl.DrawElements"/>
+		/// <seealso cref="Gl.DrawRangeElements"/>
+		/// <seealso cref="Gl.DrawPixels"/>
+		/// <seealso cref="Gl.MultiTexCoord"/>
+		/// <seealso cref="Gl.TexCoord"/>
+		/// <seealso cref="Gl.TexGen"/>
+		/// <seealso cref="Gl.Vertex"/>
+		/// <seealso cref="Gl.WindowPos"/>
 		public static void RasterPos2(float[] v)
 		{
 			unsafe {
@@ -7307,16 +9161,70 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glRasterPos2i.
+		/// specify the raster position for pixel operations
 		/// </summary>
 		/// <param name="x">
-		/// A <see cref="T:Int32"/>.
+		/// Specify the x, y, z, and w object coordinates (if present) for the raster position. 
 		/// </param>
 		/// <param name="y">
-		/// A <see cref="T:Int32"/>.
+		/// Specify the x, y, z, and w object coordinates (if present) for the raster position. 
 		/// </param>
 		/// <remarks>
+		/// The GL maintains a 3D position in window coordinates. This position, called the raster position, is used to position 
+		/// pixeland bitmap write operations. It is maintained with subpixel accuracy. See Gl.Bitmap, Gl.DrawPixels, and 
+		/// Gl.CopyPixels.
+		/// The current raster position consists of three window coordinates (x, y, z), a clip coordinate value (w), an eye 
+		/// coordinatedistance, a valid bit, and associated color data and texture coordinates. The w coordinate is a clip 
+		/// coordinate,because w is not projected to window coordinates. <see cref="Gl.RasterPos4"/> specifies object coordinates x, 
+		/// y,z, and w explicitly. <see cref="Gl.RasterPos3"/> specifies object coordinate x, y, and z explicitly, while w is 
+		/// implicitlyset to 1. <see cref="Gl.RasterPos2"/> uses the argument values for x and y while implicitly setting z and w to 
+		/// 0and 1. 
+		/// The object coordinates presented by <see cref="Gl.RasterPos"/> are treated just like those of a Gl.Vertex command: They 
+		/// aretransformed by the current modelview and projection matrices and passed to the clipping stage. If the vertex is not 
+		/// culled,then it is projected and scaled to window coordinates, which become the new current raster position, and the <see 
+		/// cref="Gl.CURRENT_RASTER_POSITION_VALID"/>flag is set. If the vertex is culled, then the valid bit is cleared and the 
+		/// currentraster position and associated color and texture coordinates are undefined. 
+		/// The current raster position also includes some associated color data and texture coordinates. If lighting is enabled, 
+		/// then<see cref="Gl.CURRENT_RASTER_COLOR"/> (in RGBA mode) or <see cref="Gl.CURRENT_RASTER_INDEX"/> (in color index mode) 
+		/// isset to the color produced by the lighting calculation (see Gl.Light, Gl.LightModel, and Gl.ShadeModel). If lighting is 
+		/// disabled,current color (in RGBA mode, state variable <see cref="Gl.CURRENT_COLOR"/>) or color index (in color index 
+		/// mode,state variable <see cref="Gl.CURRENT_INDEX"/>) is used to update the current raster color. <see 
+		/// cref="Gl.CURRENT_RASTER_SECONDARY_COLOR"/>(in RGBA mode) is likewise updated. 
+		/// Likewise, <see cref="Gl.CURRENT_RASTER_TEXTURE_COORDS"/> is updated as a function of <see 
+		/// cref="Gl.CURRENT_TEXTURE_COORDS"/>,based on the texture matrix and the texture generation functions (see Gl.TexGen). 
+		/// Finally,the distance from the origin of the eye coordinate system to the vertex as transformed by only the modelview 
+		/// matrixreplaces <see cref="Gl.CURRENT_RASTER_DISTANCE"/>. 
+		/// Initially, the current raster position is (0, 0, 0, 1), the current raster distance is 0, the valid bit is set, the 
+		/// associatedRGBA color is (1, 1, 1, 1), the associated color index is 1, and the associated texture coordinates are (0, 0, 
+		/// 0,1). In RGBA mode, <see cref="Gl.CURRENT_RASTER_INDEX"/> is always 1; in color index mode, the current raster RGBA 
+		/// coloralways maintains its initial value. 
+		/// <para>
+		/// The following errors can be generated:
+		/// - <see cref="Gl.INVALID_OPERATION"/> is generated if <see cref="Gl.RasterPos"/> is executed between the execution of 
+		///   Gl.Beginand the corresponding execution of Gl.End. 
+		/// </para>
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - Gl.Get with argument <see cref="Gl.CURRENT_RASTER_POSITION"/> 
+		/// - Gl.Get with argument <see cref="Gl.CURRENT_RASTER_POSITION_VALID"/> 
+		/// - Gl.Get with argument <see cref="Gl.CURRENT_RASTER_DISTANCE"/> 
+		/// - Gl.Get with argument <see cref="Gl.CURRENT_RASTER_COLOR"/> 
+		/// - Gl.Get with argument <see cref="Gl.CURRENT_RASTER_SECONDARY_COLOR"/> 
+		/// - Gl.Get with argument <see cref="Gl.CURRENT_RASTER_INDEX"/> 
+		/// - Gl.Get with argument <see cref="Gl.CURRENT_RASTER_TEXTURE_COORDS"/> 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.Bitmap"/>
+		/// <seealso cref="Gl.CopyPixels"/>
+		/// <seealso cref="Gl.DrawArrays"/>
+		/// <seealso cref="Gl.DrawElements"/>
+		/// <seealso cref="Gl.DrawRangeElements"/>
+		/// <seealso cref="Gl.DrawPixels"/>
+		/// <seealso cref="Gl.MultiTexCoord"/>
+		/// <seealso cref="Gl.TexCoord"/>
+		/// <seealso cref="Gl.TexGen"/>
+		/// <seealso cref="Gl.Vertex"/>
+		/// <seealso cref="Gl.WindowPos"/>
 		public static void RasterPos2(Int32 x, Int32 y)
 		{
 			Debug.Assert(Delegates.pglRasterPos2i != null, "pglRasterPos2i not implemented");
@@ -7326,13 +9234,67 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glRasterPos2iv.
+		/// specify the raster position for pixel operations
 		/// </summary>
 		/// <param name="v">
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
 		/// <remarks>
+		/// The GL maintains a 3D position in window coordinates. This position, called the raster position, is used to position 
+		/// pixeland bitmap write operations. It is maintained with subpixel accuracy. See Gl.Bitmap, Gl.DrawPixels, and 
+		/// Gl.CopyPixels.
+		/// The current raster position consists of three window coordinates (x, y, z), a clip coordinate value (w), an eye 
+		/// coordinatedistance, a valid bit, and associated color data and texture coordinates. The w coordinate is a clip 
+		/// coordinate,because w is not projected to window coordinates. <see cref="Gl.RasterPos4"/> specifies object coordinates x, 
+		/// y,z, and w explicitly. <see cref="Gl.RasterPos3"/> specifies object coordinate x, y, and z explicitly, while w is 
+		/// implicitlyset to 1. <see cref="Gl.RasterPos2"/> uses the argument values for x and y while implicitly setting z and w to 
+		/// 0and 1. 
+		/// The object coordinates presented by <see cref="Gl.RasterPos"/> are treated just like those of a Gl.Vertex command: They 
+		/// aretransformed by the current modelview and projection matrices and passed to the clipping stage. If the vertex is not 
+		/// culled,then it is projected and scaled to window coordinates, which become the new current raster position, and the <see 
+		/// cref="Gl.CURRENT_RASTER_POSITION_VALID"/>flag is set. If the vertex is culled, then the valid bit is cleared and the 
+		/// currentraster position and associated color and texture coordinates are undefined. 
+		/// The current raster position also includes some associated color data and texture coordinates. If lighting is enabled, 
+		/// then<see cref="Gl.CURRENT_RASTER_COLOR"/> (in RGBA mode) or <see cref="Gl.CURRENT_RASTER_INDEX"/> (in color index mode) 
+		/// isset to the color produced by the lighting calculation (see Gl.Light, Gl.LightModel, and Gl.ShadeModel). If lighting is 
+		/// disabled,current color (in RGBA mode, state variable <see cref="Gl.CURRENT_COLOR"/>) or color index (in color index 
+		/// mode,state variable <see cref="Gl.CURRENT_INDEX"/>) is used to update the current raster color. <see 
+		/// cref="Gl.CURRENT_RASTER_SECONDARY_COLOR"/>(in RGBA mode) is likewise updated. 
+		/// Likewise, <see cref="Gl.CURRENT_RASTER_TEXTURE_COORDS"/> is updated as a function of <see 
+		/// cref="Gl.CURRENT_TEXTURE_COORDS"/>,based on the texture matrix and the texture generation functions (see Gl.TexGen). 
+		/// Finally,the distance from the origin of the eye coordinate system to the vertex as transformed by only the modelview 
+		/// matrixreplaces <see cref="Gl.CURRENT_RASTER_DISTANCE"/>. 
+		/// Initially, the current raster position is (0, 0, 0, 1), the current raster distance is 0, the valid bit is set, the 
+		/// associatedRGBA color is (1, 1, 1, 1), the associated color index is 1, and the associated texture coordinates are (0, 0, 
+		/// 0,1). In RGBA mode, <see cref="Gl.CURRENT_RASTER_INDEX"/> is always 1; in color index mode, the current raster RGBA 
+		/// coloralways maintains its initial value. 
+		/// <para>
+		/// The following errors can be generated:
+		/// - <see cref="Gl.INVALID_OPERATION"/> is generated if <see cref="Gl.RasterPos"/> is executed between the execution of 
+		///   Gl.Beginand the corresponding execution of Gl.End. 
+		/// </para>
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - Gl.Get with argument <see cref="Gl.CURRENT_RASTER_POSITION"/> 
+		/// - Gl.Get with argument <see cref="Gl.CURRENT_RASTER_POSITION_VALID"/> 
+		/// - Gl.Get with argument <see cref="Gl.CURRENT_RASTER_DISTANCE"/> 
+		/// - Gl.Get with argument <see cref="Gl.CURRENT_RASTER_COLOR"/> 
+		/// - Gl.Get with argument <see cref="Gl.CURRENT_RASTER_SECONDARY_COLOR"/> 
+		/// - Gl.Get with argument <see cref="Gl.CURRENT_RASTER_INDEX"/> 
+		/// - Gl.Get with argument <see cref="Gl.CURRENT_RASTER_TEXTURE_COORDS"/> 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.Bitmap"/>
+		/// <seealso cref="Gl.CopyPixels"/>
+		/// <seealso cref="Gl.DrawArrays"/>
+		/// <seealso cref="Gl.DrawElements"/>
+		/// <seealso cref="Gl.DrawRangeElements"/>
+		/// <seealso cref="Gl.DrawPixels"/>
+		/// <seealso cref="Gl.MultiTexCoord"/>
+		/// <seealso cref="Gl.TexCoord"/>
+		/// <seealso cref="Gl.TexGen"/>
+		/// <seealso cref="Gl.Vertex"/>
+		/// <seealso cref="Gl.WindowPos"/>
 		public static void RasterPos2(Int32[] v)
 		{
 			unsafe {
@@ -7347,16 +9309,70 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glRasterPos2s.
+		/// specify the raster position for pixel operations
 		/// </summary>
 		/// <param name="x">
-		/// A <see cref="T:Int16"/>.
+		/// Specify the x, y, z, and w object coordinates (if present) for the raster position. 
 		/// </param>
 		/// <param name="y">
-		/// A <see cref="T:Int16"/>.
+		/// Specify the x, y, z, and w object coordinates (if present) for the raster position. 
 		/// </param>
 		/// <remarks>
+		/// The GL maintains a 3D position in window coordinates. This position, called the raster position, is used to position 
+		/// pixeland bitmap write operations. It is maintained with subpixel accuracy. See Gl.Bitmap, Gl.DrawPixels, and 
+		/// Gl.CopyPixels.
+		/// The current raster position consists of three window coordinates (x, y, z), a clip coordinate value (w), an eye 
+		/// coordinatedistance, a valid bit, and associated color data and texture coordinates. The w coordinate is a clip 
+		/// coordinate,because w is not projected to window coordinates. <see cref="Gl.RasterPos4"/> specifies object coordinates x, 
+		/// y,z, and w explicitly. <see cref="Gl.RasterPos3"/> specifies object coordinate x, y, and z explicitly, while w is 
+		/// implicitlyset to 1. <see cref="Gl.RasterPos2"/> uses the argument values for x and y while implicitly setting z and w to 
+		/// 0and 1. 
+		/// The object coordinates presented by <see cref="Gl.RasterPos"/> are treated just like those of a Gl.Vertex command: They 
+		/// aretransformed by the current modelview and projection matrices and passed to the clipping stage. If the vertex is not 
+		/// culled,then it is projected and scaled to window coordinates, which become the new current raster position, and the <see 
+		/// cref="Gl.CURRENT_RASTER_POSITION_VALID"/>flag is set. If the vertex is culled, then the valid bit is cleared and the 
+		/// currentraster position and associated color and texture coordinates are undefined. 
+		/// The current raster position also includes some associated color data and texture coordinates. If lighting is enabled, 
+		/// then<see cref="Gl.CURRENT_RASTER_COLOR"/> (in RGBA mode) or <see cref="Gl.CURRENT_RASTER_INDEX"/> (in color index mode) 
+		/// isset to the color produced by the lighting calculation (see Gl.Light, Gl.LightModel, and Gl.ShadeModel). If lighting is 
+		/// disabled,current color (in RGBA mode, state variable <see cref="Gl.CURRENT_COLOR"/>) or color index (in color index 
+		/// mode,state variable <see cref="Gl.CURRENT_INDEX"/>) is used to update the current raster color. <see 
+		/// cref="Gl.CURRENT_RASTER_SECONDARY_COLOR"/>(in RGBA mode) is likewise updated. 
+		/// Likewise, <see cref="Gl.CURRENT_RASTER_TEXTURE_COORDS"/> is updated as a function of <see 
+		/// cref="Gl.CURRENT_TEXTURE_COORDS"/>,based on the texture matrix and the texture generation functions (see Gl.TexGen). 
+		/// Finally,the distance from the origin of the eye coordinate system to the vertex as transformed by only the modelview 
+		/// matrixreplaces <see cref="Gl.CURRENT_RASTER_DISTANCE"/>. 
+		/// Initially, the current raster position is (0, 0, 0, 1), the current raster distance is 0, the valid bit is set, the 
+		/// associatedRGBA color is (1, 1, 1, 1), the associated color index is 1, and the associated texture coordinates are (0, 0, 
+		/// 0,1). In RGBA mode, <see cref="Gl.CURRENT_RASTER_INDEX"/> is always 1; in color index mode, the current raster RGBA 
+		/// coloralways maintains its initial value. 
+		/// <para>
+		/// The following errors can be generated:
+		/// - <see cref="Gl.INVALID_OPERATION"/> is generated if <see cref="Gl.RasterPos"/> is executed between the execution of 
+		///   Gl.Beginand the corresponding execution of Gl.End. 
+		/// </para>
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - Gl.Get with argument <see cref="Gl.CURRENT_RASTER_POSITION"/> 
+		/// - Gl.Get with argument <see cref="Gl.CURRENT_RASTER_POSITION_VALID"/> 
+		/// - Gl.Get with argument <see cref="Gl.CURRENT_RASTER_DISTANCE"/> 
+		/// - Gl.Get with argument <see cref="Gl.CURRENT_RASTER_COLOR"/> 
+		/// - Gl.Get with argument <see cref="Gl.CURRENT_RASTER_SECONDARY_COLOR"/> 
+		/// - Gl.Get with argument <see cref="Gl.CURRENT_RASTER_INDEX"/> 
+		/// - Gl.Get with argument <see cref="Gl.CURRENT_RASTER_TEXTURE_COORDS"/> 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.Bitmap"/>
+		/// <seealso cref="Gl.CopyPixels"/>
+		/// <seealso cref="Gl.DrawArrays"/>
+		/// <seealso cref="Gl.DrawElements"/>
+		/// <seealso cref="Gl.DrawRangeElements"/>
+		/// <seealso cref="Gl.DrawPixels"/>
+		/// <seealso cref="Gl.MultiTexCoord"/>
+		/// <seealso cref="Gl.TexCoord"/>
+		/// <seealso cref="Gl.TexGen"/>
+		/// <seealso cref="Gl.Vertex"/>
+		/// <seealso cref="Gl.WindowPos"/>
 		public static void RasterPos2(Int16 x, Int16 y)
 		{
 			Debug.Assert(Delegates.pglRasterPos2s != null, "pglRasterPos2s not implemented");
@@ -7366,13 +9382,67 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glRasterPos2sv.
+		/// specify the raster position for pixel operations
 		/// </summary>
 		/// <param name="v">
 		/// A <see cref="T:Int16[]"/>.
 		/// </param>
 		/// <remarks>
+		/// The GL maintains a 3D position in window coordinates. This position, called the raster position, is used to position 
+		/// pixeland bitmap write operations. It is maintained with subpixel accuracy. See Gl.Bitmap, Gl.DrawPixels, and 
+		/// Gl.CopyPixels.
+		/// The current raster position consists of three window coordinates (x, y, z), a clip coordinate value (w), an eye 
+		/// coordinatedistance, a valid bit, and associated color data and texture coordinates. The w coordinate is a clip 
+		/// coordinate,because w is not projected to window coordinates. <see cref="Gl.RasterPos4"/> specifies object coordinates x, 
+		/// y,z, and w explicitly. <see cref="Gl.RasterPos3"/> specifies object coordinate x, y, and z explicitly, while w is 
+		/// implicitlyset to 1. <see cref="Gl.RasterPos2"/> uses the argument values for x and y while implicitly setting z and w to 
+		/// 0and 1. 
+		/// The object coordinates presented by <see cref="Gl.RasterPos"/> are treated just like those of a Gl.Vertex command: They 
+		/// aretransformed by the current modelview and projection matrices and passed to the clipping stage. If the vertex is not 
+		/// culled,then it is projected and scaled to window coordinates, which become the new current raster position, and the <see 
+		/// cref="Gl.CURRENT_RASTER_POSITION_VALID"/>flag is set. If the vertex is culled, then the valid bit is cleared and the 
+		/// currentraster position and associated color and texture coordinates are undefined. 
+		/// The current raster position also includes some associated color data and texture coordinates. If lighting is enabled, 
+		/// then<see cref="Gl.CURRENT_RASTER_COLOR"/> (in RGBA mode) or <see cref="Gl.CURRENT_RASTER_INDEX"/> (in color index mode) 
+		/// isset to the color produced by the lighting calculation (see Gl.Light, Gl.LightModel, and Gl.ShadeModel). If lighting is 
+		/// disabled,current color (in RGBA mode, state variable <see cref="Gl.CURRENT_COLOR"/>) or color index (in color index 
+		/// mode,state variable <see cref="Gl.CURRENT_INDEX"/>) is used to update the current raster color. <see 
+		/// cref="Gl.CURRENT_RASTER_SECONDARY_COLOR"/>(in RGBA mode) is likewise updated. 
+		/// Likewise, <see cref="Gl.CURRENT_RASTER_TEXTURE_COORDS"/> is updated as a function of <see 
+		/// cref="Gl.CURRENT_TEXTURE_COORDS"/>,based on the texture matrix and the texture generation functions (see Gl.TexGen). 
+		/// Finally,the distance from the origin of the eye coordinate system to the vertex as transformed by only the modelview 
+		/// matrixreplaces <see cref="Gl.CURRENT_RASTER_DISTANCE"/>. 
+		/// Initially, the current raster position is (0, 0, 0, 1), the current raster distance is 0, the valid bit is set, the 
+		/// associatedRGBA color is (1, 1, 1, 1), the associated color index is 1, and the associated texture coordinates are (0, 0, 
+		/// 0,1). In RGBA mode, <see cref="Gl.CURRENT_RASTER_INDEX"/> is always 1; in color index mode, the current raster RGBA 
+		/// coloralways maintains its initial value. 
+		/// <para>
+		/// The following errors can be generated:
+		/// - <see cref="Gl.INVALID_OPERATION"/> is generated if <see cref="Gl.RasterPos"/> is executed between the execution of 
+		///   Gl.Beginand the corresponding execution of Gl.End. 
+		/// </para>
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - Gl.Get with argument <see cref="Gl.CURRENT_RASTER_POSITION"/> 
+		/// - Gl.Get with argument <see cref="Gl.CURRENT_RASTER_POSITION_VALID"/> 
+		/// - Gl.Get with argument <see cref="Gl.CURRENT_RASTER_DISTANCE"/> 
+		/// - Gl.Get with argument <see cref="Gl.CURRENT_RASTER_COLOR"/> 
+		/// - Gl.Get with argument <see cref="Gl.CURRENT_RASTER_SECONDARY_COLOR"/> 
+		/// - Gl.Get with argument <see cref="Gl.CURRENT_RASTER_INDEX"/> 
+		/// - Gl.Get with argument <see cref="Gl.CURRENT_RASTER_TEXTURE_COORDS"/> 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.Bitmap"/>
+		/// <seealso cref="Gl.CopyPixels"/>
+		/// <seealso cref="Gl.DrawArrays"/>
+		/// <seealso cref="Gl.DrawElements"/>
+		/// <seealso cref="Gl.DrawRangeElements"/>
+		/// <seealso cref="Gl.DrawPixels"/>
+		/// <seealso cref="Gl.MultiTexCoord"/>
+		/// <seealso cref="Gl.TexCoord"/>
+		/// <seealso cref="Gl.TexGen"/>
+		/// <seealso cref="Gl.Vertex"/>
+		/// <seealso cref="Gl.WindowPos"/>
 		public static void RasterPos2(Int16[] v)
 		{
 			unsafe {
@@ -7387,19 +9457,73 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glRasterPos3d.
+		/// specify the raster position for pixel operations
 		/// </summary>
 		/// <param name="x">
-		/// A <see cref="T:double"/>.
+		/// Specify the x, y, z, and w object coordinates (if present) for the raster position. 
 		/// </param>
 		/// <param name="y">
-		/// A <see cref="T:double"/>.
+		/// Specify the x, y, z, and w object coordinates (if present) for the raster position. 
 		/// </param>
 		/// <param name="z">
-		/// A <see cref="T:double"/>.
+		/// Specify the x, y, z, and w object coordinates (if present) for the raster position. 
 		/// </param>
 		/// <remarks>
+		/// The GL maintains a 3D position in window coordinates. This position, called the raster position, is used to position 
+		/// pixeland bitmap write operations. It is maintained with subpixel accuracy. See Gl.Bitmap, Gl.DrawPixels, and 
+		/// Gl.CopyPixels.
+		/// The current raster position consists of three window coordinates (x, y, z), a clip coordinate value (w), an eye 
+		/// coordinatedistance, a valid bit, and associated color data and texture coordinates. The w coordinate is a clip 
+		/// coordinate,because w is not projected to window coordinates. <see cref="Gl.RasterPos4"/> specifies object coordinates x, 
+		/// y,z, and w explicitly. <see cref="Gl.RasterPos3"/> specifies object coordinate x, y, and z explicitly, while w is 
+		/// implicitlyset to 1. <see cref="Gl.RasterPos2"/> uses the argument values for x and y while implicitly setting z and w to 
+		/// 0and 1. 
+		/// The object coordinates presented by <see cref="Gl.RasterPos"/> are treated just like those of a Gl.Vertex command: They 
+		/// aretransformed by the current modelview and projection matrices and passed to the clipping stage. If the vertex is not 
+		/// culled,then it is projected and scaled to window coordinates, which become the new current raster position, and the <see 
+		/// cref="Gl.CURRENT_RASTER_POSITION_VALID"/>flag is set. If the vertex is culled, then the valid bit is cleared and the 
+		/// currentraster position and associated color and texture coordinates are undefined. 
+		/// The current raster position also includes some associated color data and texture coordinates. If lighting is enabled, 
+		/// then<see cref="Gl.CURRENT_RASTER_COLOR"/> (in RGBA mode) or <see cref="Gl.CURRENT_RASTER_INDEX"/> (in color index mode) 
+		/// isset to the color produced by the lighting calculation (see Gl.Light, Gl.LightModel, and Gl.ShadeModel). If lighting is 
+		/// disabled,current color (in RGBA mode, state variable <see cref="Gl.CURRENT_COLOR"/>) or color index (in color index 
+		/// mode,state variable <see cref="Gl.CURRENT_INDEX"/>) is used to update the current raster color. <see 
+		/// cref="Gl.CURRENT_RASTER_SECONDARY_COLOR"/>(in RGBA mode) is likewise updated. 
+		/// Likewise, <see cref="Gl.CURRENT_RASTER_TEXTURE_COORDS"/> is updated as a function of <see 
+		/// cref="Gl.CURRENT_TEXTURE_COORDS"/>,based on the texture matrix and the texture generation functions (see Gl.TexGen). 
+		/// Finally,the distance from the origin of the eye coordinate system to the vertex as transformed by only the modelview 
+		/// matrixreplaces <see cref="Gl.CURRENT_RASTER_DISTANCE"/>. 
+		/// Initially, the current raster position is (0, 0, 0, 1), the current raster distance is 0, the valid bit is set, the 
+		/// associatedRGBA color is (1, 1, 1, 1), the associated color index is 1, and the associated texture coordinates are (0, 0, 
+		/// 0,1). In RGBA mode, <see cref="Gl.CURRENT_RASTER_INDEX"/> is always 1; in color index mode, the current raster RGBA 
+		/// coloralways maintains its initial value. 
+		/// <para>
+		/// The following errors can be generated:
+		/// - <see cref="Gl.INVALID_OPERATION"/> is generated if <see cref="Gl.RasterPos"/> is executed between the execution of 
+		///   Gl.Beginand the corresponding execution of Gl.End. 
+		/// </para>
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - Gl.Get with argument <see cref="Gl.CURRENT_RASTER_POSITION"/> 
+		/// - Gl.Get with argument <see cref="Gl.CURRENT_RASTER_POSITION_VALID"/> 
+		/// - Gl.Get with argument <see cref="Gl.CURRENT_RASTER_DISTANCE"/> 
+		/// - Gl.Get with argument <see cref="Gl.CURRENT_RASTER_COLOR"/> 
+		/// - Gl.Get with argument <see cref="Gl.CURRENT_RASTER_SECONDARY_COLOR"/> 
+		/// - Gl.Get with argument <see cref="Gl.CURRENT_RASTER_INDEX"/> 
+		/// - Gl.Get with argument <see cref="Gl.CURRENT_RASTER_TEXTURE_COORDS"/> 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.Bitmap"/>
+		/// <seealso cref="Gl.CopyPixels"/>
+		/// <seealso cref="Gl.DrawArrays"/>
+		/// <seealso cref="Gl.DrawElements"/>
+		/// <seealso cref="Gl.DrawRangeElements"/>
+		/// <seealso cref="Gl.DrawPixels"/>
+		/// <seealso cref="Gl.MultiTexCoord"/>
+		/// <seealso cref="Gl.TexCoord"/>
+		/// <seealso cref="Gl.TexGen"/>
+		/// <seealso cref="Gl.Vertex"/>
+		/// <seealso cref="Gl.WindowPos"/>
 		public static void RasterPos3(double x, double y, double z)
 		{
 			Debug.Assert(Delegates.pglRasterPos3d != null, "pglRasterPos3d not implemented");
@@ -7409,13 +9533,67 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glRasterPos3dv.
+		/// specify the raster position for pixel operations
 		/// </summary>
 		/// <param name="v">
 		/// A <see cref="T:double[]"/>.
 		/// </param>
 		/// <remarks>
+		/// The GL maintains a 3D position in window coordinates. This position, called the raster position, is used to position 
+		/// pixeland bitmap write operations. It is maintained with subpixel accuracy. See Gl.Bitmap, Gl.DrawPixels, and 
+		/// Gl.CopyPixels.
+		/// The current raster position consists of three window coordinates (x, y, z), a clip coordinate value (w), an eye 
+		/// coordinatedistance, a valid bit, and associated color data and texture coordinates. The w coordinate is a clip 
+		/// coordinate,because w is not projected to window coordinates. <see cref="Gl.RasterPos4"/> specifies object coordinates x, 
+		/// y,z, and w explicitly. <see cref="Gl.RasterPos3"/> specifies object coordinate x, y, and z explicitly, while w is 
+		/// implicitlyset to 1. <see cref="Gl.RasterPos2"/> uses the argument values for x and y while implicitly setting z and w to 
+		/// 0and 1. 
+		/// The object coordinates presented by <see cref="Gl.RasterPos"/> are treated just like those of a Gl.Vertex command: They 
+		/// aretransformed by the current modelview and projection matrices and passed to the clipping stage. If the vertex is not 
+		/// culled,then it is projected and scaled to window coordinates, which become the new current raster position, and the <see 
+		/// cref="Gl.CURRENT_RASTER_POSITION_VALID"/>flag is set. If the vertex is culled, then the valid bit is cleared and the 
+		/// currentraster position and associated color and texture coordinates are undefined. 
+		/// The current raster position also includes some associated color data and texture coordinates. If lighting is enabled, 
+		/// then<see cref="Gl.CURRENT_RASTER_COLOR"/> (in RGBA mode) or <see cref="Gl.CURRENT_RASTER_INDEX"/> (in color index mode) 
+		/// isset to the color produced by the lighting calculation (see Gl.Light, Gl.LightModel, and Gl.ShadeModel). If lighting is 
+		/// disabled,current color (in RGBA mode, state variable <see cref="Gl.CURRENT_COLOR"/>) or color index (in color index 
+		/// mode,state variable <see cref="Gl.CURRENT_INDEX"/>) is used to update the current raster color. <see 
+		/// cref="Gl.CURRENT_RASTER_SECONDARY_COLOR"/>(in RGBA mode) is likewise updated. 
+		/// Likewise, <see cref="Gl.CURRENT_RASTER_TEXTURE_COORDS"/> is updated as a function of <see 
+		/// cref="Gl.CURRENT_TEXTURE_COORDS"/>,based on the texture matrix and the texture generation functions (see Gl.TexGen). 
+		/// Finally,the distance from the origin of the eye coordinate system to the vertex as transformed by only the modelview 
+		/// matrixreplaces <see cref="Gl.CURRENT_RASTER_DISTANCE"/>. 
+		/// Initially, the current raster position is (0, 0, 0, 1), the current raster distance is 0, the valid bit is set, the 
+		/// associatedRGBA color is (1, 1, 1, 1), the associated color index is 1, and the associated texture coordinates are (0, 0, 
+		/// 0,1). In RGBA mode, <see cref="Gl.CURRENT_RASTER_INDEX"/> is always 1; in color index mode, the current raster RGBA 
+		/// coloralways maintains its initial value. 
+		/// <para>
+		/// The following errors can be generated:
+		/// - <see cref="Gl.INVALID_OPERATION"/> is generated if <see cref="Gl.RasterPos"/> is executed between the execution of 
+		///   Gl.Beginand the corresponding execution of Gl.End. 
+		/// </para>
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - Gl.Get with argument <see cref="Gl.CURRENT_RASTER_POSITION"/> 
+		/// - Gl.Get with argument <see cref="Gl.CURRENT_RASTER_POSITION_VALID"/> 
+		/// - Gl.Get with argument <see cref="Gl.CURRENT_RASTER_DISTANCE"/> 
+		/// - Gl.Get with argument <see cref="Gl.CURRENT_RASTER_COLOR"/> 
+		/// - Gl.Get with argument <see cref="Gl.CURRENT_RASTER_SECONDARY_COLOR"/> 
+		/// - Gl.Get with argument <see cref="Gl.CURRENT_RASTER_INDEX"/> 
+		/// - Gl.Get with argument <see cref="Gl.CURRENT_RASTER_TEXTURE_COORDS"/> 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.Bitmap"/>
+		/// <seealso cref="Gl.CopyPixels"/>
+		/// <seealso cref="Gl.DrawArrays"/>
+		/// <seealso cref="Gl.DrawElements"/>
+		/// <seealso cref="Gl.DrawRangeElements"/>
+		/// <seealso cref="Gl.DrawPixels"/>
+		/// <seealso cref="Gl.MultiTexCoord"/>
+		/// <seealso cref="Gl.TexCoord"/>
+		/// <seealso cref="Gl.TexGen"/>
+		/// <seealso cref="Gl.Vertex"/>
+		/// <seealso cref="Gl.WindowPos"/>
 		public static void RasterPos3(double[] v)
 		{
 			unsafe {
@@ -7430,19 +9608,73 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glRasterPos3f.
+		/// specify the raster position for pixel operations
 		/// </summary>
 		/// <param name="x">
-		/// A <see cref="T:float"/>.
+		/// Specify the x, y, z, and w object coordinates (if present) for the raster position. 
 		/// </param>
 		/// <param name="y">
-		/// A <see cref="T:float"/>.
+		/// Specify the x, y, z, and w object coordinates (if present) for the raster position. 
 		/// </param>
 		/// <param name="z">
-		/// A <see cref="T:float"/>.
+		/// Specify the x, y, z, and w object coordinates (if present) for the raster position. 
 		/// </param>
 		/// <remarks>
+		/// The GL maintains a 3D position in window coordinates. This position, called the raster position, is used to position 
+		/// pixeland bitmap write operations. It is maintained with subpixel accuracy. See Gl.Bitmap, Gl.DrawPixels, and 
+		/// Gl.CopyPixels.
+		/// The current raster position consists of three window coordinates (x, y, z), a clip coordinate value (w), an eye 
+		/// coordinatedistance, a valid bit, and associated color data and texture coordinates. The w coordinate is a clip 
+		/// coordinate,because w is not projected to window coordinates. <see cref="Gl.RasterPos4"/> specifies object coordinates x, 
+		/// y,z, and w explicitly. <see cref="Gl.RasterPos3"/> specifies object coordinate x, y, and z explicitly, while w is 
+		/// implicitlyset to 1. <see cref="Gl.RasterPos2"/> uses the argument values for x and y while implicitly setting z and w to 
+		/// 0and 1. 
+		/// The object coordinates presented by <see cref="Gl.RasterPos"/> are treated just like those of a Gl.Vertex command: They 
+		/// aretransformed by the current modelview and projection matrices and passed to the clipping stage. If the vertex is not 
+		/// culled,then it is projected and scaled to window coordinates, which become the new current raster position, and the <see 
+		/// cref="Gl.CURRENT_RASTER_POSITION_VALID"/>flag is set. If the vertex is culled, then the valid bit is cleared and the 
+		/// currentraster position and associated color and texture coordinates are undefined. 
+		/// The current raster position also includes some associated color data and texture coordinates. If lighting is enabled, 
+		/// then<see cref="Gl.CURRENT_RASTER_COLOR"/> (in RGBA mode) or <see cref="Gl.CURRENT_RASTER_INDEX"/> (in color index mode) 
+		/// isset to the color produced by the lighting calculation (see Gl.Light, Gl.LightModel, and Gl.ShadeModel). If lighting is 
+		/// disabled,current color (in RGBA mode, state variable <see cref="Gl.CURRENT_COLOR"/>) or color index (in color index 
+		/// mode,state variable <see cref="Gl.CURRENT_INDEX"/>) is used to update the current raster color. <see 
+		/// cref="Gl.CURRENT_RASTER_SECONDARY_COLOR"/>(in RGBA mode) is likewise updated. 
+		/// Likewise, <see cref="Gl.CURRENT_RASTER_TEXTURE_COORDS"/> is updated as a function of <see 
+		/// cref="Gl.CURRENT_TEXTURE_COORDS"/>,based on the texture matrix and the texture generation functions (see Gl.TexGen). 
+		/// Finally,the distance from the origin of the eye coordinate system to the vertex as transformed by only the modelview 
+		/// matrixreplaces <see cref="Gl.CURRENT_RASTER_DISTANCE"/>. 
+		/// Initially, the current raster position is (0, 0, 0, 1), the current raster distance is 0, the valid bit is set, the 
+		/// associatedRGBA color is (1, 1, 1, 1), the associated color index is 1, and the associated texture coordinates are (0, 0, 
+		/// 0,1). In RGBA mode, <see cref="Gl.CURRENT_RASTER_INDEX"/> is always 1; in color index mode, the current raster RGBA 
+		/// coloralways maintains its initial value. 
+		/// <para>
+		/// The following errors can be generated:
+		/// - <see cref="Gl.INVALID_OPERATION"/> is generated if <see cref="Gl.RasterPos"/> is executed between the execution of 
+		///   Gl.Beginand the corresponding execution of Gl.End. 
+		/// </para>
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - Gl.Get with argument <see cref="Gl.CURRENT_RASTER_POSITION"/> 
+		/// - Gl.Get with argument <see cref="Gl.CURRENT_RASTER_POSITION_VALID"/> 
+		/// - Gl.Get with argument <see cref="Gl.CURRENT_RASTER_DISTANCE"/> 
+		/// - Gl.Get with argument <see cref="Gl.CURRENT_RASTER_COLOR"/> 
+		/// - Gl.Get with argument <see cref="Gl.CURRENT_RASTER_SECONDARY_COLOR"/> 
+		/// - Gl.Get with argument <see cref="Gl.CURRENT_RASTER_INDEX"/> 
+		/// - Gl.Get with argument <see cref="Gl.CURRENT_RASTER_TEXTURE_COORDS"/> 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.Bitmap"/>
+		/// <seealso cref="Gl.CopyPixels"/>
+		/// <seealso cref="Gl.DrawArrays"/>
+		/// <seealso cref="Gl.DrawElements"/>
+		/// <seealso cref="Gl.DrawRangeElements"/>
+		/// <seealso cref="Gl.DrawPixels"/>
+		/// <seealso cref="Gl.MultiTexCoord"/>
+		/// <seealso cref="Gl.TexCoord"/>
+		/// <seealso cref="Gl.TexGen"/>
+		/// <seealso cref="Gl.Vertex"/>
+		/// <seealso cref="Gl.WindowPos"/>
 		public static void RasterPos3(float x, float y, float z)
 		{
 			Debug.Assert(Delegates.pglRasterPos3f != null, "pglRasterPos3f not implemented");
@@ -7452,13 +9684,67 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glRasterPos3fv.
+		/// specify the raster position for pixel operations
 		/// </summary>
 		/// <param name="v">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
 		/// <remarks>
+		/// The GL maintains a 3D position in window coordinates. This position, called the raster position, is used to position 
+		/// pixeland bitmap write operations. It is maintained with subpixel accuracy. See Gl.Bitmap, Gl.DrawPixels, and 
+		/// Gl.CopyPixels.
+		/// The current raster position consists of three window coordinates (x, y, z), a clip coordinate value (w), an eye 
+		/// coordinatedistance, a valid bit, and associated color data and texture coordinates. The w coordinate is a clip 
+		/// coordinate,because w is not projected to window coordinates. <see cref="Gl.RasterPos4"/> specifies object coordinates x, 
+		/// y,z, and w explicitly. <see cref="Gl.RasterPos3"/> specifies object coordinate x, y, and z explicitly, while w is 
+		/// implicitlyset to 1. <see cref="Gl.RasterPos2"/> uses the argument values for x and y while implicitly setting z and w to 
+		/// 0and 1. 
+		/// The object coordinates presented by <see cref="Gl.RasterPos"/> are treated just like those of a Gl.Vertex command: They 
+		/// aretransformed by the current modelview and projection matrices and passed to the clipping stage. If the vertex is not 
+		/// culled,then it is projected and scaled to window coordinates, which become the new current raster position, and the <see 
+		/// cref="Gl.CURRENT_RASTER_POSITION_VALID"/>flag is set. If the vertex is culled, then the valid bit is cleared and the 
+		/// currentraster position and associated color and texture coordinates are undefined. 
+		/// The current raster position also includes some associated color data and texture coordinates. If lighting is enabled, 
+		/// then<see cref="Gl.CURRENT_RASTER_COLOR"/> (in RGBA mode) or <see cref="Gl.CURRENT_RASTER_INDEX"/> (in color index mode) 
+		/// isset to the color produced by the lighting calculation (see Gl.Light, Gl.LightModel, and Gl.ShadeModel). If lighting is 
+		/// disabled,current color (in RGBA mode, state variable <see cref="Gl.CURRENT_COLOR"/>) or color index (in color index 
+		/// mode,state variable <see cref="Gl.CURRENT_INDEX"/>) is used to update the current raster color. <see 
+		/// cref="Gl.CURRENT_RASTER_SECONDARY_COLOR"/>(in RGBA mode) is likewise updated. 
+		/// Likewise, <see cref="Gl.CURRENT_RASTER_TEXTURE_COORDS"/> is updated as a function of <see 
+		/// cref="Gl.CURRENT_TEXTURE_COORDS"/>,based on the texture matrix and the texture generation functions (see Gl.TexGen). 
+		/// Finally,the distance from the origin of the eye coordinate system to the vertex as transformed by only the modelview 
+		/// matrixreplaces <see cref="Gl.CURRENT_RASTER_DISTANCE"/>. 
+		/// Initially, the current raster position is (0, 0, 0, 1), the current raster distance is 0, the valid bit is set, the 
+		/// associatedRGBA color is (1, 1, 1, 1), the associated color index is 1, and the associated texture coordinates are (0, 0, 
+		/// 0,1). In RGBA mode, <see cref="Gl.CURRENT_RASTER_INDEX"/> is always 1; in color index mode, the current raster RGBA 
+		/// coloralways maintains its initial value. 
+		/// <para>
+		/// The following errors can be generated:
+		/// - <see cref="Gl.INVALID_OPERATION"/> is generated if <see cref="Gl.RasterPos"/> is executed between the execution of 
+		///   Gl.Beginand the corresponding execution of Gl.End. 
+		/// </para>
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - Gl.Get with argument <see cref="Gl.CURRENT_RASTER_POSITION"/> 
+		/// - Gl.Get with argument <see cref="Gl.CURRENT_RASTER_POSITION_VALID"/> 
+		/// - Gl.Get with argument <see cref="Gl.CURRENT_RASTER_DISTANCE"/> 
+		/// - Gl.Get with argument <see cref="Gl.CURRENT_RASTER_COLOR"/> 
+		/// - Gl.Get with argument <see cref="Gl.CURRENT_RASTER_SECONDARY_COLOR"/> 
+		/// - Gl.Get with argument <see cref="Gl.CURRENT_RASTER_INDEX"/> 
+		/// - Gl.Get with argument <see cref="Gl.CURRENT_RASTER_TEXTURE_COORDS"/> 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.Bitmap"/>
+		/// <seealso cref="Gl.CopyPixels"/>
+		/// <seealso cref="Gl.DrawArrays"/>
+		/// <seealso cref="Gl.DrawElements"/>
+		/// <seealso cref="Gl.DrawRangeElements"/>
+		/// <seealso cref="Gl.DrawPixels"/>
+		/// <seealso cref="Gl.MultiTexCoord"/>
+		/// <seealso cref="Gl.TexCoord"/>
+		/// <seealso cref="Gl.TexGen"/>
+		/// <seealso cref="Gl.Vertex"/>
+		/// <seealso cref="Gl.WindowPos"/>
 		public static void RasterPos3(float[] v)
 		{
 			unsafe {
@@ -7473,19 +9759,73 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glRasterPos3i.
+		/// specify the raster position for pixel operations
 		/// </summary>
 		/// <param name="x">
-		/// A <see cref="T:Int32"/>.
+		/// Specify the x, y, z, and w object coordinates (if present) for the raster position. 
 		/// </param>
 		/// <param name="y">
-		/// A <see cref="T:Int32"/>.
+		/// Specify the x, y, z, and w object coordinates (if present) for the raster position. 
 		/// </param>
 		/// <param name="z">
-		/// A <see cref="T:Int32"/>.
+		/// Specify the x, y, z, and w object coordinates (if present) for the raster position. 
 		/// </param>
 		/// <remarks>
+		/// The GL maintains a 3D position in window coordinates. This position, called the raster position, is used to position 
+		/// pixeland bitmap write operations. It is maintained with subpixel accuracy. See Gl.Bitmap, Gl.DrawPixels, and 
+		/// Gl.CopyPixels.
+		/// The current raster position consists of three window coordinates (x, y, z), a clip coordinate value (w), an eye 
+		/// coordinatedistance, a valid bit, and associated color data and texture coordinates. The w coordinate is a clip 
+		/// coordinate,because w is not projected to window coordinates. <see cref="Gl.RasterPos4"/> specifies object coordinates x, 
+		/// y,z, and w explicitly. <see cref="Gl.RasterPos3"/> specifies object coordinate x, y, and z explicitly, while w is 
+		/// implicitlyset to 1. <see cref="Gl.RasterPos2"/> uses the argument values for x and y while implicitly setting z and w to 
+		/// 0and 1. 
+		/// The object coordinates presented by <see cref="Gl.RasterPos"/> are treated just like those of a Gl.Vertex command: They 
+		/// aretransformed by the current modelview and projection matrices and passed to the clipping stage. If the vertex is not 
+		/// culled,then it is projected and scaled to window coordinates, which become the new current raster position, and the <see 
+		/// cref="Gl.CURRENT_RASTER_POSITION_VALID"/>flag is set. If the vertex is culled, then the valid bit is cleared and the 
+		/// currentraster position and associated color and texture coordinates are undefined. 
+		/// The current raster position also includes some associated color data and texture coordinates. If lighting is enabled, 
+		/// then<see cref="Gl.CURRENT_RASTER_COLOR"/> (in RGBA mode) or <see cref="Gl.CURRENT_RASTER_INDEX"/> (in color index mode) 
+		/// isset to the color produced by the lighting calculation (see Gl.Light, Gl.LightModel, and Gl.ShadeModel). If lighting is 
+		/// disabled,current color (in RGBA mode, state variable <see cref="Gl.CURRENT_COLOR"/>) or color index (in color index 
+		/// mode,state variable <see cref="Gl.CURRENT_INDEX"/>) is used to update the current raster color. <see 
+		/// cref="Gl.CURRENT_RASTER_SECONDARY_COLOR"/>(in RGBA mode) is likewise updated. 
+		/// Likewise, <see cref="Gl.CURRENT_RASTER_TEXTURE_COORDS"/> is updated as a function of <see 
+		/// cref="Gl.CURRENT_TEXTURE_COORDS"/>,based on the texture matrix and the texture generation functions (see Gl.TexGen). 
+		/// Finally,the distance from the origin of the eye coordinate system to the vertex as transformed by only the modelview 
+		/// matrixreplaces <see cref="Gl.CURRENT_RASTER_DISTANCE"/>. 
+		/// Initially, the current raster position is (0, 0, 0, 1), the current raster distance is 0, the valid bit is set, the 
+		/// associatedRGBA color is (1, 1, 1, 1), the associated color index is 1, and the associated texture coordinates are (0, 0, 
+		/// 0,1). In RGBA mode, <see cref="Gl.CURRENT_RASTER_INDEX"/> is always 1; in color index mode, the current raster RGBA 
+		/// coloralways maintains its initial value. 
+		/// <para>
+		/// The following errors can be generated:
+		/// - <see cref="Gl.INVALID_OPERATION"/> is generated if <see cref="Gl.RasterPos"/> is executed between the execution of 
+		///   Gl.Beginand the corresponding execution of Gl.End. 
+		/// </para>
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - Gl.Get with argument <see cref="Gl.CURRENT_RASTER_POSITION"/> 
+		/// - Gl.Get with argument <see cref="Gl.CURRENT_RASTER_POSITION_VALID"/> 
+		/// - Gl.Get with argument <see cref="Gl.CURRENT_RASTER_DISTANCE"/> 
+		/// - Gl.Get with argument <see cref="Gl.CURRENT_RASTER_COLOR"/> 
+		/// - Gl.Get with argument <see cref="Gl.CURRENT_RASTER_SECONDARY_COLOR"/> 
+		/// - Gl.Get with argument <see cref="Gl.CURRENT_RASTER_INDEX"/> 
+		/// - Gl.Get with argument <see cref="Gl.CURRENT_RASTER_TEXTURE_COORDS"/> 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.Bitmap"/>
+		/// <seealso cref="Gl.CopyPixels"/>
+		/// <seealso cref="Gl.DrawArrays"/>
+		/// <seealso cref="Gl.DrawElements"/>
+		/// <seealso cref="Gl.DrawRangeElements"/>
+		/// <seealso cref="Gl.DrawPixels"/>
+		/// <seealso cref="Gl.MultiTexCoord"/>
+		/// <seealso cref="Gl.TexCoord"/>
+		/// <seealso cref="Gl.TexGen"/>
+		/// <seealso cref="Gl.Vertex"/>
+		/// <seealso cref="Gl.WindowPos"/>
 		public static void RasterPos3(Int32 x, Int32 y, Int32 z)
 		{
 			Debug.Assert(Delegates.pglRasterPos3i != null, "pglRasterPos3i not implemented");
@@ -7495,13 +9835,67 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glRasterPos3iv.
+		/// specify the raster position for pixel operations
 		/// </summary>
 		/// <param name="v">
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
 		/// <remarks>
+		/// The GL maintains a 3D position in window coordinates. This position, called the raster position, is used to position 
+		/// pixeland bitmap write operations. It is maintained with subpixel accuracy. See Gl.Bitmap, Gl.DrawPixels, and 
+		/// Gl.CopyPixels.
+		/// The current raster position consists of three window coordinates (x, y, z), a clip coordinate value (w), an eye 
+		/// coordinatedistance, a valid bit, and associated color data and texture coordinates. The w coordinate is a clip 
+		/// coordinate,because w is not projected to window coordinates. <see cref="Gl.RasterPos4"/> specifies object coordinates x, 
+		/// y,z, and w explicitly. <see cref="Gl.RasterPos3"/> specifies object coordinate x, y, and z explicitly, while w is 
+		/// implicitlyset to 1. <see cref="Gl.RasterPos2"/> uses the argument values for x and y while implicitly setting z and w to 
+		/// 0and 1. 
+		/// The object coordinates presented by <see cref="Gl.RasterPos"/> are treated just like those of a Gl.Vertex command: They 
+		/// aretransformed by the current modelview and projection matrices and passed to the clipping stage. If the vertex is not 
+		/// culled,then it is projected and scaled to window coordinates, which become the new current raster position, and the <see 
+		/// cref="Gl.CURRENT_RASTER_POSITION_VALID"/>flag is set. If the vertex is culled, then the valid bit is cleared and the 
+		/// currentraster position and associated color and texture coordinates are undefined. 
+		/// The current raster position also includes some associated color data and texture coordinates. If lighting is enabled, 
+		/// then<see cref="Gl.CURRENT_RASTER_COLOR"/> (in RGBA mode) or <see cref="Gl.CURRENT_RASTER_INDEX"/> (in color index mode) 
+		/// isset to the color produced by the lighting calculation (see Gl.Light, Gl.LightModel, and Gl.ShadeModel). If lighting is 
+		/// disabled,current color (in RGBA mode, state variable <see cref="Gl.CURRENT_COLOR"/>) or color index (in color index 
+		/// mode,state variable <see cref="Gl.CURRENT_INDEX"/>) is used to update the current raster color. <see 
+		/// cref="Gl.CURRENT_RASTER_SECONDARY_COLOR"/>(in RGBA mode) is likewise updated. 
+		/// Likewise, <see cref="Gl.CURRENT_RASTER_TEXTURE_COORDS"/> is updated as a function of <see 
+		/// cref="Gl.CURRENT_TEXTURE_COORDS"/>,based on the texture matrix and the texture generation functions (see Gl.TexGen). 
+		/// Finally,the distance from the origin of the eye coordinate system to the vertex as transformed by only the modelview 
+		/// matrixreplaces <see cref="Gl.CURRENT_RASTER_DISTANCE"/>. 
+		/// Initially, the current raster position is (0, 0, 0, 1), the current raster distance is 0, the valid bit is set, the 
+		/// associatedRGBA color is (1, 1, 1, 1), the associated color index is 1, and the associated texture coordinates are (0, 0, 
+		/// 0,1). In RGBA mode, <see cref="Gl.CURRENT_RASTER_INDEX"/> is always 1; in color index mode, the current raster RGBA 
+		/// coloralways maintains its initial value. 
+		/// <para>
+		/// The following errors can be generated:
+		/// - <see cref="Gl.INVALID_OPERATION"/> is generated if <see cref="Gl.RasterPos"/> is executed between the execution of 
+		///   Gl.Beginand the corresponding execution of Gl.End. 
+		/// </para>
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - Gl.Get with argument <see cref="Gl.CURRENT_RASTER_POSITION"/> 
+		/// - Gl.Get with argument <see cref="Gl.CURRENT_RASTER_POSITION_VALID"/> 
+		/// - Gl.Get with argument <see cref="Gl.CURRENT_RASTER_DISTANCE"/> 
+		/// - Gl.Get with argument <see cref="Gl.CURRENT_RASTER_COLOR"/> 
+		/// - Gl.Get with argument <see cref="Gl.CURRENT_RASTER_SECONDARY_COLOR"/> 
+		/// - Gl.Get with argument <see cref="Gl.CURRENT_RASTER_INDEX"/> 
+		/// - Gl.Get with argument <see cref="Gl.CURRENT_RASTER_TEXTURE_COORDS"/> 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.Bitmap"/>
+		/// <seealso cref="Gl.CopyPixels"/>
+		/// <seealso cref="Gl.DrawArrays"/>
+		/// <seealso cref="Gl.DrawElements"/>
+		/// <seealso cref="Gl.DrawRangeElements"/>
+		/// <seealso cref="Gl.DrawPixels"/>
+		/// <seealso cref="Gl.MultiTexCoord"/>
+		/// <seealso cref="Gl.TexCoord"/>
+		/// <seealso cref="Gl.TexGen"/>
+		/// <seealso cref="Gl.Vertex"/>
+		/// <seealso cref="Gl.WindowPos"/>
 		public static void RasterPos3(Int32[] v)
 		{
 			unsafe {
@@ -7516,19 +9910,73 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glRasterPos3s.
+		/// specify the raster position for pixel operations
 		/// </summary>
 		/// <param name="x">
-		/// A <see cref="T:Int16"/>.
+		/// Specify the x, y, z, and w object coordinates (if present) for the raster position. 
 		/// </param>
 		/// <param name="y">
-		/// A <see cref="T:Int16"/>.
+		/// Specify the x, y, z, and w object coordinates (if present) for the raster position. 
 		/// </param>
 		/// <param name="z">
-		/// A <see cref="T:Int16"/>.
+		/// Specify the x, y, z, and w object coordinates (if present) for the raster position. 
 		/// </param>
 		/// <remarks>
+		/// The GL maintains a 3D position in window coordinates. This position, called the raster position, is used to position 
+		/// pixeland bitmap write operations. It is maintained with subpixel accuracy. See Gl.Bitmap, Gl.DrawPixels, and 
+		/// Gl.CopyPixels.
+		/// The current raster position consists of three window coordinates (x, y, z), a clip coordinate value (w), an eye 
+		/// coordinatedistance, a valid bit, and associated color data and texture coordinates. The w coordinate is a clip 
+		/// coordinate,because w is not projected to window coordinates. <see cref="Gl.RasterPos4"/> specifies object coordinates x, 
+		/// y,z, and w explicitly. <see cref="Gl.RasterPos3"/> specifies object coordinate x, y, and z explicitly, while w is 
+		/// implicitlyset to 1. <see cref="Gl.RasterPos2"/> uses the argument values for x and y while implicitly setting z and w to 
+		/// 0and 1. 
+		/// The object coordinates presented by <see cref="Gl.RasterPos"/> are treated just like those of a Gl.Vertex command: They 
+		/// aretransformed by the current modelview and projection matrices and passed to the clipping stage. If the vertex is not 
+		/// culled,then it is projected and scaled to window coordinates, which become the new current raster position, and the <see 
+		/// cref="Gl.CURRENT_RASTER_POSITION_VALID"/>flag is set. If the vertex is culled, then the valid bit is cleared and the 
+		/// currentraster position and associated color and texture coordinates are undefined. 
+		/// The current raster position also includes some associated color data and texture coordinates. If lighting is enabled, 
+		/// then<see cref="Gl.CURRENT_RASTER_COLOR"/> (in RGBA mode) or <see cref="Gl.CURRENT_RASTER_INDEX"/> (in color index mode) 
+		/// isset to the color produced by the lighting calculation (see Gl.Light, Gl.LightModel, and Gl.ShadeModel). If lighting is 
+		/// disabled,current color (in RGBA mode, state variable <see cref="Gl.CURRENT_COLOR"/>) or color index (in color index 
+		/// mode,state variable <see cref="Gl.CURRENT_INDEX"/>) is used to update the current raster color. <see 
+		/// cref="Gl.CURRENT_RASTER_SECONDARY_COLOR"/>(in RGBA mode) is likewise updated. 
+		/// Likewise, <see cref="Gl.CURRENT_RASTER_TEXTURE_COORDS"/> is updated as a function of <see 
+		/// cref="Gl.CURRENT_TEXTURE_COORDS"/>,based on the texture matrix and the texture generation functions (see Gl.TexGen). 
+		/// Finally,the distance from the origin of the eye coordinate system to the vertex as transformed by only the modelview 
+		/// matrixreplaces <see cref="Gl.CURRENT_RASTER_DISTANCE"/>. 
+		/// Initially, the current raster position is (0, 0, 0, 1), the current raster distance is 0, the valid bit is set, the 
+		/// associatedRGBA color is (1, 1, 1, 1), the associated color index is 1, and the associated texture coordinates are (0, 0, 
+		/// 0,1). In RGBA mode, <see cref="Gl.CURRENT_RASTER_INDEX"/> is always 1; in color index mode, the current raster RGBA 
+		/// coloralways maintains its initial value. 
+		/// <para>
+		/// The following errors can be generated:
+		/// - <see cref="Gl.INVALID_OPERATION"/> is generated if <see cref="Gl.RasterPos"/> is executed between the execution of 
+		///   Gl.Beginand the corresponding execution of Gl.End. 
+		/// </para>
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - Gl.Get with argument <see cref="Gl.CURRENT_RASTER_POSITION"/> 
+		/// - Gl.Get with argument <see cref="Gl.CURRENT_RASTER_POSITION_VALID"/> 
+		/// - Gl.Get with argument <see cref="Gl.CURRENT_RASTER_DISTANCE"/> 
+		/// - Gl.Get with argument <see cref="Gl.CURRENT_RASTER_COLOR"/> 
+		/// - Gl.Get with argument <see cref="Gl.CURRENT_RASTER_SECONDARY_COLOR"/> 
+		/// - Gl.Get with argument <see cref="Gl.CURRENT_RASTER_INDEX"/> 
+		/// - Gl.Get with argument <see cref="Gl.CURRENT_RASTER_TEXTURE_COORDS"/> 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.Bitmap"/>
+		/// <seealso cref="Gl.CopyPixels"/>
+		/// <seealso cref="Gl.DrawArrays"/>
+		/// <seealso cref="Gl.DrawElements"/>
+		/// <seealso cref="Gl.DrawRangeElements"/>
+		/// <seealso cref="Gl.DrawPixels"/>
+		/// <seealso cref="Gl.MultiTexCoord"/>
+		/// <seealso cref="Gl.TexCoord"/>
+		/// <seealso cref="Gl.TexGen"/>
+		/// <seealso cref="Gl.Vertex"/>
+		/// <seealso cref="Gl.WindowPos"/>
 		public static void RasterPos3(Int16 x, Int16 y, Int16 z)
 		{
 			Debug.Assert(Delegates.pglRasterPos3s != null, "pglRasterPos3s not implemented");
@@ -7538,13 +9986,67 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glRasterPos3sv.
+		/// specify the raster position for pixel operations
 		/// </summary>
 		/// <param name="v">
 		/// A <see cref="T:Int16[]"/>.
 		/// </param>
 		/// <remarks>
+		/// The GL maintains a 3D position in window coordinates. This position, called the raster position, is used to position 
+		/// pixeland bitmap write operations. It is maintained with subpixel accuracy. See Gl.Bitmap, Gl.DrawPixels, and 
+		/// Gl.CopyPixels.
+		/// The current raster position consists of three window coordinates (x, y, z), a clip coordinate value (w), an eye 
+		/// coordinatedistance, a valid bit, and associated color data and texture coordinates. The w coordinate is a clip 
+		/// coordinate,because w is not projected to window coordinates. <see cref="Gl.RasterPos4"/> specifies object coordinates x, 
+		/// y,z, and w explicitly. <see cref="Gl.RasterPos3"/> specifies object coordinate x, y, and z explicitly, while w is 
+		/// implicitlyset to 1. <see cref="Gl.RasterPos2"/> uses the argument values for x and y while implicitly setting z and w to 
+		/// 0and 1. 
+		/// The object coordinates presented by <see cref="Gl.RasterPos"/> are treated just like those of a Gl.Vertex command: They 
+		/// aretransformed by the current modelview and projection matrices and passed to the clipping stage. If the vertex is not 
+		/// culled,then it is projected and scaled to window coordinates, which become the new current raster position, and the <see 
+		/// cref="Gl.CURRENT_RASTER_POSITION_VALID"/>flag is set. If the vertex is culled, then the valid bit is cleared and the 
+		/// currentraster position and associated color and texture coordinates are undefined. 
+		/// The current raster position also includes some associated color data and texture coordinates. If lighting is enabled, 
+		/// then<see cref="Gl.CURRENT_RASTER_COLOR"/> (in RGBA mode) or <see cref="Gl.CURRENT_RASTER_INDEX"/> (in color index mode) 
+		/// isset to the color produced by the lighting calculation (see Gl.Light, Gl.LightModel, and Gl.ShadeModel). If lighting is 
+		/// disabled,current color (in RGBA mode, state variable <see cref="Gl.CURRENT_COLOR"/>) or color index (in color index 
+		/// mode,state variable <see cref="Gl.CURRENT_INDEX"/>) is used to update the current raster color. <see 
+		/// cref="Gl.CURRENT_RASTER_SECONDARY_COLOR"/>(in RGBA mode) is likewise updated. 
+		/// Likewise, <see cref="Gl.CURRENT_RASTER_TEXTURE_COORDS"/> is updated as a function of <see 
+		/// cref="Gl.CURRENT_TEXTURE_COORDS"/>,based on the texture matrix and the texture generation functions (see Gl.TexGen). 
+		/// Finally,the distance from the origin of the eye coordinate system to the vertex as transformed by only the modelview 
+		/// matrixreplaces <see cref="Gl.CURRENT_RASTER_DISTANCE"/>. 
+		/// Initially, the current raster position is (0, 0, 0, 1), the current raster distance is 0, the valid bit is set, the 
+		/// associatedRGBA color is (1, 1, 1, 1), the associated color index is 1, and the associated texture coordinates are (0, 0, 
+		/// 0,1). In RGBA mode, <see cref="Gl.CURRENT_RASTER_INDEX"/> is always 1; in color index mode, the current raster RGBA 
+		/// coloralways maintains its initial value. 
+		/// <para>
+		/// The following errors can be generated:
+		/// - <see cref="Gl.INVALID_OPERATION"/> is generated if <see cref="Gl.RasterPos"/> is executed between the execution of 
+		///   Gl.Beginand the corresponding execution of Gl.End. 
+		/// </para>
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - Gl.Get with argument <see cref="Gl.CURRENT_RASTER_POSITION"/> 
+		/// - Gl.Get with argument <see cref="Gl.CURRENT_RASTER_POSITION_VALID"/> 
+		/// - Gl.Get with argument <see cref="Gl.CURRENT_RASTER_DISTANCE"/> 
+		/// - Gl.Get with argument <see cref="Gl.CURRENT_RASTER_COLOR"/> 
+		/// - Gl.Get with argument <see cref="Gl.CURRENT_RASTER_SECONDARY_COLOR"/> 
+		/// - Gl.Get with argument <see cref="Gl.CURRENT_RASTER_INDEX"/> 
+		/// - Gl.Get with argument <see cref="Gl.CURRENT_RASTER_TEXTURE_COORDS"/> 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.Bitmap"/>
+		/// <seealso cref="Gl.CopyPixels"/>
+		/// <seealso cref="Gl.DrawArrays"/>
+		/// <seealso cref="Gl.DrawElements"/>
+		/// <seealso cref="Gl.DrawRangeElements"/>
+		/// <seealso cref="Gl.DrawPixels"/>
+		/// <seealso cref="Gl.MultiTexCoord"/>
+		/// <seealso cref="Gl.TexCoord"/>
+		/// <seealso cref="Gl.TexGen"/>
+		/// <seealso cref="Gl.Vertex"/>
+		/// <seealso cref="Gl.WindowPos"/>
 		public static void RasterPos3(Int16[] v)
 		{
 			unsafe {
@@ -7559,22 +10061,76 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glRasterPos4d.
+		/// specify the raster position for pixel operations
 		/// </summary>
 		/// <param name="x">
-		/// A <see cref="T:double"/>.
+		/// Specify the x, y, z, and w object coordinates (if present) for the raster position. 
 		/// </param>
 		/// <param name="y">
-		/// A <see cref="T:double"/>.
+		/// Specify the x, y, z, and w object coordinates (if present) for the raster position. 
 		/// </param>
 		/// <param name="z">
-		/// A <see cref="T:double"/>.
+		/// Specify the x, y, z, and w object coordinates (if present) for the raster position. 
 		/// </param>
 		/// <param name="w">
-		/// A <see cref="T:double"/>.
+		/// Specify the x, y, z, and w object coordinates (if present) for the raster position. 
 		/// </param>
 		/// <remarks>
+		/// The GL maintains a 3D position in window coordinates. This position, called the raster position, is used to position 
+		/// pixeland bitmap write operations. It is maintained with subpixel accuracy. See Gl.Bitmap, Gl.DrawPixels, and 
+		/// Gl.CopyPixels.
+		/// The current raster position consists of three window coordinates (x, y, z), a clip coordinate value (w), an eye 
+		/// coordinatedistance, a valid bit, and associated color data and texture coordinates. The w coordinate is a clip 
+		/// coordinate,because w is not projected to window coordinates. <see cref="Gl.RasterPos4"/> specifies object coordinates x, 
+		/// y,z, and w explicitly. <see cref="Gl.RasterPos3"/> specifies object coordinate x, y, and z explicitly, while w is 
+		/// implicitlyset to 1. <see cref="Gl.RasterPos2"/> uses the argument values for x and y while implicitly setting z and w to 
+		/// 0and 1. 
+		/// The object coordinates presented by <see cref="Gl.RasterPos"/> are treated just like those of a Gl.Vertex command: They 
+		/// aretransformed by the current modelview and projection matrices and passed to the clipping stage. If the vertex is not 
+		/// culled,then it is projected and scaled to window coordinates, which become the new current raster position, and the <see 
+		/// cref="Gl.CURRENT_RASTER_POSITION_VALID"/>flag is set. If the vertex is culled, then the valid bit is cleared and the 
+		/// currentraster position and associated color and texture coordinates are undefined. 
+		/// The current raster position also includes some associated color data and texture coordinates. If lighting is enabled, 
+		/// then<see cref="Gl.CURRENT_RASTER_COLOR"/> (in RGBA mode) or <see cref="Gl.CURRENT_RASTER_INDEX"/> (in color index mode) 
+		/// isset to the color produced by the lighting calculation (see Gl.Light, Gl.LightModel, and Gl.ShadeModel). If lighting is 
+		/// disabled,current color (in RGBA mode, state variable <see cref="Gl.CURRENT_COLOR"/>) or color index (in color index 
+		/// mode,state variable <see cref="Gl.CURRENT_INDEX"/>) is used to update the current raster color. <see 
+		/// cref="Gl.CURRENT_RASTER_SECONDARY_COLOR"/>(in RGBA mode) is likewise updated. 
+		/// Likewise, <see cref="Gl.CURRENT_RASTER_TEXTURE_COORDS"/> is updated as a function of <see 
+		/// cref="Gl.CURRENT_TEXTURE_COORDS"/>,based on the texture matrix and the texture generation functions (see Gl.TexGen). 
+		/// Finally,the distance from the origin of the eye coordinate system to the vertex as transformed by only the modelview 
+		/// matrixreplaces <see cref="Gl.CURRENT_RASTER_DISTANCE"/>. 
+		/// Initially, the current raster position is (0, 0, 0, 1), the current raster distance is 0, the valid bit is set, the 
+		/// associatedRGBA color is (1, 1, 1, 1), the associated color index is 1, and the associated texture coordinates are (0, 0, 
+		/// 0,1). In RGBA mode, <see cref="Gl.CURRENT_RASTER_INDEX"/> is always 1; in color index mode, the current raster RGBA 
+		/// coloralways maintains its initial value. 
+		/// <para>
+		/// The following errors can be generated:
+		/// - <see cref="Gl.INVALID_OPERATION"/> is generated if <see cref="Gl.RasterPos"/> is executed between the execution of 
+		///   Gl.Beginand the corresponding execution of Gl.End. 
+		/// </para>
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - Gl.Get with argument <see cref="Gl.CURRENT_RASTER_POSITION"/> 
+		/// - Gl.Get with argument <see cref="Gl.CURRENT_RASTER_POSITION_VALID"/> 
+		/// - Gl.Get with argument <see cref="Gl.CURRENT_RASTER_DISTANCE"/> 
+		/// - Gl.Get with argument <see cref="Gl.CURRENT_RASTER_COLOR"/> 
+		/// - Gl.Get with argument <see cref="Gl.CURRENT_RASTER_SECONDARY_COLOR"/> 
+		/// - Gl.Get with argument <see cref="Gl.CURRENT_RASTER_INDEX"/> 
+		/// - Gl.Get with argument <see cref="Gl.CURRENT_RASTER_TEXTURE_COORDS"/> 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.Bitmap"/>
+		/// <seealso cref="Gl.CopyPixels"/>
+		/// <seealso cref="Gl.DrawArrays"/>
+		/// <seealso cref="Gl.DrawElements"/>
+		/// <seealso cref="Gl.DrawRangeElements"/>
+		/// <seealso cref="Gl.DrawPixels"/>
+		/// <seealso cref="Gl.MultiTexCoord"/>
+		/// <seealso cref="Gl.TexCoord"/>
+		/// <seealso cref="Gl.TexGen"/>
+		/// <seealso cref="Gl.Vertex"/>
+		/// <seealso cref="Gl.WindowPos"/>
 		public static void RasterPos4(double x, double y, double z, double w)
 		{
 			Debug.Assert(Delegates.pglRasterPos4d != null, "pglRasterPos4d not implemented");
@@ -7584,13 +10140,67 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glRasterPos4dv.
+		/// specify the raster position for pixel operations
 		/// </summary>
 		/// <param name="v">
 		/// A <see cref="T:double[]"/>.
 		/// </param>
 		/// <remarks>
+		/// The GL maintains a 3D position in window coordinates. This position, called the raster position, is used to position 
+		/// pixeland bitmap write operations. It is maintained with subpixel accuracy. See Gl.Bitmap, Gl.DrawPixels, and 
+		/// Gl.CopyPixels.
+		/// The current raster position consists of three window coordinates (x, y, z), a clip coordinate value (w), an eye 
+		/// coordinatedistance, a valid bit, and associated color data and texture coordinates. The w coordinate is a clip 
+		/// coordinate,because w is not projected to window coordinates. <see cref="Gl.RasterPos4"/> specifies object coordinates x, 
+		/// y,z, and w explicitly. <see cref="Gl.RasterPos3"/> specifies object coordinate x, y, and z explicitly, while w is 
+		/// implicitlyset to 1. <see cref="Gl.RasterPos2"/> uses the argument values for x and y while implicitly setting z and w to 
+		/// 0and 1. 
+		/// The object coordinates presented by <see cref="Gl.RasterPos"/> are treated just like those of a Gl.Vertex command: They 
+		/// aretransformed by the current modelview and projection matrices and passed to the clipping stage. If the vertex is not 
+		/// culled,then it is projected and scaled to window coordinates, which become the new current raster position, and the <see 
+		/// cref="Gl.CURRENT_RASTER_POSITION_VALID"/>flag is set. If the vertex is culled, then the valid bit is cleared and the 
+		/// currentraster position and associated color and texture coordinates are undefined. 
+		/// The current raster position also includes some associated color data and texture coordinates. If lighting is enabled, 
+		/// then<see cref="Gl.CURRENT_RASTER_COLOR"/> (in RGBA mode) or <see cref="Gl.CURRENT_RASTER_INDEX"/> (in color index mode) 
+		/// isset to the color produced by the lighting calculation (see Gl.Light, Gl.LightModel, and Gl.ShadeModel). If lighting is 
+		/// disabled,current color (in RGBA mode, state variable <see cref="Gl.CURRENT_COLOR"/>) or color index (in color index 
+		/// mode,state variable <see cref="Gl.CURRENT_INDEX"/>) is used to update the current raster color. <see 
+		/// cref="Gl.CURRENT_RASTER_SECONDARY_COLOR"/>(in RGBA mode) is likewise updated. 
+		/// Likewise, <see cref="Gl.CURRENT_RASTER_TEXTURE_COORDS"/> is updated as a function of <see 
+		/// cref="Gl.CURRENT_TEXTURE_COORDS"/>,based on the texture matrix and the texture generation functions (see Gl.TexGen). 
+		/// Finally,the distance from the origin of the eye coordinate system to the vertex as transformed by only the modelview 
+		/// matrixreplaces <see cref="Gl.CURRENT_RASTER_DISTANCE"/>. 
+		/// Initially, the current raster position is (0, 0, 0, 1), the current raster distance is 0, the valid bit is set, the 
+		/// associatedRGBA color is (1, 1, 1, 1), the associated color index is 1, and the associated texture coordinates are (0, 0, 
+		/// 0,1). In RGBA mode, <see cref="Gl.CURRENT_RASTER_INDEX"/> is always 1; in color index mode, the current raster RGBA 
+		/// coloralways maintains its initial value. 
+		/// <para>
+		/// The following errors can be generated:
+		/// - <see cref="Gl.INVALID_OPERATION"/> is generated if <see cref="Gl.RasterPos"/> is executed between the execution of 
+		///   Gl.Beginand the corresponding execution of Gl.End. 
+		/// </para>
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - Gl.Get with argument <see cref="Gl.CURRENT_RASTER_POSITION"/> 
+		/// - Gl.Get with argument <see cref="Gl.CURRENT_RASTER_POSITION_VALID"/> 
+		/// - Gl.Get with argument <see cref="Gl.CURRENT_RASTER_DISTANCE"/> 
+		/// - Gl.Get with argument <see cref="Gl.CURRENT_RASTER_COLOR"/> 
+		/// - Gl.Get with argument <see cref="Gl.CURRENT_RASTER_SECONDARY_COLOR"/> 
+		/// - Gl.Get with argument <see cref="Gl.CURRENT_RASTER_INDEX"/> 
+		/// - Gl.Get with argument <see cref="Gl.CURRENT_RASTER_TEXTURE_COORDS"/> 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.Bitmap"/>
+		/// <seealso cref="Gl.CopyPixels"/>
+		/// <seealso cref="Gl.DrawArrays"/>
+		/// <seealso cref="Gl.DrawElements"/>
+		/// <seealso cref="Gl.DrawRangeElements"/>
+		/// <seealso cref="Gl.DrawPixels"/>
+		/// <seealso cref="Gl.MultiTexCoord"/>
+		/// <seealso cref="Gl.TexCoord"/>
+		/// <seealso cref="Gl.TexGen"/>
+		/// <seealso cref="Gl.Vertex"/>
+		/// <seealso cref="Gl.WindowPos"/>
 		public static void RasterPos4(double[] v)
 		{
 			unsafe {
@@ -7605,22 +10215,76 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glRasterPos4f.
+		/// specify the raster position for pixel operations
 		/// </summary>
 		/// <param name="x">
-		/// A <see cref="T:float"/>.
+		/// Specify the x, y, z, and w object coordinates (if present) for the raster position. 
 		/// </param>
 		/// <param name="y">
-		/// A <see cref="T:float"/>.
+		/// Specify the x, y, z, and w object coordinates (if present) for the raster position. 
 		/// </param>
 		/// <param name="z">
-		/// A <see cref="T:float"/>.
+		/// Specify the x, y, z, and w object coordinates (if present) for the raster position. 
 		/// </param>
 		/// <param name="w">
-		/// A <see cref="T:float"/>.
+		/// Specify the x, y, z, and w object coordinates (if present) for the raster position. 
 		/// </param>
 		/// <remarks>
+		/// The GL maintains a 3D position in window coordinates. This position, called the raster position, is used to position 
+		/// pixeland bitmap write operations. It is maintained with subpixel accuracy. See Gl.Bitmap, Gl.DrawPixels, and 
+		/// Gl.CopyPixels.
+		/// The current raster position consists of three window coordinates (x, y, z), a clip coordinate value (w), an eye 
+		/// coordinatedistance, a valid bit, and associated color data and texture coordinates. The w coordinate is a clip 
+		/// coordinate,because w is not projected to window coordinates. <see cref="Gl.RasterPos4"/> specifies object coordinates x, 
+		/// y,z, and w explicitly. <see cref="Gl.RasterPos3"/> specifies object coordinate x, y, and z explicitly, while w is 
+		/// implicitlyset to 1. <see cref="Gl.RasterPos2"/> uses the argument values for x and y while implicitly setting z and w to 
+		/// 0and 1. 
+		/// The object coordinates presented by <see cref="Gl.RasterPos"/> are treated just like those of a Gl.Vertex command: They 
+		/// aretransformed by the current modelview and projection matrices and passed to the clipping stage. If the vertex is not 
+		/// culled,then it is projected and scaled to window coordinates, which become the new current raster position, and the <see 
+		/// cref="Gl.CURRENT_RASTER_POSITION_VALID"/>flag is set. If the vertex is culled, then the valid bit is cleared and the 
+		/// currentraster position and associated color and texture coordinates are undefined. 
+		/// The current raster position also includes some associated color data and texture coordinates. If lighting is enabled, 
+		/// then<see cref="Gl.CURRENT_RASTER_COLOR"/> (in RGBA mode) or <see cref="Gl.CURRENT_RASTER_INDEX"/> (in color index mode) 
+		/// isset to the color produced by the lighting calculation (see Gl.Light, Gl.LightModel, and Gl.ShadeModel). If lighting is 
+		/// disabled,current color (in RGBA mode, state variable <see cref="Gl.CURRENT_COLOR"/>) or color index (in color index 
+		/// mode,state variable <see cref="Gl.CURRENT_INDEX"/>) is used to update the current raster color. <see 
+		/// cref="Gl.CURRENT_RASTER_SECONDARY_COLOR"/>(in RGBA mode) is likewise updated. 
+		/// Likewise, <see cref="Gl.CURRENT_RASTER_TEXTURE_COORDS"/> is updated as a function of <see 
+		/// cref="Gl.CURRENT_TEXTURE_COORDS"/>,based on the texture matrix and the texture generation functions (see Gl.TexGen). 
+		/// Finally,the distance from the origin of the eye coordinate system to the vertex as transformed by only the modelview 
+		/// matrixreplaces <see cref="Gl.CURRENT_RASTER_DISTANCE"/>. 
+		/// Initially, the current raster position is (0, 0, 0, 1), the current raster distance is 0, the valid bit is set, the 
+		/// associatedRGBA color is (1, 1, 1, 1), the associated color index is 1, and the associated texture coordinates are (0, 0, 
+		/// 0,1). In RGBA mode, <see cref="Gl.CURRENT_RASTER_INDEX"/> is always 1; in color index mode, the current raster RGBA 
+		/// coloralways maintains its initial value. 
+		/// <para>
+		/// The following errors can be generated:
+		/// - <see cref="Gl.INVALID_OPERATION"/> is generated if <see cref="Gl.RasterPos"/> is executed between the execution of 
+		///   Gl.Beginand the corresponding execution of Gl.End. 
+		/// </para>
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - Gl.Get with argument <see cref="Gl.CURRENT_RASTER_POSITION"/> 
+		/// - Gl.Get with argument <see cref="Gl.CURRENT_RASTER_POSITION_VALID"/> 
+		/// - Gl.Get with argument <see cref="Gl.CURRENT_RASTER_DISTANCE"/> 
+		/// - Gl.Get with argument <see cref="Gl.CURRENT_RASTER_COLOR"/> 
+		/// - Gl.Get with argument <see cref="Gl.CURRENT_RASTER_SECONDARY_COLOR"/> 
+		/// - Gl.Get with argument <see cref="Gl.CURRENT_RASTER_INDEX"/> 
+		/// - Gl.Get with argument <see cref="Gl.CURRENT_RASTER_TEXTURE_COORDS"/> 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.Bitmap"/>
+		/// <seealso cref="Gl.CopyPixels"/>
+		/// <seealso cref="Gl.DrawArrays"/>
+		/// <seealso cref="Gl.DrawElements"/>
+		/// <seealso cref="Gl.DrawRangeElements"/>
+		/// <seealso cref="Gl.DrawPixels"/>
+		/// <seealso cref="Gl.MultiTexCoord"/>
+		/// <seealso cref="Gl.TexCoord"/>
+		/// <seealso cref="Gl.TexGen"/>
+		/// <seealso cref="Gl.Vertex"/>
+		/// <seealso cref="Gl.WindowPos"/>
 		public static void RasterPos4(float x, float y, float z, float w)
 		{
 			Debug.Assert(Delegates.pglRasterPos4f != null, "pglRasterPos4f not implemented");
@@ -7630,13 +10294,67 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glRasterPos4fv.
+		/// specify the raster position for pixel operations
 		/// </summary>
 		/// <param name="v">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
 		/// <remarks>
+		/// The GL maintains a 3D position in window coordinates. This position, called the raster position, is used to position 
+		/// pixeland bitmap write operations. It is maintained with subpixel accuracy. See Gl.Bitmap, Gl.DrawPixels, and 
+		/// Gl.CopyPixels.
+		/// The current raster position consists of three window coordinates (x, y, z), a clip coordinate value (w), an eye 
+		/// coordinatedistance, a valid bit, and associated color data and texture coordinates. The w coordinate is a clip 
+		/// coordinate,because w is not projected to window coordinates. <see cref="Gl.RasterPos4"/> specifies object coordinates x, 
+		/// y,z, and w explicitly. <see cref="Gl.RasterPos3"/> specifies object coordinate x, y, and z explicitly, while w is 
+		/// implicitlyset to 1. <see cref="Gl.RasterPos2"/> uses the argument values for x and y while implicitly setting z and w to 
+		/// 0and 1. 
+		/// The object coordinates presented by <see cref="Gl.RasterPos"/> are treated just like those of a Gl.Vertex command: They 
+		/// aretransformed by the current modelview and projection matrices and passed to the clipping stage. If the vertex is not 
+		/// culled,then it is projected and scaled to window coordinates, which become the new current raster position, and the <see 
+		/// cref="Gl.CURRENT_RASTER_POSITION_VALID"/>flag is set. If the vertex is culled, then the valid bit is cleared and the 
+		/// currentraster position and associated color and texture coordinates are undefined. 
+		/// The current raster position also includes some associated color data and texture coordinates. If lighting is enabled, 
+		/// then<see cref="Gl.CURRENT_RASTER_COLOR"/> (in RGBA mode) or <see cref="Gl.CURRENT_RASTER_INDEX"/> (in color index mode) 
+		/// isset to the color produced by the lighting calculation (see Gl.Light, Gl.LightModel, and Gl.ShadeModel). If lighting is 
+		/// disabled,current color (in RGBA mode, state variable <see cref="Gl.CURRENT_COLOR"/>) or color index (in color index 
+		/// mode,state variable <see cref="Gl.CURRENT_INDEX"/>) is used to update the current raster color. <see 
+		/// cref="Gl.CURRENT_RASTER_SECONDARY_COLOR"/>(in RGBA mode) is likewise updated. 
+		/// Likewise, <see cref="Gl.CURRENT_RASTER_TEXTURE_COORDS"/> is updated as a function of <see 
+		/// cref="Gl.CURRENT_TEXTURE_COORDS"/>,based on the texture matrix and the texture generation functions (see Gl.TexGen). 
+		/// Finally,the distance from the origin of the eye coordinate system to the vertex as transformed by only the modelview 
+		/// matrixreplaces <see cref="Gl.CURRENT_RASTER_DISTANCE"/>. 
+		/// Initially, the current raster position is (0, 0, 0, 1), the current raster distance is 0, the valid bit is set, the 
+		/// associatedRGBA color is (1, 1, 1, 1), the associated color index is 1, and the associated texture coordinates are (0, 0, 
+		/// 0,1). In RGBA mode, <see cref="Gl.CURRENT_RASTER_INDEX"/> is always 1; in color index mode, the current raster RGBA 
+		/// coloralways maintains its initial value. 
+		/// <para>
+		/// The following errors can be generated:
+		/// - <see cref="Gl.INVALID_OPERATION"/> is generated if <see cref="Gl.RasterPos"/> is executed between the execution of 
+		///   Gl.Beginand the corresponding execution of Gl.End. 
+		/// </para>
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - Gl.Get with argument <see cref="Gl.CURRENT_RASTER_POSITION"/> 
+		/// - Gl.Get with argument <see cref="Gl.CURRENT_RASTER_POSITION_VALID"/> 
+		/// - Gl.Get with argument <see cref="Gl.CURRENT_RASTER_DISTANCE"/> 
+		/// - Gl.Get with argument <see cref="Gl.CURRENT_RASTER_COLOR"/> 
+		/// - Gl.Get with argument <see cref="Gl.CURRENT_RASTER_SECONDARY_COLOR"/> 
+		/// - Gl.Get with argument <see cref="Gl.CURRENT_RASTER_INDEX"/> 
+		/// - Gl.Get with argument <see cref="Gl.CURRENT_RASTER_TEXTURE_COORDS"/> 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.Bitmap"/>
+		/// <seealso cref="Gl.CopyPixels"/>
+		/// <seealso cref="Gl.DrawArrays"/>
+		/// <seealso cref="Gl.DrawElements"/>
+		/// <seealso cref="Gl.DrawRangeElements"/>
+		/// <seealso cref="Gl.DrawPixels"/>
+		/// <seealso cref="Gl.MultiTexCoord"/>
+		/// <seealso cref="Gl.TexCoord"/>
+		/// <seealso cref="Gl.TexGen"/>
+		/// <seealso cref="Gl.Vertex"/>
+		/// <seealso cref="Gl.WindowPos"/>
 		public static void RasterPos4(float[] v)
 		{
 			unsafe {
@@ -7651,22 +10369,76 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glRasterPos4i.
+		/// specify the raster position for pixel operations
 		/// </summary>
 		/// <param name="x">
-		/// A <see cref="T:Int32"/>.
+		/// Specify the x, y, z, and w object coordinates (if present) for the raster position. 
 		/// </param>
 		/// <param name="y">
-		/// A <see cref="T:Int32"/>.
+		/// Specify the x, y, z, and w object coordinates (if present) for the raster position. 
 		/// </param>
 		/// <param name="z">
-		/// A <see cref="T:Int32"/>.
+		/// Specify the x, y, z, and w object coordinates (if present) for the raster position. 
 		/// </param>
 		/// <param name="w">
-		/// A <see cref="T:Int32"/>.
+		/// Specify the x, y, z, and w object coordinates (if present) for the raster position. 
 		/// </param>
 		/// <remarks>
+		/// The GL maintains a 3D position in window coordinates. This position, called the raster position, is used to position 
+		/// pixeland bitmap write operations. It is maintained with subpixel accuracy. See Gl.Bitmap, Gl.DrawPixels, and 
+		/// Gl.CopyPixels.
+		/// The current raster position consists of three window coordinates (x, y, z), a clip coordinate value (w), an eye 
+		/// coordinatedistance, a valid bit, and associated color data and texture coordinates. The w coordinate is a clip 
+		/// coordinate,because w is not projected to window coordinates. <see cref="Gl.RasterPos4"/> specifies object coordinates x, 
+		/// y,z, and w explicitly. <see cref="Gl.RasterPos3"/> specifies object coordinate x, y, and z explicitly, while w is 
+		/// implicitlyset to 1. <see cref="Gl.RasterPos2"/> uses the argument values for x and y while implicitly setting z and w to 
+		/// 0and 1. 
+		/// The object coordinates presented by <see cref="Gl.RasterPos"/> are treated just like those of a Gl.Vertex command: They 
+		/// aretransformed by the current modelview and projection matrices and passed to the clipping stage. If the vertex is not 
+		/// culled,then it is projected and scaled to window coordinates, which become the new current raster position, and the <see 
+		/// cref="Gl.CURRENT_RASTER_POSITION_VALID"/>flag is set. If the vertex is culled, then the valid bit is cleared and the 
+		/// currentraster position and associated color and texture coordinates are undefined. 
+		/// The current raster position also includes some associated color data and texture coordinates. If lighting is enabled, 
+		/// then<see cref="Gl.CURRENT_RASTER_COLOR"/> (in RGBA mode) or <see cref="Gl.CURRENT_RASTER_INDEX"/> (in color index mode) 
+		/// isset to the color produced by the lighting calculation (see Gl.Light, Gl.LightModel, and Gl.ShadeModel). If lighting is 
+		/// disabled,current color (in RGBA mode, state variable <see cref="Gl.CURRENT_COLOR"/>) or color index (in color index 
+		/// mode,state variable <see cref="Gl.CURRENT_INDEX"/>) is used to update the current raster color. <see 
+		/// cref="Gl.CURRENT_RASTER_SECONDARY_COLOR"/>(in RGBA mode) is likewise updated. 
+		/// Likewise, <see cref="Gl.CURRENT_RASTER_TEXTURE_COORDS"/> is updated as a function of <see 
+		/// cref="Gl.CURRENT_TEXTURE_COORDS"/>,based on the texture matrix and the texture generation functions (see Gl.TexGen). 
+		/// Finally,the distance from the origin of the eye coordinate system to the vertex as transformed by only the modelview 
+		/// matrixreplaces <see cref="Gl.CURRENT_RASTER_DISTANCE"/>. 
+		/// Initially, the current raster position is (0, 0, 0, 1), the current raster distance is 0, the valid bit is set, the 
+		/// associatedRGBA color is (1, 1, 1, 1), the associated color index is 1, and the associated texture coordinates are (0, 0, 
+		/// 0,1). In RGBA mode, <see cref="Gl.CURRENT_RASTER_INDEX"/> is always 1; in color index mode, the current raster RGBA 
+		/// coloralways maintains its initial value. 
+		/// <para>
+		/// The following errors can be generated:
+		/// - <see cref="Gl.INVALID_OPERATION"/> is generated if <see cref="Gl.RasterPos"/> is executed between the execution of 
+		///   Gl.Beginand the corresponding execution of Gl.End. 
+		/// </para>
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - Gl.Get with argument <see cref="Gl.CURRENT_RASTER_POSITION"/> 
+		/// - Gl.Get with argument <see cref="Gl.CURRENT_RASTER_POSITION_VALID"/> 
+		/// - Gl.Get with argument <see cref="Gl.CURRENT_RASTER_DISTANCE"/> 
+		/// - Gl.Get with argument <see cref="Gl.CURRENT_RASTER_COLOR"/> 
+		/// - Gl.Get with argument <see cref="Gl.CURRENT_RASTER_SECONDARY_COLOR"/> 
+		/// - Gl.Get with argument <see cref="Gl.CURRENT_RASTER_INDEX"/> 
+		/// - Gl.Get with argument <see cref="Gl.CURRENT_RASTER_TEXTURE_COORDS"/> 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.Bitmap"/>
+		/// <seealso cref="Gl.CopyPixels"/>
+		/// <seealso cref="Gl.DrawArrays"/>
+		/// <seealso cref="Gl.DrawElements"/>
+		/// <seealso cref="Gl.DrawRangeElements"/>
+		/// <seealso cref="Gl.DrawPixels"/>
+		/// <seealso cref="Gl.MultiTexCoord"/>
+		/// <seealso cref="Gl.TexCoord"/>
+		/// <seealso cref="Gl.TexGen"/>
+		/// <seealso cref="Gl.Vertex"/>
+		/// <seealso cref="Gl.WindowPos"/>
 		public static void RasterPos4(Int32 x, Int32 y, Int32 z, Int32 w)
 		{
 			Debug.Assert(Delegates.pglRasterPos4i != null, "pglRasterPos4i not implemented");
@@ -7676,13 +10448,67 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glRasterPos4iv.
+		/// specify the raster position for pixel operations
 		/// </summary>
 		/// <param name="v">
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
 		/// <remarks>
+		/// The GL maintains a 3D position in window coordinates. This position, called the raster position, is used to position 
+		/// pixeland bitmap write operations. It is maintained with subpixel accuracy. See Gl.Bitmap, Gl.DrawPixels, and 
+		/// Gl.CopyPixels.
+		/// The current raster position consists of three window coordinates (x, y, z), a clip coordinate value (w), an eye 
+		/// coordinatedistance, a valid bit, and associated color data and texture coordinates. The w coordinate is a clip 
+		/// coordinate,because w is not projected to window coordinates. <see cref="Gl.RasterPos4"/> specifies object coordinates x, 
+		/// y,z, and w explicitly. <see cref="Gl.RasterPos3"/> specifies object coordinate x, y, and z explicitly, while w is 
+		/// implicitlyset to 1. <see cref="Gl.RasterPos2"/> uses the argument values for x and y while implicitly setting z and w to 
+		/// 0and 1. 
+		/// The object coordinates presented by <see cref="Gl.RasterPos"/> are treated just like those of a Gl.Vertex command: They 
+		/// aretransformed by the current modelview and projection matrices and passed to the clipping stage. If the vertex is not 
+		/// culled,then it is projected and scaled to window coordinates, which become the new current raster position, and the <see 
+		/// cref="Gl.CURRENT_RASTER_POSITION_VALID"/>flag is set. If the vertex is culled, then the valid bit is cleared and the 
+		/// currentraster position and associated color and texture coordinates are undefined. 
+		/// The current raster position also includes some associated color data and texture coordinates. If lighting is enabled, 
+		/// then<see cref="Gl.CURRENT_RASTER_COLOR"/> (in RGBA mode) or <see cref="Gl.CURRENT_RASTER_INDEX"/> (in color index mode) 
+		/// isset to the color produced by the lighting calculation (see Gl.Light, Gl.LightModel, and Gl.ShadeModel). If lighting is 
+		/// disabled,current color (in RGBA mode, state variable <see cref="Gl.CURRENT_COLOR"/>) or color index (in color index 
+		/// mode,state variable <see cref="Gl.CURRENT_INDEX"/>) is used to update the current raster color. <see 
+		/// cref="Gl.CURRENT_RASTER_SECONDARY_COLOR"/>(in RGBA mode) is likewise updated. 
+		/// Likewise, <see cref="Gl.CURRENT_RASTER_TEXTURE_COORDS"/> is updated as a function of <see 
+		/// cref="Gl.CURRENT_TEXTURE_COORDS"/>,based on the texture matrix and the texture generation functions (see Gl.TexGen). 
+		/// Finally,the distance from the origin of the eye coordinate system to the vertex as transformed by only the modelview 
+		/// matrixreplaces <see cref="Gl.CURRENT_RASTER_DISTANCE"/>. 
+		/// Initially, the current raster position is (0, 0, 0, 1), the current raster distance is 0, the valid bit is set, the 
+		/// associatedRGBA color is (1, 1, 1, 1), the associated color index is 1, and the associated texture coordinates are (0, 0, 
+		/// 0,1). In RGBA mode, <see cref="Gl.CURRENT_RASTER_INDEX"/> is always 1; in color index mode, the current raster RGBA 
+		/// coloralways maintains its initial value. 
+		/// <para>
+		/// The following errors can be generated:
+		/// - <see cref="Gl.INVALID_OPERATION"/> is generated if <see cref="Gl.RasterPos"/> is executed between the execution of 
+		///   Gl.Beginand the corresponding execution of Gl.End. 
+		/// </para>
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - Gl.Get with argument <see cref="Gl.CURRENT_RASTER_POSITION"/> 
+		/// - Gl.Get with argument <see cref="Gl.CURRENT_RASTER_POSITION_VALID"/> 
+		/// - Gl.Get with argument <see cref="Gl.CURRENT_RASTER_DISTANCE"/> 
+		/// - Gl.Get with argument <see cref="Gl.CURRENT_RASTER_COLOR"/> 
+		/// - Gl.Get with argument <see cref="Gl.CURRENT_RASTER_SECONDARY_COLOR"/> 
+		/// - Gl.Get with argument <see cref="Gl.CURRENT_RASTER_INDEX"/> 
+		/// - Gl.Get with argument <see cref="Gl.CURRENT_RASTER_TEXTURE_COORDS"/> 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.Bitmap"/>
+		/// <seealso cref="Gl.CopyPixels"/>
+		/// <seealso cref="Gl.DrawArrays"/>
+		/// <seealso cref="Gl.DrawElements"/>
+		/// <seealso cref="Gl.DrawRangeElements"/>
+		/// <seealso cref="Gl.DrawPixels"/>
+		/// <seealso cref="Gl.MultiTexCoord"/>
+		/// <seealso cref="Gl.TexCoord"/>
+		/// <seealso cref="Gl.TexGen"/>
+		/// <seealso cref="Gl.Vertex"/>
+		/// <seealso cref="Gl.WindowPos"/>
 		public static void RasterPos4(Int32[] v)
 		{
 			unsafe {
@@ -7697,22 +10523,76 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glRasterPos4s.
+		/// specify the raster position for pixel operations
 		/// </summary>
 		/// <param name="x">
-		/// A <see cref="T:Int16"/>.
+		/// Specify the x, y, z, and w object coordinates (if present) for the raster position. 
 		/// </param>
 		/// <param name="y">
-		/// A <see cref="T:Int16"/>.
+		/// Specify the x, y, z, and w object coordinates (if present) for the raster position. 
 		/// </param>
 		/// <param name="z">
-		/// A <see cref="T:Int16"/>.
+		/// Specify the x, y, z, and w object coordinates (if present) for the raster position. 
 		/// </param>
 		/// <param name="w">
-		/// A <see cref="T:Int16"/>.
+		/// Specify the x, y, z, and w object coordinates (if present) for the raster position. 
 		/// </param>
 		/// <remarks>
+		/// The GL maintains a 3D position in window coordinates. This position, called the raster position, is used to position 
+		/// pixeland bitmap write operations. It is maintained with subpixel accuracy. See Gl.Bitmap, Gl.DrawPixels, and 
+		/// Gl.CopyPixels.
+		/// The current raster position consists of three window coordinates (x, y, z), a clip coordinate value (w), an eye 
+		/// coordinatedistance, a valid bit, and associated color data and texture coordinates. The w coordinate is a clip 
+		/// coordinate,because w is not projected to window coordinates. <see cref="Gl.RasterPos4"/> specifies object coordinates x, 
+		/// y,z, and w explicitly. <see cref="Gl.RasterPos3"/> specifies object coordinate x, y, and z explicitly, while w is 
+		/// implicitlyset to 1. <see cref="Gl.RasterPos2"/> uses the argument values for x and y while implicitly setting z and w to 
+		/// 0and 1. 
+		/// The object coordinates presented by <see cref="Gl.RasterPos"/> are treated just like those of a Gl.Vertex command: They 
+		/// aretransformed by the current modelview and projection matrices and passed to the clipping stage. If the vertex is not 
+		/// culled,then it is projected and scaled to window coordinates, which become the new current raster position, and the <see 
+		/// cref="Gl.CURRENT_RASTER_POSITION_VALID"/>flag is set. If the vertex is culled, then the valid bit is cleared and the 
+		/// currentraster position and associated color and texture coordinates are undefined. 
+		/// The current raster position also includes some associated color data and texture coordinates. If lighting is enabled, 
+		/// then<see cref="Gl.CURRENT_RASTER_COLOR"/> (in RGBA mode) or <see cref="Gl.CURRENT_RASTER_INDEX"/> (in color index mode) 
+		/// isset to the color produced by the lighting calculation (see Gl.Light, Gl.LightModel, and Gl.ShadeModel). If lighting is 
+		/// disabled,current color (in RGBA mode, state variable <see cref="Gl.CURRENT_COLOR"/>) or color index (in color index 
+		/// mode,state variable <see cref="Gl.CURRENT_INDEX"/>) is used to update the current raster color. <see 
+		/// cref="Gl.CURRENT_RASTER_SECONDARY_COLOR"/>(in RGBA mode) is likewise updated. 
+		/// Likewise, <see cref="Gl.CURRENT_RASTER_TEXTURE_COORDS"/> is updated as a function of <see 
+		/// cref="Gl.CURRENT_TEXTURE_COORDS"/>,based on the texture matrix and the texture generation functions (see Gl.TexGen). 
+		/// Finally,the distance from the origin of the eye coordinate system to the vertex as transformed by only the modelview 
+		/// matrixreplaces <see cref="Gl.CURRENT_RASTER_DISTANCE"/>. 
+		/// Initially, the current raster position is (0, 0, 0, 1), the current raster distance is 0, the valid bit is set, the 
+		/// associatedRGBA color is (1, 1, 1, 1), the associated color index is 1, and the associated texture coordinates are (0, 0, 
+		/// 0,1). In RGBA mode, <see cref="Gl.CURRENT_RASTER_INDEX"/> is always 1; in color index mode, the current raster RGBA 
+		/// coloralways maintains its initial value. 
+		/// <para>
+		/// The following errors can be generated:
+		/// - <see cref="Gl.INVALID_OPERATION"/> is generated if <see cref="Gl.RasterPos"/> is executed between the execution of 
+		///   Gl.Beginand the corresponding execution of Gl.End. 
+		/// </para>
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - Gl.Get with argument <see cref="Gl.CURRENT_RASTER_POSITION"/> 
+		/// - Gl.Get with argument <see cref="Gl.CURRENT_RASTER_POSITION_VALID"/> 
+		/// - Gl.Get with argument <see cref="Gl.CURRENT_RASTER_DISTANCE"/> 
+		/// - Gl.Get with argument <see cref="Gl.CURRENT_RASTER_COLOR"/> 
+		/// - Gl.Get with argument <see cref="Gl.CURRENT_RASTER_SECONDARY_COLOR"/> 
+		/// - Gl.Get with argument <see cref="Gl.CURRENT_RASTER_INDEX"/> 
+		/// - Gl.Get with argument <see cref="Gl.CURRENT_RASTER_TEXTURE_COORDS"/> 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.Bitmap"/>
+		/// <seealso cref="Gl.CopyPixels"/>
+		/// <seealso cref="Gl.DrawArrays"/>
+		/// <seealso cref="Gl.DrawElements"/>
+		/// <seealso cref="Gl.DrawRangeElements"/>
+		/// <seealso cref="Gl.DrawPixels"/>
+		/// <seealso cref="Gl.MultiTexCoord"/>
+		/// <seealso cref="Gl.TexCoord"/>
+		/// <seealso cref="Gl.TexGen"/>
+		/// <seealso cref="Gl.Vertex"/>
+		/// <seealso cref="Gl.WindowPos"/>
 		public static void RasterPos4(Int16 x, Int16 y, Int16 z, Int16 w)
 		{
 			Debug.Assert(Delegates.pglRasterPos4s != null, "pglRasterPos4s not implemented");
@@ -7722,13 +10602,67 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glRasterPos4sv.
+		/// specify the raster position for pixel operations
 		/// </summary>
 		/// <param name="v">
 		/// A <see cref="T:Int16[]"/>.
 		/// </param>
 		/// <remarks>
+		/// The GL maintains a 3D position in window coordinates. This position, called the raster position, is used to position 
+		/// pixeland bitmap write operations. It is maintained with subpixel accuracy. See Gl.Bitmap, Gl.DrawPixels, and 
+		/// Gl.CopyPixels.
+		/// The current raster position consists of three window coordinates (x, y, z), a clip coordinate value (w), an eye 
+		/// coordinatedistance, a valid bit, and associated color data and texture coordinates. The w coordinate is a clip 
+		/// coordinate,because w is not projected to window coordinates. <see cref="Gl.RasterPos4"/> specifies object coordinates x, 
+		/// y,z, and w explicitly. <see cref="Gl.RasterPos3"/> specifies object coordinate x, y, and z explicitly, while w is 
+		/// implicitlyset to 1. <see cref="Gl.RasterPos2"/> uses the argument values for x and y while implicitly setting z and w to 
+		/// 0and 1. 
+		/// The object coordinates presented by <see cref="Gl.RasterPos"/> are treated just like those of a Gl.Vertex command: They 
+		/// aretransformed by the current modelview and projection matrices and passed to the clipping stage. If the vertex is not 
+		/// culled,then it is projected and scaled to window coordinates, which become the new current raster position, and the <see 
+		/// cref="Gl.CURRENT_RASTER_POSITION_VALID"/>flag is set. If the vertex is culled, then the valid bit is cleared and the 
+		/// currentraster position and associated color and texture coordinates are undefined. 
+		/// The current raster position also includes some associated color data and texture coordinates. If lighting is enabled, 
+		/// then<see cref="Gl.CURRENT_RASTER_COLOR"/> (in RGBA mode) or <see cref="Gl.CURRENT_RASTER_INDEX"/> (in color index mode) 
+		/// isset to the color produced by the lighting calculation (see Gl.Light, Gl.LightModel, and Gl.ShadeModel). If lighting is 
+		/// disabled,current color (in RGBA mode, state variable <see cref="Gl.CURRENT_COLOR"/>) or color index (in color index 
+		/// mode,state variable <see cref="Gl.CURRENT_INDEX"/>) is used to update the current raster color. <see 
+		/// cref="Gl.CURRENT_RASTER_SECONDARY_COLOR"/>(in RGBA mode) is likewise updated. 
+		/// Likewise, <see cref="Gl.CURRENT_RASTER_TEXTURE_COORDS"/> is updated as a function of <see 
+		/// cref="Gl.CURRENT_TEXTURE_COORDS"/>,based on the texture matrix and the texture generation functions (see Gl.TexGen). 
+		/// Finally,the distance from the origin of the eye coordinate system to the vertex as transformed by only the modelview 
+		/// matrixreplaces <see cref="Gl.CURRENT_RASTER_DISTANCE"/>. 
+		/// Initially, the current raster position is (0, 0, 0, 1), the current raster distance is 0, the valid bit is set, the 
+		/// associatedRGBA color is (1, 1, 1, 1), the associated color index is 1, and the associated texture coordinates are (0, 0, 
+		/// 0,1). In RGBA mode, <see cref="Gl.CURRENT_RASTER_INDEX"/> is always 1; in color index mode, the current raster RGBA 
+		/// coloralways maintains its initial value. 
+		/// <para>
+		/// The following errors can be generated:
+		/// - <see cref="Gl.INVALID_OPERATION"/> is generated if <see cref="Gl.RasterPos"/> is executed between the execution of 
+		///   Gl.Beginand the corresponding execution of Gl.End. 
+		/// </para>
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - Gl.Get with argument <see cref="Gl.CURRENT_RASTER_POSITION"/> 
+		/// - Gl.Get with argument <see cref="Gl.CURRENT_RASTER_POSITION_VALID"/> 
+		/// - Gl.Get with argument <see cref="Gl.CURRENT_RASTER_DISTANCE"/> 
+		/// - Gl.Get with argument <see cref="Gl.CURRENT_RASTER_COLOR"/> 
+		/// - Gl.Get with argument <see cref="Gl.CURRENT_RASTER_SECONDARY_COLOR"/> 
+		/// - Gl.Get with argument <see cref="Gl.CURRENT_RASTER_INDEX"/> 
+		/// - Gl.Get with argument <see cref="Gl.CURRENT_RASTER_TEXTURE_COORDS"/> 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.Bitmap"/>
+		/// <seealso cref="Gl.CopyPixels"/>
+		/// <seealso cref="Gl.DrawArrays"/>
+		/// <seealso cref="Gl.DrawElements"/>
+		/// <seealso cref="Gl.DrawRangeElements"/>
+		/// <seealso cref="Gl.DrawPixels"/>
+		/// <seealso cref="Gl.MultiTexCoord"/>
+		/// <seealso cref="Gl.TexCoord"/>
+		/// <seealso cref="Gl.TexGen"/>
+		/// <seealso cref="Gl.Vertex"/>
+		/// <seealso cref="Gl.WindowPos"/>
 		public static void RasterPos4(Int16[] v)
 		{
 			unsafe {
@@ -7743,22 +10677,39 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glRectd.
+		/// draw a rectangle
 		/// </summary>
 		/// <param name="x1">
-		/// A <see cref="T:double"/>.
+		/// Specify one vertex of a rectangle. 
 		/// </param>
 		/// <param name="y1">
-		/// A <see cref="T:double"/>.
+		/// Specify one vertex of a rectangle. 
 		/// </param>
 		/// <param name="x2">
-		/// A <see cref="T:double"/>.
+		/// Specify the opposite vertex of the rectangle. 
 		/// </param>
 		/// <param name="y2">
-		/// A <see cref="T:double"/>.
+		/// Specify the opposite vertex of the rectangle. 
 		/// </param>
 		/// <remarks>
+		/// <see cref="Gl.Rect"/> supports efficient specification of rectangles as two corner points. Each rectangle command takes 
+		/// fourarguments, organized either as two consecutive pairs of xy coordinates or as two pointers to arrays, each containing 
+		/// anxy pair. The resulting rectangle is defined in the z=0 plane. 
+		/// <see cref="Gl.Rect"/>(<paramref name="x1"/>, <paramref name="y1"/>, <paramref name="x2"/>, <paramref name="y2"/>) is 
+		/// exactlyequivalent to the following sequence: @code glBegin( @endcode <see cref="Gl.POLYGON"/> @code );glVertex2( 
+		/// @endcode<paramref name="x1"/> @code , @endcode <paramref name="y1"/> @code );glVertex2( @endcode <paramref name="x2"/> 
+		/// @code, @endcode <paramref name="y1"/> @code );glVertex2( @endcode <paramref name="x2"/> @code , @endcode <paramref 
+		/// name="y2"/>@code );glVertex2( @endcode <paramref name="x1"/> @code , @endcode <paramref name="y2"/> @code );glEnd(); 
+		/// @endcodeNote that if the second vertex is above and to the right of the first vertex, the rectangle is constructed with 
+		/// acounterclockwise winding. 
+		/// <para>
+		/// The following errors can be generated:
+		/// - <see cref="Gl.INVALID_OPERATION"/> is generated if <see cref="Gl.Rect"/> is executed between the execution of Gl.Begin 
+		///   andthe corresponding execution of Gl.End. 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.Begin"/>
+		/// <seealso cref="Gl.Vertex"/>
 		public static void Rect(double x1, double y1, double x2, double y2)
 		{
 			Debug.Assert(Delegates.pglRectd != null, "pglRectd not implemented");
@@ -7768,7 +10719,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glRectdv.
+		/// draw a rectangle
 		/// </summary>
 		/// <param name="v1">
 		/// A <see cref="T:double[]"/>.
@@ -7777,7 +10728,24 @@ namespace OpenGL
 		/// A <see cref="T:double[]"/>.
 		/// </param>
 		/// <remarks>
+		/// <see cref="Gl.Rect"/> supports efficient specification of rectangles as two corner points. Each rectangle command takes 
+		/// fourarguments, organized either as two consecutive pairs of xy coordinates or as two pointers to arrays, each containing 
+		/// anxy pair. The resulting rectangle is defined in the z=0 plane. 
+		/// <see cref="Gl.Rect"/>(<paramref name="x1"/>, <paramref name="y1"/>, <paramref name="x2"/>, <paramref name="y2"/>) is 
+		/// exactlyequivalent to the following sequence: @code glBegin( @endcode <see cref="Gl.POLYGON"/> @code );glVertex2( 
+		/// @endcode<paramref name="x1"/> @code , @endcode <paramref name="y1"/> @code );glVertex2( @endcode <paramref name="x2"/> 
+		/// @code, @endcode <paramref name="y1"/> @code );glVertex2( @endcode <paramref name="x2"/> @code , @endcode <paramref 
+		/// name="y2"/>@code );glVertex2( @endcode <paramref name="x1"/> @code , @endcode <paramref name="y2"/> @code );glEnd(); 
+		/// @endcodeNote that if the second vertex is above and to the right of the first vertex, the rectangle is constructed with 
+		/// acounterclockwise winding. 
+		/// <para>
+		/// The following errors can be generated:
+		/// - <see cref="Gl.INVALID_OPERATION"/> is generated if <see cref="Gl.Rect"/> is executed between the execution of Gl.Begin 
+		///   andthe corresponding execution of Gl.End. 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.Begin"/>
+		/// <seealso cref="Gl.Vertex"/>
 		public static void Rect(double[] v1, double[] v2)
 		{
 			unsafe {
@@ -7793,22 +10761,39 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glRectf.
+		/// draw a rectangle
 		/// </summary>
 		/// <param name="x1">
-		/// A <see cref="T:float"/>.
+		/// Specify one vertex of a rectangle. 
 		/// </param>
 		/// <param name="y1">
-		/// A <see cref="T:float"/>.
+		/// Specify one vertex of a rectangle. 
 		/// </param>
 		/// <param name="x2">
-		/// A <see cref="T:float"/>.
+		/// Specify the opposite vertex of the rectangle. 
 		/// </param>
 		/// <param name="y2">
-		/// A <see cref="T:float"/>.
+		/// Specify the opposite vertex of the rectangle. 
 		/// </param>
 		/// <remarks>
+		/// <see cref="Gl.Rect"/> supports efficient specification of rectangles as two corner points. Each rectangle command takes 
+		/// fourarguments, organized either as two consecutive pairs of xy coordinates or as two pointers to arrays, each containing 
+		/// anxy pair. The resulting rectangle is defined in the z=0 plane. 
+		/// <see cref="Gl.Rect"/>(<paramref name="x1"/>, <paramref name="y1"/>, <paramref name="x2"/>, <paramref name="y2"/>) is 
+		/// exactlyequivalent to the following sequence: @code glBegin( @endcode <see cref="Gl.POLYGON"/> @code );glVertex2( 
+		/// @endcode<paramref name="x1"/> @code , @endcode <paramref name="y1"/> @code );glVertex2( @endcode <paramref name="x2"/> 
+		/// @code, @endcode <paramref name="y1"/> @code );glVertex2( @endcode <paramref name="x2"/> @code , @endcode <paramref 
+		/// name="y2"/>@code );glVertex2( @endcode <paramref name="x1"/> @code , @endcode <paramref name="y2"/> @code );glEnd(); 
+		/// @endcodeNote that if the second vertex is above and to the right of the first vertex, the rectangle is constructed with 
+		/// acounterclockwise winding. 
+		/// <para>
+		/// The following errors can be generated:
+		/// - <see cref="Gl.INVALID_OPERATION"/> is generated if <see cref="Gl.Rect"/> is executed between the execution of Gl.Begin 
+		///   andthe corresponding execution of Gl.End. 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.Begin"/>
+		/// <seealso cref="Gl.Vertex"/>
 		public static void Rect(float x1, float y1, float x2, float y2)
 		{
 			Debug.Assert(Delegates.pglRectf != null, "pglRectf not implemented");
@@ -7818,7 +10803,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glRectfv.
+		/// draw a rectangle
 		/// </summary>
 		/// <param name="v1">
 		/// A <see cref="T:float[]"/>.
@@ -7827,7 +10812,24 @@ namespace OpenGL
 		/// A <see cref="T:float[]"/>.
 		/// </param>
 		/// <remarks>
+		/// <see cref="Gl.Rect"/> supports efficient specification of rectangles as two corner points. Each rectangle command takes 
+		/// fourarguments, organized either as two consecutive pairs of xy coordinates or as two pointers to arrays, each containing 
+		/// anxy pair. The resulting rectangle is defined in the z=0 plane. 
+		/// <see cref="Gl.Rect"/>(<paramref name="x1"/>, <paramref name="y1"/>, <paramref name="x2"/>, <paramref name="y2"/>) is 
+		/// exactlyequivalent to the following sequence: @code glBegin( @endcode <see cref="Gl.POLYGON"/> @code );glVertex2( 
+		/// @endcode<paramref name="x1"/> @code , @endcode <paramref name="y1"/> @code );glVertex2( @endcode <paramref name="x2"/> 
+		/// @code, @endcode <paramref name="y1"/> @code );glVertex2( @endcode <paramref name="x2"/> @code , @endcode <paramref 
+		/// name="y2"/>@code );glVertex2( @endcode <paramref name="x1"/> @code , @endcode <paramref name="y2"/> @code );glEnd(); 
+		/// @endcodeNote that if the second vertex is above and to the right of the first vertex, the rectangle is constructed with 
+		/// acounterclockwise winding. 
+		/// <para>
+		/// The following errors can be generated:
+		/// - <see cref="Gl.INVALID_OPERATION"/> is generated if <see cref="Gl.Rect"/> is executed between the execution of Gl.Begin 
+		///   andthe corresponding execution of Gl.End. 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.Begin"/>
+		/// <seealso cref="Gl.Vertex"/>
 		public static void Rect(float[] v1, float[] v2)
 		{
 			unsafe {
@@ -7843,22 +10845,39 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glRecti.
+		/// draw a rectangle
 		/// </summary>
 		/// <param name="x1">
-		/// A <see cref="T:Int32"/>.
+		/// Specify one vertex of a rectangle. 
 		/// </param>
 		/// <param name="y1">
-		/// A <see cref="T:Int32"/>.
+		/// Specify one vertex of a rectangle. 
 		/// </param>
 		/// <param name="x2">
-		/// A <see cref="T:Int32"/>.
+		/// Specify the opposite vertex of the rectangle. 
 		/// </param>
 		/// <param name="y2">
-		/// A <see cref="T:Int32"/>.
+		/// Specify the opposite vertex of the rectangle. 
 		/// </param>
 		/// <remarks>
+		/// <see cref="Gl.Rect"/> supports efficient specification of rectangles as two corner points. Each rectangle command takes 
+		/// fourarguments, organized either as two consecutive pairs of xy coordinates or as two pointers to arrays, each containing 
+		/// anxy pair. The resulting rectangle is defined in the z=0 plane. 
+		/// <see cref="Gl.Rect"/>(<paramref name="x1"/>, <paramref name="y1"/>, <paramref name="x2"/>, <paramref name="y2"/>) is 
+		/// exactlyequivalent to the following sequence: @code glBegin( @endcode <see cref="Gl.POLYGON"/> @code );glVertex2( 
+		/// @endcode<paramref name="x1"/> @code , @endcode <paramref name="y1"/> @code );glVertex2( @endcode <paramref name="x2"/> 
+		/// @code, @endcode <paramref name="y1"/> @code );glVertex2( @endcode <paramref name="x2"/> @code , @endcode <paramref 
+		/// name="y2"/>@code );glVertex2( @endcode <paramref name="x1"/> @code , @endcode <paramref name="y2"/> @code );glEnd(); 
+		/// @endcodeNote that if the second vertex is above and to the right of the first vertex, the rectangle is constructed with 
+		/// acounterclockwise winding. 
+		/// <para>
+		/// The following errors can be generated:
+		/// - <see cref="Gl.INVALID_OPERATION"/> is generated if <see cref="Gl.Rect"/> is executed between the execution of Gl.Begin 
+		///   andthe corresponding execution of Gl.End. 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.Begin"/>
+		/// <seealso cref="Gl.Vertex"/>
 		public static void Rect(Int32 x1, Int32 y1, Int32 x2, Int32 y2)
 		{
 			Debug.Assert(Delegates.pglRecti != null, "pglRecti not implemented");
@@ -7868,7 +10887,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glRectiv.
+		/// draw a rectangle
 		/// </summary>
 		/// <param name="v1">
 		/// A <see cref="T:Int32[]"/>.
@@ -7877,7 +10896,24 @@ namespace OpenGL
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
 		/// <remarks>
+		/// <see cref="Gl.Rect"/> supports efficient specification of rectangles as two corner points. Each rectangle command takes 
+		/// fourarguments, organized either as two consecutive pairs of xy coordinates or as two pointers to arrays, each containing 
+		/// anxy pair. The resulting rectangle is defined in the z=0 plane. 
+		/// <see cref="Gl.Rect"/>(<paramref name="x1"/>, <paramref name="y1"/>, <paramref name="x2"/>, <paramref name="y2"/>) is 
+		/// exactlyequivalent to the following sequence: @code glBegin( @endcode <see cref="Gl.POLYGON"/> @code );glVertex2( 
+		/// @endcode<paramref name="x1"/> @code , @endcode <paramref name="y1"/> @code );glVertex2( @endcode <paramref name="x2"/> 
+		/// @code, @endcode <paramref name="y1"/> @code );glVertex2( @endcode <paramref name="x2"/> @code , @endcode <paramref 
+		/// name="y2"/>@code );glVertex2( @endcode <paramref name="x1"/> @code , @endcode <paramref name="y2"/> @code );glEnd(); 
+		/// @endcodeNote that if the second vertex is above and to the right of the first vertex, the rectangle is constructed with 
+		/// acounterclockwise winding. 
+		/// <para>
+		/// The following errors can be generated:
+		/// - <see cref="Gl.INVALID_OPERATION"/> is generated if <see cref="Gl.Rect"/> is executed between the execution of Gl.Begin 
+		///   andthe corresponding execution of Gl.End. 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.Begin"/>
+		/// <seealso cref="Gl.Vertex"/>
 		public static void Rect(Int32[] v1, Int32[] v2)
 		{
 			unsafe {
@@ -7893,22 +10929,39 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glRects.
+		/// draw a rectangle
 		/// </summary>
 		/// <param name="x1">
-		/// A <see cref="T:Int16"/>.
+		/// Specify one vertex of a rectangle. 
 		/// </param>
 		/// <param name="y1">
-		/// A <see cref="T:Int16"/>.
+		/// Specify one vertex of a rectangle. 
 		/// </param>
 		/// <param name="x2">
-		/// A <see cref="T:Int16"/>.
+		/// Specify the opposite vertex of the rectangle. 
 		/// </param>
 		/// <param name="y2">
-		/// A <see cref="T:Int16"/>.
+		/// Specify the opposite vertex of the rectangle. 
 		/// </param>
 		/// <remarks>
+		/// <see cref="Gl.Rect"/> supports efficient specification of rectangles as two corner points. Each rectangle command takes 
+		/// fourarguments, organized either as two consecutive pairs of xy coordinates or as two pointers to arrays, each containing 
+		/// anxy pair. The resulting rectangle is defined in the z=0 plane. 
+		/// <see cref="Gl.Rect"/>(<paramref name="x1"/>, <paramref name="y1"/>, <paramref name="x2"/>, <paramref name="y2"/>) is 
+		/// exactlyequivalent to the following sequence: @code glBegin( @endcode <see cref="Gl.POLYGON"/> @code );glVertex2( 
+		/// @endcode<paramref name="x1"/> @code , @endcode <paramref name="y1"/> @code );glVertex2( @endcode <paramref name="x2"/> 
+		/// @code, @endcode <paramref name="y1"/> @code );glVertex2( @endcode <paramref name="x2"/> @code , @endcode <paramref 
+		/// name="y2"/>@code );glVertex2( @endcode <paramref name="x1"/> @code , @endcode <paramref name="y2"/> @code );glEnd(); 
+		/// @endcodeNote that if the second vertex is above and to the right of the first vertex, the rectangle is constructed with 
+		/// acounterclockwise winding. 
+		/// <para>
+		/// The following errors can be generated:
+		/// - <see cref="Gl.INVALID_OPERATION"/> is generated if <see cref="Gl.Rect"/> is executed between the execution of Gl.Begin 
+		///   andthe corresponding execution of Gl.End. 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.Begin"/>
+		/// <seealso cref="Gl.Vertex"/>
 		public static void Rect(Int16 x1, Int16 y1, Int16 x2, Int16 y2)
 		{
 			Debug.Assert(Delegates.pglRects != null, "pglRects not implemented");
@@ -7918,7 +10971,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glRectsv.
+		/// draw a rectangle
 		/// </summary>
 		/// <param name="v1">
 		/// A <see cref="T:Int16[]"/>.
@@ -7927,7 +10980,24 @@ namespace OpenGL
 		/// A <see cref="T:Int16[]"/>.
 		/// </param>
 		/// <remarks>
+		/// <see cref="Gl.Rect"/> supports efficient specification of rectangles as two corner points. Each rectangle command takes 
+		/// fourarguments, organized either as two consecutive pairs of xy coordinates or as two pointers to arrays, each containing 
+		/// anxy pair. The resulting rectangle is defined in the z=0 plane. 
+		/// <see cref="Gl.Rect"/>(<paramref name="x1"/>, <paramref name="y1"/>, <paramref name="x2"/>, <paramref name="y2"/>) is 
+		/// exactlyequivalent to the following sequence: @code glBegin( @endcode <see cref="Gl.POLYGON"/> @code );glVertex2( 
+		/// @endcode<paramref name="x1"/> @code , @endcode <paramref name="y1"/> @code );glVertex2( @endcode <paramref name="x2"/> 
+		/// @code, @endcode <paramref name="y1"/> @code );glVertex2( @endcode <paramref name="x2"/> @code , @endcode <paramref 
+		/// name="y2"/>@code );glVertex2( @endcode <paramref name="x1"/> @code , @endcode <paramref name="y2"/> @code );glEnd(); 
+		/// @endcodeNote that if the second vertex is above and to the right of the first vertex, the rectangle is constructed with 
+		/// acounterclockwise winding. 
+		/// <para>
+		/// The following errors can be generated:
+		/// - <see cref="Gl.INVALID_OPERATION"/> is generated if <see cref="Gl.Rect"/> is executed between the execution of Gl.Begin 
+		///   andthe corresponding execution of Gl.End. 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.Begin"/>
+		/// <seealso cref="Gl.Vertex"/>
 		public static void Rect(Int16[] v1, Int16[] v2)
 		{
 			unsafe {
@@ -7943,13 +11013,26 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glTexCoord1d.
+		/// set the current texture coordinates
 		/// </summary>
 		/// <param name="s">
-		/// A <see cref="T:double"/>.
+		/// Specify s, t, r, and q texture coordinates. Not all parameters are present in all forms of the command. 
 		/// </param>
 		/// <remarks>
+		/// <see cref="Gl.TexCoord"/> specifies texture coordinates in one, two, three, or four dimensions. <see 
+		/// cref="Gl.TexCoord1"/>sets the current texture coordinates to s001; a call to <see cref="Gl.TexCoord2"/> sets them to 
+		/// st01.Similarly, <see cref="Gl.TexCoord3"/> specifies the texture coordinates as str1, and <see cref="Gl.TexCoord4"/> 
+		/// definesall four components explicitly as strq. 
+		/// The current texture coordinates are part of the data that is associated with each vertex and with the current raster 
+		/// position.Initially, the values for s, t, r, and q are (0, 0, 0, 1). 
+		///  
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - Gl.Get with argument <see cref="Gl.CURRENT_TEXTURE_COORDS"/> 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.MultiTexCoord"/>
+		/// <seealso cref="Gl.Vertex"/>
 		public static void TexCoord1(double s)
 		{
 			Debug.Assert(Delegates.pglTexCoord1d != null, "pglTexCoord1d not implemented");
@@ -7959,13 +11042,26 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glTexCoord1dv.
+		/// set the current texture coordinates
 		/// </summary>
 		/// <param name="v">
 		/// A <see cref="T:double[]"/>.
 		/// </param>
 		/// <remarks>
+		/// <see cref="Gl.TexCoord"/> specifies texture coordinates in one, two, three, or four dimensions. <see 
+		/// cref="Gl.TexCoord1"/>sets the current texture coordinates to s001; a call to <see cref="Gl.TexCoord2"/> sets them to 
+		/// st01.Similarly, <see cref="Gl.TexCoord3"/> specifies the texture coordinates as str1, and <see cref="Gl.TexCoord4"/> 
+		/// definesall four components explicitly as strq. 
+		/// The current texture coordinates are part of the data that is associated with each vertex and with the current raster 
+		/// position.Initially, the values for s, t, r, and q are (0, 0, 0, 1). 
+		///  
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - Gl.Get with argument <see cref="Gl.CURRENT_TEXTURE_COORDS"/> 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.MultiTexCoord"/>
+		/// <seealso cref="Gl.Vertex"/>
 		public static void TexCoord1(double[] v)
 		{
 			unsafe {
@@ -7980,13 +11076,26 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glTexCoord1f.
+		/// set the current texture coordinates
 		/// </summary>
 		/// <param name="s">
-		/// A <see cref="T:float"/>.
+		/// Specify s, t, r, and q texture coordinates. Not all parameters are present in all forms of the command. 
 		/// </param>
 		/// <remarks>
+		/// <see cref="Gl.TexCoord"/> specifies texture coordinates in one, two, three, or four dimensions. <see 
+		/// cref="Gl.TexCoord1"/>sets the current texture coordinates to s001; a call to <see cref="Gl.TexCoord2"/> sets them to 
+		/// st01.Similarly, <see cref="Gl.TexCoord3"/> specifies the texture coordinates as str1, and <see cref="Gl.TexCoord4"/> 
+		/// definesall four components explicitly as strq. 
+		/// The current texture coordinates are part of the data that is associated with each vertex and with the current raster 
+		/// position.Initially, the values for s, t, r, and q are (0, 0, 0, 1). 
+		///  
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - Gl.Get with argument <see cref="Gl.CURRENT_TEXTURE_COORDS"/> 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.MultiTexCoord"/>
+		/// <seealso cref="Gl.Vertex"/>
 		public static void TexCoord1(float s)
 		{
 			Debug.Assert(Delegates.pglTexCoord1f != null, "pglTexCoord1f not implemented");
@@ -7996,13 +11105,26 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glTexCoord1fv.
+		/// set the current texture coordinates
 		/// </summary>
 		/// <param name="v">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
 		/// <remarks>
+		/// <see cref="Gl.TexCoord"/> specifies texture coordinates in one, two, three, or four dimensions. <see 
+		/// cref="Gl.TexCoord1"/>sets the current texture coordinates to s001; a call to <see cref="Gl.TexCoord2"/> sets them to 
+		/// st01.Similarly, <see cref="Gl.TexCoord3"/> specifies the texture coordinates as str1, and <see cref="Gl.TexCoord4"/> 
+		/// definesall four components explicitly as strq. 
+		/// The current texture coordinates are part of the data that is associated with each vertex and with the current raster 
+		/// position.Initially, the values for s, t, r, and q are (0, 0, 0, 1). 
+		///  
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - Gl.Get with argument <see cref="Gl.CURRENT_TEXTURE_COORDS"/> 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.MultiTexCoord"/>
+		/// <seealso cref="Gl.Vertex"/>
 		public static void TexCoord1(float[] v)
 		{
 			unsafe {
@@ -8017,13 +11139,26 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glTexCoord1i.
+		/// set the current texture coordinates
 		/// </summary>
 		/// <param name="s">
-		/// A <see cref="T:Int32"/>.
+		/// Specify s, t, r, and q texture coordinates. Not all parameters are present in all forms of the command. 
 		/// </param>
 		/// <remarks>
+		/// <see cref="Gl.TexCoord"/> specifies texture coordinates in one, two, three, or four dimensions. <see 
+		/// cref="Gl.TexCoord1"/>sets the current texture coordinates to s001; a call to <see cref="Gl.TexCoord2"/> sets them to 
+		/// st01.Similarly, <see cref="Gl.TexCoord3"/> specifies the texture coordinates as str1, and <see cref="Gl.TexCoord4"/> 
+		/// definesall four components explicitly as strq. 
+		/// The current texture coordinates are part of the data that is associated with each vertex and with the current raster 
+		/// position.Initially, the values for s, t, r, and q are (0, 0, 0, 1). 
+		///  
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - Gl.Get with argument <see cref="Gl.CURRENT_TEXTURE_COORDS"/> 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.MultiTexCoord"/>
+		/// <seealso cref="Gl.Vertex"/>
 		public static void TexCoord1(Int32 s)
 		{
 			Debug.Assert(Delegates.pglTexCoord1i != null, "pglTexCoord1i not implemented");
@@ -8033,13 +11168,26 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glTexCoord1iv.
+		/// set the current texture coordinates
 		/// </summary>
 		/// <param name="v">
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
 		/// <remarks>
+		/// <see cref="Gl.TexCoord"/> specifies texture coordinates in one, two, three, or four dimensions. <see 
+		/// cref="Gl.TexCoord1"/>sets the current texture coordinates to s001; a call to <see cref="Gl.TexCoord2"/> sets them to 
+		/// st01.Similarly, <see cref="Gl.TexCoord3"/> specifies the texture coordinates as str1, and <see cref="Gl.TexCoord4"/> 
+		/// definesall four components explicitly as strq. 
+		/// The current texture coordinates are part of the data that is associated with each vertex and with the current raster 
+		/// position.Initially, the values for s, t, r, and q are (0, 0, 0, 1). 
+		///  
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - Gl.Get with argument <see cref="Gl.CURRENT_TEXTURE_COORDS"/> 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.MultiTexCoord"/>
+		/// <seealso cref="Gl.Vertex"/>
 		public static void TexCoord1(Int32[] v)
 		{
 			unsafe {
@@ -8054,13 +11202,26 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glTexCoord1s.
+		/// set the current texture coordinates
 		/// </summary>
 		/// <param name="s">
-		/// A <see cref="T:Int16"/>.
+		/// Specify s, t, r, and q texture coordinates. Not all parameters are present in all forms of the command. 
 		/// </param>
 		/// <remarks>
+		/// <see cref="Gl.TexCoord"/> specifies texture coordinates in one, two, three, or four dimensions. <see 
+		/// cref="Gl.TexCoord1"/>sets the current texture coordinates to s001; a call to <see cref="Gl.TexCoord2"/> sets them to 
+		/// st01.Similarly, <see cref="Gl.TexCoord3"/> specifies the texture coordinates as str1, and <see cref="Gl.TexCoord4"/> 
+		/// definesall four components explicitly as strq. 
+		/// The current texture coordinates are part of the data that is associated with each vertex and with the current raster 
+		/// position.Initially, the values for s, t, r, and q are (0, 0, 0, 1). 
+		///  
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - Gl.Get with argument <see cref="Gl.CURRENT_TEXTURE_COORDS"/> 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.MultiTexCoord"/>
+		/// <seealso cref="Gl.Vertex"/>
 		public static void TexCoord1(Int16 s)
 		{
 			Debug.Assert(Delegates.pglTexCoord1s != null, "pglTexCoord1s not implemented");
@@ -8070,13 +11231,26 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glTexCoord1sv.
+		/// set the current texture coordinates
 		/// </summary>
 		/// <param name="v">
 		/// A <see cref="T:Int16[]"/>.
 		/// </param>
 		/// <remarks>
+		/// <see cref="Gl.TexCoord"/> specifies texture coordinates in one, two, three, or four dimensions. <see 
+		/// cref="Gl.TexCoord1"/>sets the current texture coordinates to s001; a call to <see cref="Gl.TexCoord2"/> sets them to 
+		/// st01.Similarly, <see cref="Gl.TexCoord3"/> specifies the texture coordinates as str1, and <see cref="Gl.TexCoord4"/> 
+		/// definesall four components explicitly as strq. 
+		/// The current texture coordinates are part of the data that is associated with each vertex and with the current raster 
+		/// position.Initially, the values for s, t, r, and q are (0, 0, 0, 1). 
+		///  
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - Gl.Get with argument <see cref="Gl.CURRENT_TEXTURE_COORDS"/> 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.MultiTexCoord"/>
+		/// <seealso cref="Gl.Vertex"/>
 		public static void TexCoord1(Int16[] v)
 		{
 			unsafe {
@@ -8091,16 +11265,29 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glTexCoord2d.
+		/// set the current texture coordinates
 		/// </summary>
 		/// <param name="s">
-		/// A <see cref="T:double"/>.
+		/// Specify s, t, r, and q texture coordinates. Not all parameters are present in all forms of the command. 
 		/// </param>
 		/// <param name="t">
-		/// A <see cref="T:double"/>.
+		/// Specify s, t, r, and q texture coordinates. Not all parameters are present in all forms of the command. 
 		/// </param>
 		/// <remarks>
+		/// <see cref="Gl.TexCoord"/> specifies texture coordinates in one, two, three, or four dimensions. <see 
+		/// cref="Gl.TexCoord1"/>sets the current texture coordinates to s001; a call to <see cref="Gl.TexCoord2"/> sets them to 
+		/// st01.Similarly, <see cref="Gl.TexCoord3"/> specifies the texture coordinates as str1, and <see cref="Gl.TexCoord4"/> 
+		/// definesall four components explicitly as strq. 
+		/// The current texture coordinates are part of the data that is associated with each vertex and with the current raster 
+		/// position.Initially, the values for s, t, r, and q are (0, 0, 0, 1). 
+		///  
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - Gl.Get with argument <see cref="Gl.CURRENT_TEXTURE_COORDS"/> 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.MultiTexCoord"/>
+		/// <seealso cref="Gl.Vertex"/>
 		public static void TexCoord2(double s, double t)
 		{
 			Debug.Assert(Delegates.pglTexCoord2d != null, "pglTexCoord2d not implemented");
@@ -8110,13 +11297,26 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glTexCoord2dv.
+		/// set the current texture coordinates
 		/// </summary>
 		/// <param name="v">
 		/// A <see cref="T:double[]"/>.
 		/// </param>
 		/// <remarks>
+		/// <see cref="Gl.TexCoord"/> specifies texture coordinates in one, two, three, or four dimensions. <see 
+		/// cref="Gl.TexCoord1"/>sets the current texture coordinates to s001; a call to <see cref="Gl.TexCoord2"/> sets them to 
+		/// st01.Similarly, <see cref="Gl.TexCoord3"/> specifies the texture coordinates as str1, and <see cref="Gl.TexCoord4"/> 
+		/// definesall four components explicitly as strq. 
+		/// The current texture coordinates are part of the data that is associated with each vertex and with the current raster 
+		/// position.Initially, the values for s, t, r, and q are (0, 0, 0, 1). 
+		///  
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - Gl.Get with argument <see cref="Gl.CURRENT_TEXTURE_COORDS"/> 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.MultiTexCoord"/>
+		/// <seealso cref="Gl.Vertex"/>
 		public static void TexCoord2(double[] v)
 		{
 			unsafe {
@@ -8131,16 +11331,29 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glTexCoord2f.
+		/// set the current texture coordinates
 		/// </summary>
 		/// <param name="s">
-		/// A <see cref="T:float"/>.
+		/// Specify s, t, r, and q texture coordinates. Not all parameters are present in all forms of the command. 
 		/// </param>
 		/// <param name="t">
-		/// A <see cref="T:float"/>.
+		/// Specify s, t, r, and q texture coordinates. Not all parameters are present in all forms of the command. 
 		/// </param>
 		/// <remarks>
+		/// <see cref="Gl.TexCoord"/> specifies texture coordinates in one, two, three, or four dimensions. <see 
+		/// cref="Gl.TexCoord1"/>sets the current texture coordinates to s001; a call to <see cref="Gl.TexCoord2"/> sets them to 
+		/// st01.Similarly, <see cref="Gl.TexCoord3"/> specifies the texture coordinates as str1, and <see cref="Gl.TexCoord4"/> 
+		/// definesall four components explicitly as strq. 
+		/// The current texture coordinates are part of the data that is associated with each vertex and with the current raster 
+		/// position.Initially, the values for s, t, r, and q are (0, 0, 0, 1). 
+		///  
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - Gl.Get with argument <see cref="Gl.CURRENT_TEXTURE_COORDS"/> 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.MultiTexCoord"/>
+		/// <seealso cref="Gl.Vertex"/>
 		public static void TexCoord2(float s, float t)
 		{
 			Debug.Assert(Delegates.pglTexCoord2f != null, "pglTexCoord2f not implemented");
@@ -8150,13 +11363,26 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glTexCoord2fv.
+		/// set the current texture coordinates
 		/// </summary>
 		/// <param name="v">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
 		/// <remarks>
+		/// <see cref="Gl.TexCoord"/> specifies texture coordinates in one, two, three, or four dimensions. <see 
+		/// cref="Gl.TexCoord1"/>sets the current texture coordinates to s001; a call to <see cref="Gl.TexCoord2"/> sets them to 
+		/// st01.Similarly, <see cref="Gl.TexCoord3"/> specifies the texture coordinates as str1, and <see cref="Gl.TexCoord4"/> 
+		/// definesall four components explicitly as strq. 
+		/// The current texture coordinates are part of the data that is associated with each vertex and with the current raster 
+		/// position.Initially, the values for s, t, r, and q are (0, 0, 0, 1). 
+		///  
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - Gl.Get with argument <see cref="Gl.CURRENT_TEXTURE_COORDS"/> 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.MultiTexCoord"/>
+		/// <seealso cref="Gl.Vertex"/>
 		public static void TexCoord2(float[] v)
 		{
 			unsafe {
@@ -8171,16 +11397,29 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glTexCoord2i.
+		/// set the current texture coordinates
 		/// </summary>
 		/// <param name="s">
-		/// A <see cref="T:Int32"/>.
+		/// Specify s, t, r, and q texture coordinates. Not all parameters are present in all forms of the command. 
 		/// </param>
 		/// <param name="t">
-		/// A <see cref="T:Int32"/>.
+		/// Specify s, t, r, and q texture coordinates. Not all parameters are present in all forms of the command. 
 		/// </param>
 		/// <remarks>
+		/// <see cref="Gl.TexCoord"/> specifies texture coordinates in one, two, three, or four dimensions. <see 
+		/// cref="Gl.TexCoord1"/>sets the current texture coordinates to s001; a call to <see cref="Gl.TexCoord2"/> sets them to 
+		/// st01.Similarly, <see cref="Gl.TexCoord3"/> specifies the texture coordinates as str1, and <see cref="Gl.TexCoord4"/> 
+		/// definesall four components explicitly as strq. 
+		/// The current texture coordinates are part of the data that is associated with each vertex and with the current raster 
+		/// position.Initially, the values for s, t, r, and q are (0, 0, 0, 1). 
+		///  
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - Gl.Get with argument <see cref="Gl.CURRENT_TEXTURE_COORDS"/> 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.MultiTexCoord"/>
+		/// <seealso cref="Gl.Vertex"/>
 		public static void TexCoord2(Int32 s, Int32 t)
 		{
 			Debug.Assert(Delegates.pglTexCoord2i != null, "pglTexCoord2i not implemented");
@@ -8190,13 +11429,26 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glTexCoord2iv.
+		/// set the current texture coordinates
 		/// </summary>
 		/// <param name="v">
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
 		/// <remarks>
+		/// <see cref="Gl.TexCoord"/> specifies texture coordinates in one, two, three, or four dimensions. <see 
+		/// cref="Gl.TexCoord1"/>sets the current texture coordinates to s001; a call to <see cref="Gl.TexCoord2"/> sets them to 
+		/// st01.Similarly, <see cref="Gl.TexCoord3"/> specifies the texture coordinates as str1, and <see cref="Gl.TexCoord4"/> 
+		/// definesall four components explicitly as strq. 
+		/// The current texture coordinates are part of the data that is associated with each vertex and with the current raster 
+		/// position.Initially, the values for s, t, r, and q are (0, 0, 0, 1). 
+		///  
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - Gl.Get with argument <see cref="Gl.CURRENT_TEXTURE_COORDS"/> 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.MultiTexCoord"/>
+		/// <seealso cref="Gl.Vertex"/>
 		public static void TexCoord2(Int32[] v)
 		{
 			unsafe {
@@ -8211,16 +11463,29 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glTexCoord2s.
+		/// set the current texture coordinates
 		/// </summary>
 		/// <param name="s">
-		/// A <see cref="T:Int16"/>.
+		/// Specify s, t, r, and q texture coordinates. Not all parameters are present in all forms of the command. 
 		/// </param>
 		/// <param name="t">
-		/// A <see cref="T:Int16"/>.
+		/// Specify s, t, r, and q texture coordinates. Not all parameters are present in all forms of the command. 
 		/// </param>
 		/// <remarks>
+		/// <see cref="Gl.TexCoord"/> specifies texture coordinates in one, two, three, or four dimensions. <see 
+		/// cref="Gl.TexCoord1"/>sets the current texture coordinates to s001; a call to <see cref="Gl.TexCoord2"/> sets them to 
+		/// st01.Similarly, <see cref="Gl.TexCoord3"/> specifies the texture coordinates as str1, and <see cref="Gl.TexCoord4"/> 
+		/// definesall four components explicitly as strq. 
+		/// The current texture coordinates are part of the data that is associated with each vertex and with the current raster 
+		/// position.Initially, the values for s, t, r, and q are (0, 0, 0, 1). 
+		///  
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - Gl.Get with argument <see cref="Gl.CURRENT_TEXTURE_COORDS"/> 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.MultiTexCoord"/>
+		/// <seealso cref="Gl.Vertex"/>
 		public static void TexCoord2(Int16 s, Int16 t)
 		{
 			Debug.Assert(Delegates.pglTexCoord2s != null, "pglTexCoord2s not implemented");
@@ -8230,13 +11495,26 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glTexCoord2sv.
+		/// set the current texture coordinates
 		/// </summary>
 		/// <param name="v">
 		/// A <see cref="T:Int16[]"/>.
 		/// </param>
 		/// <remarks>
+		/// <see cref="Gl.TexCoord"/> specifies texture coordinates in one, two, three, or four dimensions. <see 
+		/// cref="Gl.TexCoord1"/>sets the current texture coordinates to s001; a call to <see cref="Gl.TexCoord2"/> sets them to 
+		/// st01.Similarly, <see cref="Gl.TexCoord3"/> specifies the texture coordinates as str1, and <see cref="Gl.TexCoord4"/> 
+		/// definesall four components explicitly as strq. 
+		/// The current texture coordinates are part of the data that is associated with each vertex and with the current raster 
+		/// position.Initially, the values for s, t, r, and q are (0, 0, 0, 1). 
+		///  
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - Gl.Get with argument <see cref="Gl.CURRENT_TEXTURE_COORDS"/> 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.MultiTexCoord"/>
+		/// <seealso cref="Gl.Vertex"/>
 		public static void TexCoord2(Int16[] v)
 		{
 			unsafe {
@@ -8251,19 +11529,32 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glTexCoord3d.
+		/// set the current texture coordinates
 		/// </summary>
 		/// <param name="s">
-		/// A <see cref="T:double"/>.
+		/// Specify s, t, r, and q texture coordinates. Not all parameters are present in all forms of the command. 
 		/// </param>
 		/// <param name="t">
-		/// A <see cref="T:double"/>.
+		/// Specify s, t, r, and q texture coordinates. Not all parameters are present in all forms of the command. 
 		/// </param>
 		/// <param name="r">
-		/// A <see cref="T:double"/>.
+		/// Specify s, t, r, and q texture coordinates. Not all parameters are present in all forms of the command. 
 		/// </param>
 		/// <remarks>
+		/// <see cref="Gl.TexCoord"/> specifies texture coordinates in one, two, three, or four dimensions. <see 
+		/// cref="Gl.TexCoord1"/>sets the current texture coordinates to s001; a call to <see cref="Gl.TexCoord2"/> sets them to 
+		/// st01.Similarly, <see cref="Gl.TexCoord3"/> specifies the texture coordinates as str1, and <see cref="Gl.TexCoord4"/> 
+		/// definesall four components explicitly as strq. 
+		/// The current texture coordinates are part of the data that is associated with each vertex and with the current raster 
+		/// position.Initially, the values for s, t, r, and q are (0, 0, 0, 1). 
+		///  
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - Gl.Get with argument <see cref="Gl.CURRENT_TEXTURE_COORDS"/> 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.MultiTexCoord"/>
+		/// <seealso cref="Gl.Vertex"/>
 		public static void TexCoord3(double s, double t, double r)
 		{
 			Debug.Assert(Delegates.pglTexCoord3d != null, "pglTexCoord3d not implemented");
@@ -8273,13 +11564,26 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glTexCoord3dv.
+		/// set the current texture coordinates
 		/// </summary>
 		/// <param name="v">
 		/// A <see cref="T:double[]"/>.
 		/// </param>
 		/// <remarks>
+		/// <see cref="Gl.TexCoord"/> specifies texture coordinates in one, two, three, or four dimensions. <see 
+		/// cref="Gl.TexCoord1"/>sets the current texture coordinates to s001; a call to <see cref="Gl.TexCoord2"/> sets them to 
+		/// st01.Similarly, <see cref="Gl.TexCoord3"/> specifies the texture coordinates as str1, and <see cref="Gl.TexCoord4"/> 
+		/// definesall four components explicitly as strq. 
+		/// The current texture coordinates are part of the data that is associated with each vertex and with the current raster 
+		/// position.Initially, the values for s, t, r, and q are (0, 0, 0, 1). 
+		///  
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - Gl.Get with argument <see cref="Gl.CURRENT_TEXTURE_COORDS"/> 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.MultiTexCoord"/>
+		/// <seealso cref="Gl.Vertex"/>
 		public static void TexCoord3(double[] v)
 		{
 			unsafe {
@@ -8294,19 +11598,32 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glTexCoord3f.
+		/// set the current texture coordinates
 		/// </summary>
 		/// <param name="s">
-		/// A <see cref="T:float"/>.
+		/// Specify s, t, r, and q texture coordinates. Not all parameters are present in all forms of the command. 
 		/// </param>
 		/// <param name="t">
-		/// A <see cref="T:float"/>.
+		/// Specify s, t, r, and q texture coordinates. Not all parameters are present in all forms of the command. 
 		/// </param>
 		/// <param name="r">
-		/// A <see cref="T:float"/>.
+		/// Specify s, t, r, and q texture coordinates. Not all parameters are present in all forms of the command. 
 		/// </param>
 		/// <remarks>
+		/// <see cref="Gl.TexCoord"/> specifies texture coordinates in one, two, three, or four dimensions. <see 
+		/// cref="Gl.TexCoord1"/>sets the current texture coordinates to s001; a call to <see cref="Gl.TexCoord2"/> sets them to 
+		/// st01.Similarly, <see cref="Gl.TexCoord3"/> specifies the texture coordinates as str1, and <see cref="Gl.TexCoord4"/> 
+		/// definesall four components explicitly as strq. 
+		/// The current texture coordinates are part of the data that is associated with each vertex and with the current raster 
+		/// position.Initially, the values for s, t, r, and q are (0, 0, 0, 1). 
+		///  
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - Gl.Get with argument <see cref="Gl.CURRENT_TEXTURE_COORDS"/> 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.MultiTexCoord"/>
+		/// <seealso cref="Gl.Vertex"/>
 		public static void TexCoord3(float s, float t, float r)
 		{
 			Debug.Assert(Delegates.pglTexCoord3f != null, "pglTexCoord3f not implemented");
@@ -8316,13 +11633,26 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glTexCoord3fv.
+		/// set the current texture coordinates
 		/// </summary>
 		/// <param name="v">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
 		/// <remarks>
+		/// <see cref="Gl.TexCoord"/> specifies texture coordinates in one, two, three, or four dimensions. <see 
+		/// cref="Gl.TexCoord1"/>sets the current texture coordinates to s001; a call to <see cref="Gl.TexCoord2"/> sets them to 
+		/// st01.Similarly, <see cref="Gl.TexCoord3"/> specifies the texture coordinates as str1, and <see cref="Gl.TexCoord4"/> 
+		/// definesall four components explicitly as strq. 
+		/// The current texture coordinates are part of the data that is associated with each vertex and with the current raster 
+		/// position.Initially, the values for s, t, r, and q are (0, 0, 0, 1). 
+		///  
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - Gl.Get with argument <see cref="Gl.CURRENT_TEXTURE_COORDS"/> 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.MultiTexCoord"/>
+		/// <seealso cref="Gl.Vertex"/>
 		public static void TexCoord3(float[] v)
 		{
 			unsafe {
@@ -8337,19 +11667,32 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glTexCoord3i.
+		/// set the current texture coordinates
 		/// </summary>
 		/// <param name="s">
-		/// A <see cref="T:Int32"/>.
+		/// Specify s, t, r, and q texture coordinates. Not all parameters are present in all forms of the command. 
 		/// </param>
 		/// <param name="t">
-		/// A <see cref="T:Int32"/>.
+		/// Specify s, t, r, and q texture coordinates. Not all parameters are present in all forms of the command. 
 		/// </param>
 		/// <param name="r">
-		/// A <see cref="T:Int32"/>.
+		/// Specify s, t, r, and q texture coordinates. Not all parameters are present in all forms of the command. 
 		/// </param>
 		/// <remarks>
+		/// <see cref="Gl.TexCoord"/> specifies texture coordinates in one, two, three, or four dimensions. <see 
+		/// cref="Gl.TexCoord1"/>sets the current texture coordinates to s001; a call to <see cref="Gl.TexCoord2"/> sets them to 
+		/// st01.Similarly, <see cref="Gl.TexCoord3"/> specifies the texture coordinates as str1, and <see cref="Gl.TexCoord4"/> 
+		/// definesall four components explicitly as strq. 
+		/// The current texture coordinates are part of the data that is associated with each vertex and with the current raster 
+		/// position.Initially, the values for s, t, r, and q are (0, 0, 0, 1). 
+		///  
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - Gl.Get with argument <see cref="Gl.CURRENT_TEXTURE_COORDS"/> 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.MultiTexCoord"/>
+		/// <seealso cref="Gl.Vertex"/>
 		public static void TexCoord3(Int32 s, Int32 t, Int32 r)
 		{
 			Debug.Assert(Delegates.pglTexCoord3i != null, "pglTexCoord3i not implemented");
@@ -8359,13 +11702,26 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glTexCoord3iv.
+		/// set the current texture coordinates
 		/// </summary>
 		/// <param name="v">
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
 		/// <remarks>
+		/// <see cref="Gl.TexCoord"/> specifies texture coordinates in one, two, three, or four dimensions. <see 
+		/// cref="Gl.TexCoord1"/>sets the current texture coordinates to s001; a call to <see cref="Gl.TexCoord2"/> sets them to 
+		/// st01.Similarly, <see cref="Gl.TexCoord3"/> specifies the texture coordinates as str1, and <see cref="Gl.TexCoord4"/> 
+		/// definesall four components explicitly as strq. 
+		/// The current texture coordinates are part of the data that is associated with each vertex and with the current raster 
+		/// position.Initially, the values for s, t, r, and q are (0, 0, 0, 1). 
+		///  
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - Gl.Get with argument <see cref="Gl.CURRENT_TEXTURE_COORDS"/> 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.MultiTexCoord"/>
+		/// <seealso cref="Gl.Vertex"/>
 		public static void TexCoord3(Int32[] v)
 		{
 			unsafe {
@@ -8380,19 +11736,32 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glTexCoord3s.
+		/// set the current texture coordinates
 		/// </summary>
 		/// <param name="s">
-		/// A <see cref="T:Int16"/>.
+		/// Specify s, t, r, and q texture coordinates. Not all parameters are present in all forms of the command. 
 		/// </param>
 		/// <param name="t">
-		/// A <see cref="T:Int16"/>.
+		/// Specify s, t, r, and q texture coordinates. Not all parameters are present in all forms of the command. 
 		/// </param>
 		/// <param name="r">
-		/// A <see cref="T:Int16"/>.
+		/// Specify s, t, r, and q texture coordinates. Not all parameters are present in all forms of the command. 
 		/// </param>
 		/// <remarks>
+		/// <see cref="Gl.TexCoord"/> specifies texture coordinates in one, two, three, or four dimensions. <see 
+		/// cref="Gl.TexCoord1"/>sets the current texture coordinates to s001; a call to <see cref="Gl.TexCoord2"/> sets them to 
+		/// st01.Similarly, <see cref="Gl.TexCoord3"/> specifies the texture coordinates as str1, and <see cref="Gl.TexCoord4"/> 
+		/// definesall four components explicitly as strq. 
+		/// The current texture coordinates are part of the data that is associated with each vertex and with the current raster 
+		/// position.Initially, the values for s, t, r, and q are (0, 0, 0, 1). 
+		///  
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - Gl.Get with argument <see cref="Gl.CURRENT_TEXTURE_COORDS"/> 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.MultiTexCoord"/>
+		/// <seealso cref="Gl.Vertex"/>
 		public static void TexCoord3(Int16 s, Int16 t, Int16 r)
 		{
 			Debug.Assert(Delegates.pglTexCoord3s != null, "pglTexCoord3s not implemented");
@@ -8402,13 +11771,26 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glTexCoord3sv.
+		/// set the current texture coordinates
 		/// </summary>
 		/// <param name="v">
 		/// A <see cref="T:Int16[]"/>.
 		/// </param>
 		/// <remarks>
+		/// <see cref="Gl.TexCoord"/> specifies texture coordinates in one, two, three, or four dimensions. <see 
+		/// cref="Gl.TexCoord1"/>sets the current texture coordinates to s001; a call to <see cref="Gl.TexCoord2"/> sets them to 
+		/// st01.Similarly, <see cref="Gl.TexCoord3"/> specifies the texture coordinates as str1, and <see cref="Gl.TexCoord4"/> 
+		/// definesall four components explicitly as strq. 
+		/// The current texture coordinates are part of the data that is associated with each vertex and with the current raster 
+		/// position.Initially, the values for s, t, r, and q are (0, 0, 0, 1). 
+		///  
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - Gl.Get with argument <see cref="Gl.CURRENT_TEXTURE_COORDS"/> 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.MultiTexCoord"/>
+		/// <seealso cref="Gl.Vertex"/>
 		public static void TexCoord3(Int16[] v)
 		{
 			unsafe {
@@ -8423,22 +11805,35 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glTexCoord4d.
+		/// set the current texture coordinates
 		/// </summary>
 		/// <param name="s">
-		/// A <see cref="T:double"/>.
+		/// Specify s, t, r, and q texture coordinates. Not all parameters are present in all forms of the command. 
 		/// </param>
 		/// <param name="t">
-		/// A <see cref="T:double"/>.
+		/// Specify s, t, r, and q texture coordinates. Not all parameters are present in all forms of the command. 
 		/// </param>
 		/// <param name="r">
-		/// A <see cref="T:double"/>.
+		/// Specify s, t, r, and q texture coordinates. Not all parameters are present in all forms of the command. 
 		/// </param>
 		/// <param name="q">
-		/// A <see cref="T:double"/>.
+		/// Specify s, t, r, and q texture coordinates. Not all parameters are present in all forms of the command. 
 		/// </param>
 		/// <remarks>
+		/// <see cref="Gl.TexCoord"/> specifies texture coordinates in one, two, three, or four dimensions. <see 
+		/// cref="Gl.TexCoord1"/>sets the current texture coordinates to s001; a call to <see cref="Gl.TexCoord2"/> sets them to 
+		/// st01.Similarly, <see cref="Gl.TexCoord3"/> specifies the texture coordinates as str1, and <see cref="Gl.TexCoord4"/> 
+		/// definesall four components explicitly as strq. 
+		/// The current texture coordinates are part of the data that is associated with each vertex and with the current raster 
+		/// position.Initially, the values for s, t, r, and q are (0, 0, 0, 1). 
+		///  
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - Gl.Get with argument <see cref="Gl.CURRENT_TEXTURE_COORDS"/> 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.MultiTexCoord"/>
+		/// <seealso cref="Gl.Vertex"/>
 		public static void TexCoord4(double s, double t, double r, double q)
 		{
 			Debug.Assert(Delegates.pglTexCoord4d != null, "pglTexCoord4d not implemented");
@@ -8448,13 +11843,26 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glTexCoord4dv.
+		/// set the current texture coordinates
 		/// </summary>
 		/// <param name="v">
 		/// A <see cref="T:double[]"/>.
 		/// </param>
 		/// <remarks>
+		/// <see cref="Gl.TexCoord"/> specifies texture coordinates in one, two, three, or four dimensions. <see 
+		/// cref="Gl.TexCoord1"/>sets the current texture coordinates to s001; a call to <see cref="Gl.TexCoord2"/> sets them to 
+		/// st01.Similarly, <see cref="Gl.TexCoord3"/> specifies the texture coordinates as str1, and <see cref="Gl.TexCoord4"/> 
+		/// definesall four components explicitly as strq. 
+		/// The current texture coordinates are part of the data that is associated with each vertex and with the current raster 
+		/// position.Initially, the values for s, t, r, and q are (0, 0, 0, 1). 
+		///  
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - Gl.Get with argument <see cref="Gl.CURRENT_TEXTURE_COORDS"/> 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.MultiTexCoord"/>
+		/// <seealso cref="Gl.Vertex"/>
 		public static void TexCoord4(double[] v)
 		{
 			unsafe {
@@ -8469,22 +11877,35 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glTexCoord4f.
+		/// set the current texture coordinates
 		/// </summary>
 		/// <param name="s">
-		/// A <see cref="T:float"/>.
+		/// Specify s, t, r, and q texture coordinates. Not all parameters are present in all forms of the command. 
 		/// </param>
 		/// <param name="t">
-		/// A <see cref="T:float"/>.
+		/// Specify s, t, r, and q texture coordinates. Not all parameters are present in all forms of the command. 
 		/// </param>
 		/// <param name="r">
-		/// A <see cref="T:float"/>.
+		/// Specify s, t, r, and q texture coordinates. Not all parameters are present in all forms of the command. 
 		/// </param>
 		/// <param name="q">
-		/// A <see cref="T:float"/>.
+		/// Specify s, t, r, and q texture coordinates. Not all parameters are present in all forms of the command. 
 		/// </param>
 		/// <remarks>
+		/// <see cref="Gl.TexCoord"/> specifies texture coordinates in one, two, three, or four dimensions. <see 
+		/// cref="Gl.TexCoord1"/>sets the current texture coordinates to s001; a call to <see cref="Gl.TexCoord2"/> sets them to 
+		/// st01.Similarly, <see cref="Gl.TexCoord3"/> specifies the texture coordinates as str1, and <see cref="Gl.TexCoord4"/> 
+		/// definesall four components explicitly as strq. 
+		/// The current texture coordinates are part of the data that is associated with each vertex and with the current raster 
+		/// position.Initially, the values for s, t, r, and q are (0, 0, 0, 1). 
+		///  
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - Gl.Get with argument <see cref="Gl.CURRENT_TEXTURE_COORDS"/> 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.MultiTexCoord"/>
+		/// <seealso cref="Gl.Vertex"/>
 		public static void TexCoord4(float s, float t, float r, float q)
 		{
 			Debug.Assert(Delegates.pglTexCoord4f != null, "pglTexCoord4f not implemented");
@@ -8494,13 +11915,26 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glTexCoord4fv.
+		/// set the current texture coordinates
 		/// </summary>
 		/// <param name="v">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
 		/// <remarks>
+		/// <see cref="Gl.TexCoord"/> specifies texture coordinates in one, two, three, or four dimensions. <see 
+		/// cref="Gl.TexCoord1"/>sets the current texture coordinates to s001; a call to <see cref="Gl.TexCoord2"/> sets them to 
+		/// st01.Similarly, <see cref="Gl.TexCoord3"/> specifies the texture coordinates as str1, and <see cref="Gl.TexCoord4"/> 
+		/// definesall four components explicitly as strq. 
+		/// The current texture coordinates are part of the data that is associated with each vertex and with the current raster 
+		/// position.Initially, the values for s, t, r, and q are (0, 0, 0, 1). 
+		///  
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - Gl.Get with argument <see cref="Gl.CURRENT_TEXTURE_COORDS"/> 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.MultiTexCoord"/>
+		/// <seealso cref="Gl.Vertex"/>
 		public static void TexCoord4(float[] v)
 		{
 			unsafe {
@@ -8515,22 +11949,35 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glTexCoord4i.
+		/// set the current texture coordinates
 		/// </summary>
 		/// <param name="s">
-		/// A <see cref="T:Int32"/>.
+		/// Specify s, t, r, and q texture coordinates. Not all parameters are present in all forms of the command. 
 		/// </param>
 		/// <param name="t">
-		/// A <see cref="T:Int32"/>.
+		/// Specify s, t, r, and q texture coordinates. Not all parameters are present in all forms of the command. 
 		/// </param>
 		/// <param name="r">
-		/// A <see cref="T:Int32"/>.
+		/// Specify s, t, r, and q texture coordinates. Not all parameters are present in all forms of the command. 
 		/// </param>
 		/// <param name="q">
-		/// A <see cref="T:Int32"/>.
+		/// Specify s, t, r, and q texture coordinates. Not all parameters are present in all forms of the command. 
 		/// </param>
 		/// <remarks>
+		/// <see cref="Gl.TexCoord"/> specifies texture coordinates in one, two, three, or four dimensions. <see 
+		/// cref="Gl.TexCoord1"/>sets the current texture coordinates to s001; a call to <see cref="Gl.TexCoord2"/> sets them to 
+		/// st01.Similarly, <see cref="Gl.TexCoord3"/> specifies the texture coordinates as str1, and <see cref="Gl.TexCoord4"/> 
+		/// definesall four components explicitly as strq. 
+		/// The current texture coordinates are part of the data that is associated with each vertex and with the current raster 
+		/// position.Initially, the values for s, t, r, and q are (0, 0, 0, 1). 
+		///  
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - Gl.Get with argument <see cref="Gl.CURRENT_TEXTURE_COORDS"/> 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.MultiTexCoord"/>
+		/// <seealso cref="Gl.Vertex"/>
 		public static void TexCoord4(Int32 s, Int32 t, Int32 r, Int32 q)
 		{
 			Debug.Assert(Delegates.pglTexCoord4i != null, "pglTexCoord4i not implemented");
@@ -8540,13 +11987,26 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glTexCoord4iv.
+		/// set the current texture coordinates
 		/// </summary>
 		/// <param name="v">
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
 		/// <remarks>
+		/// <see cref="Gl.TexCoord"/> specifies texture coordinates in one, two, three, or four dimensions. <see 
+		/// cref="Gl.TexCoord1"/>sets the current texture coordinates to s001; a call to <see cref="Gl.TexCoord2"/> sets them to 
+		/// st01.Similarly, <see cref="Gl.TexCoord3"/> specifies the texture coordinates as str1, and <see cref="Gl.TexCoord4"/> 
+		/// definesall four components explicitly as strq. 
+		/// The current texture coordinates are part of the data that is associated with each vertex and with the current raster 
+		/// position.Initially, the values for s, t, r, and q are (0, 0, 0, 1). 
+		///  
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - Gl.Get with argument <see cref="Gl.CURRENT_TEXTURE_COORDS"/> 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.MultiTexCoord"/>
+		/// <seealso cref="Gl.Vertex"/>
 		public static void TexCoord4(Int32[] v)
 		{
 			unsafe {
@@ -8561,22 +12021,35 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glTexCoord4s.
+		/// set the current texture coordinates
 		/// </summary>
 		/// <param name="s">
-		/// A <see cref="T:Int16"/>.
+		/// Specify s, t, r, and q texture coordinates. Not all parameters are present in all forms of the command. 
 		/// </param>
 		/// <param name="t">
-		/// A <see cref="T:Int16"/>.
+		/// Specify s, t, r, and q texture coordinates. Not all parameters are present in all forms of the command. 
 		/// </param>
 		/// <param name="r">
-		/// A <see cref="T:Int16"/>.
+		/// Specify s, t, r, and q texture coordinates. Not all parameters are present in all forms of the command. 
 		/// </param>
 		/// <param name="q">
-		/// A <see cref="T:Int16"/>.
+		/// Specify s, t, r, and q texture coordinates. Not all parameters are present in all forms of the command. 
 		/// </param>
 		/// <remarks>
+		/// <see cref="Gl.TexCoord"/> specifies texture coordinates in one, two, three, or four dimensions. <see 
+		/// cref="Gl.TexCoord1"/>sets the current texture coordinates to s001; a call to <see cref="Gl.TexCoord2"/> sets them to 
+		/// st01.Similarly, <see cref="Gl.TexCoord3"/> specifies the texture coordinates as str1, and <see cref="Gl.TexCoord4"/> 
+		/// definesall four components explicitly as strq. 
+		/// The current texture coordinates are part of the data that is associated with each vertex and with the current raster 
+		/// position.Initially, the values for s, t, r, and q are (0, 0, 0, 1). 
+		///  
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - Gl.Get with argument <see cref="Gl.CURRENT_TEXTURE_COORDS"/> 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.MultiTexCoord"/>
+		/// <seealso cref="Gl.Vertex"/>
 		public static void TexCoord4(Int16 s, Int16 t, Int16 r, Int16 q)
 		{
 			Debug.Assert(Delegates.pglTexCoord4s != null, "pglTexCoord4s not implemented");
@@ -8586,13 +12059,26 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glTexCoord4sv.
+		/// set the current texture coordinates
 		/// </summary>
 		/// <param name="v">
 		/// A <see cref="T:Int16[]"/>.
 		/// </param>
 		/// <remarks>
+		/// <see cref="Gl.TexCoord"/> specifies texture coordinates in one, two, three, or four dimensions. <see 
+		/// cref="Gl.TexCoord1"/>sets the current texture coordinates to s001; a call to <see cref="Gl.TexCoord2"/> sets them to 
+		/// st01.Similarly, <see cref="Gl.TexCoord3"/> specifies the texture coordinates as str1, and <see cref="Gl.TexCoord4"/> 
+		/// definesall four components explicitly as strq. 
+		/// The current texture coordinates are part of the data that is associated with each vertex and with the current raster 
+		/// position.Initially, the values for s, t, r, and q are (0, 0, 0, 1). 
+		///  
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - Gl.Get with argument <see cref="Gl.CURRENT_TEXTURE_COORDS"/> 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.MultiTexCoord"/>
+		/// <seealso cref="Gl.Vertex"/>
 		public static void TexCoord4(Int16[] v)
 		{
 			unsafe {
@@ -8607,16 +12093,33 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glVertex2d.
+		/// specify a vertex
 		/// </summary>
 		/// <param name="x">
-		/// A <see cref="T:double"/>.
+		/// Specify x, y, z, and w coordinates of a vertex. Not all parameters are present in all forms of the command. 
 		/// </param>
 		/// <param name="y">
-		/// A <see cref="T:double"/>.
+		/// Specify x, y, z, and w coordinates of a vertex. Not all parameters are present in all forms of the command. 
 		/// </param>
 		/// <remarks>
+		/// <see cref="Gl.Vertex"/> commands are used within Gl.Begin/Gl.End pairs to specify point, line, and polygon vertices. The 
+		/// currentcolor, normal, texture coordinates, and fog coordinate are associated with the vertex when <see 
+		/// cref="Gl.Vertex"/>is called. 
+		/// When only x and y are specified, z defaults to 0 and w defaults to 1. When x, y, and z are specified, w defaults to 1. 
 		/// </remarks>
+		/// <seealso cref="Gl.Begin"/>
+		/// <seealso cref="Gl.CallList"/>
+		/// <seealso cref="Gl.Color"/>
+		/// <seealso cref="Gl.EdgeFlag"/>
+		/// <seealso cref="Gl.EvalCoord"/>
+		/// <seealso cref="Gl.FogCoord"/>
+		/// <seealso cref="Gl.Index"/>
+		/// <seealso cref="Gl.Material"/>
+		/// <seealso cref="Gl.MultiTexCoord"/>
+		/// <seealso cref="Gl.Normal"/>
+		/// <seealso cref="Gl.Rect"/>
+		/// <seealso cref="Gl.TexCoord"/>
+		/// <seealso cref="Gl.VertexPointer"/>
 		public static void Vertex2(double x, double y)
 		{
 			Debug.Assert(Delegates.pglVertex2d != null, "pglVertex2d not implemented");
@@ -8626,13 +12129,30 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glVertex2dv.
+		/// specify a vertex
 		/// </summary>
 		/// <param name="v">
 		/// A <see cref="T:double[]"/>.
 		/// </param>
 		/// <remarks>
+		/// <see cref="Gl.Vertex"/> commands are used within Gl.Begin/Gl.End pairs to specify point, line, and polygon vertices. The 
+		/// currentcolor, normal, texture coordinates, and fog coordinate are associated with the vertex when <see 
+		/// cref="Gl.Vertex"/>is called. 
+		/// When only x and y are specified, z defaults to 0 and w defaults to 1. When x, y, and z are specified, w defaults to 1. 
 		/// </remarks>
+		/// <seealso cref="Gl.Begin"/>
+		/// <seealso cref="Gl.CallList"/>
+		/// <seealso cref="Gl.Color"/>
+		/// <seealso cref="Gl.EdgeFlag"/>
+		/// <seealso cref="Gl.EvalCoord"/>
+		/// <seealso cref="Gl.FogCoord"/>
+		/// <seealso cref="Gl.Index"/>
+		/// <seealso cref="Gl.Material"/>
+		/// <seealso cref="Gl.MultiTexCoord"/>
+		/// <seealso cref="Gl.Normal"/>
+		/// <seealso cref="Gl.Rect"/>
+		/// <seealso cref="Gl.TexCoord"/>
+		/// <seealso cref="Gl.VertexPointer"/>
 		public static void Vertex2(double[] v)
 		{
 			unsafe {
@@ -8647,16 +12167,33 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glVertex2f.
+		/// specify a vertex
 		/// </summary>
 		/// <param name="x">
-		/// A <see cref="T:float"/>.
+		/// Specify x, y, z, and w coordinates of a vertex. Not all parameters are present in all forms of the command. 
 		/// </param>
 		/// <param name="y">
-		/// A <see cref="T:float"/>.
+		/// Specify x, y, z, and w coordinates of a vertex. Not all parameters are present in all forms of the command. 
 		/// </param>
 		/// <remarks>
+		/// <see cref="Gl.Vertex"/> commands are used within Gl.Begin/Gl.End pairs to specify point, line, and polygon vertices. The 
+		/// currentcolor, normal, texture coordinates, and fog coordinate are associated with the vertex when <see 
+		/// cref="Gl.Vertex"/>is called. 
+		/// When only x and y are specified, z defaults to 0 and w defaults to 1. When x, y, and z are specified, w defaults to 1. 
 		/// </remarks>
+		/// <seealso cref="Gl.Begin"/>
+		/// <seealso cref="Gl.CallList"/>
+		/// <seealso cref="Gl.Color"/>
+		/// <seealso cref="Gl.EdgeFlag"/>
+		/// <seealso cref="Gl.EvalCoord"/>
+		/// <seealso cref="Gl.FogCoord"/>
+		/// <seealso cref="Gl.Index"/>
+		/// <seealso cref="Gl.Material"/>
+		/// <seealso cref="Gl.MultiTexCoord"/>
+		/// <seealso cref="Gl.Normal"/>
+		/// <seealso cref="Gl.Rect"/>
+		/// <seealso cref="Gl.TexCoord"/>
+		/// <seealso cref="Gl.VertexPointer"/>
 		public static void Vertex2(float x, float y)
 		{
 			Debug.Assert(Delegates.pglVertex2f != null, "pglVertex2f not implemented");
@@ -8666,13 +12203,30 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glVertex2fv.
+		/// specify a vertex
 		/// </summary>
 		/// <param name="v">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
 		/// <remarks>
+		/// <see cref="Gl.Vertex"/> commands are used within Gl.Begin/Gl.End pairs to specify point, line, and polygon vertices. The 
+		/// currentcolor, normal, texture coordinates, and fog coordinate are associated with the vertex when <see 
+		/// cref="Gl.Vertex"/>is called. 
+		/// When only x and y are specified, z defaults to 0 and w defaults to 1. When x, y, and z are specified, w defaults to 1. 
 		/// </remarks>
+		/// <seealso cref="Gl.Begin"/>
+		/// <seealso cref="Gl.CallList"/>
+		/// <seealso cref="Gl.Color"/>
+		/// <seealso cref="Gl.EdgeFlag"/>
+		/// <seealso cref="Gl.EvalCoord"/>
+		/// <seealso cref="Gl.FogCoord"/>
+		/// <seealso cref="Gl.Index"/>
+		/// <seealso cref="Gl.Material"/>
+		/// <seealso cref="Gl.MultiTexCoord"/>
+		/// <seealso cref="Gl.Normal"/>
+		/// <seealso cref="Gl.Rect"/>
+		/// <seealso cref="Gl.TexCoord"/>
+		/// <seealso cref="Gl.VertexPointer"/>
 		public static void Vertex2(float[] v)
 		{
 			unsafe {
@@ -8687,16 +12241,33 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glVertex2i.
+		/// specify a vertex
 		/// </summary>
 		/// <param name="x">
-		/// A <see cref="T:Int32"/>.
+		/// Specify x, y, z, and w coordinates of a vertex. Not all parameters are present in all forms of the command. 
 		/// </param>
 		/// <param name="y">
-		/// A <see cref="T:Int32"/>.
+		/// Specify x, y, z, and w coordinates of a vertex. Not all parameters are present in all forms of the command. 
 		/// </param>
 		/// <remarks>
+		/// <see cref="Gl.Vertex"/> commands are used within Gl.Begin/Gl.End pairs to specify point, line, and polygon vertices. The 
+		/// currentcolor, normal, texture coordinates, and fog coordinate are associated with the vertex when <see 
+		/// cref="Gl.Vertex"/>is called. 
+		/// When only x and y are specified, z defaults to 0 and w defaults to 1. When x, y, and z are specified, w defaults to 1. 
 		/// </remarks>
+		/// <seealso cref="Gl.Begin"/>
+		/// <seealso cref="Gl.CallList"/>
+		/// <seealso cref="Gl.Color"/>
+		/// <seealso cref="Gl.EdgeFlag"/>
+		/// <seealso cref="Gl.EvalCoord"/>
+		/// <seealso cref="Gl.FogCoord"/>
+		/// <seealso cref="Gl.Index"/>
+		/// <seealso cref="Gl.Material"/>
+		/// <seealso cref="Gl.MultiTexCoord"/>
+		/// <seealso cref="Gl.Normal"/>
+		/// <seealso cref="Gl.Rect"/>
+		/// <seealso cref="Gl.TexCoord"/>
+		/// <seealso cref="Gl.VertexPointer"/>
 		public static void Vertex2(Int32 x, Int32 y)
 		{
 			Debug.Assert(Delegates.pglVertex2i != null, "pglVertex2i not implemented");
@@ -8706,13 +12277,30 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glVertex2iv.
+		/// specify a vertex
 		/// </summary>
 		/// <param name="v">
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
 		/// <remarks>
+		/// <see cref="Gl.Vertex"/> commands are used within Gl.Begin/Gl.End pairs to specify point, line, and polygon vertices. The 
+		/// currentcolor, normal, texture coordinates, and fog coordinate are associated with the vertex when <see 
+		/// cref="Gl.Vertex"/>is called. 
+		/// When only x and y are specified, z defaults to 0 and w defaults to 1. When x, y, and z are specified, w defaults to 1. 
 		/// </remarks>
+		/// <seealso cref="Gl.Begin"/>
+		/// <seealso cref="Gl.CallList"/>
+		/// <seealso cref="Gl.Color"/>
+		/// <seealso cref="Gl.EdgeFlag"/>
+		/// <seealso cref="Gl.EvalCoord"/>
+		/// <seealso cref="Gl.FogCoord"/>
+		/// <seealso cref="Gl.Index"/>
+		/// <seealso cref="Gl.Material"/>
+		/// <seealso cref="Gl.MultiTexCoord"/>
+		/// <seealso cref="Gl.Normal"/>
+		/// <seealso cref="Gl.Rect"/>
+		/// <seealso cref="Gl.TexCoord"/>
+		/// <seealso cref="Gl.VertexPointer"/>
 		public static void Vertex2(Int32[] v)
 		{
 			unsafe {
@@ -8727,16 +12315,33 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glVertex2s.
+		/// specify a vertex
 		/// </summary>
 		/// <param name="x">
-		/// A <see cref="T:Int16"/>.
+		/// Specify x, y, z, and w coordinates of a vertex. Not all parameters are present in all forms of the command. 
 		/// </param>
 		/// <param name="y">
-		/// A <see cref="T:Int16"/>.
+		/// Specify x, y, z, and w coordinates of a vertex. Not all parameters are present in all forms of the command. 
 		/// </param>
 		/// <remarks>
+		/// <see cref="Gl.Vertex"/> commands are used within Gl.Begin/Gl.End pairs to specify point, line, and polygon vertices. The 
+		/// currentcolor, normal, texture coordinates, and fog coordinate are associated with the vertex when <see 
+		/// cref="Gl.Vertex"/>is called. 
+		/// When only x and y are specified, z defaults to 0 and w defaults to 1. When x, y, and z are specified, w defaults to 1. 
 		/// </remarks>
+		/// <seealso cref="Gl.Begin"/>
+		/// <seealso cref="Gl.CallList"/>
+		/// <seealso cref="Gl.Color"/>
+		/// <seealso cref="Gl.EdgeFlag"/>
+		/// <seealso cref="Gl.EvalCoord"/>
+		/// <seealso cref="Gl.FogCoord"/>
+		/// <seealso cref="Gl.Index"/>
+		/// <seealso cref="Gl.Material"/>
+		/// <seealso cref="Gl.MultiTexCoord"/>
+		/// <seealso cref="Gl.Normal"/>
+		/// <seealso cref="Gl.Rect"/>
+		/// <seealso cref="Gl.TexCoord"/>
+		/// <seealso cref="Gl.VertexPointer"/>
 		public static void Vertex2(Int16 x, Int16 y)
 		{
 			Debug.Assert(Delegates.pglVertex2s != null, "pglVertex2s not implemented");
@@ -8746,13 +12351,30 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glVertex2sv.
+		/// specify a vertex
 		/// </summary>
 		/// <param name="v">
 		/// A <see cref="T:Int16[]"/>.
 		/// </param>
 		/// <remarks>
+		/// <see cref="Gl.Vertex"/> commands are used within Gl.Begin/Gl.End pairs to specify point, line, and polygon vertices. The 
+		/// currentcolor, normal, texture coordinates, and fog coordinate are associated with the vertex when <see 
+		/// cref="Gl.Vertex"/>is called. 
+		/// When only x and y are specified, z defaults to 0 and w defaults to 1. When x, y, and z are specified, w defaults to 1. 
 		/// </remarks>
+		/// <seealso cref="Gl.Begin"/>
+		/// <seealso cref="Gl.CallList"/>
+		/// <seealso cref="Gl.Color"/>
+		/// <seealso cref="Gl.EdgeFlag"/>
+		/// <seealso cref="Gl.EvalCoord"/>
+		/// <seealso cref="Gl.FogCoord"/>
+		/// <seealso cref="Gl.Index"/>
+		/// <seealso cref="Gl.Material"/>
+		/// <seealso cref="Gl.MultiTexCoord"/>
+		/// <seealso cref="Gl.Normal"/>
+		/// <seealso cref="Gl.Rect"/>
+		/// <seealso cref="Gl.TexCoord"/>
+		/// <seealso cref="Gl.VertexPointer"/>
 		public static void Vertex2(Int16[] v)
 		{
 			unsafe {
@@ -8767,19 +12389,36 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glVertex3d.
+		/// specify a vertex
 		/// </summary>
 		/// <param name="x">
-		/// A <see cref="T:double"/>.
+		/// Specify x, y, z, and w coordinates of a vertex. Not all parameters are present in all forms of the command. 
 		/// </param>
 		/// <param name="y">
-		/// A <see cref="T:double"/>.
+		/// Specify x, y, z, and w coordinates of a vertex. Not all parameters are present in all forms of the command. 
 		/// </param>
 		/// <param name="z">
-		/// A <see cref="T:double"/>.
+		/// Specify x, y, z, and w coordinates of a vertex. Not all parameters are present in all forms of the command. 
 		/// </param>
 		/// <remarks>
+		/// <see cref="Gl.Vertex"/> commands are used within Gl.Begin/Gl.End pairs to specify point, line, and polygon vertices. The 
+		/// currentcolor, normal, texture coordinates, and fog coordinate are associated with the vertex when <see 
+		/// cref="Gl.Vertex"/>is called. 
+		/// When only x and y are specified, z defaults to 0 and w defaults to 1. When x, y, and z are specified, w defaults to 1. 
 		/// </remarks>
+		/// <seealso cref="Gl.Begin"/>
+		/// <seealso cref="Gl.CallList"/>
+		/// <seealso cref="Gl.Color"/>
+		/// <seealso cref="Gl.EdgeFlag"/>
+		/// <seealso cref="Gl.EvalCoord"/>
+		/// <seealso cref="Gl.FogCoord"/>
+		/// <seealso cref="Gl.Index"/>
+		/// <seealso cref="Gl.Material"/>
+		/// <seealso cref="Gl.MultiTexCoord"/>
+		/// <seealso cref="Gl.Normal"/>
+		/// <seealso cref="Gl.Rect"/>
+		/// <seealso cref="Gl.TexCoord"/>
+		/// <seealso cref="Gl.VertexPointer"/>
 		public static void Vertex3(double x, double y, double z)
 		{
 			Debug.Assert(Delegates.pglVertex3d != null, "pglVertex3d not implemented");
@@ -8789,13 +12428,30 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glVertex3dv.
+		/// specify a vertex
 		/// </summary>
 		/// <param name="v">
 		/// A <see cref="T:double[]"/>.
 		/// </param>
 		/// <remarks>
+		/// <see cref="Gl.Vertex"/> commands are used within Gl.Begin/Gl.End pairs to specify point, line, and polygon vertices. The 
+		/// currentcolor, normal, texture coordinates, and fog coordinate are associated with the vertex when <see 
+		/// cref="Gl.Vertex"/>is called. 
+		/// When only x and y are specified, z defaults to 0 and w defaults to 1. When x, y, and z are specified, w defaults to 1. 
 		/// </remarks>
+		/// <seealso cref="Gl.Begin"/>
+		/// <seealso cref="Gl.CallList"/>
+		/// <seealso cref="Gl.Color"/>
+		/// <seealso cref="Gl.EdgeFlag"/>
+		/// <seealso cref="Gl.EvalCoord"/>
+		/// <seealso cref="Gl.FogCoord"/>
+		/// <seealso cref="Gl.Index"/>
+		/// <seealso cref="Gl.Material"/>
+		/// <seealso cref="Gl.MultiTexCoord"/>
+		/// <seealso cref="Gl.Normal"/>
+		/// <seealso cref="Gl.Rect"/>
+		/// <seealso cref="Gl.TexCoord"/>
+		/// <seealso cref="Gl.VertexPointer"/>
 		public static void Vertex3(double[] v)
 		{
 			unsafe {
@@ -8810,19 +12466,36 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glVertex3f.
+		/// specify a vertex
 		/// </summary>
 		/// <param name="x">
-		/// A <see cref="T:float"/>.
+		/// Specify x, y, z, and w coordinates of a vertex. Not all parameters are present in all forms of the command. 
 		/// </param>
 		/// <param name="y">
-		/// A <see cref="T:float"/>.
+		/// Specify x, y, z, and w coordinates of a vertex. Not all parameters are present in all forms of the command. 
 		/// </param>
 		/// <param name="z">
-		/// A <see cref="T:float"/>.
+		/// Specify x, y, z, and w coordinates of a vertex. Not all parameters are present in all forms of the command. 
 		/// </param>
 		/// <remarks>
+		/// <see cref="Gl.Vertex"/> commands are used within Gl.Begin/Gl.End pairs to specify point, line, and polygon vertices. The 
+		/// currentcolor, normal, texture coordinates, and fog coordinate are associated with the vertex when <see 
+		/// cref="Gl.Vertex"/>is called. 
+		/// When only x and y are specified, z defaults to 0 and w defaults to 1. When x, y, and z are specified, w defaults to 1. 
 		/// </remarks>
+		/// <seealso cref="Gl.Begin"/>
+		/// <seealso cref="Gl.CallList"/>
+		/// <seealso cref="Gl.Color"/>
+		/// <seealso cref="Gl.EdgeFlag"/>
+		/// <seealso cref="Gl.EvalCoord"/>
+		/// <seealso cref="Gl.FogCoord"/>
+		/// <seealso cref="Gl.Index"/>
+		/// <seealso cref="Gl.Material"/>
+		/// <seealso cref="Gl.MultiTexCoord"/>
+		/// <seealso cref="Gl.Normal"/>
+		/// <seealso cref="Gl.Rect"/>
+		/// <seealso cref="Gl.TexCoord"/>
+		/// <seealso cref="Gl.VertexPointer"/>
 		public static void Vertex3(float x, float y, float z)
 		{
 			Debug.Assert(Delegates.pglVertex3f != null, "pglVertex3f not implemented");
@@ -8832,13 +12505,30 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glVertex3fv.
+		/// specify a vertex
 		/// </summary>
 		/// <param name="v">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
 		/// <remarks>
+		/// <see cref="Gl.Vertex"/> commands are used within Gl.Begin/Gl.End pairs to specify point, line, and polygon vertices. The 
+		/// currentcolor, normal, texture coordinates, and fog coordinate are associated with the vertex when <see 
+		/// cref="Gl.Vertex"/>is called. 
+		/// When only x and y are specified, z defaults to 0 and w defaults to 1. When x, y, and z are specified, w defaults to 1. 
 		/// </remarks>
+		/// <seealso cref="Gl.Begin"/>
+		/// <seealso cref="Gl.CallList"/>
+		/// <seealso cref="Gl.Color"/>
+		/// <seealso cref="Gl.EdgeFlag"/>
+		/// <seealso cref="Gl.EvalCoord"/>
+		/// <seealso cref="Gl.FogCoord"/>
+		/// <seealso cref="Gl.Index"/>
+		/// <seealso cref="Gl.Material"/>
+		/// <seealso cref="Gl.MultiTexCoord"/>
+		/// <seealso cref="Gl.Normal"/>
+		/// <seealso cref="Gl.Rect"/>
+		/// <seealso cref="Gl.TexCoord"/>
+		/// <seealso cref="Gl.VertexPointer"/>
 		public static void Vertex3(float[] v)
 		{
 			unsafe {
@@ -8853,19 +12543,36 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glVertex3i.
+		/// specify a vertex
 		/// </summary>
 		/// <param name="x">
-		/// A <see cref="T:Int32"/>.
+		/// Specify x, y, z, and w coordinates of a vertex. Not all parameters are present in all forms of the command. 
 		/// </param>
 		/// <param name="y">
-		/// A <see cref="T:Int32"/>.
+		/// Specify x, y, z, and w coordinates of a vertex. Not all parameters are present in all forms of the command. 
 		/// </param>
 		/// <param name="z">
-		/// A <see cref="T:Int32"/>.
+		/// Specify x, y, z, and w coordinates of a vertex. Not all parameters are present in all forms of the command. 
 		/// </param>
 		/// <remarks>
+		/// <see cref="Gl.Vertex"/> commands are used within Gl.Begin/Gl.End pairs to specify point, line, and polygon vertices. The 
+		/// currentcolor, normal, texture coordinates, and fog coordinate are associated with the vertex when <see 
+		/// cref="Gl.Vertex"/>is called. 
+		/// When only x and y are specified, z defaults to 0 and w defaults to 1. When x, y, and z are specified, w defaults to 1. 
 		/// </remarks>
+		/// <seealso cref="Gl.Begin"/>
+		/// <seealso cref="Gl.CallList"/>
+		/// <seealso cref="Gl.Color"/>
+		/// <seealso cref="Gl.EdgeFlag"/>
+		/// <seealso cref="Gl.EvalCoord"/>
+		/// <seealso cref="Gl.FogCoord"/>
+		/// <seealso cref="Gl.Index"/>
+		/// <seealso cref="Gl.Material"/>
+		/// <seealso cref="Gl.MultiTexCoord"/>
+		/// <seealso cref="Gl.Normal"/>
+		/// <seealso cref="Gl.Rect"/>
+		/// <seealso cref="Gl.TexCoord"/>
+		/// <seealso cref="Gl.VertexPointer"/>
 		public static void Vertex3(Int32 x, Int32 y, Int32 z)
 		{
 			Debug.Assert(Delegates.pglVertex3i != null, "pglVertex3i not implemented");
@@ -8875,13 +12582,30 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glVertex3iv.
+		/// specify a vertex
 		/// </summary>
 		/// <param name="v">
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
 		/// <remarks>
+		/// <see cref="Gl.Vertex"/> commands are used within Gl.Begin/Gl.End pairs to specify point, line, and polygon vertices. The 
+		/// currentcolor, normal, texture coordinates, and fog coordinate are associated with the vertex when <see 
+		/// cref="Gl.Vertex"/>is called. 
+		/// When only x and y are specified, z defaults to 0 and w defaults to 1. When x, y, and z are specified, w defaults to 1. 
 		/// </remarks>
+		/// <seealso cref="Gl.Begin"/>
+		/// <seealso cref="Gl.CallList"/>
+		/// <seealso cref="Gl.Color"/>
+		/// <seealso cref="Gl.EdgeFlag"/>
+		/// <seealso cref="Gl.EvalCoord"/>
+		/// <seealso cref="Gl.FogCoord"/>
+		/// <seealso cref="Gl.Index"/>
+		/// <seealso cref="Gl.Material"/>
+		/// <seealso cref="Gl.MultiTexCoord"/>
+		/// <seealso cref="Gl.Normal"/>
+		/// <seealso cref="Gl.Rect"/>
+		/// <seealso cref="Gl.TexCoord"/>
+		/// <seealso cref="Gl.VertexPointer"/>
 		public static void Vertex3(Int32[] v)
 		{
 			unsafe {
@@ -8896,19 +12620,36 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glVertex3s.
+		/// specify a vertex
 		/// </summary>
 		/// <param name="x">
-		/// A <see cref="T:Int16"/>.
+		/// Specify x, y, z, and w coordinates of a vertex. Not all parameters are present in all forms of the command. 
 		/// </param>
 		/// <param name="y">
-		/// A <see cref="T:Int16"/>.
+		/// Specify x, y, z, and w coordinates of a vertex. Not all parameters are present in all forms of the command. 
 		/// </param>
 		/// <param name="z">
-		/// A <see cref="T:Int16"/>.
+		/// Specify x, y, z, and w coordinates of a vertex. Not all parameters are present in all forms of the command. 
 		/// </param>
 		/// <remarks>
+		/// <see cref="Gl.Vertex"/> commands are used within Gl.Begin/Gl.End pairs to specify point, line, and polygon vertices. The 
+		/// currentcolor, normal, texture coordinates, and fog coordinate are associated with the vertex when <see 
+		/// cref="Gl.Vertex"/>is called. 
+		/// When only x and y are specified, z defaults to 0 and w defaults to 1. When x, y, and z are specified, w defaults to 1. 
 		/// </remarks>
+		/// <seealso cref="Gl.Begin"/>
+		/// <seealso cref="Gl.CallList"/>
+		/// <seealso cref="Gl.Color"/>
+		/// <seealso cref="Gl.EdgeFlag"/>
+		/// <seealso cref="Gl.EvalCoord"/>
+		/// <seealso cref="Gl.FogCoord"/>
+		/// <seealso cref="Gl.Index"/>
+		/// <seealso cref="Gl.Material"/>
+		/// <seealso cref="Gl.MultiTexCoord"/>
+		/// <seealso cref="Gl.Normal"/>
+		/// <seealso cref="Gl.Rect"/>
+		/// <seealso cref="Gl.TexCoord"/>
+		/// <seealso cref="Gl.VertexPointer"/>
 		public static void Vertex3(Int16 x, Int16 y, Int16 z)
 		{
 			Debug.Assert(Delegates.pglVertex3s != null, "pglVertex3s not implemented");
@@ -8918,13 +12659,30 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glVertex3sv.
+		/// specify a vertex
 		/// </summary>
 		/// <param name="v">
 		/// A <see cref="T:Int16[]"/>.
 		/// </param>
 		/// <remarks>
+		/// <see cref="Gl.Vertex"/> commands are used within Gl.Begin/Gl.End pairs to specify point, line, and polygon vertices. The 
+		/// currentcolor, normal, texture coordinates, and fog coordinate are associated with the vertex when <see 
+		/// cref="Gl.Vertex"/>is called. 
+		/// When only x and y are specified, z defaults to 0 and w defaults to 1. When x, y, and z are specified, w defaults to 1. 
 		/// </remarks>
+		/// <seealso cref="Gl.Begin"/>
+		/// <seealso cref="Gl.CallList"/>
+		/// <seealso cref="Gl.Color"/>
+		/// <seealso cref="Gl.EdgeFlag"/>
+		/// <seealso cref="Gl.EvalCoord"/>
+		/// <seealso cref="Gl.FogCoord"/>
+		/// <seealso cref="Gl.Index"/>
+		/// <seealso cref="Gl.Material"/>
+		/// <seealso cref="Gl.MultiTexCoord"/>
+		/// <seealso cref="Gl.Normal"/>
+		/// <seealso cref="Gl.Rect"/>
+		/// <seealso cref="Gl.TexCoord"/>
+		/// <seealso cref="Gl.VertexPointer"/>
 		public static void Vertex3(Int16[] v)
 		{
 			unsafe {
@@ -8939,22 +12697,39 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glVertex4d.
+		/// specify a vertex
 		/// </summary>
 		/// <param name="x">
-		/// A <see cref="T:double"/>.
+		/// Specify x, y, z, and w coordinates of a vertex. Not all parameters are present in all forms of the command. 
 		/// </param>
 		/// <param name="y">
-		/// A <see cref="T:double"/>.
+		/// Specify x, y, z, and w coordinates of a vertex. Not all parameters are present in all forms of the command. 
 		/// </param>
 		/// <param name="z">
-		/// A <see cref="T:double"/>.
+		/// Specify x, y, z, and w coordinates of a vertex. Not all parameters are present in all forms of the command. 
 		/// </param>
 		/// <param name="w">
-		/// A <see cref="T:double"/>.
+		/// Specify x, y, z, and w coordinates of a vertex. Not all parameters are present in all forms of the command. 
 		/// </param>
 		/// <remarks>
+		/// <see cref="Gl.Vertex"/> commands are used within Gl.Begin/Gl.End pairs to specify point, line, and polygon vertices. The 
+		/// currentcolor, normal, texture coordinates, and fog coordinate are associated with the vertex when <see 
+		/// cref="Gl.Vertex"/>is called. 
+		/// When only x and y are specified, z defaults to 0 and w defaults to 1. When x, y, and z are specified, w defaults to 1. 
 		/// </remarks>
+		/// <seealso cref="Gl.Begin"/>
+		/// <seealso cref="Gl.CallList"/>
+		/// <seealso cref="Gl.Color"/>
+		/// <seealso cref="Gl.EdgeFlag"/>
+		/// <seealso cref="Gl.EvalCoord"/>
+		/// <seealso cref="Gl.FogCoord"/>
+		/// <seealso cref="Gl.Index"/>
+		/// <seealso cref="Gl.Material"/>
+		/// <seealso cref="Gl.MultiTexCoord"/>
+		/// <seealso cref="Gl.Normal"/>
+		/// <seealso cref="Gl.Rect"/>
+		/// <seealso cref="Gl.TexCoord"/>
+		/// <seealso cref="Gl.VertexPointer"/>
 		public static void Vertex4(double x, double y, double z, double w)
 		{
 			Debug.Assert(Delegates.pglVertex4d != null, "pglVertex4d not implemented");
@@ -8964,13 +12739,30 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glVertex4dv.
+		/// specify a vertex
 		/// </summary>
 		/// <param name="v">
 		/// A <see cref="T:double[]"/>.
 		/// </param>
 		/// <remarks>
+		/// <see cref="Gl.Vertex"/> commands are used within Gl.Begin/Gl.End pairs to specify point, line, and polygon vertices. The 
+		/// currentcolor, normal, texture coordinates, and fog coordinate are associated with the vertex when <see 
+		/// cref="Gl.Vertex"/>is called. 
+		/// When only x and y are specified, z defaults to 0 and w defaults to 1. When x, y, and z are specified, w defaults to 1. 
 		/// </remarks>
+		/// <seealso cref="Gl.Begin"/>
+		/// <seealso cref="Gl.CallList"/>
+		/// <seealso cref="Gl.Color"/>
+		/// <seealso cref="Gl.EdgeFlag"/>
+		/// <seealso cref="Gl.EvalCoord"/>
+		/// <seealso cref="Gl.FogCoord"/>
+		/// <seealso cref="Gl.Index"/>
+		/// <seealso cref="Gl.Material"/>
+		/// <seealso cref="Gl.MultiTexCoord"/>
+		/// <seealso cref="Gl.Normal"/>
+		/// <seealso cref="Gl.Rect"/>
+		/// <seealso cref="Gl.TexCoord"/>
+		/// <seealso cref="Gl.VertexPointer"/>
 		public static void Vertex4(double[] v)
 		{
 			unsafe {
@@ -8985,22 +12777,39 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glVertex4f.
+		/// specify a vertex
 		/// </summary>
 		/// <param name="x">
-		/// A <see cref="T:float"/>.
+		/// Specify x, y, z, and w coordinates of a vertex. Not all parameters are present in all forms of the command. 
 		/// </param>
 		/// <param name="y">
-		/// A <see cref="T:float"/>.
+		/// Specify x, y, z, and w coordinates of a vertex. Not all parameters are present in all forms of the command. 
 		/// </param>
 		/// <param name="z">
-		/// A <see cref="T:float"/>.
+		/// Specify x, y, z, and w coordinates of a vertex. Not all parameters are present in all forms of the command. 
 		/// </param>
 		/// <param name="w">
-		/// A <see cref="T:float"/>.
+		/// Specify x, y, z, and w coordinates of a vertex. Not all parameters are present in all forms of the command. 
 		/// </param>
 		/// <remarks>
+		/// <see cref="Gl.Vertex"/> commands are used within Gl.Begin/Gl.End pairs to specify point, line, and polygon vertices. The 
+		/// currentcolor, normal, texture coordinates, and fog coordinate are associated with the vertex when <see 
+		/// cref="Gl.Vertex"/>is called. 
+		/// When only x and y are specified, z defaults to 0 and w defaults to 1. When x, y, and z are specified, w defaults to 1. 
 		/// </remarks>
+		/// <seealso cref="Gl.Begin"/>
+		/// <seealso cref="Gl.CallList"/>
+		/// <seealso cref="Gl.Color"/>
+		/// <seealso cref="Gl.EdgeFlag"/>
+		/// <seealso cref="Gl.EvalCoord"/>
+		/// <seealso cref="Gl.FogCoord"/>
+		/// <seealso cref="Gl.Index"/>
+		/// <seealso cref="Gl.Material"/>
+		/// <seealso cref="Gl.MultiTexCoord"/>
+		/// <seealso cref="Gl.Normal"/>
+		/// <seealso cref="Gl.Rect"/>
+		/// <seealso cref="Gl.TexCoord"/>
+		/// <seealso cref="Gl.VertexPointer"/>
 		public static void Vertex4(float x, float y, float z, float w)
 		{
 			Debug.Assert(Delegates.pglVertex4f != null, "pglVertex4f not implemented");
@@ -9010,13 +12819,30 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glVertex4fv.
+		/// specify a vertex
 		/// </summary>
 		/// <param name="v">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
 		/// <remarks>
+		/// <see cref="Gl.Vertex"/> commands are used within Gl.Begin/Gl.End pairs to specify point, line, and polygon vertices. The 
+		/// currentcolor, normal, texture coordinates, and fog coordinate are associated with the vertex when <see 
+		/// cref="Gl.Vertex"/>is called. 
+		/// When only x and y are specified, z defaults to 0 and w defaults to 1. When x, y, and z are specified, w defaults to 1. 
 		/// </remarks>
+		/// <seealso cref="Gl.Begin"/>
+		/// <seealso cref="Gl.CallList"/>
+		/// <seealso cref="Gl.Color"/>
+		/// <seealso cref="Gl.EdgeFlag"/>
+		/// <seealso cref="Gl.EvalCoord"/>
+		/// <seealso cref="Gl.FogCoord"/>
+		/// <seealso cref="Gl.Index"/>
+		/// <seealso cref="Gl.Material"/>
+		/// <seealso cref="Gl.MultiTexCoord"/>
+		/// <seealso cref="Gl.Normal"/>
+		/// <seealso cref="Gl.Rect"/>
+		/// <seealso cref="Gl.TexCoord"/>
+		/// <seealso cref="Gl.VertexPointer"/>
 		public static void Vertex4(float[] v)
 		{
 			unsafe {
@@ -9031,22 +12857,39 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glVertex4i.
+		/// specify a vertex
 		/// </summary>
 		/// <param name="x">
-		/// A <see cref="T:Int32"/>.
+		/// Specify x, y, z, and w coordinates of a vertex. Not all parameters are present in all forms of the command. 
 		/// </param>
 		/// <param name="y">
-		/// A <see cref="T:Int32"/>.
+		/// Specify x, y, z, and w coordinates of a vertex. Not all parameters are present in all forms of the command. 
 		/// </param>
 		/// <param name="z">
-		/// A <see cref="T:Int32"/>.
+		/// Specify x, y, z, and w coordinates of a vertex. Not all parameters are present in all forms of the command. 
 		/// </param>
 		/// <param name="w">
-		/// A <see cref="T:Int32"/>.
+		/// Specify x, y, z, and w coordinates of a vertex. Not all parameters are present in all forms of the command. 
 		/// </param>
 		/// <remarks>
+		/// <see cref="Gl.Vertex"/> commands are used within Gl.Begin/Gl.End pairs to specify point, line, and polygon vertices. The 
+		/// currentcolor, normal, texture coordinates, and fog coordinate are associated with the vertex when <see 
+		/// cref="Gl.Vertex"/>is called. 
+		/// When only x and y are specified, z defaults to 0 and w defaults to 1. When x, y, and z are specified, w defaults to 1. 
 		/// </remarks>
+		/// <seealso cref="Gl.Begin"/>
+		/// <seealso cref="Gl.CallList"/>
+		/// <seealso cref="Gl.Color"/>
+		/// <seealso cref="Gl.EdgeFlag"/>
+		/// <seealso cref="Gl.EvalCoord"/>
+		/// <seealso cref="Gl.FogCoord"/>
+		/// <seealso cref="Gl.Index"/>
+		/// <seealso cref="Gl.Material"/>
+		/// <seealso cref="Gl.MultiTexCoord"/>
+		/// <seealso cref="Gl.Normal"/>
+		/// <seealso cref="Gl.Rect"/>
+		/// <seealso cref="Gl.TexCoord"/>
+		/// <seealso cref="Gl.VertexPointer"/>
 		public static void Vertex4(Int32 x, Int32 y, Int32 z, Int32 w)
 		{
 			Debug.Assert(Delegates.pglVertex4i != null, "pglVertex4i not implemented");
@@ -9056,13 +12899,30 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glVertex4iv.
+		/// specify a vertex
 		/// </summary>
 		/// <param name="v">
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
 		/// <remarks>
+		/// <see cref="Gl.Vertex"/> commands are used within Gl.Begin/Gl.End pairs to specify point, line, and polygon vertices. The 
+		/// currentcolor, normal, texture coordinates, and fog coordinate are associated with the vertex when <see 
+		/// cref="Gl.Vertex"/>is called. 
+		/// When only x and y are specified, z defaults to 0 and w defaults to 1. When x, y, and z are specified, w defaults to 1. 
 		/// </remarks>
+		/// <seealso cref="Gl.Begin"/>
+		/// <seealso cref="Gl.CallList"/>
+		/// <seealso cref="Gl.Color"/>
+		/// <seealso cref="Gl.EdgeFlag"/>
+		/// <seealso cref="Gl.EvalCoord"/>
+		/// <seealso cref="Gl.FogCoord"/>
+		/// <seealso cref="Gl.Index"/>
+		/// <seealso cref="Gl.Material"/>
+		/// <seealso cref="Gl.MultiTexCoord"/>
+		/// <seealso cref="Gl.Normal"/>
+		/// <seealso cref="Gl.Rect"/>
+		/// <seealso cref="Gl.TexCoord"/>
+		/// <seealso cref="Gl.VertexPointer"/>
 		public static void Vertex4(Int32[] v)
 		{
 			unsafe {
@@ -9077,22 +12937,39 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glVertex4s.
+		/// specify a vertex
 		/// </summary>
 		/// <param name="x">
-		/// A <see cref="T:Int16"/>.
+		/// Specify x, y, z, and w coordinates of a vertex. Not all parameters are present in all forms of the command. 
 		/// </param>
 		/// <param name="y">
-		/// A <see cref="T:Int16"/>.
+		/// Specify x, y, z, and w coordinates of a vertex. Not all parameters are present in all forms of the command. 
 		/// </param>
 		/// <param name="z">
-		/// A <see cref="T:Int16"/>.
+		/// Specify x, y, z, and w coordinates of a vertex. Not all parameters are present in all forms of the command. 
 		/// </param>
 		/// <param name="w">
-		/// A <see cref="T:Int16"/>.
+		/// Specify x, y, z, and w coordinates of a vertex. Not all parameters are present in all forms of the command. 
 		/// </param>
 		/// <remarks>
+		/// <see cref="Gl.Vertex"/> commands are used within Gl.Begin/Gl.End pairs to specify point, line, and polygon vertices. The 
+		/// currentcolor, normal, texture coordinates, and fog coordinate are associated with the vertex when <see 
+		/// cref="Gl.Vertex"/>is called. 
+		/// When only x and y are specified, z defaults to 0 and w defaults to 1. When x, y, and z are specified, w defaults to 1. 
 		/// </remarks>
+		/// <seealso cref="Gl.Begin"/>
+		/// <seealso cref="Gl.CallList"/>
+		/// <seealso cref="Gl.Color"/>
+		/// <seealso cref="Gl.EdgeFlag"/>
+		/// <seealso cref="Gl.EvalCoord"/>
+		/// <seealso cref="Gl.FogCoord"/>
+		/// <seealso cref="Gl.Index"/>
+		/// <seealso cref="Gl.Material"/>
+		/// <seealso cref="Gl.MultiTexCoord"/>
+		/// <seealso cref="Gl.Normal"/>
+		/// <seealso cref="Gl.Rect"/>
+		/// <seealso cref="Gl.TexCoord"/>
+		/// <seealso cref="Gl.VertexPointer"/>
 		public static void Vertex4(Int16 x, Int16 y, Int16 z, Int16 w)
 		{
 			Debug.Assert(Delegates.pglVertex4s != null, "pglVertex4s not implemented");
@@ -9102,13 +12979,30 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glVertex4sv.
+		/// specify a vertex
 		/// </summary>
 		/// <param name="v">
 		/// A <see cref="T:Int16[]"/>.
 		/// </param>
 		/// <remarks>
+		/// <see cref="Gl.Vertex"/> commands are used within Gl.Begin/Gl.End pairs to specify point, line, and polygon vertices. The 
+		/// currentcolor, normal, texture coordinates, and fog coordinate are associated with the vertex when <see 
+		/// cref="Gl.Vertex"/>is called. 
+		/// When only x and y are specified, z defaults to 0 and w defaults to 1. When x, y, and z are specified, w defaults to 1. 
 		/// </remarks>
+		/// <seealso cref="Gl.Begin"/>
+		/// <seealso cref="Gl.CallList"/>
+		/// <seealso cref="Gl.Color"/>
+		/// <seealso cref="Gl.EdgeFlag"/>
+		/// <seealso cref="Gl.EvalCoord"/>
+		/// <seealso cref="Gl.FogCoord"/>
+		/// <seealso cref="Gl.Index"/>
+		/// <seealso cref="Gl.Material"/>
+		/// <seealso cref="Gl.MultiTexCoord"/>
+		/// <seealso cref="Gl.Normal"/>
+		/// <seealso cref="Gl.Rect"/>
+		/// <seealso cref="Gl.TexCoord"/>
+		/// <seealso cref="Gl.VertexPointer"/>
 		public static void Vertex4(Int16[] v)
 		{
 			unsafe {
@@ -9123,16 +13017,43 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glClipPlane.
+		/// specify a plane against which all geometry is clipped
 		/// </summary>
 		/// <param name="plane">
-		/// A <see cref="T:int"/>.
+		/// Specifies which clipping plane is being positioned. Symbolic names of the form <see cref="Gl.CLIP_PLANE"/>i, where i is 
+		/// aninteger between 0 and <see cref="Gl.MAX_CLIP_PLANES"/>-1, are accepted. 
 		/// </param>
 		/// <param name="equation">
-		/// A <see cref="T:double[]"/>.
+		/// Specifies the address of an array of four double-precision floating-point values. These values are interpreted as a 
+		/// planeequation. 
 		/// </param>
 		/// <remarks>
+		/// Geometry is always clipped against the boundaries of a six-plane frustum in x, y, and z. <see cref="Gl.ClipPlane"/> 
+		/// allowsthe specification of additional planes, not necessarily perpendicular to the x, y, or z axis, against which all 
+		/// geometryis clipped. To determine the maximum number of additional clipping planes, call Gl.GetIntegerv with argument 
+		/// <seecref="Gl.MAX_CLIP_PLANES"/>. All implementations support at least six such clipping planes. Because the resulting 
+		/// clippingregion is the intersection of the defined half-spaces, it is always convex. 
+		/// <see cref="Gl.ClipPlane"/> specifies a half-space using a four-component plane equation. When <see cref="Gl.ClipPlane"/> 
+		/// iscalled, <paramref name="equation"/> is transformed by the inverse of the modelview matrix and stored in the resulting 
+		/// eyecoordinates. Subsequent changes to the modelview matrix have no effect on the stored plane-equation components. If 
+		/// thedot product of the eye coordinates of a vertex with the stored plane equation components is positive or zero, the 
+		/// vertexis in with respect to that clipping plane. Otherwise, it is out. 
+		/// To enable and disable clipping planes, call Gl.Enable and Gl.Disable with the argument <see cref="Gl.CLIP_PLANE"/>i, 
+		/// wherei is the plane number. 
+		/// All clipping planes are initially defined as (0, 0, 0, 0) in eye coordinates and are disabled. 
+		/// <para>
+		/// The following errors can be generated:
+		/// - <see cref="Gl.INVALID_ENUM"/> is generated if <paramref name="plane"/> is not an accepted value. 
+		/// - <see cref="Gl.INVALID_OPERATION"/> is generated if <see cref="Gl.ClipPlane"/> is executed between the execution of 
+		///   Gl.Beginand the corresponding execution of Gl.End. 
+		/// </para>
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - Gl.GetClipPlane 
+		/// - Gl.IsEnabled with argument <see cref="Gl.CLIP_PLANE"/>i 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.Enable"/>
 		public static void ClipPlane(int plane, double[] equation)
 		{
 			unsafe {
@@ -9147,16 +13068,43 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glClipPlane.
+		/// specify a plane against which all geometry is clipped
 		/// </summary>
 		/// <param name="plane">
-		/// A <see cref="T:int"/>.
+		/// Specifies which clipping plane is being positioned. Symbolic names of the form <see cref="Gl.CLIP_PLANE"/>i, where i is 
+		/// aninteger between 0 and <see cref="Gl.MAX_CLIP_PLANES"/>-1, are accepted. 
 		/// </param>
 		/// <param name="equation">
-		/// A <see cref="T:double[]"/>.
+		/// Specifies the address of an array of four double-precision floating-point values. These values are interpreted as a 
+		/// planeequation. 
 		/// </param>
 		/// <remarks>
+		/// Geometry is always clipped against the boundaries of a six-plane frustum in x, y, and z. <see cref="Gl.ClipPlane"/> 
+		/// allowsthe specification of additional planes, not necessarily perpendicular to the x, y, or z axis, against which all 
+		/// geometryis clipped. To determine the maximum number of additional clipping planes, call Gl.GetIntegerv with argument 
+		/// <seecref="Gl.MAX_CLIP_PLANES"/>. All implementations support at least six such clipping planes. Because the resulting 
+		/// clippingregion is the intersection of the defined half-spaces, it is always convex. 
+		/// <see cref="Gl.ClipPlane"/> specifies a half-space using a four-component plane equation. When <see cref="Gl.ClipPlane"/> 
+		/// iscalled, <paramref name="equation"/> is transformed by the inverse of the modelview matrix and stored in the resulting 
+		/// eyecoordinates. Subsequent changes to the modelview matrix have no effect on the stored plane-equation components. If 
+		/// thedot product of the eye coordinates of a vertex with the stored plane equation components is positive or zero, the 
+		/// vertexis in with respect to that clipping plane. Otherwise, it is out. 
+		/// To enable and disable clipping planes, call Gl.Enable and Gl.Disable with the argument <see cref="Gl.CLIP_PLANE"/>i, 
+		/// wherei is the plane number. 
+		/// All clipping planes are initially defined as (0, 0, 0, 0) in eye coordinates and are disabled. 
+		/// <para>
+		/// The following errors can be generated:
+		/// - <see cref="Gl.INVALID_ENUM"/> is generated if <paramref name="plane"/> is not an accepted value. 
+		/// - <see cref="Gl.INVALID_OPERATION"/> is generated if <see cref="Gl.ClipPlane"/> is executed between the execution of 
+		///   Gl.Beginand the corresponding execution of Gl.End. 
+		/// </para>
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - Gl.GetClipPlane 
+		/// - Gl.IsEnabled with argument <see cref="Gl.CLIP_PLANE"/>i 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.Enable"/>
 		public static void ClipPlane(ClipPlaneName plane, double[] equation)
 		{
 			unsafe {
@@ -9171,16 +13119,47 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glColorMaterial.
+		/// cause a material color to track the current color
 		/// </summary>
 		/// <param name="face">
-		/// A <see cref="T:int"/>.
+		/// Specifies whether front, back, or both front and back material parameters should track the current color. Accepted 
+		/// valuesare <see cref="Gl.FRONT"/>, <see cref="Gl.BACK"/>, and <see cref="Gl.FRONT_AND_BACK"/>. The initial value is <see 
+		/// cref="Gl.FRONT_AND_BACK"/>.
 		/// </param>
 		/// <param name="mode">
-		/// A <see cref="T:int"/>.
+		/// Specifies which of several material parameters track the current color. Accepted values are <see cref="Gl.EMISSION"/>, 
+		/// <seecref="Gl.AMBIENT"/>, <see cref="Gl.DIFFUSE"/>, <see cref="Gl.SPECULAR"/>, and <see cref="Gl.AMBIENT_AND_DIFFUSE"/>. 
+		/// Theinitial value is <see cref="Gl.AMBIENT_AND_DIFFUSE"/>. 
 		/// </param>
 		/// <remarks>
+		/// <see cref="Gl.ColorMaterial"/> specifies which material parameters track the current color. When <see 
+		/// cref="Gl.COLOR_MATERIAL"/>is enabled, the material parameter or parameters specified by <paramref name="mode"/>, of the 
+		/// materialor materials specified by <paramref name="face"/>, track the current color at all times. 
+		/// To enable and disable <see cref="Gl.COLOR_MATERIAL"/>, call Gl.Enable and Gl.Disable with argument <see 
+		/// cref="Gl.COLOR_MATERIAL"/>.<see cref="Gl.COLOR_MATERIAL"/> is initially disabled. 
+		/// <para>
+		/// The following errors can be generated:
+		/// - <see cref="Gl.INVALID_ENUM"/> is generated if <paramref name="face"/> or <paramref name="mode"/> is not an accepted 
+		///   value.
+		/// - <see cref="Gl.INVALID_OPERATION"/> is generated if <see cref="Gl.ColorMaterial"/> is executed between the execution of 
+		///   Gl.Beginand the corresponding execution of Gl.End. 
+		/// </para>
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - Gl.IsEnabled with argument <see cref="Gl.COLOR_MATERIAL"/> 
+		/// - Gl.Get with argument <see cref="Gl.COLOR_MATERIAL_PARAMETER"/> 
+		/// - Gl.Get with argument <see cref="Gl.COLOR_MATERIAL_FACE"/> 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.Color"/>
+		/// <seealso cref="Gl.ColorPointer"/>
+		/// <seealso cref="Gl.DrawArrays"/>
+		/// <seealso cref="Gl.DrawElements"/>
+		/// <seealso cref="Gl.DrawRangeElements"/>
+		/// <seealso cref="Gl.Enable"/>
+		/// <seealso cref="Gl.Light"/>
+		/// <seealso cref="Gl.LightModel"/>
+		/// <seealso cref="Gl.Material"/>
 		public static void ColorMaterial(int face, int mode)
 		{
 			Debug.Assert(Delegates.pglColorMaterial != null, "pglColorMaterial not implemented");
@@ -9190,16 +13169,47 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glColorMaterial.
+		/// cause a material color to track the current color
 		/// </summary>
 		/// <param name="face">
-		/// A <see cref="T:int"/>.
+		/// Specifies whether front, back, or both front and back material parameters should track the current color. Accepted 
+		/// valuesare <see cref="Gl.FRONT"/>, <see cref="Gl.BACK"/>, and <see cref="Gl.FRONT_AND_BACK"/>. The initial value is <see 
+		/// cref="Gl.FRONT_AND_BACK"/>.
 		/// </param>
 		/// <param name="mode">
-		/// A <see cref="T:int"/>.
+		/// Specifies which of several material parameters track the current color. Accepted values are <see cref="Gl.EMISSION"/>, 
+		/// <seecref="Gl.AMBIENT"/>, <see cref="Gl.DIFFUSE"/>, <see cref="Gl.SPECULAR"/>, and <see cref="Gl.AMBIENT_AND_DIFFUSE"/>. 
+		/// Theinitial value is <see cref="Gl.AMBIENT_AND_DIFFUSE"/>. 
 		/// </param>
 		/// <remarks>
+		/// <see cref="Gl.ColorMaterial"/> specifies which material parameters track the current color. When <see 
+		/// cref="Gl.COLOR_MATERIAL"/>is enabled, the material parameter or parameters specified by <paramref name="mode"/>, of the 
+		/// materialor materials specified by <paramref name="face"/>, track the current color at all times. 
+		/// To enable and disable <see cref="Gl.COLOR_MATERIAL"/>, call Gl.Enable and Gl.Disable with argument <see 
+		/// cref="Gl.COLOR_MATERIAL"/>.<see cref="Gl.COLOR_MATERIAL"/> is initially disabled. 
+		/// <para>
+		/// The following errors can be generated:
+		/// - <see cref="Gl.INVALID_ENUM"/> is generated if <paramref name="face"/> or <paramref name="mode"/> is not an accepted 
+		///   value.
+		/// - <see cref="Gl.INVALID_OPERATION"/> is generated if <see cref="Gl.ColorMaterial"/> is executed between the execution of 
+		///   Gl.Beginand the corresponding execution of Gl.End. 
+		/// </para>
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - Gl.IsEnabled with argument <see cref="Gl.COLOR_MATERIAL"/> 
+		/// - Gl.Get with argument <see cref="Gl.COLOR_MATERIAL_PARAMETER"/> 
+		/// - Gl.Get with argument <see cref="Gl.COLOR_MATERIAL_FACE"/> 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.Color"/>
+		/// <seealso cref="Gl.ColorPointer"/>
+		/// <seealso cref="Gl.DrawArrays"/>
+		/// <seealso cref="Gl.DrawElements"/>
+		/// <seealso cref="Gl.DrawRangeElements"/>
+		/// <seealso cref="Gl.Enable"/>
+		/// <seealso cref="Gl.Light"/>
+		/// <seealso cref="Gl.LightModel"/>
+		/// <seealso cref="Gl.Material"/>
 		public static void ColorMaterial(MaterialFace face, ColorMaterialParameter mode)
 		{
 			Debug.Assert(Delegates.pglColorMaterial != null, "pglColorMaterial not implemented");
@@ -9701,19 +13711,49 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glLightf.
+		/// set light source parameters
 		/// </summary>
 		/// <param name="light">
-		/// A <see cref="T:int"/>.
+		/// Specifies a light. The number of lights depends on the implementation, but at least eight lights are supported. They are 
+		/// identifiedby symbolic names of the form <see cref="Gl.LIGHT"/>i, where i ranges from 0 to the value of <see 
+		/// cref="Gl.MAX_LIGHTS"/>- 1. 
 		/// </param>
 		/// <param name="pname">
-		/// A <see cref="T:int"/>.
+		/// Specifies a single-valued light source parameter for <paramref name="light"/>. <see cref="Gl.SPOT_EXPONENT"/>, <see 
+		/// cref="Gl.SPOT_CUTOFF"/>,<see cref="Gl.CONSTANT_ATTENUATION"/>, <see cref="Gl.LINEAR_ATTENUATION"/>, and <see 
+		/// cref="Gl.QUADRATIC_ATTENUATION"/>are accepted. 
 		/// </param>
 		/// <param name="param">
-		/// A <see cref="T:float"/>.
+		/// Specifies the value that parameter <paramref name="pname"/> of light source <paramref name="light"/> will be set to. 
 		/// </param>
 		/// <remarks>
+		/// <see cref="Gl.Light"/> sets the values of individual light source parameters. <paramref name="light"/> names the light 
+		/// andis a symbolic name of the form <see cref="Gl.LIGHT"/>i, where i ranges from 0 to the value of <see 
+		/// cref="Gl.MAX_LIGHTS"/>- 1. <paramref name="pname"/> specifies one of ten light source parameters, again by symbolic 
+		/// name.<paramref name="params"/> is either a single value or a pointer to an array that contains the new values. 
+		/// To enable and disable lighting calculation, call Gl.Enable and Gl.Disable with argument <see cref="Gl.LIGHTING"/>. 
+		/// Lightingis initially disabled. When it is enabled, light sources that are enabled contribute to the lighting 
+		/// calculation.Light source i is enabled and disabled using Gl.Enable and Gl.Disable with argument <see cref="Gl.LIGHT"/>i. 
+		/// The ten light parameters are as follows: 
+		/// <para>
+		/// The following errors can be generated:
+		/// - <see cref="Gl.INVALID_ENUM"/> is generated if either <paramref name="light"/> or <paramref name="pname"/> is not an 
+		///   acceptedvalue. 
+		/// - <see cref="Gl.INVALID_VALUE"/> is generated if a spot exponent value is specified outside the range 0128, or if spot 
+		///   cutoffis specified outside the range 090 (except for the special value 180), or if a negative attenuation factor is 
+		///   specified.
+		/// - <see cref="Gl.INVALID_OPERATION"/> is generated if <see cref="Gl.Light"/> is executed between the execution of Gl.Begin 
+		///   andthe corresponding execution of Gl.End. 
+		/// </para>
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - Gl.GetLight 
+		/// - Gl.IsEnabled with argument <see cref="Gl.LIGHTING"/> 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.ColorMaterial"/>
+		/// <seealso cref="Gl.LightModel"/>
+		/// <seealso cref="Gl.Material"/>
 		public static void Light(int light, int pname, float param)
 		{
 			Debug.Assert(Delegates.pglLightf != null, "pglLightf not implemented");
@@ -9723,19 +13763,49 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glLightf.
+		/// set light source parameters
 		/// </summary>
 		/// <param name="light">
-		/// A <see cref="T:int"/>.
+		/// Specifies a light. The number of lights depends on the implementation, but at least eight lights are supported. They are 
+		/// identifiedby symbolic names of the form <see cref="Gl.LIGHT"/>i, where i ranges from 0 to the value of <see 
+		/// cref="Gl.MAX_LIGHTS"/>- 1. 
 		/// </param>
 		/// <param name="pname">
-		/// A <see cref="T:int"/>.
+		/// Specifies a single-valued light source parameter for <paramref name="light"/>. <see cref="Gl.SPOT_EXPONENT"/>, <see 
+		/// cref="Gl.SPOT_CUTOFF"/>,<see cref="Gl.CONSTANT_ATTENUATION"/>, <see cref="Gl.LINEAR_ATTENUATION"/>, and <see 
+		/// cref="Gl.QUADRATIC_ATTENUATION"/>are accepted. 
 		/// </param>
 		/// <param name="param">
-		/// A <see cref="T:float"/>.
+		/// Specifies the value that parameter <paramref name="pname"/> of light source <paramref name="light"/> will be set to. 
 		/// </param>
 		/// <remarks>
+		/// <see cref="Gl.Light"/> sets the values of individual light source parameters. <paramref name="light"/> names the light 
+		/// andis a symbolic name of the form <see cref="Gl.LIGHT"/>i, where i ranges from 0 to the value of <see 
+		/// cref="Gl.MAX_LIGHTS"/>- 1. <paramref name="pname"/> specifies one of ten light source parameters, again by symbolic 
+		/// name.<paramref name="params"/> is either a single value or a pointer to an array that contains the new values. 
+		/// To enable and disable lighting calculation, call Gl.Enable and Gl.Disable with argument <see cref="Gl.LIGHTING"/>. 
+		/// Lightingis initially disabled. When it is enabled, light sources that are enabled contribute to the lighting 
+		/// calculation.Light source i is enabled and disabled using Gl.Enable and Gl.Disable with argument <see cref="Gl.LIGHT"/>i. 
+		/// The ten light parameters are as follows: 
+		/// <para>
+		/// The following errors can be generated:
+		/// - <see cref="Gl.INVALID_ENUM"/> is generated if either <paramref name="light"/> or <paramref name="pname"/> is not an 
+		///   acceptedvalue. 
+		/// - <see cref="Gl.INVALID_VALUE"/> is generated if a spot exponent value is specified outside the range 0128, or if spot 
+		///   cutoffis specified outside the range 090 (except for the special value 180), or if a negative attenuation factor is 
+		///   specified.
+		/// - <see cref="Gl.INVALID_OPERATION"/> is generated if <see cref="Gl.Light"/> is executed between the execution of Gl.Begin 
+		///   andthe corresponding execution of Gl.End. 
+		/// </para>
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - Gl.GetLight 
+		/// - Gl.IsEnabled with argument <see cref="Gl.LIGHTING"/> 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.ColorMaterial"/>
+		/// <seealso cref="Gl.LightModel"/>
+		/// <seealso cref="Gl.Material"/>
 		public static void Light(LightName light, LightParameter pname, float param)
 		{
 			Debug.Assert(Delegates.pglLightf != null, "pglLightf not implemented");
@@ -9745,19 +13815,49 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glLightfv.
+		/// set light source parameters
 		/// </summary>
 		/// <param name="light">
-		/// A <see cref="T:int"/>.
+		/// Specifies a light. The number of lights depends on the implementation, but at least eight lights are supported. They are 
+		/// identifiedby symbolic names of the form <see cref="Gl.LIGHT"/>i, where i ranges from 0 to the value of <see 
+		/// cref="Gl.MAX_LIGHTS"/>- 1. 
 		/// </param>
 		/// <param name="pname">
-		/// A <see cref="T:int"/>.
+		/// Specifies a single-valued light source parameter for <paramref name="light"/>. <see cref="Gl.SPOT_EXPONENT"/>, <see 
+		/// cref="Gl.SPOT_CUTOFF"/>,<see cref="Gl.CONSTANT_ATTENUATION"/>, <see cref="Gl.LINEAR_ATTENUATION"/>, and <see 
+		/// cref="Gl.QUADRATIC_ATTENUATION"/>are accepted. 
 		/// </param>
 		/// <param name="params">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
 		/// <remarks>
+		/// <see cref="Gl.Light"/> sets the values of individual light source parameters. <paramref name="light"/> names the light 
+		/// andis a symbolic name of the form <see cref="Gl.LIGHT"/>i, where i ranges from 0 to the value of <see 
+		/// cref="Gl.MAX_LIGHTS"/>- 1. <paramref name="pname"/> specifies one of ten light source parameters, again by symbolic 
+		/// name.<paramref name="params"/> is either a single value or a pointer to an array that contains the new values. 
+		/// To enable and disable lighting calculation, call Gl.Enable and Gl.Disable with argument <see cref="Gl.LIGHTING"/>. 
+		/// Lightingis initially disabled. When it is enabled, light sources that are enabled contribute to the lighting 
+		/// calculation.Light source i is enabled and disabled using Gl.Enable and Gl.Disable with argument <see cref="Gl.LIGHT"/>i. 
+		/// The ten light parameters are as follows: 
+		/// <para>
+		/// The following errors can be generated:
+		/// - <see cref="Gl.INVALID_ENUM"/> is generated if either <paramref name="light"/> or <paramref name="pname"/> is not an 
+		///   acceptedvalue. 
+		/// - <see cref="Gl.INVALID_VALUE"/> is generated if a spot exponent value is specified outside the range 0128, or if spot 
+		///   cutoffis specified outside the range 090 (except for the special value 180), or if a negative attenuation factor is 
+		///   specified.
+		/// - <see cref="Gl.INVALID_OPERATION"/> is generated if <see cref="Gl.Light"/> is executed between the execution of Gl.Begin 
+		///   andthe corresponding execution of Gl.End. 
+		/// </para>
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - Gl.GetLight 
+		/// - Gl.IsEnabled with argument <see cref="Gl.LIGHTING"/> 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.ColorMaterial"/>
+		/// <seealso cref="Gl.LightModel"/>
+		/// <seealso cref="Gl.Material"/>
 		public static void Light(int light, int pname, float[] @params)
 		{
 			unsafe {
@@ -9772,19 +13872,49 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glLightfv.
+		/// set light source parameters
 		/// </summary>
 		/// <param name="light">
-		/// A <see cref="T:int"/>.
+		/// Specifies a light. The number of lights depends on the implementation, but at least eight lights are supported. They are 
+		/// identifiedby symbolic names of the form <see cref="Gl.LIGHT"/>i, where i ranges from 0 to the value of <see 
+		/// cref="Gl.MAX_LIGHTS"/>- 1. 
 		/// </param>
 		/// <param name="pname">
-		/// A <see cref="T:int"/>.
+		/// Specifies a single-valued light source parameter for <paramref name="light"/>. <see cref="Gl.SPOT_EXPONENT"/>, <see 
+		/// cref="Gl.SPOT_CUTOFF"/>,<see cref="Gl.CONSTANT_ATTENUATION"/>, <see cref="Gl.LINEAR_ATTENUATION"/>, and <see 
+		/// cref="Gl.QUADRATIC_ATTENUATION"/>are accepted. 
 		/// </param>
 		/// <param name="params">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
 		/// <remarks>
+		/// <see cref="Gl.Light"/> sets the values of individual light source parameters. <paramref name="light"/> names the light 
+		/// andis a symbolic name of the form <see cref="Gl.LIGHT"/>i, where i ranges from 0 to the value of <see 
+		/// cref="Gl.MAX_LIGHTS"/>- 1. <paramref name="pname"/> specifies one of ten light source parameters, again by symbolic 
+		/// name.<paramref name="params"/> is either a single value or a pointer to an array that contains the new values. 
+		/// To enable and disable lighting calculation, call Gl.Enable and Gl.Disable with argument <see cref="Gl.LIGHTING"/>. 
+		/// Lightingis initially disabled. When it is enabled, light sources that are enabled contribute to the lighting 
+		/// calculation.Light source i is enabled and disabled using Gl.Enable and Gl.Disable with argument <see cref="Gl.LIGHT"/>i. 
+		/// The ten light parameters are as follows: 
+		/// <para>
+		/// The following errors can be generated:
+		/// - <see cref="Gl.INVALID_ENUM"/> is generated if either <paramref name="light"/> or <paramref name="pname"/> is not an 
+		///   acceptedvalue. 
+		/// - <see cref="Gl.INVALID_VALUE"/> is generated if a spot exponent value is specified outside the range 0128, or if spot 
+		///   cutoffis specified outside the range 090 (except for the special value 180), or if a negative attenuation factor is 
+		///   specified.
+		/// - <see cref="Gl.INVALID_OPERATION"/> is generated if <see cref="Gl.Light"/> is executed between the execution of Gl.Begin 
+		///   andthe corresponding execution of Gl.End. 
+		/// </para>
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - Gl.GetLight 
+		/// - Gl.IsEnabled with argument <see cref="Gl.LIGHTING"/> 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.ColorMaterial"/>
+		/// <seealso cref="Gl.LightModel"/>
+		/// <seealso cref="Gl.Material"/>
 		public static void Light(LightName light, LightParameter pname, float[] @params)
 		{
 			unsafe {
@@ -9799,19 +13929,49 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glLighti.
+		/// set light source parameters
 		/// </summary>
 		/// <param name="light">
-		/// A <see cref="T:int"/>.
+		/// Specifies a light. The number of lights depends on the implementation, but at least eight lights are supported. They are 
+		/// identifiedby symbolic names of the form <see cref="Gl.LIGHT"/>i, where i ranges from 0 to the value of <see 
+		/// cref="Gl.MAX_LIGHTS"/>- 1. 
 		/// </param>
 		/// <param name="pname">
-		/// A <see cref="T:int"/>.
+		/// Specifies a single-valued light source parameter for <paramref name="light"/>. <see cref="Gl.SPOT_EXPONENT"/>, <see 
+		/// cref="Gl.SPOT_CUTOFF"/>,<see cref="Gl.CONSTANT_ATTENUATION"/>, <see cref="Gl.LINEAR_ATTENUATION"/>, and <see 
+		/// cref="Gl.QUADRATIC_ATTENUATION"/>are accepted. 
 		/// </param>
 		/// <param name="param">
-		/// A <see cref="T:Int32"/>.
+		/// Specifies the value that parameter <paramref name="pname"/> of light source <paramref name="light"/> will be set to. 
 		/// </param>
 		/// <remarks>
+		/// <see cref="Gl.Light"/> sets the values of individual light source parameters. <paramref name="light"/> names the light 
+		/// andis a symbolic name of the form <see cref="Gl.LIGHT"/>i, where i ranges from 0 to the value of <see 
+		/// cref="Gl.MAX_LIGHTS"/>- 1. <paramref name="pname"/> specifies one of ten light source parameters, again by symbolic 
+		/// name.<paramref name="params"/> is either a single value or a pointer to an array that contains the new values. 
+		/// To enable and disable lighting calculation, call Gl.Enable and Gl.Disable with argument <see cref="Gl.LIGHTING"/>. 
+		/// Lightingis initially disabled. When it is enabled, light sources that are enabled contribute to the lighting 
+		/// calculation.Light source i is enabled and disabled using Gl.Enable and Gl.Disable with argument <see cref="Gl.LIGHT"/>i. 
+		/// The ten light parameters are as follows: 
+		/// <para>
+		/// The following errors can be generated:
+		/// - <see cref="Gl.INVALID_ENUM"/> is generated if either <paramref name="light"/> or <paramref name="pname"/> is not an 
+		///   acceptedvalue. 
+		/// - <see cref="Gl.INVALID_VALUE"/> is generated if a spot exponent value is specified outside the range 0128, or if spot 
+		///   cutoffis specified outside the range 090 (except for the special value 180), or if a negative attenuation factor is 
+		///   specified.
+		/// - <see cref="Gl.INVALID_OPERATION"/> is generated if <see cref="Gl.Light"/> is executed between the execution of Gl.Begin 
+		///   andthe corresponding execution of Gl.End. 
+		/// </para>
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - Gl.GetLight 
+		/// - Gl.IsEnabled with argument <see cref="Gl.LIGHTING"/> 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.ColorMaterial"/>
+		/// <seealso cref="Gl.LightModel"/>
+		/// <seealso cref="Gl.Material"/>
 		public static void Light(int light, int pname, Int32 param)
 		{
 			Debug.Assert(Delegates.pglLighti != null, "pglLighti not implemented");
@@ -9821,19 +13981,49 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glLighti.
+		/// set light source parameters
 		/// </summary>
 		/// <param name="light">
-		/// A <see cref="T:int"/>.
+		/// Specifies a light. The number of lights depends on the implementation, but at least eight lights are supported. They are 
+		/// identifiedby symbolic names of the form <see cref="Gl.LIGHT"/>i, where i ranges from 0 to the value of <see 
+		/// cref="Gl.MAX_LIGHTS"/>- 1. 
 		/// </param>
 		/// <param name="pname">
-		/// A <see cref="T:int"/>.
+		/// Specifies a single-valued light source parameter for <paramref name="light"/>. <see cref="Gl.SPOT_EXPONENT"/>, <see 
+		/// cref="Gl.SPOT_CUTOFF"/>,<see cref="Gl.CONSTANT_ATTENUATION"/>, <see cref="Gl.LINEAR_ATTENUATION"/>, and <see 
+		/// cref="Gl.QUADRATIC_ATTENUATION"/>are accepted. 
 		/// </param>
 		/// <param name="param">
-		/// A <see cref="T:Int32"/>.
+		/// Specifies the value that parameter <paramref name="pname"/> of light source <paramref name="light"/> will be set to. 
 		/// </param>
 		/// <remarks>
+		/// <see cref="Gl.Light"/> sets the values of individual light source parameters. <paramref name="light"/> names the light 
+		/// andis a symbolic name of the form <see cref="Gl.LIGHT"/>i, where i ranges from 0 to the value of <see 
+		/// cref="Gl.MAX_LIGHTS"/>- 1. <paramref name="pname"/> specifies one of ten light source parameters, again by symbolic 
+		/// name.<paramref name="params"/> is either a single value or a pointer to an array that contains the new values. 
+		/// To enable and disable lighting calculation, call Gl.Enable and Gl.Disable with argument <see cref="Gl.LIGHTING"/>. 
+		/// Lightingis initially disabled. When it is enabled, light sources that are enabled contribute to the lighting 
+		/// calculation.Light source i is enabled and disabled using Gl.Enable and Gl.Disable with argument <see cref="Gl.LIGHT"/>i. 
+		/// The ten light parameters are as follows: 
+		/// <para>
+		/// The following errors can be generated:
+		/// - <see cref="Gl.INVALID_ENUM"/> is generated if either <paramref name="light"/> or <paramref name="pname"/> is not an 
+		///   acceptedvalue. 
+		/// - <see cref="Gl.INVALID_VALUE"/> is generated if a spot exponent value is specified outside the range 0128, or if spot 
+		///   cutoffis specified outside the range 090 (except for the special value 180), or if a negative attenuation factor is 
+		///   specified.
+		/// - <see cref="Gl.INVALID_OPERATION"/> is generated if <see cref="Gl.Light"/> is executed between the execution of Gl.Begin 
+		///   andthe corresponding execution of Gl.End. 
+		/// </para>
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - Gl.GetLight 
+		/// - Gl.IsEnabled with argument <see cref="Gl.LIGHTING"/> 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.ColorMaterial"/>
+		/// <seealso cref="Gl.LightModel"/>
+		/// <seealso cref="Gl.Material"/>
 		public static void Light(LightName light, LightParameter pname, Int32 param)
 		{
 			Debug.Assert(Delegates.pglLighti != null, "pglLighti not implemented");
@@ -9843,19 +14033,49 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glLightiv.
+		/// set light source parameters
 		/// </summary>
 		/// <param name="light">
-		/// A <see cref="T:int"/>.
+		/// Specifies a light. The number of lights depends on the implementation, but at least eight lights are supported. They are 
+		/// identifiedby symbolic names of the form <see cref="Gl.LIGHT"/>i, where i ranges from 0 to the value of <see 
+		/// cref="Gl.MAX_LIGHTS"/>- 1. 
 		/// </param>
 		/// <param name="pname">
-		/// A <see cref="T:int"/>.
+		/// Specifies a single-valued light source parameter for <paramref name="light"/>. <see cref="Gl.SPOT_EXPONENT"/>, <see 
+		/// cref="Gl.SPOT_CUTOFF"/>,<see cref="Gl.CONSTANT_ATTENUATION"/>, <see cref="Gl.LINEAR_ATTENUATION"/>, and <see 
+		/// cref="Gl.QUADRATIC_ATTENUATION"/>are accepted. 
 		/// </param>
 		/// <param name="params">
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
 		/// <remarks>
+		/// <see cref="Gl.Light"/> sets the values of individual light source parameters. <paramref name="light"/> names the light 
+		/// andis a symbolic name of the form <see cref="Gl.LIGHT"/>i, where i ranges from 0 to the value of <see 
+		/// cref="Gl.MAX_LIGHTS"/>- 1. <paramref name="pname"/> specifies one of ten light source parameters, again by symbolic 
+		/// name.<paramref name="params"/> is either a single value or a pointer to an array that contains the new values. 
+		/// To enable and disable lighting calculation, call Gl.Enable and Gl.Disable with argument <see cref="Gl.LIGHTING"/>. 
+		/// Lightingis initially disabled. When it is enabled, light sources that are enabled contribute to the lighting 
+		/// calculation.Light source i is enabled and disabled using Gl.Enable and Gl.Disable with argument <see cref="Gl.LIGHT"/>i. 
+		/// The ten light parameters are as follows: 
+		/// <para>
+		/// The following errors can be generated:
+		/// - <see cref="Gl.INVALID_ENUM"/> is generated if either <paramref name="light"/> or <paramref name="pname"/> is not an 
+		///   acceptedvalue. 
+		/// - <see cref="Gl.INVALID_VALUE"/> is generated if a spot exponent value is specified outside the range 0128, or if spot 
+		///   cutoffis specified outside the range 090 (except for the special value 180), or if a negative attenuation factor is 
+		///   specified.
+		/// - <see cref="Gl.INVALID_OPERATION"/> is generated if <see cref="Gl.Light"/> is executed between the execution of Gl.Begin 
+		///   andthe corresponding execution of Gl.End. 
+		/// </para>
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - Gl.GetLight 
+		/// - Gl.IsEnabled with argument <see cref="Gl.LIGHTING"/> 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.ColorMaterial"/>
+		/// <seealso cref="Gl.LightModel"/>
+		/// <seealso cref="Gl.Material"/>
 		public static void Light(int light, int pname, Int32[] @params)
 		{
 			unsafe {
@@ -9870,19 +14090,49 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glLightiv.
+		/// set light source parameters
 		/// </summary>
 		/// <param name="light">
-		/// A <see cref="T:int"/>.
+		/// Specifies a light. The number of lights depends on the implementation, but at least eight lights are supported. They are 
+		/// identifiedby symbolic names of the form <see cref="Gl.LIGHT"/>i, where i ranges from 0 to the value of <see 
+		/// cref="Gl.MAX_LIGHTS"/>- 1. 
 		/// </param>
 		/// <param name="pname">
-		/// A <see cref="T:int"/>.
+		/// Specifies a single-valued light source parameter for <paramref name="light"/>. <see cref="Gl.SPOT_EXPONENT"/>, <see 
+		/// cref="Gl.SPOT_CUTOFF"/>,<see cref="Gl.CONSTANT_ATTENUATION"/>, <see cref="Gl.LINEAR_ATTENUATION"/>, and <see 
+		/// cref="Gl.QUADRATIC_ATTENUATION"/>are accepted. 
 		/// </param>
 		/// <param name="params">
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
 		/// <remarks>
+		/// <see cref="Gl.Light"/> sets the values of individual light source parameters. <paramref name="light"/> names the light 
+		/// andis a symbolic name of the form <see cref="Gl.LIGHT"/>i, where i ranges from 0 to the value of <see 
+		/// cref="Gl.MAX_LIGHTS"/>- 1. <paramref name="pname"/> specifies one of ten light source parameters, again by symbolic 
+		/// name.<paramref name="params"/> is either a single value or a pointer to an array that contains the new values. 
+		/// To enable and disable lighting calculation, call Gl.Enable and Gl.Disable with argument <see cref="Gl.LIGHTING"/>. 
+		/// Lightingis initially disabled. When it is enabled, light sources that are enabled contribute to the lighting 
+		/// calculation.Light source i is enabled and disabled using Gl.Enable and Gl.Disable with argument <see cref="Gl.LIGHT"/>i. 
+		/// The ten light parameters are as follows: 
+		/// <para>
+		/// The following errors can be generated:
+		/// - <see cref="Gl.INVALID_ENUM"/> is generated if either <paramref name="light"/> or <paramref name="pname"/> is not an 
+		///   acceptedvalue. 
+		/// - <see cref="Gl.INVALID_VALUE"/> is generated if a spot exponent value is specified outside the range 0128, or if spot 
+		///   cutoffis specified outside the range 090 (except for the special value 180), or if a negative attenuation factor is 
+		///   specified.
+		/// - <see cref="Gl.INVALID_OPERATION"/> is generated if <see cref="Gl.Light"/> is executed between the execution of Gl.Begin 
+		///   andthe corresponding execution of Gl.End. 
+		/// </para>
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - Gl.GetLight 
+		/// - Gl.IsEnabled with argument <see cref="Gl.LIGHTING"/> 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.ColorMaterial"/>
+		/// <seealso cref="Gl.LightModel"/>
+		/// <seealso cref="Gl.Material"/>
 		public static void Light(LightName light, LightParameter pname, Int32[] @params)
 		{
 			unsafe {
@@ -9897,16 +14147,53 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glLightModelf.
+		/// set the lighting model parameters
 		/// </summary>
 		/// <param name="pname">
-		/// A <see cref="T:int"/>.
+		/// Specifies a single-valued lighting model parameter. <see cref="Gl.LIGHT_MODEL_LOCAL_VIEWER"/>, <see 
+		/// cref="Gl.LIGHT_MODEL_COLOR_CONTROL"/>,and <see cref="Gl.LIGHT_MODEL_TWO_SIDE"/> are accepted. 
 		/// </param>
 		/// <param name="param">
-		/// A <see cref="T:float"/>.
+		/// Specifies the value that <paramref name="param"/> will be set to. 
 		/// </param>
 		/// <remarks>
+		/// <see cref="Gl.LightModel"/> sets the lighting model parameter. <paramref name="pname"/> names a parameter and <paramref 
+		/// name="params"/>gives the new value. There are three lighting model parameters: 
+		/// In RGBA mode, the lighted color of a vertex is the sum of the material emission intensity, the product of the material 
+		/// ambientreflectance and the lighting model full-scene ambient intensity, and the contribution of each enabled light 
+		/// source.Each light source contributes the sum of three terms: ambient, diffuse, and specular. The ambient light source 
+		/// contributionis the product of the material ambient reflectance and the light's ambient intensity. The diffuse light 
+		/// sourcecontribution is the product of the material diffuse reflectance, the light's diffuse intensity, and the dot 
+		/// productof the vertex's normal with the normalized vector from the vertex to the light source. The specular light source 
+		/// contributionis the product of the material specular reflectance, the light's specular intensity, and the dot product of 
+		/// thenormalized vertex-to-eye and vertex-to-light vectors, raised to the power of the shininess of the material. All three 
+		/// lightsource contributions are attenuated equally based on the distance from the vertex to the light source and on light 
+		/// sourcedirection, spread exponent, and spread cutoff angle. All dot products are replaced with 0 if they evaluate to a 
+		/// negativevalue. 
+		/// The alpha component of the resulting lighted color is set to the alpha value of the material diffuse reflectance. 
+		/// In color index mode, the value of the lighted index of a vertex ranges from the ambient to the specular values passed to 
+		/// Gl.Materialusing <see cref="Gl.COLOR_INDEXES"/>. Diffuse and specular coefficients, computed with a (.30, .59, .11) 
+		/// weightingof the lights' colors, the shininess of the material, and the same reflection and attenuation equations as in 
+		/// theRGBA case, determine how much above ambient the resulting index is. 
+		/// <para>
+		/// The following errors can be generated:
+		/// - <see cref="Gl.INVALID_ENUM"/> is generated if <paramref name="pname"/> is not an accepted value. 
+		/// - <see cref="Gl.INVALID_ENUM"/> is generated if <paramref name="pname"/> is <see cref="Gl.LIGHT_MODEL_COLOR_CONTROL"/> and 
+		///   <paramrefname="params"/> is not one of <see cref="Gl.SINGLE_COLOR"/> or <see cref="Gl.SEPARATE_SPECULAR_COLOR"/>. 
+		/// - <see cref="Gl.INVALID_OPERATION"/> is generated if <see cref="Gl.LightModel"/> is executed between the execution of 
+		///   Gl.Beginand the corresponding execution of Gl.End. 
+		/// </para>
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - Gl.Get with argument <see cref="Gl.LIGHT_MODEL_AMBIENT"/> 
+		/// - Gl.Get with argument <see cref="Gl.LIGHT_MODEL_COLOR_CONTROL"/> 
+		/// - Gl.Get with argument <see cref="Gl.LIGHT_MODEL_LOCAL_VIEWER"/> 
+		/// - Gl.Get with argument <see cref="Gl.LIGHT_MODEL_TWO_SIDE"/> 
+		/// - Gl.IsEnabled with argument <see cref="Gl.LIGHTING"/> 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.Light"/>
+		/// <seealso cref="Gl.Material"/>
 		public static void LightModel(int pname, float param)
 		{
 			Debug.Assert(Delegates.pglLightModelf != null, "pglLightModelf not implemented");
@@ -9916,16 +14203,53 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glLightModelf.
+		/// set the lighting model parameters
 		/// </summary>
 		/// <param name="pname">
-		/// A <see cref="T:int"/>.
+		/// Specifies a single-valued lighting model parameter. <see cref="Gl.LIGHT_MODEL_LOCAL_VIEWER"/>, <see 
+		/// cref="Gl.LIGHT_MODEL_COLOR_CONTROL"/>,and <see cref="Gl.LIGHT_MODEL_TWO_SIDE"/> are accepted. 
 		/// </param>
 		/// <param name="param">
-		/// A <see cref="T:float"/>.
+		/// Specifies the value that <paramref name="param"/> will be set to. 
 		/// </param>
 		/// <remarks>
+		/// <see cref="Gl.LightModel"/> sets the lighting model parameter. <paramref name="pname"/> names a parameter and <paramref 
+		/// name="params"/>gives the new value. There are three lighting model parameters: 
+		/// In RGBA mode, the lighted color of a vertex is the sum of the material emission intensity, the product of the material 
+		/// ambientreflectance and the lighting model full-scene ambient intensity, and the contribution of each enabled light 
+		/// source.Each light source contributes the sum of three terms: ambient, diffuse, and specular. The ambient light source 
+		/// contributionis the product of the material ambient reflectance and the light's ambient intensity. The diffuse light 
+		/// sourcecontribution is the product of the material diffuse reflectance, the light's diffuse intensity, and the dot 
+		/// productof the vertex's normal with the normalized vector from the vertex to the light source. The specular light source 
+		/// contributionis the product of the material specular reflectance, the light's specular intensity, and the dot product of 
+		/// thenormalized vertex-to-eye and vertex-to-light vectors, raised to the power of the shininess of the material. All three 
+		/// lightsource contributions are attenuated equally based on the distance from the vertex to the light source and on light 
+		/// sourcedirection, spread exponent, and spread cutoff angle. All dot products are replaced with 0 if they evaluate to a 
+		/// negativevalue. 
+		/// The alpha component of the resulting lighted color is set to the alpha value of the material diffuse reflectance. 
+		/// In color index mode, the value of the lighted index of a vertex ranges from the ambient to the specular values passed to 
+		/// Gl.Materialusing <see cref="Gl.COLOR_INDEXES"/>. Diffuse and specular coefficients, computed with a (.30, .59, .11) 
+		/// weightingof the lights' colors, the shininess of the material, and the same reflection and attenuation equations as in 
+		/// theRGBA case, determine how much above ambient the resulting index is. 
+		/// <para>
+		/// The following errors can be generated:
+		/// - <see cref="Gl.INVALID_ENUM"/> is generated if <paramref name="pname"/> is not an accepted value. 
+		/// - <see cref="Gl.INVALID_ENUM"/> is generated if <paramref name="pname"/> is <see cref="Gl.LIGHT_MODEL_COLOR_CONTROL"/> and 
+		///   <paramrefname="params"/> is not one of <see cref="Gl.SINGLE_COLOR"/> or <see cref="Gl.SEPARATE_SPECULAR_COLOR"/>. 
+		/// - <see cref="Gl.INVALID_OPERATION"/> is generated if <see cref="Gl.LightModel"/> is executed between the execution of 
+		///   Gl.Beginand the corresponding execution of Gl.End. 
+		/// </para>
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - Gl.Get with argument <see cref="Gl.LIGHT_MODEL_AMBIENT"/> 
+		/// - Gl.Get with argument <see cref="Gl.LIGHT_MODEL_COLOR_CONTROL"/> 
+		/// - Gl.Get with argument <see cref="Gl.LIGHT_MODEL_LOCAL_VIEWER"/> 
+		/// - Gl.Get with argument <see cref="Gl.LIGHT_MODEL_TWO_SIDE"/> 
+		/// - Gl.IsEnabled with argument <see cref="Gl.LIGHTING"/> 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.Light"/>
+		/// <seealso cref="Gl.Material"/>
 		public static void LightModel(LightModelParameter pname, float param)
 		{
 			Debug.Assert(Delegates.pglLightModelf != null, "pglLightModelf not implemented");
@@ -9935,16 +14259,53 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glLightModelfv.
+		/// set the lighting model parameters
 		/// </summary>
 		/// <param name="pname">
-		/// A <see cref="T:int"/>.
+		/// Specifies a single-valued lighting model parameter. <see cref="Gl.LIGHT_MODEL_LOCAL_VIEWER"/>, <see 
+		/// cref="Gl.LIGHT_MODEL_COLOR_CONTROL"/>,and <see cref="Gl.LIGHT_MODEL_TWO_SIDE"/> are accepted. 
 		/// </param>
 		/// <param name="params">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
 		/// <remarks>
+		/// <see cref="Gl.LightModel"/> sets the lighting model parameter. <paramref name="pname"/> names a parameter and <paramref 
+		/// name="params"/>gives the new value. There are three lighting model parameters: 
+		/// In RGBA mode, the lighted color of a vertex is the sum of the material emission intensity, the product of the material 
+		/// ambientreflectance and the lighting model full-scene ambient intensity, and the contribution of each enabled light 
+		/// source.Each light source contributes the sum of three terms: ambient, diffuse, and specular. The ambient light source 
+		/// contributionis the product of the material ambient reflectance and the light's ambient intensity. The diffuse light 
+		/// sourcecontribution is the product of the material diffuse reflectance, the light's diffuse intensity, and the dot 
+		/// productof the vertex's normal with the normalized vector from the vertex to the light source. The specular light source 
+		/// contributionis the product of the material specular reflectance, the light's specular intensity, and the dot product of 
+		/// thenormalized vertex-to-eye and vertex-to-light vectors, raised to the power of the shininess of the material. All three 
+		/// lightsource contributions are attenuated equally based on the distance from the vertex to the light source and on light 
+		/// sourcedirection, spread exponent, and spread cutoff angle. All dot products are replaced with 0 if they evaluate to a 
+		/// negativevalue. 
+		/// The alpha component of the resulting lighted color is set to the alpha value of the material diffuse reflectance. 
+		/// In color index mode, the value of the lighted index of a vertex ranges from the ambient to the specular values passed to 
+		/// Gl.Materialusing <see cref="Gl.COLOR_INDEXES"/>. Diffuse and specular coefficients, computed with a (.30, .59, .11) 
+		/// weightingof the lights' colors, the shininess of the material, and the same reflection and attenuation equations as in 
+		/// theRGBA case, determine how much above ambient the resulting index is. 
+		/// <para>
+		/// The following errors can be generated:
+		/// - <see cref="Gl.INVALID_ENUM"/> is generated if <paramref name="pname"/> is not an accepted value. 
+		/// - <see cref="Gl.INVALID_ENUM"/> is generated if <paramref name="pname"/> is <see cref="Gl.LIGHT_MODEL_COLOR_CONTROL"/> and 
+		///   <paramrefname="params"/> is not one of <see cref="Gl.SINGLE_COLOR"/> or <see cref="Gl.SEPARATE_SPECULAR_COLOR"/>. 
+		/// - <see cref="Gl.INVALID_OPERATION"/> is generated if <see cref="Gl.LightModel"/> is executed between the execution of 
+		///   Gl.Beginand the corresponding execution of Gl.End. 
+		/// </para>
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - Gl.Get with argument <see cref="Gl.LIGHT_MODEL_AMBIENT"/> 
+		/// - Gl.Get with argument <see cref="Gl.LIGHT_MODEL_COLOR_CONTROL"/> 
+		/// - Gl.Get with argument <see cref="Gl.LIGHT_MODEL_LOCAL_VIEWER"/> 
+		/// - Gl.Get with argument <see cref="Gl.LIGHT_MODEL_TWO_SIDE"/> 
+		/// - Gl.IsEnabled with argument <see cref="Gl.LIGHTING"/> 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.Light"/>
+		/// <seealso cref="Gl.Material"/>
 		public static void LightModel(int pname, float[] @params)
 		{
 			unsafe {
@@ -9959,16 +14320,53 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glLightModelfv.
+		/// set the lighting model parameters
 		/// </summary>
 		/// <param name="pname">
-		/// A <see cref="T:int"/>.
+		/// Specifies a single-valued lighting model parameter. <see cref="Gl.LIGHT_MODEL_LOCAL_VIEWER"/>, <see 
+		/// cref="Gl.LIGHT_MODEL_COLOR_CONTROL"/>,and <see cref="Gl.LIGHT_MODEL_TWO_SIDE"/> are accepted. 
 		/// </param>
 		/// <param name="params">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
 		/// <remarks>
+		/// <see cref="Gl.LightModel"/> sets the lighting model parameter. <paramref name="pname"/> names a parameter and <paramref 
+		/// name="params"/>gives the new value. There are three lighting model parameters: 
+		/// In RGBA mode, the lighted color of a vertex is the sum of the material emission intensity, the product of the material 
+		/// ambientreflectance and the lighting model full-scene ambient intensity, and the contribution of each enabled light 
+		/// source.Each light source contributes the sum of three terms: ambient, diffuse, and specular. The ambient light source 
+		/// contributionis the product of the material ambient reflectance and the light's ambient intensity. The diffuse light 
+		/// sourcecontribution is the product of the material diffuse reflectance, the light's diffuse intensity, and the dot 
+		/// productof the vertex's normal with the normalized vector from the vertex to the light source. The specular light source 
+		/// contributionis the product of the material specular reflectance, the light's specular intensity, and the dot product of 
+		/// thenormalized vertex-to-eye and vertex-to-light vectors, raised to the power of the shininess of the material. All three 
+		/// lightsource contributions are attenuated equally based on the distance from the vertex to the light source and on light 
+		/// sourcedirection, spread exponent, and spread cutoff angle. All dot products are replaced with 0 if they evaluate to a 
+		/// negativevalue. 
+		/// The alpha component of the resulting lighted color is set to the alpha value of the material diffuse reflectance. 
+		/// In color index mode, the value of the lighted index of a vertex ranges from the ambient to the specular values passed to 
+		/// Gl.Materialusing <see cref="Gl.COLOR_INDEXES"/>. Diffuse and specular coefficients, computed with a (.30, .59, .11) 
+		/// weightingof the lights' colors, the shininess of the material, and the same reflection and attenuation equations as in 
+		/// theRGBA case, determine how much above ambient the resulting index is. 
+		/// <para>
+		/// The following errors can be generated:
+		/// - <see cref="Gl.INVALID_ENUM"/> is generated if <paramref name="pname"/> is not an accepted value. 
+		/// - <see cref="Gl.INVALID_ENUM"/> is generated if <paramref name="pname"/> is <see cref="Gl.LIGHT_MODEL_COLOR_CONTROL"/> and 
+		///   <paramrefname="params"/> is not one of <see cref="Gl.SINGLE_COLOR"/> or <see cref="Gl.SEPARATE_SPECULAR_COLOR"/>. 
+		/// - <see cref="Gl.INVALID_OPERATION"/> is generated if <see cref="Gl.LightModel"/> is executed between the execution of 
+		///   Gl.Beginand the corresponding execution of Gl.End. 
+		/// </para>
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - Gl.Get with argument <see cref="Gl.LIGHT_MODEL_AMBIENT"/> 
+		/// - Gl.Get with argument <see cref="Gl.LIGHT_MODEL_COLOR_CONTROL"/> 
+		/// - Gl.Get with argument <see cref="Gl.LIGHT_MODEL_LOCAL_VIEWER"/> 
+		/// - Gl.Get with argument <see cref="Gl.LIGHT_MODEL_TWO_SIDE"/> 
+		/// - Gl.IsEnabled with argument <see cref="Gl.LIGHTING"/> 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.Light"/>
+		/// <seealso cref="Gl.Material"/>
 		public static void LightModel(LightModelParameter pname, float[] @params)
 		{
 			unsafe {
@@ -9983,16 +14381,53 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glLightModeli.
+		/// set the lighting model parameters
 		/// </summary>
 		/// <param name="pname">
-		/// A <see cref="T:int"/>.
+		/// Specifies a single-valued lighting model parameter. <see cref="Gl.LIGHT_MODEL_LOCAL_VIEWER"/>, <see 
+		/// cref="Gl.LIGHT_MODEL_COLOR_CONTROL"/>,and <see cref="Gl.LIGHT_MODEL_TWO_SIDE"/> are accepted. 
 		/// </param>
 		/// <param name="param">
-		/// A <see cref="T:Int32"/>.
+		/// Specifies the value that <paramref name="param"/> will be set to. 
 		/// </param>
 		/// <remarks>
+		/// <see cref="Gl.LightModel"/> sets the lighting model parameter. <paramref name="pname"/> names a parameter and <paramref 
+		/// name="params"/>gives the new value. There are three lighting model parameters: 
+		/// In RGBA mode, the lighted color of a vertex is the sum of the material emission intensity, the product of the material 
+		/// ambientreflectance and the lighting model full-scene ambient intensity, and the contribution of each enabled light 
+		/// source.Each light source contributes the sum of three terms: ambient, diffuse, and specular. The ambient light source 
+		/// contributionis the product of the material ambient reflectance and the light's ambient intensity. The diffuse light 
+		/// sourcecontribution is the product of the material diffuse reflectance, the light's diffuse intensity, and the dot 
+		/// productof the vertex's normal with the normalized vector from the vertex to the light source. The specular light source 
+		/// contributionis the product of the material specular reflectance, the light's specular intensity, and the dot product of 
+		/// thenormalized vertex-to-eye and vertex-to-light vectors, raised to the power of the shininess of the material. All three 
+		/// lightsource contributions are attenuated equally based on the distance from the vertex to the light source and on light 
+		/// sourcedirection, spread exponent, and spread cutoff angle. All dot products are replaced with 0 if they evaluate to a 
+		/// negativevalue. 
+		/// The alpha component of the resulting lighted color is set to the alpha value of the material diffuse reflectance. 
+		/// In color index mode, the value of the lighted index of a vertex ranges from the ambient to the specular values passed to 
+		/// Gl.Materialusing <see cref="Gl.COLOR_INDEXES"/>. Diffuse and specular coefficients, computed with a (.30, .59, .11) 
+		/// weightingof the lights' colors, the shininess of the material, and the same reflection and attenuation equations as in 
+		/// theRGBA case, determine how much above ambient the resulting index is. 
+		/// <para>
+		/// The following errors can be generated:
+		/// - <see cref="Gl.INVALID_ENUM"/> is generated if <paramref name="pname"/> is not an accepted value. 
+		/// - <see cref="Gl.INVALID_ENUM"/> is generated if <paramref name="pname"/> is <see cref="Gl.LIGHT_MODEL_COLOR_CONTROL"/> and 
+		///   <paramrefname="params"/> is not one of <see cref="Gl.SINGLE_COLOR"/> or <see cref="Gl.SEPARATE_SPECULAR_COLOR"/>. 
+		/// - <see cref="Gl.INVALID_OPERATION"/> is generated if <see cref="Gl.LightModel"/> is executed between the execution of 
+		///   Gl.Beginand the corresponding execution of Gl.End. 
+		/// </para>
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - Gl.Get with argument <see cref="Gl.LIGHT_MODEL_AMBIENT"/> 
+		/// - Gl.Get with argument <see cref="Gl.LIGHT_MODEL_COLOR_CONTROL"/> 
+		/// - Gl.Get with argument <see cref="Gl.LIGHT_MODEL_LOCAL_VIEWER"/> 
+		/// - Gl.Get with argument <see cref="Gl.LIGHT_MODEL_TWO_SIDE"/> 
+		/// - Gl.IsEnabled with argument <see cref="Gl.LIGHTING"/> 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.Light"/>
+		/// <seealso cref="Gl.Material"/>
 		public static void LightModel(int pname, Int32 param)
 		{
 			Debug.Assert(Delegates.pglLightModeli != null, "pglLightModeli not implemented");
@@ -10002,16 +14437,53 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glLightModeli.
+		/// set the lighting model parameters
 		/// </summary>
 		/// <param name="pname">
-		/// A <see cref="T:int"/>.
+		/// Specifies a single-valued lighting model parameter. <see cref="Gl.LIGHT_MODEL_LOCAL_VIEWER"/>, <see 
+		/// cref="Gl.LIGHT_MODEL_COLOR_CONTROL"/>,and <see cref="Gl.LIGHT_MODEL_TWO_SIDE"/> are accepted. 
 		/// </param>
 		/// <param name="param">
-		/// A <see cref="T:Int32"/>.
+		/// Specifies the value that <paramref name="param"/> will be set to. 
 		/// </param>
 		/// <remarks>
+		/// <see cref="Gl.LightModel"/> sets the lighting model parameter. <paramref name="pname"/> names a parameter and <paramref 
+		/// name="params"/>gives the new value. There are three lighting model parameters: 
+		/// In RGBA mode, the lighted color of a vertex is the sum of the material emission intensity, the product of the material 
+		/// ambientreflectance and the lighting model full-scene ambient intensity, and the contribution of each enabled light 
+		/// source.Each light source contributes the sum of three terms: ambient, diffuse, and specular. The ambient light source 
+		/// contributionis the product of the material ambient reflectance and the light's ambient intensity. The diffuse light 
+		/// sourcecontribution is the product of the material diffuse reflectance, the light's diffuse intensity, and the dot 
+		/// productof the vertex's normal with the normalized vector from the vertex to the light source. The specular light source 
+		/// contributionis the product of the material specular reflectance, the light's specular intensity, and the dot product of 
+		/// thenormalized vertex-to-eye and vertex-to-light vectors, raised to the power of the shininess of the material. All three 
+		/// lightsource contributions are attenuated equally based on the distance from the vertex to the light source and on light 
+		/// sourcedirection, spread exponent, and spread cutoff angle. All dot products are replaced with 0 if they evaluate to a 
+		/// negativevalue. 
+		/// The alpha component of the resulting lighted color is set to the alpha value of the material diffuse reflectance. 
+		/// In color index mode, the value of the lighted index of a vertex ranges from the ambient to the specular values passed to 
+		/// Gl.Materialusing <see cref="Gl.COLOR_INDEXES"/>. Diffuse and specular coefficients, computed with a (.30, .59, .11) 
+		/// weightingof the lights' colors, the shininess of the material, and the same reflection and attenuation equations as in 
+		/// theRGBA case, determine how much above ambient the resulting index is. 
+		/// <para>
+		/// The following errors can be generated:
+		/// - <see cref="Gl.INVALID_ENUM"/> is generated if <paramref name="pname"/> is not an accepted value. 
+		/// - <see cref="Gl.INVALID_ENUM"/> is generated if <paramref name="pname"/> is <see cref="Gl.LIGHT_MODEL_COLOR_CONTROL"/> and 
+		///   <paramrefname="params"/> is not one of <see cref="Gl.SINGLE_COLOR"/> or <see cref="Gl.SEPARATE_SPECULAR_COLOR"/>. 
+		/// - <see cref="Gl.INVALID_OPERATION"/> is generated if <see cref="Gl.LightModel"/> is executed between the execution of 
+		///   Gl.Beginand the corresponding execution of Gl.End. 
+		/// </para>
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - Gl.Get with argument <see cref="Gl.LIGHT_MODEL_AMBIENT"/> 
+		/// - Gl.Get with argument <see cref="Gl.LIGHT_MODEL_COLOR_CONTROL"/> 
+		/// - Gl.Get with argument <see cref="Gl.LIGHT_MODEL_LOCAL_VIEWER"/> 
+		/// - Gl.Get with argument <see cref="Gl.LIGHT_MODEL_TWO_SIDE"/> 
+		/// - Gl.IsEnabled with argument <see cref="Gl.LIGHTING"/> 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.Light"/>
+		/// <seealso cref="Gl.Material"/>
 		public static void LightModel(LightModelParameter pname, Int32 param)
 		{
 			Debug.Assert(Delegates.pglLightModeli != null, "pglLightModeli not implemented");
@@ -10021,16 +14493,53 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glLightModeliv.
+		/// set the lighting model parameters
 		/// </summary>
 		/// <param name="pname">
-		/// A <see cref="T:int"/>.
+		/// Specifies a single-valued lighting model parameter. <see cref="Gl.LIGHT_MODEL_LOCAL_VIEWER"/>, <see 
+		/// cref="Gl.LIGHT_MODEL_COLOR_CONTROL"/>,and <see cref="Gl.LIGHT_MODEL_TWO_SIDE"/> are accepted. 
 		/// </param>
 		/// <param name="params">
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
 		/// <remarks>
+		/// <see cref="Gl.LightModel"/> sets the lighting model parameter. <paramref name="pname"/> names a parameter and <paramref 
+		/// name="params"/>gives the new value. There are three lighting model parameters: 
+		/// In RGBA mode, the lighted color of a vertex is the sum of the material emission intensity, the product of the material 
+		/// ambientreflectance and the lighting model full-scene ambient intensity, and the contribution of each enabled light 
+		/// source.Each light source contributes the sum of three terms: ambient, diffuse, and specular. The ambient light source 
+		/// contributionis the product of the material ambient reflectance and the light's ambient intensity. The diffuse light 
+		/// sourcecontribution is the product of the material diffuse reflectance, the light's diffuse intensity, and the dot 
+		/// productof the vertex's normal with the normalized vector from the vertex to the light source. The specular light source 
+		/// contributionis the product of the material specular reflectance, the light's specular intensity, and the dot product of 
+		/// thenormalized vertex-to-eye and vertex-to-light vectors, raised to the power of the shininess of the material. All three 
+		/// lightsource contributions are attenuated equally based on the distance from the vertex to the light source and on light 
+		/// sourcedirection, spread exponent, and spread cutoff angle. All dot products are replaced with 0 if they evaluate to a 
+		/// negativevalue. 
+		/// The alpha component of the resulting lighted color is set to the alpha value of the material diffuse reflectance. 
+		/// In color index mode, the value of the lighted index of a vertex ranges from the ambient to the specular values passed to 
+		/// Gl.Materialusing <see cref="Gl.COLOR_INDEXES"/>. Diffuse and specular coefficients, computed with a (.30, .59, .11) 
+		/// weightingof the lights' colors, the shininess of the material, and the same reflection and attenuation equations as in 
+		/// theRGBA case, determine how much above ambient the resulting index is. 
+		/// <para>
+		/// The following errors can be generated:
+		/// - <see cref="Gl.INVALID_ENUM"/> is generated if <paramref name="pname"/> is not an accepted value. 
+		/// - <see cref="Gl.INVALID_ENUM"/> is generated if <paramref name="pname"/> is <see cref="Gl.LIGHT_MODEL_COLOR_CONTROL"/> and 
+		///   <paramrefname="params"/> is not one of <see cref="Gl.SINGLE_COLOR"/> or <see cref="Gl.SEPARATE_SPECULAR_COLOR"/>. 
+		/// - <see cref="Gl.INVALID_OPERATION"/> is generated if <see cref="Gl.LightModel"/> is executed between the execution of 
+		///   Gl.Beginand the corresponding execution of Gl.End. 
+		/// </para>
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - Gl.Get with argument <see cref="Gl.LIGHT_MODEL_AMBIENT"/> 
+		/// - Gl.Get with argument <see cref="Gl.LIGHT_MODEL_COLOR_CONTROL"/> 
+		/// - Gl.Get with argument <see cref="Gl.LIGHT_MODEL_LOCAL_VIEWER"/> 
+		/// - Gl.Get with argument <see cref="Gl.LIGHT_MODEL_TWO_SIDE"/> 
+		/// - Gl.IsEnabled with argument <see cref="Gl.LIGHTING"/> 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.Light"/>
+		/// <seealso cref="Gl.Material"/>
 		public static void LightModel(int pname, Int32[] @params)
 		{
 			unsafe {
@@ -10045,16 +14554,53 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glLightModeliv.
+		/// set the lighting model parameters
 		/// </summary>
 		/// <param name="pname">
-		/// A <see cref="T:int"/>.
+		/// Specifies a single-valued lighting model parameter. <see cref="Gl.LIGHT_MODEL_LOCAL_VIEWER"/>, <see 
+		/// cref="Gl.LIGHT_MODEL_COLOR_CONTROL"/>,and <see cref="Gl.LIGHT_MODEL_TWO_SIDE"/> are accepted. 
 		/// </param>
 		/// <param name="params">
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
 		/// <remarks>
+		/// <see cref="Gl.LightModel"/> sets the lighting model parameter. <paramref name="pname"/> names a parameter and <paramref 
+		/// name="params"/>gives the new value. There are three lighting model parameters: 
+		/// In RGBA mode, the lighted color of a vertex is the sum of the material emission intensity, the product of the material 
+		/// ambientreflectance and the lighting model full-scene ambient intensity, and the contribution of each enabled light 
+		/// source.Each light source contributes the sum of three terms: ambient, diffuse, and specular. The ambient light source 
+		/// contributionis the product of the material ambient reflectance and the light's ambient intensity. The diffuse light 
+		/// sourcecontribution is the product of the material diffuse reflectance, the light's diffuse intensity, and the dot 
+		/// productof the vertex's normal with the normalized vector from the vertex to the light source. The specular light source 
+		/// contributionis the product of the material specular reflectance, the light's specular intensity, and the dot product of 
+		/// thenormalized vertex-to-eye and vertex-to-light vectors, raised to the power of the shininess of the material. All three 
+		/// lightsource contributions are attenuated equally based on the distance from the vertex to the light source and on light 
+		/// sourcedirection, spread exponent, and spread cutoff angle. All dot products are replaced with 0 if they evaluate to a 
+		/// negativevalue. 
+		/// The alpha component of the resulting lighted color is set to the alpha value of the material diffuse reflectance. 
+		/// In color index mode, the value of the lighted index of a vertex ranges from the ambient to the specular values passed to 
+		/// Gl.Materialusing <see cref="Gl.COLOR_INDEXES"/>. Diffuse and specular coefficients, computed with a (.30, .59, .11) 
+		/// weightingof the lights' colors, the shininess of the material, and the same reflection and attenuation equations as in 
+		/// theRGBA case, determine how much above ambient the resulting index is. 
+		/// <para>
+		/// The following errors can be generated:
+		/// - <see cref="Gl.INVALID_ENUM"/> is generated if <paramref name="pname"/> is not an accepted value. 
+		/// - <see cref="Gl.INVALID_ENUM"/> is generated if <paramref name="pname"/> is <see cref="Gl.LIGHT_MODEL_COLOR_CONTROL"/> and 
+		///   <paramrefname="params"/> is not one of <see cref="Gl.SINGLE_COLOR"/> or <see cref="Gl.SEPARATE_SPECULAR_COLOR"/>. 
+		/// - <see cref="Gl.INVALID_OPERATION"/> is generated if <see cref="Gl.LightModel"/> is executed between the execution of 
+		///   Gl.Beginand the corresponding execution of Gl.End. 
+		/// </para>
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - Gl.Get with argument <see cref="Gl.LIGHT_MODEL_AMBIENT"/> 
+		/// - Gl.Get with argument <see cref="Gl.LIGHT_MODEL_COLOR_CONTROL"/> 
+		/// - Gl.Get with argument <see cref="Gl.LIGHT_MODEL_LOCAL_VIEWER"/> 
+		/// - Gl.Get with argument <see cref="Gl.LIGHT_MODEL_TWO_SIDE"/> 
+		/// - Gl.IsEnabled with argument <see cref="Gl.LIGHTING"/> 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.Light"/>
+		/// <seealso cref="Gl.Material"/>
 		public static void LightModel(LightModelParameter pname, Int32[] @params)
 		{
 			unsafe {
@@ -10120,19 +14666,47 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glMaterialf.
+		/// specify material parameters for the lighting model
 		/// </summary>
 		/// <param name="face">
-		/// A <see cref="T:int"/>.
+		/// Specifies which face or faces are being updated. Must be one of <see cref="Gl.FRONT"/>, <see cref="Gl.BACK"/>, or <see 
+		/// cref="Gl.FRONT_AND_BACK"/>.
 		/// </param>
 		/// <param name="pname">
-		/// A <see cref="T:int"/>.
+		/// Specifies the single-valued material parameter of the face or faces that is being updated. Must be <see 
+		/// cref="Gl.SHININESS"/>.
 		/// </param>
 		/// <param name="param">
-		/// A <see cref="T:float"/>.
+		/// Specifies the value that parameter <see cref="Gl.SHININESS"/> will be set to. 
 		/// </param>
 		/// <remarks>
+		/// <see cref="Gl.Material"/> assigns values to material parameters. There are two matched sets of material parameters. One, 
+		/// thefront-facing set, is used to shade points, lines, bitmaps, and all polygons (when two-sided lighting is disabled), or 
+		/// justfront-facing polygons (when two-sided lighting is enabled). The other set, back-facing, is used to shade back-facing 
+		/// polygonsonly when two-sided lighting is enabled. Refer to the Gl.LightModel reference page for details concerning one- 
+		/// andtwo-sided lighting calculations. 
+		/// <see cref="Gl.Material"/> takes three arguments. The first, <paramref name="face"/>, specifies whether the <see 
+		/// cref="Gl.FRONT"/>materials, the <see cref="Gl.BACK"/> materials, or both <see cref="Gl.FRONT_AND_BACK"/> materials will 
+		/// bemodified. The second, <paramref name="pname"/>, specifies which of several parameters in one or both sets will be 
+		/// modified.The third, <paramref name="params"/>, specifies what value or values will be assigned to the specified 
+		/// parameter.
+		/// Material parameters are used in the lighting equation that is optionally applied to each vertex. The equation is 
+		/// discussedin the Gl.LightModel reference page. The parameters that can be specified using <see cref="Gl.Material"/>, and 
+		/// theirinterpretations by the lighting equation, are as follows: 
+		/// <para>
+		/// The following errors can be generated:
+		/// - <see cref="Gl.INVALID_ENUM"/> is generated if either <paramref name="face"/> or <paramref name="pname"/> is not an 
+		///   acceptedvalue. 
+		/// - <see cref="Gl.INVALID_VALUE"/> is generated if a specular exponent outside the range 0128 is specified. 
+		/// </para>
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - Gl.GetMaterial 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.ColorMaterial"/>
+		/// <seealso cref="Gl.Light"/>
+		/// <seealso cref="Gl.LightModel"/>
 		public static void Material(int face, int pname, float param)
 		{
 			Debug.Assert(Delegates.pglMaterialf != null, "pglMaterialf not implemented");
@@ -10142,19 +14716,47 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glMaterialf.
+		/// specify material parameters for the lighting model
 		/// </summary>
 		/// <param name="face">
-		/// A <see cref="T:int"/>.
+		/// Specifies which face or faces are being updated. Must be one of <see cref="Gl.FRONT"/>, <see cref="Gl.BACK"/>, or <see 
+		/// cref="Gl.FRONT_AND_BACK"/>.
 		/// </param>
 		/// <param name="pname">
-		/// A <see cref="T:int"/>.
+		/// Specifies the single-valued material parameter of the face or faces that is being updated. Must be <see 
+		/// cref="Gl.SHININESS"/>.
 		/// </param>
 		/// <param name="param">
-		/// A <see cref="T:float"/>.
+		/// Specifies the value that parameter <see cref="Gl.SHININESS"/> will be set to. 
 		/// </param>
 		/// <remarks>
+		/// <see cref="Gl.Material"/> assigns values to material parameters. There are two matched sets of material parameters. One, 
+		/// thefront-facing set, is used to shade points, lines, bitmaps, and all polygons (when two-sided lighting is disabled), or 
+		/// justfront-facing polygons (when two-sided lighting is enabled). The other set, back-facing, is used to shade back-facing 
+		/// polygonsonly when two-sided lighting is enabled. Refer to the Gl.LightModel reference page for details concerning one- 
+		/// andtwo-sided lighting calculations. 
+		/// <see cref="Gl.Material"/> takes three arguments. The first, <paramref name="face"/>, specifies whether the <see 
+		/// cref="Gl.FRONT"/>materials, the <see cref="Gl.BACK"/> materials, or both <see cref="Gl.FRONT_AND_BACK"/> materials will 
+		/// bemodified. The second, <paramref name="pname"/>, specifies which of several parameters in one or both sets will be 
+		/// modified.The third, <paramref name="params"/>, specifies what value or values will be assigned to the specified 
+		/// parameter.
+		/// Material parameters are used in the lighting equation that is optionally applied to each vertex. The equation is 
+		/// discussedin the Gl.LightModel reference page. The parameters that can be specified using <see cref="Gl.Material"/>, and 
+		/// theirinterpretations by the lighting equation, are as follows: 
+		/// <para>
+		/// The following errors can be generated:
+		/// - <see cref="Gl.INVALID_ENUM"/> is generated if either <paramref name="face"/> or <paramref name="pname"/> is not an 
+		///   acceptedvalue. 
+		/// - <see cref="Gl.INVALID_VALUE"/> is generated if a specular exponent outside the range 0128 is specified. 
+		/// </para>
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - Gl.GetMaterial 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.ColorMaterial"/>
+		/// <seealso cref="Gl.Light"/>
+		/// <seealso cref="Gl.LightModel"/>
 		public static void Material(MaterialFace face, MaterialParameter pname, float param)
 		{
 			Debug.Assert(Delegates.pglMaterialf != null, "pglMaterialf not implemented");
@@ -10164,19 +14766,47 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glMaterialfv.
+		/// specify material parameters for the lighting model
 		/// </summary>
 		/// <param name="face">
-		/// A <see cref="T:int"/>.
+		/// Specifies which face or faces are being updated. Must be one of <see cref="Gl.FRONT"/>, <see cref="Gl.BACK"/>, or <see 
+		/// cref="Gl.FRONT_AND_BACK"/>.
 		/// </param>
 		/// <param name="pname">
-		/// A <see cref="T:int"/>.
+		/// Specifies the single-valued material parameter of the face or faces that is being updated. Must be <see 
+		/// cref="Gl.SHININESS"/>.
 		/// </param>
 		/// <param name="params">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
 		/// <remarks>
+		/// <see cref="Gl.Material"/> assigns values to material parameters. There are two matched sets of material parameters. One, 
+		/// thefront-facing set, is used to shade points, lines, bitmaps, and all polygons (when two-sided lighting is disabled), or 
+		/// justfront-facing polygons (when two-sided lighting is enabled). The other set, back-facing, is used to shade back-facing 
+		/// polygonsonly when two-sided lighting is enabled. Refer to the Gl.LightModel reference page for details concerning one- 
+		/// andtwo-sided lighting calculations. 
+		/// <see cref="Gl.Material"/> takes three arguments. The first, <paramref name="face"/>, specifies whether the <see 
+		/// cref="Gl.FRONT"/>materials, the <see cref="Gl.BACK"/> materials, or both <see cref="Gl.FRONT_AND_BACK"/> materials will 
+		/// bemodified. The second, <paramref name="pname"/>, specifies which of several parameters in one or both sets will be 
+		/// modified.The third, <paramref name="params"/>, specifies what value or values will be assigned to the specified 
+		/// parameter.
+		/// Material parameters are used in the lighting equation that is optionally applied to each vertex. The equation is 
+		/// discussedin the Gl.LightModel reference page. The parameters that can be specified using <see cref="Gl.Material"/>, and 
+		/// theirinterpretations by the lighting equation, are as follows: 
+		/// <para>
+		/// The following errors can be generated:
+		/// - <see cref="Gl.INVALID_ENUM"/> is generated if either <paramref name="face"/> or <paramref name="pname"/> is not an 
+		///   acceptedvalue. 
+		/// - <see cref="Gl.INVALID_VALUE"/> is generated if a specular exponent outside the range 0128 is specified. 
+		/// </para>
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - Gl.GetMaterial 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.ColorMaterial"/>
+		/// <seealso cref="Gl.Light"/>
+		/// <seealso cref="Gl.LightModel"/>
 		public static void Material(int face, int pname, float[] @params)
 		{
 			unsafe {
@@ -10191,19 +14821,47 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glMaterialfv.
+		/// specify material parameters for the lighting model
 		/// </summary>
 		/// <param name="face">
-		/// A <see cref="T:int"/>.
+		/// Specifies which face or faces are being updated. Must be one of <see cref="Gl.FRONT"/>, <see cref="Gl.BACK"/>, or <see 
+		/// cref="Gl.FRONT_AND_BACK"/>.
 		/// </param>
 		/// <param name="pname">
-		/// A <see cref="T:int"/>.
+		/// Specifies the single-valued material parameter of the face or faces that is being updated. Must be <see 
+		/// cref="Gl.SHININESS"/>.
 		/// </param>
 		/// <param name="params">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
 		/// <remarks>
+		/// <see cref="Gl.Material"/> assigns values to material parameters. There are two matched sets of material parameters. One, 
+		/// thefront-facing set, is used to shade points, lines, bitmaps, and all polygons (when two-sided lighting is disabled), or 
+		/// justfront-facing polygons (when two-sided lighting is enabled). The other set, back-facing, is used to shade back-facing 
+		/// polygonsonly when two-sided lighting is enabled. Refer to the Gl.LightModel reference page for details concerning one- 
+		/// andtwo-sided lighting calculations. 
+		/// <see cref="Gl.Material"/> takes three arguments. The first, <paramref name="face"/>, specifies whether the <see 
+		/// cref="Gl.FRONT"/>materials, the <see cref="Gl.BACK"/> materials, or both <see cref="Gl.FRONT_AND_BACK"/> materials will 
+		/// bemodified. The second, <paramref name="pname"/>, specifies which of several parameters in one or both sets will be 
+		/// modified.The third, <paramref name="params"/>, specifies what value or values will be assigned to the specified 
+		/// parameter.
+		/// Material parameters are used in the lighting equation that is optionally applied to each vertex. The equation is 
+		/// discussedin the Gl.LightModel reference page. The parameters that can be specified using <see cref="Gl.Material"/>, and 
+		/// theirinterpretations by the lighting equation, are as follows: 
+		/// <para>
+		/// The following errors can be generated:
+		/// - <see cref="Gl.INVALID_ENUM"/> is generated if either <paramref name="face"/> or <paramref name="pname"/> is not an 
+		///   acceptedvalue. 
+		/// - <see cref="Gl.INVALID_VALUE"/> is generated if a specular exponent outside the range 0128 is specified. 
+		/// </para>
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - Gl.GetMaterial 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.ColorMaterial"/>
+		/// <seealso cref="Gl.Light"/>
+		/// <seealso cref="Gl.LightModel"/>
 		public static void Material(MaterialFace face, MaterialParameter pname, float[] @params)
 		{
 			unsafe {
@@ -10218,19 +14876,47 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glMateriali.
+		/// specify material parameters for the lighting model
 		/// </summary>
 		/// <param name="face">
-		/// A <see cref="T:int"/>.
+		/// Specifies which face or faces are being updated. Must be one of <see cref="Gl.FRONT"/>, <see cref="Gl.BACK"/>, or <see 
+		/// cref="Gl.FRONT_AND_BACK"/>.
 		/// </param>
 		/// <param name="pname">
-		/// A <see cref="T:int"/>.
+		/// Specifies the single-valued material parameter of the face or faces that is being updated. Must be <see 
+		/// cref="Gl.SHININESS"/>.
 		/// </param>
 		/// <param name="param">
-		/// A <see cref="T:Int32"/>.
+		/// Specifies the value that parameter <see cref="Gl.SHININESS"/> will be set to. 
 		/// </param>
 		/// <remarks>
+		/// <see cref="Gl.Material"/> assigns values to material parameters. There are two matched sets of material parameters. One, 
+		/// thefront-facing set, is used to shade points, lines, bitmaps, and all polygons (when two-sided lighting is disabled), or 
+		/// justfront-facing polygons (when two-sided lighting is enabled). The other set, back-facing, is used to shade back-facing 
+		/// polygonsonly when two-sided lighting is enabled. Refer to the Gl.LightModel reference page for details concerning one- 
+		/// andtwo-sided lighting calculations. 
+		/// <see cref="Gl.Material"/> takes three arguments. The first, <paramref name="face"/>, specifies whether the <see 
+		/// cref="Gl.FRONT"/>materials, the <see cref="Gl.BACK"/> materials, or both <see cref="Gl.FRONT_AND_BACK"/> materials will 
+		/// bemodified. The second, <paramref name="pname"/>, specifies which of several parameters in one or both sets will be 
+		/// modified.The third, <paramref name="params"/>, specifies what value or values will be assigned to the specified 
+		/// parameter.
+		/// Material parameters are used in the lighting equation that is optionally applied to each vertex. The equation is 
+		/// discussedin the Gl.LightModel reference page. The parameters that can be specified using <see cref="Gl.Material"/>, and 
+		/// theirinterpretations by the lighting equation, are as follows: 
+		/// <para>
+		/// The following errors can be generated:
+		/// - <see cref="Gl.INVALID_ENUM"/> is generated if either <paramref name="face"/> or <paramref name="pname"/> is not an 
+		///   acceptedvalue. 
+		/// - <see cref="Gl.INVALID_VALUE"/> is generated if a specular exponent outside the range 0128 is specified. 
+		/// </para>
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - Gl.GetMaterial 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.ColorMaterial"/>
+		/// <seealso cref="Gl.Light"/>
+		/// <seealso cref="Gl.LightModel"/>
 		public static void Material(int face, int pname, Int32 param)
 		{
 			Debug.Assert(Delegates.pglMateriali != null, "pglMateriali not implemented");
@@ -10240,19 +14926,47 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glMateriali.
+		/// specify material parameters for the lighting model
 		/// </summary>
 		/// <param name="face">
-		/// A <see cref="T:int"/>.
+		/// Specifies which face or faces are being updated. Must be one of <see cref="Gl.FRONT"/>, <see cref="Gl.BACK"/>, or <see 
+		/// cref="Gl.FRONT_AND_BACK"/>.
 		/// </param>
 		/// <param name="pname">
-		/// A <see cref="T:int"/>.
+		/// Specifies the single-valued material parameter of the face or faces that is being updated. Must be <see 
+		/// cref="Gl.SHININESS"/>.
 		/// </param>
 		/// <param name="param">
-		/// A <see cref="T:Int32"/>.
+		/// Specifies the value that parameter <see cref="Gl.SHININESS"/> will be set to. 
 		/// </param>
 		/// <remarks>
+		/// <see cref="Gl.Material"/> assigns values to material parameters. There are two matched sets of material parameters. One, 
+		/// thefront-facing set, is used to shade points, lines, bitmaps, and all polygons (when two-sided lighting is disabled), or 
+		/// justfront-facing polygons (when two-sided lighting is enabled). The other set, back-facing, is used to shade back-facing 
+		/// polygonsonly when two-sided lighting is enabled. Refer to the Gl.LightModel reference page for details concerning one- 
+		/// andtwo-sided lighting calculations. 
+		/// <see cref="Gl.Material"/> takes three arguments. The first, <paramref name="face"/>, specifies whether the <see 
+		/// cref="Gl.FRONT"/>materials, the <see cref="Gl.BACK"/> materials, or both <see cref="Gl.FRONT_AND_BACK"/> materials will 
+		/// bemodified. The second, <paramref name="pname"/>, specifies which of several parameters in one or both sets will be 
+		/// modified.The third, <paramref name="params"/>, specifies what value or values will be assigned to the specified 
+		/// parameter.
+		/// Material parameters are used in the lighting equation that is optionally applied to each vertex. The equation is 
+		/// discussedin the Gl.LightModel reference page. The parameters that can be specified using <see cref="Gl.Material"/>, and 
+		/// theirinterpretations by the lighting equation, are as follows: 
+		/// <para>
+		/// The following errors can be generated:
+		/// - <see cref="Gl.INVALID_ENUM"/> is generated if either <paramref name="face"/> or <paramref name="pname"/> is not an 
+		///   acceptedvalue. 
+		/// - <see cref="Gl.INVALID_VALUE"/> is generated if a specular exponent outside the range 0128 is specified. 
+		/// </para>
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - Gl.GetMaterial 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.ColorMaterial"/>
+		/// <seealso cref="Gl.Light"/>
+		/// <seealso cref="Gl.LightModel"/>
 		public static void Material(MaterialFace face, MaterialParameter pname, Int32 param)
 		{
 			Debug.Assert(Delegates.pglMateriali != null, "pglMateriali not implemented");
@@ -10262,19 +14976,47 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glMaterialiv.
+		/// specify material parameters for the lighting model
 		/// </summary>
 		/// <param name="face">
-		/// A <see cref="T:int"/>.
+		/// Specifies which face or faces are being updated. Must be one of <see cref="Gl.FRONT"/>, <see cref="Gl.BACK"/>, or <see 
+		/// cref="Gl.FRONT_AND_BACK"/>.
 		/// </param>
 		/// <param name="pname">
-		/// A <see cref="T:int"/>.
+		/// Specifies the single-valued material parameter of the face or faces that is being updated. Must be <see 
+		/// cref="Gl.SHININESS"/>.
 		/// </param>
 		/// <param name="params">
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
 		/// <remarks>
+		/// <see cref="Gl.Material"/> assigns values to material parameters. There are two matched sets of material parameters. One, 
+		/// thefront-facing set, is used to shade points, lines, bitmaps, and all polygons (when two-sided lighting is disabled), or 
+		/// justfront-facing polygons (when two-sided lighting is enabled). The other set, back-facing, is used to shade back-facing 
+		/// polygonsonly when two-sided lighting is enabled. Refer to the Gl.LightModel reference page for details concerning one- 
+		/// andtwo-sided lighting calculations. 
+		/// <see cref="Gl.Material"/> takes three arguments. The first, <paramref name="face"/>, specifies whether the <see 
+		/// cref="Gl.FRONT"/>materials, the <see cref="Gl.BACK"/> materials, or both <see cref="Gl.FRONT_AND_BACK"/> materials will 
+		/// bemodified. The second, <paramref name="pname"/>, specifies which of several parameters in one or both sets will be 
+		/// modified.The third, <paramref name="params"/>, specifies what value or values will be assigned to the specified 
+		/// parameter.
+		/// Material parameters are used in the lighting equation that is optionally applied to each vertex. The equation is 
+		/// discussedin the Gl.LightModel reference page. The parameters that can be specified using <see cref="Gl.Material"/>, and 
+		/// theirinterpretations by the lighting equation, are as follows: 
+		/// <para>
+		/// The following errors can be generated:
+		/// - <see cref="Gl.INVALID_ENUM"/> is generated if either <paramref name="face"/> or <paramref name="pname"/> is not an 
+		///   acceptedvalue. 
+		/// - <see cref="Gl.INVALID_VALUE"/> is generated if a specular exponent outside the range 0128 is specified. 
+		/// </para>
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - Gl.GetMaterial 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.ColorMaterial"/>
+		/// <seealso cref="Gl.Light"/>
+		/// <seealso cref="Gl.LightModel"/>
 		public static void Material(int face, int pname, Int32[] @params)
 		{
 			unsafe {
@@ -10289,19 +15031,47 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glMaterialiv.
+		/// specify material parameters for the lighting model
 		/// </summary>
 		/// <param name="face">
-		/// A <see cref="T:int"/>.
+		/// Specifies which face or faces are being updated. Must be one of <see cref="Gl.FRONT"/>, <see cref="Gl.BACK"/>, or <see 
+		/// cref="Gl.FRONT_AND_BACK"/>.
 		/// </param>
 		/// <param name="pname">
-		/// A <see cref="T:int"/>.
+		/// Specifies the single-valued material parameter of the face or faces that is being updated. Must be <see 
+		/// cref="Gl.SHININESS"/>.
 		/// </param>
 		/// <param name="params">
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
 		/// <remarks>
+		/// <see cref="Gl.Material"/> assigns values to material parameters. There are two matched sets of material parameters. One, 
+		/// thefront-facing set, is used to shade points, lines, bitmaps, and all polygons (when two-sided lighting is disabled), or 
+		/// justfront-facing polygons (when two-sided lighting is enabled). The other set, back-facing, is used to shade back-facing 
+		/// polygonsonly when two-sided lighting is enabled. Refer to the Gl.LightModel reference page for details concerning one- 
+		/// andtwo-sided lighting calculations. 
+		/// <see cref="Gl.Material"/> takes three arguments. The first, <paramref name="face"/>, specifies whether the <see 
+		/// cref="Gl.FRONT"/>materials, the <see cref="Gl.BACK"/> materials, or both <see cref="Gl.FRONT_AND_BACK"/> materials will 
+		/// bemodified. The second, <paramref name="pname"/>, specifies which of several parameters in one or both sets will be 
+		/// modified.The third, <paramref name="params"/>, specifies what value or values will be assigned to the specified 
+		/// parameter.
+		/// Material parameters are used in the lighting equation that is optionally applied to each vertex. The equation is 
+		/// discussedin the Gl.LightModel reference page. The parameters that can be specified using <see cref="Gl.Material"/>, and 
+		/// theirinterpretations by the lighting equation, are as follows: 
+		/// <para>
+		/// The following errors can be generated:
+		/// - <see cref="Gl.INVALID_ENUM"/> is generated if either <paramref name="face"/> or <paramref name="pname"/> is not an 
+		///   acceptedvalue. 
+		/// - <see cref="Gl.INVALID_VALUE"/> is generated if a specular exponent outside the range 0128 is specified. 
+		/// </para>
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - Gl.GetMaterial 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.ColorMaterial"/>
+		/// <seealso cref="Gl.Light"/>
+		/// <seealso cref="Gl.LightModel"/>
 		public static void Material(MaterialFace face, MaterialParameter pname, Int32[] @params)
 		{
 			unsafe {
@@ -12714,19 +17484,136 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glFeedbackBuffer.
+		/// controls feedback mode
 		/// </summary>
 		/// <param name="size">
-		/// A <see cref="T:Int32"/>.
+		/// Specifies the maximum number of values that can be written into <paramref name="buffer"/>. 
 		/// </param>
 		/// <param name="type">
-		/// A <see cref="T:int"/>.
+		/// Specifies a symbolic constant that describes the information that will be returned for each vertex. <see cref="Gl.2D"/>, 
+		/// <seecref="Gl.3D"/>, <see cref="Gl.3D_COLOR"/>, <see cref="Gl.3D_COLOR_TEXTURE"/>, and <see cref="Gl.4D_COLOR_TEXTURE"/> 
+		/// areaccepted. 
 		/// </param>
 		/// <param name="buffer">
-		/// A <see cref="T:float[]"/>.
+		/// Returns the feedback data. 
 		/// </param>
 		/// <remarks>
+		/// The <see cref="Gl.FeedbackBuffer"/> function controls feedback. Feedback, like selection, is a GL mode. The mode is 
+		/// selectedby calling Gl.RenderMode with <see cref="Gl.FEEDBACK"/>. When the GL is in feedback mode, no pixels are produced 
+		/// byrasterization. Instead, information about primitives that would have been rasterized is fed back to the application 
+		/// usingthe GL. 
+		/// <see cref="Gl.FeedbackBuffer"/> has three arguments: <paramref name="buffer"/> is a pointer to an array of 
+		/// floating-pointvalues into which feedback information is placed. <paramref name="size"/> indicates the size of the array. 
+		/// <paramrefname="type"/> is a symbolic constant describing the information that is fed back for each vertex. <see 
+		/// cref="Gl.FeedbackBuffer"/>must be issued before feedback mode is enabled (by calling Gl.RenderMode with argument <see 
+		/// cref="Gl.FEEDBACK"/>).Setting <see cref="Gl.FEEDBACK"/> without establishing the feedback buffer, or calling <see 
+		/// cref="Gl.FeedbackBuffer"/>while the GL is in feedback mode, is an error. 
+		/// When Gl.RenderMode is called while in feedback mode, it returns the number of entries placed in the feedback array and 
+		/// resetsthe feedback array pointer to the base of the feedback buffer. The returned value never exceeds <paramref 
+		/// name="size"/>.If the feedback data required more room than was available in <paramref name="buffer"/>, Gl.RenderMode 
+		/// returnsa negative value. To take the GL out of feedback mode, call Gl.RenderMode with a parameter value other than <see 
+		/// cref="Gl.FEEDBACK"/>.
+		/// While in feedback mode, each primitive, bitmap, or pixel rectangle that would be rasterized generates a block of values 
+		/// thatare copied into the feedback array. If doing so would cause the number of entries to exceed the maximum, the block 
+		/// ispartially written so as to fill the array (if there is any room left at all), and an overflow flag is set. Each block 
+		/// beginswith a code indicating the primitive type, followed by values that describe the primitive's vertices and 
+		/// associateddata. Entries are also written for bitmaps and pixel rectangles. Feedback occurs after polygon culling and 
+		/// Gl.PolygonModeinterpretation of polygons has taken place, so polygons that are culled are not returned in the feedback 
+		/// buffer.It can also occur after polygons with more than three edges are broken up into triangles, if the GL 
+		/// implementationrenders polygons by performing this decomposition. 
+		/// The Gl.PassThrough command can be used to insert a marker into the feedback buffer. See Gl.PassThrough. 
+		/// Following is the grammar for the blocks of values written into the feedback buffer. Each primitive is indicated with a 
+		/// uniqueidentifying value followed by some number of vertices. Polygon entries include an integer value indicating how 
+		/// manyvertices follow. A vertex is fed back as some number of floating-point values, as determined by <paramref 
+		/// name="type"/>.Colors are fed back as four values in RGBA mode and one value in color index mode. 
+		/// feedbackList @htmlonly <inlineequation xmlns="http://docbook.org/ns/docbook"><mml:math 
+		/// xmlns:mml="http://www.w3.org/1998/Math/MathML"><mml:mrow><mml:mn>←</mml:mn></mml:mrow></mml:math></inlineequation>
+		/// @endhtmlonlyfeedbackItem feedbackList | feedbackItem feedbackItem @htmlonly <inlineequation 
+		/// xmlns="http://docbook.org/ns/docbook"><mml:math
+		/// xmlns:mml="http://www.w3.org/1998/Math/MathML"><mml:mrow><mml:mn>←</mml:mn></mml:mrow></mml:math></inlineequation>
+		/// @endhtmlonlypoint | lineSegment | polygon | bitmap | pixelRectangle | passThru point @htmlonly <inlineequation 
+		/// xmlns="http://docbook.org/ns/docbook"><mml:math
+		/// xmlns:mml="http://www.w3.org/1998/Math/MathML"><mml:mrow><mml:mn>←</mml:mn></mml:mrow></mml:math></inlineequation>
+		/// @endhtmlonly<see cref="Gl.POINT_TOKEN"/> vertex lineSegment @htmlonly <inlineequation 
+		/// xmlns="http://docbook.org/ns/docbook"><mml:math
+		/// xmlns:mml="http://www.w3.org/1998/Math/MathML"><mml:mrow><mml:mn>←</mml:mn></mml:mrow></mml:math></inlineequation>
+		/// @endhtmlonly<see cref="Gl.LINE_TOKEN"/> vertex vertex | <see cref="Gl.LINE_RESET_TOKEN"/> vertex vertex polygon 
+		/// @htmlonly<inlineequation xmlns="http://docbook.org/ns/docbook"><mml:math 
+		/// xmlns:mml="http://www.w3.org/1998/Math/MathML"><mml:mrow><mml:mn>←</mml:mn></mml:mrow></mml:math></inlineequation>
+		/// @endhtmlonly<see cref="Gl.POLYGON_TOKEN"/> n polySpec polySpec @htmlonly <inlineequation 
+		/// xmlns="http://docbook.org/ns/docbook"><mml:math
+		/// xmlns:mml="http://www.w3.org/1998/Math/MathML"><mml:mrow><mml:mn>←</mml:mn></mml:mrow></mml:math></inlineequation>
+		/// @endhtmlonlypolySpec vertex | vertex vertex vertex bitmap @htmlonly <inlineequation 
+		/// xmlns="http://docbook.org/ns/docbook"><mml:math
+		/// xmlns:mml="http://www.w3.org/1998/Math/MathML"><mml:mrow><mml:mn>←</mml:mn></mml:mrow></mml:math></inlineequation>
+		/// @endhtmlonly<see cref="Gl.BITMAP_TOKEN"/> vertex pixelRectangle @htmlonly <inlineequation 
+		/// xmlns="http://docbook.org/ns/docbook"><mml:math
+		/// xmlns:mml="http://www.w3.org/1998/Math/MathML"><mml:mrow><mml:mn>←</mml:mn></mml:mrow></mml:math></inlineequation>
+		/// @endhtmlonly<see cref="Gl.DRAW_PIXEL_TOKEN"/> vertex | <see cref="Gl.COPY_PIXEL_TOKEN"/> vertex passThru @htmlonly 
+		/// <inlineequationxmlns="http://docbook.org/ns/docbook"><mml:math 
+		/// xmlns:mml="http://www.w3.org/1998/Math/MathML"><mml:mrow><mml:mn>←</mml:mn></mml:mrow></mml:math></inlineequation>
+		/// @endhtmlonly<see cref="Gl.PASS_THROUGH_TOKEN"/> value vertex @htmlonly <inlineequation 
+		/// xmlns="http://docbook.org/ns/docbook"><mml:math
+		/// xmlns:mml="http://www.w3.org/1998/Math/MathML"><mml:mrow><mml:mn>←</mml:mn></mml:mrow></mml:math></inlineequation>
+		/// @endhtmlonly2d | 3d | 3dColor | 3dColorTexture | 4dColorTexture 2d @htmlonly <inlineequation 
+		/// xmlns="http://docbook.org/ns/docbook"><mml:math
+		/// xmlns:mml="http://www.w3.org/1998/Math/MathML"><mml:mrow><mml:mn>←</mml:mn></mml:mrow></mml:math></inlineequation>
+		/// @endhtmlonlyvalue value 3d @htmlonly <inlineequation xmlns="http://docbook.org/ns/docbook"><mml:math 
+		/// xmlns:mml="http://www.w3.org/1998/Math/MathML"><mml:mrow><mml:mn>←</mml:mn></mml:mrow></mml:math></inlineequation>
+		/// @endhtmlonlyvalue value value 3dColor @htmlonly <inlineequation xmlns="http://docbook.org/ns/docbook"><mml:math 
+		/// xmlns:mml="http://www.w3.org/1998/Math/MathML"><mml:mrow><mml:mn>←</mml:mn></mml:mrow></mml:math></inlineequation>
+		/// @endhtmlonlyvalue value value color 3dColorTexture @htmlonly <inlineequation 
+		/// xmlns="http://docbook.org/ns/docbook"><mml:math
+		/// xmlns:mml="http://www.w3.org/1998/Math/MathML"><mml:mrow><mml:mn>←</mml:mn></mml:mrow></mml:math></inlineequation>
+		/// @endhtmlonlyvalue value value color tex 4dColorTexture @htmlonly <inlineequation 
+		/// xmlns="http://docbook.org/ns/docbook"><mml:math
+		/// xmlns:mml="http://www.w3.org/1998/Math/MathML"><mml:mrow><mml:mn>←</mml:mn></mml:mrow></mml:math></inlineequation>
+		/// @endhtmlonlyvalue value value value color tex color @htmlonly <inlineequation 
+		/// xmlns="http://docbook.org/ns/docbook"><mml:math
+		/// xmlns:mml="http://www.w3.org/1998/Math/MathML"><mml:mrow><mml:mn>←</mml:mn></mml:mrow></mml:math></inlineequation>
+		/// @endhtmlonlyrgba | index rgba @htmlonly <inlineequation xmlns="http://docbook.org/ns/docbook"><mml:math 
+		/// xmlns:mml="http://www.w3.org/1998/Math/MathML"><mml:mrow><mml:mn>←</mml:mn></mml:mrow></mml:math></inlineequation>
+		/// @endhtmlonlyvalue value value value index @htmlonly <inlineequation xmlns="http://docbook.org/ns/docbook"><mml:math 
+		/// xmlns:mml="http://www.w3.org/1998/Math/MathML"><mml:mrow><mml:mn>←</mml:mn></mml:mrow></mml:math></inlineequation>
+		/// @endhtmlonlyvalue tex @htmlonly <inlineequation xmlns="http://docbook.org/ns/docbook"><mml:math 
+		/// xmlns:mml="http://www.w3.org/1998/Math/MathML"><mml:mrow><mml:mn>←</mml:mn></mml:mrow></mml:math></inlineequation>
+		/// @endhtmlonlyvalue value value value 
+		/// value is a floating-point number, and n is a floating-point integer giving the number of vertices in the polygon. <see 
+		/// cref="Gl.POINT_TOKEN"/>,<see cref="Gl.LINE_TOKEN"/>, <see cref="Gl.LINE_RESET_TOKEN"/>, <see cref="Gl.POLYGON_TOKEN"/>, 
+		/// <seecref="Gl.BITMAP_TOKEN"/>, <see cref="Gl.DRAW_PIXEL_TOKEN"/>, <see cref="Gl.COPY_PIXEL_TOKEN"/> and <see 
+		/// cref="Gl.PASS_THROUGH_TOKEN"/>are symbolic floating-point constants. <see cref="Gl.LINE_RESET_TOKEN"/> is returned 
+		/// wheneverthe line stipple pattern is reset. The data returned as a vertex depends on the feedback <paramref 
+		/// name="type"/>.
+		/// The following table gives the correspondence between <paramref name="type"/> and the number of values per vertex. k is 1 
+		/// incolor index mode and 4 in RGBA mode. 
+		///  
+		/// Feedback vertex coordinates are in window coordinates, except w, which is in clip coordinates. Feedback colors are 
+		/// lighted,if lighting is enabled. Feedback texture coordinates are generated, if texture coordinate generation is enabled. 
+		/// Theyare always transformed by the texture matrix. 
+		/// <para>
+		/// The following errors can be generated:
+		/// - <see cref="Gl.INVALID_ENUM"/> is generated if <paramref name="type"/> is not an accepted value. 
+		/// - <see cref="Gl.INVALID_VALUE"/> is generated if <paramref name="size"/> is negative. 
+		/// - <see cref="Gl.INVALID_OPERATION"/> is generated if <see cref="Gl.FeedbackBuffer"/> is called while the render mode is 
+		///   <seecref="Gl.FEEDBACK"/>, or if Gl.RenderMode is called with argument <see cref="Gl.FEEDBACK"/> before <see 
+		///   cref="Gl.FeedbackBuffer"/>is called at least once. 
+		/// - <see cref="Gl.INVALID_OPERATION"/> is generated if <see cref="Gl.FeedbackBuffer"/> is executed between the execution of 
+		///   Gl.Beginand the corresponding execution of Gl.End. 
+		/// </para>
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - Gl.Get with argument <see cref="Gl.RENDER_MODE"/> 
+		/// - Gl.Get with argument <see cref="Gl.FEEDBACK_BUFFER_POINTER"/> 
+		/// - Gl.Get with argument <see cref="Gl.FEEDBACK_BUFFER_SIZE"/> 
+		/// - Gl.Get with argument <see cref="Gl.FEEDBACK_BUFFER_TYPE"/> 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.Begin"/>
+		/// <seealso cref="Gl.LineStipple"/>
+		/// <seealso cref="Gl.PassThrough"/>
+		/// <seealso cref="Gl.PolygonMode"/>
+		/// <seealso cref="Gl.RenderMode"/>
+		/// <seealso cref="Gl.SelectBuffer"/>
 		public static void FeedbackBuffer(Int32 size, int type, float[] buffer)
 		{
 			unsafe {
@@ -12741,19 +17628,136 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glFeedbackBuffer.
+		/// controls feedback mode
 		/// </summary>
 		/// <param name="size">
-		/// A <see cref="T:Int32"/>.
+		/// Specifies the maximum number of values that can be written into <paramref name="buffer"/>. 
 		/// </param>
 		/// <param name="type">
-		/// A <see cref="T:int"/>.
+		/// Specifies a symbolic constant that describes the information that will be returned for each vertex. <see cref="Gl.2D"/>, 
+		/// <seecref="Gl.3D"/>, <see cref="Gl.3D_COLOR"/>, <see cref="Gl.3D_COLOR_TEXTURE"/>, and <see cref="Gl.4D_COLOR_TEXTURE"/> 
+		/// areaccepted. 
 		/// </param>
 		/// <param name="buffer">
-		/// A <see cref="T:float[]"/>.
+		/// Returns the feedback data. 
 		/// </param>
 		/// <remarks>
+		/// The <see cref="Gl.FeedbackBuffer"/> function controls feedback. Feedback, like selection, is a GL mode. The mode is 
+		/// selectedby calling Gl.RenderMode with <see cref="Gl.FEEDBACK"/>. When the GL is in feedback mode, no pixels are produced 
+		/// byrasterization. Instead, information about primitives that would have been rasterized is fed back to the application 
+		/// usingthe GL. 
+		/// <see cref="Gl.FeedbackBuffer"/> has three arguments: <paramref name="buffer"/> is a pointer to an array of 
+		/// floating-pointvalues into which feedback information is placed. <paramref name="size"/> indicates the size of the array. 
+		/// <paramrefname="type"/> is a symbolic constant describing the information that is fed back for each vertex. <see 
+		/// cref="Gl.FeedbackBuffer"/>must be issued before feedback mode is enabled (by calling Gl.RenderMode with argument <see 
+		/// cref="Gl.FEEDBACK"/>).Setting <see cref="Gl.FEEDBACK"/> without establishing the feedback buffer, or calling <see 
+		/// cref="Gl.FeedbackBuffer"/>while the GL is in feedback mode, is an error. 
+		/// When Gl.RenderMode is called while in feedback mode, it returns the number of entries placed in the feedback array and 
+		/// resetsthe feedback array pointer to the base of the feedback buffer. The returned value never exceeds <paramref 
+		/// name="size"/>.If the feedback data required more room than was available in <paramref name="buffer"/>, Gl.RenderMode 
+		/// returnsa negative value. To take the GL out of feedback mode, call Gl.RenderMode with a parameter value other than <see 
+		/// cref="Gl.FEEDBACK"/>.
+		/// While in feedback mode, each primitive, bitmap, or pixel rectangle that would be rasterized generates a block of values 
+		/// thatare copied into the feedback array. If doing so would cause the number of entries to exceed the maximum, the block 
+		/// ispartially written so as to fill the array (if there is any room left at all), and an overflow flag is set. Each block 
+		/// beginswith a code indicating the primitive type, followed by values that describe the primitive's vertices and 
+		/// associateddata. Entries are also written for bitmaps and pixel rectangles. Feedback occurs after polygon culling and 
+		/// Gl.PolygonModeinterpretation of polygons has taken place, so polygons that are culled are not returned in the feedback 
+		/// buffer.It can also occur after polygons with more than three edges are broken up into triangles, if the GL 
+		/// implementationrenders polygons by performing this decomposition. 
+		/// The Gl.PassThrough command can be used to insert a marker into the feedback buffer. See Gl.PassThrough. 
+		/// Following is the grammar for the blocks of values written into the feedback buffer. Each primitive is indicated with a 
+		/// uniqueidentifying value followed by some number of vertices. Polygon entries include an integer value indicating how 
+		/// manyvertices follow. A vertex is fed back as some number of floating-point values, as determined by <paramref 
+		/// name="type"/>.Colors are fed back as four values in RGBA mode and one value in color index mode. 
+		/// feedbackList @htmlonly <inlineequation xmlns="http://docbook.org/ns/docbook"><mml:math 
+		/// xmlns:mml="http://www.w3.org/1998/Math/MathML"><mml:mrow><mml:mn>←</mml:mn></mml:mrow></mml:math></inlineequation>
+		/// @endhtmlonlyfeedbackItem feedbackList | feedbackItem feedbackItem @htmlonly <inlineequation 
+		/// xmlns="http://docbook.org/ns/docbook"><mml:math
+		/// xmlns:mml="http://www.w3.org/1998/Math/MathML"><mml:mrow><mml:mn>←</mml:mn></mml:mrow></mml:math></inlineequation>
+		/// @endhtmlonlypoint | lineSegment | polygon | bitmap | pixelRectangle | passThru point @htmlonly <inlineequation 
+		/// xmlns="http://docbook.org/ns/docbook"><mml:math
+		/// xmlns:mml="http://www.w3.org/1998/Math/MathML"><mml:mrow><mml:mn>←</mml:mn></mml:mrow></mml:math></inlineequation>
+		/// @endhtmlonly<see cref="Gl.POINT_TOKEN"/> vertex lineSegment @htmlonly <inlineequation 
+		/// xmlns="http://docbook.org/ns/docbook"><mml:math
+		/// xmlns:mml="http://www.w3.org/1998/Math/MathML"><mml:mrow><mml:mn>←</mml:mn></mml:mrow></mml:math></inlineequation>
+		/// @endhtmlonly<see cref="Gl.LINE_TOKEN"/> vertex vertex | <see cref="Gl.LINE_RESET_TOKEN"/> vertex vertex polygon 
+		/// @htmlonly<inlineequation xmlns="http://docbook.org/ns/docbook"><mml:math 
+		/// xmlns:mml="http://www.w3.org/1998/Math/MathML"><mml:mrow><mml:mn>←</mml:mn></mml:mrow></mml:math></inlineequation>
+		/// @endhtmlonly<see cref="Gl.POLYGON_TOKEN"/> n polySpec polySpec @htmlonly <inlineequation 
+		/// xmlns="http://docbook.org/ns/docbook"><mml:math
+		/// xmlns:mml="http://www.w3.org/1998/Math/MathML"><mml:mrow><mml:mn>←</mml:mn></mml:mrow></mml:math></inlineequation>
+		/// @endhtmlonlypolySpec vertex | vertex vertex vertex bitmap @htmlonly <inlineequation 
+		/// xmlns="http://docbook.org/ns/docbook"><mml:math
+		/// xmlns:mml="http://www.w3.org/1998/Math/MathML"><mml:mrow><mml:mn>←</mml:mn></mml:mrow></mml:math></inlineequation>
+		/// @endhtmlonly<see cref="Gl.BITMAP_TOKEN"/> vertex pixelRectangle @htmlonly <inlineequation 
+		/// xmlns="http://docbook.org/ns/docbook"><mml:math
+		/// xmlns:mml="http://www.w3.org/1998/Math/MathML"><mml:mrow><mml:mn>←</mml:mn></mml:mrow></mml:math></inlineequation>
+		/// @endhtmlonly<see cref="Gl.DRAW_PIXEL_TOKEN"/> vertex | <see cref="Gl.COPY_PIXEL_TOKEN"/> vertex passThru @htmlonly 
+		/// <inlineequationxmlns="http://docbook.org/ns/docbook"><mml:math 
+		/// xmlns:mml="http://www.w3.org/1998/Math/MathML"><mml:mrow><mml:mn>←</mml:mn></mml:mrow></mml:math></inlineequation>
+		/// @endhtmlonly<see cref="Gl.PASS_THROUGH_TOKEN"/> value vertex @htmlonly <inlineequation 
+		/// xmlns="http://docbook.org/ns/docbook"><mml:math
+		/// xmlns:mml="http://www.w3.org/1998/Math/MathML"><mml:mrow><mml:mn>←</mml:mn></mml:mrow></mml:math></inlineequation>
+		/// @endhtmlonly2d | 3d | 3dColor | 3dColorTexture | 4dColorTexture 2d @htmlonly <inlineequation 
+		/// xmlns="http://docbook.org/ns/docbook"><mml:math
+		/// xmlns:mml="http://www.w3.org/1998/Math/MathML"><mml:mrow><mml:mn>←</mml:mn></mml:mrow></mml:math></inlineequation>
+		/// @endhtmlonlyvalue value 3d @htmlonly <inlineequation xmlns="http://docbook.org/ns/docbook"><mml:math 
+		/// xmlns:mml="http://www.w3.org/1998/Math/MathML"><mml:mrow><mml:mn>←</mml:mn></mml:mrow></mml:math></inlineequation>
+		/// @endhtmlonlyvalue value value 3dColor @htmlonly <inlineequation xmlns="http://docbook.org/ns/docbook"><mml:math 
+		/// xmlns:mml="http://www.w3.org/1998/Math/MathML"><mml:mrow><mml:mn>←</mml:mn></mml:mrow></mml:math></inlineequation>
+		/// @endhtmlonlyvalue value value color 3dColorTexture @htmlonly <inlineequation 
+		/// xmlns="http://docbook.org/ns/docbook"><mml:math
+		/// xmlns:mml="http://www.w3.org/1998/Math/MathML"><mml:mrow><mml:mn>←</mml:mn></mml:mrow></mml:math></inlineequation>
+		/// @endhtmlonlyvalue value value color tex 4dColorTexture @htmlonly <inlineequation 
+		/// xmlns="http://docbook.org/ns/docbook"><mml:math
+		/// xmlns:mml="http://www.w3.org/1998/Math/MathML"><mml:mrow><mml:mn>←</mml:mn></mml:mrow></mml:math></inlineequation>
+		/// @endhtmlonlyvalue value value value color tex color @htmlonly <inlineequation 
+		/// xmlns="http://docbook.org/ns/docbook"><mml:math
+		/// xmlns:mml="http://www.w3.org/1998/Math/MathML"><mml:mrow><mml:mn>←</mml:mn></mml:mrow></mml:math></inlineequation>
+		/// @endhtmlonlyrgba | index rgba @htmlonly <inlineequation xmlns="http://docbook.org/ns/docbook"><mml:math 
+		/// xmlns:mml="http://www.w3.org/1998/Math/MathML"><mml:mrow><mml:mn>←</mml:mn></mml:mrow></mml:math></inlineequation>
+		/// @endhtmlonlyvalue value value value index @htmlonly <inlineequation xmlns="http://docbook.org/ns/docbook"><mml:math 
+		/// xmlns:mml="http://www.w3.org/1998/Math/MathML"><mml:mrow><mml:mn>←</mml:mn></mml:mrow></mml:math></inlineequation>
+		/// @endhtmlonlyvalue tex @htmlonly <inlineequation xmlns="http://docbook.org/ns/docbook"><mml:math 
+		/// xmlns:mml="http://www.w3.org/1998/Math/MathML"><mml:mrow><mml:mn>←</mml:mn></mml:mrow></mml:math></inlineequation>
+		/// @endhtmlonlyvalue value value value 
+		/// value is a floating-point number, and n is a floating-point integer giving the number of vertices in the polygon. <see 
+		/// cref="Gl.POINT_TOKEN"/>,<see cref="Gl.LINE_TOKEN"/>, <see cref="Gl.LINE_RESET_TOKEN"/>, <see cref="Gl.POLYGON_TOKEN"/>, 
+		/// <seecref="Gl.BITMAP_TOKEN"/>, <see cref="Gl.DRAW_PIXEL_TOKEN"/>, <see cref="Gl.COPY_PIXEL_TOKEN"/> and <see 
+		/// cref="Gl.PASS_THROUGH_TOKEN"/>are symbolic floating-point constants. <see cref="Gl.LINE_RESET_TOKEN"/> is returned 
+		/// wheneverthe line stipple pattern is reset. The data returned as a vertex depends on the feedback <paramref 
+		/// name="type"/>.
+		/// The following table gives the correspondence between <paramref name="type"/> and the number of values per vertex. k is 1 
+		/// incolor index mode and 4 in RGBA mode. 
+		///  
+		/// Feedback vertex coordinates are in window coordinates, except w, which is in clip coordinates. Feedback colors are 
+		/// lighted,if lighting is enabled. Feedback texture coordinates are generated, if texture coordinate generation is enabled. 
+		/// Theyare always transformed by the texture matrix. 
+		/// <para>
+		/// The following errors can be generated:
+		/// - <see cref="Gl.INVALID_ENUM"/> is generated if <paramref name="type"/> is not an accepted value. 
+		/// - <see cref="Gl.INVALID_VALUE"/> is generated if <paramref name="size"/> is negative. 
+		/// - <see cref="Gl.INVALID_OPERATION"/> is generated if <see cref="Gl.FeedbackBuffer"/> is called while the render mode is 
+		///   <seecref="Gl.FEEDBACK"/>, or if Gl.RenderMode is called with argument <see cref="Gl.FEEDBACK"/> before <see 
+		///   cref="Gl.FeedbackBuffer"/>is called at least once. 
+		/// - <see cref="Gl.INVALID_OPERATION"/> is generated if <see cref="Gl.FeedbackBuffer"/> is executed between the execution of 
+		///   Gl.Beginand the corresponding execution of Gl.End. 
+		/// </para>
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - Gl.Get with argument <see cref="Gl.RENDER_MODE"/> 
+		/// - Gl.Get with argument <see cref="Gl.FEEDBACK_BUFFER_POINTER"/> 
+		/// - Gl.Get with argument <see cref="Gl.FEEDBACK_BUFFER_SIZE"/> 
+		/// - Gl.Get with argument <see cref="Gl.FEEDBACK_BUFFER_TYPE"/> 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.Begin"/>
+		/// <seealso cref="Gl.LineStipple"/>
+		/// <seealso cref="Gl.PassThrough"/>
+		/// <seealso cref="Gl.PolygonMode"/>
+		/// <seealso cref="Gl.RenderMode"/>
+		/// <seealso cref="Gl.SelectBuffer"/>
 		public static void FeedbackBuffer(Int32 size, FeedbackType type, float[] buffer)
 		{
 			unsafe {
@@ -12768,16 +17772,60 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glSelectBuffer.
+		/// establish a buffer for selection mode values
 		/// </summary>
 		/// <param name="size">
-		/// A <see cref="T:Int32"/>.
+		/// Specifies the size of <paramref name="buffer"/>. 
 		/// </param>
 		/// <param name="buffer">
-		/// A <see cref="T:UInt32[]"/>.
+		/// Returns the selection data. 
 		/// </param>
 		/// <remarks>
+		/// <see cref="Gl.SelectBuffer"/> has two arguments: <paramref name="buffer"/> is a pointer to an array of unsigned 
+		/// integers,and <paramref name="size"/> indicates the size of the array. <paramref name="buffer"/> returns values from the 
+		/// namestack (see Gl.InitNames, Gl.LoadName, Gl.PushName) when the rendering mode is <see cref="Gl.SELECT"/> (see 
+		/// Gl.RenderMode).<see cref="Gl.SelectBuffer"/> must be issued before selection mode is enabled, and it must not be issued 
+		/// whilethe rendering mode is <see cref="Gl.SELECT"/>. 
+		/// A programmer can use selection to determine which primitives are drawn into some region of a window. The region is 
+		/// definedby the current modelview and perspective matrices. 
+		/// In selection mode, no pixel fragments are produced from rasterization. Instead, if a primitive or a raster position 
+		/// intersectsthe clipping volume defined by the viewing frustum and the user-defined clipping planes, this primitive causes 
+		/// aselection hit. (With polygons, no hit occurs if the polygon is culled.) When a change is made to the name stack, or 
+		/// whenGl.RenderMode is called, a hit record is copied to <paramref name="buffer"/> if any hits have occurred since the 
+		/// lastsuch event (name stack change or Gl.RenderMode call). The hit record consists of the number of names in the name 
+		/// stackat the time of the event, followed by the minimum and maximum depth values of all vertices that hit since the 
+		/// previousevent, followed by the name stack contents, bottom name first. 
+		/// Depth values (which are in the range [0,1]) are multiplied by 232-1, before being placed in the hit record. 
+		/// An internal index into <paramref name="buffer"/> is reset to 0 whenever selection mode is entered. Each time a hit 
+		/// recordis copied into <paramref name="buffer"/>, the index is incremented to point to the cell just past the end of the 
+		/// blockof names\(emthat is, to the next available cell If the hit record is larger than the number of remaining locations 
+		/// in<paramref name="buffer"/>, as much data as can fit is copied, and the overflow flag is set. If the name stack is empty 
+		/// whena hit record is copied, that record consists of 0 followed by the minimum and maximum depth values. 
+		/// To exit selection mode, call Gl.RenderMode with an argument other than <see cref="Gl.SELECT"/>. Whenever Gl.RenderMode 
+		/// iscalled while the render mode is <see cref="Gl.SELECT"/>, it returns the number of hit records copied to <paramref 
+		/// name="buffer"/>,resets the overflow flag and the selection buffer pointer, and initializes the name stack to be empty. 
+		/// Ifthe overflow bit was set when Gl.RenderMode was called, a negative hit record count is returned. 
+		/// <para>
+		/// The following errors can be generated:
+		/// - <see cref="Gl.INVALID_VALUE"/> is generated if <paramref name="size"/> is negative. 
+		/// - <see cref="Gl.INVALID_OPERATION"/> is generated if <see cref="Gl.SelectBuffer"/> is called while the render mode is <see 
+		///   cref="Gl.SELECT"/>,or if Gl.RenderMode is called with argument <see cref="Gl.SELECT"/> before <see 
+		///   cref="Gl.SelectBuffer"/>is called at least once. 
+		/// - <see cref="Gl.INVALID_OPERATION"/> is generated if <see cref="Gl.SelectBuffer"/> is executed between the execution of 
+		///   Gl.Beginand the corresponding execution of Gl.End. 
+		/// </para>
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - Gl.Get with argument <see cref="Gl.NAME_STACK_DEPTH"/> 
+		/// - Gl.Get with argument <see cref="Gl.SELECTION_BUFFER_SIZE"/> 
+		/// - Gl.GetPointerv with argument <see cref="Gl.SELECTION_BUFFER_POINTER"/> 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.FeedbackBuffer"/>
+		/// <seealso cref="Gl.InitNames"/>
+		/// <seealso cref="Gl.LoadName"/>
+		/// <seealso cref="Gl.PushName"/>
+		/// <seealso cref="Gl.RenderMode"/>
 		public static void SelectBuffer(Int32 size, UInt32[] buffer)
 		{
 			unsafe {
@@ -12792,13 +17840,42 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glRenderMode.
+		/// set rasterization mode
 		/// </summary>
 		/// <param name="mode">
-		/// A <see cref="T:int"/>.
+		/// Specifies the rasterization mode. Three values are accepted: <see cref="Gl.RENDER"/>, <see cref="Gl.SELECT"/>, and <see 
+		/// cref="Gl.FEEDBACK"/>.The initial value is <see cref="Gl.RENDER"/>. 
 		/// </param>
 		/// <remarks>
+		/// <see cref="Gl.RenderMode"/> sets the rasterization mode. It takes one argument, <paramref name="mode"/>, which can 
+		/// assumeone of three predefined values: 
+		/// The return value of <see cref="Gl.RenderMode"/> is determined by the render mode at the time <see cref="Gl.RenderMode"/> 
+		/// iscalled, rather than by <paramref name="mode"/>. The values returned for the three render modes are as follows: 
+		/// See the Gl.SelectBuffer and Gl.FeedbackBuffer reference pages for more details concerning selection and feedback 
+		/// operation.
+		/// <para>
+		/// The following errors can be generated:
+		/// - <see cref="Gl.INVALID_ENUM"/> is generated if <paramref name="mode"/> is not one of the three accepted values. 
+		/// - <see cref="Gl.INVALID_OPERATION"/> is generated if Gl.SelectBuffer is called while the render mode is <see 
+		///   cref="Gl.SELECT"/>,or if <see cref="Gl.RenderMode"/> is called with argument <see cref="Gl.SELECT"/> before 
+		///   Gl.SelectBufferis called at least once. 
+		/// - <see cref="Gl.INVALID_OPERATION"/> is generated if Gl.FeedbackBuffer is called while the render mode is <see 
+		///   cref="Gl.FEEDBACK"/>,or if <see cref="Gl.RenderMode"/> is called with argument <see cref="Gl.FEEDBACK"/> before 
+		///   Gl.FeedbackBufferis called at least once. 
+		/// - <see cref="Gl.INVALID_OPERATION"/> is generated if <see cref="Gl.RenderMode"/> is executed between the execution of 
+		///   Gl.Beginand the corresponding execution of Gl.End. 
+		/// </para>
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - Gl.Get with argument <see cref="Gl.RENDER_MODE"/> 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.FeedbackBuffer"/>
+		/// <seealso cref="Gl.InitNames"/>
+		/// <seealso cref="Gl.LoadName"/>
+		/// <seealso cref="Gl.PassThrough"/>
+		/// <seealso cref="Gl.PushName"/>
+		/// <seealso cref="Gl.SelectBuffer"/>
 		public static Int32 RenderMode(int mode)
 		{
 			Int32 retValue;
@@ -12812,13 +17889,42 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glRenderMode.
+		/// set rasterization mode
 		/// </summary>
 		/// <param name="mode">
-		/// A <see cref="T:int"/>.
+		/// Specifies the rasterization mode. Three values are accepted: <see cref="Gl.RENDER"/>, <see cref="Gl.SELECT"/>, and <see 
+		/// cref="Gl.FEEDBACK"/>.The initial value is <see cref="Gl.RENDER"/>. 
 		/// </param>
 		/// <remarks>
+		/// <see cref="Gl.RenderMode"/> sets the rasterization mode. It takes one argument, <paramref name="mode"/>, which can 
+		/// assumeone of three predefined values: 
+		/// The return value of <see cref="Gl.RenderMode"/> is determined by the render mode at the time <see cref="Gl.RenderMode"/> 
+		/// iscalled, rather than by <paramref name="mode"/>. The values returned for the three render modes are as follows: 
+		/// See the Gl.SelectBuffer and Gl.FeedbackBuffer reference pages for more details concerning selection and feedback 
+		/// operation.
+		/// <para>
+		/// The following errors can be generated:
+		/// - <see cref="Gl.INVALID_ENUM"/> is generated if <paramref name="mode"/> is not one of the three accepted values. 
+		/// - <see cref="Gl.INVALID_OPERATION"/> is generated if Gl.SelectBuffer is called while the render mode is <see 
+		///   cref="Gl.SELECT"/>,or if <see cref="Gl.RenderMode"/> is called with argument <see cref="Gl.SELECT"/> before 
+		///   Gl.SelectBufferis called at least once. 
+		/// - <see cref="Gl.INVALID_OPERATION"/> is generated if Gl.FeedbackBuffer is called while the render mode is <see 
+		///   cref="Gl.FEEDBACK"/>,or if <see cref="Gl.RenderMode"/> is called with argument <see cref="Gl.FEEDBACK"/> before 
+		///   Gl.FeedbackBufferis called at least once. 
+		/// - <see cref="Gl.INVALID_OPERATION"/> is generated if <see cref="Gl.RenderMode"/> is executed between the execution of 
+		///   Gl.Beginand the corresponding execution of Gl.End. 
+		/// </para>
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - Gl.Get with argument <see cref="Gl.RENDER_MODE"/> 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.FeedbackBuffer"/>
+		/// <seealso cref="Gl.InitNames"/>
+		/// <seealso cref="Gl.LoadName"/>
+		/// <seealso cref="Gl.PassThrough"/>
+		/// <seealso cref="Gl.PushName"/>
+		/// <seealso cref="Gl.SelectBuffer"/>
 		public static Int32 RenderMode(RenderingMode mode)
 		{
 			Int32 retValue;
@@ -12832,10 +17938,29 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glInitNames.
+		/// initialize the name stack
 		/// </summary>
 		/// <remarks>
+		/// The name stack is used during selection mode to allow sets of rendering commands to be uniquely identified. It consists 
+		/// ofan ordered set of unsigned integers. <see cref="Gl.InitNames"/> causes the name stack to be initialized to its default 
+		/// emptystate. 
+		/// The name stack is always empty while the render mode is not <see cref="Gl.SELECT"/>. Calls to <see cref="Gl.InitNames"/> 
+		/// whilethe render mode is not <see cref="Gl.SELECT"/> are ignored. 
+		/// <para>
+		/// The following errors can be generated:
+		/// - <see cref="Gl.INVALID_OPERATION"/> is generated if <see cref="Gl.InitNames"/> is executed between the execution of 
+		///   Gl.Beginand the corresponding execution of Gl.End. 
+		/// </para>
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - Gl.Get with argument <see cref="Gl.NAME_STACK_DEPTH"/> 
+		/// - Gl.Get with argument <see cref="Gl.MAX_NAME_STACK_DEPTH"/> 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.LoadName"/>
+		/// <seealso cref="Gl.PushName"/>
+		/// <seealso cref="Gl.RenderMode"/>
+		/// <seealso cref="Gl.SelectBuffer"/>
 		public static void InitName()
 		{
 			Debug.Assert(Delegates.pglInitNames != null, "pglInitNames not implemented");
@@ -12845,13 +17970,33 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glLoadName.
+		/// load a name onto the name stack
 		/// </summary>
 		/// <param name="name">
-		/// A <see cref="T:UInt32"/>.
+		/// Specifies a name that will replace the top value on the name stack. 
 		/// </param>
 		/// <remarks>
+		/// The name stack is used during selection mode to allow sets of rendering commands to be uniquely identified. It consists 
+		/// ofan ordered set of unsigned integers and is initially empty. 
+		/// <see cref="Gl.LoadName"/> causes <paramref name="name"/> to replace the value on the top of the name stack. 
+		/// The name stack is always empty while the render mode is not <see cref="Gl.SELECT"/>. Calls to <see cref="Gl.LoadName"/> 
+		/// whilethe render mode is not <see cref="Gl.SELECT"/> are ignored. 
+		/// <para>
+		/// The following errors can be generated:
+		/// - <see cref="Gl.INVALID_OPERATION"/> is generated if <see cref="Gl.LoadName"/> is called while the name stack is empty. 
+		/// - <see cref="Gl.INVALID_OPERATION"/> is generated if <see cref="Gl.LoadName"/> is executed between the execution of 
+		///   Gl.Beginand the corresponding execution of Gl.End. 
+		/// </para>
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - Gl.Get with argument <see cref="Gl.NAME_STACK_DEPTH"/> 
+		/// - Gl.Get with argument <see cref="Gl.MAX_NAME_STACK_DEPTH"/> 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.InitNames"/>
+		/// <seealso cref="Gl.PushName"/>
+		/// <seealso cref="Gl.RenderMode"/>
+		/// <seealso cref="Gl.SelectBuffer"/>
 		public static void LoadName(UInt32 name)
 		{
 			Debug.Assert(Delegates.pglLoadName != null, "pglLoadName not implemented");
@@ -12861,13 +18006,33 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glPassThrough.
+		/// place a marker in the feedback buffer
 		/// </summary>
 		/// <param name="token">
-		/// A <see cref="T:float"/>.
+		/// Specifies a marker value to be placed in the feedback buffer following a <see cref="Gl.PASS_THROUGH_TOKEN"/>. 
 		/// </param>
 		/// <remarks>
+		///  
+		/// Feedback is a GL render mode. The mode is selected by calling Gl.RenderMode with <see cref="Gl.FEEDBACK"/>. When the GL 
+		/// isin feedback mode, no pixels are produced by rasterization. Instead, information about primitives that would have been 
+		/// rasterizedis fed back to the application using the GL. See the Gl.FeedbackBuffer reference page for a description of the 
+		/// feedbackbuffer and the values in it. 
+		/// <see cref="Gl.PassThrough"/> inserts a user-defined marker in the feedback buffer when it is executed in feedback mode. 
+		/// <paramrefname="token"/> is returned as if it were a primitive; it is indicated with its own unique identifying value: 
+		/// <seecref="Gl.PASS_THROUGH_TOKEN"/>. The order of <see cref="Gl.PassThrough"/> commands with respect to the specification 
+		/// ofgraphics primitives is maintained. 
+		/// <para>
+		/// The following errors can be generated:
+		/// - <see cref="Gl.INVALID_OPERATION"/> is generated if <see cref="Gl.PassThrough"/> is executed between the execution of 
+		///   Gl.Beginand the corresponding execution of Gl.End. 
+		/// </para>
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - Gl.Get with argument <see cref="Gl.RENDER_MODE"/> 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.FeedbackBuffer"/>
+		/// <seealso cref="Gl.RenderMode"/>
 		public static void PassThrough(float token)
 		{
 			Debug.Assert(Delegates.pglPassThrough != null, "pglPassThrough not implemented");
@@ -12877,10 +18042,36 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glPopName.
+		/// push and pop the name stack
 		/// </summary>
 		/// <remarks>
+		/// The name stack is used during selection mode to allow sets of rendering commands to be uniquely identified. It consists 
+		/// ofan ordered set of unsigned integers and is initially empty. 
+		/// <see cref="Gl.PushName"/> causes <paramref name="name"/> to be pushed onto the name stack. Gl.PopName pops one name off 
+		/// thetop of the stack. 
+		/// The maximum name stack depth is implementation-dependent; call <see cref="Gl.MAX_NAME_STACK_DEPTH"/> to find out the 
+		/// valuefor a particular implementation. It is an error to push a name onto a full stack or to pop a name off an empty 
+		/// stack.It is also an error to manipulate the name stack between the execution of Gl.Begin and the corresponding execution 
+		/// ofGl.End. In any of these cases, the error flag is set and no other change is made to GL state. 
+		/// The name stack is always empty while the render mode is not <see cref="Gl.SELECT"/>. Calls to <see cref="Gl.PushName"/> 
+		/// orGl.PopName while the render mode is not <see cref="Gl.SELECT"/> are ignored. 
+		/// <para>
+		/// The following errors can be generated:
+		/// - <see cref="Gl.STACK_OVERFLOW"/> is generated if <see cref="Gl.PushName"/> is called while the name stack is full. 
+		/// - <see cref="Gl.STACK_UNDERFLOW"/> is generated if Gl.PopName is called while the name stack is empty. 
+		/// - <see cref="Gl.INVALID_OPERATION"/> is generated if <see cref="Gl.PushName"/> or Gl.PopName is executed between a call to 
+		///   Gl.Beginand the corresponding call to Gl.End. 
+		/// </para>
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - Gl.Get with argument <see cref="Gl.NAME_STACK_DEPTH"/> 
+		/// - Gl.Get with argument <see cref="Gl.MAX_NAME_STACK_DEPTH"/> 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.InitNames"/>
+		/// <seealso cref="Gl.LoadName"/>
+		/// <seealso cref="Gl.RenderMode"/>
+		/// <seealso cref="Gl.SelectBuffer"/>
 		public static void PopName()
 		{
 			Debug.Assert(Delegates.pglPopName != null, "pglPopName not implemented");
@@ -12890,13 +18081,39 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glPushName.
+		/// push and pop the name stack
 		/// </summary>
 		/// <param name="name">
-		/// A <see cref="T:UInt32"/>.
+		/// Specifies a name that will be pushed onto the name stack. 
 		/// </param>
 		/// <remarks>
+		/// The name stack is used during selection mode to allow sets of rendering commands to be uniquely identified. It consists 
+		/// ofan ordered set of unsigned integers and is initially empty. 
+		/// <see cref="Gl.PushName"/> causes <paramref name="name"/> to be pushed onto the name stack. Gl.PopName pops one name off 
+		/// thetop of the stack. 
+		/// The maximum name stack depth is implementation-dependent; call <see cref="Gl.MAX_NAME_STACK_DEPTH"/> to find out the 
+		/// valuefor a particular implementation. It is an error to push a name onto a full stack or to pop a name off an empty 
+		/// stack.It is also an error to manipulate the name stack between the execution of Gl.Begin and the corresponding execution 
+		/// ofGl.End. In any of these cases, the error flag is set and no other change is made to GL state. 
+		/// The name stack is always empty while the render mode is not <see cref="Gl.SELECT"/>. Calls to <see cref="Gl.PushName"/> 
+		/// orGl.PopName while the render mode is not <see cref="Gl.SELECT"/> are ignored. 
+		/// <para>
+		/// The following errors can be generated:
+		/// - <see cref="Gl.STACK_OVERFLOW"/> is generated if <see cref="Gl.PushName"/> is called while the name stack is full. 
+		/// - <see cref="Gl.STACK_UNDERFLOW"/> is generated if Gl.PopName is called while the name stack is empty. 
+		/// - <see cref="Gl.INVALID_OPERATION"/> is generated if <see cref="Gl.PushName"/> or Gl.PopName is executed between a call to 
+		///   Gl.Beginand the corresponding call to Gl.End. 
+		/// </para>
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - Gl.Get with argument <see cref="Gl.NAME_STACK_DEPTH"/> 
+		/// - Gl.Get with argument <see cref="Gl.MAX_NAME_STACK_DEPTH"/> 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.InitNames"/>
+		/// <seealso cref="Gl.LoadName"/>
+		/// <seealso cref="Gl.RenderMode"/>
+		/// <seealso cref="Gl.SelectBuffer"/>
 		public static void PushName(UInt32 name)
 		{
 			Debug.Assert(Delegates.pglPushName != null, "pglPushName not implemented");
@@ -12906,22 +18123,40 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glClearAccum.
+		/// specify clear values for the accumulation buffer
 		/// </summary>
 		/// <param name="red">
-		/// A <see cref="T:float"/>.
+		/// Specify the red, green, blue, and alpha values used when the accumulation buffer is cleared. The initial values are all 
+		/// 0.
 		/// </param>
 		/// <param name="green">
-		/// A <see cref="T:float"/>.
+		/// Specify the red, green, blue, and alpha values used when the accumulation buffer is cleared. The initial values are all 
+		/// 0.
 		/// </param>
 		/// <param name="blue">
-		/// A <see cref="T:float"/>.
+		/// Specify the red, green, blue, and alpha values used when the accumulation buffer is cleared. The initial values are all 
+		/// 0.
 		/// </param>
 		/// <param name="alpha">
-		/// A <see cref="T:float"/>.
+		/// Specify the red, green, blue, and alpha values used when the accumulation buffer is cleared. The initial values are all 
+		/// 0.
 		/// </param>
 		/// <remarks>
+		/// <see cref="Gl.ClearAccum"/> specifies the red, green, blue, and alpha values used by Gl.Clear to clear the accumulation 
+		/// buffer.
+		/// Values specified by <see cref="Gl.ClearAccum"/> are clamped to the range -11. 
+		/// <para>
+		/// The following errors can be generated:
+		/// - <see cref="Gl.INVALID_OPERATION"/> is generated if <see cref="Gl.ClearAccum"/> is executed between the execution of 
+		///   Gl.Beginand the corresponding execution of Gl.End. 
+		/// </para>
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - Gl.Get with argument <see cref="Gl.ACCUM_CLEAR_VALUE"/> 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.Accum"/>
+		/// <seealso cref="Gl.Clear"/>
 		public static void ClearAccum(float red, float green, float blue, float alpha)
 		{
 			Debug.Assert(Delegates.pglClearAccum != null, "pglClearAccum not implemented");
@@ -12931,13 +18166,28 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glClearIndex.
+		/// specify the clear value for the color index buffers
 		/// </summary>
 		/// <param name="c">
-		/// A <see cref="T:float"/>.
+		/// Specifies the index used when the color index buffers are cleared. The initial value is 0. 
 		/// </param>
 		/// <remarks>
+		/// <see cref="Gl.ClearIndex"/> specifies the index used by Gl.Clear to clear the color index buffers. <paramref name="c"/> 
+		/// isnot clamped. Rather, <paramref name="c"/> is converted to a fixed-point value with unspecified precision to the right 
+		/// ofthe binary point. The integer part of this value is then masked with 2m-1, where m is the number of bits in a color 
+		/// indexstored in the frame buffer. 
+		/// <para>
+		/// The following errors can be generated:
+		/// - <see cref="Gl.INVALID_OPERATION"/> is generated if <see cref="Gl.ClearIndex"/> is executed between the execution of 
+		///   Gl.Beginand the corresponding execution of Gl.End. 
+		/// </para>
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - Gl.Get with argument <see cref="Gl.INDEX_CLEAR_VALUE"/> 
+		/// - Gl.Get with argument <see cref="Gl.INDEX_BITS"/> 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.Clear"/>
 		public static void ClearIndex(float c)
 		{
 			Debug.Assert(Delegates.pglClearIndex != null, "pglClearIndex not implemented");
@@ -12947,13 +18197,35 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glIndexMask.
+		/// control the writing of individual bits in the color index buffers
 		/// </summary>
 		/// <param name="mask">
-		/// A <see cref="T:UInt32"/>.
+		/// Specifies a bit mask to enable and disable the writing of individual bits in the color index buffers. Initially, the 
+		/// maskis all 1's. 
 		/// </param>
 		/// <remarks>
+		/// <see cref="Gl.IndexMask"/> controls the writing of individual bits in the color index buffers. The least significant n 
+		/// bitsof <paramref name="mask"/>, where n is the number of bits in a color index buffer, specify a mask. Where a 1 (one) 
+		/// appearsin the mask, it's possible to write to the corresponding bit in the color index buffer (or buffers). Where a 0 
+		/// (zero)appears, the corresponding bit is write-protected. 
+		/// This mask is used only in color index mode, and it affects only the buffers currently selected for writing (see 
+		/// Gl.DrawBuffer).Initially, all bits are enabled for writing. 
+		/// <para>
+		/// The following errors can be generated:
+		/// - <see cref="Gl.INVALID_OPERATION"/> is generated if <see cref="Gl.IndexMask"/> is executed between the execution of 
+		///   Gl.Beginand the corresponding execution of Gl.End. 
+		/// </para>
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - Gl.Get with argument <see cref="Gl.INDEX_WRITEMASK"/> 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.ColorMask"/>
+		/// <seealso cref="Gl.DepthMask"/>
+		/// <seealso cref="Gl.DrawBuffer"/>
+		/// <seealso cref="Gl.Index"/>
+		/// <seealso cref="Gl.IndexPointer"/>
+		/// <seealso cref="Gl.StencilMask"/>
 		public static void IndexMask(UInt32 mask)
 		{
 			Debug.Assert(Delegates.pglIndexMask != null, "pglIndexMask not implemented");
@@ -12963,16 +18235,61 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glAccum.
+		/// operate on the accumulation buffer
 		/// </summary>
 		/// <param name="op">
-		/// A <see cref="T:int"/>.
+		/// Specifies the accumulation buffer operation. Symbolic constants <see cref="Gl.ACCUM"/>, <see cref="Gl.LOAD"/>, <see 
+		/// cref="Gl.ADD"/>,<see cref="Gl.MULT"/>, and <see cref="Gl.RETURN"/> are accepted. 
 		/// </param>
 		/// <param name="value">
-		/// A <see cref="T:float"/>.
+		/// Specifies a floating-point value used in the accumulation buffer operation. <paramref name="op"/> determines how 
+		/// <paramrefname="value"/> is used. 
 		/// </param>
 		/// <remarks>
+		/// The accumulation buffer is an extended-range color buffer. Images are not rendered into it. Rather, images rendered into 
+		/// oneof the color buffers are added to the contents of the accumulation buffer after rendering. Effects such as 
+		/// antialiasing(of points, lines, and polygons), motion blur, and depth of field can be created by accumulating images 
+		/// generatedwith different transformation matrices. 
+		/// Each pixel in the accumulation buffer consists of red, green, blue, and alpha values. The number of bits per component 
+		/// inthe accumulation buffer depends on the implementation. You can examine this number by calling Gl.GetIntegerv four 
+		/// times,with arguments <see cref="Gl.ACCUM_RED_BITS"/>, <see cref="Gl.ACCUM_GREEN_BITS"/>, <see 
+		/// cref="Gl.ACCUM_BLUE_BITS"/>,and <see cref="Gl.ACCUM_ALPHA_BITS"/>. Regardless of the number of bits per component, the 
+		/// rangeof values stored by each component is -11. The accumulation buffer pixels are mapped one-to-one with frame buffer 
+		/// pixels.
+		/// <see cref="Gl.Accum"/> operates on the accumulation buffer. The first argument, <paramref name="op"/>, is a symbolic 
+		/// constantthat selects an accumulation buffer operation. The second argument, <paramref name="value"/>, is a 
+		/// floating-pointvalue to be used in that operation. Five operations are specified: <see cref="Gl.ACCUM"/>, <see 
+		/// cref="Gl.LOAD"/>,<see cref="Gl.ADD"/>, <see cref="Gl.MULT"/>, and <see cref="Gl.RETURN"/>. 
+		/// All accumulation buffer operations are limited to the area of the current scissor box and applied identically to the 
+		/// red,green, blue, and alpha components of each pixel. If a <see cref="Gl.Accum"/> operation results in a value outside 
+		/// therange -11, the contents of an accumulation buffer pixel component are undefined. 
+		/// The operations are as follows: 
+		/// To clear the accumulation buffer, call Gl.ClearAccum with R, G, B, and A values to set it to, then call Gl.Clear with 
+		/// theaccumulation buffer enabled. 
+		/// <para>
+		/// The following errors can be generated:
+		/// - <see cref="Gl.INVALID_ENUM"/> is generated if <paramref name="op"/> is not an accepted value. 
+		/// - <see cref="Gl.INVALID_OPERATION"/> is generated if there is no accumulation buffer. 
+		/// - <see cref="Gl.INVALID_OPERATION"/> is generated if <see cref="Gl.Accum"/> is executed between the execution of Gl.Begin 
+		///   andthe corresponding execution of Gl.End. 
+		/// </para>
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - Gl.Get with argument <see cref="Gl.ACCUM_RED_BITS"/> 
+		/// - Gl.Get with argument <see cref="Gl.ACCUM_GREEN_BITS"/> 
+		/// - Gl.Get with argument <see cref="Gl.ACCUM_BLUE_BITS"/> 
+		/// - Gl.Get with argument <see cref="Gl.ACCUM_ALPHA_BITS"/> 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.Clear"/>
+		/// <seealso cref="Gl.ClearAccum"/>
+		/// <seealso cref="Gl.CopyPixels"/>
+		/// <seealso cref="Gl.DrawBuffer"/>
+		/// <seealso cref="Gl.Get"/>
+		/// <seealso cref="Gl.ReadBuffer"/>
+		/// <seealso cref="Gl.ReadPixels"/>
+		/// <seealso cref="Gl.Scissor"/>
+		/// <seealso cref="Gl.StencilOp"/>
 		public static void Accum(int op, float value)
 		{
 			Debug.Assert(Delegates.pglAccum != null, "pglAccum not implemented");
@@ -12982,16 +18299,61 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glAccum.
+		/// operate on the accumulation buffer
 		/// </summary>
 		/// <param name="op">
-		/// A <see cref="T:int"/>.
+		/// Specifies the accumulation buffer operation. Symbolic constants <see cref="Gl.ACCUM"/>, <see cref="Gl.LOAD"/>, <see 
+		/// cref="Gl.ADD"/>,<see cref="Gl.MULT"/>, and <see cref="Gl.RETURN"/> are accepted. 
 		/// </param>
 		/// <param name="value">
-		/// A <see cref="T:float"/>.
+		/// Specifies a floating-point value used in the accumulation buffer operation. <paramref name="op"/> determines how 
+		/// <paramrefname="value"/> is used. 
 		/// </param>
 		/// <remarks>
+		/// The accumulation buffer is an extended-range color buffer. Images are not rendered into it. Rather, images rendered into 
+		/// oneof the color buffers are added to the contents of the accumulation buffer after rendering. Effects such as 
+		/// antialiasing(of points, lines, and polygons), motion blur, and depth of field can be created by accumulating images 
+		/// generatedwith different transformation matrices. 
+		/// Each pixel in the accumulation buffer consists of red, green, blue, and alpha values. The number of bits per component 
+		/// inthe accumulation buffer depends on the implementation. You can examine this number by calling Gl.GetIntegerv four 
+		/// times,with arguments <see cref="Gl.ACCUM_RED_BITS"/>, <see cref="Gl.ACCUM_GREEN_BITS"/>, <see 
+		/// cref="Gl.ACCUM_BLUE_BITS"/>,and <see cref="Gl.ACCUM_ALPHA_BITS"/>. Regardless of the number of bits per component, the 
+		/// rangeof values stored by each component is -11. The accumulation buffer pixels are mapped one-to-one with frame buffer 
+		/// pixels.
+		/// <see cref="Gl.Accum"/> operates on the accumulation buffer. The first argument, <paramref name="op"/>, is a symbolic 
+		/// constantthat selects an accumulation buffer operation. The second argument, <paramref name="value"/>, is a 
+		/// floating-pointvalue to be used in that operation. Five operations are specified: <see cref="Gl.ACCUM"/>, <see 
+		/// cref="Gl.LOAD"/>,<see cref="Gl.ADD"/>, <see cref="Gl.MULT"/>, and <see cref="Gl.RETURN"/>. 
+		/// All accumulation buffer operations are limited to the area of the current scissor box and applied identically to the 
+		/// red,green, blue, and alpha components of each pixel. If a <see cref="Gl.Accum"/> operation results in a value outside 
+		/// therange -11, the contents of an accumulation buffer pixel component are undefined. 
+		/// The operations are as follows: 
+		/// To clear the accumulation buffer, call Gl.ClearAccum with R, G, B, and A values to set it to, then call Gl.Clear with 
+		/// theaccumulation buffer enabled. 
+		/// <para>
+		/// The following errors can be generated:
+		/// - <see cref="Gl.INVALID_ENUM"/> is generated if <paramref name="op"/> is not an accepted value. 
+		/// - <see cref="Gl.INVALID_OPERATION"/> is generated if there is no accumulation buffer. 
+		/// - <see cref="Gl.INVALID_OPERATION"/> is generated if <see cref="Gl.Accum"/> is executed between the execution of Gl.Begin 
+		///   andthe corresponding execution of Gl.End. 
+		/// </para>
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - Gl.Get with argument <see cref="Gl.ACCUM_RED_BITS"/> 
+		/// - Gl.Get with argument <see cref="Gl.ACCUM_GREEN_BITS"/> 
+		/// - Gl.Get with argument <see cref="Gl.ACCUM_BLUE_BITS"/> 
+		/// - Gl.Get with argument <see cref="Gl.ACCUM_ALPHA_BITS"/> 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.Clear"/>
+		/// <seealso cref="Gl.ClearAccum"/>
+		/// <seealso cref="Gl.CopyPixels"/>
+		/// <seealso cref="Gl.DrawBuffer"/>
+		/// <seealso cref="Gl.Get"/>
+		/// <seealso cref="Gl.ReadBuffer"/>
+		/// <seealso cref="Gl.ReadPixels"/>
+		/// <seealso cref="Gl.Scissor"/>
+		/// <seealso cref="Gl.StencilOp"/>
 		public static void Accum(AccumOp op, float value)
 		{
 			Debug.Assert(Delegates.pglAccum != null, "pglAccum not implemented");
@@ -13001,10 +18363,50 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glPopAttrib.
+		/// push and pop the server attribute stack
 		/// </summary>
 		/// <remarks>
+		/// <see cref="Gl.PushAttrib"/> takes one argument, a mask that indicates which groups of state variables to save on the 
+		/// attributestack. Symbolic constants are used to set bits in the mask. <paramref name="mask"/> is typically constructed by 
+		/// specifyingthe bitwise-or of several of these constants together. The special mask <see cref="Gl.ALL_ATTRIB_BITS"/> can 
+		/// beused to save all stackable states. 
+		/// The symbolic mask constants and their associated GL state are as follows (the second column lists which attributes are 
+		/// saved):
+		///  
+		/// Gl.PopAttrib restores the values of the state variables saved with the last <see cref="Gl.PushAttrib"/> command. Those 
+		/// notsaved are left unchanged. 
+		/// It is an error to push attributes onto a full stack or to pop attributes off an empty stack. In either case, the error 
+		/// flagis set and no other change is made to GL state. 
+		/// Initially, the attribute stack is empty. 
+		/// <para>
+		/// The following errors can be generated:
+		/// - <see cref="Gl.STACK_OVERFLOW"/> is generated if <see cref="Gl.PushAttrib"/> is called while the attribute stack is full. 
+		/// - <see cref="Gl.STACK_UNDERFLOW"/> is generated if Gl.PopAttrib is called while the attribute stack is empty. 
+		/// - <see cref="Gl.INVALID_OPERATION"/> is generated if <see cref="Gl.PushAttrib"/> or Gl.PopAttrib is executed between the 
+		///   executionof Gl.Begin and the corresponding execution of Gl.End. 
+		/// </para>
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - Gl.Get with argument <see cref="Gl.ATTRIB_STACK_DEPTH"/> 
+		/// - Gl.Get with argument <see cref="Gl.MAX_ATTRIB_STACK_DEPTH"/> 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.Get"/>
+		/// <seealso cref="Gl.GetClipPlane"/>
+		/// <seealso cref="Gl.GetError"/>
+		/// <seealso cref="Gl.GetLight"/>
+		/// <seealso cref="Gl.GetMap"/>
+		/// <seealso cref="Gl.GetMaterial"/>
+		/// <seealso cref="Gl.GetPixelMap"/>
+		/// <seealso cref="Gl.GetPolygonStipple"/>
+		/// <seealso cref="Gl.GetString"/>
+		/// <seealso cref="Gl.GetTexEnv"/>
+		/// <seealso cref="Gl.GetTexGen"/>
+		/// <seealso cref="Gl.GetTexImage"/>
+		/// <seealso cref="Gl.GetTexLevelParameter"/>
+		/// <seealso cref="Gl.GetTexParameter"/>
+		/// <seealso cref="Gl.IsEnabled"/>
+		/// <seealso cref="Gl.PushClientAttrib"/>
 		public static void PopAttrib()
 		{
 			Debug.Assert(Delegates.pglPopAttrib != null, "pglPopAttrib not implemented");
@@ -13014,13 +18416,53 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glPushAttrib.
+		/// push and pop the server attribute stack
 		/// </summary>
 		/// <param name="mask">
-		/// A <see cref="T:uint"/>.
+		/// Specifies a mask that indicates which attributes to save. Values for <paramref name="mask"/> are listed below. 
 		/// </param>
 		/// <remarks>
+		/// <see cref="Gl.PushAttrib"/> takes one argument, a mask that indicates which groups of state variables to save on the 
+		/// attributestack. Symbolic constants are used to set bits in the mask. <paramref name="mask"/> is typically constructed by 
+		/// specifyingthe bitwise-or of several of these constants together. The special mask <see cref="Gl.ALL_ATTRIB_BITS"/> can 
+		/// beused to save all stackable states. 
+		/// The symbolic mask constants and their associated GL state are as follows (the second column lists which attributes are 
+		/// saved):
+		///  
+		/// Gl.PopAttrib restores the values of the state variables saved with the last <see cref="Gl.PushAttrib"/> command. Those 
+		/// notsaved are left unchanged. 
+		/// It is an error to push attributes onto a full stack or to pop attributes off an empty stack. In either case, the error 
+		/// flagis set and no other change is made to GL state. 
+		/// Initially, the attribute stack is empty. 
+		/// <para>
+		/// The following errors can be generated:
+		/// - <see cref="Gl.STACK_OVERFLOW"/> is generated if <see cref="Gl.PushAttrib"/> is called while the attribute stack is full. 
+		/// - <see cref="Gl.STACK_UNDERFLOW"/> is generated if Gl.PopAttrib is called while the attribute stack is empty. 
+		/// - <see cref="Gl.INVALID_OPERATION"/> is generated if <see cref="Gl.PushAttrib"/> or Gl.PopAttrib is executed between the 
+		///   executionof Gl.Begin and the corresponding execution of Gl.End. 
+		/// </para>
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - Gl.Get with argument <see cref="Gl.ATTRIB_STACK_DEPTH"/> 
+		/// - Gl.Get with argument <see cref="Gl.MAX_ATTRIB_STACK_DEPTH"/> 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.Get"/>
+		/// <seealso cref="Gl.GetClipPlane"/>
+		/// <seealso cref="Gl.GetError"/>
+		/// <seealso cref="Gl.GetLight"/>
+		/// <seealso cref="Gl.GetMap"/>
+		/// <seealso cref="Gl.GetMaterial"/>
+		/// <seealso cref="Gl.GetPixelMap"/>
+		/// <seealso cref="Gl.GetPolygonStipple"/>
+		/// <seealso cref="Gl.GetString"/>
+		/// <seealso cref="Gl.GetTexEnv"/>
+		/// <seealso cref="Gl.GetTexGen"/>
+		/// <seealso cref="Gl.GetTexImage"/>
+		/// <seealso cref="Gl.GetTexLevelParameter"/>
+		/// <seealso cref="Gl.GetTexParameter"/>
+		/// <seealso cref="Gl.IsEnabled"/>
+		/// <seealso cref="Gl.PushClientAttrib"/>
 		public static void PushAttrib(uint mask)
 		{
 			Debug.Assert(Delegates.pglPushAttrib != null, "pglPushAttrib not implemented");
@@ -13030,13 +18472,53 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glPushAttrib.
+		/// push and pop the server attribute stack
 		/// </summary>
 		/// <param name="mask">
-		/// A <see cref="T:uint"/>.
+		/// Specifies a mask that indicates which attributes to save. Values for <paramref name="mask"/> are listed below. 
 		/// </param>
 		/// <remarks>
+		/// <see cref="Gl.PushAttrib"/> takes one argument, a mask that indicates which groups of state variables to save on the 
+		/// attributestack. Symbolic constants are used to set bits in the mask. <paramref name="mask"/> is typically constructed by 
+		/// specifyingthe bitwise-or of several of these constants together. The special mask <see cref="Gl.ALL_ATTRIB_BITS"/> can 
+		/// beused to save all stackable states. 
+		/// The symbolic mask constants and their associated GL state are as follows (the second column lists which attributes are 
+		/// saved):
+		///  
+		/// Gl.PopAttrib restores the values of the state variables saved with the last <see cref="Gl.PushAttrib"/> command. Those 
+		/// notsaved are left unchanged. 
+		/// It is an error to push attributes onto a full stack or to pop attributes off an empty stack. In either case, the error 
+		/// flagis set and no other change is made to GL state. 
+		/// Initially, the attribute stack is empty. 
+		/// <para>
+		/// The following errors can be generated:
+		/// - <see cref="Gl.STACK_OVERFLOW"/> is generated if <see cref="Gl.PushAttrib"/> is called while the attribute stack is full. 
+		/// - <see cref="Gl.STACK_UNDERFLOW"/> is generated if Gl.PopAttrib is called while the attribute stack is empty. 
+		/// - <see cref="Gl.INVALID_OPERATION"/> is generated if <see cref="Gl.PushAttrib"/> or Gl.PopAttrib is executed between the 
+		///   executionof Gl.Begin and the corresponding execution of Gl.End. 
+		/// </para>
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - Gl.Get with argument <see cref="Gl.ATTRIB_STACK_DEPTH"/> 
+		/// - Gl.Get with argument <see cref="Gl.MAX_ATTRIB_STACK_DEPTH"/> 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.Get"/>
+		/// <seealso cref="Gl.GetClipPlane"/>
+		/// <seealso cref="Gl.GetError"/>
+		/// <seealso cref="Gl.GetLight"/>
+		/// <seealso cref="Gl.GetMap"/>
+		/// <seealso cref="Gl.GetMaterial"/>
+		/// <seealso cref="Gl.GetPixelMap"/>
+		/// <seealso cref="Gl.GetPolygonStipple"/>
+		/// <seealso cref="Gl.GetString"/>
+		/// <seealso cref="Gl.GetTexEnv"/>
+		/// <seealso cref="Gl.GetTexGen"/>
+		/// <seealso cref="Gl.GetTexImage"/>
+		/// <seealso cref="Gl.GetTexLevelParameter"/>
+		/// <seealso cref="Gl.GetTexParameter"/>
+		/// <seealso cref="Gl.IsEnabled"/>
+		/// <seealso cref="Gl.PushClientAttrib"/>
 		public static void PushAttrib(AttribMask mask)
 		{
 			Debug.Assert(Delegates.pglPushAttrib != null, "pglPushAttrib not implemented");
@@ -15355,16 +20837,47 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glAlphaFunc.
+		/// specify the alpha test function
 		/// </summary>
 		/// <param name="func">
-		/// A <see cref="T:int"/>.
+		/// Specifies the alpha comparison function. Symbolic constants <see cref="Gl.NEVER"/>, <see cref="Gl.LESS"/>, <see 
+		/// cref="Gl.EQUAL"/>,<see cref="Gl.LEQUAL"/>, <see cref="Gl.GREATER"/>, <see cref="Gl.NOTEQUAL"/>, <see cref="Gl.GEQUAL"/>, 
+		/// and<see cref="Gl.ALWAYS"/> are accepted. The initial value is <see cref="Gl.ALWAYS"/>. 
 		/// </param>
 		/// <param name="ref">
 		/// A <see cref="T:float"/>.
 		/// </param>
 		/// <remarks>
+		/// The alpha test discards fragments depending on the outcome of a comparison between an incoming fragment's alpha value 
+		/// anda constant reference value. <see cref="Gl.AlphaFunc"/> specifies the reference value and the comparison function. The 
+		/// comparisonis performed only if alpha testing is enabled. By default, it is not enabled. (See Gl.Enable and Gl.Disable of 
+		/// <seecref="Gl.ALPHA_TEST"/>.) 
+		/// <paramref name="func"/> and <paramref name="ref"/> specify the conditions under which the pixel is drawn. The incoming 
+		/// alphavalue is compared to <paramref name="ref"/> using the function specified by <paramref name="func"/>. If the value 
+		/// passesthe comparison, the incoming fragment is drawn if it also passes subsequent stencil and depth buffer tests. If the 
+		/// valuefails the comparison, no change is made to the frame buffer at that pixel location. The comparison functions are as 
+		/// follows:
+		/// <see cref="Gl.AlphaFunc"/> operates on all pixel write operations, including those resulting from the scan conversion of 
+		/// points,lines, polygons, and bitmaps, and from pixel draw and copy operations. <see cref="Gl.AlphaFunc"/> does not affect 
+		/// screenclear operations. 
+		/// <para>
+		/// The following errors can be generated:
+		/// - <see cref="Gl.INVALID_ENUM"/> is generated if <paramref name="func"/> is not an accepted value. 
+		/// - <see cref="Gl.INVALID_OPERATION"/> is generated if <see cref="Gl.AlphaFunc"/> is executed between the execution of 
+		///   Gl.Beginand the corresponding execution of Gl.End. 
+		/// </para>
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - Gl.Get with argument <see cref="Gl.ALPHA_TEST_FUNC"/> 
+		/// - Gl.Get with argument <see cref="Gl.ALPHA_TEST_REF"/> 
+		/// - Gl.IsEnabled with argument <see cref="Gl.ALPHA_TEST"/> 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.BlendFunc"/>
+		/// <seealso cref="Gl.Clear"/>
+		/// <seealso cref="Gl.DepthFunc"/>
+		/// <seealso cref="Gl.Enable"/>
+		/// <seealso cref="Gl.StencilFunc"/>
 		public static void AlphaFunc(int func, float @ref)
 		{
 			Debug.Assert(Delegates.pglAlphaFunc != null, "pglAlphaFunc not implemented");
@@ -15374,16 +20887,47 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glAlphaFunc.
+		/// specify the alpha test function
 		/// </summary>
 		/// <param name="func">
-		/// A <see cref="T:int"/>.
+		/// Specifies the alpha comparison function. Symbolic constants <see cref="Gl.NEVER"/>, <see cref="Gl.LESS"/>, <see 
+		/// cref="Gl.EQUAL"/>,<see cref="Gl.LEQUAL"/>, <see cref="Gl.GREATER"/>, <see cref="Gl.NOTEQUAL"/>, <see cref="Gl.GEQUAL"/>, 
+		/// and<see cref="Gl.ALWAYS"/> are accepted. The initial value is <see cref="Gl.ALWAYS"/>. 
 		/// </param>
 		/// <param name="ref">
 		/// A <see cref="T:float"/>.
 		/// </param>
 		/// <remarks>
+		/// The alpha test discards fragments depending on the outcome of a comparison between an incoming fragment's alpha value 
+		/// anda constant reference value. <see cref="Gl.AlphaFunc"/> specifies the reference value and the comparison function. The 
+		/// comparisonis performed only if alpha testing is enabled. By default, it is not enabled. (See Gl.Enable and Gl.Disable of 
+		/// <seecref="Gl.ALPHA_TEST"/>.) 
+		/// <paramref name="func"/> and <paramref name="ref"/> specify the conditions under which the pixel is drawn. The incoming 
+		/// alphavalue is compared to <paramref name="ref"/> using the function specified by <paramref name="func"/>. If the value 
+		/// passesthe comparison, the incoming fragment is drawn if it also passes subsequent stencil and depth buffer tests. If the 
+		/// valuefails the comparison, no change is made to the frame buffer at that pixel location. The comparison functions are as 
+		/// follows:
+		/// <see cref="Gl.AlphaFunc"/> operates on all pixel write operations, including those resulting from the scan conversion of 
+		/// points,lines, polygons, and bitmaps, and from pixel draw and copy operations. <see cref="Gl.AlphaFunc"/> does not affect 
+		/// screenclear operations. 
+		/// <para>
+		/// The following errors can be generated:
+		/// - <see cref="Gl.INVALID_ENUM"/> is generated if <paramref name="func"/> is not an accepted value. 
+		/// - <see cref="Gl.INVALID_OPERATION"/> is generated if <see cref="Gl.AlphaFunc"/> is executed between the execution of 
+		///   Gl.Beginand the corresponding execution of Gl.End. 
+		/// </para>
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - Gl.Get with argument <see cref="Gl.ALPHA_TEST_FUNC"/> 
+		/// - Gl.Get with argument <see cref="Gl.ALPHA_TEST_REF"/> 
+		/// - Gl.IsEnabled with argument <see cref="Gl.ALPHA_TEST"/> 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.BlendFunc"/>
+		/// <seealso cref="Gl.Clear"/>
+		/// <seealso cref="Gl.DepthFunc"/>
+		/// <seealso cref="Gl.Enable"/>
+		/// <seealso cref="Gl.StencilFunc"/>
 		public static void AlphaFunc(AlphaFunction func, float @ref)
 		{
 			Debug.Assert(Delegates.pglAlphaFunc != null, "pglAlphaFunc not implemented");
@@ -15433,16 +20977,111 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glPixelTransferf.
+		/// set pixel transfer modes
 		/// </summary>
 		/// <param name="pname">
-		/// A <see cref="T:int"/>.
+		/// Specifies the symbolic name of the pixel transfer parameter to be set. Must be one of the following: <see 
+		/// cref="Gl.MAP_COLOR"/>,<see cref="Gl.MAP_STENCIL"/>, <see cref="Gl.INDEX_SHIFT"/>, <see cref="Gl.INDEX_OFFSET"/>, <see 
+		/// cref="Gl.RED_SCALE"/>,<see cref="Gl.RED_BIAS"/>, <see cref="Gl.GREEN_SCALE"/>, <see cref="Gl.GREEN_BIAS"/>, <see 
+		/// cref="Gl.BLUE_SCALE"/>,<see cref="Gl.BLUE_BIAS"/>, <see cref="Gl.ALPHA_SCALE"/>, <see cref="Gl.ALPHA_BIAS"/>, <see 
+		/// cref="Gl.DEPTH_SCALE"/>,or <see cref="Gl.DEPTH_BIAS"/>. 
 		/// </param>
 		/// <param name="param">
-		/// A <see cref="T:float"/>.
+		/// Specifies the value that <paramref name="pname"/> is set to. 
 		/// </param>
 		/// <remarks>
+		/// <see cref="Gl.PixelTransfer"/> sets pixel transfer modes that affect the operation of subsequent Gl.CopyPixels, 
+		/// Gl.CopyTexImage1D,Gl.CopyTexImage2D, Gl.CopyTexSubImage1D, Gl.CopyTexSubImage2D, Gl.CopyTexSubImage3D, Gl.DrawPixels, 
+		/// Gl.ReadPixels,Gl.TexImage1D, Gl.TexImage2D, Gl.TexImage3D, Gl.TexSubImage1D, Gl.TexSubImage2D, and Gl.TexSubImage3D 
+		/// commands.Additionally, if the ARB_imaging subset is supported, the routines Gl.ColorTable, Gl.ColorSubTable, 
+		/// Gl.ConvolutionFilter1D,Gl.ConvolutionFilter2D, Gl.Histogram, Gl.Minmax, and Gl.SeparableFilter2D are also affected. The 
+		/// algorithmsthat are specified by pixel transfer modes operate on pixels after they are read from the frame buffer 
+		/// (Gl.CopyPixelsGl.CopyTexImage1D,Gl.CopyTexImage2D, Gl.CopyTexSubImage1D, Gl.CopyTexSubImage2D, Gl.CopyTexSubImage3D, and 
+		/// Gl.ReadPixels),or unpacked from client memory (Gl.DrawPixels, Gl.TexImage1D, Gl.TexImage2D, Gl.TexImage3D, 
+		/// Gl.TexSubImage1D,Gl.TexSubImage2D, and Gl.TexSubImage3D). Pixel transfer operations happen in the same order, and in the 
+		/// samemanner, regardless of the command that resulted in the pixel operation. Pixel storage modes (see Gl.PixelStore) 
+		/// controlthe unpacking of pixels being read from client memory and the packing of pixels being written back into client 
+		/// memory.
+		/// Pixel transfer operations handle four fundamental pixel types: color, color index, depth, and stencil. Color pixels 
+		/// consistof four floating-point values with unspecified mantissa and exponent sizes, scaled such that 0 represents zero 
+		/// intensityand 1 represents full intensity. Color indices comprise a single fixed-point value, with unspecified precision 
+		/// tothe right of the binary point. Depth pixels comprise a single floating-point value, with unspecified mantissa and 
+		/// exponentsizes, scaled such that 0.0 represents the minimum depth buffer value, and 1.0 represents the maximum depth 
+		/// buffervalue. Finally, stencil pixels comprise a single fixed-point value, with unspecified precision to the right of the 
+		/// binarypoint. 
+		/// The pixel transfer operations performed on the four basic pixel types are as follows: 
+		/// The following table gives the type, initial value, and range of valid values for each of the pixel transfer parameters 
+		/// thatare set with <see cref="Gl.PixelTransfer"/>. 
+		///  
+		/// <see cref="Gl.PixelTransferf"/> can be used to set any pixel transfer parameter. If the parameter type is boolean, 0 
+		/// impliesfalse and any other value implies true. If <paramref name="pname"/> is an integer parameter, <paramref 
+		/// name="param"/>is rounded to the nearest integer. 
+		/// Likewise, <see cref="Gl.PixelTransferi"/> can be used to set any of the pixel transfer parameters. Boolean parameters 
+		/// areset to false if <paramref name="param"/> is 0 and to true otherwise. <paramref name="param"/> is converted to 
+		/// floatingpoint before being assigned to real-valued parameters. 
+		/// <para>
+		/// The following errors can be generated:
+		/// - <see cref="Gl.INVALID_ENUM"/> is generated if <paramref name="pname"/> is not an accepted value. 
+		/// - <see cref="Gl.INVALID_OPERATION"/> is generated if <see cref="Gl.PixelTransfer"/> is executed between the execution of 
+		///   Gl.Beginand the corresponding execution of Gl.End. 
+		/// </para>
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - Gl.Get with argument <see cref="Gl.MAP_COLOR"/> 
+		/// - Gl.Get with argument <see cref="Gl.MAP_STENCIL"/> 
+		/// - Gl.Get with argument <see cref="Gl.INDEX_SHIFT"/> 
+		/// - Gl.Get with argument <see cref="Gl.INDEX_OFFSET"/> 
+		/// - Gl.Get with argument <see cref="Gl.RED_SCALE"/> 
+		/// - Gl.Get with argument <see cref="Gl.RED_BIAS"/> 
+		/// - Gl.Get with argument <see cref="Gl.GREEN_SCALE"/> 
+		/// - Gl.Get with argument <see cref="Gl.GREEN_BIAS"/> 
+		/// - Gl.Get with argument <see cref="Gl.BLUE_SCALE"/> 
+		/// - Gl.Get with argument <see cref="Gl.BLUE_BIAS"/> 
+		/// - Gl.Get with argument <see cref="Gl.ALPHA_SCALE"/> 
+		/// - Gl.Get with argument <see cref="Gl.ALPHA_BIAS"/> 
+		/// - Gl.Get with argument <see cref="Gl.DEPTH_SCALE"/> 
+		/// - Gl.Get with argument <see cref="Gl.DEPTH_BIAS"/> 
+		/// - Gl.Get with argument <see cref="Gl.POST_COLOR_MATRIX_RED_SCALE"/> 
+		/// - Gl.Get with argument <see cref="Gl.POST_COLOR_MATRIX_RED_BIAS"/> 
+		/// - Gl.Get with argument <see cref="Gl.POST_COLOR_MATRIX_GREEN_SCALE"/> 
+		/// - Gl.Get with argument <see cref="Gl.POST_COLOR_MATRIX_GREEN_BIAS"/> 
+		/// - Gl.Get with argument <see cref="Gl.POST_COLOR_MATRIX_BLUE_SCALE"/> 
+		/// - Gl.Get with argument <see cref="Gl.POST_COLOR_MATRIX_BLUE_BIAS"/> 
+		/// - Gl.Get with argument <see cref="Gl.POST_COLOR_MATRIX_ALPHA_SCALE"/> 
+		/// - Gl.Get with argument <see cref="Gl.POST_COLOR_MATRIX_ALPHA_BIAS"/> 
+		/// - Gl.Get with argument <see cref="Gl.POST_CONVOLUTION_RED_SCALE"/> 
+		/// - Gl.Get with argument <see cref="Gl.POST_CONVOLUTION_RED_BIAS"/> 
+		/// - Gl.Get with argument <see cref="Gl.POST_CONVOLUTION_GREEN_SCALE"/> 
+		/// - Gl.Get with argument <see cref="Gl.POST_CONVOLUTION_GREEN_BIAS"/> 
+		/// - Gl.Get with argument <see cref="Gl.POST_CONVOLUTION_BLUE_SCALE"/> 
+		/// - Gl.Get with argument <see cref="Gl.POST_CONVOLUTION_BLUE_BIAS"/> 
+		/// - Gl.Get with argument <see cref="Gl.POST_CONVOLUTION_ALPHA_SCALE"/> 
+		/// - Gl.Get with argument <see cref="Gl.POST_CONVOLUTION_ALPHA_BIAS"/> 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.CallList"/>
+		/// <seealso cref="Gl.ColorTable"/>
+		/// <seealso cref="Gl.ColorSubTable"/>
+		/// <seealso cref="Gl.ConvolutionFilter1D"/>
+		/// <seealso cref="Gl.ConvolutionFilter2D"/>
+		/// <seealso cref="Gl.CopyPixels"/>
+		/// <seealso cref="Gl.CopyTexImage1D"/>
+		/// <seealso cref="Gl.CopyTexImage2D"/>
+		/// <seealso cref="Gl.CopyTexSubImage1D"/>
+		/// <seealso cref="Gl.CopyTexSubImage2D"/>
+		/// <seealso cref="Gl.CopyTexSubImage3D"/>
+		/// <seealso cref="Gl.DrawPixels"/>
+		/// <seealso cref="Gl.NewList"/>
+		/// <seealso cref="Gl.PixelMap"/>
+		/// <seealso cref="Gl.PixelStore"/>
+		/// <seealso cref="Gl.PixelZoom"/>
+		/// <seealso cref="Gl.ReadPixels"/>
+		/// <seealso cref="Gl.TexImage1D"/>
+		/// <seealso cref="Gl.TexImage2D"/>
+		/// <seealso cref="Gl.TexImage3D"/>
+		/// <seealso cref="Gl.TexSubImage1D"/>
+		/// <seealso cref="Gl.TexSubImage2D"/>
+		/// <seealso cref="Gl.TexSubImage3D"/>
 		public static void PixelTransfer(int pname, float param)
 		{
 			Debug.Assert(Delegates.pglPixelTransferf != null, "pglPixelTransferf not implemented");
@@ -15452,16 +21091,111 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glPixelTransferf.
+		/// set pixel transfer modes
 		/// </summary>
 		/// <param name="pname">
-		/// A <see cref="T:int"/>.
+		/// Specifies the symbolic name of the pixel transfer parameter to be set. Must be one of the following: <see 
+		/// cref="Gl.MAP_COLOR"/>,<see cref="Gl.MAP_STENCIL"/>, <see cref="Gl.INDEX_SHIFT"/>, <see cref="Gl.INDEX_OFFSET"/>, <see 
+		/// cref="Gl.RED_SCALE"/>,<see cref="Gl.RED_BIAS"/>, <see cref="Gl.GREEN_SCALE"/>, <see cref="Gl.GREEN_BIAS"/>, <see 
+		/// cref="Gl.BLUE_SCALE"/>,<see cref="Gl.BLUE_BIAS"/>, <see cref="Gl.ALPHA_SCALE"/>, <see cref="Gl.ALPHA_BIAS"/>, <see 
+		/// cref="Gl.DEPTH_SCALE"/>,or <see cref="Gl.DEPTH_BIAS"/>. 
 		/// </param>
 		/// <param name="param">
-		/// A <see cref="T:float"/>.
+		/// Specifies the value that <paramref name="pname"/> is set to. 
 		/// </param>
 		/// <remarks>
+		/// <see cref="Gl.PixelTransfer"/> sets pixel transfer modes that affect the operation of subsequent Gl.CopyPixels, 
+		/// Gl.CopyTexImage1D,Gl.CopyTexImage2D, Gl.CopyTexSubImage1D, Gl.CopyTexSubImage2D, Gl.CopyTexSubImage3D, Gl.DrawPixels, 
+		/// Gl.ReadPixels,Gl.TexImage1D, Gl.TexImage2D, Gl.TexImage3D, Gl.TexSubImage1D, Gl.TexSubImage2D, and Gl.TexSubImage3D 
+		/// commands.Additionally, if the ARB_imaging subset is supported, the routines Gl.ColorTable, Gl.ColorSubTable, 
+		/// Gl.ConvolutionFilter1D,Gl.ConvolutionFilter2D, Gl.Histogram, Gl.Minmax, and Gl.SeparableFilter2D are also affected. The 
+		/// algorithmsthat are specified by pixel transfer modes operate on pixels after they are read from the frame buffer 
+		/// (Gl.CopyPixelsGl.CopyTexImage1D,Gl.CopyTexImage2D, Gl.CopyTexSubImage1D, Gl.CopyTexSubImage2D, Gl.CopyTexSubImage3D, and 
+		/// Gl.ReadPixels),or unpacked from client memory (Gl.DrawPixels, Gl.TexImage1D, Gl.TexImage2D, Gl.TexImage3D, 
+		/// Gl.TexSubImage1D,Gl.TexSubImage2D, and Gl.TexSubImage3D). Pixel transfer operations happen in the same order, and in the 
+		/// samemanner, regardless of the command that resulted in the pixel operation. Pixel storage modes (see Gl.PixelStore) 
+		/// controlthe unpacking of pixels being read from client memory and the packing of pixels being written back into client 
+		/// memory.
+		/// Pixel transfer operations handle four fundamental pixel types: color, color index, depth, and stencil. Color pixels 
+		/// consistof four floating-point values with unspecified mantissa and exponent sizes, scaled such that 0 represents zero 
+		/// intensityand 1 represents full intensity. Color indices comprise a single fixed-point value, with unspecified precision 
+		/// tothe right of the binary point. Depth pixels comprise a single floating-point value, with unspecified mantissa and 
+		/// exponentsizes, scaled such that 0.0 represents the minimum depth buffer value, and 1.0 represents the maximum depth 
+		/// buffervalue. Finally, stencil pixels comprise a single fixed-point value, with unspecified precision to the right of the 
+		/// binarypoint. 
+		/// The pixel transfer operations performed on the four basic pixel types are as follows: 
+		/// The following table gives the type, initial value, and range of valid values for each of the pixel transfer parameters 
+		/// thatare set with <see cref="Gl.PixelTransfer"/>. 
+		///  
+		/// <see cref="Gl.PixelTransferf"/> can be used to set any pixel transfer parameter. If the parameter type is boolean, 0 
+		/// impliesfalse and any other value implies true. If <paramref name="pname"/> is an integer parameter, <paramref 
+		/// name="param"/>is rounded to the nearest integer. 
+		/// Likewise, <see cref="Gl.PixelTransferi"/> can be used to set any of the pixel transfer parameters. Boolean parameters 
+		/// areset to false if <paramref name="param"/> is 0 and to true otherwise. <paramref name="param"/> is converted to 
+		/// floatingpoint before being assigned to real-valued parameters. 
+		/// <para>
+		/// The following errors can be generated:
+		/// - <see cref="Gl.INVALID_ENUM"/> is generated if <paramref name="pname"/> is not an accepted value. 
+		/// - <see cref="Gl.INVALID_OPERATION"/> is generated if <see cref="Gl.PixelTransfer"/> is executed between the execution of 
+		///   Gl.Beginand the corresponding execution of Gl.End. 
+		/// </para>
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - Gl.Get with argument <see cref="Gl.MAP_COLOR"/> 
+		/// - Gl.Get with argument <see cref="Gl.MAP_STENCIL"/> 
+		/// - Gl.Get with argument <see cref="Gl.INDEX_SHIFT"/> 
+		/// - Gl.Get with argument <see cref="Gl.INDEX_OFFSET"/> 
+		/// - Gl.Get with argument <see cref="Gl.RED_SCALE"/> 
+		/// - Gl.Get with argument <see cref="Gl.RED_BIAS"/> 
+		/// - Gl.Get with argument <see cref="Gl.GREEN_SCALE"/> 
+		/// - Gl.Get with argument <see cref="Gl.GREEN_BIAS"/> 
+		/// - Gl.Get with argument <see cref="Gl.BLUE_SCALE"/> 
+		/// - Gl.Get with argument <see cref="Gl.BLUE_BIAS"/> 
+		/// - Gl.Get with argument <see cref="Gl.ALPHA_SCALE"/> 
+		/// - Gl.Get with argument <see cref="Gl.ALPHA_BIAS"/> 
+		/// - Gl.Get with argument <see cref="Gl.DEPTH_SCALE"/> 
+		/// - Gl.Get with argument <see cref="Gl.DEPTH_BIAS"/> 
+		/// - Gl.Get with argument <see cref="Gl.POST_COLOR_MATRIX_RED_SCALE"/> 
+		/// - Gl.Get with argument <see cref="Gl.POST_COLOR_MATRIX_RED_BIAS"/> 
+		/// - Gl.Get with argument <see cref="Gl.POST_COLOR_MATRIX_GREEN_SCALE"/> 
+		/// - Gl.Get with argument <see cref="Gl.POST_COLOR_MATRIX_GREEN_BIAS"/> 
+		/// - Gl.Get with argument <see cref="Gl.POST_COLOR_MATRIX_BLUE_SCALE"/> 
+		/// - Gl.Get with argument <see cref="Gl.POST_COLOR_MATRIX_BLUE_BIAS"/> 
+		/// - Gl.Get with argument <see cref="Gl.POST_COLOR_MATRIX_ALPHA_SCALE"/> 
+		/// - Gl.Get with argument <see cref="Gl.POST_COLOR_MATRIX_ALPHA_BIAS"/> 
+		/// - Gl.Get with argument <see cref="Gl.POST_CONVOLUTION_RED_SCALE"/> 
+		/// - Gl.Get with argument <see cref="Gl.POST_CONVOLUTION_RED_BIAS"/> 
+		/// - Gl.Get with argument <see cref="Gl.POST_CONVOLUTION_GREEN_SCALE"/> 
+		/// - Gl.Get with argument <see cref="Gl.POST_CONVOLUTION_GREEN_BIAS"/> 
+		/// - Gl.Get with argument <see cref="Gl.POST_CONVOLUTION_BLUE_SCALE"/> 
+		/// - Gl.Get with argument <see cref="Gl.POST_CONVOLUTION_BLUE_BIAS"/> 
+		/// - Gl.Get with argument <see cref="Gl.POST_CONVOLUTION_ALPHA_SCALE"/> 
+		/// - Gl.Get with argument <see cref="Gl.POST_CONVOLUTION_ALPHA_BIAS"/> 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.CallList"/>
+		/// <seealso cref="Gl.ColorTable"/>
+		/// <seealso cref="Gl.ColorSubTable"/>
+		/// <seealso cref="Gl.ConvolutionFilter1D"/>
+		/// <seealso cref="Gl.ConvolutionFilter2D"/>
+		/// <seealso cref="Gl.CopyPixels"/>
+		/// <seealso cref="Gl.CopyTexImage1D"/>
+		/// <seealso cref="Gl.CopyTexImage2D"/>
+		/// <seealso cref="Gl.CopyTexSubImage1D"/>
+		/// <seealso cref="Gl.CopyTexSubImage2D"/>
+		/// <seealso cref="Gl.CopyTexSubImage3D"/>
+		/// <seealso cref="Gl.DrawPixels"/>
+		/// <seealso cref="Gl.NewList"/>
+		/// <seealso cref="Gl.PixelMap"/>
+		/// <seealso cref="Gl.PixelStore"/>
+		/// <seealso cref="Gl.PixelZoom"/>
+		/// <seealso cref="Gl.ReadPixels"/>
+		/// <seealso cref="Gl.TexImage1D"/>
+		/// <seealso cref="Gl.TexImage2D"/>
+		/// <seealso cref="Gl.TexImage3D"/>
+		/// <seealso cref="Gl.TexSubImage1D"/>
+		/// <seealso cref="Gl.TexSubImage2D"/>
+		/// <seealso cref="Gl.TexSubImage3D"/>
 		public static void PixelTransfer(PixelTransferParameter pname, float param)
 		{
 			Debug.Assert(Delegates.pglPixelTransferf != null, "pglPixelTransferf not implemented");
@@ -15471,16 +21205,111 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glPixelTransferi.
+		/// set pixel transfer modes
 		/// </summary>
 		/// <param name="pname">
-		/// A <see cref="T:int"/>.
+		/// Specifies the symbolic name of the pixel transfer parameter to be set. Must be one of the following: <see 
+		/// cref="Gl.MAP_COLOR"/>,<see cref="Gl.MAP_STENCIL"/>, <see cref="Gl.INDEX_SHIFT"/>, <see cref="Gl.INDEX_OFFSET"/>, <see 
+		/// cref="Gl.RED_SCALE"/>,<see cref="Gl.RED_BIAS"/>, <see cref="Gl.GREEN_SCALE"/>, <see cref="Gl.GREEN_BIAS"/>, <see 
+		/// cref="Gl.BLUE_SCALE"/>,<see cref="Gl.BLUE_BIAS"/>, <see cref="Gl.ALPHA_SCALE"/>, <see cref="Gl.ALPHA_BIAS"/>, <see 
+		/// cref="Gl.DEPTH_SCALE"/>,or <see cref="Gl.DEPTH_BIAS"/>. 
 		/// </param>
 		/// <param name="param">
-		/// A <see cref="T:Int32"/>.
+		/// Specifies the value that <paramref name="pname"/> is set to. 
 		/// </param>
 		/// <remarks>
+		/// <see cref="Gl.PixelTransfer"/> sets pixel transfer modes that affect the operation of subsequent Gl.CopyPixels, 
+		/// Gl.CopyTexImage1D,Gl.CopyTexImage2D, Gl.CopyTexSubImage1D, Gl.CopyTexSubImage2D, Gl.CopyTexSubImage3D, Gl.DrawPixels, 
+		/// Gl.ReadPixels,Gl.TexImage1D, Gl.TexImage2D, Gl.TexImage3D, Gl.TexSubImage1D, Gl.TexSubImage2D, and Gl.TexSubImage3D 
+		/// commands.Additionally, if the ARB_imaging subset is supported, the routines Gl.ColorTable, Gl.ColorSubTable, 
+		/// Gl.ConvolutionFilter1D,Gl.ConvolutionFilter2D, Gl.Histogram, Gl.Minmax, and Gl.SeparableFilter2D are also affected. The 
+		/// algorithmsthat are specified by pixel transfer modes operate on pixels after they are read from the frame buffer 
+		/// (Gl.CopyPixelsGl.CopyTexImage1D,Gl.CopyTexImage2D, Gl.CopyTexSubImage1D, Gl.CopyTexSubImage2D, Gl.CopyTexSubImage3D, and 
+		/// Gl.ReadPixels),or unpacked from client memory (Gl.DrawPixels, Gl.TexImage1D, Gl.TexImage2D, Gl.TexImage3D, 
+		/// Gl.TexSubImage1D,Gl.TexSubImage2D, and Gl.TexSubImage3D). Pixel transfer operations happen in the same order, and in the 
+		/// samemanner, regardless of the command that resulted in the pixel operation. Pixel storage modes (see Gl.PixelStore) 
+		/// controlthe unpacking of pixels being read from client memory and the packing of pixels being written back into client 
+		/// memory.
+		/// Pixel transfer operations handle four fundamental pixel types: color, color index, depth, and stencil. Color pixels 
+		/// consistof four floating-point values with unspecified mantissa and exponent sizes, scaled such that 0 represents zero 
+		/// intensityand 1 represents full intensity. Color indices comprise a single fixed-point value, with unspecified precision 
+		/// tothe right of the binary point. Depth pixels comprise a single floating-point value, with unspecified mantissa and 
+		/// exponentsizes, scaled such that 0.0 represents the minimum depth buffer value, and 1.0 represents the maximum depth 
+		/// buffervalue. Finally, stencil pixels comprise a single fixed-point value, with unspecified precision to the right of the 
+		/// binarypoint. 
+		/// The pixel transfer operations performed on the four basic pixel types are as follows: 
+		/// The following table gives the type, initial value, and range of valid values for each of the pixel transfer parameters 
+		/// thatare set with <see cref="Gl.PixelTransfer"/>. 
+		///  
+		/// <see cref="Gl.PixelTransferf"/> can be used to set any pixel transfer parameter. If the parameter type is boolean, 0 
+		/// impliesfalse and any other value implies true. If <paramref name="pname"/> is an integer parameter, <paramref 
+		/// name="param"/>is rounded to the nearest integer. 
+		/// Likewise, <see cref="Gl.PixelTransferi"/> can be used to set any of the pixel transfer parameters. Boolean parameters 
+		/// areset to false if <paramref name="param"/> is 0 and to true otherwise. <paramref name="param"/> is converted to 
+		/// floatingpoint before being assigned to real-valued parameters. 
+		/// <para>
+		/// The following errors can be generated:
+		/// - <see cref="Gl.INVALID_ENUM"/> is generated if <paramref name="pname"/> is not an accepted value. 
+		/// - <see cref="Gl.INVALID_OPERATION"/> is generated if <see cref="Gl.PixelTransfer"/> is executed between the execution of 
+		///   Gl.Beginand the corresponding execution of Gl.End. 
+		/// </para>
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - Gl.Get with argument <see cref="Gl.MAP_COLOR"/> 
+		/// - Gl.Get with argument <see cref="Gl.MAP_STENCIL"/> 
+		/// - Gl.Get with argument <see cref="Gl.INDEX_SHIFT"/> 
+		/// - Gl.Get with argument <see cref="Gl.INDEX_OFFSET"/> 
+		/// - Gl.Get with argument <see cref="Gl.RED_SCALE"/> 
+		/// - Gl.Get with argument <see cref="Gl.RED_BIAS"/> 
+		/// - Gl.Get with argument <see cref="Gl.GREEN_SCALE"/> 
+		/// - Gl.Get with argument <see cref="Gl.GREEN_BIAS"/> 
+		/// - Gl.Get with argument <see cref="Gl.BLUE_SCALE"/> 
+		/// - Gl.Get with argument <see cref="Gl.BLUE_BIAS"/> 
+		/// - Gl.Get with argument <see cref="Gl.ALPHA_SCALE"/> 
+		/// - Gl.Get with argument <see cref="Gl.ALPHA_BIAS"/> 
+		/// - Gl.Get with argument <see cref="Gl.DEPTH_SCALE"/> 
+		/// - Gl.Get with argument <see cref="Gl.DEPTH_BIAS"/> 
+		/// - Gl.Get with argument <see cref="Gl.POST_COLOR_MATRIX_RED_SCALE"/> 
+		/// - Gl.Get with argument <see cref="Gl.POST_COLOR_MATRIX_RED_BIAS"/> 
+		/// - Gl.Get with argument <see cref="Gl.POST_COLOR_MATRIX_GREEN_SCALE"/> 
+		/// - Gl.Get with argument <see cref="Gl.POST_COLOR_MATRIX_GREEN_BIAS"/> 
+		/// - Gl.Get with argument <see cref="Gl.POST_COLOR_MATRIX_BLUE_SCALE"/> 
+		/// - Gl.Get with argument <see cref="Gl.POST_COLOR_MATRIX_BLUE_BIAS"/> 
+		/// - Gl.Get with argument <see cref="Gl.POST_COLOR_MATRIX_ALPHA_SCALE"/> 
+		/// - Gl.Get with argument <see cref="Gl.POST_COLOR_MATRIX_ALPHA_BIAS"/> 
+		/// - Gl.Get with argument <see cref="Gl.POST_CONVOLUTION_RED_SCALE"/> 
+		/// - Gl.Get with argument <see cref="Gl.POST_CONVOLUTION_RED_BIAS"/> 
+		/// - Gl.Get with argument <see cref="Gl.POST_CONVOLUTION_GREEN_SCALE"/> 
+		/// - Gl.Get with argument <see cref="Gl.POST_CONVOLUTION_GREEN_BIAS"/> 
+		/// - Gl.Get with argument <see cref="Gl.POST_CONVOLUTION_BLUE_SCALE"/> 
+		/// - Gl.Get with argument <see cref="Gl.POST_CONVOLUTION_BLUE_BIAS"/> 
+		/// - Gl.Get with argument <see cref="Gl.POST_CONVOLUTION_ALPHA_SCALE"/> 
+		/// - Gl.Get with argument <see cref="Gl.POST_CONVOLUTION_ALPHA_BIAS"/> 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.CallList"/>
+		/// <seealso cref="Gl.ColorTable"/>
+		/// <seealso cref="Gl.ColorSubTable"/>
+		/// <seealso cref="Gl.ConvolutionFilter1D"/>
+		/// <seealso cref="Gl.ConvolutionFilter2D"/>
+		/// <seealso cref="Gl.CopyPixels"/>
+		/// <seealso cref="Gl.CopyTexImage1D"/>
+		/// <seealso cref="Gl.CopyTexImage2D"/>
+		/// <seealso cref="Gl.CopyTexSubImage1D"/>
+		/// <seealso cref="Gl.CopyTexSubImage2D"/>
+		/// <seealso cref="Gl.CopyTexSubImage3D"/>
+		/// <seealso cref="Gl.DrawPixels"/>
+		/// <seealso cref="Gl.NewList"/>
+		/// <seealso cref="Gl.PixelMap"/>
+		/// <seealso cref="Gl.PixelStore"/>
+		/// <seealso cref="Gl.PixelZoom"/>
+		/// <seealso cref="Gl.ReadPixels"/>
+		/// <seealso cref="Gl.TexImage1D"/>
+		/// <seealso cref="Gl.TexImage2D"/>
+		/// <seealso cref="Gl.TexImage3D"/>
+		/// <seealso cref="Gl.TexSubImage1D"/>
+		/// <seealso cref="Gl.TexSubImage2D"/>
+		/// <seealso cref="Gl.TexSubImage3D"/>
 		public static void PixelTransfer(int pname, Int32 param)
 		{
 			Debug.Assert(Delegates.pglPixelTransferi != null, "pglPixelTransferi not implemented");
@@ -15490,16 +21319,111 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glPixelTransferi.
+		/// set pixel transfer modes
 		/// </summary>
 		/// <param name="pname">
-		/// A <see cref="T:int"/>.
+		/// Specifies the symbolic name of the pixel transfer parameter to be set. Must be one of the following: <see 
+		/// cref="Gl.MAP_COLOR"/>,<see cref="Gl.MAP_STENCIL"/>, <see cref="Gl.INDEX_SHIFT"/>, <see cref="Gl.INDEX_OFFSET"/>, <see 
+		/// cref="Gl.RED_SCALE"/>,<see cref="Gl.RED_BIAS"/>, <see cref="Gl.GREEN_SCALE"/>, <see cref="Gl.GREEN_BIAS"/>, <see 
+		/// cref="Gl.BLUE_SCALE"/>,<see cref="Gl.BLUE_BIAS"/>, <see cref="Gl.ALPHA_SCALE"/>, <see cref="Gl.ALPHA_BIAS"/>, <see 
+		/// cref="Gl.DEPTH_SCALE"/>,or <see cref="Gl.DEPTH_BIAS"/>. 
 		/// </param>
 		/// <param name="param">
-		/// A <see cref="T:Int32"/>.
+		/// Specifies the value that <paramref name="pname"/> is set to. 
 		/// </param>
 		/// <remarks>
+		/// <see cref="Gl.PixelTransfer"/> sets pixel transfer modes that affect the operation of subsequent Gl.CopyPixels, 
+		/// Gl.CopyTexImage1D,Gl.CopyTexImage2D, Gl.CopyTexSubImage1D, Gl.CopyTexSubImage2D, Gl.CopyTexSubImage3D, Gl.DrawPixels, 
+		/// Gl.ReadPixels,Gl.TexImage1D, Gl.TexImage2D, Gl.TexImage3D, Gl.TexSubImage1D, Gl.TexSubImage2D, and Gl.TexSubImage3D 
+		/// commands.Additionally, if the ARB_imaging subset is supported, the routines Gl.ColorTable, Gl.ColorSubTable, 
+		/// Gl.ConvolutionFilter1D,Gl.ConvolutionFilter2D, Gl.Histogram, Gl.Minmax, and Gl.SeparableFilter2D are also affected. The 
+		/// algorithmsthat are specified by pixel transfer modes operate on pixels after they are read from the frame buffer 
+		/// (Gl.CopyPixelsGl.CopyTexImage1D,Gl.CopyTexImage2D, Gl.CopyTexSubImage1D, Gl.CopyTexSubImage2D, Gl.CopyTexSubImage3D, and 
+		/// Gl.ReadPixels),or unpacked from client memory (Gl.DrawPixels, Gl.TexImage1D, Gl.TexImage2D, Gl.TexImage3D, 
+		/// Gl.TexSubImage1D,Gl.TexSubImage2D, and Gl.TexSubImage3D). Pixel transfer operations happen in the same order, and in the 
+		/// samemanner, regardless of the command that resulted in the pixel operation. Pixel storage modes (see Gl.PixelStore) 
+		/// controlthe unpacking of pixels being read from client memory and the packing of pixels being written back into client 
+		/// memory.
+		/// Pixel transfer operations handle four fundamental pixel types: color, color index, depth, and stencil. Color pixels 
+		/// consistof four floating-point values with unspecified mantissa and exponent sizes, scaled such that 0 represents zero 
+		/// intensityand 1 represents full intensity. Color indices comprise a single fixed-point value, with unspecified precision 
+		/// tothe right of the binary point. Depth pixels comprise a single floating-point value, with unspecified mantissa and 
+		/// exponentsizes, scaled such that 0.0 represents the minimum depth buffer value, and 1.0 represents the maximum depth 
+		/// buffervalue. Finally, stencil pixels comprise a single fixed-point value, with unspecified precision to the right of the 
+		/// binarypoint. 
+		/// The pixel transfer operations performed on the four basic pixel types are as follows: 
+		/// The following table gives the type, initial value, and range of valid values for each of the pixel transfer parameters 
+		/// thatare set with <see cref="Gl.PixelTransfer"/>. 
+		///  
+		/// <see cref="Gl.PixelTransferf"/> can be used to set any pixel transfer parameter. If the parameter type is boolean, 0 
+		/// impliesfalse and any other value implies true. If <paramref name="pname"/> is an integer parameter, <paramref 
+		/// name="param"/>is rounded to the nearest integer. 
+		/// Likewise, <see cref="Gl.PixelTransferi"/> can be used to set any of the pixel transfer parameters. Boolean parameters 
+		/// areset to false if <paramref name="param"/> is 0 and to true otherwise. <paramref name="param"/> is converted to 
+		/// floatingpoint before being assigned to real-valued parameters. 
+		/// <para>
+		/// The following errors can be generated:
+		/// - <see cref="Gl.INVALID_ENUM"/> is generated if <paramref name="pname"/> is not an accepted value. 
+		/// - <see cref="Gl.INVALID_OPERATION"/> is generated if <see cref="Gl.PixelTransfer"/> is executed between the execution of 
+		///   Gl.Beginand the corresponding execution of Gl.End. 
+		/// </para>
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - Gl.Get with argument <see cref="Gl.MAP_COLOR"/> 
+		/// - Gl.Get with argument <see cref="Gl.MAP_STENCIL"/> 
+		/// - Gl.Get with argument <see cref="Gl.INDEX_SHIFT"/> 
+		/// - Gl.Get with argument <see cref="Gl.INDEX_OFFSET"/> 
+		/// - Gl.Get with argument <see cref="Gl.RED_SCALE"/> 
+		/// - Gl.Get with argument <see cref="Gl.RED_BIAS"/> 
+		/// - Gl.Get with argument <see cref="Gl.GREEN_SCALE"/> 
+		/// - Gl.Get with argument <see cref="Gl.GREEN_BIAS"/> 
+		/// - Gl.Get with argument <see cref="Gl.BLUE_SCALE"/> 
+		/// - Gl.Get with argument <see cref="Gl.BLUE_BIAS"/> 
+		/// - Gl.Get with argument <see cref="Gl.ALPHA_SCALE"/> 
+		/// - Gl.Get with argument <see cref="Gl.ALPHA_BIAS"/> 
+		/// - Gl.Get with argument <see cref="Gl.DEPTH_SCALE"/> 
+		/// - Gl.Get with argument <see cref="Gl.DEPTH_BIAS"/> 
+		/// - Gl.Get with argument <see cref="Gl.POST_COLOR_MATRIX_RED_SCALE"/> 
+		/// - Gl.Get with argument <see cref="Gl.POST_COLOR_MATRIX_RED_BIAS"/> 
+		/// - Gl.Get with argument <see cref="Gl.POST_COLOR_MATRIX_GREEN_SCALE"/> 
+		/// - Gl.Get with argument <see cref="Gl.POST_COLOR_MATRIX_GREEN_BIAS"/> 
+		/// - Gl.Get with argument <see cref="Gl.POST_COLOR_MATRIX_BLUE_SCALE"/> 
+		/// - Gl.Get with argument <see cref="Gl.POST_COLOR_MATRIX_BLUE_BIAS"/> 
+		/// - Gl.Get with argument <see cref="Gl.POST_COLOR_MATRIX_ALPHA_SCALE"/> 
+		/// - Gl.Get with argument <see cref="Gl.POST_COLOR_MATRIX_ALPHA_BIAS"/> 
+		/// - Gl.Get with argument <see cref="Gl.POST_CONVOLUTION_RED_SCALE"/> 
+		/// - Gl.Get with argument <see cref="Gl.POST_CONVOLUTION_RED_BIAS"/> 
+		/// - Gl.Get with argument <see cref="Gl.POST_CONVOLUTION_GREEN_SCALE"/> 
+		/// - Gl.Get with argument <see cref="Gl.POST_CONVOLUTION_GREEN_BIAS"/> 
+		/// - Gl.Get with argument <see cref="Gl.POST_CONVOLUTION_BLUE_SCALE"/> 
+		/// - Gl.Get with argument <see cref="Gl.POST_CONVOLUTION_BLUE_BIAS"/> 
+		/// - Gl.Get with argument <see cref="Gl.POST_CONVOLUTION_ALPHA_SCALE"/> 
+		/// - Gl.Get with argument <see cref="Gl.POST_CONVOLUTION_ALPHA_BIAS"/> 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.CallList"/>
+		/// <seealso cref="Gl.ColorTable"/>
+		/// <seealso cref="Gl.ColorSubTable"/>
+		/// <seealso cref="Gl.ConvolutionFilter1D"/>
+		/// <seealso cref="Gl.ConvolutionFilter2D"/>
+		/// <seealso cref="Gl.CopyPixels"/>
+		/// <seealso cref="Gl.CopyTexImage1D"/>
+		/// <seealso cref="Gl.CopyTexImage2D"/>
+		/// <seealso cref="Gl.CopyTexSubImage1D"/>
+		/// <seealso cref="Gl.CopyTexSubImage2D"/>
+		/// <seealso cref="Gl.CopyTexSubImage3D"/>
+		/// <seealso cref="Gl.DrawPixels"/>
+		/// <seealso cref="Gl.NewList"/>
+		/// <seealso cref="Gl.PixelMap"/>
+		/// <seealso cref="Gl.PixelStore"/>
+		/// <seealso cref="Gl.PixelZoom"/>
+		/// <seealso cref="Gl.ReadPixels"/>
+		/// <seealso cref="Gl.TexImage1D"/>
+		/// <seealso cref="Gl.TexImage2D"/>
+		/// <seealso cref="Gl.TexImage3D"/>
+		/// <seealso cref="Gl.TexSubImage1D"/>
+		/// <seealso cref="Gl.TexSubImage2D"/>
+		/// <seealso cref="Gl.TexSubImage3D"/>
 		public static void PixelTransfer(PixelTransferParameter pname, Int32 param)
 		{
 			Debug.Assert(Delegates.pglPixelTransferi != null, "pglPixelTransferi not implemented");
@@ -15509,19 +21433,115 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glPixelMapfv.
+		/// set up pixel transfer maps
 		/// </summary>
 		/// <param name="map">
-		/// A <see cref="T:int"/>.
+		/// Specifies a symbolic map name. Must be one of the following: <see cref="Gl.PIXEL_MAP_I_TO_I"/>, <see 
+		/// cref="Gl.PIXEL_MAP_S_TO_S"/>,<see cref="Gl.PIXEL_MAP_I_TO_R"/>, <see cref="Gl.PIXEL_MAP_I_TO_G"/>, <see 
+		/// cref="Gl.PIXEL_MAP_I_TO_B"/>,<see cref="Gl.PIXEL_MAP_I_TO_A"/>, <see cref="Gl.PIXEL_MAP_R_TO_R"/>, <see 
+		/// cref="Gl.PIXEL_MAP_G_TO_G"/>,<see cref="Gl.PIXEL_MAP_B_TO_B"/>, or <see cref="Gl.PIXEL_MAP_A_TO_A"/>. 
 		/// </param>
 		/// <param name="mapsize">
-		/// A <see cref="T:Int32"/>.
+		/// Specifies the size of the map being defined. 
 		/// </param>
 		/// <param name="values">
-		/// A <see cref="T:float[]"/>.
+		/// Specifies an array of <paramref name="mapsize"/> values. 
 		/// </param>
 		/// <remarks>
+		/// <see cref="Gl.PixelMap"/> sets up translation tables, or maps, used by Gl.CopyPixels, Gl.CopyTexImage1D, 
+		/// Gl.CopyTexImage2D,Gl.CopyTexSubImage1D, Gl.CopyTexSubImage2D, Gl.CopyTexSubImage3D, Gl.DrawPixels, Gl.ReadPixels, 
+		/// Gl.TexImage1D,Gl.TexImage2D, Gl.TexImage3D, Gl.TexSubImage1D, Gl.TexSubImage2D, and Gl.TexSubImage3D. Additionally, if 
+		/// theARB_imaging subset is supported, the routines Gl.ColorTable, Gl.ColorSubTable, Gl.ConvolutionFilter1D, 
+		/// Gl.ConvolutionFilter2D,Gl.Histogram, Gl.Minmax, and Gl.SeparableFilter2D. Use of these maps is described completely in 
+		/// theGl.PixelTransfer reference page, and partly in the reference pages for the pixel and texture image commands. Only the 
+		/// specificationof the maps is described in this reference page. 
+		/// <paramref name="map"/> is a symbolic map name, indicating one of ten maps to set. <paramref name="mapsize"/> specifies 
+		/// thenumber of entries in the map, and <paramref name="values"/> is a pointer to an array of <paramref name="mapsize"/> 
+		/// mapvalues. 
+		/// If a non-zero named buffer object is bound to the <see cref="Gl.PIXEL_UNPACK_BUFFER"/> target (see Gl.BindBuffer) while 
+		/// apixel transfer map is specified, <paramref name="values"/> is treated as a byte offset into the buffer object's data 
+		/// store.
+		/// The ten maps are as follows: 
+		/// The entries in a map can be specified as single-precision floating-point numbers, unsigned short integers, or unsigned 
+		/// intintegers. Maps that store color component values (all but <see cref="Gl.PIXEL_MAP_I_TO_I"/> and <see 
+		/// cref="Gl.PIXEL_MAP_S_TO_S"/>)retain their values in floating-point format, with unspecified mantissa and exponent sizes. 
+		/// Floating-pointvalues specified by <see cref="Gl.PixelMapfv"/> are converted directly to the internal floating-point 
+		/// formatof these maps, then clamped to the range [0,1]. Unsigned integer values specified by <see cref="Gl.PixelMapusv"/> 
+		/// and<see cref="Gl.PixelMapuiv"/> are converted linearly such that the largest representable integer maps to 1.0, and 0 
+		/// mapsto 0.0. 
+		/// Maps that store indices, <see cref="Gl.PIXEL_MAP_I_TO_I"/> and <see cref="Gl.PIXEL_MAP_S_TO_S"/>, retain their values in 
+		/// fixed-pointformat, with an unspecified number of bits to the right of the binary point. Floating-point values specified 
+		/// by<see cref="Gl.PixelMapfv"/> are converted directly to the internal fixed-point format of these maps. Unsigned integer 
+		/// valuesspecified by <see cref="Gl.PixelMapusv"/> and <see cref="Gl.PixelMapuiv"/> specify integer values, with all 0's to 
+		/// theright of the binary point. 
+		/// The following table shows the initial sizes and values for each of the maps. Maps that are indexed by either color or 
+		/// stencilindices must have <paramref name="mapsize"/> = 2n for some n or the results are undefined. The maximum allowable 
+		/// sizefor each map depends on the implementation and can be determined by calling Gl.Get with argument <see 
+		/// cref="Gl.MAX_PIXEL_MAP_TABLE"/>.The single maximum applies to all maps; it is at least 32. 
+		/// <para>
+		/// The following errors can be generated:
+		/// - <see cref="Gl.INVALID_ENUM"/> is generated if <paramref name="map"/> is not an accepted value. 
+		/// - <see cref="Gl.INVALID_VALUE"/> is generated if <paramref name="mapsize"/> is less than one or larger than <see 
+		///   cref="Gl.MAX_PIXEL_MAP_TABLE"/>.
+		/// - <see cref="Gl.INVALID_VALUE"/> is generated if <paramref name="map"/> is <see cref="Gl.PIXEL_MAP_I_TO_I"/>, <see 
+		///   cref="Gl.PIXEL_MAP_S_TO_S"/>,<see cref="Gl.PIXEL_MAP_I_TO_R"/>, <see cref="Gl.PIXEL_MAP_I_TO_G"/>, <see 
+		///   cref="Gl.PIXEL_MAP_I_TO_B"/>,or <see cref="Gl.PIXEL_MAP_I_TO_A"/>, and <paramref name="mapsize"/> is not a power of two. 
+		/// - <see cref="Gl.INVALID_OPERATION"/> is generated if a non-zero buffer object name is bound to the <see 
+		///   cref="Gl.PIXEL_UNPACK_BUFFER"/>target and the buffer object's data store is currently mapped. 
+		/// - <see cref="Gl.INVALID_OPERATION"/> is generated if a non-zero buffer object name is bound to the <see 
+		///   cref="Gl.PIXEL_UNPACK_BUFFER"/>target and the data would be unpacked from the buffer object such that the memory reads 
+		///   requiredwould exceed the data store size. 
+		/// - <see cref="Gl.INVALID_OPERATION"/> is generated by <see cref="Gl.PixelMapfv"/> if a non-zero buffer object name is bound 
+		///   tothe <see cref="Gl.PIXEL_UNPACK_BUFFER"/> target and <paramref name="values"/> is not evenly divisible into the number 
+		///   ofbytes needed to store in memory a GLfloat datum. 
+		/// - <see cref="Gl.INVALID_OPERATION"/> is generated by <see cref="Gl.PixelMapuiv"/> if a non-zero buffer object name is 
+		///   boundto the <see cref="Gl.PIXEL_UNPACK_BUFFER"/> target and <paramref name="values"/> is not evenly divisible into the 
+		///   numberof bytes needed to store in memory a GLuint datum. 
+		/// - <see cref="Gl.INVALID_OPERATION"/> is generated by <see cref="Gl.PixelMapusv"/> if a non-zero buffer object name is 
+		///   boundto the <see cref="Gl.PIXEL_UNPACK_BUFFER"/> target and <paramref name="values"/> is not evenly divisible into the 
+		///   numberof bytes needed to store in memory a GLushort datum. 
+		/// - <see cref="Gl.INVALID_OPERATION"/> is generated if <see cref="Gl.PixelMap"/> is executed between the execution of 
+		///   Gl.Beginand the corresponding execution of Gl.End. 
+		/// </para>
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - Gl.GetPixelMap 
+		/// - Gl.Get with argument <see cref="Gl.PIXEL_MAP_I_TO_I_SIZE"/> 
+		/// - Gl.Get with argument <see cref="Gl.PIXEL_MAP_S_TO_S_SIZE"/> 
+		/// - Gl.Get with argument <see cref="Gl.PIXEL_MAP_I_TO_R_SIZE"/> 
+		/// - Gl.Get with argument <see cref="Gl.PIXEL_MAP_I_TO_G_SIZE"/> 
+		/// - Gl.Get with argument <see cref="Gl.PIXEL_MAP_I_TO_B_SIZE"/> 
+		/// - Gl.Get with argument <see cref="Gl.PIXEL_MAP_I_TO_A_SIZE"/> 
+		/// - Gl.Get with argument <see cref="Gl.PIXEL_MAP_R_TO_R_SIZE"/> 
+		/// - Gl.Get with argument <see cref="Gl.PIXEL_MAP_G_TO_G_SIZE"/> 
+		/// - Gl.Get with argument <see cref="Gl.PIXEL_MAP_B_TO_B_SIZE"/> 
+		/// - Gl.Get with argument <see cref="Gl.PIXEL_MAP_A_TO_A_SIZE"/> 
+		/// - Gl.Get with argument <see cref="Gl.MAX_PIXEL_MAP_TABLE"/> 
+		/// - Gl.Get with argument <see cref="Gl.PIXEL_UNPACK_BUFFER_BINDING"/> 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.ColorTable"/>
+		/// <seealso cref="Gl.ColorSubTable"/>
+		/// <seealso cref="Gl.ConvolutionFilter1D"/>
+		/// <seealso cref="Gl.ConvolutionFilter2D"/>
+		/// <seealso cref="Gl.CopyPixels"/>
+		/// <seealso cref="Gl.CopyTexImage1D"/>
+		/// <seealso cref="Gl.CopyTexImage2D"/>
+		/// <seealso cref="Gl.CopyTexSubImage1D"/>
+		/// <seealso cref="Gl.CopyTexSubImage2D"/>
+		/// <seealso cref="Gl.DrawPixels"/>
+		/// <seealso cref="Gl.Histogram"/>
+		/// <seealso cref="Gl.Minmax"/>
+		/// <seealso cref="Gl.PixelStore"/>
+		/// <seealso cref="Gl.PixelTransfer"/>
+		/// <seealso cref="Gl.ReadPixels"/>
+		/// <seealso cref="Gl.SeparableFilter2D"/>
+		/// <seealso cref="Gl.TexImage1D"/>
+		/// <seealso cref="Gl.TexImage2D"/>
+		/// <seealso cref="Gl.TexImage3D"/>
+		/// <seealso cref="Gl.TexSubImage1D"/>
+		/// <seealso cref="Gl.TexSubImage2D"/>
+		/// <seealso cref="Gl.TexSubImage3D"/>
 		public static void PixelMap(int map, Int32 mapsize, float[] values)
 		{
 			unsafe {
@@ -15536,19 +21556,115 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glPixelMapfv.
+		/// set up pixel transfer maps
 		/// </summary>
 		/// <param name="map">
-		/// A <see cref="T:int"/>.
+		/// Specifies a symbolic map name. Must be one of the following: <see cref="Gl.PIXEL_MAP_I_TO_I"/>, <see 
+		/// cref="Gl.PIXEL_MAP_S_TO_S"/>,<see cref="Gl.PIXEL_MAP_I_TO_R"/>, <see cref="Gl.PIXEL_MAP_I_TO_G"/>, <see 
+		/// cref="Gl.PIXEL_MAP_I_TO_B"/>,<see cref="Gl.PIXEL_MAP_I_TO_A"/>, <see cref="Gl.PIXEL_MAP_R_TO_R"/>, <see 
+		/// cref="Gl.PIXEL_MAP_G_TO_G"/>,<see cref="Gl.PIXEL_MAP_B_TO_B"/>, or <see cref="Gl.PIXEL_MAP_A_TO_A"/>. 
 		/// </param>
 		/// <param name="mapsize">
-		/// A <see cref="T:Int32"/>.
+		/// Specifies the size of the map being defined. 
 		/// </param>
 		/// <param name="values">
-		/// A <see cref="T:float[]"/>.
+		/// Specifies an array of <paramref name="mapsize"/> values. 
 		/// </param>
 		/// <remarks>
+		/// <see cref="Gl.PixelMap"/> sets up translation tables, or maps, used by Gl.CopyPixels, Gl.CopyTexImage1D, 
+		/// Gl.CopyTexImage2D,Gl.CopyTexSubImage1D, Gl.CopyTexSubImage2D, Gl.CopyTexSubImage3D, Gl.DrawPixels, Gl.ReadPixels, 
+		/// Gl.TexImage1D,Gl.TexImage2D, Gl.TexImage3D, Gl.TexSubImage1D, Gl.TexSubImage2D, and Gl.TexSubImage3D. Additionally, if 
+		/// theARB_imaging subset is supported, the routines Gl.ColorTable, Gl.ColorSubTable, Gl.ConvolutionFilter1D, 
+		/// Gl.ConvolutionFilter2D,Gl.Histogram, Gl.Minmax, and Gl.SeparableFilter2D. Use of these maps is described completely in 
+		/// theGl.PixelTransfer reference page, and partly in the reference pages for the pixel and texture image commands. Only the 
+		/// specificationof the maps is described in this reference page. 
+		/// <paramref name="map"/> is a symbolic map name, indicating one of ten maps to set. <paramref name="mapsize"/> specifies 
+		/// thenumber of entries in the map, and <paramref name="values"/> is a pointer to an array of <paramref name="mapsize"/> 
+		/// mapvalues. 
+		/// If a non-zero named buffer object is bound to the <see cref="Gl.PIXEL_UNPACK_BUFFER"/> target (see Gl.BindBuffer) while 
+		/// apixel transfer map is specified, <paramref name="values"/> is treated as a byte offset into the buffer object's data 
+		/// store.
+		/// The ten maps are as follows: 
+		/// The entries in a map can be specified as single-precision floating-point numbers, unsigned short integers, or unsigned 
+		/// intintegers. Maps that store color component values (all but <see cref="Gl.PIXEL_MAP_I_TO_I"/> and <see 
+		/// cref="Gl.PIXEL_MAP_S_TO_S"/>)retain their values in floating-point format, with unspecified mantissa and exponent sizes. 
+		/// Floating-pointvalues specified by <see cref="Gl.PixelMapfv"/> are converted directly to the internal floating-point 
+		/// formatof these maps, then clamped to the range [0,1]. Unsigned integer values specified by <see cref="Gl.PixelMapusv"/> 
+		/// and<see cref="Gl.PixelMapuiv"/> are converted linearly such that the largest representable integer maps to 1.0, and 0 
+		/// mapsto 0.0. 
+		/// Maps that store indices, <see cref="Gl.PIXEL_MAP_I_TO_I"/> and <see cref="Gl.PIXEL_MAP_S_TO_S"/>, retain their values in 
+		/// fixed-pointformat, with an unspecified number of bits to the right of the binary point. Floating-point values specified 
+		/// by<see cref="Gl.PixelMapfv"/> are converted directly to the internal fixed-point format of these maps. Unsigned integer 
+		/// valuesspecified by <see cref="Gl.PixelMapusv"/> and <see cref="Gl.PixelMapuiv"/> specify integer values, with all 0's to 
+		/// theright of the binary point. 
+		/// The following table shows the initial sizes and values for each of the maps. Maps that are indexed by either color or 
+		/// stencilindices must have <paramref name="mapsize"/> = 2n for some n or the results are undefined. The maximum allowable 
+		/// sizefor each map depends on the implementation and can be determined by calling Gl.Get with argument <see 
+		/// cref="Gl.MAX_PIXEL_MAP_TABLE"/>.The single maximum applies to all maps; it is at least 32. 
+		/// <para>
+		/// The following errors can be generated:
+		/// - <see cref="Gl.INVALID_ENUM"/> is generated if <paramref name="map"/> is not an accepted value. 
+		/// - <see cref="Gl.INVALID_VALUE"/> is generated if <paramref name="mapsize"/> is less than one or larger than <see 
+		///   cref="Gl.MAX_PIXEL_MAP_TABLE"/>.
+		/// - <see cref="Gl.INVALID_VALUE"/> is generated if <paramref name="map"/> is <see cref="Gl.PIXEL_MAP_I_TO_I"/>, <see 
+		///   cref="Gl.PIXEL_MAP_S_TO_S"/>,<see cref="Gl.PIXEL_MAP_I_TO_R"/>, <see cref="Gl.PIXEL_MAP_I_TO_G"/>, <see 
+		///   cref="Gl.PIXEL_MAP_I_TO_B"/>,or <see cref="Gl.PIXEL_MAP_I_TO_A"/>, and <paramref name="mapsize"/> is not a power of two. 
+		/// - <see cref="Gl.INVALID_OPERATION"/> is generated if a non-zero buffer object name is bound to the <see 
+		///   cref="Gl.PIXEL_UNPACK_BUFFER"/>target and the buffer object's data store is currently mapped. 
+		/// - <see cref="Gl.INVALID_OPERATION"/> is generated if a non-zero buffer object name is bound to the <see 
+		///   cref="Gl.PIXEL_UNPACK_BUFFER"/>target and the data would be unpacked from the buffer object such that the memory reads 
+		///   requiredwould exceed the data store size. 
+		/// - <see cref="Gl.INVALID_OPERATION"/> is generated by <see cref="Gl.PixelMapfv"/> if a non-zero buffer object name is bound 
+		///   tothe <see cref="Gl.PIXEL_UNPACK_BUFFER"/> target and <paramref name="values"/> is not evenly divisible into the number 
+		///   ofbytes needed to store in memory a GLfloat datum. 
+		/// - <see cref="Gl.INVALID_OPERATION"/> is generated by <see cref="Gl.PixelMapuiv"/> if a non-zero buffer object name is 
+		///   boundto the <see cref="Gl.PIXEL_UNPACK_BUFFER"/> target and <paramref name="values"/> is not evenly divisible into the 
+		///   numberof bytes needed to store in memory a GLuint datum. 
+		/// - <see cref="Gl.INVALID_OPERATION"/> is generated by <see cref="Gl.PixelMapusv"/> if a non-zero buffer object name is 
+		///   boundto the <see cref="Gl.PIXEL_UNPACK_BUFFER"/> target and <paramref name="values"/> is not evenly divisible into the 
+		///   numberof bytes needed to store in memory a GLushort datum. 
+		/// - <see cref="Gl.INVALID_OPERATION"/> is generated if <see cref="Gl.PixelMap"/> is executed between the execution of 
+		///   Gl.Beginand the corresponding execution of Gl.End. 
+		/// </para>
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - Gl.GetPixelMap 
+		/// - Gl.Get with argument <see cref="Gl.PIXEL_MAP_I_TO_I_SIZE"/> 
+		/// - Gl.Get with argument <see cref="Gl.PIXEL_MAP_S_TO_S_SIZE"/> 
+		/// - Gl.Get with argument <see cref="Gl.PIXEL_MAP_I_TO_R_SIZE"/> 
+		/// - Gl.Get with argument <see cref="Gl.PIXEL_MAP_I_TO_G_SIZE"/> 
+		/// - Gl.Get with argument <see cref="Gl.PIXEL_MAP_I_TO_B_SIZE"/> 
+		/// - Gl.Get with argument <see cref="Gl.PIXEL_MAP_I_TO_A_SIZE"/> 
+		/// - Gl.Get with argument <see cref="Gl.PIXEL_MAP_R_TO_R_SIZE"/> 
+		/// - Gl.Get with argument <see cref="Gl.PIXEL_MAP_G_TO_G_SIZE"/> 
+		/// - Gl.Get with argument <see cref="Gl.PIXEL_MAP_B_TO_B_SIZE"/> 
+		/// - Gl.Get with argument <see cref="Gl.PIXEL_MAP_A_TO_A_SIZE"/> 
+		/// - Gl.Get with argument <see cref="Gl.MAX_PIXEL_MAP_TABLE"/> 
+		/// - Gl.Get with argument <see cref="Gl.PIXEL_UNPACK_BUFFER_BINDING"/> 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.ColorTable"/>
+		/// <seealso cref="Gl.ColorSubTable"/>
+		/// <seealso cref="Gl.ConvolutionFilter1D"/>
+		/// <seealso cref="Gl.ConvolutionFilter2D"/>
+		/// <seealso cref="Gl.CopyPixels"/>
+		/// <seealso cref="Gl.CopyTexImage1D"/>
+		/// <seealso cref="Gl.CopyTexImage2D"/>
+		/// <seealso cref="Gl.CopyTexSubImage1D"/>
+		/// <seealso cref="Gl.CopyTexSubImage2D"/>
+		/// <seealso cref="Gl.DrawPixels"/>
+		/// <seealso cref="Gl.Histogram"/>
+		/// <seealso cref="Gl.Minmax"/>
+		/// <seealso cref="Gl.PixelStore"/>
+		/// <seealso cref="Gl.PixelTransfer"/>
+		/// <seealso cref="Gl.ReadPixels"/>
+		/// <seealso cref="Gl.SeparableFilter2D"/>
+		/// <seealso cref="Gl.TexImage1D"/>
+		/// <seealso cref="Gl.TexImage2D"/>
+		/// <seealso cref="Gl.TexImage3D"/>
+		/// <seealso cref="Gl.TexSubImage1D"/>
+		/// <seealso cref="Gl.TexSubImage2D"/>
+		/// <seealso cref="Gl.TexSubImage3D"/>
 		public static void PixelMap(PixelMap map, Int32 mapsize, float[] values)
 		{
 			unsafe {
@@ -15563,19 +21679,115 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glPixelMapuiv.
+		/// set up pixel transfer maps
 		/// </summary>
 		/// <param name="map">
-		/// A <see cref="T:int"/>.
+		/// Specifies a symbolic map name. Must be one of the following: <see cref="Gl.PIXEL_MAP_I_TO_I"/>, <see 
+		/// cref="Gl.PIXEL_MAP_S_TO_S"/>,<see cref="Gl.PIXEL_MAP_I_TO_R"/>, <see cref="Gl.PIXEL_MAP_I_TO_G"/>, <see 
+		/// cref="Gl.PIXEL_MAP_I_TO_B"/>,<see cref="Gl.PIXEL_MAP_I_TO_A"/>, <see cref="Gl.PIXEL_MAP_R_TO_R"/>, <see 
+		/// cref="Gl.PIXEL_MAP_G_TO_G"/>,<see cref="Gl.PIXEL_MAP_B_TO_B"/>, or <see cref="Gl.PIXEL_MAP_A_TO_A"/>. 
 		/// </param>
 		/// <param name="mapsize">
-		/// A <see cref="T:Int32"/>.
+		/// Specifies the size of the map being defined. 
 		/// </param>
 		/// <param name="values">
-		/// A <see cref="T:UInt32[]"/>.
+		/// Specifies an array of <paramref name="mapsize"/> values. 
 		/// </param>
 		/// <remarks>
+		/// <see cref="Gl.PixelMap"/> sets up translation tables, or maps, used by Gl.CopyPixels, Gl.CopyTexImage1D, 
+		/// Gl.CopyTexImage2D,Gl.CopyTexSubImage1D, Gl.CopyTexSubImage2D, Gl.CopyTexSubImage3D, Gl.DrawPixels, Gl.ReadPixels, 
+		/// Gl.TexImage1D,Gl.TexImage2D, Gl.TexImage3D, Gl.TexSubImage1D, Gl.TexSubImage2D, and Gl.TexSubImage3D. Additionally, if 
+		/// theARB_imaging subset is supported, the routines Gl.ColorTable, Gl.ColorSubTable, Gl.ConvolutionFilter1D, 
+		/// Gl.ConvolutionFilter2D,Gl.Histogram, Gl.Minmax, and Gl.SeparableFilter2D. Use of these maps is described completely in 
+		/// theGl.PixelTransfer reference page, and partly in the reference pages for the pixel and texture image commands. Only the 
+		/// specificationof the maps is described in this reference page. 
+		/// <paramref name="map"/> is a symbolic map name, indicating one of ten maps to set. <paramref name="mapsize"/> specifies 
+		/// thenumber of entries in the map, and <paramref name="values"/> is a pointer to an array of <paramref name="mapsize"/> 
+		/// mapvalues. 
+		/// If a non-zero named buffer object is bound to the <see cref="Gl.PIXEL_UNPACK_BUFFER"/> target (see Gl.BindBuffer) while 
+		/// apixel transfer map is specified, <paramref name="values"/> is treated as a byte offset into the buffer object's data 
+		/// store.
+		/// The ten maps are as follows: 
+		/// The entries in a map can be specified as single-precision floating-point numbers, unsigned short integers, or unsigned 
+		/// intintegers. Maps that store color component values (all but <see cref="Gl.PIXEL_MAP_I_TO_I"/> and <see 
+		/// cref="Gl.PIXEL_MAP_S_TO_S"/>)retain their values in floating-point format, with unspecified mantissa and exponent sizes. 
+		/// Floating-pointvalues specified by <see cref="Gl.PixelMapfv"/> are converted directly to the internal floating-point 
+		/// formatof these maps, then clamped to the range [0,1]. Unsigned integer values specified by <see cref="Gl.PixelMapusv"/> 
+		/// and<see cref="Gl.PixelMapuiv"/> are converted linearly such that the largest representable integer maps to 1.0, and 0 
+		/// mapsto 0.0. 
+		/// Maps that store indices, <see cref="Gl.PIXEL_MAP_I_TO_I"/> and <see cref="Gl.PIXEL_MAP_S_TO_S"/>, retain their values in 
+		/// fixed-pointformat, with an unspecified number of bits to the right of the binary point. Floating-point values specified 
+		/// by<see cref="Gl.PixelMapfv"/> are converted directly to the internal fixed-point format of these maps. Unsigned integer 
+		/// valuesspecified by <see cref="Gl.PixelMapusv"/> and <see cref="Gl.PixelMapuiv"/> specify integer values, with all 0's to 
+		/// theright of the binary point. 
+		/// The following table shows the initial sizes and values for each of the maps. Maps that are indexed by either color or 
+		/// stencilindices must have <paramref name="mapsize"/> = 2n for some n or the results are undefined. The maximum allowable 
+		/// sizefor each map depends on the implementation and can be determined by calling Gl.Get with argument <see 
+		/// cref="Gl.MAX_PIXEL_MAP_TABLE"/>.The single maximum applies to all maps; it is at least 32. 
+		/// <para>
+		/// The following errors can be generated:
+		/// - <see cref="Gl.INVALID_ENUM"/> is generated if <paramref name="map"/> is not an accepted value. 
+		/// - <see cref="Gl.INVALID_VALUE"/> is generated if <paramref name="mapsize"/> is less than one or larger than <see 
+		///   cref="Gl.MAX_PIXEL_MAP_TABLE"/>.
+		/// - <see cref="Gl.INVALID_VALUE"/> is generated if <paramref name="map"/> is <see cref="Gl.PIXEL_MAP_I_TO_I"/>, <see 
+		///   cref="Gl.PIXEL_MAP_S_TO_S"/>,<see cref="Gl.PIXEL_MAP_I_TO_R"/>, <see cref="Gl.PIXEL_MAP_I_TO_G"/>, <see 
+		///   cref="Gl.PIXEL_MAP_I_TO_B"/>,or <see cref="Gl.PIXEL_MAP_I_TO_A"/>, and <paramref name="mapsize"/> is not a power of two. 
+		/// - <see cref="Gl.INVALID_OPERATION"/> is generated if a non-zero buffer object name is bound to the <see 
+		///   cref="Gl.PIXEL_UNPACK_BUFFER"/>target and the buffer object's data store is currently mapped. 
+		/// - <see cref="Gl.INVALID_OPERATION"/> is generated if a non-zero buffer object name is bound to the <see 
+		///   cref="Gl.PIXEL_UNPACK_BUFFER"/>target and the data would be unpacked from the buffer object such that the memory reads 
+		///   requiredwould exceed the data store size. 
+		/// - <see cref="Gl.INVALID_OPERATION"/> is generated by <see cref="Gl.PixelMapfv"/> if a non-zero buffer object name is bound 
+		///   tothe <see cref="Gl.PIXEL_UNPACK_BUFFER"/> target and <paramref name="values"/> is not evenly divisible into the number 
+		///   ofbytes needed to store in memory a GLfloat datum. 
+		/// - <see cref="Gl.INVALID_OPERATION"/> is generated by <see cref="Gl.PixelMapuiv"/> if a non-zero buffer object name is 
+		///   boundto the <see cref="Gl.PIXEL_UNPACK_BUFFER"/> target and <paramref name="values"/> is not evenly divisible into the 
+		///   numberof bytes needed to store in memory a GLuint datum. 
+		/// - <see cref="Gl.INVALID_OPERATION"/> is generated by <see cref="Gl.PixelMapusv"/> if a non-zero buffer object name is 
+		///   boundto the <see cref="Gl.PIXEL_UNPACK_BUFFER"/> target and <paramref name="values"/> is not evenly divisible into the 
+		///   numberof bytes needed to store in memory a GLushort datum. 
+		/// - <see cref="Gl.INVALID_OPERATION"/> is generated if <see cref="Gl.PixelMap"/> is executed between the execution of 
+		///   Gl.Beginand the corresponding execution of Gl.End. 
+		/// </para>
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - Gl.GetPixelMap 
+		/// - Gl.Get with argument <see cref="Gl.PIXEL_MAP_I_TO_I_SIZE"/> 
+		/// - Gl.Get with argument <see cref="Gl.PIXEL_MAP_S_TO_S_SIZE"/> 
+		/// - Gl.Get with argument <see cref="Gl.PIXEL_MAP_I_TO_R_SIZE"/> 
+		/// - Gl.Get with argument <see cref="Gl.PIXEL_MAP_I_TO_G_SIZE"/> 
+		/// - Gl.Get with argument <see cref="Gl.PIXEL_MAP_I_TO_B_SIZE"/> 
+		/// - Gl.Get with argument <see cref="Gl.PIXEL_MAP_I_TO_A_SIZE"/> 
+		/// - Gl.Get with argument <see cref="Gl.PIXEL_MAP_R_TO_R_SIZE"/> 
+		/// - Gl.Get with argument <see cref="Gl.PIXEL_MAP_G_TO_G_SIZE"/> 
+		/// - Gl.Get with argument <see cref="Gl.PIXEL_MAP_B_TO_B_SIZE"/> 
+		/// - Gl.Get with argument <see cref="Gl.PIXEL_MAP_A_TO_A_SIZE"/> 
+		/// - Gl.Get with argument <see cref="Gl.MAX_PIXEL_MAP_TABLE"/> 
+		/// - Gl.Get with argument <see cref="Gl.PIXEL_UNPACK_BUFFER_BINDING"/> 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.ColorTable"/>
+		/// <seealso cref="Gl.ColorSubTable"/>
+		/// <seealso cref="Gl.ConvolutionFilter1D"/>
+		/// <seealso cref="Gl.ConvolutionFilter2D"/>
+		/// <seealso cref="Gl.CopyPixels"/>
+		/// <seealso cref="Gl.CopyTexImage1D"/>
+		/// <seealso cref="Gl.CopyTexImage2D"/>
+		/// <seealso cref="Gl.CopyTexSubImage1D"/>
+		/// <seealso cref="Gl.CopyTexSubImage2D"/>
+		/// <seealso cref="Gl.DrawPixels"/>
+		/// <seealso cref="Gl.Histogram"/>
+		/// <seealso cref="Gl.Minmax"/>
+		/// <seealso cref="Gl.PixelStore"/>
+		/// <seealso cref="Gl.PixelTransfer"/>
+		/// <seealso cref="Gl.ReadPixels"/>
+		/// <seealso cref="Gl.SeparableFilter2D"/>
+		/// <seealso cref="Gl.TexImage1D"/>
+		/// <seealso cref="Gl.TexImage2D"/>
+		/// <seealso cref="Gl.TexImage3D"/>
+		/// <seealso cref="Gl.TexSubImage1D"/>
+		/// <seealso cref="Gl.TexSubImage2D"/>
+		/// <seealso cref="Gl.TexSubImage3D"/>
 		public static void PixelMap(int map, Int32 mapsize, UInt32[] values)
 		{
 			unsafe {
@@ -15590,19 +21802,115 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glPixelMapuiv.
+		/// set up pixel transfer maps
 		/// </summary>
 		/// <param name="map">
-		/// A <see cref="T:int"/>.
+		/// Specifies a symbolic map name. Must be one of the following: <see cref="Gl.PIXEL_MAP_I_TO_I"/>, <see 
+		/// cref="Gl.PIXEL_MAP_S_TO_S"/>,<see cref="Gl.PIXEL_MAP_I_TO_R"/>, <see cref="Gl.PIXEL_MAP_I_TO_G"/>, <see 
+		/// cref="Gl.PIXEL_MAP_I_TO_B"/>,<see cref="Gl.PIXEL_MAP_I_TO_A"/>, <see cref="Gl.PIXEL_MAP_R_TO_R"/>, <see 
+		/// cref="Gl.PIXEL_MAP_G_TO_G"/>,<see cref="Gl.PIXEL_MAP_B_TO_B"/>, or <see cref="Gl.PIXEL_MAP_A_TO_A"/>. 
 		/// </param>
 		/// <param name="mapsize">
-		/// A <see cref="T:Int32"/>.
+		/// Specifies the size of the map being defined. 
 		/// </param>
 		/// <param name="values">
-		/// A <see cref="T:UInt32[]"/>.
+		/// Specifies an array of <paramref name="mapsize"/> values. 
 		/// </param>
 		/// <remarks>
+		/// <see cref="Gl.PixelMap"/> sets up translation tables, or maps, used by Gl.CopyPixels, Gl.CopyTexImage1D, 
+		/// Gl.CopyTexImage2D,Gl.CopyTexSubImage1D, Gl.CopyTexSubImage2D, Gl.CopyTexSubImage3D, Gl.DrawPixels, Gl.ReadPixels, 
+		/// Gl.TexImage1D,Gl.TexImage2D, Gl.TexImage3D, Gl.TexSubImage1D, Gl.TexSubImage2D, and Gl.TexSubImage3D. Additionally, if 
+		/// theARB_imaging subset is supported, the routines Gl.ColorTable, Gl.ColorSubTable, Gl.ConvolutionFilter1D, 
+		/// Gl.ConvolutionFilter2D,Gl.Histogram, Gl.Minmax, and Gl.SeparableFilter2D. Use of these maps is described completely in 
+		/// theGl.PixelTransfer reference page, and partly in the reference pages for the pixel and texture image commands. Only the 
+		/// specificationof the maps is described in this reference page. 
+		/// <paramref name="map"/> is a symbolic map name, indicating one of ten maps to set. <paramref name="mapsize"/> specifies 
+		/// thenumber of entries in the map, and <paramref name="values"/> is a pointer to an array of <paramref name="mapsize"/> 
+		/// mapvalues. 
+		/// If a non-zero named buffer object is bound to the <see cref="Gl.PIXEL_UNPACK_BUFFER"/> target (see Gl.BindBuffer) while 
+		/// apixel transfer map is specified, <paramref name="values"/> is treated as a byte offset into the buffer object's data 
+		/// store.
+		/// The ten maps are as follows: 
+		/// The entries in a map can be specified as single-precision floating-point numbers, unsigned short integers, or unsigned 
+		/// intintegers. Maps that store color component values (all but <see cref="Gl.PIXEL_MAP_I_TO_I"/> and <see 
+		/// cref="Gl.PIXEL_MAP_S_TO_S"/>)retain their values in floating-point format, with unspecified mantissa and exponent sizes. 
+		/// Floating-pointvalues specified by <see cref="Gl.PixelMapfv"/> are converted directly to the internal floating-point 
+		/// formatof these maps, then clamped to the range [0,1]. Unsigned integer values specified by <see cref="Gl.PixelMapusv"/> 
+		/// and<see cref="Gl.PixelMapuiv"/> are converted linearly such that the largest representable integer maps to 1.0, and 0 
+		/// mapsto 0.0. 
+		/// Maps that store indices, <see cref="Gl.PIXEL_MAP_I_TO_I"/> and <see cref="Gl.PIXEL_MAP_S_TO_S"/>, retain their values in 
+		/// fixed-pointformat, with an unspecified number of bits to the right of the binary point. Floating-point values specified 
+		/// by<see cref="Gl.PixelMapfv"/> are converted directly to the internal fixed-point format of these maps. Unsigned integer 
+		/// valuesspecified by <see cref="Gl.PixelMapusv"/> and <see cref="Gl.PixelMapuiv"/> specify integer values, with all 0's to 
+		/// theright of the binary point. 
+		/// The following table shows the initial sizes and values for each of the maps. Maps that are indexed by either color or 
+		/// stencilindices must have <paramref name="mapsize"/> = 2n for some n or the results are undefined. The maximum allowable 
+		/// sizefor each map depends on the implementation and can be determined by calling Gl.Get with argument <see 
+		/// cref="Gl.MAX_PIXEL_MAP_TABLE"/>.The single maximum applies to all maps; it is at least 32. 
+		/// <para>
+		/// The following errors can be generated:
+		/// - <see cref="Gl.INVALID_ENUM"/> is generated if <paramref name="map"/> is not an accepted value. 
+		/// - <see cref="Gl.INVALID_VALUE"/> is generated if <paramref name="mapsize"/> is less than one or larger than <see 
+		///   cref="Gl.MAX_PIXEL_MAP_TABLE"/>.
+		/// - <see cref="Gl.INVALID_VALUE"/> is generated if <paramref name="map"/> is <see cref="Gl.PIXEL_MAP_I_TO_I"/>, <see 
+		///   cref="Gl.PIXEL_MAP_S_TO_S"/>,<see cref="Gl.PIXEL_MAP_I_TO_R"/>, <see cref="Gl.PIXEL_MAP_I_TO_G"/>, <see 
+		///   cref="Gl.PIXEL_MAP_I_TO_B"/>,or <see cref="Gl.PIXEL_MAP_I_TO_A"/>, and <paramref name="mapsize"/> is not a power of two. 
+		/// - <see cref="Gl.INVALID_OPERATION"/> is generated if a non-zero buffer object name is bound to the <see 
+		///   cref="Gl.PIXEL_UNPACK_BUFFER"/>target and the buffer object's data store is currently mapped. 
+		/// - <see cref="Gl.INVALID_OPERATION"/> is generated if a non-zero buffer object name is bound to the <see 
+		///   cref="Gl.PIXEL_UNPACK_BUFFER"/>target and the data would be unpacked from the buffer object such that the memory reads 
+		///   requiredwould exceed the data store size. 
+		/// - <see cref="Gl.INVALID_OPERATION"/> is generated by <see cref="Gl.PixelMapfv"/> if a non-zero buffer object name is bound 
+		///   tothe <see cref="Gl.PIXEL_UNPACK_BUFFER"/> target and <paramref name="values"/> is not evenly divisible into the number 
+		///   ofbytes needed to store in memory a GLfloat datum. 
+		/// - <see cref="Gl.INVALID_OPERATION"/> is generated by <see cref="Gl.PixelMapuiv"/> if a non-zero buffer object name is 
+		///   boundto the <see cref="Gl.PIXEL_UNPACK_BUFFER"/> target and <paramref name="values"/> is not evenly divisible into the 
+		///   numberof bytes needed to store in memory a GLuint datum. 
+		/// - <see cref="Gl.INVALID_OPERATION"/> is generated by <see cref="Gl.PixelMapusv"/> if a non-zero buffer object name is 
+		///   boundto the <see cref="Gl.PIXEL_UNPACK_BUFFER"/> target and <paramref name="values"/> is not evenly divisible into the 
+		///   numberof bytes needed to store in memory a GLushort datum. 
+		/// - <see cref="Gl.INVALID_OPERATION"/> is generated if <see cref="Gl.PixelMap"/> is executed between the execution of 
+		///   Gl.Beginand the corresponding execution of Gl.End. 
+		/// </para>
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - Gl.GetPixelMap 
+		/// - Gl.Get with argument <see cref="Gl.PIXEL_MAP_I_TO_I_SIZE"/> 
+		/// - Gl.Get with argument <see cref="Gl.PIXEL_MAP_S_TO_S_SIZE"/> 
+		/// - Gl.Get with argument <see cref="Gl.PIXEL_MAP_I_TO_R_SIZE"/> 
+		/// - Gl.Get with argument <see cref="Gl.PIXEL_MAP_I_TO_G_SIZE"/> 
+		/// - Gl.Get with argument <see cref="Gl.PIXEL_MAP_I_TO_B_SIZE"/> 
+		/// - Gl.Get with argument <see cref="Gl.PIXEL_MAP_I_TO_A_SIZE"/> 
+		/// - Gl.Get with argument <see cref="Gl.PIXEL_MAP_R_TO_R_SIZE"/> 
+		/// - Gl.Get with argument <see cref="Gl.PIXEL_MAP_G_TO_G_SIZE"/> 
+		/// - Gl.Get with argument <see cref="Gl.PIXEL_MAP_B_TO_B_SIZE"/> 
+		/// - Gl.Get with argument <see cref="Gl.PIXEL_MAP_A_TO_A_SIZE"/> 
+		/// - Gl.Get with argument <see cref="Gl.MAX_PIXEL_MAP_TABLE"/> 
+		/// - Gl.Get with argument <see cref="Gl.PIXEL_UNPACK_BUFFER_BINDING"/> 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.ColorTable"/>
+		/// <seealso cref="Gl.ColorSubTable"/>
+		/// <seealso cref="Gl.ConvolutionFilter1D"/>
+		/// <seealso cref="Gl.ConvolutionFilter2D"/>
+		/// <seealso cref="Gl.CopyPixels"/>
+		/// <seealso cref="Gl.CopyTexImage1D"/>
+		/// <seealso cref="Gl.CopyTexImage2D"/>
+		/// <seealso cref="Gl.CopyTexSubImage1D"/>
+		/// <seealso cref="Gl.CopyTexSubImage2D"/>
+		/// <seealso cref="Gl.DrawPixels"/>
+		/// <seealso cref="Gl.Histogram"/>
+		/// <seealso cref="Gl.Minmax"/>
+		/// <seealso cref="Gl.PixelStore"/>
+		/// <seealso cref="Gl.PixelTransfer"/>
+		/// <seealso cref="Gl.ReadPixels"/>
+		/// <seealso cref="Gl.SeparableFilter2D"/>
+		/// <seealso cref="Gl.TexImage1D"/>
+		/// <seealso cref="Gl.TexImage2D"/>
+		/// <seealso cref="Gl.TexImage3D"/>
+		/// <seealso cref="Gl.TexSubImage1D"/>
+		/// <seealso cref="Gl.TexSubImage2D"/>
+		/// <seealso cref="Gl.TexSubImage3D"/>
 		public static void PixelMap(PixelMap map, Int32 mapsize, UInt32[] values)
 		{
 			unsafe {
@@ -15617,19 +21925,115 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glPixelMapusv.
+		/// set up pixel transfer maps
 		/// </summary>
 		/// <param name="map">
-		/// A <see cref="T:int"/>.
+		/// Specifies a symbolic map name. Must be one of the following: <see cref="Gl.PIXEL_MAP_I_TO_I"/>, <see 
+		/// cref="Gl.PIXEL_MAP_S_TO_S"/>,<see cref="Gl.PIXEL_MAP_I_TO_R"/>, <see cref="Gl.PIXEL_MAP_I_TO_G"/>, <see 
+		/// cref="Gl.PIXEL_MAP_I_TO_B"/>,<see cref="Gl.PIXEL_MAP_I_TO_A"/>, <see cref="Gl.PIXEL_MAP_R_TO_R"/>, <see 
+		/// cref="Gl.PIXEL_MAP_G_TO_G"/>,<see cref="Gl.PIXEL_MAP_B_TO_B"/>, or <see cref="Gl.PIXEL_MAP_A_TO_A"/>. 
 		/// </param>
 		/// <param name="mapsize">
-		/// A <see cref="T:Int32"/>.
+		/// Specifies the size of the map being defined. 
 		/// </param>
 		/// <param name="values">
-		/// A <see cref="T:UInt16[]"/>.
+		/// Specifies an array of <paramref name="mapsize"/> values. 
 		/// </param>
 		/// <remarks>
+		/// <see cref="Gl.PixelMap"/> sets up translation tables, or maps, used by Gl.CopyPixels, Gl.CopyTexImage1D, 
+		/// Gl.CopyTexImage2D,Gl.CopyTexSubImage1D, Gl.CopyTexSubImage2D, Gl.CopyTexSubImage3D, Gl.DrawPixels, Gl.ReadPixels, 
+		/// Gl.TexImage1D,Gl.TexImage2D, Gl.TexImage3D, Gl.TexSubImage1D, Gl.TexSubImage2D, and Gl.TexSubImage3D. Additionally, if 
+		/// theARB_imaging subset is supported, the routines Gl.ColorTable, Gl.ColorSubTable, Gl.ConvolutionFilter1D, 
+		/// Gl.ConvolutionFilter2D,Gl.Histogram, Gl.Minmax, and Gl.SeparableFilter2D. Use of these maps is described completely in 
+		/// theGl.PixelTransfer reference page, and partly in the reference pages for the pixel and texture image commands. Only the 
+		/// specificationof the maps is described in this reference page. 
+		/// <paramref name="map"/> is a symbolic map name, indicating one of ten maps to set. <paramref name="mapsize"/> specifies 
+		/// thenumber of entries in the map, and <paramref name="values"/> is a pointer to an array of <paramref name="mapsize"/> 
+		/// mapvalues. 
+		/// If a non-zero named buffer object is bound to the <see cref="Gl.PIXEL_UNPACK_BUFFER"/> target (see Gl.BindBuffer) while 
+		/// apixel transfer map is specified, <paramref name="values"/> is treated as a byte offset into the buffer object's data 
+		/// store.
+		/// The ten maps are as follows: 
+		/// The entries in a map can be specified as single-precision floating-point numbers, unsigned short integers, or unsigned 
+		/// intintegers. Maps that store color component values (all but <see cref="Gl.PIXEL_MAP_I_TO_I"/> and <see 
+		/// cref="Gl.PIXEL_MAP_S_TO_S"/>)retain their values in floating-point format, with unspecified mantissa and exponent sizes. 
+		/// Floating-pointvalues specified by <see cref="Gl.PixelMapfv"/> are converted directly to the internal floating-point 
+		/// formatof these maps, then clamped to the range [0,1]. Unsigned integer values specified by <see cref="Gl.PixelMapusv"/> 
+		/// and<see cref="Gl.PixelMapuiv"/> are converted linearly such that the largest representable integer maps to 1.0, and 0 
+		/// mapsto 0.0. 
+		/// Maps that store indices, <see cref="Gl.PIXEL_MAP_I_TO_I"/> and <see cref="Gl.PIXEL_MAP_S_TO_S"/>, retain their values in 
+		/// fixed-pointformat, with an unspecified number of bits to the right of the binary point. Floating-point values specified 
+		/// by<see cref="Gl.PixelMapfv"/> are converted directly to the internal fixed-point format of these maps. Unsigned integer 
+		/// valuesspecified by <see cref="Gl.PixelMapusv"/> and <see cref="Gl.PixelMapuiv"/> specify integer values, with all 0's to 
+		/// theright of the binary point. 
+		/// The following table shows the initial sizes and values for each of the maps. Maps that are indexed by either color or 
+		/// stencilindices must have <paramref name="mapsize"/> = 2n for some n or the results are undefined. The maximum allowable 
+		/// sizefor each map depends on the implementation and can be determined by calling Gl.Get with argument <see 
+		/// cref="Gl.MAX_PIXEL_MAP_TABLE"/>.The single maximum applies to all maps; it is at least 32. 
+		/// <para>
+		/// The following errors can be generated:
+		/// - <see cref="Gl.INVALID_ENUM"/> is generated if <paramref name="map"/> is not an accepted value. 
+		/// - <see cref="Gl.INVALID_VALUE"/> is generated if <paramref name="mapsize"/> is less than one or larger than <see 
+		///   cref="Gl.MAX_PIXEL_MAP_TABLE"/>.
+		/// - <see cref="Gl.INVALID_VALUE"/> is generated if <paramref name="map"/> is <see cref="Gl.PIXEL_MAP_I_TO_I"/>, <see 
+		///   cref="Gl.PIXEL_MAP_S_TO_S"/>,<see cref="Gl.PIXEL_MAP_I_TO_R"/>, <see cref="Gl.PIXEL_MAP_I_TO_G"/>, <see 
+		///   cref="Gl.PIXEL_MAP_I_TO_B"/>,or <see cref="Gl.PIXEL_MAP_I_TO_A"/>, and <paramref name="mapsize"/> is not a power of two. 
+		/// - <see cref="Gl.INVALID_OPERATION"/> is generated if a non-zero buffer object name is bound to the <see 
+		///   cref="Gl.PIXEL_UNPACK_BUFFER"/>target and the buffer object's data store is currently mapped. 
+		/// - <see cref="Gl.INVALID_OPERATION"/> is generated if a non-zero buffer object name is bound to the <see 
+		///   cref="Gl.PIXEL_UNPACK_BUFFER"/>target and the data would be unpacked from the buffer object such that the memory reads 
+		///   requiredwould exceed the data store size. 
+		/// - <see cref="Gl.INVALID_OPERATION"/> is generated by <see cref="Gl.PixelMapfv"/> if a non-zero buffer object name is bound 
+		///   tothe <see cref="Gl.PIXEL_UNPACK_BUFFER"/> target and <paramref name="values"/> is not evenly divisible into the number 
+		///   ofbytes needed to store in memory a GLfloat datum. 
+		/// - <see cref="Gl.INVALID_OPERATION"/> is generated by <see cref="Gl.PixelMapuiv"/> if a non-zero buffer object name is 
+		///   boundto the <see cref="Gl.PIXEL_UNPACK_BUFFER"/> target and <paramref name="values"/> is not evenly divisible into the 
+		///   numberof bytes needed to store in memory a GLuint datum. 
+		/// - <see cref="Gl.INVALID_OPERATION"/> is generated by <see cref="Gl.PixelMapusv"/> if a non-zero buffer object name is 
+		///   boundto the <see cref="Gl.PIXEL_UNPACK_BUFFER"/> target and <paramref name="values"/> is not evenly divisible into the 
+		///   numberof bytes needed to store in memory a GLushort datum. 
+		/// - <see cref="Gl.INVALID_OPERATION"/> is generated if <see cref="Gl.PixelMap"/> is executed between the execution of 
+		///   Gl.Beginand the corresponding execution of Gl.End. 
+		/// </para>
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - Gl.GetPixelMap 
+		/// - Gl.Get with argument <see cref="Gl.PIXEL_MAP_I_TO_I_SIZE"/> 
+		/// - Gl.Get with argument <see cref="Gl.PIXEL_MAP_S_TO_S_SIZE"/> 
+		/// - Gl.Get with argument <see cref="Gl.PIXEL_MAP_I_TO_R_SIZE"/> 
+		/// - Gl.Get with argument <see cref="Gl.PIXEL_MAP_I_TO_G_SIZE"/> 
+		/// - Gl.Get with argument <see cref="Gl.PIXEL_MAP_I_TO_B_SIZE"/> 
+		/// - Gl.Get with argument <see cref="Gl.PIXEL_MAP_I_TO_A_SIZE"/> 
+		/// - Gl.Get with argument <see cref="Gl.PIXEL_MAP_R_TO_R_SIZE"/> 
+		/// - Gl.Get with argument <see cref="Gl.PIXEL_MAP_G_TO_G_SIZE"/> 
+		/// - Gl.Get with argument <see cref="Gl.PIXEL_MAP_B_TO_B_SIZE"/> 
+		/// - Gl.Get with argument <see cref="Gl.PIXEL_MAP_A_TO_A_SIZE"/> 
+		/// - Gl.Get with argument <see cref="Gl.MAX_PIXEL_MAP_TABLE"/> 
+		/// - Gl.Get with argument <see cref="Gl.PIXEL_UNPACK_BUFFER_BINDING"/> 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.ColorTable"/>
+		/// <seealso cref="Gl.ColorSubTable"/>
+		/// <seealso cref="Gl.ConvolutionFilter1D"/>
+		/// <seealso cref="Gl.ConvolutionFilter2D"/>
+		/// <seealso cref="Gl.CopyPixels"/>
+		/// <seealso cref="Gl.CopyTexImage1D"/>
+		/// <seealso cref="Gl.CopyTexImage2D"/>
+		/// <seealso cref="Gl.CopyTexSubImage1D"/>
+		/// <seealso cref="Gl.CopyTexSubImage2D"/>
+		/// <seealso cref="Gl.DrawPixels"/>
+		/// <seealso cref="Gl.Histogram"/>
+		/// <seealso cref="Gl.Minmax"/>
+		/// <seealso cref="Gl.PixelStore"/>
+		/// <seealso cref="Gl.PixelTransfer"/>
+		/// <seealso cref="Gl.ReadPixels"/>
+		/// <seealso cref="Gl.SeparableFilter2D"/>
+		/// <seealso cref="Gl.TexImage1D"/>
+		/// <seealso cref="Gl.TexImage2D"/>
+		/// <seealso cref="Gl.TexImage3D"/>
+		/// <seealso cref="Gl.TexSubImage1D"/>
+		/// <seealso cref="Gl.TexSubImage2D"/>
+		/// <seealso cref="Gl.TexSubImage3D"/>
 		public static void PixelMap(int map, Int32 mapsize, UInt16[] values)
 		{
 			unsafe {
@@ -15644,19 +22048,115 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glPixelMapusv.
+		/// set up pixel transfer maps
 		/// </summary>
 		/// <param name="map">
-		/// A <see cref="T:int"/>.
+		/// Specifies a symbolic map name. Must be one of the following: <see cref="Gl.PIXEL_MAP_I_TO_I"/>, <see 
+		/// cref="Gl.PIXEL_MAP_S_TO_S"/>,<see cref="Gl.PIXEL_MAP_I_TO_R"/>, <see cref="Gl.PIXEL_MAP_I_TO_G"/>, <see 
+		/// cref="Gl.PIXEL_MAP_I_TO_B"/>,<see cref="Gl.PIXEL_MAP_I_TO_A"/>, <see cref="Gl.PIXEL_MAP_R_TO_R"/>, <see 
+		/// cref="Gl.PIXEL_MAP_G_TO_G"/>,<see cref="Gl.PIXEL_MAP_B_TO_B"/>, or <see cref="Gl.PIXEL_MAP_A_TO_A"/>. 
 		/// </param>
 		/// <param name="mapsize">
-		/// A <see cref="T:Int32"/>.
+		/// Specifies the size of the map being defined. 
 		/// </param>
 		/// <param name="values">
-		/// A <see cref="T:UInt16[]"/>.
+		/// Specifies an array of <paramref name="mapsize"/> values. 
 		/// </param>
 		/// <remarks>
+		/// <see cref="Gl.PixelMap"/> sets up translation tables, or maps, used by Gl.CopyPixels, Gl.CopyTexImage1D, 
+		/// Gl.CopyTexImage2D,Gl.CopyTexSubImage1D, Gl.CopyTexSubImage2D, Gl.CopyTexSubImage3D, Gl.DrawPixels, Gl.ReadPixels, 
+		/// Gl.TexImage1D,Gl.TexImage2D, Gl.TexImage3D, Gl.TexSubImage1D, Gl.TexSubImage2D, and Gl.TexSubImage3D. Additionally, if 
+		/// theARB_imaging subset is supported, the routines Gl.ColorTable, Gl.ColorSubTable, Gl.ConvolutionFilter1D, 
+		/// Gl.ConvolutionFilter2D,Gl.Histogram, Gl.Minmax, and Gl.SeparableFilter2D. Use of these maps is described completely in 
+		/// theGl.PixelTransfer reference page, and partly in the reference pages for the pixel and texture image commands. Only the 
+		/// specificationof the maps is described in this reference page. 
+		/// <paramref name="map"/> is a symbolic map name, indicating one of ten maps to set. <paramref name="mapsize"/> specifies 
+		/// thenumber of entries in the map, and <paramref name="values"/> is a pointer to an array of <paramref name="mapsize"/> 
+		/// mapvalues. 
+		/// If a non-zero named buffer object is bound to the <see cref="Gl.PIXEL_UNPACK_BUFFER"/> target (see Gl.BindBuffer) while 
+		/// apixel transfer map is specified, <paramref name="values"/> is treated as a byte offset into the buffer object's data 
+		/// store.
+		/// The ten maps are as follows: 
+		/// The entries in a map can be specified as single-precision floating-point numbers, unsigned short integers, or unsigned 
+		/// intintegers. Maps that store color component values (all but <see cref="Gl.PIXEL_MAP_I_TO_I"/> and <see 
+		/// cref="Gl.PIXEL_MAP_S_TO_S"/>)retain their values in floating-point format, with unspecified mantissa and exponent sizes. 
+		/// Floating-pointvalues specified by <see cref="Gl.PixelMapfv"/> are converted directly to the internal floating-point 
+		/// formatof these maps, then clamped to the range [0,1]. Unsigned integer values specified by <see cref="Gl.PixelMapusv"/> 
+		/// and<see cref="Gl.PixelMapuiv"/> are converted linearly such that the largest representable integer maps to 1.0, and 0 
+		/// mapsto 0.0. 
+		/// Maps that store indices, <see cref="Gl.PIXEL_MAP_I_TO_I"/> and <see cref="Gl.PIXEL_MAP_S_TO_S"/>, retain their values in 
+		/// fixed-pointformat, with an unspecified number of bits to the right of the binary point. Floating-point values specified 
+		/// by<see cref="Gl.PixelMapfv"/> are converted directly to the internal fixed-point format of these maps. Unsigned integer 
+		/// valuesspecified by <see cref="Gl.PixelMapusv"/> and <see cref="Gl.PixelMapuiv"/> specify integer values, with all 0's to 
+		/// theright of the binary point. 
+		/// The following table shows the initial sizes and values for each of the maps. Maps that are indexed by either color or 
+		/// stencilindices must have <paramref name="mapsize"/> = 2n for some n or the results are undefined. The maximum allowable 
+		/// sizefor each map depends on the implementation and can be determined by calling Gl.Get with argument <see 
+		/// cref="Gl.MAX_PIXEL_MAP_TABLE"/>.The single maximum applies to all maps; it is at least 32. 
+		/// <para>
+		/// The following errors can be generated:
+		/// - <see cref="Gl.INVALID_ENUM"/> is generated if <paramref name="map"/> is not an accepted value. 
+		/// - <see cref="Gl.INVALID_VALUE"/> is generated if <paramref name="mapsize"/> is less than one or larger than <see 
+		///   cref="Gl.MAX_PIXEL_MAP_TABLE"/>.
+		/// - <see cref="Gl.INVALID_VALUE"/> is generated if <paramref name="map"/> is <see cref="Gl.PIXEL_MAP_I_TO_I"/>, <see 
+		///   cref="Gl.PIXEL_MAP_S_TO_S"/>,<see cref="Gl.PIXEL_MAP_I_TO_R"/>, <see cref="Gl.PIXEL_MAP_I_TO_G"/>, <see 
+		///   cref="Gl.PIXEL_MAP_I_TO_B"/>,or <see cref="Gl.PIXEL_MAP_I_TO_A"/>, and <paramref name="mapsize"/> is not a power of two. 
+		/// - <see cref="Gl.INVALID_OPERATION"/> is generated if a non-zero buffer object name is bound to the <see 
+		///   cref="Gl.PIXEL_UNPACK_BUFFER"/>target and the buffer object's data store is currently mapped. 
+		/// - <see cref="Gl.INVALID_OPERATION"/> is generated if a non-zero buffer object name is bound to the <see 
+		///   cref="Gl.PIXEL_UNPACK_BUFFER"/>target and the data would be unpacked from the buffer object such that the memory reads 
+		///   requiredwould exceed the data store size. 
+		/// - <see cref="Gl.INVALID_OPERATION"/> is generated by <see cref="Gl.PixelMapfv"/> if a non-zero buffer object name is bound 
+		///   tothe <see cref="Gl.PIXEL_UNPACK_BUFFER"/> target and <paramref name="values"/> is not evenly divisible into the number 
+		///   ofbytes needed to store in memory a GLfloat datum. 
+		/// - <see cref="Gl.INVALID_OPERATION"/> is generated by <see cref="Gl.PixelMapuiv"/> if a non-zero buffer object name is 
+		///   boundto the <see cref="Gl.PIXEL_UNPACK_BUFFER"/> target and <paramref name="values"/> is not evenly divisible into the 
+		///   numberof bytes needed to store in memory a GLuint datum. 
+		/// - <see cref="Gl.INVALID_OPERATION"/> is generated by <see cref="Gl.PixelMapusv"/> if a non-zero buffer object name is 
+		///   boundto the <see cref="Gl.PIXEL_UNPACK_BUFFER"/> target and <paramref name="values"/> is not evenly divisible into the 
+		///   numberof bytes needed to store in memory a GLushort datum. 
+		/// - <see cref="Gl.INVALID_OPERATION"/> is generated if <see cref="Gl.PixelMap"/> is executed between the execution of 
+		///   Gl.Beginand the corresponding execution of Gl.End. 
+		/// </para>
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - Gl.GetPixelMap 
+		/// - Gl.Get with argument <see cref="Gl.PIXEL_MAP_I_TO_I_SIZE"/> 
+		/// - Gl.Get with argument <see cref="Gl.PIXEL_MAP_S_TO_S_SIZE"/> 
+		/// - Gl.Get with argument <see cref="Gl.PIXEL_MAP_I_TO_R_SIZE"/> 
+		/// - Gl.Get with argument <see cref="Gl.PIXEL_MAP_I_TO_G_SIZE"/> 
+		/// - Gl.Get with argument <see cref="Gl.PIXEL_MAP_I_TO_B_SIZE"/> 
+		/// - Gl.Get with argument <see cref="Gl.PIXEL_MAP_I_TO_A_SIZE"/> 
+		/// - Gl.Get with argument <see cref="Gl.PIXEL_MAP_R_TO_R_SIZE"/> 
+		/// - Gl.Get with argument <see cref="Gl.PIXEL_MAP_G_TO_G_SIZE"/> 
+		/// - Gl.Get with argument <see cref="Gl.PIXEL_MAP_B_TO_B_SIZE"/> 
+		/// - Gl.Get with argument <see cref="Gl.PIXEL_MAP_A_TO_A_SIZE"/> 
+		/// - Gl.Get with argument <see cref="Gl.MAX_PIXEL_MAP_TABLE"/> 
+		/// - Gl.Get with argument <see cref="Gl.PIXEL_UNPACK_BUFFER_BINDING"/> 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.ColorTable"/>
+		/// <seealso cref="Gl.ColorSubTable"/>
+		/// <seealso cref="Gl.ConvolutionFilter1D"/>
+		/// <seealso cref="Gl.ConvolutionFilter2D"/>
+		/// <seealso cref="Gl.CopyPixels"/>
+		/// <seealso cref="Gl.CopyTexImage1D"/>
+		/// <seealso cref="Gl.CopyTexImage2D"/>
+		/// <seealso cref="Gl.CopyTexSubImage1D"/>
+		/// <seealso cref="Gl.CopyTexSubImage2D"/>
+		/// <seealso cref="Gl.DrawPixels"/>
+		/// <seealso cref="Gl.Histogram"/>
+		/// <seealso cref="Gl.Minmax"/>
+		/// <seealso cref="Gl.PixelStore"/>
+		/// <seealso cref="Gl.PixelTransfer"/>
+		/// <seealso cref="Gl.ReadPixels"/>
+		/// <seealso cref="Gl.SeparableFilter2D"/>
+		/// <seealso cref="Gl.TexImage1D"/>
+		/// <seealso cref="Gl.TexImage2D"/>
+		/// <seealso cref="Gl.TexImage3D"/>
+		/// <seealso cref="Gl.TexSubImage1D"/>
+		/// <seealso cref="Gl.TexSubImage2D"/>
+		/// <seealso cref="Gl.TexSubImage3D"/>
 		public static void PixelMap(PixelMap map, Int32 mapsize, UInt16[] values)
 		{
 			unsafe {
@@ -16333,16 +22833,28 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glGetClipPlane.
+		/// return the coefficients of the specified clipping plane
 		/// </summary>
 		/// <param name="plane">
-		/// A <see cref="T:int"/>.
+		/// Specifies a clipping plane. The number of clipping planes depends on the implementation, but at least six clipping 
+		/// planesare supported. They are identified by symbolic names of the form <see cref="Gl.CLIP_PLANE"/>i where i ranges from 
+		/// 0to the value of <see cref="Gl.MAX_CLIP_PLANES"/> - 1. 
 		/// </param>
 		/// <param name="equation">
-		/// A <see cref="T:double[]"/>.
+		/// Returns four double-precision values that are the coefficients of the plane equation of <paramref name="plane"/> in eye 
+		/// coordinates.The initial value is (0, 0, 0, 0). 
 		/// </param>
 		/// <remarks>
+		/// <see cref="Gl.GetClipPlane"/> returns in <paramref name="equation"/> the four coefficients of the plane equation for 
+		/// <paramrefname="plane"/>. 
+		/// <para>
+		/// The following errors can be generated:
+		/// - <see cref="Gl.INVALID_ENUM"/> is generated if <paramref name="plane"/> is not an accepted value. 
+		/// - <see cref="Gl.INVALID_OPERATION"/> is generated if <see cref="Gl.GetClipPlane"/> is executed between the execution of 
+		///   Gl.Beginand the corresponding execution of Gl.End. 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.ClipPlane"/>
 		public static void GetClipPlane(int plane, double[] equation)
 		{
 			unsafe {
@@ -16357,16 +22869,28 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glGetClipPlane.
+		/// return the coefficients of the specified clipping plane
 		/// </summary>
 		/// <param name="plane">
-		/// A <see cref="T:int"/>.
+		/// Specifies a clipping plane. The number of clipping planes depends on the implementation, but at least six clipping 
+		/// planesare supported. They are identified by symbolic names of the form <see cref="Gl.CLIP_PLANE"/>i where i ranges from 
+		/// 0to the value of <see cref="Gl.MAX_CLIP_PLANES"/> - 1. 
 		/// </param>
 		/// <param name="equation">
-		/// A <see cref="T:double[]"/>.
+		/// Returns four double-precision values that are the coefficients of the plane equation of <paramref name="plane"/> in eye 
+		/// coordinates.The initial value is (0, 0, 0, 0). 
 		/// </param>
 		/// <remarks>
+		/// <see cref="Gl.GetClipPlane"/> returns in <paramref name="equation"/> the four coefficients of the plane equation for 
+		/// <paramrefname="plane"/>. 
+		/// <para>
+		/// The following errors can be generated:
+		/// - <see cref="Gl.INVALID_ENUM"/> is generated if <paramref name="plane"/> is not an accepted value. 
+		/// - <see cref="Gl.INVALID_OPERATION"/> is generated if <see cref="Gl.GetClipPlane"/> is executed between the execution of 
+		///   Gl.Beginand the corresponding execution of Gl.End. 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.ClipPlane"/>
 		public static void GetClipPlane(ClipPlaneName plane, double[] equation)
 		{
 			unsafe {
@@ -16381,19 +22905,38 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glGetLightfv.
+		/// return light source parameter values
 		/// </summary>
 		/// <param name="light">
-		/// A <see cref="T:int"/>.
+		/// Specifies a light source. The number of possible lights depends on the implementation, but at least eight lights are 
+		/// supported.They are identified by symbolic names of the form <see cref="Gl.LIGHT"/>i where i ranges from 0 to the value 
+		/// of<see cref="Gl.MAX_LIGHTS"/> - 1. 
 		/// </param>
 		/// <param name="pname">
-		/// A <see cref="T:int"/>.
+		/// Specifies a light source parameter for <paramref name="light"/>. Accepted symbolic names are <see cref="Gl.AMBIENT"/>, 
+		/// <seecref="Gl.DIFFUSE"/>, <see cref="Gl.SPECULAR"/>, <see cref="Gl.POSITION"/>, <see cref="Gl.SPOT_DIRECTION"/>, <see 
+		/// cref="Gl.SPOT_EXPONENT"/>,<see cref="Gl.SPOT_CUTOFF"/>, <see cref="Gl.CONSTANT_ATTENUATION"/>, <see 
+		/// cref="Gl.LINEAR_ATTENUATION"/>,and <see cref="Gl.QUADRATIC_ATTENUATION"/>. 
 		/// </param>
 		/// <param name="params">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
 		/// <remarks>
+		/// <see cref="Gl.GetLight"/> returns in <paramref name="params"/> the value or values of a light source parameter. 
+		/// <paramrefname="light"/> names the light and is a symbolic name of the form <see cref="Gl.LIGHT"/>i where i ranges from 0 
+		/// tothe value of <see cref="Gl.MAX_LIGHTS"/> - 1. <see cref="Gl.MAX_LIGHTS"/> is an implementation dependent constant that 
+		/// isgreater than or equal to eight. <paramref name="pname"/> specifies one of ten light source parameters, again by 
+		/// symbolicname. 
+		/// The following parameters are defined: 
+		/// <para>
+		/// The following errors can be generated:
+		/// - <see cref="Gl.INVALID_ENUM"/> is generated if <paramref name="light"/> or <paramref name="pname"/> is not an accepted 
+		///   value.
+		/// - <see cref="Gl.INVALID_OPERATION"/> is generated if <see cref="Gl.GetLight"/> is executed between the execution of 
+		///   Gl.Beginand the corresponding execution of Gl.End. 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.Light"/>
 		public static void GetLight(int light, int pname, float[] @params)
 		{
 			unsafe {
@@ -16408,19 +22951,38 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glGetLightfv.
+		/// return light source parameter values
 		/// </summary>
 		/// <param name="light">
-		/// A <see cref="T:int"/>.
+		/// Specifies a light source. The number of possible lights depends on the implementation, but at least eight lights are 
+		/// supported.They are identified by symbolic names of the form <see cref="Gl.LIGHT"/>i where i ranges from 0 to the value 
+		/// of<see cref="Gl.MAX_LIGHTS"/> - 1. 
 		/// </param>
 		/// <param name="pname">
-		/// A <see cref="T:int"/>.
+		/// Specifies a light source parameter for <paramref name="light"/>. Accepted symbolic names are <see cref="Gl.AMBIENT"/>, 
+		/// <seecref="Gl.DIFFUSE"/>, <see cref="Gl.SPECULAR"/>, <see cref="Gl.POSITION"/>, <see cref="Gl.SPOT_DIRECTION"/>, <see 
+		/// cref="Gl.SPOT_EXPONENT"/>,<see cref="Gl.SPOT_CUTOFF"/>, <see cref="Gl.CONSTANT_ATTENUATION"/>, <see 
+		/// cref="Gl.LINEAR_ATTENUATION"/>,and <see cref="Gl.QUADRATIC_ATTENUATION"/>. 
 		/// </param>
 		/// <param name="params">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
 		/// <remarks>
+		/// <see cref="Gl.GetLight"/> returns in <paramref name="params"/> the value or values of a light source parameter. 
+		/// <paramrefname="light"/> names the light and is a symbolic name of the form <see cref="Gl.LIGHT"/>i where i ranges from 0 
+		/// tothe value of <see cref="Gl.MAX_LIGHTS"/> - 1. <see cref="Gl.MAX_LIGHTS"/> is an implementation dependent constant that 
+		/// isgreater than or equal to eight. <paramref name="pname"/> specifies one of ten light source parameters, again by 
+		/// symbolicname. 
+		/// The following parameters are defined: 
+		/// <para>
+		/// The following errors can be generated:
+		/// - <see cref="Gl.INVALID_ENUM"/> is generated if <paramref name="light"/> or <paramref name="pname"/> is not an accepted 
+		///   value.
+		/// - <see cref="Gl.INVALID_OPERATION"/> is generated if <see cref="Gl.GetLight"/> is executed between the execution of 
+		///   Gl.Beginand the corresponding execution of Gl.End. 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.Light"/>
 		public static void GetLight(LightName light, LightParameter pname, float[] @params)
 		{
 			unsafe {
@@ -16435,19 +22997,38 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glGetLightiv.
+		/// return light source parameter values
 		/// </summary>
 		/// <param name="light">
-		/// A <see cref="T:int"/>.
+		/// Specifies a light source. The number of possible lights depends on the implementation, but at least eight lights are 
+		/// supported.They are identified by symbolic names of the form <see cref="Gl.LIGHT"/>i where i ranges from 0 to the value 
+		/// of<see cref="Gl.MAX_LIGHTS"/> - 1. 
 		/// </param>
 		/// <param name="pname">
-		/// A <see cref="T:int"/>.
+		/// Specifies a light source parameter for <paramref name="light"/>. Accepted symbolic names are <see cref="Gl.AMBIENT"/>, 
+		/// <seecref="Gl.DIFFUSE"/>, <see cref="Gl.SPECULAR"/>, <see cref="Gl.POSITION"/>, <see cref="Gl.SPOT_DIRECTION"/>, <see 
+		/// cref="Gl.SPOT_EXPONENT"/>,<see cref="Gl.SPOT_CUTOFF"/>, <see cref="Gl.CONSTANT_ATTENUATION"/>, <see 
+		/// cref="Gl.LINEAR_ATTENUATION"/>,and <see cref="Gl.QUADRATIC_ATTENUATION"/>. 
 		/// </param>
 		/// <param name="params">
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
 		/// <remarks>
+		/// <see cref="Gl.GetLight"/> returns in <paramref name="params"/> the value or values of a light source parameter. 
+		/// <paramrefname="light"/> names the light and is a symbolic name of the form <see cref="Gl.LIGHT"/>i where i ranges from 0 
+		/// tothe value of <see cref="Gl.MAX_LIGHTS"/> - 1. <see cref="Gl.MAX_LIGHTS"/> is an implementation dependent constant that 
+		/// isgreater than or equal to eight. <paramref name="pname"/> specifies one of ten light source parameters, again by 
+		/// symbolicname. 
+		/// The following parameters are defined: 
+		/// <para>
+		/// The following errors can be generated:
+		/// - <see cref="Gl.INVALID_ENUM"/> is generated if <paramref name="light"/> or <paramref name="pname"/> is not an accepted 
+		///   value.
+		/// - <see cref="Gl.INVALID_OPERATION"/> is generated if <see cref="Gl.GetLight"/> is executed between the execution of 
+		///   Gl.Beginand the corresponding execution of Gl.End. 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.Light"/>
 		public static void GetLight(int light, int pname, Int32[] @params)
 		{
 			unsafe {
@@ -16462,19 +23043,38 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glGetLightiv.
+		/// return light source parameter values
 		/// </summary>
 		/// <param name="light">
-		/// A <see cref="T:int"/>.
+		/// Specifies a light source. The number of possible lights depends on the implementation, but at least eight lights are 
+		/// supported.They are identified by symbolic names of the form <see cref="Gl.LIGHT"/>i where i ranges from 0 to the value 
+		/// of<see cref="Gl.MAX_LIGHTS"/> - 1. 
 		/// </param>
 		/// <param name="pname">
-		/// A <see cref="T:int"/>.
+		/// Specifies a light source parameter for <paramref name="light"/>. Accepted symbolic names are <see cref="Gl.AMBIENT"/>, 
+		/// <seecref="Gl.DIFFUSE"/>, <see cref="Gl.SPECULAR"/>, <see cref="Gl.POSITION"/>, <see cref="Gl.SPOT_DIRECTION"/>, <see 
+		/// cref="Gl.SPOT_EXPONENT"/>,<see cref="Gl.SPOT_CUTOFF"/>, <see cref="Gl.CONSTANT_ATTENUATION"/>, <see 
+		/// cref="Gl.LINEAR_ATTENUATION"/>,and <see cref="Gl.QUADRATIC_ATTENUATION"/>. 
 		/// </param>
 		/// <param name="params">
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
 		/// <remarks>
+		/// <see cref="Gl.GetLight"/> returns in <paramref name="params"/> the value or values of a light source parameter. 
+		/// <paramrefname="light"/> names the light and is a symbolic name of the form <see cref="Gl.LIGHT"/>i where i ranges from 0 
+		/// tothe value of <see cref="Gl.MAX_LIGHTS"/> - 1. <see cref="Gl.MAX_LIGHTS"/> is an implementation dependent constant that 
+		/// isgreater than or equal to eight. <paramref name="pname"/> specifies one of ten light source parameters, again by 
+		/// symbolicname. 
+		/// The following parameters are defined: 
+		/// <para>
+		/// The following errors can be generated:
+		/// - <see cref="Gl.INVALID_ENUM"/> is generated if <paramref name="light"/> or <paramref name="pname"/> is not an accepted 
+		///   value.
+		/// - <see cref="Gl.INVALID_OPERATION"/> is generated if <see cref="Gl.GetLight"/> is executed between the execution of 
+		///   Gl.Beginand the corresponding execution of Gl.End. 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.Light"/>
 		public static void GetLight(LightName light, LightParameter pname, Int32[] @params)
 		{
 			unsafe {
@@ -16783,19 +23383,32 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glGetMaterialfv.
+		/// return material parameters
 		/// </summary>
 		/// <param name="face">
-		/// A <see cref="T:int"/>.
+		/// Specifies which of the two materials is being queried. <see cref="Gl.FRONT"/> or <see cref="Gl.BACK"/> are accepted, 
+		/// representingthe front and back materials, respectively. 
 		/// </param>
 		/// <param name="pname">
-		/// A <see cref="T:int"/>.
+		/// Specifies the material parameter to return. <see cref="Gl.AMBIENT"/>, <see cref="Gl.DIFFUSE"/>, <see 
+		/// cref="Gl.SPECULAR"/>,<see cref="Gl.EMISSION"/>, <see cref="Gl.SHININESS"/>, and <see cref="Gl.COLOR_INDEXES"/> are 
+		/// accepted.
 		/// </param>
 		/// <param name="params">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
 		/// <remarks>
+		/// <see cref="Gl.GetMaterial"/> returns in <paramref name="params"/> the value or values of parameter <paramref 
+		/// name="pname"/>of material <paramref name="face"/>. Six parameters are defined: 
+		/// <para>
+		/// The following errors can be generated:
+		/// - <see cref="Gl.INVALID_ENUM"/> is generated if <paramref name="face"/> or <paramref name="pname"/> is not an accepted 
+		///   value.
+		/// - <see cref="Gl.INVALID_OPERATION"/> is generated if <see cref="Gl.GetMaterial"/> is executed between the execution of 
+		///   Gl.Beginand the corresponding execution of Gl.End. 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.Material"/>
 		public static void GetMaterial(int face, int pname, float[] @params)
 		{
 			unsafe {
@@ -16810,19 +23423,32 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glGetMaterialfv.
+		/// return material parameters
 		/// </summary>
 		/// <param name="face">
-		/// A <see cref="T:int"/>.
+		/// Specifies which of the two materials is being queried. <see cref="Gl.FRONT"/> or <see cref="Gl.BACK"/> are accepted, 
+		/// representingthe front and back materials, respectively. 
 		/// </param>
 		/// <param name="pname">
-		/// A <see cref="T:int"/>.
+		/// Specifies the material parameter to return. <see cref="Gl.AMBIENT"/>, <see cref="Gl.DIFFUSE"/>, <see 
+		/// cref="Gl.SPECULAR"/>,<see cref="Gl.EMISSION"/>, <see cref="Gl.SHININESS"/>, and <see cref="Gl.COLOR_INDEXES"/> are 
+		/// accepted.
 		/// </param>
 		/// <param name="params">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
 		/// <remarks>
+		/// <see cref="Gl.GetMaterial"/> returns in <paramref name="params"/> the value or values of parameter <paramref 
+		/// name="pname"/>of material <paramref name="face"/>. Six parameters are defined: 
+		/// <para>
+		/// The following errors can be generated:
+		/// - <see cref="Gl.INVALID_ENUM"/> is generated if <paramref name="face"/> or <paramref name="pname"/> is not an accepted 
+		///   value.
+		/// - <see cref="Gl.INVALID_OPERATION"/> is generated if <see cref="Gl.GetMaterial"/> is executed between the execution of 
+		///   Gl.Beginand the corresponding execution of Gl.End. 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.Material"/>
 		public static void GetMaterial(MaterialFace face, MaterialParameter pname, float[] @params)
 		{
 			unsafe {
@@ -16837,19 +23463,32 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glGetMaterialiv.
+		/// return material parameters
 		/// </summary>
 		/// <param name="face">
-		/// A <see cref="T:int"/>.
+		/// Specifies which of the two materials is being queried. <see cref="Gl.FRONT"/> or <see cref="Gl.BACK"/> are accepted, 
+		/// representingthe front and back materials, respectively. 
 		/// </param>
 		/// <param name="pname">
-		/// A <see cref="T:int"/>.
+		/// Specifies the material parameter to return. <see cref="Gl.AMBIENT"/>, <see cref="Gl.DIFFUSE"/>, <see 
+		/// cref="Gl.SPECULAR"/>,<see cref="Gl.EMISSION"/>, <see cref="Gl.SHININESS"/>, and <see cref="Gl.COLOR_INDEXES"/> are 
+		/// accepted.
 		/// </param>
 		/// <param name="params">
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
 		/// <remarks>
+		/// <see cref="Gl.GetMaterial"/> returns in <paramref name="params"/> the value or values of parameter <paramref 
+		/// name="pname"/>of material <paramref name="face"/>. Six parameters are defined: 
+		/// <para>
+		/// The following errors can be generated:
+		/// - <see cref="Gl.INVALID_ENUM"/> is generated if <paramref name="face"/> or <paramref name="pname"/> is not an accepted 
+		///   value.
+		/// - <see cref="Gl.INVALID_OPERATION"/> is generated if <see cref="Gl.GetMaterial"/> is executed between the execution of 
+		///   Gl.Beginand the corresponding execution of Gl.End. 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.Material"/>
 		public static void GetMaterial(int face, int pname, Int32[] @params)
 		{
 			unsafe {
@@ -16864,19 +23503,32 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glGetMaterialiv.
+		/// return material parameters
 		/// </summary>
 		/// <param name="face">
-		/// A <see cref="T:int"/>.
+		/// Specifies which of the two materials is being queried. <see cref="Gl.FRONT"/> or <see cref="Gl.BACK"/> are accepted, 
+		/// representingthe front and back materials, respectively. 
 		/// </param>
 		/// <param name="pname">
-		/// A <see cref="T:int"/>.
+		/// Specifies the material parameter to return. <see cref="Gl.AMBIENT"/>, <see cref="Gl.DIFFUSE"/>, <see 
+		/// cref="Gl.SPECULAR"/>,<see cref="Gl.EMISSION"/>, <see cref="Gl.SHININESS"/>, and <see cref="Gl.COLOR_INDEXES"/> are 
+		/// accepted.
 		/// </param>
 		/// <param name="params">
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
 		/// <remarks>
+		/// <see cref="Gl.GetMaterial"/> returns in <paramref name="params"/> the value or values of parameter <paramref 
+		/// name="pname"/>of material <paramref name="face"/>. Six parameters are defined: 
+		/// <para>
+		/// The following errors can be generated:
+		/// - <see cref="Gl.INVALID_ENUM"/> is generated if <paramref name="face"/> or <paramref name="pname"/> is not an accepted 
+		///   value.
+		/// - <see cref="Gl.INVALID_OPERATION"/> is generated if <see cref="Gl.GetMaterial"/> is executed between the execution of 
+		///   Gl.Beginand the corresponding execution of Gl.End. 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.Material"/>
 		public static void GetMaterial(MaterialFace face, MaterialParameter pname, Int32[] @params)
 		{
 			unsafe {
@@ -16891,16 +23543,94 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glGetPixelMapfv.
+		/// return the specified pixel map
 		/// </summary>
 		/// <param name="map">
-		/// A <see cref="T:int"/>.
+		/// Specifies the name of the pixel map to return. Accepted values are <see cref="Gl.PIXEL_MAP_I_TO_I"/>, <see 
+		/// cref="Gl.PIXEL_MAP_S_TO_S"/>,<see cref="Gl.PIXEL_MAP_I_TO_R"/>, <see cref="Gl.PIXEL_MAP_I_TO_G"/>, <see 
+		/// cref="Gl.PIXEL_MAP_I_TO_B"/>,<see cref="Gl.PIXEL_MAP_I_TO_A"/>, <see cref="Gl.PIXEL_MAP_R_TO_R"/>, <see 
+		/// cref="Gl.PIXEL_MAP_G_TO_G"/>,<see cref="Gl.PIXEL_MAP_B_TO_B"/>, and <see cref="Gl.PIXEL_MAP_A_TO_A"/>. 
 		/// </param>
 		/// <param name="values">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
 		/// <remarks>
+		/// See the Gl.PixelMap reference page for a description of the acceptable values for the <paramref name="map"/> parameter. 
+		/// <seecref="Gl.GetPixelMap"/> returns in <paramref name="data"/> the contents of the pixel map specified in <paramref 
+		/// name="map"/>.Pixel maps are used during the execution of Gl.ReadPixels, Gl.DrawPixels, Gl.CopyPixels, Gl.TexImage1D, 
+		/// Gl.TexImage2D,Gl.TexImage3D, Gl.TexSubImage1D, Gl.TexSubImage2D, Gl.TexSubImage3D, Gl.CopyTexImage1D, Gl.CopyTexImage2D, 
+		/// Gl.CopyTexSubImage1D,Gl.CopyTexSubImage2D, and Gl.CopyTexSubImage3D. to map color indices, stencil indices, color 
+		/// components,and depth components to other values. 
+		/// If a non-zero named buffer object is bound to the <see cref="Gl.PIXEL_PACK_BUFFER"/> target (see Gl.BindBuffer) while a 
+		/// pixelmap is requested, <paramref name="data"/> is treated as a byte offset into the buffer object's data store. 
+		/// Unsigned integer values, if requested, are linearly mapped from the internal fixed or floating-point representation such 
+		/// that1.0 maps to the largest representable integer value, and 0.0 maps to 0. Return unsigned integer values are undefined 
+		/// ifthe map value was not in the range [0,1]. 
+		/// To determine the required size of <paramref name="map"/>, call Gl.Get with the appropriate symbolic constant. 
+		/// <para>
+		/// The following errors can be generated:
+		/// - <see cref="Gl.INVALID_ENUM"/> is generated if <paramref name="map"/> is not an accepted value. 
+		/// - <see cref="Gl.INVALID_OPERATION"/> is generated if a non-zero buffer object name is bound to the <see 
+		///   cref="Gl.PIXEL_PACK_BUFFER"/>target and the buffer object's data store is currently mapped. 
+		/// - <see cref="Gl.INVALID_OPERATION"/> is generated if a non-zero buffer object name is bound to the <see 
+		///   cref="Gl.PIXEL_PACK_BUFFER"/>target and the data would be packed to the buffer object such that the memory writes 
+		///   requiredwould exceed the data store size. 
+		/// - <see cref="Gl.INVALID_OPERATION"/> is generated by <see cref="Gl.GetPixelMapfv"/> if a non-zero buffer object name is 
+		///   boundto the <see cref="Gl.PIXEL_PACK_BUFFER"/> target and <paramref name="data"/> is not evenly divisible into the 
+		///   numberof bytes needed to store in memory a GLfloat datum. 
+		/// - <see cref="Gl.INVALID_OPERATION"/> is generated by <see cref="Gl.GetPixelMapuiv"/> if a non-zero buffer object name is 
+		///   boundto the <see cref="Gl.PIXEL_PACK_BUFFER"/> target and <paramref name="data"/> is not evenly divisible into the 
+		///   numberof bytes needed to store in memory a GLuint datum. 
+		/// - <see cref="Gl.INVALID_OPERATION"/> is generated by <see cref="Gl.GetPixelMapusv"/> if a non-zero buffer object name is 
+		///   boundto the <see cref="Gl.PIXEL_PACK_BUFFER"/> target and <paramref name="data"/> is not evenly divisible into the 
+		///   numberof bytes needed to store in memory a GLushort datum. 
+		/// - <see cref="Gl.INVALID_OPERATION"/> is generated if <see cref="Gl.GetPixelMap"/> is executed between the execution of 
+		///   Gl.Beginand the corresponding execution of Gl.End. 
+		/// </para>
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - Gl.Get with argument <see cref="Gl.PIXEL_MAP_I_TO_I_SIZE"/> 
+		/// - Gl.Get with argument <see cref="Gl.PIXEL_MAP_S_TO_S_SIZE"/> 
+		/// - Gl.Get with argument <see cref="Gl.PIXEL_MAP_I_TO_R_SIZE"/> 
+		/// - Gl.Get with argument <see cref="Gl.PIXEL_MAP_I_TO_G_SIZE"/> 
+		/// - Gl.Get with argument <see cref="Gl.PIXEL_MAP_I_TO_B_SIZE"/> 
+		/// - Gl.Get with argument <see cref="Gl.PIXEL_MAP_I_TO_A_SIZE"/> 
+		/// - Gl.Get with argument <see cref="Gl.PIXEL_MAP_R_TO_R_SIZE"/> 
+		/// - Gl.Get with argument <see cref="Gl.PIXEL_MAP_G_TO_G_SIZE"/> 
+		/// - Gl.Get with argument <see cref="Gl.PIXEL_MAP_B_TO_B_SIZE"/> 
+		/// - Gl.Get with argument <see cref="Gl.PIXEL_MAP_A_TO_A_SIZE"/> 
+		/// - Gl.Get with argument <see cref="Gl.MAX_PIXEL_MAP_TABLE"/> 
+		/// - Gl.Get with argument <see cref="Gl.PIXEL_PACK_BUFFER_BINDING"/> 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.ColorSubTable"/>
+		/// <seealso cref="Gl.ColorTable"/>
+		/// <seealso cref="Gl.ConvolutionFilter1D"/>
+		/// <seealso cref="Gl.ConvolutionFilter2D"/>
+		/// <seealso cref="Gl.CopyColorSubTable"/>
+		/// <seealso cref="Gl.CopyColorTable"/>
+		/// <seealso cref="Gl.CopyPixels"/>
+		/// <seealso cref="Gl.CopyTexImage1D"/>
+		/// <seealso cref="Gl.CopyTexImage2D"/>
+		/// <seealso cref="Gl.CopyTexSubImage1D"/>
+		/// <seealso cref="Gl.CopyTexSubImage2D"/>
+		/// <seealso cref="Gl.CopyTexSubImage3D"/>
+		/// <seealso cref="Gl.DrawPixels"/>
+		/// <seealso cref="Gl.GetHistogram"/>
+		/// <seealso cref="Gl.GetMinmax"/>
+		/// <seealso cref="Gl.GetTexImage"/>
+		/// <seealso cref="Gl.PixelMap"/>
+		/// <seealso cref="Gl.PixelTransfer"/>
+		/// <seealso cref="Gl.ReadPixels"/>
+		/// <seealso cref="Gl.SeparableFilter2D"/>
+		/// <seealso cref="Gl.TexImage1D"/>
+		/// <seealso cref="Gl.TexImage1D"/>
+		/// <seealso cref="Gl.TexImage2D"/>
+		/// <seealso cref="Gl.TexImage2D"/>
+		/// <seealso cref="Gl.TexImage3D"/>
+		/// <seealso cref="Gl.TexSubImage1D"/>
+		/// <seealso cref="Gl.TexSubImage2D"/>
+		/// <seealso cref="Gl.TexSubImage3D"/>
 		public static void GetPixelMap(int map, float[] values)
 		{
 			unsafe {
@@ -16915,16 +23645,94 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glGetPixelMapfv.
+		/// return the specified pixel map
 		/// </summary>
 		/// <param name="map">
-		/// A <see cref="T:int"/>.
+		/// Specifies the name of the pixel map to return. Accepted values are <see cref="Gl.PIXEL_MAP_I_TO_I"/>, <see 
+		/// cref="Gl.PIXEL_MAP_S_TO_S"/>,<see cref="Gl.PIXEL_MAP_I_TO_R"/>, <see cref="Gl.PIXEL_MAP_I_TO_G"/>, <see 
+		/// cref="Gl.PIXEL_MAP_I_TO_B"/>,<see cref="Gl.PIXEL_MAP_I_TO_A"/>, <see cref="Gl.PIXEL_MAP_R_TO_R"/>, <see 
+		/// cref="Gl.PIXEL_MAP_G_TO_G"/>,<see cref="Gl.PIXEL_MAP_B_TO_B"/>, and <see cref="Gl.PIXEL_MAP_A_TO_A"/>. 
 		/// </param>
 		/// <param name="values">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
 		/// <remarks>
+		/// See the Gl.PixelMap reference page for a description of the acceptable values for the <paramref name="map"/> parameter. 
+		/// <seecref="Gl.GetPixelMap"/> returns in <paramref name="data"/> the contents of the pixel map specified in <paramref 
+		/// name="map"/>.Pixel maps are used during the execution of Gl.ReadPixels, Gl.DrawPixels, Gl.CopyPixels, Gl.TexImage1D, 
+		/// Gl.TexImage2D,Gl.TexImage3D, Gl.TexSubImage1D, Gl.TexSubImage2D, Gl.TexSubImage3D, Gl.CopyTexImage1D, Gl.CopyTexImage2D, 
+		/// Gl.CopyTexSubImage1D,Gl.CopyTexSubImage2D, and Gl.CopyTexSubImage3D. to map color indices, stencil indices, color 
+		/// components,and depth components to other values. 
+		/// If a non-zero named buffer object is bound to the <see cref="Gl.PIXEL_PACK_BUFFER"/> target (see Gl.BindBuffer) while a 
+		/// pixelmap is requested, <paramref name="data"/> is treated as a byte offset into the buffer object's data store. 
+		/// Unsigned integer values, if requested, are linearly mapped from the internal fixed or floating-point representation such 
+		/// that1.0 maps to the largest representable integer value, and 0.0 maps to 0. Return unsigned integer values are undefined 
+		/// ifthe map value was not in the range [0,1]. 
+		/// To determine the required size of <paramref name="map"/>, call Gl.Get with the appropriate symbolic constant. 
+		/// <para>
+		/// The following errors can be generated:
+		/// - <see cref="Gl.INVALID_ENUM"/> is generated if <paramref name="map"/> is not an accepted value. 
+		/// - <see cref="Gl.INVALID_OPERATION"/> is generated if a non-zero buffer object name is bound to the <see 
+		///   cref="Gl.PIXEL_PACK_BUFFER"/>target and the buffer object's data store is currently mapped. 
+		/// - <see cref="Gl.INVALID_OPERATION"/> is generated if a non-zero buffer object name is bound to the <see 
+		///   cref="Gl.PIXEL_PACK_BUFFER"/>target and the data would be packed to the buffer object such that the memory writes 
+		///   requiredwould exceed the data store size. 
+		/// - <see cref="Gl.INVALID_OPERATION"/> is generated by <see cref="Gl.GetPixelMapfv"/> if a non-zero buffer object name is 
+		///   boundto the <see cref="Gl.PIXEL_PACK_BUFFER"/> target and <paramref name="data"/> is not evenly divisible into the 
+		///   numberof bytes needed to store in memory a GLfloat datum. 
+		/// - <see cref="Gl.INVALID_OPERATION"/> is generated by <see cref="Gl.GetPixelMapuiv"/> if a non-zero buffer object name is 
+		///   boundto the <see cref="Gl.PIXEL_PACK_BUFFER"/> target and <paramref name="data"/> is not evenly divisible into the 
+		///   numberof bytes needed to store in memory a GLuint datum. 
+		/// - <see cref="Gl.INVALID_OPERATION"/> is generated by <see cref="Gl.GetPixelMapusv"/> if a non-zero buffer object name is 
+		///   boundto the <see cref="Gl.PIXEL_PACK_BUFFER"/> target and <paramref name="data"/> is not evenly divisible into the 
+		///   numberof bytes needed to store in memory a GLushort datum. 
+		/// - <see cref="Gl.INVALID_OPERATION"/> is generated if <see cref="Gl.GetPixelMap"/> is executed between the execution of 
+		///   Gl.Beginand the corresponding execution of Gl.End. 
+		/// </para>
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - Gl.Get with argument <see cref="Gl.PIXEL_MAP_I_TO_I_SIZE"/> 
+		/// - Gl.Get with argument <see cref="Gl.PIXEL_MAP_S_TO_S_SIZE"/> 
+		/// - Gl.Get with argument <see cref="Gl.PIXEL_MAP_I_TO_R_SIZE"/> 
+		/// - Gl.Get with argument <see cref="Gl.PIXEL_MAP_I_TO_G_SIZE"/> 
+		/// - Gl.Get with argument <see cref="Gl.PIXEL_MAP_I_TO_B_SIZE"/> 
+		/// - Gl.Get with argument <see cref="Gl.PIXEL_MAP_I_TO_A_SIZE"/> 
+		/// - Gl.Get with argument <see cref="Gl.PIXEL_MAP_R_TO_R_SIZE"/> 
+		/// - Gl.Get with argument <see cref="Gl.PIXEL_MAP_G_TO_G_SIZE"/> 
+		/// - Gl.Get with argument <see cref="Gl.PIXEL_MAP_B_TO_B_SIZE"/> 
+		/// - Gl.Get with argument <see cref="Gl.PIXEL_MAP_A_TO_A_SIZE"/> 
+		/// - Gl.Get with argument <see cref="Gl.MAX_PIXEL_MAP_TABLE"/> 
+		/// - Gl.Get with argument <see cref="Gl.PIXEL_PACK_BUFFER_BINDING"/> 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.ColorSubTable"/>
+		/// <seealso cref="Gl.ColorTable"/>
+		/// <seealso cref="Gl.ConvolutionFilter1D"/>
+		/// <seealso cref="Gl.ConvolutionFilter2D"/>
+		/// <seealso cref="Gl.CopyColorSubTable"/>
+		/// <seealso cref="Gl.CopyColorTable"/>
+		/// <seealso cref="Gl.CopyPixels"/>
+		/// <seealso cref="Gl.CopyTexImage1D"/>
+		/// <seealso cref="Gl.CopyTexImage2D"/>
+		/// <seealso cref="Gl.CopyTexSubImage1D"/>
+		/// <seealso cref="Gl.CopyTexSubImage2D"/>
+		/// <seealso cref="Gl.CopyTexSubImage3D"/>
+		/// <seealso cref="Gl.DrawPixels"/>
+		/// <seealso cref="Gl.GetHistogram"/>
+		/// <seealso cref="Gl.GetMinmax"/>
+		/// <seealso cref="Gl.GetTexImage"/>
+		/// <seealso cref="Gl.PixelMap"/>
+		/// <seealso cref="Gl.PixelTransfer"/>
+		/// <seealso cref="Gl.ReadPixels"/>
+		/// <seealso cref="Gl.SeparableFilter2D"/>
+		/// <seealso cref="Gl.TexImage1D"/>
+		/// <seealso cref="Gl.TexImage1D"/>
+		/// <seealso cref="Gl.TexImage2D"/>
+		/// <seealso cref="Gl.TexImage2D"/>
+		/// <seealso cref="Gl.TexImage3D"/>
+		/// <seealso cref="Gl.TexSubImage1D"/>
+		/// <seealso cref="Gl.TexSubImage2D"/>
+		/// <seealso cref="Gl.TexSubImage3D"/>
 		public static void GetPixelMap(PixelMap map, float[] values)
 		{
 			unsafe {
@@ -16939,16 +23747,94 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glGetPixelMapuiv.
+		/// return the specified pixel map
 		/// </summary>
 		/// <param name="map">
-		/// A <see cref="T:int"/>.
+		/// Specifies the name of the pixel map to return. Accepted values are <see cref="Gl.PIXEL_MAP_I_TO_I"/>, <see 
+		/// cref="Gl.PIXEL_MAP_S_TO_S"/>,<see cref="Gl.PIXEL_MAP_I_TO_R"/>, <see cref="Gl.PIXEL_MAP_I_TO_G"/>, <see 
+		/// cref="Gl.PIXEL_MAP_I_TO_B"/>,<see cref="Gl.PIXEL_MAP_I_TO_A"/>, <see cref="Gl.PIXEL_MAP_R_TO_R"/>, <see 
+		/// cref="Gl.PIXEL_MAP_G_TO_G"/>,<see cref="Gl.PIXEL_MAP_B_TO_B"/>, and <see cref="Gl.PIXEL_MAP_A_TO_A"/>. 
 		/// </param>
 		/// <param name="values">
 		/// A <see cref="T:UInt32[]"/>.
 		/// </param>
 		/// <remarks>
+		/// See the Gl.PixelMap reference page for a description of the acceptable values for the <paramref name="map"/> parameter. 
+		/// <seecref="Gl.GetPixelMap"/> returns in <paramref name="data"/> the contents of the pixel map specified in <paramref 
+		/// name="map"/>.Pixel maps are used during the execution of Gl.ReadPixels, Gl.DrawPixels, Gl.CopyPixels, Gl.TexImage1D, 
+		/// Gl.TexImage2D,Gl.TexImage3D, Gl.TexSubImage1D, Gl.TexSubImage2D, Gl.TexSubImage3D, Gl.CopyTexImage1D, Gl.CopyTexImage2D, 
+		/// Gl.CopyTexSubImage1D,Gl.CopyTexSubImage2D, and Gl.CopyTexSubImage3D. to map color indices, stencil indices, color 
+		/// components,and depth components to other values. 
+		/// If a non-zero named buffer object is bound to the <see cref="Gl.PIXEL_PACK_BUFFER"/> target (see Gl.BindBuffer) while a 
+		/// pixelmap is requested, <paramref name="data"/> is treated as a byte offset into the buffer object's data store. 
+		/// Unsigned integer values, if requested, are linearly mapped from the internal fixed or floating-point representation such 
+		/// that1.0 maps to the largest representable integer value, and 0.0 maps to 0. Return unsigned integer values are undefined 
+		/// ifthe map value was not in the range [0,1]. 
+		/// To determine the required size of <paramref name="map"/>, call Gl.Get with the appropriate symbolic constant. 
+		/// <para>
+		/// The following errors can be generated:
+		/// - <see cref="Gl.INVALID_ENUM"/> is generated if <paramref name="map"/> is not an accepted value. 
+		/// - <see cref="Gl.INVALID_OPERATION"/> is generated if a non-zero buffer object name is bound to the <see 
+		///   cref="Gl.PIXEL_PACK_BUFFER"/>target and the buffer object's data store is currently mapped. 
+		/// - <see cref="Gl.INVALID_OPERATION"/> is generated if a non-zero buffer object name is bound to the <see 
+		///   cref="Gl.PIXEL_PACK_BUFFER"/>target and the data would be packed to the buffer object such that the memory writes 
+		///   requiredwould exceed the data store size. 
+		/// - <see cref="Gl.INVALID_OPERATION"/> is generated by <see cref="Gl.GetPixelMapfv"/> if a non-zero buffer object name is 
+		///   boundto the <see cref="Gl.PIXEL_PACK_BUFFER"/> target and <paramref name="data"/> is not evenly divisible into the 
+		///   numberof bytes needed to store in memory a GLfloat datum. 
+		/// - <see cref="Gl.INVALID_OPERATION"/> is generated by <see cref="Gl.GetPixelMapuiv"/> if a non-zero buffer object name is 
+		///   boundto the <see cref="Gl.PIXEL_PACK_BUFFER"/> target and <paramref name="data"/> is not evenly divisible into the 
+		///   numberof bytes needed to store in memory a GLuint datum. 
+		/// - <see cref="Gl.INVALID_OPERATION"/> is generated by <see cref="Gl.GetPixelMapusv"/> if a non-zero buffer object name is 
+		///   boundto the <see cref="Gl.PIXEL_PACK_BUFFER"/> target and <paramref name="data"/> is not evenly divisible into the 
+		///   numberof bytes needed to store in memory a GLushort datum. 
+		/// - <see cref="Gl.INVALID_OPERATION"/> is generated if <see cref="Gl.GetPixelMap"/> is executed between the execution of 
+		///   Gl.Beginand the corresponding execution of Gl.End. 
+		/// </para>
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - Gl.Get with argument <see cref="Gl.PIXEL_MAP_I_TO_I_SIZE"/> 
+		/// - Gl.Get with argument <see cref="Gl.PIXEL_MAP_S_TO_S_SIZE"/> 
+		/// - Gl.Get with argument <see cref="Gl.PIXEL_MAP_I_TO_R_SIZE"/> 
+		/// - Gl.Get with argument <see cref="Gl.PIXEL_MAP_I_TO_G_SIZE"/> 
+		/// - Gl.Get with argument <see cref="Gl.PIXEL_MAP_I_TO_B_SIZE"/> 
+		/// - Gl.Get with argument <see cref="Gl.PIXEL_MAP_I_TO_A_SIZE"/> 
+		/// - Gl.Get with argument <see cref="Gl.PIXEL_MAP_R_TO_R_SIZE"/> 
+		/// - Gl.Get with argument <see cref="Gl.PIXEL_MAP_G_TO_G_SIZE"/> 
+		/// - Gl.Get with argument <see cref="Gl.PIXEL_MAP_B_TO_B_SIZE"/> 
+		/// - Gl.Get with argument <see cref="Gl.PIXEL_MAP_A_TO_A_SIZE"/> 
+		/// - Gl.Get with argument <see cref="Gl.MAX_PIXEL_MAP_TABLE"/> 
+		/// - Gl.Get with argument <see cref="Gl.PIXEL_PACK_BUFFER_BINDING"/> 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.ColorSubTable"/>
+		/// <seealso cref="Gl.ColorTable"/>
+		/// <seealso cref="Gl.ConvolutionFilter1D"/>
+		/// <seealso cref="Gl.ConvolutionFilter2D"/>
+		/// <seealso cref="Gl.CopyColorSubTable"/>
+		/// <seealso cref="Gl.CopyColorTable"/>
+		/// <seealso cref="Gl.CopyPixels"/>
+		/// <seealso cref="Gl.CopyTexImage1D"/>
+		/// <seealso cref="Gl.CopyTexImage2D"/>
+		/// <seealso cref="Gl.CopyTexSubImage1D"/>
+		/// <seealso cref="Gl.CopyTexSubImage2D"/>
+		/// <seealso cref="Gl.CopyTexSubImage3D"/>
+		/// <seealso cref="Gl.DrawPixels"/>
+		/// <seealso cref="Gl.GetHistogram"/>
+		/// <seealso cref="Gl.GetMinmax"/>
+		/// <seealso cref="Gl.GetTexImage"/>
+		/// <seealso cref="Gl.PixelMap"/>
+		/// <seealso cref="Gl.PixelTransfer"/>
+		/// <seealso cref="Gl.ReadPixels"/>
+		/// <seealso cref="Gl.SeparableFilter2D"/>
+		/// <seealso cref="Gl.TexImage1D"/>
+		/// <seealso cref="Gl.TexImage1D"/>
+		/// <seealso cref="Gl.TexImage2D"/>
+		/// <seealso cref="Gl.TexImage2D"/>
+		/// <seealso cref="Gl.TexImage3D"/>
+		/// <seealso cref="Gl.TexSubImage1D"/>
+		/// <seealso cref="Gl.TexSubImage2D"/>
+		/// <seealso cref="Gl.TexSubImage3D"/>
 		public static void GetPixelMap(int map, UInt32[] values)
 		{
 			unsafe {
@@ -16963,16 +23849,94 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glGetPixelMapuiv.
+		/// return the specified pixel map
 		/// </summary>
 		/// <param name="map">
-		/// A <see cref="T:int"/>.
+		/// Specifies the name of the pixel map to return. Accepted values are <see cref="Gl.PIXEL_MAP_I_TO_I"/>, <see 
+		/// cref="Gl.PIXEL_MAP_S_TO_S"/>,<see cref="Gl.PIXEL_MAP_I_TO_R"/>, <see cref="Gl.PIXEL_MAP_I_TO_G"/>, <see 
+		/// cref="Gl.PIXEL_MAP_I_TO_B"/>,<see cref="Gl.PIXEL_MAP_I_TO_A"/>, <see cref="Gl.PIXEL_MAP_R_TO_R"/>, <see 
+		/// cref="Gl.PIXEL_MAP_G_TO_G"/>,<see cref="Gl.PIXEL_MAP_B_TO_B"/>, and <see cref="Gl.PIXEL_MAP_A_TO_A"/>. 
 		/// </param>
 		/// <param name="values">
 		/// A <see cref="T:UInt32[]"/>.
 		/// </param>
 		/// <remarks>
+		/// See the Gl.PixelMap reference page for a description of the acceptable values for the <paramref name="map"/> parameter. 
+		/// <seecref="Gl.GetPixelMap"/> returns in <paramref name="data"/> the contents of the pixel map specified in <paramref 
+		/// name="map"/>.Pixel maps are used during the execution of Gl.ReadPixels, Gl.DrawPixels, Gl.CopyPixels, Gl.TexImage1D, 
+		/// Gl.TexImage2D,Gl.TexImage3D, Gl.TexSubImage1D, Gl.TexSubImage2D, Gl.TexSubImage3D, Gl.CopyTexImage1D, Gl.CopyTexImage2D, 
+		/// Gl.CopyTexSubImage1D,Gl.CopyTexSubImage2D, and Gl.CopyTexSubImage3D. to map color indices, stencil indices, color 
+		/// components,and depth components to other values. 
+		/// If a non-zero named buffer object is bound to the <see cref="Gl.PIXEL_PACK_BUFFER"/> target (see Gl.BindBuffer) while a 
+		/// pixelmap is requested, <paramref name="data"/> is treated as a byte offset into the buffer object's data store. 
+		/// Unsigned integer values, if requested, are linearly mapped from the internal fixed or floating-point representation such 
+		/// that1.0 maps to the largest representable integer value, and 0.0 maps to 0. Return unsigned integer values are undefined 
+		/// ifthe map value was not in the range [0,1]. 
+		/// To determine the required size of <paramref name="map"/>, call Gl.Get with the appropriate symbolic constant. 
+		/// <para>
+		/// The following errors can be generated:
+		/// - <see cref="Gl.INVALID_ENUM"/> is generated if <paramref name="map"/> is not an accepted value. 
+		/// - <see cref="Gl.INVALID_OPERATION"/> is generated if a non-zero buffer object name is bound to the <see 
+		///   cref="Gl.PIXEL_PACK_BUFFER"/>target and the buffer object's data store is currently mapped. 
+		/// - <see cref="Gl.INVALID_OPERATION"/> is generated if a non-zero buffer object name is bound to the <see 
+		///   cref="Gl.PIXEL_PACK_BUFFER"/>target and the data would be packed to the buffer object such that the memory writes 
+		///   requiredwould exceed the data store size. 
+		/// - <see cref="Gl.INVALID_OPERATION"/> is generated by <see cref="Gl.GetPixelMapfv"/> if a non-zero buffer object name is 
+		///   boundto the <see cref="Gl.PIXEL_PACK_BUFFER"/> target and <paramref name="data"/> is not evenly divisible into the 
+		///   numberof bytes needed to store in memory a GLfloat datum. 
+		/// - <see cref="Gl.INVALID_OPERATION"/> is generated by <see cref="Gl.GetPixelMapuiv"/> if a non-zero buffer object name is 
+		///   boundto the <see cref="Gl.PIXEL_PACK_BUFFER"/> target and <paramref name="data"/> is not evenly divisible into the 
+		///   numberof bytes needed to store in memory a GLuint datum. 
+		/// - <see cref="Gl.INVALID_OPERATION"/> is generated by <see cref="Gl.GetPixelMapusv"/> if a non-zero buffer object name is 
+		///   boundto the <see cref="Gl.PIXEL_PACK_BUFFER"/> target and <paramref name="data"/> is not evenly divisible into the 
+		///   numberof bytes needed to store in memory a GLushort datum. 
+		/// - <see cref="Gl.INVALID_OPERATION"/> is generated if <see cref="Gl.GetPixelMap"/> is executed between the execution of 
+		///   Gl.Beginand the corresponding execution of Gl.End. 
+		/// </para>
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - Gl.Get with argument <see cref="Gl.PIXEL_MAP_I_TO_I_SIZE"/> 
+		/// - Gl.Get with argument <see cref="Gl.PIXEL_MAP_S_TO_S_SIZE"/> 
+		/// - Gl.Get with argument <see cref="Gl.PIXEL_MAP_I_TO_R_SIZE"/> 
+		/// - Gl.Get with argument <see cref="Gl.PIXEL_MAP_I_TO_G_SIZE"/> 
+		/// - Gl.Get with argument <see cref="Gl.PIXEL_MAP_I_TO_B_SIZE"/> 
+		/// - Gl.Get with argument <see cref="Gl.PIXEL_MAP_I_TO_A_SIZE"/> 
+		/// - Gl.Get with argument <see cref="Gl.PIXEL_MAP_R_TO_R_SIZE"/> 
+		/// - Gl.Get with argument <see cref="Gl.PIXEL_MAP_G_TO_G_SIZE"/> 
+		/// - Gl.Get with argument <see cref="Gl.PIXEL_MAP_B_TO_B_SIZE"/> 
+		/// - Gl.Get with argument <see cref="Gl.PIXEL_MAP_A_TO_A_SIZE"/> 
+		/// - Gl.Get with argument <see cref="Gl.MAX_PIXEL_MAP_TABLE"/> 
+		/// - Gl.Get with argument <see cref="Gl.PIXEL_PACK_BUFFER_BINDING"/> 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.ColorSubTable"/>
+		/// <seealso cref="Gl.ColorTable"/>
+		/// <seealso cref="Gl.ConvolutionFilter1D"/>
+		/// <seealso cref="Gl.ConvolutionFilter2D"/>
+		/// <seealso cref="Gl.CopyColorSubTable"/>
+		/// <seealso cref="Gl.CopyColorTable"/>
+		/// <seealso cref="Gl.CopyPixels"/>
+		/// <seealso cref="Gl.CopyTexImage1D"/>
+		/// <seealso cref="Gl.CopyTexImage2D"/>
+		/// <seealso cref="Gl.CopyTexSubImage1D"/>
+		/// <seealso cref="Gl.CopyTexSubImage2D"/>
+		/// <seealso cref="Gl.CopyTexSubImage3D"/>
+		/// <seealso cref="Gl.DrawPixels"/>
+		/// <seealso cref="Gl.GetHistogram"/>
+		/// <seealso cref="Gl.GetMinmax"/>
+		/// <seealso cref="Gl.GetTexImage"/>
+		/// <seealso cref="Gl.PixelMap"/>
+		/// <seealso cref="Gl.PixelTransfer"/>
+		/// <seealso cref="Gl.ReadPixels"/>
+		/// <seealso cref="Gl.SeparableFilter2D"/>
+		/// <seealso cref="Gl.TexImage1D"/>
+		/// <seealso cref="Gl.TexImage1D"/>
+		/// <seealso cref="Gl.TexImage2D"/>
+		/// <seealso cref="Gl.TexImage2D"/>
+		/// <seealso cref="Gl.TexImage3D"/>
+		/// <seealso cref="Gl.TexSubImage1D"/>
+		/// <seealso cref="Gl.TexSubImage2D"/>
+		/// <seealso cref="Gl.TexSubImage3D"/>
 		public static void GetPixelMap(PixelMap map, UInt32[] values)
 		{
 			unsafe {
@@ -16987,16 +23951,94 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glGetPixelMapusv.
+		/// return the specified pixel map
 		/// </summary>
 		/// <param name="map">
-		/// A <see cref="T:int"/>.
+		/// Specifies the name of the pixel map to return. Accepted values are <see cref="Gl.PIXEL_MAP_I_TO_I"/>, <see 
+		/// cref="Gl.PIXEL_MAP_S_TO_S"/>,<see cref="Gl.PIXEL_MAP_I_TO_R"/>, <see cref="Gl.PIXEL_MAP_I_TO_G"/>, <see 
+		/// cref="Gl.PIXEL_MAP_I_TO_B"/>,<see cref="Gl.PIXEL_MAP_I_TO_A"/>, <see cref="Gl.PIXEL_MAP_R_TO_R"/>, <see 
+		/// cref="Gl.PIXEL_MAP_G_TO_G"/>,<see cref="Gl.PIXEL_MAP_B_TO_B"/>, and <see cref="Gl.PIXEL_MAP_A_TO_A"/>. 
 		/// </param>
 		/// <param name="values">
 		/// A <see cref="T:UInt16[]"/>.
 		/// </param>
 		/// <remarks>
+		/// See the Gl.PixelMap reference page for a description of the acceptable values for the <paramref name="map"/> parameter. 
+		/// <seecref="Gl.GetPixelMap"/> returns in <paramref name="data"/> the contents of the pixel map specified in <paramref 
+		/// name="map"/>.Pixel maps are used during the execution of Gl.ReadPixels, Gl.DrawPixels, Gl.CopyPixels, Gl.TexImage1D, 
+		/// Gl.TexImage2D,Gl.TexImage3D, Gl.TexSubImage1D, Gl.TexSubImage2D, Gl.TexSubImage3D, Gl.CopyTexImage1D, Gl.CopyTexImage2D, 
+		/// Gl.CopyTexSubImage1D,Gl.CopyTexSubImage2D, and Gl.CopyTexSubImage3D. to map color indices, stencil indices, color 
+		/// components,and depth components to other values. 
+		/// If a non-zero named buffer object is bound to the <see cref="Gl.PIXEL_PACK_BUFFER"/> target (see Gl.BindBuffer) while a 
+		/// pixelmap is requested, <paramref name="data"/> is treated as a byte offset into the buffer object's data store. 
+		/// Unsigned integer values, if requested, are linearly mapped from the internal fixed or floating-point representation such 
+		/// that1.0 maps to the largest representable integer value, and 0.0 maps to 0. Return unsigned integer values are undefined 
+		/// ifthe map value was not in the range [0,1]. 
+		/// To determine the required size of <paramref name="map"/>, call Gl.Get with the appropriate symbolic constant. 
+		/// <para>
+		/// The following errors can be generated:
+		/// - <see cref="Gl.INVALID_ENUM"/> is generated if <paramref name="map"/> is not an accepted value. 
+		/// - <see cref="Gl.INVALID_OPERATION"/> is generated if a non-zero buffer object name is bound to the <see 
+		///   cref="Gl.PIXEL_PACK_BUFFER"/>target and the buffer object's data store is currently mapped. 
+		/// - <see cref="Gl.INVALID_OPERATION"/> is generated if a non-zero buffer object name is bound to the <see 
+		///   cref="Gl.PIXEL_PACK_BUFFER"/>target and the data would be packed to the buffer object such that the memory writes 
+		///   requiredwould exceed the data store size. 
+		/// - <see cref="Gl.INVALID_OPERATION"/> is generated by <see cref="Gl.GetPixelMapfv"/> if a non-zero buffer object name is 
+		///   boundto the <see cref="Gl.PIXEL_PACK_BUFFER"/> target and <paramref name="data"/> is not evenly divisible into the 
+		///   numberof bytes needed to store in memory a GLfloat datum. 
+		/// - <see cref="Gl.INVALID_OPERATION"/> is generated by <see cref="Gl.GetPixelMapuiv"/> if a non-zero buffer object name is 
+		///   boundto the <see cref="Gl.PIXEL_PACK_BUFFER"/> target and <paramref name="data"/> is not evenly divisible into the 
+		///   numberof bytes needed to store in memory a GLuint datum. 
+		/// - <see cref="Gl.INVALID_OPERATION"/> is generated by <see cref="Gl.GetPixelMapusv"/> if a non-zero buffer object name is 
+		///   boundto the <see cref="Gl.PIXEL_PACK_BUFFER"/> target and <paramref name="data"/> is not evenly divisible into the 
+		///   numberof bytes needed to store in memory a GLushort datum. 
+		/// - <see cref="Gl.INVALID_OPERATION"/> is generated if <see cref="Gl.GetPixelMap"/> is executed between the execution of 
+		///   Gl.Beginand the corresponding execution of Gl.End. 
+		/// </para>
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - Gl.Get with argument <see cref="Gl.PIXEL_MAP_I_TO_I_SIZE"/> 
+		/// - Gl.Get with argument <see cref="Gl.PIXEL_MAP_S_TO_S_SIZE"/> 
+		/// - Gl.Get with argument <see cref="Gl.PIXEL_MAP_I_TO_R_SIZE"/> 
+		/// - Gl.Get with argument <see cref="Gl.PIXEL_MAP_I_TO_G_SIZE"/> 
+		/// - Gl.Get with argument <see cref="Gl.PIXEL_MAP_I_TO_B_SIZE"/> 
+		/// - Gl.Get with argument <see cref="Gl.PIXEL_MAP_I_TO_A_SIZE"/> 
+		/// - Gl.Get with argument <see cref="Gl.PIXEL_MAP_R_TO_R_SIZE"/> 
+		/// - Gl.Get with argument <see cref="Gl.PIXEL_MAP_G_TO_G_SIZE"/> 
+		/// - Gl.Get with argument <see cref="Gl.PIXEL_MAP_B_TO_B_SIZE"/> 
+		/// - Gl.Get with argument <see cref="Gl.PIXEL_MAP_A_TO_A_SIZE"/> 
+		/// - Gl.Get with argument <see cref="Gl.MAX_PIXEL_MAP_TABLE"/> 
+		/// - Gl.Get with argument <see cref="Gl.PIXEL_PACK_BUFFER_BINDING"/> 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.ColorSubTable"/>
+		/// <seealso cref="Gl.ColorTable"/>
+		/// <seealso cref="Gl.ConvolutionFilter1D"/>
+		/// <seealso cref="Gl.ConvolutionFilter2D"/>
+		/// <seealso cref="Gl.CopyColorSubTable"/>
+		/// <seealso cref="Gl.CopyColorTable"/>
+		/// <seealso cref="Gl.CopyPixels"/>
+		/// <seealso cref="Gl.CopyTexImage1D"/>
+		/// <seealso cref="Gl.CopyTexImage2D"/>
+		/// <seealso cref="Gl.CopyTexSubImage1D"/>
+		/// <seealso cref="Gl.CopyTexSubImage2D"/>
+		/// <seealso cref="Gl.CopyTexSubImage3D"/>
+		/// <seealso cref="Gl.DrawPixels"/>
+		/// <seealso cref="Gl.GetHistogram"/>
+		/// <seealso cref="Gl.GetMinmax"/>
+		/// <seealso cref="Gl.GetTexImage"/>
+		/// <seealso cref="Gl.PixelMap"/>
+		/// <seealso cref="Gl.PixelTransfer"/>
+		/// <seealso cref="Gl.ReadPixels"/>
+		/// <seealso cref="Gl.SeparableFilter2D"/>
+		/// <seealso cref="Gl.TexImage1D"/>
+		/// <seealso cref="Gl.TexImage1D"/>
+		/// <seealso cref="Gl.TexImage2D"/>
+		/// <seealso cref="Gl.TexImage2D"/>
+		/// <seealso cref="Gl.TexImage3D"/>
+		/// <seealso cref="Gl.TexSubImage1D"/>
+		/// <seealso cref="Gl.TexSubImage2D"/>
+		/// <seealso cref="Gl.TexSubImage3D"/>
 		public static void GetPixelMap(int map, UInt16[] values)
 		{
 			unsafe {
@@ -17011,16 +24053,94 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glGetPixelMapusv.
+		/// return the specified pixel map
 		/// </summary>
 		/// <param name="map">
-		/// A <see cref="T:int"/>.
+		/// Specifies the name of the pixel map to return. Accepted values are <see cref="Gl.PIXEL_MAP_I_TO_I"/>, <see 
+		/// cref="Gl.PIXEL_MAP_S_TO_S"/>,<see cref="Gl.PIXEL_MAP_I_TO_R"/>, <see cref="Gl.PIXEL_MAP_I_TO_G"/>, <see 
+		/// cref="Gl.PIXEL_MAP_I_TO_B"/>,<see cref="Gl.PIXEL_MAP_I_TO_A"/>, <see cref="Gl.PIXEL_MAP_R_TO_R"/>, <see 
+		/// cref="Gl.PIXEL_MAP_G_TO_G"/>,<see cref="Gl.PIXEL_MAP_B_TO_B"/>, and <see cref="Gl.PIXEL_MAP_A_TO_A"/>. 
 		/// </param>
 		/// <param name="values">
 		/// A <see cref="T:UInt16[]"/>.
 		/// </param>
 		/// <remarks>
+		/// See the Gl.PixelMap reference page for a description of the acceptable values for the <paramref name="map"/> parameter. 
+		/// <seecref="Gl.GetPixelMap"/> returns in <paramref name="data"/> the contents of the pixel map specified in <paramref 
+		/// name="map"/>.Pixel maps are used during the execution of Gl.ReadPixels, Gl.DrawPixels, Gl.CopyPixels, Gl.TexImage1D, 
+		/// Gl.TexImage2D,Gl.TexImage3D, Gl.TexSubImage1D, Gl.TexSubImage2D, Gl.TexSubImage3D, Gl.CopyTexImage1D, Gl.CopyTexImage2D, 
+		/// Gl.CopyTexSubImage1D,Gl.CopyTexSubImage2D, and Gl.CopyTexSubImage3D. to map color indices, stencil indices, color 
+		/// components,and depth components to other values. 
+		/// If a non-zero named buffer object is bound to the <see cref="Gl.PIXEL_PACK_BUFFER"/> target (see Gl.BindBuffer) while a 
+		/// pixelmap is requested, <paramref name="data"/> is treated as a byte offset into the buffer object's data store. 
+		/// Unsigned integer values, if requested, are linearly mapped from the internal fixed or floating-point representation such 
+		/// that1.0 maps to the largest representable integer value, and 0.0 maps to 0. Return unsigned integer values are undefined 
+		/// ifthe map value was not in the range [0,1]. 
+		/// To determine the required size of <paramref name="map"/>, call Gl.Get with the appropriate symbolic constant. 
+		/// <para>
+		/// The following errors can be generated:
+		/// - <see cref="Gl.INVALID_ENUM"/> is generated if <paramref name="map"/> is not an accepted value. 
+		/// - <see cref="Gl.INVALID_OPERATION"/> is generated if a non-zero buffer object name is bound to the <see 
+		///   cref="Gl.PIXEL_PACK_BUFFER"/>target and the buffer object's data store is currently mapped. 
+		/// - <see cref="Gl.INVALID_OPERATION"/> is generated if a non-zero buffer object name is bound to the <see 
+		///   cref="Gl.PIXEL_PACK_BUFFER"/>target and the data would be packed to the buffer object such that the memory writes 
+		///   requiredwould exceed the data store size. 
+		/// - <see cref="Gl.INVALID_OPERATION"/> is generated by <see cref="Gl.GetPixelMapfv"/> if a non-zero buffer object name is 
+		///   boundto the <see cref="Gl.PIXEL_PACK_BUFFER"/> target and <paramref name="data"/> is not evenly divisible into the 
+		///   numberof bytes needed to store in memory a GLfloat datum. 
+		/// - <see cref="Gl.INVALID_OPERATION"/> is generated by <see cref="Gl.GetPixelMapuiv"/> if a non-zero buffer object name is 
+		///   boundto the <see cref="Gl.PIXEL_PACK_BUFFER"/> target and <paramref name="data"/> is not evenly divisible into the 
+		///   numberof bytes needed to store in memory a GLuint datum. 
+		/// - <see cref="Gl.INVALID_OPERATION"/> is generated by <see cref="Gl.GetPixelMapusv"/> if a non-zero buffer object name is 
+		///   boundto the <see cref="Gl.PIXEL_PACK_BUFFER"/> target and <paramref name="data"/> is not evenly divisible into the 
+		///   numberof bytes needed to store in memory a GLushort datum. 
+		/// - <see cref="Gl.INVALID_OPERATION"/> is generated if <see cref="Gl.GetPixelMap"/> is executed between the execution of 
+		///   Gl.Beginand the corresponding execution of Gl.End. 
+		/// </para>
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - Gl.Get with argument <see cref="Gl.PIXEL_MAP_I_TO_I_SIZE"/> 
+		/// - Gl.Get with argument <see cref="Gl.PIXEL_MAP_S_TO_S_SIZE"/> 
+		/// - Gl.Get with argument <see cref="Gl.PIXEL_MAP_I_TO_R_SIZE"/> 
+		/// - Gl.Get with argument <see cref="Gl.PIXEL_MAP_I_TO_G_SIZE"/> 
+		/// - Gl.Get with argument <see cref="Gl.PIXEL_MAP_I_TO_B_SIZE"/> 
+		/// - Gl.Get with argument <see cref="Gl.PIXEL_MAP_I_TO_A_SIZE"/> 
+		/// - Gl.Get with argument <see cref="Gl.PIXEL_MAP_R_TO_R_SIZE"/> 
+		/// - Gl.Get with argument <see cref="Gl.PIXEL_MAP_G_TO_G_SIZE"/> 
+		/// - Gl.Get with argument <see cref="Gl.PIXEL_MAP_B_TO_B_SIZE"/> 
+		/// - Gl.Get with argument <see cref="Gl.PIXEL_MAP_A_TO_A_SIZE"/> 
+		/// - Gl.Get with argument <see cref="Gl.MAX_PIXEL_MAP_TABLE"/> 
+		/// - Gl.Get with argument <see cref="Gl.PIXEL_PACK_BUFFER_BINDING"/> 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.ColorSubTable"/>
+		/// <seealso cref="Gl.ColorTable"/>
+		/// <seealso cref="Gl.ConvolutionFilter1D"/>
+		/// <seealso cref="Gl.ConvolutionFilter2D"/>
+		/// <seealso cref="Gl.CopyColorSubTable"/>
+		/// <seealso cref="Gl.CopyColorTable"/>
+		/// <seealso cref="Gl.CopyPixels"/>
+		/// <seealso cref="Gl.CopyTexImage1D"/>
+		/// <seealso cref="Gl.CopyTexImage2D"/>
+		/// <seealso cref="Gl.CopyTexSubImage1D"/>
+		/// <seealso cref="Gl.CopyTexSubImage2D"/>
+		/// <seealso cref="Gl.CopyTexSubImage3D"/>
+		/// <seealso cref="Gl.DrawPixels"/>
+		/// <seealso cref="Gl.GetHistogram"/>
+		/// <seealso cref="Gl.GetMinmax"/>
+		/// <seealso cref="Gl.GetTexImage"/>
+		/// <seealso cref="Gl.PixelMap"/>
+		/// <seealso cref="Gl.PixelTransfer"/>
+		/// <seealso cref="Gl.ReadPixels"/>
+		/// <seealso cref="Gl.SeparableFilter2D"/>
+		/// <seealso cref="Gl.TexImage1D"/>
+		/// <seealso cref="Gl.TexImage1D"/>
+		/// <seealso cref="Gl.TexImage2D"/>
+		/// <seealso cref="Gl.TexImage2D"/>
+		/// <seealso cref="Gl.TexImage3D"/>
+		/// <seealso cref="Gl.TexSubImage1D"/>
+		/// <seealso cref="Gl.TexSubImage2D"/>
+		/// <seealso cref="Gl.TexSubImage3D"/>
 		public static void GetPixelMap(PixelMap map, UInt16[] values)
 		{
 			unsafe {
@@ -17082,19 +24202,45 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glGetTexEnvfv.
+		/// return texture environment parameters
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:int"/>.
+		/// Specifies a texture environment. May be <see cref="Gl.TEXTURE_ENV"/>, <see cref="Gl.TEXTURE_FILTER_CONTROL"/>, or <see 
+		/// cref="Gl.POINT_SPRITE"/>.
 		/// </param>
 		/// <param name="pname">
-		/// A <see cref="T:int"/>.
+		/// Specifies the symbolic name of a texture environment parameter. Accepted values are <see cref="Gl.TEXTURE_ENV_MODE"/>, 
+		/// <seecref="Gl.TEXTURE_ENV_COLOR"/>, <see cref="Gl.TEXTURE_LOD_BIAS"/>, <see cref="Gl.COMBINE_RGB"/>, <see 
+		/// cref="Gl.COMBINE_ALPHA"/>,<see cref="Gl.SRC0_RGB"/>, <see cref="Gl.SRC1_RGB"/>, <see cref="Gl.SRC2_RGB"/>, <see 
+		/// cref="Gl.SRC0_ALPHA"/>,<see cref="Gl.SRC1_ALPHA"/>, <see cref="Gl.SRC2_ALPHA"/>, <see cref="Gl.OPERAND0_RGB"/>, <see 
+		/// cref="Gl.OPERAND1_RGB"/>,<see cref="Gl.OPERAND2_RGB"/>, <see cref="Gl.OPERAND0_ALPHA"/>, <see 
+		/// cref="Gl.OPERAND1_ALPHA"/>,<see cref="Gl.OPERAND2_ALPHA"/>, <see cref="Gl.RGB_SCALE"/>, <see cref="Gl.ALPHA_SCALE"/>, or 
+		/// <seecref="Gl.COORD_REPLACE"/>. 
 		/// </param>
 		/// <param name="params">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
 		/// <remarks>
+		/// <see cref="Gl.GetTexEnv"/> returns in <paramref name="params"/> selected values of a texture environment that was 
+		/// specifiedwith Gl.TexEnv. <paramref name="target"/> specifies a texture environment. 
+		/// When <paramref name="target"/> is <see cref="Gl.TEXTURE_FILTER_CONTROL"/>, <paramref name="pname"/> must be <see 
+		/// cref="Gl.TEXTURE_LOD_BIAS"/>.When <paramref name="target"/> is <see cref="Gl.POINT_SPRITE"/>, <paramref name="pname"/> 
+		/// mustbe <see cref="Gl.COORD_REPLACE"/>. When <paramref name="target"/> is <see cref="Gl.TEXTURE_ENV"/>, <paramref 
+		/// name="pname"/>can be <see cref="Gl.TEXTURE_ENV_MODE"/>, <see cref="Gl.TEXTURE_ENV_COLOR"/>, <see 
+		/// cref="Gl.COMBINE_RGB"/>,<see cref="Gl.COMBINE_ALPHA"/>, <see cref="Gl.RGB_SCALE"/>, <see cref="Gl.ALPHA_SCALE"/>, <see 
+		/// cref="Gl.SRC0_RGB"/>,<see cref="Gl.SRC1_RGB"/>, <see cref="Gl.SRC2_RGB"/>, <see cref="Gl.SRC0_ALPHA"/>, <see 
+		/// cref="Gl.SRC1_ALPHA"/>,or <see cref="Gl.SRC2_ALPHA"/>. 
+		/// <paramref name="pname"/> names a specific texture environment parameter, as follows: 
+		/// <para>
+		/// The following errors can be generated:
+		/// - <see cref="Gl.INVALID_ENUM"/> is generated if <paramref name="target"/> or <paramref name="pname"/> is not an accepted 
+		///   value.
+		/// - <see cref="Gl.INVALID_OPERATION"/> is generated if <see cref="Gl.GetTexEnv"/> is executed between the execution of 
+		///   Gl.Beginand the corresponding execution of Gl.End. 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.ActiveTexture"/>
+		/// <seealso cref="Gl.TexEnv"/>
 		public static void GetTexEnv(int target, int pname, float[] @params)
 		{
 			unsafe {
@@ -17109,19 +24255,45 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glGetTexEnvfv.
+		/// return texture environment parameters
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:int"/>.
+		/// Specifies a texture environment. May be <see cref="Gl.TEXTURE_ENV"/>, <see cref="Gl.TEXTURE_FILTER_CONTROL"/>, or <see 
+		/// cref="Gl.POINT_SPRITE"/>.
 		/// </param>
 		/// <param name="pname">
-		/// A <see cref="T:int"/>.
+		/// Specifies the symbolic name of a texture environment parameter. Accepted values are <see cref="Gl.TEXTURE_ENV_MODE"/>, 
+		/// <seecref="Gl.TEXTURE_ENV_COLOR"/>, <see cref="Gl.TEXTURE_LOD_BIAS"/>, <see cref="Gl.COMBINE_RGB"/>, <see 
+		/// cref="Gl.COMBINE_ALPHA"/>,<see cref="Gl.SRC0_RGB"/>, <see cref="Gl.SRC1_RGB"/>, <see cref="Gl.SRC2_RGB"/>, <see 
+		/// cref="Gl.SRC0_ALPHA"/>,<see cref="Gl.SRC1_ALPHA"/>, <see cref="Gl.SRC2_ALPHA"/>, <see cref="Gl.OPERAND0_RGB"/>, <see 
+		/// cref="Gl.OPERAND1_RGB"/>,<see cref="Gl.OPERAND2_RGB"/>, <see cref="Gl.OPERAND0_ALPHA"/>, <see 
+		/// cref="Gl.OPERAND1_ALPHA"/>,<see cref="Gl.OPERAND2_ALPHA"/>, <see cref="Gl.RGB_SCALE"/>, <see cref="Gl.ALPHA_SCALE"/>, or 
+		/// <seecref="Gl.COORD_REPLACE"/>. 
 		/// </param>
 		/// <param name="params">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
 		/// <remarks>
+		/// <see cref="Gl.GetTexEnv"/> returns in <paramref name="params"/> selected values of a texture environment that was 
+		/// specifiedwith Gl.TexEnv. <paramref name="target"/> specifies a texture environment. 
+		/// When <paramref name="target"/> is <see cref="Gl.TEXTURE_FILTER_CONTROL"/>, <paramref name="pname"/> must be <see 
+		/// cref="Gl.TEXTURE_LOD_BIAS"/>.When <paramref name="target"/> is <see cref="Gl.POINT_SPRITE"/>, <paramref name="pname"/> 
+		/// mustbe <see cref="Gl.COORD_REPLACE"/>. When <paramref name="target"/> is <see cref="Gl.TEXTURE_ENV"/>, <paramref 
+		/// name="pname"/>can be <see cref="Gl.TEXTURE_ENV_MODE"/>, <see cref="Gl.TEXTURE_ENV_COLOR"/>, <see 
+		/// cref="Gl.COMBINE_RGB"/>,<see cref="Gl.COMBINE_ALPHA"/>, <see cref="Gl.RGB_SCALE"/>, <see cref="Gl.ALPHA_SCALE"/>, <see 
+		/// cref="Gl.SRC0_RGB"/>,<see cref="Gl.SRC1_RGB"/>, <see cref="Gl.SRC2_RGB"/>, <see cref="Gl.SRC0_ALPHA"/>, <see 
+		/// cref="Gl.SRC1_ALPHA"/>,or <see cref="Gl.SRC2_ALPHA"/>. 
+		/// <paramref name="pname"/> names a specific texture environment parameter, as follows: 
+		/// <para>
+		/// The following errors can be generated:
+		/// - <see cref="Gl.INVALID_ENUM"/> is generated if <paramref name="target"/> or <paramref name="pname"/> is not an accepted 
+		///   value.
+		/// - <see cref="Gl.INVALID_OPERATION"/> is generated if <see cref="Gl.GetTexEnv"/> is executed between the execution of 
+		///   Gl.Beginand the corresponding execution of Gl.End. 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.ActiveTexture"/>
+		/// <seealso cref="Gl.TexEnv"/>
 		public static void GetTexEnv(TextureEnvTarget target, TextureEnvParameter pname, float[] @params)
 		{
 			unsafe {
@@ -17136,19 +24308,45 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glGetTexEnviv.
+		/// return texture environment parameters
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:int"/>.
+		/// Specifies a texture environment. May be <see cref="Gl.TEXTURE_ENV"/>, <see cref="Gl.TEXTURE_FILTER_CONTROL"/>, or <see 
+		/// cref="Gl.POINT_SPRITE"/>.
 		/// </param>
 		/// <param name="pname">
-		/// A <see cref="T:int"/>.
+		/// Specifies the symbolic name of a texture environment parameter. Accepted values are <see cref="Gl.TEXTURE_ENV_MODE"/>, 
+		/// <seecref="Gl.TEXTURE_ENV_COLOR"/>, <see cref="Gl.TEXTURE_LOD_BIAS"/>, <see cref="Gl.COMBINE_RGB"/>, <see 
+		/// cref="Gl.COMBINE_ALPHA"/>,<see cref="Gl.SRC0_RGB"/>, <see cref="Gl.SRC1_RGB"/>, <see cref="Gl.SRC2_RGB"/>, <see 
+		/// cref="Gl.SRC0_ALPHA"/>,<see cref="Gl.SRC1_ALPHA"/>, <see cref="Gl.SRC2_ALPHA"/>, <see cref="Gl.OPERAND0_RGB"/>, <see 
+		/// cref="Gl.OPERAND1_RGB"/>,<see cref="Gl.OPERAND2_RGB"/>, <see cref="Gl.OPERAND0_ALPHA"/>, <see 
+		/// cref="Gl.OPERAND1_ALPHA"/>,<see cref="Gl.OPERAND2_ALPHA"/>, <see cref="Gl.RGB_SCALE"/>, <see cref="Gl.ALPHA_SCALE"/>, or 
+		/// <seecref="Gl.COORD_REPLACE"/>. 
 		/// </param>
 		/// <param name="params">
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
 		/// <remarks>
+		/// <see cref="Gl.GetTexEnv"/> returns in <paramref name="params"/> selected values of a texture environment that was 
+		/// specifiedwith Gl.TexEnv. <paramref name="target"/> specifies a texture environment. 
+		/// When <paramref name="target"/> is <see cref="Gl.TEXTURE_FILTER_CONTROL"/>, <paramref name="pname"/> must be <see 
+		/// cref="Gl.TEXTURE_LOD_BIAS"/>.When <paramref name="target"/> is <see cref="Gl.POINT_SPRITE"/>, <paramref name="pname"/> 
+		/// mustbe <see cref="Gl.COORD_REPLACE"/>. When <paramref name="target"/> is <see cref="Gl.TEXTURE_ENV"/>, <paramref 
+		/// name="pname"/>can be <see cref="Gl.TEXTURE_ENV_MODE"/>, <see cref="Gl.TEXTURE_ENV_COLOR"/>, <see 
+		/// cref="Gl.COMBINE_RGB"/>,<see cref="Gl.COMBINE_ALPHA"/>, <see cref="Gl.RGB_SCALE"/>, <see cref="Gl.ALPHA_SCALE"/>, <see 
+		/// cref="Gl.SRC0_RGB"/>,<see cref="Gl.SRC1_RGB"/>, <see cref="Gl.SRC2_RGB"/>, <see cref="Gl.SRC0_ALPHA"/>, <see 
+		/// cref="Gl.SRC1_ALPHA"/>,or <see cref="Gl.SRC2_ALPHA"/>. 
+		/// <paramref name="pname"/> names a specific texture environment parameter, as follows: 
+		/// <para>
+		/// The following errors can be generated:
+		/// - <see cref="Gl.INVALID_ENUM"/> is generated if <paramref name="target"/> or <paramref name="pname"/> is not an accepted 
+		///   value.
+		/// - <see cref="Gl.INVALID_OPERATION"/> is generated if <see cref="Gl.GetTexEnv"/> is executed between the execution of 
+		///   Gl.Beginand the corresponding execution of Gl.End. 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.ActiveTexture"/>
+		/// <seealso cref="Gl.TexEnv"/>
 		public static void GetTexEnv(int target, int pname, Int32[] @params)
 		{
 			unsafe {
@@ -17163,19 +24361,45 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glGetTexEnviv.
+		/// return texture environment parameters
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:int"/>.
+		/// Specifies a texture environment. May be <see cref="Gl.TEXTURE_ENV"/>, <see cref="Gl.TEXTURE_FILTER_CONTROL"/>, or <see 
+		/// cref="Gl.POINT_SPRITE"/>.
 		/// </param>
 		/// <param name="pname">
-		/// A <see cref="T:int"/>.
+		/// Specifies the symbolic name of a texture environment parameter. Accepted values are <see cref="Gl.TEXTURE_ENV_MODE"/>, 
+		/// <seecref="Gl.TEXTURE_ENV_COLOR"/>, <see cref="Gl.TEXTURE_LOD_BIAS"/>, <see cref="Gl.COMBINE_RGB"/>, <see 
+		/// cref="Gl.COMBINE_ALPHA"/>,<see cref="Gl.SRC0_RGB"/>, <see cref="Gl.SRC1_RGB"/>, <see cref="Gl.SRC2_RGB"/>, <see 
+		/// cref="Gl.SRC0_ALPHA"/>,<see cref="Gl.SRC1_ALPHA"/>, <see cref="Gl.SRC2_ALPHA"/>, <see cref="Gl.OPERAND0_RGB"/>, <see 
+		/// cref="Gl.OPERAND1_RGB"/>,<see cref="Gl.OPERAND2_RGB"/>, <see cref="Gl.OPERAND0_ALPHA"/>, <see 
+		/// cref="Gl.OPERAND1_ALPHA"/>,<see cref="Gl.OPERAND2_ALPHA"/>, <see cref="Gl.RGB_SCALE"/>, <see cref="Gl.ALPHA_SCALE"/>, or 
+		/// <seecref="Gl.COORD_REPLACE"/>. 
 		/// </param>
 		/// <param name="params">
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
 		/// <remarks>
+		/// <see cref="Gl.GetTexEnv"/> returns in <paramref name="params"/> selected values of a texture environment that was 
+		/// specifiedwith Gl.TexEnv. <paramref name="target"/> specifies a texture environment. 
+		/// When <paramref name="target"/> is <see cref="Gl.TEXTURE_FILTER_CONTROL"/>, <paramref name="pname"/> must be <see 
+		/// cref="Gl.TEXTURE_LOD_BIAS"/>.When <paramref name="target"/> is <see cref="Gl.POINT_SPRITE"/>, <paramref name="pname"/> 
+		/// mustbe <see cref="Gl.COORD_REPLACE"/>. When <paramref name="target"/> is <see cref="Gl.TEXTURE_ENV"/>, <paramref 
+		/// name="pname"/>can be <see cref="Gl.TEXTURE_ENV_MODE"/>, <see cref="Gl.TEXTURE_ENV_COLOR"/>, <see 
+		/// cref="Gl.COMBINE_RGB"/>,<see cref="Gl.COMBINE_ALPHA"/>, <see cref="Gl.RGB_SCALE"/>, <see cref="Gl.ALPHA_SCALE"/>, <see 
+		/// cref="Gl.SRC0_RGB"/>,<see cref="Gl.SRC1_RGB"/>, <see cref="Gl.SRC2_RGB"/>, <see cref="Gl.SRC0_ALPHA"/>, <see 
+		/// cref="Gl.SRC1_ALPHA"/>,or <see cref="Gl.SRC2_ALPHA"/>. 
+		/// <paramref name="pname"/> names a specific texture environment parameter, as follows: 
+		/// <para>
+		/// The following errors can be generated:
+		/// - <see cref="Gl.INVALID_ENUM"/> is generated if <paramref name="target"/> or <paramref name="pname"/> is not an accepted 
+		///   value.
+		/// - <see cref="Gl.INVALID_OPERATION"/> is generated if <see cref="Gl.GetTexEnv"/> is executed between the execution of 
+		///   Gl.Beginand the corresponding execution of Gl.End. 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.ActiveTexture"/>
+		/// <seealso cref="Gl.TexEnv"/>
 		public static void GetTexEnv(TextureEnvTarget target, TextureEnvParameter pname, Int32[] @params)
 		{
 			unsafe {
@@ -17190,19 +24414,34 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glGetTexGendv.
+		/// return texture coordinate generation parameters
 		/// </summary>
 		/// <param name="coord">
-		/// A <see cref="T:int"/>.
+		/// Specifies a texture coordinate. Must be <see cref="Gl.S"/>, <see cref="Gl.T"/>, <see cref="Gl.R"/>, or <see 
+		/// cref="Gl.Q"/>.
 		/// </param>
 		/// <param name="pname">
-		/// A <see cref="T:int"/>.
+		/// Specifies the symbolic name of the value(s) to be returned. Must be either <see cref="Gl.TEXTURE_GEN_MODE"/> or the name 
+		/// ofone of the texture generation plane equations: <see cref="Gl.OBJECT_PLANE"/> or <see cref="Gl.EYE_PLANE"/>. 
 		/// </param>
 		/// <param name="params">
 		/// A <see cref="T:double[]"/>.
 		/// </param>
 		/// <remarks>
+		/// <see cref="Gl.GetTexGen"/> returns in <paramref name="params"/> selected parameters of a texture coordinate generation 
+		/// functionthat was specified using Gl.TexGen. <paramref name="coord"/> names one of the (s, t, r, q) texture coordinates, 
+		/// usingthe symbolic constant <see cref="Gl.S"/>, <see cref="Gl.T"/>, <see cref="Gl.R"/>, or <see cref="Gl.Q"/>. 
+		/// <paramref name="pname"/> specifies one of three symbolic names: 
+		/// <para>
+		/// The following errors can be generated:
+		/// - <see cref="Gl.INVALID_ENUM"/> is generated if <paramref name="coord"/> or <paramref name="pname"/> is not an accepted 
+		///   value.
+		/// - <see cref="Gl.INVALID_OPERATION"/> is generated if <see cref="Gl.GetTexGen"/> is executed between the execution of 
+		///   Gl.Beginand the corresponding execution of Gl.End. 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.ActiveTexture"/>
+		/// <seealso cref="Gl.TexGen"/>
 		public static void GetTexGen(int coord, int pname, double[] @params)
 		{
 			unsafe {
@@ -17217,19 +24456,34 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glGetTexGendv.
+		/// return texture coordinate generation parameters
 		/// </summary>
 		/// <param name="coord">
-		/// A <see cref="T:int"/>.
+		/// Specifies a texture coordinate. Must be <see cref="Gl.S"/>, <see cref="Gl.T"/>, <see cref="Gl.R"/>, or <see 
+		/// cref="Gl.Q"/>.
 		/// </param>
 		/// <param name="pname">
-		/// A <see cref="T:int"/>.
+		/// Specifies the symbolic name of the value(s) to be returned. Must be either <see cref="Gl.TEXTURE_GEN_MODE"/> or the name 
+		/// ofone of the texture generation plane equations: <see cref="Gl.OBJECT_PLANE"/> or <see cref="Gl.EYE_PLANE"/>. 
 		/// </param>
 		/// <param name="params">
 		/// A <see cref="T:double[]"/>.
 		/// </param>
 		/// <remarks>
+		/// <see cref="Gl.GetTexGen"/> returns in <paramref name="params"/> selected parameters of a texture coordinate generation 
+		/// functionthat was specified using Gl.TexGen. <paramref name="coord"/> names one of the (s, t, r, q) texture coordinates, 
+		/// usingthe symbolic constant <see cref="Gl.S"/>, <see cref="Gl.T"/>, <see cref="Gl.R"/>, or <see cref="Gl.Q"/>. 
+		/// <paramref name="pname"/> specifies one of three symbolic names: 
+		/// <para>
+		/// The following errors can be generated:
+		/// - <see cref="Gl.INVALID_ENUM"/> is generated if <paramref name="coord"/> or <paramref name="pname"/> is not an accepted 
+		///   value.
+		/// - <see cref="Gl.INVALID_OPERATION"/> is generated if <see cref="Gl.GetTexGen"/> is executed between the execution of 
+		///   Gl.Beginand the corresponding execution of Gl.End. 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.ActiveTexture"/>
+		/// <seealso cref="Gl.TexGen"/>
 		public static void GetTexGen(TextureCoordName coord, TextureGenParameter pname, double[] @params)
 		{
 			unsafe {
@@ -17244,19 +24498,34 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glGetTexGenfv.
+		/// return texture coordinate generation parameters
 		/// </summary>
 		/// <param name="coord">
-		/// A <see cref="T:int"/>.
+		/// Specifies a texture coordinate. Must be <see cref="Gl.S"/>, <see cref="Gl.T"/>, <see cref="Gl.R"/>, or <see 
+		/// cref="Gl.Q"/>.
 		/// </param>
 		/// <param name="pname">
-		/// A <see cref="T:int"/>.
+		/// Specifies the symbolic name of the value(s) to be returned. Must be either <see cref="Gl.TEXTURE_GEN_MODE"/> or the name 
+		/// ofone of the texture generation plane equations: <see cref="Gl.OBJECT_PLANE"/> or <see cref="Gl.EYE_PLANE"/>. 
 		/// </param>
 		/// <param name="params">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
 		/// <remarks>
+		/// <see cref="Gl.GetTexGen"/> returns in <paramref name="params"/> selected parameters of a texture coordinate generation 
+		/// functionthat was specified using Gl.TexGen. <paramref name="coord"/> names one of the (s, t, r, q) texture coordinates, 
+		/// usingthe symbolic constant <see cref="Gl.S"/>, <see cref="Gl.T"/>, <see cref="Gl.R"/>, or <see cref="Gl.Q"/>. 
+		/// <paramref name="pname"/> specifies one of three symbolic names: 
+		/// <para>
+		/// The following errors can be generated:
+		/// - <see cref="Gl.INVALID_ENUM"/> is generated if <paramref name="coord"/> or <paramref name="pname"/> is not an accepted 
+		///   value.
+		/// - <see cref="Gl.INVALID_OPERATION"/> is generated if <see cref="Gl.GetTexGen"/> is executed between the execution of 
+		///   Gl.Beginand the corresponding execution of Gl.End. 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.ActiveTexture"/>
+		/// <seealso cref="Gl.TexGen"/>
 		public static void GetTexGen(int coord, int pname, float[] @params)
 		{
 			unsafe {
@@ -17271,19 +24540,34 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glGetTexGenfv.
+		/// return texture coordinate generation parameters
 		/// </summary>
 		/// <param name="coord">
-		/// A <see cref="T:int"/>.
+		/// Specifies a texture coordinate. Must be <see cref="Gl.S"/>, <see cref="Gl.T"/>, <see cref="Gl.R"/>, or <see 
+		/// cref="Gl.Q"/>.
 		/// </param>
 		/// <param name="pname">
-		/// A <see cref="T:int"/>.
+		/// Specifies the symbolic name of the value(s) to be returned. Must be either <see cref="Gl.TEXTURE_GEN_MODE"/> or the name 
+		/// ofone of the texture generation plane equations: <see cref="Gl.OBJECT_PLANE"/> or <see cref="Gl.EYE_PLANE"/>. 
 		/// </param>
 		/// <param name="params">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
 		/// <remarks>
+		/// <see cref="Gl.GetTexGen"/> returns in <paramref name="params"/> selected parameters of a texture coordinate generation 
+		/// functionthat was specified using Gl.TexGen. <paramref name="coord"/> names one of the (s, t, r, q) texture coordinates, 
+		/// usingthe symbolic constant <see cref="Gl.S"/>, <see cref="Gl.T"/>, <see cref="Gl.R"/>, or <see cref="Gl.Q"/>. 
+		/// <paramref name="pname"/> specifies one of three symbolic names: 
+		/// <para>
+		/// The following errors can be generated:
+		/// - <see cref="Gl.INVALID_ENUM"/> is generated if <paramref name="coord"/> or <paramref name="pname"/> is not an accepted 
+		///   value.
+		/// - <see cref="Gl.INVALID_OPERATION"/> is generated if <see cref="Gl.GetTexGen"/> is executed between the execution of 
+		///   Gl.Beginand the corresponding execution of Gl.End. 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.ActiveTexture"/>
+		/// <seealso cref="Gl.TexGen"/>
 		public static void GetTexGen(TextureCoordName coord, TextureGenParameter pname, float[] @params)
 		{
 			unsafe {
@@ -17298,19 +24582,34 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glGetTexGeniv.
+		/// return texture coordinate generation parameters
 		/// </summary>
 		/// <param name="coord">
-		/// A <see cref="T:int"/>.
+		/// Specifies a texture coordinate. Must be <see cref="Gl.S"/>, <see cref="Gl.T"/>, <see cref="Gl.R"/>, or <see 
+		/// cref="Gl.Q"/>.
 		/// </param>
 		/// <param name="pname">
-		/// A <see cref="T:int"/>.
+		/// Specifies the symbolic name of the value(s) to be returned. Must be either <see cref="Gl.TEXTURE_GEN_MODE"/> or the name 
+		/// ofone of the texture generation plane equations: <see cref="Gl.OBJECT_PLANE"/> or <see cref="Gl.EYE_PLANE"/>. 
 		/// </param>
 		/// <param name="params">
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
 		/// <remarks>
+		/// <see cref="Gl.GetTexGen"/> returns in <paramref name="params"/> selected parameters of a texture coordinate generation 
+		/// functionthat was specified using Gl.TexGen. <paramref name="coord"/> names one of the (s, t, r, q) texture coordinates, 
+		/// usingthe symbolic constant <see cref="Gl.S"/>, <see cref="Gl.T"/>, <see cref="Gl.R"/>, or <see cref="Gl.Q"/>. 
+		/// <paramref name="pname"/> specifies one of three symbolic names: 
+		/// <para>
+		/// The following errors can be generated:
+		/// - <see cref="Gl.INVALID_ENUM"/> is generated if <paramref name="coord"/> or <paramref name="pname"/> is not an accepted 
+		///   value.
+		/// - <see cref="Gl.INVALID_OPERATION"/> is generated if <see cref="Gl.GetTexGen"/> is executed between the execution of 
+		///   Gl.Beginand the corresponding execution of Gl.End. 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.ActiveTexture"/>
+		/// <seealso cref="Gl.TexGen"/>
 		public static void GetTexGen(int coord, int pname, Int32[] @params)
 		{
 			unsafe {
@@ -17325,19 +24624,34 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glGetTexGeniv.
+		/// return texture coordinate generation parameters
 		/// </summary>
 		/// <param name="coord">
-		/// A <see cref="T:int"/>.
+		/// Specifies a texture coordinate. Must be <see cref="Gl.S"/>, <see cref="Gl.T"/>, <see cref="Gl.R"/>, or <see 
+		/// cref="Gl.Q"/>.
 		/// </param>
 		/// <param name="pname">
-		/// A <see cref="T:int"/>.
+		/// Specifies the symbolic name of the value(s) to be returned. Must be either <see cref="Gl.TEXTURE_GEN_MODE"/> or the name 
+		/// ofone of the texture generation plane equations: <see cref="Gl.OBJECT_PLANE"/> or <see cref="Gl.EYE_PLANE"/>. 
 		/// </param>
 		/// <param name="params">
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
 		/// <remarks>
+		/// <see cref="Gl.GetTexGen"/> returns in <paramref name="params"/> selected parameters of a texture coordinate generation 
+		/// functionthat was specified using Gl.TexGen. <paramref name="coord"/> names one of the (s, t, r, q) texture coordinates, 
+		/// usingthe symbolic constant <see cref="Gl.S"/>, <see cref="Gl.T"/>, <see cref="Gl.R"/>, or <see cref="Gl.Q"/>. 
+		/// <paramref name="pname"/> specifies one of three symbolic names: 
+		/// <para>
+		/// The following errors can be generated:
+		/// - <see cref="Gl.INVALID_ENUM"/> is generated if <paramref name="coord"/> or <paramref name="pname"/> is not an accepted 
+		///   value.
+		/// - <see cref="Gl.INVALID_OPERATION"/> is generated if <see cref="Gl.GetTexGen"/> is executed between the execution of 
+		///   Gl.Beginand the corresponding execution of Gl.End. 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.ActiveTexture"/>
+		/// <seealso cref="Gl.TexGen"/>
 		public static void GetTexGen(TextureCoordName coord, TextureGenParameter pname, Int32[] @params)
 		{
 			unsafe {
@@ -17352,13 +24666,27 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glIsList.
+		/// determine if a name corresponds to a display list
 		/// </summary>
 		/// <param name="list">
-		/// A <see cref="T:UInt32"/>.
+		/// Specifies a potential display list name. 
 		/// </param>
 		/// <remarks>
+		/// <see cref="Gl.IsList"/> returns <see cref="Gl.TRUE"/> if <paramref name="list"/> is the name of a display list and 
+		/// returns<see cref="Gl.FALSE"/> if it is not, or if an error occurs. 
+		/// A name returned by Gl.GenLists, but not yet associated with a display list by calling Gl.NewList, is not the name of a 
+		/// displaylist. 
+		/// <para>
+		/// The following errors can be generated:
+		/// - <see cref="Gl.INVALID_OPERATION"/> is generated if <see cref="Gl.IsList"/> is executed between the execution of Gl.Begin 
+		///   andthe corresponding execution of Gl.End. 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.CallList"/>
+		/// <seealso cref="Gl.CallLists"/>
+		/// <seealso cref="Gl.DeleteLists"/>
+		/// <seealso cref="Gl.GenLists"/>
+		/// <seealso cref="Gl.NewList"/>
 		public static bool IsList(UInt32 list)
 		{
 			bool retValue;
@@ -17439,10 +24767,35 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glLoadIdentity.
+		/// replace the current matrix with the identity matrix
 		/// </summary>
 		/// <remarks>
+		/// <see cref="Gl.LoadIdentity"/> replaces the current matrix with the identity matrix. It is semantically equivalent to 
+		/// callingGl.LoadMatrix with the identity matrix 
+		///  
+		/// 1000010000100001 
+		///  
+		/// but in some cases it is more efficient. 
+		/// <para>
+		/// The following errors can be generated:
+		/// - <see cref="Gl.INVALID_OPERATION"/> is generated if <see cref="Gl.LoadIdentity"/> is executed between the execution of 
+		///   Gl.Beginand the corresponding execution of Gl.End. 
+		/// </para>
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - Gl.Get with argument <see cref="Gl.MATRIX_MODE"/> 
+		/// - Gl.Get with argument <see cref="Gl.COLOR_MATRIX"/> 
+		/// - Gl.Get with argument <see cref="Gl.MODELVIEW_MATRIX"/> 
+		/// - Gl.Get with argument <see cref="Gl.PROJECTION_MATRIX"/> 
+		/// - Gl.Get with argument <see cref="Gl.TEXTURE_MATRIX"/> 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.LoadMatrix"/>
+		/// <seealso cref="Gl.LoadTransposeMatrix"/>
+		/// <seealso cref="Gl.MatrixMode"/>
+		/// <seealso cref="Gl.MultMatrix"/>
+		/// <seealso cref="Gl.MultTransposeMatrix"/>
+		/// <seealso cref="Gl.PushMatrix"/>
 		public static void LoadIdentity()
 		{
 			Debug.Assert(Delegates.pglLoadIdentity != null, "pglLoadIdentity not implemented");
@@ -17548,13 +24901,34 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glMatrixMode.
+		/// specify which matrix is the current matrix
 		/// </summary>
 		/// <param name="mode">
-		/// A <see cref="T:int"/>.
+		/// Specifies which matrix stack is the target for subsequent matrix operations. Three values are accepted: <see 
+		/// cref="Gl.MODELVIEW"/>,<see cref="Gl.PROJECTION"/>, and <see cref="Gl.TEXTURE"/>. The initial value is <see 
+		/// cref="Gl.MODELVIEW"/>.Additionally, if the ARB_imaging extension is supported, <see cref="Gl.COLOR"/> is also accepted. 
 		/// </param>
 		/// <remarks>
+		/// <see cref="Gl.MatrixMode"/> sets the current matrix mode. <paramref name="mode"/> can assume one of four values: 
+		/// To find out which matrix stack is currently the target of all matrix operations, call Gl.Get with argument <see 
+		/// cref="Gl.MATRIX_MODE"/>.The initial value is <see cref="Gl.MODELVIEW"/>. 
+		/// <para>
+		/// The following errors can be generated:
+		/// - <see cref="Gl.INVALID_ENUM"/> is generated if <paramref name="mode"/> is not an accepted value. 
+		/// - <see cref="Gl.INVALID_OPERATION"/> is generated if <see cref="Gl.MatrixMode"/> is executed between the execution of 
+		///   Gl.Beginand the corresponding execution of Gl.End. 
+		/// </para>
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - Gl.Get with argument <see cref="Gl.MATRIX_MODE"/> 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.LoadMatrix"/>
+		/// <seealso cref="Gl.LoadTransposeMatrix"/>
+		/// <seealso cref="Gl.MultMatrix"/>
+		/// <seealso cref="Gl.MultTransposeMatrix"/>
+		/// <seealso cref="Gl.PopMatrix"/>
+		/// <seealso cref="Gl.PushMatrix"/>
 		public static void MatrixMode(int mode)
 		{
 			Debug.Assert(Delegates.pglMatrixMode != null, "pglMatrixMode not implemented");
@@ -17564,13 +24938,34 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glMatrixMode.
+		/// specify which matrix is the current matrix
 		/// </summary>
 		/// <param name="mode">
-		/// A <see cref="T:int"/>.
+		/// Specifies which matrix stack is the target for subsequent matrix operations. Three values are accepted: <see 
+		/// cref="Gl.MODELVIEW"/>,<see cref="Gl.PROJECTION"/>, and <see cref="Gl.TEXTURE"/>. The initial value is <see 
+		/// cref="Gl.MODELVIEW"/>.Additionally, if the ARB_imaging extension is supported, <see cref="Gl.COLOR"/> is also accepted. 
 		/// </param>
 		/// <remarks>
+		/// <see cref="Gl.MatrixMode"/> sets the current matrix mode. <paramref name="mode"/> can assume one of four values: 
+		/// To find out which matrix stack is currently the target of all matrix operations, call Gl.Get with argument <see 
+		/// cref="Gl.MATRIX_MODE"/>.The initial value is <see cref="Gl.MODELVIEW"/>. 
+		/// <para>
+		/// The following errors can be generated:
+		/// - <see cref="Gl.INVALID_ENUM"/> is generated if <paramref name="mode"/> is not an accepted value. 
+		/// - <see cref="Gl.INVALID_OPERATION"/> is generated if <see cref="Gl.MatrixMode"/> is executed between the execution of 
+		///   Gl.Beginand the corresponding execution of Gl.End. 
+		/// </para>
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - Gl.Get with argument <see cref="Gl.MATRIX_MODE"/> 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.LoadMatrix"/>
+		/// <seealso cref="Gl.LoadTransposeMatrix"/>
+		/// <seealso cref="Gl.MultMatrix"/>
+		/// <seealso cref="Gl.MultTransposeMatrix"/>
+		/// <seealso cref="Gl.PopMatrix"/>
+		/// <seealso cref="Gl.PushMatrix"/>
 		public static void MatrixMode(MatrixMode mode)
 		{
 			Debug.Assert(Delegates.pglMatrixMode != null, "pglMatrixMode not implemented");
@@ -17668,19 +25063,19 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glOrtho.
+		/// multiply the current matrix with an orthographic matrix
 		/// </summary>
 		/// <param name="left">
-		/// A <see cref="T:double"/>.
+		/// Specify the coordinates for the left and right vertical clipping planes. 
 		/// </param>
 		/// <param name="right">
-		/// A <see cref="T:double"/>.
+		/// Specify the coordinates for the left and right vertical clipping planes. 
 		/// </param>
 		/// <param name="bottom">
-		/// A <see cref="T:double"/>.
+		/// Specify the coordinates for the bottom and top horizontal clipping planes. 
 		/// </param>
 		/// <param name="top">
-		/// A <see cref="T:double"/>.
+		/// Specify the coordinates for the bottom and top horizontal clipping planes. 
 		/// </param>
 		/// <param name="zNear">
 		/// A <see cref="T:double"/>.
@@ -17689,7 +25084,37 @@ namespace OpenGL
 		/// A <see cref="T:double"/>.
 		/// </param>
 		/// <remarks>
+		/// <see cref="Gl.Ortho"/> describes a transformation that produces a parallel projection. The current matrix (see 
+		/// Gl.MatrixMode)is multiplied by this matrix and the result replaces the current matrix, as if Gl.MultMatrix were called 
+		/// withthe following matrix as its argument: 
+		/// 2right-left00tx02top-bottom0ty00-2farVal-nearValtz0001 
+		/// where tx=-right+leftright-leftty=-top+bottomtop-bottomtz=-farVal+nearValfarVal-nearVal 
+		/// Typically, the matrix mode is <see cref="Gl.PROJECTION"/>, and leftbottom-nearVal and righttop-nearVal specify the 
+		/// pointson the near clipping plane that are mapped to the lower left and upper right corners of the window, respectively, 
+		/// assumingthat the eye is located at (0, 0, 0). -farVal specifies the location of the far clipping plane. Both <paramref 
+		/// name="nearVal"/>and <paramref name="farVal"/> can be either positive or negative. 
+		/// Use Gl.PushMatrix and Gl.PopMatrix to save and restore the current matrix stack. 
+		/// <para>
+		/// The following errors can be generated:
+		/// - <see cref="Gl.INVALID_VALUE"/> is generated if <paramref name="left"/> = <paramref name="right"/>, or <paramref 
+		///   name="bottom"/>= <paramref name="top"/>, or <paramref name="near"/> = <paramref name="far"/>. 
+		/// - <see cref="Gl.INVALID_OPERATION"/> is generated if <see cref="Gl.Ortho"/> is executed between the execution of Gl.Begin 
+		///   andthe corresponding execution of Gl.End. 
+		/// </para>
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - Gl.Get with argument <see cref="Gl.MATRIX_MODE"/> 
+		/// - Gl.Get with argument <see cref="Gl.COLOR_MATRIX"/> 
+		/// - Gl.Get with argument <see cref="Gl.MODELVIEW_MATRIX"/> 
+		/// - Gl.Get with argument <see cref="Gl.PROJECTION_MATRIX"/> 
+		/// - Gl.Get with argument <see cref="Gl.TEXTURE_MATRIX"/> 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.Frustum"/>
+		/// <seealso cref="Gl.MatrixMode"/>
+		/// <seealso cref="Gl.MultMatrix"/>
+		/// <seealso cref="Gl.PushMatrix"/>
+		/// <seealso cref="Gl.Viewport"/>
 		public static void Ortho(double left, double right, double bottom, double top, double zNear, double zFar)
 		{
 			Debug.Assert(Delegates.pglOrtho != null, "pglOrtho not implemented");
@@ -17699,10 +25124,55 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glPopMatrix.
+		/// push and pop the current matrix stack
 		/// </summary>
 		/// <remarks>
+		/// There is a stack of matrices for each of the matrix modes. In <see cref="Gl.MODELVIEW"/> mode, the stack depth is at 
+		/// least32. In the other modes, <see cref="Gl.COLOR"/>, <see cref="Gl.PROJECTION"/>, and <see cref="Gl.TEXTURE"/>, the 
+		/// depthis at least 2. The current matrix in any mode is the matrix on the top of the stack for that mode. 
+		/// <see cref="Gl.PushMatrix"/> pushes the current matrix stack down by one, duplicating the current matrix. That is, after 
+		/// a<see cref="Gl.PushMatrix"/> call, the matrix on top of the stack is identical to the one below it. 
+		/// Gl.PopMatrix pops the current matrix stack, replacing the current matrix with the one below it on the stack. 
+		/// Initially, each of the stacks contains one matrix, an identity matrix. 
+		/// It is an error to push a full matrix stack or to pop a matrix stack that contains only a single matrix. In either case, 
+		/// theerror flag is set and no other change is made to GL state. 
+		/// <para>
+		/// The following errors can be generated:
+		/// - <see cref="Gl.STACK_OVERFLOW"/> is generated if <see cref="Gl.PushMatrix"/> is called while the current matrix stack is 
+		///   full.
+		/// - <see cref="Gl.STACK_UNDERFLOW"/> is generated if Gl.PopMatrix is called while the current matrix stack contains only a 
+		///   singlematrix. 
+		/// - <see cref="Gl.INVALID_OPERATION"/> is generated if <see cref="Gl.PushMatrix"/> or Gl.PopMatrix is executed between the 
+		///   executionof Gl.Begin and the corresponding execution of Gl.End. 
+		/// </para>
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - Gl.Get with argument <see cref="Gl.MATRIX_MODE"/> 
+		/// - Gl.Get with argument <see cref="Gl.COLOR_MATRIX"/> 
+		/// - Gl.Get with argument <see cref="Gl.MODELVIEW_MATRIX"/> 
+		/// - Gl.Get with argument <see cref="Gl.PROJECTION_MATRIX"/> 
+		/// - Gl.Get with argument <see cref="Gl.TEXTURE_MATRIX"/> 
+		/// - Gl.Get with argument <see cref="Gl.COLOR_MATRIX_STACK_DEPTH"/> 
+		/// - Gl.Get with argument <see cref="Gl.MODELVIEW_STACK_DEPTH"/> 
+		/// - Gl.Get with argument <see cref="Gl.PROJECTION_STACK_DEPTH"/> 
+		/// - Gl.Get with argument <see cref="Gl.TEXTURE_STACK_DEPTH"/> 
+		/// - Gl.Get with argument <see cref="Gl.MAX_MODELVIEW_STACK_DEPTH"/> 
+		/// - Gl.Get with argument <see cref="Gl.MAX_PROJECTION_STACK_DEPTH"/> 
+		/// - Gl.Get with argument <see cref="Gl.MAX_TEXTURE_STACK_DEPTH"/> 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.Frustum"/>
+		/// <seealso cref="Gl.LoadIdentity"/>
+		/// <seealso cref="Gl.LoadMatrix"/>
+		/// <seealso cref="Gl.LoadTransposeMatrix"/>
+		/// <seealso cref="Gl.MatrixMode"/>
+		/// <seealso cref="Gl.MultMatrix"/>
+		/// <seealso cref="Gl.MultTransposeMatrix"/>
+		/// <seealso cref="Gl.Ortho"/>
+		/// <seealso cref="Gl.Rotate"/>
+		/// <seealso cref="Gl.Scale"/>
+		/// <seealso cref="Gl.Translate"/>
+		/// <seealso cref="Gl.Viewport"/>
 		public static void PopMatrix()
 		{
 			Debug.Assert(Delegates.pglPopMatrix != null, "pglPopMatrix not implemented");
@@ -17712,10 +25182,55 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glPushMatrix.
+		/// push and pop the current matrix stack
 		/// </summary>
 		/// <remarks>
+		/// There is a stack of matrices for each of the matrix modes. In <see cref="Gl.MODELVIEW"/> mode, the stack depth is at 
+		/// least32. In the other modes, <see cref="Gl.COLOR"/>, <see cref="Gl.PROJECTION"/>, and <see cref="Gl.TEXTURE"/>, the 
+		/// depthis at least 2. The current matrix in any mode is the matrix on the top of the stack for that mode. 
+		/// <see cref="Gl.PushMatrix"/> pushes the current matrix stack down by one, duplicating the current matrix. That is, after 
+		/// a<see cref="Gl.PushMatrix"/> call, the matrix on top of the stack is identical to the one below it. 
+		/// Gl.PopMatrix pops the current matrix stack, replacing the current matrix with the one below it on the stack. 
+		/// Initially, each of the stacks contains one matrix, an identity matrix. 
+		/// It is an error to push a full matrix stack or to pop a matrix stack that contains only a single matrix. In either case, 
+		/// theerror flag is set and no other change is made to GL state. 
+		/// <para>
+		/// The following errors can be generated:
+		/// - <see cref="Gl.STACK_OVERFLOW"/> is generated if <see cref="Gl.PushMatrix"/> is called while the current matrix stack is 
+		///   full.
+		/// - <see cref="Gl.STACK_UNDERFLOW"/> is generated if Gl.PopMatrix is called while the current matrix stack contains only a 
+		///   singlematrix. 
+		/// - <see cref="Gl.INVALID_OPERATION"/> is generated if <see cref="Gl.PushMatrix"/> or Gl.PopMatrix is executed between the 
+		///   executionof Gl.Begin and the corresponding execution of Gl.End. 
+		/// </para>
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - Gl.Get with argument <see cref="Gl.MATRIX_MODE"/> 
+		/// - Gl.Get with argument <see cref="Gl.COLOR_MATRIX"/> 
+		/// - Gl.Get with argument <see cref="Gl.MODELVIEW_MATRIX"/> 
+		/// - Gl.Get with argument <see cref="Gl.PROJECTION_MATRIX"/> 
+		/// - Gl.Get with argument <see cref="Gl.TEXTURE_MATRIX"/> 
+		/// - Gl.Get with argument <see cref="Gl.COLOR_MATRIX_STACK_DEPTH"/> 
+		/// - Gl.Get with argument <see cref="Gl.MODELVIEW_STACK_DEPTH"/> 
+		/// - Gl.Get with argument <see cref="Gl.PROJECTION_STACK_DEPTH"/> 
+		/// - Gl.Get with argument <see cref="Gl.TEXTURE_STACK_DEPTH"/> 
+		/// - Gl.Get with argument <see cref="Gl.MAX_MODELVIEW_STACK_DEPTH"/> 
+		/// - Gl.Get with argument <see cref="Gl.MAX_PROJECTION_STACK_DEPTH"/> 
+		/// - Gl.Get with argument <see cref="Gl.MAX_TEXTURE_STACK_DEPTH"/> 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.Frustum"/>
+		/// <seealso cref="Gl.LoadIdentity"/>
+		/// <seealso cref="Gl.LoadMatrix"/>
+		/// <seealso cref="Gl.LoadTransposeMatrix"/>
+		/// <seealso cref="Gl.MatrixMode"/>
+		/// <seealso cref="Gl.MultMatrix"/>
+		/// <seealso cref="Gl.MultTransposeMatrix"/>
+		/// <seealso cref="Gl.Ortho"/>
+		/// <seealso cref="Gl.Rotate"/>
+		/// <seealso cref="Gl.Scale"/>
+		/// <seealso cref="Gl.Translate"/>
+		/// <seealso cref="Gl.Viewport"/>
 		public static void PushMatrix()
 		{
 			Debug.Assert(Delegates.pglPushMatrix != null, "pglPushMatrix not implemented");
@@ -17833,19 +25348,45 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glScaled.
+		/// multiply the current matrix by a general scaling matrix
 		/// </summary>
 		/// <param name="x">
-		/// A <see cref="T:double"/>.
+		/// Specify scale factors along the x, y, and z axes, respectively. 
 		/// </param>
 		/// <param name="y">
-		/// A <see cref="T:double"/>.
+		/// Specify scale factors along the x, y, and z axes, respectively. 
 		/// </param>
 		/// <param name="z">
-		/// A <see cref="T:double"/>.
+		/// Specify scale factors along the x, y, and z axes, respectively. 
 		/// </param>
 		/// <remarks>
+		/// <see cref="Gl.Scale"/> produces a nonuniform scaling along the x, y, and z axes. The three parameters indicate the 
+		/// desiredscale factor along each of the three axes. 
+		/// The current matrix (see Gl.MatrixMode) is multiplied by this scale matrix, and the product replaces the current matrix 
+		/// asif Gl.MultMatrix were called with the following matrix as its argument: 
+		/// x0000y0000z00001 
+		/// If the matrix mode is either <see cref="Gl.MODELVIEW"/> or <see cref="Gl.PROJECTION"/>, all objects drawn after <see 
+		/// cref="Gl.Scale"/>is called are scaled. 
+		/// Use Gl.PushMatrix and Gl.PopMatrix to save and restore the unscaled coordinate system. 
+		/// <para>
+		/// The following errors can be generated:
+		/// - <see cref="Gl.INVALID_OPERATION"/> is generated if <see cref="Gl.Scale"/> is executed between the execution of Gl.Begin 
+		///   andthe corresponding execution of Gl.End. 
+		/// </para>
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - Gl.Get with argument <see cref="Gl.MATRIX_MODE"/> 
+		/// - Gl.Get with argument <see cref="Gl.COLOR_MATRIX"/> 
+		/// - Gl.Get with argument <see cref="Gl.MODELVIEW_MATRIX"/> 
+		/// - Gl.Get with argument <see cref="Gl.PROJECTION_MATRIX"/> 
+		/// - Gl.Get with argument <see cref="Gl.TEXTURE_MATRIX"/> 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.MatrixMode"/>
+		/// <seealso cref="Gl.MultMatrix"/>
+		/// <seealso cref="Gl.PushMatrix"/>
+		/// <seealso cref="Gl.Rotate"/>
+		/// <seealso cref="Gl.Translate"/>
 		public static void Scale(double x, double y, double z)
 		{
 			Debug.Assert(Delegates.pglScaled != null, "pglScaled not implemented");
@@ -17855,19 +25396,45 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glScalef.
+		/// multiply the current matrix by a general scaling matrix
 		/// </summary>
 		/// <param name="x">
-		/// A <see cref="T:float"/>.
+		/// Specify scale factors along the x, y, and z axes, respectively. 
 		/// </param>
 		/// <param name="y">
-		/// A <see cref="T:float"/>.
+		/// Specify scale factors along the x, y, and z axes, respectively. 
 		/// </param>
 		/// <param name="z">
-		/// A <see cref="T:float"/>.
+		/// Specify scale factors along the x, y, and z axes, respectively. 
 		/// </param>
 		/// <remarks>
+		/// <see cref="Gl.Scale"/> produces a nonuniform scaling along the x, y, and z axes. The three parameters indicate the 
+		/// desiredscale factor along each of the three axes. 
+		/// The current matrix (see Gl.MatrixMode) is multiplied by this scale matrix, and the product replaces the current matrix 
+		/// asif Gl.MultMatrix were called with the following matrix as its argument: 
+		/// x0000y0000z00001 
+		/// If the matrix mode is either <see cref="Gl.MODELVIEW"/> or <see cref="Gl.PROJECTION"/>, all objects drawn after <see 
+		/// cref="Gl.Scale"/>is called are scaled. 
+		/// Use Gl.PushMatrix and Gl.PopMatrix to save and restore the unscaled coordinate system. 
+		/// <para>
+		/// The following errors can be generated:
+		/// - <see cref="Gl.INVALID_OPERATION"/> is generated if <see cref="Gl.Scale"/> is executed between the execution of Gl.Begin 
+		///   andthe corresponding execution of Gl.End. 
+		/// </para>
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - Gl.Get with argument <see cref="Gl.MATRIX_MODE"/> 
+		/// - Gl.Get with argument <see cref="Gl.COLOR_MATRIX"/> 
+		/// - Gl.Get with argument <see cref="Gl.MODELVIEW_MATRIX"/> 
+		/// - Gl.Get with argument <see cref="Gl.PROJECTION_MATRIX"/> 
+		/// - Gl.Get with argument <see cref="Gl.TEXTURE_MATRIX"/> 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.MatrixMode"/>
+		/// <seealso cref="Gl.MultMatrix"/>
+		/// <seealso cref="Gl.PushMatrix"/>
+		/// <seealso cref="Gl.Rotate"/>
+		/// <seealso cref="Gl.Translate"/>
 		public static void Scale(float x, float y, float z)
 		{
 			Debug.Assert(Delegates.pglScalef != null, "pglScalef not implemented");
@@ -17877,19 +25444,45 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glTranslated.
+		/// multiply the current matrix by a translation matrix
 		/// </summary>
 		/// <param name="x">
-		/// A <see cref="T:double"/>.
+		/// Specify the x, y, and z coordinates of a translation vector. 
 		/// </param>
 		/// <param name="y">
-		/// A <see cref="T:double"/>.
+		/// Specify the x, y, and z coordinates of a translation vector. 
 		/// </param>
 		/// <param name="z">
-		/// A <see cref="T:double"/>.
+		/// Specify the x, y, and z coordinates of a translation vector. 
 		/// </param>
 		/// <remarks>
+		/// <see cref="Gl.Translate"/> produces a translation by xyz. The current matrix (see Gl.MatrixMode) is multiplied by this 
+		/// translationmatrix, with the product replacing the current matrix, as if Gl.MultMatrix were called with the following 
+		/// matrixfor its argument: 
+		/// 100x010y001z0001 
+		///  
+		/// If the matrix mode is either <see cref="Gl.MODELVIEW"/> or <see cref="Gl.PROJECTION"/>, all objects drawn after a call 
+		/// to<see cref="Gl.Translate"/> are translated. 
+		/// Use Gl.PushMatrix and Gl.PopMatrix to save and restore the untranslated coordinate system. 
+		/// <para>
+		/// The following errors can be generated:
+		/// - <see cref="Gl.INVALID_OPERATION"/> is generated if <see cref="Gl.Translate"/> is executed between the execution of 
+		///   Gl.Beginand the corresponding execution of Gl.End. 
+		/// </para>
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - Gl.Get with argument <see cref="Gl.MATRIX_MODE"/> 
+		/// - Gl.Get with argument <see cref="Gl.COLOR_MATRIX"/> 
+		/// - Gl.Get with argument <see cref="Gl.MODELVIEW_MATRIX"/> 
+		/// - Gl.Get with argument <see cref="Gl.PROJECTION_MATRIX"/> 
+		/// - Gl.Get with argument <see cref="Gl.TEXTURE_MATRIX"/> 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.MatrixMode"/>
+		/// <seealso cref="Gl.MultMatrix"/>
+		/// <seealso cref="Gl.PushMatrix"/>
+		/// <seealso cref="Gl.Rotate"/>
+		/// <seealso cref="Gl.Scale"/>
 		public static void Translate(double x, double y, double z)
 		{
 			Debug.Assert(Delegates.pglTranslated != null, "pglTranslated not implemented");
@@ -17899,19 +25492,45 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glTranslatef.
+		/// multiply the current matrix by a translation matrix
 		/// </summary>
 		/// <param name="x">
-		/// A <see cref="T:float"/>.
+		/// Specify the x, y, and z coordinates of a translation vector. 
 		/// </param>
 		/// <param name="y">
-		/// A <see cref="T:float"/>.
+		/// Specify the x, y, and z coordinates of a translation vector. 
 		/// </param>
 		/// <param name="z">
-		/// A <see cref="T:float"/>.
+		/// Specify the x, y, and z coordinates of a translation vector. 
 		/// </param>
 		/// <remarks>
+		/// <see cref="Gl.Translate"/> produces a translation by xyz. The current matrix (see Gl.MatrixMode) is multiplied by this 
+		/// translationmatrix, with the product replacing the current matrix, as if Gl.MultMatrix were called with the following 
+		/// matrixfor its argument: 
+		/// 100x010y001z0001 
+		///  
+		/// If the matrix mode is either <see cref="Gl.MODELVIEW"/> or <see cref="Gl.PROJECTION"/>, all objects drawn after a call 
+		/// to<see cref="Gl.Translate"/> are translated. 
+		/// Use Gl.PushMatrix and Gl.PopMatrix to save and restore the untranslated coordinate system. 
+		/// <para>
+		/// The following errors can be generated:
+		/// - <see cref="Gl.INVALID_OPERATION"/> is generated if <see cref="Gl.Translate"/> is executed between the execution of 
+		///   Gl.Beginand the corresponding execution of Gl.End. 
+		/// </para>
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - Gl.Get with argument <see cref="Gl.MATRIX_MODE"/> 
+		/// - Gl.Get with argument <see cref="Gl.COLOR_MATRIX"/> 
+		/// - Gl.Get with argument <see cref="Gl.MODELVIEW_MATRIX"/> 
+		/// - Gl.Get with argument <see cref="Gl.PROJECTION_MATRIX"/> 
+		/// - Gl.Get with argument <see cref="Gl.TEXTURE_MATRIX"/> 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.MatrixMode"/>
+		/// <seealso cref="Gl.MultMatrix"/>
+		/// <seealso cref="Gl.PushMatrix"/>
+		/// <seealso cref="Gl.Rotate"/>
+		/// <seealso cref="Gl.Scale"/>
 		public static void Translate(float x, float y, float z)
 		{
 			Debug.Assert(Delegates.pglTranslatef != null, "pglTranslatef not implemented");

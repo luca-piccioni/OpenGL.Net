@@ -3096,13 +3096,33 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glClientActiveTexture.
+		/// select active texture unit
 		/// </summary>
 		/// <param name="texture">
-		/// A <see cref="T:int"/>.
+		/// Specifies which texture unit to make active. The number of texture units is implementation dependent, but must be at 
+		/// leasttwo. <paramref name="texture"/> must be one of <see cref="Gl.TEXTURE"/>i, where i ranges from 0 to the value of 
+		/// <seecref="Gl.MAX_TEXTURE_COORDS"/> - 1, which is an implementation-dependent value. The initial value is <see 
+		/// cref="Gl.TEXTURE0"/>.
 		/// </param>
 		/// <remarks>
+		/// <see cref="Gl.ClientActiveTexture"/> selects the vertex array client state parameters to be modified by 
+		/// Gl.TexCoordPointer,and enabled or disabled with Gl.EnableClientState or Gl.DisableClientState, respectively, when called 
+		/// witha parameter of <see cref="Gl.TEXTURE_COORD_ARRAY"/>. 
+		/// <para>
+		/// The following errors can be generated:
+		/// - <see cref="Gl.INVALID_ENUM"/> is generated if <paramref name="texture"/> is not one of <see cref="Gl.TEXTURE"/>i, where 
+		///   iranges from 0 to the value of <see cref="Gl.MAX_TEXTURE_COORDS"/> - 1. 
+		/// </para>
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - Gl.Get with argument <see cref="Gl.CLIENT_ACTIVE_TEXTURE"/> or <see cref="Gl.MAX_TEXTURE_COORDS"/> 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.ActiveTexture"/>
+		/// <seealso cref="Gl.DisableClientState"/>
+		/// <seealso cref="Gl.EnableClientState"/>
+		/// <seealso cref="Gl.MultiTexCoord"/>
+		/// <seealso cref="Gl.TexCoordPointer"/>
 		public static void ClientActiveTexture(int texture)
 		{
 			if        (Delegates.pglClientActiveTexture != null) {
@@ -3117,16 +3137,36 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glMultiTexCoord1d.
+		/// set the current texture coordinates
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:int"/>.
+		/// Specifies the texture unit whose coordinates should be modified. The number of texture units is implementation 
+		/// dependent,but must be at least two. Symbolic constant must be one of <see cref="Gl.TEXTURE"/>i, where i ranges from 0 to 
+		/// <seecref="Gl.MAX_TEXTURE_COORDS"/> - 1, which is an implementation-dependent value. 
 		/// </param>
 		/// <param name="s">
-		/// A <see cref="T:double"/>.
+		/// Specify <paramref name="s"/>, <paramref name="t"/>, <paramref name="r"/>, and <paramref name="q"/> texture coordinates 
+		/// for<paramref name="target"/> texture unit. Not all parameters are present in all forms of the command. 
 		/// </param>
 		/// <remarks>
+		/// <see cref="Gl.MultiTexCoord"/> specifies texture coordinates in one, two, three, or four dimensions. <see 
+		/// cref="Gl.MultiTexCoord1"/>sets the current texture coordinates to s001; a call to <see cref="Gl.MultiTexCoord2"/> sets 
+		/// themto st01. Similarly, <see cref="Gl.MultiTexCoord3"/> specifies the texture coordinates as str1, and <see 
+		/// cref="Gl.MultiTexCoord4"/>defines all four components explicitly as strq. 
+		/// The current texture coordinates are part of the data that is associated with each vertex and with the current raster 
+		/// position.Initially, the values for strq are 0001. 
+		///  
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - Gl.Get with argument <see cref="Gl.CURRENT_TEXTURE_COORDS"/> with appropriate texture unit selected. 
+		/// - Gl.Get with argument <see cref="Gl.MAX_TEXTURE_COORDS"/> 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.ActiveTexture"/>
+		/// <seealso cref="Gl.ClientActiveTexture"/>
+		/// <seealso cref="Gl.TexCoord"/>
+		/// <seealso cref="Gl.TexCoordPointer"/>
+		/// <seealso cref="Gl.Vertex"/>
 		public static void MultiTexCoord1(int target, double s)
 		{
 			if        (Delegates.pglMultiTexCoord1d != null) {
@@ -3141,16 +3181,35 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glMultiTexCoord1dv.
+		/// set the current texture coordinates
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:int"/>.
+		/// Specifies the texture unit whose coordinates should be modified. The number of texture units is implementation 
+		/// dependent,but must be at least two. Symbolic constant must be one of <see cref="Gl.TEXTURE"/>i, where i ranges from 0 to 
+		/// <seecref="Gl.MAX_TEXTURE_COORDS"/> - 1, which is an implementation-dependent value. 
 		/// </param>
 		/// <param name="v">
 		/// A <see cref="T:double[]"/>.
 		/// </param>
 		/// <remarks>
+		/// <see cref="Gl.MultiTexCoord"/> specifies texture coordinates in one, two, three, or four dimensions. <see 
+		/// cref="Gl.MultiTexCoord1"/>sets the current texture coordinates to s001; a call to <see cref="Gl.MultiTexCoord2"/> sets 
+		/// themto st01. Similarly, <see cref="Gl.MultiTexCoord3"/> specifies the texture coordinates as str1, and <see 
+		/// cref="Gl.MultiTexCoord4"/>defines all four components explicitly as strq. 
+		/// The current texture coordinates are part of the data that is associated with each vertex and with the current raster 
+		/// position.Initially, the values for strq are 0001. 
+		///  
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - Gl.Get with argument <see cref="Gl.CURRENT_TEXTURE_COORDS"/> with appropriate texture unit selected. 
+		/// - Gl.Get with argument <see cref="Gl.MAX_TEXTURE_COORDS"/> 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.ActiveTexture"/>
+		/// <seealso cref="Gl.ClientActiveTexture"/>
+		/// <seealso cref="Gl.TexCoord"/>
+		/// <seealso cref="Gl.TexCoordPointer"/>
+		/// <seealso cref="Gl.Vertex"/>
 		public static void MultiTexCoord1(int target, double[] v)
 		{
 			unsafe {
@@ -3170,16 +3229,36 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glMultiTexCoord1f.
+		/// set the current texture coordinates
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:int"/>.
+		/// Specifies the texture unit whose coordinates should be modified. The number of texture units is implementation 
+		/// dependent,but must be at least two. Symbolic constant must be one of <see cref="Gl.TEXTURE"/>i, where i ranges from 0 to 
+		/// <seecref="Gl.MAX_TEXTURE_COORDS"/> - 1, which is an implementation-dependent value. 
 		/// </param>
 		/// <param name="s">
-		/// A <see cref="T:float"/>.
+		/// Specify <paramref name="s"/>, <paramref name="t"/>, <paramref name="r"/>, and <paramref name="q"/> texture coordinates 
+		/// for<paramref name="target"/> texture unit. Not all parameters are present in all forms of the command. 
 		/// </param>
 		/// <remarks>
+		/// <see cref="Gl.MultiTexCoord"/> specifies texture coordinates in one, two, three, or four dimensions. <see 
+		/// cref="Gl.MultiTexCoord1"/>sets the current texture coordinates to s001; a call to <see cref="Gl.MultiTexCoord2"/> sets 
+		/// themto st01. Similarly, <see cref="Gl.MultiTexCoord3"/> specifies the texture coordinates as str1, and <see 
+		/// cref="Gl.MultiTexCoord4"/>defines all four components explicitly as strq. 
+		/// The current texture coordinates are part of the data that is associated with each vertex and with the current raster 
+		/// position.Initially, the values for strq are 0001. 
+		///  
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - Gl.Get with argument <see cref="Gl.CURRENT_TEXTURE_COORDS"/> with appropriate texture unit selected. 
+		/// - Gl.Get with argument <see cref="Gl.MAX_TEXTURE_COORDS"/> 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.ActiveTexture"/>
+		/// <seealso cref="Gl.ClientActiveTexture"/>
+		/// <seealso cref="Gl.TexCoord"/>
+		/// <seealso cref="Gl.TexCoordPointer"/>
+		/// <seealso cref="Gl.Vertex"/>
 		public static void MultiTexCoord1(int target, float s)
 		{
 			if        (Delegates.pglMultiTexCoord1f != null) {
@@ -3194,16 +3273,35 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glMultiTexCoord1fv.
+		/// set the current texture coordinates
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:int"/>.
+		/// Specifies the texture unit whose coordinates should be modified. The number of texture units is implementation 
+		/// dependent,but must be at least two. Symbolic constant must be one of <see cref="Gl.TEXTURE"/>i, where i ranges from 0 to 
+		/// <seecref="Gl.MAX_TEXTURE_COORDS"/> - 1, which is an implementation-dependent value. 
 		/// </param>
 		/// <param name="v">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
 		/// <remarks>
+		/// <see cref="Gl.MultiTexCoord"/> specifies texture coordinates in one, two, three, or four dimensions. <see 
+		/// cref="Gl.MultiTexCoord1"/>sets the current texture coordinates to s001; a call to <see cref="Gl.MultiTexCoord2"/> sets 
+		/// themto st01. Similarly, <see cref="Gl.MultiTexCoord3"/> specifies the texture coordinates as str1, and <see 
+		/// cref="Gl.MultiTexCoord4"/>defines all four components explicitly as strq. 
+		/// The current texture coordinates are part of the data that is associated with each vertex and with the current raster 
+		/// position.Initially, the values for strq are 0001. 
+		///  
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - Gl.Get with argument <see cref="Gl.CURRENT_TEXTURE_COORDS"/> with appropriate texture unit selected. 
+		/// - Gl.Get with argument <see cref="Gl.MAX_TEXTURE_COORDS"/> 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.ActiveTexture"/>
+		/// <seealso cref="Gl.ClientActiveTexture"/>
+		/// <seealso cref="Gl.TexCoord"/>
+		/// <seealso cref="Gl.TexCoordPointer"/>
+		/// <seealso cref="Gl.Vertex"/>
 		public static void MultiTexCoord1(int target, float[] v)
 		{
 			unsafe {
@@ -3223,16 +3321,36 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glMultiTexCoord1i.
+		/// set the current texture coordinates
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:int"/>.
+		/// Specifies the texture unit whose coordinates should be modified. The number of texture units is implementation 
+		/// dependent,but must be at least two. Symbolic constant must be one of <see cref="Gl.TEXTURE"/>i, where i ranges from 0 to 
+		/// <seecref="Gl.MAX_TEXTURE_COORDS"/> - 1, which is an implementation-dependent value. 
 		/// </param>
 		/// <param name="s">
-		/// A <see cref="T:Int32"/>.
+		/// Specify <paramref name="s"/>, <paramref name="t"/>, <paramref name="r"/>, and <paramref name="q"/> texture coordinates 
+		/// for<paramref name="target"/> texture unit. Not all parameters are present in all forms of the command. 
 		/// </param>
 		/// <remarks>
+		/// <see cref="Gl.MultiTexCoord"/> specifies texture coordinates in one, two, three, or four dimensions. <see 
+		/// cref="Gl.MultiTexCoord1"/>sets the current texture coordinates to s001; a call to <see cref="Gl.MultiTexCoord2"/> sets 
+		/// themto st01. Similarly, <see cref="Gl.MultiTexCoord3"/> specifies the texture coordinates as str1, and <see 
+		/// cref="Gl.MultiTexCoord4"/>defines all four components explicitly as strq. 
+		/// The current texture coordinates are part of the data that is associated with each vertex and with the current raster 
+		/// position.Initially, the values for strq are 0001. 
+		///  
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - Gl.Get with argument <see cref="Gl.CURRENT_TEXTURE_COORDS"/> with appropriate texture unit selected. 
+		/// - Gl.Get with argument <see cref="Gl.MAX_TEXTURE_COORDS"/> 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.ActiveTexture"/>
+		/// <seealso cref="Gl.ClientActiveTexture"/>
+		/// <seealso cref="Gl.TexCoord"/>
+		/// <seealso cref="Gl.TexCoordPointer"/>
+		/// <seealso cref="Gl.Vertex"/>
 		public static void MultiTexCoord1(int target, Int32 s)
 		{
 			if        (Delegates.pglMultiTexCoord1i != null) {
@@ -3247,16 +3365,35 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glMultiTexCoord1iv.
+		/// set the current texture coordinates
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:int"/>.
+		/// Specifies the texture unit whose coordinates should be modified. The number of texture units is implementation 
+		/// dependent,but must be at least two. Symbolic constant must be one of <see cref="Gl.TEXTURE"/>i, where i ranges from 0 to 
+		/// <seecref="Gl.MAX_TEXTURE_COORDS"/> - 1, which is an implementation-dependent value. 
 		/// </param>
 		/// <param name="v">
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
 		/// <remarks>
+		/// <see cref="Gl.MultiTexCoord"/> specifies texture coordinates in one, two, three, or four dimensions. <see 
+		/// cref="Gl.MultiTexCoord1"/>sets the current texture coordinates to s001; a call to <see cref="Gl.MultiTexCoord2"/> sets 
+		/// themto st01. Similarly, <see cref="Gl.MultiTexCoord3"/> specifies the texture coordinates as str1, and <see 
+		/// cref="Gl.MultiTexCoord4"/>defines all four components explicitly as strq. 
+		/// The current texture coordinates are part of the data that is associated with each vertex and with the current raster 
+		/// position.Initially, the values for strq are 0001. 
+		///  
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - Gl.Get with argument <see cref="Gl.CURRENT_TEXTURE_COORDS"/> with appropriate texture unit selected. 
+		/// - Gl.Get with argument <see cref="Gl.MAX_TEXTURE_COORDS"/> 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.ActiveTexture"/>
+		/// <seealso cref="Gl.ClientActiveTexture"/>
+		/// <seealso cref="Gl.TexCoord"/>
+		/// <seealso cref="Gl.TexCoordPointer"/>
+		/// <seealso cref="Gl.Vertex"/>
 		public static void MultiTexCoord1(int target, Int32[] v)
 		{
 			unsafe {
@@ -3276,16 +3413,36 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glMultiTexCoord1s.
+		/// set the current texture coordinates
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:int"/>.
+		/// Specifies the texture unit whose coordinates should be modified. The number of texture units is implementation 
+		/// dependent,but must be at least two. Symbolic constant must be one of <see cref="Gl.TEXTURE"/>i, where i ranges from 0 to 
+		/// <seecref="Gl.MAX_TEXTURE_COORDS"/> - 1, which is an implementation-dependent value. 
 		/// </param>
 		/// <param name="s">
-		/// A <see cref="T:Int16"/>.
+		/// Specify <paramref name="s"/>, <paramref name="t"/>, <paramref name="r"/>, and <paramref name="q"/> texture coordinates 
+		/// for<paramref name="target"/> texture unit. Not all parameters are present in all forms of the command. 
 		/// </param>
 		/// <remarks>
+		/// <see cref="Gl.MultiTexCoord"/> specifies texture coordinates in one, two, three, or four dimensions. <see 
+		/// cref="Gl.MultiTexCoord1"/>sets the current texture coordinates to s001; a call to <see cref="Gl.MultiTexCoord2"/> sets 
+		/// themto st01. Similarly, <see cref="Gl.MultiTexCoord3"/> specifies the texture coordinates as str1, and <see 
+		/// cref="Gl.MultiTexCoord4"/>defines all four components explicitly as strq. 
+		/// The current texture coordinates are part of the data that is associated with each vertex and with the current raster 
+		/// position.Initially, the values for strq are 0001. 
+		///  
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - Gl.Get with argument <see cref="Gl.CURRENT_TEXTURE_COORDS"/> with appropriate texture unit selected. 
+		/// - Gl.Get with argument <see cref="Gl.MAX_TEXTURE_COORDS"/> 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.ActiveTexture"/>
+		/// <seealso cref="Gl.ClientActiveTexture"/>
+		/// <seealso cref="Gl.TexCoord"/>
+		/// <seealso cref="Gl.TexCoordPointer"/>
+		/// <seealso cref="Gl.Vertex"/>
 		public static void MultiTexCoord1(int target, Int16 s)
 		{
 			if        (Delegates.pglMultiTexCoord1s != null) {
@@ -3300,16 +3457,35 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glMultiTexCoord1sv.
+		/// set the current texture coordinates
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:int"/>.
+		/// Specifies the texture unit whose coordinates should be modified. The number of texture units is implementation 
+		/// dependent,but must be at least two. Symbolic constant must be one of <see cref="Gl.TEXTURE"/>i, where i ranges from 0 to 
+		/// <seecref="Gl.MAX_TEXTURE_COORDS"/> - 1, which is an implementation-dependent value. 
 		/// </param>
 		/// <param name="v">
 		/// A <see cref="T:Int16[]"/>.
 		/// </param>
 		/// <remarks>
+		/// <see cref="Gl.MultiTexCoord"/> specifies texture coordinates in one, two, three, or four dimensions. <see 
+		/// cref="Gl.MultiTexCoord1"/>sets the current texture coordinates to s001; a call to <see cref="Gl.MultiTexCoord2"/> sets 
+		/// themto st01. Similarly, <see cref="Gl.MultiTexCoord3"/> specifies the texture coordinates as str1, and <see 
+		/// cref="Gl.MultiTexCoord4"/>defines all four components explicitly as strq. 
+		/// The current texture coordinates are part of the data that is associated with each vertex and with the current raster 
+		/// position.Initially, the values for strq are 0001. 
+		///  
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - Gl.Get with argument <see cref="Gl.CURRENT_TEXTURE_COORDS"/> with appropriate texture unit selected. 
+		/// - Gl.Get with argument <see cref="Gl.MAX_TEXTURE_COORDS"/> 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.ActiveTexture"/>
+		/// <seealso cref="Gl.ClientActiveTexture"/>
+		/// <seealso cref="Gl.TexCoord"/>
+		/// <seealso cref="Gl.TexCoordPointer"/>
+		/// <seealso cref="Gl.Vertex"/>
 		public static void MultiTexCoord1(int target, Int16[] v)
 		{
 			unsafe {
@@ -3329,19 +3505,40 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glMultiTexCoord2d.
+		/// set the current texture coordinates
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:int"/>.
+		/// Specifies the texture unit whose coordinates should be modified. The number of texture units is implementation 
+		/// dependent,but must be at least two. Symbolic constant must be one of <see cref="Gl.TEXTURE"/>i, where i ranges from 0 to 
+		/// <seecref="Gl.MAX_TEXTURE_COORDS"/> - 1, which is an implementation-dependent value. 
 		/// </param>
 		/// <param name="s">
-		/// A <see cref="T:double"/>.
+		/// Specify <paramref name="s"/>, <paramref name="t"/>, <paramref name="r"/>, and <paramref name="q"/> texture coordinates 
+		/// for<paramref name="target"/> texture unit. Not all parameters are present in all forms of the command. 
 		/// </param>
 		/// <param name="t">
-		/// A <see cref="T:double"/>.
+		/// Specify <paramref name="s"/>, <paramref name="t"/>, <paramref name="r"/>, and <paramref name="q"/> texture coordinates 
+		/// for<paramref name="target"/> texture unit. Not all parameters are present in all forms of the command. 
 		/// </param>
 		/// <remarks>
+		/// <see cref="Gl.MultiTexCoord"/> specifies texture coordinates in one, two, three, or four dimensions. <see 
+		/// cref="Gl.MultiTexCoord1"/>sets the current texture coordinates to s001; a call to <see cref="Gl.MultiTexCoord2"/> sets 
+		/// themto st01. Similarly, <see cref="Gl.MultiTexCoord3"/> specifies the texture coordinates as str1, and <see 
+		/// cref="Gl.MultiTexCoord4"/>defines all four components explicitly as strq. 
+		/// The current texture coordinates are part of the data that is associated with each vertex and with the current raster 
+		/// position.Initially, the values for strq are 0001. 
+		///  
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - Gl.Get with argument <see cref="Gl.CURRENT_TEXTURE_COORDS"/> with appropriate texture unit selected. 
+		/// - Gl.Get with argument <see cref="Gl.MAX_TEXTURE_COORDS"/> 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.ActiveTexture"/>
+		/// <seealso cref="Gl.ClientActiveTexture"/>
+		/// <seealso cref="Gl.TexCoord"/>
+		/// <seealso cref="Gl.TexCoordPointer"/>
+		/// <seealso cref="Gl.Vertex"/>
 		public static void MultiTexCoord2(int target, double s, double t)
 		{
 			if        (Delegates.pglMultiTexCoord2d != null) {
@@ -3356,16 +3553,35 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glMultiTexCoord2dv.
+		/// set the current texture coordinates
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:int"/>.
+		/// Specifies the texture unit whose coordinates should be modified. The number of texture units is implementation 
+		/// dependent,but must be at least two. Symbolic constant must be one of <see cref="Gl.TEXTURE"/>i, where i ranges from 0 to 
+		/// <seecref="Gl.MAX_TEXTURE_COORDS"/> - 1, which is an implementation-dependent value. 
 		/// </param>
 		/// <param name="v">
 		/// A <see cref="T:double[]"/>.
 		/// </param>
 		/// <remarks>
+		/// <see cref="Gl.MultiTexCoord"/> specifies texture coordinates in one, two, three, or four dimensions. <see 
+		/// cref="Gl.MultiTexCoord1"/>sets the current texture coordinates to s001; a call to <see cref="Gl.MultiTexCoord2"/> sets 
+		/// themto st01. Similarly, <see cref="Gl.MultiTexCoord3"/> specifies the texture coordinates as str1, and <see 
+		/// cref="Gl.MultiTexCoord4"/>defines all four components explicitly as strq. 
+		/// The current texture coordinates are part of the data that is associated with each vertex and with the current raster 
+		/// position.Initially, the values for strq are 0001. 
+		///  
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - Gl.Get with argument <see cref="Gl.CURRENT_TEXTURE_COORDS"/> with appropriate texture unit selected. 
+		/// - Gl.Get with argument <see cref="Gl.MAX_TEXTURE_COORDS"/> 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.ActiveTexture"/>
+		/// <seealso cref="Gl.ClientActiveTexture"/>
+		/// <seealso cref="Gl.TexCoord"/>
+		/// <seealso cref="Gl.TexCoordPointer"/>
+		/// <seealso cref="Gl.Vertex"/>
 		public static void MultiTexCoord2(int target, double[] v)
 		{
 			unsafe {
@@ -3385,19 +3601,40 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glMultiTexCoord2f.
+		/// set the current texture coordinates
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:int"/>.
+		/// Specifies the texture unit whose coordinates should be modified. The number of texture units is implementation 
+		/// dependent,but must be at least two. Symbolic constant must be one of <see cref="Gl.TEXTURE"/>i, where i ranges from 0 to 
+		/// <seecref="Gl.MAX_TEXTURE_COORDS"/> - 1, which is an implementation-dependent value. 
 		/// </param>
 		/// <param name="s">
-		/// A <see cref="T:float"/>.
+		/// Specify <paramref name="s"/>, <paramref name="t"/>, <paramref name="r"/>, and <paramref name="q"/> texture coordinates 
+		/// for<paramref name="target"/> texture unit. Not all parameters are present in all forms of the command. 
 		/// </param>
 		/// <param name="t">
-		/// A <see cref="T:float"/>.
+		/// Specify <paramref name="s"/>, <paramref name="t"/>, <paramref name="r"/>, and <paramref name="q"/> texture coordinates 
+		/// for<paramref name="target"/> texture unit. Not all parameters are present in all forms of the command. 
 		/// </param>
 		/// <remarks>
+		/// <see cref="Gl.MultiTexCoord"/> specifies texture coordinates in one, two, three, or four dimensions. <see 
+		/// cref="Gl.MultiTexCoord1"/>sets the current texture coordinates to s001; a call to <see cref="Gl.MultiTexCoord2"/> sets 
+		/// themto st01. Similarly, <see cref="Gl.MultiTexCoord3"/> specifies the texture coordinates as str1, and <see 
+		/// cref="Gl.MultiTexCoord4"/>defines all four components explicitly as strq. 
+		/// The current texture coordinates are part of the data that is associated with each vertex and with the current raster 
+		/// position.Initially, the values for strq are 0001. 
+		///  
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - Gl.Get with argument <see cref="Gl.CURRENT_TEXTURE_COORDS"/> with appropriate texture unit selected. 
+		/// - Gl.Get with argument <see cref="Gl.MAX_TEXTURE_COORDS"/> 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.ActiveTexture"/>
+		/// <seealso cref="Gl.ClientActiveTexture"/>
+		/// <seealso cref="Gl.TexCoord"/>
+		/// <seealso cref="Gl.TexCoordPointer"/>
+		/// <seealso cref="Gl.Vertex"/>
 		public static void MultiTexCoord2(int target, float s, float t)
 		{
 			if        (Delegates.pglMultiTexCoord2f != null) {
@@ -3412,16 +3649,35 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glMultiTexCoord2fv.
+		/// set the current texture coordinates
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:int"/>.
+		/// Specifies the texture unit whose coordinates should be modified. The number of texture units is implementation 
+		/// dependent,but must be at least two. Symbolic constant must be one of <see cref="Gl.TEXTURE"/>i, where i ranges from 0 to 
+		/// <seecref="Gl.MAX_TEXTURE_COORDS"/> - 1, which is an implementation-dependent value. 
 		/// </param>
 		/// <param name="v">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
 		/// <remarks>
+		/// <see cref="Gl.MultiTexCoord"/> specifies texture coordinates in one, two, three, or four dimensions. <see 
+		/// cref="Gl.MultiTexCoord1"/>sets the current texture coordinates to s001; a call to <see cref="Gl.MultiTexCoord2"/> sets 
+		/// themto st01. Similarly, <see cref="Gl.MultiTexCoord3"/> specifies the texture coordinates as str1, and <see 
+		/// cref="Gl.MultiTexCoord4"/>defines all four components explicitly as strq. 
+		/// The current texture coordinates are part of the data that is associated with each vertex and with the current raster 
+		/// position.Initially, the values for strq are 0001. 
+		///  
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - Gl.Get with argument <see cref="Gl.CURRENT_TEXTURE_COORDS"/> with appropriate texture unit selected. 
+		/// - Gl.Get with argument <see cref="Gl.MAX_TEXTURE_COORDS"/> 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.ActiveTexture"/>
+		/// <seealso cref="Gl.ClientActiveTexture"/>
+		/// <seealso cref="Gl.TexCoord"/>
+		/// <seealso cref="Gl.TexCoordPointer"/>
+		/// <seealso cref="Gl.Vertex"/>
 		public static void MultiTexCoord2(int target, float[] v)
 		{
 			unsafe {
@@ -3441,19 +3697,40 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glMultiTexCoord2i.
+		/// set the current texture coordinates
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:int"/>.
+		/// Specifies the texture unit whose coordinates should be modified. The number of texture units is implementation 
+		/// dependent,but must be at least two. Symbolic constant must be one of <see cref="Gl.TEXTURE"/>i, where i ranges from 0 to 
+		/// <seecref="Gl.MAX_TEXTURE_COORDS"/> - 1, which is an implementation-dependent value. 
 		/// </param>
 		/// <param name="s">
-		/// A <see cref="T:Int32"/>.
+		/// Specify <paramref name="s"/>, <paramref name="t"/>, <paramref name="r"/>, and <paramref name="q"/> texture coordinates 
+		/// for<paramref name="target"/> texture unit. Not all parameters are present in all forms of the command. 
 		/// </param>
 		/// <param name="t">
-		/// A <see cref="T:Int32"/>.
+		/// Specify <paramref name="s"/>, <paramref name="t"/>, <paramref name="r"/>, and <paramref name="q"/> texture coordinates 
+		/// for<paramref name="target"/> texture unit. Not all parameters are present in all forms of the command. 
 		/// </param>
 		/// <remarks>
+		/// <see cref="Gl.MultiTexCoord"/> specifies texture coordinates in one, two, three, or four dimensions. <see 
+		/// cref="Gl.MultiTexCoord1"/>sets the current texture coordinates to s001; a call to <see cref="Gl.MultiTexCoord2"/> sets 
+		/// themto st01. Similarly, <see cref="Gl.MultiTexCoord3"/> specifies the texture coordinates as str1, and <see 
+		/// cref="Gl.MultiTexCoord4"/>defines all four components explicitly as strq. 
+		/// The current texture coordinates are part of the data that is associated with each vertex and with the current raster 
+		/// position.Initially, the values for strq are 0001. 
+		///  
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - Gl.Get with argument <see cref="Gl.CURRENT_TEXTURE_COORDS"/> with appropriate texture unit selected. 
+		/// - Gl.Get with argument <see cref="Gl.MAX_TEXTURE_COORDS"/> 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.ActiveTexture"/>
+		/// <seealso cref="Gl.ClientActiveTexture"/>
+		/// <seealso cref="Gl.TexCoord"/>
+		/// <seealso cref="Gl.TexCoordPointer"/>
+		/// <seealso cref="Gl.Vertex"/>
 		public static void MultiTexCoord2(int target, Int32 s, Int32 t)
 		{
 			if        (Delegates.pglMultiTexCoord2i != null) {
@@ -3468,16 +3745,35 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glMultiTexCoord2iv.
+		/// set the current texture coordinates
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:int"/>.
+		/// Specifies the texture unit whose coordinates should be modified. The number of texture units is implementation 
+		/// dependent,but must be at least two. Symbolic constant must be one of <see cref="Gl.TEXTURE"/>i, where i ranges from 0 to 
+		/// <seecref="Gl.MAX_TEXTURE_COORDS"/> - 1, which is an implementation-dependent value. 
 		/// </param>
 		/// <param name="v">
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
 		/// <remarks>
+		/// <see cref="Gl.MultiTexCoord"/> specifies texture coordinates in one, two, three, or four dimensions. <see 
+		/// cref="Gl.MultiTexCoord1"/>sets the current texture coordinates to s001; a call to <see cref="Gl.MultiTexCoord2"/> sets 
+		/// themto st01. Similarly, <see cref="Gl.MultiTexCoord3"/> specifies the texture coordinates as str1, and <see 
+		/// cref="Gl.MultiTexCoord4"/>defines all four components explicitly as strq. 
+		/// The current texture coordinates are part of the data that is associated with each vertex and with the current raster 
+		/// position.Initially, the values for strq are 0001. 
+		///  
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - Gl.Get with argument <see cref="Gl.CURRENT_TEXTURE_COORDS"/> with appropriate texture unit selected. 
+		/// - Gl.Get with argument <see cref="Gl.MAX_TEXTURE_COORDS"/> 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.ActiveTexture"/>
+		/// <seealso cref="Gl.ClientActiveTexture"/>
+		/// <seealso cref="Gl.TexCoord"/>
+		/// <seealso cref="Gl.TexCoordPointer"/>
+		/// <seealso cref="Gl.Vertex"/>
 		public static void MultiTexCoord2(int target, Int32[] v)
 		{
 			unsafe {
@@ -3497,19 +3793,40 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glMultiTexCoord2s.
+		/// set the current texture coordinates
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:int"/>.
+		/// Specifies the texture unit whose coordinates should be modified. The number of texture units is implementation 
+		/// dependent,but must be at least two. Symbolic constant must be one of <see cref="Gl.TEXTURE"/>i, where i ranges from 0 to 
+		/// <seecref="Gl.MAX_TEXTURE_COORDS"/> - 1, which is an implementation-dependent value. 
 		/// </param>
 		/// <param name="s">
-		/// A <see cref="T:Int16"/>.
+		/// Specify <paramref name="s"/>, <paramref name="t"/>, <paramref name="r"/>, and <paramref name="q"/> texture coordinates 
+		/// for<paramref name="target"/> texture unit. Not all parameters are present in all forms of the command. 
 		/// </param>
 		/// <param name="t">
-		/// A <see cref="T:Int16"/>.
+		/// Specify <paramref name="s"/>, <paramref name="t"/>, <paramref name="r"/>, and <paramref name="q"/> texture coordinates 
+		/// for<paramref name="target"/> texture unit. Not all parameters are present in all forms of the command. 
 		/// </param>
 		/// <remarks>
+		/// <see cref="Gl.MultiTexCoord"/> specifies texture coordinates in one, two, three, or four dimensions. <see 
+		/// cref="Gl.MultiTexCoord1"/>sets the current texture coordinates to s001; a call to <see cref="Gl.MultiTexCoord2"/> sets 
+		/// themto st01. Similarly, <see cref="Gl.MultiTexCoord3"/> specifies the texture coordinates as str1, and <see 
+		/// cref="Gl.MultiTexCoord4"/>defines all four components explicitly as strq. 
+		/// The current texture coordinates are part of the data that is associated with each vertex and with the current raster 
+		/// position.Initially, the values for strq are 0001. 
+		///  
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - Gl.Get with argument <see cref="Gl.CURRENT_TEXTURE_COORDS"/> with appropriate texture unit selected. 
+		/// - Gl.Get with argument <see cref="Gl.MAX_TEXTURE_COORDS"/> 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.ActiveTexture"/>
+		/// <seealso cref="Gl.ClientActiveTexture"/>
+		/// <seealso cref="Gl.TexCoord"/>
+		/// <seealso cref="Gl.TexCoordPointer"/>
+		/// <seealso cref="Gl.Vertex"/>
 		public static void MultiTexCoord2(int target, Int16 s, Int16 t)
 		{
 			if        (Delegates.pglMultiTexCoord2s != null) {
@@ -3524,16 +3841,35 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glMultiTexCoord2sv.
+		/// set the current texture coordinates
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:int"/>.
+		/// Specifies the texture unit whose coordinates should be modified. The number of texture units is implementation 
+		/// dependent,but must be at least two. Symbolic constant must be one of <see cref="Gl.TEXTURE"/>i, where i ranges from 0 to 
+		/// <seecref="Gl.MAX_TEXTURE_COORDS"/> - 1, which is an implementation-dependent value. 
 		/// </param>
 		/// <param name="v">
 		/// A <see cref="T:Int16[]"/>.
 		/// </param>
 		/// <remarks>
+		/// <see cref="Gl.MultiTexCoord"/> specifies texture coordinates in one, two, three, or four dimensions. <see 
+		/// cref="Gl.MultiTexCoord1"/>sets the current texture coordinates to s001; a call to <see cref="Gl.MultiTexCoord2"/> sets 
+		/// themto st01. Similarly, <see cref="Gl.MultiTexCoord3"/> specifies the texture coordinates as str1, and <see 
+		/// cref="Gl.MultiTexCoord4"/>defines all four components explicitly as strq. 
+		/// The current texture coordinates are part of the data that is associated with each vertex and with the current raster 
+		/// position.Initially, the values for strq are 0001. 
+		///  
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - Gl.Get with argument <see cref="Gl.CURRENT_TEXTURE_COORDS"/> with appropriate texture unit selected. 
+		/// - Gl.Get with argument <see cref="Gl.MAX_TEXTURE_COORDS"/> 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.ActiveTexture"/>
+		/// <seealso cref="Gl.ClientActiveTexture"/>
+		/// <seealso cref="Gl.TexCoord"/>
+		/// <seealso cref="Gl.TexCoordPointer"/>
+		/// <seealso cref="Gl.Vertex"/>
 		public static void MultiTexCoord2(int target, Int16[] v)
 		{
 			unsafe {
@@ -3553,22 +3889,44 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glMultiTexCoord3d.
+		/// set the current texture coordinates
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:int"/>.
+		/// Specifies the texture unit whose coordinates should be modified. The number of texture units is implementation 
+		/// dependent,but must be at least two. Symbolic constant must be one of <see cref="Gl.TEXTURE"/>i, where i ranges from 0 to 
+		/// <seecref="Gl.MAX_TEXTURE_COORDS"/> - 1, which is an implementation-dependent value. 
 		/// </param>
 		/// <param name="s">
-		/// A <see cref="T:double"/>.
+		/// Specify <paramref name="s"/>, <paramref name="t"/>, <paramref name="r"/>, and <paramref name="q"/> texture coordinates 
+		/// for<paramref name="target"/> texture unit. Not all parameters are present in all forms of the command. 
 		/// </param>
 		/// <param name="t">
-		/// A <see cref="T:double"/>.
+		/// Specify <paramref name="s"/>, <paramref name="t"/>, <paramref name="r"/>, and <paramref name="q"/> texture coordinates 
+		/// for<paramref name="target"/> texture unit. Not all parameters are present in all forms of the command. 
 		/// </param>
 		/// <param name="r">
-		/// A <see cref="T:double"/>.
+		/// Specify <paramref name="s"/>, <paramref name="t"/>, <paramref name="r"/>, and <paramref name="q"/> texture coordinates 
+		/// for<paramref name="target"/> texture unit. Not all parameters are present in all forms of the command. 
 		/// </param>
 		/// <remarks>
+		/// <see cref="Gl.MultiTexCoord"/> specifies texture coordinates in one, two, three, or four dimensions. <see 
+		/// cref="Gl.MultiTexCoord1"/>sets the current texture coordinates to s001; a call to <see cref="Gl.MultiTexCoord2"/> sets 
+		/// themto st01. Similarly, <see cref="Gl.MultiTexCoord3"/> specifies the texture coordinates as str1, and <see 
+		/// cref="Gl.MultiTexCoord4"/>defines all four components explicitly as strq. 
+		/// The current texture coordinates are part of the data that is associated with each vertex and with the current raster 
+		/// position.Initially, the values for strq are 0001. 
+		///  
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - Gl.Get with argument <see cref="Gl.CURRENT_TEXTURE_COORDS"/> with appropriate texture unit selected. 
+		/// - Gl.Get with argument <see cref="Gl.MAX_TEXTURE_COORDS"/> 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.ActiveTexture"/>
+		/// <seealso cref="Gl.ClientActiveTexture"/>
+		/// <seealso cref="Gl.TexCoord"/>
+		/// <seealso cref="Gl.TexCoordPointer"/>
+		/// <seealso cref="Gl.Vertex"/>
 		public static void MultiTexCoord3(int target, double s, double t, double r)
 		{
 			if        (Delegates.pglMultiTexCoord3d != null) {
@@ -3583,16 +3941,35 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glMultiTexCoord3dv.
+		/// set the current texture coordinates
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:int"/>.
+		/// Specifies the texture unit whose coordinates should be modified. The number of texture units is implementation 
+		/// dependent,but must be at least two. Symbolic constant must be one of <see cref="Gl.TEXTURE"/>i, where i ranges from 0 to 
+		/// <seecref="Gl.MAX_TEXTURE_COORDS"/> - 1, which is an implementation-dependent value. 
 		/// </param>
 		/// <param name="v">
 		/// A <see cref="T:double[]"/>.
 		/// </param>
 		/// <remarks>
+		/// <see cref="Gl.MultiTexCoord"/> specifies texture coordinates in one, two, three, or four dimensions. <see 
+		/// cref="Gl.MultiTexCoord1"/>sets the current texture coordinates to s001; a call to <see cref="Gl.MultiTexCoord2"/> sets 
+		/// themto st01. Similarly, <see cref="Gl.MultiTexCoord3"/> specifies the texture coordinates as str1, and <see 
+		/// cref="Gl.MultiTexCoord4"/>defines all four components explicitly as strq. 
+		/// The current texture coordinates are part of the data that is associated with each vertex and with the current raster 
+		/// position.Initially, the values for strq are 0001. 
+		///  
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - Gl.Get with argument <see cref="Gl.CURRENT_TEXTURE_COORDS"/> with appropriate texture unit selected. 
+		/// - Gl.Get with argument <see cref="Gl.MAX_TEXTURE_COORDS"/> 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.ActiveTexture"/>
+		/// <seealso cref="Gl.ClientActiveTexture"/>
+		/// <seealso cref="Gl.TexCoord"/>
+		/// <seealso cref="Gl.TexCoordPointer"/>
+		/// <seealso cref="Gl.Vertex"/>
 		public static void MultiTexCoord3(int target, double[] v)
 		{
 			unsafe {
@@ -3612,22 +3989,44 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glMultiTexCoord3f.
+		/// set the current texture coordinates
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:int"/>.
+		/// Specifies the texture unit whose coordinates should be modified. The number of texture units is implementation 
+		/// dependent,but must be at least two. Symbolic constant must be one of <see cref="Gl.TEXTURE"/>i, where i ranges from 0 to 
+		/// <seecref="Gl.MAX_TEXTURE_COORDS"/> - 1, which is an implementation-dependent value. 
 		/// </param>
 		/// <param name="s">
-		/// A <see cref="T:float"/>.
+		/// Specify <paramref name="s"/>, <paramref name="t"/>, <paramref name="r"/>, and <paramref name="q"/> texture coordinates 
+		/// for<paramref name="target"/> texture unit. Not all parameters are present in all forms of the command. 
 		/// </param>
 		/// <param name="t">
-		/// A <see cref="T:float"/>.
+		/// Specify <paramref name="s"/>, <paramref name="t"/>, <paramref name="r"/>, and <paramref name="q"/> texture coordinates 
+		/// for<paramref name="target"/> texture unit. Not all parameters are present in all forms of the command. 
 		/// </param>
 		/// <param name="r">
-		/// A <see cref="T:float"/>.
+		/// Specify <paramref name="s"/>, <paramref name="t"/>, <paramref name="r"/>, and <paramref name="q"/> texture coordinates 
+		/// for<paramref name="target"/> texture unit. Not all parameters are present in all forms of the command. 
 		/// </param>
 		/// <remarks>
+		/// <see cref="Gl.MultiTexCoord"/> specifies texture coordinates in one, two, three, or four dimensions. <see 
+		/// cref="Gl.MultiTexCoord1"/>sets the current texture coordinates to s001; a call to <see cref="Gl.MultiTexCoord2"/> sets 
+		/// themto st01. Similarly, <see cref="Gl.MultiTexCoord3"/> specifies the texture coordinates as str1, and <see 
+		/// cref="Gl.MultiTexCoord4"/>defines all four components explicitly as strq. 
+		/// The current texture coordinates are part of the data that is associated with each vertex and with the current raster 
+		/// position.Initially, the values for strq are 0001. 
+		///  
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - Gl.Get with argument <see cref="Gl.CURRENT_TEXTURE_COORDS"/> with appropriate texture unit selected. 
+		/// - Gl.Get with argument <see cref="Gl.MAX_TEXTURE_COORDS"/> 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.ActiveTexture"/>
+		/// <seealso cref="Gl.ClientActiveTexture"/>
+		/// <seealso cref="Gl.TexCoord"/>
+		/// <seealso cref="Gl.TexCoordPointer"/>
+		/// <seealso cref="Gl.Vertex"/>
 		public static void MultiTexCoord3(int target, float s, float t, float r)
 		{
 			if        (Delegates.pglMultiTexCoord3f != null) {
@@ -3642,16 +4041,35 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glMultiTexCoord3fv.
+		/// set the current texture coordinates
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:int"/>.
+		/// Specifies the texture unit whose coordinates should be modified. The number of texture units is implementation 
+		/// dependent,but must be at least two. Symbolic constant must be one of <see cref="Gl.TEXTURE"/>i, where i ranges from 0 to 
+		/// <seecref="Gl.MAX_TEXTURE_COORDS"/> - 1, which is an implementation-dependent value. 
 		/// </param>
 		/// <param name="v">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
 		/// <remarks>
+		/// <see cref="Gl.MultiTexCoord"/> specifies texture coordinates in one, two, three, or four dimensions. <see 
+		/// cref="Gl.MultiTexCoord1"/>sets the current texture coordinates to s001; a call to <see cref="Gl.MultiTexCoord2"/> sets 
+		/// themto st01. Similarly, <see cref="Gl.MultiTexCoord3"/> specifies the texture coordinates as str1, and <see 
+		/// cref="Gl.MultiTexCoord4"/>defines all four components explicitly as strq. 
+		/// The current texture coordinates are part of the data that is associated with each vertex and with the current raster 
+		/// position.Initially, the values for strq are 0001. 
+		///  
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - Gl.Get with argument <see cref="Gl.CURRENT_TEXTURE_COORDS"/> with appropriate texture unit selected. 
+		/// - Gl.Get with argument <see cref="Gl.MAX_TEXTURE_COORDS"/> 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.ActiveTexture"/>
+		/// <seealso cref="Gl.ClientActiveTexture"/>
+		/// <seealso cref="Gl.TexCoord"/>
+		/// <seealso cref="Gl.TexCoordPointer"/>
+		/// <seealso cref="Gl.Vertex"/>
 		public static void MultiTexCoord3(int target, float[] v)
 		{
 			unsafe {
@@ -3671,22 +4089,44 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glMultiTexCoord3i.
+		/// set the current texture coordinates
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:int"/>.
+		/// Specifies the texture unit whose coordinates should be modified. The number of texture units is implementation 
+		/// dependent,but must be at least two. Symbolic constant must be one of <see cref="Gl.TEXTURE"/>i, where i ranges from 0 to 
+		/// <seecref="Gl.MAX_TEXTURE_COORDS"/> - 1, which is an implementation-dependent value. 
 		/// </param>
 		/// <param name="s">
-		/// A <see cref="T:Int32"/>.
+		/// Specify <paramref name="s"/>, <paramref name="t"/>, <paramref name="r"/>, and <paramref name="q"/> texture coordinates 
+		/// for<paramref name="target"/> texture unit. Not all parameters are present in all forms of the command. 
 		/// </param>
 		/// <param name="t">
-		/// A <see cref="T:Int32"/>.
+		/// Specify <paramref name="s"/>, <paramref name="t"/>, <paramref name="r"/>, and <paramref name="q"/> texture coordinates 
+		/// for<paramref name="target"/> texture unit. Not all parameters are present in all forms of the command. 
 		/// </param>
 		/// <param name="r">
-		/// A <see cref="T:Int32"/>.
+		/// Specify <paramref name="s"/>, <paramref name="t"/>, <paramref name="r"/>, and <paramref name="q"/> texture coordinates 
+		/// for<paramref name="target"/> texture unit. Not all parameters are present in all forms of the command. 
 		/// </param>
 		/// <remarks>
+		/// <see cref="Gl.MultiTexCoord"/> specifies texture coordinates in one, two, three, or four dimensions. <see 
+		/// cref="Gl.MultiTexCoord1"/>sets the current texture coordinates to s001; a call to <see cref="Gl.MultiTexCoord2"/> sets 
+		/// themto st01. Similarly, <see cref="Gl.MultiTexCoord3"/> specifies the texture coordinates as str1, and <see 
+		/// cref="Gl.MultiTexCoord4"/>defines all four components explicitly as strq. 
+		/// The current texture coordinates are part of the data that is associated with each vertex and with the current raster 
+		/// position.Initially, the values for strq are 0001. 
+		///  
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - Gl.Get with argument <see cref="Gl.CURRENT_TEXTURE_COORDS"/> with appropriate texture unit selected. 
+		/// - Gl.Get with argument <see cref="Gl.MAX_TEXTURE_COORDS"/> 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.ActiveTexture"/>
+		/// <seealso cref="Gl.ClientActiveTexture"/>
+		/// <seealso cref="Gl.TexCoord"/>
+		/// <seealso cref="Gl.TexCoordPointer"/>
+		/// <seealso cref="Gl.Vertex"/>
 		public static void MultiTexCoord3(int target, Int32 s, Int32 t, Int32 r)
 		{
 			if        (Delegates.pglMultiTexCoord3i != null) {
@@ -3701,16 +4141,35 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glMultiTexCoord3iv.
+		/// set the current texture coordinates
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:int"/>.
+		/// Specifies the texture unit whose coordinates should be modified. The number of texture units is implementation 
+		/// dependent,but must be at least two. Symbolic constant must be one of <see cref="Gl.TEXTURE"/>i, where i ranges from 0 to 
+		/// <seecref="Gl.MAX_TEXTURE_COORDS"/> - 1, which is an implementation-dependent value. 
 		/// </param>
 		/// <param name="v">
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
 		/// <remarks>
+		/// <see cref="Gl.MultiTexCoord"/> specifies texture coordinates in one, two, three, or four dimensions. <see 
+		/// cref="Gl.MultiTexCoord1"/>sets the current texture coordinates to s001; a call to <see cref="Gl.MultiTexCoord2"/> sets 
+		/// themto st01. Similarly, <see cref="Gl.MultiTexCoord3"/> specifies the texture coordinates as str1, and <see 
+		/// cref="Gl.MultiTexCoord4"/>defines all four components explicitly as strq. 
+		/// The current texture coordinates are part of the data that is associated with each vertex and with the current raster 
+		/// position.Initially, the values for strq are 0001. 
+		///  
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - Gl.Get with argument <see cref="Gl.CURRENT_TEXTURE_COORDS"/> with appropriate texture unit selected. 
+		/// - Gl.Get with argument <see cref="Gl.MAX_TEXTURE_COORDS"/> 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.ActiveTexture"/>
+		/// <seealso cref="Gl.ClientActiveTexture"/>
+		/// <seealso cref="Gl.TexCoord"/>
+		/// <seealso cref="Gl.TexCoordPointer"/>
+		/// <seealso cref="Gl.Vertex"/>
 		public static void MultiTexCoord3(int target, Int32[] v)
 		{
 			unsafe {
@@ -3730,22 +4189,44 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glMultiTexCoord3s.
+		/// set the current texture coordinates
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:int"/>.
+		/// Specifies the texture unit whose coordinates should be modified. The number of texture units is implementation 
+		/// dependent,but must be at least two. Symbolic constant must be one of <see cref="Gl.TEXTURE"/>i, where i ranges from 0 to 
+		/// <seecref="Gl.MAX_TEXTURE_COORDS"/> - 1, which is an implementation-dependent value. 
 		/// </param>
 		/// <param name="s">
-		/// A <see cref="T:Int16"/>.
+		/// Specify <paramref name="s"/>, <paramref name="t"/>, <paramref name="r"/>, and <paramref name="q"/> texture coordinates 
+		/// for<paramref name="target"/> texture unit. Not all parameters are present in all forms of the command. 
 		/// </param>
 		/// <param name="t">
-		/// A <see cref="T:Int16"/>.
+		/// Specify <paramref name="s"/>, <paramref name="t"/>, <paramref name="r"/>, and <paramref name="q"/> texture coordinates 
+		/// for<paramref name="target"/> texture unit. Not all parameters are present in all forms of the command. 
 		/// </param>
 		/// <param name="r">
-		/// A <see cref="T:Int16"/>.
+		/// Specify <paramref name="s"/>, <paramref name="t"/>, <paramref name="r"/>, and <paramref name="q"/> texture coordinates 
+		/// for<paramref name="target"/> texture unit. Not all parameters are present in all forms of the command. 
 		/// </param>
 		/// <remarks>
+		/// <see cref="Gl.MultiTexCoord"/> specifies texture coordinates in one, two, three, or four dimensions. <see 
+		/// cref="Gl.MultiTexCoord1"/>sets the current texture coordinates to s001; a call to <see cref="Gl.MultiTexCoord2"/> sets 
+		/// themto st01. Similarly, <see cref="Gl.MultiTexCoord3"/> specifies the texture coordinates as str1, and <see 
+		/// cref="Gl.MultiTexCoord4"/>defines all four components explicitly as strq. 
+		/// The current texture coordinates are part of the data that is associated with each vertex and with the current raster 
+		/// position.Initially, the values for strq are 0001. 
+		///  
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - Gl.Get with argument <see cref="Gl.CURRENT_TEXTURE_COORDS"/> with appropriate texture unit selected. 
+		/// - Gl.Get with argument <see cref="Gl.MAX_TEXTURE_COORDS"/> 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.ActiveTexture"/>
+		/// <seealso cref="Gl.ClientActiveTexture"/>
+		/// <seealso cref="Gl.TexCoord"/>
+		/// <seealso cref="Gl.TexCoordPointer"/>
+		/// <seealso cref="Gl.Vertex"/>
 		public static void MultiTexCoord3(int target, Int16 s, Int16 t, Int16 r)
 		{
 			if        (Delegates.pglMultiTexCoord3s != null) {
@@ -3760,16 +4241,35 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glMultiTexCoord3sv.
+		/// set the current texture coordinates
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:int"/>.
+		/// Specifies the texture unit whose coordinates should be modified. The number of texture units is implementation 
+		/// dependent,but must be at least two. Symbolic constant must be one of <see cref="Gl.TEXTURE"/>i, where i ranges from 0 to 
+		/// <seecref="Gl.MAX_TEXTURE_COORDS"/> - 1, which is an implementation-dependent value. 
 		/// </param>
 		/// <param name="v">
 		/// A <see cref="T:Int16[]"/>.
 		/// </param>
 		/// <remarks>
+		/// <see cref="Gl.MultiTexCoord"/> specifies texture coordinates in one, two, three, or four dimensions. <see 
+		/// cref="Gl.MultiTexCoord1"/>sets the current texture coordinates to s001; a call to <see cref="Gl.MultiTexCoord2"/> sets 
+		/// themto st01. Similarly, <see cref="Gl.MultiTexCoord3"/> specifies the texture coordinates as str1, and <see 
+		/// cref="Gl.MultiTexCoord4"/>defines all four components explicitly as strq. 
+		/// The current texture coordinates are part of the data that is associated with each vertex and with the current raster 
+		/// position.Initially, the values for strq are 0001. 
+		///  
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - Gl.Get with argument <see cref="Gl.CURRENT_TEXTURE_COORDS"/> with appropriate texture unit selected. 
+		/// - Gl.Get with argument <see cref="Gl.MAX_TEXTURE_COORDS"/> 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.ActiveTexture"/>
+		/// <seealso cref="Gl.ClientActiveTexture"/>
+		/// <seealso cref="Gl.TexCoord"/>
+		/// <seealso cref="Gl.TexCoordPointer"/>
+		/// <seealso cref="Gl.Vertex"/>
 		public static void MultiTexCoord3(int target, Int16[] v)
 		{
 			unsafe {
@@ -3789,25 +4289,48 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glMultiTexCoord4d.
+		/// set the current texture coordinates
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:int"/>.
+		/// Specifies the texture unit whose coordinates should be modified. The number of texture units is implementation 
+		/// dependent,but must be at least two. Symbolic constant must be one of <see cref="Gl.TEXTURE"/>i, where i ranges from 0 to 
+		/// <seecref="Gl.MAX_TEXTURE_COORDS"/> - 1, which is an implementation-dependent value. 
 		/// </param>
 		/// <param name="s">
-		/// A <see cref="T:double"/>.
+		/// Specify <paramref name="s"/>, <paramref name="t"/>, <paramref name="r"/>, and <paramref name="q"/> texture coordinates 
+		/// for<paramref name="target"/> texture unit. Not all parameters are present in all forms of the command. 
 		/// </param>
 		/// <param name="t">
-		/// A <see cref="T:double"/>.
+		/// Specify <paramref name="s"/>, <paramref name="t"/>, <paramref name="r"/>, and <paramref name="q"/> texture coordinates 
+		/// for<paramref name="target"/> texture unit. Not all parameters are present in all forms of the command. 
 		/// </param>
 		/// <param name="r">
-		/// A <see cref="T:double"/>.
+		/// Specify <paramref name="s"/>, <paramref name="t"/>, <paramref name="r"/>, and <paramref name="q"/> texture coordinates 
+		/// for<paramref name="target"/> texture unit. Not all parameters are present in all forms of the command. 
 		/// </param>
 		/// <param name="q">
-		/// A <see cref="T:double"/>.
+		/// Specify <paramref name="s"/>, <paramref name="t"/>, <paramref name="r"/>, and <paramref name="q"/> texture coordinates 
+		/// for<paramref name="target"/> texture unit. Not all parameters are present in all forms of the command. 
 		/// </param>
 		/// <remarks>
+		/// <see cref="Gl.MultiTexCoord"/> specifies texture coordinates in one, two, three, or four dimensions. <see 
+		/// cref="Gl.MultiTexCoord1"/>sets the current texture coordinates to s001; a call to <see cref="Gl.MultiTexCoord2"/> sets 
+		/// themto st01. Similarly, <see cref="Gl.MultiTexCoord3"/> specifies the texture coordinates as str1, and <see 
+		/// cref="Gl.MultiTexCoord4"/>defines all four components explicitly as strq. 
+		/// The current texture coordinates are part of the data that is associated with each vertex and with the current raster 
+		/// position.Initially, the values for strq are 0001. 
+		///  
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - Gl.Get with argument <see cref="Gl.CURRENT_TEXTURE_COORDS"/> with appropriate texture unit selected. 
+		/// - Gl.Get with argument <see cref="Gl.MAX_TEXTURE_COORDS"/> 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.ActiveTexture"/>
+		/// <seealso cref="Gl.ClientActiveTexture"/>
+		/// <seealso cref="Gl.TexCoord"/>
+		/// <seealso cref="Gl.TexCoordPointer"/>
+		/// <seealso cref="Gl.Vertex"/>
 		public static void MultiTexCoord4(int target, double s, double t, double r, double q)
 		{
 			if        (Delegates.pglMultiTexCoord4d != null) {
@@ -3822,16 +4345,35 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glMultiTexCoord4dv.
+		/// set the current texture coordinates
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:int"/>.
+		/// Specifies the texture unit whose coordinates should be modified. The number of texture units is implementation 
+		/// dependent,but must be at least two. Symbolic constant must be one of <see cref="Gl.TEXTURE"/>i, where i ranges from 0 to 
+		/// <seecref="Gl.MAX_TEXTURE_COORDS"/> - 1, which is an implementation-dependent value. 
 		/// </param>
 		/// <param name="v">
 		/// A <see cref="T:double[]"/>.
 		/// </param>
 		/// <remarks>
+		/// <see cref="Gl.MultiTexCoord"/> specifies texture coordinates in one, two, three, or four dimensions. <see 
+		/// cref="Gl.MultiTexCoord1"/>sets the current texture coordinates to s001; a call to <see cref="Gl.MultiTexCoord2"/> sets 
+		/// themto st01. Similarly, <see cref="Gl.MultiTexCoord3"/> specifies the texture coordinates as str1, and <see 
+		/// cref="Gl.MultiTexCoord4"/>defines all four components explicitly as strq. 
+		/// The current texture coordinates are part of the data that is associated with each vertex and with the current raster 
+		/// position.Initially, the values for strq are 0001. 
+		///  
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - Gl.Get with argument <see cref="Gl.CURRENT_TEXTURE_COORDS"/> with appropriate texture unit selected. 
+		/// - Gl.Get with argument <see cref="Gl.MAX_TEXTURE_COORDS"/> 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.ActiveTexture"/>
+		/// <seealso cref="Gl.ClientActiveTexture"/>
+		/// <seealso cref="Gl.TexCoord"/>
+		/// <seealso cref="Gl.TexCoordPointer"/>
+		/// <seealso cref="Gl.Vertex"/>
 		public static void MultiTexCoord4(int target, double[] v)
 		{
 			unsafe {
@@ -3851,25 +4393,48 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glMultiTexCoord4f.
+		/// set the current texture coordinates
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:int"/>.
+		/// Specifies the texture unit whose coordinates should be modified. The number of texture units is implementation 
+		/// dependent,but must be at least two. Symbolic constant must be one of <see cref="Gl.TEXTURE"/>i, where i ranges from 0 to 
+		/// <seecref="Gl.MAX_TEXTURE_COORDS"/> - 1, which is an implementation-dependent value. 
 		/// </param>
 		/// <param name="s">
-		/// A <see cref="T:float"/>.
+		/// Specify <paramref name="s"/>, <paramref name="t"/>, <paramref name="r"/>, and <paramref name="q"/> texture coordinates 
+		/// for<paramref name="target"/> texture unit. Not all parameters are present in all forms of the command. 
 		/// </param>
 		/// <param name="t">
-		/// A <see cref="T:float"/>.
+		/// Specify <paramref name="s"/>, <paramref name="t"/>, <paramref name="r"/>, and <paramref name="q"/> texture coordinates 
+		/// for<paramref name="target"/> texture unit. Not all parameters are present in all forms of the command. 
 		/// </param>
 		/// <param name="r">
-		/// A <see cref="T:float"/>.
+		/// Specify <paramref name="s"/>, <paramref name="t"/>, <paramref name="r"/>, and <paramref name="q"/> texture coordinates 
+		/// for<paramref name="target"/> texture unit. Not all parameters are present in all forms of the command. 
 		/// </param>
 		/// <param name="q">
-		/// A <see cref="T:float"/>.
+		/// Specify <paramref name="s"/>, <paramref name="t"/>, <paramref name="r"/>, and <paramref name="q"/> texture coordinates 
+		/// for<paramref name="target"/> texture unit. Not all parameters are present in all forms of the command. 
 		/// </param>
 		/// <remarks>
+		/// <see cref="Gl.MultiTexCoord"/> specifies texture coordinates in one, two, three, or four dimensions. <see 
+		/// cref="Gl.MultiTexCoord1"/>sets the current texture coordinates to s001; a call to <see cref="Gl.MultiTexCoord2"/> sets 
+		/// themto st01. Similarly, <see cref="Gl.MultiTexCoord3"/> specifies the texture coordinates as str1, and <see 
+		/// cref="Gl.MultiTexCoord4"/>defines all four components explicitly as strq. 
+		/// The current texture coordinates are part of the data that is associated with each vertex and with the current raster 
+		/// position.Initially, the values for strq are 0001. 
+		///  
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - Gl.Get with argument <see cref="Gl.CURRENT_TEXTURE_COORDS"/> with appropriate texture unit selected. 
+		/// - Gl.Get with argument <see cref="Gl.MAX_TEXTURE_COORDS"/> 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.ActiveTexture"/>
+		/// <seealso cref="Gl.ClientActiveTexture"/>
+		/// <seealso cref="Gl.TexCoord"/>
+		/// <seealso cref="Gl.TexCoordPointer"/>
+		/// <seealso cref="Gl.Vertex"/>
 		public static void MultiTexCoord4(int target, float s, float t, float r, float q)
 		{
 			if        (Delegates.pglMultiTexCoord4f != null) {
@@ -3884,16 +4449,35 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glMultiTexCoord4fv.
+		/// set the current texture coordinates
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:int"/>.
+		/// Specifies the texture unit whose coordinates should be modified. The number of texture units is implementation 
+		/// dependent,but must be at least two. Symbolic constant must be one of <see cref="Gl.TEXTURE"/>i, where i ranges from 0 to 
+		/// <seecref="Gl.MAX_TEXTURE_COORDS"/> - 1, which is an implementation-dependent value. 
 		/// </param>
 		/// <param name="v">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
 		/// <remarks>
+		/// <see cref="Gl.MultiTexCoord"/> specifies texture coordinates in one, two, three, or four dimensions. <see 
+		/// cref="Gl.MultiTexCoord1"/>sets the current texture coordinates to s001; a call to <see cref="Gl.MultiTexCoord2"/> sets 
+		/// themto st01. Similarly, <see cref="Gl.MultiTexCoord3"/> specifies the texture coordinates as str1, and <see 
+		/// cref="Gl.MultiTexCoord4"/>defines all four components explicitly as strq. 
+		/// The current texture coordinates are part of the data that is associated with each vertex and with the current raster 
+		/// position.Initially, the values for strq are 0001. 
+		///  
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - Gl.Get with argument <see cref="Gl.CURRENT_TEXTURE_COORDS"/> with appropriate texture unit selected. 
+		/// - Gl.Get with argument <see cref="Gl.MAX_TEXTURE_COORDS"/> 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.ActiveTexture"/>
+		/// <seealso cref="Gl.ClientActiveTexture"/>
+		/// <seealso cref="Gl.TexCoord"/>
+		/// <seealso cref="Gl.TexCoordPointer"/>
+		/// <seealso cref="Gl.Vertex"/>
 		public static void MultiTexCoord4(int target, float[] v)
 		{
 			unsafe {
@@ -3913,25 +4497,48 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glMultiTexCoord4i.
+		/// set the current texture coordinates
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:int"/>.
+		/// Specifies the texture unit whose coordinates should be modified. The number of texture units is implementation 
+		/// dependent,but must be at least two. Symbolic constant must be one of <see cref="Gl.TEXTURE"/>i, where i ranges from 0 to 
+		/// <seecref="Gl.MAX_TEXTURE_COORDS"/> - 1, which is an implementation-dependent value. 
 		/// </param>
 		/// <param name="s">
-		/// A <see cref="T:Int32"/>.
+		/// Specify <paramref name="s"/>, <paramref name="t"/>, <paramref name="r"/>, and <paramref name="q"/> texture coordinates 
+		/// for<paramref name="target"/> texture unit. Not all parameters are present in all forms of the command. 
 		/// </param>
 		/// <param name="t">
-		/// A <see cref="T:Int32"/>.
+		/// Specify <paramref name="s"/>, <paramref name="t"/>, <paramref name="r"/>, and <paramref name="q"/> texture coordinates 
+		/// for<paramref name="target"/> texture unit. Not all parameters are present in all forms of the command. 
 		/// </param>
 		/// <param name="r">
-		/// A <see cref="T:Int32"/>.
+		/// Specify <paramref name="s"/>, <paramref name="t"/>, <paramref name="r"/>, and <paramref name="q"/> texture coordinates 
+		/// for<paramref name="target"/> texture unit. Not all parameters are present in all forms of the command. 
 		/// </param>
 		/// <param name="q">
-		/// A <see cref="T:Int32"/>.
+		/// Specify <paramref name="s"/>, <paramref name="t"/>, <paramref name="r"/>, and <paramref name="q"/> texture coordinates 
+		/// for<paramref name="target"/> texture unit. Not all parameters are present in all forms of the command. 
 		/// </param>
 		/// <remarks>
+		/// <see cref="Gl.MultiTexCoord"/> specifies texture coordinates in one, two, three, or four dimensions. <see 
+		/// cref="Gl.MultiTexCoord1"/>sets the current texture coordinates to s001; a call to <see cref="Gl.MultiTexCoord2"/> sets 
+		/// themto st01. Similarly, <see cref="Gl.MultiTexCoord3"/> specifies the texture coordinates as str1, and <see 
+		/// cref="Gl.MultiTexCoord4"/>defines all four components explicitly as strq. 
+		/// The current texture coordinates are part of the data that is associated with each vertex and with the current raster 
+		/// position.Initially, the values for strq are 0001. 
+		///  
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - Gl.Get with argument <see cref="Gl.CURRENT_TEXTURE_COORDS"/> with appropriate texture unit selected. 
+		/// - Gl.Get with argument <see cref="Gl.MAX_TEXTURE_COORDS"/> 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.ActiveTexture"/>
+		/// <seealso cref="Gl.ClientActiveTexture"/>
+		/// <seealso cref="Gl.TexCoord"/>
+		/// <seealso cref="Gl.TexCoordPointer"/>
+		/// <seealso cref="Gl.Vertex"/>
 		public static void MultiTexCoord4(int target, Int32 s, Int32 t, Int32 r, Int32 q)
 		{
 			if        (Delegates.pglMultiTexCoord4i != null) {
@@ -3946,16 +4553,35 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glMultiTexCoord4iv.
+		/// set the current texture coordinates
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:int"/>.
+		/// Specifies the texture unit whose coordinates should be modified. The number of texture units is implementation 
+		/// dependent,but must be at least two. Symbolic constant must be one of <see cref="Gl.TEXTURE"/>i, where i ranges from 0 to 
+		/// <seecref="Gl.MAX_TEXTURE_COORDS"/> - 1, which is an implementation-dependent value. 
 		/// </param>
 		/// <param name="v">
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
 		/// <remarks>
+		/// <see cref="Gl.MultiTexCoord"/> specifies texture coordinates in one, two, three, or four dimensions. <see 
+		/// cref="Gl.MultiTexCoord1"/>sets the current texture coordinates to s001; a call to <see cref="Gl.MultiTexCoord2"/> sets 
+		/// themto st01. Similarly, <see cref="Gl.MultiTexCoord3"/> specifies the texture coordinates as str1, and <see 
+		/// cref="Gl.MultiTexCoord4"/>defines all four components explicitly as strq. 
+		/// The current texture coordinates are part of the data that is associated with each vertex and with the current raster 
+		/// position.Initially, the values for strq are 0001. 
+		///  
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - Gl.Get with argument <see cref="Gl.CURRENT_TEXTURE_COORDS"/> with appropriate texture unit selected. 
+		/// - Gl.Get with argument <see cref="Gl.MAX_TEXTURE_COORDS"/> 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.ActiveTexture"/>
+		/// <seealso cref="Gl.ClientActiveTexture"/>
+		/// <seealso cref="Gl.TexCoord"/>
+		/// <seealso cref="Gl.TexCoordPointer"/>
+		/// <seealso cref="Gl.Vertex"/>
 		public static void MultiTexCoord4(int target, Int32[] v)
 		{
 			unsafe {
@@ -3975,25 +4601,48 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glMultiTexCoord4s.
+		/// set the current texture coordinates
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:int"/>.
+		/// Specifies the texture unit whose coordinates should be modified. The number of texture units is implementation 
+		/// dependent,but must be at least two. Symbolic constant must be one of <see cref="Gl.TEXTURE"/>i, where i ranges from 0 to 
+		/// <seecref="Gl.MAX_TEXTURE_COORDS"/> - 1, which is an implementation-dependent value. 
 		/// </param>
 		/// <param name="s">
-		/// A <see cref="T:Int16"/>.
+		/// Specify <paramref name="s"/>, <paramref name="t"/>, <paramref name="r"/>, and <paramref name="q"/> texture coordinates 
+		/// for<paramref name="target"/> texture unit. Not all parameters are present in all forms of the command. 
 		/// </param>
 		/// <param name="t">
-		/// A <see cref="T:Int16"/>.
+		/// Specify <paramref name="s"/>, <paramref name="t"/>, <paramref name="r"/>, and <paramref name="q"/> texture coordinates 
+		/// for<paramref name="target"/> texture unit. Not all parameters are present in all forms of the command. 
 		/// </param>
 		/// <param name="r">
-		/// A <see cref="T:Int16"/>.
+		/// Specify <paramref name="s"/>, <paramref name="t"/>, <paramref name="r"/>, and <paramref name="q"/> texture coordinates 
+		/// for<paramref name="target"/> texture unit. Not all parameters are present in all forms of the command. 
 		/// </param>
 		/// <param name="q">
-		/// A <see cref="T:Int16"/>.
+		/// Specify <paramref name="s"/>, <paramref name="t"/>, <paramref name="r"/>, and <paramref name="q"/> texture coordinates 
+		/// for<paramref name="target"/> texture unit. Not all parameters are present in all forms of the command. 
 		/// </param>
 		/// <remarks>
+		/// <see cref="Gl.MultiTexCoord"/> specifies texture coordinates in one, two, three, or four dimensions. <see 
+		/// cref="Gl.MultiTexCoord1"/>sets the current texture coordinates to s001; a call to <see cref="Gl.MultiTexCoord2"/> sets 
+		/// themto st01. Similarly, <see cref="Gl.MultiTexCoord3"/> specifies the texture coordinates as str1, and <see 
+		/// cref="Gl.MultiTexCoord4"/>defines all four components explicitly as strq. 
+		/// The current texture coordinates are part of the data that is associated with each vertex and with the current raster 
+		/// position.Initially, the values for strq are 0001. 
+		///  
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - Gl.Get with argument <see cref="Gl.CURRENT_TEXTURE_COORDS"/> with appropriate texture unit selected. 
+		/// - Gl.Get with argument <see cref="Gl.MAX_TEXTURE_COORDS"/> 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.ActiveTexture"/>
+		/// <seealso cref="Gl.ClientActiveTexture"/>
+		/// <seealso cref="Gl.TexCoord"/>
+		/// <seealso cref="Gl.TexCoordPointer"/>
+		/// <seealso cref="Gl.Vertex"/>
 		public static void MultiTexCoord4(int target, Int16 s, Int16 t, Int16 r, Int16 q)
 		{
 			if        (Delegates.pglMultiTexCoord4s != null) {
@@ -4008,16 +4657,35 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glMultiTexCoord4sv.
+		/// set the current texture coordinates
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:int"/>.
+		/// Specifies the texture unit whose coordinates should be modified. The number of texture units is implementation 
+		/// dependent,but must be at least two. Symbolic constant must be one of <see cref="Gl.TEXTURE"/>i, where i ranges from 0 to 
+		/// <seecref="Gl.MAX_TEXTURE_COORDS"/> - 1, which is an implementation-dependent value. 
 		/// </param>
 		/// <param name="v">
 		/// A <see cref="T:Int16[]"/>.
 		/// </param>
 		/// <remarks>
+		/// <see cref="Gl.MultiTexCoord"/> specifies texture coordinates in one, two, three, or four dimensions. <see 
+		/// cref="Gl.MultiTexCoord1"/>sets the current texture coordinates to s001; a call to <see cref="Gl.MultiTexCoord2"/> sets 
+		/// themto st01. Similarly, <see cref="Gl.MultiTexCoord3"/> specifies the texture coordinates as str1, and <see 
+		/// cref="Gl.MultiTexCoord4"/>defines all four components explicitly as strq. 
+		/// The current texture coordinates are part of the data that is associated with each vertex and with the current raster 
+		/// position.Initially, the values for strq are 0001. 
+		///  
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - Gl.Get with argument <see cref="Gl.CURRENT_TEXTURE_COORDS"/> with appropriate texture unit selected. 
+		/// - Gl.Get with argument <see cref="Gl.MAX_TEXTURE_COORDS"/> 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.ActiveTexture"/>
+		/// <seealso cref="Gl.ClientActiveTexture"/>
+		/// <seealso cref="Gl.TexCoord"/>
+		/// <seealso cref="Gl.TexCoordPointer"/>
+		/// <seealso cref="Gl.Vertex"/>
 		public static void MultiTexCoord4(int target, Int16[] v)
 		{
 			unsafe {

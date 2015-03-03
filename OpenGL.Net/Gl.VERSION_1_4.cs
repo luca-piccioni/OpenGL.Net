@@ -1079,13 +1079,22 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glFogCoordf.
+		/// set the current fog coordinates
 		/// </summary>
 		/// <param name="coord">
-		/// A <see cref="T:float"/>.
+		/// Specify the fog distance. 
 		/// </param>
 		/// <remarks>
+		/// <see cref="Gl.FogCoord"/> specifies the fog coordinate that is associated with each vertex and the current raster 
+		/// position.The value specified is interpolated and used in computing the fog color (see Gl.Fog). 
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - Gl.Get with argument <see cref="Gl.CURRENT_FOG_COORD"/> 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.Fog"/>
+		/// <seealso cref="Gl.FogCoordPointer"/>
+		/// <seealso cref="Gl.Vertex"/>
 		public static void FogCoord(float coord)
 		{
 			if        (Delegates.pglFogCoordf != null) {
@@ -1100,13 +1109,22 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glFogCoordfv.
+		/// set the current fog coordinates
 		/// </summary>
 		/// <param name="coord">
-		/// A <see cref="T:float[]"/>.
+		/// Specify the fog distance. 
 		/// </param>
 		/// <remarks>
+		/// <see cref="Gl.FogCoord"/> specifies the fog coordinate that is associated with each vertex and the current raster 
+		/// position.The value specified is interpolated and used in computing the fog color (see Gl.Fog). 
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - Gl.Get with argument <see cref="Gl.CURRENT_FOG_COORD"/> 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.Fog"/>
+		/// <seealso cref="Gl.FogCoordPointer"/>
+		/// <seealso cref="Gl.Vertex"/>
 		public static void FogCoord(float[] coord)
 		{
 			unsafe {
@@ -1126,13 +1144,22 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glFogCoordd.
+		/// set the current fog coordinates
 		/// </summary>
 		/// <param name="coord">
-		/// A <see cref="T:double"/>.
+		/// Specify the fog distance. 
 		/// </param>
 		/// <remarks>
+		/// <see cref="Gl.FogCoord"/> specifies the fog coordinate that is associated with each vertex and the current raster 
+		/// position.The value specified is interpolated and used in computing the fog color (see Gl.Fog). 
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - Gl.Get with argument <see cref="Gl.CURRENT_FOG_COORD"/> 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.Fog"/>
+		/// <seealso cref="Gl.FogCoordPointer"/>
+		/// <seealso cref="Gl.Vertex"/>
 		public static void FogCoord(double coord)
 		{
 			if        (Delegates.pglFogCoordd != null) {
@@ -1147,13 +1174,22 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glFogCoorddv.
+		/// set the current fog coordinates
 		/// </summary>
 		/// <param name="coord">
-		/// A <see cref="T:double[]"/>.
+		/// Specify the fog distance. 
 		/// </param>
 		/// <remarks>
+		/// <see cref="Gl.FogCoord"/> specifies the fog coordinate that is associated with each vertex and the current raster 
+		/// position.The value specified is interpolated and used in computing the fog color (see Gl.Fog). 
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - Gl.Get with argument <see cref="Gl.CURRENT_FOG_COORD"/> 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.Fog"/>
+		/// <seealso cref="Gl.FogCoordPointer"/>
+		/// <seealso cref="Gl.Vertex"/>
 		public static void FogCoord(double[] coord)
 		{
 			unsafe {
@@ -1173,19 +1209,70 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glFogCoordPointer.
+		/// define an array of fog coordinates
 		/// </summary>
 		/// <param name="type">
-		/// A <see cref="T:int"/>.
+		/// Specifies the data type of each fog coordinate. Symbolic constants <see cref="Gl.FLOAT"/>, or <see cref="Gl.DOUBLE"/> 
+		/// areaccepted. The initial value is <see cref="Gl.FLOAT"/>. 
 		/// </param>
 		/// <param name="stride">
-		/// A <see cref="T:Int32"/>.
+		/// Specifies the byte offset between consecutive fog coordinates. If <paramref name="stride"/> is 0, the array elements are 
+		/// understoodto be tightly packed. The initial value is 0. 
 		/// </param>
 		/// <param name="pointer">
-		/// A <see cref="T:IntPtr"/>.
+		/// Specifies a pointer to the first coordinate of the first fog coordinate in the array. The initial value is 0. 
 		/// </param>
 		/// <remarks>
+		/// <see cref="Gl.FogCoordPointer"/> specifies the location and data format of an array of fog coordinates to use when 
+		/// rendering.<paramref name="type"/> specifies the data type of each fog coordinate, and <paramref name="stride"/> 
+		/// specifiesthe byte stride from one fog coordinate to the next, allowing vertices and attributes to be packed into a 
+		/// singlearray or stored in separate arrays. 
+		/// If a non-zero named buffer object is bound to the <see cref="Gl.ARRAY_BUFFER"/> target (see Gl.BindBuffer) while a fog 
+		/// coordinatearray is specified, <paramref name="pointer"/> is treated as a byte offset into the buffer object's data 
+		/// store.Also, the buffer object binding (<see cref="Gl.ARRAY_BUFFER_BINDING"/>) is saved as fog coordinate vertex array 
+		/// client-sidestate (<see cref="Gl.FOG_COORD_ARRAY_BUFFER_BINDING"/>). 
+		/// When a fog coordinate array is specified, <paramref name="type"/>, <paramref name="stride"/>, and <paramref 
+		/// name="pointer"/>are saved as client-side state, in addition to the current vertex array buffer object binding. 
+		/// To enable and disable the fog coordinate array, call Gl.EnableClientState and Gl.DisableClientState with the argument 
+		/// <seecref="Gl.FOG_COORD_ARRAY"/>. If enabled, the fog coordinate array is used when Gl.DrawArrays, Gl.MultiDrawArrays, 
+		/// Gl.DrawElements,Gl.MultiDrawElements, Gl.DrawRangeElements, or Gl.ArrayElement is called. 
+		/// <para>
+		/// The following errors can be generated:
+		/// - <see cref="Gl.INVALID_ENUM"/> is generated if <paramref name="type"/> is not either <see cref="Gl.FLOAT"/> or <see 
+		///   cref="Gl.DOUBLE"/>.
+		/// - <see cref="Gl.INVALID_VALUE"/> is generated if <paramref name="stride"/> is negative. 
+		/// </para>
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - Gl.IsEnabled with argument <see cref="Gl.FOG_COORD_ARRAY"/> 
+		/// - Gl.Get with argument <see cref="Gl.FOG_COORD_ARRAY_STRIDE"/> 
+		/// - Gl.Get with argument <see cref="Gl.FOG_COORD_ARRAY_TYPE"/> 
+		/// - Gl.Get with argument <see cref="Gl.FOG_COORD_ARRAY_BUFFER_BINDING"/> 
+		/// - Gl.Get with argument <see cref="Gl.ARRAY_BUFFER_BINDING"/> 
+		/// - Gl.GetPointerv with argument <see cref="Gl.FOG_COORD_ARRAY_POINTER"/> 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.ArrayElement"/>
+		/// <seealso cref="Gl.BindBuffer"/>
+		/// <seealso cref="Gl.ColorPointer"/>
+		/// <seealso cref="Gl.DisableClientState"/>
+		/// <seealso cref="Gl.DrawArrays"/>
+		/// <seealso cref="Gl.DrawElements"/>
+		/// <seealso cref="Gl.DrawRangeElements"/>
+		/// <seealso cref="Gl.EdgeFlagPointer"/>
+		/// <seealso cref="Gl.EnableClientState"/>
+		/// <seealso cref="Gl.FogCoord"/>
+		/// <seealso cref="Gl.IndexPointer"/>
+		/// <seealso cref="Gl.InterleavedArrays"/>
+		/// <seealso cref="Gl.MultiDrawArrays"/>
+		/// <seealso cref="Gl.MultiDrawElements"/>
+		/// <seealso cref="Gl.NormalPointer"/>
+		/// <seealso cref="Gl.PopClientAttrib"/>
+		/// <seealso cref="Gl.PushClientAttrib"/>
+		/// <seealso cref="Gl.SecondaryColorPointer"/>
+		/// <seealso cref="Gl.TexCoordPointer"/>
+		/// <seealso cref="Gl.VertexAttribPointer"/>
+		/// <seealso cref="Gl.VertexPointer"/>
 		public static void FogCoordPointer(int type, Int32 stride, IntPtr pointer)
 		{
 			if        (Delegates.pglFogCoordPointer != null) {
@@ -1200,19 +1287,70 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glFogCoordPointer.
+		/// define an array of fog coordinates
 		/// </summary>
 		/// <param name="type">
-		/// A <see cref="T:int"/>.
+		/// Specifies the data type of each fog coordinate. Symbolic constants <see cref="Gl.FLOAT"/>, or <see cref="Gl.DOUBLE"/> 
+		/// areaccepted. The initial value is <see cref="Gl.FLOAT"/>. 
 		/// </param>
 		/// <param name="stride">
-		/// A <see cref="T:Int32"/>.
+		/// Specifies the byte offset between consecutive fog coordinates. If <paramref name="stride"/> is 0, the array elements are 
+		/// understoodto be tightly packed. The initial value is 0. 
 		/// </param>
 		/// <param name="pointer">
-		/// A <see cref="T:IntPtr"/>.
+		/// Specifies a pointer to the first coordinate of the first fog coordinate in the array. The initial value is 0. 
 		/// </param>
 		/// <remarks>
+		/// <see cref="Gl.FogCoordPointer"/> specifies the location and data format of an array of fog coordinates to use when 
+		/// rendering.<paramref name="type"/> specifies the data type of each fog coordinate, and <paramref name="stride"/> 
+		/// specifiesthe byte stride from one fog coordinate to the next, allowing vertices and attributes to be packed into a 
+		/// singlearray or stored in separate arrays. 
+		/// If a non-zero named buffer object is bound to the <see cref="Gl.ARRAY_BUFFER"/> target (see Gl.BindBuffer) while a fog 
+		/// coordinatearray is specified, <paramref name="pointer"/> is treated as a byte offset into the buffer object's data 
+		/// store.Also, the buffer object binding (<see cref="Gl.ARRAY_BUFFER_BINDING"/>) is saved as fog coordinate vertex array 
+		/// client-sidestate (<see cref="Gl.FOG_COORD_ARRAY_BUFFER_BINDING"/>). 
+		/// When a fog coordinate array is specified, <paramref name="type"/>, <paramref name="stride"/>, and <paramref 
+		/// name="pointer"/>are saved as client-side state, in addition to the current vertex array buffer object binding. 
+		/// To enable and disable the fog coordinate array, call Gl.EnableClientState and Gl.DisableClientState with the argument 
+		/// <seecref="Gl.FOG_COORD_ARRAY"/>. If enabled, the fog coordinate array is used when Gl.DrawArrays, Gl.MultiDrawArrays, 
+		/// Gl.DrawElements,Gl.MultiDrawElements, Gl.DrawRangeElements, or Gl.ArrayElement is called. 
+		/// <para>
+		/// The following errors can be generated:
+		/// - <see cref="Gl.INVALID_ENUM"/> is generated if <paramref name="type"/> is not either <see cref="Gl.FLOAT"/> or <see 
+		///   cref="Gl.DOUBLE"/>.
+		/// - <see cref="Gl.INVALID_VALUE"/> is generated if <paramref name="stride"/> is negative. 
+		/// </para>
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - Gl.IsEnabled with argument <see cref="Gl.FOG_COORD_ARRAY"/> 
+		/// - Gl.Get with argument <see cref="Gl.FOG_COORD_ARRAY_STRIDE"/> 
+		/// - Gl.Get with argument <see cref="Gl.FOG_COORD_ARRAY_TYPE"/> 
+		/// - Gl.Get with argument <see cref="Gl.FOG_COORD_ARRAY_BUFFER_BINDING"/> 
+		/// - Gl.Get with argument <see cref="Gl.ARRAY_BUFFER_BINDING"/> 
+		/// - Gl.GetPointerv with argument <see cref="Gl.FOG_COORD_ARRAY_POINTER"/> 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.ArrayElement"/>
+		/// <seealso cref="Gl.BindBuffer"/>
+		/// <seealso cref="Gl.ColorPointer"/>
+		/// <seealso cref="Gl.DisableClientState"/>
+		/// <seealso cref="Gl.DrawArrays"/>
+		/// <seealso cref="Gl.DrawElements"/>
+		/// <seealso cref="Gl.DrawRangeElements"/>
+		/// <seealso cref="Gl.EdgeFlagPointer"/>
+		/// <seealso cref="Gl.EnableClientState"/>
+		/// <seealso cref="Gl.FogCoord"/>
+		/// <seealso cref="Gl.IndexPointer"/>
+		/// <seealso cref="Gl.InterleavedArrays"/>
+		/// <seealso cref="Gl.MultiDrawArrays"/>
+		/// <seealso cref="Gl.MultiDrawElements"/>
+		/// <seealso cref="Gl.NormalPointer"/>
+		/// <seealso cref="Gl.PopClientAttrib"/>
+		/// <seealso cref="Gl.PushClientAttrib"/>
+		/// <seealso cref="Gl.SecondaryColorPointer"/>
+		/// <seealso cref="Gl.TexCoordPointer"/>
+		/// <seealso cref="Gl.VertexAttribPointer"/>
+		/// <seealso cref="Gl.VertexPointer"/>
 		public static void FogCoordPointer(FogPointerTypeEXT type, Int32 stride, IntPtr pointer)
 		{
 			if        (Delegates.pglFogCoordPointer != null) {
@@ -1227,19 +1365,70 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glFogCoordPointer.
+		/// define an array of fog coordinates
 		/// </summary>
 		/// <param name="type">
-		/// A <see cref="T:int"/>.
+		/// Specifies the data type of each fog coordinate. Symbolic constants <see cref="Gl.FLOAT"/>, or <see cref="Gl.DOUBLE"/> 
+		/// areaccepted. The initial value is <see cref="Gl.FLOAT"/>. 
 		/// </param>
 		/// <param name="stride">
-		/// A <see cref="T:Int32"/>.
+		/// Specifies the byte offset between consecutive fog coordinates. If <paramref name="stride"/> is 0, the array elements are 
+		/// understoodto be tightly packed. The initial value is 0. 
 		/// </param>
 		/// <param name="pointer">
-		/// A <see cref="T:IntPtr"/>.
+		/// Specifies a pointer to the first coordinate of the first fog coordinate in the array. The initial value is 0. 
 		/// </param>
 		/// <remarks>
+		/// <see cref="Gl.FogCoordPointer"/> specifies the location and data format of an array of fog coordinates to use when 
+		/// rendering.<paramref name="type"/> specifies the data type of each fog coordinate, and <paramref name="stride"/> 
+		/// specifiesthe byte stride from one fog coordinate to the next, allowing vertices and attributes to be packed into a 
+		/// singlearray or stored in separate arrays. 
+		/// If a non-zero named buffer object is bound to the <see cref="Gl.ARRAY_BUFFER"/> target (see Gl.BindBuffer) while a fog 
+		/// coordinatearray is specified, <paramref name="pointer"/> is treated as a byte offset into the buffer object's data 
+		/// store.Also, the buffer object binding (<see cref="Gl.ARRAY_BUFFER_BINDING"/>) is saved as fog coordinate vertex array 
+		/// client-sidestate (<see cref="Gl.FOG_COORD_ARRAY_BUFFER_BINDING"/>). 
+		/// When a fog coordinate array is specified, <paramref name="type"/>, <paramref name="stride"/>, and <paramref 
+		/// name="pointer"/>are saved as client-side state, in addition to the current vertex array buffer object binding. 
+		/// To enable and disable the fog coordinate array, call Gl.EnableClientState and Gl.DisableClientState with the argument 
+		/// <seecref="Gl.FOG_COORD_ARRAY"/>. If enabled, the fog coordinate array is used when Gl.DrawArrays, Gl.MultiDrawArrays, 
+		/// Gl.DrawElements,Gl.MultiDrawElements, Gl.DrawRangeElements, or Gl.ArrayElement is called. 
+		/// <para>
+		/// The following errors can be generated:
+		/// - <see cref="Gl.INVALID_ENUM"/> is generated if <paramref name="type"/> is not either <see cref="Gl.FLOAT"/> or <see 
+		///   cref="Gl.DOUBLE"/>.
+		/// - <see cref="Gl.INVALID_VALUE"/> is generated if <paramref name="stride"/> is negative. 
+		/// </para>
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - Gl.IsEnabled with argument <see cref="Gl.FOG_COORD_ARRAY"/> 
+		/// - Gl.Get with argument <see cref="Gl.FOG_COORD_ARRAY_STRIDE"/> 
+		/// - Gl.Get with argument <see cref="Gl.FOG_COORD_ARRAY_TYPE"/> 
+		/// - Gl.Get with argument <see cref="Gl.FOG_COORD_ARRAY_BUFFER_BINDING"/> 
+		/// - Gl.Get with argument <see cref="Gl.ARRAY_BUFFER_BINDING"/> 
+		/// - Gl.GetPointerv with argument <see cref="Gl.FOG_COORD_ARRAY_POINTER"/> 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.ArrayElement"/>
+		/// <seealso cref="Gl.BindBuffer"/>
+		/// <seealso cref="Gl.ColorPointer"/>
+		/// <seealso cref="Gl.DisableClientState"/>
+		/// <seealso cref="Gl.DrawArrays"/>
+		/// <seealso cref="Gl.DrawElements"/>
+		/// <seealso cref="Gl.DrawRangeElements"/>
+		/// <seealso cref="Gl.EdgeFlagPointer"/>
+		/// <seealso cref="Gl.EnableClientState"/>
+		/// <seealso cref="Gl.FogCoord"/>
+		/// <seealso cref="Gl.IndexPointer"/>
+		/// <seealso cref="Gl.InterleavedArrays"/>
+		/// <seealso cref="Gl.MultiDrawArrays"/>
+		/// <seealso cref="Gl.MultiDrawElements"/>
+		/// <seealso cref="Gl.NormalPointer"/>
+		/// <seealso cref="Gl.PopClientAttrib"/>
+		/// <seealso cref="Gl.PushClientAttrib"/>
+		/// <seealso cref="Gl.SecondaryColorPointer"/>
+		/// <seealso cref="Gl.TexCoordPointer"/>
+		/// <seealso cref="Gl.VertexAttribPointer"/>
+		/// <seealso cref="Gl.VertexPointer"/>
 		public static void FogCoordPointer(int type, Int32 stride, Object pointer)
 		{
 			GCHandle pin_pointer = GCHandle.Alloc(pointer, GCHandleType.Pinned);
@@ -1251,19 +1440,48 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glSecondaryColor3b.
+		/// set the current secondary color
 		/// </summary>
 		/// <param name="red">
-		/// A <see cref="T:sbyte"/>.
+		/// Specify new red, green, and blue values for the current secondary color. 
 		/// </param>
 		/// <param name="green">
-		/// A <see cref="T:sbyte"/>.
+		/// Specify new red, green, and blue values for the current secondary color. 
 		/// </param>
 		/// <param name="blue">
-		/// A <see cref="T:sbyte"/>.
+		/// Specify new red, green, and blue values for the current secondary color. 
 		/// </param>
 		/// <remarks>
+		/// The GL stores both a primary four-valued RGBA color and a secondary four-valued RGBA color (where alpha is always set to 
+		/// 0.0)that is associated with every vertex. 
+		/// The secondary color is interpolated and applied to each fragment during rasterization when <see cref="Gl.COLOR_SUM"/> is 
+		/// enabled.When lighting is enabled, and <see cref="Gl.SEPARATE_SPECULAR_COLOR"/> is specified, the value of the secondary 
+		/// coloris assigned the value computed from the specular term of the lighting computation. Both the primary and secondary 
+		/// currentcolors are applied to each fragment, regardless of the state of <see cref="Gl.COLOR_SUM"/>, under such 
+		/// conditions.When <see cref="Gl.SEPARATE_SPECULAR_COLOR"/> is specified, the value returned from querying the current 
+		/// secondarycolor is undefined. 
+		/// <see cref="Gl.SecondaryColor3b"/>, <see cref="Gl.SecondaryColor3s"/>, and <see cref="Gl.SecondaryColor3i"/> take three 
+		/// signedbyte, short, or long integers as arguments. When v is appended to the name, the color commands can take a pointer 
+		/// toan array of such values. 
+		/// Color values are stored in floating-point format, with unspecified mantissa and exponent sizes. Unsigned integer color 
+		/// components,when specified, are linearly mapped to floating-point values such that the largest representable value maps 
+		/// to1.0 (full intensity), and 0 maps to 0.0 (zero intensity). Signed integer color components, when specified, are 
+		/// linearlymapped to floating-point values such that the most positive representable value maps to 1.0, and the most 
+		/// negativerepresentable value maps to -1.0. (Note that this mapping does not convert 0 precisely to 0.0). Floating-point 
+		/// valuesare mapped directly. 
+		/// Neither floating-point nor signed integer values are clamped to the range 01 before the current color is updated. 
+		/// However,color components are clamped to this range before they are interpolated or written into a color buffer. 
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - Gl.Get with argument <see cref="Gl.CURRENT_SECONDARY_COLOR"/> 
+		/// - Gl.Get with argument <see cref="Gl.RGBA_MODE"/> 
+		/// - Gl.IsEnabled with argument <see cref="Gl.COLOR_SUM"/> 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.Color"/>
+		/// <seealso cref="Gl.Index"/>
+		/// <seealso cref="Gl.IsEnabled"/>
+		/// <seealso cref="Gl.LightModel"/>
 		public static void SecondaryColor3(sbyte red, sbyte green, sbyte blue)
 		{
 			if        (Delegates.pglSecondaryColor3b != null) {
@@ -1278,13 +1496,42 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glSecondaryColor3bv.
+		/// set the current secondary color
 		/// </summary>
 		/// <param name="v">
 		/// A <see cref="T:sbyte[]"/>.
 		/// </param>
 		/// <remarks>
+		/// The GL stores both a primary four-valued RGBA color and a secondary four-valued RGBA color (where alpha is always set to 
+		/// 0.0)that is associated with every vertex. 
+		/// The secondary color is interpolated and applied to each fragment during rasterization when <see cref="Gl.COLOR_SUM"/> is 
+		/// enabled.When lighting is enabled, and <see cref="Gl.SEPARATE_SPECULAR_COLOR"/> is specified, the value of the secondary 
+		/// coloris assigned the value computed from the specular term of the lighting computation. Both the primary and secondary 
+		/// currentcolors are applied to each fragment, regardless of the state of <see cref="Gl.COLOR_SUM"/>, under such 
+		/// conditions.When <see cref="Gl.SEPARATE_SPECULAR_COLOR"/> is specified, the value returned from querying the current 
+		/// secondarycolor is undefined. 
+		/// <see cref="Gl.SecondaryColor3b"/>, <see cref="Gl.SecondaryColor3s"/>, and <see cref="Gl.SecondaryColor3i"/> take three 
+		/// signedbyte, short, or long integers as arguments. When v is appended to the name, the color commands can take a pointer 
+		/// toan array of such values. 
+		/// Color values are stored in floating-point format, with unspecified mantissa and exponent sizes. Unsigned integer color 
+		/// components,when specified, are linearly mapped to floating-point values such that the largest representable value maps 
+		/// to1.0 (full intensity), and 0 maps to 0.0 (zero intensity). Signed integer color components, when specified, are 
+		/// linearlymapped to floating-point values such that the most positive representable value maps to 1.0, and the most 
+		/// negativerepresentable value maps to -1.0. (Note that this mapping does not convert 0 precisely to 0.0). Floating-point 
+		/// valuesare mapped directly. 
+		/// Neither floating-point nor signed integer values are clamped to the range 01 before the current color is updated. 
+		/// However,color components are clamped to this range before they are interpolated or written into a color buffer. 
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - Gl.Get with argument <see cref="Gl.CURRENT_SECONDARY_COLOR"/> 
+		/// - Gl.Get with argument <see cref="Gl.RGBA_MODE"/> 
+		/// - Gl.IsEnabled with argument <see cref="Gl.COLOR_SUM"/> 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.Color"/>
+		/// <seealso cref="Gl.Index"/>
+		/// <seealso cref="Gl.IsEnabled"/>
+		/// <seealso cref="Gl.LightModel"/>
 		public static void SecondaryColor3(sbyte[] v)
 		{
 			unsafe {
@@ -1304,19 +1551,48 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glSecondaryColor3d.
+		/// set the current secondary color
 		/// </summary>
 		/// <param name="red">
-		/// A <see cref="T:double"/>.
+		/// Specify new red, green, and blue values for the current secondary color. 
 		/// </param>
 		/// <param name="green">
-		/// A <see cref="T:double"/>.
+		/// Specify new red, green, and blue values for the current secondary color. 
 		/// </param>
 		/// <param name="blue">
-		/// A <see cref="T:double"/>.
+		/// Specify new red, green, and blue values for the current secondary color. 
 		/// </param>
 		/// <remarks>
+		/// The GL stores both a primary four-valued RGBA color and a secondary four-valued RGBA color (where alpha is always set to 
+		/// 0.0)that is associated with every vertex. 
+		/// The secondary color is interpolated and applied to each fragment during rasterization when <see cref="Gl.COLOR_SUM"/> is 
+		/// enabled.When lighting is enabled, and <see cref="Gl.SEPARATE_SPECULAR_COLOR"/> is specified, the value of the secondary 
+		/// coloris assigned the value computed from the specular term of the lighting computation. Both the primary and secondary 
+		/// currentcolors are applied to each fragment, regardless of the state of <see cref="Gl.COLOR_SUM"/>, under such 
+		/// conditions.When <see cref="Gl.SEPARATE_SPECULAR_COLOR"/> is specified, the value returned from querying the current 
+		/// secondarycolor is undefined. 
+		/// <see cref="Gl.SecondaryColor3b"/>, <see cref="Gl.SecondaryColor3s"/>, and <see cref="Gl.SecondaryColor3i"/> take three 
+		/// signedbyte, short, or long integers as arguments. When v is appended to the name, the color commands can take a pointer 
+		/// toan array of such values. 
+		/// Color values are stored in floating-point format, with unspecified mantissa and exponent sizes. Unsigned integer color 
+		/// components,when specified, are linearly mapped to floating-point values such that the largest representable value maps 
+		/// to1.0 (full intensity), and 0 maps to 0.0 (zero intensity). Signed integer color components, when specified, are 
+		/// linearlymapped to floating-point values such that the most positive representable value maps to 1.0, and the most 
+		/// negativerepresentable value maps to -1.0. (Note that this mapping does not convert 0 precisely to 0.0). Floating-point 
+		/// valuesare mapped directly. 
+		/// Neither floating-point nor signed integer values are clamped to the range 01 before the current color is updated. 
+		/// However,color components are clamped to this range before they are interpolated or written into a color buffer. 
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - Gl.Get with argument <see cref="Gl.CURRENT_SECONDARY_COLOR"/> 
+		/// - Gl.Get with argument <see cref="Gl.RGBA_MODE"/> 
+		/// - Gl.IsEnabled with argument <see cref="Gl.COLOR_SUM"/> 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.Color"/>
+		/// <seealso cref="Gl.Index"/>
+		/// <seealso cref="Gl.IsEnabled"/>
+		/// <seealso cref="Gl.LightModel"/>
 		public static void SecondaryColor3(double red, double green, double blue)
 		{
 			if        (Delegates.pglSecondaryColor3d != null) {
@@ -1331,13 +1607,42 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glSecondaryColor3dv.
+		/// set the current secondary color
 		/// </summary>
 		/// <param name="v">
 		/// A <see cref="T:double[]"/>.
 		/// </param>
 		/// <remarks>
+		/// The GL stores both a primary four-valued RGBA color and a secondary four-valued RGBA color (where alpha is always set to 
+		/// 0.0)that is associated with every vertex. 
+		/// The secondary color is interpolated and applied to each fragment during rasterization when <see cref="Gl.COLOR_SUM"/> is 
+		/// enabled.When lighting is enabled, and <see cref="Gl.SEPARATE_SPECULAR_COLOR"/> is specified, the value of the secondary 
+		/// coloris assigned the value computed from the specular term of the lighting computation. Both the primary and secondary 
+		/// currentcolors are applied to each fragment, regardless of the state of <see cref="Gl.COLOR_SUM"/>, under such 
+		/// conditions.When <see cref="Gl.SEPARATE_SPECULAR_COLOR"/> is specified, the value returned from querying the current 
+		/// secondarycolor is undefined. 
+		/// <see cref="Gl.SecondaryColor3b"/>, <see cref="Gl.SecondaryColor3s"/>, and <see cref="Gl.SecondaryColor3i"/> take three 
+		/// signedbyte, short, or long integers as arguments. When v is appended to the name, the color commands can take a pointer 
+		/// toan array of such values. 
+		/// Color values are stored in floating-point format, with unspecified mantissa and exponent sizes. Unsigned integer color 
+		/// components,when specified, are linearly mapped to floating-point values such that the largest representable value maps 
+		/// to1.0 (full intensity), and 0 maps to 0.0 (zero intensity). Signed integer color components, when specified, are 
+		/// linearlymapped to floating-point values such that the most positive representable value maps to 1.0, and the most 
+		/// negativerepresentable value maps to -1.0. (Note that this mapping does not convert 0 precisely to 0.0). Floating-point 
+		/// valuesare mapped directly. 
+		/// Neither floating-point nor signed integer values are clamped to the range 01 before the current color is updated. 
+		/// However,color components are clamped to this range before they are interpolated or written into a color buffer. 
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - Gl.Get with argument <see cref="Gl.CURRENT_SECONDARY_COLOR"/> 
+		/// - Gl.Get with argument <see cref="Gl.RGBA_MODE"/> 
+		/// - Gl.IsEnabled with argument <see cref="Gl.COLOR_SUM"/> 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.Color"/>
+		/// <seealso cref="Gl.Index"/>
+		/// <seealso cref="Gl.IsEnabled"/>
+		/// <seealso cref="Gl.LightModel"/>
 		public static void SecondaryColor3(double[] v)
 		{
 			unsafe {
@@ -1357,19 +1662,48 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glSecondaryColor3f.
+		/// set the current secondary color
 		/// </summary>
 		/// <param name="red">
-		/// A <see cref="T:float"/>.
+		/// Specify new red, green, and blue values for the current secondary color. 
 		/// </param>
 		/// <param name="green">
-		/// A <see cref="T:float"/>.
+		/// Specify new red, green, and blue values for the current secondary color. 
 		/// </param>
 		/// <param name="blue">
-		/// A <see cref="T:float"/>.
+		/// Specify new red, green, and blue values for the current secondary color. 
 		/// </param>
 		/// <remarks>
+		/// The GL stores both a primary four-valued RGBA color and a secondary four-valued RGBA color (where alpha is always set to 
+		/// 0.0)that is associated with every vertex. 
+		/// The secondary color is interpolated and applied to each fragment during rasterization when <see cref="Gl.COLOR_SUM"/> is 
+		/// enabled.When lighting is enabled, and <see cref="Gl.SEPARATE_SPECULAR_COLOR"/> is specified, the value of the secondary 
+		/// coloris assigned the value computed from the specular term of the lighting computation. Both the primary and secondary 
+		/// currentcolors are applied to each fragment, regardless of the state of <see cref="Gl.COLOR_SUM"/>, under such 
+		/// conditions.When <see cref="Gl.SEPARATE_SPECULAR_COLOR"/> is specified, the value returned from querying the current 
+		/// secondarycolor is undefined. 
+		/// <see cref="Gl.SecondaryColor3b"/>, <see cref="Gl.SecondaryColor3s"/>, and <see cref="Gl.SecondaryColor3i"/> take three 
+		/// signedbyte, short, or long integers as arguments. When v is appended to the name, the color commands can take a pointer 
+		/// toan array of such values. 
+		/// Color values are stored in floating-point format, with unspecified mantissa and exponent sizes. Unsigned integer color 
+		/// components,when specified, are linearly mapped to floating-point values such that the largest representable value maps 
+		/// to1.0 (full intensity), and 0 maps to 0.0 (zero intensity). Signed integer color components, when specified, are 
+		/// linearlymapped to floating-point values such that the most positive representable value maps to 1.0, and the most 
+		/// negativerepresentable value maps to -1.0. (Note that this mapping does not convert 0 precisely to 0.0). Floating-point 
+		/// valuesare mapped directly. 
+		/// Neither floating-point nor signed integer values are clamped to the range 01 before the current color is updated. 
+		/// However,color components are clamped to this range before they are interpolated or written into a color buffer. 
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - Gl.Get with argument <see cref="Gl.CURRENT_SECONDARY_COLOR"/> 
+		/// - Gl.Get with argument <see cref="Gl.RGBA_MODE"/> 
+		/// - Gl.IsEnabled with argument <see cref="Gl.COLOR_SUM"/> 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.Color"/>
+		/// <seealso cref="Gl.Index"/>
+		/// <seealso cref="Gl.IsEnabled"/>
+		/// <seealso cref="Gl.LightModel"/>
 		public static void SecondaryColor3(float red, float green, float blue)
 		{
 			if        (Delegates.pglSecondaryColor3f != null) {
@@ -1384,13 +1718,42 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glSecondaryColor3fv.
+		/// set the current secondary color
 		/// </summary>
 		/// <param name="v">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
 		/// <remarks>
+		/// The GL stores both a primary four-valued RGBA color and a secondary four-valued RGBA color (where alpha is always set to 
+		/// 0.0)that is associated with every vertex. 
+		/// The secondary color is interpolated and applied to each fragment during rasterization when <see cref="Gl.COLOR_SUM"/> is 
+		/// enabled.When lighting is enabled, and <see cref="Gl.SEPARATE_SPECULAR_COLOR"/> is specified, the value of the secondary 
+		/// coloris assigned the value computed from the specular term of the lighting computation. Both the primary and secondary 
+		/// currentcolors are applied to each fragment, regardless of the state of <see cref="Gl.COLOR_SUM"/>, under such 
+		/// conditions.When <see cref="Gl.SEPARATE_SPECULAR_COLOR"/> is specified, the value returned from querying the current 
+		/// secondarycolor is undefined. 
+		/// <see cref="Gl.SecondaryColor3b"/>, <see cref="Gl.SecondaryColor3s"/>, and <see cref="Gl.SecondaryColor3i"/> take three 
+		/// signedbyte, short, or long integers as arguments. When v is appended to the name, the color commands can take a pointer 
+		/// toan array of such values. 
+		/// Color values are stored in floating-point format, with unspecified mantissa and exponent sizes. Unsigned integer color 
+		/// components,when specified, are linearly mapped to floating-point values such that the largest representable value maps 
+		/// to1.0 (full intensity), and 0 maps to 0.0 (zero intensity). Signed integer color components, when specified, are 
+		/// linearlymapped to floating-point values such that the most positive representable value maps to 1.0, and the most 
+		/// negativerepresentable value maps to -1.0. (Note that this mapping does not convert 0 precisely to 0.0). Floating-point 
+		/// valuesare mapped directly. 
+		/// Neither floating-point nor signed integer values are clamped to the range 01 before the current color is updated. 
+		/// However,color components are clamped to this range before they are interpolated or written into a color buffer. 
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - Gl.Get with argument <see cref="Gl.CURRENT_SECONDARY_COLOR"/> 
+		/// - Gl.Get with argument <see cref="Gl.RGBA_MODE"/> 
+		/// - Gl.IsEnabled with argument <see cref="Gl.COLOR_SUM"/> 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.Color"/>
+		/// <seealso cref="Gl.Index"/>
+		/// <seealso cref="Gl.IsEnabled"/>
+		/// <seealso cref="Gl.LightModel"/>
 		public static void SecondaryColor3(float[] v)
 		{
 			unsafe {
@@ -1410,19 +1773,48 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glSecondaryColor3i.
+		/// set the current secondary color
 		/// </summary>
 		/// <param name="red">
-		/// A <see cref="T:Int32"/>.
+		/// Specify new red, green, and blue values for the current secondary color. 
 		/// </param>
 		/// <param name="green">
-		/// A <see cref="T:Int32"/>.
+		/// Specify new red, green, and blue values for the current secondary color. 
 		/// </param>
 		/// <param name="blue">
-		/// A <see cref="T:Int32"/>.
+		/// Specify new red, green, and blue values for the current secondary color. 
 		/// </param>
 		/// <remarks>
+		/// The GL stores both a primary four-valued RGBA color and a secondary four-valued RGBA color (where alpha is always set to 
+		/// 0.0)that is associated with every vertex. 
+		/// The secondary color is interpolated and applied to each fragment during rasterization when <see cref="Gl.COLOR_SUM"/> is 
+		/// enabled.When lighting is enabled, and <see cref="Gl.SEPARATE_SPECULAR_COLOR"/> is specified, the value of the secondary 
+		/// coloris assigned the value computed from the specular term of the lighting computation. Both the primary and secondary 
+		/// currentcolors are applied to each fragment, regardless of the state of <see cref="Gl.COLOR_SUM"/>, under such 
+		/// conditions.When <see cref="Gl.SEPARATE_SPECULAR_COLOR"/> is specified, the value returned from querying the current 
+		/// secondarycolor is undefined. 
+		/// <see cref="Gl.SecondaryColor3b"/>, <see cref="Gl.SecondaryColor3s"/>, and <see cref="Gl.SecondaryColor3i"/> take three 
+		/// signedbyte, short, or long integers as arguments. When v is appended to the name, the color commands can take a pointer 
+		/// toan array of such values. 
+		/// Color values are stored in floating-point format, with unspecified mantissa and exponent sizes. Unsigned integer color 
+		/// components,when specified, are linearly mapped to floating-point values such that the largest representable value maps 
+		/// to1.0 (full intensity), and 0 maps to 0.0 (zero intensity). Signed integer color components, when specified, are 
+		/// linearlymapped to floating-point values such that the most positive representable value maps to 1.0, and the most 
+		/// negativerepresentable value maps to -1.0. (Note that this mapping does not convert 0 precisely to 0.0). Floating-point 
+		/// valuesare mapped directly. 
+		/// Neither floating-point nor signed integer values are clamped to the range 01 before the current color is updated. 
+		/// However,color components are clamped to this range before they are interpolated or written into a color buffer. 
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - Gl.Get with argument <see cref="Gl.CURRENT_SECONDARY_COLOR"/> 
+		/// - Gl.Get with argument <see cref="Gl.RGBA_MODE"/> 
+		/// - Gl.IsEnabled with argument <see cref="Gl.COLOR_SUM"/> 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.Color"/>
+		/// <seealso cref="Gl.Index"/>
+		/// <seealso cref="Gl.IsEnabled"/>
+		/// <seealso cref="Gl.LightModel"/>
 		public static void SecondaryColor3(Int32 red, Int32 green, Int32 blue)
 		{
 			if        (Delegates.pglSecondaryColor3i != null) {
@@ -1437,13 +1829,42 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glSecondaryColor3iv.
+		/// set the current secondary color
 		/// </summary>
 		/// <param name="v">
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
 		/// <remarks>
+		/// The GL stores both a primary four-valued RGBA color and a secondary four-valued RGBA color (where alpha is always set to 
+		/// 0.0)that is associated with every vertex. 
+		/// The secondary color is interpolated and applied to each fragment during rasterization when <see cref="Gl.COLOR_SUM"/> is 
+		/// enabled.When lighting is enabled, and <see cref="Gl.SEPARATE_SPECULAR_COLOR"/> is specified, the value of the secondary 
+		/// coloris assigned the value computed from the specular term of the lighting computation. Both the primary and secondary 
+		/// currentcolors are applied to each fragment, regardless of the state of <see cref="Gl.COLOR_SUM"/>, under such 
+		/// conditions.When <see cref="Gl.SEPARATE_SPECULAR_COLOR"/> is specified, the value returned from querying the current 
+		/// secondarycolor is undefined. 
+		/// <see cref="Gl.SecondaryColor3b"/>, <see cref="Gl.SecondaryColor3s"/>, and <see cref="Gl.SecondaryColor3i"/> take three 
+		/// signedbyte, short, or long integers as arguments. When v is appended to the name, the color commands can take a pointer 
+		/// toan array of such values. 
+		/// Color values are stored in floating-point format, with unspecified mantissa and exponent sizes. Unsigned integer color 
+		/// components,when specified, are linearly mapped to floating-point values such that the largest representable value maps 
+		/// to1.0 (full intensity), and 0 maps to 0.0 (zero intensity). Signed integer color components, when specified, are 
+		/// linearlymapped to floating-point values such that the most positive representable value maps to 1.0, and the most 
+		/// negativerepresentable value maps to -1.0. (Note that this mapping does not convert 0 precisely to 0.0). Floating-point 
+		/// valuesare mapped directly. 
+		/// Neither floating-point nor signed integer values are clamped to the range 01 before the current color is updated. 
+		/// However,color components are clamped to this range before they are interpolated or written into a color buffer. 
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - Gl.Get with argument <see cref="Gl.CURRENT_SECONDARY_COLOR"/> 
+		/// - Gl.Get with argument <see cref="Gl.RGBA_MODE"/> 
+		/// - Gl.IsEnabled with argument <see cref="Gl.COLOR_SUM"/> 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.Color"/>
+		/// <seealso cref="Gl.Index"/>
+		/// <seealso cref="Gl.IsEnabled"/>
+		/// <seealso cref="Gl.LightModel"/>
 		public static void SecondaryColor3(Int32[] v)
 		{
 			unsafe {
@@ -1463,19 +1884,48 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glSecondaryColor3s.
+		/// set the current secondary color
 		/// </summary>
 		/// <param name="red">
-		/// A <see cref="T:Int16"/>.
+		/// Specify new red, green, and blue values for the current secondary color. 
 		/// </param>
 		/// <param name="green">
-		/// A <see cref="T:Int16"/>.
+		/// Specify new red, green, and blue values for the current secondary color. 
 		/// </param>
 		/// <param name="blue">
-		/// A <see cref="T:Int16"/>.
+		/// Specify new red, green, and blue values for the current secondary color. 
 		/// </param>
 		/// <remarks>
+		/// The GL stores both a primary four-valued RGBA color and a secondary four-valued RGBA color (where alpha is always set to 
+		/// 0.0)that is associated with every vertex. 
+		/// The secondary color is interpolated and applied to each fragment during rasterization when <see cref="Gl.COLOR_SUM"/> is 
+		/// enabled.When lighting is enabled, and <see cref="Gl.SEPARATE_SPECULAR_COLOR"/> is specified, the value of the secondary 
+		/// coloris assigned the value computed from the specular term of the lighting computation. Both the primary and secondary 
+		/// currentcolors are applied to each fragment, regardless of the state of <see cref="Gl.COLOR_SUM"/>, under such 
+		/// conditions.When <see cref="Gl.SEPARATE_SPECULAR_COLOR"/> is specified, the value returned from querying the current 
+		/// secondarycolor is undefined. 
+		/// <see cref="Gl.SecondaryColor3b"/>, <see cref="Gl.SecondaryColor3s"/>, and <see cref="Gl.SecondaryColor3i"/> take three 
+		/// signedbyte, short, or long integers as arguments. When v is appended to the name, the color commands can take a pointer 
+		/// toan array of such values. 
+		/// Color values are stored in floating-point format, with unspecified mantissa and exponent sizes. Unsigned integer color 
+		/// components,when specified, are linearly mapped to floating-point values such that the largest representable value maps 
+		/// to1.0 (full intensity), and 0 maps to 0.0 (zero intensity). Signed integer color components, when specified, are 
+		/// linearlymapped to floating-point values such that the most positive representable value maps to 1.0, and the most 
+		/// negativerepresentable value maps to -1.0. (Note that this mapping does not convert 0 precisely to 0.0). Floating-point 
+		/// valuesare mapped directly. 
+		/// Neither floating-point nor signed integer values are clamped to the range 01 before the current color is updated. 
+		/// However,color components are clamped to this range before they are interpolated or written into a color buffer. 
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - Gl.Get with argument <see cref="Gl.CURRENT_SECONDARY_COLOR"/> 
+		/// - Gl.Get with argument <see cref="Gl.RGBA_MODE"/> 
+		/// - Gl.IsEnabled with argument <see cref="Gl.COLOR_SUM"/> 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.Color"/>
+		/// <seealso cref="Gl.Index"/>
+		/// <seealso cref="Gl.IsEnabled"/>
+		/// <seealso cref="Gl.LightModel"/>
 		public static void SecondaryColor3(Int16 red, Int16 green, Int16 blue)
 		{
 			if        (Delegates.pglSecondaryColor3s != null) {
@@ -1490,13 +1940,42 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glSecondaryColor3sv.
+		/// set the current secondary color
 		/// </summary>
 		/// <param name="v">
 		/// A <see cref="T:Int16[]"/>.
 		/// </param>
 		/// <remarks>
+		/// The GL stores both a primary four-valued RGBA color and a secondary four-valued RGBA color (where alpha is always set to 
+		/// 0.0)that is associated with every vertex. 
+		/// The secondary color is interpolated and applied to each fragment during rasterization when <see cref="Gl.COLOR_SUM"/> is 
+		/// enabled.When lighting is enabled, and <see cref="Gl.SEPARATE_SPECULAR_COLOR"/> is specified, the value of the secondary 
+		/// coloris assigned the value computed from the specular term of the lighting computation. Both the primary and secondary 
+		/// currentcolors are applied to each fragment, regardless of the state of <see cref="Gl.COLOR_SUM"/>, under such 
+		/// conditions.When <see cref="Gl.SEPARATE_SPECULAR_COLOR"/> is specified, the value returned from querying the current 
+		/// secondarycolor is undefined. 
+		/// <see cref="Gl.SecondaryColor3b"/>, <see cref="Gl.SecondaryColor3s"/>, and <see cref="Gl.SecondaryColor3i"/> take three 
+		/// signedbyte, short, or long integers as arguments. When v is appended to the name, the color commands can take a pointer 
+		/// toan array of such values. 
+		/// Color values are stored in floating-point format, with unspecified mantissa and exponent sizes. Unsigned integer color 
+		/// components,when specified, are linearly mapped to floating-point values such that the largest representable value maps 
+		/// to1.0 (full intensity), and 0 maps to 0.0 (zero intensity). Signed integer color components, when specified, are 
+		/// linearlymapped to floating-point values such that the most positive representable value maps to 1.0, and the most 
+		/// negativerepresentable value maps to -1.0. (Note that this mapping does not convert 0 precisely to 0.0). Floating-point 
+		/// valuesare mapped directly. 
+		/// Neither floating-point nor signed integer values are clamped to the range 01 before the current color is updated. 
+		/// However,color components are clamped to this range before they are interpolated or written into a color buffer. 
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - Gl.Get with argument <see cref="Gl.CURRENT_SECONDARY_COLOR"/> 
+		/// - Gl.Get with argument <see cref="Gl.RGBA_MODE"/> 
+		/// - Gl.IsEnabled with argument <see cref="Gl.COLOR_SUM"/> 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.Color"/>
+		/// <seealso cref="Gl.Index"/>
+		/// <seealso cref="Gl.IsEnabled"/>
+		/// <seealso cref="Gl.LightModel"/>
 		public static void SecondaryColor3(Int16[] v)
 		{
 			unsafe {
@@ -1516,19 +1995,48 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glSecondaryColor3ub.
+		/// set the current secondary color
 		/// </summary>
 		/// <param name="red">
-		/// A <see cref="T:byte"/>.
+		/// Specify new red, green, and blue values for the current secondary color. 
 		/// </param>
 		/// <param name="green">
-		/// A <see cref="T:byte"/>.
+		/// Specify new red, green, and blue values for the current secondary color. 
 		/// </param>
 		/// <param name="blue">
-		/// A <see cref="T:byte"/>.
+		/// Specify new red, green, and blue values for the current secondary color. 
 		/// </param>
 		/// <remarks>
+		/// The GL stores both a primary four-valued RGBA color and a secondary four-valued RGBA color (where alpha is always set to 
+		/// 0.0)that is associated with every vertex. 
+		/// The secondary color is interpolated and applied to each fragment during rasterization when <see cref="Gl.COLOR_SUM"/> is 
+		/// enabled.When lighting is enabled, and <see cref="Gl.SEPARATE_SPECULAR_COLOR"/> is specified, the value of the secondary 
+		/// coloris assigned the value computed from the specular term of the lighting computation. Both the primary and secondary 
+		/// currentcolors are applied to each fragment, regardless of the state of <see cref="Gl.COLOR_SUM"/>, under such 
+		/// conditions.When <see cref="Gl.SEPARATE_SPECULAR_COLOR"/> is specified, the value returned from querying the current 
+		/// secondarycolor is undefined. 
+		/// <see cref="Gl.SecondaryColor3b"/>, <see cref="Gl.SecondaryColor3s"/>, and <see cref="Gl.SecondaryColor3i"/> take three 
+		/// signedbyte, short, or long integers as arguments. When v is appended to the name, the color commands can take a pointer 
+		/// toan array of such values. 
+		/// Color values are stored in floating-point format, with unspecified mantissa and exponent sizes. Unsigned integer color 
+		/// components,when specified, are linearly mapped to floating-point values such that the largest representable value maps 
+		/// to1.0 (full intensity), and 0 maps to 0.0 (zero intensity). Signed integer color components, when specified, are 
+		/// linearlymapped to floating-point values such that the most positive representable value maps to 1.0, and the most 
+		/// negativerepresentable value maps to -1.0. (Note that this mapping does not convert 0 precisely to 0.0). Floating-point 
+		/// valuesare mapped directly. 
+		/// Neither floating-point nor signed integer values are clamped to the range 01 before the current color is updated. 
+		/// However,color components are clamped to this range before they are interpolated or written into a color buffer. 
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - Gl.Get with argument <see cref="Gl.CURRENT_SECONDARY_COLOR"/> 
+		/// - Gl.Get with argument <see cref="Gl.RGBA_MODE"/> 
+		/// - Gl.IsEnabled with argument <see cref="Gl.COLOR_SUM"/> 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.Color"/>
+		/// <seealso cref="Gl.Index"/>
+		/// <seealso cref="Gl.IsEnabled"/>
+		/// <seealso cref="Gl.LightModel"/>
 		public static void SecondaryColor3(byte red, byte green, byte blue)
 		{
 			if        (Delegates.pglSecondaryColor3ub != null) {
@@ -1543,13 +2051,42 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glSecondaryColor3ubv.
+		/// set the current secondary color
 		/// </summary>
 		/// <param name="v">
 		/// A <see cref="T:byte[]"/>.
 		/// </param>
 		/// <remarks>
+		/// The GL stores both a primary four-valued RGBA color and a secondary four-valued RGBA color (where alpha is always set to 
+		/// 0.0)that is associated with every vertex. 
+		/// The secondary color is interpolated and applied to each fragment during rasterization when <see cref="Gl.COLOR_SUM"/> is 
+		/// enabled.When lighting is enabled, and <see cref="Gl.SEPARATE_SPECULAR_COLOR"/> is specified, the value of the secondary 
+		/// coloris assigned the value computed from the specular term of the lighting computation. Both the primary and secondary 
+		/// currentcolors are applied to each fragment, regardless of the state of <see cref="Gl.COLOR_SUM"/>, under such 
+		/// conditions.When <see cref="Gl.SEPARATE_SPECULAR_COLOR"/> is specified, the value returned from querying the current 
+		/// secondarycolor is undefined. 
+		/// <see cref="Gl.SecondaryColor3b"/>, <see cref="Gl.SecondaryColor3s"/>, and <see cref="Gl.SecondaryColor3i"/> take three 
+		/// signedbyte, short, or long integers as arguments. When v is appended to the name, the color commands can take a pointer 
+		/// toan array of such values. 
+		/// Color values are stored in floating-point format, with unspecified mantissa and exponent sizes. Unsigned integer color 
+		/// components,when specified, are linearly mapped to floating-point values such that the largest representable value maps 
+		/// to1.0 (full intensity), and 0 maps to 0.0 (zero intensity). Signed integer color components, when specified, are 
+		/// linearlymapped to floating-point values such that the most positive representable value maps to 1.0, and the most 
+		/// negativerepresentable value maps to -1.0. (Note that this mapping does not convert 0 precisely to 0.0). Floating-point 
+		/// valuesare mapped directly. 
+		/// Neither floating-point nor signed integer values are clamped to the range 01 before the current color is updated. 
+		/// However,color components are clamped to this range before they are interpolated or written into a color buffer. 
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - Gl.Get with argument <see cref="Gl.CURRENT_SECONDARY_COLOR"/> 
+		/// - Gl.Get with argument <see cref="Gl.RGBA_MODE"/> 
+		/// - Gl.IsEnabled with argument <see cref="Gl.COLOR_SUM"/> 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.Color"/>
+		/// <seealso cref="Gl.Index"/>
+		/// <seealso cref="Gl.IsEnabled"/>
+		/// <seealso cref="Gl.LightModel"/>
 		public static void SecondaryColor3(byte[] v)
 		{
 			unsafe {
@@ -1569,19 +2106,48 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glSecondaryColor3ui.
+		/// set the current secondary color
 		/// </summary>
 		/// <param name="red">
-		/// A <see cref="T:UInt32"/>.
+		/// Specify new red, green, and blue values for the current secondary color. 
 		/// </param>
 		/// <param name="green">
-		/// A <see cref="T:UInt32"/>.
+		/// Specify new red, green, and blue values for the current secondary color. 
 		/// </param>
 		/// <param name="blue">
-		/// A <see cref="T:UInt32"/>.
+		/// Specify new red, green, and blue values for the current secondary color. 
 		/// </param>
 		/// <remarks>
+		/// The GL stores both a primary four-valued RGBA color and a secondary four-valued RGBA color (where alpha is always set to 
+		/// 0.0)that is associated with every vertex. 
+		/// The secondary color is interpolated and applied to each fragment during rasterization when <see cref="Gl.COLOR_SUM"/> is 
+		/// enabled.When lighting is enabled, and <see cref="Gl.SEPARATE_SPECULAR_COLOR"/> is specified, the value of the secondary 
+		/// coloris assigned the value computed from the specular term of the lighting computation. Both the primary and secondary 
+		/// currentcolors are applied to each fragment, regardless of the state of <see cref="Gl.COLOR_SUM"/>, under such 
+		/// conditions.When <see cref="Gl.SEPARATE_SPECULAR_COLOR"/> is specified, the value returned from querying the current 
+		/// secondarycolor is undefined. 
+		/// <see cref="Gl.SecondaryColor3b"/>, <see cref="Gl.SecondaryColor3s"/>, and <see cref="Gl.SecondaryColor3i"/> take three 
+		/// signedbyte, short, or long integers as arguments. When v is appended to the name, the color commands can take a pointer 
+		/// toan array of such values. 
+		/// Color values are stored in floating-point format, with unspecified mantissa and exponent sizes. Unsigned integer color 
+		/// components,when specified, are linearly mapped to floating-point values such that the largest representable value maps 
+		/// to1.0 (full intensity), and 0 maps to 0.0 (zero intensity). Signed integer color components, when specified, are 
+		/// linearlymapped to floating-point values such that the most positive representable value maps to 1.0, and the most 
+		/// negativerepresentable value maps to -1.0. (Note that this mapping does not convert 0 precisely to 0.0). Floating-point 
+		/// valuesare mapped directly. 
+		/// Neither floating-point nor signed integer values are clamped to the range 01 before the current color is updated. 
+		/// However,color components are clamped to this range before they are interpolated or written into a color buffer. 
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - Gl.Get with argument <see cref="Gl.CURRENT_SECONDARY_COLOR"/> 
+		/// - Gl.Get with argument <see cref="Gl.RGBA_MODE"/> 
+		/// - Gl.IsEnabled with argument <see cref="Gl.COLOR_SUM"/> 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.Color"/>
+		/// <seealso cref="Gl.Index"/>
+		/// <seealso cref="Gl.IsEnabled"/>
+		/// <seealso cref="Gl.LightModel"/>
 		public static void SecondaryColor3(UInt32 red, UInt32 green, UInt32 blue)
 		{
 			if        (Delegates.pglSecondaryColor3ui != null) {
@@ -1596,13 +2162,42 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glSecondaryColor3uiv.
+		/// set the current secondary color
 		/// </summary>
 		/// <param name="v">
 		/// A <see cref="T:UInt32[]"/>.
 		/// </param>
 		/// <remarks>
+		/// The GL stores both a primary four-valued RGBA color and a secondary four-valued RGBA color (where alpha is always set to 
+		/// 0.0)that is associated with every vertex. 
+		/// The secondary color is interpolated and applied to each fragment during rasterization when <see cref="Gl.COLOR_SUM"/> is 
+		/// enabled.When lighting is enabled, and <see cref="Gl.SEPARATE_SPECULAR_COLOR"/> is specified, the value of the secondary 
+		/// coloris assigned the value computed from the specular term of the lighting computation. Both the primary and secondary 
+		/// currentcolors are applied to each fragment, regardless of the state of <see cref="Gl.COLOR_SUM"/>, under such 
+		/// conditions.When <see cref="Gl.SEPARATE_SPECULAR_COLOR"/> is specified, the value returned from querying the current 
+		/// secondarycolor is undefined. 
+		/// <see cref="Gl.SecondaryColor3b"/>, <see cref="Gl.SecondaryColor3s"/>, and <see cref="Gl.SecondaryColor3i"/> take three 
+		/// signedbyte, short, or long integers as arguments. When v is appended to the name, the color commands can take a pointer 
+		/// toan array of such values. 
+		/// Color values are stored in floating-point format, with unspecified mantissa and exponent sizes. Unsigned integer color 
+		/// components,when specified, are linearly mapped to floating-point values such that the largest representable value maps 
+		/// to1.0 (full intensity), and 0 maps to 0.0 (zero intensity). Signed integer color components, when specified, are 
+		/// linearlymapped to floating-point values such that the most positive representable value maps to 1.0, and the most 
+		/// negativerepresentable value maps to -1.0. (Note that this mapping does not convert 0 precisely to 0.0). Floating-point 
+		/// valuesare mapped directly. 
+		/// Neither floating-point nor signed integer values are clamped to the range 01 before the current color is updated. 
+		/// However,color components are clamped to this range before they are interpolated or written into a color buffer. 
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - Gl.Get with argument <see cref="Gl.CURRENT_SECONDARY_COLOR"/> 
+		/// - Gl.Get with argument <see cref="Gl.RGBA_MODE"/> 
+		/// - Gl.IsEnabled with argument <see cref="Gl.COLOR_SUM"/> 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.Color"/>
+		/// <seealso cref="Gl.Index"/>
+		/// <seealso cref="Gl.IsEnabled"/>
+		/// <seealso cref="Gl.LightModel"/>
 		public static void SecondaryColor3(UInt32[] v)
 		{
 			unsafe {
@@ -1622,19 +2217,48 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glSecondaryColor3us.
+		/// set the current secondary color
 		/// </summary>
 		/// <param name="red">
-		/// A <see cref="T:UInt16"/>.
+		/// Specify new red, green, and blue values for the current secondary color. 
 		/// </param>
 		/// <param name="green">
-		/// A <see cref="T:UInt16"/>.
+		/// Specify new red, green, and blue values for the current secondary color. 
 		/// </param>
 		/// <param name="blue">
-		/// A <see cref="T:UInt16"/>.
+		/// Specify new red, green, and blue values for the current secondary color. 
 		/// </param>
 		/// <remarks>
+		/// The GL stores both a primary four-valued RGBA color and a secondary four-valued RGBA color (where alpha is always set to 
+		/// 0.0)that is associated with every vertex. 
+		/// The secondary color is interpolated and applied to each fragment during rasterization when <see cref="Gl.COLOR_SUM"/> is 
+		/// enabled.When lighting is enabled, and <see cref="Gl.SEPARATE_SPECULAR_COLOR"/> is specified, the value of the secondary 
+		/// coloris assigned the value computed from the specular term of the lighting computation. Both the primary and secondary 
+		/// currentcolors are applied to each fragment, regardless of the state of <see cref="Gl.COLOR_SUM"/>, under such 
+		/// conditions.When <see cref="Gl.SEPARATE_SPECULAR_COLOR"/> is specified, the value returned from querying the current 
+		/// secondarycolor is undefined. 
+		/// <see cref="Gl.SecondaryColor3b"/>, <see cref="Gl.SecondaryColor3s"/>, and <see cref="Gl.SecondaryColor3i"/> take three 
+		/// signedbyte, short, or long integers as arguments. When v is appended to the name, the color commands can take a pointer 
+		/// toan array of such values. 
+		/// Color values are stored in floating-point format, with unspecified mantissa and exponent sizes. Unsigned integer color 
+		/// components,when specified, are linearly mapped to floating-point values such that the largest representable value maps 
+		/// to1.0 (full intensity), and 0 maps to 0.0 (zero intensity). Signed integer color components, when specified, are 
+		/// linearlymapped to floating-point values such that the most positive representable value maps to 1.0, and the most 
+		/// negativerepresentable value maps to -1.0. (Note that this mapping does not convert 0 precisely to 0.0). Floating-point 
+		/// valuesare mapped directly. 
+		/// Neither floating-point nor signed integer values are clamped to the range 01 before the current color is updated. 
+		/// However,color components are clamped to this range before they are interpolated or written into a color buffer. 
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - Gl.Get with argument <see cref="Gl.CURRENT_SECONDARY_COLOR"/> 
+		/// - Gl.Get with argument <see cref="Gl.RGBA_MODE"/> 
+		/// - Gl.IsEnabled with argument <see cref="Gl.COLOR_SUM"/> 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.Color"/>
+		/// <seealso cref="Gl.Index"/>
+		/// <seealso cref="Gl.IsEnabled"/>
+		/// <seealso cref="Gl.LightModel"/>
 		public static void SecondaryColor3(UInt16 red, UInt16 green, UInt16 blue)
 		{
 			if        (Delegates.pglSecondaryColor3us != null) {
@@ -1649,13 +2273,42 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glSecondaryColor3usv.
+		/// set the current secondary color
 		/// </summary>
 		/// <param name="v">
 		/// A <see cref="T:UInt16[]"/>.
 		/// </param>
 		/// <remarks>
+		/// The GL stores both a primary four-valued RGBA color and a secondary four-valued RGBA color (where alpha is always set to 
+		/// 0.0)that is associated with every vertex. 
+		/// The secondary color is interpolated and applied to each fragment during rasterization when <see cref="Gl.COLOR_SUM"/> is 
+		/// enabled.When lighting is enabled, and <see cref="Gl.SEPARATE_SPECULAR_COLOR"/> is specified, the value of the secondary 
+		/// coloris assigned the value computed from the specular term of the lighting computation. Both the primary and secondary 
+		/// currentcolors are applied to each fragment, regardless of the state of <see cref="Gl.COLOR_SUM"/>, under such 
+		/// conditions.When <see cref="Gl.SEPARATE_SPECULAR_COLOR"/> is specified, the value returned from querying the current 
+		/// secondarycolor is undefined. 
+		/// <see cref="Gl.SecondaryColor3b"/>, <see cref="Gl.SecondaryColor3s"/>, and <see cref="Gl.SecondaryColor3i"/> take three 
+		/// signedbyte, short, or long integers as arguments. When v is appended to the name, the color commands can take a pointer 
+		/// toan array of such values. 
+		/// Color values are stored in floating-point format, with unspecified mantissa and exponent sizes. Unsigned integer color 
+		/// components,when specified, are linearly mapped to floating-point values such that the largest representable value maps 
+		/// to1.0 (full intensity), and 0 maps to 0.0 (zero intensity). Signed integer color components, when specified, are 
+		/// linearlymapped to floating-point values such that the most positive representable value maps to 1.0, and the most 
+		/// negativerepresentable value maps to -1.0. (Note that this mapping does not convert 0 precisely to 0.0). Floating-point 
+		/// valuesare mapped directly. 
+		/// Neither floating-point nor signed integer values are clamped to the range 01 before the current color is updated. 
+		/// However,color components are clamped to this range before they are interpolated or written into a color buffer. 
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - Gl.Get with argument <see cref="Gl.CURRENT_SECONDARY_COLOR"/> 
+		/// - Gl.Get with argument <see cref="Gl.RGBA_MODE"/> 
+		/// - Gl.IsEnabled with argument <see cref="Gl.COLOR_SUM"/> 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.Color"/>
+		/// <seealso cref="Gl.Index"/>
+		/// <seealso cref="Gl.IsEnabled"/>
+		/// <seealso cref="Gl.LightModel"/>
 		public static void SecondaryColor3(UInt16[] v)
 		{
 			unsafe {
@@ -1675,22 +2328,78 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glSecondaryColorPointer.
+		/// define an array of secondary colors
 		/// </summary>
 		/// <param name="size">
-		/// A <see cref="T:Int32"/>.
+		/// Specifies the number of components per color. Must be 3. 
 		/// </param>
 		/// <param name="type">
-		/// A <see cref="T:int"/>.
+		/// Specifies the data type of each color component in the array. Symbolic constants <see cref="Gl.BYTE"/>, <see 
+		/// cref="Gl.UNSIGNED_BYTE"/>,<see cref="Gl.SHORT"/>, <see cref="Gl.UNSIGNED_SHORT"/>, <see cref="Gl.INT"/>, <see 
+		/// cref="Gl.UNSIGNED_INT"/>,<see cref="Gl.FLOAT"/>, or <see cref="Gl.DOUBLE"/> are accepted. The initial value is <see 
+		/// cref="Gl.FLOAT"/>.
 		/// </param>
 		/// <param name="stride">
-		/// A <see cref="T:Int32"/>.
+		/// Specifies the byte offset between consecutive colors. If <paramref name="stride"/> is 0, the colors are understood to be 
+		/// tightlypacked in the array. The initial value is 0. 
 		/// </param>
 		/// <param name="pointer">
-		/// A <see cref="T:IntPtr"/>.
+		/// Specifies a pointer to the first component of the first color element in the array. The initial value is 0. 
 		/// </param>
 		/// <remarks>
+		/// <see cref="Gl.SecondaryColorPointer"/> specifies the location and data format of an array of color components to use 
+		/// whenrendering. <paramref name="size"/> specifies the number of components per color, and must be 3. <paramref 
+		/// name="type"/>specifies the data type of each color component, and <paramref name="stride"/> specifies the byte stride 
+		/// fromone color to the next, allowing vertices and attributes to be packed into a single array or stored in separate 
+		/// arrays.
+		/// If a non-zero named buffer object is bound to the <see cref="Gl.ARRAY_BUFFER"/> target (see Gl.BindBuffer) while a 
+		/// secondarycolor array is specified, <paramref name="pointer"/> is treated as a byte offset into the buffer object's data 
+		/// store.Also, the buffer object binding (<see cref="Gl.ARRAY_BUFFER_BINDING"/>) is saved as secondary color vertex array 
+		/// client-sidestate (<see cref="Gl.SECONDARY_COLOR_ARRAY_BUFFER_BINDING"/>). 
+		/// When a secondary color array is specified, <paramref name="size"/>, <paramref name="type"/>, <paramref name="stride"/>, 
+		/// and<paramref name="pointer"/> are saved as client-side state, in addition to the current vertex array buffer object 
+		/// binding.
+		/// To enable and disable the secondary color array, call Gl.EnableClientState and Gl.DisableClientState with the argument 
+		/// <seecref="Gl.SECONDARY_COLOR_ARRAY"/>. If enabled, the secondary color array is used when Gl.ArrayElement, 
+		/// Gl.DrawArrays,Gl.MultiDrawArrays, Gl.DrawElements, Gl.MultiDrawElements, or Gl.DrawRangeElements is called. 
+		/// <para>
+		/// The following errors can be generated:
+		/// - <see cref="Gl.INVALID_VALUE"/> is generated if <paramref name="size"/> is not 3. 
+		/// - <see cref="Gl.INVALID_ENUM"/> is generated if <paramref name="type"/> is not an accepted value. 
+		/// - <see cref="Gl.INVALID_VALUE"/> is generated if <paramref name="stride"/> is negative. 
+		/// </para>
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - Gl.IsEnabled with argument <see cref="Gl.SECONDARY_COLOR_ARRAY"/> 
+		/// - Gl.Get with argument <see cref="Gl.SECONDARY_COLOR_ARRAY_SIZE"/> 
+		/// - Gl.Get with argument <see cref="Gl.SECONDARY_COLOR_ARRAY_TYPE"/> 
+		/// - Gl.Get with argument <see cref="Gl.SECONDARY_COLOR_ARRAY_STRIDE"/> 
+		/// - Gl.Get with argument <see cref="Gl.SECONDARY_COLOR_ARRAY_BUFFER_BINDING"/> 
+		/// - Gl.Get with argument <see cref="Gl.ARRAY_BUFFER_BINDING"/> 
+		/// - Gl.GetPointerv with argument <see cref="Gl.SECONDARY_COLOR_ARRAY_POINTER"/> 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.ArrayElement"/>
+		/// <seealso cref="Gl.BindBuffer"/>
+		/// <seealso cref="Gl.ColorPointer"/>
+		/// <seealso cref="Gl.DisableClientState"/>
+		/// <seealso cref="Gl.DrawArrays"/>
+		/// <seealso cref="Gl.DrawElements"/>
+		/// <seealso cref="Gl.DrawRangeElements"/>
+		/// <seealso cref="Gl.EdgeFlagPointer"/>
+		/// <seealso cref="Gl.EnableClientState"/>
+		/// <seealso cref="Gl.FogCoordPointer"/>
+		/// <seealso cref="Gl.IndexPointer"/>
+		/// <seealso cref="Gl.InterleavedArrays"/>
+		/// <seealso cref="Gl.MultiDrawArrays"/>
+		/// <seealso cref="Gl.MultiDrawElements"/>
+		/// <seealso cref="Gl.NormalPointer"/>
+		/// <seealso cref="Gl.PopClientAttrib"/>
+		/// <seealso cref="Gl.PushClientAttrib"/>
+		/// <seealso cref="Gl.SecondaryColor"/>
+		/// <seealso cref="Gl.TexCoordPointer"/>
+		/// <seealso cref="Gl.VertexAttribPointer"/>
+		/// <seealso cref="Gl.VertexPointer"/>
 		public static void SecondaryColorPointer(Int32 size, int type, Int32 stride, IntPtr pointer)
 		{
 			if        (Delegates.pglSecondaryColorPointer != null) {
@@ -1705,22 +2414,78 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glSecondaryColorPointer.
+		/// define an array of secondary colors
 		/// </summary>
 		/// <param name="size">
-		/// A <see cref="T:Int32"/>.
+		/// Specifies the number of components per color. Must be 3. 
 		/// </param>
 		/// <param name="type">
-		/// A <see cref="T:int"/>.
+		/// Specifies the data type of each color component in the array. Symbolic constants <see cref="Gl.BYTE"/>, <see 
+		/// cref="Gl.UNSIGNED_BYTE"/>,<see cref="Gl.SHORT"/>, <see cref="Gl.UNSIGNED_SHORT"/>, <see cref="Gl.INT"/>, <see 
+		/// cref="Gl.UNSIGNED_INT"/>,<see cref="Gl.FLOAT"/>, or <see cref="Gl.DOUBLE"/> are accepted. The initial value is <see 
+		/// cref="Gl.FLOAT"/>.
 		/// </param>
 		/// <param name="stride">
-		/// A <see cref="T:Int32"/>.
+		/// Specifies the byte offset between consecutive colors. If <paramref name="stride"/> is 0, the colors are understood to be 
+		/// tightlypacked in the array. The initial value is 0. 
 		/// </param>
 		/// <param name="pointer">
-		/// A <see cref="T:IntPtr"/>.
+		/// Specifies a pointer to the first component of the first color element in the array. The initial value is 0. 
 		/// </param>
 		/// <remarks>
+		/// <see cref="Gl.SecondaryColorPointer"/> specifies the location and data format of an array of color components to use 
+		/// whenrendering. <paramref name="size"/> specifies the number of components per color, and must be 3. <paramref 
+		/// name="type"/>specifies the data type of each color component, and <paramref name="stride"/> specifies the byte stride 
+		/// fromone color to the next, allowing vertices and attributes to be packed into a single array or stored in separate 
+		/// arrays.
+		/// If a non-zero named buffer object is bound to the <see cref="Gl.ARRAY_BUFFER"/> target (see Gl.BindBuffer) while a 
+		/// secondarycolor array is specified, <paramref name="pointer"/> is treated as a byte offset into the buffer object's data 
+		/// store.Also, the buffer object binding (<see cref="Gl.ARRAY_BUFFER_BINDING"/>) is saved as secondary color vertex array 
+		/// client-sidestate (<see cref="Gl.SECONDARY_COLOR_ARRAY_BUFFER_BINDING"/>). 
+		/// When a secondary color array is specified, <paramref name="size"/>, <paramref name="type"/>, <paramref name="stride"/>, 
+		/// and<paramref name="pointer"/> are saved as client-side state, in addition to the current vertex array buffer object 
+		/// binding.
+		/// To enable and disable the secondary color array, call Gl.EnableClientState and Gl.DisableClientState with the argument 
+		/// <seecref="Gl.SECONDARY_COLOR_ARRAY"/>. If enabled, the secondary color array is used when Gl.ArrayElement, 
+		/// Gl.DrawArrays,Gl.MultiDrawArrays, Gl.DrawElements, Gl.MultiDrawElements, or Gl.DrawRangeElements is called. 
+		/// <para>
+		/// The following errors can be generated:
+		/// - <see cref="Gl.INVALID_VALUE"/> is generated if <paramref name="size"/> is not 3. 
+		/// - <see cref="Gl.INVALID_ENUM"/> is generated if <paramref name="type"/> is not an accepted value. 
+		/// - <see cref="Gl.INVALID_VALUE"/> is generated if <paramref name="stride"/> is negative. 
+		/// </para>
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - Gl.IsEnabled with argument <see cref="Gl.SECONDARY_COLOR_ARRAY"/> 
+		/// - Gl.Get with argument <see cref="Gl.SECONDARY_COLOR_ARRAY_SIZE"/> 
+		/// - Gl.Get with argument <see cref="Gl.SECONDARY_COLOR_ARRAY_TYPE"/> 
+		/// - Gl.Get with argument <see cref="Gl.SECONDARY_COLOR_ARRAY_STRIDE"/> 
+		/// - Gl.Get with argument <see cref="Gl.SECONDARY_COLOR_ARRAY_BUFFER_BINDING"/> 
+		/// - Gl.Get with argument <see cref="Gl.ARRAY_BUFFER_BINDING"/> 
+		/// - Gl.GetPointerv with argument <see cref="Gl.SECONDARY_COLOR_ARRAY_POINTER"/> 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.ArrayElement"/>
+		/// <seealso cref="Gl.BindBuffer"/>
+		/// <seealso cref="Gl.ColorPointer"/>
+		/// <seealso cref="Gl.DisableClientState"/>
+		/// <seealso cref="Gl.DrawArrays"/>
+		/// <seealso cref="Gl.DrawElements"/>
+		/// <seealso cref="Gl.DrawRangeElements"/>
+		/// <seealso cref="Gl.EdgeFlagPointer"/>
+		/// <seealso cref="Gl.EnableClientState"/>
+		/// <seealso cref="Gl.FogCoordPointer"/>
+		/// <seealso cref="Gl.IndexPointer"/>
+		/// <seealso cref="Gl.InterleavedArrays"/>
+		/// <seealso cref="Gl.MultiDrawArrays"/>
+		/// <seealso cref="Gl.MultiDrawElements"/>
+		/// <seealso cref="Gl.NormalPointer"/>
+		/// <seealso cref="Gl.PopClientAttrib"/>
+		/// <seealso cref="Gl.PushClientAttrib"/>
+		/// <seealso cref="Gl.SecondaryColor"/>
+		/// <seealso cref="Gl.TexCoordPointer"/>
+		/// <seealso cref="Gl.VertexAttribPointer"/>
+		/// <seealso cref="Gl.VertexPointer"/>
 		public static void SecondaryColorPointer(Int32 size, ColorPointerType type, Int32 stride, IntPtr pointer)
 		{
 			if        (Delegates.pglSecondaryColorPointer != null) {
@@ -1735,22 +2500,78 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glSecondaryColorPointer.
+		/// define an array of secondary colors
 		/// </summary>
 		/// <param name="size">
-		/// A <see cref="T:Int32"/>.
+		/// Specifies the number of components per color. Must be 3. 
 		/// </param>
 		/// <param name="type">
-		/// A <see cref="T:int"/>.
+		/// Specifies the data type of each color component in the array. Symbolic constants <see cref="Gl.BYTE"/>, <see 
+		/// cref="Gl.UNSIGNED_BYTE"/>,<see cref="Gl.SHORT"/>, <see cref="Gl.UNSIGNED_SHORT"/>, <see cref="Gl.INT"/>, <see 
+		/// cref="Gl.UNSIGNED_INT"/>,<see cref="Gl.FLOAT"/>, or <see cref="Gl.DOUBLE"/> are accepted. The initial value is <see 
+		/// cref="Gl.FLOAT"/>.
 		/// </param>
 		/// <param name="stride">
-		/// A <see cref="T:Int32"/>.
+		/// Specifies the byte offset between consecutive colors. If <paramref name="stride"/> is 0, the colors are understood to be 
+		/// tightlypacked in the array. The initial value is 0. 
 		/// </param>
 		/// <param name="pointer">
-		/// A <see cref="T:IntPtr"/>.
+		/// Specifies a pointer to the first component of the first color element in the array. The initial value is 0. 
 		/// </param>
 		/// <remarks>
+		/// <see cref="Gl.SecondaryColorPointer"/> specifies the location and data format of an array of color components to use 
+		/// whenrendering. <paramref name="size"/> specifies the number of components per color, and must be 3. <paramref 
+		/// name="type"/>specifies the data type of each color component, and <paramref name="stride"/> specifies the byte stride 
+		/// fromone color to the next, allowing vertices and attributes to be packed into a single array or stored in separate 
+		/// arrays.
+		/// If a non-zero named buffer object is bound to the <see cref="Gl.ARRAY_BUFFER"/> target (see Gl.BindBuffer) while a 
+		/// secondarycolor array is specified, <paramref name="pointer"/> is treated as a byte offset into the buffer object's data 
+		/// store.Also, the buffer object binding (<see cref="Gl.ARRAY_BUFFER_BINDING"/>) is saved as secondary color vertex array 
+		/// client-sidestate (<see cref="Gl.SECONDARY_COLOR_ARRAY_BUFFER_BINDING"/>). 
+		/// When a secondary color array is specified, <paramref name="size"/>, <paramref name="type"/>, <paramref name="stride"/>, 
+		/// and<paramref name="pointer"/> are saved as client-side state, in addition to the current vertex array buffer object 
+		/// binding.
+		/// To enable and disable the secondary color array, call Gl.EnableClientState and Gl.DisableClientState with the argument 
+		/// <seecref="Gl.SECONDARY_COLOR_ARRAY"/>. If enabled, the secondary color array is used when Gl.ArrayElement, 
+		/// Gl.DrawArrays,Gl.MultiDrawArrays, Gl.DrawElements, Gl.MultiDrawElements, or Gl.DrawRangeElements is called. 
+		/// <para>
+		/// The following errors can be generated:
+		/// - <see cref="Gl.INVALID_VALUE"/> is generated if <paramref name="size"/> is not 3. 
+		/// - <see cref="Gl.INVALID_ENUM"/> is generated if <paramref name="type"/> is not an accepted value. 
+		/// - <see cref="Gl.INVALID_VALUE"/> is generated if <paramref name="stride"/> is negative. 
+		/// </para>
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - Gl.IsEnabled with argument <see cref="Gl.SECONDARY_COLOR_ARRAY"/> 
+		/// - Gl.Get with argument <see cref="Gl.SECONDARY_COLOR_ARRAY_SIZE"/> 
+		/// - Gl.Get with argument <see cref="Gl.SECONDARY_COLOR_ARRAY_TYPE"/> 
+		/// - Gl.Get with argument <see cref="Gl.SECONDARY_COLOR_ARRAY_STRIDE"/> 
+		/// - Gl.Get with argument <see cref="Gl.SECONDARY_COLOR_ARRAY_BUFFER_BINDING"/> 
+		/// - Gl.Get with argument <see cref="Gl.ARRAY_BUFFER_BINDING"/> 
+		/// - Gl.GetPointerv with argument <see cref="Gl.SECONDARY_COLOR_ARRAY_POINTER"/> 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.ArrayElement"/>
+		/// <seealso cref="Gl.BindBuffer"/>
+		/// <seealso cref="Gl.ColorPointer"/>
+		/// <seealso cref="Gl.DisableClientState"/>
+		/// <seealso cref="Gl.DrawArrays"/>
+		/// <seealso cref="Gl.DrawElements"/>
+		/// <seealso cref="Gl.DrawRangeElements"/>
+		/// <seealso cref="Gl.EdgeFlagPointer"/>
+		/// <seealso cref="Gl.EnableClientState"/>
+		/// <seealso cref="Gl.FogCoordPointer"/>
+		/// <seealso cref="Gl.IndexPointer"/>
+		/// <seealso cref="Gl.InterleavedArrays"/>
+		/// <seealso cref="Gl.MultiDrawArrays"/>
+		/// <seealso cref="Gl.MultiDrawElements"/>
+		/// <seealso cref="Gl.NormalPointer"/>
+		/// <seealso cref="Gl.PopClientAttrib"/>
+		/// <seealso cref="Gl.PushClientAttrib"/>
+		/// <seealso cref="Gl.SecondaryColor"/>
+		/// <seealso cref="Gl.TexCoordPointer"/>
+		/// <seealso cref="Gl.VertexAttribPointer"/>
+		/// <seealso cref="Gl.VertexPointer"/>
 		public static void SecondaryColorPointer(Int32 size, int type, Int32 stride, Object pointer)
 		{
 			GCHandle pin_pointer = GCHandle.Alloc(pointer, GCHandleType.Pinned);

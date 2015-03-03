@@ -7033,13 +7033,43 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glArrayElement.
+		/// render a vertex using the specified vertex array element
 		/// </summary>
 		/// <param name="i">
-		/// A <see cref="T:Int32"/>.
+		/// Specifies an index into the enabled vertex data arrays. 
 		/// </param>
 		/// <remarks>
+		/// <see cref="Gl.ArrayElement"/> commands are used within Gl.Begin/Gl.End pairs to specify vertex and attribute data for 
+		/// point,line, and polygon primitives. If <see cref="Gl.VERTEX_ARRAY"/> is enabled when <see cref="Gl.ArrayElement"/> is 
+		/// called,a single vertex is drawn, using vertex and attribute data taken from location <paramref name="i"/> of the enabled 
+		/// arrays.If <see cref="Gl.VERTEX_ARRAY"/> is not enabled, no drawing occurs but the attributes corresponding to the 
+		/// enabledarrays are modified. 
+		/// Use <see cref="Gl.ArrayElement"/> to construct primitives by indexing vertex data, rather than by streaming through 
+		/// arraysof data in first-to-last order. Because each call specifies only a single vertex, it is possible to explicitly 
+		/// specifyper-primitive attributes such as a single normal for each triangle. 
+		/// Changes made to array data between the execution of Gl.Begin and the corresponding execution of Gl.End may affect calls 
+		/// to<see cref="Gl.ArrayElement"/> that are made within the same Gl.Begin/Gl.End period in nonsequential ways. That is, a 
+		/// callto <see cref="Gl.ArrayElement"/> that precedes a change to array data may access the changed data, and a call that 
+		/// followsa change to array data may access original data. 
+		/// <para>
+		/// The following errors can be generated:
+		/// - <see cref="Gl.INVALID_VALUE"/> may be generated if <paramref name="i"/> is negative. 
+		/// - <see cref="Gl.INVALID_OPERATION"/> is generated if a non-zero buffer object name is bound to an enabled array and the 
+		///   bufferobject's data store is currently mapped. 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.ClientActiveTexture"/>
+		/// <seealso cref="Gl.ColorPointer"/>
+		/// <seealso cref="Gl.DrawArrays"/>
+		/// <seealso cref="Gl.EdgeFlagPointer"/>
+		/// <seealso cref="Gl.FogCoordPointer"/>
+		/// <seealso cref="Gl.GetPointerv"/>
+		/// <seealso cref="Gl.IndexPointer"/>
+		/// <seealso cref="Gl.InterleavedArrays"/>
+		/// <seealso cref="Gl.NormalPointer"/>
+		/// <seealso cref="Gl.SecondaryColorPointer"/>
+		/// <seealso cref="Gl.TexCoordPointer"/>
+		/// <seealso cref="Gl.VertexPointer"/>
 		public static void ArrayElement(Int32 i)
 		{
 			if        (Delegates.pglArrayElement != null) {
@@ -7054,22 +7084,77 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glColorPointer.
+		/// define an array of colors
 		/// </summary>
 		/// <param name="size">
-		/// A <see cref="T:Int32"/>.
+		/// Specifies the number of components per color. Must be 3 or 4. The initial value is 4. 
 		/// </param>
 		/// <param name="type">
-		/// A <see cref="T:int"/>.
+		/// Specifies the data type of each color component in the array. Symbolic constants <see cref="Gl.BYTE"/>, <see 
+		/// cref="Gl.UNSIGNED_BYTE"/>,<see cref="Gl.SHORT"/>, <see cref="Gl.UNSIGNED_SHORT"/>, <see cref="Gl.INT"/>, <see 
+		/// cref="Gl.UNSIGNED_INT"/>,<see cref="Gl.FLOAT"/>, and <see cref="Gl.DOUBLE"/> are accepted. The initial value is <see 
+		/// cref="Gl.FLOAT"/>.
 		/// </param>
 		/// <param name="stride">
-		/// A <see cref="T:Int32"/>.
+		/// Specifies the byte offset between consecutive colors. If <paramref name="stride"/> is 0, the colors are understood to be 
+		/// tightlypacked in the array. The initial value is 0. 
 		/// </param>
 		/// <param name="pointer">
-		/// A <see cref="T:IntPtr"/>.
+		/// Specifies a pointer to the first component of the first color element in the array. The initial value is 0. 
 		/// </param>
 		/// <remarks>
+		/// <see cref="Gl.ColorPointer"/> specifies the location and data format of an array of color components to use when 
+		/// rendering.<paramref name="size"/> specifies the number of components per color, and must be 3 or 4. <paramref 
+		/// name="type"/>specifies the data type of each color component, and <paramref name="stride"/> specifies the byte stride 
+		/// fromone color to the next, allowing vertices and attributes to be packed into a single array or stored in separate 
+		/// arrays.(Single-array storage may be more efficient on some implementations; see Gl.InterleavedArrays.) 
+		/// If a non-zero named buffer object is bound to the <see cref="Gl.ARRAY_BUFFER"/> target (see Gl.BindBuffer) while a color 
+		/// arrayis specified, <paramref name="pointer"/> is treated as a byte offset into the buffer object's data store. Also, the 
+		/// bufferobject binding (<see cref="Gl.ARRAY_BUFFER_BINDING"/>) is saved as color vertex array client-side state (<see 
+		/// cref="Gl.COLOR_ARRAY_BUFFER_BINDING"/>).
+		/// When a color array is specified, <paramref name="size"/>, <paramref name="type"/>, <paramref name="stride"/>, and 
+		/// <paramrefname="pointer"/> are saved as client-side state, in addition to the current vertex array buffer object binding. 
+		/// To enable and disable the color array, call Gl.EnableClientState and Gl.DisableClientState with the argument <see 
+		/// cref="Gl.COLOR_ARRAY"/>.If enabled, the color array is used when Gl.DrawArrays, Gl.MultiDrawArrays, Gl.DrawElements, 
+		/// Gl.MultiDrawElements,Gl.DrawRangeElements, or Gl.ArrayElement is called. 
+		/// <para>
+		/// The following errors can be generated:
+		/// - <see cref="Gl.INVALID_VALUE"/> is generated if <paramref name="size"/> is not 3 or 4. 
+		/// - <see cref="Gl.INVALID_ENUM"/> is generated if <paramref name="type"/> is not an accepted value. 
+		/// - <see cref="Gl.INVALID_VALUE"/> is generated if <paramref name="stride"/> is negative. 
+		/// </para>
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - Gl.IsEnabled with argument <see cref="Gl.COLOR_ARRAY"/> 
+		/// - Gl.Get with argument <see cref="Gl.COLOR_ARRAY_SIZE"/> 
+		/// - Gl.Get with argument <see cref="Gl.COLOR_ARRAY_TYPE"/> 
+		/// - Gl.Get with argument <see cref="Gl.COLOR_ARRAY_STRIDE"/> 
+		/// - Gl.Get with argument <see cref="Gl.COLOR_ARRAY_BUFFER_BINDING"/> 
+		/// - Gl.Get with argument <see cref="Gl.ARRAY_BUFFER_BINDING"/> 
+		/// - Gl.GetPointerv with argument <see cref="Gl.COLOR_ARRAY_POINTER"/> 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.ArrayElement"/>
+		/// <seealso cref="Gl.BindBuffer"/>
+		/// <seealso cref="Gl.Color"/>
+		/// <seealso cref="Gl.DisableClientState"/>
+		/// <seealso cref="Gl.DrawArrays"/>
+		/// <seealso cref="Gl.DrawElements"/>
+		/// <seealso cref="Gl.DrawRangeElements"/>
+		/// <seealso cref="Gl.EdgeFlagPointer"/>
+		/// <seealso cref="Gl.EnableClientState"/>
+		/// <seealso cref="Gl.FogCoordPointer"/>
+		/// <seealso cref="Gl.IndexPointer"/>
+		/// <seealso cref="Gl.InterleavedArrays"/>
+		/// <seealso cref="Gl.MultiDrawArrays"/>
+		/// <seealso cref="Gl.MultiDrawElements"/>
+		/// <seealso cref="Gl.NormalPointer"/>
+		/// <seealso cref="Gl.PopClientAttrib"/>
+		/// <seealso cref="Gl.PushClientAttrib"/>
+		/// <seealso cref="Gl.SecondaryColorPointer"/>
+		/// <seealso cref="Gl.TexCoordPointer"/>
+		/// <seealso cref="Gl.VertexAttribPointer"/>
+		/// <seealso cref="Gl.VertexPointer"/>
 		public static void ColorPointer(Int32 size, int type, Int32 stride, IntPtr pointer)
 		{
 			Debug.Assert(Delegates.pglColorPointer != null, "pglColorPointer not implemented");
@@ -7079,22 +7164,77 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glColorPointer.
+		/// define an array of colors
 		/// </summary>
 		/// <param name="size">
-		/// A <see cref="T:Int32"/>.
+		/// Specifies the number of components per color. Must be 3 or 4. The initial value is 4. 
 		/// </param>
 		/// <param name="type">
-		/// A <see cref="T:int"/>.
+		/// Specifies the data type of each color component in the array. Symbolic constants <see cref="Gl.BYTE"/>, <see 
+		/// cref="Gl.UNSIGNED_BYTE"/>,<see cref="Gl.SHORT"/>, <see cref="Gl.UNSIGNED_SHORT"/>, <see cref="Gl.INT"/>, <see 
+		/// cref="Gl.UNSIGNED_INT"/>,<see cref="Gl.FLOAT"/>, and <see cref="Gl.DOUBLE"/> are accepted. The initial value is <see 
+		/// cref="Gl.FLOAT"/>.
 		/// </param>
 		/// <param name="stride">
-		/// A <see cref="T:Int32"/>.
+		/// Specifies the byte offset between consecutive colors. If <paramref name="stride"/> is 0, the colors are understood to be 
+		/// tightlypacked in the array. The initial value is 0. 
 		/// </param>
 		/// <param name="pointer">
-		/// A <see cref="T:IntPtr"/>.
+		/// Specifies a pointer to the first component of the first color element in the array. The initial value is 0. 
 		/// </param>
 		/// <remarks>
+		/// <see cref="Gl.ColorPointer"/> specifies the location and data format of an array of color components to use when 
+		/// rendering.<paramref name="size"/> specifies the number of components per color, and must be 3 or 4. <paramref 
+		/// name="type"/>specifies the data type of each color component, and <paramref name="stride"/> specifies the byte stride 
+		/// fromone color to the next, allowing vertices and attributes to be packed into a single array or stored in separate 
+		/// arrays.(Single-array storage may be more efficient on some implementations; see Gl.InterleavedArrays.) 
+		/// If a non-zero named buffer object is bound to the <see cref="Gl.ARRAY_BUFFER"/> target (see Gl.BindBuffer) while a color 
+		/// arrayis specified, <paramref name="pointer"/> is treated as a byte offset into the buffer object's data store. Also, the 
+		/// bufferobject binding (<see cref="Gl.ARRAY_BUFFER_BINDING"/>) is saved as color vertex array client-side state (<see 
+		/// cref="Gl.COLOR_ARRAY_BUFFER_BINDING"/>).
+		/// When a color array is specified, <paramref name="size"/>, <paramref name="type"/>, <paramref name="stride"/>, and 
+		/// <paramrefname="pointer"/> are saved as client-side state, in addition to the current vertex array buffer object binding. 
+		/// To enable and disable the color array, call Gl.EnableClientState and Gl.DisableClientState with the argument <see 
+		/// cref="Gl.COLOR_ARRAY"/>.If enabled, the color array is used when Gl.DrawArrays, Gl.MultiDrawArrays, Gl.DrawElements, 
+		/// Gl.MultiDrawElements,Gl.DrawRangeElements, or Gl.ArrayElement is called. 
+		/// <para>
+		/// The following errors can be generated:
+		/// - <see cref="Gl.INVALID_VALUE"/> is generated if <paramref name="size"/> is not 3 or 4. 
+		/// - <see cref="Gl.INVALID_ENUM"/> is generated if <paramref name="type"/> is not an accepted value. 
+		/// - <see cref="Gl.INVALID_VALUE"/> is generated if <paramref name="stride"/> is negative. 
+		/// </para>
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - Gl.IsEnabled with argument <see cref="Gl.COLOR_ARRAY"/> 
+		/// - Gl.Get with argument <see cref="Gl.COLOR_ARRAY_SIZE"/> 
+		/// - Gl.Get with argument <see cref="Gl.COLOR_ARRAY_TYPE"/> 
+		/// - Gl.Get with argument <see cref="Gl.COLOR_ARRAY_STRIDE"/> 
+		/// - Gl.Get with argument <see cref="Gl.COLOR_ARRAY_BUFFER_BINDING"/> 
+		/// - Gl.Get with argument <see cref="Gl.ARRAY_BUFFER_BINDING"/> 
+		/// - Gl.GetPointerv with argument <see cref="Gl.COLOR_ARRAY_POINTER"/> 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.ArrayElement"/>
+		/// <seealso cref="Gl.BindBuffer"/>
+		/// <seealso cref="Gl.Color"/>
+		/// <seealso cref="Gl.DisableClientState"/>
+		/// <seealso cref="Gl.DrawArrays"/>
+		/// <seealso cref="Gl.DrawElements"/>
+		/// <seealso cref="Gl.DrawRangeElements"/>
+		/// <seealso cref="Gl.EdgeFlagPointer"/>
+		/// <seealso cref="Gl.EnableClientState"/>
+		/// <seealso cref="Gl.FogCoordPointer"/>
+		/// <seealso cref="Gl.IndexPointer"/>
+		/// <seealso cref="Gl.InterleavedArrays"/>
+		/// <seealso cref="Gl.MultiDrawArrays"/>
+		/// <seealso cref="Gl.MultiDrawElements"/>
+		/// <seealso cref="Gl.NormalPointer"/>
+		/// <seealso cref="Gl.PopClientAttrib"/>
+		/// <seealso cref="Gl.PushClientAttrib"/>
+		/// <seealso cref="Gl.SecondaryColorPointer"/>
+		/// <seealso cref="Gl.TexCoordPointer"/>
+		/// <seealso cref="Gl.VertexAttribPointer"/>
+		/// <seealso cref="Gl.VertexPointer"/>
 		public static void ColorPointer(Int32 size, ColorPointerType type, Int32 stride, IntPtr pointer)
 		{
 			Debug.Assert(Delegates.pglColorPointer != null, "pglColorPointer not implemented");
@@ -7104,22 +7244,77 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glColorPointer.
+		/// define an array of colors
 		/// </summary>
 		/// <param name="size">
-		/// A <see cref="T:Int32"/>.
+		/// Specifies the number of components per color. Must be 3 or 4. The initial value is 4. 
 		/// </param>
 		/// <param name="type">
-		/// A <see cref="T:int"/>.
+		/// Specifies the data type of each color component in the array. Symbolic constants <see cref="Gl.BYTE"/>, <see 
+		/// cref="Gl.UNSIGNED_BYTE"/>,<see cref="Gl.SHORT"/>, <see cref="Gl.UNSIGNED_SHORT"/>, <see cref="Gl.INT"/>, <see 
+		/// cref="Gl.UNSIGNED_INT"/>,<see cref="Gl.FLOAT"/>, and <see cref="Gl.DOUBLE"/> are accepted. The initial value is <see 
+		/// cref="Gl.FLOAT"/>.
 		/// </param>
 		/// <param name="stride">
-		/// A <see cref="T:Int32"/>.
+		/// Specifies the byte offset between consecutive colors. If <paramref name="stride"/> is 0, the colors are understood to be 
+		/// tightlypacked in the array. The initial value is 0. 
 		/// </param>
 		/// <param name="pointer">
-		/// A <see cref="T:IntPtr"/>.
+		/// Specifies a pointer to the first component of the first color element in the array. The initial value is 0. 
 		/// </param>
 		/// <remarks>
+		/// <see cref="Gl.ColorPointer"/> specifies the location and data format of an array of color components to use when 
+		/// rendering.<paramref name="size"/> specifies the number of components per color, and must be 3 or 4. <paramref 
+		/// name="type"/>specifies the data type of each color component, and <paramref name="stride"/> specifies the byte stride 
+		/// fromone color to the next, allowing vertices and attributes to be packed into a single array or stored in separate 
+		/// arrays.(Single-array storage may be more efficient on some implementations; see Gl.InterleavedArrays.) 
+		/// If a non-zero named buffer object is bound to the <see cref="Gl.ARRAY_BUFFER"/> target (see Gl.BindBuffer) while a color 
+		/// arrayis specified, <paramref name="pointer"/> is treated as a byte offset into the buffer object's data store. Also, the 
+		/// bufferobject binding (<see cref="Gl.ARRAY_BUFFER_BINDING"/>) is saved as color vertex array client-side state (<see 
+		/// cref="Gl.COLOR_ARRAY_BUFFER_BINDING"/>).
+		/// When a color array is specified, <paramref name="size"/>, <paramref name="type"/>, <paramref name="stride"/>, and 
+		/// <paramrefname="pointer"/> are saved as client-side state, in addition to the current vertex array buffer object binding. 
+		/// To enable and disable the color array, call Gl.EnableClientState and Gl.DisableClientState with the argument <see 
+		/// cref="Gl.COLOR_ARRAY"/>.If enabled, the color array is used when Gl.DrawArrays, Gl.MultiDrawArrays, Gl.DrawElements, 
+		/// Gl.MultiDrawElements,Gl.DrawRangeElements, or Gl.ArrayElement is called. 
+		/// <para>
+		/// The following errors can be generated:
+		/// - <see cref="Gl.INVALID_VALUE"/> is generated if <paramref name="size"/> is not 3 or 4. 
+		/// - <see cref="Gl.INVALID_ENUM"/> is generated if <paramref name="type"/> is not an accepted value. 
+		/// - <see cref="Gl.INVALID_VALUE"/> is generated if <paramref name="stride"/> is negative. 
+		/// </para>
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - Gl.IsEnabled with argument <see cref="Gl.COLOR_ARRAY"/> 
+		/// - Gl.Get with argument <see cref="Gl.COLOR_ARRAY_SIZE"/> 
+		/// - Gl.Get with argument <see cref="Gl.COLOR_ARRAY_TYPE"/> 
+		/// - Gl.Get with argument <see cref="Gl.COLOR_ARRAY_STRIDE"/> 
+		/// - Gl.Get with argument <see cref="Gl.COLOR_ARRAY_BUFFER_BINDING"/> 
+		/// - Gl.Get with argument <see cref="Gl.ARRAY_BUFFER_BINDING"/> 
+		/// - Gl.GetPointerv with argument <see cref="Gl.COLOR_ARRAY_POINTER"/> 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.ArrayElement"/>
+		/// <seealso cref="Gl.BindBuffer"/>
+		/// <seealso cref="Gl.Color"/>
+		/// <seealso cref="Gl.DisableClientState"/>
+		/// <seealso cref="Gl.DrawArrays"/>
+		/// <seealso cref="Gl.DrawElements"/>
+		/// <seealso cref="Gl.DrawRangeElements"/>
+		/// <seealso cref="Gl.EdgeFlagPointer"/>
+		/// <seealso cref="Gl.EnableClientState"/>
+		/// <seealso cref="Gl.FogCoordPointer"/>
+		/// <seealso cref="Gl.IndexPointer"/>
+		/// <seealso cref="Gl.InterleavedArrays"/>
+		/// <seealso cref="Gl.MultiDrawArrays"/>
+		/// <seealso cref="Gl.MultiDrawElements"/>
+		/// <seealso cref="Gl.NormalPointer"/>
+		/// <seealso cref="Gl.PopClientAttrib"/>
+		/// <seealso cref="Gl.PushClientAttrib"/>
+		/// <seealso cref="Gl.SecondaryColorPointer"/>
+		/// <seealso cref="Gl.TexCoordPointer"/>
+		/// <seealso cref="Gl.VertexAttribPointer"/>
+		/// <seealso cref="Gl.VertexPointer"/>
 		public static void ColorPointer(Int32 size, int type, Int32 stride, Object pointer)
 		{
 			GCHandle pin_pointer = GCHandle.Alloc(pointer, GCHandleType.Pinned);
@@ -7131,13 +7326,37 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glDisableClientState.
+		/// enable or disable client-side capability
 		/// </summary>
 		/// <param name="array">
 		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <remarks>
+		/// <see cref="Gl.EnableClientState"/> and Gl.DisableClientState enable or disable individual client-side capabilities. By 
+		/// default,all client-side capabilities are disabled. Both <see cref="Gl.EnableClientState"/> and Gl.DisableClientState 
+		/// takea single argument, <paramref name="cap"/>, which can assume one of the following values: 
+		/// <para>
+		/// The following errors can be generated:
+		/// - <see cref="Gl.INVALID_ENUM"/> is generated if <paramref name="cap"/> is not an accepted value. 
+		/// - <see cref="Gl.EnableClientState"/> is not allowed between the execution of Gl.Begin and the corresponding Gl.End, but an 
+		///   errormay or may not be generated. If no error is generated, the behavior is undefined. 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.ArrayElement"/>
+		/// <seealso cref="Gl.ClientActiveTexture"/>
+		/// <seealso cref="Gl.ColorPointer"/>
+		/// <seealso cref="Gl.DrawArrays"/>
+		/// <seealso cref="Gl.DrawElements"/>
+		/// <seealso cref="Gl.EdgeFlagPointer"/>
+		/// <seealso cref="Gl.FogCoordPointer"/>
+		/// <seealso cref="Gl.Enable"/>
+		/// <seealso cref="Gl.GetPointerv"/>
+		/// <seealso cref="Gl.IndexPointer"/>
+		/// <seealso cref="Gl.InterleavedArrays"/>
+		/// <seealso cref="Gl.NormalPointer"/>
+		/// <seealso cref="Gl.SecondaryColorPointer"/>
+		/// <seealso cref="Gl.TexCoordPointer"/>
+		/// <seealso cref="Gl.VertexPointer"/>
 		public static void DisableClientState(int array)
 		{
 			Debug.Assert(Delegates.pglDisableClientState != null, "pglDisableClientState not implemented");
@@ -7147,13 +7366,37 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glDisableClientState.
+		/// enable or disable client-side capability
 		/// </summary>
 		/// <param name="array">
 		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <remarks>
+		/// <see cref="Gl.EnableClientState"/> and Gl.DisableClientState enable or disable individual client-side capabilities. By 
+		/// default,all client-side capabilities are disabled. Both <see cref="Gl.EnableClientState"/> and Gl.DisableClientState 
+		/// takea single argument, <paramref name="cap"/>, which can assume one of the following values: 
+		/// <para>
+		/// The following errors can be generated:
+		/// - <see cref="Gl.INVALID_ENUM"/> is generated if <paramref name="cap"/> is not an accepted value. 
+		/// - <see cref="Gl.EnableClientState"/> is not allowed between the execution of Gl.Begin and the corresponding Gl.End, but an 
+		///   errormay or may not be generated. If no error is generated, the behavior is undefined. 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.ArrayElement"/>
+		/// <seealso cref="Gl.ClientActiveTexture"/>
+		/// <seealso cref="Gl.ColorPointer"/>
+		/// <seealso cref="Gl.DrawArrays"/>
+		/// <seealso cref="Gl.DrawElements"/>
+		/// <seealso cref="Gl.EdgeFlagPointer"/>
+		/// <seealso cref="Gl.FogCoordPointer"/>
+		/// <seealso cref="Gl.Enable"/>
+		/// <seealso cref="Gl.GetPointerv"/>
+		/// <seealso cref="Gl.IndexPointer"/>
+		/// <seealso cref="Gl.InterleavedArrays"/>
+		/// <seealso cref="Gl.NormalPointer"/>
+		/// <seealso cref="Gl.SecondaryColorPointer"/>
+		/// <seealso cref="Gl.TexCoordPointer"/>
+		/// <seealso cref="Gl.VertexPointer"/>
 		public static void DisableClientState(EnableCap array)
 		{
 			Debug.Assert(Delegates.pglDisableClientState != null, "pglDisableClientState not implemented");
@@ -7163,16 +7406,62 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glEdgeFlagPointer.
+		/// define an array of edge flags
 		/// </summary>
 		/// <param name="stride">
-		/// A <see cref="T:Int32"/>.
+		/// Specifies the byte offset between consecutive edge flags. If <paramref name="stride"/> is 0, the edge flags are 
+		/// understoodto be tightly packed in the array. The initial value is 0. 
 		/// </param>
 		/// <param name="pointer">
-		/// A <see cref="T:IntPtr"/>.
+		/// Specifies a pointer to the first edge flag in the array. The initial value is 0. 
 		/// </param>
 		/// <remarks>
+		/// <see cref="Gl.EdgeFlagPointer"/> specifies the location and data format of an array of boolean edge flags to use when 
+		/// rendering.<paramref name="stride"/> specifies the byte stride from one edge flag to the next, allowing vertices and 
+		/// attributesto be packed into a single array or stored in separate arrays. 
+		/// If a non-zero named buffer object is bound to the <see cref="Gl.ARRAY_BUFFER"/> target (see Gl.BindBuffer) while an edge 
+		/// flagarray is specified, <paramref name="pointer"/> is treated as a byte offset into the buffer object's data store. 
+		/// Also,the buffer object binding (<see cref="Gl.ARRAY_BUFFER_BINDING"/>) is saved as edge flag vertex array client-side 
+		/// state(<see cref="Gl.EDGE_FLAG_ARRAY_BUFFER_BINDING"/>). 
+		/// When an edge flag array is specified, <paramref name="stride"/> and <paramref name="pointer"/> are saved as client-side 
+		/// state,in addition to the current vertex array buffer object binding. 
+		/// To enable and disable the edge flag array, call Gl.EnableClientState and Gl.DisableClientState with the argument <see 
+		/// cref="Gl.EDGE_FLAG_ARRAY"/>.If enabled, the edge flag array is used when Gl.DrawArrays, Gl.MultiDrawArrays, 
+		/// Gl.DrawElements,Gl.MultiDrawElements, Gl.DrawRangeElements, or Gl.ArrayElement is called. 
+		/// <para>
+		/// The following errors can be generated:
+		/// - <see cref="Gl.INVALID_ENUM"/> is generated if <paramref name="stride"/> is negative. 
+		/// </para>
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - Gl.IsEnabled with argument <see cref="Gl.EDGE_FLAG_ARRAY"/> 
+		/// - Gl.Get with argument <see cref="Gl.EDGE_FLAG_ARRAY_STRIDE"/> 
+		/// - Gl.Get with argument <see cref="Gl.EDGE_FLAG_ARRAY_BUFFER_BINDING"/> 
+		/// - Gl.Get with argument <see cref="Gl.ARRAY_BUFFER_BINDING"/> 
+		/// - Gl.GetPointerv with argument <see cref="Gl.EDGE_FLAG_ARRAY_POINTER"/> 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.ArrayElement"/>
+		/// <seealso cref="Gl.BindBuffer"/>
+		/// <seealso cref="Gl.ColorPointer"/>
+		/// <seealso cref="Gl.DisableClientState"/>
+		/// <seealso cref="Gl.DrawArrays"/>
+		/// <seealso cref="Gl.DrawElements"/>
+		/// <seealso cref="Gl.DrawRangeElements"/>
+		/// <seealso cref="Gl.EdgeFlag"/>
+		/// <seealso cref="Gl.EnableClientState"/>
+		/// <seealso cref="Gl.FogCoordPointer"/>
+		/// <seealso cref="Gl.IndexPointer"/>
+		/// <seealso cref="Gl.InterleavedArrays"/>
+		/// <seealso cref="Gl.MultiDrawArrays"/>
+		/// <seealso cref="Gl.MultiDrawElements"/>
+		/// <seealso cref="Gl.NormalPointer"/>
+		/// <seealso cref="Gl.PopClientAttrib"/>
+		/// <seealso cref="Gl.PushClientAttrib"/>
+		/// <seealso cref="Gl.SecondaryColorPointer"/>
+		/// <seealso cref="Gl.TexCoordPointer"/>
+		/// <seealso cref="Gl.VertexAttribPointer"/>
+		/// <seealso cref="Gl.VertexPointer"/>
 		public static void EdgeFlagPointer(Int32 stride, IntPtr pointer)
 		{
 			Debug.Assert(Delegates.pglEdgeFlagPointer != null, "pglEdgeFlagPointer not implemented");
@@ -7182,16 +7471,62 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glEdgeFlagPointer.
+		/// define an array of edge flags
 		/// </summary>
 		/// <param name="stride">
-		/// A <see cref="T:Int32"/>.
+		/// Specifies the byte offset between consecutive edge flags. If <paramref name="stride"/> is 0, the edge flags are 
+		/// understoodto be tightly packed in the array. The initial value is 0. 
 		/// </param>
 		/// <param name="pointer">
-		/// A <see cref="T:IntPtr"/>.
+		/// Specifies a pointer to the first edge flag in the array. The initial value is 0. 
 		/// </param>
 		/// <remarks>
+		/// <see cref="Gl.EdgeFlagPointer"/> specifies the location and data format of an array of boolean edge flags to use when 
+		/// rendering.<paramref name="stride"/> specifies the byte stride from one edge flag to the next, allowing vertices and 
+		/// attributesto be packed into a single array or stored in separate arrays. 
+		/// If a non-zero named buffer object is bound to the <see cref="Gl.ARRAY_BUFFER"/> target (see Gl.BindBuffer) while an edge 
+		/// flagarray is specified, <paramref name="pointer"/> is treated as a byte offset into the buffer object's data store. 
+		/// Also,the buffer object binding (<see cref="Gl.ARRAY_BUFFER_BINDING"/>) is saved as edge flag vertex array client-side 
+		/// state(<see cref="Gl.EDGE_FLAG_ARRAY_BUFFER_BINDING"/>). 
+		/// When an edge flag array is specified, <paramref name="stride"/> and <paramref name="pointer"/> are saved as client-side 
+		/// state,in addition to the current vertex array buffer object binding. 
+		/// To enable and disable the edge flag array, call Gl.EnableClientState and Gl.DisableClientState with the argument <see 
+		/// cref="Gl.EDGE_FLAG_ARRAY"/>.If enabled, the edge flag array is used when Gl.DrawArrays, Gl.MultiDrawArrays, 
+		/// Gl.DrawElements,Gl.MultiDrawElements, Gl.DrawRangeElements, or Gl.ArrayElement is called. 
+		/// <para>
+		/// The following errors can be generated:
+		/// - <see cref="Gl.INVALID_ENUM"/> is generated if <paramref name="stride"/> is negative. 
+		/// </para>
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - Gl.IsEnabled with argument <see cref="Gl.EDGE_FLAG_ARRAY"/> 
+		/// - Gl.Get with argument <see cref="Gl.EDGE_FLAG_ARRAY_STRIDE"/> 
+		/// - Gl.Get with argument <see cref="Gl.EDGE_FLAG_ARRAY_BUFFER_BINDING"/> 
+		/// - Gl.Get with argument <see cref="Gl.ARRAY_BUFFER_BINDING"/> 
+		/// - Gl.GetPointerv with argument <see cref="Gl.EDGE_FLAG_ARRAY_POINTER"/> 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.ArrayElement"/>
+		/// <seealso cref="Gl.BindBuffer"/>
+		/// <seealso cref="Gl.ColorPointer"/>
+		/// <seealso cref="Gl.DisableClientState"/>
+		/// <seealso cref="Gl.DrawArrays"/>
+		/// <seealso cref="Gl.DrawElements"/>
+		/// <seealso cref="Gl.DrawRangeElements"/>
+		/// <seealso cref="Gl.EdgeFlag"/>
+		/// <seealso cref="Gl.EnableClientState"/>
+		/// <seealso cref="Gl.FogCoordPointer"/>
+		/// <seealso cref="Gl.IndexPointer"/>
+		/// <seealso cref="Gl.InterleavedArrays"/>
+		/// <seealso cref="Gl.MultiDrawArrays"/>
+		/// <seealso cref="Gl.MultiDrawElements"/>
+		/// <seealso cref="Gl.NormalPointer"/>
+		/// <seealso cref="Gl.PopClientAttrib"/>
+		/// <seealso cref="Gl.PushClientAttrib"/>
+		/// <seealso cref="Gl.SecondaryColorPointer"/>
+		/// <seealso cref="Gl.TexCoordPointer"/>
+		/// <seealso cref="Gl.VertexAttribPointer"/>
+		/// <seealso cref="Gl.VertexPointer"/>
 		public static void EdgeFlagPointer(Int32 stride, Object pointer)
 		{
 			GCHandle pin_pointer = GCHandle.Alloc(pointer, GCHandleType.Pinned);
@@ -7203,13 +7538,37 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glEnableClientState.
+		/// enable or disable client-side capability
 		/// </summary>
 		/// <param name="array">
 		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <remarks>
+		/// <see cref="Gl.EnableClientState"/> and Gl.DisableClientState enable or disable individual client-side capabilities. By 
+		/// default,all client-side capabilities are disabled. Both <see cref="Gl.EnableClientState"/> and Gl.DisableClientState 
+		/// takea single argument, <paramref name="cap"/>, which can assume one of the following values: 
+		/// <para>
+		/// The following errors can be generated:
+		/// - <see cref="Gl.INVALID_ENUM"/> is generated if <paramref name="cap"/> is not an accepted value. 
+		/// - <see cref="Gl.EnableClientState"/> is not allowed between the execution of Gl.Begin and the corresponding Gl.End, but an 
+		///   errormay or may not be generated. If no error is generated, the behavior is undefined. 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.ArrayElement"/>
+		/// <seealso cref="Gl.ClientActiveTexture"/>
+		/// <seealso cref="Gl.ColorPointer"/>
+		/// <seealso cref="Gl.DrawArrays"/>
+		/// <seealso cref="Gl.DrawElements"/>
+		/// <seealso cref="Gl.EdgeFlagPointer"/>
+		/// <seealso cref="Gl.FogCoordPointer"/>
+		/// <seealso cref="Gl.Enable"/>
+		/// <seealso cref="Gl.GetPointerv"/>
+		/// <seealso cref="Gl.IndexPointer"/>
+		/// <seealso cref="Gl.InterleavedArrays"/>
+		/// <seealso cref="Gl.NormalPointer"/>
+		/// <seealso cref="Gl.SecondaryColorPointer"/>
+		/// <seealso cref="Gl.TexCoordPointer"/>
+		/// <seealso cref="Gl.VertexPointer"/>
 		public static void EnableClientState(int array)
 		{
 			Debug.Assert(Delegates.pglEnableClientState != null, "pglEnableClientState not implemented");
@@ -7219,13 +7578,37 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glEnableClientState.
+		/// enable or disable client-side capability
 		/// </summary>
 		/// <param name="array">
 		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <remarks>
+		/// <see cref="Gl.EnableClientState"/> and Gl.DisableClientState enable or disable individual client-side capabilities. By 
+		/// default,all client-side capabilities are disabled. Both <see cref="Gl.EnableClientState"/> and Gl.DisableClientState 
+		/// takea single argument, <paramref name="cap"/>, which can assume one of the following values: 
+		/// <para>
+		/// The following errors can be generated:
+		/// - <see cref="Gl.INVALID_ENUM"/> is generated if <paramref name="cap"/> is not an accepted value. 
+		/// - <see cref="Gl.EnableClientState"/> is not allowed between the execution of Gl.Begin and the corresponding Gl.End, but an 
+		///   errormay or may not be generated. If no error is generated, the behavior is undefined. 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.ArrayElement"/>
+		/// <seealso cref="Gl.ClientActiveTexture"/>
+		/// <seealso cref="Gl.ColorPointer"/>
+		/// <seealso cref="Gl.DrawArrays"/>
+		/// <seealso cref="Gl.DrawElements"/>
+		/// <seealso cref="Gl.EdgeFlagPointer"/>
+		/// <seealso cref="Gl.FogCoordPointer"/>
+		/// <seealso cref="Gl.Enable"/>
+		/// <seealso cref="Gl.GetPointerv"/>
+		/// <seealso cref="Gl.IndexPointer"/>
+		/// <seealso cref="Gl.InterleavedArrays"/>
+		/// <seealso cref="Gl.NormalPointer"/>
+		/// <seealso cref="Gl.SecondaryColorPointer"/>
+		/// <seealso cref="Gl.TexCoordPointer"/>
+		/// <seealso cref="Gl.VertexPointer"/>
 		public static void EnableClientState(EnableCap array)
 		{
 			Debug.Assert(Delegates.pglEnableClientState != null, "pglEnableClientState not implemented");
@@ -7235,19 +7618,70 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glIndexPointer.
+		/// define an array of color indexes
 		/// </summary>
 		/// <param name="type">
-		/// A <see cref="T:int"/>.
+		/// Specifies the data type of each color index in the array. Symbolic constants <see cref="Gl.UNSIGNED_BYTE"/>, <see 
+		/// cref="Gl.SHORT"/>,<see cref="Gl.INT"/>, <see cref="Gl.FLOAT"/>, and <see cref="Gl.DOUBLE"/> are accepted. The initial 
+		/// valueis <see cref="Gl.FLOAT"/>. 
 		/// </param>
 		/// <param name="stride">
-		/// A <see cref="T:Int32"/>.
+		/// Specifies the byte offset between consecutive color indexes. If <paramref name="stride"/> is 0, the color indexes are 
+		/// understoodto be tightly packed in the array. The initial value is 0. 
 		/// </param>
 		/// <param name="pointer">
-		/// A <see cref="T:IntPtr"/>.
+		/// Specifies a pointer to the first index in the array. The initial value is 0. 
 		/// </param>
 		/// <remarks>
+		/// <see cref="Gl.IndexPointer"/> specifies the location and data format of an array of color indexes to use when rendering. 
+		/// <paramrefname="type"/> specifies the data type of each color index and <paramref name="stride"/> specifies the byte 
+		/// stridefrom one color index to the next, allowing vertices and attributes to be packed into a single array or stored in 
+		/// separatearrays. 
+		/// If a non-zero named buffer object is bound to the <see cref="Gl.ARRAY_BUFFER"/> target (see Gl.BindBuffer) while a color 
+		/// indexarray is specified, <paramref name="pointer"/> is treated as a byte offset into the buffer object's data store. 
+		/// Also,the buffer object binding (<see cref="Gl.ARRAY_BUFFER_BINDING"/>) is saved as color index vertex array client-side 
+		/// state(<see cref="Gl.INDEX_ARRAY_BUFFER_BINDING"/>). 
+		/// When a color index array is specified, <paramref name="type"/>, <paramref name="stride"/>, and <paramref 
+		/// name="pointer"/>are saved as client-side state, in addition to the current vertex array buffer object binding. 
+		/// To enable and disable the color index array, call Gl.EnableClientState and Gl.DisableClientState with the argument <see 
+		/// cref="Gl.INDEX_ARRAY"/>.If enabled, the color index array is used when Gl.DrawArrays, Gl.MultiDrawArrays, 
+		/// Gl.DrawElements,Gl.MultiDrawElements, Gl.DrawRangeElements, or Gl.ArrayElement is called. 
+		/// <para>
+		/// The following errors can be generated:
+		/// - <see cref="Gl.INVALID_ENUM"/> is generated if <paramref name="type"/> is not an accepted value. 
+		/// - <see cref="Gl.INVALID_VALUE"/> is generated if <paramref name="stride"/> is negative. 
+		/// </para>
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - Gl.IsEnabled with argument <see cref="Gl.INDEX_ARRAY"/> 
+		/// - Gl.Get with argument <see cref="Gl.INDEX_ARRAY_TYPE"/> 
+		/// - Gl.Get with argument <see cref="Gl.INDEX_ARRAY_STRIDE"/> 
+		/// - Gl.Get with argument <see cref="Gl.INDEX_ARRAY_BUFFER_BINDING"/> 
+		/// - Gl.Get with argument <see cref="Gl.ARRAY_BUFFER_BINDING"/> 
+		/// - Gl.GetPointerv with argument <see cref="Gl.INDEX_ARRAY_POINTER"/> 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.ArrayElement"/>
+		/// <seealso cref="Gl.BindBuffer"/>
+		/// <seealso cref="Gl.ColorPointer"/>
+		/// <seealso cref="Gl.DisableClientState"/>
+		/// <seealso cref="Gl.DrawArrays"/>
+		/// <seealso cref="Gl.DrawElements"/>
+		/// <seealso cref="Gl.DrawRangeElements"/>
+		/// <seealso cref="Gl.EdgeFlagPointer"/>
+		/// <seealso cref="Gl.EnableClientState"/>
+		/// <seealso cref="Gl.FogCoordPointer"/>
+		/// <seealso cref="Gl.Index"/>
+		/// <seealso cref="Gl.InterleavedArrays"/>
+		/// <seealso cref="Gl.MultiDrawArrays"/>
+		/// <seealso cref="Gl.MultiDrawElements"/>
+		/// <seealso cref="Gl.NormalPointer"/>
+		/// <seealso cref="Gl.PopClientAttrib"/>
+		/// <seealso cref="Gl.PushClientAttrib"/>
+		/// <seealso cref="Gl.SecondaryColorPointer"/>
+		/// <seealso cref="Gl.TexCoordPointer"/>
+		/// <seealso cref="Gl.VertexAttribPointer"/>
+		/// <seealso cref="Gl.VertexPointer"/>
 		public static void IndexPointer(int type, Int32 stride, IntPtr pointer)
 		{
 			Debug.Assert(Delegates.pglIndexPointer != null, "pglIndexPointer not implemented");
@@ -7257,19 +7691,70 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glIndexPointer.
+		/// define an array of color indexes
 		/// </summary>
 		/// <param name="type">
-		/// A <see cref="T:int"/>.
+		/// Specifies the data type of each color index in the array. Symbolic constants <see cref="Gl.UNSIGNED_BYTE"/>, <see 
+		/// cref="Gl.SHORT"/>,<see cref="Gl.INT"/>, <see cref="Gl.FLOAT"/>, and <see cref="Gl.DOUBLE"/> are accepted. The initial 
+		/// valueis <see cref="Gl.FLOAT"/>. 
 		/// </param>
 		/// <param name="stride">
-		/// A <see cref="T:Int32"/>.
+		/// Specifies the byte offset between consecutive color indexes. If <paramref name="stride"/> is 0, the color indexes are 
+		/// understoodto be tightly packed in the array. The initial value is 0. 
 		/// </param>
 		/// <param name="pointer">
-		/// A <see cref="T:IntPtr"/>.
+		/// Specifies a pointer to the first index in the array. The initial value is 0. 
 		/// </param>
 		/// <remarks>
+		/// <see cref="Gl.IndexPointer"/> specifies the location and data format of an array of color indexes to use when rendering. 
+		/// <paramrefname="type"/> specifies the data type of each color index and <paramref name="stride"/> specifies the byte 
+		/// stridefrom one color index to the next, allowing vertices and attributes to be packed into a single array or stored in 
+		/// separatearrays. 
+		/// If a non-zero named buffer object is bound to the <see cref="Gl.ARRAY_BUFFER"/> target (see Gl.BindBuffer) while a color 
+		/// indexarray is specified, <paramref name="pointer"/> is treated as a byte offset into the buffer object's data store. 
+		/// Also,the buffer object binding (<see cref="Gl.ARRAY_BUFFER_BINDING"/>) is saved as color index vertex array client-side 
+		/// state(<see cref="Gl.INDEX_ARRAY_BUFFER_BINDING"/>). 
+		/// When a color index array is specified, <paramref name="type"/>, <paramref name="stride"/>, and <paramref 
+		/// name="pointer"/>are saved as client-side state, in addition to the current vertex array buffer object binding. 
+		/// To enable and disable the color index array, call Gl.EnableClientState and Gl.DisableClientState with the argument <see 
+		/// cref="Gl.INDEX_ARRAY"/>.If enabled, the color index array is used when Gl.DrawArrays, Gl.MultiDrawArrays, 
+		/// Gl.DrawElements,Gl.MultiDrawElements, Gl.DrawRangeElements, or Gl.ArrayElement is called. 
+		/// <para>
+		/// The following errors can be generated:
+		/// - <see cref="Gl.INVALID_ENUM"/> is generated if <paramref name="type"/> is not an accepted value. 
+		/// - <see cref="Gl.INVALID_VALUE"/> is generated if <paramref name="stride"/> is negative. 
+		/// </para>
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - Gl.IsEnabled with argument <see cref="Gl.INDEX_ARRAY"/> 
+		/// - Gl.Get with argument <see cref="Gl.INDEX_ARRAY_TYPE"/> 
+		/// - Gl.Get with argument <see cref="Gl.INDEX_ARRAY_STRIDE"/> 
+		/// - Gl.Get with argument <see cref="Gl.INDEX_ARRAY_BUFFER_BINDING"/> 
+		/// - Gl.Get with argument <see cref="Gl.ARRAY_BUFFER_BINDING"/> 
+		/// - Gl.GetPointerv with argument <see cref="Gl.INDEX_ARRAY_POINTER"/> 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.ArrayElement"/>
+		/// <seealso cref="Gl.BindBuffer"/>
+		/// <seealso cref="Gl.ColorPointer"/>
+		/// <seealso cref="Gl.DisableClientState"/>
+		/// <seealso cref="Gl.DrawArrays"/>
+		/// <seealso cref="Gl.DrawElements"/>
+		/// <seealso cref="Gl.DrawRangeElements"/>
+		/// <seealso cref="Gl.EdgeFlagPointer"/>
+		/// <seealso cref="Gl.EnableClientState"/>
+		/// <seealso cref="Gl.FogCoordPointer"/>
+		/// <seealso cref="Gl.Index"/>
+		/// <seealso cref="Gl.InterleavedArrays"/>
+		/// <seealso cref="Gl.MultiDrawArrays"/>
+		/// <seealso cref="Gl.MultiDrawElements"/>
+		/// <seealso cref="Gl.NormalPointer"/>
+		/// <seealso cref="Gl.PopClientAttrib"/>
+		/// <seealso cref="Gl.PushClientAttrib"/>
+		/// <seealso cref="Gl.SecondaryColorPointer"/>
+		/// <seealso cref="Gl.TexCoordPointer"/>
+		/// <seealso cref="Gl.VertexAttribPointer"/>
+		/// <seealso cref="Gl.VertexPointer"/>
 		public static void IndexPointer(IndexPointerType type, Int32 stride, IntPtr pointer)
 		{
 			Debug.Assert(Delegates.pglIndexPointer != null, "pglIndexPointer not implemented");
@@ -7279,19 +7764,70 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glIndexPointer.
+		/// define an array of color indexes
 		/// </summary>
 		/// <param name="type">
-		/// A <see cref="T:int"/>.
+		/// Specifies the data type of each color index in the array. Symbolic constants <see cref="Gl.UNSIGNED_BYTE"/>, <see 
+		/// cref="Gl.SHORT"/>,<see cref="Gl.INT"/>, <see cref="Gl.FLOAT"/>, and <see cref="Gl.DOUBLE"/> are accepted. The initial 
+		/// valueis <see cref="Gl.FLOAT"/>. 
 		/// </param>
 		/// <param name="stride">
-		/// A <see cref="T:Int32"/>.
+		/// Specifies the byte offset between consecutive color indexes. If <paramref name="stride"/> is 0, the color indexes are 
+		/// understoodto be tightly packed in the array. The initial value is 0. 
 		/// </param>
 		/// <param name="pointer">
-		/// A <see cref="T:IntPtr"/>.
+		/// Specifies a pointer to the first index in the array. The initial value is 0. 
 		/// </param>
 		/// <remarks>
+		/// <see cref="Gl.IndexPointer"/> specifies the location and data format of an array of color indexes to use when rendering. 
+		/// <paramrefname="type"/> specifies the data type of each color index and <paramref name="stride"/> specifies the byte 
+		/// stridefrom one color index to the next, allowing vertices and attributes to be packed into a single array or stored in 
+		/// separatearrays. 
+		/// If a non-zero named buffer object is bound to the <see cref="Gl.ARRAY_BUFFER"/> target (see Gl.BindBuffer) while a color 
+		/// indexarray is specified, <paramref name="pointer"/> is treated as a byte offset into the buffer object's data store. 
+		/// Also,the buffer object binding (<see cref="Gl.ARRAY_BUFFER_BINDING"/>) is saved as color index vertex array client-side 
+		/// state(<see cref="Gl.INDEX_ARRAY_BUFFER_BINDING"/>). 
+		/// When a color index array is specified, <paramref name="type"/>, <paramref name="stride"/>, and <paramref 
+		/// name="pointer"/>are saved as client-side state, in addition to the current vertex array buffer object binding. 
+		/// To enable and disable the color index array, call Gl.EnableClientState and Gl.DisableClientState with the argument <see 
+		/// cref="Gl.INDEX_ARRAY"/>.If enabled, the color index array is used when Gl.DrawArrays, Gl.MultiDrawArrays, 
+		/// Gl.DrawElements,Gl.MultiDrawElements, Gl.DrawRangeElements, or Gl.ArrayElement is called. 
+		/// <para>
+		/// The following errors can be generated:
+		/// - <see cref="Gl.INVALID_ENUM"/> is generated if <paramref name="type"/> is not an accepted value. 
+		/// - <see cref="Gl.INVALID_VALUE"/> is generated if <paramref name="stride"/> is negative. 
+		/// </para>
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - Gl.IsEnabled with argument <see cref="Gl.INDEX_ARRAY"/> 
+		/// - Gl.Get with argument <see cref="Gl.INDEX_ARRAY_TYPE"/> 
+		/// - Gl.Get with argument <see cref="Gl.INDEX_ARRAY_STRIDE"/> 
+		/// - Gl.Get with argument <see cref="Gl.INDEX_ARRAY_BUFFER_BINDING"/> 
+		/// - Gl.Get with argument <see cref="Gl.ARRAY_BUFFER_BINDING"/> 
+		/// - Gl.GetPointerv with argument <see cref="Gl.INDEX_ARRAY_POINTER"/> 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.ArrayElement"/>
+		/// <seealso cref="Gl.BindBuffer"/>
+		/// <seealso cref="Gl.ColorPointer"/>
+		/// <seealso cref="Gl.DisableClientState"/>
+		/// <seealso cref="Gl.DrawArrays"/>
+		/// <seealso cref="Gl.DrawElements"/>
+		/// <seealso cref="Gl.DrawRangeElements"/>
+		/// <seealso cref="Gl.EdgeFlagPointer"/>
+		/// <seealso cref="Gl.EnableClientState"/>
+		/// <seealso cref="Gl.FogCoordPointer"/>
+		/// <seealso cref="Gl.Index"/>
+		/// <seealso cref="Gl.InterleavedArrays"/>
+		/// <seealso cref="Gl.MultiDrawArrays"/>
+		/// <seealso cref="Gl.MultiDrawElements"/>
+		/// <seealso cref="Gl.NormalPointer"/>
+		/// <seealso cref="Gl.PopClientAttrib"/>
+		/// <seealso cref="Gl.PushClientAttrib"/>
+		/// <seealso cref="Gl.SecondaryColorPointer"/>
+		/// <seealso cref="Gl.TexCoordPointer"/>
+		/// <seealso cref="Gl.VertexAttribPointer"/>
+		/// <seealso cref="Gl.VertexPointer"/>
 		public static void IndexPointer(int type, Int32 stride, Object pointer)
 		{
 			GCHandle pin_pointer = GCHandle.Alloc(pointer, GCHandleType.Pinned);
@@ -7303,19 +7839,53 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glInterleavedArrays.
+		/// simultaneously specify and enable several interleaved arrays
 		/// </summary>
 		/// <param name="format">
-		/// A <see cref="T:int"/>.
+		/// Specifies the type of array to enable. Symbolic constants <see cref="Gl.V2F"/>, <see cref="Gl.V3F"/>, <see 
+		/// cref="Gl.C4UB_V2F"/>,<see cref="Gl.C4UB_V3F"/>, <see cref="Gl.C3F_V3F"/>, <see cref="Gl.N3F_V3F"/>, <see 
+		/// cref="Gl.C4F_N3F_V3F"/>,<see cref="Gl.T2F_V3F"/>, <see cref="Gl.T4F_V4F"/>, <see cref="Gl.T2F_C4UB_V3F"/>, <see 
+		/// cref="Gl.T2F_C3F_V3F"/>,<see cref="Gl.T2F_N3F_V3F"/>, <see cref="Gl.T2F_C4F_N3F_V3F"/>, and <see 
+		/// cref="Gl.T4F_C4F_N3F_V4F"/>are accepted. 
 		/// </param>
 		/// <param name="stride">
-		/// A <see cref="T:Int32"/>.
+		/// Specifies the offset in bytes between each aggregate array element. 
 		/// </param>
 		/// <param name="pointer">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		/// <remarks>
+		/// <see cref="Gl.InterleavedArrays"/> lets you specify and enable individual color, normal, texture and vertex arrays whose 
+		/// elementsare part of a larger aggregate array element. For some implementations, this is more efficient than specifying 
+		/// thearrays separately. 
+		/// If <paramref name="stride"/> is 0, the aggregate elements are stored consecutively. Otherwise, <paramref name="stride"/> 
+		/// bytesoccur between the beginning of one aggregate array element and the beginning of the next aggregate array element. 
+		/// <paramref name="format"/> serves as a ``key'' describing the extraction of individual arrays from the aggregate array. 
+		/// If<paramref name="format"/> contains a T, then texture coordinates are extracted from the interleaved array. If C is 
+		/// present,color values are extracted. If N is present, normal coordinates are extracted. Vertex coordinates are always 
+		/// extracted.
+		/// The digits 2, 3, and 4 denote how many values are extracted. F indicates that values are extracted as floating-point 
+		/// values.Colors may also be extracted as 4 unsigned bytes if 4UB follows the C. If a color is extracted as 4 unsigned 
+		/// bytes,the vertex array element which follows is located at the first possible floating-point aligned address. 
+		/// <para>
+		/// The following errors can be generated:
+		/// - <see cref="Gl.INVALID_ENUM"/> is generated if <paramref name="format"/> is not an accepted value. 
+		/// - <see cref="Gl.INVALID_VALUE"/> is generated if <paramref name="stride"/> is negative. 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.ArrayElement"/>
+		/// <seealso cref="Gl.ClientActiveTexture"/>
+		/// <seealso cref="Gl.ColorPointer"/>
+		/// <seealso cref="Gl.DrawArrays"/>
+		/// <seealso cref="Gl.DrawElements"/>
+		/// <seealso cref="Gl.EdgeFlagPointer"/>
+		/// <seealso cref="Gl.EnableClientState"/>
+		/// <seealso cref="Gl.GetPointerv"/>
+		/// <seealso cref="Gl.IndexPointer"/>
+		/// <seealso cref="Gl.NormalPointer"/>
+		/// <seealso cref="Gl.SecondaryColorPointer"/>
+		/// <seealso cref="Gl.TexCoordPointer"/>
+		/// <seealso cref="Gl.VertexPointer"/>
 		public static void InterleavedArrays(int format, Int32 stride, IntPtr pointer)
 		{
 			Debug.Assert(Delegates.pglInterleavedArrays != null, "pglInterleavedArrays not implemented");
@@ -7325,19 +7895,53 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glInterleavedArrays.
+		/// simultaneously specify and enable several interleaved arrays
 		/// </summary>
 		/// <param name="format">
-		/// A <see cref="T:int"/>.
+		/// Specifies the type of array to enable. Symbolic constants <see cref="Gl.V2F"/>, <see cref="Gl.V3F"/>, <see 
+		/// cref="Gl.C4UB_V2F"/>,<see cref="Gl.C4UB_V3F"/>, <see cref="Gl.C3F_V3F"/>, <see cref="Gl.N3F_V3F"/>, <see 
+		/// cref="Gl.C4F_N3F_V3F"/>,<see cref="Gl.T2F_V3F"/>, <see cref="Gl.T4F_V4F"/>, <see cref="Gl.T2F_C4UB_V3F"/>, <see 
+		/// cref="Gl.T2F_C3F_V3F"/>,<see cref="Gl.T2F_N3F_V3F"/>, <see cref="Gl.T2F_C4F_N3F_V3F"/>, and <see 
+		/// cref="Gl.T4F_C4F_N3F_V4F"/>are accepted. 
 		/// </param>
 		/// <param name="stride">
-		/// A <see cref="T:Int32"/>.
+		/// Specifies the offset in bytes between each aggregate array element. 
 		/// </param>
 		/// <param name="pointer">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		/// <remarks>
+		/// <see cref="Gl.InterleavedArrays"/> lets you specify and enable individual color, normal, texture and vertex arrays whose 
+		/// elementsare part of a larger aggregate array element. For some implementations, this is more efficient than specifying 
+		/// thearrays separately. 
+		/// If <paramref name="stride"/> is 0, the aggregate elements are stored consecutively. Otherwise, <paramref name="stride"/> 
+		/// bytesoccur between the beginning of one aggregate array element and the beginning of the next aggregate array element. 
+		/// <paramref name="format"/> serves as a ``key'' describing the extraction of individual arrays from the aggregate array. 
+		/// If<paramref name="format"/> contains a T, then texture coordinates are extracted from the interleaved array. If C is 
+		/// present,color values are extracted. If N is present, normal coordinates are extracted. Vertex coordinates are always 
+		/// extracted.
+		/// The digits 2, 3, and 4 denote how many values are extracted. F indicates that values are extracted as floating-point 
+		/// values.Colors may also be extracted as 4 unsigned bytes if 4UB follows the C. If a color is extracted as 4 unsigned 
+		/// bytes,the vertex array element which follows is located at the first possible floating-point aligned address. 
+		/// <para>
+		/// The following errors can be generated:
+		/// - <see cref="Gl.INVALID_ENUM"/> is generated if <paramref name="format"/> is not an accepted value. 
+		/// - <see cref="Gl.INVALID_VALUE"/> is generated if <paramref name="stride"/> is negative. 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.ArrayElement"/>
+		/// <seealso cref="Gl.ClientActiveTexture"/>
+		/// <seealso cref="Gl.ColorPointer"/>
+		/// <seealso cref="Gl.DrawArrays"/>
+		/// <seealso cref="Gl.DrawElements"/>
+		/// <seealso cref="Gl.EdgeFlagPointer"/>
+		/// <seealso cref="Gl.EnableClientState"/>
+		/// <seealso cref="Gl.GetPointerv"/>
+		/// <seealso cref="Gl.IndexPointer"/>
+		/// <seealso cref="Gl.NormalPointer"/>
+		/// <seealso cref="Gl.SecondaryColorPointer"/>
+		/// <seealso cref="Gl.TexCoordPointer"/>
+		/// <seealso cref="Gl.VertexPointer"/>
 		public static void InterleavedArrays(InterleavedArrayFormat format, Int32 stride, IntPtr pointer)
 		{
 			Debug.Assert(Delegates.pglInterleavedArrays != null, "pglInterleavedArrays not implemented");
@@ -7347,19 +7951,53 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glInterleavedArrays.
+		/// simultaneously specify and enable several interleaved arrays
 		/// </summary>
 		/// <param name="format">
-		/// A <see cref="T:int"/>.
+		/// Specifies the type of array to enable. Symbolic constants <see cref="Gl.V2F"/>, <see cref="Gl.V3F"/>, <see 
+		/// cref="Gl.C4UB_V2F"/>,<see cref="Gl.C4UB_V3F"/>, <see cref="Gl.C3F_V3F"/>, <see cref="Gl.N3F_V3F"/>, <see 
+		/// cref="Gl.C4F_N3F_V3F"/>,<see cref="Gl.T2F_V3F"/>, <see cref="Gl.T4F_V4F"/>, <see cref="Gl.T2F_C4UB_V3F"/>, <see 
+		/// cref="Gl.T2F_C3F_V3F"/>,<see cref="Gl.T2F_N3F_V3F"/>, <see cref="Gl.T2F_C4F_N3F_V3F"/>, and <see 
+		/// cref="Gl.T4F_C4F_N3F_V4F"/>are accepted. 
 		/// </param>
 		/// <param name="stride">
-		/// A <see cref="T:Int32"/>.
+		/// Specifies the offset in bytes between each aggregate array element. 
 		/// </param>
 		/// <param name="pointer">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		/// <remarks>
+		/// <see cref="Gl.InterleavedArrays"/> lets you specify and enable individual color, normal, texture and vertex arrays whose 
+		/// elementsare part of a larger aggregate array element. For some implementations, this is more efficient than specifying 
+		/// thearrays separately. 
+		/// If <paramref name="stride"/> is 0, the aggregate elements are stored consecutively. Otherwise, <paramref name="stride"/> 
+		/// bytesoccur between the beginning of one aggregate array element and the beginning of the next aggregate array element. 
+		/// <paramref name="format"/> serves as a ``key'' describing the extraction of individual arrays from the aggregate array. 
+		/// If<paramref name="format"/> contains a T, then texture coordinates are extracted from the interleaved array. If C is 
+		/// present,color values are extracted. If N is present, normal coordinates are extracted. Vertex coordinates are always 
+		/// extracted.
+		/// The digits 2, 3, and 4 denote how many values are extracted. F indicates that values are extracted as floating-point 
+		/// values.Colors may also be extracted as 4 unsigned bytes if 4UB follows the C. If a color is extracted as 4 unsigned 
+		/// bytes,the vertex array element which follows is located at the first possible floating-point aligned address. 
+		/// <para>
+		/// The following errors can be generated:
+		/// - <see cref="Gl.INVALID_ENUM"/> is generated if <paramref name="format"/> is not an accepted value. 
+		/// - <see cref="Gl.INVALID_VALUE"/> is generated if <paramref name="stride"/> is negative. 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.ArrayElement"/>
+		/// <seealso cref="Gl.ClientActiveTexture"/>
+		/// <seealso cref="Gl.ColorPointer"/>
+		/// <seealso cref="Gl.DrawArrays"/>
+		/// <seealso cref="Gl.DrawElements"/>
+		/// <seealso cref="Gl.EdgeFlagPointer"/>
+		/// <seealso cref="Gl.EnableClientState"/>
+		/// <seealso cref="Gl.GetPointerv"/>
+		/// <seealso cref="Gl.IndexPointer"/>
+		/// <seealso cref="Gl.NormalPointer"/>
+		/// <seealso cref="Gl.SecondaryColorPointer"/>
+		/// <seealso cref="Gl.TexCoordPointer"/>
+		/// <seealso cref="Gl.VertexPointer"/>
 		public static void InterleavedArrays(int format, Int32 stride, Object pointer)
 		{
 			GCHandle pin_pointer = GCHandle.Alloc(pointer, GCHandleType.Pinned);
@@ -7371,19 +8009,70 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glNormalPointer.
+		/// define an array of normals
 		/// </summary>
 		/// <param name="type">
-		/// A <see cref="T:int"/>.
+		/// Specifies the data type of each coordinate in the array. Symbolic constants <see cref="Gl.BYTE"/>, <see 
+		/// cref="Gl.SHORT"/>,<see cref="Gl.INT"/>, <see cref="Gl.FLOAT"/>, and <see cref="Gl.DOUBLE"/> are accepted. The initial 
+		/// valueis <see cref="Gl.FLOAT"/>. 
 		/// </param>
 		/// <param name="stride">
-		/// A <see cref="T:Int32"/>.
+		/// Specifies the byte offset between consecutive normals. If <paramref name="stride"/> is 0, the normals are understood to 
+		/// betightly packed in the array. The initial value is 0. 
 		/// </param>
 		/// <param name="pointer">
-		/// A <see cref="T:IntPtr"/>.
+		/// Specifies a pointer to the first coordinate of the first normal in the array. The initial value is 0. 
 		/// </param>
 		/// <remarks>
+		/// <see cref="Gl.NormalPointer"/> specifies the location and data format of an array of normals to use when rendering. 
+		/// <paramrefname="type"/> specifies the data type of each normal coordinate, and <paramref name="stride"/> specifies the 
+		/// bytestride from one normal to the next, allowing vertices and attributes to be packed into a single array or stored in 
+		/// separatearrays. (Single-array storage may be more efficient on some implementations; see Gl.InterleavedArrays.) 
+		/// If a non-zero named buffer object is bound to the <see cref="Gl.ARRAY_BUFFER"/> target (see Gl.BindBuffer) while a 
+		/// normalarray is specified, <paramref name="pointer"/> is treated as a byte offset into the buffer object's data store. 
+		/// Also,the buffer object binding (<see cref="Gl.ARRAY_BUFFER_BINDING"/>) is saved as normal vertex array client-side state 
+		/// (<seecref="Gl.NORMAL_ARRAY_BUFFER_BINDING"/>). 
+		/// When a normal array is specified, <paramref name="type"/>, <paramref name="stride"/>, and <paramref name="pointer"/> are 
+		/// savedas client-side state, in addition to the current vertex array buffer object binding. 
+		/// To enable and disable the normal array, call Gl.EnableClientState and Gl.DisableClientState with the argument <see 
+		/// cref="Gl.NORMAL_ARRAY"/>.If enabled, the normal array is used when Gl.DrawArrays, Gl.MultiDrawArrays, Gl.DrawElements, 
+		/// Gl.MultiDrawElements,Gl.DrawRangeElements, or Gl.ArrayElement is called. 
+		/// <para>
+		/// The following errors can be generated:
+		/// - <see cref="Gl.INVALID_ENUM"/> is generated if <paramref name="type"/> is not an accepted value. 
+		/// - <see cref="Gl.INVALID_VALUE"/> is generated if <paramref name="stride"/> is negative. 
+		/// </para>
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - Gl.IsEnabled with argument <see cref="Gl.NORMAL_ARRAY"/> 
+		/// - Gl.Get with argument <see cref="Gl.NORMAL_ARRAY_TYPE"/> 
+		/// - Gl.Get with argument <see cref="Gl.NORMAL_ARRAY_STRIDE"/> 
+		/// - Gl.Get with argument <see cref="Gl.NORMAL_ARRAY_BUFFER_BINDING"/> 
+		/// - Gl.Get with argument <see cref="Gl.ARRAY_BUFFER_BINDING"/> 
+		/// - Gl.GetPointerv with argument <see cref="Gl.NORMAL_ARRAY_POINTER"/> 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.ArrayElement"/>
+		/// <seealso cref="Gl.BindBuffer"/>
+		/// <seealso cref="Gl.ColorPointer"/>
+		/// <seealso cref="Gl.DisableClientState"/>
+		/// <seealso cref="Gl.DrawArrays"/>
+		/// <seealso cref="Gl.DrawElements"/>
+		/// <seealso cref="Gl.DrawRangeElements"/>
+		/// <seealso cref="Gl.EdgeFlagPointer"/>
+		/// <seealso cref="Gl.EnableClientState"/>
+		/// <seealso cref="Gl.FogCoordPointer"/>
+		/// <seealso cref="Gl.IndexPointer"/>
+		/// <seealso cref="Gl.InterleavedArrays"/>
+		/// <seealso cref="Gl.MultiDrawArrays"/>
+		/// <seealso cref="Gl.MultiDrawElements"/>
+		/// <seealso cref="Gl.Normal"/>
+		/// <seealso cref="Gl.PopClientAttrib"/>
+		/// <seealso cref="Gl.PushClientAttrib"/>
+		/// <seealso cref="Gl.SecondaryColorPointer"/>
+		/// <seealso cref="Gl.TexCoordPointer"/>
+		/// <seealso cref="Gl.VertexAttribPointer"/>
+		/// <seealso cref="Gl.VertexPointer"/>
 		public static void NormalPointer(int type, Int32 stride, IntPtr pointer)
 		{
 			Debug.Assert(Delegates.pglNormalPointer != null, "pglNormalPointer not implemented");
@@ -7393,19 +8082,70 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glNormalPointer.
+		/// define an array of normals
 		/// </summary>
 		/// <param name="type">
-		/// A <see cref="T:int"/>.
+		/// Specifies the data type of each coordinate in the array. Symbolic constants <see cref="Gl.BYTE"/>, <see 
+		/// cref="Gl.SHORT"/>,<see cref="Gl.INT"/>, <see cref="Gl.FLOAT"/>, and <see cref="Gl.DOUBLE"/> are accepted. The initial 
+		/// valueis <see cref="Gl.FLOAT"/>. 
 		/// </param>
 		/// <param name="stride">
-		/// A <see cref="T:Int32"/>.
+		/// Specifies the byte offset between consecutive normals. If <paramref name="stride"/> is 0, the normals are understood to 
+		/// betightly packed in the array. The initial value is 0. 
 		/// </param>
 		/// <param name="pointer">
-		/// A <see cref="T:IntPtr"/>.
+		/// Specifies a pointer to the first coordinate of the first normal in the array. The initial value is 0. 
 		/// </param>
 		/// <remarks>
+		/// <see cref="Gl.NormalPointer"/> specifies the location and data format of an array of normals to use when rendering. 
+		/// <paramrefname="type"/> specifies the data type of each normal coordinate, and <paramref name="stride"/> specifies the 
+		/// bytestride from one normal to the next, allowing vertices and attributes to be packed into a single array or stored in 
+		/// separatearrays. (Single-array storage may be more efficient on some implementations; see Gl.InterleavedArrays.) 
+		/// If a non-zero named buffer object is bound to the <see cref="Gl.ARRAY_BUFFER"/> target (see Gl.BindBuffer) while a 
+		/// normalarray is specified, <paramref name="pointer"/> is treated as a byte offset into the buffer object's data store. 
+		/// Also,the buffer object binding (<see cref="Gl.ARRAY_BUFFER_BINDING"/>) is saved as normal vertex array client-side state 
+		/// (<seecref="Gl.NORMAL_ARRAY_BUFFER_BINDING"/>). 
+		/// When a normal array is specified, <paramref name="type"/>, <paramref name="stride"/>, and <paramref name="pointer"/> are 
+		/// savedas client-side state, in addition to the current vertex array buffer object binding. 
+		/// To enable and disable the normal array, call Gl.EnableClientState and Gl.DisableClientState with the argument <see 
+		/// cref="Gl.NORMAL_ARRAY"/>.If enabled, the normal array is used when Gl.DrawArrays, Gl.MultiDrawArrays, Gl.DrawElements, 
+		/// Gl.MultiDrawElements,Gl.DrawRangeElements, or Gl.ArrayElement is called. 
+		/// <para>
+		/// The following errors can be generated:
+		/// - <see cref="Gl.INVALID_ENUM"/> is generated if <paramref name="type"/> is not an accepted value. 
+		/// - <see cref="Gl.INVALID_VALUE"/> is generated if <paramref name="stride"/> is negative. 
+		/// </para>
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - Gl.IsEnabled with argument <see cref="Gl.NORMAL_ARRAY"/> 
+		/// - Gl.Get with argument <see cref="Gl.NORMAL_ARRAY_TYPE"/> 
+		/// - Gl.Get with argument <see cref="Gl.NORMAL_ARRAY_STRIDE"/> 
+		/// - Gl.Get with argument <see cref="Gl.NORMAL_ARRAY_BUFFER_BINDING"/> 
+		/// - Gl.Get with argument <see cref="Gl.ARRAY_BUFFER_BINDING"/> 
+		/// - Gl.GetPointerv with argument <see cref="Gl.NORMAL_ARRAY_POINTER"/> 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.ArrayElement"/>
+		/// <seealso cref="Gl.BindBuffer"/>
+		/// <seealso cref="Gl.ColorPointer"/>
+		/// <seealso cref="Gl.DisableClientState"/>
+		/// <seealso cref="Gl.DrawArrays"/>
+		/// <seealso cref="Gl.DrawElements"/>
+		/// <seealso cref="Gl.DrawRangeElements"/>
+		/// <seealso cref="Gl.EdgeFlagPointer"/>
+		/// <seealso cref="Gl.EnableClientState"/>
+		/// <seealso cref="Gl.FogCoordPointer"/>
+		/// <seealso cref="Gl.IndexPointer"/>
+		/// <seealso cref="Gl.InterleavedArrays"/>
+		/// <seealso cref="Gl.MultiDrawArrays"/>
+		/// <seealso cref="Gl.MultiDrawElements"/>
+		/// <seealso cref="Gl.Normal"/>
+		/// <seealso cref="Gl.PopClientAttrib"/>
+		/// <seealso cref="Gl.PushClientAttrib"/>
+		/// <seealso cref="Gl.SecondaryColorPointer"/>
+		/// <seealso cref="Gl.TexCoordPointer"/>
+		/// <seealso cref="Gl.VertexAttribPointer"/>
+		/// <seealso cref="Gl.VertexPointer"/>
 		public static void NormalPointer(NormalPointerType type, Int32 stride, IntPtr pointer)
 		{
 			Debug.Assert(Delegates.pglNormalPointer != null, "pglNormalPointer not implemented");
@@ -7415,19 +8155,70 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glNormalPointer.
+		/// define an array of normals
 		/// </summary>
 		/// <param name="type">
-		/// A <see cref="T:int"/>.
+		/// Specifies the data type of each coordinate in the array. Symbolic constants <see cref="Gl.BYTE"/>, <see 
+		/// cref="Gl.SHORT"/>,<see cref="Gl.INT"/>, <see cref="Gl.FLOAT"/>, and <see cref="Gl.DOUBLE"/> are accepted. The initial 
+		/// valueis <see cref="Gl.FLOAT"/>. 
 		/// </param>
 		/// <param name="stride">
-		/// A <see cref="T:Int32"/>.
+		/// Specifies the byte offset between consecutive normals. If <paramref name="stride"/> is 0, the normals are understood to 
+		/// betightly packed in the array. The initial value is 0. 
 		/// </param>
 		/// <param name="pointer">
-		/// A <see cref="T:IntPtr"/>.
+		/// Specifies a pointer to the first coordinate of the first normal in the array. The initial value is 0. 
 		/// </param>
 		/// <remarks>
+		/// <see cref="Gl.NormalPointer"/> specifies the location and data format of an array of normals to use when rendering. 
+		/// <paramrefname="type"/> specifies the data type of each normal coordinate, and <paramref name="stride"/> specifies the 
+		/// bytestride from one normal to the next, allowing vertices and attributes to be packed into a single array or stored in 
+		/// separatearrays. (Single-array storage may be more efficient on some implementations; see Gl.InterleavedArrays.) 
+		/// If a non-zero named buffer object is bound to the <see cref="Gl.ARRAY_BUFFER"/> target (see Gl.BindBuffer) while a 
+		/// normalarray is specified, <paramref name="pointer"/> is treated as a byte offset into the buffer object's data store. 
+		/// Also,the buffer object binding (<see cref="Gl.ARRAY_BUFFER_BINDING"/>) is saved as normal vertex array client-side state 
+		/// (<seecref="Gl.NORMAL_ARRAY_BUFFER_BINDING"/>). 
+		/// When a normal array is specified, <paramref name="type"/>, <paramref name="stride"/>, and <paramref name="pointer"/> are 
+		/// savedas client-side state, in addition to the current vertex array buffer object binding. 
+		/// To enable and disable the normal array, call Gl.EnableClientState and Gl.DisableClientState with the argument <see 
+		/// cref="Gl.NORMAL_ARRAY"/>.If enabled, the normal array is used when Gl.DrawArrays, Gl.MultiDrawArrays, Gl.DrawElements, 
+		/// Gl.MultiDrawElements,Gl.DrawRangeElements, or Gl.ArrayElement is called. 
+		/// <para>
+		/// The following errors can be generated:
+		/// - <see cref="Gl.INVALID_ENUM"/> is generated if <paramref name="type"/> is not an accepted value. 
+		/// - <see cref="Gl.INVALID_VALUE"/> is generated if <paramref name="stride"/> is negative. 
+		/// </para>
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - Gl.IsEnabled with argument <see cref="Gl.NORMAL_ARRAY"/> 
+		/// - Gl.Get with argument <see cref="Gl.NORMAL_ARRAY_TYPE"/> 
+		/// - Gl.Get with argument <see cref="Gl.NORMAL_ARRAY_STRIDE"/> 
+		/// - Gl.Get with argument <see cref="Gl.NORMAL_ARRAY_BUFFER_BINDING"/> 
+		/// - Gl.Get with argument <see cref="Gl.ARRAY_BUFFER_BINDING"/> 
+		/// - Gl.GetPointerv with argument <see cref="Gl.NORMAL_ARRAY_POINTER"/> 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.ArrayElement"/>
+		/// <seealso cref="Gl.BindBuffer"/>
+		/// <seealso cref="Gl.ColorPointer"/>
+		/// <seealso cref="Gl.DisableClientState"/>
+		/// <seealso cref="Gl.DrawArrays"/>
+		/// <seealso cref="Gl.DrawElements"/>
+		/// <seealso cref="Gl.DrawRangeElements"/>
+		/// <seealso cref="Gl.EdgeFlagPointer"/>
+		/// <seealso cref="Gl.EnableClientState"/>
+		/// <seealso cref="Gl.FogCoordPointer"/>
+		/// <seealso cref="Gl.IndexPointer"/>
+		/// <seealso cref="Gl.InterleavedArrays"/>
+		/// <seealso cref="Gl.MultiDrawArrays"/>
+		/// <seealso cref="Gl.MultiDrawElements"/>
+		/// <seealso cref="Gl.Normal"/>
+		/// <seealso cref="Gl.PopClientAttrib"/>
+		/// <seealso cref="Gl.PushClientAttrib"/>
+		/// <seealso cref="Gl.SecondaryColorPointer"/>
+		/// <seealso cref="Gl.TexCoordPointer"/>
+		/// <seealso cref="Gl.VertexAttribPointer"/>
+		/// <seealso cref="Gl.VertexPointer"/>
 		public static void NormalPointer(int type, Int32 stride, Object pointer)
 		{
 			GCHandle pin_pointer = GCHandle.Alloc(pointer, GCHandleType.Pinned);
@@ -7439,22 +8230,79 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glTexCoordPointer.
+		/// define an array of texture coordinates
 		/// </summary>
 		/// <param name="size">
-		/// A <see cref="T:Int32"/>.
+		/// Specifies the number of coordinates per array element. Must be 1, 2, 3, or 4. The initial value is 4. 
 		/// </param>
 		/// <param name="type">
-		/// A <see cref="T:int"/>.
+		/// Specifies the data type of each texture coordinate. Symbolic constants <see cref="Gl.SHORT"/>, <see cref="Gl.INT"/>, 
+		/// <seecref="Gl.FLOAT"/>, or <see cref="Gl.DOUBLE"/> are accepted. The initial value is <see cref="Gl.FLOAT"/>. 
 		/// </param>
 		/// <param name="stride">
-		/// A <see cref="T:Int32"/>.
+		/// Specifies the byte offset between consecutive texture coordinate sets. If <paramref name="stride"/> is 0, the array 
+		/// elementsare understood to be tightly packed. The initial value is 0. 
 		/// </param>
 		/// <param name="pointer">
-		/// A <see cref="T:IntPtr"/>.
+		/// Specifies a pointer to the first coordinate of the first texture coordinate set in the array. The initial value is 0. 
 		/// </param>
 		/// <remarks>
+		/// <see cref="Gl.TexCoordPointer"/> specifies the location and data format of an array of texture coordinates to use when 
+		/// rendering.<paramref name="size"/> specifies the number of coordinates per texture coordinate set, and must be 1, 2, 3, 
+		/// or4. <paramref name="type"/> specifies the data type of each texture coordinate, and <paramref name="stride"/> specifies 
+		/// thebyte stride from one texture coordinate set to the next, allowing vertices and attributes to be packed into a single 
+		/// arrayor stored in separate arrays. (Single-array storage may be more efficient on some implementations; see 
+		/// Gl.InterleavedArrays.)
+		/// If a non-zero named buffer object is bound to the <see cref="Gl.ARRAY_BUFFER"/> target (see Gl.BindBuffer) while a 
+		/// texturecoordinate array is specified, <paramref name="pointer"/> is treated as a byte offset into the buffer object's 
+		/// datastore. Also, the buffer object binding (<see cref="Gl.ARRAY_BUFFER_BINDING"/>) is saved as texture coordinate vertex 
+		/// arrayclient-side state (<see cref="Gl.TEXTURE_COORD_ARRAY_BUFFER_BINDING"/>). 
+		/// When a texture coordinate array is specified, <paramref name="size"/>, <paramref name="type"/>, <paramref 
+		/// name="stride"/>,and <paramref name="pointer"/> are saved as client-side state, in addition to the current vertex array 
+		/// bufferobject binding. 
+		/// To enable and disable a texture coordinate array, call Gl.EnableClientState and Gl.DisableClientState with the argument 
+		/// <seecref="Gl.TEXTURE_COORD_ARRAY"/>. If enabled, the texture coordinate array is used when Gl.ArrayElement, 
+		/// Gl.DrawArrays,Gl.MultiDrawArrays, Gl.DrawElements, Gl.MultiDrawElements, or Gl.DrawRangeElements is called. 
+		/// <para>
+		/// The following errors can be generated:
+		/// - <see cref="Gl.INVALID_VALUE"/> is generated if <paramref name="size"/> is not 1, 2, 3, or 4. 
+		/// - <see cref="Gl.INVALID_ENUM"/> is generated if <paramref name="type"/> is not an accepted value. 
+		/// - <see cref="Gl.INVALID_VALUE"/> is generated if <paramref name="stride"/> is negative. 
+		/// </para>
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - Gl.IsEnabled with argument <see cref="Gl.TEXTURE_COORD_ARRAY"/> 
+		/// - Gl.Get with argument <see cref="Gl.TEXTURE_COORD_ARRAY_SIZE"/> 
+		/// - Gl.Get with argument <see cref="Gl.TEXTURE_COORD_ARRAY_TYPE"/> 
+		/// - Gl.Get with argument <see cref="Gl.TEXTURE_COORD_ARRAY_STRIDE"/> 
+		/// - Gl.Get with argument <see cref="Gl.TEXTURE_COORD_ARRAY_BUFFER_BINDING"/> 
+		/// - Gl.Get with argument <see cref="Gl.ARRAY_BUFFER_BINDING"/> 
+		/// - Gl.GetPointerv with argument <see cref="Gl.TEXTURE_COORD_ARRAY_POINTER"/> 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.ArrayElement"/>
+		/// <seealso cref="Gl.BindBuffer"/>
+		/// <seealso cref="Gl.ClientActiveTexture"/>
+		/// <seealso cref="Gl.ColorPointer"/>
+		/// <seealso cref="Gl.DisableClientState"/>
+		/// <seealso cref="Gl.DrawArrays"/>
+		/// <seealso cref="Gl.DrawElements"/>
+		/// <seealso cref="Gl.DrawRangeElements"/>
+		/// <seealso cref="Gl.EdgeFlagPointer"/>
+		/// <seealso cref="Gl.EnableClientState"/>
+		/// <seealso cref="Gl.FogCoordPointer"/>
+		/// <seealso cref="Gl.IndexPointer"/>
+		/// <seealso cref="Gl.InterleavedArrays"/>
+		/// <seealso cref="Gl.MultiDrawArrays"/>
+		/// <seealso cref="Gl.MultiDrawElements"/>
+		/// <seealso cref="Gl.MultiTexCoord"/>
+		/// <seealso cref="Gl.NormalPointer"/>
+		/// <seealso cref="Gl.PopClientAttrib"/>
+		/// <seealso cref="Gl.PushClientAttrib"/>
+		/// <seealso cref="Gl.SecondaryColorPointer"/>
+		/// <seealso cref="Gl.TexCoord"/>
+		/// <seealso cref="Gl.VertexAttribPointer"/>
+		/// <seealso cref="Gl.VertexPointer"/>
 		public static void TexCoordPointer(Int32 size, int type, Int32 stride, IntPtr pointer)
 		{
 			Debug.Assert(Delegates.pglTexCoordPointer != null, "pglTexCoordPointer not implemented");
@@ -7464,22 +8312,79 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glTexCoordPointer.
+		/// define an array of texture coordinates
 		/// </summary>
 		/// <param name="size">
-		/// A <see cref="T:Int32"/>.
+		/// Specifies the number of coordinates per array element. Must be 1, 2, 3, or 4. The initial value is 4. 
 		/// </param>
 		/// <param name="type">
-		/// A <see cref="T:int"/>.
+		/// Specifies the data type of each texture coordinate. Symbolic constants <see cref="Gl.SHORT"/>, <see cref="Gl.INT"/>, 
+		/// <seecref="Gl.FLOAT"/>, or <see cref="Gl.DOUBLE"/> are accepted. The initial value is <see cref="Gl.FLOAT"/>. 
 		/// </param>
 		/// <param name="stride">
-		/// A <see cref="T:Int32"/>.
+		/// Specifies the byte offset between consecutive texture coordinate sets. If <paramref name="stride"/> is 0, the array 
+		/// elementsare understood to be tightly packed. The initial value is 0. 
 		/// </param>
 		/// <param name="pointer">
-		/// A <see cref="T:IntPtr"/>.
+		/// Specifies a pointer to the first coordinate of the first texture coordinate set in the array. The initial value is 0. 
 		/// </param>
 		/// <remarks>
+		/// <see cref="Gl.TexCoordPointer"/> specifies the location and data format of an array of texture coordinates to use when 
+		/// rendering.<paramref name="size"/> specifies the number of coordinates per texture coordinate set, and must be 1, 2, 3, 
+		/// or4. <paramref name="type"/> specifies the data type of each texture coordinate, and <paramref name="stride"/> specifies 
+		/// thebyte stride from one texture coordinate set to the next, allowing vertices and attributes to be packed into a single 
+		/// arrayor stored in separate arrays. (Single-array storage may be more efficient on some implementations; see 
+		/// Gl.InterleavedArrays.)
+		/// If a non-zero named buffer object is bound to the <see cref="Gl.ARRAY_BUFFER"/> target (see Gl.BindBuffer) while a 
+		/// texturecoordinate array is specified, <paramref name="pointer"/> is treated as a byte offset into the buffer object's 
+		/// datastore. Also, the buffer object binding (<see cref="Gl.ARRAY_BUFFER_BINDING"/>) is saved as texture coordinate vertex 
+		/// arrayclient-side state (<see cref="Gl.TEXTURE_COORD_ARRAY_BUFFER_BINDING"/>). 
+		/// When a texture coordinate array is specified, <paramref name="size"/>, <paramref name="type"/>, <paramref 
+		/// name="stride"/>,and <paramref name="pointer"/> are saved as client-side state, in addition to the current vertex array 
+		/// bufferobject binding. 
+		/// To enable and disable a texture coordinate array, call Gl.EnableClientState and Gl.DisableClientState with the argument 
+		/// <seecref="Gl.TEXTURE_COORD_ARRAY"/>. If enabled, the texture coordinate array is used when Gl.ArrayElement, 
+		/// Gl.DrawArrays,Gl.MultiDrawArrays, Gl.DrawElements, Gl.MultiDrawElements, or Gl.DrawRangeElements is called. 
+		/// <para>
+		/// The following errors can be generated:
+		/// - <see cref="Gl.INVALID_VALUE"/> is generated if <paramref name="size"/> is not 1, 2, 3, or 4. 
+		/// - <see cref="Gl.INVALID_ENUM"/> is generated if <paramref name="type"/> is not an accepted value. 
+		/// - <see cref="Gl.INVALID_VALUE"/> is generated if <paramref name="stride"/> is negative. 
+		/// </para>
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - Gl.IsEnabled with argument <see cref="Gl.TEXTURE_COORD_ARRAY"/> 
+		/// - Gl.Get with argument <see cref="Gl.TEXTURE_COORD_ARRAY_SIZE"/> 
+		/// - Gl.Get with argument <see cref="Gl.TEXTURE_COORD_ARRAY_TYPE"/> 
+		/// - Gl.Get with argument <see cref="Gl.TEXTURE_COORD_ARRAY_STRIDE"/> 
+		/// - Gl.Get with argument <see cref="Gl.TEXTURE_COORD_ARRAY_BUFFER_BINDING"/> 
+		/// - Gl.Get with argument <see cref="Gl.ARRAY_BUFFER_BINDING"/> 
+		/// - Gl.GetPointerv with argument <see cref="Gl.TEXTURE_COORD_ARRAY_POINTER"/> 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.ArrayElement"/>
+		/// <seealso cref="Gl.BindBuffer"/>
+		/// <seealso cref="Gl.ClientActiveTexture"/>
+		/// <seealso cref="Gl.ColorPointer"/>
+		/// <seealso cref="Gl.DisableClientState"/>
+		/// <seealso cref="Gl.DrawArrays"/>
+		/// <seealso cref="Gl.DrawElements"/>
+		/// <seealso cref="Gl.DrawRangeElements"/>
+		/// <seealso cref="Gl.EdgeFlagPointer"/>
+		/// <seealso cref="Gl.EnableClientState"/>
+		/// <seealso cref="Gl.FogCoordPointer"/>
+		/// <seealso cref="Gl.IndexPointer"/>
+		/// <seealso cref="Gl.InterleavedArrays"/>
+		/// <seealso cref="Gl.MultiDrawArrays"/>
+		/// <seealso cref="Gl.MultiDrawElements"/>
+		/// <seealso cref="Gl.MultiTexCoord"/>
+		/// <seealso cref="Gl.NormalPointer"/>
+		/// <seealso cref="Gl.PopClientAttrib"/>
+		/// <seealso cref="Gl.PushClientAttrib"/>
+		/// <seealso cref="Gl.SecondaryColorPointer"/>
+		/// <seealso cref="Gl.TexCoord"/>
+		/// <seealso cref="Gl.VertexAttribPointer"/>
+		/// <seealso cref="Gl.VertexPointer"/>
 		public static void TexCoordPointer(Int32 size, TexCoordPointerType type, Int32 stride, IntPtr pointer)
 		{
 			Debug.Assert(Delegates.pglTexCoordPointer != null, "pglTexCoordPointer not implemented");
@@ -7489,22 +8394,79 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glTexCoordPointer.
+		/// define an array of texture coordinates
 		/// </summary>
 		/// <param name="size">
-		/// A <see cref="T:Int32"/>.
+		/// Specifies the number of coordinates per array element. Must be 1, 2, 3, or 4. The initial value is 4. 
 		/// </param>
 		/// <param name="type">
-		/// A <see cref="T:int"/>.
+		/// Specifies the data type of each texture coordinate. Symbolic constants <see cref="Gl.SHORT"/>, <see cref="Gl.INT"/>, 
+		/// <seecref="Gl.FLOAT"/>, or <see cref="Gl.DOUBLE"/> are accepted. The initial value is <see cref="Gl.FLOAT"/>. 
 		/// </param>
 		/// <param name="stride">
-		/// A <see cref="T:Int32"/>.
+		/// Specifies the byte offset between consecutive texture coordinate sets. If <paramref name="stride"/> is 0, the array 
+		/// elementsare understood to be tightly packed. The initial value is 0. 
 		/// </param>
 		/// <param name="pointer">
-		/// A <see cref="T:IntPtr"/>.
+		/// Specifies a pointer to the first coordinate of the first texture coordinate set in the array. The initial value is 0. 
 		/// </param>
 		/// <remarks>
+		/// <see cref="Gl.TexCoordPointer"/> specifies the location and data format of an array of texture coordinates to use when 
+		/// rendering.<paramref name="size"/> specifies the number of coordinates per texture coordinate set, and must be 1, 2, 3, 
+		/// or4. <paramref name="type"/> specifies the data type of each texture coordinate, and <paramref name="stride"/> specifies 
+		/// thebyte stride from one texture coordinate set to the next, allowing vertices and attributes to be packed into a single 
+		/// arrayor stored in separate arrays. (Single-array storage may be more efficient on some implementations; see 
+		/// Gl.InterleavedArrays.)
+		/// If a non-zero named buffer object is bound to the <see cref="Gl.ARRAY_BUFFER"/> target (see Gl.BindBuffer) while a 
+		/// texturecoordinate array is specified, <paramref name="pointer"/> is treated as a byte offset into the buffer object's 
+		/// datastore. Also, the buffer object binding (<see cref="Gl.ARRAY_BUFFER_BINDING"/>) is saved as texture coordinate vertex 
+		/// arrayclient-side state (<see cref="Gl.TEXTURE_COORD_ARRAY_BUFFER_BINDING"/>). 
+		/// When a texture coordinate array is specified, <paramref name="size"/>, <paramref name="type"/>, <paramref 
+		/// name="stride"/>,and <paramref name="pointer"/> are saved as client-side state, in addition to the current vertex array 
+		/// bufferobject binding. 
+		/// To enable and disable a texture coordinate array, call Gl.EnableClientState and Gl.DisableClientState with the argument 
+		/// <seecref="Gl.TEXTURE_COORD_ARRAY"/>. If enabled, the texture coordinate array is used when Gl.ArrayElement, 
+		/// Gl.DrawArrays,Gl.MultiDrawArrays, Gl.DrawElements, Gl.MultiDrawElements, or Gl.DrawRangeElements is called. 
+		/// <para>
+		/// The following errors can be generated:
+		/// - <see cref="Gl.INVALID_VALUE"/> is generated if <paramref name="size"/> is not 1, 2, 3, or 4. 
+		/// - <see cref="Gl.INVALID_ENUM"/> is generated if <paramref name="type"/> is not an accepted value. 
+		/// - <see cref="Gl.INVALID_VALUE"/> is generated if <paramref name="stride"/> is negative. 
+		/// </para>
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - Gl.IsEnabled with argument <see cref="Gl.TEXTURE_COORD_ARRAY"/> 
+		/// - Gl.Get with argument <see cref="Gl.TEXTURE_COORD_ARRAY_SIZE"/> 
+		/// - Gl.Get with argument <see cref="Gl.TEXTURE_COORD_ARRAY_TYPE"/> 
+		/// - Gl.Get with argument <see cref="Gl.TEXTURE_COORD_ARRAY_STRIDE"/> 
+		/// - Gl.Get with argument <see cref="Gl.TEXTURE_COORD_ARRAY_BUFFER_BINDING"/> 
+		/// - Gl.Get with argument <see cref="Gl.ARRAY_BUFFER_BINDING"/> 
+		/// - Gl.GetPointerv with argument <see cref="Gl.TEXTURE_COORD_ARRAY_POINTER"/> 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.ArrayElement"/>
+		/// <seealso cref="Gl.BindBuffer"/>
+		/// <seealso cref="Gl.ClientActiveTexture"/>
+		/// <seealso cref="Gl.ColorPointer"/>
+		/// <seealso cref="Gl.DisableClientState"/>
+		/// <seealso cref="Gl.DrawArrays"/>
+		/// <seealso cref="Gl.DrawElements"/>
+		/// <seealso cref="Gl.DrawRangeElements"/>
+		/// <seealso cref="Gl.EdgeFlagPointer"/>
+		/// <seealso cref="Gl.EnableClientState"/>
+		/// <seealso cref="Gl.FogCoordPointer"/>
+		/// <seealso cref="Gl.IndexPointer"/>
+		/// <seealso cref="Gl.InterleavedArrays"/>
+		/// <seealso cref="Gl.MultiDrawArrays"/>
+		/// <seealso cref="Gl.MultiDrawElements"/>
+		/// <seealso cref="Gl.MultiTexCoord"/>
+		/// <seealso cref="Gl.NormalPointer"/>
+		/// <seealso cref="Gl.PopClientAttrib"/>
+		/// <seealso cref="Gl.PushClientAttrib"/>
+		/// <seealso cref="Gl.SecondaryColorPointer"/>
+		/// <seealso cref="Gl.TexCoord"/>
+		/// <seealso cref="Gl.VertexAttribPointer"/>
+		/// <seealso cref="Gl.VertexPointer"/>
 		public static void TexCoordPointer(Int32 size, int type, Int32 stride, Object pointer)
 		{
 			GCHandle pin_pointer = GCHandle.Alloc(pointer, GCHandleType.Pinned);
@@ -7516,22 +8478,76 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glVertexPointer.
+		/// define an array of vertex data
 		/// </summary>
 		/// <param name="size">
-		/// A <see cref="T:Int32"/>.
+		/// Specifies the number of coordinates per vertex. Must be 2, 3, or 4. The initial value is 4. 
 		/// </param>
 		/// <param name="type">
-		/// A <see cref="T:int"/>.
+		/// Specifies the data type of each coordinate in the array. Symbolic constants <see cref="Gl.SHORT"/>, <see 
+		/// cref="Gl.INT"/>,<see cref="Gl.FLOAT"/>, or <see cref="Gl.DOUBLE"/> are accepted. The initial value is <see 
+		/// cref="Gl.FLOAT"/>.
 		/// </param>
 		/// <param name="stride">
-		/// A <see cref="T:Int32"/>.
+		/// Specifies the byte offset between consecutive vertices. If <paramref name="stride"/> is 0, the vertices are understood 
+		/// tobe tightly packed in the array. The initial value is 0. 
 		/// </param>
 		/// <param name="pointer">
-		/// A <see cref="T:IntPtr"/>.
+		/// Specifies a pointer to the first coordinate of the first vertex in the array. The initial value is 0. 
 		/// </param>
 		/// <remarks>
+		/// <see cref="Gl.VertexPointer"/> specifies the location and data format of an array of vertex coordinates to use when 
+		/// rendering.<paramref name="size"/> specifies the number of coordinates per vertex, and must be 2, 3, or 4. <paramref 
+		/// name="type"/>specifies the data type of each coordinate, and <paramref name="stride"/> specifies the byte stride from 
+		/// onevertex to the next, allowing vertices and attributes to be packed into a single array or stored in separate arrays. 
+		/// (Single-arraystorage may be more efficient on some implementations; see Gl.InterleavedArrays.) 
+		/// If a non-zero named buffer object is bound to the <see cref="Gl.ARRAY_BUFFER"/> target (see Gl.BindBuffer) while a 
+		/// vertexarray is specified, <paramref name="pointer"/> is treated as a byte offset into the buffer object's data store. 
+		/// Also,the buffer object binding (<see cref="Gl.ARRAY_BUFFER_BINDING"/>) is saved as vertex array client-side state (<see 
+		/// cref="Gl.VERTEX_ARRAY_BUFFER_BINDING"/>).
+		/// When a vertex array is specified, <paramref name="size"/>, <paramref name="type"/>, <paramref name="stride"/>, and 
+		/// <paramrefname="pointer"/> are saved as client-side state, in addition to the current vertex array buffer object binding. 
+		/// To enable and disable the vertex array, call Gl.EnableClientState and Gl.DisableClientState with the argument <see 
+		/// cref="Gl.VERTEX_ARRAY"/>.If enabled, the vertex array is used when Gl.ArrayElement, Gl.DrawArrays, Gl.MultiDrawArrays, 
+		/// Gl.DrawElements,Gl.MultiDrawElements, or Gl.DrawRangeElements is called. 
+		/// <para>
+		/// The following errors can be generated:
+		/// - <see cref="Gl.INVALID_VALUE"/> is generated if <paramref name="size"/> is not 2, 3, or 4. 
+		/// - <see cref="Gl.INVALID_ENUM"/> is generated if <paramref name="type"/> is not an accepted value. 
+		/// - <see cref="Gl.INVALID_VALUE"/> is generated if <paramref name="stride"/> is negative. 
+		/// </para>
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - Gl.IsEnabled with argument <see cref="Gl.VERTEX_ARRAY"/> 
+		/// - Gl.Get with argument <see cref="Gl.VERTEX_ARRAY_SIZE"/> 
+		/// - Gl.Get with argument <see cref="Gl.VERTEX_ARRAY_TYPE"/> 
+		/// - Gl.Get with argument <see cref="Gl.VERTEX_ARRAY_STRIDE"/> 
+		/// - Gl.Get with argument <see cref="Gl.VERTEX_ARRAY_BUFFER_BINDING"/> 
+		/// - Gl.Get with argument <see cref="Gl.ARRAY_BUFFER_BINDING"/> 
+		/// - Gl.GetPointerv with argument <see cref="Gl.VERTEX_ARRAY_POINTER"/> 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.ArrayElement"/>
+		/// <seealso cref="Gl.BindBuffer"/>
+		/// <seealso cref="Gl.ColorPointer"/>
+		/// <seealso cref="Gl.DisableClientState"/>
+		/// <seealso cref="Gl.DrawArrays"/>
+		/// <seealso cref="Gl.DrawElements"/>
+		/// <seealso cref="Gl.DrawRangeElements"/>
+		/// <seealso cref="Gl.EdgeFlagPointer"/>
+		/// <seealso cref="Gl.EnableClientState"/>
+		/// <seealso cref="Gl.FogCoordPointer"/>
+		/// <seealso cref="Gl.IndexPointer"/>
+		/// <seealso cref="Gl.InterleavedArrays"/>
+		/// <seealso cref="Gl.MultiDrawArrays"/>
+		/// <seealso cref="Gl.MultiDrawElements"/>
+		/// <seealso cref="Gl.NormalPointer"/>
+		/// <seealso cref="Gl.PopClientAttrib"/>
+		/// <seealso cref="Gl.PushClientAttrib"/>
+		/// <seealso cref="Gl.SecondaryColorPointer"/>
+		/// <seealso cref="Gl.TexCoordPointer"/>
+		/// <seealso cref="Gl.Vertex"/>
+		/// <seealso cref="Gl.VertexAttribPointer"/>
 		public static void VertexPointer(Int32 size, int type, Int32 stride, IntPtr pointer)
 		{
 			Debug.Assert(Delegates.pglVertexPointer != null, "pglVertexPointer not implemented");
@@ -7541,22 +8557,76 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glVertexPointer.
+		/// define an array of vertex data
 		/// </summary>
 		/// <param name="size">
-		/// A <see cref="T:Int32"/>.
+		/// Specifies the number of coordinates per vertex. Must be 2, 3, or 4. The initial value is 4. 
 		/// </param>
 		/// <param name="type">
-		/// A <see cref="T:int"/>.
+		/// Specifies the data type of each coordinate in the array. Symbolic constants <see cref="Gl.SHORT"/>, <see 
+		/// cref="Gl.INT"/>,<see cref="Gl.FLOAT"/>, or <see cref="Gl.DOUBLE"/> are accepted. The initial value is <see 
+		/// cref="Gl.FLOAT"/>.
 		/// </param>
 		/// <param name="stride">
-		/// A <see cref="T:Int32"/>.
+		/// Specifies the byte offset between consecutive vertices. If <paramref name="stride"/> is 0, the vertices are understood 
+		/// tobe tightly packed in the array. The initial value is 0. 
 		/// </param>
 		/// <param name="pointer">
-		/// A <see cref="T:IntPtr"/>.
+		/// Specifies a pointer to the first coordinate of the first vertex in the array. The initial value is 0. 
 		/// </param>
 		/// <remarks>
+		/// <see cref="Gl.VertexPointer"/> specifies the location and data format of an array of vertex coordinates to use when 
+		/// rendering.<paramref name="size"/> specifies the number of coordinates per vertex, and must be 2, 3, or 4. <paramref 
+		/// name="type"/>specifies the data type of each coordinate, and <paramref name="stride"/> specifies the byte stride from 
+		/// onevertex to the next, allowing vertices and attributes to be packed into a single array or stored in separate arrays. 
+		/// (Single-arraystorage may be more efficient on some implementations; see Gl.InterleavedArrays.) 
+		/// If a non-zero named buffer object is bound to the <see cref="Gl.ARRAY_BUFFER"/> target (see Gl.BindBuffer) while a 
+		/// vertexarray is specified, <paramref name="pointer"/> is treated as a byte offset into the buffer object's data store. 
+		/// Also,the buffer object binding (<see cref="Gl.ARRAY_BUFFER_BINDING"/>) is saved as vertex array client-side state (<see 
+		/// cref="Gl.VERTEX_ARRAY_BUFFER_BINDING"/>).
+		/// When a vertex array is specified, <paramref name="size"/>, <paramref name="type"/>, <paramref name="stride"/>, and 
+		/// <paramrefname="pointer"/> are saved as client-side state, in addition to the current vertex array buffer object binding. 
+		/// To enable and disable the vertex array, call Gl.EnableClientState and Gl.DisableClientState with the argument <see 
+		/// cref="Gl.VERTEX_ARRAY"/>.If enabled, the vertex array is used when Gl.ArrayElement, Gl.DrawArrays, Gl.MultiDrawArrays, 
+		/// Gl.DrawElements,Gl.MultiDrawElements, or Gl.DrawRangeElements is called. 
+		/// <para>
+		/// The following errors can be generated:
+		/// - <see cref="Gl.INVALID_VALUE"/> is generated if <paramref name="size"/> is not 2, 3, or 4. 
+		/// - <see cref="Gl.INVALID_ENUM"/> is generated if <paramref name="type"/> is not an accepted value. 
+		/// - <see cref="Gl.INVALID_VALUE"/> is generated if <paramref name="stride"/> is negative. 
+		/// </para>
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - Gl.IsEnabled with argument <see cref="Gl.VERTEX_ARRAY"/> 
+		/// - Gl.Get with argument <see cref="Gl.VERTEX_ARRAY_SIZE"/> 
+		/// - Gl.Get with argument <see cref="Gl.VERTEX_ARRAY_TYPE"/> 
+		/// - Gl.Get with argument <see cref="Gl.VERTEX_ARRAY_STRIDE"/> 
+		/// - Gl.Get with argument <see cref="Gl.VERTEX_ARRAY_BUFFER_BINDING"/> 
+		/// - Gl.Get with argument <see cref="Gl.ARRAY_BUFFER_BINDING"/> 
+		/// - Gl.GetPointerv with argument <see cref="Gl.VERTEX_ARRAY_POINTER"/> 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.ArrayElement"/>
+		/// <seealso cref="Gl.BindBuffer"/>
+		/// <seealso cref="Gl.ColorPointer"/>
+		/// <seealso cref="Gl.DisableClientState"/>
+		/// <seealso cref="Gl.DrawArrays"/>
+		/// <seealso cref="Gl.DrawElements"/>
+		/// <seealso cref="Gl.DrawRangeElements"/>
+		/// <seealso cref="Gl.EdgeFlagPointer"/>
+		/// <seealso cref="Gl.EnableClientState"/>
+		/// <seealso cref="Gl.FogCoordPointer"/>
+		/// <seealso cref="Gl.IndexPointer"/>
+		/// <seealso cref="Gl.InterleavedArrays"/>
+		/// <seealso cref="Gl.MultiDrawArrays"/>
+		/// <seealso cref="Gl.MultiDrawElements"/>
+		/// <seealso cref="Gl.NormalPointer"/>
+		/// <seealso cref="Gl.PopClientAttrib"/>
+		/// <seealso cref="Gl.PushClientAttrib"/>
+		/// <seealso cref="Gl.SecondaryColorPointer"/>
+		/// <seealso cref="Gl.TexCoordPointer"/>
+		/// <seealso cref="Gl.Vertex"/>
+		/// <seealso cref="Gl.VertexAttribPointer"/>
 		public static void VertexPointer(Int32 size, VertexPointerType type, Int32 stride, IntPtr pointer)
 		{
 			Debug.Assert(Delegates.pglVertexPointer != null, "pglVertexPointer not implemented");
@@ -7566,22 +8636,76 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glVertexPointer.
+		/// define an array of vertex data
 		/// </summary>
 		/// <param name="size">
-		/// A <see cref="T:Int32"/>.
+		/// Specifies the number of coordinates per vertex. Must be 2, 3, or 4. The initial value is 4. 
 		/// </param>
 		/// <param name="type">
-		/// A <see cref="T:int"/>.
+		/// Specifies the data type of each coordinate in the array. Symbolic constants <see cref="Gl.SHORT"/>, <see 
+		/// cref="Gl.INT"/>,<see cref="Gl.FLOAT"/>, or <see cref="Gl.DOUBLE"/> are accepted. The initial value is <see 
+		/// cref="Gl.FLOAT"/>.
 		/// </param>
 		/// <param name="stride">
-		/// A <see cref="T:Int32"/>.
+		/// Specifies the byte offset between consecutive vertices. If <paramref name="stride"/> is 0, the vertices are understood 
+		/// tobe tightly packed in the array. The initial value is 0. 
 		/// </param>
 		/// <param name="pointer">
-		/// A <see cref="T:IntPtr"/>.
+		/// Specifies a pointer to the first coordinate of the first vertex in the array. The initial value is 0. 
 		/// </param>
 		/// <remarks>
+		/// <see cref="Gl.VertexPointer"/> specifies the location and data format of an array of vertex coordinates to use when 
+		/// rendering.<paramref name="size"/> specifies the number of coordinates per vertex, and must be 2, 3, or 4. <paramref 
+		/// name="type"/>specifies the data type of each coordinate, and <paramref name="stride"/> specifies the byte stride from 
+		/// onevertex to the next, allowing vertices and attributes to be packed into a single array or stored in separate arrays. 
+		/// (Single-arraystorage may be more efficient on some implementations; see Gl.InterleavedArrays.) 
+		/// If a non-zero named buffer object is bound to the <see cref="Gl.ARRAY_BUFFER"/> target (see Gl.BindBuffer) while a 
+		/// vertexarray is specified, <paramref name="pointer"/> is treated as a byte offset into the buffer object's data store. 
+		/// Also,the buffer object binding (<see cref="Gl.ARRAY_BUFFER_BINDING"/>) is saved as vertex array client-side state (<see 
+		/// cref="Gl.VERTEX_ARRAY_BUFFER_BINDING"/>).
+		/// When a vertex array is specified, <paramref name="size"/>, <paramref name="type"/>, <paramref name="stride"/>, and 
+		/// <paramrefname="pointer"/> are saved as client-side state, in addition to the current vertex array buffer object binding. 
+		/// To enable and disable the vertex array, call Gl.EnableClientState and Gl.DisableClientState with the argument <see 
+		/// cref="Gl.VERTEX_ARRAY"/>.If enabled, the vertex array is used when Gl.ArrayElement, Gl.DrawArrays, Gl.MultiDrawArrays, 
+		/// Gl.DrawElements,Gl.MultiDrawElements, or Gl.DrawRangeElements is called. 
+		/// <para>
+		/// The following errors can be generated:
+		/// - <see cref="Gl.INVALID_VALUE"/> is generated if <paramref name="size"/> is not 2, 3, or 4. 
+		/// - <see cref="Gl.INVALID_ENUM"/> is generated if <paramref name="type"/> is not an accepted value. 
+		/// - <see cref="Gl.INVALID_VALUE"/> is generated if <paramref name="stride"/> is negative. 
+		/// </para>
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - Gl.IsEnabled with argument <see cref="Gl.VERTEX_ARRAY"/> 
+		/// - Gl.Get with argument <see cref="Gl.VERTEX_ARRAY_SIZE"/> 
+		/// - Gl.Get with argument <see cref="Gl.VERTEX_ARRAY_TYPE"/> 
+		/// - Gl.Get with argument <see cref="Gl.VERTEX_ARRAY_STRIDE"/> 
+		/// - Gl.Get with argument <see cref="Gl.VERTEX_ARRAY_BUFFER_BINDING"/> 
+		/// - Gl.Get with argument <see cref="Gl.ARRAY_BUFFER_BINDING"/> 
+		/// - Gl.GetPointerv with argument <see cref="Gl.VERTEX_ARRAY_POINTER"/> 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.ArrayElement"/>
+		/// <seealso cref="Gl.BindBuffer"/>
+		/// <seealso cref="Gl.ColorPointer"/>
+		/// <seealso cref="Gl.DisableClientState"/>
+		/// <seealso cref="Gl.DrawArrays"/>
+		/// <seealso cref="Gl.DrawElements"/>
+		/// <seealso cref="Gl.DrawRangeElements"/>
+		/// <seealso cref="Gl.EdgeFlagPointer"/>
+		/// <seealso cref="Gl.EnableClientState"/>
+		/// <seealso cref="Gl.FogCoordPointer"/>
+		/// <seealso cref="Gl.IndexPointer"/>
+		/// <seealso cref="Gl.InterleavedArrays"/>
+		/// <seealso cref="Gl.MultiDrawArrays"/>
+		/// <seealso cref="Gl.MultiDrawElements"/>
+		/// <seealso cref="Gl.NormalPointer"/>
+		/// <seealso cref="Gl.PopClientAttrib"/>
+		/// <seealso cref="Gl.PushClientAttrib"/>
+		/// <seealso cref="Gl.SecondaryColorPointer"/>
+		/// <seealso cref="Gl.TexCoordPointer"/>
+		/// <seealso cref="Gl.Vertex"/>
+		/// <seealso cref="Gl.VertexAttribPointer"/>
 		public static void VertexPointer(Int32 size, int type, Int32 stride, Object pointer)
 		{
 			GCHandle pin_pointer = GCHandle.Alloc(pointer, GCHandleType.Pinned);
@@ -7593,19 +8717,53 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glAreTexturesResident.
+		/// determine if textures are loaded in texture memory
 		/// </summary>
 		/// <param name="n">
-		/// A <see cref="T:Int32"/>.
+		/// Specifies the number of textures to be queried. 
 		/// </param>
 		/// <param name="textures">
-		/// A <see cref="T:UInt32[]"/>.
+		/// Specifies an array containing the names of the textures to be queried. 
 		/// </param>
 		/// <param name="residences">
-		/// A <see cref="T:bool[]"/>.
+		/// Specifies an array in which the texture residence status is returned. The residence status of a texture named by an 
+		/// elementof <paramref name="textures"/> is returned in the corresponding element of <paramref name="residences"/>. 
 		/// </param>
 		/// <remarks>
+		/// GL establishes a ``working set'' of textures that are resident in texture memory. These textures can be bound to a 
+		/// texturetarget much more efficiently than textures that are not resident. 
+		/// <see cref="Gl.AreTexturesResident"/> queries the texture residence status of the <paramref name="n"/> textures named by 
+		/// theelements of <paramref name="textures"/>. If all the named textures are resident, <see cref="Gl.AreTexturesResident"/> 
+		/// returns<see cref="Gl.TRUE"/>, and the contents of <paramref name="residences"/> are undisturbed. If not all the named 
+		/// texturesare resident, <see cref="Gl.AreTexturesResident"/> returns <see cref="Gl.FALSE"/>, and detailed status is 
+		/// returnedin the <paramref name="n"/> elements of <paramref name="residences"/>. If an element of <paramref 
+		/// name="residences"/>is <see cref="Gl.TRUE"/>, then the texture named by the corresponding element of <paramref 
+		/// name="textures"/>is resident. 
+		/// The residence status of a single bound texture may also be queried by calling Gl.GetTexParameter with the target 
+		/// argumentset to the target to which the texture is bound, and the pname argument set to <see 
+		/// cref="Gl.TEXTURE_RESIDENT"/>.This is the only way that the residence status of a default texture can be queried. 
+		/// <para>
+		/// The following errors can be generated:
+		/// - <see cref="Gl.INVALID_VALUE"/> is generated if <paramref name="n"/> is negative. 
+		/// - <see cref="Gl.INVALID_VALUE"/> is generated if any element in <paramref name="textures"/> is 0 or does not name a 
+		///   texture.In that case, the function returns <see cref="Gl.FALSE"/> and the contents of <paramref name="residences"/> is 
+		///   indeterminate.
+		/// - <see cref="Gl.INVALID_OPERATION"/> is generated if <see cref="Gl.AreTexturesResident"/> is executed between the 
+		///   executionof Gl.Begin and the corresponding execution of Gl.End. 
+		/// </para>
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - Gl.GetTexParameter with parameter name <see cref="Gl.TEXTURE_RESIDENT"/> retrieves the residence status of a currently 
+		///   boundtexture. 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.BindTexture"/>
+		/// <seealso cref="Gl.GetTexParameter"/>
+		/// <seealso cref="Gl.PrioritizeTextures"/>
+		/// <seealso cref="Gl.TexImage1D"/>
+		/// <seealso cref="Gl.TexImage2D"/>
+		/// <seealso cref="Gl.TexImage3D"/>
+		/// <seealso cref="Gl.TexParameter"/>
 		public static bool AreTexturesResident(Int32 n, UInt32[] textures, bool[] residences)
 		{
 			bool retValue;
@@ -7625,19 +8783,53 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glPrioritizeTextures.
+		/// set texture residence priority
 		/// </summary>
 		/// <param name="n">
-		/// A <see cref="T:Int32"/>.
+		/// Specifies the number of textures to be prioritized. 
 		/// </param>
 		/// <param name="textures">
-		/// A <see cref="T:UInt32[]"/>.
+		/// Specifies an array containing the names of the textures to be prioritized. 
 		/// </param>
 		/// <param name="priorities">
-		/// A <see cref="T:float[]"/>.
+		/// Specifies an array containing the texture priorities. A priority given in an element of <paramref name="priorities"/> 
+		/// appliesto the texture named by the corresponding element of <paramref name="textures"/>. 
 		/// </param>
 		/// <remarks>
+		/// <see cref="Gl.PrioritizeTextures"/> assigns the <paramref name="n"/> texture priorities given in <paramref 
+		/// name="priorities"/>to the <paramref name="n"/> textures named in <paramref name="textures"/>. 
+		/// The GL establishes a ``working set'' of textures that are resident in texture memory. These textures may be bound to a 
+		/// texturetarget much more efficiently than textures that are not resident. By specifying a priority for each texture, <see 
+		/// cref="Gl.PrioritizeTextures"/>allows applications to guide the GL implementation in determining which textures should be 
+		/// resident.
+		/// The priorities given in <paramref name="priorities"/> are clamped to the range 01 before they are assigned. 0 indicates 
+		/// thelowest priority; textures with priority 0 are least likely to be resident. 1 indicates the highest priority; textures 
+		/// withpriority 1 are most likely to be resident. However, textures are not guaranteed to be resident until they are used. 
+		/// <see cref="Gl.PrioritizeTextures"/> silently ignores attempts to prioritize texture 0 or any texture name that does not 
+		/// correspondto an existing texture. 
+		/// <see cref="Gl.PrioritizeTextures"/> does not require that any of the textures named by <paramref name="textures"/> be 
+		/// boundto a texture target. Gl.TexParameter may also be used to set a texture's priority, but only if the texture is 
+		/// currentlybound. This is the only way to set the priority of a default texture. 
+		/// <para>
+		/// The following errors can be generated:
+		/// - <see cref="Gl.INVALID_VALUE"/> is generated if <paramref name="n"/> is negative. 
+		/// - <see cref="Gl.INVALID_OPERATION"/> is generated if <see cref="Gl.PrioritizeTextures"/> is executed between the execution 
+		///   ofGl.Begin and the corresponding execution of Gl.End. 
+		/// </para>
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - Gl.GetTexParameter with parameter name <see cref="Gl.TEXTURE_PRIORITY"/> retrieves the priority of a currently bound 
+		///   texture.
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.AreTexturesResident"/>
+		/// <seealso cref="Gl.BindTexture"/>
+		/// <seealso cref="Gl.CopyTexImage1D"/>
+		/// <seealso cref="Gl.CopyTexImage2D"/>
+		/// <seealso cref="Gl.TexImage1D"/>
+		/// <seealso cref="Gl.TexImage2D"/>
+		/// <seealso cref="Gl.TexImage3D"/>
+		/// <seealso cref="Gl.TexParameter"/>
 		public static void PrioritizeTextures(Int32 n, UInt32[] textures, float[] priorities)
 		{
 			unsafe {
@@ -7658,13 +8850,26 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glIndexub.
+		/// set the current color index
 		/// </summary>
 		/// <param name="c">
-		/// A <see cref="T:byte"/>.
+		/// Specifies the new value for the current color index. 
 		/// </param>
 		/// <remarks>
+		/// <see cref="Gl.Index"/> updates the current (single-valued) color index. It takes one argument, the new value for the 
+		/// currentcolor index. 
+		/// The current index is stored as a floating-point value. Integer values are converted directly to floating-point values, 
+		/// withno special mapping. The initial value is 1. 
+		/// Index values outside the representable range of the color index buffer are not clamped. However, before an index is 
+		/// dithered(if enabled) and written to the frame buffer, it is converted to fixed-point format. Any bits in the integer 
+		/// portionof the resulting fixed-point value that do not correspond to bits in the frame buffer are masked out. 
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - Gl.Get with argument <see cref="Gl.CURRENT_INDEX"/> 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.Color"/>
+		/// <seealso cref="Gl.IndexPointer"/>
 		public static void Index(byte c)
 		{
 			Debug.Assert(Delegates.pglIndexub != null, "pglIndexub not implemented");
@@ -7674,13 +8879,26 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glIndexubv.
+		/// set the current color index
 		/// </summary>
 		/// <param name="c">
-		/// A <see cref="T:byte[]"/>.
+		/// Specifies the new value for the current color index. 
 		/// </param>
 		/// <remarks>
+		/// <see cref="Gl.Index"/> updates the current (single-valued) color index. It takes one argument, the new value for the 
+		/// currentcolor index. 
+		/// The current index is stored as a floating-point value. Integer values are converted directly to floating-point values, 
+		/// withno special mapping. The initial value is 1. 
+		/// Index values outside the representable range of the color index buffer are not clamped. However, before an index is 
+		/// dithered(if enabled) and written to the frame buffer, it is converted to fixed-point format. Any bits in the integer 
+		/// portionof the resulting fixed-point value that do not correspond to bits in the frame buffer are masked out. 
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - Gl.Get with argument <see cref="Gl.CURRENT_INDEX"/> 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.Color"/>
+		/// <seealso cref="Gl.IndexPointer"/>
 		public static void Index(byte[] c)
 		{
 			unsafe {
@@ -7695,10 +8913,48 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glPopClientAttrib.
+		/// push and pop the client attribute stack
 		/// </summary>
 		/// <remarks>
+		/// <see cref="Gl.PushClientAttrib"/> takes one argument, a mask that indicates which groups of client-state variables to 
+		/// saveon the client attribute stack. Symbolic constants are used to set bits in the mask. <paramref name="mask"/> is 
+		/// typicallyconstructed by specifying the bitwise-or of several of these constants together. The special mask <see 
+		/// cref="Gl.CLIENT_ALL_ATTRIB_BITS"/>can be used to save all stackable client state. 
+		/// The symbolic mask constants and their associated GL client state are as follows (the second column lists which 
+		/// attributesare saved): 
+		/// <see cref="Gl.CLIENT_PIXEL_STORE_BIT"/> Pixel storage modes <see cref="Gl.CLIENT_VERTEX_ARRAY_BIT"/> Vertex arrays (and 
+		/// enables)
+		/// Gl.PopClientAttrib restores the values of the client-state variables saved with the last <see 
+		/// cref="Gl.PushClientAttrib"/>.Those not saved are left unchanged. 
+		/// It is an error to push attributes onto a full client attribute stack or to pop attributes off an empty stack. In either 
+		/// case,the error flag is set, and no other change is made to GL state. 
+		/// Initially, the client attribute stack is empty. 
+		/// <para>
+		/// The following errors can be generated:
+		/// - <see cref="Gl.STACK_OVERFLOW"/> is generated if <see cref="Gl.PushClientAttrib"/> is called while the attribute stack is 
+		///   full.
+		/// - <see cref="Gl.STACK_UNDERFLOW"/> is generated if Gl.PopClientAttrib is called while the attribute stack is empty. 
+		/// </para>
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - Gl.Get with argument <see cref="Gl.ATTRIB_STACK_DEPTH"/> 
+		/// - Gl.Get with argument <see cref="Gl.MAX_CLIENT_ATTRIB_STACK_DEPTH"/> 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.ColorPointer"/>
+		/// <seealso cref="Gl.DisableClientState"/>
+		/// <seealso cref="Gl.EdgeFlagPointer"/>
+		/// <seealso cref="Gl.EnableClientState"/>
+		/// <seealso cref="Gl.FogCoordPointer"/>
+		/// <seealso cref="Gl.Get"/>
+		/// <seealso cref="Gl.GetError"/>
+		/// <seealso cref="Gl.IndexPointer"/>
+		/// <seealso cref="Gl.NormalPointer"/>
+		/// <seealso cref="Gl.NewList"/>
+		/// <seealso cref="Gl.PixelStore"/>
+		/// <seealso cref="Gl.PushAttrib"/>
+		/// <seealso cref="Gl.TexCoordPointer"/>
+		/// <seealso cref="Gl.VertexPointer"/>
 		public static void PopClientAttrib()
 		{
 			Debug.Assert(Delegates.pglPopClientAttrib != null, "pglPopClientAttrib not implemented");
@@ -7708,13 +8964,51 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glPushClientAttrib.
+		/// push and pop the client attribute stack
 		/// </summary>
 		/// <param name="mask">
-		/// A <see cref="T:uint"/>.
+		/// Specifies a mask that indicates which attributes to save. Values for <paramref name="mask"/> are listed below. 
 		/// </param>
 		/// <remarks>
+		/// <see cref="Gl.PushClientAttrib"/> takes one argument, a mask that indicates which groups of client-state variables to 
+		/// saveon the client attribute stack. Symbolic constants are used to set bits in the mask. <paramref name="mask"/> is 
+		/// typicallyconstructed by specifying the bitwise-or of several of these constants together. The special mask <see 
+		/// cref="Gl.CLIENT_ALL_ATTRIB_BITS"/>can be used to save all stackable client state. 
+		/// The symbolic mask constants and their associated GL client state are as follows (the second column lists which 
+		/// attributesare saved): 
+		/// <see cref="Gl.CLIENT_PIXEL_STORE_BIT"/> Pixel storage modes <see cref="Gl.CLIENT_VERTEX_ARRAY_BIT"/> Vertex arrays (and 
+		/// enables)
+		/// Gl.PopClientAttrib restores the values of the client-state variables saved with the last <see 
+		/// cref="Gl.PushClientAttrib"/>.Those not saved are left unchanged. 
+		/// It is an error to push attributes onto a full client attribute stack or to pop attributes off an empty stack. In either 
+		/// case,the error flag is set, and no other change is made to GL state. 
+		/// Initially, the client attribute stack is empty. 
+		/// <para>
+		/// The following errors can be generated:
+		/// - <see cref="Gl.STACK_OVERFLOW"/> is generated if <see cref="Gl.PushClientAttrib"/> is called while the attribute stack is 
+		///   full.
+		/// - <see cref="Gl.STACK_UNDERFLOW"/> is generated if Gl.PopClientAttrib is called while the attribute stack is empty. 
+		/// </para>
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - Gl.Get with argument <see cref="Gl.ATTRIB_STACK_DEPTH"/> 
+		/// - Gl.Get with argument <see cref="Gl.MAX_CLIENT_ATTRIB_STACK_DEPTH"/> 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.ColorPointer"/>
+		/// <seealso cref="Gl.DisableClientState"/>
+		/// <seealso cref="Gl.EdgeFlagPointer"/>
+		/// <seealso cref="Gl.EnableClientState"/>
+		/// <seealso cref="Gl.FogCoordPointer"/>
+		/// <seealso cref="Gl.Get"/>
+		/// <seealso cref="Gl.GetError"/>
+		/// <seealso cref="Gl.IndexPointer"/>
+		/// <seealso cref="Gl.NormalPointer"/>
+		/// <seealso cref="Gl.NewList"/>
+		/// <seealso cref="Gl.PixelStore"/>
+		/// <seealso cref="Gl.PushAttrib"/>
+		/// <seealso cref="Gl.TexCoordPointer"/>
+		/// <seealso cref="Gl.VertexPointer"/>
 		public static void PushClientAttrib(uint mask)
 		{
 			Debug.Assert(Delegates.pglPushClientAttrib != null, "pglPushClientAttrib not implemented");
@@ -7724,13 +9018,51 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glPushClientAttrib.
+		/// push and pop the client attribute stack
 		/// </summary>
 		/// <param name="mask">
-		/// A <see cref="T:uint"/>.
+		/// Specifies a mask that indicates which attributes to save. Values for <paramref name="mask"/> are listed below. 
 		/// </param>
 		/// <remarks>
+		/// <see cref="Gl.PushClientAttrib"/> takes one argument, a mask that indicates which groups of client-state variables to 
+		/// saveon the client attribute stack. Symbolic constants are used to set bits in the mask. <paramref name="mask"/> is 
+		/// typicallyconstructed by specifying the bitwise-or of several of these constants together. The special mask <see 
+		/// cref="Gl.CLIENT_ALL_ATTRIB_BITS"/>can be used to save all stackable client state. 
+		/// The symbolic mask constants and their associated GL client state are as follows (the second column lists which 
+		/// attributesare saved): 
+		/// <see cref="Gl.CLIENT_PIXEL_STORE_BIT"/> Pixel storage modes <see cref="Gl.CLIENT_VERTEX_ARRAY_BIT"/> Vertex arrays (and 
+		/// enables)
+		/// Gl.PopClientAttrib restores the values of the client-state variables saved with the last <see 
+		/// cref="Gl.PushClientAttrib"/>.Those not saved are left unchanged. 
+		/// It is an error to push attributes onto a full client attribute stack or to pop attributes off an empty stack. In either 
+		/// case,the error flag is set, and no other change is made to GL state. 
+		/// Initially, the client attribute stack is empty. 
+		/// <para>
+		/// The following errors can be generated:
+		/// - <see cref="Gl.STACK_OVERFLOW"/> is generated if <see cref="Gl.PushClientAttrib"/> is called while the attribute stack is 
+		///   full.
+		/// - <see cref="Gl.STACK_UNDERFLOW"/> is generated if Gl.PopClientAttrib is called while the attribute stack is empty. 
+		/// </para>
+		/// <para>
+		/// The associated information is got with the following commands:
+		/// - Gl.Get with argument <see cref="Gl.ATTRIB_STACK_DEPTH"/> 
+		/// - Gl.Get with argument <see cref="Gl.MAX_CLIENT_ATTRIB_STACK_DEPTH"/> 
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Gl.ColorPointer"/>
+		/// <seealso cref="Gl.DisableClientState"/>
+		/// <seealso cref="Gl.EdgeFlagPointer"/>
+		/// <seealso cref="Gl.EnableClientState"/>
+		/// <seealso cref="Gl.FogCoordPointer"/>
+		/// <seealso cref="Gl.Get"/>
+		/// <seealso cref="Gl.GetError"/>
+		/// <seealso cref="Gl.IndexPointer"/>
+		/// <seealso cref="Gl.NormalPointer"/>
+		/// <seealso cref="Gl.NewList"/>
+		/// <seealso cref="Gl.PixelStore"/>
+		/// <seealso cref="Gl.PushAttrib"/>
+		/// <seealso cref="Gl.TexCoordPointer"/>
+		/// <seealso cref="Gl.VertexPointer"/>
 		public static void PushClientAttrib(ClientAttribMask mask)
 		{
 			Debug.Assert(Delegates.pglPushClientAttrib != null, "pglPushClientAttrib not implemented");
