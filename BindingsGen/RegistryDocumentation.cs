@@ -637,11 +637,16 @@ namespace BindingsGen
 		/// </remarks>
 		private static List<string> GetDocumentationLines(string documentation, XslCompiledTransform transform)
 		{
-			const int MAX_LINE_LENGTH = 120;
-
 			documentation = ProcessXmlDocumentation(documentation, transform);
 			documentation = TrimXmlDocumentation(documentation);
 			//documentation = BeautifyDocumentation(documentation);
+
+			return (SplitDocumentationLines(documentation));
+		}
+
+		public static List<string> SplitDocumentationLines(string documentation)
+		{
+			const int MAX_LINE_LENGTH = 120;
 
 			List<string> documentationLines = new List<string>();
 			string[] documentationTokens = Regex.Split(documentation, " ");
@@ -654,8 +659,9 @@ namespace BindingsGen
 					documentationLine.Append(documentationTokens[i]);
 				} else {
 					documentationLine.Append(documentationTokens[i]);
-					documentationLine.Append(" ");
 				}
+				if (i < documentationTokens.Length - 1)
+					documentationLine.Append(" ");
 			}
 			if (documentationLine.Length > 0)
 				documentationLines.Add(documentationLine.ToString());

@@ -456,8 +456,10 @@ namespace BindingsGen.GLSpecs
 		/// </param>
 		private void GenerateImplementation_Signature(SourceStreamWriter sw, RegistryContext ctx, List<CommandParameter> commandParams)
 		{
+#if !DEBUG
 			// Documentation
 			RegistryDocumentation.GenerateCommandDocumentation(sw, ctx, this);
+#endif
 
 			#region Signature
 

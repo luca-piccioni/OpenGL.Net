@@ -40,9 +40,6 @@ namespace BindingsGen
 			RegistryContext ctx;
 			RegistryProcessor glRegistryProcessor;
 
-			ExtensionIndices.Touch();
-			RegistryDocumentation.Touch();
-
 			// OpenGL
 			ctx = new RegistryContext("Gl", Path.Combine(BasePath, "GLSpecs/gl.xml"));
 			glRegistryProcessor = new RegistryProcessor(ctx.Registry);

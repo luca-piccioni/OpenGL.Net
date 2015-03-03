@@ -17,6 +17,7 @@
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Text;
 using System.Xml.Serialization;
 
 namespace BindingsGen.GLSpecs
@@ -66,6 +67,37 @@ namespace BindingsGen.GLSpecs
 				return (actualEnumerant.ParentEnumerantBlock.Type == "bitmask");
 			});
 
+			// Collect group enumerants by their value
+			Dictionary<string, List<Enumerant>> groupEnums = new Dictionary<string, List<Enumerant>>();
+
+			foreach (Enumerant item in Enums) {
+				Enumerant itemValue = ctx.Registry.Enumerants.Find(delegate(Enumerant e) { return (e.Name == item.Name); });
+
+				if (itemValue != null) {
+					if (!groupEnums.ContainsKey(itemValue.Value))
+						groupEnums.Add(itemValue.Value, new List<Enumerant>());
+
+					groupEnums[itemValue.Value].Add(itemValue);
+				}
+			}
+
+			// Make enumerants distinct (discard duplicated enumerants, mainly from extensions)
+			List<Enumerant> uniqueEnums = new List<Enumerant>();
+
+			foreach (KeyValuePair<string, List<Enumerant>> pair in groupEnums) {
+				if (pair.Value.Count > 1) {
+					Enumerant shortedNameEnum = null;
+
+					foreach (Enumerant item in pair.Value) {
+						if ((shortedNameEnum == null) || (shortedNameEnum.Name.Length > item.Name.Length))
+							shortedNameEnum = item;
+					}
+
+					uniqueEnums.Add(shortedNameEnum);
+				} else
+					uniqueEnums.Add(pair.Value[0]);
+			}
+
 			sw.WriteLine("/// <summary>");
 			sw.WriteLine("/// Strongly typed enumeration {0}.", Name);
 			sw.WriteLine("/// </summary>");
@@ -74,12 +106,27 @@ namespace BindingsGen.GLSpecs
 			sw.WriteLine("public enum {0}{1}", Name, bitmask ? " : uint" : String.Empty);
 			sw.WriteLine("{");
 			sw.Indent();
-			foreach (Enumerant enumerant in Enums) {
+			foreach (Enumerant enumerant in uniqueEnums) {
+				List<Enumerant> allEnums = groupEnums[enumerant.Value];
 				string camelCase = SpecificationStyle.GetCamelCase(enumerant.ImplementationName);
 				string bindingName = enumerant.ImplementationName;
 
 				sw.WriteLine("/// <summary>");
-				sw.WriteLine("/// Strongly typed for value {0}.", enumerant.Name);
+				if (allEnums.Count > 1) {
+					StringBuilder sb = new StringBuilder();
+
+					sb.Append("/// Strongly typed for value ");
+					for (int i = 0; i < allEnums.Count; i++) {
+						sb.Append(allEnums[i].Name);
+						if (i < allEnums.Count - 1)
+							sb.Append(", ");
+					}
+					sb.Append(".");
+
+					foreach (string docLine in RegistryDocumentation.SplitDocumentationLines(sb.ToString()))
+						sw.WriteLine("/// {0}", docLine);
+				} else
+					sw.WriteLine("/// Strongly typed for value {0}.", enumerant.Name);
 				sw.WriteLine("/// </summary>");
 				sw.WriteLine("{0} = Gl.{1},", camelCase, bindingName);
 				sw.WriteLine();
