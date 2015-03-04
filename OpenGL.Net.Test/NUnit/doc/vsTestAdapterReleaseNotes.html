@@ -1,0 +1,297 @@
+<!-- saved from url=(0014)about:internet --><!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN">
+<html>
+<!-- Standard Head Part -->
+<head>
+<title>NUnit - VsTestAdapterReleaseNotes</title>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta http-equiv="Content-Language" content="en-US">
+<meta name="norton-safeweb-site-verification" content="tb6xj01p4hgo5x-8wscsmq633y11-e6nhk-bnb5d987bseanyp6p0uew-pec8j963qlzj32k5x9h3r2q7wh-vmy8bbhek5lnpp5w4p8hocouuq39e09jrkihdtaeknua" />
+<link rel="stylesheet" type="text/css" href="nunit.css">
+<link rel="shortcut icon" href="favicon.ico">
+</head>
+<!-- End Standard Head Part -->
+
+<body>
+
+<!-- Standard Header for NUnit.org -->
+<div id="header">
+  <a id="logo" href="http://www.nunit.org"><img src="img/logo.gif" alt="NUnit.org" title="NUnit.org"></a>
+  <div id="nav">
+    <a href="http://www.nunit.org">NUnit</a>
+    <a class="active" href="index.html">Documentation</a>
+  </div>
+</div>
+<!-- End of Header -->
+
+<div id="content">
+
+<style><!--
+li { padding-bottom: .5em; }
+ul ul li { padding-bottom: 0; }
+dt { font-weight: bold }
+--></style>
+
+<h3>NUnit Test Adapter for Visual Studio (2012, RTM - Update 4, 2013, RTM - Update 3) : Version 1.2 - September 17, 2014</h3>
+
+(Note:  Issue numbers now refers to our new home on <a href="https://github.com/nunit/nunit-vs-adapter">Github</a>.)
+
+<h4>Features</h4>
+
+<ul>
+    <li>Tested for up to VS2013 Update 3</li>
+    <li>Bugs 39 and 40 : The adapter was unable to run under VS2012. This is now fixed.</li>
+</ul>
+
+<h4>Bug Fixes</h4>
+
+<ul>
+    <li>#24  Long-running tests ignored</li>
+    <li>#34  Adapter causes ArgumentException to be thrown by Microsoft logger proxy's SendMessage method</li>
+    <li>#37  TestExecution throws Exception System.InvalidOperationException in TFS Build</li>
+    <li>#38  NUnit only accepts absolute paths to test assembly</li>
+    <li>#39  VSTest unable to find NUnit tests since 1.1.0.0</li>
+    <li>#40  NUnit version 1.1.0.0 is broken with test class which ran under 1.0.0.0</li>
+</ul>
+
+<h3>NUnit Test Adapter for Visual Studio (RTM) - Version 1.1 - April 26, 2014</h3>
+
+(Note:  Issue numbers now refers to our new home on Github.)
+
+<h4>Features</h4>
+
+<ul>
+    <li>Support for NUnit 2.6.3</li>
+    <li>Tested for up to VS2013 Update 2 RC</li>
+    <li>Shadow copy now disabled by default, see issue #7 Unable to disable shadow copy.</li>
+    <li>Registry settings added for some customization options, see <a href="https://github.com/nunit/nunit-vs-adapter/wiki/Tips-And-Tricks">Tips and Tricks</a></li>
+    <li>All code moved to  <a href="https://github.com/nunit/nunit-vs-adapter">github</a></li>
+</ul>
+
+<h4>Bug Fixes</h4>
+
+
+
+<ul>
+    <li>#13  Category attribute not working with TFS test case filter</li>
+    <li>#21  Xamarin.iOS Nunit project causes adapter to throw</li>
+</ul>
+
+
+
+<h3>NUnit Test Adapter for Visual Studio (RTM) - Version 1.0 - September 12, 2013</h3>
+
+<h4>Features</h4>
+
+<ul>
+<li>This is the release version 1.0 of the test adapter.</li>
+</ul>
+
+<h4>Bug Fixes</h4>
+
+<ul>
+<li>#1208148	The test result output node is not shown for debug/trace statements</li>
+</ul>
+
+
+<h3>NUnit Test Adapter for Visual Studio (RC) - Version 0.97 - September 12, 2013</h3>
+
+<h4>Features</h4>
+
+<ul>
+<li>This is the release candidate for version 1.0 of the test adapter.</li>
+</ul>
+
+<h4>Bug Fixes</h4>
+
+<ul>
+<li>#1208161	NUnit Test Adapter runs [Explicit] unit tests in TFS Build</li>
+<li>#1210536	No Source Available for Async Tests</li>
+<li>#1165188	Clicking "Run Selected Tests" doesn't show Trace.WriteLine() output</li>
+</ul>
+
+<h3>NUnit Test Adapter for Visual Studio (Beta 6) - Version 0.96 - June 28, 2013</h3>
+
+<h4>Features</h4>
+
+<ul>
+<li>Support for Visual Studio 2013 Preview</li>
+</ul>
+
+<h4>Bug Fixes</h4>
+
+<ul>
+<li>#1189268	Profile a test will crash with exception</li>
+</ul>
+
+<h3>NUnit Test Adapter for Visual Studio (Beta 5) - Version 0.95.2 - June 7, 2013</h3>
+
+<h4>Bug Fixes</h4>
+
+<ul>
+<li>#1188000, adapter dont work with solutions with only .net 2.0/3.5 project</li>
+</ul>
+
+<h3>NUnit Test Adapter for Visual Studio (Beta 5) - Version 0.95.1 Hotfix- May 28, 2013</h3>
+
+<h4>Bug Fixes</h4>
+
+<ul>
+<li>Hotfix for debug issue</li>
+</ul>
+
+<h3>NUnit Test Adapter for Visual Studio (Beta 5) - Version 0.95 - May 10, 2013</h3>
+
+<h4>Features</h4>
+
+<ul>
+<li>#1174925	Add support for installing the adapter from Nuget</li>
+</ul>
+
+<h4>Bug Fixes</h4>
+
+<ul>
+<li>#1155617	Grouping by class name in VS 2012 doesn't work</li>
+<li>#1165359	Exception after building Coded UI test</li>
+<li>#1116747	vstest.executionengine.x86.exe does not terminate</li>
+<li>#1093178	Eliminate unnecessary files from VSIX</li>
+</ul>
+
+<h3>NUnit Test Adapter for Visual Studio (Beta 4) - Version 0.94 - December 22, 2012</h3>
+
+<h4>Features</h4>
+
+<ul>
+<li>Works with Visual Studio 2012 Update 1 as well as the RTM.
+<li>Supports filtering and sorting tests by Traits under Update 1.
+<li>Supports use of standard filter expressions when running under TFS Update 1.
+<li>NUnit Categories specified on the fixture class are now recognized and honored.
+</ul>
+
+<h4>Bug Fixes</h4>
+
+<ul>
+<li>1074891 	Can't test multiple assemblies referencing different NUnit versions
+<li>1075893 	Test execution fails if solution contains native C++ project
+<li>1076012 	No source information found for async test methods
+<li>1087629 	TestFixture Category not being recognised as traits in VS2012 update 1
+<li>1091020 	Adapter doesnt support TFS Build traits/test case filtering
+</ul>
+
+<h3>NUnit Test Adapter for Visual Studio (Beta 3-2) - Version 0.93.2 - November 2, 2012</h3>
+
+<h4>Bug Fixes</h4>
+
+<ul>
+<li>1074544   Failures in Test Discovery not reporting sufficient information
+</ul>
+
+<h3>NUnit Test Adapter for Visual Studio (Beta 3-1) - Version 0.93.1 - October 26, 2012</h3>
+
+<h4>Bug Fixes</h4>
+
+<ul>
+<li>1072150 	NUnit adapter 0.93 won't run selected tests
+</ul>
+
+<h3>NUnit Test Adapter for Visual Studio (Beta 3) - Version 0.93 - October 24, 2012</h3>
+
+<h4>Features</h4>
+
+<ul>
+<li>Works with Visual Studio 2012 RTM. Some features require the November CTP update.
+<li>The adapter now uses NUnit 2.6.2. Among other things, this allows us to support async test methods. See the NUnit <a href="releaseNotes.html">Release Notes</a> for more info.
+<li>Source file and line number can now be found for test cases that have an alternate name set.
+<li>Console output from tests is now displayed in the Visual Studio Output window.
+<li>TestFixtureSetUp and TestFixtureTearDown errors are now displayed in the Output window.
+<li>The caret line (------^) is no longer displayed in the IDE since it depends on use of a fixed font.
+<li>Tests may now be grouped and filtered by Category (only under the November CTP update for VS2012).
+</ul>
+
+<h4>Bug Fixes</h4>
+
+<ul>
+<li>1021144 	Text output from tests not displayed in Visual Studio IDE
+<li>1033623 	Not possible to include or exclude tests based on [Category] attribute Released
+<li>1040779 	Null reference exception on generic test fixtures
+<li>1064620 	Support async test methods
+<li>1065209 	Should call both RecordEnd and RecordResult at end of a test
+<li>1065212 	Upgrade NUnit to 2.6.2
+<li>1065223 	Error messages assume a fixed font, but don't get one
+<li>1065225 	No display for TestFixtureSetUp/TearDown or SetUpFixture errors
+<li>1065254 	Cannot open test from Test Explorer for tests in a Parameterized Test Fixture
+<li>1065306 	Generic Fixtures aren't discovered.
+<li>1066393 	Unable to display source for testcases with an alternate name set
+<li>1066518 	Executed fast test appears in Not Run category in Test Explorer
+</ul>
+
+<h3>NUnit Test Adapter for Visual Studio (Beta 2) - Version 0.92 - May 3, 2012</h3>
+
+<h4>Features</h4>
+
+<ul>
+<li>Works with Visual Studio 2012 Release Candidate
+<li>Uses NUnit 2.6
+</ul>
+
+<h4>Bug Fixes</h4>
+
+<ul>
+<li>992837 Unable to Debug using VS Test Adapter
+<li>994146 Can't run tests under .NET 2.0/3.5
+</ul>
+
+<h3>NUnit Test Adapter for Visual Studio (Beta 1) - Version 0.91 - February 29, 2012</h3>
+
+<h4>Features</h4>
+
+<ul>
+<li>Built against Visual Studio 11 Beta 1
+<li>Uses NUnit 2.6
+</ul>
+
+<h3>NUnit Test Adapter for Visual Studio (Alpha) - Version 0.90 - February 21, 2012</h3>
+
+<h4>Features</h4>
+
+<ul>
+<li>First release of the test adapter. Compatible with the Visual Studio 11 Developer Preview.
+<li>Uses NUnit 2.6.
+</ul>
+
+
+</div>
+
+<!-- Submenu -->
+<div id="subnav">
+<ul>
+<li><a href="index.html">NUnit 2.6.4</a></li>
+<ul>
+<li><a href="getStarted.html">Getting&nbsp;Started</a></li>
+<li><a href="writingTests.html">Writing&nbsp;Tests</a></li>
+<li><a href="runningTests.html">Running&nbsp;Tests</a></li>
+<li><a href="extensibility.html">Extensibility</a></li>
+<li><a href="releaseNotes.html">Release&nbsp;Notes</a></li>
+<li><a href="samples.html">Samples</a></li>
+<li><a href="license.html">License</a></li>
+</ul>
+<li><a href="vsTestAdapter.html">NUnit&nbsp;Test&nbsp;Adapter</a></li>
+<ul>
+<li><a href="vsTestAdapterLicense.html">License</a></li>
+<li id="current"><a href="vsTestAdapterReleaseNotes.html">Release&nbsp;Notes</a></li>
+</ul>
+<li><a href="&r=2.6.4.html"></a></li>
+<li><a href="&r=2.6.4.html"></a></li>
+</ul>
+</div>
+<!-- End of Submenu -->
+
+
+<!-- Standard Footer for NUnit.org -->
+<!-- public_html/nunit/footer.php -->
+<div id="footer">
+  Copyright &copy; 2002-2014 NUnit.org. All Rights Reserved.
+</div>
+<!-- End of Footer -->
+<script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js?skin=desert"></script>
+</body>
+</html>

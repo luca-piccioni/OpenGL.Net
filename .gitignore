@@ -4,3 +4,5 @@
 /BindingsGen/bin
 /OpenGL.Net/obj
 /OpenGL.Net/bin
+/OpenGL.Net.Test/obj
+/OpenGL.Net.Test/bin
