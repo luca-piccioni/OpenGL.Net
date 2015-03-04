@@ -374,30 +374,21 @@ namespace BindingsGen.GLSpecs
 		private List<CommandParameter>[] GetOverridenImplementations(RegistryContext ctx)
 		{
 			List<List<CommandParameter>> overridenParameters = new List<List<CommandParameter>>();
+			List<CommandParameter> parameters;
 
 			// At least an array parameter that can out 1 element only
-			bool outParamCompatible = Parameters.FindIndex(delegate(CommandParameter item) { return (item.IsOutParamCompatible(ctx, this) == false); }) >= 0;
+			bool outParamCompatible = Parameters.FindIndex(delegate(CommandParameter item) { return (item.IsOutParamCompatible(ctx, this)); }) >= 0;
 			// At least a parameter that have a strongly typed representation
-			bool isStrongCompatible = Parameters.FindIndex(delegate(CommandParameter item) { return (item.IsStrongCompatible(ctx, this) == false); }) >= 0;
+			bool isStrongCompatible = Parameters.FindIndex(delegate(CommandParameter item) { return (item.IsStrongCompatible(ctx, this)); }) >= 0;
 			// At least a parameter in meant as pointer/array, that can be represented using structs
 			bool isPinnedObjCompatible = Parameters.FindIndex(delegate(CommandParameter item) { return (item.IsPinnedCompatible(ctx, this)); }) >= 0;
 
 			// Standard implementation - default
 			overridenParameters.Add(Parameters);
 
-			// Out modifier implementation
-			if (!outParamCompatible) {
-				List<CommandParameter> parameters = new List<CommandParameter>();
-
-				foreach (CommandParameter commandParameter in Parameters)
-					parameters.Add(commandParameter.GetOutParam(ctx, this));
-
-				overridenParameters.Add(parameters);
-			}
-
 			// Stronly typed implementation
 			if (isStrongCompatible) {
-				List<CommandParameter> parameters = new List<CommandParameter>();
+				parameters = new List<CommandParameter>();
 
 				foreach (CommandParameter commandParameter in Parameters)
 					parameters.Add(commandParameter.GetStronglyTypedParam(ctx, this));
@@ -407,10 +398,38 @@ namespace BindingsGen.GLSpecs
 
 			// Pinned object implementation
 			if (isPinnedObjCompatible) {
-				List<CommandParameter> parameters = new List<CommandParameter>();
+				if (isStrongCompatible) {
+					parameters = new List<CommandParameter>();
+
+					foreach (CommandParameter commandParameter in Parameters)
+						parameters.Add(commandParameter.GetPinnedObjectParam(ctx, this, false));
+
+					overridenParameters.Add(parameters);
+				}
+
+				parameters = new List<CommandParameter>();
 
 				foreach (CommandParameter commandParameter in Parameters)
-					parameters.Add(commandParameter.GetPinnedObjectParam(ctx, this));
+					parameters.Add(commandParameter.GetPinnedObjectParam(ctx, this, true));
+
+				overridenParameters.Add(parameters);
+			}
+
+			// Out modifier implementation
+			if (outParamCompatible) {
+				if (isStrongCompatible) {
+					parameters = new List<CommandParameter>();
+
+					foreach (CommandParameter commandParameter in Parameters)
+						parameters.Add(commandParameter.GetOutParam(ctx, this, false));
+
+					overridenParameters.Add(parameters);
+				}
+
+				parameters = new List<CommandParameter>();
+
+				foreach (CommandParameter commandParameter in Parameters)
+					parameters.Add(commandParameter.GetOutParam(ctx, this, true));
 
 				overridenParameters.Add(parameters);
 			}

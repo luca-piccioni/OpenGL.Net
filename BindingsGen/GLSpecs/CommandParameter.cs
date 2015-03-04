@@ -57,7 +57,7 @@ namespace BindingsGen.GLSpecs
 		/// 
 		/// </summary>
 		[XmlText()]
-		public readonly List<String> TypeDecorators = new List<String>();
+		public List<String> TypeDecorators = new List<String>();
 
 		/// <summary>
 		/// 
@@ -84,6 +84,15 @@ namespace BindingsGen.GLSpecs
 		/// </summary>
 		[XmlIgnore()]
 		public CommandParameter OverridenParameter;
+
+		private CommandParameter Clone()
+		{
+			CommandParameter clone = (CommandParameter)MemberwiseClone();
+
+			clone.TypeDecorators = new List<string>(TypeDecorators);
+
+			return (clone);
+		}
 
 		#endregion
 
@@ -266,11 +275,11 @@ namespace BindingsGen.GLSpecs
 
 		internal CommandParameter GetStronglyTypedParam(RegistryContext ctx, Command parentCommand)
 		{
-			CommandParameter param = (CommandParameter)MemberwiseClone();
+			CommandParameter param = Clone();
 
 			if (param.IsStrongCompatible(ctx, parentCommand)) {
 				param.Type = param.Group;
-				param.TypeDecorators.Clear();
+				// param.TypeDecorators.Clear();
 				param.OverridenParameter = this;
 			}
 
@@ -287,7 +296,12 @@ namespace BindingsGen.GLSpecs
 
 		internal CommandParameter GetPinnedObjectParam(RegistryContext ctx, Command parentCommand)
 		{
-			CommandParameter param = GetStronglyTypedParam(ctx, parentCommand);
+			return (GetPinnedObjectParam(ctx, parentCommand, true));
+		}
+
+		internal CommandParameter GetPinnedObjectParam(RegistryContext ctx, Command parentCommand, bool strong)
+		{
+			CommandParameter param = strong ? GetStronglyTypedParam(ctx, parentCommand) : Clone();
 
 			if (param.IsPinnedCompatible(ctx, parentCommand)) {
 				param.Type = "Object";
@@ -305,7 +319,12 @@ namespace BindingsGen.GLSpecs
 
 		internal CommandParameter GetOutParam(RegistryContext ctx, Command parentCommand)
 		{
-			CommandParameter param = GetStronglyTypedParam(ctx, parentCommand);
+			return (GetOutParam(ctx, parentCommand));
+		}
+
+		internal CommandParameter GetOutParam(RegistryContext ctx, Command parentCommand, bool strong)
+		{
+			CommandParameter param = strong ? GetStronglyTypedParam(ctx, parentCommand) : Clone();
 
 			if (param.IsOutParamCompatible(ctx, parentCommand)) {
 				param.Length = "1";
