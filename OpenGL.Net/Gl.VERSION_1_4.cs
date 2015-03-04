@@ -849,7 +849,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.DrawArrays"/>
 		/// <seealso cref="Gl.DrawRangeElements"/>
 		[RequiredByFeature("GL_VERSION_1_4")]
-		public static void MultiDrawElements(int mode, Int32[] count, int type, Object indices, Int32 drawcount)
+		public static void MultiDrawElements(PrimitiveType mode, Int32[] count, int type, Object indices, Int32 drawcount)
 		{
 			GCHandle pin_indices = GCHandle.Alloc(indices, GCHandleType.Pinned);
 			try {
@@ -1398,7 +1398,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.VertexPointer"/>
 		[RequiredByFeature("GL_VERSION_1_4")]
 		[RemovedByFeature("GL_VERSION_3_2")]
-		public static void FogCoordPointer(int type, Int32 stride, Object pointer)
+		public static void FogCoordPointer(FogPointerTypeEXT type, Int32 stride, Object pointer)
 		{
 			GCHandle pin_pointer = GCHandle.Alloc(pointer, GCHandleType.Pinned);
 			try {
@@ -2579,7 +2579,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.VertexPointer"/>
 		[RequiredByFeature("GL_VERSION_1_4")]
 		[RemovedByFeature("GL_VERSION_3_2")]
-		public static void SecondaryColorPointer(Int32 size, int type, Int32 stride, Object pointer)
+		public static void SecondaryColorPointer(Int32 size, ColorPointerType type, Int32 stride, Object pointer)
 		{
 			GCHandle pin_pointer = GCHandle.Alloc(pointer, GCHandleType.Pinned);
 			try {

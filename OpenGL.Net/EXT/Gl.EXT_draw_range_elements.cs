@@ -119,7 +119,7 @@ namespace OpenGL
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_draw_range_elements")]
-		public static void DrawRangeElementsEXT(int mode, UInt32 start, UInt32 end, Int32 count, int type, Object indices)
+		public static void DrawRangeElementsEXT(PrimitiveType mode, UInt32 start, UInt32 end, Int32 count, int type, Object indices)
 		{
 			GCHandle pin_indices = GCHandle.Alloc(indices, GCHandleType.Pinned);
 			try {

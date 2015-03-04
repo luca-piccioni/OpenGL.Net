@@ -375,11 +375,18 @@ namespace BindingsGen.GLSpecs
 		{
 			List<List<CommandParameter>> overridenParameters = new List<List<CommandParameter>>();
 
-			// Standard implementation
+			// At least an array parameter that can out 1 element only
+			bool outParamCompatible = Parameters.FindIndex(delegate(CommandParameter item) { return (item.IsOutParamCompatible(ctx, this) == false); }) >= 0;
+			// At least a parameter that have a strongly typed representation
+			bool isStrongCompatible = Parameters.FindIndex(delegate(CommandParameter item) { return (item.IsStrongCompatible(ctx, this) == false); }) >= 0;
+			// At least a parameter in meant as pointer/array, that can be represented using structs
+			bool isPinnedObjCompatible = Parameters.FindIndex(delegate(CommandParameter item) { return (item.IsPinnedCompatible(ctx, this)); }) >= 0;
+
+			// Standard implementation - default
 			overridenParameters.Add(Parameters);
 
 			// Out modifier implementation
-			if (!Parameters.TrueForAll(delegate(CommandParameter item) { return (item.IsOutParamCompatible(ctx, this) == false); })) {
+			if (!outParamCompatible) {
 				List<CommandParameter> parameters = new List<CommandParameter>();
 
 				foreach (CommandParameter commandParameter in Parameters)
@@ -389,7 +396,7 @@ namespace BindingsGen.GLSpecs
 			}
 
 			// Stronly typed implementation
-			if (!Parameters.TrueForAll(delegate(CommandParameter item) { return (item.IsStrongCompatible(ctx, this) == false); })) {
+			if (isStrongCompatible) {
 				List<CommandParameter> parameters = new List<CommandParameter>();
 
 				foreach (CommandParameter commandParameter in Parameters)
@@ -399,7 +406,7 @@ namespace BindingsGen.GLSpecs
 			}
 
 			// Pinned object implementation
-			if (Parameters.FindIndex(delegate(CommandParameter item) { return (item.IsPinnedCompatible(ctx, this)); }) >= 0) {
+			if (isPinnedObjCompatible) {
 				List<CommandParameter> parameters = new List<CommandParameter>();
 
 				foreach (CommandParameter commandParameter in Parameters)

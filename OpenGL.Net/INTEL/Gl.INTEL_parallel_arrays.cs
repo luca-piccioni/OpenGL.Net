@@ -110,7 +110,7 @@ namespace OpenGL
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		[RequiredByFeature("GL_INTEL_parallel_arrays")]
-		public static void VertexPointerINTEL(Int32 size, int type, Object pointer)
+		public static void VertexPointerINTEL(Int32 size, VertexPointerType type, Object pointer)
 		{
 			GCHandle pin_pointer = GCHandle.Alloc(pointer, GCHandleType.Pinned);
 			try {
@@ -166,7 +166,7 @@ namespace OpenGL
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		[RequiredByFeature("GL_INTEL_parallel_arrays")]
-		public static void NormalPointerINTEL(int type, Object pointer)
+		public static void NormalPointerINTEL(NormalPointerType type, Object pointer)
 		{
 			GCHandle pin_pointer = GCHandle.Alloc(pointer, GCHandleType.Pinned);
 			try {
@@ -231,7 +231,7 @@ namespace OpenGL
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		[RequiredByFeature("GL_INTEL_parallel_arrays")]
-		public static void ColorPointerINTEL(Int32 size, int type, Object pointer)
+		public static void ColorPointerINTEL(Int32 size, VertexPointerType type, Object pointer)
 		{
 			GCHandle pin_pointer = GCHandle.Alloc(pointer, GCHandleType.Pinned);
 			try {
@@ -296,7 +296,7 @@ namespace OpenGL
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		[RequiredByFeature("GL_INTEL_parallel_arrays")]
-		public static void TexCoordPointerINTEL(Int32 size, int type, Object pointer)
+		public static void TexCoordPointerINTEL(Int32 size, VertexPointerType type, Object pointer)
 		{
 			GCHandle pin_pointer = GCHandle.Alloc(pointer, GCHandleType.Pinned);
 			try {

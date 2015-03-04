@@ -26,7 +26,7 @@ namespace OpenGL.Test
 	/// <summary>
 	/// Class for testing WGL_ARB_pixel_format API.
 	/// </summary>
-	public class WGL_ARB_pixel_format : GlTestBase
+	class WGL_ARB_pixel_format : GlTestBase
 	{
 		/// <summary>
 		/// Test Wgl.GetPixelFormatAttribARB.

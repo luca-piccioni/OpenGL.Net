@@ -287,7 +287,7 @@ namespace BindingsGen.GLSpecs
 
 		internal CommandParameter GetPinnedObjectParam(RegistryContext ctx, Command parentCommand)
 		{
-			CommandParameter param = (CommandParameter)MemberwiseClone();
+			CommandParameter param = GetStronglyTypedParam(ctx, parentCommand);
 
 			if (param.IsPinnedCompatible(ctx, parentCommand)) {
 				param.Type = "Object";
@@ -305,7 +305,7 @@ namespace BindingsGen.GLSpecs
 
 		internal CommandParameter GetOutParam(RegistryContext ctx, Command parentCommand)
 		{
-			CommandParameter param = (CommandParameter)MemberwiseClone();
+			CommandParameter param = GetStronglyTypedParam(ctx, parentCommand);
 
 			if (param.IsOutParamCompatible(ctx, parentCommand)) {
 				param.Length = "1";

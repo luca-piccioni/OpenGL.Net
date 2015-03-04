@@ -986,7 +986,7 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_4_2")]
 		[RequiredByFeature("GL_ARB_base_instance")]
-		public static void DrawElementsInstancedBaseInstance(int mode, Int32 count, int type, Object indices, Int32 instancecount, UInt32 baseinstance)
+		public static void DrawElementsInstancedBaseInstance(PrimitiveType mode, Int32 count, int type, Object indices, Int32 instancecount, UInt32 baseinstance)
 		{
 			GCHandle pin_indices = GCHandle.Alloc(indices, GCHandleType.Pinned);
 			try {
@@ -1100,7 +1100,7 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_4_2")]
 		[RequiredByFeature("GL_ARB_base_instance")]
-		public static void DrawElementsInstancedBaseVertexBaseInstance(int mode, Int32 count, int type, Object indices, Int32 instancecount, Int32 basevertex, UInt32 baseinstance)
+		public static void DrawElementsInstancedBaseVertexBaseInstance(PrimitiveType mode, Int32 count, int type, Object indices, Int32 instancecount, Int32 basevertex, UInt32 baseinstance)
 		{
 			GCHandle pin_indices = GCHandle.Alloc(indices, GCHandleType.Pinned);
 			try {

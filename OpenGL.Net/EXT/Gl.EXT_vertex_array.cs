@@ -305,7 +305,7 @@ namespace OpenGL
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_vertex_array")]
-		public static void ColorPointerEXT(Int32 size, int type, Int32 stride, Int32 count, Object pointer)
+		public static void ColorPointerEXT(Int32 size, ColorPointerType type, Int32 stride, Int32 count, Object pointer)
 		{
 			GCHandle pin_pointer = GCHandle.Alloc(pointer, GCHandleType.Pinned);
 			try {
@@ -483,7 +483,7 @@ namespace OpenGL
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_vertex_array")]
-		public static void IndexPointerEXT(int type, Int32 stride, Int32 count, Object pointer)
+		public static void IndexPointerEXT(IndexPointerType type, Int32 stride, Int32 count, Object pointer)
 		{
 			GCHandle pin_pointer = GCHandle.Alloc(pointer, GCHandleType.Pinned);
 			try {
@@ -557,7 +557,7 @@ namespace OpenGL
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_vertex_array")]
-		public static void NormalPointerEXT(int type, Int32 stride, Int32 count, Object pointer)
+		public static void NormalPointerEXT(NormalPointerType type, Int32 stride, Int32 count, Object pointer)
 		{
 			GCHandle pin_pointer = GCHandle.Alloc(pointer, GCHandleType.Pinned);
 			try {
@@ -640,7 +640,7 @@ namespace OpenGL
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_vertex_array")]
-		public static void TexCoordPointerEXT(Int32 size, int type, Int32 stride, Int32 count, Object pointer)
+		public static void TexCoordPointerEXT(Int32 size, TexCoordPointerType type, Int32 stride, Int32 count, Object pointer)
 		{
 			GCHandle pin_pointer = GCHandle.Alloc(pointer, GCHandleType.Pinned);
 			try {
@@ -723,7 +723,7 @@ namespace OpenGL
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_vertex_array")]
-		public static void VertexPointerEXT(Int32 size, int type, Int32 stride, Int32 count, Object pointer)
+		public static void VertexPointerEXT(Int32 size, VertexPointerType type, Int32 stride, Int32 count, Object pointer)
 		{
 			GCHandle pin_pointer = GCHandle.Alloc(pointer, GCHandleType.Pinned);
 			try {

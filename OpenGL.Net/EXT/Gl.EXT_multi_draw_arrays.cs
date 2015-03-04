@@ -168,7 +168,7 @@ namespace OpenGL
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_multi_draw_arrays")]
-		public static void MultiDrawElementsEXT(int mode, Int32[] count, int type, Object indices, Int32 primcount)
+		public static void MultiDrawElementsEXT(PrimitiveType mode, Int32[] count, int type, Object indices, Int32 primcount)
 		{
 			GCHandle pin_indices = GCHandle.Alloc(indices, GCHandleType.Pinned);
 			try {

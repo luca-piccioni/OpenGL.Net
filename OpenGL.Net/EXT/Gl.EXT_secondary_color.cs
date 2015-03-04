@@ -459,7 +459,7 @@ namespace OpenGL
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_secondary_color")]
-		public static void SecondaryColorPointerEXT(Int32 size, int type, Int32 stride, Object pointer)
+		public static void SecondaryColorPointerEXT(Int32 size, ColorPointerType type, Int32 stride, Object pointer)
 		{
 			GCHandle pin_pointer = GCHandle.Alloc(pointer, GCHandleType.Pinned);
 			try {

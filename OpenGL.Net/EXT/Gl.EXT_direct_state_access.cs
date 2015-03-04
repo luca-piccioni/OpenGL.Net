@@ -1130,7 +1130,7 @@ namespace OpenGL
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access")]
-		public static void TextureImage1DEXT(UInt32 texture, int target, Int32 level, Int32 internalformat, Int32 width, Int32 border, int format, int type, Object pixels)
+		public static void TextureImage1DEXT(UInt32 texture, TextureTarget target, Int32 level, Int32 internalformat, Int32 width, Int32 border, PixelFormat format, PixelType type, Object pixels)
 		{
 			GCHandle pin_pixels = GCHandle.Alloc(pixels, GCHandleType.Pinned);
 			try {
@@ -1258,7 +1258,7 @@ namespace OpenGL
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access")]
-		public static void TextureImage2DEXT(UInt32 texture, int target, Int32 level, Int32 internalformat, Int32 width, Int32 height, Int32 border, int format, int type, Object pixels)
+		public static void TextureImage2DEXT(UInt32 texture, TextureTarget target, Int32 level, Int32 internalformat, Int32 width, Int32 height, Int32 border, PixelFormat format, PixelType type, Object pixels)
 		{
 			GCHandle pin_pixels = GCHandle.Alloc(pixels, GCHandleType.Pinned);
 			try {
@@ -1368,7 +1368,7 @@ namespace OpenGL
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access")]
-		public static void TextureSubImage1DEXT(UInt32 texture, int target, Int32 level, Int32 xoffset, Int32 width, int format, int type, Object pixels)
+		public static void TextureSubImage1DEXT(UInt32 texture, TextureTarget target, Int32 level, Int32 xoffset, Int32 width, PixelFormat format, PixelType type, Object pixels)
 		{
 			GCHandle pin_pixels = GCHandle.Alloc(pixels, GCHandleType.Pinned);
 			try {
@@ -1496,7 +1496,7 @@ namespace OpenGL
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access")]
-		public static void TextureSubImage2DEXT(UInt32 texture, int target, Int32 level, Int32 xoffset, Int32 yoffset, Int32 width, Int32 height, int format, int type, Object pixels)
+		public static void TextureSubImage2DEXT(UInt32 texture, TextureTarget target, Int32 level, Int32 xoffset, Int32 yoffset, Int32 width, Int32 height, PixelFormat format, PixelType type, Object pixels)
 		{
 			GCHandle pin_pixels = GCHandle.Alloc(pixels, GCHandleType.Pinned);
 			try {
@@ -2231,7 +2231,7 @@ namespace OpenGL
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access")]
-		public static void TextureImage3DEXT(UInt32 texture, int target, Int32 level, Int32 internalformat, Int32 width, Int32 height, Int32 depth, Int32 border, int format, int type, Object pixels)
+		public static void TextureImage3DEXT(UInt32 texture, TextureTarget target, Int32 level, Int32 internalformat, Int32 width, Int32 height, Int32 depth, Int32 border, PixelFormat format, PixelType type, Object pixels)
 		{
 			GCHandle pin_pixels = GCHandle.Alloc(pixels, GCHandleType.Pinned);
 			try {
@@ -2377,7 +2377,7 @@ namespace OpenGL
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access")]
-		public static void TextureSubImage3DEXT(UInt32 texture, int target, Int32 level, Int32 xoffset, Int32 yoffset, Int32 zoffset, Int32 width, Int32 height, Int32 depth, int format, int type, Object pixels)
+		public static void TextureSubImage3DEXT(UInt32 texture, TextureTarget target, Int32 level, Int32 xoffset, Int32 yoffset, Int32 zoffset, Int32 width, Int32 height, Int32 depth, PixelFormat format, PixelType type, Object pixels)
 		{
 			GCHandle pin_pixels = GCHandle.Alloc(pixels, GCHandleType.Pinned);
 			try {
@@ -2586,7 +2586,7 @@ namespace OpenGL
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access")]
-		public static void MultiTexCoordPointerEXT(int texunit, Int32 size, int type, Int32 stride, Object pointer)
+		public static void MultiTexCoordPointerEXT(int texunit, Int32 size, TexCoordPointerType type, Int32 stride, Object pointer)
 		{
 			GCHandle pin_pointer = GCHandle.Alloc(pointer, GCHandleType.Pinned);
 			try {
@@ -3737,7 +3737,7 @@ namespace OpenGL
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access")]
-		public static void MultiTexImage1DEXT(int texunit, int target, Int32 level, Int32 internalformat, Int32 width, Int32 border, int format, int type, Object pixels)
+		public static void MultiTexImage1DEXT(int texunit, TextureTarget target, Int32 level, Int32 internalformat, Int32 width, Int32 border, PixelFormat format, PixelType type, Object pixels)
 		{
 			GCHandle pin_pixels = GCHandle.Alloc(pixels, GCHandleType.Pinned);
 			try {
@@ -3865,7 +3865,7 @@ namespace OpenGL
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access")]
-		public static void MultiTexImage2DEXT(int texunit, int target, Int32 level, Int32 internalformat, Int32 width, Int32 height, Int32 border, int format, int type, Object pixels)
+		public static void MultiTexImage2DEXT(int texunit, TextureTarget target, Int32 level, Int32 internalformat, Int32 width, Int32 height, Int32 border, PixelFormat format, PixelType type, Object pixels)
 		{
 			GCHandle pin_pixels = GCHandle.Alloc(pixels, GCHandleType.Pinned);
 			try {
@@ -3975,7 +3975,7 @@ namespace OpenGL
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access")]
-		public static void MultiTexSubImage1DEXT(int texunit, int target, Int32 level, Int32 xoffset, Int32 width, int format, int type, Object pixels)
+		public static void MultiTexSubImage1DEXT(int texunit, TextureTarget target, Int32 level, Int32 xoffset, Int32 width, PixelFormat format, PixelType type, Object pixels)
 		{
 			GCHandle pin_pixels = GCHandle.Alloc(pixels, GCHandleType.Pinned);
 			try {
@@ -4103,7 +4103,7 @@ namespace OpenGL
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access")]
-		public static void MultiTexSubImage2DEXT(int texunit, int target, Int32 level, Int32 xoffset, Int32 yoffset, Int32 width, Int32 height, int format, int type, Object pixels)
+		public static void MultiTexSubImage2DEXT(int texunit, TextureTarget target, Int32 level, Int32 xoffset, Int32 yoffset, Int32 width, Int32 height, PixelFormat format, PixelType type, Object pixels)
 		{
 			GCHandle pin_pixels = GCHandle.Alloc(pixels, GCHandleType.Pinned);
 			try {
@@ -4838,7 +4838,7 @@ namespace OpenGL
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access")]
-		public static void MultiTexImage3DEXT(int texunit, int target, Int32 level, Int32 internalformat, Int32 width, Int32 height, Int32 depth, Int32 border, int format, int type, Object pixels)
+		public static void MultiTexImage3DEXT(int texunit, TextureTarget target, Int32 level, Int32 internalformat, Int32 width, Int32 height, Int32 depth, Int32 border, PixelFormat format, PixelType type, Object pixels)
 		{
 			GCHandle pin_pixels = GCHandle.Alloc(pixels, GCHandleType.Pinned);
 			try {
@@ -4984,7 +4984,7 @@ namespace OpenGL
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access")]
-		public static void MultiTexSubImage3DEXT(int texunit, int target, Int32 level, Int32 xoffset, Int32 yoffset, Int32 zoffset, Int32 width, Int32 height, Int32 depth, int format, int type, Object pixels)
+		public static void MultiTexSubImage3DEXT(int texunit, TextureTarget target, Int32 level, Int32 xoffset, Int32 yoffset, Int32 zoffset, Int32 width, Int32 height, Int32 depth, PixelFormat format, PixelType type, Object pixels)
 		{
 			GCHandle pin_pixels = GCHandle.Alloc(pixels, GCHandleType.Pinned);
 			try {
@@ -5341,7 +5341,7 @@ namespace OpenGL
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access")]
-		public static void CompressedTextureImage3DEXT(UInt32 texture, int target, Int32 level, int internalformat, Int32 width, Int32 height, Int32 depth, Int32 border, Int32 imageSize, Object bits)
+		public static void CompressedTextureImage3DEXT(UInt32 texture, TextureTarget target, Int32 level, int internalformat, Int32 width, Int32 height, Int32 depth, Int32 border, Int32 imageSize, Object bits)
 		{
 			GCHandle pin_bits = GCHandle.Alloc(bits, GCHandleType.Pinned);
 			try {
@@ -5460,7 +5460,7 @@ namespace OpenGL
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access")]
-		public static void CompressedTextureImage2DEXT(UInt32 texture, int target, Int32 level, int internalformat, Int32 width, Int32 height, Int32 border, Int32 imageSize, Object bits)
+		public static void CompressedTextureImage2DEXT(UInt32 texture, TextureTarget target, Int32 level, int internalformat, Int32 width, Int32 height, Int32 border, Int32 imageSize, Object bits)
 		{
 			GCHandle pin_bits = GCHandle.Alloc(bits, GCHandleType.Pinned);
 			try {
@@ -5570,7 +5570,7 @@ namespace OpenGL
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access")]
-		public static void CompressedTextureImage1DEXT(UInt32 texture, int target, Int32 level, int internalformat, Int32 width, Int32 border, Int32 imageSize, Object bits)
+		public static void CompressedTextureImage1DEXT(UInt32 texture, TextureTarget target, Int32 level, int internalformat, Int32 width, Int32 border, Int32 imageSize, Object bits)
 		{
 			GCHandle pin_bits = GCHandle.Alloc(bits, GCHandleType.Pinned);
 			try {
@@ -5716,7 +5716,7 @@ namespace OpenGL
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access")]
-		public static void CompressedTextureSubImage3DEXT(UInt32 texture, int target, Int32 level, Int32 xoffset, Int32 yoffset, Int32 zoffset, Int32 width, Int32 height, Int32 depth, int format, Int32 imageSize, Object bits)
+		public static void CompressedTextureSubImage3DEXT(UInt32 texture, TextureTarget target, Int32 level, Int32 xoffset, Int32 yoffset, Int32 zoffset, Int32 width, Int32 height, Int32 depth, PixelFormat format, Int32 imageSize, Object bits)
 		{
 			GCHandle pin_bits = GCHandle.Alloc(bits, GCHandleType.Pinned);
 			try {
@@ -5844,7 +5844,7 @@ namespace OpenGL
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access")]
-		public static void CompressedTextureSubImage2DEXT(UInt32 texture, int target, Int32 level, Int32 xoffset, Int32 yoffset, Int32 width, Int32 height, int format, Int32 imageSize, Object bits)
+		public static void CompressedTextureSubImage2DEXT(UInt32 texture, TextureTarget target, Int32 level, Int32 xoffset, Int32 yoffset, Int32 width, Int32 height, PixelFormat format, Int32 imageSize, Object bits)
 		{
 			GCHandle pin_bits = GCHandle.Alloc(bits, GCHandleType.Pinned);
 			try {
@@ -5954,7 +5954,7 @@ namespace OpenGL
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access")]
-		public static void CompressedTextureSubImage1DEXT(UInt32 texture, int target, Int32 level, Int32 xoffset, Int32 width, int format, Int32 imageSize, Object bits)
+		public static void CompressedTextureSubImage1DEXT(UInt32 texture, TextureTarget target, Int32 level, Int32 xoffset, Int32 width, PixelFormat format, Int32 imageSize, Object bits)
 		{
 			GCHandle pin_bits = GCHandle.Alloc(bits, GCHandleType.Pinned);
 			try {
@@ -6130,7 +6130,7 @@ namespace OpenGL
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access")]
-		public static void CompressedMultiTexImage3DEXT(int texunit, int target, Int32 level, int internalformat, Int32 width, Int32 height, Int32 depth, Int32 border, Int32 imageSize, Object bits)
+		public static void CompressedMultiTexImage3DEXT(int texunit, TextureTarget target, Int32 level, int internalformat, Int32 width, Int32 height, Int32 depth, Int32 border, Int32 imageSize, Object bits)
 		{
 			GCHandle pin_bits = GCHandle.Alloc(bits, GCHandleType.Pinned);
 			try {
@@ -6249,7 +6249,7 @@ namespace OpenGL
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access")]
-		public static void CompressedMultiTexImage2DEXT(int texunit, int target, Int32 level, int internalformat, Int32 width, Int32 height, Int32 border, Int32 imageSize, Object bits)
+		public static void CompressedMultiTexImage2DEXT(int texunit, TextureTarget target, Int32 level, int internalformat, Int32 width, Int32 height, Int32 border, Int32 imageSize, Object bits)
 		{
 			GCHandle pin_bits = GCHandle.Alloc(bits, GCHandleType.Pinned);
 			try {
@@ -6359,7 +6359,7 @@ namespace OpenGL
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access")]
-		public static void CompressedMultiTexImage1DEXT(int texunit, int target, Int32 level, int internalformat, Int32 width, Int32 border, Int32 imageSize, Object bits)
+		public static void CompressedMultiTexImage1DEXT(int texunit, TextureTarget target, Int32 level, int internalformat, Int32 width, Int32 border, Int32 imageSize, Object bits)
 		{
 			GCHandle pin_bits = GCHandle.Alloc(bits, GCHandleType.Pinned);
 			try {
@@ -6505,7 +6505,7 @@ namespace OpenGL
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access")]
-		public static void CompressedMultiTexSubImage3DEXT(int texunit, int target, Int32 level, Int32 xoffset, Int32 yoffset, Int32 zoffset, Int32 width, Int32 height, Int32 depth, int format, Int32 imageSize, Object bits)
+		public static void CompressedMultiTexSubImage3DEXT(int texunit, TextureTarget target, Int32 level, Int32 xoffset, Int32 yoffset, Int32 zoffset, Int32 width, Int32 height, Int32 depth, PixelFormat format, Int32 imageSize, Object bits)
 		{
 			GCHandle pin_bits = GCHandle.Alloc(bits, GCHandleType.Pinned);
 			try {
@@ -6633,7 +6633,7 @@ namespace OpenGL
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access")]
-		public static void CompressedMultiTexSubImage2DEXT(int texunit, int target, Int32 level, Int32 xoffset, Int32 yoffset, Int32 width, Int32 height, int format, Int32 imageSize, Object bits)
+		public static void CompressedMultiTexSubImage2DEXT(int texunit, TextureTarget target, Int32 level, Int32 xoffset, Int32 yoffset, Int32 width, Int32 height, PixelFormat format, Int32 imageSize, Object bits)
 		{
 			GCHandle pin_bits = GCHandle.Alloc(bits, GCHandleType.Pinned);
 			try {
@@ -6743,7 +6743,7 @@ namespace OpenGL
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access")]
-		public static void CompressedMultiTexSubImage1DEXT(int texunit, int target, Int32 level, Int32 xoffset, Int32 width, int format, Int32 imageSize, Object bits)
+		public static void CompressedMultiTexSubImage1DEXT(int texunit, TextureTarget target, Int32 level, Int32 xoffset, Int32 width, PixelFormat format, Int32 imageSize, Object bits)
 		{
 			GCHandle pin_bits = GCHandle.Alloc(bits, GCHandleType.Pinned);
 			try {
@@ -11149,7 +11149,7 @@ namespace OpenGL
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access")]
-		public static void ClearNamedBufferDataEXT(UInt32 buffer, int internalformat, int format, int type, Object data)
+		public static void ClearNamedBufferDataEXT(UInt32 buffer, int internalformat, PixelFormat format, PixelType type, Object data)
 		{
 			GCHandle pin_data = GCHandle.Alloc(data, GCHandleType.Pinned);
 			try {
@@ -11250,7 +11250,7 @@ namespace OpenGL
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access")]
-		public static void ClearNamedBufferSubDataEXT(UInt32 buffer, int internalformat, UInt32 offset, UInt32 size, int format, int type, Object data)
+		public static void ClearNamedBufferSubDataEXT(UInt32 buffer, int internalformat, UInt32 offset, UInt32 size, PixelFormat format, PixelType type, Object data)
 		{
 			GCHandle pin_data = GCHandle.Alloc(data, GCHandleType.Pinned);
 			try {

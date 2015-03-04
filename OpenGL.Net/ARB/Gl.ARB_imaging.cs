@@ -804,7 +804,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.CopyColorSubTable"/>
 		/// <seealso cref="Gl.GetColorTable"/>
 		[RequiredByFeature("GL_ARB_imaging")]
-		public static void ColorTable(int target, int internalformat, Int32 width, int format, int type, Object table)
+		public static void ColorTable(int target, int internalformat, Int32 width, PixelFormat format, PixelType type, Object table)
 		{
 			GCHandle pin_table = GCHandle.Alloc(table, GCHandleType.Pinned);
 			try {
@@ -1533,7 +1533,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.CopyColorSubTable"/>
 		/// <seealso cref="Gl.GetColorTable"/>
 		[RequiredByFeature("GL_ARB_imaging")]
-		public static void ColorSubTable(int target, Int32 start, Int32 count, int format, int type, Object data)
+		public static void ColorSubTable(int target, Int32 start, Int32 count, PixelFormat format, PixelType type, Object data)
 		{
 			GCHandle pin_data = GCHandle.Alloc(data, GCHandleType.Pinned);
 			try {
@@ -1937,7 +1937,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.ConvolutionParameter"/>
 		/// <seealso cref="Gl.PixelTransfer"/>
 		[RequiredByFeature("GL_ARB_imaging")]
-		public static void ConvolutionFilter1D(int target, int internalformat, Int32 width, int format, int type, Object image)
+		public static void ConvolutionFilter1D(int target, int internalformat, Int32 width, PixelFormat format, PixelType type, Object image)
 		{
 			GCHandle pin_image = GCHandle.Alloc(image, GCHandleType.Pinned);
 			try {
@@ -2303,7 +2303,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.ConvolutionParameter"/>
 		/// <seealso cref="Gl.PixelTransfer"/>
 		[RequiredByFeature("GL_ARB_imaging")]
-		public static void ConvolutionFilter2D(int target, int internalformat, Int32 width, Int32 height, int format, int type, Object image)
+		public static void ConvolutionFilter2D(int target, int internalformat, Int32 width, Int32 height, PixelFormat format, PixelType type, Object image)
 		{
 			GCHandle pin_image = GCHandle.Alloc(image, GCHandleType.Pinned);
 			try {
@@ -3541,7 +3541,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.ConvolutionParameter"/>
 		/// <seealso cref="Gl.PixelTransfer"/>
 		[RequiredByFeature("GL_ARB_imaging")]
-		public static void SeparableFilter2D(int target, int internalformat, Int32 width, Int32 height, int format, int type, Object row, Object column)
+		public static void SeparableFilter2D(int target, int internalformat, Int32 width, Int32 height, PixelFormat format, PixelType type, Object row, Object column)
 		{
 			GCHandle pin_row = GCHandle.Alloc(row, GCHandleType.Pinned);
 			GCHandle pin_column = GCHandle.Alloc(column, GCHandleType.Pinned);

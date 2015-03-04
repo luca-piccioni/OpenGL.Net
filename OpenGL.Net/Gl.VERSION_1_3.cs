@@ -1217,7 +1217,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexSubImage3D"/>
 		/// <seealso cref="Gl.TexParameter"/>
 		[RequiredByFeature("GL_VERSION_1_3")]
-		public static void CompressedTexImage3D(int target, Int32 level, int internalformat, Int32 width, Int32 height, Int32 depth, Int32 border, Int32 imageSize, Object data)
+		public static void CompressedTexImage3D(TextureTarget target, Int32 level, int internalformat, Int32 width, Int32 height, Int32 depth, Int32 border, Int32 imageSize, Object data)
 		{
 			GCHandle pin_data = GCHandle.Alloc(data, GCHandleType.Pinned);
 			try {
@@ -1580,7 +1580,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexSubImage3D"/>
 		/// <seealso cref="Gl.TexParameter"/>
 		[RequiredByFeature("GL_VERSION_1_3")]
-		public static void CompressedTexImage2D(int target, Int32 level, int internalformat, Int32 width, Int32 height, Int32 border, Int32 imageSize, Object data)
+		public static void CompressedTexImage2D(TextureTarget target, Int32 level, int internalformat, Int32 width, Int32 height, Int32 border, Int32 imageSize, Object data)
 		{
 			GCHandle pin_data = GCHandle.Alloc(data, GCHandleType.Pinned);
 			try {
@@ -1913,7 +1913,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexSubImage3D"/>
 		/// <seealso cref="Gl.TexParameter"/>
 		[RequiredByFeature("GL_VERSION_1_3")]
-		public static void CompressedTexImage1D(int target, Int32 level, int internalformat, Int32 width, Int32 border, Int32 imageSize, Object data)
+		public static void CompressedTexImage1D(TextureTarget target, Int32 level, int internalformat, Int32 width, Int32 border, Int32 imageSize, Object data)
 		{
 			GCHandle pin_data = GCHandle.Alloc(data, GCHandleType.Pinned);
 			try {
@@ -2243,7 +2243,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexSubImage3D"/>
 		/// <seealso cref="Gl.TexParameter"/>
 		[RequiredByFeature("GL_VERSION_1_3")]
-		public static void CompressedTexSubImage3D(int target, Int32 level, Int32 xoffset, Int32 yoffset, Int32 zoffset, Int32 width, Int32 height, Int32 depth, int format, Int32 imageSize, Object data)
+		public static void CompressedTexSubImage3D(TextureTarget target, Int32 level, Int32 xoffset, Int32 yoffset, Int32 zoffset, Int32 width, Int32 height, Int32 depth, PixelFormat format, Int32 imageSize, Object data)
 		{
 			GCHandle pin_data = GCHandle.Alloc(data, GCHandleType.Pinned);
 			try {
@@ -2552,7 +2552,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexSubImage3D"/>
 		/// <seealso cref="Gl.TexParameter"/>
 		[RequiredByFeature("GL_VERSION_1_3")]
-		public static void CompressedTexSubImage2D(int target, Int32 level, Int32 xoffset, Int32 yoffset, Int32 width, Int32 height, int format, Int32 imageSize, Object data)
+		public static void CompressedTexSubImage2D(TextureTarget target, Int32 level, Int32 xoffset, Int32 yoffset, Int32 width, Int32 height, PixelFormat format, Int32 imageSize, Object data)
 		{
 			GCHandle pin_data = GCHandle.Alloc(data, GCHandleType.Pinned);
 			try {
@@ -2828,7 +2828,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexSubImage3D"/>
 		/// <seealso cref="Gl.TexParameter"/>
 		[RequiredByFeature("GL_VERSION_1_3")]
-		public static void CompressedTexSubImage1D(int target, Int32 level, Int32 xoffset, Int32 width, int format, Int32 imageSize, Object data)
+		public static void CompressedTexSubImage1D(TextureTarget target, Int32 level, Int32 xoffset, Int32 width, PixelFormat format, Int32 imageSize, Object data)
 		{
 			GCHandle pin_data = GCHandle.Alloc(data, GCHandleType.Pinned);
 			try {

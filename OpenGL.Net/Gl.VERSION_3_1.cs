@@ -726,7 +726,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.DrawElements"/>
 		/// <seealso cref="Gl.DrawArraysInstanced"/>
 		[RequiredByFeature("GL_VERSION_3_1")]
-		public static void DrawElementsInstanced(int mode, Int32 count, int type, Object indices, Int32 instancecount)
+		public static void DrawElementsInstanced(PrimitiveType mode, Int32 count, int type, Object indices, Int32 instancecount)
 		{
 			GCHandle pin_indices = GCHandle.Alloc(indices, GCHandleType.Pinned);
 			try {

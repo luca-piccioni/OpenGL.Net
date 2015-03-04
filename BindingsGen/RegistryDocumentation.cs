@@ -79,6 +79,15 @@ namespace BindingsGen
 		public static void Touch() {  }
 
 		/// <summary>
+		/// Documentation verbosity.
+		/// </summary>
+		/// <remarks>
+		/// 0: full documentation
+		/// 1: up to parameters documentation
+		/// </remarks>
+		public static int DocumentationLevel = 1;
+
+		/// <summary>
 		/// Generate a <see cref="Command"/> documentation, sourced from OpenGL 2 manual, OpenGL 4 manual or a generic one.
 		/// </summary>
 		/// <param name="sw">
@@ -210,7 +219,7 @@ namespace BindingsGen
 
 			#endregion
 
-			if (root != null) {
+			if (root != null && DocumentationLevel == 0) {
 				string xpath;
 
 				#region Remarks
@@ -396,7 +405,7 @@ namespace BindingsGen
 
 			#endregion
 
-			if (root != null) {
+			if (root != null && DocumentationLevel == 0) {
 				string xpath;
 
 				#region Remarks

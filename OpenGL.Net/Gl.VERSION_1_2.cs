@@ -523,7 +523,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.DrawElements"/>
 		/// <seealso cref="Gl.DrawElementsBaseVertex"/>
 		[RequiredByFeature("GL_VERSION_1_2")]
-		public static void DrawRangeElements(int mode, UInt32 start, UInt32 end, Int32 count, int type, Object indices)
+		public static void DrawRangeElements(PrimitiveType mode, UInt32 start, UInt32 end, Int32 count, int type, Object indices)
 		{
 			GCHandle pin_indices = GCHandle.Alloc(indices, GCHandleType.Pinned);
 			try {
@@ -1102,7 +1102,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexSubImage3D"/>
 		/// <seealso cref="Gl.TexParameter"/>
 		[RequiredByFeature("GL_VERSION_1_2")]
-		public static void TexImage3D(int target, Int32 level, Int32 internalformat, Int32 width, Int32 height, Int32 depth, Int32 border, int format, int type, Object pixels)
+		public static void TexImage3D(TextureTarget target, Int32 level, Int32 internalformat, Int32 width, Int32 height, Int32 depth, Int32 border, PixelFormat format, PixelType type, Object pixels)
 		{
 			GCHandle pin_pixels = GCHandle.Alloc(pixels, GCHandleType.Pinned);
 			try {
@@ -1447,7 +1447,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexSubImage2D"/>
 		/// <seealso cref="Gl.TexParameter"/>
 		[RequiredByFeature("GL_VERSION_1_2")]
-		public static void TexSubImage3D(int target, Int32 level, Int32 xoffset, Int32 yoffset, Int32 zoffset, Int32 width, Int32 height, Int32 depth, int format, int type, Object pixels)
+		public static void TexSubImage3D(TextureTarget target, Int32 level, Int32 xoffset, Int32 yoffset, Int32 zoffset, Int32 width, Int32 height, Int32 depth, PixelFormat format, PixelType type, Object pixels)
 		{
 			GCHandle pin_pixels = GCHandle.Alloc(pixels, GCHandleType.Pinned);
 			try {

@@ -1526,7 +1526,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexSubImage3D"/>
 		/// <seealso cref="Gl.TexParameter"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
-		public static void TexImage1D(int target, Int32 level, Int32 internalformat, Int32 width, Int32 border, int format, int type, Object pixels)
+		public static void TexImage1D(TextureTarget target, Int32 level, Int32 internalformat, Int32 width, Int32 border, PixelFormat format, PixelType type, Object pixels)
 		{
 			GCHandle pin_pixels = GCHandle.Alloc(pixels, GCHandleType.Pinned);
 			try {
@@ -2119,7 +2119,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexSubImage3D"/>
 		/// <seealso cref="Gl.TexParameter"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
-		public static void TexImage2D(int target, Int32 level, Int32 internalformat, Int32 width, Int32 height, Int32 border, int format, int type, Object pixels)
+		public static void TexImage2D(TextureTarget target, Int32 level, Int32 internalformat, Int32 width, Int32 height, Int32 border, PixelFormat format, PixelType type, Object pixels)
 		{
 			GCHandle pin_pixels = GCHandle.Alloc(pixels, GCHandleType.Pinned);
 			try {
@@ -4372,13 +4372,13 @@ namespace OpenGL
 		/// <seealso cref="Gl.GetVertexAttribPointerv"/>
 		/// <seealso cref="Gl.IsEnabled"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
-		public static void Get(int pname, out bool data)
+		public static void Get(GetPName pname, out bool data)
 		{
 			unsafe {
 				fixed (bool* p_data = &data)
 				{
 					Debug.Assert(Delegates.pglGetBooleanv != null, "pglGetBooleanv not implemented");
-					Delegates.pglGetBooleanv(pname, p_data);
+					Delegates.pglGetBooleanv((int)pname, p_data);
 					CallLog("glGetBooleanv({0}, {1})", pname, data);
 				}
 			}
@@ -4573,13 +4573,13 @@ namespace OpenGL
 		/// <seealso cref="Gl.GetVertexAttribPointerv"/>
 		/// <seealso cref="Gl.IsEnabled"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
-		public static void Get(int pname, out double data)
+		public static void Get(GetPName pname, out double data)
 		{
 			unsafe {
 				fixed (double* p_data = &data)
 				{
 					Debug.Assert(Delegates.pglGetDoublev != null, "pglGetDoublev not implemented");
-					Delegates.pglGetDoublev(pname, p_data);
+					Delegates.pglGetDoublev((int)pname, p_data);
 					CallLog("glGetDoublev({0}, {1})", pname, data);
 				}
 			}
@@ -4804,13 +4804,13 @@ namespace OpenGL
 		/// <seealso cref="Gl.GetVertexAttribPointerv"/>
 		/// <seealso cref="Gl.IsEnabled"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
-		public static void Get(int pname, out float data)
+		public static void Get(GetPName pname, out float data)
 		{
 			unsafe {
 				fixed (float* p_data = &data)
 				{
 					Debug.Assert(Delegates.pglGetFloatv != null, "pglGetFloatv not implemented");
-					Delegates.pglGetFloatv(pname, p_data);
+					Delegates.pglGetFloatv((int)pname, p_data);
 					CallLog("glGetFloatv({0}, {1})", pname, data);
 				}
 			}
@@ -5005,13 +5005,13 @@ namespace OpenGL
 		/// <seealso cref="Gl.GetVertexAttribPointerv"/>
 		/// <seealso cref="Gl.IsEnabled"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
-		public static void Get(int pname, out Int32 data)
+		public static void Get(GetPName pname, out Int32 data)
 		{
 			unsafe {
 				fixed (Int32* p_data = &data)
 				{
 					Debug.Assert(Delegates.pglGetIntegerv != null, "pglGetIntegerv not implemented");
-					Delegates.pglGetIntegerv(pname, p_data);
+					Delegates.pglGetIntegerv((int)pname, p_data);
 					CallLog("glGetIntegerv({0}, {1})", pname, data);
 				}
 			}
@@ -6541,7 +6541,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.PushMatrix"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2")]
-		public static void CallLists(Int32 n, int type, Object lists)
+		public static void CallLists(Int32 n, ListNameType type, Object lists)
 		{
 			GCHandle pin_lists = GCHandle.Alloc(lists, GCHandleType.Pinned);
 			try {
@@ -23588,7 +23588,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.WindowPos"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2")]
-		public static void DrawPixels(Int32 width, Int32 height, int format, int type, Object pixels)
+		public static void DrawPixels(Int32 width, Int32 height, PixelFormat format, PixelType type, Object pixels)
 		{
 			GCHandle pin_pixels = GCHandle.Alloc(pixels, GCHandleType.Pinned);
 			try {

@@ -4789,7 +4789,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.DrawElementsBaseVertex"/>
 		/// <seealso cref="Gl.DrawRangeElements"/>
 		[RequiredByFeature("GL_VERSION_1_1")]
-		public static void DrawElements(int mode, Int32 count, int type, Object indices)
+		public static void DrawElements(PrimitiveType mode, Int32 count, int type, Object indices)
 		{
 			GCHandle pin_indices = GCHandle.Alloc(indices, GCHandleType.Pinned);
 			try {
@@ -6007,7 +6007,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexSubImage2D"/>
 		/// <seealso cref="Gl.TexSubImage3D"/>
 		[RequiredByFeature("GL_VERSION_1_1")]
-		public static void TexSubImage1D(int target, Int32 level, Int32 xoffset, Int32 width, int format, int type, Object pixels)
+		public static void TexSubImage1D(TextureTarget target, Int32 level, Int32 xoffset, Int32 width, PixelFormat format, PixelType type, Object pixels)
 		{
 			GCHandle pin_pixels = GCHandle.Alloc(pixels, GCHandleType.Pinned);
 			try {
@@ -6328,7 +6328,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexSubImage3D"/>
 		/// <seealso cref="Gl.TexParameter"/>
 		[RequiredByFeature("GL_VERSION_1_1")]
-		public static void TexSubImage2D(int target, Int32 level, Int32 xoffset, Int32 yoffset, Int32 width, Int32 height, int format, int type, Object pixels)
+		public static void TexSubImage2D(TextureTarget target, Int32 level, Int32 xoffset, Int32 yoffset, Int32 width, Int32 height, PixelFormat format, PixelType type, Object pixels)
 		{
 			GCHandle pin_pixels = GCHandle.Alloc(pixels, GCHandleType.Pinned);
 			try {
@@ -6926,7 +6926,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.VertexPointer"/>
 		[RequiredByFeature("GL_VERSION_1_1")]
 		[RemovedByFeature("GL_VERSION_3_2")]
-		public static void ColorPointer(Int32 size, int type, Int32 stride, Object pointer)
+		public static void ColorPointer(Int32 size, ColorPointerType type, Int32 stride, Object pointer)
 		{
 			GCHandle pin_pointer = GCHandle.Alloc(pointer, GCHandleType.Pinned);
 			try {
@@ -7457,7 +7457,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.VertexPointer"/>
 		[RequiredByFeature("GL_VERSION_1_1")]
 		[RemovedByFeature("GL_VERSION_3_2")]
-		public static void IndexPointer(int type, Int32 stride, Object pointer)
+		public static void IndexPointer(IndexPointerType type, Int32 stride, Object pointer)
 		{
 			GCHandle pin_pointer = GCHandle.Alloc(pointer, GCHandleType.Pinned);
 			try {
@@ -7633,7 +7633,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.VertexPointer"/>
 		[RequiredByFeature("GL_VERSION_1_1")]
 		[RemovedByFeature("GL_VERSION_3_2")]
-		public static void InterleavedArrays(int format, Int32 stride, Object pointer)
+		public static void InterleavedArrays(InterleavedArrayFormat format, Int32 stride, Object pointer)
 		{
 			GCHandle pin_pointer = GCHandle.Alloc(pointer, GCHandleType.Pinned);
 			try {
@@ -7860,7 +7860,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.VertexPointer"/>
 		[RequiredByFeature("GL_VERSION_1_1")]
 		[RemovedByFeature("GL_VERSION_3_2")]
-		public static void NormalPointer(int type, Int32 stride, Object pointer)
+		public static void NormalPointer(NormalPointerType type, Int32 stride, Object pointer)
 		{
 			GCHandle pin_pointer = GCHandle.Alloc(pointer, GCHandleType.Pinned);
 			try {
@@ -8114,7 +8114,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.VertexPointer"/>
 		[RequiredByFeature("GL_VERSION_1_1")]
 		[RemovedByFeature("GL_VERSION_3_2")]
-		public static void TexCoordPointer(Int32 size, int type, Int32 stride, Object pointer)
+		public static void TexCoordPointer(Int32 size, TexCoordPointerType type, Int32 stride, Object pointer)
 		{
 			GCHandle pin_pointer = GCHandle.Alloc(pointer, GCHandleType.Pinned);
 			try {
@@ -8362,7 +8362,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.VertexAttribPointer"/>
 		[RequiredByFeature("GL_VERSION_1_1")]
 		[RemovedByFeature("GL_VERSION_3_2")]
-		public static void VertexPointer(Int32 size, int type, Int32 stride, Object pointer)
+		public static void VertexPointer(Int32 size, VertexPointerType type, Int32 stride, Object pointer)
 		{
 			GCHandle pin_pointer = GCHandle.Alloc(pointer, GCHandleType.Pinned);
 			try {

@@ -107,7 +107,7 @@ namespace OpenGL
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_color_subtable")]
-		public static void ColorSubTableEXT(int target, Int32 start, Int32 count, int format, int type, Object data)
+		public static void ColorSubTableEXT(int target, Int32 start, Int32 count, PixelFormat format, PixelType type, Object data)
 		{
 			GCHandle pin_data = GCHandle.Alloc(data, GCHandleType.Pinned);
 			try {
