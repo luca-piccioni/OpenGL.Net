@@ -18,6 +18,7 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Xml.Serialization;
 
 namespace BindingsGen.GLSpecs
@@ -271,14 +272,11 @@ namespace BindingsGen.GLSpecs
 		/// </param>
 		private string GetImplementationNameBase(RegistryContext ctx)
 		{
-			string implementationName = Prototype.Name;
+			string implementationName = ImportName;
 			string prefix = ctx.Class.ToLower();
 
 			if (implementationName.StartsWith(prefix))
 				implementationName = implementationName.Substring(prefix.Length);
-
-			if (implementationName.StartsWith("EndConditionalRender"))
-				Console.WriteLine();
 
 			return (implementationName);
 		}
@@ -291,9 +289,14 @@ namespace BindingsGen.GLSpecs
 		/// </param>
 		internal string GetImplementationName(RegistryContext ctx)
 		{
-			string implementationName = GetImplementationNameBase(ctx);
+			string overridenName = CommandFlagsDatabase.GetCommandImplementationName(this);
 
-			return (ctx.WordsDictionary.GetOverridableName(ctx, implementationName));
+			if (overridenName == null) {
+				string implementationName = GetImplementationNameBase(ctx);
+
+				return (ctx.WordsDictionary.GetOverridableName(ctx, implementationName));
+			} else
+				return (overridenName);
 		}
 
 		/// <summary>
@@ -374,6 +377,16 @@ namespace BindingsGen.GLSpecs
 
 			// Standard implementation
 			overridenParameters.Add(Parameters);
+
+			// Out modifier implementation
+			if (!Parameters.TrueForAll(delegate(CommandParameter item) { return (item.IsOutParamCompatible(ctx, this) == false); })) {
+				List<CommandParameter> parameters = new List<CommandParameter>();
+
+				foreach (CommandParameter commandParameter in Parameters)
+					parameters.Add(commandParameter.GetOutParam(ctx, this));
+
+				overridenParameters.Add(parameters);
+			}
 
 			// Stronly typed implementation
 			if (!Parameters.TrueForAll(delegate(CommandParameter item) { return (item.IsStrongCompatible(ctx, this) == false); })) {
@@ -461,10 +474,15 @@ namespace BindingsGen.GLSpecs
 			RegistryDocumentation.GenerateCommandDocumentation(sw, ctx, this);
 #endif
 
+			foreach (IFeature feature in RequiredBy)
+				sw.WriteLine("[RequiredByFeature(\"{0}\")]", feature.Name);
+			foreach (IFeature feature in RemovedBy)
+				sw.WriteLine("[RemovedByFeature(\"{0}\")]", feature.Name);
+
 			#region Signature
 
 			// Signature
-			sw.WriteIdentation(); sw.Write("public static {0} {1}(", GetImplementationReturnType(ctx), GetImplementationName(ctx));
+			sw.WriteIdentation(); sw.Write("{0} static {1} {2}(", CommandFlagsDatabase.GetCommandVisibility(this), GetImplementationReturnType(ctx), GetImplementationName(ctx));
 			// Signature - Parameters
 			int paramCount = commandParams.Count;
 
@@ -531,7 +549,7 @@ namespace BindingsGen.GLSpecs
 			{
 				sw.WriteLine("unsafe {");								// (1)
 				sw.Indent();
-				foreach (CommandParameter param in Parameters)
+				foreach (CommandParameter param in commandParams)
 				{
 					if (param.IsFixed(ctx, this) == false)
 						continue;
@@ -714,7 +732,8 @@ namespace BindingsGen.GLSpecs
 			#endregion
 
 			// Check call errors
-			sw.WriteLine("DebugCheckErrors();");
+			if ((Flags & CommandFlags.NoGetError) == 0)
+				sw.WriteLine("DebugCheckErrors();");
 
 			// Returns value
 			if (HasReturnValue) {
@@ -828,6 +847,11 @@ namespace BindingsGen.GLSpecs
 		#region Code Generation - Common Information
 
 		/// <summary>
+		/// Flags controlling the code generation.
+		/// </summary>
+		public CommandFlags Flags { get { return (CommandFlagsDatabase.GetCommandFlags(this)); } }
+
+		/// <summary>
 		/// Get whether the command has a return value.
 		/// </summary>
 		private bool HasReturnValue
@@ -886,6 +910,121 @@ namespace BindingsGen.GLSpecs
 
 			return (String.Empty);
 		}
+
+		#endregion
+
+		#region Information Linkage
+
+		/// <summary>
+		/// Link other information against this enumerant.
+		/// </summary>
+		/// <param name="ctx">
+		/// A <see cref="RegistryContext"/> holding the registry information to link.
+		/// </param>
+		internal void Link(RegistryContext ctx)
+		{
+			if (ctx == null)
+				throw new ArgumentNullException("ctx");
+
+			RequiredBy.Clear();
+			RequiredBy.AddRange(GetFeaturesRequiringCommand(ctx));
+
+			RemovedBy.Clear();
+			RemovedBy.AddRange(GetFeaturesRemovingCommand(ctx));
+		}
+
+		/// <summary>
+		/// Get a list of <see cref="IFeature"/> requiring this enumerant.
+		/// </summary>
+		/// <param name="ctx">
+		///  A <see cref="RegistryContext"/> holding the registry information.
+		/// </param>
+		/// <returns>
+		/// It returns a <see cref="T:IEnumerable{IFeature}"/> listing all features requiring this enumerant.
+		/// </returns>
+		private IEnumerable<IFeature> GetFeaturesRequiringCommand(RegistryContext ctx)
+		{
+			List<IFeature> features = new List<IFeature>();
+
+			// Features
+			foreach (Feature feature in ctx.Registry.Features) {
+				if (feature.Api != null && feature.Api != ctx.Class.ToLowerInvariant())
+					continue;
+
+				int requirementIndex = feature.Requirements.FindIndex(delegate(FeatureCommand item) {
+					int enumIndex = item.Commands.FindIndex(delegate(FeatureCommand.Item subitem) {
+						return (subitem.Name == Prototype.Name);
+					});
+
+					return (enumIndex != -1);
+				});
+
+				if (requirementIndex != -1)
+					features.Add(feature);
+			}
+
+			// Extensions
+			foreach (Extension extension in ctx.Registry.Extensions) {
+				if (extension.Supported != null && !Regex.IsMatch(ctx.Class.ToLowerInvariant(), extension.Supported))
+					continue;
+
+				int requirementIndex = extension.Requirements.FindIndex(delegate(FeatureCommand item) {
+					int enumIndex = item.Commands.FindIndex(delegate(FeatureCommand.Item subitem) {
+						return (subitem.Name == Prototype.Name);
+					});
+
+					return (enumIndex != -1);
+				});
+
+				if (requirementIndex != -1)
+					features.Add(extension);
+			}
+
+			return (features);
+		}
+
+		/// <summary>
+		/// Get a list of <see cref="IFeature"/> removing this enumerant.
+		/// </summary>
+		/// <param name="registry">
+		///  A <see cref="Registry"/> holding the registry information.
+		/// </param>
+		/// <returns>
+		/// It returns a <see cref="T:IEnumerable{IFeature}"/> listing all features removing this enumerant.
+		/// </returns>
+		private IEnumerable<IFeature> GetFeaturesRemovingCommand(RegistryContext ctx)
+		{
+			List<IFeature> features = new List<IFeature>();
+
+			// Features
+			foreach (Feature feature in ctx.Registry.Features) {
+				if (feature.Api != null && feature.Api != ctx.Class.ToLowerInvariant())
+					continue;
+
+				int requirementIndex = feature.Removals.FindIndex(delegate(FeatureCommand item) {
+					int enumIndex = item.Commands.FindIndex(delegate(FeatureCommand.Item subitem) {
+						return (subitem.Name == Prototype.Name);
+					});
+
+					return (enumIndex != -1);
+				});
+
+				if (requirementIndex != -1)
+					features.Add(feature);
+			}
+
+			return (features);
+		}
+
+		/// <summary>
+		/// List of <see cref="IFeature"/> that requires this Enumerant.
+		/// </summary>
+		private readonly List<IFeature> RequiredBy = new List<IFeature>();
+
+		/// <summary>
+		/// List of <see cref="IFeature"/> that removes this Enumerant.
+		/// </summary>
+		private readonly List<IFeature> RemovedBy = new List<IFeature>();
 
 		#endregion
 	}

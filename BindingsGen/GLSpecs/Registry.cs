@@ -172,7 +172,7 @@ namespace BindingsGen.GLSpecs
 		/// <summary>
 		/// Link registry information elements.
 		/// </summary>
-		internal void Link()
+		internal void Link(RegistryContext ctx)
 		{
 			foreach (Enumerant enumerant in Enumerants) {
 				if ((enumerant.Api == null) || (enumerant.Api == "gl"))
@@ -180,17 +180,18 @@ namespace BindingsGen.GLSpecs
 			}
 
 			foreach (EnumerantBlock enumerantBlock in Enums)
-				enumerantBlock.Link(this);
+				enumerantBlock.Link(ctx);
 
-			foreach (Command command in Commands)
+			foreach (Command command in Commands) {
+				command.Link(ctx);
+
 				mCommandRegistry.Add(command.Prototype.Name, command);
+			}
 
 			foreach (Command command in Commands) {
 				if (command.Alias == null)
 					continue;
-
 				Command aliasCommand = GetCommand(command.Alias.Name);
-
 				aliasCommand.Aliases.Add(command);
 			}
 		}

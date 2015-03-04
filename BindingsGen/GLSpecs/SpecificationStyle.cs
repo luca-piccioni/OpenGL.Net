@@ -65,8 +65,12 @@ namespace BindingsGen.GLSpecs
 			if (specificationName == null)
 				throw new ArgumentNullException("specificationName");
 
-			if (specificationName.StartsWith("GL_"))
+			if      (specificationName.StartsWith("GL_"))
 				specificationName = specificationName.Substring(3, specificationName.Length - 3);
+			else if (specificationName.StartsWith("WGL_"))
+				specificationName = specificationName.Substring(4, specificationName.Length - 4);
+			else if (specificationName.StartsWith("GLX_"))
+				specificationName = specificationName.Substring(4, specificationName.Length - 4);
 
 			return (GetLegalCsField(specificationName));
 		}

@@ -41,14 +41,18 @@ namespace BindingsGen
 			RegistryProcessor glRegistryProcessor;
 
 			// OpenGL
-			ctx = new RegistryContext("Gl", Path.Combine(BasePath, "GLSpecs/gl.xml"));
-			glRegistryProcessor = new RegistryProcessor(ctx.Registry);
-			GenerateCommandsAndEnums(glRegistryProcessor, ctx);
+			if ((args.Length == 0) || (Array.FindIndex(args, delegate(string item) { return (item == "--gl"); }) >= 0)) {
+				ctx = new RegistryContext("Gl", Path.Combine(BasePath, "GLSpecs/gl.xml"));
+				glRegistryProcessor = new RegistryProcessor(ctx.Registry);
+				GenerateCommandsAndEnums(glRegistryProcessor, ctx);
+			}
 
 			// OpenGL for Windows
-			ctx = new RegistryContext("Wgl", Path.Combine(BasePath, "GLSpecs/wgl.xml"));
-			glRegistryProcessor = new RegistryProcessor(ctx.Registry);
-			GenerateCommandsAndEnums(glRegistryProcessor, ctx);
+			if ((args.Length == 0) || (Array.FindIndex(args, delegate(string item) { return (item == "--wgl"); }) >= 0)) {
+				ctx = new RegistryContext("Wgl", Path.Combine(BasePath, "GLSpecs/wgl.xml"));
+				glRegistryProcessor = new RegistryProcessor(ctx.Registry);
+				GenerateCommandsAndEnums(glRegistryProcessor, ctx);
+			}
 		}
 
 		/// <summary>
@@ -94,7 +98,9 @@ namespace BindingsGen
 							continue;
 
 						serializedCommands.Add(command.Prototype.Name, true);
-						featureCommands.Add(command);
+
+						if ((command.Flags & CommandFlags.Disable) == 0)
+							featureCommands.Add(command);
 					}
 
 					foreach (FeatureCommand.Item featureEnumItem in featureCommand.Enums) {
@@ -114,14 +120,14 @@ namespace BindingsGen
 
 				glRegistryProcessor.GenerateCommands(ctx, GetFeatureFilePath(feature, ctx), delegate(RegistryContext cctx, SourceStreamWriter sw)
 				{
-					foreach (Enumerant enumerant in featureEnums)
-					{
+					Console.WriteLine("\tGenerate {0} enumerants...", featureEnums.Count);
+					foreach (Enumerant enumerant in featureEnums) {
 						enumerant.GenerateSource(sw);
 						sw.WriteLine();
 					}
 
-					foreach (Command command in featureCommands)
-					{
+					Console.WriteLine("\tGenerate {0} commands...", featureCommands.Count);
+					foreach (Command command in featureCommands) {
 						command.GenerateImplementations(sw, cctx);
 						sw.WriteLine();
 					}
@@ -150,14 +156,14 @@ namespace BindingsGen
 			if ((orphanCommands.Count != 0) || (orphanEnums.Count != 0)) {
 				glRegistryProcessor.GenerateCommands(ctx, Path.Combine(BasePath, String.Format("OpenGL.NET/{0}.Orphans.cs", ctx.Class)), delegate(RegistryContext cctx, SourceStreamWriter sw)
 				{
-					foreach (Enumerant enumerant in orphanEnums)
-					{
+					Console.WriteLine("\tGenerate {0} enumerants...", orphanEnums.Count);
+					foreach (Enumerant enumerant in orphanEnums) {
 						enumerant.GenerateSource(sw);
 						sw.WriteLine();
 					}
 
-					foreach (Command command in orphanCommands)
-					{
+					Console.WriteLine("\tGenerate {0} commands...", orphanCommands.Count);
+					foreach (Command command in orphanCommands) {
 						command.GenerateImplementations(sw, cctx);
 						sw.WriteLine();
 					}

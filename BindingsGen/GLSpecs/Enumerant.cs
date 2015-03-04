@@ -17,6 +17,7 @@
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Text.RegularExpressions;
 using System.Xml.Serialization;
 
 namespace BindingsGen.GLSpecs
@@ -92,19 +93,19 @@ namespace BindingsGen.GLSpecs
 		/// <summary>
 		/// Link other information against this enumerant.
 		/// </summary>
-		/// <param name="registry">
-		/// A <see cref="Registry"/> holding the registry information to link.
+		/// <param name="ctx">
+		/// A <see cref="RegistryContext"/> holding the registry information to link.
 		/// </param>
-		internal void Link(Registry registry)
+		internal void Link(RegistryContext ctx)
 		{
-			if (registry == null)
-				throw new ArgumentNullException("registry");
+			if (ctx == null)
+				throw new ArgumentNullException("ctx");
 
 			RequiredBy.Clear();
-			RequiredBy.AddRange(GetFeaturesRequiringEnum(registry));
+			RequiredBy.AddRange(GetFeaturesRequiringEnum(ctx));
 
 			RemovedBy.Clear();
-			RemovedBy.AddRange(GetFeaturesRemovingEnum(registry));
+			RemovedBy.AddRange(GetFeaturesRemovingEnum(ctx));
 		}
 
 		/// <summary>
@@ -116,12 +117,15 @@ namespace BindingsGen.GLSpecs
 		/// <returns>
 		/// It returns a <see cref="T:IEnumerable{IFeature}"/> listing all features requiring this enumerant.
 		/// </returns>
-		private IEnumerable<IFeature> GetFeaturesRequiringEnum(Registry registry)
+		private IEnumerable<IFeature> GetFeaturesRequiringEnum(RegistryContext ctx)
 		{
 			List<IFeature> features = new List<IFeature>();
 
 			// Features
-			foreach (Feature feature in registry.Features) {
+			foreach (Feature feature in ctx.Registry.Features) {
+				if (feature.Api != null && feature.Api != ctx.Class.ToLowerInvariant())
+					continue;
+
 				int requirementIndex = feature.Requirements.FindIndex(delegate(FeatureCommand item) {
 					int enumIndex = item.Enums.FindIndex(delegate(FeatureCommand.Item subitem) {
 						return (subitem.Name == Name);
@@ -135,7 +139,10 @@ namespace BindingsGen.GLSpecs
 			}
 
 			// Extensions
-			foreach (Extension extension in registry.Extensions) {
+			foreach (Extension extension in ctx.Registry.Extensions) {
+				if (extension.Supported != null && !Regex.IsMatch(ctx.Class.ToLowerInvariant(), extension.Supported))
+					continue;
+
 				int requirementIndex = extension.Requirements.FindIndex(delegate(FeatureCommand item) {
 					int enumIndex = item.Enums.FindIndex(delegate(FeatureCommand.Item subitem) {
 						return (subitem.Name == Name);
@@ -160,12 +167,15 @@ namespace BindingsGen.GLSpecs
 		/// <returns>
 		/// It returns a <see cref="T:IEnumerable{IFeature}"/> listing all features removing this enumerant.
 		/// </returns>
-		private IEnumerable<IFeature> GetFeaturesRemovingEnum(Registry registry)
+		private IEnumerable<IFeature> GetFeaturesRemovingEnum(RegistryContext ctx)
 		{
 			List<IFeature> features = new List<IFeature>();
 
 			// Features
-			foreach (Feature feature in registry.Features) {
+			foreach (Feature feature in ctx.Registry.Features) {
+				if (feature.Api != null && feature.Api != ctx.Class.ToLowerInvariant())
+					continue;
+
 				int requirementIndex = feature.Removals.FindIndex(delegate(FeatureCommand item) {
 					int enumIndex = item.Enums.FindIndex(delegate(FeatureCommand.Item subitem) {
 						return (subitem.Name == Name);

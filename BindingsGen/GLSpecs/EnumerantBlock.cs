@@ -92,10 +92,10 @@ namespace BindingsGen.GLSpecs
 		/// <summary>
 		/// Link other information against this enumerant.
 		/// </summary>
-		/// <param name="registry">
-		/// A <see cref="Registry"/> holding the registry information to link.
+		/// <param name="ctx">
+		/// A <see cref="RegistryContext"/> holding the registry information to link.
 		/// </param>
-		internal void Link(Registry registry)
+		internal void Link(RegistryContext ctx)
 		{
 			foreach (Enumerant enumerant in Enums) {
 				// Link
@@ -103,7 +103,7 @@ namespace BindingsGen.GLSpecs
 				if ((enumerant.Type == null) && (Type == "bitmask"))
 					enumerant.Type = "u";
 				// Recurse
-				enumerant.Link(registry);
+				enumerant.Link(ctx);
 			}
 				
 		}

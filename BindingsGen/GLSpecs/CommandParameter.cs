@@ -159,10 +159,10 @@ namespace BindingsGen.GLSpecs
 			string implementationType = ManagedImplementationType;
 
 			// Type[] + Length=1 -> out Type
-			if ((IsConstant == false) && implementationType.EndsWith("[]") && (Length == "1") && (parentCommand.IsGetImplementation(ctx)))
+			if ((IsConstant == false) && implementationType.EndsWith("[]") && (Length == "1") && ((parentCommand.IsGetImplementation(ctx) || ((parentCommand.Flags & CommandFlags.OutParam) != 0))))
 				implementationType = implementationType.Substring(0, implementationType.Length - 2);
 			// String + Length!=null && !IsConst -> [Out] StringBuilder (in Get commands)
-			if ((IsConstant == false) && (implementationType == "String") && (Length != null) && (parentCommand.IsGetImplementation(ctx)))
+			if ((IsConstant == false) && (implementationType == "String") && (Length != null) && ((parentCommand.IsGetImplementation(ctx) || ((parentCommand.Flags & CommandFlags.OutParam) != 0))))
 				implementationType = "StringBuilder";
 
 			return (implementationType);
@@ -175,6 +175,9 @@ namespace BindingsGen.GLSpecs
 			// Type[] + Length=1 -> out Type
 			if ((IsConstant == false) && implementationType.EndsWith("[]") && (Length == "1") && (parentCommand.IsGetImplementation(ctx)))
 				return ("out");
+			// Type[] + Length=1 -> out Type
+			if ((IsConstant == false) && implementationType.EndsWith("[]") && (Length == "1") && ((parentCommand.Flags & CommandFlags.OutParam) != 0))
+				return ("out");
 
 			return (null);
 		}
@@ -185,11 +188,8 @@ namespace BindingsGen.GLSpecs
 			string attribute = null;
 
 			// String + Length!=null && !IsConst -> [Out] StringBuilder (in Get commands)
-			if ((IsConstant == false) && (implementationType == "String") && (Length != null) && (parentCommand.IsGetImplementation(ctx)))
+			if ((IsConstant == false) && (implementationType == "String") && (Length != null) && ((parentCommand.IsGetImplementation(ctx) || ((parentCommand.Flags & CommandFlags.OutParam) != 0))))
 				attribute = "[Out]";
-			// Type[] + Length!=null + !IsConst -> [Out] StringBuilder
-//			if ((IsConstant == false) && implementationType.EndsWith("[]") && (Length != null) && (parentCommand.IsGetImplementation(ctx)))
-//				attribute = "[Out]";
 
 			return (attribute);
 		}
@@ -303,6 +303,34 @@ namespace BindingsGen.GLSpecs
 			return (IsConstant && (GetImplementationType(ctx, parentCommand) == "IntPtr"));
 		}
 
+		internal CommandParameter GetOutParam(RegistryContext ctx, Command parentCommand)
+		{
+			CommandParameter param = (CommandParameter)MemberwiseClone();
+
+			if (param.IsOutParamCompatible(ctx, parentCommand)) {
+				param.Length = "1";
+				param.OverridenParameter = this;
+			}
+
+			return (param);
+		}
+
+		internal bool IsOutParamCompatible(RegistryContext ctx, Command parentCommand)
+		{
+			// Already "out" param?
+			if (GetImplementationTypeModifier(ctx, parentCommand) == "out")
+				return (false);
+
+			string implementationType = ManagedImplementationType;
+
+			// Type[] + IsGetImplementation -> out Type
+			// Type[] + OutParam -> out Type
+			if ((IsConstant == false) && implementationType.EndsWith("[]") && (Length != "1") && ((parentCommand.Flags & CommandFlags.OutParam) != 0))
+				return (true);
+
+			return (false);
+		}
+
 		#endregion
 
 		#region Code Generation - Delegate
@@ -312,7 +340,7 @@ namespace BindingsGen.GLSpecs
 			string implementationType = ImportType;
 
 			// String + Length!=null -> [Out] StringBuilder
-			if ((IsConstant == false) && (implementationType == "String") && (Length != null) && (parentCommand.IsGetImplementation(ctx)))
+			if ((IsConstant == false) && (implementationType == "String") && (Length != null) && ((parentCommand.IsGetImplementation(ctx) || ((parentCommand.Flags & CommandFlags.OutParam) != 0))))
 				implementationType = "StringBuilder";
 
 			return (implementationType.Trim());
@@ -329,7 +357,7 @@ namespace BindingsGen.GLSpecs
 			string attribute = null;
 
 			// String + Length!=null -> [Out] StringBuilder
-			if ((IsConstant == false) && (implementationType == "String") && (Length != null) && (parentCommand.IsGetImplementation(ctx)))
+			if ((IsConstant == false) && (implementationType == "String") && (Length != null) && ((parentCommand.IsGetImplementation(ctx) || ((parentCommand.Flags & CommandFlags.OutParam) != 0))))
 				attribute = "[Out]";
 
 			return (attribute);

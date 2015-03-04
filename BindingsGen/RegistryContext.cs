@@ -54,7 +54,7 @@ namespace BindingsGen
 			// Load and parse OpenGL specification
 			using (StreamReader sr = new StreamReader(registryPath)) {
 				Registry = ((Registry)SpecSerializer.Deserialize(sr));
-				Registry.Link();
+				Registry.Link(this);
 			}
 			// Loads the extension dictionary
 			ExtensionsDictionary = SpecWordsDictionary.Load("BindingsGen.GLSpecs.ExtWords.xml");

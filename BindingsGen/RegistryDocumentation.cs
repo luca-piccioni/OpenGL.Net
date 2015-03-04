@@ -41,8 +41,10 @@ namespace BindingsGen
 		/// </summary>
 		static RegistryDocumentation()
 		{
+#if !DEBUG
 			ScanDocumentation_GL4();
 			ScanDocumentation_GL2();
+#endif
 
 			DocumentationXslTranformMan2 = new XslCompiledTransform();
 
@@ -708,12 +710,14 @@ namespace BindingsGen
 				if ((xmlNodes != null) && (xmlNodes.Count > 0)) {
 					foreach (XmlNode node in xmlNodes) {
 						if (sDocumentationMap2.ContainsKey(node.InnerText)) {
-							Console.WriteLine("  Warn: documentation for {0} ({1}) have a documentation also in {2}", node.InnerText, sDocumentationMap2[node.InnerText], documentationFile);
+							// Console.WriteLine("  Warn: documentation for {0} ({1}) have a documentation also in {2}", node.InnerText, sDocumentationMap2[node.InnerText], documentationFile);
 						} else
 							sDocumentationMap2.Add(node.InnerText, documentationFile);
 					}
 				}
 			}
+
+			Console.WriteLine("\tFound documentation for {0} commands.", sDocumentationMap2.Count);
 		}
 
 		/// <summary>
@@ -761,12 +765,14 @@ namespace BindingsGen
 				if ((xmlNodes != null) && (xmlNodes.Count > 0)) {
 					foreach (XmlNode node in xmlNodes) {
 						if (sDocumentationMap4.ContainsKey(node.InnerText)) {
-							Console.WriteLine("  Warn: documentation for {0} ({1}) have a documentation also in {2}", node.InnerText, sDocumentationMap4[node.InnerText], documentationFile);
+							// Console.WriteLine("  Warn: documentation for {0} ({1}) have a documentation also in {2}", node.InnerText, sDocumentationMap4[node.InnerText], documentationFile);
 						} else
 							sDocumentationMap4.Add(node.InnerText, documentationFile);
 					}
 				}
 			}
+
+			Console.WriteLine("\tFound documentation for {0} commands.", sDocumentationMap4.Count);
 		}
 
 		/// <summary>

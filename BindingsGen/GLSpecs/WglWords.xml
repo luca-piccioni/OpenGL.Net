@@ -22,6 +22,8 @@
 	<word>ContextGPUID</word>
 	<word>Context</word>
 	<word>Copy</word>
+	<!-- Not really in specification: wglMakeCurrentCore -->
+	<word>Core</word>
 	<word>Count</word>
 	<word>Create</word>
 	<word>CurrentDC</word>

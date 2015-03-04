@@ -98,7 +98,7 @@ namespace BindingsGen
 			if (mRegistry.Groups.Count == 0)
 				return;
 
-			Console.WriteLine("Generate registry enums (stronly types) to {0}.", path);
+			Console.WriteLine("Generate registry enums (strognly typed) to {0}.", path);
 
 			using (SourceStreamWriter sw = new SourceStreamWriter(path, false)) {
 				GenerateLicensePreamble(sw);
@@ -222,8 +222,10 @@ namespace BindingsGen
 					if ((filter != null) && (filter(command) == false))
 						continue;
 
-					command.GenerateImport(sw, ctx);
-					sw.WriteLine();
+					if ((command.Flags & CommandFlags.Disable) == 0) {
+						command.GenerateImport(sw, ctx);
+						sw.WriteLine();
+					}
 				}
 
 				sw.Unindent();
@@ -278,8 +280,10 @@ namespace BindingsGen
 					if ((filter != null) && (filter(command) == false))
 						continue;
 
-					command.GenerateDelegate(sw, ctx);
-					sw.WriteLine();
+					if ((command.Flags & CommandFlags.Disable) == 0) {
+						command.GenerateDelegate(sw, ctx);
+						sw.WriteLine();
+					}
 				}
 
 				sw.Unindent();
