@@ -1572,21 +1572,6 @@ namespace OpenGL
 		/// <param name="a">
 		/// A <see cref="T:bool"/>.
 		/// </param>
-		/// <remarks>
-		/// glColorMask and glColorMaski specify whether the individual color components in the frame buffer can or cannot be 
-		/// written. glColorMaski sets the mask for a specific draw buffer, whereas glColorMask sets the mask for all draw buffers. 
-		/// If red is GL_FALSE, for example, no change is made to the red component of any pixel in any of the color buffers, 
-		/// regardless of the drawing operation attempted.
-		/// Changes to individual bits of components cannot be controlled. Rather, changes are either enabled or disabled for entire 
-		/// color components.
-		/// <para>
-		/// The associated information is got with the following commands:
-		/// - glGet with argument GL_COLOR_WRITEMASK
-		/// </para>
-		/// </remarks>
-		/// <seealso cref="Gl.Clear"/>
-		/// <seealso cref="Gl.DepthMask"/>
-		/// <seealso cref="Gl.StencilMask"/>
 		[RequiredByFeature("GL_VERSION_3_0")]
 		public static void ColorMask(UInt32 index, bool r, bool g, bool b, bool a)
 		{
@@ -1620,49 +1605,6 @@ namespace OpenGL
 		/// <param name="data">
 		/// Returns the value or values of the specified parameter.
 		/// </param>
-		/// <remarks>
-		/// These commands return values for simple state variables in GL. pname is a symbolic constant indicating the state 
-		/// variable to be returned, and data is a pointer to an array of the indicated type in which to place the returned data.
-		/// Type conversion is performed if data has a different type than the state variable value being requested. If 
-		/// glGetBooleanv is called, a floating-point (or integer) value is converted to GL_FALSE if and only if it is 0.0 (or 0). 
-		/// Otherwise, it is converted to GL_TRUE. If glGetIntegerv is called, boolean values are returned as GL_TRUE or GL_FALSE, 
-		/// and most floating-point values are rounded to the nearest integer value. Floating-point colors and normals, however, are 
-		/// returned with a linear mapping that maps 1.0 to the most positive representable integer value and -1.0 to the most 
-		/// negative representable integer value. If glGetFloatv or glGetDoublev is called, boolean values are returned as GL_TRUE 
-		/// or GL_FALSE, and integer values are converted to floating-point values.
-		/// The following symbolic constants are accepted by pname:
-		/// Many of the boolean parameters can also be queried more easily using glIsEnabled.
-		/// <para>
-		/// The following errors can be generated:
-		/// - GL_INVALID_ENUM is generated if pname is not an accepted value.
-		/// - GL_INVALID_VALUE is generated on any of glGetBooleani_v, glGetIntegeri_v, or glGetInteger64i_v if index is outside of 
-		///   the valid range for the indexed state target.
-		/// </para>
-		/// </remarks>
-		/// <seealso cref="Gl.GetActiveUniform"/>
-		/// <seealso cref="Gl.GetAttachedShaders"/>
-		/// <seealso cref="Gl.GetAttribLocation"/>
-		/// <seealso cref="Gl.GetBufferParameter"/>
-		/// <seealso cref="Gl.GetBufferPointerv"/>
-		/// <seealso cref="Gl.GetBufferSubData"/>
-		/// <seealso cref="Gl.GetCompressedTexImage"/>
-		/// <seealso cref="Gl.GetError"/>
-		/// <seealso cref="Gl.GetProgram"/>
-		/// <seealso cref="Gl.GetProgramInfoLog"/>
-		/// <seealso cref="Gl.GetQueryiv"/>
-		/// <seealso cref="Gl.GetQueryObject"/>
-		/// <seealso cref="Gl.GetShader"/>
-		/// <seealso cref="Gl.GetShaderInfoLog"/>
-		/// <seealso cref="Gl.GetShaderSource"/>
-		/// <seealso cref="Gl.GetString"/>
-		/// <seealso cref="Gl.GetTexImage"/>
-		/// <seealso cref="Gl.GetTexLevelParameter"/>
-		/// <seealso cref="Gl.GetTexParameter"/>
-		/// <seealso cref="Gl.GetUniform"/>
-		/// <seealso cref="Gl.GetUniformLocation"/>
-		/// <seealso cref="Gl.GetVertexAttrib"/>
-		/// <seealso cref="Gl.GetVertexAttribPointerv"/>
-		/// <seealso cref="Gl.IsEnabled"/>
 		[RequiredByFeature("GL_VERSION_3_0")]
 		public static void GetBoolean(int target, UInt32 index, bool[] data)
 		{
@@ -1695,49 +1637,6 @@ namespace OpenGL
 		/// <param name="data">
 		/// Returns the value or values of the specified parameter.
 		/// </param>
-		/// <remarks>
-		/// These commands return values for simple state variables in GL. pname is a symbolic constant indicating the state 
-		/// variable to be returned, and data is a pointer to an array of the indicated type in which to place the returned data.
-		/// Type conversion is performed if data has a different type than the state variable value being requested. If 
-		/// glGetBooleanv is called, a floating-point (or integer) value is converted to GL_FALSE if and only if it is 0.0 (or 0). 
-		/// Otherwise, it is converted to GL_TRUE. If glGetIntegerv is called, boolean values are returned as GL_TRUE or GL_FALSE, 
-		/// and most floating-point values are rounded to the nearest integer value. Floating-point colors and normals, however, are 
-		/// returned with a linear mapping that maps 1.0 to the most positive representable integer value and -1.0 to the most 
-		/// negative representable integer value. If glGetFloatv or glGetDoublev is called, boolean values are returned as GL_TRUE 
-		/// or GL_FALSE, and integer values are converted to floating-point values.
-		/// The following symbolic constants are accepted by pname:
-		/// Many of the boolean parameters can also be queried more easily using glIsEnabled.
-		/// <para>
-		/// The following errors can be generated:
-		/// - GL_INVALID_ENUM is generated if pname is not an accepted value.
-		/// - GL_INVALID_VALUE is generated on any of glGetBooleani_v, glGetIntegeri_v, or glGetInteger64i_v if index is outside of 
-		///   the valid range for the indexed state target.
-		/// </para>
-		/// </remarks>
-		/// <seealso cref="Gl.GetActiveUniform"/>
-		/// <seealso cref="Gl.GetAttachedShaders"/>
-		/// <seealso cref="Gl.GetAttribLocation"/>
-		/// <seealso cref="Gl.GetBufferParameter"/>
-		/// <seealso cref="Gl.GetBufferPointerv"/>
-		/// <seealso cref="Gl.GetBufferSubData"/>
-		/// <seealso cref="Gl.GetCompressedTexImage"/>
-		/// <seealso cref="Gl.GetError"/>
-		/// <seealso cref="Gl.GetProgram"/>
-		/// <seealso cref="Gl.GetProgramInfoLog"/>
-		/// <seealso cref="Gl.GetQueryiv"/>
-		/// <seealso cref="Gl.GetQueryObject"/>
-		/// <seealso cref="Gl.GetShader"/>
-		/// <seealso cref="Gl.GetShaderInfoLog"/>
-		/// <seealso cref="Gl.GetShaderSource"/>
-		/// <seealso cref="Gl.GetString"/>
-		/// <seealso cref="Gl.GetTexImage"/>
-		/// <seealso cref="Gl.GetTexLevelParameter"/>
-		/// <seealso cref="Gl.GetTexParameter"/>
-		/// <seealso cref="Gl.GetUniform"/>
-		/// <seealso cref="Gl.GetUniformLocation"/>
-		/// <seealso cref="Gl.GetVertexAttrib"/>
-		/// <seealso cref="Gl.GetVertexAttribPointerv"/>
-		/// <seealso cref="Gl.IsEnabled"/>
 		[RequiredByFeature("GL_VERSION_3_0")]
 		public static void GetIntegeri_v(int target, UInt32 index, Int32[] data)
 		{
@@ -1830,21 +1729,6 @@ namespace OpenGL
 		/// <param name="index">
 		/// Specifies the index of the capability.
 		/// </param>
-		/// <remarks>
-		/// glIsEnabled returns GL_TRUE if cap is an enabled capability and returns GL_FALSE otherwise. Boolean states that are 
-		/// indexed may be tested with glIsEnabledi. For glIsEnabledi, index specifies the index of the capability to test. index 
-		/// must be between zero and the count of indexed capabilities for cap. Initially all capabilities except GL_DITHER are 
-		/// disabled; GL_DITHER is initially enabled.
-		/// The following capabilities are accepted for cap:
-		/// <para>
-		/// The following errors can be generated:
-		/// - GL_INVALID_ENUM is generated if cap is not an accepted value.
-		/// - GL_INVALID_VALUE is generated by glIsEnabledi if index is outside the valid range for the indexed state cap.
-		/// </para>
-		/// </remarks>
-		/// <seealso cref="Gl.Enable"/>
-		/// <seealso cref="Gl.Disable"/>
-		/// <seealso cref="Gl.Get"/>
 		[RequiredByFeature("GL_VERSION_3_0")]
 		public static bool IsEnabledi(int target, UInt32 index)
 		{
@@ -1879,28 +1763,6 @@ namespace OpenGL
 		/// Specify the output type of the primitives that will be recorded into the buffer objects that are bound for transform 
 		/// feedback.
 		/// </param>
-		/// <remarks>
-		/// Transform feedback mode captures the values of varying variables written by the vertex shader (or, if active, the 
-		/// geometry shader). Transform feedback is said to be active after a call to glBeginTransformFeedback until a subsequent 
-		/// call to glEndTransformFeedback. Transform feedback commands must be paired.
-		/// If no geometry shader is present, while transform feedback is active the mode parameter to glDrawArrays must match those 
-		/// specified in the following table:
-		/// If a geometry shader is present, the output primitive type from the geometry shader must match those provided in the 
-		/// following table:
-		/// <para>
-		/// The following errors can be generated:
-		/// - GL_INVALID_OPERATION is generated if glBeginTransformFeedback is executed while transform feedback is active.
-		/// - GL_INVALID_OPERATION is generated if glEndTransformFeedback is executed while transform feedback is not active.
-		/// - GL_INVALID_OPERATION is generated by glDrawArrays if no geometry shader is present, transform feedback is active and 
-		///   mode is not one of the allowed modes.
-		/// - GL_INVALID_OPERATION is generated by glDrawArrays if a geometry shader is present, transform feedback is active and the 
-		///   output primitive type of the geometry shader does not match the transform feedback primitiveMode.
-		/// - GL_INVALID_OPERATION is generated by glEndTransformFeedback if any binding point used in transform feedback mode does 
-		///   not have a buffer object bound.
-		/// - GL_INVALID_OPERATION is generated by glEndTransformFeedback if no binding points would be used, either because no 
-		///   program object is active of because the active program object has specified no varying variables to record.
-		/// </para>
-		/// </remarks>
 		[RequiredByFeature("GL_VERSION_3_0")]
 		public static void BeginTransformFeedback(int primitiveMode)
 		{
@@ -1921,28 +1783,6 @@ namespace OpenGL
 		/// <summary>
 		/// start transform feedback operation
 		/// </summary>
-		/// <remarks>
-		/// Transform feedback mode captures the values of varying variables written by the vertex shader (or, if active, the 
-		/// geometry shader). Transform feedback is said to be active after a call to glBeginTransformFeedback until a subsequent 
-		/// call to glEndTransformFeedback. Transform feedback commands must be paired.
-		/// If no geometry shader is present, while transform feedback is active the mode parameter to glDrawArrays must match those 
-		/// specified in the following table:
-		/// If a geometry shader is present, the output primitive type from the geometry shader must match those provided in the 
-		/// following table:
-		/// <para>
-		/// The following errors can be generated:
-		/// - GL_INVALID_OPERATION is generated if glBeginTransformFeedback is executed while transform feedback is active.
-		/// - GL_INVALID_OPERATION is generated if glEndTransformFeedback is executed while transform feedback is not active.
-		/// - GL_INVALID_OPERATION is generated by glDrawArrays if no geometry shader is present, transform feedback is active and 
-		///   mode is not one of the allowed modes.
-		/// - GL_INVALID_OPERATION is generated by glDrawArrays if a geometry shader is present, transform feedback is active and the 
-		///   output primitive type of the geometry shader does not match the transform feedback primitiveMode.
-		/// - GL_INVALID_OPERATION is generated by glEndTransformFeedback if any binding point used in transform feedback mode does 
-		///   not have a buffer object bound.
-		/// - GL_INVALID_OPERATION is generated by glEndTransformFeedback if no binding points would be used, either because no 
-		///   program object is active of because the active program object has specified no varying variables to record.
-		/// </para>
-		/// </remarks>
 		[RequiredByFeature("GL_VERSION_3_0")]
 		public static void EndTransformFeedback()
 		{
@@ -1979,30 +1819,6 @@ namespace OpenGL
 		/// <param name="size">
 		/// The amount of data in machine units that can be read from the buffer object while used as an indexed target.
 		/// </param>
-		/// <remarks>
-		/// glBindBufferRange binds a range the buffer object buffer represented by offset and size to the binding point at index 
-		/// index of the array of targets specified by target. Each target represents an indexed array of buffer binding points, as 
-		/// well as a single general binding point that can be used by other buffer manipulation functions such as glBindBuffer or 
-		/// glMapBuffer. In addition to binding a range of buffer to the indexed buffer binding target, glBindBufferRange also binds 
-		/// the range to the generic buffer binding point specified by target.
-		/// offset specifies the offset in basic machine units into the buffer object buffer and size specifies the amount of data 
-		/// that can be read from the buffer object while used as an indexed target.
-		/// <para>
-		/// The following errors can be generated:
-		/// - GL_INVALID_ENUM is generated if target is not one of GL_ATOMIC_COUNTER_BUFFER, GL_TRANSFORM_FEEDBACK_BUFFER, 
-		///   GL_UNIFORM_BUFFER or GL_SHADER_STORAGE_BUFFER.
-		/// - GL_INVALID_VALUE is generated if index is greater than or equal to the number of target-specific indexed binding points.
-		/// - GL_INVALID_VALUE is generated if size is less than or equal to zero, or if offset + size is greater than the value of 
-		///   GL_BUFFER_SIZE.
-		/// - Additional errors may be generated if offset violates any target-specific alignmemt restrictions.
-		/// </para>
-		/// </remarks>
-		/// <seealso cref="Gl.GenBuffers"/>
-		/// <seealso cref="Gl.DeleteBuffers"/>
-		/// <seealso cref="Gl.BindBuffer"/>
-		/// <seealso cref="Gl.BindBufferBase"/>
-		/// <seealso cref="Gl.MapBuffer"/>
-		/// <seealso cref="Gl.UnmapBuffer"/>
 		[RequiredByFeature("GL_VERSION_3_0")]
 		public static void BindBufferRange(int target, UInt32 index, UInt32 buffer, IntPtr offset, UInt32 size)
 		{
@@ -2033,26 +1849,6 @@ namespace OpenGL
 		/// <param name="buffer">
 		/// The name of a buffer object to bind to the specified binding point.
 		/// </param>
-		/// <remarks>
-		/// glBindBufferBase binds the buffer object buffer to the binding point at index index of the array of targets specified by 
-		/// target. Each target represents an indexed array of buffer binding points, as well as a single general binding point that 
-		/// can be used by other buffer manipulation functions such as glBindBuffer or glMapBuffer. In addition to binding buffer to 
-		/// the indexed buffer binding target, glBindBufferBase also binds buffer to the generic buffer binding point specified by 
-		/// target.
-		/// <para>
-		/// The following errors can be generated:
-		/// - GL_INVALID_ENUM is generated if target is not GL_ATOMIC_COUNTER_BUFFER, GL_TRANSFORM_FEEDBACK_BUFFER, GL_UNIFORM_BUFFER 
-		///   or GL_SHADER_STORAGE_BUFFER.
-		/// - GL_INVALID_VALUE is generated if index is greater than or equal to the number of target-specific indexed binding points.
-		/// - GL_INVALID_VALUE is generated if buffer does not have an associated data store, or if the size of that store is zero.
-		/// </para>
-		/// </remarks>
-		/// <seealso cref="Gl.GenBuffers"/>
-		/// <seealso cref="Gl.DeleteBuffers"/>
-		/// <seealso cref="Gl.BindBuffer"/>
-		/// <seealso cref="Gl.BindBufferRange"/>
-		/// <seealso cref="Gl.MapBuffer"/>
-		/// <seealso cref="Gl.UnmapBuffer"/>
 		[RequiredByFeature("GL_VERSION_3_0")]
 		public static void BindBufferBase(int target, UInt32 index, UInt32 buffer)
 		{
@@ -2086,36 +1882,6 @@ namespace OpenGL
 		/// Identifies the mode used to capture the varying variables when transform feedback is active. bufferMode must be 
 		/// GL_INTERLEAVED_ATTRIBS or GL_SEPARATE_ATTRIBS.
 		/// </param>
-		/// <remarks>
-		/// The names of the vertex or geometry shader outputs to be recorded in transform feedback mode are specified using 
-		/// glTransformFeedbackVaryings. When a geometry shader is active, transform feedback records the values of selected 
-		/// geometry shader output variables from the emitted vertices. Otherwise, the values of the selected vertex shader outputs 
-		/// are recorded.
-		/// The state set by glTranformFeedbackVaryings is stored and takes effect next time glLinkProgram is called on program. 
-		/// When glLinkProgram is called, program is linked so that the values of the specified varying variables for the vertices 
-		/// of each primitive generated by the GL are written to a single buffer object if bufferMode is GL_INTERLEAVED_ATTRIBS or 
-		/// multiple buffer objects if bufferMode is GL_SEPARATE_ATTRIBS.
-		/// In addition to the errors generated by glTransformFeedbackVaryings, the program program will fail to link if: The count 
-		/// specified by glTransformFeedbackVaryings is non-zero, but the program object has no vertex or geometry shader. Any 
-		/// variable name specified in the varyings array is not declared as an output in the vertex shader (or the geometry shader, 
-		/// if active). Any two entries in the varyings array specify the same varying variable. The total number of components to 
-		/// capture in any varying variable in varyings is greater than the constant GL_MAX_TRANSFORM_FEEDBACK_SEPARATE_COMPONENTS 
-		/// and the buffer mode is GL_SEPARATE_ATTRIBS. The total number of components to capture is greater than the constant 
-		/// GL_MAX_TRANSFORM_FEEDBACK_INTERLEAVED_COMPONENTS and the buffer mode is GL_INTERLEAVED_ATTRIBS.
-		/// <para>
-		/// The following errors can be generated:
-		/// - GL_INVALID_VALUE is generated if program is not the name of a program object.
-		/// - GL_INVALID_VALUE is generated if bufferMode is GL_SEPARATE_ATTRIBS and count is greater than the 
-		///   implementation-dependent limit GL_MAX_TRANSFORM_FEEDBACK_SEPARATE_ATTRIBS.
-		/// </para>
-		/// <para>
-		/// The associated information is got with the following commands:
-		/// - glGetTransformFeedbackVarying
-		/// </para>
-		/// </remarks>
-		/// <seealso cref="Gl.BeginTransformFeedback"/>
-		/// <seealso cref="Gl.EndTransformFeedback"/>
-		/// <seealso cref="Gl.GetTransformFeedbackVarying"/>
 		[RequiredByFeature("GL_VERSION_3_0")]
 		public static void TransformFeedbackVarying(UInt32 program, Int32 count, String[] varyings, int bufferMode)
 		{
@@ -2155,38 +1921,6 @@ namespace OpenGL
 		/// <param name="name">
 		/// The address of a buffer into which will be written the name of the varying.
 		/// </param>
-		/// <remarks>
-		/// Information about the set of varying variables in a linked program that will be captured during transform feedback may 
-		/// be retrieved by calling glGetTransformFeedbackVarying. glGetTransformFeedbackVarying provides information about the 
-		/// varying variable selected by index. An index of 0 selects the first varying variable specified in the varyings array 
-		/// passed to glTransformFeedbackVaryings, and an index of the value of GL_TRANSFORM_FEEDBACK_VARYINGS minus one selects the 
-		/// last such variable.
-		/// The name of the selected varying is returned as a null-terminated string in name. The actual number of characters 
-		/// written into name, excluding the null terminator, is returned in length. If length is NULL, no length is returned. The 
-		/// maximum number of characters that may be written into name, including the null terminator, is specified by bufSize.
-		/// The length of the longest varying name in program is given by GL_TRANSFORM_FEEDBACK_VARYING_MAX_LENGTH, which can be 
-		/// queried with glGetProgram.
-		/// For the selected varying variable, its type is returned into type. The size of the varying is returned into size. The 
-		/// value in size is in units of the type returned in type. The type returned can be any of the scalar, vector, or matrix 
-		/// attribute types returned by glGetActiveAttrib. If an error occurred, the return parameters length, size, type and name 
-		/// will be unmodified. This command will return as much information about the varying variables as possible. If no 
-		/// information is available, length will be set to zero and name will be an empty string. This situation could arise if 
-		/// glGetTransformFeedbackVarying is called after a failed link.
-		/// <para>
-		/// The following errors can be generated:
-		/// - GL_INVALID_VALUE is generated if program is not the name of a program object.
-		/// - GL_INVALID_VALUE is generated if index is greater or equal to the value of GL_TRANSFORM_FEEDBACK_VARYINGS.
-		/// - GL_INVALID_OPERATION is generated program has not been linked.
-		/// </para>
-		/// <para>
-		/// The associated information is got with the following commands:
-		/// - glGetProgram with argument GL_TRANSFORM_FEEDBACK_VARYING_MAX_LENGTH.
-		/// </para>
-		/// </remarks>
-		/// <seealso cref="Gl.BeginTransformFeedback"/>
-		/// <seealso cref="Gl.EndTransformFeedback"/>
-		/// <seealso cref="Gl.TransformFeedbackVaryings"/>
-		/// <seealso cref="Gl.GetProgram"/>
 		[RequiredByFeature("GL_VERSION_3_0")]
 		public static void GetTransformFeedbackVarying(UInt32 program, UInt32 index, Int32 bufSize, out Int32 length, out Int32 size, out int type, [Out] StringBuilder name)
 		{
@@ -2217,21 +1951,6 @@ namespace OpenGL
 		/// <param name="clamp">
 		/// Specifies whether to apply color clamping. clamp must be GL_TRUE or GL_FALSE.
 		/// </param>
-		/// <remarks>
-		/// glClampColor controls color clamping that is performed during glReadPixels. target must be GL_CLAMP_READ_COLOR. If clamp 
-		/// is GL_TRUE, read color clamping is enabled; if clamp is GL_FALSE, read color clamping is disabled. If clamp is 
-		/// GL_FIXED_ONLY, read color clamping is enabled only if the selected read buffer has fixed point components and disabled 
-		/// otherwise.
-		/// <para>
-		/// The following errors can be generated:
-		/// - GL_INVALID_ENUM is generated if target is not GL_CLAMP_READ_COLOR.
-		/// - GL_INVALID_ENUM is generated if clamp is not GL_TRUE or GL_FALSE.
-		/// </para>
-		/// <para>
-		/// The associated information is got with the following commands:
-		/// - glGet with argument GL_CLAMP_READ_COLOR.
-		/// </para>
-		/// </remarks>
 		[RequiredByFeature("GL_VERSION_3_0")]
 		public static void ClampColor(int target, int clamp)
 		{
@@ -2256,38 +1975,6 @@ namespace OpenGL
 		/// <param name="mode">
 		/// Specifies how glBeginConditionalRender interprets the results of the occlusion query.
 		/// </param>
-		/// <remarks>
-		/// Conditional rendering is started using glBeginConditionalRender and ended using glEndConditionalRender. During 
-		/// conditional rendering, all vertex array commands, as well as glClear and glClearBuffer have no effect if the 
-		/// (GL_SAMPLES_PASSED) result of the query object id is zero, or if the (GL_ANY_SAMPLES_PASSED) result is GL_FALSE. The 
-		/// results of commands setting the current vertex state, such as glVertexAttrib are undefined. If the (GL_SAMPLES_PASSED) 
-		/// result is non-zero or if the (GL_ANY_SAMPLES_PASSED) result is GL_TRUE, such commands are not discarded. The id 
-		/// parameter to glBeginConditionalRender must be the name of a query object previously returned from a call to 
-		/// glGenQueries. mode specifies how the results of the query object are to be interpreted. If mode is GL_QUERY_WAIT, the GL 
-		/// waits for the results of the query to be available and then uses the results to determine if subsequent rendering 
-		/// commands are discarded. If mode is GL_QUERY_NO_WAIT, the GL may choose to unconditionally execute the subsequent 
-		/// rendering commands without waiting for the query to complete.
-		/// If mode is GL_QUERY_BY_REGION_WAIT, the GL will also wait for occlusion query results and discard rendering commands if 
-		/// the result of the occlusion query is zero. If the query result is non-zero, subsequent rendering commands are executed, 
-		/// but the GL may discard the results of the commands for any region of the framebuffer that did not contribute to the 
-		/// sample count in the specified occlusion query. Any such discarding is done in an implementation-dependent manner, but 
-		/// the rendering command results may not be discarded for any samples that contributed to the occlusion query sample count. 
-		/// If mode is GL_QUERY_BY_REGION_NO_WAIT, the GL operates as in GL_QUERY_BY_REGION_WAIT, but may choose to unconditionally 
-		/// execute the subsequent rendering commands without waiting for the query to complete.
-		/// <para>
-		/// The following errors can be generated:
-		/// - GL_INVALID_VALUE is generated if id is not the name of an existing query object.
-		/// - GL_INVALID_ENUM is generated if mode is not one of the accepted tokens.
-		/// - GL_INVALID_OPERATION is generated if glBeginConditionalRender is called while conditional rendering is active, or if 
-		///   glEndConditionalRender is called while conditional rendering is inactive.
-		/// - GL_INVALID_OPERATION is generated if id is the name of a query object with a target other than GL_SAMPLES_PASSED or 
-		///   GL_ANY_SAMPLES_PASSED.
-		/// - GL_INVALID_OPERATION is generated if id is the name of a query currently in progress.
-		/// </para>
-		/// </remarks>
-		/// <seealso cref="Gl.GenQueries"/>
-		/// <seealso cref="Gl.DeleteQueries"/>
-		/// <seealso cref="Gl.BeginQuery"/>
 		[RequiredByFeature("GL_VERSION_3_0")]
 		public static void BeginConditionalRender(UInt32 id, int mode)
 		{
@@ -2305,38 +1992,6 @@ namespace OpenGL
 		/// <summary>
 		/// start conditional rendering
 		/// </summary>
-		/// <remarks>
-		/// Conditional rendering is started using glBeginConditionalRender and ended using glEndConditionalRender. During 
-		/// conditional rendering, all vertex array commands, as well as glClear and glClearBuffer have no effect if the 
-		/// (GL_SAMPLES_PASSED) result of the query object id is zero, or if the (GL_ANY_SAMPLES_PASSED) result is GL_FALSE. The 
-		/// results of commands setting the current vertex state, such as glVertexAttrib are undefined. If the (GL_SAMPLES_PASSED) 
-		/// result is non-zero or if the (GL_ANY_SAMPLES_PASSED) result is GL_TRUE, such commands are not discarded. The id 
-		/// parameter to glBeginConditionalRender must be the name of a query object previously returned from a call to 
-		/// glGenQueries. mode specifies how the results of the query object are to be interpreted. If mode is GL_QUERY_WAIT, the GL 
-		/// waits for the results of the query to be available and then uses the results to determine if subsequent rendering 
-		/// commands are discarded. If mode is GL_QUERY_NO_WAIT, the GL may choose to unconditionally execute the subsequent 
-		/// rendering commands without waiting for the query to complete.
-		/// If mode is GL_QUERY_BY_REGION_WAIT, the GL will also wait for occlusion query results and discard rendering commands if 
-		/// the result of the occlusion query is zero. If the query result is non-zero, subsequent rendering commands are executed, 
-		/// but the GL may discard the results of the commands for any region of the framebuffer that did not contribute to the 
-		/// sample count in the specified occlusion query. Any such discarding is done in an implementation-dependent manner, but 
-		/// the rendering command results may not be discarded for any samples that contributed to the occlusion query sample count. 
-		/// If mode is GL_QUERY_BY_REGION_NO_WAIT, the GL operates as in GL_QUERY_BY_REGION_WAIT, but may choose to unconditionally 
-		/// execute the subsequent rendering commands without waiting for the query to complete.
-		/// <para>
-		/// The following errors can be generated:
-		/// - GL_INVALID_VALUE is generated if id is not the name of an existing query object.
-		/// - GL_INVALID_ENUM is generated if mode is not one of the accepted tokens.
-		/// - GL_INVALID_OPERATION is generated if glBeginConditionalRender is called while conditional rendering is active, or if 
-		///   glEndConditionalRender is called while conditional rendering is inactive.
-		/// - GL_INVALID_OPERATION is generated if id is the name of a query object with a target other than GL_SAMPLES_PASSED or 
-		///   GL_ANY_SAMPLES_PASSED.
-		/// - GL_INVALID_OPERATION is generated if id is the name of a query currently in progress.
-		/// </para>
-		/// </remarks>
-		/// <seealso cref="Gl.GenQueries"/>
-		/// <seealso cref="Gl.DeleteQueries"/>
-		/// <seealso cref="Gl.BeginQuery"/>
 		[RequiredByFeature("GL_VERSION_3_0")]
 		public static void EndConditionalRender()
 		{
@@ -2380,67 +2035,6 @@ namespace OpenGL
 		/// Specifies a offset of the first component of the first generic vertex attribute in the array in the data store of the 
 		/// buffer currently bound to the GL_ARRAY_BUFFER target. The initial value is 0.
 		/// </param>
-		/// <remarks>
-		/// glVertexAttribPointer, glVertexAttribIPointer and glVertexAttribLPointer specify the location and data format of the 
-		/// array of generic vertex attributes at index index to use when rendering. size specifies the number of components per 
-		/// attribute and must be 1, 2, 3, 4, or GL_BGRA. type specifies the data type of each component, and stride specifies the 
-		/// byte stride from one attribute to the next, allowing vertices and attributes to be packed into a single array or stored 
-		/// in separate arrays.
-		/// For glVertexAttribPointer, if normalized is set to GL_TRUE, it indicates that values stored in an integer format are to 
-		/// be mapped to the range [-1,1] (for signed values) or [0,1] (for unsigned values) when they are accessed and converted to 
-		/// floating point. Otherwise, values will be converted to floats directly without normalization.
-		/// For glVertexAttribIPointer, only the integer types GL_BYTE, GL_UNSIGNED_BYTE, GL_SHORT, GL_UNSIGNED_SHORT, GL_INT, 
-		/// GL_UNSIGNED_INT are accepted. Values are always left as integer values.
-		/// glVertexAttribLPointer specifies state for a generic vertex attribute array associated with a shader attribute variable 
-		/// declared with 64-bit double precision components. type must be GL_DOUBLE. index, size, and stride behave as described 
-		/// for glVertexAttribPointer and glVertexAttribIPointer.
-		/// If pointer is not NULL, a non-zero named buffer object must be bound to the GL_ARRAY_BUFFER target (see glBindBuffer), 
-		/// otherwise an error is generated. pointer is treated as a byte offset into the buffer object's data store. The buffer 
-		/// object binding (GL_ARRAY_BUFFER_BINDING) is saved as generic vertex attribute array state 
-		/// (GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING) for index index.
-		/// When a generic vertex attribute array is specified, size, type, normalized, stride, and pointer are saved as vertex 
-		/// array state, in addition to the current vertex array buffer object binding.
-		/// To enable and disable a generic vertex attribute array, call glEnableVertexAttribArray and glDisableVertexAttribArray 
-		/// with index. If enabled, the generic vertex attribute array is used when glDrawArrays, glMultiDrawArrays, glDrawElements, 
-		/// glMultiDrawElements, or glDrawRangeElements is called.
-		/// <para>
-		/// The following errors can be generated:
-		/// - GL_INVALID_VALUE is generated if index is greater than or equal to GL_MAX_VERTEX_ATTRIBS.
-		/// - GL_INVALID_VALUE is generated if size is not 1, 2, 3, 4 or (for glVertexAttribPointer), GL_BGRA.
-		/// - GL_INVALID_ENUM is generated if type is not an accepted value.
-		/// - GL_INVALID_VALUE is generated if stride is negative.
-		/// - GL_INVALID_OPERATION is generated if size is GL_BGRA and type is not GL_UNSIGNED_BYTE, GL_INT_2_10_10_10_REV or 
-		///   GL_UNSIGNED_INT_2_10_10_10_REV.
-		/// - GL_INVALID_OPERATION is generated if type is GL_INT_2_10_10_10_REV or GL_UNSIGNED_INT_2_10_10_10_REV and size is not 4 
-		///   or GL_BGRA.
-		/// - GL_INVALID_OPERATION is generated if type is GL_UNSIGNED_INT_10F_11F_11F_REV and size is not 3.
-		/// - GL_INVALID_OPERATION is generated by glVertexAttribPointer if size is GL_BGRA and noramlized is GL_FALSE.
-		/// - GL_INVALID_OPERATION is generated if zero is bound to the GL_ARRAY_BUFFER buffer object binding point and the pointer 
-		///   argument is not NULL.
-		/// </para>
-		/// <para>
-		/// The associated information is got with the following commands:
-		/// - glGet with argument GL_MAX_VERTEX_ATTRIBS
-		/// - glGetVertexAttrib with arguments index and GL_VERTEX_ATTRIB_ARRAY_ENABLED
-		/// - glGetVertexAttrib with arguments index and GL_VERTEX_ATTRIB_ARRAY_SIZE
-		/// - glGetVertexAttrib with arguments index and GL_VERTEX_ATTRIB_ARRAY_TYPE
-		/// - glGetVertexAttrib with arguments index and GL_VERTEX_ATTRIB_ARRAY_NORMALIZED
-		/// - glGetVertexAttrib with arguments index and GL_VERTEX_ATTRIB_ARRAY_STRIDE
-		/// - glGetVertexAttrib with arguments index and GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING
-		/// - glGet with argument GL_ARRAY_BUFFER_BINDING
-		/// - glGetVertexAttribPointerv with arguments index and GL_VERTEX_ATTRIB_ARRAY_POINTER
-		/// </para>
-		/// </remarks>
-		/// <seealso cref="Gl.BindAttribLocation"/>
-		/// <seealso cref="Gl.BindBuffer"/>
-		/// <seealso cref="Gl.DisableVertexAttribArray"/>
-		/// <seealso cref="Gl.DrawArrays"/>
-		/// <seealso cref="Gl.DrawElements"/>
-		/// <seealso cref="Gl.DrawRangeElements"/>
-		/// <seealso cref="Gl.EnableVertexAttribArray"/>
-		/// <seealso cref="Gl.MultiDrawArrays"/>
-		/// <seealso cref="Gl.MultiDrawElements"/>
-		/// <seealso cref="Gl.VertexAttrib"/>
 		[RequiredByFeature("GL_VERSION_3_0")]
 		public static void VertexAttribIPointer(UInt32 index, Int32 size, int type, Int32 stride, IntPtr pointer)
 		{
@@ -2481,67 +2075,6 @@ namespace OpenGL
 		/// Specifies a offset of the first component of the first generic vertex attribute in the array in the data store of the 
 		/// buffer currently bound to the GL_ARRAY_BUFFER target. The initial value is 0.
 		/// </param>
-		/// <remarks>
-		/// glVertexAttribPointer, glVertexAttribIPointer and glVertexAttribLPointer specify the location and data format of the 
-		/// array of generic vertex attributes at index index to use when rendering. size specifies the number of components per 
-		/// attribute and must be 1, 2, 3, 4, or GL_BGRA. type specifies the data type of each component, and stride specifies the 
-		/// byte stride from one attribute to the next, allowing vertices and attributes to be packed into a single array or stored 
-		/// in separate arrays.
-		/// For glVertexAttribPointer, if normalized is set to GL_TRUE, it indicates that values stored in an integer format are to 
-		/// be mapped to the range [-1,1] (for signed values) or [0,1] (for unsigned values) when they are accessed and converted to 
-		/// floating point. Otherwise, values will be converted to floats directly without normalization.
-		/// For glVertexAttribIPointer, only the integer types GL_BYTE, GL_UNSIGNED_BYTE, GL_SHORT, GL_UNSIGNED_SHORT, GL_INT, 
-		/// GL_UNSIGNED_INT are accepted. Values are always left as integer values.
-		/// glVertexAttribLPointer specifies state for a generic vertex attribute array associated with a shader attribute variable 
-		/// declared with 64-bit double precision components. type must be GL_DOUBLE. index, size, and stride behave as described 
-		/// for glVertexAttribPointer and glVertexAttribIPointer.
-		/// If pointer is not NULL, a non-zero named buffer object must be bound to the GL_ARRAY_BUFFER target (see glBindBuffer), 
-		/// otherwise an error is generated. pointer is treated as a byte offset into the buffer object's data store. The buffer 
-		/// object binding (GL_ARRAY_BUFFER_BINDING) is saved as generic vertex attribute array state 
-		/// (GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING) for index index.
-		/// When a generic vertex attribute array is specified, size, type, normalized, stride, and pointer are saved as vertex 
-		/// array state, in addition to the current vertex array buffer object binding.
-		/// To enable and disable a generic vertex attribute array, call glEnableVertexAttribArray and glDisableVertexAttribArray 
-		/// with index. If enabled, the generic vertex attribute array is used when glDrawArrays, glMultiDrawArrays, glDrawElements, 
-		/// glMultiDrawElements, or glDrawRangeElements is called.
-		/// <para>
-		/// The following errors can be generated:
-		/// - GL_INVALID_VALUE is generated if index is greater than or equal to GL_MAX_VERTEX_ATTRIBS.
-		/// - GL_INVALID_VALUE is generated if size is not 1, 2, 3, 4 or (for glVertexAttribPointer), GL_BGRA.
-		/// - GL_INVALID_ENUM is generated if type is not an accepted value.
-		/// - GL_INVALID_VALUE is generated if stride is negative.
-		/// - GL_INVALID_OPERATION is generated if size is GL_BGRA and type is not GL_UNSIGNED_BYTE, GL_INT_2_10_10_10_REV or 
-		///   GL_UNSIGNED_INT_2_10_10_10_REV.
-		/// - GL_INVALID_OPERATION is generated if type is GL_INT_2_10_10_10_REV or GL_UNSIGNED_INT_2_10_10_10_REV and size is not 4 
-		///   or GL_BGRA.
-		/// - GL_INVALID_OPERATION is generated if type is GL_UNSIGNED_INT_10F_11F_11F_REV and size is not 3.
-		/// - GL_INVALID_OPERATION is generated by glVertexAttribPointer if size is GL_BGRA and noramlized is GL_FALSE.
-		/// - GL_INVALID_OPERATION is generated if zero is bound to the GL_ARRAY_BUFFER buffer object binding point and the pointer 
-		///   argument is not NULL.
-		/// </para>
-		/// <para>
-		/// The associated information is got with the following commands:
-		/// - glGet with argument GL_MAX_VERTEX_ATTRIBS
-		/// - glGetVertexAttrib with arguments index and GL_VERTEX_ATTRIB_ARRAY_ENABLED
-		/// - glGetVertexAttrib with arguments index and GL_VERTEX_ATTRIB_ARRAY_SIZE
-		/// - glGetVertexAttrib with arguments index and GL_VERTEX_ATTRIB_ARRAY_TYPE
-		/// - glGetVertexAttrib with arguments index and GL_VERTEX_ATTRIB_ARRAY_NORMALIZED
-		/// - glGetVertexAttrib with arguments index and GL_VERTEX_ATTRIB_ARRAY_STRIDE
-		/// - glGetVertexAttrib with arguments index and GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING
-		/// - glGet with argument GL_ARRAY_BUFFER_BINDING
-		/// - glGetVertexAttribPointerv with arguments index and GL_VERTEX_ATTRIB_ARRAY_POINTER
-		/// </para>
-		/// </remarks>
-		/// <seealso cref="Gl.BindAttribLocation"/>
-		/// <seealso cref="Gl.BindBuffer"/>
-		/// <seealso cref="Gl.DisableVertexAttribArray"/>
-		/// <seealso cref="Gl.DrawArrays"/>
-		/// <seealso cref="Gl.DrawElements"/>
-		/// <seealso cref="Gl.DrawRangeElements"/>
-		/// <seealso cref="Gl.EnableVertexAttribArray"/>
-		/// <seealso cref="Gl.MultiDrawArrays"/>
-		/// <seealso cref="Gl.MultiDrawElements"/>
-		/// <seealso cref="Gl.VertexAttrib"/>
 		[RequiredByFeature("GL_VERSION_3_0")]
 		public static void VertexAttribIPointer(UInt32 index, Int32 size, int type, Int32 stride, Object pointer)
 		{
@@ -2568,32 +2101,6 @@ namespace OpenGL
 		/// <param name="params">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
-		/// <remarks>
-		/// glGetVertexAttrib returns in params the value of a generic vertex attribute parameter. The generic vertex attribute to 
-		/// be queried is specified by index, and the parameter to be queried is specified by pname.
-		/// The accepted parameter names are as follows:
-		/// All of the parameters except GL_CURRENT_VERTEX_ATTRIB represent state stored in the currently bound vertex array object.
-		/// <para>
-		/// The following errors can be generated:
-		/// - GL_INVALID_OPERATION is generated if pname is not GL_CURRENT_VERTEX_ATTRIB and there is no currently bound vertex array 
-		///   object.
-		/// - GL_INVALID_VALUE is generated if index is greater than or equal to GL_MAX_VERTEX_ATTRIBS.
-		/// - GL_INVALID_ENUM is generated if pname is not an accepted value.
-		/// - GL_INVALID_OPERATION is generated if index is 0 and pname is GL_CURRENT_VERTEX_ATTRIB.
-		/// </para>
-		/// <para>
-		/// The associated information is got with the following commands:
-		/// - glGet with argument GL_MAX_VERTEX_ATTRIBS
-		/// - glGetVertexAttribPointerv with arguments index and GL_VERTEX_ATTRIB_ARRAY_POINTER
-		/// </para>
-		/// </remarks>
-		/// <seealso cref="Gl.BindAttribLocation"/>
-		/// <seealso cref="Gl.BindBuffer"/>
-		/// <seealso cref="Gl.DisableVertexAttribArray"/>
-		/// <seealso cref="Gl.EnableVertexAttribArray"/>
-		/// <seealso cref="Gl.VertexAttrib"/>
-		/// <seealso cref="Gl.VertexAttribDivisor"/>
-		/// <seealso cref="Gl.VertexAttribPointer"/>
 		[RequiredByFeature("GL_VERSION_3_0")]
 		public static void GetVertexAttribI(UInt32 index, int pname, out Int32 @params)
 		{
@@ -2628,32 +2135,6 @@ namespace OpenGL
 		/// <param name="params">
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
-		/// <remarks>
-		/// glGetVertexAttrib returns in params the value of a generic vertex attribute parameter. The generic vertex attribute to 
-		/// be queried is specified by index, and the parameter to be queried is specified by pname.
-		/// The accepted parameter names are as follows:
-		/// All of the parameters except GL_CURRENT_VERTEX_ATTRIB represent state stored in the currently bound vertex array object.
-		/// <para>
-		/// The following errors can be generated:
-		/// - GL_INVALID_OPERATION is generated if pname is not GL_CURRENT_VERTEX_ATTRIB and there is no currently bound vertex array 
-		///   object.
-		/// - GL_INVALID_VALUE is generated if index is greater than or equal to GL_MAX_VERTEX_ATTRIBS.
-		/// - GL_INVALID_ENUM is generated if pname is not an accepted value.
-		/// - GL_INVALID_OPERATION is generated if index is 0 and pname is GL_CURRENT_VERTEX_ATTRIB.
-		/// </para>
-		/// <para>
-		/// The associated information is got with the following commands:
-		/// - glGet with argument GL_MAX_VERTEX_ATTRIBS
-		/// - glGetVertexAttribPointerv with arguments index and GL_VERTEX_ATTRIB_ARRAY_POINTER
-		/// </para>
-		/// </remarks>
-		/// <seealso cref="Gl.BindAttribLocation"/>
-		/// <seealso cref="Gl.BindBuffer"/>
-		/// <seealso cref="Gl.DisableVertexAttribArray"/>
-		/// <seealso cref="Gl.EnableVertexAttribArray"/>
-		/// <seealso cref="Gl.VertexAttrib"/>
-		/// <seealso cref="Gl.VertexAttribDivisor"/>
-		/// <seealso cref="Gl.VertexAttribPointer"/>
 		[RequiredByFeature("GL_VERSION_3_0")]
 		public static void GetVertexAttribI(UInt32 index, int pname, out UInt32 @params)
 		{
@@ -2682,63 +2163,6 @@ namespace OpenGL
 		/// <param name="x">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
-		/// <remarks>
-		/// The glVertexAttrib family of entry points allows an application to pass generic vertex attributes in numbered locations.
-		/// Generic attributes are defined as four-component values that are organized into an array. The first entry of this array 
-		/// is numbered 0, and the size of the array is specified by the implementation-dependent constant GL_MAX_VERTEX_ATTRIBS. 
-		/// Individual elements of this array can be modified with a glVertexAttrib call that specifies the index of the element to 
-		/// be modified and a value for that element.
-		/// These commands can be used to specify one, two, three, or all four components of the generic vertex attribute specified 
-		/// by index. A 1 in the name of the command indicates that only one value is passed, and it will be used to modify the 
-		/// first component of the generic vertex attribute. The second and third components will be set to 0, and the fourth 
-		/// component will be set to 1. Similarly, a 2 in the name of the command indicates that values are provided for the first 
-		/// two components, the third component will be set to 0, and the fourth component will be set to 1. A 3 in the name of the 
-		/// command indicates that values are provided for the first three components and the fourth component will be set to 1, 
-		/// whereas a 4 in the name indicates that values are provided for all four components.
-		/// The letters s, f, i, d, ub, us, and ui indicate whether the arguments are of type short, float, int, double, unsigned 
-		/// byte, unsigned short, or unsigned int. When v is appended to the name, the commands can take a pointer to an array of 
-		/// such values.
-		/// Additional capitalized letters can indicate further alterations to the default behavior of the glVertexAttrib function:
-		/// The commands containing N indicate that the arguments will be passed as fixed-point values that are scaled to a 
-		/// normalized range according to the component conversion rules defined by the OpenGL specification. Signed values are 
-		/// understood to represent fixed-point values in the range [-1,1], and unsigned values are understood to represent 
-		/// fixed-point values in the range [0,1].
-		/// The commands containing I indicate that the arguments are extended to full signed or unsigned integers.
-		/// The commands containing P indicate that the arguments are stored as packed components within a larger natural type.
-		/// The commands containing L indicate that the arguments are full 64-bit quantities and should be passed directly to shader 
-		/// inputs declared as 64-bit double precision types.
-		/// OpenGL Shading Language attribute variables are allowed to be of type mat2, mat3, or mat4. Attributes of these types may 
-		/// be loaded using the glVertexAttrib entry points. Matrices must be loaded into successive generic attribute slots in 
-		/// column major order, with one column of the matrix in each generic attribute slot.
-		/// A user-defined attribute variable declared in a vertex shader can be bound to a generic attribute index by calling 
-		/// glBindAttribLocation. This allows an application to use more descriptive variable names in a vertex shader. A subsequent 
-		/// change to the specified generic vertex attribute will be immediately reflected as a change to the corresponding 
-		/// attribute variable in the vertex shader.
-		/// The binding between a generic vertex attribute index and a user-defined attribute variable in a vertex shader is part of 
-		/// the state of a program object, but the current value of the generic vertex attribute is not. The value of each generic 
-		/// vertex attribute is part of current state, just like standard vertex attributes, and it is maintained even if a 
-		/// different program object is used.
-		/// An application may freely modify generic vertex attributes that are not bound to a named vertex shader attribute 
-		/// variable. These values are simply maintained as part of current state and will not be accessed by the vertex shader. If 
-		/// a generic vertex attribute bound to an attribute variable in a vertex shader is not updated while the vertex shader is 
-		/// executing, the vertex shader will repeatedly use the current value for the generic vertex attribute.
-		/// <para>
-		/// The following errors can be generated:
-		/// - GL_INVALID_VALUE is generated if index is greater than or equal to GL_MAX_VERTEX_ATTRIBS.
-		/// - GL_INVALID_ENUM is generated if glVertexAttribP* is used with a type other than GL_INT_2_10_10_10_REV, 
-		///   GL_UNSIGNED_INT_2_10_10_10_REV, or GL_UNSIGNED_INT_10F_11F_11F_REV.
-		/// - GL_INVALID_ENUM is generated if glVertexAttribL is used with a type other than GL_DOUBLE.
-		/// </para>
-		/// <para>
-		/// The associated information is got with the following commands:
-		/// - glGet with the argument GL_CURRENT_PROGRAM
-		/// - glGetActiveAttrib with argument program and the index of an active attribute variable
-		/// - glGetAttribLocation with argument program and an attribute variable name
-		/// - glGetVertexAttrib with arguments GL_CURRENT_VERTEX_ATTRIB and index
-		/// </para>
-		/// </remarks>
-		/// <seealso cref="Gl.BindAttribLocation"/>
-		/// <seealso cref="Gl.VertexAttribPointer"/>
 		[RequiredByFeature("GL_VERSION_3_0")]
 		public static void VertexAttribI1(UInt32 index, Int32 x)
 		{
@@ -2765,63 +2189,6 @@ namespace OpenGL
 		/// <param name="y">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
-		/// <remarks>
-		/// The glVertexAttrib family of entry points allows an application to pass generic vertex attributes in numbered locations.
-		/// Generic attributes are defined as four-component values that are organized into an array. The first entry of this array 
-		/// is numbered 0, and the size of the array is specified by the implementation-dependent constant GL_MAX_VERTEX_ATTRIBS. 
-		/// Individual elements of this array can be modified with a glVertexAttrib call that specifies the index of the element to 
-		/// be modified and a value for that element.
-		/// These commands can be used to specify one, two, three, or all four components of the generic vertex attribute specified 
-		/// by index. A 1 in the name of the command indicates that only one value is passed, and it will be used to modify the 
-		/// first component of the generic vertex attribute. The second and third components will be set to 0, and the fourth 
-		/// component will be set to 1. Similarly, a 2 in the name of the command indicates that values are provided for the first 
-		/// two components, the third component will be set to 0, and the fourth component will be set to 1. A 3 in the name of the 
-		/// command indicates that values are provided for the first three components and the fourth component will be set to 1, 
-		/// whereas a 4 in the name indicates that values are provided for all four components.
-		/// The letters s, f, i, d, ub, us, and ui indicate whether the arguments are of type short, float, int, double, unsigned 
-		/// byte, unsigned short, or unsigned int. When v is appended to the name, the commands can take a pointer to an array of 
-		/// such values.
-		/// Additional capitalized letters can indicate further alterations to the default behavior of the glVertexAttrib function:
-		/// The commands containing N indicate that the arguments will be passed as fixed-point values that are scaled to a 
-		/// normalized range according to the component conversion rules defined by the OpenGL specification. Signed values are 
-		/// understood to represent fixed-point values in the range [-1,1], and unsigned values are understood to represent 
-		/// fixed-point values in the range [0,1].
-		/// The commands containing I indicate that the arguments are extended to full signed or unsigned integers.
-		/// The commands containing P indicate that the arguments are stored as packed components within a larger natural type.
-		/// The commands containing L indicate that the arguments are full 64-bit quantities and should be passed directly to shader 
-		/// inputs declared as 64-bit double precision types.
-		/// OpenGL Shading Language attribute variables are allowed to be of type mat2, mat3, or mat4. Attributes of these types may 
-		/// be loaded using the glVertexAttrib entry points. Matrices must be loaded into successive generic attribute slots in 
-		/// column major order, with one column of the matrix in each generic attribute slot.
-		/// A user-defined attribute variable declared in a vertex shader can be bound to a generic attribute index by calling 
-		/// glBindAttribLocation. This allows an application to use more descriptive variable names in a vertex shader. A subsequent 
-		/// change to the specified generic vertex attribute will be immediately reflected as a change to the corresponding 
-		/// attribute variable in the vertex shader.
-		/// The binding between a generic vertex attribute index and a user-defined attribute variable in a vertex shader is part of 
-		/// the state of a program object, but the current value of the generic vertex attribute is not. The value of each generic 
-		/// vertex attribute is part of current state, just like standard vertex attributes, and it is maintained even if a 
-		/// different program object is used.
-		/// An application may freely modify generic vertex attributes that are not bound to a named vertex shader attribute 
-		/// variable. These values are simply maintained as part of current state and will not be accessed by the vertex shader. If 
-		/// a generic vertex attribute bound to an attribute variable in a vertex shader is not updated while the vertex shader is 
-		/// executing, the vertex shader will repeatedly use the current value for the generic vertex attribute.
-		/// <para>
-		/// The following errors can be generated:
-		/// - GL_INVALID_VALUE is generated if index is greater than or equal to GL_MAX_VERTEX_ATTRIBS.
-		/// - GL_INVALID_ENUM is generated if glVertexAttribP* is used with a type other than GL_INT_2_10_10_10_REV, 
-		///   GL_UNSIGNED_INT_2_10_10_10_REV, or GL_UNSIGNED_INT_10F_11F_11F_REV.
-		/// - GL_INVALID_ENUM is generated if glVertexAttribL is used with a type other than GL_DOUBLE.
-		/// </para>
-		/// <para>
-		/// The associated information is got with the following commands:
-		/// - glGet with the argument GL_CURRENT_PROGRAM
-		/// - glGetActiveAttrib with argument program and the index of an active attribute variable
-		/// - glGetAttribLocation with argument program and an attribute variable name
-		/// - glGetVertexAttrib with arguments GL_CURRENT_VERTEX_ATTRIB and index
-		/// </para>
-		/// </remarks>
-		/// <seealso cref="Gl.BindAttribLocation"/>
-		/// <seealso cref="Gl.VertexAttribPointer"/>
 		[RequiredByFeature("GL_VERSION_3_0")]
 		public static void VertexAttribI2(UInt32 index, Int32 x, Int32 y)
 		{
@@ -2851,63 +2218,6 @@ namespace OpenGL
 		/// <param name="z">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
-		/// <remarks>
-		/// The glVertexAttrib family of entry points allows an application to pass generic vertex attributes in numbered locations.
-		/// Generic attributes are defined as four-component values that are organized into an array. The first entry of this array 
-		/// is numbered 0, and the size of the array is specified by the implementation-dependent constant GL_MAX_VERTEX_ATTRIBS. 
-		/// Individual elements of this array can be modified with a glVertexAttrib call that specifies the index of the element to 
-		/// be modified and a value for that element.
-		/// These commands can be used to specify one, two, three, or all four components of the generic vertex attribute specified 
-		/// by index. A 1 in the name of the command indicates that only one value is passed, and it will be used to modify the 
-		/// first component of the generic vertex attribute. The second and third components will be set to 0, and the fourth 
-		/// component will be set to 1. Similarly, a 2 in the name of the command indicates that values are provided for the first 
-		/// two components, the third component will be set to 0, and the fourth component will be set to 1. A 3 in the name of the 
-		/// command indicates that values are provided for the first three components and the fourth component will be set to 1, 
-		/// whereas a 4 in the name indicates that values are provided for all four components.
-		/// The letters s, f, i, d, ub, us, and ui indicate whether the arguments are of type short, float, int, double, unsigned 
-		/// byte, unsigned short, or unsigned int. When v is appended to the name, the commands can take a pointer to an array of 
-		/// such values.
-		/// Additional capitalized letters can indicate further alterations to the default behavior of the glVertexAttrib function:
-		/// The commands containing N indicate that the arguments will be passed as fixed-point values that are scaled to a 
-		/// normalized range according to the component conversion rules defined by the OpenGL specification. Signed values are 
-		/// understood to represent fixed-point values in the range [-1,1], and unsigned values are understood to represent 
-		/// fixed-point values in the range [0,1].
-		/// The commands containing I indicate that the arguments are extended to full signed or unsigned integers.
-		/// The commands containing P indicate that the arguments are stored as packed components within a larger natural type.
-		/// The commands containing L indicate that the arguments are full 64-bit quantities and should be passed directly to shader 
-		/// inputs declared as 64-bit double precision types.
-		/// OpenGL Shading Language attribute variables are allowed to be of type mat2, mat3, or mat4. Attributes of these types may 
-		/// be loaded using the glVertexAttrib entry points. Matrices must be loaded into successive generic attribute slots in 
-		/// column major order, with one column of the matrix in each generic attribute slot.
-		/// A user-defined attribute variable declared in a vertex shader can be bound to a generic attribute index by calling 
-		/// glBindAttribLocation. This allows an application to use more descriptive variable names in a vertex shader. A subsequent 
-		/// change to the specified generic vertex attribute will be immediately reflected as a change to the corresponding 
-		/// attribute variable in the vertex shader.
-		/// The binding between a generic vertex attribute index and a user-defined attribute variable in a vertex shader is part of 
-		/// the state of a program object, but the current value of the generic vertex attribute is not. The value of each generic 
-		/// vertex attribute is part of current state, just like standard vertex attributes, and it is maintained even if a 
-		/// different program object is used.
-		/// An application may freely modify generic vertex attributes that are not bound to a named vertex shader attribute 
-		/// variable. These values are simply maintained as part of current state and will not be accessed by the vertex shader. If 
-		/// a generic vertex attribute bound to an attribute variable in a vertex shader is not updated while the vertex shader is 
-		/// executing, the vertex shader will repeatedly use the current value for the generic vertex attribute.
-		/// <para>
-		/// The following errors can be generated:
-		/// - GL_INVALID_VALUE is generated if index is greater than or equal to GL_MAX_VERTEX_ATTRIBS.
-		/// - GL_INVALID_ENUM is generated if glVertexAttribP* is used with a type other than GL_INT_2_10_10_10_REV, 
-		///   GL_UNSIGNED_INT_2_10_10_10_REV, or GL_UNSIGNED_INT_10F_11F_11F_REV.
-		/// - GL_INVALID_ENUM is generated if glVertexAttribL is used with a type other than GL_DOUBLE.
-		/// </para>
-		/// <para>
-		/// The associated information is got with the following commands:
-		/// - glGet with the argument GL_CURRENT_PROGRAM
-		/// - glGetActiveAttrib with argument program and the index of an active attribute variable
-		/// - glGetAttribLocation with argument program and an attribute variable name
-		/// - glGetVertexAttrib with arguments GL_CURRENT_VERTEX_ATTRIB and index
-		/// </para>
-		/// </remarks>
-		/// <seealso cref="Gl.BindAttribLocation"/>
-		/// <seealso cref="Gl.VertexAttribPointer"/>
 		[RequiredByFeature("GL_VERSION_3_0")]
 		public static void VertexAttribI3(UInt32 index, Int32 x, Int32 y, Int32 z)
 		{
@@ -2940,63 +2250,6 @@ namespace OpenGL
 		/// <param name="w">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
-		/// <remarks>
-		/// The glVertexAttrib family of entry points allows an application to pass generic vertex attributes in numbered locations.
-		/// Generic attributes are defined as four-component values that are organized into an array. The first entry of this array 
-		/// is numbered 0, and the size of the array is specified by the implementation-dependent constant GL_MAX_VERTEX_ATTRIBS. 
-		/// Individual elements of this array can be modified with a glVertexAttrib call that specifies the index of the element to 
-		/// be modified and a value for that element.
-		/// These commands can be used to specify one, two, three, or all four components of the generic vertex attribute specified 
-		/// by index. A 1 in the name of the command indicates that only one value is passed, and it will be used to modify the 
-		/// first component of the generic vertex attribute. The second and third components will be set to 0, and the fourth 
-		/// component will be set to 1. Similarly, a 2 in the name of the command indicates that values are provided for the first 
-		/// two components, the third component will be set to 0, and the fourth component will be set to 1. A 3 in the name of the 
-		/// command indicates that values are provided for the first three components and the fourth component will be set to 1, 
-		/// whereas a 4 in the name indicates that values are provided for all four components.
-		/// The letters s, f, i, d, ub, us, and ui indicate whether the arguments are of type short, float, int, double, unsigned 
-		/// byte, unsigned short, or unsigned int. When v is appended to the name, the commands can take a pointer to an array of 
-		/// such values.
-		/// Additional capitalized letters can indicate further alterations to the default behavior of the glVertexAttrib function:
-		/// The commands containing N indicate that the arguments will be passed as fixed-point values that are scaled to a 
-		/// normalized range according to the component conversion rules defined by the OpenGL specification. Signed values are 
-		/// understood to represent fixed-point values in the range [-1,1], and unsigned values are understood to represent 
-		/// fixed-point values in the range [0,1].
-		/// The commands containing I indicate that the arguments are extended to full signed or unsigned integers.
-		/// The commands containing P indicate that the arguments are stored as packed components within a larger natural type.
-		/// The commands containing L indicate that the arguments are full 64-bit quantities and should be passed directly to shader 
-		/// inputs declared as 64-bit double precision types.
-		/// OpenGL Shading Language attribute variables are allowed to be of type mat2, mat3, or mat4. Attributes of these types may 
-		/// be loaded using the glVertexAttrib entry points. Matrices must be loaded into successive generic attribute slots in 
-		/// column major order, with one column of the matrix in each generic attribute slot.
-		/// A user-defined attribute variable declared in a vertex shader can be bound to a generic attribute index by calling 
-		/// glBindAttribLocation. This allows an application to use more descriptive variable names in a vertex shader. A subsequent 
-		/// change to the specified generic vertex attribute will be immediately reflected as a change to the corresponding 
-		/// attribute variable in the vertex shader.
-		/// The binding between a generic vertex attribute index and a user-defined attribute variable in a vertex shader is part of 
-		/// the state of a program object, but the current value of the generic vertex attribute is not. The value of each generic 
-		/// vertex attribute is part of current state, just like standard vertex attributes, and it is maintained even if a 
-		/// different program object is used.
-		/// An application may freely modify generic vertex attributes that are not bound to a named vertex shader attribute 
-		/// variable. These values are simply maintained as part of current state and will not be accessed by the vertex shader. If 
-		/// a generic vertex attribute bound to an attribute variable in a vertex shader is not updated while the vertex shader is 
-		/// executing, the vertex shader will repeatedly use the current value for the generic vertex attribute.
-		/// <para>
-		/// The following errors can be generated:
-		/// - GL_INVALID_VALUE is generated if index is greater than or equal to GL_MAX_VERTEX_ATTRIBS.
-		/// - GL_INVALID_ENUM is generated if glVertexAttribP* is used with a type other than GL_INT_2_10_10_10_REV, 
-		///   GL_UNSIGNED_INT_2_10_10_10_REV, or GL_UNSIGNED_INT_10F_11F_11F_REV.
-		/// - GL_INVALID_ENUM is generated if glVertexAttribL is used with a type other than GL_DOUBLE.
-		/// </para>
-		/// <para>
-		/// The associated information is got with the following commands:
-		/// - glGet with the argument GL_CURRENT_PROGRAM
-		/// - glGetActiveAttrib with argument program and the index of an active attribute variable
-		/// - glGetAttribLocation with argument program and an attribute variable name
-		/// - glGetVertexAttrib with arguments GL_CURRENT_VERTEX_ATTRIB and index
-		/// </para>
-		/// </remarks>
-		/// <seealso cref="Gl.BindAttribLocation"/>
-		/// <seealso cref="Gl.VertexAttribPointer"/>
 		[RequiredByFeature("GL_VERSION_3_0")]
 		public static void VertexAttribI4(UInt32 index, Int32 x, Int32 y, Int32 z, Int32 w)
 		{
@@ -3020,63 +2273,6 @@ namespace OpenGL
 		/// <param name="x">
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
-		/// <remarks>
-		/// The glVertexAttrib family of entry points allows an application to pass generic vertex attributes in numbered locations.
-		/// Generic attributes are defined as four-component values that are organized into an array. The first entry of this array 
-		/// is numbered 0, and the size of the array is specified by the implementation-dependent constant GL_MAX_VERTEX_ATTRIBS. 
-		/// Individual elements of this array can be modified with a glVertexAttrib call that specifies the index of the element to 
-		/// be modified and a value for that element.
-		/// These commands can be used to specify one, two, three, or all four components of the generic vertex attribute specified 
-		/// by index. A 1 in the name of the command indicates that only one value is passed, and it will be used to modify the 
-		/// first component of the generic vertex attribute. The second and third components will be set to 0, and the fourth 
-		/// component will be set to 1. Similarly, a 2 in the name of the command indicates that values are provided for the first 
-		/// two components, the third component will be set to 0, and the fourth component will be set to 1. A 3 in the name of the 
-		/// command indicates that values are provided for the first three components and the fourth component will be set to 1, 
-		/// whereas a 4 in the name indicates that values are provided for all four components.
-		/// The letters s, f, i, d, ub, us, and ui indicate whether the arguments are of type short, float, int, double, unsigned 
-		/// byte, unsigned short, or unsigned int. When v is appended to the name, the commands can take a pointer to an array of 
-		/// such values.
-		/// Additional capitalized letters can indicate further alterations to the default behavior of the glVertexAttrib function:
-		/// The commands containing N indicate that the arguments will be passed as fixed-point values that are scaled to a 
-		/// normalized range according to the component conversion rules defined by the OpenGL specification. Signed values are 
-		/// understood to represent fixed-point values in the range [-1,1], and unsigned values are understood to represent 
-		/// fixed-point values in the range [0,1].
-		/// The commands containing I indicate that the arguments are extended to full signed or unsigned integers.
-		/// The commands containing P indicate that the arguments are stored as packed components within a larger natural type.
-		/// The commands containing L indicate that the arguments are full 64-bit quantities and should be passed directly to shader 
-		/// inputs declared as 64-bit double precision types.
-		/// OpenGL Shading Language attribute variables are allowed to be of type mat2, mat3, or mat4. Attributes of these types may 
-		/// be loaded using the glVertexAttrib entry points. Matrices must be loaded into successive generic attribute slots in 
-		/// column major order, with one column of the matrix in each generic attribute slot.
-		/// A user-defined attribute variable declared in a vertex shader can be bound to a generic attribute index by calling 
-		/// glBindAttribLocation. This allows an application to use more descriptive variable names in a vertex shader. A subsequent 
-		/// change to the specified generic vertex attribute will be immediately reflected as a change to the corresponding 
-		/// attribute variable in the vertex shader.
-		/// The binding between a generic vertex attribute index and a user-defined attribute variable in a vertex shader is part of 
-		/// the state of a program object, but the current value of the generic vertex attribute is not. The value of each generic 
-		/// vertex attribute is part of current state, just like standard vertex attributes, and it is maintained even if a 
-		/// different program object is used.
-		/// An application may freely modify generic vertex attributes that are not bound to a named vertex shader attribute 
-		/// variable. These values are simply maintained as part of current state and will not be accessed by the vertex shader. If 
-		/// a generic vertex attribute bound to an attribute variable in a vertex shader is not updated while the vertex shader is 
-		/// executing, the vertex shader will repeatedly use the current value for the generic vertex attribute.
-		/// <para>
-		/// The following errors can be generated:
-		/// - GL_INVALID_VALUE is generated if index is greater than or equal to GL_MAX_VERTEX_ATTRIBS.
-		/// - GL_INVALID_ENUM is generated if glVertexAttribP* is used with a type other than GL_INT_2_10_10_10_REV, 
-		///   GL_UNSIGNED_INT_2_10_10_10_REV, or GL_UNSIGNED_INT_10F_11F_11F_REV.
-		/// - GL_INVALID_ENUM is generated if glVertexAttribL is used with a type other than GL_DOUBLE.
-		/// </para>
-		/// <para>
-		/// The associated information is got with the following commands:
-		/// - glGet with the argument GL_CURRENT_PROGRAM
-		/// - glGetActiveAttrib with argument program and the index of an active attribute variable
-		/// - glGetAttribLocation with argument program and an attribute variable name
-		/// - glGetVertexAttrib with arguments GL_CURRENT_VERTEX_ATTRIB and index
-		/// </para>
-		/// </remarks>
-		/// <seealso cref="Gl.BindAttribLocation"/>
-		/// <seealso cref="Gl.VertexAttribPointer"/>
 		[RequiredByFeature("GL_VERSION_3_0")]
 		public static void VertexAttribI1(UInt32 index, UInt32 x)
 		{
@@ -3103,63 +2299,6 @@ namespace OpenGL
 		/// <param name="y">
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
-		/// <remarks>
-		/// The glVertexAttrib family of entry points allows an application to pass generic vertex attributes in numbered locations.
-		/// Generic attributes are defined as four-component values that are organized into an array. The first entry of this array 
-		/// is numbered 0, and the size of the array is specified by the implementation-dependent constant GL_MAX_VERTEX_ATTRIBS. 
-		/// Individual elements of this array can be modified with a glVertexAttrib call that specifies the index of the element to 
-		/// be modified and a value for that element.
-		/// These commands can be used to specify one, two, three, or all four components of the generic vertex attribute specified 
-		/// by index. A 1 in the name of the command indicates that only one value is passed, and it will be used to modify the 
-		/// first component of the generic vertex attribute. The second and third components will be set to 0, and the fourth 
-		/// component will be set to 1. Similarly, a 2 in the name of the command indicates that values are provided for the first 
-		/// two components, the third component will be set to 0, and the fourth component will be set to 1. A 3 in the name of the 
-		/// command indicates that values are provided for the first three components and the fourth component will be set to 1, 
-		/// whereas a 4 in the name indicates that values are provided for all four components.
-		/// The letters s, f, i, d, ub, us, and ui indicate whether the arguments are of type short, float, int, double, unsigned 
-		/// byte, unsigned short, or unsigned int. When v is appended to the name, the commands can take a pointer to an array of 
-		/// such values.
-		/// Additional capitalized letters can indicate further alterations to the default behavior of the glVertexAttrib function:
-		/// The commands containing N indicate that the arguments will be passed as fixed-point values that are scaled to a 
-		/// normalized range according to the component conversion rules defined by the OpenGL specification. Signed values are 
-		/// understood to represent fixed-point values in the range [-1,1], and unsigned values are understood to represent 
-		/// fixed-point values in the range [0,1].
-		/// The commands containing I indicate that the arguments are extended to full signed or unsigned integers.
-		/// The commands containing P indicate that the arguments are stored as packed components within a larger natural type.
-		/// The commands containing L indicate that the arguments are full 64-bit quantities and should be passed directly to shader 
-		/// inputs declared as 64-bit double precision types.
-		/// OpenGL Shading Language attribute variables are allowed to be of type mat2, mat3, or mat4. Attributes of these types may 
-		/// be loaded using the glVertexAttrib entry points. Matrices must be loaded into successive generic attribute slots in 
-		/// column major order, with one column of the matrix in each generic attribute slot.
-		/// A user-defined attribute variable declared in a vertex shader can be bound to a generic attribute index by calling 
-		/// glBindAttribLocation. This allows an application to use more descriptive variable names in a vertex shader. A subsequent 
-		/// change to the specified generic vertex attribute will be immediately reflected as a change to the corresponding 
-		/// attribute variable in the vertex shader.
-		/// The binding between a generic vertex attribute index and a user-defined attribute variable in a vertex shader is part of 
-		/// the state of a program object, but the current value of the generic vertex attribute is not. The value of each generic 
-		/// vertex attribute is part of current state, just like standard vertex attributes, and it is maintained even if a 
-		/// different program object is used.
-		/// An application may freely modify generic vertex attributes that are not bound to a named vertex shader attribute 
-		/// variable. These values are simply maintained as part of current state and will not be accessed by the vertex shader. If 
-		/// a generic vertex attribute bound to an attribute variable in a vertex shader is not updated while the vertex shader is 
-		/// executing, the vertex shader will repeatedly use the current value for the generic vertex attribute.
-		/// <para>
-		/// The following errors can be generated:
-		/// - GL_INVALID_VALUE is generated if index is greater than or equal to GL_MAX_VERTEX_ATTRIBS.
-		/// - GL_INVALID_ENUM is generated if glVertexAttribP* is used with a type other than GL_INT_2_10_10_10_REV, 
-		///   GL_UNSIGNED_INT_2_10_10_10_REV, or GL_UNSIGNED_INT_10F_11F_11F_REV.
-		/// - GL_INVALID_ENUM is generated if glVertexAttribL is used with a type other than GL_DOUBLE.
-		/// </para>
-		/// <para>
-		/// The associated information is got with the following commands:
-		/// - glGet with the argument GL_CURRENT_PROGRAM
-		/// - glGetActiveAttrib with argument program and the index of an active attribute variable
-		/// - glGetAttribLocation with argument program and an attribute variable name
-		/// - glGetVertexAttrib with arguments GL_CURRENT_VERTEX_ATTRIB and index
-		/// </para>
-		/// </remarks>
-		/// <seealso cref="Gl.BindAttribLocation"/>
-		/// <seealso cref="Gl.VertexAttribPointer"/>
 		[RequiredByFeature("GL_VERSION_3_0")]
 		public static void VertexAttribI2(UInt32 index, UInt32 x, UInt32 y)
 		{
@@ -3189,63 +2328,6 @@ namespace OpenGL
 		/// <param name="z">
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
-		/// <remarks>
-		/// The glVertexAttrib family of entry points allows an application to pass generic vertex attributes in numbered locations.
-		/// Generic attributes are defined as four-component values that are organized into an array. The first entry of this array 
-		/// is numbered 0, and the size of the array is specified by the implementation-dependent constant GL_MAX_VERTEX_ATTRIBS. 
-		/// Individual elements of this array can be modified with a glVertexAttrib call that specifies the index of the element to 
-		/// be modified and a value for that element.
-		/// These commands can be used to specify one, two, three, or all four components of the generic vertex attribute specified 
-		/// by index. A 1 in the name of the command indicates that only one value is passed, and it will be used to modify the 
-		/// first component of the generic vertex attribute. The second and third components will be set to 0, and the fourth 
-		/// component will be set to 1. Similarly, a 2 in the name of the command indicates that values are provided for the first 
-		/// two components, the third component will be set to 0, and the fourth component will be set to 1. A 3 in the name of the 
-		/// command indicates that values are provided for the first three components and the fourth component will be set to 1, 
-		/// whereas a 4 in the name indicates that values are provided for all four components.
-		/// The letters s, f, i, d, ub, us, and ui indicate whether the arguments are of type short, float, int, double, unsigned 
-		/// byte, unsigned short, or unsigned int. When v is appended to the name, the commands can take a pointer to an array of 
-		/// such values.
-		/// Additional capitalized letters can indicate further alterations to the default behavior of the glVertexAttrib function:
-		/// The commands containing N indicate that the arguments will be passed as fixed-point values that are scaled to a 
-		/// normalized range according to the component conversion rules defined by the OpenGL specification. Signed values are 
-		/// understood to represent fixed-point values in the range [-1,1], and unsigned values are understood to represent 
-		/// fixed-point values in the range [0,1].
-		/// The commands containing I indicate that the arguments are extended to full signed or unsigned integers.
-		/// The commands containing P indicate that the arguments are stored as packed components within a larger natural type.
-		/// The commands containing L indicate that the arguments are full 64-bit quantities and should be passed directly to shader 
-		/// inputs declared as 64-bit double precision types.
-		/// OpenGL Shading Language attribute variables are allowed to be of type mat2, mat3, or mat4. Attributes of these types may 
-		/// be loaded using the glVertexAttrib entry points. Matrices must be loaded into successive generic attribute slots in 
-		/// column major order, with one column of the matrix in each generic attribute slot.
-		/// A user-defined attribute variable declared in a vertex shader can be bound to a generic attribute index by calling 
-		/// glBindAttribLocation. This allows an application to use more descriptive variable names in a vertex shader. A subsequent 
-		/// change to the specified generic vertex attribute will be immediately reflected as a change to the corresponding 
-		/// attribute variable in the vertex shader.
-		/// The binding between a generic vertex attribute index and a user-defined attribute variable in a vertex shader is part of 
-		/// the state of a program object, but the current value of the generic vertex attribute is not. The value of each generic 
-		/// vertex attribute is part of current state, just like standard vertex attributes, and it is maintained even if a 
-		/// different program object is used.
-		/// An application may freely modify generic vertex attributes that are not bound to a named vertex shader attribute 
-		/// variable. These values are simply maintained as part of current state and will not be accessed by the vertex shader. If 
-		/// a generic vertex attribute bound to an attribute variable in a vertex shader is not updated while the vertex shader is 
-		/// executing, the vertex shader will repeatedly use the current value for the generic vertex attribute.
-		/// <para>
-		/// The following errors can be generated:
-		/// - GL_INVALID_VALUE is generated if index is greater than or equal to GL_MAX_VERTEX_ATTRIBS.
-		/// - GL_INVALID_ENUM is generated if glVertexAttribP* is used with a type other than GL_INT_2_10_10_10_REV, 
-		///   GL_UNSIGNED_INT_2_10_10_10_REV, or GL_UNSIGNED_INT_10F_11F_11F_REV.
-		/// - GL_INVALID_ENUM is generated if glVertexAttribL is used with a type other than GL_DOUBLE.
-		/// </para>
-		/// <para>
-		/// The associated information is got with the following commands:
-		/// - glGet with the argument GL_CURRENT_PROGRAM
-		/// - glGetActiveAttrib with argument program and the index of an active attribute variable
-		/// - glGetAttribLocation with argument program and an attribute variable name
-		/// - glGetVertexAttrib with arguments GL_CURRENT_VERTEX_ATTRIB and index
-		/// </para>
-		/// </remarks>
-		/// <seealso cref="Gl.BindAttribLocation"/>
-		/// <seealso cref="Gl.VertexAttribPointer"/>
 		[RequiredByFeature("GL_VERSION_3_0")]
 		public static void VertexAttribI3(UInt32 index, UInt32 x, UInt32 y, UInt32 z)
 		{
@@ -3278,63 +2360,6 @@ namespace OpenGL
 		/// <param name="w">
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
-		/// <remarks>
-		/// The glVertexAttrib family of entry points allows an application to pass generic vertex attributes in numbered locations.
-		/// Generic attributes are defined as four-component values that are organized into an array. The first entry of this array 
-		/// is numbered 0, and the size of the array is specified by the implementation-dependent constant GL_MAX_VERTEX_ATTRIBS. 
-		/// Individual elements of this array can be modified with a glVertexAttrib call that specifies the index of the element to 
-		/// be modified and a value for that element.
-		/// These commands can be used to specify one, two, three, or all four components of the generic vertex attribute specified 
-		/// by index. A 1 in the name of the command indicates that only one value is passed, and it will be used to modify the 
-		/// first component of the generic vertex attribute. The second and third components will be set to 0, and the fourth 
-		/// component will be set to 1. Similarly, a 2 in the name of the command indicates that values are provided for the first 
-		/// two components, the third component will be set to 0, and the fourth component will be set to 1. A 3 in the name of the 
-		/// command indicates that values are provided for the first three components and the fourth component will be set to 1, 
-		/// whereas a 4 in the name indicates that values are provided for all four components.
-		/// The letters s, f, i, d, ub, us, and ui indicate whether the arguments are of type short, float, int, double, unsigned 
-		/// byte, unsigned short, or unsigned int. When v is appended to the name, the commands can take a pointer to an array of 
-		/// such values.
-		/// Additional capitalized letters can indicate further alterations to the default behavior of the glVertexAttrib function:
-		/// The commands containing N indicate that the arguments will be passed as fixed-point values that are scaled to a 
-		/// normalized range according to the component conversion rules defined by the OpenGL specification. Signed values are 
-		/// understood to represent fixed-point values in the range [-1,1], and unsigned values are understood to represent 
-		/// fixed-point values in the range [0,1].
-		/// The commands containing I indicate that the arguments are extended to full signed or unsigned integers.
-		/// The commands containing P indicate that the arguments are stored as packed components within a larger natural type.
-		/// The commands containing L indicate that the arguments are full 64-bit quantities and should be passed directly to shader 
-		/// inputs declared as 64-bit double precision types.
-		/// OpenGL Shading Language attribute variables are allowed to be of type mat2, mat3, or mat4. Attributes of these types may 
-		/// be loaded using the glVertexAttrib entry points. Matrices must be loaded into successive generic attribute slots in 
-		/// column major order, with one column of the matrix in each generic attribute slot.
-		/// A user-defined attribute variable declared in a vertex shader can be bound to a generic attribute index by calling 
-		/// glBindAttribLocation. This allows an application to use more descriptive variable names in a vertex shader. A subsequent 
-		/// change to the specified generic vertex attribute will be immediately reflected as a change to the corresponding 
-		/// attribute variable in the vertex shader.
-		/// The binding between a generic vertex attribute index and a user-defined attribute variable in a vertex shader is part of 
-		/// the state of a program object, but the current value of the generic vertex attribute is not. The value of each generic 
-		/// vertex attribute is part of current state, just like standard vertex attributes, and it is maintained even if a 
-		/// different program object is used.
-		/// An application may freely modify generic vertex attributes that are not bound to a named vertex shader attribute 
-		/// variable. These values are simply maintained as part of current state and will not be accessed by the vertex shader. If 
-		/// a generic vertex attribute bound to an attribute variable in a vertex shader is not updated while the vertex shader is 
-		/// executing, the vertex shader will repeatedly use the current value for the generic vertex attribute.
-		/// <para>
-		/// The following errors can be generated:
-		/// - GL_INVALID_VALUE is generated if index is greater than or equal to GL_MAX_VERTEX_ATTRIBS.
-		/// - GL_INVALID_ENUM is generated if glVertexAttribP* is used with a type other than GL_INT_2_10_10_10_REV, 
-		///   GL_UNSIGNED_INT_2_10_10_10_REV, or GL_UNSIGNED_INT_10F_11F_11F_REV.
-		/// - GL_INVALID_ENUM is generated if glVertexAttribL is used with a type other than GL_DOUBLE.
-		/// </para>
-		/// <para>
-		/// The associated information is got with the following commands:
-		/// - glGet with the argument GL_CURRENT_PROGRAM
-		/// - glGetActiveAttrib with argument program and the index of an active attribute variable
-		/// - glGetAttribLocation with argument program and an attribute variable name
-		/// - glGetVertexAttrib with arguments GL_CURRENT_VERTEX_ATTRIB and index
-		/// </para>
-		/// </remarks>
-		/// <seealso cref="Gl.BindAttribLocation"/>
-		/// <seealso cref="Gl.VertexAttribPointer"/>
 		[RequiredByFeature("GL_VERSION_3_0")]
 		public static void VertexAttribI4(UInt32 index, UInt32 x, UInt32 y, UInt32 z, UInt32 w)
 		{
@@ -3359,63 +2384,6 @@ namespace OpenGL
 		/// For the vector commands (glVertexAttrib*v), specifies a pointer to an array of values to be used for the generic vertex 
 		/// attribute.
 		/// </param>
-		/// <remarks>
-		/// The glVertexAttrib family of entry points allows an application to pass generic vertex attributes in numbered locations.
-		/// Generic attributes are defined as four-component values that are organized into an array. The first entry of this array 
-		/// is numbered 0, and the size of the array is specified by the implementation-dependent constant GL_MAX_VERTEX_ATTRIBS. 
-		/// Individual elements of this array can be modified with a glVertexAttrib call that specifies the index of the element to 
-		/// be modified and a value for that element.
-		/// These commands can be used to specify one, two, three, or all four components of the generic vertex attribute specified 
-		/// by index. A 1 in the name of the command indicates that only one value is passed, and it will be used to modify the 
-		/// first component of the generic vertex attribute. The second and third components will be set to 0, and the fourth 
-		/// component will be set to 1. Similarly, a 2 in the name of the command indicates that values are provided for the first 
-		/// two components, the third component will be set to 0, and the fourth component will be set to 1. A 3 in the name of the 
-		/// command indicates that values are provided for the first three components and the fourth component will be set to 1, 
-		/// whereas a 4 in the name indicates that values are provided for all four components.
-		/// The letters s, f, i, d, ub, us, and ui indicate whether the arguments are of type short, float, int, double, unsigned 
-		/// byte, unsigned short, or unsigned int. When v is appended to the name, the commands can take a pointer to an array of 
-		/// such values.
-		/// Additional capitalized letters can indicate further alterations to the default behavior of the glVertexAttrib function:
-		/// The commands containing N indicate that the arguments will be passed as fixed-point values that are scaled to a 
-		/// normalized range according to the component conversion rules defined by the OpenGL specification. Signed values are 
-		/// understood to represent fixed-point values in the range [-1,1], and unsigned values are understood to represent 
-		/// fixed-point values in the range [0,1].
-		/// The commands containing I indicate that the arguments are extended to full signed or unsigned integers.
-		/// The commands containing P indicate that the arguments are stored as packed components within a larger natural type.
-		/// The commands containing L indicate that the arguments are full 64-bit quantities and should be passed directly to shader 
-		/// inputs declared as 64-bit double precision types.
-		/// OpenGL Shading Language attribute variables are allowed to be of type mat2, mat3, or mat4. Attributes of these types may 
-		/// be loaded using the glVertexAttrib entry points. Matrices must be loaded into successive generic attribute slots in 
-		/// column major order, with one column of the matrix in each generic attribute slot.
-		/// A user-defined attribute variable declared in a vertex shader can be bound to a generic attribute index by calling 
-		/// glBindAttribLocation. This allows an application to use more descriptive variable names in a vertex shader. A subsequent 
-		/// change to the specified generic vertex attribute will be immediately reflected as a change to the corresponding 
-		/// attribute variable in the vertex shader.
-		/// The binding between a generic vertex attribute index and a user-defined attribute variable in a vertex shader is part of 
-		/// the state of a program object, but the current value of the generic vertex attribute is not. The value of each generic 
-		/// vertex attribute is part of current state, just like standard vertex attributes, and it is maintained even if a 
-		/// different program object is used.
-		/// An application may freely modify generic vertex attributes that are not bound to a named vertex shader attribute 
-		/// variable. These values are simply maintained as part of current state and will not be accessed by the vertex shader. If 
-		/// a generic vertex attribute bound to an attribute variable in a vertex shader is not updated while the vertex shader is 
-		/// executing, the vertex shader will repeatedly use the current value for the generic vertex attribute.
-		/// <para>
-		/// The following errors can be generated:
-		/// - GL_INVALID_VALUE is generated if index is greater than or equal to GL_MAX_VERTEX_ATTRIBS.
-		/// - GL_INVALID_ENUM is generated if glVertexAttribP* is used with a type other than GL_INT_2_10_10_10_REV, 
-		///   GL_UNSIGNED_INT_2_10_10_10_REV, or GL_UNSIGNED_INT_10F_11F_11F_REV.
-		/// - GL_INVALID_ENUM is generated if glVertexAttribL is used with a type other than GL_DOUBLE.
-		/// </para>
-		/// <para>
-		/// The associated information is got with the following commands:
-		/// - glGet with the argument GL_CURRENT_PROGRAM
-		/// - glGetActiveAttrib with argument program and the index of an active attribute variable
-		/// - glGetAttribLocation with argument program and an attribute variable name
-		/// - glGetVertexAttrib with arguments GL_CURRENT_VERTEX_ATTRIB and index
-		/// </para>
-		/// </remarks>
-		/// <seealso cref="Gl.BindAttribLocation"/>
-		/// <seealso cref="Gl.VertexAttribPointer"/>
 		[RequiredByFeature("GL_VERSION_3_0")]
 		public static void VertexAttribI1(UInt32 index, Int32[] v)
 		{
@@ -3445,63 +2413,6 @@ namespace OpenGL
 		/// For the vector commands (glVertexAttrib*v), specifies a pointer to an array of values to be used for the generic vertex 
 		/// attribute.
 		/// </param>
-		/// <remarks>
-		/// The glVertexAttrib family of entry points allows an application to pass generic vertex attributes in numbered locations.
-		/// Generic attributes are defined as four-component values that are organized into an array. The first entry of this array 
-		/// is numbered 0, and the size of the array is specified by the implementation-dependent constant GL_MAX_VERTEX_ATTRIBS. 
-		/// Individual elements of this array can be modified with a glVertexAttrib call that specifies the index of the element to 
-		/// be modified and a value for that element.
-		/// These commands can be used to specify one, two, three, or all four components of the generic vertex attribute specified 
-		/// by index. A 1 in the name of the command indicates that only one value is passed, and it will be used to modify the 
-		/// first component of the generic vertex attribute. The second and third components will be set to 0, and the fourth 
-		/// component will be set to 1. Similarly, a 2 in the name of the command indicates that values are provided for the first 
-		/// two components, the third component will be set to 0, and the fourth component will be set to 1. A 3 in the name of the 
-		/// command indicates that values are provided for the first three components and the fourth component will be set to 1, 
-		/// whereas a 4 in the name indicates that values are provided for all four components.
-		/// The letters s, f, i, d, ub, us, and ui indicate whether the arguments are of type short, float, int, double, unsigned 
-		/// byte, unsigned short, or unsigned int. When v is appended to the name, the commands can take a pointer to an array of 
-		/// such values.
-		/// Additional capitalized letters can indicate further alterations to the default behavior of the glVertexAttrib function:
-		/// The commands containing N indicate that the arguments will be passed as fixed-point values that are scaled to a 
-		/// normalized range according to the component conversion rules defined by the OpenGL specification. Signed values are 
-		/// understood to represent fixed-point values in the range [-1,1], and unsigned values are understood to represent 
-		/// fixed-point values in the range [0,1].
-		/// The commands containing I indicate that the arguments are extended to full signed or unsigned integers.
-		/// The commands containing P indicate that the arguments are stored as packed components within a larger natural type.
-		/// The commands containing L indicate that the arguments are full 64-bit quantities and should be passed directly to shader 
-		/// inputs declared as 64-bit double precision types.
-		/// OpenGL Shading Language attribute variables are allowed to be of type mat2, mat3, or mat4. Attributes of these types may 
-		/// be loaded using the glVertexAttrib entry points. Matrices must be loaded into successive generic attribute slots in 
-		/// column major order, with one column of the matrix in each generic attribute slot.
-		/// A user-defined attribute variable declared in a vertex shader can be bound to a generic attribute index by calling 
-		/// glBindAttribLocation. This allows an application to use more descriptive variable names in a vertex shader. A subsequent 
-		/// change to the specified generic vertex attribute will be immediately reflected as a change to the corresponding 
-		/// attribute variable in the vertex shader.
-		/// The binding between a generic vertex attribute index and a user-defined attribute variable in a vertex shader is part of 
-		/// the state of a program object, but the current value of the generic vertex attribute is not. The value of each generic 
-		/// vertex attribute is part of current state, just like standard vertex attributes, and it is maintained even if a 
-		/// different program object is used.
-		/// An application may freely modify generic vertex attributes that are not bound to a named vertex shader attribute 
-		/// variable. These values are simply maintained as part of current state and will not be accessed by the vertex shader. If 
-		/// a generic vertex attribute bound to an attribute variable in a vertex shader is not updated while the vertex shader is 
-		/// executing, the vertex shader will repeatedly use the current value for the generic vertex attribute.
-		/// <para>
-		/// The following errors can be generated:
-		/// - GL_INVALID_VALUE is generated if index is greater than or equal to GL_MAX_VERTEX_ATTRIBS.
-		/// - GL_INVALID_ENUM is generated if glVertexAttribP* is used with a type other than GL_INT_2_10_10_10_REV, 
-		///   GL_UNSIGNED_INT_2_10_10_10_REV, or GL_UNSIGNED_INT_10F_11F_11F_REV.
-		/// - GL_INVALID_ENUM is generated if glVertexAttribL is used with a type other than GL_DOUBLE.
-		/// </para>
-		/// <para>
-		/// The associated information is got with the following commands:
-		/// - glGet with the argument GL_CURRENT_PROGRAM
-		/// - glGetActiveAttrib with argument program and the index of an active attribute variable
-		/// - glGetAttribLocation with argument program and an attribute variable name
-		/// - glGetVertexAttrib with arguments GL_CURRENT_VERTEX_ATTRIB and index
-		/// </para>
-		/// </remarks>
-		/// <seealso cref="Gl.BindAttribLocation"/>
-		/// <seealso cref="Gl.VertexAttribPointer"/>
 		[RequiredByFeature("GL_VERSION_3_0")]
 		public static void VertexAttribI2(UInt32 index, Int32[] v)
 		{
@@ -3531,63 +2442,6 @@ namespace OpenGL
 		/// For the vector commands (glVertexAttrib*v), specifies a pointer to an array of values to be used for the generic vertex 
 		/// attribute.
 		/// </param>
-		/// <remarks>
-		/// The glVertexAttrib family of entry points allows an application to pass generic vertex attributes in numbered locations.
-		/// Generic attributes are defined as four-component values that are organized into an array. The first entry of this array 
-		/// is numbered 0, and the size of the array is specified by the implementation-dependent constant GL_MAX_VERTEX_ATTRIBS. 
-		/// Individual elements of this array can be modified with a glVertexAttrib call that specifies the index of the element to 
-		/// be modified and a value for that element.
-		/// These commands can be used to specify one, two, three, or all four components of the generic vertex attribute specified 
-		/// by index. A 1 in the name of the command indicates that only one value is passed, and it will be used to modify the 
-		/// first component of the generic vertex attribute. The second and third components will be set to 0, and the fourth 
-		/// component will be set to 1. Similarly, a 2 in the name of the command indicates that values are provided for the first 
-		/// two components, the third component will be set to 0, and the fourth component will be set to 1. A 3 in the name of the 
-		/// command indicates that values are provided for the first three components and the fourth component will be set to 1, 
-		/// whereas a 4 in the name indicates that values are provided for all four components.
-		/// The letters s, f, i, d, ub, us, and ui indicate whether the arguments are of type short, float, int, double, unsigned 
-		/// byte, unsigned short, or unsigned int. When v is appended to the name, the commands can take a pointer to an array of 
-		/// such values.
-		/// Additional capitalized letters can indicate further alterations to the default behavior of the glVertexAttrib function:
-		/// The commands containing N indicate that the arguments will be passed as fixed-point values that are scaled to a 
-		/// normalized range according to the component conversion rules defined by the OpenGL specification. Signed values are 
-		/// understood to represent fixed-point values in the range [-1,1], and unsigned values are understood to represent 
-		/// fixed-point values in the range [0,1].
-		/// The commands containing I indicate that the arguments are extended to full signed or unsigned integers.
-		/// The commands containing P indicate that the arguments are stored as packed components within a larger natural type.
-		/// The commands containing L indicate that the arguments are full 64-bit quantities and should be passed directly to shader 
-		/// inputs declared as 64-bit double precision types.
-		/// OpenGL Shading Language attribute variables are allowed to be of type mat2, mat3, or mat4. Attributes of these types may 
-		/// be loaded using the glVertexAttrib entry points. Matrices must be loaded into successive generic attribute slots in 
-		/// column major order, with one column of the matrix in each generic attribute slot.
-		/// A user-defined attribute variable declared in a vertex shader can be bound to a generic attribute index by calling 
-		/// glBindAttribLocation. This allows an application to use more descriptive variable names in a vertex shader. A subsequent 
-		/// change to the specified generic vertex attribute will be immediately reflected as a change to the corresponding 
-		/// attribute variable in the vertex shader.
-		/// The binding between a generic vertex attribute index and a user-defined attribute variable in a vertex shader is part of 
-		/// the state of a program object, but the current value of the generic vertex attribute is not. The value of each generic 
-		/// vertex attribute is part of current state, just like standard vertex attributes, and it is maintained even if a 
-		/// different program object is used.
-		/// An application may freely modify generic vertex attributes that are not bound to a named vertex shader attribute 
-		/// variable. These values are simply maintained as part of current state and will not be accessed by the vertex shader. If 
-		/// a generic vertex attribute bound to an attribute variable in a vertex shader is not updated while the vertex shader is 
-		/// executing, the vertex shader will repeatedly use the current value for the generic vertex attribute.
-		/// <para>
-		/// The following errors can be generated:
-		/// - GL_INVALID_VALUE is generated if index is greater than or equal to GL_MAX_VERTEX_ATTRIBS.
-		/// - GL_INVALID_ENUM is generated if glVertexAttribP* is used with a type other than GL_INT_2_10_10_10_REV, 
-		///   GL_UNSIGNED_INT_2_10_10_10_REV, or GL_UNSIGNED_INT_10F_11F_11F_REV.
-		/// - GL_INVALID_ENUM is generated if glVertexAttribL is used with a type other than GL_DOUBLE.
-		/// </para>
-		/// <para>
-		/// The associated information is got with the following commands:
-		/// - glGet with the argument GL_CURRENT_PROGRAM
-		/// - glGetActiveAttrib with argument program and the index of an active attribute variable
-		/// - glGetAttribLocation with argument program and an attribute variable name
-		/// - glGetVertexAttrib with arguments GL_CURRENT_VERTEX_ATTRIB and index
-		/// </para>
-		/// </remarks>
-		/// <seealso cref="Gl.BindAttribLocation"/>
-		/// <seealso cref="Gl.VertexAttribPointer"/>
 		[RequiredByFeature("GL_VERSION_3_0")]
 		public static void VertexAttribI3(UInt32 index, Int32[] v)
 		{
@@ -3617,63 +2471,6 @@ namespace OpenGL
 		/// For the vector commands (glVertexAttrib*v), specifies a pointer to an array of values to be used for the generic vertex 
 		/// attribute.
 		/// </param>
-		/// <remarks>
-		/// The glVertexAttrib family of entry points allows an application to pass generic vertex attributes in numbered locations.
-		/// Generic attributes are defined as four-component values that are organized into an array. The first entry of this array 
-		/// is numbered 0, and the size of the array is specified by the implementation-dependent constant GL_MAX_VERTEX_ATTRIBS. 
-		/// Individual elements of this array can be modified with a glVertexAttrib call that specifies the index of the element to 
-		/// be modified and a value for that element.
-		/// These commands can be used to specify one, two, three, or all four components of the generic vertex attribute specified 
-		/// by index. A 1 in the name of the command indicates that only one value is passed, and it will be used to modify the 
-		/// first component of the generic vertex attribute. The second and third components will be set to 0, and the fourth 
-		/// component will be set to 1. Similarly, a 2 in the name of the command indicates that values are provided for the first 
-		/// two components, the third component will be set to 0, and the fourth component will be set to 1. A 3 in the name of the 
-		/// command indicates that values are provided for the first three components and the fourth component will be set to 1, 
-		/// whereas a 4 in the name indicates that values are provided for all four components.
-		/// The letters s, f, i, d, ub, us, and ui indicate whether the arguments are of type short, float, int, double, unsigned 
-		/// byte, unsigned short, or unsigned int. When v is appended to the name, the commands can take a pointer to an array of 
-		/// such values.
-		/// Additional capitalized letters can indicate further alterations to the default behavior of the glVertexAttrib function:
-		/// The commands containing N indicate that the arguments will be passed as fixed-point values that are scaled to a 
-		/// normalized range according to the component conversion rules defined by the OpenGL specification. Signed values are 
-		/// understood to represent fixed-point values in the range [-1,1], and unsigned values are understood to represent 
-		/// fixed-point values in the range [0,1].
-		/// The commands containing I indicate that the arguments are extended to full signed or unsigned integers.
-		/// The commands containing P indicate that the arguments are stored as packed components within a larger natural type.
-		/// The commands containing L indicate that the arguments are full 64-bit quantities and should be passed directly to shader 
-		/// inputs declared as 64-bit double precision types.
-		/// OpenGL Shading Language attribute variables are allowed to be of type mat2, mat3, or mat4. Attributes of these types may 
-		/// be loaded using the glVertexAttrib entry points. Matrices must be loaded into successive generic attribute slots in 
-		/// column major order, with one column of the matrix in each generic attribute slot.
-		/// A user-defined attribute variable declared in a vertex shader can be bound to a generic attribute index by calling 
-		/// glBindAttribLocation. This allows an application to use more descriptive variable names in a vertex shader. A subsequent 
-		/// change to the specified generic vertex attribute will be immediately reflected as a change to the corresponding 
-		/// attribute variable in the vertex shader.
-		/// The binding between a generic vertex attribute index and a user-defined attribute variable in a vertex shader is part of 
-		/// the state of a program object, but the current value of the generic vertex attribute is not. The value of each generic 
-		/// vertex attribute is part of current state, just like standard vertex attributes, and it is maintained even if a 
-		/// different program object is used.
-		/// An application may freely modify generic vertex attributes that are not bound to a named vertex shader attribute 
-		/// variable. These values are simply maintained as part of current state and will not be accessed by the vertex shader. If 
-		/// a generic vertex attribute bound to an attribute variable in a vertex shader is not updated while the vertex shader is 
-		/// executing, the vertex shader will repeatedly use the current value for the generic vertex attribute.
-		/// <para>
-		/// The following errors can be generated:
-		/// - GL_INVALID_VALUE is generated if index is greater than or equal to GL_MAX_VERTEX_ATTRIBS.
-		/// - GL_INVALID_ENUM is generated if glVertexAttribP* is used with a type other than GL_INT_2_10_10_10_REV, 
-		///   GL_UNSIGNED_INT_2_10_10_10_REV, or GL_UNSIGNED_INT_10F_11F_11F_REV.
-		/// - GL_INVALID_ENUM is generated if glVertexAttribL is used with a type other than GL_DOUBLE.
-		/// </para>
-		/// <para>
-		/// The associated information is got with the following commands:
-		/// - glGet with the argument GL_CURRENT_PROGRAM
-		/// - glGetActiveAttrib with argument program and the index of an active attribute variable
-		/// - glGetAttribLocation with argument program and an attribute variable name
-		/// - glGetVertexAttrib with arguments GL_CURRENT_VERTEX_ATTRIB and index
-		/// </para>
-		/// </remarks>
-		/// <seealso cref="Gl.BindAttribLocation"/>
-		/// <seealso cref="Gl.VertexAttribPointer"/>
 		[RequiredByFeature("GL_VERSION_3_0")]
 		public static void VertexAttribI4(UInt32 index, Int32[] v)
 		{
@@ -3703,63 +2500,6 @@ namespace OpenGL
 		/// For the vector commands (glVertexAttrib*v), specifies a pointer to an array of values to be used for the generic vertex 
 		/// attribute.
 		/// </param>
-		/// <remarks>
-		/// The glVertexAttrib family of entry points allows an application to pass generic vertex attributes in numbered locations.
-		/// Generic attributes are defined as four-component values that are organized into an array. The first entry of this array 
-		/// is numbered 0, and the size of the array is specified by the implementation-dependent constant GL_MAX_VERTEX_ATTRIBS. 
-		/// Individual elements of this array can be modified with a glVertexAttrib call that specifies the index of the element to 
-		/// be modified and a value for that element.
-		/// These commands can be used to specify one, two, three, or all four components of the generic vertex attribute specified 
-		/// by index. A 1 in the name of the command indicates that only one value is passed, and it will be used to modify the 
-		/// first component of the generic vertex attribute. The second and third components will be set to 0, and the fourth 
-		/// component will be set to 1. Similarly, a 2 in the name of the command indicates that values are provided for the first 
-		/// two components, the third component will be set to 0, and the fourth component will be set to 1. A 3 in the name of the 
-		/// command indicates that values are provided for the first three components and the fourth component will be set to 1, 
-		/// whereas a 4 in the name indicates that values are provided for all four components.
-		/// The letters s, f, i, d, ub, us, and ui indicate whether the arguments are of type short, float, int, double, unsigned 
-		/// byte, unsigned short, or unsigned int. When v is appended to the name, the commands can take a pointer to an array of 
-		/// such values.
-		/// Additional capitalized letters can indicate further alterations to the default behavior of the glVertexAttrib function:
-		/// The commands containing N indicate that the arguments will be passed as fixed-point values that are scaled to a 
-		/// normalized range according to the component conversion rules defined by the OpenGL specification. Signed values are 
-		/// understood to represent fixed-point values in the range [-1,1], and unsigned values are understood to represent 
-		/// fixed-point values in the range [0,1].
-		/// The commands containing I indicate that the arguments are extended to full signed or unsigned integers.
-		/// The commands containing P indicate that the arguments are stored as packed components within a larger natural type.
-		/// The commands containing L indicate that the arguments are full 64-bit quantities and should be passed directly to shader 
-		/// inputs declared as 64-bit double precision types.
-		/// OpenGL Shading Language attribute variables are allowed to be of type mat2, mat3, or mat4. Attributes of these types may 
-		/// be loaded using the glVertexAttrib entry points. Matrices must be loaded into successive generic attribute slots in 
-		/// column major order, with one column of the matrix in each generic attribute slot.
-		/// A user-defined attribute variable declared in a vertex shader can be bound to a generic attribute index by calling 
-		/// glBindAttribLocation. This allows an application to use more descriptive variable names in a vertex shader. A subsequent 
-		/// change to the specified generic vertex attribute will be immediately reflected as a change to the corresponding 
-		/// attribute variable in the vertex shader.
-		/// The binding between a generic vertex attribute index and a user-defined attribute variable in a vertex shader is part of 
-		/// the state of a program object, but the current value of the generic vertex attribute is not. The value of each generic 
-		/// vertex attribute is part of current state, just like standard vertex attributes, and it is maintained even if a 
-		/// different program object is used.
-		/// An application may freely modify generic vertex attributes that are not bound to a named vertex shader attribute 
-		/// variable. These values are simply maintained as part of current state and will not be accessed by the vertex shader. If 
-		/// a generic vertex attribute bound to an attribute variable in a vertex shader is not updated while the vertex shader is 
-		/// executing, the vertex shader will repeatedly use the current value for the generic vertex attribute.
-		/// <para>
-		/// The following errors can be generated:
-		/// - GL_INVALID_VALUE is generated if index is greater than or equal to GL_MAX_VERTEX_ATTRIBS.
-		/// - GL_INVALID_ENUM is generated if glVertexAttribP* is used with a type other than GL_INT_2_10_10_10_REV, 
-		///   GL_UNSIGNED_INT_2_10_10_10_REV, or GL_UNSIGNED_INT_10F_11F_11F_REV.
-		/// - GL_INVALID_ENUM is generated if glVertexAttribL is used with a type other than GL_DOUBLE.
-		/// </para>
-		/// <para>
-		/// The associated information is got with the following commands:
-		/// - glGet with the argument GL_CURRENT_PROGRAM
-		/// - glGetActiveAttrib with argument program and the index of an active attribute variable
-		/// - glGetAttribLocation with argument program and an attribute variable name
-		/// - glGetVertexAttrib with arguments GL_CURRENT_VERTEX_ATTRIB and index
-		/// </para>
-		/// </remarks>
-		/// <seealso cref="Gl.BindAttribLocation"/>
-		/// <seealso cref="Gl.VertexAttribPointer"/>
 		[RequiredByFeature("GL_VERSION_3_0")]
 		public static void VertexAttribI1(UInt32 index, UInt32[] v)
 		{
@@ -3789,63 +2529,6 @@ namespace OpenGL
 		/// For the vector commands (glVertexAttrib*v), specifies a pointer to an array of values to be used for the generic vertex 
 		/// attribute.
 		/// </param>
-		/// <remarks>
-		/// The glVertexAttrib family of entry points allows an application to pass generic vertex attributes in numbered locations.
-		/// Generic attributes are defined as four-component values that are organized into an array. The first entry of this array 
-		/// is numbered 0, and the size of the array is specified by the implementation-dependent constant GL_MAX_VERTEX_ATTRIBS. 
-		/// Individual elements of this array can be modified with a glVertexAttrib call that specifies the index of the element to 
-		/// be modified and a value for that element.
-		/// These commands can be used to specify one, two, three, or all four components of the generic vertex attribute specified 
-		/// by index. A 1 in the name of the command indicates that only one value is passed, and it will be used to modify the 
-		/// first component of the generic vertex attribute. The second and third components will be set to 0, and the fourth 
-		/// component will be set to 1. Similarly, a 2 in the name of the command indicates that values are provided for the first 
-		/// two components, the third component will be set to 0, and the fourth component will be set to 1. A 3 in the name of the 
-		/// command indicates that values are provided for the first three components and the fourth component will be set to 1, 
-		/// whereas a 4 in the name indicates that values are provided for all four components.
-		/// The letters s, f, i, d, ub, us, and ui indicate whether the arguments are of type short, float, int, double, unsigned 
-		/// byte, unsigned short, or unsigned int. When v is appended to the name, the commands can take a pointer to an array of 
-		/// such values.
-		/// Additional capitalized letters can indicate further alterations to the default behavior of the glVertexAttrib function:
-		/// The commands containing N indicate that the arguments will be passed as fixed-point values that are scaled to a 
-		/// normalized range according to the component conversion rules defined by the OpenGL specification. Signed values are 
-		/// understood to represent fixed-point values in the range [-1,1], and unsigned values are understood to represent 
-		/// fixed-point values in the range [0,1].
-		/// The commands containing I indicate that the arguments are extended to full signed or unsigned integers.
-		/// The commands containing P indicate that the arguments are stored as packed components within a larger natural type.
-		/// The commands containing L indicate that the arguments are full 64-bit quantities and should be passed directly to shader 
-		/// inputs declared as 64-bit double precision types.
-		/// OpenGL Shading Language attribute variables are allowed to be of type mat2, mat3, or mat4. Attributes of these types may 
-		/// be loaded using the glVertexAttrib entry points. Matrices must be loaded into successive generic attribute slots in 
-		/// column major order, with one column of the matrix in each generic attribute slot.
-		/// A user-defined attribute variable declared in a vertex shader can be bound to a generic attribute index by calling 
-		/// glBindAttribLocation. This allows an application to use more descriptive variable names in a vertex shader. A subsequent 
-		/// change to the specified generic vertex attribute will be immediately reflected as a change to the corresponding 
-		/// attribute variable in the vertex shader.
-		/// The binding between a generic vertex attribute index and a user-defined attribute variable in a vertex shader is part of 
-		/// the state of a program object, but the current value of the generic vertex attribute is not. The value of each generic 
-		/// vertex attribute is part of current state, just like standard vertex attributes, and it is maintained even if a 
-		/// different program object is used.
-		/// An application may freely modify generic vertex attributes that are not bound to a named vertex shader attribute 
-		/// variable. These values are simply maintained as part of current state and will not be accessed by the vertex shader. If 
-		/// a generic vertex attribute bound to an attribute variable in a vertex shader is not updated while the vertex shader is 
-		/// executing, the vertex shader will repeatedly use the current value for the generic vertex attribute.
-		/// <para>
-		/// The following errors can be generated:
-		/// - GL_INVALID_VALUE is generated if index is greater than or equal to GL_MAX_VERTEX_ATTRIBS.
-		/// - GL_INVALID_ENUM is generated if glVertexAttribP* is used with a type other than GL_INT_2_10_10_10_REV, 
-		///   GL_UNSIGNED_INT_2_10_10_10_REV, or GL_UNSIGNED_INT_10F_11F_11F_REV.
-		/// - GL_INVALID_ENUM is generated if glVertexAttribL is used with a type other than GL_DOUBLE.
-		/// </para>
-		/// <para>
-		/// The associated information is got with the following commands:
-		/// - glGet with the argument GL_CURRENT_PROGRAM
-		/// - glGetActiveAttrib with argument program and the index of an active attribute variable
-		/// - glGetAttribLocation with argument program and an attribute variable name
-		/// - glGetVertexAttrib with arguments GL_CURRENT_VERTEX_ATTRIB and index
-		/// </para>
-		/// </remarks>
-		/// <seealso cref="Gl.BindAttribLocation"/>
-		/// <seealso cref="Gl.VertexAttribPointer"/>
 		[RequiredByFeature("GL_VERSION_3_0")]
 		public static void VertexAttribI2(UInt32 index, UInt32[] v)
 		{
@@ -3875,63 +2558,6 @@ namespace OpenGL
 		/// For the vector commands (glVertexAttrib*v), specifies a pointer to an array of values to be used for the generic vertex 
 		/// attribute.
 		/// </param>
-		/// <remarks>
-		/// The glVertexAttrib family of entry points allows an application to pass generic vertex attributes in numbered locations.
-		/// Generic attributes are defined as four-component values that are organized into an array. The first entry of this array 
-		/// is numbered 0, and the size of the array is specified by the implementation-dependent constant GL_MAX_VERTEX_ATTRIBS. 
-		/// Individual elements of this array can be modified with a glVertexAttrib call that specifies the index of the element to 
-		/// be modified and a value for that element.
-		/// These commands can be used to specify one, two, three, or all four components of the generic vertex attribute specified 
-		/// by index. A 1 in the name of the command indicates that only one value is passed, and it will be used to modify the 
-		/// first component of the generic vertex attribute. The second and third components will be set to 0, and the fourth 
-		/// component will be set to 1. Similarly, a 2 in the name of the command indicates that values are provided for the first 
-		/// two components, the third component will be set to 0, and the fourth component will be set to 1. A 3 in the name of the 
-		/// command indicates that values are provided for the first three components and the fourth component will be set to 1, 
-		/// whereas a 4 in the name indicates that values are provided for all four components.
-		/// The letters s, f, i, d, ub, us, and ui indicate whether the arguments are of type short, float, int, double, unsigned 
-		/// byte, unsigned short, or unsigned int. When v is appended to the name, the commands can take a pointer to an array of 
-		/// such values.
-		/// Additional capitalized letters can indicate further alterations to the default behavior of the glVertexAttrib function:
-		/// The commands containing N indicate that the arguments will be passed as fixed-point values that are scaled to a 
-		/// normalized range according to the component conversion rules defined by the OpenGL specification. Signed values are 
-		/// understood to represent fixed-point values in the range [-1,1], and unsigned values are understood to represent 
-		/// fixed-point values in the range [0,1].
-		/// The commands containing I indicate that the arguments are extended to full signed or unsigned integers.
-		/// The commands containing P indicate that the arguments are stored as packed components within a larger natural type.
-		/// The commands containing L indicate that the arguments are full 64-bit quantities and should be passed directly to shader 
-		/// inputs declared as 64-bit double precision types.
-		/// OpenGL Shading Language attribute variables are allowed to be of type mat2, mat3, or mat4. Attributes of these types may 
-		/// be loaded using the glVertexAttrib entry points. Matrices must be loaded into successive generic attribute slots in 
-		/// column major order, with one column of the matrix in each generic attribute slot.
-		/// A user-defined attribute variable declared in a vertex shader can be bound to a generic attribute index by calling 
-		/// glBindAttribLocation. This allows an application to use more descriptive variable names in a vertex shader. A subsequent 
-		/// change to the specified generic vertex attribute will be immediately reflected as a change to the corresponding 
-		/// attribute variable in the vertex shader.
-		/// The binding between a generic vertex attribute index and a user-defined attribute variable in a vertex shader is part of 
-		/// the state of a program object, but the current value of the generic vertex attribute is not. The value of each generic 
-		/// vertex attribute is part of current state, just like standard vertex attributes, and it is maintained even if a 
-		/// different program object is used.
-		/// An application may freely modify generic vertex attributes that are not bound to a named vertex shader attribute 
-		/// variable. These values are simply maintained as part of current state and will not be accessed by the vertex shader. If 
-		/// a generic vertex attribute bound to an attribute variable in a vertex shader is not updated while the vertex shader is 
-		/// executing, the vertex shader will repeatedly use the current value for the generic vertex attribute.
-		/// <para>
-		/// The following errors can be generated:
-		/// - GL_INVALID_VALUE is generated if index is greater than or equal to GL_MAX_VERTEX_ATTRIBS.
-		/// - GL_INVALID_ENUM is generated if glVertexAttribP* is used with a type other than GL_INT_2_10_10_10_REV, 
-		///   GL_UNSIGNED_INT_2_10_10_10_REV, or GL_UNSIGNED_INT_10F_11F_11F_REV.
-		/// - GL_INVALID_ENUM is generated if glVertexAttribL is used with a type other than GL_DOUBLE.
-		/// </para>
-		/// <para>
-		/// The associated information is got with the following commands:
-		/// - glGet with the argument GL_CURRENT_PROGRAM
-		/// - glGetActiveAttrib with argument program and the index of an active attribute variable
-		/// - glGetAttribLocation with argument program and an attribute variable name
-		/// - glGetVertexAttrib with arguments GL_CURRENT_VERTEX_ATTRIB and index
-		/// </para>
-		/// </remarks>
-		/// <seealso cref="Gl.BindAttribLocation"/>
-		/// <seealso cref="Gl.VertexAttribPointer"/>
 		[RequiredByFeature("GL_VERSION_3_0")]
 		public static void VertexAttribI3(UInt32 index, UInt32[] v)
 		{
@@ -3961,63 +2587,6 @@ namespace OpenGL
 		/// For the vector commands (glVertexAttrib*v), specifies a pointer to an array of values to be used for the generic vertex 
 		/// attribute.
 		/// </param>
-		/// <remarks>
-		/// The glVertexAttrib family of entry points allows an application to pass generic vertex attributes in numbered locations.
-		/// Generic attributes are defined as four-component values that are organized into an array. The first entry of this array 
-		/// is numbered 0, and the size of the array is specified by the implementation-dependent constant GL_MAX_VERTEX_ATTRIBS. 
-		/// Individual elements of this array can be modified with a glVertexAttrib call that specifies the index of the element to 
-		/// be modified and a value for that element.
-		/// These commands can be used to specify one, two, three, or all four components of the generic vertex attribute specified 
-		/// by index. A 1 in the name of the command indicates that only one value is passed, and it will be used to modify the 
-		/// first component of the generic vertex attribute. The second and third components will be set to 0, and the fourth 
-		/// component will be set to 1. Similarly, a 2 in the name of the command indicates that values are provided for the first 
-		/// two components, the third component will be set to 0, and the fourth component will be set to 1. A 3 in the name of the 
-		/// command indicates that values are provided for the first three components and the fourth component will be set to 1, 
-		/// whereas a 4 in the name indicates that values are provided for all four components.
-		/// The letters s, f, i, d, ub, us, and ui indicate whether the arguments are of type short, float, int, double, unsigned 
-		/// byte, unsigned short, or unsigned int. When v is appended to the name, the commands can take a pointer to an array of 
-		/// such values.
-		/// Additional capitalized letters can indicate further alterations to the default behavior of the glVertexAttrib function:
-		/// The commands containing N indicate that the arguments will be passed as fixed-point values that are scaled to a 
-		/// normalized range according to the component conversion rules defined by the OpenGL specification. Signed values are 
-		/// understood to represent fixed-point values in the range [-1,1], and unsigned values are understood to represent 
-		/// fixed-point values in the range [0,1].
-		/// The commands containing I indicate that the arguments are extended to full signed or unsigned integers.
-		/// The commands containing P indicate that the arguments are stored as packed components within a larger natural type.
-		/// The commands containing L indicate that the arguments are full 64-bit quantities and should be passed directly to shader 
-		/// inputs declared as 64-bit double precision types.
-		/// OpenGL Shading Language attribute variables are allowed to be of type mat2, mat3, or mat4. Attributes of these types may 
-		/// be loaded using the glVertexAttrib entry points. Matrices must be loaded into successive generic attribute slots in 
-		/// column major order, with one column of the matrix in each generic attribute slot.
-		/// A user-defined attribute variable declared in a vertex shader can be bound to a generic attribute index by calling 
-		/// glBindAttribLocation. This allows an application to use more descriptive variable names in a vertex shader. A subsequent 
-		/// change to the specified generic vertex attribute will be immediately reflected as a change to the corresponding 
-		/// attribute variable in the vertex shader.
-		/// The binding between a generic vertex attribute index and a user-defined attribute variable in a vertex shader is part of 
-		/// the state of a program object, but the current value of the generic vertex attribute is not. The value of each generic 
-		/// vertex attribute is part of current state, just like standard vertex attributes, and it is maintained even if a 
-		/// different program object is used.
-		/// An application may freely modify generic vertex attributes that are not bound to a named vertex shader attribute 
-		/// variable. These values are simply maintained as part of current state and will not be accessed by the vertex shader. If 
-		/// a generic vertex attribute bound to an attribute variable in a vertex shader is not updated while the vertex shader is 
-		/// executing, the vertex shader will repeatedly use the current value for the generic vertex attribute.
-		/// <para>
-		/// The following errors can be generated:
-		/// - GL_INVALID_VALUE is generated if index is greater than or equal to GL_MAX_VERTEX_ATTRIBS.
-		/// - GL_INVALID_ENUM is generated if glVertexAttribP* is used with a type other than GL_INT_2_10_10_10_REV, 
-		///   GL_UNSIGNED_INT_2_10_10_10_REV, or GL_UNSIGNED_INT_10F_11F_11F_REV.
-		/// - GL_INVALID_ENUM is generated if glVertexAttribL is used with a type other than GL_DOUBLE.
-		/// </para>
-		/// <para>
-		/// The associated information is got with the following commands:
-		/// - glGet with the argument GL_CURRENT_PROGRAM
-		/// - glGetActiveAttrib with argument program and the index of an active attribute variable
-		/// - glGetAttribLocation with argument program and an attribute variable name
-		/// - glGetVertexAttrib with arguments GL_CURRENT_VERTEX_ATTRIB and index
-		/// </para>
-		/// </remarks>
-		/// <seealso cref="Gl.BindAttribLocation"/>
-		/// <seealso cref="Gl.VertexAttribPointer"/>
 		[RequiredByFeature("GL_VERSION_3_0")]
 		public static void VertexAttribI4(UInt32 index, UInt32[] v)
 		{
@@ -4047,63 +2616,6 @@ namespace OpenGL
 		/// For the vector commands (glVertexAttrib*v), specifies a pointer to an array of values to be used for the generic vertex 
 		/// attribute.
 		/// </param>
-		/// <remarks>
-		/// The glVertexAttrib family of entry points allows an application to pass generic vertex attributes in numbered locations.
-		/// Generic attributes are defined as four-component values that are organized into an array. The first entry of this array 
-		/// is numbered 0, and the size of the array is specified by the implementation-dependent constant GL_MAX_VERTEX_ATTRIBS. 
-		/// Individual elements of this array can be modified with a glVertexAttrib call that specifies the index of the element to 
-		/// be modified and a value for that element.
-		/// These commands can be used to specify one, two, three, or all four components of the generic vertex attribute specified 
-		/// by index. A 1 in the name of the command indicates that only one value is passed, and it will be used to modify the 
-		/// first component of the generic vertex attribute. The second and third components will be set to 0, and the fourth 
-		/// component will be set to 1. Similarly, a 2 in the name of the command indicates that values are provided for the first 
-		/// two components, the third component will be set to 0, and the fourth component will be set to 1. A 3 in the name of the 
-		/// command indicates that values are provided for the first three components and the fourth component will be set to 1, 
-		/// whereas a 4 in the name indicates that values are provided for all four components.
-		/// The letters s, f, i, d, ub, us, and ui indicate whether the arguments are of type short, float, int, double, unsigned 
-		/// byte, unsigned short, or unsigned int. When v is appended to the name, the commands can take a pointer to an array of 
-		/// such values.
-		/// Additional capitalized letters can indicate further alterations to the default behavior of the glVertexAttrib function:
-		/// The commands containing N indicate that the arguments will be passed as fixed-point values that are scaled to a 
-		/// normalized range according to the component conversion rules defined by the OpenGL specification. Signed values are 
-		/// understood to represent fixed-point values in the range [-1,1], and unsigned values are understood to represent 
-		/// fixed-point values in the range [0,1].
-		/// The commands containing I indicate that the arguments are extended to full signed or unsigned integers.
-		/// The commands containing P indicate that the arguments are stored as packed components within a larger natural type.
-		/// The commands containing L indicate that the arguments are full 64-bit quantities and should be passed directly to shader 
-		/// inputs declared as 64-bit double precision types.
-		/// OpenGL Shading Language attribute variables are allowed to be of type mat2, mat3, or mat4. Attributes of these types may 
-		/// be loaded using the glVertexAttrib entry points. Matrices must be loaded into successive generic attribute slots in 
-		/// column major order, with one column of the matrix in each generic attribute slot.
-		/// A user-defined attribute variable declared in a vertex shader can be bound to a generic attribute index by calling 
-		/// glBindAttribLocation. This allows an application to use more descriptive variable names in a vertex shader. A subsequent 
-		/// change to the specified generic vertex attribute will be immediately reflected as a change to the corresponding 
-		/// attribute variable in the vertex shader.
-		/// The binding between a generic vertex attribute index and a user-defined attribute variable in a vertex shader is part of 
-		/// the state of a program object, but the current value of the generic vertex attribute is not. The value of each generic 
-		/// vertex attribute is part of current state, just like standard vertex attributes, and it is maintained even if a 
-		/// different program object is used.
-		/// An application may freely modify generic vertex attributes that are not bound to a named vertex shader attribute 
-		/// variable. These values are simply maintained as part of current state and will not be accessed by the vertex shader. If 
-		/// a generic vertex attribute bound to an attribute variable in a vertex shader is not updated while the vertex shader is 
-		/// executing, the vertex shader will repeatedly use the current value for the generic vertex attribute.
-		/// <para>
-		/// The following errors can be generated:
-		/// - GL_INVALID_VALUE is generated if index is greater than or equal to GL_MAX_VERTEX_ATTRIBS.
-		/// - GL_INVALID_ENUM is generated if glVertexAttribP* is used with a type other than GL_INT_2_10_10_10_REV, 
-		///   GL_UNSIGNED_INT_2_10_10_10_REV, or GL_UNSIGNED_INT_10F_11F_11F_REV.
-		/// - GL_INVALID_ENUM is generated if glVertexAttribL is used with a type other than GL_DOUBLE.
-		/// </para>
-		/// <para>
-		/// The associated information is got with the following commands:
-		/// - glGet with the argument GL_CURRENT_PROGRAM
-		/// - glGetActiveAttrib with argument program and the index of an active attribute variable
-		/// - glGetAttribLocation with argument program and an attribute variable name
-		/// - glGetVertexAttrib with arguments GL_CURRENT_VERTEX_ATTRIB and index
-		/// </para>
-		/// </remarks>
-		/// <seealso cref="Gl.BindAttribLocation"/>
-		/// <seealso cref="Gl.VertexAttribPointer"/>
 		[RequiredByFeature("GL_VERSION_3_0")]
 		public static void VertexAttribI4(UInt32 index, sbyte[] v)
 		{
@@ -4133,63 +2645,6 @@ namespace OpenGL
 		/// For the vector commands (glVertexAttrib*v), specifies a pointer to an array of values to be used for the generic vertex 
 		/// attribute.
 		/// </param>
-		/// <remarks>
-		/// The glVertexAttrib family of entry points allows an application to pass generic vertex attributes in numbered locations.
-		/// Generic attributes are defined as four-component values that are organized into an array. The first entry of this array 
-		/// is numbered 0, and the size of the array is specified by the implementation-dependent constant GL_MAX_VERTEX_ATTRIBS. 
-		/// Individual elements of this array can be modified with a glVertexAttrib call that specifies the index of the element to 
-		/// be modified and a value for that element.
-		/// These commands can be used to specify one, two, three, or all four components of the generic vertex attribute specified 
-		/// by index. A 1 in the name of the command indicates that only one value is passed, and it will be used to modify the 
-		/// first component of the generic vertex attribute. The second and third components will be set to 0, and the fourth 
-		/// component will be set to 1. Similarly, a 2 in the name of the command indicates that values are provided for the first 
-		/// two components, the third component will be set to 0, and the fourth component will be set to 1. A 3 in the name of the 
-		/// command indicates that values are provided for the first three components and the fourth component will be set to 1, 
-		/// whereas a 4 in the name indicates that values are provided for all four components.
-		/// The letters s, f, i, d, ub, us, and ui indicate whether the arguments are of type short, float, int, double, unsigned 
-		/// byte, unsigned short, or unsigned int. When v is appended to the name, the commands can take a pointer to an array of 
-		/// such values.
-		/// Additional capitalized letters can indicate further alterations to the default behavior of the glVertexAttrib function:
-		/// The commands containing N indicate that the arguments will be passed as fixed-point values that are scaled to a 
-		/// normalized range according to the component conversion rules defined by the OpenGL specification. Signed values are 
-		/// understood to represent fixed-point values in the range [-1,1], and unsigned values are understood to represent 
-		/// fixed-point values in the range [0,1].
-		/// The commands containing I indicate that the arguments are extended to full signed or unsigned integers.
-		/// The commands containing P indicate that the arguments are stored as packed components within a larger natural type.
-		/// The commands containing L indicate that the arguments are full 64-bit quantities and should be passed directly to shader 
-		/// inputs declared as 64-bit double precision types.
-		/// OpenGL Shading Language attribute variables are allowed to be of type mat2, mat3, or mat4. Attributes of these types may 
-		/// be loaded using the glVertexAttrib entry points. Matrices must be loaded into successive generic attribute slots in 
-		/// column major order, with one column of the matrix in each generic attribute slot.
-		/// A user-defined attribute variable declared in a vertex shader can be bound to a generic attribute index by calling 
-		/// glBindAttribLocation. This allows an application to use more descriptive variable names in a vertex shader. A subsequent 
-		/// change to the specified generic vertex attribute will be immediately reflected as a change to the corresponding 
-		/// attribute variable in the vertex shader.
-		/// The binding between a generic vertex attribute index and a user-defined attribute variable in a vertex shader is part of 
-		/// the state of a program object, but the current value of the generic vertex attribute is not. The value of each generic 
-		/// vertex attribute is part of current state, just like standard vertex attributes, and it is maintained even if a 
-		/// different program object is used.
-		/// An application may freely modify generic vertex attributes that are not bound to a named vertex shader attribute 
-		/// variable. These values are simply maintained as part of current state and will not be accessed by the vertex shader. If 
-		/// a generic vertex attribute bound to an attribute variable in a vertex shader is not updated while the vertex shader is 
-		/// executing, the vertex shader will repeatedly use the current value for the generic vertex attribute.
-		/// <para>
-		/// The following errors can be generated:
-		/// - GL_INVALID_VALUE is generated if index is greater than or equal to GL_MAX_VERTEX_ATTRIBS.
-		/// - GL_INVALID_ENUM is generated if glVertexAttribP* is used with a type other than GL_INT_2_10_10_10_REV, 
-		///   GL_UNSIGNED_INT_2_10_10_10_REV, or GL_UNSIGNED_INT_10F_11F_11F_REV.
-		/// - GL_INVALID_ENUM is generated if glVertexAttribL is used with a type other than GL_DOUBLE.
-		/// </para>
-		/// <para>
-		/// The associated information is got with the following commands:
-		/// - glGet with the argument GL_CURRENT_PROGRAM
-		/// - glGetActiveAttrib with argument program and the index of an active attribute variable
-		/// - glGetAttribLocation with argument program and an attribute variable name
-		/// - glGetVertexAttrib with arguments GL_CURRENT_VERTEX_ATTRIB and index
-		/// </para>
-		/// </remarks>
-		/// <seealso cref="Gl.BindAttribLocation"/>
-		/// <seealso cref="Gl.VertexAttribPointer"/>
 		[RequiredByFeature("GL_VERSION_3_0")]
 		public static void VertexAttribI4(UInt32 index, Int16[] v)
 		{
@@ -4219,63 +2674,6 @@ namespace OpenGL
 		/// For the vector commands (glVertexAttrib*v), specifies a pointer to an array of values to be used for the generic vertex 
 		/// attribute.
 		/// </param>
-		/// <remarks>
-		/// The glVertexAttrib family of entry points allows an application to pass generic vertex attributes in numbered locations.
-		/// Generic attributes are defined as four-component values that are organized into an array. The first entry of this array 
-		/// is numbered 0, and the size of the array is specified by the implementation-dependent constant GL_MAX_VERTEX_ATTRIBS. 
-		/// Individual elements of this array can be modified with a glVertexAttrib call that specifies the index of the element to 
-		/// be modified and a value for that element.
-		/// These commands can be used to specify one, two, three, or all four components of the generic vertex attribute specified 
-		/// by index. A 1 in the name of the command indicates that only one value is passed, and it will be used to modify the 
-		/// first component of the generic vertex attribute. The second and third components will be set to 0, and the fourth 
-		/// component will be set to 1. Similarly, a 2 in the name of the command indicates that values are provided for the first 
-		/// two components, the third component will be set to 0, and the fourth component will be set to 1. A 3 in the name of the 
-		/// command indicates that values are provided for the first three components and the fourth component will be set to 1, 
-		/// whereas a 4 in the name indicates that values are provided for all four components.
-		/// The letters s, f, i, d, ub, us, and ui indicate whether the arguments are of type short, float, int, double, unsigned 
-		/// byte, unsigned short, or unsigned int. When v is appended to the name, the commands can take a pointer to an array of 
-		/// such values.
-		/// Additional capitalized letters can indicate further alterations to the default behavior of the glVertexAttrib function:
-		/// The commands containing N indicate that the arguments will be passed as fixed-point values that are scaled to a 
-		/// normalized range according to the component conversion rules defined by the OpenGL specification. Signed values are 
-		/// understood to represent fixed-point values in the range [-1,1], and unsigned values are understood to represent 
-		/// fixed-point values in the range [0,1].
-		/// The commands containing I indicate that the arguments are extended to full signed or unsigned integers.
-		/// The commands containing P indicate that the arguments are stored as packed components within a larger natural type.
-		/// The commands containing L indicate that the arguments are full 64-bit quantities and should be passed directly to shader 
-		/// inputs declared as 64-bit double precision types.
-		/// OpenGL Shading Language attribute variables are allowed to be of type mat2, mat3, or mat4. Attributes of these types may 
-		/// be loaded using the glVertexAttrib entry points. Matrices must be loaded into successive generic attribute slots in 
-		/// column major order, with one column of the matrix in each generic attribute slot.
-		/// A user-defined attribute variable declared in a vertex shader can be bound to a generic attribute index by calling 
-		/// glBindAttribLocation. This allows an application to use more descriptive variable names in a vertex shader. A subsequent 
-		/// change to the specified generic vertex attribute will be immediately reflected as a change to the corresponding 
-		/// attribute variable in the vertex shader.
-		/// The binding between a generic vertex attribute index and a user-defined attribute variable in a vertex shader is part of 
-		/// the state of a program object, but the current value of the generic vertex attribute is not. The value of each generic 
-		/// vertex attribute is part of current state, just like standard vertex attributes, and it is maintained even if a 
-		/// different program object is used.
-		/// An application may freely modify generic vertex attributes that are not bound to a named vertex shader attribute 
-		/// variable. These values are simply maintained as part of current state and will not be accessed by the vertex shader. If 
-		/// a generic vertex attribute bound to an attribute variable in a vertex shader is not updated while the vertex shader is 
-		/// executing, the vertex shader will repeatedly use the current value for the generic vertex attribute.
-		/// <para>
-		/// The following errors can be generated:
-		/// - GL_INVALID_VALUE is generated if index is greater than or equal to GL_MAX_VERTEX_ATTRIBS.
-		/// - GL_INVALID_ENUM is generated if glVertexAttribP* is used with a type other than GL_INT_2_10_10_10_REV, 
-		///   GL_UNSIGNED_INT_2_10_10_10_REV, or GL_UNSIGNED_INT_10F_11F_11F_REV.
-		/// - GL_INVALID_ENUM is generated if glVertexAttribL is used with a type other than GL_DOUBLE.
-		/// </para>
-		/// <para>
-		/// The associated information is got with the following commands:
-		/// - glGet with the argument GL_CURRENT_PROGRAM
-		/// - glGetActiveAttrib with argument program and the index of an active attribute variable
-		/// - glGetAttribLocation with argument program and an attribute variable name
-		/// - glGetVertexAttrib with arguments GL_CURRENT_VERTEX_ATTRIB and index
-		/// </para>
-		/// </remarks>
-		/// <seealso cref="Gl.BindAttribLocation"/>
-		/// <seealso cref="Gl.VertexAttribPointer"/>
 		[RequiredByFeature("GL_VERSION_3_0")]
 		public static void VertexAttribI4(UInt32 index, byte[] v)
 		{
@@ -4305,63 +2703,6 @@ namespace OpenGL
 		/// For the vector commands (glVertexAttrib*v), specifies a pointer to an array of values to be used for the generic vertex 
 		/// attribute.
 		/// </param>
-		/// <remarks>
-		/// The glVertexAttrib family of entry points allows an application to pass generic vertex attributes in numbered locations.
-		/// Generic attributes are defined as four-component values that are organized into an array. The first entry of this array 
-		/// is numbered 0, and the size of the array is specified by the implementation-dependent constant GL_MAX_VERTEX_ATTRIBS. 
-		/// Individual elements of this array can be modified with a glVertexAttrib call that specifies the index of the element to 
-		/// be modified and a value for that element.
-		/// These commands can be used to specify one, two, three, or all four components of the generic vertex attribute specified 
-		/// by index. A 1 in the name of the command indicates that only one value is passed, and it will be used to modify the 
-		/// first component of the generic vertex attribute. The second and third components will be set to 0, and the fourth 
-		/// component will be set to 1. Similarly, a 2 in the name of the command indicates that values are provided for the first 
-		/// two components, the third component will be set to 0, and the fourth component will be set to 1. A 3 in the name of the 
-		/// command indicates that values are provided for the first three components and the fourth component will be set to 1, 
-		/// whereas a 4 in the name indicates that values are provided for all four components.
-		/// The letters s, f, i, d, ub, us, and ui indicate whether the arguments are of type short, float, int, double, unsigned 
-		/// byte, unsigned short, or unsigned int. When v is appended to the name, the commands can take a pointer to an array of 
-		/// such values.
-		/// Additional capitalized letters can indicate further alterations to the default behavior of the glVertexAttrib function:
-		/// The commands containing N indicate that the arguments will be passed as fixed-point values that are scaled to a 
-		/// normalized range according to the component conversion rules defined by the OpenGL specification. Signed values are 
-		/// understood to represent fixed-point values in the range [-1,1], and unsigned values are understood to represent 
-		/// fixed-point values in the range [0,1].
-		/// The commands containing I indicate that the arguments are extended to full signed or unsigned integers.
-		/// The commands containing P indicate that the arguments are stored as packed components within a larger natural type.
-		/// The commands containing L indicate that the arguments are full 64-bit quantities and should be passed directly to shader 
-		/// inputs declared as 64-bit double precision types.
-		/// OpenGL Shading Language attribute variables are allowed to be of type mat2, mat3, or mat4. Attributes of these types may 
-		/// be loaded using the glVertexAttrib entry points. Matrices must be loaded into successive generic attribute slots in 
-		/// column major order, with one column of the matrix in each generic attribute slot.
-		/// A user-defined attribute variable declared in a vertex shader can be bound to a generic attribute index by calling 
-		/// glBindAttribLocation. This allows an application to use more descriptive variable names in a vertex shader. A subsequent 
-		/// change to the specified generic vertex attribute will be immediately reflected as a change to the corresponding 
-		/// attribute variable in the vertex shader.
-		/// The binding between a generic vertex attribute index and a user-defined attribute variable in a vertex shader is part of 
-		/// the state of a program object, but the current value of the generic vertex attribute is not. The value of each generic 
-		/// vertex attribute is part of current state, just like standard vertex attributes, and it is maintained even if a 
-		/// different program object is used.
-		/// An application may freely modify generic vertex attributes that are not bound to a named vertex shader attribute 
-		/// variable. These values are simply maintained as part of current state and will not be accessed by the vertex shader. If 
-		/// a generic vertex attribute bound to an attribute variable in a vertex shader is not updated while the vertex shader is 
-		/// executing, the vertex shader will repeatedly use the current value for the generic vertex attribute.
-		/// <para>
-		/// The following errors can be generated:
-		/// - GL_INVALID_VALUE is generated if index is greater than or equal to GL_MAX_VERTEX_ATTRIBS.
-		/// - GL_INVALID_ENUM is generated if glVertexAttribP* is used with a type other than GL_INT_2_10_10_10_REV, 
-		///   GL_UNSIGNED_INT_2_10_10_10_REV, or GL_UNSIGNED_INT_10F_11F_11F_REV.
-		/// - GL_INVALID_ENUM is generated if glVertexAttribL is used with a type other than GL_DOUBLE.
-		/// </para>
-		/// <para>
-		/// The associated information is got with the following commands:
-		/// - glGet with the argument GL_CURRENT_PROGRAM
-		/// - glGetActiveAttrib with argument program and the index of an active attribute variable
-		/// - glGetAttribLocation with argument program and an attribute variable name
-		/// - glGetVertexAttrib with arguments GL_CURRENT_VERTEX_ATTRIB and index
-		/// </para>
-		/// </remarks>
-		/// <seealso cref="Gl.BindAttribLocation"/>
-		/// <seealso cref="Gl.VertexAttribPointer"/>
 		[RequiredByFeature("GL_VERSION_3_0")]
 		public static void VertexAttribI4(UInt32 index, UInt16[] v)
 		{
@@ -4393,42 +2734,6 @@ namespace OpenGL
 		/// <param name="params">
 		/// A <see cref="T:UInt32[]"/>.
 		/// </param>
-		/// <remarks>
-		/// glGetUniform and glGetnUniform return in params the value(s) of the specified uniform variable. The type of the uniform 
-		/// variable specified by location determines the number of values returned. If the uniform variable is defined in the 
-		/// shader as a boolean, int, or float, a single value will be returned. If it is defined as a vec2, ivec2, or bvec2, two 
-		/// values will be returned. If it is defined as a vec3, ivec3, or bvec3, three values will be returned, and so on. To query 
-		/// values stored in uniform variables declared as arrays, call glGetUniform for each element of the array. To query values 
-		/// stored in uniform variables declared as structures, call glGetUniform for each field in the structure. The values for 
-		/// uniform variables declared as a matrix will be returned in column major order.
-		/// The locations assigned to uniform variables are not known until the program object is linked. After linking has 
-		/// occurred, the command glGetUniformLocation can be used to obtain the location of a uniform variable. This location value 
-		/// can then be passed to glGetUniform or glGetnUniform in order to query the current value of the uniform variable. After a 
-		/// program object has been linked successfully, the index values for uniform variables remain fixed until the next link 
-		/// command occurs. The uniform variable values can only be queried after a link if the link was successful.
-		/// The only difference between glGetUniform and glGetnUniform is that glGetnUniform will generate an error if size of the 
-		/// params buffer,as described by bufSize, is not large enough to hold the result data.
-		/// <para>
-		/// The following errors can be generated:
-		/// - GL_INVALID_VALUE is generated if program is not a value generated by OpenGL.
-		/// - GL_INVALID_OPERATION is generated if program is not a program object.
-		/// - GL_INVALID_OPERATION is generated if program has not been successfully linked.
-		/// - GL_INVALID_OPERATION is generated if location does not correspond to a valid uniform variable location for the specified 
-		///   program object.
-		/// - GL_INVALID_OPERATION is generated by glGetnUniform if the buffer size required to store the requested data is greater 
-		///   than bufSize.
-		/// </para>
-		/// <para>
-		/// The associated information is got with the following commands:
-		/// - glGetActiveUniform with arguments program and the index of an active uniform variable
-		/// - glGetProgram with arguments program and GL_ACTIVE_UNIFORMS or GL_ACTIVE_UNIFORM_MAX_LENGTH
-		/// - glGetUniformLocation with arguments program and the name of a uniform variable
-		/// - glIsProgram
-		/// </para>
-		/// </remarks>
-		/// <seealso cref="Gl.CreateProgram"/>
-		/// <seealso cref="Gl.LinkProgram"/>
-		/// <seealso cref="Gl.Uniform"/>
 		[RequiredByFeature("GL_VERSION_3_0")]
 		public static void GetUniform(UInt32 program, Int32 location, UInt32[] @params)
 		{
@@ -4460,30 +2765,6 @@ namespace OpenGL
 		/// <param name="name">
 		/// The name of the user-defined varying out variable whose binding to modify
 		/// </param>
-		/// <remarks>
-		/// glBindFragDataLocation explicitly specifies the binding of the user-defined varying out variable name to fragment shader 
-		/// color number colorNumber for program program. If name was bound previously, its assigned binding is replaced with 
-		/// colorNumber. name must be a null-terminated string. colorNumber must be less than GL_MAX_DRAW_BUFFERS.
-		/// The bindings specified by glBindFragDataLocation have no effect until program is next linked. Bindings may be specified 
-		/// at any time after program has been created. Specifically, they may be specified before shader objects are attached to 
-		/// the program. Therefore, any name may be specified in name, including a name that is never used as a varying out variable 
-		/// in any fragment shader object. Names beginning with gl_ are reserved by the GL.
-		/// In addition to the errors generated by glBindFragDataLocation, the program program will fail to link if: The number of 
-		/// active outputs is greater than the value GL_MAX_DRAW_BUFFERS. More than one varying out variable is bound to the same 
-		/// color number.
-		/// <para>
-		/// The following errors can be generated:
-		/// - GL_INVALID_VALUE is generated if colorNumber is greater than or equal to GL_MAX_DRAW_BUFFERS.
-		/// - GL_INVALID_OPERATION is generated if name starts with the reserved gl_ prefix.
-		/// - GL_INVALID_OPERATION is generated if program is not the name of a program object.
-		/// </para>
-		/// <para>
-		/// The associated information is got with the following commands:
-		/// - glGetFragDataLocation with a valid program object and the the name of a user-defined varying out variable
-		/// </para>
-		/// </remarks>
-		/// <seealso cref="Gl.CreateProgram"/>
-		/// <seealso cref="Gl.GetFragDataLocation"/>
 		[RequiredByFeature("GL_VERSION_3_0")]
 		public static void BindFragDataLocation(UInt32 program, UInt32 color, String name)
 		{
@@ -4507,17 +2788,6 @@ namespace OpenGL
 		/// <param name="name">
 		/// The name of the user-defined varying out variable whose binding to query
 		/// </param>
-		/// <remarks>
-		/// glGetFragDataLocation retrieves the assigned color number binding for the user-defined varying out variable name for 
-		/// program program. program must have previously been linked. name must be a null-terminated string. If name is not the 
-		/// name of an active user-defined varying out fragment shader variable within program, -1 will be returned.
-		/// <para>
-		/// The following errors can be generated:
-		/// - GL_INVALID_OPERATION is generated if program is not the name of a program object.
-		/// </para>
-		/// </remarks>
-		/// <seealso cref="Gl.CreateProgram"/>
-		/// <seealso cref="Gl.BindFragDataLocation"/>
 		[RequiredByFeature("GL_VERSION_3_0")]
 		public static Int32 GetFragDataLocation(UInt32 program, String name)
 		{
@@ -4545,77 +2815,6 @@ namespace OpenGL
 		/// <param name="v0">
 		/// For the scalar commands, specifies the new values to be used for the specified uniform variable.
 		/// </param>
-		/// <remarks>
-		/// glUniform modifies the value of a uniform variable or a uniform variable array. The location of the uniform variable to 
-		/// be modified is specified by location, which should be a value returned by glGetUniformLocation. glUniform operates on 
-		/// the program object that was made part of current state by calling glUseProgram.
-		/// The commands glUniform{1|2|3|4}{f|i|ui} are used to change the value of the uniform variable specified by location using 
-		/// the values passed as arguments. The number specified in the command should match the number of components in the data 
-		/// type of the specified uniform variable (e.g., 1 for float, int, unsigned int, bool; 2 for vec2, ivec2, uvec2, bvec2, 
-		/// etc.). The suffix f indicates that floating-point values are being passed; the suffix i indicates that integer values 
-		/// are being passed; the suffix ui indicates that unsigned integer values are being passed, and this type should also match 
-		/// the data type of the specified uniform variable. The i variants of this function should be used to provide values for 
-		/// uniform variables defined as int, ivec2, ivec3, ivec4, or arrays of these. The ui variants of this function should be 
-		/// used to provide values for uniform variables defined as unsigned int, uvec2, uvec3, uvec4, or arrays of these. The f 
-		/// variants should be used to provide values for uniform variables of type float, vec2, vec3, vec4, or arrays of these. 
-		/// Either the i, ui or f variants may be used to provide values for uniform variables of type bool, bvec2, bvec3, bvec4, or 
-		/// arrays of these. The uniform variable will be set to false if the input value is 0 or 0.0f, and it will be set to true 
-		/// otherwise.
-		/// All active uniform variables defined in a program object are initialized to 0 when the program object is linked 
-		/// successfully. They retain the values assigned to them by a call to glUniform until the next successful link operation 
-		/// occurs on the program object, when they are once again initialized to 0.
-		/// The commands glUniform{1|2|3|4}{f|i|ui}v can be used to modify a single uniform variable or a uniform variable array. 
-		/// These commands pass a count and a pointer to the values to be loaded into a uniform variable or a uniform variable 
-		/// array. A count of 1 should be used if modifying the value of a single uniform variable, and a count of 1 or greater can 
-		/// be used to modify an entire array or part of an array. When loading n elements starting at an arbitrary position m in a 
-		/// uniform variable array, elements m + n - 1 in the array will be replaced with the new values. If m + n - 1 is larger 
-		/// than the size of the uniform variable array, values for all array elements beyond the end of the array will be ignored. 
-		/// The number specified in the name of the command indicates the number of components for each element in value, and it 
-		/// should match the number of components in the data type of the specified uniform variable (e.g., 1 for float, int, bool; 
-		/// 2 for vec2, ivec2, bvec2, etc.). The data type specified in the name of the command must match the data type for the 
-		/// specified uniform variable as described previously for glUniform{1|2|3|4}{f|i|ui}.
-		/// For uniform variable arrays, each element of the array is considered to be of the type indicated in the name of the 
-		/// command (e.g., glUniform3f or glUniform3fv can be used to load a uniform variable array of type vec3). The number of 
-		/// elements of the uniform variable array to be modified is specified by count
-		/// The commands glUniformMatrix{2|3|4|2x3|3x2|2x4|4x2|3x4|4x3}fv are used to modify a matrix or an array of matrices. The 
-		/// numbers in the command name are interpreted as the dimensionality of the matrix. The number 2 indicates a 2 × 2 matrix 
-		/// (i.e., 4 values), the number 3 indicates a 3 × 3 matrix (i.e., 9 values), and the number 4 indicates a 4 × 4 matrix 
-		/// (i.e., 16 values). Non-square matrix dimensionality is explicit, with the first number representing the number of 
-		/// columns and the second number representing the number of rows. For example, 2x4 indicates a 2 × 4 matrix with 2 columns 
-		/// and 4 rows (i.e., 8 values). If transpose is GL_FALSE, each matrix is assumed to be supplied in column major order. If 
-		/// transpose is GL_TRUE, each matrix is assumed to be supplied in row major order. The count argument indicates the number 
-		/// of matrices to be passed. A count of 1 should be used if modifying the value of a single matrix, and a count greater 
-		/// than 1 can be used to modify an array of matrices.
-		/// <para>
-		/// The following errors can be generated:
-		/// - GL_INVALID_OPERATION is generated if there is no current program object.
-		/// - GL_INVALID_OPERATION is generated if the size of the uniform variable declared in the shader does not match the size 
-		///   indicated by the glUniform command.
-		/// - GL_INVALID_OPERATION is generated if one of the signed or unsigned integer variants of this function is used to load a 
-		///   uniform variable of type float, vec2, vec3, vec4, or an array of these, or if one of the floating-point variants of this 
-		///   function is used to load a uniform variable of type int, ivec2, ivec3, ivec4, unsigned int, uvec2, uvec3, uvec4, or an 
-		///   array of these.
-		/// - GL_INVALID_OPERATION is generated if one of the signed integer variants of this function is used to load a uniform 
-		///   variable of type unsigned int, uvec2, uvec3, uvec4, or an array of these.
-		/// - GL_INVALID_OPERATION is generated if one of the unsigned integer variants of this function is used to load a uniform 
-		///   variable of type int, ivec2, ivec3, ivec4, or an array of these.
-		/// - GL_INVALID_OPERATION is generated if location is an invalid uniform location for the current program object and location 
-		///   is not equal to -1.
-		/// - GL_INVALID_VALUE is generated if count is less than 0.
-		/// - GL_INVALID_OPERATION is generated if count is greater than 1 and the indicated uniform variable is not an array 
-		///   variable.
-		/// - GL_INVALID_OPERATION is generated if a sampler is loaded using a command other than glUniform1i and glUniform1iv.
-		/// </para>
-		/// <para>
-		/// The associated information is got with the following commands:
-		/// - glGet with the argument GL_CURRENT_PROGRAM
-		/// - glGetActiveUniform with the handle of a program object and the index of an active uniform variable
-		/// - glGetUniform with the handle of a program object and the location of a uniform variable
-		/// - glGetUniformLocation with the handle of a program object and the name of a uniform variable
-		/// </para>
-		/// </remarks>
-		/// <seealso cref="Gl.LinkProgram"/>
-		/// <seealso cref="Gl.UseProgram"/>
 		[RequiredByFeature("GL_VERSION_3_0")]
 		public static void Uniform1(Int32 location, UInt32 v0)
 		{
@@ -4642,77 +2841,6 @@ namespace OpenGL
 		/// <param name="v1">
 		/// For the scalar commands, specifies the new values to be used for the specified uniform variable.
 		/// </param>
-		/// <remarks>
-		/// glUniform modifies the value of a uniform variable or a uniform variable array. The location of the uniform variable to 
-		/// be modified is specified by location, which should be a value returned by glGetUniformLocation. glUniform operates on 
-		/// the program object that was made part of current state by calling glUseProgram.
-		/// The commands glUniform{1|2|3|4}{f|i|ui} are used to change the value of the uniform variable specified by location using 
-		/// the values passed as arguments. The number specified in the command should match the number of components in the data 
-		/// type of the specified uniform variable (e.g., 1 for float, int, unsigned int, bool; 2 for vec2, ivec2, uvec2, bvec2, 
-		/// etc.). The suffix f indicates that floating-point values are being passed; the suffix i indicates that integer values 
-		/// are being passed; the suffix ui indicates that unsigned integer values are being passed, and this type should also match 
-		/// the data type of the specified uniform variable. The i variants of this function should be used to provide values for 
-		/// uniform variables defined as int, ivec2, ivec3, ivec4, or arrays of these. The ui variants of this function should be 
-		/// used to provide values for uniform variables defined as unsigned int, uvec2, uvec3, uvec4, or arrays of these. The f 
-		/// variants should be used to provide values for uniform variables of type float, vec2, vec3, vec4, or arrays of these. 
-		/// Either the i, ui or f variants may be used to provide values for uniform variables of type bool, bvec2, bvec3, bvec4, or 
-		/// arrays of these. The uniform variable will be set to false if the input value is 0 or 0.0f, and it will be set to true 
-		/// otherwise.
-		/// All active uniform variables defined in a program object are initialized to 0 when the program object is linked 
-		/// successfully. They retain the values assigned to them by a call to glUniform until the next successful link operation 
-		/// occurs on the program object, when they are once again initialized to 0.
-		/// The commands glUniform{1|2|3|4}{f|i|ui}v can be used to modify a single uniform variable or a uniform variable array. 
-		/// These commands pass a count and a pointer to the values to be loaded into a uniform variable or a uniform variable 
-		/// array. A count of 1 should be used if modifying the value of a single uniform variable, and a count of 1 or greater can 
-		/// be used to modify an entire array or part of an array. When loading n elements starting at an arbitrary position m in a 
-		/// uniform variable array, elements m + n - 1 in the array will be replaced with the new values. If m + n - 1 is larger 
-		/// than the size of the uniform variable array, values for all array elements beyond the end of the array will be ignored. 
-		/// The number specified in the name of the command indicates the number of components for each element in value, and it 
-		/// should match the number of components in the data type of the specified uniform variable (e.g., 1 for float, int, bool; 
-		/// 2 for vec2, ivec2, bvec2, etc.). The data type specified in the name of the command must match the data type for the 
-		/// specified uniform variable as described previously for glUniform{1|2|3|4}{f|i|ui}.
-		/// For uniform variable arrays, each element of the array is considered to be of the type indicated in the name of the 
-		/// command (e.g., glUniform3f or glUniform3fv can be used to load a uniform variable array of type vec3). The number of 
-		/// elements of the uniform variable array to be modified is specified by count
-		/// The commands glUniformMatrix{2|3|4|2x3|3x2|2x4|4x2|3x4|4x3}fv are used to modify a matrix or an array of matrices. The 
-		/// numbers in the command name are interpreted as the dimensionality of the matrix. The number 2 indicates a 2 × 2 matrix 
-		/// (i.e., 4 values), the number 3 indicates a 3 × 3 matrix (i.e., 9 values), and the number 4 indicates a 4 × 4 matrix 
-		/// (i.e., 16 values). Non-square matrix dimensionality is explicit, with the first number representing the number of 
-		/// columns and the second number representing the number of rows. For example, 2x4 indicates a 2 × 4 matrix with 2 columns 
-		/// and 4 rows (i.e., 8 values). If transpose is GL_FALSE, each matrix is assumed to be supplied in column major order. If 
-		/// transpose is GL_TRUE, each matrix is assumed to be supplied in row major order. The count argument indicates the number 
-		/// of matrices to be passed. A count of 1 should be used if modifying the value of a single matrix, and a count greater 
-		/// than 1 can be used to modify an array of matrices.
-		/// <para>
-		/// The following errors can be generated:
-		/// - GL_INVALID_OPERATION is generated if there is no current program object.
-		/// - GL_INVALID_OPERATION is generated if the size of the uniform variable declared in the shader does not match the size 
-		///   indicated by the glUniform command.
-		/// - GL_INVALID_OPERATION is generated if one of the signed or unsigned integer variants of this function is used to load a 
-		///   uniform variable of type float, vec2, vec3, vec4, or an array of these, or if one of the floating-point variants of this 
-		///   function is used to load a uniform variable of type int, ivec2, ivec3, ivec4, unsigned int, uvec2, uvec3, uvec4, or an 
-		///   array of these.
-		/// - GL_INVALID_OPERATION is generated if one of the signed integer variants of this function is used to load a uniform 
-		///   variable of type unsigned int, uvec2, uvec3, uvec4, or an array of these.
-		/// - GL_INVALID_OPERATION is generated if one of the unsigned integer variants of this function is used to load a uniform 
-		///   variable of type int, ivec2, ivec3, ivec4, or an array of these.
-		/// - GL_INVALID_OPERATION is generated if location is an invalid uniform location for the current program object and location 
-		///   is not equal to -1.
-		/// - GL_INVALID_VALUE is generated if count is less than 0.
-		/// - GL_INVALID_OPERATION is generated if count is greater than 1 and the indicated uniform variable is not an array 
-		///   variable.
-		/// - GL_INVALID_OPERATION is generated if a sampler is loaded using a command other than glUniform1i and glUniform1iv.
-		/// </para>
-		/// <para>
-		/// The associated information is got with the following commands:
-		/// - glGet with the argument GL_CURRENT_PROGRAM
-		/// - glGetActiveUniform with the handle of a program object and the index of an active uniform variable
-		/// - glGetUniform with the handle of a program object and the location of a uniform variable
-		/// - glGetUniformLocation with the handle of a program object and the name of a uniform variable
-		/// </para>
-		/// </remarks>
-		/// <seealso cref="Gl.LinkProgram"/>
-		/// <seealso cref="Gl.UseProgram"/>
 		[RequiredByFeature("GL_VERSION_3_0")]
 		public static void Uniform2(Int32 location, UInt32 v0, UInt32 v1)
 		{
@@ -4742,77 +2870,6 @@ namespace OpenGL
 		/// <param name="v2">
 		/// For the scalar commands, specifies the new values to be used for the specified uniform variable.
 		/// </param>
-		/// <remarks>
-		/// glUniform modifies the value of a uniform variable or a uniform variable array. The location of the uniform variable to 
-		/// be modified is specified by location, which should be a value returned by glGetUniformLocation. glUniform operates on 
-		/// the program object that was made part of current state by calling glUseProgram.
-		/// The commands glUniform{1|2|3|4}{f|i|ui} are used to change the value of the uniform variable specified by location using 
-		/// the values passed as arguments. The number specified in the command should match the number of components in the data 
-		/// type of the specified uniform variable (e.g., 1 for float, int, unsigned int, bool; 2 for vec2, ivec2, uvec2, bvec2, 
-		/// etc.). The suffix f indicates that floating-point values are being passed; the suffix i indicates that integer values 
-		/// are being passed; the suffix ui indicates that unsigned integer values are being passed, and this type should also match 
-		/// the data type of the specified uniform variable. The i variants of this function should be used to provide values for 
-		/// uniform variables defined as int, ivec2, ivec3, ivec4, or arrays of these. The ui variants of this function should be 
-		/// used to provide values for uniform variables defined as unsigned int, uvec2, uvec3, uvec4, or arrays of these. The f 
-		/// variants should be used to provide values for uniform variables of type float, vec2, vec3, vec4, or arrays of these. 
-		/// Either the i, ui or f variants may be used to provide values for uniform variables of type bool, bvec2, bvec3, bvec4, or 
-		/// arrays of these. The uniform variable will be set to false if the input value is 0 or 0.0f, and it will be set to true 
-		/// otherwise.
-		/// All active uniform variables defined in a program object are initialized to 0 when the program object is linked 
-		/// successfully. They retain the values assigned to them by a call to glUniform until the next successful link operation 
-		/// occurs on the program object, when they are once again initialized to 0.
-		/// The commands glUniform{1|2|3|4}{f|i|ui}v can be used to modify a single uniform variable or a uniform variable array. 
-		/// These commands pass a count and a pointer to the values to be loaded into a uniform variable or a uniform variable 
-		/// array. A count of 1 should be used if modifying the value of a single uniform variable, and a count of 1 or greater can 
-		/// be used to modify an entire array or part of an array. When loading n elements starting at an arbitrary position m in a 
-		/// uniform variable array, elements m + n - 1 in the array will be replaced with the new values. If m + n - 1 is larger 
-		/// than the size of the uniform variable array, values for all array elements beyond the end of the array will be ignored. 
-		/// The number specified in the name of the command indicates the number of components for each element in value, and it 
-		/// should match the number of components in the data type of the specified uniform variable (e.g., 1 for float, int, bool; 
-		/// 2 for vec2, ivec2, bvec2, etc.). The data type specified in the name of the command must match the data type for the 
-		/// specified uniform variable as described previously for glUniform{1|2|3|4}{f|i|ui}.
-		/// For uniform variable arrays, each element of the array is considered to be of the type indicated in the name of the 
-		/// command (e.g., glUniform3f or glUniform3fv can be used to load a uniform variable array of type vec3). The number of 
-		/// elements of the uniform variable array to be modified is specified by count
-		/// The commands glUniformMatrix{2|3|4|2x3|3x2|2x4|4x2|3x4|4x3}fv are used to modify a matrix or an array of matrices. The 
-		/// numbers in the command name are interpreted as the dimensionality of the matrix. The number 2 indicates a 2 × 2 matrix 
-		/// (i.e., 4 values), the number 3 indicates a 3 × 3 matrix (i.e., 9 values), and the number 4 indicates a 4 × 4 matrix 
-		/// (i.e., 16 values). Non-square matrix dimensionality is explicit, with the first number representing the number of 
-		/// columns and the second number representing the number of rows. For example, 2x4 indicates a 2 × 4 matrix with 2 columns 
-		/// and 4 rows (i.e., 8 values). If transpose is GL_FALSE, each matrix is assumed to be supplied in column major order. If 
-		/// transpose is GL_TRUE, each matrix is assumed to be supplied in row major order. The count argument indicates the number 
-		/// of matrices to be passed. A count of 1 should be used if modifying the value of a single matrix, and a count greater 
-		/// than 1 can be used to modify an array of matrices.
-		/// <para>
-		/// The following errors can be generated:
-		/// - GL_INVALID_OPERATION is generated if there is no current program object.
-		/// - GL_INVALID_OPERATION is generated if the size of the uniform variable declared in the shader does not match the size 
-		///   indicated by the glUniform command.
-		/// - GL_INVALID_OPERATION is generated if one of the signed or unsigned integer variants of this function is used to load a 
-		///   uniform variable of type float, vec2, vec3, vec4, or an array of these, or if one of the floating-point variants of this 
-		///   function is used to load a uniform variable of type int, ivec2, ivec3, ivec4, unsigned int, uvec2, uvec3, uvec4, or an 
-		///   array of these.
-		/// - GL_INVALID_OPERATION is generated if one of the signed integer variants of this function is used to load a uniform 
-		///   variable of type unsigned int, uvec2, uvec3, uvec4, or an array of these.
-		/// - GL_INVALID_OPERATION is generated if one of the unsigned integer variants of this function is used to load a uniform 
-		///   variable of type int, ivec2, ivec3, ivec4, or an array of these.
-		/// - GL_INVALID_OPERATION is generated if location is an invalid uniform location for the current program object and location 
-		///   is not equal to -1.
-		/// - GL_INVALID_VALUE is generated if count is less than 0.
-		/// - GL_INVALID_OPERATION is generated if count is greater than 1 and the indicated uniform variable is not an array 
-		///   variable.
-		/// - GL_INVALID_OPERATION is generated if a sampler is loaded using a command other than glUniform1i and glUniform1iv.
-		/// </para>
-		/// <para>
-		/// The associated information is got with the following commands:
-		/// - glGet with the argument GL_CURRENT_PROGRAM
-		/// - glGetActiveUniform with the handle of a program object and the index of an active uniform variable
-		/// - glGetUniform with the handle of a program object and the location of a uniform variable
-		/// - glGetUniformLocation with the handle of a program object and the name of a uniform variable
-		/// </para>
-		/// </remarks>
-		/// <seealso cref="Gl.LinkProgram"/>
-		/// <seealso cref="Gl.UseProgram"/>
 		[RequiredByFeature("GL_VERSION_3_0")]
 		public static void Uniform3(Int32 location, UInt32 v0, UInt32 v1, UInt32 v2)
 		{
@@ -4845,77 +2902,6 @@ namespace OpenGL
 		/// <param name="v3">
 		/// For the scalar commands, specifies the new values to be used for the specified uniform variable.
 		/// </param>
-		/// <remarks>
-		/// glUniform modifies the value of a uniform variable or a uniform variable array. The location of the uniform variable to 
-		/// be modified is specified by location, which should be a value returned by glGetUniformLocation. glUniform operates on 
-		/// the program object that was made part of current state by calling glUseProgram.
-		/// The commands glUniform{1|2|3|4}{f|i|ui} are used to change the value of the uniform variable specified by location using 
-		/// the values passed as arguments. The number specified in the command should match the number of components in the data 
-		/// type of the specified uniform variable (e.g., 1 for float, int, unsigned int, bool; 2 for vec2, ivec2, uvec2, bvec2, 
-		/// etc.). The suffix f indicates that floating-point values are being passed; the suffix i indicates that integer values 
-		/// are being passed; the suffix ui indicates that unsigned integer values are being passed, and this type should also match 
-		/// the data type of the specified uniform variable. The i variants of this function should be used to provide values for 
-		/// uniform variables defined as int, ivec2, ivec3, ivec4, or arrays of these. The ui variants of this function should be 
-		/// used to provide values for uniform variables defined as unsigned int, uvec2, uvec3, uvec4, or arrays of these. The f 
-		/// variants should be used to provide values for uniform variables of type float, vec2, vec3, vec4, or arrays of these. 
-		/// Either the i, ui or f variants may be used to provide values for uniform variables of type bool, bvec2, bvec3, bvec4, or 
-		/// arrays of these. The uniform variable will be set to false if the input value is 0 or 0.0f, and it will be set to true 
-		/// otherwise.
-		/// All active uniform variables defined in a program object are initialized to 0 when the program object is linked 
-		/// successfully. They retain the values assigned to them by a call to glUniform until the next successful link operation 
-		/// occurs on the program object, when they are once again initialized to 0.
-		/// The commands glUniform{1|2|3|4}{f|i|ui}v can be used to modify a single uniform variable or a uniform variable array. 
-		/// These commands pass a count and a pointer to the values to be loaded into a uniform variable or a uniform variable 
-		/// array. A count of 1 should be used if modifying the value of a single uniform variable, and a count of 1 or greater can 
-		/// be used to modify an entire array or part of an array. When loading n elements starting at an arbitrary position m in a 
-		/// uniform variable array, elements m + n - 1 in the array will be replaced with the new values. If m + n - 1 is larger 
-		/// than the size of the uniform variable array, values for all array elements beyond the end of the array will be ignored. 
-		/// The number specified in the name of the command indicates the number of components for each element in value, and it 
-		/// should match the number of components in the data type of the specified uniform variable (e.g., 1 for float, int, bool; 
-		/// 2 for vec2, ivec2, bvec2, etc.). The data type specified in the name of the command must match the data type for the 
-		/// specified uniform variable as described previously for glUniform{1|2|3|4}{f|i|ui}.
-		/// For uniform variable arrays, each element of the array is considered to be of the type indicated in the name of the 
-		/// command (e.g., glUniform3f or glUniform3fv can be used to load a uniform variable array of type vec3). The number of 
-		/// elements of the uniform variable array to be modified is specified by count
-		/// The commands glUniformMatrix{2|3|4|2x3|3x2|2x4|4x2|3x4|4x3}fv are used to modify a matrix or an array of matrices. The 
-		/// numbers in the command name are interpreted as the dimensionality of the matrix. The number 2 indicates a 2 × 2 matrix 
-		/// (i.e., 4 values), the number 3 indicates a 3 × 3 matrix (i.e., 9 values), and the number 4 indicates a 4 × 4 matrix 
-		/// (i.e., 16 values). Non-square matrix dimensionality is explicit, with the first number representing the number of 
-		/// columns and the second number representing the number of rows. For example, 2x4 indicates a 2 × 4 matrix with 2 columns 
-		/// and 4 rows (i.e., 8 values). If transpose is GL_FALSE, each matrix is assumed to be supplied in column major order. If 
-		/// transpose is GL_TRUE, each matrix is assumed to be supplied in row major order. The count argument indicates the number 
-		/// of matrices to be passed. A count of 1 should be used if modifying the value of a single matrix, and a count greater 
-		/// than 1 can be used to modify an array of matrices.
-		/// <para>
-		/// The following errors can be generated:
-		/// - GL_INVALID_OPERATION is generated if there is no current program object.
-		/// - GL_INVALID_OPERATION is generated if the size of the uniform variable declared in the shader does not match the size 
-		///   indicated by the glUniform command.
-		/// - GL_INVALID_OPERATION is generated if one of the signed or unsigned integer variants of this function is used to load a 
-		///   uniform variable of type float, vec2, vec3, vec4, or an array of these, or if one of the floating-point variants of this 
-		///   function is used to load a uniform variable of type int, ivec2, ivec3, ivec4, unsigned int, uvec2, uvec3, uvec4, or an 
-		///   array of these.
-		/// - GL_INVALID_OPERATION is generated if one of the signed integer variants of this function is used to load a uniform 
-		///   variable of type unsigned int, uvec2, uvec3, uvec4, or an array of these.
-		/// - GL_INVALID_OPERATION is generated if one of the unsigned integer variants of this function is used to load a uniform 
-		///   variable of type int, ivec2, ivec3, ivec4, or an array of these.
-		/// - GL_INVALID_OPERATION is generated if location is an invalid uniform location for the current program object and location 
-		///   is not equal to -1.
-		/// - GL_INVALID_VALUE is generated if count is less than 0.
-		/// - GL_INVALID_OPERATION is generated if count is greater than 1 and the indicated uniform variable is not an array 
-		///   variable.
-		/// - GL_INVALID_OPERATION is generated if a sampler is loaded using a command other than glUniform1i and glUniform1iv.
-		/// </para>
-		/// <para>
-		/// The associated information is got with the following commands:
-		/// - glGet with the argument GL_CURRENT_PROGRAM
-		/// - glGetActiveUniform with the handle of a program object and the index of an active uniform variable
-		/// - glGetUniform with the handle of a program object and the location of a uniform variable
-		/// - glGetUniformLocation with the handle of a program object and the name of a uniform variable
-		/// </para>
-		/// </remarks>
-		/// <seealso cref="Gl.LinkProgram"/>
-		/// <seealso cref="Gl.UseProgram"/>
 		[RequiredByFeature("GL_VERSION_3_0")]
 		public static void Uniform4(Int32 location, UInt32 v0, UInt32 v1, UInt32 v2, UInt32 v3)
 		{
@@ -4944,77 +2930,6 @@ namespace OpenGL
 		/// For the vector and matrix commands, specifies a pointer to an array of count values that will be used to update the 
 		/// specified uniform variable.
 		/// </param>
-		/// <remarks>
-		/// glUniform modifies the value of a uniform variable or a uniform variable array. The location of the uniform variable to 
-		/// be modified is specified by location, which should be a value returned by glGetUniformLocation. glUniform operates on 
-		/// the program object that was made part of current state by calling glUseProgram.
-		/// The commands glUniform{1|2|3|4}{f|i|ui} are used to change the value of the uniform variable specified by location using 
-		/// the values passed as arguments. The number specified in the command should match the number of components in the data 
-		/// type of the specified uniform variable (e.g., 1 for float, int, unsigned int, bool; 2 for vec2, ivec2, uvec2, bvec2, 
-		/// etc.). The suffix f indicates that floating-point values are being passed; the suffix i indicates that integer values 
-		/// are being passed; the suffix ui indicates that unsigned integer values are being passed, and this type should also match 
-		/// the data type of the specified uniform variable. The i variants of this function should be used to provide values for 
-		/// uniform variables defined as int, ivec2, ivec3, ivec4, or arrays of these. The ui variants of this function should be 
-		/// used to provide values for uniform variables defined as unsigned int, uvec2, uvec3, uvec4, or arrays of these. The f 
-		/// variants should be used to provide values for uniform variables of type float, vec2, vec3, vec4, or arrays of these. 
-		/// Either the i, ui or f variants may be used to provide values for uniform variables of type bool, bvec2, bvec3, bvec4, or 
-		/// arrays of these. The uniform variable will be set to false if the input value is 0 or 0.0f, and it will be set to true 
-		/// otherwise.
-		/// All active uniform variables defined in a program object are initialized to 0 when the program object is linked 
-		/// successfully. They retain the values assigned to them by a call to glUniform until the next successful link operation 
-		/// occurs on the program object, when they are once again initialized to 0.
-		/// The commands glUniform{1|2|3|4}{f|i|ui}v can be used to modify a single uniform variable or a uniform variable array. 
-		/// These commands pass a count and a pointer to the values to be loaded into a uniform variable or a uniform variable 
-		/// array. A count of 1 should be used if modifying the value of a single uniform variable, and a count of 1 or greater can 
-		/// be used to modify an entire array or part of an array. When loading n elements starting at an arbitrary position m in a 
-		/// uniform variable array, elements m + n - 1 in the array will be replaced with the new values. If m + n - 1 is larger 
-		/// than the size of the uniform variable array, values for all array elements beyond the end of the array will be ignored. 
-		/// The number specified in the name of the command indicates the number of components for each element in value, and it 
-		/// should match the number of components in the data type of the specified uniform variable (e.g., 1 for float, int, bool; 
-		/// 2 for vec2, ivec2, bvec2, etc.). The data type specified in the name of the command must match the data type for the 
-		/// specified uniform variable as described previously for glUniform{1|2|3|4}{f|i|ui}.
-		/// For uniform variable arrays, each element of the array is considered to be of the type indicated in the name of the 
-		/// command (e.g., glUniform3f or glUniform3fv can be used to load a uniform variable array of type vec3). The number of 
-		/// elements of the uniform variable array to be modified is specified by count
-		/// The commands glUniformMatrix{2|3|4|2x3|3x2|2x4|4x2|3x4|4x3}fv are used to modify a matrix or an array of matrices. The 
-		/// numbers in the command name are interpreted as the dimensionality of the matrix. The number 2 indicates a 2 × 2 matrix 
-		/// (i.e., 4 values), the number 3 indicates a 3 × 3 matrix (i.e., 9 values), and the number 4 indicates a 4 × 4 matrix 
-		/// (i.e., 16 values). Non-square matrix dimensionality is explicit, with the first number representing the number of 
-		/// columns and the second number representing the number of rows. For example, 2x4 indicates a 2 × 4 matrix with 2 columns 
-		/// and 4 rows (i.e., 8 values). If transpose is GL_FALSE, each matrix is assumed to be supplied in column major order. If 
-		/// transpose is GL_TRUE, each matrix is assumed to be supplied in row major order. The count argument indicates the number 
-		/// of matrices to be passed. A count of 1 should be used if modifying the value of a single matrix, and a count greater 
-		/// than 1 can be used to modify an array of matrices.
-		/// <para>
-		/// The following errors can be generated:
-		/// - GL_INVALID_OPERATION is generated if there is no current program object.
-		/// - GL_INVALID_OPERATION is generated if the size of the uniform variable declared in the shader does not match the size 
-		///   indicated by the glUniform command.
-		/// - GL_INVALID_OPERATION is generated if one of the signed or unsigned integer variants of this function is used to load a 
-		///   uniform variable of type float, vec2, vec3, vec4, or an array of these, or if one of the floating-point variants of this 
-		///   function is used to load a uniform variable of type int, ivec2, ivec3, ivec4, unsigned int, uvec2, uvec3, uvec4, or an 
-		///   array of these.
-		/// - GL_INVALID_OPERATION is generated if one of the signed integer variants of this function is used to load a uniform 
-		///   variable of type unsigned int, uvec2, uvec3, uvec4, or an array of these.
-		/// - GL_INVALID_OPERATION is generated if one of the unsigned integer variants of this function is used to load a uniform 
-		///   variable of type int, ivec2, ivec3, ivec4, or an array of these.
-		/// - GL_INVALID_OPERATION is generated if location is an invalid uniform location for the current program object and location 
-		///   is not equal to -1.
-		/// - GL_INVALID_VALUE is generated if count is less than 0.
-		/// - GL_INVALID_OPERATION is generated if count is greater than 1 and the indicated uniform variable is not an array 
-		///   variable.
-		/// - GL_INVALID_OPERATION is generated if a sampler is loaded using a command other than glUniform1i and glUniform1iv.
-		/// </para>
-		/// <para>
-		/// The associated information is got with the following commands:
-		/// - glGet with the argument GL_CURRENT_PROGRAM
-		/// - glGetActiveUniform with the handle of a program object and the index of an active uniform variable
-		/// - glGetUniform with the handle of a program object and the location of a uniform variable
-		/// - glGetUniformLocation with the handle of a program object and the name of a uniform variable
-		/// </para>
-		/// </remarks>
-		/// <seealso cref="Gl.LinkProgram"/>
-		/// <seealso cref="Gl.UseProgram"/>
 		[RequiredByFeature("GL_VERSION_3_0")]
 		public static void Uniform1(Int32 location, Int32 count, UInt32[] value)
 		{
@@ -5048,77 +2963,6 @@ namespace OpenGL
 		/// For the vector and matrix commands, specifies a pointer to an array of count values that will be used to update the 
 		/// specified uniform variable.
 		/// </param>
-		/// <remarks>
-		/// glUniform modifies the value of a uniform variable or a uniform variable array. The location of the uniform variable to 
-		/// be modified is specified by location, which should be a value returned by glGetUniformLocation. glUniform operates on 
-		/// the program object that was made part of current state by calling glUseProgram.
-		/// The commands glUniform{1|2|3|4}{f|i|ui} are used to change the value of the uniform variable specified by location using 
-		/// the values passed as arguments. The number specified in the command should match the number of components in the data 
-		/// type of the specified uniform variable (e.g., 1 for float, int, unsigned int, bool; 2 for vec2, ivec2, uvec2, bvec2, 
-		/// etc.). The suffix f indicates that floating-point values are being passed; the suffix i indicates that integer values 
-		/// are being passed; the suffix ui indicates that unsigned integer values are being passed, and this type should also match 
-		/// the data type of the specified uniform variable. The i variants of this function should be used to provide values for 
-		/// uniform variables defined as int, ivec2, ivec3, ivec4, or arrays of these. The ui variants of this function should be 
-		/// used to provide values for uniform variables defined as unsigned int, uvec2, uvec3, uvec4, or arrays of these. The f 
-		/// variants should be used to provide values for uniform variables of type float, vec2, vec3, vec4, or arrays of these. 
-		/// Either the i, ui or f variants may be used to provide values for uniform variables of type bool, bvec2, bvec3, bvec4, or 
-		/// arrays of these. The uniform variable will be set to false if the input value is 0 or 0.0f, and it will be set to true 
-		/// otherwise.
-		/// All active uniform variables defined in a program object are initialized to 0 when the program object is linked 
-		/// successfully. They retain the values assigned to them by a call to glUniform until the next successful link operation 
-		/// occurs on the program object, when they are once again initialized to 0.
-		/// The commands glUniform{1|2|3|4}{f|i|ui}v can be used to modify a single uniform variable or a uniform variable array. 
-		/// These commands pass a count and a pointer to the values to be loaded into a uniform variable or a uniform variable 
-		/// array. A count of 1 should be used if modifying the value of a single uniform variable, and a count of 1 or greater can 
-		/// be used to modify an entire array or part of an array. When loading n elements starting at an arbitrary position m in a 
-		/// uniform variable array, elements m + n - 1 in the array will be replaced with the new values. If m + n - 1 is larger 
-		/// than the size of the uniform variable array, values for all array elements beyond the end of the array will be ignored. 
-		/// The number specified in the name of the command indicates the number of components for each element in value, and it 
-		/// should match the number of components in the data type of the specified uniform variable (e.g., 1 for float, int, bool; 
-		/// 2 for vec2, ivec2, bvec2, etc.). The data type specified in the name of the command must match the data type for the 
-		/// specified uniform variable as described previously for glUniform{1|2|3|4}{f|i|ui}.
-		/// For uniform variable arrays, each element of the array is considered to be of the type indicated in the name of the 
-		/// command (e.g., glUniform3f or glUniform3fv can be used to load a uniform variable array of type vec3). The number of 
-		/// elements of the uniform variable array to be modified is specified by count
-		/// The commands glUniformMatrix{2|3|4|2x3|3x2|2x4|4x2|3x4|4x3}fv are used to modify a matrix or an array of matrices. The 
-		/// numbers in the command name are interpreted as the dimensionality of the matrix. The number 2 indicates a 2 × 2 matrix 
-		/// (i.e., 4 values), the number 3 indicates a 3 × 3 matrix (i.e., 9 values), and the number 4 indicates a 4 × 4 matrix 
-		/// (i.e., 16 values). Non-square matrix dimensionality is explicit, with the first number representing the number of 
-		/// columns and the second number representing the number of rows. For example, 2x4 indicates a 2 × 4 matrix with 2 columns 
-		/// and 4 rows (i.e., 8 values). If transpose is GL_FALSE, each matrix is assumed to be supplied in column major order. If 
-		/// transpose is GL_TRUE, each matrix is assumed to be supplied in row major order. The count argument indicates the number 
-		/// of matrices to be passed. A count of 1 should be used if modifying the value of a single matrix, and a count greater 
-		/// than 1 can be used to modify an array of matrices.
-		/// <para>
-		/// The following errors can be generated:
-		/// - GL_INVALID_OPERATION is generated if there is no current program object.
-		/// - GL_INVALID_OPERATION is generated if the size of the uniform variable declared in the shader does not match the size 
-		///   indicated by the glUniform command.
-		/// - GL_INVALID_OPERATION is generated if one of the signed or unsigned integer variants of this function is used to load a 
-		///   uniform variable of type float, vec2, vec3, vec4, or an array of these, or if one of the floating-point variants of this 
-		///   function is used to load a uniform variable of type int, ivec2, ivec3, ivec4, unsigned int, uvec2, uvec3, uvec4, or an 
-		///   array of these.
-		/// - GL_INVALID_OPERATION is generated if one of the signed integer variants of this function is used to load a uniform 
-		///   variable of type unsigned int, uvec2, uvec3, uvec4, or an array of these.
-		/// - GL_INVALID_OPERATION is generated if one of the unsigned integer variants of this function is used to load a uniform 
-		///   variable of type int, ivec2, ivec3, ivec4, or an array of these.
-		/// - GL_INVALID_OPERATION is generated if location is an invalid uniform location for the current program object and location 
-		///   is not equal to -1.
-		/// - GL_INVALID_VALUE is generated if count is less than 0.
-		/// - GL_INVALID_OPERATION is generated if count is greater than 1 and the indicated uniform variable is not an array 
-		///   variable.
-		/// - GL_INVALID_OPERATION is generated if a sampler is loaded using a command other than glUniform1i and glUniform1iv.
-		/// </para>
-		/// <para>
-		/// The associated information is got with the following commands:
-		/// - glGet with the argument GL_CURRENT_PROGRAM
-		/// - glGetActiveUniform with the handle of a program object and the index of an active uniform variable
-		/// - glGetUniform with the handle of a program object and the location of a uniform variable
-		/// - glGetUniformLocation with the handle of a program object and the name of a uniform variable
-		/// </para>
-		/// </remarks>
-		/// <seealso cref="Gl.LinkProgram"/>
-		/// <seealso cref="Gl.UseProgram"/>
 		[RequiredByFeature("GL_VERSION_3_0")]
 		public static void Uniform2(Int32 location, Int32 count, UInt32[] value)
 		{
@@ -5152,77 +2996,6 @@ namespace OpenGL
 		/// For the vector and matrix commands, specifies a pointer to an array of count values that will be used to update the 
 		/// specified uniform variable.
 		/// </param>
-		/// <remarks>
-		/// glUniform modifies the value of a uniform variable or a uniform variable array. The location of the uniform variable to 
-		/// be modified is specified by location, which should be a value returned by glGetUniformLocation. glUniform operates on 
-		/// the program object that was made part of current state by calling glUseProgram.
-		/// The commands glUniform{1|2|3|4}{f|i|ui} are used to change the value of the uniform variable specified by location using 
-		/// the values passed as arguments. The number specified in the command should match the number of components in the data 
-		/// type of the specified uniform variable (e.g., 1 for float, int, unsigned int, bool; 2 for vec2, ivec2, uvec2, bvec2, 
-		/// etc.). The suffix f indicates that floating-point values are being passed; the suffix i indicates that integer values 
-		/// are being passed; the suffix ui indicates that unsigned integer values are being passed, and this type should also match 
-		/// the data type of the specified uniform variable. The i variants of this function should be used to provide values for 
-		/// uniform variables defined as int, ivec2, ivec3, ivec4, or arrays of these. The ui variants of this function should be 
-		/// used to provide values for uniform variables defined as unsigned int, uvec2, uvec3, uvec4, or arrays of these. The f 
-		/// variants should be used to provide values for uniform variables of type float, vec2, vec3, vec4, or arrays of these. 
-		/// Either the i, ui or f variants may be used to provide values for uniform variables of type bool, bvec2, bvec3, bvec4, or 
-		/// arrays of these. The uniform variable will be set to false if the input value is 0 or 0.0f, and it will be set to true 
-		/// otherwise.
-		/// All active uniform variables defined in a program object are initialized to 0 when the program object is linked 
-		/// successfully. They retain the values assigned to them by a call to glUniform until the next successful link operation 
-		/// occurs on the program object, when they are once again initialized to 0.
-		/// The commands glUniform{1|2|3|4}{f|i|ui}v can be used to modify a single uniform variable or a uniform variable array. 
-		/// These commands pass a count and a pointer to the values to be loaded into a uniform variable or a uniform variable 
-		/// array. A count of 1 should be used if modifying the value of a single uniform variable, and a count of 1 or greater can 
-		/// be used to modify an entire array or part of an array. When loading n elements starting at an arbitrary position m in a 
-		/// uniform variable array, elements m + n - 1 in the array will be replaced with the new values. If m + n - 1 is larger 
-		/// than the size of the uniform variable array, values for all array elements beyond the end of the array will be ignored. 
-		/// The number specified in the name of the command indicates the number of components for each element in value, and it 
-		/// should match the number of components in the data type of the specified uniform variable (e.g., 1 for float, int, bool; 
-		/// 2 for vec2, ivec2, bvec2, etc.). The data type specified in the name of the command must match the data type for the 
-		/// specified uniform variable as described previously for glUniform{1|2|3|4}{f|i|ui}.
-		/// For uniform variable arrays, each element of the array is considered to be of the type indicated in the name of the 
-		/// command (e.g., glUniform3f or glUniform3fv can be used to load a uniform variable array of type vec3). The number of 
-		/// elements of the uniform variable array to be modified is specified by count
-		/// The commands glUniformMatrix{2|3|4|2x3|3x2|2x4|4x2|3x4|4x3}fv are used to modify a matrix or an array of matrices. The 
-		/// numbers in the command name are interpreted as the dimensionality of the matrix. The number 2 indicates a 2 × 2 matrix 
-		/// (i.e., 4 values), the number 3 indicates a 3 × 3 matrix (i.e., 9 values), and the number 4 indicates a 4 × 4 matrix 
-		/// (i.e., 16 values). Non-square matrix dimensionality is explicit, with the first number representing the number of 
-		/// columns and the second number representing the number of rows. For example, 2x4 indicates a 2 × 4 matrix with 2 columns 
-		/// and 4 rows (i.e., 8 values). If transpose is GL_FALSE, each matrix is assumed to be supplied in column major order. If 
-		/// transpose is GL_TRUE, each matrix is assumed to be supplied in row major order. The count argument indicates the number 
-		/// of matrices to be passed. A count of 1 should be used if modifying the value of a single matrix, and a count greater 
-		/// than 1 can be used to modify an array of matrices.
-		/// <para>
-		/// The following errors can be generated:
-		/// - GL_INVALID_OPERATION is generated if there is no current program object.
-		/// - GL_INVALID_OPERATION is generated if the size of the uniform variable declared in the shader does not match the size 
-		///   indicated by the glUniform command.
-		/// - GL_INVALID_OPERATION is generated if one of the signed or unsigned integer variants of this function is used to load a 
-		///   uniform variable of type float, vec2, vec3, vec4, or an array of these, or if one of the floating-point variants of this 
-		///   function is used to load a uniform variable of type int, ivec2, ivec3, ivec4, unsigned int, uvec2, uvec3, uvec4, or an 
-		///   array of these.
-		/// - GL_INVALID_OPERATION is generated if one of the signed integer variants of this function is used to load a uniform 
-		///   variable of type unsigned int, uvec2, uvec3, uvec4, or an array of these.
-		/// - GL_INVALID_OPERATION is generated if one of the unsigned integer variants of this function is used to load a uniform 
-		///   variable of type int, ivec2, ivec3, ivec4, or an array of these.
-		/// - GL_INVALID_OPERATION is generated if location is an invalid uniform location for the current program object and location 
-		///   is not equal to -1.
-		/// - GL_INVALID_VALUE is generated if count is less than 0.
-		/// - GL_INVALID_OPERATION is generated if count is greater than 1 and the indicated uniform variable is not an array 
-		///   variable.
-		/// - GL_INVALID_OPERATION is generated if a sampler is loaded using a command other than glUniform1i and glUniform1iv.
-		/// </para>
-		/// <para>
-		/// The associated information is got with the following commands:
-		/// - glGet with the argument GL_CURRENT_PROGRAM
-		/// - glGetActiveUniform with the handle of a program object and the index of an active uniform variable
-		/// - glGetUniform with the handle of a program object and the location of a uniform variable
-		/// - glGetUniformLocation with the handle of a program object and the name of a uniform variable
-		/// </para>
-		/// </remarks>
-		/// <seealso cref="Gl.LinkProgram"/>
-		/// <seealso cref="Gl.UseProgram"/>
 		[RequiredByFeature("GL_VERSION_3_0")]
 		public static void Uniform3(Int32 location, Int32 count, UInt32[] value)
 		{
@@ -5256,77 +3029,6 @@ namespace OpenGL
 		/// For the vector and matrix commands, specifies a pointer to an array of count values that will be used to update the 
 		/// specified uniform variable.
 		/// </param>
-		/// <remarks>
-		/// glUniform modifies the value of a uniform variable or a uniform variable array. The location of the uniform variable to 
-		/// be modified is specified by location, which should be a value returned by glGetUniformLocation. glUniform operates on 
-		/// the program object that was made part of current state by calling glUseProgram.
-		/// The commands glUniform{1|2|3|4}{f|i|ui} are used to change the value of the uniform variable specified by location using 
-		/// the values passed as arguments. The number specified in the command should match the number of components in the data 
-		/// type of the specified uniform variable (e.g., 1 for float, int, unsigned int, bool; 2 for vec2, ivec2, uvec2, bvec2, 
-		/// etc.). The suffix f indicates that floating-point values are being passed; the suffix i indicates that integer values 
-		/// are being passed; the suffix ui indicates that unsigned integer values are being passed, and this type should also match 
-		/// the data type of the specified uniform variable. The i variants of this function should be used to provide values for 
-		/// uniform variables defined as int, ivec2, ivec3, ivec4, or arrays of these. The ui variants of this function should be 
-		/// used to provide values for uniform variables defined as unsigned int, uvec2, uvec3, uvec4, or arrays of these. The f 
-		/// variants should be used to provide values for uniform variables of type float, vec2, vec3, vec4, or arrays of these. 
-		/// Either the i, ui or f variants may be used to provide values for uniform variables of type bool, bvec2, bvec3, bvec4, or 
-		/// arrays of these. The uniform variable will be set to false if the input value is 0 or 0.0f, and it will be set to true 
-		/// otherwise.
-		/// All active uniform variables defined in a program object are initialized to 0 when the program object is linked 
-		/// successfully. They retain the values assigned to them by a call to glUniform until the next successful link operation 
-		/// occurs on the program object, when they are once again initialized to 0.
-		/// The commands glUniform{1|2|3|4}{f|i|ui}v can be used to modify a single uniform variable or a uniform variable array. 
-		/// These commands pass a count and a pointer to the values to be loaded into a uniform variable or a uniform variable 
-		/// array. A count of 1 should be used if modifying the value of a single uniform variable, and a count of 1 or greater can 
-		/// be used to modify an entire array or part of an array. When loading n elements starting at an arbitrary position m in a 
-		/// uniform variable array, elements m + n - 1 in the array will be replaced with the new values. If m + n - 1 is larger 
-		/// than the size of the uniform variable array, values for all array elements beyond the end of the array will be ignored. 
-		/// The number specified in the name of the command indicates the number of components for each element in value, and it 
-		/// should match the number of components in the data type of the specified uniform variable (e.g., 1 for float, int, bool; 
-		/// 2 for vec2, ivec2, bvec2, etc.). The data type specified in the name of the command must match the data type for the 
-		/// specified uniform variable as described previously for glUniform{1|2|3|4}{f|i|ui}.
-		/// For uniform variable arrays, each element of the array is considered to be of the type indicated in the name of the 
-		/// command (e.g., glUniform3f or glUniform3fv can be used to load a uniform variable array of type vec3). The number of 
-		/// elements of the uniform variable array to be modified is specified by count
-		/// The commands glUniformMatrix{2|3|4|2x3|3x2|2x4|4x2|3x4|4x3}fv are used to modify a matrix or an array of matrices. The 
-		/// numbers in the command name are interpreted as the dimensionality of the matrix. The number 2 indicates a 2 × 2 matrix 
-		/// (i.e., 4 values), the number 3 indicates a 3 × 3 matrix (i.e., 9 values), and the number 4 indicates a 4 × 4 matrix 
-		/// (i.e., 16 values). Non-square matrix dimensionality is explicit, with the first number representing the number of 
-		/// columns and the second number representing the number of rows. For example, 2x4 indicates a 2 × 4 matrix with 2 columns 
-		/// and 4 rows (i.e., 8 values). If transpose is GL_FALSE, each matrix is assumed to be supplied in column major order. If 
-		/// transpose is GL_TRUE, each matrix is assumed to be supplied in row major order. The count argument indicates the number 
-		/// of matrices to be passed. A count of 1 should be used if modifying the value of a single matrix, and a count greater 
-		/// than 1 can be used to modify an array of matrices.
-		/// <para>
-		/// The following errors can be generated:
-		/// - GL_INVALID_OPERATION is generated if there is no current program object.
-		/// - GL_INVALID_OPERATION is generated if the size of the uniform variable declared in the shader does not match the size 
-		///   indicated by the glUniform command.
-		/// - GL_INVALID_OPERATION is generated if one of the signed or unsigned integer variants of this function is used to load a 
-		///   uniform variable of type float, vec2, vec3, vec4, or an array of these, or if one of the floating-point variants of this 
-		///   function is used to load a uniform variable of type int, ivec2, ivec3, ivec4, unsigned int, uvec2, uvec3, uvec4, or an 
-		///   array of these.
-		/// - GL_INVALID_OPERATION is generated if one of the signed integer variants of this function is used to load a uniform 
-		///   variable of type unsigned int, uvec2, uvec3, uvec4, or an array of these.
-		/// - GL_INVALID_OPERATION is generated if one of the unsigned integer variants of this function is used to load a uniform 
-		///   variable of type int, ivec2, ivec3, ivec4, or an array of these.
-		/// - GL_INVALID_OPERATION is generated if location is an invalid uniform location for the current program object and location 
-		///   is not equal to -1.
-		/// - GL_INVALID_VALUE is generated if count is less than 0.
-		/// - GL_INVALID_OPERATION is generated if count is greater than 1 and the indicated uniform variable is not an array 
-		///   variable.
-		/// - GL_INVALID_OPERATION is generated if a sampler is loaded using a command other than glUniform1i and glUniform1iv.
-		/// </para>
-		/// <para>
-		/// The associated information is got with the following commands:
-		/// - glGet with the argument GL_CURRENT_PROGRAM
-		/// - glGetActiveUniform with the handle of a program object and the index of an active uniform variable
-		/// - glGetUniform with the handle of a program object and the location of a uniform variable
-		/// - glGetUniformLocation with the handle of a program object and the name of a uniform variable
-		/// </para>
-		/// </remarks>
-		/// <seealso cref="Gl.LinkProgram"/>
-		/// <seealso cref="Gl.UseProgram"/>
 		[RequiredByFeature("GL_VERSION_3_0")]
 		public static void Uniform4(Int32 location, Int32 count, UInt32[] value)
 		{
@@ -5503,32 +3205,6 @@ namespace OpenGL
 		/// <param name="params">
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
-		/// <remarks>
-		/// glGetTexParameter and glGetTextureParameter return in params the value or values of the texture parameter specified as 
-		/// pname. target defines the target texture. GL_TEXTURE_1D, GL_TEXTURE_2D, GL_TEXTURE_3D, GL_TEXTURE_1D_ARRAY, 
-		/// GL_TEXTURE_2D_ARRAY, GL_TEXTURE_RECTANGLE, GL_TEXTURE_CUBE_MAP, GL_TEXTURE_CUBE_MAP_ARRAY, GL_TEXTURE_2D_MULTISAMPLE, or 
-		/// GL_TEXTURE_2D_MULTISAMPLE_ARRAY specify one-, two-, or three-dimensional, one-dimensional array, two-dimensional array, 
-		/// rectangle, cube-mapped or cube-mapped array, two-dimensional multisample, or two-dimensional multisample array 
-		/// texturing, respectively. pname accepts the same symbols as glTexParameter, with the same interpretations:
-		/// In addition to the parameters that may be set with glTexParameter, glGetTexParameter and glGetTextureParameter accept 
-		/// the following read-only parameters:
-		/// <para>
-		/// The following errors can be generated:
-		/// - GL_INVALID_ENUM is generated if pname is not an accepted value.
-		/// - GL_INVALID_ENUM error is generated by glGetTexParameter if the effective target is not one of the accepted texture 
-		///   targets.
-		/// - GL_INVALID_OPERATION is generated by glGetTextureParameter* if texture is not the name of an existing texture object.
-		/// </para>
-		/// </remarks>
-		/// <seealso cref="Gl.TexParameter"/>
-		/// <seealso cref="Gl.TextureParameter"/>
-		/// <seealso cref="Gl.TexStorage1D"/>
-		/// <seealso cref="Gl.TexStorage2D"/>
-		/// <seealso cref="Gl.TexStorage3D"/>
-		/// <seealso cref="Gl.TextureStorage1D"/>
-		/// <seealso cref="Gl.TextureStorage2D"/>
-		/// <seealso cref="Gl.TextureStorage3D"/>
-		/// <seealso cref="Gl.TextureView"/>
 		[RequiredByFeature("GL_VERSION_3_0")]
 		public static void GetTexParameterIiv(int target, int pname, Int32[] @params)
 		{
@@ -5572,32 +3248,6 @@ namespace OpenGL
 		/// <param name="params">
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
-		/// <remarks>
-		/// glGetTexParameter and glGetTextureParameter return in params the value or values of the texture parameter specified as 
-		/// pname. target defines the target texture. GL_TEXTURE_1D, GL_TEXTURE_2D, GL_TEXTURE_3D, GL_TEXTURE_1D_ARRAY, 
-		/// GL_TEXTURE_2D_ARRAY, GL_TEXTURE_RECTANGLE, GL_TEXTURE_CUBE_MAP, GL_TEXTURE_CUBE_MAP_ARRAY, GL_TEXTURE_2D_MULTISAMPLE, or 
-		/// GL_TEXTURE_2D_MULTISAMPLE_ARRAY specify one-, two-, or three-dimensional, one-dimensional array, two-dimensional array, 
-		/// rectangle, cube-mapped or cube-mapped array, two-dimensional multisample, or two-dimensional multisample array 
-		/// texturing, respectively. pname accepts the same symbols as glTexParameter, with the same interpretations:
-		/// In addition to the parameters that may be set with glTexParameter, glGetTexParameter and glGetTextureParameter accept 
-		/// the following read-only parameters:
-		/// <para>
-		/// The following errors can be generated:
-		/// - GL_INVALID_ENUM is generated if pname is not an accepted value.
-		/// - GL_INVALID_ENUM error is generated by glGetTexParameter if the effective target is not one of the accepted texture 
-		///   targets.
-		/// - GL_INVALID_OPERATION is generated by glGetTextureParameter* if texture is not the name of an existing texture object.
-		/// </para>
-		/// </remarks>
-		/// <seealso cref="Gl.TexParameter"/>
-		/// <seealso cref="Gl.TextureParameter"/>
-		/// <seealso cref="Gl.TexStorage1D"/>
-		/// <seealso cref="Gl.TexStorage2D"/>
-		/// <seealso cref="Gl.TexStorage3D"/>
-		/// <seealso cref="Gl.TextureStorage1D"/>
-		/// <seealso cref="Gl.TextureStorage2D"/>
-		/// <seealso cref="Gl.TextureStorage3D"/>
-		/// <seealso cref="Gl.TextureView"/>
 		[RequiredByFeature("GL_VERSION_3_0")]
 		public static void GetTexParameterIiv(TextureTarget target, GetTextureParameter pname, Int32[] @params)
 		{
@@ -5641,32 +3291,6 @@ namespace OpenGL
 		/// <param name="params">
 		/// A <see cref="T:UInt32[]"/>.
 		/// </param>
-		/// <remarks>
-		/// glGetTexParameter and glGetTextureParameter return in params the value or values of the texture parameter specified as 
-		/// pname. target defines the target texture. GL_TEXTURE_1D, GL_TEXTURE_2D, GL_TEXTURE_3D, GL_TEXTURE_1D_ARRAY, 
-		/// GL_TEXTURE_2D_ARRAY, GL_TEXTURE_RECTANGLE, GL_TEXTURE_CUBE_MAP, GL_TEXTURE_CUBE_MAP_ARRAY, GL_TEXTURE_2D_MULTISAMPLE, or 
-		/// GL_TEXTURE_2D_MULTISAMPLE_ARRAY specify one-, two-, or three-dimensional, one-dimensional array, two-dimensional array, 
-		/// rectangle, cube-mapped or cube-mapped array, two-dimensional multisample, or two-dimensional multisample array 
-		/// texturing, respectively. pname accepts the same symbols as glTexParameter, with the same interpretations:
-		/// In addition to the parameters that may be set with glTexParameter, glGetTexParameter and glGetTextureParameter accept 
-		/// the following read-only parameters:
-		/// <para>
-		/// The following errors can be generated:
-		/// - GL_INVALID_ENUM is generated if pname is not an accepted value.
-		/// - GL_INVALID_ENUM error is generated by glGetTexParameter if the effective target is not one of the accepted texture 
-		///   targets.
-		/// - GL_INVALID_OPERATION is generated by glGetTextureParameter* if texture is not the name of an existing texture object.
-		/// </para>
-		/// </remarks>
-		/// <seealso cref="Gl.TexParameter"/>
-		/// <seealso cref="Gl.TextureParameter"/>
-		/// <seealso cref="Gl.TexStorage1D"/>
-		/// <seealso cref="Gl.TexStorage2D"/>
-		/// <seealso cref="Gl.TexStorage3D"/>
-		/// <seealso cref="Gl.TextureStorage1D"/>
-		/// <seealso cref="Gl.TextureStorage2D"/>
-		/// <seealso cref="Gl.TextureStorage3D"/>
-		/// <seealso cref="Gl.TextureView"/>
 		[RequiredByFeature("GL_VERSION_3_0")]
 		public static void GetTexParameterIuiv(int target, int pname, UInt32[] @params)
 		{
@@ -5710,32 +3334,6 @@ namespace OpenGL
 		/// <param name="params">
 		/// A <see cref="T:UInt32[]"/>.
 		/// </param>
-		/// <remarks>
-		/// glGetTexParameter and glGetTextureParameter return in params the value or values of the texture parameter specified as 
-		/// pname. target defines the target texture. GL_TEXTURE_1D, GL_TEXTURE_2D, GL_TEXTURE_3D, GL_TEXTURE_1D_ARRAY, 
-		/// GL_TEXTURE_2D_ARRAY, GL_TEXTURE_RECTANGLE, GL_TEXTURE_CUBE_MAP, GL_TEXTURE_CUBE_MAP_ARRAY, GL_TEXTURE_2D_MULTISAMPLE, or 
-		/// GL_TEXTURE_2D_MULTISAMPLE_ARRAY specify one-, two-, or three-dimensional, one-dimensional array, two-dimensional array, 
-		/// rectangle, cube-mapped or cube-mapped array, two-dimensional multisample, or two-dimensional multisample array 
-		/// texturing, respectively. pname accepts the same symbols as glTexParameter, with the same interpretations:
-		/// In addition to the parameters that may be set with glTexParameter, glGetTexParameter and glGetTextureParameter accept 
-		/// the following read-only parameters:
-		/// <para>
-		/// The following errors can be generated:
-		/// - GL_INVALID_ENUM is generated if pname is not an accepted value.
-		/// - GL_INVALID_ENUM error is generated by glGetTexParameter if the effective target is not one of the accepted texture 
-		///   targets.
-		/// - GL_INVALID_OPERATION is generated by glGetTextureParameter* if texture is not the name of an existing texture object.
-		/// </para>
-		/// </remarks>
-		/// <seealso cref="Gl.TexParameter"/>
-		/// <seealso cref="Gl.TextureParameter"/>
-		/// <seealso cref="Gl.TexStorage1D"/>
-		/// <seealso cref="Gl.TexStorage2D"/>
-		/// <seealso cref="Gl.TexStorage3D"/>
-		/// <seealso cref="Gl.TextureStorage1D"/>
-		/// <seealso cref="Gl.TextureStorage2D"/>
-		/// <seealso cref="Gl.TextureStorage3D"/>
-		/// <seealso cref="Gl.TextureView"/>
 		[RequiredByFeature("GL_VERSION_3_0")]
 		public static void GetTexParameterIuiv(TextureTarget target, GetTextureParameter pname, UInt32[] @params)
 		{
@@ -5770,50 +3368,6 @@ namespace OpenGL
 		/// <param name="value">
 		/// A pointer to the value or values to clear the buffer to.
 		/// </param>
-		/// <remarks>
-		/// These commands clear a specified buffer of a framebuffer to specified value(s). For glClearBuffer*, the framebuffer is 
-		/// the currently bound draw framebuffer object. For glClearNamedFramebuffer*, framebuffer is zero, indicating the default 
-		/// draw framebuffer, or the name of a framebuffer object.
-		/// buffer and drawbuffer identify the buffer to clear.
-		/// If buffer is GL_COLOR, a particular draw buffer GL_DRAW_BUFFERi is specified by passing i as drawbuffer, and value 
-		/// points to a four-element vector specifying the R, G, B and A color to clear that draw buffer to. If the value of 
-		/// GL_DRAW_BUFFERi is GL_NONE, the command has no effect. Otherwise, the value of GL_DRAW_BUFFERi identifies one or more 
-		/// color buffers, each of which is cleared to the same value. Clamping and type conversion for fixed-point color buffers 
-		/// are performed in the same fashion as for glClearColor. The *fv, *iv and *uiv forms of these commands should be used to 
-		/// clear fixed- and floating-point, signed integer, and unsigned integer color buffers respectively.
-		/// If buffer is GL_DEPTH, drawbuffer must be zero, and value points to a single value to clear the depth buffer to. 
-		/// Clamping and type conversion for fixed-point depth buffers are performed in the same fashion as for glClearDepth. Only 
-		/// the *fv forms of these commands should be used to clear depth buffers; other forms do not accept a buffer of GL_DEPTH.
-		/// If buffer is GL_STENCIL, drawbuffer must be zero, and value points to a single value to clear the stencil buffer to. 
-		/// Masking is performed in the same fashion as for glClearStencil. Only the *iv forms of these commands should be used to 
-		/// clear stencil buffers; be used to clear stencil buffers; other forms do not accept a buffer of GL_STENCIL.
-		/// glClearBufferfi and glClearNamedFramebufferfi are used to clear the depth and stencil buffers simultaneously. buffer 
-		/// must be GL_DEPTH_STENCIL and drawbuffer must be zero. depth and stencil are the values to clear the depth and stencil 
-		/// buffers to, respectively. Clamping and type conversion of depth for fixed-point depth buffers are performed in the same 
-		/// fashion as for glClearDepth. Masking of stencil for stencil buffers is performed in the same fashion as for 
-		/// glClearStencil. These commands are equivalent to clearing the depth and stencil buffers separately, but may be faster 
-		/// when a buffer of internal format GL_DEPTH_STENCIL is being cleared. The same per-fragment and masking operations defined 
-		/// for glClear are applied.
-		/// The result of these commands is undefined if no conversion between the type of the specified value and the type of the 
-		/// buffer being cleared is defined (for example, if glClearBufferiv is called for a fixed- or floating-point buffer, or if 
-		/// glClearBufferfv is called for a signed or unsigned integer buffer). This is not an error.
-		/// <para>
-		/// The following errors can be generated:
-		/// - GL_INVALID_OPERATION is generated by glClearNamedFramebuffer* if framebuffer is not zero or the name of an existing 
-		///   framebuffer object.
-		/// - GL_INVALID_ENUM is generated by glClearBufferiv and glClearNamedFramebufferivbuffer is not GL_COLOR or GL_STENCIL.
-		/// - GL_INVALID_ENUM is generated by glClearBufferuiv and glClearNamedFramebufferuivbuffer is not GL_COLOR.
-		/// - GL_INVALID_ENUM is generated by glClearBufferfv and glClearNamedFramebufferfvbuffer is not GL_COLOR or GL_DEPTH.
-		/// - GL_INVALID_ENUM is generated by glClearBufferfi and glClearNamedFramebufferfibuffer is not GL_DEPTH_STENCIL.
-		/// - GL_INVALID_VALUE is generated if buffer is GL_COLORdrawbuffer is negative, or greater than the value of 
-		///   GL_MAX_DRAW_BUFFERS minus one.
-		/// - GL_INVALID_VALUE is generated if buffer is GL_DEPTH, GL_STENCIL or GL_DEPTH_STENCIL and drawbuffer is not zero.
-		/// </para>
-		/// </remarks>
-		/// <seealso cref="Gl.ClearColor"/>
-		/// <seealso cref="Gl.ClearDepth"/>
-		/// <seealso cref="Gl.ClearStencil"/>
-		/// <seealso cref="Gl.Clear"/>
 		[RequiredByFeature("GL_VERSION_3_0")]
 		public static void ClearBuffer(int buffer, Int32 drawbuffer, Int32[] value)
 		{
@@ -5840,50 +3394,6 @@ namespace OpenGL
 		/// <param name="value">
 		/// A pointer to the value or values to clear the buffer to.
 		/// </param>
-		/// <remarks>
-		/// These commands clear a specified buffer of a framebuffer to specified value(s). For glClearBuffer*, the framebuffer is 
-		/// the currently bound draw framebuffer object. For glClearNamedFramebuffer*, framebuffer is zero, indicating the default 
-		/// draw framebuffer, or the name of a framebuffer object.
-		/// buffer and drawbuffer identify the buffer to clear.
-		/// If buffer is GL_COLOR, a particular draw buffer GL_DRAW_BUFFERi is specified by passing i as drawbuffer, and value 
-		/// points to a four-element vector specifying the R, G, B and A color to clear that draw buffer to. If the value of 
-		/// GL_DRAW_BUFFERi is GL_NONE, the command has no effect. Otherwise, the value of GL_DRAW_BUFFERi identifies one or more 
-		/// color buffers, each of which is cleared to the same value. Clamping and type conversion for fixed-point color buffers 
-		/// are performed in the same fashion as for glClearColor. The *fv, *iv and *uiv forms of these commands should be used to 
-		/// clear fixed- and floating-point, signed integer, and unsigned integer color buffers respectively.
-		/// If buffer is GL_DEPTH, drawbuffer must be zero, and value points to a single value to clear the depth buffer to. 
-		/// Clamping and type conversion for fixed-point depth buffers are performed in the same fashion as for glClearDepth. Only 
-		/// the *fv forms of these commands should be used to clear depth buffers; other forms do not accept a buffer of GL_DEPTH.
-		/// If buffer is GL_STENCIL, drawbuffer must be zero, and value points to a single value to clear the stencil buffer to. 
-		/// Masking is performed in the same fashion as for glClearStencil. Only the *iv forms of these commands should be used to 
-		/// clear stencil buffers; be used to clear stencil buffers; other forms do not accept a buffer of GL_STENCIL.
-		/// glClearBufferfi and glClearNamedFramebufferfi are used to clear the depth and stencil buffers simultaneously. buffer 
-		/// must be GL_DEPTH_STENCIL and drawbuffer must be zero. depth and stencil are the values to clear the depth and stencil 
-		/// buffers to, respectively. Clamping and type conversion of depth for fixed-point depth buffers are performed in the same 
-		/// fashion as for glClearDepth. Masking of stencil for stencil buffers is performed in the same fashion as for 
-		/// glClearStencil. These commands are equivalent to clearing the depth and stencil buffers separately, but may be faster 
-		/// when a buffer of internal format GL_DEPTH_STENCIL is being cleared. The same per-fragment and masking operations defined 
-		/// for glClear are applied.
-		/// The result of these commands is undefined if no conversion between the type of the specified value and the type of the 
-		/// buffer being cleared is defined (for example, if glClearBufferiv is called for a fixed- or floating-point buffer, or if 
-		/// glClearBufferfv is called for a signed or unsigned integer buffer). This is not an error.
-		/// <para>
-		/// The following errors can be generated:
-		/// - GL_INVALID_OPERATION is generated by glClearNamedFramebuffer* if framebuffer is not zero or the name of an existing 
-		///   framebuffer object.
-		/// - GL_INVALID_ENUM is generated by glClearBufferiv and glClearNamedFramebufferivbuffer is not GL_COLOR or GL_STENCIL.
-		/// - GL_INVALID_ENUM is generated by glClearBufferuiv and glClearNamedFramebufferuivbuffer is not GL_COLOR.
-		/// - GL_INVALID_ENUM is generated by glClearBufferfv and glClearNamedFramebufferfvbuffer is not GL_COLOR or GL_DEPTH.
-		/// - GL_INVALID_ENUM is generated by glClearBufferfi and glClearNamedFramebufferfibuffer is not GL_DEPTH_STENCIL.
-		/// - GL_INVALID_VALUE is generated if buffer is GL_COLORdrawbuffer is negative, or greater than the value of 
-		///   GL_MAX_DRAW_BUFFERS minus one.
-		/// - GL_INVALID_VALUE is generated if buffer is GL_DEPTH, GL_STENCIL or GL_DEPTH_STENCIL and drawbuffer is not zero.
-		/// </para>
-		/// </remarks>
-		/// <seealso cref="Gl.ClearColor"/>
-		/// <seealso cref="Gl.ClearDepth"/>
-		/// <seealso cref="Gl.ClearStencil"/>
-		/// <seealso cref="Gl.Clear"/>
 		[RequiredByFeature("GL_VERSION_3_0")]
 		public static void ClearBuffer(int buffer, Int32 drawbuffer, UInt32[] value)
 		{
@@ -5910,50 +3420,6 @@ namespace OpenGL
 		/// <param name="value">
 		/// A pointer to the value or values to clear the buffer to.
 		/// </param>
-		/// <remarks>
-		/// These commands clear a specified buffer of a framebuffer to specified value(s). For glClearBuffer*, the framebuffer is 
-		/// the currently bound draw framebuffer object. For glClearNamedFramebuffer*, framebuffer is zero, indicating the default 
-		/// draw framebuffer, or the name of a framebuffer object.
-		/// buffer and drawbuffer identify the buffer to clear.
-		/// If buffer is GL_COLOR, a particular draw buffer GL_DRAW_BUFFERi is specified by passing i as drawbuffer, and value 
-		/// points to a four-element vector specifying the R, G, B and A color to clear that draw buffer to. If the value of 
-		/// GL_DRAW_BUFFERi is GL_NONE, the command has no effect. Otherwise, the value of GL_DRAW_BUFFERi identifies one or more 
-		/// color buffers, each of which is cleared to the same value. Clamping and type conversion for fixed-point color buffers 
-		/// are performed in the same fashion as for glClearColor. The *fv, *iv and *uiv forms of these commands should be used to 
-		/// clear fixed- and floating-point, signed integer, and unsigned integer color buffers respectively.
-		/// If buffer is GL_DEPTH, drawbuffer must be zero, and value points to a single value to clear the depth buffer to. 
-		/// Clamping and type conversion for fixed-point depth buffers are performed in the same fashion as for glClearDepth. Only 
-		/// the *fv forms of these commands should be used to clear depth buffers; other forms do not accept a buffer of GL_DEPTH.
-		/// If buffer is GL_STENCIL, drawbuffer must be zero, and value points to a single value to clear the stencil buffer to. 
-		/// Masking is performed in the same fashion as for glClearStencil. Only the *iv forms of these commands should be used to 
-		/// clear stencil buffers; be used to clear stencil buffers; other forms do not accept a buffer of GL_STENCIL.
-		/// glClearBufferfi and glClearNamedFramebufferfi are used to clear the depth and stencil buffers simultaneously. buffer 
-		/// must be GL_DEPTH_STENCIL and drawbuffer must be zero. depth and stencil are the values to clear the depth and stencil 
-		/// buffers to, respectively. Clamping and type conversion of depth for fixed-point depth buffers are performed in the same 
-		/// fashion as for glClearDepth. Masking of stencil for stencil buffers is performed in the same fashion as for 
-		/// glClearStencil. These commands are equivalent to clearing the depth and stencil buffers separately, but may be faster 
-		/// when a buffer of internal format GL_DEPTH_STENCIL is being cleared. The same per-fragment and masking operations defined 
-		/// for glClear are applied.
-		/// The result of these commands is undefined if no conversion between the type of the specified value and the type of the 
-		/// buffer being cleared is defined (for example, if glClearBufferiv is called for a fixed- or floating-point buffer, or if 
-		/// glClearBufferfv is called for a signed or unsigned integer buffer). This is not an error.
-		/// <para>
-		/// The following errors can be generated:
-		/// - GL_INVALID_OPERATION is generated by glClearNamedFramebuffer* if framebuffer is not zero or the name of an existing 
-		///   framebuffer object.
-		/// - GL_INVALID_ENUM is generated by glClearBufferiv and glClearNamedFramebufferivbuffer is not GL_COLOR or GL_STENCIL.
-		/// - GL_INVALID_ENUM is generated by glClearBufferuiv and glClearNamedFramebufferuivbuffer is not GL_COLOR.
-		/// - GL_INVALID_ENUM is generated by glClearBufferfv and glClearNamedFramebufferfvbuffer is not GL_COLOR or GL_DEPTH.
-		/// - GL_INVALID_ENUM is generated by glClearBufferfi and glClearNamedFramebufferfibuffer is not GL_DEPTH_STENCIL.
-		/// - GL_INVALID_VALUE is generated if buffer is GL_COLORdrawbuffer is negative, or greater than the value of 
-		///   GL_MAX_DRAW_BUFFERS minus one.
-		/// - GL_INVALID_VALUE is generated if buffer is GL_DEPTH, GL_STENCIL or GL_DEPTH_STENCIL and drawbuffer is not zero.
-		/// </para>
-		/// </remarks>
-		/// <seealso cref="Gl.ClearColor"/>
-		/// <seealso cref="Gl.ClearDepth"/>
-		/// <seealso cref="Gl.ClearStencil"/>
-		/// <seealso cref="Gl.Clear"/>
 		[RequiredByFeature("GL_VERSION_3_0")]
 		public static void ClearBuffer(int buffer, Int32 drawbuffer, float[] value)
 		{
@@ -5983,50 +3449,6 @@ namespace OpenGL
 		/// <param name="stencil">
 		/// The value to clear the stencil buffer to.
 		/// </param>
-		/// <remarks>
-		/// These commands clear a specified buffer of a framebuffer to specified value(s). For glClearBuffer*, the framebuffer is 
-		/// the currently bound draw framebuffer object. For glClearNamedFramebuffer*, framebuffer is zero, indicating the default 
-		/// draw framebuffer, or the name of a framebuffer object.
-		/// buffer and drawbuffer identify the buffer to clear.
-		/// If buffer is GL_COLOR, a particular draw buffer GL_DRAW_BUFFERi is specified by passing i as drawbuffer, and value 
-		/// points to a four-element vector specifying the R, G, B and A color to clear that draw buffer to. If the value of 
-		/// GL_DRAW_BUFFERi is GL_NONE, the command has no effect. Otherwise, the value of GL_DRAW_BUFFERi identifies one or more 
-		/// color buffers, each of which is cleared to the same value. Clamping and type conversion for fixed-point color buffers 
-		/// are performed in the same fashion as for glClearColor. The *fv, *iv and *uiv forms of these commands should be used to 
-		/// clear fixed- and floating-point, signed integer, and unsigned integer color buffers respectively.
-		/// If buffer is GL_DEPTH, drawbuffer must be zero, and value points to a single value to clear the depth buffer to. 
-		/// Clamping and type conversion for fixed-point depth buffers are performed in the same fashion as for glClearDepth. Only 
-		/// the *fv forms of these commands should be used to clear depth buffers; other forms do not accept a buffer of GL_DEPTH.
-		/// If buffer is GL_STENCIL, drawbuffer must be zero, and value points to a single value to clear the stencil buffer to. 
-		/// Masking is performed in the same fashion as for glClearStencil. Only the *iv forms of these commands should be used to 
-		/// clear stencil buffers; be used to clear stencil buffers; other forms do not accept a buffer of GL_STENCIL.
-		/// glClearBufferfi and glClearNamedFramebufferfi are used to clear the depth and stencil buffers simultaneously. buffer 
-		/// must be GL_DEPTH_STENCIL and drawbuffer must be zero. depth and stencil are the values to clear the depth and stencil 
-		/// buffers to, respectively. Clamping and type conversion of depth for fixed-point depth buffers are performed in the same 
-		/// fashion as for glClearDepth. Masking of stencil for stencil buffers is performed in the same fashion as for 
-		/// glClearStencil. These commands are equivalent to clearing the depth and stencil buffers separately, but may be faster 
-		/// when a buffer of internal format GL_DEPTH_STENCIL is being cleared. The same per-fragment and masking operations defined 
-		/// for glClear are applied.
-		/// The result of these commands is undefined if no conversion between the type of the specified value and the type of the 
-		/// buffer being cleared is defined (for example, if glClearBufferiv is called for a fixed- or floating-point buffer, or if 
-		/// glClearBufferfv is called for a signed or unsigned integer buffer). This is not an error.
-		/// <para>
-		/// The following errors can be generated:
-		/// - GL_INVALID_OPERATION is generated by glClearNamedFramebuffer* if framebuffer is not zero or the name of an existing 
-		///   framebuffer object.
-		/// - GL_INVALID_ENUM is generated by glClearBufferiv and glClearNamedFramebufferivbuffer is not GL_COLOR or GL_STENCIL.
-		/// - GL_INVALID_ENUM is generated by glClearBufferuiv and glClearNamedFramebufferuivbuffer is not GL_COLOR.
-		/// - GL_INVALID_ENUM is generated by glClearBufferfv and glClearNamedFramebufferfvbuffer is not GL_COLOR or GL_DEPTH.
-		/// - GL_INVALID_ENUM is generated by glClearBufferfi and glClearNamedFramebufferfibuffer is not GL_DEPTH_STENCIL.
-		/// - GL_INVALID_VALUE is generated if buffer is GL_COLORdrawbuffer is negative, or greater than the value of 
-		///   GL_MAX_DRAW_BUFFERS minus one.
-		/// - GL_INVALID_VALUE is generated if buffer is GL_DEPTH, GL_STENCIL or GL_DEPTH_STENCIL and drawbuffer is not zero.
-		/// </para>
-		/// </remarks>
-		/// <seealso cref="Gl.ClearColor"/>
-		/// <seealso cref="Gl.ClearDepth"/>
-		/// <seealso cref="Gl.ClearStencil"/>
-		/// <seealso cref="Gl.Clear"/>
 		[RequiredByFeature("GL_VERSION_3_0")]
 		public static void ClearBuffer(int buffer, Int32 drawbuffer, float depth, Int32 stencil)
 		{
@@ -6046,24 +3468,6 @@ namespace OpenGL
 		/// <param name="index">
 		/// For glGetStringi, specifies the index of the string to return.
 		/// </param>
-		/// <remarks>
-		/// glGetString returns a pointer to a static string describing some aspect of the current GL connection. name can be one of 
-		/// the following:
-		/// glGetStringi returns a pointer to a static string indexed by index. name can be one of the following:
-		/// Strings GL_VENDOR and GL_RENDERER together uniquely specify a platform. They do not change from release to release and 
-		/// should be used by platform-recognition algorithms.
-		/// The GL_VERSION and GL_SHADING_LANGUAGE_VERSION strings begin with a version number. The version number uses one of these 
-		/// forms:
-		/// major_number.minor_numbermajor_number.minor_number.release_number
-		/// Vendor-specific information may follow the version number. Its format depends on the implementation, but a space always 
-		/// separates the version number and the vendor-specific information.
-		/// All strings are null-terminated.
-		/// <para>
-		/// The following errors can be generated:
-		/// - GL_INVALID_ENUM is generated if name is not an accepted value.
-		/// - GL_INVALID_VALUE is generated by glGetStringi if index is outside the valid range for indexed state name.
-		/// </para>
-		/// </remarks>
 		[RequiredByFeature("GL_VERSION_3_0")]
 		public static String GetString(int name, UInt32 index)
 		{
@@ -6083,17 +3487,6 @@ namespace OpenGL
 		/// <param name="renderbuffer">
 		/// Specifies a value that may be the name of a renderbuffer object.
 		/// </param>
-		/// <remarks>
-		/// glIsRenderbuffer returns GL_TRUE if renderbuffer is currently the name of a renderbuffer object. If renderbuffer is 
-		/// zero, or if renderbuffer is not the name of a renderbuffer object, or if an error occurs, glIsRenderbuffer returns 
-		/// GL_FALSE. If renderbuffer is a name returned by glGenRenderbuffers, by that has not yet been bound through a call to 
-		/// glBindRenderbuffer or glFramebufferRenderbuffer, then the name is not a renderbuffer object and glIsRenderbuffer returns 
-		/// GL_FALSE.
-		/// </remarks>
-		/// <seealso cref="Gl.GenRenderbuffers"/>
-		/// <seealso cref="Gl.BindRenderbuffer"/>
-		/// <seealso cref="Gl.FramebufferRenderbuffer"/>
-		/// <seealso cref="Gl.DeleteRenderbuffers"/>
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ARB_framebuffer_object")]
 		public static bool IsRenderbuffer(UInt32 renderbuffer)
@@ -6122,22 +3515,6 @@ namespace OpenGL
 		/// <param name="renderbuffer">
 		/// Specifies the name of the renderbuffer object to bind.
 		/// </param>
-		/// <remarks>
-		/// glBindRenderbuffer binds the renderbuffer object with name renderbuffer to the renderbuffer target specified by target. 
-		/// target must be GL_RENDERBUFFER. renderbuffer is the name of a renderbuffer object previously returned from a call to 
-		/// glGenRenderbuffers, or zero to break the existing binding of a renderbuffer object to target.
-		/// <para>
-		/// The following errors can be generated:
-		/// - GL_INVALID_ENUM is generated if target is not GL_RENDERBUFFER.
-		/// - GL_INVALID_OPERATION is generated if renderbuffer is not zero or the name of a renderbuffer previously returned from a 
-		///   call to glGenRenderbuffers.
-		/// </para>
-		/// </remarks>
-		/// <seealso cref="Gl.DeleteRenderbuffers"/>
-		/// <seealso cref="Gl.GenRenderbuffers"/>
-		/// <seealso cref="Gl.IsRenderbuffer"/>
-		/// <seealso cref="Gl.RenderbufferStorage"/>
-		/// <seealso cref="Gl.RenderbufferStorageMultisample"/>
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ARB_framebuffer_object")]
 		public static void BindRenderbuffer(int target, UInt32 renderbuffer)
@@ -6157,26 +3534,6 @@ namespace OpenGL
 		/// <param name="renderbuffers">
 		/// A pointer to an array containing n renderbuffer objects to be deleted.
 		/// </param>
-		/// <remarks>
-		/// glDeleteRenderbuffers deletes the n renderbuffer objects whose names are stored in the array addressed by renderbuffers. 
-		/// The name zero is reserved by the GL and is silently ignored, should it occur in renderbuffers, as are other unused 
-		/// names. Once a renderbuffer object is deleted, its name is again unused and it has no contents. If a renderbuffer that is 
-		/// currently bound to the target GL_RENDERBUFFER is deleted, it is as though glBindRenderbuffer had been executed with a 
-		/// target of GL_RENDERBUFFER and a name of zero.
-		/// If a renderbuffer object is attached to one or more attachment points in the currently bound framebuffer, then it as if 
-		/// glFramebufferRenderbuffer had been called, with a renderbuffer of zero for each attachment point to which this image was 
-		/// attached in the currently bound framebuffer. In other words, this renderbuffer object is first detached from all 
-		/// attachment ponits in the currently bound framebuffer. Note that the renderbuffer image is specifically not detached from 
-		/// any non-bound framebuffers.
-		/// <para>
-		/// The following errors can be generated:
-		/// - GL_INVALID_VALUE is generated if n is negative.
-		/// </para>
-		/// </remarks>
-		/// <seealso cref="Gl.GenRenderbuffers"/>
-		/// <seealso cref="Gl.FramebufferRenderbuffer"/>
-		/// <seealso cref="Gl.RenderbufferStorage"/>
-		/// <seealso cref="Gl.RenderbufferStorageMultisample"/>
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ARB_framebuffer_object")]
 		public static void DeleteRenderbuffer(Int32 n, UInt32[] renderbuffers)
@@ -6206,21 +3563,6 @@ namespace OpenGL
 		/// <param name="renderbuffers">
 		/// Specifies an array in which the generated renderbuffer object names are stored.
 		/// </param>
-		/// <remarks>
-		/// glGenRenderbuffers returns n renderbuffer object names in renderbuffers. There is no guarantee that the names form a 
-		/// contiguous set of integers; however, it is guaranteed that none of the returned names was in use immediately before the 
-		/// call to glGenRenderbuffers.
-		/// Renderbuffer object names returned by a call to glGenRenderbuffers are not returned by subsequent calls, unless they are 
-		/// first deleted with glDeleteRenderbuffers.
-		/// The names returned in renderbuffers are marked as used, for the purposes of glGenRenderbuffers only, but they acquire 
-		/// state and type only when they are first bound.
-		/// <para>
-		/// The following errors can be generated:
-		/// - GL_INVALID_VALUE is generated if n is negative.
-		/// </para>
-		/// </remarks>
-		/// <seealso cref="Gl.FramebufferRenderbuffer"/>
-		/// <seealso cref="Gl.DeleteRenderbuffers"/>
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ARB_framebuffer_object")]
 		public static void GenRenderbuffer(Int32 n, UInt32[] renderbuffers)
@@ -6256,34 +3598,6 @@ namespace OpenGL
 		/// <param name="height">
 		/// Specifies the height of the renderbuffer, in pixels.
 		/// </param>
-		/// <remarks>
-		/// glRenderbufferStorage is equivalent to calling glRenderbufferStorageMultisample with the samples set to zero, and 
-		/// glNamedRenderbufferStorage is equivalent to calling glNamedRenderbufferStorageMultisample with the samples set to zero.
-		/// For glRenderbufferStorage, the target of the operation, specified by target must be GL_RENDERBUFFER. For 
-		/// glNamedRenderbufferStorage, renderbuffer must be a name of an existing renderbuffer object. internalformat specifies the 
-		/// internal format to be used for the renderbuffer object's storage and must be a color-renderable, depth-renderable, or 
-		/// stencil-renderable format. width and height are the dimensions, in pixels, of the renderbuffer. Both width and height 
-		/// must be less than or equal to the value of GL_MAX_RENDERBUFFER_SIZE.
-		/// Upon success, glRenderbufferStorage and glNamedRenderbufferStorage delete any existing data store for the renderbuffer 
-		/// image and the contents of the data store after calling glRenderbufferStorage are undefined.
-		/// <para>
-		/// The following errors can be generated:
-		/// - GL_INVALID_ENUM is generated by glRenderbufferStorage if target is not GL_RENDERBUFFER.
-		/// - GL_INVALID_OPERATION is generated by glNamedRenderbufferStorage if renderbuffer is not the name of an existing 
-		///   renderbuffer object.
-		/// - GL_INVALID_VALUE is generated if either of width or height is negative, or greater than the value of 
-		///   GL_MAX_RENDERBUFFER_SIZE.
-		/// - GL_INVALID_ENUM is generated if internalformat is not a color-renderable, depth-renderable, or stencil-renderable 
-		///   format.
-		/// - GL_OUT_OF_MEMORY is generated if the GL is unable to create a data store of the requested size.
-		/// </para>
-		/// </remarks>
-		/// <seealso cref="Gl.GenRenderbuffers"/>
-		/// <seealso cref="Gl.BindRenderbuffer"/>
-		/// <seealso cref="Gl.NamedRenderbufferStorageMultisample"/>
-		/// <seealso cref="Gl.RenderbufferStorageMultisample"/>
-		/// <seealso cref="Gl.FramebufferRenderbuffer"/>
-		/// <seealso cref="Gl.DeleteRenderbuffers"/>
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ARB_framebuffer_object")]
 		public static void RenderbufferStorage(int target, int internalformat, Int32 width, Int32 height)
@@ -6312,26 +3626,6 @@ namespace OpenGL
 		/// <param name="params">
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
-		/// <remarks>
-		/// glGetRenderbufferParameteriv and glGetNamedRenderbufferParameteriv query parameters of a specified renderbuffer object.
-		/// For glGetRenderbufferParameteriv, the renderbuffer object is that bound to target, which must be GL_RENDERBUFFER.
-		/// For glGetNamedRenderbufferParameteriv, renderbuffer is the name of the renderbuffer object.
-		/// Upon successful return, param will contain the value of the renderbuffer parameter specified by pname, as described 
-		/// below.
-		/// <para>
-		/// The following errors can be generated:
-		/// - GL_INVALID_ENUM is generated by glGetRenderbufferParameteriv if target is not GL_RENDERBUFFER.
-		/// - GL_INVALID_OPERATION is generated by glGetRenderbufferParameteriv if zero is bound to target.
-		/// - GL_INVALID_OPERATION is generated by glGetNamedRenderbufferParameteriv if renderbuffer is not the name of an existing 
-		///   renderbuffer object.
-		/// - GL_INVALID_ENUM is generated if pname is not one of the accepted parameter names described above.
-		/// </para>
-		/// </remarks>
-		/// <seealso cref="Gl.GenRenderbuffers"/>
-		/// <seealso cref="Gl.FramebufferRenderbuffer"/>
-		/// <seealso cref="Gl.BindRenderbuffer"/>
-		/// <seealso cref="Gl.RenderbufferStorage"/>
-		/// <seealso cref="Gl.RenderbufferStorageMultisample"/>
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ARB_framebuffer_object")]
 		public static void GetRenderbufferParameter(int target, int pname, Int32[] @params)
@@ -6358,15 +3652,6 @@ namespace OpenGL
 		/// <param name="framebuffer">
 		/// Specifies a value that may be the name of a framebuffer object.
 		/// </param>
-		/// <remarks>
-		/// glIsFramebuffer returns GL_TRUE if framebuffer is currently the name of a framebuffer object. If framebuffer is zero, or 
-		/// if framebuffer is not the name of a framebuffer object, or if an error occurs, glIsFramebuffer returns GL_FALSE. If 
-		/// framebuffer is a name returned by glGenFramebuffers, by that has not yet been bound through a call to glBindFramebuffer, 
-		/// then the name is not a framebuffer object and glIsFramebuffer returns GL_FALSE.
-		/// </remarks>
-		/// <seealso cref="Gl.GenFramebuffers"/>
-		/// <seealso cref="Gl.BindFramebuffer"/>
-		/// <seealso cref="Gl.DeleteFramebuffers"/>
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ARB_framebuffer_object")]
 		public static bool IsFramebuffer(UInt32 framebuffer)
@@ -6395,31 +3680,6 @@ namespace OpenGL
 		/// <param name="framebuffer">
 		/// Specifies the name of the framebuffer object to bind.
 		/// </param>
-		/// <remarks>
-		/// glBindFramebuffer binds the framebuffer object with name framebuffer to the framebuffer target specified by target. 
-		/// target must be either GL_DRAW_FRAMEBUFFER, GL_READ_FRAMEBUFFER or GL_FRAMEBUFFER. If a framebuffer object is bound to 
-		/// GL_DRAW_FRAMEBUFFER or GL_READ_FRAMEBUFFER, it becomes the target for rendering or readback operations, respectively, 
-		/// until it is deleted or another framebuffer is bound to the corresponding bind point. Calling glBindFramebuffer with 
-		/// target set to GL_FRAMEBUFFER binds framebuffer to both the read and draw framebuffer targets. framebuffer is the name of 
-		/// a framebuffer object previously returned from a call to glGenFramebuffers, or zero to break the existing binding of a 
-		/// framebuffer object to target.
-		/// <para>
-		/// The following errors can be generated:
-		/// - GL_INVALID_ENUM is generated if target is not GL_DRAW_FRAMEBUFFER, GL_READ_FRAMEBUFFER or GL_FRAMEBUFFER.
-		/// - GL_INVALID_OPERATION is generated if framebuffer is not zero or the name of a framebuffer previously returned from a 
-		///   call to glGenFramebuffers.
-		/// </para>
-		/// </remarks>
-		/// <seealso cref="Gl.GenFramebuffers"/>
-		/// <seealso cref="Gl.FramebufferRenderbuffer"/>
-		/// <seealso cref="Gl.FramebufferTexture"/>
-		/// <seealso cref="Gl.FramebufferTexture1D"/>
-		/// <seealso cref="Gl.FramebufferTexture2D"/>
-		/// <seealso cref="Gl.FramebufferTexture3D"/>
-		/// <seealso cref="Gl.FramebufferTextureFace"/>
-		/// <seealso cref="Gl.FramebufferTextureLayer"/>
-		/// <seealso cref="Gl.DeleteFramebuffers"/>
-		/// <seealso cref="Gl.IsFramebuffer"/>
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ARB_framebuffer_object")]
 		public static void BindFramebuffer(int target, UInt32 framebuffer)
@@ -6439,20 +3699,6 @@ namespace OpenGL
 		/// <param name="framebuffers">
 		/// A pointer to an array containing n framebuffer objects to be deleted.
 		/// </param>
-		/// <remarks>
-		/// glDeleteFramebuffers deletes the n framebuffer objects whose names are stored in the array addressed by framebuffers. 
-		/// The name zero is reserved by the GL and is silently ignored, should it occur in framebuffers, as are other unused names. 
-		/// Once a framebuffer object is deleted, its name is again unused and it has no attachments. If a framebuffer that is 
-		/// currently bound to one or more of the targets GL_DRAW_FRAMEBUFFER or GL_READ_FRAMEBUFFER is deleted, it is as though 
-		/// glBindFramebuffer had been executed with the corresponding target and framebuffer zero.
-		/// <para>
-		/// The following errors can be generated:
-		/// - GL_INVALID_VALUE is generated if n is negative.
-		/// </para>
-		/// </remarks>
-		/// <seealso cref="Gl.GenFramebuffers"/>
-		/// <seealso cref="Gl.BindFramebuffer"/>
-		/// <seealso cref="Gl.CheckFramebufferStatus"/>
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ARB_framebuffer_object")]
 		public static void DeleteFramebuffers(Int32 n, UInt32[] framebuffers)
@@ -6482,21 +3728,6 @@ namespace OpenGL
 		/// <param name="framebuffers">
 		/// A <see cref="T:UInt32[]"/>.
 		/// </param>
-		/// <remarks>
-		/// glGenFramebuffers returns n framebuffer object names in ids. There is no guarantee that the names form a contiguous set 
-		/// of integers; however, it is guaranteed that none of the returned names was in use immediately before the call to 
-		/// glGenFramebuffers.
-		/// Framebuffer object names returned by a call to glGenFramebuffers are not returned by subsequent calls, unless they are 
-		/// first deleted with glDeleteFramebuffers.
-		/// The names returned in ids are marked as used, for the purposes of glGenFramebuffers only, but they acquire state and 
-		/// type only when they are first bound.
-		/// <para>
-		/// The following errors can be generated:
-		/// - GL_INVALID_VALUE is generated if n is negative.
-		/// </para>
-		/// </remarks>
-		/// <seealso cref="Gl.BindFramebuffer"/>
-		/// <seealso cref="Gl.DeleteFramebuffers"/>
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ARB_framebuffer_object")]
 		public static void GenFramebuffers(Int32 n, UInt32[] framebuffers)
@@ -6524,42 +3755,6 @@ namespace OpenGL
 		/// Specify the target to which the framebuffer is bound for glCheckFramebufferStatus, and the target against which 
 		/// framebuffer completeness of framebuffer is checked for glCheckNamedFramebufferStatus.
 		/// </param>
-		/// <remarks>
-		/// glCheckFramebufferStatus and glCheckNamedFramebufferStatus return the completeness status of a framebuffer object when 
-		/// treated as a read or draw framebuffer, depending on the value of target.
-		/// For glCheckFramebufferStatus, the framebuffer checked is that bound to target, which must be GL_DRAW_FRAMEBUFFER, 
-		/// GL_READ_FRAMEBUFFER or GL_FRAMEBUFFER. GL_FRAMEBUFFER is equivalent to GL_DRAW_FRAMEBUFFER.
-		/// For glCheckNamedFramebufferStatus, framebuffer is zero or the name of the framebuffer object to check. If framebuffer is 
-		/// zero, then the status of the default read or draw framebuffer, as determined by target, is returned.
-		/// The return value is GL_FRAMEBUFFER_COMPLETE if the specified framebuffer is complete. Otherwise, the return value is 
-		/// determined as follows: GL_FRAMEBUFFER_UNDEFINED is returned if the specified framebuffer is the default read or draw 
-		/// framebuffer, but the default framebuffer does not exist. GL_FRAMEBUFFER_INCOMPLETE_ATTACHMENT is returned if any of the 
-		/// framebuffer attachment points are framebuffer incomplete. GL_FRAMEBUFFER_INCOMPLETE_MISSING_ATTACHMENT is returned if 
-		/// the framebuffer does not have at least one image attached to it. GL_FRAMEBUFFER_INCOMPLETE_DRAW_BUFFER is returned if 
-		/// the value of GL_FRAMEBUFFER_ATTACHMENT_OBJECT_TYPE is GL_NONE for any color attachment point(s) named by 
-		/// GL_DRAW_BUFFERi. GL_FRAMEBUFFER_INCOMPLETE_READ_BUFFER is returned if GL_READ_BUFFER is not GL_NONE and the value of 
-		/// GL_FRAMEBUFFER_ATTACHMENT_OBJECT_TYPE is GL_NONE for the color attachment point named by GL_READ_BUFFER. 
-		/// GL_FRAMEBUFFER_UNSUPPORTED is returned if the combination of internal formats of the attached images violates an 
-		/// implementation-dependent set of restrictions. GL_FRAMEBUFFER_INCOMPLETE_MULTISAMPLE is returned if the value of 
-		/// GL_RENDERBUFFER_SAMPLES is not the same for all attached renderbuffers; if the value of GL_TEXTURE_SAMPLES is the not 
-		/// same for all attached textures; or, if the attached images are a mix of renderbuffers and textures, the value of 
-		/// GL_RENDERBUFFER_SAMPLES does not match the value of GL_TEXTURE_SAMPLES. GL_FRAMEBUFFER_INCOMPLETE_MULTISAMPLE is also 
-		/// returned if the value of GL_TEXTURE_FIXED_SAMPLE_LOCATIONS is not the same for all attached textures; or, if the 
-		/// attached images are a mix of renderbuffers and textures, the value of GL_TEXTURE_FIXED_SAMPLE_LOCATIONS is not GL_TRUE 
-		/// for all attached textures. GL_FRAMEBUFFER_INCOMPLETE_LAYER_TARGETS is returned if any framebuffer attachment is layered, 
-		/// and any populated attachment is not layered, or if all populated color attachments are not from textures of the same 
-		/// target.
-		/// Additionally, if an error occurs, zero is returned.
-		/// <para>
-		/// The following errors can be generated:
-		/// - GL_INVALID_ENUM is generated if target is not GL_DRAW_FRAMEBUFFER, GL_READ_FRAMEBUFFER or GL_FRAMEBUFFER.
-		/// - GL_INVALID_OPERATION is generated by glCheckNamedFramebufferStatus if framebuffer is not zero or the name of an existing 
-		///   framebuffer object.
-		/// </para>
-		/// </remarks>
-		/// <seealso cref="Gl.GenFramebuffers"/>
-		/// <seealso cref="Gl.DeleteFramebuffers"/>
-		/// <seealso cref="Gl.BindFramebuffer"/>
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ARB_framebuffer_object")]
 		public static int CheckFramebufferStatus(int target)
@@ -6598,70 +3793,6 @@ namespace OpenGL
 		/// <param name="level">
 		/// Specifies the mipmap level of the texture object to attach.
 		/// </param>
-		/// <remarks>
-		/// These commands attach a selected mipmap level or image of a texture object as one of the logical buffers of the 
-		/// specified framebuffer object. Textures cannot be attached to the default draw and read framebuffer, so they are not 
-		/// valid targets of these commands.
-		/// For all commands exceptglNamedFramebufferTexture, the framebuffer object is that bound to target, which must be 
-		/// GL_DRAW_FRAMEBUFFER, GL_READ_FRAMEBUFFER, or GL_FRAMEBUFFER. GL_FRAMEBUFFER is equivalent to GL_DRAW_FRAMEBUFFER.
-		/// For glNamedFramebufferTexture, framebuffer is the name of the framebuffer object.
-		/// attachment specifies the logical attachment of the framebuffer and must be GL_COLOR_ATTACHMENTi, GL_DEPTH_ATTACHMENT, 
-		/// GL_STENCIL_ATTACHMENT or GL_DEPTH_STENCIL_ATTACHMENT. i in GL_COLOR_ATTACHMENTi may range from zero to the value of 
-		/// GL_MAX_COLOR_ATTACHMENTS minus one. Attaching a level of a texture to GL_DEPTH_STENCIL_ATTACHMENT is equivalent to 
-		/// attaching that level to both the GL_DEPTH_ATTACHMENTand the GL_STENCIL_ATTACHMENT attachment points simultaneously.
-		/// For glFramebufferTexture1D, glFramebufferTexture2D and glFramebufferTexture3D, textarget specifies what type of texture 
-		/// is named by texture, and for cube map textures, specifies the face that is to be attached. If texture is not zero, it 
-		/// must be the name of an existing texture object with effective target textarget unless it is a cube map texture, in which 
-		/// case textarget must be GL_TEXTURE_CUBE_MAP_POSITIVE_XGL_TEXTURE_CUBE_MAP_NEGATIVE_X, GL_TEXTURE_CUBE_MAP_POSITIVE_Y, 
-		/// GL_TEXTURE_CUBE_MAP_NEGATIVE_Y, GL_TEXTURE_CUBE_MAP_POSITIVE_Z, or GL_TEXTURE_CUBE_MAP_NEGATIVE_Z.
-		/// If texture is non-zero, the specified level of the texture object named texture is attached to the framebfufer 
-		/// attachment point named by attachment. For glFramebufferTexture1D, glFramebufferTexture2D, and glFramebufferTexture3D, 
-		/// texture must be zero or the name of an existing texture with an effective target of textarget, or texture must be the 
-		/// name of an existing cube-map texture and textarget must be one of GL_TEXTURE_CUBE_MAP_POSITIVE_X, 
-		/// GL_TEXTURE_CUBE_MAP_POSITIVE_Y, GL_TEXTURE_CUBE_MAP_POSITIVE_Z, GL_TEXTURE_CUBE_MAP_NEGATIVE_X, 
-		/// GL_TEXTURE_CUBE_MAP_NEGATIVE_Y, or GL_TEXTURE_CUBE_MAP_NEGATIVE_Z.
-		/// If textarget is GL_TEXTURE_RECTANGLE, GL_TEXTURE_2D_MULTISAMPLE, or GL_TEXTURE_2D_MULTISAMPLE_ARRAY, then level must be 
-		/// zero.
-		/// If textarget is GL_TEXTURE_3D, then level must be greater than or equal to zero and less than or equal to $log_2$ of the 
-		/// value of GL_MAX_3D_TEXTURE_SIZE.
-		/// If textarget is one of GL_TEXTURE_CUBE_MAP_POSITIVE_X, GL_TEXTURE_CUBE_MAP_POSITIVE_Y, GL_TEXTURE_CUBE_MAP_POSITIVE_Z, 
-		/// GL_TEXTURE_CUBE_MAP_NEGATIVE_X, GL_TEXTURE_CUBE_MAP_NEGATIVE_Y, or GL_TEXTURE_CUBE_MAP_NEGATIVE_Z, then level must be 
-		/// greater than or equal to zero and less than or equal to $log_2$ of the value of GL_MAX_CUBE_MAP_TEXTURE_SIZE.
-		/// For all other values of textarget, level must be greater than or equal to zero and less than or equal to $log_2$ of the 
-		/// value of GL_MAX_TEXTURE_SIZE.
-		/// layer specifies the layer of a 2-dimensional image within a 3-dimensional texture.
-		/// For glFramebufferTexture1D, if texture is not zero, then textarget must be GL_TEXTURE_1D. For glFramebufferTexture2D, if 
-		/// texture is not zero, textarget must be one of GL_TEXTURE_2D, GL_TEXTURE_RECTANGLE, GL_TEXTURE_CUBE_MAP_POSITIVE_X, 
-		/// GL_TEXTURE_CUBE_MAP_POSITIVE_Y, GL_TEXTURE_CUBE_MAP_POSITIVE_Z, GL_TEXTURE_CUBE_MAP_NEGATIVE_X, 
-		/// GL_TEXTURE_CUBE_MAP_NEGATIVE_Y, GL_TEXTURE_CUBE_MAP_NEGATIVE_Z, or GL_TEXTURE_2D_MULTISAMPLE. For 
-		/// glFramebufferTexture3D, if texture is not zero, then textarget must be GL_TEXTURE_3D.
-		/// For glFramebufferTexture and glNamedFramebufferTexture, if texture is the name of a three-dimensional, cube map array, 
-		/// cube map, one- or two-dimensional array, or two-dimensional multisample array texture, the specified texture level is an 
-		/// array of images, and the framebuffer attachment is considered to be layered.
-		/// <para>
-		/// The following errors can be generated:
-		/// - GL_INVALID_ENUM is generated by all commands accepting a target parameter if it is not one of the accepted framebuffer 
-		///   targets.
-		/// - GL_INVALID_OPERATION is generated by all commands accepting a target parameter if zero is bound to that target.
-		/// - GL_INVALID_OPERATION is generated by glNamedFramebufferTexture if framebuffer is not the name of an existing framebuffer 
-		///   object.
-		/// - GL_INVALID_ENUM is generated if attachment is not one of the accepted attachment points.
-		/// - GL_INVALID_VALUE is generated if texture is not zero or the name of an existing texture object.
-		/// - GL_INVALID_VALUE is generated if texture is not zero and level is not a supported texture level for texture.
-		/// - GL_INVALID_VALUE is generated by glFramebufferTexture3D if texture is not zero and layer is larger than the value of 
-		///   GL_MAX_3D_TEXTURE_SIZE minus one.
-		/// - GL_INVALID_OPERATION is generated by all commands accepting a textarget parameter if texture is not zero, and textarget 
-		///   and the effective target of texture are not compatible.
-		/// - GL_INVALID_OPERATION is generated by if texture is a buffer texture.
-		/// </para>
-		/// </remarks>
-		/// <seealso cref="Gl.GenFramebuffers"/>
-		/// <seealso cref="Gl.BindFramebuffer"/>
-		/// <seealso cref="Gl.GenRenderbuffers"/>
-		/// <seealso cref="Gl.FramebufferTexture"/>
-		/// <seealso cref="Gl.FramebufferTexture1D"/>
-		/// <seealso cref="Gl.FramebufferTexture2D"/>
-		/// <seealso cref="Gl.FramebufferTexture3D"/>
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ARB_framebuffer_object")]
 		public static void FramebufferTexture1D(int target, int attachment, int textarget, UInt32 texture, Int32 level)
@@ -6696,70 +3827,6 @@ namespace OpenGL
 		/// <param name="level">
 		/// Specifies the mipmap level of the texture object to attach.
 		/// </param>
-		/// <remarks>
-		/// These commands attach a selected mipmap level or image of a texture object as one of the logical buffers of the 
-		/// specified framebuffer object. Textures cannot be attached to the default draw and read framebuffer, so they are not 
-		/// valid targets of these commands.
-		/// For all commands exceptglNamedFramebufferTexture, the framebuffer object is that bound to target, which must be 
-		/// GL_DRAW_FRAMEBUFFER, GL_READ_FRAMEBUFFER, or GL_FRAMEBUFFER. GL_FRAMEBUFFER is equivalent to GL_DRAW_FRAMEBUFFER.
-		/// For glNamedFramebufferTexture, framebuffer is the name of the framebuffer object.
-		/// attachment specifies the logical attachment of the framebuffer and must be GL_COLOR_ATTACHMENTi, GL_DEPTH_ATTACHMENT, 
-		/// GL_STENCIL_ATTACHMENT or GL_DEPTH_STENCIL_ATTACHMENT. i in GL_COLOR_ATTACHMENTi may range from zero to the value of 
-		/// GL_MAX_COLOR_ATTACHMENTS minus one. Attaching a level of a texture to GL_DEPTH_STENCIL_ATTACHMENT is equivalent to 
-		/// attaching that level to both the GL_DEPTH_ATTACHMENTand the GL_STENCIL_ATTACHMENT attachment points simultaneously.
-		/// For glFramebufferTexture1D, glFramebufferTexture2D and glFramebufferTexture3D, textarget specifies what type of texture 
-		/// is named by texture, and for cube map textures, specifies the face that is to be attached. If texture is not zero, it 
-		/// must be the name of an existing texture object with effective target textarget unless it is a cube map texture, in which 
-		/// case textarget must be GL_TEXTURE_CUBE_MAP_POSITIVE_XGL_TEXTURE_CUBE_MAP_NEGATIVE_X, GL_TEXTURE_CUBE_MAP_POSITIVE_Y, 
-		/// GL_TEXTURE_CUBE_MAP_NEGATIVE_Y, GL_TEXTURE_CUBE_MAP_POSITIVE_Z, or GL_TEXTURE_CUBE_MAP_NEGATIVE_Z.
-		/// If texture is non-zero, the specified level of the texture object named texture is attached to the framebfufer 
-		/// attachment point named by attachment. For glFramebufferTexture1D, glFramebufferTexture2D, and glFramebufferTexture3D, 
-		/// texture must be zero or the name of an existing texture with an effective target of textarget, or texture must be the 
-		/// name of an existing cube-map texture and textarget must be one of GL_TEXTURE_CUBE_MAP_POSITIVE_X, 
-		/// GL_TEXTURE_CUBE_MAP_POSITIVE_Y, GL_TEXTURE_CUBE_MAP_POSITIVE_Z, GL_TEXTURE_CUBE_MAP_NEGATIVE_X, 
-		/// GL_TEXTURE_CUBE_MAP_NEGATIVE_Y, or GL_TEXTURE_CUBE_MAP_NEGATIVE_Z.
-		/// If textarget is GL_TEXTURE_RECTANGLE, GL_TEXTURE_2D_MULTISAMPLE, or GL_TEXTURE_2D_MULTISAMPLE_ARRAY, then level must be 
-		/// zero.
-		/// If textarget is GL_TEXTURE_3D, then level must be greater than or equal to zero and less than or equal to $log_2$ of the 
-		/// value of GL_MAX_3D_TEXTURE_SIZE.
-		/// If textarget is one of GL_TEXTURE_CUBE_MAP_POSITIVE_X, GL_TEXTURE_CUBE_MAP_POSITIVE_Y, GL_TEXTURE_CUBE_MAP_POSITIVE_Z, 
-		/// GL_TEXTURE_CUBE_MAP_NEGATIVE_X, GL_TEXTURE_CUBE_MAP_NEGATIVE_Y, or GL_TEXTURE_CUBE_MAP_NEGATIVE_Z, then level must be 
-		/// greater than or equal to zero and less than or equal to $log_2$ of the value of GL_MAX_CUBE_MAP_TEXTURE_SIZE.
-		/// For all other values of textarget, level must be greater than or equal to zero and less than or equal to $log_2$ of the 
-		/// value of GL_MAX_TEXTURE_SIZE.
-		/// layer specifies the layer of a 2-dimensional image within a 3-dimensional texture.
-		/// For glFramebufferTexture1D, if texture is not zero, then textarget must be GL_TEXTURE_1D. For glFramebufferTexture2D, if 
-		/// texture is not zero, textarget must be one of GL_TEXTURE_2D, GL_TEXTURE_RECTANGLE, GL_TEXTURE_CUBE_MAP_POSITIVE_X, 
-		/// GL_TEXTURE_CUBE_MAP_POSITIVE_Y, GL_TEXTURE_CUBE_MAP_POSITIVE_Z, GL_TEXTURE_CUBE_MAP_NEGATIVE_X, 
-		/// GL_TEXTURE_CUBE_MAP_NEGATIVE_Y, GL_TEXTURE_CUBE_MAP_NEGATIVE_Z, or GL_TEXTURE_2D_MULTISAMPLE. For 
-		/// glFramebufferTexture3D, if texture is not zero, then textarget must be GL_TEXTURE_3D.
-		/// For glFramebufferTexture and glNamedFramebufferTexture, if texture is the name of a three-dimensional, cube map array, 
-		/// cube map, one- or two-dimensional array, or two-dimensional multisample array texture, the specified texture level is an 
-		/// array of images, and the framebuffer attachment is considered to be layered.
-		/// <para>
-		/// The following errors can be generated:
-		/// - GL_INVALID_ENUM is generated by all commands accepting a target parameter if it is not one of the accepted framebuffer 
-		///   targets.
-		/// - GL_INVALID_OPERATION is generated by all commands accepting a target parameter if zero is bound to that target.
-		/// - GL_INVALID_OPERATION is generated by glNamedFramebufferTexture if framebuffer is not the name of an existing framebuffer 
-		///   object.
-		/// - GL_INVALID_ENUM is generated if attachment is not one of the accepted attachment points.
-		/// - GL_INVALID_VALUE is generated if texture is not zero or the name of an existing texture object.
-		/// - GL_INVALID_VALUE is generated if texture is not zero and level is not a supported texture level for texture.
-		/// - GL_INVALID_VALUE is generated by glFramebufferTexture3D if texture is not zero and layer is larger than the value of 
-		///   GL_MAX_3D_TEXTURE_SIZE minus one.
-		/// - GL_INVALID_OPERATION is generated by all commands accepting a textarget parameter if texture is not zero, and textarget 
-		///   and the effective target of texture are not compatible.
-		/// - GL_INVALID_OPERATION is generated by if texture is a buffer texture.
-		/// </para>
-		/// </remarks>
-		/// <seealso cref="Gl.GenFramebuffers"/>
-		/// <seealso cref="Gl.BindFramebuffer"/>
-		/// <seealso cref="Gl.GenRenderbuffers"/>
-		/// <seealso cref="Gl.FramebufferTexture"/>
-		/// <seealso cref="Gl.FramebufferTexture1D"/>
-		/// <seealso cref="Gl.FramebufferTexture2D"/>
-		/// <seealso cref="Gl.FramebufferTexture3D"/>
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ARB_framebuffer_object")]
 		public static void FramebufferTexture2D(int target, int attachment, int textarget, UInt32 texture, Int32 level)
@@ -6797,70 +3864,6 @@ namespace OpenGL
 		/// <param name="zoffset">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
-		/// <remarks>
-		/// These commands attach a selected mipmap level or image of a texture object as one of the logical buffers of the 
-		/// specified framebuffer object. Textures cannot be attached to the default draw and read framebuffer, so they are not 
-		/// valid targets of these commands.
-		/// For all commands exceptglNamedFramebufferTexture, the framebuffer object is that bound to target, which must be 
-		/// GL_DRAW_FRAMEBUFFER, GL_READ_FRAMEBUFFER, or GL_FRAMEBUFFER. GL_FRAMEBUFFER is equivalent to GL_DRAW_FRAMEBUFFER.
-		/// For glNamedFramebufferTexture, framebuffer is the name of the framebuffer object.
-		/// attachment specifies the logical attachment of the framebuffer and must be GL_COLOR_ATTACHMENTi, GL_DEPTH_ATTACHMENT, 
-		/// GL_STENCIL_ATTACHMENT or GL_DEPTH_STENCIL_ATTACHMENT. i in GL_COLOR_ATTACHMENTi may range from zero to the value of 
-		/// GL_MAX_COLOR_ATTACHMENTS minus one. Attaching a level of a texture to GL_DEPTH_STENCIL_ATTACHMENT is equivalent to 
-		/// attaching that level to both the GL_DEPTH_ATTACHMENTand the GL_STENCIL_ATTACHMENT attachment points simultaneously.
-		/// For glFramebufferTexture1D, glFramebufferTexture2D and glFramebufferTexture3D, textarget specifies what type of texture 
-		/// is named by texture, and for cube map textures, specifies the face that is to be attached. If texture is not zero, it 
-		/// must be the name of an existing texture object with effective target textarget unless it is a cube map texture, in which 
-		/// case textarget must be GL_TEXTURE_CUBE_MAP_POSITIVE_XGL_TEXTURE_CUBE_MAP_NEGATIVE_X, GL_TEXTURE_CUBE_MAP_POSITIVE_Y, 
-		/// GL_TEXTURE_CUBE_MAP_NEGATIVE_Y, GL_TEXTURE_CUBE_MAP_POSITIVE_Z, or GL_TEXTURE_CUBE_MAP_NEGATIVE_Z.
-		/// If texture is non-zero, the specified level of the texture object named texture is attached to the framebfufer 
-		/// attachment point named by attachment. For glFramebufferTexture1D, glFramebufferTexture2D, and glFramebufferTexture3D, 
-		/// texture must be zero or the name of an existing texture with an effective target of textarget, or texture must be the 
-		/// name of an existing cube-map texture and textarget must be one of GL_TEXTURE_CUBE_MAP_POSITIVE_X, 
-		/// GL_TEXTURE_CUBE_MAP_POSITIVE_Y, GL_TEXTURE_CUBE_MAP_POSITIVE_Z, GL_TEXTURE_CUBE_MAP_NEGATIVE_X, 
-		/// GL_TEXTURE_CUBE_MAP_NEGATIVE_Y, or GL_TEXTURE_CUBE_MAP_NEGATIVE_Z.
-		/// If textarget is GL_TEXTURE_RECTANGLE, GL_TEXTURE_2D_MULTISAMPLE, or GL_TEXTURE_2D_MULTISAMPLE_ARRAY, then level must be 
-		/// zero.
-		/// If textarget is GL_TEXTURE_3D, then level must be greater than or equal to zero and less than or equal to $log_2$ of the 
-		/// value of GL_MAX_3D_TEXTURE_SIZE.
-		/// If textarget is one of GL_TEXTURE_CUBE_MAP_POSITIVE_X, GL_TEXTURE_CUBE_MAP_POSITIVE_Y, GL_TEXTURE_CUBE_MAP_POSITIVE_Z, 
-		/// GL_TEXTURE_CUBE_MAP_NEGATIVE_X, GL_TEXTURE_CUBE_MAP_NEGATIVE_Y, or GL_TEXTURE_CUBE_MAP_NEGATIVE_Z, then level must be 
-		/// greater than or equal to zero and less than or equal to $log_2$ of the value of GL_MAX_CUBE_MAP_TEXTURE_SIZE.
-		/// For all other values of textarget, level must be greater than or equal to zero and less than or equal to $log_2$ of the 
-		/// value of GL_MAX_TEXTURE_SIZE.
-		/// layer specifies the layer of a 2-dimensional image within a 3-dimensional texture.
-		/// For glFramebufferTexture1D, if texture is not zero, then textarget must be GL_TEXTURE_1D. For glFramebufferTexture2D, if 
-		/// texture is not zero, textarget must be one of GL_TEXTURE_2D, GL_TEXTURE_RECTANGLE, GL_TEXTURE_CUBE_MAP_POSITIVE_X, 
-		/// GL_TEXTURE_CUBE_MAP_POSITIVE_Y, GL_TEXTURE_CUBE_MAP_POSITIVE_Z, GL_TEXTURE_CUBE_MAP_NEGATIVE_X, 
-		/// GL_TEXTURE_CUBE_MAP_NEGATIVE_Y, GL_TEXTURE_CUBE_MAP_NEGATIVE_Z, or GL_TEXTURE_2D_MULTISAMPLE. For 
-		/// glFramebufferTexture3D, if texture is not zero, then textarget must be GL_TEXTURE_3D.
-		/// For glFramebufferTexture and glNamedFramebufferTexture, if texture is the name of a three-dimensional, cube map array, 
-		/// cube map, one- or two-dimensional array, or two-dimensional multisample array texture, the specified texture level is an 
-		/// array of images, and the framebuffer attachment is considered to be layered.
-		/// <para>
-		/// The following errors can be generated:
-		/// - GL_INVALID_ENUM is generated by all commands accepting a target parameter if it is not one of the accepted framebuffer 
-		///   targets.
-		/// - GL_INVALID_OPERATION is generated by all commands accepting a target parameter if zero is bound to that target.
-		/// - GL_INVALID_OPERATION is generated by glNamedFramebufferTexture if framebuffer is not the name of an existing framebuffer 
-		///   object.
-		/// - GL_INVALID_ENUM is generated if attachment is not one of the accepted attachment points.
-		/// - GL_INVALID_VALUE is generated if texture is not zero or the name of an existing texture object.
-		/// - GL_INVALID_VALUE is generated if texture is not zero and level is not a supported texture level for texture.
-		/// - GL_INVALID_VALUE is generated by glFramebufferTexture3D if texture is not zero and layer is larger than the value of 
-		///   GL_MAX_3D_TEXTURE_SIZE minus one.
-		/// - GL_INVALID_OPERATION is generated by all commands accepting a textarget parameter if texture is not zero, and textarget 
-		///   and the effective target of texture are not compatible.
-		/// - GL_INVALID_OPERATION is generated by if texture is a buffer texture.
-		/// </para>
-		/// </remarks>
-		/// <seealso cref="Gl.GenFramebuffers"/>
-		/// <seealso cref="Gl.BindFramebuffer"/>
-		/// <seealso cref="Gl.GenRenderbuffers"/>
-		/// <seealso cref="Gl.FramebufferTexture"/>
-		/// <seealso cref="Gl.FramebufferTexture1D"/>
-		/// <seealso cref="Gl.FramebufferTexture2D"/>
-		/// <seealso cref="Gl.FramebufferTexture3D"/>
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ARB_framebuffer_object")]
 		public static void FramebufferTexture3D(int target, int attachment, int textarget, UInt32 texture, Int32 level, Int32 zoffset)
@@ -6894,47 +3897,6 @@ namespace OpenGL
 		/// <param name="renderbuffer">
 		/// Specifies the name of an existing renderbuffer object of type renderbuffertarget to attach.
 		/// </param>
-		/// <remarks>
-		/// glFramebufferRenderbuffer and glNamedFramebufferRenderbuffer attaches a renderbuffer as one of the logical buffers of 
-		/// the specified framebuffer object. Renderbuffers cannot be attached to the default draw and read framebuffer, so they are 
-		/// not valid targets of these commands.
-		/// For glFramebufferRenderbuffer, the framebuffer object is that bound to target, which must be GL_DRAW_FRAMEBUFFER, 
-		/// GL_READ_FRAMEBUFFER or GL_FRAMEBUFFER. GL_FRAMEBUFFER is equivalent to GL_DRAW_FRAMEBUFFER.
-		/// For glNamedFramebufferRenderbuffer, framebuffer is the name of the framebuffer object.
-		/// renderbuffertarget must be GL_RENDERBUFFER.
-		/// renderbuffer must be zero or the name of an existing renderbuffer object of type renderbuffertarget. If renderbuffer is 
-		/// not zero, then the specified renderbuffer will be used as the logical buffer identified by attachment of the specified 
-		/// framebuffer object. If renderbuffer is zero, then the value of renderbuffertarget is ignored.
-		/// attachment specifies the logical attachment of the framebuffer and must be GL_COLOR_ATTACHMENTi, GL_DEPTH_ATTACHMENT, 
-		/// GL_STENCIL_ATTACHMENT or GL_DEPTH_STENCIL_ATTACHMENT. i in may range from zero to the value of GL_MAX_COLOR_ATTACHMENTS 
-		/// minus one. Setting attachment to the value GL_DEPTH_STENCIL_ATTACHMENT is a special case causing both the depth and 
-		/// stencil attachments of the specified framebuffer object to be set to renderbuffer, which should have the base internal 
-		/// format GL_DEPTH_STENCIL.
-		/// The value of GL_FRAMEBUFFER_ATTACHMENT_OBJECT_TYPE for the specified attachment point is set to GL_RENDERBUFFER and the 
-		/// value of GL_FRAMEBUFFER_ATTACHMENT_OBJECT_NAME is set to renderbuffer. All other state values of specified attachment 
-		/// point are set to their default values. No change is made to the state of the renderbuuffer object and any previous 
-		/// attachment to the attachment logical buffer of the specified framebuffer object is broken.
-		/// If renderbuffer is zero, these commands will detach the image, if any, identified by the specified attachment point of 
-		/// the specified framebuffer object. All state values of the attachment point are set to their default values.
-		/// <para>
-		/// The following errors can be generated:
-		/// - GL_INVALID_ENUM is generated by glFramebufferRenderbuffer if target is not one of the accepted framebuffer targets.
-		/// - GL_INVALID_OPERATION is generated by glFramebufferRenderbuffer if zero is bound to target.
-		/// - GL_INVALID_OPERATION is generated by glNamedFramebufferRenderbuffer if framebuffer is not the name of an existing 
-		///   framebuffer object.
-		/// - GL_INVALID_ENUM is generated if attachment is not one of the accepted attachment points.
-		/// - GL_INVALID_ENUM is generated if renderbuffertarget is not GL_RENDERBUFFER.
-		/// - GL_INVALID_OPERATION is generated if renderbuffertarget is not zero or the name of an existing renderbuffer object of 
-		///   type GL_RENDERBUFFER.
-		/// </para>
-		/// </remarks>
-		/// <seealso cref="Gl.GenFramebuffers"/>
-		/// <seealso cref="Gl.BindFramebuffer"/>
-		/// <seealso cref="Gl.GenRenderbuffers"/>
-		/// <seealso cref="Gl.FramebufferTexture"/>
-		/// <seealso cref="Gl.FramebufferTexture1D"/>
-		/// <seealso cref="Gl.FramebufferTexture2D"/>
-		/// <seealso cref="Gl.FramebufferTexture3D"/>
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ARB_framebuffer_object")]
 		public static void FramebufferRenderbuffer(int target, int attachment, int renderbuffertarget, UInt32 renderbuffer)
@@ -6965,53 +3927,6 @@ namespace OpenGL
 		/// <param name="params">
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
-		/// <remarks>
-		/// glGetFramebufferAttachmentParameteriv and glGetNamedFramebufferAttachmentParameteriv return parameters of attachments of 
-		/// a specified framebuffer object.
-		/// For glGetFramebufferAttachmentParameteriv, the framebuffer object is that bound to target, which must be one of 
-		/// GL_DRAW_FRAMEBUFFER, GL_READ_FRAMEBUFFER or GL_FRAMEBUFFER. GL_FRAMEBUFFER is equivalent to GL_DRAW_FRAMEBUFFER. Buffers 
-		/// of default framebuffers may also be queried if bound to target.
-		/// For glGetNamedFramebufferAttachmentParameteriv, framebuffer is the name of the framebuffer object. If framebuffer is 
-		/// zero, the default draw framebuffer is queried.
-		/// If the specified framebuffer is a framebuffer object, attachment must be one of GL_DEPTH_ATTACHMENT, 
-		/// GL_STENCIL_ATTACHMENTGL_DEPTH_STENCIL_ATTACHMENT, or GL_COLOR_ATTACHMENTi, where i is between zero and the value of 
-		/// GL_MAX_COLOR_ATTACHMENTS minus one.
-		/// If the specified framebuffer is a default framebuffer, target, attachment must be one of GL_FRONT_LEFT, GL_FRONT_RIGHT, 
-		/// GL_BACK_LEFT, GL_BACK_RIGHT, GL_DEPTH or GL_STENCIL, identifying the corresponding buffer.
-		/// If attachment is GL_DEPTH_STENCIL_ATTACHMENT, the same object must be bound to both the depth and stencil attachment 
-		/// points of the framebuffer object, and information about that object is returned.
-		/// Upon successful return, if pname is GL_FRAMEBUFFER_ATTACHMENT_OBJECT_TYPE, then params will contain one of GL_NONE, 
-		/// GL_FRAMEBUFFER_DEFAULT, GL_TEXTURE, or GL_RENDERBUFFER, identifying the type of object which contains the attached 
-		/// image. Other values accepted for pname depend on the type of object, as described below.
-		/// If the value of GL_FRAMEBUFFER_ATTACHMENT_OBJECT_TYPE is GL_NONE, then either no framebuffer is bound to target; or a 
-		/// default framebuffer is queried, attachment is GL_DEPTH or GL_STENCIL, and the number of depth or stencil bits, 
-		/// respectively, is zero. In this case querying pnameGL_FRAMEBUFFER_ATTACHMENT_OBJECT_NAME will return zero, and all other 
-		/// queries will generate an error.
-		/// If the value of GL_FRAMEBUFFER_ATTACHMENT_OBJECT_TYPE is not GL_NONE, these queries apply to all other framebuffer 
-		/// types:
-		/// If the value of GL_FRAMEBUFFER_ATTACHMENT_OBJECT_TYPE is GL_RENDERBUFFER, then
-		/// If the value of GL_FRAMEBUFFER_ATTACHMENT_OBJECT_TYPE is GL_TEXTURE, then
-		/// <para>
-		/// The following errors can be generated:
-		/// - GL_INVALID_ENUM is generated by glGetFramebufferAttachmentParameteriv if target is not one of the accepted framebuffer 
-		///   targets.
-		/// - GL_INVALID_OPERATION is generated by glGetNamedFramebufferAttachmentParameteriv if framebuffer is not zero or the name 
-		///   of an existing framebuffer object.
-		/// - GL_INVALID_ENUM is generated if pname is not valid for the value of GL_FRAMEBUFFER_ATTACHMENT_OBJECT_TYPE, as described 
-		///   above.
-		/// - GL_INVALID_OPERATION is generated if attachment is not one of the accepted framebuffer attachment points, as described 
-		///   above.
-		/// - GL_INVALID_OPERATION is generated if the value of GL_FRAMEBUFFER_ATTACHMENT_OBJECT_TYPE is GL_NONE and pname is not 
-		///   GL_FRAMEBUFFER_ATTACHMENT_OBJECT_NAME or GL_FRAMEBUFFER_ATTACHMENT_OBJECT_TYPE.
-		/// - GL_INVALID_OPERATION is generated if attachment is GL_DEPTH_STENCIL_ATTACHMENT and different objects are bound to the 
-		///   depth and stencil attachment points of target.
-		/// - GL_INVALID_OPERATION is generated if attachment is GL_DEPTH_STENCIL_ATTACHMENT and pname is 
-		///   GL_FRAMEBUFFER_ATTACHMENT_COMPONENT_TYPE.
-		/// </para>
-		/// </remarks>
-		/// <seealso cref="Gl.GenFramebuffers"/>
-		/// <seealso cref="Gl.BindFramebuffer"/>
-		/// <seealso cref="Gl.GetFramebufferParameter"/>
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ARB_framebuffer_object")]
 		public static void GetFramebufferAttachmentParameter(int target, int attachment, int pname, Int32[] @params)
@@ -7040,27 +3955,6 @@ namespace OpenGL
 		/// GL_TEXTURE_2D, GL_TEXTURE_3D, GL_TEXTURE_1D_ARRAY, GL_TEXTURE_2D_ARRAY, GL_TEXTURE_CUBE_MAP, or 
 		/// GL_TEXTURE_CUBE_MAP_ARRAY.
 		/// </param>
-		/// <remarks>
-		/// glGenerateMipmap and glGenerateTextureMipmap generates mipmaps for the specified texture object. For glGenerateMipmap, 
-		/// the texture object is that bound to to target. For glGenerateTextureMipmap, texture is the name of the texture object.
-		/// For cube map and cube map array textures, the texture object must be cube complete or cube array complete respectively.
-		/// Mipmap generation replaces texel image levels $level_{base} + 1$ through $q$ with images derived from the $level_{base}$ 
-		/// image, regardless of their previous contents. All other mimap images, including the $level_{base}+1$ image, are left 
-		/// unchanged by this computation.
-		/// The internal formats of the derived mipmap images all match those of the $level_{base}$ image. The contents of the 
-		/// derived images are computed by repeated, filtered reduction of the $level_{base} + 1$ image. For one- and 
-		/// two-dimensional array and cube map array textures, each layer is filtered independently.
-		/// <para>
-		/// The following errors can be generated:
-		/// - GL_INVALID_ENUM is generated by glGenerateMipmap if target is not one of the accepted texture targets.
-		/// - GL_INVALID_OPERATION is generated by glGenerateTextureMipmap if texture is not the name of an existing texture object.
-		/// - GL_INVALID_OPERATION is generated if target is GL_TEXTURE_CUBE_MAP or GL_TEXTURE_CUBE_MAP_ARRAY, and the specified 
-		///   texture object is not cube complete or cube array complete, respectively.
-		/// </para>
-		/// </remarks>
-		/// <seealso cref="Gl.TexImage2D"/>
-		/// <seealso cref="Gl.BindTexture"/>
-		/// <seealso cref="Gl.GenTextures"/>
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ARB_framebuffer_object")]
 		public static void GenerateMipmap(int target)
@@ -7110,61 +4004,6 @@ namespace OpenGL
 		/// <param name="filter">
 		/// Specifies the interpolation to be applied if the image is stretched. Must be GL_NEAREST or GL_LINEAR.
 		/// </param>
-		/// <remarks>
-		/// glBlitFramebuffer and glBlitNamedFramebuffer transfer a rectangle of pixel values from one region of a read framebuffer 
-		/// to another region of a draw framebuffer.
-		/// For glBlitFramebuffer, the read and draw framebuffers are those bound to the GL_READ_FRAMEBUFFER and GL_DRAW_FRAMEBUFFER 
-		/// targets respectively.
-		/// For glBlitNamedFramebuffer, readFramebuffer and drawFramebuffer are the names of the read read and draw framebuffer 
-		/// objects respectively. If readFramebuffer or drawFramebuffer is zero, then the default read or draw framebuffer 
-		/// respectively is used.
-		/// mask is the bitwise OR of a number of values indicating which buffers are to be copied. The values are 
-		/// GL_COLOR_BUFFER_BIT, GL_DEPTH_BUFFER_BIT, and GL_STENCIL_BUFFER_BIT. The pixels corresponding to these buffers are 
-		/// copied from the source rectangle bounded by the locations (srcX0, srcY0) and (srcX1, srcY1) to the destination rectangle 
-		/// bounded by the locations (dstX0, dstY0) and (dstX1, dstY1). The lower bounds of the rectangle are inclusive, while the 
-		/// upper bounds are exclusive.
-		/// The actual region taken from the read framebuffer is limited to the intersection of the source buffers being 
-		/// transferred, which may include the color buffer selected by the read buffer, the depth buffer, and/or the stencil buffer 
-		/// depending on mask. The actual region written to the draw framebuffer is limited to the intersection of the destination 
-		/// buffers being written, which may include multiple draw buffers, the depth buffer, and/or the stencil buffer depending on 
-		/// mask. Whether or not the source or destination regions are altered due to these limits, the scaling and offset applied 
-		/// to pixels being transferred is performed as though no such limits were present.
-		/// If the sizes of the source and destination rectangles are not equal, filter specifies the interpolation method that will 
-		/// be applied to resize the source image , and must be GL_NEAREST or GL_LINEAR. GL_LINEAR is only a valid interpolation 
-		/// method for the color buffer. If filter is not GL_NEAREST and mask includes GL_DEPTH_BUFFER_BIT or GL_STENCIL_BUFFER_BIT, 
-		/// no data is transferred and a GL_INVALID_OPERATION error is generated.
-		/// If filter is GL_LINEAR and the source rectangle would require sampling outside the bounds of the source framebuffer, 
-		/// values are read as if the GL_CLAMP_TO_EDGE texture wrapping mode were applied.
-		/// When the color buffer is transferred, values are taken from the read buffer of the specified read framebuffer and 
-		/// written to each of the draw buffers of the specified draw framebuffer.
-		/// If the source and destination rectangles overlap or are the same, and the read and draw buffers are the same, the result 
-		/// of the operation is undefined.
-		/// <para>
-		/// The following errors can be generated:
-		/// - GL_INVALID_OPERATION is generated by BlitNamedFramebuffer if readFramebuffer or drawFramebuffer is not zero or the name 
-		///   of an existing framebuffer object.
-		/// - GL_INVALID_OPERATION is generated if mask contains any of the GL_DEPTH_BUFFER_BIT or GL_STENCIL_BUFFER_BIT and filter is 
-		///   not GL_NEAREST.
-		/// - GL_INVALID_OPERATION is generated if mask contains GL_COLOR_BUFFER_BIT and any of the following conditions hold: The 
-		///   read buffer contains fixed-point or floating-point values and any draw buffer contains neither fixed-point nor 
-		///   floating-point values. The read buffer contains unsigned integer values and any draw buffer does not contain unsigned 
-		///   integer values. The read buffer contains signed integer values and any draw buffer does not contain signed integer 
-		///   values.
-		/// - GL_INVALID_OPERATION is generated if mask contains GL_DEPTH_BUFFER_BIT or GL_STENCIL_BUFFER_BIT and the source and 
-		///   destination depth and stencil formats do not match.
-		/// - GL_INVALID_OPERATION is generated if filter is GL_LINEAR and the read buffer contains integer data.
-		/// - GL_INVALID_OPERATION is generated if the effective value of GL_SAMPLES for the read and draw framebuffers is not 
-		///   identical.
-		/// - GL_INVALID_OPERATION is generated if the value of GL_SAMPLE_BUFFERS for both read and draw buffers is greater than zero 
-		///   and the dimensions of the source and destination rectangles is not identical.
-		/// - GL_INVALID_FRAMEBUFFER_OPERATION is generated if the specified read and draw framebuffers are not framebuffer complete.
-		/// </para>
-		/// </remarks>
-		/// <seealso cref="Gl.ReadPixels"/>
-		/// <seealso cref="Gl.CheckFramebufferStatus"/>
-		/// <seealso cref="Gl.GenFramebuffers"/>
-		/// <seealso cref="Gl.BindFramebuffer"/>
-		/// <seealso cref="Gl.DeleteFramebuffers"/>
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ARB_framebuffer_object")]
 		public static void BlitFramebuffer(Int32 srcX0, Int32 srcY0, Int32 srcX1, Int32 srcY1, Int32 dstX0, Int32 dstY0, Int32 dstX1, Int32 dstY1, uint mask, int filter)
@@ -7217,61 +4056,6 @@ namespace OpenGL
 		/// <param name="filter">
 		/// Specifies the interpolation to be applied if the image is stretched. Must be GL_NEAREST or GL_LINEAR.
 		/// </param>
-		/// <remarks>
-		/// glBlitFramebuffer and glBlitNamedFramebuffer transfer a rectangle of pixel values from one region of a read framebuffer 
-		/// to another region of a draw framebuffer.
-		/// For glBlitFramebuffer, the read and draw framebuffers are those bound to the GL_READ_FRAMEBUFFER and GL_DRAW_FRAMEBUFFER 
-		/// targets respectively.
-		/// For glBlitNamedFramebuffer, readFramebuffer and drawFramebuffer are the names of the read read and draw framebuffer 
-		/// objects respectively. If readFramebuffer or drawFramebuffer is zero, then the default read or draw framebuffer 
-		/// respectively is used.
-		/// mask is the bitwise OR of a number of values indicating which buffers are to be copied. The values are 
-		/// GL_COLOR_BUFFER_BIT, GL_DEPTH_BUFFER_BIT, and GL_STENCIL_BUFFER_BIT. The pixels corresponding to these buffers are 
-		/// copied from the source rectangle bounded by the locations (srcX0, srcY0) and (srcX1, srcY1) to the destination rectangle 
-		/// bounded by the locations (dstX0, dstY0) and (dstX1, dstY1). The lower bounds of the rectangle are inclusive, while the 
-		/// upper bounds are exclusive.
-		/// The actual region taken from the read framebuffer is limited to the intersection of the source buffers being 
-		/// transferred, which may include the color buffer selected by the read buffer, the depth buffer, and/or the stencil buffer 
-		/// depending on mask. The actual region written to the draw framebuffer is limited to the intersection of the destination 
-		/// buffers being written, which may include multiple draw buffers, the depth buffer, and/or the stencil buffer depending on 
-		/// mask. Whether or not the source or destination regions are altered due to these limits, the scaling and offset applied 
-		/// to pixels being transferred is performed as though no such limits were present.
-		/// If the sizes of the source and destination rectangles are not equal, filter specifies the interpolation method that will 
-		/// be applied to resize the source image , and must be GL_NEAREST or GL_LINEAR. GL_LINEAR is only a valid interpolation 
-		/// method for the color buffer. If filter is not GL_NEAREST and mask includes GL_DEPTH_BUFFER_BIT or GL_STENCIL_BUFFER_BIT, 
-		/// no data is transferred and a GL_INVALID_OPERATION error is generated.
-		/// If filter is GL_LINEAR and the source rectangle would require sampling outside the bounds of the source framebuffer, 
-		/// values are read as if the GL_CLAMP_TO_EDGE texture wrapping mode were applied.
-		/// When the color buffer is transferred, values are taken from the read buffer of the specified read framebuffer and 
-		/// written to each of the draw buffers of the specified draw framebuffer.
-		/// If the source and destination rectangles overlap or are the same, and the read and draw buffers are the same, the result 
-		/// of the operation is undefined.
-		/// <para>
-		/// The following errors can be generated:
-		/// - GL_INVALID_OPERATION is generated by BlitNamedFramebuffer if readFramebuffer or drawFramebuffer is not zero or the name 
-		///   of an existing framebuffer object.
-		/// - GL_INVALID_OPERATION is generated if mask contains any of the GL_DEPTH_BUFFER_BIT or GL_STENCIL_BUFFER_BIT and filter is 
-		///   not GL_NEAREST.
-		/// - GL_INVALID_OPERATION is generated if mask contains GL_COLOR_BUFFER_BIT and any of the following conditions hold: The 
-		///   read buffer contains fixed-point or floating-point values and any draw buffer contains neither fixed-point nor 
-		///   floating-point values. The read buffer contains unsigned integer values and any draw buffer does not contain unsigned 
-		///   integer values. The read buffer contains signed integer values and any draw buffer does not contain signed integer 
-		///   values.
-		/// - GL_INVALID_OPERATION is generated if mask contains GL_DEPTH_BUFFER_BIT or GL_STENCIL_BUFFER_BIT and the source and 
-		///   destination depth and stencil formats do not match.
-		/// - GL_INVALID_OPERATION is generated if filter is GL_LINEAR and the read buffer contains integer data.
-		/// - GL_INVALID_OPERATION is generated if the effective value of GL_SAMPLES for the read and draw framebuffers is not 
-		///   identical.
-		/// - GL_INVALID_OPERATION is generated if the value of GL_SAMPLE_BUFFERS for both read and draw buffers is greater than zero 
-		///   and the dimensions of the source and destination rectangles is not identical.
-		/// - GL_INVALID_FRAMEBUFFER_OPERATION is generated if the specified read and draw framebuffers are not framebuffer complete.
-		/// </para>
-		/// </remarks>
-		/// <seealso cref="Gl.ReadPixels"/>
-		/// <seealso cref="Gl.CheckFramebufferStatus"/>
-		/// <seealso cref="Gl.GenFramebuffers"/>
-		/// <seealso cref="Gl.BindFramebuffer"/>
-		/// <seealso cref="Gl.DeleteFramebuffers"/>
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ARB_framebuffer_object")]
 		public static void BlitFramebuffer(Int32 srcX0, Int32 srcY0, Int32 srcX1, Int32 srcY1, Int32 dstX0, Int32 dstY0, Int32 dstX1, Int32 dstY1, ClearBufferMask mask, int filter)
@@ -7308,40 +4092,6 @@ namespace OpenGL
 		/// <param name="height">
 		/// Specifies the height of the renderbuffer, in pixels.
 		/// </param>
-		/// <remarks>
-		/// glRenderbufferStorageMultisample and glNamedRenderbufferStorageMultisample establish the data storage, format, 
-		/// dimensions and number of samples of a renderbuffer object's image.
-		/// For glRenderbufferStorageMultisample, the target of the operation, specified by target must be GL_RENDERBUFFER. For 
-		/// glNamedRenderbufferStorageMultisample, renderbuffer must be an ID of an existing renderbuffer object. internalformat 
-		/// specifies the internal format to be used for the renderbuffer object's storage and must be a color-renderable, 
-		/// depth-renderable, or stencil-renderable format. width and height are the dimensions, in pixels, of the renderbuffer. 
-		/// Both width and height must be less than or equal to the value of GL_MAX_RENDERBUFFER_SIZE. samples specifies the number 
-		/// of samples to be used for the renderbuffer object's image, and must be less than or equal to the value of 
-		/// GL_MAX_SAMPLES. If internalformat is a signed or unsigned integer format then samples must be less than or equal to the 
-		/// value of GL_MAX_INTEGER_SAMPLES.
-		/// Upon success, glRenderbufferStorageMultisample and glNamedRenderbufferStorageMultisample delete any existing data store 
-		/// for the renderbuffer image and the contents of the data store after calling either of the functions are undefined.
-		/// <para>
-		/// The following errors can be generated:
-		/// - GL_INVALID_ENUM is generated by glRenderbufferStorageMultisample function if target is not GL_RENDERBUFFER.
-		/// - GL_INVALID_OPERATION is generated by glNamedRenderbufferStorageMultisample function if renderbuffer is not the name of 
-		///   an existing renderbuffer object.
-		/// - GL_INVALID_VALUE is generated if samples is greater than GL_MAX_SAMPLES.
-		/// - GL_INVALID_ENUM is generated if internalformat is not a color-renderable, depth-renderable, or stencil-renderable 
-		///   format.
-		/// - GL_INVALID_OPERATION is generated if internalformat is a signed or unsigned integer format and samples is greater than 
-		///   the value of GL_MAX_INTEGER_SAMPLES
-		/// - GL_INVALID_VALUE is generated if either of width or height is negative, or greater than the value of 
-		///   GL_MAX_RENDERBUFFER_SIZE.
-		/// - GL_OUT_OF_MEMORY is generated if the GL is unable to create a data store of the requested size.
-		/// </para>
-		/// </remarks>
-		/// <seealso cref="Gl.GenRenderbuffers"/>
-		/// <seealso cref="Gl.BindRenderbuffer"/>
-		/// <seealso cref="Gl.NamedRenderbufferStorage"/>
-		/// <seealso cref="Gl.RenderbufferStorage"/>
-		/// <seealso cref="Gl.FramebufferRenderbuffer"/>
-		/// <seealso cref="Gl.DeleteRenderbuffers"/>
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ARB_framebuffer_object")]
 		public static void RenderbufferStorageMultisample(int target, Int32 samples, int internalformat, Int32 width, Int32 height)
@@ -7378,49 +4128,6 @@ namespace OpenGL
 		/// <param name="layer">
 		/// Specifies the layer of the texture object to attach.
 		/// </param>
-		/// <remarks>
-		/// glFramebufferTextureLayer and glNamedFramebufferTextureLayer attach a single layer of a three-dimensional or array 
-		/// texture object as one of the logical buffers of the specified framebuffer object. Textures cannot be attached to the 
-		/// default draw and read framebuffer, so they are not valid targets of these commands.
-		/// For glFramebufferTextureLayer, the framebuffer object is that bound to target, which must be GL_DRAW_FRAMEBUFFER, 
-		/// GL_READ_FRAMEBUFFER, or GL_FRAMEBUFFER. GL_FRAMEBUFFER is equivalent to GL_DRAW_FRAMEBUFFER.
-		/// For glNamedFramebufferTextureLayer, framebuffer is the name of the framebuffer object.
-		/// attachment specifies the logical attachment of the framebuffer and must be GL_COLOR_ATTACHMENTi, GL_DEPTH_ATTACHMENT, 
-		/// GL_STENCIL_ATTACHMENT or GL_DEPTH_STENCIL_ATTACHMENT. i in GL_COLOR_ATTACHMENTi may range from zero to the value of 
-		/// GL_MAX_COLOR_ATTACHMENTS minus one. Attaching a level of a texture to GL_DEPTH_STENCIL_ATTACHMENT is equivalent to 
-		/// attaching that level to both the GL_DEPTH_ATTACHMENTand the GL_STENCIL_ATTACHMENT attachment points simultaneously.
-		/// If texture is not zero, it must be the name of a three-dimensional, two-dimensional multisample array, one- or 
-		/// two-dimensional array, or cube map array texture.
-		/// If texture is a three-dimensional texture, then level must be greater than or equal to zero and less than or equal to 
-		/// $log_2$ of the value of GL_MAX_3D_TEXTURE_SIZE.
-		/// If texture is a two-dimensional array texture, then level must be greater than or equal to zero and less than or equal 
-		/// to $log_2$ of the value of GL_MAX_TEXTURE_SIZE.
-		/// For cube map textures, layer is translated into a cube map face according to $$ face = k \bmod 6. $$ For cube map array 
-		/// textures, layer is translated into an array layer and face according to $$ layer = \left\lfloor { layer \over 6 } 
-		/// \right\rfloor$$ and $$ face = k \bmod 6. $$
-		/// <para>
-		/// The following errors can be generated:
-		/// - GL_INVALID_ENUM is generated by glFramebufferTexture if target is not one of the accepted framebuffer targets.
-		/// - GL_INVALID_OPERATION is generated by glFramebufferTexture if zero is bound to target.
-		/// - GL_INVALID_OPERATION is generated by glNamedFramebufferTexture if framebuffer is not the name of an existing framebuffer 
-		///   object.
-		/// - GL_INVALID_ENUM is generated if attachment is not one of the accepted attachment points.
-		/// - GL_INVALID_OPERATION is generated if texture is not zero and is not the name of an existing three-dimensional, 
-		///   two-dimensional multisample array, one- or two-dimensional array, cube map, or cube map array texture.
-		/// - GL_INVALID_VALUE is generated if texture is not zero and level is not a supported texture level for texture, as 
-		///   described above.
-		/// - GL_INVALID_VALUE is generated if texture is not zero and layer is larger than the value of GL_MAX_3D_TEXTURE_SIZE minus 
-		///   one (for three-dimensional texture objects), or larger than the value of GL_MAX_ARRAY_TEXTURE_LAYERS minus one (for 
-		///   array texture objects).
-		/// - GL_INVALID_VALUE is generated if texture is not zero and layer is negative.
-		/// - GL_INVALID_OPERATION is generated by if texture is a buffer texture.
-		/// </para>
-		/// </remarks>
-		/// <seealso cref="Gl.GenFramebuffers"/>
-		/// <seealso cref="Gl.BindFramebuffer"/>
-		/// <seealso cref="Gl.GenRenderbuffers"/>
-		/// <seealso cref="Gl.FramebufferTexture"/>
-		/// <seealso cref="Gl.FramebufferTextureFace"/>
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ARB_framebuffer_object")]
 		public static void FramebufferTextureLayer(int target, int attachment, UInt32 texture, Int32 level, Int32 layer)
@@ -7455,82 +4162,6 @@ namespace OpenGL
 		/// <param name="access">
 		/// Specifies a combination of access flags indicating the desired access to the mapped range.
 		/// </param>
-		/// <remarks>
-		/// glMapBufferRange and glMapNamedBufferRange map all or part of the data store of a specified buffer object into the 
-		/// client's address space. offset and length indicate the range of data in the buffer object that is to be mapped, in terms 
-		/// of basic machine units. access is a bitfield containing flags which describe the requested mapping. These flags are 
-		/// described below.
-		/// A pointer to the beginning of the mapped range is returned once all pending operations on the buffer object have 
-		/// completed, and may be used to modify and/or query the corresponding range of the data store according to the following 
-		/// flag bits set in access: GL_MAP_READ_BIT indicates that the returned pointer may be used to read buffer object data. No 
-		/// GL error is generated if the pointer is used to query a mapping which excludes this flag, but the result is undefined 
-		/// and system errors (possibly including program termination) may occur. GL_MAP_WRITE_BIT indicates that the returned 
-		/// pointer may be used to modify buffer object data. No GL error is generated if the pointer is used to modify a mapping 
-		/// which excludes this flag, but the result is undefined and system errors (possibly including program termination) may 
-		/// occur. GL_MAP_PERSISTENT_BIT indicates that the mapping is to be made in a persistent fassion and that the client 
-		/// intends to hold and use the returned pointer during subsequent GL operation. It is not an error to call drawing commands 
-		/// (render) while buffers are mapped using this flag. It is an error to specify this flag if the buffer's data store was 
-		/// not allocated through a call to the glBufferStorage command in which the GL_MAP_PERSISTENT_BIT was also set. 
-		/// GL_MAP_COHERENT_BIT indicates that a persistent mapping is also to be coherent. Coherent maps guarantee that the effect 
-		/// of writes to a buffer's data store by either the client or server will eventually become visible to the other without 
-		/// further intervention from the application. In the absence of this bit, persistent mappings are not coherent and modified 
-		/// ranges of the buffer store must be explicitly communicated to the GL, either by unmapping the buffer, or through a call 
-		/// to glFlushMappedBufferRange or glMemoryBarrier.
-		/// The following optional flag bits in access may be used to modify the mapping: GL_MAP_INVALIDATE_RANGE_BIT indicates that 
-		/// the previous contents of the specified range may be discarded. Data within this range are undefined with the exception 
-		/// of subsequently written data. No GL error is generated if subsequent GL operations access unwritten data, but the result 
-		/// is undefined and system errors (possibly including program termination) may occur. This flag may not be used in 
-		/// combination with GL_MAP_READ_BIT. GL_MAP_INVALIDATE_BUFFER_BIT indicates that the previous contents of the entire buffer 
-		/// may be discarded. Data within the entire buffer are undefined with the exception of subsequently written data. No GL 
-		/// error is generated if subsequent GL operations access unwritten data, but the result is undefined and system errors 
-		/// (possibly including program termination) may occur. This flag may not be used in combination with GL_MAP_READ_BIT. 
-		/// GL_MAP_FLUSH_EXPLICIT_BIT indicates that one or more discrete subranges of the mapping may be modified. When this flag 
-		/// is set, modifications to each subrange must be explicitly flushed by calling glFlushMappedBufferRange. No GL error is 
-		/// set if a subrange of the mapping is modified and not flushed, but data within the corresponding subrange of the buffer 
-		/// are undefined. This flag may only be used in conjunction with GL_MAP_WRITE_BIT. When this option is selected, flushing 
-		/// is strictly limited to regions that are explicitly indicated with calls to glFlushMappedBufferRange prior to unmap; if 
-		/// this option is not selected glUnmapBuffer will automatically flush the entire mapped range when called. 
-		/// GL_MAP_UNSYNCHRONIZED_BIT indicates that the GL should not attempt to synchronize pending operations on the buffer prior 
-		/// to returning from glMapBufferRange or glMapNamedBufferRange. No GL error is generated if pending operations which source 
-		/// or modify the buffer overlap the mapped region, but the result of such previous and any subsequent operations is 
-		/// undefined.
-		/// If an error occurs, a NULL pointer is returned.
-		/// If no error occurs, the returned pointer will reflect an allocation aligned to the value of GL_MIN_MAP_BUFFER_ALIGNMENT 
-		/// basic machine units. Subtracting offset from this returned pointer will always produce a multiple of the value of 
-		/// GL_MIN_MAP_BUFFER_ALIGNMENT.
-		/// The returned pointer values may not be passed as parameter values to GL commands. For example, they may not be used to 
-		/// specify array pointers, or to specify or query pixel or texture image data; such actions produce undefined results, 
-		/// although implementations may not check for such behavior for performance reasons.
-		/// Mappings to the data stores of buffer objects may have nonstandard performance characteristics. For example, such 
-		/// mappings may be marked as uncacheable regions of memory, and in such cases reading from them may be very slow. To ensure 
-		/// optimal performance, the client should use the mapping in a fashion consistent with the values of GL_BUFFER_USAGE for 
-		/// the buffer object and of access. Using a mapping in a fashion inconsistent with these values is liable to be multiple 
-		/// orders of magnitude slower than using normal memory.
-		/// <para>
-		/// The following errors can be generated:
-		/// - GL_INVALID_ENUM is generated by glMapBufferRange if target is not one of the buffer binding targets listed above.
-		/// - GL_INVALID_OPERATION is generated by glMapBufferRange if zero is bound to target.
-		/// - GL_INVALID_OPERATION is generated by glMapNamedBufferRange if buffer is not the name of an existing buffer object.
-		/// - GL_INVALID_VALUE is generated if offset or length is negative, if $offset + length$ is greater than the value of 
-		///   GL_BUFFER_SIZE for the buffer object, or if access has any bits set other than those defined above.
-		/// - GL_INVALID_OPERATION is generated for any of the following conditions: length is zero. The buffer object is already in a 
-		///   mapped state. Neither GL_MAP_READ_BIT nor GL_MAP_WRITE_BIT is set. GL_MAP_READ_BIT is set and any of 
-		///   GL_MAP_INVALIDATE_RANGE_BIT, GL_MAP_INVALIDATE_BUFFER_BIT or GL_MAP_UNSYNCHRONIZED_BIT is set. GL_MAP_FLUSH_EXPLICIT_BIT 
-		///   is set and GL_MAP_WRITE_BIT is not set. Any of GL_MAP_READ_BIT, GL_MAP_WRITE_BIT, GL_MAP_PERSISTENT_BIT, or 
-		///   GL_MAP_COHERENT_BIT are set, but the same bit is not included in the buffer's storage flags.
-		/// - No error is generated if memory outside the mapped range is modified or queried, but the result is undefined and system 
-		///   errors (possibly including program termination) may occur.
-		/// </para>
-		/// <para>
-		/// The associated information is got with the following commands:
-		/// - glGet with pnameGL_MIN_MAP_BUFFER_ALIGNMENT. The value must be a power of two that is at least 64.
-		/// </para>
-		/// </remarks>
-		/// <seealso cref="Gl.MapBuffer"/>
-		/// <seealso cref="Gl.UnmapBuffer"/>
-		/// <seealso cref="Gl.FlushMappedBufferRange"/>
-		/// <seealso cref="Gl.BindBuffer"/>
-		/// <seealso cref="Gl.BufferStorage"/>
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ARB_map_buffer_range")]
 		public static IntPtr MapBufferRange(int target, IntPtr offset, UInt32 length, uint access)
@@ -7563,30 +4194,6 @@ namespace OpenGL
 		/// <param name="length">
 		/// Specifies the length of the buffer subrange, in basic machine units.
 		/// </param>
-		/// <remarks>
-		/// glFlushMappedBufferRange indicates that modifications have been made to a range of a mapped buffer object. The buffer 
-		/// object must previously have been mapped with the GL_MAP_FLUSH_EXPLICIT_BIT flag.
-		/// offset and length indicate the modified subrange of the mapping, in basic machine units. The specified subrange to flush 
-		/// is relative to the start of the currently mapped range of the buffer. These commands may be called multiple times to 
-		/// indicate distinct subranges of the mapping which require flushing.
-		/// If a buffer range is mapped with both GL_MAP_PERSISTENT_BIT and GL_MAP_FLUSH_EXPLICIT_BIT set, then these commands may 
-		/// be called to ensure that data written by the client into the flushed region becomes visible to the server. Data written 
-		/// to a coherent store will always become visible to the server after an unspecified period of time.
-		/// <para>
-		/// The following errors can be generated:
-		/// - GL_INVALID_ENUM is generated by glFlushMappedBufferRange if target is not one of the buffer binding targets listed 
-		///   above.
-		/// - GL_INVALID_OPERATION is generated by glFlushMappedBufferRange if zero is bound to target.
-		/// - GL_INVALID_OPERATION is generated by glFlushMappedNamedBufferRange if buffer is not the name of an existing buffer 
-		///   object.
-		/// - GL_INVALID_VALUE is generated if offset or length is negative, or if offset + length exceeds the size of the mapping.
-		/// - GL_INVALID_OPERATION is generated if the buffer object is not mapped, or is mapped without the GL_MAP_FLUSH_EXPLICIT_BIT 
-		///   flag.
-		/// </para>
-		/// </remarks>
-		/// <seealso cref="Gl.MapBufferRange"/>
-		/// <seealso cref="Gl.MapBuffer"/>
-		/// <seealso cref="Gl.UnmapBuffer"/>
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ARB_map_buffer_range")]
 		public static void FlushMappedBufferRange(int target, IntPtr offset, UInt32 length)
@@ -7611,22 +4218,6 @@ namespace OpenGL
 		/// <param name="array">
 		/// Specifies the name of the vertex array to bind.
 		/// </param>
-		/// <remarks>
-		/// glBindVertexArray binds the vertex array object with name array. array is the name of a vertex array object previously 
-		/// returned from a call to glGenVertexArrays, or zero to break the existing vertex array object binding.
-		/// If no vertex array object with name array exists, one is created when array is first bound. If the bind is successful no 
-		/// change is made to the state of the vertex array object, and any previous vertex array object binding is broken.
-		/// <para>
-		/// The following errors can be generated:
-		/// - GL_INVALID_OPERATION is generated if array is not zero or the name of a vertex array object previously returned from a 
-		///   call to glGenVertexArrays.
-		/// </para>
-		/// </remarks>
-		/// <seealso cref="Gl.DeleteVertexArrays"/>
-		/// <seealso cref="Gl.EnableVertexAttribArray"/>
-		/// <seealso cref="Gl.GenVertexArrays"/>
-		/// <seealso cref="Gl.IsVertexArray"/>
-		/// <seealso cref="Gl.VertexAttribPointer"/>
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ARB_vertex_array_object")]
 		public static void BindVertexArray(UInt32 array)
@@ -7651,19 +4242,6 @@ namespace OpenGL
 		/// <param name="arrays">
 		/// Specifies the address of an array containing the n names of the objects to be deleted.
 		/// </param>
-		/// <remarks>
-		/// glDeleteVertexArrays deletes n vertex array objects whose names are stored in the array addressed by arrays. Once a 
-		/// vertex array object is deleted it has no contents and its name is again unused. If a vertex array object that is 
-		/// currently bound is deleted, the binding for that object reverts to zero and the default vertex array becomes current. 
-		/// Unused names in arrays are silently ignored, as is the value zero.
-		/// <para>
-		/// The following errors can be generated:
-		/// - GL_INVALID_VALUE is generated if n is negative.
-		/// </para>
-		/// </remarks>
-		/// <seealso cref="Gl.GenVertexArrays"/>
-		/// <seealso cref="Gl.IsVertexArray"/>
-		/// <seealso cref="Gl.BindVertexArray"/>
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ARB_vertex_array_object")]
 		public static void DeleteVertexArrays(Int32 n, UInt32[] arrays)
@@ -7696,21 +4274,6 @@ namespace OpenGL
 		/// <param name="arrays">
 		/// Specifies an array in which the generated vertex array object names are stored.
 		/// </param>
-		/// <remarks>
-		/// glGenVertexArrays returns n vertex array object names in arrays. There is no guarantee that the names form a contiguous 
-		/// set of integers; however, it is guaranteed that none of the returned names was in use immediately before the call to 
-		/// glGenVertexArrays.
-		/// Vertex array object names returned by a call to glGenVertexArrays are not returned by subsequent calls, unless they are 
-		/// first deleted with glDeleteVertexArrays.
-		/// The names returned in arrays are marked as used, for the purposes of glGenVertexArrays only, but they acquire state and 
-		/// type only when they are first bound.
-		/// <para>
-		/// The following errors can be generated:
-		/// - GL_INVALID_VALUE is generated if n is negative.
-		/// </para>
-		/// </remarks>
-		/// <seealso cref="Gl.BindVertexArray"/>
-		/// <seealso cref="Gl.DeleteVertexArrays"/>
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ARB_vertex_array_object")]
 		public static void GenVertexArrays(Int32 n, UInt32[] arrays)
@@ -7740,15 +4303,6 @@ namespace OpenGL
 		/// <param name="array">
 		/// Specifies a value that may be the name of a vertex array object.
 		/// </param>
-		/// <remarks>
-		/// glIsVertexArray returns GL_TRUE if array is currently the name of a vertex array object. If array is zero, or if array 
-		/// is not the name of a vertex array object, or if an error occurs, glIsVertexArray returns GL_FALSE. If array is a name 
-		/// returned by glGenVertexArrays, by that has not yet been bound through a call to glBindVertexArray, then the name is not 
-		/// a vertex array object and glIsVertexArray returns GL_FALSE.
-		/// </remarks>
-		/// <seealso cref="Gl.GenVertexArrays"/>
-		/// <seealso cref="Gl.BindVertexArray"/>
-		/// <seealso cref="Gl.DeleteVertexArrays"/>
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ARB_vertex_array_object")]
 		public static bool IsVertexArray(UInt32 array)

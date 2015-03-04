@@ -149,6 +149,38 @@ namespace OpenGL
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_paletted_texture")]
+		public static void ColorTableEXT(int target, int internalFormat, Int32 width, int format, int type, Object table)
+		{
+			GCHandle pin_table = GCHandle.Alloc(table, GCHandleType.Pinned);
+			try {
+				ColorTableEXT(target, internalFormat, width, format, type, pin_table.AddrOfPinnedObject());
+			} finally {
+				pin_table.Free();
+			}
+		}
+
+		/// <summary>
+		/// Binding for glColorTableEXT.
+		/// </summary>
+		/// <param name="target">
+		/// A <see cref="T:int"/>.
+		/// </param>
+		/// <param name="internalFormat">
+		/// A <see cref="T:int"/>.
+		/// </param>
+		/// <param name="width">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="format">
+		/// A <see cref="T:int"/>.
+		/// </param>
+		/// <param name="type">
+		/// A <see cref="T:int"/>.
+		/// </param>
+		/// <param name="table">
+		/// A <see cref="T:IntPtr"/>.
+		/// </param>
+		[RequiredByFeature("GL_EXT_paletted_texture")]
 		public static void ColorTableEXT(int target, int internalFormat, Int32 width, PixelFormat format, PixelType type, Object table)
 		{
 			GCHandle pin_table = GCHandle.Alloc(table, GCHandleType.Pinned);

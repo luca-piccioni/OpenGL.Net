@@ -203,6 +203,38 @@ namespace OpenGL
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		[RequiredByFeature("GL_SGI_color_table")]
+		public static void ColorTableSGI(int target, int internalformat, Int32 width, int format, int type, Object table)
+		{
+			GCHandle pin_table = GCHandle.Alloc(table, GCHandleType.Pinned);
+			try {
+				ColorTableSGI(target, internalformat, width, format, type, pin_table.AddrOfPinnedObject());
+			} finally {
+				pin_table.Free();
+			}
+		}
+
+		/// <summary>
+		/// Binding for glColorTableSGI.
+		/// </summary>
+		/// <param name="target">
+		/// A <see cref="T:int"/>.
+		/// </param>
+		/// <param name="internalformat">
+		/// A <see cref="T:int"/>.
+		/// </param>
+		/// <param name="width">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="format">
+		/// A <see cref="T:int"/>.
+		/// </param>
+		/// <param name="type">
+		/// A <see cref="T:int"/>.
+		/// </param>
+		/// <param name="table">
+		/// A <see cref="T:IntPtr"/>.
+		/// </param>
+		[RequiredByFeature("GL_SGI_color_table")]
 		public static void ColorTableSGI(ColorTableTargetSGI target, int internalformat, Int32 width, PixelFormat format, PixelType type, Object table)
 		{
 			GCHandle pin_table = GCHandle.Alloc(table, GCHandleType.Pinned);

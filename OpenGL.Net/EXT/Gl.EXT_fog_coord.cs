@@ -192,6 +192,29 @@ namespace OpenGL
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_fog_coord")]
+		public static void FogCoordPointerEXT(int type, Int32 stride, Object pointer)
+		{
+			GCHandle pin_pointer = GCHandle.Alloc(pointer, GCHandleType.Pinned);
+			try {
+				FogCoordPointerEXT(type, stride, pin_pointer.AddrOfPinnedObject());
+			} finally {
+				pin_pointer.Free();
+			}
+		}
+
+		/// <summary>
+		/// Binding for glFogCoordPointerEXT.
+		/// </summary>
+		/// <param name="type">
+		/// A <see cref="T:int"/>.
+		/// </param>
+		/// <param name="stride">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="pointer">
+		/// A <see cref="T:IntPtr"/>.
+		/// </param>
+		[RequiredByFeature("GL_EXT_fog_coord")]
 		public static void FogCoordPointerEXT(FogPointerTypeEXT type, Int32 stride, Object pointer)
 		{
 			GCHandle pin_pointer = GCHandle.Alloc(pointer, GCHandleType.Pinned);

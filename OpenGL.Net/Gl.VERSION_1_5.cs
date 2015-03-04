@@ -495,25 +495,6 @@ namespace OpenGL
 		/// <param name="ids">
 		/// Specifies an array in which the generated query object names are stored.
 		/// </param>
-		/// <remarks>
-		/// glGenQueries returns n query object names in ids. There is no guarantee that the names form a contiguous set of 
-		/// integers; however, it is guaranteed that none of the returned names was in use immediately before the call to 
-		/// glGenQueries.
-		/// Query object names returned by a call to glGenQueries are not returned by subsequent calls, unless they are first 
-		/// deleted with glDeleteQueries.
-		/// No query objects are associated with the returned query object names until they are first used by calling glBeginQuery.
-		/// <para>
-		/// The following errors can be generated:
-		/// - GL_INVALID_VALUE is generated if n is negative.
-		/// </para>
-		/// <para>
-		/// The associated information is got with the following commands:
-		/// - glIsQuery
-		/// </para>
-		/// </remarks>
-		/// <seealso cref="Gl.BeginQuery"/>
-		/// <seealso cref="Gl.DeleteQueries"/>
-		/// <seealso cref="Gl.EndQuery"/>
 		[RequiredByFeature("GL_VERSION_1_5")]
 		public static void GenQueries(Int32 n, UInt32[] ids)
 		{
@@ -542,24 +523,6 @@ namespace OpenGL
 		/// <param name="ids">
 		/// Specifies an array of query objects to be deleted.
 		/// </param>
-		/// <remarks>
-		/// glDeleteQueries deletes n query objects named by the elements of the array ids. After a query object is deleted, it has 
-		/// no contents, and its name is free for reuse (for example by glGenQueries).
-		/// glDeleteQueries silently ignores 0's and names that do not correspond to existing query objects.
-		/// <para>
-		/// The following errors can be generated:
-		/// - GL_INVALID_VALUE is generated if n is negative.
-		/// </para>
-		/// <para>
-		/// The associated information is got with the following commands:
-		/// - glIsQuery
-		/// </para>
-		/// </remarks>
-		/// <seealso cref="Gl.BeginQuery"/>
-		/// <seealso cref="Gl.EndQuery"/>
-		/// <seealso cref="Gl.GenQueries"/>
-		/// <seealso cref="Gl.GetQueryiv"/>
-		/// <seealso cref="Gl.GetQueryObject"/>
 		[RequiredByFeature("GL_VERSION_1_5")]
 		public static void DeleteQueries(Int32 n, UInt32[] ids)
 		{
@@ -585,16 +548,6 @@ namespace OpenGL
 		/// <param name="id">
 		/// Specifies a value that may be the name of a query object.
 		/// </param>
-		/// <remarks>
-		/// glIsQuery returns GL_TRUE if id is currently the name of a query object. If id is zero, or is a non-zero value that is 
-		/// not currently the name of a query object, or if an error occurs, glIsQuery returns GL_FALSE.
-		/// A name returned by glGenQueries, but not yet associated with a query object by calling glBeginQuery, is not the name of 
-		/// a query object.
-		/// </remarks>
-		/// <seealso cref="Gl.BeginQuery"/>
-		/// <seealso cref="Gl.DeleteQueries"/>
-		/// <seealso cref="Gl.EndQuery"/>
-		/// <seealso cref="Gl.GenQueries"/>
 		[RequiredByFeature("GL_VERSION_1_5")]
 		public static bool IsQuery(UInt32 id)
 		{
@@ -624,65 +577,6 @@ namespace OpenGL
 		/// <param name="id">
 		/// Specifies the name of a query object.
 		/// </param>
-		/// <remarks>
-		/// glBeginQuery and glEndQuery delimit the boundaries of a query object. query must be a name previously returned from a 
-		/// call to glGenQueries. If a query object with name id does not yet exist it is created with the type determined by 
-		/// target. target must be one of GL_SAMPLES_PASSED, GL_ANY_SAMPLES_PASSED, GL_PRIMITIVES_GENERATED, 
-		/// GL_TRANSFORM_FEEDBACK_PRIMITIVES_WRITTEN, or GL_TIME_ELAPSED. The behavior of the query object depends on its type and 
-		/// is as follows.
-		/// If target is GL_SAMPLES_PASSED, id must be an unused name, or the name of an existing occlusion query object. When 
-		/// glBeginQuery is executed, the query object's samples-passed counter is reset to 0. Subsequent rendering will increment 
-		/// the counter for every sample that passes the depth test. If the value of GL_SAMPLE_BUFFERS is 0, then the samples-passed 
-		/// count is incremented by 1 for each fragment. If the value of GL_SAMPLE_BUFFERS is 1, then the samples-passed count is 
-		/// incremented by the number of samples whose coverage bit is set. However, implementations, at their discression may 
-		/// instead increase the samples-passed count by the value of GL_SAMPLES if any sample in the fragment is covered. When 
-		/// glEndQuery is executed, the samples-passed counter is assigned to the query object's result value. This value can be 
-		/// queried by calling glGetQueryObject with pnameGL_QUERY_RESULT.
-		/// If target is GL_ANY_SAMPLES_PASSED or GL_ANY_SAMPLES_PASSED_CONSERVATIVE, id must be an unused name, or the name of an 
-		/// existing boolean occlusion query object. When glBeginQuery is executed, the query object's samples-passed flag is reset 
-		/// to GL_FALSE. Subsequent rendering causes the flag to be set to GL_TRUE if any sample passes the depth test in the case 
-		/// of GL_ANY_SAMPLES_PASSED, or if the implementation determines that any sample might pass the depth test in the case of 
-		/// GL_ANY_SAMPLES_PASSED_CONSERVATIVE. The implementation may be able to provide a more efficient test in the case of 
-		/// GL_ANY_SAMPLES_PASSED_CONSERVATIVE if some false positives are acceptable to the application. When glEndQuery is 
-		/// executed, the samples-passed flag is assigned to the query object's result value. This value can be queried by calling 
-		/// glGetQueryObject with pnameGL_QUERY_RESULT.
-		/// If target is GL_PRIMITIVES_GENERATED, id must be an unused name, or the name of an existing primitive query object 
-		/// previously bound to the GL_PRIMITIVES_GENERATED query binding. When glBeginQuery is executed, the query object's 
-		/// primitives-generated counter is reset to 0. Subsequent rendering will increment the counter once for every vertex that 
-		/// is emitted from the geometry shader, or from the vertex shader if no geometry shader is present. When glEndQuery is 
-		/// executed, the primitives-generated counter is assigned to the query object's result value. This value can be queried by 
-		/// calling glGetQueryObject with pnameGL_QUERY_RESULT.
-		/// If target is GL_TRANSFORM_FEEDBACK_PRIMITIVES_WRITTEN, id must be an unused name, or the name of an existing primitive 
-		/// query object previously bound to the GL_TRANSFORM_FEEDBACK_PRIMITIVES_WRITTEN query binding. When glBeginQuery is 
-		/// executed, the query object's primitives-written counter is reset to 0. Subsequent rendering will increment the counter 
-		/// once for every vertex that is written into the bound transform feedback buffer(s). If transform feedback mode is not 
-		/// activated between the call to glBeginQuery and glEndQuery, the counter will not be incremented. When glEndQuery is 
-		/// executed, the primitives-written counter is assigned to the query object's result value. This value can be queried by 
-		/// calling glGetQueryObject with pnameGL_QUERY_RESULT.
-		/// If target is GL_TIME_ELAPSED, id must be an unused name, or the name of an existing timer query object previously bound 
-		/// to the GL_TIME_ELAPSED query binding. When glBeginQuery is executed, the query object's time counter is reset to 0. When 
-		/// glEndQuery is executed, the elapsed server time that has passed since the call to glBeginQuery is written into the query 
-		/// object's time counter. This value can be queried by calling glGetQueryObject with pnameGL_QUERY_RESULT.
-		/// Querying the GL_QUERY_RESULT implicitly flushes the GL pipeline until the rendering delimited by the query object has 
-		/// completed and the result is available. GL_QUERY_RESULT_AVAILABLE can be queried to determine if the result is 
-		/// immediately available or if the rendering is not yet complete.
-		/// <para>
-		/// The following errors can be generated:
-		/// - GL_INVALID_ENUM is generated if target is not one of the accepted tokens.
-		/// - GL_INVALID_OPERATION is generated if glBeginQuery is executed while a query object of the same target is already active.
-		/// - GL_INVALID_OPERATION is generated if glEndQuery is executed when a query object of the same target is not active.
-		/// - GL_INVALID_OPERATION is generated if id is 0.
-		/// - GL_INVALID_OPERATION is generated if id is the name of an already active query object.
-		/// - GL_INVALID_OPERATION is generated if id refers to an existing query object whose type does not does not match target.
-		/// </para>
-		/// </remarks>
-		/// <seealso cref="Gl.BeginQueryIndexed"/>
-		/// <seealso cref="Gl.DeleteQueries"/>
-		/// <seealso cref="Gl.EndQuery"/>
-		/// <seealso cref="Gl.GenQueries"/>
-		/// <seealso cref="Gl.GetQueryObject"/>
-		/// <seealso cref="Gl.GetQueryiv"/>
-		/// <seealso cref="Gl.IsQuery"/>
 		[RequiredByFeature("GL_VERSION_1_5")]
 		public static void BeginQuery(int target, UInt32 id)
 		{
@@ -705,65 +599,6 @@ namespace OpenGL
 		/// constant must be one of GL_SAMPLES_PASSED, GL_ANY_SAMPLES_PASSED, GL_ANY_SAMPLES_PASSED_CONSERVATIVE, 
 		/// GL_PRIMITIVES_GENERATED, GL_TRANSFORM_FEEDBACK_PRIMITIVES_WRITTEN, or GL_TIME_ELAPSED.
 		/// </param>
-		/// <remarks>
-		/// glBeginQuery and glEndQuery delimit the boundaries of a query object. query must be a name previously returned from a 
-		/// call to glGenQueries. If a query object with name id does not yet exist it is created with the type determined by 
-		/// target. target must be one of GL_SAMPLES_PASSED, GL_ANY_SAMPLES_PASSED, GL_PRIMITIVES_GENERATED, 
-		/// GL_TRANSFORM_FEEDBACK_PRIMITIVES_WRITTEN, or GL_TIME_ELAPSED. The behavior of the query object depends on its type and 
-		/// is as follows.
-		/// If target is GL_SAMPLES_PASSED, id must be an unused name, or the name of an existing occlusion query object. When 
-		/// glBeginQuery is executed, the query object's samples-passed counter is reset to 0. Subsequent rendering will increment 
-		/// the counter for every sample that passes the depth test. If the value of GL_SAMPLE_BUFFERS is 0, then the samples-passed 
-		/// count is incremented by 1 for each fragment. If the value of GL_SAMPLE_BUFFERS is 1, then the samples-passed count is 
-		/// incremented by the number of samples whose coverage bit is set. However, implementations, at their discression may 
-		/// instead increase the samples-passed count by the value of GL_SAMPLES if any sample in the fragment is covered. When 
-		/// glEndQuery is executed, the samples-passed counter is assigned to the query object's result value. This value can be 
-		/// queried by calling glGetQueryObject with pnameGL_QUERY_RESULT.
-		/// If target is GL_ANY_SAMPLES_PASSED or GL_ANY_SAMPLES_PASSED_CONSERVATIVE, id must be an unused name, or the name of an 
-		/// existing boolean occlusion query object. When glBeginQuery is executed, the query object's samples-passed flag is reset 
-		/// to GL_FALSE. Subsequent rendering causes the flag to be set to GL_TRUE if any sample passes the depth test in the case 
-		/// of GL_ANY_SAMPLES_PASSED, or if the implementation determines that any sample might pass the depth test in the case of 
-		/// GL_ANY_SAMPLES_PASSED_CONSERVATIVE. The implementation may be able to provide a more efficient test in the case of 
-		/// GL_ANY_SAMPLES_PASSED_CONSERVATIVE if some false positives are acceptable to the application. When glEndQuery is 
-		/// executed, the samples-passed flag is assigned to the query object's result value. This value can be queried by calling 
-		/// glGetQueryObject with pnameGL_QUERY_RESULT.
-		/// If target is GL_PRIMITIVES_GENERATED, id must be an unused name, or the name of an existing primitive query object 
-		/// previously bound to the GL_PRIMITIVES_GENERATED query binding. When glBeginQuery is executed, the query object's 
-		/// primitives-generated counter is reset to 0. Subsequent rendering will increment the counter once for every vertex that 
-		/// is emitted from the geometry shader, or from the vertex shader if no geometry shader is present. When glEndQuery is 
-		/// executed, the primitives-generated counter is assigned to the query object's result value. This value can be queried by 
-		/// calling glGetQueryObject with pnameGL_QUERY_RESULT.
-		/// If target is GL_TRANSFORM_FEEDBACK_PRIMITIVES_WRITTEN, id must be an unused name, or the name of an existing primitive 
-		/// query object previously bound to the GL_TRANSFORM_FEEDBACK_PRIMITIVES_WRITTEN query binding. When glBeginQuery is 
-		/// executed, the query object's primitives-written counter is reset to 0. Subsequent rendering will increment the counter 
-		/// once for every vertex that is written into the bound transform feedback buffer(s). If transform feedback mode is not 
-		/// activated between the call to glBeginQuery and glEndQuery, the counter will not be incremented. When glEndQuery is 
-		/// executed, the primitives-written counter is assigned to the query object's result value. This value can be queried by 
-		/// calling glGetQueryObject with pnameGL_QUERY_RESULT.
-		/// If target is GL_TIME_ELAPSED, id must be an unused name, or the name of an existing timer query object previously bound 
-		/// to the GL_TIME_ELAPSED query binding. When glBeginQuery is executed, the query object's time counter is reset to 0. When 
-		/// glEndQuery is executed, the elapsed server time that has passed since the call to glBeginQuery is written into the query 
-		/// object's time counter. This value can be queried by calling glGetQueryObject with pnameGL_QUERY_RESULT.
-		/// Querying the GL_QUERY_RESULT implicitly flushes the GL pipeline until the rendering delimited by the query object has 
-		/// completed and the result is available. GL_QUERY_RESULT_AVAILABLE can be queried to determine if the result is 
-		/// immediately available or if the rendering is not yet complete.
-		/// <para>
-		/// The following errors can be generated:
-		/// - GL_INVALID_ENUM is generated if target is not one of the accepted tokens.
-		/// - GL_INVALID_OPERATION is generated if glBeginQuery is executed while a query object of the same target is already active.
-		/// - GL_INVALID_OPERATION is generated if glEndQuery is executed when a query object of the same target is not active.
-		/// - GL_INVALID_OPERATION is generated if id is 0.
-		/// - GL_INVALID_OPERATION is generated if id is the name of an already active query object.
-		/// - GL_INVALID_OPERATION is generated if id refers to an existing query object whose type does not does not match target.
-		/// </para>
-		/// </remarks>
-		/// <seealso cref="Gl.BeginQueryIndexed"/>
-		/// <seealso cref="Gl.DeleteQueries"/>
-		/// <seealso cref="Gl.EndQuery"/>
-		/// <seealso cref="Gl.GenQueries"/>
-		/// <seealso cref="Gl.GetQueryObject"/>
-		/// <seealso cref="Gl.GetQueryiv"/>
-		/// <seealso cref="Gl.IsQuery"/>
 		[RequiredByFeature("GL_VERSION_1_5")]
 		public static void EndQuery(int target)
 		{
@@ -793,18 +628,6 @@ namespace OpenGL
 		/// <param name="params">
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
-		/// <remarks>
-		/// glGetQueryiv returns in params a selected parameter of the query object target specified by target.
-		/// pname names a specific query object target parameter. When pname is GL_CURRENT_QUERY, the name of the currently active 
-		/// query for target, or zero if no query is active, will be placed in params. If pname is GL_QUERY_COUNTER_BITS, the 
-		/// implementation-dependent number of bits used to hold the result of queries for target is returned in params.
-		/// <para>
-		/// The following errors can be generated:
-		/// - GL_INVALID_ENUM is generated if target or pname is not an accepted value.
-		/// </para>
-		/// </remarks>
-		/// <seealso cref="Gl.GetQueryObject"/>
-		/// <seealso cref="Gl.IsQuery"/>
 		[RequiredByFeature("GL_VERSION_1_5")]
 		public static void GetQuery(int target, int pname, Int32[] @params)
 		{
@@ -837,23 +660,6 @@ namespace OpenGL
 		/// <param name="params">
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
-		/// <remarks>
-		/// glGetQueryObject returns in params a selected parameter of the query object specified by id.
-		/// pname names a specific query object parameter. pname can be as follows:
-		/// <para>
-		/// The following errors can be generated:
-		/// - GL_INVALID_ENUM is generated if pname is not an accepted value.
-		/// - GL_INVALID_OPERATION is generated if id is not the name of a query object.
-		/// - GL_INVALID_OPERATION is generated if id is the name of a currently active query object.
-		/// - GL_INVALID_OPERATION is generated if a buffer is currently bound to the GL_QUERY_RESULT_BUFFER target and the command 
-		///   would cause data to be written beyond the bounds of that buffer's data store.
-		/// </para>
-		/// </remarks>
-		/// <seealso cref="Gl.BeginQuery"/>
-		/// <seealso cref="Gl.EndQuery"/>
-		/// <seealso cref="Gl.GetQueryiv"/>
-		/// <seealso cref="Gl.IsQuery"/>
-		/// <seealso cref="Gl.QueryCounter"/>
 		[RequiredByFeature("GL_VERSION_1_5")]
 		public static void GetQueryObject(UInt32 id, int pname, Int32[] @params)
 		{
@@ -889,23 +695,6 @@ namespace OpenGL
 		/// <param name="params">
 		/// A <see cref="T:UInt32[]"/>.
 		/// </param>
-		/// <remarks>
-		/// glGetQueryObject returns in params a selected parameter of the query object specified by id.
-		/// pname names a specific query object parameter. pname can be as follows:
-		/// <para>
-		/// The following errors can be generated:
-		/// - GL_INVALID_ENUM is generated if pname is not an accepted value.
-		/// - GL_INVALID_OPERATION is generated if id is not the name of a query object.
-		/// - GL_INVALID_OPERATION is generated if id is the name of a currently active query object.
-		/// - GL_INVALID_OPERATION is generated if a buffer is currently bound to the GL_QUERY_RESULT_BUFFER target and the command 
-		///   would cause data to be written beyond the bounds of that buffer's data store.
-		/// </para>
-		/// </remarks>
-		/// <seealso cref="Gl.BeginQuery"/>
-		/// <seealso cref="Gl.EndQuery"/>
-		/// <seealso cref="Gl.GetQueryiv"/>
-		/// <seealso cref="Gl.IsQuery"/>
-		/// <seealso cref="Gl.QueryCounter"/>
 		[RequiredByFeature("GL_VERSION_1_5")]
 		public static void GetQueryObjectuiv(UInt32 id, int pname, UInt32[] @params)
 		{
@@ -935,88 +724,6 @@ namespace OpenGL
 		/// <param name="buffer">
 		/// Specifies the name of a buffer object.
 		/// </param>
-		/// <remarks>
-		/// glBindBuffer binds a buffer object to the specified buffer binding point. Calling glBindBuffer with target set to one of 
-		/// the accepted symbolic constants and buffer set to the name of a buffer object binds that buffer object name to the 
-		/// target. If no buffer object with name buffer exists, one is created with that name. When a buffer object is bound to a 
-		/// target, the previous binding for that target is automatically broken.
-		/// Buffer object names are unsigned integers. The value zero is reserved, but there is no default buffer object for each 
-		/// buffer object target. Instead, buffer set to zero effectively unbinds any buffer object previously bound, and restores 
-		/// client memory usage for that buffer object target (if supported for that target). Buffer object names and the 
-		/// corresponding buffer object contents are local to the shared object space of the current GL rendering context; two 
-		/// rendering contexts share buffer object names only if they explicitly enable sharing between contexts through the 
-		/// appropriate GL windows interfaces functions.
-		/// glGenBuffers must be used to generate a set of unused buffer object names.
-		/// The state of a buffer object immediately after it is first bound is an unmapped zero-sized memory buffer with 
-		/// GL_READ_WRITE access and GL_STATIC_DRAW usage.
-		/// While a non-zero buffer object name is bound, GL operations on the target to which it is bound affect the bound buffer 
-		/// object, and queries of the target to which it is bound return state from the bound buffer object. While buffer object 
-		/// name zero is bound, as in the initial state, attempts to modify or query state on the target to which it is bound 
-		/// generates an GL_INVALID_OPERATION error.
-		/// When a non-zero buffer object is bound to the GL_ARRAY_BUFFER target, the vertex array pointer parameter is interpreted 
-		/// as an offset within the buffer object measured in basic machine units.
-		/// When a non-zero buffer object is bound to the GL_DRAW_INDIRECT_BUFFER target, parameters for draws issued through 
-		/// glDrawArraysIndirect and glDrawElementsIndirect are sourced from the specified offset in that buffer object's data 
-		/// store.
-		/// When a non-zero buffer object is bound to the GL_DISPATCH_INDIRECT_BUFFER target, the parameters for compute dispatches 
-		/// issued through glDispatchComputeIndirect are sourced from the specified offset in that buffer object's data store.
-		/// While a non-zero buffer object is bound to the GL_ELEMENT_ARRAY_BUFFER target, the indices parameter of glDrawElements, 
-		/// glDrawElementsInstanced, glDrawElementsBaseVertex, glDrawRangeElements, glDrawRangeElementsBaseVertex, 
-		/// glMultiDrawElements, or glMultiDrawElementsBaseVertex is interpreted as an offset within the buffer object measured in 
-		/// basic machine units.
-		/// While a non-zero buffer object is bound to the GL_PIXEL_PACK_BUFFER target, the following commands are affected: 
-		/// glGetCompressedTexImage, glGetTexImage, and glReadPixels. The pointer parameter is interpreted as an offset within the 
-		/// buffer object measured in basic machine units.
-		/// While a non-zero buffer object is bound to the GL_PIXEL_UNPACK_BUFFER target, the following commands are affected: 
-		/// glCompressedTexImage1D, glCompressedTexImage2D, glCompressedTexImage3D, glCompressedTexSubImage1D, 
-		/// glCompressedTexSubImage2D, glCompressedTexSubImage3D, glTexImage1D, glTexImage2D, glTexImage3D, glTexSubImage1D, 
-		/// glTexSubImage2D, and glTexSubImage3D. The pointer parameter is interpreted as an offset within the buffer object 
-		/// measured in basic machine units.
-		/// The buffer targets GL_COPY_READ_BUFFER and GL_COPY_WRITE_BUFFER are provided to allow glCopyBufferSubData to be used 
-		/// without disturbing the state of other bindings. However, glCopyBufferSubData may be used with any pair of buffer binding 
-		/// points.
-		/// The GL_TRANSFORM_FEEDBACK_BUFFER buffer binding point may be passed to glBindBuffer, but will not directly affect 
-		/// transform feedback state. Instead, the indexed GL_TRANSFORM_FEEDBACK_BUFFER bindings must be used through a call to 
-		/// glBindBufferBase or glBindBufferRange. This will affect the generic GL_TRANSFORM_FEEDBACK_BUFFER binding.
-		/// Likewise, the GL_UNIFORM_BUFFER, GL_ATOMIC_COUNTER_BUFFER and GL_SHADER_STORAGE_BUFFER buffer binding points may be 
-		/// used, but do not directly affect uniform buffer, atomic counter buffer or shader storage buffer state, respectively. 
-		/// glBindBufferBase or glBindBufferRange must be used to bind a buffer to an indexed uniform buffer, atomic counter buffer 
-		/// or shader storage buffer binding point.
-		/// The GL_QUERY_BUFFER binding point is used to specify a buffer object that is to receive the results of query objects 
-		/// through calls to the glGetQueryObject family of commands.
-		/// A buffer object binding created with glBindBuffer remains active until a different buffer object name is bound to the 
-		/// same target, or until the bound buffer object is deleted with glDeleteBuffers.
-		/// Once created, a named buffer object may be re-bound to any target as often as needed. However, the GL implementation may 
-		/// make choices about how to optimize the storage of a buffer object based on its initial binding target.
-		/// <para>
-		/// The following errors can be generated:
-		/// - GL_INVALID_ENUM is generated if target is not one of the allowable values.
-		/// - GL_INVALID_VALUE is generated if buffer is not a name previously returned from a call to glGenBuffers.
-		/// </para>
-		/// <para>
-		/// The associated information is got with the following commands:
-		/// - glGet with argument GL_ARRAY_BUFFER_BINDING
-		/// - glGet with argument GL_ATOMIC_COUNTER_BUFFER_BINDING
-		/// - glGet with argument GL_COPY_READ_BUFFER_BINDING
-		/// - glGet with argument GL_COPY_WRITE_BUFFER_BINDING
-		/// - glGet with argument GL_DRAW_INDIRECT_BUFFER_BINDING
-		/// - glGet with argument GL_DISPATCH_INDIRECT_BUFFER_BINDING
-		/// - glGet with argument GL_ELEMENT_ARRAY_BUFFER_BINDING
-		/// - glGet with argument GL_PIXEL_PACK_BUFFER_BINDING
-		/// - glGet with argument GL_PIXEL_UNPACK_BUFFER_BINDING
-		/// - glGet with argument GL_SHADER_STORAGE_BUFFER_BINDING
-		/// - glGet with argument GL_TRANSFORM_FEEDBACK_BUFFER_BINDING
-		/// - glGet with argument GL_UNIFORM_BUFFER_BINDING
-		/// </para>
-		/// </remarks>
-		/// <seealso cref="Gl.GenBuffers"/>
-		/// <seealso cref="Gl.BindBufferBase"/>
-		/// <seealso cref="Gl.BindBufferRange"/>
-		/// <seealso cref="Gl.MapBuffer"/>
-		/// <seealso cref="Gl.UnmapBuffer"/>
-		/// <seealso cref="Gl.DeleteBuffers"/>
-		/// <seealso cref="Gl.Get"/>
-		/// <seealso cref="Gl.IsBuffer"/>
 		[RequiredByFeature("GL_VERSION_1_5")]
 		public static void BindBuffer(int target, UInt32 buffer)
 		{
@@ -1040,23 +747,6 @@ namespace OpenGL
 		/// <param name="buffers">
 		/// Specifies an array of buffer objects to be deleted.
 		/// </param>
-		/// <remarks>
-		/// glDeleteBuffers deletes n buffer objects named by the elements of the array buffers. After a buffer object is deleted, 
-		/// it has no contents, and its name is free for reuse (for example by glGenBuffers). If a buffer object that is currently 
-		/// bound is deleted, the binding reverts to 0 (the absence of any buffer object).
-		/// glDeleteBuffers silently ignores 0's and names that do not correspond to existing buffer objects.
-		/// <para>
-		/// The following errors can be generated:
-		/// - GL_INVALID_VALUE is generated if n is negative.
-		/// </para>
-		/// <para>
-		/// The associated information is got with the following commands:
-		/// - glIsBuffer
-		/// </para>
-		/// </remarks>
-		/// <seealso cref="Gl.BindBuffer"/>
-		/// <seealso cref="Gl.GenBuffers"/>
-		/// <seealso cref="Gl.Get"/>
 		[RequiredByFeature("GL_VERSION_1_5")]
 		public static void DeleteBuffers(Int32 n, UInt32[] buffers)
 		{
@@ -1085,26 +775,6 @@ namespace OpenGL
 		/// <param name="buffers">
 		/// Specifies an array in which the generated buffer object names are stored.
 		/// </param>
-		/// <remarks>
-		/// glGenBuffers returns n buffer object names in buffers. There is no guarantee that the names form a contiguous set of 
-		/// integers; however, it is guaranteed that none of the returned names was in use immediately before the call to 
-		/// glGenBuffers.
-		/// Buffer object names returned by a call to glGenBuffers are not returned by subsequent calls, unless they are first 
-		/// deleted with glDeleteBuffers.
-		/// No buffer objects are associated with the returned buffer object names until they are first bound by calling 
-		/// glBindBuffer.
-		/// <para>
-		/// The following errors can be generated:
-		/// - GL_INVALID_VALUE is generated if n is negative.
-		/// </para>
-		/// <para>
-		/// The associated information is got with the following commands:
-		/// - glIsBuffer
-		/// </para>
-		/// </remarks>
-		/// <seealso cref="Gl.BindBuffer"/>
-		/// <seealso cref="Gl.DeleteBuffers"/>
-		/// <seealso cref="Gl.Get"/>
 		[RequiredByFeature("GL_VERSION_1_5")]
 		public static void GenBuffers(Int32 n, UInt32[] buffers)
 		{
@@ -1130,16 +800,6 @@ namespace OpenGL
 		/// <param name="buffer">
 		/// Specifies a value that may be the name of a buffer object.
 		/// </param>
-		/// <remarks>
-		/// glIsBuffer returns GL_TRUE if buffer is currently the name of a buffer object. If buffer is zero, or is a non-zero value 
-		/// that is not currently the name of a buffer object, or if an error occurs, glIsBuffer returns GL_FALSE.
-		/// A name returned by glGenBuffers, but not yet associated with a buffer object by calling glBindBuffer, is not the name of 
-		/// a buffer object.
-		/// </remarks>
-		/// <seealso cref="Gl.BindBuffer"/>
-		/// <seealso cref="Gl.DeleteBuffers"/>
-		/// <seealso cref="Gl.GenBuffers"/>
-		/// <seealso cref="Gl.Get"/>
 		[RequiredByFeature("GL_VERSION_1_5")]
 		public static bool IsBuffer(UInt32 buffer)
 		{
@@ -1176,39 +836,6 @@ namespace OpenGL
 		/// Specifies the expected usage pattern of the data store. The symbolic constant must be GL_STREAM_DRAW, GL_STREAM_READ, 
 		/// GL_STREAM_COPY, GL_STATIC_DRAW, GL_STATIC_READ, GL_STATIC_COPY, GL_DYNAMIC_DRAW, GL_DYNAMIC_READ, or GL_DYNAMIC_COPY.
 		/// </param>
-		/// <remarks>
-		/// glBufferData and glNamedBufferData create a new data store for a buffer object. In case of glBufferData, the buffer 
-		/// object currently bound to target is used. For glNamedBufferData, a buffer object associated with ID specified by the 
-		/// caller in buffer will be used instead.
-		/// While creating the new storage, any pre-existing data store is deleted. The new data store is created with the specified 
-		/// size in bytes and usage. If data is not NULL, the data store is initialized with data from this pointer. In its initial 
-		/// state, the new data store is not mapped, it has a NULL mapped pointer, and its mapped access is GL_READ_WRITE.
-		/// usage is a hint to the GL implementation as to how a buffer object's data store will be accessed. This enables the GL 
-		/// implementation to make more intelligent decisions that may significantly impact buffer object performance. It does not, 
-		/// however, constrain the actual usage of the data store. usage can be broken down into two parts: first, the frequency of 
-		/// access (modification and usage), and second, the nature of that access. The frequency of access may be one of these:
-		/// The nature of access may be one of these:
-		/// <para>
-		/// The following errors can be generated:
-		/// - GL_INVALID_ENUM is generated by glBufferData if target is not one of the accepted buffer targets.
-		/// - GL_INVALID_ENUM is generated if usage is not GL_STREAM_DRAW, GL_STREAM_READ, GL_STREAM_COPY, GL_STATIC_DRAW, 
-		///   GL_STATIC_READ, GL_STATIC_COPY, GL_DYNAMIC_DRAW, GL_DYNAMIC_READ, or GL_DYNAMIC_COPY.
-		/// - GL_INVALID_VALUE is generated if size is negative.
-		/// - GL_INVALID_OPERATION is generated by glBufferData if the reserved buffer object name 0 is bound to target.
-		/// - GL_INVALID_OPERATION is generated by glNamedBufferData if buffer is not the name of an existing buffer object.
-		/// - GL_INVALID_OPERATION is generated if the GL_BUFFER_IMMUTABLE_STORAGE flag of the buffer object is GL_TRUE.
-		/// - GL_OUT_OF_MEMORY is generated if the GL is unable to create a data store with the specified size.
-		/// </para>
-		/// <para>
-		/// The associated information is got with the following commands:
-		/// - glGetBufferSubData
-		/// - glGetBufferParameter with argument GL_BUFFER_SIZE or GL_BUFFER_USAGE
-		/// </para>
-		/// </remarks>
-		/// <seealso cref="Gl.BindBuffer"/>
-		/// <seealso cref="Gl.BufferSubData"/>
-		/// <seealso cref="Gl.MapBuffer"/>
-		/// <seealso cref="Gl.UnmapBuffer"/>
 		[RequiredByFeature("GL_VERSION_1_5")]
 		public static void BufferData(int target, UInt32 size, IntPtr data, int usage)
 		{
@@ -1241,39 +868,6 @@ namespace OpenGL
 		/// Specifies the expected usage pattern of the data store. The symbolic constant must be GL_STREAM_DRAW, GL_STREAM_READ, 
 		/// GL_STREAM_COPY, GL_STATIC_DRAW, GL_STATIC_READ, GL_STATIC_COPY, GL_DYNAMIC_DRAW, GL_DYNAMIC_READ, or GL_DYNAMIC_COPY.
 		/// </param>
-		/// <remarks>
-		/// glBufferData and glNamedBufferData create a new data store for a buffer object. In case of glBufferData, the buffer 
-		/// object currently bound to target is used. For glNamedBufferData, a buffer object associated with ID specified by the 
-		/// caller in buffer will be used instead.
-		/// While creating the new storage, any pre-existing data store is deleted. The new data store is created with the specified 
-		/// size in bytes and usage. If data is not NULL, the data store is initialized with data from this pointer. In its initial 
-		/// state, the new data store is not mapped, it has a NULL mapped pointer, and its mapped access is GL_READ_WRITE.
-		/// usage is a hint to the GL implementation as to how a buffer object's data store will be accessed. This enables the GL 
-		/// implementation to make more intelligent decisions that may significantly impact buffer object performance. It does not, 
-		/// however, constrain the actual usage of the data store. usage can be broken down into two parts: first, the frequency of 
-		/// access (modification and usage), and second, the nature of that access. The frequency of access may be one of these:
-		/// The nature of access may be one of these:
-		/// <para>
-		/// The following errors can be generated:
-		/// - GL_INVALID_ENUM is generated by glBufferData if target is not one of the accepted buffer targets.
-		/// - GL_INVALID_ENUM is generated if usage is not GL_STREAM_DRAW, GL_STREAM_READ, GL_STREAM_COPY, GL_STATIC_DRAW, 
-		///   GL_STATIC_READ, GL_STATIC_COPY, GL_DYNAMIC_DRAW, GL_DYNAMIC_READ, or GL_DYNAMIC_COPY.
-		/// - GL_INVALID_VALUE is generated if size is negative.
-		/// - GL_INVALID_OPERATION is generated by glBufferData if the reserved buffer object name 0 is bound to target.
-		/// - GL_INVALID_OPERATION is generated by glNamedBufferData if buffer is not the name of an existing buffer object.
-		/// - GL_INVALID_OPERATION is generated if the GL_BUFFER_IMMUTABLE_STORAGE flag of the buffer object is GL_TRUE.
-		/// - GL_OUT_OF_MEMORY is generated if the GL is unable to create a data store with the specified size.
-		/// </para>
-		/// <para>
-		/// The associated information is got with the following commands:
-		/// - glGetBufferSubData
-		/// - glGetBufferParameter with argument GL_BUFFER_SIZE or GL_BUFFER_USAGE
-		/// </para>
-		/// </remarks>
-		/// <seealso cref="Gl.BindBuffer"/>
-		/// <seealso cref="Gl.BufferSubData"/>
-		/// <seealso cref="Gl.MapBuffer"/>
-		/// <seealso cref="Gl.UnmapBuffer"/>
 		[RequiredByFeature("GL_VERSION_1_5")]
 		public static void BufferData(int target, UInt32 size, Object data, int usage)
 		{
@@ -1301,33 +895,6 @@ namespace OpenGL
 		/// <param name="data">
 		/// Specifies a pointer to the new data that will be copied into the data store.
 		/// </param>
-		/// <remarks>
-		/// glBufferSubData and glNamedBufferSubData redefine some or all of the data store for the specified buffer object. Data 
-		/// starting at byte offset offset and extending for size bytes is copied to the data store from the memory pointed to by 
-		/// data. offset and size must define a range lying entirely within the buffer object's data store.
-		/// <para>
-		/// The following errors can be generated:
-		/// - GL_INVALID_ENUM is generated by glBufferSubData if target is not one of the accepted buffer targets.
-		/// - GL_INVALID_OPERATION is generated by glBufferSubData if zero is bound to target.
-		/// - GL_INVALID_OPERATION is generated by glNamedBufferSubData if buffer is not the name of an existing buffer object.
-		/// - GL_INVALID_VALUE is generated if offset or size is negative, or if $offset + size$ is greater than the value of 
-		///   GL_BUFFER_SIZE for the specified buffer object.
-		/// - GL_INVALID_OPERATION is generated if any part of the specified range of the buffer object is mapped with 
-		///   glMapBufferRange or glMapBuffer, unless it was mapped with the GL_MAP_PERSISTENT_BIT bit set in the 
-		///   glMapBufferRangeaccess flags.
-		/// - GL_INVALID_OPERATION is generated if the value of the GL_BUFFER_IMMUTABLE_STORAGE flag of the buffer object is GL_TRUE 
-		///   and the value of GL_BUFFER_STORAGE_FLAGS for the buffer object does not have the GL_DYNAMIC_STORAGE_BIT bit set.
-		/// </para>
-		/// <para>
-		/// The associated information is got with the following commands:
-		/// - glGetBufferSubData
-		/// </para>
-		/// </remarks>
-		/// <seealso cref="Gl.BindBuffer"/>
-		/// <seealso cref="Gl.BufferData"/>
-		/// <seealso cref="Gl.MapBuffer"/>
-		/// <seealso cref="Gl.MapBufferRange"/>
-		/// <seealso cref="Gl.UnmapBuffer"/>
 		[RequiredByFeature("GL_VERSION_1_5")]
 		public static void BufferSubData(int target, IntPtr offset, UInt32 size, IntPtr data)
 		{
@@ -1358,33 +925,6 @@ namespace OpenGL
 		/// <param name="data">
 		/// Specifies a pointer to the new data that will be copied into the data store.
 		/// </param>
-		/// <remarks>
-		/// glBufferSubData and glNamedBufferSubData redefine some or all of the data store for the specified buffer object. Data 
-		/// starting at byte offset offset and extending for size bytes is copied to the data store from the memory pointed to by 
-		/// data. offset and size must define a range lying entirely within the buffer object's data store.
-		/// <para>
-		/// The following errors can be generated:
-		/// - GL_INVALID_ENUM is generated by glBufferSubData if target is not one of the accepted buffer targets.
-		/// - GL_INVALID_OPERATION is generated by glBufferSubData if zero is bound to target.
-		/// - GL_INVALID_OPERATION is generated by glNamedBufferSubData if buffer is not the name of an existing buffer object.
-		/// - GL_INVALID_VALUE is generated if offset or size is negative, or if $offset + size$ is greater than the value of 
-		///   GL_BUFFER_SIZE for the specified buffer object.
-		/// - GL_INVALID_OPERATION is generated if any part of the specified range of the buffer object is mapped with 
-		///   glMapBufferRange or glMapBuffer, unless it was mapped with the GL_MAP_PERSISTENT_BIT bit set in the 
-		///   glMapBufferRangeaccess flags.
-		/// - GL_INVALID_OPERATION is generated if the value of the GL_BUFFER_IMMUTABLE_STORAGE flag of the buffer object is GL_TRUE 
-		///   and the value of GL_BUFFER_STORAGE_FLAGS for the buffer object does not have the GL_DYNAMIC_STORAGE_BIT bit set.
-		/// </para>
-		/// <para>
-		/// The associated information is got with the following commands:
-		/// - glGetBufferSubData
-		/// </para>
-		/// </remarks>
-		/// <seealso cref="Gl.BindBuffer"/>
-		/// <seealso cref="Gl.BufferData"/>
-		/// <seealso cref="Gl.MapBuffer"/>
-		/// <seealso cref="Gl.MapBufferRange"/>
-		/// <seealso cref="Gl.UnmapBuffer"/>
 		[RequiredByFeature("GL_VERSION_1_5")]
 		public static void BufferSubData(int target, IntPtr offset, UInt32 size, Object data)
 		{
@@ -1412,27 +952,6 @@ namespace OpenGL
 		/// <param name="data">
 		/// Specifies a pointer to the location where buffer object data is returned.
 		/// </param>
-		/// <remarks>
-		/// glGetBufferSubData and glGetNamedBufferSubData return some or all of the data contents of the data store of the 
-		/// specified buffer object. Data starting at byte offset offset and extending for size bytes is copied from the buffer 
-		/// object's data store to the memory pointed to by data. An error is thrown if the buffer object is currently mapped, or if 
-		/// offset and size together define a range beyond the bounds of the buffer object's data store.
-		/// <para>
-		/// The following errors can be generated:
-		/// - GL_INVALID_ENUM is generated by glGetBufferSubData if target is not one of the generic buffer binding targets.
-		/// - GL_INVALID_OPERATION is generated by glGetBufferSubData if zero is bound to target.
-		/// - GL_INVALID_OPERATION is generated by glGetNamedBufferSubData if buffer is not the name of an existing buffer object.
-		/// - GL_INVALID_VALUE is generated if offset or size is negative, or if $offset + size$ is greater than the value of 
-		///   GL_BUFFER_SIZE for the buffer object.
-		/// - GL_INVALID_OPERATION is generated if the buffer object is mapped with glMapBufferRange or glMapBuffer, unless it was 
-		///   mapped with the GL_MAP_PERSISTENT_BIT bit set in the glMapBufferRangeaccess flags.
-		/// </para>
-		/// </remarks>
-		/// <seealso cref="Gl.BindBuffer"/>
-		/// <seealso cref="Gl.BufferData"/>
-		/// <seealso cref="Gl.BufferSubData"/>
-		/// <seealso cref="Gl.MapBuffer"/>
-		/// <seealso cref="Gl.UnmapBuffer"/>
 		[RequiredByFeature("GL_VERSION_1_5")]
 		public static void GetBufferSubData(int target, IntPtr offset, UInt32 size, IntPtr data)
 		{
@@ -1459,54 +978,6 @@ namespace OpenGL
 		/// write to, or both read from and write to the buffer object's mapped data store. The symbolic constant must be 
 		/// GL_READ_ONLY, GL_WRITE_ONLY, or GL_READ_WRITE.
 		/// </param>
-		/// <remarks>
-		/// glMapBuffer and glMapNamedBuffer map the entire data store of a specified buffer object into the client's address space. 
-		/// The data can then be directly read and/or written relative to the returned pointer, depending on the specified access 
-		/// policy.
-		/// A pointer to the beginning of the mapped range is returned once all pending operations on that buffer object have 
-		/// completed, and may be used to modify and/or query the corresponding range of the data store according to the value of 
-		/// access: GL_READ_ONLY indicates that the returned pointer may be used to read buffer object data. GL_WRITE_ONLY indicates 
-		/// that the returned pointer may be used to modify buffer object data. GL_READ_WRITE indicates that the returned pointer 
-		/// may be used to read and to modify buffer object data.
-		/// If an error is generated, a NULL pointer is returned.
-		/// If no error occurs, the returned pointer will reflect an allocation aligned to the value of GL_MIN_MAP_BUFFER_ALIGNMENT 
-		/// basic machine units.
-		/// The returned pointer values may not be passed as parameter values to GL commands. For example, they may not be used to 
-		/// specify array pointers, or to specify or query pixel or texture image data; such actions produce undefined results, 
-		/// although implementations may not check for such behavior for performance reasons.
-		/// No GL error is generated if the returned pointer is accessed in a way inconsistent with access (e.g. used to read from a 
-		/// mapping made with accessGL_WRITE_ONLY or write to a mapping made with accessGL_READ_ONLY), but the result is undefined 
-		/// and system errors (possibly including program termination) may occur.
-		/// Mappings to the data stores of buffer objects may have nonstandard performance characteristics. For example, such 
-		/// mappings may be marked as uncacheable regions of memory, and in such cases reading from them may be very slow. To ensure 
-		/// optimal performance, the client should use the mapping in a fashion consistent with the values of GL_BUFFER_USAGE for 
-		/// the buffer object and of access. Using a mapping in a fashion inconsistent with these values is liable to be multiple 
-		/// orders of magnitude slower than using normal memory.
-		/// <para>
-		/// The following errors can be generated:
-		/// - GL_INVALID_ENUM is generated by glMapBuffer if target is not one of the buffer binding targets listed above.
-		/// - GL_INVALID_OPERATION is generated by glMapBuffer if zero is bound to target.
-		/// - GL_INVALID_OPERATION is generated by glMapNamedBuffer if buffer is not the name of an existing buffer object.
-		/// - GL_INVALID_ENUM is generated if access is not GL_READ_ONLY, GL_WRITE_ONLY, or GL_READ_WRITE.
-		/// - GL_OUT_OF_MEMORY is generated if the GL is unable to map the buffer object's data store. This may occur for a variety of 
-		///   system-specific reasons, such as the absence of sufficient remaining virtual memory.
-		/// - GL_INVALID_OPERATION is generated if the buffer object is in a mapped state.
-		/// </para>
-		/// <para>
-		/// The associated information is got with the following commands:
-		/// - glGetBufferPointerv with argument GL_BUFFER_MAP_POINTER
-		/// - glGetBufferParameter with argument GL_BUFFER_MAPPED, GL_BUFFER_ACCESS, or GL_BUFFER_USAGE
-		/// - glGet with pnameGL_MIN_MAP_BUFFER_ALIGNMENT. The value must be a power of two that is at least 64.
-		/// </para>
-		/// </remarks>
-		/// <seealso cref="Gl.BindBuffer"/>
-		/// <seealso cref="Gl.BindBufferBase"/>
-		/// <seealso cref="Gl.BindBufferRange"/>
-		/// <seealso cref="Gl.BufferData"/>
-		/// <seealso cref="Gl.BufferSubData"/>
-		/// <seealso cref="Gl.DeleteBuffers"/>
-		/// <seealso cref="Gl.MapBufferRange"/>
-		/// <seealso cref="Gl.UnmapBuffer"/>
 		[RequiredByFeature("GL_VERSION_1_5")]
 		public static IntPtr MapBuffer(int target, int access)
 		{
@@ -1535,35 +1006,6 @@ namespace OpenGL
 		/// Specifies the target to which the buffer object is bound for glUnmapBuffer, which must be one of the buffer binding 
 		/// targets in the following table:
 		/// </param>
-		/// <remarks>
-		/// glUnmapBuffer and glUnmapNamedBuffer unmap (release) any mapping of a specified buffer object into the client's address 
-		/// space (see glMapBufferRange and glMapBuffer).
-		/// If a mapping is not unmapped before the corresponding buffer object's data store is used by the GL, an error will be 
-		/// generated by any GL command that attempts to dereference the buffer object's data store, unless the buffer was 
-		/// successfully mapped with GL_MAP_PERSISTENT_BIT (see glMapBufferRange). When a data store is unmapped, the mapped pointer 
-		/// becomes invalid.
-		/// glUnmapBuffer returns GL_TRUE unless the data store contents have become corrupt during the time the data store was 
-		/// mapped. This can occur for system-specific reasons that affect the availability of graphics memory, such as screen mode 
-		/// changes. In such situations, GL_FALSE is returned and the data store contents are undefined. An application must detect 
-		/// this rare condition and reinitialize the data store.
-		/// A buffer object's mapped data store is automatically unmapped when the buffer object is deleted or its data store is 
-		/// recreated with glBufferData).
-		/// <para>
-		/// The following errors can be generated:
-		/// - GL_INVALID_ENUM is generated by glUnmapBuffer if target is not one of the buffer binding targets listed above.
-		/// - GL_INVALID_OPERATION is generated by glUnmapBuffer if zero is bound to target.
-		/// - GL_INVALID_OPERATION is generated by glUnmapNamedBuffer if buffer is not the name of an existing buffer object.
-		/// - GL_INVALID_OPERATION is generated if the buffer object is not in a mapped state.
-		/// </para>
-		/// <para>
-		/// The associated information is got with the following commands:
-		/// - glGetBufferParameter with argument GL_BUFFER_MAPPED.
-		/// </para>
-		/// </remarks>
-		/// <seealso cref="Gl.BufferData"/>
-		/// <seealso cref="Gl.DeleteBuffers"/>
-		/// <seealso cref="Gl.MapBuffer"/>
-		/// <seealso cref="Gl.MapBufferRange"/>
 		[RequiredByFeature("GL_VERSION_1_5")]
 		public static bool UnmapBuffer(int target)
 		{
@@ -1598,22 +1040,6 @@ namespace OpenGL
 		/// <param name="params">
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
-		/// <remarks>
-		/// These functions return in data a selected parameter of the specified buffer object.
-		/// pname names a specific buffer object parameter, as follows:
-		/// <para>
-		/// The following errors can be generated:
-		/// - GL_INVALID_ENUM is generated by glGetBufferParameter* if target is not one of the accepted buffer targets.
-		/// - GL_INVALID_OPERATION is generated by glGetBufferParameter* if zero is bound to target.
-		/// - GL_INVALID_OPERATION is generated by glGetNamedBufferParameter* if buffer is not the name of an existing buffer object.
-		/// - GL_INVALID_ENUM is generated if pname is not one of the buffer object parameter names described above.
-		/// </para>
-		/// </remarks>
-		/// <seealso cref="Gl.BindBuffer"/>
-		/// <seealso cref="Gl.BufferData"/>
-		/// <seealso cref="Gl.GetBufferPointerv"/>
-		/// <seealso cref="Gl.MapBuffer"/>
-		/// <seealso cref="Gl.UnmapBuffer"/>
 		[RequiredByFeature("GL_VERSION_1_5")]
 		public static void GetBufferParameter(int target, int pname, Int32[] @params)
 		{
@@ -1646,21 +1072,6 @@ namespace OpenGL
 		/// <param name="params">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
-		/// <remarks>
-		/// glGetBufferPointerv and glGetNamedBufferPointerv return the buffer pointer pname, which must be GL_BUFFER_MAP_POINTER. 
-		/// The single buffer map pointer is returned in params. A NULL pointer is returned if the buffer object's data store is not 
-		/// currently mapped; or if the requesting context did not map the buffer object's data store, and the implementation is 
-		/// unable to support mappings on multiple clients.
-		/// <para>
-		/// The following errors can be generated:
-		/// - GL_INVALID_ENUM is generated if by glGetBufferPointerv if target is not one of the accepted buffer targets, or if pname 
-		///   is not GL_BUFFER_MAP_POINTER.
-		/// - GL_INVALID_OPERATION is generated by glGetBufferPointerv if zero is bound to target.
-		/// - GL_INVALID_OPERATION is generated by glGetNamedBufferPointerv if buffer is not the name of an existing buffer object.
-		/// </para>
-		/// </remarks>
-		/// <seealso cref="Gl.BindBuffer"/>
-		/// <seealso cref="Gl.MapBuffer"/>
 		[RequiredByFeature("GL_VERSION_1_5")]
 		public static void GetBufferPointer(int target, int pname, IntPtr @params)
 		{

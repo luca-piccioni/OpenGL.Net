@@ -5838,6 +5838,34 @@ namespace OpenGL
 		/// <param name="basevertex">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
+		public static void DrawElementsBaseVertexEXT(int mode, Int32 count, int type, Object indices, Int32 basevertex)
+		{
+			GCHandle pin_indices = GCHandle.Alloc(indices, GCHandleType.Pinned);
+			try {
+				DrawElementsBaseVertexEXT(mode, count, type, pin_indices.AddrOfPinnedObject(), basevertex);
+			} finally {
+				pin_indices.Free();
+			}
+		}
+
+		/// <summary>
+		/// Binding for glDrawElementsBaseVertexEXT.
+		/// </summary>
+		/// <param name="mode">
+		/// A <see cref="T:int"/>.
+		/// </param>
+		/// <param name="count">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="type">
+		/// A <see cref="T:int"/>.
+		/// </param>
+		/// <param name="indices">
+		/// A <see cref="T:IntPtr"/>.
+		/// </param>
+		/// <param name="basevertex">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
 		public static void DrawElementsBaseVertexEXT(PrimitiveType mode, Int32 count, int type, Object indices, Int32 basevertex)
 		{
 			GCHandle pin_indices = GCHandle.Alloc(indices, GCHandleType.Pinned);
@@ -5898,6 +5926,34 @@ namespace OpenGL
 			Delegates.pglDrawElementsBaseVertexOES((int)mode, count, type, indices, basevertex);
 			CallLog("glDrawElementsBaseVertexOES({0}, {1}, {2}, {3}, {4})", mode, count, type, indices, basevertex);
 			DebugCheckErrors();
+		}
+
+		/// <summary>
+		/// Binding for glDrawElementsBaseVertexOES.
+		/// </summary>
+		/// <param name="mode">
+		/// A <see cref="T:int"/>.
+		/// </param>
+		/// <param name="count">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="type">
+		/// A <see cref="T:int"/>.
+		/// </param>
+		/// <param name="indices">
+		/// A <see cref="T:IntPtr"/>.
+		/// </param>
+		/// <param name="basevertex">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		public static void DrawElementsBaseVertexOES(int mode, Int32 count, int type, Object indices, Int32 basevertex)
+		{
+			GCHandle pin_indices = GCHandle.Alloc(indices, GCHandleType.Pinned);
+			try {
+				DrawElementsBaseVertexOES(mode, count, type, pin_indices.AddrOfPinnedObject(), basevertex);
+			} finally {
+				pin_indices.Free();
+			}
 		}
 
 		/// <summary>
@@ -5998,6 +6054,34 @@ namespace OpenGL
 		/// <param name="primcount">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
+		public static void DrawElementsInstancedANGLE(int mode, Int32 count, int type, Object indices, Int32 primcount)
+		{
+			GCHandle pin_indices = GCHandle.Alloc(indices, GCHandleType.Pinned);
+			try {
+				DrawElementsInstancedANGLE(mode, count, type, pin_indices.AddrOfPinnedObject(), primcount);
+			} finally {
+				pin_indices.Free();
+			}
+		}
+
+		/// <summary>
+		/// Binding for glDrawElementsInstancedANGLE.
+		/// </summary>
+		/// <param name="mode">
+		/// A <see cref="T:int"/>.
+		/// </param>
+		/// <param name="count">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="type">
+		/// A <see cref="T:int"/>.
+		/// </param>
+		/// <param name="indices">
+		/// A <see cref="T:IntPtr"/>.
+		/// </param>
+		/// <param name="primcount">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
 		public static void DrawElementsInstancedANGLE(PrimitiveType mode, Int32 count, int type, Object indices, Int32 primcount)
 		{
 			GCHandle pin_indices = GCHandle.Alloc(indices, GCHandleType.Pinned);
@@ -6064,6 +6148,37 @@ namespace OpenGL
 			Delegates.pglDrawElementsInstancedBaseInstanceEXT((int)mode, count, type, indices, instancecount, baseinstance);
 			CallLog("glDrawElementsInstancedBaseInstanceEXT({0}, {1}, {2}, {3}, {4}, {5})", mode, count, type, indices, instancecount, baseinstance);
 			DebugCheckErrors();
+		}
+
+		/// <summary>
+		/// Binding for glDrawElementsInstancedBaseInstanceEXT.
+		/// </summary>
+		/// <param name="mode">
+		/// A <see cref="T:int"/>.
+		/// </param>
+		/// <param name="count">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="type">
+		/// A <see cref="T:int"/>.
+		/// </param>
+		/// <param name="indices">
+		/// A <see cref="T:IntPtr"/>.
+		/// </param>
+		/// <param name="instancecount">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="baseinstance">
+		/// A <see cref="T:UInt32"/>.
+		/// </param>
+		public static void DrawElementsInstancedBaseInstanceEXT(int mode, Int32 count, int type, Object indices, Int32 instancecount, UInt32 baseinstance)
+		{
+			GCHandle pin_indices = GCHandle.Alloc(indices, GCHandleType.Pinned);
+			try {
+				DrawElementsInstancedBaseInstanceEXT(mode, count, type, pin_indices.AddrOfPinnedObject(), instancecount, baseinstance);
+			} finally {
+				pin_indices.Free();
+			}
 		}
 
 		/// <summary>
@@ -6176,6 +6291,37 @@ namespace OpenGL
 		/// <param name="basevertex">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
+		public static void DrawElementsInstancedBaseVertexEXT(int mode, Int32 count, int type, Object indices, Int32 instancecount, Int32 basevertex)
+		{
+			GCHandle pin_indices = GCHandle.Alloc(indices, GCHandleType.Pinned);
+			try {
+				DrawElementsInstancedBaseVertexEXT(mode, count, type, pin_indices.AddrOfPinnedObject(), instancecount, basevertex);
+			} finally {
+				pin_indices.Free();
+			}
+		}
+
+		/// <summary>
+		/// Binding for glDrawElementsInstancedBaseVertexEXT.
+		/// </summary>
+		/// <param name="mode">
+		/// A <see cref="T:int"/>.
+		/// </param>
+		/// <param name="count">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="type">
+		/// A <see cref="T:int"/>.
+		/// </param>
+		/// <param name="indices">
+		/// A <see cref="T:IntPtr"/>.
+		/// </param>
+		/// <param name="instancecount">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="basevertex">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
 		public static void DrawElementsInstancedBaseVertexEXT(PrimitiveType mode, Int32 count, int type, Object indices, Int32 instancecount, Int32 basevertex)
 		{
 			GCHandle pin_indices = GCHandle.Alloc(indices, GCHandleType.Pinned);
@@ -6242,6 +6388,37 @@ namespace OpenGL
 			Delegates.pglDrawElementsInstancedBaseVertexOES((int)mode, count, type, indices, instancecount, basevertex);
 			CallLog("glDrawElementsInstancedBaseVertexOES({0}, {1}, {2}, {3}, {4}, {5})", mode, count, type, indices, instancecount, basevertex);
 			DebugCheckErrors();
+		}
+
+		/// <summary>
+		/// Binding for glDrawElementsInstancedBaseVertexOES.
+		/// </summary>
+		/// <param name="mode">
+		/// A <see cref="T:int"/>.
+		/// </param>
+		/// <param name="count">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="type">
+		/// A <see cref="T:int"/>.
+		/// </param>
+		/// <param name="indices">
+		/// A <see cref="T:IntPtr"/>.
+		/// </param>
+		/// <param name="instancecount">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="basevertex">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		public static void DrawElementsInstancedBaseVertexOES(int mode, Int32 count, int type, Object indices, Int32 instancecount, Int32 basevertex)
+		{
+			GCHandle pin_indices = GCHandle.Alloc(indices, GCHandleType.Pinned);
+			try {
+				DrawElementsInstancedBaseVertexOES(mode, count, type, pin_indices.AddrOfPinnedObject(), instancecount, basevertex);
+			} finally {
+				pin_indices.Free();
+			}
 		}
 
 		/// <summary>
@@ -6363,6 +6540,40 @@ namespace OpenGL
 		/// <param name="baseinstance">
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
+		public static void DrawElementsInstancedBaseVertexBaseInstanceEXT(int mode, Int32 count, int type, Object indices, Int32 instancecount, Int32 basevertex, UInt32 baseinstance)
+		{
+			GCHandle pin_indices = GCHandle.Alloc(indices, GCHandleType.Pinned);
+			try {
+				DrawElementsInstancedBaseVertexBaseInstanceEXT(mode, count, type, pin_indices.AddrOfPinnedObject(), instancecount, basevertex, baseinstance);
+			} finally {
+				pin_indices.Free();
+			}
+		}
+
+		/// <summary>
+		/// Binding for glDrawElementsInstancedBaseVertexBaseInstanceEXT.
+		/// </summary>
+		/// <param name="mode">
+		/// A <see cref="T:int"/>.
+		/// </param>
+		/// <param name="count">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="type">
+		/// A <see cref="T:int"/>.
+		/// </param>
+		/// <param name="indices">
+		/// A <see cref="T:IntPtr"/>.
+		/// </param>
+		/// <param name="instancecount">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="basevertex">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="baseinstance">
+		/// A <see cref="T:UInt32"/>.
+		/// </param>
 		public static void DrawElementsInstancedBaseVertexBaseInstanceEXT(PrimitiveType mode, Int32 count, int type, Object indices, Int32 instancecount, Int32 basevertex, UInt32 baseinstance)
 		{
 			GCHandle pin_indices = GCHandle.Alloc(indices, GCHandleType.Pinned);
@@ -6423,6 +6634,34 @@ namespace OpenGL
 			Delegates.pglDrawElementsInstancedNV((int)mode, count, type, indices, primcount);
 			CallLog("glDrawElementsInstancedNV({0}, {1}, {2}, {3}, {4})", mode, count, type, indices, primcount);
 			DebugCheckErrors();
+		}
+
+		/// <summary>
+		/// Binding for glDrawElementsInstancedNV.
+		/// </summary>
+		/// <param name="mode">
+		/// A <see cref="T:int"/>.
+		/// </param>
+		/// <param name="count">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="type">
+		/// A <see cref="T:int"/>.
+		/// </param>
+		/// <param name="indices">
+		/// A <see cref="T:IntPtr"/>.
+		/// </param>
+		/// <param name="primcount">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		public static void DrawElementsInstancedNV(int mode, Int32 count, int type, Object indices, Int32 primcount)
+		{
+			GCHandle pin_indices = GCHandle.Alloc(indices, GCHandleType.Pinned);
+			try {
+				DrawElementsInstancedNV(mode, count, type, pin_indices.AddrOfPinnedObject(), primcount);
+			} finally {
+				pin_indices.Free();
+			}
 		}
 
 		/// <summary>
@@ -6541,6 +6780,40 @@ namespace OpenGL
 		/// <param name="basevertex">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
+		public static void DrawRangeElementsBaseVertexEXT(int mode, UInt32 start, UInt32 end, Int32 count, int type, Object indices, Int32 basevertex)
+		{
+			GCHandle pin_indices = GCHandle.Alloc(indices, GCHandleType.Pinned);
+			try {
+				DrawRangeElementsBaseVertexEXT(mode, start, end, count, type, pin_indices.AddrOfPinnedObject(), basevertex);
+			} finally {
+				pin_indices.Free();
+			}
+		}
+
+		/// <summary>
+		/// Binding for glDrawRangeElementsBaseVertexEXT.
+		/// </summary>
+		/// <param name="mode">
+		/// A <see cref="T:int"/>.
+		/// </param>
+		/// <param name="start">
+		/// A <see cref="T:UInt32"/>.
+		/// </param>
+		/// <param name="end">
+		/// A <see cref="T:UInt32"/>.
+		/// </param>
+		/// <param name="count">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="type">
+		/// A <see cref="T:int"/>.
+		/// </param>
+		/// <param name="indices">
+		/// A <see cref="T:IntPtr"/>.
+		/// </param>
+		/// <param name="basevertex">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
 		public static void DrawRangeElementsBaseVertexEXT(PrimitiveType mode, UInt32 start, UInt32 end, Int32 count, int type, Object indices, Int32 basevertex)
 		{
 			GCHandle pin_indices = GCHandle.Alloc(indices, GCHandleType.Pinned);
@@ -6613,6 +6886,40 @@ namespace OpenGL
 			Delegates.pglDrawRangeElementsBaseVertexOES((int)mode, start, end, count, type, indices, basevertex);
 			CallLog("glDrawRangeElementsBaseVertexOES({0}, {1}, {2}, {3}, {4}, {5}, {6})", mode, start, end, count, type, indices, basevertex);
 			DebugCheckErrors();
+		}
+
+		/// <summary>
+		/// Binding for glDrawRangeElementsBaseVertexOES.
+		/// </summary>
+		/// <param name="mode">
+		/// A <see cref="T:int"/>.
+		/// </param>
+		/// <param name="start">
+		/// A <see cref="T:UInt32"/>.
+		/// </param>
+		/// <param name="end">
+		/// A <see cref="T:UInt32"/>.
+		/// </param>
+		/// <param name="count">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="type">
+		/// A <see cref="T:int"/>.
+		/// </param>
+		/// <param name="indices">
+		/// A <see cref="T:IntPtr"/>.
+		/// </param>
+		/// <param name="basevertex">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		public static void DrawRangeElementsBaseVertexOES(int mode, UInt32 start, UInt32 end, Int32 count, int type, Object indices, Int32 basevertex)
+		{
+			GCHandle pin_indices = GCHandle.Alloc(indices, GCHandleType.Pinned);
+			try {
+				DrawRangeElementsBaseVertexOES(mode, start, end, count, type, pin_indices.AddrOfPinnedObject(), basevertex);
+			} finally {
+				pin_indices.Free();
+			}
 		}
 
 		/// <summary>

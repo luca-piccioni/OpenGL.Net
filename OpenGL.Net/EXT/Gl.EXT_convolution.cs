@@ -227,6 +227,38 @@ namespace OpenGL
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_convolution")]
+		public static void ConvolutionFilter1DEXT(int target, int internalformat, Int32 width, int format, int type, Object image)
+		{
+			GCHandle pin_image = GCHandle.Alloc(image, GCHandleType.Pinned);
+			try {
+				ConvolutionFilter1DEXT(target, internalformat, width, format, type, pin_image.AddrOfPinnedObject());
+			} finally {
+				pin_image.Free();
+			}
+		}
+
+		/// <summary>
+		/// Binding for glConvolutionFilter1DEXT.
+		/// </summary>
+		/// <param name="target">
+		/// A <see cref="T:int"/>.
+		/// </param>
+		/// <param name="internalformat">
+		/// A <see cref="T:int"/>.
+		/// </param>
+		/// <param name="width">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="format">
+		/// A <see cref="T:int"/>.
+		/// </param>
+		/// <param name="type">
+		/// A <see cref="T:int"/>.
+		/// </param>
+		/// <param name="image">
+		/// A <see cref="T:IntPtr"/>.
+		/// </param>
+		[RequiredByFeature("GL_EXT_convolution")]
 		public static void ConvolutionFilter1DEXT(ConvolutionTargetEXT target, int internalformat, Int32 width, PixelFormat format, PixelType type, Object image)
 		{
 			GCHandle pin_image = GCHandle.Alloc(image, GCHandleType.Pinned);
@@ -301,6 +333,41 @@ namespace OpenGL
 			Delegates.pglConvolutionFilter2DEXT((int)target, internalformat, width, height, (int)format, (int)type, image);
 			CallLog("glConvolutionFilter2DEXT({0}, {1}, {2}, {3}, {4}, {5}, {6})", target, internalformat, width, height, format, type, image);
 			DebugCheckErrors();
+		}
+
+		/// <summary>
+		/// Binding for glConvolutionFilter2DEXT.
+		/// </summary>
+		/// <param name="target">
+		/// A <see cref="T:int"/>.
+		/// </param>
+		/// <param name="internalformat">
+		/// A <see cref="T:int"/>.
+		/// </param>
+		/// <param name="width">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="height">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="format">
+		/// A <see cref="T:int"/>.
+		/// </param>
+		/// <param name="type">
+		/// A <see cref="T:int"/>.
+		/// </param>
+		/// <param name="image">
+		/// A <see cref="T:IntPtr"/>.
+		/// </param>
+		[RequiredByFeature("GL_EXT_convolution")]
+		public static void ConvolutionFilter2DEXT(int target, int internalformat, Int32 width, Int32 height, int format, int type, Object image)
+		{
+			GCHandle pin_image = GCHandle.Alloc(image, GCHandleType.Pinned);
+			try {
+				ConvolutionFilter2DEXT(target, internalformat, width, height, format, type, pin_image.AddrOfPinnedObject());
+			} finally {
+				pin_image.Free();
+			}
 		}
 
 		/// <summary>
@@ -922,6 +989,46 @@ namespace OpenGL
 			Delegates.pglSeparableFilter2DEXT((int)target, internalformat, width, height, (int)format, (int)type, row, column);
 			CallLog("glSeparableFilter2DEXT({0}, {1}, {2}, {3}, {4}, {5}, {6}, {7})", target, internalformat, width, height, format, type, row, column);
 			DebugCheckErrors();
+		}
+
+		/// <summary>
+		/// Binding for glSeparableFilter2DEXT.
+		/// </summary>
+		/// <param name="target">
+		/// A <see cref="T:int"/>.
+		/// </param>
+		/// <param name="internalformat">
+		/// A <see cref="T:int"/>.
+		/// </param>
+		/// <param name="width">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="height">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="format">
+		/// A <see cref="T:int"/>.
+		/// </param>
+		/// <param name="type">
+		/// A <see cref="T:int"/>.
+		/// </param>
+		/// <param name="row">
+		/// A <see cref="T:IntPtr"/>.
+		/// </param>
+		/// <param name="column">
+		/// A <see cref="T:IntPtr"/>.
+		/// </param>
+		[RequiredByFeature("GL_EXT_convolution")]
+		public static void SeparableFilter2DEXT(int target, int internalformat, Int32 width, Int32 height, int format, int type, Object row, Object column)
+		{
+			GCHandle pin_row = GCHandle.Alloc(row, GCHandleType.Pinned);
+			GCHandle pin_column = GCHandle.Alloc(column, GCHandleType.Pinned);
+			try {
+				SeparableFilter2DEXT(target, internalformat, width, height, format, type, pin_row.AddrOfPinnedObject(), pin_column.AddrOfPinnedObject());
+			} finally {
+				pin_row.Free();
+				pin_column.Free();
+			}
 		}
 
 		/// <summary>

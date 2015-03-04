@@ -194,6 +194,35 @@ namespace OpenGL
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		[RequiredByFeature("GL_IBM_vertex_array_lists")]
+		public static void ColorPointerListIBM(Int32 size, int type, Int32 stride, Object pointer, Int32 ptrstride)
+		{
+			GCHandle pin_pointer = GCHandle.Alloc(pointer, GCHandleType.Pinned);
+			try {
+				ColorPointerListIBM(size, type, stride, pin_pointer.AddrOfPinnedObject(), ptrstride);
+			} finally {
+				pin_pointer.Free();
+			}
+		}
+
+		/// <summary>
+		/// Binding for glColorPointerListIBM.
+		/// </summary>
+		/// <param name="size">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="type">
+		/// A <see cref="T:int"/>.
+		/// </param>
+		/// <param name="stride">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="pointer">
+		/// A <see cref="T:IntPtr"/>.
+		/// </param>
+		/// <param name="ptrstride">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		[RequiredByFeature("GL_IBM_vertex_array_lists")]
 		public static void ColorPointerListIBM(Int32 size, ColorPointerType type, Int32 stride, Object pointer, Int32 ptrstride)
 		{
 			GCHandle pin_pointer = GCHandle.Alloc(pointer, GCHandleType.Pinned);
@@ -345,6 +374,32 @@ namespace OpenGL
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		[RequiredByFeature("GL_IBM_vertex_array_lists")]
+		public static void FogCoordPointerListIBM(int type, Int32 stride, Object pointer, Int32 ptrstride)
+		{
+			GCHandle pin_pointer = GCHandle.Alloc(pointer, GCHandleType.Pinned);
+			try {
+				FogCoordPointerListIBM(type, stride, pin_pointer.AddrOfPinnedObject(), ptrstride);
+			} finally {
+				pin_pointer.Free();
+			}
+		}
+
+		/// <summary>
+		/// Binding for glFogCoordPointerListIBM.
+		/// </summary>
+		/// <param name="type">
+		/// A <see cref="T:int"/>.
+		/// </param>
+		/// <param name="stride">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="pointer">
+		/// A <see cref="T:IntPtr"/>.
+		/// </param>
+		/// <param name="ptrstride">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		[RequiredByFeature("GL_IBM_vertex_array_lists")]
 		public static void FogCoordPointerListIBM(FogPointerTypeIBM type, Int32 stride, Object pointer, Int32 ptrstride)
 		{
 			GCHandle pin_pointer = GCHandle.Alloc(pointer, GCHandleType.Pinned);
@@ -419,6 +474,32 @@ namespace OpenGL
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		[RequiredByFeature("GL_IBM_vertex_array_lists")]
+		public static void IndexPointerListIBM(int type, Int32 stride, Object pointer, Int32 ptrstride)
+		{
+			GCHandle pin_pointer = GCHandle.Alloc(pointer, GCHandleType.Pinned);
+			try {
+				IndexPointerListIBM(type, stride, pin_pointer.AddrOfPinnedObject(), ptrstride);
+			} finally {
+				pin_pointer.Free();
+			}
+		}
+
+		/// <summary>
+		/// Binding for glIndexPointerListIBM.
+		/// </summary>
+		/// <param name="type">
+		/// A <see cref="T:int"/>.
+		/// </param>
+		/// <param name="stride">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="pointer">
+		/// A <see cref="T:IntPtr"/>.
+		/// </param>
+		/// <param name="ptrstride">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		[RequiredByFeature("GL_IBM_vertex_array_lists")]
 		public static void IndexPointerListIBM(IndexPointerType type, Int32 stride, Object pointer, Int32 ptrstride)
 		{
 			GCHandle pin_pointer = GCHandle.Alloc(pointer, GCHandleType.Pinned);
@@ -475,6 +556,32 @@ namespace OpenGL
 			Delegates.pglNormalPointerListIBM((int)type, stride, pointer, ptrstride);
 			CallLog("glNormalPointerListIBM({0}, {1}, {2}, {3})", type, stride, pointer, ptrstride);
 			DebugCheckErrors();
+		}
+
+		/// <summary>
+		/// Binding for glNormalPointerListIBM.
+		/// </summary>
+		/// <param name="type">
+		/// A <see cref="T:int"/>.
+		/// </param>
+		/// <param name="stride">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="pointer">
+		/// A <see cref="T:IntPtr"/>.
+		/// </param>
+		/// <param name="ptrstride">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		[RequiredByFeature("GL_IBM_vertex_array_lists")]
+		public static void NormalPointerListIBM(int type, Int32 stride, Object pointer, Int32 ptrstride)
+		{
+			GCHandle pin_pointer = GCHandle.Alloc(pointer, GCHandleType.Pinned);
+			try {
+				NormalPointerListIBM(type, stride, pin_pointer.AddrOfPinnedObject(), ptrstride);
+			} finally {
+				pin_pointer.Free();
+			}
 		}
 
 		/// <summary>
@@ -576,6 +683,35 @@ namespace OpenGL
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		[RequiredByFeature("GL_IBM_vertex_array_lists")]
+		public static void TexCoordPointerListIBM(Int32 size, int type, Int32 stride, Object pointer, Int32 ptrstride)
+		{
+			GCHandle pin_pointer = GCHandle.Alloc(pointer, GCHandleType.Pinned);
+			try {
+				TexCoordPointerListIBM(size, type, stride, pin_pointer.AddrOfPinnedObject(), ptrstride);
+			} finally {
+				pin_pointer.Free();
+			}
+		}
+
+		/// <summary>
+		/// Binding for glTexCoordPointerListIBM.
+		/// </summary>
+		/// <param name="size">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="type">
+		/// A <see cref="T:int"/>.
+		/// </param>
+		/// <param name="stride">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="pointer">
+		/// A <see cref="T:IntPtr"/>.
+		/// </param>
+		/// <param name="ptrstride">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		[RequiredByFeature("GL_IBM_vertex_array_lists")]
 		public static void TexCoordPointerListIBM(Int32 size, TexCoordPointerType type, Int32 stride, Object pointer, Int32 ptrstride)
 		{
 			GCHandle pin_pointer = GCHandle.Alloc(pointer, GCHandleType.Pinned);
@@ -638,6 +774,35 @@ namespace OpenGL
 			Delegates.pglVertexPointerListIBM(size, (int)type, stride, pointer, ptrstride);
 			CallLog("glVertexPointerListIBM({0}, {1}, {2}, {3}, {4})", size, type, stride, pointer, ptrstride);
 			DebugCheckErrors();
+		}
+
+		/// <summary>
+		/// Binding for glVertexPointerListIBM.
+		/// </summary>
+		/// <param name="size">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="type">
+		/// A <see cref="T:int"/>.
+		/// </param>
+		/// <param name="stride">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="pointer">
+		/// A <see cref="T:IntPtr"/>.
+		/// </param>
+		/// <param name="ptrstride">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		[RequiredByFeature("GL_IBM_vertex_array_lists")]
+		public static void VertexPointerListIBM(Int32 size, int type, Int32 stride, Object pointer, Int32 ptrstride)
+		{
+			GCHandle pin_pointer = GCHandle.Alloc(pointer, GCHandleType.Pinned);
+			try {
+				VertexPointerListIBM(size, type, stride, pin_pointer.AddrOfPinnedObject(), ptrstride);
+			} finally {
+				pin_pointer.Free();
+			}
 		}
 
 		/// <summary>

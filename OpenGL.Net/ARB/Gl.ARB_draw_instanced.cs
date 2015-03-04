@@ -146,6 +146,35 @@ namespace OpenGL
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		[RequiredByFeature("GL_ARB_draw_instanced")]
+		public static void DrawElementsInstancedARB(int mode, Int32 count, int type, Object indices, Int32 primcount)
+		{
+			GCHandle pin_indices = GCHandle.Alloc(indices, GCHandleType.Pinned);
+			try {
+				DrawElementsInstancedARB(mode, count, type, pin_indices.AddrOfPinnedObject(), primcount);
+			} finally {
+				pin_indices.Free();
+			}
+		}
+
+		/// <summary>
+		/// Binding for glDrawElementsInstancedARB.
+		/// </summary>
+		/// <param name="mode">
+		/// A <see cref="T:int"/>.
+		/// </param>
+		/// <param name="count">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="type">
+		/// A <see cref="T:int"/>.
+		/// </param>
+		/// <param name="indices">
+		/// A <see cref="T:IntPtr"/>.
+		/// </param>
+		/// <param name="primcount">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		[RequiredByFeature("GL_ARB_draw_instanced")]
 		public static void DrawElementsInstancedARB(PrimitiveType mode, Int32 count, int type, Object indices, Int32 primcount)
 		{
 			GCHandle pin_indices = GCHandle.Alloc(indices, GCHandleType.Pinned);

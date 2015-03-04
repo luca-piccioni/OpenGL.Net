@@ -1130,6 +1130,47 @@ namespace OpenGL
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access")]
+		public static void TextureImage1DEXT(UInt32 texture, int target, Int32 level, Int32 internalformat, Int32 width, Int32 border, int format, int type, Object pixels)
+		{
+			GCHandle pin_pixels = GCHandle.Alloc(pixels, GCHandleType.Pinned);
+			try {
+				TextureImage1DEXT(texture, target, level, internalformat, width, border, format, type, pin_pixels.AddrOfPinnedObject());
+			} finally {
+				pin_pixels.Free();
+			}
+		}
+
+		/// <summary>
+		/// Binding for glTextureImage1DEXT.
+		/// </summary>
+		/// <param name="texture">
+		/// A <see cref="T:UInt32"/>.
+		/// </param>
+		/// <param name="target">
+		/// A <see cref="T:int"/>.
+		/// </param>
+		/// <param name="level">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="internalformat">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="width">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="border">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="format">
+		/// A <see cref="T:int"/>.
+		/// </param>
+		/// <param name="type">
+		/// A <see cref="T:int"/>.
+		/// </param>
+		/// <param name="pixels">
+		/// A <see cref="T:IntPtr"/>.
+		/// </param>
+		[RequiredByFeature("GL_EXT_direct_state_access")]
 		public static void TextureImage1DEXT(UInt32 texture, TextureTarget target, Int32 level, Int32 internalformat, Int32 width, Int32 border, PixelFormat format, PixelType type, Object pixels)
 		{
 			GCHandle pin_pixels = GCHandle.Alloc(pixels, GCHandleType.Pinned);
@@ -1222,6 +1263,50 @@ namespace OpenGL
 			Delegates.pglTextureImage2DEXT(texture, (int)target, level, internalformat, width, height, border, (int)format, (int)type, pixels);
 			CallLog("glTextureImage2DEXT({0}, {1}, {2}, {3}, {4}, {5}, {6}, {7}, {8}, {9})", texture, target, level, internalformat, width, height, border, format, type, pixels);
 			DebugCheckErrors();
+		}
+
+		/// <summary>
+		/// Binding for glTextureImage2DEXT.
+		/// </summary>
+		/// <param name="texture">
+		/// A <see cref="T:UInt32"/>.
+		/// </param>
+		/// <param name="target">
+		/// A <see cref="T:int"/>.
+		/// </param>
+		/// <param name="level">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="internalformat">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="width">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="height">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="border">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="format">
+		/// A <see cref="T:int"/>.
+		/// </param>
+		/// <param name="type">
+		/// A <see cref="T:int"/>.
+		/// </param>
+		/// <param name="pixels">
+		/// A <see cref="T:IntPtr"/>.
+		/// </param>
+		[RequiredByFeature("GL_EXT_direct_state_access")]
+		public static void TextureImage2DEXT(UInt32 texture, int target, Int32 level, Int32 internalformat, Int32 width, Int32 height, Int32 border, int format, int type, Object pixels)
+		{
+			GCHandle pin_pixels = GCHandle.Alloc(pixels, GCHandleType.Pinned);
+			try {
+				TextureImage2DEXT(texture, target, level, internalformat, width, height, border, format, type, pin_pixels.AddrOfPinnedObject());
+			} finally {
+				pin_pixels.Free();
+			}
 		}
 
 		/// <summary>
@@ -1368,6 +1453,44 @@ namespace OpenGL
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access")]
+		public static void TextureSubImage1DEXT(UInt32 texture, int target, Int32 level, Int32 xoffset, Int32 width, int format, int type, Object pixels)
+		{
+			GCHandle pin_pixels = GCHandle.Alloc(pixels, GCHandleType.Pinned);
+			try {
+				TextureSubImage1DEXT(texture, target, level, xoffset, width, format, type, pin_pixels.AddrOfPinnedObject());
+			} finally {
+				pin_pixels.Free();
+			}
+		}
+
+		/// <summary>
+		/// Binding for glTextureSubImage1DEXT.
+		/// </summary>
+		/// <param name="texture">
+		/// A <see cref="T:UInt32"/>.
+		/// </param>
+		/// <param name="target">
+		/// A <see cref="T:int"/>.
+		/// </param>
+		/// <param name="level">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="xoffset">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="width">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="format">
+		/// A <see cref="T:int"/>.
+		/// </param>
+		/// <param name="type">
+		/// A <see cref="T:int"/>.
+		/// </param>
+		/// <param name="pixels">
+		/// A <see cref="T:IntPtr"/>.
+		/// </param>
+		[RequiredByFeature("GL_EXT_direct_state_access")]
 		public static void TextureSubImage1DEXT(UInt32 texture, TextureTarget target, Int32 level, Int32 xoffset, Int32 width, PixelFormat format, PixelType type, Object pixels)
 		{
 			GCHandle pin_pixels = GCHandle.Alloc(pixels, GCHandleType.Pinned);
@@ -1460,6 +1583,50 @@ namespace OpenGL
 			Delegates.pglTextureSubImage2DEXT(texture, (int)target, level, xoffset, yoffset, width, height, (int)format, (int)type, pixels);
 			CallLog("glTextureSubImage2DEXT({0}, {1}, {2}, {3}, {4}, {5}, {6}, {7}, {8}, {9})", texture, target, level, xoffset, yoffset, width, height, format, type, pixels);
 			DebugCheckErrors();
+		}
+
+		/// <summary>
+		/// Binding for glTextureSubImage2DEXT.
+		/// </summary>
+		/// <param name="texture">
+		/// A <see cref="T:UInt32"/>.
+		/// </param>
+		/// <param name="target">
+		/// A <see cref="T:int"/>.
+		/// </param>
+		/// <param name="level">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="xoffset">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="yoffset">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="width">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="height">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="format">
+		/// A <see cref="T:int"/>.
+		/// </param>
+		/// <param name="type">
+		/// A <see cref="T:int"/>.
+		/// </param>
+		/// <param name="pixels">
+		/// A <see cref="T:IntPtr"/>.
+		/// </param>
+		[RequiredByFeature("GL_EXT_direct_state_access")]
+		public static void TextureSubImage2DEXT(UInt32 texture, int target, Int32 level, Int32 xoffset, Int32 yoffset, Int32 width, Int32 height, int format, int type, Object pixels)
+		{
+			GCHandle pin_pixels = GCHandle.Alloc(pixels, GCHandleType.Pinned);
+			try {
+				TextureSubImage2DEXT(texture, target, level, xoffset, yoffset, width, height, format, type, pin_pixels.AddrOfPinnedObject());
+			} finally {
+				pin_pixels.Free();
+			}
 		}
 
 		/// <summary>
@@ -2231,6 +2398,53 @@ namespace OpenGL
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access")]
+		public static void TextureImage3DEXT(UInt32 texture, int target, Int32 level, Int32 internalformat, Int32 width, Int32 height, Int32 depth, Int32 border, int format, int type, Object pixels)
+		{
+			GCHandle pin_pixels = GCHandle.Alloc(pixels, GCHandleType.Pinned);
+			try {
+				TextureImage3DEXT(texture, target, level, internalformat, width, height, depth, border, format, type, pin_pixels.AddrOfPinnedObject());
+			} finally {
+				pin_pixels.Free();
+			}
+		}
+
+		/// <summary>
+		/// Binding for glTextureImage3DEXT.
+		/// </summary>
+		/// <param name="texture">
+		/// A <see cref="T:UInt32"/>.
+		/// </param>
+		/// <param name="target">
+		/// A <see cref="T:int"/>.
+		/// </param>
+		/// <param name="level">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="internalformat">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="width">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="height">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="depth">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="border">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="format">
+		/// A <see cref="T:int"/>.
+		/// </param>
+		/// <param name="type">
+		/// A <see cref="T:int"/>.
+		/// </param>
+		/// <param name="pixels">
+		/// A <see cref="T:IntPtr"/>.
+		/// </param>
+		[RequiredByFeature("GL_EXT_direct_state_access")]
 		public static void TextureImage3DEXT(UInt32 texture, TextureTarget target, Int32 level, Int32 internalformat, Int32 width, Int32 height, Int32 depth, Int32 border, PixelFormat format, PixelType type, Object pixels)
 		{
 			GCHandle pin_pixels = GCHandle.Alloc(pixels, GCHandleType.Pinned);
@@ -2335,6 +2549,56 @@ namespace OpenGL
 			Delegates.pglTextureSubImage3DEXT(texture, (int)target, level, xoffset, yoffset, zoffset, width, height, depth, (int)format, (int)type, pixels);
 			CallLog("glTextureSubImage3DEXT({0}, {1}, {2}, {3}, {4}, {5}, {6}, {7}, {8}, {9}, {10}, {11})", texture, target, level, xoffset, yoffset, zoffset, width, height, depth, format, type, pixels);
 			DebugCheckErrors();
+		}
+
+		/// <summary>
+		/// Binding for glTextureSubImage3DEXT.
+		/// </summary>
+		/// <param name="texture">
+		/// A <see cref="T:UInt32"/>.
+		/// </param>
+		/// <param name="target">
+		/// A <see cref="T:int"/>.
+		/// </param>
+		/// <param name="level">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="xoffset">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="yoffset">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="zoffset">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="width">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="height">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="depth">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="format">
+		/// A <see cref="T:int"/>.
+		/// </param>
+		/// <param name="type">
+		/// A <see cref="T:int"/>.
+		/// </param>
+		/// <param name="pixels">
+		/// A <see cref="T:IntPtr"/>.
+		/// </param>
+		[RequiredByFeature("GL_EXT_direct_state_access")]
+		public static void TextureSubImage3DEXT(UInt32 texture, int target, Int32 level, Int32 xoffset, Int32 yoffset, Int32 zoffset, Int32 width, Int32 height, Int32 depth, int format, int type, Object pixels)
+		{
+			GCHandle pin_pixels = GCHandle.Alloc(pixels, GCHandleType.Pinned);
+			try {
+				TextureSubImage3DEXT(texture, target, level, xoffset, yoffset, zoffset, width, height, depth, format, type, pin_pixels.AddrOfPinnedObject());
+			} finally {
+				pin_pixels.Free();
+			}
 		}
 
 		/// <summary>
@@ -2565,6 +2829,35 @@ namespace OpenGL
 			Delegates.pglMultiTexCoordPointerEXT(texunit, size, (int)type, stride, pointer);
 			CallLog("glMultiTexCoordPointerEXT({0}, {1}, {2}, {3}, {4})", texunit, size, type, stride, pointer);
 			DebugCheckErrors();
+		}
+
+		/// <summary>
+		/// Binding for glMultiTexCoordPointerEXT.
+		/// </summary>
+		/// <param name="texunit">
+		/// A <see cref="T:int"/>.
+		/// </param>
+		/// <param name="size">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="type">
+		/// A <see cref="T:int"/>.
+		/// </param>
+		/// <param name="stride">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="pointer">
+		/// A <see cref="T:IntPtr"/>.
+		/// </param>
+		[RequiredByFeature("GL_EXT_direct_state_access")]
+		public static void MultiTexCoordPointerEXT(int texunit, Int32 size, int type, Int32 stride, Object pointer)
+		{
+			GCHandle pin_pointer = GCHandle.Alloc(pointer, GCHandleType.Pinned);
+			try {
+				MultiTexCoordPointerEXT(texunit, size, type, stride, pin_pointer.AddrOfPinnedObject());
+			} finally {
+				pin_pointer.Free();
+			}
 		}
 
 		/// <summary>
@@ -3737,6 +4030,47 @@ namespace OpenGL
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access")]
+		public static void MultiTexImage1DEXT(int texunit, int target, Int32 level, Int32 internalformat, Int32 width, Int32 border, int format, int type, Object pixels)
+		{
+			GCHandle pin_pixels = GCHandle.Alloc(pixels, GCHandleType.Pinned);
+			try {
+				MultiTexImage1DEXT(texunit, target, level, internalformat, width, border, format, type, pin_pixels.AddrOfPinnedObject());
+			} finally {
+				pin_pixels.Free();
+			}
+		}
+
+		/// <summary>
+		/// Binding for glMultiTexImage1DEXT.
+		/// </summary>
+		/// <param name="texunit">
+		/// A <see cref="T:int"/>.
+		/// </param>
+		/// <param name="target">
+		/// A <see cref="T:int"/>.
+		/// </param>
+		/// <param name="level">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="internalformat">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="width">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="border">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="format">
+		/// A <see cref="T:int"/>.
+		/// </param>
+		/// <param name="type">
+		/// A <see cref="T:int"/>.
+		/// </param>
+		/// <param name="pixels">
+		/// A <see cref="T:IntPtr"/>.
+		/// </param>
+		[RequiredByFeature("GL_EXT_direct_state_access")]
 		public static void MultiTexImage1DEXT(int texunit, TextureTarget target, Int32 level, Int32 internalformat, Int32 width, Int32 border, PixelFormat format, PixelType type, Object pixels)
 		{
 			GCHandle pin_pixels = GCHandle.Alloc(pixels, GCHandleType.Pinned);
@@ -3829,6 +4163,50 @@ namespace OpenGL
 			Delegates.pglMultiTexImage2DEXT(texunit, (int)target, level, internalformat, width, height, border, (int)format, (int)type, pixels);
 			CallLog("glMultiTexImage2DEXT({0}, {1}, {2}, {3}, {4}, {5}, {6}, {7}, {8}, {9})", texunit, target, level, internalformat, width, height, border, format, type, pixels);
 			DebugCheckErrors();
+		}
+
+		/// <summary>
+		/// Binding for glMultiTexImage2DEXT.
+		/// </summary>
+		/// <param name="texunit">
+		/// A <see cref="T:int"/>.
+		/// </param>
+		/// <param name="target">
+		/// A <see cref="T:int"/>.
+		/// </param>
+		/// <param name="level">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="internalformat">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="width">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="height">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="border">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="format">
+		/// A <see cref="T:int"/>.
+		/// </param>
+		/// <param name="type">
+		/// A <see cref="T:int"/>.
+		/// </param>
+		/// <param name="pixels">
+		/// A <see cref="T:IntPtr"/>.
+		/// </param>
+		[RequiredByFeature("GL_EXT_direct_state_access")]
+		public static void MultiTexImage2DEXT(int texunit, int target, Int32 level, Int32 internalformat, Int32 width, Int32 height, Int32 border, int format, int type, Object pixels)
+		{
+			GCHandle pin_pixels = GCHandle.Alloc(pixels, GCHandleType.Pinned);
+			try {
+				MultiTexImage2DEXT(texunit, target, level, internalformat, width, height, border, format, type, pin_pixels.AddrOfPinnedObject());
+			} finally {
+				pin_pixels.Free();
+			}
 		}
 
 		/// <summary>
@@ -3975,6 +4353,44 @@ namespace OpenGL
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access")]
+		public static void MultiTexSubImage1DEXT(int texunit, int target, Int32 level, Int32 xoffset, Int32 width, int format, int type, Object pixels)
+		{
+			GCHandle pin_pixels = GCHandle.Alloc(pixels, GCHandleType.Pinned);
+			try {
+				MultiTexSubImage1DEXT(texunit, target, level, xoffset, width, format, type, pin_pixels.AddrOfPinnedObject());
+			} finally {
+				pin_pixels.Free();
+			}
+		}
+
+		/// <summary>
+		/// Binding for glMultiTexSubImage1DEXT.
+		/// </summary>
+		/// <param name="texunit">
+		/// A <see cref="T:int"/>.
+		/// </param>
+		/// <param name="target">
+		/// A <see cref="T:int"/>.
+		/// </param>
+		/// <param name="level">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="xoffset">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="width">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="format">
+		/// A <see cref="T:int"/>.
+		/// </param>
+		/// <param name="type">
+		/// A <see cref="T:int"/>.
+		/// </param>
+		/// <param name="pixels">
+		/// A <see cref="T:IntPtr"/>.
+		/// </param>
+		[RequiredByFeature("GL_EXT_direct_state_access")]
 		public static void MultiTexSubImage1DEXT(int texunit, TextureTarget target, Int32 level, Int32 xoffset, Int32 width, PixelFormat format, PixelType type, Object pixels)
 		{
 			GCHandle pin_pixels = GCHandle.Alloc(pixels, GCHandleType.Pinned);
@@ -4067,6 +4483,50 @@ namespace OpenGL
 			Delegates.pglMultiTexSubImage2DEXT(texunit, (int)target, level, xoffset, yoffset, width, height, (int)format, (int)type, pixels);
 			CallLog("glMultiTexSubImage2DEXT({0}, {1}, {2}, {3}, {4}, {5}, {6}, {7}, {8}, {9})", texunit, target, level, xoffset, yoffset, width, height, format, type, pixels);
 			DebugCheckErrors();
+		}
+
+		/// <summary>
+		/// Binding for glMultiTexSubImage2DEXT.
+		/// </summary>
+		/// <param name="texunit">
+		/// A <see cref="T:int"/>.
+		/// </param>
+		/// <param name="target">
+		/// A <see cref="T:int"/>.
+		/// </param>
+		/// <param name="level">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="xoffset">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="yoffset">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="width">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="height">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="format">
+		/// A <see cref="T:int"/>.
+		/// </param>
+		/// <param name="type">
+		/// A <see cref="T:int"/>.
+		/// </param>
+		/// <param name="pixels">
+		/// A <see cref="T:IntPtr"/>.
+		/// </param>
+		[RequiredByFeature("GL_EXT_direct_state_access")]
+		public static void MultiTexSubImage2DEXT(int texunit, int target, Int32 level, Int32 xoffset, Int32 yoffset, Int32 width, Int32 height, int format, int type, Object pixels)
+		{
+			GCHandle pin_pixels = GCHandle.Alloc(pixels, GCHandleType.Pinned);
+			try {
+				MultiTexSubImage2DEXT(texunit, target, level, xoffset, yoffset, width, height, format, type, pin_pixels.AddrOfPinnedObject());
+			} finally {
+				pin_pixels.Free();
+			}
 		}
 
 		/// <summary>
@@ -4838,6 +5298,53 @@ namespace OpenGL
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access")]
+		public static void MultiTexImage3DEXT(int texunit, int target, Int32 level, Int32 internalformat, Int32 width, Int32 height, Int32 depth, Int32 border, int format, int type, Object pixels)
+		{
+			GCHandle pin_pixels = GCHandle.Alloc(pixels, GCHandleType.Pinned);
+			try {
+				MultiTexImage3DEXT(texunit, target, level, internalformat, width, height, depth, border, format, type, pin_pixels.AddrOfPinnedObject());
+			} finally {
+				pin_pixels.Free();
+			}
+		}
+
+		/// <summary>
+		/// Binding for glMultiTexImage3DEXT.
+		/// </summary>
+		/// <param name="texunit">
+		/// A <see cref="T:int"/>.
+		/// </param>
+		/// <param name="target">
+		/// A <see cref="T:int"/>.
+		/// </param>
+		/// <param name="level">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="internalformat">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="width">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="height">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="depth">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="border">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="format">
+		/// A <see cref="T:int"/>.
+		/// </param>
+		/// <param name="type">
+		/// A <see cref="T:int"/>.
+		/// </param>
+		/// <param name="pixels">
+		/// A <see cref="T:IntPtr"/>.
+		/// </param>
+		[RequiredByFeature("GL_EXT_direct_state_access")]
 		public static void MultiTexImage3DEXT(int texunit, TextureTarget target, Int32 level, Int32 internalformat, Int32 width, Int32 height, Int32 depth, Int32 border, PixelFormat format, PixelType type, Object pixels)
 		{
 			GCHandle pin_pixels = GCHandle.Alloc(pixels, GCHandleType.Pinned);
@@ -4942,6 +5449,56 @@ namespace OpenGL
 			Delegates.pglMultiTexSubImage3DEXT(texunit, (int)target, level, xoffset, yoffset, zoffset, width, height, depth, (int)format, (int)type, pixels);
 			CallLog("glMultiTexSubImage3DEXT({0}, {1}, {2}, {3}, {4}, {5}, {6}, {7}, {8}, {9}, {10}, {11})", texunit, target, level, xoffset, yoffset, zoffset, width, height, depth, format, type, pixels);
 			DebugCheckErrors();
+		}
+
+		/// <summary>
+		/// Binding for glMultiTexSubImage3DEXT.
+		/// </summary>
+		/// <param name="texunit">
+		/// A <see cref="T:int"/>.
+		/// </param>
+		/// <param name="target">
+		/// A <see cref="T:int"/>.
+		/// </param>
+		/// <param name="level">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="xoffset">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="yoffset">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="zoffset">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="width">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="height">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="depth">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="format">
+		/// A <see cref="T:int"/>.
+		/// </param>
+		/// <param name="type">
+		/// A <see cref="T:int"/>.
+		/// </param>
+		/// <param name="pixels">
+		/// A <see cref="T:IntPtr"/>.
+		/// </param>
+		[RequiredByFeature("GL_EXT_direct_state_access")]
+		public static void MultiTexSubImage3DEXT(int texunit, int target, Int32 level, Int32 xoffset, Int32 yoffset, Int32 zoffset, Int32 width, Int32 height, Int32 depth, int format, int type, Object pixels)
+		{
+			GCHandle pin_pixels = GCHandle.Alloc(pixels, GCHandleType.Pinned);
+			try {
+				MultiTexSubImage3DEXT(texunit, target, level, xoffset, yoffset, zoffset, width, height, depth, format, type, pin_pixels.AddrOfPinnedObject());
+			} finally {
+				pin_pixels.Free();
+			}
 		}
 
 		/// <summary>
@@ -5341,6 +5898,50 @@ namespace OpenGL
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access")]
+		public static void CompressedTextureImage3DEXT(UInt32 texture, int target, Int32 level, int internalformat, Int32 width, Int32 height, Int32 depth, Int32 border, Int32 imageSize, Object bits)
+		{
+			GCHandle pin_bits = GCHandle.Alloc(bits, GCHandleType.Pinned);
+			try {
+				CompressedTextureImage3DEXT(texture, target, level, internalformat, width, height, depth, border, imageSize, pin_bits.AddrOfPinnedObject());
+			} finally {
+				pin_bits.Free();
+			}
+		}
+
+		/// <summary>
+		/// Binding for glCompressedTextureImage3DEXT.
+		/// </summary>
+		/// <param name="texture">
+		/// A <see cref="T:UInt32"/>.
+		/// </param>
+		/// <param name="target">
+		/// A <see cref="T:int"/>.
+		/// </param>
+		/// <param name="level">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="internalformat">
+		/// A <see cref="T:int"/>.
+		/// </param>
+		/// <param name="width">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="height">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="depth">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="border">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="imageSize">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="bits">
+		/// A <see cref="T:IntPtr"/>.
+		/// </param>
+		[RequiredByFeature("GL_EXT_direct_state_access")]
 		public static void CompressedTextureImage3DEXT(UInt32 texture, TextureTarget target, Int32 level, int internalformat, Int32 width, Int32 height, Int32 depth, Int32 border, Int32 imageSize, Object bits)
 		{
 			GCHandle pin_bits = GCHandle.Alloc(bits, GCHandleType.Pinned);
@@ -5460,6 +6061,47 @@ namespace OpenGL
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access")]
+		public static void CompressedTextureImage2DEXT(UInt32 texture, int target, Int32 level, int internalformat, Int32 width, Int32 height, Int32 border, Int32 imageSize, Object bits)
+		{
+			GCHandle pin_bits = GCHandle.Alloc(bits, GCHandleType.Pinned);
+			try {
+				CompressedTextureImage2DEXT(texture, target, level, internalformat, width, height, border, imageSize, pin_bits.AddrOfPinnedObject());
+			} finally {
+				pin_bits.Free();
+			}
+		}
+
+		/// <summary>
+		/// Binding for glCompressedTextureImage2DEXT.
+		/// </summary>
+		/// <param name="texture">
+		/// A <see cref="T:UInt32"/>.
+		/// </param>
+		/// <param name="target">
+		/// A <see cref="T:int"/>.
+		/// </param>
+		/// <param name="level">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="internalformat">
+		/// A <see cref="T:int"/>.
+		/// </param>
+		/// <param name="width">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="height">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="border">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="imageSize">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="bits">
+		/// A <see cref="T:IntPtr"/>.
+		/// </param>
+		[RequiredByFeature("GL_EXT_direct_state_access")]
 		public static void CompressedTextureImage2DEXT(UInt32 texture, TextureTarget target, Int32 level, int internalformat, Int32 width, Int32 height, Int32 border, Int32 imageSize, Object bits)
 		{
 			GCHandle pin_bits = GCHandle.Alloc(bits, GCHandleType.Pinned);
@@ -5540,6 +6182,44 @@ namespace OpenGL
 			Delegates.pglCompressedTextureImage1DEXT(texture, (int)target, level, internalformat, width, border, imageSize, bits);
 			CallLog("glCompressedTextureImage1DEXT({0}, {1}, {2}, {3}, {4}, {5}, {6}, {7})", texture, target, level, internalformat, width, border, imageSize, bits);
 			DebugCheckErrors();
+		}
+
+		/// <summary>
+		/// Binding for glCompressedTextureImage1DEXT.
+		/// </summary>
+		/// <param name="texture">
+		/// A <see cref="T:UInt32"/>.
+		/// </param>
+		/// <param name="target">
+		/// A <see cref="T:int"/>.
+		/// </param>
+		/// <param name="level">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="internalformat">
+		/// A <see cref="T:int"/>.
+		/// </param>
+		/// <param name="width">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="border">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="imageSize">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="bits">
+		/// A <see cref="T:IntPtr"/>.
+		/// </param>
+		[RequiredByFeature("GL_EXT_direct_state_access")]
+		public static void CompressedTextureImage1DEXT(UInt32 texture, int target, Int32 level, int internalformat, Int32 width, Int32 border, Int32 imageSize, Object bits)
+		{
+			GCHandle pin_bits = GCHandle.Alloc(bits, GCHandleType.Pinned);
+			try {
+				CompressedTextureImage1DEXT(texture, target, level, internalformat, width, border, imageSize, pin_bits.AddrOfPinnedObject());
+			} finally {
+				pin_bits.Free();
+			}
 		}
 
 		/// <summary>
@@ -5716,6 +6396,56 @@ namespace OpenGL
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access")]
+		public static void CompressedTextureSubImage3DEXT(UInt32 texture, int target, Int32 level, Int32 xoffset, Int32 yoffset, Int32 zoffset, Int32 width, Int32 height, Int32 depth, int format, Int32 imageSize, Object bits)
+		{
+			GCHandle pin_bits = GCHandle.Alloc(bits, GCHandleType.Pinned);
+			try {
+				CompressedTextureSubImage3DEXT(texture, target, level, xoffset, yoffset, zoffset, width, height, depth, format, imageSize, pin_bits.AddrOfPinnedObject());
+			} finally {
+				pin_bits.Free();
+			}
+		}
+
+		/// <summary>
+		/// Binding for glCompressedTextureSubImage3DEXT.
+		/// </summary>
+		/// <param name="texture">
+		/// A <see cref="T:UInt32"/>.
+		/// </param>
+		/// <param name="target">
+		/// A <see cref="T:int"/>.
+		/// </param>
+		/// <param name="level">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="xoffset">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="yoffset">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="zoffset">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="width">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="height">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="depth">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="format">
+		/// A <see cref="T:int"/>.
+		/// </param>
+		/// <param name="imageSize">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="bits">
+		/// A <see cref="T:IntPtr"/>.
+		/// </param>
+		[RequiredByFeature("GL_EXT_direct_state_access")]
 		public static void CompressedTextureSubImage3DEXT(UInt32 texture, TextureTarget target, Int32 level, Int32 xoffset, Int32 yoffset, Int32 zoffset, Int32 width, Int32 height, Int32 depth, PixelFormat format, Int32 imageSize, Object bits)
 		{
 			GCHandle pin_bits = GCHandle.Alloc(bits, GCHandleType.Pinned);
@@ -5844,6 +6574,50 @@ namespace OpenGL
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access")]
+		public static void CompressedTextureSubImage2DEXT(UInt32 texture, int target, Int32 level, Int32 xoffset, Int32 yoffset, Int32 width, Int32 height, int format, Int32 imageSize, Object bits)
+		{
+			GCHandle pin_bits = GCHandle.Alloc(bits, GCHandleType.Pinned);
+			try {
+				CompressedTextureSubImage2DEXT(texture, target, level, xoffset, yoffset, width, height, format, imageSize, pin_bits.AddrOfPinnedObject());
+			} finally {
+				pin_bits.Free();
+			}
+		}
+
+		/// <summary>
+		/// Binding for glCompressedTextureSubImage2DEXT.
+		/// </summary>
+		/// <param name="texture">
+		/// A <see cref="T:UInt32"/>.
+		/// </param>
+		/// <param name="target">
+		/// A <see cref="T:int"/>.
+		/// </param>
+		/// <param name="level">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="xoffset">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="yoffset">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="width">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="height">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="format">
+		/// A <see cref="T:int"/>.
+		/// </param>
+		/// <param name="imageSize">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="bits">
+		/// A <see cref="T:IntPtr"/>.
+		/// </param>
+		[RequiredByFeature("GL_EXT_direct_state_access")]
 		public static void CompressedTextureSubImage2DEXT(UInt32 texture, TextureTarget target, Int32 level, Int32 xoffset, Int32 yoffset, Int32 width, Int32 height, PixelFormat format, Int32 imageSize, Object bits)
 		{
 			GCHandle pin_bits = GCHandle.Alloc(bits, GCHandleType.Pinned);
@@ -5924,6 +6698,44 @@ namespace OpenGL
 			Delegates.pglCompressedTextureSubImage1DEXT(texture, (int)target, level, xoffset, width, (int)format, imageSize, bits);
 			CallLog("glCompressedTextureSubImage1DEXT({0}, {1}, {2}, {3}, {4}, {5}, {6}, {7})", texture, target, level, xoffset, width, format, imageSize, bits);
 			DebugCheckErrors();
+		}
+
+		/// <summary>
+		/// Binding for glCompressedTextureSubImage1DEXT.
+		/// </summary>
+		/// <param name="texture">
+		/// A <see cref="T:UInt32"/>.
+		/// </param>
+		/// <param name="target">
+		/// A <see cref="T:int"/>.
+		/// </param>
+		/// <param name="level">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="xoffset">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="width">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="format">
+		/// A <see cref="T:int"/>.
+		/// </param>
+		/// <param name="imageSize">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="bits">
+		/// A <see cref="T:IntPtr"/>.
+		/// </param>
+		[RequiredByFeature("GL_EXT_direct_state_access")]
+		public static void CompressedTextureSubImage1DEXT(UInt32 texture, int target, Int32 level, Int32 xoffset, Int32 width, int format, Int32 imageSize, Object bits)
+		{
+			GCHandle pin_bits = GCHandle.Alloc(bits, GCHandleType.Pinned);
+			try {
+				CompressedTextureSubImage1DEXT(texture, target, level, xoffset, width, format, imageSize, pin_bits.AddrOfPinnedObject());
+			} finally {
+				pin_bits.Free();
+			}
 		}
 
 		/// <summary>
@@ -6130,6 +6942,50 @@ namespace OpenGL
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access")]
+		public static void CompressedMultiTexImage3DEXT(int texunit, int target, Int32 level, int internalformat, Int32 width, Int32 height, Int32 depth, Int32 border, Int32 imageSize, Object bits)
+		{
+			GCHandle pin_bits = GCHandle.Alloc(bits, GCHandleType.Pinned);
+			try {
+				CompressedMultiTexImage3DEXT(texunit, target, level, internalformat, width, height, depth, border, imageSize, pin_bits.AddrOfPinnedObject());
+			} finally {
+				pin_bits.Free();
+			}
+		}
+
+		/// <summary>
+		/// Binding for glCompressedMultiTexImage3DEXT.
+		/// </summary>
+		/// <param name="texunit">
+		/// A <see cref="T:int"/>.
+		/// </param>
+		/// <param name="target">
+		/// A <see cref="T:int"/>.
+		/// </param>
+		/// <param name="level">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="internalformat">
+		/// A <see cref="T:int"/>.
+		/// </param>
+		/// <param name="width">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="height">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="depth">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="border">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="imageSize">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="bits">
+		/// A <see cref="T:IntPtr"/>.
+		/// </param>
+		[RequiredByFeature("GL_EXT_direct_state_access")]
 		public static void CompressedMultiTexImage3DEXT(int texunit, TextureTarget target, Int32 level, int internalformat, Int32 width, Int32 height, Int32 depth, Int32 border, Int32 imageSize, Object bits)
 		{
 			GCHandle pin_bits = GCHandle.Alloc(bits, GCHandleType.Pinned);
@@ -6249,6 +7105,47 @@ namespace OpenGL
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access")]
+		public static void CompressedMultiTexImage2DEXT(int texunit, int target, Int32 level, int internalformat, Int32 width, Int32 height, Int32 border, Int32 imageSize, Object bits)
+		{
+			GCHandle pin_bits = GCHandle.Alloc(bits, GCHandleType.Pinned);
+			try {
+				CompressedMultiTexImage2DEXT(texunit, target, level, internalformat, width, height, border, imageSize, pin_bits.AddrOfPinnedObject());
+			} finally {
+				pin_bits.Free();
+			}
+		}
+
+		/// <summary>
+		/// Binding for glCompressedMultiTexImage2DEXT.
+		/// </summary>
+		/// <param name="texunit">
+		/// A <see cref="T:int"/>.
+		/// </param>
+		/// <param name="target">
+		/// A <see cref="T:int"/>.
+		/// </param>
+		/// <param name="level">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="internalformat">
+		/// A <see cref="T:int"/>.
+		/// </param>
+		/// <param name="width">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="height">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="border">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="imageSize">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="bits">
+		/// A <see cref="T:IntPtr"/>.
+		/// </param>
+		[RequiredByFeature("GL_EXT_direct_state_access")]
 		public static void CompressedMultiTexImage2DEXT(int texunit, TextureTarget target, Int32 level, int internalformat, Int32 width, Int32 height, Int32 border, Int32 imageSize, Object bits)
 		{
 			GCHandle pin_bits = GCHandle.Alloc(bits, GCHandleType.Pinned);
@@ -6329,6 +7226,44 @@ namespace OpenGL
 			Delegates.pglCompressedMultiTexImage1DEXT(texunit, (int)target, level, internalformat, width, border, imageSize, bits);
 			CallLog("glCompressedMultiTexImage1DEXT({0}, {1}, {2}, {3}, {4}, {5}, {6}, {7})", texunit, target, level, internalformat, width, border, imageSize, bits);
 			DebugCheckErrors();
+		}
+
+		/// <summary>
+		/// Binding for glCompressedMultiTexImage1DEXT.
+		/// </summary>
+		/// <param name="texunit">
+		/// A <see cref="T:int"/>.
+		/// </param>
+		/// <param name="target">
+		/// A <see cref="T:int"/>.
+		/// </param>
+		/// <param name="level">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="internalformat">
+		/// A <see cref="T:int"/>.
+		/// </param>
+		/// <param name="width">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="border">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="imageSize">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="bits">
+		/// A <see cref="T:IntPtr"/>.
+		/// </param>
+		[RequiredByFeature("GL_EXT_direct_state_access")]
+		public static void CompressedMultiTexImage1DEXT(int texunit, int target, Int32 level, int internalformat, Int32 width, Int32 border, Int32 imageSize, Object bits)
+		{
+			GCHandle pin_bits = GCHandle.Alloc(bits, GCHandleType.Pinned);
+			try {
+				CompressedMultiTexImage1DEXT(texunit, target, level, internalformat, width, border, imageSize, pin_bits.AddrOfPinnedObject());
+			} finally {
+				pin_bits.Free();
+			}
 		}
 
 		/// <summary>
@@ -6505,6 +7440,56 @@ namespace OpenGL
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access")]
+		public static void CompressedMultiTexSubImage3DEXT(int texunit, int target, Int32 level, Int32 xoffset, Int32 yoffset, Int32 zoffset, Int32 width, Int32 height, Int32 depth, int format, Int32 imageSize, Object bits)
+		{
+			GCHandle pin_bits = GCHandle.Alloc(bits, GCHandleType.Pinned);
+			try {
+				CompressedMultiTexSubImage3DEXT(texunit, target, level, xoffset, yoffset, zoffset, width, height, depth, format, imageSize, pin_bits.AddrOfPinnedObject());
+			} finally {
+				pin_bits.Free();
+			}
+		}
+
+		/// <summary>
+		/// Binding for glCompressedMultiTexSubImage3DEXT.
+		/// </summary>
+		/// <param name="texunit">
+		/// A <see cref="T:int"/>.
+		/// </param>
+		/// <param name="target">
+		/// A <see cref="T:int"/>.
+		/// </param>
+		/// <param name="level">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="xoffset">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="yoffset">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="zoffset">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="width">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="height">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="depth">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="format">
+		/// A <see cref="T:int"/>.
+		/// </param>
+		/// <param name="imageSize">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="bits">
+		/// A <see cref="T:IntPtr"/>.
+		/// </param>
+		[RequiredByFeature("GL_EXT_direct_state_access")]
 		public static void CompressedMultiTexSubImage3DEXT(int texunit, TextureTarget target, Int32 level, Int32 xoffset, Int32 yoffset, Int32 zoffset, Int32 width, Int32 height, Int32 depth, PixelFormat format, Int32 imageSize, Object bits)
 		{
 			GCHandle pin_bits = GCHandle.Alloc(bits, GCHandleType.Pinned);
@@ -6633,6 +7618,50 @@ namespace OpenGL
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access")]
+		public static void CompressedMultiTexSubImage2DEXT(int texunit, int target, Int32 level, Int32 xoffset, Int32 yoffset, Int32 width, Int32 height, int format, Int32 imageSize, Object bits)
+		{
+			GCHandle pin_bits = GCHandle.Alloc(bits, GCHandleType.Pinned);
+			try {
+				CompressedMultiTexSubImage2DEXT(texunit, target, level, xoffset, yoffset, width, height, format, imageSize, pin_bits.AddrOfPinnedObject());
+			} finally {
+				pin_bits.Free();
+			}
+		}
+
+		/// <summary>
+		/// Binding for glCompressedMultiTexSubImage2DEXT.
+		/// </summary>
+		/// <param name="texunit">
+		/// A <see cref="T:int"/>.
+		/// </param>
+		/// <param name="target">
+		/// A <see cref="T:int"/>.
+		/// </param>
+		/// <param name="level">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="xoffset">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="yoffset">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="width">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="height">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="format">
+		/// A <see cref="T:int"/>.
+		/// </param>
+		/// <param name="imageSize">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="bits">
+		/// A <see cref="T:IntPtr"/>.
+		/// </param>
+		[RequiredByFeature("GL_EXT_direct_state_access")]
 		public static void CompressedMultiTexSubImage2DEXT(int texunit, TextureTarget target, Int32 level, Int32 xoffset, Int32 yoffset, Int32 width, Int32 height, PixelFormat format, Int32 imageSize, Object bits)
 		{
 			GCHandle pin_bits = GCHandle.Alloc(bits, GCHandleType.Pinned);
@@ -6713,6 +7742,44 @@ namespace OpenGL
 			Delegates.pglCompressedMultiTexSubImage1DEXT(texunit, (int)target, level, xoffset, width, (int)format, imageSize, bits);
 			CallLog("glCompressedMultiTexSubImage1DEXT({0}, {1}, {2}, {3}, {4}, {5}, {6}, {7})", texunit, target, level, xoffset, width, format, imageSize, bits);
 			DebugCheckErrors();
+		}
+
+		/// <summary>
+		/// Binding for glCompressedMultiTexSubImage1DEXT.
+		/// </summary>
+		/// <param name="texunit">
+		/// A <see cref="T:int"/>.
+		/// </param>
+		/// <param name="target">
+		/// A <see cref="T:int"/>.
+		/// </param>
+		/// <param name="level">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="xoffset">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="width">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="format">
+		/// A <see cref="T:int"/>.
+		/// </param>
+		/// <param name="imageSize">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="bits">
+		/// A <see cref="T:IntPtr"/>.
+		/// </param>
+		[RequiredByFeature("GL_EXT_direct_state_access")]
+		public static void CompressedMultiTexSubImage1DEXT(int texunit, int target, Int32 level, Int32 xoffset, Int32 width, int format, Int32 imageSize, Object bits)
+		{
+			GCHandle pin_bits = GCHandle.Alloc(bits, GCHandleType.Pinned);
+			try {
+				CompressedMultiTexSubImage1DEXT(texunit, target, level, xoffset, width, format, imageSize, pin_bits.AddrOfPinnedObject());
+			} finally {
+				pin_bits.Free();
+			}
 		}
 
 		/// <summary>
@@ -11149,6 +12216,35 @@ namespace OpenGL
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access")]
+		public static void ClearNamedBufferDataEXT(UInt32 buffer, int internalformat, int format, int type, Object data)
+		{
+			GCHandle pin_data = GCHandle.Alloc(data, GCHandleType.Pinned);
+			try {
+				ClearNamedBufferDataEXT(buffer, internalformat, format, type, pin_data.AddrOfPinnedObject());
+			} finally {
+				pin_data.Free();
+			}
+		}
+
+		/// <summary>
+		/// Binding for glClearNamedBufferDataEXT.
+		/// </summary>
+		/// <param name="buffer">
+		/// A <see cref="T:UInt32"/>.
+		/// </param>
+		/// <param name="internalformat">
+		/// A <see cref="T:int"/>.
+		/// </param>
+		/// <param name="format">
+		/// A <see cref="T:int"/>.
+		/// </param>
+		/// <param name="type">
+		/// A <see cref="T:int"/>.
+		/// </param>
+		/// <param name="data">
+		/// A <see cref="T:IntPtr"/>.
+		/// </param>
+		[RequiredByFeature("GL_EXT_direct_state_access")]
 		public static void ClearNamedBufferDataEXT(UInt32 buffer, int internalformat, PixelFormat format, PixelType type, Object data)
 		{
 			GCHandle pin_data = GCHandle.Alloc(data, GCHandleType.Pinned);
@@ -11223,6 +12319,41 @@ namespace OpenGL
 			Delegates.pglClearNamedBufferSubDataEXT(buffer, internalformat, offset, size, (int)format, (int)type, data);
 			CallLog("glClearNamedBufferSubDataEXT({0}, {1}, {2}, {3}, {4}, {5}, {6})", buffer, internalformat, offset, size, format, type, data);
 			DebugCheckErrors();
+		}
+
+		/// <summary>
+		/// Binding for glClearNamedBufferSubDataEXT.
+		/// </summary>
+		/// <param name="buffer">
+		/// A <see cref="T:UInt32"/>.
+		/// </param>
+		/// <param name="internalformat">
+		/// A <see cref="T:int"/>.
+		/// </param>
+		/// <param name="offset">
+		/// A <see cref="T:UInt32"/>.
+		/// </param>
+		/// <param name="size">
+		/// A <see cref="T:UInt32"/>.
+		/// </param>
+		/// <param name="format">
+		/// A <see cref="T:int"/>.
+		/// </param>
+		/// <param name="type">
+		/// A <see cref="T:int"/>.
+		/// </param>
+		/// <param name="data">
+		/// A <see cref="T:IntPtr"/>.
+		/// </param>
+		[RequiredByFeature("GL_EXT_direct_state_access")]
+		public static void ClearNamedBufferSubDataEXT(UInt32 buffer, int internalformat, UInt32 offset, UInt32 size, int format, int type, Object data)
+		{
+			GCHandle pin_data = GCHandle.Alloc(data, GCHandleType.Pinned);
+			try {
+				ClearNamedBufferSubDataEXT(buffer, internalformat, offset, size, format, type, pin_data.AddrOfPinnedObject());
+			} finally {
+				pin_data.Free();
+			}
 		}
 
 		/// <summary>
