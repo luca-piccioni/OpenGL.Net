@@ -17,3 +17,5 @@ Generated from the lastest official XML specification, OpenGL.Net provides:
 - Integrated entry points call logging: every OpenGL call could be logged for debugging. Additionally every OpenGL command is
   checked for errors, to catch a soon as possible OpenGL errors.
 - OpenGL feature-oriented design: it is possible to build a subset of the OpenGL.Net binding simply excluding specific modules.
+
+At this moment the project is in alpha status.
