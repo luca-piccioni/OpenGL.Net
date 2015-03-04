@@ -16,6 +16,8 @@
 // Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301
 // USA
 
+using System;
+
 using NUnit.Framework;
 
 namespace OpenGL.Test
@@ -26,10 +28,34 @@ namespace OpenGL.Test
 	[TestFixture]
 	class Gl_VERSION_1_0 : GlTestBase
 	{
+		/// <summary>
+		/// Mainly used for testing glGet using an OpenGL state.
+		/// </summary>
 		[Test]
 		public void TestCullFace()
 		{
-			Gl.CullFace(CullFaceMode.Front);
+			foreach (CullFaceMode cullFaceMode in (CullFaceMode[])Enum.GetValues(typeof(CullFaceMode))) {
+				int getCullFaceMode;
+				int[] getCullFaceModev;
+
+				Gl.CullFace(cullFaceMode);
+
+				getCullFaceMode = 0;
+				Gl.Get(GetPName.CullFaceMode, out getCullFaceMode);
+				Assert.AreEqual((int)cullFaceMode, getCullFaceMode);
+
+				getCullFaceMode = 0;
+				Gl.Get(Gl.CULL_FACE_MODE, out getCullFaceMode);
+				Assert.AreEqual((int)cullFaceMode, getCullFaceMode);
+
+				getCullFaceModev = new int[1];
+				Gl.Get(GetPName.CullFaceMode, getCullFaceModev);
+				Assert.AreEqual((int)cullFaceMode, getCullFaceModev[0]);
+
+				getCullFaceModev = new int[1];
+				Gl.Get(Gl.CULL_FACE_MODE, getCullFaceModev);
+				Assert.AreEqual((int)cullFaceMode, getCullFaceModev[0]);
+			}
 		}
 	}
 }
