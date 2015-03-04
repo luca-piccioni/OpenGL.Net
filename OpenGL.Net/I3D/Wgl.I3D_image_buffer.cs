@@ -49,6 +49,7 @@ namespace OpenGL
 		/// <param name="uFlags">
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
+		[RequiredByFeature("WGL_I3D_image_buffer")]
 		public static IntPtr CreateImageBufferI3D(IntPtr hDC, Int32 dwSize, UInt32 uFlags)
 		{
 			IntPtr retValue;
@@ -56,7 +57,6 @@ namespace OpenGL
 			Debug.Assert(Delegates.pwglCreateImageBufferI3D != null, "pwglCreateImageBufferI3D not implemented");
 			retValue = Delegates.pwglCreateImageBufferI3D(hDC, dwSize, uFlags);
 			CallLog("wglCreateImageBufferI3D({0}, {1}, {2}) = {3}", hDC, dwSize, uFlags, retValue);
-			DebugCheckErrors();
 
 			return (retValue);
 		}
@@ -70,6 +70,7 @@ namespace OpenGL
 		/// <param name="pAddress">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
+		[RequiredByFeature("WGL_I3D_image_buffer")]
 		public static bool DestroyImageBufferI3D(IntPtr hDC, IntPtr pAddress)
 		{
 			bool retValue;
@@ -77,7 +78,6 @@ namespace OpenGL
 			Debug.Assert(Delegates.pwglDestroyImageBufferI3D != null, "pwglDestroyImageBufferI3D not implemented");
 			retValue = Delegates.pwglDestroyImageBufferI3D(hDC, pAddress);
 			CallLog("wglDestroyImageBufferI3D({0}, {1}) = {2}", hDC, pAddress, retValue);
-			DebugCheckErrors();
 
 			return (retValue);
 		}
@@ -100,6 +100,7 @@ namespace OpenGL
 		/// <param name="count">
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
+		[RequiredByFeature("WGL_I3D_image_buffer")]
 		public static bool AssociateImageBufferEventsI3D(IntPtr hDC, IntPtr[] pEvent, IntPtr[] pAddress, Int32[] pSize, UInt32 count)
 		{
 			bool retValue;
@@ -114,7 +115,6 @@ namespace OpenGL
 					CallLog("wglAssociateImageBufferEventsI3D({0}, {1}, {2}, {3}, {4}) = {5}", hDC, pEvent, pAddress, pSize, count, retValue);
 				}
 			}
-			DebugCheckErrors();
 
 			return (retValue);
 		}
@@ -131,6 +131,7 @@ namespace OpenGL
 		/// <param name="count">
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
+		[RequiredByFeature("WGL_I3D_image_buffer")]
 		public static bool ReleaseImageBufferEventsI3D(IntPtr hDC, IntPtr[] pAddress, UInt32 count)
 		{
 			bool retValue;
@@ -143,7 +144,6 @@ namespace OpenGL
 					CallLog("wglReleaseImageBufferEventsI3D({0}, {1}, {2}) = {3}", hDC, pAddress, count, retValue);
 				}
 			}
-			DebugCheckErrors();
 
 			return (retValue);
 		}

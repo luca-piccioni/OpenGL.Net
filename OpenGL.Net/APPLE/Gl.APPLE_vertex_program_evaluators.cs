@@ -94,6 +94,7 @@ namespace OpenGL
 		/// <param name="pname">
 		/// A <see cref="T:int"/>.
 		/// </param>
+		[RequiredByFeature("GL_APPLE_vertex_program_evaluators")]
 		public static void EnableVertexAttribAPPLE(UInt32 index, int pname)
 		{
 			Debug.Assert(Delegates.pglEnableVertexAttribAPPLE != null, "pglEnableVertexAttribAPPLE not implemented");
@@ -111,6 +112,7 @@ namespace OpenGL
 		/// <param name="pname">
 		/// A <see cref="T:int"/>.
 		/// </param>
+		[RequiredByFeature("GL_APPLE_vertex_program_evaluators")]
 		public static void DisableVertexAttribAPPLE(UInt32 index, int pname)
 		{
 			Debug.Assert(Delegates.pglDisableVertexAttribAPPLE != null, "pglDisableVertexAttribAPPLE not implemented");
@@ -128,6 +130,7 @@ namespace OpenGL
 		/// <param name="pname">
 		/// A <see cref="T:int"/>.
 		/// </param>
+		[RequiredByFeature("GL_APPLE_vertex_program_evaluators")]
 		public static bool IsVertexAttribEnabledAPPLE(UInt32 index, int pname)
 		{
 			bool retValue;
@@ -164,6 +167,7 @@ namespace OpenGL
 		/// <param name="points">
 		/// A <see cref="T:double[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_APPLE_vertex_program_evaluators")]
 		public static void MapVertexAttrib1APPLE(UInt32 index, UInt32 size, double u1, double u2, Int32 stride, Int32 order, double[] points)
 		{
 			unsafe {
@@ -201,6 +205,7 @@ namespace OpenGL
 		/// <param name="points">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_APPLE_vertex_program_evaluators")]
 		public static void MapVertexAttrib1APPLE(UInt32 index, UInt32 size, float u1, float u2, Int32 stride, Int32 order, float[] points)
 		{
 			unsafe {
@@ -250,6 +255,7 @@ namespace OpenGL
 		/// <param name="points">
 		/// A <see cref="T:double[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_APPLE_vertex_program_evaluators")]
 		public static void MapVertexAttrib2APPLE(UInt32 index, UInt32 size, double u1, double u2, Int32 ustride, Int32 uorder, double v1, double v2, Int32 vstride, Int32 vorder, double[] points)
 		{
 			unsafe {
@@ -299,6 +305,7 @@ namespace OpenGL
 		/// <param name="points">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_APPLE_vertex_program_evaluators")]
 		public static void MapVertexAttrib2APPLE(UInt32 index, UInt32 size, float u1, float u2, Int32 ustride, Int32 uorder, float v1, float v2, Int32 vstride, Int32 vorder, float[] points)
 		{
 			unsafe {

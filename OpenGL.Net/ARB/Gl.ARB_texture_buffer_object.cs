@@ -67,6 +67,7 @@ namespace OpenGL
 		/// <param name="buffer">
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
+		[RequiredByFeature("GL_ARB_texture_buffer_object")]
 		public static void TexBufferARB(int target, int internalformat, UInt32 buffer)
 		{
 			Debug.Assert(Delegates.pglTexBufferARB != null, "pglTexBufferARB not implemented");
@@ -87,6 +88,7 @@ namespace OpenGL
 		/// <param name="buffer">
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
+		[RequiredByFeature("GL_ARB_texture_buffer_object")]
 		public static void TexBufferARB(TextureTarget target, int internalformat, UInt32 buffer)
 		{
 			Debug.Assert(Delegates.pglTexBufferARB != null, "pglTexBufferARB not implemented");

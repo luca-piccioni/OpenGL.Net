@@ -34,6 +34,7 @@ namespace OpenGL
 		/// <param name="marker">
 		/// A <see cref="T:String"/>.
 		/// </param>
+		[RequiredByFeature("GL_EXT_debug_marker")]
 		public static void InsertEventMarkerEXT(Int32 length, String marker)
 		{
 			Debug.Assert(Delegates.pglInsertEventMarkerEXT != null, "pglInsertEventMarkerEXT not implemented");
@@ -51,6 +52,7 @@ namespace OpenGL
 		/// <param name="marker">
 		/// A <see cref="T:String"/>.
 		/// </param>
+		[RequiredByFeature("GL_EXT_debug_marker")]
 		public static void PushGroupMarkerEXT(Int32 length, String marker)
 		{
 			Debug.Assert(Delegates.pglPushGroupMarkerEXT != null, "pglPushGroupMarkerEXT not implemented");
@@ -62,6 +64,7 @@ namespace OpenGL
 		/// <summary>
 		/// Binding for glPopGroupMarkerEXT.
 		/// </summary>
+		[RequiredByFeature("GL_EXT_debug_marker")]
 		public static void PopGroupMarkerEXT()
 		{
 			Debug.Assert(Delegates.pglPopGroupMarkerEXT != null, "pglPopGroupMarkerEXT not implemented");

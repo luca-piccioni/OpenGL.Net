@@ -64,6 +64,7 @@ namespace OpenGL
 		/// <param name="ids">
 		/// A <see cref="T:UInt32[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_ARB_occlusion_query")]
 		public static void GenQueriesARB(Int32 n, UInt32[] ids)
 		{
 			unsafe {
@@ -86,6 +87,7 @@ namespace OpenGL
 		/// <param name="ids">
 		/// A <see cref="T:UInt32[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_ARB_occlusion_query")]
 		public static void DeleteQueriesARB(Int32 n, UInt32[] ids)
 		{
 			unsafe {
@@ -105,6 +107,7 @@ namespace OpenGL
 		/// <param name="id">
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
+		[RequiredByFeature("GL_ARB_occlusion_query")]
 		public static bool IsQueryARB(UInt32 id)
 		{
 			bool retValue;
@@ -126,6 +129,7 @@ namespace OpenGL
 		/// <param name="id">
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
+		[RequiredByFeature("GL_ARB_occlusion_query")]
 		public static void BeginQueryARB(int target, UInt32 id)
 		{
 			Debug.Assert(Delegates.pglBeginQueryARB != null, "pglBeginQueryARB not implemented");
@@ -140,6 +144,7 @@ namespace OpenGL
 		/// <param name="target">
 		/// A <see cref="T:int"/>.
 		/// </param>
+		[RequiredByFeature("GL_ARB_occlusion_query")]
 		public static void EndQueryARB(int target)
 		{
 			Debug.Assert(Delegates.pglEndQueryARB != null, "pglEndQueryARB not implemented");
@@ -160,6 +165,7 @@ namespace OpenGL
 		/// <param name="params">
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_ARB_occlusion_query")]
 		public static void GetQueryARB(int target, int pname, Int32[] @params)
 		{
 			unsafe {
@@ -185,6 +191,7 @@ namespace OpenGL
 		/// <param name="params">
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_ARB_occlusion_query")]
 		public static void GetQueryObjectARB(UInt32 id, int pname, Int32[] @params)
 		{
 			unsafe {
@@ -210,6 +217,7 @@ namespace OpenGL
 		/// <param name="params">
 		/// A <see cref="T:UInt32[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_ARB_occlusion_query")]
 		public static void GetQueryObjectuivARB(UInt32 id, int pname, UInt32[] @params)
 		{
 			unsafe {

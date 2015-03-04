@@ -55,6 +55,7 @@ namespace OpenGL
 		/// <param name="m">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_ARB_transpose_matrix")]
 		public static void LoadTransposeMatrixARB(float[] m)
 		{
 			unsafe {
@@ -74,6 +75,7 @@ namespace OpenGL
 		/// <param name="m">
 		/// A <see cref="T:double[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_ARB_transpose_matrix")]
 		public static void LoadTransposeMatrixARB(double[] m)
 		{
 			unsafe {
@@ -93,6 +95,7 @@ namespace OpenGL
 		/// <param name="m">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_ARB_transpose_matrix")]
 		public static void MultTransposeMatrixARB(float[] m)
 		{
 			unsafe {
@@ -112,6 +115,7 @@ namespace OpenGL
 		/// <param name="m">
 		/// A <see cref="T:double[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_ARB_transpose_matrix")]
 		public static void MultTransposeMatrixARB(double[] m)
 		{
 			unsafe {

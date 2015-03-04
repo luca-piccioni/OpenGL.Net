@@ -70,6 +70,7 @@ namespace OpenGL
 		/// <param name="params">
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_NV_internalformat_sample_query")]
 		public static void GetInternalformatSampleNV(int target, int internalformat, Int32 samples, int pname, Int32 bufSize, Int32[] @params)
 		{
 			unsafe {

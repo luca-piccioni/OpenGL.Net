@@ -46,6 +46,7 @@ namespace OpenGL
 		/// <param name="data">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
+		[RequiredByFeature("GL_EXT_color_subtable")]
 		public static void ColorSubTableEXT(int target, Int32 start, Int32 count, int format, int type, IntPtr data)
 		{
 			Debug.Assert(Delegates.pglColorSubTableEXT != null, "pglColorSubTableEXT not implemented");
@@ -75,6 +76,7 @@ namespace OpenGL
 		/// <param name="data">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
+		[RequiredByFeature("GL_EXT_color_subtable")]
 		public static void ColorSubTableEXT(int target, Int32 start, Int32 count, PixelFormat format, PixelType type, IntPtr data)
 		{
 			Debug.Assert(Delegates.pglColorSubTableEXT != null, "pglColorSubTableEXT not implemented");
@@ -104,6 +106,7 @@ namespace OpenGL
 		/// <param name="data">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
+		[RequiredByFeature("GL_EXT_color_subtable")]
 		public static void ColorSubTableEXT(int target, Int32 start, Int32 count, int format, int type, Object data)
 		{
 			GCHandle pin_data = GCHandle.Alloc(data, GCHandleType.Pinned);
@@ -132,6 +135,7 @@ namespace OpenGL
 		/// <param name="width">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
+		[RequiredByFeature("GL_EXT_color_subtable")]
 		public static void CopyColorSubTableEXT(int target, Int32 start, Int32 x, Int32 y, Int32 width)
 		{
 			Debug.Assert(Delegates.pglCopyColorSubTableEXT != null, "pglCopyColorSubTableEXT not implemented");

@@ -52,6 +52,7 @@ namespace OpenGL
 		/// <param name="param">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
+		[RequiredByFeature("GL_NV_point_sprite")]
 		public static void PointParameterNV(int pname, Int32 param)
 		{
 			Debug.Assert(Delegates.pglPointParameteriNV != null, "pglPointParameteriNV not implemented");
@@ -69,6 +70,7 @@ namespace OpenGL
 		/// <param name="params">
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_NV_point_sprite")]
 		public static void PointParameterNV(int pname, Int32[] @params)
 		{
 			unsafe {

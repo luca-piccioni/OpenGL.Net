@@ -40,6 +40,7 @@ namespace OpenGL
 		/// <summary>
 		/// Binding for glGetInstrumentsSGIX.
 		/// </summary>
+		[RequiredByFeature("GL_SGIX_instruments")]
 		public static Int32 GetInstrumentsSGIX()
 		{
 			Int32 retValue;
@@ -61,6 +62,7 @@ namespace OpenGL
 		/// <param name="buffer">
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_SGIX_instruments")]
 		public static void InstrumentsBufferSGIX(Int32 size, Int32[] buffer)
 		{
 			unsafe {
@@ -80,6 +82,7 @@ namespace OpenGL
 		/// <param name="marker_p">
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_SGIX_instruments")]
 		public static Int32 PollInstrumentsSGIX(Int32[] marker_p)
 		{
 			Int32 retValue;
@@ -103,6 +106,7 @@ namespace OpenGL
 		/// <param name="marker">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
+		[RequiredByFeature("GL_SGIX_instruments")]
 		public static void ReadInstrumentsSGIX(Int32 marker)
 		{
 			Debug.Assert(Delegates.pglReadInstrumentsSGIX != null, "pglReadInstrumentsSGIX not implemented");
@@ -114,6 +118,7 @@ namespace OpenGL
 		/// <summary>
 		/// Binding for glStartInstrumentsSGIX.
 		/// </summary>
+		[RequiredByFeature("GL_SGIX_instruments")]
 		public static void StartInstrumentsSGIX()
 		{
 			Debug.Assert(Delegates.pglStartInstrumentsSGIX != null, "pglStartInstrumentsSGIX not implemented");
@@ -128,6 +133,7 @@ namespace OpenGL
 		/// <param name="marker">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
+		[RequiredByFeature("GL_SGIX_instruments")]
 		public static void StopInstrumentsSGIX(Int32 marker)
 		{
 			Debug.Assert(Delegates.pglStopInstrumentsSGIX != null, "pglStopInstrumentsSGIX not implemented");

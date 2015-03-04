@@ -76,6 +76,7 @@ namespace OpenGL
 		/// <param name="param">
 		/// A <see cref="T:float"/>.
 		/// </param>
+		[RequiredByFeature("GL_SGIX_sprite")]
 		public static void SpriteParameterSGIX(int pname, float param)
 		{
 			Debug.Assert(Delegates.pglSpriteParameterfSGIX != null, "pglSpriteParameterfSGIX not implemented");
@@ -93,6 +94,7 @@ namespace OpenGL
 		/// <param name="params">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_SGIX_sprite")]
 		public static void SpriteParameterSGIX(int pname, float[] @params)
 		{
 			unsafe {
@@ -115,6 +117,7 @@ namespace OpenGL
 		/// <param name="param">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
+		[RequiredByFeature("GL_SGIX_sprite")]
 		public static void SpriteParameterSGIX(int pname, Int32 param)
 		{
 			Debug.Assert(Delegates.pglSpriteParameteriSGIX != null, "pglSpriteParameteriSGIX not implemented");
@@ -132,6 +135,7 @@ namespace OpenGL
 		/// <param name="params">
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_SGIX_sprite")]
 		public static void SpriteParameterSGIX(int pname, Int32[] @params)
 		{
 			unsafe {

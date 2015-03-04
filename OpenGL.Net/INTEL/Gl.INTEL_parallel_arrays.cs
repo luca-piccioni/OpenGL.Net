@@ -67,6 +67,7 @@ namespace OpenGL
 		/// <param name="pointer">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
+		[RequiredByFeature("GL_INTEL_parallel_arrays")]
 		public static void VertexPointerINTEL(Int32 size, int type, IntPtr pointer)
 		{
 			Debug.Assert(Delegates.pglVertexPointervINTEL != null, "pglVertexPointervINTEL not implemented");
@@ -87,6 +88,7 @@ namespace OpenGL
 		/// <param name="pointer">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
+		[RequiredByFeature("GL_INTEL_parallel_arrays")]
 		public static void VertexPointerINTEL(Int32 size, VertexPointerType type, IntPtr pointer)
 		{
 			Debug.Assert(Delegates.pglVertexPointervINTEL != null, "pglVertexPointervINTEL not implemented");
@@ -107,6 +109,7 @@ namespace OpenGL
 		/// <param name="pointer">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
+		[RequiredByFeature("GL_INTEL_parallel_arrays")]
 		public static void VertexPointerINTEL(Int32 size, int type, Object pointer)
 		{
 			GCHandle pin_pointer = GCHandle.Alloc(pointer, GCHandleType.Pinned);
@@ -126,6 +129,7 @@ namespace OpenGL
 		/// <param name="pointer">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
+		[RequiredByFeature("GL_INTEL_parallel_arrays")]
 		public static void NormalPointerINTEL(int type, IntPtr pointer)
 		{
 			Debug.Assert(Delegates.pglNormalPointervINTEL != null, "pglNormalPointervINTEL not implemented");
@@ -143,6 +147,7 @@ namespace OpenGL
 		/// <param name="pointer">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
+		[RequiredByFeature("GL_INTEL_parallel_arrays")]
 		public static void NormalPointerINTEL(NormalPointerType type, IntPtr pointer)
 		{
 			Debug.Assert(Delegates.pglNormalPointervINTEL != null, "pglNormalPointervINTEL not implemented");
@@ -160,6 +165,7 @@ namespace OpenGL
 		/// <param name="pointer">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
+		[RequiredByFeature("GL_INTEL_parallel_arrays")]
 		public static void NormalPointerINTEL(int type, Object pointer)
 		{
 			GCHandle pin_pointer = GCHandle.Alloc(pointer, GCHandleType.Pinned);
@@ -182,6 +188,7 @@ namespace OpenGL
 		/// <param name="pointer">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
+		[RequiredByFeature("GL_INTEL_parallel_arrays")]
 		public static void ColorPointerINTEL(Int32 size, int type, IntPtr pointer)
 		{
 			Debug.Assert(Delegates.pglColorPointervINTEL != null, "pglColorPointervINTEL not implemented");
@@ -202,6 +209,7 @@ namespace OpenGL
 		/// <param name="pointer">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
+		[RequiredByFeature("GL_INTEL_parallel_arrays")]
 		public static void ColorPointerINTEL(Int32 size, VertexPointerType type, IntPtr pointer)
 		{
 			Debug.Assert(Delegates.pglColorPointervINTEL != null, "pglColorPointervINTEL not implemented");
@@ -222,6 +230,7 @@ namespace OpenGL
 		/// <param name="pointer">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
+		[RequiredByFeature("GL_INTEL_parallel_arrays")]
 		public static void ColorPointerINTEL(Int32 size, int type, Object pointer)
 		{
 			GCHandle pin_pointer = GCHandle.Alloc(pointer, GCHandleType.Pinned);
@@ -244,6 +253,7 @@ namespace OpenGL
 		/// <param name="pointer">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
+		[RequiredByFeature("GL_INTEL_parallel_arrays")]
 		public static void TexCoordPointerINTEL(Int32 size, int type, IntPtr pointer)
 		{
 			Debug.Assert(Delegates.pglTexCoordPointervINTEL != null, "pglTexCoordPointervINTEL not implemented");
@@ -264,6 +274,7 @@ namespace OpenGL
 		/// <param name="pointer">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
+		[RequiredByFeature("GL_INTEL_parallel_arrays")]
 		public static void TexCoordPointerINTEL(Int32 size, VertexPointerType type, IntPtr pointer)
 		{
 			Debug.Assert(Delegates.pglTexCoordPointervINTEL != null, "pglTexCoordPointervINTEL not implemented");
@@ -284,6 +295,7 @@ namespace OpenGL
 		/// <param name="pointer">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
+		[RequiredByFeature("GL_INTEL_parallel_arrays")]
 		public static void TexCoordPointerINTEL(Int32 size, int type, Object pointer)
 		{
 			GCHandle pin_pointer = GCHandle.Alloc(pointer, GCHandleType.Pinned);

@@ -136,6 +136,7 @@ namespace OpenGL
 		/// <param name="bufs">
 		/// A <see cref="T:int[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_ARB_draw_buffers")]
 		public static void DrawBuffersARB(Int32 n, int[] bufs)
 		{
 			unsafe {

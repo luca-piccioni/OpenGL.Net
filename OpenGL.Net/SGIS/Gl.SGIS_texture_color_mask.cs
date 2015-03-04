@@ -46,6 +46,7 @@ namespace OpenGL
 		/// <param name="alpha">
 		/// A <see cref="T:bool"/>.
 		/// </param>
+		[RequiredByFeature("GL_SGIS_texture_color_mask")]
 		public static void TextureColorMaskSGIS(bool red, bool green, bool blue, bool alpha)
 		{
 			Debug.Assert(Delegates.pglTextureColorMaskSGIS != null, "pglTextureColorMaskSGIS not implemented");

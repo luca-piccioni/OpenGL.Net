@@ -178,6 +178,7 @@ namespace OpenGL
 		/// <param name="enabled">
 		/// A <see cref="T:bool"/>.
 		/// </param>
+		[RequiredByFeature("GL_ARB_debug_output")]
 		public static void DebugMessageControlARB(int source, int type, int severity, Int32 count, UInt32[] ids, bool enabled)
 		{
 			unsafe {
@@ -212,6 +213,7 @@ namespace OpenGL
 		/// <param name="buf">
 		/// A <see cref="T:String"/>.
 		/// </param>
+		[RequiredByFeature("GL_ARB_debug_output")]
 		public static void DebugMessageInsertARB(int source, int type, UInt32 id, int severity, Int32 length, String buf)
 		{
 			Debug.Assert(Delegates.pglDebugMessageInsertARB != null, "pglDebugMessageInsertARB not implemented");
@@ -229,6 +231,7 @@ namespace OpenGL
 		/// <param name="userParam">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
+		[RequiredByFeature("GL_ARB_debug_output")]
 		public static void DebugMessageCallbackARB(IntPtr callback, IntPtr userParam)
 		{
 			Debug.Assert(Delegates.pglDebugMessageCallbackARB != null, "pglDebugMessageCallbackARB not implemented");
@@ -246,6 +249,7 @@ namespace OpenGL
 		/// <param name="userParam">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
+		[RequiredByFeature("GL_ARB_debug_output")]
 		public static void DebugMessageCallbackARB(IntPtr callback, Object userParam)
 		{
 			GCHandle pin_userParam = GCHandle.Alloc(userParam, GCHandleType.Pinned);
@@ -283,6 +287,7 @@ namespace OpenGL
 		/// <param name="messageLog">
 		/// A <see cref="T:StringBuilder"/>.
 		/// </param>
+		[RequiredByFeature("GL_ARB_debug_output")]
 		public static UInt32 GetDebugMessageLogARB(UInt32 count, Int32 bufSize, int[] sources, int[] types, UInt32[] ids, int[] severities, Int32[] lengths, [Out] StringBuilder messageLog)
 		{
 			UInt32 retValue;

@@ -34,6 +34,7 @@ namespace OpenGL
 		/// <param name="group">
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
+		[RequiredByFeature("WGL_NV_swap_group")]
 		public static bool JoinSwapGroupNV(IntPtr hDC, UInt32 group)
 		{
 			bool retValue;
@@ -41,7 +42,6 @@ namespace OpenGL
 			Debug.Assert(Delegates.pwglJoinSwapGroupNV != null, "pwglJoinSwapGroupNV not implemented");
 			retValue = Delegates.pwglJoinSwapGroupNV(hDC, group);
 			CallLog("wglJoinSwapGroupNV({0}, {1}) = {2}", hDC, group, retValue);
-			DebugCheckErrors();
 
 			return (retValue);
 		}
@@ -55,6 +55,7 @@ namespace OpenGL
 		/// <param name="barrier">
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
+		[RequiredByFeature("WGL_NV_swap_group")]
 		public static bool BindSwapBarrierNV(UInt32 group, UInt32 barrier)
 		{
 			bool retValue;
@@ -62,7 +63,6 @@ namespace OpenGL
 			Debug.Assert(Delegates.pwglBindSwapBarrierNV != null, "pwglBindSwapBarrierNV not implemented");
 			retValue = Delegates.pwglBindSwapBarrierNV(group, barrier);
 			CallLog("wglBindSwapBarrierNV({0}, {1}) = {2}", group, barrier, retValue);
-			DebugCheckErrors();
 
 			return (retValue);
 		}
@@ -79,6 +79,7 @@ namespace OpenGL
 		/// <param name="barrier">
 		/// A <see cref="T:UInt32[]"/>.
 		/// </param>
+		[RequiredByFeature("WGL_NV_swap_group")]
 		public static bool QuerySwapGroupNV(IntPtr hDC, UInt32[] group, UInt32[] barrier)
 		{
 			bool retValue;
@@ -92,7 +93,6 @@ namespace OpenGL
 					CallLog("wglQuerySwapGroupNV({0}, {1}, {2}) = {3}", hDC, group, barrier, retValue);
 				}
 			}
-			DebugCheckErrors();
 
 			return (retValue);
 		}
@@ -109,6 +109,7 @@ namespace OpenGL
 		/// <param name="maxBarriers">
 		/// A <see cref="T:UInt32[]"/>.
 		/// </param>
+		[RequiredByFeature("WGL_NV_swap_group")]
 		public static bool QueryMaxSwapGroupsNV(IntPtr hDC, UInt32[] maxGroups, UInt32[] maxBarriers)
 		{
 			bool retValue;
@@ -122,7 +123,6 @@ namespace OpenGL
 					CallLog("wglQueryMaxSwapGroupsNV({0}, {1}, {2}) = {3}", hDC, maxGroups, maxBarriers, retValue);
 				}
 			}
-			DebugCheckErrors();
 
 			return (retValue);
 		}
@@ -136,6 +136,7 @@ namespace OpenGL
 		/// <param name="count">
 		/// A <see cref="T:UInt32[]"/>.
 		/// </param>
+		[RequiredByFeature("WGL_NV_swap_group")]
 		public static bool QueryFrameCountNV(IntPtr hDC, UInt32[] count)
 		{
 			bool retValue;
@@ -148,7 +149,6 @@ namespace OpenGL
 					CallLog("wglQueryFrameCountNV({0}, {1}) = {2}", hDC, count, retValue);
 				}
 			}
-			DebugCheckErrors();
 
 			return (retValue);
 		}
@@ -159,6 +159,7 @@ namespace OpenGL
 		/// <param name="hDC">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
+		[RequiredByFeature("WGL_NV_swap_group")]
 		public static bool ResetFrameCountNV(IntPtr hDC)
 		{
 			bool retValue;
@@ -166,7 +167,6 @@ namespace OpenGL
 			Debug.Assert(Delegates.pwglResetFrameCountNV != null, "pwglResetFrameCountNV not implemented");
 			retValue = Delegates.pwglResetFrameCountNV(hDC);
 			CallLog("wglResetFrameCountNV({0}) = {1}", hDC, retValue);
-			DebugCheckErrors();
 
 			return (retValue);
 		}

@@ -70,6 +70,7 @@ namespace OpenGL
 		/// <param name="alpha">
 		/// A <see cref="T:float"/>.
 		/// </param>
+		[RequiredByFeature("GL_EXT_blend_color")]
 		public static void BlendColorEXT(float red, float green, float blue, float alpha)
 		{
 			Debug.Assert(Delegates.pglBlendColorEXT != null, "pglBlendColorEXT not implemented");

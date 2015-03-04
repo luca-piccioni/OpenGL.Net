@@ -37,6 +37,7 @@ namespace OpenGL
 		/// <param name="marker">
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
+		[RequiredByFeature("GL_SGIX_async")]
 		public static void AsyncMarkerSGIX(UInt32 marker)
 		{
 			Debug.Assert(Delegates.pglAsyncMarkerSGIX != null, "pglAsyncMarkerSGIX not implemented");
@@ -51,6 +52,7 @@ namespace OpenGL
 		/// <param name="markerp">
 		/// A <see cref="T:UInt32[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_SGIX_async")]
 		public static Int32 FinishAsyncSGIX(UInt32[] markerp)
 		{
 			Int32 retValue;
@@ -74,6 +76,7 @@ namespace OpenGL
 		/// <param name="markerp">
 		/// A <see cref="T:UInt32[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_SGIX_async")]
 		public static Int32 PollAsyncSGIX(UInt32[] markerp)
 		{
 			Int32 retValue;
@@ -97,6 +100,7 @@ namespace OpenGL
 		/// <param name="range">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
+		[RequiredByFeature("GL_SGIX_async")]
 		public static UInt32 GenAsyncMarkerSGIX(Int32 range)
 		{
 			UInt32 retValue;
@@ -118,6 +122,7 @@ namespace OpenGL
 		/// <param name="range">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
+		[RequiredByFeature("GL_SGIX_async")]
 		public static void DeleteAsyncMarkerSGIX(UInt32 marker, Int32 range)
 		{
 			Debug.Assert(Delegates.pglDeleteAsyncMarkersSGIX != null, "pglDeleteAsyncMarkersSGIX not implemented");
@@ -132,6 +137,7 @@ namespace OpenGL
 		/// <param name="marker">
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
+		[RequiredByFeature("GL_SGIX_async")]
 		public static bool IsAsyncMarkerSGIX(UInt32 marker)
 		{
 			bool retValue;

@@ -97,6 +97,7 @@ namespace OpenGL
 		/// <param name="key1">
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
+		[RequiredByFeature("GL_NV_present_video")]
 		public static void PresentFrameKeyedNV(UInt32 video_slot, UInt64 minPresentTime, UInt32 beginPresentTimeId, UInt32 presentDurationId, int type, int target0, UInt32 fill0, UInt32 key0, int target1, UInt32 fill1, UInt32 key1)
 		{
 			Debug.Assert(Delegates.pglPresentFrameKeyedNV != null, "pglPresentFrameKeyedNV not implemented");
@@ -147,6 +148,7 @@ namespace OpenGL
 		/// <param name="fill3">
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
+		[RequiredByFeature("GL_NV_present_video")]
 		public static void PresentFrameDualFillNV(UInt32 video_slot, UInt64 minPresentTime, UInt32 beginPresentTimeId, UInt32 presentDurationId, int type, int target0, UInt32 fill0, int target1, UInt32 fill1, int target2, UInt32 fill2, int target3, UInt32 fill3)
 		{
 			Debug.Assert(Delegates.pglPresentFrameDualFillNV != null, "pglPresentFrameDualFillNV not implemented");
@@ -167,6 +169,7 @@ namespace OpenGL
 		/// <param name="params">
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_NV_present_video")]
 		public static void GetVideoNV(UInt32 video_slot, int pname, Int32[] @params)
 		{
 			unsafe {
@@ -192,6 +195,7 @@ namespace OpenGL
 		/// <param name="params">
 		/// A <see cref="T:UInt32[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_NV_present_video")]
 		public static void GetVideoNV(UInt32 video_slot, int pname, UInt32[] @params)
 		{
 			unsafe {
@@ -217,6 +221,7 @@ namespace OpenGL
 		/// <param name="params">
 		/// A <see cref="T:Int64[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_NV_present_video")]
 		public static void GetVideoNV(UInt32 video_slot, int pname, Int64[] @params)
 		{
 			unsafe {
@@ -242,6 +247,7 @@ namespace OpenGL
 		/// <param name="params">
 		/// A <see cref="T:UInt64[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_NV_present_video")]
 		public static void GetVideoui64vNV(UInt32 video_slot, int pname, UInt64[] @params)
 		{
 			unsafe {

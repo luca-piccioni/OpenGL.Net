@@ -43,6 +43,7 @@ namespace OpenGL
 		/// <param name="target">
 		/// A <see cref="T:int"/>.
 		/// </param>
+		[RequiredByFeature("GL_IBM_static_data")]
 		public static void FlushStaticDataIBM(int target)
 		{
 			Debug.Assert(Delegates.pglFlushStaticDataIBM != null, "pglFlushStaticDataIBM not implemented");

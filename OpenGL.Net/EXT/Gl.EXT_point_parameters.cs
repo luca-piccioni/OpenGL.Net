@@ -58,6 +58,7 @@ namespace OpenGL
 		/// <param name="param">
 		/// A <see cref="T:float"/>.
 		/// </param>
+		[RequiredByFeature("GL_EXT_point_parameters")]
 		public static void PointParameterEXT(int pname, float param)
 		{
 			Debug.Assert(Delegates.pglPointParameterfEXT != null, "pglPointParameterfEXT not implemented");
@@ -75,6 +76,7 @@ namespace OpenGL
 		/// <param name="params">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_EXT_point_parameters")]
 		public static void PointParameterEXT(int pname, float[] @params)
 		{
 			unsafe {

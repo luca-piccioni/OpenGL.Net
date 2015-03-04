@@ -43,6 +43,7 @@ namespace OpenGL
 		/// <param name="mode">
 		/// A <see cref="T:int"/>.
 		/// </param>
+		[RequiredByFeature("GL_SGIX_pixel_texture")]
 		public static void PixelTexGenSGIX(int mode)
 		{
 			Debug.Assert(Delegates.pglPixelTexGenSGIX != null, "pglPixelTexGenSGIX not implemented");

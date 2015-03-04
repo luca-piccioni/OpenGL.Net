@@ -80,6 +80,7 @@ namespace OpenGL
 		/// <param name="name">
 		/// A <see cref="T:String"/>.
 		/// </param>
+		[RequiredByFeature("GL_ARB_vertex_shader")]
 		public static void BindAttribLocationARB(UInt32 programObj, UInt32 index, String name)
 		{
 			Debug.Assert(Delegates.pglBindAttribLocationARB != null, "pglBindAttribLocationARB not implemented");
@@ -112,6 +113,7 @@ namespace OpenGL
 		/// <param name="name">
 		/// A <see cref="T:StringBuilder"/>.
 		/// </param>
+		[RequiredByFeature("GL_ARB_vertex_shader")]
 		public static void GetActiveAttribARB(UInt32 programObj, UInt32 index, Int32 maxLength, out Int32 length, out Int32 size, out int type, [Out] StringBuilder name)
 		{
 			unsafe {
@@ -136,6 +138,7 @@ namespace OpenGL
 		/// <param name="name">
 		/// A <see cref="T:String"/>.
 		/// </param>
+		[RequiredByFeature("GL_ARB_vertex_shader")]
 		public static Int32 GetAttribLocationARB(UInt32 programObj, String name)
 		{
 			Int32 retValue;

@@ -29,84 +29,72 @@ namespace OpenGL
 		/// Value of GL_PIXEL_PACK_BUFFER symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_2_1")]
-		[RequiredByFeature("GL_ES_VERSION_3_0")]
 		public const int PIXEL_PACK_BUFFER = 0x88EB;
 
 		/// <summary>
 		/// Value of GL_PIXEL_UNPACK_BUFFER symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_2_1")]
-		[RequiredByFeature("GL_ES_VERSION_3_0")]
 		public const int PIXEL_UNPACK_BUFFER = 0x88EC;
 
 		/// <summary>
 		/// Value of GL_PIXEL_PACK_BUFFER_BINDING symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_2_1")]
-		[RequiredByFeature("GL_ES_VERSION_3_0")]
 		public const int PIXEL_PACK_BUFFER_BINDING = 0x88ED;
 
 		/// <summary>
 		/// Value of GL_PIXEL_UNPACK_BUFFER_BINDING symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_2_1")]
-		[RequiredByFeature("GL_ES_VERSION_3_0")]
 		public const int PIXEL_UNPACK_BUFFER_BINDING = 0x88EF;
 
 		/// <summary>
 		/// Value of GL_FLOAT_MAT2x3 symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_2_1")]
-		[RequiredByFeature("GL_ES_VERSION_3_0")]
 		public const int FLOAT_MAT2x3 = 0x8B65;
 
 		/// <summary>
 		/// Value of GL_FLOAT_MAT2x4 symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_2_1")]
-		[RequiredByFeature("GL_ES_VERSION_3_0")]
 		public const int FLOAT_MAT2x4 = 0x8B66;
 
 		/// <summary>
 		/// Value of GL_FLOAT_MAT3x2 symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_2_1")]
-		[RequiredByFeature("GL_ES_VERSION_3_0")]
 		public const int FLOAT_MAT3x2 = 0x8B67;
 
 		/// <summary>
 		/// Value of GL_FLOAT_MAT3x4 symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_2_1")]
-		[RequiredByFeature("GL_ES_VERSION_3_0")]
 		public const int FLOAT_MAT3x4 = 0x8B68;
 
 		/// <summary>
 		/// Value of GL_FLOAT_MAT4x2 symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_2_1")]
-		[RequiredByFeature("GL_ES_VERSION_3_0")]
 		public const int FLOAT_MAT4x2 = 0x8B69;
 
 		/// <summary>
 		/// Value of GL_FLOAT_MAT4x3 symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_2_1")]
-		[RequiredByFeature("GL_ES_VERSION_3_0")]
 		public const int FLOAT_MAT4x3 = 0x8B6A;
 
 		/// <summary>
 		/// Value of GL_SRGB symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_2_1")]
-		[RequiredByFeature("GL_ES_VERSION_3_0")]
 		public const int SRGB = 0x8C40;
 
 		/// <summary>
 		/// Value of GL_SRGB8 symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_2_1")]
-		[RequiredByFeature("GL_ES_VERSION_3_0")]
 		public const int SRGB8 = 0x8C41;
 
 		/// <summary>
@@ -119,7 +107,6 @@ namespace OpenGL
 		/// Value of GL_SRGB8_ALPHA8 symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_2_1")]
-		[RequiredByFeature("GL_ES_VERSION_3_0")]
 		public const int SRGB8_ALPHA8 = 0x8C43;
 
 		/// <summary>
@@ -292,6 +279,7 @@ namespace OpenGL
 		/// </remarks>
 		/// <seealso cref="Gl.LinkProgram"/>
 		/// <seealso cref="Gl.UseProgram"/>
+		[RequiredByFeature("GL_VERSION_2_1")]
 		public static void UniformMatrix2x3(Int32 location, Int32 count, bool transpose, float[] value)
 		{
 			unsafe {
@@ -398,6 +386,7 @@ namespace OpenGL
 		/// </remarks>
 		/// <seealso cref="Gl.LinkProgram"/>
 		/// <seealso cref="Gl.UseProgram"/>
+		[RequiredByFeature("GL_VERSION_2_1")]
 		public static void UniformMatrix3x2(Int32 location, Int32 count, bool transpose, float[] value)
 		{
 			unsafe {
@@ -504,6 +493,7 @@ namespace OpenGL
 		/// </remarks>
 		/// <seealso cref="Gl.LinkProgram"/>
 		/// <seealso cref="Gl.UseProgram"/>
+		[RequiredByFeature("GL_VERSION_2_1")]
 		public static void UniformMatrix2x4(Int32 location, Int32 count, bool transpose, float[] value)
 		{
 			unsafe {
@@ -610,6 +600,7 @@ namespace OpenGL
 		/// </remarks>
 		/// <seealso cref="Gl.LinkProgram"/>
 		/// <seealso cref="Gl.UseProgram"/>
+		[RequiredByFeature("GL_VERSION_2_1")]
 		public static void UniformMatrix4x2(Int32 location, Int32 count, bool transpose, float[] value)
 		{
 			unsafe {
@@ -716,6 +707,7 @@ namespace OpenGL
 		/// </remarks>
 		/// <seealso cref="Gl.LinkProgram"/>
 		/// <seealso cref="Gl.UseProgram"/>
+		[RequiredByFeature("GL_VERSION_2_1")]
 		public static void UniformMatrix3x4(Int32 location, Int32 count, bool transpose, float[] value)
 		{
 			unsafe {
@@ -822,6 +814,7 @@ namespace OpenGL
 		/// </remarks>
 		/// <seealso cref="Gl.LinkProgram"/>
 		/// <seealso cref="Gl.UseProgram"/>
+		[RequiredByFeature("GL_VERSION_2_1")]
 		public static void UniformMatrix4x3(Int32 location, Int32 count, bool transpose, float[] value)
 		{
 			unsafe {

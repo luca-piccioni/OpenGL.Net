@@ -29,310 +29,234 @@ namespace OpenGL
 		/// Value of GL_TEXTURE0 symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_3")]
-		[RequiredByFeature("GL_VERSION_ES_CM_1_0")]
-		[RequiredByFeature("GL_ES_VERSION_2_0")]
 		public const int TEXTURE0 = 0x84C0;
 
 		/// <summary>
 		/// Value of GL_TEXTURE1 symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_3")]
-		[RequiredByFeature("GL_VERSION_ES_CM_1_0")]
-		[RequiredByFeature("GL_ES_VERSION_2_0")]
 		public const int TEXTURE1 = 0x84C1;
 
 		/// <summary>
 		/// Value of GL_TEXTURE2 symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_3")]
-		[RequiredByFeature("GL_VERSION_ES_CM_1_0")]
-		[RequiredByFeature("GL_ES_VERSION_2_0")]
 		public const int TEXTURE2 = 0x84C2;
 
 		/// <summary>
 		/// Value of GL_TEXTURE3 symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_3")]
-		[RequiredByFeature("GL_VERSION_ES_CM_1_0")]
-		[RequiredByFeature("GL_ES_VERSION_2_0")]
 		public const int TEXTURE3 = 0x84C3;
 
 		/// <summary>
 		/// Value of GL_TEXTURE4 symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_3")]
-		[RequiredByFeature("GL_VERSION_ES_CM_1_0")]
-		[RequiredByFeature("GL_ES_VERSION_2_0")]
 		public const int TEXTURE4 = 0x84C4;
 
 		/// <summary>
 		/// Value of GL_TEXTURE5 symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_3")]
-		[RequiredByFeature("GL_VERSION_ES_CM_1_0")]
-		[RequiredByFeature("GL_ES_VERSION_2_0")]
 		public const int TEXTURE5 = 0x84C5;
 
 		/// <summary>
 		/// Value of GL_TEXTURE6 symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_3")]
-		[RequiredByFeature("GL_VERSION_ES_CM_1_0")]
-		[RequiredByFeature("GL_ES_VERSION_2_0")]
 		public const int TEXTURE6 = 0x84C6;
 
 		/// <summary>
 		/// Value of GL_TEXTURE7 symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_3")]
-		[RequiredByFeature("GL_VERSION_ES_CM_1_0")]
-		[RequiredByFeature("GL_ES_VERSION_2_0")]
 		public const int TEXTURE7 = 0x84C7;
 
 		/// <summary>
 		/// Value of GL_TEXTURE8 symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_3")]
-		[RequiredByFeature("GL_VERSION_ES_CM_1_0")]
-		[RequiredByFeature("GL_ES_VERSION_2_0")]
 		public const int TEXTURE8 = 0x84C8;
 
 		/// <summary>
 		/// Value of GL_TEXTURE9 symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_3")]
-		[RequiredByFeature("GL_VERSION_ES_CM_1_0")]
-		[RequiredByFeature("GL_ES_VERSION_2_0")]
 		public const int TEXTURE9 = 0x84C9;
 
 		/// <summary>
 		/// Value of GL_TEXTURE10 symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_3")]
-		[RequiredByFeature("GL_VERSION_ES_CM_1_0")]
-		[RequiredByFeature("GL_ES_VERSION_2_0")]
 		public const int TEXTURE10 = 0x84CA;
 
 		/// <summary>
 		/// Value of GL_TEXTURE11 symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_3")]
-		[RequiredByFeature("GL_VERSION_ES_CM_1_0")]
-		[RequiredByFeature("GL_ES_VERSION_2_0")]
 		public const int TEXTURE11 = 0x84CB;
 
 		/// <summary>
 		/// Value of GL_TEXTURE12 symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_3")]
-		[RequiredByFeature("GL_VERSION_ES_CM_1_0")]
-		[RequiredByFeature("GL_ES_VERSION_2_0")]
 		public const int TEXTURE12 = 0x84CC;
 
 		/// <summary>
 		/// Value of GL_TEXTURE13 symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_3")]
-		[RequiredByFeature("GL_VERSION_ES_CM_1_0")]
-		[RequiredByFeature("GL_ES_VERSION_2_0")]
 		public const int TEXTURE13 = 0x84CD;
 
 		/// <summary>
 		/// Value of GL_TEXTURE14 symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_3")]
-		[RequiredByFeature("GL_VERSION_ES_CM_1_0")]
-		[RequiredByFeature("GL_ES_VERSION_2_0")]
 		public const int TEXTURE14 = 0x84CE;
 
 		/// <summary>
 		/// Value of GL_TEXTURE15 symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_3")]
-		[RequiredByFeature("GL_VERSION_ES_CM_1_0")]
-		[RequiredByFeature("GL_ES_VERSION_2_0")]
 		public const int TEXTURE15 = 0x84CF;
 
 		/// <summary>
 		/// Value of GL_TEXTURE16 symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_3")]
-		[RequiredByFeature("GL_VERSION_ES_CM_1_0")]
-		[RequiredByFeature("GL_ES_VERSION_2_0")]
 		public const int TEXTURE16 = 0x84D0;
 
 		/// <summary>
 		/// Value of GL_TEXTURE17 symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_3")]
-		[RequiredByFeature("GL_VERSION_ES_CM_1_0")]
-		[RequiredByFeature("GL_ES_VERSION_2_0")]
 		public const int TEXTURE17 = 0x84D1;
 
 		/// <summary>
 		/// Value of GL_TEXTURE18 symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_3")]
-		[RequiredByFeature("GL_VERSION_ES_CM_1_0")]
-		[RequiredByFeature("GL_ES_VERSION_2_0")]
 		public const int TEXTURE18 = 0x84D2;
 
 		/// <summary>
 		/// Value of GL_TEXTURE19 symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_3")]
-		[RequiredByFeature("GL_VERSION_ES_CM_1_0")]
-		[RequiredByFeature("GL_ES_VERSION_2_0")]
 		public const int TEXTURE19 = 0x84D3;
 
 		/// <summary>
 		/// Value of GL_TEXTURE20 symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_3")]
-		[RequiredByFeature("GL_VERSION_ES_CM_1_0")]
-		[RequiredByFeature("GL_ES_VERSION_2_0")]
 		public const int TEXTURE20 = 0x84D4;
 
 		/// <summary>
 		/// Value of GL_TEXTURE21 symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_3")]
-		[RequiredByFeature("GL_VERSION_ES_CM_1_0")]
-		[RequiredByFeature("GL_ES_VERSION_2_0")]
 		public const int TEXTURE21 = 0x84D5;
 
 		/// <summary>
 		/// Value of GL_TEXTURE22 symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_3")]
-		[RequiredByFeature("GL_VERSION_ES_CM_1_0")]
-		[RequiredByFeature("GL_ES_VERSION_2_0")]
 		public const int TEXTURE22 = 0x84D6;
 
 		/// <summary>
 		/// Value of GL_TEXTURE23 symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_3")]
-		[RequiredByFeature("GL_VERSION_ES_CM_1_0")]
-		[RequiredByFeature("GL_ES_VERSION_2_0")]
 		public const int TEXTURE23 = 0x84D7;
 
 		/// <summary>
 		/// Value of GL_TEXTURE24 symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_3")]
-		[RequiredByFeature("GL_VERSION_ES_CM_1_0")]
-		[RequiredByFeature("GL_ES_VERSION_2_0")]
 		public const int TEXTURE24 = 0x84D8;
 
 		/// <summary>
 		/// Value of GL_TEXTURE25 symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_3")]
-		[RequiredByFeature("GL_VERSION_ES_CM_1_0")]
-		[RequiredByFeature("GL_ES_VERSION_2_0")]
 		public const int TEXTURE25 = 0x84D9;
 
 		/// <summary>
 		/// Value of GL_TEXTURE26 symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_3")]
-		[RequiredByFeature("GL_VERSION_ES_CM_1_0")]
-		[RequiredByFeature("GL_ES_VERSION_2_0")]
 		public const int TEXTURE26 = 0x84DA;
 
 		/// <summary>
 		/// Value of GL_TEXTURE27 symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_3")]
-		[RequiredByFeature("GL_VERSION_ES_CM_1_0")]
-		[RequiredByFeature("GL_ES_VERSION_2_0")]
 		public const int TEXTURE27 = 0x84DB;
 
 		/// <summary>
 		/// Value of GL_TEXTURE28 symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_3")]
-		[RequiredByFeature("GL_VERSION_ES_CM_1_0")]
-		[RequiredByFeature("GL_ES_VERSION_2_0")]
 		public const int TEXTURE28 = 0x84DC;
 
 		/// <summary>
 		/// Value of GL_TEXTURE29 symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_3")]
-		[RequiredByFeature("GL_VERSION_ES_CM_1_0")]
-		[RequiredByFeature("GL_ES_VERSION_2_0")]
 		public const int TEXTURE29 = 0x84DD;
 
 		/// <summary>
 		/// Value of GL_TEXTURE30 symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_3")]
-		[RequiredByFeature("GL_VERSION_ES_CM_1_0")]
-		[RequiredByFeature("GL_ES_VERSION_2_0")]
 		public const int TEXTURE30 = 0x84DE;
 
 		/// <summary>
 		/// Value of GL_TEXTURE31 symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_3")]
-		[RequiredByFeature("GL_VERSION_ES_CM_1_0")]
-		[RequiredByFeature("GL_ES_VERSION_2_0")]
 		public const int TEXTURE31 = 0x84DF;
 
 		/// <summary>
 		/// Value of GL_ACTIVE_TEXTURE symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_3")]
-		[RequiredByFeature("GL_VERSION_ES_CM_1_0")]
-		[RequiredByFeature("GL_ES_VERSION_2_0")]
 		public const int ACTIVE_TEXTURE = 0x84E0;
 
 		/// <summary>
 		/// Value of GL_MULTISAMPLE symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_3")]
-		[RequiredByFeature("GL_VERSION_ES_CM_1_0")]
 		public const int MULTISAMPLE = 0x809D;
 
 		/// <summary>
 		/// Value of GL_SAMPLE_ALPHA_TO_COVERAGE symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_3")]
-		[RequiredByFeature("GL_VERSION_ES_CM_1_0")]
-		[RequiredByFeature("GL_ES_VERSION_2_0")]
 		public const int SAMPLE_ALPHA_TO_COVERAGE = 0x809E;
 
 		/// <summary>
 		/// Value of GL_SAMPLE_ALPHA_TO_ONE symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_3")]
-		[RequiredByFeature("GL_VERSION_ES_CM_1_0")]
 		public const int SAMPLE_ALPHA_TO_ONE = 0x809F;
 
 		/// <summary>
 		/// Value of GL_SAMPLE_COVERAGE symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_3")]
-		[RequiredByFeature("GL_VERSION_ES_CM_1_0")]
-		[RequiredByFeature("GL_ES_VERSION_2_0")]
 		public const int SAMPLE_COVERAGE = 0x80A0;
 
 		/// <summary>
 		/// Value of GL_SAMPLE_BUFFERS symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_3")]
-		[RequiredByFeature("GL_VERSION_ES_CM_1_0")]
-		[RequiredByFeature("GL_ES_VERSION_2_0")]
 		public const int SAMPLE_BUFFERS = 0x80A8;
 
 		/// <summary>
 		/// Value of GL_SAMPLES symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_3")]
-		[RequiredByFeature("GL_VERSION_ES_CM_1_0")]
-		[RequiredByFeature("GL_ES_VERSION_2_0")]
 		[RequiredByFeature("GL_ARB_internalformat_query2")]
 		public const int SAMPLES = 0x80A9;
 
@@ -340,23 +264,18 @@ namespace OpenGL
 		/// Value of GL_SAMPLE_COVERAGE_VALUE symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_3")]
-		[RequiredByFeature("GL_VERSION_ES_CM_1_0")]
-		[RequiredByFeature("GL_ES_VERSION_2_0")]
 		public const int SAMPLE_COVERAGE_VALUE = 0x80AA;
 
 		/// <summary>
 		/// Value of GL_SAMPLE_COVERAGE_INVERT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_3")]
-		[RequiredByFeature("GL_VERSION_ES_CM_1_0")]
-		[RequiredByFeature("GL_ES_VERSION_2_0")]
 		public const int SAMPLE_COVERAGE_INVERT = 0x80AB;
 
 		/// <summary>
 		/// Value of GL_TEXTURE_CUBE_MAP symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_3")]
-		[RequiredByFeature("GL_ES_VERSION_2_0")]
 		[RequiredByFeature("GL_ARB_internalformat_query2")]
 		public const int TEXTURE_CUBE_MAP = 0x8513;
 
@@ -365,7 +284,6 @@ namespace OpenGL
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RequiredByFeature("GL_VERSION_4_5")]
-		[RequiredByFeature("GL_ES_VERSION_2_0")]
 		[RequiredByFeature("GL_ARB_direct_state_access")]
 		public const int TEXTURE_BINDING_CUBE_MAP = 0x8514;
 
@@ -373,42 +291,36 @@ namespace OpenGL
 		/// Value of GL_TEXTURE_CUBE_MAP_POSITIVE_X symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_3")]
-		[RequiredByFeature("GL_ES_VERSION_2_0")]
 		public const int TEXTURE_CUBE_MAP_POSITIVE_X = 0x8515;
 
 		/// <summary>
 		/// Value of GL_TEXTURE_CUBE_MAP_NEGATIVE_X symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_3")]
-		[RequiredByFeature("GL_ES_VERSION_2_0")]
 		public const int TEXTURE_CUBE_MAP_NEGATIVE_X = 0x8516;
 
 		/// <summary>
 		/// Value of GL_TEXTURE_CUBE_MAP_POSITIVE_Y symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_3")]
-		[RequiredByFeature("GL_ES_VERSION_2_0")]
 		public const int TEXTURE_CUBE_MAP_POSITIVE_Y = 0x8517;
 
 		/// <summary>
 		/// Value of GL_TEXTURE_CUBE_MAP_NEGATIVE_Y symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_3")]
-		[RequiredByFeature("GL_ES_VERSION_2_0")]
 		public const int TEXTURE_CUBE_MAP_NEGATIVE_Y = 0x8518;
 
 		/// <summary>
 		/// Value of GL_TEXTURE_CUBE_MAP_POSITIVE_Z symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_3")]
-		[RequiredByFeature("GL_ES_VERSION_2_0")]
 		public const int TEXTURE_CUBE_MAP_POSITIVE_Z = 0x8519;
 
 		/// <summary>
 		/// Value of GL_TEXTURE_CUBE_MAP_NEGATIVE_Z symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_3")]
-		[RequiredByFeature("GL_ES_VERSION_2_0")]
 		public const int TEXTURE_CUBE_MAP_NEGATIVE_Z = 0x851A;
 
 		/// <summary>
@@ -421,7 +333,6 @@ namespace OpenGL
 		/// Value of GL_MAX_CUBE_MAP_TEXTURE_SIZE symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_3")]
-		[RequiredByFeature("GL_ES_VERSION_2_0")]
 		public const int MAX_CUBE_MAP_TEXTURE_SIZE = 0x851C;
 
 		/// <summary>
@@ -452,7 +363,6 @@ namespace OpenGL
 		/// Value of GL_TEXTURE_COMPRESSED symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_3")]
-		[RequiredByFeature("GL_ES_VERSION_3_1")]
 		[RequiredByFeature("GL_ARB_internalformat_query2")]
 		public const int TEXTURE_COMPRESSED = 0x86A1;
 
@@ -460,16 +370,12 @@ namespace OpenGL
 		/// Value of GL_NUM_COMPRESSED_TEXTURE_FORMATS symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_3")]
-		[RequiredByFeature("GL_VERSION_ES_CM_1_0")]
-		[RequiredByFeature("GL_ES_VERSION_2_0")]
 		public const int NUM_COMPRESSED_TEXTURE_FORMATS = 0x86A2;
 
 		/// <summary>
 		/// Value of GL_COMPRESSED_TEXTURE_FORMATS symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_3")]
-		[RequiredByFeature("GL_VERSION_ES_CM_1_0")]
-		[RequiredByFeature("GL_ES_VERSION_2_0")]
 		public const int COMPRESSED_TEXTURE_FORMATS = 0x86A3;
 
 		/// <summary>
@@ -482,7 +388,6 @@ namespace OpenGL
 		/// Value of GL_CLIENT_ACTIVE_TEXTURE symbol (DEPRECATED).
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_3")]
-		[RequiredByFeature("GL_VERSION_ES_CM_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
 		[Obsolete("Deprecated/removed by OpenGL 3.2.")]
@@ -493,7 +398,6 @@ namespace OpenGL
 		/// Value of GL_MAX_TEXTURE_UNITS symbol (DEPRECATED).
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_3")]
-		[RequiredByFeature("GL_VERSION_ES_CM_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
 		[Obsolete("Deprecated/removed by OpenGL 3.2.")]
@@ -614,7 +518,6 @@ namespace OpenGL
 		/// Value of GL_COMBINE symbol (DEPRECATED).
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_3")]
-		[RequiredByFeature("GL_VERSION_ES_CM_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
 		[Obsolete("Deprecated/removed by OpenGL 3.2.")]
@@ -625,7 +528,6 @@ namespace OpenGL
 		/// Value of GL_COMBINE_RGB symbol (DEPRECATED).
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_3")]
-		[RequiredByFeature("GL_VERSION_ES_CM_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
 		[Obsolete("Deprecated/removed by OpenGL 3.2.")]
@@ -636,7 +538,6 @@ namespace OpenGL
 		/// Value of GL_COMBINE_ALPHA symbol (DEPRECATED).
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_3")]
-		[RequiredByFeature("GL_VERSION_ES_CM_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
 		[Obsolete("Deprecated/removed by OpenGL 3.2.")]
@@ -707,7 +608,6 @@ namespace OpenGL
 		/// Value of GL_OPERAND0_RGB symbol (DEPRECATED).
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_3")]
-		[RequiredByFeature("GL_VERSION_ES_CM_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
 		[Obsolete("Deprecated/removed by OpenGL 3.2.")]
@@ -718,7 +618,6 @@ namespace OpenGL
 		/// Value of GL_OPERAND1_RGB symbol (DEPRECATED).
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_3")]
-		[RequiredByFeature("GL_VERSION_ES_CM_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
 		[Obsolete("Deprecated/removed by OpenGL 3.2.")]
@@ -729,7 +628,6 @@ namespace OpenGL
 		/// Value of GL_OPERAND2_RGB symbol (DEPRECATED).
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_3")]
-		[RequiredByFeature("GL_VERSION_ES_CM_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
 		[Obsolete("Deprecated/removed by OpenGL 3.2.")]
@@ -740,7 +638,6 @@ namespace OpenGL
 		/// Value of GL_OPERAND0_ALPHA symbol (DEPRECATED).
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_3")]
-		[RequiredByFeature("GL_VERSION_ES_CM_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
 		[Obsolete("Deprecated/removed by OpenGL 3.2.")]
@@ -751,7 +648,6 @@ namespace OpenGL
 		/// Value of GL_OPERAND1_ALPHA symbol (DEPRECATED).
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_3")]
-		[RequiredByFeature("GL_VERSION_ES_CM_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
 		[Obsolete("Deprecated/removed by OpenGL 3.2.")]
@@ -762,7 +658,6 @@ namespace OpenGL
 		/// Value of GL_OPERAND2_ALPHA symbol (DEPRECATED).
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_3")]
-		[RequiredByFeature("GL_VERSION_ES_CM_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
 		[Obsolete("Deprecated/removed by OpenGL 3.2.")]
@@ -773,7 +668,6 @@ namespace OpenGL
 		/// Value of GL_RGB_SCALE symbol (DEPRECATED).
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_3")]
-		[RequiredByFeature("GL_VERSION_ES_CM_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
 		[Obsolete("Deprecated/removed by OpenGL 3.2.")]
@@ -784,7 +678,6 @@ namespace OpenGL
 		/// Value of GL_ADD_SIGNED symbol (DEPRECATED).
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_3")]
-		[RequiredByFeature("GL_VERSION_ES_CM_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
 		[Obsolete("Deprecated/removed by OpenGL 3.2.")]
@@ -795,7 +688,6 @@ namespace OpenGL
 		/// Value of GL_INTERPOLATE symbol (DEPRECATED).
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_3")]
-		[RequiredByFeature("GL_VERSION_ES_CM_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
 		[Obsolete("Deprecated/removed by OpenGL 3.2.")]
@@ -806,7 +698,6 @@ namespace OpenGL
 		/// Value of GL_SUBTRACT symbol (DEPRECATED).
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_3")]
-		[RequiredByFeature("GL_VERSION_ES_CM_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
 		[Obsolete("Deprecated/removed by OpenGL 3.2.")]
@@ -817,7 +708,6 @@ namespace OpenGL
 		/// Value of GL_CONSTANT symbol (DEPRECATED).
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_3")]
-		[RequiredByFeature("GL_VERSION_ES_CM_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
 		[Obsolete("Deprecated/removed by OpenGL 3.2.")]
@@ -828,7 +718,6 @@ namespace OpenGL
 		/// Value of GL_PRIMARY_COLOR symbol (DEPRECATED).
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_3")]
-		[RequiredByFeature("GL_VERSION_ES_CM_1_0")]
 		[RequiredByFeature("GL_NV_path_rendering")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
@@ -840,7 +729,6 @@ namespace OpenGL
 		/// Value of GL_PREVIOUS symbol (DEPRECATED).
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_3")]
-		[RequiredByFeature("GL_VERSION_ES_CM_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
 		[Obsolete("Deprecated/removed by OpenGL 3.2.")]
@@ -851,7 +739,6 @@ namespace OpenGL
 		/// Value of GL_DOT3_RGB symbol (DEPRECATED).
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_3")]
-		[RequiredByFeature("GL_VERSION_ES_CM_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
 		[Obsolete("Deprecated/removed by OpenGL 3.2.")]
@@ -862,7 +749,6 @@ namespace OpenGL
 		/// Value of GL_DOT3_RGBA symbol (DEPRECATED).
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_3")]
-		[RequiredByFeature("GL_VERSION_ES_CM_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
 		[Obsolete("Deprecated/removed by OpenGL 3.2.")]
@@ -914,6 +800,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexSubImage2D"/>
 		/// <seealso cref="Gl.TexSubImage3D"/>
 		/// <seealso cref="Gl.TexParameter"/>
+		[RequiredByFeature("GL_VERSION_1_3")]
 		public static void ActiveTexture(int texture)
 		{
 			if        (Delegates.pglActiveTexture != null) {
@@ -960,6 +847,7 @@ namespace OpenGL
 		/// </remarks>
 		/// <seealso cref="Gl.Enable"/>
 		/// <seealso cref="Gl.removedTypes"/>
+		[RequiredByFeature("GL_VERSION_1_3")]
 		public static void SampleCoverage(float value, bool invert)
 		{
 			if        (Delegates.pglSampleCoverage != null) {
@@ -1080,6 +968,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexSubImage2D"/>
 		/// <seealso cref="Gl.TexSubImage3D"/>
 		/// <seealso cref="Gl.TexParameter"/>
+		[RequiredByFeature("GL_VERSION_1_3")]
 		public static void CompressedTexImage3D(int target, Int32 level, int internalformat, Int32 width, Int32 height, Int32 depth, Int32 border, Int32 imageSize, IntPtr data)
 		{
 			if        (Delegates.pglCompressedTexImage3D != null) {
@@ -1203,6 +1092,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexSubImage2D"/>
 		/// <seealso cref="Gl.TexSubImage3D"/>
 		/// <seealso cref="Gl.TexParameter"/>
+		[RequiredByFeature("GL_VERSION_1_3")]
 		public static void CompressedTexImage3D(TextureTarget target, Int32 level, int internalformat, Int32 width, Int32 height, Int32 depth, Int32 border, Int32 imageSize, IntPtr data)
 		{
 			if        (Delegates.pglCompressedTexImage3D != null) {
@@ -1326,6 +1216,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexSubImage2D"/>
 		/// <seealso cref="Gl.TexSubImage3D"/>
 		/// <seealso cref="Gl.TexParameter"/>
+		[RequiredByFeature("GL_VERSION_1_3")]
 		public static void CompressedTexImage3D(int target, Int32 level, int internalformat, Int32 width, Int32 height, Int32 depth, Int32 border, Int32 imageSize, Object data)
 		{
 			GCHandle pin_data = GCHandle.Alloc(data, GCHandleType.Pinned);
@@ -1444,6 +1335,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexSubImage2D"/>
 		/// <seealso cref="Gl.TexSubImage3D"/>
 		/// <seealso cref="Gl.TexParameter"/>
+		[RequiredByFeature("GL_VERSION_1_3")]
 		public static void CompressedTexImage2D(int target, Int32 level, int internalformat, Int32 width, Int32 height, Int32 border, Int32 imageSize, IntPtr data)
 		{
 			if        (Delegates.pglCompressedTexImage2D != null) {
@@ -1565,6 +1457,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexSubImage2D"/>
 		/// <seealso cref="Gl.TexSubImage3D"/>
 		/// <seealso cref="Gl.TexParameter"/>
+		[RequiredByFeature("GL_VERSION_1_3")]
 		public static void CompressedTexImage2D(TextureTarget target, Int32 level, int internalformat, Int32 width, Int32 height, Int32 border, Int32 imageSize, IntPtr data)
 		{
 			if        (Delegates.pglCompressedTexImage2D != null) {
@@ -1686,6 +1579,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexSubImage2D"/>
 		/// <seealso cref="Gl.TexSubImage3D"/>
 		/// <seealso cref="Gl.TexParameter"/>
+		[RequiredByFeature("GL_VERSION_1_3")]
 		public static void CompressedTexImage2D(int target, Int32 level, int internalformat, Int32 width, Int32 height, Int32 border, Int32 imageSize, Object data)
 		{
 			GCHandle pin_data = GCHandle.Alloc(data, GCHandleType.Pinned);
@@ -1794,6 +1688,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexSubImage2D"/>
 		/// <seealso cref="Gl.TexSubImage3D"/>
 		/// <seealso cref="Gl.TexParameter"/>
+		[RequiredByFeature("GL_VERSION_1_3")]
 		public static void CompressedTexImage1D(int target, Int32 level, int internalformat, Int32 width, Int32 border, Int32 imageSize, IntPtr data)
 		{
 			if        (Delegates.pglCompressedTexImage1D != null) {
@@ -1905,6 +1800,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexSubImage2D"/>
 		/// <seealso cref="Gl.TexSubImage3D"/>
 		/// <seealso cref="Gl.TexParameter"/>
+		[RequiredByFeature("GL_VERSION_1_3")]
 		public static void CompressedTexImage1D(TextureTarget target, Int32 level, int internalformat, Int32 width, Int32 border, Int32 imageSize, IntPtr data)
 		{
 			if        (Delegates.pglCompressedTexImage1D != null) {
@@ -2016,6 +1912,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexSubImage2D"/>
 		/// <seealso cref="Gl.TexSubImage3D"/>
 		/// <seealso cref="Gl.TexParameter"/>
+		[RequiredByFeature("GL_VERSION_1_3")]
 		public static void CompressedTexImage1D(int target, Int32 level, int internalformat, Int32 width, Int32 border, Int32 imageSize, Object data)
 		{
 			GCHandle pin_data = GCHandle.Alloc(data, GCHandleType.Pinned);
@@ -2121,6 +2018,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexSubImage2D"/>
 		/// <seealso cref="Gl.TexSubImage3D"/>
 		/// <seealso cref="Gl.TexParameter"/>
+		[RequiredByFeature("GL_VERSION_1_3")]
 		public static void CompressedTexSubImage3D(int target, Int32 level, Int32 xoffset, Int32 yoffset, Int32 zoffset, Int32 width, Int32 height, Int32 depth, int format, Int32 imageSize, IntPtr data)
 		{
 			if        (Delegates.pglCompressedTexSubImage3D != null) {
@@ -2232,6 +2130,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexSubImage2D"/>
 		/// <seealso cref="Gl.TexSubImage3D"/>
 		/// <seealso cref="Gl.TexParameter"/>
+		[RequiredByFeature("GL_VERSION_1_3")]
 		public static void CompressedTexSubImage3D(TextureTarget target, Int32 level, Int32 xoffset, Int32 yoffset, Int32 zoffset, Int32 width, Int32 height, Int32 depth, PixelFormat format, Int32 imageSize, IntPtr data)
 		{
 			if        (Delegates.pglCompressedTexSubImage3D != null) {
@@ -2343,6 +2242,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexSubImage2D"/>
 		/// <seealso cref="Gl.TexSubImage3D"/>
 		/// <seealso cref="Gl.TexParameter"/>
+		[RequiredByFeature("GL_VERSION_1_3")]
 		public static void CompressedTexSubImage3D(int target, Int32 level, Int32 xoffset, Int32 yoffset, Int32 zoffset, Int32 width, Int32 height, Int32 depth, int format, Int32 imageSize, Object data)
 		{
 			GCHandle pin_data = GCHandle.Alloc(data, GCHandleType.Pinned);
@@ -2443,6 +2343,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexSubImage2D"/>
 		/// <seealso cref="Gl.TexSubImage3D"/>
 		/// <seealso cref="Gl.TexParameter"/>
+		[RequiredByFeature("GL_VERSION_1_3")]
 		public static void CompressedTexSubImage2D(int target, Int32 level, Int32 xoffset, Int32 yoffset, Int32 width, Int32 height, int format, Int32 imageSize, IntPtr data)
 		{
 			if        (Delegates.pglCompressedTexSubImage2D != null) {
@@ -2546,6 +2447,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexSubImage2D"/>
 		/// <seealso cref="Gl.TexSubImage3D"/>
 		/// <seealso cref="Gl.TexParameter"/>
+		[RequiredByFeature("GL_VERSION_1_3")]
 		public static void CompressedTexSubImage2D(TextureTarget target, Int32 level, Int32 xoffset, Int32 yoffset, Int32 width, Int32 height, PixelFormat format, Int32 imageSize, IntPtr data)
 		{
 			if        (Delegates.pglCompressedTexSubImage2D != null) {
@@ -2649,6 +2551,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexSubImage2D"/>
 		/// <seealso cref="Gl.TexSubImage3D"/>
 		/// <seealso cref="Gl.TexParameter"/>
+		[RequiredByFeature("GL_VERSION_1_3")]
 		public static void CompressedTexSubImage2D(int target, Int32 level, Int32 xoffset, Int32 yoffset, Int32 width, Int32 height, int format, Int32 imageSize, Object data)
 		{
 			GCHandle pin_data = GCHandle.Alloc(data, GCHandleType.Pinned);
@@ -2738,6 +2641,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexSubImage2D"/>
 		/// <seealso cref="Gl.TexSubImage3D"/>
 		/// <seealso cref="Gl.TexParameter"/>
+		[RequiredByFeature("GL_VERSION_1_3")]
 		public static void CompressedTexSubImage1D(int target, Int32 level, Int32 xoffset, Int32 width, int format, Int32 imageSize, IntPtr data)
 		{
 			if        (Delegates.pglCompressedTexSubImage1D != null) {
@@ -2830,6 +2734,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexSubImage2D"/>
 		/// <seealso cref="Gl.TexSubImage3D"/>
 		/// <seealso cref="Gl.TexParameter"/>
+		[RequiredByFeature("GL_VERSION_1_3")]
 		public static void CompressedTexSubImage1D(TextureTarget target, Int32 level, Int32 xoffset, Int32 width, PixelFormat format, Int32 imageSize, IntPtr data)
 		{
 			if        (Delegates.pglCompressedTexSubImage1D != null) {
@@ -2922,6 +2827,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexSubImage2D"/>
 		/// <seealso cref="Gl.TexSubImage3D"/>
 		/// <seealso cref="Gl.TexParameter"/>
+		[RequiredByFeature("GL_VERSION_1_3")]
 		public static void CompressedTexSubImage1D(int target, Int32 level, Int32 xoffset, Int32 width, int format, Int32 imageSize, Object data)
 		{
 			GCHandle pin_data = GCHandle.Alloc(data, GCHandleType.Pinned);
@@ -3002,6 +2908,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexSubImage1D"/>
 		/// <seealso cref="Gl.TexSubImage2D"/>
 		/// <seealso cref="Gl.TexSubImage3D"/>
+		[RequiredByFeature("GL_VERSION_1_3")]
 		public static void GetCompressedTexImage(int target, Int32 level, IntPtr img)
 		{
 			if        (Delegates.pglGetCompressedTexImage != null) {
@@ -3085,6 +2992,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexSubImage1D"/>
 		/// <seealso cref="Gl.TexSubImage2D"/>
 		/// <seealso cref="Gl.TexSubImage3D"/>
+		[RequiredByFeature("GL_VERSION_1_3")]
 		public static void GetCompressedTexImage(TextureTarget target, Int32 level, IntPtr img)
 		{
 			if        (Delegates.pglGetCompressedTexImage != null) {
@@ -3126,6 +3034,8 @@ namespace OpenGL
 		/// <seealso cref="Gl.EnableClientState"/>
 		/// <seealso cref="Gl.MultiTexCoord"/>
 		/// <seealso cref="Gl.TexCoordPointer"/>
+		[RequiredByFeature("GL_VERSION_1_3")]
+		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void ClientActiveTexture(int texture)
 		{
 			if        (Delegates.pglClientActiveTexture != null) {
@@ -3169,6 +3079,8 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexCoord"/>
 		/// <seealso cref="Gl.TexCoordPointer"/>
 		/// <seealso cref="Gl.Vertex"/>
+		[RequiredByFeature("GL_VERSION_1_3")]
+		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void MultiTexCoord1(int target, double s)
 		{
 			if        (Delegates.pglMultiTexCoord1d != null) {
@@ -3211,6 +3123,8 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexCoord"/>
 		/// <seealso cref="Gl.TexCoordPointer"/>
 		/// <seealso cref="Gl.Vertex"/>
+		[RequiredByFeature("GL_VERSION_1_3")]
+		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void MultiTexCoord1(int target, double[] v)
 		{
 			unsafe {
@@ -3259,6 +3173,8 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexCoord"/>
 		/// <seealso cref="Gl.TexCoordPointer"/>
 		/// <seealso cref="Gl.Vertex"/>
+		[RequiredByFeature("GL_VERSION_1_3")]
+		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void MultiTexCoord1(int target, float s)
 		{
 			if        (Delegates.pglMultiTexCoord1f != null) {
@@ -3301,6 +3217,8 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexCoord"/>
 		/// <seealso cref="Gl.TexCoordPointer"/>
 		/// <seealso cref="Gl.Vertex"/>
+		[RequiredByFeature("GL_VERSION_1_3")]
+		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void MultiTexCoord1(int target, float[] v)
 		{
 			unsafe {
@@ -3349,6 +3267,8 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexCoord"/>
 		/// <seealso cref="Gl.TexCoordPointer"/>
 		/// <seealso cref="Gl.Vertex"/>
+		[RequiredByFeature("GL_VERSION_1_3")]
+		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void MultiTexCoord1(int target, Int32 s)
 		{
 			if        (Delegates.pglMultiTexCoord1i != null) {
@@ -3391,6 +3311,8 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexCoord"/>
 		/// <seealso cref="Gl.TexCoordPointer"/>
 		/// <seealso cref="Gl.Vertex"/>
+		[RequiredByFeature("GL_VERSION_1_3")]
+		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void MultiTexCoord1(int target, Int32[] v)
 		{
 			unsafe {
@@ -3439,6 +3361,8 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexCoord"/>
 		/// <seealso cref="Gl.TexCoordPointer"/>
 		/// <seealso cref="Gl.Vertex"/>
+		[RequiredByFeature("GL_VERSION_1_3")]
+		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void MultiTexCoord1(int target, Int16 s)
 		{
 			if        (Delegates.pglMultiTexCoord1s != null) {
@@ -3481,6 +3405,8 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexCoord"/>
 		/// <seealso cref="Gl.TexCoordPointer"/>
 		/// <seealso cref="Gl.Vertex"/>
+		[RequiredByFeature("GL_VERSION_1_3")]
+		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void MultiTexCoord1(int target, Int16[] v)
 		{
 			unsafe {
@@ -3533,6 +3459,8 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexCoord"/>
 		/// <seealso cref="Gl.TexCoordPointer"/>
 		/// <seealso cref="Gl.Vertex"/>
+		[RequiredByFeature("GL_VERSION_1_3")]
+		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void MultiTexCoord2(int target, double s, double t)
 		{
 			if        (Delegates.pglMultiTexCoord2d != null) {
@@ -3575,6 +3503,8 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexCoord"/>
 		/// <seealso cref="Gl.TexCoordPointer"/>
 		/// <seealso cref="Gl.Vertex"/>
+		[RequiredByFeature("GL_VERSION_1_3")]
+		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void MultiTexCoord2(int target, double[] v)
 		{
 			unsafe {
@@ -3627,6 +3557,8 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexCoord"/>
 		/// <seealso cref="Gl.TexCoordPointer"/>
 		/// <seealso cref="Gl.Vertex"/>
+		[RequiredByFeature("GL_VERSION_1_3")]
+		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void MultiTexCoord2(int target, float s, float t)
 		{
 			if        (Delegates.pglMultiTexCoord2f != null) {
@@ -3669,6 +3601,8 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexCoord"/>
 		/// <seealso cref="Gl.TexCoordPointer"/>
 		/// <seealso cref="Gl.Vertex"/>
+		[RequiredByFeature("GL_VERSION_1_3")]
+		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void MultiTexCoord2(int target, float[] v)
 		{
 			unsafe {
@@ -3721,6 +3655,8 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexCoord"/>
 		/// <seealso cref="Gl.TexCoordPointer"/>
 		/// <seealso cref="Gl.Vertex"/>
+		[RequiredByFeature("GL_VERSION_1_3")]
+		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void MultiTexCoord2(int target, Int32 s, Int32 t)
 		{
 			if        (Delegates.pglMultiTexCoord2i != null) {
@@ -3763,6 +3699,8 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexCoord"/>
 		/// <seealso cref="Gl.TexCoordPointer"/>
 		/// <seealso cref="Gl.Vertex"/>
+		[RequiredByFeature("GL_VERSION_1_3")]
+		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void MultiTexCoord2(int target, Int32[] v)
 		{
 			unsafe {
@@ -3815,6 +3753,8 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexCoord"/>
 		/// <seealso cref="Gl.TexCoordPointer"/>
 		/// <seealso cref="Gl.Vertex"/>
+		[RequiredByFeature("GL_VERSION_1_3")]
+		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void MultiTexCoord2(int target, Int16 s, Int16 t)
 		{
 			if        (Delegates.pglMultiTexCoord2s != null) {
@@ -3857,6 +3797,8 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexCoord"/>
 		/// <seealso cref="Gl.TexCoordPointer"/>
 		/// <seealso cref="Gl.Vertex"/>
+		[RequiredByFeature("GL_VERSION_1_3")]
+		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void MultiTexCoord2(int target, Int16[] v)
 		{
 			unsafe {
@@ -3913,6 +3855,8 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexCoord"/>
 		/// <seealso cref="Gl.TexCoordPointer"/>
 		/// <seealso cref="Gl.Vertex"/>
+		[RequiredByFeature("GL_VERSION_1_3")]
+		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void MultiTexCoord3(int target, double s, double t, double r)
 		{
 			if        (Delegates.pglMultiTexCoord3d != null) {
@@ -3955,6 +3899,8 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexCoord"/>
 		/// <seealso cref="Gl.TexCoordPointer"/>
 		/// <seealso cref="Gl.Vertex"/>
+		[RequiredByFeature("GL_VERSION_1_3")]
+		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void MultiTexCoord3(int target, double[] v)
 		{
 			unsafe {
@@ -4011,6 +3957,8 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexCoord"/>
 		/// <seealso cref="Gl.TexCoordPointer"/>
 		/// <seealso cref="Gl.Vertex"/>
+		[RequiredByFeature("GL_VERSION_1_3")]
+		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void MultiTexCoord3(int target, float s, float t, float r)
 		{
 			if        (Delegates.pglMultiTexCoord3f != null) {
@@ -4053,6 +4001,8 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexCoord"/>
 		/// <seealso cref="Gl.TexCoordPointer"/>
 		/// <seealso cref="Gl.Vertex"/>
+		[RequiredByFeature("GL_VERSION_1_3")]
+		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void MultiTexCoord3(int target, float[] v)
 		{
 			unsafe {
@@ -4109,6 +4059,8 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexCoord"/>
 		/// <seealso cref="Gl.TexCoordPointer"/>
 		/// <seealso cref="Gl.Vertex"/>
+		[RequiredByFeature("GL_VERSION_1_3")]
+		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void MultiTexCoord3(int target, Int32 s, Int32 t, Int32 r)
 		{
 			if        (Delegates.pglMultiTexCoord3i != null) {
@@ -4151,6 +4103,8 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexCoord"/>
 		/// <seealso cref="Gl.TexCoordPointer"/>
 		/// <seealso cref="Gl.Vertex"/>
+		[RequiredByFeature("GL_VERSION_1_3")]
+		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void MultiTexCoord3(int target, Int32[] v)
 		{
 			unsafe {
@@ -4207,6 +4161,8 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexCoord"/>
 		/// <seealso cref="Gl.TexCoordPointer"/>
 		/// <seealso cref="Gl.Vertex"/>
+		[RequiredByFeature("GL_VERSION_1_3")]
+		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void MultiTexCoord3(int target, Int16 s, Int16 t, Int16 r)
 		{
 			if        (Delegates.pglMultiTexCoord3s != null) {
@@ -4249,6 +4205,8 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexCoord"/>
 		/// <seealso cref="Gl.TexCoordPointer"/>
 		/// <seealso cref="Gl.Vertex"/>
+		[RequiredByFeature("GL_VERSION_1_3")]
+		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void MultiTexCoord3(int target, Int16[] v)
 		{
 			unsafe {
@@ -4309,6 +4267,8 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexCoord"/>
 		/// <seealso cref="Gl.TexCoordPointer"/>
 		/// <seealso cref="Gl.Vertex"/>
+		[RequiredByFeature("GL_VERSION_1_3")]
+		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void MultiTexCoord4(int target, double s, double t, double r, double q)
 		{
 			if        (Delegates.pglMultiTexCoord4d != null) {
@@ -4351,6 +4311,8 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexCoord"/>
 		/// <seealso cref="Gl.TexCoordPointer"/>
 		/// <seealso cref="Gl.Vertex"/>
+		[RequiredByFeature("GL_VERSION_1_3")]
+		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void MultiTexCoord4(int target, double[] v)
 		{
 			unsafe {
@@ -4411,6 +4373,8 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexCoord"/>
 		/// <seealso cref="Gl.TexCoordPointer"/>
 		/// <seealso cref="Gl.Vertex"/>
+		[RequiredByFeature("GL_VERSION_1_3")]
+		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void MultiTexCoord4(int target, float s, float t, float r, float q)
 		{
 			if        (Delegates.pglMultiTexCoord4f != null) {
@@ -4453,6 +4417,8 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexCoord"/>
 		/// <seealso cref="Gl.TexCoordPointer"/>
 		/// <seealso cref="Gl.Vertex"/>
+		[RequiredByFeature("GL_VERSION_1_3")]
+		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void MultiTexCoord4(int target, float[] v)
 		{
 			unsafe {
@@ -4513,6 +4479,8 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexCoord"/>
 		/// <seealso cref="Gl.TexCoordPointer"/>
 		/// <seealso cref="Gl.Vertex"/>
+		[RequiredByFeature("GL_VERSION_1_3")]
+		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void MultiTexCoord4(int target, Int32 s, Int32 t, Int32 r, Int32 q)
 		{
 			if        (Delegates.pglMultiTexCoord4i != null) {
@@ -4555,6 +4523,8 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexCoord"/>
 		/// <seealso cref="Gl.TexCoordPointer"/>
 		/// <seealso cref="Gl.Vertex"/>
+		[RequiredByFeature("GL_VERSION_1_3")]
+		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void MultiTexCoord4(int target, Int32[] v)
 		{
 			unsafe {
@@ -4615,6 +4585,8 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexCoord"/>
 		/// <seealso cref="Gl.TexCoordPointer"/>
 		/// <seealso cref="Gl.Vertex"/>
+		[RequiredByFeature("GL_VERSION_1_3")]
+		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void MultiTexCoord4(int target, Int16 s, Int16 t, Int16 r, Int16 q)
 		{
 			if        (Delegates.pglMultiTexCoord4s != null) {
@@ -4657,6 +4629,8 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexCoord"/>
 		/// <seealso cref="Gl.TexCoordPointer"/>
 		/// <seealso cref="Gl.Vertex"/>
+		[RequiredByFeature("GL_VERSION_1_3")]
+		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void MultiTexCoord4(int target, Int16[] v)
 		{
 			unsafe {
@@ -4713,6 +4687,8 @@ namespace OpenGL
 		/// <seealso cref="Gl.MultMatrix"/>
 		/// <seealso cref="Gl.MultTransposeMatrix"/>
 		/// <seealso cref="Gl.PushMatrix"/>
+		[RequiredByFeature("GL_VERSION_1_3")]
+		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void LoadTransposeMatrix(float[] m)
 		{
 			unsafe {
@@ -4769,6 +4745,8 @@ namespace OpenGL
 		/// <seealso cref="Gl.MultMatrix"/>
 		/// <seealso cref="Gl.MultTransposeMatrix"/>
 		/// <seealso cref="Gl.PushMatrix"/>
+		[RequiredByFeature("GL_VERSION_1_3")]
+		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void LoadTransposeMatrix(double[] m)
 		{
 			unsafe {
@@ -4817,6 +4795,8 @@ namespace OpenGL
 		/// <seealso cref="Gl.LoadTransposeMatrix"/>
 		/// <seealso cref="Gl.MatrixMode"/>
 		/// <seealso cref="Gl.PushMatrix"/>
+		[RequiredByFeature("GL_VERSION_1_3")]
+		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void MultTransposeMatrix(float[] m)
 		{
 			unsafe {
@@ -4865,6 +4845,8 @@ namespace OpenGL
 		/// <seealso cref="Gl.LoadTransposeMatrix"/>
 		/// <seealso cref="Gl.MatrixMode"/>
 		/// <seealso cref="Gl.PushMatrix"/>
+		[RequiredByFeature("GL_VERSION_1_3")]
+		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void MultTransposeMatrix(double[] m)
 		{
 			unsafe {

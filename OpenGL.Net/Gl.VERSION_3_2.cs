@@ -136,7 +136,6 @@ namespace OpenGL
 		/// Value of GL_MAX_VERTEX_OUTPUT_COMPONENTS symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_3_2")]
-		[RequiredByFeature("GL_ES_VERSION_3_0")]
 		public const int MAX_VERTEX_OUTPUT_COMPONENTS = 0x9122;
 
 		/// <summary>
@@ -155,7 +154,6 @@ namespace OpenGL
 		/// Value of GL_MAX_FRAGMENT_INPUT_COMPONENTS symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_3_2")]
-		[RequiredByFeature("GL_ES_VERSION_3_0")]
 		public const int MAX_FRAGMENT_INPUT_COMPONENTS = 0x9125;
 
 		/// <summary>
@@ -215,7 +213,6 @@ namespace OpenGL
 		/// Value of GL_MAX_SERVER_WAIT_TIMEOUT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_3_2")]
-		[RequiredByFeature("GL_ES_VERSION_3_0")]
 		[RequiredByFeature("GL_ARB_sync")]
 		public const int MAX_SERVER_WAIT_TIMEOUT = 0x9111;
 
@@ -223,7 +220,6 @@ namespace OpenGL
 		/// Value of GL_OBJECT_TYPE symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_3_2")]
-		[RequiredByFeature("GL_ES_VERSION_3_0")]
 		[RequiredByFeature("GL_ARB_sync")]
 		public const int OBJECT_TYPE = 0x9112;
 
@@ -231,7 +227,6 @@ namespace OpenGL
 		/// Value of GL_SYNC_CONDITION symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_3_2")]
-		[RequiredByFeature("GL_ES_VERSION_3_0")]
 		[RequiredByFeature("GL_ARB_sync")]
 		public const int SYNC_CONDITION = 0x9113;
 
@@ -239,7 +234,6 @@ namespace OpenGL
 		/// Value of GL_SYNC_STATUS symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_3_2")]
-		[RequiredByFeature("GL_ES_VERSION_3_0")]
 		[RequiredByFeature("GL_ARB_sync")]
 		public const int SYNC_STATUS = 0x9114;
 
@@ -247,7 +241,6 @@ namespace OpenGL
 		/// Value of GL_SYNC_FLAGS symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_3_2")]
-		[RequiredByFeature("GL_ES_VERSION_3_0")]
 		[RequiredByFeature("GL_ARB_sync")]
 		public const int SYNC_FLAGS = 0x9115;
 
@@ -255,7 +248,6 @@ namespace OpenGL
 		/// Value of GL_SYNC_FENCE symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_3_2")]
-		[RequiredByFeature("GL_ES_VERSION_3_0")]
 		[RequiredByFeature("GL_ARB_sync")]
 		public const int SYNC_FENCE = 0x9116;
 
@@ -263,7 +255,6 @@ namespace OpenGL
 		/// Value of GL_SYNC_GPU_COMMANDS_COMPLETE symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_3_2")]
-		[RequiredByFeature("GL_ES_VERSION_3_0")]
 		[RequiredByFeature("GL_ARB_sync")]
 		public const int SYNC_GPU_COMMANDS_COMPLETE = 0x9117;
 
@@ -271,7 +262,6 @@ namespace OpenGL
 		/// Value of GL_UNSIGNALED symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_3_2")]
-		[RequiredByFeature("GL_ES_VERSION_3_0")]
 		[RequiredByFeature("GL_ARB_sync")]
 		public const int UNSIGNALED = 0x9118;
 
@@ -279,7 +269,6 @@ namespace OpenGL
 		/// Value of GL_SIGNALED symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_3_2")]
-		[RequiredByFeature("GL_ES_VERSION_3_0")]
 		[RequiredByFeature("GL_ARB_sync")]
 		public const int SIGNALED = 0x9119;
 
@@ -287,7 +276,6 @@ namespace OpenGL
 		/// Value of GL_ALREADY_SIGNALED symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_3_2")]
-		[RequiredByFeature("GL_ES_VERSION_3_0")]
 		[RequiredByFeature("GL_ARB_sync")]
 		public const int ALREADY_SIGNALED = 0x911A;
 
@@ -295,7 +283,6 @@ namespace OpenGL
 		/// Value of GL_TIMEOUT_EXPIRED symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_3_2")]
-		[RequiredByFeature("GL_ES_VERSION_3_0")]
 		[RequiredByFeature("GL_ARB_sync")]
 		public const int TIMEOUT_EXPIRED = 0x911B;
 
@@ -303,7 +290,6 @@ namespace OpenGL
 		/// Value of GL_CONDITION_SATISFIED symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_3_2")]
-		[RequiredByFeature("GL_ES_VERSION_3_0")]
 		[RequiredByFeature("GL_ARB_sync")]
 		public const int CONDITION_SATISFIED = 0x911C;
 
@@ -311,7 +297,6 @@ namespace OpenGL
 		/// Value of GL_WAIT_FAILED symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_3_2")]
-		[RequiredByFeature("GL_ES_VERSION_3_0")]
 		[RequiredByFeature("GL_ARB_sync")]
 		public const int WAIT_FAILED = 0x911D;
 
@@ -319,7 +304,6 @@ namespace OpenGL
 		/// Value of GL_TIMEOUT_IGNORED symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_3_2")]
-		[RequiredByFeature("GL_ES_VERSION_3_0")]
 		[RequiredByFeature("GL_ARB_sync")]
 		public const ulong TIMEOUT_IGNORED = 0xFFFFFFFFFFFFF;
 
@@ -327,7 +311,6 @@ namespace OpenGL
 		/// Value of GL_SYNC_FLUSH_COMMANDS_BIT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_3_2")]
-		[RequiredByFeature("GL_ES_VERSION_3_0")]
 		[RequiredByFeature("GL_ARB_sync")]
 		public const uint SYNC_FLUSH_COMMANDS_BIT = 0x00000001;
 
@@ -335,7 +318,6 @@ namespace OpenGL
 		/// Value of GL_SAMPLE_POSITION symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_3_2")]
-		[RequiredByFeature("GL_ES_VERSION_3_1")]
 		[RequiredByFeature("GL_ARB_texture_multisample")]
 		public const int SAMPLE_POSITION = 0x8E50;
 
@@ -343,7 +325,6 @@ namespace OpenGL
 		/// Value of GL_SAMPLE_MASK symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_3_2")]
-		[RequiredByFeature("GL_ES_VERSION_3_1")]
 		[RequiredByFeature("GL_ARB_texture_multisample")]
 		public const int SAMPLE_MASK = 0x8E51;
 
@@ -351,7 +332,6 @@ namespace OpenGL
 		/// Value of GL_SAMPLE_MASK_VALUE symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_3_2")]
-		[RequiredByFeature("GL_ES_VERSION_3_1")]
 		[RequiredByFeature("GL_ARB_texture_multisample")]
 		public const int SAMPLE_MASK_VALUE = 0x8E52;
 
@@ -359,7 +339,6 @@ namespace OpenGL
 		/// Value of GL_MAX_SAMPLE_MASK_WORDS symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_3_2")]
-		[RequiredByFeature("GL_ES_VERSION_3_1")]
 		[RequiredByFeature("GL_ARB_texture_multisample")]
 		public const int MAX_SAMPLE_MASK_WORDS = 0x8E59;
 
@@ -367,7 +346,6 @@ namespace OpenGL
 		/// Value of GL_TEXTURE_2D_MULTISAMPLE symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_3_2")]
-		[RequiredByFeature("GL_ES_VERSION_3_1")]
 		[RequiredByFeature("GL_ARB_internalformat_query2")]
 		[RequiredByFeature("GL_ARB_texture_multisample")]
 		[RequiredByFeature("GL_NV_internalformat_sample_query")]
@@ -401,7 +379,6 @@ namespace OpenGL
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_3_2")]
 		[RequiredByFeature("GL_VERSION_4_5")]
-		[RequiredByFeature("GL_ES_VERSION_3_1")]
 		[RequiredByFeature("GL_ARB_direct_state_access")]
 		[RequiredByFeature("GL_ARB_texture_multisample")]
 		public const int TEXTURE_BINDING_2D_MULTISAMPLE = 0x9104;
@@ -419,7 +396,6 @@ namespace OpenGL
 		/// Value of GL_TEXTURE_SAMPLES symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_3_2")]
-		[RequiredByFeature("GL_ES_VERSION_3_1")]
 		[RequiredByFeature("GL_ARB_texture_multisample")]
 		public const int TEXTURE_SAMPLES = 0x9106;
 
@@ -427,7 +403,6 @@ namespace OpenGL
 		/// Value of GL_TEXTURE_FIXED_SAMPLE_LOCATIONS symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_3_2")]
-		[RequiredByFeature("GL_ES_VERSION_3_1")]
 		[RequiredByFeature("GL_ARB_texture_multisample")]
 		public const int TEXTURE_FIXED_SAMPLE_LOCATIONS = 0x9107;
 
@@ -435,7 +410,6 @@ namespace OpenGL
 		/// Value of GL_SAMPLER_2D_MULTISAMPLE symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_3_2")]
-		[RequiredByFeature("GL_ES_VERSION_3_1")]
 		[RequiredByFeature("GL_ARB_texture_multisample")]
 		public const int SAMPLER_2D_MULTISAMPLE = 0x9108;
 
@@ -443,7 +417,6 @@ namespace OpenGL
 		/// Value of GL_INT_SAMPLER_2D_MULTISAMPLE symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_3_2")]
-		[RequiredByFeature("GL_ES_VERSION_3_1")]
 		[RequiredByFeature("GL_ARB_texture_multisample")]
 		public const int INT_SAMPLER_2D_MULTISAMPLE = 0x9109;
 
@@ -451,7 +424,6 @@ namespace OpenGL
 		/// Value of GL_UNSIGNED_INT_SAMPLER_2D_MULTISAMPLE symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_3_2")]
-		[RequiredByFeature("GL_ES_VERSION_3_1")]
 		[RequiredByFeature("GL_ARB_texture_multisample")]
 		public const int UNSIGNED_INT_SAMPLER_2D_MULTISAMPLE = 0x910A;
 
@@ -480,7 +452,6 @@ namespace OpenGL
 		/// Value of GL_MAX_COLOR_TEXTURE_SAMPLES symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_3_2")]
-		[RequiredByFeature("GL_ES_VERSION_3_1")]
 		[RequiredByFeature("GL_ARB_texture_multisample")]
 		public const int MAX_COLOR_TEXTURE_SAMPLES = 0x910E;
 
@@ -488,7 +459,6 @@ namespace OpenGL
 		/// Value of GL_MAX_DEPTH_TEXTURE_SAMPLES symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_3_2")]
-		[RequiredByFeature("GL_ES_VERSION_3_1")]
 		[RequiredByFeature("GL_ARB_texture_multisample")]
 		public const int MAX_DEPTH_TEXTURE_SAMPLES = 0x910F;
 
@@ -496,7 +466,6 @@ namespace OpenGL
 		/// Value of GL_MAX_INTEGER_SAMPLES symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_3_2")]
-		[RequiredByFeature("GL_ES_VERSION_3_1")]
 		[RequiredByFeature("GL_ARB_texture_multisample")]
 		public const int MAX_INTEGER_SAMPLES = 0x9110;
 
@@ -541,6 +510,8 @@ namespace OpenGL
 		/// <seealso cref="Gl.DrawRangeElementsBaseVertex"/>
 		/// <seealso cref="Gl.DrawElementsInstanced"/>
 		/// <seealso cref="Gl.DrawElementsInstancedBaseVertex"/>
+		[RequiredByFeature("GL_VERSION_3_2")]
+		[RequiredByFeature("GL_ARB_draw_elements_base_vertex")]
 		public static void DrawElementsBaseVertex(int mode, Int32 count, int type, IntPtr indices, Int32 basevertex)
 		{
 			if        (Delegates.pglDrawElementsBaseVertex != null) {
@@ -598,6 +569,8 @@ namespace OpenGL
 		/// <seealso cref="Gl.DrawRangeElementsBaseVertex"/>
 		/// <seealso cref="Gl.DrawElementsInstanced"/>
 		/// <seealso cref="Gl.DrawElementsInstancedBaseVertex"/>
+		[RequiredByFeature("GL_VERSION_3_2")]
+		[RequiredByFeature("GL_ARB_draw_elements_base_vertex")]
 		public static void DrawElementsBaseVertex(PrimitiveType mode, Int32 count, int type, IntPtr indices, Int32 basevertex)
 		{
 			if        (Delegates.pglDrawElementsBaseVertex != null) {
@@ -655,6 +628,8 @@ namespace OpenGL
 		/// <seealso cref="Gl.DrawRangeElementsBaseVertex"/>
 		/// <seealso cref="Gl.DrawElementsInstanced"/>
 		/// <seealso cref="Gl.DrawElementsInstancedBaseVertex"/>
+		[RequiredByFeature("GL_VERSION_3_2")]
+		[RequiredByFeature("GL_ARB_draw_elements_base_vertex")]
 		public static void DrawElementsBaseVertex(int mode, Int32 count, int type, Object indices, Int32 basevertex)
 		{
 			GCHandle pin_indices = GCHandle.Alloc(indices, GCHandleType.Pinned);
@@ -716,6 +691,8 @@ namespace OpenGL
 		/// <seealso cref="Gl.DrawRangeElements"/>
 		/// <seealso cref="Gl.DrawElementsInstanced"/>
 		/// <seealso cref="Gl.DrawElementsInstancedBaseVertex"/>
+		[RequiredByFeature("GL_VERSION_3_2")]
+		[RequiredByFeature("GL_ARB_draw_elements_base_vertex")]
 		public static void DrawRangeElementsBaseVertex(int mode, UInt32 start, UInt32 end, Int32 count, int type, IntPtr indices, Int32 basevertex)
 		{
 			if        (Delegates.pglDrawRangeElementsBaseVertex != null) {
@@ -783,6 +760,8 @@ namespace OpenGL
 		/// <seealso cref="Gl.DrawRangeElements"/>
 		/// <seealso cref="Gl.DrawElementsInstanced"/>
 		/// <seealso cref="Gl.DrawElementsInstancedBaseVertex"/>
+		[RequiredByFeature("GL_VERSION_3_2")]
+		[RequiredByFeature("GL_ARB_draw_elements_base_vertex")]
 		public static void DrawRangeElementsBaseVertex(PrimitiveType mode, UInt32 start, UInt32 end, Int32 count, int type, IntPtr indices, Int32 basevertex)
 		{
 			if        (Delegates.pglDrawRangeElementsBaseVertex != null) {
@@ -850,6 +829,8 @@ namespace OpenGL
 		/// <seealso cref="Gl.DrawRangeElements"/>
 		/// <seealso cref="Gl.DrawElementsInstanced"/>
 		/// <seealso cref="Gl.DrawElementsInstancedBaseVertex"/>
+		[RequiredByFeature("GL_VERSION_3_2")]
+		[RequiredByFeature("GL_ARB_draw_elements_base_vertex")]
 		public static void DrawRangeElementsBaseVertex(int mode, UInt32 start, UInt32 end, Int32 count, int type, Object indices, Int32 basevertex)
 		{
 			GCHandle pin_indices = GCHandle.Alloc(indices, GCHandleType.Pinned);
@@ -905,6 +886,8 @@ namespace OpenGL
 		/// <seealso cref="Gl.DrawRangeElementsBaseVertex"/>
 		/// <seealso cref="Gl.DrawElementsInstanced"/>
 		/// <seealso cref="Gl.DrawElementsInstancedBaseVertex"/>
+		[RequiredByFeature("GL_VERSION_3_2")]
+		[RequiredByFeature("GL_ARB_draw_elements_base_vertex")]
 		public static void DrawElementsInstancedBaseVertex(int mode, Int32 count, int type, IntPtr indices, Int32 instancecount, Int32 basevertex)
 		{
 			if        (Delegates.pglDrawElementsInstancedBaseVertex != null) {
@@ -966,6 +949,8 @@ namespace OpenGL
 		/// <seealso cref="Gl.DrawRangeElementsBaseVertex"/>
 		/// <seealso cref="Gl.DrawElementsInstanced"/>
 		/// <seealso cref="Gl.DrawElementsInstancedBaseVertex"/>
+		[RequiredByFeature("GL_VERSION_3_2")]
+		[RequiredByFeature("GL_ARB_draw_elements_base_vertex")]
 		public static void DrawElementsInstancedBaseVertex(PrimitiveType mode, Int32 count, int type, IntPtr indices, Int32 instancecount, Int32 basevertex)
 		{
 			if        (Delegates.pglDrawElementsInstancedBaseVertex != null) {
@@ -1027,6 +1012,8 @@ namespace OpenGL
 		/// <seealso cref="Gl.DrawRangeElementsBaseVertex"/>
 		/// <seealso cref="Gl.DrawElementsInstanced"/>
 		/// <seealso cref="Gl.DrawElementsInstancedBaseVertex"/>
+		[RequiredByFeature("GL_VERSION_3_2")]
+		[RequiredByFeature("GL_ARB_draw_elements_base_vertex")]
 		public static void DrawElementsInstancedBaseVertex(int mode, Int32 count, int type, Object indices, Int32 instancecount, Int32 basevertex)
 		{
 			GCHandle pin_indices = GCHandle.Alloc(indices, GCHandleType.Pinned);
@@ -1077,6 +1064,8 @@ namespace OpenGL
 		/// <seealso cref="Gl.DrawElementsBaseVertex"/>
 		/// <seealso cref="Gl.DrawArrays"/>
 		/// <seealso cref="Gl.VertexAttribPointer"/>
+		[RequiredByFeature("GL_VERSION_3_2")]
+		[RequiredByFeature("GL_ARB_draw_elements_base_vertex")]
 		public static void MultiDrawElementsBaseVertex(int mode, Int32[] count, int type, IntPtr indices, Int32 drawcount, Int32[] basevertex)
 		{
 			unsafe {
@@ -1139,6 +1128,8 @@ namespace OpenGL
 		/// <seealso cref="Gl.DrawElementsBaseVertex"/>
 		/// <seealso cref="Gl.DrawArrays"/>
 		/// <seealso cref="Gl.VertexAttribPointer"/>
+		[RequiredByFeature("GL_VERSION_3_2")]
+		[RequiredByFeature("GL_ARB_draw_elements_base_vertex")]
 		public static void MultiDrawElementsBaseVertex(int mode, Int32[] count, int type, Object indices, Int32 drawcount, Int32[] basevertex)
 		{
 			GCHandle pin_indices = GCHandle.Alloc(indices, GCHandleType.Pinned);
@@ -1172,6 +1163,8 @@ namespace OpenGL
 		/// - GL_INVALID_ENUM is generated if provokeMode is not an accepted value.
 		/// </para>
 		/// </remarks>
+		[RequiredByFeature("GL_VERSION_3_2")]
+		[RequiredByFeature("GL_ARB_provoking_vertex")]
 		public static void ProvokingVertex(int mode)
 		{
 			if        (Delegates.pglProvokingVertex != null) {
@@ -1219,6 +1212,8 @@ namespace OpenGL
 		/// <seealso cref="Gl.GetSync"/>
 		/// <seealso cref="Gl.WaitSync"/>
 		/// <seealso cref="Gl.ClientWaitSync"/>
+		[RequiredByFeature("GL_VERSION_3_2")]
+		[RequiredByFeature("GL_ARB_sync")]
 		public static int FenceSync(int condition, uint flags)
 		{
 			int retValue;
@@ -1250,6 +1245,8 @@ namespace OpenGL
 		/// <seealso cref="Gl.WaitSync"/>
 		/// <seealso cref="Gl.ClientWaitSync"/>
 		/// <seealso cref="Gl.DeleteSync"/>
+		[RequiredByFeature("GL_VERSION_3_2")]
+		[RequiredByFeature("GL_ARB_sync")]
 		public static bool IsSync(int sync)
 		{
 			bool retValue;
@@ -1288,6 +1285,8 @@ namespace OpenGL
 		/// <seealso cref="Gl.FenceSync"/>
 		/// <seealso cref="Gl.WaitSync"/>
 		/// <seealso cref="Gl.ClientWaitSync"/>
+		[RequiredByFeature("GL_VERSION_3_2")]
+		[RequiredByFeature("GL_ARB_sync")]
 		public static void DeleteSync(int sync)
 		{
 			if        (Delegates.pglDeleteSync != null) {
@@ -1330,6 +1329,8 @@ namespace OpenGL
 		/// <seealso cref="Gl.FenceSync"/>
 		/// <seealso cref="Gl.IsSync"/>
 		/// <seealso cref="Gl.WaitSync"/>
+		[RequiredByFeature("GL_VERSION_3_2")]
+		[RequiredByFeature("GL_ARB_sync")]
 		public static int ClientWaitSync(int sync, uint flags, UInt64 timeout)
 		{
 			int retValue;
@@ -1378,6 +1379,8 @@ namespace OpenGL
 		/// </remarks>
 		/// <seealso cref="Gl.FenceSync"/>
 		/// <seealso cref="Gl.ClientWaitSync"/>
+		[RequiredByFeature("GL_VERSION_3_2")]
+		[RequiredByFeature("GL_ARB_sync")]
 		public static void WaitSync(int sync, uint flags, UInt64 timeout)
 		{
 			if        (Delegates.pglWaitSync != null) {
@@ -1444,6 +1447,8 @@ namespace OpenGL
 		/// <seealso cref="Gl.GetVertexAttrib"/>
 		/// <seealso cref="Gl.GetVertexAttribPointerv"/>
 		/// <seealso cref="Gl.IsEnabled"/>
+		[RequiredByFeature("GL_VERSION_3_2")]
+		[RequiredByFeature("GL_ARB_sync")]
 		public static void GetInteger64v(int pname, Int64[] data)
 		{
 			unsafe {
@@ -1504,6 +1509,8 @@ namespace OpenGL
 		/// <seealso cref="Gl.FenceSync"/>
 		/// <seealso cref="Gl.WaitSync"/>
 		/// <seealso cref="Gl.ClientWaitSync"/>
+		[RequiredByFeature("GL_VERSION_3_2")]
+		[RequiredByFeature("GL_ARB_sync")]
 		public static void GetSync(int sync, int pname, Int32 bufSize, out Int32 length, Int32[] values)
 		{
 			unsafe {
@@ -1579,6 +1586,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.GetVertexAttrib"/>
 		/// <seealso cref="Gl.GetVertexAttribPointerv"/>
 		/// <seealso cref="Gl.IsEnabled"/>
+		[RequiredByFeature("GL_VERSION_3_2")]
 		public static void GetInteger64i_v(int target, UInt32 index, Int64[] data)
 		{
 			unsafe {
@@ -1621,6 +1629,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.GetBufferPointerv"/>
 		/// <seealso cref="Gl.MapBuffer"/>
 		/// <seealso cref="Gl.UnmapBuffer"/>
+		[RequiredByFeature("GL_VERSION_3_2")]
 		public static void GetBufferParameter(int target, int pname, Int64[] @params)
 		{
 			unsafe {
@@ -1713,6 +1722,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.FramebufferTexture1D"/>
 		/// <seealso cref="Gl.FramebufferTexture2D"/>
 		/// <seealso cref="Gl.FramebufferTexture3D"/>
+		[RequiredByFeature("GL_VERSION_3_2")]
 		public static void FramebufferTexture(int target, int attachment, UInt32 texture, Int32 level)
 		{
 			if        (Delegates.pglFramebufferTexture != null) {
@@ -1781,6 +1791,8 @@ namespace OpenGL
 		/// </remarks>
 		/// <seealso cref="Gl.TexImage3D"/>
 		/// <seealso cref="Gl.TexImage2DMultisample"/>
+		[RequiredByFeature("GL_VERSION_3_2")]
+		[RequiredByFeature("GL_ARB_texture_multisample")]
 		public static void TexImage2DMultisample(int target, Int32 samples, int internalformat, Int32 width, Int32 height, bool fixedsamplelocations)
 		{
 			Debug.Assert(Delegates.pglTexImage2DMultisample != null, "pglTexImage2DMultisample not implemented");
@@ -1844,6 +1856,8 @@ namespace OpenGL
 		/// </remarks>
 		/// <seealso cref="Gl.TexImage3D"/>
 		/// <seealso cref="Gl.TexImage2DMultisample"/>
+		[RequiredByFeature("GL_VERSION_3_2")]
+		[RequiredByFeature("GL_ARB_texture_multisample")]
 		public static void TexImage3DMultisample(int target, Int32 samples, int internalformat, Int32 width, Int32 height, Int32 depth, bool fixedsamplelocations)
 		{
 			Debug.Assert(Delegates.pglTexImage3DMultisample != null, "pglTexImage3DMultisample not implemented");
@@ -1880,6 +1894,8 @@ namespace OpenGL
 		/// </remarks>
 		/// <seealso cref="Gl.GenFramebuffers"/>
 		/// <seealso cref="Gl.BindFramebuffer"/>
+		[RequiredByFeature("GL_VERSION_3_2")]
+		[RequiredByFeature("GL_ARB_texture_multisample")]
 		public static void GetMultisample(int pname, UInt32 index, float[] val)
 		{
 			unsafe {
@@ -1922,6 +1938,8 @@ namespace OpenGL
 		/// <seealso cref="Gl.RenderbufferStorageMultisample"/>
 		/// <seealso cref="Gl.FramebufferRenderbuffer"/>
 		/// <seealso cref="Gl.DeleteRenderbuffers"/>
+		[RequiredByFeature("GL_VERSION_3_2")]
+		[RequiredByFeature("GL_ARB_texture_multisample")]
 		public static void SampleMask(UInt32 maskNumber, uint mask)
 		{
 			Debug.Assert(Delegates.pglSampleMaski != null, "pglSampleMaski not implemented");

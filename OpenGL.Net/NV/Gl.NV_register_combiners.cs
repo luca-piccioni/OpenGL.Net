@@ -342,6 +342,7 @@ namespace OpenGL
 		/// <param name="params">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_NV_register_combiners")]
 		public static void CombinerParameterNV(int pname, float[] @params)
 		{
 			unsafe {
@@ -364,6 +365,7 @@ namespace OpenGL
 		/// <param name="param">
 		/// A <see cref="T:float"/>.
 		/// </param>
+		[RequiredByFeature("GL_NV_register_combiners")]
 		public static void CombinerParameterNV(int pname, float param)
 		{
 			Debug.Assert(Delegates.pglCombinerParameterfNV != null, "pglCombinerParameterfNV not implemented");
@@ -381,6 +383,7 @@ namespace OpenGL
 		/// <param name="params">
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_NV_register_combiners")]
 		public static void CombinerParameterNV(int pname, Int32[] @params)
 		{
 			unsafe {
@@ -403,6 +406,7 @@ namespace OpenGL
 		/// <param name="param">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
+		[RequiredByFeature("GL_NV_register_combiners")]
 		public static void CombinerParameterNV(int pname, Int32 param)
 		{
 			Debug.Assert(Delegates.pglCombinerParameteriNV != null, "pglCombinerParameteriNV not implemented");
@@ -432,6 +436,7 @@ namespace OpenGL
 		/// <param name="componentUsage">
 		/// A <see cref="T:int"/>.
 		/// </param>
+		[RequiredByFeature("GL_NV_register_combiners")]
 		public static void CombinerInputNV(int stage, int portion, int variable, int input, int mapping, int componentUsage)
 		{
 			Debug.Assert(Delegates.pglCombinerInputNV != null, "pglCombinerInputNV not implemented");
@@ -473,6 +478,7 @@ namespace OpenGL
 		/// <param name="muxSum">
 		/// A <see cref="T:bool"/>.
 		/// </param>
+		[RequiredByFeature("GL_NV_register_combiners")]
 		public static void CombinerOutputNV(int stage, int portion, int abOutput, int cdOutput, int sumOutput, int scale, int bias, bool abDotProduct, bool cdDotProduct, bool muxSum)
 		{
 			Debug.Assert(Delegates.pglCombinerOutputNV != null, "pglCombinerOutputNV not implemented");
@@ -496,6 +502,7 @@ namespace OpenGL
 		/// <param name="componentUsage">
 		/// A <see cref="T:int"/>.
 		/// </param>
+		[RequiredByFeature("GL_NV_register_combiners")]
 		public static void FinalCombinerInputNV(int variable, int input, int mapping, int componentUsage)
 		{
 			Debug.Assert(Delegates.pglFinalCombinerInputNV != null, "pglFinalCombinerInputNV not implemented");
@@ -522,6 +529,7 @@ namespace OpenGL
 		/// <param name="params">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_NV_register_combiners")]
 		public static void GetCombinerInputParameterNV(int stage, int portion, int variable, int pname, float[] @params)
 		{
 			unsafe {
@@ -553,6 +561,7 @@ namespace OpenGL
 		/// <param name="params">
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_NV_register_combiners")]
 		public static void GetCombinerInputParameterNV(int stage, int portion, int variable, int pname, Int32[] @params)
 		{
 			unsafe {
@@ -581,6 +590,7 @@ namespace OpenGL
 		/// <param name="params">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_NV_register_combiners")]
 		public static void GetCombinerOutputParameterNV(int stage, int portion, int pname, float[] @params)
 		{
 			unsafe {
@@ -609,6 +619,7 @@ namespace OpenGL
 		/// <param name="params">
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_NV_register_combiners")]
 		public static void GetCombinerOutputParameterNV(int stage, int portion, int pname, Int32[] @params)
 		{
 			unsafe {
@@ -634,6 +645,7 @@ namespace OpenGL
 		/// <param name="params">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_NV_register_combiners")]
 		public static void GetFinalCombinerInputParameterNV(int variable, int pname, float[] @params)
 		{
 			unsafe {
@@ -659,6 +671,7 @@ namespace OpenGL
 		/// <param name="params">
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_NV_register_combiners")]
 		public static void GetFinalCombinerInputParameterNV(int variable, int pname, Int32[] @params)
 		{
 			unsafe {

@@ -82,6 +82,7 @@ namespace OpenGL
 		/// <param name="filter">
 		/// A <see cref="T:int"/>.
 		/// </param>
+		[RequiredByFeature("GL_EXT_framebuffer_blit")]
 		public static void BlitFramebufferEXT(Int32 srcX0, Int32 srcY0, Int32 srcX1, Int32 srcY1, Int32 dstX0, Int32 dstY0, Int32 dstX1, Int32 dstY1, uint mask, int filter)
 		{
 			Debug.Assert(Delegates.pglBlitFramebufferEXT != null, "pglBlitFramebufferEXT not implemented");
@@ -123,6 +124,7 @@ namespace OpenGL
 		/// <param name="filter">
 		/// A <see cref="T:int"/>.
 		/// </param>
+		[RequiredByFeature("GL_EXT_framebuffer_blit")]
 		public static void BlitFramebufferEXT(Int32 srcX0, Int32 srcY0, Int32 srcX1, Int32 srcY1, Int32 dstX0, Int32 dstY0, Int32 dstX1, Int32 dstY1, ClearBufferMask mask, int filter)
 		{
 			Debug.Assert(Delegates.pglBlitFramebufferEXT != null, "pglBlitFramebufferEXT not implemented");

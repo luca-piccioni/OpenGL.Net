@@ -121,6 +121,7 @@ namespace OpenGL
 		/// <param name="tz">
 		/// A <see cref="T:sbyte"/>.
 		/// </param>
+		[RequiredByFeature("GL_EXT_coordinate_frame")]
 		public static void Tangent3EXT(sbyte tx, sbyte ty, sbyte tz)
 		{
 			Debug.Assert(Delegates.pglTangent3bEXT != null, "pglTangent3bEXT not implemented");
@@ -135,6 +136,7 @@ namespace OpenGL
 		/// <param name="v">
 		/// A <see cref="T:sbyte[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_EXT_coordinate_frame")]
 		public static void Tangent3EXT(sbyte[] v)
 		{
 			unsafe {
@@ -160,6 +162,7 @@ namespace OpenGL
 		/// <param name="tz">
 		/// A <see cref="T:double"/>.
 		/// </param>
+		[RequiredByFeature("GL_EXT_coordinate_frame")]
 		public static void Tangent3EXT(double tx, double ty, double tz)
 		{
 			Debug.Assert(Delegates.pglTangent3dEXT != null, "pglTangent3dEXT not implemented");
@@ -174,6 +177,7 @@ namespace OpenGL
 		/// <param name="v">
 		/// A <see cref="T:double[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_EXT_coordinate_frame")]
 		public static void Tangent3EXT(double[] v)
 		{
 			unsafe {
@@ -199,6 +203,7 @@ namespace OpenGL
 		/// <param name="tz">
 		/// A <see cref="T:float"/>.
 		/// </param>
+		[RequiredByFeature("GL_EXT_coordinate_frame")]
 		public static void Tangent3EXT(float tx, float ty, float tz)
 		{
 			Debug.Assert(Delegates.pglTangent3fEXT != null, "pglTangent3fEXT not implemented");
@@ -213,6 +218,7 @@ namespace OpenGL
 		/// <param name="v">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_EXT_coordinate_frame")]
 		public static void Tangent3EXT(float[] v)
 		{
 			unsafe {
@@ -238,6 +244,7 @@ namespace OpenGL
 		/// <param name="tz">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
+		[RequiredByFeature("GL_EXT_coordinate_frame")]
 		public static void Tangent3EXT(Int32 tx, Int32 ty, Int32 tz)
 		{
 			Debug.Assert(Delegates.pglTangent3iEXT != null, "pglTangent3iEXT not implemented");
@@ -252,6 +259,7 @@ namespace OpenGL
 		/// <param name="v">
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_EXT_coordinate_frame")]
 		public static void Tangent3EXT(Int32[] v)
 		{
 			unsafe {
@@ -277,6 +285,7 @@ namespace OpenGL
 		/// <param name="tz">
 		/// A <see cref="T:Int16"/>.
 		/// </param>
+		[RequiredByFeature("GL_EXT_coordinate_frame")]
 		public static void Tangent3EXT(Int16 tx, Int16 ty, Int16 tz)
 		{
 			Debug.Assert(Delegates.pglTangent3sEXT != null, "pglTangent3sEXT not implemented");
@@ -291,6 +300,7 @@ namespace OpenGL
 		/// <param name="v">
 		/// A <see cref="T:Int16[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_EXT_coordinate_frame")]
 		public static void Tangent3EXT(Int16[] v)
 		{
 			unsafe {
@@ -316,6 +326,7 @@ namespace OpenGL
 		/// <param name="bz">
 		/// A <see cref="T:sbyte"/>.
 		/// </param>
+		[RequiredByFeature("GL_EXT_coordinate_frame")]
 		public static void Binormal3EXT(sbyte bx, sbyte by, sbyte bz)
 		{
 			Debug.Assert(Delegates.pglBinormal3bEXT != null, "pglBinormal3bEXT not implemented");
@@ -330,6 +341,7 @@ namespace OpenGL
 		/// <param name="v">
 		/// A <see cref="T:sbyte[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_EXT_coordinate_frame")]
 		public static void Binormal3EXT(sbyte[] v)
 		{
 			unsafe {
@@ -355,6 +367,7 @@ namespace OpenGL
 		/// <param name="bz">
 		/// A <see cref="T:double"/>.
 		/// </param>
+		[RequiredByFeature("GL_EXT_coordinate_frame")]
 		public static void Binormal3EXT(double bx, double by, double bz)
 		{
 			Debug.Assert(Delegates.pglBinormal3dEXT != null, "pglBinormal3dEXT not implemented");
@@ -369,6 +382,7 @@ namespace OpenGL
 		/// <param name="v">
 		/// A <see cref="T:double[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_EXT_coordinate_frame")]
 		public static void Binormal3EXT(double[] v)
 		{
 			unsafe {
@@ -394,6 +408,7 @@ namespace OpenGL
 		/// <param name="bz">
 		/// A <see cref="T:float"/>.
 		/// </param>
+		[RequiredByFeature("GL_EXT_coordinate_frame")]
 		public static void Binormal3EXT(float bx, float by, float bz)
 		{
 			Debug.Assert(Delegates.pglBinormal3fEXT != null, "pglBinormal3fEXT not implemented");
@@ -408,6 +423,7 @@ namespace OpenGL
 		/// <param name="v">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_EXT_coordinate_frame")]
 		public static void Binormal3EXT(float[] v)
 		{
 			unsafe {
@@ -433,6 +449,7 @@ namespace OpenGL
 		/// <param name="bz">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
+		[RequiredByFeature("GL_EXT_coordinate_frame")]
 		public static void Binormal3EXT(Int32 bx, Int32 by, Int32 bz)
 		{
 			Debug.Assert(Delegates.pglBinormal3iEXT != null, "pglBinormal3iEXT not implemented");
@@ -447,6 +464,7 @@ namespace OpenGL
 		/// <param name="v">
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_EXT_coordinate_frame")]
 		public static void Binormal3EXT(Int32[] v)
 		{
 			unsafe {
@@ -472,6 +490,7 @@ namespace OpenGL
 		/// <param name="bz">
 		/// A <see cref="T:Int16"/>.
 		/// </param>
+		[RequiredByFeature("GL_EXT_coordinate_frame")]
 		public static void Binormal3EXT(Int16 bx, Int16 by, Int16 bz)
 		{
 			Debug.Assert(Delegates.pglBinormal3sEXT != null, "pglBinormal3sEXT not implemented");
@@ -486,6 +505,7 @@ namespace OpenGL
 		/// <param name="v">
 		/// A <see cref="T:Int16[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_EXT_coordinate_frame")]
 		public static void Binormal3EXT(Int16[] v)
 		{
 			unsafe {
@@ -511,6 +531,7 @@ namespace OpenGL
 		/// <param name="pointer">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
+		[RequiredByFeature("GL_EXT_coordinate_frame")]
 		public static void TangentPointerEXT(int type, Int32 stride, IntPtr pointer)
 		{
 			Debug.Assert(Delegates.pglTangentPointerEXT != null, "pglTangentPointerEXT not implemented");
@@ -531,6 +552,7 @@ namespace OpenGL
 		/// <param name="pointer">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
+		[RequiredByFeature("GL_EXT_coordinate_frame")]
 		public static void TangentPointerEXT(int type, Int32 stride, Object pointer)
 		{
 			GCHandle pin_pointer = GCHandle.Alloc(pointer, GCHandleType.Pinned);
@@ -553,6 +575,7 @@ namespace OpenGL
 		/// <param name="pointer">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
+		[RequiredByFeature("GL_EXT_coordinate_frame")]
 		public static void BinormalPointerEXT(int type, Int32 stride, IntPtr pointer)
 		{
 			Debug.Assert(Delegates.pglBinormalPointerEXT != null, "pglBinormalPointerEXT not implemented");
@@ -573,6 +596,7 @@ namespace OpenGL
 		/// <param name="pointer">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
+		[RequiredByFeature("GL_EXT_coordinate_frame")]
 		public static void BinormalPointerEXT(int type, Int32 stride, Object pointer)
 		{
 			GCHandle pin_pointer = GCHandle.Alloc(pointer, GCHandleType.Pinned);

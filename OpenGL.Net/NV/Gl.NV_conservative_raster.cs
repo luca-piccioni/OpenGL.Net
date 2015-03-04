@@ -58,6 +58,7 @@ namespace OpenGL
 		/// <param name="ybits">
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
+		[RequiredByFeature("GL_NV_conservative_raster")]
 		public static void SubpixelPrecisionBiasNV(UInt32 xbits, UInt32 ybits)
 		{
 			Debug.Assert(Delegates.pglSubpixelPrecisionBiasNV != null, "pglSubpixelPrecisionBiasNV not implemented");

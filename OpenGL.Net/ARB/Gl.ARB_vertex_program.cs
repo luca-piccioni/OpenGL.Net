@@ -581,6 +581,8 @@ namespace OpenGL
 		/// <param name="x">
 		/// A <see cref="T:double"/>.
 		/// </param>
+		[RequiredByFeature("GL_ARB_vertex_program")]
+		[RequiredByFeature("GL_ARB_vertex_shader")]
 		public static void VertexAttrib1ARB(UInt32 index, double x)
 		{
 			Debug.Assert(Delegates.pglVertexAttrib1dARB != null, "pglVertexAttrib1dARB not implemented");
@@ -598,6 +600,8 @@ namespace OpenGL
 		/// <param name="v">
 		/// A <see cref="T:double[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_ARB_vertex_program")]
+		[RequiredByFeature("GL_ARB_vertex_shader")]
 		public static void VertexAttrib1ARB(UInt32 index, double[] v)
 		{
 			unsafe {
@@ -620,6 +624,8 @@ namespace OpenGL
 		/// <param name="x">
 		/// A <see cref="T:float"/>.
 		/// </param>
+		[RequiredByFeature("GL_ARB_vertex_program")]
+		[RequiredByFeature("GL_ARB_vertex_shader")]
 		public static void VertexAttrib1ARB(UInt32 index, float x)
 		{
 			Debug.Assert(Delegates.pglVertexAttrib1fARB != null, "pglVertexAttrib1fARB not implemented");
@@ -637,6 +643,8 @@ namespace OpenGL
 		/// <param name="v">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_ARB_vertex_program")]
+		[RequiredByFeature("GL_ARB_vertex_shader")]
 		public static void VertexAttrib1ARB(UInt32 index, float[] v)
 		{
 			unsafe {
@@ -659,6 +667,8 @@ namespace OpenGL
 		/// <param name="x">
 		/// A <see cref="T:Int16"/>.
 		/// </param>
+		[RequiredByFeature("GL_ARB_vertex_program")]
+		[RequiredByFeature("GL_ARB_vertex_shader")]
 		public static void VertexAttrib1ARB(UInt32 index, Int16 x)
 		{
 			Debug.Assert(Delegates.pglVertexAttrib1sARB != null, "pglVertexAttrib1sARB not implemented");
@@ -676,6 +686,8 @@ namespace OpenGL
 		/// <param name="v">
 		/// A <see cref="T:Int16[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_ARB_vertex_program")]
+		[RequiredByFeature("GL_ARB_vertex_shader")]
 		public static void VertexAttrib1ARB(UInt32 index, Int16[] v)
 		{
 			unsafe {
@@ -701,6 +713,8 @@ namespace OpenGL
 		/// <param name="y">
 		/// A <see cref="T:double"/>.
 		/// </param>
+		[RequiredByFeature("GL_ARB_vertex_program")]
+		[RequiredByFeature("GL_ARB_vertex_shader")]
 		public static void VertexAttrib2ARB(UInt32 index, double x, double y)
 		{
 			Debug.Assert(Delegates.pglVertexAttrib2dARB != null, "pglVertexAttrib2dARB not implemented");
@@ -718,6 +732,8 @@ namespace OpenGL
 		/// <param name="v">
 		/// A <see cref="T:double[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_ARB_vertex_program")]
+		[RequiredByFeature("GL_ARB_vertex_shader")]
 		public static void VertexAttrib2ARB(UInt32 index, double[] v)
 		{
 			unsafe {
@@ -743,6 +759,8 @@ namespace OpenGL
 		/// <param name="y">
 		/// A <see cref="T:float"/>.
 		/// </param>
+		[RequiredByFeature("GL_ARB_vertex_program")]
+		[RequiredByFeature("GL_ARB_vertex_shader")]
 		public static void VertexAttrib2ARB(UInt32 index, float x, float y)
 		{
 			Debug.Assert(Delegates.pglVertexAttrib2fARB != null, "pglVertexAttrib2fARB not implemented");
@@ -760,6 +778,8 @@ namespace OpenGL
 		/// <param name="v">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_ARB_vertex_program")]
+		[RequiredByFeature("GL_ARB_vertex_shader")]
 		public static void VertexAttrib2ARB(UInt32 index, float[] v)
 		{
 			unsafe {
@@ -785,6 +805,8 @@ namespace OpenGL
 		/// <param name="y">
 		/// A <see cref="T:Int16"/>.
 		/// </param>
+		[RequiredByFeature("GL_ARB_vertex_program")]
+		[RequiredByFeature("GL_ARB_vertex_shader")]
 		public static void VertexAttrib2ARB(UInt32 index, Int16 x, Int16 y)
 		{
 			Debug.Assert(Delegates.pglVertexAttrib2sARB != null, "pglVertexAttrib2sARB not implemented");
@@ -802,6 +824,8 @@ namespace OpenGL
 		/// <param name="v">
 		/// A <see cref="T:Int16[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_ARB_vertex_program")]
+		[RequiredByFeature("GL_ARB_vertex_shader")]
 		public static void VertexAttrib2ARB(UInt32 index, Int16[] v)
 		{
 			unsafe {
@@ -830,6 +854,8 @@ namespace OpenGL
 		/// <param name="z">
 		/// A <see cref="T:double"/>.
 		/// </param>
+		[RequiredByFeature("GL_ARB_vertex_program")]
+		[RequiredByFeature("GL_ARB_vertex_shader")]
 		public static void VertexAttrib3ARB(UInt32 index, double x, double y, double z)
 		{
 			Debug.Assert(Delegates.pglVertexAttrib3dARB != null, "pglVertexAttrib3dARB not implemented");
@@ -847,6 +873,8 @@ namespace OpenGL
 		/// <param name="v">
 		/// A <see cref="T:double[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_ARB_vertex_program")]
+		[RequiredByFeature("GL_ARB_vertex_shader")]
 		public static void VertexAttrib3ARB(UInt32 index, double[] v)
 		{
 			unsafe {
@@ -875,6 +903,8 @@ namespace OpenGL
 		/// <param name="z">
 		/// A <see cref="T:float"/>.
 		/// </param>
+		[RequiredByFeature("GL_ARB_vertex_program")]
+		[RequiredByFeature("GL_ARB_vertex_shader")]
 		public static void VertexAttrib3ARB(UInt32 index, float x, float y, float z)
 		{
 			Debug.Assert(Delegates.pglVertexAttrib3fARB != null, "pglVertexAttrib3fARB not implemented");
@@ -892,6 +922,8 @@ namespace OpenGL
 		/// <param name="v">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_ARB_vertex_program")]
+		[RequiredByFeature("GL_ARB_vertex_shader")]
 		public static void VertexAttrib3ARB(UInt32 index, float[] v)
 		{
 			unsafe {
@@ -920,6 +952,8 @@ namespace OpenGL
 		/// <param name="z">
 		/// A <see cref="T:Int16"/>.
 		/// </param>
+		[RequiredByFeature("GL_ARB_vertex_program")]
+		[RequiredByFeature("GL_ARB_vertex_shader")]
 		public static void VertexAttrib3ARB(UInt32 index, Int16 x, Int16 y, Int16 z)
 		{
 			Debug.Assert(Delegates.pglVertexAttrib3sARB != null, "pglVertexAttrib3sARB not implemented");
@@ -937,6 +971,8 @@ namespace OpenGL
 		/// <param name="v">
 		/// A <see cref="T:Int16[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_ARB_vertex_program")]
+		[RequiredByFeature("GL_ARB_vertex_shader")]
 		public static void VertexAttrib3ARB(UInt32 index, Int16[] v)
 		{
 			unsafe {
@@ -959,6 +995,8 @@ namespace OpenGL
 		/// <param name="v">
 		/// A <see cref="T:sbyte[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_ARB_vertex_program")]
+		[RequiredByFeature("GL_ARB_vertex_shader")]
 		public static void VertexAttrib4NARB(UInt32 index, sbyte[] v)
 		{
 			unsafe {
@@ -981,6 +1019,8 @@ namespace OpenGL
 		/// <param name="v">
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_ARB_vertex_program")]
+		[RequiredByFeature("GL_ARB_vertex_shader")]
 		public static void VertexAttrib4NARB(UInt32 index, Int32[] v)
 		{
 			unsafe {
@@ -1003,6 +1043,8 @@ namespace OpenGL
 		/// <param name="v">
 		/// A <see cref="T:Int16[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_ARB_vertex_program")]
+		[RequiredByFeature("GL_ARB_vertex_shader")]
 		public static void VertexAttrib4NARB(UInt32 index, Int16[] v)
 		{
 			unsafe {
@@ -1034,6 +1076,8 @@ namespace OpenGL
 		/// <param name="w">
 		/// A <see cref="T:byte"/>.
 		/// </param>
+		[RequiredByFeature("GL_ARB_vertex_program")]
+		[RequiredByFeature("GL_ARB_vertex_shader")]
 		public static void VertexAttrib4NARB(UInt32 index, byte x, byte y, byte z, byte w)
 		{
 			Debug.Assert(Delegates.pglVertexAttrib4NubARB != null, "pglVertexAttrib4NubARB not implemented");
@@ -1051,6 +1095,8 @@ namespace OpenGL
 		/// <param name="v">
 		/// A <see cref="T:byte[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_ARB_vertex_program")]
+		[RequiredByFeature("GL_ARB_vertex_shader")]
 		public static void VertexAttrib4NARB(UInt32 index, byte[] v)
 		{
 			unsafe {
@@ -1073,6 +1119,8 @@ namespace OpenGL
 		/// <param name="v">
 		/// A <see cref="T:UInt32[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_ARB_vertex_program")]
+		[RequiredByFeature("GL_ARB_vertex_shader")]
 		public static void VertexAttrib4NARB(UInt32 index, UInt32[] v)
 		{
 			unsafe {
@@ -1095,6 +1143,8 @@ namespace OpenGL
 		/// <param name="v">
 		/// A <see cref="T:UInt16[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_ARB_vertex_program")]
+		[RequiredByFeature("GL_ARB_vertex_shader")]
 		public static void VertexAttrib4NARB(UInt32 index, UInt16[] v)
 		{
 			unsafe {
@@ -1117,6 +1167,8 @@ namespace OpenGL
 		/// <param name="v">
 		/// A <see cref="T:sbyte[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_ARB_vertex_program")]
+		[RequiredByFeature("GL_ARB_vertex_shader")]
 		public static void VertexAttrib4ARB(UInt32 index, sbyte[] v)
 		{
 			unsafe {
@@ -1148,6 +1200,8 @@ namespace OpenGL
 		/// <param name="w">
 		/// A <see cref="T:double"/>.
 		/// </param>
+		[RequiredByFeature("GL_ARB_vertex_program")]
+		[RequiredByFeature("GL_ARB_vertex_shader")]
 		public static void VertexAttrib4ARB(UInt32 index, double x, double y, double z, double w)
 		{
 			Debug.Assert(Delegates.pglVertexAttrib4dARB != null, "pglVertexAttrib4dARB not implemented");
@@ -1165,6 +1219,8 @@ namespace OpenGL
 		/// <param name="v">
 		/// A <see cref="T:double[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_ARB_vertex_program")]
+		[RequiredByFeature("GL_ARB_vertex_shader")]
 		public static void VertexAttrib4ARB(UInt32 index, double[] v)
 		{
 			unsafe {
@@ -1196,6 +1252,8 @@ namespace OpenGL
 		/// <param name="w">
 		/// A <see cref="T:float"/>.
 		/// </param>
+		[RequiredByFeature("GL_ARB_vertex_program")]
+		[RequiredByFeature("GL_ARB_vertex_shader")]
 		public static void VertexAttrib4ARB(UInt32 index, float x, float y, float z, float w)
 		{
 			Debug.Assert(Delegates.pglVertexAttrib4fARB != null, "pglVertexAttrib4fARB not implemented");
@@ -1213,6 +1271,8 @@ namespace OpenGL
 		/// <param name="v">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_ARB_vertex_program")]
+		[RequiredByFeature("GL_ARB_vertex_shader")]
 		public static void VertexAttrib4ARB(UInt32 index, float[] v)
 		{
 			unsafe {
@@ -1235,6 +1295,8 @@ namespace OpenGL
 		/// <param name="v">
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_ARB_vertex_program")]
+		[RequiredByFeature("GL_ARB_vertex_shader")]
 		public static void VertexAttrib4ARB(UInt32 index, Int32[] v)
 		{
 			unsafe {
@@ -1266,6 +1328,8 @@ namespace OpenGL
 		/// <param name="w">
 		/// A <see cref="T:Int16"/>.
 		/// </param>
+		[RequiredByFeature("GL_ARB_vertex_program")]
+		[RequiredByFeature("GL_ARB_vertex_shader")]
 		public static void VertexAttrib4ARB(UInt32 index, Int16 x, Int16 y, Int16 z, Int16 w)
 		{
 			Debug.Assert(Delegates.pglVertexAttrib4sARB != null, "pglVertexAttrib4sARB not implemented");
@@ -1283,6 +1347,8 @@ namespace OpenGL
 		/// <param name="v">
 		/// A <see cref="T:Int16[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_ARB_vertex_program")]
+		[RequiredByFeature("GL_ARB_vertex_shader")]
 		public static void VertexAttrib4ARB(UInt32 index, Int16[] v)
 		{
 			unsafe {
@@ -1305,6 +1371,8 @@ namespace OpenGL
 		/// <param name="v">
 		/// A <see cref="T:byte[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_ARB_vertex_program")]
+		[RequiredByFeature("GL_ARB_vertex_shader")]
 		public static void VertexAttrib4ubARB(UInt32 index, byte[] v)
 		{
 			unsafe {
@@ -1327,6 +1395,8 @@ namespace OpenGL
 		/// <param name="v">
 		/// A <see cref="T:UInt32[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_ARB_vertex_program")]
+		[RequiredByFeature("GL_ARB_vertex_shader")]
 		public static void VertexAttrib4ARB(UInt32 index, UInt32[] v)
 		{
 			unsafe {
@@ -1349,6 +1419,8 @@ namespace OpenGL
 		/// <param name="v">
 		/// A <see cref="T:UInt16[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_ARB_vertex_program")]
+		[RequiredByFeature("GL_ARB_vertex_shader")]
 		public static void VertexAttrib4ARB(UInt32 index, UInt16[] v)
 		{
 			unsafe {
@@ -1383,6 +1455,8 @@ namespace OpenGL
 		/// <param name="pointer">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
+		[RequiredByFeature("GL_ARB_vertex_program")]
+		[RequiredByFeature("GL_ARB_vertex_shader")]
 		public static void VertexAttribPointerARB(UInt32 index, Int32 size, int type, bool normalized, Int32 stride, IntPtr pointer)
 		{
 			Debug.Assert(Delegates.pglVertexAttribPointerARB != null, "pglVertexAttribPointerARB not implemented");
@@ -1412,6 +1486,8 @@ namespace OpenGL
 		/// <param name="pointer">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
+		[RequiredByFeature("GL_ARB_vertex_program")]
+		[RequiredByFeature("GL_ARB_vertex_shader")]
 		public static void VertexAttribPointerARB(UInt32 index, Int32 size, int type, bool normalized, Int32 stride, Object pointer)
 		{
 			GCHandle pin_pointer = GCHandle.Alloc(pointer, GCHandleType.Pinned);
@@ -1428,6 +1504,8 @@ namespace OpenGL
 		/// <param name="index">
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
+		[RequiredByFeature("GL_ARB_vertex_program")]
+		[RequiredByFeature("GL_ARB_vertex_shader")]
 		public static void EnableVertexAttribArrayARB(UInt32 index)
 		{
 			Debug.Assert(Delegates.pglEnableVertexAttribArrayARB != null, "pglEnableVertexAttribArrayARB not implemented");
@@ -1442,6 +1520,8 @@ namespace OpenGL
 		/// <param name="index">
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
+		[RequiredByFeature("GL_ARB_vertex_program")]
+		[RequiredByFeature("GL_ARB_vertex_shader")]
 		public static void DisableVertexAttribArrayARB(UInt32 index)
 		{
 			Debug.Assert(Delegates.pglDisableVertexAttribArrayARB != null, "pglDisableVertexAttribArrayARB not implemented");
@@ -1465,6 +1545,8 @@ namespace OpenGL
 		/// <param name="string">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
+		[RequiredByFeature("GL_ARB_fragment_program")]
+		[RequiredByFeature("GL_ARB_vertex_program")]
 		public static void ProgramStringARB(int target, int format, Int32 len, IntPtr @string)
 		{
 			Debug.Assert(Delegates.pglProgramStringARB != null, "pglProgramStringARB not implemented");
@@ -1488,6 +1570,8 @@ namespace OpenGL
 		/// <param name="string">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
+		[RequiredByFeature("GL_ARB_fragment_program")]
+		[RequiredByFeature("GL_ARB_vertex_program")]
 		public static void ProgramStringARB(int target, int format, Int32 len, Object @string)
 		{
 			GCHandle pin_string = GCHandle.Alloc(@string, GCHandleType.Pinned);
@@ -1507,6 +1591,8 @@ namespace OpenGL
 		/// <param name="program">
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
+		[RequiredByFeature("GL_ARB_fragment_program")]
+		[RequiredByFeature("GL_ARB_vertex_program")]
 		public static void BindProgramARB(int target, UInt32 program)
 		{
 			if        (Delegates.pglBindProgramARB != null) {
@@ -1529,6 +1615,8 @@ namespace OpenGL
 		/// <param name="programs">
 		/// A <see cref="T:UInt32[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_ARB_fragment_program")]
+		[RequiredByFeature("GL_ARB_vertex_program")]
 		public static void DeleteProgramsARB(Int32 n, UInt32[] programs)
 		{
 			unsafe {
@@ -1556,6 +1644,8 @@ namespace OpenGL
 		/// <param name="programs">
 		/// A <see cref="T:UInt32[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_ARB_fragment_program")]
+		[RequiredByFeature("GL_ARB_vertex_program")]
 		public static void GenProgramsARB(Int32 n, UInt32[] programs)
 		{
 			unsafe {
@@ -1595,6 +1685,8 @@ namespace OpenGL
 		/// <param name="w">
 		/// A <see cref="T:double"/>.
 		/// </param>
+		[RequiredByFeature("GL_ARB_fragment_program")]
+		[RequiredByFeature("GL_ARB_vertex_program")]
 		public static void ProgramEnvParameter4ARB(int target, UInt32 index, double x, double y, double z, double w)
 		{
 			Debug.Assert(Delegates.pglProgramEnvParameter4dARB != null, "pglProgramEnvParameter4dARB not implemented");
@@ -1615,6 +1707,8 @@ namespace OpenGL
 		/// <param name="params">
 		/// A <see cref="T:double[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_ARB_fragment_program")]
+		[RequiredByFeature("GL_ARB_vertex_program")]
 		public static void ProgramEnvParameter4ARB(int target, UInt32 index, double[] @params)
 		{
 			unsafe {
@@ -1649,6 +1743,8 @@ namespace OpenGL
 		/// <param name="w">
 		/// A <see cref="T:float"/>.
 		/// </param>
+		[RequiredByFeature("GL_ARB_fragment_program")]
+		[RequiredByFeature("GL_ARB_vertex_program")]
 		public static void ProgramEnvParameter4ARB(int target, UInt32 index, float x, float y, float z, float w)
 		{
 			Debug.Assert(Delegates.pglProgramEnvParameter4fARB != null, "pglProgramEnvParameter4fARB not implemented");
@@ -1669,6 +1765,8 @@ namespace OpenGL
 		/// <param name="params">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_ARB_fragment_program")]
+		[RequiredByFeature("GL_ARB_vertex_program")]
 		public static void ProgramEnvParameter4ARB(int target, UInt32 index, float[] @params)
 		{
 			unsafe {
@@ -1703,6 +1801,8 @@ namespace OpenGL
 		/// <param name="w">
 		/// A <see cref="T:double"/>.
 		/// </param>
+		[RequiredByFeature("GL_ARB_fragment_program")]
+		[RequiredByFeature("GL_ARB_vertex_program")]
 		public static void ProgramLocalParameter4ARB(int target, UInt32 index, double x, double y, double z, double w)
 		{
 			Debug.Assert(Delegates.pglProgramLocalParameter4dARB != null, "pglProgramLocalParameter4dARB not implemented");
@@ -1723,6 +1823,8 @@ namespace OpenGL
 		/// <param name="params">
 		/// A <see cref="T:double[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_ARB_fragment_program")]
+		[RequiredByFeature("GL_ARB_vertex_program")]
 		public static void ProgramLocalParameter4ARB(int target, UInt32 index, double[] @params)
 		{
 			unsafe {
@@ -1757,6 +1859,8 @@ namespace OpenGL
 		/// <param name="w">
 		/// A <see cref="T:float"/>.
 		/// </param>
+		[RequiredByFeature("GL_ARB_fragment_program")]
+		[RequiredByFeature("GL_ARB_vertex_program")]
 		public static void ProgramLocalParameter4ARB(int target, UInt32 index, float x, float y, float z, float w)
 		{
 			Debug.Assert(Delegates.pglProgramLocalParameter4fARB != null, "pglProgramLocalParameter4fARB not implemented");
@@ -1777,6 +1881,8 @@ namespace OpenGL
 		/// <param name="params">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_ARB_fragment_program")]
+		[RequiredByFeature("GL_ARB_vertex_program")]
 		public static void ProgramLocalParameter4ARB(int target, UInt32 index, float[] @params)
 		{
 			unsafe {
@@ -1802,6 +1908,8 @@ namespace OpenGL
 		/// <param name="params">
 		/// A <see cref="T:double[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_ARB_fragment_program")]
+		[RequiredByFeature("GL_ARB_vertex_program")]
 		public static void GetProgramEnvParameterARB(int target, UInt32 index, double[] @params)
 		{
 			unsafe {
@@ -1827,6 +1935,8 @@ namespace OpenGL
 		/// <param name="params">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_ARB_fragment_program")]
+		[RequiredByFeature("GL_ARB_vertex_program")]
 		public static void GetProgramEnvParameterARB(int target, UInt32 index, float[] @params)
 		{
 			unsafe {
@@ -1852,6 +1962,8 @@ namespace OpenGL
 		/// <param name="params">
 		/// A <see cref="T:double[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_ARB_fragment_program")]
+		[RequiredByFeature("GL_ARB_vertex_program")]
 		public static void GetProgramLocalParameterARB(int target, UInt32 index, double[] @params)
 		{
 			unsafe {
@@ -1877,6 +1989,8 @@ namespace OpenGL
 		/// <param name="params">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_ARB_fragment_program")]
+		[RequiredByFeature("GL_ARB_vertex_program")]
 		public static void GetProgramLocalParameterARB(int target, UInt32 index, float[] @params)
 		{
 			unsafe {
@@ -1902,6 +2016,8 @@ namespace OpenGL
 		/// <param name="params">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
+		[RequiredByFeature("GL_ARB_fragment_program")]
+		[RequiredByFeature("GL_ARB_vertex_program")]
 		public static void GetProgramARB(int target, int pname, out Int32 @params)
 		{
 			unsafe {
@@ -1927,6 +2043,8 @@ namespace OpenGL
 		/// <param name="string">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
+		[RequiredByFeature("GL_ARB_fragment_program")]
+		[RequiredByFeature("GL_ARB_vertex_program")]
 		public static void GetProgramStringARB(int target, int pname, IntPtr @string)
 		{
 			Debug.Assert(Delegates.pglGetProgramStringARB != null, "pglGetProgramStringARB not implemented");
@@ -1947,6 +2065,8 @@ namespace OpenGL
 		/// <param name="params">
 		/// A <see cref="T:double[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_ARB_vertex_program")]
+		[RequiredByFeature("GL_ARB_vertex_shader")]
 		public static void GetVertexAttribARB(UInt32 index, int pname, double[] @params)
 		{
 			unsafe {
@@ -1972,6 +2092,8 @@ namespace OpenGL
 		/// <param name="params">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_ARB_vertex_program")]
+		[RequiredByFeature("GL_ARB_vertex_shader")]
 		public static void GetVertexAttribARB(UInt32 index, int pname, float[] @params)
 		{
 			unsafe {
@@ -1997,6 +2119,8 @@ namespace OpenGL
 		/// <param name="params">
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_ARB_vertex_program")]
+		[RequiredByFeature("GL_ARB_vertex_shader")]
 		public static void GetVertexAttribARB(UInt32 index, int pname, Int32[] @params)
 		{
 			unsafe {
@@ -2022,6 +2146,8 @@ namespace OpenGL
 		/// <param name="pointer">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
+		[RequiredByFeature("GL_ARB_vertex_program")]
+		[RequiredByFeature("GL_ARB_vertex_shader")]
 		public static void GetVertexAttribPointerARB(UInt32 index, int pname, IntPtr pointer)
 		{
 			Debug.Assert(Delegates.pglGetVertexAttribPointervARB != null, "pglGetVertexAttribPointervARB not implemented");
@@ -2036,6 +2162,8 @@ namespace OpenGL
 		/// <param name="program">
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
+		[RequiredByFeature("GL_ARB_fragment_program")]
+		[RequiredByFeature("GL_ARB_vertex_program")]
 		public static bool IsProgramARB(UInt32 program)
 		{
 			bool retValue;

@@ -79,6 +79,7 @@ namespace OpenGL
 		/// <param name="depth">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
+		[RequiredByFeature("WGL_NV_copy_image")]
 		public static bool CopyImageSubDataNV(IntPtr hSrcRC, UInt32 srcName, int srcTarget, Int32 srcLevel, Int32 srcX, Int32 srcY, Int32 srcZ, IntPtr hDstRC, UInt32 dstName, int dstTarget, Int32 dstLevel, Int32 dstX, Int32 dstY, Int32 dstZ, Int32 width, Int32 height, Int32 depth)
 		{
 			bool retValue;
@@ -86,7 +87,6 @@ namespace OpenGL
 			Debug.Assert(Delegates.pwglCopyImageSubDataNV != null, "pwglCopyImageSubDataNV not implemented");
 			retValue = Delegates.pwglCopyImageSubDataNV(hSrcRC, srcName, srcTarget, srcLevel, srcX, srcY, srcZ, hDstRC, dstName, dstTarget, dstLevel, dstX, dstY, dstZ, width, height, depth);
 			CallLog("wglCopyImageSubDataNV({0}, {1}, {2}, {3}, {4}, {5}, {6}, {7}, {8}, {9}, {10}, {11}, {12}, {13}, {14}, {15}, {16}) = {17}", hSrcRC, srcName, srcTarget, srcLevel, srcX, srcY, srcZ, hDstRC, dstName, dstTarget, dstLevel, dstX, dstY, dstZ, width, height, depth, retValue);
-			DebugCheckErrors();
 
 			return (retValue);
 		}

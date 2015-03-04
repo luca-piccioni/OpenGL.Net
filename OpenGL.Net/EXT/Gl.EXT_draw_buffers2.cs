@@ -43,6 +43,7 @@ namespace OpenGL
 		/// <param name="a">
 		/// A <see cref="T:bool"/>.
 		/// </param>
+		[RequiredByFeature("GL_EXT_draw_buffers2")]
 		public static void ColorMaskIndexedEXT(UInt32 index, bool r, bool g, bool b, bool a)
 		{
 			Debug.Assert(Delegates.pglColorMaskIndexedEXT != null, "pglColorMaskIndexedEXT not implemented");
@@ -63,6 +64,8 @@ namespace OpenGL
 		/// <param name="data">
 		/// A <see cref="T:bool[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_EXT_direct_state_access")]
+		[RequiredByFeature("GL_EXT_draw_buffers2")]
 		public static void GetBooleanIndexedEXT(int target, UInt32 index, bool[] data)
 		{
 			unsafe {
@@ -88,6 +91,8 @@ namespace OpenGL
 		/// <param name="data">
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_EXT_direct_state_access")]
+		[RequiredByFeature("GL_EXT_draw_buffers2")]
 		public static void GetIntegerIndexedEXT(int target, UInt32 index, Int32[] data)
 		{
 			unsafe {
@@ -110,6 +115,8 @@ namespace OpenGL
 		/// <param name="index">
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
+		[RequiredByFeature("GL_EXT_direct_state_access")]
+		[RequiredByFeature("GL_EXT_draw_buffers2")]
 		public static void EnableIndexedEXT(int target, UInt32 index)
 		{
 			Debug.Assert(Delegates.pglEnableIndexedEXT != null, "pglEnableIndexedEXT not implemented");
@@ -127,6 +134,8 @@ namespace OpenGL
 		/// <param name="index">
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
+		[RequiredByFeature("GL_EXT_direct_state_access")]
+		[RequiredByFeature("GL_EXT_draw_buffers2")]
 		public static void DisableIndexedEXT(int target, UInt32 index)
 		{
 			Debug.Assert(Delegates.pglDisableIndexedEXT != null, "pglDisableIndexedEXT not implemented");
@@ -144,6 +153,8 @@ namespace OpenGL
 		/// <param name="index">
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
+		[RequiredByFeature("GL_EXT_direct_state_access")]
+		[RequiredByFeature("GL_EXT_draw_buffers2")]
 		public static bool IsEnabledIndexedEXT(int target, UInt32 index)
 		{
 			bool retValue;

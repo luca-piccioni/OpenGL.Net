@@ -145,6 +145,7 @@ namespace OpenGL
 		/// <param name="value">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
+		[RequiredByFeature("GL_ARB_geometry_shader4")]
 		public static void ProgramParameterARB(UInt32 program, int pname, Int32 value)
 		{
 			Debug.Assert(Delegates.pglProgramParameteriARB != null, "pglProgramParameteriARB not implemented");
@@ -168,6 +169,7 @@ namespace OpenGL
 		/// <param name="level">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
+		[RequiredByFeature("GL_ARB_geometry_shader4")]
 		public static void FramebufferTextureARB(int target, int attachment, UInt32 texture, Int32 level)
 		{
 			Debug.Assert(Delegates.pglFramebufferTextureARB != null, "pglFramebufferTextureARB not implemented");
@@ -194,6 +196,7 @@ namespace OpenGL
 		/// <param name="layer">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
+		[RequiredByFeature("GL_ARB_geometry_shader4")]
 		public static void FramebufferTextureLayerARB(int target, int attachment, UInt32 texture, Int32 level, Int32 layer)
 		{
 			Debug.Assert(Delegates.pglFramebufferTextureLayerARB != null, "pglFramebufferTextureLayerARB not implemented");
@@ -220,6 +223,7 @@ namespace OpenGL
 		/// <param name="face">
 		/// A <see cref="T:int"/>.
 		/// </param>
+		[RequiredByFeature("GL_ARB_geometry_shader4")]
 		public static void FramebufferTextureFaceARB(int target, int attachment, UInt32 texture, Int32 level, int face)
 		{
 			if        (Delegates.pglFramebufferTextureFaceARB != null) {
@@ -251,6 +255,7 @@ namespace OpenGL
 		/// <param name="face">
 		/// A <see cref="T:int"/>.
 		/// </param>
+		[RequiredByFeature("GL_ARB_geometry_shader4")]
 		public static void FramebufferTextureFaceARB(int target, int attachment, UInt32 texture, Int32 level, TextureTarget face)
 		{
 			if        (Delegates.pglFramebufferTextureFaceARB != null) {

@@ -40,6 +40,7 @@ namespace OpenGL
 		/// <param name="x">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
+		[RequiredByFeature("GL_NV_vertex_program4")]
 		public static void VertexAttribI1EXT(UInt32 index, Int32 x)
 		{
 			Debug.Assert(Delegates.pglVertexAttribI1iEXT != null, "pglVertexAttribI1iEXT not implemented");
@@ -60,6 +61,7 @@ namespace OpenGL
 		/// <param name="y">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
+		[RequiredByFeature("GL_NV_vertex_program4")]
 		public static void VertexAttribI2EXT(UInt32 index, Int32 x, Int32 y)
 		{
 			Debug.Assert(Delegates.pglVertexAttribI2iEXT != null, "pglVertexAttribI2iEXT not implemented");
@@ -83,6 +85,7 @@ namespace OpenGL
 		/// <param name="z">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
+		[RequiredByFeature("GL_NV_vertex_program4")]
 		public static void VertexAttribI3EXT(UInt32 index, Int32 x, Int32 y, Int32 z)
 		{
 			Debug.Assert(Delegates.pglVertexAttribI3iEXT != null, "pglVertexAttribI3iEXT not implemented");
@@ -109,6 +112,7 @@ namespace OpenGL
 		/// <param name="w">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
+		[RequiredByFeature("GL_NV_vertex_program4")]
 		public static void VertexAttribI4EXT(UInt32 index, Int32 x, Int32 y, Int32 z, Int32 w)
 		{
 			Debug.Assert(Delegates.pglVertexAttribI4iEXT != null, "pglVertexAttribI4iEXT not implemented");
@@ -126,6 +130,7 @@ namespace OpenGL
 		/// <param name="x">
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
+		[RequiredByFeature("GL_NV_vertex_program4")]
 		public static void VertexAttribI1EXT(UInt32 index, UInt32 x)
 		{
 			Debug.Assert(Delegates.pglVertexAttribI1uiEXT != null, "pglVertexAttribI1uiEXT not implemented");
@@ -146,6 +151,7 @@ namespace OpenGL
 		/// <param name="y">
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
+		[RequiredByFeature("GL_NV_vertex_program4")]
 		public static void VertexAttribI2EXT(UInt32 index, UInt32 x, UInt32 y)
 		{
 			Debug.Assert(Delegates.pglVertexAttribI2uiEXT != null, "pglVertexAttribI2uiEXT not implemented");
@@ -169,6 +175,7 @@ namespace OpenGL
 		/// <param name="z">
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
+		[RequiredByFeature("GL_NV_vertex_program4")]
 		public static void VertexAttribI3EXT(UInt32 index, UInt32 x, UInt32 y, UInt32 z)
 		{
 			Debug.Assert(Delegates.pglVertexAttribI3uiEXT != null, "pglVertexAttribI3uiEXT not implemented");
@@ -195,6 +202,7 @@ namespace OpenGL
 		/// <param name="w">
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
+		[RequiredByFeature("GL_NV_vertex_program4")]
 		public static void VertexAttribI4EXT(UInt32 index, UInt32 x, UInt32 y, UInt32 z, UInt32 w)
 		{
 			Debug.Assert(Delegates.pglVertexAttribI4uiEXT != null, "pglVertexAttribI4uiEXT not implemented");
@@ -212,6 +220,7 @@ namespace OpenGL
 		/// <param name="v">
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_NV_vertex_program4")]
 		public static void VertexAttribI1EXT(UInt32 index, Int32[] v)
 		{
 			unsafe {
@@ -234,6 +243,7 @@ namespace OpenGL
 		/// <param name="v">
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_NV_vertex_program4")]
 		public static void VertexAttribI2EXT(UInt32 index, Int32[] v)
 		{
 			unsafe {
@@ -256,6 +266,7 @@ namespace OpenGL
 		/// <param name="v">
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_NV_vertex_program4")]
 		public static void VertexAttribI3EXT(UInt32 index, Int32[] v)
 		{
 			unsafe {
@@ -278,6 +289,7 @@ namespace OpenGL
 		/// <param name="v">
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_NV_vertex_program4")]
 		public static void VertexAttribI4EXT(UInt32 index, Int32[] v)
 		{
 			unsafe {
@@ -300,6 +312,7 @@ namespace OpenGL
 		/// <param name="v">
 		/// A <see cref="T:UInt32[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_NV_vertex_program4")]
 		public static void VertexAttribI1EXT(UInt32 index, UInt32[] v)
 		{
 			unsafe {
@@ -322,6 +335,7 @@ namespace OpenGL
 		/// <param name="v">
 		/// A <see cref="T:UInt32[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_NV_vertex_program4")]
 		public static void VertexAttribI2EXT(UInt32 index, UInt32[] v)
 		{
 			unsafe {
@@ -344,6 +358,7 @@ namespace OpenGL
 		/// <param name="v">
 		/// A <see cref="T:UInt32[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_NV_vertex_program4")]
 		public static void VertexAttribI3EXT(UInt32 index, UInt32[] v)
 		{
 			unsafe {
@@ -366,6 +381,7 @@ namespace OpenGL
 		/// <param name="v">
 		/// A <see cref="T:UInt32[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_NV_vertex_program4")]
 		public static void VertexAttribI4EXT(UInt32 index, UInt32[] v)
 		{
 			unsafe {
@@ -388,6 +404,7 @@ namespace OpenGL
 		/// <param name="v">
 		/// A <see cref="T:sbyte[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_NV_vertex_program4")]
 		public static void VertexAttribI4EXT(UInt32 index, sbyte[] v)
 		{
 			unsafe {
@@ -410,6 +427,7 @@ namespace OpenGL
 		/// <param name="v">
 		/// A <see cref="T:Int16[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_NV_vertex_program4")]
 		public static void VertexAttribI4EXT(UInt32 index, Int16[] v)
 		{
 			unsafe {
@@ -432,6 +450,7 @@ namespace OpenGL
 		/// <param name="v">
 		/// A <see cref="T:byte[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_NV_vertex_program4")]
 		public static void VertexAttribI4EXT(UInt32 index, byte[] v)
 		{
 			unsafe {
@@ -454,6 +473,7 @@ namespace OpenGL
 		/// <param name="v">
 		/// A <see cref="T:UInt16[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_NV_vertex_program4")]
 		public static void VertexAttribI4EXT(UInt32 index, UInt16[] v)
 		{
 			unsafe {
@@ -485,6 +505,7 @@ namespace OpenGL
 		/// <param name="pointer">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
+		[RequiredByFeature("GL_NV_vertex_program4")]
 		public static void VertexAttribIPointerEXT(UInt32 index, Int32 size, int type, Int32 stride, IntPtr pointer)
 		{
 			Debug.Assert(Delegates.pglVertexAttribIPointerEXT != null, "pglVertexAttribIPointerEXT not implemented");
@@ -511,6 +532,7 @@ namespace OpenGL
 		/// <param name="pointer">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
+		[RequiredByFeature("GL_NV_vertex_program4")]
 		public static void VertexAttribIPointerEXT(UInt32 index, Int32 size, int type, Int32 stride, Object pointer)
 		{
 			GCHandle pin_pointer = GCHandle.Alloc(pointer, GCHandleType.Pinned);
@@ -533,6 +555,7 @@ namespace OpenGL
 		/// <param name="params">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
+		[RequiredByFeature("GL_NV_vertex_program4")]
 		public static void GetVertexAttribIEXT(UInt32 index, int pname, out Int32 @params)
 		{
 			unsafe {
@@ -558,6 +581,7 @@ namespace OpenGL
 		/// <param name="params">
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
+		[RequiredByFeature("GL_NV_vertex_program4")]
 		public static void GetVertexAttribIEXT(UInt32 index, int pname, out UInt32 @params)
 		{
 			unsafe {

@@ -61,6 +61,7 @@ namespace OpenGL
 		/// <param name="string">
 		/// A <see cref="T:String"/>.
 		/// </param>
+		[RequiredByFeature("GL_ARB_shading_language_include")]
 		public static void NamedStringARB(int type, Int32 namelen, String name, Int32 stringlen, String @string)
 		{
 			Debug.Assert(Delegates.pglNamedStringARB != null, "pglNamedStringARB not implemented");
@@ -78,6 +79,7 @@ namespace OpenGL
 		/// <param name="name">
 		/// A <see cref="T:String"/>.
 		/// </param>
+		[RequiredByFeature("GL_ARB_shading_language_include")]
 		public static void DeleteNamedStringARB(Int32 namelen, String name)
 		{
 			Debug.Assert(Delegates.pglDeleteNamedStringARB != null, "pglDeleteNamedStringARB not implemented");
@@ -101,6 +103,7 @@ namespace OpenGL
 		/// <param name="length">
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_ARB_shading_language_include")]
 		public static void CompileShaderIncludeARB(UInt32 shader, Int32 count, String[] path, Int32[] length)
 		{
 			unsafe {
@@ -123,6 +126,7 @@ namespace OpenGL
 		/// <param name="name">
 		/// A <see cref="T:String"/>.
 		/// </param>
+		[RequiredByFeature("GL_ARB_shading_language_include")]
 		public static bool IsNamedStringARB(Int32 namelen, String name)
 		{
 			bool retValue;
@@ -153,6 +157,7 @@ namespace OpenGL
 		/// <param name="string">
 		/// A <see cref="T:StringBuilder"/>.
 		/// </param>
+		[RequiredByFeature("GL_ARB_shading_language_include")]
 		public static void GetNamedStringARB(Int32 namelen, String name, Int32 bufSize, out Int32 stringlen, [Out] StringBuilder @string)
 		{
 			unsafe {
@@ -181,6 +186,7 @@ namespace OpenGL
 		/// <param name="params">
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_ARB_shading_language_include")]
 		public static void GetNamedStringARB(Int32 namelen, String name, int pname, Int32[] @params)
 		{
 			unsafe {

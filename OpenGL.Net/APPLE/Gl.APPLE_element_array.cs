@@ -52,6 +52,7 @@ namespace OpenGL
 		/// <param name="pointer">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
+		[RequiredByFeature("GL_APPLE_element_array")]
 		public static void ElementPointerAPPLE(int type, IntPtr pointer)
 		{
 			Debug.Assert(Delegates.pglElementPointerAPPLE != null, "pglElementPointerAPPLE not implemented");
@@ -69,6 +70,7 @@ namespace OpenGL
 		/// <param name="pointer">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
+		[RequiredByFeature("GL_APPLE_element_array")]
 		public static void ElementPointerAPPLE(int type, Object pointer)
 		{
 			GCHandle pin_pointer = GCHandle.Alloc(pointer, GCHandleType.Pinned);
@@ -91,6 +93,7 @@ namespace OpenGL
 		/// <param name="count">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
+		[RequiredByFeature("GL_APPLE_element_array")]
 		public static void DrawElementArrayAPPLE(int mode, Int32 first, Int32 count)
 		{
 			Debug.Assert(Delegates.pglDrawElementArrayAPPLE != null, "pglDrawElementArrayAPPLE not implemented");
@@ -111,6 +114,7 @@ namespace OpenGL
 		/// <param name="count">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
+		[RequiredByFeature("GL_APPLE_element_array")]
 		public static void DrawElementArrayAPPLE(PrimitiveType mode, Int32 first, Int32 count)
 		{
 			Debug.Assert(Delegates.pglDrawElementArrayAPPLE != null, "pglDrawElementArrayAPPLE not implemented");
@@ -137,6 +141,7 @@ namespace OpenGL
 		/// <param name="count">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
+		[RequiredByFeature("GL_APPLE_element_array")]
 		public static void DrawRangeElementArrayAPPLE(int mode, UInt32 start, UInt32 end, Int32 first, Int32 count)
 		{
 			Debug.Assert(Delegates.pglDrawRangeElementArrayAPPLE != null, "pglDrawRangeElementArrayAPPLE not implemented");
@@ -163,6 +168,7 @@ namespace OpenGL
 		/// <param name="count">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
+		[RequiredByFeature("GL_APPLE_element_array")]
 		public static void DrawRangeElementArrayAPPLE(PrimitiveType mode, UInt32 start, UInt32 end, Int32 first, Int32 count)
 		{
 			Debug.Assert(Delegates.pglDrawRangeElementArrayAPPLE != null, "pglDrawRangeElementArrayAPPLE not implemented");
@@ -186,6 +192,7 @@ namespace OpenGL
 		/// <param name="primcount">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
+		[RequiredByFeature("GL_APPLE_element_array")]
 		public static void MultiDrawElementArrayAPPLE(int mode, Int32[] first, Int32[] count, Int32 primcount)
 		{
 			unsafe {
@@ -215,6 +222,7 @@ namespace OpenGL
 		/// <param name="primcount">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
+		[RequiredByFeature("GL_APPLE_element_array")]
 		public static void MultiDrawElementArrayAPPLE(PrimitiveType mode, Int32[] first, Int32[] count, Int32 primcount)
 		{
 			unsafe {
@@ -250,6 +258,7 @@ namespace OpenGL
 		/// <param name="primcount">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
+		[RequiredByFeature("GL_APPLE_element_array")]
 		public static void MultiDrawRangeElementArrayAPPLE(int mode, UInt32 start, UInt32 end, Int32[] first, Int32[] count, Int32 primcount)
 		{
 			unsafe {
@@ -285,6 +294,7 @@ namespace OpenGL
 		/// <param name="primcount">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
+		[RequiredByFeature("GL_APPLE_element_array")]
 		public static void MultiDrawRangeElementArrayAPPLE(PrimitiveType mode, UInt32 start, UInt32 end, Int32[] first, Int32[] count, Int32 primcount)
 		{
 			unsafe {

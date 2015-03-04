@@ -40,6 +40,7 @@ namespace OpenGL
 		/// <param name="phDeviceList">
 		/// A <see cref="T:IntPtr[]"/>.
 		/// </param>
+		[RequiredByFeature("WGL_NV_present_video")]
 		public static int EnumerateVideoDevicesNV(IntPtr hDC, IntPtr[] phDeviceList)
 		{
 			int retValue;
@@ -52,7 +53,6 @@ namespace OpenGL
 					CallLog("wglEnumerateVideoDevicesNV({0}, {1}) = {2}", hDC, phDeviceList, retValue);
 				}
 			}
-			DebugCheckErrors();
 
 			return (retValue);
 		}
@@ -72,6 +72,7 @@ namespace OpenGL
 		/// <param name="piAttribList">
 		/// A <see cref="T:int[]"/>.
 		/// </param>
+		[RequiredByFeature("WGL_NV_present_video")]
 		public static bool BindVideoDeviceNV(IntPtr hDC, UInt32 uVideoSlot, IntPtr hVideoDevice, int[] piAttribList)
 		{
 			bool retValue;
@@ -84,7 +85,6 @@ namespace OpenGL
 					CallLog("wglBindVideoDeviceNV({0}, {1}, {2}, {3}) = {4}", hDC, uVideoSlot, hVideoDevice, piAttribList, retValue);
 				}
 			}
-			DebugCheckErrors();
 
 			return (retValue);
 		}
@@ -98,6 +98,7 @@ namespace OpenGL
 		/// <param name="piValue">
 		/// A <see cref="T:int[]"/>.
 		/// </param>
+		[RequiredByFeature("WGL_NV_present_video")]
 		public static bool QueryCurrentContextNV(int iAttribute, int[] piValue)
 		{
 			bool retValue;
@@ -110,7 +111,6 @@ namespace OpenGL
 					CallLog("wglQueryCurrentContextNV({0}, {1}) = {2}", iAttribute, piValue, retValue);
 				}
 			}
-			DebugCheckErrors();
 
 			return (retValue);
 		}

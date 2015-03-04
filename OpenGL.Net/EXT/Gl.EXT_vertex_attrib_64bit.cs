@@ -106,6 +106,7 @@ namespace OpenGL
 		/// <param name="x">
 		/// A <see cref="T:double"/>.
 		/// </param>
+		[RequiredByFeature("GL_EXT_vertex_attrib_64bit")]
 		public static void VertexAttribL1EXT(UInt32 index, double x)
 		{
 			Debug.Assert(Delegates.pglVertexAttribL1dEXT != null, "pglVertexAttribL1dEXT not implemented");
@@ -126,6 +127,7 @@ namespace OpenGL
 		/// <param name="y">
 		/// A <see cref="T:double"/>.
 		/// </param>
+		[RequiredByFeature("GL_EXT_vertex_attrib_64bit")]
 		public static void VertexAttribL2EXT(UInt32 index, double x, double y)
 		{
 			Debug.Assert(Delegates.pglVertexAttribL2dEXT != null, "pglVertexAttribL2dEXT not implemented");
@@ -149,6 +151,7 @@ namespace OpenGL
 		/// <param name="z">
 		/// A <see cref="T:double"/>.
 		/// </param>
+		[RequiredByFeature("GL_EXT_vertex_attrib_64bit")]
 		public static void VertexAttribL3EXT(UInt32 index, double x, double y, double z)
 		{
 			Debug.Assert(Delegates.pglVertexAttribL3dEXT != null, "pglVertexAttribL3dEXT not implemented");
@@ -175,6 +178,7 @@ namespace OpenGL
 		/// <param name="w">
 		/// A <see cref="T:double"/>.
 		/// </param>
+		[RequiredByFeature("GL_EXT_vertex_attrib_64bit")]
 		public static void VertexAttribL4EXT(UInt32 index, double x, double y, double z, double w)
 		{
 			Debug.Assert(Delegates.pglVertexAttribL4dEXT != null, "pglVertexAttribL4dEXT not implemented");
@@ -192,6 +196,7 @@ namespace OpenGL
 		/// <param name="v">
 		/// A <see cref="T:double[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_EXT_vertex_attrib_64bit")]
 		public static void VertexAttribL1EXT(UInt32 index, double[] v)
 		{
 			unsafe {
@@ -214,6 +219,7 @@ namespace OpenGL
 		/// <param name="v">
 		/// A <see cref="T:double[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_EXT_vertex_attrib_64bit")]
 		public static void VertexAttribL2EXT(UInt32 index, double[] v)
 		{
 			unsafe {
@@ -236,6 +242,7 @@ namespace OpenGL
 		/// <param name="v">
 		/// A <see cref="T:double[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_EXT_vertex_attrib_64bit")]
 		public static void VertexAttribL3EXT(UInt32 index, double[] v)
 		{
 			unsafe {
@@ -258,6 +265,7 @@ namespace OpenGL
 		/// <param name="v">
 		/// A <see cref="T:double[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_EXT_vertex_attrib_64bit")]
 		public static void VertexAttribL4EXT(UInt32 index, double[] v)
 		{
 			unsafe {
@@ -289,6 +297,7 @@ namespace OpenGL
 		/// <param name="pointer">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
+		[RequiredByFeature("GL_EXT_vertex_attrib_64bit")]
 		public static void VertexAttribLPointerEXT(UInt32 index, Int32 size, int type, Int32 stride, IntPtr pointer)
 		{
 			Debug.Assert(Delegates.pglVertexAttribLPointerEXT != null, "pglVertexAttribLPointerEXT not implemented");
@@ -315,6 +324,7 @@ namespace OpenGL
 		/// <param name="pointer">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
+		[RequiredByFeature("GL_EXT_vertex_attrib_64bit")]
 		public static void VertexAttribLPointerEXT(UInt32 index, Int32 size, int type, Int32 stride, Object pointer)
 		{
 			GCHandle pin_pointer = GCHandle.Alloc(pointer, GCHandleType.Pinned);
@@ -337,6 +347,7 @@ namespace OpenGL
 		/// <param name="params">
 		/// A <see cref="T:double[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_EXT_vertex_attrib_64bit")]
 		public static void GetVertexAttribLEXT(UInt32 index, int pname, double[] @params)
 		{
 			unsafe {

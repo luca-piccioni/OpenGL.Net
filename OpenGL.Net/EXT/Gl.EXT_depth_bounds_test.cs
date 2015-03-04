@@ -46,6 +46,7 @@ namespace OpenGL
 		/// <param name="zmax">
 		/// A <see cref="T:double"/>.
 		/// </param>
+		[RequiredByFeature("GL_EXT_depth_bounds_test")]
 		public static void DepthBoundsEXT(double zmin, double zmax)
 		{
 			Debug.Assert(Delegates.pglDepthBoundsEXT != null, "pglDepthBoundsEXT not implemented");

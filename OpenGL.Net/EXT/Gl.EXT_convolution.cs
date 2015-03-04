@@ -166,6 +166,7 @@ namespace OpenGL
 		/// <param name="image">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
+		[RequiredByFeature("GL_EXT_convolution")]
 		public static void ConvolutionFilter1DEXT(int target, int internalformat, Int32 width, int format, int type, IntPtr image)
 		{
 			Debug.Assert(Delegates.pglConvolutionFilter1DEXT != null, "pglConvolutionFilter1DEXT not implemented");
@@ -195,6 +196,7 @@ namespace OpenGL
 		/// <param name="image">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
+		[RequiredByFeature("GL_EXT_convolution")]
 		public static void ConvolutionFilter1DEXT(ConvolutionTargetEXT target, int internalformat, Int32 width, PixelFormat format, PixelType type, IntPtr image)
 		{
 			Debug.Assert(Delegates.pglConvolutionFilter1DEXT != null, "pglConvolutionFilter1DEXT not implemented");
@@ -224,6 +226,7 @@ namespace OpenGL
 		/// <param name="image">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
+		[RequiredByFeature("GL_EXT_convolution")]
 		public static void ConvolutionFilter1DEXT(int target, int internalformat, Int32 width, int format, int type, Object image)
 		{
 			GCHandle pin_image = GCHandle.Alloc(image, GCHandleType.Pinned);
@@ -258,6 +261,7 @@ namespace OpenGL
 		/// <param name="image">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
+		[RequiredByFeature("GL_EXT_convolution")]
 		public static void ConvolutionFilter2DEXT(int target, int internalformat, Int32 width, Int32 height, int format, int type, IntPtr image)
 		{
 			Debug.Assert(Delegates.pglConvolutionFilter2DEXT != null, "pglConvolutionFilter2DEXT not implemented");
@@ -290,6 +294,7 @@ namespace OpenGL
 		/// <param name="image">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
+		[RequiredByFeature("GL_EXT_convolution")]
 		public static void ConvolutionFilter2DEXT(ConvolutionTargetEXT target, int internalformat, Int32 width, Int32 height, PixelFormat format, PixelType type, IntPtr image)
 		{
 			Debug.Assert(Delegates.pglConvolutionFilter2DEXT != null, "pglConvolutionFilter2DEXT not implemented");
@@ -322,6 +327,7 @@ namespace OpenGL
 		/// <param name="image">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
+		[RequiredByFeature("GL_EXT_convolution")]
 		public static void ConvolutionFilter2DEXT(int target, int internalformat, Int32 width, Int32 height, int format, int type, Object image)
 		{
 			GCHandle pin_image = GCHandle.Alloc(image, GCHandleType.Pinned);
@@ -344,6 +350,7 @@ namespace OpenGL
 		/// <param name="params">
 		/// A <see cref="T:float"/>.
 		/// </param>
+		[RequiredByFeature("GL_EXT_convolution")]
 		public static void ConvolutionParameterEXT(int target, int pname, float @params)
 		{
 			Debug.Assert(Delegates.pglConvolutionParameterfEXT != null, "pglConvolutionParameterfEXT not implemented");
@@ -364,6 +371,7 @@ namespace OpenGL
 		/// <param name="params">
 		/// A <see cref="T:float"/>.
 		/// </param>
+		[RequiredByFeature("GL_EXT_convolution")]
 		public static void ConvolutionParameterEXT(ConvolutionTargetEXT target, ConvolutionParameterEXT pname, float @params)
 		{
 			Debug.Assert(Delegates.pglConvolutionParameterfEXT != null, "pglConvolutionParameterfEXT not implemented");
@@ -384,6 +392,7 @@ namespace OpenGL
 		/// <param name="params">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_EXT_convolution")]
 		public static void ConvolutionParameterEXT(int target, int pname, float[] @params)
 		{
 			unsafe {
@@ -409,6 +418,7 @@ namespace OpenGL
 		/// <param name="params">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_EXT_convolution")]
 		public static void ConvolutionParameterEXT(ConvolutionTargetEXT target, ConvolutionParameterEXT pname, float[] @params)
 		{
 			unsafe {
@@ -434,6 +444,7 @@ namespace OpenGL
 		/// <param name="params">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
+		[RequiredByFeature("GL_EXT_convolution")]
 		public static void ConvolutionParameterEXT(int target, int pname, Int32 @params)
 		{
 			Debug.Assert(Delegates.pglConvolutionParameteriEXT != null, "pglConvolutionParameteriEXT not implemented");
@@ -454,6 +465,7 @@ namespace OpenGL
 		/// <param name="params">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
+		[RequiredByFeature("GL_EXT_convolution")]
 		public static void ConvolutionParameterEXT(ConvolutionTargetEXT target, ConvolutionParameterEXT pname, Int32 @params)
 		{
 			Debug.Assert(Delegates.pglConvolutionParameteriEXT != null, "pglConvolutionParameteriEXT not implemented");
@@ -474,6 +486,7 @@ namespace OpenGL
 		/// <param name="params">
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_EXT_convolution")]
 		public static void ConvolutionParameterEXT(int target, int pname, Int32[] @params)
 		{
 			unsafe {
@@ -499,6 +512,7 @@ namespace OpenGL
 		/// <param name="params">
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_EXT_convolution")]
 		public static void ConvolutionParameterEXT(ConvolutionTargetEXT target, ConvolutionParameterEXT pname, Int32[] @params)
 		{
 			unsafe {
@@ -530,6 +544,7 @@ namespace OpenGL
 		/// <param name="width">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
+		[RequiredByFeature("GL_EXT_convolution")]
 		public static void CopyConvolutionFilter1DEXT(int target, int internalformat, Int32 x, Int32 y, Int32 width)
 		{
 			Debug.Assert(Delegates.pglCopyConvolutionFilter1DEXT != null, "pglCopyConvolutionFilter1DEXT not implemented");
@@ -556,6 +571,7 @@ namespace OpenGL
 		/// <param name="width">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
+		[RequiredByFeature("GL_EXT_convolution")]
 		public static void CopyConvolutionFilter1DEXT(ConvolutionTargetEXT target, int internalformat, Int32 x, Int32 y, Int32 width)
 		{
 			Debug.Assert(Delegates.pglCopyConvolutionFilter1DEXT != null, "pglCopyConvolutionFilter1DEXT not implemented");
@@ -585,6 +601,7 @@ namespace OpenGL
 		/// <param name="height">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
+		[RequiredByFeature("GL_EXT_convolution")]
 		public static void CopyConvolutionFilter2DEXT(int target, int internalformat, Int32 x, Int32 y, Int32 width, Int32 height)
 		{
 			Debug.Assert(Delegates.pglCopyConvolutionFilter2DEXT != null, "pglCopyConvolutionFilter2DEXT not implemented");
@@ -614,6 +631,7 @@ namespace OpenGL
 		/// <param name="height">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
+		[RequiredByFeature("GL_EXT_convolution")]
 		public static void CopyConvolutionFilter2DEXT(ConvolutionTargetEXT target, int internalformat, Int32 x, Int32 y, Int32 width, Int32 height)
 		{
 			Debug.Assert(Delegates.pglCopyConvolutionFilter2DEXT != null, "pglCopyConvolutionFilter2DEXT not implemented");
@@ -637,6 +655,7 @@ namespace OpenGL
 		/// <param name="image">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
+		[RequiredByFeature("GL_EXT_convolution")]
 		public static void GetConvolutionFilterEXT(int target, int format, int type, IntPtr image)
 		{
 			Debug.Assert(Delegates.pglGetConvolutionFilterEXT != null, "pglGetConvolutionFilterEXT not implemented");
@@ -660,6 +679,7 @@ namespace OpenGL
 		/// <param name="image">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
+		[RequiredByFeature("GL_EXT_convolution")]
 		public static void GetConvolutionFilterEXT(ConvolutionTargetEXT target, PixelFormat format, PixelType type, IntPtr image)
 		{
 			Debug.Assert(Delegates.pglGetConvolutionFilterEXT != null, "pglGetConvolutionFilterEXT not implemented");
@@ -680,6 +700,7 @@ namespace OpenGL
 		/// <param name="params">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_EXT_convolution")]
 		public static void GetConvolutionParameterEXT(int target, int pname, float[] @params)
 		{
 			unsafe {
@@ -705,6 +726,7 @@ namespace OpenGL
 		/// <param name="params">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_EXT_convolution")]
 		public static void GetConvolutionParameterEXT(ConvolutionTargetEXT target, ConvolutionParameterEXT pname, float[] @params)
 		{
 			unsafe {
@@ -730,6 +752,7 @@ namespace OpenGL
 		/// <param name="params">
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_EXT_convolution")]
 		public static void GetConvolutionParameterEXT(int target, int pname, Int32[] @params)
 		{
 			unsafe {
@@ -755,6 +778,7 @@ namespace OpenGL
 		/// <param name="params">
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_EXT_convolution")]
 		public static void GetConvolutionParameterEXT(ConvolutionTargetEXT target, ConvolutionParameterEXT pname, Int32[] @params)
 		{
 			unsafe {
@@ -789,6 +813,7 @@ namespace OpenGL
 		/// <param name="span">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
+		[RequiredByFeature("GL_EXT_convolution")]
 		public static void GetSeparableFilterEXT(int target, int format, int type, IntPtr row, IntPtr column, IntPtr span)
 		{
 			Debug.Assert(Delegates.pglGetSeparableFilterEXT != null, "pglGetSeparableFilterEXT not implemented");
@@ -818,6 +843,7 @@ namespace OpenGL
 		/// <param name="span">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
+		[RequiredByFeature("GL_EXT_convolution")]
 		public static void GetSeparableFilterEXT(SeparableTargetEXT target, PixelFormat format, PixelType type, IntPtr row, IntPtr column, IntPtr span)
 		{
 			Debug.Assert(Delegates.pglGetSeparableFilterEXT != null, "pglGetSeparableFilterEXT not implemented");
@@ -853,6 +879,7 @@ namespace OpenGL
 		/// <param name="column">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
+		[RequiredByFeature("GL_EXT_convolution")]
 		public static void SeparableFilter2DEXT(int target, int internalformat, Int32 width, Int32 height, int format, int type, IntPtr row, IntPtr column)
 		{
 			Debug.Assert(Delegates.pglSeparableFilter2DEXT != null, "pglSeparableFilter2DEXT not implemented");
@@ -888,6 +915,7 @@ namespace OpenGL
 		/// <param name="column">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
+		[RequiredByFeature("GL_EXT_convolution")]
 		public static void SeparableFilter2DEXT(SeparableTargetEXT target, int internalformat, Int32 width, Int32 height, PixelFormat format, PixelType type, IntPtr row, IntPtr column)
 		{
 			Debug.Assert(Delegates.pglSeparableFilter2DEXT != null, "pglSeparableFilter2DEXT not implemented");
@@ -923,6 +951,7 @@ namespace OpenGL
 		/// <param name="column">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
+		[RequiredByFeature("GL_EXT_convolution")]
 		public static void SeparableFilter2DEXT(int target, int internalformat, Int32 width, Int32 height, int format, int type, Object row, Object column)
 		{
 			GCHandle pin_row = GCHandle.Alloc(row, GCHandleType.Pinned);

@@ -46,6 +46,7 @@ namespace OpenGL
 		/// <param name="count">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
+		[RequiredByFeature("GL_EXT_compiled_vertex_array")]
 		public static void LockArraysEXT(Int32 first, Int32 count)
 		{
 			Debug.Assert(Delegates.pglLockArraysEXT != null, "pglLockArraysEXT not implemented");
@@ -57,6 +58,7 @@ namespace OpenGL
 		/// <summary>
 		/// Binding for glUnlockArraysEXT.
 		/// </summary>
+		[RequiredByFeature("GL_EXT_compiled_vertex_array")]
 		public static void UnlockArraysEXT()
 		{
 			Debug.Assert(Delegates.pglUnlockArraysEXT != null, "pglUnlockArraysEXT not implemented");

@@ -40,6 +40,7 @@ namespace OpenGL
 		/// <summary>
 		/// Binding for glFinishTextureSUNX.
 		/// </summary>
+		[RequiredByFeature("GL_SUNX_constant_data")]
 		public static void FinishTextureSUNX()
 		{
 			Debug.Assert(Delegates.pglFinishTextureSUNX != null, "pglFinishTextureSUNX not implemented");

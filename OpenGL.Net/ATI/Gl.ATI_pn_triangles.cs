@@ -88,6 +88,7 @@ namespace OpenGL
 		/// <param name="param">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
+		[RequiredByFeature("GL_ATI_pn_triangles")]
 		public static void PNTrianglesATI(int pname, Int32 param)
 		{
 			Debug.Assert(Delegates.pglPNTrianglesiATI != null, "pglPNTrianglesiATI not implemented");
@@ -105,6 +106,7 @@ namespace OpenGL
 		/// <param name="param">
 		/// A <see cref="T:float"/>.
 		/// </param>
+		[RequiredByFeature("GL_ATI_pn_triangles")]
 		public static void PNTrianglesATI(int pname, float param)
 		{
 			Debug.Assert(Delegates.pglPNTrianglesfATI != null, "pglPNTrianglesfATI not implemented");

@@ -101,7 +101,6 @@ namespace OpenGL
 		/// Value of GL_IMAGE_BUFFER_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_shader_image_load_store")]
-		[RequiredByFeature("GL_EXT_texture_buffer")]
 		public const int IMAGE_BUFFER_EXT = 0x9051;
 
 		/// <summary>
@@ -120,7 +119,6 @@ namespace OpenGL
 		/// Value of GL_IMAGE_CUBE_MAP_ARRAY_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_shader_image_load_store")]
-		[RequiredByFeature("GL_EXT_texture_cube_map_array")]
 		public const int IMAGE_CUBE_MAP_ARRAY_EXT = 0x9054;
 
 		/// <summary>
@@ -169,7 +167,6 @@ namespace OpenGL
 		/// Value of GL_INT_IMAGE_BUFFER_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_shader_image_load_store")]
-		[RequiredByFeature("GL_EXT_texture_buffer")]
 		public const int INT_IMAGE_BUFFER_EXT = 0x905C;
 
 		/// <summary>
@@ -188,7 +185,6 @@ namespace OpenGL
 		/// Value of GL_INT_IMAGE_CUBE_MAP_ARRAY_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_shader_image_load_store")]
-		[RequiredByFeature("GL_EXT_texture_cube_map_array")]
 		public const int INT_IMAGE_CUBE_MAP_ARRAY_EXT = 0x905F;
 
 		/// <summary>
@@ -237,7 +233,6 @@ namespace OpenGL
 		/// Value of GL_UNSIGNED_INT_IMAGE_BUFFER_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_shader_image_load_store")]
-		[RequiredByFeature("GL_EXT_texture_buffer")]
 		public const int UNSIGNED_INT_IMAGE_BUFFER_EXT = 0x9067;
 
 		/// <summary>
@@ -256,7 +251,6 @@ namespace OpenGL
 		/// Value of GL_UNSIGNED_INT_IMAGE_CUBE_MAP_ARRAY_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_shader_image_load_store")]
-		[RequiredByFeature("GL_EXT_texture_cube_map_array")]
 		public const int UNSIGNED_INT_IMAGE_CUBE_MAP_ARRAY_EXT = 0x906A;
 
 		/// <summary>
@@ -385,6 +379,7 @@ namespace OpenGL
 		/// <param name="format">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
+		[RequiredByFeature("GL_EXT_shader_image_load_store")]
 		public static void BindImageTextureEXT(UInt32 index, UInt32 texture, Int32 level, bool layered, Int32 layer, int access, Int32 format)
 		{
 			Debug.Assert(Delegates.pglBindImageTextureEXT != null, "pglBindImageTextureEXT not implemented");
@@ -399,6 +394,7 @@ namespace OpenGL
 		/// <param name="barriers">
 		/// A <see cref="T:uint"/>.
 		/// </param>
+		[RequiredByFeature("GL_EXT_shader_image_load_store")]
 		public static void MemoryBarrierEXT(uint barriers)
 		{
 			Debug.Assert(Delegates.pglMemoryBarrierEXT != null, "pglMemoryBarrierEXT not implemented");

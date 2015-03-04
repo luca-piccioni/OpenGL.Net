@@ -46,6 +46,7 @@ namespace OpenGL
 		/// <param name="hDevice">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
+		[RequiredByFeature("WGL_NV_video_capture")]
 		public static bool BindVideoCaptureDeviceNV(UInt32 uVideoSlot, IntPtr hDevice)
 		{
 			bool retValue;
@@ -53,7 +54,6 @@ namespace OpenGL
 			Debug.Assert(Delegates.pwglBindVideoCaptureDeviceNV != null, "pwglBindVideoCaptureDeviceNV not implemented");
 			retValue = Delegates.pwglBindVideoCaptureDeviceNV(uVideoSlot, hDevice);
 			CallLog("wglBindVideoCaptureDeviceNV({0}, {1}) = {2}", uVideoSlot, hDevice, retValue);
-			DebugCheckErrors();
 
 			return (retValue);
 		}
@@ -67,6 +67,7 @@ namespace OpenGL
 		/// <param name="phDeviceList">
 		/// A <see cref="T:IntPtr[]"/>.
 		/// </param>
+		[RequiredByFeature("WGL_NV_video_capture")]
 		public static UInt32 EnumerateVideoCaptureDevicesNV(IntPtr hDc, IntPtr[] phDeviceList)
 		{
 			UInt32 retValue;
@@ -79,7 +80,6 @@ namespace OpenGL
 					CallLog("wglEnumerateVideoCaptureDevicesNV({0}, {1}) = {2}", hDc, phDeviceList, retValue);
 				}
 			}
-			DebugCheckErrors();
 
 			return (retValue);
 		}
@@ -93,6 +93,7 @@ namespace OpenGL
 		/// <param name="hDevice">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
+		[RequiredByFeature("WGL_NV_video_capture")]
 		public static bool LockVideoCaptureDeviceNV(IntPtr hDc, IntPtr hDevice)
 		{
 			bool retValue;
@@ -100,7 +101,6 @@ namespace OpenGL
 			Debug.Assert(Delegates.pwglLockVideoCaptureDeviceNV != null, "pwglLockVideoCaptureDeviceNV not implemented");
 			retValue = Delegates.pwglLockVideoCaptureDeviceNV(hDc, hDevice);
 			CallLog("wglLockVideoCaptureDeviceNV({0}, {1}) = {2}", hDc, hDevice, retValue);
-			DebugCheckErrors();
 
 			return (retValue);
 		}
@@ -120,6 +120,7 @@ namespace OpenGL
 		/// <param name="piValue">
 		/// A <see cref="T:int[]"/>.
 		/// </param>
+		[RequiredByFeature("WGL_NV_video_capture")]
 		public static bool QueryVideoCaptureDeviceNV(IntPtr hDc, IntPtr hDevice, int iAttribute, int[] piValue)
 		{
 			bool retValue;
@@ -132,7 +133,6 @@ namespace OpenGL
 					CallLog("wglQueryVideoCaptureDeviceNV({0}, {1}, {2}, {3}) = {4}", hDc, hDevice, iAttribute, piValue, retValue);
 				}
 			}
-			DebugCheckErrors();
 
 			return (retValue);
 		}
@@ -146,6 +146,7 @@ namespace OpenGL
 		/// <param name="hDevice">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
+		[RequiredByFeature("WGL_NV_video_capture")]
 		public static bool ReleaseVideoCaptureDeviceNV(IntPtr hDc, IntPtr hDevice)
 		{
 			bool retValue;
@@ -153,7 +154,6 @@ namespace OpenGL
 			Debug.Assert(Delegates.pwglReleaseVideoCaptureDeviceNV != null, "pwglReleaseVideoCaptureDeviceNV not implemented");
 			retValue = Delegates.pwglReleaseVideoCaptureDeviceNV(hDc, hDevice);
 			CallLog("wglReleaseVideoCaptureDeviceNV({0}, {1}) = {2}", hDc, hDevice, retValue);
-			DebugCheckErrors();
 
 			return (retValue);
 		}

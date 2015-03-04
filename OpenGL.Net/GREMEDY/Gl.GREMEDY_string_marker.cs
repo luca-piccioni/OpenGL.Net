@@ -34,6 +34,7 @@ namespace OpenGL
 		/// <param name="string">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
+		[RequiredByFeature("GL_GREMEDY_string_marker")]
 		public static void StringMarkerGREMEDY(Int32 len, IntPtr @string)
 		{
 			Debug.Assert(Delegates.pglStringMarkerGREMEDY != null, "pglStringMarkerGREMEDY not implemented");
@@ -51,6 +52,7 @@ namespace OpenGL
 		/// <param name="string">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
+		[RequiredByFeature("GL_GREMEDY_string_marker")]
 		public static void StringMarkerGREMEDY(Int32 len, Object @string)
 		{
 			GCHandle pin_string = GCHandle.Alloc(@string, GCHandleType.Pinned);

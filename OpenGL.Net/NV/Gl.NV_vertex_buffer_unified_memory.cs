@@ -190,6 +190,7 @@ namespace OpenGL
 		/// <param name="length">
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
+		[RequiredByFeature("GL_NV_vertex_buffer_unified_memory")]
 		public static void BufferAddressRangeNV(int pname, UInt32 index, UInt64 address, UInt32 length)
 		{
 			Debug.Assert(Delegates.pglBufferAddressRangeNV != null, "pglBufferAddressRangeNV not implemented");
@@ -210,6 +211,7 @@ namespace OpenGL
 		/// <param name="stride">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
+		[RequiredByFeature("GL_NV_vertex_buffer_unified_memory")]
 		public static void VertexFormatNV(Int32 size, int type, Int32 stride)
 		{
 			Debug.Assert(Delegates.pglVertexFormatNV != null, "pglVertexFormatNV not implemented");
@@ -227,6 +229,7 @@ namespace OpenGL
 		/// <param name="stride">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
+		[RequiredByFeature("GL_NV_vertex_buffer_unified_memory")]
 		public static void NormalFormatNV(int type, Int32 stride)
 		{
 			Debug.Assert(Delegates.pglNormalFormatNV != null, "pglNormalFormatNV not implemented");
@@ -247,6 +250,7 @@ namespace OpenGL
 		/// <param name="stride">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
+		[RequiredByFeature("GL_NV_vertex_buffer_unified_memory")]
 		public static void ColorFormatNV(Int32 size, int type, Int32 stride)
 		{
 			Debug.Assert(Delegates.pglColorFormatNV != null, "pglColorFormatNV not implemented");
@@ -264,6 +268,7 @@ namespace OpenGL
 		/// <param name="stride">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
+		[RequiredByFeature("GL_NV_vertex_buffer_unified_memory")]
 		public static void IndexFormatNV(int type, Int32 stride)
 		{
 			Debug.Assert(Delegates.pglIndexFormatNV != null, "pglIndexFormatNV not implemented");
@@ -284,6 +289,7 @@ namespace OpenGL
 		/// <param name="stride">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
+		[RequiredByFeature("GL_NV_vertex_buffer_unified_memory")]
 		public static void TexCoordFormatNV(Int32 size, int type, Int32 stride)
 		{
 			Debug.Assert(Delegates.pglTexCoordFormatNV != null, "pglTexCoordFormatNV not implemented");
@@ -298,6 +304,7 @@ namespace OpenGL
 		/// <param name="stride">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
+		[RequiredByFeature("GL_NV_vertex_buffer_unified_memory")]
 		public static void EdgeFlagFormatNV(Int32 stride)
 		{
 			Debug.Assert(Delegates.pglEdgeFlagFormatNV != null, "pglEdgeFlagFormatNV not implemented");
@@ -318,6 +325,7 @@ namespace OpenGL
 		/// <param name="stride">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
+		[RequiredByFeature("GL_NV_vertex_buffer_unified_memory")]
 		public static void SecondaryColorFormatNV(Int32 size, int type, Int32 stride)
 		{
 			Debug.Assert(Delegates.pglSecondaryColorFormatNV != null, "pglSecondaryColorFormatNV not implemented");
@@ -335,6 +343,7 @@ namespace OpenGL
 		/// <param name="stride">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
+		[RequiredByFeature("GL_NV_vertex_buffer_unified_memory")]
 		public static void FogCoordFormatNV(int type, Int32 stride)
 		{
 			Debug.Assert(Delegates.pglFogCoordFormatNV != null, "pglFogCoordFormatNV not implemented");
@@ -361,6 +370,7 @@ namespace OpenGL
 		/// <param name="stride">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
+		[RequiredByFeature("GL_NV_vertex_buffer_unified_memory")]
 		public static void VertexAttribFormatNV(UInt32 index, Int32 size, int type, bool normalized, Int32 stride)
 		{
 			Debug.Assert(Delegates.pglVertexAttribFormatNV != null, "pglVertexAttribFormatNV not implemented");
@@ -384,6 +394,7 @@ namespace OpenGL
 		/// <param name="stride">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
+		[RequiredByFeature("GL_NV_vertex_buffer_unified_memory")]
 		public static void VertexAttribIFormatNV(UInt32 index, Int32 size, int type, Int32 stride)
 		{
 			Debug.Assert(Delegates.pglVertexAttribIFormatNV != null, "pglVertexAttribIFormatNV not implemented");
@@ -404,6 +415,7 @@ namespace OpenGL
 		/// <param name="result">
 		/// A <see cref="T:UInt64[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_NV_vertex_buffer_unified_memory")]
 		public static void GetIntegerui64i_vNV(int value, UInt32 index, UInt64[] result)
 		{
 			unsafe {

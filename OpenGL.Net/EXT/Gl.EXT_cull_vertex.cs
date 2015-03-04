@@ -52,6 +52,7 @@ namespace OpenGL
 		/// <param name="params">
 		/// A <see cref="T:double[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_EXT_cull_vertex")]
 		public static void CullParameterEXT(int pname, double[] @params)
 		{
 			unsafe {
@@ -74,6 +75,7 @@ namespace OpenGL
 		/// <param name="params">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_EXT_cull_vertex")]
 		public static void CullParameterEXT(int pname, float[] @params)
 		{
 			unsafe {

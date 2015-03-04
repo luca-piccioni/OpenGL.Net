@@ -43,6 +43,7 @@ namespace OpenGL
 		/// <param name="face">
 		/// A <see cref="T:int"/>.
 		/// </param>
+		[RequiredByFeature("GL_EXT_stencil_two_side")]
 		public static void ActiveStencilFaceEXT(int face)
 		{
 			Debug.Assert(Delegates.pglActiveStencilFaceEXT != null, "pglActiveStencilFaceEXT not implemented");

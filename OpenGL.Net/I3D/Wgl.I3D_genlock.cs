@@ -85,6 +85,7 @@ namespace OpenGL
 		/// <param name="hDC">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
+		[RequiredByFeature("WGL_I3D_genlock")]
 		public static bool EnableGenlockI3D(IntPtr hDC)
 		{
 			bool retValue;
@@ -92,7 +93,6 @@ namespace OpenGL
 			Debug.Assert(Delegates.pwglEnableGenlockI3D != null, "pwglEnableGenlockI3D not implemented");
 			retValue = Delegates.pwglEnableGenlockI3D(hDC);
 			CallLog("wglEnableGenlockI3D({0}) = {1}", hDC, retValue);
-			DebugCheckErrors();
 
 			return (retValue);
 		}
@@ -103,6 +103,7 @@ namespace OpenGL
 		/// <param name="hDC">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
+		[RequiredByFeature("WGL_I3D_genlock")]
 		public static bool DisableGenlockI3D(IntPtr hDC)
 		{
 			bool retValue;
@@ -110,7 +111,6 @@ namespace OpenGL
 			Debug.Assert(Delegates.pwglDisableGenlockI3D != null, "pwglDisableGenlockI3D not implemented");
 			retValue = Delegates.pwglDisableGenlockI3D(hDC);
 			CallLog("wglDisableGenlockI3D({0}) = {1}", hDC, retValue);
-			DebugCheckErrors();
 
 			return (retValue);
 		}
@@ -124,6 +124,7 @@ namespace OpenGL
 		/// <param name="pFlag">
 		/// A <see cref="T:bool[]"/>.
 		/// </param>
+		[RequiredByFeature("WGL_I3D_genlock")]
 		public static bool IsEnabledGenlockI3D(IntPtr hDC, bool[] pFlag)
 		{
 			bool retValue;
@@ -136,7 +137,6 @@ namespace OpenGL
 					CallLog("wglIsEnabledGenlockI3D({0}, {1}) = {2}", hDC, pFlag, retValue);
 				}
 			}
-			DebugCheckErrors();
 
 			return (retValue);
 		}
@@ -150,6 +150,7 @@ namespace OpenGL
 		/// <param name="uSource">
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
+		[RequiredByFeature("WGL_I3D_genlock")]
 		public static bool GenlockSourceI3D(IntPtr hDC, UInt32 uSource)
 		{
 			bool retValue;
@@ -157,7 +158,6 @@ namespace OpenGL
 			Debug.Assert(Delegates.pwglGenlockSourceI3D != null, "pwglGenlockSourceI3D not implemented");
 			retValue = Delegates.pwglGenlockSourceI3D(hDC, uSource);
 			CallLog("wglGenlockSourceI3D({0}, {1}) = {2}", hDC, uSource, retValue);
-			DebugCheckErrors();
 
 			return (retValue);
 		}
@@ -171,6 +171,7 @@ namespace OpenGL
 		/// <param name="uSource">
 		/// A <see cref="T:UInt32[]"/>.
 		/// </param>
+		[RequiredByFeature("WGL_I3D_genlock")]
 		public static bool GetGenlockSourceI3D(IntPtr hDC, UInt32[] uSource)
 		{
 			bool retValue;
@@ -183,7 +184,6 @@ namespace OpenGL
 					CallLog("wglGetGenlockSourceI3D({0}, {1}) = {2}", hDC, uSource, retValue);
 				}
 			}
-			DebugCheckErrors();
 
 			return (retValue);
 		}
@@ -197,6 +197,7 @@ namespace OpenGL
 		/// <param name="uEdge">
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
+		[RequiredByFeature("WGL_I3D_genlock")]
 		public static bool GenlockSourceEdgeI3D(IntPtr hDC, UInt32 uEdge)
 		{
 			bool retValue;
@@ -204,7 +205,6 @@ namespace OpenGL
 			Debug.Assert(Delegates.pwglGenlockSourceEdgeI3D != null, "pwglGenlockSourceEdgeI3D not implemented");
 			retValue = Delegates.pwglGenlockSourceEdgeI3D(hDC, uEdge);
 			CallLog("wglGenlockSourceEdgeI3D({0}, {1}) = {2}", hDC, uEdge, retValue);
-			DebugCheckErrors();
 
 			return (retValue);
 		}
@@ -218,6 +218,7 @@ namespace OpenGL
 		/// <param name="uEdge">
 		/// A <see cref="T:UInt32[]"/>.
 		/// </param>
+		[RequiredByFeature("WGL_I3D_genlock")]
 		public static bool GetGenlockSourceEdgeI3D(IntPtr hDC, UInt32[] uEdge)
 		{
 			bool retValue;
@@ -230,7 +231,6 @@ namespace OpenGL
 					CallLog("wglGetGenlockSourceEdgeI3D({0}, {1}) = {2}", hDC, uEdge, retValue);
 				}
 			}
-			DebugCheckErrors();
 
 			return (retValue);
 		}
@@ -244,6 +244,7 @@ namespace OpenGL
 		/// <param name="uRate">
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
+		[RequiredByFeature("WGL_I3D_genlock")]
 		public static bool GenlockSampleRateI3D(IntPtr hDC, UInt32 uRate)
 		{
 			bool retValue;
@@ -251,7 +252,6 @@ namespace OpenGL
 			Debug.Assert(Delegates.pwglGenlockSampleRateI3D != null, "pwglGenlockSampleRateI3D not implemented");
 			retValue = Delegates.pwglGenlockSampleRateI3D(hDC, uRate);
 			CallLog("wglGenlockSampleRateI3D({0}, {1}) = {2}", hDC, uRate, retValue);
-			DebugCheckErrors();
 
 			return (retValue);
 		}
@@ -265,6 +265,7 @@ namespace OpenGL
 		/// <param name="uRate">
 		/// A <see cref="T:UInt32[]"/>.
 		/// </param>
+		[RequiredByFeature("WGL_I3D_genlock")]
 		public static bool GetGenlockSampleRateI3D(IntPtr hDC, UInt32[] uRate)
 		{
 			bool retValue;
@@ -277,7 +278,6 @@ namespace OpenGL
 					CallLog("wglGetGenlockSampleRateI3D({0}, {1}) = {2}", hDC, uRate, retValue);
 				}
 			}
-			DebugCheckErrors();
 
 			return (retValue);
 		}
@@ -291,6 +291,7 @@ namespace OpenGL
 		/// <param name="uDelay">
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
+		[RequiredByFeature("WGL_I3D_genlock")]
 		public static bool GenlockSourceDelayI3D(IntPtr hDC, UInt32 uDelay)
 		{
 			bool retValue;
@@ -298,7 +299,6 @@ namespace OpenGL
 			Debug.Assert(Delegates.pwglGenlockSourceDelayI3D != null, "pwglGenlockSourceDelayI3D not implemented");
 			retValue = Delegates.pwglGenlockSourceDelayI3D(hDC, uDelay);
 			CallLog("wglGenlockSourceDelayI3D({0}, {1}) = {2}", hDC, uDelay, retValue);
-			DebugCheckErrors();
 
 			return (retValue);
 		}
@@ -312,6 +312,7 @@ namespace OpenGL
 		/// <param name="uDelay">
 		/// A <see cref="T:UInt32[]"/>.
 		/// </param>
+		[RequiredByFeature("WGL_I3D_genlock")]
 		public static bool GetGenlockSourceDelayI3D(IntPtr hDC, UInt32[] uDelay)
 		{
 			bool retValue;
@@ -324,7 +325,6 @@ namespace OpenGL
 					CallLog("wglGetGenlockSourceDelayI3D({0}, {1}) = {2}", hDC, uDelay, retValue);
 				}
 			}
-			DebugCheckErrors();
 
 			return (retValue);
 		}
@@ -341,6 +341,7 @@ namespace OpenGL
 		/// <param name="uMaxPixelDelay">
 		/// A <see cref="T:UInt32[]"/>.
 		/// </param>
+		[RequiredByFeature("WGL_I3D_genlock")]
 		public static bool QueryGenlockMaxSourceDelayI3D(IntPtr hDC, UInt32[] uMaxLineDelay, UInt32[] uMaxPixelDelay)
 		{
 			bool retValue;
@@ -354,7 +355,6 @@ namespace OpenGL
 					CallLog("wglQueryGenlockMaxSourceDelayI3D({0}, {1}, {2}) = {3}", hDC, uMaxLineDelay, uMaxPixelDelay, retValue);
 				}
 			}
-			DebugCheckErrors();
 
 			return (retValue);
 		}

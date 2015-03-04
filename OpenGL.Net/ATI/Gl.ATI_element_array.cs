@@ -52,6 +52,7 @@ namespace OpenGL
 		/// <param name="pointer">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
+		[RequiredByFeature("GL_ATI_element_array")]
 		public static void ElementPointerATI(int type, IntPtr pointer)
 		{
 			Debug.Assert(Delegates.pglElementPointerATI != null, "pglElementPointerATI not implemented");
@@ -69,6 +70,7 @@ namespace OpenGL
 		/// <param name="pointer">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
+		[RequiredByFeature("GL_ATI_element_array")]
 		public static void ElementPointerATI(int type, Object pointer)
 		{
 			GCHandle pin_pointer = GCHandle.Alloc(pointer, GCHandleType.Pinned);
@@ -88,6 +90,7 @@ namespace OpenGL
 		/// <param name="count">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
+		[RequiredByFeature("GL_ATI_element_array")]
 		public static void DrawElementArrayATI(int mode, Int32 count)
 		{
 			Debug.Assert(Delegates.pglDrawElementArrayATI != null, "pglDrawElementArrayATI not implemented");
@@ -105,6 +108,7 @@ namespace OpenGL
 		/// <param name="count">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
+		[RequiredByFeature("GL_ATI_element_array")]
 		public static void DrawElementArrayATI(PrimitiveType mode, Int32 count)
 		{
 			Debug.Assert(Delegates.pglDrawElementArrayATI != null, "pglDrawElementArrayATI not implemented");
@@ -128,6 +132,7 @@ namespace OpenGL
 		/// <param name="count">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
+		[RequiredByFeature("GL_ATI_element_array")]
 		public static void DrawRangeElementArrayATI(int mode, UInt32 start, UInt32 end, Int32 count)
 		{
 			Debug.Assert(Delegates.pglDrawRangeElementArrayATI != null, "pglDrawRangeElementArrayATI not implemented");
@@ -151,6 +156,7 @@ namespace OpenGL
 		/// <param name="count">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
+		[RequiredByFeature("GL_ATI_element_array")]
 		public static void DrawRangeElementArrayATI(PrimitiveType mode, UInt32 start, UInt32 end, Int32 count)
 		{
 			Debug.Assert(Delegates.pglDrawRangeElementArrayATI != null, "pglDrawRangeElementArrayATI not implemented");

@@ -40,6 +40,7 @@ namespace OpenGL
 		/// <param name="params">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_EXT_gpu_program_parameters")]
 		public static void ProgramEnvParameters4EXT(int target, UInt32 index, Int32 count, float[] @params)
 		{
 			unsafe {
@@ -68,6 +69,7 @@ namespace OpenGL
 		/// <param name="params">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_EXT_gpu_program_parameters")]
 		public static void ProgramLocalParameters4EXT(int target, UInt32 index, Int32 count, float[] @params)
 		{
 			unsafe {

@@ -93,6 +93,7 @@ namespace OpenGL
 		/// <param name="v">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_NV_sample_locations")]
 		public static void FramebufferSampleLocationNV(int target, UInt32 start, Int32 count, float[] v)
 		{
 			unsafe {
@@ -121,6 +122,7 @@ namespace OpenGL
 		/// <param name="v">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_NV_sample_locations")]
 		public static void NamedFramebufferSampleLocationNV(UInt32 framebuffer, UInt32 start, Int32 count, float[] v)
 		{
 			unsafe {
@@ -137,6 +139,7 @@ namespace OpenGL
 		/// <summary>
 		/// Binding for glResolveDepthValuesNV.
 		/// </summary>
+		[RequiredByFeature("GL_NV_sample_locations")]
 		public static void ResolveDepthValuesNV()
 		{
 			Debug.Assert(Delegates.pglResolveDepthValuesNV != null, "pglResolveDepthValuesNV not implemented");

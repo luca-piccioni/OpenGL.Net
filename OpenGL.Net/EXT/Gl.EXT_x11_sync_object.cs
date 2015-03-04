@@ -43,6 +43,7 @@ namespace OpenGL
 		/// <param name="flags">
 		/// A <see cref="T:uint"/>.
 		/// </param>
+		[RequiredByFeature("GL_EXT_x11_sync_object")]
 		public static int ImportSyncEXT(int external_sync_type, IntPtr external_sync, uint flags)
 		{
 			int retValue;

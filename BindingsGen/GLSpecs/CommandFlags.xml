@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<command_overrides>
+	
+	<!-- GL -->
+	
+	<command name="glGetError">
+		<!-- Avoid stack overflow -->
+		<flags>NoGetError</flags>
+	</command>
+	
+	<command name="glGetIntegerv|glGetFloatv|glGetDoublev|glGetBooleanv">
+		<!-- Overrides implementation name since it's manually implemented in Wgl.cs -->
+		<rename>Get</rename>
+		<!-- Generate "out" overloads -->
+		<flags>OutParam</flags>
+	</command>
+	
+	<command name="gl\w+TexImage(1-4)">
+		<!-- Let the application handles the *TexImage* errors (proxy texture targets, out of memory) -->
+		<flags>NoGetError</flags>
+	</command>
+	
+	<!-- WGL -->
+	
+	<command name="wglMakeCurrent">
+		<!-- Overrides implementation name since it's manually implemented in Wgl.cs -->
+		<rename>MakeCurrentCore</rename>
+		<visibility>private</visibility>
+		<!-- WGL commands errors won't be automatically checked by bindings -->
+		<flags>NoGetError</flags>
+	</command>
+	
+	<command name="wgl.+">
+		<!-- WGL commands errors won't be automatically checked by bindings -->
+		<flags>NoGetError</flags>
+	</command>
+	
+	<command name="ChoosePixelFormat|DescribePixelFormat|GetEnhMetaFilePixelFormat|GetPixelFormat|SetPixelFormat|SwapBuffers">
+		<!-- GDI functions are implemented manually -->
+		<flags>Disable</flags>
+	</command>
+</command_overrides>

@@ -55,6 +55,7 @@ namespace OpenGL
 		/// <param name="texture">
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
+		[RequiredByFeature("GL_INTEL_map_texture")]
 		public static void SyncTextureINTEL(UInt32 texture)
 		{
 			Debug.Assert(Delegates.pglSyncTextureINTEL != null, "pglSyncTextureINTEL not implemented");
@@ -72,6 +73,7 @@ namespace OpenGL
 		/// <param name="level">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
+		[RequiredByFeature("GL_INTEL_map_texture")]
 		public static void UnmapTexture2DINTEL(UInt32 texture, Int32 level)
 		{
 			Debug.Assert(Delegates.pglUnmapTexture2DINTEL != null, "pglUnmapTexture2DINTEL not implemented");
@@ -98,6 +100,7 @@ namespace OpenGL
 		/// <param name="layout">
 		/// A <see cref="T:int[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_INTEL_map_texture")]
 		public static IntPtr MapTexture2DINTEL(UInt32 texture, Int32 level, uint access, Int32[] stride, int[] layout)
 		{
 			IntPtr retValue;

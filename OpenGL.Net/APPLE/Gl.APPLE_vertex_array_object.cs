@@ -37,6 +37,7 @@ namespace OpenGL
 		/// <param name="array">
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
+		[RequiredByFeature("GL_APPLE_vertex_array_object")]
 		public static void BindVertexArrayAPPLE(UInt32 array)
 		{
 			Debug.Assert(Delegates.pglBindVertexArrayAPPLE != null, "pglBindVertexArrayAPPLE not implemented");
@@ -54,6 +55,7 @@ namespace OpenGL
 		/// <param name="arrays">
 		/// A <see cref="T:UInt32[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_APPLE_vertex_array_object")]
 		public static void DeleteVertexArraysAPPLE(Int32 n, UInt32[] arrays)
 		{
 			unsafe {
@@ -76,6 +78,7 @@ namespace OpenGL
 		/// <param name="arrays">
 		/// A <see cref="T:UInt32[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_APPLE_vertex_array_object")]
 		public static void GenVertexArraysAPPLE(Int32 n, UInt32[] arrays)
 		{
 			unsafe {
@@ -95,6 +98,7 @@ namespace OpenGL
 		/// <param name="array">
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
+		[RequiredByFeature("GL_APPLE_vertex_array_object")]
 		public static bool IsVertexArrayAPPLE(UInt32 array)
 		{
 			bool retValue;

@@ -58,6 +58,7 @@ namespace OpenGL
 		/// <param name="value">
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
+		[RequiredByFeature("GL_AMD_stencil_operation_extended")]
 		public static void StencilOpAMD(int face, UInt32 value)
 		{
 			Debug.Assert(Delegates.pglStencilOpValueAMD != null, "pglStencilOpValueAMD not implemented");

@@ -49,6 +49,7 @@ namespace OpenGL
 		/// <param name="param">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
+		[RequiredByFeature("GL_APPLE_flush_buffer_range")]
 		public static void BufferParameterAPPLE(int target, int pname, Int32 param)
 		{
 			Debug.Assert(Delegates.pglBufferParameteriAPPLE != null, "pglBufferParameteriAPPLE not implemented");
@@ -69,6 +70,7 @@ namespace OpenGL
 		/// <param name="size">
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
+		[RequiredByFeature("GL_APPLE_flush_buffer_range")]
 		public static void FlushMappedBufferRangeAPPLE(int target, IntPtr offset, UInt32 size)
 		{
 			Debug.Assert(Delegates.pglFlushMappedBufferRangeAPPLE != null, "pglFlushMappedBufferRangeAPPLE not implemented");

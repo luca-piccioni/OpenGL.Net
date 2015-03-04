@@ -34,6 +34,7 @@ namespace OpenGL
 		/// <param name="seconds">
 		/// A <see cref="T:float"/>.
 		/// </param>
+		[RequiredByFeature("WGL_NV_delay_before_swap")]
 		public static bool DelayBeforeSwapNV(IntPtr hDC, float seconds)
 		{
 			bool retValue;
@@ -41,7 +42,6 @@ namespace OpenGL
 			Debug.Assert(Delegates.pwglDelayBeforeSwapNV != null, "pwglDelayBeforeSwapNV not implemented");
 			retValue = Delegates.pwglDelayBeforeSwapNV(hDC, seconds);
 			CallLog("wglDelayBeforeSwapNV({0}, {1}) = {2}", hDC, seconds, retValue);
-			DebugCheckErrors();
 
 			return (retValue);
 		}

@@ -91,6 +91,7 @@ namespace OpenGL
 		/// <param name="piAttribList">
 		/// A <see cref="T:int[]"/>.
 		/// </param>
+		[RequiredByFeature("WGL_ARB_pbuffer")]
 		public static IntPtr CreatePbufferARB(IntPtr hDC, int iPixelFormat, int iWidth, int iHeight, int[] piAttribList)
 		{
 			IntPtr retValue;
@@ -103,7 +104,6 @@ namespace OpenGL
 					CallLog("wglCreatePbufferARB({0}, {1}, {2}, {3}, {4}) = {5}", hDC, iPixelFormat, iWidth, iHeight, piAttribList, retValue);
 				}
 			}
-			DebugCheckErrors();
 
 			return (retValue);
 		}
@@ -114,6 +114,7 @@ namespace OpenGL
 		/// <param name="hPbuffer">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
+		[RequiredByFeature("WGL_ARB_pbuffer")]
 		public static IntPtr GetPbufferDCARB(IntPtr hPbuffer)
 		{
 			IntPtr retValue;
@@ -121,7 +122,6 @@ namespace OpenGL
 			Debug.Assert(Delegates.pwglGetPbufferDCARB != null, "pwglGetPbufferDCARB not implemented");
 			retValue = Delegates.pwglGetPbufferDCARB(hPbuffer);
 			CallLog("wglGetPbufferDCARB({0}) = {1}", hPbuffer, retValue);
-			DebugCheckErrors();
 
 			return (retValue);
 		}
@@ -135,6 +135,7 @@ namespace OpenGL
 		/// <param name="hDC">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
+		[RequiredByFeature("WGL_ARB_pbuffer")]
 		public static int ReleasePbufferDCARB(IntPtr hPbuffer, IntPtr hDC)
 		{
 			int retValue;
@@ -142,7 +143,6 @@ namespace OpenGL
 			Debug.Assert(Delegates.pwglReleasePbufferDCARB != null, "pwglReleasePbufferDCARB not implemented");
 			retValue = Delegates.pwglReleasePbufferDCARB(hPbuffer, hDC);
 			CallLog("wglReleasePbufferDCARB({0}, {1}) = {2}", hPbuffer, hDC, retValue);
-			DebugCheckErrors();
 
 			return (retValue);
 		}
@@ -153,6 +153,7 @@ namespace OpenGL
 		/// <param name="hPbuffer">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
+		[RequiredByFeature("WGL_ARB_pbuffer")]
 		public static bool DestroyPbufferARB(IntPtr hPbuffer)
 		{
 			bool retValue;
@@ -160,7 +161,6 @@ namespace OpenGL
 			Debug.Assert(Delegates.pwglDestroyPbufferARB != null, "pwglDestroyPbufferARB not implemented");
 			retValue = Delegates.pwglDestroyPbufferARB(hPbuffer);
 			CallLog("wglDestroyPbufferARB({0}) = {1}", hPbuffer, retValue);
-			DebugCheckErrors();
 
 			return (retValue);
 		}
@@ -177,6 +177,7 @@ namespace OpenGL
 		/// <param name="piValue">
 		/// A <see cref="T:int[]"/>.
 		/// </param>
+		[RequiredByFeature("WGL_ARB_pbuffer")]
 		public static bool QueryPbufferARB(IntPtr hPbuffer, int iAttribute, int[] piValue)
 		{
 			bool retValue;
@@ -189,7 +190,6 @@ namespace OpenGL
 					CallLog("wglQueryPbufferARB({0}, {1}, {2}) = {3}", hPbuffer, iAttribute, piValue, retValue);
 				}
 			}
-			DebugCheckErrors();
 
 			return (retValue);
 		}

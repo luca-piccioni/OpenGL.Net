@@ -31,6 +31,7 @@ namespace OpenGL
 		/// <param name="buffer">
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
+		[RequiredByFeature("GL_ATI_map_object_buffer")]
 		public static IntPtr MapObjectBufferATI(UInt32 buffer)
 		{
 			IntPtr retValue;
@@ -49,6 +50,7 @@ namespace OpenGL
 		/// <param name="buffer">
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
+		[RequiredByFeature("GL_ATI_map_object_buffer")]
 		public static void UnmapObjectBufferATI(UInt32 buffer)
 		{
 			Debug.Assert(Delegates.pglUnmapObjectBufferATI != null, "pglUnmapObjectBufferATI not implemented");

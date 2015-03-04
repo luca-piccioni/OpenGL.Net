@@ -43,6 +43,7 @@ namespace OpenGL
 		/// <param name="mode">
 		/// A <see cref="T:int"/>.
 		/// </param>
+		[RequiredByFeature("GL_EXT_texture_perturb_normal")]
 		public static void TextureNormalEXT(int mode)
 		{
 			Debug.Assert(Delegates.pglTextureNormalEXT != null, "pglTextureNormalEXT not implemented");

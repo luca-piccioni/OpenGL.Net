@@ -52,6 +52,7 @@ namespace OpenGL
 		/// <param name="bias">
 		/// A <see cref="T:float"/>.
 		/// </param>
+		[RequiredByFeature("GL_EXT_polygon_offset")]
 		public static void PolygonOffsetEXT(float factor, float bias)
 		{
 			Debug.Assert(Delegates.pglPolygonOffsetEXT != null, "pglPolygonOffsetEXT not implemented");

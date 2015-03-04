@@ -328,6 +328,7 @@ namespace OpenGL
 		/// <param name="value">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
+		[RequiredByFeature("GL_NV_blend_equation_advanced")]
 		public static void BlendParameterNV(int pname, Int32 value)
 		{
 			Debug.Assert(Delegates.pglBlendParameteriNV != null, "pglBlendParameteriNV not implemented");
@@ -339,6 +340,7 @@ namespace OpenGL
 		/// <summary>
 		/// Binding for glBlendBarrierNV.
 		/// </summary>
+		[RequiredByFeature("GL_NV_blend_equation_advanced")]
 		public static void BlendBarrierNV()
 		{
 			Debug.Assert(Delegates.pglBlendBarrierNV != null, "pglBlendBarrierNV not implemented");

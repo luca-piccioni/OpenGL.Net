@@ -28,6 +28,7 @@ namespace OpenGL
 		/// <summary>
 		/// Binding for glFrameTerminatorGREMEDY.
 		/// </summary>
+		[RequiredByFeature("GL_GREMEDY_frame_terminator")]
 		public static void FrameTerminatorGREMEDY()
 		{
 			Debug.Assert(Delegates.pglFrameTerminatorGREMEDY != null, "pglFrameTerminatorGREMEDY not implemented");

@@ -28,6 +28,7 @@ namespace OpenGL
 		/// <summary>
 		/// Binding for glFlushRasterSGIX.
 		/// </summary>
+		[RequiredByFeature("GL_SGIX_flush_raster")]
 		public static void FlushRasterSGIX()
 		{
 			Debug.Assert(Delegates.pglFlushRasterSGIX != null, "pglFlushRasterSGIX not implemented");

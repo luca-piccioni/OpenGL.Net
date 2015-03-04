@@ -78,6 +78,7 @@ namespace OpenGL
 		/// <param name="pointer">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
+		[RequiredByFeature("GL_APPLE_vertex_array_range")]
 		public static void VertexArrayRangeAPPLE(Int32 length, IntPtr pointer)
 		{
 			Debug.Assert(Delegates.pglVertexArrayRangeAPPLE != null, "pglVertexArrayRangeAPPLE not implemented");
@@ -95,6 +96,7 @@ namespace OpenGL
 		/// <param name="pointer">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
+		[RequiredByFeature("GL_APPLE_vertex_array_range")]
 		public static void FlushVertexArrayRangeAPPLE(Int32 length, IntPtr pointer)
 		{
 			Debug.Assert(Delegates.pglFlushVertexArrayRangeAPPLE != null, "pglFlushVertexArrayRangeAPPLE not implemented");
@@ -112,6 +114,7 @@ namespace OpenGL
 		/// <param name="param">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
+		[RequiredByFeature("GL_APPLE_vertex_array_range")]
 		public static void VertexArrayParameterAPPLE(int pname, Int32 param)
 		{
 			Debug.Assert(Delegates.pglVertexArrayParameteriAPPLE != null, "pglVertexArrayParameteriAPPLE not implemented");

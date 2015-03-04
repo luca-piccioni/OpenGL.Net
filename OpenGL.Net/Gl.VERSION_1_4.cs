@@ -29,58 +29,42 @@ namespace OpenGL
 		/// Value of GL_BLEND_DST_RGB symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_4")]
-		[RequiredByFeature("GL_ES_VERSION_2_0")]
-		[RequiredByFeature("GL_EXT_draw_buffers_indexed")]
-		[RequiredByFeature("GL_OES_draw_buffers_indexed")]
 		public const int BLEND_DST_RGB = 0x80C8;
 
 		/// <summary>
 		/// Value of GL_BLEND_SRC_RGB symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_4")]
-		[RequiredByFeature("GL_ES_VERSION_2_0")]
-		[RequiredByFeature("GL_EXT_draw_buffers_indexed")]
-		[RequiredByFeature("GL_OES_draw_buffers_indexed")]
 		public const int BLEND_SRC_RGB = 0x80C9;
 
 		/// <summary>
 		/// Value of GL_BLEND_DST_ALPHA symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_4")]
-		[RequiredByFeature("GL_ES_VERSION_2_0")]
-		[RequiredByFeature("GL_EXT_draw_buffers_indexed")]
-		[RequiredByFeature("GL_OES_draw_buffers_indexed")]
 		public const int BLEND_DST_ALPHA = 0x80CA;
 
 		/// <summary>
 		/// Value of GL_BLEND_SRC_ALPHA symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_4")]
-		[RequiredByFeature("GL_ES_VERSION_2_0")]
-		[RequiredByFeature("GL_EXT_draw_buffers_indexed")]
-		[RequiredByFeature("GL_OES_draw_buffers_indexed")]
 		public const int BLEND_SRC_ALPHA = 0x80CB;
 
 		/// <summary>
 		/// Value of GL_POINT_FADE_THRESHOLD_SIZE symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_4")]
-		[RequiredByFeature("GL_VERSION_ES_CM_1_0")]
 		public const int POINT_FADE_THRESHOLD_SIZE = 0x8128;
 
 		/// <summary>
 		/// Value of GL_DEPTH_COMPONENT16 symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_4")]
-		[RequiredByFeature("GL_ES_VERSION_2_0")]
-		[RequiredByFeature("GL_ANGLE_depth_texture")]
 		public const int DEPTH_COMPONENT16 = 0x81A5;
 
 		/// <summary>
 		/// Value of GL_DEPTH_COMPONENT24 symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_4")]
-		[RequiredByFeature("GL_ES_VERSION_3_0")]
 		public const int DEPTH_COMPONENT24 = 0x81A6;
 
 		/// <summary>
@@ -93,14 +77,12 @@ namespace OpenGL
 		/// Value of GL_MIRRORED_REPEAT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_4")]
-		[RequiredByFeature("GL_ES_VERSION_2_0")]
 		public const int MIRRORED_REPEAT = 0x8370;
 
 		/// <summary>
 		/// Value of GL_MAX_TEXTURE_LOD_BIAS symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_4")]
-		[RequiredByFeature("GL_ES_VERSION_3_0")]
 		public const int MAX_TEXTURE_LOD_BIAS = 0x84FD;
 
 		/// <summary>
@@ -113,42 +95,36 @@ namespace OpenGL
 		/// Value of GL_INCR_WRAP symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_4")]
-		[RequiredByFeature("GL_ES_VERSION_2_0")]
 		public const int INCR_WRAP = 0x8507;
 
 		/// <summary>
 		/// Value of GL_DECR_WRAP symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_4")]
-		[RequiredByFeature("GL_ES_VERSION_2_0")]
 		public const int DECR_WRAP = 0x8508;
 
 		/// <summary>
 		/// Value of GL_TEXTURE_DEPTH_SIZE symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_4")]
-		[RequiredByFeature("GL_ES_VERSION_3_1")]
 		public const int TEXTURE_DEPTH_SIZE = 0x884A;
 
 		/// <summary>
 		/// Value of GL_TEXTURE_COMPARE_MODE symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_4")]
-		[RequiredByFeature("GL_ES_VERSION_3_0")]
 		public const int TEXTURE_COMPARE_MODE = 0x884C;
 
 		/// <summary>
 		/// Value of GL_TEXTURE_COMPARE_FUNC symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_4")]
-		[RequiredByFeature("GL_ES_VERSION_3_0")]
 		public const int TEXTURE_COMPARE_FUNC = 0x884D;
 
 		/// <summary>
 		/// Value of GL_POINT_SIZE_MIN symbol (DEPRECATED).
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_4")]
-		[RequiredByFeature("GL_VERSION_ES_CM_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
 		[Obsolete("Deprecated/removed by OpenGL 3.2.")]
@@ -159,7 +135,6 @@ namespace OpenGL
 		/// Value of GL_POINT_SIZE_MAX symbol (DEPRECATED).
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_4")]
-		[RequiredByFeature("GL_VERSION_ES_CM_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
 		[Obsolete("Deprecated/removed by OpenGL 3.2.")]
@@ -170,7 +145,6 @@ namespace OpenGL
 		/// Value of GL_POINT_DISTANCE_ATTENUATION symbol (DEPRECATED).
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_4")]
-		[RequiredByFeature("GL_VERSION_ES_CM_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
 		[Obsolete("Deprecated/removed by OpenGL 3.2.")]
@@ -181,7 +155,6 @@ namespace OpenGL
 		/// Value of GL_GENERATE_MIPMAP symbol (DEPRECATED).
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_4")]
-		[RequiredByFeature("GL_VERSION_ES_CM_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
 		[Obsolete("Deprecated/removed by OpenGL 3.2.")]
@@ -192,8 +165,6 @@ namespace OpenGL
 		/// Value of GL_GENERATE_MIPMAP_HINT symbol (DEPRECATED).
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_4")]
-		[RequiredByFeature("GL_VERSION_ES_CM_1_0")]
-		[RequiredByFeature("GL_ES_VERSION_2_0")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
 		[Obsolete("Deprecated/removed by OpenGL 3.2.")]
@@ -384,90 +355,63 @@ namespace OpenGL
 		/// Value of GL_FUNC_ADD symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_4")]
-		[RequiredByFeature("GL_ES_VERSION_2_0")]
 		[RequiredByFeature("GL_ARB_imaging")]
-		[RequiredByFeature("GL_EXT_draw_buffers_indexed")]
-		[RequiredByFeature("GL_OES_draw_buffers_indexed")]
 		public const int FUNC_ADD = 0x8006;
 
 		/// <summary>
 		/// Value of GL_FUNC_SUBTRACT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_4")]
-		[RequiredByFeature("GL_ES_VERSION_2_0")]
 		[RequiredByFeature("GL_ARB_imaging")]
-		[RequiredByFeature("GL_EXT_draw_buffers_indexed")]
-		[RequiredByFeature("GL_OES_draw_buffers_indexed")]
 		public const int FUNC_SUBTRACT = 0x800A;
 
 		/// <summary>
 		/// Value of GL_FUNC_REVERSE_SUBTRACT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_4")]
-		[RequiredByFeature("GL_ES_VERSION_2_0")]
 		[RequiredByFeature("GL_ARB_imaging")]
-		[RequiredByFeature("GL_EXT_draw_buffers_indexed")]
-		[RequiredByFeature("GL_OES_draw_buffers_indexed")]
 		public const int FUNC_REVERSE_SUBTRACT = 0x800B;
 
 		/// <summary>
 		/// Value of GL_MIN symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_4")]
-		[RequiredByFeature("GL_ES_VERSION_3_0")]
 		[RequiredByFeature("GL_ARB_imaging")]
-		[RequiredByFeature("GL_EXT_draw_buffers_indexed")]
-		[RequiredByFeature("GL_OES_draw_buffers_indexed")]
 		public const int MIN = 0x8007;
 
 		/// <summary>
 		/// Value of GL_MAX symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_4")]
-		[RequiredByFeature("GL_ES_VERSION_3_0")]
 		[RequiredByFeature("GL_ARB_imaging")]
-		[RequiredByFeature("GL_EXT_draw_buffers_indexed")]
-		[RequiredByFeature("GL_OES_draw_buffers_indexed")]
 		public const int MAX = 0x8008;
 
 		/// <summary>
 		/// Value of GL_CONSTANT_COLOR symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_4")]
-		[RequiredByFeature("GL_ES_VERSION_2_0")]
 		[RequiredByFeature("GL_ARB_imaging")]
-		[RequiredByFeature("GL_EXT_draw_buffers_indexed")]
-		[RequiredByFeature("GL_OES_draw_buffers_indexed")]
 		public const int CONSTANT_COLOR = 0x8001;
 
 		/// <summary>
 		/// Value of GL_ONE_MINUS_CONSTANT_COLOR symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_4")]
-		[RequiredByFeature("GL_ES_VERSION_2_0")]
 		[RequiredByFeature("GL_ARB_imaging")]
-		[RequiredByFeature("GL_EXT_draw_buffers_indexed")]
-		[RequiredByFeature("GL_OES_draw_buffers_indexed")]
 		public const int ONE_MINUS_CONSTANT_COLOR = 0x8002;
 
 		/// <summary>
 		/// Value of GL_CONSTANT_ALPHA symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_4")]
-		[RequiredByFeature("GL_ES_VERSION_2_0")]
 		[RequiredByFeature("GL_ARB_imaging")]
-		[RequiredByFeature("GL_EXT_draw_buffers_indexed")]
-		[RequiredByFeature("GL_OES_draw_buffers_indexed")]
 		public const int CONSTANT_ALPHA = 0x8003;
 
 		/// <summary>
 		/// Value of GL_ONE_MINUS_CONSTANT_ALPHA symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_4")]
-		[RequiredByFeature("GL_ES_VERSION_2_0")]
 		[RequiredByFeature("GL_ARB_imaging")]
-		[RequiredByFeature("GL_EXT_draw_buffers_indexed")]
-		[RequiredByFeature("GL_OES_draw_buffers_indexed")]
 		public const int ONE_MINUS_CONSTANT_ALPHA = 0x8004;
 
 		/// <summary>
@@ -614,6 +558,7 @@ namespace OpenGL
 		/// <param name="dfactorAlpha">
 		/// A <see cref="T:int"/>.
 		/// </param>
+		[RequiredByFeature("GL_VERSION_1_4")]
 		public static void BlendFuncSeparate(int sfactorRGB, int dfactorRGB, int sfactorAlpha, int dfactorAlpha)
 		{
 			if        (Delegates.pglBlendFuncSeparate != null) {
@@ -669,6 +614,7 @@ namespace OpenGL
 		/// </remarks>
 		/// <seealso cref="Gl.DrawElements"/>
 		/// <seealso cref="Gl.DrawRangeElements"/>
+		[RequiredByFeature("GL_VERSION_1_4")]
 		public static void MultiDrawArrays(int mode, Int32[] first, Int32[] count, Int32 drawcount)
 		{
 			unsafe {
@@ -727,6 +673,7 @@ namespace OpenGL
 		/// </remarks>
 		/// <seealso cref="Gl.DrawElements"/>
 		/// <seealso cref="Gl.DrawRangeElements"/>
+		[RequiredByFeature("GL_VERSION_1_4")]
 		public static void MultiDrawArrays(PrimitiveType mode, Int32[] first, Int32[] count, Int32 drawcount)
 		{
 			unsafe {
@@ -785,6 +732,7 @@ namespace OpenGL
 		/// </remarks>
 		/// <seealso cref="Gl.DrawArrays"/>
 		/// <seealso cref="Gl.DrawRangeElements"/>
+		[RequiredByFeature("GL_VERSION_1_4")]
 		public static void MultiDrawElements(int mode, Int32[] count, int type, IntPtr indices, Int32 drawcount)
 		{
 			unsafe {
@@ -842,6 +790,7 @@ namespace OpenGL
 		/// </remarks>
 		/// <seealso cref="Gl.DrawArrays"/>
 		/// <seealso cref="Gl.DrawRangeElements"/>
+		[RequiredByFeature("GL_VERSION_1_4")]
 		public static void MultiDrawElements(PrimitiveType mode, Int32[] count, int type, IntPtr indices, Int32 drawcount)
 		{
 			unsafe {
@@ -899,6 +848,7 @@ namespace OpenGL
 		/// </remarks>
 		/// <seealso cref="Gl.DrawArrays"/>
 		/// <seealso cref="Gl.DrawRangeElements"/>
+		[RequiredByFeature("GL_VERSION_1_4")]
 		public static void MultiDrawElements(int mode, Int32[] count, int type, Object indices, Int32 drawcount)
 		{
 			GCHandle pin_indices = GCHandle.Alloc(indices, GCHandleType.Pinned);
@@ -933,6 +883,7 @@ namespace OpenGL
 		/// </para>
 		/// </remarks>
 		/// <seealso cref="Gl.PointSize"/>
+		[RequiredByFeature("GL_VERSION_1_4")]
 		public static void PointParameter(int pname, float param)
 		{
 			if        (Delegates.pglPointParameterf != null) {
@@ -976,6 +927,7 @@ namespace OpenGL
 		/// </para>
 		/// </remarks>
 		/// <seealso cref="Gl.PointSize"/>
+		[RequiredByFeature("GL_VERSION_1_4")]
 		public static void PointParameter(int pname, float[] @params)
 		{
 			unsafe {
@@ -1024,6 +976,7 @@ namespace OpenGL
 		/// </para>
 		/// </remarks>
 		/// <seealso cref="Gl.PointSize"/>
+		[RequiredByFeature("GL_VERSION_1_4")]
 		public static void PointParameter(int pname, Int32 param)
 		{
 			if        (Delegates.pglPointParameteri != null) {
@@ -1061,6 +1014,7 @@ namespace OpenGL
 		/// </para>
 		/// </remarks>
 		/// <seealso cref="Gl.PointSize"/>
+		[RequiredByFeature("GL_VERSION_1_4")]
 		public static void PointParameter(int pname, Int32[] @params)
 		{
 			unsafe {
@@ -1096,6 +1050,8 @@ namespace OpenGL
 		/// <seealso cref="Gl.Fog"/>
 		/// <seealso cref="Gl.FogCoordPointer"/>
 		/// <seealso cref="Gl.Vertex"/>
+		[RequiredByFeature("GL_VERSION_1_4")]
+		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void FogCoord(float coord)
 		{
 			if        (Delegates.pglFogCoordf != null) {
@@ -1126,6 +1082,8 @@ namespace OpenGL
 		/// <seealso cref="Gl.Fog"/>
 		/// <seealso cref="Gl.FogCoordPointer"/>
 		/// <seealso cref="Gl.Vertex"/>
+		[RequiredByFeature("GL_VERSION_1_4")]
+		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void FogCoord(float[] coord)
 		{
 			unsafe {
@@ -1161,6 +1119,8 @@ namespace OpenGL
 		/// <seealso cref="Gl.Fog"/>
 		/// <seealso cref="Gl.FogCoordPointer"/>
 		/// <seealso cref="Gl.Vertex"/>
+		[RequiredByFeature("GL_VERSION_1_4")]
+		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void FogCoord(double coord)
 		{
 			if        (Delegates.pglFogCoordd != null) {
@@ -1191,6 +1151,8 @@ namespace OpenGL
 		/// <seealso cref="Gl.Fog"/>
 		/// <seealso cref="Gl.FogCoordPointer"/>
 		/// <seealso cref="Gl.Vertex"/>
+		[RequiredByFeature("GL_VERSION_1_4")]
+		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void FogCoord(double[] coord)
 		{
 			unsafe {
@@ -1274,6 +1236,8 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexCoordPointer"/>
 		/// <seealso cref="Gl.VertexAttribPointer"/>
 		/// <seealso cref="Gl.VertexPointer"/>
+		[RequiredByFeature("GL_VERSION_1_4")]
+		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void FogCoordPointer(int type, Int32 stride, IntPtr pointer)
 		{
 			if        (Delegates.pglFogCoordPointer != null) {
@@ -1352,6 +1316,8 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexCoordPointer"/>
 		/// <seealso cref="Gl.VertexAttribPointer"/>
 		/// <seealso cref="Gl.VertexPointer"/>
+		[RequiredByFeature("GL_VERSION_1_4")]
+		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void FogCoordPointer(FogPointerTypeEXT type, Int32 stride, IntPtr pointer)
 		{
 			if        (Delegates.pglFogCoordPointer != null) {
@@ -1430,6 +1396,8 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexCoordPointer"/>
 		/// <seealso cref="Gl.VertexAttribPointer"/>
 		/// <seealso cref="Gl.VertexPointer"/>
+		[RequiredByFeature("GL_VERSION_1_4")]
+		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void FogCoordPointer(int type, Int32 stride, Object pointer)
 		{
 			GCHandle pin_pointer = GCHandle.Alloc(pointer, GCHandleType.Pinned);
@@ -1483,6 +1451,8 @@ namespace OpenGL
 		/// <seealso cref="Gl.Index"/>
 		/// <seealso cref="Gl.IsEnabled"/>
 		/// <seealso cref="Gl.LightModel"/>
+		[RequiredByFeature("GL_VERSION_1_4")]
+		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void SecondaryColor3(sbyte red, sbyte green, sbyte blue)
 		{
 			if        (Delegates.pglSecondaryColor3b != null) {
@@ -1533,6 +1503,8 @@ namespace OpenGL
 		/// <seealso cref="Gl.Index"/>
 		/// <seealso cref="Gl.IsEnabled"/>
 		/// <seealso cref="Gl.LightModel"/>
+		[RequiredByFeature("GL_VERSION_1_4")]
+		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void SecondaryColor3(sbyte[] v)
 		{
 			unsafe {
@@ -1594,6 +1566,8 @@ namespace OpenGL
 		/// <seealso cref="Gl.Index"/>
 		/// <seealso cref="Gl.IsEnabled"/>
 		/// <seealso cref="Gl.LightModel"/>
+		[RequiredByFeature("GL_VERSION_1_4")]
+		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void SecondaryColor3(double red, double green, double blue)
 		{
 			if        (Delegates.pglSecondaryColor3d != null) {
@@ -1644,6 +1618,8 @@ namespace OpenGL
 		/// <seealso cref="Gl.Index"/>
 		/// <seealso cref="Gl.IsEnabled"/>
 		/// <seealso cref="Gl.LightModel"/>
+		[RequiredByFeature("GL_VERSION_1_4")]
+		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void SecondaryColor3(double[] v)
 		{
 			unsafe {
@@ -1705,6 +1681,8 @@ namespace OpenGL
 		/// <seealso cref="Gl.Index"/>
 		/// <seealso cref="Gl.IsEnabled"/>
 		/// <seealso cref="Gl.LightModel"/>
+		[RequiredByFeature("GL_VERSION_1_4")]
+		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void SecondaryColor3(float red, float green, float blue)
 		{
 			if        (Delegates.pglSecondaryColor3f != null) {
@@ -1755,6 +1733,8 @@ namespace OpenGL
 		/// <seealso cref="Gl.Index"/>
 		/// <seealso cref="Gl.IsEnabled"/>
 		/// <seealso cref="Gl.LightModel"/>
+		[RequiredByFeature("GL_VERSION_1_4")]
+		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void SecondaryColor3(float[] v)
 		{
 			unsafe {
@@ -1816,6 +1796,8 @@ namespace OpenGL
 		/// <seealso cref="Gl.Index"/>
 		/// <seealso cref="Gl.IsEnabled"/>
 		/// <seealso cref="Gl.LightModel"/>
+		[RequiredByFeature("GL_VERSION_1_4")]
+		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void SecondaryColor3(Int32 red, Int32 green, Int32 blue)
 		{
 			if        (Delegates.pglSecondaryColor3i != null) {
@@ -1866,6 +1848,8 @@ namespace OpenGL
 		/// <seealso cref="Gl.Index"/>
 		/// <seealso cref="Gl.IsEnabled"/>
 		/// <seealso cref="Gl.LightModel"/>
+		[RequiredByFeature("GL_VERSION_1_4")]
+		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void SecondaryColor3(Int32[] v)
 		{
 			unsafe {
@@ -1927,6 +1911,8 @@ namespace OpenGL
 		/// <seealso cref="Gl.Index"/>
 		/// <seealso cref="Gl.IsEnabled"/>
 		/// <seealso cref="Gl.LightModel"/>
+		[RequiredByFeature("GL_VERSION_1_4")]
+		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void SecondaryColor3(Int16 red, Int16 green, Int16 blue)
 		{
 			if        (Delegates.pglSecondaryColor3s != null) {
@@ -1977,6 +1963,8 @@ namespace OpenGL
 		/// <seealso cref="Gl.Index"/>
 		/// <seealso cref="Gl.IsEnabled"/>
 		/// <seealso cref="Gl.LightModel"/>
+		[RequiredByFeature("GL_VERSION_1_4")]
+		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void SecondaryColor3(Int16[] v)
 		{
 			unsafe {
@@ -2038,6 +2026,8 @@ namespace OpenGL
 		/// <seealso cref="Gl.Index"/>
 		/// <seealso cref="Gl.IsEnabled"/>
 		/// <seealso cref="Gl.LightModel"/>
+		[RequiredByFeature("GL_VERSION_1_4")]
+		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void SecondaryColor3(byte red, byte green, byte blue)
 		{
 			if        (Delegates.pglSecondaryColor3ub != null) {
@@ -2088,6 +2078,8 @@ namespace OpenGL
 		/// <seealso cref="Gl.Index"/>
 		/// <seealso cref="Gl.IsEnabled"/>
 		/// <seealso cref="Gl.LightModel"/>
+		[RequiredByFeature("GL_VERSION_1_4")]
+		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void SecondaryColor3(byte[] v)
 		{
 			unsafe {
@@ -2149,6 +2141,8 @@ namespace OpenGL
 		/// <seealso cref="Gl.Index"/>
 		/// <seealso cref="Gl.IsEnabled"/>
 		/// <seealso cref="Gl.LightModel"/>
+		[RequiredByFeature("GL_VERSION_1_4")]
+		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void SecondaryColor3(UInt32 red, UInt32 green, UInt32 blue)
 		{
 			if        (Delegates.pglSecondaryColor3ui != null) {
@@ -2199,6 +2193,8 @@ namespace OpenGL
 		/// <seealso cref="Gl.Index"/>
 		/// <seealso cref="Gl.IsEnabled"/>
 		/// <seealso cref="Gl.LightModel"/>
+		[RequiredByFeature("GL_VERSION_1_4")]
+		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void SecondaryColor3(UInt32[] v)
 		{
 			unsafe {
@@ -2260,6 +2256,8 @@ namespace OpenGL
 		/// <seealso cref="Gl.Index"/>
 		/// <seealso cref="Gl.IsEnabled"/>
 		/// <seealso cref="Gl.LightModel"/>
+		[RequiredByFeature("GL_VERSION_1_4")]
+		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void SecondaryColor3(UInt16 red, UInt16 green, UInt16 blue)
 		{
 			if        (Delegates.pglSecondaryColor3us != null) {
@@ -2310,6 +2308,8 @@ namespace OpenGL
 		/// <seealso cref="Gl.Index"/>
 		/// <seealso cref="Gl.IsEnabled"/>
 		/// <seealso cref="Gl.LightModel"/>
+		[RequiredByFeature("GL_VERSION_1_4")]
+		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void SecondaryColor3(UInt16[] v)
 		{
 			unsafe {
@@ -2401,6 +2401,8 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexCoordPointer"/>
 		/// <seealso cref="Gl.VertexAttribPointer"/>
 		/// <seealso cref="Gl.VertexPointer"/>
+		[RequiredByFeature("GL_VERSION_1_4")]
+		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void SecondaryColorPointer(Int32 size, int type, Int32 stride, IntPtr pointer)
 		{
 			if        (Delegates.pglSecondaryColorPointer != null) {
@@ -2487,6 +2489,8 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexCoordPointer"/>
 		/// <seealso cref="Gl.VertexAttribPointer"/>
 		/// <seealso cref="Gl.VertexPointer"/>
+		[RequiredByFeature("GL_VERSION_1_4")]
+		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void SecondaryColorPointer(Int32 size, ColorPointerType type, Int32 stride, IntPtr pointer)
 		{
 			if        (Delegates.pglSecondaryColorPointer != null) {
@@ -2573,6 +2577,8 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexCoordPointer"/>
 		/// <seealso cref="Gl.VertexAttribPointer"/>
 		/// <seealso cref="Gl.VertexPointer"/>
+		[RequiredByFeature("GL_VERSION_1_4")]
+		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void SecondaryColorPointer(Int32 size, int type, Int32 stride, Object pointer)
 		{
 			GCHandle pin_pointer = GCHandle.Alloc(pointer, GCHandleType.Pinned);
@@ -2642,6 +2648,8 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexCoord"/>
 		/// <seealso cref="Gl.TexGen"/>
 		/// <seealso cref="Gl.Vertex"/>
+		[RequiredByFeature("GL_VERSION_1_4")]
+		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void WindowPos2(double x, double y)
 		{
 			if        (Delegates.pglWindowPos2d != null) {
@@ -2714,6 +2722,8 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexCoord"/>
 		/// <seealso cref="Gl.TexGen"/>
 		/// <seealso cref="Gl.Vertex"/>
+		[RequiredByFeature("GL_VERSION_1_4")]
+		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void WindowPos2(double[] v)
 		{
 			unsafe {
@@ -2794,6 +2804,8 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexCoord"/>
 		/// <seealso cref="Gl.TexGen"/>
 		/// <seealso cref="Gl.Vertex"/>
+		[RequiredByFeature("GL_VERSION_1_4")]
+		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void WindowPos2(float x, float y)
 		{
 			if        (Delegates.pglWindowPos2f != null) {
@@ -2866,6 +2878,8 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexCoord"/>
 		/// <seealso cref="Gl.TexGen"/>
 		/// <seealso cref="Gl.Vertex"/>
+		[RequiredByFeature("GL_VERSION_1_4")]
+		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void WindowPos2(float[] v)
 		{
 			unsafe {
@@ -2946,6 +2960,8 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexCoord"/>
 		/// <seealso cref="Gl.TexGen"/>
 		/// <seealso cref="Gl.Vertex"/>
+		[RequiredByFeature("GL_VERSION_1_4")]
+		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void WindowPos2(Int32 x, Int32 y)
 		{
 			if        (Delegates.pglWindowPos2i != null) {
@@ -3018,6 +3034,8 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexCoord"/>
 		/// <seealso cref="Gl.TexGen"/>
 		/// <seealso cref="Gl.Vertex"/>
+		[RequiredByFeature("GL_VERSION_1_4")]
+		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void WindowPos2(Int32[] v)
 		{
 			unsafe {
@@ -3098,6 +3116,8 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexCoord"/>
 		/// <seealso cref="Gl.TexGen"/>
 		/// <seealso cref="Gl.Vertex"/>
+		[RequiredByFeature("GL_VERSION_1_4")]
+		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void WindowPos2(Int16 x, Int16 y)
 		{
 			if        (Delegates.pglWindowPos2s != null) {
@@ -3170,6 +3190,8 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexCoord"/>
 		/// <seealso cref="Gl.TexGen"/>
 		/// <seealso cref="Gl.Vertex"/>
+		[RequiredByFeature("GL_VERSION_1_4")]
+		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void WindowPos2(Int16[] v)
 		{
 			unsafe {
@@ -3253,6 +3275,8 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexCoord"/>
 		/// <seealso cref="Gl.TexGen"/>
 		/// <seealso cref="Gl.Vertex"/>
+		[RequiredByFeature("GL_VERSION_1_4")]
+		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void WindowPos3(double x, double y, double z)
 		{
 			if        (Delegates.pglWindowPos3d != null) {
@@ -3325,6 +3349,8 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexCoord"/>
 		/// <seealso cref="Gl.TexGen"/>
 		/// <seealso cref="Gl.Vertex"/>
+		[RequiredByFeature("GL_VERSION_1_4")]
+		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void WindowPos3(double[] v)
 		{
 			unsafe {
@@ -3408,6 +3434,8 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexCoord"/>
 		/// <seealso cref="Gl.TexGen"/>
 		/// <seealso cref="Gl.Vertex"/>
+		[RequiredByFeature("GL_VERSION_1_4")]
+		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void WindowPos3(float x, float y, float z)
 		{
 			if        (Delegates.pglWindowPos3f != null) {
@@ -3480,6 +3508,8 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexCoord"/>
 		/// <seealso cref="Gl.TexGen"/>
 		/// <seealso cref="Gl.Vertex"/>
+		[RequiredByFeature("GL_VERSION_1_4")]
+		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void WindowPos3(float[] v)
 		{
 			unsafe {
@@ -3563,6 +3593,8 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexCoord"/>
 		/// <seealso cref="Gl.TexGen"/>
 		/// <seealso cref="Gl.Vertex"/>
+		[RequiredByFeature("GL_VERSION_1_4")]
+		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void WindowPos3(Int32 x, Int32 y, Int32 z)
 		{
 			if        (Delegates.pglWindowPos3i != null) {
@@ -3635,6 +3667,8 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexCoord"/>
 		/// <seealso cref="Gl.TexGen"/>
 		/// <seealso cref="Gl.Vertex"/>
+		[RequiredByFeature("GL_VERSION_1_4")]
+		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void WindowPos3(Int32[] v)
 		{
 			unsafe {
@@ -3718,6 +3752,8 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexCoord"/>
 		/// <seealso cref="Gl.TexGen"/>
 		/// <seealso cref="Gl.Vertex"/>
+		[RequiredByFeature("GL_VERSION_1_4")]
+		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void WindowPos3(Int16 x, Int16 y, Int16 z)
 		{
 			if        (Delegates.pglWindowPos3s != null) {
@@ -3790,6 +3826,8 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexCoord"/>
 		/// <seealso cref="Gl.TexGen"/>
 		/// <seealso cref="Gl.Vertex"/>
+		[RequiredByFeature("GL_VERSION_1_4")]
+		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void WindowPos3(Int16[] v)
 		{
 			unsafe {
@@ -3839,6 +3877,8 @@ namespace OpenGL
 		/// <seealso cref="Gl.BlendFunc"/>
 		/// <seealso cref="Gl.GetString"/>
 		/// <seealso cref="Gl.removedTypes"/>
+		[RequiredByFeature("GL_VERSION_1_4")]
+		[RequiredByFeature("GL_ARB_imaging")]
 		public static void BlendColor(float red, float green, float blue, float alpha)
 		{
 			if        (Delegates.pglBlendColor != null) {
@@ -3895,6 +3935,8 @@ namespace OpenGL
 		/// <seealso cref="Gl.BlendColor"/>
 		/// <seealso cref="Gl.BlendFunc"/>
 		/// <seealso cref="Gl.BlendFuncSeparate"/>
+		[RequiredByFeature("GL_VERSION_1_4")]
+		[RequiredByFeature("GL_ARB_imaging")]
 		public static void BlendEquation(int mode)
 		{
 			if        (Delegates.pglBlendEquation != null) {

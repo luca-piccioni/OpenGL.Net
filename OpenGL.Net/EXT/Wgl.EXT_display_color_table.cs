@@ -31,6 +31,7 @@ namespace OpenGL
 		/// <param name="id">
 		/// A <see cref="T:UInt16"/>.
 		/// </param>
+		[RequiredByFeature("WGL_EXT_display_color_table")]
 		public static bool CreateDisplayColorTableEXT(UInt16 id)
 		{
 			bool retValue;
@@ -38,7 +39,6 @@ namespace OpenGL
 			Debug.Assert(Delegates.pwglCreateDisplayColorTableEXT != null, "pwglCreateDisplayColorTableEXT not implemented");
 			retValue = Delegates.pwglCreateDisplayColorTableEXT(id);
 			CallLog("wglCreateDisplayColorTableEXT({0}) = {1}", id, retValue);
-			DebugCheckErrors();
 
 			return (retValue);
 		}
@@ -52,6 +52,7 @@ namespace OpenGL
 		/// <param name="length">
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
+		[RequiredByFeature("WGL_EXT_display_color_table")]
 		public static bool LoadDisplayColorTableEXT(UInt16[] table, UInt32 length)
 		{
 			bool retValue;
@@ -64,7 +65,6 @@ namespace OpenGL
 					CallLog("wglLoadDisplayColorTableEXT({0}, {1}) = {2}", table, length, retValue);
 				}
 			}
-			DebugCheckErrors();
 
 			return (retValue);
 		}
@@ -75,6 +75,7 @@ namespace OpenGL
 		/// <param name="id">
 		/// A <see cref="T:UInt16"/>.
 		/// </param>
+		[RequiredByFeature("WGL_EXT_display_color_table")]
 		public static bool BindDisplayColorTableEXT(UInt16 id)
 		{
 			bool retValue;
@@ -82,7 +83,6 @@ namespace OpenGL
 			Debug.Assert(Delegates.pwglBindDisplayColorTableEXT != null, "pwglBindDisplayColorTableEXT not implemented");
 			retValue = Delegates.pwglBindDisplayColorTableEXT(id);
 			CallLog("wglBindDisplayColorTableEXT({0}) = {1}", id, retValue);
-			DebugCheckErrors();
 
 			return (retValue);
 		}
@@ -93,12 +93,12 @@ namespace OpenGL
 		/// <param name="id">
 		/// A <see cref="T:UInt16"/>.
 		/// </param>
+		[RequiredByFeature("WGL_EXT_display_color_table")]
 		public static void DestroyDisplayColorTableEXT(UInt16 id)
 		{
 			Debug.Assert(Delegates.pwglDestroyDisplayColorTableEXT != null, "pwglDestroyDisplayColorTableEXT not implemented");
 			Delegates.pwglDestroyDisplayColorTableEXT(id);
 			CallLog("wglDestroyDisplayColorTableEXT({0})", id);
-			DebugCheckErrors();
 		}
 
 	}

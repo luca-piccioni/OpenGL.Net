@@ -55,6 +55,7 @@ namespace OpenGL
 		/// <param name="stride">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
+		[RequiredByFeature("GL_ARB_indirect_parameters")]
 		public static void MultiDrawArraysIndirectARB(int mode, IntPtr indirect, IntPtr drawcount, Int32 maxdrawcount, Int32 stride)
 		{
 			Debug.Assert(Delegates.pglMultiDrawArraysIndirectCountARB != null, "pglMultiDrawArraysIndirectCountARB not implemented");
@@ -84,6 +85,7 @@ namespace OpenGL
 		/// <param name="stride">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
+		[RequiredByFeature("GL_ARB_indirect_parameters")]
 		public static void MultiDrawElementsIndirectARB(int mode, int type, IntPtr indirect, IntPtr drawcount, Int32 maxdrawcount, Int32 stride)
 		{
 			Debug.Assert(Delegates.pglMultiDrawElementsIndirectCountARB != null, "pglMultiDrawElementsIndirectCountARB not implemented");

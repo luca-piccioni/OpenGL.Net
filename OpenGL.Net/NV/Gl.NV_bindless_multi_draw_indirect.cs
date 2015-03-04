@@ -43,6 +43,7 @@ namespace OpenGL
 		/// <param name="vertexBufferCount">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
+		[RequiredByFeature("GL_NV_bindless_multi_draw_indirect")]
 		public static void MultiDrawArraysIndirectBindNV(int mode, IntPtr indirect, Int32 drawCount, Int32 stride, Int32 vertexBufferCount)
 		{
 			Debug.Assert(Delegates.pglMultiDrawArraysIndirectBindlessNV != null, "pglMultiDrawArraysIndirectBindlessNV not implemented");
@@ -69,6 +70,7 @@ namespace OpenGL
 		/// <param name="vertexBufferCount">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
+		[RequiredByFeature("GL_NV_bindless_multi_draw_indirect")]
 		public static void MultiDrawArraysIndirectBindNV(int mode, Object indirect, Int32 drawCount, Int32 stride, Int32 vertexBufferCount)
 		{
 			GCHandle pin_indirect = GCHandle.Alloc(indirect, GCHandleType.Pinned);
@@ -100,6 +102,7 @@ namespace OpenGL
 		/// <param name="vertexBufferCount">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
+		[RequiredByFeature("GL_NV_bindless_multi_draw_indirect")]
 		public static void MultiDrawElementsIndirectBindNV(int mode, int type, IntPtr indirect, Int32 drawCount, Int32 stride, Int32 vertexBufferCount)
 		{
 			Debug.Assert(Delegates.pglMultiDrawElementsIndirectBindlessNV != null, "pglMultiDrawElementsIndirectBindlessNV not implemented");
@@ -129,6 +132,7 @@ namespace OpenGL
 		/// <param name="vertexBufferCount">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
+		[RequiredByFeature("GL_NV_bindless_multi_draw_indirect")]
 		public static void MultiDrawElementsIndirectBindNV(int mode, int type, Object indirect, Int32 drawCount, Int32 stride, Int32 vertexBufferCount)
 		{
 			GCHandle pin_indirect = GCHandle.Alloc(indirect, GCHandleType.Pinned);

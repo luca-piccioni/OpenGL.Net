@@ -76,6 +76,7 @@ namespace OpenGL
 		/// <param name="param">
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
+		[RequiredByFeature("GL_AMD_occlusion_query_event")]
 		public static void QueryObjectParameterAMD(int target, UInt32 id, int pname, UInt32 param)
 		{
 			Debug.Assert(Delegates.pglQueryObjectParameteruiAMD != null, "pglQueryObjectParameteruiAMD not implemented");
@@ -99,6 +100,7 @@ namespace OpenGL
 		/// <param name="param">
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
+		[RequiredByFeature("GL_AMD_occlusion_query_event")]
 		public static void QueryObjectParameterAMD(int target, UInt32 id, int pname, OcclusionQueryEventMaskAMD param)
 		{
 			Debug.Assert(Delegates.pglQueryObjectParameteruiAMD != null, "pglQueryObjectParameteruiAMD not implemented");

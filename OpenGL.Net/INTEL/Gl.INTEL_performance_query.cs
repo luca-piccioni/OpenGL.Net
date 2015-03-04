@@ -151,6 +151,7 @@ namespace OpenGL
 		/// <param name="queryHandle">
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
+		[RequiredByFeature("GL_INTEL_performance_query")]
 		public static void BeginPerfQueryINTEL(UInt32 queryHandle)
 		{
 			Debug.Assert(Delegates.pglBeginPerfQueryINTEL != null, "pglBeginPerfQueryINTEL not implemented");
@@ -168,6 +169,7 @@ namespace OpenGL
 		/// <param name="queryHandle">
 		/// A <see cref="T:UInt32[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_INTEL_performance_query")]
 		public static void CreatePerfQueryINTEL(UInt32 queryId, UInt32[] queryHandle)
 		{
 			unsafe {
@@ -187,6 +189,7 @@ namespace OpenGL
 		/// <param name="queryHandle">
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
+		[RequiredByFeature("GL_INTEL_performance_query")]
 		public static void DeletePerfQueryINTEL(UInt32 queryHandle)
 		{
 			Debug.Assert(Delegates.pglDeletePerfQueryINTEL != null, "pglDeletePerfQueryINTEL not implemented");
@@ -201,6 +204,7 @@ namespace OpenGL
 		/// <param name="queryHandle">
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
+		[RequiredByFeature("GL_INTEL_performance_query")]
 		public static void EndPerfQueryINTEL(UInt32 queryHandle)
 		{
 			Debug.Assert(Delegates.pglEndPerfQueryINTEL != null, "pglEndPerfQueryINTEL not implemented");
@@ -215,6 +219,7 @@ namespace OpenGL
 		/// <param name="queryId">
 		/// A <see cref="T:UInt32[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_INTEL_performance_query")]
 		public static void GetFirstPerfQueryIdINTEL(UInt32[] queryId)
 		{
 			unsafe {
@@ -237,6 +242,7 @@ namespace OpenGL
 		/// <param name="nextQueryId">
 		/// A <see cref="T:UInt32[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_INTEL_performance_query")]
 		public static void GetNextPerfQueryIdINTEL(UInt32 queryId, UInt32[] nextQueryId)
 		{
 			unsafe {
@@ -286,6 +292,7 @@ namespace OpenGL
 		/// <param name="rawCounterMaxValue">
 		/// A <see cref="T:UInt64[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_INTEL_performance_query")]
 		public static void GetPerfCounterInfoINTEL(UInt32 queryId, UInt32 counterId, UInt32 counterNameLength, String counterName, UInt32 counterDescLength, String counterDesc, UInt32[] counterOffset, UInt32[] counterDataSize, UInt32[] counterTypeEnum, UInt32[] counterDataTypeEnum, UInt64[] rawCounterMaxValue)
 		{
 			unsafe {
@@ -321,6 +328,7 @@ namespace OpenGL
 		/// <param name="bytesWritten">
 		/// A <see cref="T:UInt32[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_INTEL_performance_query")]
 		public static void GetPerfQueryDataINTEL(UInt32 queryHandle, UInt32 flags, Int32 dataSize, IntPtr data, UInt32[] bytesWritten)
 		{
 			unsafe {
@@ -343,6 +351,7 @@ namespace OpenGL
 		/// <param name="queryId">
 		/// A <see cref="T:UInt32[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_INTEL_performance_query")]
 		public static void GetPerfQueryIdByNameINTEL(String queryName, UInt32[] queryId)
 		{
 			unsafe {
@@ -380,6 +389,7 @@ namespace OpenGL
 		/// <param name="capsMask">
 		/// A <see cref="T:UInt32[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_INTEL_performance_query")]
 		public static void GetPerfQueryInfoINTEL(UInt32 queryId, UInt32 queryNameLength, String queryName, UInt32[] dataSize, UInt32[] noCounters, UInt32[] noInstances, UInt32[] capsMask)
 		{
 			unsafe {

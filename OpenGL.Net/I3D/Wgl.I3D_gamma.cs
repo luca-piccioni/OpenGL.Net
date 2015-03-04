@@ -49,6 +49,7 @@ namespace OpenGL
 		/// <param name="piValue">
 		/// A <see cref="T:int[]"/>.
 		/// </param>
+		[RequiredByFeature("WGL_I3D_gamma")]
 		public static bool GetGammaTableParametersI3D(IntPtr hDC, int iAttribute, int[] piValue)
 		{
 			bool retValue;
@@ -61,7 +62,6 @@ namespace OpenGL
 					CallLog("wglGetGammaTableParametersI3D({0}, {1}, {2}) = {3}", hDC, iAttribute, piValue, retValue);
 				}
 			}
-			DebugCheckErrors();
 
 			return (retValue);
 		}
@@ -78,6 +78,7 @@ namespace OpenGL
 		/// <param name="piValue">
 		/// A <see cref="T:int[]"/>.
 		/// </param>
+		[RequiredByFeature("WGL_I3D_gamma")]
 		public static bool SetGammaTableParametersI3D(IntPtr hDC, int iAttribute, int[] piValue)
 		{
 			bool retValue;
@@ -90,7 +91,6 @@ namespace OpenGL
 					CallLog("wglSetGammaTableParametersI3D({0}, {1}, {2}) = {3}", hDC, iAttribute, piValue, retValue);
 				}
 			}
-			DebugCheckErrors();
 
 			return (retValue);
 		}
@@ -113,6 +113,7 @@ namespace OpenGL
 		/// <param name="puBlue">
 		/// A <see cref="T:UInt16[]"/>.
 		/// </param>
+		[RequiredByFeature("WGL_I3D_gamma")]
 		public static bool GetGammaTableI3D(IntPtr hDC, int iEntries, UInt16[] puRed, UInt16[] puGreen, UInt16[] puBlue)
 		{
 			bool retValue;
@@ -127,7 +128,6 @@ namespace OpenGL
 					CallLog("wglGetGammaTableI3D({0}, {1}, {2}, {3}, {4}) = {5}", hDC, iEntries, puRed, puGreen, puBlue, retValue);
 				}
 			}
-			DebugCheckErrors();
 
 			return (retValue);
 		}
@@ -150,6 +150,7 @@ namespace OpenGL
 		/// <param name="puBlue">
 		/// A <see cref="T:UInt16[]"/>.
 		/// </param>
+		[RequiredByFeature("WGL_I3D_gamma")]
 		public static bool SetGammaTableI3D(IntPtr hDC, int iEntries, UInt16[] puRed, UInt16[] puGreen, UInt16[] puBlue)
 		{
 			bool retValue;
@@ -164,7 +165,6 @@ namespace OpenGL
 					CallLog("wglSetGammaTableI3D({0}, {1}, {2}, {3}, {4}) = {5}", hDC, iEntries, puRed, puGreen, puBlue, retValue);
 				}
 			}
-			DebugCheckErrors();
 
 			return (retValue);
 		}

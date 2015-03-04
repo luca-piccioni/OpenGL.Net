@@ -43,6 +43,7 @@ namespace OpenGL
 		/// <param name="params">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_NV_register_combiners2")]
 		public static void CombinerStageParameterNV(int stage, int pname, float[] @params)
 		{
 			unsafe {
@@ -68,6 +69,7 @@ namespace OpenGL
 		/// <param name="params">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_NV_register_combiners2")]
 		public static void GetCombinerStageParameterNV(int stage, int pname, float[] @params)
 		{
 			unsafe {

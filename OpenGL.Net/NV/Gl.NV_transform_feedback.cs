@@ -217,6 +217,7 @@ namespace OpenGL
 		/// <param name="primitiveMode">
 		/// A <see cref="T:int"/>.
 		/// </param>
+		[RequiredByFeature("GL_NV_transform_feedback")]
 		public static void BeginTransformFeedbackNV(int primitiveMode)
 		{
 			Debug.Assert(Delegates.pglBeginTransformFeedbackNV != null, "pglBeginTransformFeedbackNV not implemented");
@@ -228,6 +229,7 @@ namespace OpenGL
 		/// <summary>
 		/// Binding for glEndTransformFeedbackNV.
 		/// </summary>
+		[RequiredByFeature("GL_NV_transform_feedback")]
 		public static void EndTransformFeedbackNV()
 		{
 			Debug.Assert(Delegates.pglEndTransformFeedbackNV != null, "pglEndTransformFeedbackNV not implemented");
@@ -248,6 +250,7 @@ namespace OpenGL
 		/// <param name="bufferMode">
 		/// A <see cref="T:int"/>.
 		/// </param>
+		[RequiredByFeature("GL_NV_transform_feedback")]
 		public static void TransformFeedbackAttribsNV(Int32 count, Int32[] attribs, int bufferMode)
 		{
 			unsafe {
@@ -279,6 +282,7 @@ namespace OpenGL
 		/// <param name="size">
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
+		[RequiredByFeature("GL_NV_transform_feedback")]
 		public static void BindBufferRangeNV(int target, UInt32 index, UInt32 buffer, IntPtr offset, UInt32 size)
 		{
 			Debug.Assert(Delegates.pglBindBufferRangeNV != null, "pglBindBufferRangeNV not implemented");
@@ -302,6 +306,7 @@ namespace OpenGL
 		/// <param name="offset">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
+		[RequiredByFeature("GL_NV_transform_feedback")]
 		public static void BindBufferOffsetNV(int target, UInt32 index, UInt32 buffer, IntPtr offset)
 		{
 			Debug.Assert(Delegates.pglBindBufferOffsetNV != null, "pglBindBufferOffsetNV not implemented");
@@ -322,6 +327,7 @@ namespace OpenGL
 		/// <param name="buffer">
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
+		[RequiredByFeature("GL_NV_transform_feedback")]
 		public static void BindBufferBaseNV(int target, UInt32 index, UInt32 buffer)
 		{
 			Debug.Assert(Delegates.pglBindBufferBaseNV != null, "pglBindBufferBaseNV not implemented");
@@ -345,6 +351,7 @@ namespace OpenGL
 		/// <param name="bufferMode">
 		/// A <see cref="T:int"/>.
 		/// </param>
+		[RequiredByFeature("GL_NV_transform_feedback")]
 		public static void TransformFeedbackVaryingNV(UInt32 program, Int32 count, Int32[] locations, int bufferMode)
 		{
 			unsafe {
@@ -367,6 +374,7 @@ namespace OpenGL
 		/// <param name="name">
 		/// A <see cref="T:String"/>.
 		/// </param>
+		[RequiredByFeature("GL_NV_transform_feedback")]
 		public static void ActiveVaryingNV(UInt32 program, String name)
 		{
 			Debug.Assert(Delegates.pglActiveVaryingNV != null, "pglActiveVaryingNV not implemented");
@@ -384,6 +392,7 @@ namespace OpenGL
 		/// <param name="name">
 		/// A <see cref="T:String"/>.
 		/// </param>
+		[RequiredByFeature("GL_NV_transform_feedback")]
 		public static Int32 GetVaryingLocationNV(UInt32 program, String name)
 		{
 			Int32 retValue;
@@ -420,6 +429,7 @@ namespace OpenGL
 		/// <param name="name">
 		/// A <see cref="T:StringBuilder"/>.
 		/// </param>
+		[RequiredByFeature("GL_NV_transform_feedback")]
 		public static void GetActiveVaryingNV(UInt32 program, UInt32 index, Int32 bufSize, out Int32 length, out Int32 size, out int type, [Out] StringBuilder name)
 		{
 			unsafe {
@@ -447,6 +457,7 @@ namespace OpenGL
 		/// <param name="location">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
+		[RequiredByFeature("GL_NV_transform_feedback")]
 		public static void GetTransformFeedbackVaryingNV(UInt32 program, UInt32 index, out Int32 location)
 		{
 			unsafe {
@@ -478,6 +489,7 @@ namespace OpenGL
 		/// <param name="bufferMode">
 		/// A <see cref="T:int"/>.
 		/// </param>
+		[RequiredByFeature("GL_NV_transform_feedback")]
 		public static void TransformFeedbackStreamAttribsNV(Int32 count, Int32[] attribs, Int32 nbuffers, Int32[] bufstreams, int bufferMode)
 		{
 			unsafe {

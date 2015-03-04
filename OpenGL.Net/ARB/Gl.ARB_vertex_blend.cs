@@ -286,6 +286,7 @@ namespace OpenGL
 		/// <param name="weights">
 		/// A <see cref="T:sbyte[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_ARB_vertex_blend")]
 		public static void WeightARB(Int32 size, sbyte[] weights)
 		{
 			unsafe {
@@ -308,6 +309,7 @@ namespace OpenGL
 		/// <param name="weights">
 		/// A <see cref="T:Int16[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_ARB_vertex_blend")]
 		public static void WeightARB(Int32 size, Int16[] weights)
 		{
 			unsafe {
@@ -330,6 +332,7 @@ namespace OpenGL
 		/// <param name="weights">
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_ARB_vertex_blend")]
 		public static void WeightARB(Int32 size, Int32[] weights)
 		{
 			unsafe {
@@ -352,6 +355,7 @@ namespace OpenGL
 		/// <param name="weights">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_ARB_vertex_blend")]
 		public static void WeightARB(Int32 size, float[] weights)
 		{
 			unsafe {
@@ -374,6 +378,7 @@ namespace OpenGL
 		/// <param name="weights">
 		/// A <see cref="T:double[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_ARB_vertex_blend")]
 		public static void WeightARB(Int32 size, double[] weights)
 		{
 			unsafe {
@@ -396,6 +401,7 @@ namespace OpenGL
 		/// <param name="weights">
 		/// A <see cref="T:byte[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_ARB_vertex_blend")]
 		public static void WeightARB(Int32 size, byte[] weights)
 		{
 			unsafe {
@@ -418,6 +424,7 @@ namespace OpenGL
 		/// <param name="weights">
 		/// A <see cref="T:UInt16[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_ARB_vertex_blend")]
 		public static void WeightARB(Int32 size, UInt16[] weights)
 		{
 			unsafe {
@@ -440,6 +447,7 @@ namespace OpenGL
 		/// <param name="weights">
 		/// A <see cref="T:UInt32[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_ARB_vertex_blend")]
 		public static void WeightARB(Int32 size, UInt32[] weights)
 		{
 			unsafe {
@@ -468,6 +476,7 @@ namespace OpenGL
 		/// <param name="pointer">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
+		[RequiredByFeature("GL_ARB_vertex_blend")]
 		public static void WeightPointerARB(Int32 size, int type, Int32 stride, IntPtr pointer)
 		{
 			Debug.Assert(Delegates.pglWeightPointerARB != null, "pglWeightPointerARB not implemented");
@@ -491,6 +500,7 @@ namespace OpenGL
 		/// <param name="pointer">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
+		[RequiredByFeature("GL_ARB_vertex_blend")]
 		public static void WeightPointerARB(Int32 size, int type, Int32 stride, Object pointer)
 		{
 			GCHandle pin_pointer = GCHandle.Alloc(pointer, GCHandleType.Pinned);
@@ -507,6 +517,7 @@ namespace OpenGL
 		/// <param name="count">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
+		[RequiredByFeature("GL_ARB_vertex_blend")]
 		public static void VertexBlendARB(Int32 count)
 		{
 			Debug.Assert(Delegates.pglVertexBlendARB != null, "pglVertexBlendARB not implemented");

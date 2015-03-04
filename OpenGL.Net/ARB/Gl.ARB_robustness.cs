@@ -70,6 +70,7 @@ namespace OpenGL
 		/// <summary>
 		/// Binding for glGetGraphicsResetStatusARB.
 		/// </summary>
+		[RequiredByFeature("GL_ARB_robustness")]
 		public static int GetGraphicsResetStatusARB()
 		{
 			int retValue;
@@ -103,6 +104,7 @@ namespace OpenGL
 		/// <param name="img">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
+		[RequiredByFeature("GL_ARB_robustness")]
 		public static void GetnTexImageARB(int target, Int32 level, int format, int type, Int32 bufSize, IntPtr img)
 		{
 			Debug.Assert(Delegates.pglGetnTexImageARB != null, "pglGetnTexImageARB not implemented");
@@ -138,6 +140,7 @@ namespace OpenGL
 		/// <param name="data">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
+		[RequiredByFeature("GL_ARB_robustness")]
 		public static void ReadnPixelsARB(Int32 x, Int32 y, Int32 width, Int32 height, int format, int type, Int32 bufSize, IntPtr data)
 		{
 			Debug.Assert(Delegates.pglReadnPixelsARB != null, "pglReadnPixelsARB not implemented");
@@ -161,6 +164,7 @@ namespace OpenGL
 		/// <param name="img">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
+		[RequiredByFeature("GL_ARB_robustness")]
 		public static void GetnCompressedTexImageARB(int target, Int32 lod, Int32 bufSize, IntPtr img)
 		{
 			Debug.Assert(Delegates.pglGetnCompressedTexImageARB != null, "pglGetnCompressedTexImageARB not implemented");
@@ -184,6 +188,7 @@ namespace OpenGL
 		/// <param name="params">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_ARB_robustness")]
 		public static void GetnUniformARB(UInt32 program, Int32 location, Int32 bufSize, float[] @params)
 		{
 			unsafe {
@@ -212,6 +217,7 @@ namespace OpenGL
 		/// <param name="params">
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_ARB_robustness")]
 		public static void GetnUniformARB(UInt32 program, Int32 location, Int32 bufSize, Int32[] @params)
 		{
 			unsafe {
@@ -240,6 +246,7 @@ namespace OpenGL
 		/// <param name="params">
 		/// A <see cref="T:UInt32[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_ARB_robustness")]
 		public static void GetnUniformARB(UInt32 program, Int32 location, Int32 bufSize, UInt32[] @params)
 		{
 			unsafe {
@@ -268,6 +275,7 @@ namespace OpenGL
 		/// <param name="params">
 		/// A <see cref="T:double[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_ARB_robustness")]
 		public static void GetnUniformARB(UInt32 program, Int32 location, Int32 bufSize, double[] @params)
 		{
 			unsafe {
@@ -296,6 +304,7 @@ namespace OpenGL
 		/// <param name="v">
 		/// A <see cref="T:double[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_ARB_robustness")]
 		public static void GetnMapARB(int target, int query, Int32 bufSize, double[] v)
 		{
 			unsafe {
@@ -324,6 +333,7 @@ namespace OpenGL
 		/// <param name="v">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_ARB_robustness")]
 		public static void GetnMapARB(int target, int query, Int32 bufSize, float[] v)
 		{
 			unsafe {
@@ -352,6 +362,7 @@ namespace OpenGL
 		/// <param name="v">
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_ARB_robustness")]
 		public static void GetnMapARB(int target, int query, Int32 bufSize, Int32[] v)
 		{
 			unsafe {
@@ -377,6 +388,7 @@ namespace OpenGL
 		/// <param name="values">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_ARB_robustness")]
 		public static void GetnPixelMapARB(int map, Int32 bufSize, float[] values)
 		{
 			unsafe {
@@ -402,6 +414,7 @@ namespace OpenGL
 		/// <param name="values">
 		/// A <see cref="T:UInt32[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_ARB_robustness")]
 		public static void GetnPixelMapARB(int map, Int32 bufSize, UInt32[] values)
 		{
 			unsafe {
@@ -427,6 +440,7 @@ namespace OpenGL
 		/// <param name="values">
 		/// A <see cref="T:UInt16[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_ARB_robustness")]
 		public static void GetnPixelMapARB(int map, Int32 bufSize, UInt16[] values)
 		{
 			unsafe {
@@ -449,6 +463,7 @@ namespace OpenGL
 		/// <param name="pattern">
 		/// A <see cref="T:byte[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_ARB_robustness")]
 		public static void GetnPolygonStippleARB(Int32 bufSize, byte[] pattern)
 		{
 			unsafe {
@@ -480,6 +495,7 @@ namespace OpenGL
 		/// <param name="table">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
+		[RequiredByFeature("GL_ARB_robustness")]
 		public static void GetnColorTableARB(int target, int format, int type, Int32 bufSize, IntPtr table)
 		{
 			Debug.Assert(Delegates.pglGetnColorTableARB != null, "pglGetnColorTableARB not implemented");
@@ -506,6 +522,7 @@ namespace OpenGL
 		/// <param name="image">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
+		[RequiredByFeature("GL_ARB_robustness")]
 		public static void GetnConvolutionFilterARB(int target, int format, int type, Int32 bufSize, IntPtr image)
 		{
 			Debug.Assert(Delegates.pglGetnConvolutionFilterARB != null, "pglGetnConvolutionFilterARB not implemented");
@@ -541,6 +558,7 @@ namespace OpenGL
 		/// <param name="span">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
+		[RequiredByFeature("GL_ARB_robustness")]
 		public static void GetnSeparableFilterARB(int target, int format, int type, Int32 rowBufSize, IntPtr row, Int32 columnBufSize, IntPtr column, IntPtr span)
 		{
 			Debug.Assert(Delegates.pglGetnSeparableFilterARB != null, "pglGetnSeparableFilterARB not implemented");
@@ -570,6 +588,7 @@ namespace OpenGL
 		/// <param name="values">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
+		[RequiredByFeature("GL_ARB_robustness")]
 		public static void GetnHistogramARB(int target, bool reset, int format, int type, Int32 bufSize, IntPtr values)
 		{
 			Debug.Assert(Delegates.pglGetnHistogramARB != null, "pglGetnHistogramARB not implemented");
@@ -599,6 +618,7 @@ namespace OpenGL
 		/// <param name="values">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
+		[RequiredByFeature("GL_ARB_robustness")]
 		public static void GetnMinmaxARB(int target, bool reset, int format, int type, Int32 bufSize, IntPtr values)
 		{
 			Debug.Assert(Delegates.pglGetnMinmaxARB != null, "pglGetnMinmaxARB not implemented");

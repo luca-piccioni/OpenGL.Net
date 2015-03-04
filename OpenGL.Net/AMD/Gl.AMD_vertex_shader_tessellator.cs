@@ -73,6 +73,7 @@ namespace OpenGL
 		/// <param name="factor">
 		/// A <see cref="T:float"/>.
 		/// </param>
+		[RequiredByFeature("GL_AMD_vertex_shader_tessellator")]
 		public static void TessellationFactorAMD(float factor)
 		{
 			Debug.Assert(Delegates.pglTessellationFactorAMD != null, "pglTessellationFactorAMD not implemented");
@@ -87,6 +88,7 @@ namespace OpenGL
 		/// <param name="mode">
 		/// A <see cref="T:int"/>.
 		/// </param>
+		[RequiredByFeature("GL_AMD_vertex_shader_tessellator")]
 		public static void TessellationModeAMD(int mode)
 		{
 			Debug.Assert(Delegates.pglTessellationModeAMD != null, "pglTessellationModeAMD not implemented");

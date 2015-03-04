@@ -30,31 +30,6 @@ namespace OpenGL
 		internal unsafe static partial class Delegates
 		{
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate int ChoosePixelFormat(IntPtr hDc, PIXELFORMATDESCRIPTOR* pPfd);
-			[ThreadStatic]
-			internal static ChoosePixelFormat pChoosePixelFormat;
-
-			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate int DescribePixelFormat(IntPtr hdc, int ipfd, UInt32 cjpfd, PIXELFORMATDESCRIPTOR* ppfd);
-			[ThreadStatic]
-			internal static DescribePixelFormat pDescribePixelFormat;
-
-			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate int GetPixelFormat(IntPtr hdc);
-			[ThreadStatic]
-			internal static GetPixelFormat pGetPixelFormat;
-
-			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate bool SetPixelFormat(IntPtr hdc, int ipfd, PIXELFORMATDESCRIPTOR* ppfd);
-			[ThreadStatic]
-			internal static SetPixelFormat pSetPixelFormat;
-
-			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate bool SwapBuffers(IntPtr hdc);
-			[ThreadStatic]
-			internal static SwapBuffers pSwapBuffers;
-
-			[SuppressUnmanagedCodeSecurity()]
 			internal delegate IntPtr wglAllocateMemoryNV(Int32 size, float readfreq, float writefreq, float priority);
 			[ThreadStatic]
 			internal static wglAllocateMemoryNV pwglAllocateMemoryNV;
@@ -383,11 +358,6 @@ namespace OpenGL
 			internal unsafe delegate bool wglGetDigitalVideoParametersI3D(IntPtr hDC, int iAttribute, int* piValue);
 			[ThreadStatic]
 			internal static wglGetDigitalVideoParametersI3D pwglGetDigitalVideoParametersI3D;
-
-			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate UInt32 GetEnhMetaFilePixelFormat(IntPtr hemf, PIXELFORMATDESCRIPTOR* ppfd);
-			[ThreadStatic]
-			internal static GetEnhMetaFilePixelFormat pGetEnhMetaFilePixelFormat;
 
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate string wglGetExtensionsStringARB(IntPtr hdc);

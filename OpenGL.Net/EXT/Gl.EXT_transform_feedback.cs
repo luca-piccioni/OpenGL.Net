@@ -64,7 +64,6 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_PRIMITIVES_GENERATED_EXT symbol.
 		/// </summary>
-		[RequiredByFeature("GL_EXT_geometry_shader")]
 		[RequiredByFeature("GL_EXT_transform_feedback")]
 		public const int PRIMITIVES_GENERATED_EXT = 0x8C87;
 
@@ -122,6 +121,7 @@ namespace OpenGL
 		/// <param name="primitiveMode">
 		/// A <see cref="T:int"/>.
 		/// </param>
+		[RequiredByFeature("GL_EXT_transform_feedback")]
 		public static void BeginTransformFeedbackEXT(int primitiveMode)
 		{
 			Debug.Assert(Delegates.pglBeginTransformFeedbackEXT != null, "pglBeginTransformFeedbackEXT not implemented");
@@ -133,6 +133,7 @@ namespace OpenGL
 		/// <summary>
 		/// Binding for glEndTransformFeedbackEXT.
 		/// </summary>
+		[RequiredByFeature("GL_EXT_transform_feedback")]
 		public static void EndTransformFeedbackEXT()
 		{
 			Debug.Assert(Delegates.pglEndTransformFeedbackEXT != null, "pglEndTransformFeedbackEXT not implemented");
@@ -159,6 +160,7 @@ namespace OpenGL
 		/// <param name="size">
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
+		[RequiredByFeature("GL_EXT_transform_feedback")]
 		public static void BindBufferRangeEXT(int target, UInt32 index, UInt32 buffer, IntPtr offset, UInt32 size)
 		{
 			Debug.Assert(Delegates.pglBindBufferRangeEXT != null, "pglBindBufferRangeEXT not implemented");
@@ -182,6 +184,7 @@ namespace OpenGL
 		/// <param name="offset">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
+		[RequiredByFeature("GL_EXT_transform_feedback")]
 		public static void BindBufferOffsetEXT(int target, UInt32 index, UInt32 buffer, IntPtr offset)
 		{
 			if        (Delegates.pglBindBufferOffsetEXT != null) {
@@ -207,6 +210,7 @@ namespace OpenGL
 		/// <param name="buffer">
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
+		[RequiredByFeature("GL_EXT_transform_feedback")]
 		public static void BindBufferBaseEXT(int target, UInt32 index, UInt32 buffer)
 		{
 			Debug.Assert(Delegates.pglBindBufferBaseEXT != null, "pglBindBufferBaseEXT not implemented");
@@ -230,6 +234,7 @@ namespace OpenGL
 		/// <param name="bufferMode">
 		/// A <see cref="T:int"/>.
 		/// </param>
+		[RequiredByFeature("GL_EXT_transform_feedback")]
 		public static void TransformFeedbackVaryingEXT(UInt32 program, Int32 count, String[] varyings, int bufferMode)
 		{
 			Debug.Assert(Delegates.pglTransformFeedbackVaryingsEXT != null, "pglTransformFeedbackVaryingsEXT not implemented");
@@ -262,6 +267,7 @@ namespace OpenGL
 		/// <param name="name">
 		/// A <see cref="T:StringBuilder"/>.
 		/// </param>
+		[RequiredByFeature("GL_EXT_transform_feedback")]
 		public static void GetTransformFeedbackVaryingEXT(UInt32 program, UInt32 index, Int32 bufSize, out Int32 length, out Int32 size, out int type, [Out] StringBuilder name)
 		{
 			unsafe {

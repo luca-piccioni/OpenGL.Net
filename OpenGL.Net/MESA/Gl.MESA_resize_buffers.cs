@@ -28,6 +28,7 @@ namespace OpenGL
 		/// <summary>
 		/// Binding for glResizeBuffersMESA.
 		/// </summary>
+		[RequiredByFeature("GL_MESA_resize_buffers")]
 		public static void ResizeBuffersMESA()
 		{
 			Debug.Assert(Delegates.pglResizeBuffersMESA != null, "pglResizeBuffersMESA not implemented");

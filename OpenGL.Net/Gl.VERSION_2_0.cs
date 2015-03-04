@@ -29,44 +29,36 @@ namespace OpenGL
 		/// Value of GL_BLEND_EQUATION_RGB symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_2_0")]
-		[RequiredByFeature("GL_ES_VERSION_2_0")]
-		[RequiredByFeature("GL_EXT_draw_buffers_indexed")]
-		[RequiredByFeature("GL_OES_draw_buffers_indexed")]
 		public const int BLEND_EQUATION_RGB = 0x8009;
 
 		/// <summary>
 		/// Value of GL_VERTEX_ATTRIB_ARRAY_ENABLED symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_2_0")]
-		[RequiredByFeature("GL_ES_VERSION_2_0")]
 		public const int VERTEX_ATTRIB_ARRAY_ENABLED = 0x8622;
 
 		/// <summary>
 		/// Value of GL_VERTEX_ATTRIB_ARRAY_SIZE symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_2_0")]
-		[RequiredByFeature("GL_ES_VERSION_2_0")]
 		public const int VERTEX_ATTRIB_ARRAY_SIZE = 0x8623;
 
 		/// <summary>
 		/// Value of GL_VERTEX_ATTRIB_ARRAY_STRIDE symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_2_0")]
-		[RequiredByFeature("GL_ES_VERSION_2_0")]
 		public const int VERTEX_ATTRIB_ARRAY_STRIDE = 0x8624;
 
 		/// <summary>
 		/// Value of GL_VERTEX_ATTRIB_ARRAY_TYPE symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_2_0")]
-		[RequiredByFeature("GL_ES_VERSION_2_0")]
 		public const int VERTEX_ATTRIB_ARRAY_TYPE = 0x8625;
 
 		/// <summary>
 		/// Value of GL_CURRENT_VERTEX_ATTRIB symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_2_0")]
-		[RequiredByFeature("GL_ES_VERSION_2_0")]
 		public const int CURRENT_VERTEX_ATTRIB = 0x8626;
 
 		/// <summary>
@@ -79,212 +71,180 @@ namespace OpenGL
 		/// Value of GL_VERTEX_ATTRIB_ARRAY_POINTER symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_2_0")]
-		[RequiredByFeature("GL_ES_VERSION_2_0")]
 		public const int VERTEX_ATTRIB_ARRAY_POINTER = 0x8645;
 
 		/// <summary>
 		/// Value of GL_STENCIL_BACK_FUNC symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_2_0")]
-		[RequiredByFeature("GL_ES_VERSION_2_0")]
 		public const int STENCIL_BACK_FUNC = 0x8800;
 
 		/// <summary>
 		/// Value of GL_STENCIL_BACK_FAIL symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_2_0")]
-		[RequiredByFeature("GL_ES_VERSION_2_0")]
 		public const int STENCIL_BACK_FAIL = 0x8801;
 
 		/// <summary>
 		/// Value of GL_STENCIL_BACK_PASS_DEPTH_FAIL symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_2_0")]
-		[RequiredByFeature("GL_ES_VERSION_2_0")]
 		public const int STENCIL_BACK_PASS_DEPTH_FAIL = 0x8802;
 
 		/// <summary>
 		/// Value of GL_STENCIL_BACK_PASS_DEPTH_PASS symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_2_0")]
-		[RequiredByFeature("GL_ES_VERSION_2_0")]
 		public const int STENCIL_BACK_PASS_DEPTH_PASS = 0x8803;
 
 		/// <summary>
 		/// Value of GL_MAX_DRAW_BUFFERS symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_2_0")]
-		[RequiredByFeature("GL_ES_VERSION_3_0")]
 		public const int MAX_DRAW_BUFFERS = 0x8824;
 
 		/// <summary>
 		/// Value of GL_DRAW_BUFFER0 symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_2_0")]
-		[RequiredByFeature("GL_ES_VERSION_3_0")]
 		public const int DRAW_BUFFER0 = 0x8825;
 
 		/// <summary>
 		/// Value of GL_DRAW_BUFFER1 symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_2_0")]
-		[RequiredByFeature("GL_ES_VERSION_3_0")]
 		public const int DRAW_BUFFER1 = 0x8826;
 
 		/// <summary>
 		/// Value of GL_DRAW_BUFFER2 symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_2_0")]
-		[RequiredByFeature("GL_ES_VERSION_3_0")]
 		public const int DRAW_BUFFER2 = 0x8827;
 
 		/// <summary>
 		/// Value of GL_DRAW_BUFFER3 symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_2_0")]
-		[RequiredByFeature("GL_ES_VERSION_3_0")]
 		public const int DRAW_BUFFER3 = 0x8828;
 
 		/// <summary>
 		/// Value of GL_DRAW_BUFFER4 symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_2_0")]
-		[RequiredByFeature("GL_ES_VERSION_3_0")]
 		public const int DRAW_BUFFER4 = 0x8829;
 
 		/// <summary>
 		/// Value of GL_DRAW_BUFFER5 symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_2_0")]
-		[RequiredByFeature("GL_ES_VERSION_3_0")]
 		public const int DRAW_BUFFER5 = 0x882A;
 
 		/// <summary>
 		/// Value of GL_DRAW_BUFFER6 symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_2_0")]
-		[RequiredByFeature("GL_ES_VERSION_3_0")]
 		public const int DRAW_BUFFER6 = 0x882B;
 
 		/// <summary>
 		/// Value of GL_DRAW_BUFFER7 symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_2_0")]
-		[RequiredByFeature("GL_ES_VERSION_3_0")]
 		public const int DRAW_BUFFER7 = 0x882C;
 
 		/// <summary>
 		/// Value of GL_DRAW_BUFFER8 symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_2_0")]
-		[RequiredByFeature("GL_ES_VERSION_3_0")]
 		public const int DRAW_BUFFER8 = 0x882D;
 
 		/// <summary>
 		/// Value of GL_DRAW_BUFFER9 symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_2_0")]
-		[RequiredByFeature("GL_ES_VERSION_3_0")]
 		public const int DRAW_BUFFER9 = 0x882E;
 
 		/// <summary>
 		/// Value of GL_DRAW_BUFFER10 symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_2_0")]
-		[RequiredByFeature("GL_ES_VERSION_3_0")]
 		public const int DRAW_BUFFER10 = 0x882F;
 
 		/// <summary>
 		/// Value of GL_DRAW_BUFFER11 symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_2_0")]
-		[RequiredByFeature("GL_ES_VERSION_3_0")]
 		public const int DRAW_BUFFER11 = 0x8830;
 
 		/// <summary>
 		/// Value of GL_DRAW_BUFFER12 symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_2_0")]
-		[RequiredByFeature("GL_ES_VERSION_3_0")]
 		public const int DRAW_BUFFER12 = 0x8831;
 
 		/// <summary>
 		/// Value of GL_DRAW_BUFFER13 symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_2_0")]
-		[RequiredByFeature("GL_ES_VERSION_3_0")]
 		public const int DRAW_BUFFER13 = 0x8832;
 
 		/// <summary>
 		/// Value of GL_DRAW_BUFFER14 symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_2_0")]
-		[RequiredByFeature("GL_ES_VERSION_3_0")]
 		public const int DRAW_BUFFER14 = 0x8833;
 
 		/// <summary>
 		/// Value of GL_DRAW_BUFFER15 symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_2_0")]
-		[RequiredByFeature("GL_ES_VERSION_3_0")]
 		public const int DRAW_BUFFER15 = 0x8834;
 
 		/// <summary>
 		/// Value of GL_BLEND_EQUATION_ALPHA symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_2_0")]
-		[RequiredByFeature("GL_ES_VERSION_2_0")]
-		[RequiredByFeature("GL_EXT_draw_buffers_indexed")]
-		[RequiredByFeature("GL_OES_draw_buffers_indexed")]
 		public const int BLEND_EQUATION_ALPHA = 0x883D;
 
 		/// <summary>
 		/// Value of GL_MAX_VERTEX_ATTRIBS symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_2_0")]
-		[RequiredByFeature("GL_ES_VERSION_2_0")]
 		public const int MAX_VERTEX_ATTRIBS = 0x8869;
 
 		/// <summary>
 		/// Value of GL_VERTEX_ATTRIB_ARRAY_NORMALIZED symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_2_0")]
-		[RequiredByFeature("GL_ES_VERSION_2_0")]
 		public const int VERTEX_ATTRIB_ARRAY_NORMALIZED = 0x886A;
 
 		/// <summary>
 		/// Value of GL_MAX_TEXTURE_IMAGE_UNITS symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_2_0")]
-		[RequiredByFeature("GL_ES_VERSION_2_0")]
 		public const int MAX_TEXTURE_IMAGE_UNITS = 0x8872;
 
 		/// <summary>
 		/// Value of GL_FRAGMENT_SHADER symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_2_0")]
-		[RequiredByFeature("GL_ES_VERSION_2_0")]
 		public const int FRAGMENT_SHADER = 0x8B30;
 
 		/// <summary>
 		/// Value of GL_VERTEX_SHADER symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_2_0")]
-		[RequiredByFeature("GL_ES_VERSION_2_0")]
 		public const int VERTEX_SHADER = 0x8B31;
 
 		/// <summary>
 		/// Value of GL_MAX_FRAGMENT_UNIFORM_COMPONENTS symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_2_0")]
-		[RequiredByFeature("GL_ES_VERSION_3_0")]
 		public const int MAX_FRAGMENT_UNIFORM_COMPONENTS = 0x8B49;
 
 		/// <summary>
 		/// Value of GL_MAX_VERTEX_UNIFORM_COMPONENTS symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_2_0")]
-		[RequiredByFeature("GL_ES_VERSION_3_0")]
 		public const int MAX_VERTEX_UNIFORM_COMPONENTS = 0x8B4A;
 
 		/// <summary>
@@ -297,112 +257,96 @@ namespace OpenGL
 		/// Value of GL_MAX_VERTEX_TEXTURE_IMAGE_UNITS symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_2_0")]
-		[RequiredByFeature("GL_ES_VERSION_2_0")]
 		public const int MAX_VERTEX_TEXTURE_IMAGE_UNITS = 0x8B4C;
 
 		/// <summary>
 		/// Value of GL_MAX_COMBINED_TEXTURE_IMAGE_UNITS symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_2_0")]
-		[RequiredByFeature("GL_ES_VERSION_2_0")]
 		public const int MAX_COMBINED_TEXTURE_IMAGE_UNITS = 0x8B4D;
 
 		/// <summary>
 		/// Value of GL_SHADER_TYPE symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_2_0")]
-		[RequiredByFeature("GL_ES_VERSION_2_0")]
 		public const int SHADER_TYPE = 0x8B4F;
 
 		/// <summary>
 		/// Value of GL_FLOAT_VEC2 symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_2_0")]
-		[RequiredByFeature("GL_ES_VERSION_2_0")]
 		public const int FLOAT_VEC2 = 0x8B50;
 
 		/// <summary>
 		/// Value of GL_FLOAT_VEC3 symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_2_0")]
-		[RequiredByFeature("GL_ES_VERSION_2_0")]
 		public const int FLOAT_VEC3 = 0x8B51;
 
 		/// <summary>
 		/// Value of GL_FLOAT_VEC4 symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_2_0")]
-		[RequiredByFeature("GL_ES_VERSION_2_0")]
 		public const int FLOAT_VEC4 = 0x8B52;
 
 		/// <summary>
 		/// Value of GL_INT_VEC2 symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_2_0")]
-		[RequiredByFeature("GL_ES_VERSION_2_0")]
 		public const int INT_VEC2 = 0x8B53;
 
 		/// <summary>
 		/// Value of GL_INT_VEC3 symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_2_0")]
-		[RequiredByFeature("GL_ES_VERSION_2_0")]
 		public const int INT_VEC3 = 0x8B54;
 
 		/// <summary>
 		/// Value of GL_INT_VEC4 symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_2_0")]
-		[RequiredByFeature("GL_ES_VERSION_2_0")]
 		public const int INT_VEC4 = 0x8B55;
 
 		/// <summary>
 		/// Value of GL_BOOL symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_2_0")]
-		[RequiredByFeature("GL_ES_VERSION_2_0")]
 		public const int BOOL = 0x8B56;
 
 		/// <summary>
 		/// Value of GL_BOOL_VEC2 symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_2_0")]
-		[RequiredByFeature("GL_ES_VERSION_2_0")]
 		public const int BOOL_VEC2 = 0x8B57;
 
 		/// <summary>
 		/// Value of GL_BOOL_VEC3 symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_2_0")]
-		[RequiredByFeature("GL_ES_VERSION_2_0")]
 		public const int BOOL_VEC3 = 0x8B58;
 
 		/// <summary>
 		/// Value of GL_BOOL_VEC4 symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_2_0")]
-		[RequiredByFeature("GL_ES_VERSION_2_0")]
 		public const int BOOL_VEC4 = 0x8B59;
 
 		/// <summary>
 		/// Value of GL_FLOAT_MAT2 symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_2_0")]
-		[RequiredByFeature("GL_ES_VERSION_2_0")]
 		public const int FLOAT_MAT2 = 0x8B5A;
 
 		/// <summary>
 		/// Value of GL_FLOAT_MAT3 symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_2_0")]
-		[RequiredByFeature("GL_ES_VERSION_2_0")]
 		public const int FLOAT_MAT3 = 0x8B5B;
 
 		/// <summary>
 		/// Value of GL_FLOAT_MAT4 symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_2_0")]
-		[RequiredByFeature("GL_ES_VERSION_2_0")]
 		public const int FLOAT_MAT4 = 0x8B5C;
 
 		/// <summary>
@@ -415,21 +359,18 @@ namespace OpenGL
 		/// Value of GL_SAMPLER_2D symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_2_0")]
-		[RequiredByFeature("GL_ES_VERSION_2_0")]
 		public const int SAMPLER_2D = 0x8B5E;
 
 		/// <summary>
 		/// Value of GL_SAMPLER_3D symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_2_0")]
-		[RequiredByFeature("GL_ES_VERSION_3_0")]
 		public const int SAMPLER_3D = 0x8B5F;
 
 		/// <summary>
 		/// Value of GL_SAMPLER_CUBE symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_2_0")]
-		[RequiredByFeature("GL_ES_VERSION_2_0")]
 		public const int SAMPLER_CUBE = 0x8B60;
 
 		/// <summary>
@@ -442,105 +383,90 @@ namespace OpenGL
 		/// Value of GL_SAMPLER_2D_SHADOW symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_2_0")]
-		[RequiredByFeature("GL_ES_VERSION_3_0")]
 		public const int SAMPLER_2D_SHADOW = 0x8B62;
 
 		/// <summary>
 		/// Value of GL_DELETE_STATUS symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_2_0")]
-		[RequiredByFeature("GL_ES_VERSION_2_0")]
 		public const int DELETE_STATUS = 0x8B80;
 
 		/// <summary>
 		/// Value of GL_COMPILE_STATUS symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_2_0")]
-		[RequiredByFeature("GL_ES_VERSION_2_0")]
 		public const int COMPILE_STATUS = 0x8B81;
 
 		/// <summary>
 		/// Value of GL_LINK_STATUS symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_2_0")]
-		[RequiredByFeature("GL_ES_VERSION_2_0")]
 		public const int LINK_STATUS = 0x8B82;
 
 		/// <summary>
 		/// Value of GL_VALIDATE_STATUS symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_2_0")]
-		[RequiredByFeature("GL_ES_VERSION_2_0")]
 		public const int VALIDATE_STATUS = 0x8B83;
 
 		/// <summary>
 		/// Value of GL_INFO_LOG_LENGTH symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_2_0")]
-		[RequiredByFeature("GL_ES_VERSION_2_0")]
 		public const int INFO_LOG_LENGTH = 0x8B84;
 
 		/// <summary>
 		/// Value of GL_ATTACHED_SHADERS symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_2_0")]
-		[RequiredByFeature("GL_ES_VERSION_2_0")]
 		public const int ATTACHED_SHADERS = 0x8B85;
 
 		/// <summary>
 		/// Value of GL_ACTIVE_UNIFORMS symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_2_0")]
-		[RequiredByFeature("GL_ES_VERSION_2_0")]
 		public const int ACTIVE_UNIFORMS = 0x8B86;
 
 		/// <summary>
 		/// Value of GL_ACTIVE_UNIFORM_MAX_LENGTH symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_2_0")]
-		[RequiredByFeature("GL_ES_VERSION_2_0")]
 		public const int ACTIVE_UNIFORM_MAX_LENGTH = 0x8B87;
 
 		/// <summary>
 		/// Value of GL_SHADER_SOURCE_LENGTH symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_2_0")]
-		[RequiredByFeature("GL_ES_VERSION_2_0")]
 		public const int SHADER_SOURCE_LENGTH = 0x8B88;
 
 		/// <summary>
 		/// Value of GL_ACTIVE_ATTRIBUTES symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_2_0")]
-		[RequiredByFeature("GL_ES_VERSION_2_0")]
 		public const int ACTIVE_ATTRIBUTES = 0x8B89;
 
 		/// <summary>
 		/// Value of GL_ACTIVE_ATTRIBUTE_MAX_LENGTH symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_2_0")]
-		[RequiredByFeature("GL_ES_VERSION_2_0")]
 		public const int ACTIVE_ATTRIBUTE_MAX_LENGTH = 0x8B8A;
 
 		/// <summary>
 		/// Value of GL_FRAGMENT_SHADER_DERIVATIVE_HINT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_2_0")]
-		[RequiredByFeature("GL_ES_VERSION_3_0")]
 		public const int FRAGMENT_SHADER_DERIVATIVE_HINT = 0x8B8B;
 
 		/// <summary>
 		/// Value of GL_SHADING_LANGUAGE_VERSION symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_2_0")]
-		[RequiredByFeature("GL_ES_VERSION_2_0")]
 		public const int SHADING_LANGUAGE_VERSION = 0x8B8C;
 
 		/// <summary>
 		/// Value of GL_CURRENT_PROGRAM symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_2_0")]
-		[RequiredByFeature("GL_ES_VERSION_2_0")]
 		public const int CURRENT_PROGRAM = 0x8B8D;
 
 		/// <summary>
@@ -569,21 +495,18 @@ namespace OpenGL
 		/// Value of GL_STENCIL_BACK_REF symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_2_0")]
-		[RequiredByFeature("GL_ES_VERSION_2_0")]
 		public const int STENCIL_BACK_REF = 0x8CA3;
 
 		/// <summary>
 		/// Value of GL_STENCIL_BACK_VALUE_MASK symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_2_0")]
-		[RequiredByFeature("GL_ES_VERSION_2_0")]
 		public const int STENCIL_BACK_VALUE_MASK = 0x8CA4;
 
 		/// <summary>
 		/// Value of GL_STENCIL_BACK_WRITEMASK symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_2_0")]
-		[RequiredByFeature("GL_ES_VERSION_2_0")]
 		public const int STENCIL_BACK_WRITEMASK = 0x8CA5;
 
 		/// <summary>
@@ -676,6 +599,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.BlendColor"/>
 		/// <seealso cref="Gl.BlendFunc"/>
 		/// <seealso cref="Gl.BlendFuncSeparate"/>
+		[RequiredByFeature("GL_VERSION_2_0")]
 		public static void BlendEquationSeparate(int modeRGB, int modeAlpha)
 		{
 			if        (Delegates.pglBlendEquationSeparate != null) {
@@ -739,6 +663,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.BlendColor"/>
 		/// <seealso cref="Gl.BlendFunc"/>
 		/// <seealso cref="Gl.BlendFuncSeparate"/>
+		[RequiredByFeature("GL_VERSION_2_0")]
 		public static void BlendEquationSeparate(BlendEquationModeEXT modeRGB, BlendEquationModeEXT modeAlpha)
 		{
 			if        (Delegates.pglBlendEquationSeparate != null) {
@@ -801,6 +726,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.DrawBuffers"/>
 		/// <seealso cref="Gl.LogicOp"/>
 		/// <seealso cref="Gl.ReadBuffer"/>
+		[RequiredByFeature("GL_VERSION_2_0")]
 		public static void DrawBuffers(Int32 n, int[] bufs)
 		{
 			unsafe {
@@ -886,6 +812,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.StencilMask"/>
 		/// <seealso cref="Gl.StencilMaskSeparate"/>
 		/// <seealso cref="Gl.StencilOp"/>
+		[RequiredByFeature("GL_VERSION_2_0")]
 		public static void StencilOpSeparate(int face, int sfail, int dpfail, int dppass)
 		{
 			if        (Delegates.pglStencilOpSeparate != null) {
@@ -960,6 +887,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.StencilMask"/>
 		/// <seealso cref="Gl.StencilMaskSeparate"/>
 		/// <seealso cref="Gl.StencilOp"/>
+		[RequiredByFeature("GL_VERSION_2_0")]
 		public static void StencilOpSeparate(int face, StencilOp sfail, StencilOp dpfail, StencilOp dppass)
 		{
 			if        (Delegates.pglStencilOpSeparate != null) {
@@ -1031,6 +959,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.StencilMaskSeparate"/>
 		/// <seealso cref="Gl.StencilOp"/>
 		/// <seealso cref="Gl.StencilOpSeparate"/>
+		[RequiredByFeature("GL_VERSION_2_0")]
 		public static void StencilFuncSeparate(int face, int func, Int32 @ref, UInt32 mask)
 		{
 			Debug.Assert(Delegates.pglStencilFuncSeparate != null, "pglStencilFuncSeparate not implemented");
@@ -1097,6 +1026,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.StencilMaskSeparate"/>
 		/// <seealso cref="Gl.StencilOp"/>
 		/// <seealso cref="Gl.StencilOpSeparate"/>
+		[RequiredByFeature("GL_VERSION_2_0")]
 		public static void StencilFuncSeparate(int face, StencilFunction func, Int32 @ref, UInt32 mask)
 		{
 			Debug.Assert(Delegates.pglStencilFuncSeparate != null, "pglStencilFuncSeparate not implemented");
@@ -1140,6 +1070,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.StencilMask"/>
 		/// <seealso cref="Gl.StencilOp"/>
 		/// <seealso cref="Gl.StencilOpSeparate"/>
+		[RequiredByFeature("GL_VERSION_2_0")]
 		public static void StencilMaskSeparate(int face, UInt32 mask)
 		{
 			Debug.Assert(Delegates.pglStencilMaskSeparate != null, "pglStencilMaskSeparate not implemented");
@@ -1191,6 +1122,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.DetachShader"/>
 		/// <seealso cref="Gl.LinkProgram"/>
 		/// <seealso cref="Gl.ShaderSource"/>
+		[RequiredByFeature("GL_VERSION_2_0")]
 		public static void AttachShader(UInt32 program, UInt32 shader)
 		{
 			if        (Delegates.pglAttachShader != null) {
@@ -1257,6 +1189,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.UseProgram"/>
 		/// <seealso cref="Gl.VertexAttrib"/>
 		/// <seealso cref="Gl.VertexAttribPointer"/>
+		[RequiredByFeature("GL_VERSION_2_0")]
 		public static void BindAttribLocation(UInt32 program, UInt32 index, String name)
 		{
 			if        (Delegates.pglBindAttribLocation != null) {
@@ -1299,6 +1232,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.CreateShader"/>
 		/// <seealso cref="Gl.LinkProgram"/>
 		/// <seealso cref="Gl.ShaderSource"/>
+		[RequiredByFeature("GL_VERSION_2_0")]
 		public static void CompileShader(UInt32 shader)
 		{
 			if        (Delegates.pglCompileShader != null) {
@@ -1353,6 +1287,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.Uniform"/>
 		/// <seealso cref="Gl.UseProgram"/>
 		/// <seealso cref="Gl.ValidateProgram"/>
+		[RequiredByFeature("GL_VERSION_2_0")]
 		public static UInt32 CreateProgram()
 		{
 			UInt32 retValue;
@@ -1407,6 +1342,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.DeleteShader"/>
 		/// <seealso cref="Gl.DetachShader"/>
 		/// <seealso cref="Gl.ShaderSource"/>
+		[RequiredByFeature("GL_VERSION_2_0")]
 		public static UInt32 CreateShader(int type)
 		{
 			UInt32 retValue;
@@ -1454,6 +1390,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.CreateShader"/>
 		/// <seealso cref="Gl.DetachShader"/>
 		/// <seealso cref="Gl.UseProgram"/>
+		[RequiredByFeature("GL_VERSION_2_0")]
 		public static void DeleteProgram(UInt32 program)
 		{
 			Debug.Assert(Delegates.pglDeleteProgram != null, "pglDeleteProgram not implemented");
@@ -1491,6 +1428,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.CreateShader"/>
 		/// <seealso cref="Gl.DetachShader"/>
 		/// <seealso cref="Gl.UseProgram"/>
+		[RequiredByFeature("GL_VERSION_2_0")]
 		public static void DeleteShader(UInt32 shader)
 		{
 			Debug.Assert(Delegates.pglDeleteShader != null, "pglDeleteShader not implemented");
@@ -1529,6 +1467,7 @@ namespace OpenGL
 		/// </para>
 		/// </remarks>
 		/// <seealso cref="Gl.AttachShader"/>
+		[RequiredByFeature("GL_VERSION_2_0")]
 		public static void DetachShader(UInt32 program, UInt32 shader)
 		{
 			if        (Delegates.pglDetachShader != null) {
@@ -1580,6 +1519,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.MultiDrawElements"/>
 		/// <seealso cref="Gl.VertexAttrib"/>
 		/// <seealso cref="Gl.VertexAttribPointer"/>
+		[RequiredByFeature("GL_VERSION_2_0")]
 		public static void DisableVertexAttribArray(UInt32 index)
 		{
 			if        (Delegates.pglDisableVertexAttribArray != null) {
@@ -1631,6 +1571,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.MultiDrawElements"/>
 		/// <seealso cref="Gl.VertexAttrib"/>
 		/// <seealso cref="Gl.VertexAttribPointer"/>
+		[RequiredByFeature("GL_VERSION_2_0")]
 		public static void EnableVertexAttribArray(UInt32 index)
 		{
 			if        (Delegates.pglEnableVertexAttribArray != null) {
@@ -1721,6 +1662,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.LinkProgram"/>
 		/// <seealso cref="Gl.VertexAttrib"/>
 		/// <seealso cref="Gl.VertexAttribPointer"/>
+		[RequiredByFeature("GL_VERSION_2_0")]
 		public static void GetActiveAttrib(UInt32 program, UInt32 index, Int32 bufSize, out Int32 length, out Int32 size, out int type, [Out] StringBuilder name)
 		{
 			unsafe {
@@ -1828,6 +1770,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.LinkProgram"/>
 		/// <seealso cref="Gl.Uniform"/>
 		/// <seealso cref="Gl.UseProgram"/>
+		[RequiredByFeature("GL_VERSION_2_0")]
 		public static void GetActiveUniform(UInt32 program, UInt32 index, Int32 bufSize, out Int32 length, out Int32 size, out int type, [Out] StringBuilder name)
 		{
 			unsafe {
@@ -1886,6 +1829,7 @@ namespace OpenGL
 		/// </remarks>
 		/// <seealso cref="Gl.AttachShader"/>
 		/// <seealso cref="Gl.DetachShader"/>
+		[RequiredByFeature("GL_VERSION_2_0")]
 		public static void GetAttachedShaders(UInt32 program, Int32 maxCount, out Int32 count, UInt32[] shaders)
 		{
 			unsafe {
@@ -1937,6 +1881,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.LinkProgram"/>
 		/// <seealso cref="Gl.VertexAttrib"/>
 		/// <seealso cref="Gl.VertexAttribPointer"/>
+		[RequiredByFeature("GL_VERSION_2_0")]
 		public static Int32 GetAttribLocation(UInt32 program, String name)
 		{
 			Int32 retValue;
@@ -1999,6 +1944,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.GetShader"/>
 		/// <seealso cref="Gl.LinkProgram"/>
 		/// <seealso cref="Gl.ValidateProgram"/>
+		[RequiredByFeature("GL_VERSION_2_0")]
 		public static void GetProgram(UInt32 program, int pname, Int32[] @params)
 		{
 			unsafe {
@@ -2055,6 +2001,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.GetShaderInfoLog"/>
 		/// <seealso cref="Gl.LinkProgram"/>
 		/// <seealso cref="Gl.ValidateProgram"/>
+		[RequiredByFeature("GL_VERSION_2_0")]
 		public static void GetProgramInfoLog(UInt32 program, Int32 bufSize, out Int32 length, [Out] StringBuilder infoLog)
 		{
 			unsafe {
@@ -2102,6 +2049,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.DeleteShader"/>
 		/// <seealso cref="Gl.GetProgram"/>
 		/// <seealso cref="Gl.ShaderSource"/>
+		[RequiredByFeature("GL_VERSION_2_0")]
 		public static void GetShader(UInt32 shader, int pname, Int32[] @params)
 		{
 			unsafe {
@@ -2157,6 +2105,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.GetProgramInfoLog"/>
 		/// <seealso cref="Gl.LinkProgram"/>
 		/// <seealso cref="Gl.ValidateProgram"/>
+		[RequiredByFeature("GL_VERSION_2_0")]
 		public static void GetShaderInfoLog(UInt32 shader, Int32 bufSize, out Int32 length, [Out] StringBuilder infoLog)
 		{
 			unsafe {
@@ -2208,6 +2157,7 @@ namespace OpenGL
 		/// </remarks>
 		/// <seealso cref="Gl.CreateShader"/>
 		/// <seealso cref="Gl.ShaderSource"/>
+		[RequiredByFeature("GL_VERSION_2_0")]
 		public static void GetShaderSource(UInt32 shader, Int32 bufSize, out Int32 length, [Out] StringBuilder source)
 		{
 			unsafe {
@@ -2269,6 +2219,7 @@ namespace OpenGL
 		/// </remarks>
 		/// <seealso cref="Gl.LinkProgram"/>
 		/// <seealso cref="Gl.Uniform"/>
+		[RequiredByFeature("GL_VERSION_2_0")]
 		public static Int32 GetUniformLocation(UInt32 program, String name)
 		{
 			Int32 retValue;
@@ -2334,6 +2285,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.CreateProgram"/>
 		/// <seealso cref="Gl.LinkProgram"/>
 		/// <seealso cref="Gl.Uniform"/>
+		[RequiredByFeature("GL_VERSION_2_0")]
 		public static void GetUniform(UInt32 program, Int32 location, float[] @params)
 		{
 			unsafe {
@@ -2400,6 +2352,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.CreateProgram"/>
 		/// <seealso cref="Gl.LinkProgram"/>
 		/// <seealso cref="Gl.Uniform"/>
+		[RequiredByFeature("GL_VERSION_2_0")]
 		public static void GetUniform(UInt32 program, Int32 location, Int32[] @params)
 		{
 			unsafe {
@@ -2459,6 +2412,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.VertexAttrib"/>
 		/// <seealso cref="Gl.VertexAttribDivisor"/>
 		/// <seealso cref="Gl.VertexAttribPointer"/>
+		[RequiredByFeature("GL_VERSION_2_0")]
 		public static void GetVertexAttrib(UInt32 index, int pname, double[] @params)
 		{
 			unsafe {
@@ -2521,6 +2475,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.VertexAttrib"/>
 		/// <seealso cref="Gl.VertexAttribDivisor"/>
 		/// <seealso cref="Gl.VertexAttribPointer"/>
+		[RequiredByFeature("GL_VERSION_2_0")]
 		public static void GetVertexAttrib(UInt32 index, int pname, float[] @params)
 		{
 			unsafe {
@@ -2583,6 +2538,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.VertexAttrib"/>
 		/// <seealso cref="Gl.VertexAttribDivisor"/>
 		/// <seealso cref="Gl.VertexAttribPointer"/>
+		[RequiredByFeature("GL_VERSION_2_0")]
 		public static void GetVertexAttrib(UInt32 index, int pname, Int32[] @params)
 		{
 			unsafe {
@@ -2636,6 +2592,7 @@ namespace OpenGL
 		/// </remarks>
 		/// <seealso cref="Gl.GetVertexAttrib"/>
 		/// <seealso cref="Gl.VertexAttribPointer"/>
+		[RequiredByFeature("GL_VERSION_2_0")]
 		public static void GetVertexAttribPointer(UInt32 index, int pname, IntPtr pointer)
 		{
 			if        (Delegates.pglGetVertexAttribPointerv != null) {
@@ -2684,6 +2641,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.Uniform"/>
 		/// <seealso cref="Gl.UseProgram"/>
 		/// <seealso cref="Gl.ValidateProgram"/>
+		[RequiredByFeature("GL_VERSION_2_0")]
 		public static bool IsProgram(UInt32 program)
 		{
 			bool retValue;
@@ -2721,6 +2679,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.DetachShader"/>
 		/// <seealso cref="Gl.LinkProgram"/>
 		/// <seealso cref="Gl.ShaderSource"/>
+		[RequiredByFeature("GL_VERSION_2_0")]
 		public static bool IsShader(UInt32 shader)
 		{
 			bool retValue;
@@ -2802,6 +2761,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.Uniform"/>
 		/// <seealso cref="Gl.UseProgram"/>
 		/// <seealso cref="Gl.ValidateProgram"/>
+		[RequiredByFeature("GL_VERSION_2_0")]
 		public static void LinkProgram(UInt32 program)
 		{
 			if        (Delegates.pglLinkProgram != null) {
@@ -2854,6 +2814,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.CompileShader"/>
 		/// <seealso cref="Gl.CreateShader"/>
 		/// <seealso cref="Gl.DeleteShader"/>
+		[RequiredByFeature("GL_VERSION_2_0")]
 		public static void ShaderSource(UInt32 shader, Int32 count, String[] @string, Int32[] length)
 		{
 			unsafe {
@@ -2932,6 +2893,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.Uniform"/>
 		/// <seealso cref="Gl.ValidateProgram"/>
 		/// <seealso cref="Gl.VertexAttrib"/>
+		[RequiredByFeature("GL_VERSION_2_0")]
 		public static void UseProgram(UInt32 program)
 		{
 			if        (Delegates.pglUseProgram != null) {
@@ -3025,6 +2987,7 @@ namespace OpenGL
 		/// </remarks>
 		/// <seealso cref="Gl.LinkProgram"/>
 		/// <seealso cref="Gl.UseProgram"/>
+		[RequiredByFeature("GL_VERSION_2_0")]
 		public static void Uniform1(Int32 location, float v0)
 		{
 			if        (Delegates.pglUniform1f != null) {
@@ -3121,6 +3084,7 @@ namespace OpenGL
 		/// </remarks>
 		/// <seealso cref="Gl.LinkProgram"/>
 		/// <seealso cref="Gl.UseProgram"/>
+		[RequiredByFeature("GL_VERSION_2_0")]
 		public static void Uniform2(Int32 location, float v0, float v1)
 		{
 			if        (Delegates.pglUniform2f != null) {
@@ -3220,6 +3184,7 @@ namespace OpenGL
 		/// </remarks>
 		/// <seealso cref="Gl.LinkProgram"/>
 		/// <seealso cref="Gl.UseProgram"/>
+		[RequiredByFeature("GL_VERSION_2_0")]
 		public static void Uniform3(Int32 location, float v0, float v1, float v2)
 		{
 			if        (Delegates.pglUniform3f != null) {
@@ -3322,6 +3287,7 @@ namespace OpenGL
 		/// </remarks>
 		/// <seealso cref="Gl.LinkProgram"/>
 		/// <seealso cref="Gl.UseProgram"/>
+		[RequiredByFeature("GL_VERSION_2_0")]
 		public static void Uniform4(Int32 location, float v0, float v1, float v2, float v3)
 		{
 			if        (Delegates.pglUniform4f != null) {
@@ -3415,6 +3381,7 @@ namespace OpenGL
 		/// </remarks>
 		/// <seealso cref="Gl.LinkProgram"/>
 		/// <seealso cref="Gl.UseProgram"/>
+		[RequiredByFeature("GL_VERSION_2_0")]
 		public static void Uniform1(Int32 location, Int32 v0)
 		{
 			if        (Delegates.pglUniform1i != null) {
@@ -3511,6 +3478,7 @@ namespace OpenGL
 		/// </remarks>
 		/// <seealso cref="Gl.LinkProgram"/>
 		/// <seealso cref="Gl.UseProgram"/>
+		[RequiredByFeature("GL_VERSION_2_0")]
 		public static void Uniform2(Int32 location, Int32 v0, Int32 v1)
 		{
 			if        (Delegates.pglUniform2i != null) {
@@ -3610,6 +3578,7 @@ namespace OpenGL
 		/// </remarks>
 		/// <seealso cref="Gl.LinkProgram"/>
 		/// <seealso cref="Gl.UseProgram"/>
+		[RequiredByFeature("GL_VERSION_2_0")]
 		public static void Uniform3(Int32 location, Int32 v0, Int32 v1, Int32 v2)
 		{
 			if        (Delegates.pglUniform3i != null) {
@@ -3712,6 +3681,7 @@ namespace OpenGL
 		/// </remarks>
 		/// <seealso cref="Gl.LinkProgram"/>
 		/// <seealso cref="Gl.UseProgram"/>
+		[RequiredByFeature("GL_VERSION_2_0")]
 		public static void Uniform4(Int32 location, Int32 v0, Int32 v1, Int32 v2, Int32 v3)
 		{
 			if        (Delegates.pglUniform4i != null) {
@@ -3810,6 +3780,7 @@ namespace OpenGL
 		/// </remarks>
 		/// <seealso cref="Gl.LinkProgram"/>
 		/// <seealso cref="Gl.UseProgram"/>
+		[RequiredByFeature("GL_VERSION_2_0")]
 		public static void Uniform1(Int32 location, Int32 count, float[] value)
 		{
 			unsafe {
@@ -3913,6 +3884,7 @@ namespace OpenGL
 		/// </remarks>
 		/// <seealso cref="Gl.LinkProgram"/>
 		/// <seealso cref="Gl.UseProgram"/>
+		[RequiredByFeature("GL_VERSION_2_0")]
 		public static void Uniform2(Int32 location, Int32 count, float[] value)
 		{
 			unsafe {
@@ -4016,6 +3988,7 @@ namespace OpenGL
 		/// </remarks>
 		/// <seealso cref="Gl.LinkProgram"/>
 		/// <seealso cref="Gl.UseProgram"/>
+		[RequiredByFeature("GL_VERSION_2_0")]
 		public static void Uniform3(Int32 location, Int32 count, float[] value)
 		{
 			unsafe {
@@ -4119,6 +4092,7 @@ namespace OpenGL
 		/// </remarks>
 		/// <seealso cref="Gl.LinkProgram"/>
 		/// <seealso cref="Gl.UseProgram"/>
+		[RequiredByFeature("GL_VERSION_2_0")]
 		public static void Uniform4(Int32 location, Int32 count, float[] value)
 		{
 			unsafe {
@@ -4222,6 +4196,7 @@ namespace OpenGL
 		/// </remarks>
 		/// <seealso cref="Gl.LinkProgram"/>
 		/// <seealso cref="Gl.UseProgram"/>
+		[RequiredByFeature("GL_VERSION_2_0")]
 		public static void Uniform1(Int32 location, Int32 count, Int32[] value)
 		{
 			unsafe {
@@ -4325,6 +4300,7 @@ namespace OpenGL
 		/// </remarks>
 		/// <seealso cref="Gl.LinkProgram"/>
 		/// <seealso cref="Gl.UseProgram"/>
+		[RequiredByFeature("GL_VERSION_2_0")]
 		public static void Uniform2(Int32 location, Int32 count, Int32[] value)
 		{
 			unsafe {
@@ -4428,6 +4404,7 @@ namespace OpenGL
 		/// </remarks>
 		/// <seealso cref="Gl.LinkProgram"/>
 		/// <seealso cref="Gl.UseProgram"/>
+		[RequiredByFeature("GL_VERSION_2_0")]
 		public static void Uniform3(Int32 location, Int32 count, Int32[] value)
 		{
 			unsafe {
@@ -4531,6 +4508,7 @@ namespace OpenGL
 		/// </remarks>
 		/// <seealso cref="Gl.LinkProgram"/>
 		/// <seealso cref="Gl.UseProgram"/>
+		[RequiredByFeature("GL_VERSION_2_0")]
 		public static void Uniform4(Int32 location, Int32 count, Int32[] value)
 		{
 			unsafe {
@@ -4637,6 +4615,7 @@ namespace OpenGL
 		/// </remarks>
 		/// <seealso cref="Gl.LinkProgram"/>
 		/// <seealso cref="Gl.UseProgram"/>
+		[RequiredByFeature("GL_VERSION_2_0")]
 		public static void UniformMatrix2(Int32 location, Int32 count, bool transpose, float[] value)
 		{
 			unsafe {
@@ -4743,6 +4722,7 @@ namespace OpenGL
 		/// </remarks>
 		/// <seealso cref="Gl.LinkProgram"/>
 		/// <seealso cref="Gl.UseProgram"/>
+		[RequiredByFeature("GL_VERSION_2_0")]
 		public static void UniformMatrix3(Int32 location, Int32 count, bool transpose, float[] value)
 		{
 			unsafe {
@@ -4849,6 +4829,7 @@ namespace OpenGL
 		/// </remarks>
 		/// <seealso cref="Gl.LinkProgram"/>
 		/// <seealso cref="Gl.UseProgram"/>
+		[RequiredByFeature("GL_VERSION_2_0")]
 		public static void UniformMatrix4(Int32 location, Int32 count, bool transpose, float[] value)
 		{
 			unsafe {
@@ -4900,6 +4881,7 @@ namespace OpenGL
 		/// </remarks>
 		/// <seealso cref="Gl.LinkProgram"/>
 		/// <seealso cref="Gl.UseProgram"/>
+		[RequiredByFeature("GL_VERSION_2_0")]
 		public static void ValidateProgram(UInt32 program)
 		{
 			if        (Delegates.pglValidateProgram != null) {
@@ -4979,6 +4961,7 @@ namespace OpenGL
 		/// </remarks>
 		/// <seealso cref="Gl.BindAttribLocation"/>
 		/// <seealso cref="Gl.VertexAttribPointer"/>
+		[RequiredByFeature("GL_VERSION_2_0")]
 		public static void VertexAttrib1(UInt32 index, double x)
 		{
 			if        (Delegates.pglVertexAttrib1d != null) {
@@ -5062,6 +5045,7 @@ namespace OpenGL
 		/// </remarks>
 		/// <seealso cref="Gl.BindAttribLocation"/>
 		/// <seealso cref="Gl.VertexAttribPointer"/>
+		[RequiredByFeature("GL_VERSION_2_0")]
 		public static void VertexAttrib1(UInt32 index, double[] v)
 		{
 			unsafe {
@@ -5149,6 +5133,7 @@ namespace OpenGL
 		/// </remarks>
 		/// <seealso cref="Gl.BindAttribLocation"/>
 		/// <seealso cref="Gl.VertexAttribPointer"/>
+		[RequiredByFeature("GL_VERSION_2_0")]
 		public static void VertexAttrib1(UInt32 index, float x)
 		{
 			if        (Delegates.pglVertexAttrib1f != null) {
@@ -5232,6 +5217,7 @@ namespace OpenGL
 		/// </remarks>
 		/// <seealso cref="Gl.BindAttribLocation"/>
 		/// <seealso cref="Gl.VertexAttribPointer"/>
+		[RequiredByFeature("GL_VERSION_2_0")]
 		public static void VertexAttrib1(UInt32 index, float[] v)
 		{
 			unsafe {
@@ -5319,6 +5305,7 @@ namespace OpenGL
 		/// </remarks>
 		/// <seealso cref="Gl.BindAttribLocation"/>
 		/// <seealso cref="Gl.VertexAttribPointer"/>
+		[RequiredByFeature("GL_VERSION_2_0")]
 		public static void VertexAttrib1(UInt32 index, Int16 x)
 		{
 			if        (Delegates.pglVertexAttrib1s != null) {
@@ -5402,6 +5389,7 @@ namespace OpenGL
 		/// </remarks>
 		/// <seealso cref="Gl.BindAttribLocation"/>
 		/// <seealso cref="Gl.VertexAttribPointer"/>
+		[RequiredByFeature("GL_VERSION_2_0")]
 		public static void VertexAttrib1(UInt32 index, Int16[] v)
 		{
 			unsafe {
@@ -5492,6 +5480,7 @@ namespace OpenGL
 		/// </remarks>
 		/// <seealso cref="Gl.BindAttribLocation"/>
 		/// <seealso cref="Gl.VertexAttribPointer"/>
+		[RequiredByFeature("GL_VERSION_2_0")]
 		public static void VertexAttrib2(UInt32 index, double x, double y)
 		{
 			if        (Delegates.pglVertexAttrib2d != null) {
@@ -5575,6 +5564,7 @@ namespace OpenGL
 		/// </remarks>
 		/// <seealso cref="Gl.BindAttribLocation"/>
 		/// <seealso cref="Gl.VertexAttribPointer"/>
+		[RequiredByFeature("GL_VERSION_2_0")]
 		public static void VertexAttrib2(UInt32 index, double[] v)
 		{
 			unsafe {
@@ -5665,6 +5655,7 @@ namespace OpenGL
 		/// </remarks>
 		/// <seealso cref="Gl.BindAttribLocation"/>
 		/// <seealso cref="Gl.VertexAttribPointer"/>
+		[RequiredByFeature("GL_VERSION_2_0")]
 		public static void VertexAttrib2(UInt32 index, float x, float y)
 		{
 			if        (Delegates.pglVertexAttrib2f != null) {
@@ -5748,6 +5739,7 @@ namespace OpenGL
 		/// </remarks>
 		/// <seealso cref="Gl.BindAttribLocation"/>
 		/// <seealso cref="Gl.VertexAttribPointer"/>
+		[RequiredByFeature("GL_VERSION_2_0")]
 		public static void VertexAttrib2(UInt32 index, float[] v)
 		{
 			unsafe {
@@ -5838,6 +5830,7 @@ namespace OpenGL
 		/// </remarks>
 		/// <seealso cref="Gl.BindAttribLocation"/>
 		/// <seealso cref="Gl.VertexAttribPointer"/>
+		[RequiredByFeature("GL_VERSION_2_0")]
 		public static void VertexAttrib2(UInt32 index, Int16 x, Int16 y)
 		{
 			if        (Delegates.pglVertexAttrib2s != null) {
@@ -5921,6 +5914,7 @@ namespace OpenGL
 		/// </remarks>
 		/// <seealso cref="Gl.BindAttribLocation"/>
 		/// <seealso cref="Gl.VertexAttribPointer"/>
+		[RequiredByFeature("GL_VERSION_2_0")]
 		public static void VertexAttrib2(UInt32 index, Int16[] v)
 		{
 			unsafe {
@@ -6014,6 +6008,7 @@ namespace OpenGL
 		/// </remarks>
 		/// <seealso cref="Gl.BindAttribLocation"/>
 		/// <seealso cref="Gl.VertexAttribPointer"/>
+		[RequiredByFeature("GL_VERSION_2_0")]
 		public static void VertexAttrib3(UInt32 index, double x, double y, double z)
 		{
 			if        (Delegates.pglVertexAttrib3d != null) {
@@ -6097,6 +6092,7 @@ namespace OpenGL
 		/// </remarks>
 		/// <seealso cref="Gl.BindAttribLocation"/>
 		/// <seealso cref="Gl.VertexAttribPointer"/>
+		[RequiredByFeature("GL_VERSION_2_0")]
 		public static void VertexAttrib3(UInt32 index, double[] v)
 		{
 			unsafe {
@@ -6190,6 +6186,7 @@ namespace OpenGL
 		/// </remarks>
 		/// <seealso cref="Gl.BindAttribLocation"/>
 		/// <seealso cref="Gl.VertexAttribPointer"/>
+		[RequiredByFeature("GL_VERSION_2_0")]
 		public static void VertexAttrib3(UInt32 index, float x, float y, float z)
 		{
 			if        (Delegates.pglVertexAttrib3f != null) {
@@ -6273,6 +6270,7 @@ namespace OpenGL
 		/// </remarks>
 		/// <seealso cref="Gl.BindAttribLocation"/>
 		/// <seealso cref="Gl.VertexAttribPointer"/>
+		[RequiredByFeature("GL_VERSION_2_0")]
 		public static void VertexAttrib3(UInt32 index, float[] v)
 		{
 			unsafe {
@@ -6366,6 +6364,7 @@ namespace OpenGL
 		/// </remarks>
 		/// <seealso cref="Gl.BindAttribLocation"/>
 		/// <seealso cref="Gl.VertexAttribPointer"/>
+		[RequiredByFeature("GL_VERSION_2_0")]
 		public static void VertexAttrib3(UInt32 index, Int16 x, Int16 y, Int16 z)
 		{
 			if        (Delegates.pglVertexAttrib3s != null) {
@@ -6449,6 +6448,7 @@ namespace OpenGL
 		/// </remarks>
 		/// <seealso cref="Gl.BindAttribLocation"/>
 		/// <seealso cref="Gl.VertexAttribPointer"/>
+		[RequiredByFeature("GL_VERSION_2_0")]
 		public static void VertexAttrib3(UInt32 index, Int16[] v)
 		{
 			unsafe {
@@ -6537,6 +6537,7 @@ namespace OpenGL
 		/// </remarks>
 		/// <seealso cref="Gl.BindAttribLocation"/>
 		/// <seealso cref="Gl.VertexAttribPointer"/>
+		[RequiredByFeature("GL_VERSION_2_0")]
 		public static void VertexAttrib4N(UInt32 index, sbyte[] v)
 		{
 			unsafe {
@@ -6622,6 +6623,7 @@ namespace OpenGL
 		/// </remarks>
 		/// <seealso cref="Gl.BindAttribLocation"/>
 		/// <seealso cref="Gl.VertexAttribPointer"/>
+		[RequiredByFeature("GL_VERSION_2_0")]
 		public static void VertexAttrib4N(UInt32 index, Int32[] v)
 		{
 			unsafe {
@@ -6707,6 +6709,7 @@ namespace OpenGL
 		/// </remarks>
 		/// <seealso cref="Gl.BindAttribLocation"/>
 		/// <seealso cref="Gl.VertexAttribPointer"/>
+		[RequiredByFeature("GL_VERSION_2_0")]
 		public static void VertexAttrib4N(UInt32 index, Int16[] v)
 		{
 			unsafe {
@@ -6800,6 +6803,7 @@ namespace OpenGL
 		/// </remarks>
 		/// <seealso cref="Gl.BindAttribLocation"/>
 		/// <seealso cref="Gl.VertexAttribPointer"/>
+		[RequiredByFeature("GL_VERSION_2_0")]
 		public static void VertexAttrib4N(UInt32 index, byte x, byte y, byte z, byte w)
 		{
 			if        (Delegates.pglVertexAttrib4Nub != null) {
@@ -6883,6 +6887,7 @@ namespace OpenGL
 		/// </remarks>
 		/// <seealso cref="Gl.BindAttribLocation"/>
 		/// <seealso cref="Gl.VertexAttribPointer"/>
+		[RequiredByFeature("GL_VERSION_2_0")]
 		public static void VertexAttrib4N(UInt32 index, byte[] v)
 		{
 			unsafe {
@@ -6971,6 +6976,7 @@ namespace OpenGL
 		/// </remarks>
 		/// <seealso cref="Gl.BindAttribLocation"/>
 		/// <seealso cref="Gl.VertexAttribPointer"/>
+		[RequiredByFeature("GL_VERSION_2_0")]
 		public static void VertexAttrib4N(UInt32 index, UInt32[] v)
 		{
 			unsafe {
@@ -7056,6 +7062,7 @@ namespace OpenGL
 		/// </remarks>
 		/// <seealso cref="Gl.BindAttribLocation"/>
 		/// <seealso cref="Gl.VertexAttribPointer"/>
+		[RequiredByFeature("GL_VERSION_2_0")]
 		public static void VertexAttrib4N(UInt32 index, UInt16[] v)
 		{
 			unsafe {
@@ -7141,6 +7148,7 @@ namespace OpenGL
 		/// </remarks>
 		/// <seealso cref="Gl.BindAttribLocation"/>
 		/// <seealso cref="Gl.VertexAttribPointer"/>
+		[RequiredByFeature("GL_VERSION_2_0")]
 		public static void VertexAttrib4(UInt32 index, sbyte[] v)
 		{
 			unsafe {
@@ -7234,6 +7242,7 @@ namespace OpenGL
 		/// </remarks>
 		/// <seealso cref="Gl.BindAttribLocation"/>
 		/// <seealso cref="Gl.VertexAttribPointer"/>
+		[RequiredByFeature("GL_VERSION_2_0")]
 		public static void VertexAttrib4(UInt32 index, double x, double y, double z, double w)
 		{
 			if        (Delegates.pglVertexAttrib4d != null) {
@@ -7317,6 +7326,7 @@ namespace OpenGL
 		/// </remarks>
 		/// <seealso cref="Gl.BindAttribLocation"/>
 		/// <seealso cref="Gl.VertexAttribPointer"/>
+		[RequiredByFeature("GL_VERSION_2_0")]
 		public static void VertexAttrib4(UInt32 index, double[] v)
 		{
 			unsafe {
@@ -7413,6 +7423,7 @@ namespace OpenGL
 		/// </remarks>
 		/// <seealso cref="Gl.BindAttribLocation"/>
 		/// <seealso cref="Gl.VertexAttribPointer"/>
+		[RequiredByFeature("GL_VERSION_2_0")]
 		public static void VertexAttrib4(UInt32 index, float x, float y, float z, float w)
 		{
 			if        (Delegates.pglVertexAttrib4f != null) {
@@ -7496,6 +7507,7 @@ namespace OpenGL
 		/// </remarks>
 		/// <seealso cref="Gl.BindAttribLocation"/>
 		/// <seealso cref="Gl.VertexAttribPointer"/>
+		[RequiredByFeature("GL_VERSION_2_0")]
 		public static void VertexAttrib4(UInt32 index, float[] v)
 		{
 			unsafe {
@@ -7584,6 +7596,7 @@ namespace OpenGL
 		/// </remarks>
 		/// <seealso cref="Gl.BindAttribLocation"/>
 		/// <seealso cref="Gl.VertexAttribPointer"/>
+		[RequiredByFeature("GL_VERSION_2_0")]
 		public static void VertexAttrib4(UInt32 index, Int32[] v)
 		{
 			unsafe {
@@ -7677,6 +7690,7 @@ namespace OpenGL
 		/// </remarks>
 		/// <seealso cref="Gl.BindAttribLocation"/>
 		/// <seealso cref="Gl.VertexAttribPointer"/>
+		[RequiredByFeature("GL_VERSION_2_0")]
 		public static void VertexAttrib4(UInt32 index, Int16 x, Int16 y, Int16 z, Int16 w)
 		{
 			if        (Delegates.pglVertexAttrib4s != null) {
@@ -7760,6 +7774,7 @@ namespace OpenGL
 		/// </remarks>
 		/// <seealso cref="Gl.BindAttribLocation"/>
 		/// <seealso cref="Gl.VertexAttribPointer"/>
+		[RequiredByFeature("GL_VERSION_2_0")]
 		public static void VertexAttrib4(UInt32 index, Int16[] v)
 		{
 			unsafe {
@@ -7848,6 +7863,7 @@ namespace OpenGL
 		/// </remarks>
 		/// <seealso cref="Gl.BindAttribLocation"/>
 		/// <seealso cref="Gl.VertexAttribPointer"/>
+		[RequiredByFeature("GL_VERSION_2_0")]
 		public static void VertexAttrib4ub(UInt32 index, byte[] v)
 		{
 			unsafe {
@@ -7933,6 +7949,7 @@ namespace OpenGL
 		/// </remarks>
 		/// <seealso cref="Gl.BindAttribLocation"/>
 		/// <seealso cref="Gl.VertexAttribPointer"/>
+		[RequiredByFeature("GL_VERSION_2_0")]
 		public static void VertexAttrib4(UInt32 index, UInt32[] v)
 		{
 			unsafe {
@@ -8018,6 +8035,7 @@ namespace OpenGL
 		/// </remarks>
 		/// <seealso cref="Gl.BindAttribLocation"/>
 		/// <seealso cref="Gl.VertexAttribPointer"/>
+		[RequiredByFeature("GL_VERSION_2_0")]
 		public static void VertexAttrib4(UInt32 index, UInt16[] v)
 		{
 			unsafe {
@@ -8127,6 +8145,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.MultiDrawArrays"/>
 		/// <seealso cref="Gl.MultiDrawElements"/>
 		/// <seealso cref="Gl.VertexAttrib"/>
+		[RequiredByFeature("GL_VERSION_2_0")]
 		public static void VertexAttribPointer(UInt32 index, Int32 size, int type, bool normalized, Int32 stride, IntPtr pointer)
 		{
 			if        (Delegates.pglVertexAttribPointer != null) {
@@ -8231,6 +8250,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.MultiDrawArrays"/>
 		/// <seealso cref="Gl.MultiDrawElements"/>
 		/// <seealso cref="Gl.VertexAttrib"/>
+		[RequiredByFeature("GL_VERSION_2_0")]
 		public static void VertexAttribPointer(UInt32 index, Int32 size, int type, bool normalized, Int32 stride, Object pointer)
 		{
 			GCHandle pin_pointer = GCHandle.Alloc(pointer, GCHandleType.Pinned);

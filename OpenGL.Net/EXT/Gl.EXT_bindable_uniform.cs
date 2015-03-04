@@ -73,6 +73,7 @@ namespace OpenGL
 		/// <param name="buffer">
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
+		[RequiredByFeature("GL_EXT_bindable_uniform")]
 		public static void UniformBufferEXT(UInt32 program, Int32 location, UInt32 buffer)
 		{
 			Debug.Assert(Delegates.pglUniformBufferEXT != null, "pglUniformBufferEXT not implemented");
@@ -90,6 +91,7 @@ namespace OpenGL
 		/// <param name="location">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
+		[RequiredByFeature("GL_EXT_bindable_uniform")]
 		public static Int32 GetUniformBufferSizeEXT(UInt32 program, Int32 location)
 		{
 			Int32 retValue;
@@ -111,6 +113,7 @@ namespace OpenGL
 		/// <param name="location">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
+		[RequiredByFeature("GL_EXT_bindable_uniform")]
 		public static IntPtr GetUniformOffsetEXT(UInt32 program, Int32 location)
 		{
 			IntPtr retValue;

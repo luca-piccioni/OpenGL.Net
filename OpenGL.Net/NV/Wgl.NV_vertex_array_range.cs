@@ -40,6 +40,7 @@ namespace OpenGL
 		/// <param name="priority">
 		/// A <see cref="T:float"/>.
 		/// </param>
+		[RequiredByFeature("WGL_NV_vertex_array_range")]
 		public static IntPtr AllocateMemoryNV(Int32 size, float readfreq, float writefreq, float priority)
 		{
 			IntPtr retValue;
@@ -47,7 +48,6 @@ namespace OpenGL
 			Debug.Assert(Delegates.pwglAllocateMemoryNV != null, "pwglAllocateMemoryNV not implemented");
 			retValue = Delegates.pwglAllocateMemoryNV(size, readfreq, writefreq, priority);
 			CallLog("wglAllocateMemoryNV({0}, {1}, {2}, {3}) = {4}", size, readfreq, writefreq, priority, retValue);
-			DebugCheckErrors();
 
 			return (retValue);
 		}
@@ -58,12 +58,12 @@ namespace OpenGL
 		/// <param name="pointer">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
+		[RequiredByFeature("WGL_NV_vertex_array_range")]
 		public static void FreeMemoryNV(IntPtr pointer)
 		{
 			Debug.Assert(Delegates.pwglFreeMemoryNV != null, "pwglFreeMemoryNV not implemented");
 			Delegates.pwglFreeMemoryNV(pointer);
 			CallLog("wglFreeMemoryNV({0})", pointer);
-			DebugCheckErrors();
 		}
 
 	}

@@ -224,155 +224,6 @@ namespace OpenGL
 		public const uint SWAP_UNDERLAY15 = 0x40000000;
 
 		/// <summary>
-		/// Binding for ChoosePixelFormat.
-		/// </summary>
-		/// <param name="hDc">
-		/// A <see cref="T:IntPtr"/>.
-		/// </param>
-		/// <param name="pPfd">
-		/// A <see cref="T:PIXELFORMATDESCRIPTOR[]"/>.
-		/// </param>
-		public static int ChoosePixelFormat(IntPtr hDc, PIXELFORMATDESCRIPTOR[] pPfd)
-		{
-			int retValue;
-
-			unsafe {
-				fixed (PIXELFORMATDESCRIPTOR* p_pPfd = pPfd)
-				{
-					Debug.Assert(Delegates.pChoosePixelFormat != null, "pChoosePixelFormat not implemented");
-					retValue = Delegates.pChoosePixelFormat(hDc, p_pPfd);
-					CallLog("ChoosePixelFormat({0}, {1}) = {2}", hDc, pPfd, retValue);
-				}
-			}
-			DebugCheckErrors();
-
-			return (retValue);
-		}
-
-		/// <summary>
-		/// Binding for DescribePixelFormat.
-		/// </summary>
-		/// <param name="hdc">
-		/// A <see cref="T:IntPtr"/>.
-		/// </param>
-		/// <param name="ipfd">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="cjpfd">
-		/// A <see cref="T:UInt32"/>.
-		/// </param>
-		/// <param name="ppfd">
-		/// A <see cref="T:PIXELFORMATDESCRIPTOR[]"/>.
-		/// </param>
-		public static int DescribePixelFormat(IntPtr hdc, int ipfd, UInt32 cjpfd, PIXELFORMATDESCRIPTOR[] ppfd)
-		{
-			int retValue;
-
-			unsafe {
-				fixed (PIXELFORMATDESCRIPTOR* p_ppfd = ppfd)
-				{
-					Debug.Assert(Delegates.pDescribePixelFormat != null, "pDescribePixelFormat not implemented");
-					retValue = Delegates.pDescribePixelFormat(hdc, ipfd, cjpfd, p_ppfd);
-					CallLog("DescribePixelFormat({0}, {1}, {2}, {3}) = {4}", hdc, ipfd, cjpfd, ppfd, retValue);
-				}
-			}
-			DebugCheckErrors();
-
-			return (retValue);
-		}
-
-		/// <summary>
-		/// Binding for GetEnhMetaFilePixelFormat.
-		/// </summary>
-		/// <param name="hemf">
-		/// A <see cref="T:IntPtr"/>.
-		/// </param>
-		/// <param name="ppfd">
-		/// A <see cref="T:PIXELFORMATDESCRIPTOR[]"/>.
-		/// </param>
-		public static UInt32 GetEnhMetaFilePixelFormat(IntPtr hemf, PIXELFORMATDESCRIPTOR[] ppfd)
-		{
-			UInt32 retValue;
-
-			unsafe {
-				fixed (PIXELFORMATDESCRIPTOR* p_ppfd = ppfd)
-				{
-					Debug.Assert(Delegates.pGetEnhMetaFilePixelFormat != null, "pGetEnhMetaFilePixelFormat not implemented");
-					retValue = Delegates.pGetEnhMetaFilePixelFormat(hemf, p_ppfd);
-					CallLog("GetEnhMetaFilePixelFormat({0}, {1}) = {2}", hemf, ppfd, retValue);
-				}
-			}
-			DebugCheckErrors();
-
-			return (retValue);
-		}
-
-		/// <summary>
-		/// Binding for GetPixelFormat.
-		/// </summary>
-		/// <param name="hdc">
-		/// A <see cref="T:IntPtr"/>.
-		/// </param>
-		public static int GetPixelFormat(IntPtr hdc)
-		{
-			int retValue;
-
-			Debug.Assert(Delegates.pGetPixelFormat != null, "pGetPixelFormat not implemented");
-			retValue = Delegates.pGetPixelFormat(hdc);
-			CallLog("GetPixelFormat({0}) = {1}", hdc, retValue);
-			DebugCheckErrors();
-
-			return (retValue);
-		}
-
-		/// <summary>
-		/// Binding for SetPixelFormat.
-		/// </summary>
-		/// <param name="hdc">
-		/// A <see cref="T:IntPtr"/>.
-		/// </param>
-		/// <param name="ipfd">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="ppfd">
-		/// A <see cref="T:PIXELFORMATDESCRIPTOR[]"/>.
-		/// </param>
-		public static bool SetPixelFormat(IntPtr hdc, int ipfd, PIXELFORMATDESCRIPTOR[] ppfd)
-		{
-			bool retValue;
-
-			unsafe {
-				fixed (PIXELFORMATDESCRIPTOR* p_ppfd = ppfd)
-				{
-					Debug.Assert(Delegates.pSetPixelFormat != null, "pSetPixelFormat not implemented");
-					retValue = Delegates.pSetPixelFormat(hdc, ipfd, p_ppfd);
-					CallLog("SetPixelFormat({0}, {1}, {2}) = {3}", hdc, ipfd, ppfd, retValue);
-				}
-			}
-			DebugCheckErrors();
-
-			return (retValue);
-		}
-
-		/// <summary>
-		/// Binding for SwapBuffers.
-		/// </summary>
-		/// <param name="hdc">
-		/// A <see cref="T:IntPtr"/>.
-		/// </param>
-		public static bool SwapBuffers(IntPtr hdc)
-		{
-			bool retValue;
-
-			Debug.Assert(Delegates.pSwapBuffers != null, "pSwapBuffers not implemented");
-			retValue = Delegates.pSwapBuffers(hdc);
-			CallLog("SwapBuffers({0}) = {1}", hdc, retValue);
-			DebugCheckErrors();
-
-			return (retValue);
-		}
-
-		/// <summary>
 		/// Binding for wglCopyContext.
 		/// </summary>
 		/// <param name="hglrcSrc">
@@ -384,6 +235,7 @@ namespace OpenGL
 		/// <param name="mask">
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
+		[RequiredByFeature("WGL_VERSION_1_0")]
 		public static bool CopyContext(IntPtr hglrcSrc, IntPtr hglrcDst, UInt32 mask)
 		{
 			bool retValue;
@@ -391,7 +243,6 @@ namespace OpenGL
 			Debug.Assert(Delegates.pwglCopyContext != null, "pwglCopyContext not implemented");
 			retValue = Delegates.pwglCopyContext(hglrcSrc, hglrcDst, mask);
 			CallLog("wglCopyContext({0}, {1}, {2}) = {3}", hglrcSrc, hglrcDst, mask, retValue);
-			DebugCheckErrors();
 
 			return (retValue);
 		}
@@ -402,6 +253,7 @@ namespace OpenGL
 		/// <param name="hDc">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
+		[RequiredByFeature("WGL_VERSION_1_0")]
 		public static IntPtr CreateContext(IntPtr hDc)
 		{
 			IntPtr retValue;
@@ -409,7 +261,6 @@ namespace OpenGL
 			Debug.Assert(Delegates.pwglCreateContext != null, "pwglCreateContext not implemented");
 			retValue = Delegates.pwglCreateContext(hDc);
 			CallLog("wglCreateContext({0}) = {1}", hDc, retValue);
-			DebugCheckErrors();
 
 			return (retValue);
 		}
@@ -423,6 +274,7 @@ namespace OpenGL
 		/// <param name="level">
 		/// A <see cref="T:int"/>.
 		/// </param>
+		[RequiredByFeature("WGL_VERSION_1_0")]
 		public static IntPtr CreateLayerContext(IntPtr hDc, int level)
 		{
 			IntPtr retValue;
@@ -430,7 +282,6 @@ namespace OpenGL
 			Debug.Assert(Delegates.pwglCreateLayerContext != null, "pwglCreateLayerContext not implemented");
 			retValue = Delegates.pwglCreateLayerContext(hDc, level);
 			CallLog("wglCreateLayerContext({0}, {1}) = {2}", hDc, level, retValue);
-			DebugCheckErrors();
 
 			return (retValue);
 		}
@@ -441,6 +292,7 @@ namespace OpenGL
 		/// <param name="oldContext">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
+		[RequiredByFeature("WGL_VERSION_1_0")]
 		public static bool DeleteContext(IntPtr oldContext)
 		{
 			bool retValue;
@@ -448,7 +300,6 @@ namespace OpenGL
 			Debug.Assert(Delegates.pwglDeleteContext != null, "pwglDeleteContext not implemented");
 			retValue = Delegates.pwglDeleteContext(oldContext);
 			CallLog("wglDeleteContext({0}) = {1}", oldContext, retValue);
-			DebugCheckErrors();
 
 			return (retValue);
 		}
@@ -471,6 +322,7 @@ namespace OpenGL
 		/// <param name="plpd">
 		/// A <see cref="T:IntPtr[]"/>.
 		/// </param>
+		[RequiredByFeature("WGL_VERSION_1_0")]
 		public static bool DescribeLayerPlane(IntPtr hDc, int pixelFormat, int layerPlane, UInt32 nBytes, IntPtr[] plpd)
 		{
 			bool retValue;
@@ -483,7 +335,6 @@ namespace OpenGL
 					CallLog("wglDescribeLayerPlane({0}, {1}, {2}, {3}, {4}) = {5}", hDc, pixelFormat, layerPlane, nBytes, plpd, retValue);
 				}
 			}
-			DebugCheckErrors();
 
 			return (retValue);
 		}
@@ -491,6 +342,7 @@ namespace OpenGL
 		/// <summary>
 		/// Binding for wglGetCurrentContext.
 		/// </summary>
+		[RequiredByFeature("WGL_VERSION_1_0")]
 		public static IntPtr GetCurrentContext()
 		{
 			IntPtr retValue;
@@ -498,7 +350,6 @@ namespace OpenGL
 			Debug.Assert(Delegates.pwglGetCurrentContext != null, "pwglGetCurrentContext not implemented");
 			retValue = Delegates.pwglGetCurrentContext();
 			CallLog("wglGetCurrentContext() = {0}", retValue);
-			DebugCheckErrors();
 
 			return (retValue);
 		}
@@ -506,6 +357,7 @@ namespace OpenGL
 		/// <summary>
 		/// Binding for wglGetCurrentDC.
 		/// </summary>
+		[RequiredByFeature("WGL_VERSION_1_0")]
 		public static IntPtr GetCurrentDC()
 		{
 			IntPtr retValue;
@@ -513,7 +365,6 @@ namespace OpenGL
 			Debug.Assert(Delegates.pwglGetCurrentDC != null, "pwglGetCurrentDC not implemented");
 			retValue = Delegates.pwglGetCurrentDC();
 			CallLog("wglGetCurrentDC() = {0}", retValue);
-			DebugCheckErrors();
 
 			return (retValue);
 		}
@@ -536,6 +387,7 @@ namespace OpenGL
 		/// <param name="pcr">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
+		[RequiredByFeature("WGL_VERSION_1_0")]
 		public static int GetLayerPaletteEntries(IntPtr hdc, int iLayerPlane, int iStart, int cEntries, IntPtr pcr)
 		{
 			int retValue;
@@ -543,7 +395,6 @@ namespace OpenGL
 			Debug.Assert(Delegates.pwglGetLayerPaletteEntries != null, "pwglGetLayerPaletteEntries not implemented");
 			retValue = Delegates.pwglGetLayerPaletteEntries(hdc, iLayerPlane, iStart, cEntries, pcr);
 			CallLog("wglGetLayerPaletteEntries({0}, {1}, {2}, {3}, {4}) = {5}", hdc, iLayerPlane, iStart, cEntries, pcr, retValue);
-			DebugCheckErrors();
 
 			return (retValue);
 		}
@@ -566,6 +417,7 @@ namespace OpenGL
 		/// <param name="pcr">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
+		[RequiredByFeature("WGL_VERSION_1_0")]
 		public static int GetLayerPaletteEntries(IntPtr hdc, int iLayerPlane, int iStart, int cEntries, Object pcr)
 		{
 			GCHandle pin_pcr = GCHandle.Alloc(pcr, GCHandleType.Pinned);
@@ -582,6 +434,7 @@ namespace OpenGL
 		/// <param name="lpszProc">
 		/// A <see cref="T:String"/>.
 		/// </param>
+		[RequiredByFeature("WGL_VERSION_1_0")]
 		public static IntPtr GetProcAddress(String lpszProc)
 		{
 			IntPtr retValue;
@@ -589,7 +442,6 @@ namespace OpenGL
 			Debug.Assert(Delegates.pwglGetProcAddress != null, "pwglGetProcAddress not implemented");
 			retValue = Delegates.pwglGetProcAddress(lpszProc);
 			CallLog("wglGetProcAddress({0}) = {1}", lpszProc, retValue);
-			DebugCheckErrors();
 
 			return (retValue);
 		}
@@ -603,14 +455,14 @@ namespace OpenGL
 		/// <param name="newContext">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
-		public static bool MakeCurrent(IntPtr hDc, IntPtr newContext)
+		[RequiredByFeature("WGL_VERSION_1_0")]
+		private static bool MakeCurrentCore(IntPtr hDc, IntPtr newContext)
 		{
 			bool retValue;
 
 			Debug.Assert(Delegates.pwglMakeCurrent != null, "pwglMakeCurrent not implemented");
 			retValue = Delegates.pwglMakeCurrent(hDc, newContext);
 			CallLog("wglMakeCurrent({0}, {1}) = {2}", hDc, newContext, retValue);
-			DebugCheckErrors();
 
 			return (retValue);
 		}
@@ -627,6 +479,7 @@ namespace OpenGL
 		/// <param name="bRealize">
 		/// A <see cref="T:bool"/>.
 		/// </param>
+		[RequiredByFeature("WGL_VERSION_1_0")]
 		public static bool RealizeLayerPalette(IntPtr hdc, int iLayerPlane, bool bRealize)
 		{
 			bool retValue;
@@ -634,7 +487,6 @@ namespace OpenGL
 			Debug.Assert(Delegates.pwglRealizeLayerPalette != null, "pwglRealizeLayerPalette not implemented");
 			retValue = Delegates.pwglRealizeLayerPalette(hdc, iLayerPlane, bRealize);
 			CallLog("wglRealizeLayerPalette({0}, {1}, {2}) = {3}", hdc, iLayerPlane, bRealize, retValue);
-			DebugCheckErrors();
 
 			return (retValue);
 		}
@@ -657,6 +509,7 @@ namespace OpenGL
 		/// <param name="pcr">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
+		[RequiredByFeature("WGL_VERSION_1_0")]
 		public static int SetLayerPaletteEntries(IntPtr hdc, int iLayerPlane, int iStart, int cEntries, IntPtr pcr)
 		{
 			int retValue;
@@ -664,7 +517,6 @@ namespace OpenGL
 			Debug.Assert(Delegates.pwglSetLayerPaletteEntries != null, "pwglSetLayerPaletteEntries not implemented");
 			retValue = Delegates.pwglSetLayerPaletteEntries(hdc, iLayerPlane, iStart, cEntries, pcr);
 			CallLog("wglSetLayerPaletteEntries({0}, {1}, {2}, {3}, {4}) = {5}", hdc, iLayerPlane, iStart, cEntries, pcr, retValue);
-			DebugCheckErrors();
 
 			return (retValue);
 		}
@@ -687,6 +539,7 @@ namespace OpenGL
 		/// <param name="pcr">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
+		[RequiredByFeature("WGL_VERSION_1_0")]
 		public static int SetLayerPaletteEntries(IntPtr hdc, int iLayerPlane, int iStart, int cEntries, Object pcr)
 		{
 			GCHandle pin_pcr = GCHandle.Alloc(pcr, GCHandleType.Pinned);
@@ -706,6 +559,7 @@ namespace OpenGL
 		/// <param name="hrcSrvSource">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
+		[RequiredByFeature("WGL_VERSION_1_0")]
 		public static bool ShareLists(IntPtr hrcSrvShare, IntPtr hrcSrvSource)
 		{
 			bool retValue;
@@ -713,7 +567,6 @@ namespace OpenGL
 			Debug.Assert(Delegates.pwglShareLists != null, "pwglShareLists not implemented");
 			retValue = Delegates.pwglShareLists(hrcSrvShare, hrcSrvSource);
 			CallLog("wglShareLists({0}, {1}) = {2}", hrcSrvShare, hrcSrvSource, retValue);
-			DebugCheckErrors();
 
 			return (retValue);
 		}
@@ -727,6 +580,7 @@ namespace OpenGL
 		/// <param name="fuFlags">
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
+		[RequiredByFeature("WGL_VERSION_1_0")]
 		public static bool SwapLayerBuffers(IntPtr hdc, UInt32 fuFlags)
 		{
 			bool retValue;
@@ -734,7 +588,6 @@ namespace OpenGL
 			Debug.Assert(Delegates.pwglSwapLayerBuffers != null, "pwglSwapLayerBuffers not implemented");
 			retValue = Delegates.pwglSwapLayerBuffers(hdc, fuFlags);
 			CallLog("wglSwapLayerBuffers({0}, {1}) = {2}", hdc, fuFlags, retValue);
-			DebugCheckErrors();
 
 			return (retValue);
 		}
@@ -754,6 +607,7 @@ namespace OpenGL
 		/// <param name="listBase">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
+		[RequiredByFeature("WGL_VERSION_1_0")]
 		public static bool UseFont(IntPtr hDC, Int32 first, Int32 count, Int32 listBase)
 		{
 			bool retValue;
@@ -761,7 +615,6 @@ namespace OpenGL
 			Debug.Assert(Delegates.pwglUseFontBitmaps != null, "pwglUseFontBitmaps not implemented");
 			retValue = Delegates.pwglUseFontBitmaps(hDC, first, count, listBase);
 			CallLog("wglUseFontBitmaps({0}, {1}, {2}, {3}) = {4}", hDC, first, count, listBase, retValue);
-			DebugCheckErrors();
 
 			return (retValue);
 		}
@@ -781,6 +634,7 @@ namespace OpenGL
 		/// <param name="listBase">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
+		[RequiredByFeature("WGL_VERSION_1_0")]
 		public static bool UseFontBitmapsA(IntPtr hDC, Int32 first, Int32 count, Int32 listBase)
 		{
 			bool retValue;
@@ -788,7 +642,6 @@ namespace OpenGL
 			Debug.Assert(Delegates.pwglUseFontBitmapsA != null, "pwglUseFontBitmapsA not implemented");
 			retValue = Delegates.pwglUseFontBitmapsA(hDC, first, count, listBase);
 			CallLog("wglUseFontBitmapsA({0}, {1}, {2}, {3}) = {4}", hDC, first, count, listBase, retValue);
-			DebugCheckErrors();
 
 			return (retValue);
 		}
@@ -808,6 +661,7 @@ namespace OpenGL
 		/// <param name="listBase">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
+		[RequiredByFeature("WGL_VERSION_1_0")]
 		public static bool UseFontBitmapsW(IntPtr hDC, Int32 first, Int32 count, Int32 listBase)
 		{
 			bool retValue;
@@ -815,7 +669,6 @@ namespace OpenGL
 			Debug.Assert(Delegates.pwglUseFontBitmapsW != null, "pwglUseFontBitmapsW not implemented");
 			retValue = Delegates.pwglUseFontBitmapsW(hDC, first, count, listBase);
 			CallLog("wglUseFontBitmapsW({0}, {1}, {2}, {3}) = {4}", hDC, first, count, listBase, retValue);
-			DebugCheckErrors();
 
 			return (retValue);
 		}
@@ -847,6 +700,7 @@ namespace OpenGL
 		/// <param name="lpgmf">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
+		[RequiredByFeature("WGL_VERSION_1_0")]
 		public static bool UseFont(IntPtr hDC, Int32 first, Int32 count, Int32 listBase, float deviation, float extrusion, int format, IntPtr lpgmf)
 		{
 			bool retValue;
@@ -854,7 +708,6 @@ namespace OpenGL
 			Debug.Assert(Delegates.pwglUseFontOutlines != null, "pwglUseFontOutlines not implemented");
 			retValue = Delegates.pwglUseFontOutlines(hDC, first, count, listBase, deviation, extrusion, format, lpgmf);
 			CallLog("wglUseFontOutlines({0}, {1}, {2}, {3}, {4}, {5}, {6}, {7}) = {8}", hDC, first, count, listBase, deviation, extrusion, format, lpgmf, retValue);
-			DebugCheckErrors();
 
 			return (retValue);
 		}
@@ -886,6 +739,7 @@ namespace OpenGL
 		/// <param name="lpgmf">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
+		[RequiredByFeature("WGL_VERSION_1_0")]
 		public static bool UseFontOutlinesA(IntPtr hDC, Int32 first, Int32 count, Int32 listBase, float deviation, float extrusion, int format, IntPtr lpgmf)
 		{
 			bool retValue;
@@ -893,7 +747,6 @@ namespace OpenGL
 			Debug.Assert(Delegates.pwglUseFontOutlinesA != null, "pwglUseFontOutlinesA not implemented");
 			retValue = Delegates.pwglUseFontOutlinesA(hDC, first, count, listBase, deviation, extrusion, format, lpgmf);
 			CallLog("wglUseFontOutlinesA({0}, {1}, {2}, {3}, {4}, {5}, {6}, {7}) = {8}", hDC, first, count, listBase, deviation, extrusion, format, lpgmf, retValue);
-			DebugCheckErrors();
 
 			return (retValue);
 		}
@@ -925,6 +778,7 @@ namespace OpenGL
 		/// <param name="lpgmf">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
+		[RequiredByFeature("WGL_VERSION_1_0")]
 		public static bool UseFontOutlinesW(IntPtr hDC, Int32 first, Int32 count, Int32 listBase, float deviation, float extrusion, int format, IntPtr lpgmf)
 		{
 			bool retValue;
@@ -932,7 +786,6 @@ namespace OpenGL
 			Debug.Assert(Delegates.pwglUseFontOutlinesW != null, "pwglUseFontOutlinesW not implemented");
 			retValue = Delegates.pwglUseFontOutlinesW(hDC, first, count, listBase, deviation, extrusion, format, lpgmf);
 			CallLog("wglUseFontOutlinesW({0}, {1}, {2}, {3}, {4}, {5}, {6}, {7}) = {8}", hDC, first, count, listBase, deviation, extrusion, format, lpgmf, retValue);
-			DebugCheckErrors();
 
 			return (retValue);
 		}

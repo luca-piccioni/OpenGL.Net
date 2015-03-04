@@ -28,7 +28,6 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_COVERAGE_BUFFER_BIT_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_coverage_sample")]
 		public const uint COVERAGE_BUFFER_BIT_NV = 0x00008000;
 
 		/// <summary>
@@ -40,43 +39,36 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_MAP_READ_BIT_EXT symbol.
 		/// </summary>
-		[RequiredByFeature("GL_EXT_map_buffer_range")]
 		public const int MAP_READ_BIT_EXT = 0x0001;
 
 		/// <summary>
 		/// Value of GL_MAP_WRITE_BIT_EXT symbol.
 		/// </summary>
-		[RequiredByFeature("GL_EXT_map_buffer_range")]
 		public const int MAP_WRITE_BIT_EXT = 0x0002;
 
 		/// <summary>
 		/// Value of GL_MAP_INVALIDATE_RANGE_BIT_EXT symbol.
 		/// </summary>
-		[RequiredByFeature("GL_EXT_map_buffer_range")]
 		public const int MAP_INVALIDATE_RANGE_BIT_EXT = 0x0004;
 
 		/// <summary>
 		/// Value of GL_MAP_INVALIDATE_BUFFER_BIT_EXT symbol.
 		/// </summary>
-		[RequiredByFeature("GL_EXT_map_buffer_range")]
 		public const int MAP_INVALIDATE_BUFFER_BIT_EXT = 0x0008;
 
 		/// <summary>
 		/// Value of GL_MAP_FLUSH_EXPLICIT_BIT_EXT symbol.
 		/// </summary>
-		[RequiredByFeature("GL_EXT_map_buffer_range")]
 		public const int MAP_FLUSH_EXPLICIT_BIT_EXT = 0x0010;
 
 		/// <summary>
 		/// Value of GL_MAP_UNSYNCHRONIZED_BIT_EXT symbol.
 		/// </summary>
-		[RequiredByFeature("GL_EXT_map_buffer_range")]
 		public const int MAP_UNSYNCHRONIZED_BIT_EXT = 0x0020;
 
 		/// <summary>
 		/// Value of GL_SYNC_FLUSH_COMMANDS_BIT_APPLE symbol.
 		/// </summary>
-		[RequiredByFeature("GL_APPLE_sync")]
 		public const uint SYNC_FLUSH_COMMANDS_BIT_APPLE = 0x00000001;
 
 		/// <summary>
@@ -94,37 +86,31 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_GEOMETRY_SHADER_BIT_EXT symbol.
 		/// </summary>
-		[RequiredByFeature("GL_EXT_geometry_shader")]
 		public const uint GEOMETRY_SHADER_BIT_EXT = 0x00000004;
 
 		/// <summary>
 		/// Value of GL_GEOMETRY_SHADER_BIT_OES symbol.
 		/// </summary>
-		[RequiredByFeature("GL_OES_geometry_shader")]
 		public const uint GEOMETRY_SHADER_BIT_OES = 0x00000004;
 
 		/// <summary>
 		/// Value of GL_TESS_CONTROL_SHADER_BIT_EXT symbol.
 		/// </summary>
-		[RequiredByFeature("GL_EXT_tessellation_shader")]
 		public const uint TESS_CONTROL_SHADER_BIT_EXT = 0x00000008;
 
 		/// <summary>
 		/// Value of GL_TESS_CONTROL_SHADER_BIT_OES symbol.
 		/// </summary>
-		[RequiredByFeature("GL_OES_tessellation_shader")]
 		public const uint TESS_CONTROL_SHADER_BIT_OES = 0x00000008;
 
 		/// <summary>
 		/// Value of GL_TESS_EVALUATION_SHADER_BIT_EXT symbol.
 		/// </summary>
-		[RequiredByFeature("GL_EXT_tessellation_shader")]
 		public const uint TESS_EVALUATION_SHADER_BIT_EXT = 0x00000010;
 
 		/// <summary>
 		/// Value of GL_TESS_EVALUATION_SHADER_BIT_OES symbol.
 		/// </summary>
-		[RequiredByFeature("GL_OES_tessellation_shader")]
 		public const uint TESS_EVALUATION_SHADER_BIT_OES = 0x00000010;
 
 		/// <summary>
@@ -171,271 +157,226 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_COLOR_BUFFER_BIT0_QCOM symbol.
 		/// </summary>
-		[RequiredByFeature("GL_QCOM_tiled_rendering")]
 		public const uint COLOR_BUFFER_BIT0_QCOM = 0x00000001;
 
 		/// <summary>
 		/// Value of GL_COLOR_BUFFER_BIT1_QCOM symbol.
 		/// </summary>
-		[RequiredByFeature("GL_QCOM_tiled_rendering")]
 		public const uint COLOR_BUFFER_BIT1_QCOM = 0x00000002;
 
 		/// <summary>
 		/// Value of GL_COLOR_BUFFER_BIT2_QCOM symbol.
 		/// </summary>
-		[RequiredByFeature("GL_QCOM_tiled_rendering")]
 		public const uint COLOR_BUFFER_BIT2_QCOM = 0x00000004;
 
 		/// <summary>
 		/// Value of GL_COLOR_BUFFER_BIT3_QCOM symbol.
 		/// </summary>
-		[RequiredByFeature("GL_QCOM_tiled_rendering")]
 		public const uint COLOR_BUFFER_BIT3_QCOM = 0x00000008;
 
 		/// <summary>
 		/// Value of GL_COLOR_BUFFER_BIT4_QCOM symbol.
 		/// </summary>
-		[RequiredByFeature("GL_QCOM_tiled_rendering")]
 		public const uint COLOR_BUFFER_BIT4_QCOM = 0x00000010;
 
 		/// <summary>
 		/// Value of GL_COLOR_BUFFER_BIT5_QCOM symbol.
 		/// </summary>
-		[RequiredByFeature("GL_QCOM_tiled_rendering")]
 		public const uint COLOR_BUFFER_BIT5_QCOM = 0x00000020;
 
 		/// <summary>
 		/// Value of GL_COLOR_BUFFER_BIT6_QCOM symbol.
 		/// </summary>
-		[RequiredByFeature("GL_QCOM_tiled_rendering")]
 		public const uint COLOR_BUFFER_BIT6_QCOM = 0x00000040;
 
 		/// <summary>
 		/// Value of GL_COLOR_BUFFER_BIT7_QCOM symbol.
 		/// </summary>
-		[RequiredByFeature("GL_QCOM_tiled_rendering")]
 		public const uint COLOR_BUFFER_BIT7_QCOM = 0x00000080;
 
 		/// <summary>
 		/// Value of GL_DEPTH_BUFFER_BIT0_QCOM symbol.
 		/// </summary>
-		[RequiredByFeature("GL_QCOM_tiled_rendering")]
 		public const uint DEPTH_BUFFER_BIT0_QCOM = 0x00000100;
 
 		/// <summary>
 		/// Value of GL_DEPTH_BUFFER_BIT1_QCOM symbol.
 		/// </summary>
-		[RequiredByFeature("GL_QCOM_tiled_rendering")]
 		public const uint DEPTH_BUFFER_BIT1_QCOM = 0x00000200;
 
 		/// <summary>
 		/// Value of GL_DEPTH_BUFFER_BIT2_QCOM symbol.
 		/// </summary>
-		[RequiredByFeature("GL_QCOM_tiled_rendering")]
 		public const uint DEPTH_BUFFER_BIT2_QCOM = 0x00000400;
 
 		/// <summary>
 		/// Value of GL_DEPTH_BUFFER_BIT3_QCOM symbol.
 		/// </summary>
-		[RequiredByFeature("GL_QCOM_tiled_rendering")]
 		public const uint DEPTH_BUFFER_BIT3_QCOM = 0x00000800;
 
 		/// <summary>
 		/// Value of GL_DEPTH_BUFFER_BIT4_QCOM symbol.
 		/// </summary>
-		[RequiredByFeature("GL_QCOM_tiled_rendering")]
 		public const uint DEPTH_BUFFER_BIT4_QCOM = 0x00001000;
 
 		/// <summary>
 		/// Value of GL_DEPTH_BUFFER_BIT5_QCOM symbol.
 		/// </summary>
-		[RequiredByFeature("GL_QCOM_tiled_rendering")]
 		public const uint DEPTH_BUFFER_BIT5_QCOM = 0x00002000;
 
 		/// <summary>
 		/// Value of GL_DEPTH_BUFFER_BIT6_QCOM symbol.
 		/// </summary>
-		[RequiredByFeature("GL_QCOM_tiled_rendering")]
 		public const uint DEPTH_BUFFER_BIT6_QCOM = 0x00004000;
 
 		/// <summary>
 		/// Value of GL_DEPTH_BUFFER_BIT7_QCOM symbol.
 		/// </summary>
-		[RequiredByFeature("GL_QCOM_tiled_rendering")]
 		public const uint DEPTH_BUFFER_BIT7_QCOM = 0x00008000;
 
 		/// <summary>
 		/// Value of GL_STENCIL_BUFFER_BIT0_QCOM symbol.
 		/// </summary>
-		[RequiredByFeature("GL_QCOM_tiled_rendering")]
 		public const uint STENCIL_BUFFER_BIT0_QCOM = 0x00010000;
 
 		/// <summary>
 		/// Value of GL_STENCIL_BUFFER_BIT1_QCOM symbol.
 		/// </summary>
-		[RequiredByFeature("GL_QCOM_tiled_rendering")]
 		public const uint STENCIL_BUFFER_BIT1_QCOM = 0x00020000;
 
 		/// <summary>
 		/// Value of GL_STENCIL_BUFFER_BIT2_QCOM symbol.
 		/// </summary>
-		[RequiredByFeature("GL_QCOM_tiled_rendering")]
 		public const uint STENCIL_BUFFER_BIT2_QCOM = 0x00040000;
 
 		/// <summary>
 		/// Value of GL_STENCIL_BUFFER_BIT3_QCOM symbol.
 		/// </summary>
-		[RequiredByFeature("GL_QCOM_tiled_rendering")]
 		public const uint STENCIL_BUFFER_BIT3_QCOM = 0x00080000;
 
 		/// <summary>
 		/// Value of GL_STENCIL_BUFFER_BIT4_QCOM symbol.
 		/// </summary>
-		[RequiredByFeature("GL_QCOM_tiled_rendering")]
 		public const uint STENCIL_BUFFER_BIT4_QCOM = 0x00100000;
 
 		/// <summary>
 		/// Value of GL_STENCIL_BUFFER_BIT5_QCOM symbol.
 		/// </summary>
-		[RequiredByFeature("GL_QCOM_tiled_rendering")]
 		public const uint STENCIL_BUFFER_BIT5_QCOM = 0x00200000;
 
 		/// <summary>
 		/// Value of GL_STENCIL_BUFFER_BIT6_QCOM symbol.
 		/// </summary>
-		[RequiredByFeature("GL_QCOM_tiled_rendering")]
 		public const uint STENCIL_BUFFER_BIT6_QCOM = 0x00400000;
 
 		/// <summary>
 		/// Value of GL_STENCIL_BUFFER_BIT7_QCOM symbol.
 		/// </summary>
-		[RequiredByFeature("GL_QCOM_tiled_rendering")]
 		public const uint STENCIL_BUFFER_BIT7_QCOM = 0x00800000;
 
 		/// <summary>
 		/// Value of GL_MULTISAMPLE_BUFFER_BIT0_QCOM symbol.
 		/// </summary>
-		[RequiredByFeature("GL_QCOM_tiled_rendering")]
 		public const uint MULTISAMPLE_BUFFER_BIT0_QCOM = 0x01000000;
 
 		/// <summary>
 		/// Value of GL_MULTISAMPLE_BUFFER_BIT1_QCOM symbol.
 		/// </summary>
-		[RequiredByFeature("GL_QCOM_tiled_rendering")]
 		public const uint MULTISAMPLE_BUFFER_BIT1_QCOM = 0x02000000;
 
 		/// <summary>
 		/// Value of GL_MULTISAMPLE_BUFFER_BIT2_QCOM symbol.
 		/// </summary>
-		[RequiredByFeature("GL_QCOM_tiled_rendering")]
 		public const uint MULTISAMPLE_BUFFER_BIT2_QCOM = 0x04000000;
 
 		/// <summary>
 		/// Value of GL_MULTISAMPLE_BUFFER_BIT3_QCOM symbol.
 		/// </summary>
-		[RequiredByFeature("GL_QCOM_tiled_rendering")]
 		public const uint MULTISAMPLE_BUFFER_BIT3_QCOM = 0x08000000;
 
 		/// <summary>
 		/// Value of GL_MULTISAMPLE_BUFFER_BIT4_QCOM symbol.
 		/// </summary>
-		[RequiredByFeature("GL_QCOM_tiled_rendering")]
 		public const uint MULTISAMPLE_BUFFER_BIT4_QCOM = 0x10000000;
 
 		/// <summary>
 		/// Value of GL_MULTISAMPLE_BUFFER_BIT5_QCOM symbol.
 		/// </summary>
-		[RequiredByFeature("GL_QCOM_tiled_rendering")]
 		public const uint MULTISAMPLE_BUFFER_BIT5_QCOM = 0x20000000;
 
 		/// <summary>
 		/// Value of GL_MULTISAMPLE_BUFFER_BIT6_QCOM symbol.
 		/// </summary>
-		[RequiredByFeature("GL_QCOM_tiled_rendering")]
 		public const uint MULTISAMPLE_BUFFER_BIT6_QCOM = 0x40000000;
 
 		/// <summary>
 		/// Value of GL_MULTISAMPLE_BUFFER_BIT7_QCOM symbol.
 		/// </summary>
-		[RequiredByFeature("GL_QCOM_tiled_rendering")]
 		public const uint MULTISAMPLE_BUFFER_BIT7_QCOM = 0x80000000;
 
 		/// <summary>
 		/// Value of GL_NONE_OES symbol.
 		/// </summary>
-		[RequiredByFeature("GL_OES_framebuffer_object")]
 		public const int NONE_OES = 0;
 
 		/// <summary>
 		/// Value of GL_TIMEOUT_IGNORED_APPLE symbol.
 		/// </summary>
-		[RequiredByFeature("GL_APPLE_sync")]
 		public const ulong TIMEOUT_IGNORED_APPLE = 0xFFFFFFFFFFFFF;
 
 		/// <summary>
 		/// Value of GL_VERSION_ES_CL_1_0 symbol.
 		/// </summary>
-		[RequiredByFeature("GL_VERSION_ES_CM_1_0")]
 		public const int VERSION_ES_CL_1_0 = 1;
 
 		/// <summary>
 		/// Value of GL_VERSION_ES_CM_1_1 symbol.
 		/// </summary>
-		[RequiredByFeature("GL_VERSION_ES_CM_1_0")]
 		public const int VERSION_ES_CM_1_1 = 1;
 
 		/// <summary>
 		/// Value of GL_VERSION_ES_CL_1_1 symbol.
 		/// </summary>
-		[RequiredByFeature("GL_VERSION_ES_CM_1_0")]
 		public const int VERSION_ES_CL_1_1 = 1;
 
 		/// <summary>
 		/// Value of GL_QUADS_EXT symbol.
 		/// </summary>
-		[RequiredByFeature("GL_EXT_tessellation_shader")]
 		public const int QUADS_EXT = 0x0007;
 
 		/// <summary>
 		/// Value of GL_QUADS_OES symbol.
 		/// </summary>
-		[RequiredByFeature("GL_OES_tessellation_shader")]
 		public const int QUADS_OES = 0x0007;
 
 		/// <summary>
 		/// Value of GL_LINES_ADJACENCY_OES symbol.
 		/// </summary>
-		[RequiredByFeature("GL_OES_geometry_shader")]
 		public const int LINES_ADJACENCY_OES = 0x000A;
 
 		/// <summary>
 		/// Value of GL_LINE_STRIP_ADJACENCY_OES symbol.
 		/// </summary>
-		[RequiredByFeature("GL_OES_geometry_shader")]
 		public const int LINE_STRIP_ADJACENCY_OES = 0x000B;
 
 		/// <summary>
 		/// Value of GL_TRIANGLES_ADJACENCY_OES symbol.
 		/// </summary>
-		[RequiredByFeature("GL_OES_geometry_shader")]
 		public const int TRIANGLES_ADJACENCY_OES = 0x000C;
 
 		/// <summary>
 		/// Value of GL_TRIANGLE_STRIP_ADJACENCY_OES symbol.
 		/// </summary>
-		[RequiredByFeature("GL_OES_geometry_shader")]
 		public const int TRIANGLE_STRIP_ADJACENCY_OES = 0x000D;
 
 		/// <summary>
 		/// Value of GL_PATCHES_EXT symbol.
 		/// </summary>
-		[RequiredByFeature("GL_EXT_tessellation_shader")]
 		public const int PATCHES_EXT = 0x000E;
 
 		/// <summary>
 		/// Value of GL_PATCHES_OES symbol.
 		/// </summary>
-		[RequiredByFeature("GL_OES_tessellation_shader")]
 		public const int PATCHES_OES = 0x000E;
 
 		/// <summary>
@@ -453,7 +394,6 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_INVALID_FRAMEBUFFER_OPERATION_OES symbol.
 		/// </summary>
-		[RequiredByFeature("GL_OES_framebuffer_object")]
 		public const int INVALID_FRAMEBUFFER_OPERATION_OES = 0x0506;
 
 		/// <summary>
@@ -465,85 +405,71 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_ALPHA_TEST_QCOM symbol.
 		/// </summary>
-		[RequiredByFeature("GL_QCOM_alpha_test")]
 		public const int ALPHA_TEST_QCOM = 0x0BC0;
 
 		/// <summary>
 		/// Value of GL_ALPHA_TEST_FUNC_QCOM symbol.
 		/// </summary>
-		[RequiredByFeature("GL_QCOM_alpha_test")]
 		public const int ALPHA_TEST_FUNC_QCOM = 0x0BC1;
 
 		/// <summary>
 		/// Value of GL_ALPHA_TEST_REF_QCOM symbol.
 		/// </summary>
-		[RequiredByFeature("GL_QCOM_alpha_test")]
 		public const int ALPHA_TEST_REF_QCOM = 0x0BC2;
 
 		/// <summary>
 		/// Value of GL_DRAW_BUFFER_EXT symbol.
 		/// </summary>
-		[RequiredByFeature("GL_EXT_multiview_draw_buffers")]
 		public const int DRAW_BUFFER_EXT = 0x0C01;
 
 		/// <summary>
 		/// Value of GL_READ_BUFFER_EXT symbol.
 		/// </summary>
-		[RequiredByFeature("GL_EXT_multiview_draw_buffers")]
 		public const int READ_BUFFER_EXT = 0x0C02;
 
 		/// <summary>
 		/// Value of GL_READ_BUFFER_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_read_buffer")]
 		public const int READ_BUFFER_NV = 0x0C02;
 
 		/// <summary>
 		/// Value of GL_UNPACK_ROW_LENGTH_EXT symbol.
 		/// </summary>
-		[RequiredByFeature("GL_EXT_unpack_subimage")]
 		public const int UNPACK_ROW_LENGTH_EXT = 0x0CF2;
 
 		/// <summary>
 		/// Value of GL_UNPACK_SKIP_ROWS_EXT symbol.
 		/// </summary>
-		[RequiredByFeature("GL_EXT_unpack_subimage")]
 		public const int UNPACK_SKIP_ROWS_EXT = 0x0CF3;
 
 		/// <summary>
 		/// Value of GL_UNPACK_SKIP_PIXELS_EXT symbol.
 		/// </summary>
-		[RequiredByFeature("GL_EXT_unpack_subimage")]
 		public const int UNPACK_SKIP_PIXELS_EXT = 0x0CF4;
 
 		/// <summary>
 		/// Value of GL_MAX_CLIP_PLANES_IMG symbol.
 		/// </summary>
-		[RequiredByFeature("GL_IMG_user_clip_plane")]
 		public const int MAX_CLIP_PLANES_IMG = 0x0D32;
 
 		/// <summary>
 		/// Value of GL_MAX_CLIP_DISTANCES_APPLE symbol.
 		/// </summary>
-		[RequiredByFeature("GL_APPLE_clip_distance")]
 		public const int MAX_CLIP_DISTANCES_APPLE = 0x0D32;
 
 		/// <summary>
 		/// Value of GL_TEXTURE_BORDER_COLOR_EXT symbol.
 		/// </summary>
-		[RequiredByFeature("GL_EXT_texture_border_clamp")]
 		public const int TEXTURE_BORDER_COLOR_EXT = 0x1004;
 
 		/// <summary>
 		/// Value of GL_TEXTURE_BORDER_COLOR_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_texture_border_clamp")]
 		public const int TEXTURE_BORDER_COLOR_NV = 0x1004;
 
 		/// <summary>
 		/// Value of GL_TEXTURE_BORDER_COLOR_OES symbol.
 		/// </summary>
-		[RequiredByFeature("GL_OES_texture_border_clamp")]
 		public const int TEXTURE_BORDER_COLOR_OES = 0x1004;
 
 		/// <summary>
@@ -554,203 +480,166 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_COLOR_EXT symbol.
 		/// </summary>
-		[RequiredByFeature("GL_EXT_discard_framebuffer")]
 		public const int COLOR_EXT = 0x1800;
 
 		/// <summary>
 		/// Value of GL_DEPTH_EXT symbol.
 		/// </summary>
-		[RequiredByFeature("GL_EXT_discard_framebuffer")]
 		public const int DEPTH_EXT = 0x1801;
 
 		/// <summary>
 		/// Value of GL_STENCIL_EXT symbol.
 		/// </summary>
-		[RequiredByFeature("GL_EXT_discard_framebuffer")]
 		public const int STENCIL_EXT = 0x1802;
 
 		/// <summary>
 		/// Value of GL_STENCIL_INDEX_OES symbol.
 		/// </summary>
-		[RequiredByFeature("GL_OES_texture_stencil8")]
 		public const int STENCIL_INDEX_OES = 0x1901;
 
 		/// <summary>
 		/// Value of GL_RED_EXT symbol.
 		/// </summary>
-		[RequiredByFeature("GL_EXT_texture_rg")]
 		public const int RED_EXT = 0x1903;
 
 		/// <summary>
 		/// Value of GL_TEXTURE_GEN_MODE_OES symbol.
 		/// </summary>
-		[RequiredByFeature("GL_OES_texture_cube_map")]
 		public const int TEXTURE_GEN_MODE_OES = 0x2500;
 
 		/// <summary>
 		/// Value of GL_CLIP_PLANE0_IMG symbol.
 		/// </summary>
-		[RequiredByFeature("GL_IMG_user_clip_plane")]
 		public const int CLIP_PLANE0_IMG = 0x3000;
 
 		/// <summary>
 		/// Value of GL_CLIP_DISTANCE0_APPLE symbol.
 		/// </summary>
-		[RequiredByFeature("GL_APPLE_clip_distance")]
 		public const int CLIP_DISTANCE0_APPLE = 0x3000;
 
 		/// <summary>
 		/// Value of GL_CLIP_PLANE1_IMG symbol.
 		/// </summary>
-		[RequiredByFeature("GL_IMG_user_clip_plane")]
 		public const int CLIP_PLANE1_IMG = 0x3001;
 
 		/// <summary>
 		/// Value of GL_CLIP_DISTANCE1_APPLE symbol.
 		/// </summary>
-		[RequiredByFeature("GL_APPLE_clip_distance")]
 		public const int CLIP_DISTANCE1_APPLE = 0x3001;
 
 		/// <summary>
 		/// Value of GL_CLIP_PLANE2_IMG symbol.
 		/// </summary>
-		[RequiredByFeature("GL_IMG_user_clip_plane")]
 		public const int CLIP_PLANE2_IMG = 0x3002;
 
 		/// <summary>
 		/// Value of GL_CLIP_DISTANCE2_APPLE symbol.
 		/// </summary>
-		[RequiredByFeature("GL_APPLE_clip_distance")]
 		public const int CLIP_DISTANCE2_APPLE = 0x3002;
 
 		/// <summary>
 		/// Value of GL_CLIP_PLANE3_IMG symbol.
 		/// </summary>
-		[RequiredByFeature("GL_IMG_user_clip_plane")]
 		public const int CLIP_PLANE3_IMG = 0x3003;
 
 		/// <summary>
 		/// Value of GL_CLIP_DISTANCE3_APPLE symbol.
 		/// </summary>
-		[RequiredByFeature("GL_APPLE_clip_distance")]
 		public const int CLIP_DISTANCE3_APPLE = 0x3003;
 
 		/// <summary>
 		/// Value of GL_CLIP_PLANE4_IMG symbol.
 		/// </summary>
-		[RequiredByFeature("GL_IMG_user_clip_plane")]
 		public const int CLIP_PLANE4_IMG = 0x3004;
 
 		/// <summary>
 		/// Value of GL_CLIP_DISTANCE4_APPLE symbol.
 		/// </summary>
-		[RequiredByFeature("GL_APPLE_clip_distance")]
 		public const int CLIP_DISTANCE4_APPLE = 0x3004;
 
 		/// <summary>
 		/// Value of GL_CLIP_PLANE5_IMG symbol.
 		/// </summary>
-		[RequiredByFeature("GL_IMG_user_clip_plane")]
 		public const int CLIP_PLANE5_IMG = 0x3005;
 
 		/// <summary>
 		/// Value of GL_CLIP_DISTANCE5_APPLE symbol.
 		/// </summary>
-		[RequiredByFeature("GL_APPLE_clip_distance")]
 		public const int CLIP_DISTANCE5_APPLE = 0x3005;
 
 		/// <summary>
 		/// Value of GL_CLIP_DISTANCE6_APPLE symbol.
 		/// </summary>
-		[RequiredByFeature("GL_APPLE_clip_distance")]
 		public const int CLIP_DISTANCE6_APPLE = 0x3006;
 
 		/// <summary>
 		/// Value of GL_CLIP_DISTANCE7_APPLE symbol.
 		/// </summary>
-		[RequiredByFeature("GL_APPLE_clip_distance")]
 		public const int CLIP_DISTANCE7_APPLE = 0x3007;
 
 		/// <summary>
 		/// Value of GL_FUNC_ADD_OES symbol.
 		/// </summary>
-		[RequiredByFeature("GL_OES_blend_subtract")]
 		public const int FUNC_ADD_OES = 0x8006;
 
 		/// <summary>
 		/// Value of GL_BLEND_EQUATION_OES symbol.
 		/// </summary>
-		[RequiredByFeature("GL_OES_blend_subtract")]
 		public const int BLEND_EQUATION_OES = 0x8009;
 
 		/// <summary>
 		/// Value of GL_BLEND_EQUATION_RGB_OES symbol.
 		/// </summary>
-		[RequiredByFeature("GL_OES_blend_equation_separate")]
 		public const int BLEND_EQUATION_RGB_OES = 0x8009;
 
 		/// <summary>
 		/// Value of GL_FUNC_SUBTRACT_OES symbol.
 		/// </summary>
-		[RequiredByFeature("GL_OES_blend_subtract")]
 		public const int FUNC_SUBTRACT_OES = 0x800A;
 
 		/// <summary>
 		/// Value of GL_FUNC_REVERSE_SUBTRACT_OES symbol.
 		/// </summary>
-		[RequiredByFeature("GL_OES_blend_subtract")]
 		public const int FUNC_REVERSE_SUBTRACT_OES = 0x800B;
 
 		/// <summary>
 		/// Value of GL_ALPHA8_OES symbol.
 		/// </summary>
-		[RequiredByFeature("GL_OES_required_internalformat")]
 		public const int ALPHA8_OES = 0x803C;
 
 		/// <summary>
 		/// Value of GL_LUMINANCE8_OES symbol.
 		/// </summary>
-		[RequiredByFeature("GL_OES_required_internalformat")]
 		public const int LUMINANCE8_OES = 0x8040;
 
 		/// <summary>
 		/// Value of GL_LUMINANCE4_ALPHA4_OES symbol.
 		/// </summary>
-		[RequiredByFeature("GL_OES_required_internalformat")]
 		public const int LUMINANCE4_ALPHA4_OES = 0x8043;
 
 		/// <summary>
 		/// Value of GL_LUMINANCE8_ALPHA8_OES symbol.
 		/// </summary>
-		[RequiredByFeature("GL_OES_required_internalformat")]
 		public const int LUMINANCE8_ALPHA8_OES = 0x8045;
 
 		/// <summary>
 		/// Value of GL_RGB8_OES symbol.
 		/// </summary>
-		[RequiredByFeature("GL_OES_required_internalformat")]
-		[RequiredByFeature("GL_OES_rgb8_rgba8")]
 		public const int RGB8_OES = 0x8051;
 
 		/// <summary>
 		/// Value of GL_RGBA4_OES symbol.
 		/// </summary>
-		[RequiredByFeature("GL_OES_framebuffer_object")]
-		[RequiredByFeature("GL_OES_required_internalformat")]
 		public const int RGBA4_OES = 0x8056;
 
 		/// <summary>
 		/// Value of GL_RGB5_A1_OES symbol.
 		/// </summary>
-		[RequiredByFeature("GL_OES_framebuffer_object")]
-		[RequiredByFeature("GL_OES_required_internalformat")]
 		public const int RGB5_A1_OES = 0x8057;
 
 		/// <summary>
 		/// Value of GL_RGBA8_OES symbol.
 		/// </summary>
-		[RequiredByFeature("GL_OES_required_internalformat")]
-		[RequiredByFeature("GL_OES_rgb8_rgba8")]
 		public const int RGBA8_OES = 0x8058;
 
 		/// <summary>
@@ -761,25 +650,21 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_TEXTURE_BINDING_3D_OES symbol.
 		/// </summary>
-		[RequiredByFeature("GL_OES_texture_3D")]
 		public const int TEXTURE_BINDING_3D_OES = 0x806A;
 
 		/// <summary>
 		/// Value of GL_TEXTURE_3D_OES symbol.
 		/// </summary>
-		[RequiredByFeature("GL_OES_texture_3D")]
 		public const int TEXTURE_3D_OES = 0x806F;
 
 		/// <summary>
 		/// Value of GL_TEXTURE_WRAP_R_OES symbol.
 		/// </summary>
-		[RequiredByFeature("GL_OES_texture_3D")]
 		public const int TEXTURE_WRAP_R_OES = 0x8072;
 
 		/// <summary>
 		/// Value of GL_MAX_3D_TEXTURE_SIZE_OES symbol.
 		/// </summary>
-		[RequiredByFeature("GL_OES_texture_3D")]
 		public const int MAX_3D_TEXTURE_SIZE_OES = 0x8073;
 
 		/// <summary>
@@ -791,55 +676,46 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_BLEND_DST_RGB_OES symbol.
 		/// </summary>
-		[RequiredByFeature("GL_OES_blend_func_separate")]
 		public const int BLEND_DST_RGB_OES = 0x80C8;
 
 		/// <summary>
 		/// Value of GL_BLEND_SRC_RGB_OES symbol.
 		/// </summary>
-		[RequiredByFeature("GL_OES_blend_func_separate")]
 		public const int BLEND_SRC_RGB_OES = 0x80C9;
 
 		/// <summary>
 		/// Value of GL_BLEND_DST_ALPHA_OES symbol.
 		/// </summary>
-		[RequiredByFeature("GL_OES_blend_func_separate")]
 		public const int BLEND_DST_ALPHA_OES = 0x80CA;
 
 		/// <summary>
 		/// Value of GL_BLEND_SRC_ALPHA_OES symbol.
 		/// </summary>
-		[RequiredByFeature("GL_OES_blend_func_separate")]
 		public const int BLEND_SRC_ALPHA_OES = 0x80CB;
 
 		/// <summary>
 		/// Value of GL_BGRA_IMG symbol.
 		/// </summary>
-		[RequiredByFeature("GL_IMG_read_format")]
 		public const int BGRA_IMG = 0x80E1;
 
 		/// <summary>
 		/// Value of GL_CLAMP_TO_BORDER_EXT symbol.
 		/// </summary>
-		[RequiredByFeature("GL_EXT_texture_border_clamp")]
 		public const int CLAMP_TO_BORDER_EXT = 0x812D;
 
 		/// <summary>
 		/// Value of GL_CLAMP_TO_BORDER_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_texture_border_clamp")]
 		public const int CLAMP_TO_BORDER_NV = 0x812D;
 
 		/// <summary>
 		/// Value of GL_CLAMP_TO_BORDER_OES symbol.
 		/// </summary>
-		[RequiredByFeature("GL_OES_texture_border_clamp")]
 		public const int CLAMP_TO_BORDER_OES = 0x812D;
 
 		/// <summary>
 		/// Value of GL_TEXTURE_MAX_LEVEL_APPLE symbol.
 		/// </summary>
-		[RequiredByFeature("GL_APPLE_texture_max_level")]
 		public const int TEXTURE_MAX_LEVEL_APPLE = 0x813D;
 
 		/// <summary>
@@ -880,105 +756,81 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_DEPTH_COMPONENT16_OES symbol.
 		/// </summary>
-		[RequiredByFeature("GL_OES_framebuffer_object")]
-		[RequiredByFeature("GL_OES_required_internalformat")]
 		public const int DEPTH_COMPONENT16_OES = 0x81A5;
 
 		/// <summary>
 		/// Value of GL_DEPTH_COMPONENT24_OES symbol.
 		/// </summary>
-		[RequiredByFeature("GL_OES_depth24")]
-		[RequiredByFeature("GL_OES_required_internalformat")]
 		public const int DEPTH_COMPONENT24_OES = 0x81A6;
 
 		/// <summary>
 		/// Value of GL_DEPTH_COMPONENT32_OES symbol.
 		/// </summary>
-		[RequiredByFeature("GL_ANGLE_depth_texture")]
-		[RequiredByFeature("GL_OES_depth32")]
-		[RequiredByFeature("GL_OES_required_internalformat")]
 		public const int DEPTH_COMPONENT32_OES = 0x81A7;
 
 		/// <summary>
 		/// Value of GL_FRAMEBUFFER_ATTACHMENT_COLOR_ENCODING_EXT symbol.
 		/// </summary>
-		[RequiredByFeature("GL_EXT_sRGB")]
 		public const int FRAMEBUFFER_ATTACHMENT_COLOR_ENCODING_EXT = 0x8210;
 
 		/// <summary>
 		/// Value of GL_FRAMEBUFFER_ATTACHMENT_COMPONENT_TYPE_EXT symbol.
 		/// </summary>
-		[RequiredByFeature("GL_EXT_color_buffer_half_float")]
 		public const int FRAMEBUFFER_ATTACHMENT_COMPONENT_TYPE_EXT = 0x8211;
 
 		/// <summary>
 		/// Value of GL_FRAMEBUFFER_UNDEFINED_OES symbol.
 		/// </summary>
-		[RequiredByFeature("GL_OES_surfaceless_context")]
 		public const int FRAMEBUFFER_UNDEFINED_OES = 0x8219;
 
 		/// <summary>
 		/// Value of GL_PRIMITIVE_RESTART_FOR_PATCHES_SUPPORTED_OES symbol.
 		/// </summary>
-		[RequiredByFeature("GL_OES_tessellation_shader")]
 		public const int PRIMITIVE_RESTART_FOR_PATCHES_SUPPORTED_OES = 0x8221;
 
 		/// <summary>
 		/// Value of GL_RG_EXT symbol.
 		/// </summary>
-		[RequiredByFeature("GL_EXT_texture_rg")]
 		public const int RG_EXT = 0x8227;
 
 		/// <summary>
 		/// Value of GL_R8_EXT symbol.
 		/// </summary>
-		[RequiredByFeature("GL_EXT_texture_rg")]
-		[RequiredByFeature("GL_EXT_texture_storage")]
 		public const int R8_EXT = 0x8229;
 
 		/// <summary>
 		/// Value of GL_R16_EXT symbol.
 		/// </summary>
-		[RequiredByFeature("GL_EXT_texture_norm16")]
 		public const int R16_EXT = 0x822A;
 
 		/// <summary>
 		/// Value of GL_RG8_EXT symbol.
 		/// </summary>
-		[RequiredByFeature("GL_EXT_texture_rg")]
-		[RequiredByFeature("GL_EXT_texture_storage")]
 		public const int RG8_EXT = 0x822B;
 
 		/// <summary>
 		/// Value of GL_RG16_EXT symbol.
 		/// </summary>
-		[RequiredByFeature("GL_EXT_texture_norm16")]
 		public const int RG16_EXT = 0x822C;
 
 		/// <summary>
 		/// Value of GL_R16F_EXT symbol.
 		/// </summary>
-		[RequiredByFeature("GL_EXT_color_buffer_half_float")]
-		[RequiredByFeature("GL_EXT_texture_storage")]
 		public const int R16F_EXT = 0x822D;
 
 		/// <summary>
 		/// Value of GL_R32F_EXT symbol.
 		/// </summary>
-		[RequiredByFeature("GL_EXT_texture_storage")]
 		public const int R32F_EXT = 0x822E;
 
 		/// <summary>
 		/// Value of GL_RG16F_EXT symbol.
 		/// </summary>
-		[RequiredByFeature("GL_EXT_color_buffer_half_float")]
-		[RequiredByFeature("GL_EXT_texture_storage")]
 		public const int RG16F_EXT = 0x822F;
 
 		/// <summary>
 		/// Value of GL_RG32F_EXT symbol.
 		/// </summary>
-		[RequiredByFeature("GL_EXT_texture_storage")]
 		public const int RG32F_EXT = 0x8230;
 
 		/// <summary>
@@ -1080,7 +932,6 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_LOSE_CONTEXT_ON_RESET_EXT symbol.
 		/// </summary>
-		[RequiredByFeature("GL_EXT_robustness")]
 		public const int LOSE_CONTEXT_ON_RESET_EXT = 0x8252;
 
 		/// <summary>
@@ -1092,7 +943,6 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_GUILTY_CONTEXT_RESET_EXT symbol.
 		/// </summary>
-		[RequiredByFeature("GL_EXT_robustness")]
 		public const int GUILTY_CONTEXT_RESET_EXT = 0x8253;
 
 		/// <summary>
@@ -1104,7 +954,6 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_INNOCENT_CONTEXT_RESET_EXT symbol.
 		/// </summary>
-		[RequiredByFeature("GL_EXT_robustness")]
 		public const int INNOCENT_CONTEXT_RESET_EXT = 0x8254;
 
 		/// <summary>
@@ -1116,7 +965,6 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_UNKNOWN_CONTEXT_RESET_EXT symbol.
 		/// </summary>
-		[RequiredByFeature("GL_EXT_robustness")]
 		public const int UNKNOWN_CONTEXT_RESET_EXT = 0x8255;
 
 		/// <summary>
@@ -1128,7 +976,6 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_RESET_NOTIFICATION_STRATEGY_EXT symbol.
 		/// </summary>
-		[RequiredByFeature("GL_EXT_robustness")]
 		public const int RESET_NOTIFICATION_STRATEGY_EXT = 0x8256;
 
 		/// <summary>
@@ -1152,7 +999,6 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_MAX_VIEWPORTS_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_viewport_array")]
 		public const int MAX_VIEWPORTS_NV = 0x825B;
 
 		/// <summary>
@@ -1163,7 +1009,6 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_VIEWPORT_SUBPIXEL_BITS_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_viewport_array")]
 		public const int VIEWPORT_SUBPIXEL_BITS_NV = 0x825C;
 
 		/// <summary>
@@ -1174,19 +1019,16 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_VIEWPORT_BOUNDS_RANGE_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_viewport_array")]
 		public const int VIEWPORT_BOUNDS_RANGE_NV = 0x825D;
 
 		/// <summary>
 		/// Value of GL_LAYER_PROVOKING_VERTEX_EXT symbol.
 		/// </summary>
-		[RequiredByFeature("GL_EXT_geometry_shader")]
 		public const int LAYER_PROVOKING_VERTEX_EXT = 0x825E;
 
 		/// <summary>
 		/// Value of GL_LAYER_PROVOKING_VERTEX_OES symbol.
 		/// </summary>
-		[RequiredByFeature("GL_OES_geometry_shader")]
 		public const int LAYER_PROVOKING_VERTEX_OES = 0x825E;
 
 		/// <summary>
@@ -1197,25 +1039,21 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_VIEWPORT_INDEX_PROVOKING_VERTEX_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_viewport_array")]
 		public const int VIEWPORT_INDEX_PROVOKING_VERTEX_NV = 0x825F;
 
 		/// <summary>
 		/// Value of GL_UNDEFINED_VERTEX_EXT symbol.
 		/// </summary>
-		[RequiredByFeature("GL_EXT_geometry_shader")]
 		public const int UNDEFINED_VERTEX_EXT = 0x8260;
 
 		/// <summary>
 		/// Value of GL_UNDEFINED_VERTEX_OES symbol.
 		/// </summary>
-		[RequiredByFeature("GL_OES_geometry_shader")]
 		public const int UNDEFINED_VERTEX_OES = 0x8260;
 
 		/// <summary>
 		/// Value of GL_NO_RESET_NOTIFICATION_EXT symbol.
 		/// </summary>
-		[RequiredByFeature("GL_EXT_robustness")]
 		public const int NO_RESET_NOTIFICATION_EXT = 0x8261;
 
 		/// <summary>
@@ -1263,49 +1101,41 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_TEXTURE_VIEW_MIN_LEVEL_EXT symbol.
 		/// </summary>
-		[RequiredByFeature("GL_EXT_texture_view")]
 		public const int TEXTURE_VIEW_MIN_LEVEL_EXT = 0x82DB;
 
 		/// <summary>
 		/// Value of GL_TEXTURE_VIEW_MIN_LEVEL_OES symbol.
 		/// </summary>
-		[RequiredByFeature("GL_OES_texture_view")]
 		public const int TEXTURE_VIEW_MIN_LEVEL_OES = 0x82DB;
 
 		/// <summary>
 		/// Value of GL_TEXTURE_VIEW_NUM_LEVELS_EXT symbol.
 		/// </summary>
-		[RequiredByFeature("GL_EXT_texture_view")]
 		public const int TEXTURE_VIEW_NUM_LEVELS_EXT = 0x82DC;
 
 		/// <summary>
 		/// Value of GL_TEXTURE_VIEW_NUM_LEVELS_OES symbol.
 		/// </summary>
-		[RequiredByFeature("GL_OES_texture_view")]
 		public const int TEXTURE_VIEW_NUM_LEVELS_OES = 0x82DC;
 
 		/// <summary>
 		/// Value of GL_TEXTURE_VIEW_MIN_LAYER_EXT symbol.
 		/// </summary>
-		[RequiredByFeature("GL_EXT_texture_view")]
 		public const int TEXTURE_VIEW_MIN_LAYER_EXT = 0x82DD;
 
 		/// <summary>
 		/// Value of GL_TEXTURE_VIEW_MIN_LAYER_OES symbol.
 		/// </summary>
-		[RequiredByFeature("GL_OES_texture_view")]
 		public const int TEXTURE_VIEW_MIN_LAYER_OES = 0x82DD;
 
 		/// <summary>
 		/// Value of GL_TEXTURE_VIEW_NUM_LAYERS_EXT symbol.
 		/// </summary>
-		[RequiredByFeature("GL_EXT_texture_view")]
 		public const int TEXTURE_VIEW_NUM_LAYERS_EXT = 0x82DE;
 
 		/// <summary>
 		/// Value of GL_TEXTURE_VIEW_NUM_LAYERS_OES symbol.
 		/// </summary>
-		[RequiredByFeature("GL_OES_texture_view")]
 		public const int TEXTURE_VIEW_NUM_LAYERS_OES = 0x82DE;
 
 		/// <summary>
@@ -1439,19 +1269,16 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_UNSIGNED_SHORT_4_4_4_4_REV_EXT symbol.
 		/// </summary>
-		[RequiredByFeature("GL_EXT_read_format_bgra")]
 		public const int UNSIGNED_SHORT_4_4_4_4_REV_EXT = 0x8365;
 
 		/// <summary>
 		/// Value of GL_UNSIGNED_SHORT_4_4_4_4_REV_IMG symbol.
 		/// </summary>
-		[RequiredByFeature("GL_IMG_read_format")]
 		public const int UNSIGNED_SHORT_4_4_4_4_REV_IMG = 0x8365;
 
 		/// <summary>
 		/// Value of GL_UNSIGNED_SHORT_1_5_5_5_REV_EXT symbol.
 		/// </summary>
-		[RequiredByFeature("GL_EXT_read_format_bgra")]
 		public const int UNSIGNED_SHORT_1_5_5_5_REV_EXT = 0x8366;
 
 		/// <summary>
@@ -1462,183 +1289,151 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_UNSIGNED_INT_2_10_10_10_REV_EXT symbol.
 		/// </summary>
-		[RequiredByFeature("GL_EXT_texture_type_2_10_10_10_REV")]
 		public const int UNSIGNED_INT_2_10_10_10_REV_EXT = 0x8368;
 
 		/// <summary>
 		/// Value of GL_MIRRORED_REPEAT_OES symbol.
 		/// </summary>
-		[RequiredByFeature("GL_OES_texture_mirrored_repeat")]
 		public const int MIRRORED_REPEAT_OES = 0x8370;
 
 		/// <summary>
 		/// Value of GL_COMPRESSED_RGBA_S3TC_DXT3_ANGLE symbol.
 		/// </summary>
-		[RequiredByFeature("GL_ANGLE_texture_compression_dxt3")]
 		public const int COMPRESSED_RGBA_S3TC_DXT3_ANGLE = 0x83F2;
 
 		/// <summary>
 		/// Value of GL_COMPRESSED_RGBA_S3TC_DXT5_ANGLE symbol.
 		/// </summary>
-		[RequiredByFeature("GL_ANGLE_texture_compression_dxt5")]
 		public const int COMPRESSED_RGBA_S3TC_DXT5_ANGLE = 0x83F3;
 
 		/// <summary>
 		/// Value of GL_MAX_RENDERBUFFER_SIZE_OES symbol.
 		/// </summary>
-		[RequiredByFeature("GL_OES_framebuffer_object")]
 		public const int MAX_RENDERBUFFER_SIZE_OES = 0x84E8;
 
 		/// <summary>
 		/// Value of GL_DEPTH_STENCIL_OES symbol.
 		/// </summary>
-		[RequiredByFeature("GL_ANGLE_depth_texture")]
-		[RequiredByFeature("GL_OES_packed_depth_stencil")]
 		public const int DEPTH_STENCIL_OES = 0x84F9;
 
 		/// <summary>
 		/// Value of GL_UNSIGNED_INT_24_8_OES symbol.
 		/// </summary>
-		[RequiredByFeature("GL_ANGLE_depth_texture")]
-		[RequiredByFeature("GL_OES_packed_depth_stencil")]
 		public const int UNSIGNED_INT_24_8_OES = 0x84FA;
 
 		/// <summary>
 		/// Value of GL_INCR_WRAP_OES symbol.
 		/// </summary>
-		[RequiredByFeature("GL_OES_stencil_wrap")]
 		public const int INCR_WRAP_OES = 0x8507;
 
 		/// <summary>
 		/// Value of GL_DECR_WRAP_OES symbol.
 		/// </summary>
-		[RequiredByFeature("GL_OES_stencil_wrap")]
 		public const int DECR_WRAP_OES = 0x8508;
 
 		/// <summary>
 		/// Value of GL_NORMAL_MAP_OES symbol.
 		/// </summary>
-		[RequiredByFeature("GL_OES_texture_cube_map")]
 		public const int NORMAL_MAP_OES = 0x8511;
 
 		/// <summary>
 		/// Value of GL_REFLECTION_MAP_OES symbol.
 		/// </summary>
-		[RequiredByFeature("GL_OES_texture_cube_map")]
 		public const int REFLECTION_MAP_OES = 0x8512;
 
 		/// <summary>
 		/// Value of GL_TEXTURE_CUBE_MAP_OES symbol.
 		/// </summary>
-		[RequiredByFeature("GL_OES_texture_cube_map")]
 		public const int TEXTURE_CUBE_MAP_OES = 0x8513;
 
 		/// <summary>
 		/// Value of GL_TEXTURE_BINDING_CUBE_MAP_OES symbol.
 		/// </summary>
-		[RequiredByFeature("GL_OES_texture_cube_map")]
 		public const int TEXTURE_BINDING_CUBE_MAP_OES = 0x8514;
 
 		/// <summary>
 		/// Value of GL_TEXTURE_CUBE_MAP_POSITIVE_X_OES symbol.
 		/// </summary>
-		[RequiredByFeature("GL_OES_texture_cube_map")]
 		public const int TEXTURE_CUBE_MAP_POSITIVE_X_OES = 0x8515;
 
 		/// <summary>
 		/// Value of GL_TEXTURE_CUBE_MAP_NEGATIVE_X_OES symbol.
 		/// </summary>
-		[RequiredByFeature("GL_OES_texture_cube_map")]
 		public const int TEXTURE_CUBE_MAP_NEGATIVE_X_OES = 0x8516;
 
 		/// <summary>
 		/// Value of GL_TEXTURE_CUBE_MAP_POSITIVE_Y_OES symbol.
 		/// </summary>
-		[RequiredByFeature("GL_OES_texture_cube_map")]
 		public const int TEXTURE_CUBE_MAP_POSITIVE_Y_OES = 0x8517;
 
 		/// <summary>
 		/// Value of GL_TEXTURE_CUBE_MAP_NEGATIVE_Y_OES symbol.
 		/// </summary>
-		[RequiredByFeature("GL_OES_texture_cube_map")]
 		public const int TEXTURE_CUBE_MAP_NEGATIVE_Y_OES = 0x8518;
 
 		/// <summary>
 		/// Value of GL_TEXTURE_CUBE_MAP_POSITIVE_Z_OES symbol.
 		/// </summary>
-		[RequiredByFeature("GL_OES_texture_cube_map")]
 		public const int TEXTURE_CUBE_MAP_POSITIVE_Z_OES = 0x8519;
 
 		/// <summary>
 		/// Value of GL_TEXTURE_CUBE_MAP_NEGATIVE_Z_OES symbol.
 		/// </summary>
-		[RequiredByFeature("GL_OES_texture_cube_map")]
 		public const int TEXTURE_CUBE_MAP_NEGATIVE_Z_OES = 0x851A;
 
 		/// <summary>
 		/// Value of GL_MAX_CUBE_MAP_TEXTURE_SIZE_OES symbol.
 		/// </summary>
-		[RequiredByFeature("GL_OES_texture_cube_map")]
 		public const int MAX_CUBE_MAP_TEXTURE_SIZE_OES = 0x851C;
 
 		/// <summary>
 		/// Value of GL_VERTEX_ARRAY_BINDING_OES symbol.
 		/// </summary>
-		[RequiredByFeature("GL_OES_vertex_array_object")]
 		public const int VERTEX_ARRAY_BINDING_OES = 0x85B5;
 
 		/// <summary>
 		/// Value of GL_MAX_VERTEX_UNITS_OES symbol.
 		/// </summary>
-		[RequiredByFeature("GL_OES_matrix_palette")]
 		public const int MAX_VERTEX_UNITS_OES = 0x86A4;
 
 		/// <summary>
 		/// Value of GL_WEIGHT_ARRAY_TYPE_OES symbol.
 		/// </summary>
-		[RequiredByFeature("GL_OES_matrix_palette")]
 		public const int WEIGHT_ARRAY_TYPE_OES = 0x86A9;
 
 		/// <summary>
 		/// Value of GL_WEIGHT_ARRAY_STRIDE_OES symbol.
 		/// </summary>
-		[RequiredByFeature("GL_OES_matrix_palette")]
 		public const int WEIGHT_ARRAY_STRIDE_OES = 0x86AA;
 
 		/// <summary>
 		/// Value of GL_WEIGHT_ARRAY_SIZE_OES symbol.
 		/// </summary>
-		[RequiredByFeature("GL_OES_matrix_palette")]
 		public const int WEIGHT_ARRAY_SIZE_OES = 0x86AB;
 
 		/// <summary>
 		/// Value of GL_WEIGHT_ARRAY_POINTER_OES symbol.
 		/// </summary>
-		[RequiredByFeature("GL_OES_matrix_palette")]
 		public const int WEIGHT_ARRAY_POINTER_OES = 0x86AC;
 
 		/// <summary>
 		/// Value of GL_WEIGHT_ARRAY_OES symbol.
 		/// </summary>
-		[RequiredByFeature("GL_OES_matrix_palette")]
 		public const int WEIGHT_ARRAY_OES = 0x86AD;
 
 		/// <summary>
 		/// Value of GL_DOT3_RGBA_IMG symbol.
 		/// </summary>
-		[RequiredByFeature("GL_IMG_texture_env_enhanced_fixed_function")]
 		public const int DOT3_RGBA_IMG = 0x86AF;
 
 		/// <summary>
 		/// Value of GL_Z400_BINARY_AMD symbol.
 		/// </summary>
-		[RequiredByFeature("GL_AMD_program_binary_Z400")]
 		public const int Z400_BINARY_AMD = 0x8740;
 
 		/// <summary>
 		/// Value of GL_PROGRAM_BINARY_LENGTH_OES symbol.
 		/// </summary>
-		[RequiredByFeature("GL_OES_get_program_binary")]
 		public const int PROGRAM_BINARY_LENGTH_OES = 0x8741;
 
 		/// <summary>
@@ -1694,303 +1489,251 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_ATC_RGBA_INTERPOLATED_ALPHA_AMD symbol.
 		/// </summary>
-		[RequiredByFeature("GL_AMD_compressed_ATC_texture")]
 		public const int ATC_RGBA_INTERPOLATED_ALPHA_AMD = 0x87EE;
 
 		/// <summary>
 		/// Value of GL_3DC_X_AMD symbol.
 		/// </summary>
-		[RequiredByFeature("GL_AMD_compressed_3DC_texture")]
 		public const int _3DC_X_AMD = 0x87F9;
 
 		/// <summary>
 		/// Value of GL_3DC_XY_AMD symbol.
 		/// </summary>
-		[RequiredByFeature("GL_AMD_compressed_3DC_texture")]
 		public const int _3DC_XY_AMD = 0x87FA;
 
 		/// <summary>
 		/// Value of GL_NUM_PROGRAM_BINARY_FORMATS_OES symbol.
 		/// </summary>
-		[RequiredByFeature("GL_OES_get_program_binary")]
 		public const int NUM_PROGRAM_BINARY_FORMATS_OES = 0x87FE;
 
 		/// <summary>
 		/// Value of GL_PROGRAM_BINARY_FORMATS_OES symbol.
 		/// </summary>
-		[RequiredByFeature("GL_OES_get_program_binary")]
 		public const int PROGRAM_BINARY_FORMATS_OES = 0x87FF;
 
 		/// <summary>
 		/// Value of GL_RGBA32F_EXT symbol.
 		/// </summary>
-		[RequiredByFeature("GL_EXT_texture_storage")]
 		public const int RGBA32F_EXT = 0x8814;
 
 		/// <summary>
 		/// Value of GL_RGB32F_EXT symbol.
 		/// </summary>
-		[RequiredByFeature("GL_EXT_texture_storage")]
 		public const int RGB32F_EXT = 0x8815;
 
 		/// <summary>
 		/// Value of GL_ALPHA32F_EXT symbol.
 		/// </summary>
-		[RequiredByFeature("GL_EXT_texture_storage")]
 		public const int ALPHA32F_EXT = 0x8816;
 
 		/// <summary>
 		/// Value of GL_LUMINANCE32F_EXT symbol.
 		/// </summary>
-		[RequiredByFeature("GL_EXT_texture_storage")]
 		public const int LUMINANCE32F_EXT = 0x8818;
 
 		/// <summary>
 		/// Value of GL_LUMINANCE_ALPHA32F_EXT symbol.
 		/// </summary>
-		[RequiredByFeature("GL_EXT_texture_storage")]
 		public const int LUMINANCE_ALPHA32F_EXT = 0x8819;
 
 		/// <summary>
 		/// Value of GL_RGBA16F_EXT symbol.
 		/// </summary>
-		[RequiredByFeature("GL_EXT_color_buffer_half_float")]
-		[RequiredByFeature("GL_EXT_texture_storage")]
 		public const int RGBA16F_EXT = 0x881A;
 
 		/// <summary>
 		/// Value of GL_RGB16F_EXT symbol.
 		/// </summary>
-		[RequiredByFeature("GL_EXT_color_buffer_half_float")]
-		[RequiredByFeature("GL_EXT_texture_storage")]
 		public const int RGB16F_EXT = 0x881B;
 
 		/// <summary>
 		/// Value of GL_ALPHA16F_EXT symbol.
 		/// </summary>
-		[RequiredByFeature("GL_EXT_texture_storage")]
 		public const int ALPHA16F_EXT = 0x881C;
 
 		/// <summary>
 		/// Value of GL_LUMINANCE16F_EXT symbol.
 		/// </summary>
-		[RequiredByFeature("GL_EXT_texture_storage")]
 		public const int LUMINANCE16F_EXT = 0x881E;
 
 		/// <summary>
 		/// Value of GL_LUMINANCE_ALPHA16F_EXT symbol.
 		/// </summary>
-		[RequiredByFeature("GL_EXT_texture_storage")]
 		public const int LUMINANCE_ALPHA16F_EXT = 0x881F;
 
 		/// <summary>
 		/// Value of GL_WRITEONLY_RENDERING_QCOM symbol.
 		/// </summary>
-		[RequiredByFeature("GL_QCOM_writeonly_rendering")]
 		public const int WRITEONLY_RENDERING_QCOM = 0x8823;
 
 		/// <summary>
 		/// Value of GL_MAX_DRAW_BUFFERS_EXT symbol.
 		/// </summary>
-		[RequiredByFeature("GL_EXT_draw_buffers")]
 		public const int MAX_DRAW_BUFFERS_EXT = 0x8824;
 
 		/// <summary>
 		/// Value of GL_MAX_DRAW_BUFFERS_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_draw_buffers")]
 		public const int MAX_DRAW_BUFFERS_NV = 0x8824;
 
 		/// <summary>
 		/// Value of GL_DRAW_BUFFER0_EXT symbol.
 		/// </summary>
-		[RequiredByFeature("GL_EXT_draw_buffers")]
 		public const int DRAW_BUFFER0_EXT = 0x8825;
 
 		/// <summary>
 		/// Value of GL_DRAW_BUFFER0_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_draw_buffers")]
 		public const int DRAW_BUFFER0_NV = 0x8825;
 
 		/// <summary>
 		/// Value of GL_DRAW_BUFFER1_EXT symbol.
 		/// </summary>
-		[RequiredByFeature("GL_EXT_draw_buffers")]
 		public const int DRAW_BUFFER1_EXT = 0x8826;
 
 		/// <summary>
 		/// Value of GL_DRAW_BUFFER1_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_draw_buffers")]
 		public const int DRAW_BUFFER1_NV = 0x8826;
 
 		/// <summary>
 		/// Value of GL_DRAW_BUFFER2_EXT symbol.
 		/// </summary>
-		[RequiredByFeature("GL_EXT_draw_buffers")]
 		public const int DRAW_BUFFER2_EXT = 0x8827;
 
 		/// <summary>
 		/// Value of GL_DRAW_BUFFER2_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_draw_buffers")]
 		public const int DRAW_BUFFER2_NV = 0x8827;
 
 		/// <summary>
 		/// Value of GL_DRAW_BUFFER3_EXT symbol.
 		/// </summary>
-		[RequiredByFeature("GL_EXT_draw_buffers")]
 		public const int DRAW_BUFFER3_EXT = 0x8828;
 
 		/// <summary>
 		/// Value of GL_DRAW_BUFFER3_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_draw_buffers")]
 		public const int DRAW_BUFFER3_NV = 0x8828;
 
 		/// <summary>
 		/// Value of GL_DRAW_BUFFER4_EXT symbol.
 		/// </summary>
-		[RequiredByFeature("GL_EXT_draw_buffers")]
 		public const int DRAW_BUFFER4_EXT = 0x8829;
 
 		/// <summary>
 		/// Value of GL_DRAW_BUFFER4_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_draw_buffers")]
 		public const int DRAW_BUFFER4_NV = 0x8829;
 
 		/// <summary>
 		/// Value of GL_DRAW_BUFFER5_EXT symbol.
 		/// </summary>
-		[RequiredByFeature("GL_EXT_draw_buffers")]
 		public const int DRAW_BUFFER5_EXT = 0x882A;
 
 		/// <summary>
 		/// Value of GL_DRAW_BUFFER5_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_draw_buffers")]
 		public const int DRAW_BUFFER5_NV = 0x882A;
 
 		/// <summary>
 		/// Value of GL_DRAW_BUFFER6_EXT symbol.
 		/// </summary>
-		[RequiredByFeature("GL_EXT_draw_buffers")]
 		public const int DRAW_BUFFER6_EXT = 0x882B;
 
 		/// <summary>
 		/// Value of GL_DRAW_BUFFER6_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_draw_buffers")]
 		public const int DRAW_BUFFER6_NV = 0x882B;
 
 		/// <summary>
 		/// Value of GL_DRAW_BUFFER7_EXT symbol.
 		/// </summary>
-		[RequiredByFeature("GL_EXT_draw_buffers")]
 		public const int DRAW_BUFFER7_EXT = 0x882C;
 
 		/// <summary>
 		/// Value of GL_DRAW_BUFFER7_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_draw_buffers")]
 		public const int DRAW_BUFFER7_NV = 0x882C;
 
 		/// <summary>
 		/// Value of GL_DRAW_BUFFER8_EXT symbol.
 		/// </summary>
-		[RequiredByFeature("GL_EXT_draw_buffers")]
 		public const int DRAW_BUFFER8_EXT = 0x882D;
 
 		/// <summary>
 		/// Value of GL_DRAW_BUFFER8_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_draw_buffers")]
 		public const int DRAW_BUFFER8_NV = 0x882D;
 
 		/// <summary>
 		/// Value of GL_DRAW_BUFFER9_EXT symbol.
 		/// </summary>
-		[RequiredByFeature("GL_EXT_draw_buffers")]
 		public const int DRAW_BUFFER9_EXT = 0x882E;
 
 		/// <summary>
 		/// Value of GL_DRAW_BUFFER9_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_draw_buffers")]
 		public const int DRAW_BUFFER9_NV = 0x882E;
 
 		/// <summary>
 		/// Value of GL_DRAW_BUFFER10_EXT symbol.
 		/// </summary>
-		[RequiredByFeature("GL_EXT_draw_buffers")]
 		public const int DRAW_BUFFER10_EXT = 0x882F;
 
 		/// <summary>
 		/// Value of GL_DRAW_BUFFER10_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_draw_buffers")]
 		public const int DRAW_BUFFER10_NV = 0x882F;
 
 		/// <summary>
 		/// Value of GL_DRAW_BUFFER11_EXT symbol.
 		/// </summary>
-		[RequiredByFeature("GL_EXT_draw_buffers")]
 		public const int DRAW_BUFFER11_EXT = 0x8830;
 
 		/// <summary>
 		/// Value of GL_DRAW_BUFFER11_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_draw_buffers")]
 		public const int DRAW_BUFFER11_NV = 0x8830;
 
 		/// <summary>
 		/// Value of GL_DRAW_BUFFER12_EXT symbol.
 		/// </summary>
-		[RequiredByFeature("GL_EXT_draw_buffers")]
 		public const int DRAW_BUFFER12_EXT = 0x8831;
 
 		/// <summary>
 		/// Value of GL_DRAW_BUFFER12_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_draw_buffers")]
 		public const int DRAW_BUFFER12_NV = 0x8831;
 
 		/// <summary>
 		/// Value of GL_DRAW_BUFFER13_EXT symbol.
 		/// </summary>
-		[RequiredByFeature("GL_EXT_draw_buffers")]
 		public const int DRAW_BUFFER13_EXT = 0x8832;
 
 		/// <summary>
 		/// Value of GL_DRAW_BUFFER13_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_draw_buffers")]
 		public const int DRAW_BUFFER13_NV = 0x8832;
 
 		/// <summary>
 		/// Value of GL_DRAW_BUFFER14_EXT symbol.
 		/// </summary>
-		[RequiredByFeature("GL_EXT_draw_buffers")]
 		public const int DRAW_BUFFER14_EXT = 0x8833;
 
 		/// <summary>
 		/// Value of GL_DRAW_BUFFER14_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_draw_buffers")]
 		public const int DRAW_BUFFER14_NV = 0x8833;
 
 		/// <summary>
 		/// Value of GL_DRAW_BUFFER15_EXT symbol.
 		/// </summary>
-		[RequiredByFeature("GL_EXT_draw_buffers")]
 		public const int DRAW_BUFFER15_EXT = 0x8834;
 
 		/// <summary>
 		/// Value of GL_DRAW_BUFFER15_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_draw_buffers")]
 		public const int DRAW_BUFFER15_NV = 0x8834;
 
 		/// <summary>
@@ -2001,420 +1744,346 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_BLEND_EQUATION_ALPHA_OES symbol.
 		/// </summary>
-		[RequiredByFeature("GL_OES_blend_equation_separate")]
 		public const int BLEND_EQUATION_ALPHA_OES = 0x883D;
 
 		/// <summary>
 		/// Value of GL_MATRIX_PALETTE_OES symbol.
 		/// </summary>
-		[RequiredByFeature("GL_OES_matrix_palette")]
 		public const int MATRIX_PALETTE_OES = 0x8840;
 
 		/// <summary>
 		/// Value of GL_MAX_PALETTE_MATRICES_OES symbol.
 		/// </summary>
-		[RequiredByFeature("GL_OES_matrix_palette")]
 		public const int MAX_PALETTE_MATRICES_OES = 0x8842;
 
 		/// <summary>
 		/// Value of GL_CURRENT_PALETTE_MATRIX_OES symbol.
 		/// </summary>
-		[RequiredByFeature("GL_OES_matrix_palette")]
 		public const int CURRENT_PALETTE_MATRIX_OES = 0x8843;
 
 		/// <summary>
 		/// Value of GL_MATRIX_INDEX_ARRAY_OES symbol.
 		/// </summary>
-		[RequiredByFeature("GL_OES_matrix_palette")]
 		public const int MATRIX_INDEX_ARRAY_OES = 0x8844;
 
 		/// <summary>
 		/// Value of GL_MATRIX_INDEX_ARRAY_SIZE_OES symbol.
 		/// </summary>
-		[RequiredByFeature("GL_OES_matrix_palette")]
 		public const int MATRIX_INDEX_ARRAY_SIZE_OES = 0x8846;
 
 		/// <summary>
 		/// Value of GL_MATRIX_INDEX_ARRAY_TYPE_OES symbol.
 		/// </summary>
-		[RequiredByFeature("GL_OES_matrix_palette")]
 		public const int MATRIX_INDEX_ARRAY_TYPE_OES = 0x8847;
 
 		/// <summary>
 		/// Value of GL_MATRIX_INDEX_ARRAY_STRIDE_OES symbol.
 		/// </summary>
-		[RequiredByFeature("GL_OES_matrix_palette")]
 		public const int MATRIX_INDEX_ARRAY_STRIDE_OES = 0x8848;
 
 		/// <summary>
 		/// Value of GL_MATRIX_INDEX_ARRAY_POINTER_OES symbol.
 		/// </summary>
-		[RequiredByFeature("GL_OES_matrix_palette")]
 		public const int MATRIX_INDEX_ARRAY_POINTER_OES = 0x8849;
 
 		/// <summary>
 		/// Value of GL_TEXTURE_COMPARE_MODE_EXT symbol.
 		/// </summary>
-		[RequiredByFeature("GL_EXT_shadow_samplers")]
 		public const int TEXTURE_COMPARE_MODE_EXT = 0x884C;
 
 		/// <summary>
 		/// Value of GL_TEXTURE_COMPARE_FUNC_EXT symbol.
 		/// </summary>
-		[RequiredByFeature("GL_EXT_shadow_samplers")]
 		public const int TEXTURE_COMPARE_FUNC_EXT = 0x884D;
 
 		/// <summary>
 		/// Value of GL_COMPARE_REF_TO_TEXTURE_EXT symbol.
 		/// </summary>
-		[RequiredByFeature("GL_EXT_shadow_samplers")]
 		public const int COMPARE_REF_TO_TEXTURE_EXT = 0x884E;
 
 		/// <summary>
 		/// Value of GL_POINT_SPRITE_OES symbol.
 		/// </summary>
-		[RequiredByFeature("GL_OES_point_sprite")]
 		public const int POINT_SPRITE_OES = 0x8861;
 
 		/// <summary>
 		/// Value of GL_COORD_REPLACE_OES symbol.
 		/// </summary>
-		[RequiredByFeature("GL_OES_point_sprite")]
 		public const int COORD_REPLACE_OES = 0x8862;
 
 		/// <summary>
 		/// Value of GL_QUERY_COUNTER_BITS_EXT symbol.
 		/// </summary>
-		[RequiredByFeature("GL_EXT_disjoint_timer_query")]
 		public const int QUERY_COUNTER_BITS_EXT = 0x8864;
 
 		/// <summary>
 		/// Value of GL_CURRENT_QUERY_EXT symbol.
 		/// </summary>
-		[RequiredByFeature("GL_EXT_disjoint_timer_query")]
-		[RequiredByFeature("GL_EXT_occlusion_query_boolean")]
 		public const int CURRENT_QUERY_EXT = 0x8865;
 
 		/// <summary>
 		/// Value of GL_QUERY_RESULT_EXT symbol.
 		/// </summary>
-		[RequiredByFeature("GL_EXT_disjoint_timer_query")]
-		[RequiredByFeature("GL_EXT_occlusion_query_boolean")]
 		public const int QUERY_RESULT_EXT = 0x8866;
 
 		/// <summary>
 		/// Value of GL_QUERY_RESULT_AVAILABLE_EXT symbol.
 		/// </summary>
-		[RequiredByFeature("GL_EXT_disjoint_timer_query")]
-		[RequiredByFeature("GL_EXT_occlusion_query_boolean")]
 		public const int QUERY_RESULT_AVAILABLE_EXT = 0x8867;
 
 		/// <summary>
 		/// Value of GL_MAX_TESS_CONTROL_INPUT_COMPONENTS_EXT symbol.
 		/// </summary>
-		[RequiredByFeature("GL_EXT_tessellation_shader")]
 		public const int MAX_TESS_CONTROL_INPUT_COMPONENTS_EXT = 0x886C;
 
 		/// <summary>
 		/// Value of GL_MAX_TESS_CONTROL_INPUT_COMPONENTS_OES symbol.
 		/// </summary>
-		[RequiredByFeature("GL_OES_tessellation_shader")]
 		public const int MAX_TESS_CONTROL_INPUT_COMPONENTS_OES = 0x886C;
 
 		/// <summary>
 		/// Value of GL_MAX_TESS_EVALUATION_INPUT_COMPONENTS_EXT symbol.
 		/// </summary>
-		[RequiredByFeature("GL_EXT_tessellation_shader")]
 		public const int MAX_TESS_EVALUATION_INPUT_COMPONENTS_EXT = 0x886D;
 
 		/// <summary>
 		/// Value of GL_MAX_TESS_EVALUATION_INPUT_COMPONENTS_OES symbol.
 		/// </summary>
-		[RequiredByFeature("GL_OES_tessellation_shader")]
 		public const int MAX_TESS_EVALUATION_INPUT_COMPONENTS_OES = 0x886D;
 
 		/// <summary>
 		/// Value of GL_GEOMETRY_SHADER_INVOCATIONS_EXT symbol.
 		/// </summary>
-		[RequiredByFeature("GL_EXT_geometry_shader")]
 		public const int GEOMETRY_SHADER_INVOCATIONS_EXT = 0x887F;
 
 		/// <summary>
 		/// Value of GL_GEOMETRY_SHADER_INVOCATIONS_OES symbol.
 		/// </summary>
-		[RequiredByFeature("GL_OES_geometry_shader")]
 		public const int GEOMETRY_SHADER_INVOCATIONS_OES = 0x887F;
 
 		/// <summary>
 		/// Value of GL_WEIGHT_ARRAY_BUFFER_BINDING_OES symbol.
 		/// </summary>
-		[RequiredByFeature("GL_OES_matrix_palette")]
 		public const int WEIGHT_ARRAY_BUFFER_BINDING_OES = 0x889E;
 
 		/// <summary>
 		/// Value of GL_WRITE_ONLY_OES symbol.
 		/// </summary>
-		[RequiredByFeature("GL_OES_mapbuffer")]
 		public const int WRITE_ONLY_OES = 0x88B9;
 
 		/// <summary>
 		/// Value of GL_BUFFER_ACCESS_OES symbol.
 		/// </summary>
-		[RequiredByFeature("GL_OES_mapbuffer")]
 		public const int BUFFER_ACCESS_OES = 0x88BB;
 
 		/// <summary>
 		/// Value of GL_BUFFER_MAPPED_OES symbol.
 		/// </summary>
-		[RequiredByFeature("GL_OES_mapbuffer")]
 		public const int BUFFER_MAPPED_OES = 0x88BC;
 
 		/// <summary>
 		/// Value of GL_BUFFER_MAP_POINTER_OES symbol.
 		/// </summary>
-		[RequiredByFeature("GL_OES_mapbuffer")]
 		public const int BUFFER_MAP_POINTER_OES = 0x88BD;
 
 		/// <summary>
 		/// Value of GL_ETC1_SRGB8_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_sRGB_formats")]
 		public const int ETC1_SRGB8_NV = 0x88EE;
 
 		/// <summary>
 		/// Value of GL_DEPTH24_STENCIL8_OES symbol.
 		/// </summary>
-		[RequiredByFeature("GL_ANGLE_depth_texture")]
-		[RequiredByFeature("GL_OES_packed_depth_stencil")]
-		[RequiredByFeature("GL_OES_required_internalformat")]
 		public const int DEPTH24_STENCIL8_OES = 0x88F0;
 
 		/// <summary>
 		/// Value of GL_VERTEX_ATTRIB_ARRAY_DIVISOR_ANGLE symbol.
 		/// </summary>
-		[RequiredByFeature("GL_ANGLE_instanced_arrays")]
 		public const int VERTEX_ATTRIB_ARRAY_DIVISOR_ANGLE = 0x88FE;
 
 		/// <summary>
 		/// Value of GL_VERTEX_ATTRIB_ARRAY_DIVISOR_EXT symbol.
 		/// </summary>
-		[RequiredByFeature("GL_EXT_instanced_arrays")]
 		public const int VERTEX_ATTRIB_ARRAY_DIVISOR_EXT = 0x88FE;
 
 		/// <summary>
 		/// Value of GL_VERTEX_ATTRIB_ARRAY_DIVISOR_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_instanced_arrays")]
 		public const int VERTEX_ATTRIB_ARRAY_DIVISOR_NV = 0x88FE;
 
 		/// <summary>
 		/// Value of GL_GEOMETRY_LINKED_VERTICES_OUT_EXT symbol.
 		/// </summary>
-		[RequiredByFeature("GL_EXT_geometry_shader")]
 		public const int GEOMETRY_LINKED_VERTICES_OUT_EXT = 0x8916;
 
 		/// <summary>
 		/// Value of GL_GEOMETRY_LINKED_VERTICES_OUT_OES symbol.
 		/// </summary>
-		[RequiredByFeature("GL_OES_geometry_shader")]
 		public const int GEOMETRY_LINKED_VERTICES_OUT_OES = 0x8916;
 
 		/// <summary>
 		/// Value of GL_GEOMETRY_LINKED_INPUT_TYPE_EXT symbol.
 		/// </summary>
-		[RequiredByFeature("GL_EXT_geometry_shader")]
 		public const int GEOMETRY_LINKED_INPUT_TYPE_EXT = 0x8917;
 
 		/// <summary>
 		/// Value of GL_GEOMETRY_LINKED_INPUT_TYPE_OES symbol.
 		/// </summary>
-		[RequiredByFeature("GL_OES_geometry_shader")]
 		public const int GEOMETRY_LINKED_INPUT_TYPE_OES = 0x8917;
 
 		/// <summary>
 		/// Value of GL_GEOMETRY_LINKED_OUTPUT_TYPE_EXT symbol.
 		/// </summary>
-		[RequiredByFeature("GL_EXT_geometry_shader")]
 		public const int GEOMETRY_LINKED_OUTPUT_TYPE_EXT = 0x8918;
 
 		/// <summary>
 		/// Value of GL_GEOMETRY_LINKED_OUTPUT_TYPE_OES symbol.
 		/// </summary>
-		[RequiredByFeature("GL_OES_geometry_shader")]
 		public const int GEOMETRY_LINKED_OUTPUT_TYPE_OES = 0x8918;
 
 		/// <summary>
 		/// Value of GL_POINT_SIZE_ARRAY_TYPE_OES symbol.
 		/// </summary>
-		[RequiredByFeature("GL_OES_point_size_array")]
 		public const int POINT_SIZE_ARRAY_TYPE_OES = 0x898A;
 
 		/// <summary>
 		/// Value of GL_POINT_SIZE_ARRAY_STRIDE_OES symbol.
 		/// </summary>
-		[RequiredByFeature("GL_OES_point_size_array")]
 		public const int POINT_SIZE_ARRAY_STRIDE_OES = 0x898B;
 
 		/// <summary>
 		/// Value of GL_POINT_SIZE_ARRAY_POINTER_OES symbol.
 		/// </summary>
-		[RequiredByFeature("GL_OES_point_size_array")]
 		public const int POINT_SIZE_ARRAY_POINTER_OES = 0x898C;
 
 		/// <summary>
 		/// Value of GL_MODELVIEW_MATRIX_FLOAT_AS_INT_BITS_OES symbol.
 		/// </summary>
-		[RequiredByFeature("GL_OES_matrix_get")]
 		public const int MODELVIEW_MATRIX_FLOAT_AS_INT_BITS_OES = 0x898D;
 
 		/// <summary>
 		/// Value of GL_PROJECTION_MATRIX_FLOAT_AS_INT_BITS_OES symbol.
 		/// </summary>
-		[RequiredByFeature("GL_OES_matrix_get")]
 		public const int PROJECTION_MATRIX_FLOAT_AS_INT_BITS_OES = 0x898E;
 
 		/// <summary>
 		/// Value of GL_TEXTURE_MATRIX_FLOAT_AS_INT_BITS_OES symbol.
 		/// </summary>
-		[RequiredByFeature("GL_OES_matrix_get")]
 		public const int TEXTURE_MATRIX_FLOAT_AS_INT_BITS_OES = 0x898F;
 
 		/// <summary>
 		/// Value of GL_MAX_GEOMETRY_UNIFORM_BLOCKS_EXT symbol.
 		/// </summary>
-		[RequiredByFeature("GL_EXT_geometry_shader")]
 		public const int MAX_GEOMETRY_UNIFORM_BLOCKS_EXT = 0x8A2C;
 
 		/// <summary>
 		/// Value of GL_MAX_GEOMETRY_UNIFORM_BLOCKS_OES symbol.
 		/// </summary>
-		[RequiredByFeature("GL_OES_geometry_shader")]
 		public const int MAX_GEOMETRY_UNIFORM_BLOCKS_OES = 0x8A2C;
 
 		/// <summary>
 		/// Value of GL_MAX_COMBINED_GEOMETRY_UNIFORM_COMPONENTS_EXT symbol.
 		/// </summary>
-		[RequiredByFeature("GL_EXT_geometry_shader")]
 		public const int MAX_COMBINED_GEOMETRY_UNIFORM_COMPONENTS_EXT = 0x8A32;
 
 		/// <summary>
 		/// Value of GL_MAX_COMBINED_GEOMETRY_UNIFORM_COMPONENTS_OES symbol.
 		/// </summary>
-		[RequiredByFeature("GL_OES_geometry_shader")]
 		public const int MAX_COMBINED_GEOMETRY_UNIFORM_COMPONENTS_OES = 0x8A32;
 
 		/// <summary>
 		/// Value of GL_FRAGMENT_SHADER_DISCARDS_SAMPLES_EXT symbol.
 		/// </summary>
-		[RequiredByFeature("GL_EXT_shader_framebuffer_fetch")]
 		public const int FRAGMENT_SHADER_DISCARDS_SAMPLES_EXT = 0x8A52;
 
 		/// <summary>
 		/// Value of GL_SYNC_OBJECT_APPLE symbol.
 		/// </summary>
-		[RequiredByFeature("GL_APPLE_sync")]
 		public const int SYNC_OBJECT_APPLE = 0x8A53;
 
 		/// <summary>
 		/// Value of GL_COMPRESSED_SRGB_PVRTC_2BPPV1_EXT symbol.
 		/// </summary>
-		[RequiredByFeature("GL_EXT_pvrtc_sRGB")]
 		public const int COMPRESSED_SRGB_PVRTC_2BPPV1_EXT = 0x8A54;
 
 		/// <summary>
 		/// Value of GL_COMPRESSED_SRGB_PVRTC_4BPPV1_EXT symbol.
 		/// </summary>
-		[RequiredByFeature("GL_EXT_pvrtc_sRGB")]
 		public const int COMPRESSED_SRGB_PVRTC_4BPPV1_EXT = 0x8A55;
 
 		/// <summary>
 		/// Value of GL_COMPRESSED_SRGB_ALPHA_PVRTC_2BPPV1_EXT symbol.
 		/// </summary>
-		[RequiredByFeature("GL_EXT_pvrtc_sRGB")]
 		public const int COMPRESSED_SRGB_ALPHA_PVRTC_2BPPV1_EXT = 0x8A56;
 
 		/// <summary>
 		/// Value of GL_COMPRESSED_SRGB_ALPHA_PVRTC_4BPPV1_EXT symbol.
 		/// </summary>
-		[RequiredByFeature("GL_EXT_pvrtc_sRGB")]
 		public const int COMPRESSED_SRGB_ALPHA_PVRTC_4BPPV1_EXT = 0x8A57;
 
 		/// <summary>
 		/// Value of GL_SAMPLER_3D_OES symbol.
 		/// </summary>
-		[RequiredByFeature("GL_OES_texture_3D")]
 		public const int SAMPLER_3D_OES = 0x8B5F;
 
 		/// <summary>
 		/// Value of GL_SAMPLER_2D_SHADOW_EXT symbol.
 		/// </summary>
-		[RequiredByFeature("GL_EXT_shadow_samplers")]
 		public const int SAMPLER_2D_SHADOW_EXT = 0x8B62;
 
 		/// <summary>
 		/// Value of GL_FLOAT_MAT2x3_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_non_square_matrices")]
 		public const int FLOAT_MAT2x3_NV = 0x8B65;
 
 		/// <summary>
 		/// Value of GL_FLOAT_MAT2x4_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_non_square_matrices")]
 		public const int FLOAT_MAT2x4_NV = 0x8B66;
 
 		/// <summary>
 		/// Value of GL_FLOAT_MAT3x2_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_non_square_matrices")]
 		public const int FLOAT_MAT3x2_NV = 0x8B67;
 
 		/// <summary>
 		/// Value of GL_FLOAT_MAT3x4_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_non_square_matrices")]
 		public const int FLOAT_MAT3x4_NV = 0x8B68;
 
 		/// <summary>
 		/// Value of GL_FLOAT_MAT4x2_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_non_square_matrices")]
 		public const int FLOAT_MAT4x2_NV = 0x8B69;
 
 		/// <summary>
 		/// Value of GL_FLOAT_MAT4x3_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_non_square_matrices")]
 		public const int FLOAT_MAT4x3_NV = 0x8B6A;
 
 		/// <summary>
 		/// Value of GL_FRAGMENT_SHADER_DERIVATIVE_HINT_OES symbol.
 		/// </summary>
-		[RequiredByFeature("GL_OES_standard_derivatives")]
 		public const int FRAGMENT_SHADER_DERIVATIVE_HINT_OES = 0x8B8B;
 
 		/// <summary>
 		/// Value of GL_POINT_SIZE_ARRAY_OES symbol.
 		/// </summary>
-		[RequiredByFeature("GL_OES_point_size_array")]
 		public const int POINT_SIZE_ARRAY_OES = 0x8B9C;
 
 		/// <summary>
 		/// Value of GL_TEXTURE_CROP_RECT_OES symbol.
 		/// </summary>
-		[RequiredByFeature("GL_OES_draw_texture")]
 		public const int TEXTURE_CROP_RECT_OES = 0x8B9D;
 
 		/// <summary>
 		/// Value of GL_MATRIX_INDEX_ARRAY_BUFFER_BINDING_OES symbol.
 		/// </summary>
-		[RequiredByFeature("GL_OES_matrix_palette")]
 		public const int MATRIX_INDEX_ARRAY_BUFFER_BINDING_OES = 0x8B9E;
 
 		/// <summary>
 		/// Value of GL_POINT_SIZE_ARRAY_BUFFER_BINDING_OES symbol.
 		/// </summary>
-		[RequiredByFeature("GL_OES_point_size_array")]
 		public const int POINT_SIZE_ARRAY_BUFFER_BINDING_OES = 0x8B9F;
 
 		/// <summary>
@@ -2460,313 +2129,261 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_TEXTURE_WIDTH_QCOM symbol.
 		/// </summary>
-		[RequiredByFeature("GL_QCOM_extended_get")]
 		public const int TEXTURE_WIDTH_QCOM = 0x8BD2;
 
 		/// <summary>
 		/// Value of GL_TEXTURE_HEIGHT_QCOM symbol.
 		/// </summary>
-		[RequiredByFeature("GL_QCOM_extended_get")]
 		public const int TEXTURE_HEIGHT_QCOM = 0x8BD3;
 
 		/// <summary>
 		/// Value of GL_TEXTURE_DEPTH_QCOM symbol.
 		/// </summary>
-		[RequiredByFeature("GL_QCOM_extended_get")]
 		public const int TEXTURE_DEPTH_QCOM = 0x8BD4;
 
 		/// <summary>
 		/// Value of GL_TEXTURE_INTERNAL_FORMAT_QCOM symbol.
 		/// </summary>
-		[RequiredByFeature("GL_QCOM_extended_get")]
 		public const int TEXTURE_INTERNAL_FORMAT_QCOM = 0x8BD5;
 
 		/// <summary>
 		/// Value of GL_TEXTURE_FORMAT_QCOM symbol.
 		/// </summary>
-		[RequiredByFeature("GL_QCOM_extended_get")]
 		public const int TEXTURE_FORMAT_QCOM = 0x8BD6;
 
 		/// <summary>
 		/// Value of GL_TEXTURE_TYPE_QCOM symbol.
 		/// </summary>
-		[RequiredByFeature("GL_QCOM_extended_get")]
 		public const int TEXTURE_TYPE_QCOM = 0x8BD7;
 
 		/// <summary>
 		/// Value of GL_TEXTURE_IMAGE_VALID_QCOM symbol.
 		/// </summary>
-		[RequiredByFeature("GL_QCOM_extended_get")]
 		public const int TEXTURE_IMAGE_VALID_QCOM = 0x8BD8;
 
 		/// <summary>
 		/// Value of GL_TEXTURE_NUM_LEVELS_QCOM symbol.
 		/// </summary>
-		[RequiredByFeature("GL_QCOM_extended_get")]
 		public const int TEXTURE_NUM_LEVELS_QCOM = 0x8BD9;
 
 		/// <summary>
 		/// Value of GL_TEXTURE_TARGET_QCOM symbol.
 		/// </summary>
-		[RequiredByFeature("GL_QCOM_extended_get")]
 		public const int TEXTURE_TARGET_QCOM = 0x8BDA;
 
 		/// <summary>
 		/// Value of GL_TEXTURE_OBJECT_VALID_QCOM symbol.
 		/// </summary>
-		[RequiredByFeature("GL_QCOM_extended_get")]
 		public const int TEXTURE_OBJECT_VALID_QCOM = 0x8BDB;
 
 		/// <summary>
 		/// Value of GL_STATE_RESTORE symbol.
 		/// </summary>
-		[RequiredByFeature("GL_QCOM_extended_get")]
 		public const int STATE_RESTORE = 0x8BDC;
 
 		/// <summary>
 		/// Value of GL_COMPRESSED_RGB_PVRTC_4BPPV1_IMG symbol.
 		/// </summary>
-		[RequiredByFeature("GL_IMG_texture_compression_pvrtc")]
 		public const int COMPRESSED_RGB_PVRTC_4BPPV1_IMG = 0x8C00;
 
 		/// <summary>
 		/// Value of GL_COMPRESSED_RGB_PVRTC_2BPPV1_IMG symbol.
 		/// </summary>
-		[RequiredByFeature("GL_IMG_texture_compression_pvrtc")]
 		public const int COMPRESSED_RGB_PVRTC_2BPPV1_IMG = 0x8C01;
 
 		/// <summary>
 		/// Value of GL_COMPRESSED_RGBA_PVRTC_4BPPV1_IMG symbol.
 		/// </summary>
-		[RequiredByFeature("GL_IMG_texture_compression_pvrtc")]
 		public const int COMPRESSED_RGBA_PVRTC_4BPPV1_IMG = 0x8C02;
 
 		/// <summary>
 		/// Value of GL_COMPRESSED_RGBA_PVRTC_2BPPV1_IMG symbol.
 		/// </summary>
-		[RequiredByFeature("GL_IMG_texture_compression_pvrtc")]
 		public const int COMPRESSED_RGBA_PVRTC_2BPPV1_IMG = 0x8C03;
 
 		/// <summary>
 		/// Value of GL_MODULATE_COLOR_IMG symbol.
 		/// </summary>
-		[RequiredByFeature("GL_IMG_texture_env_enhanced_fixed_function")]
 		public const int MODULATE_COLOR_IMG = 0x8C04;
 
 		/// <summary>
 		/// Value of GL_RECIP_ADD_SIGNED_ALPHA_IMG symbol.
 		/// </summary>
-		[RequiredByFeature("GL_IMG_texture_env_enhanced_fixed_function")]
 		public const int RECIP_ADD_SIGNED_ALPHA_IMG = 0x8C05;
 
 		/// <summary>
 		/// Value of GL_TEXTURE_ALPHA_MODULATE_IMG symbol.
 		/// </summary>
-		[RequiredByFeature("GL_IMG_texture_env_enhanced_fixed_function")]
 		public const int TEXTURE_ALPHA_MODULATE_IMG = 0x8C06;
 
 		/// <summary>
 		/// Value of GL_FACTOR_ALPHA_MODULATE_IMG symbol.
 		/// </summary>
-		[RequiredByFeature("GL_IMG_texture_env_enhanced_fixed_function")]
 		public const int FACTOR_ALPHA_MODULATE_IMG = 0x8C07;
 
 		/// <summary>
 		/// Value of GL_FRAGMENT_ALPHA_MODULATE_IMG symbol.
 		/// </summary>
-		[RequiredByFeature("GL_IMG_texture_env_enhanced_fixed_function")]
 		public const int FRAGMENT_ALPHA_MODULATE_IMG = 0x8C08;
 
 		/// <summary>
 		/// Value of GL_ADD_BLEND_IMG symbol.
 		/// </summary>
-		[RequiredByFeature("GL_IMG_texture_env_enhanced_fixed_function")]
 		public const int ADD_BLEND_IMG = 0x8C09;
 
 		/// <summary>
 		/// Value of GL_SGX_BINARY_IMG symbol.
 		/// </summary>
-		[RequiredByFeature("GL_IMG_shader_binary")]
 		public const int SGX_BINARY_IMG = 0x8C0A;
 
 		/// <summary>
 		/// Value of GL_UNSIGNED_NORMALIZED_EXT symbol.
 		/// </summary>
-		[RequiredByFeature("GL_EXT_color_buffer_half_float")]
 		public const int UNSIGNED_NORMALIZED_EXT = 0x8C17;
 
 		/// <summary>
 		/// Value of GL_MAX_GEOMETRY_TEXTURE_IMAGE_UNITS_OES symbol.
 		/// </summary>
-		[RequiredByFeature("GL_OES_geometry_shader")]
 		public const int MAX_GEOMETRY_TEXTURE_IMAGE_UNITS_OES = 0x8C29;
 
 		/// <summary>
 		/// Value of GL_TEXTURE_BUFFER_OES symbol.
 		/// </summary>
-		[RequiredByFeature("GL_OES_texture_buffer")]
 		public const int TEXTURE_BUFFER_OES = 0x8C2A;
 
 		/// <summary>
 		/// Value of GL_TEXTURE_BUFFER_BINDING_EXT symbol.
 		/// </summary>
-		[RequiredByFeature("GL_EXT_texture_buffer")]
 		public const int TEXTURE_BUFFER_BINDING_EXT = 0x8C2A;
 
 		/// <summary>
 		/// Value of GL_TEXTURE_BUFFER_BINDING_OES symbol.
 		/// </summary>
-		[RequiredByFeature("GL_OES_texture_buffer")]
 		public const int TEXTURE_BUFFER_BINDING_OES = 0x8C2A;
 
 		/// <summary>
 		/// Value of GL_MAX_TEXTURE_BUFFER_SIZE_OES symbol.
 		/// </summary>
-		[RequiredByFeature("GL_OES_texture_buffer")]
 		public const int MAX_TEXTURE_BUFFER_SIZE_OES = 0x8C2B;
 
 		/// <summary>
 		/// Value of GL_TEXTURE_BINDING_BUFFER_OES symbol.
 		/// </summary>
-		[RequiredByFeature("GL_OES_texture_buffer")]
 		public const int TEXTURE_BINDING_BUFFER_OES = 0x8C2C;
 
 		/// <summary>
 		/// Value of GL_TEXTURE_BUFFER_DATA_STORE_BINDING_OES symbol.
 		/// </summary>
-		[RequiredByFeature("GL_OES_texture_buffer")]
 		public const int TEXTURE_BUFFER_DATA_STORE_BINDING_OES = 0x8C2D;
 
 		/// <summary>
 		/// Value of GL_ANY_SAMPLES_PASSED_EXT symbol.
 		/// </summary>
-		[RequiredByFeature("GL_EXT_occlusion_query_boolean")]
 		public const int ANY_SAMPLES_PASSED_EXT = 0x8C2F;
 
 		/// <summary>
 		/// Value of GL_SAMPLE_SHADING_OES symbol.
 		/// </summary>
-		[RequiredByFeature("GL_OES_sample_shading")]
 		public const int SAMPLE_SHADING_OES = 0x8C36;
 
 		/// <summary>
 		/// Value of GL_MIN_SAMPLE_SHADING_VALUE_OES symbol.
 		/// </summary>
-		[RequiredByFeature("GL_OES_sample_shading")]
 		public const int MIN_SAMPLE_SHADING_VALUE_OES = 0x8C37;
 
 		/// <summary>
 		/// Value of GL_R11F_G11F_B10F_APPLE symbol.
 		/// </summary>
-		[RequiredByFeature("GL_APPLE_texture_packed_float")]
 		public const int R11F_G11F_B10F_APPLE = 0x8C3A;
 
 		/// <summary>
 		/// Value of GL_UNSIGNED_INT_10F_11F_11F_REV_APPLE symbol.
 		/// </summary>
-		[RequiredByFeature("GL_APPLE_texture_packed_float")]
 		public const int UNSIGNED_INT_10F_11F_11F_REV_APPLE = 0x8C3B;
 
 		/// <summary>
 		/// Value of GL_RGB9_E5_APPLE symbol.
 		/// </summary>
-		[RequiredByFeature("GL_APPLE_texture_packed_float")]
 		public const int RGB9_E5_APPLE = 0x8C3D;
 
 		/// <summary>
 		/// Value of GL_UNSIGNED_INT_5_9_9_9_REV_APPLE symbol.
 		/// </summary>
-		[RequiredByFeature("GL_APPLE_texture_packed_float")]
 		public const int UNSIGNED_INT_5_9_9_9_REV_APPLE = 0x8C3E;
 
 		/// <summary>
 		/// Value of GL_SRGB8_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_sRGB_formats")]
 		public const int SRGB8_NV = 0x8C41;
 
 		/// <summary>
 		/// Value of GL_SLUMINANCE_ALPHA_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_sRGB_formats")]
 		public const int SLUMINANCE_ALPHA_NV = 0x8C44;
 
 		/// <summary>
 		/// Value of GL_SLUMINANCE8_ALPHA8_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_sRGB_formats")]
 		public const int SLUMINANCE8_ALPHA8_NV = 0x8C45;
 
 		/// <summary>
 		/// Value of GL_SLUMINANCE_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_sRGB_formats")]
 		public const int SLUMINANCE_NV = 0x8C46;
 
 		/// <summary>
 		/// Value of GL_SLUMINANCE8_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_sRGB_formats")]
 		public const int SLUMINANCE8_NV = 0x8C47;
 
 		/// <summary>
 		/// Value of GL_COMPRESSED_SRGB_S3TC_DXT1_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_sRGB_formats")]
 		public const int COMPRESSED_SRGB_S3TC_DXT1_NV = 0x8C4C;
 
 		/// <summary>
 		/// Value of GL_COMPRESSED_SRGB_ALPHA_S3TC_DXT1_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_sRGB_formats")]
 		public const int COMPRESSED_SRGB_ALPHA_S3TC_DXT1_NV = 0x8C4D;
 
 		/// <summary>
 		/// Value of GL_COMPRESSED_SRGB_ALPHA_S3TC_DXT3_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_sRGB_formats")]
 		public const int COMPRESSED_SRGB_ALPHA_S3TC_DXT3_NV = 0x8C4E;
 
 		/// <summary>
 		/// Value of GL_COMPRESSED_SRGB_ALPHA_S3TC_DXT5_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_sRGB_formats")]
 		public const int COMPRESSED_SRGB_ALPHA_S3TC_DXT5_NV = 0x8C4F;
 
 		/// <summary>
 		/// Value of GL_PRIMITIVES_GENERATED_OES symbol.
 		/// </summary>
-		[RequiredByFeature("GL_OES_geometry_shader")]
 		public const int PRIMITIVES_GENERATED_OES = 0x8C87;
 
 		/// <summary>
 		/// Value of GL_ATC_RGB_AMD symbol.
 		/// </summary>
-		[RequiredByFeature("GL_AMD_compressed_ATC_texture")]
 		public const int ATC_RGB_AMD = 0x8C92;
 
 		/// <summary>
 		/// Value of GL_ATC_RGBA_EXPLICIT_ALPHA_AMD symbol.
 		/// </summary>
-		[RequiredByFeature("GL_AMD_compressed_ATC_texture")]
 		public const int ATC_RGBA_EXPLICIT_ALPHA_AMD = 0x8C93;
 
 		/// <summary>
 		/// Value of GL_DRAW_FRAMEBUFFER_BINDING_ANGLE symbol.
 		/// </summary>
-		[RequiredByFeature("GL_ANGLE_framebuffer_blit")]
 		public const int DRAW_FRAMEBUFFER_BINDING_ANGLE = 0x8CA6;
 
 		/// <summary>
 		/// Value of GL_DRAW_FRAMEBUFFER_BINDING_APPLE symbol.
 		/// </summary>
-		[RequiredByFeature("GL_APPLE_framebuffer_multisample")]
 		public const int DRAW_FRAMEBUFFER_BINDING_APPLE = 0x8CA6;
 
 		/// <summary>
 		/// Value of GL_DRAW_FRAMEBUFFER_BINDING_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_framebuffer_blit")]
 		public const int DRAW_FRAMEBUFFER_BINDING_NV = 0x8CA6;
 
 		/// <summary>
@@ -2777,7 +2394,6 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_FRAMEBUFFER_BINDING_OES symbol.
 		/// </summary>
-		[RequiredByFeature("GL_OES_framebuffer_object")]
 		public const int FRAMEBUFFER_BINDING_OES = 0x8CA6;
 
 		/// <summary>
@@ -2788,145 +2404,121 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_RENDERBUFFER_BINDING_OES symbol.
 		/// </summary>
-		[RequiredByFeature("GL_OES_framebuffer_object")]
 		public const int RENDERBUFFER_BINDING_OES = 0x8CA7;
 
 		/// <summary>
 		/// Value of GL_READ_FRAMEBUFFER_ANGLE symbol.
 		/// </summary>
-		[RequiredByFeature("GL_ANGLE_framebuffer_blit")]
 		public const int READ_FRAMEBUFFER_ANGLE = 0x8CA8;
 
 		/// <summary>
 		/// Value of GL_READ_FRAMEBUFFER_APPLE symbol.
 		/// </summary>
-		[RequiredByFeature("GL_APPLE_framebuffer_multisample")]
 		public const int READ_FRAMEBUFFER_APPLE = 0x8CA8;
 
 		/// <summary>
 		/// Value of GL_READ_FRAMEBUFFER_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_framebuffer_blit")]
 		public const int READ_FRAMEBUFFER_NV = 0x8CA8;
 
 		/// <summary>
 		/// Value of GL_DRAW_FRAMEBUFFER_ANGLE symbol.
 		/// </summary>
-		[RequiredByFeature("GL_ANGLE_framebuffer_blit")]
 		public const int DRAW_FRAMEBUFFER_ANGLE = 0x8CA9;
 
 		/// <summary>
 		/// Value of GL_DRAW_FRAMEBUFFER_APPLE symbol.
 		/// </summary>
-		[RequiredByFeature("GL_APPLE_framebuffer_multisample")]
 		public const int DRAW_FRAMEBUFFER_APPLE = 0x8CA9;
 
 		/// <summary>
 		/// Value of GL_DRAW_FRAMEBUFFER_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_framebuffer_blit")]
 		public const int DRAW_FRAMEBUFFER_NV = 0x8CA9;
 
 		/// <summary>
 		/// Value of GL_READ_FRAMEBUFFER_BINDING_ANGLE symbol.
 		/// </summary>
-		[RequiredByFeature("GL_ANGLE_framebuffer_blit")]
 		public const int READ_FRAMEBUFFER_BINDING_ANGLE = 0x8CAA;
 
 		/// <summary>
 		/// Value of GL_READ_FRAMEBUFFER_BINDING_APPLE symbol.
 		/// </summary>
-		[RequiredByFeature("GL_APPLE_framebuffer_multisample")]
 		public const int READ_FRAMEBUFFER_BINDING_APPLE = 0x8CAA;
 
 		/// <summary>
 		/// Value of GL_READ_FRAMEBUFFER_BINDING_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_framebuffer_blit")]
 		public const int READ_FRAMEBUFFER_BINDING_NV = 0x8CAA;
 
 		/// <summary>
 		/// Value of GL_RENDERBUFFER_SAMPLES_ANGLE symbol.
 		/// </summary>
-		[RequiredByFeature("GL_ANGLE_framebuffer_multisample")]
 		public const int RENDERBUFFER_SAMPLES_ANGLE = 0x8CAB;
 
 		/// <summary>
 		/// Value of GL_RENDERBUFFER_SAMPLES_APPLE symbol.
 		/// </summary>
-		[RequiredByFeature("GL_APPLE_framebuffer_multisample")]
 		public const int RENDERBUFFER_SAMPLES_APPLE = 0x8CAB;
 
 		/// <summary>
 		/// Value of GL_RENDERBUFFER_SAMPLES_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_framebuffer_multisample")]
 		public const int RENDERBUFFER_SAMPLES_NV = 0x8CAB;
 
 		/// <summary>
 		/// Value of GL_FRAMEBUFFER_ATTACHMENT_OBJECT_TYPE_OES symbol.
 		/// </summary>
-		[RequiredByFeature("GL_OES_framebuffer_object")]
 		public const int FRAMEBUFFER_ATTACHMENT_OBJECT_TYPE_OES = 0x8CD0;
 
 		/// <summary>
 		/// Value of GL_FRAMEBUFFER_ATTACHMENT_OBJECT_NAME_OES symbol.
 		/// </summary>
-		[RequiredByFeature("GL_OES_framebuffer_object")]
 		public const int FRAMEBUFFER_ATTACHMENT_OBJECT_NAME_OES = 0x8CD1;
 
 		/// <summary>
 		/// Value of GL_FRAMEBUFFER_ATTACHMENT_TEXTURE_LEVEL_OES symbol.
 		/// </summary>
-		[RequiredByFeature("GL_OES_framebuffer_object")]
 		public const int FRAMEBUFFER_ATTACHMENT_TEXTURE_LEVEL_OES = 0x8CD2;
 
 		/// <summary>
 		/// Value of GL_FRAMEBUFFER_ATTACHMENT_TEXTURE_CUBE_MAP_FACE_OES symbol.
 		/// </summary>
-		[RequiredByFeature("GL_OES_framebuffer_object")]
 		public const int FRAMEBUFFER_ATTACHMENT_TEXTURE_CUBE_MAP_FACE_OES = 0x8CD3;
 
 		/// <summary>
 		/// Value of GL_FRAMEBUFFER_ATTACHMENT_TEXTURE_3D_ZOFFSET_OES symbol.
 		/// </summary>
-		[RequiredByFeature("GL_OES_texture_3D")]
 		public const int FRAMEBUFFER_ATTACHMENT_TEXTURE_3D_ZOFFSET_OES = 0x8CD4;
 
 		/// <summary>
 		/// Value of GL_FRAMEBUFFER_COMPLETE_OES symbol.
 		/// </summary>
-		[RequiredByFeature("GL_OES_framebuffer_object")]
 		public const int FRAMEBUFFER_COMPLETE_OES = 0x8CD5;
 
 		/// <summary>
 		/// Value of GL_FRAMEBUFFER_INCOMPLETE_ATTACHMENT_OES symbol.
 		/// </summary>
-		[RequiredByFeature("GL_OES_framebuffer_object")]
 		public const int FRAMEBUFFER_INCOMPLETE_ATTACHMENT_OES = 0x8CD6;
 
 		/// <summary>
 		/// Value of GL_FRAMEBUFFER_INCOMPLETE_MISSING_ATTACHMENT_OES symbol.
 		/// </summary>
-		[RequiredByFeature("GL_OES_framebuffer_object")]
 		public const int FRAMEBUFFER_INCOMPLETE_MISSING_ATTACHMENT_OES = 0x8CD7;
 
 		/// <summary>
 		/// Value of GL_FRAMEBUFFER_INCOMPLETE_DIMENSIONS symbol.
 		/// </summary>
-		[RequiredByFeature("GL_ES_VERSION_2_0")]
 		public const int FRAMEBUFFER_INCOMPLETE_DIMENSIONS = 0x8CD9;
 
 		/// <summary>
 		/// Value of GL_FRAMEBUFFER_INCOMPLETE_DIMENSIONS_OES symbol.
 		/// </summary>
-		[RequiredByFeature("GL_OES_framebuffer_object")]
 		public const int FRAMEBUFFER_INCOMPLETE_DIMENSIONS_OES = 0x8CD9;
 
 		/// <summary>
 		/// Value of GL_FRAMEBUFFER_INCOMPLETE_FORMATS_OES symbol.
 		/// </summary>
-		[RequiredByFeature("GL_OES_framebuffer_object")]
 		public const int FRAMEBUFFER_INCOMPLETE_FORMATS_OES = 0x8CDA;
 
 		/// <summary>
@@ -2942,494 +2534,396 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_FRAMEBUFFER_UNSUPPORTED_OES symbol.
 		/// </summary>
-		[RequiredByFeature("GL_OES_framebuffer_object")]
 		public const int FRAMEBUFFER_UNSUPPORTED_OES = 0x8CDD;
 
 		/// <summary>
 		/// Value of GL_MAX_COLOR_ATTACHMENTS_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_fbo_color_attachments")]
 		public const int MAX_COLOR_ATTACHMENTS_NV = 0x8CDF;
 
 		/// <summary>
 		/// Value of GL_COLOR_ATTACHMENT0_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_draw_buffers")]
-		[RequiredByFeature("GL_NV_fbo_color_attachments")]
 		public const int COLOR_ATTACHMENT0_NV = 0x8CE0;
 
 		/// <summary>
 		/// Value of GL_COLOR_ATTACHMENT0_OES symbol.
 		/// </summary>
-		[RequiredByFeature("GL_OES_framebuffer_object")]
 		public const int COLOR_ATTACHMENT0_OES = 0x8CE0;
 
 		/// <summary>
 		/// Value of GL_COLOR_ATTACHMENT1_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_draw_buffers")]
-		[RequiredByFeature("GL_NV_fbo_color_attachments")]
 		public const int COLOR_ATTACHMENT1_NV = 0x8CE1;
 
 		/// <summary>
 		/// Value of GL_COLOR_ATTACHMENT2_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_draw_buffers")]
-		[RequiredByFeature("GL_NV_fbo_color_attachments")]
 		public const int COLOR_ATTACHMENT2_NV = 0x8CE2;
 
 		/// <summary>
 		/// Value of GL_COLOR_ATTACHMENT3_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_draw_buffers")]
-		[RequiredByFeature("GL_NV_fbo_color_attachments")]
 		public const int COLOR_ATTACHMENT3_NV = 0x8CE3;
 
 		/// <summary>
 		/// Value of GL_COLOR_ATTACHMENT4_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_draw_buffers")]
-		[RequiredByFeature("GL_NV_fbo_color_attachments")]
 		public const int COLOR_ATTACHMENT4_NV = 0x8CE4;
 
 		/// <summary>
 		/// Value of GL_COLOR_ATTACHMENT5_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_draw_buffers")]
-		[RequiredByFeature("GL_NV_fbo_color_attachments")]
 		public const int COLOR_ATTACHMENT5_NV = 0x8CE5;
 
 		/// <summary>
 		/// Value of GL_COLOR_ATTACHMENT6_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_draw_buffers")]
-		[RequiredByFeature("GL_NV_fbo_color_attachments")]
 		public const int COLOR_ATTACHMENT6_NV = 0x8CE6;
 
 		/// <summary>
 		/// Value of GL_COLOR_ATTACHMENT7_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_draw_buffers")]
-		[RequiredByFeature("GL_NV_fbo_color_attachments")]
 		public const int COLOR_ATTACHMENT7_NV = 0x8CE7;
 
 		/// <summary>
 		/// Value of GL_COLOR_ATTACHMENT8_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_draw_buffers")]
-		[RequiredByFeature("GL_NV_fbo_color_attachments")]
 		public const int COLOR_ATTACHMENT8_NV = 0x8CE8;
 
 		/// <summary>
 		/// Value of GL_COLOR_ATTACHMENT9_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_draw_buffers")]
-		[RequiredByFeature("GL_NV_fbo_color_attachments")]
 		public const int COLOR_ATTACHMENT9_NV = 0x8CE9;
 
 		/// <summary>
 		/// Value of GL_COLOR_ATTACHMENT10_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_draw_buffers")]
-		[RequiredByFeature("GL_NV_fbo_color_attachments")]
 		public const int COLOR_ATTACHMENT10_NV = 0x8CEA;
 
 		/// <summary>
 		/// Value of GL_COLOR_ATTACHMENT11_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_draw_buffers")]
-		[RequiredByFeature("GL_NV_fbo_color_attachments")]
 		public const int COLOR_ATTACHMENT11_NV = 0x8CEB;
 
 		/// <summary>
 		/// Value of GL_COLOR_ATTACHMENT12_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_draw_buffers")]
-		[RequiredByFeature("GL_NV_fbo_color_attachments")]
 		public const int COLOR_ATTACHMENT12_NV = 0x8CEC;
 
 		/// <summary>
 		/// Value of GL_COLOR_ATTACHMENT13_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_draw_buffers")]
-		[RequiredByFeature("GL_NV_fbo_color_attachments")]
 		public const int COLOR_ATTACHMENT13_NV = 0x8CED;
 
 		/// <summary>
 		/// Value of GL_COLOR_ATTACHMENT14_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_draw_buffers")]
-		[RequiredByFeature("GL_NV_fbo_color_attachments")]
 		public const int COLOR_ATTACHMENT14_NV = 0x8CEE;
 
 		/// <summary>
 		/// Value of GL_COLOR_ATTACHMENT15_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_draw_buffers")]
-		[RequiredByFeature("GL_NV_fbo_color_attachments")]
 		public const int COLOR_ATTACHMENT15_NV = 0x8CEF;
 
 		/// <summary>
 		/// Value of GL_DEPTH_ATTACHMENT_OES symbol.
 		/// </summary>
-		[RequiredByFeature("GL_OES_framebuffer_object")]
 		public const int DEPTH_ATTACHMENT_OES = 0x8D00;
 
 		/// <summary>
 		/// Value of GL_STENCIL_ATTACHMENT_OES symbol.
 		/// </summary>
-		[RequiredByFeature("GL_OES_framebuffer_object")]
 		public const int STENCIL_ATTACHMENT_OES = 0x8D20;
 
 		/// <summary>
 		/// Value of GL_FRAMEBUFFER_OES symbol.
 		/// </summary>
-		[RequiredByFeature("GL_OES_framebuffer_object")]
 		public const int FRAMEBUFFER_OES = 0x8D40;
 
 		/// <summary>
 		/// Value of GL_RENDERBUFFER_OES symbol.
 		/// </summary>
-		[RequiredByFeature("GL_OES_framebuffer_object")]
 		public const int RENDERBUFFER_OES = 0x8D41;
 
 		/// <summary>
 		/// Value of GL_RENDERBUFFER_WIDTH_OES symbol.
 		/// </summary>
-		[RequiredByFeature("GL_OES_framebuffer_object")]
 		public const int RENDERBUFFER_WIDTH_OES = 0x8D42;
 
 		/// <summary>
 		/// Value of GL_RENDERBUFFER_HEIGHT_OES symbol.
 		/// </summary>
-		[RequiredByFeature("GL_OES_framebuffer_object")]
 		public const int RENDERBUFFER_HEIGHT_OES = 0x8D43;
 
 		/// <summary>
 		/// Value of GL_RENDERBUFFER_INTERNAL_FORMAT_OES symbol.
 		/// </summary>
-		[RequiredByFeature("GL_OES_framebuffer_object")]
 		public const int RENDERBUFFER_INTERNAL_FORMAT_OES = 0x8D44;
 
 		/// <summary>
 		/// Value of GL_STENCIL_INDEX1_OES symbol.
 		/// </summary>
-		[RequiredByFeature("GL_OES_stencil1")]
 		public const int STENCIL_INDEX1_OES = 0x8D46;
 
 		/// <summary>
 		/// Value of GL_STENCIL_INDEX4_OES symbol.
 		/// </summary>
-		[RequiredByFeature("GL_OES_stencil4")]
 		public const int STENCIL_INDEX4_OES = 0x8D47;
 
 		/// <summary>
 		/// Value of GL_STENCIL_INDEX8_OES symbol.
 		/// </summary>
-		[RequiredByFeature("GL_OES_stencil8")]
-		[RequiredByFeature("GL_OES_texture_stencil8")]
 		public const int STENCIL_INDEX8_OES = 0x8D48;
 
 		/// <summary>
 		/// Value of GL_RENDERBUFFER_RED_SIZE_OES symbol.
 		/// </summary>
-		[RequiredByFeature("GL_OES_framebuffer_object")]
 		public const int RENDERBUFFER_RED_SIZE_OES = 0x8D50;
 
 		/// <summary>
 		/// Value of GL_RENDERBUFFER_GREEN_SIZE_OES symbol.
 		/// </summary>
-		[RequiredByFeature("GL_OES_framebuffer_object")]
 		public const int RENDERBUFFER_GREEN_SIZE_OES = 0x8D51;
 
 		/// <summary>
 		/// Value of GL_RENDERBUFFER_BLUE_SIZE_OES symbol.
 		/// </summary>
-		[RequiredByFeature("GL_OES_framebuffer_object")]
 		public const int RENDERBUFFER_BLUE_SIZE_OES = 0x8D52;
 
 		/// <summary>
 		/// Value of GL_RENDERBUFFER_ALPHA_SIZE_OES symbol.
 		/// </summary>
-		[RequiredByFeature("GL_OES_framebuffer_object")]
 		public const int RENDERBUFFER_ALPHA_SIZE_OES = 0x8D53;
 
 		/// <summary>
 		/// Value of GL_RENDERBUFFER_DEPTH_SIZE_OES symbol.
 		/// </summary>
-		[RequiredByFeature("GL_OES_framebuffer_object")]
 		public const int RENDERBUFFER_DEPTH_SIZE_OES = 0x8D54;
 
 		/// <summary>
 		/// Value of GL_RENDERBUFFER_STENCIL_SIZE_OES symbol.
 		/// </summary>
-		[RequiredByFeature("GL_OES_framebuffer_object")]
 		public const int RENDERBUFFER_STENCIL_SIZE_OES = 0x8D55;
 
 		/// <summary>
 		/// Value of GL_FRAMEBUFFER_INCOMPLETE_MULTISAMPLE_ANGLE symbol.
 		/// </summary>
-		[RequiredByFeature("GL_ANGLE_framebuffer_multisample")]
 		public const int FRAMEBUFFER_INCOMPLETE_MULTISAMPLE_ANGLE = 0x8D56;
 
 		/// <summary>
 		/// Value of GL_FRAMEBUFFER_INCOMPLETE_MULTISAMPLE_APPLE symbol.
 		/// </summary>
-		[RequiredByFeature("GL_APPLE_framebuffer_multisample")]
 		public const int FRAMEBUFFER_INCOMPLETE_MULTISAMPLE_APPLE = 0x8D56;
 
 		/// <summary>
 		/// Value of GL_FRAMEBUFFER_INCOMPLETE_MULTISAMPLE_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_framebuffer_multisample")]
 		public const int FRAMEBUFFER_INCOMPLETE_MULTISAMPLE_NV = 0x8D56;
 
 		/// <summary>
 		/// Value of GL_MAX_SAMPLES_ANGLE symbol.
 		/// </summary>
-		[RequiredByFeature("GL_ANGLE_framebuffer_multisample")]
 		public const int MAX_SAMPLES_ANGLE = 0x8D57;
 
 		/// <summary>
 		/// Value of GL_MAX_SAMPLES_APPLE symbol.
 		/// </summary>
-		[RequiredByFeature("GL_APPLE_framebuffer_multisample")]
 		public const int MAX_SAMPLES_APPLE = 0x8D57;
 
 		/// <summary>
 		/// Value of GL_MAX_SAMPLES_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_framebuffer_multisample")]
 		public const int MAX_SAMPLES_NV = 0x8D57;
 
 		/// <summary>
 		/// Value of GL_TEXTURE_GEN_STR_OES symbol.
 		/// </summary>
-		[RequiredByFeature("GL_OES_texture_cube_map")]
 		public const int TEXTURE_GEN_STR_OES = 0x8D60;
 
 		/// <summary>
 		/// Value of GL_HALF_FLOAT_OES symbol.
 		/// </summary>
-		[RequiredByFeature("GL_OES_texture_half_float")]
-		[RequiredByFeature("GL_OES_vertex_half_float")]
 		public const int HALF_FLOAT_OES = 0x8D61;
 
 		/// <summary>
 		/// Value of GL_RGB565_OES symbol.
 		/// </summary>
-		[RequiredByFeature("GL_OES_framebuffer_object")]
-		[RequiredByFeature("GL_OES_required_internalformat")]
 		public const int RGB565_OES = 0x8D62;
 
 		/// <summary>
 		/// Value of GL_ETC1_RGB8_OES symbol.
 		/// </summary>
-		[RequiredByFeature("GL_OES_compressed_ETC1_RGB8_texture")]
 		public const int ETC1_RGB8_OES = 0x8D64;
 
 		/// <summary>
 		/// Value of GL_TEXTURE_EXTERNAL_OES symbol.
 		/// </summary>
-		[RequiredByFeature("GL_OES_EGL_image_external")]
 		public const int TEXTURE_EXTERNAL_OES = 0x8D65;
 
 		/// <summary>
 		/// Value of GL_SAMPLER_EXTERNAL_OES symbol.
 		/// </summary>
-		[RequiredByFeature("GL_OES_EGL_image_external")]
 		public const int SAMPLER_EXTERNAL_OES = 0x8D66;
 
 		/// <summary>
 		/// Value of GL_TEXTURE_BINDING_EXTERNAL_OES symbol.
 		/// </summary>
-		[RequiredByFeature("GL_OES_EGL_image_external")]
 		public const int TEXTURE_BINDING_EXTERNAL_OES = 0x8D67;
 
 		/// <summary>
 		/// Value of GL_REQUIRED_TEXTURE_IMAGE_UNITS_OES symbol.
 		/// </summary>
-		[RequiredByFeature("GL_OES_EGL_image_external")]
 		public const int REQUIRED_TEXTURE_IMAGE_UNITS_OES = 0x8D68;
 
 		/// <summary>
 		/// Value of GL_ANY_SAMPLES_PASSED_CONSERVATIVE_EXT symbol.
 		/// </summary>
-		[RequiredByFeature("GL_EXT_occlusion_query_boolean")]
 		public const int ANY_SAMPLES_PASSED_CONSERVATIVE_EXT = 0x8D6A;
 
 		/// <summary>
 		/// Value of GL_FRAMEBUFFER_ATTACHMENT_TEXTURE_SAMPLES_EXT symbol.
 		/// </summary>
-		[RequiredByFeature("GL_EXT_multisampled_render_to_texture")]
 		public const int FRAMEBUFFER_ATTACHMENT_TEXTURE_SAMPLES_EXT = 0x8D6C;
 
 		/// <summary>
 		/// Value of GL_FRAMEBUFFER_ATTACHMENT_LAYERED_OES symbol.
 		/// </summary>
-		[RequiredByFeature("GL_OES_geometry_shader")]
 		public const int FRAMEBUFFER_ATTACHMENT_LAYERED_OES = 0x8DA7;
 
 		/// <summary>
 		/// Value of GL_FRAMEBUFFER_INCOMPLETE_LAYER_TARGETS_OES symbol.
 		/// </summary>
-		[RequiredByFeature("GL_OES_geometry_shader")]
 		public const int FRAMEBUFFER_INCOMPLETE_LAYER_TARGETS_OES = 0x8DA8;
 
 		/// <summary>
 		/// Value of GL_SAMPLER_BUFFER_OES symbol.
 		/// </summary>
-		[RequiredByFeature("GL_OES_texture_buffer")]
 		public const int SAMPLER_BUFFER_OES = 0x8DC2;
 
 		/// <summary>
 		/// Value of GL_SAMPLER_2D_ARRAY_SHADOW_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_shadow_samplers_array")]
 		public const int SAMPLER_2D_ARRAY_SHADOW_NV = 0x8DC4;
 
 		/// <summary>
 		/// Value of GL_SAMPLER_CUBE_SHADOW_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_shadow_samplers_cube")]
 		public const int SAMPLER_CUBE_SHADOW_NV = 0x8DC5;
 
 		/// <summary>
 		/// Value of GL_INT_SAMPLER_BUFFER_OES symbol.
 		/// </summary>
-		[RequiredByFeature("GL_OES_texture_buffer")]
 		public const int INT_SAMPLER_BUFFER_OES = 0x8DD0;
 
 		/// <summary>
 		/// Value of GL_UNSIGNED_INT_SAMPLER_BUFFER_OES symbol.
 		/// </summary>
-		[RequiredByFeature("GL_OES_texture_buffer")]
 		public const int UNSIGNED_INT_SAMPLER_BUFFER_OES = 0x8DD8;
 
 		/// <summary>
 		/// Value of GL_GEOMETRY_SHADER_OES symbol.
 		/// </summary>
-		[RequiredByFeature("GL_OES_geometry_shader")]
 		public const int GEOMETRY_SHADER_OES = 0x8DD9;
 
 		/// <summary>
 		/// Value of GL_MAX_GEOMETRY_UNIFORM_COMPONENTS_OES symbol.
 		/// </summary>
-		[RequiredByFeature("GL_OES_geometry_shader")]
 		public const int MAX_GEOMETRY_UNIFORM_COMPONENTS_OES = 0x8DDF;
 
 		/// <summary>
 		/// Value of GL_MAX_GEOMETRY_OUTPUT_VERTICES_OES symbol.
 		/// </summary>
-		[RequiredByFeature("GL_OES_geometry_shader")]
 		public const int MAX_GEOMETRY_OUTPUT_VERTICES_OES = 0x8DE0;
 
 		/// <summary>
 		/// Value of GL_MAX_GEOMETRY_TOTAL_OUTPUT_COMPONENTS_OES symbol.
 		/// </summary>
-		[RequiredByFeature("GL_OES_geometry_shader")]
 		public const int MAX_GEOMETRY_TOTAL_OUTPUT_COMPONENTS_OES = 0x8DE1;
 
 		/// <summary>
 		/// Value of GL_UNSIGNED_INT_10_10_10_2_OES symbol.
 		/// </summary>
-		[RequiredByFeature("GL_OES_vertex_type_10_10_10_2")]
 		public const int UNSIGNED_INT_10_10_10_2_OES = 0x8DF6;
 
 		/// <summary>
 		/// Value of GL_INT_10_10_10_2_OES symbol.
 		/// </summary>
-		[RequiredByFeature("GL_OES_vertex_type_10_10_10_2")]
 		public const int INT_10_10_10_2_OES = 0x8DF7;
 
 		/// <summary>
 		/// Value of GL_MAX_COMBINED_TESS_CONTROL_UNIFORM_COMPONENTS_EXT symbol.
 		/// </summary>
-		[RequiredByFeature("GL_EXT_tessellation_shader")]
 		public const int MAX_COMBINED_TESS_CONTROL_UNIFORM_COMPONENTS_EXT = 0x8E1E;
 
 		/// <summary>
 		/// Value of GL_MAX_COMBINED_TESS_CONTROL_UNIFORM_COMPONENTS_OES symbol.
 		/// </summary>
-		[RequiredByFeature("GL_OES_tessellation_shader")]
 		public const int MAX_COMBINED_TESS_CONTROL_UNIFORM_COMPONENTS_OES = 0x8E1E;
 
 		/// <summary>
 		/// Value of GL_MAX_COMBINED_TESS_EVALUATION_UNIFORM_COMPONENTS_EXT symbol.
 		/// </summary>
-		[RequiredByFeature("GL_EXT_tessellation_shader")]
 		public const int MAX_COMBINED_TESS_EVALUATION_UNIFORM_COMPONENTS_EXT = 0x8E1F;
 
 		/// <summary>
 		/// Value of GL_MAX_COMBINED_TESS_EVALUATION_UNIFORM_COMPONENTS_OES symbol.
 		/// </summary>
-		[RequiredByFeature("GL_OES_tessellation_shader")]
 		public const int MAX_COMBINED_TESS_EVALUATION_UNIFORM_COMPONENTS_OES = 0x8E1F;
 
 		/// <summary>
 		/// Value of GL_TIMESTAMP_EXT symbol.
 		/// </summary>
-		[RequiredByFeature("GL_EXT_disjoint_timer_query")]
 		public const int TIMESTAMP_EXT = 0x8E28;
 
 		/// <summary>
 		/// Value of GL_DEPTH_COMPONENT16_NONLINEAR_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_depth_nonlinear")]
 		public const int DEPTH_COMPONENT16_NONLINEAR_NV = 0x8E2C;
 
 		/// <summary>
 		/// Value of GL_FIRST_VERTEX_CONVENTION_OES symbol.
 		/// </summary>
-		[RequiredByFeature("GL_OES_geometry_shader")]
 		public const int FIRST_VERTEX_CONVENTION_OES = 0x8E4D;
 
 		/// <summary>
 		/// Value of GL_LAST_VERTEX_CONVENTION_OES symbol.
 		/// </summary>
-		[RequiredByFeature("GL_OES_geometry_shader")]
 		public const int LAST_VERTEX_CONVENTION_OES = 0x8E4E;
 
 		/// <summary>
 		/// Value of GL_MAX_GEOMETRY_SHADER_INVOCATIONS_EXT symbol.
 		/// </summary>
-		[RequiredByFeature("GL_EXT_geometry_shader")]
 		public const int MAX_GEOMETRY_SHADER_INVOCATIONS_EXT = 0x8E5A;
 
 		/// <summary>
 		/// Value of GL_MAX_GEOMETRY_SHADER_INVOCATIONS_OES symbol.
 		/// </summary>
-		[RequiredByFeature("GL_OES_geometry_shader")]
 		public const int MAX_GEOMETRY_SHADER_INVOCATIONS_OES = 0x8E5A;
 
 		/// <summary>
 		/// Value of GL_MIN_FRAGMENT_INTERPOLATION_OFFSET_OES symbol.
 		/// </summary>
-		[RequiredByFeature("GL_OES_shader_multisample_interpolation")]
 		public const int MIN_FRAGMENT_INTERPOLATION_OFFSET_OES = 0x8E5B;
 
 		/// <summary>
 		/// Value of GL_MAX_FRAGMENT_INTERPOLATION_OFFSET_OES symbol.
 		/// </summary>
-		[RequiredByFeature("GL_OES_shader_multisample_interpolation")]
 		public const int MAX_FRAGMENT_INTERPOLATION_OFFSET_OES = 0x8E5C;
 
 		/// <summary>
 		/// Value of GL_FRAGMENT_INTERPOLATION_OFFSET_BITS_OES symbol.
 		/// </summary>
-		[RequiredByFeature("GL_OES_shader_multisample_interpolation")]
 		public const int FRAGMENT_INTERPOLATION_OFFSET_BITS_OES = 0x8E5D;
 
 		/// <summary>
 		/// Value of GL_PATCH_VERTICES_EXT symbol.
 		/// </summary>
-		[RequiredByFeature("GL_EXT_tessellation_shader")]
 		public const int PATCH_VERTICES_EXT = 0x8E72;
 
 		/// <summary>
 		/// Value of GL_PATCH_VERTICES_OES symbol.
 		/// </summary>
-		[RequiredByFeature("GL_OES_tessellation_shader")]
 		public const int PATCH_VERTICES_OES = 0x8E72;
 
 		/// <summary>
@@ -3445,640 +2939,531 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_TESS_CONTROL_OUTPUT_VERTICES_EXT symbol.
 		/// </summary>
-		[RequiredByFeature("GL_EXT_tessellation_shader")]
 		public const int TESS_CONTROL_OUTPUT_VERTICES_EXT = 0x8E75;
 
 		/// <summary>
 		/// Value of GL_TESS_CONTROL_OUTPUT_VERTICES_OES symbol.
 		/// </summary>
-		[RequiredByFeature("GL_OES_tessellation_shader")]
 		public const int TESS_CONTROL_OUTPUT_VERTICES_OES = 0x8E75;
 
 		/// <summary>
 		/// Value of GL_TESS_GEN_MODE_EXT symbol.
 		/// </summary>
-		[RequiredByFeature("GL_EXT_tessellation_shader")]
 		public const int TESS_GEN_MODE_EXT = 0x8E76;
 
 		/// <summary>
 		/// Value of GL_TESS_GEN_MODE_OES symbol.
 		/// </summary>
-		[RequiredByFeature("GL_OES_tessellation_shader")]
 		public const int TESS_GEN_MODE_OES = 0x8E76;
 
 		/// <summary>
 		/// Value of GL_TESS_GEN_SPACING_EXT symbol.
 		/// </summary>
-		[RequiredByFeature("GL_EXT_tessellation_shader")]
 		public const int TESS_GEN_SPACING_EXT = 0x8E77;
 
 		/// <summary>
 		/// Value of GL_TESS_GEN_SPACING_OES symbol.
 		/// </summary>
-		[RequiredByFeature("GL_OES_tessellation_shader")]
 		public const int TESS_GEN_SPACING_OES = 0x8E77;
 
 		/// <summary>
 		/// Value of GL_TESS_GEN_VERTEX_ORDER_EXT symbol.
 		/// </summary>
-		[RequiredByFeature("GL_EXT_tessellation_shader")]
 		public const int TESS_GEN_VERTEX_ORDER_EXT = 0x8E78;
 
 		/// <summary>
 		/// Value of GL_TESS_GEN_VERTEX_ORDER_OES symbol.
 		/// </summary>
-		[RequiredByFeature("GL_OES_tessellation_shader")]
 		public const int TESS_GEN_VERTEX_ORDER_OES = 0x8E78;
 
 		/// <summary>
 		/// Value of GL_TESS_GEN_POINT_MODE_EXT symbol.
 		/// </summary>
-		[RequiredByFeature("GL_EXT_tessellation_shader")]
 		public const int TESS_GEN_POINT_MODE_EXT = 0x8E79;
 
 		/// <summary>
 		/// Value of GL_TESS_GEN_POINT_MODE_OES symbol.
 		/// </summary>
-		[RequiredByFeature("GL_OES_tessellation_shader")]
 		public const int TESS_GEN_POINT_MODE_OES = 0x8E79;
 
 		/// <summary>
 		/// Value of GL_ISOLINES_EXT symbol.
 		/// </summary>
-		[RequiredByFeature("GL_EXT_tessellation_shader")]
 		public const int ISOLINES_EXT = 0x8E7A;
 
 		/// <summary>
 		/// Value of GL_ISOLINES_OES symbol.
 		/// </summary>
-		[RequiredByFeature("GL_OES_tessellation_shader")]
 		public const int ISOLINES_OES = 0x8E7A;
 
 		/// <summary>
 		/// Value of GL_FRACTIONAL_ODD_EXT symbol.
 		/// </summary>
-		[RequiredByFeature("GL_EXT_tessellation_shader")]
 		public const int FRACTIONAL_ODD_EXT = 0x8E7B;
 
 		/// <summary>
 		/// Value of GL_FRACTIONAL_ODD_OES symbol.
 		/// </summary>
-		[RequiredByFeature("GL_OES_tessellation_shader")]
 		public const int FRACTIONAL_ODD_OES = 0x8E7B;
 
 		/// <summary>
 		/// Value of GL_FRACTIONAL_EVEN_EXT symbol.
 		/// </summary>
-		[RequiredByFeature("GL_EXT_tessellation_shader")]
 		public const int FRACTIONAL_EVEN_EXT = 0x8E7C;
 
 		/// <summary>
 		/// Value of GL_FRACTIONAL_EVEN_OES symbol.
 		/// </summary>
-		[RequiredByFeature("GL_OES_tessellation_shader")]
 		public const int FRACTIONAL_EVEN_OES = 0x8E7C;
 
 		/// <summary>
 		/// Value of GL_MAX_PATCH_VERTICES_EXT symbol.
 		/// </summary>
-		[RequiredByFeature("GL_EXT_tessellation_shader")]
 		public const int MAX_PATCH_VERTICES_EXT = 0x8E7D;
 
 		/// <summary>
 		/// Value of GL_MAX_PATCH_VERTICES_OES symbol.
 		/// </summary>
-		[RequiredByFeature("GL_OES_tessellation_shader")]
 		public const int MAX_PATCH_VERTICES_OES = 0x8E7D;
 
 		/// <summary>
 		/// Value of GL_MAX_TESS_GEN_LEVEL_EXT symbol.
 		/// </summary>
-		[RequiredByFeature("GL_EXT_tessellation_shader")]
 		public const int MAX_TESS_GEN_LEVEL_EXT = 0x8E7E;
 
 		/// <summary>
 		/// Value of GL_MAX_TESS_GEN_LEVEL_OES symbol.
 		/// </summary>
-		[RequiredByFeature("GL_OES_tessellation_shader")]
 		public const int MAX_TESS_GEN_LEVEL_OES = 0x8E7E;
 
 		/// <summary>
 		/// Value of GL_MAX_TESS_CONTROL_UNIFORM_COMPONENTS_EXT symbol.
 		/// </summary>
-		[RequiredByFeature("GL_EXT_tessellation_shader")]
 		public const int MAX_TESS_CONTROL_UNIFORM_COMPONENTS_EXT = 0x8E7F;
 
 		/// <summary>
 		/// Value of GL_MAX_TESS_CONTROL_UNIFORM_COMPONENTS_OES symbol.
 		/// </summary>
-		[RequiredByFeature("GL_OES_tessellation_shader")]
 		public const int MAX_TESS_CONTROL_UNIFORM_COMPONENTS_OES = 0x8E7F;
 
 		/// <summary>
 		/// Value of GL_MAX_TESS_EVALUATION_UNIFORM_COMPONENTS_EXT symbol.
 		/// </summary>
-		[RequiredByFeature("GL_EXT_tessellation_shader")]
 		public const int MAX_TESS_EVALUATION_UNIFORM_COMPONENTS_EXT = 0x8E80;
 
 		/// <summary>
 		/// Value of GL_MAX_TESS_EVALUATION_UNIFORM_COMPONENTS_OES symbol.
 		/// </summary>
-		[RequiredByFeature("GL_OES_tessellation_shader")]
 		public const int MAX_TESS_EVALUATION_UNIFORM_COMPONENTS_OES = 0x8E80;
 
 		/// <summary>
 		/// Value of GL_MAX_TESS_CONTROL_TEXTURE_IMAGE_UNITS_EXT symbol.
 		/// </summary>
-		[RequiredByFeature("GL_EXT_tessellation_shader")]
 		public const int MAX_TESS_CONTROL_TEXTURE_IMAGE_UNITS_EXT = 0x8E81;
 
 		/// <summary>
 		/// Value of GL_MAX_TESS_CONTROL_TEXTURE_IMAGE_UNITS_OES symbol.
 		/// </summary>
-		[RequiredByFeature("GL_OES_tessellation_shader")]
 		public const int MAX_TESS_CONTROL_TEXTURE_IMAGE_UNITS_OES = 0x8E81;
 
 		/// <summary>
 		/// Value of GL_MAX_TESS_EVALUATION_TEXTURE_IMAGE_UNITS_EXT symbol.
 		/// </summary>
-		[RequiredByFeature("GL_EXT_tessellation_shader")]
 		public const int MAX_TESS_EVALUATION_TEXTURE_IMAGE_UNITS_EXT = 0x8E82;
 
 		/// <summary>
 		/// Value of GL_MAX_TESS_EVALUATION_TEXTURE_IMAGE_UNITS_OES symbol.
 		/// </summary>
-		[RequiredByFeature("GL_OES_tessellation_shader")]
 		public const int MAX_TESS_EVALUATION_TEXTURE_IMAGE_UNITS_OES = 0x8E82;
 
 		/// <summary>
 		/// Value of GL_MAX_TESS_CONTROL_OUTPUT_COMPONENTS_EXT symbol.
 		/// </summary>
-		[RequiredByFeature("GL_EXT_tessellation_shader")]
 		public const int MAX_TESS_CONTROL_OUTPUT_COMPONENTS_EXT = 0x8E83;
 
 		/// <summary>
 		/// Value of GL_MAX_TESS_CONTROL_OUTPUT_COMPONENTS_OES symbol.
 		/// </summary>
-		[RequiredByFeature("GL_OES_tessellation_shader")]
 		public const int MAX_TESS_CONTROL_OUTPUT_COMPONENTS_OES = 0x8E83;
 
 		/// <summary>
 		/// Value of GL_MAX_TESS_PATCH_COMPONENTS_EXT symbol.
 		/// </summary>
-		[RequiredByFeature("GL_EXT_tessellation_shader")]
 		public const int MAX_TESS_PATCH_COMPONENTS_EXT = 0x8E84;
 
 		/// <summary>
 		/// Value of GL_MAX_TESS_PATCH_COMPONENTS_OES symbol.
 		/// </summary>
-		[RequiredByFeature("GL_OES_tessellation_shader")]
 		public const int MAX_TESS_PATCH_COMPONENTS_OES = 0x8E84;
 
 		/// <summary>
 		/// Value of GL_MAX_TESS_CONTROL_TOTAL_OUTPUT_COMPONENTS_EXT symbol.
 		/// </summary>
-		[RequiredByFeature("GL_EXT_tessellation_shader")]
 		public const int MAX_TESS_CONTROL_TOTAL_OUTPUT_COMPONENTS_EXT = 0x8E85;
 
 		/// <summary>
 		/// Value of GL_MAX_TESS_CONTROL_TOTAL_OUTPUT_COMPONENTS_OES symbol.
 		/// </summary>
-		[RequiredByFeature("GL_OES_tessellation_shader")]
 		public const int MAX_TESS_CONTROL_TOTAL_OUTPUT_COMPONENTS_OES = 0x8E85;
 
 		/// <summary>
 		/// Value of GL_MAX_TESS_EVALUATION_OUTPUT_COMPONENTS_EXT symbol.
 		/// </summary>
-		[RequiredByFeature("GL_EXT_tessellation_shader")]
 		public const int MAX_TESS_EVALUATION_OUTPUT_COMPONENTS_EXT = 0x8E86;
 
 		/// <summary>
 		/// Value of GL_MAX_TESS_EVALUATION_OUTPUT_COMPONENTS_OES symbol.
 		/// </summary>
-		[RequiredByFeature("GL_OES_tessellation_shader")]
 		public const int MAX_TESS_EVALUATION_OUTPUT_COMPONENTS_OES = 0x8E86;
 
 		/// <summary>
 		/// Value of GL_TESS_EVALUATION_SHADER_EXT symbol.
 		/// </summary>
-		[RequiredByFeature("GL_EXT_tessellation_shader")]
 		public const int TESS_EVALUATION_SHADER_EXT = 0x8E87;
 
 		/// <summary>
 		/// Value of GL_TESS_EVALUATION_SHADER_OES symbol.
 		/// </summary>
-		[RequiredByFeature("GL_OES_tessellation_shader")]
 		public const int TESS_EVALUATION_SHADER_OES = 0x8E87;
 
 		/// <summary>
 		/// Value of GL_TESS_CONTROL_SHADER_EXT symbol.
 		/// </summary>
-		[RequiredByFeature("GL_EXT_tessellation_shader")]
 		public const int TESS_CONTROL_SHADER_EXT = 0x8E88;
 
 		/// <summary>
 		/// Value of GL_TESS_CONTROL_SHADER_OES symbol.
 		/// </summary>
-		[RequiredByFeature("GL_OES_tessellation_shader")]
 		public const int TESS_CONTROL_SHADER_OES = 0x8E88;
 
 		/// <summary>
 		/// Value of GL_MAX_TESS_CONTROL_UNIFORM_BLOCKS_EXT symbol.
 		/// </summary>
-		[RequiredByFeature("GL_EXT_tessellation_shader")]
 		public const int MAX_TESS_CONTROL_UNIFORM_BLOCKS_EXT = 0x8E89;
 
 		/// <summary>
 		/// Value of GL_MAX_TESS_CONTROL_UNIFORM_BLOCKS_OES symbol.
 		/// </summary>
-		[RequiredByFeature("GL_OES_tessellation_shader")]
 		public const int MAX_TESS_CONTROL_UNIFORM_BLOCKS_OES = 0x8E89;
 
 		/// <summary>
 		/// Value of GL_MAX_TESS_EVALUATION_UNIFORM_BLOCKS_EXT symbol.
 		/// </summary>
-		[RequiredByFeature("GL_EXT_tessellation_shader")]
 		public const int MAX_TESS_EVALUATION_UNIFORM_BLOCKS_EXT = 0x8E8A;
 
 		/// <summary>
 		/// Value of GL_MAX_TESS_EVALUATION_UNIFORM_BLOCKS_OES symbol.
 		/// </summary>
-		[RequiredByFeature("GL_OES_tessellation_shader")]
 		public const int MAX_TESS_EVALUATION_UNIFORM_BLOCKS_OES = 0x8E8A;
 
 		/// <summary>
 		/// Value of GL_COVERAGE_COMPONENT_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_coverage_sample")]
 		public const int COVERAGE_COMPONENT_NV = 0x8ED0;
 
 		/// <summary>
 		/// Value of GL_COVERAGE_COMPONENT4_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_coverage_sample")]
 		public const int COVERAGE_COMPONENT4_NV = 0x8ED1;
 
 		/// <summary>
 		/// Value of GL_COVERAGE_ATTACHMENT_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_coverage_sample")]
 		public const int COVERAGE_ATTACHMENT_NV = 0x8ED2;
 
 		/// <summary>
 		/// Value of GL_COVERAGE_BUFFERS_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_coverage_sample")]
 		public const int COVERAGE_BUFFERS_NV = 0x8ED3;
 
 		/// <summary>
 		/// Value of GL_COVERAGE_SAMPLES_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_coverage_sample")]
 		public const int COVERAGE_SAMPLES_NV = 0x8ED4;
 
 		/// <summary>
 		/// Value of GL_COVERAGE_ALL_FRAGMENTS_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_coverage_sample")]
 		public const int COVERAGE_ALL_FRAGMENTS_NV = 0x8ED5;
 
 		/// <summary>
 		/// Value of GL_COVERAGE_EDGE_FRAGMENTS_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_coverage_sample")]
 		public const int COVERAGE_EDGE_FRAGMENTS_NV = 0x8ED6;
 
 		/// <summary>
 		/// Value of GL_COVERAGE_AUTOMATIC_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_coverage_sample")]
 		public const int COVERAGE_AUTOMATIC_NV = 0x8ED7;
 
 		/// <summary>
 		/// Value of GL_COPY_READ_BUFFER_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_copy_buffer")]
 		public const int COPY_READ_BUFFER_NV = 0x8F36;
 
 		/// <summary>
 		/// Value of GL_COPY_WRITE_BUFFER_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_copy_buffer")]
 		public const int COPY_WRITE_BUFFER_NV = 0x8F37;
 
 		/// <summary>
 		/// Value of GL_MALI_SHADER_BINARY_ARM symbol.
 		/// </summary>
-		[RequiredByFeature("GL_ARM_mali_shader_binary")]
 		public const int MALI_SHADER_BINARY_ARM = 0x8F60;
 
 		/// <summary>
 		/// Value of GL_MALI_PROGRAM_BINARY_ARM symbol.
 		/// </summary>
-		[RequiredByFeature("GL_ARM_mali_program_binary")]
 		public const int MALI_PROGRAM_BINARY_ARM = 0x8F61;
 
 		/// <summary>
 		/// Value of GL_MAX_SHADER_PIXEL_LOCAL_STORAGE_FAST_SIZE_EXT symbol.
 		/// </summary>
-		[RequiredByFeature("GL_EXT_shader_pixel_local_storage")]
 		public const int MAX_SHADER_PIXEL_LOCAL_STORAGE_FAST_SIZE_EXT = 0x8F63;
 
 		/// <summary>
 		/// Value of GL_SHADER_PIXEL_LOCAL_STORAGE_EXT symbol.
 		/// </summary>
-		[RequiredByFeature("GL_EXT_shader_pixel_local_storage")]
 		public const int SHADER_PIXEL_LOCAL_STORAGE_EXT = 0x8F64;
 
 		/// <summary>
 		/// Value of GL_FETCH_PER_SAMPLE_ARM symbol.
 		/// </summary>
-		[RequiredByFeature("GL_ARM_shader_framebuffer_fetch")]
 		public const int FETCH_PER_SAMPLE_ARM = 0x8F65;
 
 		/// <summary>
 		/// Value of GL_FRAGMENT_SHADER_FRAMEBUFFER_FETCH_MRT_ARM symbol.
 		/// </summary>
-		[RequiredByFeature("GL_ARM_shader_framebuffer_fetch")]
 		public const int FRAGMENT_SHADER_FRAMEBUFFER_FETCH_MRT_ARM = 0x8F66;
 
 		/// <summary>
 		/// Value of GL_MAX_SHADER_PIXEL_LOCAL_STORAGE_SIZE_EXT symbol.
 		/// </summary>
-		[RequiredByFeature("GL_EXT_shader_pixel_local_storage")]
 		public const int MAX_SHADER_PIXEL_LOCAL_STORAGE_SIZE_EXT = 0x8F67;
 
 		/// <summary>
 		/// Value of GL_R16_SNORM_EXT symbol.
 		/// </summary>
-		[RequiredByFeature("GL_EXT_render_snorm")]
-		[RequiredByFeature("GL_EXT_texture_norm16")]
 		public const int R16_SNORM_EXT = 0x8F98;
 
 		/// <summary>
 		/// Value of GL_RG16_SNORM_EXT symbol.
 		/// </summary>
-		[RequiredByFeature("GL_EXT_render_snorm")]
-		[RequiredByFeature("GL_EXT_texture_norm16")]
 		public const int RG16_SNORM_EXT = 0x8F99;
 
 		/// <summary>
 		/// Value of GL_RGB16_SNORM_EXT symbol.
 		/// </summary>
-		[RequiredByFeature("GL_EXT_texture_norm16")]
 		public const int RGB16_SNORM_EXT = 0x8F9A;
 
 		/// <summary>
 		/// Value of GL_RGBA16_SNORM_EXT symbol.
 		/// </summary>
-		[RequiredByFeature("GL_EXT_render_snorm")]
-		[RequiredByFeature("GL_EXT_texture_norm16")]
 		public const int RGBA16_SNORM_EXT = 0x8F9B;
 
 		/// <summary>
 		/// Value of GL_PERFMON_GLOBAL_MODE_QCOM symbol.
 		/// </summary>
-		[RequiredByFeature("GL_QCOM_perfmon_global_mode")]
 		public const int PERFMON_GLOBAL_MODE_QCOM = 0x8FA0;
 
 		/// <summary>
 		/// Value of GL_BINNING_CONTROL_HINT_QCOM symbol.
 		/// </summary>
-		[RequiredByFeature("GL_QCOM_binning_control")]
 		public const int BINNING_CONTROL_HINT_QCOM = 0x8FB0;
 
 		/// <summary>
 		/// Value of GL_CPU_OPTIMIZED_QCOM symbol.
 		/// </summary>
-		[RequiredByFeature("GL_QCOM_binning_control")]
 		public const int CPU_OPTIMIZED_QCOM = 0x8FB1;
 
 		/// <summary>
 		/// Value of GL_GPU_OPTIMIZED_QCOM symbol.
 		/// </summary>
-		[RequiredByFeature("GL_QCOM_binning_control")]
 		public const int GPU_OPTIMIZED_QCOM = 0x8FB2;
 
 		/// <summary>
 		/// Value of GL_RENDER_DIRECT_TO_FRAMEBUFFER_QCOM symbol.
 		/// </summary>
-		[RequiredByFeature("GL_QCOM_binning_control")]
 		public const int RENDER_DIRECT_TO_FRAMEBUFFER_QCOM = 0x8FB3;
 
 		/// <summary>
 		/// Value of GL_GPU_DISJOINT_EXT symbol.
 		/// </summary>
-		[RequiredByFeature("GL_EXT_disjoint_timer_query")]
 		public const int GPU_DISJOINT_EXT = 0x8FBB;
 
 		/// <summary>
 		/// Value of GL_SHADER_BINARY_VIV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_VIV_shader_binary")]
 		public const int SHADER_BINARY_VIV = 0x8FC4;
 
 		/// <summary>
 		/// Value of GL_TEXTURE_CUBE_MAP_ARRAY_EXT symbol.
 		/// </summary>
-		[RequiredByFeature("GL_EXT_texture_cube_map_array")]
 		public const int TEXTURE_CUBE_MAP_ARRAY_EXT = 0x9009;
 
 		/// <summary>
 		/// Value of GL_TEXTURE_CUBE_MAP_ARRAY_OES symbol.
 		/// </summary>
-		[RequiredByFeature("GL_OES_texture_cube_map_array")]
 		public const int TEXTURE_CUBE_MAP_ARRAY_OES = 0x9009;
 
 		/// <summary>
 		/// Value of GL_TEXTURE_BINDING_CUBE_MAP_ARRAY_EXT symbol.
 		/// </summary>
-		[RequiredByFeature("GL_EXT_texture_cube_map_array")]
 		public const int TEXTURE_BINDING_CUBE_MAP_ARRAY_EXT = 0x900A;
 
 		/// <summary>
 		/// Value of GL_TEXTURE_BINDING_CUBE_MAP_ARRAY_OES symbol.
 		/// </summary>
-		[RequiredByFeature("GL_OES_texture_cube_map_array")]
 		public const int TEXTURE_BINDING_CUBE_MAP_ARRAY_OES = 0x900A;
 
 		/// <summary>
 		/// Value of GL_SAMPLER_CUBE_MAP_ARRAY_EXT symbol.
 		/// </summary>
-		[RequiredByFeature("GL_EXT_texture_cube_map_array")]
 		public const int SAMPLER_CUBE_MAP_ARRAY_EXT = 0x900C;
 
 		/// <summary>
 		/// Value of GL_SAMPLER_CUBE_MAP_ARRAY_OES symbol.
 		/// </summary>
-		[RequiredByFeature("GL_OES_texture_cube_map_array")]
 		public const int SAMPLER_CUBE_MAP_ARRAY_OES = 0x900C;
 
 		/// <summary>
 		/// Value of GL_SAMPLER_CUBE_MAP_ARRAY_SHADOW_EXT symbol.
 		/// </summary>
-		[RequiredByFeature("GL_EXT_texture_cube_map_array")]
 		public const int SAMPLER_CUBE_MAP_ARRAY_SHADOW_EXT = 0x900D;
 
 		/// <summary>
 		/// Value of GL_SAMPLER_CUBE_MAP_ARRAY_SHADOW_OES symbol.
 		/// </summary>
-		[RequiredByFeature("GL_OES_texture_cube_map_array")]
 		public const int SAMPLER_CUBE_MAP_ARRAY_SHADOW_OES = 0x900D;
 
 		/// <summary>
 		/// Value of GL_INT_SAMPLER_CUBE_MAP_ARRAY_EXT symbol.
 		/// </summary>
-		[RequiredByFeature("GL_EXT_texture_cube_map_array")]
 		public const int INT_SAMPLER_CUBE_MAP_ARRAY_EXT = 0x900E;
 
 		/// <summary>
 		/// Value of GL_INT_SAMPLER_CUBE_MAP_ARRAY_OES symbol.
 		/// </summary>
-		[RequiredByFeature("GL_OES_texture_cube_map_array")]
 		public const int INT_SAMPLER_CUBE_MAP_ARRAY_OES = 0x900E;
 
 		/// <summary>
 		/// Value of GL_UNSIGNED_INT_SAMPLER_CUBE_MAP_ARRAY_EXT symbol.
 		/// </summary>
-		[RequiredByFeature("GL_EXT_texture_cube_map_array")]
 		public const int UNSIGNED_INT_SAMPLER_CUBE_MAP_ARRAY_EXT = 0x900F;
 
 		/// <summary>
 		/// Value of GL_UNSIGNED_INT_SAMPLER_CUBE_MAP_ARRAY_OES symbol.
 		/// </summary>
-		[RequiredByFeature("GL_OES_texture_cube_map_array")]
 		public const int UNSIGNED_INT_SAMPLER_CUBE_MAP_ARRAY_OES = 0x900F;
 
 		/// <summary>
 		/// Value of GL_IMAGE_BUFFER_OES symbol.
 		/// </summary>
-		[RequiredByFeature("GL_OES_texture_buffer")]
 		public const int IMAGE_BUFFER_OES = 0x9051;
 
 		/// <summary>
 		/// Value of GL_IMAGE_CUBE_MAP_ARRAY_OES symbol.
 		/// </summary>
-		[RequiredByFeature("GL_OES_texture_cube_map_array")]
 		public const int IMAGE_CUBE_MAP_ARRAY_OES = 0x9054;
 
 		/// <summary>
 		/// Value of GL_INT_IMAGE_BUFFER_OES symbol.
 		/// </summary>
-		[RequiredByFeature("GL_OES_texture_buffer")]
 		public const int INT_IMAGE_BUFFER_OES = 0x905C;
 
 		/// <summary>
 		/// Value of GL_INT_IMAGE_CUBE_MAP_ARRAY_OES symbol.
 		/// </summary>
-		[RequiredByFeature("GL_OES_texture_cube_map_array")]
 		public const int INT_IMAGE_CUBE_MAP_ARRAY_OES = 0x905F;
 
 		/// <summary>
 		/// Value of GL_UNSIGNED_INT_IMAGE_BUFFER_OES symbol.
 		/// </summary>
-		[RequiredByFeature("GL_OES_texture_buffer")]
 		public const int UNSIGNED_INT_IMAGE_BUFFER_OES = 0x9067;
 
 		/// <summary>
 		/// Value of GL_UNSIGNED_INT_IMAGE_CUBE_MAP_ARRAY_OES symbol.
 		/// </summary>
-		[RequiredByFeature("GL_OES_texture_cube_map_array")]
 		public const int UNSIGNED_INT_IMAGE_CUBE_MAP_ARRAY_OES = 0x906A;
 
 		/// <summary>
 		/// Value of GL_MAX_TESS_CONTROL_IMAGE_UNIFORMS_EXT symbol.
 		/// </summary>
-		[RequiredByFeature("GL_EXT_tessellation_shader")]
 		public const int MAX_TESS_CONTROL_IMAGE_UNIFORMS_EXT = 0x90CB;
 
 		/// <summary>
 		/// Value of GL_MAX_TESS_CONTROL_IMAGE_UNIFORMS_OES symbol.
 		/// </summary>
-		[RequiredByFeature("GL_OES_tessellation_shader")]
 		public const int MAX_TESS_CONTROL_IMAGE_UNIFORMS_OES = 0x90CB;
 
 		/// <summary>
 		/// Value of GL_MAX_TESS_EVALUATION_IMAGE_UNIFORMS_EXT symbol.
 		/// </summary>
-		[RequiredByFeature("GL_EXT_tessellation_shader")]
 		public const int MAX_TESS_EVALUATION_IMAGE_UNIFORMS_EXT = 0x90CC;
 
 		/// <summary>
 		/// Value of GL_MAX_TESS_EVALUATION_IMAGE_UNIFORMS_OES symbol.
 		/// </summary>
-		[RequiredByFeature("GL_OES_tessellation_shader")]
 		public const int MAX_TESS_EVALUATION_IMAGE_UNIFORMS_OES = 0x90CC;
 
 		/// <summary>
 		/// Value of GL_MAX_GEOMETRY_IMAGE_UNIFORMS_EXT symbol.
 		/// </summary>
-		[RequiredByFeature("GL_EXT_geometry_shader")]
 		public const int MAX_GEOMETRY_IMAGE_UNIFORMS_EXT = 0x90CD;
 
 		/// <summary>
 		/// Value of GL_MAX_GEOMETRY_IMAGE_UNIFORMS_OES symbol.
 		/// </summary>
-		[RequiredByFeature("GL_OES_geometry_shader")]
 		public const int MAX_GEOMETRY_IMAGE_UNIFORMS_OES = 0x90CD;
 
 		/// <summary>
 		/// Value of GL_MAX_GEOMETRY_SHADER_STORAGE_BLOCKS_EXT symbol.
 		/// </summary>
-		[RequiredByFeature("GL_EXT_geometry_shader")]
 		public const int MAX_GEOMETRY_SHADER_STORAGE_BLOCKS_EXT = 0x90D7;
 
 		/// <summary>
 		/// Value of GL_MAX_GEOMETRY_SHADER_STORAGE_BLOCKS_OES symbol.
 		/// </summary>
-		[RequiredByFeature("GL_OES_geometry_shader")]
 		public const int MAX_GEOMETRY_SHADER_STORAGE_BLOCKS_OES = 0x90D7;
 
 		/// <summary>
 		/// Value of GL_MAX_TESS_CONTROL_SHADER_STORAGE_BLOCKS_EXT symbol.
 		/// </summary>
-		[RequiredByFeature("GL_EXT_tessellation_shader")]
 		public const int MAX_TESS_CONTROL_SHADER_STORAGE_BLOCKS_EXT = 0x90D8;
 
 		/// <summary>
 		/// Value of GL_MAX_TESS_CONTROL_SHADER_STORAGE_BLOCKS_OES symbol.
 		/// </summary>
-		[RequiredByFeature("GL_OES_tessellation_shader")]
 		public const int MAX_TESS_CONTROL_SHADER_STORAGE_BLOCKS_OES = 0x90D8;
 
 		/// <summary>
 		/// Value of GL_MAX_TESS_EVALUATION_SHADER_STORAGE_BLOCKS_EXT symbol.
 		/// </summary>
-		[RequiredByFeature("GL_EXT_tessellation_shader")]
 		public const int MAX_TESS_EVALUATION_SHADER_STORAGE_BLOCKS_EXT = 0x90D9;
 
 		/// <summary>
 		/// Value of GL_MAX_TESS_EVALUATION_SHADER_STORAGE_BLOCKS_OES symbol.
 		/// </summary>
-		[RequiredByFeature("GL_OES_tessellation_shader")]
 		public const int MAX_TESS_EVALUATION_SHADER_STORAGE_BLOCKS_OES = 0x90D9;
 
 		/// <summary>
 		/// Value of GL_COLOR_ATTACHMENT_EXT symbol.
 		/// </summary>
-		[RequiredByFeature("GL_EXT_multiview_draw_buffers")]
 		public const int COLOR_ATTACHMENT_EXT = 0x90F0;
 
 		/// <summary>
 		/// Value of GL_MULTIVIEW_EXT symbol.
 		/// </summary>
-		[RequiredByFeature("GL_EXT_multiview_draw_buffers")]
 		public const int MULTIVIEW_EXT = 0x90F1;
 
 		/// <summary>
 		/// Value of GL_MAX_MULTIVIEW_BUFFERS_EXT symbol.
 		/// </summary>
-		[RequiredByFeature("GL_EXT_multiview_draw_buffers")]
 		public const int MAX_MULTIVIEW_BUFFERS_EXT = 0x90F2;
 
 		/// <summary>
 		/// Value of GL_CONTEXT_ROBUST_ACCESS_EXT symbol.
 		/// </summary>
-		[RequiredByFeature("GL_EXT_robustness")]
 		public const int CONTEXT_ROBUST_ACCESS_EXT = 0x90F3;
 
 		/// <summary>
@@ -4090,181 +3475,151 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_TEXTURE_2D_MULTISAMPLE_ARRAY_OES symbol.
 		/// </summary>
-		[RequiredByFeature("GL_OES_texture_storage_multisample_2d_array")]
 		public const int TEXTURE_2D_MULTISAMPLE_ARRAY_OES = 0x9102;
 
 		/// <summary>
 		/// Value of GL_TEXTURE_BINDING_2D_MULTISAMPLE_ARRAY_OES symbol.
 		/// </summary>
-		[RequiredByFeature("GL_OES_texture_storage_multisample_2d_array")]
 		public const int TEXTURE_BINDING_2D_MULTISAMPLE_ARRAY_OES = 0x9105;
 
 		/// <summary>
 		/// Value of GL_SAMPLER_2D_MULTISAMPLE_ARRAY_OES symbol.
 		/// </summary>
-		[RequiredByFeature("GL_OES_texture_storage_multisample_2d_array")]
 		public const int SAMPLER_2D_MULTISAMPLE_ARRAY_OES = 0x910B;
 
 		/// <summary>
 		/// Value of GL_INT_SAMPLER_2D_MULTISAMPLE_ARRAY_OES symbol.
 		/// </summary>
-		[RequiredByFeature("GL_OES_texture_storage_multisample_2d_array")]
 		public const int INT_SAMPLER_2D_MULTISAMPLE_ARRAY_OES = 0x910C;
 
 		/// <summary>
 		/// Value of GL_UNSIGNED_INT_SAMPLER_2D_MULTISAMPLE_ARRAY_OES symbol.
 		/// </summary>
-		[RequiredByFeature("GL_OES_texture_storage_multisample_2d_array")]
 		public const int UNSIGNED_INT_SAMPLER_2D_MULTISAMPLE_ARRAY_OES = 0x910D;
 
 		/// <summary>
 		/// Value of GL_MAX_SERVER_WAIT_TIMEOUT_APPLE symbol.
 		/// </summary>
-		[RequiredByFeature("GL_APPLE_sync")]
 		public const int MAX_SERVER_WAIT_TIMEOUT_APPLE = 0x9111;
 
 		/// <summary>
 		/// Value of GL_OBJECT_TYPE_APPLE symbol.
 		/// </summary>
-		[RequiredByFeature("GL_APPLE_sync")]
 		public const int OBJECT_TYPE_APPLE = 0x9112;
 
 		/// <summary>
 		/// Value of GL_SYNC_CONDITION_APPLE symbol.
 		/// </summary>
-		[RequiredByFeature("GL_APPLE_sync")]
 		public const int SYNC_CONDITION_APPLE = 0x9113;
 
 		/// <summary>
 		/// Value of GL_SYNC_STATUS_APPLE symbol.
 		/// </summary>
-		[RequiredByFeature("GL_APPLE_sync")]
 		public const int SYNC_STATUS_APPLE = 0x9114;
 
 		/// <summary>
 		/// Value of GL_SYNC_FLAGS_APPLE symbol.
 		/// </summary>
-		[RequiredByFeature("GL_APPLE_sync")]
 		public const int SYNC_FLAGS_APPLE = 0x9115;
 
 		/// <summary>
 		/// Value of GL_SYNC_FENCE_APPLE symbol.
 		/// </summary>
-		[RequiredByFeature("GL_APPLE_sync")]
 		public const int SYNC_FENCE_APPLE = 0x9116;
 
 		/// <summary>
 		/// Value of GL_SYNC_GPU_COMMANDS_COMPLETE_APPLE symbol.
 		/// </summary>
-		[RequiredByFeature("GL_APPLE_sync")]
 		public const int SYNC_GPU_COMMANDS_COMPLETE_APPLE = 0x9117;
 
 		/// <summary>
 		/// Value of GL_UNSIGNALED_APPLE symbol.
 		/// </summary>
-		[RequiredByFeature("GL_APPLE_sync")]
 		public const int UNSIGNALED_APPLE = 0x9118;
 
 		/// <summary>
 		/// Value of GL_SIGNALED_APPLE symbol.
 		/// </summary>
-		[RequiredByFeature("GL_APPLE_sync")]
 		public const int SIGNALED_APPLE = 0x9119;
 
 		/// <summary>
 		/// Value of GL_ALREADY_SIGNALED_APPLE symbol.
 		/// </summary>
-		[RequiredByFeature("GL_APPLE_sync")]
 		public const int ALREADY_SIGNALED_APPLE = 0x911A;
 
 		/// <summary>
 		/// Value of GL_TIMEOUT_EXPIRED_APPLE symbol.
 		/// </summary>
-		[RequiredByFeature("GL_APPLE_sync")]
 		public const int TIMEOUT_EXPIRED_APPLE = 0x911B;
 
 		/// <summary>
 		/// Value of GL_CONDITION_SATISFIED_APPLE symbol.
 		/// </summary>
-		[RequiredByFeature("GL_APPLE_sync")]
 		public const int CONDITION_SATISFIED_APPLE = 0x911C;
 
 		/// <summary>
 		/// Value of GL_WAIT_FAILED_APPLE symbol.
 		/// </summary>
-		[RequiredByFeature("GL_APPLE_sync")]
 		public const int WAIT_FAILED_APPLE = 0x911D;
 
 		/// <summary>
 		/// Value of GL_MAX_GEOMETRY_INPUT_COMPONENTS_EXT symbol.
 		/// </summary>
-		[RequiredByFeature("GL_EXT_geometry_shader")]
 		public const int MAX_GEOMETRY_INPUT_COMPONENTS_EXT = 0x9123;
 
 		/// <summary>
 		/// Value of GL_MAX_GEOMETRY_INPUT_COMPONENTS_OES symbol.
 		/// </summary>
-		[RequiredByFeature("GL_OES_geometry_shader")]
 		public const int MAX_GEOMETRY_INPUT_COMPONENTS_OES = 0x9123;
 
 		/// <summary>
 		/// Value of GL_MAX_GEOMETRY_OUTPUT_COMPONENTS_EXT symbol.
 		/// </summary>
-		[RequiredByFeature("GL_EXT_geometry_shader")]
 		public const int MAX_GEOMETRY_OUTPUT_COMPONENTS_EXT = 0x9124;
 
 		/// <summary>
 		/// Value of GL_MAX_GEOMETRY_OUTPUT_COMPONENTS_OES symbol.
 		/// </summary>
-		[RequiredByFeature("GL_OES_geometry_shader")]
 		public const int MAX_GEOMETRY_OUTPUT_COMPONENTS_OES = 0x9124;
 
 		/// <summary>
 		/// Value of GL_TEXTURE_IMMUTABLE_FORMAT_EXT symbol.
 		/// </summary>
-		[RequiredByFeature("GL_EXT_texture_storage")]
 		public const int TEXTURE_IMMUTABLE_FORMAT_EXT = 0x912F;
 
 		/// <summary>
 		/// Value of GL_SGX_PROGRAM_BINARY_IMG symbol.
 		/// </summary>
-		[RequiredByFeature("GL_IMG_program_binary")]
 		public const int SGX_PROGRAM_BINARY_IMG = 0x9130;
 
 		/// <summary>
 		/// Value of GL_RENDERBUFFER_SAMPLES_IMG symbol.
 		/// </summary>
-		[RequiredByFeature("GL_IMG_multisampled_render_to_texture")]
 		public const int RENDERBUFFER_SAMPLES_IMG = 0x9133;
 
 		/// <summary>
 		/// Value of GL_FRAMEBUFFER_INCOMPLETE_MULTISAMPLE_IMG symbol.
 		/// </summary>
-		[RequiredByFeature("GL_IMG_multisampled_render_to_texture")]
 		public const int FRAMEBUFFER_INCOMPLETE_MULTISAMPLE_IMG = 0x9134;
 
 		/// <summary>
 		/// Value of GL_MAX_SAMPLES_IMG symbol.
 		/// </summary>
-		[RequiredByFeature("GL_IMG_multisampled_render_to_texture")]
 		public const int MAX_SAMPLES_IMG = 0x9135;
 
 		/// <summary>
 		/// Value of GL_TEXTURE_SAMPLES_IMG symbol.
 		/// </summary>
-		[RequiredByFeature("GL_IMG_multisampled_render_to_texture")]
 		public const int TEXTURE_SAMPLES_IMG = 0x9136;
 
 		/// <summary>
 		/// Value of GL_COMPRESSED_RGBA_PVRTC_2BPPV2_IMG symbol.
 		/// </summary>
-		[RequiredByFeature("GL_IMG_texture_compression_pvrtc2")]
 		public const int COMPRESSED_RGBA_PVRTC_2BPPV2_IMG = 0x9137;
 
 		/// <summary>
 		/// Value of GL_COMPRESSED_RGBA_PVRTC_4BPPV2_IMG symbol.
 		/// </summary>
-		[RequiredByFeature("GL_IMG_texture_compression_pvrtc2")]
 		public const int COMPRESSED_RGBA_PVRTC_4BPPV2_IMG = 0x9138;
 
 		/// <summary>
@@ -4306,37 +3661,31 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_TEXTURE_BUFFER_OFFSET_EXT symbol.
 		/// </summary>
-		[RequiredByFeature("GL_EXT_texture_buffer")]
 		public const int TEXTURE_BUFFER_OFFSET_EXT = 0x919D;
 
 		/// <summary>
 		/// Value of GL_TEXTURE_BUFFER_OFFSET_OES symbol.
 		/// </summary>
-		[RequiredByFeature("GL_OES_texture_buffer")]
 		public const int TEXTURE_BUFFER_OFFSET_OES = 0x919D;
 
 		/// <summary>
 		/// Value of GL_TEXTURE_BUFFER_SIZE_EXT symbol.
 		/// </summary>
-		[RequiredByFeature("GL_EXT_texture_buffer")]
 		public const int TEXTURE_BUFFER_SIZE_EXT = 0x919E;
 
 		/// <summary>
 		/// Value of GL_TEXTURE_BUFFER_SIZE_OES symbol.
 		/// </summary>
-		[RequiredByFeature("GL_OES_texture_buffer")]
 		public const int TEXTURE_BUFFER_SIZE_OES = 0x919E;
 
 		/// <summary>
 		/// Value of GL_TEXTURE_BUFFER_OFFSET_ALIGNMENT_EXT symbol.
 		/// </summary>
-		[RequiredByFeature("GL_EXT_texture_buffer")]
 		public const int TEXTURE_BUFFER_OFFSET_ALIGNMENT_EXT = 0x919F;
 
 		/// <summary>
 		/// Value of GL_TEXTURE_BUFFER_OFFSET_ALIGNMENT_OES symbol.
 		/// </summary>
-		[RequiredByFeature("GL_OES_texture_buffer")]
 		public const int TEXTURE_BUFFER_OFFSET_ALIGNMENT_OES = 0x919F;
 
 		/// <summary>
@@ -4367,31 +3716,26 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_SHADER_BINARY_DMP symbol.
 		/// </summary>
-		[RequiredByFeature("GL_DMP_shader_binary")]
 		public const int SHADER_BINARY_DMP = 0x9250;
 
 		/// <summary>
 		/// Value of GL_SMAPHS30_PROGRAM_BINARY_DMP symbol.
 		/// </summary>
-		[RequiredByFeature("GL_DMP_program_binary")]
 		public const int SMAPHS30_PROGRAM_BINARY_DMP = 0x9251;
 
 		/// <summary>
 		/// Value of GL_SMAPHS_PROGRAM_BINARY_DMP symbol.
 		/// </summary>
-		[RequiredByFeature("GL_DMP_program_binary")]
 		public const int SMAPHS_PROGRAM_BINARY_DMP = 0x9252;
 
 		/// <summary>
 		/// Value of GL_DMP_PROGRAM_BINARY_DMP symbol.
 		/// </summary>
-		[RequiredByFeature("GL_DMP_program_binary")]
 		public const int DMP_PROGRAM_BINARY_DMP = 0x9253;
 
 		/// <summary>
 		/// Value of GL_GCCSO_SHADER_BINARY_FJ symbol.
 		/// </summary>
-		[RequiredByFeature("GL_FJ_shader_binary_GCCSO")]
 		public const int GCCSO_SHADER_BINARY_FJ = 0x9260;
 
 		/// <summary>
@@ -4447,85 +3791,71 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_PRIMITIVE_BOUNDING_BOX_EXT symbol.
 		/// </summary>
-		[RequiredByFeature("GL_EXT_primitive_bounding_box")]
 		public const int PRIMITIVE_BOUNDING_BOX_EXT = 0x92BE;
 
 		/// <summary>
 		/// Value of GL_PRIMITIVE_BOUNDING_BOX_OES symbol.
 		/// </summary>
-		[RequiredByFeature("GL_OES_primitive_bounding_box")]
 		public const int PRIMITIVE_BOUNDING_BOX_OES = 0x92BE;
 
 		/// <summary>
 		/// Value of GL_MAX_TESS_CONTROL_ATOMIC_COUNTER_BUFFERS_EXT symbol.
 		/// </summary>
-		[RequiredByFeature("GL_EXT_tessellation_shader")]
 		public const int MAX_TESS_CONTROL_ATOMIC_COUNTER_BUFFERS_EXT = 0x92CD;
 
 		/// <summary>
 		/// Value of GL_MAX_TESS_CONTROL_ATOMIC_COUNTER_BUFFERS_OES symbol.
 		/// </summary>
-		[RequiredByFeature("GL_OES_tessellation_shader")]
 		public const int MAX_TESS_CONTROL_ATOMIC_COUNTER_BUFFERS_OES = 0x92CD;
 
 		/// <summary>
 		/// Value of GL_MAX_TESS_EVALUATION_ATOMIC_COUNTER_BUFFERS_EXT symbol.
 		/// </summary>
-		[RequiredByFeature("GL_EXT_tessellation_shader")]
 		public const int MAX_TESS_EVALUATION_ATOMIC_COUNTER_BUFFERS_EXT = 0x92CE;
 
 		/// <summary>
 		/// Value of GL_MAX_TESS_EVALUATION_ATOMIC_COUNTER_BUFFERS_OES symbol.
 		/// </summary>
-		[RequiredByFeature("GL_OES_tessellation_shader")]
 		public const int MAX_TESS_EVALUATION_ATOMIC_COUNTER_BUFFERS_OES = 0x92CE;
 
 		/// <summary>
 		/// Value of GL_MAX_GEOMETRY_ATOMIC_COUNTER_BUFFERS_EXT symbol.
 		/// </summary>
-		[RequiredByFeature("GL_EXT_geometry_shader")]
 		public const int MAX_GEOMETRY_ATOMIC_COUNTER_BUFFERS_EXT = 0x92CF;
 
 		/// <summary>
 		/// Value of GL_MAX_GEOMETRY_ATOMIC_COUNTER_BUFFERS_OES symbol.
 		/// </summary>
-		[RequiredByFeature("GL_OES_geometry_shader")]
 		public const int MAX_GEOMETRY_ATOMIC_COUNTER_BUFFERS_OES = 0x92CF;
 
 		/// <summary>
 		/// Value of GL_MAX_TESS_CONTROL_ATOMIC_COUNTERS_EXT symbol.
 		/// </summary>
-		[RequiredByFeature("GL_EXT_tessellation_shader")]
 		public const int MAX_TESS_CONTROL_ATOMIC_COUNTERS_EXT = 0x92D3;
 
 		/// <summary>
 		/// Value of GL_MAX_TESS_CONTROL_ATOMIC_COUNTERS_OES symbol.
 		/// </summary>
-		[RequiredByFeature("GL_OES_tessellation_shader")]
 		public const int MAX_TESS_CONTROL_ATOMIC_COUNTERS_OES = 0x92D3;
 
 		/// <summary>
 		/// Value of GL_MAX_TESS_EVALUATION_ATOMIC_COUNTERS_EXT symbol.
 		/// </summary>
-		[RequiredByFeature("GL_EXT_tessellation_shader")]
 		public const int MAX_TESS_EVALUATION_ATOMIC_COUNTERS_EXT = 0x92D4;
 
 		/// <summary>
 		/// Value of GL_MAX_TESS_EVALUATION_ATOMIC_COUNTERS_OES symbol.
 		/// </summary>
-		[RequiredByFeature("GL_OES_tessellation_shader")]
 		public const int MAX_TESS_EVALUATION_ATOMIC_COUNTERS_OES = 0x92D4;
 
 		/// <summary>
 		/// Value of GL_MAX_GEOMETRY_ATOMIC_COUNTERS_EXT symbol.
 		/// </summary>
-		[RequiredByFeature("GL_EXT_geometry_shader")]
 		public const int MAX_GEOMETRY_ATOMIC_COUNTERS_EXT = 0x92D5;
 
 		/// <summary>
 		/// Value of GL_MAX_GEOMETRY_ATOMIC_COUNTERS_OES symbol.
 		/// </summary>
-		[RequiredByFeature("GL_OES_geometry_shader")]
 		public const int MAX_GEOMETRY_ATOMIC_COUNTERS_OES = 0x92D5;
 
 		/// <summary>
@@ -4537,242 +3867,201 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_IS_PER_PATCH_EXT symbol.
 		/// </summary>
-		[RequiredByFeature("GL_EXT_tessellation_shader")]
 		public const int IS_PER_PATCH_EXT = 0x92E7;
 
 		/// <summary>
 		/// Value of GL_IS_PER_PATCH_OES symbol.
 		/// </summary>
-		[RequiredByFeature("GL_OES_tessellation_shader")]
 		public const int IS_PER_PATCH_OES = 0x92E7;
 
 		/// <summary>
 		/// Value of GL_REFERENCED_BY_TESS_CONTROL_SHADER_EXT symbol.
 		/// </summary>
-		[RequiredByFeature("GL_EXT_tessellation_shader")]
 		public const int REFERENCED_BY_TESS_CONTROL_SHADER_EXT = 0x9307;
 
 		/// <summary>
 		/// Value of GL_REFERENCED_BY_TESS_CONTROL_SHADER_OES symbol.
 		/// </summary>
-		[RequiredByFeature("GL_OES_tessellation_shader")]
 		public const int REFERENCED_BY_TESS_CONTROL_SHADER_OES = 0x9307;
 
 		/// <summary>
 		/// Value of GL_REFERENCED_BY_TESS_EVALUATION_SHADER_EXT symbol.
 		/// </summary>
-		[RequiredByFeature("GL_EXT_tessellation_shader")]
 		public const int REFERENCED_BY_TESS_EVALUATION_SHADER_EXT = 0x9308;
 
 		/// <summary>
 		/// Value of GL_REFERENCED_BY_TESS_EVALUATION_SHADER_OES symbol.
 		/// </summary>
-		[RequiredByFeature("GL_OES_tessellation_shader")]
 		public const int REFERENCED_BY_TESS_EVALUATION_SHADER_OES = 0x9308;
 
 		/// <summary>
 		/// Value of GL_REFERENCED_BY_GEOMETRY_SHADER_EXT symbol.
 		/// </summary>
-		[RequiredByFeature("GL_EXT_geometry_shader")]
 		public const int REFERENCED_BY_GEOMETRY_SHADER_EXT = 0x9309;
 
 		/// <summary>
 		/// Value of GL_REFERENCED_BY_GEOMETRY_SHADER_OES symbol.
 		/// </summary>
-		[RequiredByFeature("GL_OES_geometry_shader")]
 		public const int REFERENCED_BY_GEOMETRY_SHADER_OES = 0x9309;
 
 		/// <summary>
 		/// Value of GL_FRAMEBUFFER_DEFAULT_LAYERS_EXT symbol.
 		/// </summary>
-		[RequiredByFeature("GL_EXT_geometry_shader")]
 		public const int FRAMEBUFFER_DEFAULT_LAYERS_EXT = 0x9312;
 
 		/// <summary>
 		/// Value of GL_FRAMEBUFFER_DEFAULT_LAYERS_OES symbol.
 		/// </summary>
-		[RequiredByFeature("GL_OES_geometry_shader")]
 		public const int FRAMEBUFFER_DEFAULT_LAYERS_OES = 0x9312;
 
 		/// <summary>
 		/// Value of GL_MAX_FRAMEBUFFER_LAYERS_EXT symbol.
 		/// </summary>
-		[RequiredByFeature("GL_EXT_geometry_shader")]
 		public const int MAX_FRAMEBUFFER_LAYERS_EXT = 0x9317;
 
 		/// <summary>
 		/// Value of GL_MAX_FRAMEBUFFER_LAYERS_OES symbol.
 		/// </summary>
-		[RequiredByFeature("GL_OES_geometry_shader")]
 		public const int MAX_FRAMEBUFFER_LAYERS_OES = 0x9317;
 
 		/// <summary>
 		/// Value of GL_TRANSLATED_SHADER_SOURCE_LENGTH_ANGLE symbol.
 		/// </summary>
-		[RequiredByFeature("GL_ANGLE_translated_shader_source")]
 		public const int TRANSLATED_SHADER_SOURCE_LENGTH_ANGLE = 0x93A0;
 
 		/// <summary>
 		/// Value of GL_BGRA8_EXT symbol.
 		/// </summary>
-		[RequiredByFeature("GL_APPLE_texture_format_BGRA8888")]
-		[RequiredByFeature("GL_EXT_texture_storage")]
 		public const int BGRA8_EXT = 0x93A1;
 
 		/// <summary>
 		/// Value of GL_TEXTURE_USAGE_ANGLE symbol.
 		/// </summary>
-		[RequiredByFeature("GL_ANGLE_texture_usage")]
 		public const int TEXTURE_USAGE_ANGLE = 0x93A2;
 
 		/// <summary>
 		/// Value of GL_FRAMEBUFFER_ATTACHMENT_ANGLE symbol.
 		/// </summary>
-		[RequiredByFeature("GL_ANGLE_texture_usage")]
 		public const int FRAMEBUFFER_ATTACHMENT_ANGLE = 0x93A3;
 
 		/// <summary>
 		/// Value of GL_PACK_REVERSE_ROW_ORDER_ANGLE symbol.
 		/// </summary>
-		[RequiredByFeature("GL_ANGLE_pack_reverse_row_order")]
 		public const int PACK_REVERSE_ROW_ORDER_ANGLE = 0x93A4;
 
 		/// <summary>
 		/// Value of GL_PROGRAM_BINARY_ANGLE symbol.
 		/// </summary>
-		[RequiredByFeature("GL_ANGLE_program_binary")]
 		public const int PROGRAM_BINARY_ANGLE = 0x93A6;
 
 		/// <summary>
 		/// Value of GL_COMPRESSED_RGBA_ASTC_3x3x3_OES symbol.
 		/// </summary>
-		[RequiredByFeature("GL_OES_texture_compression_astc")]
 		public const int COMPRESSED_RGBA_ASTC_3x3x3_OES = 0x93C0;
 
 		/// <summary>
 		/// Value of GL_COMPRESSED_RGBA_ASTC_4x3x3_OES symbol.
 		/// </summary>
-		[RequiredByFeature("GL_OES_texture_compression_astc")]
 		public const int COMPRESSED_RGBA_ASTC_4x3x3_OES = 0x93C1;
 
 		/// <summary>
 		/// Value of GL_COMPRESSED_RGBA_ASTC_4x4x3_OES symbol.
 		/// </summary>
-		[RequiredByFeature("GL_OES_texture_compression_astc")]
 		public const int COMPRESSED_RGBA_ASTC_4x4x3_OES = 0x93C2;
 
 		/// <summary>
 		/// Value of GL_COMPRESSED_RGBA_ASTC_4x4x4_OES symbol.
 		/// </summary>
-		[RequiredByFeature("GL_OES_texture_compression_astc")]
 		public const int COMPRESSED_RGBA_ASTC_4x4x4_OES = 0x93C3;
 
 		/// <summary>
 		/// Value of GL_COMPRESSED_RGBA_ASTC_5x4x4_OES symbol.
 		/// </summary>
-		[RequiredByFeature("GL_OES_texture_compression_astc")]
 		public const int COMPRESSED_RGBA_ASTC_5x4x4_OES = 0x93C4;
 
 		/// <summary>
 		/// Value of GL_COMPRESSED_RGBA_ASTC_5x5x4_OES symbol.
 		/// </summary>
-		[RequiredByFeature("GL_OES_texture_compression_astc")]
 		public const int COMPRESSED_RGBA_ASTC_5x5x4_OES = 0x93C5;
 
 		/// <summary>
 		/// Value of GL_COMPRESSED_RGBA_ASTC_5x5x5_OES symbol.
 		/// </summary>
-		[RequiredByFeature("GL_OES_texture_compression_astc")]
 		public const int COMPRESSED_RGBA_ASTC_5x5x5_OES = 0x93C6;
 
 		/// <summary>
 		/// Value of GL_COMPRESSED_RGBA_ASTC_6x5x5_OES symbol.
 		/// </summary>
-		[RequiredByFeature("GL_OES_texture_compression_astc")]
 		public const int COMPRESSED_RGBA_ASTC_6x5x5_OES = 0x93C7;
 
 		/// <summary>
 		/// Value of GL_COMPRESSED_RGBA_ASTC_6x6x5_OES symbol.
 		/// </summary>
-		[RequiredByFeature("GL_OES_texture_compression_astc")]
 		public const int COMPRESSED_RGBA_ASTC_6x6x5_OES = 0x93C8;
 
 		/// <summary>
 		/// Value of GL_COMPRESSED_RGBA_ASTC_6x6x6_OES symbol.
 		/// </summary>
-		[RequiredByFeature("GL_OES_texture_compression_astc")]
 		public const int COMPRESSED_RGBA_ASTC_6x6x6_OES = 0x93C9;
 
 		/// <summary>
 		/// Value of GL_COMPRESSED_SRGB8_ALPHA8_ASTC_3x3x3_OES symbol.
 		/// </summary>
-		[RequiredByFeature("GL_OES_texture_compression_astc")]
 		public const int COMPRESSED_SRGB8_ALPHA8_ASTC_3x3x3_OES = 0x93E0;
 
 		/// <summary>
 		/// Value of GL_COMPRESSED_SRGB8_ALPHA8_ASTC_4x3x3_OES symbol.
 		/// </summary>
-		[RequiredByFeature("GL_OES_texture_compression_astc")]
 		public const int COMPRESSED_SRGB8_ALPHA8_ASTC_4x3x3_OES = 0x93E1;
 
 		/// <summary>
 		/// Value of GL_COMPRESSED_SRGB8_ALPHA8_ASTC_4x4x3_OES symbol.
 		/// </summary>
-		[RequiredByFeature("GL_OES_texture_compression_astc")]
 		public const int COMPRESSED_SRGB8_ALPHA8_ASTC_4x4x3_OES = 0x93E2;
 
 		/// <summary>
 		/// Value of GL_COMPRESSED_SRGB8_ALPHA8_ASTC_4x4x4_OES symbol.
 		/// </summary>
-		[RequiredByFeature("GL_OES_texture_compression_astc")]
 		public const int COMPRESSED_SRGB8_ALPHA8_ASTC_4x4x4_OES = 0x93E3;
 
 		/// <summary>
 		/// Value of GL_COMPRESSED_SRGB8_ALPHA8_ASTC_5x4x4_OES symbol.
 		/// </summary>
-		[RequiredByFeature("GL_OES_texture_compression_astc")]
 		public const int COMPRESSED_SRGB8_ALPHA8_ASTC_5x4x4_OES = 0x93E4;
 
 		/// <summary>
 		/// Value of GL_COMPRESSED_SRGB8_ALPHA8_ASTC_5x5x4_OES symbol.
 		/// </summary>
-		[RequiredByFeature("GL_OES_texture_compression_astc")]
 		public const int COMPRESSED_SRGB8_ALPHA8_ASTC_5x5x4_OES = 0x93E5;
 
 		/// <summary>
 		/// Value of GL_COMPRESSED_SRGB8_ALPHA8_ASTC_5x5x5_OES symbol.
 		/// </summary>
-		[RequiredByFeature("GL_OES_texture_compression_astc")]
 		public const int COMPRESSED_SRGB8_ALPHA8_ASTC_5x5x5_OES = 0x93E6;
 
 		/// <summary>
 		/// Value of GL_COMPRESSED_SRGB8_ALPHA8_ASTC_6x5x5_OES symbol.
 		/// </summary>
-		[RequiredByFeature("GL_OES_texture_compression_astc")]
 		public const int COMPRESSED_SRGB8_ALPHA8_ASTC_6x5x5_OES = 0x93E7;
 
 		/// <summary>
 		/// Value of GL_COMPRESSED_SRGB8_ALPHA8_ASTC_6x6x5_OES symbol.
 		/// </summary>
-		[RequiredByFeature("GL_OES_texture_compression_astc")]
 		public const int COMPRESSED_SRGB8_ALPHA8_ASTC_6x6x5_OES = 0x93E8;
 
 		/// <summary>
 		/// Value of GL_COMPRESSED_SRGB8_ALPHA8_ASTC_6x6x6_OES symbol.
 		/// </summary>
-		[RequiredByFeature("GL_OES_texture_compression_astc")]
 		public const int COMPRESSED_SRGB8_ALPHA8_ASTC_6x6x6_OES = 0x93E9;
 
 		/// <summary>
 		/// Value of GL_COMPRESSED_SRGB_ALPHA_PVRTC_2BPPV2_IMG symbol.
 		/// </summary>
-		[RequiredByFeature("GL_EXT_pvrtc_sRGB")]
 		public const int COMPRESSED_SRGB_ALPHA_PVRTC_2BPPV2_IMG = 0x93F0;
 
 		/// <summary>
 		/// Value of GL_COMPRESSED_SRGB_ALPHA_PVRTC_4BPPV2_IMG symbol.
 		/// </summary>
-		[RequiredByFeature("GL_EXT_pvrtc_sRGB")]
 		public const int COMPRESSED_SRGB_ALPHA_PVRTC_4BPPV2_IMG = 0x93F1;
 
 		/// <summary>
@@ -4784,6 +4073,7 @@ namespace OpenGL
 		/// <param name="program">
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
+		[RequiredByFeature("GL_EXT_separate_shader_objects")]
 		public static void ActiveShaderProgramEXT(UInt32 pipeline, UInt32 program)
 		{
 			Debug.Assert(Delegates.pglActiveShaderProgramEXT != null, "pglActiveShaderProgramEXT not implemented");
@@ -4866,6 +4156,7 @@ namespace OpenGL
 		/// <param name="pipeline">
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
+		[RequiredByFeature("GL_EXT_separate_shader_objects")]
 		public static void BindProgramPipelineEXT(UInt32 pipeline)
 		{
 			Debug.Assert(Delegates.pglBindProgramPipelineEXT != null, "pglBindProgramPipelineEXT not implemented");
@@ -5856,6 +5147,7 @@ namespace OpenGL
 		/// <param name="strings">
 		/// A <see cref="T:String[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_EXT_separate_shader_objects")]
 		public static UInt32 CreateShaderProgramEXT(int type, Int32 count, String[] strings)
 		{
 			UInt32 retValue;
@@ -5891,6 +5183,7 @@ namespace OpenGL
 		/// <param name="userParam">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
+		[RequiredByFeature("GL_KHR_debug")]
 		public static void DebugMessageCallbackKHR(IntPtr callback, IntPtr userParam)
 		{
 			Debug.Assert(Delegates.pglDebugMessageCallbackKHR != null, "pglDebugMessageCallbackKHR not implemented");
@@ -5908,6 +5201,7 @@ namespace OpenGL
 		/// <param name="userParam">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
+		[RequiredByFeature("GL_KHR_debug")]
 		public static void DebugMessageCallbackKHR(IntPtr callback, Object userParam)
 		{
 			GCHandle pin_userParam = GCHandle.Alloc(userParam, GCHandleType.Pinned);
@@ -5939,6 +5233,7 @@ namespace OpenGL
 		/// <param name="enabled">
 		/// A <see cref="T:bool"/>.
 		/// </param>
+		[RequiredByFeature("GL_KHR_debug")]
 		public static void DebugMessageControlKHR(int source, int type, int severity, Int32 count, UInt32[] ids, bool enabled)
 		{
 			unsafe {
@@ -5973,6 +5268,7 @@ namespace OpenGL
 		/// <param name="buf">
 		/// A <see cref="T:String"/>.
 		/// </param>
+		[RequiredByFeature("GL_KHR_debug")]
 		public static void DebugMessageInsertKHR(int source, int type, UInt32 id, int severity, Int32 length, String buf)
 		{
 			Debug.Assert(Delegates.pglDebugMessageInsertKHR != null, "pglDebugMessageInsertKHR not implemented");
@@ -6012,6 +5308,7 @@ namespace OpenGL
 		/// <param name="pipelines">
 		/// A <see cref="T:UInt32[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_EXT_separate_shader_objects")]
 		public static void DeleteProgramPipelinesEXT(Int32 n, UInt32[] pipelines)
 		{
 			unsafe {
@@ -8301,6 +7598,7 @@ namespace OpenGL
 		/// <param name="pipelines">
 		/// A <see cref="T:UInt32[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_EXT_separate_shader_objects")]
 		public static void GenProgramPipelinesEXT(Int32 n, UInt32[] pipelines)
 		{
 			unsafe {
@@ -8485,6 +7783,7 @@ namespace OpenGL
 		/// <param name="messageLog">
 		/// A <see cref="T:StringBuilder"/>.
 		/// </param>
+		[RequiredByFeature("GL_KHR_debug")]
 		public static UInt32 GetDebugMessageLogKHR(UInt32 count, Int32 bufSize, int[] sources, int[] types, UInt32[] ids, int[] severities, Int32[] lengths, [Out] StringBuilder messageLog)
 		{
 			UInt32 retValue;
@@ -8569,7 +7868,7 @@ namespace OpenGL
 		/// <param name="params">
 		/// A <see cref="T:IntPtr[]"/>.
 		/// </param>
-		public static void Get(int pname, IntPtr[] @params)
+		public static void GetFixed(int pname, IntPtr[] @params)
 		{
 			unsafe {
 				fixed (IntPtr* p_params = @params)
@@ -8653,6 +7952,7 @@ namespace OpenGL
 		/// <summary>
 		/// Binding for glGetGraphicsResetStatusKHR.
 		/// </summary>
+		[RequiredByFeature("GL_KHR_robustness")]
 		public static int GetGraphicsResetStatusKHR()
 		{
 			int retValue;
@@ -8749,6 +8049,7 @@ namespace OpenGL
 		/// <param name="params">
 		/// A <see cref="T:IntPtr[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_OES_fixed_point")]
 		public static void GetLightxvOES(int light, int pname, IntPtr[] @params)
 		{
 			unsafe {
@@ -8799,6 +8100,7 @@ namespace OpenGL
 		/// <param name="params">
 		/// A <see cref="T:IntPtr[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_OES_fixed_point")]
 		public static void GetMaterialOES(int face, int pname, IntPtr[] @params)
 		{
 			unsafe {
@@ -8830,6 +8132,7 @@ namespace OpenGL
 		/// <param name="label">
 		/// A <see cref="T:StringBuilder"/>.
 		/// </param>
+		[RequiredByFeature("GL_KHR_debug")]
 		public static void GetObjectKHR(int identifier, UInt32 name, Int32 bufSize, Int32[] length, [Out] StringBuilder label)
 		{
 			unsafe {
@@ -8858,6 +8161,7 @@ namespace OpenGL
 		/// <param name="label">
 		/// A <see cref="T:StringBuilder"/>.
 		/// </param>
+		[RequiredByFeature("GL_KHR_debug")]
 		public static void GetObjectKHR(IntPtr ptr, Int32 bufSize, out Int32 length, [Out] StringBuilder label)
 		{
 			unsafe {
@@ -8886,6 +8190,7 @@ namespace OpenGL
 		/// <param name="label">
 		/// A <see cref="T:StringBuilder"/>.
 		/// </param>
+		[RequiredByFeature("GL_KHR_debug")]
 		public static void GetObjectKHR(Object ptr, Int32 bufSize, out Int32 length, [Out] StringBuilder label)
 		{
 			GCHandle pin_ptr = GCHandle.Alloc(ptr, GCHandleType.Pinned);
@@ -8905,6 +8210,7 @@ namespace OpenGL
 		/// <param name="params">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
+		[RequiredByFeature("GL_KHR_debug")]
 		public static void GetPointerKHR(int pname, IntPtr @params)
 		{
 			Debug.Assert(Delegates.pglGetPointervKHR != null, "pglGetPointervKHR not implemented");
@@ -8960,6 +8266,7 @@ namespace OpenGL
 		/// <param name="infoLog">
 		/// A <see cref="T:StringBuilder"/>.
 		/// </param>
+		[RequiredByFeature("GL_EXT_separate_shader_objects")]
 		public static void GetProgramPipelineInfoLogEXT(UInt32 pipeline, Int32 bufSize, out Int32 length, [Out] StringBuilder infoLog)
 		{
 			unsafe {
@@ -8985,6 +8292,7 @@ namespace OpenGL
 		/// <param name="params">
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_EXT_separate_shader_objects")]
 		public static void GetProgramPipelineEXT(UInt32 pipeline, int pname, Int32[] @params)
 		{
 			unsafe {
@@ -9501,6 +8809,7 @@ namespace OpenGL
 		/// <param name="params">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_KHR_robustness")]
 		public static void GetnUniformKHR(UInt32 program, Int32 location, Int32 bufSize, float[] @params)
 		{
 			unsafe {
@@ -9557,6 +8866,7 @@ namespace OpenGL
 		/// <param name="params">
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_KHR_robustness")]
 		public static void GetnUniformKHR(UInt32 program, Int32 location, Int32 bufSize, Int32[] @params)
 		{
 			unsafe {
@@ -9585,6 +8895,7 @@ namespace OpenGL
 		/// <param name="params">
 		/// A <see cref="T:UInt32[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_KHR_robustness")]
 		public static void GetnUniformKHR(UInt32 program, Int32 location, Int32 bufSize, UInt32[] @params)
 		{
 			unsafe {
@@ -9685,6 +8996,7 @@ namespace OpenGL
 		/// <param name="pipeline">
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
+		[RequiredByFeature("GL_EXT_separate_shader_objects")]
 		public static bool IsProgramPipelineEXT(UInt32 pipeline)
 		{
 			bool retValue;
@@ -10366,6 +9678,7 @@ namespace OpenGL
 		/// <param name="label">
 		/// A <see cref="T:String"/>.
 		/// </param>
+		[RequiredByFeature("GL_KHR_debug")]
 		public static void ObjectKHR(int identifier, UInt32 name, Int32 length, String label)
 		{
 			Debug.Assert(Delegates.pglObjectLabelKHR != null, "pglObjectLabelKHR not implemented");
@@ -10386,6 +9699,7 @@ namespace OpenGL
 		/// <param name="label">
 		/// A <see cref="T:String"/>.
 		/// </param>
+		[RequiredByFeature("GL_KHR_debug")]
 		public static void ObjectKHR(IntPtr ptr, Int32 length, String label)
 		{
 			Debug.Assert(Delegates.pglObjectPtrLabelKHR != null, "pglObjectPtrLabelKHR not implemented");
@@ -10406,6 +9720,7 @@ namespace OpenGL
 		/// <param name="label">
 		/// A <see cref="T:String"/>.
 		/// </param>
+		[RequiredByFeature("GL_KHR_debug")]
 		public static void ObjectKHR(Object ptr, Int32 length, String label)
 		{
 			GCHandle pin_ptr = GCHandle.Alloc(ptr, GCHandleType.Pinned);
@@ -10534,6 +9849,7 @@ namespace OpenGL
 		/// <param name="param">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
+		[RequiredByFeature("GL_OES_fixed_point")]
 		public static void PointParameterOES(int pname, IntPtr param)
 		{
 			Debug.Assert(Delegates.pglPointParameterxOES != null, "pglPointParameterxOES not implemented");
@@ -10640,6 +9956,7 @@ namespace OpenGL
 		/// <summary>
 		/// Binding for glPopDebugGroupKHR.
 		/// </summary>
+		[RequiredByFeature("GL_KHR_debug")]
 		public static void PopDebugGroupKHR()
 		{
 			Debug.Assert(Delegates.pglPopDebugGroupKHR != null, "pglPopDebugGroupKHR not implemented");
@@ -10781,6 +10098,7 @@ namespace OpenGL
 		/// <param name="message">
 		/// A <see cref="T:String"/>.
 		/// </param>
+		[RequiredByFeature("GL_KHR_debug")]
 		public static void PushDebugGroupKHR(int source, UInt32 id, Int32 length, String message)
 		{
 			Debug.Assert(Delegates.pglPushDebugGroupKHR != null, "pglPushDebugGroupKHR not implemented");
@@ -10899,6 +10217,7 @@ namespace OpenGL
 		/// <param name="data">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
+		[RequiredByFeature("GL_KHR_robustness")]
 		public static void ReadnPixelsKHR(Int32 x, Int32 y, Int32 width, Int32 height, int format, int type, Int32 bufSize, IntPtr data)
 		{
 			Debug.Assert(Delegates.pglReadnPixelsKHR != null, "pglReadnPixelsKHR not implemented");
@@ -10934,6 +10253,7 @@ namespace OpenGL
 		/// <param name="data">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
+		[RequiredByFeature("GL_KHR_robustness")]
 		public static void ReadnPixelsKHR(Int32 x, Int32 y, Int32 width, Int32 height, PixelFormat format, PixelType type, Int32 bufSize, IntPtr data)
 		{
 			Debug.Assert(Delegates.pglReadnPixelsKHR != null, "pglReadnPixelsKHR not implemented");
@@ -11129,6 +10449,7 @@ namespace OpenGL
 		/// <param name="invert">
 		/// A <see cref="T:bool"/>.
 		/// </param>
+		[RequiredByFeature("GL_OES_fixed_point")]
 		public static void SampleCoverageOES(Int32 value, bool invert)
 		{
 			Debug.Assert(Delegates.pglSampleCoveragexOES != null, "pglSampleCoveragexOES not implemented");
@@ -12300,6 +11621,7 @@ namespace OpenGL
 		/// <param name="program">
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
+		[RequiredByFeature("GL_EXT_separate_shader_objects")]
 		public static void UseProgramStageEXT(UInt32 pipeline, uint stages, UInt32 program)
 		{
 			Debug.Assert(Delegates.pglUseProgramStagesEXT != null, "pglUseProgramStagesEXT not implemented");
@@ -12314,6 +11636,7 @@ namespace OpenGL
 		/// <param name="pipeline">
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
+		[RequiredByFeature("GL_EXT_separate_shader_objects")]
 		public static void ValidateProgramPipelineEXT(UInt32 pipeline)
 		{
 			Debug.Assert(Delegates.pglValidateProgramPipelineEXT != null, "pglValidateProgramPipelineEXT not implemented");

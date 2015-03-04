@@ -28,7 +28,6 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_TIME_ELAPSED_EXT symbol.
 		/// </summary>
-		[RequiredByFeature("GL_EXT_disjoint_timer_query")]
 		[RequiredByFeature("GL_EXT_timer_query")]
 		public const int TIME_ELAPSED_EXT = 0x88BF;
 
@@ -44,6 +43,7 @@ namespace OpenGL
 		/// <param name="params">
 		/// A <see cref="T:Int64[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_EXT_timer_query")]
 		public static void GetQueryObjecti64vEXT(UInt32 id, int pname, Int64[] @params)
 		{
 			unsafe {
@@ -69,6 +69,7 @@ namespace OpenGL
 		/// <param name="params">
 		/// A <see cref="T:UInt64[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_EXT_timer_query")]
 		public static void GetQueryObjectui64vEXT(UInt32 id, int pname, UInt64[] @params)
 		{
 			unsafe {

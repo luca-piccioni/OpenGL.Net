@@ -130,119 +130,102 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_MAX_COLOR_ATTACHMENTS_EXT symbol.
 		/// </summary>
-		[RequiredByFeature("GL_EXT_draw_buffers")]
 		[RequiredByFeature("GL_EXT_framebuffer_object")]
 		public const int MAX_COLOR_ATTACHMENTS_EXT = 0x8CDF;
 
 		/// <summary>
 		/// Value of GL_COLOR_ATTACHMENT0_EXT symbol.
 		/// </summary>
-		[RequiredByFeature("GL_EXT_draw_buffers")]
 		[RequiredByFeature("GL_EXT_framebuffer_object")]
 		public const int COLOR_ATTACHMENT0_EXT = 0x8CE0;
 
 		/// <summary>
 		/// Value of GL_COLOR_ATTACHMENT1_EXT symbol.
 		/// </summary>
-		[RequiredByFeature("GL_EXT_draw_buffers")]
 		[RequiredByFeature("GL_EXT_framebuffer_object")]
 		public const int COLOR_ATTACHMENT1_EXT = 0x8CE1;
 
 		/// <summary>
 		/// Value of GL_COLOR_ATTACHMENT2_EXT symbol.
 		/// </summary>
-		[RequiredByFeature("GL_EXT_draw_buffers")]
 		[RequiredByFeature("GL_EXT_framebuffer_object")]
 		public const int COLOR_ATTACHMENT2_EXT = 0x8CE2;
 
 		/// <summary>
 		/// Value of GL_COLOR_ATTACHMENT3_EXT symbol.
 		/// </summary>
-		[RequiredByFeature("GL_EXT_draw_buffers")]
 		[RequiredByFeature("GL_EXT_framebuffer_object")]
 		public const int COLOR_ATTACHMENT3_EXT = 0x8CE3;
 
 		/// <summary>
 		/// Value of GL_COLOR_ATTACHMENT4_EXT symbol.
 		/// </summary>
-		[RequiredByFeature("GL_EXT_draw_buffers")]
 		[RequiredByFeature("GL_EXT_framebuffer_object")]
 		public const int COLOR_ATTACHMENT4_EXT = 0x8CE4;
 
 		/// <summary>
 		/// Value of GL_COLOR_ATTACHMENT5_EXT symbol.
 		/// </summary>
-		[RequiredByFeature("GL_EXT_draw_buffers")]
 		[RequiredByFeature("GL_EXT_framebuffer_object")]
 		public const int COLOR_ATTACHMENT5_EXT = 0x8CE5;
 
 		/// <summary>
 		/// Value of GL_COLOR_ATTACHMENT6_EXT symbol.
 		/// </summary>
-		[RequiredByFeature("GL_EXT_draw_buffers")]
 		[RequiredByFeature("GL_EXT_framebuffer_object")]
 		public const int COLOR_ATTACHMENT6_EXT = 0x8CE6;
 
 		/// <summary>
 		/// Value of GL_COLOR_ATTACHMENT7_EXT symbol.
 		/// </summary>
-		[RequiredByFeature("GL_EXT_draw_buffers")]
 		[RequiredByFeature("GL_EXT_framebuffer_object")]
 		public const int COLOR_ATTACHMENT7_EXT = 0x8CE7;
 
 		/// <summary>
 		/// Value of GL_COLOR_ATTACHMENT8_EXT symbol.
 		/// </summary>
-		[RequiredByFeature("GL_EXT_draw_buffers")]
 		[RequiredByFeature("GL_EXT_framebuffer_object")]
 		public const int COLOR_ATTACHMENT8_EXT = 0x8CE8;
 
 		/// <summary>
 		/// Value of GL_COLOR_ATTACHMENT9_EXT symbol.
 		/// </summary>
-		[RequiredByFeature("GL_EXT_draw_buffers")]
 		[RequiredByFeature("GL_EXT_framebuffer_object")]
 		public const int COLOR_ATTACHMENT9_EXT = 0x8CE9;
 
 		/// <summary>
 		/// Value of GL_COLOR_ATTACHMENT10_EXT symbol.
 		/// </summary>
-		[RequiredByFeature("GL_EXT_draw_buffers")]
 		[RequiredByFeature("GL_EXT_framebuffer_object")]
 		public const int COLOR_ATTACHMENT10_EXT = 0x8CEA;
 
 		/// <summary>
 		/// Value of GL_COLOR_ATTACHMENT11_EXT symbol.
 		/// </summary>
-		[RequiredByFeature("GL_EXT_draw_buffers")]
 		[RequiredByFeature("GL_EXT_framebuffer_object")]
 		public const int COLOR_ATTACHMENT11_EXT = 0x8CEB;
 
 		/// <summary>
 		/// Value of GL_COLOR_ATTACHMENT12_EXT symbol.
 		/// </summary>
-		[RequiredByFeature("GL_EXT_draw_buffers")]
 		[RequiredByFeature("GL_EXT_framebuffer_object")]
 		public const int COLOR_ATTACHMENT12_EXT = 0x8CEC;
 
 		/// <summary>
 		/// Value of GL_COLOR_ATTACHMENT13_EXT symbol.
 		/// </summary>
-		[RequiredByFeature("GL_EXT_draw_buffers")]
 		[RequiredByFeature("GL_EXT_framebuffer_object")]
 		public const int COLOR_ATTACHMENT13_EXT = 0x8CED;
 
 		/// <summary>
 		/// Value of GL_COLOR_ATTACHMENT14_EXT symbol.
 		/// </summary>
-		[RequiredByFeature("GL_EXT_draw_buffers")]
 		[RequiredByFeature("GL_EXT_framebuffer_object")]
 		public const int COLOR_ATTACHMENT14_EXT = 0x8CEE;
 
 		/// <summary>
 		/// Value of GL_COLOR_ATTACHMENT15_EXT symbol.
 		/// </summary>
-		[RequiredByFeature("GL_EXT_draw_buffers")]
 		[RequiredByFeature("GL_EXT_framebuffer_object")]
 		public const int COLOR_ATTACHMENT15_EXT = 0x8CEF;
 
@@ -354,6 +337,7 @@ namespace OpenGL
 		/// <param name="renderbuffer">
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
+		[RequiredByFeature("GL_EXT_framebuffer_object")]
 		public static bool IsRenderbufferEXT(UInt32 renderbuffer)
 		{
 			bool retValue;
@@ -375,6 +359,7 @@ namespace OpenGL
 		/// <param name="renderbuffer">
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
+		[RequiredByFeature("GL_EXT_framebuffer_object")]
 		public static void BindRenderbufferEXT(int target, UInt32 renderbuffer)
 		{
 			Debug.Assert(Delegates.pglBindRenderbufferEXT != null, "pglBindRenderbufferEXT not implemented");
@@ -392,6 +377,7 @@ namespace OpenGL
 		/// <param name="renderbuffers">
 		/// A <see cref="T:UInt32[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_EXT_framebuffer_object")]
 		public static void DeleteRenderbufferEXT(Int32 n, UInt32[] renderbuffers)
 		{
 			unsafe {
@@ -414,6 +400,7 @@ namespace OpenGL
 		/// <param name="renderbuffers">
 		/// A <see cref="T:UInt32[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_EXT_framebuffer_object")]
 		public static void GenRenderbufferEXT(Int32 n, UInt32[] renderbuffers)
 		{
 			unsafe {
@@ -442,6 +429,7 @@ namespace OpenGL
 		/// <param name="height">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
+		[RequiredByFeature("GL_EXT_framebuffer_object")]
 		public static void RenderbufferStorageEXT(int target, int internalformat, Int32 width, Int32 height)
 		{
 			Debug.Assert(Delegates.pglRenderbufferStorageEXT != null, "pglRenderbufferStorageEXT not implemented");
@@ -462,6 +450,7 @@ namespace OpenGL
 		/// <param name="params">
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_EXT_framebuffer_object")]
 		public static void GetRenderbufferParameterEXT(int target, int pname, Int32[] @params)
 		{
 			unsafe {
@@ -481,6 +470,7 @@ namespace OpenGL
 		/// <param name="framebuffer">
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
+		[RequiredByFeature("GL_EXT_framebuffer_object")]
 		public static bool IsFramebufferEXT(UInt32 framebuffer)
 		{
 			bool retValue;
@@ -502,6 +492,7 @@ namespace OpenGL
 		/// <param name="framebuffer">
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
+		[RequiredByFeature("GL_EXT_framebuffer_object")]
 		public static void BindFramebufferEXT(int target, UInt32 framebuffer)
 		{
 			Debug.Assert(Delegates.pglBindFramebufferEXT != null, "pglBindFramebufferEXT not implemented");
@@ -519,6 +510,7 @@ namespace OpenGL
 		/// <param name="framebuffers">
 		/// A <see cref="T:UInt32[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_EXT_framebuffer_object")]
 		public static void DeleteFramebuffersEXT(Int32 n, UInt32[] framebuffers)
 		{
 			unsafe {
@@ -541,6 +533,7 @@ namespace OpenGL
 		/// <param name="framebuffers">
 		/// A <see cref="T:UInt32[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_EXT_framebuffer_object")]
 		public static void GenFramebuffersEXT(Int32 n, UInt32[] framebuffers)
 		{
 			unsafe {
@@ -560,6 +553,7 @@ namespace OpenGL
 		/// <param name="target">
 		/// A <see cref="T:int"/>.
 		/// </param>
+		[RequiredByFeature("GL_EXT_framebuffer_object")]
 		public static int CheckFramebufferStatusEXT(int target)
 		{
 			int retValue;
@@ -590,6 +584,7 @@ namespace OpenGL
 		/// <param name="level">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
+		[RequiredByFeature("GL_EXT_framebuffer_object")]
 		public static void FramebufferTexture1DEXT(int target, int attachment, int textarget, UInt32 texture, Int32 level)
 		{
 			Debug.Assert(Delegates.pglFramebufferTexture1DEXT != null, "pglFramebufferTexture1DEXT not implemented");
@@ -616,6 +611,7 @@ namespace OpenGL
 		/// <param name="level">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
+		[RequiredByFeature("GL_EXT_framebuffer_object")]
 		public static void FramebufferTexture2DEXT(int target, int attachment, int textarget, UInt32 texture, Int32 level)
 		{
 			Debug.Assert(Delegates.pglFramebufferTexture2DEXT != null, "pglFramebufferTexture2DEXT not implemented");
@@ -645,6 +641,7 @@ namespace OpenGL
 		/// <param name="zoffset">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
+		[RequiredByFeature("GL_EXT_framebuffer_object")]
 		public static void FramebufferTexture3DEXT(int target, int attachment, int textarget, UInt32 texture, Int32 level, Int32 zoffset)
 		{
 			Debug.Assert(Delegates.pglFramebufferTexture3DEXT != null, "pglFramebufferTexture3DEXT not implemented");
@@ -668,6 +665,7 @@ namespace OpenGL
 		/// <param name="renderbuffer">
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
+		[RequiredByFeature("GL_EXT_framebuffer_object")]
 		public static void FramebufferRenderbufferEXT(int target, int attachment, int renderbuffertarget, UInt32 renderbuffer)
 		{
 			Debug.Assert(Delegates.pglFramebufferRenderbufferEXT != null, "pglFramebufferRenderbufferEXT not implemented");
@@ -691,6 +689,7 @@ namespace OpenGL
 		/// <param name="params">
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_EXT_framebuffer_object")]
 		public static void GetFramebufferAttachmentParameterEXT(int target, int attachment, int pname, Int32[] @params)
 		{
 			unsafe {
@@ -710,6 +709,7 @@ namespace OpenGL
 		/// <param name="target">
 		/// A <see cref="T:int"/>.
 		/// </param>
+		[RequiredByFeature("GL_EXT_framebuffer_object")]
 		public static void GenerateMipmapEXT(int target)
 		{
 			Debug.Assert(Delegates.pglGenerateMipmapEXT != null, "pglGenerateMipmapEXT not implemented");

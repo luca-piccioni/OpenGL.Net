@@ -28,28 +28,24 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_TEXTURE_BUFFER_EXT symbol.
 		/// </summary>
-		[RequiredByFeature("GL_EXT_texture_buffer")]
 		[RequiredByFeature("GL_EXT_texture_buffer_object")]
 		public const int TEXTURE_BUFFER_EXT = 0x8C2A;
 
 		/// <summary>
 		/// Value of GL_MAX_TEXTURE_BUFFER_SIZE_EXT symbol.
 		/// </summary>
-		[RequiredByFeature("GL_EXT_texture_buffer")]
 		[RequiredByFeature("GL_EXT_texture_buffer_object")]
 		public const int MAX_TEXTURE_BUFFER_SIZE_EXT = 0x8C2B;
 
 		/// <summary>
 		/// Value of GL_TEXTURE_BINDING_BUFFER_EXT symbol.
 		/// </summary>
-		[RequiredByFeature("GL_EXT_texture_buffer")]
 		[RequiredByFeature("GL_EXT_texture_buffer_object")]
 		public const int TEXTURE_BINDING_BUFFER_EXT = 0x8C2C;
 
 		/// <summary>
 		/// Value of GL_TEXTURE_BUFFER_DATA_STORE_BINDING_EXT symbol.
 		/// </summary>
-		[RequiredByFeature("GL_EXT_texture_buffer")]
 		[RequiredByFeature("GL_EXT_texture_buffer_object")]
 		public const int TEXTURE_BUFFER_DATA_STORE_BINDING_EXT = 0x8C2D;
 
@@ -71,6 +67,7 @@ namespace OpenGL
 		/// <param name="buffer">
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
+		[RequiredByFeature("GL_EXT_texture_buffer_object")]
 		public static void TexBufferEXT(int target, int internalformat, UInt32 buffer)
 		{
 			Debug.Assert(Delegates.pglTexBufferEXT != null, "pglTexBufferEXT not implemented");
@@ -91,6 +88,7 @@ namespace OpenGL
 		/// <param name="buffer">
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
+		[RequiredByFeature("GL_EXT_texture_buffer_object")]
 		public static void TexBufferEXT(TextureTarget target, int internalformat, UInt32 buffer)
 		{
 			Debug.Assert(Delegates.pglTexBufferEXT != null, "pglTexBufferEXT not implemented");

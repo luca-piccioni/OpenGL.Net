@@ -52,6 +52,7 @@ namespace OpenGL
 		/// <param name="shareHandle">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
+		[RequiredByFeature("WGL_NV_DX_interop")]
 		public static bool DXSetResourceShareHandleNV(IntPtr dxObject, IntPtr shareHandle)
 		{
 			bool retValue;
@@ -59,7 +60,6 @@ namespace OpenGL
 			Debug.Assert(Delegates.pwglDXSetResourceShareHandleNV != null, "pwglDXSetResourceShareHandleNV not implemented");
 			retValue = Delegates.pwglDXSetResourceShareHandleNV(dxObject, shareHandle);
 			CallLog("wglDXSetResourceShareHandleNV({0}, {1}) = {2}", dxObject, shareHandle, retValue);
-			DebugCheckErrors();
 
 			return (retValue);
 		}
@@ -70,6 +70,7 @@ namespace OpenGL
 		/// <param name="dxDevice">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
+		[RequiredByFeature("WGL_NV_DX_interop")]
 		public static IntPtr DXOpenDeviceNV(IntPtr dxDevice)
 		{
 			IntPtr retValue;
@@ -77,7 +78,6 @@ namespace OpenGL
 			Debug.Assert(Delegates.pwglDXOpenDeviceNV != null, "pwglDXOpenDeviceNV not implemented");
 			retValue = Delegates.pwglDXOpenDeviceNV(dxDevice);
 			CallLog("wglDXOpenDeviceNV({0}) = {1}", dxDevice, retValue);
-			DebugCheckErrors();
 
 			return (retValue);
 		}
@@ -88,6 +88,7 @@ namespace OpenGL
 		/// <param name="hDevice">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
+		[RequiredByFeature("WGL_NV_DX_interop")]
 		public static bool DXCloseDeviceNV(IntPtr hDevice)
 		{
 			bool retValue;
@@ -95,7 +96,6 @@ namespace OpenGL
 			Debug.Assert(Delegates.pwglDXCloseDeviceNV != null, "pwglDXCloseDeviceNV not implemented");
 			retValue = Delegates.pwglDXCloseDeviceNV(hDevice);
 			CallLog("wglDXCloseDeviceNV({0}) = {1}", hDevice, retValue);
-			DebugCheckErrors();
 
 			return (retValue);
 		}
@@ -118,6 +118,7 @@ namespace OpenGL
 		/// <param name="access">
 		/// A <see cref="T:int"/>.
 		/// </param>
+		[RequiredByFeature("WGL_NV_DX_interop")]
 		public static IntPtr DXRegisterObjectNV(IntPtr hDevice, IntPtr dxObject, UInt32 name, int type, int access)
 		{
 			IntPtr retValue;
@@ -125,7 +126,6 @@ namespace OpenGL
 			Debug.Assert(Delegates.pwglDXRegisterObjectNV != null, "pwglDXRegisterObjectNV not implemented");
 			retValue = Delegates.pwglDXRegisterObjectNV(hDevice, dxObject, name, type, access);
 			CallLog("wglDXRegisterObjectNV({0}, {1}, {2}, {3}, {4}) = {5}", hDevice, dxObject, name, type, access, retValue);
-			DebugCheckErrors();
 
 			return (retValue);
 		}
@@ -139,6 +139,7 @@ namespace OpenGL
 		/// <param name="hObject">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
+		[RequiredByFeature("WGL_NV_DX_interop")]
 		public static bool DXUnregisterObjectNV(IntPtr hDevice, IntPtr hObject)
 		{
 			bool retValue;
@@ -146,7 +147,6 @@ namespace OpenGL
 			Debug.Assert(Delegates.pwglDXUnregisterObjectNV != null, "pwglDXUnregisterObjectNV not implemented");
 			retValue = Delegates.pwglDXUnregisterObjectNV(hDevice, hObject);
 			CallLog("wglDXUnregisterObjectNV({0}, {1}) = {2}", hDevice, hObject, retValue);
-			DebugCheckErrors();
 
 			return (retValue);
 		}
@@ -160,6 +160,7 @@ namespace OpenGL
 		/// <param name="access">
 		/// A <see cref="T:int"/>.
 		/// </param>
+		[RequiredByFeature("WGL_NV_DX_interop")]
 		public static bool DXObjectNV(IntPtr hObject, int access)
 		{
 			bool retValue;
@@ -167,7 +168,6 @@ namespace OpenGL
 			Debug.Assert(Delegates.pwglDXObjectAccessNV != null, "pwglDXObjectAccessNV not implemented");
 			retValue = Delegates.pwglDXObjectAccessNV(hObject, access);
 			CallLog("wglDXObjectAccessNV({0}, {1}) = {2}", hObject, access, retValue);
-			DebugCheckErrors();
 
 			return (retValue);
 		}
@@ -184,6 +184,7 @@ namespace OpenGL
 		/// <param name="hObjects">
 		/// A <see cref="T:IntPtr[]"/>.
 		/// </param>
+		[RequiredByFeature("WGL_NV_DX_interop")]
 		public static bool DXLockObjectNV(IntPtr hDevice, Int32 count, IntPtr[] hObjects)
 		{
 			bool retValue;
@@ -196,7 +197,6 @@ namespace OpenGL
 					CallLog("wglDXLockObjectsNV({0}, {1}, {2}) = {3}", hDevice, count, hObjects, retValue);
 				}
 			}
-			DebugCheckErrors();
 
 			return (retValue);
 		}
@@ -213,6 +213,7 @@ namespace OpenGL
 		/// <param name="hObjects">
 		/// A <see cref="T:IntPtr[]"/>.
 		/// </param>
+		[RequiredByFeature("WGL_NV_DX_interop")]
 		public static bool DXUnlockObjectsNV(IntPtr hDevice, Int32 count, IntPtr[] hObjects)
 		{
 			bool retValue;
@@ -225,7 +226,6 @@ namespace OpenGL
 					CallLog("wglDXUnlockObjectsNV({0}, {1}, {2}) = {3}", hDevice, count, hObjects, retValue);
 				}
 			}
-			DebugCheckErrors();
 
 			return (retValue);
 		}

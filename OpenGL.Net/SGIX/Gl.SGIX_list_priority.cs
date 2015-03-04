@@ -43,6 +43,7 @@ namespace OpenGL
 		/// <param name="params">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_SGIX_list_priority")]
 		public static void GetListParameterSGIX(UInt32 list, int pname, float[] @params)
 		{
 			unsafe {
@@ -68,6 +69,7 @@ namespace OpenGL
 		/// <param name="params">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_SGIX_list_priority")]
 		public static void GetListParameterSGIX(UInt32 list, ListParameterName pname, float[] @params)
 		{
 			unsafe {
@@ -93,6 +95,7 @@ namespace OpenGL
 		/// <param name="params">
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_SGIX_list_priority")]
 		public static void GetListParameterSGIX(UInt32 list, int pname, Int32[] @params)
 		{
 			unsafe {
@@ -118,6 +121,7 @@ namespace OpenGL
 		/// <param name="params">
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_SGIX_list_priority")]
 		public static void GetListParameterSGIX(UInt32 list, ListParameterName pname, Int32[] @params)
 		{
 			unsafe {
@@ -143,6 +147,7 @@ namespace OpenGL
 		/// <param name="param">
 		/// A <see cref="T:float"/>.
 		/// </param>
+		[RequiredByFeature("GL_SGIX_list_priority")]
 		public static void ListParameterSGIX(UInt32 list, int pname, float param)
 		{
 			Debug.Assert(Delegates.pglListParameterfSGIX != null, "pglListParameterfSGIX not implemented");
@@ -163,6 +168,7 @@ namespace OpenGL
 		/// <param name="param">
 		/// A <see cref="T:float"/>.
 		/// </param>
+		[RequiredByFeature("GL_SGIX_list_priority")]
 		public static void ListParameterSGIX(UInt32 list, ListParameterName pname, float param)
 		{
 			Debug.Assert(Delegates.pglListParameterfSGIX != null, "pglListParameterfSGIX not implemented");
@@ -183,6 +189,7 @@ namespace OpenGL
 		/// <param name="params">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_SGIX_list_priority")]
 		public static void ListParameterSGIX(UInt32 list, int pname, float[] @params)
 		{
 			unsafe {
@@ -208,6 +215,7 @@ namespace OpenGL
 		/// <param name="params">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_SGIX_list_priority")]
 		public static void ListParameterSGIX(UInt32 list, ListParameterName pname, float[] @params)
 		{
 			unsafe {
@@ -233,6 +241,7 @@ namespace OpenGL
 		/// <param name="param">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
+		[RequiredByFeature("GL_SGIX_list_priority")]
 		public static void ListParameterSGIX(UInt32 list, int pname, Int32 param)
 		{
 			Debug.Assert(Delegates.pglListParameteriSGIX != null, "pglListParameteriSGIX not implemented");
@@ -253,6 +262,7 @@ namespace OpenGL
 		/// <param name="param">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
+		[RequiredByFeature("GL_SGIX_list_priority")]
 		public static void ListParameterSGIX(UInt32 list, ListParameterName pname, Int32 param)
 		{
 			Debug.Assert(Delegates.pglListParameteriSGIX != null, "pglListParameteriSGIX not implemented");
@@ -273,6 +283,7 @@ namespace OpenGL
 		/// <param name="params">
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_SGIX_list_priority")]
 		public static void ListParameterSGIX(UInt32 list, int pname, Int32[] @params)
 		{
 			unsafe {
@@ -298,6 +309,7 @@ namespace OpenGL
 		/// <param name="params">
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_SGIX_list_priority")]
 		public static void ListParameterSGIX(UInt32 list, ListParameterName pname, Int32[] @params)
 		{
 			unsafe {

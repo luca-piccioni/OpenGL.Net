@@ -31,6 +31,7 @@ namespace OpenGL
 		/// <param name="depth">
 		/// A <see cref="T:float"/>.
 		/// </param>
+		[RequiredByFeature("GL_OES_single_precision")]
 		public static void ClearDepthOES(float depth)
 		{
 			Debug.Assert(Delegates.pglClearDepthfOES != null, "pglClearDepthfOES not implemented");
@@ -48,6 +49,7 @@ namespace OpenGL
 		/// <param name="equation">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_OES_single_precision")]
 		public static void ClipPlaneOES(int plane, float[] equation)
 		{
 			unsafe {
@@ -70,6 +72,7 @@ namespace OpenGL
 		/// <param name="f">
 		/// A <see cref="T:float"/>.
 		/// </param>
+		[RequiredByFeature("GL_OES_single_precision")]
 		public static void DepthRangeOES(float n, float f)
 		{
 			Debug.Assert(Delegates.pglDepthRangefOES != null, "pglDepthRangefOES not implemented");
@@ -99,6 +102,7 @@ namespace OpenGL
 		/// <param name="f">
 		/// A <see cref="T:float"/>.
 		/// </param>
+		[RequiredByFeature("GL_OES_single_precision")]
 		public static void FrustumOES(float l, float r, float b, float t, float n, float f)
 		{
 			Debug.Assert(Delegates.pglFrustumfOES != null, "pglFrustumfOES not implemented");
@@ -116,6 +120,7 @@ namespace OpenGL
 		/// <param name="equation">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_OES_single_precision")]
 		public static void GetClipPlaneOES(int plane, float[] equation)
 		{
 			unsafe {
@@ -150,6 +155,7 @@ namespace OpenGL
 		/// <param name="f">
 		/// A <see cref="T:float"/>.
 		/// </param>
+		[RequiredByFeature("GL_OES_single_precision")]
 		public static void OrthoOES(float l, float r, float b, float t, float n, float f)
 		{
 			Debug.Assert(Delegates.pglOrthofOES != null, "pglOrthofOES not implemented");

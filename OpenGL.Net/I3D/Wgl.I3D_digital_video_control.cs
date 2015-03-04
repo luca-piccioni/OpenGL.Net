@@ -61,6 +61,7 @@ namespace OpenGL
 		/// <param name="piValue">
 		/// A <see cref="T:int[]"/>.
 		/// </param>
+		[RequiredByFeature("WGL_I3D_digital_video_control")]
 		public static bool GetDigitalVideoParametersI3D(IntPtr hDC, int iAttribute, int[] piValue)
 		{
 			bool retValue;
@@ -73,7 +74,6 @@ namespace OpenGL
 					CallLog("wglGetDigitalVideoParametersI3D({0}, {1}, {2}) = {3}", hDC, iAttribute, piValue, retValue);
 				}
 			}
-			DebugCheckErrors();
 
 			return (retValue);
 		}
@@ -90,6 +90,7 @@ namespace OpenGL
 		/// <param name="piValue">
 		/// A <see cref="T:int[]"/>.
 		/// </param>
+		[RequiredByFeature("WGL_I3D_digital_video_control")]
 		public static bool SetDigitalVideoParametersI3D(IntPtr hDC, int iAttribute, int[] piValue)
 		{
 			bool retValue;
@@ -102,7 +103,6 @@ namespace OpenGL
 					CallLog("wglSetDigitalVideoParametersI3D({0}, {1}, {2}) = {3}", hDC, iAttribute, piValue, retValue);
 				}
 			}
-			DebugCheckErrors();
 
 			return (retValue);
 		}

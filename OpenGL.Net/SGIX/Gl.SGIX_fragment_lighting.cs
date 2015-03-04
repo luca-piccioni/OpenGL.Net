@@ -154,6 +154,7 @@ namespace OpenGL
 		/// <param name="mode">
 		/// A <see cref="T:int"/>.
 		/// </param>
+		[RequiredByFeature("GL_SGIX_fragment_lighting")]
 		public static void FragmentColorMaterialSGIX(int face, int mode)
 		{
 			Debug.Assert(Delegates.pglFragmentColorMaterialSGIX != null, "pglFragmentColorMaterialSGIX not implemented");
@@ -171,6 +172,7 @@ namespace OpenGL
 		/// <param name="mode">
 		/// A <see cref="T:int"/>.
 		/// </param>
+		[RequiredByFeature("GL_SGIX_fragment_lighting")]
 		public static void FragmentColorMaterialSGIX(MaterialFace face, MaterialParameter mode)
 		{
 			Debug.Assert(Delegates.pglFragmentColorMaterialSGIX != null, "pglFragmentColorMaterialSGIX not implemented");
@@ -191,6 +193,7 @@ namespace OpenGL
 		/// <param name="param">
 		/// A <see cref="T:float"/>.
 		/// </param>
+		[RequiredByFeature("GL_SGIX_fragment_lighting")]
 		public static void FragmentLightSGIX(int light, int pname, float param)
 		{
 			Debug.Assert(Delegates.pglFragmentLightfSGIX != null, "pglFragmentLightfSGIX not implemented");
@@ -211,6 +214,7 @@ namespace OpenGL
 		/// <param name="params">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_SGIX_fragment_lighting")]
 		public static void FragmentLightSGIX(int light, int pname, float[] @params)
 		{
 			unsafe {
@@ -236,6 +240,7 @@ namespace OpenGL
 		/// <param name="param">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
+		[RequiredByFeature("GL_SGIX_fragment_lighting")]
 		public static void FragmentLightSGIX(int light, int pname, Int32 param)
 		{
 			Debug.Assert(Delegates.pglFragmentLightiSGIX != null, "pglFragmentLightiSGIX not implemented");
@@ -256,6 +261,7 @@ namespace OpenGL
 		/// <param name="params">
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_SGIX_fragment_lighting")]
 		public static void FragmentLightSGIX(int light, int pname, Int32[] @params)
 		{
 			unsafe {
@@ -278,6 +284,7 @@ namespace OpenGL
 		/// <param name="param">
 		/// A <see cref="T:float"/>.
 		/// </param>
+		[RequiredByFeature("GL_SGIX_fragment_lighting")]
 		public static void FragmentLightModelSGIX(int pname, float param)
 		{
 			Debug.Assert(Delegates.pglFragmentLightModelfSGIX != null, "pglFragmentLightModelfSGIX not implemented");
@@ -295,6 +302,7 @@ namespace OpenGL
 		/// <param name="param">
 		/// A <see cref="T:float"/>.
 		/// </param>
+		[RequiredByFeature("GL_SGIX_fragment_lighting")]
 		public static void FragmentLightModelSGIX(FragmentLightModelParameterSGIX pname, float param)
 		{
 			Debug.Assert(Delegates.pglFragmentLightModelfSGIX != null, "pglFragmentLightModelfSGIX not implemented");
@@ -312,6 +320,7 @@ namespace OpenGL
 		/// <param name="params">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_SGIX_fragment_lighting")]
 		public static void FragmentLightModelSGIX(int pname, float[] @params)
 		{
 			unsafe {
@@ -334,6 +343,7 @@ namespace OpenGL
 		/// <param name="params">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_SGIX_fragment_lighting")]
 		public static void FragmentLightModelSGIX(FragmentLightModelParameterSGIX pname, float[] @params)
 		{
 			unsafe {
@@ -356,6 +366,7 @@ namespace OpenGL
 		/// <param name="param">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
+		[RequiredByFeature("GL_SGIX_fragment_lighting")]
 		public static void FragmentLightModelSGIX(int pname, Int32 param)
 		{
 			Debug.Assert(Delegates.pglFragmentLightModeliSGIX != null, "pglFragmentLightModeliSGIX not implemented");
@@ -373,6 +384,7 @@ namespace OpenGL
 		/// <param name="param">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
+		[RequiredByFeature("GL_SGIX_fragment_lighting")]
 		public static void FragmentLightModelSGIX(FragmentLightModelParameterSGIX pname, Int32 param)
 		{
 			Debug.Assert(Delegates.pglFragmentLightModeliSGIX != null, "pglFragmentLightModeliSGIX not implemented");
@@ -390,6 +402,7 @@ namespace OpenGL
 		/// <param name="params">
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_SGIX_fragment_lighting")]
 		public static void FragmentLightModelSGIX(int pname, Int32[] @params)
 		{
 			unsafe {
@@ -412,6 +425,7 @@ namespace OpenGL
 		/// <param name="params">
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_SGIX_fragment_lighting")]
 		public static void FragmentLightModelSGIX(FragmentLightModelParameterSGIX pname, Int32[] @params)
 		{
 			unsafe {
@@ -437,6 +451,7 @@ namespace OpenGL
 		/// <param name="param">
 		/// A <see cref="T:float"/>.
 		/// </param>
+		[RequiredByFeature("GL_SGIX_fragment_lighting")]
 		public static void FragmentMaterialSGIX(int face, int pname, float param)
 		{
 			Debug.Assert(Delegates.pglFragmentMaterialfSGIX != null, "pglFragmentMaterialfSGIX not implemented");
@@ -457,6 +472,7 @@ namespace OpenGL
 		/// <param name="param">
 		/// A <see cref="T:float"/>.
 		/// </param>
+		[RequiredByFeature("GL_SGIX_fragment_lighting")]
 		public static void FragmentMaterialSGIX(MaterialFace face, MaterialParameter pname, float param)
 		{
 			Debug.Assert(Delegates.pglFragmentMaterialfSGIX != null, "pglFragmentMaterialfSGIX not implemented");
@@ -477,6 +493,7 @@ namespace OpenGL
 		/// <param name="params">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_SGIX_fragment_lighting")]
 		public static void FragmentMaterialSGIX(int face, int pname, float[] @params)
 		{
 			unsafe {
@@ -502,6 +519,7 @@ namespace OpenGL
 		/// <param name="params">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_SGIX_fragment_lighting")]
 		public static void FragmentMaterialSGIX(MaterialFace face, MaterialParameter pname, float[] @params)
 		{
 			unsafe {
@@ -527,6 +545,7 @@ namespace OpenGL
 		/// <param name="param">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
+		[RequiredByFeature("GL_SGIX_fragment_lighting")]
 		public static void FragmentMaterialSGIX(int face, int pname, Int32 param)
 		{
 			Debug.Assert(Delegates.pglFragmentMaterialiSGIX != null, "pglFragmentMaterialiSGIX not implemented");
@@ -547,6 +566,7 @@ namespace OpenGL
 		/// <param name="param">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
+		[RequiredByFeature("GL_SGIX_fragment_lighting")]
 		public static void FragmentMaterialSGIX(MaterialFace face, MaterialParameter pname, Int32 param)
 		{
 			Debug.Assert(Delegates.pglFragmentMaterialiSGIX != null, "pglFragmentMaterialiSGIX not implemented");
@@ -567,6 +587,7 @@ namespace OpenGL
 		/// <param name="params">
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_SGIX_fragment_lighting")]
 		public static void FragmentMaterialSGIX(int face, int pname, Int32[] @params)
 		{
 			unsafe {
@@ -592,6 +613,7 @@ namespace OpenGL
 		/// <param name="params">
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_SGIX_fragment_lighting")]
 		public static void FragmentMaterialSGIX(MaterialFace face, MaterialParameter pname, Int32[] @params)
 		{
 			unsafe {
@@ -617,6 +639,7 @@ namespace OpenGL
 		/// <param name="params">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_SGIX_fragment_lighting")]
 		public static void GetFragmentLightSGIX(int light, int pname, float[] @params)
 		{
 			unsafe {
@@ -642,6 +665,7 @@ namespace OpenGL
 		/// <param name="params">
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_SGIX_fragment_lighting")]
 		public static void GetFragmentLightSGIX(int light, int pname, Int32[] @params)
 		{
 			unsafe {
@@ -667,6 +691,7 @@ namespace OpenGL
 		/// <param name="params">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_SGIX_fragment_lighting")]
 		public static void GetFragmentMaterialSGIX(int face, int pname, float[] @params)
 		{
 			unsafe {
@@ -692,6 +717,7 @@ namespace OpenGL
 		/// <param name="params">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_SGIX_fragment_lighting")]
 		public static void GetFragmentMaterialSGIX(MaterialFace face, MaterialParameter pname, float[] @params)
 		{
 			unsafe {
@@ -717,6 +743,7 @@ namespace OpenGL
 		/// <param name="params">
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_SGIX_fragment_lighting")]
 		public static void GetFragmentMaterialSGIX(int face, int pname, Int32[] @params)
 		{
 			unsafe {
@@ -742,6 +769,7 @@ namespace OpenGL
 		/// <param name="params">
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_SGIX_fragment_lighting")]
 		public static void GetFragmentMaterialSGIX(MaterialFace face, MaterialParameter pname, Int32[] @params)
 		{
 			unsafe {
@@ -764,6 +792,7 @@ namespace OpenGL
 		/// <param name="param">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
+		[RequiredByFeature("GL_SGIX_fragment_lighting")]
 		public static void LightEnvSGIX(int pname, Int32 param)
 		{
 			Debug.Assert(Delegates.pglLightEnviSGIX != null, "pglLightEnviSGIX not implemented");
@@ -781,6 +810,7 @@ namespace OpenGL
 		/// <param name="param">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
+		[RequiredByFeature("GL_SGIX_fragment_lighting")]
 		public static void LightEnvSGIX(LightEnvParameterSGIX pname, Int32 param)
 		{
 			Debug.Assert(Delegates.pglLightEnviSGIX != null, "pglLightEnviSGIX not implemented");

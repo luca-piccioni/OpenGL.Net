@@ -29,21 +29,18 @@ namespace OpenGL
 		/// Value of GL_RENDERBUFFER_SAMPLES_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_framebuffer_multisample")]
-		[RequiredByFeature("GL_EXT_multisampled_render_to_texture")]
 		public const int RENDERBUFFER_SAMPLES_EXT = 0x8CAB;
 
 		/// <summary>
 		/// Value of GL_FRAMEBUFFER_INCOMPLETE_MULTISAMPLE_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_framebuffer_multisample")]
-		[RequiredByFeature("GL_EXT_multisampled_render_to_texture")]
 		public const int FRAMEBUFFER_INCOMPLETE_MULTISAMPLE_EXT = 0x8D56;
 
 		/// <summary>
 		/// Value of GL_MAX_SAMPLES_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_framebuffer_multisample")]
-		[RequiredByFeature("GL_EXT_multisampled_render_to_texture")]
 		public const int MAX_SAMPLES_EXT = 0x8D57;
 
 		/// <summary>
@@ -64,6 +61,7 @@ namespace OpenGL
 		/// <param name="height">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
+		[RequiredByFeature("GL_EXT_framebuffer_multisample")]
 		public static void RenderbufferStorageMultisampleEXT(int target, Int32 samples, int internalformat, Int32 width, Int32 height)
 		{
 			Debug.Assert(Delegates.pglRenderbufferStorageMultisampleEXT != null, "pglRenderbufferStorageMultisampleEXT not implemented");

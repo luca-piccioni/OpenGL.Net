@@ -31,6 +31,7 @@ namespace OpenGL
 		/// <param name="hdc">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
+		[RequiredByFeature("WGL_ARB_extensions_string")]
 		public static string GetExtensionsStringARB(IntPtr hdc)
 		{
 			string retValue;
@@ -38,7 +39,6 @@ namespace OpenGL
 			Debug.Assert(Delegates.pwglGetExtensionsStringARB != null, "pwglGetExtensionsStringARB not implemented");
 			retValue = Delegates.pwglGetExtensionsStringARB(hdc);
 			CallLog("wglGetExtensionsStringARB({0}) = {1}", hdc, retValue);
-			DebugCheckErrors();
 
 			return (retValue);
 		}

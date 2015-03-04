@@ -142,6 +142,7 @@ namespace OpenGL
 		/// <param name="table">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
+		[RequiredByFeature("GL_SGI_color_table")]
 		public static void ColorTableSGI(int target, int internalformat, Int32 width, int format, int type, IntPtr table)
 		{
 			Debug.Assert(Delegates.pglColorTableSGI != null, "pglColorTableSGI not implemented");
@@ -171,6 +172,7 @@ namespace OpenGL
 		/// <param name="table">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
+		[RequiredByFeature("GL_SGI_color_table")]
 		public static void ColorTableSGI(ColorTableTargetSGI target, int internalformat, Int32 width, PixelFormat format, PixelType type, IntPtr table)
 		{
 			Debug.Assert(Delegates.pglColorTableSGI != null, "pglColorTableSGI not implemented");
@@ -200,6 +202,7 @@ namespace OpenGL
 		/// <param name="table">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
+		[RequiredByFeature("GL_SGI_color_table")]
 		public static void ColorTableSGI(int target, int internalformat, Int32 width, int format, int type, Object table)
 		{
 			GCHandle pin_table = GCHandle.Alloc(table, GCHandleType.Pinned);
@@ -222,6 +225,7 @@ namespace OpenGL
 		/// <param name="params">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_SGI_color_table")]
 		public static void ColorTableParameterSGI(int target, int pname, float[] @params)
 		{
 			unsafe {
@@ -247,6 +251,7 @@ namespace OpenGL
 		/// <param name="params">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_SGI_color_table")]
 		public static void ColorTableParameterSGI(ColorTableTargetSGI target, ColorTableParameterPNameSGI pname, float[] @params)
 		{
 			unsafe {
@@ -272,6 +277,7 @@ namespace OpenGL
 		/// <param name="params">
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_SGI_color_table")]
 		public static void ColorTableParameterSGI(int target, int pname, Int32[] @params)
 		{
 			unsafe {
@@ -297,6 +303,7 @@ namespace OpenGL
 		/// <param name="params">
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_SGI_color_table")]
 		public static void ColorTableParameterSGI(ColorTableTargetSGI target, ColorTableParameterPNameSGI pname, Int32[] @params)
 		{
 			unsafe {
@@ -328,6 +335,7 @@ namespace OpenGL
 		/// <param name="width">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
+		[RequiredByFeature("GL_SGI_color_table")]
 		public static void CopyColorTableSGI(int target, int internalformat, Int32 x, Int32 y, Int32 width)
 		{
 			Debug.Assert(Delegates.pglCopyColorTableSGI != null, "pglCopyColorTableSGI not implemented");
@@ -354,6 +362,7 @@ namespace OpenGL
 		/// <param name="width">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
+		[RequiredByFeature("GL_SGI_color_table")]
 		public static void CopyColorTableSGI(ColorTableTargetSGI target, int internalformat, Int32 x, Int32 y, Int32 width)
 		{
 			Debug.Assert(Delegates.pglCopyColorTableSGI != null, "pglCopyColorTableSGI not implemented");
@@ -377,6 +386,7 @@ namespace OpenGL
 		/// <param name="table">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
+		[RequiredByFeature("GL_SGI_color_table")]
 		public static void GetColorTableSGI(int target, int format, int type, IntPtr table)
 		{
 			Debug.Assert(Delegates.pglGetColorTableSGI != null, "pglGetColorTableSGI not implemented");
@@ -400,6 +410,7 @@ namespace OpenGL
 		/// <param name="table">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
+		[RequiredByFeature("GL_SGI_color_table")]
 		public static void GetColorTableSGI(ColorTableTargetSGI target, PixelFormat format, PixelType type, IntPtr table)
 		{
 			Debug.Assert(Delegates.pglGetColorTableSGI != null, "pglGetColorTableSGI not implemented");
@@ -420,6 +431,7 @@ namespace OpenGL
 		/// <param name="params">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_SGI_color_table")]
 		public static void GetColorTableParameterSGI(int target, int pname, float[] @params)
 		{
 			unsafe {
@@ -445,6 +457,7 @@ namespace OpenGL
 		/// <param name="params">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_SGI_color_table")]
 		public static void GetColorTableParameterSGI(ColorTableTargetSGI target, GetColorTableParameterPNameSGI pname, float[] @params)
 		{
 			unsafe {
@@ -470,6 +483,7 @@ namespace OpenGL
 		/// <param name="params">
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_SGI_color_table")]
 		public static void GetColorTableParameterSGI(int target, int pname, Int32[] @params)
 		{
 			unsafe {
@@ -495,6 +509,7 @@ namespace OpenGL
 		/// <param name="params">
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_SGI_color_table")]
 		public static void GetColorTableParameterSGI(ColorTableTargetSGI target, GetColorTableParameterPNameSGI pname, Int32[] @params)
 		{
 			unsafe {

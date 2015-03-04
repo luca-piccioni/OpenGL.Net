@@ -133,6 +133,7 @@ namespace OpenGL
 		/// <param name="code">
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
+		[RequiredByFeature("GL_SUN_triangle_list")]
 		public static void ReplacementCodeuiSUN(UInt32 code)
 		{
 			Debug.Assert(Delegates.pglReplacementCodeuiSUN != null, "pglReplacementCodeuiSUN not implemented");
@@ -147,6 +148,7 @@ namespace OpenGL
 		/// <param name="code">
 		/// A <see cref="T:UInt16"/>.
 		/// </param>
+		[RequiredByFeature("GL_SUN_triangle_list")]
 		public static void ReplacementCodeusSUN(UInt16 code)
 		{
 			Debug.Assert(Delegates.pglReplacementCodeusSUN != null, "pglReplacementCodeusSUN not implemented");
@@ -161,6 +163,7 @@ namespace OpenGL
 		/// <param name="code">
 		/// A <see cref="T:byte"/>.
 		/// </param>
+		[RequiredByFeature("GL_SUN_triangle_list")]
 		public static void ReplacementCodeubSUN(byte code)
 		{
 			Debug.Assert(Delegates.pglReplacementCodeubSUN != null, "pglReplacementCodeubSUN not implemented");
@@ -175,6 +178,7 @@ namespace OpenGL
 		/// <param name="code">
 		/// A <see cref="T:UInt32[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_SUN_triangle_list")]
 		public static void ReplacementCodeuiSUN(UInt32[] code)
 		{
 			unsafe {
@@ -194,6 +198,7 @@ namespace OpenGL
 		/// <param name="code">
 		/// A <see cref="T:UInt16[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_SUN_triangle_list")]
 		public static void ReplacementCodeusSUN(UInt16[] code)
 		{
 			unsafe {
@@ -213,6 +218,7 @@ namespace OpenGL
 		/// <param name="code">
 		/// A <see cref="T:byte[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_SUN_triangle_list")]
 		public static void ReplacementCodeubSUN(byte[] code)
 		{
 			unsafe {
@@ -238,6 +244,7 @@ namespace OpenGL
 		/// <param name="pointer">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
+		[RequiredByFeature("GL_SUN_triangle_list")]
 		public static void ReplacementCodePointerSUN(int type, Int32 stride, IntPtr pointer)
 		{
 			Debug.Assert(Delegates.pglReplacementCodePointerSUN != null, "pglReplacementCodePointerSUN not implemented");
@@ -258,6 +265,7 @@ namespace OpenGL
 		/// <param name="pointer">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
+		[RequiredByFeature("GL_SUN_triangle_list")]
 		public static void ReplacementCodePointerSUN(int type, Int32 stride, Object pointer)
 		{
 			GCHandle pin_pointer = GCHandle.Alloc(pointer, GCHandleType.Pinned);

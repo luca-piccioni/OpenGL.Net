@@ -29,7 +29,6 @@ namespace OpenGL
 		/// Value of GL_FRAMEBUFFER_SRGB_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_framebuffer_sRGB")]
-		[RequiredByFeature("GL_EXT_sRGB_write_control")]
 		public const int FRAMEBUFFER_SRGB_EXT = 0x8DB9;
 
 		/// <summary>

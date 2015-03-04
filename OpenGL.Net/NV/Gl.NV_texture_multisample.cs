@@ -61,6 +61,7 @@ namespace OpenGL
 		/// <param name="fixedSampleLocations">
 		/// A <see cref="T:bool"/>.
 		/// </param>
+		[RequiredByFeature("GL_NV_texture_multisample")]
 		public static void TexImage2DMultisampleCoverageNV(int target, Int32 coverageSamples, Int32 colorSamples, Int32 internalFormat, Int32 width, Int32 height, bool fixedSampleLocations)
 		{
 			Debug.Assert(Delegates.pglTexImage2DMultisampleCoverageNV != null, "pglTexImage2DMultisampleCoverageNV not implemented");
@@ -96,6 +97,7 @@ namespace OpenGL
 		/// <param name="fixedSampleLocations">
 		/// A <see cref="T:bool"/>.
 		/// </param>
+		[RequiredByFeature("GL_NV_texture_multisample")]
 		public static void TexImage3DMultisampleCoverageNV(int target, Int32 coverageSamples, Int32 colorSamples, Int32 internalFormat, Int32 width, Int32 height, Int32 depth, bool fixedSampleLocations)
 		{
 			Debug.Assert(Delegates.pglTexImage3DMultisampleCoverageNV != null, "pglTexImage3DMultisampleCoverageNV not implemented");
@@ -128,6 +130,7 @@ namespace OpenGL
 		/// <param name="fixedSampleLocations">
 		/// A <see cref="T:bool"/>.
 		/// </param>
+		[RequiredByFeature("GL_NV_texture_multisample")]
 		public static void TextureImage2DMultisampleNV(UInt32 texture, int target, Int32 samples, Int32 internalFormat, Int32 width, Int32 height, bool fixedSampleLocations)
 		{
 			Debug.Assert(Delegates.pglTextureImage2DMultisampleNV != null, "pglTextureImage2DMultisampleNV not implemented");
@@ -163,6 +166,7 @@ namespace OpenGL
 		/// <param name="fixedSampleLocations">
 		/// A <see cref="T:bool"/>.
 		/// </param>
+		[RequiredByFeature("GL_NV_texture_multisample")]
 		public static void TextureImage3DMultisampleNV(UInt32 texture, int target, Int32 samples, Int32 internalFormat, Int32 width, Int32 height, Int32 depth, bool fixedSampleLocations)
 		{
 			Debug.Assert(Delegates.pglTextureImage3DMultisampleNV != null, "pglTextureImage3DMultisampleNV not implemented");
@@ -198,6 +202,7 @@ namespace OpenGL
 		/// <param name="fixedSampleLocations">
 		/// A <see cref="T:bool"/>.
 		/// </param>
+		[RequiredByFeature("GL_NV_texture_multisample")]
 		public static void TextureImage2DMultisampleCoverageNV(UInt32 texture, int target, Int32 coverageSamples, Int32 colorSamples, Int32 internalFormat, Int32 width, Int32 height, bool fixedSampleLocations)
 		{
 			Debug.Assert(Delegates.pglTextureImage2DMultisampleCoverageNV != null, "pglTextureImage2DMultisampleCoverageNV not implemented");
@@ -236,6 +241,7 @@ namespace OpenGL
 		/// <param name="fixedSampleLocations">
 		/// A <see cref="T:bool"/>.
 		/// </param>
+		[RequiredByFeature("GL_NV_texture_multisample")]
 		public static void TextureImage3DMultisampleCoverageNV(UInt32 texture, int target, Int32 coverageSamples, Int32 colorSamples, Int32 internalFormat, Int32 width, Int32 height, Int32 depth, bool fixedSampleLocations)
 		{
 			Debug.Assert(Delegates.pglTextureImage3DMultisampleCoverageNV != null, "pglTextureImage3DMultisampleCoverageNV not implemented");

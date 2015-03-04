@@ -41,7 +41,6 @@ namespace OpenGL
 		/// Value of GL_COMPRESSED_RGB8_ETC2 symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ES_VERSION_3_0")]
 		[RequiredByFeature("GL_ARB_ES3_compatibility")]
 		public const int COMPRESSED_RGB8_ETC2 = 0x9274;
 
@@ -49,7 +48,6 @@ namespace OpenGL
 		/// Value of GL_COMPRESSED_SRGB8_ETC2 symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ES_VERSION_3_0")]
 		[RequiredByFeature("GL_ARB_ES3_compatibility")]
 		public const int COMPRESSED_SRGB8_ETC2 = 0x9275;
 
@@ -57,7 +55,6 @@ namespace OpenGL
 		/// Value of GL_COMPRESSED_RGB8_PUNCHTHROUGH_ALPHA1_ETC2 symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ES_VERSION_3_0")]
 		[RequiredByFeature("GL_ARB_ES3_compatibility")]
 		public const int COMPRESSED_RGB8_PUNCHTHROUGH_ALPHA1_ETC2 = 0x9276;
 
@@ -65,7 +62,6 @@ namespace OpenGL
 		/// Value of GL_COMPRESSED_SRGB8_PUNCHTHROUGH_ALPHA1_ETC2 symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ES_VERSION_3_0")]
 		[RequiredByFeature("GL_ARB_ES3_compatibility")]
 		public const int COMPRESSED_SRGB8_PUNCHTHROUGH_ALPHA1_ETC2 = 0x9277;
 
@@ -73,7 +69,6 @@ namespace OpenGL
 		/// Value of GL_COMPRESSED_RGBA8_ETC2_EAC symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ES_VERSION_3_0")]
 		[RequiredByFeature("GL_ARB_ES3_compatibility")]
 		public const int COMPRESSED_RGBA8_ETC2_EAC = 0x9278;
 
@@ -81,7 +76,6 @@ namespace OpenGL
 		/// Value of GL_COMPRESSED_SRGB8_ALPHA8_ETC2_EAC symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ES_VERSION_3_0")]
 		[RequiredByFeature("GL_ARB_ES3_compatibility")]
 		public const int COMPRESSED_SRGB8_ALPHA8_ETC2_EAC = 0x9279;
 
@@ -89,7 +83,6 @@ namespace OpenGL
 		/// Value of GL_COMPRESSED_R11_EAC symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ES_VERSION_3_0")]
 		[RequiredByFeature("GL_ARB_ES3_compatibility")]
 		public const int COMPRESSED_R11_EAC = 0x9270;
 
@@ -97,7 +90,6 @@ namespace OpenGL
 		/// Value of GL_COMPRESSED_SIGNED_R11_EAC symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ES_VERSION_3_0")]
 		[RequiredByFeature("GL_ARB_ES3_compatibility")]
 		public const int COMPRESSED_SIGNED_R11_EAC = 0x9271;
 
@@ -105,7 +97,6 @@ namespace OpenGL
 		/// Value of GL_COMPRESSED_RG11_EAC symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ES_VERSION_3_0")]
 		[RequiredByFeature("GL_ARB_ES3_compatibility")]
 		public const int COMPRESSED_RG11_EAC = 0x9272;
 
@@ -113,7 +104,6 @@ namespace OpenGL
 		/// Value of GL_COMPRESSED_SIGNED_RG11_EAC symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ES_VERSION_3_0")]
 		[RequiredByFeature("GL_ARB_ES3_compatibility")]
 		public const int COMPRESSED_SIGNED_RG11_EAC = 0x9273;
 
@@ -121,7 +111,6 @@ namespace OpenGL
 		/// Value of GL_PRIMITIVE_RESTART_FIXED_INDEX symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ES_VERSION_3_0")]
 		[RequiredByFeature("GL_ARB_ES3_compatibility")]
 		public const int PRIMITIVE_RESTART_FIXED_INDEX = 0x8D69;
 
@@ -129,7 +118,6 @@ namespace OpenGL
 		/// Value of GL_ANY_SAMPLES_PASSED_CONSERVATIVE symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ES_VERSION_3_0")]
 		[RequiredByFeature("GL_ARB_ES3_compatibility")]
 		public const int ANY_SAMPLES_PASSED_CONSERVATIVE = 0x8D6A;
 
@@ -137,7 +125,6 @@ namespace OpenGL
 		/// Value of GL_MAX_ELEMENT_INDEX symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ES_VERSION_3_0")]
 		[RequiredByFeature("GL_ARB_ES3_compatibility")]
 		public const int MAX_ELEMENT_INDEX = 0x8D6B;
 
@@ -145,7 +132,6 @@ namespace OpenGL
 		/// Value of GL_COMPUTE_SHADER symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ES_VERSION_3_1")]
 		[RequiredByFeature("GL_ARB_compute_shader")]
 		public const int COMPUTE_SHADER = 0x91B9;
 
@@ -153,7 +139,6 @@ namespace OpenGL
 		/// Value of GL_MAX_COMPUTE_UNIFORM_BLOCKS symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ES_VERSION_3_1")]
 		[RequiredByFeature("GL_ARB_compute_shader")]
 		public const int MAX_COMPUTE_UNIFORM_BLOCKS = 0x91BB;
 
@@ -161,7 +146,6 @@ namespace OpenGL
 		/// Value of GL_MAX_COMPUTE_TEXTURE_IMAGE_UNITS symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ES_VERSION_3_1")]
 		[RequiredByFeature("GL_ARB_compute_shader")]
 		public const int MAX_COMPUTE_TEXTURE_IMAGE_UNITS = 0x91BC;
 
@@ -169,7 +153,6 @@ namespace OpenGL
 		/// Value of GL_MAX_COMPUTE_IMAGE_UNIFORMS symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ES_VERSION_3_1")]
 		[RequiredByFeature("GL_ARB_compute_shader")]
 		public const int MAX_COMPUTE_IMAGE_UNIFORMS = 0x91BD;
 
@@ -177,7 +160,6 @@ namespace OpenGL
 		/// Value of GL_MAX_COMPUTE_SHARED_MEMORY_SIZE symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ES_VERSION_3_1")]
 		[RequiredByFeature("GL_ARB_compute_shader")]
 		public const int MAX_COMPUTE_SHARED_MEMORY_SIZE = 0x8262;
 
@@ -185,7 +167,6 @@ namespace OpenGL
 		/// Value of GL_MAX_COMPUTE_UNIFORM_COMPONENTS symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ES_VERSION_3_1")]
 		[RequiredByFeature("GL_ARB_compute_shader")]
 		public const int MAX_COMPUTE_UNIFORM_COMPONENTS = 0x8263;
 
@@ -193,7 +174,6 @@ namespace OpenGL
 		/// Value of GL_MAX_COMPUTE_ATOMIC_COUNTER_BUFFERS symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ES_VERSION_3_1")]
 		[RequiredByFeature("GL_ARB_compute_shader")]
 		public const int MAX_COMPUTE_ATOMIC_COUNTER_BUFFERS = 0x8264;
 
@@ -201,7 +181,6 @@ namespace OpenGL
 		/// Value of GL_MAX_COMPUTE_ATOMIC_COUNTERS symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ES_VERSION_3_1")]
 		[RequiredByFeature("GL_ARB_compute_shader")]
 		public const int MAX_COMPUTE_ATOMIC_COUNTERS = 0x8265;
 
@@ -209,7 +188,6 @@ namespace OpenGL
 		/// Value of GL_MAX_COMBINED_COMPUTE_UNIFORM_COMPONENTS symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ES_VERSION_3_1")]
 		[RequiredByFeature("GL_ARB_compute_shader")]
 		public const int MAX_COMBINED_COMPUTE_UNIFORM_COMPONENTS = 0x8266;
 
@@ -217,7 +195,6 @@ namespace OpenGL
 		/// Value of GL_MAX_COMPUTE_WORK_GROUP_INVOCATIONS symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ES_VERSION_3_1")]
 		[RequiredByFeature("GL_ARB_compute_shader")]
 		public const int MAX_COMPUTE_WORK_GROUP_INVOCATIONS = 0x90EB;
 
@@ -225,7 +202,6 @@ namespace OpenGL
 		/// Value of GL_MAX_COMPUTE_WORK_GROUP_COUNT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ES_VERSION_3_1")]
 		[RequiredByFeature("GL_ARB_compute_shader")]
 		public const int MAX_COMPUTE_WORK_GROUP_COUNT = 0x91BE;
 
@@ -233,7 +209,6 @@ namespace OpenGL
 		/// Value of GL_MAX_COMPUTE_WORK_GROUP_SIZE symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ES_VERSION_3_1")]
 		[RequiredByFeature("GL_ARB_compute_shader")]
 		public const int MAX_COMPUTE_WORK_GROUP_SIZE = 0x91BF;
 
@@ -241,7 +216,6 @@ namespace OpenGL
 		/// Value of GL_COMPUTE_WORK_GROUP_SIZE symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ES_VERSION_3_1")]
 		[RequiredByFeature("GL_ARB_compute_shader")]
 		public const int COMPUTE_WORK_GROUP_SIZE = 0x8267;
 
@@ -263,7 +237,6 @@ namespace OpenGL
 		/// Value of GL_DISPATCH_INDIRECT_BUFFER symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ES_VERSION_3_1")]
 		[RequiredByFeature("GL_ARB_compute_shader")]
 		public const int DISPATCH_INDIRECT_BUFFER = 0x90EE;
 
@@ -271,7 +244,6 @@ namespace OpenGL
 		/// Value of GL_DISPATCH_INDIRECT_BUFFER_BINDING symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ES_VERSION_3_1")]
 		[RequiredByFeature("GL_ARB_compute_shader")]
 		public const int DISPATCH_INDIRECT_BUFFER_BINDING = 0x90EF;
 
@@ -279,7 +251,6 @@ namespace OpenGL
 		/// Value of GL_COMPUTE_SHADER_BIT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ES_VERSION_3_1")]
 		[RequiredByFeature("GL_ARB_compute_shader")]
 		public const uint COMPUTE_SHADER_BIT = 0x00000020;
 
@@ -547,7 +518,6 @@ namespace OpenGL
 		/// Value of GL_MAX_UNIFORM_LOCATIONS symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ES_VERSION_3_1")]
 		[RequiredByFeature("GL_ARB_explicit_uniform_location")]
 		public const int MAX_UNIFORM_LOCATIONS = 0x826E;
 
@@ -555,7 +525,6 @@ namespace OpenGL
 		/// Value of GL_FRAMEBUFFER_DEFAULT_WIDTH symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ES_VERSION_3_1")]
 		[RequiredByFeature("GL_ARB_framebuffer_no_attachments")]
 		public const int FRAMEBUFFER_DEFAULT_WIDTH = 0x9310;
 
@@ -563,7 +532,6 @@ namespace OpenGL
 		/// Value of GL_FRAMEBUFFER_DEFAULT_HEIGHT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ES_VERSION_3_1")]
 		[RequiredByFeature("GL_ARB_framebuffer_no_attachments")]
 		public const int FRAMEBUFFER_DEFAULT_HEIGHT = 0x9311;
 
@@ -578,7 +546,6 @@ namespace OpenGL
 		/// Value of GL_FRAMEBUFFER_DEFAULT_SAMPLES symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ES_VERSION_3_1")]
 		[RequiredByFeature("GL_ARB_framebuffer_no_attachments")]
 		public const int FRAMEBUFFER_DEFAULT_SAMPLES = 0x9313;
 
@@ -586,7 +553,6 @@ namespace OpenGL
 		/// Value of GL_FRAMEBUFFER_DEFAULT_FIXED_SAMPLE_LOCATIONS symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ES_VERSION_3_1")]
 		[RequiredByFeature("GL_ARB_framebuffer_no_attachments")]
 		public const int FRAMEBUFFER_DEFAULT_FIXED_SAMPLE_LOCATIONS = 0x9314;
 
@@ -594,7 +560,6 @@ namespace OpenGL
 		/// Value of GL_MAX_FRAMEBUFFER_WIDTH symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ES_VERSION_3_1")]
 		[RequiredByFeature("GL_ARB_framebuffer_no_attachments")]
 		public const int MAX_FRAMEBUFFER_WIDTH = 0x9315;
 
@@ -602,7 +567,6 @@ namespace OpenGL
 		/// Value of GL_MAX_FRAMEBUFFER_HEIGHT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ES_VERSION_3_1")]
 		[RequiredByFeature("GL_ARB_framebuffer_no_attachments")]
 		public const int MAX_FRAMEBUFFER_HEIGHT = 0x9316;
 
@@ -617,7 +581,6 @@ namespace OpenGL
 		/// Value of GL_MAX_FRAMEBUFFER_SAMPLES symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ES_VERSION_3_1")]
 		[RequiredByFeature("GL_ARB_framebuffer_no_attachments")]
 		public const int MAX_FRAMEBUFFER_SAMPLES = 0x9318;
 
@@ -1311,7 +1274,6 @@ namespace OpenGL
 		/// Value of GL_UNIFORM symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ES_VERSION_3_1")]
 		[RequiredByFeature("GL_ARB_program_interface_query")]
 		public const int UNIFORM = 0x92E1;
 
@@ -1319,7 +1281,6 @@ namespace OpenGL
 		/// Value of GL_UNIFORM_BLOCK symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ES_VERSION_3_1")]
 		[RequiredByFeature("GL_ARB_program_interface_query")]
 		public const int UNIFORM_BLOCK = 0x92E2;
 
@@ -1327,7 +1288,6 @@ namespace OpenGL
 		/// Value of GL_PROGRAM_INPUT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ES_VERSION_3_1")]
 		[RequiredByFeature("GL_ARB_program_interface_query")]
 		public const int PROGRAM_INPUT = 0x92E3;
 
@@ -1335,7 +1295,6 @@ namespace OpenGL
 		/// Value of GL_PROGRAM_OUTPUT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ES_VERSION_3_1")]
 		[RequiredByFeature("GL_ARB_program_interface_query")]
 		public const int PROGRAM_OUTPUT = 0x92E4;
 
@@ -1343,7 +1302,6 @@ namespace OpenGL
 		/// Value of GL_BUFFER_VARIABLE symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ES_VERSION_3_1")]
 		[RequiredByFeature("GL_ARB_program_interface_query")]
 		public const int BUFFER_VARIABLE = 0x92E5;
 
@@ -1351,7 +1309,6 @@ namespace OpenGL
 		/// Value of GL_SHADER_STORAGE_BLOCK symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ES_VERSION_3_1")]
 		[RequiredByFeature("GL_ARB_program_interface_query")]
 		public const int SHADER_STORAGE_BLOCK = 0x92E6;
 
@@ -1443,7 +1400,6 @@ namespace OpenGL
 		/// Value of GL_TRANSFORM_FEEDBACK_VARYING symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ES_VERSION_3_1")]
 		[RequiredByFeature("GL_ARB_program_interface_query")]
 		public const int TRANSFORM_FEEDBACK_VARYING = 0x92F4;
 
@@ -1451,7 +1407,6 @@ namespace OpenGL
 		/// Value of GL_ACTIVE_RESOURCES symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ES_VERSION_3_1")]
 		[RequiredByFeature("GL_ARB_program_interface_query")]
 		public const int ACTIVE_RESOURCES = 0x92F5;
 
@@ -1459,7 +1414,6 @@ namespace OpenGL
 		/// Value of GL_MAX_NAME_LENGTH symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ES_VERSION_3_1")]
 		[RequiredByFeature("GL_ARB_program_interface_query")]
 		public const int MAX_NAME_LENGTH = 0x92F6;
 
@@ -1467,7 +1421,6 @@ namespace OpenGL
 		/// Value of GL_MAX_NUM_ACTIVE_VARIABLES symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ES_VERSION_3_1")]
 		[RequiredByFeature("GL_ARB_program_interface_query")]
 		public const int MAX_NUM_ACTIVE_VARIABLES = 0x92F7;
 
@@ -1482,7 +1435,6 @@ namespace OpenGL
 		/// Value of GL_NAME_LENGTH symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ES_VERSION_3_1")]
 		[RequiredByFeature("GL_ARB_program_interface_query")]
 		public const int NAME_LENGTH = 0x92F9;
 
@@ -1490,7 +1442,6 @@ namespace OpenGL
 		/// Value of GL_TYPE symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ES_VERSION_3_1")]
 		[RequiredByFeature("GL_ARB_program_interface_query")]
 		public const int TYPE = 0x92FA;
 
@@ -1498,7 +1449,6 @@ namespace OpenGL
 		/// Value of GL_ARRAY_SIZE symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ES_VERSION_3_1")]
 		[RequiredByFeature("GL_ARB_program_interface_query")]
 		public const int ARRAY_SIZE = 0x92FB;
 
@@ -1506,7 +1456,6 @@ namespace OpenGL
 		/// Value of GL_OFFSET symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ES_VERSION_3_1")]
 		[RequiredByFeature("GL_ARB_program_interface_query")]
 		public const int OFFSET = 0x92FC;
 
@@ -1514,7 +1463,6 @@ namespace OpenGL
 		/// Value of GL_BLOCK_INDEX symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ES_VERSION_3_1")]
 		[RequiredByFeature("GL_ARB_program_interface_query")]
 		public const int BLOCK_INDEX = 0x92FD;
 
@@ -1522,7 +1470,6 @@ namespace OpenGL
 		/// Value of GL_ARRAY_STRIDE symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ES_VERSION_3_1")]
 		[RequiredByFeature("GL_ARB_program_interface_query")]
 		public const int ARRAY_STRIDE = 0x92FE;
 
@@ -1530,7 +1477,6 @@ namespace OpenGL
 		/// Value of GL_MATRIX_STRIDE symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ES_VERSION_3_1")]
 		[RequiredByFeature("GL_ARB_program_interface_query")]
 		public const int MATRIX_STRIDE = 0x92FF;
 
@@ -1538,7 +1484,6 @@ namespace OpenGL
 		/// Value of GL_IS_ROW_MAJOR symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ES_VERSION_3_1")]
 		[RequiredByFeature("GL_ARB_program_interface_query")]
 		public const int IS_ROW_MAJOR = 0x9300;
 
@@ -1546,7 +1491,6 @@ namespace OpenGL
 		/// Value of GL_ATOMIC_COUNTER_BUFFER_INDEX symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ES_VERSION_3_1")]
 		[RequiredByFeature("GL_ARB_program_interface_query")]
 		public const int ATOMIC_COUNTER_BUFFER_INDEX = 0x9301;
 
@@ -1554,7 +1498,6 @@ namespace OpenGL
 		/// Value of GL_BUFFER_BINDING symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ES_VERSION_3_1")]
 		[RequiredByFeature("GL_ARB_program_interface_query")]
 		public const int BUFFER_BINDING = 0x9302;
 
@@ -1562,7 +1505,6 @@ namespace OpenGL
 		/// Value of GL_BUFFER_DATA_SIZE symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ES_VERSION_3_1")]
 		[RequiredByFeature("GL_ARB_program_interface_query")]
 		public const int BUFFER_DATA_SIZE = 0x9303;
 
@@ -1570,7 +1512,6 @@ namespace OpenGL
 		/// Value of GL_NUM_ACTIVE_VARIABLES symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ES_VERSION_3_1")]
 		[RequiredByFeature("GL_ARB_program_interface_query")]
 		public const int NUM_ACTIVE_VARIABLES = 0x9304;
 
@@ -1578,7 +1519,6 @@ namespace OpenGL
 		/// Value of GL_ACTIVE_VARIABLES symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ES_VERSION_3_1")]
 		[RequiredByFeature("GL_ARB_program_interface_query")]
 		public const int ACTIVE_VARIABLES = 0x9305;
 
@@ -1586,7 +1526,6 @@ namespace OpenGL
 		/// Value of GL_REFERENCED_BY_VERTEX_SHADER symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ES_VERSION_3_1")]
 		[RequiredByFeature("GL_ARB_program_interface_query")]
 		public const int REFERENCED_BY_VERTEX_SHADER = 0x9306;
 
@@ -1615,7 +1554,6 @@ namespace OpenGL
 		/// Value of GL_REFERENCED_BY_FRAGMENT_SHADER symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ES_VERSION_3_1")]
 		[RequiredByFeature("GL_ARB_program_interface_query")]
 		public const int REFERENCED_BY_FRAGMENT_SHADER = 0x930A;
 
@@ -1623,7 +1561,6 @@ namespace OpenGL
 		/// Value of GL_REFERENCED_BY_COMPUTE_SHADER symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ES_VERSION_3_1")]
 		[RequiredByFeature("GL_ARB_program_interface_query")]
 		public const int REFERENCED_BY_COMPUTE_SHADER = 0x930B;
 
@@ -1631,7 +1568,6 @@ namespace OpenGL
 		/// Value of GL_TOP_LEVEL_ARRAY_SIZE symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ES_VERSION_3_1")]
 		[RequiredByFeature("GL_ARB_program_interface_query")]
 		public const int TOP_LEVEL_ARRAY_SIZE = 0x930C;
 
@@ -1639,7 +1575,6 @@ namespace OpenGL
 		/// Value of GL_TOP_LEVEL_ARRAY_STRIDE symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ES_VERSION_3_1")]
 		[RequiredByFeature("GL_ARB_program_interface_query")]
 		public const int TOP_LEVEL_ARRAY_STRIDE = 0x930D;
 
@@ -1647,7 +1582,6 @@ namespace OpenGL
 		/// Value of GL_LOCATION symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ES_VERSION_3_1")]
 		[RequiredByFeature("GL_ARB_program_interface_query")]
 		public const int LOCATION = 0x930E;
 
@@ -1669,7 +1603,6 @@ namespace OpenGL
 		/// Value of GL_SHADER_STORAGE_BUFFER symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ES_VERSION_3_1")]
 		[RequiredByFeature("GL_ARB_shader_storage_buffer_object")]
 		public const int SHADER_STORAGE_BUFFER = 0x90D2;
 
@@ -1677,7 +1610,6 @@ namespace OpenGL
 		/// Value of GL_SHADER_STORAGE_BUFFER_BINDING symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ES_VERSION_3_1")]
 		[RequiredByFeature("GL_ARB_shader_storage_buffer_object")]
 		public const int SHADER_STORAGE_BUFFER_BINDING = 0x90D3;
 
@@ -1685,7 +1617,6 @@ namespace OpenGL
 		/// Value of GL_SHADER_STORAGE_BUFFER_START symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ES_VERSION_3_1")]
 		[RequiredByFeature("GL_ARB_shader_storage_buffer_object")]
 		public const int SHADER_STORAGE_BUFFER_START = 0x90D4;
 
@@ -1693,7 +1624,6 @@ namespace OpenGL
 		/// Value of GL_SHADER_STORAGE_BUFFER_SIZE symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ES_VERSION_3_1")]
 		[RequiredByFeature("GL_ARB_shader_storage_buffer_object")]
 		public const int SHADER_STORAGE_BUFFER_SIZE = 0x90D5;
 
@@ -1701,7 +1631,6 @@ namespace OpenGL
 		/// Value of GL_MAX_VERTEX_SHADER_STORAGE_BLOCKS symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ES_VERSION_3_1")]
 		[RequiredByFeature("GL_ARB_shader_storage_buffer_object")]
 		public const int MAX_VERTEX_SHADER_STORAGE_BLOCKS = 0x90D6;
 
@@ -1730,7 +1659,6 @@ namespace OpenGL
 		/// Value of GL_MAX_FRAGMENT_SHADER_STORAGE_BLOCKS symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ES_VERSION_3_1")]
 		[RequiredByFeature("GL_ARB_shader_storage_buffer_object")]
 		public const int MAX_FRAGMENT_SHADER_STORAGE_BLOCKS = 0x90DA;
 
@@ -1738,7 +1666,6 @@ namespace OpenGL
 		/// Value of GL_MAX_COMPUTE_SHADER_STORAGE_BLOCKS symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ES_VERSION_3_1")]
 		[RequiredByFeature("GL_ARB_shader_storage_buffer_object")]
 		public const int MAX_COMPUTE_SHADER_STORAGE_BLOCKS = 0x90DB;
 
@@ -1746,7 +1673,6 @@ namespace OpenGL
 		/// Value of GL_MAX_COMBINED_SHADER_STORAGE_BLOCKS symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ES_VERSION_3_1")]
 		[RequiredByFeature("GL_ARB_shader_storage_buffer_object")]
 		public const int MAX_COMBINED_SHADER_STORAGE_BLOCKS = 0x90DC;
 
@@ -1754,7 +1680,6 @@ namespace OpenGL
 		/// Value of GL_MAX_SHADER_STORAGE_BUFFER_BINDINGS symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ES_VERSION_3_1")]
 		[RequiredByFeature("GL_ARB_shader_storage_buffer_object")]
 		public const int MAX_SHADER_STORAGE_BUFFER_BINDINGS = 0x90DD;
 
@@ -1762,7 +1687,6 @@ namespace OpenGL
 		/// Value of GL_MAX_SHADER_STORAGE_BLOCK_SIZE symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ES_VERSION_3_1")]
 		[RequiredByFeature("GL_ARB_shader_storage_buffer_object")]
 		public const int MAX_SHADER_STORAGE_BLOCK_SIZE = 0x90DE;
 
@@ -1770,7 +1694,6 @@ namespace OpenGL
 		/// Value of GL_SHADER_STORAGE_BUFFER_OFFSET_ALIGNMENT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ES_VERSION_3_1")]
 		[RequiredByFeature("GL_ARB_shader_storage_buffer_object")]
 		public const int SHADER_STORAGE_BUFFER_OFFSET_ALIGNMENT = 0x90DF;
 
@@ -1778,7 +1701,6 @@ namespace OpenGL
 		/// Value of GL_SHADER_STORAGE_BARRIER_BIT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ES_VERSION_3_1")]
 		[RequiredByFeature("GL_ARB_shader_storage_buffer_object")]
 		public const uint SHADER_STORAGE_BARRIER_BIT = 0x00002000;
 
@@ -1791,7 +1713,6 @@ namespace OpenGL
 		/// </para>
 		/// </remarks>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ES_VERSION_3_1")]
 		[RequiredByFeature("GL_ARB_shader_storage_buffer_object")]
 		public const int MAX_COMBINED_SHADER_OUTPUT_RESOURCES = 0x8F39;
 
@@ -1799,7 +1720,6 @@ namespace OpenGL
 		/// Value of GL_DEPTH_STENCIL_TEXTURE_MODE symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ES_VERSION_3_1")]
 		[RequiredByFeature("GL_ARB_stencil_texturing")]
 		public const int DEPTH_STENCIL_TEXTURE_MODE = 0x90EA;
 
@@ -1856,17 +1776,13 @@ namespace OpenGL
 		/// Value of GL_TEXTURE_IMMUTABLE_LEVELS symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ES_VERSION_3_0")]
 		[RequiredByFeature("GL_ARB_texture_view")]
-		[RequiredByFeature("GL_EXT_texture_view")]
-		[RequiredByFeature("GL_OES_texture_view")]
 		public const int TEXTURE_IMMUTABLE_LEVELS = 0x82DF;
 
 		/// <summary>
 		/// Value of GL_VERTEX_ATTRIB_BINDING symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ES_VERSION_3_1")]
 		[RequiredByFeature("GL_ARB_vertex_attrib_binding")]
 		public const int VERTEX_ATTRIB_BINDING = 0x82D4;
 
@@ -1874,7 +1790,6 @@ namespace OpenGL
 		/// Value of GL_VERTEX_ATTRIB_RELATIVE_OFFSET symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ES_VERSION_3_1")]
 		[RequiredByFeature("GL_ARB_vertex_attrib_binding")]
 		public const int VERTEX_ATTRIB_RELATIVE_OFFSET = 0x82D5;
 
@@ -1882,7 +1797,6 @@ namespace OpenGL
 		/// Value of GL_VERTEX_BINDING_DIVISOR symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ES_VERSION_3_1")]
 		[RequiredByFeature("GL_ARB_vertex_attrib_binding")]
 		public const int VERTEX_BINDING_DIVISOR = 0x82D6;
 
@@ -1890,7 +1804,6 @@ namespace OpenGL
 		/// Value of GL_VERTEX_BINDING_OFFSET symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ES_VERSION_3_1")]
 		[RequiredByFeature("GL_ARB_vertex_attrib_binding")]
 		public const int VERTEX_BINDING_OFFSET = 0x82D7;
 
@@ -1898,7 +1811,6 @@ namespace OpenGL
 		/// Value of GL_VERTEX_BINDING_STRIDE symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ES_VERSION_3_1")]
 		[RequiredByFeature("GL_ARB_vertex_attrib_binding")]
 		public const int VERTEX_BINDING_STRIDE = 0x82D8;
 
@@ -1906,7 +1818,6 @@ namespace OpenGL
 		/// Value of GL_MAX_VERTEX_ATTRIB_RELATIVE_OFFSET symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ES_VERSION_3_1")]
 		[RequiredByFeature("GL_ARB_vertex_attrib_binding")]
 		public const int MAX_VERTEX_ATTRIB_RELATIVE_OFFSET = 0x82D9;
 
@@ -1914,7 +1825,6 @@ namespace OpenGL
 		/// Value of GL_MAX_VERTEX_ATTRIB_BINDINGS symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ES_VERSION_3_1")]
 		[RequiredByFeature("GL_ARB_vertex_attrib_binding")]
 		public const int MAX_VERTEX_ATTRIB_BINDINGS = 0x82DA;
 
@@ -1922,7 +1832,6 @@ namespace OpenGL
 		/// Value of GL_VERTEX_BINDING_BUFFER symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ES_VERSION_3_1")]
 		public const int VERTEX_BINDING_BUFFER = 0x8F4F;
 
 		/// <summary>
@@ -1972,6 +1881,8 @@ namespace OpenGL
 		/// </para>
 		/// </remarks>
 		/// <seealso cref="Gl.ClearBufferSubData"/>
+		[RequiredByFeature("GL_VERSION_4_3")]
+		[RequiredByFeature("GL_ARB_clear_buffer_object")]
 		public static void ClearBufferData(int target, int internalformat, int format, int type, IntPtr data)
 		{
 			Debug.Assert(Delegates.pglClearBufferData != null, "pglClearBufferData not implemented");
@@ -2020,6 +1931,8 @@ namespace OpenGL
 		/// </para>
 		/// </remarks>
 		/// <seealso cref="Gl.ClearBufferSubData"/>
+		[RequiredByFeature("GL_VERSION_4_3")]
+		[RequiredByFeature("GL_ARB_clear_buffer_object")]
 		public static void ClearBufferData(int target, int internalformat, int format, int type, Object data)
 		{
 			GCHandle pin_data = GCHandle.Alloc(data, GCHandleType.Pinned);
@@ -2082,6 +1995,8 @@ namespace OpenGL
 		/// </para>
 		/// </remarks>
 		/// <seealso cref="Gl.ClearBufferData"/>
+		[RequiredByFeature("GL_VERSION_4_3")]
+		[RequiredByFeature("GL_ARB_clear_buffer_object")]
 		public static void ClearBufferSubData(int target, int internalformat, IntPtr offset, UInt32 size, int format, int type, IntPtr data)
 		{
 			Debug.Assert(Delegates.pglClearBufferSubData != null, "pglClearBufferSubData not implemented");
@@ -2142,6 +2057,8 @@ namespace OpenGL
 		/// </para>
 		/// </remarks>
 		/// <seealso cref="Gl.ClearBufferData"/>
+		[RequiredByFeature("GL_VERSION_4_3")]
+		[RequiredByFeature("GL_ARB_clear_buffer_object")]
 		public static void ClearBufferSubData(int target, int internalformat, IntPtr offset, UInt32 size, int format, int type, Object data)
 		{
 			GCHandle pin_data = GCHandle.Alloc(data, GCHandleType.Pinned);
@@ -2181,6 +2098,8 @@ namespace OpenGL
 		/// </para>
 		/// </remarks>
 		/// <seealso cref="Gl.DispatchComputeIndirect"/>
+		[RequiredByFeature("GL_VERSION_4_3")]
+		[RequiredByFeature("GL_ARB_compute_shader")]
 		public static void DispatchCompute(UInt32 num_groups_x, UInt32 num_groups_y, UInt32 num_groups_z)
 		{
 			Debug.Assert(Delegates.pglDispatchCompute != null, "pglDispatchCompute not implemented");
@@ -2223,6 +2142,8 @@ namespace OpenGL
 		/// </para>
 		/// </remarks>
 		/// <seealso cref="Gl.DispatchCompute"/>
+		[RequiredByFeature("GL_VERSION_4_3")]
+		[RequiredByFeature("GL_ARB_compute_shader")]
 		public static void DispatchComputeIndirect(IntPtr indirect)
 		{
 			Debug.Assert(Delegates.pglDispatchComputeIndirect != null, "pglDispatchComputeIndirect not implemented");
@@ -2339,6 +2260,8 @@ namespace OpenGL
 		/// </para>
 		/// </remarks>
 		/// <seealso cref="Gl.DispatchComputeIndirect"/>
+		[RequiredByFeature("GL_VERSION_4_3")]
+		[RequiredByFeature("GL_ARB_copy_image")]
 		public static void CopyImageSubData(UInt32 srcName, int srcTarget, Int32 srcLevel, Int32 srcX, Int32 srcY, Int32 srcZ, UInt32 dstName, int dstTarget, Int32 dstLevel, Int32 dstX, Int32 dstY, Int32 dstZ, Int32 srcWidth, Int32 srcHeight, Int32 srcDepth)
 		{
 			if        (Delegates.pglCopyImageSubData != null) {
@@ -2401,6 +2324,8 @@ namespace OpenGL
 		/// <seealso cref="Gl.FramebufferTexture"/>
 		/// <seealso cref="Gl.GenFramebuffers"/>
 		/// <seealso cref="Gl.GetFramebufferParameter"/>
+		[RequiredByFeature("GL_VERSION_4_3")]
+		[RequiredByFeature("GL_ARB_framebuffer_no_attachments")]
 		public static void FramebufferParameter(int target, int pname, Int32 param)
 		{
 			Debug.Assert(Delegates.pglFramebufferParameteri != null, "pglFramebufferParameteri not implemented");
@@ -2448,6 +2373,8 @@ namespace OpenGL
 		/// </remarks>
 		/// <seealso cref="Gl.FramebufferParameteri"/>
 		/// <seealso cref="Gl.GetFramebufferAttachmentParameter"/>
+		[RequiredByFeature("GL_VERSION_4_3")]
+		[RequiredByFeature("GL_ARB_framebuffer_no_attachments")]
 		public static void GetFramebufferParameter(int target, int pname, Int32[] @params)
 		{
 			unsafe {
@@ -2629,6 +2556,8 @@ namespace OpenGL
 		/// </para>
 		/// </remarks>
 		/// <seealso cref="Gl.Get"/>
+		[RequiredByFeature("GL_VERSION_4_3")]
+		[RequiredByFeature("GL_ARB_internalformat_query2")]
 		public static void GetInternalformat(int target, int internalformat, int pname, Int32 bufSize, Int64[] @params)
 		{
 			unsafe {
@@ -2703,6 +2632,8 @@ namespace OpenGL
 		/// <seealso cref="Gl.InvalidateBufferData"/>
 		/// <seealso cref="Gl.InvalidateFramebuffer"/>
 		/// <seealso cref="Gl.InvalidateSubFramebuffer"/>
+		[RequiredByFeature("GL_VERSION_4_3")]
+		[RequiredByFeature("GL_ARB_invalidate_subdata")]
 		public static void InvalidateTexSubImage(UInt32 texture, Int32 level, Int32 xoffset, Int32 yoffset, Int32 zoffset, Int32 width, Int32 height, Int32 depth)
 		{
 			Debug.Assert(Delegates.pglInvalidateTexSubImage != null, "pglInvalidateTexSubImage not implemented");
@@ -2745,6 +2676,8 @@ namespace OpenGL
 		/// <seealso cref="Gl.InvalidateBufferData"/>
 		/// <seealso cref="Gl.InvalidateFramebuffer"/>
 		/// <seealso cref="Gl.InvalidateSubFramebuffer"/>
+		[RequiredByFeature("GL_VERSION_4_3")]
+		[RequiredByFeature("GL_ARB_invalidate_subdata")]
 		public static void InvalidateTexImage(UInt32 texture, Int32 level)
 		{
 			Debug.Assert(Delegates.pglInvalidateTexImage != null, "pglInvalidateTexImage not implemented");
@@ -2786,6 +2719,8 @@ namespace OpenGL
 		/// <seealso cref="Gl.InvalidateBufferData"/>
 		/// <seealso cref="Gl.InvalidateFramebuffer"/>
 		/// <seealso cref="Gl.InvalidateSubFramebuffer"/>
+		[RequiredByFeature("GL_VERSION_4_3")]
+		[RequiredByFeature("GL_ARB_invalidate_subdata")]
 		public static void InvalidateBufferSubData(UInt32 buffer, IntPtr offset, UInt32 length)
 		{
 			Debug.Assert(Delegates.pglInvalidateBufferSubData != null, "pglInvalidateBufferSubData not implemented");
@@ -2818,6 +2753,8 @@ namespace OpenGL
 		/// <seealso cref="Gl.InvalidateBufferSubData"/>
 		/// <seealso cref="Gl.InvalidateFramebuffer"/>
 		/// <seealso cref="Gl.InvalidateSubFramebuffer"/>
+		[RequiredByFeature("GL_VERSION_4_3")]
+		[RequiredByFeature("GL_ARB_invalidate_subdata")]
 		public static void InvalidateBufferData(UInt32 buffer)
 		{
 			Debug.Assert(Delegates.pglInvalidateBufferData != null, "pglInvalidateBufferData not implemented");
@@ -2880,6 +2817,8 @@ namespace OpenGL
 		/// <seealso cref="Gl.InvalidateBufferSubData"/>
 		/// <seealso cref="Gl.InvalidateBufferData"/>
 		/// <seealso cref="Gl.InvalidateSubFramebuffer"/>
+		[RequiredByFeature("GL_VERSION_4_3")]
+		[RequiredByFeature("GL_ARB_invalidate_subdata")]
 		public static void InvalidateFramebuffer(int target, Int32 numAttachments, int[] attachments)
 		{
 			unsafe {
@@ -2963,6 +2902,8 @@ namespace OpenGL
 		/// <seealso cref="Gl.InvalidateBufferSubData"/>
 		/// <seealso cref="Gl.InvalidateBufferData"/>
 		/// <seealso cref="Gl.InvalidateFramebuffer"/>
+		[RequiredByFeature("GL_VERSION_4_3")]
+		[RequiredByFeature("GL_ARB_invalidate_subdata")]
 		public static void InvalidateSubFramebuffer(int target, Int32 numAttachments, int[] attachments, Int32 x, Int32 y, Int32 width, Int32 height)
 		{
 			unsafe {
@@ -3030,6 +2971,8 @@ namespace OpenGL
 		/// <seealso cref="Gl.DrawRangeElements"/>
 		/// <seealso cref="Gl.DrawArraysIndirect"/>
 		/// <seealso cref="Gl.MultiDrawElementsIndirect"/>
+		[RequiredByFeature("GL_VERSION_4_3")]
+		[RequiredByFeature("GL_ARB_multi_draw_indirect")]
 		public static void MultiDrawArraysIndirect(int mode, IntPtr indirect, Int32 drawcount, Int32 stride)
 		{
 			if        (Delegates.pglMultiDrawArraysIndirect != null) {
@@ -3100,6 +3043,8 @@ namespace OpenGL
 		/// <seealso cref="Gl.DrawRangeElements"/>
 		/// <seealso cref="Gl.DrawArraysIndirect"/>
 		/// <seealso cref="Gl.MultiDrawElementsIndirect"/>
+		[RequiredByFeature("GL_VERSION_4_3")]
+		[RequiredByFeature("GL_ARB_multi_draw_indirect")]
 		public static void MultiDrawArraysIndirect(int mode, Object indirect, Int32 drawcount, Int32 stride)
 		{
 			GCHandle pin_indirect = GCHandle.Alloc(indirect, GCHandleType.Pinned);
@@ -3173,6 +3118,8 @@ namespace OpenGL
 		/// <seealso cref="Gl.DrawRangeElements"/>
 		/// <seealso cref="Gl.DrawElementsIndirect"/>
 		/// <seealso cref="Gl.MultiDrawArraysIndirect"/>
+		[RequiredByFeature("GL_VERSION_4_3")]
+		[RequiredByFeature("GL_ARB_multi_draw_indirect")]
 		public static void MultiDrawElementsIndirect(int mode, int type, IntPtr indirect, Int32 drawcount, Int32 stride)
 		{
 			if        (Delegates.pglMultiDrawElementsIndirect != null) {
@@ -3252,6 +3199,8 @@ namespace OpenGL
 		/// <seealso cref="Gl.DrawRangeElements"/>
 		/// <seealso cref="Gl.DrawElementsIndirect"/>
 		/// <seealso cref="Gl.MultiDrawArraysIndirect"/>
+		[RequiredByFeature("GL_VERSION_4_3")]
+		[RequiredByFeature("GL_ARB_multi_draw_indirect")]
 		public static void MultiDrawElementsIndirect(int mode, int type, Object indirect, Int32 drawcount, Int32 stride)
 		{
 			GCHandle pin_indirect = GCHandle.Alloc(indirect, GCHandleType.Pinned);
@@ -3320,6 +3269,8 @@ namespace OpenGL
 		/// <seealso cref="Gl.PopDebugGroup"/>
 		/// <seealso cref="Gl.ObjectLabel"/>
 		/// <seealso cref="Gl.GetObjectLabel"/>
+		[RequiredByFeature("GL_VERSION_4_3")]
+		[RequiredByFeature("GL_ARB_program_interface_query")]
 		public static void GetProgramInterface(UInt32 program, int programInterface, int pname, Int32[] @params)
 		{
 			unsafe {
@@ -3370,6 +3321,8 @@ namespace OpenGL
 		/// <seealso cref="Gl.GetGetProgramResource"/>
 		/// <seealso cref="Gl.GetProgramResourceLocation"/>
 		/// <seealso cref="Gl.GetProgramResourceLocationIndex"/>
+		[RequiredByFeature("GL_VERSION_4_3")]
+		[RequiredByFeature("GL_ARB_program_interface_query")]
 		public static UInt32 GetProgramResourceIndex(UInt32 program, int programInterface, String name)
 		{
 			UInt32 retValue;
@@ -3431,6 +3384,8 @@ namespace OpenGL
 		/// <seealso cref="Gl.GetGetProgramResource"/>
 		/// <seealso cref="Gl.GetProgramResourceLocation"/>
 		/// <seealso cref="Gl.GetProgramResourceLocationIndex"/>
+		[RequiredByFeature("GL_VERSION_4_3")]
+		[RequiredByFeature("GL_ARB_program_interface_query")]
 		public static void GetProgramResourceName(UInt32 program, int programInterface, UInt32 index, Int32 bufSize, out Int32 length, [Out] StringBuilder name)
 		{
 			unsafe {
@@ -3572,6 +3527,8 @@ namespace OpenGL
 		/// <seealso cref="Gl.GetGetProgramResourceIndex"/>
 		/// <seealso cref="Gl.GetProgramResourceLocation"/>
 		/// <seealso cref="Gl.GetProgramResourceLocationIndex"/>
+		[RequiredByFeature("GL_VERSION_4_3")]
+		[RequiredByFeature("GL_ARB_program_interface_query")]
 		public static void GetProgram(UInt32 program, int programInterface, UInt32 index, Int32 propCount, int[] props, Int32 bufSize, out Int32 length, Int32[] @params)
 		{
 			unsafe {
@@ -3624,6 +3581,8 @@ namespace OpenGL
 		/// <seealso cref="Gl.GetProgramResourceIndex"/>
 		/// <seealso cref="Gl.GetGetProgramResource"/>
 		/// <seealso cref="Gl.GetProgramResourceLocationIndex"/>
+		[RequiredByFeature("GL_VERSION_4_3")]
+		[RequiredByFeature("GL_ARB_program_interface_query")]
 		public static Int32 GetProgramResourceLocation(UInt32 program, int programInterface, String name)
 		{
 			Int32 retValue;
@@ -3671,6 +3630,8 @@ namespace OpenGL
 		/// <seealso cref="Gl.GetProgramResourceIndex"/>
 		/// <seealso cref="Gl.GetGetProgramResource"/>
 		/// <seealso cref="Gl.GetProgramResourceLocationIndex"/>
+		[RequiredByFeature("GL_VERSION_4_3")]
+		[RequiredByFeature("GL_ARB_program_interface_query")]
 		public static Int32 GetProgramResourceLocationIndex(UInt32 program, int programInterface, String name)
 		{
 			Int32 retValue;
@@ -3716,6 +3677,8 @@ namespace OpenGL
 		///   GL_MAX_SHADER_STORAGE_BUFFER_BINDINGS, or GL_MAX_COMBINED_SHADER_OUTPUT_RESOURCES.
 		/// </para>
 		/// </remarks>
+		[RequiredByFeature("GL_VERSION_4_3")]
+		[RequiredByFeature("GL_ARB_shader_storage_buffer_object")]
 		public static void ShaderStorageBlockBinding(UInt32 program, UInt32 storageBlockIndex, UInt32 storageBlockBinding)
 		{
 			Debug.Assert(Delegates.pglShaderStorageBlockBinding != null, "pglShaderStorageBlockBinding not implemented");
@@ -3778,6 +3741,8 @@ namespace OpenGL
 		/// </para>
 		/// </remarks>
 		/// <seealso cref="Gl.TexBuffer"/>
+		[RequiredByFeature("GL_VERSION_4_3")]
+		[RequiredByFeature("GL_ARB_texture_buffer_range")]
 		public static void TexBufferRange(int target, int internalformat, UInt32 buffer, IntPtr offset, UInt32 size)
 		{
 			if        (Delegates.pglTexBufferRange != null) {
@@ -3847,6 +3812,8 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexImage2DMultisample"/>
 		/// <seealso cref="Gl.TexStorage1D"/>
 		/// <seealso cref="Gl.TexStorage3D"/>
+		[RequiredByFeature("GL_VERSION_4_3")]
+		[RequiredByFeature("GL_ARB_texture_storage_multisample")]
 		public static void TexStorage2DMultisample(int target, Int32 samples, int internalformat, Int32 width, Int32 height, bool fixedsamplelocations)
 		{
 			Debug.Assert(Delegates.pglTexStorage2DMultisample != null, "pglTexStorage2DMultisample not implemented");
@@ -3919,6 +3886,8 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexStorage1D"/>
 		/// <seealso cref="Gl.TexStorage2DMultisample"/>
 		/// <seealso cref="Gl.TexStorage3D"/>
+		[RequiredByFeature("GL_VERSION_4_3")]
+		[RequiredByFeature("GL_ARB_texture_storage_multisample")]
 		public static void TexStorage3DMultisample(int target, Int32 samples, int internalformat, Int32 width, Int32 height, Int32 depth, bool fixedsamplelocations)
 		{
 			if        (Delegates.pglTexStorage3DMultisample != null) {
@@ -4015,6 +3984,8 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexStorage2D"/>
 		/// <seealso cref="Gl.TexStorage3D"/>
 		/// <seealso cref="Gl.GetTexParameter"/>
+		[RequiredByFeature("GL_VERSION_4_3")]
+		[RequiredByFeature("GL_ARB_texture_view")]
 		public static void Texture(UInt32 texture, int target, UInt32 origtexture, int internalformat, UInt32 minlevel, UInt32 numlevels, UInt32 minlayer, UInt32 numlayers)
 		{
 			if        (Delegates.pglTextureView != null) {
@@ -4077,6 +4048,8 @@ namespace OpenGL
 		/// <seealso cref="Gl.VertexAttribFormat"/>
 		/// <seealso cref="Gl.VertexAttribPointer"/>
 		/// <seealso cref="Gl.VertexBindingDivisor"/>
+		[RequiredByFeature("GL_VERSION_4_3")]
+		[RequiredByFeature("GL_ARB_vertex_attrib_binding")]
 		public static void BindVertexBuffer(UInt32 bindingindex, UInt32 buffer, IntPtr offset, Int32 stride)
 		{
 			Debug.Assert(Delegates.pglBindVertexBuffer != null, "pglBindVertexBuffer not implemented");
@@ -4159,6 +4132,8 @@ namespace OpenGL
 		/// <seealso cref="Gl.VertexAttribPointer"/>
 		/// <seealso cref="Gl.VertexBindingDivisor"/>
 		/// <seealso cref="Gl.VertexAttribPointer"/>
+		[RequiredByFeature("GL_VERSION_4_3")]
+		[RequiredByFeature("GL_ARB_vertex_attrib_binding")]
 		public static void VertexAttribFormat(UInt32 attribindex, Int32 size, int type, bool normalized, UInt32 relativeoffset)
 		{
 			Debug.Assert(Delegates.pglVertexAttribFormat != null, "pglVertexAttribFormat not implemented");
@@ -4238,6 +4213,8 @@ namespace OpenGL
 		/// <seealso cref="Gl.VertexAttribPointer"/>
 		/// <seealso cref="Gl.VertexBindingDivisor"/>
 		/// <seealso cref="Gl.VertexAttribPointer"/>
+		[RequiredByFeature("GL_VERSION_4_3")]
+		[RequiredByFeature("GL_ARB_vertex_attrib_binding")]
 		public static void VertexAttribIFormat(UInt32 attribindex, Int32 size, int type, UInt32 relativeoffset)
 		{
 			Debug.Assert(Delegates.pglVertexAttribIFormat != null, "pglVertexAttribIFormat not implemented");
@@ -4317,6 +4294,8 @@ namespace OpenGL
 		/// <seealso cref="Gl.VertexAttribPointer"/>
 		/// <seealso cref="Gl.VertexBindingDivisor"/>
 		/// <seealso cref="Gl.VertexAttribPointer"/>
+		[RequiredByFeature("GL_VERSION_4_3")]
+		[RequiredByFeature("GL_ARB_vertex_attrib_binding")]
 		public static void VertexAttribLFormat(UInt32 attribindex, Int32 size, int type, UInt32 relativeoffset)
 		{
 			Debug.Assert(Delegates.pglVertexAttribLFormat != null, "pglVertexAttribLFormat not implemented");
@@ -4358,6 +4337,8 @@ namespace OpenGL
 		/// <seealso cref="Gl.VertexAttribFormat"/>
 		/// <seealso cref="Gl.VertexBindingDivisor"/>
 		/// <seealso cref="Gl.VertexAttribPointer"/>
+		[RequiredByFeature("GL_VERSION_4_3")]
+		[RequiredByFeature("GL_ARB_vertex_attrib_binding")]
 		public static void VertexAttribBinding(UInt32 attribindex, UInt32 bindingindex)
 		{
 			Debug.Assert(Delegates.pglVertexAttribBinding != null, "pglVertexAttribBinding not implemented");
@@ -4400,6 +4381,8 @@ namespace OpenGL
 		/// <seealso cref="Gl.VertexAttribPointer"/>
 		/// <seealso cref="Gl.VertexBindingDivisor"/>
 		/// <seealso cref="Gl.VertexAttribPointer"/>
+		[RequiredByFeature("GL_VERSION_4_3")]
+		[RequiredByFeature("GL_ARB_vertex_attrib_binding")]
 		public static void VertexBindingDivisor(UInt32 bindingindex, UInt32 divisor)
 		{
 			Debug.Assert(Delegates.pglVertexBindingDivisor != null, "pglVertexBindingDivisor not implemented");
@@ -4462,6 +4445,8 @@ namespace OpenGL
 		/// <seealso cref="Gl.DebugMessageInsert"/>
 		/// <seealso cref="Gl.DebugMessageCallback"/>
 		/// <seealso cref="Gl.GetDebugMessageLog"/>
+		[RequiredByFeature("GL_VERSION_4_3")]
+		[RequiredByFeature("GL_KHR_debug")]
 		public static void DebugMessageControl(int source, int type, int severity, Int32 count, UInt32[] ids, bool enabled)
 		{
 			unsafe {
@@ -4526,6 +4511,8 @@ namespace OpenGL
 		/// <seealso cref="Gl.DebugMessageControl"/>
 		/// <seealso cref="Gl.DebugMessageCallback"/>
 		/// <seealso cref="Gl.GetDebugMessageLog"/>
+		[RequiredByFeature("GL_VERSION_4_3")]
+		[RequiredByFeature("GL_KHR_debug")]
 		public static void DebugMessageInsert(int source, int type, UInt32 id, int severity, Int32 length, String buf)
 		{
 			if        (Delegates.pglDebugMessageInsert != null) {
@@ -4565,6 +4552,8 @@ namespace OpenGL
 		/// <seealso cref="Gl.DebugMessageControl"/>
 		/// <seealso cref="Gl.DebugMessageInsert"/>
 		/// <seealso cref="Gl.GetDebugMessageLog"/>
+		[RequiredByFeature("GL_VERSION_4_3")]
+		[RequiredByFeature("GL_KHR_debug")]
 		public static void DebugMessageCallback(IntPtr callback, IntPtr userParam)
 		{
 			if        (Delegates.pglDebugMessageCallback != null) {
@@ -4604,6 +4593,8 @@ namespace OpenGL
 		/// <seealso cref="Gl.DebugMessageControl"/>
 		/// <seealso cref="Gl.DebugMessageInsert"/>
 		/// <seealso cref="Gl.GetDebugMessageLog"/>
+		[RequiredByFeature("GL_VERSION_4_3")]
+		[RequiredByFeature("GL_KHR_debug")]
 		public static void DebugMessageCallback(IntPtr callback, Object userParam)
 		{
 			GCHandle pin_userParam = GCHandle.Alloc(userParam, GCHandleType.Pinned);
@@ -4670,6 +4661,8 @@ namespace OpenGL
 		/// <seealso cref="Gl.DebugMessageInsert"/>
 		/// <seealso cref="Gl.DebugMessageCallback"/>
 		/// <seealso cref="Gl.DebugMessageControl"/>
+		[RequiredByFeature("GL_VERSION_4_3")]
+		[RequiredByFeature("GL_KHR_debug")]
 		public static UInt32 GetDebugMessageLog(UInt32 count, Int32 bufSize, int[] sources, int[] types, UInt32[] ids, int[] severities, Int32[] lengths, [Out] StringBuilder messageLog)
 		{
 			UInt32 retValue;
@@ -4738,6 +4731,8 @@ namespace OpenGL
 		/// <seealso cref="Gl.PopDebugGroup"/>
 		/// <seealso cref="Gl.ObjectLabel"/>
 		/// <seealso cref="Gl.ObjectPtrLabel"/>
+		[RequiredByFeature("GL_VERSION_4_3")]
+		[RequiredByFeature("GL_KHR_debug")]
 		public static void PushDebugGroup(int source, UInt32 id, Int32 length, String message)
 		{
 			if        (Delegates.pglPushDebugGroup != null) {
@@ -4772,6 +4767,8 @@ namespace OpenGL
 		/// <seealso cref="Gl.PushDebugGroup"/>
 		/// <seealso cref="Gl.ObjectLabel"/>
 		/// <seealso cref="Gl.ObjectPtrLabel"/>
+		[RequiredByFeature("GL_VERSION_4_3")]
+		[RequiredByFeature("GL_KHR_debug")]
 		public static void PopDebugGroup()
 		{
 			if        (Delegates.pglPopDebugGroup != null) {
@@ -4824,6 +4821,8 @@ namespace OpenGL
 		/// <seealso cref="Gl.PushDebugGroup"/>
 		/// <seealso cref="Gl.PopDebugGroup"/>
 		/// <seealso cref="Gl.ObjectPtrLabel"/>
+		[RequiredByFeature("GL_VERSION_4_3")]
+		[RequiredByFeature("GL_KHR_debug")]
 		public static void Object(int identifier, UInt32 name, Int32 length, String label)
 		{
 			if        (Delegates.pglObjectLabel != null) {
@@ -4882,6 +4881,8 @@ namespace OpenGL
 		/// <seealso cref="Gl.PopDebugGroup"/>
 		/// <seealso cref="Gl.ObjectLabel"/>
 		/// <seealso cref="Gl.GetObjectPtrLabel"/>
+		[RequiredByFeature("GL_VERSION_4_3")]
+		[RequiredByFeature("GL_KHR_debug")]
 		public static void GetObject(int identifier, UInt32 name, Int32 bufSize, out Int32 length, [Out] StringBuilder label)
 		{
 			unsafe {
@@ -4931,6 +4932,8 @@ namespace OpenGL
 		/// <seealso cref="Gl.PushDebugGroup"/>
 		/// <seealso cref="Gl.PopDebugGroup"/>
 		/// <seealso cref="Gl.ObjectLabel"/>
+		[RequiredByFeature("GL_VERSION_4_3")]
+		[RequiredByFeature("GL_KHR_debug")]
 		public static void Object(IntPtr ptr, Int32 length, String label)
 		{
 			if        (Delegates.pglObjectPtrLabel != null) {
@@ -4975,6 +4978,8 @@ namespace OpenGL
 		/// <seealso cref="Gl.PushDebugGroup"/>
 		/// <seealso cref="Gl.PopDebugGroup"/>
 		/// <seealso cref="Gl.ObjectLabel"/>
+		[RequiredByFeature("GL_VERSION_4_3")]
+		[RequiredByFeature("GL_KHR_debug")]
 		public static void Object(Object ptr, Int32 length, String label)
 		{
 			GCHandle pin_ptr = GCHandle.Alloc(ptr, GCHandleType.Pinned);
@@ -5023,6 +5028,8 @@ namespace OpenGL
 		/// <seealso cref="Gl.PopDebugGroup"/>
 		/// <seealso cref="Gl.ObjectLabel"/>
 		/// <seealso cref="Gl.GetObjectLabel"/>
+		[RequiredByFeature("GL_VERSION_4_3")]
+		[RequiredByFeature("GL_KHR_debug")]
 		public static void GetObject(IntPtr ptr, Int32 bufSize, out Int32 length, [Out] StringBuilder label)
 		{
 			unsafe {
@@ -5079,6 +5086,8 @@ namespace OpenGL
 		/// <seealso cref="Gl.PopDebugGroup"/>
 		/// <seealso cref="Gl.ObjectLabel"/>
 		/// <seealso cref="Gl.GetObjectLabel"/>
+		[RequiredByFeature("GL_VERSION_4_3")]
+		[RequiredByFeature("GL_KHR_debug")]
 		public static void GetObject(Object ptr, Int32 bufSize, out Int32 length, [Out] StringBuilder label)
 		{
 			GCHandle pin_ptr = GCHandle.Alloc(ptr, GCHandleType.Pinned);

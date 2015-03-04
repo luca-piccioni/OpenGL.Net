@@ -243,6 +243,7 @@ namespace OpenGL
 		/// <param name="texture">
 		/// A <see cref="T:int"/>.
 		/// </param>
+		[RequiredByFeature("GL_ARB_multitexture")]
 		public static void ActiveTextureARB(int texture)
 		{
 			Debug.Assert(Delegates.pglActiveTextureARB != null, "pglActiveTextureARB not implemented");
@@ -257,6 +258,7 @@ namespace OpenGL
 		/// <param name="texture">
 		/// A <see cref="T:int"/>.
 		/// </param>
+		[RequiredByFeature("GL_ARB_multitexture")]
 		public static void ClientActiveTextureARB(int texture)
 		{
 			Debug.Assert(Delegates.pglClientActiveTextureARB != null, "pglClientActiveTextureARB not implemented");
@@ -274,6 +276,7 @@ namespace OpenGL
 		/// <param name="s">
 		/// A <see cref="T:double"/>.
 		/// </param>
+		[RequiredByFeature("GL_ARB_multitexture")]
 		public static void MultiTexCoord1ARB(int target, double s)
 		{
 			Debug.Assert(Delegates.pglMultiTexCoord1dARB != null, "pglMultiTexCoord1dARB not implemented");
@@ -291,6 +294,7 @@ namespace OpenGL
 		/// <param name="v">
 		/// A <see cref="T:double[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_ARB_multitexture")]
 		public static void MultiTexCoord1ARB(int target, double[] v)
 		{
 			unsafe {
@@ -313,6 +317,7 @@ namespace OpenGL
 		/// <param name="s">
 		/// A <see cref="T:float"/>.
 		/// </param>
+		[RequiredByFeature("GL_ARB_multitexture")]
 		public static void MultiTexCoord1ARB(int target, float s)
 		{
 			Debug.Assert(Delegates.pglMultiTexCoord1fARB != null, "pglMultiTexCoord1fARB not implemented");
@@ -330,6 +335,7 @@ namespace OpenGL
 		/// <param name="v">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_ARB_multitexture")]
 		public static void MultiTexCoord1ARB(int target, float[] v)
 		{
 			unsafe {
@@ -352,6 +358,7 @@ namespace OpenGL
 		/// <param name="s">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
+		[RequiredByFeature("GL_ARB_multitexture")]
 		public static void MultiTexCoord1ARB(int target, Int32 s)
 		{
 			Debug.Assert(Delegates.pglMultiTexCoord1iARB != null, "pglMultiTexCoord1iARB not implemented");
@@ -369,6 +376,7 @@ namespace OpenGL
 		/// <param name="v">
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_ARB_multitexture")]
 		public static void MultiTexCoord1ARB(int target, Int32[] v)
 		{
 			unsafe {
@@ -391,6 +399,7 @@ namespace OpenGL
 		/// <param name="s">
 		/// A <see cref="T:Int16"/>.
 		/// </param>
+		[RequiredByFeature("GL_ARB_multitexture")]
 		public static void MultiTexCoord1ARB(int target, Int16 s)
 		{
 			Debug.Assert(Delegates.pglMultiTexCoord1sARB != null, "pglMultiTexCoord1sARB not implemented");
@@ -408,6 +417,7 @@ namespace OpenGL
 		/// <param name="v">
 		/// A <see cref="T:Int16[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_ARB_multitexture")]
 		public static void MultiTexCoord1ARB(int target, Int16[] v)
 		{
 			unsafe {
@@ -433,6 +443,7 @@ namespace OpenGL
 		/// <param name="t">
 		/// A <see cref="T:double"/>.
 		/// </param>
+		[RequiredByFeature("GL_ARB_multitexture")]
 		public static void MultiTexCoord2ARB(int target, double s, double t)
 		{
 			Debug.Assert(Delegates.pglMultiTexCoord2dARB != null, "pglMultiTexCoord2dARB not implemented");
@@ -450,6 +461,7 @@ namespace OpenGL
 		/// <param name="v">
 		/// A <see cref="T:double[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_ARB_multitexture")]
 		public static void MultiTexCoord2ARB(int target, double[] v)
 		{
 			unsafe {
@@ -475,6 +487,7 @@ namespace OpenGL
 		/// <param name="t">
 		/// A <see cref="T:float"/>.
 		/// </param>
+		[RequiredByFeature("GL_ARB_multitexture")]
 		public static void MultiTexCoord2ARB(int target, float s, float t)
 		{
 			Debug.Assert(Delegates.pglMultiTexCoord2fARB != null, "pglMultiTexCoord2fARB not implemented");
@@ -492,6 +505,7 @@ namespace OpenGL
 		/// <param name="v">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_ARB_multitexture")]
 		public static void MultiTexCoord2ARB(int target, float[] v)
 		{
 			unsafe {
@@ -517,6 +531,7 @@ namespace OpenGL
 		/// <param name="t">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
+		[RequiredByFeature("GL_ARB_multitexture")]
 		public static void MultiTexCoord2ARB(int target, Int32 s, Int32 t)
 		{
 			Debug.Assert(Delegates.pglMultiTexCoord2iARB != null, "pglMultiTexCoord2iARB not implemented");
@@ -534,6 +549,7 @@ namespace OpenGL
 		/// <param name="v">
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_ARB_multitexture")]
 		public static void MultiTexCoord2ARB(int target, Int32[] v)
 		{
 			unsafe {
@@ -559,6 +575,7 @@ namespace OpenGL
 		/// <param name="t">
 		/// A <see cref="T:Int16"/>.
 		/// </param>
+		[RequiredByFeature("GL_ARB_multitexture")]
 		public static void MultiTexCoord2ARB(int target, Int16 s, Int16 t)
 		{
 			Debug.Assert(Delegates.pglMultiTexCoord2sARB != null, "pglMultiTexCoord2sARB not implemented");
@@ -576,6 +593,7 @@ namespace OpenGL
 		/// <param name="v">
 		/// A <see cref="T:Int16[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_ARB_multitexture")]
 		public static void MultiTexCoord2ARB(int target, Int16[] v)
 		{
 			unsafe {
@@ -604,6 +622,7 @@ namespace OpenGL
 		/// <param name="r">
 		/// A <see cref="T:double"/>.
 		/// </param>
+		[RequiredByFeature("GL_ARB_multitexture")]
 		public static void MultiTexCoord3ARB(int target, double s, double t, double r)
 		{
 			Debug.Assert(Delegates.pglMultiTexCoord3dARB != null, "pglMultiTexCoord3dARB not implemented");
@@ -621,6 +640,7 @@ namespace OpenGL
 		/// <param name="v">
 		/// A <see cref="T:double[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_ARB_multitexture")]
 		public static void MultiTexCoord3ARB(int target, double[] v)
 		{
 			unsafe {
@@ -649,6 +669,7 @@ namespace OpenGL
 		/// <param name="r">
 		/// A <see cref="T:float"/>.
 		/// </param>
+		[RequiredByFeature("GL_ARB_multitexture")]
 		public static void MultiTexCoord3ARB(int target, float s, float t, float r)
 		{
 			Debug.Assert(Delegates.pglMultiTexCoord3fARB != null, "pglMultiTexCoord3fARB not implemented");
@@ -666,6 +687,7 @@ namespace OpenGL
 		/// <param name="v">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_ARB_multitexture")]
 		public static void MultiTexCoord3ARB(int target, float[] v)
 		{
 			unsafe {
@@ -694,6 +716,7 @@ namespace OpenGL
 		/// <param name="r">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
+		[RequiredByFeature("GL_ARB_multitexture")]
 		public static void MultiTexCoord3ARB(int target, Int32 s, Int32 t, Int32 r)
 		{
 			Debug.Assert(Delegates.pglMultiTexCoord3iARB != null, "pglMultiTexCoord3iARB not implemented");
@@ -711,6 +734,7 @@ namespace OpenGL
 		/// <param name="v">
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_ARB_multitexture")]
 		public static void MultiTexCoord3ARB(int target, Int32[] v)
 		{
 			unsafe {
@@ -739,6 +763,7 @@ namespace OpenGL
 		/// <param name="r">
 		/// A <see cref="T:Int16"/>.
 		/// </param>
+		[RequiredByFeature("GL_ARB_multitexture")]
 		public static void MultiTexCoord3ARB(int target, Int16 s, Int16 t, Int16 r)
 		{
 			Debug.Assert(Delegates.pglMultiTexCoord3sARB != null, "pglMultiTexCoord3sARB not implemented");
@@ -756,6 +781,7 @@ namespace OpenGL
 		/// <param name="v">
 		/// A <see cref="T:Int16[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_ARB_multitexture")]
 		public static void MultiTexCoord3ARB(int target, Int16[] v)
 		{
 			unsafe {
@@ -787,6 +813,7 @@ namespace OpenGL
 		/// <param name="q">
 		/// A <see cref="T:double"/>.
 		/// </param>
+		[RequiredByFeature("GL_ARB_multitexture")]
 		public static void MultiTexCoord4ARB(int target, double s, double t, double r, double q)
 		{
 			Debug.Assert(Delegates.pglMultiTexCoord4dARB != null, "pglMultiTexCoord4dARB not implemented");
@@ -804,6 +831,7 @@ namespace OpenGL
 		/// <param name="v">
 		/// A <see cref="T:double[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_ARB_multitexture")]
 		public static void MultiTexCoord4ARB(int target, double[] v)
 		{
 			unsafe {
@@ -835,6 +863,7 @@ namespace OpenGL
 		/// <param name="q">
 		/// A <see cref="T:float"/>.
 		/// </param>
+		[RequiredByFeature("GL_ARB_multitexture")]
 		public static void MultiTexCoord4ARB(int target, float s, float t, float r, float q)
 		{
 			Debug.Assert(Delegates.pglMultiTexCoord4fARB != null, "pglMultiTexCoord4fARB not implemented");
@@ -852,6 +881,7 @@ namespace OpenGL
 		/// <param name="v">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_ARB_multitexture")]
 		public static void MultiTexCoord4ARB(int target, float[] v)
 		{
 			unsafe {
@@ -883,6 +913,7 @@ namespace OpenGL
 		/// <param name="q">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
+		[RequiredByFeature("GL_ARB_multitexture")]
 		public static void MultiTexCoord4ARB(int target, Int32 s, Int32 t, Int32 r, Int32 q)
 		{
 			Debug.Assert(Delegates.pglMultiTexCoord4iARB != null, "pglMultiTexCoord4iARB not implemented");
@@ -900,6 +931,7 @@ namespace OpenGL
 		/// <param name="v">
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_ARB_multitexture")]
 		public static void MultiTexCoord4ARB(int target, Int32[] v)
 		{
 			unsafe {
@@ -931,6 +963,7 @@ namespace OpenGL
 		/// <param name="q">
 		/// A <see cref="T:Int16"/>.
 		/// </param>
+		[RequiredByFeature("GL_ARB_multitexture")]
 		public static void MultiTexCoord4ARB(int target, Int16 s, Int16 t, Int16 r, Int16 q)
 		{
 			Debug.Assert(Delegates.pglMultiTexCoord4sARB != null, "pglMultiTexCoord4sARB not implemented");
@@ -948,6 +981,7 @@ namespace OpenGL
 		/// <param name="v">
 		/// A <see cref="T:Int16[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_ARB_multitexture")]
 		public static void MultiTexCoord4ARB(int target, Int16[] v)
 		{
 			unsafe {

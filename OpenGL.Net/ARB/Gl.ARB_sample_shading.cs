@@ -43,6 +43,7 @@ namespace OpenGL
 		/// <param name="value">
 		/// A <see cref="T:float"/>.
 		/// </param>
+		[RequiredByFeature("GL_ARB_sample_shading")]
 		public static void MinSampleShadingARB(float value)
 		{
 			Debug.Assert(Delegates.pglMinSampleShadingARB != null, "pglMinSampleShadingARB not implemented");

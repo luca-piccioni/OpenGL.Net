@@ -64,6 +64,7 @@ namespace OpenGL
 		/// <param name="clamp">
 		/// A <see cref="T:int"/>.
 		/// </param>
+		[RequiredByFeature("GL_ARB_color_buffer_float")]
 		public static void ClampColorARB(int target, int clamp)
 		{
 			Debug.Assert(Delegates.pglClampColorARB != null, "pglClampColorARB not implemented");

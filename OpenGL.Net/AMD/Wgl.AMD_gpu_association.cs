@@ -94,6 +94,7 @@ namespace OpenGL
 		/// <param name="ids">
 		/// A <see cref="T:UInt32[]"/>.
 		/// </param>
+		[RequiredByFeature("WGL_AMD_gpu_association")]
 		public static UInt32 GetGPUIDsAMD(UInt32 maxCount, UInt32[] ids)
 		{
 			UInt32 retValue;
@@ -106,7 +107,6 @@ namespace OpenGL
 					CallLog("wglGetGPUIDsAMD({0}, {1}) = {2}", maxCount, ids, retValue);
 				}
 			}
-			DebugCheckErrors();
 
 			return (retValue);
 		}
@@ -129,6 +129,7 @@ namespace OpenGL
 		/// <param name="data">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
+		[RequiredByFeature("WGL_AMD_gpu_association")]
 		public static Int32 GetGPUInfoAMD(UInt32 id, int property, int dataType, UInt32 size, IntPtr data)
 		{
 			Int32 retValue;
@@ -136,7 +137,6 @@ namespace OpenGL
 			Debug.Assert(Delegates.pwglGetGPUInfoAMD != null, "pwglGetGPUInfoAMD not implemented");
 			retValue = Delegates.pwglGetGPUInfoAMD(id, property, dataType, size, data);
 			CallLog("wglGetGPUInfoAMD({0}, {1}, {2}, {3}, {4}) = {5}", id, property, dataType, size, data, retValue);
-			DebugCheckErrors();
 
 			return (retValue);
 		}
@@ -147,6 +147,7 @@ namespace OpenGL
 		/// <param name="hglrc">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
+		[RequiredByFeature("WGL_AMD_gpu_association")]
 		public static UInt32 GetContextGPUIDAMD(IntPtr hglrc)
 		{
 			UInt32 retValue;
@@ -154,7 +155,6 @@ namespace OpenGL
 			Debug.Assert(Delegates.pwglGetContextGPUIDAMD != null, "pwglGetContextGPUIDAMD not implemented");
 			retValue = Delegates.pwglGetContextGPUIDAMD(hglrc);
 			CallLog("wglGetContextGPUIDAMD({0}) = {1}", hglrc, retValue);
-			DebugCheckErrors();
 
 			return (retValue);
 		}
@@ -165,6 +165,7 @@ namespace OpenGL
 		/// <param name="id">
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
+		[RequiredByFeature("WGL_AMD_gpu_association")]
 		public static IntPtr CreateAssociatedContextAMD(UInt32 id)
 		{
 			IntPtr retValue;
@@ -172,7 +173,6 @@ namespace OpenGL
 			Debug.Assert(Delegates.pwglCreateAssociatedContextAMD != null, "pwglCreateAssociatedContextAMD not implemented");
 			retValue = Delegates.pwglCreateAssociatedContextAMD(id);
 			CallLog("wglCreateAssociatedContextAMD({0}) = {1}", id, retValue);
-			DebugCheckErrors();
 
 			return (retValue);
 		}
@@ -189,6 +189,7 @@ namespace OpenGL
 		/// <param name="attribList">
 		/// A <see cref="T:int[]"/>.
 		/// </param>
+		[RequiredByFeature("WGL_AMD_gpu_association")]
 		public static IntPtr CreateAssociatedContextAttribsAMD(UInt32 id, IntPtr hShareContext, int[] attribList)
 		{
 			IntPtr retValue;
@@ -201,7 +202,6 @@ namespace OpenGL
 					CallLog("wglCreateAssociatedContextAttribsAMD({0}, {1}, {2}) = {3}", id, hShareContext, attribList, retValue);
 				}
 			}
-			DebugCheckErrors();
 
 			return (retValue);
 		}
@@ -212,6 +212,7 @@ namespace OpenGL
 		/// <param name="hglrc">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
+		[RequiredByFeature("WGL_AMD_gpu_association")]
 		public static bool DeleteAssociatedContextAMD(IntPtr hglrc)
 		{
 			bool retValue;
@@ -219,7 +220,6 @@ namespace OpenGL
 			Debug.Assert(Delegates.pwglDeleteAssociatedContextAMD != null, "pwglDeleteAssociatedContextAMD not implemented");
 			retValue = Delegates.pwglDeleteAssociatedContextAMD(hglrc);
 			CallLog("wglDeleteAssociatedContextAMD({0}) = {1}", hglrc, retValue);
-			DebugCheckErrors();
 
 			return (retValue);
 		}
@@ -230,6 +230,7 @@ namespace OpenGL
 		/// <param name="hglrc">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
+		[RequiredByFeature("WGL_AMD_gpu_association")]
 		public static bool MakeAssociatedContextCurrentAMD(IntPtr hglrc)
 		{
 			bool retValue;
@@ -237,7 +238,6 @@ namespace OpenGL
 			Debug.Assert(Delegates.pwglMakeAssociatedContextCurrentAMD != null, "pwglMakeAssociatedContextCurrentAMD not implemented");
 			retValue = Delegates.pwglMakeAssociatedContextCurrentAMD(hglrc);
 			CallLog("wglMakeAssociatedContextCurrentAMD({0}) = {1}", hglrc, retValue);
-			DebugCheckErrors();
 
 			return (retValue);
 		}
@@ -245,6 +245,7 @@ namespace OpenGL
 		/// <summary>
 		/// Binding for wglGetCurrentAssociatedContextAMD.
 		/// </summary>
+		[RequiredByFeature("WGL_AMD_gpu_association")]
 		public static IntPtr GetCurrentAssociatedContextAMD()
 		{
 			IntPtr retValue;
@@ -252,7 +253,6 @@ namespace OpenGL
 			Debug.Assert(Delegates.pwglGetCurrentAssociatedContextAMD != null, "pwglGetCurrentAssociatedContextAMD not implemented");
 			retValue = Delegates.pwglGetCurrentAssociatedContextAMD();
 			CallLog("wglGetCurrentAssociatedContextAMD() = {0}", retValue);
-			DebugCheckErrors();
 
 			return (retValue);
 		}
@@ -293,12 +293,12 @@ namespace OpenGL
 		/// <param name="filter">
 		/// A <see cref="T:int"/>.
 		/// </param>
+		[RequiredByFeature("WGL_AMD_gpu_association")]
 		public static void BlitContextFramebufferAMD(IntPtr dstCtx, Int32 srcX0, Int32 srcY0, Int32 srcX1, Int32 srcY1, Int32 dstX0, Int32 dstY0, Int32 dstX1, Int32 dstY1, uint mask, int filter)
 		{
 			Debug.Assert(Delegates.pwglBlitContextFramebufferAMD != null, "pwglBlitContextFramebufferAMD not implemented");
 			Delegates.pwglBlitContextFramebufferAMD(dstCtx, srcX0, srcY0, srcX1, srcY1, dstX0, dstY0, dstX1, dstY1, mask, filter);
 			CallLog("wglBlitContextFramebufferAMD({0}, {1}, {2}, {3}, {4}, {5}, {6}, {7}, {8}, {9}, {10})", dstCtx, srcX0, srcY0, srcX1, srcY1, dstX0, dstY0, dstX1, dstY1, mask, filter);
-			DebugCheckErrors();
 		}
 
 	}

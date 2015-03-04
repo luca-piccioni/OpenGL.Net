@@ -43,6 +43,7 @@ namespace OpenGL
 		/// <param name="factor">
 		/// A <see cref="T:sbyte"/>.
 		/// </param>
+		[RequiredByFeature("GL_SUN_global_alpha")]
 		public static void GlobalAlphaFactorSUN(sbyte factor)
 		{
 			Debug.Assert(Delegates.pglGlobalAlphaFactorbSUN != null, "pglGlobalAlphaFactorbSUN not implemented");
@@ -57,6 +58,7 @@ namespace OpenGL
 		/// <param name="factor">
 		/// A <see cref="T:Int16"/>.
 		/// </param>
+		[RequiredByFeature("GL_SUN_global_alpha")]
 		public static void GlobalAlphaFactorSUN(Int16 factor)
 		{
 			Debug.Assert(Delegates.pglGlobalAlphaFactorsSUN != null, "pglGlobalAlphaFactorsSUN not implemented");
@@ -71,6 +73,7 @@ namespace OpenGL
 		/// <param name="factor">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
+		[RequiredByFeature("GL_SUN_global_alpha")]
 		public static void GlobalAlphaFactorSUN(Int32 factor)
 		{
 			Debug.Assert(Delegates.pglGlobalAlphaFactoriSUN != null, "pglGlobalAlphaFactoriSUN not implemented");
@@ -85,6 +88,7 @@ namespace OpenGL
 		/// <param name="factor">
 		/// A <see cref="T:float"/>.
 		/// </param>
+		[RequiredByFeature("GL_SUN_global_alpha")]
 		public static void GlobalAlphaFactorSUN(float factor)
 		{
 			Debug.Assert(Delegates.pglGlobalAlphaFactorfSUN != null, "pglGlobalAlphaFactorfSUN not implemented");
@@ -99,6 +103,7 @@ namespace OpenGL
 		/// <param name="factor">
 		/// A <see cref="T:double"/>.
 		/// </param>
+		[RequiredByFeature("GL_SUN_global_alpha")]
 		public static void GlobalAlphaFactorSUN(double factor)
 		{
 			Debug.Assert(Delegates.pglGlobalAlphaFactordSUN != null, "pglGlobalAlphaFactordSUN not implemented");
@@ -113,6 +118,7 @@ namespace OpenGL
 		/// <param name="factor">
 		/// A <see cref="T:byte"/>.
 		/// </param>
+		[RequiredByFeature("GL_SUN_global_alpha")]
 		public static void GlobalAlphaFactorubSUN(byte factor)
 		{
 			Debug.Assert(Delegates.pglGlobalAlphaFactorubSUN != null, "pglGlobalAlphaFactorubSUN not implemented");
@@ -127,6 +133,7 @@ namespace OpenGL
 		/// <param name="factor">
 		/// A <see cref="T:UInt16"/>.
 		/// </param>
+		[RequiredByFeature("GL_SUN_global_alpha")]
 		public static void GlobalAlphaFactorusSUN(UInt16 factor)
 		{
 			Debug.Assert(Delegates.pglGlobalAlphaFactorusSUN != null, "pglGlobalAlphaFactorusSUN not implemented");
@@ -141,6 +148,7 @@ namespace OpenGL
 		/// <param name="factor">
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
+		[RequiredByFeature("GL_SUN_global_alpha")]
 		public static void GlobalAlphaFactoruiSUN(UInt32 factor)
 		{
 			Debug.Assert(Delegates.pglGlobalAlphaFactoruiSUN != null, "pglGlobalAlphaFactoruiSUN not implemented");

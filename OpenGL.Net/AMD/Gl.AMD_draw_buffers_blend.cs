@@ -37,6 +37,7 @@ namespace OpenGL
 		/// <param name="dst">
 		/// A <see cref="T:int"/>.
 		/// </param>
+		[RequiredByFeature("GL_AMD_draw_buffers_blend")]
 		public static void BlendFuncIndexedAMD(UInt32 buf, int src, int dst)
 		{
 			Debug.Assert(Delegates.pglBlendFuncIndexedAMD != null, "pglBlendFuncIndexedAMD not implemented");
@@ -63,6 +64,7 @@ namespace OpenGL
 		/// <param name="dstAlpha">
 		/// A <see cref="T:int"/>.
 		/// </param>
+		[RequiredByFeature("GL_AMD_draw_buffers_blend")]
 		public static void BlendFuncSeparateIndexedAMD(UInt32 buf, int srcRGB, int dstRGB, int srcAlpha, int dstAlpha)
 		{
 			Debug.Assert(Delegates.pglBlendFuncSeparateIndexedAMD != null, "pglBlendFuncSeparateIndexedAMD not implemented");
@@ -80,6 +82,7 @@ namespace OpenGL
 		/// <param name="mode">
 		/// A <see cref="T:int"/>.
 		/// </param>
+		[RequiredByFeature("GL_AMD_draw_buffers_blend")]
 		public static void BlendEquationIndexedAMD(UInt32 buf, int mode)
 		{
 			Debug.Assert(Delegates.pglBlendEquationIndexedAMD != null, "pglBlendEquationIndexedAMD not implemented");
@@ -100,6 +103,7 @@ namespace OpenGL
 		/// <param name="modeAlpha">
 		/// A <see cref="T:int"/>.
 		/// </param>
+		[RequiredByFeature("GL_AMD_draw_buffers_blend")]
 		public static void BlendEquationSeparateIndexedAMD(UInt32 buf, int modeRGB, int modeAlpha)
 		{
 			Debug.Assert(Delegates.pglBlendEquationSeparateIndexedAMD != null, "pglBlendEquationSeparateIndexedAMD not implemented");

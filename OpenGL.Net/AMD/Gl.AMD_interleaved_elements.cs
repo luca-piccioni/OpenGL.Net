@@ -49,6 +49,7 @@ namespace OpenGL
 		/// <param name="param">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
+		[RequiredByFeature("GL_AMD_interleaved_elements")]
 		public static void VertexAttribParameterAMD(UInt32 index, int pname, Int32 param)
 		{
 			Debug.Assert(Delegates.pglVertexAttribParameteriAMD != null, "pglVertexAttribParameteriAMD not implemented");

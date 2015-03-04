@@ -35,7 +35,6 @@ namespace OpenGL
 		/// Value of GL_ALPHA8_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_texture")]
-		[RequiredByFeature("GL_EXT_texture_storage")]
 		public const int ALPHA8_EXT = 0x803C;
 
 		/// <summary>
@@ -60,7 +59,6 @@ namespace OpenGL
 		/// Value of GL_LUMINANCE8_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_texture")]
-		[RequiredByFeature("GL_EXT_texture_storage")]
 		public const int LUMINANCE8_EXT = 0x8040;
 
 		/// <summary>
@@ -91,7 +89,6 @@ namespace OpenGL
 		/// Value of GL_LUMINANCE8_ALPHA8_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_texture")]
-		[RequiredByFeature("GL_EXT_texture_storage")]
 		public const int LUMINANCE8_ALPHA8_EXT = 0x8045;
 
 		/// <summary>
@@ -170,8 +167,6 @@ namespace OpenGL
 		/// Value of GL_RGB10_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_texture")]
-		[RequiredByFeature("GL_EXT_texture_storage")]
-		[RequiredByFeature("GL_OES_required_internalformat")]
 		public const int RGB10_EXT = 0x8052;
 
 		/// <summary>
@@ -184,7 +179,6 @@ namespace OpenGL
 		/// Value of GL_RGB16_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_texture")]
-		[RequiredByFeature("GL_EXT_texture_norm16")]
 		public const int RGB16_EXT = 0x8054;
 
 		/// <summary>
@@ -215,8 +209,6 @@ namespace OpenGL
 		/// Value of GL_RGB10_A2_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_texture")]
-		[RequiredByFeature("GL_EXT_texture_storage")]
-		[RequiredByFeature("GL_OES_required_internalformat")]
 		public const int RGB10_A2_EXT = 0x8059;
 
 		/// <summary>
@@ -229,7 +221,6 @@ namespace OpenGL
 		/// Value of GL_RGBA16_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_texture")]
-		[RequiredByFeature("GL_EXT_texture_norm16")]
 		public const int RGBA16_EXT = 0x805B;
 
 		/// <summary>

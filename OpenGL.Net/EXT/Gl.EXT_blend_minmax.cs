@@ -55,6 +55,7 @@ namespace OpenGL
 		/// <param name="mode">
 		/// A <see cref="T:int"/>.
 		/// </param>
+		[RequiredByFeature("GL_EXT_blend_minmax")]
 		public static void BlendEquationEXT(int mode)
 		{
 			Debug.Assert(Delegates.pglBlendEquationEXT != null, "pglBlendEquationEXT not implemented");
@@ -69,6 +70,7 @@ namespace OpenGL
 		/// <param name="mode">
 		/// A <see cref="T:int"/>.
 		/// </param>
+		[RequiredByFeature("GL_EXT_blend_minmax")]
 		public static void BlendEquationEXT(BlendEquationModeEXT mode)
 		{
 			Debug.Assert(Delegates.pglBlendEquationEXT != null, "pglBlendEquationEXT not implemented");

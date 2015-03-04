@@ -49,6 +49,7 @@ namespace OpenGL
 		/// <param name="offset">
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
+		[RequiredByFeature("GL_ATI_vertex_attrib_array_object")]
 		public static void VertexAttribArrayObjectATI(UInt32 index, Int32 size, int type, bool normalized, Int32 stride, UInt32 buffer, UInt32 offset)
 		{
 			Debug.Assert(Delegates.pglVertexAttribArrayObjectATI != null, "pglVertexAttribArrayObjectATI not implemented");
@@ -69,6 +70,7 @@ namespace OpenGL
 		/// <param name="params">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_ATI_vertex_attrib_array_object")]
 		public static void GetVertexAttribArrayObjectATI(UInt32 index, int pname, float[] @params)
 		{
 			unsafe {
@@ -94,6 +96,7 @@ namespace OpenGL
 		/// <param name="params">
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_ATI_vertex_attrib_array_object")]
 		public static void GetVertexAttribArrayObjectATI(UInt32 index, int pname, Int32[] @params)
 		{
 			unsafe {

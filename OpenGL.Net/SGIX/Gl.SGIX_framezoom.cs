@@ -49,6 +49,7 @@ namespace OpenGL
 		/// <param name="factor">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
+		[RequiredByFeature("GL_SGIX_framezoom")]
 		public static void FrameZoomSGIX(Int32 factor)
 		{
 			Debug.Assert(Delegates.pglFrameZoomSGIX != null, "pglFrameZoomSGIX not implemented");

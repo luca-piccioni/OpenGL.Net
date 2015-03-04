@@ -64,6 +64,7 @@ namespace OpenGL
 		/// <param name="dppass">
 		/// A <see cref="T:int"/>.
 		/// </param>
+		[RequiredByFeature("GL_ATI_separate_stencil")]
 		public static void StencilOpSeparateATI(int face, int sfail, int dpfail, int dppass)
 		{
 			Debug.Assert(Delegates.pglStencilOpSeparateATI != null, "pglStencilOpSeparateATI not implemented");
@@ -87,6 +88,7 @@ namespace OpenGL
 		/// <param name="dppass">
 		/// A <see cref="T:int"/>.
 		/// </param>
+		[RequiredByFeature("GL_ATI_separate_stencil")]
 		public static void StencilOpSeparateATI(int face, StencilOp sfail, StencilOp dpfail, StencilOp dppass)
 		{
 			Debug.Assert(Delegates.pglStencilOpSeparateATI != null, "pglStencilOpSeparateATI not implemented");
@@ -110,6 +112,7 @@ namespace OpenGL
 		/// <param name="mask">
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
+		[RequiredByFeature("GL_ATI_separate_stencil")]
 		public static void StencilFuncSeparateATI(int frontfunc, int backfunc, Int32 @ref, UInt32 mask)
 		{
 			Debug.Assert(Delegates.pglStencilFuncSeparateATI != null, "pglStencilFuncSeparateATI not implemented");
@@ -133,6 +136,7 @@ namespace OpenGL
 		/// <param name="mask">
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
+		[RequiredByFeature("GL_ATI_separate_stencil")]
 		public static void StencilFuncSeparateATI(StencilFunction frontfunc, StencilFunction backfunc, Int32 @ref, UInt32 mask)
 		{
 			Debug.Assert(Delegates.pglStencilFuncSeparateATI != null, "pglStencilFuncSeparateATI not implemented");

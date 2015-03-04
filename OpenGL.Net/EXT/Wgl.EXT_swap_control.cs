@@ -31,6 +31,7 @@ namespace OpenGL
 		/// <param name="interval">
 		/// A <see cref="T:int"/>.
 		/// </param>
+		[RequiredByFeature("WGL_EXT_swap_control")]
 		public static bool SwapIntervalEXT(int interval)
 		{
 			bool retValue;
@@ -38,7 +39,6 @@ namespace OpenGL
 			Debug.Assert(Delegates.pwglSwapIntervalEXT != null, "pwglSwapIntervalEXT not implemented");
 			retValue = Delegates.pwglSwapIntervalEXT(interval);
 			CallLog("wglSwapIntervalEXT({0}) = {1}", interval, retValue);
-			DebugCheckErrors();
 
 			return (retValue);
 		}
@@ -46,6 +46,7 @@ namespace OpenGL
 		/// <summary>
 		/// Binding for wglGetSwapIntervalEXT.
 		/// </summary>
+		[RequiredByFeature("WGL_EXT_swap_control")]
 		public static int GetSwapIntervalEXT()
 		{
 			int retValue;
@@ -53,7 +54,6 @@ namespace OpenGL
 			Debug.Assert(Delegates.pwglGetSwapIntervalEXT != null, "pwglGetSwapIntervalEXT not implemented");
 			retValue = Delegates.pwglGetSwapIntervalEXT();
 			CallLog("wglGetSwapIntervalEXT() = {0}", retValue);
-			DebugCheckErrors();
 
 			return (retValue);
 		}

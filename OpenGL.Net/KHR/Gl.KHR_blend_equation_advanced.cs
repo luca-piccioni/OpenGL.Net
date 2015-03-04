@@ -118,6 +118,7 @@ namespace OpenGL
 		/// <summary>
 		/// Binding for glBlendBarrierKHR.
 		/// </summary>
+		[RequiredByFeature("GL_KHR_blend_equation_advanced")]
 		public static void BlendBarrierKHR()
 		{
 			Debug.Assert(Delegates.pglBlendBarrierKHR != null, "pglBlendBarrierKHR not implemented");

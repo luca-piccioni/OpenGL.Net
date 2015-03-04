@@ -82,6 +82,7 @@ namespace OpenGL
 		/// <param name="invert">
 		/// A <see cref="T:bool"/>.
 		/// </param>
+		[RequiredByFeature("GL_ARB_multisample")]
 		public static void SampleCoverageARB(float value, bool invert)
 		{
 			Debug.Assert(Delegates.pglSampleCoverageARB != null, "pglSampleCoverageARB not implemented");

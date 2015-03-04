@@ -61,6 +61,7 @@ namespace OpenGL
 		/// <param name="uType">
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
+		[RequiredByFeature("WGL_ARB_buffer_region")]
 		public static IntPtr CreateBufferRegionARB(IntPtr hDC, int iLayerPlane, UInt32 uType)
 		{
 			IntPtr retValue;
@@ -68,7 +69,6 @@ namespace OpenGL
 			Debug.Assert(Delegates.pwglCreateBufferRegionARB != null, "pwglCreateBufferRegionARB not implemented");
 			retValue = Delegates.pwglCreateBufferRegionARB(hDC, iLayerPlane, uType);
 			CallLog("wglCreateBufferRegionARB({0}, {1}, {2}) = {3}", hDC, iLayerPlane, uType, retValue);
-			DebugCheckErrors();
 
 			return (retValue);
 		}
@@ -79,12 +79,12 @@ namespace OpenGL
 		/// <param name="hRegion">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
+		[RequiredByFeature("WGL_ARB_buffer_region")]
 		public static void DeleteBufferRegionARB(IntPtr hRegion)
 		{
 			Debug.Assert(Delegates.pwglDeleteBufferRegionARB != null, "pwglDeleteBufferRegionARB not implemented");
 			Delegates.pwglDeleteBufferRegionARB(hRegion);
 			CallLog("wglDeleteBufferRegionARB({0})", hRegion);
-			DebugCheckErrors();
 		}
 
 		/// <summary>
@@ -105,6 +105,7 @@ namespace OpenGL
 		/// <param name="height">
 		/// A <see cref="T:int"/>.
 		/// </param>
+		[RequiredByFeature("WGL_ARB_buffer_region")]
 		public static bool SaveBufferRegionARB(IntPtr hRegion, int x, int y, int width, int height)
 		{
 			bool retValue;
@@ -112,7 +113,6 @@ namespace OpenGL
 			Debug.Assert(Delegates.pwglSaveBufferRegionARB != null, "pwglSaveBufferRegionARB not implemented");
 			retValue = Delegates.pwglSaveBufferRegionARB(hRegion, x, y, width, height);
 			CallLog("wglSaveBufferRegionARB({0}, {1}, {2}, {3}, {4}) = {5}", hRegion, x, y, width, height, retValue);
-			DebugCheckErrors();
 
 			return (retValue);
 		}
@@ -141,6 +141,7 @@ namespace OpenGL
 		/// <param name="ySrc">
 		/// A <see cref="T:int"/>.
 		/// </param>
+		[RequiredByFeature("WGL_ARB_buffer_region")]
 		public static bool RestoreBufferRegionARB(IntPtr hRegion, int x, int y, int width, int height, int xSrc, int ySrc)
 		{
 			bool retValue;
@@ -148,7 +149,6 @@ namespace OpenGL
 			Debug.Assert(Delegates.pwglRestoreBufferRegionARB != null, "pwglRestoreBufferRegionARB not implemented");
 			retValue = Delegates.pwglRestoreBufferRegionARB(hRegion, x, y, width, height, xSrc, ySrc);
 			CallLog("wglRestoreBufferRegionARB({0}, {1}, {2}, {3}, {4}, {5}, {6}) = {7}", hRegion, x, y, width, height, xSrc, ySrc, retValue);
-			DebugCheckErrors();
 
 			return (retValue);
 		}

@@ -43,6 +43,7 @@ namespace OpenGL
 		/// <param name="equation">
 		/// A <see cref="T:double[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_SGIX_reference_plane")]
 		public static void ReferencePlaneSGIX(double[] equation)
 		{
 			unsafe {

@@ -34,6 +34,7 @@ namespace OpenGL
 		/// <param name="y">
 		/// A <see cref="T:double"/>.
 		/// </param>
+		[RequiredByFeature("GL_MESA_window_pos")]
 		public static void WindowPos2MESA(double x, double y)
 		{
 			Debug.Assert(Delegates.pglWindowPos2dMESA != null, "pglWindowPos2dMESA not implemented");
@@ -48,6 +49,7 @@ namespace OpenGL
 		/// <param name="v">
 		/// A <see cref="T:double[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_MESA_window_pos")]
 		public static void WindowPos2MESA(double[] v)
 		{
 			unsafe {
@@ -70,6 +72,7 @@ namespace OpenGL
 		/// <param name="y">
 		/// A <see cref="T:float"/>.
 		/// </param>
+		[RequiredByFeature("GL_MESA_window_pos")]
 		public static void WindowPos2MESA(float x, float y)
 		{
 			Debug.Assert(Delegates.pglWindowPos2fMESA != null, "pglWindowPos2fMESA not implemented");
@@ -84,6 +87,7 @@ namespace OpenGL
 		/// <param name="v">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_MESA_window_pos")]
 		public static void WindowPos2MESA(float[] v)
 		{
 			unsafe {
@@ -106,6 +110,7 @@ namespace OpenGL
 		/// <param name="y">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
+		[RequiredByFeature("GL_MESA_window_pos")]
 		public static void WindowPos2MESA(Int32 x, Int32 y)
 		{
 			Debug.Assert(Delegates.pglWindowPos2iMESA != null, "pglWindowPos2iMESA not implemented");
@@ -120,6 +125,7 @@ namespace OpenGL
 		/// <param name="v">
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_MESA_window_pos")]
 		public static void WindowPos2MESA(Int32[] v)
 		{
 			unsafe {
@@ -142,6 +148,7 @@ namespace OpenGL
 		/// <param name="y">
 		/// A <see cref="T:Int16"/>.
 		/// </param>
+		[RequiredByFeature("GL_MESA_window_pos")]
 		public static void WindowPos2MESA(Int16 x, Int16 y)
 		{
 			Debug.Assert(Delegates.pglWindowPos2sMESA != null, "pglWindowPos2sMESA not implemented");
@@ -156,6 +163,7 @@ namespace OpenGL
 		/// <param name="v">
 		/// A <see cref="T:Int16[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_MESA_window_pos")]
 		public static void WindowPos2MESA(Int16[] v)
 		{
 			unsafe {
@@ -181,6 +189,7 @@ namespace OpenGL
 		/// <param name="z">
 		/// A <see cref="T:double"/>.
 		/// </param>
+		[RequiredByFeature("GL_MESA_window_pos")]
 		public static void WindowPos3MESA(double x, double y, double z)
 		{
 			Debug.Assert(Delegates.pglWindowPos3dMESA != null, "pglWindowPos3dMESA not implemented");
@@ -195,6 +204,7 @@ namespace OpenGL
 		/// <param name="v">
 		/// A <see cref="T:double[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_MESA_window_pos")]
 		public static void WindowPos3MESA(double[] v)
 		{
 			unsafe {
@@ -220,6 +230,7 @@ namespace OpenGL
 		/// <param name="z">
 		/// A <see cref="T:float"/>.
 		/// </param>
+		[RequiredByFeature("GL_MESA_window_pos")]
 		public static void WindowPos3MESA(float x, float y, float z)
 		{
 			Debug.Assert(Delegates.pglWindowPos3fMESA != null, "pglWindowPos3fMESA not implemented");
@@ -234,6 +245,7 @@ namespace OpenGL
 		/// <param name="v">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_MESA_window_pos")]
 		public static void WindowPos3MESA(float[] v)
 		{
 			unsafe {
@@ -259,6 +271,7 @@ namespace OpenGL
 		/// <param name="z">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
+		[RequiredByFeature("GL_MESA_window_pos")]
 		public static void WindowPos3MESA(Int32 x, Int32 y, Int32 z)
 		{
 			Debug.Assert(Delegates.pglWindowPos3iMESA != null, "pglWindowPos3iMESA not implemented");
@@ -273,6 +286,7 @@ namespace OpenGL
 		/// <param name="v">
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_MESA_window_pos")]
 		public static void WindowPos3MESA(Int32[] v)
 		{
 			unsafe {
@@ -298,6 +312,7 @@ namespace OpenGL
 		/// <param name="z">
 		/// A <see cref="T:Int16"/>.
 		/// </param>
+		[RequiredByFeature("GL_MESA_window_pos")]
 		public static void WindowPos3MESA(Int16 x, Int16 y, Int16 z)
 		{
 			Debug.Assert(Delegates.pglWindowPos3sMESA != null, "pglWindowPos3sMESA not implemented");
@@ -312,6 +327,7 @@ namespace OpenGL
 		/// <param name="v">
 		/// A <see cref="T:Int16[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_MESA_window_pos")]
 		public static void WindowPos3MESA(Int16[] v)
 		{
 			unsafe {
@@ -340,6 +356,7 @@ namespace OpenGL
 		/// <param name="w">
 		/// A <see cref="T:double"/>.
 		/// </param>
+		[RequiredByFeature("GL_MESA_window_pos")]
 		public static void WindowPos4MESA(double x, double y, double z, double w)
 		{
 			Debug.Assert(Delegates.pglWindowPos4dMESA != null, "pglWindowPos4dMESA not implemented");
@@ -354,6 +371,7 @@ namespace OpenGL
 		/// <param name="v">
 		/// A <see cref="T:double[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_MESA_window_pos")]
 		public static void WindowPos4MESA(double[] v)
 		{
 			unsafe {
@@ -382,6 +400,7 @@ namespace OpenGL
 		/// <param name="w">
 		/// A <see cref="T:float"/>.
 		/// </param>
+		[RequiredByFeature("GL_MESA_window_pos")]
 		public static void WindowPos4MESA(float x, float y, float z, float w)
 		{
 			Debug.Assert(Delegates.pglWindowPos4fMESA != null, "pglWindowPos4fMESA not implemented");
@@ -396,6 +415,7 @@ namespace OpenGL
 		/// <param name="v">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_MESA_window_pos")]
 		public static void WindowPos4MESA(float[] v)
 		{
 			unsafe {
@@ -424,6 +444,7 @@ namespace OpenGL
 		/// <param name="w">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
+		[RequiredByFeature("GL_MESA_window_pos")]
 		public static void WindowPos4MESA(Int32 x, Int32 y, Int32 z, Int32 w)
 		{
 			Debug.Assert(Delegates.pglWindowPos4iMESA != null, "pglWindowPos4iMESA not implemented");
@@ -438,6 +459,7 @@ namespace OpenGL
 		/// <param name="v">
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_MESA_window_pos")]
 		public static void WindowPos4MESA(Int32[] v)
 		{
 			unsafe {
@@ -466,6 +488,7 @@ namespace OpenGL
 		/// <param name="w">
 		/// A <see cref="T:Int16"/>.
 		/// </param>
+		[RequiredByFeature("GL_MESA_window_pos")]
 		public static void WindowPos4MESA(Int16 x, Int16 y, Int16 z, Int16 w)
 		{
 			Debug.Assert(Delegates.pglWindowPos4sMESA != null, "pglWindowPos4sMESA not implemented");
@@ -480,6 +503,7 @@ namespace OpenGL
 		/// <param name="v">
 		/// A <see cref="T:Int16[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_MESA_window_pos")]
 		public static void WindowPos4MESA(Int16[] v)
 		{
 			unsafe {

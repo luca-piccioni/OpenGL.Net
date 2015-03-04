@@ -49,6 +49,7 @@ namespace OpenGL
 		/// <param name="weights">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_SGIS_texture_filter4")]
 		public static void GetTexFilterFuncSGIS(int target, int filter, float[] weights)
 		{
 			unsafe {
@@ -74,6 +75,7 @@ namespace OpenGL
 		/// <param name="weights">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_SGIS_texture_filter4")]
 		public static void GetTexFilterFuncSGIS(TextureTarget target, int filter, float[] weights)
 		{
 			unsafe {
@@ -102,6 +104,7 @@ namespace OpenGL
 		/// <param name="weights">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_SGIS_texture_filter4")]
 		public static void TexFilterFuncSGIS(int target, int filter, Int32 n, float[] weights)
 		{
 			unsafe {
@@ -130,6 +133,7 @@ namespace OpenGL
 		/// <param name="weights">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_SGIS_texture_filter4")]
 		public static void TexFilterFuncSGIS(TextureTarget target, int filter, Int32 n, float[] weights)
 		{
 			unsafe {

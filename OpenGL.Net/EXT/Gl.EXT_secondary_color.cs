@@ -79,6 +79,7 @@ namespace OpenGL
 		/// <param name="blue">
 		/// A <see cref="T:sbyte"/>.
 		/// </param>
+		[RequiredByFeature("GL_EXT_secondary_color")]
 		public static void SecondaryColor3EXT(sbyte red, sbyte green, sbyte blue)
 		{
 			Debug.Assert(Delegates.pglSecondaryColor3bEXT != null, "pglSecondaryColor3bEXT not implemented");
@@ -93,6 +94,7 @@ namespace OpenGL
 		/// <param name="v">
 		/// A <see cref="T:sbyte[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_EXT_secondary_color")]
 		public static void SecondaryColor3EXT(sbyte[] v)
 		{
 			unsafe {
@@ -118,6 +120,7 @@ namespace OpenGL
 		/// <param name="blue">
 		/// A <see cref="T:double"/>.
 		/// </param>
+		[RequiredByFeature("GL_EXT_secondary_color")]
 		public static void SecondaryColor3EXT(double red, double green, double blue)
 		{
 			Debug.Assert(Delegates.pglSecondaryColor3dEXT != null, "pglSecondaryColor3dEXT not implemented");
@@ -132,6 +135,7 @@ namespace OpenGL
 		/// <param name="v">
 		/// A <see cref="T:double[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_EXT_secondary_color")]
 		public static void SecondaryColor3EXT(double[] v)
 		{
 			unsafe {
@@ -157,6 +161,7 @@ namespace OpenGL
 		/// <param name="blue">
 		/// A <see cref="T:float"/>.
 		/// </param>
+		[RequiredByFeature("GL_EXT_secondary_color")]
 		public static void SecondaryColor3EXT(float red, float green, float blue)
 		{
 			Debug.Assert(Delegates.pglSecondaryColor3fEXT != null, "pglSecondaryColor3fEXT not implemented");
@@ -171,6 +176,7 @@ namespace OpenGL
 		/// <param name="v">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_EXT_secondary_color")]
 		public static void SecondaryColor3EXT(float[] v)
 		{
 			unsafe {
@@ -196,6 +202,7 @@ namespace OpenGL
 		/// <param name="blue">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
+		[RequiredByFeature("GL_EXT_secondary_color")]
 		public static void SecondaryColor3EXT(Int32 red, Int32 green, Int32 blue)
 		{
 			Debug.Assert(Delegates.pglSecondaryColor3iEXT != null, "pglSecondaryColor3iEXT not implemented");
@@ -210,6 +217,7 @@ namespace OpenGL
 		/// <param name="v">
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_EXT_secondary_color")]
 		public static void SecondaryColor3EXT(Int32[] v)
 		{
 			unsafe {
@@ -235,6 +243,7 @@ namespace OpenGL
 		/// <param name="blue">
 		/// A <see cref="T:Int16"/>.
 		/// </param>
+		[RequiredByFeature("GL_EXT_secondary_color")]
 		public static void SecondaryColor3EXT(Int16 red, Int16 green, Int16 blue)
 		{
 			Debug.Assert(Delegates.pglSecondaryColor3sEXT != null, "pglSecondaryColor3sEXT not implemented");
@@ -249,6 +258,7 @@ namespace OpenGL
 		/// <param name="v">
 		/// A <see cref="T:Int16[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_EXT_secondary_color")]
 		public static void SecondaryColor3EXT(Int16[] v)
 		{
 			unsafe {
@@ -274,6 +284,7 @@ namespace OpenGL
 		/// <param name="blue">
 		/// A <see cref="T:byte"/>.
 		/// </param>
+		[RequiredByFeature("GL_EXT_secondary_color")]
 		public static void SecondaryColor3EXT(byte red, byte green, byte blue)
 		{
 			Debug.Assert(Delegates.pglSecondaryColor3ubEXT != null, "pglSecondaryColor3ubEXT not implemented");
@@ -288,6 +299,7 @@ namespace OpenGL
 		/// <param name="v">
 		/// A <see cref="T:byte[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_EXT_secondary_color")]
 		public static void SecondaryColor3EXT(byte[] v)
 		{
 			unsafe {
@@ -313,6 +325,7 @@ namespace OpenGL
 		/// <param name="blue">
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
+		[RequiredByFeature("GL_EXT_secondary_color")]
 		public static void SecondaryColor3EXT(UInt32 red, UInt32 green, UInt32 blue)
 		{
 			Debug.Assert(Delegates.pglSecondaryColor3uiEXT != null, "pglSecondaryColor3uiEXT not implemented");
@@ -327,6 +340,7 @@ namespace OpenGL
 		/// <param name="v">
 		/// A <see cref="T:UInt32[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_EXT_secondary_color")]
 		public static void SecondaryColor3EXT(UInt32[] v)
 		{
 			unsafe {
@@ -352,6 +366,7 @@ namespace OpenGL
 		/// <param name="blue">
 		/// A <see cref="T:UInt16"/>.
 		/// </param>
+		[RequiredByFeature("GL_EXT_secondary_color")]
 		public static void SecondaryColor3EXT(UInt16 red, UInt16 green, UInt16 blue)
 		{
 			Debug.Assert(Delegates.pglSecondaryColor3usEXT != null, "pglSecondaryColor3usEXT not implemented");
@@ -366,6 +381,7 @@ namespace OpenGL
 		/// <param name="v">
 		/// A <see cref="T:UInt16[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_EXT_secondary_color")]
 		public static void SecondaryColor3EXT(UInt16[] v)
 		{
 			unsafe {
@@ -394,6 +410,7 @@ namespace OpenGL
 		/// <param name="pointer">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
+		[RequiredByFeature("GL_EXT_secondary_color")]
 		public static void SecondaryColorPointerEXT(Int32 size, int type, Int32 stride, IntPtr pointer)
 		{
 			Debug.Assert(Delegates.pglSecondaryColorPointerEXT != null, "pglSecondaryColorPointerEXT not implemented");
@@ -417,6 +434,7 @@ namespace OpenGL
 		/// <param name="pointer">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
+		[RequiredByFeature("GL_EXT_secondary_color")]
 		public static void SecondaryColorPointerEXT(Int32 size, ColorPointerType type, Int32 stride, IntPtr pointer)
 		{
 			Debug.Assert(Delegates.pglSecondaryColorPointerEXT != null, "pglSecondaryColorPointerEXT not implemented");
@@ -440,6 +458,7 @@ namespace OpenGL
 		/// <param name="pointer">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
+		[RequiredByFeature("GL_EXT_secondary_color")]
 		public static void SecondaryColorPointerEXT(Int32 size, int type, Int32 stride, Object pointer)
 		{
 			GCHandle pin_pointer = GCHandle.Alloc(pointer, GCHandleType.Pinned);

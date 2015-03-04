@@ -46,6 +46,7 @@ namespace OpenGL
 		/// <param name="fences">
 		/// A <see cref="T:UInt32[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_APPLE_fence")]
 		public static void GenFencesAPPLE(Int32 n, UInt32[] fences)
 		{
 			unsafe {
@@ -68,6 +69,7 @@ namespace OpenGL
 		/// <param name="fences">
 		/// A <see cref="T:UInt32[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_APPLE_fence")]
 		public static void DeleteFencesAPPLE(Int32 n, UInt32[] fences)
 		{
 			unsafe {
@@ -87,6 +89,7 @@ namespace OpenGL
 		/// <param name="fence">
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
+		[RequiredByFeature("GL_APPLE_fence")]
 		public static void SetFenceAPPLE(UInt32 fence)
 		{
 			Debug.Assert(Delegates.pglSetFenceAPPLE != null, "pglSetFenceAPPLE not implemented");
@@ -101,6 +104,7 @@ namespace OpenGL
 		/// <param name="fence">
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
+		[RequiredByFeature("GL_APPLE_fence")]
 		public static bool IsFenceAPPLE(UInt32 fence)
 		{
 			bool retValue;
@@ -119,6 +123,7 @@ namespace OpenGL
 		/// <param name="fence">
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
+		[RequiredByFeature("GL_APPLE_fence")]
 		public static bool TestFenceAPPLE(UInt32 fence)
 		{
 			bool retValue;
@@ -137,6 +142,7 @@ namespace OpenGL
 		/// <param name="fence">
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
+		[RequiredByFeature("GL_APPLE_fence")]
 		public static void FinishFenceAPPLE(UInt32 fence)
 		{
 			Debug.Assert(Delegates.pglFinishFenceAPPLE != null, "pglFinishFenceAPPLE not implemented");
@@ -154,6 +160,7 @@ namespace OpenGL
 		/// <param name="name">
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
+		[RequiredByFeature("GL_APPLE_fence")]
 		public static bool TestObjectAPPLE(int @object, UInt32 name)
 		{
 			bool retValue;
@@ -175,6 +182,7 @@ namespace OpenGL
 		/// <param name="name">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
+		[RequiredByFeature("GL_APPLE_fence")]
 		public static void FinishObjectAPPLE(int @object, Int32 name)
 		{
 			Debug.Assert(Delegates.pglFinishObjectAPPLE != null, "pglFinishObjectAPPLE not implemented");

@@ -29,8 +29,6 @@ namespace OpenGL
 		/// Value of GL_FIXED symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_1")]
-		[RequiredByFeature("GL_VERSION_ES_CM_1_0")]
-		[RequiredByFeature("GL_ES_VERSION_2_0")]
 		[RequiredByFeature("GL_ARB_ES2_compatibility")]
 		public const int FIXED = 0x140C;
 
@@ -38,7 +36,6 @@ namespace OpenGL
 		/// Value of GL_IMPLEMENTATION_COLOR_READ_TYPE symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_1")]
-		[RequiredByFeature("GL_ES_VERSION_2_0")]
 		[RequiredByFeature("GL_ARB_ES2_compatibility")]
 		public const int IMPLEMENTATION_COLOR_READ_TYPE = 0x8B9A;
 
@@ -46,7 +43,6 @@ namespace OpenGL
 		/// Value of GL_IMPLEMENTATION_COLOR_READ_FORMAT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_1")]
-		[RequiredByFeature("GL_ES_VERSION_2_0")]
 		[RequiredByFeature("GL_ARB_ES2_compatibility")]
 		public const int IMPLEMENTATION_COLOR_READ_FORMAT = 0x8B9B;
 
@@ -54,7 +50,6 @@ namespace OpenGL
 		/// Value of GL_LOW_FLOAT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_1")]
-		[RequiredByFeature("GL_ES_VERSION_2_0")]
 		[RequiredByFeature("GL_ARB_ES2_compatibility")]
 		public const int LOW_FLOAT = 0x8DF0;
 
@@ -62,7 +57,6 @@ namespace OpenGL
 		/// Value of GL_MEDIUM_FLOAT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_1")]
-		[RequiredByFeature("GL_ES_VERSION_2_0")]
 		[RequiredByFeature("GL_ARB_ES2_compatibility")]
 		public const int MEDIUM_FLOAT = 0x8DF1;
 
@@ -70,7 +64,6 @@ namespace OpenGL
 		/// Value of GL_HIGH_FLOAT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_1")]
-		[RequiredByFeature("GL_ES_VERSION_2_0")]
 		[RequiredByFeature("GL_ARB_ES2_compatibility")]
 		public const int HIGH_FLOAT = 0x8DF2;
 
@@ -78,7 +71,6 @@ namespace OpenGL
 		/// Value of GL_LOW_INT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_1")]
-		[RequiredByFeature("GL_ES_VERSION_2_0")]
 		[RequiredByFeature("GL_ARB_ES2_compatibility")]
 		public const int LOW_INT = 0x8DF3;
 
@@ -86,7 +78,6 @@ namespace OpenGL
 		/// Value of GL_MEDIUM_INT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_1")]
-		[RequiredByFeature("GL_ES_VERSION_2_0")]
 		[RequiredByFeature("GL_ARB_ES2_compatibility")]
 		public const int MEDIUM_INT = 0x8DF4;
 
@@ -94,7 +85,6 @@ namespace OpenGL
 		/// Value of GL_HIGH_INT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_1")]
-		[RequiredByFeature("GL_ES_VERSION_2_0")]
 		[RequiredByFeature("GL_ARB_ES2_compatibility")]
 		public const int HIGH_INT = 0x8DF5;
 
@@ -102,7 +92,6 @@ namespace OpenGL
 		/// Value of GL_SHADER_COMPILER symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_1")]
-		[RequiredByFeature("GL_ES_VERSION_2_0")]
 		[RequiredByFeature("GL_ARB_ES2_compatibility")]
 		public const int SHADER_COMPILER = 0x8DFA;
 
@@ -110,7 +99,6 @@ namespace OpenGL
 		/// Value of GL_SHADER_BINARY_FORMATS symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_1")]
-		[RequiredByFeature("GL_ES_VERSION_2_0")]
 		[RequiredByFeature("GL_ARB_ES2_compatibility")]
 		public const int SHADER_BINARY_FORMATS = 0x8DF8;
 
@@ -118,7 +106,6 @@ namespace OpenGL
 		/// Value of GL_NUM_SHADER_BINARY_FORMATS symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_1")]
-		[RequiredByFeature("GL_ES_VERSION_2_0")]
 		[RequiredByFeature("GL_ARB_ES2_compatibility")]
 		public const int NUM_SHADER_BINARY_FORMATS = 0x8DF9;
 
@@ -126,7 +113,6 @@ namespace OpenGL
 		/// Value of GL_MAX_VERTEX_UNIFORM_VECTORS symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_1")]
-		[RequiredByFeature("GL_ES_VERSION_2_0")]
 		[RequiredByFeature("GL_ARB_ES2_compatibility")]
 		public const int MAX_VERTEX_UNIFORM_VECTORS = 0x8DFB;
 
@@ -134,7 +120,6 @@ namespace OpenGL
 		/// Value of GL_MAX_VARYING_VECTORS symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_1")]
-		[RequiredByFeature("GL_ES_VERSION_2_0")]
 		[RequiredByFeature("GL_ARB_ES2_compatibility")]
 		public const int MAX_VARYING_VECTORS = 0x8DFC;
 
@@ -142,7 +127,6 @@ namespace OpenGL
 		/// Value of GL_MAX_FRAGMENT_UNIFORM_VECTORS symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_1")]
-		[RequiredByFeature("GL_ES_VERSION_2_0")]
 		[RequiredByFeature("GL_ARB_ES2_compatibility")]
 		public const int MAX_FRAGMENT_UNIFORM_VECTORS = 0x8DFD;
 
@@ -150,7 +134,6 @@ namespace OpenGL
 		/// Value of GL_RGB565 symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_1")]
-		[RequiredByFeature("GL_ES_VERSION_2_0")]
 		[RequiredByFeature("GL_ARB_ES2_compatibility")]
 		public const int RGB565 = 0x8D62;
 
@@ -158,7 +141,6 @@ namespace OpenGL
 		/// Value of GL_PROGRAM_BINARY_RETRIEVABLE_HINT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_1")]
-		[RequiredByFeature("GL_ES_VERSION_3_0")]
 		[RequiredByFeature("GL_ARB_get_program_binary")]
 		public const int PROGRAM_BINARY_RETRIEVABLE_HINT = 0x8257;
 
@@ -166,7 +148,6 @@ namespace OpenGL
 		/// Value of GL_PROGRAM_BINARY_LENGTH symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_1")]
-		[RequiredByFeature("GL_ES_VERSION_3_0")]
 		[RequiredByFeature("GL_ARB_get_program_binary")]
 		public const int PROGRAM_BINARY_LENGTH = 0x8741;
 
@@ -174,7 +155,6 @@ namespace OpenGL
 		/// Value of GL_NUM_PROGRAM_BINARY_FORMATS symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_1")]
-		[RequiredByFeature("GL_ES_VERSION_3_0")]
 		[RequiredByFeature("GL_ARB_get_program_binary")]
 		public const int NUM_PROGRAM_BINARY_FORMATS = 0x87FE;
 
@@ -182,7 +162,6 @@ namespace OpenGL
 		/// Value of GL_PROGRAM_BINARY_FORMATS symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_1")]
-		[RequiredByFeature("GL_ES_VERSION_3_0")]
 		[RequiredByFeature("GL_ARB_get_program_binary")]
 		public const int PROGRAM_BINARY_FORMATS = 0x87FF;
 
@@ -190,7 +169,6 @@ namespace OpenGL
 		/// Value of GL_VERTEX_SHADER_BIT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_1")]
-		[RequiredByFeature("GL_ES_VERSION_3_1")]
 		[RequiredByFeature("GL_ARB_separate_shader_objects")]
 		public const uint VERTEX_SHADER_BIT = 0x00000001;
 
@@ -198,7 +176,6 @@ namespace OpenGL
 		/// Value of GL_FRAGMENT_SHADER_BIT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_1")]
-		[RequiredByFeature("GL_ES_VERSION_3_1")]
 		[RequiredByFeature("GL_ARB_separate_shader_objects")]
 		public const uint FRAGMENT_SHADER_BIT = 0x00000002;
 
@@ -227,7 +204,6 @@ namespace OpenGL
 		/// Value of GL_ALL_SHADER_BITS symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_1")]
-		[RequiredByFeature("GL_ES_VERSION_3_1")]
 		[RequiredByFeature("GL_ARB_separate_shader_objects")]
 		public const uint ALL_SHADER_BITS = 0xFFFFFFFF;
 
@@ -235,7 +211,6 @@ namespace OpenGL
 		/// Value of GL_PROGRAM_SEPARABLE symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_1")]
-		[RequiredByFeature("GL_ES_VERSION_3_1")]
 		[RequiredByFeature("GL_ARB_separate_shader_objects")]
 		public const int PROGRAM_SEPARABLE = 0x8258;
 
@@ -243,7 +218,6 @@ namespace OpenGL
 		/// Value of GL_ACTIVE_PROGRAM symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_1")]
-		[RequiredByFeature("GL_ES_VERSION_3_1")]
 		[RequiredByFeature("GL_ARB_separate_shader_objects")]
 		public const int ACTIVE_PROGRAM = 0x8259;
 
@@ -251,7 +225,6 @@ namespace OpenGL
 		/// Value of GL_PROGRAM_PIPELINE_BINDING symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_1")]
-		[RequiredByFeature("GL_ES_VERSION_3_1")]
 		[RequiredByFeature("GL_ARB_separate_shader_objects")]
 		public const int PROGRAM_PIPELINE_BINDING = 0x825A;
 
@@ -307,6 +280,8 @@ namespace OpenGL
 		/// </remarks>
 		/// <seealso cref="Gl.CompileShader"/>
 		/// <seealso cref="Gl.LinkProgram"/>
+		[RequiredByFeature("GL_VERSION_4_1")]
+		[RequiredByFeature("GL_ARB_ES2_compatibility")]
 		public static void ReleaseShaderCompiler()
 		{
 			Debug.Assert(Delegates.pglReleaseShaderCompiler != null, "pglReleaseShaderCompiler not implemented");
@@ -358,6 +333,8 @@ namespace OpenGL
 		/// <seealso cref="Gl.GetProgram"/>
 		/// <seealso cref="Gl.GetProgramBinary"/>
 		/// <seealso cref="Gl.ProgramBinary"/>
+		[RequiredByFeature("GL_VERSION_4_1")]
+		[RequiredByFeature("GL_ARB_ES2_compatibility")]
 		public static void ShaderBinary(Int32 count, UInt32[] shaders, int binaryformat, IntPtr binary, Int32 length)
 		{
 			unsafe {
@@ -414,6 +391,8 @@ namespace OpenGL
 		/// <seealso cref="Gl.GetProgram"/>
 		/// <seealso cref="Gl.GetProgramBinary"/>
 		/// <seealso cref="Gl.ProgramBinary"/>
+		[RequiredByFeature("GL_VERSION_4_1")]
+		[RequiredByFeature("GL_ARB_ES2_compatibility")]
 		public static void ShaderBinary(Int32 count, UInt32[] shaders, int binaryformat, Object binary, Int32 length)
 		{
 			GCHandle pin_binary = GCHandle.Alloc(binary, GCHandleType.Pinned);
@@ -456,6 +435,8 @@ namespace OpenGL
 		/// - GL_INVALID_ENUM is generated if shaderType or precisionType is not an accepted value.
 		/// </para>
 		/// </remarks>
+		[RequiredByFeature("GL_VERSION_4_1")]
+		[RequiredByFeature("GL_ARB_ES2_compatibility")]
 		public static void GetShaderPrecisionFormat(int shadertype, int precisiontype, Int32[] range, Int32[] precision)
 		{
 			unsafe {
@@ -496,6 +477,8 @@ namespace OpenGL
 		/// <seealso cref="Gl.PolygonOffset"/>
 		/// <seealso cref="Gl.Viewport"/>
 		/// <seealso cref="Gl.removedTypes"/>
+		[RequiredByFeature("GL_VERSION_4_1")]
+		[RequiredByFeature("GL_ARB_ES2_compatibility")]
 		public static void DepthRange(float n, float f)
 		{
 			if        (Delegates.pglDepthRangef != null) {
@@ -525,6 +508,8 @@ namespace OpenGL
 		/// </remarks>
 		/// <seealso cref="Gl.Clear"/>
 		/// <seealso cref="Gl.removedTypes"/>
+		[RequiredByFeature("GL_VERSION_4_1")]
+		[RequiredByFeature("GL_ARB_ES2_compatibility")]
 		public static void ClearDepth(float d)
 		{
 			if        (Delegates.pglClearDepthf != null) {
@@ -578,6 +563,8 @@ namespace OpenGL
 		/// </remarks>
 		/// <seealso cref="Gl.GetProgram"/>
 		/// <seealso cref="Gl.ProgramBinary"/>
+		[RequiredByFeature("GL_VERSION_4_1")]
+		[RequiredByFeature("GL_ARB_get_program_binary")]
 		public static void GetProgramBinary(UInt32 program, Int32 bufSize, out Int32 length, out int binaryFormat, IntPtr binary)
 		{
 			unsafe {
@@ -638,6 +625,8 @@ namespace OpenGL
 		/// </remarks>
 		/// <seealso cref="Gl.GetProgram"/>
 		/// <seealso cref="Gl.GetProgramBinary"/>
+		[RequiredByFeature("GL_VERSION_4_1")]
+		[RequiredByFeature("GL_ARB_get_program_binary")]
 		public static void ProgramBinary(UInt32 program, int binaryFormat, IntPtr binary, Int32 length)
 		{
 			if        (Delegates.pglProgramBinary != null) {
@@ -692,6 +681,8 @@ namespace OpenGL
 		/// </remarks>
 		/// <seealso cref="Gl.GetProgram"/>
 		/// <seealso cref="Gl.GetProgramBinary"/>
+		[RequiredByFeature("GL_VERSION_4_1")]
+		[RequiredByFeature("GL_ARB_get_program_binary")]
 		public static void ProgramBinary(UInt32 program, int binaryFormat, Object binary, Int32 length)
 		{
 			GCHandle pin_binary = GCHandle.Alloc(binary, GCHandleType.Pinned);
@@ -739,6 +730,8 @@ namespace OpenGL
 		/// <seealso cref="Gl.GetProgram"/>
 		/// <seealso cref="Gl.GetProgramBinary"/>
 		/// <seealso cref="Gl.ProgramBinary"/>
+		[RequiredByFeature("GL_VERSION_4_1")]
+		[RequiredByFeature("GL_ARB_get_program_binary")]
 		public static void ProgramParameter(UInt32 program, int pname, Int32 value)
 		{
 			if        (Delegates.pglProgramParameteri != null) {
@@ -794,6 +787,8 @@ namespace OpenGL
 		/// <seealso cref="Gl.GenProgramPipelines"/>
 		/// <seealso cref="Gl.DeleteProgramPipelines"/>
 		/// <seealso cref="Gl.IsProgramPipeline"/>
+		[RequiredByFeature("GL_VERSION_4_1")]
+		[RequiredByFeature("GL_ARB_separate_shader_objects")]
 		public static void UseProgramStage(UInt32 pipeline, uint stages, UInt32 program)
 		{
 			Debug.Assert(Delegates.pglUseProgramStages != null, "pglUseProgramStages not implemented");
@@ -827,6 +822,8 @@ namespace OpenGL
 		/// <seealso cref="Gl.IsProgramPipeline"/>
 		/// <seealso cref="Gl.UseProgram"/>
 		/// <seealso cref="Gl.Uniform"/>
+		[RequiredByFeature("GL_VERSION_4_1")]
+		[RequiredByFeature("GL_ARB_separate_shader_objects")]
 		public static void ActiveShaderProgram(UInt32 pipeline, UInt32 program)
 		{
 			Debug.Assert(Delegates.pglActiveShaderProgram != null, "pglActiveShaderProgram not implemented");
@@ -864,6 +861,8 @@ namespace OpenGL
 		/// <seealso cref="Gl.CreateProgram"/>
 		/// <seealso cref="Gl.CompileShader"/>
 		/// <seealso cref="Gl.LinkProgram"/>
+		[RequiredByFeature("GL_VERSION_4_1")]
+		[RequiredByFeature("GL_ARB_separate_shader_objects")]
 		public static UInt32 CreateShaderProgram(int type, Int32 count, String[] strings)
 		{
 			UInt32 retValue;
@@ -906,6 +905,8 @@ namespace OpenGL
 		/// <seealso cref="Gl.GenProgramPipelines"/>
 		/// <seealso cref="Gl.DeleteProgramPipelines"/>
 		/// <seealso cref="Gl.IsProgramPipeline"/>
+		[RequiredByFeature("GL_VERSION_4_1")]
+		[RequiredByFeature("GL_ARB_separate_shader_objects")]
 		public static void BindProgramPipeline(UInt32 pipeline)
 		{
 			Debug.Assert(Delegates.pglBindProgramPipeline != null, "pglBindProgramPipeline not implemented");
@@ -938,6 +939,8 @@ namespace OpenGL
 		/// <seealso cref="Gl.IsProgramPipeline"/>
 		/// <seealso cref="Gl.UseShaderPrograms"/>
 		/// <seealso cref="Gl.UseProgram"/>
+		[RequiredByFeature("GL_VERSION_4_1")]
+		[RequiredByFeature("GL_ARB_separate_shader_objects")]
 		public static void DeleteProgramPipelines(Int32 n, UInt32[] pipelines)
 		{
 			unsafe {
@@ -975,6 +978,8 @@ namespace OpenGL
 		/// <seealso cref="Gl.IsProgramPipeline"/>
 		/// <seealso cref="Gl.UseShaderPrograms"/>
 		/// <seealso cref="Gl.UseProgram"/>
+		[RequiredByFeature("GL_VERSION_4_1")]
+		[RequiredByFeature("GL_ARB_separate_shader_objects")]
 		public static void GenProgramPipelines(Int32 n, UInt32[] pipelines)
 		{
 			unsafe {
@@ -1003,6 +1008,8 @@ namespace OpenGL
 		/// <seealso cref="Gl.GenProgramPipelines"/>
 		/// <seealso cref="Gl.BindProgramPipeline"/>
 		/// <seealso cref="Gl.DeleteProgramPipeline"/>
+		[RequiredByFeature("GL_VERSION_4_1")]
+		[RequiredByFeature("GL_ARB_separate_shader_objects")]
 		public static bool IsProgramPipeline(UInt32 pipeline)
 		{
 			bool retValue;
@@ -1055,6 +1062,8 @@ namespace OpenGL
 		/// <seealso cref="Gl.GetProgramPipelines"/>
 		/// <seealso cref="Gl.BindProgramPipeline"/>
 		/// <seealso cref="Gl.DeleteProgramPipelines"/>
+		[RequiredByFeature("GL_VERSION_4_1")]
+		[RequiredByFeature("GL_ARB_separate_shader_objects")]
 		public static void GetProgramPipeline(UInt32 pipeline, int pname, Int32[] @params)
 		{
 			unsafe {
@@ -1151,6 +1160,8 @@ namespace OpenGL
 		/// </remarks>
 		/// <seealso cref="Gl.LinkProgram"/>
 		/// <seealso cref="Gl.UseProgram"/>
+		[RequiredByFeature("GL_VERSION_4_1")]
+		[RequiredByFeature("GL_ARB_separate_shader_objects")]
 		public static void ProgramUniform1(UInt32 program, Int32 location, Int32 v0)
 		{
 			if        (Delegates.pglProgramUniform1i != null) {
@@ -1252,6 +1263,8 @@ namespace OpenGL
 		/// </remarks>
 		/// <seealso cref="Gl.LinkProgram"/>
 		/// <seealso cref="Gl.UseProgram"/>
+		[RequiredByFeature("GL_VERSION_4_1")]
+		[RequiredByFeature("GL_ARB_separate_shader_objects")]
 		public static void ProgramUniform1(UInt32 program, Int32 location, Int32 count, Int32[] value)
 		{
 			unsafe {
@@ -1353,6 +1366,8 @@ namespace OpenGL
 		/// </remarks>
 		/// <seealso cref="Gl.LinkProgram"/>
 		/// <seealso cref="Gl.UseProgram"/>
+		[RequiredByFeature("GL_VERSION_4_1")]
+		[RequiredByFeature("GL_ARB_separate_shader_objects")]
 		public static void ProgramUniform1(UInt32 program, Int32 location, float v0)
 		{
 			if        (Delegates.pglProgramUniform1f != null) {
@@ -1454,6 +1469,8 @@ namespace OpenGL
 		/// </remarks>
 		/// <seealso cref="Gl.LinkProgram"/>
 		/// <seealso cref="Gl.UseProgram"/>
+		[RequiredByFeature("GL_VERSION_4_1")]
+		[RequiredByFeature("GL_ARB_separate_shader_objects")]
 		public static void ProgramUniform1(UInt32 program, Int32 location, Int32 count, float[] value)
 		{
 			unsafe {
@@ -1484,6 +1501,8 @@ namespace OpenGL
 		/// <param name="v0">
 		/// A <see cref="T:double"/>.
 		/// </param>
+		[RequiredByFeature("GL_VERSION_4_1")]
+		[RequiredByFeature("GL_ARB_separate_shader_objects")]
 		public static void ProgramUniform1(UInt32 program, Int32 location, double v0)
 		{
 			Debug.Assert(Delegates.pglProgramUniform1d != null, "pglProgramUniform1d not implemented");
@@ -1507,6 +1526,8 @@ namespace OpenGL
 		/// <param name="value">
 		/// A <see cref="T:double[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_VERSION_4_1")]
+		[RequiredByFeature("GL_ARB_separate_shader_objects")]
 		public static void ProgramUniform1(UInt32 program, Int32 location, Int32 count, double[] value)
 		{
 			unsafe {
@@ -1603,6 +1624,8 @@ namespace OpenGL
 		/// </remarks>
 		/// <seealso cref="Gl.LinkProgram"/>
 		/// <seealso cref="Gl.UseProgram"/>
+		[RequiredByFeature("GL_VERSION_4_1")]
+		[RequiredByFeature("GL_ARB_separate_shader_objects")]
 		public static void ProgramUniform1(UInt32 program, Int32 location, UInt32 v0)
 		{
 			if        (Delegates.pglProgramUniform1ui != null) {
@@ -1704,6 +1727,8 @@ namespace OpenGL
 		/// </remarks>
 		/// <seealso cref="Gl.LinkProgram"/>
 		/// <seealso cref="Gl.UseProgram"/>
+		[RequiredByFeature("GL_VERSION_4_1")]
+		[RequiredByFeature("GL_ARB_separate_shader_objects")]
 		public static void ProgramUniform1(UInt32 program, Int32 location, Int32 count, UInt32[] value)
 		{
 			unsafe {
@@ -1808,6 +1833,8 @@ namespace OpenGL
 		/// </remarks>
 		/// <seealso cref="Gl.LinkProgram"/>
 		/// <seealso cref="Gl.UseProgram"/>
+		[RequiredByFeature("GL_VERSION_4_1")]
+		[RequiredByFeature("GL_ARB_separate_shader_objects")]
 		public static void ProgramUniform2(UInt32 program, Int32 location, Int32 v0, Int32 v1)
 		{
 			if        (Delegates.pglProgramUniform2i != null) {
@@ -1909,6 +1936,8 @@ namespace OpenGL
 		/// </remarks>
 		/// <seealso cref="Gl.LinkProgram"/>
 		/// <seealso cref="Gl.UseProgram"/>
+		[RequiredByFeature("GL_VERSION_4_1")]
+		[RequiredByFeature("GL_ARB_separate_shader_objects")]
 		public static void ProgramUniform2(UInt32 program, Int32 location, Int32 count, Int32[] value)
 		{
 			unsafe {
@@ -2013,6 +2042,8 @@ namespace OpenGL
 		/// </remarks>
 		/// <seealso cref="Gl.LinkProgram"/>
 		/// <seealso cref="Gl.UseProgram"/>
+		[RequiredByFeature("GL_VERSION_4_1")]
+		[RequiredByFeature("GL_ARB_separate_shader_objects")]
 		public static void ProgramUniform2(UInt32 program, Int32 location, float v0, float v1)
 		{
 			if        (Delegates.pglProgramUniform2f != null) {
@@ -2114,6 +2145,8 @@ namespace OpenGL
 		/// </remarks>
 		/// <seealso cref="Gl.LinkProgram"/>
 		/// <seealso cref="Gl.UseProgram"/>
+		[RequiredByFeature("GL_VERSION_4_1")]
+		[RequiredByFeature("GL_ARB_separate_shader_objects")]
 		public static void ProgramUniform2(UInt32 program, Int32 location, Int32 count, float[] value)
 		{
 			unsafe {
@@ -2147,6 +2180,8 @@ namespace OpenGL
 		/// <param name="v1">
 		/// A <see cref="T:double"/>.
 		/// </param>
+		[RequiredByFeature("GL_VERSION_4_1")]
+		[RequiredByFeature("GL_ARB_separate_shader_objects")]
 		public static void ProgramUniform2(UInt32 program, Int32 location, double v0, double v1)
 		{
 			Debug.Assert(Delegates.pglProgramUniform2d != null, "pglProgramUniform2d not implemented");
@@ -2170,6 +2205,8 @@ namespace OpenGL
 		/// <param name="value">
 		/// A <see cref="T:double[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_VERSION_4_1")]
+		[RequiredByFeature("GL_ARB_separate_shader_objects")]
 		public static void ProgramUniform2(UInt32 program, Int32 location, Int32 count, double[] value)
 		{
 			unsafe {
@@ -2269,6 +2306,8 @@ namespace OpenGL
 		/// </remarks>
 		/// <seealso cref="Gl.LinkProgram"/>
 		/// <seealso cref="Gl.UseProgram"/>
+		[RequiredByFeature("GL_VERSION_4_1")]
+		[RequiredByFeature("GL_ARB_separate_shader_objects")]
 		public static void ProgramUniform2(UInt32 program, Int32 location, UInt32 v0, UInt32 v1)
 		{
 			if        (Delegates.pglProgramUniform2ui != null) {
@@ -2370,6 +2409,8 @@ namespace OpenGL
 		/// </remarks>
 		/// <seealso cref="Gl.LinkProgram"/>
 		/// <seealso cref="Gl.UseProgram"/>
+		[RequiredByFeature("GL_VERSION_4_1")]
+		[RequiredByFeature("GL_ARB_separate_shader_objects")]
 		public static void ProgramUniform2(UInt32 program, Int32 location, Int32 count, UInt32[] value)
 		{
 			unsafe {
@@ -2477,6 +2518,8 @@ namespace OpenGL
 		/// </remarks>
 		/// <seealso cref="Gl.LinkProgram"/>
 		/// <seealso cref="Gl.UseProgram"/>
+		[RequiredByFeature("GL_VERSION_4_1")]
+		[RequiredByFeature("GL_ARB_separate_shader_objects")]
 		public static void ProgramUniform3(UInt32 program, Int32 location, Int32 v0, Int32 v1, Int32 v2)
 		{
 			if        (Delegates.pglProgramUniform3i != null) {
@@ -2578,6 +2621,8 @@ namespace OpenGL
 		/// </remarks>
 		/// <seealso cref="Gl.LinkProgram"/>
 		/// <seealso cref="Gl.UseProgram"/>
+		[RequiredByFeature("GL_VERSION_4_1")]
+		[RequiredByFeature("GL_ARB_separate_shader_objects")]
 		public static void ProgramUniform3(UInt32 program, Int32 location, Int32 count, Int32[] value)
 		{
 			unsafe {
@@ -2685,6 +2730,8 @@ namespace OpenGL
 		/// </remarks>
 		/// <seealso cref="Gl.LinkProgram"/>
 		/// <seealso cref="Gl.UseProgram"/>
+		[RequiredByFeature("GL_VERSION_4_1")]
+		[RequiredByFeature("GL_ARB_separate_shader_objects")]
 		public static void ProgramUniform3(UInt32 program, Int32 location, float v0, float v1, float v2)
 		{
 			if        (Delegates.pglProgramUniform3f != null) {
@@ -2786,6 +2833,8 @@ namespace OpenGL
 		/// </remarks>
 		/// <seealso cref="Gl.LinkProgram"/>
 		/// <seealso cref="Gl.UseProgram"/>
+		[RequiredByFeature("GL_VERSION_4_1")]
+		[RequiredByFeature("GL_ARB_separate_shader_objects")]
 		public static void ProgramUniform3(UInt32 program, Int32 location, Int32 count, float[] value)
 		{
 			unsafe {
@@ -2822,6 +2871,8 @@ namespace OpenGL
 		/// <param name="v2">
 		/// A <see cref="T:double"/>.
 		/// </param>
+		[RequiredByFeature("GL_VERSION_4_1")]
+		[RequiredByFeature("GL_ARB_separate_shader_objects")]
 		public static void ProgramUniform3(UInt32 program, Int32 location, double v0, double v1, double v2)
 		{
 			Debug.Assert(Delegates.pglProgramUniform3d != null, "pglProgramUniform3d not implemented");
@@ -2845,6 +2896,8 @@ namespace OpenGL
 		/// <param name="value">
 		/// A <see cref="T:double[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_VERSION_4_1")]
+		[RequiredByFeature("GL_ARB_separate_shader_objects")]
 		public static void ProgramUniform3(UInt32 program, Int32 location, Int32 count, double[] value)
 		{
 			unsafe {
@@ -2947,6 +3000,8 @@ namespace OpenGL
 		/// </remarks>
 		/// <seealso cref="Gl.LinkProgram"/>
 		/// <seealso cref="Gl.UseProgram"/>
+		[RequiredByFeature("GL_VERSION_4_1")]
+		[RequiredByFeature("GL_ARB_separate_shader_objects")]
 		public static void ProgramUniform3(UInt32 program, Int32 location, UInt32 v0, UInt32 v1, UInt32 v2)
 		{
 			if        (Delegates.pglProgramUniform3ui != null) {
@@ -3048,6 +3103,8 @@ namespace OpenGL
 		/// </remarks>
 		/// <seealso cref="Gl.LinkProgram"/>
 		/// <seealso cref="Gl.UseProgram"/>
+		[RequiredByFeature("GL_VERSION_4_1")]
+		[RequiredByFeature("GL_ARB_separate_shader_objects")]
 		public static void ProgramUniform3(UInt32 program, Int32 location, Int32 count, UInt32[] value)
 		{
 			unsafe {
@@ -3158,6 +3215,8 @@ namespace OpenGL
 		/// </remarks>
 		/// <seealso cref="Gl.LinkProgram"/>
 		/// <seealso cref="Gl.UseProgram"/>
+		[RequiredByFeature("GL_VERSION_4_1")]
+		[RequiredByFeature("GL_ARB_separate_shader_objects")]
 		public static void ProgramUniform4(UInt32 program, Int32 location, Int32 v0, Int32 v1, Int32 v2, Int32 v3)
 		{
 			if        (Delegates.pglProgramUniform4i != null) {
@@ -3259,6 +3318,8 @@ namespace OpenGL
 		/// </remarks>
 		/// <seealso cref="Gl.LinkProgram"/>
 		/// <seealso cref="Gl.UseProgram"/>
+		[RequiredByFeature("GL_VERSION_4_1")]
+		[RequiredByFeature("GL_ARB_separate_shader_objects")]
 		public static void ProgramUniform4(UInt32 program, Int32 location, Int32 count, Int32[] value)
 		{
 			unsafe {
@@ -3369,6 +3430,8 @@ namespace OpenGL
 		/// </remarks>
 		/// <seealso cref="Gl.LinkProgram"/>
 		/// <seealso cref="Gl.UseProgram"/>
+		[RequiredByFeature("GL_VERSION_4_1")]
+		[RequiredByFeature("GL_ARB_separate_shader_objects")]
 		public static void ProgramUniform4(UInt32 program, Int32 location, float v0, float v1, float v2, float v3)
 		{
 			if        (Delegates.pglProgramUniform4f != null) {
@@ -3470,6 +3533,8 @@ namespace OpenGL
 		/// </remarks>
 		/// <seealso cref="Gl.LinkProgram"/>
 		/// <seealso cref="Gl.UseProgram"/>
+		[RequiredByFeature("GL_VERSION_4_1")]
+		[RequiredByFeature("GL_ARB_separate_shader_objects")]
 		public static void ProgramUniform4(UInt32 program, Int32 location, Int32 count, float[] value)
 		{
 			unsafe {
@@ -3509,6 +3574,8 @@ namespace OpenGL
 		/// <param name="v3">
 		/// A <see cref="T:double"/>.
 		/// </param>
+		[RequiredByFeature("GL_VERSION_4_1")]
+		[RequiredByFeature("GL_ARB_separate_shader_objects")]
 		public static void ProgramUniform4(UInt32 program, Int32 location, double v0, double v1, double v2, double v3)
 		{
 			Debug.Assert(Delegates.pglProgramUniform4d != null, "pglProgramUniform4d not implemented");
@@ -3532,6 +3599,8 @@ namespace OpenGL
 		/// <param name="value">
 		/// A <see cref="T:double[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_VERSION_4_1")]
+		[RequiredByFeature("GL_ARB_separate_shader_objects")]
 		public static void ProgramUniform4(UInt32 program, Int32 location, Int32 count, double[] value)
 		{
 			unsafe {
@@ -3637,6 +3706,8 @@ namespace OpenGL
 		/// </remarks>
 		/// <seealso cref="Gl.LinkProgram"/>
 		/// <seealso cref="Gl.UseProgram"/>
+		[RequiredByFeature("GL_VERSION_4_1")]
+		[RequiredByFeature("GL_ARB_separate_shader_objects")]
 		public static void ProgramUniform4(UInt32 program, Int32 location, UInt32 v0, UInt32 v1, UInt32 v2, UInt32 v3)
 		{
 			if        (Delegates.pglProgramUniform4ui != null) {
@@ -3738,6 +3809,8 @@ namespace OpenGL
 		/// </remarks>
 		/// <seealso cref="Gl.LinkProgram"/>
 		/// <seealso cref="Gl.UseProgram"/>
+		[RequiredByFeature("GL_VERSION_4_1")]
+		[RequiredByFeature("GL_ARB_separate_shader_objects")]
 		public static void ProgramUniform4(UInt32 program, Int32 location, Int32 count, UInt32[] value)
 		{
 			unsafe {
@@ -3847,6 +3920,8 @@ namespace OpenGL
 		/// </remarks>
 		/// <seealso cref="Gl.LinkProgram"/>
 		/// <seealso cref="Gl.UseProgram"/>
+		[RequiredByFeature("GL_VERSION_4_1")]
+		[RequiredByFeature("GL_ARB_separate_shader_objects")]
 		public static void ProgramUniformMatrix2(UInt32 program, Int32 location, Int32 count, bool transpose, float[] value)
 		{
 			unsafe {
@@ -3956,6 +4031,8 @@ namespace OpenGL
 		/// </remarks>
 		/// <seealso cref="Gl.LinkProgram"/>
 		/// <seealso cref="Gl.UseProgram"/>
+		[RequiredByFeature("GL_VERSION_4_1")]
+		[RequiredByFeature("GL_ARB_separate_shader_objects")]
 		public static void ProgramUniformMatrix3(UInt32 program, Int32 location, Int32 count, bool transpose, float[] value)
 		{
 			unsafe {
@@ -4065,6 +4142,8 @@ namespace OpenGL
 		/// </remarks>
 		/// <seealso cref="Gl.LinkProgram"/>
 		/// <seealso cref="Gl.UseProgram"/>
+		[RequiredByFeature("GL_VERSION_4_1")]
+		[RequiredByFeature("GL_ARB_separate_shader_objects")]
 		public static void ProgramUniformMatrix4(UInt32 program, Int32 location, Int32 count, bool transpose, float[] value)
 		{
 			unsafe {
@@ -4101,6 +4180,8 @@ namespace OpenGL
 		/// <param name="value">
 		/// A <see cref="T:double[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_VERSION_4_1")]
+		[RequiredByFeature("GL_ARB_separate_shader_objects")]
 		public static void ProgramUniformMatrix2(UInt32 program, Int32 location, Int32 count, bool transpose, double[] value)
 		{
 			unsafe {
@@ -4132,6 +4213,8 @@ namespace OpenGL
 		/// <param name="value">
 		/// A <see cref="T:double[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_VERSION_4_1")]
+		[RequiredByFeature("GL_ARB_separate_shader_objects")]
 		public static void ProgramUniformMatrix3(UInt32 program, Int32 location, Int32 count, bool transpose, double[] value)
 		{
 			unsafe {
@@ -4163,6 +4246,8 @@ namespace OpenGL
 		/// <param name="value">
 		/// A <see cref="T:double[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_VERSION_4_1")]
+		[RequiredByFeature("GL_ARB_separate_shader_objects")]
 		public static void ProgramUniformMatrix4(UInt32 program, Int32 location, Int32 count, bool transpose, double[] value)
 		{
 			unsafe {
@@ -4267,6 +4352,8 @@ namespace OpenGL
 		/// </remarks>
 		/// <seealso cref="Gl.LinkProgram"/>
 		/// <seealso cref="Gl.UseProgram"/>
+		[RequiredByFeature("GL_VERSION_4_1")]
+		[RequiredByFeature("GL_ARB_separate_shader_objects")]
 		public static void ProgramUniformMatrix2x3(UInt32 program, Int32 location, Int32 count, bool transpose, float[] value)
 		{
 			unsafe {
@@ -4376,6 +4463,8 @@ namespace OpenGL
 		/// </remarks>
 		/// <seealso cref="Gl.LinkProgram"/>
 		/// <seealso cref="Gl.UseProgram"/>
+		[RequiredByFeature("GL_VERSION_4_1")]
+		[RequiredByFeature("GL_ARB_separate_shader_objects")]
 		public static void ProgramUniformMatrix3x2(UInt32 program, Int32 location, Int32 count, bool transpose, float[] value)
 		{
 			unsafe {
@@ -4485,6 +4574,8 @@ namespace OpenGL
 		/// </remarks>
 		/// <seealso cref="Gl.LinkProgram"/>
 		/// <seealso cref="Gl.UseProgram"/>
+		[RequiredByFeature("GL_VERSION_4_1")]
+		[RequiredByFeature("GL_ARB_separate_shader_objects")]
 		public static void ProgramUniformMatrix2x4(UInt32 program, Int32 location, Int32 count, bool transpose, float[] value)
 		{
 			unsafe {
@@ -4594,6 +4685,8 @@ namespace OpenGL
 		/// </remarks>
 		/// <seealso cref="Gl.LinkProgram"/>
 		/// <seealso cref="Gl.UseProgram"/>
+		[RequiredByFeature("GL_VERSION_4_1")]
+		[RequiredByFeature("GL_ARB_separate_shader_objects")]
 		public static void ProgramUniformMatrix4x2(UInt32 program, Int32 location, Int32 count, bool transpose, float[] value)
 		{
 			unsafe {
@@ -4703,6 +4796,8 @@ namespace OpenGL
 		/// </remarks>
 		/// <seealso cref="Gl.LinkProgram"/>
 		/// <seealso cref="Gl.UseProgram"/>
+		[RequiredByFeature("GL_VERSION_4_1")]
+		[RequiredByFeature("GL_ARB_separate_shader_objects")]
 		public static void ProgramUniformMatrix3x4(UInt32 program, Int32 location, Int32 count, bool transpose, float[] value)
 		{
 			unsafe {
@@ -4812,6 +4907,8 @@ namespace OpenGL
 		/// </remarks>
 		/// <seealso cref="Gl.LinkProgram"/>
 		/// <seealso cref="Gl.UseProgram"/>
+		[RequiredByFeature("GL_VERSION_4_1")]
+		[RequiredByFeature("GL_ARB_separate_shader_objects")]
 		public static void ProgramUniformMatrix4x3(UInt32 program, Int32 location, Int32 count, bool transpose, float[] value)
 		{
 			unsafe {
@@ -4848,6 +4945,8 @@ namespace OpenGL
 		/// <param name="value">
 		/// A <see cref="T:double[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_VERSION_4_1")]
+		[RequiredByFeature("GL_ARB_separate_shader_objects")]
 		public static void ProgramUniformMatrix2x3(UInt32 program, Int32 location, Int32 count, bool transpose, double[] value)
 		{
 			unsafe {
@@ -4879,6 +4978,8 @@ namespace OpenGL
 		/// <param name="value">
 		/// A <see cref="T:double[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_VERSION_4_1")]
+		[RequiredByFeature("GL_ARB_separate_shader_objects")]
 		public static void ProgramUniformMatrix3x2(UInt32 program, Int32 location, Int32 count, bool transpose, double[] value)
 		{
 			unsafe {
@@ -4910,6 +5011,8 @@ namespace OpenGL
 		/// <param name="value">
 		/// A <see cref="T:double[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_VERSION_4_1")]
+		[RequiredByFeature("GL_ARB_separate_shader_objects")]
 		public static void ProgramUniformMatrix2x4(UInt32 program, Int32 location, Int32 count, bool transpose, double[] value)
 		{
 			unsafe {
@@ -4941,6 +5044,8 @@ namespace OpenGL
 		/// <param name="value">
 		/// A <see cref="T:double[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_VERSION_4_1")]
+		[RequiredByFeature("GL_ARB_separate_shader_objects")]
 		public static void ProgramUniformMatrix4x2(UInt32 program, Int32 location, Int32 count, bool transpose, double[] value)
 		{
 			unsafe {
@@ -4972,6 +5077,8 @@ namespace OpenGL
 		/// <param name="value">
 		/// A <see cref="T:double[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_VERSION_4_1")]
+		[RequiredByFeature("GL_ARB_separate_shader_objects")]
 		public static void ProgramUniformMatrix3x4(UInt32 program, Int32 location, Int32 count, bool transpose, double[] value)
 		{
 			unsafe {
@@ -5003,6 +5110,8 @@ namespace OpenGL
 		/// <param name="value">
 		/// A <see cref="T:double[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_VERSION_4_1")]
+		[RequiredByFeature("GL_ARB_separate_shader_objects")]
 		public static void ProgramUniformMatrix4x3(UInt32 program, Int32 location, Int32 count, bool transpose, double[] value)
 		{
 			unsafe {
@@ -5043,6 +5152,8 @@ namespace OpenGL
 		/// <seealso cref="Gl.GenProgramPipelines"/>
 		/// <seealso cref="Gl.BindProgramPipeline"/>
 		/// <seealso cref="Gl.DeleteProgramPipelines"/>
+		[RequiredByFeature("GL_VERSION_4_1")]
+		[RequiredByFeature("GL_ARB_separate_shader_objects")]
 		public static void ValidateProgramPipeline(UInt32 pipeline)
 		{
 			Debug.Assert(Delegates.pglValidateProgramPipeline != null, "pglValidateProgramPipeline not implemented");
@@ -5087,6 +5198,8 @@ namespace OpenGL
 		/// <seealso cref="Gl.BindProgramPipeline"/>
 		/// <seealso cref="Gl.DeleteProgramPipelines"/>
 		/// <seealso cref="Gl.GetProgramPipeline"/>
+		[RequiredByFeature("GL_VERSION_4_1")]
+		[RequiredByFeature("GL_ARB_separate_shader_objects")]
 		public static void GetProgramPipelineInfoLog(UInt32 pipeline, Int32 bufSize, out Int32 length, [Out] StringBuilder infoLog)
 		{
 			unsafe {
@@ -5166,6 +5279,8 @@ namespace OpenGL
 		/// </remarks>
 		/// <seealso cref="Gl.BindAttribLocation"/>
 		/// <seealso cref="Gl.VertexAttribPointer"/>
+		[RequiredByFeature("GL_VERSION_4_1")]
+		[RequiredByFeature("GL_ARB_vertex_attrib_64bit")]
 		public static void VertexAttribL1(UInt32 index, double x)
 		{
 			if        (Delegates.pglVertexAttribL1d != null) {
@@ -5248,6 +5363,8 @@ namespace OpenGL
 		/// </remarks>
 		/// <seealso cref="Gl.BindAttribLocation"/>
 		/// <seealso cref="Gl.VertexAttribPointer"/>
+		[RequiredByFeature("GL_VERSION_4_1")]
+		[RequiredByFeature("GL_ARB_vertex_attrib_64bit")]
 		public static void VertexAttribL2(UInt32 index, double x, double y)
 		{
 			if        (Delegates.pglVertexAttribL2d != null) {
@@ -5333,6 +5450,8 @@ namespace OpenGL
 		/// </remarks>
 		/// <seealso cref="Gl.BindAttribLocation"/>
 		/// <seealso cref="Gl.VertexAttribPointer"/>
+		[RequiredByFeature("GL_VERSION_4_1")]
+		[RequiredByFeature("GL_ARB_vertex_attrib_64bit")]
 		public static void VertexAttribL3(UInt32 index, double x, double y, double z)
 		{
 			if        (Delegates.pglVertexAttribL3d != null) {
@@ -5421,6 +5540,8 @@ namespace OpenGL
 		/// </remarks>
 		/// <seealso cref="Gl.BindAttribLocation"/>
 		/// <seealso cref="Gl.VertexAttribPointer"/>
+		[RequiredByFeature("GL_VERSION_4_1")]
+		[RequiredByFeature("GL_ARB_vertex_attrib_64bit")]
 		public static void VertexAttribL4(UInt32 index, double x, double y, double z, double w)
 		{
 			if        (Delegates.pglVertexAttribL4d != null) {
@@ -5501,6 +5622,8 @@ namespace OpenGL
 		/// </remarks>
 		/// <seealso cref="Gl.BindAttribLocation"/>
 		/// <seealso cref="Gl.VertexAttribPointer"/>
+		[RequiredByFeature("GL_VERSION_4_1")]
+		[RequiredByFeature("GL_ARB_vertex_attrib_64bit")]
 		public static void VertexAttribL1(UInt32 index, double[] v)
 		{
 			unsafe {
@@ -5586,6 +5709,8 @@ namespace OpenGL
 		/// </remarks>
 		/// <seealso cref="Gl.BindAttribLocation"/>
 		/// <seealso cref="Gl.VertexAttribPointer"/>
+		[RequiredByFeature("GL_VERSION_4_1")]
+		[RequiredByFeature("GL_ARB_vertex_attrib_64bit")]
 		public static void VertexAttribL2(UInt32 index, double[] v)
 		{
 			unsafe {
@@ -5671,6 +5796,8 @@ namespace OpenGL
 		/// </remarks>
 		/// <seealso cref="Gl.BindAttribLocation"/>
 		/// <seealso cref="Gl.VertexAttribPointer"/>
+		[RequiredByFeature("GL_VERSION_4_1")]
+		[RequiredByFeature("GL_ARB_vertex_attrib_64bit")]
 		public static void VertexAttribL3(UInt32 index, double[] v)
 		{
 			unsafe {
@@ -5756,6 +5883,8 @@ namespace OpenGL
 		/// </remarks>
 		/// <seealso cref="Gl.BindAttribLocation"/>
 		/// <seealso cref="Gl.VertexAttribPointer"/>
+		[RequiredByFeature("GL_VERSION_4_1")]
+		[RequiredByFeature("GL_ARB_vertex_attrib_64bit")]
 		public static void VertexAttribL4(UInt32 index, double[] v)
 		{
 			unsafe {
@@ -5861,6 +5990,8 @@ namespace OpenGL
 		/// <seealso cref="Gl.MultiDrawArrays"/>
 		/// <seealso cref="Gl.MultiDrawElements"/>
 		/// <seealso cref="Gl.VertexAttrib"/>
+		[RequiredByFeature("GL_VERSION_4_1")]
+		[RequiredByFeature("GL_ARB_vertex_attrib_64bit")]
 		public static void VertexAttribLPointer(UInt32 index, Int32 size, int type, Int32 stride, IntPtr pointer)
 		{
 			if        (Delegates.pglVertexAttribLPointer != null) {
@@ -5961,6 +6092,8 @@ namespace OpenGL
 		/// <seealso cref="Gl.MultiDrawArrays"/>
 		/// <seealso cref="Gl.MultiDrawElements"/>
 		/// <seealso cref="Gl.VertexAttrib"/>
+		[RequiredByFeature("GL_VERSION_4_1")]
+		[RequiredByFeature("GL_ARB_vertex_attrib_64bit")]
 		public static void VertexAttribLPointer(UInt32 index, Int32 size, int type, Int32 stride, Object pointer)
 		{
 			GCHandle pin_pointer = GCHandle.Alloc(pointer, GCHandleType.Pinned);
@@ -6012,6 +6145,8 @@ namespace OpenGL
 		/// <seealso cref="Gl.VertexAttrib"/>
 		/// <seealso cref="Gl.VertexAttribDivisor"/>
 		/// <seealso cref="Gl.VertexAttribPointer"/>
+		[RequiredByFeature("GL_VERSION_4_1")]
+		[RequiredByFeature("GL_ARB_vertex_attrib_64bit")]
 		public static void GetVertexAttribL(UInt32 index, int pname, double[] @params)
 		{
 			unsafe {
@@ -6042,6 +6177,8 @@ namespace OpenGL
 		/// <param name="v">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_VERSION_4_1")]
+		[RequiredByFeature("GL_ARB_viewport_array")]
 		public static void ViewportArray(UInt32 first, Int32 count, float[] v)
 		{
 			unsafe {
@@ -6078,6 +6215,8 @@ namespace OpenGL
 		/// <param name="h">
 		/// A <see cref="T:float"/>.
 		/// </param>
+		[RequiredByFeature("GL_VERSION_4_1")]
+		[RequiredByFeature("GL_ARB_viewport_array")]
 		public static void ViewportIndexed(UInt32 index, float x, float y, float w, float h)
 		{
 			if        (Delegates.pglViewportIndexedf != null) {
@@ -6100,6 +6239,8 @@ namespace OpenGL
 		/// <param name="v">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_VERSION_4_1")]
+		[RequiredByFeature("GL_ARB_viewport_array")]
 		public static void ViewportIndexed(UInt32 index, float[] v)
 		{
 			unsafe {
@@ -6158,6 +6299,8 @@ namespace OpenGL
 		/// <seealso cref="Gl.Viewport"/>
 		/// <seealso cref="Gl.ViewportIndexed"/>
 		/// <seealso cref="Gl.ViewportArray"/>
+		[RequiredByFeature("GL_VERSION_4_1")]
+		[RequiredByFeature("GL_ARB_viewport_array")]
 		public static void ScissorArray(UInt32 first, Int32 count, Int32[] v)
 		{
 			unsafe {
@@ -6220,6 +6363,8 @@ namespace OpenGL
 		/// <seealso cref="Gl.Enable"/>
 		/// <seealso cref="Gl.Scissor"/>
 		/// <seealso cref="Gl.ScissorArray"/>
+		[RequiredByFeature("GL_VERSION_4_1")]
+		[RequiredByFeature("GL_ARB_viewport_array")]
 		public static void ScissorIndexed(UInt32 index, Int32 left, Int32 bottom, Int32 width, Int32 height)
 		{
 			if        (Delegates.pglScissorIndexed != null) {
@@ -6269,6 +6414,8 @@ namespace OpenGL
 		/// <seealso cref="Gl.Enable"/>
 		/// <seealso cref="Gl.Scissor"/>
 		/// <seealso cref="Gl.ScissorArray"/>
+		[RequiredByFeature("GL_VERSION_4_1")]
+		[RequiredByFeature("GL_ARB_viewport_array")]
 		public static void ScissorIndexed(UInt32 index, Int32[] v)
 		{
 			unsafe {
@@ -6330,6 +6477,8 @@ namespace OpenGL
 		/// <seealso cref="Gl.ViewportArray"/>
 		/// <seealso cref="Gl.Viewport"/>
 		/// <seealso cref="Gl.removedTypes"/>
+		[RequiredByFeature("GL_VERSION_4_1")]
+		[RequiredByFeature("GL_ARB_viewport_array")]
 		public static void DepthRangeArray(UInt32 first, Int32 count, double[] v)
 		{
 			unsafe {
@@ -6383,6 +6532,8 @@ namespace OpenGL
 		/// <seealso cref="Gl.ViewportArray"/>
 		/// <seealso cref="Gl.Viewport"/>
 		/// <seealso cref="Gl.removedTypes"/>
+		[RequiredByFeature("GL_VERSION_4_1")]
+		[RequiredByFeature("GL_ARB_viewport_array")]
 		public static void DepthRangeIndexed(UInt32 index, double n, double f)
 		{
 			Debug.Assert(Delegates.pglDepthRangeIndexed != null, "pglDepthRangeIndexed not implemented");
@@ -6447,6 +6598,8 @@ namespace OpenGL
 		/// <seealso cref="Gl.GetVertexAttrib"/>
 		/// <seealso cref="Gl.GetVertexAttribPointerv"/>
 		/// <seealso cref="Gl.IsEnabled"/>
+		[RequiredByFeature("GL_VERSION_4_1")]
+		[RequiredByFeature("GL_ARB_viewport_array")]
 		public static void GetFloat(int target, UInt32 index, float[] data)
 		{
 			unsafe {
@@ -6527,6 +6680,8 @@ namespace OpenGL
 		/// <seealso cref="Gl.GetVertexAttrib"/>
 		/// <seealso cref="Gl.GetVertexAttribPointerv"/>
 		/// <seealso cref="Gl.IsEnabled"/>
+		[RequiredByFeature("GL_VERSION_4_1")]
+		[RequiredByFeature("GL_ARB_viewport_array")]
 		public static void GetDouble(int target, UInt32 index, double[] data)
 		{
 			unsafe {

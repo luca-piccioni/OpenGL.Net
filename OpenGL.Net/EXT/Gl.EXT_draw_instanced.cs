@@ -40,6 +40,7 @@ namespace OpenGL
 		/// <param name="primcount">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
+		[RequiredByFeature("GL_EXT_draw_instanced")]
 		public static void DrawArraysInstancedEXT(int mode, Int32 start, Int32 count, Int32 primcount)
 		{
 			Debug.Assert(Delegates.pglDrawArraysInstancedEXT != null, "pglDrawArraysInstancedEXT not implemented");
@@ -63,6 +64,7 @@ namespace OpenGL
 		/// <param name="primcount">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
+		[RequiredByFeature("GL_EXT_draw_instanced")]
 		public static void DrawArraysInstancedEXT(PrimitiveType mode, Int32 start, Int32 count, Int32 primcount)
 		{
 			Debug.Assert(Delegates.pglDrawArraysInstancedEXT != null, "pglDrawArraysInstancedEXT not implemented");
@@ -89,6 +91,7 @@ namespace OpenGL
 		/// <param name="primcount">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
+		[RequiredByFeature("GL_EXT_draw_instanced")]
 		public static void DrawElementsInstancedEXT(int mode, Int32 count, int type, IntPtr indices, Int32 primcount)
 		{
 			Debug.Assert(Delegates.pglDrawElementsInstancedEXT != null, "pglDrawElementsInstancedEXT not implemented");
@@ -115,6 +118,7 @@ namespace OpenGL
 		/// <param name="primcount">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
+		[RequiredByFeature("GL_EXT_draw_instanced")]
 		public static void DrawElementsInstancedEXT(PrimitiveType mode, Int32 count, int type, IntPtr indices, Int32 primcount)
 		{
 			Debug.Assert(Delegates.pglDrawElementsInstancedEXT != null, "pglDrawElementsInstancedEXT not implemented");
@@ -141,6 +145,7 @@ namespace OpenGL
 		/// <param name="primcount">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
+		[RequiredByFeature("GL_EXT_draw_instanced")]
 		public static void DrawElementsInstancedEXT(int mode, Int32 count, int type, Object indices, Int32 primcount)
 		{
 			GCHandle pin_indices = GCHandle.Alloc(indices, GCHandleType.Pinned);

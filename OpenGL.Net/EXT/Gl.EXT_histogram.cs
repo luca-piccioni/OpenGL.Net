@@ -127,6 +127,7 @@ namespace OpenGL
 		/// <param name="values">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
+		[RequiredByFeature("GL_EXT_histogram")]
 		public static void GetHistogramEXT(int target, bool reset, int format, int type, IntPtr values)
 		{
 			Debug.Assert(Delegates.pglGetHistogramEXT != null, "pglGetHistogramEXT not implemented");
@@ -153,6 +154,7 @@ namespace OpenGL
 		/// <param name="values">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
+		[RequiredByFeature("GL_EXT_histogram")]
 		public static void GetHistogramEXT(HistogramTargetEXT target, bool reset, PixelFormat format, PixelType type, IntPtr values)
 		{
 			Debug.Assert(Delegates.pglGetHistogramEXT != null, "pglGetHistogramEXT not implemented");
@@ -173,6 +175,7 @@ namespace OpenGL
 		/// <param name="params">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_EXT_histogram")]
 		public static void GetHistogramParameterEXT(int target, int pname, float[] @params)
 		{
 			unsafe {
@@ -198,6 +201,7 @@ namespace OpenGL
 		/// <param name="params">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_EXT_histogram")]
 		public static void GetHistogramParameterEXT(HistogramTargetEXT target, GetHistogramParameterPNameEXT pname, float[] @params)
 		{
 			unsafe {
@@ -223,6 +227,7 @@ namespace OpenGL
 		/// <param name="params">
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_EXT_histogram")]
 		public static void GetHistogramParameterEXT(int target, int pname, Int32[] @params)
 		{
 			unsafe {
@@ -248,6 +253,7 @@ namespace OpenGL
 		/// <param name="params">
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_EXT_histogram")]
 		public static void GetHistogramParameterEXT(HistogramTargetEXT target, GetHistogramParameterPNameEXT pname, Int32[] @params)
 		{
 			unsafe {
@@ -279,6 +285,7 @@ namespace OpenGL
 		/// <param name="values">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
+		[RequiredByFeature("GL_EXT_histogram")]
 		public static void GetMinmaxEXT(int target, bool reset, int format, int type, IntPtr values)
 		{
 			Debug.Assert(Delegates.pglGetMinmaxEXT != null, "pglGetMinmaxEXT not implemented");
@@ -305,6 +312,7 @@ namespace OpenGL
 		/// <param name="values">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
+		[RequiredByFeature("GL_EXT_histogram")]
 		public static void GetMinmaxEXT(MinmaxTargetEXT target, bool reset, PixelFormat format, PixelType type, IntPtr values)
 		{
 			Debug.Assert(Delegates.pglGetMinmaxEXT != null, "pglGetMinmaxEXT not implemented");
@@ -325,6 +333,7 @@ namespace OpenGL
 		/// <param name="params">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_EXT_histogram")]
 		public static void GetMinmaxParameterEXT(int target, int pname, float[] @params)
 		{
 			unsafe {
@@ -350,6 +359,7 @@ namespace OpenGL
 		/// <param name="params">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_EXT_histogram")]
 		public static void GetMinmaxParameterEXT(MinmaxTargetEXT target, GetMinmaxParameterPNameEXT pname, float[] @params)
 		{
 			unsafe {
@@ -375,6 +385,7 @@ namespace OpenGL
 		/// <param name="params">
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_EXT_histogram")]
 		public static void GetMinmaxParameterEXT(int target, int pname, Int32[] @params)
 		{
 			unsafe {
@@ -400,6 +411,7 @@ namespace OpenGL
 		/// <param name="params">
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_EXT_histogram")]
 		public static void GetMinmaxParameterEXT(MinmaxTargetEXT target, GetMinmaxParameterPNameEXT pname, Int32[] @params)
 		{
 			unsafe {
@@ -428,6 +440,7 @@ namespace OpenGL
 		/// <param name="sink">
 		/// A <see cref="T:bool"/>.
 		/// </param>
+		[RequiredByFeature("GL_EXT_histogram")]
 		public static void HistogramEXT(int target, Int32 width, int internalformat, bool sink)
 		{
 			Debug.Assert(Delegates.pglHistogramEXT != null, "pglHistogramEXT not implemented");
@@ -451,6 +464,7 @@ namespace OpenGL
 		/// <param name="sink">
 		/// A <see cref="T:bool"/>.
 		/// </param>
+		[RequiredByFeature("GL_EXT_histogram")]
 		public static void HistogramEXT(HistogramTargetEXT target, Int32 width, int internalformat, bool sink)
 		{
 			Debug.Assert(Delegates.pglHistogramEXT != null, "pglHistogramEXT not implemented");
@@ -471,6 +485,7 @@ namespace OpenGL
 		/// <param name="sink">
 		/// A <see cref="T:bool"/>.
 		/// </param>
+		[RequiredByFeature("GL_EXT_histogram")]
 		public static void MinmaxEXT(int target, int internalformat, bool sink)
 		{
 			Debug.Assert(Delegates.pglMinmaxEXT != null, "pglMinmaxEXT not implemented");
@@ -491,6 +506,7 @@ namespace OpenGL
 		/// <param name="sink">
 		/// A <see cref="T:bool"/>.
 		/// </param>
+		[RequiredByFeature("GL_EXT_histogram")]
 		public static void MinmaxEXT(MinmaxTargetEXT target, int internalformat, bool sink)
 		{
 			Debug.Assert(Delegates.pglMinmaxEXT != null, "pglMinmaxEXT not implemented");
@@ -505,6 +521,7 @@ namespace OpenGL
 		/// <param name="target">
 		/// A <see cref="T:int"/>.
 		/// </param>
+		[RequiredByFeature("GL_EXT_histogram")]
 		public static void ResetHistogramEXT(int target)
 		{
 			Debug.Assert(Delegates.pglResetHistogramEXT != null, "pglResetHistogramEXT not implemented");
@@ -519,6 +536,7 @@ namespace OpenGL
 		/// <param name="target">
 		/// A <see cref="T:int"/>.
 		/// </param>
+		[RequiredByFeature("GL_EXT_histogram")]
 		public static void ResetHistogramEXT(HistogramTargetEXT target)
 		{
 			Debug.Assert(Delegates.pglResetHistogramEXT != null, "pglResetHistogramEXT not implemented");
@@ -533,6 +551,7 @@ namespace OpenGL
 		/// <param name="target">
 		/// A <see cref="T:int"/>.
 		/// </param>
+		[RequiredByFeature("GL_EXT_histogram")]
 		public static void ResetMinmaxEXT(int target)
 		{
 			Debug.Assert(Delegates.pglResetMinmaxEXT != null, "pglResetMinmaxEXT not implemented");
@@ -547,6 +566,7 @@ namespace OpenGL
 		/// <param name="target">
 		/// A <see cref="T:int"/>.
 		/// </param>
+		[RequiredByFeature("GL_EXT_histogram")]
 		public static void ResetMinmaxEXT(MinmaxTargetEXT target)
 		{
 			Debug.Assert(Delegates.pglResetMinmaxEXT != null, "pglResetMinmaxEXT not implemented");

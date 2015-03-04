@@ -28,14 +28,12 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_COMPRESSED_RGB_S3TC_DXT1_EXT symbol.
 		/// </summary>
-		[RequiredByFeature("GL_EXT_texture_compression_dxt1")]
 		[RequiredByFeature("GL_EXT_texture_compression_s3tc")]
 		public const int COMPRESSED_RGB_S3TC_DXT1_EXT = 0x83F0;
 
 		/// <summary>
 		/// Value of GL_COMPRESSED_RGBA_S3TC_DXT1_EXT symbol.
 		/// </summary>
-		[RequiredByFeature("GL_EXT_texture_compression_dxt1")]
 		[RequiredByFeature("GL_EXT_texture_compression_s3tc")]
 		public const int COMPRESSED_RGBA_S3TC_DXT1_EXT = 0x83F1;
 

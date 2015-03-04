@@ -38,7 +38,6 @@ namespace OpenGL
 			Debug.Assert(Delegates.pwglGetDefaultProcAddress != null, "pwglGetDefaultProcAddress not implemented");
 			retValue = Delegates.pwglGetDefaultProcAddress(lpszProc);
 			CallLog("wglGetDefaultProcAddress({0}) = {1}", lpszProc, retValue);
-			DebugCheckErrors();
 
 			return (retValue);
 		}

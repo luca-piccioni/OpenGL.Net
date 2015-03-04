@@ -40,6 +40,7 @@ namespace OpenGL
 		/// <param name="primcount">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
+		[RequiredByFeature("GL_EXT_multi_draw_arrays")]
 		public static void MultiDrawArraysEXT(int mode, Int32[] first, Int32[] count, Int32 primcount)
 		{
 			unsafe {
@@ -69,6 +70,7 @@ namespace OpenGL
 		/// <param name="primcount">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
+		[RequiredByFeature("GL_EXT_multi_draw_arrays")]
 		public static void MultiDrawArraysEXT(PrimitiveType mode, Int32[] first, Int32[] count, Int32 primcount)
 		{
 			unsafe {
@@ -101,6 +103,7 @@ namespace OpenGL
 		/// <param name="primcount">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
+		[RequiredByFeature("GL_EXT_multi_draw_arrays")]
 		public static void MultiDrawElementsEXT(int mode, Int32[] count, int type, IntPtr indices, Int32 primcount)
 		{
 			unsafe {
@@ -132,6 +135,7 @@ namespace OpenGL
 		/// <param name="primcount">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
+		[RequiredByFeature("GL_EXT_multi_draw_arrays")]
 		public static void MultiDrawElementsEXT(PrimitiveType mode, Int32[] count, int type, IntPtr indices, Int32 primcount)
 		{
 			unsafe {
@@ -163,6 +167,7 @@ namespace OpenGL
 		/// <param name="primcount">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
+		[RequiredByFeature("GL_EXT_multi_draw_arrays")]
 		public static void MultiDrawElementsEXT(int mode, Int32[] count, int type, Object indices, Int32 primcount)
 		{
 			GCHandle pin_indices = GCHandle.Alloc(indices, GCHandleType.Pinned);

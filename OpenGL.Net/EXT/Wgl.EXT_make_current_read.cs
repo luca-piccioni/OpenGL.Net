@@ -43,6 +43,7 @@ namespace OpenGL
 		/// <param name="hglrc">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
+		[RequiredByFeature("WGL_EXT_make_current_read")]
 		public static bool MakeContextCurrentEXT(IntPtr hDrawDC, IntPtr hReadDC, IntPtr hglrc)
 		{
 			bool retValue;
@@ -50,7 +51,6 @@ namespace OpenGL
 			Debug.Assert(Delegates.pwglMakeContextCurrentEXT != null, "pwglMakeContextCurrentEXT not implemented");
 			retValue = Delegates.pwglMakeContextCurrentEXT(hDrawDC, hReadDC, hglrc);
 			CallLog("wglMakeContextCurrentEXT({0}, {1}, {2}) = {3}", hDrawDC, hReadDC, hglrc, retValue);
-			DebugCheckErrors();
 
 			return (retValue);
 		}
@@ -58,6 +58,7 @@ namespace OpenGL
 		/// <summary>
 		/// Binding for wglGetCurrentReadDCEXT.
 		/// </summary>
+		[RequiredByFeature("WGL_EXT_make_current_read")]
 		public static IntPtr GetCurrentReadDCEXT()
 		{
 			IntPtr retValue;
@@ -65,7 +66,6 @@ namespace OpenGL
 			Debug.Assert(Delegates.pwglGetCurrentReadDCEXT != null, "pwglGetCurrentReadDCEXT not implemented");
 			retValue = Delegates.pwglGetCurrentReadDCEXT();
 			CallLog("wglGetCurrentReadDCEXT() = {0}", retValue);
-			DebugCheckErrors();
 
 			return (retValue);
 		}

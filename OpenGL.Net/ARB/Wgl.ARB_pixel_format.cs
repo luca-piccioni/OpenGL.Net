@@ -340,6 +340,7 @@ namespace OpenGL
 		/// <param name="piValues">
 		/// A <see cref="T:int[]"/>.
 		/// </param>
+		[RequiredByFeature("WGL_ARB_pixel_format")]
 		public static bool GetPixelFormatAttribARB(IntPtr hdc, int iPixelFormat, int iLayerPlane, UInt32 nAttributes, int[] piAttributes, int[] piValues)
 		{
 			bool retValue;
@@ -353,7 +354,6 @@ namespace OpenGL
 					CallLog("wglGetPixelFormatAttribivARB({0}, {1}, {2}, {3}, {4}, {5}) = {6}", hdc, iPixelFormat, iLayerPlane, nAttributes, piAttributes, piValues, retValue);
 				}
 			}
-			DebugCheckErrors();
 
 			return (retValue);
 		}
@@ -379,6 +379,7 @@ namespace OpenGL
 		/// <param name="pfValues">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
+		[RequiredByFeature("WGL_ARB_pixel_format")]
 		public static bool GetPixelFormatAttribARB(IntPtr hdc, int iPixelFormat, int iLayerPlane, UInt32 nAttributes, int[] piAttributes, float[] pfValues)
 		{
 			bool retValue;
@@ -392,7 +393,6 @@ namespace OpenGL
 					CallLog("wglGetPixelFormatAttribfvARB({0}, {1}, {2}, {3}, {4}, {5}) = {6}", hdc, iPixelFormat, iLayerPlane, nAttributes, piAttributes, pfValues, retValue);
 				}
 			}
-			DebugCheckErrors();
 
 			return (retValue);
 		}
@@ -418,6 +418,7 @@ namespace OpenGL
 		/// <param name="nNumFormats">
 		/// A <see cref="T:UInt32[]"/>.
 		/// </param>
+		[RequiredByFeature("WGL_ARB_pixel_format")]
 		public static bool ChoosePixelFormatARB(IntPtr hdc, int[] piAttribIList, float[] pfAttribFList, UInt32 nMaxFormats, int[] piFormats, UInt32[] nNumFormats)
 		{
 			bool retValue;
@@ -433,7 +434,6 @@ namespace OpenGL
 					CallLog("wglChoosePixelFormatARB({0}, {1}, {2}, {3}, {4}, {5}) = {6}", hdc, piAttribIList, pfAttribFList, nMaxFormats, piFormats, nNumFormats, retValue);
 				}
 			}
-			DebugCheckErrors();
 
 			return (retValue);
 		}

@@ -241,6 +241,7 @@ namespace OpenGL
 		/// <param name="obj">
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
+		[RequiredByFeature("GL_ARB_shader_objects")]
 		public static void DeleteObjectARB(UInt32 obj)
 		{
 			Debug.Assert(Delegates.pglDeleteObjectARB != null, "pglDeleteObjectARB not implemented");
@@ -255,6 +256,7 @@ namespace OpenGL
 		/// <param name="pname">
 		/// A <see cref="T:int"/>.
 		/// </param>
+		[RequiredByFeature("GL_ARB_shader_objects")]
 		public static UInt32 GetHandleARB(int pname)
 		{
 			UInt32 retValue;
@@ -276,6 +278,7 @@ namespace OpenGL
 		/// <param name="attachedObj">
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
+		[RequiredByFeature("GL_ARB_shader_objects")]
 		public static void DetachObjectARB(UInt32 containerObj, UInt32 attachedObj)
 		{
 			Debug.Assert(Delegates.pglDetachObjectARB != null, "pglDetachObjectARB not implemented");
@@ -290,6 +293,7 @@ namespace OpenGL
 		/// <param name="shaderType">
 		/// A <see cref="T:int"/>.
 		/// </param>
+		[RequiredByFeature("GL_ARB_shader_objects")]
 		public static UInt32 CreateShaderObjectARB(int shaderType)
 		{
 			UInt32 retValue;
@@ -317,6 +321,7 @@ namespace OpenGL
 		/// <param name="length">
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_ARB_shader_objects")]
 		public static void ShaderSourceARB(UInt32 shaderObj, Int32 count, String[] @string, Int32[] length)
 		{
 			unsafe {
@@ -336,6 +341,7 @@ namespace OpenGL
 		/// <param name="shaderObj">
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
+		[RequiredByFeature("GL_ARB_shader_objects")]
 		public static void CompileShaderARB(UInt32 shaderObj)
 		{
 			Debug.Assert(Delegates.pglCompileShaderARB != null, "pglCompileShaderARB not implemented");
@@ -347,6 +353,7 @@ namespace OpenGL
 		/// <summary>
 		/// Binding for glCreateProgramObjectARB.
 		/// </summary>
+		[RequiredByFeature("GL_ARB_shader_objects")]
 		public static UInt32 CreateProgramObjectARB()
 		{
 			UInt32 retValue;
@@ -368,6 +375,7 @@ namespace OpenGL
 		/// <param name="obj">
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
+		[RequiredByFeature("GL_ARB_shader_objects")]
 		public static void AttachObjectARB(UInt32 containerObj, UInt32 obj)
 		{
 			Debug.Assert(Delegates.pglAttachObjectARB != null, "pglAttachObjectARB not implemented");
@@ -382,6 +390,7 @@ namespace OpenGL
 		/// <param name="programObj">
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
+		[RequiredByFeature("GL_ARB_shader_objects")]
 		public static void LinkProgramARB(UInt32 programObj)
 		{
 			Debug.Assert(Delegates.pglLinkProgramARB != null, "pglLinkProgramARB not implemented");
@@ -396,6 +405,7 @@ namespace OpenGL
 		/// <param name="programObj">
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
+		[RequiredByFeature("GL_ARB_shader_objects")]
 		public static void UseProgramObjectARB(UInt32 programObj)
 		{
 			Debug.Assert(Delegates.pglUseProgramObjectARB != null, "pglUseProgramObjectARB not implemented");
@@ -410,6 +420,7 @@ namespace OpenGL
 		/// <param name="programObj">
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
+		[RequiredByFeature("GL_ARB_shader_objects")]
 		public static void ValidateProgramARB(UInt32 programObj)
 		{
 			Debug.Assert(Delegates.pglValidateProgramARB != null, "pglValidateProgramARB not implemented");
@@ -427,6 +438,7 @@ namespace OpenGL
 		/// <param name="v0">
 		/// A <see cref="T:float"/>.
 		/// </param>
+		[RequiredByFeature("GL_ARB_shader_objects")]
 		public static void Uniform1ARB(Int32 location, float v0)
 		{
 			Debug.Assert(Delegates.pglUniform1fARB != null, "pglUniform1fARB not implemented");
@@ -447,6 +459,7 @@ namespace OpenGL
 		/// <param name="v1">
 		/// A <see cref="T:float"/>.
 		/// </param>
+		[RequiredByFeature("GL_ARB_shader_objects")]
 		public static void Uniform2ARB(Int32 location, float v0, float v1)
 		{
 			Debug.Assert(Delegates.pglUniform2fARB != null, "pglUniform2fARB not implemented");
@@ -470,6 +483,7 @@ namespace OpenGL
 		/// <param name="v2">
 		/// A <see cref="T:float"/>.
 		/// </param>
+		[RequiredByFeature("GL_ARB_shader_objects")]
 		public static void Uniform3ARB(Int32 location, float v0, float v1, float v2)
 		{
 			Debug.Assert(Delegates.pglUniform3fARB != null, "pglUniform3fARB not implemented");
@@ -496,6 +510,7 @@ namespace OpenGL
 		/// <param name="v3">
 		/// A <see cref="T:float"/>.
 		/// </param>
+		[RequiredByFeature("GL_ARB_shader_objects")]
 		public static void Uniform4ARB(Int32 location, float v0, float v1, float v2, float v3)
 		{
 			Debug.Assert(Delegates.pglUniform4fARB != null, "pglUniform4fARB not implemented");
@@ -513,6 +528,7 @@ namespace OpenGL
 		/// <param name="v0">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
+		[RequiredByFeature("GL_ARB_shader_objects")]
 		public static void Uniform1ARB(Int32 location, Int32 v0)
 		{
 			Debug.Assert(Delegates.pglUniform1iARB != null, "pglUniform1iARB not implemented");
@@ -533,6 +549,7 @@ namespace OpenGL
 		/// <param name="v1">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
+		[RequiredByFeature("GL_ARB_shader_objects")]
 		public static void Uniform2ARB(Int32 location, Int32 v0, Int32 v1)
 		{
 			Debug.Assert(Delegates.pglUniform2iARB != null, "pglUniform2iARB not implemented");
@@ -556,6 +573,7 @@ namespace OpenGL
 		/// <param name="v2">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
+		[RequiredByFeature("GL_ARB_shader_objects")]
 		public static void Uniform3ARB(Int32 location, Int32 v0, Int32 v1, Int32 v2)
 		{
 			Debug.Assert(Delegates.pglUniform3iARB != null, "pglUniform3iARB not implemented");
@@ -582,6 +600,7 @@ namespace OpenGL
 		/// <param name="v3">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
+		[RequiredByFeature("GL_ARB_shader_objects")]
 		public static void Uniform4ARB(Int32 location, Int32 v0, Int32 v1, Int32 v2, Int32 v3)
 		{
 			Debug.Assert(Delegates.pglUniform4iARB != null, "pglUniform4iARB not implemented");
@@ -602,6 +621,7 @@ namespace OpenGL
 		/// <param name="value">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_ARB_shader_objects")]
 		public static void Uniform1ARB(Int32 location, Int32 count, float[] value)
 		{
 			unsafe {
@@ -627,6 +647,7 @@ namespace OpenGL
 		/// <param name="value">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_ARB_shader_objects")]
 		public static void Uniform2ARB(Int32 location, Int32 count, float[] value)
 		{
 			unsafe {
@@ -652,6 +673,7 @@ namespace OpenGL
 		/// <param name="value">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_ARB_shader_objects")]
 		public static void Uniform3ARB(Int32 location, Int32 count, float[] value)
 		{
 			unsafe {
@@ -677,6 +699,7 @@ namespace OpenGL
 		/// <param name="value">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_ARB_shader_objects")]
 		public static void Uniform4ARB(Int32 location, Int32 count, float[] value)
 		{
 			unsafe {
@@ -702,6 +725,7 @@ namespace OpenGL
 		/// <param name="value">
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_ARB_shader_objects")]
 		public static void Uniform1ARB(Int32 location, Int32 count, Int32[] value)
 		{
 			unsafe {
@@ -727,6 +751,7 @@ namespace OpenGL
 		/// <param name="value">
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_ARB_shader_objects")]
 		public static void Uniform2ARB(Int32 location, Int32 count, Int32[] value)
 		{
 			unsafe {
@@ -752,6 +777,7 @@ namespace OpenGL
 		/// <param name="value">
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_ARB_shader_objects")]
 		public static void Uniform3ARB(Int32 location, Int32 count, Int32[] value)
 		{
 			unsafe {
@@ -777,6 +803,7 @@ namespace OpenGL
 		/// <param name="value">
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_ARB_shader_objects")]
 		public static void Uniform4ARB(Int32 location, Int32 count, Int32[] value)
 		{
 			unsafe {
@@ -805,6 +832,7 @@ namespace OpenGL
 		/// <param name="value">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_ARB_shader_objects")]
 		public static void UniformMatrix2ARB(Int32 location, Int32 count, bool transpose, float[] value)
 		{
 			unsafe {
@@ -833,6 +861,7 @@ namespace OpenGL
 		/// <param name="value">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_ARB_shader_objects")]
 		public static void UniformMatrix3ARB(Int32 location, Int32 count, bool transpose, float[] value)
 		{
 			unsafe {
@@ -861,6 +890,7 @@ namespace OpenGL
 		/// <param name="value">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_ARB_shader_objects")]
 		public static void UniformMatrix4ARB(Int32 location, Int32 count, bool transpose, float[] value)
 		{
 			unsafe {
@@ -886,6 +916,7 @@ namespace OpenGL
 		/// <param name="params">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_ARB_shader_objects")]
 		public static void GetObjectParameterARB(UInt32 obj, int pname, float[] @params)
 		{
 			unsafe {
@@ -911,6 +942,7 @@ namespace OpenGL
 		/// <param name="params">
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_ARB_shader_objects")]
 		public static void GetObjectParameterARB(UInt32 obj, int pname, Int32[] @params)
 		{
 			unsafe {
@@ -939,6 +971,7 @@ namespace OpenGL
 		/// <param name="infoLog">
 		/// A <see cref="T:StringBuilder"/>.
 		/// </param>
+		[RequiredByFeature("GL_ARB_shader_objects")]
 		public static void GetInfoLogARB(UInt32 obj, Int32 maxLength, out Int32 length, [Out] StringBuilder infoLog)
 		{
 			unsafe {
@@ -967,6 +1000,7 @@ namespace OpenGL
 		/// <param name="obj">
 		/// A <see cref="T:UInt32[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_ARB_shader_objects")]
 		public static void GetAttachedObjectARB(UInt32 containerObj, Int32 maxCount, out Int32 count, UInt32[] obj)
 		{
 			unsafe {
@@ -990,6 +1024,7 @@ namespace OpenGL
 		/// <param name="name">
 		/// A <see cref="T:String"/>.
 		/// </param>
+		[RequiredByFeature("GL_ARB_shader_objects")]
 		public static Int32 GetUniformLocationARB(UInt32 programObj, String name)
 		{
 			Int32 retValue;
@@ -1026,6 +1061,7 @@ namespace OpenGL
 		/// <param name="name">
 		/// A <see cref="T:StringBuilder"/>.
 		/// </param>
+		[RequiredByFeature("GL_ARB_shader_objects")]
 		public static void GetActiveUniformARB(UInt32 programObj, UInt32 index, Int32 maxLength, out Int32 length, out Int32 size, out int type, [Out] StringBuilder name)
 		{
 			unsafe {
@@ -1053,6 +1089,7 @@ namespace OpenGL
 		/// <param name="params">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_ARB_shader_objects")]
 		public static void GetUniformARB(UInt32 programObj, Int32 location, float[] @params)
 		{
 			unsafe {
@@ -1078,6 +1115,7 @@ namespace OpenGL
 		/// <param name="params">
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_ARB_shader_objects")]
 		public static void GetUniformARB(UInt32 programObj, Int32 location, Int32[] @params)
 		{
 			unsafe {
@@ -1106,6 +1144,7 @@ namespace OpenGL
 		/// <param name="source">
 		/// A <see cref="T:StringBuilder"/>.
 		/// </param>
+		[RequiredByFeature("GL_ARB_shader_objects")]
 		public static void GetShaderSourceARB(UInt32 obj, Int32 maxLength, out Int32 length, [Out] StringBuilder source)
 		{
 			unsafe {

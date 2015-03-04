@@ -31,6 +31,7 @@ namespace OpenGL
 		/// <param name="mask">
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
+		[RequiredByFeature("GL_3DFX_tbuffer")]
 		public static void TbufferMask3DFX(UInt32 mask)
 		{
 			Debug.Assert(Delegates.pglTbufferMask3DFX != null, "pglTbufferMask3DFX not implemented");

@@ -28,14 +28,12 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_BLEND_COLOR symbol.
 		/// </summary>
-		[RequiredByFeature("GL_ES_VERSION_2_0")]
 		[RequiredByFeature("GL_ARB_imaging")]
 		public const int BLEND_COLOR = 0x8005;
 
 		/// <summary>
 		/// Value of GL_BLEND_EQUATION symbol.
 		/// </summary>
-		[RequiredByFeature("GL_ES_VERSION_2_0")]
 		[RequiredByFeature("GL_ARB_imaging")]
 		public const int BLEND_EQUATION = 0x8009;
 
@@ -539,6 +537,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.CopyColorTable"/>
 		/// <seealso cref="Gl.CopyColorSubTable"/>
 		/// <seealso cref="Gl.GetColorTable"/>
+		[RequiredByFeature("GL_ARB_imaging")]
 		public static void ColorTable(int target, int internalformat, Int32 width, int format, int type, IntPtr table)
 		{
 			if        (Delegates.pglColorTable != null) {
@@ -671,6 +670,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.CopyColorTable"/>
 		/// <seealso cref="Gl.CopyColorSubTable"/>
 		/// <seealso cref="Gl.GetColorTable"/>
+		[RequiredByFeature("GL_ARB_imaging")]
 		public static void ColorTable(int target, int internalformat, Int32 width, PixelFormat format, PixelType type, IntPtr table)
 		{
 			if        (Delegates.pglColorTable != null) {
@@ -803,6 +803,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.CopyColorTable"/>
 		/// <seealso cref="Gl.CopyColorSubTable"/>
 		/// <seealso cref="Gl.GetColorTable"/>
+		[RequiredByFeature("GL_ARB_imaging")]
 		public static void ColorTable(int target, int internalformat, Int32 width, int format, int type, Object table)
 		{
 			GCHandle pin_table = GCHandle.Alloc(table, GCHandleType.Pinned);
@@ -853,6 +854,7 @@ namespace OpenGL
 		/// </remarks>
 		/// <seealso cref="Gl.ColorTable"/>
 		/// <seealso cref="Gl.PixelTransfer"/>
+		[RequiredByFeature("GL_ARB_imaging")]
 		public static void ColorTableParameter(int target, int pname, float[] @params)
 		{
 			unsafe {
@@ -911,6 +913,7 @@ namespace OpenGL
 		/// </remarks>
 		/// <seealso cref="Gl.ColorTable"/>
 		/// <seealso cref="Gl.PixelTransfer"/>
+		[RequiredByFeature("GL_ARB_imaging")]
 		public static void ColorTableParameter(int target, int pname, Int32[] @params)
 		{
 			unsafe {
@@ -992,6 +995,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.ColorTable"/>
 		/// <seealso cref="Gl.ColorTableParameter"/>
 		/// <seealso cref="Gl.ReadPixels"/>
+		[RequiredByFeature("GL_ARB_imaging")]
 		public static void CopyColorTable(int target, int internalformat, Int32 x, Int32 y, Int32 width)
 		{
 			if        (Delegates.pglCopyColorTable != null) {
@@ -1073,6 +1077,7 @@ namespace OpenGL
 		/// </remarks>
 		/// <seealso cref="Gl.ColorTable"/>
 		/// <seealso cref="Gl.ColorTableParameter"/>
+		[RequiredByFeature("GL_ARB_imaging")]
 		public static void GetColorTable(int target, int format, int type, IntPtr table)
 		{
 			if        (Delegates.pglGetColorTable != null) {
@@ -1154,6 +1159,7 @@ namespace OpenGL
 		/// </remarks>
 		/// <seealso cref="Gl.ColorTable"/>
 		/// <seealso cref="Gl.ColorTableParameter"/>
+		[RequiredByFeature("GL_ARB_imaging")]
 		public static void GetColorTable(int target, PixelFormat format, PixelType type, IntPtr table)
 		{
 			if        (Delegates.pglGetColorTable != null) {
@@ -1210,6 +1216,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.ColorTable"/>
 		/// <seealso cref="Gl.TexParameter"/>
 		/// <seealso cref="Gl.ColorTableParameter"/>
+		[RequiredByFeature("GL_ARB_imaging")]
 		public static void GetColorTableParameter(int target, int pname, float[] @params)
 		{
 			unsafe {
@@ -1271,6 +1278,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.ColorTable"/>
 		/// <seealso cref="Gl.TexParameter"/>
 		/// <seealso cref="Gl.ColorTableParameter"/>
+		[RequiredByFeature("GL_ARB_imaging")]
 		public static void GetColorTableParameter(int target, int pname, Int32[] @params)
 		{
 			unsafe {
@@ -1358,6 +1366,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.CopyColorTable"/>
 		/// <seealso cref="Gl.CopyColorSubTable"/>
 		/// <seealso cref="Gl.GetColorTable"/>
+		[RequiredByFeature("GL_ARB_imaging")]
 		public static void ColorSubTable(int target, Int32 start, Int32 count, int format, int type, IntPtr data)
 		{
 			if        (Delegates.pglColorSubTable != null) {
@@ -1440,6 +1449,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.CopyColorTable"/>
 		/// <seealso cref="Gl.CopyColorSubTable"/>
 		/// <seealso cref="Gl.GetColorTable"/>
+		[RequiredByFeature("GL_ARB_imaging")]
 		public static void ColorSubTable(int target, Int32 start, Int32 count, PixelFormat format, PixelType type, IntPtr data)
 		{
 			if        (Delegates.pglColorSubTable != null) {
@@ -1522,6 +1532,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.CopyColorTable"/>
 		/// <seealso cref="Gl.CopyColorSubTable"/>
 		/// <seealso cref="Gl.GetColorTable"/>
+		[RequiredByFeature("GL_ARB_imaging")]
 		public static void ColorSubTable(int target, Int32 start, Int32 count, int format, int type, Object data)
 		{
 			GCHandle pin_data = GCHandle.Alloc(data, GCHandleType.Pinned);
@@ -1574,6 +1585,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.ColorTableParameter"/>
 		/// <seealso cref="Gl.CopyColorTable"/>
 		/// <seealso cref="Gl.GetColorTable"/>
+		[RequiredByFeature("GL_ARB_imaging")]
 		public static void CopyColorSubTable(int target, Int32 start, Int32 x, Int32 y, Int32 width)
 		{
 			if        (Delegates.pglCopyColorSubTable != null) {
@@ -1690,6 +1702,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.SeparableFilter2D"/>
 		/// <seealso cref="Gl.ConvolutionParameter"/>
 		/// <seealso cref="Gl.PixelTransfer"/>
+		[RequiredByFeature("GL_ARB_imaging")]
 		public static void ConvolutionFilter1D(int target, int internalformat, Int32 width, int format, int type, IntPtr image)
 		{
 			if        (Delegates.pglConvolutionFilter1D != null) {
@@ -1806,6 +1819,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.SeparableFilter2D"/>
 		/// <seealso cref="Gl.ConvolutionParameter"/>
 		/// <seealso cref="Gl.PixelTransfer"/>
+		[RequiredByFeature("GL_ARB_imaging")]
 		public static void ConvolutionFilter1D(int target, int internalformat, Int32 width, PixelFormat format, PixelType type, IntPtr image)
 		{
 			if        (Delegates.pglConvolutionFilter1D != null) {
@@ -1922,6 +1936,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.SeparableFilter2D"/>
 		/// <seealso cref="Gl.ConvolutionParameter"/>
 		/// <seealso cref="Gl.PixelTransfer"/>
+		[RequiredByFeature("GL_ARB_imaging")]
 		public static void ConvolutionFilter1D(int target, int internalformat, Int32 width, int format, int type, Object image)
 		{
 			GCHandle pin_image = GCHandle.Alloc(image, GCHandleType.Pinned);
@@ -2041,6 +2056,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.SeparableFilter2D"/>
 		/// <seealso cref="Gl.ConvolutionParameter"/>
 		/// <seealso cref="Gl.PixelTransfer"/>
+		[RequiredByFeature("GL_ARB_imaging")]
 		public static void ConvolutionFilter2D(int target, int internalformat, Int32 width, Int32 height, int format, int type, IntPtr image)
 		{
 			if        (Delegates.pglConvolutionFilter2D != null) {
@@ -2163,6 +2179,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.SeparableFilter2D"/>
 		/// <seealso cref="Gl.ConvolutionParameter"/>
 		/// <seealso cref="Gl.PixelTransfer"/>
+		[RequiredByFeature("GL_ARB_imaging")]
 		public static void ConvolutionFilter2D(int target, int internalformat, Int32 width, Int32 height, PixelFormat format, PixelType type, IntPtr image)
 		{
 			if        (Delegates.pglConvolutionFilter2D != null) {
@@ -2285,6 +2302,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.SeparableFilter2D"/>
 		/// <seealso cref="Gl.ConvolutionParameter"/>
 		/// <seealso cref="Gl.PixelTransfer"/>
+		[RequiredByFeature("GL_ARB_imaging")]
 		public static void ConvolutionFilter2D(int target, int internalformat, Int32 width, Int32 height, int format, int type, Object image)
 		{
 			GCHandle pin_image = GCHandle.Alloc(image, GCHandleType.Pinned);
@@ -2339,6 +2357,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.ConvolutionFilter2D"/>
 		/// <seealso cref="Gl.SeparableFilter2D"/>
 		/// <seealso cref="Gl.GetConvolutionParameter"/>
+		[RequiredByFeature("GL_ARB_imaging")]
 		public static void ConvolutionParameter(int target, int pname, float @params)
 		{
 			if        (Delegates.pglConvolutionParameterf != null) {
@@ -2396,6 +2415,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.ConvolutionFilter2D"/>
 		/// <seealso cref="Gl.SeparableFilter2D"/>
 		/// <seealso cref="Gl.GetConvolutionParameter"/>
+		[RequiredByFeature("GL_ARB_imaging")]
 		public static void ConvolutionParameter(int target, int pname, float[] @params)
 		{
 			unsafe {
@@ -2458,6 +2478,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.ConvolutionFilter2D"/>
 		/// <seealso cref="Gl.SeparableFilter2D"/>
 		/// <seealso cref="Gl.GetConvolutionParameter"/>
+		[RequiredByFeature("GL_ARB_imaging")]
 		public static void ConvolutionParameter(int target, int pname, Int32 @params)
 		{
 			if        (Delegates.pglConvolutionParameteri != null) {
@@ -2515,6 +2536,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.ConvolutionFilter2D"/>
 		/// <seealso cref="Gl.SeparableFilter2D"/>
 		/// <seealso cref="Gl.GetConvolutionParameter"/>
+		[RequiredByFeature("GL_ARB_imaging")]
 		public static void ConvolutionParameter(int target, int pname, Int32[] @params)
 		{
 			unsafe {
@@ -2602,6 +2624,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.ConvolutionFilter1D"/>
 		/// <seealso cref="Gl.ConvolutionParameter"/>
 		/// <seealso cref="Gl.PixelTransfer"/>
+		[RequiredByFeature("GL_ARB_imaging")]
 		public static void CopyConvolutionFilter1D(int target, int internalformat, Int32 x, Int32 y, Int32 width)
 		{
 			if        (Delegates.pglCopyConvolutionFilter1D != null) {
@@ -2692,6 +2715,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.ConvolutionFilter2D"/>
 		/// <seealso cref="Gl.ConvolutionParameter"/>
 		/// <seealso cref="Gl.PixelTransfer"/>
+		[RequiredByFeature("GL_ARB_imaging")]
 		public static void CopyConvolutionFilter2D(int target, int internalformat, Int32 x, Int32 y, Int32 width, Int32 height)
 		{
 			if        (Delegates.pglCopyConvolutionFilter2D != null) {
@@ -2775,6 +2799,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.ConvolutionParameter"/>
 		/// <seealso cref="Gl.ConvolutionFilter1D"/>
 		/// <seealso cref="Gl.ConvolutionFilter2D"/>
+		[RequiredByFeature("GL_ARB_imaging")]
 		public static void GetConvolutionFilter(int target, int format, int type, IntPtr image)
 		{
 			Debug.Assert(Delegates.pglGetConvolutionFilter != null, "pglGetConvolutionFilter not implemented");
@@ -2853,6 +2878,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.ConvolutionParameter"/>
 		/// <seealso cref="Gl.ConvolutionFilter1D"/>
 		/// <seealso cref="Gl.ConvolutionFilter2D"/>
+		[RequiredByFeature("GL_ARB_imaging")]
 		public static void GetConvolutionFilter(int target, PixelFormat format, PixelType type, IntPtr image)
 		{
 			Debug.Assert(Delegates.pglGetConvolutionFilter != null, "pglGetConvolutionFilter not implemented");
@@ -2893,6 +2919,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.GetConvolutionFilter"/>
 		/// <seealso cref="Gl.GetSeparableFilter"/>
 		/// <seealso cref="Gl.ConvolutionParameter"/>
+		[RequiredByFeature("GL_ARB_imaging")]
 		public static void GetConvolutionParameter(int target, int pname, float[] @params)
 		{
 			unsafe {
@@ -2938,6 +2965,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.GetConvolutionFilter"/>
 		/// <seealso cref="Gl.GetSeparableFilter"/>
 		/// <seealso cref="Gl.ConvolutionParameter"/>
+		[RequiredByFeature("GL_ARB_imaging")]
 		public static void GetConvolutionParameter(int target, int pname, Int32[] @params)
 		{
 			unsafe {
@@ -3027,6 +3055,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.GetConvolutionFilter"/>
 		/// <seealso cref="Gl.ConvolutionParameter"/>
 		/// <seealso cref="Gl.SeparableFilter2D"/>
+		[RequiredByFeature("GL_ARB_imaging")]
 		public static void GetSeparableFilter(int target, int format, int type, IntPtr row, IntPtr column, IntPtr span)
 		{
 			Debug.Assert(Delegates.pglGetSeparableFilter != null, "pglGetSeparableFilter not implemented");
@@ -3111,6 +3140,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.GetConvolutionFilter"/>
 		/// <seealso cref="Gl.ConvolutionParameter"/>
 		/// <seealso cref="Gl.SeparableFilter2D"/>
+		[RequiredByFeature("GL_ARB_imaging")]
 		public static void GetSeparableFilter(int target, PixelFormat format, PixelType type, IntPtr row, IntPtr column, IntPtr span)
 		{
 			Debug.Assert(Delegates.pglGetSeparableFilter != null, "pglGetSeparableFilter not implemented");
@@ -3240,6 +3270,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.ConvolutionFilter2D"/>
 		/// <seealso cref="Gl.ConvolutionParameter"/>
 		/// <seealso cref="Gl.PixelTransfer"/>
+		[RequiredByFeature("GL_ARB_imaging")]
 		public static void SeparableFilter2D(int target, int internalformat, Int32 width, Int32 height, int format, int type, IntPtr row, IntPtr column)
 		{
 			if        (Delegates.pglSeparableFilter2D != null) {
@@ -3374,6 +3405,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.ConvolutionFilter2D"/>
 		/// <seealso cref="Gl.ConvolutionParameter"/>
 		/// <seealso cref="Gl.PixelTransfer"/>
+		[RequiredByFeature("GL_ARB_imaging")]
 		public static void SeparableFilter2D(int target, int internalformat, Int32 width, Int32 height, PixelFormat format, PixelType type, IntPtr row, IntPtr column)
 		{
 			if        (Delegates.pglSeparableFilter2D != null) {
@@ -3508,6 +3540,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.ConvolutionFilter2D"/>
 		/// <seealso cref="Gl.ConvolutionParameter"/>
 		/// <seealso cref="Gl.PixelTransfer"/>
+		[RequiredByFeature("GL_ARB_imaging")]
 		public static void SeparableFilter2D(int target, int internalformat, Int32 width, Int32 height, int format, int type, Object row, Object column)
 		{
 			GCHandle pin_row = GCHandle.Alloc(row, GCHandleType.Pinned);
@@ -3590,6 +3623,7 @@ namespace OpenGL
 		/// </remarks>
 		/// <seealso cref="Gl.Histogram"/>
 		/// <seealso cref="Gl.ResetHistogram"/>
+		[RequiredByFeature("GL_ARB_imaging")]
 		public static void GetHistogram(int target, bool reset, int format, int type, IntPtr values)
 		{
 			Debug.Assert(Delegates.pglGetHistogram != null, "pglGetHistogram not implemented");
@@ -3668,6 +3702,7 @@ namespace OpenGL
 		/// </remarks>
 		/// <seealso cref="Gl.Histogram"/>
 		/// <seealso cref="Gl.ResetHistogram"/>
+		[RequiredByFeature("GL_ARB_imaging")]
 		public static void GetHistogram(int target, bool reset, PixelFormat format, PixelType type, IntPtr values)
 		{
 			Debug.Assert(Delegates.pglGetHistogram != null, "pglGetHistogram not implemented");
@@ -3707,6 +3742,7 @@ namespace OpenGL
 		/// </remarks>
 		/// <seealso cref="Gl.GetHistogram"/>
 		/// <seealso cref="Gl.Histogram"/>
+		[RequiredByFeature("GL_ARB_imaging")]
 		public static void GetHistogramParameter(int target, int pname, float[] @params)
 		{
 			unsafe {
@@ -3751,6 +3787,7 @@ namespace OpenGL
 		/// </remarks>
 		/// <seealso cref="Gl.GetHistogram"/>
 		/// <seealso cref="Gl.Histogram"/>
+		[RequiredByFeature("GL_ARB_imaging")]
 		public static void GetHistogramParameter(int target, int pname, Int32[] @params)
 		{
 			unsafe {
@@ -3833,6 +3870,7 @@ namespace OpenGL
 		/// </remarks>
 		/// <seealso cref="Gl.Minmax"/>
 		/// <seealso cref="Gl.ResetMinmax"/>
+		[RequiredByFeature("GL_ARB_imaging")]
 		public static void GetMinmax(int target, bool reset, int format, int type, IntPtr values)
 		{
 			Debug.Assert(Delegates.pglGetMinmax != null, "pglGetMinmax not implemented");
@@ -3910,6 +3948,7 @@ namespace OpenGL
 		/// </remarks>
 		/// <seealso cref="Gl.Minmax"/>
 		/// <seealso cref="Gl.ResetMinmax"/>
+		[RequiredByFeature("GL_ARB_imaging")]
 		public static void GetMinmax(int target, bool reset, PixelFormat format, PixelType type, IntPtr values)
 		{
 			Debug.Assert(Delegates.pglGetMinmax != null, "pglGetMinmax not implemented");
@@ -3943,6 +3982,7 @@ namespace OpenGL
 		/// </remarks>
 		/// <seealso cref="Gl.Minmax"/>
 		/// <seealso cref="Gl.GetMinmax"/>
+		[RequiredByFeature("GL_ARB_imaging")]
 		public static void GetMinmaxParameter(int target, int pname, float[] @params)
 		{
 			unsafe {
@@ -3981,6 +4021,7 @@ namespace OpenGL
 		/// </remarks>
 		/// <seealso cref="Gl.Minmax"/>
 		/// <seealso cref="Gl.GetMinmax"/>
+		[RequiredByFeature("GL_ARB_imaging")]
 		public static void GetMinmaxParameter(int target, int pname, Int32[] @params)
 		{
 			unsafe {
@@ -4054,6 +4095,7 @@ namespace OpenGL
 		/// </remarks>
 		/// <seealso cref="Gl.GetHistogram"/>
 		/// <seealso cref="Gl.ResetHistogram"/>
+		[RequiredByFeature("GL_ARB_imaging")]
 		public static void Histogram(int target, Int32 width, int internalformat, bool sink)
 		{
 			if        (Delegates.pglHistogram != null) {
@@ -4117,6 +4159,7 @@ namespace OpenGL
 		/// </remarks>
 		/// <seealso cref="Gl.GetMinmax"/>
 		/// <seealso cref="Gl.ResetMinmax"/>
+		[RequiredByFeature("GL_ARB_imaging")]
 		public static void Minmax(int target, int internalformat, bool sink)
 		{
 			if        (Delegates.pglMinmax != null) {
@@ -4146,6 +4189,7 @@ namespace OpenGL
 		/// </para>
 		/// </remarks>
 		/// <seealso cref="Gl.Histogram"/>
+		[RequiredByFeature("GL_ARB_imaging")]
 		public static void ResetHistogram(int target)
 		{
 			if        (Delegates.pglResetHistogram != null) {
@@ -4177,6 +4221,7 @@ namespace OpenGL
 		/// </para>
 		/// </remarks>
 		/// <seealso cref="Gl.Minmax"/>
+		[RequiredByFeature("GL_ARB_imaging")]
 		public static void ResetMinmax(int target)
 		{
 			if        (Delegates.pglResetMinmax != null) {

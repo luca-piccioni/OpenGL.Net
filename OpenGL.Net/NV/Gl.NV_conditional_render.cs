@@ -58,6 +58,7 @@ namespace OpenGL
 		/// <param name="mode">
 		/// A <see cref="T:int"/>.
 		/// </param>
+		[RequiredByFeature("GL_NV_conditional_render")]
 		public static void BeginConditionalRenderNV(UInt32 id, int mode)
 		{
 			Debug.Assert(Delegates.pglBeginConditionalRenderNV != null, "pglBeginConditionalRenderNV not implemented");
@@ -69,6 +70,7 @@ namespace OpenGL
 		/// <summary>
 		/// Binding for glEndConditionalRenderNV.
 		/// </summary>
+		[RequiredByFeature("GL_NV_conditional_render")]
 		public static void EndConditionalRenderNV()
 		{
 			Debug.Assert(Delegates.pglEndConditionalRenderNV != null, "pglEndConditionalRenderNV not implemented");

@@ -34,14 +34,12 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_FIRST_VERTEX_CONVENTION_EXT symbol.
 		/// </summary>
-		[RequiredByFeature("GL_EXT_geometry_shader")]
 		[RequiredByFeature("GL_EXT_provoking_vertex")]
 		public const int FIRST_VERTEX_CONVENTION_EXT = 0x8E4D;
 
 		/// <summary>
 		/// Value of GL_LAST_VERTEX_CONVENTION_EXT symbol.
 		/// </summary>
-		[RequiredByFeature("GL_EXT_geometry_shader")]
 		[RequiredByFeature("GL_EXT_provoking_vertex")]
 		public const int LAST_VERTEX_CONVENTION_EXT = 0x8E4E;
 
@@ -57,6 +55,7 @@ namespace OpenGL
 		/// <param name="mode">
 		/// A <see cref="T:int"/>.
 		/// </param>
+		[RequiredByFeature("GL_EXT_provoking_vertex")]
 		public static void ProvokingVertexEXT(int mode)
 		{
 			Debug.Assert(Delegates.pglProvokingVertexEXT != null, "pglProvokingVertexEXT not implemented");

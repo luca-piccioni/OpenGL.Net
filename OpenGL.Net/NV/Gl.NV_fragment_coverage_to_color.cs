@@ -43,6 +43,7 @@ namespace OpenGL
 		/// <param name="color">
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
+		[RequiredByFeature("GL_NV_fragment_coverage_to_color")]
 		public static void FragmentCoverageColorNV(UInt32 color)
 		{
 			Debug.Assert(Delegates.pglFragmentCoverageColorNV != null, "pglFragmentCoverageColorNV not implemented");

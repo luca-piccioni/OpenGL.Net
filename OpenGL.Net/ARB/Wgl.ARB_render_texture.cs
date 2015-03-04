@@ -232,6 +232,7 @@ namespace OpenGL
 		/// <param name="iBuffer">
 		/// A <see cref="T:int"/>.
 		/// </param>
+		[RequiredByFeature("WGL_ARB_render_texture")]
 		public static bool BindTexImageARB(IntPtr hPbuffer, int iBuffer)
 		{
 			bool retValue;
@@ -239,7 +240,6 @@ namespace OpenGL
 			Debug.Assert(Delegates.pwglBindTexImageARB != null, "pwglBindTexImageARB not implemented");
 			retValue = Delegates.pwglBindTexImageARB(hPbuffer, iBuffer);
 			CallLog("wglBindTexImageARB({0}, {1}) = {2}", hPbuffer, iBuffer, retValue);
-			DebugCheckErrors();
 
 			return (retValue);
 		}
@@ -253,6 +253,7 @@ namespace OpenGL
 		/// <param name="iBuffer">
 		/// A <see cref="T:int"/>.
 		/// </param>
+		[RequiredByFeature("WGL_ARB_render_texture")]
 		public static bool ReleaseTexImageARB(IntPtr hPbuffer, int iBuffer)
 		{
 			bool retValue;
@@ -260,7 +261,6 @@ namespace OpenGL
 			Debug.Assert(Delegates.pwglReleaseTexImageARB != null, "pwglReleaseTexImageARB not implemented");
 			retValue = Delegates.pwglReleaseTexImageARB(hPbuffer, iBuffer);
 			CallLog("wglReleaseTexImageARB({0}, {1}) = {2}", hPbuffer, iBuffer, retValue);
-			DebugCheckErrors();
 
 			return (retValue);
 		}
@@ -274,6 +274,7 @@ namespace OpenGL
 		/// <param name="piAttribList">
 		/// A <see cref="T:int[]"/>.
 		/// </param>
+		[RequiredByFeature("WGL_ARB_render_texture")]
 		public static bool SetPbufferAttribARB(IntPtr hPbuffer, int[] piAttribList)
 		{
 			bool retValue;
@@ -286,7 +287,6 @@ namespace OpenGL
 					CallLog("wglSetPbufferAttribARB({0}, {1}) = {2}", hPbuffer, piAttribList, retValue);
 				}
 			}
-			DebugCheckErrors();
 
 			return (retValue);
 		}

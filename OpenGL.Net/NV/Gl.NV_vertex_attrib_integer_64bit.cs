@@ -34,6 +34,7 @@ namespace OpenGL
 		/// <param name="x">
 		/// A <see cref="T:Int64"/>.
 		/// </param>
+		[RequiredByFeature("GL_NV_vertex_attrib_integer_64bit")]
 		public static void VertexAttribL1NV(UInt32 index, Int64 x)
 		{
 			Debug.Assert(Delegates.pglVertexAttribL1i64NV != null, "pglVertexAttribL1i64NV not implemented");
@@ -54,6 +55,7 @@ namespace OpenGL
 		/// <param name="y">
 		/// A <see cref="T:Int64"/>.
 		/// </param>
+		[RequiredByFeature("GL_NV_vertex_attrib_integer_64bit")]
 		public static void VertexAttribL2NV(UInt32 index, Int64 x, Int64 y)
 		{
 			Debug.Assert(Delegates.pglVertexAttribL2i64NV != null, "pglVertexAttribL2i64NV not implemented");
@@ -77,6 +79,7 @@ namespace OpenGL
 		/// <param name="z">
 		/// A <see cref="T:Int64"/>.
 		/// </param>
+		[RequiredByFeature("GL_NV_vertex_attrib_integer_64bit")]
 		public static void VertexAttribL3NV(UInt32 index, Int64 x, Int64 y, Int64 z)
 		{
 			Debug.Assert(Delegates.pglVertexAttribL3i64NV != null, "pglVertexAttribL3i64NV not implemented");
@@ -103,6 +106,7 @@ namespace OpenGL
 		/// <param name="w">
 		/// A <see cref="T:Int64"/>.
 		/// </param>
+		[RequiredByFeature("GL_NV_vertex_attrib_integer_64bit")]
 		public static void VertexAttribL4NV(UInt32 index, Int64 x, Int64 y, Int64 z, Int64 w)
 		{
 			Debug.Assert(Delegates.pglVertexAttribL4i64NV != null, "pglVertexAttribL4i64NV not implemented");
@@ -120,6 +124,7 @@ namespace OpenGL
 		/// <param name="v">
 		/// A <see cref="T:Int64[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_NV_vertex_attrib_integer_64bit")]
 		public static void VertexAttribL1NV(UInt32 index, Int64[] v)
 		{
 			unsafe {
@@ -142,6 +147,7 @@ namespace OpenGL
 		/// <param name="v">
 		/// A <see cref="T:Int64[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_NV_vertex_attrib_integer_64bit")]
 		public static void VertexAttribL2NV(UInt32 index, Int64[] v)
 		{
 			unsafe {
@@ -164,6 +170,7 @@ namespace OpenGL
 		/// <param name="v">
 		/// A <see cref="T:Int64[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_NV_vertex_attrib_integer_64bit")]
 		public static void VertexAttribL3NV(UInt32 index, Int64[] v)
 		{
 			unsafe {
@@ -186,6 +193,7 @@ namespace OpenGL
 		/// <param name="v">
 		/// A <see cref="T:Int64[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_NV_vertex_attrib_integer_64bit")]
 		public static void VertexAttribL4NV(UInt32 index, Int64[] v)
 		{
 			unsafe {
@@ -208,6 +216,7 @@ namespace OpenGL
 		/// <param name="x">
 		/// A <see cref="T:UInt64"/>.
 		/// </param>
+		[RequiredByFeature("GL_NV_vertex_attrib_integer_64bit")]
 		public static void VertexAttribL1NV(UInt32 index, UInt64 x)
 		{
 			Debug.Assert(Delegates.pglVertexAttribL1ui64NV != null, "pglVertexAttribL1ui64NV not implemented");
@@ -228,6 +237,7 @@ namespace OpenGL
 		/// <param name="y">
 		/// A <see cref="T:UInt64"/>.
 		/// </param>
+		[RequiredByFeature("GL_NV_vertex_attrib_integer_64bit")]
 		public static void VertexAttribL2NV(UInt32 index, UInt64 x, UInt64 y)
 		{
 			Debug.Assert(Delegates.pglVertexAttribL2ui64NV != null, "pglVertexAttribL2ui64NV not implemented");
@@ -251,6 +261,7 @@ namespace OpenGL
 		/// <param name="z">
 		/// A <see cref="T:UInt64"/>.
 		/// </param>
+		[RequiredByFeature("GL_NV_vertex_attrib_integer_64bit")]
 		public static void VertexAttribL3NV(UInt32 index, UInt64 x, UInt64 y, UInt64 z)
 		{
 			Debug.Assert(Delegates.pglVertexAttribL3ui64NV != null, "pglVertexAttribL3ui64NV not implemented");
@@ -277,6 +288,7 @@ namespace OpenGL
 		/// <param name="w">
 		/// A <see cref="T:UInt64"/>.
 		/// </param>
+		[RequiredByFeature("GL_NV_vertex_attrib_integer_64bit")]
 		public static void VertexAttribL4NV(UInt32 index, UInt64 x, UInt64 y, UInt64 z, UInt64 w)
 		{
 			Debug.Assert(Delegates.pglVertexAttribL4ui64NV != null, "pglVertexAttribL4ui64NV not implemented");
@@ -294,6 +306,7 @@ namespace OpenGL
 		/// <param name="v">
 		/// A <see cref="T:UInt64[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_NV_vertex_attrib_integer_64bit")]
 		public static void VertexAttribL1NV(UInt32 index, UInt64[] v)
 		{
 			unsafe {
@@ -316,6 +329,7 @@ namespace OpenGL
 		/// <param name="v">
 		/// A <see cref="T:UInt64[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_NV_vertex_attrib_integer_64bit")]
 		public static void VertexAttribL2NV(UInt32 index, UInt64[] v)
 		{
 			unsafe {
@@ -338,6 +352,7 @@ namespace OpenGL
 		/// <param name="v">
 		/// A <see cref="T:UInt64[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_NV_vertex_attrib_integer_64bit")]
 		public static void VertexAttribL3NV(UInt32 index, UInt64[] v)
 		{
 			unsafe {
@@ -360,6 +375,7 @@ namespace OpenGL
 		/// <param name="v">
 		/// A <see cref="T:UInt64[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_NV_vertex_attrib_integer_64bit")]
 		public static void VertexAttribL4NV(UInt32 index, UInt64[] v)
 		{
 			unsafe {
@@ -385,6 +401,7 @@ namespace OpenGL
 		/// <param name="params">
 		/// A <see cref="T:Int64[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_NV_vertex_attrib_integer_64bit")]
 		public static void GetVertexAttribLi64vNV(UInt32 index, int pname, Int64[] @params)
 		{
 			unsafe {
@@ -410,6 +427,7 @@ namespace OpenGL
 		/// <param name="params">
 		/// A <see cref="T:UInt64[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_NV_vertex_attrib_integer_64bit")]
 		public static void GetVertexAttribLNV(UInt32 index, int pname, UInt64[] @params)
 		{
 			unsafe {
@@ -438,6 +456,7 @@ namespace OpenGL
 		/// <param name="stride">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
+		[RequiredByFeature("GL_NV_vertex_attrib_integer_64bit")]
 		public static void VertexAttribLFormatNV(UInt32 index, Int32 size, int type, Int32 stride)
 		{
 			Debug.Assert(Delegates.pglVertexAttribLFormatNV != null, "pglVertexAttribLFormatNV not implemented");

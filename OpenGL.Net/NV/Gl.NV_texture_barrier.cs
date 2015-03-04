@@ -28,6 +28,7 @@ namespace OpenGL
 		/// <summary>
 		/// Binding for glTextureBarrierNV.
 		/// </summary>
+		[RequiredByFeature("GL_NV_texture_barrier")]
 		public static void TextureBarrierNV()
 		{
 			Debug.Assert(Delegates.pglTextureBarrierNV != null, "pglTextureBarrierNV not implemented");

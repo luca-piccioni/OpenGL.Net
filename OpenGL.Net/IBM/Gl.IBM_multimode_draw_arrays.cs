@@ -43,6 +43,7 @@ namespace OpenGL
 		/// <param name="modestride">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
+		[RequiredByFeature("GL_IBM_multimode_draw_arrays")]
 		public static void MultiModeDrawArraysIBM(int[] mode, Int32[] first, Int32[] count, Int32 primcount, Int32 modestride)
 		{
 			unsafe {
@@ -79,6 +80,7 @@ namespace OpenGL
 		/// <param name="modestride">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
+		[RequiredByFeature("GL_IBM_multimode_draw_arrays")]
 		public static void MultiModeDrawElementsIBM(int[] mode, Int32[] count, int type, IntPtr indices, Int32 primcount, Int32 modestride)
 		{
 			unsafe {
@@ -114,6 +116,7 @@ namespace OpenGL
 		/// <param name="modestride">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
+		[RequiredByFeature("GL_IBM_multimode_draw_arrays")]
 		public static void MultiModeDrawElementsIBM(int[] mode, Int32[] count, int type, Object indices, Int32 primcount, Int32 modestride)
 		{
 			GCHandle pin_indices = GCHandle.Alloc(indices, GCHandleType.Pinned);

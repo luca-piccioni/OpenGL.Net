@@ -52,6 +52,7 @@ namespace OpenGL
 		/// <param name="commit">
 		/// A <see cref="T:bool"/>.
 		/// </param>
+		[RequiredByFeature("GL_ARB_sparse_buffer")]
 		public static void BufferARB(int target, IntPtr offset, UInt32 size, bool commit)
 		{
 			Debug.Assert(Delegates.pglBufferPageCommitmentARB != null, "pglBufferPageCommitmentARB not implemented");
@@ -75,6 +76,7 @@ namespace OpenGL
 		/// <param name="commit">
 		/// A <see cref="T:bool"/>.
 		/// </param>
+		[RequiredByFeature("GL_ARB_sparse_buffer")]
 		public static void NamedBufferEXT(UInt32 buffer, IntPtr offset, UInt32 size, bool commit)
 		{
 			Debug.Assert(Delegates.pglNamedBufferPageCommitmentEXT != null, "pglNamedBufferPageCommitmentEXT not implemented");
@@ -98,6 +100,7 @@ namespace OpenGL
 		/// <param name="commit">
 		/// A <see cref="T:bool"/>.
 		/// </param>
+		[RequiredByFeature("GL_ARB_sparse_buffer")]
 		public static void NamedBufferARB(UInt32 buffer, IntPtr offset, UInt32 size, bool commit)
 		{
 			Debug.Assert(Delegates.pglNamedBufferPageCommitmentARB != null, "pglNamedBufferPageCommitmentARB not implemented");

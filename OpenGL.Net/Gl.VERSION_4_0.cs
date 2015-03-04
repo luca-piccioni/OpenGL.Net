@@ -41,14 +41,12 @@ namespace OpenGL
 		/// Value of GL_MIN_PROGRAM_TEXTURE_GATHER_OFFSET symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_0")]
-		[RequiredByFeature("GL_ES_VERSION_3_1")]
 		public const int MIN_PROGRAM_TEXTURE_GATHER_OFFSET = 0x8E5E;
 
 		/// <summary>
 		/// Value of GL_MAX_PROGRAM_TEXTURE_GATHER_OFFSET symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_0")]
-		[RequiredByFeature("GL_ES_VERSION_3_1")]
 		public const int MAX_PROGRAM_TEXTURE_GATHER_OFFSET = 0x8E5F;
 
 		/// <summary>
@@ -100,7 +98,6 @@ namespace OpenGL
 		/// Value of GL_DRAW_INDIRECT_BUFFER symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_0")]
-		[RequiredByFeature("GL_ES_VERSION_3_1")]
 		[RequiredByFeature("GL_ARB_draw_indirect")]
 		public const int DRAW_INDIRECT_BUFFER = 0x8F3F;
 
@@ -108,7 +105,6 @@ namespace OpenGL
 		/// Value of GL_DRAW_INDIRECT_BUFFER_BINDING symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_0")]
-		[RequiredByFeature("GL_ES_VERSION_3_1")]
 		[RequiredByFeature("GL_ARB_draw_indirect")]
 		public const int DRAW_INDIRECT_BUFFER_BINDING = 0x8F43;
 
@@ -546,7 +542,6 @@ namespace OpenGL
 		/// Value of GL_TRANSFORM_FEEDBACK symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_0")]
-		[RequiredByFeature("GL_ES_VERSION_3_0")]
 		[RequiredByFeature("GL_ARB_transform_feedback2")]
 		[RequiredByFeature("GL_EXT_debug_label")]
 		public const int TRANSFORM_FEEDBACK = 0x8E22;
@@ -569,7 +564,6 @@ namespace OpenGL
 		/// Value of GL_TRANSFORM_FEEDBACK_BINDING symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_0")]
-		[RequiredByFeature("GL_ES_VERSION_3_0")]
 		[RequiredByFeature("GL_ARB_transform_feedback2")]
 		public const int TRANSFORM_FEEDBACK_BINDING = 0x8E25;
 
@@ -607,6 +601,7 @@ namespace OpenGL
 		/// </para>
 		/// </remarks>
 		/// <seealso cref="Gl.removedTypes"/>
+		[RequiredByFeature("GL_VERSION_4_0")]
 		public static void MinSampleShading(float value)
 		{
 			if        (Delegates.pglMinSampleShading != null) {
@@ -632,6 +627,7 @@ namespace OpenGL
 		/// <param name="mode">
 		/// A <see cref="T:int"/>.
 		/// </param>
+		[RequiredByFeature("GL_VERSION_4_0")]
 		public static void BlendEquation(UInt32 buf, int mode)
 		{
 			if        (Delegates.pglBlendEquationi != null) {
@@ -666,6 +662,7 @@ namespace OpenGL
 		/// <param name="modeAlpha">
 		/// A <see cref="T:int"/>.
 		/// </param>
+		[RequiredByFeature("GL_VERSION_4_0")]
 		public static void BlendEquationSeparatei(UInt32 buf, int modeRGB, int modeAlpha)
 		{
 			if        (Delegates.pglBlendEquationSeparatei != null) {
@@ -700,6 +697,7 @@ namespace OpenGL
 		/// <param name="dst">
 		/// A <see cref="T:int"/>.
 		/// </param>
+		[RequiredByFeature("GL_VERSION_4_0")]
 		public static void BlendFunci(UInt32 buf, int src, int dst)
 		{
 			if        (Delegates.pglBlendFunci != null) {
@@ -740,6 +738,7 @@ namespace OpenGL
 		/// <param name="dstAlpha">
 		/// A <see cref="T:int"/>.
 		/// </param>
+		[RequiredByFeature("GL_VERSION_4_0")]
 		public static void BlendFuncSeparatei(UInt32 buf, int srcRGB, int dstRGB, int srcAlpha, int dstAlpha)
 		{
 			if        (Delegates.pglBlendFuncSeparatei != null) {
@@ -802,6 +801,8 @@ namespace OpenGL
 		/// <seealso cref="Gl.DrawArraysInstanced"/>
 		/// <seealso cref="Gl.DrawElements"/>
 		/// <seealso cref="Gl.DrawRangeElements"/>
+		[RequiredByFeature("GL_VERSION_4_0")]
+		[RequiredByFeature("GL_ARB_draw_indirect")]
 		public static void DrawArraysIndirect(int mode, IntPtr indirect)
 		{
 			Debug.Assert(Delegates.pglDrawArraysIndirect != null, "pglDrawArraysIndirect not implemented");
@@ -850,6 +851,8 @@ namespace OpenGL
 		/// <seealso cref="Gl.DrawArraysInstanced"/>
 		/// <seealso cref="Gl.DrawElements"/>
 		/// <seealso cref="Gl.DrawRangeElements"/>
+		[RequiredByFeature("GL_VERSION_4_0")]
+		[RequiredByFeature("GL_ARB_draw_indirect")]
 		public static void DrawArraysIndirect(PrimitiveType mode, IntPtr indirect)
 		{
 			Debug.Assert(Delegates.pglDrawArraysIndirect != null, "pglDrawArraysIndirect not implemented");
@@ -898,6 +901,8 @@ namespace OpenGL
 		/// <seealso cref="Gl.DrawArraysInstanced"/>
 		/// <seealso cref="Gl.DrawElements"/>
 		/// <seealso cref="Gl.DrawRangeElements"/>
+		[RequiredByFeature("GL_VERSION_4_0")]
+		[RequiredByFeature("GL_ARB_draw_indirect")]
 		public static void DrawArraysIndirect(int mode, Object indirect)
 		{
 			GCHandle pin_indirect = GCHandle.Alloc(indirect, GCHandleType.Pinned);
@@ -958,6 +963,8 @@ namespace OpenGL
 		/// <seealso cref="Gl.DrawArraysIndirect"/>
 		/// <seealso cref="Gl.DrawElements"/>
 		/// <seealso cref="Gl.DrawRangeElements"/>
+		[RequiredByFeature("GL_VERSION_4_0")]
+		[RequiredByFeature("GL_ARB_draw_indirect")]
 		public static void DrawElementsIndirect(int mode, int type, IntPtr indirect)
 		{
 			Debug.Assert(Delegates.pglDrawElementsIndirect != null, "pglDrawElementsIndirect not implemented");
@@ -1016,6 +1023,8 @@ namespace OpenGL
 		/// <seealso cref="Gl.DrawArraysIndirect"/>
 		/// <seealso cref="Gl.DrawElements"/>
 		/// <seealso cref="Gl.DrawRangeElements"/>
+		[RequiredByFeature("GL_VERSION_4_0")]
+		[RequiredByFeature("GL_ARB_draw_indirect")]
 		public static void DrawElementsIndirect(PrimitiveType mode, int type, IntPtr indirect)
 		{
 			Debug.Assert(Delegates.pglDrawElementsIndirect != null, "pglDrawElementsIndirect not implemented");
@@ -1074,6 +1083,8 @@ namespace OpenGL
 		/// <seealso cref="Gl.DrawArraysIndirect"/>
 		/// <seealso cref="Gl.DrawElements"/>
 		/// <seealso cref="Gl.DrawRangeElements"/>
+		[RequiredByFeature("GL_VERSION_4_0")]
+		[RequiredByFeature("GL_ARB_draw_indirect")]
 		public static void DrawElementsIndirect(int mode, int type, Object indirect)
 		{
 			GCHandle pin_indirect = GCHandle.Alloc(indirect, GCHandleType.Pinned);
@@ -1093,6 +1104,8 @@ namespace OpenGL
 		/// <param name="x">
 		/// A <see cref="T:double"/>.
 		/// </param>
+		[RequiredByFeature("GL_VERSION_4_0")]
+		[RequiredByFeature("GL_ARB_gpu_shader_fp64")]
 		public static void Uniform1(Int32 location, double x)
 		{
 			Debug.Assert(Delegates.pglUniform1d != null, "pglUniform1d not implemented");
@@ -1113,6 +1126,8 @@ namespace OpenGL
 		/// <param name="y">
 		/// A <see cref="T:double"/>.
 		/// </param>
+		[RequiredByFeature("GL_VERSION_4_0")]
+		[RequiredByFeature("GL_ARB_gpu_shader_fp64")]
 		public static void Uniform2(Int32 location, double x, double y)
 		{
 			Debug.Assert(Delegates.pglUniform2d != null, "pglUniform2d not implemented");
@@ -1136,6 +1151,8 @@ namespace OpenGL
 		/// <param name="z">
 		/// A <see cref="T:double"/>.
 		/// </param>
+		[RequiredByFeature("GL_VERSION_4_0")]
+		[RequiredByFeature("GL_ARB_gpu_shader_fp64")]
 		public static void Uniform3(Int32 location, double x, double y, double z)
 		{
 			Debug.Assert(Delegates.pglUniform3d != null, "pglUniform3d not implemented");
@@ -1162,6 +1179,8 @@ namespace OpenGL
 		/// <param name="w">
 		/// A <see cref="T:double"/>.
 		/// </param>
+		[RequiredByFeature("GL_VERSION_4_0")]
+		[RequiredByFeature("GL_ARB_gpu_shader_fp64")]
 		public static void Uniform4(Int32 location, double x, double y, double z, double w)
 		{
 			Debug.Assert(Delegates.pglUniform4d != null, "pglUniform4d not implemented");
@@ -1182,6 +1201,8 @@ namespace OpenGL
 		/// <param name="value">
 		/// A <see cref="T:double[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_VERSION_4_0")]
+		[RequiredByFeature("GL_ARB_gpu_shader_fp64")]
 		public static void Uniform1(Int32 location, Int32 count, double[] value)
 		{
 			unsafe {
@@ -1207,6 +1228,8 @@ namespace OpenGL
 		/// <param name="value">
 		/// A <see cref="T:double[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_VERSION_4_0")]
+		[RequiredByFeature("GL_ARB_gpu_shader_fp64")]
 		public static void Uniform2(Int32 location, Int32 count, double[] value)
 		{
 			unsafe {
@@ -1232,6 +1255,8 @@ namespace OpenGL
 		/// <param name="value">
 		/// A <see cref="T:double[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_VERSION_4_0")]
+		[RequiredByFeature("GL_ARB_gpu_shader_fp64")]
 		public static void Uniform3(Int32 location, Int32 count, double[] value)
 		{
 			unsafe {
@@ -1257,6 +1282,8 @@ namespace OpenGL
 		/// <param name="value">
 		/// A <see cref="T:double[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_VERSION_4_0")]
+		[RequiredByFeature("GL_ARB_gpu_shader_fp64")]
 		public static void Uniform4(Int32 location, Int32 count, double[] value)
 		{
 			unsafe {
@@ -1285,6 +1312,8 @@ namespace OpenGL
 		/// <param name="value">
 		/// A <see cref="T:double[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_VERSION_4_0")]
+		[RequiredByFeature("GL_ARB_gpu_shader_fp64")]
 		public static void UniformMatrix2(Int32 location, Int32 count, bool transpose, double[] value)
 		{
 			unsafe {
@@ -1313,6 +1342,8 @@ namespace OpenGL
 		/// <param name="value">
 		/// A <see cref="T:double[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_VERSION_4_0")]
+		[RequiredByFeature("GL_ARB_gpu_shader_fp64")]
 		public static void UniformMatrix3(Int32 location, Int32 count, bool transpose, double[] value)
 		{
 			unsafe {
@@ -1341,6 +1372,8 @@ namespace OpenGL
 		/// <param name="value">
 		/// A <see cref="T:double[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_VERSION_4_0")]
+		[RequiredByFeature("GL_ARB_gpu_shader_fp64")]
 		public static void UniformMatrix4(Int32 location, Int32 count, bool transpose, double[] value)
 		{
 			unsafe {
@@ -1369,6 +1402,8 @@ namespace OpenGL
 		/// <param name="value">
 		/// A <see cref="T:double[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_VERSION_4_0")]
+		[RequiredByFeature("GL_ARB_gpu_shader_fp64")]
 		public static void UniformMatrix2x3(Int32 location, Int32 count, bool transpose, double[] value)
 		{
 			unsafe {
@@ -1397,6 +1432,8 @@ namespace OpenGL
 		/// <param name="value">
 		/// A <see cref="T:double[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_VERSION_4_0")]
+		[RequiredByFeature("GL_ARB_gpu_shader_fp64")]
 		public static void UniformMatrix2x4(Int32 location, Int32 count, bool transpose, double[] value)
 		{
 			unsafe {
@@ -1425,6 +1462,8 @@ namespace OpenGL
 		/// <param name="value">
 		/// A <see cref="T:double[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_VERSION_4_0")]
+		[RequiredByFeature("GL_ARB_gpu_shader_fp64")]
 		public static void UniformMatrix3x2(Int32 location, Int32 count, bool transpose, double[] value)
 		{
 			unsafe {
@@ -1453,6 +1492,8 @@ namespace OpenGL
 		/// <param name="value">
 		/// A <see cref="T:double[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_VERSION_4_0")]
+		[RequiredByFeature("GL_ARB_gpu_shader_fp64")]
 		public static void UniformMatrix3x4(Int32 location, Int32 count, bool transpose, double[] value)
 		{
 			unsafe {
@@ -1481,6 +1522,8 @@ namespace OpenGL
 		/// <param name="value">
 		/// A <see cref="T:double[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_VERSION_4_0")]
+		[RequiredByFeature("GL_ARB_gpu_shader_fp64")]
 		public static void UniformMatrix4x2(Int32 location, Int32 count, bool transpose, double[] value)
 		{
 			unsafe {
@@ -1509,6 +1552,8 @@ namespace OpenGL
 		/// <param name="value">
 		/// A <see cref="T:double[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_VERSION_4_0")]
+		[RequiredByFeature("GL_ARB_gpu_shader_fp64")]
 		public static void UniformMatrix4x3(Int32 location, Int32 count, bool transpose, double[] value)
 		{
 			unsafe {
@@ -1570,6 +1615,8 @@ namespace OpenGL
 		/// <seealso cref="Gl.CreateProgram"/>
 		/// <seealso cref="Gl.LinkProgram"/>
 		/// <seealso cref="Gl.Uniform"/>
+		[RequiredByFeature("GL_VERSION_4_0")]
+		[RequiredByFeature("GL_ARB_gpu_shader_fp64")]
 		public static void GetUniform(UInt32 program, Int32 location, double[] @params)
 		{
 			unsafe {
@@ -1614,6 +1661,8 @@ namespace OpenGL
 		/// <seealso cref="Gl.GetActiveSubroutineUniform"/>
 		/// <seealso cref="Gl.GetActiveSubroutineUniformName"/>
 		/// <seealso cref="Gl.GetUniformLocation"/>
+		[RequiredByFeature("GL_VERSION_4_0")]
+		[RequiredByFeature("GL_ARB_shader_subroutine")]
 		public static Int32 GetSubroutineUniformLocation(UInt32 program, int shadertype, String name)
 		{
 			Int32 retValue;
@@ -1656,6 +1705,8 @@ namespace OpenGL
 		/// <seealso cref="Gl.GetProgram"/>
 		/// <seealso cref="Gl.GetActiveSubroutineUniform"/>
 		/// <seealso cref="Gl.GetActiveSubroutineUniformName"/>
+		[RequiredByFeature("GL_VERSION_4_0")]
+		[RequiredByFeature("GL_ARB_shader_subroutine")]
 		public static UInt32 GetSubroutineIndex(UInt32 program, int shadertype, String name)
 		{
 			UInt32 retValue;
@@ -1715,6 +1766,8 @@ namespace OpenGL
 		/// <seealso cref="Gl.GetSubroutineIndex"/>
 		/// <seealso cref="Gl.GetActiveSubroutineUniformName"/>
 		/// <seealso cref="Gl.GetProgramStage"/>
+		[RequiredByFeature("GL_VERSION_4_0")]
+		[RequiredByFeature("GL_ARB_shader_subroutine")]
 		public static void GetActiveSubroutineUniform(UInt32 program, int shadertype, UInt32 index, int pname, Int32[] values)
 		{
 			unsafe {
@@ -1773,6 +1826,8 @@ namespace OpenGL
 		/// <seealso cref="Gl.GetSubroutineIndex"/>
 		/// <seealso cref="Gl.GetActiveSubroutineUniform"/>
 		/// <seealso cref="Gl.GetProgramStage"/>
+		[RequiredByFeature("GL_VERSION_4_0")]
+		[RequiredByFeature("GL_ARB_shader_subroutine")]
 		public static void GetActiveSubroutineUniformName(UInt32 program, int shadertype, UInt32 index, Int32 bufsize, out Int32 length, [Out] StringBuilder name)
 		{
 			unsafe {
@@ -1828,6 +1883,8 @@ namespace OpenGL
 		/// <seealso cref="Gl.GetSubroutineIndex"/>
 		/// <seealso cref="Gl.GetActiveSubroutineUniform"/>
 		/// <seealso cref="Gl.GetProgramStage"/>
+		[RequiredByFeature("GL_VERSION_4_0")]
+		[RequiredByFeature("GL_ARB_shader_subroutine")]
 		public static void GetActiveSubroutineName(UInt32 program, int shadertype, UInt32 index, Int32 bufsize, out Int32 length, [Out] StringBuilder name)
 		{
 			unsafe {
@@ -1878,6 +1935,8 @@ namespace OpenGL
 		/// <seealso cref="Gl.GetActiveSubroutineUniform"/>
 		/// <seealso cref="Gl.GetActiveSubroutineUniformName"/>
 		/// <seealso cref="Gl.GetProgramStage"/>
+		[RequiredByFeature("GL_VERSION_4_0")]
+		[RequiredByFeature("GL_ARB_shader_subroutine")]
 		public static void UniformSubroutines(int shadertype, Int32 count, UInt32[] indices)
 		{
 			unsafe {
@@ -1920,6 +1979,8 @@ namespace OpenGL
 		/// <seealso cref="Gl.GetActiveSubroutineUniform"/>
 		/// <seealso cref="Gl.GetActiveSubroutineUniformName"/>
 		/// <seealso cref="Gl.GetUniformLocation"/>
+		[RequiredByFeature("GL_VERSION_4_0")]
+		[RequiredByFeature("GL_ARB_shader_subroutine")]
 		public static void GetUniformSubroutine(int shadertype, Int32 location, out UInt32 @params)
 		{
 			unsafe {
@@ -1973,6 +2034,8 @@ namespace OpenGL
 		/// </para>
 		/// </remarks>
 		/// <seealso cref="Gl.GetProgram"/>
+		[RequiredByFeature("GL_VERSION_4_0")]
+		[RequiredByFeature("GL_ARB_shader_subroutine")]
 		public static void GetProgramStage(UInt32 program, int shadertype, int pname, out Int32 values)
 		{
 			unsafe {
@@ -2020,6 +2083,8 @@ namespace OpenGL
 		/// <seealso cref="Gl.DrawArraysInstanced"/>
 		/// <seealso cref="Gl.DrawElements"/>
 		/// <seealso cref="Gl.DrawRangeElements"/>
+		[RequiredByFeature("GL_VERSION_4_0")]
+		[RequiredByFeature("GL_ARB_tessellation_shader")]
 		public static void PatchParameter(int pname, Int32 value)
 		{
 			if        (Delegates.pglPatchParameteri != null) {
@@ -2070,6 +2135,8 @@ namespace OpenGL
 		/// <seealso cref="Gl.DrawArraysInstanced"/>
 		/// <seealso cref="Gl.DrawElements"/>
 		/// <seealso cref="Gl.DrawRangeElements"/>
+		[RequiredByFeature("GL_VERSION_4_0")]
+		[RequiredByFeature("GL_ARB_tessellation_shader")]
 		public static void PatchParameter(int pname, float[] values)
 		{
 			unsafe {
@@ -2124,6 +2191,8 @@ namespace OpenGL
 		/// <seealso cref="Gl.PauseTransformFeedback"/>
 		/// <seealso cref="Gl.ResumeTransformFeedback"/>
 		/// <seealso cref="Gl.EndTransformFeedback"/>
+		[RequiredByFeature("GL_VERSION_4_0")]
+		[RequiredByFeature("GL_ARB_transform_feedback2")]
 		public static void BindTransformFeedback(int target, UInt32 id)
 		{
 			Debug.Assert(Delegates.pglBindTransformFeedback != null, "pglBindTransformFeedback not implemented");
@@ -2158,6 +2227,8 @@ namespace OpenGL
 		/// <seealso cref="Gl.PauseTransformFeedback"/>
 		/// <seealso cref="Gl.ResumeTransformFeedback"/>
 		/// <seealso cref="Gl.EndTransformFeedback"/>
+		[RequiredByFeature("GL_VERSION_4_0")]
+		[RequiredByFeature("GL_ARB_transform_feedback2")]
 		public static void DeleteTransformFeedback(Int32 n, UInt32[] ids)
 		{
 			unsafe {
@@ -2202,6 +2273,8 @@ namespace OpenGL
 		/// <seealso cref="Gl.PauseTransformFeedback"/>
 		/// <seealso cref="Gl.ResumeTransformFeedback"/>
 		/// <seealso cref="Gl.EndTransformFeedback"/>
+		[RequiredByFeature("GL_VERSION_4_0")]
+		[RequiredByFeature("GL_ARB_transform_feedback2")]
 		public static void GenTransformFeedback(Int32 n, UInt32[] ids)
 		{
 			unsafe {
@@ -2235,6 +2308,8 @@ namespace OpenGL
 		/// <seealso cref="Gl.GenTransformFeedbacks"/>
 		/// <seealso cref="Gl.BindTransformFeedback"/>
 		/// <seealso cref="Gl.DeleteTransformFeedbacks"/>
+		[RequiredByFeature("GL_VERSION_4_0")]
+		[RequiredByFeature("GL_ARB_transform_feedback2")]
 		public static bool IsTransformFeedback(UInt32 id)
 		{
 			bool retValue;
@@ -2271,6 +2346,8 @@ namespace OpenGL
 		/// <seealso cref="Gl.ResumeTransformFeedback"/>
 		/// <seealso cref="Gl.EndTransformFeedback"/>
 		/// <seealso cref="Gl.DeleteTransformFeedbacks"/>
+		[RequiredByFeature("GL_VERSION_4_0")]
+		[RequiredByFeature("GL_ARB_transform_feedback2")]
 		public static void PauseTransformFeedback()
 		{
 			if        (Delegates.pglPauseTransformFeedback != null) {
@@ -2303,6 +2380,8 @@ namespace OpenGL
 		/// <seealso cref="Gl.PauseTransformFeedback"/>
 		/// <seealso cref="Gl.EndTransformFeedback"/>
 		/// <seealso cref="Gl.DeleteTransformFeedbacks"/>
+		[RequiredByFeature("GL_VERSION_4_0")]
+		[RequiredByFeature("GL_ARB_transform_feedback2")]
 		public static void ResumeTransformFeedback()
 		{
 			if        (Delegates.pglResumeTransformFeedback != null) {
@@ -2350,6 +2429,8 @@ namespace OpenGL
 		/// <seealso cref="Gl.DrawElements"/>
 		/// <seealso cref="Gl.DrawRangeElements"/>
 		/// <seealso cref="Gl.DrawTransformFeedbackStream"/>
+		[RequiredByFeature("GL_VERSION_4_0")]
+		[RequiredByFeature("GL_ARB_transform_feedback2")]
 		public static void DrawTransformFeedback(int mode, UInt32 id)
 		{
 			if        (Delegates.pglDrawTransformFeedback != null) {
@@ -2397,6 +2478,8 @@ namespace OpenGL
 		/// <seealso cref="Gl.DrawElements"/>
 		/// <seealso cref="Gl.DrawRangeElements"/>
 		/// <seealso cref="Gl.DrawTransformFeedbackStream"/>
+		[RequiredByFeature("GL_VERSION_4_0")]
+		[RequiredByFeature("GL_ARB_transform_feedback2")]
 		public static void DrawTransformFeedback(PrimitiveType mode, UInt32 id)
 		{
 			if        (Delegates.pglDrawTransformFeedback != null) {
@@ -2450,6 +2533,8 @@ namespace OpenGL
 		/// <seealso cref="Gl.DrawElements"/>
 		/// <seealso cref="Gl.DrawRangeElements"/>
 		/// <seealso cref="Gl.DrawTransformFeedback"/>
+		[RequiredByFeature("GL_VERSION_4_0")]
+		[RequiredByFeature("GL_ARB_transform_feedback3")]
 		public static void DrawTransformFeedbackStream(int mode, UInt32 id, UInt32 stream)
 		{
 			Debug.Assert(Delegates.pglDrawTransformFeedbackStream != null, "pglDrawTransformFeedbackStream not implemented");
@@ -2498,6 +2583,8 @@ namespace OpenGL
 		/// <seealso cref="Gl.DrawElements"/>
 		/// <seealso cref="Gl.DrawRangeElements"/>
 		/// <seealso cref="Gl.DrawTransformFeedback"/>
+		[RequiredByFeature("GL_VERSION_4_0")]
+		[RequiredByFeature("GL_ARB_transform_feedback3")]
 		public static void DrawTransformFeedbackStream(PrimitiveType mode, UInt32 id, UInt32 stream)
 		{
 			Debug.Assert(Delegates.pglDrawTransformFeedbackStream != null, "pglDrawTransformFeedbackStream not implemented");
@@ -2585,6 +2672,8 @@ namespace OpenGL
 		/// <seealso cref="Gl.GetQueryObject"/>
 		/// <seealso cref="Gl.GetQueryiv"/>
 		/// <seealso cref="Gl.IsQuery"/>
+		[RequiredByFeature("GL_VERSION_4_0")]
+		[RequiredByFeature("GL_ARB_transform_feedback3")]
 		public static void BeginQueryIndexed(int target, UInt32 index, UInt32 id)
 		{
 			Debug.Assert(Delegates.pglBeginQueryIndexed != null, "pglBeginQueryIndexed not implemented");
@@ -2669,6 +2758,8 @@ namespace OpenGL
 		/// <seealso cref="Gl.GetQueryObject"/>
 		/// <seealso cref="Gl.GetQueryiv"/>
 		/// <seealso cref="Gl.IsQuery"/>
+		[RequiredByFeature("GL_VERSION_4_0")]
+		[RequiredByFeature("GL_ARB_transform_feedback3")]
 		public static void EndQueryIndexed(int target, UInt32 index)
 		{
 			Debug.Assert(Delegates.pglEndQueryIndexed != null, "pglEndQueryIndexed not implemented");
@@ -2710,6 +2801,8 @@ namespace OpenGL
 		/// </remarks>
 		/// <seealso cref="Gl.GetQueryObject"/>
 		/// <seealso cref="Gl.IsQuery"/>
+		[RequiredByFeature("GL_VERSION_4_0")]
+		[RequiredByFeature("GL_ARB_transform_feedback3")]
 		public static void GetQueryIndexed(int target, UInt32 index, int pname, Int32[] @params)
 		{
 			unsafe {

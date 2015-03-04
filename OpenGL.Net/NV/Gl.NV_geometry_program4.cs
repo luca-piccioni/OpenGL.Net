@@ -28,7 +28,6 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_LINES_ADJACENCY_EXT symbol.
 		/// </summary>
-		[RequiredByFeature("GL_EXT_geometry_shader")]
 		[RequiredByFeature("GL_EXT_geometry_shader4")]
 		[RequiredByFeature("GL_NV_geometry_program4")]
 		public const int LINES_ADJACENCY_EXT = 0x000A;
@@ -36,7 +35,6 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_LINE_STRIP_ADJACENCY_EXT symbol.
 		/// </summary>
-		[RequiredByFeature("GL_EXT_geometry_shader")]
 		[RequiredByFeature("GL_EXT_geometry_shader4")]
 		[RequiredByFeature("GL_NV_geometry_program4")]
 		public const int LINE_STRIP_ADJACENCY_EXT = 0x000B;
@@ -44,7 +42,6 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_TRIANGLES_ADJACENCY_EXT symbol.
 		/// </summary>
-		[RequiredByFeature("GL_EXT_geometry_shader")]
 		[RequiredByFeature("GL_EXT_geometry_shader4")]
 		[RequiredByFeature("GL_NV_geometry_program4")]
 		public const int TRIANGLES_ADJACENCY_EXT = 0x000C;
@@ -52,7 +49,6 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_TRIANGLE_STRIP_ADJACENCY_EXT symbol.
 		/// </summary>
-		[RequiredByFeature("GL_EXT_geometry_shader")]
 		[RequiredByFeature("GL_EXT_geometry_shader4")]
 		[RequiredByFeature("GL_NV_geometry_program4")]
 		public const int TRIANGLE_STRIP_ADJACENCY_EXT = 0x000D;
@@ -99,7 +95,6 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_MAX_GEOMETRY_TEXTURE_IMAGE_UNITS_EXT symbol.
 		/// </summary>
-		[RequiredByFeature("GL_EXT_geometry_shader")]
 		[RequiredByFeature("GL_EXT_geometry_shader4")]
 		[RequiredByFeature("GL_NV_geometry_program4")]
 		public const int MAX_GEOMETRY_TEXTURE_IMAGE_UNITS_EXT = 0x8C29;
@@ -107,7 +102,6 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_FRAMEBUFFER_ATTACHMENT_LAYERED_EXT symbol.
 		/// </summary>
-		[RequiredByFeature("GL_EXT_geometry_shader")]
 		[RequiredByFeature("GL_EXT_geometry_shader4")]
 		[RequiredByFeature("GL_NV_geometry_program4")]
 		public const int FRAMEBUFFER_ATTACHMENT_LAYERED_EXT = 0x8DA7;
@@ -115,7 +109,6 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_FRAMEBUFFER_INCOMPLETE_LAYER_TARGETS_EXT symbol.
 		/// </summary>
-		[RequiredByFeature("GL_EXT_geometry_shader")]
 		[RequiredByFeature("GL_EXT_geometry_shader4")]
 		[RequiredByFeature("GL_NV_geometry_program4")]
 		public const int FRAMEBUFFER_INCOMPLETE_LAYER_TARGETS_EXT = 0x8DA8;
@@ -151,6 +144,7 @@ namespace OpenGL
 		/// <param name="limit">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
+		[RequiredByFeature("GL_NV_geometry_program4")]
 		public static void ProgramVertexLimitNV(int target, Int32 limit)
 		{
 			Debug.Assert(Delegates.pglProgramVertexLimitNV != null, "pglProgramVertexLimitNV not implemented");
@@ -174,6 +168,7 @@ namespace OpenGL
 		/// <param name="level">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
+		[RequiredByFeature("GL_NV_geometry_program4")]
 		public static void FramebufferTextureEXT(int target, int attachment, UInt32 texture, Int32 level)
 		{
 			Debug.Assert(Delegates.pglFramebufferTextureEXT != null, "pglFramebufferTextureEXT not implemented");
@@ -200,6 +195,8 @@ namespace OpenGL
 		/// <param name="layer">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
+		[RequiredByFeature("GL_EXT_texture_array")]
+		[RequiredByFeature("GL_NV_geometry_program4")]
 		public static void FramebufferTextureLayerEXT(int target, int attachment, UInt32 texture, Int32 level, Int32 layer)
 		{
 			Debug.Assert(Delegates.pglFramebufferTextureLayerEXT != null, "pglFramebufferTextureLayerEXT not implemented");
@@ -226,6 +223,7 @@ namespace OpenGL
 		/// <param name="face">
 		/// A <see cref="T:int"/>.
 		/// </param>
+		[RequiredByFeature("GL_NV_geometry_program4")]
 		public static void FramebufferTextureFaceEXT(int target, int attachment, UInt32 texture, Int32 level, int face)
 		{
 			Debug.Assert(Delegates.pglFramebufferTextureFaceEXT != null, "pglFramebufferTextureFaceEXT not implemented");
@@ -252,6 +250,7 @@ namespace OpenGL
 		/// <param name="face">
 		/// A <see cref="T:int"/>.
 		/// </param>
+		[RequiredByFeature("GL_NV_geometry_program4")]
 		public static void FramebufferTextureFaceEXT(int target, int attachment, UInt32 texture, Int32 level, TextureTarget face)
 		{
 			Debug.Assert(Delegates.pglFramebufferTextureFaceEXT != null, "pglFramebufferTextureFaceEXT not implemented");

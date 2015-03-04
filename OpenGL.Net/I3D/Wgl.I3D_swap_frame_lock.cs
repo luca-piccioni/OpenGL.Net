@@ -28,6 +28,7 @@ namespace OpenGL
 		/// <summary>
 		/// Binding for wglEnableFrameLockI3D.
 		/// </summary>
+		[RequiredByFeature("WGL_I3D_swap_frame_lock")]
 		public static bool EnableFrameLockI3D()
 		{
 			bool retValue;
@@ -35,7 +36,6 @@ namespace OpenGL
 			Debug.Assert(Delegates.pwglEnableFrameLockI3D != null, "pwglEnableFrameLockI3D not implemented");
 			retValue = Delegates.pwglEnableFrameLockI3D();
 			CallLog("wglEnableFrameLockI3D() = {0}", retValue);
-			DebugCheckErrors();
 
 			return (retValue);
 		}
@@ -43,6 +43,7 @@ namespace OpenGL
 		/// <summary>
 		/// Binding for wglDisableFrameLockI3D.
 		/// </summary>
+		[RequiredByFeature("WGL_I3D_swap_frame_lock")]
 		public static bool DisableFrameLockI3D()
 		{
 			bool retValue;
@@ -50,7 +51,6 @@ namespace OpenGL
 			Debug.Assert(Delegates.pwglDisableFrameLockI3D != null, "pwglDisableFrameLockI3D not implemented");
 			retValue = Delegates.pwglDisableFrameLockI3D();
 			CallLog("wglDisableFrameLockI3D() = {0}", retValue);
-			DebugCheckErrors();
 
 			return (retValue);
 		}
@@ -61,6 +61,7 @@ namespace OpenGL
 		/// <param name="pFlag">
 		/// A <see cref="T:bool[]"/>.
 		/// </param>
+		[RequiredByFeature("WGL_I3D_swap_frame_lock")]
 		public static bool IsEnabledFrameLockI3D(bool[] pFlag)
 		{
 			bool retValue;
@@ -73,7 +74,6 @@ namespace OpenGL
 					CallLog("wglIsEnabledFrameLockI3D({0}) = {1}", pFlag, retValue);
 				}
 			}
-			DebugCheckErrors();
 
 			return (retValue);
 		}
@@ -84,6 +84,7 @@ namespace OpenGL
 		/// <param name="pFlag">
 		/// A <see cref="T:bool[]"/>.
 		/// </param>
+		[RequiredByFeature("WGL_I3D_swap_frame_lock")]
 		public static bool QueryFrameLockMasterI3D(bool[] pFlag)
 		{
 			bool retValue;
@@ -96,7 +97,6 @@ namespace OpenGL
 					CallLog("wglQueryFrameLockMasterI3D({0}) = {1}", pFlag, retValue);
 				}
 			}
-			DebugCheckErrors();
 
 			return (retValue);
 		}

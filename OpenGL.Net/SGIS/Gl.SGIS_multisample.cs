@@ -130,6 +130,7 @@ namespace OpenGL
 		/// <param name="invert">
 		/// A <see cref="T:bool"/>.
 		/// </param>
+		[RequiredByFeature("GL_SGIS_multisample")]
 		public static void SampleMaskSGIS(float value, bool invert)
 		{
 			Debug.Assert(Delegates.pglSampleMaskSGIS != null, "pglSampleMaskSGIS not implemented");
@@ -144,6 +145,7 @@ namespace OpenGL
 		/// <param name="pattern">
 		/// A <see cref="T:int"/>.
 		/// </param>
+		[RequiredByFeature("GL_SGIS_multisample")]
 		public static void SamplePatternSGIS(int pattern)
 		{
 			Debug.Assert(Delegates.pglSamplePatternSGIS != null, "pglSamplePatternSGIS not implemented");
@@ -158,6 +160,7 @@ namespace OpenGL
 		/// <param name="pattern">
 		/// A <see cref="T:int"/>.
 		/// </param>
+		[RequiredByFeature("GL_SGIS_multisample")]
 		public static void SamplePatternSGIS(SamplePatternSGIS pattern)
 		{
 			Debug.Assert(Delegates.pglSamplePatternSGIS != null, "pglSamplePatternSGIS not implemented");

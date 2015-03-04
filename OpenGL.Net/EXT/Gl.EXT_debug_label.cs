@@ -76,6 +76,7 @@ namespace OpenGL
 		/// <param name="label">
 		/// A <see cref="T:String"/>.
 		/// </param>
+		[RequiredByFeature("GL_EXT_debug_label")]
 		public static void LabelObjectEXT(int type, UInt32 @object, Int32 length, String label)
 		{
 			Debug.Assert(Delegates.pglLabelObjectEXT != null, "pglLabelObjectEXT not implemented");
@@ -102,6 +103,7 @@ namespace OpenGL
 		/// <param name="label">
 		/// A <see cref="T:StringBuilder"/>.
 		/// </param>
+		[RequiredByFeature("GL_EXT_debug_label")]
 		public static void GetObjectEXT(int type, UInt32 @object, Int32 bufSize, out Int32 length, [Out] StringBuilder label)
 		{
 			unsafe {

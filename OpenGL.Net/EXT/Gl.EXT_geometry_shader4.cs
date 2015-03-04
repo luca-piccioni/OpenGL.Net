@@ -28,7 +28,6 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_GEOMETRY_SHADER_EXT symbol.
 		/// </summary>
-		[RequiredByFeature("GL_EXT_geometry_shader")]
 		[RequiredByFeature("GL_EXT_geometry_shader4")]
 		public const int GEOMETRY_SHADER_EXT = 0x8DD9;
 
@@ -53,21 +52,18 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_MAX_GEOMETRY_UNIFORM_COMPONENTS_EXT symbol.
 		/// </summary>
-		[RequiredByFeature("GL_EXT_geometry_shader")]
 		[RequiredByFeature("GL_EXT_geometry_shader4")]
 		public const int MAX_GEOMETRY_UNIFORM_COMPONENTS_EXT = 0x8DDF;
 
 		/// <summary>
 		/// Value of GL_MAX_GEOMETRY_OUTPUT_VERTICES_EXT symbol.
 		/// </summary>
-		[RequiredByFeature("GL_EXT_geometry_shader")]
 		[RequiredByFeature("GL_EXT_geometry_shader4")]
 		public const int MAX_GEOMETRY_OUTPUT_VERTICES_EXT = 0x8DE0;
 
 		/// <summary>
 		/// Value of GL_MAX_GEOMETRY_TOTAL_OUTPUT_COMPONENTS_EXT symbol.
 		/// </summary>
-		[RequiredByFeature("GL_EXT_geometry_shader")]
 		[RequiredByFeature("GL_EXT_geometry_shader4")]
 		public const int MAX_GEOMETRY_TOTAL_OUTPUT_COMPONENTS_EXT = 0x8DE1;
 
@@ -83,6 +79,8 @@ namespace OpenGL
 		/// <param name="value">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
+		[RequiredByFeature("GL_EXT_geometry_shader4")]
+		[RequiredByFeature("GL_EXT_separate_shader_objects")]
 		public static void ProgramParameterEXT(UInt32 program, int pname, Int32 value)
 		{
 			Debug.Assert(Delegates.pglProgramParameteriEXT != null, "pglProgramParameteriEXT not implemented");

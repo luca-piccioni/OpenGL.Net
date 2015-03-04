@@ -34,6 +34,7 @@ namespace OpenGL
 		/// <param name="exponent">
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_OES_query_matrix")]
 		public static uint QueryMatrixxOES(IntPtr[] mantissa, Int32[] exponent)
 		{
 			uint retValue;

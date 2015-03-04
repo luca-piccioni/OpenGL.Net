@@ -29,16 +29,12 @@ namespace OpenGL
 		/// Value of GL_BUFFER_SIZE symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_5")]
-		[RequiredByFeature("GL_VERSION_ES_CM_1_0")]
-		[RequiredByFeature("GL_ES_VERSION_2_0")]
 		public const int BUFFER_SIZE = 0x8764;
 
 		/// <summary>
 		/// Value of GL_BUFFER_USAGE symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_5")]
-		[RequiredByFeature("GL_VERSION_ES_CM_1_0")]
-		[RequiredByFeature("GL_ES_VERSION_2_0")]
 		public const int BUFFER_USAGE = 0x8765;
 
 		/// <summary>
@@ -51,74 +47,60 @@ namespace OpenGL
 		/// Value of GL_CURRENT_QUERY symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_5")]
-		[RequiredByFeature("GL_ES_VERSION_3_0")]
 		public const int CURRENT_QUERY = 0x8865;
 
 		/// <summary>
 		/// Value of GL_QUERY_RESULT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_5")]
-		[RequiredByFeature("GL_ES_VERSION_3_0")]
 		public const int QUERY_RESULT = 0x8866;
 
 		/// <summary>
 		/// Value of GL_QUERY_RESULT_AVAILABLE symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_5")]
-		[RequiredByFeature("GL_ES_VERSION_3_0")]
 		public const int QUERY_RESULT_AVAILABLE = 0x8867;
 
 		/// <summary>
 		/// Value of GL_ARRAY_BUFFER symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_5")]
-		[RequiredByFeature("GL_VERSION_ES_CM_1_0")]
-		[RequiredByFeature("GL_ES_VERSION_2_0")]
 		public const int ARRAY_BUFFER = 0x8892;
 
 		/// <summary>
 		/// Value of GL_ELEMENT_ARRAY_BUFFER symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_5")]
-		[RequiredByFeature("GL_VERSION_ES_CM_1_0")]
-		[RequiredByFeature("GL_ES_VERSION_2_0")]
 		public const int ELEMENT_ARRAY_BUFFER = 0x8893;
 
 		/// <summary>
 		/// Value of GL_ARRAY_BUFFER_BINDING symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_5")]
-		[RequiredByFeature("GL_VERSION_ES_CM_1_0")]
-		[RequiredByFeature("GL_ES_VERSION_2_0")]
 		public const int ARRAY_BUFFER_BINDING = 0x8894;
 
 		/// <summary>
 		/// Value of GL_ELEMENT_ARRAY_BUFFER_BINDING symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_5")]
-		[RequiredByFeature("GL_VERSION_ES_CM_1_0")]
-		[RequiredByFeature("GL_ES_VERSION_2_0")]
 		public const int ELEMENT_ARRAY_BUFFER_BINDING = 0x8895;
 
 		/// <summary>
 		/// Value of GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_5")]
-		[RequiredByFeature("GL_ES_VERSION_2_0")]
 		public const int VERTEX_ATTRIB_ARRAY_BUFFER_BINDING = 0x889F;
 
 		/// <summary>
 		/// Value of GL_READ_ONLY symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_5")]
-		[RequiredByFeature("GL_ES_VERSION_3_1")]
 		public const int READ_ONLY = 0x88B8;
 
 		/// <summary>
 		/// Value of GL_WRITE_ONLY symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_5")]
-		[RequiredByFeature("GL_ES_VERSION_3_1")]
 		[RequiredByFeature("GL_NV_shader_buffer_store")]
 		public const int WRITE_ONLY = 0x88B9;
 
@@ -126,7 +108,6 @@ namespace OpenGL
 		/// Value of GL_READ_WRITE symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_5")]
-		[RequiredByFeature("GL_ES_VERSION_3_1")]
 		[RequiredByFeature("GL_NV_shader_buffer_store")]
 		public const int READ_WRITE = 0x88BA;
 
@@ -140,79 +121,66 @@ namespace OpenGL
 		/// Value of GL_BUFFER_MAPPED symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_5")]
-		[RequiredByFeature("GL_ES_VERSION_3_0")]
 		public const int BUFFER_MAPPED = 0x88BC;
 
 		/// <summary>
 		/// Value of GL_BUFFER_MAP_POINTER symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_5")]
-		[RequiredByFeature("GL_ES_VERSION_3_0")]
 		public const int BUFFER_MAP_POINTER = 0x88BD;
 
 		/// <summary>
 		/// Value of GL_STREAM_DRAW symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_5")]
-		[RequiredByFeature("GL_ES_VERSION_2_0")]
 		public const int STREAM_DRAW = 0x88E0;
 
 		/// <summary>
 		/// Value of GL_STREAM_READ symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_5")]
-		[RequiredByFeature("GL_ES_VERSION_3_0")]
 		public const int STREAM_READ = 0x88E1;
 
 		/// <summary>
 		/// Value of GL_STREAM_COPY symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_5")]
-		[RequiredByFeature("GL_ES_VERSION_3_0")]
 		public const int STREAM_COPY = 0x88E2;
 
 		/// <summary>
 		/// Value of GL_STATIC_DRAW symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_5")]
-		[RequiredByFeature("GL_VERSION_ES_CM_1_0")]
-		[RequiredByFeature("GL_ES_VERSION_2_0")]
 		public const int STATIC_DRAW = 0x88E4;
 
 		/// <summary>
 		/// Value of GL_STATIC_READ symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_5")]
-		[RequiredByFeature("GL_ES_VERSION_3_0")]
 		public const int STATIC_READ = 0x88E5;
 
 		/// <summary>
 		/// Value of GL_STATIC_COPY symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_5")]
-		[RequiredByFeature("GL_ES_VERSION_3_0")]
 		public const int STATIC_COPY = 0x88E6;
 
 		/// <summary>
 		/// Value of GL_DYNAMIC_DRAW symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_5")]
-		[RequiredByFeature("GL_VERSION_ES_CM_1_0")]
-		[RequiredByFeature("GL_ES_VERSION_2_0")]
 		public const int DYNAMIC_DRAW = 0x88E8;
 
 		/// <summary>
 		/// Value of GL_DYNAMIC_READ symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_5")]
-		[RequiredByFeature("GL_ES_VERSION_3_0")]
 		public const int DYNAMIC_READ = 0x88E9;
 
 		/// <summary>
 		/// Value of GL_DYNAMIC_COPY symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_5")]
-		[RequiredByFeature("GL_ES_VERSION_3_0")]
 		public const int DYNAMIC_COPY = 0x88EA;
 
 		/// <summary>
@@ -230,7 +198,6 @@ namespace OpenGL
 		/// </para>
 		/// </remarks>
 		[RequiredByFeature("GL_VERSION_1_5")]
-		[RequiredByFeature("GL_VERSION_ES_CM_1_0")]
 		[RequiredByFeature("GL_ARB_blend_func_extended")]
 		public const int SRC1_ALPHA = 0x8589;
 
@@ -238,7 +205,6 @@ namespace OpenGL
 		/// Value of GL_VERTEX_ARRAY_BUFFER_BINDING symbol (DEPRECATED).
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_5")]
-		[RequiredByFeature("GL_VERSION_ES_CM_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
 		[Obsolete("Deprecated/removed by OpenGL 3.2.")]
@@ -249,7 +215,6 @@ namespace OpenGL
 		/// Value of GL_NORMAL_ARRAY_BUFFER_BINDING symbol (DEPRECATED).
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_5")]
-		[RequiredByFeature("GL_VERSION_ES_CM_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
 		[Obsolete("Deprecated/removed by OpenGL 3.2.")]
@@ -260,7 +225,6 @@ namespace OpenGL
 		/// Value of GL_COLOR_ARRAY_BUFFER_BINDING symbol (DEPRECATED).
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_5")]
-		[RequiredByFeature("GL_VERSION_ES_CM_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
 		[Obsolete("Deprecated/removed by OpenGL 3.2.")]
@@ -281,7 +245,6 @@ namespace OpenGL
 		/// Value of GL_TEXTURE_COORD_ARRAY_BUFFER_BINDING symbol (DEPRECATED).
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_5")]
-		[RequiredByFeature("GL_VERSION_ES_CM_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
 		[Obsolete("Deprecated/removed by OpenGL 3.2.")]
@@ -457,7 +420,6 @@ namespace OpenGL
 		/// </para>
 		/// </remarks>
 		[RequiredByFeature("GL_VERSION_1_5")]
-		[RequiredByFeature("GL_VERSION_ES_CM_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
 		[Obsolete("Deprecated/removed by OpenGL 3.2.")]
@@ -473,7 +435,6 @@ namespace OpenGL
 		/// </para>
 		/// </remarks>
 		[RequiredByFeature("GL_VERSION_1_5")]
-		[RequiredByFeature("GL_VERSION_ES_CM_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
 		[Obsolete("Deprecated/removed by OpenGL 3.2.")]
@@ -489,7 +450,6 @@ namespace OpenGL
 		/// </para>
 		/// </remarks>
 		[RequiredByFeature("GL_VERSION_1_5")]
-		[RequiredByFeature("GL_VERSION_ES_CM_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
 		[Obsolete("Deprecated/removed by OpenGL 3.2.")]
@@ -505,7 +465,6 @@ namespace OpenGL
 		/// </para>
 		/// </remarks>
 		[RequiredByFeature("GL_VERSION_1_5")]
-		[RequiredByFeature("GL_VERSION_ES_CM_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
 		[Obsolete("Deprecated/removed by OpenGL 3.2.")]
@@ -521,7 +480,6 @@ namespace OpenGL
 		/// </para>
 		/// </remarks>
 		[RequiredByFeature("GL_VERSION_1_5")]
-		[RequiredByFeature("GL_VERSION_ES_CM_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
 		[Obsolete("Deprecated/removed by OpenGL 3.2.")]
@@ -556,6 +514,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.BeginQuery"/>
 		/// <seealso cref="Gl.DeleteQueries"/>
 		/// <seealso cref="Gl.EndQuery"/>
+		[RequiredByFeature("GL_VERSION_1_5")]
 		public static void GenQueries(Int32 n, UInt32[] ids)
 		{
 			unsafe {
@@ -601,6 +560,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.GenQueries"/>
 		/// <seealso cref="Gl.GetQueryiv"/>
 		/// <seealso cref="Gl.GetQueryObject"/>
+		[RequiredByFeature("GL_VERSION_1_5")]
 		public static void DeleteQueries(Int32 n, UInt32[] ids)
 		{
 			unsafe {
@@ -635,6 +595,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.DeleteQueries"/>
 		/// <seealso cref="Gl.EndQuery"/>
 		/// <seealso cref="Gl.GenQueries"/>
+		[RequiredByFeature("GL_VERSION_1_5")]
 		public static bool IsQuery(UInt32 id)
 		{
 			bool retValue;
@@ -722,6 +683,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.GetQueryObject"/>
 		/// <seealso cref="Gl.GetQueryiv"/>
 		/// <seealso cref="Gl.IsQuery"/>
+		[RequiredByFeature("GL_VERSION_1_5")]
 		public static void BeginQuery(int target, UInt32 id)
 		{
 			if        (Delegates.pglBeginQuery != null) {
@@ -802,6 +764,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.GetQueryObject"/>
 		/// <seealso cref="Gl.GetQueryiv"/>
 		/// <seealso cref="Gl.IsQuery"/>
+		[RequiredByFeature("GL_VERSION_1_5")]
 		public static void EndQuery(int target)
 		{
 			if        (Delegates.pglEndQuery != null) {
@@ -842,6 +805,7 @@ namespace OpenGL
 		/// </remarks>
 		/// <seealso cref="Gl.GetQueryObject"/>
 		/// <seealso cref="Gl.IsQuery"/>
+		[RequiredByFeature("GL_VERSION_1_5")]
 		public static void GetQuery(int target, int pname, Int32[] @params)
 		{
 			unsafe {
@@ -890,6 +854,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.GetQueryiv"/>
 		/// <seealso cref="Gl.IsQuery"/>
 		/// <seealso cref="Gl.QueryCounter"/>
+		[RequiredByFeature("GL_VERSION_1_5")]
 		public static void GetQueryObject(UInt32 id, int pname, Int32[] @params)
 		{
 			unsafe {
@@ -941,6 +906,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.GetQueryiv"/>
 		/// <seealso cref="Gl.IsQuery"/>
 		/// <seealso cref="Gl.QueryCounter"/>
+		[RequiredByFeature("GL_VERSION_1_5")]
 		public static void GetQueryObjectuiv(UInt32 id, int pname, UInt32[] @params)
 		{
 			unsafe {
@@ -1051,6 +1017,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.DeleteBuffers"/>
 		/// <seealso cref="Gl.Get"/>
 		/// <seealso cref="Gl.IsBuffer"/>
+		[RequiredByFeature("GL_VERSION_1_5")]
 		public static void BindBuffer(int target, UInt32 buffer)
 		{
 			if        (Delegates.pglBindBuffer != null) {
@@ -1090,6 +1057,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.BindBuffer"/>
 		/// <seealso cref="Gl.GenBuffers"/>
 		/// <seealso cref="Gl.Get"/>
+		[RequiredByFeature("GL_VERSION_1_5")]
 		public static void DeleteBuffers(Int32 n, UInt32[] buffers)
 		{
 			unsafe {
@@ -1137,6 +1105,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.BindBuffer"/>
 		/// <seealso cref="Gl.DeleteBuffers"/>
 		/// <seealso cref="Gl.Get"/>
+		[RequiredByFeature("GL_VERSION_1_5")]
 		public static void GenBuffers(Int32 n, UInt32[] buffers)
 		{
 			unsafe {
@@ -1171,6 +1140,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.DeleteBuffers"/>
 		/// <seealso cref="Gl.GenBuffers"/>
 		/// <seealso cref="Gl.Get"/>
+		[RequiredByFeature("GL_VERSION_1_5")]
 		public static bool IsBuffer(UInt32 buffer)
 		{
 			bool retValue;
@@ -1239,6 +1209,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.BufferSubData"/>
 		/// <seealso cref="Gl.MapBuffer"/>
 		/// <seealso cref="Gl.UnmapBuffer"/>
+		[RequiredByFeature("GL_VERSION_1_5")]
 		public static void BufferData(int target, UInt32 size, IntPtr data, int usage)
 		{
 			if        (Delegates.pglBufferData != null) {
@@ -1303,6 +1274,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.BufferSubData"/>
 		/// <seealso cref="Gl.MapBuffer"/>
 		/// <seealso cref="Gl.UnmapBuffer"/>
+		[RequiredByFeature("GL_VERSION_1_5")]
 		public static void BufferData(int target, UInt32 size, Object data, int usage)
 		{
 			GCHandle pin_data = GCHandle.Alloc(data, GCHandleType.Pinned);
@@ -1356,6 +1328,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.MapBuffer"/>
 		/// <seealso cref="Gl.MapBufferRange"/>
 		/// <seealso cref="Gl.UnmapBuffer"/>
+		[RequiredByFeature("GL_VERSION_1_5")]
 		public static void BufferSubData(int target, IntPtr offset, UInt32 size, IntPtr data)
 		{
 			if        (Delegates.pglBufferSubData != null) {
@@ -1412,6 +1385,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.MapBuffer"/>
 		/// <seealso cref="Gl.MapBufferRange"/>
 		/// <seealso cref="Gl.UnmapBuffer"/>
+		[RequiredByFeature("GL_VERSION_1_5")]
 		public static void BufferSubData(int target, IntPtr offset, UInt32 size, Object data)
 		{
 			GCHandle pin_data = GCHandle.Alloc(data, GCHandleType.Pinned);
@@ -1459,6 +1433,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.BufferSubData"/>
 		/// <seealso cref="Gl.MapBuffer"/>
 		/// <seealso cref="Gl.UnmapBuffer"/>
+		[RequiredByFeature("GL_VERSION_1_5")]
 		public static void GetBufferSubData(int target, IntPtr offset, UInt32 size, IntPtr data)
 		{
 			if        (Delegates.pglGetBufferSubData != null) {
@@ -1532,6 +1507,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.DeleteBuffers"/>
 		/// <seealso cref="Gl.MapBufferRange"/>
 		/// <seealso cref="Gl.UnmapBuffer"/>
+		[RequiredByFeature("GL_VERSION_1_5")]
 		public static IntPtr MapBuffer(int target, int access)
 		{
 			IntPtr retValue;
@@ -1588,6 +1564,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.DeleteBuffers"/>
 		/// <seealso cref="Gl.MapBuffer"/>
 		/// <seealso cref="Gl.MapBufferRange"/>
+		[RequiredByFeature("GL_VERSION_1_5")]
 		public static bool UnmapBuffer(int target)
 		{
 			bool retValue;
@@ -1637,6 +1614,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.GetBufferPointerv"/>
 		/// <seealso cref="Gl.MapBuffer"/>
 		/// <seealso cref="Gl.UnmapBuffer"/>
+		[RequiredByFeature("GL_VERSION_1_5")]
 		public static void GetBufferParameter(int target, int pname, Int32[] @params)
 		{
 			unsafe {
@@ -1683,6 +1661,7 @@ namespace OpenGL
 		/// </remarks>
 		/// <seealso cref="Gl.BindBuffer"/>
 		/// <seealso cref="Gl.MapBuffer"/>
+		[RequiredByFeature("GL_VERSION_1_5")]
 		public static void GetBufferPointer(int target, int pname, IntPtr @params)
 		{
 			if        (Delegates.pglGetBufferPointerv != null) {

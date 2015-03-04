@@ -85,6 +85,7 @@ namespace OpenGL
 		/// <param name="usage">
 		/// A <see cref="T:int"/>.
 		/// </param>
+		[RequiredByFeature("GL_ATI_vertex_array_object")]
 		public static UInt32 NewObjectBufferATI(Int32 size, IntPtr pointer, int usage)
 		{
 			UInt32 retValue;
@@ -109,6 +110,7 @@ namespace OpenGL
 		/// <param name="usage">
 		/// A <see cref="T:int"/>.
 		/// </param>
+		[RequiredByFeature("GL_ATI_vertex_array_object")]
 		public static UInt32 NewObjectBufferATI(Int32 size, Object pointer, int usage)
 		{
 			GCHandle pin_pointer = GCHandle.Alloc(pointer, GCHandleType.Pinned);
@@ -125,6 +127,7 @@ namespace OpenGL
 		/// <param name="buffer">
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
+		[RequiredByFeature("GL_ATI_vertex_array_object")]
 		public static bool IsObjectBufferATI(UInt32 buffer)
 		{
 			bool retValue;
@@ -155,6 +158,7 @@ namespace OpenGL
 		/// <param name="preserve">
 		/// A <see cref="T:int"/>.
 		/// </param>
+		[RequiredByFeature("GL_ATI_vertex_array_object")]
 		public static void UpdateObjectBufferATI(UInt32 buffer, UInt32 offset, Int32 size, IntPtr pointer, int preserve)
 		{
 			Debug.Assert(Delegates.pglUpdateObjectBufferATI != null, "pglUpdateObjectBufferATI not implemented");
@@ -181,6 +185,7 @@ namespace OpenGL
 		/// <param name="preserve">
 		/// A <see cref="T:int"/>.
 		/// </param>
+		[RequiredByFeature("GL_ATI_vertex_array_object")]
 		public static void UpdateObjectBufferATI(UInt32 buffer, UInt32 offset, Int32 size, Object pointer, int preserve)
 		{
 			GCHandle pin_pointer = GCHandle.Alloc(pointer, GCHandleType.Pinned);
@@ -203,6 +208,7 @@ namespace OpenGL
 		/// <param name="params">
 		/// A <see cref="T:float"/>.
 		/// </param>
+		[RequiredByFeature("GL_ATI_vertex_array_object")]
 		public static void GetObjectBufferATI(UInt32 buffer, int pname, out float @params)
 		{
 			unsafe {
@@ -228,6 +234,7 @@ namespace OpenGL
 		/// <param name="params">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
+		[RequiredByFeature("GL_ATI_vertex_array_object")]
 		public static void GetObjectBufferATI(UInt32 buffer, int pname, out Int32 @params)
 		{
 			unsafe {
@@ -247,6 +254,7 @@ namespace OpenGL
 		/// <param name="buffer">
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
+		[RequiredByFeature("GL_ATI_vertex_array_object")]
 		public static void FreeObjectBufferATI(UInt32 buffer)
 		{
 			Debug.Assert(Delegates.pglFreeObjectBufferATI != null, "pglFreeObjectBufferATI not implemented");
@@ -276,6 +284,7 @@ namespace OpenGL
 		/// <param name="offset">
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
+		[RequiredByFeature("GL_ATI_vertex_array_object")]
 		public static void ArrayObjectATI(int array, Int32 size, int type, Int32 stride, UInt32 buffer, UInt32 offset)
 		{
 			Debug.Assert(Delegates.pglArrayObjectATI != null, "pglArrayObjectATI not implemented");
@@ -305,6 +314,7 @@ namespace OpenGL
 		/// <param name="offset">
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
+		[RequiredByFeature("GL_ATI_vertex_array_object")]
 		public static void ArrayObjectATI(EnableCap array, Int32 size, int type, Int32 stride, UInt32 buffer, UInt32 offset)
 		{
 			Debug.Assert(Delegates.pglArrayObjectATI != null, "pglArrayObjectATI not implemented");
@@ -325,6 +335,7 @@ namespace OpenGL
 		/// <param name="params">
 		/// A <see cref="T:float"/>.
 		/// </param>
+		[RequiredByFeature("GL_ATI_vertex_array_object")]
 		public static void GetArrayObjectATI(int array, int pname, out float @params)
 		{
 			unsafe {
@@ -350,6 +361,7 @@ namespace OpenGL
 		/// <param name="params">
 		/// A <see cref="T:float"/>.
 		/// </param>
+		[RequiredByFeature("GL_ATI_vertex_array_object")]
 		public static void GetArrayObjectATI(EnableCap array, int pname, out float @params)
 		{
 			unsafe {
@@ -375,6 +387,7 @@ namespace OpenGL
 		/// <param name="params">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
+		[RequiredByFeature("GL_ATI_vertex_array_object")]
 		public static void GetArrayObjectATI(int array, int pname, out Int32 @params)
 		{
 			unsafe {
@@ -400,6 +413,7 @@ namespace OpenGL
 		/// <param name="params">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
+		[RequiredByFeature("GL_ATI_vertex_array_object")]
 		public static void GetArrayObjectATI(EnableCap array, int pname, out Int32 @params)
 		{
 			unsafe {
@@ -431,6 +445,7 @@ namespace OpenGL
 		/// <param name="offset">
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
+		[RequiredByFeature("GL_ATI_vertex_array_object")]
 		public static void VariantArrayObjectATI(UInt32 id, int type, Int32 stride, UInt32 buffer, UInt32 offset)
 		{
 			Debug.Assert(Delegates.pglVariantArrayObjectATI != null, "pglVariantArrayObjectATI not implemented");
@@ -451,6 +466,7 @@ namespace OpenGL
 		/// <param name="params">
 		/// A <see cref="T:float"/>.
 		/// </param>
+		[RequiredByFeature("GL_ATI_vertex_array_object")]
 		public static void GetVariantArrayObjectATI(UInt32 id, int pname, out float @params)
 		{
 			unsafe {
@@ -476,6 +492,7 @@ namespace OpenGL
 		/// <param name="params">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
+		[RequiredByFeature("GL_ATI_vertex_array_object")]
 		public static void GetVariantArrayObjectATI(UInt32 id, int pname, out Int32 @params)
 		{
 			unsafe {

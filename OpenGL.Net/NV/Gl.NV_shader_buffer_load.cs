@@ -52,6 +52,7 @@ namespace OpenGL
 		/// <param name="access">
 		/// A <see cref="T:int"/>.
 		/// </param>
+		[RequiredByFeature("GL_NV_shader_buffer_load")]
 		public static void MakeBufferResidentNV(int target, int access)
 		{
 			Debug.Assert(Delegates.pglMakeBufferResidentNV != null, "pglMakeBufferResidentNV not implemented");
@@ -66,6 +67,7 @@ namespace OpenGL
 		/// <param name="target">
 		/// A <see cref="T:int"/>.
 		/// </param>
+		[RequiredByFeature("GL_NV_shader_buffer_load")]
 		public static void MakeBufferNonResidentNV(int target)
 		{
 			Debug.Assert(Delegates.pglMakeBufferNonResidentNV != null, "pglMakeBufferNonResidentNV not implemented");
@@ -80,6 +82,7 @@ namespace OpenGL
 		/// <param name="target">
 		/// A <see cref="T:int"/>.
 		/// </param>
+		[RequiredByFeature("GL_NV_shader_buffer_load")]
 		public static bool IsBufferResidentNV(int target)
 		{
 			bool retValue;
@@ -101,6 +104,7 @@ namespace OpenGL
 		/// <param name="access">
 		/// A <see cref="T:int"/>.
 		/// </param>
+		[RequiredByFeature("GL_NV_shader_buffer_load")]
 		public static void MakeNamedBufferResidentNV(UInt32 buffer, int access)
 		{
 			Debug.Assert(Delegates.pglMakeNamedBufferResidentNV != null, "pglMakeNamedBufferResidentNV not implemented");
@@ -115,6 +119,7 @@ namespace OpenGL
 		/// <param name="buffer">
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
+		[RequiredByFeature("GL_NV_shader_buffer_load")]
 		public static void MakeNamedBufferNonResidentNV(UInt32 buffer)
 		{
 			Debug.Assert(Delegates.pglMakeNamedBufferNonResidentNV != null, "pglMakeNamedBufferNonResidentNV not implemented");
@@ -129,6 +134,7 @@ namespace OpenGL
 		/// <param name="buffer">
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
+		[RequiredByFeature("GL_NV_shader_buffer_load")]
 		public static bool IsNamedBufferResidentNV(UInt32 buffer)
 		{
 			bool retValue;
@@ -153,6 +159,7 @@ namespace OpenGL
 		/// <param name="params">
 		/// A <see cref="T:UInt64[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_NV_shader_buffer_load")]
 		public static void GetBufferParameterui64vNV(int target, int pname, UInt64[] @params)
 		{
 			unsafe {
@@ -178,6 +185,7 @@ namespace OpenGL
 		/// <param name="params">
 		/// A <see cref="T:UInt64[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_NV_shader_buffer_load")]
 		public static void GetNamedBufferParameterui64vNV(UInt32 buffer, int pname, UInt64[] @params)
 		{
 			unsafe {
@@ -200,6 +208,7 @@ namespace OpenGL
 		/// <param name="result">
 		/// A <see cref="T:UInt64[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_NV_shader_buffer_load")]
 		public static void GetIntegerui64vNV(int value, UInt64[] result)
 		{
 			unsafe {
@@ -222,6 +231,7 @@ namespace OpenGL
 		/// <param name="value">
 		/// A <see cref="T:UInt64"/>.
 		/// </param>
+		[RequiredByFeature("GL_NV_shader_buffer_load")]
 		public static void UniformNV(Int32 location, UInt64 value)
 		{
 			Debug.Assert(Delegates.pglUniformui64NV != null, "pglUniformui64NV not implemented");
@@ -242,6 +252,7 @@ namespace OpenGL
 		/// <param name="value">
 		/// A <see cref="T:UInt64[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_NV_shader_buffer_load")]
 		public static void UniformNV(Int32 location, Int32 count, UInt64[] value)
 		{
 			unsafe {
@@ -267,6 +278,8 @@ namespace OpenGL
 		/// <param name="params">
 		/// A <see cref="T:UInt64[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_AMD_gpu_shader_int64")]
+		[RequiredByFeature("GL_NV_shader_buffer_load")]
 		public static void GetUniformNV(UInt32 program, Int32 location, UInt64[] @params)
 		{
 			unsafe {
@@ -292,6 +305,7 @@ namespace OpenGL
 		/// <param name="value">
 		/// A <see cref="T:UInt64"/>.
 		/// </param>
+		[RequiredByFeature("GL_NV_shader_buffer_load")]
 		public static void ProgramUniformNV(UInt32 program, Int32 location, UInt64 value)
 		{
 			Debug.Assert(Delegates.pglProgramUniformui64NV != null, "pglProgramUniformui64NV not implemented");
@@ -315,6 +329,7 @@ namespace OpenGL
 		/// <param name="value">
 		/// A <see cref="T:UInt64[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_NV_shader_buffer_load")]
 		public static void ProgramUniformNV(UInt32 program, Int32 location, Int32 count, UInt64[] value)
 		{
 			unsafe {

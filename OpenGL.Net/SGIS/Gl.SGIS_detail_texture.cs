@@ -85,6 +85,7 @@ namespace OpenGL
 		/// <param name="points">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_SGIS_detail_texture")]
 		public static void DetailTexFuncSGIS(int target, Int32 n, float[] points)
 		{
 			unsafe {
@@ -110,6 +111,7 @@ namespace OpenGL
 		/// <param name="points">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_SGIS_detail_texture")]
 		public static void DetailTexFuncSGIS(TextureTarget target, Int32 n, float[] points)
 		{
 			unsafe {
@@ -132,6 +134,7 @@ namespace OpenGL
 		/// <param name="points">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_SGIS_detail_texture")]
 		public static void GetDetailTexFuncSGIS(int target, float[] points)
 		{
 			unsafe {
@@ -154,6 +157,7 @@ namespace OpenGL
 		/// <param name="points">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_SGIS_detail_texture")]
 		public static void GetDetailTexFuncSGIS(TextureTarget target, float[] points)
 		{
 			unsafe {

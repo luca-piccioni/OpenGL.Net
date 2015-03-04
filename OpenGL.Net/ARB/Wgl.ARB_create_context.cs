@@ -79,6 +79,7 @@ namespace OpenGL
 		/// <param name="attribList">
 		/// A <see cref="T:int[]"/>.
 		/// </param>
+		[RequiredByFeature("WGL_ARB_create_context")]
 		public static IntPtr CreateContextAttribsARB(IntPtr hDC, IntPtr hShareContext, int[] attribList)
 		{
 			IntPtr retValue;
@@ -91,7 +92,6 @@ namespace OpenGL
 					CallLog("wglCreateContextAttribsARB({0}, {1}, {2}) = {3}", hDC, hShareContext, attribList, retValue);
 				}
 			}
-			DebugCheckErrors();
 
 			return (retValue);
 		}

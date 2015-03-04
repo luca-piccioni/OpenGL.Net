@@ -82,6 +82,9 @@ namespace OpenGL
 		/// <param name="fixedsamplelocations">
 		/// A <see cref="T:bool"/>.
 		/// </param>
+		[RequiredByFeature("GL_EXT_raster_multisample")]
+		[RequiredByFeature("GL_EXT_texture_filter_minmax")]
+		[RequiredByFeature("GL_NV_framebuffer_mixed_samples")]
 		public static void RasterSampleEXT(UInt32 samples, bool fixedsamplelocations)
 		{
 			Debug.Assert(Delegates.pglRasterSamplesEXT != null, "pglRasterSamplesEXT not implemented");

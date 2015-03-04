@@ -45,6 +45,7 @@ namespace OpenGL
 		/// <param name="program">
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
+		[RequiredByFeature("GL_EXT_separate_shader_objects")]
 		public static void UseShaderProgramEXT(int type, UInt32 program)
 		{
 			Debug.Assert(Delegates.pglUseShaderProgramEXT != null, "pglUseShaderProgramEXT not implemented");
@@ -59,6 +60,7 @@ namespace OpenGL
 		/// <param name="program">
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
+		[RequiredByFeature("GL_EXT_separate_shader_objects")]
 		public static void ActiveProgramEXT(UInt32 program)
 		{
 			Debug.Assert(Delegates.pglActiveProgramEXT != null, "pglActiveProgramEXT not implemented");
@@ -76,6 +78,7 @@ namespace OpenGL
 		/// <param name="string">
 		/// A <see cref="T:String"/>.
 		/// </param>
+		[RequiredByFeature("GL_EXT_separate_shader_objects")]
 		public static UInt32 CreateShaderProgramEXT(int type, String @string)
 		{
 			UInt32 retValue;

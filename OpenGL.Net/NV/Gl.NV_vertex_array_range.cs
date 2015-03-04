@@ -58,6 +58,7 @@ namespace OpenGL
 		/// <summary>
 		/// Binding for glFlushVertexArrayRangeNV.
 		/// </summary>
+		[RequiredByFeature("GL_NV_vertex_array_range")]
 		public static void FlushVertexArrayRangeNV()
 		{
 			Debug.Assert(Delegates.pglFlushVertexArrayRangeNV != null, "pglFlushVertexArrayRangeNV not implemented");
@@ -75,6 +76,7 @@ namespace OpenGL
 		/// <param name="pointer">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
+		[RequiredByFeature("GL_NV_vertex_array_range")]
 		public static void VertexArrayRangeNV(Int32 length, IntPtr pointer)
 		{
 			Debug.Assert(Delegates.pglVertexArrayRangeNV != null, "pglVertexArrayRangeNV not implemented");
@@ -92,6 +94,7 @@ namespace OpenGL
 		/// <param name="pointer">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
+		[RequiredByFeature("GL_NV_vertex_array_range")]
 		public static void VertexArrayRangeNV(Int32 length, Object pointer)
 		{
 			GCHandle pin_pointer = GCHandle.Alloc(pointer, GCHandleType.Pinned);

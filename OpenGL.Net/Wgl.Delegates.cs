@@ -27,28 +27,6 @@ namespace OpenGL
 		internal unsafe static partial class Imports
 		{
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "ChoosePixelFormat", ExactSpelling = true)]
-			internal extern static unsafe int ChoosePixelFormat(IntPtr hDc, PIXELFORMATDESCRIPTOR* pPfd);
-
-			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "DescribePixelFormat", ExactSpelling = true)]
-			internal extern static unsafe int DescribePixelFormat(IntPtr hdc, int ipfd, UInt32 cjpfd, PIXELFORMATDESCRIPTOR* ppfd);
-
-			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "GetPixelFormat", ExactSpelling = true)]
-			internal extern static unsafe int GetPixelFormat(IntPtr hdc);
-
-			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "SetPixelFormat", ExactSpelling = true)]
-			[return: MarshalAs(UnmanagedType.Bool)]
-			internal extern static unsafe bool SetPixelFormat(IntPtr hdc, int ipfd, PIXELFORMATDESCRIPTOR* ppfd);
-
-			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "SwapBuffers", ExactSpelling = true)]
-			[return: MarshalAs(UnmanagedType.Bool)]
-			internal extern static unsafe bool SwapBuffers(IntPtr hdc);
-
-			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "wglAllocateMemoryNV", ExactSpelling = true)]
 			internal extern static IntPtr wglAllocateMemoryNV(Int32 size, float readfreq, float writefreq, float priority);
 
@@ -351,10 +329,6 @@ namespace OpenGL
 			[DllImport(Library, EntryPoint = "wglGetDigitalVideoParametersI3D", ExactSpelling = true)]
 			[return: MarshalAs(UnmanagedType.Bool)]
 			internal extern static unsafe bool wglGetDigitalVideoParametersI3D(IntPtr hDC, int iAttribute, int* piValue);
-
-			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "GetEnhMetaFilePixelFormat", ExactSpelling = true)]
-			internal extern static unsafe UInt32 GetEnhMetaFilePixelFormat(IntPtr hemf, PIXELFORMATDESCRIPTOR* ppfd);
 
 			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "wglGetExtensionsStringARB", ExactSpelling = true)]

@@ -49,6 +49,7 @@ namespace OpenGL
 		/// <param name="hglrc">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
+		[RequiredByFeature("WGL_ARB_make_current_read")]
 		public static bool MakeContextCurrentARB(IntPtr hDrawDC, IntPtr hReadDC, IntPtr hglrc)
 		{
 			bool retValue;
@@ -56,7 +57,6 @@ namespace OpenGL
 			Debug.Assert(Delegates.pwglMakeContextCurrentARB != null, "pwglMakeContextCurrentARB not implemented");
 			retValue = Delegates.pwglMakeContextCurrentARB(hDrawDC, hReadDC, hglrc);
 			CallLog("wglMakeContextCurrentARB({0}, {1}, {2}) = {3}", hDrawDC, hReadDC, hglrc, retValue);
-			DebugCheckErrors();
 
 			return (retValue);
 		}
@@ -64,6 +64,7 @@ namespace OpenGL
 		/// <summary>
 		/// Binding for wglGetCurrentReadDCARB.
 		/// </summary>
+		[RequiredByFeature("WGL_ARB_make_current_read")]
 		public static IntPtr GetCurrentReadDCARB()
 		{
 			IntPtr retValue;
@@ -71,7 +72,6 @@ namespace OpenGL
 			Debug.Assert(Delegates.pwglGetCurrentReadDCARB != null, "pwglGetCurrentReadDCARB not implemented");
 			retValue = Delegates.pwglGetCurrentReadDCARB();
 			CallLog("wglGetCurrentReadDCARB() = {0}", retValue);
-			DebugCheckErrors();
 
 			return (retValue);
 		}

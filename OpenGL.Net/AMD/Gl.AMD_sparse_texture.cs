@@ -103,6 +103,7 @@ namespace OpenGL
 		/// <param name="flags">
 		/// A <see cref="T:uint"/>.
 		/// </param>
+		[RequiredByFeature("GL_AMD_sparse_texture")]
 		public static void TexStorageAMD(int target, int internalFormat, Int32 width, Int32 height, Int32 depth, Int32 layers, uint flags)
 		{
 			Debug.Assert(Delegates.pglTexStorageSparseAMD != null, "pglTexStorageSparseAMD not implemented");
@@ -138,6 +139,7 @@ namespace OpenGL
 		/// <param name="flags">
 		/// A <see cref="T:uint"/>.
 		/// </param>
+		[RequiredByFeature("GL_AMD_sparse_texture")]
 		public static void TextureStorageAMD(UInt32 texture, int target, int internalFormat, Int32 width, Int32 height, Int32 depth, Int32 layers, uint flags)
 		{
 			Debug.Assert(Delegates.pglTextureStorageSparseAMD != null, "pglTextureStorageSparseAMD not implemented");

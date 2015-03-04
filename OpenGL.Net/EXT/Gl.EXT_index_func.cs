@@ -52,6 +52,7 @@ namespace OpenGL
 		/// <param name="ref">
 		/// A <see cref="T:float"/>.
 		/// </param>
+		[RequiredByFeature("GL_EXT_index_func")]
 		public static void IndexFuncEXT(int func, float @ref)
 		{
 			Debug.Assert(Delegates.pglIndexFuncEXT != null, "pglIndexFuncEXT not implemented");

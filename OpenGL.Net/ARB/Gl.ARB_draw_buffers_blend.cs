@@ -34,6 +34,7 @@ namespace OpenGL
 		/// <param name="mode">
 		/// A <see cref="T:int"/>.
 		/// </param>
+		[RequiredByFeature("GL_ARB_draw_buffers_blend")]
 		public static void BlendEquationARB(UInt32 buf, int mode)
 		{
 			Debug.Assert(Delegates.pglBlendEquationiARB != null, "pglBlendEquationiARB not implemented");
@@ -54,6 +55,7 @@ namespace OpenGL
 		/// <param name="modeAlpha">
 		/// A <see cref="T:int"/>.
 		/// </param>
+		[RequiredByFeature("GL_ARB_draw_buffers_blend")]
 		public static void BlendEquationSeparateiARB(UInt32 buf, int modeRGB, int modeAlpha)
 		{
 			Debug.Assert(Delegates.pglBlendEquationSeparateiARB != null, "pglBlendEquationSeparateiARB not implemented");
@@ -74,6 +76,7 @@ namespace OpenGL
 		/// <param name="dst">
 		/// A <see cref="T:int"/>.
 		/// </param>
+		[RequiredByFeature("GL_ARB_draw_buffers_blend")]
 		public static void BlendFunciARB(UInt32 buf, int src, int dst)
 		{
 			Debug.Assert(Delegates.pglBlendFunciARB != null, "pglBlendFunciARB not implemented");
@@ -100,6 +103,7 @@ namespace OpenGL
 		/// <param name="dstAlpha">
 		/// A <see cref="T:int"/>.
 		/// </param>
+		[RequiredByFeature("GL_ARB_draw_buffers_blend")]
 		public static void BlendFuncSeparateiARB(UInt32 buf, int srcRGB, int dstRGB, int srcAlpha, int dstAlpha)
 		{
 			Debug.Assert(Delegates.pglBlendFuncSeparateiARB != null, "pglBlendFuncSeparateiARB not implemented");

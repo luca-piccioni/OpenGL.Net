@@ -61,6 +61,7 @@ namespace OpenGL
 		/// <param name="points">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_SGIS_sharpen_texture")]
 		public static void SharpenTexFuncSGIS(int target, Int32 n, float[] points)
 		{
 			unsafe {
@@ -86,6 +87,7 @@ namespace OpenGL
 		/// <param name="points">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_SGIS_sharpen_texture")]
 		public static void SharpenTexFuncSGIS(TextureTarget target, Int32 n, float[] points)
 		{
 			unsafe {
@@ -108,6 +110,7 @@ namespace OpenGL
 		/// <param name="points">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_SGIS_sharpen_texture")]
 		public static void GetSharpenTexFuncSGIS(int target, float[] points)
 		{
 			unsafe {
@@ -130,6 +133,7 @@ namespace OpenGL
 		/// <param name="points">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_SGIS_sharpen_texture")]
 		public static void GetSharpenTexFuncSGIS(TextureTarget target, float[] points)
 		{
 			unsafe {

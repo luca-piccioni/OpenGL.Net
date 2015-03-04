@@ -46,6 +46,7 @@ namespace OpenGL
 		/// <param name="modeAlpha">
 		/// A <see cref="T:int"/>.
 		/// </param>
+		[RequiredByFeature("GL_EXT_blend_equation_separate")]
 		public static void BlendEquationSeparateEXT(int modeRGB, int modeAlpha)
 		{
 			Debug.Assert(Delegates.pglBlendEquationSeparateEXT != null, "pglBlendEquationSeparateEXT not implemented");
@@ -63,6 +64,7 @@ namespace OpenGL
 		/// <param name="modeAlpha">
 		/// A <see cref="T:int"/>.
 		/// </param>
+		[RequiredByFeature("GL_EXT_blend_equation_separate")]
 		public static void BlendEquationSeparateEXT(BlendEquationModeEXT modeRGB, BlendEquationModeEXT modeAlpha)
 		{
 			Debug.Assert(Delegates.pglBlendEquationSeparateEXT != null, "pglBlendEquationSeparateEXT not implemented");

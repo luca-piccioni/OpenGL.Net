@@ -40,6 +40,7 @@ namespace OpenGL
 		/// <param name="primcount">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
+		[RequiredByFeature("GL_ARB_draw_instanced")]
 		public static void DrawArraysInstancedARB(int mode, Int32 first, Int32 count, Int32 primcount)
 		{
 			Debug.Assert(Delegates.pglDrawArraysInstancedARB != null, "pglDrawArraysInstancedARB not implemented");
@@ -63,6 +64,7 @@ namespace OpenGL
 		/// <param name="primcount">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
+		[RequiredByFeature("GL_ARB_draw_instanced")]
 		public static void DrawArraysInstancedARB(PrimitiveType mode, Int32 first, Int32 count, Int32 primcount)
 		{
 			Debug.Assert(Delegates.pglDrawArraysInstancedARB != null, "pglDrawArraysInstancedARB not implemented");
@@ -89,6 +91,7 @@ namespace OpenGL
 		/// <param name="primcount">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
+		[RequiredByFeature("GL_ARB_draw_instanced")]
 		public static void DrawElementsInstancedARB(int mode, Int32 count, int type, IntPtr indices, Int32 primcount)
 		{
 			Debug.Assert(Delegates.pglDrawElementsInstancedARB != null, "pglDrawElementsInstancedARB not implemented");
@@ -115,6 +118,7 @@ namespace OpenGL
 		/// <param name="primcount">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
+		[RequiredByFeature("GL_ARB_draw_instanced")]
 		public static void DrawElementsInstancedARB(PrimitiveType mode, Int32 count, int type, IntPtr indices, Int32 primcount)
 		{
 			Debug.Assert(Delegates.pglDrawElementsInstancedARB != null, "pglDrawElementsInstancedARB not implemented");
@@ -141,6 +145,7 @@ namespace OpenGL
 		/// <param name="primcount">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
+		[RequiredByFeature("GL_ARB_draw_instanced")]
 		public static void DrawElementsInstancedARB(int mode, Int32 count, int type, Object indices, Int32 primcount)
 		{
 			GCHandle pin_indices = GCHandle.Alloc(indices, GCHandleType.Pinned);

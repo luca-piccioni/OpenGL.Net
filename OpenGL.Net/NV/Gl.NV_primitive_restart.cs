@@ -40,6 +40,7 @@ namespace OpenGL
 		/// <summary>
 		/// Binding for glPrimitiveRestartNV.
 		/// </summary>
+		[RequiredByFeature("GL_NV_primitive_restart")]
 		public static void PrimitiveRestartNV()
 		{
 			Debug.Assert(Delegates.pglPrimitiveRestartNV != null, "pglPrimitiveRestartNV not implemented");
@@ -54,6 +55,7 @@ namespace OpenGL
 		/// <param name="index">
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
+		[RequiredByFeature("GL_NV_primitive_restart")]
 		public static void PrimitiveRestartIndexNV(UInt32 index)
 		{
 			Debug.Assert(Delegates.pglPrimitiveRestartIndexNV != null, "pglPrimitiveRestartIndexNV not implemented");

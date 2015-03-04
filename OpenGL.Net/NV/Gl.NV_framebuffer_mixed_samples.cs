@@ -76,6 +76,7 @@ namespace OpenGL
 		/// <param name="v">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_NV_framebuffer_mixed_samples")]
 		public static void CoverageModulationTableNV(Int32 n, float[] v)
 		{
 			unsafe {
@@ -98,6 +99,7 @@ namespace OpenGL
 		/// <param name="v">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_NV_framebuffer_mixed_samples")]
 		public static void GetCoverageModulationTableNV(Int32 bufsize, float[] v)
 		{
 			unsafe {
@@ -117,6 +119,7 @@ namespace OpenGL
 		/// <param name="components">
 		/// A <see cref="T:int"/>.
 		/// </param>
+		[RequiredByFeature("GL_NV_framebuffer_mixed_samples")]
 		public static void CoverageNV(int components)
 		{
 			Debug.Assert(Delegates.pglCoverageModulationNV != null, "pglCoverageModulationNV not implemented");

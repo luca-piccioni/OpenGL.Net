@@ -52,6 +52,7 @@ namespace OpenGL
 		/// <param name="width">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
+		[RequiredByFeature("GL_SUN_mesh_array")]
 		public static void DrawMeshArraysSUN(int mode, Int32 first, Int32 count, Int32 width)
 		{
 			Debug.Assert(Delegates.pglDrawMeshArraysSUN != null, "pglDrawMeshArraysSUN not implemented");
@@ -75,6 +76,7 @@ namespace OpenGL
 		/// <param name="width">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
+		[RequiredByFeature("GL_SUN_mesh_array")]
 		public static void DrawMeshArraysSUN(PrimitiveType mode, Int32 first, Int32 count, Int32 width)
 		{
 			Debug.Assert(Delegates.pglDrawMeshArraysSUN != null, "pglDrawMeshArraysSUN not implemented");

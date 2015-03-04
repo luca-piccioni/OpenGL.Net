@@ -232,6 +232,8 @@ namespace OpenGL
 		/// <param name="x">
 		/// A <see cref="T:Int64"/>.
 		/// </param>
+		[RequiredByFeature("GL_AMD_gpu_shader_int64")]
+		[RequiredByFeature("GL_NV_gpu_shader5")]
 		public static void Uniform1NV(Int32 location, Int64 x)
 		{
 			Debug.Assert(Delegates.pglUniform1i64NV != null, "pglUniform1i64NV not implemented");
@@ -252,6 +254,8 @@ namespace OpenGL
 		/// <param name="y">
 		/// A <see cref="T:Int64"/>.
 		/// </param>
+		[RequiredByFeature("GL_AMD_gpu_shader_int64")]
+		[RequiredByFeature("GL_NV_gpu_shader5")]
 		public static void Uniform2NV(Int32 location, Int64 x, Int64 y)
 		{
 			Debug.Assert(Delegates.pglUniform2i64NV != null, "pglUniform2i64NV not implemented");
@@ -275,6 +279,8 @@ namespace OpenGL
 		/// <param name="z">
 		/// A <see cref="T:Int64"/>.
 		/// </param>
+		[RequiredByFeature("GL_AMD_gpu_shader_int64")]
+		[RequiredByFeature("GL_NV_gpu_shader5")]
 		public static void Uniform3NV(Int32 location, Int64 x, Int64 y, Int64 z)
 		{
 			Debug.Assert(Delegates.pglUniform3i64NV != null, "pglUniform3i64NV not implemented");
@@ -301,6 +307,8 @@ namespace OpenGL
 		/// <param name="w">
 		/// A <see cref="T:Int64"/>.
 		/// </param>
+		[RequiredByFeature("GL_AMD_gpu_shader_int64")]
+		[RequiredByFeature("GL_NV_gpu_shader5")]
 		public static void Uniform4NV(Int32 location, Int64 x, Int64 y, Int64 z, Int64 w)
 		{
 			Debug.Assert(Delegates.pglUniform4i64NV != null, "pglUniform4i64NV not implemented");
@@ -321,6 +329,8 @@ namespace OpenGL
 		/// <param name="value">
 		/// A <see cref="T:Int64[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_AMD_gpu_shader_int64")]
+		[RequiredByFeature("GL_NV_gpu_shader5")]
 		public static void Uniform1NV(Int32 location, Int32 count, Int64[] value)
 		{
 			unsafe {
@@ -346,6 +356,8 @@ namespace OpenGL
 		/// <param name="value">
 		/// A <see cref="T:Int64[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_AMD_gpu_shader_int64")]
+		[RequiredByFeature("GL_NV_gpu_shader5")]
 		public static void Uniform2NV(Int32 location, Int32 count, Int64[] value)
 		{
 			unsafe {
@@ -371,6 +383,8 @@ namespace OpenGL
 		/// <param name="value">
 		/// A <see cref="T:Int64[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_AMD_gpu_shader_int64")]
+		[RequiredByFeature("GL_NV_gpu_shader5")]
 		public static void Uniform3NV(Int32 location, Int32 count, Int64[] value)
 		{
 			unsafe {
@@ -396,6 +410,8 @@ namespace OpenGL
 		/// <param name="value">
 		/// A <see cref="T:Int64[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_AMD_gpu_shader_int64")]
+		[RequiredByFeature("GL_NV_gpu_shader5")]
 		public static void Uniform4NV(Int32 location, Int32 count, Int64[] value)
 		{
 			unsafe {
@@ -418,6 +434,8 @@ namespace OpenGL
 		/// <param name="x">
 		/// A <see cref="T:UInt64"/>.
 		/// </param>
+		[RequiredByFeature("GL_AMD_gpu_shader_int64")]
+		[RequiredByFeature("GL_NV_gpu_shader5")]
 		public static void Uniform1NV(Int32 location, UInt64 x)
 		{
 			Debug.Assert(Delegates.pglUniform1ui64NV != null, "pglUniform1ui64NV not implemented");
@@ -438,6 +456,8 @@ namespace OpenGL
 		/// <param name="y">
 		/// A <see cref="T:UInt64"/>.
 		/// </param>
+		[RequiredByFeature("GL_AMD_gpu_shader_int64")]
+		[RequiredByFeature("GL_NV_gpu_shader5")]
 		public static void Uniform2NV(Int32 location, UInt64 x, UInt64 y)
 		{
 			Debug.Assert(Delegates.pglUniform2ui64NV != null, "pglUniform2ui64NV not implemented");
@@ -461,6 +481,8 @@ namespace OpenGL
 		/// <param name="z">
 		/// A <see cref="T:UInt64"/>.
 		/// </param>
+		[RequiredByFeature("GL_AMD_gpu_shader_int64")]
+		[RequiredByFeature("GL_NV_gpu_shader5")]
 		public static void Uniform3NV(Int32 location, UInt64 x, UInt64 y, UInt64 z)
 		{
 			Debug.Assert(Delegates.pglUniform3ui64NV != null, "pglUniform3ui64NV not implemented");
@@ -487,6 +509,8 @@ namespace OpenGL
 		/// <param name="w">
 		/// A <see cref="T:UInt64"/>.
 		/// </param>
+		[RequiredByFeature("GL_AMD_gpu_shader_int64")]
+		[RequiredByFeature("GL_NV_gpu_shader5")]
 		public static void Uniform4NV(Int32 location, UInt64 x, UInt64 y, UInt64 z, UInt64 w)
 		{
 			Debug.Assert(Delegates.pglUniform4ui64NV != null, "pglUniform4ui64NV not implemented");
@@ -507,6 +531,8 @@ namespace OpenGL
 		/// <param name="value">
 		/// A <see cref="T:UInt64[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_AMD_gpu_shader_int64")]
+		[RequiredByFeature("GL_NV_gpu_shader5")]
 		public static void Uniform1NV(Int32 location, Int32 count, UInt64[] value)
 		{
 			unsafe {
@@ -532,6 +558,8 @@ namespace OpenGL
 		/// <param name="value">
 		/// A <see cref="T:UInt64[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_AMD_gpu_shader_int64")]
+		[RequiredByFeature("GL_NV_gpu_shader5")]
 		public static void Uniform2NV(Int32 location, Int32 count, UInt64[] value)
 		{
 			unsafe {
@@ -557,6 +585,8 @@ namespace OpenGL
 		/// <param name="value">
 		/// A <see cref="T:UInt64[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_AMD_gpu_shader_int64")]
+		[RequiredByFeature("GL_NV_gpu_shader5")]
 		public static void Uniform3NV(Int32 location, Int32 count, UInt64[] value)
 		{
 			unsafe {
@@ -582,6 +612,8 @@ namespace OpenGL
 		/// <param name="value">
 		/// A <see cref="T:UInt64[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_AMD_gpu_shader_int64")]
+		[RequiredByFeature("GL_NV_gpu_shader5")]
 		public static void Uniform4NV(Int32 location, Int32 count, UInt64[] value)
 		{
 			unsafe {
@@ -607,6 +639,8 @@ namespace OpenGL
 		/// <param name="params">
 		/// A <see cref="T:Int64[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_AMD_gpu_shader_int64")]
+		[RequiredByFeature("GL_NV_gpu_shader5")]
 		public static void GetUniformNV(UInt32 program, Int32 location, Int64[] @params)
 		{
 			unsafe {
@@ -632,6 +666,8 @@ namespace OpenGL
 		/// <param name="x">
 		/// A <see cref="T:Int64"/>.
 		/// </param>
+		[RequiredByFeature("GL_AMD_gpu_shader_int64")]
+		[RequiredByFeature("GL_NV_gpu_shader5")]
 		public static void ProgramUniform1NV(UInt32 program, Int32 location, Int64 x)
 		{
 			Debug.Assert(Delegates.pglProgramUniform1i64NV != null, "pglProgramUniform1i64NV not implemented");
@@ -655,6 +691,8 @@ namespace OpenGL
 		/// <param name="y">
 		/// A <see cref="T:Int64"/>.
 		/// </param>
+		[RequiredByFeature("GL_AMD_gpu_shader_int64")]
+		[RequiredByFeature("GL_NV_gpu_shader5")]
 		public static void ProgramUniform2NV(UInt32 program, Int32 location, Int64 x, Int64 y)
 		{
 			Debug.Assert(Delegates.pglProgramUniform2i64NV != null, "pglProgramUniform2i64NV not implemented");
@@ -681,6 +719,8 @@ namespace OpenGL
 		/// <param name="z">
 		/// A <see cref="T:Int64"/>.
 		/// </param>
+		[RequiredByFeature("GL_AMD_gpu_shader_int64")]
+		[RequiredByFeature("GL_NV_gpu_shader5")]
 		public static void ProgramUniform3NV(UInt32 program, Int32 location, Int64 x, Int64 y, Int64 z)
 		{
 			Debug.Assert(Delegates.pglProgramUniform3i64NV != null, "pglProgramUniform3i64NV not implemented");
@@ -710,6 +750,8 @@ namespace OpenGL
 		/// <param name="w">
 		/// A <see cref="T:Int64"/>.
 		/// </param>
+		[RequiredByFeature("GL_AMD_gpu_shader_int64")]
+		[RequiredByFeature("GL_NV_gpu_shader5")]
 		public static void ProgramUniform4NV(UInt32 program, Int32 location, Int64 x, Int64 y, Int64 z, Int64 w)
 		{
 			Debug.Assert(Delegates.pglProgramUniform4i64NV != null, "pglProgramUniform4i64NV not implemented");
@@ -733,6 +775,8 @@ namespace OpenGL
 		/// <param name="value">
 		/// A <see cref="T:Int64[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_AMD_gpu_shader_int64")]
+		[RequiredByFeature("GL_NV_gpu_shader5")]
 		public static void ProgramUniform1NV(UInt32 program, Int32 location, Int32 count, Int64[] value)
 		{
 			unsafe {
@@ -761,6 +805,8 @@ namespace OpenGL
 		/// <param name="value">
 		/// A <see cref="T:Int64[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_AMD_gpu_shader_int64")]
+		[RequiredByFeature("GL_NV_gpu_shader5")]
 		public static void ProgramUniform2NV(UInt32 program, Int32 location, Int32 count, Int64[] value)
 		{
 			unsafe {
@@ -789,6 +835,8 @@ namespace OpenGL
 		/// <param name="value">
 		/// A <see cref="T:Int64[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_AMD_gpu_shader_int64")]
+		[RequiredByFeature("GL_NV_gpu_shader5")]
 		public static void ProgramUniform3NV(UInt32 program, Int32 location, Int32 count, Int64[] value)
 		{
 			unsafe {
@@ -817,6 +865,8 @@ namespace OpenGL
 		/// <param name="value">
 		/// A <see cref="T:Int64[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_AMD_gpu_shader_int64")]
+		[RequiredByFeature("GL_NV_gpu_shader5")]
 		public static void ProgramUniform4NV(UInt32 program, Int32 location, Int32 count, Int64[] value)
 		{
 			unsafe {
@@ -842,6 +892,8 @@ namespace OpenGL
 		/// <param name="x">
 		/// A <see cref="T:UInt64"/>.
 		/// </param>
+		[RequiredByFeature("GL_AMD_gpu_shader_int64")]
+		[RequiredByFeature("GL_NV_gpu_shader5")]
 		public static void ProgramUniform1NV(UInt32 program, Int32 location, UInt64 x)
 		{
 			Debug.Assert(Delegates.pglProgramUniform1ui64NV != null, "pglProgramUniform1ui64NV not implemented");
@@ -865,6 +917,8 @@ namespace OpenGL
 		/// <param name="y">
 		/// A <see cref="T:UInt64"/>.
 		/// </param>
+		[RequiredByFeature("GL_AMD_gpu_shader_int64")]
+		[RequiredByFeature("GL_NV_gpu_shader5")]
 		public static void ProgramUniform2NV(UInt32 program, Int32 location, UInt64 x, UInt64 y)
 		{
 			Debug.Assert(Delegates.pglProgramUniform2ui64NV != null, "pglProgramUniform2ui64NV not implemented");
@@ -891,6 +945,8 @@ namespace OpenGL
 		/// <param name="z">
 		/// A <see cref="T:UInt64"/>.
 		/// </param>
+		[RequiredByFeature("GL_AMD_gpu_shader_int64")]
+		[RequiredByFeature("GL_NV_gpu_shader5")]
 		public static void ProgramUniform3NV(UInt32 program, Int32 location, UInt64 x, UInt64 y, UInt64 z)
 		{
 			Debug.Assert(Delegates.pglProgramUniform3ui64NV != null, "pglProgramUniform3ui64NV not implemented");
@@ -920,6 +976,8 @@ namespace OpenGL
 		/// <param name="w">
 		/// A <see cref="T:UInt64"/>.
 		/// </param>
+		[RequiredByFeature("GL_AMD_gpu_shader_int64")]
+		[RequiredByFeature("GL_NV_gpu_shader5")]
 		public static void ProgramUniform4NV(UInt32 program, Int32 location, UInt64 x, UInt64 y, UInt64 z, UInt64 w)
 		{
 			Debug.Assert(Delegates.pglProgramUniform4ui64NV != null, "pglProgramUniform4ui64NV not implemented");
@@ -943,6 +1001,8 @@ namespace OpenGL
 		/// <param name="value">
 		/// A <see cref="T:UInt64[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_AMD_gpu_shader_int64")]
+		[RequiredByFeature("GL_NV_gpu_shader5")]
 		public static void ProgramUniform1NV(UInt32 program, Int32 location, Int32 count, UInt64[] value)
 		{
 			unsafe {
@@ -971,6 +1031,8 @@ namespace OpenGL
 		/// <param name="value">
 		/// A <see cref="T:UInt64[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_AMD_gpu_shader_int64")]
+		[RequiredByFeature("GL_NV_gpu_shader5")]
 		public static void ProgramUniform2NV(UInt32 program, Int32 location, Int32 count, UInt64[] value)
 		{
 			unsafe {
@@ -999,6 +1061,8 @@ namespace OpenGL
 		/// <param name="value">
 		/// A <see cref="T:UInt64[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_AMD_gpu_shader_int64")]
+		[RequiredByFeature("GL_NV_gpu_shader5")]
 		public static void ProgramUniform3NV(UInt32 program, Int32 location, Int32 count, UInt64[] value)
 		{
 			unsafe {
@@ -1027,6 +1091,8 @@ namespace OpenGL
 		/// <param name="value">
 		/// A <see cref="T:UInt64[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_AMD_gpu_shader_int64")]
+		[RequiredByFeature("GL_NV_gpu_shader5")]
 		public static void ProgramUniform4NV(UInt32 program, Int32 location, Int32 count, UInt64[] value)
 		{
 			unsafe {

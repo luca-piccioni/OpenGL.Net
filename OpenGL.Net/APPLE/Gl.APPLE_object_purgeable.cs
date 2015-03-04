@@ -73,6 +73,7 @@ namespace OpenGL
 		/// <param name="option">
 		/// A <see cref="T:int"/>.
 		/// </param>
+		[RequiredByFeature("GL_APPLE_object_purgeable")]
 		public static int ObjectPurgeableAPPLE(int objectType, UInt32 name, int option)
 		{
 			int retValue;
@@ -97,6 +98,7 @@ namespace OpenGL
 		/// <param name="option">
 		/// A <see cref="T:int"/>.
 		/// </param>
+		[RequiredByFeature("GL_APPLE_object_purgeable")]
 		public static int ObjectUnpurgeableAPPLE(int objectType, UInt32 name, int option)
 		{
 			int retValue;
@@ -124,6 +126,7 @@ namespace OpenGL
 		/// <param name="params">
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_APPLE_object_purgeable")]
 		public static void GetObjectParameterAPPLE(int objectType, UInt32 name, int pname, Int32[] @params)
 		{
 			unsafe {

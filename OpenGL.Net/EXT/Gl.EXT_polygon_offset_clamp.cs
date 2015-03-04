@@ -43,6 +43,7 @@ namespace OpenGL
 		/// <param name="clamp">
 		/// A <see cref="T:float"/>.
 		/// </param>
+		[RequiredByFeature("GL_EXT_polygon_offset_clamp")]
 		public static void PolygonOffsetClampEXT(float factor, float units, float clamp)
 		{
 			Debug.Assert(Delegates.pglPolygonOffsetClampEXT != null, "pglPolygonOffsetClampEXT not implemented");

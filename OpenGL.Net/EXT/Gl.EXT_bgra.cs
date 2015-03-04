@@ -34,10 +34,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_BGRA_EXT symbol.
 		/// </summary>
-		[RequiredByFeature("GL_APPLE_texture_format_BGRA8888")]
 		[RequiredByFeature("GL_EXT_bgra")]
-		[RequiredByFeature("GL_EXT_read_format_bgra")]
-		[RequiredByFeature("GL_EXT_texture_format_BGRA8888")]
 		public const int BGRA_EXT = 0x80E1;
 
 	}

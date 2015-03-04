@@ -43,6 +43,7 @@ namespace OpenGL
 		/// <param name="val">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_AMD_sample_positions")]
 		public static void SetMultisampleAMD(int pname, UInt32 index, float[] val)
 		{
 			unsafe {

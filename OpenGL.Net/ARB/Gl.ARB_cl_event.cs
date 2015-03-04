@@ -49,6 +49,7 @@ namespace OpenGL
 		/// <param name="flags">
 		/// A <see cref="T:uint"/>.
 		/// </param>
+		[RequiredByFeature("GL_ARB_cl_event")]
 		public static int CreateSyncFromCLeventARB(IntPtr context, IntPtr @event, uint flags)
 		{
 			int retValue;

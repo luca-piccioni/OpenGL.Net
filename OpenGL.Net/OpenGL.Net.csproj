@@ -40,8 +40,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
-    <Reference Include="System.Data" />
-    <Reference Include="System.Xml" />
+    <Reference Include="System.Windows.Forms" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="3DFX\Gl.3DFX_multisample.cs" />
@@ -166,6 +165,10 @@
     <Compile Include="ATI\Gl.ATI_vertex_attrib_array_object.cs" />
     <Compile Include="ATI\Gl.ATI_vertex_streams.cs" />
     <Compile Include="ATI\Wgl.ATI_pixel_format_float.cs" />
+    <Compile Include="DeviceContext.cs" />
+    <Compile Include="DeviceContextFactory.cs" />
+    <Compile Include="DevicePixelFormat.cs" />
+    <Compile Include="DevicePixelFormatCollection.cs" />
     <Compile Include="EXT\Gl.EXT_422_pixels.cs" />
     <Compile Include="EXT\Gl.EXT_abgr.cs" />
     <Compile Include="EXT\Gl.EXT_bgra.cs" />
@@ -267,6 +270,7 @@
     <Compile Include="EXT\Wgl.EXT_pixel_format.cs" />
     <Compile Include="EXT\Wgl.EXT_pixel_format_packed_float.cs" />
     <Compile Include="EXT\Wgl.EXT_swap_control.cs" />
+    <Compile Include="GetProcAddress.cs" />
     <Compile Include="Gl.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -318,6 +322,7 @@
     <Compile Include="IBM\Gl.IBM_static_data.cs" />
     <Compile Include="IBM\Gl.IBM_texture_mirrored_repeat.cs" />
     <Compile Include="IBM\Gl.IBM_vertex_array_lists.cs" />
+    <Compile Include="IDeviceContext.cs" />
     <Compile Include="INGR\Gl.INGR_blend_func_separate.cs" />
     <Compile Include="INGR\Gl.INGR_color_clamp.cs" />
     <Compile Include="INGR\Gl.INGR_interlace_read.cs" />
@@ -431,6 +436,7 @@
     <Compile Include="OML\Wgl.OML_sync_control.cs" />
     <Compile Include="PGI\Gl.PGI_misc_hints.cs" />
     <Compile Include="PGI\Gl.PGI_vertex_hints.cs" />
+    <Compile Include="ProcLoader.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RemovedByFeatureAttribute.cs">
       <SubType>Code</SubType>
@@ -512,8 +518,10 @@
     </Compile>
     <Compile Include="Wgl.Orphans.cs" />
     <Compile Include="Wgl.VERSION_1_0.cs" />
+    <Compile Include="WindowsDeviceContext.cs" />
     <Compile Include="WIN\Gl.WIN_phong_shading.cs" />
     <Compile Include="WIN\Gl.WIN_specular_fog.cs" />
+    <None Include="XServerDeviceContext.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

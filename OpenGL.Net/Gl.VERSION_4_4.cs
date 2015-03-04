@@ -29,14 +29,12 @@ namespace OpenGL
 		/// Value of GL_MAX_VERTEX_ATTRIB_STRIDE symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_4")]
-		[RequiredByFeature("GL_ES_VERSION_3_1")]
 		public const int MAX_VERTEX_ATTRIB_STRIDE = 0x82E5;
 
 		/// <summary>
 		/// Value of GL_PRIMITIVE_RESTART_FOR_PATCHES_SUPPORTED symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_4")]
-		[RequiredByFeature("GL_EXT_tessellation_shader")]
 		public const int PRIMITIVE_RESTART_FOR_PATCHES_SUPPORTED = 0x8221;
 
 		/// <summary>
@@ -231,6 +229,8 @@ namespace OpenGL
 		/// <seealso cref="Gl.BufferSubData"/>
 		/// <seealso cref="Gl.MapBuffer"/>
 		/// <seealso cref="Gl.UnmapBuffer"/>
+		[RequiredByFeature("GL_VERSION_4_4")]
+		[RequiredByFeature("GL_ARB_buffer_storage")]
 		public static void BufferStorage(int target, UInt32 size, IntPtr data, uint flags)
 		{
 			Debug.Assert(Delegates.pglBufferStorage != null, "pglBufferStorage not implemented");
@@ -313,6 +313,8 @@ namespace OpenGL
 		/// <seealso cref="Gl.BufferSubData"/>
 		/// <seealso cref="Gl.MapBuffer"/>
 		/// <seealso cref="Gl.UnmapBuffer"/>
+		[RequiredByFeature("GL_VERSION_4_4")]
+		[RequiredByFeature("GL_ARB_buffer_storage")]
 		public static void BufferStorage(int target, UInt32 size, Object data, uint flags)
 		{
 			GCHandle pin_data = GCHandle.Alloc(data, GCHandleType.Pinned);
@@ -383,6 +385,8 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexImage1D"/>
 		/// <seealso cref="Gl.TexImage2D"/>
 		/// <seealso cref="Gl.TexImage3D"/>
+		[RequiredByFeature("GL_VERSION_4_4")]
+		[RequiredByFeature("GL_ARB_clear_texture")]
 		public static void ClearTexImage(UInt32 texture, Int32 level, int format, int type, IntPtr data)
 		{
 			Debug.Assert(Delegates.pglClearTexImage != null, "pglClearTexImage not implemented");
@@ -451,6 +455,8 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexImage1D"/>
 		/// <seealso cref="Gl.TexImage2D"/>
 		/// <seealso cref="Gl.TexImage3D"/>
+		[RequiredByFeature("GL_VERSION_4_4")]
+		[RequiredByFeature("GL_ARB_clear_texture")]
 		public static void ClearTexImage(UInt32 texture, Int32 level, int format, int type, Object data)
 		{
 			GCHandle pin_data = GCHandle.Alloc(data, GCHandleType.Pinned);
@@ -555,6 +561,8 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexImage1D"/>
 		/// <seealso cref="Gl.TexImage2D"/>
 		/// <seealso cref="Gl.TexImage3D"/>
+		[RequiredByFeature("GL_VERSION_4_4")]
+		[RequiredByFeature("GL_ARB_clear_texture")]
 		public static void ClearTexSubImage(UInt32 texture, Int32 level, Int32 xoffset, Int32 yoffset, Int32 zoffset, Int32 width, Int32 height, Int32 depth, int format, int type, IntPtr data)
 		{
 			Debug.Assert(Delegates.pglClearTexSubImage != null, "pglClearTexSubImage not implemented");
@@ -657,6 +665,8 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexImage1D"/>
 		/// <seealso cref="Gl.TexImage2D"/>
 		/// <seealso cref="Gl.TexImage3D"/>
+		[RequiredByFeature("GL_VERSION_4_4")]
+		[RequiredByFeature("GL_ARB_clear_texture")]
 		public static void ClearTexSubImage(UInt32 texture, Int32 level, Int32 xoffset, Int32 yoffset, Int32 zoffset, Int32 width, Int32 height, Int32 depth, int format, int type, Object data)
 		{
 			GCHandle pin_data = GCHandle.Alloc(data, GCHandleType.Pinned);
@@ -704,6 +714,8 @@ namespace OpenGL
 		/// <seealso cref="Gl.BindBuffersRange"/>
 		/// <seealso cref="Gl.MapBuffer"/>
 		/// <seealso cref="Gl.UnmapBuffer"/>
+		[RequiredByFeature("GL_VERSION_4_4")]
+		[RequiredByFeature("GL_ARB_multi_bind")]
 		public static void BindBuffersBase(int target, UInt32 first, Int32 count, UInt32[] buffers)
 		{
 			unsafe {
@@ -765,6 +777,8 @@ namespace OpenGL
 		/// <seealso cref="Gl.BindBuffersRange"/>
 		/// <seealso cref="Gl.MapBuffer"/>
 		/// <seealso cref="Gl.UnmapBuffer"/>
+		[RequiredByFeature("GL_VERSION_4_4")]
+		[RequiredByFeature("GL_ARB_multi_bind")]
 		public static void BindBuffersRange(int target, UInt32 first, Int32 count, UInt32[] buffers, IntPtr[] offsets, UInt32[] sizes)
 		{
 			unsafe {
@@ -832,6 +846,8 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexImage3DMultisample"/>
 		/// <seealso cref="Gl.TexBuffer"/>
 		/// <seealso cref="Gl.TexParameter"/>
+		[RequiredByFeature("GL_VERSION_4_4")]
+		[RequiredByFeature("GL_ARB_multi_bind")]
 		public static void BindTextures(UInt32 first, Int32 count, UInt32[] textures)
 		{
 			unsafe {
@@ -889,6 +905,8 @@ namespace OpenGL
 		/// <seealso cref="Gl.GenTextures"/>
 		/// <seealso cref="Gl.BindTexture"/>
 		/// <seealso cref="Gl.DeleteTextures"/>
+		[RequiredByFeature("GL_VERSION_4_4")]
+		[RequiredByFeature("GL_ARB_multi_bind")]
 		public static void BindSamplers(UInt32 first, Int32 count, UInt32[] samplers)
 		{
 			unsafe {
@@ -960,6 +978,8 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexStorage3DMultisample"/>
 		/// <seealso cref="Gl.TexBuffer"/>
 		/// <seealso cref="Gl.TexParameter"/>
+		[RequiredByFeature("GL_VERSION_4_4")]
+		[RequiredByFeature("GL_ARB_multi_bind")]
 		public static void BindImageTextures(UInt32 first, Int32 count, UInt32[] textures)
 		{
 			unsafe {
@@ -1025,6 +1045,8 @@ namespace OpenGL
 		/// <seealso cref="Gl.BindBuffer"/>
 		/// <seealso cref="Gl.DeleteBuffers"/>
 		/// <seealso cref="Gl.DeleteTextures"/>
+		[RequiredByFeature("GL_VERSION_4_4")]
+		[RequiredByFeature("GL_ARB_multi_bind")]
 		public static void BindVertexBuffers(UInt32 first, Int32 count, UInt32[] buffers, IntPtr[] offsets, Int32[] strides)
 		{
 			unsafe {

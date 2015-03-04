@@ -106,6 +106,7 @@ namespace OpenGL
 		/// <param name="points">
 		/// A <see cref="T:double[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_SGIX_polynomial_ffd")]
 		public static void DeformationMap3SGIX(int target, double u1, double u2, Int32 ustride, Int32 uorder, double v1, double v2, Int32 vstride, Int32 vorder, double w1, double w2, Int32 wstride, Int32 worder, double[] points)
 		{
 			unsafe {
@@ -164,6 +165,7 @@ namespace OpenGL
 		/// <param name="points">
 		/// A <see cref="T:double[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_SGIX_polynomial_ffd")]
 		public static void DeformationMap3SGIX(FfdTargetSGIX target, double u1, double u2, Int32 ustride, Int32 uorder, double v1, double v2, Int32 vstride, Int32 vorder, double w1, double w2, Int32 wstride, Int32 worder, double[] points)
 		{
 			unsafe {
@@ -222,6 +224,7 @@ namespace OpenGL
 		/// <param name="points">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_SGIX_polynomial_ffd")]
 		public static void DeformationMap3SGIX(int target, float u1, float u2, Int32 ustride, Int32 uorder, float v1, float v2, Int32 vstride, Int32 vorder, float w1, float w2, Int32 wstride, Int32 worder, float[] points)
 		{
 			unsafe {
@@ -280,6 +283,7 @@ namespace OpenGL
 		/// <param name="points">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_SGIX_polynomial_ffd")]
 		public static void DeformationMap3SGIX(FfdTargetSGIX target, float u1, float u2, Int32 ustride, Int32 uorder, float v1, float v2, Int32 vstride, Int32 vorder, float w1, float w2, Int32 wstride, Int32 worder, float[] points)
 		{
 			unsafe {
@@ -299,6 +303,7 @@ namespace OpenGL
 		/// <param name="mask">
 		/// A <see cref="T:uint"/>.
 		/// </param>
+		[RequiredByFeature("GL_SGIX_polynomial_ffd")]
 		public static void DeformSGIX(uint mask)
 		{
 			Debug.Assert(Delegates.pglDeformSGIX != null, "pglDeformSGIX not implemented");
@@ -313,6 +318,7 @@ namespace OpenGL
 		/// <param name="mask">
 		/// A <see cref="T:uint"/>.
 		/// </param>
+		[RequiredByFeature("GL_SGIX_polynomial_ffd")]
 		public static void DeformSGIX(FfdMaskSGIX mask)
 		{
 			Debug.Assert(Delegates.pglDeformSGIX != null, "pglDeformSGIX not implemented");
@@ -327,6 +333,7 @@ namespace OpenGL
 		/// <param name="mask">
 		/// A <see cref="T:uint"/>.
 		/// </param>
+		[RequiredByFeature("GL_SGIX_polynomial_ffd")]
 		public static void LoadIdentityDeformationMapSGIX(uint mask)
 		{
 			Debug.Assert(Delegates.pglLoadIdentityDeformationMapSGIX != null, "pglLoadIdentityDeformationMapSGIX not implemented");
@@ -341,6 +348,7 @@ namespace OpenGL
 		/// <param name="mask">
 		/// A <see cref="T:uint"/>.
 		/// </param>
+		[RequiredByFeature("GL_SGIX_polynomial_ffd")]
 		public static void LoadIdentityDeformationMapSGIX(FfdMaskSGIX mask)
 		{
 			Debug.Assert(Delegates.pglLoadIdentityDeformationMapSGIX != null, "pglLoadIdentityDeformationMapSGIX not implemented");

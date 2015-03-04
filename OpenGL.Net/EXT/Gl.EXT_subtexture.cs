@@ -49,6 +49,7 @@ namespace OpenGL
 		/// <param name="pixels">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
+		[RequiredByFeature("GL_EXT_subtexture")]
 		public static void TexSubImage1DEXT(int target, Int32 level, Int32 xoffset, Int32 width, int format, int type, IntPtr pixels)
 		{
 			Debug.Assert(Delegates.pglTexSubImage1DEXT != null, "pglTexSubImage1DEXT not implemented");
@@ -81,6 +82,7 @@ namespace OpenGL
 		/// <param name="pixels">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
+		[RequiredByFeature("GL_EXT_subtexture")]
 		public static void TexSubImage1DEXT(TextureTarget target, Int32 level, Int32 xoffset, Int32 width, PixelFormat format, PixelType type, IntPtr pixels)
 		{
 			Debug.Assert(Delegates.pglTexSubImage1DEXT != null, "pglTexSubImage1DEXT not implemented");
@@ -113,6 +115,7 @@ namespace OpenGL
 		/// <param name="pixels">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
+		[RequiredByFeature("GL_EXT_subtexture")]
 		public static void TexSubImage1DEXT(int target, Int32 level, Int32 xoffset, Int32 width, int format, int type, Object pixels)
 		{
 			GCHandle pin_pixels = GCHandle.Alloc(pixels, GCHandleType.Pinned);
@@ -153,6 +156,7 @@ namespace OpenGL
 		/// <param name="pixels">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
+		[RequiredByFeature("GL_EXT_subtexture")]
 		public static void TexSubImage2DEXT(int target, Int32 level, Int32 xoffset, Int32 yoffset, Int32 width, Int32 height, int format, int type, IntPtr pixels)
 		{
 			Debug.Assert(Delegates.pglTexSubImage2DEXT != null, "pglTexSubImage2DEXT not implemented");
@@ -191,6 +195,7 @@ namespace OpenGL
 		/// <param name="pixels">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
+		[RequiredByFeature("GL_EXT_subtexture")]
 		public static void TexSubImage2DEXT(TextureTarget target, Int32 level, Int32 xoffset, Int32 yoffset, Int32 width, Int32 height, PixelFormat format, PixelType type, IntPtr pixels)
 		{
 			Debug.Assert(Delegates.pglTexSubImage2DEXT != null, "pglTexSubImage2DEXT not implemented");
@@ -229,6 +234,7 @@ namespace OpenGL
 		/// <param name="pixels">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
+		[RequiredByFeature("GL_EXT_subtexture")]
 		public static void TexSubImage2DEXT(int target, Int32 level, Int32 xoffset, Int32 yoffset, Int32 width, Int32 height, int format, int type, Object pixels)
 		{
 			GCHandle pin_pixels = GCHandle.Alloc(pixels, GCHandleType.Pinned);

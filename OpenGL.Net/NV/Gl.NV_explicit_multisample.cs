@@ -97,6 +97,7 @@ namespace OpenGL
 		/// <param name="val">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_NV_explicit_multisample")]
 		public static void GetMultisampleNV(int pname, UInt32 index, float[] val)
 		{
 			unsafe {
@@ -119,6 +120,7 @@ namespace OpenGL
 		/// <param name="mask">
 		/// A <see cref="T:uint"/>.
 		/// </param>
+		[RequiredByFeature("GL_NV_explicit_multisample")]
 		public static void SampleMaskIndexedNV(UInt32 index, uint mask)
 		{
 			Debug.Assert(Delegates.pglSampleMaskIndexedNV != null, "pglSampleMaskIndexedNV not implemented");
@@ -136,6 +138,7 @@ namespace OpenGL
 		/// <param name="renderbuffer">
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
+		[RequiredByFeature("GL_NV_explicit_multisample")]
 		public static void TexRenderbufferNV(int target, UInt32 renderbuffer)
 		{
 			Debug.Assert(Delegates.pglTexRenderbufferNV != null, "pglTexRenderbufferNV not implemented");
@@ -153,6 +156,7 @@ namespace OpenGL
 		/// <param name="renderbuffer">
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
+		[RequiredByFeature("GL_NV_explicit_multisample")]
 		public static void TexRenderbufferNV(TextureTarget target, UInt32 renderbuffer)
 		{
 			Debug.Assert(Delegates.pglTexRenderbufferNV != null, "pglTexRenderbufferNV not implemented");

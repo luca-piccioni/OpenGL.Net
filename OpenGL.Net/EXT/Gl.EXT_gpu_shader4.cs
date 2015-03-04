@@ -47,7 +47,6 @@ namespace OpenGL
 		/// Value of GL_SAMPLER_BUFFER_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_gpu_shader4")]
-		[RequiredByFeature("GL_EXT_texture_buffer")]
 		public const int SAMPLER_BUFFER_EXT = 0x8DC2;
 
 		/// <summary>
@@ -132,7 +131,6 @@ namespace OpenGL
 		/// Value of GL_INT_SAMPLER_BUFFER_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_gpu_shader4")]
-		[RequiredByFeature("GL_EXT_texture_buffer")]
 		public const int INT_SAMPLER_BUFFER_EXT = 0x8DD0;
 
 		/// <summary>
@@ -181,7 +179,6 @@ namespace OpenGL
 		/// Value of GL_UNSIGNED_INT_SAMPLER_BUFFER_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_gpu_shader4")]
-		[RequiredByFeature("GL_EXT_texture_buffer")]
 		public const int UNSIGNED_INT_SAMPLER_BUFFER_EXT = 0x8DD8;
 
 		/// <summary>
@@ -208,6 +205,7 @@ namespace OpenGL
 		/// <param name="params">
 		/// A <see cref="T:UInt32[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_EXT_gpu_shader4")]
 		public static void GetUniformEXT(UInt32 program, Int32 location, UInt32[] @params)
 		{
 			unsafe {
@@ -233,6 +231,7 @@ namespace OpenGL
 		/// <param name="name">
 		/// A <see cref="T:String"/>.
 		/// </param>
+		[RequiredByFeature("GL_EXT_gpu_shader4")]
 		public static void BindFragDataLocationEXT(UInt32 program, UInt32 color, String name)
 		{
 			Debug.Assert(Delegates.pglBindFragDataLocationEXT != null, "pglBindFragDataLocationEXT not implemented");
@@ -250,6 +249,7 @@ namespace OpenGL
 		/// <param name="name">
 		/// A <see cref="T:String"/>.
 		/// </param>
+		[RequiredByFeature("GL_EXT_gpu_shader4")]
 		public static Int32 GetFragDataLocationEXT(UInt32 program, String name)
 		{
 			Int32 retValue;
@@ -271,6 +271,7 @@ namespace OpenGL
 		/// <param name="v0">
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
+		[RequiredByFeature("GL_EXT_gpu_shader4")]
 		public static void Uniform1EXT(Int32 location, UInt32 v0)
 		{
 			Debug.Assert(Delegates.pglUniform1uiEXT != null, "pglUniform1uiEXT not implemented");
@@ -291,6 +292,7 @@ namespace OpenGL
 		/// <param name="v1">
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
+		[RequiredByFeature("GL_EXT_gpu_shader4")]
 		public static void Uniform2EXT(Int32 location, UInt32 v0, UInt32 v1)
 		{
 			Debug.Assert(Delegates.pglUniform2uiEXT != null, "pglUniform2uiEXT not implemented");
@@ -314,6 +316,7 @@ namespace OpenGL
 		/// <param name="v2">
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
+		[RequiredByFeature("GL_EXT_gpu_shader4")]
 		public static void Uniform3EXT(Int32 location, UInt32 v0, UInt32 v1, UInt32 v2)
 		{
 			Debug.Assert(Delegates.pglUniform3uiEXT != null, "pglUniform3uiEXT not implemented");
@@ -340,6 +343,7 @@ namespace OpenGL
 		/// <param name="v3">
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
+		[RequiredByFeature("GL_EXT_gpu_shader4")]
 		public static void Uniform4EXT(Int32 location, UInt32 v0, UInt32 v1, UInt32 v2, UInt32 v3)
 		{
 			Debug.Assert(Delegates.pglUniform4uiEXT != null, "pglUniform4uiEXT not implemented");
@@ -360,6 +364,7 @@ namespace OpenGL
 		/// <param name="value">
 		/// A <see cref="T:UInt32[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_EXT_gpu_shader4")]
 		public static void Uniform1EXT(Int32 location, Int32 count, UInt32[] value)
 		{
 			unsafe {
@@ -385,6 +390,7 @@ namespace OpenGL
 		/// <param name="value">
 		/// A <see cref="T:UInt32[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_EXT_gpu_shader4")]
 		public static void Uniform2EXT(Int32 location, Int32 count, UInt32[] value)
 		{
 			unsafe {
@@ -410,6 +416,7 @@ namespace OpenGL
 		/// <param name="value">
 		/// A <see cref="T:UInt32[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_EXT_gpu_shader4")]
 		public static void Uniform3EXT(Int32 location, Int32 count, UInt32[] value)
 		{
 			unsafe {
@@ -435,6 +442,7 @@ namespace OpenGL
 		/// <param name="value">
 		/// A <see cref="T:UInt32[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_EXT_gpu_shader4")]
 		public static void Uniform4EXT(Int32 location, Int32 count, UInt32[] value)
 		{
 			unsafe {

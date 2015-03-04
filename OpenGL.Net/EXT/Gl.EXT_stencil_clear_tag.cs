@@ -46,6 +46,7 @@ namespace OpenGL
 		/// <param name="stencilClearTag">
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
+		[RequiredByFeature("GL_EXT_stencil_clear_tag")]
 		public static void StencilClearTagEXT(Int32 stencilTagBits, UInt32 stencilClearTag)
 		{
 			Debug.Assert(Delegates.pglStencilClearTagEXT != null, "pglStencilClearTagEXT not implemented");

@@ -49,6 +49,7 @@ namespace OpenGL
 		/// <param name="border">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
+		[RequiredByFeature("GL_EXT_copy_texture")]
 		public static void CopyTexImage1DEXT(int target, Int32 level, int internalformat, Int32 x, Int32 y, Int32 width, Int32 border)
 		{
 			Debug.Assert(Delegates.pglCopyTexImage1DEXT != null, "pglCopyTexImage1DEXT not implemented");
@@ -81,6 +82,7 @@ namespace OpenGL
 		/// <param name="border">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
+		[RequiredByFeature("GL_EXT_copy_texture")]
 		public static void CopyTexImage1DEXT(TextureTarget target, Int32 level, int internalformat, Int32 x, Int32 y, Int32 width, Int32 border)
 		{
 			Debug.Assert(Delegates.pglCopyTexImage1DEXT != null, "pglCopyTexImage1DEXT not implemented");
@@ -116,6 +118,7 @@ namespace OpenGL
 		/// <param name="border">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
+		[RequiredByFeature("GL_EXT_copy_texture")]
 		public static void CopyTexImage2DEXT(int target, Int32 level, int internalformat, Int32 x, Int32 y, Int32 width, Int32 height, Int32 border)
 		{
 			Debug.Assert(Delegates.pglCopyTexImage2DEXT != null, "pglCopyTexImage2DEXT not implemented");
@@ -151,6 +154,7 @@ namespace OpenGL
 		/// <param name="border">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
+		[RequiredByFeature("GL_EXT_copy_texture")]
 		public static void CopyTexImage2DEXT(TextureTarget target, Int32 level, int internalformat, Int32 x, Int32 y, Int32 width, Int32 height, Int32 border)
 		{
 			Debug.Assert(Delegates.pglCopyTexImage2DEXT != null, "pglCopyTexImage2DEXT not implemented");
@@ -180,6 +184,7 @@ namespace OpenGL
 		/// <param name="width">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
+		[RequiredByFeature("GL_EXT_copy_texture")]
 		public static void CopyTexSubImage1DEXT(int target, Int32 level, Int32 xoffset, Int32 x, Int32 y, Int32 width)
 		{
 			Debug.Assert(Delegates.pglCopyTexSubImage1DEXT != null, "pglCopyTexSubImage1DEXT not implemented");
@@ -209,6 +214,7 @@ namespace OpenGL
 		/// <param name="width">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
+		[RequiredByFeature("GL_EXT_copy_texture")]
 		public static void CopyTexSubImage1DEXT(TextureTarget target, Int32 level, Int32 xoffset, Int32 x, Int32 y, Int32 width)
 		{
 			Debug.Assert(Delegates.pglCopyTexSubImage1DEXT != null, "pglCopyTexSubImage1DEXT not implemented");
@@ -244,6 +250,7 @@ namespace OpenGL
 		/// <param name="height">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
+		[RequiredByFeature("GL_EXT_copy_texture")]
 		public static void CopyTexSubImage2DEXT(int target, Int32 level, Int32 xoffset, Int32 yoffset, Int32 x, Int32 y, Int32 width, Int32 height)
 		{
 			Debug.Assert(Delegates.pglCopyTexSubImage2DEXT != null, "pglCopyTexSubImage2DEXT not implemented");
@@ -279,6 +286,7 @@ namespace OpenGL
 		/// <param name="height">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
+		[RequiredByFeature("GL_EXT_copy_texture")]
 		public static void CopyTexSubImage2DEXT(TextureTarget target, Int32 level, Int32 xoffset, Int32 yoffset, Int32 x, Int32 y, Int32 width, Int32 height)
 		{
 			Debug.Assert(Delegates.pglCopyTexSubImage2DEXT != null, "pglCopyTexSubImage2DEXT not implemented");
@@ -317,6 +325,7 @@ namespace OpenGL
 		/// <param name="height">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
+		[RequiredByFeature("GL_EXT_copy_texture")]
 		public static void CopyTexSubImage3DEXT(int target, Int32 level, Int32 xoffset, Int32 yoffset, Int32 zoffset, Int32 x, Int32 y, Int32 width, Int32 height)
 		{
 			Debug.Assert(Delegates.pglCopyTexSubImage3DEXT != null, "pglCopyTexSubImage3DEXT not implemented");
@@ -355,6 +364,7 @@ namespace OpenGL
 		/// <param name="height">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
+		[RequiredByFeature("GL_EXT_copy_texture")]
 		public static void CopyTexSubImage3DEXT(TextureTarget target, Int32 level, Int32 xoffset, Int32 yoffset, Int32 zoffset, Int32 x, Int32 y, Int32 width, Int32 height)
 		{
 			Debug.Assert(Delegates.pglCopyTexSubImage3DEXT != null, "pglCopyTexSubImage3DEXT not implemented");

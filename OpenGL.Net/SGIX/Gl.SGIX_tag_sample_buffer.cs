@@ -28,6 +28,7 @@ namespace OpenGL
 		/// <summary>
 		/// Binding for glTagSampleBufferSGIX.
 		/// </summary>
+		[RequiredByFeature("GL_SGIX_tag_sample_buffer")]
 		public static void TagSampleBufferSGIX()
 		{
 			Debug.Assert(Delegates.pglTagSampleBufferSGIX != null, "pglTagSampleBufferSGIX not implemented");

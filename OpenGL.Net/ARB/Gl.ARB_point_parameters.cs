@@ -58,6 +58,7 @@ namespace OpenGL
 		/// <param name="param">
 		/// A <see cref="T:float"/>.
 		/// </param>
+		[RequiredByFeature("GL_ARB_point_parameters")]
 		public static void PointParameterARB(int pname, float param)
 		{
 			Debug.Assert(Delegates.pglPointParameterfARB != null, "pglPointParameterfARB not implemented");
@@ -75,6 +76,7 @@ namespace OpenGL
 		/// <param name="params">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_ARB_point_parameters")]
 		public static void PointParameterARB(int pname, float[] @params)
 		{
 			unsafe {

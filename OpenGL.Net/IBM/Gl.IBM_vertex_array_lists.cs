@@ -139,6 +139,7 @@ namespace OpenGL
 		/// <param name="ptrstride">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
+		[RequiredByFeature("GL_IBM_vertex_array_lists")]
 		public static void ColorPointerListIBM(Int32 size, int type, Int32 stride, IntPtr pointer, Int32 ptrstride)
 		{
 			Debug.Assert(Delegates.pglColorPointerListIBM != null, "pglColorPointerListIBM not implemented");
@@ -165,6 +166,7 @@ namespace OpenGL
 		/// <param name="ptrstride">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
+		[RequiredByFeature("GL_IBM_vertex_array_lists")]
 		public static void ColorPointerListIBM(Int32 size, ColorPointerType type, Int32 stride, IntPtr pointer, Int32 ptrstride)
 		{
 			Debug.Assert(Delegates.pglColorPointerListIBM != null, "pglColorPointerListIBM not implemented");
@@ -191,6 +193,7 @@ namespace OpenGL
 		/// <param name="ptrstride">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
+		[RequiredByFeature("GL_IBM_vertex_array_lists")]
 		public static void ColorPointerListIBM(Int32 size, int type, Int32 stride, Object pointer, Int32 ptrstride)
 		{
 			GCHandle pin_pointer = GCHandle.Alloc(pointer, GCHandleType.Pinned);
@@ -219,6 +222,7 @@ namespace OpenGL
 		/// <param name="ptrstride">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
+		[RequiredByFeature("GL_IBM_vertex_array_lists")]
 		public static void SecondaryColorPointerListIBM(Int32 size, int type, Int32 stride, IntPtr pointer, Int32 ptrstride)
 		{
 			Debug.Assert(Delegates.pglSecondaryColorPointerListIBM != null, "pglSecondaryColorPointerListIBM not implemented");
@@ -245,6 +249,7 @@ namespace OpenGL
 		/// <param name="ptrstride">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
+		[RequiredByFeature("GL_IBM_vertex_array_lists")]
 		public static void SecondaryColorPointerListIBM(Int32 size, int type, Int32 stride, Object pointer, Int32 ptrstride)
 		{
 			GCHandle pin_pointer = GCHandle.Alloc(pointer, GCHandleType.Pinned);
@@ -267,6 +272,7 @@ namespace OpenGL
 		/// <param name="ptrstride">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
+		[RequiredByFeature("GL_IBM_vertex_array_lists")]
 		public static void EdgeFlagPointerListIBM(Int32 stride, bool[] pointer, Int32 ptrstride)
 		{
 			Debug.Assert(Delegates.pglEdgeFlagPointerListIBM != null, "pglEdgeFlagPointerListIBM not implemented");
@@ -290,6 +296,7 @@ namespace OpenGL
 		/// <param name="ptrstride">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
+		[RequiredByFeature("GL_IBM_vertex_array_lists")]
 		public static void FogCoordPointerListIBM(int type, Int32 stride, IntPtr pointer, Int32 ptrstride)
 		{
 			Debug.Assert(Delegates.pglFogCoordPointerListIBM != null, "pglFogCoordPointerListIBM not implemented");
@@ -313,6 +320,7 @@ namespace OpenGL
 		/// <param name="ptrstride">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
+		[RequiredByFeature("GL_IBM_vertex_array_lists")]
 		public static void FogCoordPointerListIBM(FogPointerTypeIBM type, Int32 stride, IntPtr pointer, Int32 ptrstride)
 		{
 			Debug.Assert(Delegates.pglFogCoordPointerListIBM != null, "pglFogCoordPointerListIBM not implemented");
@@ -336,6 +344,7 @@ namespace OpenGL
 		/// <param name="ptrstride">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
+		[RequiredByFeature("GL_IBM_vertex_array_lists")]
 		public static void FogCoordPointerListIBM(int type, Int32 stride, Object pointer, Int32 ptrstride)
 		{
 			GCHandle pin_pointer = GCHandle.Alloc(pointer, GCHandleType.Pinned);
@@ -361,6 +370,7 @@ namespace OpenGL
 		/// <param name="ptrstride">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
+		[RequiredByFeature("GL_IBM_vertex_array_lists")]
 		public static void IndexPointerListIBM(int type, Int32 stride, IntPtr pointer, Int32 ptrstride)
 		{
 			Debug.Assert(Delegates.pglIndexPointerListIBM != null, "pglIndexPointerListIBM not implemented");
@@ -384,6 +394,7 @@ namespace OpenGL
 		/// <param name="ptrstride">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
+		[RequiredByFeature("GL_IBM_vertex_array_lists")]
 		public static void IndexPointerListIBM(IndexPointerType type, Int32 stride, IntPtr pointer, Int32 ptrstride)
 		{
 			Debug.Assert(Delegates.pglIndexPointerListIBM != null, "pglIndexPointerListIBM not implemented");
@@ -407,6 +418,7 @@ namespace OpenGL
 		/// <param name="ptrstride">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
+		[RequiredByFeature("GL_IBM_vertex_array_lists")]
 		public static void IndexPointerListIBM(int type, Int32 stride, Object pointer, Int32 ptrstride)
 		{
 			GCHandle pin_pointer = GCHandle.Alloc(pointer, GCHandleType.Pinned);
@@ -432,6 +444,7 @@ namespace OpenGL
 		/// <param name="ptrstride">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
+		[RequiredByFeature("GL_IBM_vertex_array_lists")]
 		public static void NormalPointerListIBM(int type, Int32 stride, IntPtr pointer, Int32 ptrstride)
 		{
 			Debug.Assert(Delegates.pglNormalPointerListIBM != null, "pglNormalPointerListIBM not implemented");
@@ -455,6 +468,7 @@ namespace OpenGL
 		/// <param name="ptrstride">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
+		[RequiredByFeature("GL_IBM_vertex_array_lists")]
 		public static void NormalPointerListIBM(NormalPointerType type, Int32 stride, IntPtr pointer, Int32 ptrstride)
 		{
 			Debug.Assert(Delegates.pglNormalPointerListIBM != null, "pglNormalPointerListIBM not implemented");
@@ -478,6 +492,7 @@ namespace OpenGL
 		/// <param name="ptrstride">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
+		[RequiredByFeature("GL_IBM_vertex_array_lists")]
 		public static void NormalPointerListIBM(int type, Int32 stride, Object pointer, Int32 ptrstride)
 		{
 			GCHandle pin_pointer = GCHandle.Alloc(pointer, GCHandleType.Pinned);
@@ -506,6 +521,7 @@ namespace OpenGL
 		/// <param name="ptrstride">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
+		[RequiredByFeature("GL_IBM_vertex_array_lists")]
 		public static void TexCoordPointerListIBM(Int32 size, int type, Int32 stride, IntPtr pointer, Int32 ptrstride)
 		{
 			Debug.Assert(Delegates.pglTexCoordPointerListIBM != null, "pglTexCoordPointerListIBM not implemented");
@@ -532,6 +548,7 @@ namespace OpenGL
 		/// <param name="ptrstride">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
+		[RequiredByFeature("GL_IBM_vertex_array_lists")]
 		public static void TexCoordPointerListIBM(Int32 size, TexCoordPointerType type, Int32 stride, IntPtr pointer, Int32 ptrstride)
 		{
 			Debug.Assert(Delegates.pglTexCoordPointerListIBM != null, "pglTexCoordPointerListIBM not implemented");
@@ -558,6 +575,7 @@ namespace OpenGL
 		/// <param name="ptrstride">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
+		[RequiredByFeature("GL_IBM_vertex_array_lists")]
 		public static void TexCoordPointerListIBM(Int32 size, int type, Int32 stride, Object pointer, Int32 ptrstride)
 		{
 			GCHandle pin_pointer = GCHandle.Alloc(pointer, GCHandleType.Pinned);
@@ -586,6 +604,7 @@ namespace OpenGL
 		/// <param name="ptrstride">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
+		[RequiredByFeature("GL_IBM_vertex_array_lists")]
 		public static void VertexPointerListIBM(Int32 size, int type, Int32 stride, IntPtr pointer, Int32 ptrstride)
 		{
 			Debug.Assert(Delegates.pglVertexPointerListIBM != null, "pglVertexPointerListIBM not implemented");
@@ -612,6 +631,7 @@ namespace OpenGL
 		/// <param name="ptrstride">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
+		[RequiredByFeature("GL_IBM_vertex_array_lists")]
 		public static void VertexPointerListIBM(Int32 size, VertexPointerType type, Int32 stride, IntPtr pointer, Int32 ptrstride)
 		{
 			Debug.Assert(Delegates.pglVertexPointerListIBM != null, "pglVertexPointerListIBM not implemented");
@@ -638,6 +658,7 @@ namespace OpenGL
 		/// <param name="ptrstride">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
+		[RequiredByFeature("GL_IBM_vertex_array_lists")]
 		public static void VertexPointerListIBM(Int32 size, int type, Int32 stride, Object pointer, Int32 ptrstride)
 		{
 			GCHandle pin_pointer = GCHandle.Alloc(pointer, GCHandleType.Pinned);

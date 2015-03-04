@@ -40,6 +40,7 @@ namespace OpenGL
 		/// <param name="sbc">
 		/// A <see cref="T:Int64[]"/>.
 		/// </param>
+		[RequiredByFeature("WGL_OML_sync_control")]
 		public static bool GetSyncValuesOML(IntPtr hdc, Int64[] ust, Int64[] msc, Int64[] sbc)
 		{
 			bool retValue;
@@ -54,7 +55,6 @@ namespace OpenGL
 					CallLog("wglGetSyncValuesOML({0}, {1}, {2}, {3}) = {4}", hdc, ust, msc, sbc, retValue);
 				}
 			}
-			DebugCheckErrors();
 
 			return (retValue);
 		}
@@ -71,6 +71,7 @@ namespace OpenGL
 		/// <param name="denominator">
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
+		[RequiredByFeature("WGL_OML_sync_control")]
 		public static bool GetMscRateOML(IntPtr hdc, Int32[] numerator, Int32[] denominator)
 		{
 			bool retValue;
@@ -84,7 +85,6 @@ namespace OpenGL
 					CallLog("wglGetMscRateOML({0}, {1}, {2}) = {3}", hdc, numerator, denominator, retValue);
 				}
 			}
-			DebugCheckErrors();
 
 			return (retValue);
 		}
@@ -104,6 +104,7 @@ namespace OpenGL
 		/// <param name="remainder">
 		/// A <see cref="T:Int64"/>.
 		/// </param>
+		[RequiredByFeature("WGL_OML_sync_control")]
 		public static Int64 SwapBuffersMscOML(IntPtr hdc, Int64 target_msc, Int64 divisor, Int64 remainder)
 		{
 			Int64 retValue;
@@ -111,7 +112,6 @@ namespace OpenGL
 			Debug.Assert(Delegates.pwglSwapBuffersMscOML != null, "pwglSwapBuffersMscOML not implemented");
 			retValue = Delegates.pwglSwapBuffersMscOML(hdc, target_msc, divisor, remainder);
 			CallLog("wglSwapBuffersMscOML({0}, {1}, {2}, {3}) = {4}", hdc, target_msc, divisor, remainder, retValue);
-			DebugCheckErrors();
 
 			return (retValue);
 		}
@@ -134,6 +134,7 @@ namespace OpenGL
 		/// <param name="remainder">
 		/// A <see cref="T:Int64"/>.
 		/// </param>
+		[RequiredByFeature("WGL_OML_sync_control")]
 		public static Int64 SwapLayerBuffersMscOML(IntPtr hdc, int fuPlanes, Int64 target_msc, Int64 divisor, Int64 remainder)
 		{
 			Int64 retValue;
@@ -141,7 +142,6 @@ namespace OpenGL
 			Debug.Assert(Delegates.pwglSwapLayerBuffersMscOML != null, "pwglSwapLayerBuffersMscOML not implemented");
 			retValue = Delegates.pwglSwapLayerBuffersMscOML(hdc, fuPlanes, target_msc, divisor, remainder);
 			CallLog("wglSwapLayerBuffersMscOML({0}, {1}, {2}, {3}, {4}) = {5}", hdc, fuPlanes, target_msc, divisor, remainder, retValue);
-			DebugCheckErrors();
 
 			return (retValue);
 		}
@@ -170,6 +170,7 @@ namespace OpenGL
 		/// <param name="sbc">
 		/// A <see cref="T:Int64[]"/>.
 		/// </param>
+		[RequiredByFeature("WGL_OML_sync_control")]
 		public static bool WaitForMscOML(IntPtr hdc, Int64 target_msc, Int64 divisor, Int64 remainder, Int64[] ust, Int64[] msc, Int64[] sbc)
 		{
 			bool retValue;
@@ -184,7 +185,6 @@ namespace OpenGL
 					CallLog("wglWaitForMscOML({0}, {1}, {2}, {3}, {4}, {5}, {6}) = {7}", hdc, target_msc, divisor, remainder, ust, msc, sbc, retValue);
 				}
 			}
-			DebugCheckErrors();
 
 			return (retValue);
 		}
@@ -207,6 +207,7 @@ namespace OpenGL
 		/// <param name="sbc">
 		/// A <see cref="T:Int64[]"/>.
 		/// </param>
+		[RequiredByFeature("WGL_OML_sync_control")]
 		public static bool WaitForSbcOML(IntPtr hdc, Int64 target_sbc, Int64[] ust, Int64[] msc, Int64[] sbc)
 		{
 			bool retValue;
@@ -221,7 +222,6 @@ namespace OpenGL
 					CallLog("wglWaitForSbcOML({0}, {1}, {2}, {3}, {4}) = {5}", hdc, target_sbc, ust, msc, sbc, retValue);
 				}
 			}
-			DebugCheckErrors();
 
 			return (retValue);
 		}

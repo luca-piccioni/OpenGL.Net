@@ -79,6 +79,7 @@ namespace OpenGL
 		/// <param name="groups">
 		/// A <see cref="T:UInt32[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_AMD_performance_monitor")]
 		public static void GetPerfMonitorGroupsAMD(out Int32 numGroups, Int32 groupsSize, UInt32[] groups)
 		{
 			unsafe {
@@ -111,6 +112,7 @@ namespace OpenGL
 		/// <param name="counters">
 		/// A <see cref="T:UInt32[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_AMD_performance_monitor")]
 		public static void GetPerfMonitorCountersAMD(UInt32 group, out Int32 numCounters, out Int32 maxActiveCounters, Int32 counterSize, UInt32[] counters)
 		{
 			unsafe {
@@ -141,6 +143,7 @@ namespace OpenGL
 		/// <param name="groupString">
 		/// A <see cref="T:StringBuilder"/>.
 		/// </param>
+		[RequiredByFeature("GL_AMD_performance_monitor")]
 		public static void GetPerfMonitorGroupStringAMD(UInt32 group, Int32 bufSize, out Int32 length, [Out] StringBuilder groupString)
 		{
 			unsafe {
@@ -172,6 +175,7 @@ namespace OpenGL
 		/// <param name="counterString">
 		/// A <see cref="T:StringBuilder"/>.
 		/// </param>
+		[RequiredByFeature("GL_AMD_performance_monitor")]
 		public static void GetPerfMonitorCounterStringAMD(UInt32 group, UInt32 counter, Int32 bufSize, out Int32 length, [Out] StringBuilder counterString)
 		{
 			unsafe {
@@ -200,6 +204,7 @@ namespace OpenGL
 		/// <param name="data">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
+		[RequiredByFeature("GL_AMD_performance_monitor")]
 		public static void GetPerfMonitorCounterInfoAMD(UInt32 group, UInt32 counter, int pname, IntPtr data)
 		{
 			Debug.Assert(Delegates.pglGetPerfMonitorCounterInfoAMD != null, "pglGetPerfMonitorCounterInfoAMD not implemented");
@@ -217,6 +222,7 @@ namespace OpenGL
 		/// <param name="monitors">
 		/// A <see cref="T:UInt32[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_AMD_performance_monitor")]
 		public static void GenPerfMonitorsAMD(Int32 n, UInt32[] monitors)
 		{
 			unsafe {
@@ -239,6 +245,7 @@ namespace OpenGL
 		/// <param name="monitors">
 		/// A <see cref="T:UInt32[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_AMD_performance_monitor")]
 		public static void DeletePerfMonitorsAMD(Int32 n, UInt32[] monitors)
 		{
 			unsafe {
@@ -270,6 +277,7 @@ namespace OpenGL
 		/// <param name="counterList">
 		/// A <see cref="T:UInt32[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_AMD_performance_monitor")]
 		public static void SelectPerfMonitorCountersAMD(UInt32 monitor, bool enable, UInt32 group, Int32 numCounters, UInt32[] counterList)
 		{
 			unsafe {
@@ -289,6 +297,7 @@ namespace OpenGL
 		/// <param name="monitor">
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
+		[RequiredByFeature("GL_AMD_performance_monitor")]
 		public static void BeginPerfMonitorAMD(UInt32 monitor)
 		{
 			Debug.Assert(Delegates.pglBeginPerfMonitorAMD != null, "pglBeginPerfMonitorAMD not implemented");
@@ -303,6 +312,7 @@ namespace OpenGL
 		/// <param name="monitor">
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
+		[RequiredByFeature("GL_AMD_performance_monitor")]
 		public static void EndPerfMonitorAMD(UInt32 monitor)
 		{
 			Debug.Assert(Delegates.pglEndPerfMonitorAMD != null, "pglEndPerfMonitorAMD not implemented");
@@ -329,6 +339,7 @@ namespace OpenGL
 		/// <param name="bytesWritten">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
+		[RequiredByFeature("GL_AMD_performance_monitor")]
 		public static void GetPerfMonitorCounterDataAMD(UInt32 monitor, int pname, Int32 dataSize, UInt32[] data, out Int32 bytesWritten)
 		{
 			unsafe {

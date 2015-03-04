@@ -67,6 +67,7 @@ namespace OpenGL
 		/// <param name="names">
 		/// A <see cref="T:UInt32[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_AMD_name_gen_delete")]
 		public static void GenNameAMD(int identifier, UInt32 num, UInt32[] names)
 		{
 			unsafe {
@@ -92,6 +93,7 @@ namespace OpenGL
 		/// <param name="names">
 		/// A <see cref="T:UInt32[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_AMD_name_gen_delete")]
 		public static void DeleteNameAMD(int identifier, UInt32 num, UInt32[] names)
 		{
 			unsafe {
@@ -114,6 +116,7 @@ namespace OpenGL
 		/// <param name="name">
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
+		[RequiredByFeature("GL_AMD_name_gen_delete")]
 		public static bool IsNameAMD(int identifier, UInt32 name)
 		{
 			bool retValue;

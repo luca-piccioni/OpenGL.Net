@@ -58,6 +58,7 @@ namespace OpenGL
 		/// <param name="ids">
 		/// A <see cref="T:UInt32[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_NV_occlusion_query")]
 		public static void GenOcclusionQueriesNV(Int32 n, UInt32[] ids)
 		{
 			unsafe {
@@ -80,6 +81,7 @@ namespace OpenGL
 		/// <param name="ids">
 		/// A <see cref="T:UInt32[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_NV_occlusion_query")]
 		public static void DeleteOcclusionQueriesNV(Int32 n, UInt32[] ids)
 		{
 			unsafe {
@@ -99,6 +101,7 @@ namespace OpenGL
 		/// <param name="id">
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
+		[RequiredByFeature("GL_NV_occlusion_query")]
 		public static bool IsOcclusionQueryNV(UInt32 id)
 		{
 			bool retValue;
@@ -117,6 +120,7 @@ namespace OpenGL
 		/// <param name="id">
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
+		[RequiredByFeature("GL_NV_occlusion_query")]
 		public static void BeginOcclusionQueryNV(UInt32 id)
 		{
 			Debug.Assert(Delegates.pglBeginOcclusionQueryNV != null, "pglBeginOcclusionQueryNV not implemented");
@@ -128,6 +132,7 @@ namespace OpenGL
 		/// <summary>
 		/// Binding for glEndOcclusionQueryNV.
 		/// </summary>
+		[RequiredByFeature("GL_NV_occlusion_query")]
 		public static void EndOcclusionQueryNV()
 		{
 			Debug.Assert(Delegates.pglEndOcclusionQueryNV != null, "pglEndOcclusionQueryNV not implemented");
@@ -148,6 +153,7 @@ namespace OpenGL
 		/// <param name="params">
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_NV_occlusion_query")]
 		public static void GetOcclusionQueryNV(UInt32 id, int pname, Int32[] @params)
 		{
 			unsafe {
@@ -173,6 +179,7 @@ namespace OpenGL
 		/// <param name="params">
 		/// A <see cref="T:UInt32[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_NV_occlusion_query")]
 		public static void GetOcclusionQueryuivNV(UInt32 id, int pname, UInt32[] @params)
 		{
 			unsafe {

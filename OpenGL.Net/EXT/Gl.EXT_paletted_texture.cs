@@ -88,6 +88,7 @@ namespace OpenGL
 		/// <param name="table">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
+		[RequiredByFeature("GL_EXT_paletted_texture")]
 		public static void ColorTableEXT(int target, int internalFormat, Int32 width, int format, int type, IntPtr table)
 		{
 			Debug.Assert(Delegates.pglColorTableEXT != null, "pglColorTableEXT not implemented");
@@ -117,6 +118,7 @@ namespace OpenGL
 		/// <param name="table">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
+		[RequiredByFeature("GL_EXT_paletted_texture")]
 		public static void ColorTableEXT(int target, int internalFormat, Int32 width, PixelFormat format, PixelType type, IntPtr table)
 		{
 			Debug.Assert(Delegates.pglColorTableEXT != null, "pglColorTableEXT not implemented");
@@ -146,6 +148,7 @@ namespace OpenGL
 		/// <param name="table">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
+		[RequiredByFeature("GL_EXT_paletted_texture")]
 		public static void ColorTableEXT(int target, int internalFormat, Int32 width, int format, int type, Object table)
 		{
 			GCHandle pin_table = GCHandle.Alloc(table, GCHandleType.Pinned);
@@ -171,6 +174,7 @@ namespace OpenGL
 		/// <param name="data">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
+		[RequiredByFeature("GL_EXT_paletted_texture")]
 		public static void GetColorTableEXT(int target, int format, int type, IntPtr data)
 		{
 			Debug.Assert(Delegates.pglGetColorTableEXT != null, "pglGetColorTableEXT not implemented");
@@ -194,6 +198,7 @@ namespace OpenGL
 		/// <param name="data">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
+		[RequiredByFeature("GL_EXT_paletted_texture")]
 		public static void GetColorTableEXT(int target, PixelFormat format, PixelType type, IntPtr data)
 		{
 			Debug.Assert(Delegates.pglGetColorTableEXT != null, "pglGetColorTableEXT not implemented");
@@ -214,6 +219,7 @@ namespace OpenGL
 		/// <param name="params">
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_EXT_paletted_texture")]
 		public static void GetColorTableParameterEXT(int target, int pname, Int32[] @params)
 		{
 			unsafe {
@@ -239,6 +245,7 @@ namespace OpenGL
 		/// <param name="params">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_EXT_paletted_texture")]
 		public static void GetColorTableParameterEXT(int target, int pname, float[] @params)
 		{
 			unsafe {

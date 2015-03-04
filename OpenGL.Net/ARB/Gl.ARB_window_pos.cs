@@ -34,6 +34,7 @@ namespace OpenGL
 		/// <param name="y">
 		/// A <see cref="T:double"/>.
 		/// </param>
+		[RequiredByFeature("GL_ARB_window_pos")]
 		public static void WindowPos2ARB(double x, double y)
 		{
 			Debug.Assert(Delegates.pglWindowPos2dARB != null, "pglWindowPos2dARB not implemented");
@@ -48,6 +49,7 @@ namespace OpenGL
 		/// <param name="v">
 		/// A <see cref="T:double[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_ARB_window_pos")]
 		public static void WindowPos2ARB(double[] v)
 		{
 			unsafe {
@@ -70,6 +72,7 @@ namespace OpenGL
 		/// <param name="y">
 		/// A <see cref="T:float"/>.
 		/// </param>
+		[RequiredByFeature("GL_ARB_window_pos")]
 		public static void WindowPos2ARB(float x, float y)
 		{
 			Debug.Assert(Delegates.pglWindowPos2fARB != null, "pglWindowPos2fARB not implemented");
@@ -84,6 +87,7 @@ namespace OpenGL
 		/// <param name="v">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_ARB_window_pos")]
 		public static void WindowPos2ARB(float[] v)
 		{
 			unsafe {
@@ -106,6 +110,7 @@ namespace OpenGL
 		/// <param name="y">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
+		[RequiredByFeature("GL_ARB_window_pos")]
 		public static void WindowPos2ARB(Int32 x, Int32 y)
 		{
 			Debug.Assert(Delegates.pglWindowPos2iARB != null, "pglWindowPos2iARB not implemented");
@@ -120,6 +125,7 @@ namespace OpenGL
 		/// <param name="v">
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_ARB_window_pos")]
 		public static void WindowPos2ARB(Int32[] v)
 		{
 			unsafe {
@@ -142,6 +148,7 @@ namespace OpenGL
 		/// <param name="y">
 		/// A <see cref="T:Int16"/>.
 		/// </param>
+		[RequiredByFeature("GL_ARB_window_pos")]
 		public static void WindowPos2ARB(Int16 x, Int16 y)
 		{
 			Debug.Assert(Delegates.pglWindowPos2sARB != null, "pglWindowPos2sARB not implemented");
@@ -156,6 +163,7 @@ namespace OpenGL
 		/// <param name="v">
 		/// A <see cref="T:Int16[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_ARB_window_pos")]
 		public static void WindowPos2ARB(Int16[] v)
 		{
 			unsafe {
@@ -181,6 +189,7 @@ namespace OpenGL
 		/// <param name="z">
 		/// A <see cref="T:double"/>.
 		/// </param>
+		[RequiredByFeature("GL_ARB_window_pos")]
 		public static void WindowPos3ARB(double x, double y, double z)
 		{
 			Debug.Assert(Delegates.pglWindowPos3dARB != null, "pglWindowPos3dARB not implemented");
@@ -195,6 +204,7 @@ namespace OpenGL
 		/// <param name="v">
 		/// A <see cref="T:double[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_ARB_window_pos")]
 		public static void WindowPos3ARB(double[] v)
 		{
 			unsafe {
@@ -220,6 +230,7 @@ namespace OpenGL
 		/// <param name="z">
 		/// A <see cref="T:float"/>.
 		/// </param>
+		[RequiredByFeature("GL_ARB_window_pos")]
 		public static void WindowPos3ARB(float x, float y, float z)
 		{
 			Debug.Assert(Delegates.pglWindowPos3fARB != null, "pglWindowPos3fARB not implemented");
@@ -234,6 +245,7 @@ namespace OpenGL
 		/// <param name="v">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_ARB_window_pos")]
 		public static void WindowPos3ARB(float[] v)
 		{
 			unsafe {
@@ -259,6 +271,7 @@ namespace OpenGL
 		/// <param name="z">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
+		[RequiredByFeature("GL_ARB_window_pos")]
 		public static void WindowPos3ARB(Int32 x, Int32 y, Int32 z)
 		{
 			Debug.Assert(Delegates.pglWindowPos3iARB != null, "pglWindowPos3iARB not implemented");
@@ -273,6 +286,7 @@ namespace OpenGL
 		/// <param name="v">
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_ARB_window_pos")]
 		public static void WindowPos3ARB(Int32[] v)
 		{
 			unsafe {
@@ -298,6 +312,7 @@ namespace OpenGL
 		/// <param name="z">
 		/// A <see cref="T:Int16"/>.
 		/// </param>
+		[RequiredByFeature("GL_ARB_window_pos")]
 		public static void WindowPos3ARB(Int16 x, Int16 y, Int16 z)
 		{
 			Debug.Assert(Delegates.pglWindowPos3sARB != null, "pglWindowPos3sARB not implemented");
@@ -312,6 +327,7 @@ namespace OpenGL
 		/// <param name="v">
 		/// A <see cref="T:Int16[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_ARB_window_pos")]
 		public static void WindowPos3ARB(Int16[] v)
 		{
 			unsafe {

@@ -61,6 +61,7 @@ namespace OpenGL
 		/// <param name="t1">
 		/// A <see cref="T:float"/>.
 		/// </param>
+		[RequiredByFeature("GL_NV_draw_texture")]
 		public static void DrawTextureNV(UInt32 texture, UInt32 sampler, float x0, float y0, float x1, float y1, float z, float s0, float t0, float s1, float t1)
 		{
 			Debug.Assert(Delegates.pglDrawTextureNV != null, "pglDrawTextureNV not implemented");

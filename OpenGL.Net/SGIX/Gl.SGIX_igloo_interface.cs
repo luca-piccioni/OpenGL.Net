@@ -34,6 +34,7 @@ namespace OpenGL
 		/// <param name="params">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
+		[RequiredByFeature("GL_SGIX_igloo_interface")]
 		public static void IglooInterfaceSGIX(int pname, IntPtr @params)
 		{
 			Debug.Assert(Delegates.pglIglooInterfaceSGIX != null, "pglIglooInterfaceSGIX not implemented");
@@ -51,6 +52,7 @@ namespace OpenGL
 		/// <param name="params">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
+		[RequiredByFeature("GL_SGIX_igloo_interface")]
 		public static void IglooInterfaceSGIX(int pname, Object @params)
 		{
 			GCHandle pin_params = GCHandle.Alloc(@params, GCHandleType.Pinned);

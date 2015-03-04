@@ -115,6 +115,7 @@ namespace OpenGL
 		/// <param name="hVideoDevice">
 		/// A <see cref="T:IntPtr[]"/>.
 		/// </param>
+		[RequiredByFeature("WGL_NV_video_output")]
 		public static bool GetVideoDeviceNV(IntPtr hDC, int numDevices, IntPtr[] hVideoDevice)
 		{
 			bool retValue;
@@ -127,7 +128,6 @@ namespace OpenGL
 					CallLog("wglGetVideoDeviceNV({0}, {1}, {2}) = {3}", hDC, numDevices, hVideoDevice, retValue);
 				}
 			}
-			DebugCheckErrors();
 
 			return (retValue);
 		}
@@ -138,6 +138,7 @@ namespace OpenGL
 		/// <param name="hVideoDevice">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
+		[RequiredByFeature("WGL_NV_video_output")]
 		public static bool ReleaseVideoDeviceNV(IntPtr hVideoDevice)
 		{
 			bool retValue;
@@ -145,7 +146,6 @@ namespace OpenGL
 			Debug.Assert(Delegates.pwglReleaseVideoDeviceNV != null, "pwglReleaseVideoDeviceNV not implemented");
 			retValue = Delegates.pwglReleaseVideoDeviceNV(hVideoDevice);
 			CallLog("wglReleaseVideoDeviceNV({0}) = {1}", hVideoDevice, retValue);
-			DebugCheckErrors();
 
 			return (retValue);
 		}
@@ -162,6 +162,7 @@ namespace OpenGL
 		/// <param name="iVideoBuffer">
 		/// A <see cref="T:int"/>.
 		/// </param>
+		[RequiredByFeature("WGL_NV_video_output")]
 		public static bool BindVideoImageNV(IntPtr hVideoDevice, IntPtr hPbuffer, int iVideoBuffer)
 		{
 			bool retValue;
@@ -169,7 +170,6 @@ namespace OpenGL
 			Debug.Assert(Delegates.pwglBindVideoImageNV != null, "pwglBindVideoImageNV not implemented");
 			retValue = Delegates.pwglBindVideoImageNV(hVideoDevice, hPbuffer, iVideoBuffer);
 			CallLog("wglBindVideoImageNV({0}, {1}, {2}) = {3}", hVideoDevice, hPbuffer, iVideoBuffer, retValue);
-			DebugCheckErrors();
 
 			return (retValue);
 		}
@@ -183,6 +183,7 @@ namespace OpenGL
 		/// <param name="iVideoBuffer">
 		/// A <see cref="T:int"/>.
 		/// </param>
+		[RequiredByFeature("WGL_NV_video_output")]
 		public static bool ReleaseVideoImageNV(IntPtr hPbuffer, int iVideoBuffer)
 		{
 			bool retValue;
@@ -190,7 +191,6 @@ namespace OpenGL
 			Debug.Assert(Delegates.pwglReleaseVideoImageNV != null, "pwglReleaseVideoImageNV not implemented");
 			retValue = Delegates.pwglReleaseVideoImageNV(hPbuffer, iVideoBuffer);
 			CallLog("wglReleaseVideoImageNV({0}, {1}) = {2}", hPbuffer, iVideoBuffer, retValue);
-			DebugCheckErrors();
 
 			return (retValue);
 		}
@@ -210,6 +210,7 @@ namespace OpenGL
 		/// <param name="bBlock">
 		/// A <see cref="T:bool"/>.
 		/// </param>
+		[RequiredByFeature("WGL_NV_video_output")]
 		public static bool SendPbufferToVideoNV(IntPtr hPbuffer, int iBufferType, UInt32[] pulCounterPbuffer, bool bBlock)
 		{
 			bool retValue;
@@ -222,7 +223,6 @@ namespace OpenGL
 					CallLog("wglSendPbufferToVideoNV({0}, {1}, {2}, {3}) = {4}", hPbuffer, iBufferType, pulCounterPbuffer, bBlock, retValue);
 				}
 			}
-			DebugCheckErrors();
 
 			return (retValue);
 		}
@@ -239,6 +239,7 @@ namespace OpenGL
 		/// <param name="pulCounterOutputVideo">
 		/// A <see cref="T:UInt32[]"/>.
 		/// </param>
+		[RequiredByFeature("WGL_NV_video_output")]
 		public static bool GetVideoInfoNV(IntPtr hpVideoDevice, UInt32[] pulCounterOutputPbuffer, UInt32[] pulCounterOutputVideo)
 		{
 			bool retValue;
@@ -252,7 +253,6 @@ namespace OpenGL
 					CallLog("wglGetVideoInfoNV({0}, {1}, {2}) = {3}", hpVideoDevice, pulCounterOutputPbuffer, pulCounterOutputVideo, retValue);
 				}
 			}
-			DebugCheckErrors();
 
 			return (retValue);
 		}

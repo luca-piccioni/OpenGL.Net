@@ -319,6 +319,7 @@ namespace OpenGL
 		/// <param name="params">
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_EXT_texture_integer")]
 		public static void TexParameterIivEXT(int target, int pname, Int32[] @params)
 		{
 			unsafe {
@@ -344,6 +345,7 @@ namespace OpenGL
 		/// <param name="params">
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_EXT_texture_integer")]
 		public static void TexParameterIivEXT(TextureTarget target, TextureParameterName pname, Int32[] @params)
 		{
 			unsafe {
@@ -369,6 +371,7 @@ namespace OpenGL
 		/// <param name="params">
 		/// A <see cref="T:UInt32[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_EXT_texture_integer")]
 		public static void TexParameterIuivEXT(int target, int pname, UInt32[] @params)
 		{
 			unsafe {
@@ -394,6 +397,7 @@ namespace OpenGL
 		/// <param name="params">
 		/// A <see cref="T:UInt32[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_EXT_texture_integer")]
 		public static void TexParameterIuivEXT(TextureTarget target, TextureParameterName pname, UInt32[] @params)
 		{
 			unsafe {
@@ -419,6 +423,7 @@ namespace OpenGL
 		/// <param name="params">
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_EXT_texture_integer")]
 		public static void GetTexParameterIivEXT(int target, int pname, Int32[] @params)
 		{
 			unsafe {
@@ -444,6 +449,7 @@ namespace OpenGL
 		/// <param name="params">
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_EXT_texture_integer")]
 		public static void GetTexParameterIivEXT(TextureTarget target, GetTextureParameter pname, Int32[] @params)
 		{
 			unsafe {
@@ -469,6 +475,7 @@ namespace OpenGL
 		/// <param name="params">
 		/// A <see cref="T:UInt32[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_EXT_texture_integer")]
 		public static void GetTexParameterIuivEXT(int target, int pname, UInt32[] @params)
 		{
 			unsafe {
@@ -494,6 +501,7 @@ namespace OpenGL
 		/// <param name="params">
 		/// A <see cref="T:UInt32[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_EXT_texture_integer")]
 		public static void GetTexParameterIuivEXT(TextureTarget target, GetTextureParameter pname, UInt32[] @params)
 		{
 			unsafe {
@@ -522,6 +530,7 @@ namespace OpenGL
 		/// <param name="alpha">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
+		[RequiredByFeature("GL_EXT_texture_integer")]
 		public static void ClearColorIEXT(Int32 red, Int32 green, Int32 blue, Int32 alpha)
 		{
 			Debug.Assert(Delegates.pglClearColorIiEXT != null, "pglClearColorIiEXT not implemented");
@@ -545,6 +554,7 @@ namespace OpenGL
 		/// <param name="alpha">
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
+		[RequiredByFeature("GL_EXT_texture_integer")]
 		public static void ClearColorIEXT(UInt32 red, UInt32 green, UInt32 blue, UInt32 alpha)
 		{
 			Debug.Assert(Delegates.pglClearColorIuiEXT != null, "pglClearColorIuiEXT not implemented");

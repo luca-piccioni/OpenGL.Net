@@ -61,6 +61,7 @@ namespace OpenGL
 		/// <param name="pointer">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
+		[RequiredByFeature("GL_APPLE_texture_range")]
 		public static void TextureRangeAPPLE(int target, Int32 length, IntPtr pointer)
 		{
 			Debug.Assert(Delegates.pglTextureRangeAPPLE != null, "pglTextureRangeAPPLE not implemented");
@@ -81,6 +82,7 @@ namespace OpenGL
 		/// <param name="pointer">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
+		[RequiredByFeature("GL_APPLE_texture_range")]
 		public static void TextureRangeAPPLE(int target, Int32 length, Object pointer)
 		{
 			GCHandle pin_pointer = GCHandle.Alloc(pointer, GCHandleType.Pinned);
@@ -103,6 +105,7 @@ namespace OpenGL
 		/// <param name="params">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
+		[RequiredByFeature("GL_APPLE_texture_range")]
 		public static void GetTexParameterPointerAPPLE(int target, int pname, IntPtr @params)
 		{
 			Debug.Assert(Delegates.pglGetTexParameterPointervAPPLE != null, "pglGetTexParameterPointervAPPLE not implemented");

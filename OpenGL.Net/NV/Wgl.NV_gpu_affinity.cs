@@ -46,6 +46,7 @@ namespace OpenGL
 		/// <param name="phGpu">
 		/// A <see cref="T:IntPtr[]"/>.
 		/// </param>
+		[RequiredByFeature("WGL_NV_gpu_affinity")]
 		public static bool EnumGpusNV(UInt32 iGpuIndex, IntPtr[] phGpu)
 		{
 			bool retValue;
@@ -58,7 +59,6 @@ namespace OpenGL
 					CallLog("wglEnumGpusNV({0}, {1}) = {2}", iGpuIndex, phGpu, retValue);
 				}
 			}
-			DebugCheckErrors();
 
 			return (retValue);
 		}
@@ -75,6 +75,7 @@ namespace OpenGL
 		/// <param name="lpGpuDevice">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
+		[RequiredByFeature("WGL_NV_gpu_affinity")]
 		public static bool EnumGpuDevicesNV(IntPtr hGpu, UInt32 iDeviceIndex, IntPtr lpGpuDevice)
 		{
 			bool retValue;
@@ -82,7 +83,6 @@ namespace OpenGL
 			Debug.Assert(Delegates.pwglEnumGpuDevicesNV != null, "pwglEnumGpuDevicesNV not implemented");
 			retValue = Delegates.pwglEnumGpuDevicesNV(hGpu, iDeviceIndex, lpGpuDevice);
 			CallLog("wglEnumGpuDevicesNV({0}, {1}, {2}) = {3}", hGpu, iDeviceIndex, lpGpuDevice, retValue);
-			DebugCheckErrors();
 
 			return (retValue);
 		}
@@ -93,6 +93,7 @@ namespace OpenGL
 		/// <param name="phGpuList">
 		/// A <see cref="T:IntPtr[]"/>.
 		/// </param>
+		[RequiredByFeature("WGL_NV_gpu_affinity")]
 		public static IntPtr CreateAffinityDCNV(IntPtr[] phGpuList)
 		{
 			IntPtr retValue;
@@ -105,7 +106,6 @@ namespace OpenGL
 					CallLog("wglCreateAffinityDCNV({0}) = {1}", phGpuList, retValue);
 				}
 			}
-			DebugCheckErrors();
 
 			return (retValue);
 		}
@@ -122,6 +122,7 @@ namespace OpenGL
 		/// <param name="hGpu">
 		/// A <see cref="T:IntPtr[]"/>.
 		/// </param>
+		[RequiredByFeature("WGL_NV_gpu_affinity")]
 		public static bool EnumGpusFromAffinityDCNV(IntPtr hAffinityDC, UInt32 iGpuIndex, IntPtr[] hGpu)
 		{
 			bool retValue;
@@ -134,7 +135,6 @@ namespace OpenGL
 					CallLog("wglEnumGpusFromAffinityDCNV({0}, {1}, {2}) = {3}", hAffinityDC, iGpuIndex, hGpu, retValue);
 				}
 			}
-			DebugCheckErrors();
 
 			return (retValue);
 		}
@@ -145,6 +145,7 @@ namespace OpenGL
 		/// <param name="hdc">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
+		[RequiredByFeature("WGL_NV_gpu_affinity")]
 		public static bool DeleteDCNV(IntPtr hdc)
 		{
 			bool retValue;
@@ -152,7 +153,6 @@ namespace OpenGL
 			Debug.Assert(Delegates.pwglDeleteDCNV != null, "pwglDeleteDCNV not implemented");
 			retValue = Delegates.pwglDeleteDCNV(hdc);
 			CallLog("wglDeleteDCNV({0}) = {1}", hdc, retValue);
-			DebugCheckErrors();
 
 			return (retValue);
 		}

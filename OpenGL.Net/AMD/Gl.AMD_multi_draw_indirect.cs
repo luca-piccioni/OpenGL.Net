@@ -40,6 +40,7 @@ namespace OpenGL
 		/// <param name="stride">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
+		[RequiredByFeature("GL_AMD_multi_draw_indirect")]
 		public static void MultiDrawArraysIndirectAMD(int mode, IntPtr indirect, Int32 primcount, Int32 stride)
 		{
 			Debug.Assert(Delegates.pglMultiDrawArraysIndirectAMD != null, "pglMultiDrawArraysIndirectAMD not implemented");
@@ -63,6 +64,7 @@ namespace OpenGL
 		/// <param name="stride">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
+		[RequiredByFeature("GL_AMD_multi_draw_indirect")]
 		public static void MultiDrawArraysIndirectAMD(int mode, Object indirect, Int32 primcount, Int32 stride)
 		{
 			GCHandle pin_indirect = GCHandle.Alloc(indirect, GCHandleType.Pinned);
@@ -91,6 +93,7 @@ namespace OpenGL
 		/// <param name="stride">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
+		[RequiredByFeature("GL_AMD_multi_draw_indirect")]
 		public static void MultiDrawElementsIndirectAMD(int mode, int type, IntPtr indirect, Int32 primcount, Int32 stride)
 		{
 			Debug.Assert(Delegates.pglMultiDrawElementsIndirectAMD != null, "pglMultiDrawElementsIndirectAMD not implemented");
@@ -117,6 +120,7 @@ namespace OpenGL
 		/// <param name="stride">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
+		[RequiredByFeature("GL_AMD_multi_draw_indirect")]
 		public static void MultiDrawElementsIndirectAMD(int mode, int type, Object indirect, Int32 primcount, Int32 stride)
 		{
 			GCHandle pin_indirect = GCHandle.Alloc(indirect, GCHandleType.Pinned);

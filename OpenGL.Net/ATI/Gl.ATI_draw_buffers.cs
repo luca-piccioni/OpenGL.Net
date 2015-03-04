@@ -136,6 +136,7 @@ namespace OpenGL
 		/// <param name="bufs">
 		/// A <see cref="T:int[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_ATI_draw_buffers")]
 		public static void DrawBuffersATI(Int32 n, int[] bufs)
 		{
 			unsafe {

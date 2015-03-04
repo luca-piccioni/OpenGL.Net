@@ -85,6 +85,7 @@ namespace OpenGL
 		/// <param name="params">
 		/// A <see cref="T:UInt32[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_NV_gpu_program5")]
 		public static void ProgramSubroutineParametersNV(int target, Int32 count, UInt32[] @params)
 		{
 			unsafe {
@@ -110,6 +111,7 @@ namespace OpenGL
 		/// <param name="param">
 		/// A <see cref="T:UInt32[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_NV_gpu_program5")]
 		public static void GetProgramSubroutineParameterNV(int target, UInt32 index, UInt32[] param)
 		{
 			unsafe {

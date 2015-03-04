@@ -121,6 +121,7 @@ namespace OpenGL
 		/// <param name="resident">
 		/// A <see cref="T:bool"/>.
 		/// </param>
+		[RequiredByFeature("GL_ARB_sparse_texture")]
 		public static void TexARB(int target, Int32 level, Int32 xoffset, Int32 yoffset, Int32 zoffset, Int32 width, Int32 height, Int32 depth, bool resident)
 		{
 			Debug.Assert(Delegates.pglTexPageCommitmentARB != null, "pglTexPageCommitmentARB not implemented");

@@ -58,6 +58,7 @@ namespace OpenGL
 		/// <param name="param">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
+		[RequiredByFeature("GL_SGIS_pixel_texture")]
 		public static void PixelTexGenParameterSGIS(int pname, Int32 param)
 		{
 			Debug.Assert(Delegates.pglPixelTexGenParameteriSGIS != null, "pglPixelTexGenParameteriSGIS not implemented");
@@ -75,6 +76,7 @@ namespace OpenGL
 		/// <param name="param">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
+		[RequiredByFeature("GL_SGIS_pixel_texture")]
 		public static void PixelTexGenParameterSGIS(PixelTexGenParameterNameSGIS pname, Int32 param)
 		{
 			Debug.Assert(Delegates.pglPixelTexGenParameteriSGIS != null, "pglPixelTexGenParameteriSGIS not implemented");
@@ -92,6 +94,7 @@ namespace OpenGL
 		/// <param name="params">
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_SGIS_pixel_texture")]
 		public static void PixelTexGenParameterSGIS(int pname, Int32[] @params)
 		{
 			unsafe {
@@ -114,6 +117,7 @@ namespace OpenGL
 		/// <param name="params">
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_SGIS_pixel_texture")]
 		public static void PixelTexGenParameterSGIS(PixelTexGenParameterNameSGIS pname, Int32[] @params)
 		{
 			unsafe {
@@ -136,6 +140,7 @@ namespace OpenGL
 		/// <param name="param">
 		/// A <see cref="T:float"/>.
 		/// </param>
+		[RequiredByFeature("GL_SGIS_pixel_texture")]
 		public static void PixelTexGenParameterSGIS(int pname, float param)
 		{
 			Debug.Assert(Delegates.pglPixelTexGenParameterfSGIS != null, "pglPixelTexGenParameterfSGIS not implemented");
@@ -153,6 +158,7 @@ namespace OpenGL
 		/// <param name="param">
 		/// A <see cref="T:float"/>.
 		/// </param>
+		[RequiredByFeature("GL_SGIS_pixel_texture")]
 		public static void PixelTexGenParameterSGIS(PixelTexGenParameterNameSGIS pname, float param)
 		{
 			Debug.Assert(Delegates.pglPixelTexGenParameterfSGIS != null, "pglPixelTexGenParameterfSGIS not implemented");
@@ -170,6 +176,7 @@ namespace OpenGL
 		/// <param name="params">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_SGIS_pixel_texture")]
 		public static void PixelTexGenParameterSGIS(int pname, float[] @params)
 		{
 			unsafe {
@@ -192,6 +199,7 @@ namespace OpenGL
 		/// <param name="params">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_SGIS_pixel_texture")]
 		public static void PixelTexGenParameterSGIS(PixelTexGenParameterNameSGIS pname, float[] @params)
 		{
 			unsafe {
@@ -214,6 +222,7 @@ namespace OpenGL
 		/// <param name="params">
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_SGIS_pixel_texture")]
 		public static void GetPixelTexGenParameterSGIS(int pname, Int32[] @params)
 		{
 			unsafe {
@@ -236,6 +245,7 @@ namespace OpenGL
 		/// <param name="params">
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_SGIS_pixel_texture")]
 		public static void GetPixelTexGenParameterSGIS(PixelTexGenParameterNameSGIS pname, Int32[] @params)
 		{
 			unsafe {
@@ -258,6 +268,7 @@ namespace OpenGL
 		/// <param name="params">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_SGIS_pixel_texture")]
 		public static void GetPixelTexGenParameterSGIS(int pname, float[] @params)
 		{
 			unsafe {
@@ -280,6 +291,7 @@ namespace OpenGL
 		/// <param name="params">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_SGIS_pixel_texture")]
 		public static void GetPixelTexGenParameterSGIS(PixelTexGenParameterNameSGIS pname, float[] @params)
 		{
 			unsafe {

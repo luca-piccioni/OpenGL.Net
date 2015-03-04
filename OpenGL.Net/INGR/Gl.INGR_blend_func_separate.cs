@@ -40,6 +40,7 @@ namespace OpenGL
 		/// <param name="dfactorAlpha">
 		/// A <see cref="T:int"/>.
 		/// </param>
+		[RequiredByFeature("GL_INGR_blend_func_separate")]
 		public static void BlendFuncSeparateINGR(int sfactorRGB, int dfactorRGB, int sfactorAlpha, int dfactorAlpha)
 		{
 			Debug.Assert(Delegates.pglBlendFuncSeparateINGR != null, "pglBlendFuncSeparateINGR not implemented");

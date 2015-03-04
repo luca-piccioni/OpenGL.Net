@@ -58,6 +58,7 @@ namespace OpenGL
 		/// <param name="id">
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
+		[RequiredByFeature("GL_NV_transform_feedback2")]
 		public static void BindTransformFeedbackNV(int target, UInt32 id)
 		{
 			Debug.Assert(Delegates.pglBindTransformFeedbackNV != null, "pglBindTransformFeedbackNV not implemented");
@@ -75,6 +76,7 @@ namespace OpenGL
 		/// <param name="ids">
 		/// A <see cref="T:UInt32[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_NV_transform_feedback2")]
 		public static void DeleteTransformFeedbackNV(Int32 n, UInt32[] ids)
 		{
 			unsafe {
@@ -97,6 +99,7 @@ namespace OpenGL
 		/// <param name="ids">
 		/// A <see cref="T:UInt32[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_NV_transform_feedback2")]
 		public static void GenTransformFeedbackNV(Int32 n, UInt32[] ids)
 		{
 			unsafe {
@@ -116,6 +119,7 @@ namespace OpenGL
 		/// <param name="id">
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
+		[RequiredByFeature("GL_NV_transform_feedback2")]
 		public static bool IsTransformFeedbackNV(UInt32 id)
 		{
 			bool retValue;
@@ -131,6 +135,7 @@ namespace OpenGL
 		/// <summary>
 		/// Binding for glPauseTransformFeedbackNV.
 		/// </summary>
+		[RequiredByFeature("GL_NV_transform_feedback2")]
 		public static void PauseTransformFeedbackNV()
 		{
 			Debug.Assert(Delegates.pglPauseTransformFeedbackNV != null, "pglPauseTransformFeedbackNV not implemented");
@@ -142,6 +147,7 @@ namespace OpenGL
 		/// <summary>
 		/// Binding for glResumeTransformFeedbackNV.
 		/// </summary>
+		[RequiredByFeature("GL_NV_transform_feedback2")]
 		public static void ResumeTransformFeedbackNV()
 		{
 			Debug.Assert(Delegates.pglResumeTransformFeedbackNV != null, "pglResumeTransformFeedbackNV not implemented");
@@ -159,6 +165,7 @@ namespace OpenGL
 		/// <param name="id">
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
+		[RequiredByFeature("GL_NV_transform_feedback2")]
 		public static void DrawTransformFeedbackNV(int mode, UInt32 id)
 		{
 			Debug.Assert(Delegates.pglDrawTransformFeedbackNV != null, "pglDrawTransformFeedbackNV not implemented");
@@ -176,6 +183,7 @@ namespace OpenGL
 		/// <param name="id">
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
+		[RequiredByFeature("GL_NV_transform_feedback2")]
 		public static void DrawTransformFeedbackNV(PrimitiveType mode, UInt32 id)
 		{
 			Debug.Assert(Delegates.pglDrawTransformFeedbackNV != null, "pglDrawTransformFeedbackNV not implemented");

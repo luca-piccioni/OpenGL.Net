@@ -40,6 +40,7 @@ namespace OpenGL
 		/// <param name="divisor">
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
+		[RequiredByFeature("GL_ARB_instanced_arrays")]
 		public static void VertexAttribDivisorARB(UInt32 index, UInt32 divisor)
 		{
 			Debug.Assert(Delegates.pglVertexAttribDivisorARB != null, "pglVertexAttribDivisorARB not implemented");

@@ -85,6 +85,7 @@ namespace OpenGL
 		/// <param name="w">
 		/// A <see cref="T:float"/>.
 		/// </param>
+		[RequiredByFeature("GL_NV_fragment_program")]
 		public static void ProgramNamedParameter4NV(UInt32 id, Int32 len, byte[] name, float x, float y, float z, float w)
 		{
 			unsafe {
@@ -113,6 +114,7 @@ namespace OpenGL
 		/// <param name="v">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_NV_fragment_program")]
 		public static void ProgramNamedParameter4NV(UInt32 id, Int32 len, byte[] name, float[] v)
 		{
 			unsafe {
@@ -151,6 +153,7 @@ namespace OpenGL
 		/// <param name="w">
 		/// A <see cref="T:double"/>.
 		/// </param>
+		[RequiredByFeature("GL_NV_fragment_program")]
 		public static void ProgramNamedParameter4NV(UInt32 id, Int32 len, byte[] name, double x, double y, double z, double w)
 		{
 			unsafe {
@@ -179,6 +182,7 @@ namespace OpenGL
 		/// <param name="v">
 		/// A <see cref="T:double[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_NV_fragment_program")]
 		public static void ProgramNamedParameter4NV(UInt32 id, Int32 len, byte[] name, double[] v)
 		{
 			unsafe {
@@ -208,6 +212,7 @@ namespace OpenGL
 		/// <param name="params">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_NV_fragment_program")]
 		public static void GetProgramNamedParameterNV(UInt32 id, Int32 len, byte[] name, float[] @params)
 		{
 			unsafe {
@@ -237,6 +242,7 @@ namespace OpenGL
 		/// <param name="params">
 		/// A <see cref="T:double[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_NV_fragment_program")]
 		public static void GetProgramNamedParameterNV(UInt32 id, Int32 len, byte[] name, double[] @params)
 		{
 			unsafe {

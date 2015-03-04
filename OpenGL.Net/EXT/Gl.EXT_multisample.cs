@@ -136,6 +136,7 @@ namespace OpenGL
 		/// <param name="invert">
 		/// A <see cref="T:bool"/>.
 		/// </param>
+		[RequiredByFeature("GL_EXT_multisample")]
 		public static void SampleMaskEXT(float value, bool invert)
 		{
 			if        (Delegates.pglSampleMaskEXT != null) {
@@ -155,6 +156,7 @@ namespace OpenGL
 		/// <param name="pattern">
 		/// A <see cref="T:int"/>.
 		/// </param>
+		[RequiredByFeature("GL_EXT_multisample")]
 		public static void SamplePatternEXT(int pattern)
 		{
 			if        (Delegates.pglSamplePatternEXT != null) {

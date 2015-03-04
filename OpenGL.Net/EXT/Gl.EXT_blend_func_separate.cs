@@ -64,6 +64,7 @@ namespace OpenGL
 		/// <param name="dfactorAlpha">
 		/// A <see cref="T:int"/>.
 		/// </param>
+		[RequiredByFeature("GL_EXT_blend_func_separate")]
 		public static void BlendFuncSeparateEXT(int sfactorRGB, int dfactorRGB, int sfactorAlpha, int dfactorAlpha)
 		{
 			Debug.Assert(Delegates.pglBlendFuncSeparateEXT != null, "pglBlendFuncSeparateEXT not implemented");

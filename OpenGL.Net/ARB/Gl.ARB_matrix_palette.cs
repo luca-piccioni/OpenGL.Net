@@ -91,6 +91,7 @@ namespace OpenGL
 		/// <param name="index">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
+		[RequiredByFeature("GL_ARB_matrix_palette")]
 		public static void CurrentPaletteMatrixARB(Int32 index)
 		{
 			Debug.Assert(Delegates.pglCurrentPaletteMatrixARB != null, "pglCurrentPaletteMatrixARB not implemented");
@@ -108,6 +109,7 @@ namespace OpenGL
 		/// <param name="indices">
 		/// A <see cref="T:byte[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_ARB_matrix_palette")]
 		public static void MatrixIndexARB(Int32 size, byte[] indices)
 		{
 			unsafe {
@@ -130,6 +132,7 @@ namespace OpenGL
 		/// <param name="indices">
 		/// A <see cref="T:UInt16[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_ARB_matrix_palette")]
 		public static void MatrixIndexARB(Int32 size, UInt16[] indices)
 		{
 			unsafe {
@@ -152,6 +155,7 @@ namespace OpenGL
 		/// <param name="indices">
 		/// A <see cref="T:UInt32[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_ARB_matrix_palette")]
 		public static void MatrixIndexARB(Int32 size, UInt32[] indices)
 		{
 			unsafe {
@@ -180,6 +184,7 @@ namespace OpenGL
 		/// <param name="pointer">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
+		[RequiredByFeature("GL_ARB_matrix_palette")]
 		public static void MatrixIndexPointerARB(Int32 size, int type, Int32 stride, IntPtr pointer)
 		{
 			Debug.Assert(Delegates.pglMatrixIndexPointerARB != null, "pglMatrixIndexPointerARB not implemented");
@@ -203,6 +208,7 @@ namespace OpenGL
 		/// <param name="pointer">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
+		[RequiredByFeature("GL_ARB_matrix_palette")]
 		public static void MatrixIndexPointerARB(Int32 size, int type, Int32 stride, Object pointer)
 		{
 			GCHandle pin_pointer = GCHandle.Alloc(pointer, GCHandleType.Pinned);

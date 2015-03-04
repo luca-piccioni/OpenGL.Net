@@ -58,6 +58,7 @@ namespace OpenGL
 		/// <param name="zFar">
 		/// A <see cref="T:double"/>.
 		/// </param>
+		[RequiredByFeature("GL_NV_depth_buffer_float")]
 		public static void DepthRangedNV(double zNear, double zFar)
 		{
 			Debug.Assert(Delegates.pglDepthRangedNV != null, "pglDepthRangedNV not implemented");
@@ -72,6 +73,7 @@ namespace OpenGL
 		/// <param name="depth">
 		/// A <see cref="T:double"/>.
 		/// </param>
+		[RequiredByFeature("GL_NV_depth_buffer_float")]
 		public static void ClearDepthdNV(double depth)
 		{
 			Debug.Assert(Delegates.pglClearDepthdNV != null, "pglClearDepthdNV not implemented");
@@ -89,6 +91,7 @@ namespace OpenGL
 		/// <param name="zmax">
 		/// A <see cref="T:double"/>.
 		/// </param>
+		[RequiredByFeature("GL_NV_depth_buffer_float")]
 		public static void DepthBoundsdNV(double zmin, double zmax)
 		{
 			Debug.Assert(Delegates.pglDepthBoundsdNV != null, "pglDepthBoundsdNV not implemented");

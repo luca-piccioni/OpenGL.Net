@@ -127,6 +127,7 @@ namespace OpenGL
 		/// <param name="enabled">
 		/// A <see cref="T:bool"/>.
 		/// </param>
+		[RequiredByFeature("GL_AMD_debug_output")]
 		public static void DebugMessageEnableAMD(int category, int severity, Int32 count, UInt32[] ids, bool enabled)
 		{
 			unsafe {
@@ -158,6 +159,7 @@ namespace OpenGL
 		/// <param name="buf">
 		/// A <see cref="T:String"/>.
 		/// </param>
+		[RequiredByFeature("GL_AMD_debug_output")]
 		public static void DebugMessageInsertAMD(int category, int severity, UInt32 id, Int32 length, String buf)
 		{
 			Debug.Assert(Delegates.pglDebugMessageInsertAMD != null, "pglDebugMessageInsertAMD not implemented");
@@ -175,6 +177,7 @@ namespace OpenGL
 		/// <param name="userParam">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
+		[RequiredByFeature("GL_AMD_debug_output")]
 		public static void DebugMessageCallbackAMD(IntPtr callback, IntPtr userParam)
 		{
 			Debug.Assert(Delegates.pglDebugMessageCallbackAMD != null, "pglDebugMessageCallbackAMD not implemented");
@@ -207,6 +210,7 @@ namespace OpenGL
 		/// <param name="message">
 		/// A <see cref="T:StringBuilder"/>.
 		/// </param>
+		[RequiredByFeature("GL_AMD_debug_output")]
 		public static UInt32 GetDebugMessageLogAMD(UInt32 count, Int32 bufsize, int[] categories, UInt32[] severities, UInt32[] ids, Int32[] lengths, [Out] StringBuilder message)
 		{
 			UInt32 retValue;

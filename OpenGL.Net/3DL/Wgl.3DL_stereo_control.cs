@@ -58,6 +58,7 @@ namespace OpenGL
 		/// <param name="uState">
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
+		[RequiredByFeature("WGL_3DL_stereo_control")]
 		public static bool SetStereoEmitter3DL(IntPtr hDC, UInt32 uState)
 		{
 			bool retValue;
@@ -65,7 +66,6 @@ namespace OpenGL
 			Debug.Assert(Delegates.pwglSetStereoEmitterState3DL != null, "pwglSetStereoEmitterState3DL not implemented");
 			retValue = Delegates.pwglSetStereoEmitterState3DL(hDC, uState);
 			CallLog("wglSetStereoEmitterState3DL({0}, {1}) = {2}", hDC, uState, retValue);
-			DebugCheckErrors();
 
 			return (retValue);
 		}

@@ -73,6 +73,7 @@ namespace OpenGL
 		/// <param name="coord">
 		/// A <see cref="T:float"/>.
 		/// </param>
+		[RequiredByFeature("GL_EXT_fog_coord")]
 		public static void FogCoordEXT(float coord)
 		{
 			Debug.Assert(Delegates.pglFogCoordfEXT != null, "pglFogCoordfEXT not implemented");
@@ -87,6 +88,7 @@ namespace OpenGL
 		/// <param name="coord">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_EXT_fog_coord")]
 		public static void FogCoordEXT(float[] coord)
 		{
 			unsafe {
@@ -106,6 +108,7 @@ namespace OpenGL
 		/// <param name="coord">
 		/// A <see cref="T:double"/>.
 		/// </param>
+		[RequiredByFeature("GL_EXT_fog_coord")]
 		public static void FogCoordEXT(double coord)
 		{
 			Debug.Assert(Delegates.pglFogCoorddEXT != null, "pglFogCoorddEXT not implemented");
@@ -120,6 +123,7 @@ namespace OpenGL
 		/// <param name="coord">
 		/// A <see cref="T:double[]"/>.
 		/// </param>
+		[RequiredByFeature("GL_EXT_fog_coord")]
 		public static void FogCoordEXT(double[] coord)
 		{
 			unsafe {
@@ -145,6 +149,7 @@ namespace OpenGL
 		/// <param name="pointer">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
+		[RequiredByFeature("GL_EXT_fog_coord")]
 		public static void FogCoordPointerEXT(int type, Int32 stride, IntPtr pointer)
 		{
 			Debug.Assert(Delegates.pglFogCoordPointerEXT != null, "pglFogCoordPointerEXT not implemented");
@@ -165,6 +170,7 @@ namespace OpenGL
 		/// <param name="pointer">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
+		[RequiredByFeature("GL_EXT_fog_coord")]
 		public static void FogCoordPointerEXT(FogPointerTypeEXT type, Int32 stride, IntPtr pointer)
 		{
 			Debug.Assert(Delegates.pglFogCoordPointerEXT != null, "pglFogCoordPointerEXT not implemented");
@@ -185,6 +191,7 @@ namespace OpenGL
 		/// <param name="pointer">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
+		[RequiredByFeature("GL_EXT_fog_coord")]
 		public static void FogCoordPointerEXT(int type, Int32 stride, Object pointer)
 		{
 			GCHandle pin_pointer = GCHandle.Alloc(pointer, GCHandleType.Pinned);
