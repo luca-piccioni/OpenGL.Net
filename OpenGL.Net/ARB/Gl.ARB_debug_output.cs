@@ -182,7 +182,6 @@ namespace OpenGL
 		public static void DebugMessageControlARB(int source, int type, int severity, Int32 count, UInt32[] ids, bool enabled)
 		{
 			Debug.Assert(ids.Length >= count);
-
 			unsafe {
 				fixed (UInt32* p_ids = ids)
 				{
@@ -297,7 +296,6 @@ namespace OpenGL
 			Debug.Assert(ids.Length >= count);
 			Debug.Assert(severities.Length >= count);
 			Debug.Assert(lengths.Length >= count);
-
 			UInt32 retValue;
 
 			unsafe {

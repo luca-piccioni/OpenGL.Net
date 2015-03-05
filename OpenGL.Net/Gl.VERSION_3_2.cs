@@ -1228,7 +1228,6 @@ namespace OpenGL
 		public static void GetSync(int sync, int pname, Int32 bufSize, out Int32 length, Int32[] values)
 		{
 			Debug.Assert(values.Length >= bufSize);
-
 			unsafe {
 				fixed (Int32* p_length = &length)
 				fixed (Int32* p_values = values)
@@ -1294,6 +1293,33 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetBufferParameteri64v != null, "pglGetBufferParameteri64v not implemented");
 					Delegates.pglGetBufferParameteri64v(target, pname, p_params);
+					CallLog("glGetBufferParameteri64v({0}, {1}, {2})", target, pname, @params);
+				}
+			}
+			DebugCheckErrors();
+		}
+
+		/// <summary>
+		/// return parameters of a buffer object
+		/// </summary>
+		/// <param name="target">
+		/// Specifies the target to which the buffer object is bound for glGetBufferParameteriv and glGetBufferParameteri64v. Must 
+		/// be one of the buffer binding targets in the following table:
+		/// </param>
+		/// <param name="pname">
+		/// A <see cref="T:int"/>.
+		/// </param>
+		/// <param name="params">
+		/// A <see cref="T:Int64[]"/>.
+		/// </param>
+		[RequiredByFeature("GL_VERSION_3_2")]
+		public static void GetBufferParameter(BufferTargetARB target, int pname, Int64[] @params)
+		{
+			unsafe {
+				fixed (Int64* p_params = @params)
+				{
+					Debug.Assert(Delegates.pglGetBufferParameteri64v != null, "pglGetBufferParameteri64v not implemented");
+					Delegates.pglGetBufferParameteri64v((int)target, pname, p_params);
 					CallLog("glGetBufferParameteri64v({0}, {1}, {2})", target, pname, @params);
 				}
 			}

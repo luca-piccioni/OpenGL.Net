@@ -2152,7 +2152,6 @@ namespace OpenGL
 		public static void GetInternalformat(int target, int internalformat, int pname, Int32 bufSize, Int64[] @params)
 		{
 			Debug.Assert(@params.Length >= bufSize);
-
 			unsafe {
 				fixed (Int64* p_params = @params)
 				{
@@ -2275,7 +2274,6 @@ namespace OpenGL
 		public static void InvalidateFramebuffer(int target, Int32 numAttachments, int[] attachments)
 		{
 			Debug.Assert(attachments.Length >= numAttachments);
-
 			unsafe {
 				fixed (int* p_attachments = attachments)
 				{
@@ -2316,7 +2314,6 @@ namespace OpenGL
 		public static void InvalidateSubFramebuffer(int target, Int32 numAttachments, int[] attachments, Int32 x, Int32 y, Int32 width, Int32 height)
 		{
 			Debug.Assert(attachments.Length >= numAttachments);
-
 			unsafe {
 				fixed (int* p_attachments = attachments)
 				{
@@ -2587,7 +2584,6 @@ namespace OpenGL
 		{
 			Debug.Assert(props.Length >= propCount);
 			Debug.Assert(@params.Length >= bufSize);
-
 			unsafe {
 				fixed (int* p_props = props)
 				fixed (Int32* p_length = &length)
@@ -2997,7 +2993,6 @@ namespace OpenGL
 		public static void DebugMessageControl(int source, int type, int severity, Int32 count, UInt32[] ids, bool enabled)
 		{
 			Debug.Assert(ids.Length >= count);
-
 			unsafe {
 				fixed (UInt32* p_ids = ids)
 				{
@@ -3140,7 +3135,6 @@ namespace OpenGL
 			Debug.Assert(ids.Length >= count);
 			Debug.Assert(severities.Length >= count);
 			Debug.Assert(lengths.Length >= count);
-
 			UInt32 retValue;
 
 			unsafe {

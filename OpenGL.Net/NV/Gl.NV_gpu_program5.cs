@@ -89,7 +89,6 @@ namespace OpenGL
 		public static void ProgramSubroutineParametersNV(int target, Int32 count, UInt32[] @params)
 		{
 			Debug.Assert(@params.Length >= count);
-
 			unsafe {
 				fixed (UInt32* p_params = @params)
 				{

@@ -1886,7 +1886,6 @@ namespace OpenGL
 		public static void TransformFeedbackVarying(UInt32 program, Int32 count, String[] varyings, int bufferMode)
 		{
 			Debug.Assert(varyings.Length >= count);
-
 			if        (Delegates.pglTransformFeedbackVaryings != null) {
 				Delegates.pglTransformFeedbackVaryings(program, count, varyings, bufferMode);
 				CallLog("glTransformFeedbackVaryings({0}, {1}, {2}, {3})", program, count, varyings, bufferMode);
@@ -3541,7 +3540,6 @@ namespace OpenGL
 		public static void DeleteRenderbuffer(Int32 n, UInt32[] renderbuffers)
 		{
 			Debug.Assert(renderbuffers.Length >= n);
-
 			unsafe {
 				fixed (UInt32* p_renderbuffers = renderbuffers)
 				{
@@ -3572,7 +3570,6 @@ namespace OpenGL
 		public static void GenRenderbuffer(Int32 n, UInt32[] renderbuffers)
 		{
 			Debug.Assert(renderbuffers.Length >= n);
-
 			unsafe {
 				fixed (UInt32* p_renderbuffers = renderbuffers)
 				{
@@ -3710,7 +3707,6 @@ namespace OpenGL
 		public static void DeleteFramebuffers(Int32 n, UInt32[] framebuffers)
 		{
 			Debug.Assert(framebuffers.Length >= n);
-
 			unsafe {
 				fixed (UInt32* p_framebuffers = framebuffers)
 				{
@@ -3741,7 +3737,6 @@ namespace OpenGL
 		public static void GenFramebuffers(Int32 n, UInt32[] framebuffers)
 		{
 			Debug.Assert(framebuffers.Length >= n);
-
 			unsafe {
 				fixed (UInt32* p_framebuffers = framebuffers)
 				{
@@ -4192,6 +4187,41 @@ namespace OpenGL
 		}
 
 		/// <summary>
+		/// map all or part of a buffer object's data store into the client's address space
+		/// </summary>
+		/// <param name="target">
+		/// Specifies the target to which the buffer object is bound for glMapBufferRange, which must be one of the buffer binding 
+		/// targets in the following table:
+		/// </param>
+		/// <param name="offset">
+		/// Specifies the starting offset within the buffer of the range to be mapped.
+		/// </param>
+		/// <param name="length">
+		/// Specifies the length of the range to be mapped.
+		/// </param>
+		/// <param name="access">
+		/// Specifies a combination of access flags indicating the desired access to the mapped range.
+		/// </param>
+		[RequiredByFeature("GL_VERSION_3_0")]
+		[RequiredByFeature("GL_ARB_map_buffer_range")]
+		public static IntPtr MapBufferRange(BufferTargetARB target, IntPtr offset, UInt32 length, uint access)
+		{
+			IntPtr retValue;
+
+			if        (Delegates.pglMapBufferRange != null) {
+				retValue = Delegates.pglMapBufferRange((int)target, offset, length, access);
+				CallLog("glMapBufferRange({0}, {1}, {2}, {3}) = {4}", target, offset, length, access, retValue);
+			} else if (Delegates.pglMapBufferRangeEXT != null) {
+				retValue = Delegates.pglMapBufferRangeEXT((int)target, offset, length, access);
+				CallLog("glMapBufferRangeEXT({0}, {1}, {2}, {3}) = {4}", target, offset, length, access, retValue);
+			} else
+				throw new NotImplementedException("glMapBufferRange (and other aliases) are not implemented");
+			DebugCheckErrors();
+
+			return (retValue);
+		}
+
+		/// <summary>
 		/// indicate modifications to a range of a mapped buffer
 		/// </summary>
 		/// <param name="target">
@@ -4216,6 +4246,37 @@ namespace OpenGL
 				CallLog("glFlushMappedBufferRangeAPPLE({0}, {1}, {2})", target, offset, length);
 			} else if (Delegates.pglFlushMappedBufferRangeEXT != null) {
 				Delegates.pglFlushMappedBufferRangeEXT(target, offset, length);
+				CallLog("glFlushMappedBufferRangeEXT({0}, {1}, {2})", target, offset, length);
+			} else
+				throw new NotImplementedException("glFlushMappedBufferRange (and other aliases) are not implemented");
+			DebugCheckErrors();
+		}
+
+		/// <summary>
+		/// indicate modifications to a range of a mapped buffer
+		/// </summary>
+		/// <param name="target">
+		/// Specifies the target to which the buffer object is bound for glFlushMappedBufferRange, which must be one of the buffer 
+		/// binding targets in the following table:
+		/// </param>
+		/// <param name="offset">
+		/// Specifies the start of the buffer subrange, in basic machine units.
+		/// </param>
+		/// <param name="length">
+		/// Specifies the length of the buffer subrange, in basic machine units.
+		/// </param>
+		[RequiredByFeature("GL_VERSION_3_0")]
+		[RequiredByFeature("GL_ARB_map_buffer_range")]
+		public static void FlushMappedBufferRange(BufferTargetARB target, IntPtr offset, UInt32 length)
+		{
+			if        (Delegates.pglFlushMappedBufferRange != null) {
+				Delegates.pglFlushMappedBufferRange((int)target, offset, length);
+				CallLog("glFlushMappedBufferRange({0}, {1}, {2})", target, offset, length);
+			} else if (Delegates.pglFlushMappedBufferRangeAPPLE != null) {
+				Delegates.pglFlushMappedBufferRangeAPPLE((int)target, offset, length);
+				CallLog("glFlushMappedBufferRangeAPPLE({0}, {1}, {2})", target, offset, length);
+			} else if (Delegates.pglFlushMappedBufferRangeEXT != null) {
+				Delegates.pglFlushMappedBufferRangeEXT((int)target, offset, length);
 				CallLog("glFlushMappedBufferRangeEXT({0}, {1}, {2})", target, offset, length);
 			} else
 				throw new NotImplementedException("glFlushMappedBufferRange (and other aliases) are not implemented");
@@ -4257,7 +4318,6 @@ namespace OpenGL
 		public static void DeleteVertexArrays(Int32 n, UInt32[] arrays)
 		{
 			Debug.Assert(arrays.Length >= n);
-
 			unsafe {
 				fixed (UInt32* p_arrays = arrays)
 				{
@@ -4291,7 +4351,6 @@ namespace OpenGL
 		public static void GenVertexArrays(Int32 n, UInt32[] arrays)
 		{
 			Debug.Assert(arrays.Length >= n);
-
 			unsafe {
 				fixed (UInt32* p_arrays = arrays)
 				{

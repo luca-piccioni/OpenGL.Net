@@ -5601,7 +5601,6 @@ namespace OpenGL
 		public static void DeleteTextures(Int32 n, UInt32[] textures)
 		{
 			Debug.Assert(textures.Length >= n);
-
 			unsafe {
 				fixed (UInt32* p_textures = textures)
 				{
@@ -5626,7 +5625,6 @@ namespace OpenGL
 		public static void GenTextures(Int32 n, UInt32[] textures)
 		{
 			Debug.Assert(textures.Length >= n);
-
 			unsafe {
 				fixed (UInt32* p_textures = textures)
 				{
@@ -6467,7 +6465,6 @@ namespace OpenGL
 		{
 			Debug.Assert(textures.Length >= n);
 			Debug.Assert(residences.Length >= n);
-
 			bool retValue;
 
 			unsafe {
@@ -6503,7 +6500,6 @@ namespace OpenGL
 		{
 			Debug.Assert(textures.Length >= n);
 			Debug.Assert(priorities.Length >= n);
-
 			unsafe {
 				fixed (UInt32* p_textures = textures)
 				fixed (float* p_priorities = priorities)

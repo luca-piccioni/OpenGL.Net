@@ -197,7 +197,6 @@ namespace OpenGL
 		{
 			Debug.Assert(first.Length >= primcount);
 			Debug.Assert(count.Length >= primcount);
-
 			unsafe {
 				fixed (Int32* p_first = first)
 				fixed (Int32* p_count = count)
@@ -230,7 +229,6 @@ namespace OpenGL
 		{
 			Debug.Assert(first.Length >= primcount);
 			Debug.Assert(count.Length >= primcount);
-
 			unsafe {
 				fixed (Int32* p_first = first)
 				fixed (Int32* p_count = count)
@@ -269,7 +267,6 @@ namespace OpenGL
 		{
 			Debug.Assert(first.Length >= primcount);
 			Debug.Assert(count.Length >= primcount);
-
 			unsafe {
 				fixed (Int32* p_first = first)
 				fixed (Int32* p_count = count)
@@ -308,7 +305,6 @@ namespace OpenGL
 		{
 			Debug.Assert(first.Length >= primcount);
 			Debug.Assert(count.Length >= primcount);
-
 			unsafe {
 				fixed (Int32* p_first = first)
 				fixed (Int32* p_count = count)

@@ -198,7 +198,6 @@ namespace OpenGL
 		public static void GenSamplers(Int32 count, UInt32[] samplers)
 		{
 			Debug.Assert(samplers.Length >= count);
-
 			unsafe {
 				fixed (UInt32* p_samplers = samplers)
 				{
@@ -224,7 +223,6 @@ namespace OpenGL
 		public static void DeleteSamplers(Int32 count, UInt32[] samplers)
 		{
 			Debug.Assert(samplers.Length >= count);
-
 			unsafe {
 				fixed (UInt32* p_samplers = samplers)
 				{

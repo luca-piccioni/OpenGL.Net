@@ -108,7 +108,6 @@ namespace OpenGL
 		{
 			Debug.Assert(path.Length >= count);
 			Debug.Assert(length.Length >= count);
-
 			unsafe {
 				fixed (Int32* p_length = length)
 				{

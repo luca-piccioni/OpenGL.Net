@@ -290,7 +290,6 @@ namespace OpenGL
 		public static void WeightARB(Int32 size, sbyte[] weights)
 		{
 			Debug.Assert(weights.Length >= size);
-
 			unsafe {
 				fixed (sbyte* p_weights = weights)
 				{
@@ -315,7 +314,6 @@ namespace OpenGL
 		public static void WeightARB(Int32 size, Int16[] weights)
 		{
 			Debug.Assert(weights.Length >= size);
-
 			unsafe {
 				fixed (Int16* p_weights = weights)
 				{
@@ -340,7 +338,6 @@ namespace OpenGL
 		public static void WeightARB(Int32 size, Int32[] weights)
 		{
 			Debug.Assert(weights.Length >= size);
-
 			unsafe {
 				fixed (Int32* p_weights = weights)
 				{
@@ -365,7 +362,6 @@ namespace OpenGL
 		public static void WeightARB(Int32 size, float[] weights)
 		{
 			Debug.Assert(weights.Length >= size);
-
 			unsafe {
 				fixed (float* p_weights = weights)
 				{
@@ -390,7 +386,6 @@ namespace OpenGL
 		public static void WeightARB(Int32 size, double[] weights)
 		{
 			Debug.Assert(weights.Length >= size);
-
 			unsafe {
 				fixed (double* p_weights = weights)
 				{
@@ -415,7 +410,6 @@ namespace OpenGL
 		public static void WeightARB(Int32 size, byte[] weights)
 		{
 			Debug.Assert(weights.Length >= size);
-
 			unsafe {
 				fixed (byte* p_weights = weights)
 				{
@@ -440,7 +434,6 @@ namespace OpenGL
 		public static void WeightARB(Int32 size, UInt16[] weights)
 		{
 			Debug.Assert(weights.Length >= size);
-
 			unsafe {
 				fixed (UInt16* p_weights = weights)
 				{
@@ -465,7 +458,6 @@ namespace OpenGL
 		public static void WeightARB(Int32 size, UInt32[] weights)
 		{
 			Debug.Assert(weights.Length >= size);
-
 			unsafe {
 				fixed (UInt32* p_weights = weights)
 				{

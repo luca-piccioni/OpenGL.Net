@@ -131,7 +131,6 @@ namespace OpenGL
 		public static void DebugMessageEnableAMD(int category, int severity, Int32 count, UInt32[] ids, bool enabled)
 		{
 			Debug.Assert(ids.Length >= count);
-
 			unsafe {
 				fixed (UInt32* p_ids = ids)
 				{
@@ -219,7 +218,6 @@ namespace OpenGL
 			Debug.Assert(severities.Length >= count);
 			Debug.Assert(ids.Length >= count);
 			Debug.Assert(lengths.Length >= count);
-
 			UInt32 retValue;
 
 			unsafe {

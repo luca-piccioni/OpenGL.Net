@@ -120,7 +120,6 @@ namespace OpenGL
 		public static IntPtr VDPAURegisterVideoSurfaceNV(IntPtr vdpSurface, int target, Int32 numTextureNames, UInt32[] textureNames)
 		{
 			Debug.Assert(textureNames.Length >= numTextureNames);
-
 			IntPtr retValue;
 
 			unsafe {
@@ -181,7 +180,6 @@ namespace OpenGL
 		public static IntPtr VDPAURegisterOutputSurfaceNV(IntPtr vdpSurface, int target, Int32 numTextureNames, UInt32[] textureNames)
 		{
 			Debug.Assert(textureNames.Length >= numTextureNames);
-
 			IntPtr retValue;
 
 			unsafe {
@@ -279,7 +277,6 @@ namespace OpenGL
 		public static void VDPAUGetSurfaceNV(IntPtr surface, int pname, Int32 bufSize, Int32[] length, Int32[] values)
 		{
 			Debug.Assert(values.Length >= bufSize);
-
 			unsafe {
 				fixed (Int32* p_length = length)
 				fixed (Int32* p_values = values)
@@ -323,7 +320,6 @@ namespace OpenGL
 		public static void VDPAUMapSurfaceNV(Int32 numSurfaces, IntPtr[] surfaces)
 		{
 			Debug.Assert(surfaces.Length >= numSurfaces);
-
 			unsafe {
 				fixed (IntPtr* p_surfaces = surfaces)
 				{
@@ -348,7 +344,6 @@ namespace OpenGL
 		public static void VDPAUUnmapSurfaceNV(Int32 numSurface, IntPtr[] surfaces)
 		{
 			Debug.Assert(surfaces.Length >= numSurface);
-
 			unsafe {
 				fixed (IntPtr* p_surfaces = surfaces)
 				{

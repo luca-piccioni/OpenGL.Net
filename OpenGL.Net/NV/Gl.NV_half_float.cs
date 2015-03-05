@@ -929,7 +929,6 @@ namespace OpenGL
 		public static void VertexAttribs1hvNV(UInt32 index, Int32 n, UInt16[] v)
 		{
 			Debug.Assert(v.Length >= n);
-
 			unsafe {
 				fixed (UInt16* p_v = v)
 				{
@@ -957,7 +956,6 @@ namespace OpenGL
 		public static void VertexAttribs2hvNV(UInt32 index, Int32 n, UInt16[] v)
 		{
 			Debug.Assert(v.Length >= n);
-
 			unsafe {
 				fixed (UInt16* p_v = v)
 				{
@@ -985,7 +983,6 @@ namespace OpenGL
 		public static void VertexAttribs3hvNV(UInt32 index, Int32 n, UInt16[] v)
 		{
 			Debug.Assert(v.Length >= n);
-
 			unsafe {
 				fixed (UInt16* p_v = v)
 				{
@@ -1013,7 +1010,6 @@ namespace OpenGL
 		public static void VertexAttribs4hvNV(UInt32 index, Int32 n, UInt16[] v)
 		{
 			Debug.Assert(v.Length >= n);
-
 			unsafe {
 				fixed (UInt16* p_v = v)
 				{

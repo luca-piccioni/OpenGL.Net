@@ -68,7 +68,6 @@ namespace OpenGL
 		public static void GenQueriesARB(Int32 n, UInt32[] ids)
 		{
 			Debug.Assert(ids.Length >= n);
-
 			unsafe {
 				fixed (UInt32* p_ids = ids)
 				{
@@ -93,7 +92,6 @@ namespace OpenGL
 		public static void DeleteQueriesARB(Int32 n, UInt32[] ids)
 		{
 			Debug.Assert(ids.Length >= n);
-
 			unsafe {
 				fixed (UInt32* p_ids = ids)
 				{

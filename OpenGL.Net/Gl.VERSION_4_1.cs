@@ -306,7 +306,6 @@ namespace OpenGL
 		public static void ShaderBinary(Int32 count, UInt32[] shaders, int binaryformat, IntPtr binary, Int32 length)
 		{
 			Debug.Assert(shaders.Length >= count);
-
 			unsafe {
 				fixed (UInt32* p_shaders = shaders)
 				{
@@ -608,7 +607,6 @@ namespace OpenGL
 		public static UInt32 CreateShaderProgram(int type, Int32 count, String[] strings)
 		{
 			Debug.Assert(strings.Length >= count);
-
 			UInt32 retValue;
 
 			Debug.Assert(Delegates.pglCreateShaderProgramv != null, "pglCreateShaderProgramv not implemented");
@@ -649,7 +647,6 @@ namespace OpenGL
 		public static void DeleteProgramPipelines(Int32 n, UInt32[] pipelines)
 		{
 			Debug.Assert(pipelines.Length >= n);
-
 			unsafe {
 				fixed (UInt32* p_pipelines = pipelines)
 				{
@@ -675,7 +672,6 @@ namespace OpenGL
 		public static void GenProgramPipelines(Int32 n, UInt32[] pipelines)
 		{
 			Debug.Assert(pipelines.Length >= n);
-
 			unsafe {
 				fixed (UInt32* p_pipelines = pipelines)
 				{
@@ -2026,7 +2022,6 @@ namespace OpenGL
 		public static void ProgramUniformMatrix2x3(UInt32 program, Int32 location, Int32 count, bool transpose, float[] value)
 		{
 			Debug.Assert(value.Length >= count);
-
 			unsafe {
 				fixed (float* p_value = value)
 				{
@@ -2068,7 +2063,6 @@ namespace OpenGL
 		public static void ProgramUniformMatrix3x2(UInt32 program, Int32 location, Int32 count, bool transpose, float[] value)
 		{
 			Debug.Assert(value.Length >= count);
-
 			unsafe {
 				fixed (float* p_value = value)
 				{
@@ -2110,7 +2104,6 @@ namespace OpenGL
 		public static void ProgramUniformMatrix2x4(UInt32 program, Int32 location, Int32 count, bool transpose, float[] value)
 		{
 			Debug.Assert(value.Length >= count);
-
 			unsafe {
 				fixed (float* p_value = value)
 				{
@@ -2152,7 +2145,6 @@ namespace OpenGL
 		public static void ProgramUniformMatrix4x2(UInt32 program, Int32 location, Int32 count, bool transpose, float[] value)
 		{
 			Debug.Assert(value.Length >= count);
-
 			unsafe {
 				fixed (float* p_value = value)
 				{
@@ -2194,7 +2186,6 @@ namespace OpenGL
 		public static void ProgramUniformMatrix3x4(UInt32 program, Int32 location, Int32 count, bool transpose, float[] value)
 		{
 			Debug.Assert(value.Length >= count);
-
 			unsafe {
 				fixed (float* p_value = value)
 				{
@@ -2236,7 +2227,6 @@ namespace OpenGL
 		public static void ProgramUniformMatrix4x3(UInt32 program, Int32 location, Int32 count, bool transpose, float[] value)
 		{
 			Debug.Assert(value.Length >= count);
-
 			unsafe {
 				fixed (float* p_value = value)
 				{
@@ -2276,7 +2266,6 @@ namespace OpenGL
 		public static void ProgramUniformMatrix2x3(UInt32 program, Int32 location, Int32 count, bool transpose, double[] value)
 		{
 			Debug.Assert(value.Length >= count);
-
 			unsafe {
 				fixed (double* p_value = value)
 				{
@@ -2311,7 +2300,6 @@ namespace OpenGL
 		public static void ProgramUniformMatrix3x2(UInt32 program, Int32 location, Int32 count, bool transpose, double[] value)
 		{
 			Debug.Assert(value.Length >= count);
-
 			unsafe {
 				fixed (double* p_value = value)
 				{
@@ -2346,7 +2334,6 @@ namespace OpenGL
 		public static void ProgramUniformMatrix2x4(UInt32 program, Int32 location, Int32 count, bool transpose, double[] value)
 		{
 			Debug.Assert(value.Length >= count);
-
 			unsafe {
 				fixed (double* p_value = value)
 				{
@@ -2381,7 +2368,6 @@ namespace OpenGL
 		public static void ProgramUniformMatrix4x2(UInt32 program, Int32 location, Int32 count, bool transpose, double[] value)
 		{
 			Debug.Assert(value.Length >= count);
-
 			unsafe {
 				fixed (double* p_value = value)
 				{
@@ -2416,7 +2402,6 @@ namespace OpenGL
 		public static void ProgramUniformMatrix3x4(UInt32 program, Int32 location, Int32 count, bool transpose, double[] value)
 		{
 			Debug.Assert(value.Length >= count);
-
 			unsafe {
 				fixed (double* p_value = value)
 				{
@@ -2451,7 +2436,6 @@ namespace OpenGL
 		public static void ProgramUniformMatrix4x3(UInt32 program, Int32 location, Int32 count, bool transpose, double[] value)
 		{
 			Debug.Assert(value.Length >= count);
-
 			unsafe {
 				fixed (double* p_value = value)
 				{

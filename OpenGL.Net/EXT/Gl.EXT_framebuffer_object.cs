@@ -381,7 +381,6 @@ namespace OpenGL
 		public static void DeleteRenderbufferEXT(Int32 n, UInt32[] renderbuffers)
 		{
 			Debug.Assert(renderbuffers.Length >= n);
-
 			unsafe {
 				fixed (UInt32* p_renderbuffers = renderbuffers)
 				{
@@ -406,7 +405,6 @@ namespace OpenGL
 		public static void GenRenderbufferEXT(Int32 n, UInt32[] renderbuffers)
 		{
 			Debug.Assert(renderbuffers.Length >= n);
-
 			unsafe {
 				fixed (UInt32* p_renderbuffers = renderbuffers)
 				{
@@ -518,7 +516,6 @@ namespace OpenGL
 		public static void DeleteFramebuffersEXT(Int32 n, UInt32[] framebuffers)
 		{
 			Debug.Assert(framebuffers.Length >= n);
-
 			unsafe {
 				fixed (UInt32* p_framebuffers = framebuffers)
 				{
@@ -543,7 +540,6 @@ namespace OpenGL
 		public static void GenFramebuffersEXT(Int32 n, UInt32[] framebuffers)
 		{
 			Debug.Assert(framebuffers.Length >= n);
-
 			unsafe {
 				fixed (UInt32* p_framebuffers = framebuffers)
 				{

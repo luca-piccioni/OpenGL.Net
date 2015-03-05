@@ -1125,7 +1125,6 @@ namespace OpenGL
 		public static void FeedbackBufferOES(Int32 n, int type, IntPtr[] buffer)
 		{
 			Debug.Assert(buffer.Length >= n);
-
 			unsafe {
 				fixed (IntPtr* p_buffer = buffer)
 				{
@@ -1278,7 +1277,6 @@ namespace OpenGL
 		public static void GetPixelMap(int map, Int32 size, IntPtr[] values)
 		{
 			Debug.Assert(values.Length >= size);
-
 			unsafe {
 				fixed (IntPtr* p_values = values)
 				{
@@ -1746,7 +1744,6 @@ namespace OpenGL
 		public static void PixelMap(int map, Int32 size, IntPtr[] values)
 		{
 			Debug.Assert(values.Length >= size);
-
 			unsafe {
 				fixed (IntPtr* p_values = values)
 				{
@@ -1829,7 +1826,6 @@ namespace OpenGL
 		{
 			Debug.Assert(textures.Length >= n);
 			Debug.Assert(priorities.Length >= n);
-
 			unsafe {
 				fixed (UInt32* p_textures = textures)
 				fixed (IntPtr* p_priorities = priorities)

@@ -780,7 +780,6 @@ namespace OpenGL
 		public static void ProgramUniform1NV(UInt32 program, Int32 location, Int32 count, Int64[] value)
 		{
 			Debug.Assert(value.Length >= count);
-
 			unsafe {
 				fixed (Int64* p_value = value)
 				{
@@ -1008,7 +1007,6 @@ namespace OpenGL
 		public static void ProgramUniform1NV(UInt32 program, Int32 location, Int32 count, UInt64[] value)
 		{
 			Debug.Assert(value.Length >= count);
-
 			unsafe {
 				fixed (UInt64* p_value = value)
 				{

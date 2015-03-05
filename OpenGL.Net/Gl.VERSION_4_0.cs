@@ -1607,7 +1607,6 @@ namespace OpenGL
 		public static void UniformSubroutines(int shadertype, Int32 count, UInt32[] indices)
 		{
 			Debug.Assert(indices.Length >= count);
-
 			unsafe {
 				fixed (UInt32* p_indices = indices)
 				{
@@ -1766,7 +1765,6 @@ namespace OpenGL
 		public static void DeleteTransformFeedback(Int32 n, UInt32[] ids)
 		{
 			Debug.Assert(ids.Length >= n);
-
 			unsafe {
 				fixed (UInt32* p_ids = ids)
 				{
@@ -1797,7 +1795,6 @@ namespace OpenGL
 		public static void GenTransformFeedback(Int32 n, UInt32[] ids)
 		{
 			Debug.Assert(ids.Length >= n);
-
 			unsafe {
 				fixed (UInt32* p_ids = ids)
 				{

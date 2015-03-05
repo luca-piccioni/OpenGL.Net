@@ -68,6 +68,24 @@ namespace OpenGL
 		}
 
 		/// <summary>
+		/// Binding for glBindTransformFeedbackNV.
+		/// </summary>
+		/// <param name="target">
+		/// A <see cref="T:int"/>.
+		/// </param>
+		/// <param name="id">
+		/// A <see cref="T:UInt32"/>.
+		/// </param>
+		[RequiredByFeature("GL_NV_transform_feedback2")]
+		public static void BindTransformFeedbackNV(BufferTargetARB target, UInt32 id)
+		{
+			Debug.Assert(Delegates.pglBindTransformFeedbackNV != null, "pglBindTransformFeedbackNV not implemented");
+			Delegates.pglBindTransformFeedbackNV((int)target, id);
+			CallLog("glBindTransformFeedbackNV({0}, {1})", target, id);
+			DebugCheckErrors();
+		}
+
+		/// <summary>
 		/// Binding for glDeleteTransformFeedbacksNV.
 		/// </summary>
 		/// <param name="n">
@@ -80,7 +98,6 @@ namespace OpenGL
 		public static void DeleteTransformFeedbackNV(Int32 n, UInt32[] ids)
 		{
 			Debug.Assert(ids.Length >= n);
-
 			unsafe {
 				fixed (UInt32* p_ids = ids)
 				{
@@ -105,7 +122,6 @@ namespace OpenGL
 		public static void GenTransformFeedbackNV(Int32 n, UInt32[] ids)
 		{
 			Debug.Assert(ids.Length >= n);
-
 			unsafe {
 				fixed (UInt32* p_ids = ids)
 				{
