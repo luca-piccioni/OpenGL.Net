@@ -82,6 +82,8 @@ namespace OpenGL
 		[RequiredByFeature("GL_AMD_performance_monitor")]
 		public static void GetPerfMonitorGroupsAMD(out Int32 numGroups, Int32 groupsSize, UInt32[] groups)
 		{
+			Debug.Assert(groups.Length >= groupsSize);
+
 			unsafe {
 				fixed (Int32* p_numGroups = &numGroups)
 				fixed (UInt32* p_groups = groups)
@@ -115,6 +117,8 @@ namespace OpenGL
 		[RequiredByFeature("GL_AMD_performance_monitor")]
 		public static void GetPerfMonitorCountersAMD(UInt32 group, out Int32 numCounters, out Int32 maxActiveCounters, Int32 counterSize, UInt32[] counters)
 		{
+			Debug.Assert(counters.Length >= counterSize);
+
 			unsafe {
 				fixed (Int32* p_numCounters = &numCounters)
 				fixed (Int32* p_maxActiveCounters = &maxActiveCounters)
@@ -225,6 +229,8 @@ namespace OpenGL
 		[RequiredByFeature("GL_AMD_performance_monitor")]
 		public static void GenPerfMonitorsAMD(Int32 n, UInt32[] monitors)
 		{
+			Debug.Assert(monitors.Length >= n);
+
 			unsafe {
 				fixed (UInt32* p_monitors = monitors)
 				{
@@ -248,6 +254,8 @@ namespace OpenGL
 		[RequiredByFeature("GL_AMD_performance_monitor")]
 		public static void DeletePerfMonitorsAMD(Int32 n, UInt32[] monitors)
 		{
+			Debug.Assert(monitors.Length >= n);
+
 			unsafe {
 				fixed (UInt32* p_monitors = monitors)
 				{
@@ -280,6 +288,8 @@ namespace OpenGL
 		[RequiredByFeature("GL_AMD_performance_monitor")]
 		public static void SelectPerfMonitorCountersAMD(UInt32 monitor, bool enable, UInt32 group, Int32 numCounters, UInt32[] counterList)
 		{
+			Debug.Assert(counterList.Length >= numCounters);
+
 			unsafe {
 				fixed (UInt32* p_counterList = counterList)
 				{
@@ -342,6 +352,8 @@ namespace OpenGL
 		[RequiredByFeature("GL_AMD_performance_monitor")]
 		public static void GetPerfMonitorCounterDataAMD(UInt32 monitor, int pname, Int32 dataSize, UInt32[] data, out Int32 bytesWritten)
 		{
+			Debug.Assert(data.Length >= dataSize);
+
 			unsafe {
 				fixed (UInt32* p_data = data)
 				fixed (Int32* p_bytesWritten = &bytesWritten)

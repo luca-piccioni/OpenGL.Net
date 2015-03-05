@@ -2151,6 +2151,8 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_internalformat_query2")]
 		public static void GetInternalformat(int target, int internalformat, int pname, Int32 bufSize, Int64[] @params)
 		{
+			Debug.Assert(@params.Length >= bufSize);
+
 			unsafe {
 				fixed (Int64* p_params = @params)
 				{
@@ -2272,6 +2274,8 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_invalidate_subdata")]
 		public static void InvalidateFramebuffer(int target, Int32 numAttachments, int[] attachments)
 		{
+			Debug.Assert(attachments.Length >= numAttachments);
+
 			unsafe {
 				fixed (int* p_attachments = attachments)
 				{
@@ -2311,6 +2315,8 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_invalidate_subdata")]
 		public static void InvalidateSubFramebuffer(int target, Int32 numAttachments, int[] attachments, Int32 x, Int32 y, Int32 width, Int32 height)
 		{
+			Debug.Assert(attachments.Length >= numAttachments);
+
 			unsafe {
 				fixed (int* p_attachments = attachments)
 				{
@@ -2579,6 +2585,9 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_program_interface_query")]
 		public static void GetProgram(UInt32 program, int programInterface, UInt32 index, Int32 propCount, int[] props, Int32 bufSize, out Int32 length, Int32[] @params)
 		{
+			Debug.Assert(props.Length >= propCount);
+			Debug.Assert(@params.Length >= bufSize);
+
 			unsafe {
 				fixed (int* p_props = props)
 				fixed (Int32* p_length = &length)
@@ -2987,6 +2996,8 @@ namespace OpenGL
 		[RequiredByFeature("GL_KHR_debug")]
 		public static void DebugMessageControl(int source, int type, int severity, Int32 count, UInt32[] ids, bool enabled)
 		{
+			Debug.Assert(ids.Length >= count);
+
 			unsafe {
 				fixed (UInt32* p_ids = ids)
 				{
@@ -3124,6 +3135,12 @@ namespace OpenGL
 		[RequiredByFeature("GL_KHR_debug")]
 		public static UInt32 GetDebugMessageLog(UInt32 count, Int32 bufSize, int[] sources, int[] types, UInt32[] ids, int[] severities, Int32[] lengths, [Out] StringBuilder messageLog)
 		{
+			Debug.Assert(sources.Length >= count);
+			Debug.Assert(types.Length >= count);
+			Debug.Assert(ids.Length >= count);
+			Debug.Assert(severities.Length >= count);
+			Debug.Assert(lengths.Length >= count);
+
 			UInt32 retValue;
 
 			unsafe {

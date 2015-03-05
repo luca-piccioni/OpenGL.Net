@@ -387,6 +387,8 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_multi_bind")]
 		public static void BindBuffersBase(int target, UInt32 first, Int32 count, UInt32[] buffers)
 		{
+			Debug.Assert(buffers.Length >= count);
+
 			unsafe {
 				fixed (UInt32* p_buffers = buffers)
 				{
@@ -424,6 +426,10 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_multi_bind")]
 		public static void BindBuffersRange(int target, UInt32 first, Int32 count, UInt32[] buffers, IntPtr[] offsets, UInt32[] sizes)
 		{
+			Debug.Assert(buffers.Length >= count);
+			Debug.Assert(offsets.Length >= count);
+			Debug.Assert(sizes.Length >= count);
+
 			unsafe {
 				fixed (UInt32* p_buffers = buffers)
 				fixed (IntPtr* p_offsets = offsets)
@@ -453,6 +459,8 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_multi_bind")]
 		public static void BindTextures(UInt32 first, Int32 count, UInt32[] textures)
 		{
+			Debug.Assert(textures.Length >= count);
+
 			unsafe {
 				fixed (UInt32* p_textures = textures)
 				{
@@ -480,6 +488,8 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_multi_bind")]
 		public static void BindSamplers(UInt32 first, Int32 count, UInt32[] samplers)
 		{
+			Debug.Assert(samplers.Length >= count);
+
 			unsafe {
 				fixed (UInt32* p_samplers = samplers)
 				{
@@ -507,6 +517,8 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_multi_bind")]
 		public static void BindImageTextures(UInt32 first, Int32 count, UInt32[] textures)
 		{
+			Debug.Assert(textures.Length >= count);
+
 			unsafe {
 				fixed (UInt32* p_textures = textures)
 				{
@@ -540,6 +552,10 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_multi_bind")]
 		public static void BindVertexBuffers(UInt32 first, Int32 count, UInt32[] buffers, IntPtr[] offsets, Int32[] strides)
 		{
+			Debug.Assert(buffers.Length >= count);
+			Debug.Assert(offsets.Length >= count);
+			Debug.Assert(strides.Length >= count);
+
 			unsafe {
 				fixed (UInt32* p_buffers = buffers)
 				fixed (IntPtr* p_offsets = offsets)

@@ -195,6 +195,9 @@ namespace OpenGL
 		[RequiredByFeature("GL_APPLE_element_array")]
 		public static void MultiDrawElementArrayAPPLE(int mode, Int32[] first, Int32[] count, Int32 primcount)
 		{
+			Debug.Assert(first.Length >= primcount);
+			Debug.Assert(count.Length >= primcount);
+
 			unsafe {
 				fixed (Int32* p_first = first)
 				fixed (Int32* p_count = count)
@@ -225,6 +228,9 @@ namespace OpenGL
 		[RequiredByFeature("GL_APPLE_element_array")]
 		public static void MultiDrawElementArrayAPPLE(PrimitiveType mode, Int32[] first, Int32[] count, Int32 primcount)
 		{
+			Debug.Assert(first.Length >= primcount);
+			Debug.Assert(count.Length >= primcount);
+
 			unsafe {
 				fixed (Int32* p_first = first)
 				fixed (Int32* p_count = count)
@@ -261,6 +267,9 @@ namespace OpenGL
 		[RequiredByFeature("GL_APPLE_element_array")]
 		public static void MultiDrawRangeElementArrayAPPLE(int mode, UInt32 start, UInt32 end, Int32[] first, Int32[] count, Int32 primcount)
 		{
+			Debug.Assert(first.Length >= primcount);
+			Debug.Assert(count.Length >= primcount);
+
 			unsafe {
 				fixed (Int32* p_first = first)
 				fixed (Int32* p_count = count)
@@ -297,6 +306,9 @@ namespace OpenGL
 		[RequiredByFeature("GL_APPLE_element_array")]
 		public static void MultiDrawRangeElementArrayAPPLE(PrimitiveType mode, UInt32 start, UInt32 end, Int32[] first, Int32[] count, Int32 primcount)
 		{
+			Debug.Assert(first.Length >= primcount);
+			Debug.Assert(count.Length >= primcount);
+
 			unsafe {
 				fixed (Int32* p_first = first)
 				fixed (Int32* p_count = count)

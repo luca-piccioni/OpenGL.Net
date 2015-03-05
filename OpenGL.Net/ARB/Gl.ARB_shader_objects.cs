@@ -324,6 +324,9 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_shader_objects")]
 		public static void ShaderSourceARB(UInt32 shaderObj, Int32 count, String[] @string, Int32[] length)
 		{
+			Debug.Assert(@string.Length >= count);
+			Debug.Assert(length.Length >= count);
+
 			unsafe {
 				fixed (Int32* p_length = length)
 				{
@@ -1003,6 +1006,8 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_shader_objects")]
 		public static void GetAttachedObjectARB(UInt32 containerObj, Int32 maxCount, out Int32 count, UInt32[] obj)
 		{
+			Debug.Assert(obj.Length >= maxCount);
+
 			unsafe {
 				fixed (Int32* p_count = &count)
 				fixed (UInt32* p_obj = obj)

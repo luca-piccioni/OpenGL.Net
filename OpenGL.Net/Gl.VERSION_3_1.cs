@@ -841,6 +841,8 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_uniform_buffer_object")]
 		public static void GetActiveUniforms(UInt32 program, Int32 uniformCount, UInt32[] uniformIndices, int pname, Int32[] @params)
 		{
+			Debug.Assert(uniformIndices.Length >= uniformCount);
+
 			unsafe {
 				fixed (UInt32* p_uniformIndices = uniformIndices)
 				fixed (Int32* p_params = @params)

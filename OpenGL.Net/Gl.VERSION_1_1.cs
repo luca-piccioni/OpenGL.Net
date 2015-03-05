@@ -5600,6 +5600,8 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_1_1")]
 		public static void DeleteTextures(Int32 n, UInt32[] textures)
 		{
+			Debug.Assert(textures.Length >= n);
+
 			unsafe {
 				fixed (UInt32* p_textures = textures)
 				{
@@ -5623,6 +5625,8 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_1_1")]
 		public static void GenTextures(Int32 n, UInt32[] textures)
 		{
+			Debug.Assert(textures.Length >= n);
+
 			unsafe {
 				fixed (UInt32* p_textures = textures)
 				{
@@ -6461,6 +6465,9 @@ namespace OpenGL
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public static bool AreTexturesResident(Int32 n, UInt32[] textures, bool[] residences)
 		{
+			Debug.Assert(textures.Length >= n);
+			Debug.Assert(residences.Length >= n);
+
 			bool retValue;
 
 			unsafe {
@@ -6494,6 +6501,9 @@ namespace OpenGL
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void PrioritizeTextures(Int32 n, UInt32[] textures, float[] priorities)
 		{
+			Debug.Assert(textures.Length >= n);
+			Debug.Assert(priorities.Length >= n);
+
 			unsafe {
 				fixed (UInt32* p_textures = textures)
 				fixed (float* p_priorities = priorities)

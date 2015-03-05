@@ -237,6 +237,8 @@ namespace OpenGL
 		[RequiredByFeature("GL_EXT_transform_feedback")]
 		public static void TransformFeedbackVaryingEXT(UInt32 program, Int32 count, String[] varyings, int bufferMode)
 		{
+			Debug.Assert(varyings.Length >= count);
+
 			Debug.Assert(Delegates.pglTransformFeedbackVaryingsEXT != null, "pglTransformFeedbackVaryingsEXT not implemented");
 			Delegates.pglTransformFeedbackVaryingsEXT(program, count, varyings, bufferMode);
 			CallLog("glTransformFeedbackVaryingsEXT({0}, {1}, {2}, {3})", program, count, varyings, bufferMode);

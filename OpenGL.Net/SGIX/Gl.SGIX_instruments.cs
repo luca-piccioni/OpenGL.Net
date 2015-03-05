@@ -65,6 +65,8 @@ namespace OpenGL
 		[RequiredByFeature("GL_SGIX_instruments")]
 		public static void InstrumentsBufferSGIX(Int32 size, Int32[] buffer)
 		{
+			Debug.Assert(buffer.Length >= size);
+
 			unsafe {
 				fixed (Int32* p_buffer = buffer)
 				{

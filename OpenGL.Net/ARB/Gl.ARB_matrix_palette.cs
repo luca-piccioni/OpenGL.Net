@@ -112,6 +112,8 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_matrix_palette")]
 		public static void MatrixIndexARB(Int32 size, byte[] indices)
 		{
+			Debug.Assert(indices.Length >= size);
+
 			unsafe {
 				fixed (byte* p_indices = indices)
 				{
@@ -135,6 +137,8 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_matrix_palette")]
 		public static void MatrixIndexARB(Int32 size, UInt16[] indices)
 		{
+			Debug.Assert(indices.Length >= size);
+
 			unsafe {
 				fixed (UInt16* p_indices = indices)
 				{
@@ -158,6 +162,8 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_matrix_palette")]
 		public static void MatrixIndexARB(Int32 size, UInt32[] indices)
 		{
+			Debug.Assert(indices.Length >= size);
+
 			unsafe {
 				fixed (UInt32* p_indices = indices)
 				{

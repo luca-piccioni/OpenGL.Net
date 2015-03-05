@@ -354,6 +354,8 @@ namespace OpenGL
 		[RequiredByFeature("GL_NV_transform_feedback")]
 		public static void TransformFeedbackVaryingNV(UInt32 program, Int32 count, Int32[] locations, int bufferMode)
 		{
+			Debug.Assert(locations.Length >= count);
+
 			unsafe {
 				fixed (Int32* p_locations = locations)
 				{
@@ -492,6 +494,9 @@ namespace OpenGL
 		[RequiredByFeature("GL_NV_transform_feedback")]
 		public static void TransformFeedbackStreamAttribsNV(Int32 count, Int32[] attribs, Int32 nbuffers, Int32[] bufstreams, int bufferMode)
 		{
+			Debug.Assert(attribs.Length >= count);
+			Debug.Assert(bufstreams.Length >= nbuffers);
+
 			unsafe {
 				fixed (Int32* p_attribs = attribs)
 				fixed (Int32* p_bufstreams = bufstreams)

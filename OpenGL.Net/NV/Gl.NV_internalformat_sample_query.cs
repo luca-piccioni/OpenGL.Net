@@ -73,6 +73,8 @@ namespace OpenGL
 		[RequiredByFeature("GL_NV_internalformat_sample_query")]
 		public static void GetInternalformatSampleNV(int target, int internalformat, Int32 samples, int pname, Int32 bufSize, Int32[] @params)
 		{
+			Debug.Assert(@params.Length >= bufSize);
+
 			unsafe {
 				fixed (Int32* p_params = @params)
 				{

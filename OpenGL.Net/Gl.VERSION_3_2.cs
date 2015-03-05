@@ -1227,6 +1227,8 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_sync")]
 		public static void GetSync(int sync, int pname, Int32 bufSize, out Int32 length, Int32[] values)
 		{
+			Debug.Assert(values.Length >= bufSize);
+
 			unsafe {
 				fixed (Int32* p_length = &length)
 				fixed (Int32* p_values = values)

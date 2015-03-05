@@ -139,6 +139,8 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_draw_buffers")]
 		public static void DrawBuffersARB(Int32 n, int[] bufs)
 		{
+			Debug.Assert(bufs.Length >= n);
+
 			unsafe {
 				fixed (int* p_bufs = bufs)
 				{

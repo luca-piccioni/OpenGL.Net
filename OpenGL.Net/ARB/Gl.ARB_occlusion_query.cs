@@ -67,6 +67,8 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_occlusion_query")]
 		public static void GenQueriesARB(Int32 n, UInt32[] ids)
 		{
+			Debug.Assert(ids.Length >= n);
+
 			unsafe {
 				fixed (UInt32* p_ids = ids)
 				{
@@ -90,6 +92,8 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_occlusion_query")]
 		public static void DeleteQueriesARB(Int32 n, UInt32[] ids)
 		{
+			Debug.Assert(ids.Length >= n);
+
 			unsafe {
 				fixed (UInt32* p_ids = ids)
 				{

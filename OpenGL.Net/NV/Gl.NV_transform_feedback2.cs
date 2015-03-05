@@ -79,6 +79,8 @@ namespace OpenGL
 		[RequiredByFeature("GL_NV_transform_feedback2")]
 		public static void DeleteTransformFeedbackNV(Int32 n, UInt32[] ids)
 		{
+			Debug.Assert(ids.Length >= n);
+
 			unsafe {
 				fixed (UInt32* p_ids = ids)
 				{
@@ -102,6 +104,8 @@ namespace OpenGL
 		[RequiredByFeature("GL_NV_transform_feedback2")]
 		public static void GenTransformFeedbackNV(Int32 n, UInt32[] ids)
 		{
+			Debug.Assert(ids.Length >= n);
+
 			unsafe {
 				fixed (UInt32* p_ids = ids)
 				{

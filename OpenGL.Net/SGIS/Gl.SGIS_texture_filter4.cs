@@ -107,6 +107,8 @@ namespace OpenGL
 		[RequiredByFeature("GL_SGIS_texture_filter4")]
 		public static void TexFilterFuncSGIS(int target, int filter, Int32 n, float[] weights)
 		{
+			Debug.Assert(weights.Length >= n);
+
 			unsafe {
 				fixed (float* p_weights = weights)
 				{
@@ -136,6 +138,8 @@ namespace OpenGL
 		[RequiredByFeature("GL_SGIS_texture_filter4")]
 		public static void TexFilterFuncSGIS(TextureTarget target, int filter, Int32 n, float[] weights)
 		{
+			Debug.Assert(weights.Length >= n);
+
 			unsafe {
 				fixed (float* p_weights = weights)
 				{

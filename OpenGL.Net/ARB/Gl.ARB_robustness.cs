@@ -191,6 +191,8 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_robustness")]
 		public static void GetnUniformARB(UInt32 program, Int32 location, Int32 bufSize, float[] @params)
 		{
+			Debug.Assert(@params.Length >= bufSize);
+
 			unsafe {
 				fixed (float* p_params = @params)
 				{
@@ -220,6 +222,8 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_robustness")]
 		public static void GetnUniformARB(UInt32 program, Int32 location, Int32 bufSize, Int32[] @params)
 		{
+			Debug.Assert(@params.Length >= bufSize);
+
 			unsafe {
 				fixed (Int32* p_params = @params)
 				{
@@ -249,6 +253,8 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_robustness")]
 		public static void GetnUniformARB(UInt32 program, Int32 location, Int32 bufSize, UInt32[] @params)
 		{
+			Debug.Assert(@params.Length >= bufSize);
+
 			unsafe {
 				fixed (UInt32* p_params = @params)
 				{
@@ -278,6 +284,8 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_robustness")]
 		public static void GetnUniformARB(UInt32 program, Int32 location, Int32 bufSize, double[] @params)
 		{
+			Debug.Assert(@params.Length >= bufSize);
+
 			unsafe {
 				fixed (double* p_params = @params)
 				{
@@ -307,6 +315,8 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_robustness")]
 		public static void GetnMapARB(int target, int query, Int32 bufSize, double[] v)
 		{
+			Debug.Assert(v.Length >= bufSize);
+
 			unsafe {
 				fixed (double* p_v = v)
 				{
@@ -336,6 +346,8 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_robustness")]
 		public static void GetnMapARB(int target, int query, Int32 bufSize, float[] v)
 		{
+			Debug.Assert(v.Length >= bufSize);
+
 			unsafe {
 				fixed (float* p_v = v)
 				{
@@ -365,6 +377,8 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_robustness")]
 		public static void GetnMapARB(int target, int query, Int32 bufSize, Int32[] v)
 		{
+			Debug.Assert(v.Length >= bufSize);
+
 			unsafe {
 				fixed (Int32* p_v = v)
 				{
@@ -391,6 +405,8 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_robustness")]
 		public static void GetnPixelMapARB(int map, Int32 bufSize, float[] values)
 		{
+			Debug.Assert(values.Length >= bufSize);
+
 			unsafe {
 				fixed (float* p_values = values)
 				{
@@ -417,6 +433,8 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_robustness")]
 		public static void GetnPixelMapARB(int map, Int32 bufSize, UInt32[] values)
 		{
+			Debug.Assert(values.Length >= bufSize);
+
 			unsafe {
 				fixed (UInt32* p_values = values)
 				{
@@ -443,6 +461,8 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_robustness")]
 		public static void GetnPixelMapARB(int map, Int32 bufSize, UInt16[] values)
 		{
+			Debug.Assert(values.Length >= bufSize);
+
 			unsafe {
 				fixed (UInt16* p_values = values)
 				{
@@ -466,6 +486,8 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_robustness")]
 		public static void GetnPolygonStippleARB(Int32 bufSize, byte[] pattern)
 		{
+			Debug.Assert(pattern.Length >= bufSize);
+
 			unsafe {
 				fixed (byte* p_pattern = pattern)
 				{

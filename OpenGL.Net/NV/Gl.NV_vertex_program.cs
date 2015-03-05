@@ -538,6 +538,9 @@ namespace OpenGL
 		[RequiredByFeature("GL_NV_vertex_program")]
 		public static bool AreProgramsResidentNV(Int32 n, UInt32[] programs, bool[] residences)
 		{
+			Debug.Assert(programs.Length >= n);
+			Debug.Assert(residences.Length >= n);
+
 			bool retValue;
 
 			unsafe {
@@ -584,6 +587,8 @@ namespace OpenGL
 		[RequiredByFeature("GL_NV_vertex_program")]
 		public static void DeleteProgramsNV(Int32 n, UInt32[] programs)
 		{
+			Debug.Assert(programs.Length >= n);
+
 			unsafe {
 				fixed (UInt32* p_programs = programs)
 				{
@@ -633,6 +638,8 @@ namespace OpenGL
 		[RequiredByFeature("GL_NV_vertex_program")]
 		public static void GenProgramsNV(Int32 n, UInt32[] programs)
 		{
+			Debug.Assert(programs.Length >= n);
+
 			unsafe {
 				fixed (UInt32* p_programs = programs)
 				{
@@ -919,6 +926,8 @@ namespace OpenGL
 		[RequiredByFeature("GL_NV_vertex_program")]
 		public static void LoadProgramNV(int target, UInt32 id, Int32 len, byte[] program)
 		{
+			Debug.Assert(program.Length >= len);
+
 			unsafe {
 				fixed (byte* p_program = program)
 				{
@@ -1112,6 +1121,8 @@ namespace OpenGL
 		[RequiredByFeature("GL_NV_vertex_program")]
 		public static void RequestResidentProgramsNV(Int32 n, UInt32[] programs)
 		{
+			Debug.Assert(programs.Length >= n);
+
 			unsafe {
 				fixed (UInt32* p_programs = programs)
 				{
@@ -1814,6 +1825,8 @@ namespace OpenGL
 		[RequiredByFeature("GL_NV_vertex_program")]
 		public static void VertexAttribs1NV(UInt32 index, Int32 count, double[] v)
 		{
+			Debug.Assert(v.Length >= count);
+
 			unsafe {
 				fixed (double* p_v = v)
 				{
@@ -1840,6 +1853,8 @@ namespace OpenGL
 		[RequiredByFeature("GL_NV_vertex_program")]
 		public static void VertexAttribs1NV(UInt32 index, Int32 count, float[] v)
 		{
+			Debug.Assert(v.Length >= count);
+
 			unsafe {
 				fixed (float* p_v = v)
 				{
@@ -1866,6 +1881,8 @@ namespace OpenGL
 		[RequiredByFeature("GL_NV_vertex_program")]
 		public static void VertexAttribs1NV(UInt32 index, Int32 count, Int16[] v)
 		{
+			Debug.Assert(v.Length >= count);
+
 			unsafe {
 				fixed (Int16* p_v = v)
 				{

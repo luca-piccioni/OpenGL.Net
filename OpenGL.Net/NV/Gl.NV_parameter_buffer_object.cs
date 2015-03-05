@@ -76,6 +76,8 @@ namespace OpenGL
 		[RequiredByFeature("GL_NV_parameter_buffer_object")]
 		public static void ProgramBufferParametersNV(int target, UInt32 bindingIndex, UInt32 wordIndex, Int32 count, float[] @params)
 		{
+			Debug.Assert(@params.Length >= count);
+
 			unsafe {
 				fixed (float* p_params = @params)
 				{
@@ -108,6 +110,8 @@ namespace OpenGL
 		[RequiredByFeature("GL_NV_parameter_buffer_object")]
 		public static void ProgramBufferParametersIivNV(int target, UInt32 bindingIndex, UInt32 wordIndex, Int32 count, Int32[] @params)
 		{
+			Debug.Assert(@params.Length >= count);
+
 			unsafe {
 				fixed (Int32* p_params = @params)
 				{
@@ -140,6 +144,8 @@ namespace OpenGL
 		[RequiredByFeature("GL_NV_parameter_buffer_object")]
 		public static void ProgramBufferParametersIuivNV(int target, UInt32 bindingIndex, UInt32 wordIndex, Int32 count, UInt32[] @params)
 		{
+			Debug.Assert(@params.Length >= count);
+
 			unsafe {
 				fixed (UInt32* p_params = @params)
 				{

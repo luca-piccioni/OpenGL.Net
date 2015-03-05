@@ -49,6 +49,8 @@ namespace OpenGL
 		[RequiredByFeature("GL_APPLE_fence")]
 		public static void GenFencesAPPLE(Int32 n, UInt32[] fences)
 		{
+			Debug.Assert(fences.Length >= n);
+
 			unsafe {
 				fixed (UInt32* p_fences = fences)
 				{
@@ -72,6 +74,8 @@ namespace OpenGL
 		[RequiredByFeature("GL_APPLE_fence")]
 		public static void DeleteFencesAPPLE(Int32 n, UInt32[] fences)
 		{
+			Debug.Assert(fences.Length >= n);
+
 			unsafe {
 				fixed (UInt32* p_fences = fences)
 				{

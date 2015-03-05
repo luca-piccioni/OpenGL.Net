@@ -70,6 +70,8 @@ namespace OpenGL
 		[RequiredByFeature("GL_AMD_name_gen_delete")]
 		public static void GenNameAMD(int identifier, UInt32 num, UInt32[] names)
 		{
+			Debug.Assert(names.Length >= num);
+
 			unsafe {
 				fixed (UInt32* p_names = names)
 				{
@@ -96,6 +98,8 @@ namespace OpenGL
 		[RequiredByFeature("GL_AMD_name_gen_delete")]
 		public static void DeleteNameAMD(int identifier, UInt32 num, UInt32[] names)
 		{
+			Debug.Assert(names.Length >= num);
+
 			unsafe {
 				fixed (UInt32* p_names = names)
 				{

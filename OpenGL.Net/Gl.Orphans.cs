@@ -5150,6 +5150,8 @@ namespace OpenGL
 		[RequiredByFeature("GL_EXT_separate_shader_objects")]
 		public static UInt32 CreateShaderProgramEXT(int type, Int32 count, String[] strings)
 		{
+			Debug.Assert(strings.Length >= count);
+
 			UInt32 retValue;
 
 			Debug.Assert(Delegates.pglCreateShaderProgramvEXT != null, "pglCreateShaderProgramvEXT not implemented");
@@ -5288,6 +5290,8 @@ namespace OpenGL
 		/// </param>
 		public static void DeleteFramebuffersOES(Int32 n, UInt32[] framebuffers)
 		{
+			Debug.Assert(framebuffers.Length >= n);
+
 			unsafe {
 				fixed (UInt32* p_framebuffers = framebuffers)
 				{
@@ -5311,6 +5315,8 @@ namespace OpenGL
 		[RequiredByFeature("GL_EXT_separate_shader_objects")]
 		public static void DeleteProgramPipelinesEXT(Int32 n, UInt32[] pipelines)
 		{
+			Debug.Assert(pipelines.Length >= n);
+
 			unsafe {
 				fixed (UInt32* p_pipelines = pipelines)
 				{
@@ -5333,6 +5339,8 @@ namespace OpenGL
 		/// </param>
 		public static void DeleteQueriesEXT(Int32 n, UInt32[] ids)
 		{
+			Debug.Assert(ids.Length >= n);
+
 			unsafe {
 				fixed (UInt32* p_ids = ids)
 				{
@@ -5355,6 +5363,8 @@ namespace OpenGL
 		/// </param>
 		public static void DeleteRenderbufferOES(Int32 n, UInt32[] renderbuffers)
 		{
+			Debug.Assert(renderbuffers.Length >= n);
+
 			unsafe {
 				fixed (UInt32* p_renderbuffers = renderbuffers)
 				{
@@ -5391,6 +5401,8 @@ namespace OpenGL
 		/// </param>
 		public static void DeleteVertexArraysOES(Int32 n, UInt32[] arrays)
 		{
+			Debug.Assert(arrays.Length >= n);
+
 			unsafe {
 				fixed (UInt32* p_arrays = arrays)
 				{
@@ -5543,6 +5555,8 @@ namespace OpenGL
 		/// </param>
 		public static void DiscardFramebufferEXT(int target, Int32 numAttachments, int[] attachments)
 		{
+			Debug.Assert(attachments.Length >= numAttachments);
+
 			unsafe {
 				fixed (int* p_attachments = attachments)
 				{
@@ -5734,6 +5748,9 @@ namespace OpenGL
 		/// </param>
 		public static void DrawBuffersIndexedEXT(Int32 n, int[] location, Int32[] indices)
 		{
+			Debug.Assert(location.Length >= n);
+			Debug.Assert(indices.Length >= n);
+
 			unsafe {
 				fixed (int* p_location = location)
 				fixed (Int32* p_indices = indices)
@@ -5757,6 +5774,8 @@ namespace OpenGL
 		/// </param>
 		public static void DrawBuffersNV(Int32 n, int[] bufs)
 		{
+			Debug.Assert(bufs.Length >= n);
+
 			unsafe {
 				fixed (int* p_bufs = bufs)
 				{
@@ -7294,6 +7313,8 @@ namespace OpenGL
 		/// </param>
 		public static void ExtGetBuffersQCOM(UInt32[] buffers, Int32 maxBuffers, Int32[] numBuffers)
 		{
+			Debug.Assert(buffers.Length >= maxBuffers);
+
 			unsafe {
 				fixed (UInt32* p_buffers = buffers)
 				fixed (Int32* p_numBuffers = numBuffers)
@@ -7320,6 +7341,8 @@ namespace OpenGL
 		/// </param>
 		public static void ExtGetFramebuffersQCOM(UInt32[] framebuffers, Int32 maxFramebuffers, Int32[] numFramebuffers)
 		{
+			Debug.Assert(framebuffers.Length >= maxFramebuffers);
+
 			unsafe {
 				fixed (UInt32* p_framebuffers = framebuffers)
 				fixed (Int32* p_numFramebuffers = numFramebuffers)
@@ -7374,6 +7397,8 @@ namespace OpenGL
 		/// </param>
 		public static void ExtGetProgramsQCOM(UInt32[] programs, Int32 maxPrograms, Int32[] numPrograms)
 		{
+			Debug.Assert(programs.Length >= maxPrograms);
+
 			unsafe {
 				fixed (UInt32* p_programs = programs)
 				fixed (Int32* p_numPrograms = numPrograms)
@@ -7400,6 +7425,8 @@ namespace OpenGL
 		/// </param>
 		public static void ExtGetRenderbuffersQCOM(UInt32[] renderbuffers, Int32 maxRenderbuffers, Int32[] numRenderbuffers)
 		{
+			Debug.Assert(renderbuffers.Length >= maxRenderbuffers);
+
 			unsafe {
 				fixed (UInt32* p_renderbuffers = renderbuffers)
 				fixed (Int32* p_numRenderbuffers = numRenderbuffers)
@@ -7426,6 +7453,8 @@ namespace OpenGL
 		/// </param>
 		public static void ExtGetShadersQCOM(UInt32[] shaders, Int32 maxShaders, Int32[] numShaders)
 		{
+			Debug.Assert(shaders.Length >= maxShaders);
+
 			unsafe {
 				fixed (UInt32* p_shaders = shaders)
 				fixed (Int32* p_numShaders = numShaders)
@@ -7885,6 +7914,8 @@ namespace OpenGL
 		/// </param>
 		public static void GenFramebuffersOES(Int32 n, UInt32[] framebuffers)
 		{
+			Debug.Assert(framebuffers.Length >= n);
+
 			unsafe {
 				fixed (UInt32* p_framebuffers = framebuffers)
 				{
@@ -7908,6 +7939,8 @@ namespace OpenGL
 		[RequiredByFeature("GL_EXT_separate_shader_objects")]
 		public static void GenProgramPipelinesEXT(Int32 n, UInt32[] pipelines)
 		{
+			Debug.Assert(pipelines.Length >= n);
+
 			unsafe {
 				fixed (UInt32* p_pipelines = pipelines)
 				{
@@ -7930,6 +7963,8 @@ namespace OpenGL
 		/// </param>
 		public static void GenQueriesEXT(Int32 n, UInt32[] ids)
 		{
+			Debug.Assert(ids.Length >= n);
+
 			unsafe {
 				fixed (UInt32* p_ids = ids)
 				{
@@ -7952,6 +7987,8 @@ namespace OpenGL
 		/// </param>
 		public static void GenRenderbufferOES(Int32 n, UInt32[] renderbuffers)
 		{
+			Debug.Assert(renderbuffers.Length >= n);
+
 			unsafe {
 				fixed (UInt32* p_renderbuffers = renderbuffers)
 				{
@@ -7974,6 +8011,8 @@ namespace OpenGL
 		/// </param>
 		public static void GenVertexArraysOES(Int32 n, UInt32[] arrays)
 		{
+			Debug.Assert(arrays.Length >= n);
+
 			unsafe {
 				fixed (UInt32* p_arrays = arrays)
 				{
@@ -8093,6 +8132,12 @@ namespace OpenGL
 		[RequiredByFeature("GL_KHR_debug")]
 		public static UInt32 GetDebugMessageLogKHR(UInt32 count, Int32 bufSize, int[] sources, int[] types, UInt32[] ids, int[] severities, Int32[] lengths, [Out] StringBuilder messageLog)
 		{
+			Debug.Assert(sources.Length >= count);
+			Debug.Assert(types.Length >= count);
+			Debug.Assert(ids.Length >= count);
+			Debug.Assert(severities.Length >= count);
+			Debug.Assert(lengths.Length >= count);
+
 			UInt32 retValue;
 
 			unsafe {
@@ -8154,6 +8199,8 @@ namespace OpenGL
 		/// </param>
 		public static void GetDriverControlsQCOM(Int32[] num, Int32 size, UInt32[] driverControls)
 		{
+			Debug.Assert(driverControls.Length >= size);
+
 			unsafe {
 				fixed (Int32* p_num = num)
 				fixed (UInt32* p_driverControls = driverControls)
@@ -8833,6 +8880,8 @@ namespace OpenGL
 		/// </param>
 		public static void GetSyncAPPLE(int sync, int pname, Int32 bufSize, Int32[] length, Int32[] values)
 		{
+			Debug.Assert(values.Length >= bufSize);
+
 			unsafe {
 				fixed (Int32* p_length = length)
 				fixed (Int32* p_values = values)
@@ -9090,6 +9139,8 @@ namespace OpenGL
 		/// </param>
 		public static void GetnUniformEXT(UInt32 program, Int32 location, Int32 bufSize, float[] @params)
 		{
+			Debug.Assert(@params.Length >= bufSize);
+
 			unsafe {
 				fixed (float* p_params = @params)
 				{
@@ -9147,6 +9198,8 @@ namespace OpenGL
 		/// </param>
 		public static void GetnUniformEXT(UInt32 program, Int32 location, Int32 bufSize, Int32[] @params)
 		{
+			Debug.Assert(@params.Length >= bufSize);
+
 			unsafe {
 				fixed (Int32* p_params = @params)
 				{

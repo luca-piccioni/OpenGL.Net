@@ -8495,6 +8495,8 @@ namespace OpenGL
 		[RequiredByFeature("GL_EXT_separate_shader_objects")]
 		public static void ProgramUniform1EXT(UInt32 program, Int32 location, Int32 count, float[] value)
 		{
+			Debug.Assert(value.Length >= count);
+
 			unsafe {
 				fixed (float* p_value = value)
 				{
@@ -8615,6 +8617,8 @@ namespace OpenGL
 		[RequiredByFeature("GL_EXT_separate_shader_objects")]
 		public static void ProgramUniform1EXT(UInt32 program, Int32 location, Int32 count, Int32[] value)
 		{
+			Debug.Assert(value.Length >= count);
+
 			unsafe {
 				fixed (Int32* p_value = value)
 				{
@@ -9698,6 +9702,8 @@ namespace OpenGL
 		[RequiredByFeature("GL_EXT_separate_shader_objects")]
 		public static void ProgramUniform1EXT(UInt32 program, Int32 location, Int32 count, UInt32[] value)
 		{
+			Debug.Assert(value.Length >= count);
+
 			unsafe {
 				fixed (UInt32* p_value = value)
 				{
@@ -10986,6 +10992,8 @@ namespace OpenGL
 		[RequiredByFeature("GL_EXT_direct_state_access")]
 		public static void FramebufferDrawBuffersEXT(UInt32 framebuffer, Int32 n, int[] bufs)
 		{
+			Debug.Assert(bufs.Length >= n);
+
 			unsafe {
 				fixed (int* p_bufs = bufs)
 				{
@@ -12558,6 +12566,8 @@ namespace OpenGL
 		[RequiredByFeature("GL_EXT_direct_state_access")]
 		public static void ProgramUniform1EXT(UInt32 program, Int32 location, Int32 count, double[] value)
 		{
+			Debug.Assert(value.Length >= count);
+
 			unsafe {
 				fixed (double* p_value = value)
 				{
@@ -12587,6 +12597,8 @@ namespace OpenGL
 		[RequiredByFeature("GL_EXT_direct_state_access")]
 		public static void ProgramUniform2EXT(UInt32 program, Int32 location, Int32 count, double[] value)
 		{
+			Debug.Assert(value.Length >= count);
+
 			unsafe {
 				fixed (double* p_value = value)
 				{
@@ -12616,6 +12628,8 @@ namespace OpenGL
 		[RequiredByFeature("GL_EXT_direct_state_access")]
 		public static void ProgramUniform3EXT(UInt32 program, Int32 location, Int32 count, double[] value)
 		{
+			Debug.Assert(value.Length >= count);
+
 			unsafe {
 				fixed (double* p_value = value)
 				{
@@ -12645,6 +12659,8 @@ namespace OpenGL
 		[RequiredByFeature("GL_EXT_direct_state_access")]
 		public static void ProgramUniform4EXT(UInt32 program, Int32 location, Int32 count, double[] value)
 		{
+			Debug.Assert(value.Length >= count);
+
 			unsafe {
 				fixed (double* p_value = value)
 				{
@@ -12677,6 +12693,8 @@ namespace OpenGL
 		[RequiredByFeature("GL_EXT_direct_state_access")]
 		public static void ProgramUniformMatrix2EXT(UInt32 program, Int32 location, Int32 count, bool transpose, double[] value)
 		{
+			Debug.Assert(value.Length >= count);
+
 			unsafe {
 				fixed (double* p_value = value)
 				{
@@ -12709,6 +12727,8 @@ namespace OpenGL
 		[RequiredByFeature("GL_EXT_direct_state_access")]
 		public static void ProgramUniformMatrix3EXT(UInt32 program, Int32 location, Int32 count, bool transpose, double[] value)
 		{
+			Debug.Assert(value.Length >= count);
+
 			unsafe {
 				fixed (double* p_value = value)
 				{
@@ -12741,6 +12761,8 @@ namespace OpenGL
 		[RequiredByFeature("GL_EXT_direct_state_access")]
 		public static void ProgramUniformMatrix4EXT(UInt32 program, Int32 location, Int32 count, bool transpose, double[] value)
 		{
+			Debug.Assert(value.Length >= count);
+
 			unsafe {
 				fixed (double* p_value = value)
 				{
@@ -12773,6 +12795,8 @@ namespace OpenGL
 		[RequiredByFeature("GL_EXT_direct_state_access")]
 		public static void ProgramUniformMatrix2x3EXT(UInt32 program, Int32 location, Int32 count, bool transpose, double[] value)
 		{
+			Debug.Assert(value.Length >= count);
+
 			unsafe {
 				fixed (double* p_value = value)
 				{
@@ -12805,6 +12829,8 @@ namespace OpenGL
 		[RequiredByFeature("GL_EXT_direct_state_access")]
 		public static void ProgramUniformMatrix2x4EXT(UInt32 program, Int32 location, Int32 count, bool transpose, double[] value)
 		{
+			Debug.Assert(value.Length >= count);
+
 			unsafe {
 				fixed (double* p_value = value)
 				{
@@ -12837,6 +12863,8 @@ namespace OpenGL
 		[RequiredByFeature("GL_EXT_direct_state_access")]
 		public static void ProgramUniformMatrix3x2EXT(UInt32 program, Int32 location, Int32 count, bool transpose, double[] value)
 		{
+			Debug.Assert(value.Length >= count);
+
 			unsafe {
 				fixed (double* p_value = value)
 				{
@@ -12869,6 +12897,8 @@ namespace OpenGL
 		[RequiredByFeature("GL_EXT_direct_state_access")]
 		public static void ProgramUniformMatrix3x4EXT(UInt32 program, Int32 location, Int32 count, bool transpose, double[] value)
 		{
+			Debug.Assert(value.Length >= count);
+
 			unsafe {
 				fixed (double* p_value = value)
 				{
@@ -12901,6 +12931,8 @@ namespace OpenGL
 		[RequiredByFeature("GL_EXT_direct_state_access")]
 		public static void ProgramUniformMatrix4x2EXT(UInt32 program, Int32 location, Int32 count, bool transpose, double[] value)
 		{
+			Debug.Assert(value.Length >= count);
+
 			unsafe {
 				fixed (double* p_value = value)
 				{
@@ -12933,6 +12965,8 @@ namespace OpenGL
 		[RequiredByFeature("GL_EXT_direct_state_access")]
 		public static void ProgramUniformMatrix4x3EXT(UInt32 program, Int32 location, Int32 count, bool transpose, double[] value)
 		{
+			Debug.Assert(value.Length >= count);
+
 			unsafe {
 				fixed (double* p_value = value)
 				{

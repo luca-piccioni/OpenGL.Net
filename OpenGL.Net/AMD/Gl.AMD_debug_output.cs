@@ -130,6 +130,8 @@ namespace OpenGL
 		[RequiredByFeature("GL_AMD_debug_output")]
 		public static void DebugMessageEnableAMD(int category, int severity, Int32 count, UInt32[] ids, bool enabled)
 		{
+			Debug.Assert(ids.Length >= count);
+
 			unsafe {
 				fixed (UInt32* p_ids = ids)
 				{
@@ -213,6 +215,11 @@ namespace OpenGL
 		[RequiredByFeature("GL_AMD_debug_output")]
 		public static UInt32 GetDebugMessageLogAMD(UInt32 count, Int32 bufsize, int[] categories, UInt32[] severities, UInt32[] ids, Int32[] lengths, [Out] StringBuilder message)
 		{
+			Debug.Assert(categories.Length >= count);
+			Debug.Assert(severities.Length >= count);
+			Debug.Assert(ids.Length >= count);
+			Debug.Assert(lengths.Length >= count);
+
 			UInt32 retValue;
 
 			unsafe {

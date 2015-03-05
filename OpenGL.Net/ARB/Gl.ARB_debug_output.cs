@@ -181,6 +181,8 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_debug_output")]
 		public static void DebugMessageControlARB(int source, int type, int severity, Int32 count, UInt32[] ids, bool enabled)
 		{
+			Debug.Assert(ids.Length >= count);
+
 			unsafe {
 				fixed (UInt32* p_ids = ids)
 				{
@@ -290,6 +292,12 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_debug_output")]
 		public static UInt32 GetDebugMessageLogARB(UInt32 count, Int32 bufSize, int[] sources, int[] types, UInt32[] ids, int[] severities, Int32[] lengths, [Out] StringBuilder messageLog)
 		{
+			Debug.Assert(sources.Length >= count);
+			Debug.Assert(types.Length >= count);
+			Debug.Assert(ids.Length >= count);
+			Debug.Assert(severities.Length >= count);
+			Debug.Assert(lengths.Length >= count);
+
 			UInt32 retValue;
 
 			unsafe {

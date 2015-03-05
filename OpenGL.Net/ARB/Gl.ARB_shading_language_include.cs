@@ -106,6 +106,9 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_shading_language_include")]
 		public static void CompileShaderIncludeARB(UInt32 shader, Int32 count, String[] path, Int32[] length)
 		{
+			Debug.Assert(path.Length >= count);
+			Debug.Assert(length.Length >= count);
+
 			unsafe {
 				fixed (Int32* p_length = length)
 				{

@@ -1071,6 +1071,8 @@ namespace OpenGL
 		[RequiredByFeature("GL_NV_path_rendering")]
 		public static void NV(UInt32 path, Int32 numCommands, byte[] commands, Int32 numCoords, int coordType, IntPtr coords)
 		{
+			Debug.Assert(commands.Length >= numCommands);
+
 			unsafe {
 				fixed (byte* p_commands = commands)
 				{
@@ -1194,6 +1196,8 @@ namespace OpenGL
 		[RequiredByFeature("GL_NV_path_rendering")]
 		public static void PathSubCommandsNV(UInt32 path, Int32 commandStart, Int32 commandsToDelete, Int32 numCommands, byte[] commands, Int32 numCoords, int coordType, IntPtr coords)
 		{
+			Debug.Assert(commands.Length >= numCommands);
+
 			unsafe {
 				fixed (byte* p_commands = commands)
 				{
@@ -1535,6 +1539,9 @@ namespace OpenGL
 		[RequiredByFeature("GL_NV_path_rendering")]
 		public static void WeightNV(UInt32 resultPath, Int32 numPaths, UInt32[] paths, float[] weights)
 		{
+			Debug.Assert(paths.Length >= numPaths);
+			Debug.Assert(weights.Length >= numPaths);
+
 			unsafe {
 				fixed (UInt32* p_paths = paths)
 				fixed (float* p_weights = weights)
@@ -1727,6 +1734,8 @@ namespace OpenGL
 		[RequiredByFeature("GL_NV_path_rendering")]
 		public static void PathDashArrayNV(UInt32 path, Int32 dashCount, float[] dashArray)
 		{
+			Debug.Assert(dashArray.Length >= dashCount);
+
 			unsafe {
 				fixed (float* p_dashArray = dashArray)
 				{

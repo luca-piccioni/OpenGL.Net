@@ -139,6 +139,8 @@ namespace OpenGL
 		[RequiredByFeature("GL_ATI_draw_buffers")]
 		public static void DrawBuffersATI(Int32 n, int[] bufs)
 		{
+			Debug.Assert(bufs.Length >= n);
+
 			unsafe {
 				fixed (int* p_bufs = bufs)
 				{

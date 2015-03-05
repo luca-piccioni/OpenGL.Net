@@ -380,6 +380,8 @@ namespace OpenGL
 		[RequiredByFeature("GL_EXT_framebuffer_object")]
 		public static void DeleteRenderbufferEXT(Int32 n, UInt32[] renderbuffers)
 		{
+			Debug.Assert(renderbuffers.Length >= n);
+
 			unsafe {
 				fixed (UInt32* p_renderbuffers = renderbuffers)
 				{
@@ -403,6 +405,8 @@ namespace OpenGL
 		[RequiredByFeature("GL_EXT_framebuffer_object")]
 		public static void GenRenderbufferEXT(Int32 n, UInt32[] renderbuffers)
 		{
+			Debug.Assert(renderbuffers.Length >= n);
+
 			unsafe {
 				fixed (UInt32* p_renderbuffers = renderbuffers)
 				{
@@ -513,6 +517,8 @@ namespace OpenGL
 		[RequiredByFeature("GL_EXT_framebuffer_object")]
 		public static void DeleteFramebuffersEXT(Int32 n, UInt32[] framebuffers)
 		{
+			Debug.Assert(framebuffers.Length >= n);
+
 			unsafe {
 				fixed (UInt32* p_framebuffers = framebuffers)
 				{
@@ -536,6 +542,8 @@ namespace OpenGL
 		[RequiredByFeature("GL_EXT_framebuffer_object")]
 		public static void GenFramebuffersEXT(Int32 n, UInt32[] framebuffers)
 		{
+			Debug.Assert(framebuffers.Length >= n);
+
 			unsafe {
 				fixed (UInt32* p_framebuffers = framebuffers)
 				{

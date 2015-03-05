@@ -1885,6 +1885,8 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_3_0")]
 		public static void TransformFeedbackVarying(UInt32 program, Int32 count, String[] varyings, int bufferMode)
 		{
+			Debug.Assert(varyings.Length >= count);
+
 			if        (Delegates.pglTransformFeedbackVaryings != null) {
 				Delegates.pglTransformFeedbackVaryings(program, count, varyings, bufferMode);
 				CallLog("glTransformFeedbackVaryings({0}, {1}, {2}, {3})", program, count, varyings, bufferMode);
@@ -3538,6 +3540,8 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_framebuffer_object")]
 		public static void DeleteRenderbuffer(Int32 n, UInt32[] renderbuffers)
 		{
+			Debug.Assert(renderbuffers.Length >= n);
+
 			unsafe {
 				fixed (UInt32* p_renderbuffers = renderbuffers)
 				{
@@ -3567,6 +3571,8 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_framebuffer_object")]
 		public static void GenRenderbuffer(Int32 n, UInt32[] renderbuffers)
 		{
+			Debug.Assert(renderbuffers.Length >= n);
+
 			unsafe {
 				fixed (UInt32* p_renderbuffers = renderbuffers)
 				{
@@ -3703,6 +3709,8 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_framebuffer_object")]
 		public static void DeleteFramebuffers(Int32 n, UInt32[] framebuffers)
 		{
+			Debug.Assert(framebuffers.Length >= n);
+
 			unsafe {
 				fixed (UInt32* p_framebuffers = framebuffers)
 				{
@@ -3732,6 +3740,8 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_framebuffer_object")]
 		public static void GenFramebuffers(Int32 n, UInt32[] framebuffers)
 		{
+			Debug.Assert(framebuffers.Length >= n);
+
 			unsafe {
 				fixed (UInt32* p_framebuffers = framebuffers)
 				{
@@ -4246,6 +4256,8 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_vertex_array_object")]
 		public static void DeleteVertexArrays(Int32 n, UInt32[] arrays)
 		{
+			Debug.Assert(arrays.Length >= n);
+
 			unsafe {
 				fixed (UInt32* p_arrays = arrays)
 				{
@@ -4278,6 +4290,8 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_vertex_array_object")]
 		public static void GenVertexArrays(Int32 n, UInt32[] arrays)
 		{
+			Debug.Assert(arrays.Length >= n);
+
 			unsafe {
 				fixed (UInt32* p_arrays = arrays)
 				{

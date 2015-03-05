@@ -197,6 +197,8 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_sampler_objects")]
 		public static void GenSamplers(Int32 count, UInt32[] samplers)
 		{
+			Debug.Assert(samplers.Length >= count);
+
 			unsafe {
 				fixed (UInt32* p_samplers = samplers)
 				{
@@ -221,6 +223,8 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_sampler_objects")]
 		public static void DeleteSamplers(Int32 count, UInt32[] samplers)
 		{
+			Debug.Assert(samplers.Length >= count);
+
 			unsafe {
 				fixed (UInt32* p_samplers = samplers)
 				{

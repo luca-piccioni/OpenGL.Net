@@ -241,6 +241,8 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_vertex_buffer_object")]
 		public static void DeleteBuffersARB(Int32 n, UInt32[] buffers)
 		{
+			Debug.Assert(buffers.Length >= n);
+
 			unsafe {
 				fixed (UInt32* p_buffers = buffers)
 				{
@@ -264,6 +266,8 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_vertex_buffer_object")]
 		public static void GenBuffersARB(Int32 n, UInt32[] buffers)
 		{
+			Debug.Assert(buffers.Length >= n);
+
 			unsafe {
 				fixed (UInt32* p_buffers = buffers)
 				{

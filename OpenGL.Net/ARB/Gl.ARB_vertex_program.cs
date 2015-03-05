@@ -1619,6 +1619,8 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_vertex_program")]
 		public static void DeleteProgramsARB(Int32 n, UInt32[] programs)
 		{
+			Debug.Assert(programs.Length >= n);
+
 			unsafe {
 				fixed (UInt32* p_programs = programs)
 				{
@@ -1648,6 +1650,8 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_vertex_program")]
 		public static void GenProgramsARB(Int32 n, UInt32[] programs)
 		{
+			Debug.Assert(programs.Length >= n);
+
 			unsafe {
 				fixed (UInt32* p_programs = programs)
 				{

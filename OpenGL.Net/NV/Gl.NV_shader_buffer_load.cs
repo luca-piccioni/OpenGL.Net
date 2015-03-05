@@ -332,6 +332,8 @@ namespace OpenGL
 		[RequiredByFeature("GL_NV_shader_buffer_load")]
 		public static void ProgramUniformNV(UInt32 program, Int32 location, Int32 count, UInt64[] value)
 		{
+			Debug.Assert(value.Length >= count);
+
 			unsafe {
 				fixed (UInt64* p_value = value)
 				{

@@ -616,6 +616,8 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_2_0")]
 		public static void DrawBuffers(Int32 n, int[] bufs)
 		{
+			Debug.Assert(bufs.Length >= n);
+
 			unsafe {
 				fixed (int* p_bufs = bufs)
 				{
@@ -1098,6 +1100,8 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_2_0")]
 		public static void GetAttachedShaders(UInt32 program, Int32 maxCount, out Int32 count, UInt32[] shaders)
 		{
+			Debug.Assert(shaders.Length >= maxCount);
+
 			unsafe {
 				fixed (Int32* p_count = &count)
 				fixed (UInt32* p_shaders = shaders)
@@ -1593,6 +1597,9 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_2_0")]
 		public static void ShaderSource(UInt32 shader, Int32 count, String[] @string, Int32[] length)
 		{
+			Debug.Assert(@string.Length >= count);
+			Debug.Assert(length.Length >= count);
+
 			unsafe {
 				fixed (Int32* p_length = length)
 				{

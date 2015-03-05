@@ -7420,6 +7420,8 @@ namespace OpenGL
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void FeedbackBuffer(Int32 size, int type, float[] buffer)
 		{
+			Debug.Assert(buffer.Length >= size);
+
 			unsafe {
 				fixed (float* p_buffer = buffer)
 				{
@@ -7449,6 +7451,8 @@ namespace OpenGL
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void FeedbackBuffer(Int32 size, FeedbackType type, float[] buffer)
 		{
+			Debug.Assert(buffer.Length >= size);
+
 			unsafe {
 				fixed (float* p_buffer = buffer)
 				{
@@ -7473,6 +7477,8 @@ namespace OpenGL
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void SelectBuffer(Int32 size, UInt32[] buffer)
 		{
+			Debug.Assert(buffer.Length >= size);
+
 			unsafe {
 				fixed (UInt32* p_buffer = buffer)
 				{
@@ -8756,6 +8762,8 @@ namespace OpenGL
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void PixelMap(int map, Int32 mapsize, float[] values)
 		{
+			Debug.Assert(values.Length >= mapsize);
+
 			unsafe {
 				fixed (float* p_values = values)
 				{
@@ -8786,6 +8794,8 @@ namespace OpenGL
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void PixelMap(PixelMap map, Int32 mapsize, float[] values)
 		{
+			Debug.Assert(values.Length >= mapsize);
+
 			unsafe {
 				fixed (float* p_values = values)
 				{
@@ -8816,6 +8826,8 @@ namespace OpenGL
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void PixelMap(int map, Int32 mapsize, UInt32[] values)
 		{
+			Debug.Assert(values.Length >= mapsize);
+
 			unsafe {
 				fixed (UInt32* p_values = values)
 				{
@@ -8846,6 +8858,8 @@ namespace OpenGL
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void PixelMap(PixelMap map, Int32 mapsize, UInt32[] values)
 		{
+			Debug.Assert(values.Length >= mapsize);
+
 			unsafe {
 				fixed (UInt32* p_values = values)
 				{
@@ -8876,6 +8890,8 @@ namespace OpenGL
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void PixelMap(int map, Int32 mapsize, UInt16[] values)
 		{
+			Debug.Assert(values.Length >= mapsize);
+
 			unsafe {
 				fixed (UInt16* p_values = values)
 				{
@@ -8906,6 +8922,8 @@ namespace OpenGL
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void PixelMap(PixelMap map, Int32 mapsize, UInt16[] values)
 		{
+			Debug.Assert(values.Length >= mapsize);
+
 			unsafe {
 				fixed (UInt16* p_values = values)
 				{

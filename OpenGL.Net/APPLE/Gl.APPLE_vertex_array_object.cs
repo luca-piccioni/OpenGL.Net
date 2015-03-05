@@ -58,6 +58,8 @@ namespace OpenGL
 		[RequiredByFeature("GL_APPLE_vertex_array_object")]
 		public static void DeleteVertexArraysAPPLE(Int32 n, UInt32[] arrays)
 		{
+			Debug.Assert(arrays.Length >= n);
+
 			unsafe {
 				fixed (UInt32* p_arrays = arrays)
 				{
@@ -81,6 +83,8 @@ namespace OpenGL
 		[RequiredByFeature("GL_APPLE_vertex_array_object")]
 		public static void GenVertexArraysAPPLE(Int32 n, UInt32[] arrays)
 		{
+			Debug.Assert(arrays.Length >= n);
+
 			unsafe {
 				fixed (UInt32* p_arrays = arrays)
 				{

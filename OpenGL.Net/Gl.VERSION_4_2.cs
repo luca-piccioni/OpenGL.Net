@@ -1203,6 +1203,8 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_internalformat_query")]
 		public static void GetInternalformat(int target, int internalformat, int pname, Int32 bufSize, Int32[] @params)
 		{
+			Debug.Assert(@params.Length >= bufSize);
+
 			unsafe {
 				fixed (Int32* p_params = @params)
 				{

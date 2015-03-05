@@ -498,6 +498,8 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_1_5")]
 		public static void GenQueries(Int32 n, UInt32[] ids)
 		{
+			Debug.Assert(ids.Length >= n);
+
 			unsafe {
 				fixed (UInt32* p_ids = ids)
 				{
@@ -526,6 +528,8 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_1_5")]
 		public static void DeleteQueries(Int32 n, UInt32[] ids)
 		{
+			Debug.Assert(ids.Length >= n);
+
 			unsafe {
 				fixed (UInt32* p_ids = ids)
 				{
@@ -750,6 +754,8 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_1_5")]
 		public static void DeleteBuffers(Int32 n, UInt32[] buffers)
 		{
+			Debug.Assert(buffers.Length >= n);
+
 			unsafe {
 				fixed (UInt32* p_buffers = buffers)
 				{
@@ -778,6 +784,8 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_1_5")]
 		public static void GenBuffers(Int32 n, UInt32[] buffers)
 		{
+			Debug.Assert(buffers.Length >= n);
+
 			unsafe {
 				fixed (UInt32* p_buffers = buffers)
 				{
