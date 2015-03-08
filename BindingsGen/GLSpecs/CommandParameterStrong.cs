@@ -1,0 +1,92 @@
+﻿
+// Copyright (C) 2015 Luca Piccioni
+//
+// This program is free software: you can redistribute it and/or modify
+// it under the terms of the GNU General Public License as published by
+// the Free Software Foundation, either version 3 of the License, or
+// (at your option) any later version.
+//
+// This program is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU General Public License for more details.
+//
+// You should have received a copy of the GNU General Public License
+// along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+using System;
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.Text;
+using System.Text.RegularExpressions;
+using System.Xml.Serialization;
+
+namespace BindingsGen.GLSpecs
+{
+	/// <summary>
+	/// Registry command parameter.
+	/// </summary>
+	[DebuggerDisplay("CommandParameterStrong: Name={Name} Group={Group} Length={Length} Type={Type}")]
+	class CommandParameterStrong : CommandParameter
+	{
+		#region Constructors
+
+		/// <summary>
+		/// Construct a CommandParameterStrong from the original parameter.
+		/// </summary>
+		/// <param name="otherParam"></param>
+		/// <param name="ctx"></param>
+		/// <param name="parentCommand"></param>
+		public CommandParameterStrong(CommandParameter otherParam, RegistryContext ctx, Command parentCommand)
+			: base(otherParam)
+		{
+			if (otherParam == null)
+				throw new ArgumentNullException("otherParam");
+
+			if (IsCompatible(otherParam, ctx, parentCommand)) {
+				Type = otherParam.Group;
+				mIsStrong = true;
+			}
+		}
+
+		#endregion
+
+		#region Utility
+
+		internal static bool IsCompatible(CommandParameter param, RegistryContext ctx, Command parentCommand)
+		{
+			// 'bool' parameters are in Boolean group: conditions below will pass
+			if (param.GetImplementationType(ctx, parentCommand) == "bool")
+				return (false);
+
+			// Unsafe parameters are not allowed, Group is a requirement
+			if (!param.IsSafe || param.Group == null)
+				return (false);
+
+			// Check actual existence of strongly typed enum
+			return (ctx.Registry.Groups.FindIndex(delegate(EnumerantGroup item) { return (item.Name == param.Group); }) >= 0);
+		}
+
+		internal static bool IsCompatible(Command command, RegistryContext ctx)
+		{
+			return (command.Parameters.FindIndex(delegate(CommandParameter item) { return (IsCompatible(item, ctx, command)); }) >= 0);
+		}
+
+		#endregion
+
+		#region CommandParameter Overrides
+
+		public override void WriteDelegateParam(SourceStreamWriter sw, RegistryContext ctx, Command parentCommand)
+		{
+			if (mIsStrong) {
+				// Strongly typed enum must be casted to delegate call type (int or uint)
+				sw.Write("({0}){1}", OverridenParameter.ImportType, DelegateCallVarName);
+			} else
+				base.WriteDelegateParam(sw, ctx, parentCommand);
+		}
+
+		private bool mIsStrong;
+
+		#endregion
+	}
+}

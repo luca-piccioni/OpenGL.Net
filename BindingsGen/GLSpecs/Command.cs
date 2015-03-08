@@ -377,21 +377,23 @@ namespace BindingsGen.GLSpecs
 			List<CommandParameter> parameters;
 
 			// At least an array parameter that can out 1 element only
-			bool outParamCompatible = Parameters.FindIndex(delegate(CommandParameter item) { return (item.IsOutParamCompatible(ctx, this)); }) >= 0;
+			bool outParamCompatible = CommandParameterOut.IsCompatible(this, ctx);
 			// At least a parameter that have a strongly typed representation
-			bool isStrongCompatible = Parameters.FindIndex(delegate(CommandParameter item) { return (item.IsStrongCompatible(ctx, this)); }) >= 0;
+			bool isStrongCompatible = CommandParameterStrong.IsCompatible(this, ctx);
 			// At least a parameter in meant as pointer/array, that can be represented using structs
-			bool isPinnedObjCompatible = Parameters.FindIndex(delegate(CommandParameter item) { return (item.IsPinnedCompatible(ctx, this)); }) >= 0;
+			bool isPinnedObjCompatible = CommandParameterPinned.IsCompatible(this, ctx);
+			// At least one parameter is an array with length correlated with another parameter
+			bool isArrayLengthCompatible = Parameters.FindIndex(delegate(CommandParameter item) { return (item.IsArrayLengthCompatible(ctx, this)); }) >= 0;
 
 			// Standard implementation - default
 			overridenParameters.Add(Parameters);
 
-			// Stronly typed implementation
+			// Strongly typed implementation
 			if (isStrongCompatible) {
 				parameters = new List<CommandParameter>();
 
 				foreach (CommandParameter commandParameter in Parameters)
-					parameters.Add(commandParameter.GetStronglyTypedParam(ctx, this));
+					parameters.Add(new CommandParameterStrong(commandParameter, ctx, this));
 
 				overridenParameters.Add(parameters);
 			}
@@ -402,7 +404,7 @@ namespace BindingsGen.GLSpecs
 					parameters = new List<CommandParameter>();
 
 					foreach (CommandParameter commandParameter in Parameters)
-						parameters.Add(commandParameter.GetPinnedObjectParam(ctx, this, false));
+						parameters.Add(new CommandParameterPinned(commandParameter, ctx, this, false));
 
 					overridenParameters.Add(parameters);
 				}
@@ -410,7 +412,7 @@ namespace BindingsGen.GLSpecs
 				parameters = new List<CommandParameter>();
 
 				foreach (CommandParameter commandParameter in Parameters)
-					parameters.Add(commandParameter.GetPinnedObjectParam(ctx, this, true));
+					parameters.Add(new CommandParameterPinned(commandParameter, ctx, this, true));
 
 				overridenParameters.Add(parameters);
 			}
@@ -421,7 +423,7 @@ namespace BindingsGen.GLSpecs
 					parameters = new List<CommandParameter>();
 
 					foreach (CommandParameter commandParameter in Parameters)
-						parameters.Add(commandParameter.GetOutParam(ctx, this, false));
+						parameters.Add(new CommandParameterOut(commandParameter, ctx, this, false));
 
 					overridenParameters.Add(parameters);
 				}
@@ -429,10 +431,27 @@ namespace BindingsGen.GLSpecs
 				parameters = new List<CommandParameter>();
 
 				foreach (CommandParameter commandParameter in Parameters)
-					parameters.Add(commandParameter.GetOutParam(ctx, this, true));
+					parameters.Add(new CommandParameterOut(commandParameter, ctx, this, true));
 
 				overridenParameters.Add(parameters);
 			}
+
+			// Array Length overrides
+			if (isArrayLengthCompatible)
+				overridenParameters.AddRange(GetOverridenImplementations_ArrayLength(ctx));
+
+			return (overridenParameters.ToArray());
+		}
+
+		private List<CommandParameter>[] GetOverridenImplementations_ArrayLength(RegistryContext ctx)
+		{
+			List<List<CommandParameter>> overridenParameters = new List<List<CommandParameter>>();
+			List<CommandParameter> parameters;
+
+			int arrayParamIndex = Parameters.FindIndex(delegate(CommandParameter item) { return (item.IsArrayLengthCompatible(ctx, this)); });
+			int arrayLengthParamIndex = Parameters.FindIndex(delegate(CommandParameter item) { return (item.Name == Parameters[arrayParamIndex].Length); });
+
+			// Remove the length parameter, and derive
 
 			return (overridenParameters.ToArray());
 		}
@@ -473,9 +492,7 @@ namespace BindingsGen.GLSpecs
 		/// </param>
 		private void GenerateImplementation(SourceStreamWriter sw, RegistryContext ctx, List<CommandParameter> commandParams)
 		{
-			bool pinnedImplementation = IsPinnedImplementation(ctx, commandParams);
-
-			if (!pinnedImplementation)
+			if (commandParams.FindIndex(delegate(CommandParameter item) { return (item is CommandParameterPinned); }) < 0)
 				GenerateImplementation_Default(sw, ctx, commandParams);
 			else
 				GenerateImplementation_Pinned(sw, ctx, commandParams);
@@ -548,6 +565,8 @@ namespace BindingsGen.GLSpecs
 		{
 			List<Command> aliases = new List<Command>();
 			bool fixedImplementation = IsFixedImplementation(ctx, commandParams);
+			// At least one parameter is an array with length correlated with another parameter
+			bool isArrayLengthCompatible = Parameters.FindIndex(delegate(CommandParameter item) { return (item.IsArrayLengthCompatible(ctx, this)); }) >= 0;
 			
 			aliases.Add(this);
 			aliases.AddRange(Aliases);
@@ -558,6 +577,14 @@ namespace BindingsGen.GLSpecs
 			// Implementation block
 			sw.WriteLine("{");
 			sw.Indent();
+
+			#region Debug Assertions
+
+			// Debug assertions
+			foreach (CommandParameter param in commandParams)
+				param.WriteDebugAssertion(sw, ctx, this);
+
+			#endregion
 
 			#region Local Variables
 
@@ -571,27 +598,13 @@ namespace BindingsGen.GLSpecs
 
 			#region Unsafe Block (Open)
 
-			if (fixedImplementation)
-			{
+			if (fixedImplementation) {
 				sw.WriteLine("unsafe {");								// (1)
 				sw.Indent();
+
 				foreach (CommandParameter param in commandParams)
-				{
-					if (param.IsFixed(ctx, this) == false)
-						continue;
+					param.WriteFixedStatement(sw, ctx, this);
 
-					string dereference = String.Empty;
-
-					switch (param.GetImplementationTypeModifier(ctx, this))
-					{
-						case "out":
-						case "ref":
-							dereference = "&";
-							break;
-					}
-
-					sw.WriteLine("fixed ({0} {1} = {2}{3})", param.ImportType, param.FixedLocalVarName, dereference, param.ImplementationName);
-				}
 				sw.WriteLine("{");										// (2)
 				sw.Indent();
 			}
@@ -645,18 +658,10 @@ namespace BindingsGen.GLSpecs
 
 				#region Parameters
 
-				for (int i = 0; i < commandParams.Count; i++)
-				{
+				for (int i = 0; i < commandParams.Count; i++) {
 					CommandParameter param = commandParams[i];
 
-					if        (param.IsFixed(ctx, this)) {
-						sw.Write(param.FixedLocalVarName);
-					} else {
-						if (param.OverridenParameter != null)
-							sw.Write("({0})", param.OverridenParameter.ImportType);
-						sw.Write(param.DelegateCallVarName);
-						
-					}
+					param.WriteDelegateParam(sw, ctx, this);
 
 					if (i != Parameters.Count - 1)
 						sw.Write(", ");
@@ -702,15 +707,11 @@ namespace BindingsGen.GLSpecs
 
 				#region Call Log - Format Arguments
 
-				if ((commandParams.Count > 0) || HasReturnValue)
-				{
+				if ((commandParams.Count > 0) || HasReturnValue) {
 					sw.Write(", ");
 
-					for (int i = 0; i < commandParams.Count; i++)
-					{
-						CommandParameter commandParameter = commandParams[i];
-
-						sw.Write("{0}", commandParameter.ImplementationName);
+					for (int i = 0; i < commandParams.Count; i++) {
+						commandParams[i].WriteCallLogArgParam(sw, ctx, this);
 						if (i < commandParams.Count - 1)
 							sw.Write(", ");
 					}
@@ -795,12 +796,7 @@ namespace BindingsGen.GLSpecs
 			#region Pinned Object Block (Open)
 
 			foreach (CommandParameter param in commandParams)
-			{
-				if (param.IsPinned(ctx, this) == false)
-					continue;
-
-				sw.WriteLine("GCHandle {0} = GCHandle.Alloc({1}, GCHandleType.Pinned);", param.PinnedLocalVarName, param.ImplementationName);
-			}
+				param.WritePinnedVariable(sw, ctx, this);
 
 			sw.WriteLine("try {");
 			sw.Indent();
@@ -819,16 +815,8 @@ namespace BindingsGen.GLSpecs
 
 			for (int i = 0; i < commandParams.Count; i++) {
 				CommandParameter param = commandParams[i];
-				string paramModifier = param.GetImplementationTypeModifier(ctx, this);
 
-				if (paramModifier != null)
-					sw.Write("{0} ", paramModifier);
-
-				if (param.IsPinned(ctx, this)) {
-					sw.Write("{0}.AddrOfPinnedObject()", param.PinnedLocalVarName);
-				} else {
-					sw.Write(param.DelegateCallVarName);
-				}
+				param.WriteDelegateParam(sw, ctx, this);
 
 				if (i != Parameters.Count - 1)
 					sw.Write(", ");
@@ -852,12 +840,7 @@ namespace BindingsGen.GLSpecs
 			sw.Indent();
 
 			foreach (CommandParameter param in commandParams)
-			{
-				if (param.IsPinned(ctx, this) == false)
-					continue;
-
-				sw.WriteLine("{0}.Free();", param.PinnedLocalVarName);
-			}
+				param.WriteUnpinCommand(sw, ctx, this);
 
 			sw.Unindent();
 			sw.WriteLine("}");

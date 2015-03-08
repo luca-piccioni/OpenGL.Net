@@ -58,6 +58,9 @@
     <Compile Include="GLSpecs\CommandBlock.cs" />
     <Compile Include="GLSpecs\CommandFlags.cs" />
     <Compile Include="GLSpecs\CommandParameter.cs" />
+    <Compile Include="GLSpecs\CommandParameterOut.cs" />
+    <Compile Include="GLSpecs\CommandParameterPinned.cs" />
+    <Compile Include="GLSpecs\CommandParameterStrong.cs" />
     <Compile Include="GLSpecs\CommandPrototype.cs" />
     <Compile Include="GLSpecs\Enumerant.cs" />
     <Compile Include="GLSpecs\EnumerantBlock.cs" />
@@ -67,6 +70,7 @@
     <Compile Include="GLSpecs\ExtensionIndices.cs" />
     <Compile Include="GLSpecs\Feature.cs" />
     <Compile Include="GLSpecs\FeatureCommand.cs" />
+    <Compile Include="GLSpecs\ICommandParameter.cs" />
     <Compile Include="GLSpecs\IFeature.cs" />
     <Compile Include="GLSpecs\Registry.cs" />
     <Compile Include="GLSpecs\SpecificationStyle.cs" />

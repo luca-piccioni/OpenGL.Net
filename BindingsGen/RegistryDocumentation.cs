@@ -691,9 +691,6 @@ namespace BindingsGen
 				if (documentationFile.ToLowerInvariant().EndsWith(".xml") == false)
 					continue;
 
-				XmlDocument xml = new XmlDocument();
-				XmlNodeList xmlNodes;
-
 				XmlNamespaceManager nsmgr = new XmlNamespaceManager(new NameTable());
 				nsmgr.AddNamespace("mml", "http://www.w3.org/2001/XMLSchema-instance");
 
@@ -706,23 +703,21 @@ namespace BindingsGen
 						xmlReaderSettings.ProhibitDtd = false;
 						xmlReaderSettings.XmlResolver = new LocalXhtmlXmlResolver(Path.Combine(Program.BasePath, "GLMan/DTD"));
 
-						using (XmlReader xmlReader = XmlReader.Create(fs, xmlReaderSettings)) {
-							xml.Load(xmlReader);
+						using (XmlReader xmlReader = XmlReader.Create(fs, xmlReaderSettings, context)) {
+							XPathDocument xpathDoc = new XPathDocument(xmlReader);
+							XPathNavigator xpathNav = xpathDoc.CreateNavigator();
+
+							XPathNodeIterator xpathIter = xpathNav.Select("/refentry/refsynopsisdiv/funcsynopsis/funcprototype/funcdef/function", nsmgr);
+
+							foreach (XPathNavigator item in xpathIter) {
+								if (!sDocumentationMap2.ContainsKey(item.Value))
+									sDocumentationMap2.Add(item.Value, documentationFile);
+							}
 						}
 					}
 
 				} catch {
 					continue;
-				}
-
-				xmlNodes = xml.SelectNodes("/refentry/refsynopsisdiv/funcsynopsis/funcprototype/funcdef/function", nsmgr);
-				if ((xmlNodes != null) && (xmlNodes.Count > 0)) {
-					foreach (XmlNode node in xmlNodes) {
-						if (sDocumentationMap2.ContainsKey(node.InnerText)) {
-							// Console.WriteLine("  Warn: documentation for {0} ({1}) have a documentation also in {2}", node.InnerText, sDocumentationMap2[node.InnerText], documentationFile);
-						} else
-							sDocumentationMap2.Add(node.InnerText, documentationFile);
-					}
 				}
 			}
 
@@ -739,9 +734,6 @@ namespace BindingsGen
 			foreach (string documentationFile in Directory.GetFiles(Path.Combine(Program.BasePath, "GLMan/GL4"))) {
 				if (documentationFile.ToLowerInvariant().EndsWith(".xml") == false)
 					continue;
-
-				XmlDocument xml = new XmlDocument();
-				XmlNodeList xmlNodes;
 
 				XmlNamespaceManager nsmgr = new XmlNamespaceManager(new NameTable());
 				nsmgr.AddNamespace("mml", "http://www.w3.org/2001/XMLSchema-instance");
@@ -762,22 +754,19 @@ namespace BindingsGen
 						xmlReaderSettings.ValidationFlags = XmlSchemaValidationFlags.None;
 
 						using (XmlReader xmlReader = XmlReader.Create(fs, xmlReaderSettings, context)) {
-							xml.Load(xmlReader);
+							XPathDocument xpathDoc = new XPathDocument(xmlReader);
+							XPathNavigator xpathNav = xpathDoc.CreateNavigator();
+
+							XPathNodeIterator xpathIter = xpathNav.Select("/x:refentry/x:refsynopsisdiv/x:funcsynopsis/x:funcprototype/x:funcdef/x:function", nsmgr);
+
+							foreach (XPathNavigator item in xpathIter) {
+								if (!sDocumentationMap4.ContainsKey(item.Value))
+									sDocumentationMap4.Add(item.Value, documentationFile);
+							}
 						}
 					}
-
-				} catch {
+				} catch (Exception exception) {
 					continue;
-				}
-
-				xmlNodes = xml.SelectNodes("/x:refentry/x:refsynopsisdiv/x:funcsynopsis/x:funcprototype/x:funcdef/x:function", nsmgr);
-				if ((xmlNodes != null) && (xmlNodes.Count > 0)) {
-					foreach (XmlNode node in xmlNodes) {
-						if (sDocumentationMap4.ContainsKey(node.InnerText)) {
-							// Console.WriteLine("  Warn: documentation for {0} ({1}) have a documentation also in {2}", node.InnerText, sDocumentationMap4[node.InnerText], documentationFile);
-						} else
-							sDocumentationMap4.Add(node.InnerText, documentationFile);
-					}
 				}
 			}
 

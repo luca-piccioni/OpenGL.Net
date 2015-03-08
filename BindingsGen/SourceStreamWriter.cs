@@ -23,7 +23,7 @@ namespace BindingsGen
 	/// <summary>
 	/// A <see cref="StreamWriter"/> specilized for writing source code.
 	/// </summary>
-	class SourceStreamWriter : StreamWriter
+	public class SourceStreamWriter : StreamWriter
 	{
 		#region Constructors
 

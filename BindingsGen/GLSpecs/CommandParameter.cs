@@ -27,8 +27,39 @@ namespace BindingsGen.GLSpecs
 	/// Registry command parameter.
 	/// </summary>
 	[DebuggerDisplay("CommandParameter: Name={Name} Group={Group} Length={Length} Type={Type}")]
-	public class CommandParameter
+	public class CommandParameter : ICommandParameter
 	{
+		#region Constructors
+
+		/// <summary>
+		/// Parameterless constructor.
+		/// </summary>
+		public CommandParameter()
+		{
+		
+		}
+
+		/// <summary>
+		/// Copy constructor.
+		/// </summary>
+		/// <param name="otherParam">
+		/// Another CommandParameter to be copied.
+		/// </param>
+		protected CommandParameter(CommandParameter otherParam)
+		{
+			if (otherParam == null)
+				throw new ArgumentNullException("otherParam");
+
+			Group = otherParam.Group;
+			Length = otherParam.Length;
+			Type = otherParam.Type;
+			TypeDecorators = new List<string>(otherParam.TypeDecorators);
+			Name = otherParam.Name;
+			OverridenParameter = otherParam;
+		}
+
+		#endregion
+
 		#region Specification
 
 		/// <summary>
@@ -84,15 +115,6 @@ namespace BindingsGen.GLSpecs
 		/// </summary>
 		[XmlIgnore()]
 		public CommandParameter OverridenParameter;
-
-		private CommandParameter Clone()
-		{
-			CommandParameter clone = (CommandParameter)MemberwiseClone();
-
-			clone.TypeDecorators = new List<string>(TypeDecorators);
-
-			return (clone);
-		}
 
 		#endregion
 
@@ -215,7 +237,7 @@ namespace BindingsGen.GLSpecs
 		/// In the case the <see cref="InputType"/> is a <code>void*</code>, is will be translated into <see cref="IntPtr"/>.
 		/// </para>
 		/// </remarks>
-		private string ManagedImplementationType
+		public string ManagedImplementationType
 		{
 			get
 			{
@@ -246,17 +268,7 @@ namespace BindingsGen.GLSpecs
 			}
 		}
 
-		public string PinnedLocalVarName
-		{
-			get
-			{
-				string pinnedName = String.Format("pin_{0}", Name);
-
-				return (TypeMap.IsCsKeyword(pinnedName) ? "@" + pinnedName : pinnedName);
-			}
-		}
-
-		public string DelegateCallVarName
+		public virtual string DelegateCallVarName
 		{
 			get
 			{
@@ -273,81 +285,17 @@ namespace BindingsGen.GLSpecs
 
 		#region Code Generation - Overloads
 
-		internal CommandParameter GetStronglyTypedParam(RegistryContext ctx, Command parentCommand)
+		internal bool IsArrayLengthCompatible(RegistryContext ctx, Command parentCommand)
 		{
-			CommandParameter param = Clone();
-
-			if (param.IsStrongCompatible(ctx, parentCommand)) {
-				param.Type = param.Group;
-				// param.TypeDecorators.Clear();
-				param.OverridenParameter = this;
-			}
-
-			return (param);
-		}
-
-		internal bool IsStrongCompatible(RegistryContext ctx, Command parentCommand)
-		{
-			if (GetImplementationType(ctx, parentCommand) == "bool")
+			if (!IsManagedArray || Length == null)
 				return (false);
 
-			return ((IsSafe == true) && (Group != null) && (ctx.Registry.Groups.FindIndex(delegate(EnumerantGroup item) { return (item.Name == Group); }) >= 0));
-		}
+			int sizeParamIndex = parentCommand.Parameters.FindIndex(delegate(CommandParameter item) { return (item.Name == Length); });
 
-		internal CommandParameter GetPinnedObjectParam(RegistryContext ctx, Command parentCommand)
-		{
-			return (GetPinnedObjectParam(ctx, parentCommand, true));
-		}
-
-		internal CommandParameter GetPinnedObjectParam(RegistryContext ctx, Command parentCommand, bool strong)
-		{
-			CommandParameter param = strong ? GetStronglyTypedParam(ctx, parentCommand) : Clone();
-
-			if (param.IsPinnedCompatible(ctx, parentCommand)) {
-				param.Type = "Object";
-				param.TypeDecorators.Clear();
-				param.OverridenParameter = this;
-			}
-
-			return (param);
-		}
-
-		internal bool IsPinnedCompatible(RegistryContext ctx, Command parentCommand)
-		{
-			return (IsConstant && (GetImplementationType(ctx, parentCommand) == "IntPtr"));
-		}
-
-		internal CommandParameter GetOutParam(RegistryContext ctx, Command parentCommand)
-		{
-			return (GetOutParam(ctx, parentCommand));
-		}
-
-		internal CommandParameter GetOutParam(RegistryContext ctx, Command parentCommand, bool strong)
-		{
-			CommandParameter param = strong ? GetStronglyTypedParam(ctx, parentCommand) : Clone();
-
-			if (param.IsOutParamCompatible(ctx, parentCommand)) {
-				param.Length = "1";
-				param.OverridenParameter = this;
-			}
-
-			return (param);
-		}
-
-		internal bool IsOutParamCompatible(RegistryContext ctx, Command parentCommand)
-		{
-			// Already "out" param?
-			if (GetImplementationTypeModifier(ctx, parentCommand) == "out")
+			if (sizeParamIndex < 0)
 				return (false);
 
-			string implementationType = ManagedImplementationType;
-
-			// Type[] + IsGetImplementation -> out Type
-			// Type[] + OutParam -> out Type
-			if ((IsConstant == false) && implementationType.EndsWith("[]") && (Length != "1") && ((parentCommand.Flags & CommandFlags.OutParam) != 0))
-				return (true);
-
-			return (false);
+			return (true);
 		}
 
 		#endregion
@@ -424,6 +372,14 @@ namespace BindingsGen.GLSpecs
 
 		#region Code Generation - Common
 
+		public bool IsManagedArray
+		{
+			get
+			{
+				return (ManagedImplementationType.EndsWith("[]"));
+			}
+		}
+
 		public bool IsConstant
 		{
 			get
@@ -436,6 +392,61 @@ namespace BindingsGen.GLSpecs
 
 				return (false);
 			}
+		}
+
+		#endregion
+
+		#region ICommandParameter Implementation
+
+		public virtual void WriteDebugAssertion(SourceStreamWriter sw, RegistryContext ctx, Command parentCommand)
+		{
+			if (IsArrayLengthCompatible(ctx, parentCommand))
+				sw.WriteLine("Debug.Assert({0}.Length >= {1});", ImplementationName, Length);
+		}
+
+		public virtual void WriteFixedStatement(SourceStreamWriter sw, RegistryContext ctx, Command parentCommand)
+		{
+			if (IsFixed(ctx, parentCommand) == false)
+				return;
+
+			string dereference = String.Empty;
+
+			switch (GetImplementationTypeModifier(ctx, parentCommand)) {
+				case "out":
+				case "ref":
+					dereference = "&";
+					break;
+			}
+
+			sw.WriteLine("fixed ({0} {1} = {2}{3})", ImportType, FixedLocalVarName, dereference, ImplementationName);
+		}
+
+		public virtual void WriteDelegateParam(SourceStreamWriter sw, RegistryContext ctx, Command parentCommand)
+		{
+			if (IsFixed(ctx, parentCommand) == false) {
+				sw.Write(DelegateCallVarName);
+			} else
+				sw.Write(FixedLocalVarName);
+		}
+
+		public virtual void WriteCallLogFormatParam(SourceStreamWriter sw, RegistryContext ctx, Command parentCommand)
+		{
+			// No code for commong parameter
+		}
+
+		public virtual void WriteCallLogArgParam(SourceStreamWriter sw, RegistryContext ctx, Command parentCommand)
+		{
+			sw.Write("{0}", ImplementationName);
+		}
+
+		public virtual void WritePinnedVariable(SourceStreamWriter sw, RegistryContext ctx, Command parentCommand)
+		{
+			// No code for commong parameter
+		}
+
+		public virtual void WriteUnpinCommand(SourceStreamWriter sw, RegistryContext ctx, Command parentCommand)
+		{
+			// No code for commong parameter
 		}
 
 		#endregion
