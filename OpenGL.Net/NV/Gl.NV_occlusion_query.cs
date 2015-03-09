@@ -74,6 +74,29 @@ namespace OpenGL
 		}
 
 		/// <summary>
+		/// Binding for glGenOcclusionQueriesNV.
+		/// </summary>
+		/// <param name="n">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="ids">
+		/// A <see cref="T:UInt32[]"/>.
+		/// </param>
+		[RequiredByFeature("GL_NV_occlusion_query")]
+		public static void GenOcclusionQueriesNV(UInt32[] ids)
+		{
+			unsafe {
+				fixed (UInt32* p_ids = ids)
+				{
+					Debug.Assert(Delegates.pglGenOcclusionQueriesNV != null, "pglGenOcclusionQueriesNV not implemented");
+					Delegates.pglGenOcclusionQueriesNV((Int32)ids.Length, p_ids);
+					CallLog("glGenOcclusionQueriesNV({0}, {1})", ids.Length, ids);
+				}
+			}
+			DebugCheckErrors();
+		}
+
+		/// <summary>
 		/// Binding for glDeleteOcclusionQueriesNV.
 		/// </summary>
 		/// <param name="n">
@@ -92,6 +115,29 @@ namespace OpenGL
 					Debug.Assert(Delegates.pglDeleteOcclusionQueriesNV != null, "pglDeleteOcclusionQueriesNV not implemented");
 					Delegates.pglDeleteOcclusionQueriesNV(n, p_ids);
 					CallLog("glDeleteOcclusionQueriesNV({0}, {1})", n, ids);
+				}
+			}
+			DebugCheckErrors();
+		}
+
+		/// <summary>
+		/// Binding for glDeleteOcclusionQueriesNV.
+		/// </summary>
+		/// <param name="n">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="ids">
+		/// A <see cref="T:UInt32[]"/>.
+		/// </param>
+		[RequiredByFeature("GL_NV_occlusion_query")]
+		public static void DeleteOcclusionQueriesNV(UInt32[] ids)
+		{
+			unsafe {
+				fixed (UInt32* p_ids = ids)
+				{
+					Debug.Assert(Delegates.pglDeleteOcclusionQueriesNV != null, "pglDeleteOcclusionQueriesNV not implemented");
+					Delegates.pglDeleteOcclusionQueriesNV((Int32)ids.Length, p_ids);
+					CallLog("glDeleteOcclusionQueriesNV({0}, {1})", ids.Length, ids);
 				}
 			}
 			DebugCheckErrors();

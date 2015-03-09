@@ -400,6 +400,37 @@ namespace OpenGL
 		}
 
 		/// <summary>
+		/// bind one or more buffer objects to a sequence of indexed buffer targets
+		/// </summary>
+		/// <param name="target">
+		/// Specify the target of the bind operation. target must be one of GL_ATOMIC_COUNTER_BUFFER, GL_TRANSFORM_FEEDBACK_BUFFER, 
+		/// GL_UNIFORM_BUFFER or GL_SHADER_STORAGE_BUFFER.
+		/// </param>
+		/// <param name="first">
+		/// A <see cref="T:UInt32"/>.
+		/// </param>
+		/// <param name="count">
+		/// Specify the number of contiguous binding points to which to bind buffers.
+		/// </param>
+		/// <param name="buffers">
+		/// A pointer to an array of names of buffer objects to bind to the targets on the specified binding point, or NULL.
+		/// </param>
+		[RequiredByFeature("GL_VERSION_4_4")]
+		[RequiredByFeature("GL_ARB_multi_bind")]
+		public static void BindBuffersBase(int target, UInt32 first, UInt32[] buffers)
+		{
+			unsafe {
+				fixed (UInt32* p_buffers = buffers)
+				{
+					Debug.Assert(Delegates.pglBindBuffersBase != null, "pglBindBuffersBase not implemented");
+					Delegates.pglBindBuffersBase(target, first, (Int32)buffers.Length, p_buffers);
+					CallLog("glBindBuffersBase({0}, {1}, {2}, {3})", target, first, buffers.Length, buffers);
+				}
+			}
+			DebugCheckErrors();
+		}
+
+		/// <summary>
 		/// bind ranges of one or more buffer objects to a sequence of indexed buffer targets
 		/// </summary>
 		/// <param name="target">
@@ -442,6 +473,45 @@ namespace OpenGL
 		}
 
 		/// <summary>
+		/// bind ranges of one or more buffer objects to a sequence of indexed buffer targets
+		/// </summary>
+		/// <param name="target">
+		/// Specify the target of the bind operation. target must be one of GL_ATOMIC_COUNTER_BUFFER, GL_TRANSFORM_FEEDBACK_BUFFER, 
+		/// GL_UNIFORM_BUFFER or GL_SHADER_STORAGE_BUFFER.
+		/// </param>
+		/// <param name="first">
+		/// A <see cref="T:UInt32"/>.
+		/// </param>
+		/// <param name="count">
+		/// Specify the number of contiguous binding points to which to bind buffers.
+		/// </param>
+		/// <param name="buffers">
+		/// A pointer to an array of names of buffer objects to bind to the targets on the specified binding point, or NULL.
+		/// </param>
+		/// <param name="offsets">
+		/// A <see cref="T:IntPtr[]"/>.
+		/// </param>
+		/// <param name="sizes">
+		/// A <see cref="T:UInt32[]"/>.
+		/// </param>
+		[RequiredByFeature("GL_VERSION_4_4")]
+		[RequiredByFeature("GL_ARB_multi_bind")]
+		public static void BindBuffersRange(int target, UInt32 first, UInt32[] buffers, IntPtr[] offsets, UInt32[] sizes)
+		{
+			unsafe {
+				fixed (UInt32* p_buffers = buffers)
+				fixed (IntPtr* p_offsets = offsets)
+				fixed (UInt32* p_sizes = sizes)
+				{
+					Debug.Assert(Delegates.pglBindBuffersRange != null, "pglBindBuffersRange not implemented");
+					Delegates.pglBindBuffersRange(target, first, (Int32)buffers.Length, p_buffers, p_offsets, p_sizes);
+					CallLog("glBindBuffersRange({0}, {1}, {2}, {3}, {4}, {5})", target, first, buffers.Length, buffers, offsets, sizes);
+				}
+			}
+			DebugCheckErrors();
+		}
+
+		/// <summary>
 		/// bind one or more named textures to a sequence of consecutive texture units
 		/// </summary>
 		/// <param name="first">
@@ -464,6 +534,33 @@ namespace OpenGL
 					Debug.Assert(Delegates.pglBindTextures != null, "pglBindTextures not implemented");
 					Delegates.pglBindTextures(first, count, p_textures);
 					CallLog("glBindTextures({0}, {1}, {2})", first, count, textures);
+				}
+			}
+			DebugCheckErrors();
+		}
+
+		/// <summary>
+		/// bind one or more named textures to a sequence of consecutive texture units
+		/// </summary>
+		/// <param name="first">
+		/// Specifies the first texture unit to which a texture is to be bound.
+		/// </param>
+		/// <param name="count">
+		/// Specifies the number of textures to bind.
+		/// </param>
+		/// <param name="textures">
+		/// Specifies the address of an array of names of existing texture objects.
+		/// </param>
+		[RequiredByFeature("GL_VERSION_4_4")]
+		[RequiredByFeature("GL_ARB_multi_bind")]
+		public static void BindTextures(UInt32 first, UInt32[] textures)
+		{
+			unsafe {
+				fixed (UInt32* p_textures = textures)
+				{
+					Debug.Assert(Delegates.pglBindTextures != null, "pglBindTextures not implemented");
+					Delegates.pglBindTextures(first, (Int32)textures.Length, p_textures);
+					CallLog("glBindTextures({0}, {1}, {2})", first, textures.Length, textures);
 				}
 			}
 			DebugCheckErrors();
@@ -498,6 +595,33 @@ namespace OpenGL
 		}
 
 		/// <summary>
+		/// bind one or more named sampler objects to a sequence of consecutive sampler units
+		/// </summary>
+		/// <param name="first">
+		/// Specifies the first sampler unit to which a sampler object is to be bound.
+		/// </param>
+		/// <param name="count">
+		/// Specifies the number of samplers to bind.
+		/// </param>
+		/// <param name="samplers">
+		/// Specifies the address of an array of names of existing sampler objects.
+		/// </param>
+		[RequiredByFeature("GL_VERSION_4_4")]
+		[RequiredByFeature("GL_ARB_multi_bind")]
+		public static void BindSamplers(UInt32 first, UInt32[] samplers)
+		{
+			unsafe {
+				fixed (UInt32* p_samplers = samplers)
+				{
+					Debug.Assert(Delegates.pglBindSamplers != null, "pglBindSamplers not implemented");
+					Delegates.pglBindSamplers(first, (Int32)samplers.Length, p_samplers);
+					CallLog("glBindSamplers({0}, {1}, {2})", first, samplers.Length, samplers);
+				}
+			}
+			DebugCheckErrors();
+		}
+
+		/// <summary>
 		/// bind one or more named texture images to a sequence of consecutive image units
 		/// </summary>
 		/// <param name="first">
@@ -520,6 +644,33 @@ namespace OpenGL
 					Debug.Assert(Delegates.pglBindImageTextures != null, "pglBindImageTextures not implemented");
 					Delegates.pglBindImageTextures(first, count, p_textures);
 					CallLog("glBindImageTextures({0}, {1}, {2})", first, count, textures);
+				}
+			}
+			DebugCheckErrors();
+		}
+
+		/// <summary>
+		/// bind one or more named texture images to a sequence of consecutive image units
+		/// </summary>
+		/// <param name="first">
+		/// Specifies the first image unit to which a texture is to be bound.
+		/// </param>
+		/// <param name="count">
+		/// Specifies the number of textures to bind.
+		/// </param>
+		/// <param name="textures">
+		/// Specifies the address of an array of names of existing texture objects.
+		/// </param>
+		[RequiredByFeature("GL_VERSION_4_4")]
+		[RequiredByFeature("GL_ARB_multi_bind")]
+		public static void BindImageTextures(UInt32 first, UInt32[] textures)
+		{
+			unsafe {
+				fixed (UInt32* p_textures = textures)
+				{
+					Debug.Assert(Delegates.pglBindImageTextures != null, "pglBindImageTextures not implemented");
+					Delegates.pglBindImageTextures(first, (Int32)textures.Length, p_textures);
+					CallLog("glBindImageTextures({0}, {1}, {2})", first, textures.Length, textures);
 				}
 			}
 			DebugCheckErrors();
@@ -558,6 +709,41 @@ namespace OpenGL
 					Debug.Assert(Delegates.pglBindVertexBuffers != null, "pglBindVertexBuffers not implemented");
 					Delegates.pglBindVertexBuffers(first, count, p_buffers, p_offsets, p_strides);
 					CallLog("glBindVertexBuffers({0}, {1}, {2}, {3}, {4})", first, count, buffers, offsets, strides);
+				}
+			}
+			DebugCheckErrors();
+		}
+
+		/// <summary>
+		/// attach multiple buffer objects to a vertex array object
+		/// </summary>
+		/// <param name="first">
+		/// Specifies the first vertex buffer binding point to which a buffer object is to be bound.
+		/// </param>
+		/// <param name="count">
+		/// Specifies the number of buffers to bind.
+		/// </param>
+		/// <param name="buffers">
+		/// Specifies the address of an array of names of existing buffer objects.
+		/// </param>
+		/// <param name="offsets">
+		/// Specifies the address of an array of offsets to associate with the binding points.
+		/// </param>
+		/// <param name="strides">
+		/// A <see cref="T:Int32[]"/>.
+		/// </param>
+		[RequiredByFeature("GL_VERSION_4_4")]
+		[RequiredByFeature("GL_ARB_multi_bind")]
+		public static void BindVertexBuffers(UInt32 first, UInt32[] buffers, IntPtr[] offsets, Int32[] strides)
+		{
+			unsafe {
+				fixed (UInt32* p_buffers = buffers)
+				fixed (IntPtr* p_offsets = offsets)
+				fixed (Int32* p_strides = strides)
+				{
+					Debug.Assert(Delegates.pglBindVertexBuffers != null, "pglBindVertexBuffers not implemented");
+					Delegates.pglBindVertexBuffers(first, (Int32)buffers.Length, p_buffers, p_offsets, p_strides);
+					CallLog("glBindVertexBuffers({0}, {1}, {2}, {3}, {4})", first, buffers.Length, buffers, offsets, strides);
 				}
 			}
 			DebugCheckErrors();

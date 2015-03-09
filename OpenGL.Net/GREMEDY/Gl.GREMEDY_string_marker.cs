@@ -50,7 +50,7 @@ namespace OpenGL
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="string">
-		/// A <see cref="T:IntPtr"/>.
+		/// A <see cref="T:Object"/>.
 		/// </param>
 		[RequiredByFeature("GL_GREMEDY_string_marker")]
 		public static void StringMarkerGREMEDY(Int32 len, Object @string)

@@ -210,6 +210,30 @@ namespace OpenGL
 		}
 
 		/// <summary>
+		/// generate sampler object names
+		/// </summary>
+		/// <param name="count">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="samplers">
+		/// Specifies an array in which the generated sampler object names are stored.
+		/// </param>
+		[RequiredByFeature("GL_VERSION_3_3")]
+		[RequiredByFeature("GL_ARB_sampler_objects")]
+		public static void GenSamplers(UInt32[] samplers)
+		{
+			unsafe {
+				fixed (UInt32* p_samplers = samplers)
+				{
+					Debug.Assert(Delegates.pglGenSamplers != null, "pglGenSamplers not implemented");
+					Delegates.pglGenSamplers((Int32)samplers.Length, p_samplers);
+					CallLog("glGenSamplers({0}, {1})", samplers.Length, samplers);
+				}
+			}
+			DebugCheckErrors();
+		}
+
+		/// <summary>
 		/// delete named sampler objects
 		/// </summary>
 		/// <param name="count">
@@ -229,6 +253,30 @@ namespace OpenGL
 					Debug.Assert(Delegates.pglDeleteSamplers != null, "pglDeleteSamplers not implemented");
 					Delegates.pglDeleteSamplers(count, p_samplers);
 					CallLog("glDeleteSamplers({0}, {1})", count, samplers);
+				}
+			}
+			DebugCheckErrors();
+		}
+
+		/// <summary>
+		/// delete named sampler objects
+		/// </summary>
+		/// <param name="count">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="samplers">
+		/// Specifies an array of sampler objects to be deleted.
+		/// </param>
+		[RequiredByFeature("GL_VERSION_3_3")]
+		[RequiredByFeature("GL_ARB_sampler_objects")]
+		public static void DeleteSamplers(UInt32[] samplers)
+		{
+			unsafe {
+				fixed (UInt32* p_samplers = samplers)
+				{
+					Debug.Assert(Delegates.pglDeleteSamplers != null, "pglDeleteSamplers not implemented");
+					Delegates.pglDeleteSamplers((Int32)samplers.Length, p_samplers);
+					CallLog("glDeleteSamplers({0}, {1})", samplers.Length, samplers);
 				}
 			}
 			DebugCheckErrors();

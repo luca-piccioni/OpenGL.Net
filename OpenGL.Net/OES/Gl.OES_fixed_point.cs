@@ -1137,6 +1137,32 @@ namespace OpenGL
 		}
 
 		/// <summary>
+		/// Binding for glFeedbackBufferxOES.
+		/// </summary>
+		/// <param name="n">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="type">
+		/// A <see cref="T:int"/>.
+		/// </param>
+		/// <param name="buffer">
+		/// A <see cref="T:IntPtr[]"/>.
+		/// </param>
+		[RequiredByFeature("GL_OES_fixed_point")]
+		public static void FeedbackBufferOES(int type, IntPtr[] buffer)
+		{
+			unsafe {
+				fixed (IntPtr* p_buffer = buffer)
+				{
+					Debug.Assert(Delegates.pglFeedbackBufferxOES != null, "pglFeedbackBufferxOES not implemented");
+					Delegates.pglFeedbackBufferxOES((Int32)buffer.Length, type, p_buffer);
+					CallLog("glFeedbackBufferxOES({0}, {1}, {2})", buffer.Length, type, buffer);
+				}
+			}
+			DebugCheckErrors();
+		}
+
+		/// <summary>
 		/// Binding for glGetConvolutionParameterxvOES.
 		/// </summary>
 		/// <param name="target">
@@ -1283,6 +1309,32 @@ namespace OpenGL
 					Debug.Assert(Delegates.pglGetPixelMapxv != null, "pglGetPixelMapxv not implemented");
 					Delegates.pglGetPixelMapxv(map, size, p_values);
 					CallLog("glGetPixelMapxv({0}, {1}, {2})", map, size, values);
+				}
+			}
+			DebugCheckErrors();
+		}
+
+		/// <summary>
+		/// Binding for glGetPixelMapxv.
+		/// </summary>
+		/// <param name="map">
+		/// A <see cref="T:int"/>.
+		/// </param>
+		/// <param name="size">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="values">
+		/// A <see cref="T:IntPtr[]"/>.
+		/// </param>
+		[RequiredByFeature("GL_OES_fixed_point")]
+		public static void GetPixelMap(int map, IntPtr[] values)
+		{
+			unsafe {
+				fixed (IntPtr* p_values = values)
+				{
+					Debug.Assert(Delegates.pglGetPixelMapxv != null, "pglGetPixelMapxv not implemented");
+					Delegates.pglGetPixelMapxv(map, (Int32)values.Length, p_values);
+					CallLog("glGetPixelMapxv({0}, {1}, {2})", map, values.Length, values);
 				}
 			}
 			DebugCheckErrors();
@@ -1756,6 +1808,32 @@ namespace OpenGL
 		}
 
 		/// <summary>
+		/// Binding for glPixelMapx.
+		/// </summary>
+		/// <param name="map">
+		/// A <see cref="T:int"/>.
+		/// </param>
+		/// <param name="size">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="values">
+		/// A <see cref="T:IntPtr[]"/>.
+		/// </param>
+		[RequiredByFeature("GL_OES_fixed_point")]
+		public static void PixelMap(int map, IntPtr[] values)
+		{
+			unsafe {
+				fixed (IntPtr* p_values = values)
+				{
+					Debug.Assert(Delegates.pglPixelMapx != null, "pglPixelMapx not implemented");
+					Delegates.pglPixelMapx(map, (Int32)values.Length, p_values);
+					CallLog("glPixelMapx({0}, {1}, {2})", map, values.Length, values);
+				}
+			}
+			DebugCheckErrors();
+		}
+
+		/// <summary>
 		/// Binding for glPixelStorex.
 		/// </summary>
 		/// <param name="pname">
@@ -1833,6 +1911,33 @@ namespace OpenGL
 					Debug.Assert(Delegates.pglPrioritizeTexturesxOES != null, "pglPrioritizeTexturesxOES not implemented");
 					Delegates.pglPrioritizeTexturesxOES(n, p_textures, p_priorities);
 					CallLog("glPrioritizeTexturesxOES({0}, {1}, {2})", n, textures, priorities);
+				}
+			}
+			DebugCheckErrors();
+		}
+
+		/// <summary>
+		/// Binding for glPrioritizeTexturesxOES.
+		/// </summary>
+		/// <param name="n">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="textures">
+		/// A <see cref="T:UInt32[]"/>.
+		/// </param>
+		/// <param name="priorities">
+		/// A <see cref="T:IntPtr[]"/>.
+		/// </param>
+		[RequiredByFeature("GL_OES_fixed_point")]
+		public static void PrioritizeTexturesOES(UInt32[] textures, IntPtr[] priorities)
+		{
+			unsafe {
+				fixed (UInt32* p_textures = textures)
+				fixed (IntPtr* p_priorities = priorities)
+				{
+					Debug.Assert(Delegates.pglPrioritizeTexturesxOES != null, "pglPrioritizeTexturesxOES not implemented");
+					Delegates.pglPrioritizeTexturesxOES((Int32)textures.Length, p_textures, p_priorities);
+					CallLog("glPrioritizeTexturesxOES({0}, {1}, {2})", textures.Length, textures, priorities);
 				}
 			}
 			DebugCheckErrors();

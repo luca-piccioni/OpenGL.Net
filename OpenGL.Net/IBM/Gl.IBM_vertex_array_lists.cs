@@ -155,7 +155,7 @@ namespace OpenGL
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="type">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:ColorPointerType"/>.
 		/// </param>
 		/// <param name="stride">
 		/// A <see cref="T:Int32"/>.
@@ -188,7 +188,7 @@ namespace OpenGL
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="pointer">
-		/// A <see cref="T:IntPtr"/>.
+		/// A <see cref="T:Object"/>.
 		/// </param>
 		/// <param name="ptrstride">
 		/// A <see cref="T:Int32"/>.
@@ -211,13 +211,13 @@ namespace OpenGL
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="type">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:ColorPointerType"/>.
 		/// </param>
 		/// <param name="stride">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="pointer">
-		/// A <see cref="T:IntPtr"/>.
+		/// A <see cref="T:Object"/>.
 		/// </param>
 		/// <param name="ptrstride">
 		/// A <see cref="T:Int32"/>.
@@ -273,7 +273,7 @@ namespace OpenGL
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="pointer">
-		/// A <see cref="T:IntPtr"/>.
+		/// A <see cref="T:Object"/>.
 		/// </param>
 		/// <param name="ptrstride">
 		/// A <see cref="T:Int32"/>.
@@ -338,7 +338,7 @@ namespace OpenGL
 		/// Binding for glFogCoordPointerListIBM.
 		/// </summary>
 		/// <param name="type">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:FogPointerTypeIBM"/>.
 		/// </param>
 		/// <param name="stride">
 		/// A <see cref="T:Int32"/>.
@@ -368,7 +368,7 @@ namespace OpenGL
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="pointer">
-		/// A <see cref="T:IntPtr"/>.
+		/// A <see cref="T:Object"/>.
 		/// </param>
 		/// <param name="ptrstride">
 		/// A <see cref="T:Int32"/>.
@@ -388,13 +388,13 @@ namespace OpenGL
 		/// Binding for glFogCoordPointerListIBM.
 		/// </summary>
 		/// <param name="type">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:FogPointerTypeIBM"/>.
 		/// </param>
 		/// <param name="stride">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="pointer">
-		/// A <see cref="T:IntPtr"/>.
+		/// A <see cref="T:Object"/>.
 		/// </param>
 		/// <param name="ptrstride">
 		/// A <see cref="T:Int32"/>.
@@ -438,7 +438,7 @@ namespace OpenGL
 		/// Binding for glIndexPointerListIBM.
 		/// </summary>
 		/// <param name="type">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:IndexPointerType"/>.
 		/// </param>
 		/// <param name="stride">
 		/// A <see cref="T:Int32"/>.
@@ -468,7 +468,7 @@ namespace OpenGL
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="pointer">
-		/// A <see cref="T:IntPtr"/>.
+		/// A <see cref="T:Object"/>.
 		/// </param>
 		/// <param name="ptrstride">
 		/// A <see cref="T:Int32"/>.
@@ -488,13 +488,13 @@ namespace OpenGL
 		/// Binding for glIndexPointerListIBM.
 		/// </summary>
 		/// <param name="type">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:IndexPointerType"/>.
 		/// </param>
 		/// <param name="stride">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="pointer">
-		/// A <see cref="T:IntPtr"/>.
+		/// A <see cref="T:Object"/>.
 		/// </param>
 		/// <param name="ptrstride">
 		/// A <see cref="T:Int32"/>.
@@ -538,7 +538,7 @@ namespace OpenGL
 		/// Binding for glNormalPointerListIBM.
 		/// </summary>
 		/// <param name="type">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:NormalPointerType"/>.
 		/// </param>
 		/// <param name="stride">
 		/// A <see cref="T:Int32"/>.
@@ -568,7 +568,7 @@ namespace OpenGL
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="pointer">
-		/// A <see cref="T:IntPtr"/>.
+		/// A <see cref="T:Object"/>.
 		/// </param>
 		/// <param name="ptrstride">
 		/// A <see cref="T:Int32"/>.
@@ -588,13 +588,13 @@ namespace OpenGL
 		/// Binding for glNormalPointerListIBM.
 		/// </summary>
 		/// <param name="type">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:NormalPointerType"/>.
 		/// </param>
 		/// <param name="stride">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="pointer">
-		/// A <see cref="T:IntPtr"/>.
+		/// A <see cref="T:Object"/>.
 		/// </param>
 		/// <param name="ptrstride">
 		/// A <see cref="T:Int32"/>.
@@ -644,7 +644,7 @@ namespace OpenGL
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="type">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:TexCoordPointerType"/>.
 		/// </param>
 		/// <param name="stride">
 		/// A <see cref="T:Int32"/>.
@@ -677,7 +677,7 @@ namespace OpenGL
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="pointer">
-		/// A <see cref="T:IntPtr"/>.
+		/// A <see cref="T:Object"/>.
 		/// </param>
 		/// <param name="ptrstride">
 		/// A <see cref="T:Int32"/>.
@@ -700,13 +700,13 @@ namespace OpenGL
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="type">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:TexCoordPointerType"/>.
 		/// </param>
 		/// <param name="stride">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="pointer">
-		/// A <see cref="T:IntPtr"/>.
+		/// A <see cref="T:Object"/>.
 		/// </param>
 		/// <param name="ptrstride">
 		/// A <see cref="T:Int32"/>.
@@ -756,7 +756,7 @@ namespace OpenGL
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="type">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:VertexPointerType"/>.
 		/// </param>
 		/// <param name="stride">
 		/// A <see cref="T:Int32"/>.
@@ -789,7 +789,7 @@ namespace OpenGL
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="pointer">
-		/// A <see cref="T:IntPtr"/>.
+		/// A <see cref="T:Object"/>.
 		/// </param>
 		/// <param name="ptrstride">
 		/// A <see cref="T:Int32"/>.
@@ -812,13 +812,13 @@ namespace OpenGL
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="type">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:VertexPointerType"/>.
 		/// </param>
 		/// <param name="stride">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="pointer">
-		/// A <see cref="T:IntPtr"/>.
+		/// A <see cref="T:Object"/>.
 		/// </param>
 		/// <param name="ptrstride">
 		/// A <see cref="T:Int32"/>.

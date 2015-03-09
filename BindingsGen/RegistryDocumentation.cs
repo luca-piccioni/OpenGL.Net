@@ -22,6 +22,7 @@ using System.Net.Cache;
 using System.Reflection;
 using System.Text;
 using System.Text.RegularExpressions;
+using System.Threading;
 using System.Xml;
 using System.Xml.Schema;
 using System.Xml.XPath;
@@ -99,13 +100,13 @@ namespace BindingsGen
 		/// <param name="command">
 		/// The <see cref="Command"/> to be documented.
 		/// </param>
-		public static void GenerateCommandDocumentation(SourceStreamWriter sw, RegistryContext ctx, Command command)
+		public static void GenerateCommandDocumentation(SourceStreamWriter sw, RegistryContext ctx, Command command, List<CommandParameter> commandParams)
 		{
 			StringBuilder sb = new StringBuilder();
 
 			// GL4 documentation
 			try {
-				GenerateCommandDocumentation_GL4(sw, ctx, command, true);
+				GenerateCommandDocumentation_GL4(sw, ctx, command, true, commandParams);
 				return;
 			} catch (Exception exception) {
 				sb.AppendFormat("Unable to generate GL4 documentation: {0}", exception.Message);
@@ -113,14 +114,14 @@ namespace BindingsGen
 
 			// GL2 documentation
 			try {
-				GenerateCommandDocumentation_GL2(sw, ctx, command, true);
+				GenerateCommandDocumentation_GL2(sw, ctx, command, true, commandParams);
 				return;
 			} catch (Exception exception) {
 				sb.AppendFormat("Unable to generate GL2 documentation: {0}", exception.Message);
 			}
 
 			// Fallback (generic documentation)
-			GenerateCommandDocumentation_GL4(sw, ctx, command, false);
+			GenerateCommandDocumentation_GL4(sw, ctx, command, false, commandParams);
 		}
 
 		/// <summary>
@@ -136,7 +137,7 @@ namespace BindingsGen
 		/// The <see cref="Command"/> to be documented.
 		/// </param>
 		/// <param name="fail"></param>
-		public static void GenerateCommandDocumentation_GL2(SourceStreamWriter sw, RegistryContext ctx, Command command, bool fail)
+		public static void GenerateCommandDocumentation_GL2(SourceStreamWriter sw, RegistryContext ctx, Command command, bool fail, List<CommandParameter> commandParams)
 		{
 			XmlDocument xml = new XmlDocument();
 			XmlElement root = null;
@@ -197,7 +198,7 @@ namespace BindingsGen
 
 			#region Parameters
 
-			foreach (CommandParameter param in command.Parameters) {
+			foreach (CommandParameter param in commandParams) {
 				List<string> paramDoc = new List<string>();
 
 				// Default
@@ -316,7 +317,7 @@ namespace BindingsGen
 		/// The <see cref="Command"/> to be documented.
 		/// </param>
 		/// <param name="fail"></param>
-		public static void GenerateCommandDocumentation_GL4(SourceStreamWriter sw, RegistryContext ctx, Command command, bool fail)
+		public static void GenerateCommandDocumentation_GL4(SourceStreamWriter sw, RegistryContext ctx, Command command, bool fail, List<CommandParameter> commandParams)
 		{
 			XmlDocument xml = new XmlDocument();
 			XmlElement root = null;
@@ -383,7 +384,7 @@ namespace BindingsGen
 
 			#region Parameters
 
-			foreach (CommandParameter param in command.Parameters) {
+			foreach (CommandParameter param in commandParams) {
 				List<string> paramDoc = new List<string>();
 
 				// Default
@@ -687,38 +688,73 @@ namespace BindingsGen
 		{
 			Console.WriteLine("Scanning registry documentation (GL2)...");
 
-			foreach (string documentationFile in Directory.GetFiles(Path.Combine(Program.BasePath, "GLMan/GL2"))) {
-				if (documentationFile.ToLowerInvariant().EndsWith(".xml") == false)
-					continue;
+			List<string> documentationFiles = new List<string>(Directory.GetFiles(Path.Combine(Program.BasePath, "GLMan/GL2")));
 
-				XmlNamespaceManager nsmgr = new XmlNamespaceManager(new NameTable());
-				nsmgr.AddNamespace("mml", "http://www.w3.org/2001/XMLSchema-instance");
+			documentationFiles = documentationFiles.FindAll(delegate(string item) {
+				return (item.ToLowerInvariant().EndsWith(".xml"));
+			});
 
-				try {
-					// Load XML file
-					using (FileStream fs = new FileStream(documentationFile, FileMode.Open, FileAccess.Read)) {
-						XmlParserContext context = new XmlParserContext(null, nsmgr, null, XmlSpace.Default);
-						XmlReaderSettings xmlReaderSettings = new XmlReaderSettings();
+			List<List<string>> documentationJobs = new List<List<string>>();
+			int jobSize = documentationFiles.Count / Environment.ProcessorCount + 1;
+			int jobReminder = documentationFiles.Count % jobSize;
 
-						xmlReaderSettings.ProhibitDtd = false;
-						xmlReaderSettings.XmlResolver = new LocalXhtmlXmlResolver(Path.Combine(Program.BasePath, "GLMan/DTD"));
+			for (int i = 0; i < Environment.ProcessorCount - 1; i++)
+				documentationJobs.Add(documentationFiles.GetRange(i * jobSize, jobSize));
+			documentationJobs.Add(documentationFiles.GetRange(jobSize * (Environment.ProcessorCount - 1), Math.Min(jobSize, jobReminder == 0 ? jobSize : jobReminder)));
 
-						using (XmlReader xmlReader = XmlReader.Create(fs, xmlReaderSettings, context)) {
-							XPathDocument xpathDoc = new XPathDocument(xmlReader);
-							XPathNavigator xpathNav = xpathDoc.CreateNavigator();
+			int jobsRemaining = Environment.ProcessorCount;
 
-							XPathNodeIterator xpathIter = xpathNav.Select("/refentry/refsynopsisdiv/funcsynopsis/funcprototype/funcdef/function", nsmgr);
+			LocalXhtmlXmlResolver.Touch();
 
-							foreach (XPathNavigator item in xpathIter) {
-								if (!sDocumentationMap2.ContainsKey(item.Value))
-									sDocumentationMap2.Add(item.Value, documentationFile);
+			Dictionary<string, string> asd = sDocumentationMap2;
+
+			using (ManualResetEvent waitThreads = new ManualResetEvent(false)) {
+				foreach (List<string> items in documentationJobs) {
+					ThreadPool.QueueUserWorkItem(delegate(object state) {
+						List<string> files = (List<string>)state;
+
+						foreach (string documentationFile in files) {
+							XmlNamespaceManager nsmgr = new XmlNamespaceManager(new NameTable());
+							nsmgr.AddNamespace("mml", "http://www.w3.org/2001/XMLSchema-instance");
+
+							try {
+								// Load XML file
+								using (FileStream fs = new FileStream(documentationFile, FileMode.Open, FileAccess.Read)) {
+									XmlParserContext context = new XmlParserContext(null, nsmgr, null, XmlSpace.Default);
+									XmlReaderSettings xmlReaderSettings = new XmlReaderSettings();
+
+									xmlReaderSettings.ProhibitDtd = false;
+									xmlReaderSettings.XmlResolver = new LocalXhtmlXmlResolver(Path.Combine(Program.BasePath, "GLMan/DTD"));
+
+									using (XmlReader xmlReader = XmlReader.Create(fs, xmlReaderSettings, context)) {
+										XPathDocument xpathDoc = new XPathDocument(xmlReader);
+										XPathNavigator xpathNav = xpathDoc.CreateNavigator();
+
+										XPathNodeIterator xpathIter = xpathNav.Select("/refentry/refsynopsisdiv/funcsynopsis/funcprototype/funcdef/function", nsmgr);
+
+										foreach (XPathNavigator item in xpathIter) {
+											lock (documentationJobs) {
+												string itemValue = item.Value;
+
+												if (!asd.ContainsKey(itemValue))
+													asd.Add(itemValue, documentationFile);
+											}
+										}
+									}
+								}
+
+							} catch {
+								continue;
 							}
 						}
-					}
 
-				} catch {
-					continue;
+						if (Interlocked.Decrement(ref jobsRemaining) == 0)
+							waitThreads.Set();
+
+					}, items);
 				}
+
+				waitThreads.WaitOne();
 			}
 
 			Console.WriteLine("\tFound documentation for {0} commands.", sDocumentationMap2.Count);
@@ -806,6 +842,8 @@ namespace BindingsGen
 				LocalDtdPaths[KnownUris["-//W3C//DTD XHTML 1.0 Transitional//EN"]] = "xhtml1-transitional.dtd";
 			}
 
+			public static void Touch() { }
+
 			private static readonly Dictionary<string, string> KnownUris = new Dictionary<string, string>();
 			private static readonly Dictionary<string, string> LocalDtdPaths = new Dictionary<string, string>();
 
@@ -816,29 +854,33 @@ namespace BindingsGen
 
 			public LocalXhtmlXmlResolver(string dtdPath)
 			{
-				string[] dtdFiles;
+				lock (sSyncObject) {
+					string[] dtdFiles;
 
-				mDtdPath = dtdPath;
+					mDtdPath = dtdPath;
 
-				dtdFiles = Directory.GetFiles(dtdPath, "*.dtd");
-				foreach (string dtdFile in dtdFiles)
-					LocalDtdRelPaths[dtdFile] = dtdFile.Replace('\\', '/');
+					dtdFiles = Directory.GetFiles(dtdPath, "*.dtd");
+					foreach (string dtdFile in dtdFiles)
+						LocalDtdRelPaths[dtdFile] = dtdFile.Replace('\\', '/');
 
-				dtdFiles = Directory.GetFiles(dtdPath, "*.mod");
-				foreach (string dtdFile in dtdFiles)
-					LocalDtdRelPaths[dtdFile] = dtdFile.Replace('\\', '/');
+					dtdFiles = Directory.GetFiles(dtdPath, "*.mod");
+					foreach (string dtdFile in dtdFiles)
+						LocalDtdRelPaths[dtdFile] = dtdFile.Replace('\\', '/');
 
-				dtdFiles = Directory.GetFiles(dtdPath, "*.ent");
-				foreach (string dtdFile in dtdFiles)
-					LocalDtdRelPaths[dtdFile] = dtdFile.Replace('\\', '/');
+					dtdFiles = Directory.GetFiles(dtdPath, "*.ent");
+					foreach (string dtdFile in dtdFiles)
+						LocalDtdRelPaths[dtdFile] = dtdFile.Replace('\\', '/');
+				}
 			}
 
 			public override Uri ResolveUri(Uri baseUri, string relativeUri)
 			{
-				return KnownUris.ContainsKey(relativeUri) ?
-					new Uri(KnownUris[relativeUri]) :
-					base.ResolveUri(baseUri, relativeUri)
-					;
+				lock (sSyncObject) {
+					return KnownUris.ContainsKey(relativeUri) ?
+						new Uri(KnownUris[relativeUri]) :
+						base.ResolveUri(baseUri, relativeUri)
+						;
+				}
 			}
 
 			public override object GetEntity(Uri absoluteUri, string role, System.Type ofObjectToReturn)
@@ -846,68 +888,73 @@ namespace BindingsGen
 				if (absoluteUri == null)
 					throw new ArgumentNullException("absoluteUri");
 
-				//resolve resources from cache (if possible)
-				if ((absoluteUri.Scheme == "http") && (ofObjectToReturn == null || ofObjectToReturn == typeof(Stream))) {
-					string localPath = absoluteUri.OriginalString.Substring(absoluteUri.OriginalString.LastIndexOf("/") + 1);
-					bool relative = false;
+				lock (sSyncObject) {
 
-					foreach (string key in LocalDtdRelPaths.Keys) {
-						if (key.EndsWith(localPath) == true) {
-							LocalDtdPaths[absoluteUri.OriginalString] = localPath;
-							relative = true;
-							break;
-						}
-					}
+					//resolve resources from cache (if possible)
+					if ((absoluteUri.Scheme == "http") && (ofObjectToReturn == null || ofObjectToReturn == typeof(Stream))) {
+						string localPath = absoluteUri.OriginalString.Substring(absoluteUri.OriginalString.LastIndexOf("/") + 1);
+						bool relative = false;
 
-
-					if ((relative == false) && (LocalDtdPaths.ContainsKey(absoluteUri.OriginalString) == false)) {
-						Console.Write("Downloading {0}...", absoluteUri);
-
-						WebRequest webRequest;
-						WebResponse webResponse = null;
-						int tries = 0;
-						bool done = false;
-
-						do {
-							try {
-								webRequest = WebRequest.Create(absoluteUri);
-								webRequest.CachePolicy = new HttpRequestCachePolicy(HttpRequestCacheLevel.Default);
-								webRequest.Timeout = 1000;
-								webResponse = webRequest.GetResponse();
-								done = true;
-								Console.WriteLine(". done!");
-							} catch (Exception) {
-								Console.Write(".");
-								tries++;
+						foreach (string key in LocalDtdRelPaths.Keys) {
+							if (key.EndsWith(localPath) == true) {
+								LocalDtdPaths[absoluteUri.OriginalString] = localPath;
+								relative = true;
+								break;
 							}
-						} while ((done == false) && (tries < 3));
+						}
 
-						if (done == true) {
-							localPath = localPath.Substring(localPath.LastIndexOf("/") + 1);
 
-							using (StreamWriter fs = new StreamWriter(Path.Combine(mDtdPath, localPath), false)) {
-								Stream rStream = webResponse.GetResponseStream();
+						if ((relative == false) && (LocalDtdPaths.ContainsKey(absoluteUri.OriginalString) == false)) {
+							Console.Write("Downloading {0}...", absoluteUri);
 
-								using (StreamReader sr = new StreamReader(rStream)) {
-									string contents = sr.ReadToEnd();
+							WebRequest webRequest;
+							WebResponse webResponse = null;
+							int tries = 0;
+							bool done = false;
 
-									fs.Write(contents);
+							do {
+								try {
+									webRequest = WebRequest.Create(absoluteUri);
+									webRequest.CachePolicy = new HttpRequestCachePolicy(HttpRequestCacheLevel.Default);
+									webRequest.Timeout = 1000;
+									webResponse = webRequest.GetResponse();
+									done = true;
+									Console.WriteLine(". done!");
+								} catch (Exception) {
+									Console.Write(".");
+									tries++;
 								}
-							}
+							} while ((done == false) && (tries < 3));
 
-							LocalDtdPaths[absoluteUri.OriginalString] = localPath;
-						} else {
-							Console.WriteLine("not done");
-							return null;
+							if (done == true) {
+								localPath = localPath.Substring(localPath.LastIndexOf("/") + 1);
+
+								using (StreamWriter fs = new StreamWriter(Path.Combine(mDtdPath, localPath), false)) {
+									Stream rStream = webResponse.GetResponseStream();
+
+									using (StreamReader sr = new StreamReader(rStream)) {
+										string contents = sr.ReadToEnd();
+
+										fs.Write(contents);
+									}
+								}
+
+								LocalDtdPaths[absoluteUri.OriginalString] = localPath;
+							} else {
+								Console.WriteLine("not done");
+								return null;
+							}
 						}
+
+						return (new FileStream(Path.Combine(mDtdPath, LocalDtdPaths[absoluteUri.OriginalString]), FileMode.Open, FileAccess.Read));
 					}
 
-					return (new FileStream(Path.Combine(mDtdPath, LocalDtdPaths[absoluteUri.OriginalString]), FileMode.Open, FileAccess.Read));
+					//otherwise use the default behavior of the XmlUrlResolver class (resolve resources from source)
+					return base.GetEntity(absoluteUri, role, ofObjectToReturn);
 				}
-
-				//otherwise use the default behavior of the XmlUrlResolver class (resolve resources from source)
-				return base.GetEntity(absoluteUri, role, ofObjectToReturn);
 			}
+
+			private static readonly object sSyncObject = new object();
 		}
 	}
 }

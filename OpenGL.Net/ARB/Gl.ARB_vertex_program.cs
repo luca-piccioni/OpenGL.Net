@@ -1484,7 +1484,7 @@ namespace OpenGL
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="pointer">
-		/// A <see cref="T:IntPtr"/>.
+		/// A <see cref="T:Object"/>.
 		/// </param>
 		[RequiredByFeature("GL_ARB_vertex_program")]
 		[RequiredByFeature("GL_ARB_vertex_shader")]
@@ -1568,7 +1568,7 @@ namespace OpenGL
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="string">
-		/// A <see cref="T:IntPtr"/>.
+		/// A <see cref="T:Object"/>.
 		/// </param>
 		[RequiredByFeature("GL_ARB_fragment_program")]
 		[RequiredByFeature("GL_ARB_vertex_program")]
@@ -1637,6 +1637,35 @@ namespace OpenGL
 		}
 
 		/// <summary>
+		/// Binding for glDeleteProgramsARB.
+		/// </summary>
+		/// <param name="n">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="programs">
+		/// A <see cref="T:UInt32[]"/>.
+		/// </param>
+		[RequiredByFeature("GL_ARB_fragment_program")]
+		[RequiredByFeature("GL_ARB_vertex_program")]
+		public static void DeleteProgramsARB(UInt32[] programs)
+		{
+			unsafe {
+				fixed (UInt32* p_programs = programs)
+				{
+					if        (Delegates.pglDeleteProgramsARB != null) {
+						Delegates.pglDeleteProgramsARB((Int32)programs.Length, p_programs);
+						CallLog("glDeleteProgramsARB({0}, {1})", programs.Length, programs);
+					} else if (Delegates.pglDeleteProgramsNV != null) {
+						Delegates.pglDeleteProgramsNV((Int32)programs.Length, p_programs);
+						CallLog("glDeleteProgramsNV({0}, {1})", programs.Length, programs);
+					} else
+						throw new NotImplementedException("glDeleteProgramsARB (and other aliases) are not implemented");
+				}
+			}
+			DebugCheckErrors();
+		}
+
+		/// <summary>
 		/// Binding for glGenProgramsARB.
 		/// </summary>
 		/// <param name="n">
@@ -1659,6 +1688,35 @@ namespace OpenGL
 					} else if (Delegates.pglGenProgramsNV != null) {
 						Delegates.pglGenProgramsNV(n, p_programs);
 						CallLog("glGenProgramsNV({0}, {1})", n, programs);
+					} else
+						throw new NotImplementedException("glGenProgramsARB (and other aliases) are not implemented");
+				}
+			}
+			DebugCheckErrors();
+		}
+
+		/// <summary>
+		/// Binding for glGenProgramsARB.
+		/// </summary>
+		/// <param name="n">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="programs">
+		/// A <see cref="T:UInt32[]"/>.
+		/// </param>
+		[RequiredByFeature("GL_ARB_fragment_program")]
+		[RequiredByFeature("GL_ARB_vertex_program")]
+		public static void GenProgramsARB(UInt32[] programs)
+		{
+			unsafe {
+				fixed (UInt32* p_programs = programs)
+				{
+					if        (Delegates.pglGenProgramsARB != null) {
+						Delegates.pglGenProgramsARB((Int32)programs.Length, p_programs);
+						CallLog("glGenProgramsARB({0}, {1})", programs.Length, programs);
+					} else if (Delegates.pglGenProgramsNV != null) {
+						Delegates.pglGenProgramsNV((Int32)programs.Length, p_programs);
+						CallLog("glGenProgramsNV({0}, {1})", programs.Length, programs);
 					} else
 						throw new NotImplementedException("glGenProgramsARB (and other aliases) are not implemented");
 				}

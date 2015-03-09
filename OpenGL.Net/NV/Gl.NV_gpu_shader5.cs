@@ -792,6 +792,36 @@ namespace OpenGL
 		}
 
 		/// <summary>
+		/// Binding for glProgramUniform1i64vNV.
+		/// </summary>
+		/// <param name="program">
+		/// A <see cref="T:UInt32"/>.
+		/// </param>
+		/// <param name="location">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="count">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="value">
+		/// A <see cref="T:Int64[]"/>.
+		/// </param>
+		[RequiredByFeature("GL_AMD_gpu_shader_int64")]
+		[RequiredByFeature("GL_NV_gpu_shader5")]
+		public static void ProgramUniform1NV(UInt32 program, Int32 location, Int64[] value)
+		{
+			unsafe {
+				fixed (Int64* p_value = value)
+				{
+					Debug.Assert(Delegates.pglProgramUniform1i64vNV != null, "pglProgramUniform1i64vNV not implemented");
+					Delegates.pglProgramUniform1i64vNV(program, location, (Int32)value.Length, p_value);
+					CallLog("glProgramUniform1i64vNV({0}, {1}, {2}, {3})", program, location, value.Length, value);
+				}
+			}
+			DebugCheckErrors();
+		}
+
+		/// <summary>
 		/// Binding for glProgramUniform2i64vNV.
 		/// </summary>
 		/// <param name="program">
@@ -1013,6 +1043,36 @@ namespace OpenGL
 					Debug.Assert(Delegates.pglProgramUniform1ui64vNV != null, "pglProgramUniform1ui64vNV not implemented");
 					Delegates.pglProgramUniform1ui64vNV(program, location, count, p_value);
 					CallLog("glProgramUniform1ui64vNV({0}, {1}, {2}, {3})", program, location, count, value);
+				}
+			}
+			DebugCheckErrors();
+		}
+
+		/// <summary>
+		/// Binding for glProgramUniform1ui64vNV.
+		/// </summary>
+		/// <param name="program">
+		/// A <see cref="T:UInt32"/>.
+		/// </param>
+		/// <param name="location">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="count">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="value">
+		/// A <see cref="T:UInt64[]"/>.
+		/// </param>
+		[RequiredByFeature("GL_AMD_gpu_shader_int64")]
+		[RequiredByFeature("GL_NV_gpu_shader5")]
+		public static void ProgramUniform1NV(UInt32 program, Int32 location, UInt64[] value)
+		{
+			unsafe {
+				fixed (UInt64* p_value = value)
+				{
+					Debug.Assert(Delegates.pglProgramUniform1ui64vNV != null, "pglProgramUniform1ui64vNV not implemented");
+					Delegates.pglProgramUniform1ui64vNV(program, location, (Int32)value.Length, p_value);
+					CallLog("glProgramUniform1ui64vNV({0}, {1}, {2}, {3})", program, location, value.Length, value);
 				}
 			}
 			DebugCheckErrors();

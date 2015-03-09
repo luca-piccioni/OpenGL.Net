@@ -68,7 +68,7 @@ namespace OpenGL
 		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="pointer">
-		/// A <see cref="T:IntPtr"/>.
+		/// A <see cref="T:Object"/>.
 		/// </param>
 		[RequiredByFeature("GL_ATI_element_array")]
 		public static void ElementPointerATI(int type, Object pointer)
@@ -103,7 +103,7 @@ namespace OpenGL
 		/// Binding for glDrawElementArrayATI.
 		/// </summary>
 		/// <param name="mode">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:PrimitiveType"/>.
 		/// </param>
 		/// <param name="count">
 		/// A <see cref="T:Int32"/>.
@@ -145,7 +145,7 @@ namespace OpenGL
 		/// Binding for glDrawRangeElementArrayATI.
 		/// </summary>
 		/// <param name="mode">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:PrimitiveType"/>.
 		/// </param>
 		/// <param name="start">
 		/// A <see cref="T:UInt32"/>.

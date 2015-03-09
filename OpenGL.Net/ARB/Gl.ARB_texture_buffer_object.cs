@@ -80,7 +80,7 @@ namespace OpenGL
 		/// Binding for glTexBufferARB.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:TextureTarget"/>.
 		/// </param>
 		/// <param name="internalformat">
 		/// A <see cref="T:int"/>.

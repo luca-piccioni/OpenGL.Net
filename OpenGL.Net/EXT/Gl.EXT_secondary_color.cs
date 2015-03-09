@@ -426,7 +426,7 @@ namespace OpenGL
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="type">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:ColorPointerType"/>.
 		/// </param>
 		/// <param name="stride">
 		/// A <see cref="T:Int32"/>.
@@ -456,7 +456,7 @@ namespace OpenGL
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="pointer">
-		/// A <see cref="T:IntPtr"/>.
+		/// A <see cref="T:Object"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_secondary_color")]
 		public static void SecondaryColorPointerEXT(Int32 size, int type, Int32 stride, Object pointer)
@@ -476,13 +476,13 @@ namespace OpenGL
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="type">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:ColorPointerType"/>.
 		/// </param>
 		/// <param name="stride">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="pointer">
-		/// A <see cref="T:IntPtr"/>.
+		/// A <see cref="T:Object"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_secondary_color")]
 		public static void SecondaryColorPointerEXT(Int32 size, ColorPointerType type, Int32 stride, Object pointer)

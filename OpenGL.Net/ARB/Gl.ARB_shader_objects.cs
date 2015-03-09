@@ -338,6 +338,35 @@ namespace OpenGL
 		}
 
 		/// <summary>
+		/// Binding for glShaderSourceARB.
+		/// </summary>
+		/// <param name="shaderObj">
+		/// A <see cref="T:UInt32"/>.
+		/// </param>
+		/// <param name="count">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="string">
+		/// A <see cref="T:String[]"/>.
+		/// </param>
+		/// <param name="length">
+		/// A <see cref="T:Int32[]"/>.
+		/// </param>
+		[RequiredByFeature("GL_ARB_shader_objects")]
+		public static void ShaderSourceARB(UInt32 shaderObj, String[] @string, Int32[] length)
+		{
+			unsafe {
+				fixed (Int32* p_length = length)
+				{
+					Debug.Assert(Delegates.pglShaderSourceARB != null, "pglShaderSourceARB not implemented");
+					Delegates.pglShaderSourceARB(shaderObj, (Int32)@string.Length, @string, p_length);
+					CallLog("glShaderSourceARB({0}, {1}, {2}, {3})", shaderObj, @string.Length, @string, length);
+				}
+			}
+			DebugCheckErrors();
+		}
+
+		/// <summary>
 		/// Binding for glCompileShaderARB.
 		/// </summary>
 		/// <param name="shaderObj">
@@ -1013,6 +1042,36 @@ namespace OpenGL
 					Debug.Assert(Delegates.pglGetAttachedObjectsARB != null, "pglGetAttachedObjectsARB not implemented");
 					Delegates.pglGetAttachedObjectsARB(containerObj, maxCount, p_count, p_obj);
 					CallLog("glGetAttachedObjectsARB({0}, {1}, {2}, {3})", containerObj, maxCount, count, obj);
+				}
+			}
+			DebugCheckErrors();
+		}
+
+		/// <summary>
+		/// Binding for glGetAttachedObjectsARB.
+		/// </summary>
+		/// <param name="containerObj">
+		/// A <see cref="T:UInt32"/>.
+		/// </param>
+		/// <param name="maxCount">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="count">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="obj">
+		/// A <see cref="T:UInt32[]"/>.
+		/// </param>
+		[RequiredByFeature("GL_ARB_shader_objects")]
+		public static void GetAttachedObjectARB(UInt32 containerObj, out Int32 count, UInt32[] obj)
+		{
+			unsafe {
+				fixed (Int32* p_count = &count)
+				fixed (UInt32* p_obj = obj)
+				{
+					Debug.Assert(Delegates.pglGetAttachedObjectsARB != null, "pglGetAttachedObjectsARB not implemented");
+					Delegates.pglGetAttachedObjectsARB(containerObj, (Int32)obj.Length, p_count, p_obj);
+					CallLog("glGetAttachedObjectsARB({0}, {1}, {2}, {3})", containerObj, obj.Length, count, obj);
 				}
 			}
 			DebugCheckErrors();

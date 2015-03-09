@@ -2164,6 +2164,41 @@ namespace OpenGL
 		}
 
 		/// <summary>
+		/// retrieve information about implementation-dependent support for internal formats
+		/// </summary>
+		/// <param name="target">
+		/// Indicates the usage of the internal format. target must be GL_TEXTURE_1D, GL_TEXTURE_1D_ARRAY, GL_TEXTURE_2D, 
+		/// GL_TEXTURE_2D_ARRAY, GL_TEXTURE_3D, GL_TEXTURE_CUBE_MAP, GL_TEXTURE_CUBE_MAP_ARRAY, GL_TEXTURE_RECTANGLE, 
+		/// GL_TEXTURE_BUFFER, GL_RENDERBUFFER, GL_TEXTURE_2D_MULTISAMPLE or GL_TEXTURE_2D_MULTISAMPLE_ARRAY.
+		/// </param>
+		/// <param name="internalformat">
+		/// Specifies the internal format about which to retrieve information.
+		/// </param>
+		/// <param name="pname">
+		/// Specifies the type of information to query.
+		/// </param>
+		/// <param name="bufSize">
+		/// Specifies the maximum number of basic machine units that may be written to params by the function.
+		/// </param>
+		/// <param name="params">
+		/// A <see cref="T:Int64[]"/>.
+		/// </param>
+		[RequiredByFeature("GL_VERSION_4_3")]
+		[RequiredByFeature("GL_ARB_internalformat_query2")]
+		public static void GetInternalformat(int target, int internalformat, int pname, Int64[] @params)
+		{
+			unsafe {
+				fixed (Int64* p_params = @params)
+				{
+					Debug.Assert(Delegates.pglGetInternalformati64v != null, "pglGetInternalformati64v not implemented");
+					Delegates.pglGetInternalformati64v(target, internalformat, pname, (Int32)@params.Length, p_params);
+					CallLog("glGetInternalformati64v({0}, {1}, {2}, {3}, {4})", target, internalformat, pname, @params.Length, @params);
+				}
+			}
+			DebugCheckErrors();
+		}
+
+		/// <summary>
 		/// invalidate a region of a texture image
 		/// </summary>
 		/// <param name="texture">
@@ -2286,6 +2321,33 @@ namespace OpenGL
 		}
 
 		/// <summary>
+		/// invalidate the content of some or all of a framebuffer's attachments
+		/// </summary>
+		/// <param name="target">
+		/// Specifies the target to which the framebuffer object is attached for glInvalidateFramebuffer.
+		/// </param>
+		/// <param name="numAttachments">
+		/// Specifies the number of entries in the attachments array.
+		/// </param>
+		/// <param name="attachments">
+		/// Specifies a pointer to an array identifying the attachments to be invalidated.
+		/// </param>
+		[RequiredByFeature("GL_VERSION_4_3")]
+		[RequiredByFeature("GL_ARB_invalidate_subdata")]
+		public static void InvalidateFramebuffer(int target, int[] attachments)
+		{
+			unsafe {
+				fixed (int* p_attachments = attachments)
+				{
+					Debug.Assert(Delegates.pglInvalidateFramebuffer != null, "pglInvalidateFramebuffer not implemented");
+					Delegates.pglInvalidateFramebuffer(target, (Int32)attachments.Length, p_attachments);
+					CallLog("glInvalidateFramebuffer({0}, {1}, {2})", target, attachments.Length, attachments);
+				}
+			}
+			DebugCheckErrors();
+		}
+
+		/// <summary>
 		/// invalidate the content of a region of some or all of a framebuffer's attachments
 		/// </summary>
 		/// <param name="target">
@@ -2320,6 +2382,45 @@ namespace OpenGL
 					Debug.Assert(Delegates.pglInvalidateSubFramebuffer != null, "pglInvalidateSubFramebuffer not implemented");
 					Delegates.pglInvalidateSubFramebuffer(target, numAttachments, p_attachments, x, y, width, height);
 					CallLog("glInvalidateSubFramebuffer({0}, {1}, {2}, {3}, {4}, {5}, {6})", target, numAttachments, attachments, x, y, width, height);
+				}
+			}
+			DebugCheckErrors();
+		}
+
+		/// <summary>
+		/// invalidate the content of a region of some or all of a framebuffer's attachments
+		/// </summary>
+		/// <param name="target">
+		/// Specifies the target to which the framebuffer object is attached for glInvalidateSubFramebuffer.
+		/// </param>
+		/// <param name="numAttachments">
+		/// Specifies the number of entries in the attachments array.
+		/// </param>
+		/// <param name="attachments">
+		/// Specifies a pointer to an array identifying the attachments to be invalidated.
+		/// </param>
+		/// <param name="x">
+		/// Specifies the X offset of the region to be invalidated.
+		/// </param>
+		/// <param name="y">
+		/// Specifies the Y offset of the region to be invalidated.
+		/// </param>
+		/// <param name="width">
+		/// Specifies the width of the region to be invalidated.
+		/// </param>
+		/// <param name="height">
+		/// Specifies the height of the region to be invalidated.
+		/// </param>
+		[RequiredByFeature("GL_VERSION_4_3")]
+		[RequiredByFeature("GL_ARB_invalidate_subdata")]
+		public static void InvalidateSubFramebuffer(int target, int[] attachments, Int32 x, Int32 y, Int32 width, Int32 height)
+		{
+			unsafe {
+				fixed (int* p_attachments = attachments)
+				{
+					Debug.Assert(Delegates.pglInvalidateSubFramebuffer != null, "pglInvalidateSubFramebuffer not implemented");
+					Delegates.pglInvalidateSubFramebuffer(target, (Int32)attachments.Length, p_attachments, x, y, width, height);
+					CallLog("glInvalidateSubFramebuffer({0}, {1}, {2}, {3}, {4}, {5}, {6})", target, attachments.Length, attachments, x, y, width, height);
 				}
 			}
 			DebugCheckErrors();
@@ -2592,6 +2693,50 @@ namespace OpenGL
 					Debug.Assert(Delegates.pglGetProgramResourceiv != null, "pglGetProgramResourceiv not implemented");
 					Delegates.pglGetProgramResourceiv(program, programInterface, index, propCount, p_props, bufSize, p_length, p_params);
 					CallLog("glGetProgramResourceiv({0}, {1}, {2}, {3}, {4}, {5}, {6}, {7})", program, programInterface, index, propCount, props, bufSize, length, @params);
+				}
+			}
+			DebugCheckErrors();
+		}
+
+		/// <summary>
+		/// retrieve values for multiple properties of a single active resource within a program object
+		/// </summary>
+		/// <param name="program">
+		/// The name of a program object whose resources to query.
+		/// </param>
+		/// <param name="programInterface">
+		/// A token identifying the interface within program containing the resource named name.
+		/// </param>
+		/// <param name="index">
+		/// A <see cref="T:UInt32"/>.
+		/// </param>
+		/// <param name="propCount">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="props">
+		/// A <see cref="T:int[]"/>.
+		/// </param>
+		/// <param name="bufSize">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="length">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="params">
+		/// A <see cref="T:Int32[]"/>.
+		/// </param>
+		[RequiredByFeature("GL_VERSION_4_3")]
+		[RequiredByFeature("GL_ARB_program_interface_query")]
+		public static void GetProgram(UInt32 program, int programInterface, UInt32 index, int[] props, out Int32 length, Int32[] @params)
+		{
+			unsafe {
+				fixed (int* p_props = props)
+				fixed (Int32* p_length = &length)
+				fixed (Int32* p_params = @params)
+				{
+					Debug.Assert(Delegates.pglGetProgramResourceiv != null, "pglGetProgramResourceiv not implemented");
+					Delegates.pglGetProgramResourceiv(program, programInterface, index, (Int32)props.Length, p_props, (Int32)@params.Length, p_length, p_params);
+					CallLog("glGetProgramResourceiv({0}, {1}, {2}, {3}, {4}, {5}, {6}, {7})", program, programInterface, index, props.Length, props, @params.Length, length, @params);
 				}
 			}
 			DebugCheckErrors();
@@ -3013,6 +3158,50 @@ namespace OpenGL
 		}
 
 		/// <summary>
+		/// control the reporting of debug messages in a debug context
+		/// </summary>
+		/// <param name="source">
+		/// The source of debug messages to enable or disable.
+		/// </param>
+		/// <param name="type">
+		/// The type of debug messages to enable or disable.
+		/// </param>
+		/// <param name="severity">
+		/// The severity of debug messages to enable or disable.
+		/// </param>
+		/// <param name="count">
+		/// The length of the array ids.
+		/// </param>
+		/// <param name="ids">
+		/// The address of an array of unsigned integers contianing the ids of the messages to enable or disable.
+		/// </param>
+		/// <param name="enabled">
+		/// A Boolean flag determining whether the selected messages should be enabled or disabled.
+		/// </param>
+		[RequiredByFeature("GL_VERSION_4_3")]
+		[RequiredByFeature("GL_KHR_debug")]
+		public static void DebugMessageControl(int source, int type, int severity, UInt32[] ids, bool enabled)
+		{
+			unsafe {
+				fixed (UInt32* p_ids = ids)
+				{
+					if        (Delegates.pglDebugMessageControl != null) {
+						Delegates.pglDebugMessageControl(source, type, severity, (Int32)ids.Length, p_ids, enabled);
+						CallLog("glDebugMessageControl({0}, {1}, {2}, {3}, {4}, {5})", source, type, severity, ids.Length, ids, enabled);
+					} else if (Delegates.pglDebugMessageControlARB != null) {
+						Delegates.pglDebugMessageControlARB(source, type, severity, (Int32)ids.Length, p_ids, enabled);
+						CallLog("glDebugMessageControlARB({0}, {1}, {2}, {3}, {4}, {5})", source, type, severity, ids.Length, ids, enabled);
+					} else if (Delegates.pglDebugMessageControlKHR != null) {
+						Delegates.pglDebugMessageControlKHR(source, type, severity, (Int32)ids.Length, p_ids, enabled);
+						CallLog("glDebugMessageControlKHR({0}, {1}, {2}, {3}, {4}, {5})", source, type, severity, ids.Length, ids, enabled);
+					} else
+						throw new NotImplementedException("glDebugMessageControl (and other aliases) are not implemented");
+				}
+			}
+			DebugCheckErrors();
+		}
+
+		/// <summary>
 		/// inject an application-supplied message into the debug message queue
 		/// </summary>
 		/// <param name="source">
@@ -3153,6 +3342,64 @@ namespace OpenGL
 					} else if (Delegates.pglGetDebugMessageLogKHR != null) {
 						retValue = Delegates.pglGetDebugMessageLogKHR(count, bufSize, p_sources, p_types, p_ids, p_severities, p_lengths, messageLog);
 						CallLog("glGetDebugMessageLogKHR({0}, {1}, {2}, {3}, {4}, {5}, {6}, {7}) = {8}", count, bufSize, sources, types, ids, severities, lengths, messageLog, retValue);
+					} else
+						throw new NotImplementedException("glGetDebugMessageLog (and other aliases) are not implemented");
+				}
+			}
+			DebugCheckErrors();
+
+			return (retValue);
+		}
+
+		/// <summary>
+		/// retrieve messages from the debug message log
+		/// </summary>
+		/// <param name="count">
+		/// The number of debug messages to retrieve from the log.
+		/// </param>
+		/// <param name="bufSize">
+		/// The size of the buffer whose address is given by messageLog.
+		/// </param>
+		/// <param name="sources">
+		/// The address of an array of variables to receive the sources of the retrieved messages.
+		/// </param>
+		/// <param name="types">
+		/// The address of an array of variables to receive the types of the retrieved messages.
+		/// </param>
+		/// <param name="ids">
+		/// The address of an array of unsigned integers to receive the ids of the retrieved messages.
+		/// </param>
+		/// <param name="severities">
+		/// The address of an array of variables to receive the severites of the retrieved messages.
+		/// </param>
+		/// <param name="lengths">
+		/// The address of an array of variables to receive the lengths of the received messages.
+		/// </param>
+		/// <param name="messageLog">
+		/// The address of an array of characters that will receive the messages.
+		/// </param>
+		[RequiredByFeature("GL_VERSION_4_3")]
+		[RequiredByFeature("GL_KHR_debug")]
+		public static UInt32 GetDebugMessageLog(Int32 bufSize, int[] sources, int[] types, UInt32[] ids, int[] severities, Int32[] lengths, [Out] StringBuilder messageLog)
+		{
+			UInt32 retValue;
+
+			unsafe {
+				fixed (int* p_sources = sources)
+				fixed (int* p_types = types)
+				fixed (UInt32* p_ids = ids)
+				fixed (int* p_severities = severities)
+				fixed (Int32* p_lengths = lengths)
+				{
+					if        (Delegates.pglGetDebugMessageLog != null) {
+						retValue = Delegates.pglGetDebugMessageLog((UInt32)sources.Length, bufSize, p_sources, p_types, p_ids, p_severities, p_lengths, messageLog);
+						CallLog("glGetDebugMessageLog({0}, {1}, {2}, {3}, {4}, {5}, {6}, {7}) = {8}", sources.Length, bufSize, sources, types, ids, severities, lengths, messageLog, retValue);
+					} else if (Delegates.pglGetDebugMessageLogARB != null) {
+						retValue = Delegates.pglGetDebugMessageLogARB((UInt32)sources.Length, bufSize, p_sources, p_types, p_ids, p_severities, p_lengths, messageLog);
+						CallLog("glGetDebugMessageLogARB({0}, {1}, {2}, {3}, {4}, {5}, {6}, {7}) = {8}", sources.Length, bufSize, sources, types, ids, severities, lengths, messageLog, retValue);
+					} else if (Delegates.pglGetDebugMessageLogKHR != null) {
+						retValue = Delegates.pglGetDebugMessageLogKHR((UInt32)sources.Length, bufSize, p_sources, p_types, p_ids, p_severities, p_lengths, messageLog);
+						CallLog("glGetDebugMessageLogKHR({0}, {1}, {2}, {3}, {4}, {5}, {6}, {7}) = {8}", sources.Length, bufSize, sources, types, ids, severities, lengths, messageLog, retValue);
 					} else
 						throw new NotImplementedException("glGetDebugMessageLog (and other aliases) are not implemented");
 				}

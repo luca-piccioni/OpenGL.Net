@@ -516,6 +516,34 @@ namespace OpenGL
 		}
 
 		/// <summary>
+		/// generate query object names
+		/// </summary>
+		/// <param name="n">
+		/// Specifies the number of query object names to be generated.
+		/// </param>
+		/// <param name="ids">
+		/// Specifies an array in which the generated query object names are stored.
+		/// </param>
+		[RequiredByFeature("GL_VERSION_1_5")]
+		public static void GenQueries(UInt32[] ids)
+		{
+			unsafe {
+				fixed (UInt32* p_ids = ids)
+				{
+					if        (Delegates.pglGenQueries != null) {
+						Delegates.pglGenQueries((Int32)ids.Length, p_ids);
+						CallLog("glGenQueries({0}, {1})", ids.Length, ids);
+					} else if (Delegates.pglGenQueriesARB != null) {
+						Delegates.pglGenQueriesARB((Int32)ids.Length, p_ids);
+						CallLog("glGenQueriesARB({0}, {1})", ids.Length, ids);
+					} else
+						throw new NotImplementedException("glGenQueries (and other aliases) are not implemented");
+				}
+			}
+			DebugCheckErrors();
+		}
+
+		/// <summary>
 		/// delete named query objects
 		/// </summary>
 		/// <param name="n">
@@ -537,6 +565,34 @@ namespace OpenGL
 					} else if (Delegates.pglDeleteQueriesARB != null) {
 						Delegates.pglDeleteQueriesARB(n, p_ids);
 						CallLog("glDeleteQueriesARB({0}, {1})", n, ids);
+					} else
+						throw new NotImplementedException("glDeleteQueries (and other aliases) are not implemented");
+				}
+			}
+			DebugCheckErrors();
+		}
+
+		/// <summary>
+		/// delete named query objects
+		/// </summary>
+		/// <param name="n">
+		/// Specifies the number of query objects to be deleted.
+		/// </param>
+		/// <param name="ids">
+		/// Specifies an array of query objects to be deleted.
+		/// </param>
+		[RequiredByFeature("GL_VERSION_1_5")]
+		public static void DeleteQueries(UInt32[] ids)
+		{
+			unsafe {
+				fixed (UInt32* p_ids = ids)
+				{
+					if        (Delegates.pglDeleteQueries != null) {
+						Delegates.pglDeleteQueries((Int32)ids.Length, p_ids);
+						CallLog("glDeleteQueries({0}, {1})", ids.Length, ids);
+					} else if (Delegates.pglDeleteQueriesARB != null) {
+						Delegates.pglDeleteQueriesARB((Int32)ids.Length, p_ids);
+						CallLog("glDeleteQueriesARB({0}, {1})", ids.Length, ids);
 					} else
 						throw new NotImplementedException("glDeleteQueries (and other aliases) are not implemented");
 				}
@@ -794,6 +850,34 @@ namespace OpenGL
 		}
 
 		/// <summary>
+		/// delete named buffer objects
+		/// </summary>
+		/// <param name="n">
+		/// Specifies the number of buffer objects to be deleted.
+		/// </param>
+		/// <param name="buffers">
+		/// Specifies an array of buffer objects to be deleted.
+		/// </param>
+		[RequiredByFeature("GL_VERSION_1_5")]
+		public static void DeleteBuffers(UInt32[] buffers)
+		{
+			unsafe {
+				fixed (UInt32* p_buffers = buffers)
+				{
+					if        (Delegates.pglDeleteBuffers != null) {
+						Delegates.pglDeleteBuffers((Int32)buffers.Length, p_buffers);
+						CallLog("glDeleteBuffers({0}, {1})", buffers.Length, buffers);
+					} else if (Delegates.pglDeleteBuffersARB != null) {
+						Delegates.pglDeleteBuffersARB((Int32)buffers.Length, p_buffers);
+						CallLog("glDeleteBuffersARB({0}, {1})", buffers.Length, buffers);
+					} else
+						throw new NotImplementedException("glDeleteBuffers (and other aliases) are not implemented");
+				}
+			}
+			DebugCheckErrors();
+		}
+
+		/// <summary>
 		/// generate buffer object names
 		/// </summary>
 		/// <param name="n">
@@ -815,6 +899,34 @@ namespace OpenGL
 					} else if (Delegates.pglGenBuffersARB != null) {
 						Delegates.pglGenBuffersARB(n, p_buffers);
 						CallLog("glGenBuffersARB({0}, {1})", n, buffers);
+					} else
+						throw new NotImplementedException("glGenBuffers (and other aliases) are not implemented");
+				}
+			}
+			DebugCheckErrors();
+		}
+
+		/// <summary>
+		/// generate buffer object names
+		/// </summary>
+		/// <param name="n">
+		/// Specifies the number of buffer object names to be generated.
+		/// </param>
+		/// <param name="buffers">
+		/// Specifies an array in which the generated buffer object names are stored.
+		/// </param>
+		[RequiredByFeature("GL_VERSION_1_5")]
+		public static void GenBuffers(UInt32[] buffers)
+		{
+			unsafe {
+				fixed (UInt32* p_buffers = buffers)
+				{
+					if        (Delegates.pglGenBuffers != null) {
+						Delegates.pglGenBuffers((Int32)buffers.Length, p_buffers);
+						CallLog("glGenBuffers({0}, {1})", buffers.Length, buffers);
+					} else if (Delegates.pglGenBuffersARB != null) {
+						Delegates.pglGenBuffersARB((Int32)buffers.Length, p_buffers);
+						CallLog("glGenBuffersARB({0}, {1})", buffers.Length, buffers);
 					} else
 						throw new NotImplementedException("glGenBuffers (and other aliases) are not implemented");
 				}

@@ -64,7 +64,7 @@ namespace OpenGL
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
 		/// <param name="pname">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:ListParameterName"/>.
 		/// </param>
 		/// <param name="params">
 		/// A <see cref="T:float[]"/>.
@@ -116,7 +116,7 @@ namespace OpenGL
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
 		/// <param name="pname">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:ListParameterName"/>.
 		/// </param>
 		/// <param name="params">
 		/// A <see cref="T:Int32[]"/>.
@@ -163,7 +163,7 @@ namespace OpenGL
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
 		/// <param name="pname">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:ListParameterName"/>.
 		/// </param>
 		/// <param name="param">
 		/// A <see cref="T:float"/>.
@@ -210,7 +210,7 @@ namespace OpenGL
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
 		/// <param name="pname">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:ListParameterName"/>.
 		/// </param>
 		/// <param name="params">
 		/// A <see cref="T:float[]"/>.
@@ -257,7 +257,7 @@ namespace OpenGL
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
 		/// <param name="pname">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:ListParameterName"/>.
 		/// </param>
 		/// <param name="param">
 		/// A <see cref="T:Int32"/>.
@@ -304,7 +304,7 @@ namespace OpenGL
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
 		/// <param name="pname">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:ListParameterName"/>.
 		/// </param>
 		/// <param name="params">
 		/// A <see cref="T:Int32[]"/>.

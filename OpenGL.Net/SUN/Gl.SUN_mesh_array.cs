@@ -65,7 +65,7 @@ namespace OpenGL
 		/// Binding for glDrawMeshArraysSUN.
 		/// </summary>
 		/// <param name="mode">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:PrimitiveType"/>.
 		/// </param>
 		/// <param name="first">
 		/// A <see cref="T:Int32"/>.

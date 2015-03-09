@@ -4806,7 +4806,7 @@ namespace OpenGL
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="data">
-		/// A <see cref="T:IntPtr"/>.
+		/// A <see cref="T:Object"/>.
 		/// </param>
 		public static void CompressedTexImage3DOES(int target, Int32 level, int internalformat, Int32 width, Int32 height, Int32 depth, Int32 border, Int32 imageSize, Object data)
 		{
@@ -4896,7 +4896,7 @@ namespace OpenGL
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="data">
-		/// A <see cref="T:IntPtr"/>.
+		/// A <see cref="T:Object"/>.
 		/// </param>
 		public static void CompressedTexSubImage3DOES(int target, Int32 level, Int32 xoffset, Int32 yoffset, Int32 zoffset, Int32 width, Int32 height, Int32 depth, int format, Int32 imageSize, Object data)
 		{
@@ -5162,6 +5162,31 @@ namespace OpenGL
 		}
 
 		/// <summary>
+		/// Binding for glCreateShaderProgramvEXT.
+		/// </summary>
+		/// <param name="type">
+		/// A <see cref="T:int"/>.
+		/// </param>
+		/// <param name="count">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="strings">
+		/// A <see cref="T:String[]"/>.
+		/// </param>
+		[RequiredByFeature("GL_EXT_separate_shader_objects")]
+		public static UInt32 CreateShaderProgramEXT(int type, String[] strings)
+		{
+			UInt32 retValue;
+
+			Debug.Assert(Delegates.pglCreateShaderProgramvEXT != null, "pglCreateShaderProgramvEXT not implemented");
+			retValue = Delegates.pglCreateShaderProgramvEXT(type, (Int32)strings.Length, strings);
+			CallLog("glCreateShaderProgramvEXT({0}, {1}, {2}) = {3}", type, strings.Length, strings, retValue);
+			DebugCheckErrors();
+
+			return (retValue);
+		}
+
+		/// <summary>
 		/// Binding for glCurrentPaletteMatrixOES.
 		/// </summary>
 		/// <param name="matrixpaletteindex">
@@ -5200,7 +5225,7 @@ namespace OpenGL
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		/// <param name="userParam">
-		/// A <see cref="T:IntPtr"/>.
+		/// A <see cref="T:Object"/>.
 		/// </param>
 		[RequiredByFeature("GL_KHR_debug")]
 		public static void DebugMessageCallbackKHR(IntPtr callback, Object userParam)
@@ -5302,6 +5327,28 @@ namespace OpenGL
 		}
 
 		/// <summary>
+		/// Binding for glDeleteFramebuffersOES.
+		/// </summary>
+		/// <param name="n">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="framebuffers">
+		/// A <see cref="T:UInt32[]"/>.
+		/// </param>
+		public static void DeleteFramebuffersOES(UInt32[] framebuffers)
+		{
+			unsafe {
+				fixed (UInt32* p_framebuffers = framebuffers)
+				{
+					Debug.Assert(Delegates.pglDeleteFramebuffersOES != null, "pglDeleteFramebuffersOES not implemented");
+					Delegates.pglDeleteFramebuffersOES((Int32)framebuffers.Length, p_framebuffers);
+					CallLog("glDeleteFramebuffersOES({0}, {1})", framebuffers.Length, framebuffers);
+				}
+			}
+			DebugCheckErrors();
+		}
+
+		/// <summary>
 		/// Binding for glDeleteProgramPipelinesEXT.
 		/// </summary>
 		/// <param name="n">
@@ -5320,6 +5367,29 @@ namespace OpenGL
 					Debug.Assert(Delegates.pglDeleteProgramPipelinesEXT != null, "pglDeleteProgramPipelinesEXT not implemented");
 					Delegates.pglDeleteProgramPipelinesEXT(n, p_pipelines);
 					CallLog("glDeleteProgramPipelinesEXT({0}, {1})", n, pipelines);
+				}
+			}
+			DebugCheckErrors();
+		}
+
+		/// <summary>
+		/// Binding for glDeleteProgramPipelinesEXT.
+		/// </summary>
+		/// <param name="n">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="pipelines">
+		/// A <see cref="T:UInt32[]"/>.
+		/// </param>
+		[RequiredByFeature("GL_EXT_separate_shader_objects")]
+		public static void DeleteProgramPipelinesEXT(UInt32[] pipelines)
+		{
+			unsafe {
+				fixed (UInt32* p_pipelines = pipelines)
+				{
+					Debug.Assert(Delegates.pglDeleteProgramPipelinesEXT != null, "pglDeleteProgramPipelinesEXT not implemented");
+					Delegates.pglDeleteProgramPipelinesEXT((Int32)pipelines.Length, p_pipelines);
+					CallLog("glDeleteProgramPipelinesEXT({0}, {1})", pipelines.Length, pipelines);
 				}
 			}
 			DebugCheckErrors();
@@ -5349,6 +5419,28 @@ namespace OpenGL
 		}
 
 		/// <summary>
+		/// Binding for glDeleteQueriesEXT.
+		/// </summary>
+		/// <param name="n">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="ids">
+		/// A <see cref="T:UInt32[]"/>.
+		/// </param>
+		public static void DeleteQueriesEXT(UInt32[] ids)
+		{
+			unsafe {
+				fixed (UInt32* p_ids = ids)
+				{
+					Debug.Assert(Delegates.pglDeleteQueriesEXT != null, "pglDeleteQueriesEXT not implemented");
+					Delegates.pglDeleteQueriesEXT((Int32)ids.Length, p_ids);
+					CallLog("glDeleteQueriesEXT({0}, {1})", ids.Length, ids);
+				}
+			}
+			DebugCheckErrors();
+		}
+
+		/// <summary>
 		/// Binding for glDeleteRenderbuffersOES.
 		/// </summary>
 		/// <param name="n">
@@ -5366,6 +5458,28 @@ namespace OpenGL
 					Debug.Assert(Delegates.pglDeleteRenderbuffersOES != null, "pglDeleteRenderbuffersOES not implemented");
 					Delegates.pglDeleteRenderbuffersOES(n, p_renderbuffers);
 					CallLog("glDeleteRenderbuffersOES({0}, {1})", n, renderbuffers);
+				}
+			}
+			DebugCheckErrors();
+		}
+
+		/// <summary>
+		/// Binding for glDeleteRenderbuffersOES.
+		/// </summary>
+		/// <param name="n">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="renderbuffers">
+		/// A <see cref="T:UInt32[]"/>.
+		/// </param>
+		public static void DeleteRenderbufferOES(UInt32[] renderbuffers)
+		{
+			unsafe {
+				fixed (UInt32* p_renderbuffers = renderbuffers)
+				{
+					Debug.Assert(Delegates.pglDeleteRenderbuffersOES != null, "pglDeleteRenderbuffersOES not implemented");
+					Delegates.pglDeleteRenderbuffersOES((Int32)renderbuffers.Length, p_renderbuffers);
+					CallLog("glDeleteRenderbuffersOES({0}, {1})", renderbuffers.Length, renderbuffers);
 				}
 			}
 			DebugCheckErrors();
@@ -5403,6 +5517,28 @@ namespace OpenGL
 					Debug.Assert(Delegates.pglDeleteVertexArraysOES != null, "pglDeleteVertexArraysOES not implemented");
 					Delegates.pglDeleteVertexArraysOES(n, p_arrays);
 					CallLog("glDeleteVertexArraysOES({0}, {1})", n, arrays);
+				}
+			}
+			DebugCheckErrors();
+		}
+
+		/// <summary>
+		/// Binding for glDeleteVertexArraysOES.
+		/// </summary>
+		/// <param name="n">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="arrays">
+		/// A <see cref="T:UInt32[]"/>.
+		/// </param>
+		public static void DeleteVertexArraysOES(UInt32[] arrays)
+		{
+			unsafe {
+				fixed (UInt32* p_arrays = arrays)
+				{
+					Debug.Assert(Delegates.pglDeleteVertexArraysOES != null, "pglDeleteVertexArraysOES not implemented");
+					Delegates.pglDeleteVertexArraysOES((Int32)arrays.Length, p_arrays);
+					CallLog("glDeleteVertexArraysOES({0}, {1})", arrays.Length, arrays);
 				}
 			}
 			DebugCheckErrors();
@@ -5562,6 +5698,31 @@ namespace OpenGL
 		}
 
 		/// <summary>
+		/// Binding for glDiscardFramebufferEXT.
+		/// </summary>
+		/// <param name="target">
+		/// A <see cref="T:int"/>.
+		/// </param>
+		/// <param name="numAttachments">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="attachments">
+		/// A <see cref="T:int[]"/>.
+		/// </param>
+		public static void DiscardFramebufferEXT(int target, int[] attachments)
+		{
+			unsafe {
+				fixed (int* p_attachments = attachments)
+				{
+					Debug.Assert(Delegates.pglDiscardFramebufferEXT != null, "pglDiscardFramebufferEXT not implemented");
+					Delegates.pglDiscardFramebufferEXT(target, (Int32)attachments.Length, p_attachments);
+					CallLog("glDiscardFramebufferEXT({0}, {1}, {2})", target, attachments.Length, attachments);
+				}
+			}
+			DebugCheckErrors();
+		}
+
+		/// <summary>
 		/// Binding for glDrawArraysInstancedANGLE.
 		/// </summary>
 		/// <param name="mode">
@@ -5588,7 +5749,7 @@ namespace OpenGL
 		/// Binding for glDrawArraysInstancedANGLE.
 		/// </summary>
 		/// <param name="mode">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:PrimitiveType"/>.
 		/// </param>
 		/// <param name="first">
 		/// A <see cref="T:Int32"/>.
@@ -5637,7 +5798,7 @@ namespace OpenGL
 		/// Binding for glDrawArraysInstancedBaseInstanceEXT.
 		/// </summary>
 		/// <param name="mode">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:PrimitiveType"/>.
 		/// </param>
 		/// <param name="first">
 		/// A <see cref="T:Int32"/>.
@@ -5686,7 +5847,7 @@ namespace OpenGL
 		/// Binding for glDrawArraysInstancedNV.
 		/// </summary>
 		/// <param name="mode">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:PrimitiveType"/>.
 		/// </param>
 		/// <param name="first">
 		/// A <see cref="T:Int32"/>.
@@ -5756,6 +5917,32 @@ namespace OpenGL
 		}
 
 		/// <summary>
+		/// Binding for glDrawBuffersIndexedEXT.
+		/// </summary>
+		/// <param name="n">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="location">
+		/// A <see cref="T:int[]"/>.
+		/// </param>
+		/// <param name="indices">
+		/// A <see cref="T:Int32[]"/>.
+		/// </param>
+		public static void DrawBuffersIndexedEXT(int[] location, Int32[] indices)
+		{
+			unsafe {
+				fixed (int* p_location = location)
+				fixed (Int32* p_indices = indices)
+				{
+					Debug.Assert(Delegates.pglDrawBuffersIndexedEXT != null, "pglDrawBuffersIndexedEXT not implemented");
+					Delegates.pglDrawBuffersIndexedEXT((Int32)location.Length, p_location, p_indices);
+					CallLog("glDrawBuffersIndexedEXT({0}, {1}, {2})", location.Length, location, indices);
+				}
+			}
+			DebugCheckErrors();
+		}
+
+		/// <summary>
 		/// Binding for glDrawBuffersNV.
 		/// </summary>
 		/// <param name="n">
@@ -5773,6 +5960,28 @@ namespace OpenGL
 					Debug.Assert(Delegates.pglDrawBuffersNV != null, "pglDrawBuffersNV not implemented");
 					Delegates.pglDrawBuffersNV(n, p_bufs);
 					CallLog("glDrawBuffersNV({0}, {1})", n, bufs);
+				}
+			}
+			DebugCheckErrors();
+		}
+
+		/// <summary>
+		/// Binding for glDrawBuffersNV.
+		/// </summary>
+		/// <param name="n">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="bufs">
+		/// A <see cref="T:int[]"/>.
+		/// </param>
+		public static void DrawBuffersNV(int[] bufs)
+		{
+			unsafe {
+				fixed (int* p_bufs = bufs)
+				{
+					Debug.Assert(Delegates.pglDrawBuffersNV != null, "pglDrawBuffersNV not implemented");
+					Delegates.pglDrawBuffersNV((Int32)bufs.Length, p_bufs);
+					CallLog("glDrawBuffersNV({0}, {1})", bufs.Length, bufs);
 				}
 			}
 			DebugCheckErrors();
@@ -5808,7 +6017,7 @@ namespace OpenGL
 		/// Binding for glDrawElementsBaseVertexEXT.
 		/// </summary>
 		/// <param name="mode">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:PrimitiveType"/>.
 		/// </param>
 		/// <param name="count">
 		/// A <see cref="T:Int32"/>.
@@ -5843,7 +6052,7 @@ namespace OpenGL
 		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="indices">
-		/// A <see cref="T:IntPtr"/>.
+		/// A <see cref="T:Object"/>.
 		/// </param>
 		/// <param name="basevertex">
 		/// A <see cref="T:Int32"/>.
@@ -5862,7 +6071,7 @@ namespace OpenGL
 		/// Binding for glDrawElementsBaseVertexEXT.
 		/// </summary>
 		/// <param name="mode">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:PrimitiveType"/>.
 		/// </param>
 		/// <param name="count">
 		/// A <see cref="T:Int32"/>.
@@ -5871,7 +6080,7 @@ namespace OpenGL
 		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="indices">
-		/// A <see cref="T:IntPtr"/>.
+		/// A <see cref="T:Object"/>.
 		/// </param>
 		/// <param name="basevertex">
 		/// A <see cref="T:Int32"/>.
@@ -5916,7 +6125,7 @@ namespace OpenGL
 		/// Binding for glDrawElementsBaseVertexOES.
 		/// </summary>
 		/// <param name="mode">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:PrimitiveType"/>.
 		/// </param>
 		/// <param name="count">
 		/// A <see cref="T:Int32"/>.
@@ -5951,7 +6160,7 @@ namespace OpenGL
 		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="indices">
-		/// A <see cref="T:IntPtr"/>.
+		/// A <see cref="T:Object"/>.
 		/// </param>
 		/// <param name="basevertex">
 		/// A <see cref="T:Int32"/>.
@@ -5970,7 +6179,7 @@ namespace OpenGL
 		/// Binding for glDrawElementsBaseVertexOES.
 		/// </summary>
 		/// <param name="mode">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:PrimitiveType"/>.
 		/// </param>
 		/// <param name="count">
 		/// A <see cref="T:Int32"/>.
@@ -5979,7 +6188,7 @@ namespace OpenGL
 		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="indices">
-		/// A <see cref="T:IntPtr"/>.
+		/// A <see cref="T:Object"/>.
 		/// </param>
 		/// <param name="basevertex">
 		/// A <see cref="T:Int32"/>.
@@ -6024,7 +6233,7 @@ namespace OpenGL
 		/// Binding for glDrawElementsInstancedANGLE.
 		/// </summary>
 		/// <param name="mode">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:PrimitiveType"/>.
 		/// </param>
 		/// <param name="count">
 		/// A <see cref="T:Int32"/>.
@@ -6059,7 +6268,7 @@ namespace OpenGL
 		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="indices">
-		/// A <see cref="T:IntPtr"/>.
+		/// A <see cref="T:Object"/>.
 		/// </param>
 		/// <param name="primcount">
 		/// A <see cref="T:Int32"/>.
@@ -6078,7 +6287,7 @@ namespace OpenGL
 		/// Binding for glDrawElementsInstancedANGLE.
 		/// </summary>
 		/// <param name="mode">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:PrimitiveType"/>.
 		/// </param>
 		/// <param name="count">
 		/// A <see cref="T:Int32"/>.
@@ -6087,7 +6296,7 @@ namespace OpenGL
 		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="indices">
-		/// A <see cref="T:IntPtr"/>.
+		/// A <see cref="T:Object"/>.
 		/// </param>
 		/// <param name="primcount">
 		/// A <see cref="T:Int32"/>.
@@ -6135,7 +6344,7 @@ namespace OpenGL
 		/// Binding for glDrawElementsInstancedBaseInstanceEXT.
 		/// </summary>
 		/// <param name="mode">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:PrimitiveType"/>.
 		/// </param>
 		/// <param name="count">
 		/// A <see cref="T:Int32"/>.
@@ -6173,7 +6382,7 @@ namespace OpenGL
 		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="indices">
-		/// A <see cref="T:IntPtr"/>.
+		/// A <see cref="T:Object"/>.
 		/// </param>
 		/// <param name="instancecount">
 		/// A <see cref="T:Int32"/>.
@@ -6195,7 +6404,7 @@ namespace OpenGL
 		/// Binding for glDrawElementsInstancedBaseInstanceEXT.
 		/// </summary>
 		/// <param name="mode">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:PrimitiveType"/>.
 		/// </param>
 		/// <param name="count">
 		/// A <see cref="T:Int32"/>.
@@ -6204,7 +6413,7 @@ namespace OpenGL
 		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="indices">
-		/// A <see cref="T:IntPtr"/>.
+		/// A <see cref="T:Object"/>.
 		/// </param>
 		/// <param name="instancecount">
 		/// A <see cref="T:Int32"/>.
@@ -6255,7 +6464,7 @@ namespace OpenGL
 		/// Binding for glDrawElementsInstancedBaseVertexEXT.
 		/// </summary>
 		/// <param name="mode">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:PrimitiveType"/>.
 		/// </param>
 		/// <param name="count">
 		/// A <see cref="T:Int32"/>.
@@ -6293,7 +6502,7 @@ namespace OpenGL
 		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="indices">
-		/// A <see cref="T:IntPtr"/>.
+		/// A <see cref="T:Object"/>.
 		/// </param>
 		/// <param name="instancecount">
 		/// A <see cref="T:Int32"/>.
@@ -6315,7 +6524,7 @@ namespace OpenGL
 		/// Binding for glDrawElementsInstancedBaseVertexEXT.
 		/// </summary>
 		/// <param name="mode">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:PrimitiveType"/>.
 		/// </param>
 		/// <param name="count">
 		/// A <see cref="T:Int32"/>.
@@ -6324,7 +6533,7 @@ namespace OpenGL
 		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="indices">
-		/// A <see cref="T:IntPtr"/>.
+		/// A <see cref="T:Object"/>.
 		/// </param>
 		/// <param name="instancecount">
 		/// A <see cref="T:Int32"/>.
@@ -6375,7 +6584,7 @@ namespace OpenGL
 		/// Binding for glDrawElementsInstancedBaseVertexOES.
 		/// </summary>
 		/// <param name="mode">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:PrimitiveType"/>.
 		/// </param>
 		/// <param name="count">
 		/// A <see cref="T:Int32"/>.
@@ -6413,7 +6622,7 @@ namespace OpenGL
 		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="indices">
-		/// A <see cref="T:IntPtr"/>.
+		/// A <see cref="T:Object"/>.
 		/// </param>
 		/// <param name="instancecount">
 		/// A <see cref="T:Int32"/>.
@@ -6435,7 +6644,7 @@ namespace OpenGL
 		/// Binding for glDrawElementsInstancedBaseVertexOES.
 		/// </summary>
 		/// <param name="mode">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:PrimitiveType"/>.
 		/// </param>
 		/// <param name="count">
 		/// A <see cref="T:Int32"/>.
@@ -6444,7 +6653,7 @@ namespace OpenGL
 		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="indices">
-		/// A <see cref="T:IntPtr"/>.
+		/// A <see cref="T:Object"/>.
 		/// </param>
 		/// <param name="instancecount">
 		/// A <see cref="T:Int32"/>.
@@ -6498,7 +6707,7 @@ namespace OpenGL
 		/// Binding for glDrawElementsInstancedBaseVertexBaseInstanceEXT.
 		/// </summary>
 		/// <param name="mode">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:PrimitiveType"/>.
 		/// </param>
 		/// <param name="count">
 		/// A <see cref="T:Int32"/>.
@@ -6539,7 +6748,7 @@ namespace OpenGL
 		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="indices">
-		/// A <see cref="T:IntPtr"/>.
+		/// A <see cref="T:Object"/>.
 		/// </param>
 		/// <param name="instancecount">
 		/// A <see cref="T:Int32"/>.
@@ -6564,7 +6773,7 @@ namespace OpenGL
 		/// Binding for glDrawElementsInstancedBaseVertexBaseInstanceEXT.
 		/// </summary>
 		/// <param name="mode">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:PrimitiveType"/>.
 		/// </param>
 		/// <param name="count">
 		/// A <see cref="T:Int32"/>.
@@ -6573,7 +6782,7 @@ namespace OpenGL
 		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="indices">
-		/// A <see cref="T:IntPtr"/>.
+		/// A <see cref="T:Object"/>.
 		/// </param>
 		/// <param name="instancecount">
 		/// A <see cref="T:Int32"/>.
@@ -6624,7 +6833,7 @@ namespace OpenGL
 		/// Binding for glDrawElementsInstancedNV.
 		/// </summary>
 		/// <param name="mode">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:PrimitiveType"/>.
 		/// </param>
 		/// <param name="count">
 		/// A <see cref="T:Int32"/>.
@@ -6659,7 +6868,7 @@ namespace OpenGL
 		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="indices">
-		/// A <see cref="T:IntPtr"/>.
+		/// A <see cref="T:Object"/>.
 		/// </param>
 		/// <param name="primcount">
 		/// A <see cref="T:Int32"/>.
@@ -6678,7 +6887,7 @@ namespace OpenGL
 		/// Binding for glDrawElementsInstancedNV.
 		/// </summary>
 		/// <param name="mode">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:PrimitiveType"/>.
 		/// </param>
 		/// <param name="count">
 		/// A <see cref="T:Int32"/>.
@@ -6687,7 +6896,7 @@ namespace OpenGL
 		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="indices">
-		/// A <see cref="T:IntPtr"/>.
+		/// A <see cref="T:Object"/>.
 		/// </param>
 		/// <param name="primcount">
 		/// A <see cref="T:Int32"/>.
@@ -6738,7 +6947,7 @@ namespace OpenGL
 		/// Binding for glDrawRangeElementsBaseVertexEXT.
 		/// </summary>
 		/// <param name="mode">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:PrimitiveType"/>.
 		/// </param>
 		/// <param name="start">
 		/// A <see cref="T:UInt32"/>.
@@ -6785,7 +6994,7 @@ namespace OpenGL
 		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="indices">
-		/// A <see cref="T:IntPtr"/>.
+		/// A <see cref="T:Object"/>.
 		/// </param>
 		/// <param name="basevertex">
 		/// A <see cref="T:Int32"/>.
@@ -6804,7 +7013,7 @@ namespace OpenGL
 		/// Binding for glDrawRangeElementsBaseVertexEXT.
 		/// </summary>
 		/// <param name="mode">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:PrimitiveType"/>.
 		/// </param>
 		/// <param name="start">
 		/// A <see cref="T:UInt32"/>.
@@ -6819,7 +7028,7 @@ namespace OpenGL
 		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="indices">
-		/// A <see cref="T:IntPtr"/>.
+		/// A <see cref="T:Object"/>.
 		/// </param>
 		/// <param name="basevertex">
 		/// A <see cref="T:Int32"/>.
@@ -6870,7 +7079,7 @@ namespace OpenGL
 		/// Binding for glDrawRangeElementsBaseVertexOES.
 		/// </summary>
 		/// <param name="mode">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:PrimitiveType"/>.
 		/// </param>
 		/// <param name="start">
 		/// A <see cref="T:UInt32"/>.
@@ -6917,7 +7126,7 @@ namespace OpenGL
 		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="indices">
-		/// A <see cref="T:IntPtr"/>.
+		/// A <see cref="T:Object"/>.
 		/// </param>
 		/// <param name="basevertex">
 		/// A <see cref="T:Int32"/>.
@@ -6936,7 +7145,7 @@ namespace OpenGL
 		/// Binding for glDrawRangeElementsBaseVertexOES.
 		/// </summary>
 		/// <param name="mode">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:PrimitiveType"/>.
 		/// </param>
 		/// <param name="start">
 		/// A <see cref="T:UInt32"/>.
@@ -6951,7 +7160,7 @@ namespace OpenGL
 		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="indices">
-		/// A <see cref="T:IntPtr"/>.
+		/// A <see cref="T:Object"/>.
 		/// </param>
 		/// <param name="basevertex">
 		/// A <see cref="T:Int32"/>.
@@ -7318,6 +7527,32 @@ namespace OpenGL
 		}
 
 		/// <summary>
+		/// Binding for glExtGetBuffersQCOM.
+		/// </summary>
+		/// <param name="buffers">
+		/// A <see cref="T:UInt32[]"/>.
+		/// </param>
+		/// <param name="maxBuffers">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="numBuffers">
+		/// A <see cref="T:Int32[]"/>.
+		/// </param>
+		public static void ExtGetBuffersQCOM(UInt32[] buffers, Int32[] numBuffers)
+		{
+			unsafe {
+				fixed (UInt32* p_buffers = buffers)
+				fixed (Int32* p_numBuffers = numBuffers)
+				{
+					Debug.Assert(Delegates.pglExtGetBuffersQCOM != null, "pglExtGetBuffersQCOM not implemented");
+					Delegates.pglExtGetBuffersQCOM(p_buffers, (Int32)buffers.Length, p_numBuffers);
+					CallLog("glExtGetBuffersQCOM({0}, {1}, {2})", buffers, buffers.Length, numBuffers);
+				}
+			}
+			DebugCheckErrors();
+		}
+
+		/// <summary>
 		/// Binding for glExtGetFramebuffersQCOM.
 		/// </summary>
 		/// <param name="framebuffers">
@@ -7339,6 +7574,32 @@ namespace OpenGL
 					Debug.Assert(Delegates.pglExtGetFramebuffersQCOM != null, "pglExtGetFramebuffersQCOM not implemented");
 					Delegates.pglExtGetFramebuffersQCOM(p_framebuffers, maxFramebuffers, p_numFramebuffers);
 					CallLog("glExtGetFramebuffersQCOM({0}, {1}, {2})", framebuffers, maxFramebuffers, numFramebuffers);
+				}
+			}
+			DebugCheckErrors();
+		}
+
+		/// <summary>
+		/// Binding for glExtGetFramebuffersQCOM.
+		/// </summary>
+		/// <param name="framebuffers">
+		/// A <see cref="T:UInt32[]"/>.
+		/// </param>
+		/// <param name="maxFramebuffers">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="numFramebuffers">
+		/// A <see cref="T:Int32[]"/>.
+		/// </param>
+		public static void ExtGetFramebuffersQCOM(UInt32[] framebuffers, Int32[] numFramebuffers)
+		{
+			unsafe {
+				fixed (UInt32* p_framebuffers = framebuffers)
+				fixed (Int32* p_numFramebuffers = numFramebuffers)
+				{
+					Debug.Assert(Delegates.pglExtGetFramebuffersQCOM != null, "pglExtGetFramebuffersQCOM not implemented");
+					Delegates.pglExtGetFramebuffersQCOM(p_framebuffers, (Int32)framebuffers.Length, p_numFramebuffers);
+					CallLog("glExtGetFramebuffersQCOM({0}, {1}, {2})", framebuffers, framebuffers.Length, numFramebuffers);
 				}
 			}
 			DebugCheckErrors();
@@ -7400,6 +7661,32 @@ namespace OpenGL
 		}
 
 		/// <summary>
+		/// Binding for glExtGetProgramsQCOM.
+		/// </summary>
+		/// <param name="programs">
+		/// A <see cref="T:UInt32[]"/>.
+		/// </param>
+		/// <param name="maxPrograms">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="numPrograms">
+		/// A <see cref="T:Int32[]"/>.
+		/// </param>
+		public static void ExtGetProgramsQCOM(UInt32[] programs, Int32[] numPrograms)
+		{
+			unsafe {
+				fixed (UInt32* p_programs = programs)
+				fixed (Int32* p_numPrograms = numPrograms)
+				{
+					Debug.Assert(Delegates.pglExtGetProgramsQCOM != null, "pglExtGetProgramsQCOM not implemented");
+					Delegates.pglExtGetProgramsQCOM(p_programs, (Int32)programs.Length, p_numPrograms);
+					CallLog("glExtGetProgramsQCOM({0}, {1}, {2})", programs, programs.Length, numPrograms);
+				}
+			}
+			DebugCheckErrors();
+		}
+
+		/// <summary>
 		/// Binding for glExtGetRenderbuffersQCOM.
 		/// </summary>
 		/// <param name="renderbuffers">
@@ -7427,6 +7714,32 @@ namespace OpenGL
 		}
 
 		/// <summary>
+		/// Binding for glExtGetRenderbuffersQCOM.
+		/// </summary>
+		/// <param name="renderbuffers">
+		/// A <see cref="T:UInt32[]"/>.
+		/// </param>
+		/// <param name="maxRenderbuffers">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="numRenderbuffers">
+		/// A <see cref="T:Int32[]"/>.
+		/// </param>
+		public static void ExtGetRenderbuffersQCOM(UInt32[] renderbuffers, Int32[] numRenderbuffers)
+		{
+			unsafe {
+				fixed (UInt32* p_renderbuffers = renderbuffers)
+				fixed (Int32* p_numRenderbuffers = numRenderbuffers)
+				{
+					Debug.Assert(Delegates.pglExtGetRenderbuffersQCOM != null, "pglExtGetRenderbuffersQCOM not implemented");
+					Delegates.pglExtGetRenderbuffersQCOM(p_renderbuffers, (Int32)renderbuffers.Length, p_numRenderbuffers);
+					CallLog("glExtGetRenderbuffersQCOM({0}, {1}, {2})", renderbuffers, renderbuffers.Length, numRenderbuffers);
+				}
+			}
+			DebugCheckErrors();
+		}
+
+		/// <summary>
 		/// Binding for glExtGetShadersQCOM.
 		/// </summary>
 		/// <param name="shaders">
@@ -7448,6 +7761,32 @@ namespace OpenGL
 					Debug.Assert(Delegates.pglExtGetShadersQCOM != null, "pglExtGetShadersQCOM not implemented");
 					Delegates.pglExtGetShadersQCOM(p_shaders, maxShaders, p_numShaders);
 					CallLog("glExtGetShadersQCOM({0}, {1}, {2})", shaders, maxShaders, numShaders);
+				}
+			}
+			DebugCheckErrors();
+		}
+
+		/// <summary>
+		/// Binding for glExtGetShadersQCOM.
+		/// </summary>
+		/// <param name="shaders">
+		/// A <see cref="T:UInt32[]"/>.
+		/// </param>
+		/// <param name="maxShaders">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="numShaders">
+		/// A <see cref="T:Int32[]"/>.
+		/// </param>
+		public static void ExtGetShadersQCOM(UInt32[] shaders, Int32[] numShaders)
+		{
+			unsafe {
+				fixed (UInt32* p_shaders = shaders)
+				fixed (Int32* p_numShaders = numShaders)
+				{
+					Debug.Assert(Delegates.pglExtGetShadersQCOM != null, "pglExtGetShadersQCOM not implemented");
+					Delegates.pglExtGetShadersQCOM(p_shaders, (Int32)shaders.Length, p_numShaders);
+					CallLog("glExtGetShadersQCOM({0}, {1}, {2})", shaders, shaders.Length, numShaders);
 				}
 			}
 			DebugCheckErrors();
@@ -7913,6 +8252,28 @@ namespace OpenGL
 		}
 
 		/// <summary>
+		/// Binding for glGenFramebuffersOES.
+		/// </summary>
+		/// <param name="n">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="framebuffers">
+		/// A <see cref="T:UInt32[]"/>.
+		/// </param>
+		public static void GenFramebuffersOES(UInt32[] framebuffers)
+		{
+			unsafe {
+				fixed (UInt32* p_framebuffers = framebuffers)
+				{
+					Debug.Assert(Delegates.pglGenFramebuffersOES != null, "pglGenFramebuffersOES not implemented");
+					Delegates.pglGenFramebuffersOES((Int32)framebuffers.Length, p_framebuffers);
+					CallLog("glGenFramebuffersOES({0}, {1})", framebuffers.Length, framebuffers);
+				}
+			}
+			DebugCheckErrors();
+		}
+
+		/// <summary>
 		/// Binding for glGenProgramPipelinesEXT.
 		/// </summary>
 		/// <param name="n">
@@ -7931,6 +8292,29 @@ namespace OpenGL
 					Debug.Assert(Delegates.pglGenProgramPipelinesEXT != null, "pglGenProgramPipelinesEXT not implemented");
 					Delegates.pglGenProgramPipelinesEXT(n, p_pipelines);
 					CallLog("glGenProgramPipelinesEXT({0}, {1})", n, pipelines);
+				}
+			}
+			DebugCheckErrors();
+		}
+
+		/// <summary>
+		/// Binding for glGenProgramPipelinesEXT.
+		/// </summary>
+		/// <param name="n">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="pipelines">
+		/// A <see cref="T:UInt32[]"/>.
+		/// </param>
+		[RequiredByFeature("GL_EXT_separate_shader_objects")]
+		public static void GenProgramPipelinesEXT(UInt32[] pipelines)
+		{
+			unsafe {
+				fixed (UInt32* p_pipelines = pipelines)
+				{
+					Debug.Assert(Delegates.pglGenProgramPipelinesEXT != null, "pglGenProgramPipelinesEXT not implemented");
+					Delegates.pglGenProgramPipelinesEXT((Int32)pipelines.Length, p_pipelines);
+					CallLog("glGenProgramPipelinesEXT({0}, {1})", pipelines.Length, pipelines);
 				}
 			}
 			DebugCheckErrors();
@@ -7960,6 +8344,28 @@ namespace OpenGL
 		}
 
 		/// <summary>
+		/// Binding for glGenQueriesEXT.
+		/// </summary>
+		/// <param name="n">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="ids">
+		/// A <see cref="T:UInt32[]"/>.
+		/// </param>
+		public static void GenQueriesEXT(UInt32[] ids)
+		{
+			unsafe {
+				fixed (UInt32* p_ids = ids)
+				{
+					Debug.Assert(Delegates.pglGenQueriesEXT != null, "pglGenQueriesEXT not implemented");
+					Delegates.pglGenQueriesEXT((Int32)ids.Length, p_ids);
+					CallLog("glGenQueriesEXT({0}, {1})", ids.Length, ids);
+				}
+			}
+			DebugCheckErrors();
+		}
+
+		/// <summary>
 		/// Binding for glGenRenderbuffersOES.
 		/// </summary>
 		/// <param name="n">
@@ -7983,6 +8389,28 @@ namespace OpenGL
 		}
 
 		/// <summary>
+		/// Binding for glGenRenderbuffersOES.
+		/// </summary>
+		/// <param name="n">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="renderbuffers">
+		/// A <see cref="T:UInt32[]"/>.
+		/// </param>
+		public static void GenRenderbufferOES(UInt32[] renderbuffers)
+		{
+			unsafe {
+				fixed (UInt32* p_renderbuffers = renderbuffers)
+				{
+					Debug.Assert(Delegates.pglGenRenderbuffersOES != null, "pglGenRenderbuffersOES not implemented");
+					Delegates.pglGenRenderbuffersOES((Int32)renderbuffers.Length, p_renderbuffers);
+					CallLog("glGenRenderbuffersOES({0}, {1})", renderbuffers.Length, renderbuffers);
+				}
+			}
+			DebugCheckErrors();
+		}
+
+		/// <summary>
 		/// Binding for glGenVertexArraysOES.
 		/// </summary>
 		/// <param name="n">
@@ -8000,6 +8428,28 @@ namespace OpenGL
 					Debug.Assert(Delegates.pglGenVertexArraysOES != null, "pglGenVertexArraysOES not implemented");
 					Delegates.pglGenVertexArraysOES(n, p_arrays);
 					CallLog("glGenVertexArraysOES({0}, {1})", n, arrays);
+				}
+			}
+			DebugCheckErrors();
+		}
+
+		/// <summary>
+		/// Binding for glGenVertexArraysOES.
+		/// </summary>
+		/// <param name="n">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="arrays">
+		/// A <see cref="T:UInt32[]"/>.
+		/// </param>
+		public static void GenVertexArraysOES(UInt32[] arrays)
+		{
+			unsafe {
+				fixed (UInt32* p_arrays = arrays)
+				{
+					Debug.Assert(Delegates.pglGenVertexArraysOES != null, "pglGenVertexArraysOES not implemented");
+					Delegates.pglGenVertexArraysOES((Int32)arrays.Length, p_arrays);
+					CallLog("glGenVertexArraysOES({0}, {1})", arrays.Length, arrays);
 				}
 			}
 			DebugCheckErrors();
@@ -8138,6 +8588,55 @@ namespace OpenGL
 		}
 
 		/// <summary>
+		/// Binding for glGetDebugMessageLogKHR.
+		/// </summary>
+		/// <param name="count">
+		/// A <see cref="T:UInt32"/>.
+		/// </param>
+		/// <param name="bufSize">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="sources">
+		/// A <see cref="T:int[]"/>.
+		/// </param>
+		/// <param name="types">
+		/// A <see cref="T:int[]"/>.
+		/// </param>
+		/// <param name="ids">
+		/// A <see cref="T:UInt32[]"/>.
+		/// </param>
+		/// <param name="severities">
+		/// A <see cref="T:int[]"/>.
+		/// </param>
+		/// <param name="lengths">
+		/// A <see cref="T:Int32[]"/>.
+		/// </param>
+		/// <param name="messageLog">
+		/// A <see cref="T:StringBuilder"/>.
+		/// </param>
+		[RequiredByFeature("GL_KHR_debug")]
+		public static UInt32 GetDebugMessageLogKHR(Int32 bufSize, int[] sources, int[] types, UInt32[] ids, int[] severities, Int32[] lengths, [Out] StringBuilder messageLog)
+		{
+			UInt32 retValue;
+
+			unsafe {
+				fixed (int* p_sources = sources)
+				fixed (int* p_types = types)
+				fixed (UInt32* p_ids = ids)
+				fixed (int* p_severities = severities)
+				fixed (Int32* p_lengths = lengths)
+				{
+					Debug.Assert(Delegates.pglGetDebugMessageLogKHR != null, "pglGetDebugMessageLogKHR not implemented");
+					retValue = Delegates.pglGetDebugMessageLogKHR((UInt32)sources.Length, bufSize, p_sources, p_types, p_ids, p_severities, p_lengths, messageLog);
+					CallLog("glGetDebugMessageLogKHR({0}, {1}, {2}, {3}, {4}, {5}, {6}, {7}) = {8}", sources.Length, bufSize, sources, types, ids, severities, lengths, messageLog, retValue);
+				}
+			}
+			DebugCheckErrors();
+
+			return (retValue);
+		}
+
+		/// <summary>
 		/// Binding for glGetDriverControlStringQCOM.
 		/// </summary>
 		/// <param name="driverControl">
@@ -8187,6 +8686,32 @@ namespace OpenGL
 					Debug.Assert(Delegates.pglGetDriverControlsQCOM != null, "pglGetDriverControlsQCOM not implemented");
 					Delegates.pglGetDriverControlsQCOM(p_num, size, p_driverControls);
 					CallLog("glGetDriverControlsQCOM({0}, {1}, {2})", num, size, driverControls);
+				}
+			}
+			DebugCheckErrors();
+		}
+
+		/// <summary>
+		/// Binding for glGetDriverControlsQCOM.
+		/// </summary>
+		/// <param name="num">
+		/// A <see cref="T:Int32[]"/>.
+		/// </param>
+		/// <param name="size">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="driverControls">
+		/// A <see cref="T:UInt32[]"/>.
+		/// </param>
+		public static void GetDriverControlsQCOM(Int32[] num, UInt32[] driverControls)
+		{
+			unsafe {
+				fixed (Int32* p_num = num)
+				fixed (UInt32* p_driverControls = driverControls)
+				{
+					Debug.Assert(Delegates.pglGetDriverControlsQCOM != null, "pglGetDriverControlsQCOM not implemented");
+					Delegates.pglGetDriverControlsQCOM(p_num, (Int32)driverControls.Length, p_driverControls);
+					CallLog("glGetDriverControlsQCOM({0}, {1}, {2})", num, driverControls.Length, driverControls);
 				}
 			}
 			DebugCheckErrors();
@@ -8512,7 +9037,7 @@ namespace OpenGL
 		/// Binding for glGetObjectPtrLabelKHR.
 		/// </summary>
 		/// <param name="ptr">
-		/// A <see cref="T:IntPtr"/>.
+		/// A <see cref="T:Object"/>.
 		/// </param>
 		/// <param name="bufSize">
 		/// A <see cref="T:Int32"/>.
@@ -8873,6 +9398,38 @@ namespace OpenGL
 		}
 
 		/// <summary>
+		/// Binding for glGetSyncivAPPLE.
+		/// </summary>
+		/// <param name="sync">
+		/// A <see cref="T:int"/>.
+		/// </param>
+		/// <param name="pname">
+		/// A <see cref="T:int"/>.
+		/// </param>
+		/// <param name="bufSize">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="length">
+		/// A <see cref="T:Int32[]"/>.
+		/// </param>
+		/// <param name="values">
+		/// A <see cref="T:Int32[]"/>.
+		/// </param>
+		public static void GetSyncAPPLE(int sync, int pname, Int32[] length, Int32[] values)
+		{
+			unsafe {
+				fixed (Int32* p_length = length)
+				fixed (Int32* p_values = values)
+				{
+					Debug.Assert(Delegates.pglGetSyncivAPPLE != null, "pglGetSyncivAPPLE not implemented");
+					Delegates.pglGetSyncivAPPLE(sync, pname, (Int32)values.Length, p_length, p_values);
+					CallLog("glGetSyncivAPPLE({0}, {1}, {2}, {3}, {4})", sync, pname, values.Length, length, values);
+				}
+			}
+			DebugCheckErrors();
+		}
+
+		/// <summary>
 		/// Binding for glGetTexEnvxv.
 		/// </summary>
 		/// <param name="target">
@@ -8976,10 +9533,10 @@ namespace OpenGL
 		/// Binding for glGetTexParameterIivOES.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:TextureTarget"/>.
 		/// </param>
 		/// <param name="pname">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:GetTextureParameter"/>.
 		/// </param>
 		/// <param name="params">
 		/// A <see cref="T:Int32[]"/>.
@@ -9026,10 +9583,10 @@ namespace OpenGL
 		/// Binding for glGetTexParameterIuivOES.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:TextureTarget"/>.
 		/// </param>
 		/// <param name="pname">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:GetTextureParameter"/>.
 		/// </param>
 		/// <param name="params">
 		/// A <see cref="T:UInt32[]"/>.
@@ -9130,6 +9687,34 @@ namespace OpenGL
 		}
 
 		/// <summary>
+		/// Binding for glGetnUniformfvEXT.
+		/// </summary>
+		/// <param name="program">
+		/// A <see cref="T:UInt32"/>.
+		/// </param>
+		/// <param name="location">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="bufSize">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="params">
+		/// A <see cref="T:float[]"/>.
+		/// </param>
+		public static void GetnUniformEXT(UInt32 program, Int32 location, float[] @params)
+		{
+			unsafe {
+				fixed (float* p_params = @params)
+				{
+					Debug.Assert(Delegates.pglGetnUniformfvEXT != null, "pglGetnUniformfvEXT not implemented");
+					Delegates.pglGetnUniformfvEXT(program, location, (Int32)@params.Length, p_params);
+					CallLog("glGetnUniformfvEXT({0}, {1}, {2}, {3})", program, location, @params.Length, @params);
+				}
+			}
+			DebugCheckErrors();
+		}
+
+		/// <summary>
 		/// Binding for glGetnUniformfvKHR.
 		/// </summary>
 		/// <param name="program">
@@ -9182,6 +9767,34 @@ namespace OpenGL
 					Debug.Assert(Delegates.pglGetnUniformivEXT != null, "pglGetnUniformivEXT not implemented");
 					Delegates.pglGetnUniformivEXT(program, location, bufSize, p_params);
 					CallLog("glGetnUniformivEXT({0}, {1}, {2}, {3})", program, location, bufSize, @params);
+				}
+			}
+			DebugCheckErrors();
+		}
+
+		/// <summary>
+		/// Binding for glGetnUniformivEXT.
+		/// </summary>
+		/// <param name="program">
+		/// A <see cref="T:UInt32"/>.
+		/// </param>
+		/// <param name="location">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="bufSize">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="params">
+		/// A <see cref="T:Int32[]"/>.
+		/// </param>
+		public static void GetnUniformEXT(UInt32 program, Int32 location, Int32[] @params)
+		{
+			unsafe {
+				fixed (Int32* p_params = @params)
+				{
+					Debug.Assert(Delegates.pglGetnUniformivEXT != null, "pglGetnUniformivEXT not implemented");
+					Delegates.pglGetnUniformivEXT(program, location, (Int32)@params.Length, p_params);
+					CallLog("glGetnUniformivEXT({0}, {1}, {2}, {3})", program, location, @params.Length, @params);
 				}
 			}
 			DebugCheckErrors();
@@ -9674,7 +10287,7 @@ namespace OpenGL
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="pointer">
-		/// A <see cref="T:IntPtr"/>.
+		/// A <see cref="T:Object"/>.
 		/// </param>
 		public static void MatrixIndexPointerOES(Int32 size, int type, Int32 stride, Object pointer)
 		{
@@ -9749,7 +10362,7 @@ namespace OpenGL
 		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="indirect">
-		/// A <see cref="T:IntPtr"/>.
+		/// A <see cref="T:Object"/>.
 		/// </param>
 		/// <param name="drawcount">
 		/// A <see cref="T:Int32"/>.
@@ -9815,7 +10428,7 @@ namespace OpenGL
 		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="indices">
-		/// A <see cref="T:IntPtr"/>.
+		/// A <see cref="T:Object"/>.
 		/// </param>
 		/// <param name="primcount">
 		/// A <see cref="T:Int32"/>.
@@ -9881,7 +10494,7 @@ namespace OpenGL
 		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="indices">
-		/// A <see cref="T:IntPtr"/>.
+		/// A <see cref="T:Object"/>.
 		/// </param>
 		/// <param name="primcount">
 		/// A <see cref="T:Int32"/>.
@@ -9935,7 +10548,7 @@ namespace OpenGL
 		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="indirect">
-		/// A <see cref="T:IntPtr"/>.
+		/// A <see cref="T:Object"/>.
 		/// </param>
 		/// <param name="drawcount">
 		/// A <see cref="T:Int32"/>.
@@ -10048,7 +10661,7 @@ namespace OpenGL
 		/// Binding for glObjectPtrLabelKHR.
 		/// </summary>
 		/// <param name="ptr">
-		/// A <see cref="T:IntPtr"/>.
+		/// A <see cref="T:Object"/>.
 		/// </param>
 		/// <param name="length">
 		/// A <see cref="T:Int32"/>.
@@ -10246,7 +10859,7 @@ namespace OpenGL
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="pointer">
-		/// A <see cref="T:IntPtr"/>.
+		/// A <see cref="T:Object"/>.
 		/// </param>
 		public static void PointSizePointerOES(int type, Int32 stride, Object pointer)
 		{
@@ -10404,7 +11017,7 @@ namespace OpenGL
 		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="binary">
-		/// A <see cref="T:IntPtr"/>.
+		/// A <see cref="T:Object"/>.
 		/// </param>
 		/// <param name="length">
 		/// A <see cref="T:Int32"/>.
@@ -10578,10 +11191,10 @@ namespace OpenGL
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="format">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:PixelFormat"/>.
 		/// </param>
 		/// <param name="type">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:PixelType"/>.
 		/// </param>
 		/// <param name="bufSize">
 		/// A <see cref="T:Int32"/>.
@@ -11037,7 +11650,7 @@ namespace OpenGL
 		/// Binding for glTexBufferOES.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:TextureTarget"/>.
 		/// </param>
 		/// <param name="internalformat">
 		/// A <see cref="T:int"/>.
@@ -11312,7 +11925,7 @@ namespace OpenGL
 		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="pixels">
-		/// A <see cref="T:IntPtr"/>.
+		/// A <see cref="T:Object"/>.
 		/// </param>
 		public static void TexImage3DOES(int target, Int32 level, int internalformat, Int32 width, Int32 height, Int32 depth, Int32 border, int format, int type, Object pixels)
 		{
@@ -11353,10 +11966,10 @@ namespace OpenGL
 		/// Binding for glTexParameterIivOES.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:TextureTarget"/>.
 		/// </param>
 		/// <param name="pname">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:TextureParameterName"/>.
 		/// </param>
 		/// <param name="params">
 		/// A <see cref="T:Int32[]"/>.
@@ -11403,10 +12016,10 @@ namespace OpenGL
 		/// Binding for glTexParameterIuivOES.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:TextureTarget"/>.
 		/// </param>
 		/// <param name="pname">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:TextureParameterName"/>.
 		/// </param>
 		/// <param name="params">
 		/// A <see cref="T:UInt32[]"/>.
@@ -11657,7 +12270,7 @@ namespace OpenGL
 		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="pixels">
-		/// A <see cref="T:IntPtr"/>.
+		/// A <see cref="T:Object"/>.
 		/// </param>
 		public static void TexSubImage3DOES(int target, Int32 level, Int32 xoffset, Int32 yoffset, Int32 zoffset, Int32 width, Int32 height, Int32 depth, int format, int type, Object pixels)
 		{
@@ -12161,7 +12774,7 @@ namespace OpenGL
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="pointer">
-		/// A <see cref="T:IntPtr"/>.
+		/// A <see cref="T:Object"/>.
 		/// </param>
 		public static void WeightPointerOES(Int32 size, int type, Int32 stride, Object pointer)
 		{

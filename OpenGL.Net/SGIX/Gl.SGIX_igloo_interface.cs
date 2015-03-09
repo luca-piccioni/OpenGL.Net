@@ -50,7 +50,7 @@ namespace OpenGL
 		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="params">
-		/// A <see cref="T:IntPtr"/>.
+		/// A <see cref="T:Object"/>.
 		/// </param>
 		[RequiredByFeature("GL_SGIX_igloo_interface")]
 		public static void IglooInterfaceSGIX(int pname, Object @params)

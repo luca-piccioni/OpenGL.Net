@@ -62,6 +62,29 @@ namespace OpenGL
 		}
 
 		/// <summary>
+		/// Binding for glGenFencesAPPLE.
+		/// </summary>
+		/// <param name="n">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="fences">
+		/// A <see cref="T:UInt32[]"/>.
+		/// </param>
+		[RequiredByFeature("GL_APPLE_fence")]
+		public static void GenFencesAPPLE(UInt32[] fences)
+		{
+			unsafe {
+				fixed (UInt32* p_fences = fences)
+				{
+					Debug.Assert(Delegates.pglGenFencesAPPLE != null, "pglGenFencesAPPLE not implemented");
+					Delegates.pglGenFencesAPPLE((Int32)fences.Length, p_fences);
+					CallLog("glGenFencesAPPLE({0}, {1})", fences.Length, fences);
+				}
+			}
+			DebugCheckErrors();
+		}
+
+		/// <summary>
 		/// Binding for glDeleteFencesAPPLE.
 		/// </summary>
 		/// <param name="n">
@@ -80,6 +103,29 @@ namespace OpenGL
 					Debug.Assert(Delegates.pglDeleteFencesAPPLE != null, "pglDeleteFencesAPPLE not implemented");
 					Delegates.pglDeleteFencesAPPLE(n, p_fences);
 					CallLog("glDeleteFencesAPPLE({0}, {1})", n, fences);
+				}
+			}
+			DebugCheckErrors();
+		}
+
+		/// <summary>
+		/// Binding for glDeleteFencesAPPLE.
+		/// </summary>
+		/// <param name="n">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="fences">
+		/// A <see cref="T:UInt32[]"/>.
+		/// </param>
+		[RequiredByFeature("GL_APPLE_fence")]
+		public static void DeleteFencesAPPLE(UInt32[] fences)
+		{
+			unsafe {
+				fixed (UInt32* p_fences = fences)
+				{
+					Debug.Assert(Delegates.pglDeleteFencesAPPLE != null, "pglDeleteFencesAPPLE not implemented");
+					Delegates.pglDeleteFencesAPPLE((Int32)fences.Length, p_fences);
+					CallLog("glDeleteFencesAPPLE({0}, {1})", fences.Length, fences);
 				}
 			}
 			DebugCheckErrors();

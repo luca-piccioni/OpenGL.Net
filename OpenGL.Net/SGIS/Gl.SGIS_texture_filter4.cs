@@ -67,7 +67,7 @@ namespace OpenGL
 		/// Binding for glGetTexFilterFuncSGIS.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:TextureTarget"/>.
 		/// </param>
 		/// <param name="filter">
 		/// A <see cref="T:int"/>.
@@ -123,7 +123,7 @@ namespace OpenGL
 		/// Binding for glTexFilterFuncSGIS.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:TextureTarget"/>.
 		/// </param>
 		/// <param name="filter">
 		/// A <see cref="T:int"/>.
@@ -144,6 +144,35 @@ namespace OpenGL
 					Debug.Assert(Delegates.pglTexFilterFuncSGIS != null, "pglTexFilterFuncSGIS not implemented");
 					Delegates.pglTexFilterFuncSGIS((int)target, filter, n, p_weights);
 					CallLog("glTexFilterFuncSGIS({0}, {1}, {2}, {3})", target, filter, n, weights);
+				}
+			}
+			DebugCheckErrors();
+		}
+
+		/// <summary>
+		/// Binding for glTexFilterFuncSGIS.
+		/// </summary>
+		/// <param name="target">
+		/// A <see cref="T:TextureTarget"/>.
+		/// </param>
+		/// <param name="filter">
+		/// A <see cref="T:int"/>.
+		/// </param>
+		/// <param name="n">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="weights">
+		/// A <see cref="T:float[]"/>.
+		/// </param>
+		[RequiredByFeature("GL_SGIS_texture_filter4")]
+		public static void TexFilterFuncSGIS(TextureTarget target, int filter, float[] weights)
+		{
+			unsafe {
+				fixed (float* p_weights = weights)
+				{
+					Debug.Assert(Delegates.pglTexFilterFuncSGIS != null, "pglTexFilterFuncSGIS not implemented");
+					Delegates.pglTexFilterFuncSGIS((int)target, filter, (Int32)weights.Length, p_weights);
+					CallLog("glTexFilterFuncSGIS({0}, {1}, {2}, {3})", target, filter, weights.Length, weights);
 				}
 			}
 			DebugCheckErrors();

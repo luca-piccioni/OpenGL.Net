@@ -120,6 +120,35 @@ namespace OpenGL
 		}
 
 		/// <summary>
+		/// Binding for glCompileShaderIncludeARB.
+		/// </summary>
+		/// <param name="shader">
+		/// A <see cref="T:UInt32"/>.
+		/// </param>
+		/// <param name="count">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="path">
+		/// A <see cref="T:String[]"/>.
+		/// </param>
+		/// <param name="length">
+		/// A <see cref="T:Int32[]"/>.
+		/// </param>
+		[RequiredByFeature("GL_ARB_shading_language_include")]
+		public static void CompileShaderIncludeARB(UInt32 shader, String[] path, Int32[] length)
+		{
+			unsafe {
+				fixed (Int32* p_length = length)
+				{
+					Debug.Assert(Delegates.pglCompileShaderIncludeARB != null, "pglCompileShaderIncludeARB not implemented");
+					Delegates.pglCompileShaderIncludeARB(shader, (Int32)path.Length, path, p_length);
+					CallLog("glCompileShaderIncludeARB({0}, {1}, {2}, {3})", shader, path.Length, path, length);
+				}
+			}
+			DebugCheckErrors();
+		}
+
+		/// <summary>
 		/// Binding for glIsNamedStringARB.
 		/// </summary>
 		/// <param name="namelen">

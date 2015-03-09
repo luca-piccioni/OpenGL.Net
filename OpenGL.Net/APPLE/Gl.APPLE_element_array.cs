@@ -68,7 +68,7 @@ namespace OpenGL
 		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="pointer">
-		/// A <see cref="T:IntPtr"/>.
+		/// A <see cref="T:Object"/>.
 		/// </param>
 		[RequiredByFeature("GL_APPLE_element_array")]
 		public static void ElementPointerAPPLE(int type, Object pointer)
@@ -106,7 +106,7 @@ namespace OpenGL
 		/// Binding for glDrawElementArrayAPPLE.
 		/// </summary>
 		/// <param name="mode">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:PrimitiveType"/>.
 		/// </param>
 		/// <param name="first">
 		/// A <see cref="T:Int32"/>.
@@ -154,7 +154,7 @@ namespace OpenGL
 		/// Binding for glDrawRangeElementArrayAPPLE.
 		/// </summary>
 		/// <param name="mode">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:PrimitiveType"/>.
 		/// </param>
 		/// <param name="start">
 		/// A <see cref="T:UInt32"/>.
@@ -213,7 +213,7 @@ namespace OpenGL
 		/// Binding for glMultiDrawElementArrayAPPLE.
 		/// </summary>
 		/// <param name="mode">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:PrimitiveType"/>.
 		/// </param>
 		/// <param name="first">
 		/// A <see cref="T:Int32[]"/>.
@@ -236,6 +236,36 @@ namespace OpenGL
 					Debug.Assert(Delegates.pglMultiDrawElementArrayAPPLE != null, "pglMultiDrawElementArrayAPPLE not implemented");
 					Delegates.pglMultiDrawElementArrayAPPLE((int)mode, p_first, p_count, primcount);
 					CallLog("glMultiDrawElementArrayAPPLE({0}, {1}, {2}, {3})", mode, first, count, primcount);
+				}
+			}
+			DebugCheckErrors();
+		}
+
+		/// <summary>
+		/// Binding for glMultiDrawElementArrayAPPLE.
+		/// </summary>
+		/// <param name="mode">
+		/// A <see cref="T:PrimitiveType"/>.
+		/// </param>
+		/// <param name="first">
+		/// A <see cref="T:Int32[]"/>.
+		/// </param>
+		/// <param name="count">
+		/// A <see cref="T:Int32[]"/>.
+		/// </param>
+		/// <param name="primcount">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		[RequiredByFeature("GL_APPLE_element_array")]
+		public static void MultiDrawElementArrayAPPLE(PrimitiveType mode, Int32[] first, Int32[] count)
+		{
+			unsafe {
+				fixed (Int32* p_first = first)
+				fixed (Int32* p_count = count)
+				{
+					Debug.Assert(Delegates.pglMultiDrawElementArrayAPPLE != null, "pglMultiDrawElementArrayAPPLE not implemented");
+					Delegates.pglMultiDrawElementArrayAPPLE((int)mode, p_first, p_count, (Int32)first.Length);
+					CallLog("glMultiDrawElementArrayAPPLE({0}, {1}, {2}, {3})", mode, first, count, first.Length);
 				}
 			}
 			DebugCheckErrors();
@@ -283,7 +313,7 @@ namespace OpenGL
 		/// Binding for glMultiDrawRangeElementArrayAPPLE.
 		/// </summary>
 		/// <param name="mode">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:PrimitiveType"/>.
 		/// </param>
 		/// <param name="start">
 		/// A <see cref="T:UInt32"/>.
@@ -312,6 +342,42 @@ namespace OpenGL
 					Debug.Assert(Delegates.pglMultiDrawRangeElementArrayAPPLE != null, "pglMultiDrawRangeElementArrayAPPLE not implemented");
 					Delegates.pglMultiDrawRangeElementArrayAPPLE((int)mode, start, end, p_first, p_count, primcount);
 					CallLog("glMultiDrawRangeElementArrayAPPLE({0}, {1}, {2}, {3}, {4}, {5})", mode, start, end, first, count, primcount);
+				}
+			}
+			DebugCheckErrors();
+		}
+
+		/// <summary>
+		/// Binding for glMultiDrawRangeElementArrayAPPLE.
+		/// </summary>
+		/// <param name="mode">
+		/// A <see cref="T:PrimitiveType"/>.
+		/// </param>
+		/// <param name="start">
+		/// A <see cref="T:UInt32"/>.
+		/// </param>
+		/// <param name="end">
+		/// A <see cref="T:UInt32"/>.
+		/// </param>
+		/// <param name="first">
+		/// A <see cref="T:Int32[]"/>.
+		/// </param>
+		/// <param name="count">
+		/// A <see cref="T:Int32[]"/>.
+		/// </param>
+		/// <param name="primcount">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		[RequiredByFeature("GL_APPLE_element_array")]
+		public static void MultiDrawRangeElementArrayAPPLE(PrimitiveType mode, UInt32 start, UInt32 end, Int32[] first, Int32[] count)
+		{
+			unsafe {
+				fixed (Int32* p_first = first)
+				fixed (Int32* p_count = count)
+				{
+					Debug.Assert(Delegates.pglMultiDrawRangeElementArrayAPPLE != null, "pglMultiDrawRangeElementArrayAPPLE not implemented");
+					Delegates.pglMultiDrawRangeElementArrayAPPLE((int)mode, start, end, p_first, p_count, (Int32)first.Length);
+					CallLog("glMultiDrawRangeElementArrayAPPLE({0}, {1}, {2}, {3}, {4}, {5})", mode, start, end, first, count, first.Length);
 				}
 			}
 			DebugCheckErrors();

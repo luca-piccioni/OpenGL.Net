@@ -125,7 +125,7 @@ namespace OpenGL
 		/// Binding for glTexImage3DEXT.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:TextureTarget"/>.
 		/// </param>
 		/// <param name="level">
 		/// A <see cref="T:Int32"/>.
@@ -146,10 +146,10 @@ namespace OpenGL
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="format">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:PixelFormat"/>.
 		/// </param>
 		/// <param name="type">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:PixelType"/>.
 		/// </param>
 		/// <param name="pixels">
 		/// A <see cref="T:IntPtr"/>.
@@ -194,7 +194,7 @@ namespace OpenGL
 		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="pixels">
-		/// A <see cref="T:IntPtr"/>.
+		/// A <see cref="T:Object"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_texture3D")]
 		public static void TexImage3DEXT(int target, Int32 level, int internalformat, Int32 width, Int32 height, Int32 depth, Int32 border, int format, int type, Object pixels)
@@ -211,7 +211,7 @@ namespace OpenGL
 		/// Binding for glTexImage3DEXT.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:TextureTarget"/>.
 		/// </param>
 		/// <param name="level">
 		/// A <see cref="T:Int32"/>.
@@ -232,13 +232,13 @@ namespace OpenGL
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="format">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:PixelFormat"/>.
 		/// </param>
 		/// <param name="type">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:PixelType"/>.
 		/// </param>
 		/// <param name="pixels">
-		/// A <see cref="T:IntPtr"/>.
+		/// A <see cref="T:Object"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_texture3D")]
 		public static void TexImage3DEXT(TextureTarget target, Int32 level, int internalformat, Int32 width, Int32 height, Int32 depth, Int32 border, PixelFormat format, PixelType type, Object pixels)
@@ -300,7 +300,7 @@ namespace OpenGL
 		/// Binding for glTexSubImage3DEXT.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:TextureTarget"/>.
 		/// </param>
 		/// <param name="level">
 		/// A <see cref="T:Int32"/>.
@@ -324,10 +324,10 @@ namespace OpenGL
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="format">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:PixelFormat"/>.
 		/// </param>
 		/// <param name="type">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:PixelType"/>.
 		/// </param>
 		/// <param name="pixels">
 		/// A <see cref="T:IntPtr"/>.
@@ -375,7 +375,7 @@ namespace OpenGL
 		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="pixels">
-		/// A <see cref="T:IntPtr"/>.
+		/// A <see cref="T:Object"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_texture3D")]
 		public static void TexSubImage3DEXT(int target, Int32 level, Int32 xoffset, Int32 yoffset, Int32 zoffset, Int32 width, Int32 height, Int32 depth, int format, int type, Object pixels)
@@ -392,7 +392,7 @@ namespace OpenGL
 		/// Binding for glTexSubImage3DEXT.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:TextureTarget"/>.
 		/// </param>
 		/// <param name="level">
 		/// A <see cref="T:Int32"/>.
@@ -416,13 +416,13 @@ namespace OpenGL
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="format">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:PixelFormat"/>.
 		/// </param>
 		/// <param name="type">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:PixelType"/>.
 		/// </param>
 		/// <param name="pixels">
-		/// A <see cref="T:IntPtr"/>.
+		/// A <see cref="T:Object"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_texture3D")]
 		public static void TexSubImage3DEXT(TextureTarget target, Int32 level, Int32 xoffset, Int32 yoffset, Int32 zoffset, Int32 width, Int32 height, Int32 depth, PixelFormat format, PixelType type, Object pixels)

@@ -530,7 +530,7 @@ namespace OpenGL
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="pointer">
-		/// A <see cref="T:IntPtr"/>.
+		/// A <see cref="T:Object"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_vertex_program4")]
 		public static void VertexAttribIPointerEXT(UInt32 index, Int32 size, int type, Int32 stride, Object pointer)

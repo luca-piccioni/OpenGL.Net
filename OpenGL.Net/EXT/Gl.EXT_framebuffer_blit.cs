@@ -119,7 +119,7 @@ namespace OpenGL
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="mask">
-		/// A <see cref="T:uint"/>.
+		/// A <see cref="T:ClearBufferMask"/>.
 		/// </param>
 		/// <param name="filter">
 		/// A <see cref="T:int"/>.

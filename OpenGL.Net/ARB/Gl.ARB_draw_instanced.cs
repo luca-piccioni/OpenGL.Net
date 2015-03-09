@@ -53,7 +53,7 @@ namespace OpenGL
 		/// Binding for glDrawArraysInstancedARB.
 		/// </summary>
 		/// <param name="mode">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:PrimitiveType"/>.
 		/// </param>
 		/// <param name="first">
 		/// A <see cref="T:Int32"/>.
@@ -104,7 +104,7 @@ namespace OpenGL
 		/// Binding for glDrawElementsInstancedARB.
 		/// </summary>
 		/// <param name="mode">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:PrimitiveType"/>.
 		/// </param>
 		/// <param name="count">
 		/// A <see cref="T:Int32"/>.
@@ -140,7 +140,7 @@ namespace OpenGL
 		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="indices">
-		/// A <see cref="T:IntPtr"/>.
+		/// A <see cref="T:Object"/>.
 		/// </param>
 		/// <param name="primcount">
 		/// A <see cref="T:Int32"/>.
@@ -160,7 +160,7 @@ namespace OpenGL
 		/// Binding for glDrawElementsInstancedARB.
 		/// </summary>
 		/// <param name="mode">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:PrimitiveType"/>.
 		/// </param>
 		/// <param name="count">
 		/// A <see cref="T:Int32"/>.
@@ -169,7 +169,7 @@ namespace OpenGL
 		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="indices">
-		/// A <see cref="T:IntPtr"/>.
+		/// A <see cref="T:Object"/>.
 		/// </param>
 		/// <param name="primcount">
 		/// A <see cref="T:Int32"/>.

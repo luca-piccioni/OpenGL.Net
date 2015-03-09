@@ -138,10 +138,10 @@ namespace OpenGL
 		/// Binding for glTextureMaterialEXT.
 		/// </summary>
 		/// <param name="face">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:MaterialFace"/>.
 		/// </param>
 		/// <param name="mode">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:MaterialParameter"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_light_texture")]
 		public static void TextureMaterialEXT(MaterialFace face, MaterialParameter mode)

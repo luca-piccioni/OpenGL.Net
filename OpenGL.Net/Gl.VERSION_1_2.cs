@@ -638,7 +638,7 @@ namespace OpenGL
 		/// cref="Gl.UNSIGNED_INT_2_10_10_10_REV"/>.
 		/// </param>
 		/// <param name="pixels">
-		/// A <see cref="T:IntPtr"/>.
+		/// A <see cref="T:Object"/>.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_1_2")]
 		public static void TexImage3D(int target, Int32 level, Int32 internalformat, Int32 width, Int32 height, Int32 depth, Int32 border, int format, int type, Object pixels)
@@ -698,7 +698,7 @@ namespace OpenGL
 		/// cref="Gl.UNSIGNED_INT_2_10_10_10_REV"/>.
 		/// </param>
 		/// <param name="pixels">
-		/// A <see cref="T:IntPtr"/>.
+		/// A <see cref="T:Object"/>.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_1_2")]
 		public static void TexImage3D(TextureTarget target, Int32 level, Int32 internalformat, Int32 width, Int32 height, Int32 depth, Int32 border, PixelFormat format, PixelType type, Object pixels)

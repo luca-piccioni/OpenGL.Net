@@ -70,7 +70,7 @@ namespace OpenGL
 		/// Binding for glMatrixLoadfEXT.
 		/// </summary>
 		/// <param name="mode">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:MatrixMode"/>.
 		/// </param>
 		/// <param name="m">
 		/// A <see cref="T:float[]"/>.
@@ -116,7 +116,7 @@ namespace OpenGL
 		/// Binding for glMatrixLoaddEXT.
 		/// </summary>
 		/// <param name="mode">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:MatrixMode"/>.
 		/// </param>
 		/// <param name="m">
 		/// A <see cref="T:double[]"/>.
@@ -162,7 +162,7 @@ namespace OpenGL
 		/// Binding for glMatrixMultfEXT.
 		/// </summary>
 		/// <param name="mode">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:MatrixMode"/>.
 		/// </param>
 		/// <param name="m">
 		/// A <see cref="T:float[]"/>.
@@ -208,7 +208,7 @@ namespace OpenGL
 		/// Binding for glMatrixMultdEXT.
 		/// </summary>
 		/// <param name="mode">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:MatrixMode"/>.
 		/// </param>
 		/// <param name="m">
 		/// A <see cref="T:double[]"/>.
@@ -246,7 +246,7 @@ namespace OpenGL
 		/// Binding for glMatrixLoadIdentityEXT.
 		/// </summary>
 		/// <param name="mode">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:MatrixMode"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access")]
 		public static void MatrixLoadIdentityEXT(MatrixMode mode)
@@ -288,7 +288,7 @@ namespace OpenGL
 		/// Binding for glMatrixRotatefEXT.
 		/// </summary>
 		/// <param name="mode">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:MatrixMode"/>.
 		/// </param>
 		/// <param name="angle">
 		/// A <see cref="T:float"/>.
@@ -342,7 +342,7 @@ namespace OpenGL
 		/// Binding for glMatrixRotatedEXT.
 		/// </summary>
 		/// <param name="mode">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:MatrixMode"/>.
 		/// </param>
 		/// <param name="angle">
 		/// A <see cref="T:double"/>.
@@ -393,7 +393,7 @@ namespace OpenGL
 		/// Binding for glMatrixScalefEXT.
 		/// </summary>
 		/// <param name="mode">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:MatrixMode"/>.
 		/// </param>
 		/// <param name="x">
 		/// A <see cref="T:float"/>.
@@ -441,7 +441,7 @@ namespace OpenGL
 		/// Binding for glMatrixScaledEXT.
 		/// </summary>
 		/// <param name="mode">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:MatrixMode"/>.
 		/// </param>
 		/// <param name="x">
 		/// A <see cref="T:double"/>.
@@ -489,7 +489,7 @@ namespace OpenGL
 		/// Binding for glMatrixTranslatefEXT.
 		/// </summary>
 		/// <param name="mode">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:MatrixMode"/>.
 		/// </param>
 		/// <param name="x">
 		/// A <see cref="T:float"/>.
@@ -537,7 +537,7 @@ namespace OpenGL
 		/// Binding for glMatrixTranslatedEXT.
 		/// </summary>
 		/// <param name="mode">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:MatrixMode"/>.
 		/// </param>
 		/// <param name="x">
 		/// A <see cref="T:double"/>.
@@ -594,7 +594,7 @@ namespace OpenGL
 		/// Binding for glMatrixFrustumEXT.
 		/// </summary>
 		/// <param name="mode">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:MatrixMode"/>.
 		/// </param>
 		/// <param name="left">
 		/// A <see cref="T:double"/>.
@@ -660,7 +660,7 @@ namespace OpenGL
 		/// Binding for glMatrixOrthoEXT.
 		/// </summary>
 		/// <param name="mode">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:MatrixMode"/>.
 		/// </param>
 		/// <param name="left">
 		/// A <see cref="T:double"/>.
@@ -708,7 +708,7 @@ namespace OpenGL
 		/// Binding for glMatrixPopEXT.
 		/// </summary>
 		/// <param name="mode">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:MatrixMode"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access")]
 		public static void MatrixPopEXT(MatrixMode mode)
@@ -738,7 +738,7 @@ namespace OpenGL
 		/// Binding for glMatrixPushEXT.
 		/// </summary>
 		/// <param name="mode">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:MatrixMode"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access")]
 		public static void MatrixPushEXT(MatrixMode mode)
@@ -768,7 +768,7 @@ namespace OpenGL
 		/// Binding for glClientAttribDefaultEXT.
 		/// </summary>
 		/// <param name="mask">
-		/// A <see cref="T:uint"/>.
+		/// A <see cref="T:ClientAttribMask"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access")]
 		public static void ClientAttribDefaultEXT(ClientAttribMask mask)
@@ -798,7 +798,7 @@ namespace OpenGL
 		/// Binding for glPushClientAttribDefaultEXT.
 		/// </summary>
 		/// <param name="mask">
-		/// A <see cref="T:uint"/>.
+		/// A <see cref="T:ClientAttribMask"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access")]
 		public static void PushClientAttribDefaultEXT(ClientAttribMask mask)
@@ -840,10 +840,10 @@ namespace OpenGL
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
 		/// <param name="target">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:TextureTarget"/>.
 		/// </param>
 		/// <param name="pname">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:TextureParameterName"/>.
 		/// </param>
 		/// <param name="param">
 		/// A <see cref="T:float"/>.
@@ -893,10 +893,10 @@ namespace OpenGL
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
 		/// <param name="target">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:TextureTarget"/>.
 		/// </param>
 		/// <param name="pname">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:TextureParameterName"/>.
 		/// </param>
 		/// <param name="params">
 		/// A <see cref="T:float[]"/>.
@@ -946,10 +946,10 @@ namespace OpenGL
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
 		/// <param name="target">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:TextureTarget"/>.
 		/// </param>
 		/// <param name="pname">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:TextureParameterName"/>.
 		/// </param>
 		/// <param name="param">
 		/// A <see cref="T:Int32"/>.
@@ -999,10 +999,10 @@ namespace OpenGL
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
 		/// <param name="target">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:TextureTarget"/>.
 		/// </param>
 		/// <param name="pname">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:TextureParameterName"/>.
 		/// </param>
 		/// <param name="params">
 		/// A <see cref="T:Int32[]"/>.
@@ -1067,7 +1067,7 @@ namespace OpenGL
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
 		/// <param name="target">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:TextureTarget"/>.
 		/// </param>
 		/// <param name="level">
 		/// A <see cref="T:Int32"/>.
@@ -1082,10 +1082,10 @@ namespace OpenGL
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="format">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:PixelFormat"/>.
 		/// </param>
 		/// <param name="type">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:PixelType"/>.
 		/// </param>
 		/// <param name="pixels">
 		/// A <see cref="T:IntPtr"/>.
@@ -1127,7 +1127,7 @@ namespace OpenGL
 		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="pixels">
-		/// A <see cref="T:IntPtr"/>.
+		/// A <see cref="T:Object"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access")]
 		public static void TextureImage1DEXT(UInt32 texture, int target, Int32 level, Int32 internalformat, Int32 width, Int32 border, int format, int type, Object pixels)
@@ -1147,7 +1147,7 @@ namespace OpenGL
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
 		/// <param name="target">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:TextureTarget"/>.
 		/// </param>
 		/// <param name="level">
 		/// A <see cref="T:Int32"/>.
@@ -1162,13 +1162,13 @@ namespace OpenGL
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="format">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:PixelFormat"/>.
 		/// </param>
 		/// <param name="type">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:PixelType"/>.
 		/// </param>
 		/// <param name="pixels">
-		/// A <see cref="T:IntPtr"/>.
+		/// A <see cref="T:Object"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access")]
 		public static void TextureImage1DEXT(UInt32 texture, TextureTarget target, Int32 level, Int32 internalformat, Int32 width, Int32 border, PixelFormat format, PixelType type, Object pixels)
@@ -1230,7 +1230,7 @@ namespace OpenGL
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
 		/// <param name="target">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:TextureTarget"/>.
 		/// </param>
 		/// <param name="level">
 		/// A <see cref="T:Int32"/>.
@@ -1248,10 +1248,10 @@ namespace OpenGL
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="format">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:PixelFormat"/>.
 		/// </param>
 		/// <param name="type">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:PixelType"/>.
 		/// </param>
 		/// <param name="pixels">
 		/// A <see cref="T:IntPtr"/>.
@@ -1296,7 +1296,7 @@ namespace OpenGL
 		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="pixels">
-		/// A <see cref="T:IntPtr"/>.
+		/// A <see cref="T:Object"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access")]
 		public static void TextureImage2DEXT(UInt32 texture, int target, Int32 level, Int32 internalformat, Int32 width, Int32 height, Int32 border, int format, int type, Object pixels)
@@ -1316,7 +1316,7 @@ namespace OpenGL
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
 		/// <param name="target">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:TextureTarget"/>.
 		/// </param>
 		/// <param name="level">
 		/// A <see cref="T:Int32"/>.
@@ -1334,13 +1334,13 @@ namespace OpenGL
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="format">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:PixelFormat"/>.
 		/// </param>
 		/// <param name="type">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:PixelType"/>.
 		/// </param>
 		/// <param name="pixels">
-		/// A <see cref="T:IntPtr"/>.
+		/// A <see cref="T:Object"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access")]
 		public static void TextureImage2DEXT(UInt32 texture, TextureTarget target, Int32 level, Int32 internalformat, Int32 width, Int32 height, Int32 border, PixelFormat format, PixelType type, Object pixels)
@@ -1396,7 +1396,7 @@ namespace OpenGL
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
 		/// <param name="target">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:TextureTarget"/>.
 		/// </param>
 		/// <param name="level">
 		/// A <see cref="T:Int32"/>.
@@ -1408,10 +1408,10 @@ namespace OpenGL
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="format">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:PixelFormat"/>.
 		/// </param>
 		/// <param name="type">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:PixelType"/>.
 		/// </param>
 		/// <param name="pixels">
 		/// A <see cref="T:IntPtr"/>.
@@ -1450,7 +1450,7 @@ namespace OpenGL
 		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="pixels">
-		/// A <see cref="T:IntPtr"/>.
+		/// A <see cref="T:Object"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access")]
 		public static void TextureSubImage1DEXT(UInt32 texture, int target, Int32 level, Int32 xoffset, Int32 width, int format, int type, Object pixels)
@@ -1470,7 +1470,7 @@ namespace OpenGL
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
 		/// <param name="target">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:TextureTarget"/>.
 		/// </param>
 		/// <param name="level">
 		/// A <see cref="T:Int32"/>.
@@ -1482,13 +1482,13 @@ namespace OpenGL
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="format">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:PixelFormat"/>.
 		/// </param>
 		/// <param name="type">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:PixelType"/>.
 		/// </param>
 		/// <param name="pixels">
-		/// A <see cref="T:IntPtr"/>.
+		/// A <see cref="T:Object"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access")]
 		public static void TextureSubImage1DEXT(UInt32 texture, TextureTarget target, Int32 level, Int32 xoffset, Int32 width, PixelFormat format, PixelType type, Object pixels)
@@ -1550,7 +1550,7 @@ namespace OpenGL
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
 		/// <param name="target">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:TextureTarget"/>.
 		/// </param>
 		/// <param name="level">
 		/// A <see cref="T:Int32"/>.
@@ -1568,10 +1568,10 @@ namespace OpenGL
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="format">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:PixelFormat"/>.
 		/// </param>
 		/// <param name="type">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:PixelType"/>.
 		/// </param>
 		/// <param name="pixels">
 		/// A <see cref="T:IntPtr"/>.
@@ -1616,7 +1616,7 @@ namespace OpenGL
 		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="pixels">
-		/// A <see cref="T:IntPtr"/>.
+		/// A <see cref="T:Object"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access")]
 		public static void TextureSubImage2DEXT(UInt32 texture, int target, Int32 level, Int32 xoffset, Int32 yoffset, Int32 width, Int32 height, int format, int type, Object pixels)
@@ -1636,7 +1636,7 @@ namespace OpenGL
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
 		/// <param name="target">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:TextureTarget"/>.
 		/// </param>
 		/// <param name="level">
 		/// A <see cref="T:Int32"/>.
@@ -1654,13 +1654,13 @@ namespace OpenGL
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="format">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:PixelFormat"/>.
 		/// </param>
 		/// <param name="type">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:PixelType"/>.
 		/// </param>
 		/// <param name="pixels">
-		/// A <see cref="T:IntPtr"/>.
+		/// A <see cref="T:Object"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access")]
 		public static void TextureSubImage2DEXT(UInt32 texture, TextureTarget target, Int32 level, Int32 xoffset, Int32 yoffset, Int32 width, Int32 height, PixelFormat format, PixelType type, Object pixels)
@@ -1716,7 +1716,7 @@ namespace OpenGL
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
 		/// <param name="target">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:TextureTarget"/>.
 		/// </param>
 		/// <param name="level">
 		/// A <see cref="T:Int32"/>.
@@ -1791,7 +1791,7 @@ namespace OpenGL
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
 		/// <param name="target">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:TextureTarget"/>.
 		/// </param>
 		/// <param name="level">
 		/// A <see cref="T:Int32"/>.
@@ -1863,7 +1863,7 @@ namespace OpenGL
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
 		/// <param name="target">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:TextureTarget"/>.
 		/// </param>
 		/// <param name="level">
 		/// A <see cref="T:Int32"/>.
@@ -1935,7 +1935,7 @@ namespace OpenGL
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
 		/// <param name="target">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:TextureTarget"/>.
 		/// </param>
 		/// <param name="level">
 		/// A <see cref="T:Int32"/>.
@@ -2004,16 +2004,16 @@ namespace OpenGL
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
 		/// <param name="target">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:TextureTarget"/>.
 		/// </param>
 		/// <param name="level">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="format">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:PixelFormat"/>.
 		/// </param>
 		/// <param name="type">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:PixelType"/>.
 		/// </param>
 		/// <param name="pixels">
 		/// A <see cref="T:IntPtr"/>.
@@ -2063,10 +2063,10 @@ namespace OpenGL
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
 		/// <param name="target">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:TextureTarget"/>.
 		/// </param>
 		/// <param name="pname">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:GetTextureParameter"/>.
 		/// </param>
 		/// <param name="params">
 		/// A <see cref="T:float[]"/>.
@@ -2121,10 +2121,10 @@ namespace OpenGL
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
 		/// <param name="target">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:TextureTarget"/>.
 		/// </param>
 		/// <param name="pname">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:GetTextureParameter"/>.
 		/// </param>
 		/// <param name="params">
 		/// A <see cref="T:Int32[]"/>.
@@ -2182,13 +2182,13 @@ namespace OpenGL
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
 		/// <param name="target">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:TextureTarget"/>.
 		/// </param>
 		/// <param name="level">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="pname">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:GetTextureParameter"/>.
 		/// </param>
 		/// <param name="params">
 		/// A <see cref="T:float[]"/>.
@@ -2246,13 +2246,13 @@ namespace OpenGL
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
 		/// <param name="target">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:TextureTarget"/>.
 		/// </param>
 		/// <param name="level">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="pname">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:GetTextureParameter"/>.
 		/// </param>
 		/// <param name="params">
 		/// A <see cref="T:Int32[]"/>.
@@ -2323,7 +2323,7 @@ namespace OpenGL
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
 		/// <param name="target">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:TextureTarget"/>.
 		/// </param>
 		/// <param name="level">
 		/// A <see cref="T:Int32"/>.
@@ -2344,10 +2344,10 @@ namespace OpenGL
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="format">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:PixelFormat"/>.
 		/// </param>
 		/// <param name="type">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:PixelType"/>.
 		/// </param>
 		/// <param name="pixels">
 		/// A <see cref="T:IntPtr"/>.
@@ -2395,7 +2395,7 @@ namespace OpenGL
 		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="pixels">
-		/// A <see cref="T:IntPtr"/>.
+		/// A <see cref="T:Object"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access")]
 		public static void TextureImage3DEXT(UInt32 texture, int target, Int32 level, Int32 internalformat, Int32 width, Int32 height, Int32 depth, Int32 border, int format, int type, Object pixels)
@@ -2415,7 +2415,7 @@ namespace OpenGL
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
 		/// <param name="target">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:TextureTarget"/>.
 		/// </param>
 		/// <param name="level">
 		/// A <see cref="T:Int32"/>.
@@ -2436,13 +2436,13 @@ namespace OpenGL
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="format">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:PixelFormat"/>.
 		/// </param>
 		/// <param name="type">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:PixelType"/>.
 		/// </param>
 		/// <param name="pixels">
-		/// A <see cref="T:IntPtr"/>.
+		/// A <see cref="T:Object"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access")]
 		public static void TextureImage3DEXT(UInt32 texture, TextureTarget target, Int32 level, Int32 internalformat, Int32 width, Int32 height, Int32 depth, Int32 border, PixelFormat format, PixelType type, Object pixels)
@@ -2510,7 +2510,7 @@ namespace OpenGL
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
 		/// <param name="target">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:TextureTarget"/>.
 		/// </param>
 		/// <param name="level">
 		/// A <see cref="T:Int32"/>.
@@ -2534,10 +2534,10 @@ namespace OpenGL
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="format">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:PixelFormat"/>.
 		/// </param>
 		/// <param name="type">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:PixelType"/>.
 		/// </param>
 		/// <param name="pixels">
 		/// A <see cref="T:IntPtr"/>.
@@ -2588,7 +2588,7 @@ namespace OpenGL
 		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="pixels">
-		/// A <see cref="T:IntPtr"/>.
+		/// A <see cref="T:Object"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access")]
 		public static void TextureSubImage3DEXT(UInt32 texture, int target, Int32 level, Int32 xoffset, Int32 yoffset, Int32 zoffset, Int32 width, Int32 height, Int32 depth, int format, int type, Object pixels)
@@ -2608,7 +2608,7 @@ namespace OpenGL
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
 		/// <param name="target">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:TextureTarget"/>.
 		/// </param>
 		/// <param name="level">
 		/// A <see cref="T:Int32"/>.
@@ -2632,13 +2632,13 @@ namespace OpenGL
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="format">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:PixelFormat"/>.
 		/// </param>
 		/// <param name="type">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:PixelType"/>.
 		/// </param>
 		/// <param name="pixels">
-		/// A <see cref="T:IntPtr"/>.
+		/// A <see cref="T:Object"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access")]
 		public static void TextureSubImage3DEXT(UInt32 texture, TextureTarget target, Int32 level, Int32 xoffset, Int32 yoffset, Int32 zoffset, Int32 width, Int32 height, Int32 depth, PixelFormat format, PixelType type, Object pixels)
@@ -2700,7 +2700,7 @@ namespace OpenGL
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
 		/// <param name="target">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:TextureTarget"/>.
 		/// </param>
 		/// <param name="level">
 		/// A <see cref="T:Int32"/>.
@@ -2763,7 +2763,7 @@ namespace OpenGL
 		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="target">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:TextureTarget"/>.
 		/// </param>
 		/// <param name="texture">
 		/// A <see cref="T:UInt32"/>.
@@ -2814,7 +2814,7 @@ namespace OpenGL
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="type">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:TexCoordPointerType"/>.
 		/// </param>
 		/// <param name="stride">
 		/// A <see cref="T:Int32"/>.
@@ -2847,7 +2847,7 @@ namespace OpenGL
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="pointer">
-		/// A <see cref="T:IntPtr"/>.
+		/// A <see cref="T:Object"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access")]
 		public static void MultiTexCoordPointerEXT(int texunit, Int32 size, int type, Int32 stride, Object pointer)
@@ -2870,13 +2870,13 @@ namespace OpenGL
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="type">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:TexCoordPointerType"/>.
 		/// </param>
 		/// <param name="stride">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="pointer">
-		/// A <see cref="T:IntPtr"/>.
+		/// A <see cref="T:Object"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access")]
 		public static void MultiTexCoordPointerEXT(int texunit, Int32 size, TexCoordPointerType type, Int32 stride, Object pointer)
@@ -2920,10 +2920,10 @@ namespace OpenGL
 		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="target">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:TextureEnvTarget"/>.
 		/// </param>
 		/// <param name="pname">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:TextureEnvParameter"/>.
 		/// </param>
 		/// <param name="param">
 		/// A <see cref="T:float"/>.
@@ -2973,10 +2973,10 @@ namespace OpenGL
 		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="target">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:TextureEnvTarget"/>.
 		/// </param>
 		/// <param name="pname">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:TextureEnvParameter"/>.
 		/// </param>
 		/// <param name="params">
 		/// A <see cref="T:float[]"/>.
@@ -3026,10 +3026,10 @@ namespace OpenGL
 		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="target">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:TextureEnvTarget"/>.
 		/// </param>
 		/// <param name="pname">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:TextureEnvParameter"/>.
 		/// </param>
 		/// <param name="param">
 		/// A <see cref="T:Int32"/>.
@@ -3079,10 +3079,10 @@ namespace OpenGL
 		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="target">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:TextureEnvTarget"/>.
 		/// </param>
 		/// <param name="pname">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:TextureEnvParameter"/>.
 		/// </param>
 		/// <param name="params">
 		/// A <see cref="T:Int32[]"/>.
@@ -3132,10 +3132,10 @@ namespace OpenGL
 		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="coord">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:TextureCoordName"/>.
 		/// </param>
 		/// <param name="pname">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:TextureGenParameter"/>.
 		/// </param>
 		/// <param name="param">
 		/// A <see cref="T:double"/>.
@@ -3185,10 +3185,10 @@ namespace OpenGL
 		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="coord">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:TextureCoordName"/>.
 		/// </param>
 		/// <param name="pname">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:TextureGenParameter"/>.
 		/// </param>
 		/// <param name="params">
 		/// A <see cref="T:double[]"/>.
@@ -3238,10 +3238,10 @@ namespace OpenGL
 		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="coord">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:TextureCoordName"/>.
 		/// </param>
 		/// <param name="pname">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:TextureGenParameter"/>.
 		/// </param>
 		/// <param name="param">
 		/// A <see cref="T:float"/>.
@@ -3291,10 +3291,10 @@ namespace OpenGL
 		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="coord">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:TextureCoordName"/>.
 		/// </param>
 		/// <param name="pname">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:TextureGenParameter"/>.
 		/// </param>
 		/// <param name="params">
 		/// A <see cref="T:float[]"/>.
@@ -3344,10 +3344,10 @@ namespace OpenGL
 		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="coord">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:TextureCoordName"/>.
 		/// </param>
 		/// <param name="pname">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:TextureGenParameter"/>.
 		/// </param>
 		/// <param name="param">
 		/// A <see cref="T:Int32"/>.
@@ -3397,10 +3397,10 @@ namespace OpenGL
 		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="coord">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:TextureCoordName"/>.
 		/// </param>
 		/// <param name="pname">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:TextureGenParameter"/>.
 		/// </param>
 		/// <param name="params">
 		/// A <see cref="T:Int32[]"/>.
@@ -3455,10 +3455,10 @@ namespace OpenGL
 		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="target">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:TextureEnvTarget"/>.
 		/// </param>
 		/// <param name="pname">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:TextureEnvParameter"/>.
 		/// </param>
 		/// <param name="params">
 		/// A <see cref="T:float[]"/>.
@@ -3513,10 +3513,10 @@ namespace OpenGL
 		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="target">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:TextureEnvTarget"/>.
 		/// </param>
 		/// <param name="pname">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:TextureEnvParameter"/>.
 		/// </param>
 		/// <param name="params">
 		/// A <see cref="T:Int32[]"/>.
@@ -3571,10 +3571,10 @@ namespace OpenGL
 		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="coord">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:TextureCoordName"/>.
 		/// </param>
 		/// <param name="pname">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:TextureGenParameter"/>.
 		/// </param>
 		/// <param name="params">
 		/// A <see cref="T:double[]"/>.
@@ -3629,10 +3629,10 @@ namespace OpenGL
 		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="coord">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:TextureCoordName"/>.
 		/// </param>
 		/// <param name="pname">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:TextureGenParameter"/>.
 		/// </param>
 		/// <param name="params">
 		/// A <see cref="T:float[]"/>.
@@ -3687,10 +3687,10 @@ namespace OpenGL
 		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="coord">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:TextureCoordName"/>.
 		/// </param>
 		/// <param name="pname">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:TextureGenParameter"/>.
 		/// </param>
 		/// <param name="params">
 		/// A <see cref="T:Int32[]"/>.
@@ -3740,10 +3740,10 @@ namespace OpenGL
 		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="target">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:TextureTarget"/>.
 		/// </param>
 		/// <param name="pname">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:TextureParameterName"/>.
 		/// </param>
 		/// <param name="param">
 		/// A <see cref="T:Int32"/>.
@@ -3793,10 +3793,10 @@ namespace OpenGL
 		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="target">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:TextureTarget"/>.
 		/// </param>
 		/// <param name="pname">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:TextureParameterName"/>.
 		/// </param>
 		/// <param name="params">
 		/// A <see cref="T:Int32[]"/>.
@@ -3846,10 +3846,10 @@ namespace OpenGL
 		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="target">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:TextureTarget"/>.
 		/// </param>
 		/// <param name="pname">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:TextureParameterName"/>.
 		/// </param>
 		/// <param name="param">
 		/// A <see cref="T:float"/>.
@@ -3899,10 +3899,10 @@ namespace OpenGL
 		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="target">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:TextureTarget"/>.
 		/// </param>
 		/// <param name="pname">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:TextureParameterName"/>.
 		/// </param>
 		/// <param name="params">
 		/// A <see cref="T:float[]"/>.
@@ -3967,7 +3967,7 @@ namespace OpenGL
 		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="target">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:TextureTarget"/>.
 		/// </param>
 		/// <param name="level">
 		/// A <see cref="T:Int32"/>.
@@ -3982,10 +3982,10 @@ namespace OpenGL
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="format">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:PixelFormat"/>.
 		/// </param>
 		/// <param name="type">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:PixelType"/>.
 		/// </param>
 		/// <param name="pixels">
 		/// A <see cref="T:IntPtr"/>.
@@ -4027,7 +4027,7 @@ namespace OpenGL
 		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="pixels">
-		/// A <see cref="T:IntPtr"/>.
+		/// A <see cref="T:Object"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access")]
 		public static void MultiTexImage1DEXT(int texunit, int target, Int32 level, Int32 internalformat, Int32 width, Int32 border, int format, int type, Object pixels)
@@ -4047,7 +4047,7 @@ namespace OpenGL
 		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="target">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:TextureTarget"/>.
 		/// </param>
 		/// <param name="level">
 		/// A <see cref="T:Int32"/>.
@@ -4062,13 +4062,13 @@ namespace OpenGL
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="format">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:PixelFormat"/>.
 		/// </param>
 		/// <param name="type">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:PixelType"/>.
 		/// </param>
 		/// <param name="pixels">
-		/// A <see cref="T:IntPtr"/>.
+		/// A <see cref="T:Object"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access")]
 		public static void MultiTexImage1DEXT(int texunit, TextureTarget target, Int32 level, Int32 internalformat, Int32 width, Int32 border, PixelFormat format, PixelType type, Object pixels)
@@ -4130,7 +4130,7 @@ namespace OpenGL
 		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="target">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:TextureTarget"/>.
 		/// </param>
 		/// <param name="level">
 		/// A <see cref="T:Int32"/>.
@@ -4148,10 +4148,10 @@ namespace OpenGL
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="format">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:PixelFormat"/>.
 		/// </param>
 		/// <param name="type">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:PixelType"/>.
 		/// </param>
 		/// <param name="pixels">
 		/// A <see cref="T:IntPtr"/>.
@@ -4196,7 +4196,7 @@ namespace OpenGL
 		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="pixels">
-		/// A <see cref="T:IntPtr"/>.
+		/// A <see cref="T:Object"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access")]
 		public static void MultiTexImage2DEXT(int texunit, int target, Int32 level, Int32 internalformat, Int32 width, Int32 height, Int32 border, int format, int type, Object pixels)
@@ -4216,7 +4216,7 @@ namespace OpenGL
 		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="target">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:TextureTarget"/>.
 		/// </param>
 		/// <param name="level">
 		/// A <see cref="T:Int32"/>.
@@ -4234,13 +4234,13 @@ namespace OpenGL
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="format">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:PixelFormat"/>.
 		/// </param>
 		/// <param name="type">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:PixelType"/>.
 		/// </param>
 		/// <param name="pixels">
-		/// A <see cref="T:IntPtr"/>.
+		/// A <see cref="T:Object"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access")]
 		public static void MultiTexImage2DEXT(int texunit, TextureTarget target, Int32 level, Int32 internalformat, Int32 width, Int32 height, Int32 border, PixelFormat format, PixelType type, Object pixels)
@@ -4296,7 +4296,7 @@ namespace OpenGL
 		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="target">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:TextureTarget"/>.
 		/// </param>
 		/// <param name="level">
 		/// A <see cref="T:Int32"/>.
@@ -4308,10 +4308,10 @@ namespace OpenGL
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="format">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:PixelFormat"/>.
 		/// </param>
 		/// <param name="type">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:PixelType"/>.
 		/// </param>
 		/// <param name="pixels">
 		/// A <see cref="T:IntPtr"/>.
@@ -4350,7 +4350,7 @@ namespace OpenGL
 		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="pixels">
-		/// A <see cref="T:IntPtr"/>.
+		/// A <see cref="T:Object"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access")]
 		public static void MultiTexSubImage1DEXT(int texunit, int target, Int32 level, Int32 xoffset, Int32 width, int format, int type, Object pixels)
@@ -4370,7 +4370,7 @@ namespace OpenGL
 		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="target">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:TextureTarget"/>.
 		/// </param>
 		/// <param name="level">
 		/// A <see cref="T:Int32"/>.
@@ -4382,13 +4382,13 @@ namespace OpenGL
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="format">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:PixelFormat"/>.
 		/// </param>
 		/// <param name="type">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:PixelType"/>.
 		/// </param>
 		/// <param name="pixels">
-		/// A <see cref="T:IntPtr"/>.
+		/// A <see cref="T:Object"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access")]
 		public static void MultiTexSubImage1DEXT(int texunit, TextureTarget target, Int32 level, Int32 xoffset, Int32 width, PixelFormat format, PixelType type, Object pixels)
@@ -4450,7 +4450,7 @@ namespace OpenGL
 		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="target">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:TextureTarget"/>.
 		/// </param>
 		/// <param name="level">
 		/// A <see cref="T:Int32"/>.
@@ -4468,10 +4468,10 @@ namespace OpenGL
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="format">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:PixelFormat"/>.
 		/// </param>
 		/// <param name="type">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:PixelType"/>.
 		/// </param>
 		/// <param name="pixels">
 		/// A <see cref="T:IntPtr"/>.
@@ -4516,7 +4516,7 @@ namespace OpenGL
 		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="pixels">
-		/// A <see cref="T:IntPtr"/>.
+		/// A <see cref="T:Object"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access")]
 		public static void MultiTexSubImage2DEXT(int texunit, int target, Int32 level, Int32 xoffset, Int32 yoffset, Int32 width, Int32 height, int format, int type, Object pixels)
@@ -4536,7 +4536,7 @@ namespace OpenGL
 		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="target">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:TextureTarget"/>.
 		/// </param>
 		/// <param name="level">
 		/// A <see cref="T:Int32"/>.
@@ -4554,13 +4554,13 @@ namespace OpenGL
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="format">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:PixelFormat"/>.
 		/// </param>
 		/// <param name="type">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:PixelType"/>.
 		/// </param>
 		/// <param name="pixels">
-		/// A <see cref="T:IntPtr"/>.
+		/// A <see cref="T:Object"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access")]
 		public static void MultiTexSubImage2DEXT(int texunit, TextureTarget target, Int32 level, Int32 xoffset, Int32 yoffset, Int32 width, Int32 height, PixelFormat format, PixelType type, Object pixels)
@@ -4616,7 +4616,7 @@ namespace OpenGL
 		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="target">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:TextureTarget"/>.
 		/// </param>
 		/// <param name="level">
 		/// A <see cref="T:Int32"/>.
@@ -4691,7 +4691,7 @@ namespace OpenGL
 		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="target">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:TextureTarget"/>.
 		/// </param>
 		/// <param name="level">
 		/// A <see cref="T:Int32"/>.
@@ -4763,7 +4763,7 @@ namespace OpenGL
 		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="target">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:TextureTarget"/>.
 		/// </param>
 		/// <param name="level">
 		/// A <see cref="T:Int32"/>.
@@ -4835,7 +4835,7 @@ namespace OpenGL
 		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="target">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:TextureTarget"/>.
 		/// </param>
 		/// <param name="level">
 		/// A <see cref="T:Int32"/>.
@@ -4904,16 +4904,16 @@ namespace OpenGL
 		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="target">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:TextureTarget"/>.
 		/// </param>
 		/// <param name="level">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="format">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:PixelFormat"/>.
 		/// </param>
 		/// <param name="type">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:PixelType"/>.
 		/// </param>
 		/// <param name="pixels">
 		/// A <see cref="T:IntPtr"/>.
@@ -4963,10 +4963,10 @@ namespace OpenGL
 		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="target">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:TextureTarget"/>.
 		/// </param>
 		/// <param name="pname">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:GetTextureParameter"/>.
 		/// </param>
 		/// <param name="params">
 		/// A <see cref="T:float[]"/>.
@@ -5021,10 +5021,10 @@ namespace OpenGL
 		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="target">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:TextureTarget"/>.
 		/// </param>
 		/// <param name="pname">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:GetTextureParameter"/>.
 		/// </param>
 		/// <param name="params">
 		/// A <see cref="T:Int32[]"/>.
@@ -5082,13 +5082,13 @@ namespace OpenGL
 		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="target">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:TextureTarget"/>.
 		/// </param>
 		/// <param name="level">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="pname">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:GetTextureParameter"/>.
 		/// </param>
 		/// <param name="params">
 		/// A <see cref="T:float[]"/>.
@@ -5146,13 +5146,13 @@ namespace OpenGL
 		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="target">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:TextureTarget"/>.
 		/// </param>
 		/// <param name="level">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="pname">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:GetTextureParameter"/>.
 		/// </param>
 		/// <param name="params">
 		/// A <see cref="T:Int32[]"/>.
@@ -5223,7 +5223,7 @@ namespace OpenGL
 		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="target">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:TextureTarget"/>.
 		/// </param>
 		/// <param name="level">
 		/// A <see cref="T:Int32"/>.
@@ -5244,10 +5244,10 @@ namespace OpenGL
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="format">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:PixelFormat"/>.
 		/// </param>
 		/// <param name="type">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:PixelType"/>.
 		/// </param>
 		/// <param name="pixels">
 		/// A <see cref="T:IntPtr"/>.
@@ -5295,7 +5295,7 @@ namespace OpenGL
 		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="pixels">
-		/// A <see cref="T:IntPtr"/>.
+		/// A <see cref="T:Object"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access")]
 		public static void MultiTexImage3DEXT(int texunit, int target, Int32 level, Int32 internalformat, Int32 width, Int32 height, Int32 depth, Int32 border, int format, int type, Object pixels)
@@ -5315,7 +5315,7 @@ namespace OpenGL
 		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="target">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:TextureTarget"/>.
 		/// </param>
 		/// <param name="level">
 		/// A <see cref="T:Int32"/>.
@@ -5336,13 +5336,13 @@ namespace OpenGL
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="format">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:PixelFormat"/>.
 		/// </param>
 		/// <param name="type">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:PixelType"/>.
 		/// </param>
 		/// <param name="pixels">
-		/// A <see cref="T:IntPtr"/>.
+		/// A <see cref="T:Object"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access")]
 		public static void MultiTexImage3DEXT(int texunit, TextureTarget target, Int32 level, Int32 internalformat, Int32 width, Int32 height, Int32 depth, Int32 border, PixelFormat format, PixelType type, Object pixels)
@@ -5410,7 +5410,7 @@ namespace OpenGL
 		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="target">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:TextureTarget"/>.
 		/// </param>
 		/// <param name="level">
 		/// A <see cref="T:Int32"/>.
@@ -5434,10 +5434,10 @@ namespace OpenGL
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="format">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:PixelFormat"/>.
 		/// </param>
 		/// <param name="type">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:PixelType"/>.
 		/// </param>
 		/// <param name="pixels">
 		/// A <see cref="T:IntPtr"/>.
@@ -5488,7 +5488,7 @@ namespace OpenGL
 		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="pixels">
-		/// A <see cref="T:IntPtr"/>.
+		/// A <see cref="T:Object"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access")]
 		public static void MultiTexSubImage3DEXT(int texunit, int target, Int32 level, Int32 xoffset, Int32 yoffset, Int32 zoffset, Int32 width, Int32 height, Int32 depth, int format, int type, Object pixels)
@@ -5508,7 +5508,7 @@ namespace OpenGL
 		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="target">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:TextureTarget"/>.
 		/// </param>
 		/// <param name="level">
 		/// A <see cref="T:Int32"/>.
@@ -5532,13 +5532,13 @@ namespace OpenGL
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="format">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:PixelFormat"/>.
 		/// </param>
 		/// <param name="type">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:PixelType"/>.
 		/// </param>
 		/// <param name="pixels">
-		/// A <see cref="T:IntPtr"/>.
+		/// A <see cref="T:Object"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access")]
 		public static void MultiTexSubImage3DEXT(int texunit, TextureTarget target, Int32 level, Int32 xoffset, Int32 yoffset, Int32 zoffset, Int32 width, Int32 height, Int32 depth, PixelFormat format, PixelType type, Object pixels)
@@ -5600,7 +5600,7 @@ namespace OpenGL
 		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="target">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:TextureTarget"/>.
 		/// </param>
 		/// <param name="level">
 		/// A <see cref="T:Int32"/>.
@@ -5657,7 +5657,7 @@ namespace OpenGL
 		/// Binding for glEnableClientStateIndexedEXT.
 		/// </summary>
 		/// <param name="array">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:EnableCap"/>.
 		/// </param>
 		/// <param name="index">
 		/// A <see cref="T:UInt32"/>.
@@ -5693,7 +5693,7 @@ namespace OpenGL
 		/// Binding for glDisableClientStateIndexedEXT.
 		/// </summary>
 		/// <param name="array">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:EnableCap"/>.
 		/// </param>
 		/// <param name="index">
 		/// A <see cref="T:UInt32"/>.
@@ -5829,7 +5829,7 @@ namespace OpenGL
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
 		/// <param name="target">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:TextureTarget"/>.
 		/// </param>
 		/// <param name="level">
 		/// A <see cref="T:Int32"/>.
@@ -5895,7 +5895,7 @@ namespace OpenGL
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="bits">
-		/// A <see cref="T:IntPtr"/>.
+		/// A <see cref="T:Object"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access")]
 		public static void CompressedTextureImage3DEXT(UInt32 texture, int target, Int32 level, int internalformat, Int32 width, Int32 height, Int32 depth, Int32 border, Int32 imageSize, Object bits)
@@ -5915,7 +5915,7 @@ namespace OpenGL
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
 		/// <param name="target">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:TextureTarget"/>.
 		/// </param>
 		/// <param name="level">
 		/// A <see cref="T:Int32"/>.
@@ -5939,7 +5939,7 @@ namespace OpenGL
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="bits">
-		/// A <see cref="T:IntPtr"/>.
+		/// A <see cref="T:Object"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access")]
 		public static void CompressedTextureImage3DEXT(UInt32 texture, TextureTarget target, Int32 level, int internalformat, Int32 width, Int32 height, Int32 depth, Int32 border, Int32 imageSize, Object bits)
@@ -5998,7 +5998,7 @@ namespace OpenGL
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
 		/// <param name="target">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:TextureTarget"/>.
 		/// </param>
 		/// <param name="level">
 		/// A <see cref="T:Int32"/>.
@@ -6058,7 +6058,7 @@ namespace OpenGL
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="bits">
-		/// A <see cref="T:IntPtr"/>.
+		/// A <see cref="T:Object"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access")]
 		public static void CompressedTextureImage2DEXT(UInt32 texture, int target, Int32 level, int internalformat, Int32 width, Int32 height, Int32 border, Int32 imageSize, Object bits)
@@ -6078,7 +6078,7 @@ namespace OpenGL
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
 		/// <param name="target">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:TextureTarget"/>.
 		/// </param>
 		/// <param name="level">
 		/// A <see cref="T:Int32"/>.
@@ -6099,7 +6099,7 @@ namespace OpenGL
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="bits">
-		/// A <see cref="T:IntPtr"/>.
+		/// A <see cref="T:Object"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access")]
 		public static void CompressedTextureImage2DEXT(UInt32 texture, TextureTarget target, Int32 level, int internalformat, Int32 width, Int32 height, Int32 border, Int32 imageSize, Object bits)
@@ -6155,7 +6155,7 @@ namespace OpenGL
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
 		/// <param name="target">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:TextureTarget"/>.
 		/// </param>
 		/// <param name="level">
 		/// A <see cref="T:Int32"/>.
@@ -6209,7 +6209,7 @@ namespace OpenGL
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="bits">
-		/// A <see cref="T:IntPtr"/>.
+		/// A <see cref="T:Object"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access")]
 		public static void CompressedTextureImage1DEXT(UInt32 texture, int target, Int32 level, int internalformat, Int32 width, Int32 border, Int32 imageSize, Object bits)
@@ -6229,7 +6229,7 @@ namespace OpenGL
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
 		/// <param name="target">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:TextureTarget"/>.
 		/// </param>
 		/// <param name="level">
 		/// A <see cref="T:Int32"/>.
@@ -6247,7 +6247,7 @@ namespace OpenGL
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="bits">
-		/// A <see cref="T:IntPtr"/>.
+		/// A <see cref="T:Object"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access")]
 		public static void CompressedTextureImage1DEXT(UInt32 texture, TextureTarget target, Int32 level, int internalformat, Int32 width, Int32 border, Int32 imageSize, Object bits)
@@ -6315,7 +6315,7 @@ namespace OpenGL
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
 		/// <param name="target">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:TextureTarget"/>.
 		/// </param>
 		/// <param name="level">
 		/// A <see cref="T:Int32"/>.
@@ -6339,7 +6339,7 @@ namespace OpenGL
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="format">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:PixelFormat"/>.
 		/// </param>
 		/// <param name="imageSize">
 		/// A <see cref="T:Int32"/>.
@@ -6393,7 +6393,7 @@ namespace OpenGL
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="bits">
-		/// A <see cref="T:IntPtr"/>.
+		/// A <see cref="T:Object"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access")]
 		public static void CompressedTextureSubImage3DEXT(UInt32 texture, int target, Int32 level, Int32 xoffset, Int32 yoffset, Int32 zoffset, Int32 width, Int32 height, Int32 depth, int format, Int32 imageSize, Object bits)
@@ -6413,7 +6413,7 @@ namespace OpenGL
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
 		/// <param name="target">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:TextureTarget"/>.
 		/// </param>
 		/// <param name="level">
 		/// A <see cref="T:Int32"/>.
@@ -6437,13 +6437,13 @@ namespace OpenGL
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="format">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:PixelFormat"/>.
 		/// </param>
 		/// <param name="imageSize">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="bits">
-		/// A <see cref="T:IntPtr"/>.
+		/// A <see cref="T:Object"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access")]
 		public static void CompressedTextureSubImage3DEXT(UInt32 texture, TextureTarget target, Int32 level, Int32 xoffset, Int32 yoffset, Int32 zoffset, Int32 width, Int32 height, Int32 depth, PixelFormat format, Int32 imageSize, Object bits)
@@ -6505,7 +6505,7 @@ namespace OpenGL
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
 		/// <param name="target">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:TextureTarget"/>.
 		/// </param>
 		/// <param name="level">
 		/// A <see cref="T:Int32"/>.
@@ -6523,7 +6523,7 @@ namespace OpenGL
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="format">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:PixelFormat"/>.
 		/// </param>
 		/// <param name="imageSize">
 		/// A <see cref="T:Int32"/>.
@@ -6571,7 +6571,7 @@ namespace OpenGL
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="bits">
-		/// A <see cref="T:IntPtr"/>.
+		/// A <see cref="T:Object"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access")]
 		public static void CompressedTextureSubImage2DEXT(UInt32 texture, int target, Int32 level, Int32 xoffset, Int32 yoffset, Int32 width, Int32 height, int format, Int32 imageSize, Object bits)
@@ -6591,7 +6591,7 @@ namespace OpenGL
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
 		/// <param name="target">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:TextureTarget"/>.
 		/// </param>
 		/// <param name="level">
 		/// A <see cref="T:Int32"/>.
@@ -6609,13 +6609,13 @@ namespace OpenGL
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="format">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:PixelFormat"/>.
 		/// </param>
 		/// <param name="imageSize">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="bits">
-		/// A <see cref="T:IntPtr"/>.
+		/// A <see cref="T:Object"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access")]
 		public static void CompressedTextureSubImage2DEXT(UInt32 texture, TextureTarget target, Int32 level, Int32 xoffset, Int32 yoffset, Int32 width, Int32 height, PixelFormat format, Int32 imageSize, Object bits)
@@ -6671,7 +6671,7 @@ namespace OpenGL
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
 		/// <param name="target">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:TextureTarget"/>.
 		/// </param>
 		/// <param name="level">
 		/// A <see cref="T:Int32"/>.
@@ -6683,7 +6683,7 @@ namespace OpenGL
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="format">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:PixelFormat"/>.
 		/// </param>
 		/// <param name="imageSize">
 		/// A <see cref="T:Int32"/>.
@@ -6725,7 +6725,7 @@ namespace OpenGL
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="bits">
-		/// A <see cref="T:IntPtr"/>.
+		/// A <see cref="T:Object"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access")]
 		public static void CompressedTextureSubImage1DEXT(UInt32 texture, int target, Int32 level, Int32 xoffset, Int32 width, int format, Int32 imageSize, Object bits)
@@ -6745,7 +6745,7 @@ namespace OpenGL
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
 		/// <param name="target">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:TextureTarget"/>.
 		/// </param>
 		/// <param name="level">
 		/// A <see cref="T:Int32"/>.
@@ -6757,13 +6757,13 @@ namespace OpenGL
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="format">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:PixelFormat"/>.
 		/// </param>
 		/// <param name="imageSize">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="bits">
-		/// A <see cref="T:IntPtr"/>.
+		/// A <see cref="T:Object"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access")]
 		public static void CompressedTextureSubImage1DEXT(UInt32 texture, TextureTarget target, Int32 level, Int32 xoffset, Int32 width, PixelFormat format, Int32 imageSize, Object bits)
@@ -6807,7 +6807,7 @@ namespace OpenGL
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
 		/// <param name="target">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:TextureTarget"/>.
 		/// </param>
 		/// <param name="lod">
 		/// A <see cref="T:Int32"/>.
@@ -6873,7 +6873,7 @@ namespace OpenGL
 		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="target">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:TextureTarget"/>.
 		/// </param>
 		/// <param name="level">
 		/// A <see cref="T:Int32"/>.
@@ -6939,7 +6939,7 @@ namespace OpenGL
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="bits">
-		/// A <see cref="T:IntPtr"/>.
+		/// A <see cref="T:Object"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access")]
 		public static void CompressedMultiTexImage3DEXT(int texunit, int target, Int32 level, int internalformat, Int32 width, Int32 height, Int32 depth, Int32 border, Int32 imageSize, Object bits)
@@ -6959,7 +6959,7 @@ namespace OpenGL
 		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="target">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:TextureTarget"/>.
 		/// </param>
 		/// <param name="level">
 		/// A <see cref="T:Int32"/>.
@@ -6983,7 +6983,7 @@ namespace OpenGL
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="bits">
-		/// A <see cref="T:IntPtr"/>.
+		/// A <see cref="T:Object"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access")]
 		public static void CompressedMultiTexImage3DEXT(int texunit, TextureTarget target, Int32 level, int internalformat, Int32 width, Int32 height, Int32 depth, Int32 border, Int32 imageSize, Object bits)
@@ -7042,7 +7042,7 @@ namespace OpenGL
 		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="target">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:TextureTarget"/>.
 		/// </param>
 		/// <param name="level">
 		/// A <see cref="T:Int32"/>.
@@ -7102,7 +7102,7 @@ namespace OpenGL
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="bits">
-		/// A <see cref="T:IntPtr"/>.
+		/// A <see cref="T:Object"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access")]
 		public static void CompressedMultiTexImage2DEXT(int texunit, int target, Int32 level, int internalformat, Int32 width, Int32 height, Int32 border, Int32 imageSize, Object bits)
@@ -7122,7 +7122,7 @@ namespace OpenGL
 		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="target">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:TextureTarget"/>.
 		/// </param>
 		/// <param name="level">
 		/// A <see cref="T:Int32"/>.
@@ -7143,7 +7143,7 @@ namespace OpenGL
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="bits">
-		/// A <see cref="T:IntPtr"/>.
+		/// A <see cref="T:Object"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access")]
 		public static void CompressedMultiTexImage2DEXT(int texunit, TextureTarget target, Int32 level, int internalformat, Int32 width, Int32 height, Int32 border, Int32 imageSize, Object bits)
@@ -7199,7 +7199,7 @@ namespace OpenGL
 		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="target">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:TextureTarget"/>.
 		/// </param>
 		/// <param name="level">
 		/// A <see cref="T:Int32"/>.
@@ -7253,7 +7253,7 @@ namespace OpenGL
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="bits">
-		/// A <see cref="T:IntPtr"/>.
+		/// A <see cref="T:Object"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access")]
 		public static void CompressedMultiTexImage1DEXT(int texunit, int target, Int32 level, int internalformat, Int32 width, Int32 border, Int32 imageSize, Object bits)
@@ -7273,7 +7273,7 @@ namespace OpenGL
 		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="target">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:TextureTarget"/>.
 		/// </param>
 		/// <param name="level">
 		/// A <see cref="T:Int32"/>.
@@ -7291,7 +7291,7 @@ namespace OpenGL
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="bits">
-		/// A <see cref="T:IntPtr"/>.
+		/// A <see cref="T:Object"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access")]
 		public static void CompressedMultiTexImage1DEXT(int texunit, TextureTarget target, Int32 level, int internalformat, Int32 width, Int32 border, Int32 imageSize, Object bits)
@@ -7359,7 +7359,7 @@ namespace OpenGL
 		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="target">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:TextureTarget"/>.
 		/// </param>
 		/// <param name="level">
 		/// A <see cref="T:Int32"/>.
@@ -7383,7 +7383,7 @@ namespace OpenGL
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="format">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:PixelFormat"/>.
 		/// </param>
 		/// <param name="imageSize">
 		/// A <see cref="T:Int32"/>.
@@ -7437,7 +7437,7 @@ namespace OpenGL
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="bits">
-		/// A <see cref="T:IntPtr"/>.
+		/// A <see cref="T:Object"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access")]
 		public static void CompressedMultiTexSubImage3DEXT(int texunit, int target, Int32 level, Int32 xoffset, Int32 yoffset, Int32 zoffset, Int32 width, Int32 height, Int32 depth, int format, Int32 imageSize, Object bits)
@@ -7457,7 +7457,7 @@ namespace OpenGL
 		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="target">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:TextureTarget"/>.
 		/// </param>
 		/// <param name="level">
 		/// A <see cref="T:Int32"/>.
@@ -7481,13 +7481,13 @@ namespace OpenGL
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="format">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:PixelFormat"/>.
 		/// </param>
 		/// <param name="imageSize">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="bits">
-		/// A <see cref="T:IntPtr"/>.
+		/// A <see cref="T:Object"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access")]
 		public static void CompressedMultiTexSubImage3DEXT(int texunit, TextureTarget target, Int32 level, Int32 xoffset, Int32 yoffset, Int32 zoffset, Int32 width, Int32 height, Int32 depth, PixelFormat format, Int32 imageSize, Object bits)
@@ -7549,7 +7549,7 @@ namespace OpenGL
 		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="target">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:TextureTarget"/>.
 		/// </param>
 		/// <param name="level">
 		/// A <see cref="T:Int32"/>.
@@ -7567,7 +7567,7 @@ namespace OpenGL
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="format">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:PixelFormat"/>.
 		/// </param>
 		/// <param name="imageSize">
 		/// A <see cref="T:Int32"/>.
@@ -7615,7 +7615,7 @@ namespace OpenGL
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="bits">
-		/// A <see cref="T:IntPtr"/>.
+		/// A <see cref="T:Object"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access")]
 		public static void CompressedMultiTexSubImage2DEXT(int texunit, int target, Int32 level, Int32 xoffset, Int32 yoffset, Int32 width, Int32 height, int format, Int32 imageSize, Object bits)
@@ -7635,7 +7635,7 @@ namespace OpenGL
 		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="target">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:TextureTarget"/>.
 		/// </param>
 		/// <param name="level">
 		/// A <see cref="T:Int32"/>.
@@ -7653,13 +7653,13 @@ namespace OpenGL
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="format">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:PixelFormat"/>.
 		/// </param>
 		/// <param name="imageSize">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="bits">
-		/// A <see cref="T:IntPtr"/>.
+		/// A <see cref="T:Object"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access")]
 		public static void CompressedMultiTexSubImage2DEXT(int texunit, TextureTarget target, Int32 level, Int32 xoffset, Int32 yoffset, Int32 width, Int32 height, PixelFormat format, Int32 imageSize, Object bits)
@@ -7715,7 +7715,7 @@ namespace OpenGL
 		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="target">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:TextureTarget"/>.
 		/// </param>
 		/// <param name="level">
 		/// A <see cref="T:Int32"/>.
@@ -7727,7 +7727,7 @@ namespace OpenGL
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="format">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:PixelFormat"/>.
 		/// </param>
 		/// <param name="imageSize">
 		/// A <see cref="T:Int32"/>.
@@ -7769,7 +7769,7 @@ namespace OpenGL
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="bits">
-		/// A <see cref="T:IntPtr"/>.
+		/// A <see cref="T:Object"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access")]
 		public static void CompressedMultiTexSubImage1DEXT(int texunit, int target, Int32 level, Int32 xoffset, Int32 width, int format, Int32 imageSize, Object bits)
@@ -7789,7 +7789,7 @@ namespace OpenGL
 		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="target">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:TextureTarget"/>.
 		/// </param>
 		/// <param name="level">
 		/// A <see cref="T:Int32"/>.
@@ -7801,13 +7801,13 @@ namespace OpenGL
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="format">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:PixelFormat"/>.
 		/// </param>
 		/// <param name="imageSize">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="bits">
-		/// A <see cref="T:IntPtr"/>.
+		/// A <see cref="T:Object"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access")]
 		public static void CompressedMultiTexSubImage1DEXT(int texunit, TextureTarget target, Int32 level, Int32 xoffset, Int32 width, PixelFormat format, Int32 imageSize, Object bits)
@@ -7851,7 +7851,7 @@ namespace OpenGL
 		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="target">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:TextureTarget"/>.
 		/// </param>
 		/// <param name="lod">
 		/// A <see cref="T:Int32"/>.
@@ -7895,7 +7895,7 @@ namespace OpenGL
 		/// Binding for glMatrixLoadTransposefEXT.
 		/// </summary>
 		/// <param name="mode">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:MatrixMode"/>.
 		/// </param>
 		/// <param name="m">
 		/// A <see cref="T:float[]"/>.
@@ -7941,7 +7941,7 @@ namespace OpenGL
 		/// Binding for glMatrixLoadTransposedEXT.
 		/// </summary>
 		/// <param name="mode">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:MatrixMode"/>.
 		/// </param>
 		/// <param name="m">
 		/// A <see cref="T:double[]"/>.
@@ -7987,7 +7987,7 @@ namespace OpenGL
 		/// Binding for glMatrixMultTransposefEXT.
 		/// </summary>
 		/// <param name="mode">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:MatrixMode"/>.
 		/// </param>
 		/// <param name="m">
 		/// A <see cref="T:float[]"/>.
@@ -8033,7 +8033,7 @@ namespace OpenGL
 		/// Binding for glMatrixMultTransposedEXT.
 		/// </summary>
 		/// <param name="mode">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:MatrixMode"/>.
 		/// </param>
 		/// <param name="m">
 		/// A <see cref="T:double[]"/>.
@@ -8086,7 +8086,7 @@ namespace OpenGL
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
 		/// <param name="data">
-		/// A <see cref="T:IntPtr"/>.
+		/// A <see cref="T:Object"/>.
 		/// </param>
 		/// <param name="usage">
 		/// A <see cref="T:int"/>.
@@ -8139,7 +8139,7 @@ namespace OpenGL
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
 		/// <param name="data">
-		/// A <see cref="T:IntPtr"/>.
+		/// A <see cref="T:Object"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access")]
 		public static void NamedBufferSubDataEXT(UInt32 buffer, IntPtr offset, UInt32 size, Object data)
@@ -8508,6 +8508,36 @@ namespace OpenGL
 		}
 
 		/// <summary>
+		/// Binding for glProgramUniform1fvEXT.
+		/// </summary>
+		/// <param name="program">
+		/// A <see cref="T:UInt32"/>.
+		/// </param>
+		/// <param name="location">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="count">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="value">
+		/// A <see cref="T:float[]"/>.
+		/// </param>
+		[RequiredByFeature("GL_EXT_direct_state_access")]
+		[RequiredByFeature("GL_EXT_separate_shader_objects")]
+		public static void ProgramUniform1EXT(UInt32 program, Int32 location, float[] value)
+		{
+			unsafe {
+				fixed (float* p_value = value)
+				{
+					Debug.Assert(Delegates.pglProgramUniform1fvEXT != null, "pglProgramUniform1fvEXT not implemented");
+					Delegates.pglProgramUniform1fvEXT(program, location, (Int32)value.Length, p_value);
+					CallLog("glProgramUniform1fvEXT({0}, {1}, {2}, {3})", program, location, value.Length, value);
+				}
+			}
+			DebugCheckErrors();
+		}
+
+		/// <summary>
 		/// Binding for glProgramUniform2fvEXT.
 		/// </summary>
 		/// <param name="program">
@@ -8623,6 +8653,36 @@ namespace OpenGL
 					Debug.Assert(Delegates.pglProgramUniform1ivEXT != null, "pglProgramUniform1ivEXT not implemented");
 					Delegates.pglProgramUniform1ivEXT(program, location, count, p_value);
 					CallLog("glProgramUniform1ivEXT({0}, {1}, {2}, {3})", program, location, count, value);
+				}
+			}
+			DebugCheckErrors();
+		}
+
+		/// <summary>
+		/// Binding for glProgramUniform1ivEXT.
+		/// </summary>
+		/// <param name="program">
+		/// A <see cref="T:UInt32"/>.
+		/// </param>
+		/// <param name="location">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="count">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="value">
+		/// A <see cref="T:Int32[]"/>.
+		/// </param>
+		[RequiredByFeature("GL_EXT_direct_state_access")]
+		[RequiredByFeature("GL_EXT_separate_shader_objects")]
+		public static void ProgramUniform1EXT(UInt32 program, Int32 location, Int32[] value)
+		{
+			unsafe {
+				fixed (Int32* p_value = value)
+				{
+					Debug.Assert(Delegates.pglProgramUniform1ivEXT != null, "pglProgramUniform1ivEXT not implemented");
+					Delegates.pglProgramUniform1ivEXT(program, location, (Int32)value.Length, p_value);
+					CallLog("glProgramUniform1ivEXT({0}, {1}, {2}, {3})", program, location, value.Length, value);
 				}
 			}
 			DebugCheckErrors();
@@ -9046,7 +9106,7 @@ namespace OpenGL
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
 		/// <param name="target">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:TextureTarget"/>.
 		/// </param>
 		/// <param name="internalformat">
 		/// A <see cref="T:int"/>.
@@ -9094,7 +9154,7 @@ namespace OpenGL
 		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="target">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:TextureTarget"/>.
 		/// </param>
 		/// <param name="internalformat">
 		/// A <see cref="T:int"/>.
@@ -9147,10 +9207,10 @@ namespace OpenGL
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
 		/// <param name="target">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:TextureTarget"/>.
 		/// </param>
 		/// <param name="pname">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:TextureParameterName"/>.
 		/// </param>
 		/// <param name="params">
 		/// A <see cref="T:Int32[]"/>.
@@ -9205,10 +9265,10 @@ namespace OpenGL
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
 		/// <param name="target">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:TextureTarget"/>.
 		/// </param>
 		/// <param name="pname">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:TextureParameterName"/>.
 		/// </param>
 		/// <param name="params">
 		/// A <see cref="T:UInt32[]"/>.
@@ -9263,10 +9323,10 @@ namespace OpenGL
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
 		/// <param name="target">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:TextureTarget"/>.
 		/// </param>
 		/// <param name="pname">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:GetTextureParameter"/>.
 		/// </param>
 		/// <param name="params">
 		/// A <see cref="T:Int32[]"/>.
@@ -9321,10 +9381,10 @@ namespace OpenGL
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
 		/// <param name="target">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:TextureTarget"/>.
 		/// </param>
 		/// <param name="pname">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:GetTextureParameter"/>.
 		/// </param>
 		/// <param name="params">
 		/// A <see cref="T:UInt32[]"/>.
@@ -9379,10 +9439,10 @@ namespace OpenGL
 		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="target">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:TextureTarget"/>.
 		/// </param>
 		/// <param name="pname">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:TextureParameterName"/>.
 		/// </param>
 		/// <param name="params">
 		/// A <see cref="T:Int32[]"/>.
@@ -9437,10 +9497,10 @@ namespace OpenGL
 		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="target">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:TextureTarget"/>.
 		/// </param>
 		/// <param name="pname">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:TextureParameterName"/>.
 		/// </param>
 		/// <param name="params">
 		/// A <see cref="T:UInt32[]"/>.
@@ -9495,10 +9555,10 @@ namespace OpenGL
 		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="target">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:TextureTarget"/>.
 		/// </param>
 		/// <param name="pname">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:GetTextureParameter"/>.
 		/// </param>
 		/// <param name="params">
 		/// A <see cref="T:Int32[]"/>.
@@ -9553,10 +9613,10 @@ namespace OpenGL
 		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="target">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:TextureTarget"/>.
 		/// </param>
 		/// <param name="pname">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:GetTextureParameter"/>.
 		/// </param>
 		/// <param name="params">
 		/// A <see cref="T:UInt32[]"/>.
@@ -9707,6 +9767,36 @@ namespace OpenGL
 					Debug.Assert(Delegates.pglProgramUniform1uivEXT != null, "pglProgramUniform1uivEXT not implemented");
 					Delegates.pglProgramUniform1uivEXT(program, location, count, p_value);
 					CallLog("glProgramUniform1uivEXT({0}, {1}, {2}, {3})", program, location, count, value);
+				}
+			}
+			DebugCheckErrors();
+		}
+
+		/// <summary>
+		/// Binding for glProgramUniform1uivEXT.
+		/// </summary>
+		/// <param name="program">
+		/// A <see cref="T:UInt32"/>.
+		/// </param>
+		/// <param name="location">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="count">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="value">
+		/// A <see cref="T:UInt32[]"/>.
+		/// </param>
+		[RequiredByFeature("GL_EXT_direct_state_access")]
+		[RequiredByFeature("GL_EXT_separate_shader_objects")]
+		public static void ProgramUniform1EXT(UInt32 program, Int32 location, UInt32[] value)
+		{
+			unsafe {
+				fixed (UInt32* p_value = value)
+				{
+					Debug.Assert(Delegates.pglProgramUniform1uivEXT != null, "pglProgramUniform1uivEXT not implemented");
+					Delegates.pglProgramUniform1uivEXT(program, location, (Int32)value.Length, p_value);
+					CallLog("glProgramUniform1uivEXT({0}, {1}, {2}, {3})", program, location, value.Length, value);
 				}
 			}
 			DebugCheckErrors();
@@ -10102,7 +10192,7 @@ namespace OpenGL
 		/// Binding for glEnableClientStateiEXT.
 		/// </summary>
 		/// <param name="array">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:EnableCap"/>.
 		/// </param>
 		/// <param name="index">
 		/// A <see cref="T:UInt32"/>.
@@ -10138,7 +10228,7 @@ namespace OpenGL
 		/// Binding for glDisableClientStateiEXT.
 		/// </summary>
 		/// <param name="array">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:EnableCap"/>.
 		/// </param>
 		/// <param name="index">
 		/// A <see cref="T:UInt32"/>.
@@ -10268,7 +10358,7 @@ namespace OpenGL
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="string">
-		/// A <see cref="T:IntPtr"/>.
+		/// A <see cref="T:Object"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access")]
 		public static void NamedProgramStringEXT(UInt32 program, int target, int format, Int32 len, Object @string)
@@ -10682,7 +10772,7 @@ namespace OpenGL
 		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="textarget">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:TextureTarget"/>.
 		/// </param>
 		/// <param name="texture">
 		/// A <see cref="T:UInt32"/>.
@@ -10736,7 +10826,7 @@ namespace OpenGL
 		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="textarget">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:TextureTarget"/>.
 		/// </param>
 		/// <param name="texture">
 		/// A <see cref="T:UInt32"/>.
@@ -10793,7 +10883,7 @@ namespace OpenGL
 		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="textarget">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:TextureTarget"/>.
 		/// </param>
 		/// <param name="texture">
 		/// A <see cref="T:UInt32"/>.
@@ -10891,7 +10981,7 @@ namespace OpenGL
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
 		/// <param name="target">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:TextureTarget"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access")]
 		public static void GenerateTextureMipmapEXT(UInt32 texture, TextureTarget target)
@@ -10927,7 +11017,7 @@ namespace OpenGL
 		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="target">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:TextureTarget"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access")]
 		public static void GenerateMultiTexMipmapEXT(int texunit, TextureTarget target)
@@ -10963,7 +11053,7 @@ namespace OpenGL
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
 		/// <param name="mode">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:DrawBufferMode"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access")]
 		public static void FramebufferDrawBufferEXT(UInt32 framebuffer, DrawBufferMode mode)
@@ -11002,6 +11092,32 @@ namespace OpenGL
 		}
 
 		/// <summary>
+		/// Binding for glFramebufferDrawBuffersEXT.
+		/// </summary>
+		/// <param name="framebuffer">
+		/// A <see cref="T:UInt32"/>.
+		/// </param>
+		/// <param name="n">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="bufs">
+		/// A <see cref="T:int[]"/>.
+		/// </param>
+		[RequiredByFeature("GL_EXT_direct_state_access")]
+		public static void FramebufferDrawBuffersEXT(UInt32 framebuffer, int[] bufs)
+		{
+			unsafe {
+				fixed (int* p_bufs = bufs)
+				{
+					Debug.Assert(Delegates.pglFramebufferDrawBuffersEXT != null, "pglFramebufferDrawBuffersEXT not implemented");
+					Delegates.pglFramebufferDrawBuffersEXT(framebuffer, (Int32)bufs.Length, p_bufs);
+					CallLog("glFramebufferDrawBuffersEXT({0}, {1}, {2})", framebuffer, bufs.Length, bufs);
+				}
+			}
+			DebugCheckErrors();
+		}
+
+		/// <summary>
 		/// Binding for glFramebufferReadBufferEXT.
 		/// </summary>
 		/// <param name="framebuffer">
@@ -11026,7 +11142,7 @@ namespace OpenGL
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
 		/// <param name="mode">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:ReadBufferMode"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access")]
 		public static void FramebufferReadBufferEXT(UInt32 framebuffer, ReadBufferMode mode)
@@ -11184,7 +11300,7 @@ namespace OpenGL
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="face">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:TextureTarget"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access")]
 		public static void NamedFramebufferTextureFaceEXT(UInt32 framebuffer, int attachment, UInt32 texture, Int32 level, TextureTarget face)
@@ -11223,7 +11339,7 @@ namespace OpenGL
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
 		/// <param name="target">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:TextureTarget"/>.
 		/// </param>
 		/// <param name="renderbuffer">
 		/// A <see cref="T:UInt32"/>.
@@ -11265,7 +11381,7 @@ namespace OpenGL
 		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="target">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:TextureTarget"/>.
 		/// </param>
 		/// <param name="renderbuffer">
 		/// A <see cref="T:UInt32"/>.
@@ -11322,7 +11438,7 @@ namespace OpenGL
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="type">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:VertexPointerType"/>.
 		/// </param>
 		/// <param name="stride">
 		/// A <see cref="T:Int32"/>.
@@ -11382,7 +11498,7 @@ namespace OpenGL
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="type">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:ColorPointerType"/>.
 		/// </param>
 		/// <param name="stride">
 		/// A <see cref="T:Int32"/>.
@@ -11460,7 +11576,7 @@ namespace OpenGL
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
 		/// <param name="type">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:IndexPointerType"/>.
 		/// </param>
 		/// <param name="stride">
 		/// A <see cref="T:Int32"/>.
@@ -11514,7 +11630,7 @@ namespace OpenGL
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
 		/// <param name="type">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:NormalPointerType"/>.
 		/// </param>
 		/// <param name="stride">
 		/// A <see cref="T:Int32"/>.
@@ -11574,7 +11690,7 @@ namespace OpenGL
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="type">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:TexCoordPointerType"/>.
 		/// </param>
 		/// <param name="stride">
 		/// A <see cref="T:Int32"/>.
@@ -11640,7 +11756,7 @@ namespace OpenGL
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="type">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:TexCoordPointerType"/>.
 		/// </param>
 		/// <param name="stride">
 		/// A <see cref="T:Int32"/>.
@@ -11694,7 +11810,7 @@ namespace OpenGL
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
 		/// <param name="type">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:FogCoordinatePointerType"/>.
 		/// </param>
 		/// <param name="stride">
 		/// A <see cref="T:Int32"/>.
@@ -11754,7 +11870,7 @@ namespace OpenGL
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="type">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:ColorPointerType"/>.
 		/// </param>
 		/// <param name="stride">
 		/// A <see cref="T:Int32"/>.
@@ -11865,7 +11981,7 @@ namespace OpenGL
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
 		/// <param name="array">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:EnableCap"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access")]
 		public static void EnableVertexArrayEXT(UInt32 vaobj, EnableCap array)
@@ -11901,7 +12017,7 @@ namespace OpenGL
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
 		/// <param name="array">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:EnableCap"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access")]
 		public static void DisableVertexArrayEXT(UInt32 vaobj, EnableCap array)
@@ -12131,7 +12247,7 @@ namespace OpenGL
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
 		/// <param name="data">
-		/// A <see cref="T:IntPtr"/>.
+		/// A <see cref="T:Object"/>.
 		/// </param>
 		/// <param name="flags">
 		/// A <see cref="T:uint"/>.
@@ -12184,10 +12300,10 @@ namespace OpenGL
 		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="format">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:PixelFormat"/>.
 		/// </param>
 		/// <param name="type">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:PixelType"/>.
 		/// </param>
 		/// <param name="data">
 		/// A <see cref="T:IntPtr"/>.
@@ -12217,7 +12333,7 @@ namespace OpenGL
 		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="data">
-		/// A <see cref="T:IntPtr"/>.
+		/// A <see cref="T:Object"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access")]
 		public static void ClearNamedBufferDataEXT(UInt32 buffer, int internalformat, int format, int type, Object data)
@@ -12240,13 +12356,13 @@ namespace OpenGL
 		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="format">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:PixelFormat"/>.
 		/// </param>
 		/// <param name="type">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:PixelType"/>.
 		/// </param>
 		/// <param name="data">
-		/// A <see cref="T:IntPtr"/>.
+		/// A <see cref="T:Object"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access")]
 		public static void ClearNamedBufferDataEXT(UInt32 buffer, int internalformat, PixelFormat format, PixelType type, Object data)
@@ -12308,10 +12424,10 @@ namespace OpenGL
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
 		/// <param name="format">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:PixelFormat"/>.
 		/// </param>
 		/// <param name="type">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:PixelType"/>.
 		/// </param>
 		/// <param name="data">
 		/// A <see cref="T:IntPtr"/>.
@@ -12347,7 +12463,7 @@ namespace OpenGL
 		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="data">
-		/// A <see cref="T:IntPtr"/>.
+		/// A <see cref="T:Object"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access")]
 		public static void ClearNamedBufferSubDataEXT(UInt32 buffer, int internalformat, UInt32 offset, UInt32 size, int format, int type, Object data)
@@ -12376,13 +12492,13 @@ namespace OpenGL
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
 		/// <param name="format">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:PixelFormat"/>.
 		/// </param>
 		/// <param name="type">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:PixelType"/>.
 		/// </param>
 		/// <param name="data">
-		/// A <see cref="T:IntPtr"/>.
+		/// A <see cref="T:Object"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access")]
 		public static void ClearNamedBufferSubDataEXT(UInt32 buffer, int internalformat, UInt32 offset, UInt32 size, PixelFormat format, PixelType type, Object data)
@@ -12575,6 +12691,35 @@ namespace OpenGL
 		}
 
 		/// <summary>
+		/// Binding for glProgramUniform1dvEXT.
+		/// </summary>
+		/// <param name="program">
+		/// A <see cref="T:UInt32"/>.
+		/// </param>
+		/// <param name="location">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="count">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="value">
+		/// A <see cref="T:double[]"/>.
+		/// </param>
+		[RequiredByFeature("GL_EXT_direct_state_access")]
+		public static void ProgramUniform1EXT(UInt32 program, Int32 location, double[] value)
+		{
+			unsafe {
+				fixed (double* p_value = value)
+				{
+					Debug.Assert(Delegates.pglProgramUniform1dvEXT != null, "pglProgramUniform1dvEXT not implemented");
+					Delegates.pglProgramUniform1dvEXT(program, location, (Int32)value.Length, p_value);
+					CallLog("glProgramUniform1dvEXT({0}, {1}, {2}, {3})", program, location, value.Length, value);
+				}
+			}
+			DebugCheckErrors();
+		}
+
+		/// <summary>
 		/// Binding for glProgramUniform2dvEXT.
 		/// </summary>
 		/// <param name="program">
@@ -12599,6 +12744,35 @@ namespace OpenGL
 					Debug.Assert(Delegates.pglProgramUniform2dvEXT != null, "pglProgramUniform2dvEXT not implemented");
 					Delegates.pglProgramUniform2dvEXT(program, location, count, p_value);
 					CallLog("glProgramUniform2dvEXT({0}, {1}, {2}, {3})", program, location, count, value);
+				}
+			}
+			DebugCheckErrors();
+		}
+
+		/// <summary>
+		/// Binding for glProgramUniform2dvEXT.
+		/// </summary>
+		/// <param name="program">
+		/// A <see cref="T:UInt32"/>.
+		/// </param>
+		/// <param name="location">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="count">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="value">
+		/// A <see cref="T:double[]"/>.
+		/// </param>
+		[RequiredByFeature("GL_EXT_direct_state_access")]
+		public static void ProgramUniform2EXT(UInt32 program, Int32 location, double[] value)
+		{
+			unsafe {
+				fixed (double* p_value = value)
+				{
+					Debug.Assert(Delegates.pglProgramUniform2dvEXT != null, "pglProgramUniform2dvEXT not implemented");
+					Delegates.pglProgramUniform2dvEXT(program, location, (Int32)value.Length, p_value);
+					CallLog("glProgramUniform2dvEXT({0}, {1}, {2}, {3})", program, location, value.Length, value);
 				}
 			}
 			DebugCheckErrors();
@@ -12635,6 +12809,35 @@ namespace OpenGL
 		}
 
 		/// <summary>
+		/// Binding for glProgramUniform3dvEXT.
+		/// </summary>
+		/// <param name="program">
+		/// A <see cref="T:UInt32"/>.
+		/// </param>
+		/// <param name="location">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="count">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="value">
+		/// A <see cref="T:double[]"/>.
+		/// </param>
+		[RequiredByFeature("GL_EXT_direct_state_access")]
+		public static void ProgramUniform3EXT(UInt32 program, Int32 location, double[] value)
+		{
+			unsafe {
+				fixed (double* p_value = value)
+				{
+					Debug.Assert(Delegates.pglProgramUniform3dvEXT != null, "pglProgramUniform3dvEXT not implemented");
+					Delegates.pglProgramUniform3dvEXT(program, location, (Int32)value.Length, p_value);
+					CallLog("glProgramUniform3dvEXT({0}, {1}, {2}, {3})", program, location, value.Length, value);
+				}
+			}
+			DebugCheckErrors();
+		}
+
+		/// <summary>
 		/// Binding for glProgramUniform4dvEXT.
 		/// </summary>
 		/// <param name="program">
@@ -12659,6 +12862,35 @@ namespace OpenGL
 					Debug.Assert(Delegates.pglProgramUniform4dvEXT != null, "pglProgramUniform4dvEXT not implemented");
 					Delegates.pglProgramUniform4dvEXT(program, location, count, p_value);
 					CallLog("glProgramUniform4dvEXT({0}, {1}, {2}, {3})", program, location, count, value);
+				}
+			}
+			DebugCheckErrors();
+		}
+
+		/// <summary>
+		/// Binding for glProgramUniform4dvEXT.
+		/// </summary>
+		/// <param name="program">
+		/// A <see cref="T:UInt32"/>.
+		/// </param>
+		/// <param name="location">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="count">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="value">
+		/// A <see cref="T:double[]"/>.
+		/// </param>
+		[RequiredByFeature("GL_EXT_direct_state_access")]
+		public static void ProgramUniform4EXT(UInt32 program, Int32 location, double[] value)
+		{
+			unsafe {
+				fixed (double* p_value = value)
+				{
+					Debug.Assert(Delegates.pglProgramUniform4dvEXT != null, "pglProgramUniform4dvEXT not implemented");
+					Delegates.pglProgramUniform4dvEXT(program, location, (Int32)value.Length, p_value);
+					CallLog("glProgramUniform4dvEXT({0}, {1}, {2}, {3})", program, location, value.Length, value);
 				}
 			}
 			DebugCheckErrors();
@@ -12698,6 +12930,38 @@ namespace OpenGL
 		}
 
 		/// <summary>
+		/// Binding for glProgramUniformMatrix2dvEXT.
+		/// </summary>
+		/// <param name="program">
+		/// A <see cref="T:UInt32"/>.
+		/// </param>
+		/// <param name="location">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="count">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="transpose">
+		/// A <see cref="T:bool"/>.
+		/// </param>
+		/// <param name="value">
+		/// A <see cref="T:double[]"/>.
+		/// </param>
+		[RequiredByFeature("GL_EXT_direct_state_access")]
+		public static void ProgramUniformMatrix2EXT(UInt32 program, Int32 location, bool transpose, double[] value)
+		{
+			unsafe {
+				fixed (double* p_value = value)
+				{
+					Debug.Assert(Delegates.pglProgramUniformMatrix2dvEXT != null, "pglProgramUniformMatrix2dvEXT not implemented");
+					Delegates.pglProgramUniformMatrix2dvEXT(program, location, (Int32)value.Length, transpose, p_value);
+					CallLog("glProgramUniformMatrix2dvEXT({0}, {1}, {2}, {3}, {4})", program, location, value.Length, transpose, value);
+				}
+			}
+			DebugCheckErrors();
+		}
+
+		/// <summary>
 		/// Binding for glProgramUniformMatrix3dvEXT.
 		/// </summary>
 		/// <param name="program">
@@ -12725,6 +12989,38 @@ namespace OpenGL
 					Debug.Assert(Delegates.pglProgramUniformMatrix3dvEXT != null, "pglProgramUniformMatrix3dvEXT not implemented");
 					Delegates.pglProgramUniformMatrix3dvEXT(program, location, count, transpose, p_value);
 					CallLog("glProgramUniformMatrix3dvEXT({0}, {1}, {2}, {3}, {4})", program, location, count, transpose, value);
+				}
+			}
+			DebugCheckErrors();
+		}
+
+		/// <summary>
+		/// Binding for glProgramUniformMatrix3dvEXT.
+		/// </summary>
+		/// <param name="program">
+		/// A <see cref="T:UInt32"/>.
+		/// </param>
+		/// <param name="location">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="count">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="transpose">
+		/// A <see cref="T:bool"/>.
+		/// </param>
+		/// <param name="value">
+		/// A <see cref="T:double[]"/>.
+		/// </param>
+		[RequiredByFeature("GL_EXT_direct_state_access")]
+		public static void ProgramUniformMatrix3EXT(UInt32 program, Int32 location, bool transpose, double[] value)
+		{
+			unsafe {
+				fixed (double* p_value = value)
+				{
+					Debug.Assert(Delegates.pglProgramUniformMatrix3dvEXT != null, "pglProgramUniformMatrix3dvEXT not implemented");
+					Delegates.pglProgramUniformMatrix3dvEXT(program, location, (Int32)value.Length, transpose, p_value);
+					CallLog("glProgramUniformMatrix3dvEXT({0}, {1}, {2}, {3}, {4})", program, location, value.Length, transpose, value);
 				}
 			}
 			DebugCheckErrors();
@@ -12764,6 +13060,38 @@ namespace OpenGL
 		}
 
 		/// <summary>
+		/// Binding for glProgramUniformMatrix4dvEXT.
+		/// </summary>
+		/// <param name="program">
+		/// A <see cref="T:UInt32"/>.
+		/// </param>
+		/// <param name="location">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="count">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="transpose">
+		/// A <see cref="T:bool"/>.
+		/// </param>
+		/// <param name="value">
+		/// A <see cref="T:double[]"/>.
+		/// </param>
+		[RequiredByFeature("GL_EXT_direct_state_access")]
+		public static void ProgramUniformMatrix4EXT(UInt32 program, Int32 location, bool transpose, double[] value)
+		{
+			unsafe {
+				fixed (double* p_value = value)
+				{
+					Debug.Assert(Delegates.pglProgramUniformMatrix4dvEXT != null, "pglProgramUniformMatrix4dvEXT not implemented");
+					Delegates.pglProgramUniformMatrix4dvEXT(program, location, (Int32)value.Length, transpose, p_value);
+					CallLog("glProgramUniformMatrix4dvEXT({0}, {1}, {2}, {3}, {4})", program, location, value.Length, transpose, value);
+				}
+			}
+			DebugCheckErrors();
+		}
+
+		/// <summary>
 		/// Binding for glProgramUniformMatrix2x3dvEXT.
 		/// </summary>
 		/// <param name="program">
@@ -12791,6 +13119,38 @@ namespace OpenGL
 					Debug.Assert(Delegates.pglProgramUniformMatrix2x3dvEXT != null, "pglProgramUniformMatrix2x3dvEXT not implemented");
 					Delegates.pglProgramUniformMatrix2x3dvEXT(program, location, count, transpose, p_value);
 					CallLog("glProgramUniformMatrix2x3dvEXT({0}, {1}, {2}, {3}, {4})", program, location, count, transpose, value);
+				}
+			}
+			DebugCheckErrors();
+		}
+
+		/// <summary>
+		/// Binding for glProgramUniformMatrix2x3dvEXT.
+		/// </summary>
+		/// <param name="program">
+		/// A <see cref="T:UInt32"/>.
+		/// </param>
+		/// <param name="location">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="count">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="transpose">
+		/// A <see cref="T:bool"/>.
+		/// </param>
+		/// <param name="value">
+		/// A <see cref="T:double[]"/>.
+		/// </param>
+		[RequiredByFeature("GL_EXT_direct_state_access")]
+		public static void ProgramUniformMatrix2x3EXT(UInt32 program, Int32 location, bool transpose, double[] value)
+		{
+			unsafe {
+				fixed (double* p_value = value)
+				{
+					Debug.Assert(Delegates.pglProgramUniformMatrix2x3dvEXT != null, "pglProgramUniformMatrix2x3dvEXT not implemented");
+					Delegates.pglProgramUniformMatrix2x3dvEXT(program, location, (Int32)value.Length, transpose, p_value);
+					CallLog("glProgramUniformMatrix2x3dvEXT({0}, {1}, {2}, {3}, {4})", program, location, value.Length, transpose, value);
 				}
 			}
 			DebugCheckErrors();
@@ -12830,6 +13190,38 @@ namespace OpenGL
 		}
 
 		/// <summary>
+		/// Binding for glProgramUniformMatrix2x4dvEXT.
+		/// </summary>
+		/// <param name="program">
+		/// A <see cref="T:UInt32"/>.
+		/// </param>
+		/// <param name="location">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="count">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="transpose">
+		/// A <see cref="T:bool"/>.
+		/// </param>
+		/// <param name="value">
+		/// A <see cref="T:double[]"/>.
+		/// </param>
+		[RequiredByFeature("GL_EXT_direct_state_access")]
+		public static void ProgramUniformMatrix2x4EXT(UInt32 program, Int32 location, bool transpose, double[] value)
+		{
+			unsafe {
+				fixed (double* p_value = value)
+				{
+					Debug.Assert(Delegates.pglProgramUniformMatrix2x4dvEXT != null, "pglProgramUniformMatrix2x4dvEXT not implemented");
+					Delegates.pglProgramUniformMatrix2x4dvEXT(program, location, (Int32)value.Length, transpose, p_value);
+					CallLog("glProgramUniformMatrix2x4dvEXT({0}, {1}, {2}, {3}, {4})", program, location, value.Length, transpose, value);
+				}
+			}
+			DebugCheckErrors();
+		}
+
+		/// <summary>
 		/// Binding for glProgramUniformMatrix3x2dvEXT.
 		/// </summary>
 		/// <param name="program">
@@ -12857,6 +13249,38 @@ namespace OpenGL
 					Debug.Assert(Delegates.pglProgramUniformMatrix3x2dvEXT != null, "pglProgramUniformMatrix3x2dvEXT not implemented");
 					Delegates.pglProgramUniformMatrix3x2dvEXT(program, location, count, transpose, p_value);
 					CallLog("glProgramUniformMatrix3x2dvEXT({0}, {1}, {2}, {3}, {4})", program, location, count, transpose, value);
+				}
+			}
+			DebugCheckErrors();
+		}
+
+		/// <summary>
+		/// Binding for glProgramUniformMatrix3x2dvEXT.
+		/// </summary>
+		/// <param name="program">
+		/// A <see cref="T:UInt32"/>.
+		/// </param>
+		/// <param name="location">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="count">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="transpose">
+		/// A <see cref="T:bool"/>.
+		/// </param>
+		/// <param name="value">
+		/// A <see cref="T:double[]"/>.
+		/// </param>
+		[RequiredByFeature("GL_EXT_direct_state_access")]
+		public static void ProgramUniformMatrix3x2EXT(UInt32 program, Int32 location, bool transpose, double[] value)
+		{
+			unsafe {
+				fixed (double* p_value = value)
+				{
+					Debug.Assert(Delegates.pglProgramUniformMatrix3x2dvEXT != null, "pglProgramUniformMatrix3x2dvEXT not implemented");
+					Delegates.pglProgramUniformMatrix3x2dvEXT(program, location, (Int32)value.Length, transpose, p_value);
+					CallLog("glProgramUniformMatrix3x2dvEXT({0}, {1}, {2}, {3}, {4})", program, location, value.Length, transpose, value);
 				}
 			}
 			DebugCheckErrors();
@@ -12896,6 +13320,38 @@ namespace OpenGL
 		}
 
 		/// <summary>
+		/// Binding for glProgramUniformMatrix3x4dvEXT.
+		/// </summary>
+		/// <param name="program">
+		/// A <see cref="T:UInt32"/>.
+		/// </param>
+		/// <param name="location">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="count">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="transpose">
+		/// A <see cref="T:bool"/>.
+		/// </param>
+		/// <param name="value">
+		/// A <see cref="T:double[]"/>.
+		/// </param>
+		[RequiredByFeature("GL_EXT_direct_state_access")]
+		public static void ProgramUniformMatrix3x4EXT(UInt32 program, Int32 location, bool transpose, double[] value)
+		{
+			unsafe {
+				fixed (double* p_value = value)
+				{
+					Debug.Assert(Delegates.pglProgramUniformMatrix3x4dvEXT != null, "pglProgramUniformMatrix3x4dvEXT not implemented");
+					Delegates.pglProgramUniformMatrix3x4dvEXT(program, location, (Int32)value.Length, transpose, p_value);
+					CallLog("glProgramUniformMatrix3x4dvEXT({0}, {1}, {2}, {3}, {4})", program, location, value.Length, transpose, value);
+				}
+			}
+			DebugCheckErrors();
+		}
+
+		/// <summary>
 		/// Binding for glProgramUniformMatrix4x2dvEXT.
 		/// </summary>
 		/// <param name="program">
@@ -12929,6 +13385,38 @@ namespace OpenGL
 		}
 
 		/// <summary>
+		/// Binding for glProgramUniformMatrix4x2dvEXT.
+		/// </summary>
+		/// <param name="program">
+		/// A <see cref="T:UInt32"/>.
+		/// </param>
+		/// <param name="location">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="count">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="transpose">
+		/// A <see cref="T:bool"/>.
+		/// </param>
+		/// <param name="value">
+		/// A <see cref="T:double[]"/>.
+		/// </param>
+		[RequiredByFeature("GL_EXT_direct_state_access")]
+		public static void ProgramUniformMatrix4x2EXT(UInt32 program, Int32 location, bool transpose, double[] value)
+		{
+			unsafe {
+				fixed (double* p_value = value)
+				{
+					Debug.Assert(Delegates.pglProgramUniformMatrix4x2dvEXT != null, "pglProgramUniformMatrix4x2dvEXT not implemented");
+					Delegates.pglProgramUniformMatrix4x2dvEXT(program, location, (Int32)value.Length, transpose, p_value);
+					CallLog("glProgramUniformMatrix4x2dvEXT({0}, {1}, {2}, {3}, {4})", program, location, value.Length, transpose, value);
+				}
+			}
+			DebugCheckErrors();
+		}
+
+		/// <summary>
 		/// Binding for glProgramUniformMatrix4x3dvEXT.
 		/// </summary>
 		/// <param name="program">
@@ -12956,6 +13444,38 @@ namespace OpenGL
 					Debug.Assert(Delegates.pglProgramUniformMatrix4x3dvEXT != null, "pglProgramUniformMatrix4x3dvEXT not implemented");
 					Delegates.pglProgramUniformMatrix4x3dvEXT(program, location, count, transpose, p_value);
 					CallLog("glProgramUniformMatrix4x3dvEXT({0}, {1}, {2}, {3}, {4})", program, location, count, transpose, value);
+				}
+			}
+			DebugCheckErrors();
+		}
+
+		/// <summary>
+		/// Binding for glProgramUniformMatrix4x3dvEXT.
+		/// </summary>
+		/// <param name="program">
+		/// A <see cref="T:UInt32"/>.
+		/// </param>
+		/// <param name="location">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="count">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="transpose">
+		/// A <see cref="T:bool"/>.
+		/// </param>
+		/// <param name="value">
+		/// A <see cref="T:double[]"/>.
+		/// </param>
+		[RequiredByFeature("GL_EXT_direct_state_access")]
+		public static void ProgramUniformMatrix4x3EXT(UInt32 program, Int32 location, bool transpose, double[] value)
+		{
+			unsafe {
+				fixed (double* p_value = value)
+				{
+					Debug.Assert(Delegates.pglProgramUniformMatrix4x3dvEXT != null, "pglProgramUniformMatrix4x3dvEXT not implemented");
+					Delegates.pglProgramUniformMatrix4x3dvEXT(program, location, (Int32)value.Length, transpose, p_value);
+					CallLog("glProgramUniformMatrix4x3dvEXT({0}, {1}, {2}, {3}, {4})", program, location, value.Length, transpose, value);
 				}
 			}
 			DebugCheckErrors();
@@ -12998,7 +13518,7 @@ namespace OpenGL
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
 		/// <param name="target">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:TextureTarget"/>.
 		/// </param>
 		/// <param name="internalformat">
 		/// A <see cref="T:int"/>.
@@ -13151,7 +13671,7 @@ namespace OpenGL
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
 		/// <param name="target">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:TextureTarget"/>.
 		/// </param>
 		/// <param name="samples">
 		/// A <see cref="T:Int32"/>.

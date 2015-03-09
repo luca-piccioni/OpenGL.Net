@@ -62,7 +62,7 @@ namespace OpenGL
 		/// Binding for glCopyTexImage1DEXT.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:TextureTarget"/>.
 		/// </param>
 		/// <param name="level">
 		/// A <see cref="T:Int32"/>.
@@ -131,7 +131,7 @@ namespace OpenGL
 		/// Binding for glCopyTexImage2DEXT.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:TextureTarget"/>.
 		/// </param>
 		/// <param name="level">
 		/// A <see cref="T:Int32"/>.
@@ -197,7 +197,7 @@ namespace OpenGL
 		/// Binding for glCopyTexSubImage1DEXT.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:TextureTarget"/>.
 		/// </param>
 		/// <param name="level">
 		/// A <see cref="T:Int32"/>.
@@ -263,7 +263,7 @@ namespace OpenGL
 		/// Binding for glCopyTexSubImage2DEXT.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:TextureTarget"/>.
 		/// </param>
 		/// <param name="level">
 		/// A <see cref="T:Int32"/>.
@@ -338,7 +338,7 @@ namespace OpenGL
 		/// Binding for glCopyTexSubImage3DEXT.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:TextureTarget"/>.
 		/// </param>
 		/// <param name="level">
 		/// A <see cref="T:Int32"/>.

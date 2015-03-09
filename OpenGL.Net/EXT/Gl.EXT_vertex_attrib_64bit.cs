@@ -322,7 +322,7 @@ namespace OpenGL
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="pointer">
-		/// A <see cref="T:IntPtr"/>.
+		/// A <see cref="T:Object"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_vertex_attrib_64bit")]
 		public static void VertexAttribLPointerEXT(UInt32 index, Int32 size, int type, Int32 stride, Object pointer)

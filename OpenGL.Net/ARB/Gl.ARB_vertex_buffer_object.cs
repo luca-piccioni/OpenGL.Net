@@ -233,7 +233,7 @@ namespace OpenGL
 		/// Binding for glBindBufferARB.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:BufferTargetARB"/>.
 		/// </param>
 		/// <param name="buffer">
 		/// A <see cref="T:UInt32"/>.
@@ -272,6 +272,29 @@ namespace OpenGL
 		}
 
 		/// <summary>
+		/// Binding for glDeleteBuffersARB.
+		/// </summary>
+		/// <param name="n">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="buffers">
+		/// A <see cref="T:UInt32[]"/>.
+		/// </param>
+		[RequiredByFeature("GL_ARB_vertex_buffer_object")]
+		public static void DeleteBuffersARB(UInt32[] buffers)
+		{
+			unsafe {
+				fixed (UInt32* p_buffers = buffers)
+				{
+					Debug.Assert(Delegates.pglDeleteBuffersARB != null, "pglDeleteBuffersARB not implemented");
+					Delegates.pglDeleteBuffersARB((Int32)buffers.Length, p_buffers);
+					CallLog("glDeleteBuffersARB({0}, {1})", buffers.Length, buffers);
+				}
+			}
+			DebugCheckErrors();
+		}
+
+		/// <summary>
 		/// Binding for glGenBuffersARB.
 		/// </summary>
 		/// <param name="n">
@@ -290,6 +313,29 @@ namespace OpenGL
 					Debug.Assert(Delegates.pglGenBuffersARB != null, "pglGenBuffersARB not implemented");
 					Delegates.pglGenBuffersARB(n, p_buffers);
 					CallLog("glGenBuffersARB({0}, {1})", n, buffers);
+				}
+			}
+			DebugCheckErrors();
+		}
+
+		/// <summary>
+		/// Binding for glGenBuffersARB.
+		/// </summary>
+		/// <param name="n">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="buffers">
+		/// A <see cref="T:UInt32[]"/>.
+		/// </param>
+		[RequiredByFeature("GL_ARB_vertex_buffer_object")]
+		public static void GenBuffersARB(UInt32[] buffers)
+		{
+			unsafe {
+				fixed (UInt32* p_buffers = buffers)
+				{
+					Debug.Assert(Delegates.pglGenBuffersARB != null, "pglGenBuffersARB not implemented");
+					Delegates.pglGenBuffersARB((Int32)buffers.Length, p_buffers);
+					CallLog("glGenBuffersARB({0}, {1})", buffers.Length, buffers);
 				}
 			}
 			DebugCheckErrors();
@@ -342,7 +388,7 @@ namespace OpenGL
 		/// Binding for glBufferDataARB.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:BufferTargetARB"/>.
 		/// </param>
 		/// <param name="size">
 		/// A <see cref="T:UInt32"/>.
@@ -351,7 +397,7 @@ namespace OpenGL
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		/// <param name="usage">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:BufferUsageARB"/>.
 		/// </param>
 		[RequiredByFeature("GL_ARB_vertex_buffer_object")]
 		public static void BufferDataARB(BufferTargetARB target, UInt32 size, IntPtr data, BufferUsageARB usage)
@@ -372,7 +418,7 @@ namespace OpenGL
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
 		/// <param name="data">
-		/// A <see cref="T:IntPtr"/>.
+		/// A <see cref="T:Object"/>.
 		/// </param>
 		/// <param name="usage">
 		/// A <see cref="T:int"/>.
@@ -392,16 +438,16 @@ namespace OpenGL
 		/// Binding for glBufferDataARB.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:BufferTargetARB"/>.
 		/// </param>
 		/// <param name="size">
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
 		/// <param name="data">
-		/// A <see cref="T:IntPtr"/>.
+		/// A <see cref="T:Object"/>.
 		/// </param>
 		/// <param name="usage">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:BufferUsageARB"/>.
 		/// </param>
 		[RequiredByFeature("GL_ARB_vertex_buffer_object")]
 		public static void BufferDataARB(BufferTargetARB target, UInt32 size, Object data, BufferUsageARB usage)
@@ -442,7 +488,7 @@ namespace OpenGL
 		/// Binding for glBufferSubDataARB.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:BufferTargetARB"/>.
 		/// </param>
 		/// <param name="offset">
 		/// A <see cref="T:IntPtr"/>.
@@ -475,7 +521,7 @@ namespace OpenGL
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
 		/// <param name="data">
-		/// A <see cref="T:IntPtr"/>.
+		/// A <see cref="T:Object"/>.
 		/// </param>
 		[RequiredByFeature("GL_ARB_vertex_buffer_object")]
 		public static void BufferSubDataARB(int target, IntPtr offset, UInt32 size, Object data)
@@ -492,7 +538,7 @@ namespace OpenGL
 		/// Binding for glBufferSubDataARB.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:BufferTargetARB"/>.
 		/// </param>
 		/// <param name="offset">
 		/// A <see cref="T:IntPtr"/>.
@@ -501,7 +547,7 @@ namespace OpenGL
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
 		/// <param name="data">
-		/// A <see cref="T:IntPtr"/>.
+		/// A <see cref="T:Object"/>.
 		/// </param>
 		[RequiredByFeature("GL_ARB_vertex_buffer_object")]
 		public static void BufferSubDataARB(BufferTargetARB target, IntPtr offset, UInt32 size, Object data)
@@ -542,7 +588,7 @@ namespace OpenGL
 		/// Binding for glGetBufferSubDataARB.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:BufferTargetARB"/>.
 		/// </param>
 		/// <param name="offset">
 		/// A <see cref="T:IntPtr"/>.
@@ -588,7 +634,7 @@ namespace OpenGL
 		/// Binding for glMapBufferARB.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:BufferTargetARB"/>.
 		/// </param>
 		/// <param name="access">
 		/// A <see cref="T:int"/>.
@@ -629,7 +675,7 @@ namespace OpenGL
 		/// Binding for glUnmapBufferARB.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:BufferTargetARB"/>.
 		/// </param>
 		[RequiredByFeature("GL_ARB_vertex_buffer_object")]
 		public static bool UnmapBufferARB(BufferTargetARB target)
@@ -674,7 +720,7 @@ namespace OpenGL
 		/// Binding for glGetBufferParameterivARB.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:BufferTargetARB"/>.
 		/// </param>
 		/// <param name="pname">
 		/// A <see cref="T:int"/>.
@@ -721,7 +767,7 @@ namespace OpenGL
 		/// Binding for glGetBufferPointervARB.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:BufferTargetARB"/>.
 		/// </param>
 		/// <param name="pname">
 		/// A <see cref="T:int"/>.

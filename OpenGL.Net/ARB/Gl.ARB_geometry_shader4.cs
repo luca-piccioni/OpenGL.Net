@@ -253,7 +253,7 @@ namespace OpenGL
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="face">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:TextureTarget"/>.
 		/// </param>
 		[RequiredByFeature("GL_ARB_geometry_shader4")]
 		public static void FramebufferTextureFaceARB(int target, int attachment, UInt32 texture, Int32 level, TextureTarget face)

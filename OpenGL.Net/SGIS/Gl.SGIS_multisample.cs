@@ -158,7 +158,7 @@ namespace OpenGL
 		/// Binding for glSamplePatternSGIS.
 		/// </summary>
 		/// <param name="pattern">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:SamplePatternSGIS"/>.
 		/// </param>
 		[RequiredByFeature("GL_SGIS_multisample")]
 		public static void SamplePatternSGIS(SamplePatternSGIS pattern)

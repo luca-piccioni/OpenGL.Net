@@ -206,6 +206,32 @@ namespace OpenGL
 		}
 
 		/// <summary>
+		/// Binding for glUniformHandleui64vNV.
+		/// </summary>
+		/// <param name="location">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="count">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="value">
+		/// A <see cref="T:UInt64[]"/>.
+		/// </param>
+		[RequiredByFeature("GL_NV_bindless_texture")]
+		public static void UniformHandleNV(Int32 location, UInt64[] value)
+		{
+			unsafe {
+				fixed (UInt64* p_value = value)
+				{
+					Debug.Assert(Delegates.pglUniformHandleui64vNV != null, "pglUniformHandleui64vNV not implemented");
+					Delegates.pglUniformHandleui64vNV(location, (Int32)value.Length, p_value);
+					CallLog("glUniformHandleui64vNV({0}, {1}, {2})", location, value.Length, value);
+				}
+			}
+			DebugCheckErrors();
+		}
+
+		/// <summary>
 		/// Binding for glProgramUniformHandleui64NV.
 		/// </summary>
 		/// <param name="program">
@@ -251,6 +277,35 @@ namespace OpenGL
 					Debug.Assert(Delegates.pglProgramUniformHandleui64vNV != null, "pglProgramUniformHandleui64vNV not implemented");
 					Delegates.pglProgramUniformHandleui64vNV(program, location, count, p_values);
 					CallLog("glProgramUniformHandleui64vNV({0}, {1}, {2}, {3})", program, location, count, values);
+				}
+			}
+			DebugCheckErrors();
+		}
+
+		/// <summary>
+		/// Binding for glProgramUniformHandleui64vNV.
+		/// </summary>
+		/// <param name="program">
+		/// A <see cref="T:UInt32"/>.
+		/// </param>
+		/// <param name="location">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="count">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="values">
+		/// A <see cref="T:UInt64[]"/>.
+		/// </param>
+		[RequiredByFeature("GL_NV_bindless_texture")]
+		public static void ProgramUniformHandleNV(UInt32 program, Int32 location, UInt64[] values)
+		{
+			unsafe {
+				fixed (UInt64* p_values = values)
+				{
+					Debug.Assert(Delegates.pglProgramUniformHandleui64vNV != null, "pglProgramUniformHandleui64vNV not implemented");
+					Delegates.pglProgramUniformHandleui64vNV(program, location, (Int32)values.Length, p_values);
+					CallLog("glProgramUniformHandleui64vNV({0}, {1}, {2}, {3})", program, location, values.Length, values);
 				}
 			}
 			DebugCheckErrors();

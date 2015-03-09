@@ -92,7 +92,7 @@ namespace OpenGL
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="pointer">
-		/// A <see cref="T:IntPtr"/>.
+		/// A <see cref="T:Object"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_vertex_array_range")]
 		public static void VertexArrayRangeNV(Int32 length, Object pointer)

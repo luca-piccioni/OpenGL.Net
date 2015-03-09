@@ -140,16 +140,16 @@ namespace OpenGL
 		/// Binding for glGetHistogramEXT.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:HistogramTargetEXT"/>.
 		/// </param>
 		/// <param name="reset">
 		/// A <see cref="T:bool"/>.
 		/// </param>
 		/// <param name="format">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:PixelFormat"/>.
 		/// </param>
 		/// <param name="type">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:PixelType"/>.
 		/// </param>
 		/// <param name="values">
 		/// A <see cref="T:IntPtr"/>.
@@ -193,10 +193,10 @@ namespace OpenGL
 		/// Binding for glGetHistogramParameterfvEXT.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:HistogramTargetEXT"/>.
 		/// </param>
 		/// <param name="pname">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:GetHistogramParameterPNameEXT"/>.
 		/// </param>
 		/// <param name="params">
 		/// A <see cref="T:float[]"/>.
@@ -245,10 +245,10 @@ namespace OpenGL
 		/// Binding for glGetHistogramParameterivEXT.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:HistogramTargetEXT"/>.
 		/// </param>
 		/// <param name="pname">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:GetHistogramParameterPNameEXT"/>.
 		/// </param>
 		/// <param name="params">
 		/// A <see cref="T:Int32[]"/>.
@@ -298,16 +298,16 @@ namespace OpenGL
 		/// Binding for glGetMinmaxEXT.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:MinmaxTargetEXT"/>.
 		/// </param>
 		/// <param name="reset">
 		/// A <see cref="T:bool"/>.
 		/// </param>
 		/// <param name="format">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:PixelFormat"/>.
 		/// </param>
 		/// <param name="type">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:PixelType"/>.
 		/// </param>
 		/// <param name="values">
 		/// A <see cref="T:IntPtr"/>.
@@ -351,10 +351,10 @@ namespace OpenGL
 		/// Binding for glGetMinmaxParameterfvEXT.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:MinmaxTargetEXT"/>.
 		/// </param>
 		/// <param name="pname">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:GetMinmaxParameterPNameEXT"/>.
 		/// </param>
 		/// <param name="params">
 		/// A <see cref="T:float[]"/>.
@@ -403,10 +403,10 @@ namespace OpenGL
 		/// Binding for glGetMinmaxParameterivEXT.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:MinmaxTargetEXT"/>.
 		/// </param>
 		/// <param name="pname">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:GetMinmaxParameterPNameEXT"/>.
 		/// </param>
 		/// <param name="params">
 		/// A <see cref="T:Int32[]"/>.
@@ -453,7 +453,7 @@ namespace OpenGL
 		/// Binding for glHistogramEXT.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:HistogramTargetEXT"/>.
 		/// </param>
 		/// <param name="width">
 		/// A <see cref="T:Int32"/>.
@@ -498,7 +498,7 @@ namespace OpenGL
 		/// Binding for glMinmaxEXT.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:MinmaxTargetEXT"/>.
 		/// </param>
 		/// <param name="internalformat">
 		/// A <see cref="T:int"/>.
@@ -534,7 +534,7 @@ namespace OpenGL
 		/// Binding for glResetHistogramEXT.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:HistogramTargetEXT"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_histogram")]
 		public static void ResetHistogramEXT(HistogramTargetEXT target)
@@ -564,7 +564,7 @@ namespace OpenGL
 		/// Binding for glResetMinmaxEXT.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:MinmaxTargetEXT"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_histogram")]
 		public static void ResetMinmaxEXT(MinmaxTargetEXT target)

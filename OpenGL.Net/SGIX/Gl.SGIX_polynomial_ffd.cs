@@ -124,7 +124,7 @@ namespace OpenGL
 		/// Binding for glDeformationMap3dSGIX.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:FfdTargetSGIX"/>.
 		/// </param>
 		/// <param name="u1">
 		/// A <see cref="T:double"/>.
@@ -242,7 +242,7 @@ namespace OpenGL
 		/// Binding for glDeformationMap3fSGIX.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:FfdTargetSGIX"/>.
 		/// </param>
 		/// <param name="u1">
 		/// A <see cref="T:float"/>.
@@ -316,7 +316,7 @@ namespace OpenGL
 		/// Binding for glDeformSGIX.
 		/// </summary>
 		/// <param name="mask">
-		/// A <see cref="T:uint"/>.
+		/// A <see cref="T:FfdMaskSGIX"/>.
 		/// </param>
 		[RequiredByFeature("GL_SGIX_polynomial_ffd")]
 		public static void DeformSGIX(FfdMaskSGIX mask)
@@ -346,7 +346,7 @@ namespace OpenGL
 		/// Binding for glLoadIdentityDeformationMapSGIX.
 		/// </summary>
 		/// <param name="mask">
-		/// A <see cref="T:uint"/>.
+		/// A <see cref="T:FfdMaskSGIX"/>.
 		/// </param>
 		[RequiredByFeature("GL_SGIX_polynomial_ffd")]
 		public static void LoadIdentityDeformationMapSGIX(FfdMaskSGIX mask)

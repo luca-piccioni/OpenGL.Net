@@ -80,6 +80,29 @@ namespace OpenGL
 		}
 
 		/// <summary>
+		/// Binding for glGenQueriesARB.
+		/// </summary>
+		/// <param name="n">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="ids">
+		/// A <see cref="T:UInt32[]"/>.
+		/// </param>
+		[RequiredByFeature("GL_ARB_occlusion_query")]
+		public static void GenQueriesARB(UInt32[] ids)
+		{
+			unsafe {
+				fixed (UInt32* p_ids = ids)
+				{
+					Debug.Assert(Delegates.pglGenQueriesARB != null, "pglGenQueriesARB not implemented");
+					Delegates.pglGenQueriesARB((Int32)ids.Length, p_ids);
+					CallLog("glGenQueriesARB({0}, {1})", ids.Length, ids);
+				}
+			}
+			DebugCheckErrors();
+		}
+
+		/// <summary>
 		/// Binding for glDeleteQueriesARB.
 		/// </summary>
 		/// <param name="n">
@@ -98,6 +121,29 @@ namespace OpenGL
 					Debug.Assert(Delegates.pglDeleteQueriesARB != null, "pglDeleteQueriesARB not implemented");
 					Delegates.pglDeleteQueriesARB(n, p_ids);
 					CallLog("glDeleteQueriesARB({0}, {1})", n, ids);
+				}
+			}
+			DebugCheckErrors();
+		}
+
+		/// <summary>
+		/// Binding for glDeleteQueriesARB.
+		/// </summary>
+		/// <param name="n">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="ids">
+		/// A <see cref="T:UInt32[]"/>.
+		/// </param>
+		[RequiredByFeature("GL_ARB_occlusion_query")]
+		public static void DeleteQueriesARB(UInt32[] ids)
+		{
+			unsafe {
+				fixed (UInt32* p_ids = ids)
+				{
+					Debug.Assert(Delegates.pglDeleteQueriesARB != null, "pglDeleteQueriesARB not implemented");
+					Delegates.pglDeleteQueriesARB((Int32)ids.Length, p_ids);
+					CallLog("glDeleteQueriesARB({0}, {1})", ids.Length, ids);
 				}
 			}
 			DebugCheckErrors();

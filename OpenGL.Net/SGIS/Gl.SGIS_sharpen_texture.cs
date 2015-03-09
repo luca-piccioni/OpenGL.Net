@@ -79,7 +79,7 @@ namespace OpenGL
 		/// Binding for glSharpenTexFuncSGIS.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:TextureTarget"/>.
 		/// </param>
 		/// <param name="n">
 		/// A <see cref="T:Int32"/>.
@@ -128,7 +128,7 @@ namespace OpenGL
 		/// Binding for glGetSharpenTexFuncSGIS.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:TextureTarget"/>.
 		/// </param>
 		/// <param name="points">
 		/// A <see cref="T:float[]"/>.

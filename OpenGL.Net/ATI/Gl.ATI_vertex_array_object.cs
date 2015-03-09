@@ -105,7 +105,7 @@ namespace OpenGL
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="pointer">
-		/// A <see cref="T:IntPtr"/>.
+		/// A <see cref="T:Object"/>.
 		/// </param>
 		/// <param name="usage">
 		/// A <see cref="T:int"/>.
@@ -180,7 +180,7 @@ namespace OpenGL
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="pointer">
-		/// A <see cref="T:IntPtr"/>.
+		/// A <see cref="T:Object"/>.
 		/// </param>
 		/// <param name="preserve">
 		/// A <see cref="T:int"/>.
@@ -297,7 +297,7 @@ namespace OpenGL
 		/// Binding for glArrayObjectATI.
 		/// </summary>
 		/// <param name="array">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:EnableCap"/>.
 		/// </param>
 		/// <param name="size">
 		/// A <see cref="T:Int32"/>.
@@ -353,7 +353,7 @@ namespace OpenGL
 		/// Binding for glGetArrayObjectfvATI.
 		/// </summary>
 		/// <param name="array">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:EnableCap"/>.
 		/// </param>
 		/// <param name="pname">
 		/// A <see cref="T:int"/>.
@@ -405,7 +405,7 @@ namespace OpenGL
 		/// Binding for glGetArrayObjectivATI.
 		/// </summary>
 		/// <param name="array">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:EnableCap"/>.
 		/// </param>
 		/// <param name="pname">
 		/// A <see cref="T:int"/>.

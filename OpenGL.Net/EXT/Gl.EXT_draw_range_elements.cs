@@ -71,7 +71,7 @@ namespace OpenGL
 		/// Binding for glDrawRangeElementsEXT.
 		/// </summary>
 		/// <param name="mode">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:PrimitiveType"/>.
 		/// </param>
 		/// <param name="start">
 		/// A <see cref="T:UInt32"/>.
@@ -116,7 +116,7 @@ namespace OpenGL
 		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="indices">
-		/// A <see cref="T:IntPtr"/>.
+		/// A <see cref="T:Object"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_draw_range_elements")]
 		public static void DrawRangeElementsEXT(int mode, UInt32 start, UInt32 end, Int32 count, int type, Object indices)
@@ -133,7 +133,7 @@ namespace OpenGL
 		/// Binding for glDrawRangeElementsEXT.
 		/// </summary>
 		/// <param name="mode">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:PrimitiveType"/>.
 		/// </param>
 		/// <param name="start">
 		/// A <see cref="T:UInt32"/>.
@@ -148,7 +148,7 @@ namespace OpenGL
 		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="indices">
-		/// A <see cref="T:IntPtr"/>.
+		/// A <see cref="T:Object"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_draw_range_elements")]
 		public static void DrawRangeElementsEXT(PrimitiveType mode, UInt32 start, UInt32 end, Int32 count, int type, Object indices)

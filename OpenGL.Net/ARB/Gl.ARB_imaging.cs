@@ -579,7 +579,7 @@ namespace OpenGL
 		/// cref="Gl.UNSIGNED_INT_2_10_10_10_REV"/>.
 		/// </param>
 		/// <param name="table">
-		/// A <see cref="T:IntPtr"/>.
+		/// A <see cref="T:Object"/>.
 		/// </param>
 		[RequiredByFeature("GL_ARB_imaging")]
 		public static void ColorTable(int target, int internalformat, Int32 width, int format, int type, Object table)
@@ -632,7 +632,7 @@ namespace OpenGL
 		/// cref="Gl.UNSIGNED_INT_2_10_10_10_REV"/>.
 		/// </param>
 		/// <param name="table">
-		/// A <see cref="T:IntPtr"/>.
+		/// A <see cref="T:Object"/>.
 		/// </param>
 		[RequiredByFeature("GL_ARB_imaging")]
 		public static void ColorTable(int target, int internalformat, Int32 width, PixelFormat format, PixelType type, Object table)
@@ -1265,7 +1265,7 @@ namespace OpenGL
 		/// cref="Gl.UNSIGNED_INT_2_10_10_10_REV"/> are accepted.
 		/// </param>
 		/// <param name="image">
-		/// A <see cref="T:IntPtr"/>.
+		/// A <see cref="T:Object"/>.
 		/// </param>
 		[RequiredByFeature("GL_ARB_imaging")]
 		public static void ConvolutionFilter1D(int target, int internalformat, Int32 width, int format, int type, Object image)
@@ -1316,7 +1316,7 @@ namespace OpenGL
 		/// cref="Gl.UNSIGNED_INT_2_10_10_10_REV"/> are accepted.
 		/// </param>
 		/// <param name="image">
-		/// A <see cref="T:IntPtr"/>.
+		/// A <see cref="T:Object"/>.
 		/// </param>
 		[RequiredByFeature("GL_ARB_imaging")]
 		public static void ConvolutionFilter1D(int target, int internalformat, Int32 width, PixelFormat format, PixelType type, Object image)
@@ -1484,7 +1484,7 @@ namespace OpenGL
 		/// cref="Gl.UNSIGNED_INT_2_10_10_10_REV"/> are accepted.
 		/// </param>
 		/// <param name="image">
-		/// A <see cref="T:IntPtr"/>.
+		/// A <see cref="T:Object"/>.
 		/// </param>
 		[RequiredByFeature("GL_ARB_imaging")]
 		public static void ConvolutionFilter2D(int target, int internalformat, Int32 width, Int32 height, int format, int type, Object image)
@@ -1538,7 +1538,7 @@ namespace OpenGL
 		/// cref="Gl.UNSIGNED_INT_2_10_10_10_REV"/> are accepted.
 		/// </param>
 		/// <param name="image">
-		/// A <see cref="T:IntPtr"/>.
+		/// A <see cref="T:Object"/>.
 		/// </param>
 		[RequiredByFeature("GL_ARB_imaging")]
 		public static void ConvolutionFilter2D(int target, int internalformat, Int32 width, Int32 height, PixelFormat format, PixelType type, Object image)
@@ -2392,7 +2392,7 @@ namespace OpenGL
 		/// cref="Gl.RGBA"/>, <see cref="Gl.BGRA"/>, <see cref="Gl.LUMINANCE"/>, or <see cref="Gl.LUMINANCE_ALPHA"/>.
 		/// </param>
 		/// <param name="type">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:PixelType"/>.
 		/// </param>
 		/// <param name="values">
 		/// A pointer to storage for the returned values.

@@ -167,10 +167,10 @@ namespace OpenGL
 		/// Binding for glFragmentColorMaterialSGIX.
 		/// </summary>
 		/// <param name="face">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:MaterialFace"/>.
 		/// </param>
 		/// <param name="mode">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:MaterialParameter"/>.
 		/// </param>
 		[RequiredByFeature("GL_SGIX_fragment_lighting")]
 		public static void FragmentColorMaterialSGIX(MaterialFace face, MaterialParameter mode)
@@ -297,7 +297,7 @@ namespace OpenGL
 		/// Binding for glFragmentLightModelfSGIX.
 		/// </summary>
 		/// <param name="pname">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:FragmentLightModelParameterSGIX"/>.
 		/// </param>
 		/// <param name="param">
 		/// A <see cref="T:float"/>.
@@ -338,7 +338,7 @@ namespace OpenGL
 		/// Binding for glFragmentLightModelfvSGIX.
 		/// </summary>
 		/// <param name="pname">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:FragmentLightModelParameterSGIX"/>.
 		/// </param>
 		/// <param name="params">
 		/// A <see cref="T:float[]"/>.
@@ -379,7 +379,7 @@ namespace OpenGL
 		/// Binding for glFragmentLightModeliSGIX.
 		/// </summary>
 		/// <param name="pname">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:FragmentLightModelParameterSGIX"/>.
 		/// </param>
 		/// <param name="param">
 		/// A <see cref="T:Int32"/>.
@@ -420,7 +420,7 @@ namespace OpenGL
 		/// Binding for glFragmentLightModelivSGIX.
 		/// </summary>
 		/// <param name="pname">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:FragmentLightModelParameterSGIX"/>.
 		/// </param>
 		/// <param name="params">
 		/// A <see cref="T:Int32[]"/>.
@@ -464,10 +464,10 @@ namespace OpenGL
 		/// Binding for glFragmentMaterialfSGIX.
 		/// </summary>
 		/// <param name="face">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:MaterialFace"/>.
 		/// </param>
 		/// <param name="pname">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:MaterialParameter"/>.
 		/// </param>
 		/// <param name="param">
 		/// A <see cref="T:float"/>.
@@ -511,10 +511,10 @@ namespace OpenGL
 		/// Binding for glFragmentMaterialfvSGIX.
 		/// </summary>
 		/// <param name="face">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:MaterialFace"/>.
 		/// </param>
 		/// <param name="pname">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:MaterialParameter"/>.
 		/// </param>
 		/// <param name="params">
 		/// A <see cref="T:float[]"/>.
@@ -558,10 +558,10 @@ namespace OpenGL
 		/// Binding for glFragmentMaterialiSGIX.
 		/// </summary>
 		/// <param name="face">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:MaterialFace"/>.
 		/// </param>
 		/// <param name="pname">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:MaterialParameter"/>.
 		/// </param>
 		/// <param name="param">
 		/// A <see cref="T:Int32"/>.
@@ -605,10 +605,10 @@ namespace OpenGL
 		/// Binding for glFragmentMaterialivSGIX.
 		/// </summary>
 		/// <param name="face">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:MaterialFace"/>.
 		/// </param>
 		/// <param name="pname">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:MaterialParameter"/>.
 		/// </param>
 		/// <param name="params">
 		/// A <see cref="T:Int32[]"/>.
@@ -709,10 +709,10 @@ namespace OpenGL
 		/// Binding for glGetFragmentMaterialfvSGIX.
 		/// </summary>
 		/// <param name="face">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:MaterialFace"/>.
 		/// </param>
 		/// <param name="pname">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:MaterialParameter"/>.
 		/// </param>
 		/// <param name="params">
 		/// A <see cref="T:float[]"/>.
@@ -761,10 +761,10 @@ namespace OpenGL
 		/// Binding for glGetFragmentMaterialivSGIX.
 		/// </summary>
 		/// <param name="face">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:MaterialFace"/>.
 		/// </param>
 		/// <param name="pname">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:MaterialParameter"/>.
 		/// </param>
 		/// <param name="params">
 		/// A <see cref="T:Int32[]"/>.
@@ -805,7 +805,7 @@ namespace OpenGL
 		/// Binding for glLightEnviSGIX.
 		/// </summary>
 		/// <param name="pname">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:LightEnvParameterSGIX"/>.
 		/// </param>
 		/// <param name="param">
 		/// A <see cref="T:Int32"/>.

@@ -155,7 +155,7 @@ namespace OpenGL
 		/// Binding for glColorTableSGI.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:ColorTableTargetSGI"/>.
 		/// </param>
 		/// <param name="internalformat">
 		/// A <see cref="T:int"/>.
@@ -164,10 +164,10 @@ namespace OpenGL
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="format">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:PixelFormat"/>.
 		/// </param>
 		/// <param name="type">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:PixelType"/>.
 		/// </param>
 		/// <param name="table">
 		/// A <see cref="T:IntPtr"/>.
@@ -200,7 +200,7 @@ namespace OpenGL
 		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="table">
-		/// A <see cref="T:IntPtr"/>.
+		/// A <see cref="T:Object"/>.
 		/// </param>
 		[RequiredByFeature("GL_SGI_color_table")]
 		public static void ColorTableSGI(int target, int internalformat, Int32 width, int format, int type, Object table)
@@ -217,7 +217,7 @@ namespace OpenGL
 		/// Binding for glColorTableSGI.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:ColorTableTargetSGI"/>.
 		/// </param>
 		/// <param name="internalformat">
 		/// A <see cref="T:int"/>.
@@ -226,13 +226,13 @@ namespace OpenGL
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="format">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:PixelFormat"/>.
 		/// </param>
 		/// <param name="type">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:PixelType"/>.
 		/// </param>
 		/// <param name="table">
-		/// A <see cref="T:IntPtr"/>.
+		/// A <see cref="T:Object"/>.
 		/// </param>
 		[RequiredByFeature("GL_SGI_color_table")]
 		public static void ColorTableSGI(ColorTableTargetSGI target, int internalformat, Int32 width, PixelFormat format, PixelType type, Object table)
@@ -275,10 +275,10 @@ namespace OpenGL
 		/// Binding for glColorTableParameterfvSGI.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:ColorTableTargetSGI"/>.
 		/// </param>
 		/// <param name="pname">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:ColorTableParameterPNameSGI"/>.
 		/// </param>
 		/// <param name="params">
 		/// A <see cref="T:float[]"/>.
@@ -327,10 +327,10 @@ namespace OpenGL
 		/// Binding for glColorTableParameterivSGI.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:ColorTableTargetSGI"/>.
 		/// </param>
 		/// <param name="pname">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:ColorTableParameterPNameSGI"/>.
 		/// </param>
 		/// <param name="params">
 		/// A <see cref="T:Int32[]"/>.
@@ -380,7 +380,7 @@ namespace OpenGL
 		/// Binding for glCopyColorTableSGI.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:ColorTableTargetSGI"/>.
 		/// </param>
 		/// <param name="internalformat">
 		/// A <see cref="T:int"/>.
@@ -431,13 +431,13 @@ namespace OpenGL
 		/// Binding for glGetColorTableSGI.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:ColorTableTargetSGI"/>.
 		/// </param>
 		/// <param name="format">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:PixelFormat"/>.
 		/// </param>
 		/// <param name="type">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:PixelType"/>.
 		/// </param>
 		/// <param name="table">
 		/// A <see cref="T:IntPtr"/>.
@@ -481,10 +481,10 @@ namespace OpenGL
 		/// Binding for glGetColorTableParameterfvSGI.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:ColorTableTargetSGI"/>.
 		/// </param>
 		/// <param name="pname">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:GetColorTableParameterPNameSGI"/>.
 		/// </param>
 		/// <param name="params">
 		/// A <see cref="T:float[]"/>.
@@ -533,10 +533,10 @@ namespace OpenGL
 		/// Binding for glGetColorTableParameterivSGI.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:ColorTableTargetSGI"/>.
 		/// </param>
 		/// <param name="pname">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:GetColorTableParameterPNameSGI"/>.
 		/// </param>
 		/// <param name="params">
 		/// A <see cref="T:Int32[]"/>.

@@ -991,7 +991,7 @@ namespace OpenGL
 		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="addr">
-		/// A <see cref="T:IntPtr"/>.
+		/// A <see cref="T:Object"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_vertex_shader")]
 		public static void SetInvariantEXT(UInt32 id, int type, Object addr)
@@ -1035,7 +1035,7 @@ namespace OpenGL
 		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="addr">
-		/// A <see cref="T:IntPtr"/>.
+		/// A <see cref="T:Object"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_vertex_shader")]
 		public static void SetLocalConstantEXT(UInt32 id, int type, Object addr)
@@ -1269,7 +1269,7 @@ namespace OpenGL
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
 		/// <param name="addr">
-		/// A <see cref="T:IntPtr"/>.
+		/// A <see cref="T:Object"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_vertex_shader")]
 		public static void VariantPointerEXT(UInt32 id, int type, UInt32 stride, Object addr)
@@ -1338,10 +1338,10 @@ namespace OpenGL
 		/// Binding for glBindLightParameterEXT.
 		/// </summary>
 		/// <param name="light">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:LightName"/>.
 		/// </param>
 		/// <param name="value">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:LightParameter"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_vertex_shader")]
 		public static UInt32 BindLightParameterEXT(LightName light, LightParameter value)
@@ -1382,10 +1382,10 @@ namespace OpenGL
 		/// Binding for glBindMaterialParameterEXT.
 		/// </summary>
 		/// <param name="face">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:MaterialFace"/>.
 		/// </param>
 		/// <param name="value">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:MaterialParameter"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_vertex_shader")]
 		public static UInt32 BindMaterialParameterEXT(MaterialFace face, MaterialParameter value)
@@ -1432,10 +1432,10 @@ namespace OpenGL
 		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="coord">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:TextureCoordName"/>.
 		/// </param>
 		/// <param name="value">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:TextureGenParameter"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_vertex_shader")]
 		public static UInt32 BindTexGenParameterEXT(int unit, TextureCoordName coord, TextureGenParameter value)

@@ -68,7 +68,7 @@ namespace OpenGL
 		/// Binding for glBlendEquationEXT.
 		/// </summary>
 		/// <param name="mode">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:BlendEquationModeEXT"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_blend_minmax")]
 		public static void BlendEquationEXT(BlendEquationModeEXT mode)

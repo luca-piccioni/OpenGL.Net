@@ -83,6 +83,32 @@ namespace OpenGL
 		}
 
 		/// <summary>
+		/// Binding for glGenNamesAMD.
+		/// </summary>
+		/// <param name="identifier">
+		/// A <see cref="T:int"/>.
+		/// </param>
+		/// <param name="num">
+		/// A <see cref="T:UInt32"/>.
+		/// </param>
+		/// <param name="names">
+		/// A <see cref="T:UInt32[]"/>.
+		/// </param>
+		[RequiredByFeature("GL_AMD_name_gen_delete")]
+		public static void GenNameAMD(int identifier, UInt32[] names)
+		{
+			unsafe {
+				fixed (UInt32* p_names = names)
+				{
+					Debug.Assert(Delegates.pglGenNamesAMD != null, "pglGenNamesAMD not implemented");
+					Delegates.pglGenNamesAMD(identifier, (UInt32)names.Length, p_names);
+					CallLog("glGenNamesAMD({0}, {1}, {2})", identifier, names.Length, names);
+				}
+			}
+			DebugCheckErrors();
+		}
+
+		/// <summary>
 		/// Binding for glDeleteNamesAMD.
 		/// </summary>
 		/// <param name="identifier">
@@ -104,6 +130,32 @@ namespace OpenGL
 					Debug.Assert(Delegates.pglDeleteNamesAMD != null, "pglDeleteNamesAMD not implemented");
 					Delegates.pglDeleteNamesAMD(identifier, num, p_names);
 					CallLog("glDeleteNamesAMD({0}, {1}, {2})", identifier, num, names);
+				}
+			}
+			DebugCheckErrors();
+		}
+
+		/// <summary>
+		/// Binding for glDeleteNamesAMD.
+		/// </summary>
+		/// <param name="identifier">
+		/// A <see cref="T:int"/>.
+		/// </param>
+		/// <param name="num">
+		/// A <see cref="T:UInt32"/>.
+		/// </param>
+		/// <param name="names">
+		/// A <see cref="T:UInt32[]"/>.
+		/// </param>
+		[RequiredByFeature("GL_AMD_name_gen_delete")]
+		public static void DeleteNameAMD(int identifier, UInt32[] names)
+		{
+			unsafe {
+				fixed (UInt32* p_names = names)
+				{
+					Debug.Assert(Delegates.pglDeleteNamesAMD != null, "pglDeleteNamesAMD not implemented");
+					Delegates.pglDeleteNamesAMD(identifier, (UInt32)names.Length, p_names);
+					CallLog("glDeleteNamesAMD({0}, {1}, {2})", identifier, names.Length, names);
 				}
 			}
 			DebugCheckErrors();

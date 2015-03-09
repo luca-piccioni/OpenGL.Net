@@ -71,7 +71,7 @@ namespace OpenGL
 		/// Binding for glPixelTexGenParameteriSGIS.
 		/// </summary>
 		/// <param name="pname">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:PixelTexGenParameterNameSGIS"/>.
 		/// </param>
 		/// <param name="param">
 		/// A <see cref="T:Int32"/>.
@@ -112,7 +112,7 @@ namespace OpenGL
 		/// Binding for glPixelTexGenParameterivSGIS.
 		/// </summary>
 		/// <param name="pname">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:PixelTexGenParameterNameSGIS"/>.
 		/// </param>
 		/// <param name="params">
 		/// A <see cref="T:Int32[]"/>.
@@ -153,7 +153,7 @@ namespace OpenGL
 		/// Binding for glPixelTexGenParameterfSGIS.
 		/// </summary>
 		/// <param name="pname">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:PixelTexGenParameterNameSGIS"/>.
 		/// </param>
 		/// <param name="param">
 		/// A <see cref="T:float"/>.
@@ -194,7 +194,7 @@ namespace OpenGL
 		/// Binding for glPixelTexGenParameterfvSGIS.
 		/// </summary>
 		/// <param name="pname">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:PixelTexGenParameterNameSGIS"/>.
 		/// </param>
 		/// <param name="params">
 		/// A <see cref="T:float[]"/>.
@@ -240,7 +240,7 @@ namespace OpenGL
 		/// Binding for glGetPixelTexGenParameterivSGIS.
 		/// </summary>
 		/// <param name="pname">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:PixelTexGenParameterNameSGIS"/>.
 		/// </param>
 		/// <param name="params">
 		/// A <see cref="T:Int32[]"/>.
@@ -286,7 +286,7 @@ namespace OpenGL
 		/// Binding for glGetPixelTexGenParameterfvSGIS.
 		/// </summary>
 		/// <param name="pname">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:PixelTexGenParameterNameSGIS"/>.
 		/// </param>
 		/// <param name="params">
 		/// A <see cref="T:float[]"/>.

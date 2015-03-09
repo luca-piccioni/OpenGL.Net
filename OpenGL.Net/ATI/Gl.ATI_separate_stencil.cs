@@ -80,13 +80,13 @@ namespace OpenGL
 		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="sfail">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:StencilOp"/>.
 		/// </param>
 		/// <param name="dpfail">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:StencilOp"/>.
 		/// </param>
 		/// <param name="dppass">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:StencilOp"/>.
 		/// </param>
 		[RequiredByFeature("GL_ATI_separate_stencil")]
 		public static void StencilOpSeparateATI(int face, StencilOp sfail, StencilOp dpfail, StencilOp dppass)
@@ -125,10 +125,10 @@ namespace OpenGL
 		/// Binding for glStencilFuncSeparateATI.
 		/// </summary>
 		/// <param name="frontfunc">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:StencilFunction"/>.
 		/// </param>
 		/// <param name="backfunc">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:StencilFunction"/>.
 		/// </param>
 		/// <param name="ref">
 		/// A <see cref="T:Int32"/>.

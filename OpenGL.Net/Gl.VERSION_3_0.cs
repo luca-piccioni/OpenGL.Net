@@ -1898,6 +1898,36 @@ namespace OpenGL
 		}
 
 		/// <summary>
+		/// specify values to record in transform feedback buffers
+		/// </summary>
+		/// <param name="program">
+		/// The name of the target program object.
+		/// </param>
+		/// <param name="count">
+		/// The number of varying variables used for transform feedback.
+		/// </param>
+		/// <param name="varyings">
+		/// An array of count zero-terminated strings specifying the names of the varying variables to use for transform feedback.
+		/// </param>
+		/// <param name="bufferMode">
+		/// Identifies the mode used to capture the varying variables when transform feedback is active. bufferMode must be 
+		/// GL_INTERLEAVED_ATTRIBS or GL_SEPARATE_ATTRIBS.
+		/// </param>
+		[RequiredByFeature("GL_VERSION_3_0")]
+		public static void TransformFeedbackVarying(UInt32 program, String[] varyings, int bufferMode)
+		{
+			if        (Delegates.pglTransformFeedbackVaryings != null) {
+				Delegates.pglTransformFeedbackVaryings(program, (Int32)varyings.Length, varyings, bufferMode);
+				CallLog("glTransformFeedbackVaryings({0}, {1}, {2}, {3})", program, varyings.Length, varyings, bufferMode);
+			} else if (Delegates.pglTransformFeedbackVaryingsEXT != null) {
+				Delegates.pglTransformFeedbackVaryingsEXT(program, (Int32)varyings.Length, varyings, bufferMode);
+				CallLog("glTransformFeedbackVaryingsEXT({0}, {1}, {2}, {3})", program, varyings.Length, varyings, bufferMode);
+			} else
+				throw new NotImplementedException("glTransformFeedbackVaryings (and other aliases) are not implemented");
+			DebugCheckErrors();
+		}
+
+		/// <summary>
 		/// retrieve information about varying variables selected for transform feedback
 		/// </summary>
 		/// <param name="program">
@@ -3087,10 +3117,10 @@ namespace OpenGL
 		/// Binding for glTexParameterIiv.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:TextureTarget"/>.
 		/// </param>
 		/// <param name="pname">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:TextureParameterName"/>.
 		/// </param>
 		/// <param name="params">
 		/// A <see cref="T:Int32[]"/>.
@@ -3155,10 +3185,10 @@ namespace OpenGL
 		/// Binding for glTexParameterIuiv.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:TextureTarget"/>.
 		/// </param>
 		/// <param name="pname">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:TextureParameterName"/>.
 		/// </param>
 		/// <param name="params">
 		/// A <see cref="T:UInt32[]"/>.
@@ -3557,6 +3587,35 @@ namespace OpenGL
 		}
 
 		/// <summary>
+		/// delete renderbuffer objects
+		/// </summary>
+		/// <param name="n">
+		/// Specifies the number of renderbuffer objects to be deleted.
+		/// </param>
+		/// <param name="renderbuffers">
+		/// A pointer to an array containing n renderbuffer objects to be deleted.
+		/// </param>
+		[RequiredByFeature("GL_VERSION_3_0")]
+		[RequiredByFeature("GL_ARB_framebuffer_object")]
+		public static void DeleteRenderbuffer(UInt32[] renderbuffers)
+		{
+			unsafe {
+				fixed (UInt32* p_renderbuffers = renderbuffers)
+				{
+					if        (Delegates.pglDeleteRenderbuffers != null) {
+						Delegates.pglDeleteRenderbuffers((Int32)renderbuffers.Length, p_renderbuffers);
+						CallLog("glDeleteRenderbuffers({0}, {1})", renderbuffers.Length, renderbuffers);
+					} else if (Delegates.pglDeleteRenderbuffersEXT != null) {
+						Delegates.pglDeleteRenderbuffersEXT((Int32)renderbuffers.Length, p_renderbuffers);
+						CallLog("glDeleteRenderbuffersEXT({0}, {1})", renderbuffers.Length, renderbuffers);
+					} else
+						throw new NotImplementedException("glDeleteRenderbuffers (and other aliases) are not implemented");
+				}
+			}
+			DebugCheckErrors();
+		}
+
+		/// <summary>
 		/// generate renderbuffer object names
 		/// </summary>
 		/// <param name="n">
@@ -3579,6 +3638,35 @@ namespace OpenGL
 					} else if (Delegates.pglGenRenderbuffersEXT != null) {
 						Delegates.pglGenRenderbuffersEXT(n, p_renderbuffers);
 						CallLog("glGenRenderbuffersEXT({0}, {1})", n, renderbuffers);
+					} else
+						throw new NotImplementedException("glGenRenderbuffers (and other aliases) are not implemented");
+				}
+			}
+			DebugCheckErrors();
+		}
+
+		/// <summary>
+		/// generate renderbuffer object names
+		/// </summary>
+		/// <param name="n">
+		/// Specifies the number of renderbuffer object names to generate.
+		/// </param>
+		/// <param name="renderbuffers">
+		/// Specifies an array in which the generated renderbuffer object names are stored.
+		/// </param>
+		[RequiredByFeature("GL_VERSION_3_0")]
+		[RequiredByFeature("GL_ARB_framebuffer_object")]
+		public static void GenRenderbuffer(UInt32[] renderbuffers)
+		{
+			unsafe {
+				fixed (UInt32* p_renderbuffers = renderbuffers)
+				{
+					if        (Delegates.pglGenRenderbuffers != null) {
+						Delegates.pglGenRenderbuffers((Int32)renderbuffers.Length, p_renderbuffers);
+						CallLog("glGenRenderbuffers({0}, {1})", renderbuffers.Length, renderbuffers);
+					} else if (Delegates.pglGenRenderbuffersEXT != null) {
+						Delegates.pglGenRenderbuffersEXT((Int32)renderbuffers.Length, p_renderbuffers);
+						CallLog("glGenRenderbuffersEXT({0}, {1})", renderbuffers.Length, renderbuffers);
 					} else
 						throw new NotImplementedException("glGenRenderbuffers (and other aliases) are not implemented");
 				}
@@ -3724,6 +3812,35 @@ namespace OpenGL
 		}
 
 		/// <summary>
+		/// delete framebuffer objects
+		/// </summary>
+		/// <param name="n">
+		/// Specifies the number of framebuffer objects to be deleted.
+		/// </param>
+		/// <param name="framebuffers">
+		/// A pointer to an array containing n framebuffer objects to be deleted.
+		/// </param>
+		[RequiredByFeature("GL_VERSION_3_0")]
+		[RequiredByFeature("GL_ARB_framebuffer_object")]
+		public static void DeleteFramebuffers(UInt32[] framebuffers)
+		{
+			unsafe {
+				fixed (UInt32* p_framebuffers = framebuffers)
+				{
+					if        (Delegates.pglDeleteFramebuffers != null) {
+						Delegates.pglDeleteFramebuffers((Int32)framebuffers.Length, p_framebuffers);
+						CallLog("glDeleteFramebuffers({0}, {1})", framebuffers.Length, framebuffers);
+					} else if (Delegates.pglDeleteFramebuffersEXT != null) {
+						Delegates.pglDeleteFramebuffersEXT((Int32)framebuffers.Length, p_framebuffers);
+						CallLog("glDeleteFramebuffersEXT({0}, {1})", framebuffers.Length, framebuffers);
+					} else
+						throw new NotImplementedException("glDeleteFramebuffers (and other aliases) are not implemented");
+				}
+			}
+			DebugCheckErrors();
+		}
+
+		/// <summary>
 		/// generate framebuffer object names
 		/// </summary>
 		/// <param name="n">
@@ -3746,6 +3863,35 @@ namespace OpenGL
 					} else if (Delegates.pglGenFramebuffersEXT != null) {
 						Delegates.pglGenFramebuffersEXT(n, p_framebuffers);
 						CallLog("glGenFramebuffersEXT({0}, {1})", n, framebuffers);
+					} else
+						throw new NotImplementedException("glGenFramebuffers (and other aliases) are not implemented");
+				}
+			}
+			DebugCheckErrors();
+		}
+
+		/// <summary>
+		/// generate framebuffer object names
+		/// </summary>
+		/// <param name="n">
+		/// Specifies the number of framebuffer object names to generate.
+		/// </param>
+		/// <param name="framebuffers">
+		/// A <see cref="T:UInt32[]"/>.
+		/// </param>
+		[RequiredByFeature("GL_VERSION_3_0")]
+		[RequiredByFeature("GL_ARB_framebuffer_object")]
+		public static void GenFramebuffers(UInt32[] framebuffers)
+		{
+			unsafe {
+				fixed (UInt32* p_framebuffers = framebuffers)
+				{
+					if        (Delegates.pglGenFramebuffers != null) {
+						Delegates.pglGenFramebuffers((Int32)framebuffers.Length, p_framebuffers);
+						CallLog("glGenFramebuffers({0}, {1})", framebuffers.Length, framebuffers);
+					} else if (Delegates.pglGenFramebuffersEXT != null) {
+						Delegates.pglGenFramebuffersEXT((Int32)framebuffers.Length, p_framebuffers);
+						CallLog("glGenFramebuffersEXT({0}, {1})", framebuffers.Length, framebuffers);
 					} else
 						throw new NotImplementedException("glGenFramebuffers (and other aliases) are not implemented");
 				}
@@ -4338,6 +4484,38 @@ namespace OpenGL
 		}
 
 		/// <summary>
+		/// delete vertex array objects
+		/// </summary>
+		/// <param name="n">
+		/// Specifies the number of vertex array objects to be deleted.
+		/// </param>
+		/// <param name="arrays">
+		/// Specifies the address of an array containing the n names of the objects to be deleted.
+		/// </param>
+		[RequiredByFeature("GL_VERSION_3_0")]
+		[RequiredByFeature("GL_ARB_vertex_array_object")]
+		public static void DeleteVertexArrays(UInt32[] arrays)
+		{
+			unsafe {
+				fixed (UInt32* p_arrays = arrays)
+				{
+					if        (Delegates.pglDeleteVertexArrays != null) {
+						Delegates.pglDeleteVertexArrays((Int32)arrays.Length, p_arrays);
+						CallLog("glDeleteVertexArrays({0}, {1})", arrays.Length, arrays);
+					} else if (Delegates.pglDeleteVertexArraysAPPLE != null) {
+						Delegates.pglDeleteVertexArraysAPPLE((Int32)arrays.Length, p_arrays);
+						CallLog("glDeleteVertexArraysAPPLE({0}, {1})", arrays.Length, arrays);
+					} else if (Delegates.pglDeleteVertexArraysOES != null) {
+						Delegates.pglDeleteVertexArraysOES((Int32)arrays.Length, p_arrays);
+						CallLog("glDeleteVertexArraysOES({0}, {1})", arrays.Length, arrays);
+					} else
+						throw new NotImplementedException("glDeleteVertexArrays (and other aliases) are not implemented");
+				}
+			}
+			DebugCheckErrors();
+		}
+
+		/// <summary>
 		/// generate vertex array object names
 		/// </summary>
 		/// <param name="n">
@@ -4363,6 +4541,38 @@ namespace OpenGL
 					} else if (Delegates.pglGenVertexArraysOES != null) {
 						Delegates.pglGenVertexArraysOES(n, p_arrays);
 						CallLog("glGenVertexArraysOES({0}, {1})", n, arrays);
+					} else
+						throw new NotImplementedException("glGenVertexArrays (and other aliases) are not implemented");
+				}
+			}
+			DebugCheckErrors();
+		}
+
+		/// <summary>
+		/// generate vertex array object names
+		/// </summary>
+		/// <param name="n">
+		/// Specifies the number of vertex array object names to generate.
+		/// </param>
+		/// <param name="arrays">
+		/// Specifies an array in which the generated vertex array object names are stored.
+		/// </param>
+		[RequiredByFeature("GL_VERSION_3_0")]
+		[RequiredByFeature("GL_ARB_vertex_array_object")]
+		public static void GenVertexArrays(UInt32[] arrays)
+		{
+			unsafe {
+				fixed (UInt32* p_arrays = arrays)
+				{
+					if        (Delegates.pglGenVertexArrays != null) {
+						Delegates.pglGenVertexArrays((Int32)arrays.Length, p_arrays);
+						CallLog("glGenVertexArrays({0}, {1})", arrays.Length, arrays);
+					} else if (Delegates.pglGenVertexArraysAPPLE != null) {
+						Delegates.pglGenVertexArraysAPPLE((Int32)arrays.Length, p_arrays);
+						CallLog("glGenVertexArraysAPPLE({0}, {1})", arrays.Length, arrays);
+					} else if (Delegates.pglGenVertexArraysOES != null) {
+						Delegates.pglGenVertexArraysOES((Int32)arrays.Length, p_arrays);
+						CallLog("glGenVertexArraysOES({0}, {1})", arrays.Length, arrays);
 					} else
 						throw new NotImplementedException("glGenVertexArrays (and other aliases) are not implemented");
 				}

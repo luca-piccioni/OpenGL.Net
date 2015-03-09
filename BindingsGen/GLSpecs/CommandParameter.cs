@@ -283,23 +283,6 @@ namespace BindingsGen.GLSpecs
 
 		#endregion
 
-		#region Code Generation - Overloads
-
-		internal bool IsArrayLengthCompatible(RegistryContext ctx, Command parentCommand)
-		{
-			if (!IsManagedArray || Length == null)
-				return (false);
-
-			int sizeParamIndex = parentCommand.Parameters.FindIndex(delegate(CommandParameter item) { return (item.Name == Length); });
-
-			if (sizeParamIndex < 0)
-				return (false);
-
-			return (true);
-		}
-
-		#endregion
-
 		#region Code Generation - Delegate
 
 		public string GetDelegateType(RegistryContext ctx, Command parentCommand)
@@ -398,9 +381,11 @@ namespace BindingsGen.GLSpecs
 
 		#region ICommandParameter Implementation
 
+		public virtual bool IsImplicit(RegistryContext ctx, Command parentCommand) { return (false); }
+
 		public virtual void WriteDebugAssertion(SourceStreamWriter sw, RegistryContext ctx, Command parentCommand)
 		{
-			if (IsArrayLengthCompatible(ctx, parentCommand))
+			if (CommandParameterArray.IsCompatible(this, ctx, parentCommand))
 				sw.WriteLine("Debug.Assert({0}.Length >= {1});", ImplementationName, Length);
 		}
 

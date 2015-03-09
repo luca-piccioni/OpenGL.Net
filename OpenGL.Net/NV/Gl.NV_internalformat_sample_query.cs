@@ -85,6 +85,41 @@ namespace OpenGL
 			DebugCheckErrors();
 		}
 
+		/// <summary>
+		/// Binding for glGetInternalformatSampleivNV.
+		/// </summary>
+		/// <param name="target">
+		/// A <see cref="T:int"/>.
+		/// </param>
+		/// <param name="internalformat">
+		/// A <see cref="T:int"/>.
+		/// </param>
+		/// <param name="samples">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="pname">
+		/// A <see cref="T:int"/>.
+		/// </param>
+		/// <param name="bufSize">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="params">
+		/// A <see cref="T:Int32[]"/>.
+		/// </param>
+		[RequiredByFeature("GL_NV_internalformat_sample_query")]
+		public static void GetInternalformatSampleNV(int target, int internalformat, Int32 samples, int pname, Int32[] @params)
+		{
+			unsafe {
+				fixed (Int32* p_params = @params)
+				{
+					Debug.Assert(Delegates.pglGetInternalformatSampleivNV != null, "pglGetInternalformatSampleivNV not implemented");
+					Delegates.pglGetInternalformatSampleivNV(target, internalformat, samples, pname, (Int32)@params.Length, p_params);
+					CallLog("glGetInternalformatSampleivNV({0}, {1}, {2}, {3}, {4}, {5})", target, internalformat, samples, pname, @params.Length, @params);
+				}
+			}
+			DebugCheckErrors();
+		}
+
 	}
 
 }

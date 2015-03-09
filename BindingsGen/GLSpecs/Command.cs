@@ -383,7 +383,7 @@ namespace BindingsGen.GLSpecs
 			// At least a parameter in meant as pointer/array, that can be represented using structs
 			bool isPinnedObjCompatible = CommandParameterPinned.IsCompatible(this, ctx);
 			// At least one parameter is an array with length correlated with another parameter
-			bool isArrayLengthCompatible = Parameters.FindIndex(delegate(CommandParameter item) { return (item.IsArrayLengthCompatible(ctx, this)); }) >= 0;
+			bool isArrayLengthCompatible = CommandParameterArray.IsCompatible(this, ctx);
 
 			// Standard implementation - default
 			overridenParameters.Add(Parameters);
@@ -437,21 +437,14 @@ namespace BindingsGen.GLSpecs
 			}
 
 			// Array Length overrides
-			if (isArrayLengthCompatible)
-				overridenParameters.AddRange(GetOverridenImplementations_ArrayLength(ctx));
+			if (isArrayLengthCompatible) {
+				parameters = new List<CommandParameter>();
 
-			return (overridenParameters.ToArray());
-		}
+				foreach (CommandParameter commandParameter in Parameters)
+					parameters.Add(new CommandParameterArray(commandParameter, ctx, this));
 
-		private List<CommandParameter>[] GetOverridenImplementations_ArrayLength(RegistryContext ctx)
-		{
-			List<List<CommandParameter>> overridenParameters = new List<List<CommandParameter>>();
-			List<CommandParameter> parameters;
-
-			int arrayParamIndex = Parameters.FindIndex(delegate(CommandParameter item) { return (item.IsArrayLengthCompatible(ctx, this)); });
-			int arrayLengthParamIndex = Parameters.FindIndex(delegate(CommandParameter item) { return (item.Name == Parameters[arrayParamIndex].Length); });
-
-			// Remove the length parameter, and derive
+				overridenParameters.Add(parameters);
+			}
 
 			return (overridenParameters.ToArray());
 		}
@@ -492,7 +485,9 @@ namespace BindingsGen.GLSpecs
 		/// </param>
 		private void GenerateImplementation(SourceStreamWriter sw, RegistryContext ctx, List<CommandParameter> commandParams)
 		{
-			if (commandParams.FindIndex(delegate(CommandParameter item) { return (item is CommandParameterPinned); }) < 0)
+			bool isPinnedImplementation = commandParams.FindIndex(delegate(CommandParameter item) { return (item is CommandParameterPinned); }) >= 0;
+
+			if (!isPinnedImplementation)
 				GenerateImplementation_Default(sw, ctx, commandParams);
 			else
 				GenerateImplementation_Pinned(sw, ctx, commandParams);
@@ -512,9 +507,11 @@ namespace BindingsGen.GLSpecs
 		/// </param>
 		private void GenerateImplementation_Signature(SourceStreamWriter sw, RegistryContext ctx, List<CommandParameter> commandParams)
 		{
+			bool isArrayImplementation = commandParams.FindIndex(delegate(CommandParameter item) { return (item is CommandParameterArray); }) >= 0;
+
 #if !DEBUG
 			// Documentation
-			RegistryDocumentation.GenerateCommandDocumentation(sw, ctx, this);
+			RegistryDocumentation.GenerateCommandDocumentation(sw, ctx, this, commandParams);
 #endif
 
 			foreach (IFeature feature in RequiredBy)
@@ -527,9 +524,13 @@ namespace BindingsGen.GLSpecs
 			// Signature
 			sw.WriteIdentation(); sw.Write("{0} static {1} {2}(", CommandFlagsDatabase.GetCommandVisibility(this), GetImplementationReturnType(ctx), GetImplementationName(ctx));
 			// Signature - Parameters
-			int paramCount = commandParams.Count;
+			int paramCount = commandParams.FindAll(delegate(CommandParameter item) { return (!item.IsImplicit(ctx, this)); }).Count;
 
 			foreach (CommandParameter param in commandParams) {
+				// Skip in signature implicit parameters
+				if (param.IsImplicit(ctx, this))
+					continue;
+
 				string paramAttributes = param.GetImplementationTypeAttributes(ctx, this);
 				string paramModifier = param.GetImplementationTypeModifier(ctx, this);
 
@@ -564,9 +565,10 @@ namespace BindingsGen.GLSpecs
 		private void GenerateImplementation_Default(SourceStreamWriter sw, RegistryContext ctx, List<CommandParameter> commandParams)
 		{
 			List<Command> aliases = new List<Command>();
+
 			bool fixedImplementation = IsFixedImplementation(ctx, commandParams);
 			// At least one parameter is an array with length correlated with another parameter
-			bool isArrayLengthCompatible = Parameters.FindIndex(delegate(CommandParameter item) { return (item.IsArrayLengthCompatible(ctx, this)); }) >= 0;
+			bool isArrayImplementation = commandParams.FindIndex(delegate(CommandParameter item) { return (item is CommandParameterArray); }) >= 0;
 			
 			aliases.Add(this);
 			aliases.AddRange(Aliases);

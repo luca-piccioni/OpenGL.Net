@@ -393,6 +393,29 @@ namespace OpenGL
 		}
 
 		/// <summary>
+		/// Binding for glDeleteRenderbuffersEXT.
+		/// </summary>
+		/// <param name="n">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="renderbuffers">
+		/// A <see cref="T:UInt32[]"/>.
+		/// </param>
+		[RequiredByFeature("GL_EXT_framebuffer_object")]
+		public static void DeleteRenderbufferEXT(UInt32[] renderbuffers)
+		{
+			unsafe {
+				fixed (UInt32* p_renderbuffers = renderbuffers)
+				{
+					Debug.Assert(Delegates.pglDeleteRenderbuffersEXT != null, "pglDeleteRenderbuffersEXT not implemented");
+					Delegates.pglDeleteRenderbuffersEXT((Int32)renderbuffers.Length, p_renderbuffers);
+					CallLog("glDeleteRenderbuffersEXT({0}, {1})", renderbuffers.Length, renderbuffers);
+				}
+			}
+			DebugCheckErrors();
+		}
+
+		/// <summary>
 		/// Binding for glGenRenderbuffersEXT.
 		/// </summary>
 		/// <param name="n">
@@ -411,6 +434,29 @@ namespace OpenGL
 					Debug.Assert(Delegates.pglGenRenderbuffersEXT != null, "pglGenRenderbuffersEXT not implemented");
 					Delegates.pglGenRenderbuffersEXT(n, p_renderbuffers);
 					CallLog("glGenRenderbuffersEXT({0}, {1})", n, renderbuffers);
+				}
+			}
+			DebugCheckErrors();
+		}
+
+		/// <summary>
+		/// Binding for glGenRenderbuffersEXT.
+		/// </summary>
+		/// <param name="n">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="renderbuffers">
+		/// A <see cref="T:UInt32[]"/>.
+		/// </param>
+		[RequiredByFeature("GL_EXT_framebuffer_object")]
+		public static void GenRenderbufferEXT(UInt32[] renderbuffers)
+		{
+			unsafe {
+				fixed (UInt32* p_renderbuffers = renderbuffers)
+				{
+					Debug.Assert(Delegates.pglGenRenderbuffersEXT != null, "pglGenRenderbuffersEXT not implemented");
+					Delegates.pglGenRenderbuffersEXT((Int32)renderbuffers.Length, p_renderbuffers);
+					CallLog("glGenRenderbuffersEXT({0}, {1})", renderbuffers.Length, renderbuffers);
 				}
 			}
 			DebugCheckErrors();
@@ -528,6 +574,29 @@ namespace OpenGL
 		}
 
 		/// <summary>
+		/// Binding for glDeleteFramebuffersEXT.
+		/// </summary>
+		/// <param name="n">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="framebuffers">
+		/// A <see cref="T:UInt32[]"/>.
+		/// </param>
+		[RequiredByFeature("GL_EXT_framebuffer_object")]
+		public static void DeleteFramebuffersEXT(UInt32[] framebuffers)
+		{
+			unsafe {
+				fixed (UInt32* p_framebuffers = framebuffers)
+				{
+					Debug.Assert(Delegates.pglDeleteFramebuffersEXT != null, "pglDeleteFramebuffersEXT not implemented");
+					Delegates.pglDeleteFramebuffersEXT((Int32)framebuffers.Length, p_framebuffers);
+					CallLog("glDeleteFramebuffersEXT({0}, {1})", framebuffers.Length, framebuffers);
+				}
+			}
+			DebugCheckErrors();
+		}
+
+		/// <summary>
 		/// Binding for glGenFramebuffersEXT.
 		/// </summary>
 		/// <param name="n">
@@ -546,6 +615,29 @@ namespace OpenGL
 					Debug.Assert(Delegates.pglGenFramebuffersEXT != null, "pglGenFramebuffersEXT not implemented");
 					Delegates.pglGenFramebuffersEXT(n, p_framebuffers);
 					CallLog("glGenFramebuffersEXT({0}, {1})", n, framebuffers);
+				}
+			}
+			DebugCheckErrors();
+		}
+
+		/// <summary>
+		/// Binding for glGenFramebuffersEXT.
+		/// </summary>
+		/// <param name="n">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="framebuffers">
+		/// A <see cref="T:UInt32[]"/>.
+		/// </param>
+		[RequiredByFeature("GL_EXT_framebuffer_object")]
+		public static void GenFramebuffersEXT(UInt32[] framebuffers)
+		{
+			unsafe {
+				fixed (UInt32* p_framebuffers = framebuffers)
+				{
+					Debug.Assert(Delegates.pglGenFramebuffersEXT != null, "pglGenFramebuffersEXT not implemented");
+					Delegates.pglGenFramebuffersEXT((Int32)framebuffers.Length, p_framebuffers);
+					CallLog("glGenFramebuffersEXT({0}, {1})", framebuffers.Length, framebuffers);
 				}
 			}
 			DebugCheckErrors();

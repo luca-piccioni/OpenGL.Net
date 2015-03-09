@@ -588,7 +588,7 @@ namespace OpenGL
 		/// cref="Gl.UNSIGNED_INT_2_10_10_10_REV"/>.
 		/// </param>
 		/// <param name="pixels">
-		/// A <see cref="T:IntPtr"/>.
+		/// A <see cref="T:Object"/>.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		public static void TexImage1D(int target, Int32 level, Int32 internalformat, Int32 width, Int32 border, int format, int type, Object pixels)
@@ -638,7 +638,7 @@ namespace OpenGL
 		/// cref="Gl.UNSIGNED_INT_2_10_10_10_REV"/>.
 		/// </param>
 		/// <param name="pixels">
-		/// A <see cref="T:IntPtr"/>.
+		/// A <see cref="T:Object"/>.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		public static void TexImage1D(TextureTarget target, Int32 level, Int32 internalformat, Int32 width, Int32 border, PixelFormat format, PixelType type, Object pixels)
@@ -811,7 +811,7 @@ namespace OpenGL
 		/// cref="Gl.UNSIGNED_INT_2_10_10_10_REV"/>.
 		/// </param>
 		/// <param name="pixels">
-		/// A <see cref="T:IntPtr"/>.
+		/// A <see cref="T:Object"/>.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		public static void TexImage2D(int target, Int32 level, Int32 internalformat, Int32 width, Int32 height, Int32 border, int format, int type, Object pixels)
@@ -870,7 +870,7 @@ namespace OpenGL
 		/// cref="Gl.UNSIGNED_INT_2_10_10_10_REV"/>.
 		/// </param>
 		/// <param name="pixels">
-		/// A <see cref="T:IntPtr"/>.
+		/// A <see cref="T:Object"/>.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		public static void TexImage2D(TextureTarget target, Int32 level, Int32 internalformat, Int32 width, Int32 height, Int32 border, PixelFormat format, PixelType type, Object pixels)
@@ -1314,13 +1314,13 @@ namespace OpenGL
 		/// set front and back stencil test actions
 		/// </summary>
 		/// <param name="fail">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:StencilOp"/>.
 		/// </param>
 		/// <param name="zfail">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:StencilOp"/>.
 		/// </param>
 		/// <param name="zpass">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:StencilOp"/>.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		public static void StencilOp(StencilOp fail, StencilOp zfail, StencilOp zpass)
@@ -1478,7 +1478,7 @@ namespace OpenGL
 		/// select a color buffer source for pixels
 		/// </summary>
 		/// <param name="src">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:ReadBufferMode"/>.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		public static void ReadBuffer(ReadBufferMode src)
@@ -7463,6 +7463,35 @@ namespace OpenGL
 		}
 
 		/// <summary>
+		/// controls feedback mode
+		/// </summary>
+		/// <param name="size">
+		/// Specifies the maximum number of values that can be written into <paramref name="buffer"/>.
+		/// </param>
+		/// <param name="type">
+		/// Specifies a symbolic constant that describes the information that will be returned for each vertex. <see cref="Gl.2D"/>, 
+		/// <see cref="Gl.3D"/>, <see cref="Gl.3D_COLOR"/>, <see cref="Gl.3D_COLOR_TEXTURE"/>, and <see cref="Gl.4D_COLOR_TEXTURE"/> 
+		/// are accepted.
+		/// </param>
+		/// <param name="buffer">
+		/// Returns the feedback data.
+		/// </param>
+		[RequiredByFeature("GL_VERSION_1_0")]
+		[RemovedByFeature("GL_VERSION_3_2")]
+		public static void FeedbackBuffer(FeedbackType type, float[] buffer)
+		{
+			unsafe {
+				fixed (float* p_buffer = buffer)
+				{
+					Debug.Assert(Delegates.pglFeedbackBuffer != null, "pglFeedbackBuffer not implemented");
+					Delegates.pglFeedbackBuffer((Int32)buffer.Length, (int)type, p_buffer);
+					CallLog("glFeedbackBuffer({0}, {1}, {2})", buffer.Length, type, buffer);
+				}
+			}
+			DebugCheckErrors();
+		}
+
+		/// <summary>
 		/// establish a buffer for selection mode values
 		/// </summary>
 		/// <param name="size">
@@ -7482,6 +7511,30 @@ namespace OpenGL
 					Debug.Assert(Delegates.pglSelectBuffer != null, "pglSelectBuffer not implemented");
 					Delegates.pglSelectBuffer(size, p_buffer);
 					CallLog("glSelectBuffer({0}, {1})", size, buffer);
+				}
+			}
+			DebugCheckErrors();
+		}
+
+		/// <summary>
+		/// establish a buffer for selection mode values
+		/// </summary>
+		/// <param name="size">
+		/// Specifies the size of <paramref name="buffer"/>.
+		/// </param>
+		/// <param name="buffer">
+		/// Returns the selection data.
+		/// </param>
+		[RequiredByFeature("GL_VERSION_1_0")]
+		[RemovedByFeature("GL_VERSION_3_2")]
+		public static void SelectBuffer(UInt32[] buffer)
+		{
+			unsafe {
+				fixed (UInt32* p_buffer = buffer)
+				{
+					Debug.Assert(Delegates.pglSelectBuffer != null, "pglSelectBuffer not implemented");
+					Delegates.pglSelectBuffer((Int32)buffer.Length, p_buffer);
+					CallLog("glSelectBuffer({0}, {1})", buffer.Length, buffer);
 				}
 			}
 			DebugCheckErrors();
@@ -8819,6 +8872,36 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2")]
+		public static void PixelMap(PixelMap map, float[] values)
+		{
+			unsafe {
+				fixed (float* p_values = values)
+				{
+					Debug.Assert(Delegates.pglPixelMapfv != null, "pglPixelMapfv not implemented");
+					Delegates.pglPixelMapfv((int)map, (Int32)values.Length, p_values);
+					CallLog("glPixelMapfv({0}, {1}, {2})", map, values.Length, values);
+				}
+			}
+			DebugCheckErrors();
+		}
+
+		/// <summary>
+		/// set up pixel transfer maps
+		/// </summary>
+		/// <param name="map">
+		/// Specifies a symbolic map name. Must be one of the following: <see cref="Gl.PIXEL_MAP_I_TO_I"/>, <see 
+		/// cref="Gl.PIXEL_MAP_S_TO_S"/>, <see cref="Gl.PIXEL_MAP_I_TO_R"/>, <see cref="Gl.PIXEL_MAP_I_TO_G"/>, <see 
+		/// cref="Gl.PIXEL_MAP_I_TO_B"/>, <see cref="Gl.PIXEL_MAP_I_TO_A"/>, <see cref="Gl.PIXEL_MAP_R_TO_R"/>, <see 
+		/// cref="Gl.PIXEL_MAP_G_TO_G"/>, <see cref="Gl.PIXEL_MAP_B_TO_B"/>, or <see cref="Gl.PIXEL_MAP_A_TO_A"/>.
+		/// </param>
+		/// <param name="mapsize">
+		/// Specifies the size of the map being defined.
+		/// </param>
+		/// <param name="values">
+		/// Specifies an array of <paramref name="mapsize"/> values.
+		/// </param>
+		[RequiredByFeature("GL_VERSION_1_0")]
+		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void PixelMap(int map, Int32 mapsize, UInt32[] values)
 		{
 			Debug.Assert(values.Length >= mapsize);
@@ -8881,6 +8964,36 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2")]
+		public static void PixelMap(PixelMap map, UInt32[] values)
+		{
+			unsafe {
+				fixed (UInt32* p_values = values)
+				{
+					Debug.Assert(Delegates.pglPixelMapuiv != null, "pglPixelMapuiv not implemented");
+					Delegates.pglPixelMapuiv((int)map, (Int32)values.Length, p_values);
+					CallLog("glPixelMapuiv({0}, {1}, {2})", map, values.Length, values);
+				}
+			}
+			DebugCheckErrors();
+		}
+
+		/// <summary>
+		/// set up pixel transfer maps
+		/// </summary>
+		/// <param name="map">
+		/// Specifies a symbolic map name. Must be one of the following: <see cref="Gl.PIXEL_MAP_I_TO_I"/>, <see 
+		/// cref="Gl.PIXEL_MAP_S_TO_S"/>, <see cref="Gl.PIXEL_MAP_I_TO_R"/>, <see cref="Gl.PIXEL_MAP_I_TO_G"/>, <see 
+		/// cref="Gl.PIXEL_MAP_I_TO_B"/>, <see cref="Gl.PIXEL_MAP_I_TO_A"/>, <see cref="Gl.PIXEL_MAP_R_TO_R"/>, <see 
+		/// cref="Gl.PIXEL_MAP_G_TO_G"/>, <see cref="Gl.PIXEL_MAP_B_TO_B"/>, or <see cref="Gl.PIXEL_MAP_A_TO_A"/>.
+		/// </param>
+		/// <param name="mapsize">
+		/// Specifies the size of the map being defined.
+		/// </param>
+		/// <param name="values">
+		/// Specifies an array of <paramref name="mapsize"/> values.
+		/// </param>
+		[RequiredByFeature("GL_VERSION_1_0")]
+		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void PixelMap(int map, Int32 mapsize, UInt16[] values)
 		{
 			Debug.Assert(values.Length >= mapsize);
@@ -8921,6 +9034,36 @@ namespace OpenGL
 					Debug.Assert(Delegates.pglPixelMapusv != null, "pglPixelMapusv not implemented");
 					Delegates.pglPixelMapusv((int)map, mapsize, p_values);
 					CallLog("glPixelMapusv({0}, {1}, {2})", map, mapsize, values);
+				}
+			}
+			DebugCheckErrors();
+		}
+
+		/// <summary>
+		/// set up pixel transfer maps
+		/// </summary>
+		/// <param name="map">
+		/// Specifies a symbolic map name. Must be one of the following: <see cref="Gl.PIXEL_MAP_I_TO_I"/>, <see 
+		/// cref="Gl.PIXEL_MAP_S_TO_S"/>, <see cref="Gl.PIXEL_MAP_I_TO_R"/>, <see cref="Gl.PIXEL_MAP_I_TO_G"/>, <see 
+		/// cref="Gl.PIXEL_MAP_I_TO_B"/>, <see cref="Gl.PIXEL_MAP_I_TO_A"/>, <see cref="Gl.PIXEL_MAP_R_TO_R"/>, <see 
+		/// cref="Gl.PIXEL_MAP_G_TO_G"/>, <see cref="Gl.PIXEL_MAP_B_TO_B"/>, or <see cref="Gl.PIXEL_MAP_A_TO_A"/>.
+		/// </param>
+		/// <param name="mapsize">
+		/// Specifies the size of the map being defined.
+		/// </param>
+		/// <param name="values">
+		/// Specifies an array of <paramref name="mapsize"/> values.
+		/// </param>
+		[RequiredByFeature("GL_VERSION_1_0")]
+		[RemovedByFeature("GL_VERSION_3_2")]
+		public static void PixelMap(PixelMap map, UInt16[] values)
+		{
+			unsafe {
+				fixed (UInt16* p_values = values)
+				{
+					Debug.Assert(Delegates.pglPixelMapusv != null, "pglPixelMapusv not implemented");
+					Delegates.pglPixelMapusv((int)map, (Int32)values.Length, p_values);
+					CallLog("glPixelMapusv({0}, {1}, {2})", map, values.Length, values);
 				}
 			}
 			DebugCheckErrors();
@@ -9086,7 +9229,7 @@ namespace OpenGL
 		/// cref="Gl.UNSIGNED_INT_2_10_10_10_REV"/> are accepted.
 		/// </param>
 		/// <param name="pixels">
-		/// A <see cref="T:IntPtr"/>.
+		/// A <see cref="T:Object"/>.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2")]
@@ -9126,7 +9269,7 @@ namespace OpenGL
 		/// cref="Gl.UNSIGNED_INT_2_10_10_10_REV"/> are accepted.
 		/// </param>
 		/// <param name="pixels">
-		/// A <see cref="T:IntPtr"/>.
+		/// A <see cref="T:Object"/>.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2")]

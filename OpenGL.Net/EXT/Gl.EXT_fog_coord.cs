@@ -162,7 +162,7 @@ namespace OpenGL
 		/// Binding for glFogCoordPointerEXT.
 		/// </summary>
 		/// <param name="type">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:FogPointerTypeEXT"/>.
 		/// </param>
 		/// <param name="stride">
 		/// A <see cref="T:Int32"/>.
@@ -189,7 +189,7 @@ namespace OpenGL
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="pointer">
-		/// A <see cref="T:IntPtr"/>.
+		/// A <see cref="T:Object"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_fog_coord")]
 		public static void FogCoordPointerEXT(int type, Int32 stride, Object pointer)
@@ -206,13 +206,13 @@ namespace OpenGL
 		/// Binding for glFogCoordPointerEXT.
 		/// </summary>
 		/// <param name="type">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:FogPointerTypeEXT"/>.
 		/// </param>
 		/// <param name="stride">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="pointer">
-		/// A <see cref="T:IntPtr"/>.
+		/// A <see cref="T:Object"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_fog_coord")]
 		public static void FogCoordPointerEXT(FogPointerTypeEXT type, Int32 stride, Object pointer)

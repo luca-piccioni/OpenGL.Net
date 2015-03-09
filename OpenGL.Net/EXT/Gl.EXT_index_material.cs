@@ -65,7 +65,7 @@ namespace OpenGL
 		/// Binding for glIndexMaterialEXT.
 		/// </summary>
 		/// <param name="face">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:MaterialFace"/>.
 		/// </param>
 		/// <param name="mode">
 		/// A <see cref="T:int"/>.

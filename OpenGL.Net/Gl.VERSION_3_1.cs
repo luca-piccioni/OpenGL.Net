@@ -855,6 +855,43 @@ namespace OpenGL
 		}
 
 		/// <summary>
+		/// Returns information about several active uniform variables for the specified program object
+		/// </summary>
+		/// <param name="program">
+		/// Specifies the program object to be queried.
+		/// </param>
+		/// <param name="uniformCount">
+		/// Specifies both the number of elements in the array of indices uniformIndices and the number of parameters written to 
+		/// params upon successful return.
+		/// </param>
+		/// <param name="uniformIndices">
+		/// Specifies the address of an array of uniformCount integers containing the indices of uniforms within program whose 
+		/// parameter pname should be queried.
+		/// </param>
+		/// <param name="pname">
+		/// Specifies the property of each uniform in uniformIndices that should be written into the corresponding element of 
+		/// params.
+		/// </param>
+		/// <param name="params">
+		/// A <see cref="T:Int32[]"/>.
+		/// </param>
+		[RequiredByFeature("GL_VERSION_3_1")]
+		[RequiredByFeature("GL_ARB_uniform_buffer_object")]
+		public static void GetActiveUniforms(UInt32 program, UInt32[] uniformIndices, int pname, Int32[] @params)
+		{
+			unsafe {
+				fixed (UInt32* p_uniformIndices = uniformIndices)
+				fixed (Int32* p_params = @params)
+				{
+					Debug.Assert(Delegates.pglGetActiveUniformsiv != null, "pglGetActiveUniformsiv not implemented");
+					Delegates.pglGetActiveUniformsiv(program, (Int32)uniformIndices.Length, p_uniformIndices, pname, p_params);
+					CallLog("glGetActiveUniformsiv({0}, {1}, {2}, {3}, {4})", program, uniformIndices.Length, uniformIndices, pname, @params);
+				}
+			}
+			DebugCheckErrors();
+		}
+
+		/// <summary>
 		/// query the name of an active uniform
 		/// </summary>
 		/// <param name="program">

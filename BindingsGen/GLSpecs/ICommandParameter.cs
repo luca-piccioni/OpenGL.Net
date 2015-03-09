@@ -21,6 +21,8 @@ namespace BindingsGen.GLSpecs
 	/// </summary>
 	interface ICommandParameter
 	{
+		bool IsImplicit(RegistryContext ctx, Command parentCommand);
+
 		void WriteDebugAssertion(SourceStreamWriter sw, RegistryContext ctx, Command parentCommand);
 
 		void WriteFixedStatement(SourceStreamWriter sw, RegistryContext ctx, Command parentCommand);

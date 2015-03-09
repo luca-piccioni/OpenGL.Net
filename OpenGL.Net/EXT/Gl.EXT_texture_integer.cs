@@ -337,10 +337,10 @@ namespace OpenGL
 		/// Binding for glTexParameterIivEXT.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:TextureTarget"/>.
 		/// </param>
 		/// <param name="pname">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:TextureParameterName"/>.
 		/// </param>
 		/// <param name="params">
 		/// A <see cref="T:Int32[]"/>.
@@ -389,10 +389,10 @@ namespace OpenGL
 		/// Binding for glTexParameterIuivEXT.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:TextureTarget"/>.
 		/// </param>
 		/// <param name="pname">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:TextureParameterName"/>.
 		/// </param>
 		/// <param name="params">
 		/// A <see cref="T:UInt32[]"/>.
@@ -441,10 +441,10 @@ namespace OpenGL
 		/// Binding for glGetTexParameterIivEXT.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:TextureTarget"/>.
 		/// </param>
 		/// <param name="pname">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:GetTextureParameter"/>.
 		/// </param>
 		/// <param name="params">
 		/// A <see cref="T:Int32[]"/>.
@@ -493,10 +493,10 @@ namespace OpenGL
 		/// Binding for glGetTexParameterIuivEXT.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:TextureTarget"/>.
 		/// </param>
 		/// <param name="pname">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:GetTextureParameter"/>.
 		/// </param>
 		/// <param name="params">
 		/// A <see cref="T:UInt32[]"/>.

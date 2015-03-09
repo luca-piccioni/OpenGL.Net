@@ -68,6 +68,29 @@ namespace OpenGL
 		}
 
 		/// <summary>
+		/// Binding for glDeleteFencesNV.
+		/// </summary>
+		/// <param name="n">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="fences">
+		/// A <see cref="T:UInt32[]"/>.
+		/// </param>
+		[RequiredByFeature("GL_NV_fence")]
+		public static void DeleteFencesNV(UInt32[] fences)
+		{
+			unsafe {
+				fixed (UInt32* p_fences = fences)
+				{
+					Debug.Assert(Delegates.pglDeleteFencesNV != null, "pglDeleteFencesNV not implemented");
+					Delegates.pglDeleteFencesNV((Int32)fences.Length, p_fences);
+					CallLog("glDeleteFencesNV({0}, {1})", fences.Length, fences);
+				}
+			}
+			DebugCheckErrors();
+		}
+
+		/// <summary>
 		/// Binding for glGenFencesNV.
 		/// </summary>
 		/// <param name="n">
@@ -86,6 +109,29 @@ namespace OpenGL
 					Debug.Assert(Delegates.pglGenFencesNV != null, "pglGenFencesNV not implemented");
 					Delegates.pglGenFencesNV(n, p_fences);
 					CallLog("glGenFencesNV({0}, {1})", n, fences);
+				}
+			}
+			DebugCheckErrors();
+		}
+
+		/// <summary>
+		/// Binding for glGenFencesNV.
+		/// </summary>
+		/// <param name="n">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="fences">
+		/// A <see cref="T:UInt32[]"/>.
+		/// </param>
+		[RequiredByFeature("GL_NV_fence")]
+		public static void GenFencesNV(UInt32[] fences)
+		{
+			unsafe {
+				fixed (UInt32* p_fences = fences)
+				{
+					Debug.Assert(Delegates.pglGenFencesNV != null, "pglGenFencesNV not implemented");
+					Delegates.pglGenFencesNV((Int32)fences.Length, p_fences);
+					CallLog("glGenFencesNV({0}, {1})", fences.Length, fences);
 				}
 			}
 			DebugCheckErrors();

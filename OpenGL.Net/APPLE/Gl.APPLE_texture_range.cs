@@ -80,7 +80,7 @@ namespace OpenGL
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="pointer">
-		/// A <see cref="T:IntPtr"/>.
+		/// A <see cref="T:Object"/>.
 		/// </param>
 		[RequiredByFeature("GL_APPLE_texture_range")]
 		public static void TextureRangeAPPLE(int target, Int32 length, Object pointer)

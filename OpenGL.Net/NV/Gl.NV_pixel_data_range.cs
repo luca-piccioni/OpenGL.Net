@@ -92,7 +92,7 @@ namespace OpenGL
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="pointer">
-		/// A <see cref="T:IntPtr"/>.
+		/// A <see cref="T:Object"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_pixel_data_range")]
 		public static void PixelDataRangeNV(int target, Int32 length, Object pointer)

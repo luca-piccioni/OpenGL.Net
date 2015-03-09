@@ -263,7 +263,7 @@ namespace OpenGL
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="pointer">
-		/// A <see cref="T:IntPtr"/>.
+		/// A <see cref="T:Object"/>.
 		/// </param>
 		[RequiredByFeature("GL_SUN_triangle_list")]
 		public static void ReplacementCodePointerSUN(int type, Int32 stride, Object pointer)

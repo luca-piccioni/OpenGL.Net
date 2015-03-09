@@ -98,7 +98,7 @@ namespace OpenGL
 		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="param">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:OcclusionQueryEventMaskAMD"/>.
 		/// </param>
 		[RequiredByFeature("GL_AMD_occlusion_query_event")]
 		public static void QueryObjectParameterAMD(int target, UInt32 id, int pname, OcclusionQueryEventMaskAMD param)

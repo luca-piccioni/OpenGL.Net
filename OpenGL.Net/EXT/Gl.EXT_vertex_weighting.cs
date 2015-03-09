@@ -175,7 +175,7 @@ namespace OpenGL
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="pointer">
-		/// A <see cref="T:IntPtr"/>.
+		/// A <see cref="T:Object"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_vertex_weighting")]
 		public static void VertexWeightPointerEXT(Int32 size, int type, Int32 stride, Object pointer)

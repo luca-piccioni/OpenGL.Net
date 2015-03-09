@@ -248,7 +248,7 @@ namespace OpenGL
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="face">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:TextureTarget"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_geometry_program4")]
 		public static void FramebufferTextureFaceEXT(int target, int attachment, UInt32 texture, Int32 level, TextureTarget face)

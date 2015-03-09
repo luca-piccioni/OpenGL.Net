@@ -151,7 +151,7 @@ namespace OpenGL
 		/// Binding for glTexRenderbufferNV.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:TextureTarget"/>.
 		/// </param>
 		/// <param name="renderbuffer">
 		/// A <see cref="T:UInt32"/>.

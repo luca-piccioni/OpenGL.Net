@@ -59,10 +59,10 @@ namespace OpenGL
 		/// Binding for glBlendEquationSeparateEXT.
 		/// </summary>
 		/// <param name="modeRGB">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:BlendEquationModeEXT"/>.
 		/// </param>
 		/// <param name="modeAlpha">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:BlendEquationModeEXT"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_blend_equation_separate")]
 		public static void BlendEquationSeparateEXT(BlendEquationModeEXT modeRGB, BlendEquationModeEXT modeAlpha)

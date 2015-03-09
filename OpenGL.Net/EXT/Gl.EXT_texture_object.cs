@@ -89,6 +89,37 @@ namespace OpenGL
 		}
 
 		/// <summary>
+		/// Binding for glAreTexturesResidentEXT.
+		/// </summary>
+		/// <param name="n">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="textures">
+		/// A <see cref="T:UInt32[]"/>.
+		/// </param>
+		/// <param name="residences">
+		/// A <see cref="T:bool[]"/>.
+		/// </param>
+		[RequiredByFeature("GL_EXT_texture_object")]
+		public static bool AreTexturesResidentEXT(UInt32[] textures, bool[] residences)
+		{
+			bool retValue;
+
+			unsafe {
+				fixed (UInt32* p_textures = textures)
+				fixed (bool* p_residences = residences)
+				{
+					Debug.Assert(Delegates.pglAreTexturesResidentEXT != null, "pglAreTexturesResidentEXT not implemented");
+					retValue = Delegates.pglAreTexturesResidentEXT((Int32)textures.Length, p_textures, p_residences);
+					CallLog("glAreTexturesResidentEXT({0}, {1}, {2}) = {3}", textures.Length, textures, residences, retValue);
+				}
+			}
+			DebugCheckErrors();
+
+			return (retValue);
+		}
+
+		/// <summary>
 		/// Binding for glBindTextureEXT.
 		/// </summary>
 		/// <param name="target">
@@ -110,7 +141,7 @@ namespace OpenGL
 		/// Binding for glBindTextureEXT.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:TextureTarget"/>.
 		/// </param>
 		/// <param name="texture">
 		/// A <see cref="T:UInt32"/>.
@@ -149,6 +180,29 @@ namespace OpenGL
 		}
 
 		/// <summary>
+		/// Binding for glDeleteTexturesEXT.
+		/// </summary>
+		/// <param name="n">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="textures">
+		/// A <see cref="T:UInt32[]"/>.
+		/// </param>
+		[RequiredByFeature("GL_EXT_texture_object")]
+		public static void DeleteTexturesEXT(UInt32[] textures)
+		{
+			unsafe {
+				fixed (UInt32* p_textures = textures)
+				{
+					Debug.Assert(Delegates.pglDeleteTexturesEXT != null, "pglDeleteTexturesEXT not implemented");
+					Delegates.pglDeleteTexturesEXT((Int32)textures.Length, p_textures);
+					CallLog("glDeleteTexturesEXT({0}, {1})", textures.Length, textures);
+				}
+			}
+			DebugCheckErrors();
+		}
+
+		/// <summary>
 		/// Binding for glGenTexturesEXT.
 		/// </summary>
 		/// <param name="n">
@@ -167,6 +221,29 @@ namespace OpenGL
 					Debug.Assert(Delegates.pglGenTexturesEXT != null, "pglGenTexturesEXT not implemented");
 					Delegates.pglGenTexturesEXT(n, p_textures);
 					CallLog("glGenTexturesEXT({0}, {1})", n, textures);
+				}
+			}
+			DebugCheckErrors();
+		}
+
+		/// <summary>
+		/// Binding for glGenTexturesEXT.
+		/// </summary>
+		/// <param name="n">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="textures">
+		/// A <see cref="T:UInt32[]"/>.
+		/// </param>
+		[RequiredByFeature("GL_EXT_texture_object")]
+		public static void GenTexturesEXT(UInt32[] textures)
+		{
+			unsafe {
+				fixed (UInt32* p_textures = textures)
+				{
+					Debug.Assert(Delegates.pglGenTexturesEXT != null, "pglGenTexturesEXT not implemented");
+					Delegates.pglGenTexturesEXT((Int32)textures.Length, p_textures);
+					CallLog("glGenTexturesEXT({0}, {1})", textures.Length, textures);
 				}
 			}
 			DebugCheckErrors();
@@ -215,6 +292,33 @@ namespace OpenGL
 					Debug.Assert(Delegates.pglPrioritizeTexturesEXT != null, "pglPrioritizeTexturesEXT not implemented");
 					Delegates.pglPrioritizeTexturesEXT(n, p_textures, p_priorities);
 					CallLog("glPrioritizeTexturesEXT({0}, {1}, {2})", n, textures, priorities);
+				}
+			}
+			DebugCheckErrors();
+		}
+
+		/// <summary>
+		/// Binding for glPrioritizeTexturesEXT.
+		/// </summary>
+		/// <param name="n">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="textures">
+		/// A <see cref="T:UInt32[]"/>.
+		/// </param>
+		/// <param name="priorities">
+		/// A <see cref="T:float[]"/>.
+		/// </param>
+		[RequiredByFeature("GL_EXT_texture_object")]
+		public static void PrioritizeTexturesEXT(UInt32[] textures, float[] priorities)
+		{
+			unsafe {
+				fixed (UInt32* p_textures = textures)
+				fixed (float* p_priorities = priorities)
+				{
+					Debug.Assert(Delegates.pglPrioritizeTexturesEXT != null, "pglPrioritizeTexturesEXT not implemented");
+					Delegates.pglPrioritizeTexturesEXT((Int32)textures.Length, p_textures, p_priorities);
+					CallLog("glPrioritizeTexturesEXT({0}, {1}, {2})", textures.Length, textures, priorities);
 				}
 			}
 			DebugCheckErrors();

@@ -302,6 +302,29 @@ namespace OpenGL
 		}
 
 		/// <summary>
+		/// Binding for glWeightbvARB.
+		/// </summary>
+		/// <param name="size">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="weights">
+		/// A <see cref="T:sbyte[]"/>.
+		/// </param>
+		[RequiredByFeature("GL_ARB_vertex_blend")]
+		public static void WeightARB(sbyte[] weights)
+		{
+			unsafe {
+				fixed (sbyte* p_weights = weights)
+				{
+					Debug.Assert(Delegates.pglWeightbvARB != null, "pglWeightbvARB not implemented");
+					Delegates.pglWeightbvARB((Int32)weights.Length, p_weights);
+					CallLog("glWeightbvARB({0}, {1})", weights.Length, weights);
+				}
+			}
+			DebugCheckErrors();
+		}
+
+		/// <summary>
 		/// Binding for glWeightsvARB.
 		/// </summary>
 		/// <param name="size">
@@ -320,6 +343,29 @@ namespace OpenGL
 					Debug.Assert(Delegates.pglWeightsvARB != null, "pglWeightsvARB not implemented");
 					Delegates.pglWeightsvARB(size, p_weights);
 					CallLog("glWeightsvARB({0}, {1})", size, weights);
+				}
+			}
+			DebugCheckErrors();
+		}
+
+		/// <summary>
+		/// Binding for glWeightsvARB.
+		/// </summary>
+		/// <param name="size">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="weights">
+		/// A <see cref="T:Int16[]"/>.
+		/// </param>
+		[RequiredByFeature("GL_ARB_vertex_blend")]
+		public static void WeightARB(Int16[] weights)
+		{
+			unsafe {
+				fixed (Int16* p_weights = weights)
+				{
+					Debug.Assert(Delegates.pglWeightsvARB != null, "pglWeightsvARB not implemented");
+					Delegates.pglWeightsvARB((Int32)weights.Length, p_weights);
+					CallLog("glWeightsvARB({0}, {1})", weights.Length, weights);
 				}
 			}
 			DebugCheckErrors();
@@ -350,6 +396,29 @@ namespace OpenGL
 		}
 
 		/// <summary>
+		/// Binding for glWeightivARB.
+		/// </summary>
+		/// <param name="size">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="weights">
+		/// A <see cref="T:Int32[]"/>.
+		/// </param>
+		[RequiredByFeature("GL_ARB_vertex_blend")]
+		public static void WeightARB(Int32[] weights)
+		{
+			unsafe {
+				fixed (Int32* p_weights = weights)
+				{
+					Debug.Assert(Delegates.pglWeightivARB != null, "pglWeightivARB not implemented");
+					Delegates.pglWeightivARB((Int32)weights.Length, p_weights);
+					CallLog("glWeightivARB({0}, {1})", weights.Length, weights);
+				}
+			}
+			DebugCheckErrors();
+		}
+
+		/// <summary>
 		/// Binding for glWeightfvARB.
 		/// </summary>
 		/// <param name="size">
@@ -368,6 +437,29 @@ namespace OpenGL
 					Debug.Assert(Delegates.pglWeightfvARB != null, "pglWeightfvARB not implemented");
 					Delegates.pglWeightfvARB(size, p_weights);
 					CallLog("glWeightfvARB({0}, {1})", size, weights);
+				}
+			}
+			DebugCheckErrors();
+		}
+
+		/// <summary>
+		/// Binding for glWeightfvARB.
+		/// </summary>
+		/// <param name="size">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="weights">
+		/// A <see cref="T:float[]"/>.
+		/// </param>
+		[RequiredByFeature("GL_ARB_vertex_blend")]
+		public static void WeightARB(float[] weights)
+		{
+			unsafe {
+				fixed (float* p_weights = weights)
+				{
+					Debug.Assert(Delegates.pglWeightfvARB != null, "pglWeightfvARB not implemented");
+					Delegates.pglWeightfvARB((Int32)weights.Length, p_weights);
+					CallLog("glWeightfvARB({0}, {1})", weights.Length, weights);
 				}
 			}
 			DebugCheckErrors();
@@ -398,6 +490,29 @@ namespace OpenGL
 		}
 
 		/// <summary>
+		/// Binding for glWeightdvARB.
+		/// </summary>
+		/// <param name="size">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="weights">
+		/// A <see cref="T:double[]"/>.
+		/// </param>
+		[RequiredByFeature("GL_ARB_vertex_blend")]
+		public static void WeightARB(double[] weights)
+		{
+			unsafe {
+				fixed (double* p_weights = weights)
+				{
+					Debug.Assert(Delegates.pglWeightdvARB != null, "pglWeightdvARB not implemented");
+					Delegates.pglWeightdvARB((Int32)weights.Length, p_weights);
+					CallLog("glWeightdvARB({0}, {1})", weights.Length, weights);
+				}
+			}
+			DebugCheckErrors();
+		}
+
+		/// <summary>
 		/// Binding for glWeightubvARB.
 		/// </summary>
 		/// <param name="size">
@@ -416,6 +531,29 @@ namespace OpenGL
 					Debug.Assert(Delegates.pglWeightubvARB != null, "pglWeightubvARB not implemented");
 					Delegates.pglWeightubvARB(size, p_weights);
 					CallLog("glWeightubvARB({0}, {1})", size, weights);
+				}
+			}
+			DebugCheckErrors();
+		}
+
+		/// <summary>
+		/// Binding for glWeightubvARB.
+		/// </summary>
+		/// <param name="size">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="weights">
+		/// A <see cref="T:byte[]"/>.
+		/// </param>
+		[RequiredByFeature("GL_ARB_vertex_blend")]
+		public static void WeightARB(byte[] weights)
+		{
+			unsafe {
+				fixed (byte* p_weights = weights)
+				{
+					Debug.Assert(Delegates.pglWeightubvARB != null, "pglWeightubvARB not implemented");
+					Delegates.pglWeightubvARB((Int32)weights.Length, p_weights);
+					CallLog("glWeightubvARB({0}, {1})", weights.Length, weights);
 				}
 			}
 			DebugCheckErrors();
@@ -446,6 +584,29 @@ namespace OpenGL
 		}
 
 		/// <summary>
+		/// Binding for glWeightusvARB.
+		/// </summary>
+		/// <param name="size">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="weights">
+		/// A <see cref="T:UInt16[]"/>.
+		/// </param>
+		[RequiredByFeature("GL_ARB_vertex_blend")]
+		public static void WeightARB(UInt16[] weights)
+		{
+			unsafe {
+				fixed (UInt16* p_weights = weights)
+				{
+					Debug.Assert(Delegates.pglWeightusvARB != null, "pglWeightusvARB not implemented");
+					Delegates.pglWeightusvARB((Int32)weights.Length, p_weights);
+					CallLog("glWeightusvARB({0}, {1})", weights.Length, weights);
+				}
+			}
+			DebugCheckErrors();
+		}
+
+		/// <summary>
 		/// Binding for glWeightuivARB.
 		/// </summary>
 		/// <param name="size">
@@ -464,6 +625,29 @@ namespace OpenGL
 					Debug.Assert(Delegates.pglWeightuivARB != null, "pglWeightuivARB not implemented");
 					Delegates.pglWeightuivARB(size, p_weights);
 					CallLog("glWeightuivARB({0}, {1})", size, weights);
+				}
+			}
+			DebugCheckErrors();
+		}
+
+		/// <summary>
+		/// Binding for glWeightuivARB.
+		/// </summary>
+		/// <param name="size">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="weights">
+		/// A <see cref="T:UInt32[]"/>.
+		/// </param>
+		[RequiredByFeature("GL_ARB_vertex_blend")]
+		public static void WeightARB(UInt32[] weights)
+		{
+			unsafe {
+				fixed (UInt32* p_weights = weights)
+				{
+					Debug.Assert(Delegates.pglWeightuivARB != null, "pglWeightuivARB not implemented");
+					Delegates.pglWeightuivARB((Int32)weights.Length, p_weights);
+					CallLog("glWeightuivARB({0}, {1})", weights.Length, weights);
 				}
 			}
 			DebugCheckErrors();
@@ -506,7 +690,7 @@ namespace OpenGL
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="pointer">
-		/// A <see cref="T:IntPtr"/>.
+		/// A <see cref="T:Object"/>.
 		/// </param>
 		[RequiredByFeature("GL_ARB_vertex_blend")]
 		public static void WeightPointerARB(Int32 size, int type, Int32 stride, Object pointer)

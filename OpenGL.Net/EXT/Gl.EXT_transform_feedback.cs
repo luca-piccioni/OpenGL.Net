@@ -245,6 +245,30 @@ namespace OpenGL
 		}
 
 		/// <summary>
+		/// Binding for glTransformFeedbackVaryingsEXT.
+		/// </summary>
+		/// <param name="program">
+		/// A <see cref="T:UInt32"/>.
+		/// </param>
+		/// <param name="count">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="varyings">
+		/// A <see cref="T:String[]"/>.
+		/// </param>
+		/// <param name="bufferMode">
+		/// A <see cref="T:int"/>.
+		/// </param>
+		[RequiredByFeature("GL_EXT_transform_feedback")]
+		public static void TransformFeedbackVaryingEXT(UInt32 program, String[] varyings, int bufferMode)
+		{
+			Debug.Assert(Delegates.pglTransformFeedbackVaryingsEXT != null, "pglTransformFeedbackVaryingsEXT not implemented");
+			Delegates.pglTransformFeedbackVaryingsEXT(program, (Int32)varyings.Length, varyings, bufferMode);
+			CallLog("glTransformFeedbackVaryingsEXT({0}, {1}, {2}, {3})", program, varyings.Length, varyings, bufferMode);
+			DebugCheckErrors();
+		}
+
+		/// <summary>
 		/// Binding for glGetTransformFeedbackVaryingEXT.
 		/// </summary>
 		/// <param name="program">

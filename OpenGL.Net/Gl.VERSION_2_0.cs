@@ -640,6 +640,41 @@ namespace OpenGL
 		}
 
 		/// <summary>
+		/// Specifies a list of color buffers to be drawn into
+		/// </summary>
+		/// <param name="n">
+		/// Specifies the number of buffers in bufs.
+		/// </param>
+		/// <param name="bufs">
+		/// Points to an array of symbolic constants specifying the buffers into which fragment colors or data values will be 
+		/// written.
+		/// </param>
+		[RequiredByFeature("GL_VERSION_2_0")]
+		public static void DrawBuffers(int[] bufs)
+		{
+			unsafe {
+				fixed (int* p_bufs = bufs)
+				{
+					if        (Delegates.pglDrawBuffers != null) {
+						Delegates.pglDrawBuffers((Int32)bufs.Length, p_bufs);
+						CallLog("glDrawBuffers({0}, {1})", bufs.Length, bufs);
+					} else if (Delegates.pglDrawBuffersARB != null) {
+						Delegates.pglDrawBuffersARB((Int32)bufs.Length, p_bufs);
+						CallLog("glDrawBuffersARB({0}, {1})", bufs.Length, bufs);
+					} else if (Delegates.pglDrawBuffersATI != null) {
+						Delegates.pglDrawBuffersATI((Int32)bufs.Length, p_bufs);
+						CallLog("glDrawBuffersATI({0}, {1})", bufs.Length, bufs);
+					} else if (Delegates.pglDrawBuffersEXT != null) {
+						Delegates.pglDrawBuffersEXT((Int32)bufs.Length, p_bufs);
+						CallLog("glDrawBuffersEXT({0}, {1})", bufs.Length, bufs);
+					} else
+						throw new NotImplementedException("glDrawBuffers (and other aliases) are not implemented");
+				}
+			}
+			DebugCheckErrors();
+		}
+
+		/// <summary>
 		/// set front and/or back stencil test actions
 		/// </summary>
 		/// <param name="face">
@@ -1107,6 +1142,36 @@ namespace OpenGL
 					Debug.Assert(Delegates.pglGetAttachedShaders != null, "pglGetAttachedShaders not implemented");
 					Delegates.pglGetAttachedShaders(program, maxCount, p_count, p_shaders);
 					CallLog("glGetAttachedShaders({0}, {1}, {2}, {3})", program, maxCount, count, shaders);
+				}
+			}
+			DebugCheckErrors();
+		}
+
+		/// <summary>
+		/// Returns the handles of the shader objects attached to a program object
+		/// </summary>
+		/// <param name="program">
+		/// Specifies the program object to be queried.
+		/// </param>
+		/// <param name="maxCount">
+		/// Specifies the size of the array for storing the returned object names.
+		/// </param>
+		/// <param name="count">
+		/// Returns the number of names actually returned in shaders.
+		/// </param>
+		/// <param name="shaders">
+		/// Specifies an array that is used to return the names of attached shader objects.
+		/// </param>
+		[RequiredByFeature("GL_VERSION_2_0")]
+		public static void GetAttachedShaders(UInt32 program, out Int32 count, UInt32[] shaders)
+		{
+			unsafe {
+				fixed (Int32* p_count = &count)
+				fixed (UInt32* p_shaders = shaders)
+				{
+					Debug.Assert(Delegates.pglGetAttachedShaders != null, "pglGetAttachedShaders not implemented");
+					Delegates.pglGetAttachedShaders(program, (Int32)shaders.Length, p_count, p_shaders);
+					CallLog("glGetAttachedShaders({0}, {1}, {2}, {3})", program, shaders.Length, count, shaders);
 				}
 			}
 			DebugCheckErrors();
@@ -1606,6 +1671,40 @@ namespace OpenGL
 					} else if (Delegates.pglShaderSourceARB != null) {
 						Delegates.pglShaderSourceARB(shader, count, @string, p_length);
 						CallLog("glShaderSourceARB({0}, {1}, {2}, {3})", shader, count, @string, length);
+					} else
+						throw new NotImplementedException("glShaderSource (and other aliases) are not implemented");
+				}
+			}
+			DebugCheckErrors();
+		}
+
+		/// <summary>
+		/// Replaces the source code in a shader object
+		/// </summary>
+		/// <param name="shader">
+		/// Specifies the handle of the shader object whose source code is to be replaced.
+		/// </param>
+		/// <param name="count">
+		/// Specifies the number of elements in the string and length arrays.
+		/// </param>
+		/// <param name="string">
+		/// A <see cref="T:String[]"/>.
+		/// </param>
+		/// <param name="length">
+		/// Specifies an array of string lengths.
+		/// </param>
+		[RequiredByFeature("GL_VERSION_2_0")]
+		public static void ShaderSource(UInt32 shader, String[] @string, Int32[] length)
+		{
+			unsafe {
+				fixed (Int32* p_length = length)
+				{
+					if        (Delegates.pglShaderSource != null) {
+						Delegates.pglShaderSource(shader, (Int32)@string.Length, @string, p_length);
+						CallLog("glShaderSource({0}, {1}, {2}, {3})", shader, @string.Length, @string, length);
+					} else if (Delegates.pglShaderSourceARB != null) {
+						Delegates.pglShaderSourceARB(shader, (Int32)@string.Length, @string, p_length);
+						CallLog("glShaderSourceARB({0}, {1}, {2}, {3})", shader, @string.Length, @string, length);
 					} else
 						throw new NotImplementedException("glShaderSource (and other aliases) are not implemented");
 				}
