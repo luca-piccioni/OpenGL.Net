@@ -469,6 +469,11 @@ namespace BindingsGen.GLSpecs
 				if (i < overridenParams.Length - 1)
 					sw.WriteLine();
 			}
+
+			if (IsGenImplementation(ctx)) {
+				sw.WriteLine();
+				GenerateImplementation_GenOneObject(sw, ctx);
+			}
 		}
 
 		/// <summary>
@@ -507,8 +512,23 @@ namespace BindingsGen.GLSpecs
 		/// </param>
 		private void GenerateImplementation_Signature(SourceStreamWriter sw, RegistryContext ctx, List<CommandParameter> commandParams)
 		{
-			bool isArrayImplementation = commandParams.FindIndex(delegate(CommandParameter item) { return (item is CommandParameterArray); }) >= 0;
+			GenerateImplementation_Signature(sw, ctx, commandParams, GetImplementationName(ctx), GetImplementationReturnType(ctx));
+		}
 
+		/// <summary>
+		/// Generate the command implementation signature and the method documentation.
+		/// </summary>
+		/// <param name="sw">
+		/// The <see cref="SourceStreamWriter"/> used to write the source code.
+		/// </param>
+		/// <param name="ctx">
+		/// The <see cref="RegistryContext"/> defining the OpenGL registry information.
+		/// </param>
+		/// <param name="commandParams">
+		/// A <see cref="T:List{CommandParameter}"/> determining the method overload.
+		/// </param>
+		private void GenerateImplementation_Signature(SourceStreamWriter sw, RegistryContext ctx, List<CommandParameter> commandParams, string implementationName, string returnType)
+		{
 #if !DEBUG
 			// Documentation
 			RegistryDocumentation.GenerateCommandDocumentation(sw, ctx, this, commandParams);
@@ -522,7 +542,7 @@ namespace BindingsGen.GLSpecs
 			#region Signature
 
 			// Signature
-			sw.WriteIdentation(); sw.Write("{0} static {1} {2}(", CommandFlagsDatabase.GetCommandVisibility(this), GetImplementationReturnType(ctx), GetImplementationName(ctx));
+			sw.WriteIdentation(); sw.Write("{0} static {1} {2}(", CommandFlagsDatabase.GetCommandVisibility(this), returnType, implementationName);
 			// Signature - Parameters
 			int paramCount = commandParams.FindAll(delegate(CommandParameter item) { return (!item.IsImplicit(ctx, this)); }).Count;
 
@@ -820,7 +840,7 @@ namespace BindingsGen.GLSpecs
 
 				param.WriteDelegateParam(sw, ctx, this);
 
-				if (i != Parameters.Count - 1)
+				if (i != commandParams.Count - 1)
 					sw.Write(", ");
 			}
 
@@ -846,6 +866,96 @@ namespace BindingsGen.GLSpecs
 
 			sw.Unindent();
 			sw.WriteLine("}");
+
+			#endregion
+
+			sw.Unindent();
+			sw.WriteLine("}");
+		}
+
+		/// <summary>
+		/// Generate the command implementation (generate one object variant).
+		/// </summary>
+		/// <param name="sw">
+		/// The <see cref="SourceStreamWriter"/> used to write the source code.
+		/// </param>
+		/// <param name="ctx">
+		/// The <see cref="RegistryContext"/> defining the OpenGL registry information.
+		/// </param>
+		/// <param name="commandParams">
+		/// A <see cref="T:List{CommandParameter}"/> determining the method overload.
+		/// </param>
+		private void GenerateImplementation_GenOneObject(SourceStreamWriter sw, RegistryContext ctx)
+		{
+			List<CommandParameter> commandParams = new List<CommandParameter>();
+			string implementationName = GetImplementationName(ctx);
+
+			if      (implementationName.EndsWith("ies"))
+				implementationName = implementationName.Substring(0, implementationName.Length - 3) + "y";
+			else if (implementationName.EndsWith("s"))
+				implementationName = implementationName.Substring(0, implementationName.Length - 1);
+
+			foreach (CommandParameter commandParameter in Parameters)
+				commandParams.Add(new CommandParameterArray(commandParameter, ctx, this));
+
+			List<CommandParameterArray> arrayParameters = new List<CommandParameterArray>();
+			List<CommandParameter> signatureParams = commandParams.FindAll(delegate(CommandParameter item) {
+				bool compatible = CommandParameterArray.IsCompatible(item, ctx, this);
+				bool arrayLengthParam = CommandParameterArray.IsArrayLengthParameter(item, ctx, this);
+
+				if (compatible)
+					arrayParameters.Add((CommandParameterArray)item);
+
+				return (!compatible && !arrayLengthParam);
+			});
+
+			Debug.Assert(arrayParameters.Count == 1);
+			CommandParameterArray returnParameter = arrayParameters[0];
+			string returnParameterType = returnParameter.GetImplementationType(ctx, this);
+
+			// Remove []
+			returnParameterType = returnParameterType.Substring(0, returnParameterType.Length - 2);
+
+			// Signature
+			GenerateImplementation_Signature(sw, ctx, signatureParams, implementationName, returnParameterType);
+
+			// Implementation block
+			sw.WriteLine("{");
+			sw.Indent();
+
+			#region Local Variables
+
+			sw.WriteLine("{0}[] {1} = new {0}[1];", returnParameterType, ReturnVariableName);
+
+			#endregion
+
+			#region Implementation Call
+
+			sw.WriteIdentation();
+			sw.Write("{0}(", GetImplementationName(ctx));
+
+			#region Parameters
+
+			for (int i = 0; i < commandParams.Count; i++) {
+				CommandParameter param = commandParams[i];
+
+				if       (CommandParameterArray.IsArrayLengthParameter(param, ctx, this))
+					sw.Write("1");
+				 else if (CommandParameterArray.IsCompatible(param, ctx, this))
+					sw.Write(ReturnVariableName);
+				else
+					param.WriteDelegateParam(sw, ctx, this);
+
+				if (i != commandParams.Count - 1)
+					sw.Write(", ");
+			}
+
+			#endregion
+
+			sw.Write(");");
+			sw.WriteLine();
+
+			sw.WriteLine("return ({0}[0]);", ReturnVariableName);
 
 			#endregion
 
@@ -899,6 +1009,27 @@ namespace BindingsGen.GLSpecs
 			string implementationName = GetImplementationNameBase(ctx);
 
 			return (implementationName.StartsWith("Get") || implementationName.StartsWith("Are") || implementationName.StartsWith("Is"));
+		}
+
+		/// <summary>
+		/// Determine whether this command is a "Gen" command (that is, generate OpenGL objects).
+		/// </summary>
+		/// <param name="ctx">
+		/// The <see cref="RegistryContext"/> defining the OpenGL registry information.
+		/// </param>
+		/// <returns>
+		/// It returns a boolean value indicating whether this Command is a Gen command.
+		/// </returns>
+		internal bool IsGenImplementation(RegistryContext ctx)
+		{
+			if (GetImplementationReturnType(ctx) != "void")
+				return (false);
+			if (!CommandParameterArray.IsCompatible(this, ctx))
+				return (false);
+
+			string implementationName = GetImplementationNameBase(ctx);
+
+			return (implementationName.StartsWith("Gen"));
 		}
 
 		/// <summary>
