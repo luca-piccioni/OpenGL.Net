@@ -8274,6 +8274,16 @@ namespace OpenGL
 		}
 
 		/// <summary>
+		/// Binding for glGenFramebuffersOES.
+		/// </summary>
+		public static UInt32 GenFramebuffersOES()
+		{
+			UInt32[] retValue = new UInt32[1];
+			GenFramebuffersOES(1, retValue);
+			return (retValue[0]);
+		}
+
+		/// <summary>
 		/// Binding for glGenProgramPipelinesEXT.
 		/// </summary>
 		/// <param name="n">
@@ -8318,6 +8328,17 @@ namespace OpenGL
 				}
 			}
 			DebugCheckErrors();
+		}
+
+		/// <summary>
+		/// Binding for glGenProgramPipelinesEXT.
+		/// </summary>
+		[RequiredByFeature("GL_EXT_separate_shader_objects")]
+		public static UInt32 GenProgramPipelinesEXT()
+		{
+			UInt32[] retValue = new UInt32[1];
+			GenProgramPipelinesEXT(1, retValue);
+			return (retValue[0]);
 		}
 
 		/// <summary>
@@ -8366,6 +8387,16 @@ namespace OpenGL
 		}
 
 		/// <summary>
+		/// Binding for glGenQueriesEXT.
+		/// </summary>
+		public static UInt32 GenQueriesEXT()
+		{
+			UInt32[] retValue = new UInt32[1];
+			GenQueriesEXT(1, retValue);
+			return (retValue[0]);
+		}
+
+		/// <summary>
 		/// Binding for glGenRenderbuffersOES.
 		/// </summary>
 		/// <param name="n">
@@ -8411,6 +8442,16 @@ namespace OpenGL
 		}
 
 		/// <summary>
+		/// Binding for glGenRenderbuffersOES.
+		/// </summary>
+		public static UInt32 GenRenderbufferOES()
+		{
+			UInt32[] retValue = new UInt32[1];
+			GenRenderbufferOES(1, retValue);
+			return (retValue[0]);
+		}
+
+		/// <summary>
 		/// Binding for glGenVertexArraysOES.
 		/// </summary>
 		/// <param name="n">
@@ -8453,6 +8494,16 @@ namespace OpenGL
 				}
 			}
 			DebugCheckErrors();
+		}
+
+		/// <summary>
+		/// Binding for glGenVertexArraysOES.
+		/// </summary>
+		public static UInt32 GenVertexArraysOES()
+		{
+			UInt32[] retValue = new UInt32[1];
+			GenVertexArraysOES(1, retValue);
+			return (retValue[0]);
 		}
 
 		/// <summary>

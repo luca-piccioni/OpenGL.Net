@@ -324,6 +324,17 @@ namespace OpenGL
 		}
 
 		/// <summary>
+		/// Binding for glGenPerfMonitorsAMD.
+		/// </summary>
+		[RequiredByFeature("GL_AMD_performance_monitor")]
+		public static UInt32 GenPerfMonitorsAMD()
+		{
+			UInt32[] retValue = new UInt32[1];
+			GenPerfMonitorsAMD(1, retValue);
+			return (retValue[0]);
+		}
+
+		/// <summary>
 		/// Binding for glDeletePerfMonitorsAMD.
 		/// </summary>
 		/// <param name="n">

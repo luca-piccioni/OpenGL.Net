@@ -463,6 +463,17 @@ namespace OpenGL
 		}
 
 		/// <summary>
+		/// Binding for glGenRenderbuffersEXT.
+		/// </summary>
+		[RequiredByFeature("GL_EXT_framebuffer_object")]
+		public static UInt32 GenRenderbufferEXT()
+		{
+			UInt32[] retValue = new UInt32[1];
+			GenRenderbufferEXT(1, retValue);
+			return (retValue[0]);
+		}
+
+		/// <summary>
 		/// Binding for glRenderbufferStorageEXT.
 		/// </summary>
 		/// <param name="target">
@@ -641,6 +652,17 @@ namespace OpenGL
 				}
 			}
 			DebugCheckErrors();
+		}
+
+		/// <summary>
+		/// Binding for glGenFramebuffersEXT.
+		/// </summary>
+		[RequiredByFeature("GL_EXT_framebuffer_object")]
+		public static UInt32 GenFramebuffersEXT()
+		{
+			UInt32[] retValue = new UInt32[1];
+			GenFramebuffersEXT(1, retValue);
+			return (retValue[0]);
 		}
 
 		/// <summary>

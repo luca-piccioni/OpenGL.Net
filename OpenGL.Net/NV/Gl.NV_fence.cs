@@ -138,6 +138,17 @@ namespace OpenGL
 		}
 
 		/// <summary>
+		/// Binding for glGenFencesNV.
+		/// </summary>
+		[RequiredByFeature("GL_NV_fence")]
+		public static UInt32 GenFencesNV()
+		{
+			UInt32[] retValue = new UInt32[1];
+			GenFencesNV(1, retValue);
+			return (retValue[0]);
+		}
+
+		/// <summary>
 		/// Binding for glIsFenceNV.
 		/// </summary>
 		/// <param name="fence">

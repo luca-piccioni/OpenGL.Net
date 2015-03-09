@@ -109,6 +109,20 @@ namespace OpenGL
 		}
 
 		/// <summary>
+		/// Binding for glGenNamesAMD.
+		/// </summary>
+		/// <param name="identifier">
+		/// A <see cref="T:int"/>.
+		/// </param>
+		[RequiredByFeature("GL_AMD_name_gen_delete")]
+		public static UInt32 GenNameAMD(int identifier)
+		{
+			UInt32[] retValue = new UInt32[1];
+			GenNameAMD(identifier, 1, retValue);
+			return (retValue[0]);
+		}
+
+		/// <summary>
 		/// Binding for glDeleteNamesAMD.
 		/// </summary>
 		/// <param name="identifier">

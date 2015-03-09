@@ -726,6 +726,17 @@ namespace OpenGL
 		}
 
 		/// <summary>
+		/// Binding for glGenProgramsNV.
+		/// </summary>
+		[RequiredByFeature("GL_NV_vertex_program")]
+		public static UInt32 GenProgramsNV()
+		{
+			UInt32[] retValue = new UInt32[1];
+			GenProgramsNV(1, retValue);
+			return (retValue[0]);
+		}
+
+		/// <summary>
 		/// Binding for glGetProgramParameterdvNV.
 		/// </summary>
 		/// <param name="target">

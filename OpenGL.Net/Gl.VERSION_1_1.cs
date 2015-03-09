@@ -5683,6 +5683,17 @@ namespace OpenGL
 		}
 
 		/// <summary>
+		/// generate texture names
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_1_1")]
+		public static UInt32 GenTexture()
+		{
+			UInt32[] retValue = new UInt32[1];
+			GenTextures(1, retValue);
+			return (retValue[0]);
+		}
+
+		/// <summary>
 		/// determine if a name corresponds to a texture
 		/// </summary>
 		/// <param name="texture">

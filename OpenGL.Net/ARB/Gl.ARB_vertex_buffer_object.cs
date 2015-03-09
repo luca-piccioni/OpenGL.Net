@@ -342,6 +342,17 @@ namespace OpenGL
 		}
 
 		/// <summary>
+		/// Binding for glGenBuffersARB.
+		/// </summary>
+		[RequiredByFeature("GL_ARB_vertex_buffer_object")]
+		public static UInt32 GenBuffersARB()
+		{
+			UInt32[] retValue = new UInt32[1];
+			GenBuffersARB(1, retValue);
+			return (retValue[0]);
+		}
+
+		/// <summary>
 		/// Binding for glIsBufferARB.
 		/// </summary>
 		/// <param name="buffer">

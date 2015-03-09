@@ -791,6 +791,18 @@ namespace OpenGL
 		}
 
 		/// <summary>
+		/// reserve program pipeline object names
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_4_1")]
+		[RequiredByFeature("GL_ARB_separate_shader_objects")]
+		public static UInt32 GenProgramPipeline()
+		{
+			UInt32[] retValue = new UInt32[1];
+			GenProgramPipelines(1, retValue);
+			return (retValue[0]);
+		}
+
+		/// <summary>
 		/// determine if a name corresponds to a program pipeline object
 		/// </summary>
 		/// <param name="pipeline">

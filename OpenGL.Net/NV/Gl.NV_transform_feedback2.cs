@@ -180,6 +180,17 @@ namespace OpenGL
 		}
 
 		/// <summary>
+		/// Binding for glGenTransformFeedbacksNV.
+		/// </summary>
+		[RequiredByFeature("GL_NV_transform_feedback2")]
+		public static UInt32 GenTransformFeedbackNV()
+		{
+			UInt32[] retValue = new UInt32[1];
+			GenTransformFeedbackNV(1, retValue);
+			return (retValue[0]);
+		}
+
+		/// <summary>
 		/// Binding for glIsTransformFeedbackNV.
 		/// </summary>
 		/// <param name="id">

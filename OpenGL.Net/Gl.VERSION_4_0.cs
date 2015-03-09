@@ -1898,6 +1898,18 @@ namespace OpenGL
 		}
 
 		/// <summary>
+		/// reserve transform feedback object names
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_4_0")]
+		[RequiredByFeature("GL_ARB_transform_feedback2")]
+		public static UInt32 GenTransformFeedback()
+		{
+			UInt32[] retValue = new UInt32[1];
+			GenTransformFeedback(1, retValue);
+			return (retValue[0]);
+		}
+
+		/// <summary>
 		/// determine if a name corresponds to a transform feedback object
 		/// </summary>
 		/// <param name="id">

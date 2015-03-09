@@ -3675,6 +3675,18 @@ namespace OpenGL
 		}
 
 		/// <summary>
+		/// generate renderbuffer object names
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_3_0")]
+		[RequiredByFeature("GL_ARB_framebuffer_object")]
+		public static UInt32 GenRenderbuffer()
+		{
+			UInt32[] retValue = new UInt32[1];
+			GenRenderbuffer(1, retValue);
+			return (retValue[0]);
+		}
+
+		/// <summary>
 		/// establish data storage, format and dimensions of a renderbuffer object's image
 		/// </summary>
 		/// <param name="target">
@@ -3897,6 +3909,18 @@ namespace OpenGL
 				}
 			}
 			DebugCheckErrors();
+		}
+
+		/// <summary>
+		/// generate framebuffer object names
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_3_0")]
+		[RequiredByFeature("GL_ARB_framebuffer_object")]
+		public static UInt32 GenFramebuffer()
+		{
+			UInt32[] retValue = new UInt32[1];
+			GenFramebuffers(1, retValue);
+			return (retValue[0]);
 		}
 
 		/// <summary>
@@ -4578,6 +4602,18 @@ namespace OpenGL
 				}
 			}
 			DebugCheckErrors();
+		}
+
+		/// <summary>
+		/// generate vertex array object names
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_3_0")]
+		[RequiredByFeature("GL_ARB_vertex_array_object")]
+		public static UInt32 GenVertexArray()
+		{
+			UInt32[] retValue = new UInt32[1];
+			GenVertexArrays(1, retValue);
+			return (retValue[0]);
 		}
 
 		/// <summary>

@@ -103,6 +103,17 @@ namespace OpenGL
 		}
 
 		/// <summary>
+		/// Binding for glGenQueriesARB.
+		/// </summary>
+		[RequiredByFeature("GL_ARB_occlusion_query")]
+		public static UInt32 GenQueriesARB()
+		{
+			UInt32[] retValue = new UInt32[1];
+			GenQueriesARB(1, retValue);
+			return (retValue[0]);
+		}
+
+		/// <summary>
 		/// Binding for glDeleteQueriesARB.
 		/// </summary>
 		/// <param name="n">

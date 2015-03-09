@@ -1725,6 +1725,18 @@ namespace OpenGL
 		}
 
 		/// <summary>
+		/// Binding for glGenProgramsARB.
+		/// </summary>
+		[RequiredByFeature("GL_ARB_fragment_program")]
+		[RequiredByFeature("GL_ARB_vertex_program")]
+		public static UInt32 GenProgramsARB()
+		{
+			UInt32[] retValue = new UInt32[1];
+			GenProgramsARB(1, retValue);
+			return (retValue[0]);
+		}
+
+		/// <summary>
 		/// Binding for glProgramEnvParameter4dARB.
 		/// </summary>
 		/// <param name="target">

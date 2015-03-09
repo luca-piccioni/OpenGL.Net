@@ -85,6 +85,17 @@ namespace OpenGL
 		}
 
 		/// <summary>
+		/// Binding for glGenFencesAPPLE.
+		/// </summary>
+		[RequiredByFeature("GL_APPLE_fence")]
+		public static UInt32 GenFencesAPPLE()
+		{
+			UInt32[] retValue = new UInt32[1];
+			GenFencesAPPLE(1, retValue);
+			return (retValue[0]);
+		}
+
+		/// <summary>
 		/// Binding for glDeleteFencesAPPLE.
 		/// </summary>
 		/// <param name="n">

@@ -250,6 +250,17 @@ namespace OpenGL
 		}
 
 		/// <summary>
+		/// Binding for glGenTexturesEXT.
+		/// </summary>
+		[RequiredByFeature("GL_EXT_texture_object")]
+		public static UInt32 GenTexturesEXT()
+		{
+			UInt32[] retValue = new UInt32[1];
+			GenTexturesEXT(1, retValue);
+			return (retValue[0]);
+		}
+
+		/// <summary>
 		/// Binding for glIsTextureEXT.
 		/// </summary>
 		/// <param name="texture">

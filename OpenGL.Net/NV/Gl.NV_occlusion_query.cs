@@ -97,6 +97,17 @@ namespace OpenGL
 		}
 
 		/// <summary>
+		/// Binding for glGenOcclusionQueriesNV.
+		/// </summary>
+		[RequiredByFeature("GL_NV_occlusion_query")]
+		public static UInt32 GenOcclusionQueriesNV()
+		{
+			UInt32[] retValue = new UInt32[1];
+			GenOcclusionQueriesNV(1, retValue);
+			return (retValue[0]);
+		}
+
+		/// <summary>
 		/// Binding for glDeleteOcclusionQueriesNV.
 		/// </summary>
 		/// <param name="n">

@@ -544,6 +544,17 @@ namespace OpenGL
 		}
 
 		/// <summary>
+		/// generate query object names
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_1_5")]
+		public static UInt32 GenQuery()
+		{
+			UInt32[] retValue = new UInt32[1];
+			GenQueries(1, retValue);
+			return (retValue[0]);
+		}
+
+		/// <summary>
 		/// delete named query objects
 		/// </summary>
 		/// <param name="n">
@@ -932,6 +943,17 @@ namespace OpenGL
 				}
 			}
 			DebugCheckErrors();
+		}
+
+		/// <summary>
+		/// generate buffer object names
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_1_5")]
+		public static UInt32 GenBuffer()
+		{
+			UInt32[] retValue = new UInt32[1];
+			GenBuffers(1, retValue);
+			return (retValue[0]);
 		}
 
 		/// <summary>

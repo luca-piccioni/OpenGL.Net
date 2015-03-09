@@ -141,6 +141,17 @@ namespace OpenGL
 		}
 
 		/// <summary>
+		/// Binding for glGenVertexArraysAPPLE.
+		/// </summary>
+		[RequiredByFeature("GL_APPLE_vertex_array_object")]
+		public static UInt32 GenVertexArraysAPPLE()
+		{
+			UInt32[] retValue = new UInt32[1];
+			GenVertexArraysAPPLE(1, retValue);
+			return (retValue[0]);
+		}
+
+		/// <summary>
 		/// Binding for glIsVertexArrayAPPLE.
 		/// </summary>
 		/// <param name="array">

@@ -234,6 +234,18 @@ namespace OpenGL
 		}
 
 		/// <summary>
+		/// generate sampler object names
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_3_3")]
+		[RequiredByFeature("GL_ARB_sampler_objects")]
+		public static UInt32 GenSampler()
+		{
+			UInt32[] retValue = new UInt32[1];
+			GenSamplers(1, retValue);
+			return (retValue[0]);
+		}
+
+		/// <summary>
 		/// delete named sampler objects
 		/// </summary>
 		/// <param name="count">
