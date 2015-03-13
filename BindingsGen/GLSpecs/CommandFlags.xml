@@ -30,7 +30,7 @@
 		<flags>NoGetError</flags>
 	</command>
 	
-	<command name="wgl.+">
+	<command name="wgl.+|glX.+">
 		<!-- WGL commands errors won't be automatically checked by bindings -->
 		<flags>NoGetError</flags>
 	</command>

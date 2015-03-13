@@ -275,6 +275,9 @@ namespace BindingsGen.GLSpecs
 			string implementationName = ImportName;
 			string prefix = ctx.Class.ToLower();
 
+			if (prefix == "glx")
+				prefix = "glX";
+
 			if (implementationName.StartsWith(prefix))
 				implementationName = implementationName.Substring(prefix.Length);
 

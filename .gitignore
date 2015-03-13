@@ -8,3 +8,4 @@
 /OpenGL.Net.Test/bin
 /OpenGL.Net.Test/NUnit
 /OpenGL.Net.Test/*.xml
+/BindingsGen/*.user

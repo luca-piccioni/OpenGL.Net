@@ -1,0 +1,616 @@
+
+// Copyright (C) 2015 Luca Piccioni
+// 
+// This library is free software; you can redistribute it and/or
+// modify it under the terms of the GNU Lesser General Public
+// License as published by the Free Software Foundation; either
+// version 2.1 of the License, or (at your option) any later version.
+// 
+// This library is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+// Lesser General Public License for more details.
+// 
+// You should have received a copy of the GNU Lesser General Public
+// License along with this library; if not, write to the Free Software
+// Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301
+// USA
+
+using System;
+using System.Diagnostics;
+using System.Runtime.InteropServices;
+using System.Text;
+
+namespace OpenGL
+{
+	public partial class Egl
+	{
+		/// <summary>
+		/// Value of EGL_CONTEXT_MAJOR_VERSION symbol.
+		/// </summary>
+		/// <remarks>
+		/// <para>
+		/// This enumerant is equaivalent to CONTEXT_CLIENT_VERSION.
+		/// </para>
+		/// </remarks>
+		[RequiredByFeature("EGL_VERSION_1_5")]
+		public const int CONTEXT_MAJOR_VERSION = 0x3098;
+
+		/// <summary>
+		/// Value of EGL_CONTEXT_MINOR_VERSION symbol.
+		/// </summary>
+		[RequiredByFeature("EGL_VERSION_1_5")]
+		public const int CONTEXT_MINOR_VERSION = 0x30FB;
+
+		/// <summary>
+		/// Value of EGL_CONTEXT_OPENGL_PROFILE_MASK symbol.
+		/// </summary>
+		[RequiredByFeature("EGL_VERSION_1_5")]
+		public const int CONTEXT_OPENGL_PROFILE_MASK = 0x30FD;
+
+		/// <summary>
+		/// Value of EGL_CONTEXT_OPENGL_RESET_NOTIFICATION_STRATEGY symbol.
+		/// </summary>
+		[RequiredByFeature("EGL_VERSION_1_5")]
+		public const int CONTEXT_OPENGL_RESET_NOTIFICATION_STRATEGY = 0x31BD;
+
+		/// <summary>
+		/// Value of EGL_NO_RESET_NOTIFICATION symbol.
+		/// </summary>
+		[RequiredByFeature("EGL_VERSION_1_5")]
+		public const int NO_RESET_NOTIFICATION = 0x31BE;
+
+		/// <summary>
+		/// Value of EGL_LOSE_CONTEXT_ON_RESET symbol.
+		/// </summary>
+		[RequiredByFeature("EGL_VERSION_1_5")]
+		public const int LOSE_CONTEXT_ON_RESET = 0x31BF;
+
+		/// <summary>
+		/// Value of EGL_CONTEXT_OPENGL_CORE_PROFILE_BIT symbol.
+		/// </summary>
+		[RequiredByFeature("EGL_VERSION_1_5")]
+		public const uint CONTEXT_OPENGL_CORE_PROFILE_BIT = 0x00000001;
+
+		/// <summary>
+		/// Value of EGL_CONTEXT_OPENGL_COMPATIBILITY_PROFILE_BIT symbol.
+		/// </summary>
+		[RequiredByFeature("EGL_VERSION_1_5")]
+		public const uint CONTEXT_OPENGL_COMPATIBILITY_PROFILE_BIT = 0x00000002;
+
+		/// <summary>
+		/// Value of EGL_CONTEXT_OPENGL_DEBUG symbol.
+		/// </summary>
+		[RequiredByFeature("EGL_VERSION_1_5")]
+		public const int CONTEXT_OPENGL_DEBUG = 0x31B0;
+
+		/// <summary>
+		/// Value of EGL_CONTEXT_OPENGL_FORWARD_COMPATIBLE symbol.
+		/// </summary>
+		[RequiredByFeature("EGL_VERSION_1_5")]
+		public const int CONTEXT_OPENGL_FORWARD_COMPATIBLE = 0x31B1;
+
+		/// <summary>
+		/// Value of EGL_CONTEXT_OPENGL_ROBUST_ACCESS symbol.
+		/// </summary>
+		[RequiredByFeature("EGL_VERSION_1_5")]
+		public const int CONTEXT_OPENGL_ROBUST_ACCESS = 0x31B2;
+
+		/// <summary>
+		/// Value of EGL_OPENGL_ES3_BIT symbol.
+		/// </summary>
+		[RequiredByFeature("EGL_VERSION_1_5")]
+		[RequiredByFeature("EGL_KHR_create_context")]
+		public const uint OPENGL_ES3_BIT = 0x00000040;
+
+		/// <summary>
+		/// Value of EGL_CL_EVENT_HANDLE symbol.
+		/// </summary>
+		[RequiredByFeature("EGL_VERSION_1_5")]
+		public const int CL_EVENT_HANDLE = 0x309C;
+
+		/// <summary>
+		/// Value of EGL_SYNC_CL_EVENT symbol.
+		/// </summary>
+		[RequiredByFeature("EGL_VERSION_1_5")]
+		public const int SYNC_CL_EVENT = 0x30FE;
+
+		/// <summary>
+		/// Value of EGL_SYNC_CL_EVENT_COMPLETE symbol.
+		/// </summary>
+		[RequiredByFeature("EGL_VERSION_1_5")]
+		public const int SYNC_CL_EVENT_COMPLETE = 0x30FF;
+
+		/// <summary>
+		/// Value of EGL_SYNC_PRIOR_COMMANDS_COMPLETE symbol.
+		/// </summary>
+		[RequiredByFeature("EGL_VERSION_1_5")]
+		public const int SYNC_PRIOR_COMMANDS_COMPLETE = 0x30F0;
+
+		/// <summary>
+		/// Value of EGL_SYNC_TYPE symbol.
+		/// </summary>
+		[RequiredByFeature("EGL_VERSION_1_5")]
+		public const int SYNC_TYPE = 0x30F7;
+
+		/// <summary>
+		/// Value of EGL_SYNC_STATUS symbol.
+		/// </summary>
+		[RequiredByFeature("EGL_VERSION_1_5")]
+		public const int SYNC_STATUS = 0x30F1;
+
+		/// <summary>
+		/// Value of EGL_SYNC_CONDITION symbol.
+		/// </summary>
+		[RequiredByFeature("EGL_VERSION_1_5")]
+		public const int SYNC_CONDITION = 0x30F8;
+
+		/// <summary>
+		/// Value of EGL_SIGNALED symbol.
+		/// </summary>
+		[RequiredByFeature("EGL_VERSION_1_5")]
+		public const int SIGNALED = 0x30F2;
+
+		/// <summary>
+		/// Value of EGL_UNSIGNALED symbol.
+		/// </summary>
+		[RequiredByFeature("EGL_VERSION_1_5")]
+		public const int UNSIGNALED = 0x30F3;
+
+		/// <summary>
+		/// Value of EGL_SYNC_FLUSH_COMMANDS_BIT symbol.
+		/// </summary>
+		[RequiredByFeature("EGL_VERSION_1_5")]
+		public const int SYNC_FLUSH_COMMANDS_BIT = 0x0001;
+
+		/// <summary>
+		/// Value of EGL_FOREVER symbol.
+		/// </summary>
+		[RequiredByFeature("EGL_VERSION_1_5")]
+		public const ulong FOREVER = 0xFFFFFFFFFFFFF;
+
+		/// <summary>
+		/// Value of EGL_TIMEOUT_EXPIRED symbol.
+		/// </summary>
+		[RequiredByFeature("EGL_VERSION_1_5")]
+		public const int TIMEOUT_EXPIRED = 0x30F5;
+
+		/// <summary>
+		/// Value of EGL_CONDITION_SATISFIED symbol.
+		/// </summary>
+		[RequiredByFeature("EGL_VERSION_1_5")]
+		public const int CONDITION_SATISFIED = 0x30F6;
+
+		/// <summary>
+		/// Value of EGL_NO_SYNC symbol.
+		/// </summary>
+		[RequiredByFeature("EGL_VERSION_1_5")]
+		public const int NO_SYNC = 0;
+
+		/// <summary>
+		/// Value of EGL_SYNC_FENCE symbol.
+		/// </summary>
+		[RequiredByFeature("EGL_VERSION_1_5")]
+		public const int SYNC_FENCE = 0x30F9;
+
+		/// <summary>
+		/// Value of EGL_GL_COLORSPACE symbol.
+		/// </summary>
+		[RequiredByFeature("EGL_VERSION_1_5")]
+		public const int GL_COLORSPACE = 0x309D;
+
+		/// <summary>
+		/// Value of EGL_GL_COLORSPACE_SRGB symbol.
+		/// </summary>
+		/// <remarks>
+		/// <para>
+		/// This enumerant is equaivalent to COLORSPACE_sRGB.
+		/// </para>
+		/// </remarks>
+		[RequiredByFeature("EGL_VERSION_1_5")]
+		public const int GL_COLORSPACE_SRGB = 0x3089;
+
+		/// <summary>
+		/// Value of EGL_GL_COLORSPACE_LINEAR symbol.
+		/// </summary>
+		/// <remarks>
+		/// <para>
+		/// This enumerant is equaivalent to COLORSPACE_LINEAR.
+		/// </para>
+		/// </remarks>
+		[RequiredByFeature("EGL_VERSION_1_5")]
+		public const int GL_COLORSPACE_LINEAR = 0x308A;
+
+		/// <summary>
+		/// Value of EGL_GL_RENDERBUFFER symbol.
+		/// </summary>
+		[RequiredByFeature("EGL_VERSION_1_5")]
+		public const int GL_RENDERBUFFER = 0x30B9;
+
+		/// <summary>
+		/// Value of EGL_GL_TEXTURE_2D symbol.
+		/// </summary>
+		[RequiredByFeature("EGL_VERSION_1_5")]
+		public const int GL_TEXTURE_2D = 0x30B1;
+
+		/// <summary>
+		/// Value of EGL_GL_TEXTURE_LEVEL symbol.
+		/// </summary>
+		[RequiredByFeature("EGL_VERSION_1_5")]
+		public const int GL_TEXTURE_LEVEL = 0x30BC;
+
+		/// <summary>
+		/// Value of EGL_GL_TEXTURE_3D symbol.
+		/// </summary>
+		[RequiredByFeature("EGL_VERSION_1_5")]
+		public const int GL_TEXTURE_3D = 0x30B2;
+
+		/// <summary>
+		/// Value of EGL_GL_TEXTURE_ZOFFSET symbol.
+		/// </summary>
+		[RequiredByFeature("EGL_VERSION_1_5")]
+		public const int GL_TEXTURE_ZOFFSET = 0x30BD;
+
+		/// <summary>
+		/// Value of EGL_GL_TEXTURE_CUBE_MAP_POSITIVE_X symbol.
+		/// </summary>
+		[RequiredByFeature("EGL_VERSION_1_5")]
+		public const int GL_TEXTURE_CUBE_MAP_POSITIVE_X = 0x30B3;
+
+		/// <summary>
+		/// Value of EGL_GL_TEXTURE_CUBE_MAP_NEGATIVE_X symbol.
+		/// </summary>
+		[RequiredByFeature("EGL_VERSION_1_5")]
+		public const int GL_TEXTURE_CUBE_MAP_NEGATIVE_X = 0x30B4;
+
+		/// <summary>
+		/// Value of EGL_GL_TEXTURE_CUBE_MAP_POSITIVE_Y symbol.
+		/// </summary>
+		[RequiredByFeature("EGL_VERSION_1_5")]
+		public const int GL_TEXTURE_CUBE_MAP_POSITIVE_Y = 0x30B5;
+
+		/// <summary>
+		/// Value of EGL_GL_TEXTURE_CUBE_MAP_NEGATIVE_Y symbol.
+		/// </summary>
+		[RequiredByFeature("EGL_VERSION_1_5")]
+		public const int GL_TEXTURE_CUBE_MAP_NEGATIVE_Y = 0x30B6;
+
+		/// <summary>
+		/// Value of EGL_GL_TEXTURE_CUBE_MAP_POSITIVE_Z symbol.
+		/// </summary>
+		[RequiredByFeature("EGL_VERSION_1_5")]
+		public const int GL_TEXTURE_CUBE_MAP_POSITIVE_Z = 0x30B7;
+
+		/// <summary>
+		/// Value of EGL_GL_TEXTURE_CUBE_MAP_NEGATIVE_Z symbol.
+		/// </summary>
+		[RequiredByFeature("EGL_VERSION_1_5")]
+		public const int GL_TEXTURE_CUBE_MAP_NEGATIVE_Z = 0x30B8;
+
+		/// <summary>
+		/// Value of EGL_IMAGE_PRESERVED symbol.
+		/// </summary>
+		[RequiredByFeature("EGL_VERSION_1_5")]
+		public const int IMAGE_PRESERVED = 0x30D2;
+
+		/// <summary>
+		/// Value of EGL_NO_IMAGE symbol.
+		/// </summary>
+		[RequiredByFeature("EGL_VERSION_1_5")]
+		public const int NO_IMAGE = 0;
+
+		/// <summary>
+		/// Binding for eglCreateSync.
+		/// </summary>
+		/// <param name="dpy">
+		/// A <see cref="T:IntPtr"/>.
+		/// </param>
+		/// <param name="type">
+		/// A <see cref="T:uint"/>.
+		/// </param>
+		/// <param name="attrib_list">
+		/// A <see cref="T:IntPtr[]"/>.
+		/// </param>
+		[RequiredByFeature("EGL_VERSION_1_5")]
+		public static IntPtr CreateSync(IntPtr dpy, uint type, IntPtr[] attrib_list)
+		{
+			IntPtr retValue;
+
+			unsafe {
+				fixed (IntPtr* p_attrib_list = attrib_list)
+				{
+					if        (Delegates.peglCreateSync != null) {
+						retValue = Delegates.peglCreateSync(dpy, type, p_attrib_list);
+						CallLog("eglCreateSync({0}, {1}, {2}) = {3}", dpy, type, attrib_list, retValue);
+					} else if (Delegates.peglCreateSync64KHR != null) {
+						retValue = Delegates.peglCreateSync64KHR(dpy, type, p_attrib_list);
+						CallLog("eglCreateSync64KHR({0}, {1}, {2}) = {3}", dpy, type, attrib_list, retValue);
+					} else
+						throw new NotImplementedException("eglCreateSync (and other aliases) are not implemented");
+				}
+			}
+			DebugCheckErrors();
+
+			return (retValue);
+		}
+
+		/// <summary>
+		/// Binding for eglDestroySync.
+		/// </summary>
+		/// <param name="dpy">
+		/// A <see cref="T:IntPtr"/>.
+		/// </param>
+		/// <param name="sync">
+		/// A <see cref="T:IntPtr"/>.
+		/// </param>
+		[RequiredByFeature("EGL_VERSION_1_5")]
+		public static IntPtr DestroySync(IntPtr dpy, IntPtr sync)
+		{
+			IntPtr retValue;
+
+			if        (Delegates.peglDestroySync != null) {
+				retValue = Delegates.peglDestroySync(dpy, sync);
+				CallLog("eglDestroySync({0}, {1}) = {2}", dpy, sync, retValue);
+			} else if (Delegates.peglDestroySyncKHR != null) {
+				retValue = Delegates.peglDestroySyncKHR(dpy, sync);
+				CallLog("eglDestroySyncKHR({0}, {1}) = {2}", dpy, sync, retValue);
+			} else
+				throw new NotImplementedException("eglDestroySync (and other aliases) are not implemented");
+			DebugCheckErrors();
+
+			return (retValue);
+		}
+
+		/// <summary>
+		/// Binding for eglClientWaitSync.
+		/// </summary>
+		/// <param name="dpy">
+		/// A <see cref="T:IntPtr"/>.
+		/// </param>
+		/// <param name="sync">
+		/// A <see cref="T:IntPtr"/>.
+		/// </param>
+		/// <param name="flags">
+		/// A <see cref="T:int"/>.
+		/// </param>
+		/// <param name="timeout">
+		/// A <see cref="T:UInt64"/>.
+		/// </param>
+		[RequiredByFeature("EGL_VERSION_1_5")]
+		public static int ClientWaitSync(IntPtr dpy, IntPtr sync, int flags, UInt64 timeout)
+		{
+			int retValue;
+
+			if        (Delegates.peglClientWaitSync != null) {
+				retValue = Delegates.peglClientWaitSync(dpy, sync, flags, timeout);
+				CallLog("eglClientWaitSync({0}, {1}, {2}, {3}) = {4}", dpy, sync, flags, timeout, retValue);
+			} else if (Delegates.peglClientWaitSyncKHR != null) {
+				retValue = Delegates.peglClientWaitSyncKHR(dpy, sync, flags, timeout);
+				CallLog("eglClientWaitSyncKHR({0}, {1}, {2}, {3}) = {4}", dpy, sync, flags, timeout, retValue);
+			} else
+				throw new NotImplementedException("eglClientWaitSync (and other aliases) are not implemented");
+			DebugCheckErrors();
+
+			return (retValue);
+		}
+
+		/// <summary>
+		/// Binding for eglGetSyncAttrib.
+		/// </summary>
+		/// <param name="dpy">
+		/// A <see cref="T:IntPtr"/>.
+		/// </param>
+		/// <param name="sync">
+		/// A <see cref="T:IntPtr"/>.
+		/// </param>
+		/// <param name="attribute">
+		/// A <see cref="T:int"/>.
+		/// </param>
+		/// <param name="value">
+		/// A <see cref="T:IntPtr[]"/>.
+		/// </param>
+		[RequiredByFeature("EGL_VERSION_1_5")]
+		public static IntPtr GetSyncAttrib(IntPtr dpy, IntPtr sync, int attribute, IntPtr[] value)
+		{
+			IntPtr retValue;
+
+			unsafe {
+				fixed (IntPtr* p_value = value)
+				{
+					Debug.Assert(Delegates.peglGetSyncAttrib != null, "peglGetSyncAttrib not implemented");
+					retValue = Delegates.peglGetSyncAttrib(dpy, sync, attribute, p_value);
+					CallLog("eglGetSyncAttrib({0}, {1}, {2}, {3}) = {4}", dpy, sync, attribute, value, retValue);
+				}
+			}
+			DebugCheckErrors();
+
+			return (retValue);
+		}
+
+		/// <summary>
+		/// Binding for eglCreateImage.
+		/// </summary>
+		/// <param name="dpy">
+		/// A <see cref="T:IntPtr"/>.
+		/// </param>
+		/// <param name="ctx">
+		/// A <see cref="T:IntPtr"/>.
+		/// </param>
+		/// <param name="target">
+		/// A <see cref="T:uint"/>.
+		/// </param>
+		/// <param name="buffer">
+		/// A <see cref="T:IntPtr"/>.
+		/// </param>
+		/// <param name="attrib_list">
+		/// A <see cref="T:IntPtr[]"/>.
+		/// </param>
+		[RequiredByFeature("EGL_VERSION_1_5")]
+		public static IntPtr CreateImage(IntPtr dpy, IntPtr ctx, uint target, IntPtr buffer, IntPtr[] attrib_list)
+		{
+			IntPtr retValue;
+
+			unsafe {
+				fixed (IntPtr* p_attrib_list = attrib_list)
+				{
+					Debug.Assert(Delegates.peglCreateImage != null, "peglCreateImage not implemented");
+					retValue = Delegates.peglCreateImage(dpy, ctx, target, buffer, p_attrib_list);
+					CallLog("eglCreateImage({0}, {1}, {2}, {3}, {4}) = {5}", dpy, ctx, target, buffer, attrib_list, retValue);
+				}
+			}
+			DebugCheckErrors();
+
+			return (retValue);
+		}
+
+		/// <summary>
+		/// Binding for eglDestroyImage.
+		/// </summary>
+		/// <param name="dpy">
+		/// A <see cref="T:IntPtr"/>.
+		/// </param>
+		/// <param name="image">
+		/// A <see cref="T:IntPtr"/>.
+		/// </param>
+		[RequiredByFeature("EGL_VERSION_1_5")]
+		public static IntPtr DestroyImage(IntPtr dpy, IntPtr image)
+		{
+			IntPtr retValue;
+
+			if        (Delegates.peglDestroyImage != null) {
+				retValue = Delegates.peglDestroyImage(dpy, image);
+				CallLog("eglDestroyImage({0}, {1}) = {2}", dpy, image, retValue);
+			} else if (Delegates.peglDestroyImageKHR != null) {
+				retValue = Delegates.peglDestroyImageKHR(dpy, image);
+				CallLog("eglDestroyImageKHR({0}, {1}) = {2}", dpy, image, retValue);
+			} else
+				throw new NotImplementedException("eglDestroyImage (and other aliases) are not implemented");
+			DebugCheckErrors();
+
+			return (retValue);
+		}
+
+		/// <summary>
+		/// Binding for eglGetPlatformDisplay.
+		/// </summary>
+		/// <param name="platform">
+		/// A <see cref="T:uint"/>.
+		/// </param>
+		/// <param name="native_display">
+		/// A <see cref="T:IntPtr"/>.
+		/// </param>
+		/// <param name="attrib_list">
+		/// A <see cref="T:IntPtr[]"/>.
+		/// </param>
+		[RequiredByFeature("EGL_VERSION_1_5")]
+		public static IntPtr GetPlatformDisplay(uint platform, IntPtr native_display, IntPtr[] attrib_list)
+		{
+			IntPtr retValue;
+
+			unsafe {
+				fixed (IntPtr* p_attrib_list = attrib_list)
+				{
+					Debug.Assert(Delegates.peglGetPlatformDisplay != null, "peglGetPlatformDisplay not implemented");
+					retValue = Delegates.peglGetPlatformDisplay(platform, native_display, p_attrib_list);
+					CallLog("eglGetPlatformDisplay({0}, {1}, {2}) = {3}", platform, native_display, attrib_list, retValue);
+				}
+			}
+			DebugCheckErrors();
+
+			return (retValue);
+		}
+
+		/// <summary>
+		/// Binding for eglCreatePlatformWindowSurface.
+		/// </summary>
+		/// <param name="dpy">
+		/// A <see cref="T:IntPtr"/>.
+		/// </param>
+		/// <param name="config">
+		/// A <see cref="T:IntPtr"/>.
+		/// </param>
+		/// <param name="native_window">
+		/// A <see cref="T:IntPtr"/>.
+		/// </param>
+		/// <param name="attrib_list">
+		/// A <see cref="T:IntPtr[]"/>.
+		/// </param>
+		[RequiredByFeature("EGL_VERSION_1_5")]
+		public static IntPtr CreatePlatformWindowSurface(IntPtr dpy, IntPtr config, IntPtr native_window, IntPtr[] attrib_list)
+		{
+			IntPtr retValue;
+
+			unsafe {
+				fixed (IntPtr* p_attrib_list = attrib_list)
+				{
+					Debug.Assert(Delegates.peglCreatePlatformWindowSurface != null, "peglCreatePlatformWindowSurface not implemented");
+					retValue = Delegates.peglCreatePlatformWindowSurface(dpy, config, native_window, p_attrib_list);
+					CallLog("eglCreatePlatformWindowSurface({0}, {1}, {2}, {3}) = {4}", dpy, config, native_window, attrib_list, retValue);
+				}
+			}
+			DebugCheckErrors();
+
+			return (retValue);
+		}
+
+		/// <summary>
+		/// Binding for eglCreatePlatformPixmapSurface.
+		/// </summary>
+		/// <param name="dpy">
+		/// A <see cref="T:IntPtr"/>.
+		/// </param>
+		/// <param name="config">
+		/// A <see cref="T:IntPtr"/>.
+		/// </param>
+		/// <param name="native_pixmap">
+		/// A <see cref="T:IntPtr"/>.
+		/// </param>
+		/// <param name="attrib_list">
+		/// A <see cref="T:IntPtr[]"/>.
+		/// </param>
+		[RequiredByFeature("EGL_VERSION_1_5")]
+		public static IntPtr CreatePlatformPixmapSurface(IntPtr dpy, IntPtr config, IntPtr native_pixmap, IntPtr[] attrib_list)
+		{
+			IntPtr retValue;
+
+			unsafe {
+				fixed (IntPtr* p_attrib_list = attrib_list)
+				{
+					Debug.Assert(Delegates.peglCreatePlatformPixmapSurface != null, "peglCreatePlatformPixmapSurface not implemented");
+					retValue = Delegates.peglCreatePlatformPixmapSurface(dpy, config, native_pixmap, p_attrib_list);
+					CallLog("eglCreatePlatformPixmapSurface({0}, {1}, {2}, {3}) = {4}", dpy, config, native_pixmap, attrib_list, retValue);
+				}
+			}
+			DebugCheckErrors();
+
+			return (retValue);
+		}
+
+		/// <summary>
+		/// Binding for eglWaitSync.
+		/// </summary>
+		/// <param name="dpy">
+		/// A <see cref="T:IntPtr"/>.
+		/// </param>
+		/// <param name="sync">
+		/// A <see cref="T:IntPtr"/>.
+		/// </param>
+		/// <param name="flags">
+		/// A <see cref="T:int"/>.
+		/// </param>
+		[RequiredByFeature("EGL_VERSION_1_5")]
+		public static IntPtr WaitSync(IntPtr dpy, IntPtr sync, int flags)
+		{
+			IntPtr retValue;
+
+			Debug.Assert(Delegates.peglWaitSync != null, "peglWaitSync not implemented");
+			retValue = Delegates.peglWaitSync(dpy, sync, flags);
+			CallLog("eglWaitSync({0}, {1}, {2}) = {3}", dpy, sync, flags, retValue);
+			DebugCheckErrors();
+
+			return (retValue);
+		}
+
+	}
+
+}

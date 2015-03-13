@@ -290,10 +290,19 @@ namespace BindingsGen.GLSpecs
 						value = Value;
 						type = "int";
 					}
-						
+
+				} else if (Value.StartsWith("\"")) {
+					value = Value;
+					type = "string";	
 				} else {
 					value = Value;
 					type = "int";
+				}
+
+				Match castMatch;
+
+				if ((castMatch = Regex.Match(value, @"\(\(\w+\)\(?(?<value>(\+|\-)?\d+)\)?\)")).Success) {
+					value = castMatch.Groups["value"].Value;
 				}
 
 

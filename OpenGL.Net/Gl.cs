@@ -17,7 +17,7 @@
 // USA
 
 #define OPENGL_NET_SUPPORT_WGL
-#undef OPENGL_NET_SUPPORT_GLX
+#define OPENGL_NET_SUPPORT_GLX
 
 #pragma warning disable 618
 
@@ -26,6 +26,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Reflection;
 using System.Runtime.InteropServices;
+using System.Text;
 
 namespace OpenGL
 {
@@ -311,8 +312,7 @@ namespace OpenGL
 						XServerDeviceContext x11DeviceContext = (XServerDeviceContext)deviceContext;
 
 						using (Glx.XLock displayLock = new Glx.XLock(x11DeviceContext.Display)) {
-							int intctx = ctx.ToInt32();
-							return (Glx.MakeCurrent(x11DeviceContext.Display, intctx != 0 ? x11DeviceContext.WindowHandle.ToInt32() : 0, intctx));
+							return (Glx.MakeCurrent(x11DeviceContext.Display, ctx != IntPtr.Zero ? x11DeviceContext.WindowHandle : IntPtr.Zero, ctx));
 						}
 					}
 #endif
@@ -365,7 +365,7 @@ namespace OpenGL
 						XServerDeviceContext x11DeviceContext = (XServerDeviceContext)deviceContext;
 
 						using (Glx.XLock displayLock = new Glx.XLock(x11DeviceContext.Display)) {
-							Glx.DestroyContext(x11DeviceContext.Display, ctx.ToInt32());
+							Glx.DestroyContext(x11DeviceContext.Display, ctx);
 						}
 						return (true);
 					}
@@ -415,7 +415,7 @@ namespace OpenGL
 						XServerDeviceContext x11DeviceContext = (XServerDeviceContext)deviceContext;
 
 						using (Glx.XLock displayLock = new Glx.XLock(x11DeviceContext.Display)) {
-							Glx.SwapBuffers(x11DeviceContext.Display, x11DeviceContext.WindowHandle.ToInt32());
+							Glx.SwapBuffers(x11DeviceContext.Display, x11DeviceContext.WindowHandle);
 						}
 					}
 					break;

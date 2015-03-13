@@ -3,12 +3,15 @@
 	<word>3DFX</word>
 	<word>3DL</word>
 	<word>AMD</word>
+	<word>ANDROID</word>
 	<word>ANGLE</word>
 	<word>APPLE</word>
 	<word>ARB</word>
+	<word>ARM</word>
 	<word>ATI</word>
 	<word>EXT</word>
 	<word>GREMEDY</word>
+	<word>HI</word>
 	<word>HP</word>
 	<word>I3D</word>
 	<word>IBM</word>
@@ -19,6 +22,7 @@
 	<word>MESA</word>
 	<word>MESAX</word>
 	<word>MS</word>
+	<word>NOK</word>
 	<word>NVX</word>
 	<word>NV</word>
 	<word>GL_NV</word>
@@ -33,5 +37,6 @@
 	<word>SGIX</word>
 	<word>SUN</word>
 	<word>SUNX</word>
+	<word>TIZEN</word>
 	<word>WIN</word>
 </words>

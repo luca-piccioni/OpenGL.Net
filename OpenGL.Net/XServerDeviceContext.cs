@@ -185,8 +185,6 @@ namespace OpenGL
 			}
 		}
 
-#if GLX
-
 		/// <summary>
 		/// The frame buffer configuration index.
 		/// </summary>
@@ -237,14 +235,10 @@ namespace OpenGL
 		/// </summary>
 		private readonly int mScreen;
 
-#endif
-
 		/// <summary>
 		/// The window handle.
 		/// </summary>
 		private IntPtr mWindowHandle;
-
-
 
 		/// <summary>
 		/// The frame buffer configuration.
@@ -327,7 +321,6 @@ namespace OpenGL
 			using (Glx.XLock xLock = new Glx.XLock(Display)) {
 				string extString;
 				int[] majorArg = new int[1], minorArg = new int[1];
-				int glxMajor, glxMinor;
 	
 				Glx.QueryVersion(Display, majorArg, minorArg);
 	

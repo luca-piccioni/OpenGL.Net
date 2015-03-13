@@ -1,0 +1,304 @@
+
+// Copyright (C) 2015 Luca Piccioni
+// 
+// This library is free software; you can redistribute it and/or
+// modify it under the terms of the GNU Lesser General Public
+// License as published by the Free Software Foundation; either
+// version 2.1 of the License, or (at your option) any later version.
+// 
+// This library is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+// Lesser General Public License for more details.
+// 
+// You should have received a copy of the GNU Lesser General Public
+// License along with this library; if not, write to the Free Software
+// Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301
+// USA
+
+using System;
+using System.Diagnostics;
+using System.Runtime.InteropServices;
+using System.Text;
+
+namespace OpenGL
+{
+	public partial class Glx
+	{
+		/// <summary>
+		/// Value of GLX_PBUFFER_BIT_SGIX symbol.
+		/// </summary>
+		[RequiredByFeature("GLX_SGIX_pbuffer")]
+		public const uint PBUFFER_BIT_SGIX = 0x00000004;
+
+		/// <summary>
+		/// Value of GLX_BUFFER_CLOBBER_MASK_SGIX symbol.
+		/// </summary>
+		[RequiredByFeature("GLX_SGIX_pbuffer")]
+		public const uint BUFFER_CLOBBER_MASK_SGIX = 0x08000000;
+
+		/// <summary>
+		/// Value of GLX_FRONT_LEFT_BUFFER_BIT_SGIX symbol.
+		/// </summary>
+		[RequiredByFeature("GLX_SGIX_pbuffer")]
+		public const uint FRONT_LEFT_BUFFER_BIT_SGIX = 0x00000001;
+
+		/// <summary>
+		/// Value of GLX_FRONT_RIGHT_BUFFER_BIT_SGIX symbol.
+		/// </summary>
+		[RequiredByFeature("GLX_SGIX_pbuffer")]
+		public const uint FRONT_RIGHT_BUFFER_BIT_SGIX = 0x00000002;
+
+		/// <summary>
+		/// Value of GLX_BACK_LEFT_BUFFER_BIT_SGIX symbol.
+		/// </summary>
+		[RequiredByFeature("GLX_SGIX_pbuffer")]
+		public const uint BACK_LEFT_BUFFER_BIT_SGIX = 0x00000004;
+
+		/// <summary>
+		/// Value of GLX_BACK_RIGHT_BUFFER_BIT_SGIX symbol.
+		/// </summary>
+		[RequiredByFeature("GLX_SGIX_pbuffer")]
+		public const uint BACK_RIGHT_BUFFER_BIT_SGIX = 0x00000008;
+
+		/// <summary>
+		/// Value of GLX_AUX_BUFFERS_BIT_SGIX symbol.
+		/// </summary>
+		[RequiredByFeature("GLX_SGIX_pbuffer")]
+		public const uint AUX_BUFFERS_BIT_SGIX = 0x00000010;
+
+		/// <summary>
+		/// Value of GLX_DEPTH_BUFFER_BIT_SGIX symbol.
+		/// </summary>
+		[RequiredByFeature("GLX_SGIX_pbuffer")]
+		public const uint DEPTH_BUFFER_BIT_SGIX = 0x00000020;
+
+		/// <summary>
+		/// Value of GLX_STENCIL_BUFFER_BIT_SGIX symbol.
+		/// </summary>
+		[RequiredByFeature("GLX_SGIX_pbuffer")]
+		public const uint STENCIL_BUFFER_BIT_SGIX = 0x00000040;
+
+		/// <summary>
+		/// Value of GLX_ACCUM_BUFFER_BIT_SGIX symbol.
+		/// </summary>
+		[RequiredByFeature("GLX_SGIX_pbuffer")]
+		public const uint ACCUM_BUFFER_BIT_SGIX = 0x00000080;
+
+		/// <summary>
+		/// Value of GLX_SAMPLE_BUFFERS_BIT_SGIX symbol.
+		/// </summary>
+		[RequiredByFeature("GLX_SGIX_pbuffer")]
+		public const uint SAMPLE_BUFFERS_BIT_SGIX = 0x00000100;
+
+		/// <summary>
+		/// Value of GLX_MAX_PBUFFER_WIDTH_SGIX symbol.
+		/// </summary>
+		[RequiredByFeature("GLX_SGIX_pbuffer")]
+		public const int MAX_PBUFFER_WIDTH_SGIX = 0x8016;
+
+		/// <summary>
+		/// Value of GLX_MAX_PBUFFER_HEIGHT_SGIX symbol.
+		/// </summary>
+		[RequiredByFeature("GLX_SGIX_pbuffer")]
+		public const int MAX_PBUFFER_HEIGHT_SGIX = 0x8017;
+
+		/// <summary>
+		/// Value of GLX_MAX_PBUFFER_PIXELS_SGIX symbol.
+		/// </summary>
+		[RequiredByFeature("GLX_SGIX_pbuffer")]
+		public const int MAX_PBUFFER_PIXELS_SGIX = 0x8018;
+
+		/// <summary>
+		/// Value of GLX_OPTIMAL_PBUFFER_WIDTH_SGIX symbol.
+		/// </summary>
+		[RequiredByFeature("GLX_SGIX_pbuffer")]
+		public const int OPTIMAL_PBUFFER_WIDTH_SGIX = 0x8019;
+
+		/// <summary>
+		/// Value of GLX_OPTIMAL_PBUFFER_HEIGHT_SGIX symbol.
+		/// </summary>
+		[RequiredByFeature("GLX_SGIX_pbuffer")]
+		public const int OPTIMAL_PBUFFER_HEIGHT_SGIX = 0x801A;
+
+		/// <summary>
+		/// Value of GLX_PRESERVED_CONTENTS_SGIX symbol.
+		/// </summary>
+		[RequiredByFeature("GLX_SGIX_pbuffer")]
+		public const int PRESERVED_CONTENTS_SGIX = 0x801B;
+
+		/// <summary>
+		/// Value of GLX_LARGEST_PBUFFER_SGIX symbol.
+		/// </summary>
+		[RequiredByFeature("GLX_SGIX_pbuffer")]
+		public const int LARGEST_PBUFFER_SGIX = 0x801C;
+
+		/// <summary>
+		/// Value of GLX_WIDTH_SGIX symbol.
+		/// </summary>
+		[RequiredByFeature("GLX_SGIX_pbuffer")]
+		public const int WIDTH_SGIX = 0x801D;
+
+		/// <summary>
+		/// Value of GLX_HEIGHT_SGIX symbol.
+		/// </summary>
+		[RequiredByFeature("GLX_SGIX_pbuffer")]
+		public const int HEIGHT_SGIX = 0x801E;
+
+		/// <summary>
+		/// Value of GLX_EVENT_MASK_SGIX symbol.
+		/// </summary>
+		[RequiredByFeature("GLX_SGIX_pbuffer")]
+		public const int EVENT_MASK_SGIX = 0x801F;
+
+		/// <summary>
+		/// Value of GLX_DAMAGED_SGIX symbol.
+		/// </summary>
+		[RequiredByFeature("GLX_SGIX_pbuffer")]
+		public const int DAMAGED_SGIX = 0x8020;
+
+		/// <summary>
+		/// Value of GLX_SAVED_SGIX symbol.
+		/// </summary>
+		[RequiredByFeature("GLX_SGIX_pbuffer")]
+		public const int SAVED_SGIX = 0x8021;
+
+		/// <summary>
+		/// Value of GLX_WINDOW_SGIX symbol.
+		/// </summary>
+		[RequiredByFeature("GLX_SGIX_pbuffer")]
+		public const int WINDOW_SGIX = 0x8022;
+
+		/// <summary>
+		/// Value of GLX_PBUFFER_SGIX symbol.
+		/// </summary>
+		[RequiredByFeature("GLX_SGIX_pbuffer")]
+		public const int PBUFFER_SGIX = 0x8023;
+
+		/// <summary>
+		/// Binding for glXCreateGLXPbufferSGIX.
+		/// </summary>
+		/// <param name="dpy">
+		/// A <see cref="T:IntPtr"/>.
+		/// </param>
+		/// <param name="config">
+		/// A <see cref="T:IntPtr"/>.
+		/// </param>
+		/// <param name="width">
+		/// A <see cref="T:UInt32"/>.
+		/// </param>
+		/// <param name="height">
+		/// A <see cref="T:UInt32"/>.
+		/// </param>
+		/// <param name="attrib_list">
+		/// A <see cref="T:int[]"/>.
+		/// </param>
+		[RequiredByFeature("GLX_SGIX_pbuffer")]
+		public static IntPtr CreateGLXPbufferSGIX(IntPtr dpy, IntPtr config, UInt32 width, UInt32 height, int[] attrib_list)
+		{
+			IntPtr retValue;
+
+			unsafe {
+				fixed (int* p_attrib_list = attrib_list)
+				{
+					Debug.Assert(Delegates.pglXCreateGLXPbufferSGIX != null, "pglXCreateGLXPbufferSGIX not implemented");
+					retValue = Delegates.pglXCreateGLXPbufferSGIX(dpy, config, width, height, p_attrib_list);
+					CallLog("glXCreateGLXPbufferSGIX({0}, {1}, {2}, {3}, {4}) = {5}", dpy, config, width, height, attrib_list, retValue);
+				}
+			}
+
+			return (retValue);
+		}
+
+		/// <summary>
+		/// Binding for glXDestroyGLXPbufferSGIX.
+		/// </summary>
+		/// <param name="dpy">
+		/// A <see cref="T:IntPtr"/>.
+		/// </param>
+		/// <param name="pbuf">
+		/// A <see cref="T:IntPtr"/>.
+		/// </param>
+		[RequiredByFeature("GLX_SGIX_pbuffer")]
+		public static void DestroyGLXPbufferSGIX(IntPtr dpy, IntPtr pbuf)
+		{
+			Debug.Assert(Delegates.pglXDestroyGLXPbufferSGIX != null, "pglXDestroyGLXPbufferSGIX not implemented");
+			Delegates.pglXDestroyGLXPbufferSGIX(dpy, pbuf);
+			CallLog("glXDestroyGLXPbufferSGIX({0}, {1})", dpy, pbuf);
+		}
+
+		/// <summary>
+		/// Binding for glXQueryGLXPbufferSGIX.
+		/// </summary>
+		/// <param name="dpy">
+		/// A <see cref="T:IntPtr"/>.
+		/// </param>
+		/// <param name="pbuf">
+		/// A <see cref="T:IntPtr"/>.
+		/// </param>
+		/// <param name="attribute">
+		/// A <see cref="T:int"/>.
+		/// </param>
+		/// <param name="value">
+		/// A <see cref="T:IntPtr"/>.
+		/// </param>
+		[RequiredByFeature("GLX_SGIX_pbuffer")]
+		public static int QueryGLXPbufferSGIX(IntPtr dpy, IntPtr pbuf, int attribute, IntPtr value)
+		{
+			int retValue;
+
+			Debug.Assert(Delegates.pglXQueryGLXPbufferSGIX != null, "pglXQueryGLXPbufferSGIX not implemented");
+			retValue = Delegates.pglXQueryGLXPbufferSGIX(dpy, pbuf, attribute, value);
+			CallLog("glXQueryGLXPbufferSGIX({0}, {1}, {2}, {3}) = {4}", dpy, pbuf, attribute, value, retValue);
+
+			return (retValue);
+		}
+
+		/// <summary>
+		/// Binding for glXSelectEventSGIX.
+		/// </summary>
+		/// <param name="dpy">
+		/// A <see cref="T:IntPtr"/>.
+		/// </param>
+		/// <param name="drawable">
+		/// A <see cref="T:IntPtr"/>.
+		/// </param>
+		/// <param name="mask">
+		/// A <see cref="T:UInt32"/>.
+		/// </param>
+		[RequiredByFeature("GLX_SGIX_pbuffer")]
+		public static void SelectEventSGIX(IntPtr dpy, IntPtr drawable, UInt32 mask)
+		{
+			Debug.Assert(Delegates.pglXSelectEventSGIX != null, "pglXSelectEventSGIX not implemented");
+			Delegates.pglXSelectEventSGIX(dpy, drawable, mask);
+			CallLog("glXSelectEventSGIX({0}, {1}, {2})", dpy, drawable, mask);
+		}
+
+		/// <summary>
+		/// Binding for glXGetSelectedEventSGIX.
+		/// </summary>
+		/// <param name="dpy">
+		/// A <see cref="T:IntPtr"/>.
+		/// </param>
+		/// <param name="drawable">
+		/// A <see cref="T:IntPtr"/>.
+		/// </param>
+		/// <param name="mask">
+		/// A <see cref="T:UInt32[]"/>.
+		/// </param>
+		[RequiredByFeature("GLX_SGIX_pbuffer")]
+		public static void GetSelectedEventSGIX(IntPtr dpy, IntPtr drawable, UInt32[] mask)
+		{
+			unsafe {
+				fixed (UInt32* p_mask = mask)
+				{
+					Debug.Assert(Delegates.pglXGetSelectedEventSGIX != null, "pglXGetSelectedEventSGIX not implemented");
+					Delegates.pglXGetSelectedEventSGIX(dpy, drawable, p_mask);
+					CallLog("glXGetSelectedEventSGIX({0}, {1}, {2})", dpy, drawable, mask);
+				}
+			}
+		}
+
+	}
+
+}

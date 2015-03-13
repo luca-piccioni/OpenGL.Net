@@ -145,7 +145,111 @@
 	<type name="GLDEBUGPROCKHR" value="IntPtr" />
 	<type name="GLDEBUGPROCARB" value="IntPtr" />
 	<type name="GLDEBUGPROCAMD" value="IntPtr" />
+
+	<!-- GLX types -->
+	<type name="Void" value="void" />
+	<type name="Bool" value="bool" />
+	<type name="int32_t" value="Int32" />
+	<type name="int32_t*" value="Int32*" />
+	<type name="int64_t" value="Int64" />
+	<type name="int64_t*" value="Int64*" />
+	<type name="unsigned int *" value="IntPtr" />
+
+	<type name="Display" value="IntPtr" />
+	<type name="Display*" value="IntPtr" />
+	<type name="Window" value="IntPtr" />
+	<type name="Window*" value="IntPtr" />
+	<type name="Pixmap" value="IntPtr" />
+	<type name="Pixmap*" value="IntPtr" />
+	<type name="Colormap" value="IntPtr" />
+	<type name="Colormap*" value="IntPtr" />
+	<type name="Status" value="Int32" />
+
+	<type name="XVisualInfo*" value="Glx.XVisualInfo" />
+
+	<type name="GLXWindow" value="IntPtr" />
+	<type name="GLXContext" value="IntPtr" />
+	<type name="GLXContextID" value="IntPtr" />
+	<type name="GLXDrawable" value="IntPtr" />
+	<type name="GLXPixmap" value="IntPtr" />
+	<type name="GLXPbuffer" value="IntPtr" />
+	<type name="GLXPbuffer*" value="IntPtr" />
+	<type name="GLXPbufferSGIX" value="IntPtr" />
+	<type name="GLXPbufferSGIX*" value="IntPtr" />
+	<type name="__GLXextFuncPtr" value="IntPtr" />
+	<type name="GLXFBConfig" value="IntPtr" />
+	<type name="GLXFBConfig*" value="IntPtr" />
+	<type name="GLXFBConfigSGIX" value="IntPtr" />
+	<type name="GLXFBConfigSGIX*" value="IntPtr" />
+	<type name="GLXHyperpipeConfigSGIX" value="IntPtr" />
+	<type name="GLXHyperpipeConfigSGIX*" value="IntPtr" />
+
+	<type name="GLXVideoCaptureDeviceNV" value="IntPtr" />
+	<type name="GLXVideoCaptureDeviceNV*" value="IntPtr" />
+	<type name="GLXVideoDeviceNV" value="IntPtr" />
+	<type name="GLXVideoDeviceNV*" value="IntPtr" />
+
+	<type name="GLXVideoSourceSGIX" value="IntPtr" />
+	<type name="GLXHyperpipeNetworkSGIX" value="IntPtr" />
+	<type name="GLXHyperpipeNetworkSGIX*" value="IntPtr" />
+
+	<type name="VLServer" value="IntPtr" />
+	<type name="VLPath" value="IntPtr" />
+	<type name="VLNode" value="IntPtr" />
+
+	<type name="Font" value="Int32" />
+	<type name="DMparams*" value="IntPtr" />
+	<type name="DMbuffer" value="IntPtr" />
 	
+	<!-- EGL types -->
+	<type name="EGLNativeDisplayType" value="IntPtr" />
+	<type name="EGLNativeDisplayType*" value="IntPtr*" />
+	<type name="EGLNativeWindowType" value="IntPtr" />
+	<type name="EGLNativeWindowType*" value="IntPtr*" />
+	<type name="EGLNativePixmapType" value="IntPtr" />
+	<type name="EGLNativePixmapType*" value="IntPtr*" />
+	<type name="EGLint" value="int" />
+	<type name="EGLint*" value="int*" />
+	<type name="EGLBoolean" value="IntPtr" />
+	<type name="EGLenum" value="uint" />
+	<type name="EGLAttribKHR" value="IntPtr" />
+	<type name="EGLAttribKHR*" value="IntPtr*" />
+	<type name="EGLAttrib" value="IntPtr" />
+	<type name="EGLAttrib*" value="IntPtr*" />
+	<type name="EGLClientBuffer" value="IntPtr" />
+	<type name="EGLConfig" value="IntPtr" />
+	<type name="EGLConfig*" value="IntPtr*" />
+	<type name="EGLContext" value="IntPtr" />
+	<type name="EGLDeviceEXT" value="IntPtr" />
+	<type name="EGLDeviceEXT*" value="IntPtr*" />
+	<type name="EGLDisplay" value="IntPtr" />
+	<type name="EGLImage" value="IntPtr" />
+	<type name="EGLImageKHR" value="IntPtr" />
+	<type name="EGLOutputLayerEXT" value="IntPtr" />
+	<type name="EGLOutputLayerEXT*" value="IntPtr*" />
+	<type name="EGLOutputPortEXT" value="IntPtr" />
+	<type name="EGLOutputPortEXT*" value="IntPtr*" />
+	<type name="EGLStreamKHR" value="IntPtr" />
+	<type name="EGLSurface" value="IntPtr" />
+	<type name="EGLSync" value="IntPtr" />
+	<type name="EGLSyncKHR" value="IntPtr" />
+	<type name="EGLSyncNV" value="IntPtr" />
+	<type name="__eglMustCastToProperFunctionPointerType" value="IntPtr" />
+	<type name="EGLTimeKHR" value="UInt64" />
+	<type name="EGLTimeKHR*" value="UInt64*" />
+	<type name="EGLTime" value="UInt64" />
+	<type name="EGLTimeNV" value="UInt64" />
+	<type name="EGLuint64NV" value="UInt64" />
+	<type name="EGLuint64KHR" value="UInt64" />
+	<type name="EGLuint64KHR*" value="UInt64*" />
+	<type name="EGLNativeFileDescriptorKHR" value="int" />
+	<type name="EGLsizeiANDROID" value="UInt32" />
+	<type name="EGLSetBlobFuncANDROID" value="SetBlobFuncDelegate" />
+	<type name="EGLGetBlobFuncANDROID" value="GetBlobFuncDelegate" />
+	<type name="EGLClientPixmapHI" value="ClientPixmap" />
+	<type name="EGLClientPixmapHI*" value="ClientPixmap*" />
+
 	<!-- Bad decorators -->
 	<type name="GLfloatconst" value="float" />
+	<type name="GLXContextconst" value="IntPtr" />
 </typemap>

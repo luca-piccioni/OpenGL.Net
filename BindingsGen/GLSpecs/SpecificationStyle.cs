@@ -71,6 +71,8 @@ namespace BindingsGen.GLSpecs
 				specificationName = specificationName.Substring(4, specificationName.Length - 4);
 			else if (specificationName.StartsWith("GLX_"))
 				specificationName = specificationName.Substring(4, specificationName.Length - 4);
+			else if (specificationName.StartsWith("EGL_"))
+				specificationName = specificationName.Substring(4, specificationName.Length - 4);
 
 			return (GetLegalCsField(specificationName));
 		}
