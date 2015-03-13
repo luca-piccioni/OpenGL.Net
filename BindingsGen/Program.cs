@@ -47,6 +47,13 @@ namespace BindingsGen
 				GenerateCommandsAndEnums(glRegistryProcessor, ctx);
 			}
 
+			// OpenGL ES
+			if ((args.Length == 0) || (Array.FindIndex(args, delegate(string item) { return (item == "--gl"); }) >= 0)) {
+				ctx = new RegistryContext("Gles", Path.Combine(BasePath, "GLSpecs/gl.xml"));
+				glRegistryProcessor = new RegistryProcessor(ctx.Registry);
+				GenerateCommandsAndEnums(glRegistryProcessor, ctx);
+			}
+
 			// OpenGL for Windows
 			if ((args.Length == 0) || (Array.FindIndex(args, delegate(string item) { return (item == "--wgl"); }) >= 0)) {
 				ctx = new RegistryContext("Wgl", Path.Combine(BasePath, "GLSpecs/wgl.xml"));

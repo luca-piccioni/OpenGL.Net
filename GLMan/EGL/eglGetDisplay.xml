@@ -1,0 +1,66 @@
+<refentry xmlns="http://docbook.org/ns/docbook" version="5.0" xml:base="" xml:id="eglGetDisplay">
+    <info>
+         <copyright>
+             <year>2003-2014</year>
+             <holder>The Khronos Group Inc.</holder>
+         </copyright>
+    </info>
+    <refmeta>
+        <refentrytitle>eglGetDisplay</refentrytitle>
+        <manvolnum>3G</manvolnum>
+    </refmeta>
+    <refnamediv>
+        <refname>eglGetDisplay</refname>
+        <refpurpose>
+            return an <acronym>EGL</acronym> display connection
+        </refpurpose>
+    </refnamediv>
+    <refsynopsisdiv>
+        <title>C Specification</title>
+        <funcsynopsis>
+            <funcprototype>
+                <funcdef>EGLDisplay <function>eglGetDisplay</function></funcdef>
+                <paramdef>NativeDisplayType <parameter>native_display</parameter></paramdef>
+            </funcprototype>
+        </funcsynopsis>
+    </refsynopsisdiv>
+    <refsect1 xml:id="parameters"><title>Parameters</title>
+        <variablelist>
+            <varlistentry>
+                <term><parameter>native_display</parameter></term>
+                <listitem>
+                    <para>
+                        Specifies the display to connect to.
+                        <constant>EGL_DEFAULT_DISPLAY</constant> indicates the default display.
+                    </para>
+                </listitem>
+            </varlistentry>
+        </variablelist>
+    </refsect1>
+    <refsect1 xml:id="description"><title>Description</title>
+        <para>
+            <function>eglGetDisplay</function> obtains the
+            <acronym>EGL</acronym> display connection for the native
+            display <parameter>native_display</parameter>.
+        </para>
+        <para>
+            If <parameter>display_id</parameter> is
+            <constant>EGL_DEFAULT_DISPLAY</constant>, a default display connection is returned.
+        </para>
+        <para>
+            If no display connection matching <parameter>native_display</parameter> is
+            available, <constant>EGL_NO_DISPLAY</constant> is returned. No
+            error is generated.
+        </para>
+        <para>
+            Use <citerefentry><refentrytitle>eglInitialize</refentrytitle></citerefentry>
+            to initialize the display connection.
+        </para>
+    </refsect1>
+    <refsect1 xml:id="seealso"><title>See Also</title>
+        <para>
+            <citerefentry><refentrytitle>eglInitialize</refentrytitle></citerefentry>
+        </para>
+    </refsect1>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="copyright.xml"/>
+</refentry>

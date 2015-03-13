@@ -220,10 +220,10 @@ namespace OpenGL
 		public const int VERTICAL_RESOLUTION = 0x3091;
 
 		/// <summary>
-		/// Binding for eglBindAPI.
+		/// Set the current rendering API
 		/// </summary>
 		/// <param name="api">
-		/// A <see cref="T:uint"/>.
+		/// Specifies the client API to bind, one of EGL_OPENGL_API, EGL_OPENGL_ES_API, or EGL_OPENVG_API.
 		/// </param>
 		[RequiredByFeature("EGL_VERSION_1_2")]
 		public static IntPtr BindAPI(uint api)
@@ -239,7 +239,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for eglQueryAPI.
+		/// Query the current rendering API
 		/// </summary>
 		[RequiredByFeature("EGL_VERSION_1_2")]
 		public static uint QueryAPI()
@@ -255,22 +255,23 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for eglCreatePbufferFromClientBuffer.
+		/// create a new EGL pixel buffer surface bound to an OpenVG image
 		/// </summary>
 		/// <param name="dpy">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		/// <param name="buftype">
-		/// A <see cref="T:uint"/>.
+		/// Specifies the type of client API buffer to be bound. Must be EGL_OPENVG_IMAGE, corresponding to an OpenVG VGImage 
+		/// buffer.
 		/// </param>
 		/// <param name="buffer">
-		/// A <see cref="T:IntPtr"/>.
+		/// Specifies the OpenVG VGImage handle of the buffer to be bound.
 		/// </param>
 		/// <param name="config">
-		/// A <see cref="T:IntPtr"/>.
+		/// Specifies the EGL frame buffer configuration that defines the frame buffer resource available to the surface.
 		/// </param>
 		/// <param name="attrib_list">
-		/// A <see cref="T:int[]"/>.
+		/// Specifies pixel buffer surface attributes. May be NULL or empty (first attribute is EGL_NONE).
 		/// </param>
 		[RequiredByFeature("EGL_VERSION_1_2")]
 		public static IntPtr CreatePbufferFromClientBuffer(IntPtr dpy, uint buftype, IntPtr buffer, IntPtr config, int[] attrib_list)
@@ -291,7 +292,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for eglReleaseThread.
+		/// Release EGL per-thread state
 		/// </summary>
 		[RequiredByFeature("EGL_VERSION_1_2")]
 		public static IntPtr ReleaseThread()
@@ -307,7 +308,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for eglWaitClient.
+		/// Complete client API execution prior to subsequent native rendering calls
 		/// </summary>
 		[RequiredByFeature("EGL_VERSION_1_2")]
 		public static IntPtr WaitClient()

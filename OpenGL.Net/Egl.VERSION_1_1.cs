@@ -110,16 +110,16 @@ namespace OpenGL
 		public const int TEXTURE_TARGET = 0x3081;
 
 		/// <summary>
-		/// Binding for eglBindTexImage.
+		/// Defines a two-dimensional texture image
 		/// </summary>
 		/// <param name="dpy">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		/// <param name="surface">
-		/// A <see cref="T:IntPtr"/>.
+		/// Specifies the EGL surface.
 		/// </param>
 		/// <param name="buffer">
-		/// A <see cref="T:int"/>.
+		/// Specifies the texture image data.
 		/// </param>
 		[RequiredByFeature("EGL_VERSION_1_1")]
 		public static IntPtr BindTexImage(IntPtr dpy, IntPtr surface, int buffer)
@@ -135,16 +135,16 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for eglReleaseTexImage.
+		/// Releases a color buffer that is being used as a texture
 		/// </summary>
 		/// <param name="dpy">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		/// <param name="surface">
-		/// A <see cref="T:IntPtr"/>.
+		/// Specifies the EGL surface.
 		/// </param>
 		/// <param name="buffer">
-		/// A <see cref="T:int"/>.
+		/// Specifies the texture image data.
 		/// </param>
 		[RequiredByFeature("EGL_VERSION_1_1")]
 		public static IntPtr ReleaseTexImage(IntPtr dpy, IntPtr surface, int buffer)
@@ -160,19 +160,19 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for eglSurfaceAttrib.
+		/// set an EGL surface attribute
 		/// </summary>
 		/// <param name="dpy">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		/// <param name="surface">
-		/// A <see cref="T:IntPtr"/>.
+		/// Specifies the EGL surface.
 		/// </param>
 		/// <param name="attribute">
-		/// A <see cref="T:int"/>.
+		/// Specifies the EGL surface attribute to set.
 		/// </param>
 		/// <param name="value">
-		/// A <see cref="T:int"/>.
+		/// Specifies the attributes required value.
 		/// </param>
 		[RequiredByFeature("EGL_VERSION_1_1")]
 		public static IntPtr SurfaceAttrib(IntPtr dpy, IntPtr surface, int attribute, int value)
@@ -188,13 +188,13 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for eglSwapInterval.
+		/// specifies the minimum number of video frame periods per buffer swap for the window associated with the current context.
 		/// </summary>
 		/// <param name="dpy">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		/// <param name="interval">
-		/// A <see cref="T:int"/>.
+		/// Specifies the minimum number of video frames that are displayed before a buffer swap will occur.
 		/// </param>
 		[RequiredByFeature("EGL_VERSION_1_1")]
 		public static IntPtr SwapInterval(IntPtr dpy, int interval)
