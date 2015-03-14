@@ -1261,6 +1261,29 @@ namespace OpenGL
 		}
 
 		/// <summary>
+		/// Binding for glGetMaterialxOES.
+		/// </summary>
+		/// <param name="face">
+		/// A <see cref="T:int"/>.
+		/// </param>
+		/// <param name="pname">
+		/// A <see cref="T:int"/>.
+		/// </param>
+		/// <param name="param">
+		/// A <see cref="T:Object"/>.
+		/// </param>
+		[RequiredByFeature("GL_OES_fixed_point")]
+		public static void GetMaterialOES(int face, int pname, Object param)
+		{
+			GCHandle pin_param = GCHandle.Alloc(param, GCHandleType.Pinned);
+			try {
+				GetMaterialOES(face, pname, pin_param.AddrOfPinnedObject());
+			} finally {
+				pin_param.Free();
+			}
+		}
+
+		/// <summary>
 		/// Binding for glGetPixelMapxv.
 		/// </summary>
 		/// <param name="map">

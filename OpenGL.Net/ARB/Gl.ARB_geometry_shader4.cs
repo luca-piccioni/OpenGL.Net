@@ -221,38 +221,6 @@ namespace OpenGL
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="face">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		[RequiredByFeature("GL_ARB_geometry_shader4")]
-		public static void FramebufferTextureFaceARB(int target, int attachment, UInt32 texture, Int32 level, int face)
-		{
-			if        (Delegates.pglFramebufferTextureFaceARB != null) {
-				Delegates.pglFramebufferTextureFaceARB(target, attachment, texture, level, face);
-				CallLog("glFramebufferTextureFaceARB({0}, {1}, {2}, {3}, {4})", target, attachment, texture, level, face);
-			} else if (Delegates.pglFramebufferTextureFaceEXT != null) {
-				Delegates.pglFramebufferTextureFaceEXT(target, attachment, texture, level, face);
-				CallLog("glFramebufferTextureFaceEXT({0}, {1}, {2}, {3}, {4})", target, attachment, texture, level, face);
-			} else
-				throw new NotImplementedException("glFramebufferTextureFaceARB (and other aliases) are not implemented");
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// Binding for glFramebufferTextureFaceARB.
-		/// </summary>
-		/// <param name="target">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="attachment">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="texture">
-		/// A <see cref="T:UInt32"/>.
-		/// </param>
-		/// <param name="level">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="face">
 		/// A <see cref="T:TextureTarget"/>.
 		/// </param>
 		[RequiredByFeature("GL_ARB_geometry_shader4")]

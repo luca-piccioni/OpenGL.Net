@@ -53,32 +53,6 @@ namespace OpenGL
 		/// Binding for glSharpenTexFuncSGIS.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="n">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="points">
-		/// A <see cref="T:float[]"/>.
-		/// </param>
-		[RequiredByFeature("GL_SGIS_sharpen_texture")]
-		public static void SharpenTexFuncSGIS(int target, Int32 n, float[] points)
-		{
-			unsafe {
-				fixed (float* p_points = points)
-				{
-					Debug.Assert(Delegates.pglSharpenTexFuncSGIS != null, "pglSharpenTexFuncSGIS not implemented");
-					Delegates.pglSharpenTexFuncSGIS(target, n, p_points);
-					CallLog("glSharpenTexFuncSGIS({0}, {1}, {2})", target, n, points);
-				}
-			}
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// Binding for glSharpenTexFuncSGIS.
-		/// </summary>
-		/// <param name="target">
 		/// A <see cref="T:TextureTarget"/>.
 		/// </param>
 		/// <param name="n">
@@ -96,29 +70,6 @@ namespace OpenGL
 					Debug.Assert(Delegates.pglSharpenTexFuncSGIS != null, "pglSharpenTexFuncSGIS not implemented");
 					Delegates.pglSharpenTexFuncSGIS((int)target, n, p_points);
 					CallLog("glSharpenTexFuncSGIS({0}, {1}, {2})", target, n, points);
-				}
-			}
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// Binding for glGetSharpenTexFuncSGIS.
-		/// </summary>
-		/// <param name="target">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="points">
-		/// A <see cref="T:float[]"/>.
-		/// </param>
-		[RequiredByFeature("GL_SGIS_sharpen_texture")]
-		public static void GetSharpenTexFuncSGIS(int target, float[] points)
-		{
-			unsafe {
-				fixed (float* p_points = points)
-				{
-					Debug.Assert(Delegates.pglGetSharpenTexFuncSGIS != null, "pglGetSharpenTexFuncSGIS not implemented");
-					Delegates.pglGetSharpenTexFuncSGIS(target, p_points);
-					CallLog("glGetSharpenTexFuncSGIS({0}, {1})", target, points);
 				}
 			}
 			DebugCheckErrors();

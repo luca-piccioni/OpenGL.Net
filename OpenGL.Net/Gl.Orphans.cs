@@ -5558,29 +5558,6 @@ namespace OpenGL
 		/// Binding for glDrawArraysInstancedANGLE.
 		/// </summary>
 		/// <param name="mode">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="first">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="count">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="primcount">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		public static void DrawArraysInstancedANGLE(int mode, Int32 first, Int32 count, Int32 primcount)
-		{
-			Debug.Assert(Delegates.pglDrawArraysInstancedANGLE != null, "pglDrawArraysInstancedANGLE not implemented");
-			Delegates.pglDrawArraysInstancedANGLE(mode, first, count, primcount);
-			CallLog("glDrawArraysInstancedANGLE({0}, {1}, {2}, {3})", mode, first, count, primcount);
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// Binding for glDrawArraysInstancedANGLE.
-		/// </summary>
-		/// <param name="mode">
 		/// A <see cref="T:PrimitiveType"/>.
 		/// </param>
 		/// <param name="first">
@@ -5597,32 +5574,6 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglDrawArraysInstancedANGLE != null, "pglDrawArraysInstancedANGLE not implemented");
 			Delegates.pglDrawArraysInstancedANGLE((int)mode, first, count, primcount);
 			CallLog("glDrawArraysInstancedANGLE({0}, {1}, {2}, {3})", mode, first, count, primcount);
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// Binding for glDrawArraysInstancedBaseInstanceEXT.
-		/// </summary>
-		/// <param name="mode">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="first">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="count">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="instancecount">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="baseinstance">
-		/// A <see cref="T:UInt32"/>.
-		/// </param>
-		public static void DrawArraysInstancedBaseInstanceEXT(int mode, Int32 first, Int32 count, Int32 instancecount, UInt32 baseinstance)
-		{
-			Debug.Assert(Delegates.pglDrawArraysInstancedBaseInstanceEXT != null, "pglDrawArraysInstancedBaseInstanceEXT not implemented");
-			Delegates.pglDrawArraysInstancedBaseInstanceEXT(mode, first, count, instancecount, baseinstance);
-			CallLog("glDrawArraysInstancedBaseInstanceEXT({0}, {1}, {2}, {3}, {4})", mode, first, count, instancecount, baseinstance);
 			DebugCheckErrors();
 		}
 
@@ -5649,29 +5600,6 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglDrawArraysInstancedBaseInstanceEXT != null, "pglDrawArraysInstancedBaseInstanceEXT not implemented");
 			Delegates.pglDrawArraysInstancedBaseInstanceEXT((int)mode, first, count, instancecount, baseinstance);
 			CallLog("glDrawArraysInstancedBaseInstanceEXT({0}, {1}, {2}, {3}, {4})", mode, first, count, instancecount, baseinstance);
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// Binding for glDrawArraysInstancedNV.
-		/// </summary>
-		/// <param name="mode">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="first">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="count">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="primcount">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		public static void DrawArraysInstancedNV(int mode, Int32 first, Int32 count, Int32 primcount)
-		{
-			Debug.Assert(Delegates.pglDrawArraysInstancedNV != null, "pglDrawArraysInstancedNV not implemented");
-			Delegates.pglDrawArraysInstancedNV(mode, first, count, primcount);
-			CallLog("glDrawArraysInstancedNV({0}, {1}, {2}, {3})", mode, first, count, primcount);
 			DebugCheckErrors();
 		}
 
@@ -5772,32 +5700,6 @@ namespace OpenGL
 		/// Binding for glDrawElementsBaseVertexEXT.
 		/// </summary>
 		/// <param name="mode">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="count">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="type">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="indices">
-		/// A <see cref="T:IntPtr"/>.
-		/// </param>
-		/// <param name="basevertex">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		public static void DrawElementsBaseVertexEXT(int mode, Int32 count, int type, IntPtr indices, Int32 basevertex)
-		{
-			Debug.Assert(Delegates.pglDrawElementsBaseVertexEXT != null, "pglDrawElementsBaseVertexEXT not implemented");
-			Delegates.pglDrawElementsBaseVertexEXT(mode, count, type, indices, basevertex);
-			CallLog("glDrawElementsBaseVertexEXT({0}, {1}, {2}, {3}, {4})", mode, count, type, indices, basevertex);
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// Binding for glDrawElementsBaseVertexEXT.
-		/// </summary>
-		/// <param name="mode">
 		/// A <see cref="T:PrimitiveType"/>.
 		/// </param>
 		/// <param name="count">
@@ -5874,32 +5776,6 @@ namespace OpenGL
 			} finally {
 				pin_indices.Free();
 			}
-		}
-
-		/// <summary>
-		/// Binding for glDrawElementsBaseVertexOES.
-		/// </summary>
-		/// <param name="mode">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="count">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="type">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="indices">
-		/// A <see cref="T:IntPtr"/>.
-		/// </param>
-		/// <param name="basevertex">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		public static void DrawElementsBaseVertexOES(int mode, Int32 count, int type, IntPtr indices, Int32 basevertex)
-		{
-			Debug.Assert(Delegates.pglDrawElementsBaseVertexOES != null, "pglDrawElementsBaseVertexOES not implemented");
-			Delegates.pglDrawElementsBaseVertexOES(mode, count, type, indices, basevertex);
-			CallLog("glDrawElementsBaseVertexOES({0}, {1}, {2}, {3}, {4})", mode, count, type, indices, basevertex);
-			DebugCheckErrors();
 		}
 
 		/// <summary>
@@ -5988,32 +5864,6 @@ namespace OpenGL
 		/// Binding for glDrawElementsInstancedANGLE.
 		/// </summary>
 		/// <param name="mode">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="count">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="type">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="indices">
-		/// A <see cref="T:IntPtr"/>.
-		/// </param>
-		/// <param name="primcount">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		public static void DrawElementsInstancedANGLE(int mode, Int32 count, int type, IntPtr indices, Int32 primcount)
-		{
-			Debug.Assert(Delegates.pglDrawElementsInstancedANGLE != null, "pglDrawElementsInstancedANGLE not implemented");
-			Delegates.pglDrawElementsInstancedANGLE(mode, count, type, indices, primcount);
-			CallLog("glDrawElementsInstancedANGLE({0}, {1}, {2}, {3}, {4})", mode, count, type, indices, primcount);
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// Binding for glDrawElementsInstancedANGLE.
-		/// </summary>
-		/// <param name="mode">
 		/// A <see cref="T:PrimitiveType"/>.
 		/// </param>
 		/// <param name="count">
@@ -6090,35 +5940,6 @@ namespace OpenGL
 			} finally {
 				pin_indices.Free();
 			}
-		}
-
-		/// <summary>
-		/// Binding for glDrawElementsInstancedBaseInstanceEXT.
-		/// </summary>
-		/// <param name="mode">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="count">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="type">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="indices">
-		/// A <see cref="T:IntPtr"/>.
-		/// </param>
-		/// <param name="instancecount">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="baseinstance">
-		/// A <see cref="T:UInt32"/>.
-		/// </param>
-		public static void DrawElementsInstancedBaseInstanceEXT(int mode, Int32 count, int type, IntPtr indices, Int32 instancecount, UInt32 baseinstance)
-		{
-			Debug.Assert(Delegates.pglDrawElementsInstancedBaseInstanceEXT != null, "pglDrawElementsInstancedBaseInstanceEXT not implemented");
-			Delegates.pglDrawElementsInstancedBaseInstanceEXT(mode, count, type, indices, instancecount, baseinstance);
-			CallLog("glDrawElementsInstancedBaseInstanceEXT({0}, {1}, {2}, {3}, {4}, {5})", mode, count, type, indices, instancecount, baseinstance);
-			DebugCheckErrors();
 		}
 
 		/// <summary>
@@ -6216,35 +6037,6 @@ namespace OpenGL
 		/// Binding for glDrawElementsInstancedBaseVertexEXT.
 		/// </summary>
 		/// <param name="mode">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="count">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="type">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="indices">
-		/// A <see cref="T:IntPtr"/>.
-		/// </param>
-		/// <param name="instancecount">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="basevertex">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		public static void DrawElementsInstancedBaseVertexEXT(int mode, Int32 count, int type, IntPtr indices, Int32 instancecount, Int32 basevertex)
-		{
-			Debug.Assert(Delegates.pglDrawElementsInstancedBaseVertexEXT != null, "pglDrawElementsInstancedBaseVertexEXT not implemented");
-			Delegates.pglDrawElementsInstancedBaseVertexEXT(mode, count, type, indices, instancecount, basevertex);
-			CallLog("glDrawElementsInstancedBaseVertexEXT({0}, {1}, {2}, {3}, {4}, {5})", mode, count, type, indices, instancecount, basevertex);
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// Binding for glDrawElementsInstancedBaseVertexEXT.
-		/// </summary>
-		/// <param name="mode">
 		/// A <see cref="T:PrimitiveType"/>.
 		/// </param>
 		/// <param name="count">
@@ -6336,35 +6128,6 @@ namespace OpenGL
 		/// Binding for glDrawElementsInstancedBaseVertexOES.
 		/// </summary>
 		/// <param name="mode">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="count">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="type">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="indices">
-		/// A <see cref="T:IntPtr"/>.
-		/// </param>
-		/// <param name="instancecount">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="basevertex">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		public static void DrawElementsInstancedBaseVertexOES(int mode, Int32 count, int type, IntPtr indices, Int32 instancecount, Int32 basevertex)
-		{
-			Debug.Assert(Delegates.pglDrawElementsInstancedBaseVertexOES != null, "pglDrawElementsInstancedBaseVertexOES not implemented");
-			Delegates.pglDrawElementsInstancedBaseVertexOES(mode, count, type, indices, instancecount, basevertex);
-			CallLog("glDrawElementsInstancedBaseVertexOES({0}, {1}, {2}, {3}, {4}, {5})", mode, count, type, indices, instancecount, basevertex);
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// Binding for glDrawElementsInstancedBaseVertexOES.
-		/// </summary>
-		/// <param name="mode">
 		/// A <see cref="T:PrimitiveType"/>.
 		/// </param>
 		/// <param name="count">
@@ -6450,38 +6213,6 @@ namespace OpenGL
 			} finally {
 				pin_indices.Free();
 			}
-		}
-
-		/// <summary>
-		/// Binding for glDrawElementsInstancedBaseVertexBaseInstanceEXT.
-		/// </summary>
-		/// <param name="mode">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="count">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="type">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="indices">
-		/// A <see cref="T:IntPtr"/>.
-		/// </param>
-		/// <param name="instancecount">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="basevertex">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="baseinstance">
-		/// A <see cref="T:UInt32"/>.
-		/// </param>
-		public static void DrawElementsInstancedBaseVertexBaseInstanceEXT(int mode, Int32 count, int type, IntPtr indices, Int32 instancecount, Int32 basevertex, UInt32 baseinstance)
-		{
-			Debug.Assert(Delegates.pglDrawElementsInstancedBaseVertexBaseInstanceEXT != null, "pglDrawElementsInstancedBaseVertexBaseInstanceEXT not implemented");
-			Delegates.pglDrawElementsInstancedBaseVertexBaseInstanceEXT(mode, count, type, indices, instancecount, basevertex, baseinstance);
-			CallLog("glDrawElementsInstancedBaseVertexBaseInstanceEXT({0}, {1}, {2}, {3}, {4}, {5}, {6})", mode, count, type, indices, instancecount, basevertex, baseinstance);
-			DebugCheckErrors();
 		}
 
 		/// <summary>
@@ -6588,32 +6319,6 @@ namespace OpenGL
 		/// Binding for glDrawElementsInstancedNV.
 		/// </summary>
 		/// <param name="mode">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="count">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="type">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="indices">
-		/// A <see cref="T:IntPtr"/>.
-		/// </param>
-		/// <param name="primcount">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		public static void DrawElementsInstancedNV(int mode, Int32 count, int type, IntPtr indices, Int32 primcount)
-		{
-			Debug.Assert(Delegates.pglDrawElementsInstancedNV != null, "pglDrawElementsInstancedNV not implemented");
-			Delegates.pglDrawElementsInstancedNV(mode, count, type, indices, primcount);
-			CallLog("glDrawElementsInstancedNV({0}, {1}, {2}, {3}, {4})", mode, count, type, indices, primcount);
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// Binding for glDrawElementsInstancedNV.
-		/// </summary>
-		/// <param name="mode">
 		/// A <see cref="T:PrimitiveType"/>.
 		/// </param>
 		/// <param name="count">
@@ -6690,38 +6395,6 @@ namespace OpenGL
 			} finally {
 				pin_indices.Free();
 			}
-		}
-
-		/// <summary>
-		/// Binding for glDrawRangeElementsBaseVertexEXT.
-		/// </summary>
-		/// <param name="mode">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="start">
-		/// A <see cref="T:UInt32"/>.
-		/// </param>
-		/// <param name="end">
-		/// A <see cref="T:UInt32"/>.
-		/// </param>
-		/// <param name="count">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="type">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="indices">
-		/// A <see cref="T:IntPtr"/>.
-		/// </param>
-		/// <param name="basevertex">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		public static void DrawRangeElementsBaseVertexEXT(int mode, UInt32 start, UInt32 end, Int32 count, int type, IntPtr indices, Int32 basevertex)
-		{
-			Debug.Assert(Delegates.pglDrawRangeElementsBaseVertexEXT != null, "pglDrawRangeElementsBaseVertexEXT not implemented");
-			Delegates.pglDrawRangeElementsBaseVertexEXT(mode, start, end, count, type, indices, basevertex);
-			CallLog("glDrawRangeElementsBaseVertexEXT({0}, {1}, {2}, {3}, {4}, {5}, {6})", mode, start, end, count, type, indices, basevertex);
-			DebugCheckErrors();
 		}
 
 		/// <summary>
@@ -6822,38 +6495,6 @@ namespace OpenGL
 			} finally {
 				pin_indices.Free();
 			}
-		}
-
-		/// <summary>
-		/// Binding for glDrawRangeElementsBaseVertexOES.
-		/// </summary>
-		/// <param name="mode">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="start">
-		/// A <see cref="T:UInt32"/>.
-		/// </param>
-		/// <param name="end">
-		/// A <see cref="T:UInt32"/>.
-		/// </param>
-		/// <param name="count">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="type">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="indices">
-		/// A <see cref="T:IntPtr"/>.
-		/// </param>
-		/// <param name="basevertex">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		public static void DrawRangeElementsBaseVertexOES(int mode, UInt32 start, UInt32 end, Int32 count, int type, IntPtr indices, Int32 basevertex)
-		{
-			Debug.Assert(Delegates.pglDrawRangeElementsBaseVertexOES != null, "pglDrawRangeElementsBaseVertexOES not implemented");
-			Delegates.pglDrawRangeElementsBaseVertexOES(mode, start, end, count, type, indices, basevertex);
-			CallLog("glDrawRangeElementsBaseVertexOES({0}, {1}, {2}, {3}, {4}, {5}, {6})", mode, start, end, count, type, indices, basevertex);
-			DebugCheckErrors();
 		}
 
 		/// <summary>
@@ -8071,6 +7712,28 @@ namespace OpenGL
 		}
 
 		/// <summary>
+		/// Binding for glGetBufferPointervOES.
+		/// </summary>
+		/// <param name="target">
+		/// A <see cref="T:int"/>.
+		/// </param>
+		/// <param name="pname">
+		/// A <see cref="T:int"/>.
+		/// </param>
+		/// <param name="params">
+		/// A <see cref="T:Object"/>.
+		/// </param>
+		public static void GetBufferPointerOES(int target, int pname, Object @params)
+		{
+			GCHandle pin_params = GCHandle.Alloc(@params, GCHandleType.Pinned);
+			try {
+				GetBufferPointerOES(target, pname, pin_params.AddrOfPinnedObject());
+			} finally {
+				pin_params.Free();
+			}
+		}
+
+		/// <summary>
 		/// Binding for glGetClipPlanef.
 		/// </summary>
 		/// <param name="plane">
@@ -8578,6 +8241,26 @@ namespace OpenGL
 		}
 
 		/// <summary>
+		/// Binding for glGetPointervKHR.
+		/// </summary>
+		/// <param name="pname">
+		/// A <see cref="T:int"/>.
+		/// </param>
+		/// <param name="params">
+		/// A <see cref="T:Object"/>.
+		/// </param>
+		[RequiredByFeature("GL_KHR_debug")]
+		public static void GetPointerKHR(int pname, Object @params)
+		{
+			GCHandle pin_params = GCHandle.Alloc(@params, GCHandleType.Pinned);
+			try {
+				GetPointerKHR(pname, pin_params.AddrOfPinnedObject());
+			} finally {
+				pin_params.Free();
+			}
+		}
+
+		/// <summary>
 		/// Binding for glGetProgramBinaryOES.
 		/// </summary>
 		/// <param name="program">
@@ -8607,6 +8290,34 @@ namespace OpenGL
 				}
 			}
 			DebugCheckErrors();
+		}
+
+		/// <summary>
+		/// Binding for glGetProgramBinaryOES.
+		/// </summary>
+		/// <param name="program">
+		/// A <see cref="T:UInt32"/>.
+		/// </param>
+		/// <param name="bufSize">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="length">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="binaryFormat">
+		/// A <see cref="T:int"/>.
+		/// </param>
+		/// <param name="binary">
+		/// A <see cref="T:Object"/>.
+		/// </param>
+		public static void GetProgramBinaryOES(UInt32 program, Int32 bufSize, out Int32 length, out int binaryFormat, Object binary)
+		{
+			GCHandle pin_binary = GCHandle.Alloc(binary, GCHandleType.Pinned);
+			try {
+				GetProgramBinaryOES(program, bufSize, out length, out binaryFormat, pin_binary.AddrOfPinnedObject());
+			} finally {
+				pin_binary.Free();
+			}
 		}
 
 		/// <summary>
@@ -8975,31 +8686,6 @@ namespace OpenGL
 		/// Binding for glGetTexParameterIivOES.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="pname">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="params">
-		/// A <see cref="T:Int32[]"/>.
-		/// </param>
-		public static void GetTexParameterIivOES(int target, int pname, Int32[] @params)
-		{
-			unsafe {
-				fixed (Int32* p_params = @params)
-				{
-					Debug.Assert(Delegates.pglGetTexParameterIivOES != null, "pglGetTexParameterIivOES not implemented");
-					Delegates.pglGetTexParameterIivOES(target, pname, p_params);
-					CallLog("glGetTexParameterIivOES({0}, {1}, {2})", target, pname, @params);
-				}
-			}
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// Binding for glGetTexParameterIivOES.
-		/// </summary>
-		/// <param name="target">
 		/// A <see cref="T:TextureTarget"/>.
 		/// </param>
 		/// <param name="pname">
@@ -9016,31 +8702,6 @@ namespace OpenGL
 					Debug.Assert(Delegates.pglGetTexParameterIivOES != null, "pglGetTexParameterIivOES not implemented");
 					Delegates.pglGetTexParameterIivOES((int)target, (int)pname, p_params);
 					CallLog("glGetTexParameterIivOES({0}, {1}, {2})", target, pname, @params);
-				}
-			}
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// Binding for glGetTexParameterIuivOES.
-		/// </summary>
-		/// <param name="target">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="pname">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="params">
-		/// A <see cref="T:UInt32[]"/>.
-		/// </param>
-		public static void GetTexParameterIuivOES(int target, int pname, UInt32[] @params)
-		{
-			unsafe {
-				fixed (UInt32* p_params = @params)
-				{
-					Debug.Assert(Delegates.pglGetTexParameterIuivOES != null, "pglGetTexParameterIuivOES not implemented");
-					Delegates.pglGetTexParameterIuivOES(target, pname, p_params);
-					CallLog("glGetTexParameterIuivOES({0}, {1}, {2})", target, pname, @params);
 				}
 			}
 			DebugCheckErrors();
@@ -10564,42 +10225,6 @@ namespace OpenGL
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="format">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="type">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="bufSize">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="data">
-		/// A <see cref="T:IntPtr"/>.
-		/// </param>
-		[RequiredByFeature("GL_KHR_robustness")]
-		public static void ReadnPixelsKHR(Int32 x, Int32 y, Int32 width, Int32 height, int format, int type, Int32 bufSize, IntPtr data)
-		{
-			Debug.Assert(Delegates.pglReadnPixelsKHR != null, "pglReadnPixelsKHR not implemented");
-			Delegates.pglReadnPixelsKHR(x, y, width, height, format, type, bufSize, data);
-			CallLog("glReadnPixelsKHR({0}, {1}, {2}, {3}, {4}, {5}, {6}, {7})", x, y, width, height, format, type, bufSize, data);
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// Binding for glReadnPixelsKHR.
-		/// </summary>
-		/// <param name="x">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="y">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="width">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="height">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="format">
 		/// A <see cref="T:PixelFormat"/>.
 		/// </param>
 		/// <param name="type">
@@ -11039,26 +10664,6 @@ namespace OpenGL
 		/// Binding for glTexBufferOES.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="internalformat">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="buffer">
-		/// A <see cref="T:UInt32"/>.
-		/// </param>
-		public static void TexBufferOES(int target, int internalformat, UInt32 buffer)
-		{
-			Debug.Assert(Delegates.pglTexBufferOES != null, "pglTexBufferOES not implemented");
-			Delegates.pglTexBufferOES(target, internalformat, buffer);
-			CallLog("glTexBufferOES({0}, {1}, {2})", target, internalformat, buffer);
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// Binding for glTexBufferOES.
-		/// </summary>
-		/// <param name="target">
 		/// A <see cref="T:TextureTarget"/>.
 		/// </param>
 		/// <param name="internalformat">
@@ -11350,31 +10955,6 @@ namespace OpenGL
 		/// Binding for glTexParameterIivOES.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="pname">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="params">
-		/// A <see cref="T:Int32[]"/>.
-		/// </param>
-		public static void TexParameterIivOES(int target, int pname, Int32[] @params)
-		{
-			unsafe {
-				fixed (Int32* p_params = @params)
-				{
-					Debug.Assert(Delegates.pglTexParameterIivOES != null, "pglTexParameterIivOES not implemented");
-					Delegates.pglTexParameterIivOES(target, pname, p_params);
-					CallLog("glTexParameterIivOES({0}, {1}, {2})", target, pname, @params);
-				}
-			}
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// Binding for glTexParameterIivOES.
-		/// </summary>
-		/// <param name="target">
 		/// A <see cref="T:TextureTarget"/>.
 		/// </param>
 		/// <param name="pname">
@@ -11391,31 +10971,6 @@ namespace OpenGL
 					Debug.Assert(Delegates.pglTexParameterIivOES != null, "pglTexParameterIivOES not implemented");
 					Delegates.pglTexParameterIivOES((int)target, (int)pname, p_params);
 					CallLog("glTexParameterIivOES({0}, {1}, {2})", target, pname, @params);
-				}
-			}
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// Binding for glTexParameterIuivOES.
-		/// </summary>
-		/// <param name="target">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="pname">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="params">
-		/// A <see cref="T:UInt32[]"/>.
-		/// </param>
-		public static void TexParameterIuivOES(int target, int pname, UInt32[] @params)
-		{
-			unsafe {
-				fixed (UInt32* p_params = @params)
-				{
-					Debug.Assert(Delegates.pglTexParameterIuivOES != null, "pglTexParameterIuivOES not implemented");
-					Delegates.pglTexParameterIuivOES(target, pname, p_params);
-					CallLog("glTexParameterIuivOES({0}, {1}, {2})", target, pname, @params);
 				}
 			}
 			DebugCheckErrors();

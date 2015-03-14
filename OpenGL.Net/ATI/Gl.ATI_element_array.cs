@@ -85,24 +85,6 @@ namespace OpenGL
 		/// Binding for glDrawElementArrayATI.
 		/// </summary>
 		/// <param name="mode">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="count">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		[RequiredByFeature("GL_ATI_element_array")]
-		public static void DrawElementArrayATI(int mode, Int32 count)
-		{
-			Debug.Assert(Delegates.pglDrawElementArrayATI != null, "pglDrawElementArrayATI not implemented");
-			Delegates.pglDrawElementArrayATI(mode, count);
-			CallLog("glDrawElementArrayATI({0}, {1})", mode, count);
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// Binding for glDrawElementArrayATI.
-		/// </summary>
-		/// <param name="mode">
 		/// A <see cref="T:PrimitiveType"/>.
 		/// </param>
 		/// <param name="count">
@@ -114,30 +96,6 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglDrawElementArrayATI != null, "pglDrawElementArrayATI not implemented");
 			Delegates.pglDrawElementArrayATI((int)mode, count);
 			CallLog("glDrawElementArrayATI({0}, {1})", mode, count);
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// Binding for glDrawRangeElementArrayATI.
-		/// </summary>
-		/// <param name="mode">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="start">
-		/// A <see cref="T:UInt32"/>.
-		/// </param>
-		/// <param name="end">
-		/// A <see cref="T:UInt32"/>.
-		/// </param>
-		/// <param name="count">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		[RequiredByFeature("GL_ATI_element_array")]
-		public static void DrawRangeElementArrayATI(int mode, UInt32 start, UInt32 end, Int32 count)
-		{
-			Debug.Assert(Delegates.pglDrawRangeElementArrayATI != null, "pglDrawRangeElementArrayATI not implemented");
-			Delegates.pglDrawRangeElementArrayATI(mode, start, end, count);
-			CallLog("glDrawRangeElementArrayATI({0}, {1}, {2}, {3})", mode, start, end, count);
 			DebugCheckErrors();
 		}
 

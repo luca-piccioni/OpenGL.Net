@@ -65,7 +65,21 @@ namespace BindingsGen.GLSpecs
 
 		internal static bool IsCompatible(CommandParameter param, RegistryContext ctx, Command parentCommand)
 		{
-			return (param.IsConstant && (param.GetImplementationType(ctx, parentCommand) == "IntPtr"));
+			switch (ctx.Class.ToLower()) {
+				case "gl":
+					break;
+				default:
+					return (false);
+			}
+
+			if (param.GetImplementationType(ctx, parentCommand) != "IntPtr")
+				return (false);
+			if (Regex.IsMatch(param.Name, "offset"))
+				return (false);
+			if (param.IsConstant || parentCommand.IsGetImplementation(ctx))
+				return (true);
+
+			return (false);
 		}
 
 		internal static bool IsCompatible(Command command, RegistryContext ctx)

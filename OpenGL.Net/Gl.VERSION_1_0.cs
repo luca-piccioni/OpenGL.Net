@@ -33,22 +33,6 @@ namespace OpenGL
 		/// GL_FRONT_AND_BACK are accepted. The initial value is GL_BACK.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_1_0")]
-		public static void CullFace(int mode)
-		{
-			Debug.Assert(Delegates.pglCullFace != null, "pglCullFace not implemented");
-			Delegates.pglCullFace(mode);
-			CallLog("glCullFace({0})", mode);
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// specify whether front- or back-facing facets can be culled
-		/// </summary>
-		/// <param name="mode">
-		/// Specifies whether front- or back-facing facets are candidates for culling. Symbolic constants GL_FRONT, GL_BACK, and 
-		/// GL_FRONT_AND_BACK are accepted. The initial value is GL_BACK.
-		/// </param>
-		[RequiredByFeature("GL_VERSION_1_0")]
 		public static void CullFace(CullFaceMode mode)
 		{
 			Debug.Assert(Delegates.pglCullFace != null, "pglCullFace not implemented");
@@ -64,45 +48,11 @@ namespace OpenGL
 		/// Specifies the orientation of front-facing polygons. GL_CW and GL_CCW are accepted. The initial value is GL_CCW.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_1_0")]
-		public static void FrontFace(int mode)
-		{
-			Debug.Assert(Delegates.pglFrontFace != null, "pglFrontFace not implemented");
-			Delegates.pglFrontFace(mode);
-			CallLog("glFrontFace({0})", mode);
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// define front- and back-facing polygons
-		/// </summary>
-		/// <param name="mode">
-		/// Specifies the orientation of front-facing polygons. GL_CW and GL_CCW are accepted. The initial value is GL_CCW.
-		/// </param>
-		[RequiredByFeature("GL_VERSION_1_0")]
 		public static void FrontFace(FrontFaceDirection mode)
 		{
 			Debug.Assert(Delegates.pglFrontFace != null, "pglFrontFace not implemented");
 			Delegates.pglFrontFace((int)mode);
 			CallLog("glFrontFace({0})", mode);
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// specify implementation-specific hints
-		/// </summary>
-		/// <param name="target">
-		/// Specifies a symbolic constant indicating the behavior to be controlled. GL_LINE_SMOOTH_HINT, GL_POLYGON_SMOOTH_HINT, 
-		/// GL_TEXTURE_COMPRESSION_HINT, and GL_FRAGMENT_SHADER_DERIVATIVE_HINT are accepted.
-		/// </param>
-		/// <param name="mode">
-		/// Specifies a symbolic constant indicating the desired behavior. GL_FASTEST, GL_NICEST, and GL_DONT_CARE are accepted.
-		/// </param>
-		[RequiredByFeature("GL_VERSION_1_0")]
-		public static void Hint(int target, int mode)
-		{
-			Debug.Assert(Delegates.pglHint != null, "pglHint not implemented");
-			Delegates.pglHint(target, mode);
-			CallLog("glHint({0}, {1})", target, mode);
 			DebugCheckErrors();
 		}
 
@@ -152,25 +102,6 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglPointSize != null, "pglPointSize not implemented");
 			Delegates.pglPointSize(size);
 			CallLog("glPointSize({0})", size);
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// select a polygon rasterization mode
-		/// </summary>
-		/// <param name="face">
-		/// Specifies the polygons that mode applies to. Must be GL_FRONT_AND_BACK for front- and back-facing polygons.
-		/// </param>
-		/// <param name="mode">
-		/// Specifies how polygons will be rasterized. Accepted values are GL_POINT, GL_LINE, and GL_FILL. The initial value is 
-		/// GL_FILL for both front- and back-facing polygons.
-		/// </param>
-		[RequiredByFeature("GL_VERSION_1_0")]
-		public static void PolygonMode(int face, int mode)
-		{
-			Debug.Assert(Delegates.pglPolygonMode != null, "pglPolygonMode not implemented");
-			Delegates.pglPolygonMode(face, mode);
-			CallLog("glPolygonMode({0}, {1})", face, mode);
 			DebugCheckErrors();
 		}
 
@@ -238,70 +169,11 @@ namespace OpenGL
 		/// Specifies the value of <paramref name="pname"/>.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_1_0")]
-		public static void TexParameter(int target, int pname, float param)
-		{
-			Debug.Assert(Delegates.pglTexParameterf != null, "pglTexParameterf not implemented");
-			Delegates.pglTexParameterf(target, pname, param);
-			CallLog("glTexParameterf({0}, {1}, {2})", target, pname, param);
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// set texture parameters
-		/// </summary>
-		/// <param name="target">
-		/// Specifies the target texture, which must be either <see cref="Gl.TEXTURE_1D"/>, <see cref="Gl.TEXTURE_2D"/>, <see 
-		/// cref="Gl.TEXTURE_3D"/>, or <see cref="Gl.TEXTURE_CUBE_MAP"/>.
-		/// </param>
-		/// <param name="pname">
-		/// Specifies the symbolic name of a single-valued texture parameter. <paramref name="pname"/> can be one of the following: 
-		/// <see cref="Gl.TEXTURE_MIN_FILTER"/>, <see cref="Gl.TEXTURE_MAG_FILTER"/>, <see cref="Gl.TEXTURE_MIN_LOD"/>, <see 
-		/// cref="Gl.TEXTURE_MAX_LOD"/>, <see cref="Gl.TEXTURE_BASE_LEVEL"/>, <see cref="Gl.TEXTURE_MAX_LEVEL"/>, <see 
-		/// cref="Gl.TEXTURE_WRAP_S"/>, <see cref="Gl.TEXTURE_WRAP_T"/>, <see cref="Gl.TEXTURE_WRAP_R"/>, <see 
-		/// cref="Gl.TEXTURE_PRIORITY"/>, <see cref="Gl.TEXTURE_COMPARE_MODE"/>, <see cref="Gl.TEXTURE_COMPARE_FUNC"/>, <see 
-		/// cref="Gl.DEPTH_TEXTURE_MODE"/>, or <see cref="Gl.GENERATE_MIPMAP"/>.
-		/// </param>
-		/// <param name="param">
-		/// Specifies the value of <paramref name="pname"/>.
-		/// </param>
-		[RequiredByFeature("GL_VERSION_1_0")]
 		public static void TexParameter(TextureTarget target, TextureParameterName pname, float param)
 		{
 			Debug.Assert(Delegates.pglTexParameterf != null, "pglTexParameterf not implemented");
 			Delegates.pglTexParameterf((int)target, (int)pname, param);
 			CallLog("glTexParameterf({0}, {1}, {2})", target, pname, param);
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// set texture parameters
-		/// </summary>
-		/// <param name="target">
-		/// Specifies the target texture, which must be either <see cref="Gl.TEXTURE_1D"/>, <see cref="Gl.TEXTURE_2D"/>, <see 
-		/// cref="Gl.TEXTURE_3D"/>, or <see cref="Gl.TEXTURE_CUBE_MAP"/>.
-		/// </param>
-		/// <param name="pname">
-		/// Specifies the symbolic name of a single-valued texture parameter. <paramref name="pname"/> can be one of the following: 
-		/// <see cref="Gl.TEXTURE_MIN_FILTER"/>, <see cref="Gl.TEXTURE_MAG_FILTER"/>, <see cref="Gl.TEXTURE_MIN_LOD"/>, <see 
-		/// cref="Gl.TEXTURE_MAX_LOD"/>, <see cref="Gl.TEXTURE_BASE_LEVEL"/>, <see cref="Gl.TEXTURE_MAX_LEVEL"/>, <see 
-		/// cref="Gl.TEXTURE_WRAP_S"/>, <see cref="Gl.TEXTURE_WRAP_T"/>, <see cref="Gl.TEXTURE_WRAP_R"/>, <see 
-		/// cref="Gl.TEXTURE_PRIORITY"/>, <see cref="Gl.TEXTURE_COMPARE_MODE"/>, <see cref="Gl.TEXTURE_COMPARE_FUNC"/>, <see 
-		/// cref="Gl.DEPTH_TEXTURE_MODE"/>, or <see cref="Gl.GENERATE_MIPMAP"/>.
-		/// </param>
-		/// <param name="params">
-		/// A <see cref="T:float[]"/>.
-		/// </param>
-		[RequiredByFeature("GL_VERSION_1_0")]
-		public static void TexParameter(int target, int pname, float[] @params)
-		{
-			unsafe {
-				fixed (float* p_params = @params)
-				{
-					Debug.Assert(Delegates.pglTexParameterfv != null, "pglTexParameterfv not implemented");
-					Delegates.pglTexParameterfv(target, pname, p_params);
-					CallLog("glTexParameterfv({0}, {1}, {2})", target, pname, @params);
-				}
-			}
 			DebugCheckErrors();
 		}
 
@@ -356,70 +228,11 @@ namespace OpenGL
 		/// Specifies the value of <paramref name="pname"/>.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_1_0")]
-		public static void TexParameter(int target, int pname, Int32 param)
-		{
-			Debug.Assert(Delegates.pglTexParameteri != null, "pglTexParameteri not implemented");
-			Delegates.pglTexParameteri(target, pname, param);
-			CallLog("glTexParameteri({0}, {1}, {2})", target, pname, param);
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// set texture parameters
-		/// </summary>
-		/// <param name="target">
-		/// Specifies the target texture, which must be either <see cref="Gl.TEXTURE_1D"/>, <see cref="Gl.TEXTURE_2D"/>, <see 
-		/// cref="Gl.TEXTURE_3D"/>, or <see cref="Gl.TEXTURE_CUBE_MAP"/>.
-		/// </param>
-		/// <param name="pname">
-		/// Specifies the symbolic name of a single-valued texture parameter. <paramref name="pname"/> can be one of the following: 
-		/// <see cref="Gl.TEXTURE_MIN_FILTER"/>, <see cref="Gl.TEXTURE_MAG_FILTER"/>, <see cref="Gl.TEXTURE_MIN_LOD"/>, <see 
-		/// cref="Gl.TEXTURE_MAX_LOD"/>, <see cref="Gl.TEXTURE_BASE_LEVEL"/>, <see cref="Gl.TEXTURE_MAX_LEVEL"/>, <see 
-		/// cref="Gl.TEXTURE_WRAP_S"/>, <see cref="Gl.TEXTURE_WRAP_T"/>, <see cref="Gl.TEXTURE_WRAP_R"/>, <see 
-		/// cref="Gl.TEXTURE_PRIORITY"/>, <see cref="Gl.TEXTURE_COMPARE_MODE"/>, <see cref="Gl.TEXTURE_COMPARE_FUNC"/>, <see 
-		/// cref="Gl.DEPTH_TEXTURE_MODE"/>, or <see cref="Gl.GENERATE_MIPMAP"/>.
-		/// </param>
-		/// <param name="param">
-		/// Specifies the value of <paramref name="pname"/>.
-		/// </param>
-		[RequiredByFeature("GL_VERSION_1_0")]
 		public static void TexParameter(TextureTarget target, TextureParameterName pname, Int32 param)
 		{
 			Debug.Assert(Delegates.pglTexParameteri != null, "pglTexParameteri not implemented");
 			Delegates.pglTexParameteri((int)target, (int)pname, param);
 			CallLog("glTexParameteri({0}, {1}, {2})", target, pname, param);
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// set texture parameters
-		/// </summary>
-		/// <param name="target">
-		/// Specifies the target texture, which must be either <see cref="Gl.TEXTURE_1D"/>, <see cref="Gl.TEXTURE_2D"/>, <see 
-		/// cref="Gl.TEXTURE_3D"/>, or <see cref="Gl.TEXTURE_CUBE_MAP"/>.
-		/// </param>
-		/// <param name="pname">
-		/// Specifies the symbolic name of a single-valued texture parameter. <paramref name="pname"/> can be one of the following: 
-		/// <see cref="Gl.TEXTURE_MIN_FILTER"/>, <see cref="Gl.TEXTURE_MAG_FILTER"/>, <see cref="Gl.TEXTURE_MIN_LOD"/>, <see 
-		/// cref="Gl.TEXTURE_MAX_LOD"/>, <see cref="Gl.TEXTURE_BASE_LEVEL"/>, <see cref="Gl.TEXTURE_MAX_LEVEL"/>, <see 
-		/// cref="Gl.TEXTURE_WRAP_S"/>, <see cref="Gl.TEXTURE_WRAP_T"/>, <see cref="Gl.TEXTURE_WRAP_R"/>, <see 
-		/// cref="Gl.TEXTURE_PRIORITY"/>, <see cref="Gl.TEXTURE_COMPARE_MODE"/>, <see cref="Gl.TEXTURE_COMPARE_FUNC"/>, <see 
-		/// cref="Gl.DEPTH_TEXTURE_MODE"/>, or <see cref="Gl.GENERATE_MIPMAP"/>.
-		/// </param>
-		/// <param name="params">
-		/// A <see cref="T:Int32[]"/>.
-		/// </param>
-		[RequiredByFeature("GL_VERSION_1_0")]
-		public static void TexParameter(int target, int pname, Int32[] @params)
-		{
-			unsafe {
-				fixed (Int32* p_params = @params)
-				{
-					Debug.Assert(Delegates.pglTexParameteriv != null, "pglTexParameteriv not implemented");
-					Delegates.pglTexParameteriv(target, pname, p_params);
-					CallLog("glTexParameteriv({0}, {1}, {2})", target, pname, @params);
-				}
-			}
 			DebugCheckErrors();
 		}
 
@@ -452,54 +265,6 @@ namespace OpenGL
 					CallLog("glTexParameteriv({0}, {1}, {2})", target, pname, @params);
 				}
 			}
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// specify a one-dimensional texture image
-		/// </summary>
-		/// <param name="target">
-		/// Specifies the target texture. Must be <see cref="Gl.TEXTURE_1D"/> or <see cref="Gl.PROXY_TEXTURE_1D"/>.
-		/// </param>
-		/// <param name="level">
-		/// Specifies the level-of-detail number. Level 0 is the base image level. Level n is the nth mipmap reduction image.
-		/// </param>
-		/// <param name="internalformat">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="width">
-		/// Specifies the width of the texture image including the border if any. If the GL version does not support 
-		/// non-power-of-two sizes, this value must be 2n+2⁡border for some integer n. All implementations support texture images 
-		/// that are at least 64 texels wide. The height of the 1D texture image is 1.
-		/// </param>
-		/// <param name="border">
-		/// Specifies the width of the border. Must be either 0 or 1.
-		/// </param>
-		/// <param name="format">
-		/// Specifies the format of the pixel data. The following symbolic values are accepted: <see cref="Gl.COLOR_INDEX"/>, <see 
-		/// cref="Gl.RED"/>, <see cref="Gl.GREEN"/>, <see cref="Gl.BLUE"/>, <see cref="Gl.ALPHA"/>, <see cref="Gl.RGB"/>, <see 
-		/// cref="Gl.BGR"/>, <see cref="Gl.RGBA"/>, <see cref="Gl.BGRA"/>, <see cref="Gl.LUMINANCE"/>, and <see 
-		/// cref="Gl.LUMINANCE_ALPHA"/>.
-		/// </param>
-		/// <param name="type">
-		/// Specifies the data type of the pixel data. The following symbolic values are accepted: <see cref="Gl.UNSIGNED_BYTE"/>, 
-		/// <see cref="Gl.BYTE"/>, <see cref="Gl.BITMAP"/>, <see cref="Gl.UNSIGNED_SHORT"/>, <see cref="Gl.SHORT"/>, <see 
-		/// cref="Gl.UNSIGNED_INT"/>, <see cref="Gl.INT"/>, <see cref="Gl.FLOAT"/>, <see cref="Gl.UNSIGNED_BYTE_3_3_2"/>, <see 
-		/// cref="Gl.UNSIGNED_BYTE_2_3_3_REV"/>, <see cref="Gl.UNSIGNED_SHORT_5_6_5"/>, <see cref="Gl.UNSIGNED_SHORT_5_6_5_REV"/>, 
-		/// <see cref="Gl.UNSIGNED_SHORT_4_4_4_4"/>, <see cref="Gl.UNSIGNED_SHORT_4_4_4_4_REV"/>, <see 
-		/// cref="Gl.UNSIGNED_SHORT_5_5_5_1"/>, <see cref="Gl.UNSIGNED_SHORT_1_5_5_5_REV"/>, <see cref="Gl.UNSIGNED_INT_8_8_8_8"/>, 
-		/// <see cref="Gl.UNSIGNED_INT_8_8_8_8_REV"/>, <see cref="Gl.UNSIGNED_INT_10_10_10_2"/>, and <see 
-		/// cref="Gl.UNSIGNED_INT_2_10_10_10_REV"/>.
-		/// </param>
-		/// <param name="pixels">
-		/// A <see cref="T:IntPtr"/>.
-		/// </param>
-		[RequiredByFeature("GL_VERSION_1_0")]
-		public static void TexImage1D(int target, Int32 level, Int32 internalformat, Int32 width, Int32 border, int format, int type, IntPtr pixels)
-		{
-			Debug.Assert(Delegates.pglTexImage1D != null, "pglTexImage1D not implemented");
-			Delegates.pglTexImage1D(target, level, internalformat, width, border, format, type, pixels);
-			CallLog("glTexImage1D({0}, {1}, {2}, {3}, {4}, {5}, {6}, {7})", target, level, internalformat, width, border, format, type, pixels);
 			DebugCheckErrors();
 		}
 
@@ -700,63 +465,6 @@ namespace OpenGL
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_1_0")]
-		public static void TexImage2D(int target, Int32 level, Int32 internalformat, Int32 width, Int32 height, Int32 border, int format, int type, IntPtr pixels)
-		{
-			Debug.Assert(Delegates.pglTexImage2D != null, "pglTexImage2D not implemented");
-			Delegates.pglTexImage2D(target, level, internalformat, width, height, border, format, type, pixels);
-			CallLog("glTexImage2D({0}, {1}, {2}, {3}, {4}, {5}, {6}, {7}, {8})", target, level, internalformat, width, height, border, format, type, pixels);
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// specify a two-dimensional texture image
-		/// </summary>
-		/// <param name="target">
-		/// Specifies the target texture. Must be <see cref="Gl.TEXTURE_2D"/>, <see cref="Gl.PROXY_TEXTURE_2D"/>, <see 
-		/// cref="Gl.TEXTURE_CUBE_MAP_POSITIVE_X"/>, <see cref="Gl.TEXTURE_CUBE_MAP_NEGATIVE_X"/>, <see 
-		/// cref="Gl.TEXTURE_CUBE_MAP_POSITIVE_Y"/>, <see cref="Gl.TEXTURE_CUBE_MAP_NEGATIVE_Y"/>, <see 
-		/// cref="Gl.TEXTURE_CUBE_MAP_POSITIVE_Z"/>, <see cref="Gl.TEXTURE_CUBE_MAP_NEGATIVE_Z"/>, or <see 
-		/// cref="Gl.PROXY_TEXTURE_CUBE_MAP"/>.
-		/// </param>
-		/// <param name="level">
-		/// Specifies the level-of-detail number. Level 0 is the base image level. Level n is the nth mipmap reduction image.
-		/// </param>
-		/// <param name="internalformat">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="width">
-		/// Specifies the width of the texture image including the border if any. If the GL version does not support 
-		/// non-power-of-two sizes, this value must be 2n+2⁡border for some integer n. All implementations support texture images 
-		/// that are at least 64 texels wide.
-		/// </param>
-		/// <param name="height">
-		/// Specifies the height of the texture image including the border if any. If the GL version does not support 
-		/// non-power-of-two sizes, this value must be 2m+2⁡border for some integer m. All implementations support texture images 
-		/// that are at least 64 texels high.
-		/// </param>
-		/// <param name="border">
-		/// Specifies the width of the border. Must be either 0 or 1.
-		/// </param>
-		/// <param name="format">
-		/// Specifies the format of the pixel data. The following symbolic values are accepted: <see cref="Gl.COLOR_INDEX"/>, <see 
-		/// cref="Gl.RED"/>, <see cref="Gl.GREEN"/>, <see cref="Gl.BLUE"/>, <see cref="Gl.ALPHA"/>, <see cref="Gl.RGB"/>, <see 
-		/// cref="Gl.BGR"/>, <see cref="Gl.RGBA"/>, <see cref="Gl.BGRA"/>, <see cref="Gl.LUMINANCE"/>, and <see 
-		/// cref="Gl.LUMINANCE_ALPHA"/>.
-		/// </param>
-		/// <param name="type">
-		/// Specifies the data type of the pixel data. The following symbolic values are accepted: <see cref="Gl.UNSIGNED_BYTE"/>, 
-		/// <see cref="Gl.BYTE"/>, <see cref="Gl.BITMAP"/>, <see cref="Gl.UNSIGNED_SHORT"/>, <see cref="Gl.SHORT"/>, <see 
-		/// cref="Gl.UNSIGNED_INT"/>, <see cref="Gl.INT"/>, <see cref="Gl.FLOAT"/>, <see cref="Gl.UNSIGNED_BYTE_3_3_2"/>, <see 
-		/// cref="Gl.UNSIGNED_BYTE_2_3_3_REV"/>, <see cref="Gl.UNSIGNED_SHORT_5_6_5"/>, <see cref="Gl.UNSIGNED_SHORT_5_6_5_REV"/>, 
-		/// <see cref="Gl.UNSIGNED_SHORT_4_4_4_4"/>, <see cref="Gl.UNSIGNED_SHORT_4_4_4_4_REV"/>, <see 
-		/// cref="Gl.UNSIGNED_SHORT_5_5_5_1"/>, <see cref="Gl.UNSIGNED_SHORT_1_5_5_5_REV"/>, <see cref="Gl.UNSIGNED_INT_8_8_8_8"/>, 
-		/// <see cref="Gl.UNSIGNED_INT_8_8_8_8_REV"/>, <see cref="Gl.UNSIGNED_INT_10_10_10_2"/>, and <see 
-		/// cref="Gl.UNSIGNED_INT_2_10_10_10_REV"/>.
-		/// </param>
-		/// <param name="pixels">
-		/// A <see cref="T:IntPtr"/>.
-		/// </param>
-		[RequiredByFeature("GL_VERSION_1_0")]
 		public static void TexImage2D(TextureTarget target, Int32 level, Int32 internalformat, Int32 width, Int32 height, Int32 border, PixelFormat format, PixelType type, IntPtr pixels)
 		{
 			Debug.Assert(Delegates.pglTexImage2D != null, "pglTexImage2D not implemented");
@@ -894,46 +602,11 @@ namespace OpenGL
 		/// GL_MAX_COLOR_ATTACHMENTS.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_1_0")]
-		public static void DrawBuffer(int buf)
-		{
-			Debug.Assert(Delegates.pglDrawBuffer != null, "pglDrawBuffer not implemented");
-			Delegates.pglDrawBuffer(buf);
-			CallLog("glDrawBuffer({0})", buf);
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// specify which color buffers are to be drawn into
-		/// </summary>
-		/// <param name="buf">
-		/// For default framebuffer, the argument specifies up to four color buffers to be drawn into. Symbolic constants GL_NONE, 
-		/// GL_FRONT_LEFT, GL_FRONT_RIGHT, GL_BACK_LEFT, GL_BACK_RIGHT, GL_FRONT, GL_BACK, GL_LEFT, GL_RIGHT, and GL_FRONT_AND_BACK 
-		/// are accepted. The initial value is GL_FRONT for single-buffered contexts, and GL_BACK for double-buffered contexts. For 
-		/// framebuffer objects, GL_COLOR_ATTACHMENT$m$ and GL_NONE enums are accepted, where $m$ is a value between 0 and 
-		/// GL_MAX_COLOR_ATTACHMENTS.
-		/// </param>
-		[RequiredByFeature("GL_VERSION_1_0")]
 		public static void DrawBuffer(DrawBufferMode buf)
 		{
 			Debug.Assert(Delegates.pglDrawBuffer != null, "pglDrawBuffer not implemented");
 			Delegates.pglDrawBuffer((int)buf);
 			CallLog("glDrawBuffer({0})", buf);
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// clear buffers to preset values
-		/// </summary>
-		/// <param name="mask">
-		/// Bitwise OR of masks that indicate the buffers to be cleared. The three masks are GL_COLOR_BUFFER_BIT, 
-		/// GL_DEPTH_BUFFER_BIT, and GL_STENCIL_BUFFER_BIT.
-		/// </param>
-		[RequiredByFeature("GL_VERSION_1_0")]
-		public static void Clear(uint mask)
-		{
-			Debug.Assert(Delegates.pglClear != null, "pglClear not implemented");
-			Delegates.pglClear(mask);
-			CallLog("glClear({0})", mask);
 			DebugCheckErrors();
 		}
 
@@ -1074,41 +747,11 @@ namespace OpenGL
 		/// Specifies a symbolic constant indicating a GL capability.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_1_0")]
-		public static void Disable(int cap)
-		{
-			Debug.Assert(Delegates.pglDisable != null, "pglDisable not implemented");
-			Delegates.pglDisable(cap);
-			CallLog("glDisable({0})", cap);
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// enable or disable server-side GL capabilities
-		/// </summary>
-		/// <param name="cap">
-		/// Specifies a symbolic constant indicating a GL capability.
-		/// </param>
-		[RequiredByFeature("GL_VERSION_1_0")]
 		public static void Disable(EnableCap cap)
 		{
 			Debug.Assert(Delegates.pglDisable != null, "pglDisable not implemented");
 			Delegates.pglDisable((int)cap);
 			CallLog("glDisable({0})", cap);
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// enable or disable server-side GL capabilities
-		/// </summary>
-		/// <param name="cap">
-		/// Specifies a symbolic constant indicating a GL capability.
-		/// </param>
-		[RequiredByFeature("GL_VERSION_1_0")]
-		public static void Enable(int cap)
-		{
-			Debug.Assert(Delegates.pglEnable != null, "pglEnable not implemented");
-			Delegates.pglEnable(cap);
-			CallLog("glEnable({0})", cap);
 			DebugCheckErrors();
 		}
 
@@ -1172,57 +815,11 @@ namespace OpenGL
 		/// cref="Gl.CONSTANT_ALPHA"/>, and <see cref="Gl.ONE_MINUS_CONSTANT_ALPHA"/>. The initial value is <see cref="Gl.ZERO"/>.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_1_0")]
-		public static void BlendFunc(int sfactor, int dfactor)
-		{
-			Debug.Assert(Delegates.pglBlendFunc != null, "pglBlendFunc not implemented");
-			Delegates.pglBlendFunc(sfactor, dfactor);
-			CallLog("glBlendFunc({0}, {1})", sfactor, dfactor);
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// specify pixel arithmetic
-		/// </summary>
-		/// <param name="sfactor">
-		/// Specifies how the red, green, blue, and alpha source blending factors are computed. The following symbolic constants are 
-		/// accepted: <see cref="Gl.ZERO"/>, <see cref="Gl.ONE"/>, <see cref="Gl.SRC_COLOR"/>, <see cref="Gl.ONE_MINUS_SRC_COLOR"/>, 
-		/// <see cref="Gl.DST_COLOR"/>, <see cref="Gl.ONE_MINUS_DST_COLOR"/>, <see cref="Gl.SRC_ALPHA"/>, <see 
-		/// cref="Gl.ONE_MINUS_SRC_ALPHA"/>, <see cref="Gl.DST_ALPHA"/>, <see cref="Gl.ONE_MINUS_DST_ALPHA"/>, <see 
-		/// cref="Gl.CONSTANT_COLOR"/>, <see cref="Gl.ONE_MINUS_CONSTANT_COLOR"/>, <see cref="Gl.CONSTANT_ALPHA"/>, <see 
-		/// cref="Gl.ONE_MINUS_CONSTANT_ALPHA"/>, and <see cref="Gl.SRC_ALPHA_SATURATE"/>. The initial value is <see 
-		/// cref="Gl.ONE"/>.
-		/// </param>
-		/// <param name="dfactor">
-		/// Specifies how the red, green, blue, and alpha destination blending factors are computed. The following symbolic 
-		/// constants are accepted: <see cref="Gl.ZERO"/>, <see cref="Gl.ONE"/>, <see cref="Gl.SRC_COLOR"/>, <see 
-		/// cref="Gl.ONE_MINUS_SRC_COLOR"/>, <see cref="Gl.DST_COLOR"/>, <see cref="Gl.ONE_MINUS_DST_COLOR"/>, <see 
-		/// cref="Gl.SRC_ALPHA"/>, <see cref="Gl.ONE_MINUS_SRC_ALPHA"/>, <see cref="Gl.DST_ALPHA"/>, <see 
-		/// cref="Gl.ONE_MINUS_DST_ALPHA"/>. <see cref="Gl.CONSTANT_COLOR"/>, <see cref="Gl.ONE_MINUS_CONSTANT_COLOR"/>, <see 
-		/// cref="Gl.CONSTANT_ALPHA"/>, and <see cref="Gl.ONE_MINUS_CONSTANT_ALPHA"/>. The initial value is <see cref="Gl.ZERO"/>.
-		/// </param>
-		[RequiredByFeature("GL_VERSION_1_0")]
 		public static void BlendFunc(BlendingFactorSrc sfactor, BlendingFactorDest dfactor)
 		{
 			Debug.Assert(Delegates.pglBlendFunc != null, "pglBlendFunc not implemented");
 			Delegates.pglBlendFunc((int)sfactor, (int)dfactor);
 			CallLog("glBlendFunc({0}, {1})", sfactor, dfactor);
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// specify a logical pixel operation for rendering
-		/// </summary>
-		/// <param name="opcode">
-		/// Specifies a symbolic constant that selects a logical operation. The following symbols are accepted: GL_CLEAR, GL_SET, 
-		/// GL_COPY, GL_COPY_INVERTED, GL_NOOP, GL_INVERT, GL_AND, GL_NAND, GL_OR, GL_NOR, GL_XOR, GL_EQUIV, GL_AND_REVERSE, 
-		/// GL_AND_INVERTED, GL_OR_REVERSE, and GL_OR_INVERTED. The initial value is GL_COPY.
-		/// </param>
-		[RequiredByFeature("GL_VERSION_1_0")]
-		public static void LogicOp(int opcode)
-		{
-			Debug.Assert(Delegates.pglLogicOp != null, "pglLogicOp not implemented");
-			Delegates.pglLogicOp(opcode);
-			CallLog("glLogicOp({0})", opcode);
 			DebugCheckErrors();
 		}
 
@@ -1258,55 +855,11 @@ namespace OpenGL
 		/// initial value is all 1's.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_1_0")]
-		public static void StencilFunc(int func, Int32 @ref, UInt32 mask)
-		{
-			Debug.Assert(Delegates.pglStencilFunc != null, "pglStencilFunc not implemented");
-			Delegates.pglStencilFunc(func, @ref, mask);
-			CallLog("glStencilFunc({0}, {1}, {2})", func, @ref, mask);
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// set front and back function and reference value for stencil testing
-		/// </summary>
-		/// <param name="func">
-		/// Specifies the test function. Eight symbolic constants are valid: GL_NEVER, GL_LESS, GL_LEQUAL, GL_GREATER, GL_GEQUAL, 
-		/// GL_EQUAL, GL_NOTEQUAL, and GL_ALWAYS. The initial value is GL_ALWAYS.
-		/// </param>
-		/// <param name="ref">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="mask">
-		/// Specifies a mask that is ANDed with both the reference value and the stored stencil value when the test is done. The 
-		/// initial value is all 1's.
-		/// </param>
-		[RequiredByFeature("GL_VERSION_1_0")]
 		public static void StencilFunc(StencilFunction func, Int32 @ref, UInt32 mask)
 		{
 			Debug.Assert(Delegates.pglStencilFunc != null, "pglStencilFunc not implemented");
 			Delegates.pglStencilFunc((int)func, @ref, mask);
 			CallLog("glStencilFunc({0}, {1}, {2})", func, @ref, mask);
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// set front and back stencil test actions
-		/// </summary>
-		/// <param name="fail">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="zfail">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="zpass">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		[RequiredByFeature("GL_VERSION_1_0")]
-		public static void StencilOp(int fail, int zfail, int zpass)
-		{
-			Debug.Assert(Delegates.pglStencilOp != null, "pglStencilOp not implemented");
-			Delegates.pglStencilOp(fail, zfail, zpass);
-			CallLog("glStencilOp({0}, {1}, {2})", fail, zfail, zpass);
 			DebugCheckErrors();
 		}
 
@@ -1339,51 +892,11 @@ namespace OpenGL
 		/// GL_NOTEQUAL, GL_GEQUAL, and GL_ALWAYS are accepted. The initial value is GL_LESS.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_1_0")]
-		public static void DepthFunc(int func)
-		{
-			Debug.Assert(Delegates.pglDepthFunc != null, "pglDepthFunc not implemented");
-			Delegates.pglDepthFunc(func);
-			CallLog("glDepthFunc({0})", func);
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// specify the value used for depth buffer comparisons
-		/// </summary>
-		/// <param name="func">
-		/// Specifies the depth comparison function. Symbolic constants GL_NEVER, GL_LESS, GL_EQUAL, GL_LEQUAL, GL_GREATER, 
-		/// GL_NOTEQUAL, GL_GEQUAL, and GL_ALWAYS are accepted. The initial value is GL_LESS.
-		/// </param>
-		[RequiredByFeature("GL_VERSION_1_0")]
 		public static void DepthFunc(DepthFunction func)
 		{
 			Debug.Assert(Delegates.pglDepthFunc != null, "pglDepthFunc not implemented");
 			Delegates.pglDepthFunc((int)func);
 			CallLog("glDepthFunc({0})", func);
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// set pixel storage modes
-		/// </summary>
-		/// <param name="pname">
-		/// Specifies the symbolic name of the parameter to be set. Six values affect the packing of pixel data into memory: <see 
-		/// cref="Gl.PACK_SWAP_BYTES"/>, <see cref="Gl.PACK_LSB_FIRST"/>, <see cref="Gl.PACK_ROW_LENGTH"/>, <see 
-		/// cref="Gl.PACK_IMAGE_HEIGHT"/>, <see cref="Gl.PACK_SKIP_PIXELS"/>, <see cref="Gl.PACK_SKIP_ROWS"/>, <see 
-		/// cref="Gl.PACK_SKIP_IMAGES"/>, and <see cref="Gl.PACK_ALIGNMENT"/>. Six more affect the unpacking of pixel data from 
-		/// memory: <see cref="Gl.UNPACK_SWAP_BYTES"/>, <see cref="Gl.UNPACK_LSB_FIRST"/>, <see cref="Gl.UNPACK_ROW_LENGTH"/>, <see 
-		/// cref="Gl.UNPACK_IMAGE_HEIGHT"/>, <see cref="Gl.UNPACK_SKIP_PIXELS"/>, <see cref="Gl.UNPACK_SKIP_ROWS"/>, <see 
-		/// cref="Gl.UNPACK_SKIP_IMAGES"/>, and <see cref="Gl.UNPACK_ALIGNMENT"/>.
-		/// </param>
-		/// <param name="param">
-		/// Specifies the value that <paramref name="pname"/> is set to.
-		/// </param>
-		[RequiredByFeature("GL_VERSION_1_0")]
-		public static void PixelStore(int pname, float param)
-		{
-			Debug.Assert(Delegates.pglPixelStoref != null, "pglPixelStoref not implemented");
-			Delegates.pglPixelStoref(pname, param);
-			CallLog("glPixelStoref({0}, {1})", pname, param);
 			DebugCheckErrors();
 		}
 
@@ -1427,50 +940,11 @@ namespace OpenGL
 		/// Specifies the value that <paramref name="pname"/> is set to.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_1_0")]
-		public static void PixelStore(int pname, Int32 param)
-		{
-			Debug.Assert(Delegates.pglPixelStorei != null, "pglPixelStorei not implemented");
-			Delegates.pglPixelStorei(pname, param);
-			CallLog("glPixelStorei({0}, {1})", pname, param);
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// set pixel storage modes
-		/// </summary>
-		/// <param name="pname">
-		/// Specifies the symbolic name of the parameter to be set. Six values affect the packing of pixel data into memory: <see 
-		/// cref="Gl.PACK_SWAP_BYTES"/>, <see cref="Gl.PACK_LSB_FIRST"/>, <see cref="Gl.PACK_ROW_LENGTH"/>, <see 
-		/// cref="Gl.PACK_IMAGE_HEIGHT"/>, <see cref="Gl.PACK_SKIP_PIXELS"/>, <see cref="Gl.PACK_SKIP_ROWS"/>, <see 
-		/// cref="Gl.PACK_SKIP_IMAGES"/>, and <see cref="Gl.PACK_ALIGNMENT"/>. Six more affect the unpacking of pixel data from 
-		/// memory: <see cref="Gl.UNPACK_SWAP_BYTES"/>, <see cref="Gl.UNPACK_LSB_FIRST"/>, <see cref="Gl.UNPACK_ROW_LENGTH"/>, <see 
-		/// cref="Gl.UNPACK_IMAGE_HEIGHT"/>, <see cref="Gl.UNPACK_SKIP_PIXELS"/>, <see cref="Gl.UNPACK_SKIP_ROWS"/>, <see 
-		/// cref="Gl.UNPACK_SKIP_IMAGES"/>, and <see cref="Gl.UNPACK_ALIGNMENT"/>.
-		/// </param>
-		/// <param name="param">
-		/// Specifies the value that <paramref name="pname"/> is set to.
-		/// </param>
-		[RequiredByFeature("GL_VERSION_1_0")]
 		public static void PixelStore(PixelStoreParameter pname, Int32 param)
 		{
 			Debug.Assert(Delegates.pglPixelStorei != null, "pglPixelStorei not implemented");
 			Delegates.pglPixelStorei((int)pname, param);
 			CallLog("glPixelStorei({0}, {1})", pname, param);
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// select a color buffer source for pixels
-		/// </summary>
-		/// <param name="src">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		[RequiredByFeature("GL_VERSION_1_0")]
-		public static void ReadBuffer(int src)
-		{
-			Debug.Assert(Delegates.pglReadBuffer != null, "pglReadBuffer not implemented");
-			Delegates.pglReadBuffer(src);
-			CallLog("glReadBuffer({0})", src);
 			DebugCheckErrors();
 		}
 
@@ -1486,53 +960,6 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglReadBuffer != null, "pglReadBuffer not implemented");
 			Delegates.pglReadBuffer((int)src);
 			CallLog("glReadBuffer({0})", src);
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// read a block of pixels from the frame buffer
-		/// </summary>
-		/// <param name="x">
-		/// Specify the window coordinates of the first pixel that is read from the frame buffer. This location is the lower left 
-		/// corner of a rectangular block of pixels.
-		/// </param>
-		/// <param name="y">
-		/// Specify the window coordinates of the first pixel that is read from the frame buffer. This location is the lower left 
-		/// corner of a rectangular block of pixels.
-		/// </param>
-		/// <param name="width">
-		/// Specify the dimensions of the pixel rectangle. <paramref name="width"/> and <paramref name="height"/> of one correspond 
-		/// to a single pixel.
-		/// </param>
-		/// <param name="height">
-		/// Specify the dimensions of the pixel rectangle. <paramref name="width"/> and <paramref name="height"/> of one correspond 
-		/// to a single pixel.
-		/// </param>
-		/// <param name="format">
-		/// Specifies the format of the pixel data. The following symbolic values are accepted: <see cref="Gl.COLOR_INDEX"/>, <see 
-		/// cref="Gl.STENCIL_INDEX"/>, <see cref="Gl.DEPTH_COMPONENT"/>, <see cref="Gl.RED"/>, <see cref="Gl.GREEN"/>, <see 
-		/// cref="Gl.BLUE"/>, <see cref="Gl.ALPHA"/>, <see cref="Gl.RGB"/>, <see cref="Gl.BGR"/>, <see cref="Gl.RGBA"/>, <see 
-		/// cref="Gl.BGRA"/>, <see cref="Gl.LUMINANCE"/>, and <see cref="Gl.LUMINANCE_ALPHA"/>.
-		/// </param>
-		/// <param name="type">
-		/// Specifies the data type of the pixel data. Must be one of <see cref="Gl.UNSIGNED_BYTE"/>, <see cref="Gl.BYTE"/>, <see 
-		/// cref="Gl.BITMAP"/>, <see cref="Gl.UNSIGNED_SHORT"/>, <see cref="Gl.SHORT"/>, <see cref="Gl.UNSIGNED_INT"/>, <see 
-		/// cref="Gl.INT"/>, <see cref="Gl.FLOAT"/>, <see cref="Gl.UNSIGNED_BYTE_3_3_2"/>, <see cref="Gl.UNSIGNED_BYTE_2_3_3_REV"/>, 
-		/// <see cref="Gl.UNSIGNED_SHORT_5_6_5"/>, <see cref="Gl.UNSIGNED_SHORT_5_6_5_REV"/>, <see 
-		/// cref="Gl.UNSIGNED_SHORT_4_4_4_4"/>, <see cref="Gl.UNSIGNED_SHORT_4_4_4_4_REV"/>, <see 
-		/// cref="Gl.UNSIGNED_SHORT_5_5_5_1"/>, <see cref="Gl.UNSIGNED_SHORT_1_5_5_5_REV"/>, <see cref="Gl.UNSIGNED_INT_8_8_8_8"/>, 
-		/// <see cref="Gl.UNSIGNED_INT_8_8_8_8_REV"/>, <see cref="Gl.UNSIGNED_INT_10_10_10_2"/>, or <see 
-		/// cref="Gl.UNSIGNED_INT_2_10_10_10_REV"/>.
-		/// </param>
-		/// <param name="pixels">
-		/// A <see cref="T:IntPtr"/>.
-		/// </param>
-		[RequiredByFeature("GL_VERSION_1_0")]
-		public static void ReadPixels(Int32 x, Int32 y, Int32 width, Int32 height, int format, int type, IntPtr pixels)
-		{
-			Debug.Assert(Delegates.pglReadPixels != null, "pglReadPixels not implemented");
-			Delegates.pglReadPixels(x, y, width, height, format, type, pixels);
-			CallLog("glReadPixels({0}, {1}, {2}, {3}, {4}, {5}, {6})", x, y, width, height, format, type, pixels);
 			DebugCheckErrors();
 		}
 
@@ -1990,26 +1417,6 @@ namespace OpenGL
 		/// glGetStringi accepts the GL_EXTENSIONS token.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_1_0")]
-		public static String GetString(int name)
-		{
-			String retValue;
-
-			Debug.Assert(Delegates.pglGetString != null, "pglGetString not implemented");
-			retValue = (String)Marshal.PtrToStringAnsi(Delegates.pglGetString(name));
-			CallLog("glGetString({0}) = {1}", name, retValue);
-			DebugCheckErrors();
-
-			return (retValue);
-		}
-
-		/// <summary>
-		/// return a string describing the current GL connection
-		/// </summary>
-		/// <param name="name">
-		/// Specifies a symbolic constant, one of GL_VENDOR, GL_RENDERER, GL_VERSION, or GL_SHADING_LANGUAGE_VERSION. Additionally, 
-		/// glGetStringi accepts the GL_EXTENSIONS token.
-		/// </param>
-		[RequiredByFeature("GL_VERSION_1_0")]
 		public static String GetString(StringName name)
 		{
 			String retValue;
@@ -2054,10 +1461,10 @@ namespace OpenGL
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_1_0")]
-		public static void GetTexImage(int target, Int32 level, int format, int type, IntPtr pixels)
+		public static void GetTexImage(TextureTarget target, Int32 level, PixelFormat format, PixelType type, IntPtr pixels)
 		{
 			Debug.Assert(Delegates.pglGetTexImage != null, "pglGetTexImage not implemented");
-			Delegates.pglGetTexImage(target, level, format, type, pixels);
+			Delegates.pglGetTexImage((int)target, level, (int)format, (int)type, pixels);
 			CallLog("glGetTexImage({0}, {1}, {2}, {3}, {4})", target, level, format, type, pixels);
 			DebugCheckErrors();
 		}
@@ -2091,50 +1498,59 @@ namespace OpenGL
 		/// cref="Gl.UNSIGNED_INT_2_10_10_10_REV"/>.
 		/// </param>
 		/// <param name="pixels">
-		/// A <see cref="T:IntPtr"/>.
+		/// A <see cref="T:Object"/>.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_1_0")]
-		public static void GetTexImage(TextureTarget target, Int32 level, PixelFormat format, PixelType type, IntPtr pixels)
+		public static void GetTexImage(int target, Int32 level, int format, int type, Object pixels)
 		{
-			Debug.Assert(Delegates.pglGetTexImage != null, "pglGetTexImage not implemented");
-			Delegates.pglGetTexImage((int)target, level, (int)format, (int)type, pixels);
-			CallLog("glGetTexImage({0}, {1}, {2}, {3}, {4})", target, level, format, type, pixels);
-			DebugCheckErrors();
+			GCHandle pin_pixels = GCHandle.Alloc(pixels, GCHandleType.Pinned);
+			try {
+				GetTexImage(target, level, format, type, pin_pixels.AddrOfPinnedObject());
+			} finally {
+				pin_pixels.Free();
+			}
 		}
 
 		/// <summary>
-		/// return texture parameter values
+		/// return a texture image
 		/// </summary>
 		/// <param name="target">
-		/// Specifies the target to which the texture is bound for glGetTexParameterfv, glGetTexParameteriv, glGetTexParameterIiv, 
-		/// and glGetTexParameterIuiv functions. GL_TEXTURE_1D, GL_TEXTURE_1D_ARRAY, GL_TEXTURE_2D, GL_TEXTURE_2D_ARRAY, 
-		/// GL_TEXTURE_2D_MULTISAMPLE, GL_TEXTURE_2D_MULTISAMPLE_ARRAY, GL_TEXTURE_3D, GL_TEXTURE_CUBE_MAP, GL_TEXTURE_RECTANGLE, 
-		/// and GL_TEXTURE_CUBE_MAP_ARRAY are accepted.
+		/// Specifies which texture is to be obtained. <see cref="Gl.TEXTURE_1D"/>, <see cref="Gl.TEXTURE_2D"/>, <see 
+		/// cref="Gl.TEXTURE_3D"/>, <see cref="Gl.TEXTURE_CUBE_MAP_POSITIVE_X"/>, <see cref="Gl.TEXTURE_CUBE_MAP_NEGATIVE_X"/>, <see 
+		/// cref="Gl.TEXTURE_CUBE_MAP_POSITIVE_Y"/>, <see cref="Gl.TEXTURE_CUBE_MAP_NEGATIVE_Y"/>, <see 
+		/// cref="Gl.TEXTURE_CUBE_MAP_POSITIVE_Z"/>, and <see cref="Gl.TEXTURE_CUBE_MAP_NEGATIVE_Z"/> are accepted.
 		/// </param>
-		/// <param name="pname">
-		/// Specifies the symbolic name of a texture parameter. GL_DEPTH_STENCIL_TEXTURE_MODE, GL_IMAGE_FORMAT_COMPATIBILITY_TYPE, 
-		/// GL_TEXTURE_BASE_LEVEL, GL_TEXTURE_BORDER_COLOR, GL_TEXTURE_COMPARE_MODE, GL_TEXTURE_COMPARE_FUNC, 
-		/// GL_TEXTURE_IMMUTABLE_FORMAT, GL_TEXTURE_IMMUTABLE_LEVELS, GL_TEXTURE_LOD_BIAS, GL_TEXTURE_MAG_FILTER, 
-		/// GL_TEXTURE_MAX_LEVEL, GL_TEXTURE_MAX_LOD, GL_TEXTURE_MIN_FILTER, GL_TEXTURE_MIN_LOD, GL_TEXTURE_SWIZZLE_R, 
-		/// GL_TEXTURE_SWIZZLE_G, GL_TEXTURE_SWIZZLE_B, GL_TEXTURE_SWIZZLE_A, GL_TEXTURE_SWIZZLE_RGBA, GL_TEXTURE_TARGET, 
-		/// GL_TEXTURE_VIEW_MIN_LAYER, GL_TEXTURE_VIEW_MIN_LEVEL, GL_TEXTURE_VIEW_NUM_LAYERS, GL_TEXTURE_VIEW_NUM_LEVELS, 
-		/// GL_TEXTURE_WRAP_S, GL_TEXTURE_WRAP_T, and GL_TEXTURE_WRAP_R are accepted.
+		/// <param name="level">
+		/// Specifies the level-of-detail number of the desired image. Level 0 is the base image level. Level n is the nth mipmap 
+		/// reduction image.
 		/// </param>
-		/// <param name="params">
-		/// A <see cref="T:float[]"/>.
+		/// <param name="format">
+		/// Specifies a pixel format for the returned data. The supported formats are <see cref="Gl.RED"/>, <see cref="Gl.GREEN"/>, 
+		/// <see cref="Gl.BLUE"/>, <see cref="Gl.ALPHA"/>, <see cref="Gl.RGB"/>, <see cref="Gl.BGR"/>, <see cref="Gl.RGBA"/>, <see 
+		/// cref="Gl.BGRA"/>, <see cref="Gl.LUMINANCE"/>, and <see cref="Gl.LUMINANCE_ALPHA"/>.
+		/// </param>
+		/// <param name="type">
+		/// Specifies a pixel type for the returned data. The supported types are <see cref="Gl.UNSIGNED_BYTE"/>, <see 
+		/// cref="Gl.BYTE"/>, <see cref="Gl.UNSIGNED_SHORT"/>, <see cref="Gl.SHORT"/>, <see cref="Gl.UNSIGNED_INT"/>, <see 
+		/// cref="Gl.INT"/>, <see cref="Gl.FLOAT"/>, <see cref="Gl.UNSIGNED_BYTE_3_3_2"/>, <see cref="Gl.UNSIGNED_BYTE_2_3_3_REV"/>, 
+		/// <see cref="Gl.UNSIGNED_SHORT_5_6_5"/>, <see cref="Gl.UNSIGNED_SHORT_5_6_5_REV"/>, <see 
+		/// cref="Gl.UNSIGNED_SHORT_4_4_4_4"/>, <see cref="Gl.UNSIGNED_SHORT_4_4_4_4_REV"/>, <see 
+		/// cref="Gl.UNSIGNED_SHORT_5_5_5_1"/>, <see cref="Gl.UNSIGNED_SHORT_1_5_5_5_REV"/>, <see cref="Gl.UNSIGNED_INT_8_8_8_8"/>, 
+		/// <see cref="Gl.UNSIGNED_INT_8_8_8_8_REV"/>, <see cref="Gl.UNSIGNED_INT_10_10_10_2"/>, and <see 
+		/// cref="Gl.UNSIGNED_INT_2_10_10_10_REV"/>.
+		/// </param>
+		/// <param name="pixels">
+		/// A <see cref="T:Object"/>.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_1_0")]
-		public static void GetTexParameter(int target, int pname, float[] @params)
+		public static void GetTexImage(TextureTarget target, Int32 level, PixelFormat format, PixelType type, Object pixels)
 		{
-			unsafe {
-				fixed (float* p_params = @params)
-				{
-					Debug.Assert(Delegates.pglGetTexParameterfv != null, "pglGetTexParameterfv not implemented");
-					Delegates.pglGetTexParameterfv(target, pname, p_params);
-					CallLog("glGetTexParameterfv({0}, {1}, {2})", target, pname, @params);
-				}
+			GCHandle pin_pixels = GCHandle.Alloc(pixels, GCHandleType.Pinned);
+			try {
+				GetTexImage(target, level, format, type, pin_pixels.AddrOfPinnedObject());
+			} finally {
+				pin_pixels.Free();
 			}
-			DebugCheckErrors();
 		}
 
 		/// <summary>
@@ -2194,41 +1610,6 @@ namespace OpenGL
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_1_0")]
-		public static void GetTexParameter(int target, int pname, Int32[] @params)
-		{
-			unsafe {
-				fixed (Int32* p_params = @params)
-				{
-					Debug.Assert(Delegates.pglGetTexParameteriv != null, "pglGetTexParameteriv not implemented");
-					Delegates.pglGetTexParameteriv(target, pname, p_params);
-					CallLog("glGetTexParameteriv({0}, {1}, {2})", target, pname, @params);
-				}
-			}
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// return texture parameter values
-		/// </summary>
-		/// <param name="target">
-		/// Specifies the target to which the texture is bound for glGetTexParameterfv, glGetTexParameteriv, glGetTexParameterIiv, 
-		/// and glGetTexParameterIuiv functions. GL_TEXTURE_1D, GL_TEXTURE_1D_ARRAY, GL_TEXTURE_2D, GL_TEXTURE_2D_ARRAY, 
-		/// GL_TEXTURE_2D_MULTISAMPLE, GL_TEXTURE_2D_MULTISAMPLE_ARRAY, GL_TEXTURE_3D, GL_TEXTURE_CUBE_MAP, GL_TEXTURE_RECTANGLE, 
-		/// and GL_TEXTURE_CUBE_MAP_ARRAY are accepted.
-		/// </param>
-		/// <param name="pname">
-		/// Specifies the symbolic name of a texture parameter. GL_DEPTH_STENCIL_TEXTURE_MODE, GL_IMAGE_FORMAT_COMPATIBILITY_TYPE, 
-		/// GL_TEXTURE_BASE_LEVEL, GL_TEXTURE_BORDER_COLOR, GL_TEXTURE_COMPARE_MODE, GL_TEXTURE_COMPARE_FUNC, 
-		/// GL_TEXTURE_IMMUTABLE_FORMAT, GL_TEXTURE_IMMUTABLE_LEVELS, GL_TEXTURE_LOD_BIAS, GL_TEXTURE_MAG_FILTER, 
-		/// GL_TEXTURE_MAX_LEVEL, GL_TEXTURE_MAX_LOD, GL_TEXTURE_MIN_FILTER, GL_TEXTURE_MIN_LOD, GL_TEXTURE_SWIZZLE_R, 
-		/// GL_TEXTURE_SWIZZLE_G, GL_TEXTURE_SWIZZLE_B, GL_TEXTURE_SWIZZLE_A, GL_TEXTURE_SWIZZLE_RGBA, GL_TEXTURE_TARGET, 
-		/// GL_TEXTURE_VIEW_MIN_LAYER, GL_TEXTURE_VIEW_MIN_LEVEL, GL_TEXTURE_VIEW_NUM_LAYERS, GL_TEXTURE_VIEW_NUM_LEVELS, 
-		/// GL_TEXTURE_WRAP_S, GL_TEXTURE_WRAP_T, and GL_TEXTURE_WRAP_R are accepted.
-		/// </param>
-		/// <param name="params">
-		/// A <see cref="T:Int32[]"/>.
-		/// </param>
-		[RequiredByFeature("GL_VERSION_1_0")]
 		public static void GetTexParameter(TextureTarget target, GetTextureParameter pname, Int32[] @params)
 		{
 			unsafe {
@@ -2237,46 +1618,6 @@ namespace OpenGL
 					Debug.Assert(Delegates.pglGetTexParameteriv != null, "pglGetTexParameteriv not implemented");
 					Delegates.pglGetTexParameteriv((int)target, (int)pname, p_params);
 					CallLog("glGetTexParameteriv({0}, {1}, {2})", target, pname, @params);
-				}
-			}
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// return texture parameter values for a specific level of detail
-		/// </summary>
-		/// <param name="target">
-		/// Specifies the target to which the texture is bound for glGetTexLevelParameterfv and glGetTexLevelParameteriv functions. 
-		/// Must be one of the following values: GL_TEXTURE_1D, GL_TEXTURE_2D, GL_TEXTURE_3D, GL_TEXTURE_1D_ARRAY, 
-		/// GL_TEXTURE_2D_ARRAY, GL_TEXTURE_RECTANGLE, GL_TEXTURE_2D_MULTISAMPLE, GL_TEXTURE_2D_MULTISAMPLE_ARRAY, 
-		/// GL_TEXTURE_CUBE_MAP_POSITIVE_X, GL_TEXTURE_CUBE_MAP_NEGATIVE_X, GL_TEXTURE_CUBE_MAP_POSITIVE_Y, 
-		/// GL_TEXTURE_CUBE_MAP_NEGATIVE_Y, GL_TEXTURE_CUBE_MAP_POSITIVE_Z, GL_TEXTURE_CUBE_MAP_NEGATIVE_Z, GL_PROXY_TEXTURE_1D, 
-		/// GL_PROXY_TEXTURE_2D, GL_PROXY_TEXTURE_3D, GL_PROXY_TEXTURE_1D_ARRAY, GL_PROXY_TEXTURE_2D_ARRAY, 
-		/// GL_PROXY_TEXTURE_RECTANGLE, GL_PROXY_TEXTURE_2D_MULTISAMPLE, GL_PROXY_TEXTURE_2D_MULTISAMPLE_ARRAY, 
-		/// GL_PROXY_TEXTURE_CUBE_MAP, or GL_TEXTURE_BUFFER.
-		/// </param>
-		/// <param name="level">
-		/// Specifies the level-of-detail number of the desired image. Level 0 is the base image level. Level n is the nth mipmap 
-		/// reduction image.
-		/// </param>
-		/// <param name="pname">
-		/// Specifies the symbolic name of a texture parameter. GL_TEXTURE_WIDTH, GL_TEXTURE_HEIGHT, GL_TEXTURE_DEPTH, 
-		/// GL_TEXTURE_INTERNAL_FORMAT, GL_TEXTURE_RED_SIZE, GL_TEXTURE_GREEN_SIZE, GL_TEXTURE_BLUE_SIZE, GL_TEXTURE_ALPHA_SIZE, 
-		/// GL_TEXTURE_DEPTH_SIZE, GL_TEXTURE_COMPRESSED, GL_TEXTURE_COMPRESSED_IMAGE_SIZE, and GL_TEXTURE_BUFFER_OFFSET are 
-		/// accepted.
-		/// </param>
-		/// <param name="params">
-		/// A <see cref="T:float[]"/>.
-		/// </param>
-		[RequiredByFeature("GL_VERSION_1_0")]
-		public static void GetTexLevelParameter(int target, Int32 level, int pname, float[] @params)
-		{
-			unsafe {
-				fixed (float* p_params = @params)
-				{
-					Debug.Assert(Delegates.pglGetTexLevelParameterfv != null, "pglGetTexLevelParameterfv not implemented");
-					Delegates.pglGetTexLevelParameterfv(target, level, pname, p_params);
-					CallLog("glGetTexLevelParameterfv({0}, {1}, {2}, {3})", target, level, pname, @params);
 				}
 			}
 			DebugCheckErrors();
@@ -2349,46 +1690,6 @@ namespace OpenGL
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_1_0")]
-		public static void GetTexLevelParameter(int target, Int32 level, int pname, Int32[] @params)
-		{
-			unsafe {
-				fixed (Int32* p_params = @params)
-				{
-					Debug.Assert(Delegates.pglGetTexLevelParameteriv != null, "pglGetTexLevelParameteriv not implemented");
-					Delegates.pglGetTexLevelParameteriv(target, level, pname, p_params);
-					CallLog("glGetTexLevelParameteriv({0}, {1}, {2}, {3})", target, level, pname, @params);
-				}
-			}
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// return texture parameter values for a specific level of detail
-		/// </summary>
-		/// <param name="target">
-		/// Specifies the target to which the texture is bound for glGetTexLevelParameterfv and glGetTexLevelParameteriv functions. 
-		/// Must be one of the following values: GL_TEXTURE_1D, GL_TEXTURE_2D, GL_TEXTURE_3D, GL_TEXTURE_1D_ARRAY, 
-		/// GL_TEXTURE_2D_ARRAY, GL_TEXTURE_RECTANGLE, GL_TEXTURE_2D_MULTISAMPLE, GL_TEXTURE_2D_MULTISAMPLE_ARRAY, 
-		/// GL_TEXTURE_CUBE_MAP_POSITIVE_X, GL_TEXTURE_CUBE_MAP_NEGATIVE_X, GL_TEXTURE_CUBE_MAP_POSITIVE_Y, 
-		/// GL_TEXTURE_CUBE_MAP_NEGATIVE_Y, GL_TEXTURE_CUBE_MAP_POSITIVE_Z, GL_TEXTURE_CUBE_MAP_NEGATIVE_Z, GL_PROXY_TEXTURE_1D, 
-		/// GL_PROXY_TEXTURE_2D, GL_PROXY_TEXTURE_3D, GL_PROXY_TEXTURE_1D_ARRAY, GL_PROXY_TEXTURE_2D_ARRAY, 
-		/// GL_PROXY_TEXTURE_RECTANGLE, GL_PROXY_TEXTURE_2D_MULTISAMPLE, GL_PROXY_TEXTURE_2D_MULTISAMPLE_ARRAY, 
-		/// GL_PROXY_TEXTURE_CUBE_MAP, or GL_TEXTURE_BUFFER.
-		/// </param>
-		/// <param name="level">
-		/// Specifies the level-of-detail number of the desired image. Level 0 is the base image level. Level n is the nth mipmap 
-		/// reduction image.
-		/// </param>
-		/// <param name="pname">
-		/// Specifies the symbolic name of a texture parameter. GL_TEXTURE_WIDTH, GL_TEXTURE_HEIGHT, GL_TEXTURE_DEPTH, 
-		/// GL_TEXTURE_INTERNAL_FORMAT, GL_TEXTURE_RED_SIZE, GL_TEXTURE_GREEN_SIZE, GL_TEXTURE_BLUE_SIZE, GL_TEXTURE_ALPHA_SIZE, 
-		/// GL_TEXTURE_DEPTH_SIZE, GL_TEXTURE_COMPRESSED, GL_TEXTURE_COMPRESSED_IMAGE_SIZE, and GL_TEXTURE_BUFFER_OFFSET are 
-		/// accepted.
-		/// </param>
-		/// <param name="params">
-		/// A <see cref="T:Int32[]"/>.
-		/// </param>
-		[RequiredByFeature("GL_VERSION_1_0")]
 		public static void GetTexLevelParameter(TextureTarget target, Int32 level, GetTextureParameter pname, Int32[] @params)
 		{
 			unsafe {
@@ -2400,25 +1701,6 @@ namespace OpenGL
 				}
 			}
 			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// test whether a capability is enabled
-		/// </summary>
-		/// <param name="cap">
-		/// Specifies a symbolic constant indicating a GL capability.
-		/// </param>
-		[RequiredByFeature("GL_VERSION_1_0")]
-		public static bool IsEnabled(int cap)
-		{
-			bool retValue;
-
-			Debug.Assert(Delegates.pglIsEnabled != null, "pglIsEnabled not implemented");
-			retValue = Delegates.pglIsEnabled(cap);
-			CallLog("glIsEnabled({0}) = {1}", cap, retValue);
-			DebugCheckErrors();
-
-			return (retValue);
 		}
 
 		/// <summary>
@@ -2495,25 +1777,6 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2")]
-		public static void NewList(UInt32 list, int mode)
-		{
-			Debug.Assert(Delegates.pglNewList != null, "pglNewList not implemented");
-			Delegates.pglNewList(list, mode);
-			CallLog("glNewList({0}, {1})", list, mode);
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// create or replace a display list
-		/// </summary>
-		/// <param name="list">
-		/// Specifies the display-list name.
-		/// </param>
-		/// <param name="mode">
-		/// Specifies the compilation mode, which can be <see cref="Gl.COMPILE"/> or <see cref="Gl.COMPILE_AND_EXECUTE"/>.
-		/// </param>
-		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void NewList(UInt32 list, ListMode mode)
 		{
 			Debug.Assert(Delegates.pglNewList != null, "pglNewList not implemented");
@@ -2548,32 +1811,6 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglCallList != null, "pglCallList not implemented");
 			Delegates.pglCallList(list);
 			CallLog("glCallList({0})", list);
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// execute a list of display lists
-		/// </summary>
-		/// <param name="n">
-		/// Specifies the number of display lists to be executed.
-		/// </param>
-		/// <param name="type">
-		/// Specifies the type of values in <paramref name="lists"/>. Symbolic constants <see cref="Gl.BYTE"/>, <see 
-		/// cref="Gl.UNSIGNED_BYTE"/>, <see cref="Gl.SHORT"/>, <see cref="Gl.UNSIGNED_SHORT"/>, <see cref="Gl.INT"/>, <see 
-		/// cref="Gl.UNSIGNED_INT"/>, <see cref="Gl.FLOAT"/>, <see cref="Gl.2_BYTES"/>, <see cref="Gl.3_BYTES"/>, and <see 
-		/// cref="Gl.4_BYTES"/> are accepted.
-		/// </param>
-		/// <param name="lists">
-		/// Specifies the address of an array of name offsets in the display list. The pointer type is void because the offsets can 
-		/// be bytes, shorts, ints, or floats, depending on the value of <paramref name="type"/>.
-		/// </param>
-		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
-		public static void CallLists(Int32 n, int type, IntPtr lists)
-		{
-			Debug.Assert(Delegates.pglCallLists != null, "pglCallLists not implemented");
-			Delegates.pglCallLists(n, type, lists);
-			CallLog("glCallLists({0}, {1}, {2})", n, type, lists);
 			DebugCheckErrors();
 		}
 
@@ -2711,25 +1948,6 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglListBase != null, "pglListBase not implemented");
 			Delegates.pglListBase(@base);
 			CallLog("glListBase({0})", @base);
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// delimit the vertices of a primitive or a group of like primitives
-		/// </summary>
-		/// <param name="mode">
-		/// Specifies the primitive or primitives that will be created from vertices presented between <see cref="Gl.Begin"/> and 
-		/// the subsequent Gl\.End. Ten symbolic constants are accepted: <see cref="Gl.POINTS"/>, <see cref="Gl.LINES"/>, <see 
-		/// cref="Gl.LINE_STRIP"/>, <see cref="Gl.LINE_LOOP"/>, <see cref="Gl.TRIANGLES"/>, <see cref="Gl.TRIANGLE_STRIP"/>, <see 
-		/// cref="Gl.TRIANGLE_FAN"/>, <see cref="Gl.QUADS"/>, <see cref="Gl.QUAD_STRIP"/>, and <see cref="Gl.POLYGON"/>.
-		/// </param>
-		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
-		public static void Begin(int mode)
-		{
-			Debug.Assert(Delegates.pglBegin != null, "pglBegin not implemented");
-			Delegates.pglBegin(mode);
-			CallLog("glBegin({0})", mode);
 			DebugCheckErrors();
 		}
 
@@ -5844,32 +5062,6 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2")]
-		public static void ClipPlane(int plane, double[] equation)
-		{
-			unsafe {
-				fixed (double* p_equation = equation)
-				{
-					Debug.Assert(Delegates.pglClipPlane != null, "pglClipPlane not implemented");
-					Delegates.pglClipPlane(plane, p_equation);
-					CallLog("glClipPlane({0}, {1})", plane, equation);
-				}
-			}
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// specify a plane against which all geometry is clipped
-		/// </summary>
-		/// <param name="plane">
-		/// Specifies which clipping plane is being positioned. Symbolic names of the form <see cref="Gl.CLIP_PLANE"/>i, where i is 
-		/// an integer between 0 and <see cref="Gl.MAX_CLIP_PLANES"/>-1, are accepted.
-		/// </param>
-		/// <param name="equation">
-		/// Specifies the address of an array of four double-precision floating-point values. These values are interpreted as a 
-		/// plane equation.
-		/// </param>
-		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void ClipPlane(ClipPlaneName plane, double[] equation)
 		{
 			unsafe {
@@ -5880,29 +5072,6 @@ namespace OpenGL
 					CallLog("glClipPlane({0}, {1})", plane, equation);
 				}
 			}
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// cause a material color to track the current color
-		/// </summary>
-		/// <param name="face">
-		/// Specifies whether front, back, or both front and back material parameters should track the current color. Accepted 
-		/// values are <see cref="Gl.FRONT"/>, <see cref="Gl.BACK"/>, and <see cref="Gl.FRONT_AND_BACK"/>. The initial value is <see 
-		/// cref="Gl.FRONT_AND_BACK"/>.
-		/// </param>
-		/// <param name="mode">
-		/// Specifies which of several material parameters track the current color. Accepted values are <see cref="Gl.EMISSION"/>, 
-		/// <see cref="Gl.AMBIENT"/>, <see cref="Gl.DIFFUSE"/>, <see cref="Gl.SPECULAR"/>, and <see cref="Gl.AMBIENT_AND_DIFFUSE"/>. 
-		/// The initial value is <see cref="Gl.AMBIENT_AND_DIFFUSE"/>.
-		/// </param>
-		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
-		public static void ColorMaterial(int face, int mode)
-		{
-			Debug.Assert(Delegates.pglColorMaterial != null, "pglColorMaterial not implemented");
-			Delegates.pglColorMaterial(face, mode);
-			CallLog("glColorMaterial({0}, {1})", face, mode);
 			DebugCheckErrors();
 		}
 
@@ -5942,58 +5111,11 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2")]
-		public static void Fog(int pname, float param)
-		{
-			Debug.Assert(Delegates.pglFogf != null, "pglFogf not implemented");
-			Delegates.pglFogf(pname, param);
-			CallLog("glFogf({0}, {1})", pname, param);
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// specify fog parameters
-		/// </summary>
-		/// <param name="pname">
-		/// Specifies a single-valued fog parameter. <see cref="Gl.FOG_MODE"/>, <see cref="Gl.FOG_DENSITY"/>, <see 
-		/// cref="Gl.FOG_START"/>, <see cref="Gl.FOG_END"/>, <see cref="Gl.FOG_INDEX"/>, and <see cref="Gl.FOG_COORD_SRC"/> are 
-		/// accepted.
-		/// </param>
-		/// <param name="param">
-		/// Specifies the value that <paramref name="pname"/> will be set to.
-		/// </param>
-		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void Fog(FogParameter pname, float param)
 		{
 			Debug.Assert(Delegates.pglFogf != null, "pglFogf not implemented");
 			Delegates.pglFogf((int)pname, param);
 			CallLog("glFogf({0}, {1})", pname, param);
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// specify fog parameters
-		/// </summary>
-		/// <param name="pname">
-		/// Specifies a single-valued fog parameter. <see cref="Gl.FOG_MODE"/>, <see cref="Gl.FOG_DENSITY"/>, <see 
-		/// cref="Gl.FOG_START"/>, <see cref="Gl.FOG_END"/>, <see cref="Gl.FOG_INDEX"/>, and <see cref="Gl.FOG_COORD_SRC"/> are 
-		/// accepted.
-		/// </param>
-		/// <param name="params">
-		/// A <see cref="T:float[]"/>.
-		/// </param>
-		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
-		public static void Fog(int pname, float[] @params)
-		{
-			unsafe {
-				fixed (float* p_params = @params)
-				{
-					Debug.Assert(Delegates.pglFogfv != null, "pglFogfv not implemented");
-					Delegates.pglFogfv(pname, p_params);
-					CallLog("glFogfv({0}, {1})", pname, @params);
-				}
-			}
 			DebugCheckErrors();
 		}
 
@@ -6036,58 +5158,11 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2")]
-		public static void Fog(int pname, Int32 param)
-		{
-			Debug.Assert(Delegates.pglFogi != null, "pglFogi not implemented");
-			Delegates.pglFogi(pname, param);
-			CallLog("glFogi({0}, {1})", pname, param);
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// specify fog parameters
-		/// </summary>
-		/// <param name="pname">
-		/// Specifies a single-valued fog parameter. <see cref="Gl.FOG_MODE"/>, <see cref="Gl.FOG_DENSITY"/>, <see 
-		/// cref="Gl.FOG_START"/>, <see cref="Gl.FOG_END"/>, <see cref="Gl.FOG_INDEX"/>, and <see cref="Gl.FOG_COORD_SRC"/> are 
-		/// accepted.
-		/// </param>
-		/// <param name="param">
-		/// Specifies the value that <paramref name="pname"/> will be set to.
-		/// </param>
-		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void Fog(FogParameter pname, Int32 param)
 		{
 			Debug.Assert(Delegates.pglFogi != null, "pglFogi not implemented");
 			Delegates.pglFogi((int)pname, param);
 			CallLog("glFogi({0}, {1})", pname, param);
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// specify fog parameters
-		/// </summary>
-		/// <param name="pname">
-		/// Specifies a single-valued fog parameter. <see cref="Gl.FOG_MODE"/>, <see cref="Gl.FOG_DENSITY"/>, <see 
-		/// cref="Gl.FOG_START"/>, <see cref="Gl.FOG_END"/>, <see cref="Gl.FOG_INDEX"/>, and <see cref="Gl.FOG_COORD_SRC"/> are 
-		/// accepted.
-		/// </param>
-		/// <param name="params">
-		/// A <see cref="T:Int32[]"/>.
-		/// </param>
-		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
-		public static void Fog(int pname, Int32[] @params)
-		{
-			unsafe {
-				fixed (Int32* p_params = @params)
-				{
-					Debug.Assert(Delegates.pglFogiv != null, "pglFogiv not implemented");
-					Delegates.pglFogiv(pname, p_params);
-					CallLog("glFogiv({0}, {1})", pname, @params);
-				}
-			}
 			DebugCheckErrors();
 		}
 
@@ -6135,68 +5210,11 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2")]
-		public static void Light(int light, int pname, float param)
-		{
-			Debug.Assert(Delegates.pglLightf != null, "pglLightf not implemented");
-			Delegates.pglLightf(light, pname, param);
-			CallLog("glLightf({0}, {1}, {2})", light, pname, param);
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// set light source parameters
-		/// </summary>
-		/// <param name="light">
-		/// Specifies a light. The number of lights depends on the implementation, but at least eight lights are supported. They are 
-		/// identified by symbolic names of the form <see cref="Gl.LIGHT"/>i, where i ranges from 0 to the value of <see 
-		/// cref="Gl.MAX_LIGHTS"/> - 1.
-		/// </param>
-		/// <param name="pname">
-		/// Specifies a single-valued light source parameter for <paramref name="light"/>. <see cref="Gl.SPOT_EXPONENT"/>, <see 
-		/// cref="Gl.SPOT_CUTOFF"/>, <see cref="Gl.CONSTANT_ATTENUATION"/>, <see cref="Gl.LINEAR_ATTENUATION"/>, and <see 
-		/// cref="Gl.QUADRATIC_ATTENUATION"/> are accepted.
-		/// </param>
-		/// <param name="param">
-		/// Specifies the value that parameter <paramref name="pname"/> of light source <paramref name="light"/> will be set to.
-		/// </param>
-		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void Light(LightName light, LightParameter pname, float param)
 		{
 			Debug.Assert(Delegates.pglLightf != null, "pglLightf not implemented");
 			Delegates.pglLightf((int)light, (int)pname, param);
 			CallLog("glLightf({0}, {1}, {2})", light, pname, param);
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// set light source parameters
-		/// </summary>
-		/// <param name="light">
-		/// Specifies a light. The number of lights depends on the implementation, but at least eight lights are supported. They are 
-		/// identified by symbolic names of the form <see cref="Gl.LIGHT"/>i, where i ranges from 0 to the value of <see 
-		/// cref="Gl.MAX_LIGHTS"/> - 1.
-		/// </param>
-		/// <param name="pname">
-		/// Specifies a single-valued light source parameter for <paramref name="light"/>. <see cref="Gl.SPOT_EXPONENT"/>, <see 
-		/// cref="Gl.SPOT_CUTOFF"/>, <see cref="Gl.CONSTANT_ATTENUATION"/>, <see cref="Gl.LINEAR_ATTENUATION"/>, and <see 
-		/// cref="Gl.QUADRATIC_ATTENUATION"/> are accepted.
-		/// </param>
-		/// <param name="params">
-		/// A <see cref="T:float[]"/>.
-		/// </param>
-		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
-		public static void Light(int light, int pname, float[] @params)
-		{
-			unsafe {
-				fixed (float* p_params = @params)
-				{
-					Debug.Assert(Delegates.pglLightfv != null, "pglLightfv not implemented");
-					Delegates.pglLightfv(light, pname, p_params);
-					CallLog("glLightfv({0}, {1}, {2})", light, pname, @params);
-				}
-			}
 			DebugCheckErrors();
 		}
 
@@ -6249,68 +5267,11 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2")]
-		public static void Light(int light, int pname, Int32 param)
-		{
-			Debug.Assert(Delegates.pglLighti != null, "pglLighti not implemented");
-			Delegates.pglLighti(light, pname, param);
-			CallLog("glLighti({0}, {1}, {2})", light, pname, param);
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// set light source parameters
-		/// </summary>
-		/// <param name="light">
-		/// Specifies a light. The number of lights depends on the implementation, but at least eight lights are supported. They are 
-		/// identified by symbolic names of the form <see cref="Gl.LIGHT"/>i, where i ranges from 0 to the value of <see 
-		/// cref="Gl.MAX_LIGHTS"/> - 1.
-		/// </param>
-		/// <param name="pname">
-		/// Specifies a single-valued light source parameter for <paramref name="light"/>. <see cref="Gl.SPOT_EXPONENT"/>, <see 
-		/// cref="Gl.SPOT_CUTOFF"/>, <see cref="Gl.CONSTANT_ATTENUATION"/>, <see cref="Gl.LINEAR_ATTENUATION"/>, and <see 
-		/// cref="Gl.QUADRATIC_ATTENUATION"/> are accepted.
-		/// </param>
-		/// <param name="param">
-		/// Specifies the value that parameter <paramref name="pname"/> of light source <paramref name="light"/> will be set to.
-		/// </param>
-		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void Light(LightName light, LightParameter pname, Int32 param)
 		{
 			Debug.Assert(Delegates.pglLighti != null, "pglLighti not implemented");
 			Delegates.pglLighti((int)light, (int)pname, param);
 			CallLog("glLighti({0}, {1}, {2})", light, pname, param);
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// set light source parameters
-		/// </summary>
-		/// <param name="light">
-		/// Specifies a light. The number of lights depends on the implementation, but at least eight lights are supported. They are 
-		/// identified by symbolic names of the form <see cref="Gl.LIGHT"/>i, where i ranges from 0 to the value of <see 
-		/// cref="Gl.MAX_LIGHTS"/> - 1.
-		/// </param>
-		/// <param name="pname">
-		/// Specifies a single-valued light source parameter for <paramref name="light"/>. <see cref="Gl.SPOT_EXPONENT"/>, <see 
-		/// cref="Gl.SPOT_CUTOFF"/>, <see cref="Gl.CONSTANT_ATTENUATION"/>, <see cref="Gl.LINEAR_ATTENUATION"/>, and <see 
-		/// cref="Gl.QUADRATIC_ATTENUATION"/> are accepted.
-		/// </param>
-		/// <param name="params">
-		/// A <see cref="T:Int32[]"/>.
-		/// </param>
-		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
-		public static void Light(int light, int pname, Int32[] @params)
-		{
-			unsafe {
-				fixed (Int32* p_params = @params)
-				{
-					Debug.Assert(Delegates.pglLightiv != null, "pglLightiv not implemented");
-					Delegates.pglLightiv(light, pname, p_params);
-					CallLog("glLightiv({0}, {1}, {2})", light, pname, @params);
-				}
-			}
 			DebugCheckErrors();
 		}
 
@@ -6357,56 +5318,11 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2")]
-		public static void LightModel(int pname, float param)
-		{
-			Debug.Assert(Delegates.pglLightModelf != null, "pglLightModelf not implemented");
-			Delegates.pglLightModelf(pname, param);
-			CallLog("glLightModelf({0}, {1})", pname, param);
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// set the lighting model parameters
-		/// </summary>
-		/// <param name="pname">
-		/// Specifies a single-valued lighting model parameter. <see cref="Gl.LIGHT_MODEL_LOCAL_VIEWER"/>, <see 
-		/// cref="Gl.LIGHT_MODEL_COLOR_CONTROL"/>, and <see cref="Gl.LIGHT_MODEL_TWO_SIDE"/> are accepted.
-		/// </param>
-		/// <param name="param">
-		/// Specifies the value that <paramref name="param"/> will be set to.
-		/// </param>
-		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void LightModel(LightModelParameter pname, float param)
 		{
 			Debug.Assert(Delegates.pglLightModelf != null, "pglLightModelf not implemented");
 			Delegates.pglLightModelf((int)pname, param);
 			CallLog("glLightModelf({0}, {1})", pname, param);
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// set the lighting model parameters
-		/// </summary>
-		/// <param name="pname">
-		/// Specifies a single-valued lighting model parameter. <see cref="Gl.LIGHT_MODEL_LOCAL_VIEWER"/>, <see 
-		/// cref="Gl.LIGHT_MODEL_COLOR_CONTROL"/>, and <see cref="Gl.LIGHT_MODEL_TWO_SIDE"/> are accepted.
-		/// </param>
-		/// <param name="params">
-		/// A <see cref="T:float[]"/>.
-		/// </param>
-		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
-		public static void LightModel(int pname, float[] @params)
-		{
-			unsafe {
-				fixed (float* p_params = @params)
-				{
-					Debug.Assert(Delegates.pglLightModelfv != null, "pglLightModelfv not implemented");
-					Delegates.pglLightModelfv(pname, p_params);
-					CallLog("glLightModelfv({0}, {1})", pname, @params);
-				}
-			}
 			DebugCheckErrors();
 		}
 
@@ -6447,56 +5363,11 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2")]
-		public static void LightModel(int pname, Int32 param)
-		{
-			Debug.Assert(Delegates.pglLightModeli != null, "pglLightModeli not implemented");
-			Delegates.pglLightModeli(pname, param);
-			CallLog("glLightModeli({0}, {1})", pname, param);
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// set the lighting model parameters
-		/// </summary>
-		/// <param name="pname">
-		/// Specifies a single-valued lighting model parameter. <see cref="Gl.LIGHT_MODEL_LOCAL_VIEWER"/>, <see 
-		/// cref="Gl.LIGHT_MODEL_COLOR_CONTROL"/>, and <see cref="Gl.LIGHT_MODEL_TWO_SIDE"/> are accepted.
-		/// </param>
-		/// <param name="param">
-		/// Specifies the value that <paramref name="param"/> will be set to.
-		/// </param>
-		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void LightModel(LightModelParameter pname, Int32 param)
 		{
 			Debug.Assert(Delegates.pglLightModeli != null, "pglLightModeli not implemented");
 			Delegates.pglLightModeli((int)pname, param);
 			CallLog("glLightModeli({0}, {1})", pname, param);
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// set the lighting model parameters
-		/// </summary>
-		/// <param name="pname">
-		/// Specifies a single-valued lighting model parameter. <see cref="Gl.LIGHT_MODEL_LOCAL_VIEWER"/>, <see 
-		/// cref="Gl.LIGHT_MODEL_COLOR_CONTROL"/>, and <see cref="Gl.LIGHT_MODEL_TWO_SIDE"/> are accepted.
-		/// </param>
-		/// <param name="params">
-		/// A <see cref="T:Int32[]"/>.
-		/// </param>
-		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
-		public static void LightModel(int pname, Int32[] @params)
-		{
-			unsafe {
-				fixed (Int32* p_params = @params)
-				{
-					Debug.Assert(Delegates.pglLightModeliv != null, "pglLightModeliv not implemented");
-					Delegates.pglLightModeliv(pname, p_params);
-					CallLog("glLightModeliv({0}, {1})", pname, @params);
-				}
-			}
 			DebugCheckErrors();
 		}
 
@@ -6563,64 +5434,11 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2")]
-		public static void Material(int face, int pname, float param)
-		{
-			Debug.Assert(Delegates.pglMaterialf != null, "pglMaterialf not implemented");
-			Delegates.pglMaterialf(face, pname, param);
-			CallLog("glMaterialf({0}, {1}, {2})", face, pname, param);
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// specify material parameters for the lighting model
-		/// </summary>
-		/// <param name="face">
-		/// Specifies which face or faces are being updated. Must be one of <see cref="Gl.FRONT"/>, <see cref="Gl.BACK"/>, or <see 
-		/// cref="Gl.FRONT_AND_BACK"/>.
-		/// </param>
-		/// <param name="pname">
-		/// Specifies the single-valued material parameter of the face or faces that is being updated. Must be <see 
-		/// cref="Gl.SHININESS"/>.
-		/// </param>
-		/// <param name="param">
-		/// Specifies the value that parameter <see cref="Gl.SHININESS"/> will be set to.
-		/// </param>
-		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void Material(MaterialFace face, MaterialParameter pname, float param)
 		{
 			Debug.Assert(Delegates.pglMaterialf != null, "pglMaterialf not implemented");
 			Delegates.pglMaterialf((int)face, (int)pname, param);
 			CallLog("glMaterialf({0}, {1}, {2})", face, pname, param);
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// specify material parameters for the lighting model
-		/// </summary>
-		/// <param name="face">
-		/// Specifies which face or faces are being updated. Must be one of <see cref="Gl.FRONT"/>, <see cref="Gl.BACK"/>, or <see 
-		/// cref="Gl.FRONT_AND_BACK"/>.
-		/// </param>
-		/// <param name="pname">
-		/// Specifies the single-valued material parameter of the face or faces that is being updated. Must be <see 
-		/// cref="Gl.SHININESS"/>.
-		/// </param>
-		/// <param name="params">
-		/// A <see cref="T:float[]"/>.
-		/// </param>
-		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
-		public static void Material(int face, int pname, float[] @params)
-		{
-			unsafe {
-				fixed (float* p_params = @params)
-				{
-					Debug.Assert(Delegates.pglMaterialfv != null, "pglMaterialfv not implemented");
-					Delegates.pglMaterialfv(face, pname, p_params);
-					CallLog("glMaterialfv({0}, {1}, {2})", face, pname, @params);
-				}
-			}
 			DebugCheckErrors();
 		}
 
@@ -6669,64 +5487,11 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2")]
-		public static void Material(int face, int pname, Int32 param)
-		{
-			Debug.Assert(Delegates.pglMateriali != null, "pglMateriali not implemented");
-			Delegates.pglMateriali(face, pname, param);
-			CallLog("glMateriali({0}, {1}, {2})", face, pname, param);
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// specify material parameters for the lighting model
-		/// </summary>
-		/// <param name="face">
-		/// Specifies which face or faces are being updated. Must be one of <see cref="Gl.FRONT"/>, <see cref="Gl.BACK"/>, or <see 
-		/// cref="Gl.FRONT_AND_BACK"/>.
-		/// </param>
-		/// <param name="pname">
-		/// Specifies the single-valued material parameter of the face or faces that is being updated. Must be <see 
-		/// cref="Gl.SHININESS"/>.
-		/// </param>
-		/// <param name="param">
-		/// Specifies the value that parameter <see cref="Gl.SHININESS"/> will be set to.
-		/// </param>
-		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void Material(MaterialFace face, MaterialParameter pname, Int32 param)
 		{
 			Debug.Assert(Delegates.pglMateriali != null, "pglMateriali not implemented");
 			Delegates.pglMateriali((int)face, (int)pname, param);
 			CallLog("glMateriali({0}, {1}, {2})", face, pname, param);
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// specify material parameters for the lighting model
-		/// </summary>
-		/// <param name="face">
-		/// Specifies which face or faces are being updated. Must be one of <see cref="Gl.FRONT"/>, <see cref="Gl.BACK"/>, or <see 
-		/// cref="Gl.FRONT_AND_BACK"/>.
-		/// </param>
-		/// <param name="pname">
-		/// Specifies the single-valued material parameter of the face or faces that is being updated. Must be <see 
-		/// cref="Gl.SHININESS"/>.
-		/// </param>
-		/// <param name="params">
-		/// A <see cref="T:Int32[]"/>.
-		/// </param>
-		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
-		public static void Material(int face, int pname, Int32[] @params)
-		{
-			unsafe {
-				fixed (Int32* p_params = @params)
-				{
-					Debug.Assert(Delegates.pglMaterialiv != null, "pglMaterialiv not implemented");
-					Delegates.pglMaterialiv(face, pname, p_params);
-					CallLog("glMaterialiv({0}, {1}, {2})", face, pname, @params);
-				}
-			}
 			DebugCheckErrors();
 		}
 
@@ -6789,23 +5554,6 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2")]
-		public static void ShadeModel(int mode)
-		{
-			Debug.Assert(Delegates.pglShadeModel != null, "pglShadeModel not implemented");
-			Delegates.pglShadeModel(mode);
-			CallLog("glShadeModel({0})", mode);
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// select flat or smooth shading
-		/// </summary>
-		/// <param name="mode">
-		/// Specifies a symbolic value representing a shading technique. Accepted values are <see cref="Gl.FLAT"/> and <see 
-		/// cref="Gl.SMOOTH"/>. The initial value is <see cref="Gl.SMOOTH"/>.
-		/// </param>
-		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void ShadeModel(ShadingModel mode)
 		{
 			Debug.Assert(Delegates.pglShadeModel != null, "pglShadeModel not implemented");
@@ -6841,80 +5589,11 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2")]
-		public static void TexEnv(int target, int pname, float param)
-		{
-			Debug.Assert(Delegates.pglTexEnvf != null, "pglTexEnvf not implemented");
-			Delegates.pglTexEnvf(target, pname, param);
-			CallLog("glTexEnvf({0}, {1}, {2})", target, pname, param);
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// set texture environment parameters
-		/// </summary>
-		/// <param name="target">
-		/// Specifies a texture environment. May be <see cref="Gl.TEXTURE_ENV"/>, <see cref="Gl.TEXTURE_FILTER_CONTROL"/> or <see 
-		/// cref="Gl.POINT_SPRITE"/>.
-		/// </param>
-		/// <param name="pname">
-		/// Specifies the symbolic name of a single-valued texture environment parameter. May be either <see 
-		/// cref="Gl.TEXTURE_ENV_MODE"/>, <see cref="Gl.TEXTURE_LOD_BIAS"/>, <see cref="Gl.COMBINE_RGB"/>, <see 
-		/// cref="Gl.COMBINE_ALPHA"/>, <see cref="Gl.SRC0_RGB"/>, <see cref="Gl.SRC1_RGB"/>, <see cref="Gl.SRC2_RGB"/>, <see 
-		/// cref="Gl.SRC0_ALPHA"/>, <see cref="Gl.SRC1_ALPHA"/>, <see cref="Gl.SRC2_ALPHA"/>, <see cref="Gl.OPERAND0_RGB"/>, <see 
-		/// cref="Gl.OPERAND1_RGB"/>, <see cref="Gl.OPERAND2_RGB"/>, <see cref="Gl.OPERAND0_ALPHA"/>, <see 
-		/// cref="Gl.OPERAND1_ALPHA"/>, <see cref="Gl.OPERAND2_ALPHA"/>, <see cref="Gl.RGB_SCALE"/>, <see cref="Gl.ALPHA_SCALE"/>, 
-		/// or <see cref="Gl.COORD_REPLACE"/>.
-		/// </param>
-		/// <param name="param">
-		/// Specifies a single symbolic constant, one of <see cref="Gl.ADD"/>, <see cref="Gl.ADD_SIGNED"/>, <see 
-		/// cref="Gl.INTERPOLATE"/>, <see cref="Gl.MODULATE"/>, <see cref="Gl.DECAL"/>, <see cref="Gl.BLEND"/>, <see 
-		/// cref="Gl.REPLACE"/>, <see cref="Gl.SUBTRACT"/>, <see cref="Gl.COMBINE"/>, <see cref="Gl.TEXTURE"/>, <see 
-		/// cref="Gl.CONSTANT"/>, <see cref="Gl.PRIMARY_COLOR"/>, <see cref="Gl.PREVIOUS"/>, <see cref="Gl.SRC_COLOR"/>, <see 
-		/// cref="Gl.ONE_MINUS_SRC_COLOR"/>, <see cref="Gl.SRC_ALPHA"/>, <see cref="Gl.ONE_MINUS_SRC_ALPHA"/>, a single boolean 
-		/// value for the point sprite texture coordinate replacement, a single floating-point value for the texture level-of-detail 
-		/// bias, or 1.0, 2.0, or 4.0 when specifying the <see cref="Gl.RGB_SCALE"/> or <see cref="Gl.ALPHA_SCALE"/>.
-		/// </param>
-		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void TexEnv(TextureEnvTarget target, TextureEnvParameter pname, float param)
 		{
 			Debug.Assert(Delegates.pglTexEnvf != null, "pglTexEnvf not implemented");
 			Delegates.pglTexEnvf((int)target, (int)pname, param);
 			CallLog("glTexEnvf({0}, {1}, {2})", target, pname, param);
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// set texture environment parameters
-		/// </summary>
-		/// <param name="target">
-		/// Specifies a texture environment. May be <see cref="Gl.TEXTURE_ENV"/>, <see cref="Gl.TEXTURE_FILTER_CONTROL"/> or <see 
-		/// cref="Gl.POINT_SPRITE"/>.
-		/// </param>
-		/// <param name="pname">
-		/// Specifies the symbolic name of a single-valued texture environment parameter. May be either <see 
-		/// cref="Gl.TEXTURE_ENV_MODE"/>, <see cref="Gl.TEXTURE_LOD_BIAS"/>, <see cref="Gl.COMBINE_RGB"/>, <see 
-		/// cref="Gl.COMBINE_ALPHA"/>, <see cref="Gl.SRC0_RGB"/>, <see cref="Gl.SRC1_RGB"/>, <see cref="Gl.SRC2_RGB"/>, <see 
-		/// cref="Gl.SRC0_ALPHA"/>, <see cref="Gl.SRC1_ALPHA"/>, <see cref="Gl.SRC2_ALPHA"/>, <see cref="Gl.OPERAND0_RGB"/>, <see 
-		/// cref="Gl.OPERAND1_RGB"/>, <see cref="Gl.OPERAND2_RGB"/>, <see cref="Gl.OPERAND0_ALPHA"/>, <see 
-		/// cref="Gl.OPERAND1_ALPHA"/>, <see cref="Gl.OPERAND2_ALPHA"/>, <see cref="Gl.RGB_SCALE"/>, <see cref="Gl.ALPHA_SCALE"/>, 
-		/// or <see cref="Gl.COORD_REPLACE"/>.
-		/// </param>
-		/// <param name="params">
-		/// A <see cref="T:float[]"/>.
-		/// </param>
-		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
-		public static void TexEnv(int target, int pname, float[] @params)
-		{
-			unsafe {
-				fixed (float* p_params = @params)
-				{
-					Debug.Assert(Delegates.pglTexEnvfv != null, "pglTexEnvfv not implemented");
-					Delegates.pglTexEnvfv(target, pname, p_params);
-					CallLog("glTexEnvfv({0}, {1}, {2})", target, pname, @params);
-				}
-			}
 			DebugCheckErrors();
 		}
 
@@ -6979,80 +5658,11 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2")]
-		public static void TexEnv(int target, int pname, Int32 param)
-		{
-			Debug.Assert(Delegates.pglTexEnvi != null, "pglTexEnvi not implemented");
-			Delegates.pglTexEnvi(target, pname, param);
-			CallLog("glTexEnvi({0}, {1}, {2})", target, pname, param);
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// set texture environment parameters
-		/// </summary>
-		/// <param name="target">
-		/// Specifies a texture environment. May be <see cref="Gl.TEXTURE_ENV"/>, <see cref="Gl.TEXTURE_FILTER_CONTROL"/> or <see 
-		/// cref="Gl.POINT_SPRITE"/>.
-		/// </param>
-		/// <param name="pname">
-		/// Specifies the symbolic name of a single-valued texture environment parameter. May be either <see 
-		/// cref="Gl.TEXTURE_ENV_MODE"/>, <see cref="Gl.TEXTURE_LOD_BIAS"/>, <see cref="Gl.COMBINE_RGB"/>, <see 
-		/// cref="Gl.COMBINE_ALPHA"/>, <see cref="Gl.SRC0_RGB"/>, <see cref="Gl.SRC1_RGB"/>, <see cref="Gl.SRC2_RGB"/>, <see 
-		/// cref="Gl.SRC0_ALPHA"/>, <see cref="Gl.SRC1_ALPHA"/>, <see cref="Gl.SRC2_ALPHA"/>, <see cref="Gl.OPERAND0_RGB"/>, <see 
-		/// cref="Gl.OPERAND1_RGB"/>, <see cref="Gl.OPERAND2_RGB"/>, <see cref="Gl.OPERAND0_ALPHA"/>, <see 
-		/// cref="Gl.OPERAND1_ALPHA"/>, <see cref="Gl.OPERAND2_ALPHA"/>, <see cref="Gl.RGB_SCALE"/>, <see cref="Gl.ALPHA_SCALE"/>, 
-		/// or <see cref="Gl.COORD_REPLACE"/>.
-		/// </param>
-		/// <param name="param">
-		/// Specifies a single symbolic constant, one of <see cref="Gl.ADD"/>, <see cref="Gl.ADD_SIGNED"/>, <see 
-		/// cref="Gl.INTERPOLATE"/>, <see cref="Gl.MODULATE"/>, <see cref="Gl.DECAL"/>, <see cref="Gl.BLEND"/>, <see 
-		/// cref="Gl.REPLACE"/>, <see cref="Gl.SUBTRACT"/>, <see cref="Gl.COMBINE"/>, <see cref="Gl.TEXTURE"/>, <see 
-		/// cref="Gl.CONSTANT"/>, <see cref="Gl.PRIMARY_COLOR"/>, <see cref="Gl.PREVIOUS"/>, <see cref="Gl.SRC_COLOR"/>, <see 
-		/// cref="Gl.ONE_MINUS_SRC_COLOR"/>, <see cref="Gl.SRC_ALPHA"/>, <see cref="Gl.ONE_MINUS_SRC_ALPHA"/>, a single boolean 
-		/// value for the point sprite texture coordinate replacement, a single floating-point value for the texture level-of-detail 
-		/// bias, or 1.0, 2.0, or 4.0 when specifying the <see cref="Gl.RGB_SCALE"/> or <see cref="Gl.ALPHA_SCALE"/>.
-		/// </param>
-		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void TexEnv(TextureEnvTarget target, TextureEnvParameter pname, Int32 param)
 		{
 			Debug.Assert(Delegates.pglTexEnvi != null, "pglTexEnvi not implemented");
 			Delegates.pglTexEnvi((int)target, (int)pname, param);
 			CallLog("glTexEnvi({0}, {1}, {2})", target, pname, param);
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// set texture environment parameters
-		/// </summary>
-		/// <param name="target">
-		/// Specifies a texture environment. May be <see cref="Gl.TEXTURE_ENV"/>, <see cref="Gl.TEXTURE_FILTER_CONTROL"/> or <see 
-		/// cref="Gl.POINT_SPRITE"/>.
-		/// </param>
-		/// <param name="pname">
-		/// Specifies the symbolic name of a single-valued texture environment parameter. May be either <see 
-		/// cref="Gl.TEXTURE_ENV_MODE"/>, <see cref="Gl.TEXTURE_LOD_BIAS"/>, <see cref="Gl.COMBINE_RGB"/>, <see 
-		/// cref="Gl.COMBINE_ALPHA"/>, <see cref="Gl.SRC0_RGB"/>, <see cref="Gl.SRC1_RGB"/>, <see cref="Gl.SRC2_RGB"/>, <see 
-		/// cref="Gl.SRC0_ALPHA"/>, <see cref="Gl.SRC1_ALPHA"/>, <see cref="Gl.SRC2_ALPHA"/>, <see cref="Gl.OPERAND0_RGB"/>, <see 
-		/// cref="Gl.OPERAND1_RGB"/>, <see cref="Gl.OPERAND2_RGB"/>, <see cref="Gl.OPERAND0_ALPHA"/>, <see 
-		/// cref="Gl.OPERAND1_ALPHA"/>, <see cref="Gl.OPERAND2_ALPHA"/>, <see cref="Gl.RGB_SCALE"/>, <see cref="Gl.ALPHA_SCALE"/>, 
-		/// or <see cref="Gl.COORD_REPLACE"/>.
-		/// </param>
-		/// <param name="params">
-		/// A <see cref="T:Int32[]"/>.
-		/// </param>
-		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
-		public static void TexEnv(int target, int pname, Int32[] @params)
-		{
-			unsafe {
-				fixed (Int32* p_params = @params)
-				{
-					Debug.Assert(Delegates.pglTexEnviv != null, "pglTexEnviv not implemented");
-					Delegates.pglTexEnviv(target, pname, p_params);
-					CallLog("glTexEnviv({0}, {1}, {2})", target, pname, @params);
-				}
-			}
 			DebugCheckErrors();
 		}
 
@@ -7106,63 +5716,11 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2")]
-		public static void TexGen(int coord, int pname, double param)
-		{
-			Debug.Assert(Delegates.pglTexGend != null, "pglTexGend not implemented");
-			Delegates.pglTexGend(coord, pname, param);
-			CallLog("glTexGend({0}, {1}, {2})", coord, pname, param);
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// control the generation of texture coordinates
-		/// </summary>
-		/// <param name="coord">
-		/// Specifies a texture coordinate. Must be one of <see cref="Gl.S"/>, <see cref="Gl.T"/>, <see cref="Gl.R"/>, or <see 
-		/// cref="Gl.Q"/>.
-		/// </param>
-		/// <param name="pname">
-		/// Specifies the symbolic name of the texture-coordinate generation function. Must be <see cref="Gl.TEXTURE_GEN_MODE"/>.
-		/// </param>
-		/// <param name="param">
-		/// Specifies a single-valued texture generation parameter, one of <see cref="Gl.OBJECT_LINEAR"/>, <see 
-		/// cref="Gl.EYE_LINEAR"/>, <see cref="Gl.SPHERE_MAP"/>, <see cref="Gl.NORMAL_MAP"/>, or <see cref="Gl.REFLECTION_MAP"/>.
-		/// </param>
-		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void TexGen(TextureCoordName coord, TextureGenParameter pname, double param)
 		{
 			Debug.Assert(Delegates.pglTexGend != null, "pglTexGend not implemented");
 			Delegates.pglTexGend((int)coord, (int)pname, param);
 			CallLog("glTexGend({0}, {1}, {2})", coord, pname, param);
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// control the generation of texture coordinates
-		/// </summary>
-		/// <param name="coord">
-		/// Specifies a texture coordinate. Must be one of <see cref="Gl.S"/>, <see cref="Gl.T"/>, <see cref="Gl.R"/>, or <see 
-		/// cref="Gl.Q"/>.
-		/// </param>
-		/// <param name="pname">
-		/// Specifies the symbolic name of the texture-coordinate generation function. Must be <see cref="Gl.TEXTURE_GEN_MODE"/>.
-		/// </param>
-		/// <param name="params">
-		/// A <see cref="T:double[]"/>.
-		/// </param>
-		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
-		public static void TexGen(int coord, int pname, double[] @params)
-		{
-			unsafe {
-				fixed (double* p_params = @params)
-				{
-					Debug.Assert(Delegates.pglTexGendv != null, "pglTexGendv not implemented");
-					Delegates.pglTexGendv(coord, pname, p_params);
-					CallLog("glTexGendv({0}, {1}, {2})", coord, pname, @params);
-				}
-			}
 			DebugCheckErrors();
 		}
 
@@ -7210,63 +5768,11 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2")]
-		public static void TexGen(int coord, int pname, float param)
-		{
-			Debug.Assert(Delegates.pglTexGenf != null, "pglTexGenf not implemented");
-			Delegates.pglTexGenf(coord, pname, param);
-			CallLog("glTexGenf({0}, {1}, {2})", coord, pname, param);
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// control the generation of texture coordinates
-		/// </summary>
-		/// <param name="coord">
-		/// Specifies a texture coordinate. Must be one of <see cref="Gl.S"/>, <see cref="Gl.T"/>, <see cref="Gl.R"/>, or <see 
-		/// cref="Gl.Q"/>.
-		/// </param>
-		/// <param name="pname">
-		/// Specifies the symbolic name of the texture-coordinate generation function. Must be <see cref="Gl.TEXTURE_GEN_MODE"/>.
-		/// </param>
-		/// <param name="param">
-		/// Specifies a single-valued texture generation parameter, one of <see cref="Gl.OBJECT_LINEAR"/>, <see 
-		/// cref="Gl.EYE_LINEAR"/>, <see cref="Gl.SPHERE_MAP"/>, <see cref="Gl.NORMAL_MAP"/>, or <see cref="Gl.REFLECTION_MAP"/>.
-		/// </param>
-		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void TexGen(TextureCoordName coord, TextureGenParameter pname, float param)
 		{
 			Debug.Assert(Delegates.pglTexGenf != null, "pglTexGenf not implemented");
 			Delegates.pglTexGenf((int)coord, (int)pname, param);
 			CallLog("glTexGenf({0}, {1}, {2})", coord, pname, param);
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// control the generation of texture coordinates
-		/// </summary>
-		/// <param name="coord">
-		/// Specifies a texture coordinate. Must be one of <see cref="Gl.S"/>, <see cref="Gl.T"/>, <see cref="Gl.R"/>, or <see 
-		/// cref="Gl.Q"/>.
-		/// </param>
-		/// <param name="pname">
-		/// Specifies the symbolic name of the texture-coordinate generation function. Must be <see cref="Gl.TEXTURE_GEN_MODE"/>.
-		/// </param>
-		/// <param name="params">
-		/// A <see cref="T:float[]"/>.
-		/// </param>
-		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
-		public static void TexGen(int coord, int pname, float[] @params)
-		{
-			unsafe {
-				fixed (float* p_params = @params)
-				{
-					Debug.Assert(Delegates.pglTexGenfv != null, "pglTexGenfv not implemented");
-					Delegates.pglTexGenfv(coord, pname, p_params);
-					CallLog("glTexGenfv({0}, {1}, {2})", coord, pname, @params);
-				}
-			}
 			DebugCheckErrors();
 		}
 
@@ -7314,63 +5820,11 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2")]
-		public static void TexGen(int coord, int pname, Int32 param)
-		{
-			Debug.Assert(Delegates.pglTexGeni != null, "pglTexGeni not implemented");
-			Delegates.pglTexGeni(coord, pname, param);
-			CallLog("glTexGeni({0}, {1}, {2})", coord, pname, param);
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// control the generation of texture coordinates
-		/// </summary>
-		/// <param name="coord">
-		/// Specifies a texture coordinate. Must be one of <see cref="Gl.S"/>, <see cref="Gl.T"/>, <see cref="Gl.R"/>, or <see 
-		/// cref="Gl.Q"/>.
-		/// </param>
-		/// <param name="pname">
-		/// Specifies the symbolic name of the texture-coordinate generation function. Must be <see cref="Gl.TEXTURE_GEN_MODE"/>.
-		/// </param>
-		/// <param name="param">
-		/// Specifies a single-valued texture generation parameter, one of <see cref="Gl.OBJECT_LINEAR"/>, <see 
-		/// cref="Gl.EYE_LINEAR"/>, <see cref="Gl.SPHERE_MAP"/>, <see cref="Gl.NORMAL_MAP"/>, or <see cref="Gl.REFLECTION_MAP"/>.
-		/// </param>
-		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void TexGen(TextureCoordName coord, TextureGenParameter pname, Int32 param)
 		{
 			Debug.Assert(Delegates.pglTexGeni != null, "pglTexGeni not implemented");
 			Delegates.pglTexGeni((int)coord, (int)pname, param);
 			CallLog("glTexGeni({0}, {1}, {2})", coord, pname, param);
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// control the generation of texture coordinates
-		/// </summary>
-		/// <param name="coord">
-		/// Specifies a texture coordinate. Must be one of <see cref="Gl.S"/>, <see cref="Gl.T"/>, <see cref="Gl.R"/>, or <see 
-		/// cref="Gl.Q"/>.
-		/// </param>
-		/// <param name="pname">
-		/// Specifies the symbolic name of the texture-coordinate generation function. Must be <see cref="Gl.TEXTURE_GEN_MODE"/>.
-		/// </param>
-		/// <param name="params">
-		/// A <see cref="T:Int32[]"/>.
-		/// </param>
-		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
-		public static void TexGen(int coord, int pname, Int32[] @params)
-		{
-			unsafe {
-				fixed (Int32* p_params = @params)
-				{
-					Debug.Assert(Delegates.pglTexGeniv != null, "pglTexGeniv not implemented");
-					Delegates.pglTexGeniv(coord, pname, p_params);
-					CallLog("glTexGeniv({0}, {1}, {2})", coord, pname, @params);
-				}
-			}
 			DebugCheckErrors();
 		}
 
@@ -7483,27 +5937,6 @@ namespace OpenGL
 				}
 			}
 			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// set rasterization mode
-		/// </summary>
-		/// <param name="mode">
-		/// Specifies the rasterization mode. Three values are accepted: <see cref="Gl.RENDER"/>, <see cref="Gl.SELECT"/>, and <see 
-		/// cref="Gl.FEEDBACK"/>. The initial value is <see cref="Gl.RENDER"/>.
-		/// </param>
-		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
-		public static Int32 RenderMode(int mode)
-		{
-			Int32 retValue;
-
-			Debug.Assert(Delegates.pglRenderMode != null, "pglRenderMode not implemented");
-			retValue = Delegates.pglRenderMode(mode);
-			CallLog("glRenderMode({0}) = {1}", mode, retValue);
-			DebugCheckErrors();
-
-			return (retValue);
 		}
 
 		/// <summary>
@@ -7676,27 +6109,6 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2")]
-		public static void Accum(int op, float value)
-		{
-			Debug.Assert(Delegates.pglAccum != null, "pglAccum not implemented");
-			Delegates.pglAccum(op, value);
-			CallLog("glAccum({0}, {1})", op, value);
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// operate on the accumulation buffer
-		/// </summary>
-		/// <param name="op">
-		/// Specifies the accumulation buffer operation. Symbolic constants <see cref="Gl.ACCUM"/>, <see cref="Gl.LOAD"/>, <see 
-		/// cref="Gl.ADD"/>, <see cref="Gl.MULT"/>, and <see cref="Gl.RETURN"/> are accepted.
-		/// </param>
-		/// <param name="value">
-		/// Specifies a floating-point value used in the accumulation buffer operation. <paramref name="op"/> determines how 
-		/// <paramref name="value"/> is used.
-		/// </param>
-		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void Accum(AccumOp op, float value)
 		{
 			Debug.Assert(Delegates.pglAccum != null, "pglAccum not implemented");
@@ -7715,22 +6127,6 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglPopAttrib != null, "pglPopAttrib not implemented");
 			Delegates.pglPopAttrib();
 			CallLog("glPopAttrib()");
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// push and pop the server attribute stack
-		/// </summary>
-		/// <param name="mask">
-		/// Specifies a mask that indicates which attributes to save. Values for <paramref name="mask"/> are listed below.
-		/// </param>
-		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
-		public static void PushAttrib(uint mask)
-		{
-			Debug.Assert(Delegates.pglPushAttrib != null, "pglPushAttrib not implemented");
-			Delegates.pglPushAttrib(mask);
-			CallLog("glPushAttrib({0})", mask);
 			DebugCheckErrors();
 		}
 
@@ -7781,50 +6177,6 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2")]
-		public static void Map1(int target, double u1, double u2, Int32 stride, Int32 order, double[] points)
-		{
-			unsafe {
-				fixed (double* p_points = points)
-				{
-					Debug.Assert(Delegates.pglMap1d != null, "pglMap1d not implemented");
-					Delegates.pglMap1d(target, u1, u2, stride, order, p_points);
-					CallLog("glMap1d({0}, {1}, {2}, {3}, {4}, {5})", target, u1, u2, stride, order, points);
-				}
-			}
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// define a one-dimensional evaluator
-		/// </summary>
-		/// <param name="target">
-		/// Specifies the kind of values that are generated by the evaluator. Symbolic constants <see cref="Gl.MAP1_VERTEX_3"/>, 
-		/// <see cref="Gl.MAP1_VERTEX_4"/>, <see cref="Gl.MAP1_INDEX"/>, <see cref="Gl.MAP1_COLOR_4"/>, <see 
-		/// cref="Gl.MAP1_NORMAL"/>, <see cref="Gl.MAP1_TEXTURE_COORD_1"/>, <see cref="Gl.MAP1_TEXTURE_COORD_2"/>, <see 
-		/// cref="Gl.MAP1_TEXTURE_COORD_3"/>, and <see cref="Gl.MAP1_TEXTURE_COORD_4"/> are accepted.
-		/// </param>
-		/// <param name="u1">
-		/// Specify a linear mapping of u, as presented to Gl\.EvalCoord1, to u^, the variable that is evaluated by the equations 
-		/// specified by this command.
-		/// </param>
-		/// <param name="u2">
-		/// Specify a linear mapping of u, as presented to Gl\.EvalCoord1, to u^, the variable that is evaluated by the equations 
-		/// specified by this command.
-		/// </param>
-		/// <param name="stride">
-		/// Specifies the number of floats or doubles between the beginning of one control point and the beginning of the next one 
-		/// in the data structure referenced in <paramref name="points"/>. This allows control points to be embedded in arbitrary 
-		/// data structures. The only constraint is that the values for a particular control point must occupy contiguous memory 
-		/// locations.
-		/// </param>
-		/// <param name="order">
-		/// Specifies the number of control points. Must be positive.
-		/// </param>
-		/// <param name="points">
-		/// Specifies a pointer to the array of control points.
-		/// </param>
-		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void Map1(MapTarget target, double u1, double u2, Int32 stride, Int32 order, double[] points)
 		{
 			unsafe {
@@ -7833,50 +6185,6 @@ namespace OpenGL
 					Debug.Assert(Delegates.pglMap1d != null, "pglMap1d not implemented");
 					Delegates.pglMap1d((int)target, u1, u2, stride, order, p_points);
 					CallLog("glMap1d({0}, {1}, {2}, {3}, {4}, {5})", target, u1, u2, stride, order, points);
-				}
-			}
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// define a one-dimensional evaluator
-		/// </summary>
-		/// <param name="target">
-		/// Specifies the kind of values that are generated by the evaluator. Symbolic constants <see cref="Gl.MAP1_VERTEX_3"/>, 
-		/// <see cref="Gl.MAP1_VERTEX_4"/>, <see cref="Gl.MAP1_INDEX"/>, <see cref="Gl.MAP1_COLOR_4"/>, <see 
-		/// cref="Gl.MAP1_NORMAL"/>, <see cref="Gl.MAP1_TEXTURE_COORD_1"/>, <see cref="Gl.MAP1_TEXTURE_COORD_2"/>, <see 
-		/// cref="Gl.MAP1_TEXTURE_COORD_3"/>, and <see cref="Gl.MAP1_TEXTURE_COORD_4"/> are accepted.
-		/// </param>
-		/// <param name="u1">
-		/// Specify a linear mapping of u, as presented to Gl\.EvalCoord1, to u^, the variable that is evaluated by the equations 
-		/// specified by this command.
-		/// </param>
-		/// <param name="u2">
-		/// Specify a linear mapping of u, as presented to Gl\.EvalCoord1, to u^, the variable that is evaluated by the equations 
-		/// specified by this command.
-		/// </param>
-		/// <param name="stride">
-		/// Specifies the number of floats or doubles between the beginning of one control point and the beginning of the next one 
-		/// in the data structure referenced in <paramref name="points"/>. This allows control points to be embedded in arbitrary 
-		/// data structures. The only constraint is that the values for a particular control point must occupy contiguous memory 
-		/// locations.
-		/// </param>
-		/// <param name="order">
-		/// Specifies the number of control points. Must be positive.
-		/// </param>
-		/// <param name="points">
-		/// Specifies a pointer to the array of control points.
-		/// </param>
-		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
-		public static void Map1(int target, float u1, float u2, Int32 stride, Int32 order, float[] points)
-		{
-			unsafe {
-				fixed (float* p_points = points)
-				{
-					Debug.Assert(Delegates.pglMap1f != null, "pglMap1f not implemented");
-					Delegates.pglMap1f(target, u1, u2, stride, order, p_points);
-					CallLog("glMap1f({0}, {1}, {2}, {3}, {4}, {5})", target, u1, u2, stride, order, points);
 				}
 			}
 			DebugCheckErrors();
@@ -7974,67 +6282,6 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2")]
-		public static void Map2(int target, double u1, double u2, Int32 ustride, Int32 uorder, double v1, double v2, Int32 vstride, Int32 vorder, double[] points)
-		{
-			unsafe {
-				fixed (double* p_points = points)
-				{
-					Debug.Assert(Delegates.pglMap2d != null, "pglMap2d not implemented");
-					Delegates.pglMap2d(target, u1, u2, ustride, uorder, v1, v2, vstride, vorder, p_points);
-					CallLog("glMap2d({0}, {1}, {2}, {3}, {4}, {5}, {6}, {7}, {8}, {9})", target, u1, u2, ustride, uorder, v1, v2, vstride, vorder, points);
-				}
-			}
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// define a two-dimensional evaluator
-		/// </summary>
-		/// <param name="target">
-		/// Specifies the kind of values that are generated by the evaluator. Symbolic constants <see cref="Gl.MAP2_VERTEX_3"/>, 
-		/// <see cref="Gl.MAP2_VERTEX_4"/>, <see cref="Gl.MAP2_INDEX"/>, <see cref="Gl.MAP2_COLOR_4"/>, <see 
-		/// cref="Gl.MAP2_NORMAL"/>, <see cref="Gl.MAP2_TEXTURE_COORD_1"/>, <see cref="Gl.MAP2_TEXTURE_COORD_2"/>, <see 
-		/// cref="Gl.MAP2_TEXTURE_COORD_3"/>, and <see cref="Gl.MAP2_TEXTURE_COORD_4"/> are accepted.
-		/// </param>
-		/// <param name="u1">
-		/// Specify a linear mapping of u, as presented to Gl\.EvalCoord2, to u^, one of the two variables that are evaluated by the 
-		/// equations specified by this command. Initially, <paramref name="u1"/> is 0 and <paramref name="u2"/> is 1.
-		/// </param>
-		/// <param name="u2">
-		/// Specify a linear mapping of u, as presented to Gl\.EvalCoord2, to u^, one of the two variables that are evaluated by the 
-		/// equations specified by this command. Initially, <paramref name="u1"/> is 0 and <paramref name="u2"/> is 1.
-		/// </param>
-		/// <param name="ustride">
-		/// Specifies the number of floats or doubles between the beginning of control point Rij and the beginning of control point 
-		/// Ri+1⁢j, where i and j are the u and v control point indices, respectively. This allows control points to be embedded in 
-		/// arbitrary data structures. The only constraint is that the values for a particular control point must occupy contiguous 
-		/// memory locations. The initial value of <paramref name="ustride"/> is 0.
-		/// </param>
-		/// <param name="uorder">
-		/// Specifies the dimension of the control point array in the u axis. Must be positive. The initial value is 1.
-		/// </param>
-		/// <param name="v1">
-		/// Specify a linear mapping of v, as presented to Gl\.EvalCoord2, to v^, one of the two variables that are evaluated by the 
-		/// equations specified by this command. Initially, <paramref name="v1"/> is 0 and <paramref name="v2"/> is 1.
-		/// </param>
-		/// <param name="v2">
-		/// Specify a linear mapping of v, as presented to Gl\.EvalCoord2, to v^, one of the two variables that are evaluated by the 
-		/// equations specified by this command. Initially, <paramref name="v1"/> is 0 and <paramref name="v2"/> is 1.
-		/// </param>
-		/// <param name="vstride">
-		/// Specifies the number of floats or doubles between the beginning of control point Rij and the beginning of control point 
-		/// Ri⁡j+1, where i and j are the u and v control point indices, respectively. This allows control points to be embedded in 
-		/// arbitrary data structures. The only constraint is that the values for a particular control point must occupy contiguous 
-		/// memory locations. The initial value of <paramref name="vstride"/> is 0.
-		/// </param>
-		/// <param name="vorder">
-		/// Specifies the dimension of the control point array in the v axis. Must be positive. The initial value is 1.
-		/// </param>
-		/// <param name="points">
-		/// Specifies a pointer to the array of control points.
-		/// </param>
-		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void Map2(MapTarget target, double u1, double u2, Int32 ustride, Int32 uorder, double v1, double v2, Int32 vstride, Int32 vorder, double[] points)
 		{
 			unsafe {
@@ -8043,67 +6290,6 @@ namespace OpenGL
 					Debug.Assert(Delegates.pglMap2d != null, "pglMap2d not implemented");
 					Delegates.pglMap2d((int)target, u1, u2, ustride, uorder, v1, v2, vstride, vorder, p_points);
 					CallLog("glMap2d({0}, {1}, {2}, {3}, {4}, {5}, {6}, {7}, {8}, {9})", target, u1, u2, ustride, uorder, v1, v2, vstride, vorder, points);
-				}
-			}
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// define a two-dimensional evaluator
-		/// </summary>
-		/// <param name="target">
-		/// Specifies the kind of values that are generated by the evaluator. Symbolic constants <see cref="Gl.MAP2_VERTEX_3"/>, 
-		/// <see cref="Gl.MAP2_VERTEX_4"/>, <see cref="Gl.MAP2_INDEX"/>, <see cref="Gl.MAP2_COLOR_4"/>, <see 
-		/// cref="Gl.MAP2_NORMAL"/>, <see cref="Gl.MAP2_TEXTURE_COORD_1"/>, <see cref="Gl.MAP2_TEXTURE_COORD_2"/>, <see 
-		/// cref="Gl.MAP2_TEXTURE_COORD_3"/>, and <see cref="Gl.MAP2_TEXTURE_COORD_4"/> are accepted.
-		/// </param>
-		/// <param name="u1">
-		/// Specify a linear mapping of u, as presented to Gl\.EvalCoord2, to u^, one of the two variables that are evaluated by the 
-		/// equations specified by this command. Initially, <paramref name="u1"/> is 0 and <paramref name="u2"/> is 1.
-		/// </param>
-		/// <param name="u2">
-		/// Specify a linear mapping of u, as presented to Gl\.EvalCoord2, to u^, one of the two variables that are evaluated by the 
-		/// equations specified by this command. Initially, <paramref name="u1"/> is 0 and <paramref name="u2"/> is 1.
-		/// </param>
-		/// <param name="ustride">
-		/// Specifies the number of floats or doubles between the beginning of control point Rij and the beginning of control point 
-		/// Ri+1⁢j, where i and j are the u and v control point indices, respectively. This allows control points to be embedded in 
-		/// arbitrary data structures. The only constraint is that the values for a particular control point must occupy contiguous 
-		/// memory locations. The initial value of <paramref name="ustride"/> is 0.
-		/// </param>
-		/// <param name="uorder">
-		/// Specifies the dimension of the control point array in the u axis. Must be positive. The initial value is 1.
-		/// </param>
-		/// <param name="v1">
-		/// Specify a linear mapping of v, as presented to Gl\.EvalCoord2, to v^, one of the two variables that are evaluated by the 
-		/// equations specified by this command. Initially, <paramref name="v1"/> is 0 and <paramref name="v2"/> is 1.
-		/// </param>
-		/// <param name="v2">
-		/// Specify a linear mapping of v, as presented to Gl\.EvalCoord2, to v^, one of the two variables that are evaluated by the 
-		/// equations specified by this command. Initially, <paramref name="v1"/> is 0 and <paramref name="v2"/> is 1.
-		/// </param>
-		/// <param name="vstride">
-		/// Specifies the number of floats or doubles between the beginning of control point Rij and the beginning of control point 
-		/// Ri⁡j+1, where i and j are the u and v control point indices, respectively. This allows control points to be embedded in 
-		/// arbitrary data structures. The only constraint is that the values for a particular control point must occupy contiguous 
-		/// memory locations. The initial value of <paramref name="vstride"/> is 0.
-		/// </param>
-		/// <param name="vorder">
-		/// Specifies the dimension of the control point array in the v axis. Must be positive. The initial value is 1.
-		/// </param>
-		/// <param name="points">
-		/// Specifies a pointer to the array of control points.
-		/// </param>
-		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
-		public static void Map2(int target, float u1, float u2, Int32 ustride, Int32 uorder, float v1, float v2, Int32 vstride, Int32 vorder, float[] points)
-		{
-			unsafe {
-				fixed (float* p_points = points)
-				{
-					Debug.Assert(Delegates.pglMap2f != null, "pglMap2f not implemented");
-					Delegates.pglMap2f(target, u1, u2, ustride, uorder, v1, v2, vstride, vorder, p_points);
-					CallLog("glMap2f({0}, {1}, {2}, {3}, {4}, {5}, {6}, {7}, {8}, {9})", target, u1, u2, ustride, uorder, v1, v2, vstride, vorder, points);
 				}
 			}
 			DebugCheckErrors();
@@ -8461,29 +6647,6 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2")]
-		public static void EvalMesh1(int mode, Int32 i1, Int32 i2)
-		{
-			Debug.Assert(Delegates.pglEvalMesh1 != null, "pglEvalMesh1 not implemented");
-			Delegates.pglEvalMesh1(mode, i1, i2);
-			CallLog("glEvalMesh1({0}, {1}, {2})", mode, i1, i2);
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// compute a one- or two-dimensional grid of points or lines
-		/// </summary>
-		/// <param name="mode">
-		/// In <see cref="Gl.EvalMesh1"/>, specifies whether to compute a one-dimensional mesh of points or lines. Symbolic 
-		/// constants <see cref="Gl.POINT"/> and <see cref="Gl.LINE"/> are accepted.
-		/// </param>
-		/// <param name="i1">
-		/// Specify the first and last integer values for grid domain variable i.
-		/// </param>
-		/// <param name="i2">
-		/// Specify the first and last integer values for grid domain variable i.
-		/// </param>
-		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void EvalMesh1(MeshMode1 mode, Int32 i1, Int32 i2)
 		{
 			Debug.Assert(Delegates.pglEvalMesh1 != null, "pglEvalMesh1 not implemented");
@@ -8505,35 +6668,6 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglEvalPoint1 != null, "pglEvalPoint1 not implemented");
 			Delegates.pglEvalPoint1(i);
 			CallLog("glEvalPoint1({0})", i);
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// compute a one- or two-dimensional grid of points or lines
-		/// </summary>
-		/// <param name="mode">
-		/// In <see cref="Gl.EvalMesh1"/>, specifies whether to compute a one-dimensional mesh of points or lines. Symbolic 
-		/// constants <see cref="Gl.POINT"/> and <see cref="Gl.LINE"/> are accepted.
-		/// </param>
-		/// <param name="i1">
-		/// Specify the first and last integer values for grid domain variable i.
-		/// </param>
-		/// <param name="i2">
-		/// Specify the first and last integer values for grid domain variable i.
-		/// </param>
-		/// <param name="j1">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="j2">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
-		public static void EvalMesh2(int mode, Int32 i1, Int32 i2, Int32 j1, Int32 j2)
-		{
-			Debug.Assert(Delegates.pglEvalMesh2 != null, "pglEvalMesh2 not implemented");
-			Delegates.pglEvalMesh2(mode, i1, i2, j1, j2);
-			CallLog("glEvalMesh2({0}, {1}, {2}, {3}, {4})", mode, i1, i2, j1, j2);
 			DebugCheckErrors();
 		}
 
@@ -8598,27 +6732,6 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2")]
-		public static void AlphaFunc(int func, float @ref)
-		{
-			Debug.Assert(Delegates.pglAlphaFunc != null, "pglAlphaFunc not implemented");
-			Delegates.pglAlphaFunc(func, @ref);
-			CallLog("glAlphaFunc({0}, {1})", func, @ref);
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// specify the alpha test function
-		/// </summary>
-		/// <param name="func">
-		/// Specifies the alpha comparison function. Symbolic constants <see cref="Gl.NEVER"/>, <see cref="Gl.LESS"/>, <see 
-		/// cref="Gl.EQUAL"/>, <see cref="Gl.LEQUAL"/>, <see cref="Gl.GREATER"/>, <see cref="Gl.NOTEQUAL"/>, <see 
-		/// cref="Gl.GEQUAL"/>, and <see cref="Gl.ALWAYS"/> are accepted. The initial value is <see cref="Gl.ALWAYS"/>.
-		/// </param>
-		/// <param name="ref">
-		/// A <see cref="T:float"/>.
-		/// </param>
-		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void AlphaFunc(AlphaFunction func, float @ref)
 		{
 			Debug.Assert(Delegates.pglAlphaFunc != null, "pglAlphaFunc not implemented");
@@ -8661,57 +6774,11 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2")]
-		public static void PixelTransfer(int pname, float param)
-		{
-			Debug.Assert(Delegates.pglPixelTransferf != null, "pglPixelTransferf not implemented");
-			Delegates.pglPixelTransferf(pname, param);
-			CallLog("glPixelTransferf({0}, {1})", pname, param);
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// set pixel transfer modes
-		/// </summary>
-		/// <param name="pname">
-		/// Specifies the symbolic name of the pixel transfer parameter to be set. Must be one of the following: <see 
-		/// cref="Gl.MAP_COLOR"/>, <see cref="Gl.MAP_STENCIL"/>, <see cref="Gl.INDEX_SHIFT"/>, <see cref="Gl.INDEX_OFFSET"/>, <see 
-		/// cref="Gl.RED_SCALE"/>, <see cref="Gl.RED_BIAS"/>, <see cref="Gl.GREEN_SCALE"/>, <see cref="Gl.GREEN_BIAS"/>, <see 
-		/// cref="Gl.BLUE_SCALE"/>, <see cref="Gl.BLUE_BIAS"/>, <see cref="Gl.ALPHA_SCALE"/>, <see cref="Gl.ALPHA_BIAS"/>, <see 
-		/// cref="Gl.DEPTH_SCALE"/>, or <see cref="Gl.DEPTH_BIAS"/>.
-		/// </param>
-		/// <param name="param">
-		/// Specifies the value that <paramref name="pname"/> is set to.
-		/// </param>
-		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void PixelTransfer(PixelTransferParameter pname, float param)
 		{
 			Debug.Assert(Delegates.pglPixelTransferf != null, "pglPixelTransferf not implemented");
 			Delegates.pglPixelTransferf((int)pname, param);
 			CallLog("glPixelTransferf({0}, {1})", pname, param);
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// set pixel transfer modes
-		/// </summary>
-		/// <param name="pname">
-		/// Specifies the symbolic name of the pixel transfer parameter to be set. Must be one of the following: <see 
-		/// cref="Gl.MAP_COLOR"/>, <see cref="Gl.MAP_STENCIL"/>, <see cref="Gl.INDEX_SHIFT"/>, <see cref="Gl.INDEX_OFFSET"/>, <see 
-		/// cref="Gl.RED_SCALE"/>, <see cref="Gl.RED_BIAS"/>, <see cref="Gl.GREEN_SCALE"/>, <see cref="Gl.GREEN_BIAS"/>, <see 
-		/// cref="Gl.BLUE_SCALE"/>, <see cref="Gl.BLUE_BIAS"/>, <see cref="Gl.ALPHA_SCALE"/>, <see cref="Gl.ALPHA_BIAS"/>, <see 
-		/// cref="Gl.DEPTH_SCALE"/>, or <see cref="Gl.DEPTH_BIAS"/>.
-		/// </param>
-		/// <param name="param">
-		/// Specifies the value that <paramref name="pname"/> is set to.
-		/// </param>
-		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
-		public static void PixelTransfer(int pname, Int32 param)
-		{
-			Debug.Assert(Delegates.pglPixelTransferi != null, "pglPixelTransferi not implemented");
-			Delegates.pglPixelTransferi(pname, param);
-			CallLog("glPixelTransferi({0}, {1})", pname, param);
 			DebugCheckErrors();
 		}
 
@@ -8942,78 +7009,11 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2")]
-		public static void CopyPixels(Int32 x, Int32 y, Int32 width, Int32 height, int type)
-		{
-			Debug.Assert(Delegates.pglCopyPixels != null, "pglCopyPixels not implemented");
-			Delegates.pglCopyPixels(x, y, width, height, type);
-			CallLog("glCopyPixels({0}, {1}, {2}, {3}, {4})", x, y, width, height, type);
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// copy pixels in the frame buffer
-		/// </summary>
-		/// <param name="x">
-		/// Specify the window coordinates of the lower left corner of the rectangular region of pixels to be copied.
-		/// </param>
-		/// <param name="y">
-		/// Specify the window coordinates of the lower left corner of the rectangular region of pixels to be copied.
-		/// </param>
-		/// <param name="width">
-		/// Specify the dimensions of the rectangular region of pixels to be copied. Both must be nonnegative.
-		/// </param>
-		/// <param name="height">
-		/// Specify the dimensions of the rectangular region of pixels to be copied. Both must be nonnegative.
-		/// </param>
-		/// <param name="type">
-		/// Specifies whether color values, depth values, or stencil values are to be copied. Symbolic constants <see 
-		/// cref="Gl.COLOR"/>, <see cref="Gl.DEPTH"/>, and <see cref="Gl.STENCIL"/> are accepted.
-		/// </param>
-		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void CopyPixels(Int32 x, Int32 y, Int32 width, Int32 height, PixelCopyType type)
 		{
 			Debug.Assert(Delegates.pglCopyPixels != null, "pglCopyPixels not implemented");
 			Delegates.pglCopyPixels(x, y, width, height, (int)type);
 			CallLog("glCopyPixels({0}, {1}, {2}, {3}, {4})", x, y, width, height, type);
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// write a block of pixels to the frame buffer
-		/// </summary>
-		/// <param name="width">
-		/// Specify the dimensions of the pixel rectangle to be written into the frame buffer.
-		/// </param>
-		/// <param name="height">
-		/// Specify the dimensions of the pixel rectangle to be written into the frame buffer.
-		/// </param>
-		/// <param name="format">
-		/// Specifies the format of the pixel data. Symbolic constants <see cref="Gl.COLOR_INDEX"/>, <see cref="Gl.STENCIL_INDEX"/>, 
-		/// <see cref="Gl.DEPTH_COMPONENT"/>, <see cref="Gl.RGB"/>, <see cref="Gl.BGR"/>, <see cref="Gl.RGBA"/>, <see 
-		/// cref="Gl.BGRA"/>, <see cref="Gl.RED"/>, <see cref="Gl.GREEN"/>, <see cref="Gl.BLUE"/>, <see cref="Gl.ALPHA"/>, <see 
-		/// cref="Gl.LUMINANCE"/>, and <see cref="Gl.LUMINANCE_ALPHA"/> are accepted.
-		/// </param>
-		/// <param name="type">
-		/// Specifies the data type for <paramref name="data"/>. Symbolic constants <see cref="Gl.UNSIGNED_BYTE"/>, <see 
-		/// cref="Gl.BYTE"/>, <see cref="Gl.BITMAP"/>, <see cref="Gl.UNSIGNED_SHORT"/>, <see cref="Gl.SHORT"/>, <see 
-		/// cref="Gl.UNSIGNED_INT"/>, <see cref="Gl.INT"/>, <see cref="Gl.FLOAT"/>, <see cref="Gl.UNSIGNED_BYTE_3_3_2"/>, <see 
-		/// cref="Gl.UNSIGNED_BYTE_2_3_3_REV"/>, <see cref="Gl.UNSIGNED_SHORT_5_6_5"/>, <see cref="Gl.UNSIGNED_SHORT_5_6_5_REV"/>, 
-		/// <see cref="Gl.UNSIGNED_SHORT_4_4_4_4"/>, <see cref="Gl.UNSIGNED_SHORT_4_4_4_4_REV"/>, <see 
-		/// cref="Gl.UNSIGNED_SHORT_5_5_5_1"/>, <see cref="Gl.UNSIGNED_SHORT_1_5_5_5_REV"/>, <see cref="Gl.UNSIGNED_INT_8_8_8_8"/>, 
-		/// <see cref="Gl.UNSIGNED_INT_8_8_8_8_REV"/>, <see cref="Gl.UNSIGNED_INT_10_10_10_2"/>, and <see 
-		/// cref="Gl.UNSIGNED_INT_2_10_10_10_REV"/> are accepted.
-		/// </param>
-		/// <param name="pixels">
-		/// A <see cref="T:IntPtr"/>.
-		/// </param>
-		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
-		public static void DrawPixels(Int32 width, Int32 height, int format, int type, IntPtr pixels)
-		{
-			Debug.Assert(Delegates.pglDrawPixels != null, "pglDrawPixels not implemented");
-			Delegates.pglDrawPixels(width, height, format, type, pixels);
-			CallLog("glDrawPixels({0}, {1}, {2}, {3}, {4})", width, height, format, type, pixels);
 			DebugCheckErrors();
 		}
 
@@ -9149,33 +7149,6 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2")]
-		public static void GetClipPlane(int plane, double[] equation)
-		{
-			unsafe {
-				fixed (double* p_equation = equation)
-				{
-					Debug.Assert(Delegates.pglGetClipPlane != null, "pglGetClipPlane not implemented");
-					Delegates.pglGetClipPlane(plane, p_equation);
-					CallLog("glGetClipPlane({0}, {1})", plane, equation);
-				}
-			}
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// return the coefficients of the specified clipping plane
-		/// </summary>
-		/// <param name="plane">
-		/// Specifies a clipping plane. The number of clipping planes depends on the implementation, but at least six clipping 
-		/// planes are supported. They are identified by symbolic names of the form <see cref="Gl.CLIP_PLANE"/>i where i ranges from 
-		/// 0 to the value of <see cref="Gl.MAX_CLIP_PLANES"/> - 1.
-		/// </param>
-		/// <param name="equation">
-		/// Returns four double-precision values that are the coefficients of the plane equation of <paramref name="plane"/> in eye 
-		/// coordinates. The initial value is (0, 0, 0, 0).
-		/// </param>
-		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void GetClipPlane(ClipPlaneName plane, double[] equation)
 		{
 			unsafe {
@@ -9184,38 +7157,6 @@ namespace OpenGL
 					Debug.Assert(Delegates.pglGetClipPlane != null, "pglGetClipPlane not implemented");
 					Delegates.pglGetClipPlane((int)plane, p_equation);
 					CallLog("glGetClipPlane({0}, {1})", plane, equation);
-				}
-			}
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// return light source parameter values
-		/// </summary>
-		/// <param name="light">
-		/// Specifies a light source. The number of possible lights depends on the implementation, but at least eight lights are 
-		/// supported. They are identified by symbolic names of the form <see cref="Gl.LIGHT"/>i where i ranges from 0 to the value 
-		/// of <see cref="Gl.MAX_LIGHTS"/> - 1.
-		/// </param>
-		/// <param name="pname">
-		/// Specifies a light source parameter for <paramref name="light"/>. Accepted symbolic names are <see cref="Gl.AMBIENT"/>, 
-		/// <see cref="Gl.DIFFUSE"/>, <see cref="Gl.SPECULAR"/>, <see cref="Gl.POSITION"/>, <see cref="Gl.SPOT_DIRECTION"/>, <see 
-		/// cref="Gl.SPOT_EXPONENT"/>, <see cref="Gl.SPOT_CUTOFF"/>, <see cref="Gl.CONSTANT_ATTENUATION"/>, <see 
-		/// cref="Gl.LINEAR_ATTENUATION"/>, and <see cref="Gl.QUADRATIC_ATTENUATION"/>.
-		/// </param>
-		/// <param name="params">
-		/// A <see cref="T:float[]"/>.
-		/// </param>
-		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
-		public static void GetLight(int light, int pname, float[] @params)
-		{
-			unsafe {
-				fixed (float* p_params = @params)
-				{
-					Debug.Assert(Delegates.pglGetLightfv != null, "pglGetLightfv not implemented");
-					Delegates.pglGetLightfv(light, pname, p_params);
-					CallLog("glGetLightfv({0}, {1}, {2})", light, pname, @params);
 				}
 			}
 			DebugCheckErrors();
@@ -9272,38 +7213,6 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2")]
-		public static void GetLight(int light, int pname, Int32[] @params)
-		{
-			unsafe {
-				fixed (Int32* p_params = @params)
-				{
-					Debug.Assert(Delegates.pglGetLightiv != null, "pglGetLightiv not implemented");
-					Delegates.pglGetLightiv(light, pname, p_params);
-					CallLog("glGetLightiv({0}, {1}, {2})", light, pname, @params);
-				}
-			}
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// return light source parameter values
-		/// </summary>
-		/// <param name="light">
-		/// Specifies a light source. The number of possible lights depends on the implementation, but at least eight lights are 
-		/// supported. They are identified by symbolic names of the form <see cref="Gl.LIGHT"/>i where i ranges from 0 to the value 
-		/// of <see cref="Gl.MAX_LIGHTS"/> - 1.
-		/// </param>
-		/// <param name="pname">
-		/// Specifies a light source parameter for <paramref name="light"/>. Accepted symbolic names are <see cref="Gl.AMBIENT"/>, 
-		/// <see cref="Gl.DIFFUSE"/>, <see cref="Gl.SPECULAR"/>, <see cref="Gl.POSITION"/>, <see cref="Gl.SPOT_DIRECTION"/>, <see 
-		/// cref="Gl.SPOT_EXPONENT"/>, <see cref="Gl.SPOT_CUTOFF"/>, <see cref="Gl.CONSTANT_ATTENUATION"/>, <see 
-		/// cref="Gl.LINEAR_ATTENUATION"/>, and <see cref="Gl.QUADRATIC_ATTENUATION"/>.
-		/// </param>
-		/// <param name="params">
-		/// A <see cref="T:Int32[]"/>.
-		/// </param>
-		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void GetLight(LightName light, LightParameter pname, Int32[] @params)
 		{
 			unsafe {
@@ -9312,39 +7221,6 @@ namespace OpenGL
 					Debug.Assert(Delegates.pglGetLightiv != null, "pglGetLightiv not implemented");
 					Delegates.pglGetLightiv((int)light, (int)pname, p_params);
 					CallLog("glGetLightiv({0}, {1}, {2})", light, pname, @params);
-				}
-			}
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// return evaluator parameters
-		/// </summary>
-		/// <param name="target">
-		/// Specifies the symbolic name of a map. Accepted values are <see cref="Gl.MAP1_COLOR_4"/>, <see cref="Gl.MAP1_INDEX"/>, 
-		/// <see cref="Gl.MAP1_NORMAL"/>, <see cref="Gl.MAP1_TEXTURE_COORD_1"/>, <see cref="Gl.MAP1_TEXTURE_COORD_2"/>, <see 
-		/// cref="Gl.MAP1_TEXTURE_COORD_3"/>, <see cref="Gl.MAP1_TEXTURE_COORD_4"/>, <see cref="Gl.MAP1_VERTEX_3"/>, <see 
-		/// cref="Gl.MAP1_VERTEX_4"/>, <see cref="Gl.MAP2_COLOR_4"/>, <see cref="Gl.MAP2_INDEX"/>, <see cref="Gl.MAP2_NORMAL"/>, 
-		/// <see cref="Gl.MAP2_TEXTURE_COORD_1"/>, <see cref="Gl.MAP2_TEXTURE_COORD_2"/>, <see cref="Gl.MAP2_TEXTURE_COORD_3"/>, 
-		/// <see cref="Gl.MAP2_TEXTURE_COORD_4"/>, <see cref="Gl.MAP2_VERTEX_3"/>, and <see cref="Gl.MAP2_VERTEX_4"/>.
-		/// </param>
-		/// <param name="query">
-		/// Specifies which parameter to return. Symbolic names <see cref="Gl.COEFF"/>, <see cref="Gl.ORDER"/>, and <see 
-		/// cref="Gl.DOMAIN"/> are accepted.
-		/// </param>
-		/// <param name="v">
-		/// Returns the requested data.
-		/// </param>
-		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
-		public static void GetMap(int target, int query, double[] v)
-		{
-			unsafe {
-				fixed (double* p_v = v)
-				{
-					Debug.Assert(Delegates.pglGetMapdv != null, "pglGetMapdv not implemented");
-					Delegates.pglGetMapdv(target, query, p_v);
-					CallLog("glGetMapdv({0}, {1}, {2})", target, query, v);
 				}
 			}
 			DebugCheckErrors();
@@ -9403,39 +7279,6 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2")]
-		public static void GetMap(int target, int query, float[] v)
-		{
-			unsafe {
-				fixed (float* p_v = v)
-				{
-					Debug.Assert(Delegates.pglGetMapfv != null, "pglGetMapfv not implemented");
-					Delegates.pglGetMapfv(target, query, p_v);
-					CallLog("glGetMapfv({0}, {1}, {2})", target, query, v);
-				}
-			}
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// return evaluator parameters
-		/// </summary>
-		/// <param name="target">
-		/// Specifies the symbolic name of a map. Accepted values are <see cref="Gl.MAP1_COLOR_4"/>, <see cref="Gl.MAP1_INDEX"/>, 
-		/// <see cref="Gl.MAP1_NORMAL"/>, <see cref="Gl.MAP1_TEXTURE_COORD_1"/>, <see cref="Gl.MAP1_TEXTURE_COORD_2"/>, <see 
-		/// cref="Gl.MAP1_TEXTURE_COORD_3"/>, <see cref="Gl.MAP1_TEXTURE_COORD_4"/>, <see cref="Gl.MAP1_VERTEX_3"/>, <see 
-		/// cref="Gl.MAP1_VERTEX_4"/>, <see cref="Gl.MAP2_COLOR_4"/>, <see cref="Gl.MAP2_INDEX"/>, <see cref="Gl.MAP2_NORMAL"/>, 
-		/// <see cref="Gl.MAP2_TEXTURE_COORD_1"/>, <see cref="Gl.MAP2_TEXTURE_COORD_2"/>, <see cref="Gl.MAP2_TEXTURE_COORD_3"/>, 
-		/// <see cref="Gl.MAP2_TEXTURE_COORD_4"/>, <see cref="Gl.MAP2_VERTEX_3"/>, and <see cref="Gl.MAP2_VERTEX_4"/>.
-		/// </param>
-		/// <param name="query">
-		/// Specifies which parameter to return. Symbolic names <see cref="Gl.COEFF"/>, <see cref="Gl.ORDER"/>, and <see 
-		/// cref="Gl.DOMAIN"/> are accepted.
-		/// </param>
-		/// <param name="v">
-		/// Returns the requested data.
-		/// </param>
-		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void GetMap(MapTarget target, GetMapQuery query, float[] v)
 		{
 			unsafe {
@@ -9444,39 +7287,6 @@ namespace OpenGL
 					Debug.Assert(Delegates.pglGetMapfv != null, "pglGetMapfv not implemented");
 					Delegates.pglGetMapfv((int)target, (int)query, p_v);
 					CallLog("glGetMapfv({0}, {1}, {2})", target, query, v);
-				}
-			}
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// return evaluator parameters
-		/// </summary>
-		/// <param name="target">
-		/// Specifies the symbolic name of a map. Accepted values are <see cref="Gl.MAP1_COLOR_4"/>, <see cref="Gl.MAP1_INDEX"/>, 
-		/// <see cref="Gl.MAP1_NORMAL"/>, <see cref="Gl.MAP1_TEXTURE_COORD_1"/>, <see cref="Gl.MAP1_TEXTURE_COORD_2"/>, <see 
-		/// cref="Gl.MAP1_TEXTURE_COORD_3"/>, <see cref="Gl.MAP1_TEXTURE_COORD_4"/>, <see cref="Gl.MAP1_VERTEX_3"/>, <see 
-		/// cref="Gl.MAP1_VERTEX_4"/>, <see cref="Gl.MAP2_COLOR_4"/>, <see cref="Gl.MAP2_INDEX"/>, <see cref="Gl.MAP2_NORMAL"/>, 
-		/// <see cref="Gl.MAP2_TEXTURE_COORD_1"/>, <see cref="Gl.MAP2_TEXTURE_COORD_2"/>, <see cref="Gl.MAP2_TEXTURE_COORD_3"/>, 
-		/// <see cref="Gl.MAP2_TEXTURE_COORD_4"/>, <see cref="Gl.MAP2_VERTEX_3"/>, and <see cref="Gl.MAP2_VERTEX_4"/>.
-		/// </param>
-		/// <param name="query">
-		/// Specifies which parameter to return. Symbolic names <see cref="Gl.COEFF"/>, <see cref="Gl.ORDER"/>, and <see 
-		/// cref="Gl.DOMAIN"/> are accepted.
-		/// </param>
-		/// <param name="v">
-		/// Returns the requested data.
-		/// </param>
-		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
-		public static void GetMap(int target, int query, Int32[] v)
-		{
-			unsafe {
-				fixed (Int32* p_v = v)
-				{
-					Debug.Assert(Delegates.pglGetMapiv != null, "pglGetMapiv not implemented");
-					Delegates.pglGetMapiv(target, query, p_v);
-					CallLog("glGetMapiv({0}, {1}, {2})", target, query, v);
 				}
 			}
 			DebugCheckErrors();
@@ -9532,36 +7342,6 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2")]
-		public static void GetMaterial(int face, int pname, float[] @params)
-		{
-			unsafe {
-				fixed (float* p_params = @params)
-				{
-					Debug.Assert(Delegates.pglGetMaterialfv != null, "pglGetMaterialfv not implemented");
-					Delegates.pglGetMaterialfv(face, pname, p_params);
-					CallLog("glGetMaterialfv({0}, {1}, {2})", face, pname, @params);
-				}
-			}
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// return material parameters
-		/// </summary>
-		/// <param name="face">
-		/// Specifies which of the two materials is being queried. <see cref="Gl.FRONT"/> or <see cref="Gl.BACK"/> are accepted, 
-		/// representing the front and back materials, respectively.
-		/// </param>
-		/// <param name="pname">
-		/// Specifies the material parameter to return. <see cref="Gl.AMBIENT"/>, <see cref="Gl.DIFFUSE"/>, <see 
-		/// cref="Gl.SPECULAR"/>, <see cref="Gl.EMISSION"/>, <see cref="Gl.SHININESS"/>, and <see cref="Gl.COLOR_INDEXES"/> are 
-		/// accepted.
-		/// </param>
-		/// <param name="params">
-		/// A <see cref="T:float[]"/>.
-		/// </param>
-		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void GetMaterial(MaterialFace face, MaterialParameter pname, float[] @params)
 		{
 			unsafe {
@@ -9570,36 +7350,6 @@ namespace OpenGL
 					Debug.Assert(Delegates.pglGetMaterialfv != null, "pglGetMaterialfv not implemented");
 					Delegates.pglGetMaterialfv((int)face, (int)pname, p_params);
 					CallLog("glGetMaterialfv({0}, {1}, {2})", face, pname, @params);
-				}
-			}
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// return material parameters
-		/// </summary>
-		/// <param name="face">
-		/// Specifies which of the two materials is being queried. <see cref="Gl.FRONT"/> or <see cref="Gl.BACK"/> are accepted, 
-		/// representing the front and back materials, respectively.
-		/// </param>
-		/// <param name="pname">
-		/// Specifies the material parameter to return. <see cref="Gl.AMBIENT"/>, <see cref="Gl.DIFFUSE"/>, <see 
-		/// cref="Gl.SPECULAR"/>, <see cref="Gl.EMISSION"/>, <see cref="Gl.SHININESS"/>, and <see cref="Gl.COLOR_INDEXES"/> are 
-		/// accepted.
-		/// </param>
-		/// <param name="params">
-		/// A <see cref="T:Int32[]"/>.
-		/// </param>
-		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
-		public static void GetMaterial(int face, int pname, Int32[] @params)
-		{
-			unsafe {
-				fixed (Int32* p_params = @params)
-				{
-					Debug.Assert(Delegates.pglGetMaterialiv != null, "pglGetMaterialiv not implemented");
-					Delegates.pglGetMaterialiv(face, pname, p_params);
-					CallLog("glGetMaterialiv({0}, {1}, {2})", face, pname, @params);
 				}
 			}
 			DebugCheckErrors();
@@ -9649,33 +7399,6 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2")]
-		public static void GetPixelMap(int map, float[] values)
-		{
-			unsafe {
-				fixed (float* p_values = values)
-				{
-					Debug.Assert(Delegates.pglGetPixelMapfv != null, "pglGetPixelMapfv not implemented");
-					Delegates.pglGetPixelMapfv(map, p_values);
-					CallLog("glGetPixelMapfv({0}, {1})", map, values);
-				}
-			}
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// return the specified pixel map
-		/// </summary>
-		/// <param name="map">
-		/// Specifies the name of the pixel map to return. Accepted values are <see cref="Gl.PIXEL_MAP_I_TO_I"/>, <see 
-		/// cref="Gl.PIXEL_MAP_S_TO_S"/>, <see cref="Gl.PIXEL_MAP_I_TO_R"/>, <see cref="Gl.PIXEL_MAP_I_TO_G"/>, <see 
-		/// cref="Gl.PIXEL_MAP_I_TO_B"/>, <see cref="Gl.PIXEL_MAP_I_TO_A"/>, <see cref="Gl.PIXEL_MAP_R_TO_R"/>, <see 
-		/// cref="Gl.PIXEL_MAP_G_TO_G"/>, <see cref="Gl.PIXEL_MAP_B_TO_B"/>, and <see cref="Gl.PIXEL_MAP_A_TO_A"/>.
-		/// </param>
-		/// <param name="values">
-		/// A <see cref="T:float[]"/>.
-		/// </param>
-		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void GetPixelMap(PixelMap map, float[] values)
 		{
 			unsafe {
@@ -9703,33 +7426,6 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2")]
-		public static void GetPixelMap(int map, UInt32[] values)
-		{
-			unsafe {
-				fixed (UInt32* p_values = values)
-				{
-					Debug.Assert(Delegates.pglGetPixelMapuiv != null, "pglGetPixelMapuiv not implemented");
-					Delegates.pglGetPixelMapuiv(map, p_values);
-					CallLog("glGetPixelMapuiv({0}, {1})", map, values);
-				}
-			}
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// return the specified pixel map
-		/// </summary>
-		/// <param name="map">
-		/// Specifies the name of the pixel map to return. Accepted values are <see cref="Gl.PIXEL_MAP_I_TO_I"/>, <see 
-		/// cref="Gl.PIXEL_MAP_S_TO_S"/>, <see cref="Gl.PIXEL_MAP_I_TO_R"/>, <see cref="Gl.PIXEL_MAP_I_TO_G"/>, <see 
-		/// cref="Gl.PIXEL_MAP_I_TO_B"/>, <see cref="Gl.PIXEL_MAP_I_TO_A"/>, <see cref="Gl.PIXEL_MAP_R_TO_R"/>, <see 
-		/// cref="Gl.PIXEL_MAP_G_TO_G"/>, <see cref="Gl.PIXEL_MAP_B_TO_B"/>, and <see cref="Gl.PIXEL_MAP_A_TO_A"/>.
-		/// </param>
-		/// <param name="values">
-		/// A <see cref="T:UInt32[]"/>.
-		/// </param>
-		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void GetPixelMap(PixelMap map, UInt32[] values)
 		{
 			unsafe {
@@ -9738,33 +7434,6 @@ namespace OpenGL
 					Debug.Assert(Delegates.pglGetPixelMapuiv != null, "pglGetPixelMapuiv not implemented");
 					Delegates.pglGetPixelMapuiv((int)map, p_values);
 					CallLog("glGetPixelMapuiv({0}, {1})", map, values);
-				}
-			}
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// return the specified pixel map
-		/// </summary>
-		/// <param name="map">
-		/// Specifies the name of the pixel map to return. Accepted values are <see cref="Gl.PIXEL_MAP_I_TO_I"/>, <see 
-		/// cref="Gl.PIXEL_MAP_S_TO_S"/>, <see cref="Gl.PIXEL_MAP_I_TO_R"/>, <see cref="Gl.PIXEL_MAP_I_TO_G"/>, <see 
-		/// cref="Gl.PIXEL_MAP_I_TO_B"/>, <see cref="Gl.PIXEL_MAP_I_TO_A"/>, <see cref="Gl.PIXEL_MAP_R_TO_R"/>, <see 
-		/// cref="Gl.PIXEL_MAP_G_TO_G"/>, <see cref="Gl.PIXEL_MAP_B_TO_B"/>, and <see cref="Gl.PIXEL_MAP_A_TO_A"/>.
-		/// </param>
-		/// <param name="values">
-		/// A <see cref="T:UInt16[]"/>.
-		/// </param>
-		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
-		public static void GetPixelMap(int map, UInt16[] values)
-		{
-			unsafe {
-				fixed (UInt16* p_values = values)
-				{
-					Debug.Assert(Delegates.pglGetPixelMapusv != null, "pglGetPixelMapusv not implemented");
-					Delegates.pglGetPixelMapusv(map, p_values);
-					CallLog("glGetPixelMapusv({0}, {1})", map, values);
 				}
 			}
 			DebugCheckErrors();
@@ -9839,40 +7508,6 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2")]
-		public static void GetTexEnv(int target, int pname, float[] @params)
-		{
-			unsafe {
-				fixed (float* p_params = @params)
-				{
-					Debug.Assert(Delegates.pglGetTexEnvfv != null, "pglGetTexEnvfv not implemented");
-					Delegates.pglGetTexEnvfv(target, pname, p_params);
-					CallLog("glGetTexEnvfv({0}, {1}, {2})", target, pname, @params);
-				}
-			}
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// return texture environment parameters
-		/// </summary>
-		/// <param name="target">
-		/// Specifies a texture environment. May be <see cref="Gl.TEXTURE_ENV"/>, <see cref="Gl.TEXTURE_FILTER_CONTROL"/>, or <see 
-		/// cref="Gl.POINT_SPRITE"/>.
-		/// </param>
-		/// <param name="pname">
-		/// Specifies the symbolic name of a texture environment parameter. Accepted values are <see cref="Gl.TEXTURE_ENV_MODE"/>, 
-		/// <see cref="Gl.TEXTURE_ENV_COLOR"/>, <see cref="Gl.TEXTURE_LOD_BIAS"/>, <see cref="Gl.COMBINE_RGB"/>, <see 
-		/// cref="Gl.COMBINE_ALPHA"/>, <see cref="Gl.SRC0_RGB"/>, <see cref="Gl.SRC1_RGB"/>, <see cref="Gl.SRC2_RGB"/>, <see 
-		/// cref="Gl.SRC0_ALPHA"/>, <see cref="Gl.SRC1_ALPHA"/>, <see cref="Gl.SRC2_ALPHA"/>, <see cref="Gl.OPERAND0_RGB"/>, <see 
-		/// cref="Gl.OPERAND1_RGB"/>, <see cref="Gl.OPERAND2_RGB"/>, <see cref="Gl.OPERAND0_ALPHA"/>, <see 
-		/// cref="Gl.OPERAND1_ALPHA"/>, <see cref="Gl.OPERAND2_ALPHA"/>, <see cref="Gl.RGB_SCALE"/>, <see cref="Gl.ALPHA_SCALE"/>, 
-		/// or <see cref="Gl.COORD_REPLACE"/>.
-		/// </param>
-		/// <param name="params">
-		/// A <see cref="T:float[]"/>.
-		/// </param>
-		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void GetTexEnv(TextureEnvTarget target, TextureEnvParameter pname, float[] @params)
 		{
 			unsafe {
@@ -9881,40 +7516,6 @@ namespace OpenGL
 					Debug.Assert(Delegates.pglGetTexEnvfv != null, "pglGetTexEnvfv not implemented");
 					Delegates.pglGetTexEnvfv((int)target, (int)pname, p_params);
 					CallLog("glGetTexEnvfv({0}, {1}, {2})", target, pname, @params);
-				}
-			}
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// return texture environment parameters
-		/// </summary>
-		/// <param name="target">
-		/// Specifies a texture environment. May be <see cref="Gl.TEXTURE_ENV"/>, <see cref="Gl.TEXTURE_FILTER_CONTROL"/>, or <see 
-		/// cref="Gl.POINT_SPRITE"/>.
-		/// </param>
-		/// <param name="pname">
-		/// Specifies the symbolic name of a texture environment parameter. Accepted values are <see cref="Gl.TEXTURE_ENV_MODE"/>, 
-		/// <see cref="Gl.TEXTURE_ENV_COLOR"/>, <see cref="Gl.TEXTURE_LOD_BIAS"/>, <see cref="Gl.COMBINE_RGB"/>, <see 
-		/// cref="Gl.COMBINE_ALPHA"/>, <see cref="Gl.SRC0_RGB"/>, <see cref="Gl.SRC1_RGB"/>, <see cref="Gl.SRC2_RGB"/>, <see 
-		/// cref="Gl.SRC0_ALPHA"/>, <see cref="Gl.SRC1_ALPHA"/>, <see cref="Gl.SRC2_ALPHA"/>, <see cref="Gl.OPERAND0_RGB"/>, <see 
-		/// cref="Gl.OPERAND1_RGB"/>, <see cref="Gl.OPERAND2_RGB"/>, <see cref="Gl.OPERAND0_ALPHA"/>, <see 
-		/// cref="Gl.OPERAND1_ALPHA"/>, <see cref="Gl.OPERAND2_ALPHA"/>, <see cref="Gl.RGB_SCALE"/>, <see cref="Gl.ALPHA_SCALE"/>, 
-		/// or <see cref="Gl.COORD_REPLACE"/>.
-		/// </param>
-		/// <param name="params">
-		/// A <see cref="T:Int32[]"/>.
-		/// </param>
-		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
-		public static void GetTexEnv(int target, int pname, Int32[] @params)
-		{
-			unsafe {
-				fixed (Int32* p_params = @params)
-				{
-					Debug.Assert(Delegates.pglGetTexEnviv != null, "pglGetTexEnviv not implemented");
-					Delegates.pglGetTexEnviv(target, pname, p_params);
-					CallLog("glGetTexEnviv({0}, {1}, {2})", target, pname, @params);
 				}
 			}
 			DebugCheckErrors();
@@ -9970,35 +7571,6 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2")]
-		public static void GetTexGen(int coord, int pname, double[] @params)
-		{
-			unsafe {
-				fixed (double* p_params = @params)
-				{
-					Debug.Assert(Delegates.pglGetTexGendv != null, "pglGetTexGendv not implemented");
-					Delegates.pglGetTexGendv(coord, pname, p_params);
-					CallLog("glGetTexGendv({0}, {1}, {2})", coord, pname, @params);
-				}
-			}
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// return texture coordinate generation parameters
-		/// </summary>
-		/// <param name="coord">
-		/// Specifies a texture coordinate. Must be <see cref="Gl.S"/>, <see cref="Gl.T"/>, <see cref="Gl.R"/>, or <see 
-		/// cref="Gl.Q"/>.
-		/// </param>
-		/// <param name="pname">
-		/// Specifies the symbolic name of the value(s) to be returned. Must be either <see cref="Gl.TEXTURE_GEN_MODE"/> or the name 
-		/// of one of the texture generation plane equations: <see cref="Gl.OBJECT_PLANE"/> or <see cref="Gl.EYE_PLANE"/>.
-		/// </param>
-		/// <param name="params">
-		/// A <see cref="T:double[]"/>.
-		/// </param>
-		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void GetTexGen(TextureCoordName coord, TextureGenParameter pname, double[] @params)
 		{
 			unsafe {
@@ -10028,35 +7600,6 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2")]
-		public static void GetTexGen(int coord, int pname, float[] @params)
-		{
-			unsafe {
-				fixed (float* p_params = @params)
-				{
-					Debug.Assert(Delegates.pglGetTexGenfv != null, "pglGetTexGenfv not implemented");
-					Delegates.pglGetTexGenfv(coord, pname, p_params);
-					CallLog("glGetTexGenfv({0}, {1}, {2})", coord, pname, @params);
-				}
-			}
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// return texture coordinate generation parameters
-		/// </summary>
-		/// <param name="coord">
-		/// Specifies a texture coordinate. Must be <see cref="Gl.S"/>, <see cref="Gl.T"/>, <see cref="Gl.R"/>, or <see 
-		/// cref="Gl.Q"/>.
-		/// </param>
-		/// <param name="pname">
-		/// Specifies the symbolic name of the value(s) to be returned. Must be either <see cref="Gl.TEXTURE_GEN_MODE"/> or the name 
-		/// of one of the texture generation plane equations: <see cref="Gl.OBJECT_PLANE"/> or <see cref="Gl.EYE_PLANE"/>.
-		/// </param>
-		/// <param name="params">
-		/// A <see cref="T:float[]"/>.
-		/// </param>
-		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void GetTexGen(TextureCoordName coord, TextureGenParameter pname, float[] @params)
 		{
 			unsafe {
@@ -10065,35 +7608,6 @@ namespace OpenGL
 					Debug.Assert(Delegates.pglGetTexGenfv != null, "pglGetTexGenfv not implemented");
 					Delegates.pglGetTexGenfv((int)coord, (int)pname, p_params);
 					CallLog("glGetTexGenfv({0}, {1}, {2})", coord, pname, @params);
-				}
-			}
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// return texture coordinate generation parameters
-		/// </summary>
-		/// <param name="coord">
-		/// Specifies a texture coordinate. Must be <see cref="Gl.S"/>, <see cref="Gl.T"/>, <see cref="Gl.R"/>, or <see 
-		/// cref="Gl.Q"/>.
-		/// </param>
-		/// <param name="pname">
-		/// Specifies the symbolic name of the value(s) to be returned. Must be either <see cref="Gl.TEXTURE_GEN_MODE"/> or the name 
-		/// of one of the texture generation plane equations: <see cref="Gl.OBJECT_PLANE"/> or <see cref="Gl.EYE_PLANE"/>.
-		/// </param>
-		/// <param name="params">
-		/// A <see cref="T:Int32[]"/>.
-		/// </param>
-		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
-		public static void GetTexGen(int coord, int pname, Int32[] @params)
-		{
-			unsafe {
-				fixed (Int32* p_params = @params)
-				{
-					Debug.Assert(Delegates.pglGetTexGeniv != null, "pglGetTexGeniv not implemented");
-					Delegates.pglGetTexGeniv(coord, pname, p_params);
-					CallLog("glGetTexGeniv({0}, {1}, {2})", coord, pname, @params);
 				}
 			}
 			DebugCheckErrors();
@@ -10231,24 +7745,6 @@ namespace OpenGL
 					CallLog("glLoadMatrixd({0})", m);
 				}
 			}
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// specify which matrix is the current matrix
-		/// </summary>
-		/// <param name="mode">
-		/// Specifies which matrix stack is the target for subsequent matrix operations. Three values are accepted: <see 
-		/// cref="Gl.MODELVIEW"/>, <see cref="Gl.PROJECTION"/>, and <see cref="Gl.TEXTURE"/>. The initial value is <see 
-		/// cref="Gl.MODELVIEW"/>. Additionally, if the ARB_imaging extension is supported, <see cref="Gl.COLOR"/> is also accepted.
-		/// </param>
-		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
-		public static void MatrixMode(int mode)
-		{
-			Debug.Assert(Delegates.pglMatrixMode != null, "pglMatrixMode not implemented");
-			Delegates.pglMatrixMode(mode);
-			CallLog("glMatrixMode({0})", mode);
 			DebugCheckErrors();
 		}
 

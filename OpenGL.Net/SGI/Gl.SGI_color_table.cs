@@ -125,36 +125,6 @@ namespace OpenGL
 		/// Binding for glColorTableSGI.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="internalformat">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="width">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="format">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="type">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="table">
-		/// A <see cref="T:IntPtr"/>.
-		/// </param>
-		[RequiredByFeature("GL_SGI_color_table")]
-		public static void ColorTableSGI(int target, int internalformat, Int32 width, int format, int type, IntPtr table)
-		{
-			Debug.Assert(Delegates.pglColorTableSGI != null, "pglColorTableSGI not implemented");
-			Delegates.pglColorTableSGI(target, internalformat, width, format, type, table);
-			CallLog("glColorTableSGI({0}, {1}, {2}, {3}, {4}, {5})", target, internalformat, width, format, type, table);
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// Binding for glColorTableSGI.
-		/// </summary>
-		/// <param name="target">
 		/// A <see cref="T:ColorTableTargetSGI"/>.
 		/// </param>
 		/// <param name="internalformat">
@@ -249,32 +219,6 @@ namespace OpenGL
 		/// Binding for glColorTableParameterfvSGI.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="pname">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="params">
-		/// A <see cref="T:float[]"/>.
-		/// </param>
-		[RequiredByFeature("GL_SGI_color_table")]
-		public static void ColorTableParameterSGI(int target, int pname, float[] @params)
-		{
-			unsafe {
-				fixed (float* p_params = @params)
-				{
-					Debug.Assert(Delegates.pglColorTableParameterfvSGI != null, "pglColorTableParameterfvSGI not implemented");
-					Delegates.pglColorTableParameterfvSGI(target, pname, p_params);
-					CallLog("glColorTableParameterfvSGI({0}, {1}, {2})", target, pname, @params);
-				}
-			}
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// Binding for glColorTableParameterfvSGI.
-		/// </summary>
-		/// <param name="target">
 		/// A <see cref="T:ColorTableTargetSGI"/>.
 		/// </param>
 		/// <param name="pname">
@@ -292,32 +236,6 @@ namespace OpenGL
 					Debug.Assert(Delegates.pglColorTableParameterfvSGI != null, "pglColorTableParameterfvSGI not implemented");
 					Delegates.pglColorTableParameterfvSGI((int)target, (int)pname, p_params);
 					CallLog("glColorTableParameterfvSGI({0}, {1}, {2})", target, pname, @params);
-				}
-			}
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// Binding for glColorTableParameterivSGI.
-		/// </summary>
-		/// <param name="target">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="pname">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="params">
-		/// A <see cref="T:Int32[]"/>.
-		/// </param>
-		[RequiredByFeature("GL_SGI_color_table")]
-		public static void ColorTableParameterSGI(int target, int pname, Int32[] @params)
-		{
-			unsafe {
-				fixed (Int32* p_params = @params)
-				{
-					Debug.Assert(Delegates.pglColorTableParameterivSGI != null, "pglColorTableParameterivSGI not implemented");
-					Delegates.pglColorTableParameterivSGI(target, pname, p_params);
-					CallLog("glColorTableParameterivSGI({0}, {1}, {2})", target, pname, @params);
 				}
 			}
 			DebugCheckErrors();
@@ -353,33 +271,6 @@ namespace OpenGL
 		/// Binding for glCopyColorTableSGI.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="internalformat">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="x">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="y">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="width">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		[RequiredByFeature("GL_SGI_color_table")]
-		public static void CopyColorTableSGI(int target, int internalformat, Int32 x, Int32 y, Int32 width)
-		{
-			Debug.Assert(Delegates.pglCopyColorTableSGI != null, "pglCopyColorTableSGI not implemented");
-			Delegates.pglCopyColorTableSGI(target, internalformat, x, y, width);
-			CallLog("glCopyColorTableSGI({0}, {1}, {2}, {3}, {4})", target, internalformat, x, y, width);
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// Binding for glCopyColorTableSGI.
-		/// </summary>
-		/// <param name="target">
 		/// A <see cref="T:ColorTableTargetSGI"/>.
 		/// </param>
 		/// <param name="internalformat">
@@ -400,30 +291,6 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglCopyColorTableSGI != null, "pglCopyColorTableSGI not implemented");
 			Delegates.pglCopyColorTableSGI((int)target, internalformat, x, y, width);
 			CallLog("glCopyColorTableSGI({0}, {1}, {2}, {3}, {4})", target, internalformat, x, y, width);
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// Binding for glGetColorTableSGI.
-		/// </summary>
-		/// <param name="target">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="format">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="type">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="table">
-		/// A <see cref="T:IntPtr"/>.
-		/// </param>
-		[RequiredByFeature("GL_SGI_color_table")]
-		public static void GetColorTableSGI(int target, int format, int type, IntPtr table)
-		{
-			Debug.Assert(Delegates.pglGetColorTableSGI != null, "pglGetColorTableSGI not implemented");
-			Delegates.pglGetColorTableSGI(target, format, type, table);
-			CallLog("glGetColorTableSGI({0}, {1}, {2}, {3})", target, format, type, table);
 			DebugCheckErrors();
 		}
 
@@ -452,29 +319,55 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glGetColorTableParameterfvSGI.
+		/// Binding for glGetColorTableSGI.
 		/// </summary>
 		/// <param name="target">
 		/// A <see cref="T:int"/>.
 		/// </param>
-		/// <param name="pname">
+		/// <param name="format">
 		/// A <see cref="T:int"/>.
 		/// </param>
-		/// <param name="params">
-		/// A <see cref="T:float[]"/>.
+		/// <param name="type">
+		/// A <see cref="T:int"/>.
+		/// </param>
+		/// <param name="table">
+		/// A <see cref="T:Object"/>.
 		/// </param>
 		[RequiredByFeature("GL_SGI_color_table")]
-		public static void GetColorTableParameterSGI(int target, int pname, float[] @params)
+		public static void GetColorTableSGI(int target, int format, int type, Object table)
 		{
-			unsafe {
-				fixed (float* p_params = @params)
-				{
-					Debug.Assert(Delegates.pglGetColorTableParameterfvSGI != null, "pglGetColorTableParameterfvSGI not implemented");
-					Delegates.pglGetColorTableParameterfvSGI(target, pname, p_params);
-					CallLog("glGetColorTableParameterfvSGI({0}, {1}, {2})", target, pname, @params);
-				}
+			GCHandle pin_table = GCHandle.Alloc(table, GCHandleType.Pinned);
+			try {
+				GetColorTableSGI(target, format, type, pin_table.AddrOfPinnedObject());
+			} finally {
+				pin_table.Free();
 			}
-			DebugCheckErrors();
+		}
+
+		/// <summary>
+		/// Binding for glGetColorTableSGI.
+		/// </summary>
+		/// <param name="target">
+		/// A <see cref="T:ColorTableTargetSGI"/>.
+		/// </param>
+		/// <param name="format">
+		/// A <see cref="T:PixelFormat"/>.
+		/// </param>
+		/// <param name="type">
+		/// A <see cref="T:PixelType"/>.
+		/// </param>
+		/// <param name="table">
+		/// A <see cref="T:Object"/>.
+		/// </param>
+		[RequiredByFeature("GL_SGI_color_table")]
+		public static void GetColorTableSGI(ColorTableTargetSGI target, PixelFormat format, PixelType type, Object table)
+		{
+			GCHandle pin_table = GCHandle.Alloc(table, GCHandleType.Pinned);
+			try {
+				GetColorTableSGI(target, format, type, pin_table.AddrOfPinnedObject());
+			} finally {
+				pin_table.Free();
+			}
 		}
 
 		/// <summary>
@@ -498,32 +391,6 @@ namespace OpenGL
 					Debug.Assert(Delegates.pglGetColorTableParameterfvSGI != null, "pglGetColorTableParameterfvSGI not implemented");
 					Delegates.pglGetColorTableParameterfvSGI((int)target, (int)pname, p_params);
 					CallLog("glGetColorTableParameterfvSGI({0}, {1}, {2})", target, pname, @params);
-				}
-			}
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// Binding for glGetColorTableParameterivSGI.
-		/// </summary>
-		/// <param name="target">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="pname">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="params">
-		/// A <see cref="T:Int32[]"/>.
-		/// </param>
-		[RequiredByFeature("GL_SGI_color_table")]
-		public static void GetColorTableParameterSGI(int target, int pname, Int32[] @params)
-		{
-			unsafe {
-				fixed (Int32* p_params = @params)
-				{
-					Debug.Assert(Delegates.pglGetColorTableParameterivSGI != null, "pglGetColorTableParameterivSGI not implemented");
-					Delegates.pglGetColorTableParameterivSGI(target, pname, p_params);
-					CallLog("glGetColorTableParameterivSGI({0}, {1}, {2})", target, pname, @params);
 				}
 			}
 			DebugCheckErrors();

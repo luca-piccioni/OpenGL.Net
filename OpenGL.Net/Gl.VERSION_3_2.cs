@@ -492,45 +492,6 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_3_2")]
 		[RequiredByFeature("GL_ARB_draw_elements_base_vertex")]
-		public static void DrawElementsBaseVertex(int mode, Int32 count, int type, IntPtr indices, Int32 basevertex)
-		{
-			if        (Delegates.pglDrawElementsBaseVertex != null) {
-				Delegates.pglDrawElementsBaseVertex(mode, count, type, indices, basevertex);
-				CallLog("glDrawElementsBaseVertex({0}, {1}, {2}, {3}, {4})", mode, count, type, indices, basevertex);
-			} else if (Delegates.pglDrawElementsBaseVertexEXT != null) {
-				Delegates.pglDrawElementsBaseVertexEXT(mode, count, type, indices, basevertex);
-				CallLog("glDrawElementsBaseVertexEXT({0}, {1}, {2}, {3}, {4})", mode, count, type, indices, basevertex);
-			} else if (Delegates.pglDrawElementsBaseVertexOES != null) {
-				Delegates.pglDrawElementsBaseVertexOES(mode, count, type, indices, basevertex);
-				CallLog("glDrawElementsBaseVertexOES({0}, {1}, {2}, {3}, {4})", mode, count, type, indices, basevertex);
-			} else
-				throw new NotImplementedException("glDrawElementsBaseVertex (and other aliases) are not implemented");
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// render primitives from array data with a per-element offset
-		/// </summary>
-		/// <param name="mode">
-		/// Specifies what kind of primitives to render. Symbolic constants GL_POINTS, GL_LINE_STRIP, GL_LINE_LOOP, GL_LINES, 
-		/// GL_TRIANGLE_STRIP, GL_TRIANGLE_FAN, GL_TRIANGLES, GL_LINES_ADJACENCY, GL_LINE_STRIP_ADJACENCY, GL_TRIANGLES_ADJACENCY, 
-		/// GL_TRIANGLE_STRIP_ADJACENCY and GL_PATCHES are accepted.
-		/// </param>
-		/// <param name="count">
-		/// Specifies the number of elements to be rendered.
-		/// </param>
-		/// <param name="type">
-		/// Specifies the type of the values in indices. Must be one of GL_UNSIGNED_BYTE, GL_UNSIGNED_SHORT, or GL_UNSIGNED_INT.
-		/// </param>
-		/// <param name="indices">
-		/// Specifies a pointer to the location where the indices are stored.
-		/// </param>
-		/// <param name="basevertex">
-		/// Specifies a constant that should be added to each element of indices when chosing elements from the enabled vertex 
-		/// arrays.
-		/// </param>
-		[RequiredByFeature("GL_VERSION_3_2")]
-		[RequiredByFeature("GL_ARB_draw_elements_base_vertex")]
 		public static void DrawElementsBaseVertex(PrimitiveType mode, Int32 count, int type, IntPtr indices, Int32 basevertex)
 		{
 			if        (Delegates.pglDrawElementsBaseVertex != null) {
@@ -611,51 +572,6 @@ namespace OpenGL
 			} finally {
 				pin_indices.Free();
 			}
-		}
-
-		/// <summary>
-		/// render primitives from array data with a per-element offset
-		/// </summary>
-		/// <param name="mode">
-		/// Specifies what kind of primitives to render. Symbolic constants GL_POINTS, GL_LINE_STRIP, GL_LINE_LOOP, GL_LINES, 
-		/// GL_TRIANGLE_STRIP, GL_TRIANGLE_FAN, GL_TRIANGLES, GL_LINES_ADJACENCY, GL_LINE_STRIP_ADJACENCY, GL_TRIANGLES_ADJACENCY, 
-		/// GL_TRIANGLE_STRIP_ADJACENCY and GL_PATCHES are accepted.
-		/// </param>
-		/// <param name="start">
-		/// Specifies the minimum array index contained in indices.
-		/// </param>
-		/// <param name="end">
-		/// Specifies the maximum array index contained in indices.
-		/// </param>
-		/// <param name="count">
-		/// Specifies the number of elements to be rendered.
-		/// </param>
-		/// <param name="type">
-		/// Specifies the type of the values in indices. Must be one of GL_UNSIGNED_BYTE, GL_UNSIGNED_SHORT, or GL_UNSIGNED_INT.
-		/// </param>
-		/// <param name="indices">
-		/// Specifies a pointer to the location where the indices are stored.
-		/// </param>
-		/// <param name="basevertex">
-		/// Specifies a constant that should be added to each element of indices when chosing elements from the enabled vertex 
-		/// arrays.
-		/// </param>
-		[RequiredByFeature("GL_VERSION_3_2")]
-		[RequiredByFeature("GL_ARB_draw_elements_base_vertex")]
-		public static void DrawRangeElementsBaseVertex(int mode, UInt32 start, UInt32 end, Int32 count, int type, IntPtr indices, Int32 basevertex)
-		{
-			if        (Delegates.pglDrawRangeElementsBaseVertex != null) {
-				Delegates.pglDrawRangeElementsBaseVertex(mode, start, end, count, type, indices, basevertex);
-				CallLog("glDrawRangeElementsBaseVertex({0}, {1}, {2}, {3}, {4}, {5}, {6})", mode, start, end, count, type, indices, basevertex);
-			} else if (Delegates.pglDrawRangeElementsBaseVertexEXT != null) {
-				Delegates.pglDrawRangeElementsBaseVertexEXT(mode, start, end, count, type, indices, basevertex);
-				CallLog("glDrawRangeElementsBaseVertexEXT({0}, {1}, {2}, {3}, {4}, {5}, {6})", mode, start, end, count, type, indices, basevertex);
-			} else if (Delegates.pglDrawRangeElementsBaseVertexOES != null) {
-				Delegates.pglDrawRangeElementsBaseVertexOES(mode, start, end, count, type, indices, basevertex);
-				CallLog("glDrawRangeElementsBaseVertexOES({0}, {1}, {2}, {3}, {4}, {5}, {6})", mode, start, end, count, type, indices, basevertex);
-			} else
-				throw new NotImplementedException("glDrawRangeElementsBaseVertex (and other aliases) are not implemented");
-			DebugCheckErrors();
 		}
 
 		/// <summary>
@@ -779,48 +695,6 @@ namespace OpenGL
 			} finally {
 				pin_indices.Free();
 			}
-		}
-
-		/// <summary>
-		/// render multiple instances of a set of primitives from array data with a per-element offset
-		/// </summary>
-		/// <param name="mode">
-		/// Specifies what kind of primitives to render. Symbolic constants GL_POINTS, GL_LINE_STRIP, GL_LINE_LOOP, GL_LINES, 
-		/// GL_TRIANGLE_STRIP, GL_TRIANGLE_FAN, GL_TRIANGLES, GL_LINES_ADJACENCY, GL_LINE_STRIP_ADJACENCY, GL_TRIANGLES_ADJACENCY, 
-		/// GL_TRIANGLE_STRIP_ADJACENCY and GL_PATCHES are accepted.
-		/// </param>
-		/// <param name="count">
-		/// Specifies the number of elements to be rendered.
-		/// </param>
-		/// <param name="type">
-		/// Specifies the type of the values in indices. Must be one of GL_UNSIGNED_BYTE, GL_UNSIGNED_SHORT, or GL_UNSIGNED_INT.
-		/// </param>
-		/// <param name="indices">
-		/// Specifies a pointer to the location where the indices are stored.
-		/// </param>
-		/// <param name="instancecount">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="basevertex">
-		/// Specifies a constant that should be added to each element of indices when chosing elements from the enabled vertex 
-		/// arrays.
-		/// </param>
-		[RequiredByFeature("GL_VERSION_3_2")]
-		[RequiredByFeature("GL_ARB_draw_elements_base_vertex")]
-		public static void DrawElementsInstancedBaseVertex(int mode, Int32 count, int type, IntPtr indices, Int32 instancecount, Int32 basevertex)
-		{
-			if        (Delegates.pglDrawElementsInstancedBaseVertex != null) {
-				Delegates.pglDrawElementsInstancedBaseVertex(mode, count, type, indices, instancecount, basevertex);
-				CallLog("glDrawElementsInstancedBaseVertex({0}, {1}, {2}, {3}, {4}, {5})", mode, count, type, indices, instancecount, basevertex);
-			} else if (Delegates.pglDrawElementsInstancedBaseVertexEXT != null) {
-				Delegates.pglDrawElementsInstancedBaseVertexEXT(mode, count, type, indices, instancecount, basevertex);
-				CallLog("glDrawElementsInstancedBaseVertexEXT({0}, {1}, {2}, {3}, {4}, {5})", mode, count, type, indices, instancecount, basevertex);
-			} else if (Delegates.pglDrawElementsInstancedBaseVertexOES != null) {
-				Delegates.pglDrawElementsInstancedBaseVertexOES(mode, count, type, indices, instancecount, basevertex);
-				CallLog("glDrawElementsInstancedBaseVertexOES({0}, {1}, {2}, {3}, {4}, {5})", mode, count, type, indices, instancecount, basevertex);
-			} else
-				throw new NotImplementedException("glDrawElementsInstancedBaseVertex (and other aliases) are not implemented");
-			DebugCheckErrors();
 		}
 
 		/// <summary>
@@ -1266,33 +1140,6 @@ namespace OpenGL
 					Debug.Assert(Delegates.pglGetInteger64i_v != null, "pglGetInteger64i_v not implemented");
 					Delegates.pglGetInteger64i_v(target, index, p_data);
 					CallLog("glGetInteger64i_v({0}, {1}, {2})", target, index, data);
-				}
-			}
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// return parameters of a buffer object
-		/// </summary>
-		/// <param name="target">
-		/// Specifies the target to which the buffer object is bound for glGetBufferParameteriv and glGetBufferParameteri64v. Must 
-		/// be one of the buffer binding targets in the following table:
-		/// </param>
-		/// <param name="pname">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="params">
-		/// A <see cref="T:Int64[]"/>.
-		/// </param>
-		[RequiredByFeature("GL_VERSION_3_2")]
-		public static void GetBufferParameter(int target, int pname, Int64[] @params)
-		{
-			unsafe {
-				fixed (Int64* p_params = @params)
-				{
-					Debug.Assert(Delegates.pglGetBufferParameteri64v != null, "pglGetBufferParameteri64v not implemented");
-					Delegates.pglGetBufferParameteri64v(target, pname, p_params);
-					CallLog("glGetBufferParameteri64v({0}, {1}, {2})", target, pname, @params);
 				}
 			}
 			DebugCheckErrors();

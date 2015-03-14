@@ -41,30 +41,6 @@ namespace OpenGL
 		/// Binding for glDrawMeshArraysSUN.
 		/// </summary>
 		/// <param name="mode">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="first">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="count">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="width">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		[RequiredByFeature("GL_SUN_mesh_array")]
-		public static void DrawMeshArraysSUN(int mode, Int32 first, Int32 count, Int32 width)
-		{
-			Debug.Assert(Delegates.pglDrawMeshArraysSUN != null, "pglDrawMeshArraysSUN not implemented");
-			Delegates.pglDrawMeshArraysSUN(mode, first, count, width);
-			CallLog("glDrawMeshArraysSUN({0}, {1}, {2}, {3})", mode, first, count, width);
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// Binding for glDrawMeshArraysSUN.
-		/// </summary>
-		/// <param name="mode">
 		/// A <see cref="T:PrimitiveType"/>.
 		/// </param>
 		/// <param name="first">

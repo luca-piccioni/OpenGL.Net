@@ -85,6 +85,7 @@
 	<word>ColorP4</word>
 	<word>Color</word>
 	<word>Combiner</word>
+	<word>Commitment</word>
 	<word>Compiler</word>
 	<word>Compile</word>
 	<word>Component</word>
@@ -327,6 +328,7 @@
 	<word>P2</word>
 	<word>P3</word>
 	<word>P4</word>
+	<word>Page</word>
 	<word>Palette</word>
 	<word>Parameter4</word>
 	<word>ParameterI4</word>

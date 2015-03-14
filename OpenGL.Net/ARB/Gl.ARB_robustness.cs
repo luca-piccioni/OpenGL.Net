@@ -114,6 +114,38 @@ namespace OpenGL
 		}
 
 		/// <summary>
+		/// Binding for glGetnTexImageARB.
+		/// </summary>
+		/// <param name="target">
+		/// A <see cref="T:int"/>.
+		/// </param>
+		/// <param name="level">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="format">
+		/// A <see cref="T:int"/>.
+		/// </param>
+		/// <param name="type">
+		/// A <see cref="T:int"/>.
+		/// </param>
+		/// <param name="bufSize">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="img">
+		/// A <see cref="T:Object"/>.
+		/// </param>
+		[RequiredByFeature("GL_ARB_robustness")]
+		public static void GetnTexImageARB(int target, Int32 level, int format, int type, Int32 bufSize, Object img)
+		{
+			GCHandle pin_img = GCHandle.Alloc(img, GCHandleType.Pinned);
+			try {
+				GetnTexImageARB(target, level, format, type, bufSize, pin_img.AddrOfPinnedObject());
+			} finally {
+				pin_img.Free();
+			}
+		}
+
+		/// <summary>
 		/// Binding for glReadnPixelsARB.
 		/// </summary>
 		/// <param name="x">
@@ -171,6 +203,32 @@ namespace OpenGL
 			Delegates.pglGetnCompressedTexImageARB(target, lod, bufSize, img);
 			CallLog("glGetnCompressedTexImageARB({0}, {1}, {2}, {3})", target, lod, bufSize, img);
 			DebugCheckErrors();
+		}
+
+		/// <summary>
+		/// Binding for glGetnCompressedTexImageARB.
+		/// </summary>
+		/// <param name="target">
+		/// A <see cref="T:int"/>.
+		/// </param>
+		/// <param name="lod">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="bufSize">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="img">
+		/// A <see cref="T:Object"/>.
+		/// </param>
+		[RequiredByFeature("GL_ARB_robustness")]
+		public static void GetnCompressedTexImageARB(int target, Int32 lod, Int32 bufSize, Object img)
+		{
+			GCHandle pin_img = GCHandle.Alloc(img, GCHandleType.Pinned);
+			try {
+				GetnCompressedTexImageARB(target, lod, bufSize, pin_img.AddrOfPinnedObject());
+			} finally {
+				pin_img.Free();
+			}
 		}
 
 		/// <summary>
@@ -505,6 +563,35 @@ namespace OpenGL
 		}
 
 		/// <summary>
+		/// Binding for glGetnColorTableARB.
+		/// </summary>
+		/// <param name="target">
+		/// A <see cref="T:int"/>.
+		/// </param>
+		/// <param name="format">
+		/// A <see cref="T:int"/>.
+		/// </param>
+		/// <param name="type">
+		/// A <see cref="T:int"/>.
+		/// </param>
+		/// <param name="bufSize">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="table">
+		/// A <see cref="T:Object"/>.
+		/// </param>
+		[RequiredByFeature("GL_ARB_robustness")]
+		public static void GetnColorTableARB(int target, int format, int type, Int32 bufSize, Object table)
+		{
+			GCHandle pin_table = GCHandle.Alloc(table, GCHandleType.Pinned);
+			try {
+				GetnColorTableARB(target, format, type, bufSize, pin_table.AddrOfPinnedObject());
+			} finally {
+				pin_table.Free();
+			}
+		}
+
+		/// <summary>
 		/// Binding for glGetnConvolutionFilterARB.
 		/// </summary>
 		/// <param name="target">
@@ -529,6 +616,35 @@ namespace OpenGL
 			Delegates.pglGetnConvolutionFilterARB(target, format, type, bufSize, image);
 			CallLog("glGetnConvolutionFilterARB({0}, {1}, {2}, {3}, {4})", target, format, type, bufSize, image);
 			DebugCheckErrors();
+		}
+
+		/// <summary>
+		/// Binding for glGetnConvolutionFilterARB.
+		/// </summary>
+		/// <param name="target">
+		/// A <see cref="T:int"/>.
+		/// </param>
+		/// <param name="format">
+		/// A <see cref="T:int"/>.
+		/// </param>
+		/// <param name="type">
+		/// A <see cref="T:int"/>.
+		/// </param>
+		/// <param name="bufSize">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="image">
+		/// A <see cref="T:Object"/>.
+		/// </param>
+		[RequiredByFeature("GL_ARB_robustness")]
+		public static void GetnConvolutionFilterARB(int target, int format, int type, Int32 bufSize, Object image)
+		{
+			GCHandle pin_image = GCHandle.Alloc(image, GCHandleType.Pinned);
+			try {
+				GetnConvolutionFilterARB(target, format, type, bufSize, pin_image.AddrOfPinnedObject());
+			} finally {
+				pin_image.Free();
+			}
 		}
 
 		/// <summary>
@@ -568,6 +684,48 @@ namespace OpenGL
 		}
 
 		/// <summary>
+		/// Binding for glGetnSeparableFilterARB.
+		/// </summary>
+		/// <param name="target">
+		/// A <see cref="T:int"/>.
+		/// </param>
+		/// <param name="format">
+		/// A <see cref="T:int"/>.
+		/// </param>
+		/// <param name="type">
+		/// A <see cref="T:int"/>.
+		/// </param>
+		/// <param name="rowBufSize">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="row">
+		/// A <see cref="T:Object"/>.
+		/// </param>
+		/// <param name="columnBufSize">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="column">
+		/// A <see cref="T:Object"/>.
+		/// </param>
+		/// <param name="span">
+		/// A <see cref="T:Object"/>.
+		/// </param>
+		[RequiredByFeature("GL_ARB_robustness")]
+		public static void GetnSeparableFilterARB(int target, int format, int type, Int32 rowBufSize, Object row, Int32 columnBufSize, Object column, Object span)
+		{
+			GCHandle pin_row = GCHandle.Alloc(row, GCHandleType.Pinned);
+			GCHandle pin_column = GCHandle.Alloc(column, GCHandleType.Pinned);
+			GCHandle pin_span = GCHandle.Alloc(span, GCHandleType.Pinned);
+			try {
+				GetnSeparableFilterARB(target, format, type, rowBufSize, pin_row.AddrOfPinnedObject(), columnBufSize, pin_column.AddrOfPinnedObject(), pin_span.AddrOfPinnedObject());
+			} finally {
+				pin_row.Free();
+				pin_column.Free();
+				pin_span.Free();
+			}
+		}
+
+		/// <summary>
 		/// Binding for glGetnHistogramARB.
 		/// </summary>
 		/// <param name="target">
@@ -598,6 +756,38 @@ namespace OpenGL
 		}
 
 		/// <summary>
+		/// Binding for glGetnHistogramARB.
+		/// </summary>
+		/// <param name="target">
+		/// A <see cref="T:int"/>.
+		/// </param>
+		/// <param name="reset">
+		/// A <see cref="T:bool"/>.
+		/// </param>
+		/// <param name="format">
+		/// A <see cref="T:int"/>.
+		/// </param>
+		/// <param name="type">
+		/// A <see cref="T:int"/>.
+		/// </param>
+		/// <param name="bufSize">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="values">
+		/// A <see cref="T:Object"/>.
+		/// </param>
+		[RequiredByFeature("GL_ARB_robustness")]
+		public static void GetnHistogramARB(int target, bool reset, int format, int type, Int32 bufSize, Object values)
+		{
+			GCHandle pin_values = GCHandle.Alloc(values, GCHandleType.Pinned);
+			try {
+				GetnHistogramARB(target, reset, format, type, bufSize, pin_values.AddrOfPinnedObject());
+			} finally {
+				pin_values.Free();
+			}
+		}
+
+		/// <summary>
 		/// Binding for glGetnMinmaxARB.
 		/// </summary>
 		/// <param name="target">
@@ -625,6 +815,38 @@ namespace OpenGL
 			Delegates.pglGetnMinmaxARB(target, reset, format, type, bufSize, values);
 			CallLog("glGetnMinmaxARB({0}, {1}, {2}, {3}, {4}, {5})", target, reset, format, type, bufSize, values);
 			DebugCheckErrors();
+		}
+
+		/// <summary>
+		/// Binding for glGetnMinmaxARB.
+		/// </summary>
+		/// <param name="target">
+		/// A <see cref="T:int"/>.
+		/// </param>
+		/// <param name="reset">
+		/// A <see cref="T:bool"/>.
+		/// </param>
+		/// <param name="format">
+		/// A <see cref="T:int"/>.
+		/// </param>
+		/// <param name="type">
+		/// A <see cref="T:int"/>.
+		/// </param>
+		/// <param name="bufSize">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="values">
+		/// A <see cref="T:Object"/>.
+		/// </param>
+		[RequiredByFeature("GL_ARB_robustness")]
+		public static void GetnMinmaxARB(int target, bool reset, int format, int type, Int32 bufSize, Object values)
+		{
+			GCHandle pin_values = GCHandle.Alloc(values, GCHandleType.Pinned);
+			try {
+				GetnMinmaxARB(target, reset, format, type, bufSize, pin_values.AddrOfPinnedObject());
+			} finally {
+				pin_values.Free();
+			}
 		}
 
 	}

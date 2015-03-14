@@ -141,27 +141,6 @@ namespace OpenGL
 		/// Binding for glFogCoordPointerEXT.
 		/// </summary>
 		/// <param name="type">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="stride">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="pointer">
-		/// A <see cref="T:IntPtr"/>.
-		/// </param>
-		[RequiredByFeature("GL_EXT_fog_coord")]
-		public static void FogCoordPointerEXT(int type, Int32 stride, IntPtr pointer)
-		{
-			Debug.Assert(Delegates.pglFogCoordPointerEXT != null, "pglFogCoordPointerEXT not implemented");
-			Delegates.pglFogCoordPointerEXT(type, stride, pointer);
-			CallLog("glFogCoordPointerEXT({0}, {1}, {2})", type, stride, pointer);
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// Binding for glFogCoordPointerEXT.
-		/// </summary>
-		/// <param name="type">
 		/// A <see cref="T:FogPointerTypeEXT"/>.
 		/// </param>
 		/// <param name="stride">

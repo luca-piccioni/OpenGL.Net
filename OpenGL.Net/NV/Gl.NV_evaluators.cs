@@ -335,6 +335,41 @@ namespace OpenGL
 		}
 
 		/// <summary>
+		/// Binding for glGetMapControlPointsNV.
+		/// </summary>
+		/// <param name="target">
+		/// A <see cref="T:int"/>.
+		/// </param>
+		/// <param name="index">
+		/// A <see cref="T:UInt32"/>.
+		/// </param>
+		/// <param name="type">
+		/// A <see cref="T:int"/>.
+		/// </param>
+		/// <param name="ustride">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="vstride">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="packed">
+		/// A <see cref="T:bool"/>.
+		/// </param>
+		/// <param name="points">
+		/// A <see cref="T:Object"/>.
+		/// </param>
+		[RequiredByFeature("GL_NV_evaluators")]
+		public static void GetMapControlPointNV(int target, UInt32 index, int type, Int32 ustride, Int32 vstride, bool packed, Object points)
+		{
+			GCHandle pin_points = GCHandle.Alloc(points, GCHandleType.Pinned);
+			try {
+				GetMapControlPointNV(target, index, type, ustride, vstride, packed, pin_points.AddrOfPinnedObject());
+			} finally {
+				pin_points.Free();
+			}
+		}
+
+		/// <summary>
 		/// Binding for glGetMapParameterivNV.
 		/// </summary>
 		/// <param name="target">

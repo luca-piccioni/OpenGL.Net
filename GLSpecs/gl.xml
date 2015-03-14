@@ -2037,6 +2037,12 @@ typedef unsigned int GLhandleARB;
 						<enum name="GL_DYNAMIC_READ"/>
 						<enum name="GL_DYNAMIC_COPY"/>
 			</group>
+
+			<group name="BufferAccessARB">
+						<enum name="GL_READ_ONLY"/>
+						<enum name="GL_WRITE_ONLY"/>
+						<enum name="GL_READ_WRITE"/>
+			</group>
     </groups>
 
     <!-- SECTION: GL enumerant (token) definitions. -->

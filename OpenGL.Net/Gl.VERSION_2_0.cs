@@ -563,33 +563,6 @@ namespace OpenGL
 		/// cref="Gl.MIN"/>, <see cref="Gl.MAX"/>.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_2_0")]
-		public static void BlendEquationSeparate(int modeRGB, int modeAlpha)
-		{
-			if        (Delegates.pglBlendEquationSeparate != null) {
-				Delegates.pglBlendEquationSeparate(modeRGB, modeAlpha);
-				CallLog("glBlendEquationSeparate({0}, {1})", modeRGB, modeAlpha);
-			} else if (Delegates.pglBlendEquationSeparateEXT != null) {
-				Delegates.pglBlendEquationSeparateEXT(modeRGB, modeAlpha);
-				CallLog("glBlendEquationSeparateEXT({0}, {1})", modeRGB, modeAlpha);
-			} else
-				throw new NotImplementedException("glBlendEquationSeparate (and other aliases) are not implemented");
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// set the RGB blend equation and the alpha blend equation separately
-		/// </summary>
-		/// <param name="modeRGB">
-		/// specifies the RGB blend equation, how the red, green, and blue components of the source and destination colors are 
-		/// combined. It must be <see cref="Gl.FUNC_ADD"/>, <see cref="Gl.FUNC_SUBTRACT"/>, <see cref="Gl.FUNC_REVERSE_SUBTRACT"/>, 
-		/// <see cref="Gl.MIN"/>, <see cref="Gl.MAX"/>.
-		/// </param>
-		/// <param name="modeAlpha">
-		/// specifies the alpha blend equation, how the alpha component of the source and destination colors are combined. It must 
-		/// be <see cref="Gl.FUNC_ADD"/>, <see cref="Gl.FUNC_SUBTRACT"/>, <see cref="Gl.FUNC_REVERSE_SUBTRACT"/>, <see 
-		/// cref="Gl.MIN"/>, <see cref="Gl.MAX"/>.
-		/// </param>
-		[RequiredByFeature("GL_VERSION_2_0")]
 		public static void BlendEquationSeparate(BlendEquationModeEXT modeRGB, BlendEquationModeEXT modeAlpha)
 		{
 			if        (Delegates.pglBlendEquationSeparate != null) {
@@ -659,40 +632,6 @@ namespace OpenGL
 		/// The initial value is GL_KEEP.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_2_0")]
-		public static void StencilOpSeparate(int face, int sfail, int dpfail, int dppass)
-		{
-			if        (Delegates.pglStencilOpSeparate != null) {
-				Delegates.pglStencilOpSeparate(face, sfail, dpfail, dppass);
-				CallLog("glStencilOpSeparate({0}, {1}, {2}, {3})", face, sfail, dpfail, dppass);
-			} else if (Delegates.pglStencilOpSeparateATI != null) {
-				Delegates.pglStencilOpSeparateATI(face, sfail, dpfail, dppass);
-				CallLog("glStencilOpSeparateATI({0}, {1}, {2}, {3})", face, sfail, dpfail, dppass);
-			} else
-				throw new NotImplementedException("glStencilOpSeparate (and other aliases) are not implemented");
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// set front and/or back stencil test actions
-		/// </summary>
-		/// <param name="face">
-		/// Specifies whether front and/or back stencil state is updated. Three symbolic constants are valid: GL_FRONT, GL_BACK, and 
-		/// GL_FRONT_AND_BACK.
-		/// </param>
-		/// <param name="sfail">
-		/// Specifies the action to take when the stencil test fails. Eight symbolic constants are accepted: GL_KEEP, GL_ZERO, 
-		/// GL_REPLACE, GL_INCR, GL_INCR_WRAP, GL_DECR, GL_DECR_WRAP, and GL_INVERT. The initial value is GL_KEEP.
-		/// </param>
-		/// <param name="dpfail">
-		/// Specifies the stencil action when the stencil test passes, but the depth test fails. dpfail accepts the same symbolic 
-		/// constants as sfail. The initial value is GL_KEEP.
-		/// </param>
-		/// <param name="dppass">
-		/// Specifies the stencil action when both the stencil test and the depth test pass, or when the stencil test passes and 
-		/// either there is no depth buffer or depth testing is not enabled. dppass accepts the same symbolic constants as sfail. 
-		/// The initial value is GL_KEEP.
-		/// </param>
-		[RequiredByFeature("GL_VERSION_2_0")]
 		public static void StencilOpSeparate(int face, StencilOp sfail, StencilOp dpfail, StencilOp dppass)
 		{
 			if        (Delegates.pglStencilOpSeparate != null) {
@@ -703,33 +642,6 @@ namespace OpenGL
 				CallLog("glStencilOpSeparateATI({0}, {1}, {2}, {3})", face, sfail, dpfail, dppass);
 			} else
 				throw new NotImplementedException("glStencilOpSeparate (and other aliases) are not implemented");
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// set front and/or back function and reference value for stencil testing
-		/// </summary>
-		/// <param name="face">
-		/// Specifies whether front and/or back stencil state is updated. Three symbolic constants are valid: GL_FRONT, GL_BACK, and 
-		/// GL_FRONT_AND_BACK.
-		/// </param>
-		/// <param name="func">
-		/// Specifies the test function. Eight symbolic constants are valid: GL_NEVER, GL_LESS, GL_LEQUAL, GL_GREATER, GL_GEQUAL, 
-		/// GL_EQUAL, GL_NOTEQUAL, and GL_ALWAYS. The initial value is GL_ALWAYS.
-		/// </param>
-		/// <param name="ref">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="mask">
-		/// Specifies a mask that is ANDed with both the reference value and the stored stencil value when the test is done. The 
-		/// initial value is all 1's.
-		/// </param>
-		[RequiredByFeature("GL_VERSION_2_0")]
-		public static void StencilFuncSeparate(int face, int func, Int32 @ref, UInt32 mask)
-		{
-			Debug.Assert(Delegates.pglStencilFuncSeparate != null, "pglStencilFuncSeparate not implemented");
-			Delegates.pglStencilFuncSeparate(face, func, @ref, mask);
-			CallLog("glStencilFuncSeparate({0}, {1}, {2}, {3})", face, func, @ref, mask);
 			DebugCheckErrors();
 		}
 
@@ -1515,6 +1427,30 @@ namespace OpenGL
 			} else
 				throw new NotImplementedException("glGetVertexAttribPointerv (and other aliases) are not implemented");
 			DebugCheckErrors();
+		}
+
+		/// <summary>
+		/// return the address of the specified generic vertex attribute pointer
+		/// </summary>
+		/// <param name="index">
+		/// Specifies the generic vertex attribute parameter to be returned.
+		/// </param>
+		/// <param name="pname">
+		/// Specifies the symbolic name of the generic vertex attribute parameter to be returned. Must be 
+		/// GL_VERTEX_ATTRIB_ARRAY_POINTER.
+		/// </param>
+		/// <param name="pointer">
+		/// Returns the pointer value.
+		/// </param>
+		[RequiredByFeature("GL_VERSION_2_0")]
+		public static void GetVertexAttribPointer(UInt32 index, int pname, Object pointer)
+		{
+			GCHandle pin_pointer = GCHandle.Alloc(pointer, GCHandleType.Pinned);
+			try {
+				GetVertexAttribPointer(index, pname, pin_pointer.AddrOfPinnedObject());
+			} finally {
+				pin_pointer.Free();
+			}
 		}
 
 		/// <summary>

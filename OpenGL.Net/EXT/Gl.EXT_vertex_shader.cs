@@ -1316,28 +1316,6 @@ namespace OpenGL
 		/// Binding for glBindLightParameterEXT.
 		/// </summary>
 		/// <param name="light">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="value">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		[RequiredByFeature("GL_EXT_vertex_shader")]
-		public static UInt32 BindLightParameterEXT(int light, int value)
-		{
-			UInt32 retValue;
-
-			Debug.Assert(Delegates.pglBindLightParameterEXT != null, "pglBindLightParameterEXT not implemented");
-			retValue = Delegates.pglBindLightParameterEXT(light, value);
-			CallLog("glBindLightParameterEXT({0}, {1}) = {2}", light, value, retValue);
-			DebugCheckErrors();
-
-			return (retValue);
-		}
-
-		/// <summary>
-		/// Binding for glBindLightParameterEXT.
-		/// </summary>
-		/// <param name="light">
 		/// A <see cref="T:LightName"/>.
 		/// </param>
 		/// <param name="value">
@@ -1360,28 +1338,6 @@ namespace OpenGL
 		/// Binding for glBindMaterialParameterEXT.
 		/// </summary>
 		/// <param name="face">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="value">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		[RequiredByFeature("GL_EXT_vertex_shader")]
-		public static UInt32 BindMaterialParameterEXT(int face, int value)
-		{
-			UInt32 retValue;
-
-			Debug.Assert(Delegates.pglBindMaterialParameterEXT != null, "pglBindMaterialParameterEXT not implemented");
-			retValue = Delegates.pglBindMaterialParameterEXT(face, value);
-			CallLog("glBindMaterialParameterEXT({0}, {1}) = {2}", face, value, retValue);
-			DebugCheckErrors();
-
-			return (retValue);
-		}
-
-		/// <summary>
-		/// Binding for glBindMaterialParameterEXT.
-		/// </summary>
-		/// <param name="face">
 		/// A <see cref="T:MaterialFace"/>.
 		/// </param>
 		/// <param name="value">
@@ -1395,31 +1351,6 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglBindMaterialParameterEXT != null, "pglBindMaterialParameterEXT not implemented");
 			retValue = Delegates.pglBindMaterialParameterEXT((int)face, (int)value);
 			CallLog("glBindMaterialParameterEXT({0}, {1}) = {2}", face, value, retValue);
-			DebugCheckErrors();
-
-			return (retValue);
-		}
-
-		/// <summary>
-		/// Binding for glBindTexGenParameterEXT.
-		/// </summary>
-		/// <param name="unit">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="coord">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="value">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		[RequiredByFeature("GL_EXT_vertex_shader")]
-		public static UInt32 BindTexGenParameterEXT(int unit, int coord, int value)
-		{
-			UInt32 retValue;
-
-			Debug.Assert(Delegates.pglBindTexGenParameterEXT != null, "pglBindTexGenParameterEXT not implemented");
-			retValue = Delegates.pglBindTexGenParameterEXT(unit, coord, value);
-			CallLog("glBindTexGenParameterEXT({0}, {1}, {2}) = {3}", unit, coord, value, retValue);
 			DebugCheckErrors();
 
 			return (retValue);
@@ -1610,6 +1541,29 @@ namespace OpenGL
 			Delegates.pglGetVariantPointervEXT(id, value, data);
 			CallLog("glGetVariantPointervEXT({0}, {1}, {2})", id, value, data);
 			DebugCheckErrors();
+		}
+
+		/// <summary>
+		/// Binding for glGetVariantPointervEXT.
+		/// </summary>
+		/// <param name="id">
+		/// A <see cref="T:UInt32"/>.
+		/// </param>
+		/// <param name="value">
+		/// A <see cref="T:int"/>.
+		/// </param>
+		/// <param name="data">
+		/// A <see cref="T:Object"/>.
+		/// </param>
+		[RequiredByFeature("GL_EXT_vertex_shader")]
+		public static void GetVariantPointerEXT(UInt32 id, int value, Object data)
+		{
+			GCHandle pin_data = GCHandle.Alloc(data, GCHandleType.Pinned);
+			try {
+				GetVariantPointerEXT(id, value, pin_data.AddrOfPinnedObject());
+			} finally {
+				pin_data.Free();
+			}
 		}
 
 		/// <summary>

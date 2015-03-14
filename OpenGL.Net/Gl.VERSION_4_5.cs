@@ -887,6 +887,30 @@ namespace OpenGL
 		}
 
 		/// <summary>
+		/// return the pointer to a mapped buffer object's data store
+		/// </summary>
+		/// <param name="buffer">
+		/// Specifies the name of the buffer object for glGetNamedBufferPointerv.
+		/// </param>
+		/// <param name="pname">
+		/// Specifies the name of the pointer to be returned. Must be GL_BUFFER_MAP_POINTER.
+		/// </param>
+		/// <param name="params">
+		/// A <see cref="T:Object"/>.
+		/// </param>
+		[RequiredByFeature("GL_VERSION_4_5")]
+		[RequiredByFeature("GL_ARB_direct_state_access")]
+		public static void GetNamedBufferPointer(UInt32 buffer, int pname, Object @params)
+		{
+			GCHandle pin_params = GCHandle.Alloc(@params, GCHandleType.Pinned);
+			try {
+				GetNamedBufferPointer(buffer, pname, pin_params.AddrOfPinnedObject());
+			} finally {
+				pin_params.Free();
+			}
+		}
+
+		/// <summary>
 		/// returns a subset of a buffer object's data store
 		/// </summary>
 		/// <param name="buffer">
@@ -909,6 +933,33 @@ namespace OpenGL
 			Delegates.pglGetNamedBufferSubData(buffer, offset, size, data);
 			CallLog("glGetNamedBufferSubData({0}, {1}, {2}, {3})", buffer, offset, size, data);
 			DebugCheckErrors();
+		}
+
+		/// <summary>
+		/// returns a subset of a buffer object's data store
+		/// </summary>
+		/// <param name="buffer">
+		/// Specifies the name of the buffer object for glGetNamedBufferSubData.
+		/// </param>
+		/// <param name="offset">
+		/// Specifies the offset into the buffer object's data store from which data will be returned, measured in bytes.
+		/// </param>
+		/// <param name="size">
+		/// Specifies the size in bytes of the data store region being returned.
+		/// </param>
+		/// <param name="data">
+		/// Specifies a pointer to the location where buffer object data is returned.
+		/// </param>
+		[RequiredByFeature("GL_VERSION_4_5")]
+		[RequiredByFeature("GL_ARB_direct_state_access")]
+		public static void GetNamedBufferSubData(UInt32 buffer, IntPtr offset, UInt32 size, Object data)
+		{
+			GCHandle pin_data = GCHandle.Alloc(data, GCHandleType.Pinned);
+			try {
+				GetNamedBufferSubData(buffer, offset, size, pin_data.AddrOfPinnedObject());
+			} finally {
+				pin_data.Free();
+			}
 		}
 
 		/// <summary>
@@ -2607,6 +2658,39 @@ namespace OpenGL
 		}
 
 		/// <summary>
+		/// Binding for glGetTextureImage.
+		/// </summary>
+		/// <param name="texture">
+		/// A <see cref="T:UInt32"/>.
+		/// </param>
+		/// <param name="level">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="format">
+		/// A <see cref="T:int"/>.
+		/// </param>
+		/// <param name="type">
+		/// A <see cref="T:int"/>.
+		/// </param>
+		/// <param name="bufSize">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="pixels">
+		/// A <see cref="T:Object"/>.
+		/// </param>
+		[RequiredByFeature("GL_VERSION_4_5")]
+		[RequiredByFeature("GL_ARB_direct_state_access")]
+		public static void GetTextureImage(UInt32 texture, Int32 level, int format, int type, Int32 bufSize, Object pixels)
+		{
+			GCHandle pin_pixels = GCHandle.Alloc(pixels, GCHandleType.Pinned);
+			try {
+				GetTextureImage(texture, level, format, type, bufSize, pin_pixels.AddrOfPinnedObject());
+			} finally {
+				pin_pixels.Free();
+			}
+		}
+
+		/// <summary>
 		/// return a compressed texture image
 		/// </summary>
 		/// <param name="texture">
@@ -2630,6 +2714,34 @@ namespace OpenGL
 			Delegates.pglGetCompressedTextureImage(texture, level, bufSize, pixels);
 			CallLog("glGetCompressedTextureImage({0}, {1}, {2}, {3})", texture, level, bufSize, pixels);
 			DebugCheckErrors();
+		}
+
+		/// <summary>
+		/// return a compressed texture image
+		/// </summary>
+		/// <param name="texture">
+		/// Specifies the texture object name for glGetCompressedTextureImage function.
+		/// </param>
+		/// <param name="level">
+		/// Specifies the level-of-detail number of the desired image. Level 0 is the base image level. Level $n$ is the $n$-th 
+		/// mipmap reduction image.
+		/// </param>
+		/// <param name="bufSize">
+		/// Specifies the size of the buffer pixels for glGetCompressedTextureImage and glGetnCompressedTexImage functions.
+		/// </param>
+		/// <param name="pixels">
+		/// Returns the compressed texture image.
+		/// </param>
+		[RequiredByFeature("GL_VERSION_4_5")]
+		[RequiredByFeature("GL_ARB_direct_state_access")]
+		public static void GetCompressedTextureImage(UInt32 texture, Int32 level, Int32 bufSize, Object pixels)
+		{
+			GCHandle pin_pixels = GCHandle.Alloc(pixels, GCHandleType.Pinned);
+			try {
+				GetCompressedTextureImage(texture, level, bufSize, pin_pixels.AddrOfPinnedObject());
+			} finally {
+				pin_pixels.Free();
+			}
 		}
 
 		/// <summary>
@@ -3457,6 +3569,64 @@ namespace OpenGL
 		}
 
 		/// <summary>
+		/// retrieve a sub-region of a texture image from a texture object
+		/// </summary>
+		/// <param name="texture">
+		/// Specifies the name of the source texture object. Must be GL_TEXTURE_1D, GL_TEXTURE_1D_ARRAY, GL_TEXTURE_2D, 
+		/// GL_TEXTURE_2D_ARRAY, GL_TEXTURE_3D, GL_TEXTURE_CUBE_MAP, GL_TEXTURE_CUBE_MAP_ARRAY or GL_TEXTURE_RECTANGLE. In specific, 
+		/// buffer and multisample textures are not permitted.
+		/// </param>
+		/// <param name="level">
+		/// Specifies the level-of-detail number. Level 0 is the base image level. Level $n$ is the $n$th mipmap reduction image.
+		/// </param>
+		/// <param name="xoffset">
+		/// Specifies a texel offset in the x direction within the texture array.
+		/// </param>
+		/// <param name="yoffset">
+		/// Specifies a texel offset in the y direction within the texture array.
+		/// </param>
+		/// <param name="zoffset">
+		/// Specifies a texel offset in the z direction within the texture array.
+		/// </param>
+		/// <param name="width">
+		/// Specifies the width of the texture subimage.
+		/// </param>
+		/// <param name="height">
+		/// Specifies the height of the texture subimage.
+		/// </param>
+		/// <param name="depth">
+		/// Specifies the depth of the texture subimage.
+		/// </param>
+		/// <param name="format">
+		/// Specifies the format of the pixel data. The following symbolic values are accepted: GL_RED, GL_RG, GL_RGB, GL_BGR, 
+		/// GL_RGBA, GL_BGRA, GL_DEPTH_COMPONENT and GL_STENCIL_INDEX.
+		/// </param>
+		/// <param name="type">
+		/// Specifies the data type of the pixel data. The following symbolic values are accepted: GL_UNSIGNED_BYTE, GL_BYTE, 
+		/// GL_UNSIGNED_SHORT, GL_SHORT, GL_UNSIGNED_INT, GL_INT, GL_FLOAT, GL_UNSIGNED_BYTE_3_3_2, GL_UNSIGNED_BYTE_2_3_3_REV, 
+		/// GL_UNSIGNED_SHORT_5_6_5, GL_UNSIGNED_SHORT_5_6_5_REV, GL_UNSIGNED_SHORT_4_4_4_4, GL_UNSIGNED_SHORT_4_4_4_4_REV, 
+		/// GL_UNSIGNED_SHORT_5_5_5_1, GL_UNSIGNED_SHORT_1_5_5_5_REV, GL_UNSIGNED_INT_8_8_8_8, GL_UNSIGNED_INT_8_8_8_8_REV, 
+		/// GL_UNSIGNED_INT_10_10_10_2, and GL_UNSIGNED_INT_2_10_10_10_REV.
+		/// </param>
+		/// <param name="bufSize">
+		/// Specifies the size of the buffer to receive the retrieved pixel data.
+		/// </param>
+		/// <param name="pixels">
+		/// Returns the texture subimage. Should be a pointer to an array of the type specified by type.
+		/// </param>
+		[RequiredByFeature("GL_VERSION_4_5")]
+		[RequiredByFeature("GL_ARB_get_texture_sub_image")]
+		public static void GetTextureSubImage(UInt32 texture, Int32 level, Int32 xoffset, Int32 yoffset, Int32 zoffset, Int32 width, Int32 height, Int32 depth, int format, int type, Int32 bufSize, Object pixels)
+		{
+			GCHandle pin_pixels = GCHandle.Alloc(pixels, GCHandleType.Pinned);
+			try {
+				GetTextureSubImage(texture, level, xoffset, yoffset, zoffset, width, height, depth, format, type, bufSize, pin_pixels.AddrOfPinnedObject());
+			} finally {
+				pin_pixels.Free();
+			}
+		}
+
+		/// <summary>
 		/// retrieve a sub-region of a compressed texture image from a compressed texture object
 		/// </summary>
 		/// <param name="texture">
@@ -3502,6 +3672,56 @@ namespace OpenGL
 			Delegates.pglGetCompressedTextureSubImage(texture, level, xoffset, yoffset, zoffset, width, height, depth, bufSize, pixels);
 			CallLog("glGetCompressedTextureSubImage({0}, {1}, {2}, {3}, {4}, {5}, {6}, {7}, {8}, {9})", texture, level, xoffset, yoffset, zoffset, width, height, depth, bufSize, pixels);
 			DebugCheckErrors();
+		}
+
+		/// <summary>
+		/// retrieve a sub-region of a compressed texture image from a compressed texture object
+		/// </summary>
+		/// <param name="texture">
+		/// Specifies the name of the source texture object. Must be GL_TEXTURE_1D, GL_TEXTURE_1D_ARRAY, GL_TEXTURE_2D, 
+		/// GL_TEXTURE_2D_ARRAY, GL_TEXTURE_3D, GL_TEXTURE_CUBE_MAP, GL_TEXTURE_CUBE_MAP_ARRAY or GL_TEXTURE_RECTANGLE. In specific, 
+		/// buffer and multisample textures are not permitted.
+		/// </param>
+		/// <param name="level">
+		/// Specifies the level-of-detail number. Level 0 is the base image level. Level $n$ is the $n$th mipmap reduction image.
+		/// </param>
+		/// <param name="xoffset">
+		/// Specifies a texel offset in the x direction within the texture array.
+		/// </param>
+		/// <param name="yoffset">
+		/// Specifies a texel offset in the y direction within the texture array.
+		/// </param>
+		/// <param name="zoffset">
+		/// Specifies a texel offset in the z direction within the texture array.
+		/// </param>
+		/// <param name="width">
+		/// Specifies the width of the texture subimage. Must be a multiple of the compressed block's width, unless the offset is 
+		/// zero and the size equals the texture image size.
+		/// </param>
+		/// <param name="height">
+		/// Specifies the height of the texture subimage. Must be a multiple of the compressed block's height, unless the offset is 
+		/// zero and the size equals the texture image size.
+		/// </param>
+		/// <param name="depth">
+		/// Specifies the depth of the texture subimage. Must be a multiple of the compressed block's depth, unless the offset is 
+		/// zero and the size equals the texture image size.
+		/// </param>
+		/// <param name="bufSize">
+		/// Specifies the size of the buffer to receive the retrieved pixel data.
+		/// </param>
+		/// <param name="pixels">
+		/// Returns the texture subimage. Should be a pointer to an array of the type specified by type.
+		/// </param>
+		[RequiredByFeature("GL_VERSION_4_5")]
+		[RequiredByFeature("GL_ARB_get_texture_sub_image")]
+		public static void GetCompressedTextureSubImage(UInt32 texture, Int32 level, Int32 xoffset, Int32 yoffset, Int32 zoffset, Int32 width, Int32 height, Int32 depth, Int32 bufSize, Object pixels)
+		{
+			GCHandle pin_pixels = GCHandle.Alloc(pixels, GCHandleType.Pinned);
+			try {
+				GetCompressedTextureSubImage(texture, level, xoffset, yoffset, zoffset, width, height, depth, bufSize, pin_pixels.AddrOfPinnedObject());
+			} finally {
+				pin_pixels.Free();
+			}
 		}
 
 		/// <summary>
@@ -3555,6 +3775,36 @@ namespace OpenGL
 		}
 
 		/// <summary>
+		/// return a compressed texture image
+		/// </summary>
+		/// <param name="target">
+		/// Specifies the target to which the texture is bound for glGetCompressedTexImage and glGetnCompressedTexImage functions. 
+		/// GL_TEXTURE_1D, GL_TEXTURE_1D_ARRAY, GL_TEXTURE_2D, GL_TEXTURE_2D_ARRAY, GL_TEXTURE_3D, GL_TEXTURE_CUBE_MAP_ARRAY, 
+		/// GL_TEXTURE_CUBE_MAP_POSITIVE_X, GL_TEXTURE_CUBE_MAP_NEGATIVE_X, GL_TEXTURE_CUBE_MAP_POSITIVE_Y, 
+		/// GL_TEXTURE_CUBE_MAP_NEGATIVE_Y, GL_TEXTURE_CUBE_MAP_POSITIVE_Z, and GL_TEXTURE_CUBE_MAP_NEGATIVE_Z, GL_TEXTURE_RECTANGLE 
+		/// are accepted.
+		/// </param>
+		/// <param name="lod">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="bufSize">
+		/// Specifies the size of the buffer pixels for glGetCompressedTextureImage and glGetnCompressedTexImage functions.
+		/// </param>
+		/// <param name="pixels">
+		/// Returns the compressed texture image.
+		/// </param>
+		[RequiredByFeature("GL_VERSION_4_5")]
+		public static void GetnCompressedTexImage(int target, Int32 lod, Int32 bufSize, Object pixels)
+		{
+			GCHandle pin_pixels = GCHandle.Alloc(pixels, GCHandleType.Pinned);
+			try {
+				GetnCompressedTexImage(target, lod, bufSize, pin_pixels.AddrOfPinnedObject());
+			} finally {
+				pin_pixels.Free();
+			}
+		}
+
+		/// <summary>
 		/// Binding for glGetnTexImage.
 		/// </summary>
 		/// <param name="target">
@@ -3582,6 +3832,38 @@ namespace OpenGL
 			Delegates.pglGetnTexImage(target, level, format, type, bufSize, pixels);
 			CallLog("glGetnTexImage({0}, {1}, {2}, {3}, {4}, {5})", target, level, format, type, bufSize, pixels);
 			DebugCheckErrors();
+		}
+
+		/// <summary>
+		/// Binding for glGetnTexImage.
+		/// </summary>
+		/// <param name="target">
+		/// A <see cref="T:int"/>.
+		/// </param>
+		/// <param name="level">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="format">
+		/// A <see cref="T:int"/>.
+		/// </param>
+		/// <param name="type">
+		/// A <see cref="T:int"/>.
+		/// </param>
+		/// <param name="bufSize">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="pixels">
+		/// A <see cref="T:Object"/>.
+		/// </param>
+		[RequiredByFeature("GL_VERSION_4_5")]
+		public static void GetnTexImage(int target, Int32 level, int format, int type, Int32 bufSize, Object pixels)
+		{
+			GCHandle pin_pixels = GCHandle.Alloc(pixels, GCHandleType.Pinned);
+			try {
+				GetnTexImage(target, level, format, type, bufSize, pin_pixels.AddrOfPinnedObject());
+			} finally {
+				pin_pixels.Free();
+			}
 		}
 
 		/// <summary>
@@ -3982,6 +4264,35 @@ namespace OpenGL
 		}
 
 		/// <summary>
+		/// Binding for glGetnColorTable.
+		/// </summary>
+		/// <param name="target">
+		/// A <see cref="T:int"/>.
+		/// </param>
+		/// <param name="format">
+		/// A <see cref="T:int"/>.
+		/// </param>
+		/// <param name="type">
+		/// A <see cref="T:int"/>.
+		/// </param>
+		/// <param name="bufSize">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="table">
+		/// A <see cref="T:Object"/>.
+		/// </param>
+		[RequiredByFeature("GL_VERSION_4_5")]
+		public static void GetnColorTable(int target, int format, int type, Int32 bufSize, Object table)
+		{
+			GCHandle pin_table = GCHandle.Alloc(table, GCHandleType.Pinned);
+			try {
+				GetnColorTable(target, format, type, bufSize, pin_table.AddrOfPinnedObject());
+			} finally {
+				pin_table.Free();
+			}
+		}
+
+		/// <summary>
 		/// Binding for glGetnConvolutionFilter.
 		/// </summary>
 		/// <param name="target">
@@ -4006,6 +4317,35 @@ namespace OpenGL
 			Delegates.pglGetnConvolutionFilter(target, format, type, bufSize, image);
 			CallLog("glGetnConvolutionFilter({0}, {1}, {2}, {3}, {4})", target, format, type, bufSize, image);
 			DebugCheckErrors();
+		}
+
+		/// <summary>
+		/// Binding for glGetnConvolutionFilter.
+		/// </summary>
+		/// <param name="target">
+		/// A <see cref="T:int"/>.
+		/// </param>
+		/// <param name="format">
+		/// A <see cref="T:int"/>.
+		/// </param>
+		/// <param name="type">
+		/// A <see cref="T:int"/>.
+		/// </param>
+		/// <param name="bufSize">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="image">
+		/// A <see cref="T:Object"/>.
+		/// </param>
+		[RequiredByFeature("GL_VERSION_4_5")]
+		public static void GetnConvolutionFilter(int target, int format, int type, Int32 bufSize, Object image)
+		{
+			GCHandle pin_image = GCHandle.Alloc(image, GCHandleType.Pinned);
+			try {
+				GetnConvolutionFilter(target, format, type, bufSize, pin_image.AddrOfPinnedObject());
+			} finally {
+				pin_image.Free();
+			}
 		}
 
 		/// <summary>
@@ -4045,6 +4385,48 @@ namespace OpenGL
 		}
 
 		/// <summary>
+		/// Binding for glGetnSeparableFilter.
+		/// </summary>
+		/// <param name="target">
+		/// A <see cref="T:int"/>.
+		/// </param>
+		/// <param name="format">
+		/// A <see cref="T:int"/>.
+		/// </param>
+		/// <param name="type">
+		/// A <see cref="T:int"/>.
+		/// </param>
+		/// <param name="rowBufSize">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="row">
+		/// A <see cref="T:Object"/>.
+		/// </param>
+		/// <param name="columnBufSize">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="column">
+		/// A <see cref="T:Object"/>.
+		/// </param>
+		/// <param name="span">
+		/// A <see cref="T:Object"/>.
+		/// </param>
+		[RequiredByFeature("GL_VERSION_4_5")]
+		public static void GetnSeparableFilter(int target, int format, int type, Int32 rowBufSize, Object row, Int32 columnBufSize, Object column, Object span)
+		{
+			GCHandle pin_row = GCHandle.Alloc(row, GCHandleType.Pinned);
+			GCHandle pin_column = GCHandle.Alloc(column, GCHandleType.Pinned);
+			GCHandle pin_span = GCHandle.Alloc(span, GCHandleType.Pinned);
+			try {
+				GetnSeparableFilter(target, format, type, rowBufSize, pin_row.AddrOfPinnedObject(), columnBufSize, pin_column.AddrOfPinnedObject(), pin_span.AddrOfPinnedObject());
+			} finally {
+				pin_row.Free();
+				pin_column.Free();
+				pin_span.Free();
+			}
+		}
+
+		/// <summary>
 		/// Binding for glGetnHistogram.
 		/// </summary>
 		/// <param name="target">
@@ -4075,6 +4457,38 @@ namespace OpenGL
 		}
 
 		/// <summary>
+		/// Binding for glGetnHistogram.
+		/// </summary>
+		/// <param name="target">
+		/// A <see cref="T:int"/>.
+		/// </param>
+		/// <param name="reset">
+		/// A <see cref="T:bool"/>.
+		/// </param>
+		/// <param name="format">
+		/// A <see cref="T:int"/>.
+		/// </param>
+		/// <param name="type">
+		/// A <see cref="T:int"/>.
+		/// </param>
+		/// <param name="bufSize">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="values">
+		/// A <see cref="T:Object"/>.
+		/// </param>
+		[RequiredByFeature("GL_VERSION_4_5")]
+		public static void GetnHistogram(int target, bool reset, int format, int type, Int32 bufSize, Object values)
+		{
+			GCHandle pin_values = GCHandle.Alloc(values, GCHandleType.Pinned);
+			try {
+				GetnHistogram(target, reset, format, type, bufSize, pin_values.AddrOfPinnedObject());
+			} finally {
+				pin_values.Free();
+			}
+		}
+
+		/// <summary>
 		/// Binding for glGetnMinmax.
 		/// </summary>
 		/// <param name="target">
@@ -4102,6 +4516,38 @@ namespace OpenGL
 			Delegates.pglGetnMinmax(target, reset, format, type, bufSize, values);
 			CallLog("glGetnMinmax({0}, {1}, {2}, {3}, {4}, {5})", target, reset, format, type, bufSize, values);
 			DebugCheckErrors();
+		}
+
+		/// <summary>
+		/// Binding for glGetnMinmax.
+		/// </summary>
+		/// <param name="target">
+		/// A <see cref="T:int"/>.
+		/// </param>
+		/// <param name="reset">
+		/// A <see cref="T:bool"/>.
+		/// </param>
+		/// <param name="format">
+		/// A <see cref="T:int"/>.
+		/// </param>
+		/// <param name="type">
+		/// A <see cref="T:int"/>.
+		/// </param>
+		/// <param name="bufSize">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="values">
+		/// A <see cref="T:Object"/>.
+		/// </param>
+		[RequiredByFeature("GL_VERSION_4_5")]
+		public static void GetnMinmax(int target, bool reset, int format, int type, Int32 bufSize, Object values)
+		{
+			GCHandle pin_values = GCHandle.Alloc(values, GCHandleType.Pinned);
+			try {
+				GetnMinmax(target, reset, format, type, bufSize, pin_values.AddrOfPinnedObject());
+			} finally {
+				pin_values.Free();
+			}
 		}
 
 		/// <summary>

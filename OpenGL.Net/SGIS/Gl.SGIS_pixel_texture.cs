@@ -53,24 +53,6 @@ namespace OpenGL
 		/// Binding for glPixelTexGenParameteriSGIS.
 		/// </summary>
 		/// <param name="pname">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="param">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		[RequiredByFeature("GL_SGIS_pixel_texture")]
-		public static void PixelTexGenParameterSGIS(int pname, Int32 param)
-		{
-			Debug.Assert(Delegates.pglPixelTexGenParameteriSGIS != null, "pglPixelTexGenParameteriSGIS not implemented");
-			Delegates.pglPixelTexGenParameteriSGIS(pname, param);
-			CallLog("glPixelTexGenParameteriSGIS({0}, {1})", pname, param);
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// Binding for glPixelTexGenParameteriSGIS.
-		/// </summary>
-		/// <param name="pname">
 		/// A <see cref="T:PixelTexGenParameterNameSGIS"/>.
 		/// </param>
 		/// <param name="param">
@@ -82,29 +64,6 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglPixelTexGenParameteriSGIS != null, "pglPixelTexGenParameteriSGIS not implemented");
 			Delegates.pglPixelTexGenParameteriSGIS((int)pname, param);
 			CallLog("glPixelTexGenParameteriSGIS({0}, {1})", pname, param);
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// Binding for glPixelTexGenParameterivSGIS.
-		/// </summary>
-		/// <param name="pname">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="params">
-		/// A <see cref="T:Int32[]"/>.
-		/// </param>
-		[RequiredByFeature("GL_SGIS_pixel_texture")]
-		public static void PixelTexGenParameterSGIS(int pname, Int32[] @params)
-		{
-			unsafe {
-				fixed (Int32* p_params = @params)
-				{
-					Debug.Assert(Delegates.pglPixelTexGenParameterivSGIS != null, "pglPixelTexGenParameterivSGIS not implemented");
-					Delegates.pglPixelTexGenParameterivSGIS(pname, p_params);
-					CallLog("glPixelTexGenParameterivSGIS({0}, {1})", pname, @params);
-				}
-			}
 			DebugCheckErrors();
 		}
 
@@ -135,24 +94,6 @@ namespace OpenGL
 		/// Binding for glPixelTexGenParameterfSGIS.
 		/// </summary>
 		/// <param name="pname">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="param">
-		/// A <see cref="T:float"/>.
-		/// </param>
-		[RequiredByFeature("GL_SGIS_pixel_texture")]
-		public static void PixelTexGenParameterSGIS(int pname, float param)
-		{
-			Debug.Assert(Delegates.pglPixelTexGenParameterfSGIS != null, "pglPixelTexGenParameterfSGIS not implemented");
-			Delegates.pglPixelTexGenParameterfSGIS(pname, param);
-			CallLog("glPixelTexGenParameterfSGIS({0}, {1})", pname, param);
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// Binding for glPixelTexGenParameterfSGIS.
-		/// </summary>
-		/// <param name="pname">
 		/// A <see cref="T:PixelTexGenParameterNameSGIS"/>.
 		/// </param>
 		/// <param name="param">
@@ -164,29 +105,6 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglPixelTexGenParameterfSGIS != null, "pglPixelTexGenParameterfSGIS not implemented");
 			Delegates.pglPixelTexGenParameterfSGIS((int)pname, param);
 			CallLog("glPixelTexGenParameterfSGIS({0}, {1})", pname, param);
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// Binding for glPixelTexGenParameterfvSGIS.
-		/// </summary>
-		/// <param name="pname">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="params">
-		/// A <see cref="T:float[]"/>.
-		/// </param>
-		[RequiredByFeature("GL_SGIS_pixel_texture")]
-		public static void PixelTexGenParameterSGIS(int pname, float[] @params)
-		{
-			unsafe {
-				fixed (float* p_params = @params)
-				{
-					Debug.Assert(Delegates.pglPixelTexGenParameterfvSGIS != null, "pglPixelTexGenParameterfvSGIS not implemented");
-					Delegates.pglPixelTexGenParameterfvSGIS(pname, p_params);
-					CallLog("glPixelTexGenParameterfvSGIS({0}, {1})", pname, @params);
-				}
-			}
 			DebugCheckErrors();
 		}
 
@@ -217,29 +135,6 @@ namespace OpenGL
 		/// Binding for glGetPixelTexGenParameterivSGIS.
 		/// </summary>
 		/// <param name="pname">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="params">
-		/// A <see cref="T:Int32[]"/>.
-		/// </param>
-		[RequiredByFeature("GL_SGIS_pixel_texture")]
-		public static void GetPixelTexGenParameterSGIS(int pname, Int32[] @params)
-		{
-			unsafe {
-				fixed (Int32* p_params = @params)
-				{
-					Debug.Assert(Delegates.pglGetPixelTexGenParameterivSGIS != null, "pglGetPixelTexGenParameterivSGIS not implemented");
-					Delegates.pglGetPixelTexGenParameterivSGIS(pname, p_params);
-					CallLog("glGetPixelTexGenParameterivSGIS({0}, {1})", pname, @params);
-				}
-			}
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// Binding for glGetPixelTexGenParameterivSGIS.
-		/// </summary>
-		/// <param name="pname">
 		/// A <see cref="T:PixelTexGenParameterNameSGIS"/>.
 		/// </param>
 		/// <param name="params">
@@ -254,29 +149,6 @@ namespace OpenGL
 					Debug.Assert(Delegates.pglGetPixelTexGenParameterivSGIS != null, "pglGetPixelTexGenParameterivSGIS not implemented");
 					Delegates.pglGetPixelTexGenParameterivSGIS((int)pname, p_params);
 					CallLog("glGetPixelTexGenParameterivSGIS({0}, {1})", pname, @params);
-				}
-			}
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// Binding for glGetPixelTexGenParameterfvSGIS.
-		/// </summary>
-		/// <param name="pname">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="params">
-		/// A <see cref="T:float[]"/>.
-		/// </param>
-		[RequiredByFeature("GL_SGIS_pixel_texture")]
-		public static void GetPixelTexGenParameterSGIS(int pname, float[] @params)
-		{
-			unsafe {
-				fixed (float* p_params = @params)
-				{
-					Debug.Assert(Delegates.pglGetPixelTexGenParameterfvSGIS != null, "pglGetPixelTexGenParameterfvSGIS not implemented");
-					Delegates.pglGetPixelTexGenParameterfvSGIS(pname, p_params);
-					CallLog("glGetPixelTexGenParameterfvSGIS({0}, {1})", pname, @params);
 				}
 			}
 			DebugCheckErrors();

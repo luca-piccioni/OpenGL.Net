@@ -215,24 +215,6 @@ namespace OpenGL
 		/// Binding for glBindBufferARB.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="buffer">
-		/// A <see cref="T:UInt32"/>.
-		/// </param>
-		[RequiredByFeature("GL_ARB_vertex_buffer_object")]
-		public static void BindBufferARB(int target, UInt32 buffer)
-		{
-			Debug.Assert(Delegates.pglBindBufferARB != null, "pglBindBufferARB not implemented");
-			Delegates.pglBindBufferARB(target, buffer);
-			CallLog("glBindBufferARB({0}, {1})", target, buffer);
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// Binding for glBindBufferARB.
-		/// </summary>
-		/// <param name="target">
 		/// A <see cref="T:BufferTargetARB"/>.
 		/// </param>
 		/// <param name="buffer">
@@ -344,7 +326,6 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglBufferDataARB != null, "pglBufferDataARB not implemented");
 			Delegates.pglBufferDataARB(target, size, data, usage);
 			CallLog("glBufferDataARB({0}, {1}, {2}, {3})", target, size, data, usage);
-			DebugCheckErrors();
 		}
 
 		/// <summary>
@@ -368,7 +349,6 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglBufferDataARB != null, "pglBufferDataARB not implemented");
 			Delegates.pglBufferDataARB((int)target, size, data, (int)usage);
 			CallLog("glBufferDataARB({0}, {1}, {2}, {3})", target, size, data, usage);
-			DebugCheckErrors();
 		}
 
 		/// <summary>
@@ -421,30 +401,6 @@ namespace OpenGL
 			} finally {
 				pin_data.Free();
 			}
-		}
-
-		/// <summary>
-		/// Binding for glBufferSubDataARB.
-		/// </summary>
-		/// <param name="target">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="offset">
-		/// A <see cref="T:IntPtr"/>.
-		/// </param>
-		/// <param name="size">
-		/// A <see cref="T:UInt32"/>.
-		/// </param>
-		/// <param name="data">
-		/// A <see cref="T:IntPtr"/>.
-		/// </param>
-		[RequiredByFeature("GL_ARB_vertex_buffer_object")]
-		public static void BufferSubDataARB(int target, IntPtr offset, UInt32 size, IntPtr data)
-		{
-			Debug.Assert(Delegates.pglBufferSubDataARB != null, "pglBufferSubDataARB not implemented");
-			Delegates.pglBufferSubDataARB(target, offset, size, data);
-			CallLog("glBufferSubDataARB({0}, {1}, {2}, {3})", target, offset, size, data);
-			DebugCheckErrors();
 		}
 
 		/// <summary>
@@ -527,30 +483,6 @@ namespace OpenGL
 		/// Binding for glGetBufferSubDataARB.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="offset">
-		/// A <see cref="T:IntPtr"/>.
-		/// </param>
-		/// <param name="size">
-		/// A <see cref="T:UInt32"/>.
-		/// </param>
-		/// <param name="data">
-		/// A <see cref="T:IntPtr"/>.
-		/// </param>
-		[RequiredByFeature("GL_ARB_vertex_buffer_object")]
-		public static void GetBufferSubDataARB(int target, IntPtr offset, UInt32 size, IntPtr data)
-		{
-			Debug.Assert(Delegates.pglGetBufferSubDataARB != null, "pglGetBufferSubDataARB not implemented");
-			Delegates.pglGetBufferSubDataARB(target, offset, size, data);
-			CallLog("glGetBufferSubDataARB({0}, {1}, {2}, {3})", target, offset, size, data);
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// Binding for glGetBufferSubDataARB.
-		/// </summary>
-		/// <param name="target">
 		/// A <see cref="T:BufferTargetARB"/>.
 		/// </param>
 		/// <param name="offset">
@@ -572,25 +504,55 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glMapBufferARB.
+		/// Binding for glGetBufferSubDataARB.
 		/// </summary>
 		/// <param name="target">
 		/// A <see cref="T:int"/>.
 		/// </param>
-		/// <param name="access">
-		/// A <see cref="T:int"/>.
+		/// <param name="offset">
+		/// A <see cref="T:IntPtr"/>.
+		/// </param>
+		/// <param name="size">
+		/// A <see cref="T:UInt32"/>.
+		/// </param>
+		/// <param name="data">
+		/// A <see cref="T:Object"/>.
 		/// </param>
 		[RequiredByFeature("GL_ARB_vertex_buffer_object")]
-		public static IntPtr MapBufferARB(int target, int access)
+		public static void GetBufferSubDataARB(int target, IntPtr offset, UInt32 size, Object data)
 		{
-			IntPtr retValue;
+			GCHandle pin_data = GCHandle.Alloc(data, GCHandleType.Pinned);
+			try {
+				GetBufferSubDataARB(target, offset, size, pin_data.AddrOfPinnedObject());
+			} finally {
+				pin_data.Free();
+			}
+		}
 
-			Debug.Assert(Delegates.pglMapBufferARB != null, "pglMapBufferARB not implemented");
-			retValue = Delegates.pglMapBufferARB(target, access);
-			CallLog("glMapBufferARB({0}, {1}) = {2}", target, access, retValue);
-			DebugCheckErrors();
-
-			return (retValue);
+		/// <summary>
+		/// Binding for glGetBufferSubDataARB.
+		/// </summary>
+		/// <param name="target">
+		/// A <see cref="T:BufferTargetARB"/>.
+		/// </param>
+		/// <param name="offset">
+		/// A <see cref="T:IntPtr"/>.
+		/// </param>
+		/// <param name="size">
+		/// A <see cref="T:UInt32"/>.
+		/// </param>
+		/// <param name="data">
+		/// A <see cref="T:Object"/>.
+		/// </param>
+		[RequiredByFeature("GL_ARB_vertex_buffer_object")]
+		public static void GetBufferSubDataARB(BufferTargetARB target, IntPtr offset, UInt32 size, Object data)
+		{
+			GCHandle pin_data = GCHandle.Alloc(data, GCHandleType.Pinned);
+			try {
+				GetBufferSubDataARB(target, offset, size, pin_data.AddrOfPinnedObject());
+			} finally {
+				pin_data.Free();
+			}
 		}
 
 		/// <summary>
@@ -600,35 +562,16 @@ namespace OpenGL
 		/// A <see cref="T:BufferTargetARB"/>.
 		/// </param>
 		/// <param name="access">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:BufferAccessARB"/>.
 		/// </param>
 		[RequiredByFeature("GL_ARB_vertex_buffer_object")]
-		public static IntPtr MapBufferARB(BufferTargetARB target, int access)
+		public static IntPtr MapBufferARB(BufferTargetARB target, BufferAccessARB access)
 		{
 			IntPtr retValue;
 
 			Debug.Assert(Delegates.pglMapBufferARB != null, "pglMapBufferARB not implemented");
-			retValue = Delegates.pglMapBufferARB((int)target, access);
+			retValue = Delegates.pglMapBufferARB((int)target, (int)access);
 			CallLog("glMapBufferARB({0}, {1}) = {2}", target, access, retValue);
-			DebugCheckErrors();
-
-			return (retValue);
-		}
-
-		/// <summary>
-		/// Binding for glUnmapBufferARB.
-		/// </summary>
-		/// <param name="target">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		[RequiredByFeature("GL_ARB_vertex_buffer_object")]
-		public static bool UnmapBufferARB(int target)
-		{
-			bool retValue;
-
-			Debug.Assert(Delegates.pglUnmapBufferARB != null, "pglUnmapBufferARB not implemented");
-			retValue = Delegates.pglUnmapBufferARB(target);
-			CallLog("glUnmapBufferARB({0}) = {1}", target, retValue);
 			DebugCheckErrors();
 
 			return (retValue);
@@ -651,32 +594,6 @@ namespace OpenGL
 			DebugCheckErrors();
 
 			return (retValue);
-		}
-
-		/// <summary>
-		/// Binding for glGetBufferParameterivARB.
-		/// </summary>
-		/// <param name="target">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="pname">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="params">
-		/// A <see cref="T:Int32[]"/>.
-		/// </param>
-		[RequiredByFeature("GL_ARB_vertex_buffer_object")]
-		public static void GetBufferParameterARB(int target, int pname, Int32[] @params)
-		{
-			unsafe {
-				fixed (Int32* p_params = @params)
-				{
-					Debug.Assert(Delegates.pglGetBufferParameterivARB != null, "pglGetBufferParameterivARB not implemented");
-					Delegates.pglGetBufferParameterivARB(target, pname, p_params);
-					CallLog("glGetBufferParameterivARB({0}, {1}, {2})", target, pname, @params);
-				}
-			}
-			DebugCheckErrors();
 		}
 
 		/// <summary>
@@ -706,7 +623,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glGetBufferPointervARB.
+		/// Binding for glGetBufferParameterivARB.
 		/// </summary>
 		/// <param name="target">
 		/// A <see cref="T:int"/>.
@@ -715,14 +632,45 @@ namespace OpenGL
 		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="params">
-		/// A <see cref="T:IntPtr"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		[RequiredByFeature("GL_ARB_vertex_buffer_object")]
-		public static void GetBufferPointerARB(int target, int pname, IntPtr @params)
+		public static void GetBufferParameterARB(int target, int pname, out Int32 @params)
 		{
-			Debug.Assert(Delegates.pglGetBufferPointervARB != null, "pglGetBufferPointervARB not implemented");
-			Delegates.pglGetBufferPointervARB(target, pname, @params);
-			CallLog("glGetBufferPointervARB({0}, {1}, {2})", target, pname, @params);
+			unsafe {
+				fixed (Int32* p_params = &@params)
+				{
+					Debug.Assert(Delegates.pglGetBufferParameterivARB != null, "pglGetBufferParameterivARB not implemented");
+					Delegates.pglGetBufferParameterivARB(target, pname, p_params);
+					CallLog("glGetBufferParameterivARB({0}, {1}, {2})", target, pname, @params);
+				}
+			}
+			DebugCheckErrors();
+		}
+
+		/// <summary>
+		/// Binding for glGetBufferParameterivARB.
+		/// </summary>
+		/// <param name="target">
+		/// A <see cref="T:BufferTargetARB"/>.
+		/// </param>
+		/// <param name="pname">
+		/// A <see cref="T:int"/>.
+		/// </param>
+		/// <param name="params">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		[RequiredByFeature("GL_ARB_vertex_buffer_object")]
+		public static void GetBufferParameterARB(BufferTargetARB target, int pname, out Int32 @params)
+		{
+			unsafe {
+				fixed (Int32* p_params = &@params)
+				{
+					Debug.Assert(Delegates.pglGetBufferParameterivARB != null, "pglGetBufferParameterivARB not implemented");
+					Delegates.pglGetBufferParameterivARB((int)target, pname, p_params);
+					CallLog("glGetBufferParameterivARB({0}, {1}, {2})", target, pname, @params);
+				}
+			}
 			DebugCheckErrors();
 		}
 
@@ -745,6 +693,52 @@ namespace OpenGL
 			Delegates.pglGetBufferPointervARB((int)target, pname, @params);
 			CallLog("glGetBufferPointervARB({0}, {1}, {2})", target, pname, @params);
 			DebugCheckErrors();
+		}
+
+		/// <summary>
+		/// Binding for glGetBufferPointervARB.
+		/// </summary>
+		/// <param name="target">
+		/// A <see cref="T:int"/>.
+		/// </param>
+		/// <param name="pname">
+		/// A <see cref="T:int"/>.
+		/// </param>
+		/// <param name="params">
+		/// A <see cref="T:Object"/>.
+		/// </param>
+		[RequiredByFeature("GL_ARB_vertex_buffer_object")]
+		public static void GetBufferPointerARB(int target, int pname, Object @params)
+		{
+			GCHandle pin_params = GCHandle.Alloc(@params, GCHandleType.Pinned);
+			try {
+				GetBufferPointerARB(target, pname, pin_params.AddrOfPinnedObject());
+			} finally {
+				pin_params.Free();
+			}
+		}
+
+		/// <summary>
+		/// Binding for glGetBufferPointervARB.
+		/// </summary>
+		/// <param name="target">
+		/// A <see cref="T:BufferTargetARB"/>.
+		/// </param>
+		/// <param name="pname">
+		/// A <see cref="T:int"/>.
+		/// </param>
+		/// <param name="params">
+		/// A <see cref="T:Object"/>.
+		/// </param>
+		[RequiredByFeature("GL_ARB_vertex_buffer_object")]
+		public static void GetBufferPointerARB(BufferTargetARB target, int pname, Object @params)
+		{
+			GCHandle pin_params = GCHandle.Alloc(@params, GCHandleType.Pinned);
+			try {
+				GetBufferPointerARB(target, pname, pin_params.AddrOfPinnedObject());
+			} finally {
+				pin_params.Free();
+			}
 		}
 
 	}

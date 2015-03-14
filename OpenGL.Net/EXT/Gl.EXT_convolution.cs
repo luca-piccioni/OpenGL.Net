@@ -149,36 +149,6 @@ namespace OpenGL
 		/// Binding for glConvolutionFilter1DEXT.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="internalformat">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="width">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="format">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="type">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="image">
-		/// A <see cref="T:IntPtr"/>.
-		/// </param>
-		[RequiredByFeature("GL_EXT_convolution")]
-		public static void ConvolutionFilter1DEXT(int target, int internalformat, Int32 width, int format, int type, IntPtr image)
-		{
-			Debug.Assert(Delegates.pglConvolutionFilter1DEXT != null, "pglConvolutionFilter1DEXT not implemented");
-			Delegates.pglConvolutionFilter1DEXT(target, internalformat, width, format, type, image);
-			CallLog("glConvolutionFilter1DEXT({0}, {1}, {2}, {3}, {4}, {5})", target, internalformat, width, format, type, image);
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// Binding for glConvolutionFilter1DEXT.
-		/// </summary>
-		/// <param name="target">
 		/// A <see cref="T:ConvolutionTargetEXT"/>.
 		/// </param>
 		/// <param name="internalformat">
@@ -267,39 +237,6 @@ namespace OpenGL
 			} finally {
 				pin_image.Free();
 			}
-		}
-
-		/// <summary>
-		/// Binding for glConvolutionFilter2DEXT.
-		/// </summary>
-		/// <param name="target">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="internalformat">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="width">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="height">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="format">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="type">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="image">
-		/// A <see cref="T:IntPtr"/>.
-		/// </param>
-		[RequiredByFeature("GL_EXT_convolution")]
-		public static void ConvolutionFilter2DEXT(int target, int internalformat, Int32 width, Int32 height, int format, int type, IntPtr image)
-		{
-			Debug.Assert(Delegates.pglConvolutionFilter2DEXT != null, "pglConvolutionFilter2DEXT not implemented");
-			Delegates.pglConvolutionFilter2DEXT(target, internalformat, width, height, format, type, image);
-			CallLog("glConvolutionFilter2DEXT({0}, {1}, {2}, {3}, {4}, {5}, {6})", target, internalformat, width, height, format, type, image);
-			DebugCheckErrors();
 		}
 
 		/// <summary>
@@ -409,27 +346,6 @@ namespace OpenGL
 		/// Binding for glConvolutionParameterfEXT.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="pname">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="params">
-		/// A <see cref="T:float"/>.
-		/// </param>
-		[RequiredByFeature("GL_EXT_convolution")]
-		public static void ConvolutionParameterEXT(int target, int pname, float @params)
-		{
-			Debug.Assert(Delegates.pglConvolutionParameterfEXT != null, "pglConvolutionParameterfEXT not implemented");
-			Delegates.pglConvolutionParameterfEXT(target, pname, @params);
-			CallLog("glConvolutionParameterfEXT({0}, {1}, {2})", target, pname, @params);
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// Binding for glConvolutionParameterfEXT.
-		/// </summary>
-		/// <param name="target">
 		/// A <see cref="T:ConvolutionTargetEXT"/>.
 		/// </param>
 		/// <param name="pname">
@@ -444,32 +360,6 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglConvolutionParameterfEXT != null, "pglConvolutionParameterfEXT not implemented");
 			Delegates.pglConvolutionParameterfEXT((int)target, (int)pname, @params);
 			CallLog("glConvolutionParameterfEXT({0}, {1}, {2})", target, pname, @params);
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// Binding for glConvolutionParameterfvEXT.
-		/// </summary>
-		/// <param name="target">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="pname">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="params">
-		/// A <see cref="T:float[]"/>.
-		/// </param>
-		[RequiredByFeature("GL_EXT_convolution")]
-		public static void ConvolutionParameterEXT(int target, int pname, float[] @params)
-		{
-			unsafe {
-				fixed (float* p_params = @params)
-				{
-					Debug.Assert(Delegates.pglConvolutionParameterfvEXT != null, "pglConvolutionParameterfvEXT not implemented");
-					Delegates.pglConvolutionParameterfvEXT(target, pname, p_params);
-					CallLog("glConvolutionParameterfvEXT({0}, {1}, {2})", target, pname, @params);
-				}
-			}
 			DebugCheckErrors();
 		}
 
@@ -503,27 +393,6 @@ namespace OpenGL
 		/// Binding for glConvolutionParameteriEXT.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="pname">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="params">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		[RequiredByFeature("GL_EXT_convolution")]
-		public static void ConvolutionParameterEXT(int target, int pname, Int32 @params)
-		{
-			Debug.Assert(Delegates.pglConvolutionParameteriEXT != null, "pglConvolutionParameteriEXT not implemented");
-			Delegates.pglConvolutionParameteriEXT(target, pname, @params);
-			CallLog("glConvolutionParameteriEXT({0}, {1}, {2})", target, pname, @params);
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// Binding for glConvolutionParameteriEXT.
-		/// </summary>
-		/// <param name="target">
 		/// A <see cref="T:ConvolutionTargetEXT"/>.
 		/// </param>
 		/// <param name="pname">
@@ -538,32 +407,6 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglConvolutionParameteriEXT != null, "pglConvolutionParameteriEXT not implemented");
 			Delegates.pglConvolutionParameteriEXT((int)target, (int)pname, @params);
 			CallLog("glConvolutionParameteriEXT({0}, {1}, {2})", target, pname, @params);
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// Binding for glConvolutionParameterivEXT.
-		/// </summary>
-		/// <param name="target">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="pname">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="params">
-		/// A <see cref="T:Int32[]"/>.
-		/// </param>
-		[RequiredByFeature("GL_EXT_convolution")]
-		public static void ConvolutionParameterEXT(int target, int pname, Int32[] @params)
-		{
-			unsafe {
-				fixed (Int32* p_params = @params)
-				{
-					Debug.Assert(Delegates.pglConvolutionParameterivEXT != null, "pglConvolutionParameterivEXT not implemented");
-					Delegates.pglConvolutionParameterivEXT(target, pname, p_params);
-					CallLog("glConvolutionParameterivEXT({0}, {1}, {2})", target, pname, @params);
-				}
-			}
 			DebugCheckErrors();
 		}
 
@@ -597,33 +440,6 @@ namespace OpenGL
 		/// Binding for glCopyConvolutionFilter1DEXT.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="internalformat">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="x">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="y">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="width">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		[RequiredByFeature("GL_EXT_convolution")]
-		public static void CopyConvolutionFilter1DEXT(int target, int internalformat, Int32 x, Int32 y, Int32 width)
-		{
-			Debug.Assert(Delegates.pglCopyConvolutionFilter1DEXT != null, "pglCopyConvolutionFilter1DEXT not implemented");
-			Delegates.pglCopyConvolutionFilter1DEXT(target, internalformat, x, y, width);
-			CallLog("glCopyConvolutionFilter1DEXT({0}, {1}, {2}, {3}, {4})", target, internalformat, x, y, width);
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// Binding for glCopyConvolutionFilter1DEXT.
-		/// </summary>
-		/// <param name="target">
 		/// A <see cref="T:ConvolutionTargetEXT"/>.
 		/// </param>
 		/// <param name="internalformat">
@@ -644,36 +460,6 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglCopyConvolutionFilter1DEXT != null, "pglCopyConvolutionFilter1DEXT not implemented");
 			Delegates.pglCopyConvolutionFilter1DEXT((int)target, internalformat, x, y, width);
 			CallLog("glCopyConvolutionFilter1DEXT({0}, {1}, {2}, {3}, {4})", target, internalformat, x, y, width);
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// Binding for glCopyConvolutionFilter2DEXT.
-		/// </summary>
-		/// <param name="target">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="internalformat">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="x">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="y">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="width">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="height">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		[RequiredByFeature("GL_EXT_convolution")]
-		public static void CopyConvolutionFilter2DEXT(int target, int internalformat, Int32 x, Int32 y, Int32 width, Int32 height)
-		{
-			Debug.Assert(Delegates.pglCopyConvolutionFilter2DEXT != null, "pglCopyConvolutionFilter2DEXT not implemented");
-			Delegates.pglCopyConvolutionFilter2DEXT(target, internalformat, x, y, width, height);
-			CallLog("glCopyConvolutionFilter2DEXT({0}, {1}, {2}, {3}, {4}, {5})", target, internalformat, x, y, width, height);
 			DebugCheckErrors();
 		}
 
@@ -711,30 +497,6 @@ namespace OpenGL
 		/// Binding for glGetConvolutionFilterEXT.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="format">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="type">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="image">
-		/// A <see cref="T:IntPtr"/>.
-		/// </param>
-		[RequiredByFeature("GL_EXT_convolution")]
-		public static void GetConvolutionFilterEXT(int target, int format, int type, IntPtr image)
-		{
-			Debug.Assert(Delegates.pglGetConvolutionFilterEXT != null, "pglGetConvolutionFilterEXT not implemented");
-			Delegates.pglGetConvolutionFilterEXT(target, format, type, image);
-			CallLog("glGetConvolutionFilterEXT({0}, {1}, {2}, {3})", target, format, type, image);
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// Binding for glGetConvolutionFilterEXT.
-		/// </summary>
-		/// <param name="target">
 		/// A <see cref="T:ConvolutionTargetEXT"/>.
 		/// </param>
 		/// <param name="format">
@@ -756,29 +518,55 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glGetConvolutionParameterfvEXT.
+		/// Binding for glGetConvolutionFilterEXT.
 		/// </summary>
 		/// <param name="target">
 		/// A <see cref="T:int"/>.
 		/// </param>
-		/// <param name="pname">
+		/// <param name="format">
 		/// A <see cref="T:int"/>.
 		/// </param>
-		/// <param name="params">
-		/// A <see cref="T:float[]"/>.
+		/// <param name="type">
+		/// A <see cref="T:int"/>.
+		/// </param>
+		/// <param name="image">
+		/// A <see cref="T:Object"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_convolution")]
-		public static void GetConvolutionParameterEXT(int target, int pname, float[] @params)
+		public static void GetConvolutionFilterEXT(int target, int format, int type, Object image)
 		{
-			unsafe {
-				fixed (float* p_params = @params)
-				{
-					Debug.Assert(Delegates.pglGetConvolutionParameterfvEXT != null, "pglGetConvolutionParameterfvEXT not implemented");
-					Delegates.pglGetConvolutionParameterfvEXT(target, pname, p_params);
-					CallLog("glGetConvolutionParameterfvEXT({0}, {1}, {2})", target, pname, @params);
-				}
+			GCHandle pin_image = GCHandle.Alloc(image, GCHandleType.Pinned);
+			try {
+				GetConvolutionFilterEXT(target, format, type, pin_image.AddrOfPinnedObject());
+			} finally {
+				pin_image.Free();
 			}
-			DebugCheckErrors();
+		}
+
+		/// <summary>
+		/// Binding for glGetConvolutionFilterEXT.
+		/// </summary>
+		/// <param name="target">
+		/// A <see cref="T:ConvolutionTargetEXT"/>.
+		/// </param>
+		/// <param name="format">
+		/// A <see cref="T:PixelFormat"/>.
+		/// </param>
+		/// <param name="type">
+		/// A <see cref="T:PixelType"/>.
+		/// </param>
+		/// <param name="image">
+		/// A <see cref="T:Object"/>.
+		/// </param>
+		[RequiredByFeature("GL_EXT_convolution")]
+		public static void GetConvolutionFilterEXT(ConvolutionTargetEXT target, PixelFormat format, PixelType type, Object image)
+		{
+			GCHandle pin_image = GCHandle.Alloc(image, GCHandleType.Pinned);
+			try {
+				GetConvolutionFilterEXT(target, format, type, pin_image.AddrOfPinnedObject());
+			} finally {
+				pin_image.Free();
+			}
 		}
 
 		/// <summary>
@@ -802,32 +590,6 @@ namespace OpenGL
 					Debug.Assert(Delegates.pglGetConvolutionParameterfvEXT != null, "pglGetConvolutionParameterfvEXT not implemented");
 					Delegates.pglGetConvolutionParameterfvEXT((int)target, (int)pname, p_params);
 					CallLog("glGetConvolutionParameterfvEXT({0}, {1}, {2})", target, pname, @params);
-				}
-			}
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// Binding for glGetConvolutionParameterivEXT.
-		/// </summary>
-		/// <param name="target">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="pname">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="params">
-		/// A <see cref="T:Int32[]"/>.
-		/// </param>
-		[RequiredByFeature("GL_EXT_convolution")]
-		public static void GetConvolutionParameterEXT(int target, int pname, Int32[] @params)
-		{
-			unsafe {
-				fixed (Int32* p_params = @params)
-				{
-					Debug.Assert(Delegates.pglGetConvolutionParameterivEXT != null, "pglGetConvolutionParameterivEXT not implemented");
-					Delegates.pglGetConvolutionParameterivEXT(target, pname, p_params);
-					CallLog("glGetConvolutionParameterivEXT({0}, {1}, {2})", target, pname, @params);
 				}
 			}
 			DebugCheckErrors();
@@ -863,36 +625,6 @@ namespace OpenGL
 		/// Binding for glGetSeparableFilterEXT.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="format">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="type">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="row">
-		/// A <see cref="T:IntPtr"/>.
-		/// </param>
-		/// <param name="column">
-		/// A <see cref="T:IntPtr"/>.
-		/// </param>
-		/// <param name="span">
-		/// A <see cref="T:IntPtr"/>.
-		/// </param>
-		[RequiredByFeature("GL_EXT_convolution")]
-		public static void GetSeparableFilterEXT(int target, int format, int type, IntPtr row, IntPtr column, IntPtr span)
-		{
-			Debug.Assert(Delegates.pglGetSeparableFilterEXT != null, "pglGetSeparableFilterEXT not implemented");
-			Delegates.pglGetSeparableFilterEXT(target, format, type, row, column, span);
-			CallLog("glGetSeparableFilterEXT({0}, {1}, {2}, {3}, {4}, {5})", target, format, type, row, column, span);
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// Binding for glGetSeparableFilterEXT.
-		/// </summary>
-		/// <param name="target">
 		/// A <see cref="T:SeparableTargetEXT"/>.
 		/// </param>
 		/// <param name="format">
@@ -920,19 +652,10 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glSeparableFilter2DEXT.
+		/// Binding for glGetSeparableFilterEXT.
 		/// </summary>
 		/// <param name="target">
 		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="internalformat">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="width">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="height">
-		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="format">
 		/// A <see cref="T:int"/>.
@@ -941,18 +664,63 @@ namespace OpenGL
 		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="row">
-		/// A <see cref="T:IntPtr"/>.
+		/// A <see cref="T:Object"/>.
 		/// </param>
 		/// <param name="column">
-		/// A <see cref="T:IntPtr"/>.
+		/// A <see cref="T:Object"/>.
+		/// </param>
+		/// <param name="span">
+		/// A <see cref="T:Object"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_convolution")]
-		public static void SeparableFilter2DEXT(int target, int internalformat, Int32 width, Int32 height, int format, int type, IntPtr row, IntPtr column)
+		public static void GetSeparableFilterEXT(int target, int format, int type, Object row, Object column, Object span)
 		{
-			Debug.Assert(Delegates.pglSeparableFilter2DEXT != null, "pglSeparableFilter2DEXT not implemented");
-			Delegates.pglSeparableFilter2DEXT(target, internalformat, width, height, format, type, row, column);
-			CallLog("glSeparableFilter2DEXT({0}, {1}, {2}, {3}, {4}, {5}, {6}, {7})", target, internalformat, width, height, format, type, row, column);
-			DebugCheckErrors();
+			GCHandle pin_row = GCHandle.Alloc(row, GCHandleType.Pinned);
+			GCHandle pin_column = GCHandle.Alloc(column, GCHandleType.Pinned);
+			GCHandle pin_span = GCHandle.Alloc(span, GCHandleType.Pinned);
+			try {
+				GetSeparableFilterEXT(target, format, type, pin_row.AddrOfPinnedObject(), pin_column.AddrOfPinnedObject(), pin_span.AddrOfPinnedObject());
+			} finally {
+				pin_row.Free();
+				pin_column.Free();
+				pin_span.Free();
+			}
+		}
+
+		/// <summary>
+		/// Binding for glGetSeparableFilterEXT.
+		/// </summary>
+		/// <param name="target">
+		/// A <see cref="T:SeparableTargetEXT"/>.
+		/// </param>
+		/// <param name="format">
+		/// A <see cref="T:PixelFormat"/>.
+		/// </param>
+		/// <param name="type">
+		/// A <see cref="T:PixelType"/>.
+		/// </param>
+		/// <param name="row">
+		/// A <see cref="T:Object"/>.
+		/// </param>
+		/// <param name="column">
+		/// A <see cref="T:Object"/>.
+		/// </param>
+		/// <param name="span">
+		/// A <see cref="T:Object"/>.
+		/// </param>
+		[RequiredByFeature("GL_EXT_convolution")]
+		public static void GetSeparableFilterEXT(SeparableTargetEXT target, PixelFormat format, PixelType type, Object row, Object column, Object span)
+		{
+			GCHandle pin_row = GCHandle.Alloc(row, GCHandleType.Pinned);
+			GCHandle pin_column = GCHandle.Alloc(column, GCHandleType.Pinned);
+			GCHandle pin_span = GCHandle.Alloc(span, GCHandleType.Pinned);
+			try {
+				GetSeparableFilterEXT(target, format, type, pin_row.AddrOfPinnedObject(), pin_column.AddrOfPinnedObject(), pin_span.AddrOfPinnedObject());
+			} finally {
+				pin_row.Free();
+				pin_column.Free();
+				pin_span.Free();
+			}
 		}
 
 		/// <summary>

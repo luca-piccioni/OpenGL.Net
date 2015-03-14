@@ -120,24 +120,6 @@ namespace OpenGL
 		/// Binding for glTextureMaterialEXT.
 		/// </summary>
 		/// <param name="face">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="mode">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		[RequiredByFeature("GL_EXT_light_texture")]
-		public static void TextureMaterialEXT(int face, int mode)
-		{
-			Debug.Assert(Delegates.pglTextureMaterialEXT != null, "pglTextureMaterialEXT not implemented");
-			Delegates.pglTextureMaterialEXT(face, mode);
-			CallLog("glTextureMaterialEXT({0}, {1})", face, mode);
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// Binding for glTextureMaterialEXT.
-		/// </summary>
-		/// <param name="face">
 		/// A <see cref="T:MaterialFace"/>.
 		/// </param>
 		/// <param name="mode">

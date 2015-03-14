@@ -402,30 +402,6 @@ namespace OpenGL
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="type">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="stride">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="pointer">
-		/// A <see cref="T:IntPtr"/>.
-		/// </param>
-		[RequiredByFeature("GL_EXT_secondary_color")]
-		public static void SecondaryColorPointerEXT(Int32 size, int type, Int32 stride, IntPtr pointer)
-		{
-			Debug.Assert(Delegates.pglSecondaryColorPointerEXT != null, "pglSecondaryColorPointerEXT not implemented");
-			Delegates.pglSecondaryColorPointerEXT(size, type, stride, pointer);
-			CallLog("glSecondaryColorPointerEXT({0}, {1}, {2}, {3})", size, type, stride, pointer);
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// Binding for glSecondaryColorPointerEXT.
-		/// </summary>
-		/// <param name="size">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="type">
 		/// A <see cref="T:ColorPointerType"/>.
 		/// </param>
 		/// <param name="stride">

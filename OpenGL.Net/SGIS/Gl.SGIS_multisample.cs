@@ -143,21 +143,6 @@ namespace OpenGL
 		/// Binding for glSamplePatternSGIS.
 		/// </summary>
 		/// <param name="pattern">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		[RequiredByFeature("GL_SGIS_multisample")]
-		public static void SamplePatternSGIS(int pattern)
-		{
-			Debug.Assert(Delegates.pglSamplePatternSGIS != null, "pglSamplePatternSGIS not implemented");
-			Delegates.pglSamplePatternSGIS(pattern);
-			CallLog("glSamplePatternSGIS({0})", pattern);
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// Binding for glSamplePatternSGIS.
-		/// </summary>
-		/// <param name="pattern">
 		/// A <see cref="T:SamplePatternSGIS"/>.
 		/// </param>
 		[RequiredByFeature("GL_SGIS_multisample")]

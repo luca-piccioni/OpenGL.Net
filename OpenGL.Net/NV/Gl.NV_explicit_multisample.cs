@@ -133,24 +133,6 @@ namespace OpenGL
 		/// Binding for glTexRenderbufferNV.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="renderbuffer">
-		/// A <see cref="T:UInt32"/>.
-		/// </param>
-		[RequiredByFeature("GL_NV_explicit_multisample")]
-		public static void TexRenderbufferNV(int target, UInt32 renderbuffer)
-		{
-			Debug.Assert(Delegates.pglTexRenderbufferNV != null, "pglTexRenderbufferNV not implemented");
-			Delegates.pglTexRenderbufferNV(target, renderbuffer);
-			CallLog("glTexRenderbufferNV({0}, {1})", target, renderbuffer);
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// Binding for glTexRenderbufferNV.
-		/// </summary>
-		/// <param name="target">
 		/// A <see cref="T:TextureTarget"/>.
 		/// </param>
 		/// <param name="renderbuffer">

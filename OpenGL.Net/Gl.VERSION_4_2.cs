@@ -829,39 +829,6 @@ namespace OpenGL
 		/// Binding for glDrawArraysInstancedBaseInstance.
 		/// </summary>
 		/// <param name="mode">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="first">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="count">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="instancecount">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="baseinstance">
-		/// A <see cref="T:UInt32"/>.
-		/// </param>
-		[RequiredByFeature("GL_VERSION_4_2")]
-		[RequiredByFeature("GL_ARB_base_instance")]
-		public static void DrawArraysInstancedBaseInstance(int mode, Int32 first, Int32 count, Int32 instancecount, UInt32 baseinstance)
-		{
-			if        (Delegates.pglDrawArraysInstancedBaseInstance != null) {
-				Delegates.pglDrawArraysInstancedBaseInstance(mode, first, count, instancecount, baseinstance);
-				CallLog("glDrawArraysInstancedBaseInstance({0}, {1}, {2}, {3}, {4})", mode, first, count, instancecount, baseinstance);
-			} else if (Delegates.pglDrawArraysInstancedBaseInstanceEXT != null) {
-				Delegates.pglDrawArraysInstancedBaseInstanceEXT(mode, first, count, instancecount, baseinstance);
-				CallLog("glDrawArraysInstancedBaseInstanceEXT({0}, {1}, {2}, {3}, {4})", mode, first, count, instancecount, baseinstance);
-			} else
-				throw new NotImplementedException("glDrawArraysInstancedBaseInstance (and other aliases) are not implemented");
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// Binding for glDrawArraysInstancedBaseInstance.
-		/// </summary>
-		/// <param name="mode">
 		/// A <see cref="T:PrimitiveType"/>.
 		/// </param>
 		/// <param name="first">
@@ -888,42 +855,6 @@ namespace OpenGL
 				CallLog("glDrawArraysInstancedBaseInstanceEXT({0}, {1}, {2}, {3}, {4})", mode, first, count, instancecount, baseinstance);
 			} else
 				throw new NotImplementedException("glDrawArraysInstancedBaseInstance (and other aliases) are not implemented");
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// Binding for glDrawElementsInstancedBaseInstance.
-		/// </summary>
-		/// <param name="mode">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="count">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="type">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="indices">
-		/// A <see cref="T:IntPtr"/>.
-		/// </param>
-		/// <param name="instancecount">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="baseinstance">
-		/// A <see cref="T:UInt32"/>.
-		/// </param>
-		[RequiredByFeature("GL_VERSION_4_2")]
-		[RequiredByFeature("GL_ARB_base_instance")]
-		public static void DrawElementsInstancedBaseInstance(int mode, Int32 count, int type, IntPtr indices, Int32 instancecount, UInt32 baseinstance)
-		{
-			if        (Delegates.pglDrawElementsInstancedBaseInstance != null) {
-				Delegates.pglDrawElementsInstancedBaseInstance(mode, count, type, indices, instancecount, baseinstance);
-				CallLog("glDrawElementsInstancedBaseInstance({0}, {1}, {2}, {3}, {4}, {5})", mode, count, type, indices, instancecount, baseinstance);
-			} else if (Delegates.pglDrawElementsInstancedBaseInstanceEXT != null) {
-				Delegates.pglDrawElementsInstancedBaseInstanceEXT(mode, count, type, indices, instancecount, baseinstance);
-				CallLog("glDrawElementsInstancedBaseInstanceEXT({0}, {1}, {2}, {3}, {4}, {5})", mode, count, type, indices, instancecount, baseinstance);
-			} else
-				throw new NotImplementedException("glDrawElementsInstancedBaseInstance (and other aliases) are not implemented");
 			DebugCheckErrors();
 		}
 
@@ -1027,45 +958,6 @@ namespace OpenGL
 			} finally {
 				pin_indices.Free();
 			}
-		}
-
-		/// <summary>
-		/// Binding for glDrawElementsInstancedBaseVertexBaseInstance.
-		/// </summary>
-		/// <param name="mode">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="count">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="type">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="indices">
-		/// A <see cref="T:IntPtr"/>.
-		/// </param>
-		/// <param name="instancecount">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="basevertex">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="baseinstance">
-		/// A <see cref="T:UInt32"/>.
-		/// </param>
-		[RequiredByFeature("GL_VERSION_4_2")]
-		[RequiredByFeature("GL_ARB_base_instance")]
-		public static void DrawElementsInstancedBaseVertexBaseInstance(int mode, Int32 count, int type, IntPtr indices, Int32 instancecount, Int32 basevertex, UInt32 baseinstance)
-		{
-			if        (Delegates.pglDrawElementsInstancedBaseVertexBaseInstance != null) {
-				Delegates.pglDrawElementsInstancedBaseVertexBaseInstance(mode, count, type, indices, instancecount, basevertex, baseinstance);
-				CallLog("glDrawElementsInstancedBaseVertexBaseInstance({0}, {1}, {2}, {3}, {4}, {5}, {6})", mode, count, type, indices, instancecount, basevertex, baseinstance);
-			} else if (Delegates.pglDrawElementsInstancedBaseVertexBaseInstanceEXT != null) {
-				Delegates.pglDrawElementsInstancedBaseVertexBaseInstanceEXT(mode, count, type, indices, instancecount, basevertex, baseinstance);
-				CallLog("glDrawElementsInstancedBaseVertexBaseInstanceEXT({0}, {1}, {2}, {3}, {4}, {5}, {6})", mode, count, type, indices, instancecount, basevertex, baseinstance);
-			} else
-				throw new NotImplementedException("glDrawElementsInstancedBaseVertexBaseInstance (and other aliases) are not implemented");
-			DebugCheckErrors();
 		}
 
 		/// <summary>
@@ -1414,62 +1306,11 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_4_2")]
 		[RequiredByFeature("GL_ARB_transform_feedback_instanced")]
-		public static void DrawTransformFeedbackInstanced(int mode, UInt32 id, Int32 instancecount)
-		{
-			Debug.Assert(Delegates.pglDrawTransformFeedbackInstanced != null, "pglDrawTransformFeedbackInstanced not implemented");
-			Delegates.pglDrawTransformFeedbackInstanced(mode, id, instancecount);
-			CallLog("glDrawTransformFeedbackInstanced({0}, {1}, {2})", mode, id, instancecount);
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// render multiple instances of primitives using a count derived from a transform feedback object
-		/// </summary>
-		/// <param name="mode">
-		/// Specifies what kind of primitives to render. Symbolic constants GL_POINTS, GL_LINE_STRIP, GL_LINE_LOOP, GL_LINES, 
-		/// GL_LINE_STRIP_ADJACENCY, GL_LINES_ADJACENCY, GL_TRIANGLE_STRIP, GL_TRIANGLE_FAN, GL_TRIANGLES, 
-		/// GL_TRIANGLE_STRIP_ADJACENCY, GL_TRIANGLES_ADJACENCY, and GL_PATCHES are accepted.
-		/// </param>
-		/// <param name="id">
-		/// Specifies the name of a transform feedback object from which to retrieve a primitive count.
-		/// </param>
-		/// <param name="instancecount">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		[RequiredByFeature("GL_VERSION_4_2")]
-		[RequiredByFeature("GL_ARB_transform_feedback_instanced")]
 		public static void DrawTransformFeedbackInstanced(PrimitiveType mode, UInt32 id, Int32 instancecount)
 		{
 			Debug.Assert(Delegates.pglDrawTransformFeedbackInstanced != null, "pglDrawTransformFeedbackInstanced not implemented");
 			Delegates.pglDrawTransformFeedbackInstanced((int)mode, id, instancecount);
 			CallLog("glDrawTransformFeedbackInstanced({0}, {1}, {2})", mode, id, instancecount);
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// render multiple instances of primitives using a count derived from a specifed stream of a transform feedback object
-		/// </summary>
-		/// <param name="mode">
-		/// Specifies what kind of primitives to render. Symbolic constants GL_POINTS, GL_LINE_STRIP, GL_LINE_LOOP, GL_LINES, 
-		/// GL_LINE_STRIP_ADJACENCY, GL_LINES_ADJACENCY, GL_TRIANGLE_STRIP, GL_TRIANGLE_FAN, GL_TRIANGLES, 
-		/// GL_TRIANGLE_STRIP_ADJACENCY, GL_TRIANGLES_ADJACENCY, and GL_PATCHES are accepted.
-		/// </param>
-		/// <param name="id">
-		/// Specifies the name of a transform feedback object from which to retrieve a primitive count.
-		/// </param>
-		/// <param name="stream">
-		/// Specifies the index of the transform feedback stream from which to retrieve a primitive count.
-		/// </param>
-		/// <param name="instancecount">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		[RequiredByFeature("GL_VERSION_4_2")]
-		[RequiredByFeature("GL_ARB_transform_feedback_instanced")]
-		public static void DrawTransformFeedbackStreamInstanced(int mode, UInt32 id, UInt32 stream, Int32 instancecount)
-		{
-			Debug.Assert(Delegates.pglDrawTransformFeedbackStreamInstanced != null, "pglDrawTransformFeedbackStreamInstanced not implemented");
-			Delegates.pglDrawTransformFeedbackStreamInstanced(mode, id, stream, instancecount);
-			CallLog("glDrawTransformFeedbackStreamInstanced({0}, {1}, {2}, {3})", mode, id, stream, instancecount);
 			DebugCheckErrors();
 		}
 

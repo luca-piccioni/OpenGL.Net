@@ -53,24 +53,6 @@ namespace OpenGL
 		/// Binding for glBindTransformFeedbackNV.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="id">
-		/// A <see cref="T:UInt32"/>.
-		/// </param>
-		[RequiredByFeature("GL_NV_transform_feedback2")]
-		public static void BindTransformFeedbackNV(int target, UInt32 id)
-		{
-			Debug.Assert(Delegates.pglBindTransformFeedbackNV != null, "pglBindTransformFeedbackNV not implemented");
-			Delegates.pglBindTransformFeedbackNV(target, id);
-			CallLog("glBindTransformFeedbackNV({0}, {1})", target, id);
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// Binding for glBindTransformFeedbackNV.
-		/// </summary>
-		/// <param name="target">
 		/// A <see cref="T:BufferTargetARB"/>.
 		/// </param>
 		/// <param name="id">
@@ -182,24 +164,6 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglResumeTransformFeedbackNV != null, "pglResumeTransformFeedbackNV not implemented");
 			Delegates.pglResumeTransformFeedbackNV();
 			CallLog("glResumeTransformFeedbackNV()");
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// Binding for glDrawTransformFeedbackNV.
-		/// </summary>
-		/// <param name="mode">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="id">
-		/// A <see cref="T:UInt32"/>.
-		/// </param>
-		[RequiredByFeature("GL_NV_transform_feedback2")]
-		public static void DrawTransformFeedbackNV(int mode, UInt32 id)
-		{
-			Debug.Assert(Delegates.pglDrawTransformFeedbackNV != null, "pglDrawTransformFeedbackNV not implemented");
-			Delegates.pglDrawTransformFeedbackNV(mode, id);
-			CallLog("glDrawTransformFeedbackNV({0}, {1})", mode, id);
 			DebugCheckErrors();
 		}
 

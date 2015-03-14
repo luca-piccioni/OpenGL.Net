@@ -2066,6 +2066,30 @@ namespace OpenGL
 		}
 
 		/// <summary>
+		/// Binding for glGetProgramStringARB.
+		/// </summary>
+		/// <param name="target">
+		/// A <see cref="T:int"/>.
+		/// </param>
+		/// <param name="pname">
+		/// A <see cref="T:int"/>.
+		/// </param>
+		/// <param name="string">
+		/// A <see cref="T:Object"/>.
+		/// </param>
+		[RequiredByFeature("GL_ARB_fragment_program")]
+		[RequiredByFeature("GL_ARB_vertex_program")]
+		public static void GetProgramStringARB(int target, int pname, Object @string)
+		{
+			GCHandle pin_string = GCHandle.Alloc(@string, GCHandleType.Pinned);
+			try {
+				GetProgramStringARB(target, pname, pin_string.AddrOfPinnedObject());
+			} finally {
+				pin_string.Free();
+			}
+		}
+
+		/// <summary>
 		/// Binding for glGetVertexAttribdvARB.
 		/// </summary>
 		/// <param name="index">
@@ -2166,6 +2190,30 @@ namespace OpenGL
 			Delegates.pglGetVertexAttribPointervARB(index, pname, pointer);
 			CallLog("glGetVertexAttribPointervARB({0}, {1}, {2})", index, pname, pointer);
 			DebugCheckErrors();
+		}
+
+		/// <summary>
+		/// Binding for glGetVertexAttribPointervARB.
+		/// </summary>
+		/// <param name="index">
+		/// A <see cref="T:UInt32"/>.
+		/// </param>
+		/// <param name="pname">
+		/// A <see cref="T:int"/>.
+		/// </param>
+		/// <param name="pointer">
+		/// A <see cref="T:Object"/>.
+		/// </param>
+		[RequiredByFeature("GL_ARB_vertex_program")]
+		[RequiredByFeature("GL_ARB_vertex_shader")]
+		public static void GetVertexAttribPointerARB(UInt32 index, int pname, Object pointer)
+		{
+			GCHandle pin_pointer = GCHandle.Alloc(pointer, GCHandleType.Pinned);
+			try {
+				GetVertexAttribPointerARB(index, pname, pin_pointer.AddrOfPinnedObject());
+			} finally {
+				pin_pointer.Free();
+			}
 		}
 
 		/// <summary>

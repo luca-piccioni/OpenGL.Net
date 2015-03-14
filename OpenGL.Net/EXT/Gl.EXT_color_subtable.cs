@@ -38,36 +38,6 @@ namespace OpenGL
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="format">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="type">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="data">
-		/// A <see cref="T:IntPtr"/>.
-		/// </param>
-		[RequiredByFeature("GL_EXT_color_subtable")]
-		public static void ColorSubTableEXT(int target, Int32 start, Int32 count, int format, int type, IntPtr data)
-		{
-			Debug.Assert(Delegates.pglColorSubTableEXT != null, "pglColorSubTableEXT not implemented");
-			Delegates.pglColorSubTableEXT(target, start, count, format, type, data);
-			CallLog("glColorSubTableEXT({0}, {1}, {2}, {3}, {4}, {5})", target, start, count, format, type, data);
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// Binding for glColorSubTableEXT.
-		/// </summary>
-		/// <param name="target">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="start">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="count">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="format">
 		/// A <see cref="T:PixelFormat"/>.
 		/// </param>
 		/// <param name="type">

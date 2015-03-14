@@ -379,6 +379,8 @@ namespace BindingsGen.GLSpecs
 			List<List<CommandParameter>> overridenParameters = new List<List<CommandParameter>>();
 			List<CommandParameter> parameters;
 
+			// Force plain parameters
+			bool plainParams = (Flags & CommandFlags.ForcePlainParams) != 0;
 			// At least an array parameter that can out 1 element only
 			bool outParamCompatible = CommandParameterOut.IsCompatible(this, ctx);
 			// At least a parameter that have a strongly typed representation
@@ -389,7 +391,7 @@ namespace BindingsGen.GLSpecs
 			bool isArrayLengthCompatible = CommandParameterArray.IsCompatible(this, ctx);
 
 			// Standard implementation - default
-			if (isArrayLengthCompatible == false)
+			if (plainParams || (!isArrayLengthCompatible && !isStrongCompatible))
 				overridenParameters.Add(Parameters);
 
 			// Strongly typed implementation
@@ -404,7 +406,7 @@ namespace BindingsGen.GLSpecs
 
 			// Pinned object implementation
 			if (isPinnedObjCompatible) {
-				if (isStrongCompatible) {
+				if (isStrongCompatible || plainParams) {
 					parameters = new List<CommandParameter>();
 
 					foreach (CommandParameter commandParameter in Parameters)
@@ -423,7 +425,7 @@ namespace BindingsGen.GLSpecs
 
 			// Out modifier implementation
 			if (outParamCompatible) {
-				if (isStrongCompatible) {
+				if (isStrongCompatible || plainParams) {
 					parameters = new List<CommandParameter>();
 
 					foreach (CommandParameter commandParameter in Parameters)

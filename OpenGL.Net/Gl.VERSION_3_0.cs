@@ -3052,40 +3052,6 @@ namespace OpenGL
 		/// Binding for glTexParameterIiv.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="pname">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="params">
-		/// A <see cref="T:Int32[]"/>.
-		/// </param>
-		[RequiredByFeature("GL_VERSION_3_0")]
-		public static void TexParameterIiv(int target, int pname, Int32[] @params)
-		{
-			unsafe {
-				fixed (Int32* p_params = @params)
-				{
-					if        (Delegates.pglTexParameterIiv != null) {
-						Delegates.pglTexParameterIiv(target, pname, p_params);
-						CallLog("glTexParameterIiv({0}, {1}, {2})", target, pname, @params);
-					} else if (Delegates.pglTexParameterIivEXT != null) {
-						Delegates.pglTexParameterIivEXT(target, pname, p_params);
-						CallLog("glTexParameterIivEXT({0}, {1}, {2})", target, pname, @params);
-					} else if (Delegates.pglTexParameterIivOES != null) {
-						Delegates.pglTexParameterIivOES(target, pname, p_params);
-						CallLog("glTexParameterIivOES({0}, {1}, {2})", target, pname, @params);
-					} else
-						throw new NotImplementedException("glTexParameterIiv (and other aliases) are not implemented");
-				}
-			}
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// Binding for glTexParameterIiv.
-		/// </summary>
-		/// <param name="target">
 		/// A <see cref="T:TextureTarget"/>.
 		/// </param>
 		/// <param name="pname">
@@ -3111,40 +3077,6 @@ namespace OpenGL
 						CallLog("glTexParameterIivOES({0}, {1}, {2})", target, pname, @params);
 					} else
 						throw new NotImplementedException("glTexParameterIiv (and other aliases) are not implemented");
-				}
-			}
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// Binding for glTexParameterIuiv.
-		/// </summary>
-		/// <param name="target">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="pname">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="params">
-		/// A <see cref="T:UInt32[]"/>.
-		/// </param>
-		[RequiredByFeature("GL_VERSION_3_0")]
-		public static void TexParameterIuiv(int target, int pname, UInt32[] @params)
-		{
-			unsafe {
-				fixed (UInt32* p_params = @params)
-				{
-					if        (Delegates.pglTexParameterIuiv != null) {
-						Delegates.pglTexParameterIuiv(target, pname, p_params);
-						CallLog("glTexParameterIuiv({0}, {1}, {2})", target, pname, @params);
-					} else if (Delegates.pglTexParameterIuivEXT != null) {
-						Delegates.pglTexParameterIuivEXT(target, pname, p_params);
-						CallLog("glTexParameterIuivEXT({0}, {1}, {2})", target, pname, @params);
-					} else if (Delegates.pglTexParameterIuivOES != null) {
-						Delegates.pglTexParameterIuivOES(target, pname, p_params);
-						CallLog("glTexParameterIuivOES({0}, {1}, {2})", target, pname, @params);
-					} else
-						throw new NotImplementedException("glTexParameterIuiv (and other aliases) are not implemented");
 				}
 			}
 			DebugCheckErrors();
@@ -3206,49 +3138,6 @@ namespace OpenGL
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_3_0")]
-		public static void GetTexParameterIiv(int target, int pname, Int32[] @params)
-		{
-			unsafe {
-				fixed (Int32* p_params = @params)
-				{
-					if        (Delegates.pglGetTexParameterIiv != null) {
-						Delegates.pglGetTexParameterIiv(target, pname, p_params);
-						CallLog("glGetTexParameterIiv({0}, {1}, {2})", target, pname, @params);
-					} else if (Delegates.pglGetTexParameterIivEXT != null) {
-						Delegates.pglGetTexParameterIivEXT(target, pname, p_params);
-						CallLog("glGetTexParameterIivEXT({0}, {1}, {2})", target, pname, @params);
-					} else if (Delegates.pglGetTexParameterIivOES != null) {
-						Delegates.pglGetTexParameterIivOES(target, pname, p_params);
-						CallLog("glGetTexParameterIivOES({0}, {1}, {2})", target, pname, @params);
-					} else
-						throw new NotImplementedException("glGetTexParameterIiv (and other aliases) are not implemented");
-				}
-			}
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// return texture parameter values
-		/// </summary>
-		/// <param name="target">
-		/// Specifies the target to which the texture is bound for glGetTexParameterfv, glGetTexParameteriv, glGetTexParameterIiv, 
-		/// and glGetTexParameterIuiv functions. GL_TEXTURE_1D, GL_TEXTURE_1D_ARRAY, GL_TEXTURE_2D, GL_TEXTURE_2D_ARRAY, 
-		/// GL_TEXTURE_2D_MULTISAMPLE, GL_TEXTURE_2D_MULTISAMPLE_ARRAY, GL_TEXTURE_3D, GL_TEXTURE_CUBE_MAP, GL_TEXTURE_RECTANGLE, 
-		/// and GL_TEXTURE_CUBE_MAP_ARRAY are accepted.
-		/// </param>
-		/// <param name="pname">
-		/// Specifies the symbolic name of a texture parameter. GL_DEPTH_STENCIL_TEXTURE_MODE, GL_IMAGE_FORMAT_COMPATIBILITY_TYPE, 
-		/// GL_TEXTURE_BASE_LEVEL, GL_TEXTURE_BORDER_COLOR, GL_TEXTURE_COMPARE_MODE, GL_TEXTURE_COMPARE_FUNC, 
-		/// GL_TEXTURE_IMMUTABLE_FORMAT, GL_TEXTURE_IMMUTABLE_LEVELS, GL_TEXTURE_LOD_BIAS, GL_TEXTURE_MAG_FILTER, 
-		/// GL_TEXTURE_MAX_LEVEL, GL_TEXTURE_MAX_LOD, GL_TEXTURE_MIN_FILTER, GL_TEXTURE_MIN_LOD, GL_TEXTURE_SWIZZLE_R, 
-		/// GL_TEXTURE_SWIZZLE_G, GL_TEXTURE_SWIZZLE_B, GL_TEXTURE_SWIZZLE_A, GL_TEXTURE_SWIZZLE_RGBA, GL_TEXTURE_TARGET, 
-		/// GL_TEXTURE_VIEW_MIN_LAYER, GL_TEXTURE_VIEW_MIN_LEVEL, GL_TEXTURE_VIEW_NUM_LAYERS, GL_TEXTURE_VIEW_NUM_LEVELS, 
-		/// GL_TEXTURE_WRAP_S, GL_TEXTURE_WRAP_T, and GL_TEXTURE_WRAP_R are accepted.
-		/// </param>
-		/// <param name="params">
-		/// A <see cref="T:Int32[]"/>.
-		/// </param>
-		[RequiredByFeature("GL_VERSION_3_0")]
 		public static void GetTexParameterIiv(TextureTarget target, GetTextureParameter pname, Int32[] @params)
 		{
 			unsafe {
@@ -3265,49 +3154,6 @@ namespace OpenGL
 						CallLog("glGetTexParameterIivOES({0}, {1}, {2})", target, pname, @params);
 					} else
 						throw new NotImplementedException("glGetTexParameterIiv (and other aliases) are not implemented");
-				}
-			}
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// return texture parameter values
-		/// </summary>
-		/// <param name="target">
-		/// Specifies the target to which the texture is bound for glGetTexParameterfv, glGetTexParameteriv, glGetTexParameterIiv, 
-		/// and glGetTexParameterIuiv functions. GL_TEXTURE_1D, GL_TEXTURE_1D_ARRAY, GL_TEXTURE_2D, GL_TEXTURE_2D_ARRAY, 
-		/// GL_TEXTURE_2D_MULTISAMPLE, GL_TEXTURE_2D_MULTISAMPLE_ARRAY, GL_TEXTURE_3D, GL_TEXTURE_CUBE_MAP, GL_TEXTURE_RECTANGLE, 
-		/// and GL_TEXTURE_CUBE_MAP_ARRAY are accepted.
-		/// </param>
-		/// <param name="pname">
-		/// Specifies the symbolic name of a texture parameter. GL_DEPTH_STENCIL_TEXTURE_MODE, GL_IMAGE_FORMAT_COMPATIBILITY_TYPE, 
-		/// GL_TEXTURE_BASE_LEVEL, GL_TEXTURE_BORDER_COLOR, GL_TEXTURE_COMPARE_MODE, GL_TEXTURE_COMPARE_FUNC, 
-		/// GL_TEXTURE_IMMUTABLE_FORMAT, GL_TEXTURE_IMMUTABLE_LEVELS, GL_TEXTURE_LOD_BIAS, GL_TEXTURE_MAG_FILTER, 
-		/// GL_TEXTURE_MAX_LEVEL, GL_TEXTURE_MAX_LOD, GL_TEXTURE_MIN_FILTER, GL_TEXTURE_MIN_LOD, GL_TEXTURE_SWIZZLE_R, 
-		/// GL_TEXTURE_SWIZZLE_G, GL_TEXTURE_SWIZZLE_B, GL_TEXTURE_SWIZZLE_A, GL_TEXTURE_SWIZZLE_RGBA, GL_TEXTURE_TARGET, 
-		/// GL_TEXTURE_VIEW_MIN_LAYER, GL_TEXTURE_VIEW_MIN_LEVEL, GL_TEXTURE_VIEW_NUM_LAYERS, GL_TEXTURE_VIEW_NUM_LEVELS, 
-		/// GL_TEXTURE_WRAP_S, GL_TEXTURE_WRAP_T, and GL_TEXTURE_WRAP_R are accepted.
-		/// </param>
-		/// <param name="params">
-		/// A <see cref="T:UInt32[]"/>.
-		/// </param>
-		[RequiredByFeature("GL_VERSION_3_0")]
-		public static void GetTexParameterIuiv(int target, int pname, UInt32[] @params)
-		{
-			unsafe {
-				fixed (UInt32* p_params = @params)
-				{
-					if        (Delegates.pglGetTexParameterIuiv != null) {
-						Delegates.pglGetTexParameterIuiv(target, pname, p_params);
-						CallLog("glGetTexParameterIuiv({0}, {1}, {2})", target, pname, @params);
-					} else if (Delegates.pglGetTexParameterIuivEXT != null) {
-						Delegates.pglGetTexParameterIuivEXT(target, pname, p_params);
-						CallLog("glGetTexParameterIuivEXT({0}, {1}, {2})", target, pname, @params);
-					} else if (Delegates.pglGetTexParameterIuivOES != null) {
-						Delegates.pglGetTexParameterIuivOES(target, pname, p_params);
-						CallLog("glGetTexParameterIuivOES({0}, {1}, {2})", target, pname, @params);
-					} else
-						throw new NotImplementedException("glGetTexParameterIuiv (and other aliases) are not implemented");
 				}
 			}
 			DebugCheckErrors();
@@ -4030,58 +3876,6 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ARB_framebuffer_object")]
-		public static void BlitFramebuffer(Int32 srcX0, Int32 srcY0, Int32 srcX1, Int32 srcY1, Int32 dstX0, Int32 dstY0, Int32 dstX1, Int32 dstY1, uint mask, int filter)
-		{
-			if        (Delegates.pglBlitFramebuffer != null) {
-				Delegates.pglBlitFramebuffer(srcX0, srcY0, srcX1, srcY1, dstX0, dstY0, dstX1, dstY1, mask, filter);
-				CallLog("glBlitFramebuffer({0}, {1}, {2}, {3}, {4}, {5}, {6}, {7}, {8}, {9})", srcX0, srcY0, srcX1, srcY1, dstX0, dstY0, dstX1, dstY1, mask, filter);
-			} else if (Delegates.pglBlitFramebufferEXT != null) {
-				Delegates.pglBlitFramebufferEXT(srcX0, srcY0, srcX1, srcY1, dstX0, dstY0, dstX1, dstY1, mask, filter);
-				CallLog("glBlitFramebufferEXT({0}, {1}, {2}, {3}, {4}, {5}, {6}, {7}, {8}, {9})", srcX0, srcY0, srcX1, srcY1, dstX0, dstY0, dstX1, dstY1, mask, filter);
-			} else if (Delegates.pglBlitFramebufferNV != null) {
-				Delegates.pglBlitFramebufferNV(srcX0, srcY0, srcX1, srcY1, dstX0, dstY0, dstX1, dstY1, mask, filter);
-				CallLog("glBlitFramebufferNV({0}, {1}, {2}, {3}, {4}, {5}, {6}, {7}, {8}, {9})", srcX0, srcY0, srcX1, srcY1, dstX0, dstY0, dstX1, dstY1, mask, filter);
-			} else
-				throw new NotImplementedException("glBlitFramebuffer (and other aliases) are not implemented");
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// copy a block of pixels from one framebuffer object to another
-		/// </summary>
-		/// <param name="srcX0">
-		/// Specify the bounds of the source rectangle within the read buffer of the read framebuffer.
-		/// </param>
-		/// <param name="srcY0">
-		/// Specify the bounds of the source rectangle within the read buffer of the read framebuffer.
-		/// </param>
-		/// <param name="srcX1">
-		/// Specify the bounds of the source rectangle within the read buffer of the read framebuffer.
-		/// </param>
-		/// <param name="srcY1">
-		/// Specify the bounds of the source rectangle within the read buffer of the read framebuffer.
-		/// </param>
-		/// <param name="dstX0">
-		/// Specify the bounds of the destination rectangle within the write buffer of the write framebuffer.
-		/// </param>
-		/// <param name="dstY0">
-		/// Specify the bounds of the destination rectangle within the write buffer of the write framebuffer.
-		/// </param>
-		/// <param name="dstX1">
-		/// Specify the bounds of the destination rectangle within the write buffer of the write framebuffer.
-		/// </param>
-		/// <param name="dstY1">
-		/// Specify the bounds of the destination rectangle within the write buffer of the write framebuffer.
-		/// </param>
-		/// <param name="mask">
-		/// The bitwise OR of the flags indicating which buffers are to be copied. The allowed flags are GL_COLOR_BUFFER_BIT, 
-		/// GL_DEPTH_BUFFER_BIT and GL_STENCIL_BUFFER_BIT.
-		/// </param>
-		/// <param name="filter">
-		/// Specifies the interpolation to be applied if the image is stretched. Must be GL_NEAREST or GL_LINEAR.
-		/// </param>
-		[RequiredByFeature("GL_VERSION_3_0")]
-		[RequiredByFeature("GL_ARB_framebuffer_object")]
 		public static void BlitFramebuffer(Int32 srcX0, Int32 srcY0, Int32 srcX1, Int32 srcY1, Int32 dstX0, Int32 dstY0, Int32 dstX1, Int32 dstY1, ClearBufferMask mask, int filter)
 		{
 			if        (Delegates.pglBlitFramebuffer != null) {
@@ -4188,41 +3982,6 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ARB_map_buffer_range")]
-		public static IntPtr MapBufferRange(int target, IntPtr offset, UInt32 length, uint access)
-		{
-			IntPtr retValue;
-
-			if        (Delegates.pglMapBufferRange != null) {
-				retValue = Delegates.pglMapBufferRange(target, offset, length, access);
-				CallLog("glMapBufferRange({0}, {1}, {2}, {3}) = {4}", target, offset, length, access, retValue);
-			} else if (Delegates.pglMapBufferRangeEXT != null) {
-				retValue = Delegates.pglMapBufferRangeEXT(target, offset, length, access);
-				CallLog("glMapBufferRangeEXT({0}, {1}, {2}, {3}) = {4}", target, offset, length, access, retValue);
-			} else
-				throw new NotImplementedException("glMapBufferRange (and other aliases) are not implemented");
-			DebugCheckErrors();
-
-			return (retValue);
-		}
-
-		/// <summary>
-		/// map all or part of a buffer object's data store into the client's address space
-		/// </summary>
-		/// <param name="target">
-		/// Specifies the target to which the buffer object is bound for glMapBufferRange, which must be one of the buffer binding 
-		/// targets in the following table:
-		/// </param>
-		/// <param name="offset">
-		/// Specifies the starting offset within the buffer of the range to be mapped.
-		/// </param>
-		/// <param name="length">
-		/// Specifies the length of the range to be mapped.
-		/// </param>
-		/// <param name="access">
-		/// Specifies a combination of access flags indicating the desired access to the mapped range.
-		/// </param>
-		[RequiredByFeature("GL_VERSION_3_0")]
-		[RequiredByFeature("GL_ARB_map_buffer_range")]
 		public static IntPtr MapBufferRange(BufferTargetARB target, IntPtr offset, UInt32 length, uint access)
 		{
 			IntPtr retValue;
@@ -4238,37 +3997,6 @@ namespace OpenGL
 			DebugCheckErrors();
 
 			return (retValue);
-		}
-
-		/// <summary>
-		/// indicate modifications to a range of a mapped buffer
-		/// </summary>
-		/// <param name="target">
-		/// Specifies the target to which the buffer object is bound for glFlushMappedBufferRange, which must be one of the buffer 
-		/// binding targets in the following table:
-		/// </param>
-		/// <param name="offset">
-		/// Specifies the start of the buffer subrange, in basic machine units.
-		/// </param>
-		/// <param name="length">
-		/// Specifies the length of the buffer subrange, in basic machine units.
-		/// </param>
-		[RequiredByFeature("GL_VERSION_3_0")]
-		[RequiredByFeature("GL_ARB_map_buffer_range")]
-		public static void FlushMappedBufferRange(int target, IntPtr offset, UInt32 length)
-		{
-			if        (Delegates.pglFlushMappedBufferRange != null) {
-				Delegates.pglFlushMappedBufferRange(target, offset, length);
-				CallLog("glFlushMappedBufferRange({0}, {1}, {2})", target, offset, length);
-			} else if (Delegates.pglFlushMappedBufferRangeAPPLE != null) {
-				Delegates.pglFlushMappedBufferRangeAPPLE(target, offset, length);
-				CallLog("glFlushMappedBufferRangeAPPLE({0}, {1}, {2})", target, offset, length);
-			} else if (Delegates.pglFlushMappedBufferRangeEXT != null) {
-				Delegates.pglFlushMappedBufferRangeEXT(target, offset, length);
-				CallLog("glFlushMappedBufferRangeEXT({0}, {1}, {2})", target, offset, length);
-			} else
-				throw new NotImplementedException("glFlushMappedBufferRange (and other aliases) are not implemented");
-			DebugCheckErrors();
 		}
 
 		/// <summary>

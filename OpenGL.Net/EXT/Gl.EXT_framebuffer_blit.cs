@@ -77,48 +77,6 @@ namespace OpenGL
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="mask">
-		/// A <see cref="T:uint"/>.
-		/// </param>
-		/// <param name="filter">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		[RequiredByFeature("GL_EXT_framebuffer_blit")]
-		public static void BlitFramebufferEXT(Int32 srcX0, Int32 srcY0, Int32 srcX1, Int32 srcY1, Int32 dstX0, Int32 dstY0, Int32 dstX1, Int32 dstY1, uint mask, int filter)
-		{
-			Debug.Assert(Delegates.pglBlitFramebufferEXT != null, "pglBlitFramebufferEXT not implemented");
-			Delegates.pglBlitFramebufferEXT(srcX0, srcY0, srcX1, srcY1, dstX0, dstY0, dstX1, dstY1, mask, filter);
-			CallLog("glBlitFramebufferEXT({0}, {1}, {2}, {3}, {4}, {5}, {6}, {7}, {8}, {9})", srcX0, srcY0, srcX1, srcY1, dstX0, dstY0, dstX1, dstY1, mask, filter);
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// Binding for glBlitFramebufferEXT.
-		/// </summary>
-		/// <param name="srcX0">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="srcY0">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="srcX1">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="srcY1">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="dstX0">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="dstY0">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="dstX1">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="dstY1">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="mask">
 		/// A <see cref="T:ClearBufferMask"/>.
 		/// </param>
 		/// <param name="filter">

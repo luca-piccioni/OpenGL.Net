@@ -221,33 +221,6 @@ namespace OpenGL
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="face">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		[RequiredByFeature("GL_NV_geometry_program4")]
-		public static void FramebufferTextureFaceEXT(int target, int attachment, UInt32 texture, Int32 level, int face)
-		{
-			Debug.Assert(Delegates.pglFramebufferTextureFaceEXT != null, "pglFramebufferTextureFaceEXT not implemented");
-			Delegates.pglFramebufferTextureFaceEXT(target, attachment, texture, level, face);
-			CallLog("glFramebufferTextureFaceEXT({0}, {1}, {2}, {3}, {4})", target, attachment, texture, level, face);
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// Binding for glFramebufferTextureFaceEXT.
-		/// </summary>
-		/// <param name="target">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="attachment">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="texture">
-		/// A <see cref="T:UInt32"/>.
-		/// </param>
-		/// <param name="level">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="face">
 		/// A <see cref="T:TextureTarget"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_geometry_program4")]

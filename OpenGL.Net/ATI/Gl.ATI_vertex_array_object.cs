@@ -267,36 +267,6 @@ namespace OpenGL
 		/// Binding for glArrayObjectATI.
 		/// </summary>
 		/// <param name="array">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="size">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="type">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="stride">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="buffer">
-		/// A <see cref="T:UInt32"/>.
-		/// </param>
-		/// <param name="offset">
-		/// A <see cref="T:UInt32"/>.
-		/// </param>
-		[RequiredByFeature("GL_ATI_vertex_array_object")]
-		public static void ArrayObjectATI(int array, Int32 size, int type, Int32 stride, UInt32 buffer, UInt32 offset)
-		{
-			Debug.Assert(Delegates.pglArrayObjectATI != null, "pglArrayObjectATI not implemented");
-			Delegates.pglArrayObjectATI(array, size, type, stride, buffer, offset);
-			CallLog("glArrayObjectATI({0}, {1}, {2}, {3}, {4}, {5})", array, size, type, stride, buffer, offset);
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// Binding for glArrayObjectATI.
-		/// </summary>
-		/// <param name="array">
 		/// A <see cref="T:EnableCap"/>.
 		/// </param>
 		/// <param name="size">
@@ -327,32 +297,6 @@ namespace OpenGL
 		/// Binding for glGetArrayObjectfvATI.
 		/// </summary>
 		/// <param name="array">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="pname">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="params">
-		/// A <see cref="T:float"/>.
-		/// </param>
-		[RequiredByFeature("GL_ATI_vertex_array_object")]
-		public static void GetArrayObjectATI(int array, int pname, out float @params)
-		{
-			unsafe {
-				fixed (float* p_params = &@params)
-				{
-					Debug.Assert(Delegates.pglGetArrayObjectfvATI != null, "pglGetArrayObjectfvATI not implemented");
-					Delegates.pglGetArrayObjectfvATI(array, pname, p_params);
-					CallLog("glGetArrayObjectfvATI({0}, {1}, {2})", array, pname, @params);
-				}
-			}
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// Binding for glGetArrayObjectfvATI.
-		/// </summary>
-		/// <param name="array">
 		/// A <see cref="T:EnableCap"/>.
 		/// </param>
 		/// <param name="pname">
@@ -370,32 +314,6 @@ namespace OpenGL
 					Debug.Assert(Delegates.pglGetArrayObjectfvATI != null, "pglGetArrayObjectfvATI not implemented");
 					Delegates.pglGetArrayObjectfvATI((int)array, pname, p_params);
 					CallLog("glGetArrayObjectfvATI({0}, {1}, {2})", array, pname, @params);
-				}
-			}
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// Binding for glGetArrayObjectivATI.
-		/// </summary>
-		/// <param name="array">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="pname">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="params">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		[RequiredByFeature("GL_ATI_vertex_array_object")]
-		public static void GetArrayObjectATI(int array, int pname, out Int32 @params)
-		{
-			unsafe {
-				fixed (Int32* p_params = &@params)
-				{
-					Debug.Assert(Delegates.pglGetArrayObjectivATI != null, "pglGetArrayObjectivATI not implemented");
-					Delegates.pglGetArrayObjectivATI(array, pname, p_params);
-					CallLog("glGetArrayObjectivATI({0}, {1}, {2})", array, pname, @params);
 				}
 			}
 			DebugCheckErrors();

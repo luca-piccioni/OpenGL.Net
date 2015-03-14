@@ -77,32 +77,6 @@ namespace OpenGL
 		/// Binding for glDetailTexFuncSGIS.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="n">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="points">
-		/// A <see cref="T:float[]"/>.
-		/// </param>
-		[RequiredByFeature("GL_SGIS_detail_texture")]
-		public static void DetailTexFuncSGIS(int target, Int32 n, float[] points)
-		{
-			unsafe {
-				fixed (float* p_points = points)
-				{
-					Debug.Assert(Delegates.pglDetailTexFuncSGIS != null, "pglDetailTexFuncSGIS not implemented");
-					Delegates.pglDetailTexFuncSGIS(target, n, p_points);
-					CallLog("glDetailTexFuncSGIS({0}, {1}, {2})", target, n, points);
-				}
-			}
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// Binding for glDetailTexFuncSGIS.
-		/// </summary>
-		/// <param name="target">
 		/// A <see cref="T:TextureTarget"/>.
 		/// </param>
 		/// <param name="n">
@@ -120,29 +94,6 @@ namespace OpenGL
 					Debug.Assert(Delegates.pglDetailTexFuncSGIS != null, "pglDetailTexFuncSGIS not implemented");
 					Delegates.pglDetailTexFuncSGIS((int)target, n, p_points);
 					CallLog("glDetailTexFuncSGIS({0}, {1}, {2})", target, n, points);
-				}
-			}
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// Binding for glGetDetailTexFuncSGIS.
-		/// </summary>
-		/// <param name="target">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="points">
-		/// A <see cref="T:float[]"/>.
-		/// </param>
-		[RequiredByFeature("GL_SGIS_detail_texture")]
-		public static void GetDetailTexFuncSGIS(int target, float[] points)
-		{
-			unsafe {
-				fixed (float* p_points = points)
-				{
-					Debug.Assert(Delegates.pglGetDetailTexFuncSGIS != null, "pglGetDetailTexFuncSGIS not implemented");
-					Delegates.pglGetDetailTexFuncSGIS(target, p_points);
-					CallLog("glGetDetailTexFuncSGIS({0}, {1})", target, points);
 				}
 			}
 			DebugCheckErrors();

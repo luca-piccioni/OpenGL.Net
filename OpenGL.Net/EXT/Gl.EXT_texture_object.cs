@@ -90,24 +90,6 @@ namespace OpenGL
 		/// Binding for glBindTextureEXT.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="texture">
-		/// A <see cref="T:UInt32"/>.
-		/// </param>
-		[RequiredByFeature("GL_EXT_texture_object")]
-		public static void BindTextureEXT(int target, UInt32 texture)
-		{
-			Debug.Assert(Delegates.pglBindTextureEXT != null, "pglBindTextureEXT not implemented");
-			Delegates.pglBindTextureEXT(target, texture);
-			CallLog("glBindTextureEXT({0}, {1})", target, texture);
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// Binding for glBindTextureEXT.
-		/// </summary>
-		/// <param name="target">
 		/// A <see cref="T:TextureTarget"/>.
 		/// </param>
 		/// <param name="texture">

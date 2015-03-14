@@ -400,35 +400,6 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for wglGetLayerPaletteEntries.
-		/// </summary>
-		/// <param name="hdc">
-		/// A <see cref="T:IntPtr"/>.
-		/// </param>
-		/// <param name="iLayerPlane">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="iStart">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="cEntries">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="pcr">
-		/// A <see cref="T:Object"/>.
-		/// </param>
-		[RequiredByFeature("WGL_VERSION_1_0")]
-		public static int GetLayerPaletteEntries(IntPtr hdc, int iLayerPlane, int iStart, int cEntries, Object pcr)
-		{
-			GCHandle pin_pcr = GCHandle.Alloc(pcr, GCHandleType.Pinned);
-			try {
-				return (GetLayerPaletteEntries(hdc, iLayerPlane, iStart, cEntries, pin_pcr.AddrOfPinnedObject()));
-			} finally {
-				pin_pcr.Free();
-			}
-		}
-
-		/// <summary>
 		/// Binding for wglGetProcAddress.
 		/// </summary>
 		/// <param name="lpszProc">
@@ -519,35 +490,6 @@ namespace OpenGL
 			CallLog("wglSetLayerPaletteEntries({0}, {1}, {2}, {3}, {4}) = {5}", hdc, iLayerPlane, iStart, cEntries, pcr, retValue);
 
 			return (retValue);
-		}
-
-		/// <summary>
-		/// Binding for wglSetLayerPaletteEntries.
-		/// </summary>
-		/// <param name="hdc">
-		/// A <see cref="T:IntPtr"/>.
-		/// </param>
-		/// <param name="iLayerPlane">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="iStart">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="cEntries">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="pcr">
-		/// A <see cref="T:Object"/>.
-		/// </param>
-		[RequiredByFeature("WGL_VERSION_1_0")]
-		public static int SetLayerPaletteEntries(IntPtr hdc, int iLayerPlane, int iStart, int cEntries, Object pcr)
-		{
-			GCHandle pin_pcr = GCHandle.Alloc(pcr, GCHandleType.Pinned);
-			try {
-				return (SetLayerPaletteEntries(hdc, iLayerPlane, iStart, cEntries, pin_pcr.AddrOfPinnedObject()));
-			} finally {
-				pin_pcr.Free();
-			}
 		}
 
 		/// <summary>

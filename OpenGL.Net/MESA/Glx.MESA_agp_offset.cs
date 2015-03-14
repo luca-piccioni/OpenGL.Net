@@ -43,23 +43,6 @@ namespace OpenGL
 			return (retValue);
 		}
 
-		/// <summary>
-		/// Binding for glXGetAGPOffsetMESA.
-		/// </summary>
-		/// <param name="pointer">
-		/// A <see cref="T:Object"/>.
-		/// </param>
-		[RequiredByFeature("GLX_MESA_agp_offset")]
-		public static UInt32 GetAGPOffsetMESA(Object pointer)
-		{
-			GCHandle pin_pointer = GCHandle.Alloc(pointer, GCHandleType.Pinned);
-			try {
-				return (GetAGPOffsetMESA(pin_pointer.AddrOfPinnedObject()));
-			} finally {
-				pin_pointer.Free();
-			}
-		}
-
 	}
 
 }

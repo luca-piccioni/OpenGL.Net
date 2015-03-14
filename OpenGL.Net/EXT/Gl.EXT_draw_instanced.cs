@@ -29,30 +29,6 @@ namespace OpenGL
 		/// Binding for glDrawArraysInstancedEXT.
 		/// </summary>
 		/// <param name="mode">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="start">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="count">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="primcount">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		[RequiredByFeature("GL_EXT_draw_instanced")]
-		public static void DrawArraysInstancedEXT(int mode, Int32 start, Int32 count, Int32 primcount)
-		{
-			Debug.Assert(Delegates.pglDrawArraysInstancedEXT != null, "pglDrawArraysInstancedEXT not implemented");
-			Delegates.pglDrawArraysInstancedEXT(mode, start, count, primcount);
-			CallLog("glDrawArraysInstancedEXT({0}, {1}, {2}, {3})", mode, start, count, primcount);
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// Binding for glDrawArraysInstancedEXT.
-		/// </summary>
-		/// <param name="mode">
 		/// A <see cref="T:PrimitiveType"/>.
 		/// </param>
 		/// <param name="start">
@@ -70,33 +46,6 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglDrawArraysInstancedEXT != null, "pglDrawArraysInstancedEXT not implemented");
 			Delegates.pglDrawArraysInstancedEXT((int)mode, start, count, primcount);
 			CallLog("glDrawArraysInstancedEXT({0}, {1}, {2}, {3})", mode, start, count, primcount);
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// Binding for glDrawElementsInstancedEXT.
-		/// </summary>
-		/// <param name="mode">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="count">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="type">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="indices">
-		/// A <see cref="T:IntPtr"/>.
-		/// </param>
-		/// <param name="primcount">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		[RequiredByFeature("GL_EXT_draw_instanced")]
-		public static void DrawElementsInstancedEXT(int mode, Int32 count, int type, IntPtr indices, Int32 primcount)
-		{
-			Debug.Assert(Delegates.pglDrawElementsInstancedEXT != null, "pglDrawElementsInstancedEXT not implemented");
-			Delegates.pglDrawElementsInstancedEXT(mode, count, type, indices, primcount);
-			CallLog("glDrawElementsInstancedEXT({0}, {1}, {2}, {3}, {4})", mode, count, type, indices, primcount);
 			DebugCheckErrors();
 		}
 

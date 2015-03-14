@@ -29,30 +29,6 @@ namespace OpenGL
 		/// Binding for glDrawArraysInstancedARB.
 		/// </summary>
 		/// <param name="mode">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="first">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="count">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="primcount">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		[RequiredByFeature("GL_ARB_draw_instanced")]
-		public static void DrawArraysInstancedARB(int mode, Int32 first, Int32 count, Int32 primcount)
-		{
-			Debug.Assert(Delegates.pglDrawArraysInstancedARB != null, "pglDrawArraysInstancedARB not implemented");
-			Delegates.pglDrawArraysInstancedARB(mode, first, count, primcount);
-			CallLog("glDrawArraysInstancedARB({0}, {1}, {2}, {3})", mode, first, count, primcount);
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// Binding for glDrawArraysInstancedARB.
-		/// </summary>
-		/// <param name="mode">
 		/// A <see cref="T:PrimitiveType"/>.
 		/// </param>
 		/// <param name="first">
@@ -70,33 +46,6 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglDrawArraysInstancedARB != null, "pglDrawArraysInstancedARB not implemented");
 			Delegates.pglDrawArraysInstancedARB((int)mode, first, count, primcount);
 			CallLog("glDrawArraysInstancedARB({0}, {1}, {2}, {3})", mode, first, count, primcount);
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// Binding for glDrawElementsInstancedARB.
-		/// </summary>
-		/// <param name="mode">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="count">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="type">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="indices">
-		/// A <see cref="T:IntPtr"/>.
-		/// </param>
-		/// <param name="primcount">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		[RequiredByFeature("GL_ARB_draw_instanced")]
-		public static void DrawElementsInstancedARB(int mode, Int32 count, int type, IntPtr indices, Int32 primcount)
-		{
-			Debug.Assert(Delegates.pglDrawElementsInstancedARB != null, "pglDrawElementsInstancedARB not implemented");
-			Delegates.pglDrawElementsInstancedARB(mode, count, type, indices, primcount);
-			CallLog("glDrawElementsInstancedARB({0}, {1}, {2}, {3}, {4})", mode, count, type, indices, primcount);
 			DebugCheckErrors();
 		}
 

@@ -9,15 +9,19 @@
 	</command>
 	
 	<command name="glGetIntegerv|glGetFloatv|glGetDoublev|glGetBooleanv">
-		<!-- Overrides implementation name since it's manually implemented in Wgl.cs -->
 		<rename>Get</rename>
+		<!-- Generate "out" overloads -->
+		<flags>OutParam ForcePlainParams</flags>
+	</command>
+
+	<command name="GetBufferParameteriv(ARB)?">
 		<!-- Generate "out" overloads -->
 		<flags>OutParam</flags>
 	</command>
 	
-	<command name="gl\w+TexImage(1-4)">
+	<command name="gl\w+TexImage(1-4)|glBufferData">
 		<!-- Let the application handles the *TexImage* errors (proxy texture targets, out of memory) -->
-		<flags>NoGetError</flags>
+		<flags>NoGetError ForcePlainParams</flags>
 	</command>
 	
 	<!-- WGL -->

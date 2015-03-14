@@ -56,30 +56,6 @@ namespace OpenGL
 		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="sfail">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="dpfail">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="dppass">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		[RequiredByFeature("GL_ATI_separate_stencil")]
-		public static void StencilOpSeparateATI(int face, int sfail, int dpfail, int dppass)
-		{
-			Debug.Assert(Delegates.pglStencilOpSeparateATI != null, "pglStencilOpSeparateATI not implemented");
-			Delegates.pglStencilOpSeparateATI(face, sfail, dpfail, dppass);
-			CallLog("glStencilOpSeparateATI({0}, {1}, {2}, {3})", face, sfail, dpfail, dppass);
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// Binding for glStencilOpSeparateATI.
-		/// </summary>
-		/// <param name="face">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="sfail">
 		/// A <see cref="T:StencilOp"/>.
 		/// </param>
 		/// <param name="dpfail">
@@ -94,30 +70,6 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglStencilOpSeparateATI != null, "pglStencilOpSeparateATI not implemented");
 			Delegates.pglStencilOpSeparateATI(face, (int)sfail, (int)dpfail, (int)dppass);
 			CallLog("glStencilOpSeparateATI({0}, {1}, {2}, {3})", face, sfail, dpfail, dppass);
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// Binding for glStencilFuncSeparateATI.
-		/// </summary>
-		/// <param name="frontfunc">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="backfunc">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="ref">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="mask">
-		/// A <see cref="T:UInt32"/>.
-		/// </param>
-		[RequiredByFeature("GL_ATI_separate_stencil")]
-		public static void StencilFuncSeparateATI(int frontfunc, int backfunc, Int32 @ref, UInt32 mask)
-		{
-			Debug.Assert(Delegates.pglStencilFuncSeparateATI != null, "pglStencilFuncSeparateATI not implemented");
-			Delegates.pglStencilFuncSeparateATI(frontfunc, backfunc, @ref, mask);
-			CallLog("glStencilFuncSeparateATI({0}, {1}, {2}, {3})", frontfunc, backfunc, @ref, mask);
 			DebugCheckErrors();
 		}
 

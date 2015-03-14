@@ -461,46 +461,6 @@ namespace OpenGL
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_3_1")]
-		public static void DrawArraysInstanced(int mode, Int32 first, Int32 count, Int32 instancecount)
-		{
-			if        (Delegates.pglDrawArraysInstanced != null) {
-				Delegates.pglDrawArraysInstanced(mode, first, count, instancecount);
-				CallLog("glDrawArraysInstanced({0}, {1}, {2}, {3})", mode, first, count, instancecount);
-			} else if (Delegates.pglDrawArraysInstancedANGLE != null) {
-				Delegates.pglDrawArraysInstancedANGLE(mode, first, count, instancecount);
-				CallLog("glDrawArraysInstancedANGLE({0}, {1}, {2}, {3})", mode, first, count, instancecount);
-			} else if (Delegates.pglDrawArraysInstancedARB != null) {
-				Delegates.pglDrawArraysInstancedARB(mode, first, count, instancecount);
-				CallLog("glDrawArraysInstancedARB({0}, {1}, {2}, {3})", mode, first, count, instancecount);
-			} else if (Delegates.pglDrawArraysInstancedEXT != null) {
-				Delegates.pglDrawArraysInstancedEXT(mode, first, count, instancecount);
-				CallLog("glDrawArraysInstancedEXT({0}, {1}, {2}, {3})", mode, first, count, instancecount);
-			} else if (Delegates.pglDrawArraysInstancedNV != null) {
-				Delegates.pglDrawArraysInstancedNV(mode, first, count, instancecount);
-				CallLog("glDrawArraysInstancedNV({0}, {1}, {2}, {3})", mode, first, count, instancecount);
-			} else
-				throw new NotImplementedException("glDrawArraysInstanced (and other aliases) are not implemented");
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// draw multiple instances of a range of elements
-		/// </summary>
-		/// <param name="mode">
-		/// Specifies what kind of primitives to render. Symbolic constants GL_POINTS, GL_LINE_STRIP, GL_LINE_LOOP, GL_LINES, 
-		/// GL_TRIANGLE_STRIP, GL_TRIANGLE_FAN, GL_TRIANGLESGL_LINES_ADJACENCY, GL_LINE_STRIP_ADJACENCY, GL_TRIANGLES_ADJACENCY, 
-		/// GL_TRIANGLE_STRIP_ADJACENCY and GL_PATCHES are accepted.
-		/// </param>
-		/// <param name="first">
-		/// Specifies the starting index in the enabled arrays.
-		/// </param>
-		/// <param name="count">
-		/// Specifies the number of indices to be rendered.
-		/// </param>
-		/// <param name="instancecount">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		[RequiredByFeature("GL_VERSION_3_1")]
 		public static void DrawArraysInstanced(PrimitiveType mode, Int32 first, Int32 count, Int32 instancecount)
 		{
 			if        (Delegates.pglDrawArraysInstanced != null) {
@@ -520,49 +480,6 @@ namespace OpenGL
 				CallLog("glDrawArraysInstancedNV({0}, {1}, {2}, {3})", mode, first, count, instancecount);
 			} else
 				throw new NotImplementedException("glDrawArraysInstanced (and other aliases) are not implemented");
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// draw multiple instances of a set of elements
-		/// </summary>
-		/// <param name="mode">
-		/// Specifies what kind of primitives to render. Symbolic constants GL_POINTS, GL_LINE_STRIP, GL_LINE_LOOP, GL_LINES, 
-		/// GL_LINE_STRIP_ADJACENCY, GL_LINES_ADJACENCY, GL_TRIANGLE_STRIP, GL_TRIANGLE_FAN, GL_TRIANGLES, 
-		/// GL_TRIANGLE_STRIP_ADJACENCY, GL_TRIANGLES_ADJACENCY and GL_PATCHES are accepted.
-		/// </param>
-		/// <param name="count">
-		/// Specifies the number of elements to be rendered.
-		/// </param>
-		/// <param name="type">
-		/// Specifies the type of the values in indices. Must be one of GL_UNSIGNED_BYTE, GL_UNSIGNED_SHORT, or GL_UNSIGNED_INT.
-		/// </param>
-		/// <param name="indices">
-		/// Specifies a pointer to the location where the indices are stored.
-		/// </param>
-		/// <param name="instancecount">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		[RequiredByFeature("GL_VERSION_3_1")]
-		public static void DrawElementsInstanced(int mode, Int32 count, int type, IntPtr indices, Int32 instancecount)
-		{
-			if        (Delegates.pglDrawElementsInstanced != null) {
-				Delegates.pglDrawElementsInstanced(mode, count, type, indices, instancecount);
-				CallLog("glDrawElementsInstanced({0}, {1}, {2}, {3}, {4})", mode, count, type, indices, instancecount);
-			} else if (Delegates.pglDrawElementsInstancedANGLE != null) {
-				Delegates.pglDrawElementsInstancedANGLE(mode, count, type, indices, instancecount);
-				CallLog("glDrawElementsInstancedANGLE({0}, {1}, {2}, {3}, {4})", mode, count, type, indices, instancecount);
-			} else if (Delegates.pglDrawElementsInstancedARB != null) {
-				Delegates.pglDrawElementsInstancedARB(mode, count, type, indices, instancecount);
-				CallLog("glDrawElementsInstancedARB({0}, {1}, {2}, {3}, {4})", mode, count, type, indices, instancecount);
-			} else if (Delegates.pglDrawElementsInstancedEXT != null) {
-				Delegates.pglDrawElementsInstancedEXT(mode, count, type, indices, instancecount);
-				CallLog("glDrawElementsInstancedEXT({0}, {1}, {2}, {3}, {4})", mode, count, type, indices, instancecount);
-			} else if (Delegates.pglDrawElementsInstancedNV != null) {
-				Delegates.pglDrawElementsInstancedNV(mode, count, type, indices, instancecount);
-				CallLog("glDrawElementsInstancedNV({0}, {1}, {2}, {3}, {4})", mode, count, type, indices, instancecount);
-			} else
-				throw new NotImplementedException("glDrawElementsInstanced (and other aliases) are not implemented");
 			DebugCheckErrors();
 		}
 
@@ -669,38 +586,6 @@ namespace OpenGL
 			} finally {
 				pin_indices.Free();
 			}
-		}
-
-		/// <summary>
-		/// attach a buffer object's data store to a buffer texture object
-		/// </summary>
-		/// <param name="target">
-		/// Specifies the target to which the texture is bound for glTexBuffer. Must be GL_TEXTURE_BUFFER.
-		/// </param>
-		/// <param name="internalformat">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="buffer">
-		/// Specifies the name of the buffer object whose storage to attach to the active buffer texture.
-		/// </param>
-		[RequiredByFeature("GL_VERSION_3_1")]
-		public static void TexBuffer(int target, int internalformat, UInt32 buffer)
-		{
-			if        (Delegates.pglTexBuffer != null) {
-				Delegates.pglTexBuffer(target, internalformat, buffer);
-				CallLog("glTexBuffer({0}, {1}, {2})", target, internalformat, buffer);
-			} else if (Delegates.pglTexBufferARB != null) {
-				Delegates.pglTexBufferARB(target, internalformat, buffer);
-				CallLog("glTexBufferARB({0}, {1}, {2})", target, internalformat, buffer);
-			} else if (Delegates.pglTexBufferEXT != null) {
-				Delegates.pglTexBufferEXT(target, internalformat, buffer);
-				CallLog("glTexBufferEXT({0}, {1}, {2})", target, internalformat, buffer);
-			} else if (Delegates.pglTexBufferOES != null) {
-				Delegates.pglTexBufferOES(target, internalformat, buffer);
-				CallLog("glTexBufferOES({0}, {1}, {2})", target, internalformat, buffer);
-			} else
-				throw new NotImplementedException("glTexBuffer (and other aliases) are not implemented");
-			DebugCheckErrors();
 		}
 
 		/// <summary>

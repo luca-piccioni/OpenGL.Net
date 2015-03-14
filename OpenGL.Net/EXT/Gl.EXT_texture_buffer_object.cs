@@ -59,27 +59,6 @@ namespace OpenGL
 		/// Binding for glTexBufferEXT.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="internalformat">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="buffer">
-		/// A <see cref="T:UInt32"/>.
-		/// </param>
-		[RequiredByFeature("GL_EXT_texture_buffer_object")]
-		public static void TexBufferEXT(int target, int internalformat, UInt32 buffer)
-		{
-			Debug.Assert(Delegates.pglTexBufferEXT != null, "pglTexBufferEXT not implemented");
-			Delegates.pglTexBufferEXT(target, internalformat, buffer);
-			CallLog("glTexBufferEXT({0}, {1}, {2})", target, internalformat, buffer);
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// Binding for glTexBufferEXT.
-		/// </summary>
-		/// <param name="target">
 		/// A <see cref="T:TextureTarget"/>.
 		/// </param>
 		/// <param name="internalformat">

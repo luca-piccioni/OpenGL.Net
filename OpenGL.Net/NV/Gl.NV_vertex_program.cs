@@ -894,6 +894,29 @@ namespace OpenGL
 		}
 
 		/// <summary>
+		/// Binding for glGetVertexAttribPointervNV.
+		/// </summary>
+		/// <param name="index">
+		/// A <see cref="T:UInt32"/>.
+		/// </param>
+		/// <param name="pname">
+		/// A <see cref="T:int"/>.
+		/// </param>
+		/// <param name="pointer">
+		/// A <see cref="T:Object"/>.
+		/// </param>
+		[RequiredByFeature("GL_NV_vertex_program")]
+		public static void GetVertexAttribPointerNV(UInt32 index, int pname, Object pointer)
+		{
+			GCHandle pin_pointer = GCHandle.Alloc(pointer, GCHandleType.Pinned);
+			try {
+				GetVertexAttribPointerNV(index, pname, pin_pointer.AddrOfPinnedObject());
+			} finally {
+				pin_pointer.Free();
+			}
+		}
+
+		/// <summary>
 		/// Binding for glIsProgramNV.
 		/// </summary>
 		/// <param name="id">

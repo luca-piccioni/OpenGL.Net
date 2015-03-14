@@ -343,6 +343,35 @@ namespace OpenGL
 		}
 
 		/// <summary>
+		/// Binding for glGetPerfQueryDataINTEL.
+		/// </summary>
+		/// <param name="queryHandle">
+		/// A <see cref="T:UInt32"/>.
+		/// </param>
+		/// <param name="flags">
+		/// A <see cref="T:UInt32"/>.
+		/// </param>
+		/// <param name="dataSize">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="data">
+		/// A <see cref="T:Object"/>.
+		/// </param>
+		/// <param name="bytesWritten">
+		/// A <see cref="T:UInt32[]"/>.
+		/// </param>
+		[RequiredByFeature("GL_INTEL_performance_query")]
+		public static void GetPerfQueryDataINTEL(UInt32 queryHandle, UInt32 flags, Int32 dataSize, Object data, UInt32[] bytesWritten)
+		{
+			GCHandle pin_data = GCHandle.Alloc(data, GCHandleType.Pinned);
+			try {
+				GetPerfQueryDataINTEL(queryHandle, flags, dataSize, pin_data.AddrOfPinnedObject(), bytesWritten);
+			} finally {
+				pin_data.Free();
+			}
+		}
+
+		/// <summary>
 		/// Binding for glGetPerfQueryIdByNameINTEL.
 		/// </summary>
 		/// <param name="queryName">

@@ -41,24 +41,6 @@ namespace OpenGL
 		/// Binding for glBlendEquationSeparateEXT.
 		/// </summary>
 		/// <param name="modeRGB">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="modeAlpha">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		[RequiredByFeature("GL_EXT_blend_equation_separate")]
-		public static void BlendEquationSeparateEXT(int modeRGB, int modeAlpha)
-		{
-			Debug.Assert(Delegates.pglBlendEquationSeparateEXT != null, "pglBlendEquationSeparateEXT not implemented");
-			Delegates.pglBlendEquationSeparateEXT(modeRGB, modeAlpha);
-			CallLog("glBlendEquationSeparateEXT({0}, {1})", modeRGB, modeAlpha);
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// Binding for glBlendEquationSeparateEXT.
-		/// </summary>
-		/// <param name="modeRGB">
 		/// A <see cref="T:BlendEquationModeEXT"/>.
 		/// </param>
 		/// <param name="modeAlpha">

@@ -41,36 +41,6 @@ namespace OpenGL
 		/// Binding for glDrawRangeElementsEXT.
 		/// </summary>
 		/// <param name="mode">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="start">
-		/// A <see cref="T:UInt32"/>.
-		/// </param>
-		/// <param name="end">
-		/// A <see cref="T:UInt32"/>.
-		/// </param>
-		/// <param name="count">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="type">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="indices">
-		/// A <see cref="T:IntPtr"/>.
-		/// </param>
-		[RequiredByFeature("GL_EXT_draw_range_elements")]
-		public static void DrawRangeElementsEXT(int mode, UInt32 start, UInt32 end, Int32 count, int type, IntPtr indices)
-		{
-			Debug.Assert(Delegates.pglDrawRangeElementsEXT != null, "pglDrawRangeElementsEXT not implemented");
-			Delegates.pglDrawRangeElementsEXT(mode, start, end, count, type, indices);
-			CallLog("glDrawRangeElementsEXT({0}, {1}, {2}, {3}, {4}, {5})", mode, start, end, count, type, indices);
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// Binding for glDrawRangeElementsEXT.
-		/// </summary>
-		/// <param name="mode">
 		/// A <see cref="T:PrimitiveType"/>.
 		/// </param>
 		/// <param name="start">

@@ -753,27 +753,6 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_4_0")]
 		[RequiredByFeature("GL_ARB_draw_indirect")]
-		public static void DrawArraysIndirect(int mode, IntPtr indirect)
-		{
-			Debug.Assert(Delegates.pglDrawArraysIndirect != null, "pglDrawArraysIndirect not implemented");
-			Delegates.pglDrawArraysIndirect(mode, indirect);
-			CallLog("glDrawArraysIndirect({0}, {1})", mode, indirect);
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// render primitives from array data, taking parameters from memory
-		/// </summary>
-		/// <param name="mode">
-		/// Specifies what kind of primitives to render. Symbolic constants GL_POINTS, GL_LINE_STRIP, GL_LINE_LOOP, GL_LINES, 
-		/// GL_LINE_STRIP_ADJACENCY, GL_LINES_ADJACENCY, GL_TRIANGLE_STRIP, GL_TRIANGLE_FAN, GL_TRIANGLES, 
-		/// GL_TRIANGLE_STRIP_ADJACENCY, GL_TRIANGLES_ADJACENCY, and GL_PATCHES are accepted.
-		/// </param>
-		/// <param name="indirect">
-		/// Specifies the address of a structure containing the draw parameters.
-		/// </param>
-		[RequiredByFeature("GL_VERSION_4_0")]
-		[RequiredByFeature("GL_ARB_draw_indirect")]
 		public static void DrawArraysIndirect(PrimitiveType mode, IntPtr indirect)
 		{
 			Debug.Assert(Delegates.pglDrawArraysIndirect != null, "pglDrawArraysIndirect not implemented");
@@ -826,30 +805,6 @@ namespace OpenGL
 			} finally {
 				pin_indirect.Free();
 			}
-		}
-
-		/// <summary>
-		/// render indexed primitives from array data, taking parameters from memory
-		/// </summary>
-		/// <param name="mode">
-		/// Specifies what kind of primitives to render. Symbolic constants GL_POINTS, GL_LINE_STRIP, GL_LINE_LOOP, GL_LINES, 
-		/// GL_LINE_STRIP_ADJACENCY, GL_LINES_ADJACENCY, GL_TRIANGLE_STRIP, GL_TRIANGLE_FAN, GL_TRIANGLES, 
-		/// GL_TRIANGLE_STRIP_ADJACENCY, GL_TRIANGLES_ADJACENCY, and GL_PATCHES are accepted.
-		/// </param>
-		/// <param name="type">
-		/// Specifies the type of data in the buffer bound to the GL_ELEMENT_ARRAY_BUFFER binding.
-		/// </param>
-		/// <param name="indirect">
-		/// Specifies the address of a structure containing the draw parameters.
-		/// </param>
-		[RequiredByFeature("GL_VERSION_4_0")]
-		[RequiredByFeature("GL_ARB_draw_indirect")]
-		public static void DrawElementsIndirect(int mode, int type, IntPtr indirect)
-		{
-			Debug.Assert(Delegates.pglDrawElementsIndirect != null, "pglDrawElementsIndirect not implemented");
-			Delegates.pglDrawElementsIndirect(mode, type, indirect);
-			CallLog("glDrawElementsIndirect({0}, {1}, {2})", mode, type, indirect);
-			DebugCheckErrors();
 		}
 
 		/// <summary>
@@ -1894,32 +1849,6 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_4_0")]
 		[RequiredByFeature("GL_ARB_transform_feedback2")]
-		public static void DrawTransformFeedback(int mode, UInt32 id)
-		{
-			if        (Delegates.pglDrawTransformFeedback != null) {
-				Delegates.pglDrawTransformFeedback(mode, id);
-				CallLog("glDrawTransformFeedback({0}, {1})", mode, id);
-			} else if (Delegates.pglDrawTransformFeedbackNV != null) {
-				Delegates.pglDrawTransformFeedbackNV(mode, id);
-				CallLog("glDrawTransformFeedbackNV({0}, {1})", mode, id);
-			} else
-				throw new NotImplementedException("glDrawTransformFeedback (and other aliases) are not implemented");
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// render primitives using a count derived from a transform feedback object
-		/// </summary>
-		/// <param name="mode">
-		/// Specifies what kind of primitives to render. Symbolic constants GL_POINTS, GL_LINE_STRIP, GL_LINE_LOOP, GL_LINES, 
-		/// GL_LINE_STRIP_ADJACENCY, GL_LINES_ADJACENCY, GL_TRIANGLE_STRIP, GL_TRIANGLE_FAN, GL_TRIANGLES, 
-		/// GL_TRIANGLE_STRIP_ADJACENCY, GL_TRIANGLES_ADJACENCY, and GL_PATCHES are accepted.
-		/// </param>
-		/// <param name="id">
-		/// Specifies the name of a transform feedback object from which to retrieve a primitive count.
-		/// </param>
-		[RequiredByFeature("GL_VERSION_4_0")]
-		[RequiredByFeature("GL_ARB_transform_feedback2")]
 		public static void DrawTransformFeedback(PrimitiveType mode, UInt32 id)
 		{
 			if        (Delegates.pglDrawTransformFeedback != null) {
@@ -1930,30 +1859,6 @@ namespace OpenGL
 				CallLog("glDrawTransformFeedbackNV({0}, {1})", mode, id);
 			} else
 				throw new NotImplementedException("glDrawTransformFeedback (and other aliases) are not implemented");
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// render primitives using a count derived from a specifed stream of a transform feedback object
-		/// </summary>
-		/// <param name="mode">
-		/// Specifies what kind of primitives to render. Symbolic constants GL_POINTS, GL_LINE_STRIP, GL_LINE_LOOP, GL_LINES, 
-		/// GL_LINE_STRIP_ADJACENCY, GL_LINES_ADJACENCY, GL_TRIANGLE_STRIP, GL_TRIANGLE_FAN, GL_TRIANGLES, 
-		/// GL_TRIANGLE_STRIP_ADJACENCY, GL_TRIANGLES_ADJACENCY, and GL_PATCHES are accepted.
-		/// </param>
-		/// <param name="id">
-		/// Specifies the name of a transform feedback object from which to retrieve a primitive count.
-		/// </param>
-		/// <param name="stream">
-		/// Specifies the index of the transform feedback stream from which to retrieve a primitive count.
-		/// </param>
-		[RequiredByFeature("GL_VERSION_4_0")]
-		[RequiredByFeature("GL_ARB_transform_feedback3")]
-		public static void DrawTransformFeedbackStream(int mode, UInt32 id, UInt32 stream)
-		{
-			Debug.Assert(Delegates.pglDrawTransformFeedbackStream != null, "pglDrawTransformFeedbackStream not implemented");
-			Delegates.pglDrawTransformFeedbackStream(mode, id, stream);
-			CallLog("glDrawTransformFeedbackStream({0}, {1}, {2})", mode, id, stream);
 			DebugCheckErrors();
 		}
 

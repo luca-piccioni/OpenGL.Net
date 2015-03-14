@@ -214,6 +214,32 @@ namespace OpenGL
 		}
 
 		/// <summary>
+		/// Binding for glGetPerfMonitorCounterInfoAMD.
+		/// </summary>
+		/// <param name="group">
+		/// A <see cref="T:UInt32"/>.
+		/// </param>
+		/// <param name="counter">
+		/// A <see cref="T:UInt32"/>.
+		/// </param>
+		/// <param name="pname">
+		/// A <see cref="T:int"/>.
+		/// </param>
+		/// <param name="data">
+		/// A <see cref="T:Object"/>.
+		/// </param>
+		[RequiredByFeature("GL_AMD_performance_monitor")]
+		public static void GetPerfMonitorCounterInfoAMD(UInt32 group, UInt32 counter, int pname, Object data)
+		{
+			GCHandle pin_data = GCHandle.Alloc(data, GCHandleType.Pinned);
+			try {
+				GetPerfMonitorCounterInfoAMD(group, counter, pname, pin_data.AddrOfPinnedObject());
+			} finally {
+				pin_data.Free();
+			}
+		}
+
+		/// <summary>
 		/// Binding for glGenPerfMonitorsAMD.
 		/// </summary>
 		/// <param name="n">

@@ -59,27 +59,6 @@ namespace OpenGL
 		/// Binding for glTexBufferARB.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="internalformat">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="buffer">
-		/// A <see cref="T:UInt32"/>.
-		/// </param>
-		[RequiredByFeature("GL_ARB_texture_buffer_object")]
-		public static void TexBufferARB(int target, int internalformat, UInt32 buffer)
-		{
-			Debug.Assert(Delegates.pglTexBufferARB != null, "pglTexBufferARB not implemented");
-			Delegates.pglTexBufferARB(target, internalformat, buffer);
-			CallLog("glTexBufferARB({0}, {1}, {2})", target, internalformat, buffer);
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// Binding for glTexBufferARB.
-		/// </summary>
-		/// <param name="target">
 		/// A <see cref="T:TextureTarget"/>.
 		/// </param>
 		/// <param name="internalformat">

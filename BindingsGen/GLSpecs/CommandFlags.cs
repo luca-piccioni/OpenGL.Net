@@ -48,6 +48,11 @@ namespace BindingsGen.GLSpecs
 		/// Generate an "out" parameter even if the declared array length is not 1.
 		/// </summary>
 		OutParam =		0x04,
+
+		/// <summary>
+		/// Generate the method overload with plain parameters even if parameters are stringly typed.
+		/// </summary>
+		ForcePlainParams =	0x08,
 	}
 
 	/// <summary>

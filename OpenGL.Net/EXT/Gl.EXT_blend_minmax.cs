@@ -53,21 +53,6 @@ namespace OpenGL
 		/// Binding for glBlendEquationEXT.
 		/// </summary>
 		/// <param name="mode">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		[RequiredByFeature("GL_EXT_blend_minmax")]
-		public static void BlendEquationEXT(int mode)
-		{
-			Debug.Assert(Delegates.pglBlendEquationEXT != null, "pglBlendEquationEXT not implemented");
-			Delegates.pglBlendEquationEXT(mode);
-			CallLog("glBlendEquationEXT({0})", mode);
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// Binding for glBlendEquationEXT.
-		/// </summary>
-		/// <param name="mode">
 		/// A <see cref="T:BlendEquationModeEXT"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_blend_minmax")]

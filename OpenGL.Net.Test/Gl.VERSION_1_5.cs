@@ -38,11 +38,107 @@ namespace OpenGL.Test
 				Assert.Inconclusive("OpenGL 1.5 or GL_ARB_vertex_buffer_object");
 
 			uint arrayBuffer = Gl.GenBuffer();
-			Assert.AreNotEqual(0, arrayBuffer, "Gl.GenBuffer failure");
-			Assert.IsTrue(Gl.IsBuffer(arrayBuffer));
+			try {
+				Assert.AreNotEqual(0, arrayBuffer, "Gl.GenBuffer failure");
+				Assert.IsTrue(Gl.IsBuffer(arrayBuffer));
+			} finally {
+				if (arrayBuffer != 0) {
+					Gl.DeleteBuffers(arrayBuffer);
+					Assert.IsFalse(Gl.IsBuffer(arrayBuffer), "Gl.DeleteBuffers failure");
+				}
+			}
+		}
 
-			Gl.DeleteBuffers(arrayBuffer);
-			Assert.IsFalse(Gl.IsBuffer(arrayBuffer), "Gl.DeleteBuffers failure");
+		/// <summary>
+		/// Test Gl.BufferData.
+		/// </summary>
+		[Test]
+		public void TestBufferData()
+		{
+			if (!HasVersion(1, 5) && !IsGlExtensionSupported("GL_ARB_vertex_buffer_object"))
+				Assert.Inconclusive("OpenGL 1.5 or GL_ARB_vertex_buffer_object");
+
+			int arrayBufferGet;
+
+			uint arrayBuffer = Gl.GenBuffer();
+			try {
+				Assert.AreNotEqual(0, arrayBuffer, "Gl.GenBuffer failure");
+				Assert.IsTrue(Gl.IsBuffer(arrayBuffer));
+
+				Gl.BindBuffer(BufferTargetARB.ArrayBuffer, arrayBuffer);
+				Gl.Get(Gl.ARRAY_BUFFER_BINDING, out arrayBufferGet);
+				Assert.AreEqual((int)arrayBuffer, arrayBufferGet);
+
+				Random random = new Random();
+				byte[] arrayBufferData = new byte[64], arrayBufferDataGet = new byte[64];
+				for (int i = 0; i < arrayBufferData.Length; i++)
+					arrayBufferData[i] = (Byte)random.Next(Byte.MaxValue);
+
+				int arrayBufferDataParam;
+				Gl.BufferData(BufferTargetARB.ArrayBuffer, (uint)arrayBufferData.Length, arrayBufferData, BufferUsageARB.StaticDraw);
+				Gl.GetBufferParameter(BufferTargetARB.ArrayBuffer, Gl.BUFFER_SIZE, out arrayBufferDataParam);
+				Assert.AreEqual(arrayBufferData.Length, arrayBufferDataParam);
+				Gl.GetBufferParameter(BufferTargetARB.ArrayBuffer, Gl.BUFFER_USAGE, out arrayBufferDataParam);
+				Assert.AreEqual((int)BufferUsageARB.StaticDraw, arrayBufferDataParam);
+
+				Gl.GetBufferSubData(BufferTargetARB.ArrayBuffer, IntPtr.Zero, (uint)arrayBufferData.Length, arrayBufferDataGet);
+				for (int i = 0; i < arrayBufferDataGet.Length; i++)
+					Assert.AreEqual(arrayBufferData[i], arrayBufferDataGet[i]);
+			} finally {
+				if (arrayBuffer != 0) {
+					Gl.DeleteBuffers(arrayBuffer);
+					Assert.IsFalse(Gl.IsBuffer(arrayBuffer));
+				}
+			}
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		[Test]
+		public void TestMapBuffer()
+		{
+			if (!HasVersion(1, 5) && !IsGlExtensionSupported("GL_ARB_vertex_buffer_object"))
+				Assert.Inconclusive("OpenGL 1.5 or GL_ARB_vertex_buffer_object");
+
+			int arrayBufferGet;
+
+			uint arrayBuffer = Gl.GenBuffer();
+			Assert.AreNotEqual(0, arrayBuffer, "Gl.GenBuffer failure");
+
+			try {
+				Assert.IsTrue(Gl.IsBuffer(arrayBuffer));
+
+				Gl.BindBuffer(BufferTargetARB.ArrayBuffer, arrayBuffer);
+				Gl.Get(Gl.ARRAY_BUFFER_BINDING, out arrayBufferGet);
+				Assert.AreEqual((int)arrayBuffer, arrayBufferGet);
+
+				Random random = new Random();
+				byte[] arrayBufferData = new byte[64], arrayBufferDataGet = new byte[64];
+				for (int i = 0; i < arrayBufferData.Length; i++)
+					arrayBufferData[i] = (Byte)random.Next(Byte.MaxValue);
+				Gl.BufferData(BufferTargetARB.ArrayBuffer, (uint)arrayBufferData.Length, arrayBufferData, BufferUsageARB.StaticDraw);
+
+				IntPtr arrayBufferPtr = Gl.MapBuffer(BufferTargetARB.ArrayBuffer, BufferAccessARB.ReadOnly);
+				Assert.AreNotEqual(IntPtr.Zero, arrayBufferPtr);
+				try {
+					IntPtr arrayBufferPtrGet;
+					int arrayBufferPtrParam;
+
+					Gl.GetBufferParameter(BufferTargetARB.ArrayBuffer, Gl.BUFFER_MAPPED, out arrayBufferPtrParam);
+					Assert.AreEqual(Gl.TRUE, arrayBufferPtrParam);
+					Gl.GetBufferParameter(BufferTargetARB.ArrayBuffer, Gl.BUFFER_ACCESS, out arrayBufferPtrParam);
+					Assert.AreEqual((int)BufferAccessARB.ReadOnly, arrayBufferPtrParam);
+
+					Gl.GetBufferPointer(BufferTargetARB.ArrayBuffer, Gl.BUFFER_MAP_POINTER, arrayBufferPtrGet);
+
+				} finally {
+					Gl.UnmapBuffer(BufferTargetARB.ArrayBuffer);
+				}
+			} finally {
+				Gl.DeleteBuffers(arrayBuffer);
+				Assert.IsFalse(Gl.IsBuffer(arrayBuffer));
+			}
 		}
 	}
 }

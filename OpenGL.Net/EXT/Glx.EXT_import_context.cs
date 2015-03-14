@@ -111,23 +111,6 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// get the XID for a context.
-		/// </summary>
-		/// <param name="context">
-		/// A <see cref="T:Object"/>.
-		/// </param>
-		[RequiredByFeature("GLX_EXT_import_context")]
-		public static IntPtr GetContextIDEXT(Object context)
-		{
-			GCHandle pin_context = GCHandle.Alloc(context, GCHandleType.Pinned);
-			try {
-				return (GetContextIDEXT(pin_context.AddrOfPinnedObject()));
-			} finally {
-				pin_context.Free();
-			}
-		}
-
-		/// <summary>
 		/// import another process's indirect rendering context.
 		/// </summary>
 		/// <param name="dpy">

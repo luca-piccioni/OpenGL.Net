@@ -838,59 +838,6 @@ namespace OpenGL
 		/// Specifies a pointer to the compressed image data in memory.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_1_3")]
-		public static void CompressedTexImage3D(int target, Int32 level, int internalformat, Int32 width, Int32 height, Int32 depth, Int32 border, Int32 imageSize, IntPtr data)
-		{
-			if        (Delegates.pglCompressedTexImage3D != null) {
-				Delegates.pglCompressedTexImage3D(target, level, internalformat, width, height, depth, border, imageSize, data);
-				CallLog("glCompressedTexImage3D({0}, {1}, {2}, {3}, {4}, {5}, {6}, {7}, {8})", target, level, internalformat, width, height, depth, border, imageSize, data);
-			} else if (Delegates.pglCompressedTexImage3DARB != null) {
-				Delegates.pglCompressedTexImage3DARB(target, level, internalformat, width, height, depth, border, imageSize, data);
-				CallLog("glCompressedTexImage3DARB({0}, {1}, {2}, {3}, {4}, {5}, {6}, {7}, {8})", target, level, internalformat, width, height, depth, border, imageSize, data);
-			} else if (Delegates.pglCompressedTexImage3DOES != null) {
-				Delegates.pglCompressedTexImage3DOES(target, level, internalformat, width, height, depth, border, imageSize, data);
-				CallLog("glCompressedTexImage3DOES({0}, {1}, {2}, {3}, {4}, {5}, {6}, {7}, {8})", target, level, internalformat, width, height, depth, border, imageSize, data);
-			} else
-				throw new NotImplementedException("glCompressedTexImage3D (and other aliases) are not implemented");
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// specify a three-dimensional texture image in a compressed format
-		/// </summary>
-		/// <param name="target">
-		/// Specifies the target texture. Must be <see cref="Gl.TEXTURE_3D"/> or <see cref="Gl.PROXY_TEXTURE_3D"/>.
-		/// </param>
-		/// <param name="level">
-		/// Specifies the level-of-detail number. Level 0 is the base image level. Level n is the nth mipmap reduction image.
-		/// </param>
-		/// <param name="internalformat">
-		/// Specifies the format of the compressed image data stored at address <paramref name="data"/>.
-		/// </param>
-		/// <param name="width">
-		/// Specifies the width of the texture image including the border if any. If the GL version does not support 
-		/// non-power-of-two sizes, this value must be 2n+2⁡border for some integer n. All implementations support 3D texture images 
-		/// that are at least 16 texels wide.
-		/// </param>
-		/// <param name="height">
-		/// Specifies the height of the texture image including the border if any. If the GL version does not support 
-		/// non-power-of-two sizes, this value must be 2n+2⁡border for some integer n. All implementations support 3D texture images 
-		/// that are at least 16 texels high.
-		/// </param>
-		/// <param name="depth">
-		/// Specifies the depth of the texture image including the border if any. If the GL version does not support 
-		/// non-power-of-two sizes, this value must be 2n+2⁡border for some integer n. All implementations support 3D texture images 
-		/// that are at least 16 texels deep.
-		/// </param>
-		/// <param name="border">
-		/// Specifies the width of the border. Must be either 0 or 1.
-		/// </param>
-		/// <param name="imageSize">
-		/// Specifies the number of unsigned bytes of image data starting at the address specified by <paramref name="data"/>.
-		/// </param>
-		/// <param name="data">
-		/// Specifies a pointer to the compressed image data in memory.
-		/// </param>
-		[RequiredByFeature("GL_VERSION_1_3")]
 		public static void CompressedTexImage3D(TextureTarget target, Int32 level, int internalformat, Int32 width, Int32 height, Int32 depth, Int32 border, Int32 imageSize, IntPtr data)
 		{
 			if        (Delegates.pglCompressedTexImage3D != null) {
@@ -999,55 +946,6 @@ namespace OpenGL
 			} finally {
 				pin_data.Free();
 			}
-		}
-
-		/// <summary>
-		/// specify a two-dimensional texture image in a compressed format
-		/// </summary>
-		/// <param name="target">
-		/// Specifies the target texture. Must be <see cref="Gl.TEXTURE_2D"/>, <see cref="Gl.PROXY_TEXTURE_2D"/>, <see 
-		/// cref="Gl.TEXTURE_CUBE_MAP_POSITIVE_X"/>, <see cref="Gl.TEXTURE_CUBE_MAP_NEGATIVE_X"/>, <see 
-		/// cref="Gl.TEXTURE_CUBE_MAP_POSITIVE_Y"/>, <see cref="Gl.TEXTURE_CUBE_MAP_NEGATIVE_Y"/>, <see 
-		/// cref="Gl.TEXTURE_CUBE_MAP_POSITIVE_Z"/>, <see cref="Gl.TEXTURE_CUBE_MAP_NEGATIVE_Z"/>, or <see 
-		/// cref="Gl.PROXY_TEXTURE_CUBE_MAP"/>.
-		/// </param>
-		/// <param name="level">
-		/// Specifies the level-of-detail number. Level 0 is the base image level. Level n is the nth mipmap reduction image.
-		/// </param>
-		/// <param name="internalformat">
-		/// Specifies the format of the compressed image data stored at address <paramref name="data"/>.
-		/// </param>
-		/// <param name="width">
-		/// Specifies the width of the texture image including the border if any. If the GL version does not support 
-		/// non-power-of-two sizes, this value must be 2n+2⁡border for some integer n. All implementations support 2D texture images 
-		/// that are at least 64 texels wide and cube-mapped texture images that are at least 16 texels wide.
-		/// </param>
-		/// <param name="height">
-		/// Specifies the height of the texture image including the border if any. If the GL version does not support 
-		/// non-power-of-two sizes, this value must be Must be 2n+2⁡border for some integer n. All implementations support 2D 
-		/// texture images that are at least 64 texels high and cube-mapped texture images that are at least 16 texels high.
-		/// </param>
-		/// <param name="border">
-		/// Specifies the width of the border. Must be either 0 or 1.
-		/// </param>
-		/// <param name="imageSize">
-		/// Specifies the number of unsigned bytes of image data starting at the address specified by <paramref name="data"/>.
-		/// </param>
-		/// <param name="data">
-		/// Specifies a pointer to the compressed image data in memory.
-		/// </param>
-		[RequiredByFeature("GL_VERSION_1_3")]
-		public static void CompressedTexImage2D(int target, Int32 level, int internalformat, Int32 width, Int32 height, Int32 border, Int32 imageSize, IntPtr data)
-		{
-			if        (Delegates.pglCompressedTexImage2D != null) {
-				Delegates.pglCompressedTexImage2D(target, level, internalformat, width, height, border, imageSize, data);
-				CallLog("glCompressedTexImage2D({0}, {1}, {2}, {3}, {4}, {5}, {6}, {7})", target, level, internalformat, width, height, border, imageSize, data);
-			} else if (Delegates.pglCompressedTexImage2DARB != null) {
-				Delegates.pglCompressedTexImage2DARB(target, level, internalformat, width, height, border, imageSize, data);
-				CallLog("glCompressedTexImage2DARB({0}, {1}, {2}, {3}, {4}, {5}, {6}, {7})", target, level, internalformat, width, height, border, imageSize, data);
-			} else
-				throw new NotImplementedException("glCompressedTexImage2D (and other aliases) are not implemented");
-			DebugCheckErrors();
 		}
 
 		/// <summary>
@@ -1218,46 +1116,6 @@ namespace OpenGL
 		/// Specifies a pointer to the compressed image data in memory.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_1_3")]
-		public static void CompressedTexImage1D(int target, Int32 level, int internalformat, Int32 width, Int32 border, Int32 imageSize, IntPtr data)
-		{
-			if        (Delegates.pglCompressedTexImage1D != null) {
-				Delegates.pglCompressedTexImage1D(target, level, internalformat, width, border, imageSize, data);
-				CallLog("glCompressedTexImage1D({0}, {1}, {2}, {3}, {4}, {5}, {6})", target, level, internalformat, width, border, imageSize, data);
-			} else if (Delegates.pglCompressedTexImage1DARB != null) {
-				Delegates.pglCompressedTexImage1DARB(target, level, internalformat, width, border, imageSize, data);
-				CallLog("glCompressedTexImage1DARB({0}, {1}, {2}, {3}, {4}, {5}, {6})", target, level, internalformat, width, border, imageSize, data);
-			} else
-				throw new NotImplementedException("glCompressedTexImage1D (and other aliases) are not implemented");
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// specify a one-dimensional texture image in a compressed format
-		/// </summary>
-		/// <param name="target">
-		/// Specifies the target texture. Must be <see cref="Gl.TEXTURE_1D"/> or <see cref="Gl.PROXY_TEXTURE_1D"/>.
-		/// </param>
-		/// <param name="level">
-		/// Specifies the level-of-detail number. Level 0 is the base image level. Level n is the nth mipmap reduction image.
-		/// </param>
-		/// <param name="internalformat">
-		/// Specifies the format of the compressed image data stored at address <paramref name="data"/>.
-		/// </param>
-		/// <param name="width">
-		/// Specifies the width of the texture image including the border if any. If the GL version does not support 
-		/// non-power-of-two sizes, this value must be 2n+2⁡border for some integer n. All implementations support texture images 
-		/// that are at least 64 texels wide. The height of the 1D texture image is 1.
-		/// </param>
-		/// <param name="border">
-		/// Specifies the width of the border. Must be either 0 or 1.
-		/// </param>
-		/// <param name="imageSize">
-		/// Specifies the number of unsigned bytes of image data starting at the address specified by <paramref name="data"/>.
-		/// </param>
-		/// <param name="data">
-		/// Specifies a pointer to the compressed image data in memory.
-		/// </param>
-		[RequiredByFeature("GL_VERSION_1_3")]
 		public static void CompressedTexImage1D(TextureTarget target, Int32 level, int internalformat, Int32 width, Int32 border, Int32 imageSize, IntPtr data)
 		{
 			if        (Delegates.pglCompressedTexImage1D != null) {
@@ -1343,60 +1201,6 @@ namespace OpenGL
 			} finally {
 				pin_data.Free();
 			}
-		}
-
-		/// <summary>
-		/// specify a three-dimensional texture subimage in a compressed format
-		/// </summary>
-		/// <param name="target">
-		/// Specifies the target to which the texture is bound for glCompressedTexSubImage3D function. Must be GL_TEXTURE_2D_ARRAY, 
-		/// GL_TEXTURE_3D, or GL_TEXTURE_CUBE_MAP_ARRAY.
-		/// </param>
-		/// <param name="level">
-		/// Specifies the level-of-detail number. Level 0 is the base image level. Level n is the nth mipmap reduction image.
-		/// </param>
-		/// <param name="xoffset">
-		/// Specifies a texel offset in the x direction within the texture array.
-		/// </param>
-		/// <param name="yoffset">
-		/// Specifies a texel offset in the y direction within the texture array.
-		/// </param>
-		/// <param name="zoffset">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="width">
-		/// Specifies the width of the texture subimage.
-		/// </param>
-		/// <param name="height">
-		/// Specifies the height of the texture subimage.
-		/// </param>
-		/// <param name="depth">
-		/// Specifies the depth of the texture subimage.
-		/// </param>
-		/// <param name="format">
-		/// Specifies the format of the compressed image data stored at address data.
-		/// </param>
-		/// <param name="imageSize">
-		/// Specifies the number of unsigned bytes of image data starting at the address specified by data.
-		/// </param>
-		/// <param name="data">
-		/// Specifies a pointer to the compressed image data in memory.
-		/// </param>
-		[RequiredByFeature("GL_VERSION_1_3")]
-		public static void CompressedTexSubImage3D(int target, Int32 level, Int32 xoffset, Int32 yoffset, Int32 zoffset, Int32 width, Int32 height, Int32 depth, int format, Int32 imageSize, IntPtr data)
-		{
-			if        (Delegates.pglCompressedTexSubImage3D != null) {
-				Delegates.pglCompressedTexSubImage3D(target, level, xoffset, yoffset, zoffset, width, height, depth, format, imageSize, data);
-				CallLog("glCompressedTexSubImage3D({0}, {1}, {2}, {3}, {4}, {5}, {6}, {7}, {8}, {9}, {10})", target, level, xoffset, yoffset, zoffset, width, height, depth, format, imageSize, data);
-			} else if (Delegates.pglCompressedTexSubImage3DARB != null) {
-				Delegates.pglCompressedTexSubImage3DARB(target, level, xoffset, yoffset, zoffset, width, height, depth, format, imageSize, data);
-				CallLog("glCompressedTexSubImage3DARB({0}, {1}, {2}, {3}, {4}, {5}, {6}, {7}, {8}, {9}, {10})", target, level, xoffset, yoffset, zoffset, width, height, depth, format, imageSize, data);
-			} else if (Delegates.pglCompressedTexSubImage3DOES != null) {
-				Delegates.pglCompressedTexSubImage3DOES(target, level, xoffset, yoffset, zoffset, width, height, depth, format, imageSize, data);
-				CallLog("glCompressedTexSubImage3DOES({0}, {1}, {2}, {3}, {4}, {5}, {6}, {7}, {8}, {9}, {10})", target, level, xoffset, yoffset, zoffset, width, height, depth, format, imageSize, data);
-			} else
-				throw new NotImplementedException("glCompressedTexSubImage3D (and other aliases) are not implemented");
-			DebugCheckErrors();
 		}
 
 		/// <summary>
@@ -1582,52 +1386,6 @@ namespace OpenGL
 		/// Specifies a pointer to the compressed image data in memory.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_1_3")]
-		public static void CompressedTexSubImage2D(int target, Int32 level, Int32 xoffset, Int32 yoffset, Int32 width, Int32 height, int format, Int32 imageSize, IntPtr data)
-		{
-			if        (Delegates.pglCompressedTexSubImage2D != null) {
-				Delegates.pglCompressedTexSubImage2D(target, level, xoffset, yoffset, width, height, format, imageSize, data);
-				CallLog("glCompressedTexSubImage2D({0}, {1}, {2}, {3}, {4}, {5}, {6}, {7}, {8})", target, level, xoffset, yoffset, width, height, format, imageSize, data);
-			} else if (Delegates.pglCompressedTexSubImage2DARB != null) {
-				Delegates.pglCompressedTexSubImage2DARB(target, level, xoffset, yoffset, width, height, format, imageSize, data);
-				CallLog("glCompressedTexSubImage2DARB({0}, {1}, {2}, {3}, {4}, {5}, {6}, {7}, {8})", target, level, xoffset, yoffset, width, height, format, imageSize, data);
-			} else
-				throw new NotImplementedException("glCompressedTexSubImage2D (and other aliases) are not implemented");
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// specify a two-dimensional texture subimage in a compressed format
-		/// </summary>
-		/// <param name="target">
-		/// Specifies the target to which the texture is bound for glCompressedTexSubImage2D function. Must be GL_TEXTURE_1D_ARRAY, 
-		/// GL_TEXTURE_2D, GL_TEXTURE_CUBE_MAP_POSITIVE_X, GL_TEXTURE_CUBE_MAP_NEGATIVE_X, GL_TEXTURE_CUBE_MAP_POSITIVE_Y, 
-		/// GL_TEXTURE_CUBE_MAP_NEGATIVE_Y, GL_TEXTURE_CUBE_MAP_POSITIVE_Z, or GL_TEXTURE_CUBE_MAP_NEGATIVE_Z.
-		/// </param>
-		/// <param name="level">
-		/// Specifies the level-of-detail number. Level 0 is the base image level. Level n is the nth mipmap reduction image.
-		/// </param>
-		/// <param name="xoffset">
-		/// Specifies a texel offset in the x direction within the texture array.
-		/// </param>
-		/// <param name="yoffset">
-		/// Specifies a texel offset in the y direction within the texture array.
-		/// </param>
-		/// <param name="width">
-		/// Specifies the width of the texture subimage.
-		/// </param>
-		/// <param name="height">
-		/// Specifies the height of the texture subimage.
-		/// </param>
-		/// <param name="format">
-		/// Specifies the format of the compressed image data stored at address data.
-		/// </param>
-		/// <param name="imageSize">
-		/// Specifies the number of unsigned bytes of image data starting at the address specified by data.
-		/// </param>
-		/// <param name="data">
-		/// Specifies a pointer to the compressed image data in memory.
-		/// </param>
-		[RequiredByFeature("GL_VERSION_1_3")]
 		public static void CompressedTexSubImage2D(TextureTarget target, Int32 level, Int32 xoffset, Int32 yoffset, Int32 width, Int32 height, PixelFormat format, Int32 imageSize, IntPtr data)
 		{
 			if        (Delegates.pglCompressedTexSubImage2D != null) {
@@ -1725,44 +1483,6 @@ namespace OpenGL
 			} finally {
 				pin_data.Free();
 			}
-		}
-
-		/// <summary>
-		/// specify a one-dimensional texture subimage in a compressed format
-		/// </summary>
-		/// <param name="target">
-		/// Specifies the target, to which the texture is bound, for glCompressedTexSubImage1D function. Must be GL_TEXTURE_1D.
-		/// </param>
-		/// <param name="level">
-		/// Specifies the level-of-detail number. Level 0 is the base image level. Level n is the nth mipmap reduction image.
-		/// </param>
-		/// <param name="xoffset">
-		/// Specifies a texel offset in the x direction within the texture array.
-		/// </param>
-		/// <param name="width">
-		/// Specifies the width of the texture subimage.
-		/// </param>
-		/// <param name="format">
-		/// Specifies the format of the compressed image data stored at address data.
-		/// </param>
-		/// <param name="imageSize">
-		/// Specifies the number of unsigned bytes of image data starting at the address specified by data.
-		/// </param>
-		/// <param name="data">
-		/// Specifies a pointer to the compressed image data in memory.
-		/// </param>
-		[RequiredByFeature("GL_VERSION_1_3")]
-		public static void CompressedTexSubImage1D(int target, Int32 level, Int32 xoffset, Int32 width, int format, Int32 imageSize, IntPtr data)
-		{
-			if        (Delegates.pglCompressedTexSubImage1D != null) {
-				Delegates.pglCompressedTexSubImage1D(target, level, xoffset, width, format, imageSize, data);
-				CallLog("glCompressedTexSubImage1D({0}, {1}, {2}, {3}, {4}, {5}, {6})", target, level, xoffset, width, format, imageSize, data);
-			} else if (Delegates.pglCompressedTexSubImage1DARB != null) {
-				Delegates.pglCompressedTexSubImage1DARB(target, level, xoffset, width, format, imageSize, data);
-				CallLog("glCompressedTexSubImage1DARB({0}, {1}, {2}, {3}, {4}, {5}, {6})", target, level, xoffset, width, format, imageSize, data);
-			} else
-				throw new NotImplementedException("glCompressedTexSubImage1D (and other aliases) are not implemented");
-			DebugCheckErrors();
 		}
 
 		/// <summary>
@@ -1891,13 +1611,13 @@ namespace OpenGL
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_1_3")]
-		public static void GetCompressedTexImage(int target, Int32 level, IntPtr img)
+		public static void GetCompressedTexImage(TextureTarget target, Int32 level, IntPtr img)
 		{
 			if        (Delegates.pglGetCompressedTexImage != null) {
-				Delegates.pglGetCompressedTexImage(target, level, img);
+				Delegates.pglGetCompressedTexImage((int)target, level, img);
 				CallLog("glGetCompressedTexImage({0}, {1}, {2})", target, level, img);
 			} else if (Delegates.pglGetCompressedTexImageARB != null) {
-				Delegates.pglGetCompressedTexImageARB(target, level, img);
+				Delegates.pglGetCompressedTexImageARB((int)target, level, img);
 				CallLog("glGetCompressedTexImageARB({0}, {1}, {2})", target, level, img);
 			} else
 				throw new NotImplementedException("glGetCompressedTexImage (and other aliases) are not implemented");
@@ -1919,20 +1639,45 @@ namespace OpenGL
 		/// mipmap reduction image.
 		/// </param>
 		/// <param name="img">
-		/// A <see cref="T:IntPtr"/>.
+		/// A <see cref="T:Object"/>.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_1_3")]
-		public static void GetCompressedTexImage(TextureTarget target, Int32 level, IntPtr img)
+		public static void GetCompressedTexImage(int target, Int32 level, Object img)
 		{
-			if        (Delegates.pglGetCompressedTexImage != null) {
-				Delegates.pglGetCompressedTexImage((int)target, level, img);
-				CallLog("glGetCompressedTexImage({0}, {1}, {2})", target, level, img);
-			} else if (Delegates.pglGetCompressedTexImageARB != null) {
-				Delegates.pglGetCompressedTexImageARB((int)target, level, img);
-				CallLog("glGetCompressedTexImageARB({0}, {1}, {2})", target, level, img);
-			} else
-				throw new NotImplementedException("glGetCompressedTexImage (and other aliases) are not implemented");
-			DebugCheckErrors();
+			GCHandle pin_img = GCHandle.Alloc(img, GCHandleType.Pinned);
+			try {
+				GetCompressedTexImage(target, level, pin_img.AddrOfPinnedObject());
+			} finally {
+				pin_img.Free();
+			}
+		}
+
+		/// <summary>
+		/// return a compressed texture image
+		/// </summary>
+		/// <param name="target">
+		/// Specifies the target to which the texture is bound for glGetCompressedTexImage and glGetnCompressedTexImage functions. 
+		/// GL_TEXTURE_1D, GL_TEXTURE_1D_ARRAY, GL_TEXTURE_2D, GL_TEXTURE_2D_ARRAY, GL_TEXTURE_3D, GL_TEXTURE_CUBE_MAP_ARRAY, 
+		/// GL_TEXTURE_CUBE_MAP_POSITIVE_X, GL_TEXTURE_CUBE_MAP_NEGATIVE_X, GL_TEXTURE_CUBE_MAP_POSITIVE_Y, 
+		/// GL_TEXTURE_CUBE_MAP_NEGATIVE_Y, GL_TEXTURE_CUBE_MAP_POSITIVE_Z, and GL_TEXTURE_CUBE_MAP_NEGATIVE_Z, GL_TEXTURE_RECTANGLE 
+		/// are accepted.
+		/// </param>
+		/// <param name="level">
+		/// Specifies the level-of-detail number of the desired image. Level 0 is the base image level. Level $n$ is the $n$-th 
+		/// mipmap reduction image.
+		/// </param>
+		/// <param name="img">
+		/// A <see cref="T:Object"/>.
+		/// </param>
+		[RequiredByFeature("GL_VERSION_1_3")]
+		public static void GetCompressedTexImage(TextureTarget target, Int32 level, Object img)
+		{
+			GCHandle pin_img = GCHandle.Alloc(img, GCHandleType.Pinned);
+			try {
+				GetCompressedTexImage(target, level, pin_img.AddrOfPinnedObject());
+			} finally {
+				pin_img.Free();
+			}
 		}
 
 		/// <summary>

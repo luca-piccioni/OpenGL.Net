@@ -1742,27 +1742,6 @@ namespace OpenGL
 		/// Binding for glPathStencilFuncNV.
 		/// </summary>
 		/// <param name="func">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="ref">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="mask">
-		/// A <see cref="T:UInt32"/>.
-		/// </param>
-		[RequiredByFeature("GL_NV_path_rendering")]
-		public static void PathStencilFuncNV(int func, Int32 @ref, UInt32 mask)
-		{
-			Debug.Assert(Delegates.pglPathStencilFuncNV != null, "pglPathStencilFuncNV not implemented");
-			Delegates.pglPathStencilFuncNV(func, @ref, mask);
-			CallLog("glPathStencilFuncNV({0}, {1}, {2})", func, @ref, mask);
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// Binding for glPathStencilFuncNV.
-		/// </summary>
-		/// <param name="func">
 		/// A <see cref="T:StencilFunction"/>.
 		/// </param>
 		/// <param name="ref">
@@ -1996,21 +1975,6 @@ namespace OpenGL
 			} finally {
 				pin_paths.Free();
 			}
-		}
-
-		/// <summary>
-		/// Binding for glPathCoverDepthFuncNV.
-		/// </summary>
-		/// <param name="func">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		[RequiredByFeature("GL_NV_path_rendering")]
-		public static void PathCoverDepthFuncNV(int func)
-		{
-			Debug.Assert(Delegates.pglPathCoverDepthFuncNV != null, "pglPathCoverDepthFuncNV not implemented");
-			Delegates.pglPathCoverDepthFuncNV(func);
-			CallLog("glPathCoverDepthFuncNV({0})", func);
-			DebugCheckErrors();
 		}
 
 		/// <summary>

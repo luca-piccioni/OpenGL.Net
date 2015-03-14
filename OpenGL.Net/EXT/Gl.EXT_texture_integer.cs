@@ -311,32 +311,6 @@ namespace OpenGL
 		/// Binding for glTexParameterIivEXT.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="pname">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="params">
-		/// A <see cref="T:Int32[]"/>.
-		/// </param>
-		[RequiredByFeature("GL_EXT_texture_integer")]
-		public static void TexParameterIivEXT(int target, int pname, Int32[] @params)
-		{
-			unsafe {
-				fixed (Int32* p_params = @params)
-				{
-					Debug.Assert(Delegates.pglTexParameterIivEXT != null, "pglTexParameterIivEXT not implemented");
-					Delegates.pglTexParameterIivEXT(target, pname, p_params);
-					CallLog("glTexParameterIivEXT({0}, {1}, {2})", target, pname, @params);
-				}
-			}
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// Binding for glTexParameterIivEXT.
-		/// </summary>
-		/// <param name="target">
 		/// A <see cref="T:TextureTarget"/>.
 		/// </param>
 		/// <param name="pname">
@@ -354,32 +328,6 @@ namespace OpenGL
 					Debug.Assert(Delegates.pglTexParameterIivEXT != null, "pglTexParameterIivEXT not implemented");
 					Delegates.pglTexParameterIivEXT((int)target, (int)pname, p_params);
 					CallLog("glTexParameterIivEXT({0}, {1}, {2})", target, pname, @params);
-				}
-			}
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// Binding for glTexParameterIuivEXT.
-		/// </summary>
-		/// <param name="target">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="pname">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="params">
-		/// A <see cref="T:UInt32[]"/>.
-		/// </param>
-		[RequiredByFeature("GL_EXT_texture_integer")]
-		public static void TexParameterIuivEXT(int target, int pname, UInt32[] @params)
-		{
-			unsafe {
-				fixed (UInt32* p_params = @params)
-				{
-					Debug.Assert(Delegates.pglTexParameterIuivEXT != null, "pglTexParameterIuivEXT not implemented");
-					Delegates.pglTexParameterIuivEXT(target, pname, p_params);
-					CallLog("glTexParameterIuivEXT({0}, {1}, {2})", target, pname, @params);
 				}
 			}
 			DebugCheckErrors();
@@ -415,32 +363,6 @@ namespace OpenGL
 		/// Binding for glGetTexParameterIivEXT.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="pname">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="params">
-		/// A <see cref="T:Int32[]"/>.
-		/// </param>
-		[RequiredByFeature("GL_EXT_texture_integer")]
-		public static void GetTexParameterIivEXT(int target, int pname, Int32[] @params)
-		{
-			unsafe {
-				fixed (Int32* p_params = @params)
-				{
-					Debug.Assert(Delegates.pglGetTexParameterIivEXT != null, "pglGetTexParameterIivEXT not implemented");
-					Delegates.pglGetTexParameterIivEXT(target, pname, p_params);
-					CallLog("glGetTexParameterIivEXT({0}, {1}, {2})", target, pname, @params);
-				}
-			}
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// Binding for glGetTexParameterIivEXT.
-		/// </summary>
-		/// <param name="target">
 		/// A <see cref="T:TextureTarget"/>.
 		/// </param>
 		/// <param name="pname">
@@ -458,32 +380,6 @@ namespace OpenGL
 					Debug.Assert(Delegates.pglGetTexParameterIivEXT != null, "pglGetTexParameterIivEXT not implemented");
 					Delegates.pglGetTexParameterIivEXT((int)target, (int)pname, p_params);
 					CallLog("glGetTexParameterIivEXT({0}, {1}, {2})", target, pname, @params);
-				}
-			}
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// Binding for glGetTexParameterIuivEXT.
-		/// </summary>
-		/// <param name="target">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="pname">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="params">
-		/// A <see cref="T:UInt32[]"/>.
-		/// </param>
-		[RequiredByFeature("GL_EXT_texture_integer")]
-		public static void GetTexParameterIuivEXT(int target, int pname, UInt32[] @params)
-		{
-			unsafe {
-				fixed (UInt32* p_params = @params)
-				{
-					Debug.Assert(Delegates.pglGetTexParameterIuivEXT != null, "pglGetTexParameterIuivEXT not implemented");
-					Delegates.pglGetTexParameterIuivEXT(target, pname, p_params);
-					CallLog("glGetTexParameterIuivEXT({0}, {1}, {2})", target, pname, @params);
 				}
 			}
 			DebugCheckErrors();

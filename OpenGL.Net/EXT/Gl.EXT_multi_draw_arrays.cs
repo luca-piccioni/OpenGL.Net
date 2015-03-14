@@ -29,36 +29,6 @@ namespace OpenGL
 		/// Binding for glMultiDrawArraysEXT.
 		/// </summary>
 		/// <param name="mode">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="first">
-		/// A <see cref="T:Int32[]"/>.
-		/// </param>
-		/// <param name="count">
-		/// A <see cref="T:Int32[]"/>.
-		/// </param>
-		/// <param name="primcount">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		[RequiredByFeature("GL_EXT_multi_draw_arrays")]
-		public static void MultiDrawArraysEXT(int mode, Int32[] first, Int32[] count, Int32 primcount)
-		{
-			unsafe {
-				fixed (Int32* p_first = first)
-				fixed (Int32* p_count = count)
-				{
-					Debug.Assert(Delegates.pglMultiDrawArraysEXT != null, "pglMultiDrawArraysEXT not implemented");
-					Delegates.pglMultiDrawArraysEXT(mode, p_first, p_count, primcount);
-					CallLog("glMultiDrawArraysEXT({0}, {1}, {2}, {3})", mode, first, count, primcount);
-				}
-			}
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// Binding for glMultiDrawArraysEXT.
-		/// </summary>
-		/// <param name="mode">
 		/// A <see cref="T:PrimitiveType"/>.
 		/// </param>
 		/// <param name="first">
@@ -80,38 +50,6 @@ namespace OpenGL
 					Debug.Assert(Delegates.pglMultiDrawArraysEXT != null, "pglMultiDrawArraysEXT not implemented");
 					Delegates.pglMultiDrawArraysEXT((int)mode, p_first, p_count, primcount);
 					CallLog("glMultiDrawArraysEXT({0}, {1}, {2}, {3})", mode, first, count, primcount);
-				}
-			}
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// Binding for glMultiDrawElementsEXT.
-		/// </summary>
-		/// <param name="mode">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="count">
-		/// A <see cref="T:Int32[]"/>.
-		/// </param>
-		/// <param name="type">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="indices">
-		/// A <see cref="T:IntPtr"/>.
-		/// </param>
-		/// <param name="primcount">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		[RequiredByFeature("GL_EXT_multi_draw_arrays")]
-		public static void MultiDrawElementsEXT(int mode, Int32[] count, int type, IntPtr indices, Int32 primcount)
-		{
-			unsafe {
-				fixed (Int32* p_count = count)
-				{
-					Debug.Assert(Delegates.pglMultiDrawElementsEXT != null, "pglMultiDrawElementsEXT not implemented");
-					Delegates.pglMultiDrawElementsEXT(mode, p_count, type, indices, primcount);
-					CallLog("glMultiDrawElementsEXT({0}, {1}, {2}, {3}, {4})", mode, count, type, indices, primcount);
 				}
 			}
 			DebugCheckErrors();

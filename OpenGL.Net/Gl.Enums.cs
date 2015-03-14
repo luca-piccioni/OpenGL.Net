@@ -7688,5 +7688,27 @@ namespace OpenGL
 
 	}
 
+	/// <summary>
+	/// Strongly typed enumeration BufferAccessARB.
+	/// </summary>
+	public enum BufferAccessARB
+	{
+		/// <summary>
+		/// Strongly typed for value GL_READ_ONLY.
+		/// </summary>
+		ReadOnly = Gl.READ_ONLY,
+
+		/// <summary>
+		/// Strongly typed for value GL_WRITE_ONLY.
+		/// </summary>
+		WriteOnly = Gl.WRITE_ONLY,
+
+		/// <summary>
+		/// Strongly typed for value GL_READ_WRITE.
+		/// </summary>
+		ReadWrite = Gl.READ_WRITE,
+
+	}
+
 
 	}

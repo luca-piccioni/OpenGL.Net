@@ -114,6 +114,29 @@ namespace OpenGL
 			DebugCheckErrors();
 		}
 
+		/// <summary>
+		/// Binding for glGetTexParameterPointervAPPLE.
+		/// </summary>
+		/// <param name="target">
+		/// A <see cref="T:int"/>.
+		/// </param>
+		/// <param name="pname">
+		/// A <see cref="T:int"/>.
+		/// </param>
+		/// <param name="params">
+		/// A <see cref="T:Object"/>.
+		/// </param>
+		[RequiredByFeature("GL_APPLE_texture_range")]
+		public static void GetTexParameterPointerAPPLE(int target, int pname, Object @params)
+		{
+			GCHandle pin_params = GCHandle.Alloc(@params, GCHandleType.Pinned);
+			try {
+				GetTexParameterPointerAPPLE(target, pname, pin_params.AddrOfPinnedObject());
+			} finally {
+				pin_params.Free();
+			}
+		}
+
 	}
 
 }

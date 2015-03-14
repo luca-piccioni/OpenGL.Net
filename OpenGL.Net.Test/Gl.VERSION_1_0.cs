@@ -37,7 +37,7 @@ namespace OpenGL.Test
 		{
 			#region Gl.VERSION
 
-			string vendor = Gl.GetString(Gl.VENDOR);
+			string vendor = Gl.GetString(StringName.Vendor);
 
 			Assert.IsNotNull(vendor);
 			Console.WriteLine("Vendor: {0}", vendor);
@@ -46,7 +46,7 @@ namespace OpenGL.Test
 
 			#region Gl.RENDERER
 
-			string rendered = Gl.GetString(Gl.RENDERER);
+			string rendered = Gl.GetString(StringName.Renderer);
 
 			Assert.IsNotNull(vendor);
 			Console.WriteLine("Rendered: {0}", rendered);
@@ -55,7 +55,7 @@ namespace OpenGL.Test
 
 			#region Gl.VERSION
 
-			string version = Gl.GetString(Gl.VERSION);
+			string version = Gl.GetString(StringName.Version);
 
 			Assert.IsNotNull(version);
 			Console.WriteLine("Version: {0}", version);
@@ -64,7 +64,7 @@ namespace OpenGL.Test
 
 			#region Gl.EXTENSIONS
 
-			string extensions = Gl.GetString(Gl.EXTENSIONS);
+			string extensions = Gl.GetString(StringName.Extensions);
 
 			Assert.IsNotNull(extensions);
 

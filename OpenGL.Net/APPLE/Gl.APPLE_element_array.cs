@@ -85,27 +85,6 @@ namespace OpenGL
 		/// Binding for glDrawElementArrayAPPLE.
 		/// </summary>
 		/// <param name="mode">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="first">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="count">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		[RequiredByFeature("GL_APPLE_element_array")]
-		public static void DrawElementArrayAPPLE(int mode, Int32 first, Int32 count)
-		{
-			Debug.Assert(Delegates.pglDrawElementArrayAPPLE != null, "pglDrawElementArrayAPPLE not implemented");
-			Delegates.pglDrawElementArrayAPPLE(mode, first, count);
-			CallLog("glDrawElementArrayAPPLE({0}, {1}, {2})", mode, first, count);
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// Binding for glDrawElementArrayAPPLE.
-		/// </summary>
-		/// <param name="mode">
 		/// A <see cref="T:PrimitiveType"/>.
 		/// </param>
 		/// <param name="first">
@@ -120,33 +99,6 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglDrawElementArrayAPPLE != null, "pglDrawElementArrayAPPLE not implemented");
 			Delegates.pglDrawElementArrayAPPLE((int)mode, first, count);
 			CallLog("glDrawElementArrayAPPLE({0}, {1}, {2})", mode, first, count);
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// Binding for glDrawRangeElementArrayAPPLE.
-		/// </summary>
-		/// <param name="mode">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="start">
-		/// A <see cref="T:UInt32"/>.
-		/// </param>
-		/// <param name="end">
-		/// A <see cref="T:UInt32"/>.
-		/// </param>
-		/// <param name="first">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="count">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		[RequiredByFeature("GL_APPLE_element_array")]
-		public static void DrawRangeElementArrayAPPLE(int mode, UInt32 start, UInt32 end, Int32 first, Int32 count)
-		{
-			Debug.Assert(Delegates.pglDrawRangeElementArrayAPPLE != null, "pglDrawRangeElementArrayAPPLE not implemented");
-			Delegates.pglDrawRangeElementArrayAPPLE(mode, start, end, first, count);
-			CallLog("glDrawRangeElementArrayAPPLE({0}, {1}, {2}, {3}, {4})", mode, start, end, first, count);
 			DebugCheckErrors();
 		}
 

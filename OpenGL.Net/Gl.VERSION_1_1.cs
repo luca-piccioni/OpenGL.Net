@@ -4565,34 +4565,6 @@ namespace OpenGL
 		/// Specifies the number of indices to be rendered.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_1_1")]
-		public static void DrawArrays(int mode, Int32 first, Int32 count)
-		{
-			if        (Delegates.pglDrawArrays != null) {
-				Delegates.pglDrawArrays(mode, first, count);
-				CallLog("glDrawArrays({0}, {1}, {2})", mode, first, count);
-			} else if (Delegates.pglDrawArraysEXT != null) {
-				Delegates.pglDrawArraysEXT(mode, first, count);
-				CallLog("glDrawArraysEXT({0}, {1}, {2})", mode, first, count);
-			} else
-				throw new NotImplementedException("glDrawArrays (and other aliases) are not implemented");
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// render primitives from array data
-		/// </summary>
-		/// <param name="mode">
-		/// Specifies what kind of primitives to render. Symbolic constants GL_POINTS, GL_LINE_STRIP, GL_LINE_LOOP, GL_LINES, 
-		/// GL_LINE_STRIP_ADJACENCY, GL_LINES_ADJACENCY, GL_TRIANGLE_STRIP, GL_TRIANGLE_FAN, GL_TRIANGLES, 
-		/// GL_TRIANGLE_STRIP_ADJACENCY, GL_TRIANGLES_ADJACENCY and GL_PATCHES are accepted.
-		/// </param>
-		/// <param name="first">
-		/// Specifies the starting index in the enabled arrays.
-		/// </param>
-		/// <param name="count">
-		/// Specifies the number of indices to be rendered.
-		/// </param>
-		[RequiredByFeature("GL_VERSION_1_1")]
 		public static void DrawArrays(PrimitiveType mode, Int32 first, Int32 count)
 		{
 			if        (Delegates.pglDrawArrays != null) {
@@ -4603,32 +4575,6 @@ namespace OpenGL
 				CallLog("glDrawArraysEXT({0}, {1}, {2})", mode, first, count);
 			} else
 				throw new NotImplementedException("glDrawArrays (and other aliases) are not implemented");
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// render primitives from array data
-		/// </summary>
-		/// <param name="mode">
-		/// Specifies what kind of primitives to render. Symbolic constants GL_POINTS, GL_LINE_STRIP, GL_LINE_LOOP, GL_LINES, 
-		/// GL_LINE_STRIP_ADJACENCY, GL_LINES_ADJACENCY, GL_TRIANGLE_STRIP, GL_TRIANGLE_FAN, GL_TRIANGLES, 
-		/// GL_TRIANGLE_STRIP_ADJACENCY, GL_TRIANGLES_ADJACENCY and GL_PATCHES are accepted.
-		/// </param>
-		/// <param name="count">
-		/// Specifies the number of elements to be rendered.
-		/// </param>
-		/// <param name="type">
-		/// Specifies the type of the values in indices. Must be one of GL_UNSIGNED_BYTE, GL_UNSIGNED_SHORT, or GL_UNSIGNED_INT.
-		/// </param>
-		/// <param name="indices">
-		/// Specifies a pointer to the location where the indices are stored.
-		/// </param>
-		[RequiredByFeature("GL_VERSION_1_1")]
-		public static void DrawElements(int mode, Int32 count, int type, IntPtr indices)
-		{
-			Debug.Assert(Delegates.pglDrawElements != null, "pglDrawElements not implemented");
-			Delegates.pglDrawElements(mode, count, type, indices);
-			CallLog("glDrawElements({0}, {1}, {2}, {3})", mode, count, type, indices);
 			DebugCheckErrors();
 		}
 
@@ -4727,35 +4673,6 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_KHR_debug")]
 		[RemovedByFeature("GL_VERSION_3_2")]
-		public static void GetPointer(int pname, IntPtr @params)
-		{
-			if        (Delegates.pglGetPointerv != null) {
-				Delegates.pglGetPointerv(pname, @params);
-				CallLog("glGetPointerv({0}, {1})", pname, @params);
-			} else if (Delegates.pglGetPointervEXT != null) {
-				Delegates.pglGetPointervEXT(pname, @params);
-				CallLog("glGetPointervEXT({0}, {1})", pname, @params);
-			} else if (Delegates.pglGetPointervKHR != null) {
-				Delegates.pglGetPointervKHR(pname, @params);
-				CallLog("glGetPointervKHR({0}, {1})", pname, @params);
-			} else
-				throw new NotImplementedException("glGetPointerv (and other aliases) are not implemented");
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// return the address of the specified pointer
-		/// </summary>
-		/// <param name="pname">
-		/// Specifies the pointer to be returned. Must be one of GL_DEBUG_CALLBACK_FUNCTION or GL_DEBUG_CALLBACK_USER_PARAM.
-		/// </param>
-		/// <param name="params">
-		/// A <see cref="T:IntPtr"/>.
-		/// </param>
-		[RequiredByFeature("GL_VERSION_1_1")]
-		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_KHR_debug")]
-		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void GetPointer(GetPointervPName pname, IntPtr @params)
 		{
 			if        (Delegates.pglGetPointerv != null) {
@@ -4773,6 +4690,52 @@ namespace OpenGL
 		}
 
 		/// <summary>
+		/// return the address of the specified pointer
+		/// </summary>
+		/// <param name="pname">
+		/// Specifies the pointer to be returned. Must be one of GL_DEBUG_CALLBACK_FUNCTION or GL_DEBUG_CALLBACK_USER_PARAM.
+		/// </param>
+		/// <param name="params">
+		/// A <see cref="T:Object"/>.
+		/// </param>
+		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_VERSION_4_3")]
+		[RequiredByFeature("GL_KHR_debug")]
+		[RemovedByFeature("GL_VERSION_3_2")]
+		public static void GetPointer(int pname, Object @params)
+		{
+			GCHandle pin_params = GCHandle.Alloc(@params, GCHandleType.Pinned);
+			try {
+				GetPointer(pname, pin_params.AddrOfPinnedObject());
+			} finally {
+				pin_params.Free();
+			}
+		}
+
+		/// <summary>
+		/// return the address of the specified pointer
+		/// </summary>
+		/// <param name="pname">
+		/// Specifies the pointer to be returned. Must be one of GL_DEBUG_CALLBACK_FUNCTION or GL_DEBUG_CALLBACK_USER_PARAM.
+		/// </param>
+		/// <param name="params">
+		/// A <see cref="T:Object"/>.
+		/// </param>
+		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_VERSION_4_3")]
+		[RequiredByFeature("GL_KHR_debug")]
+		[RemovedByFeature("GL_VERSION_3_2")]
+		public static void GetPointer(GetPointervPName pname, Object @params)
+		{
+			GCHandle pin_params = GCHandle.Alloc(@params, GCHandleType.Pinned);
+			try {
+				GetPointer(pname, pin_params.AddrOfPinnedObject());
+			} finally {
+				pin_params.Free();
+			}
+		}
+
+		/// <summary>
 		/// set the scale and units used to calculate depth values
 		/// </summary>
 		/// <param name="factor">
@@ -4787,60 +4750,6 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglPolygonOffset != null, "pglPolygonOffset not implemented");
 			Delegates.pglPolygonOffset(factor, units);
 			CallLog("glPolygonOffset({0}, {1})", factor, units);
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// copy pixels into a 1D texture image
-		/// </summary>
-		/// <param name="target">
-		/// Specifies the target texture. Must be <see cref="Gl.TEXTURE_1D"/>.
-		/// </param>
-		/// <param name="level">
-		/// Specifies the level-of-detail number. Level 0 is the base image level. Level n is the nth mipmap reduction image.
-		/// </param>
-		/// <param name="internalformat">
-		/// Specifies the internal format of the texture. Must be one of the following symbolic constants: <see cref="Gl.ALPHA"/>, 
-		/// <see cref="Gl.ALPHA4"/>, <see cref="Gl.ALPHA8"/>, <see cref="Gl.ALPHA12"/>, <see cref="Gl.ALPHA16"/>, <see 
-		/// cref="Gl.COMPRESSED_ALPHA"/>, <see cref="Gl.COMPRESSED_LUMINANCE"/>, <see cref="Gl.COMPRESSED_LUMINANCE_ALPHA"/>, <see 
-		/// cref="Gl.COMPRESSED_INTENSITY"/>, <see cref="Gl.COMPRESSED_RGB"/>, <see cref="Gl.COMPRESSED_RGBA"/>, <see 
-		/// cref="Gl.DEPTH_COMPONENT"/>, <see cref="Gl.DEPTH_COMPONENT16"/>, <see cref="Gl.DEPTH_COMPONENT24"/>, <see 
-		/// cref="Gl.DEPTH_COMPONENT32"/>, <see cref="Gl.LUMINANCE"/>, <see cref="Gl.LUMINANCE4"/>, <see cref="Gl.LUMINANCE8"/>, 
-		/// <see cref="Gl.LUMINANCE12"/>, <see cref="Gl.LUMINANCE16"/>, <see cref="Gl.LUMINANCE_ALPHA"/>, <see 
-		/// cref="Gl.LUMINANCE4_ALPHA4"/>, <see cref="Gl.LUMINANCE6_ALPHA2"/>, <see cref="Gl.LUMINANCE8_ALPHA8"/>, <see 
-		/// cref="Gl.LUMINANCE12_ALPHA4"/>, <see cref="Gl.LUMINANCE12_ALPHA12"/>, <see cref="Gl.LUMINANCE16_ALPHA16"/>, <see 
-		/// cref="Gl.INTENSITY"/>, <see cref="Gl.INTENSITY4"/>, <see cref="Gl.INTENSITY8"/>, <see cref="Gl.INTENSITY12"/>, <see 
-		/// cref="Gl.INTENSITY16"/>, <see cref="Gl.RGB"/>, <see cref="Gl.R3_G3_B2"/>, <see cref="Gl.RGB4"/>, <see cref="Gl.RGB5"/>, 
-		/// <see cref="Gl.RGB8"/>, <see cref="Gl.RGB10"/>, <see cref="Gl.RGB12"/>, <see cref="Gl.RGB16"/>, <see cref="Gl.RGBA"/>, 
-		/// <see cref="Gl.RGBA2"/>, <see cref="Gl.RGBA4"/>, <see cref="Gl.RGB5_A1"/>, <see cref="Gl.RGBA8"/>, <see 
-		/// cref="Gl.RGB10_A2"/>, <see cref="Gl.RGBA12"/>, <see cref="Gl.RGBA16"/>, <see cref="Gl.SLUMINANCE"/>, <see 
-		/// cref="Gl.SLUMINANCE8"/>, <see cref="Gl.SLUMINANCE_ALPHA"/>, <see cref="Gl.SLUMINANCE8_ALPHA8"/>, <see cref="Gl.SRGB"/>, 
-		/// <see cref="Gl.SRGB8"/>, <see cref="Gl.SRGB_ALPHA"/>, or <see cref="Gl.SRGB8_ALPHA8"/>.
-		/// </param>
-		/// <param name="x">
-		/// Specify the window coordinates of the left corner of the row of pixels to be copied.
-		/// </param>
-		/// <param name="y">
-		/// Specify the window coordinates of the left corner of the row of pixels to be copied.
-		/// </param>
-		/// <param name="width">
-		/// Specifies the width of the texture image. Must be 0 or 2n+2⁡border for some integer n. The height of the texture image 
-		/// is 1.
-		/// </param>
-		/// <param name="border">
-		/// Specifies the width of the border. Must be either 0 or 1.
-		/// </param>
-		[RequiredByFeature("GL_VERSION_1_1")]
-		public static void CopyTexImage1D(int target, Int32 level, int internalformat, Int32 x, Int32 y, Int32 width, Int32 border)
-		{
-			if        (Delegates.pglCopyTexImage1D != null) {
-				Delegates.pglCopyTexImage1D(target, level, internalformat, x, y, width, border);
-				CallLog("glCopyTexImage1D({0}, {1}, {2}, {3}, {4}, {5}, {6})", target, level, internalformat, x, y, width, border);
-			} else if (Delegates.pglCopyTexImage1DEXT != null) {
-				Delegates.pglCopyTexImage1DEXT(target, level, internalformat, x, y, width, border);
-				CallLog("glCopyTexImage1DEXT({0}, {1}, {2}, {3}, {4}, {5}, {6})", target, level, internalformat, x, y, width, border);
-			} else
-				throw new NotImplementedException("glCopyTexImage1D (and other aliases) are not implemented");
 			DebugCheckErrors();
 		}
 
@@ -4944,65 +4853,6 @@ namespace OpenGL
 		/// Specifies the width of the border. Must be either 0 or 1.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_1_1")]
-		public static void CopyTexImage2D(int target, Int32 level, int internalformat, Int32 x, Int32 y, Int32 width, Int32 height, Int32 border)
-		{
-			if        (Delegates.pglCopyTexImage2D != null) {
-				Delegates.pglCopyTexImage2D(target, level, internalformat, x, y, width, height, border);
-				CallLog("glCopyTexImage2D({0}, {1}, {2}, {3}, {4}, {5}, {6}, {7})", target, level, internalformat, x, y, width, height, border);
-			} else if (Delegates.pglCopyTexImage2DEXT != null) {
-				Delegates.pglCopyTexImage2DEXT(target, level, internalformat, x, y, width, height, border);
-				CallLog("glCopyTexImage2DEXT({0}, {1}, {2}, {3}, {4}, {5}, {6}, {7})", target, level, internalformat, x, y, width, height, border);
-			} else
-				throw new NotImplementedException("glCopyTexImage2D (and other aliases) are not implemented");
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// copy pixels into a 2D texture image
-		/// </summary>
-		/// <param name="target">
-		/// Specifies the target texture. Must be <see cref="Gl.TEXTURE_2D"/>, <see cref="Gl.TEXTURE_CUBE_MAP_POSITIVE_X"/>, <see 
-		/// cref="Gl.TEXTURE_CUBE_MAP_NEGATIVE_X"/>, <see cref="Gl.TEXTURE_CUBE_MAP_POSITIVE_Y"/>, <see 
-		/// cref="Gl.TEXTURE_CUBE_MAP_NEGATIVE_Y"/>, <see cref="Gl.TEXTURE_CUBE_MAP_POSITIVE_Z"/>, or <see 
-		/// cref="Gl.TEXTURE_CUBE_MAP_NEGATIVE_Z"/>.
-		/// </param>
-		/// <param name="level">
-		/// Specifies the level-of-detail number. Level 0 is the base image level. Level n is the nth mipmap reduction image.
-		/// </param>
-		/// <param name="internalformat">
-		/// Specifies the internal format of the texture. Must be one of the following symbolic constants: <see cref="Gl.ALPHA"/>, 
-		/// <see cref="Gl.ALPHA4"/>, <see cref="Gl.ALPHA8"/>, <see cref="Gl.ALPHA12"/>, <see cref="Gl.ALPHA16"/>, <see 
-		/// cref="Gl.COMPRESSED_ALPHA"/>, <see cref="Gl.COMPRESSED_LUMINANCE"/>, <see cref="Gl.COMPRESSED_LUMINANCE_ALPHA"/>, <see 
-		/// cref="Gl.COMPRESSED_INTENSITY"/>, <see cref="Gl.COMPRESSED_RGB"/>, <see cref="Gl.COMPRESSED_RGBA"/>, <see 
-		/// cref="Gl.DEPTH_COMPONENT"/>, <see cref="Gl.DEPTH_COMPONENT16"/>, <see cref="Gl.DEPTH_COMPONENT24"/>, <see 
-		/// cref="Gl.DEPTH_COMPONENT32"/>, <see cref="Gl.LUMINANCE"/>, <see cref="Gl.LUMINANCE4"/>, <see cref="Gl.LUMINANCE8"/>, 
-		/// <see cref="Gl.LUMINANCE12"/>, <see cref="Gl.LUMINANCE16"/>, <see cref="Gl.LUMINANCE_ALPHA"/>, <see 
-		/// cref="Gl.LUMINANCE4_ALPHA4"/>, <see cref="Gl.LUMINANCE6_ALPHA2"/>, <see cref="Gl.LUMINANCE8_ALPHA8"/>, <see 
-		/// cref="Gl.LUMINANCE12_ALPHA4"/>, <see cref="Gl.LUMINANCE12_ALPHA12"/>, <see cref="Gl.LUMINANCE16_ALPHA16"/>, <see 
-		/// cref="Gl.INTENSITY"/>, <see cref="Gl.INTENSITY4"/>, <see cref="Gl.INTENSITY8"/>, <see cref="Gl.INTENSITY12"/>, <see 
-		/// cref="Gl.INTENSITY16"/>, <see cref="Gl.RGB"/>, <see cref="Gl.R3_G3_B2"/>, <see cref="Gl.RGB4"/>, <see cref="Gl.RGB5"/>, 
-		/// <see cref="Gl.RGB8"/>, <see cref="Gl.RGB10"/>, <see cref="Gl.RGB12"/>, <see cref="Gl.RGB16"/>, <see cref="Gl.RGBA"/>, 
-		/// <see cref="Gl.RGBA2"/>, <see cref="Gl.RGBA4"/>, <see cref="Gl.RGB5_A1"/>, <see cref="Gl.RGBA8"/>, <see 
-		/// cref="Gl.RGB10_A2"/>, <see cref="Gl.RGBA12"/>, <see cref="Gl.RGBA16"/>, <see cref="Gl.SLUMINANCE"/>, <see 
-		/// cref="Gl.SLUMINANCE8"/>, <see cref="Gl.SLUMINANCE_ALPHA"/>, <see cref="Gl.SLUMINANCE8_ALPHA8"/>, <see cref="Gl.SRGB"/>, 
-		/// <see cref="Gl.SRGB8"/>, <see cref="Gl.SRGB_ALPHA"/>, or <see cref="Gl.SRGB8_ALPHA8"/>.
-		/// </param>
-		/// <param name="x">
-		/// Specify the window coordinates of the lower left corner of the rectangular region of pixels to be copied.
-		/// </param>
-		/// <param name="y">
-		/// Specify the window coordinates of the lower left corner of the rectangular region of pixels to be copied.
-		/// </param>
-		/// <param name="width">
-		/// Specifies the width of the texture image. Must be 0 or 2n+2⁡border for some integer n.
-		/// </param>
-		/// <param name="height">
-		/// Specifies the height of the texture image. Must be 0 or 2m+2⁡border for some integer m.
-		/// </param>
-		/// <param name="border">
-		/// Specifies the width of the border. Must be either 0 or 1.
-		/// </param>
-		[RequiredByFeature("GL_VERSION_1_1")]
 		public static void CopyTexImage2D(TextureTarget target, Int32 level, int internalformat, Int32 x, Int32 y, Int32 width, Int32 height, Int32 border)
 		{
 			if        (Delegates.pglCopyTexImage2D != null) {
@@ -5013,41 +4863,6 @@ namespace OpenGL
 				CallLog("glCopyTexImage2DEXT({0}, {1}, {2}, {3}, {4}, {5}, {6}, {7})", target, level, internalformat, x, y, width, height, border);
 			} else
 				throw new NotImplementedException("glCopyTexImage2D (and other aliases) are not implemented");
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// copy a one-dimensional texture subimage
-		/// </summary>
-		/// <param name="target">
-		/// Specifies the target texture. Must be <see cref="Gl.TEXTURE_1D"/>.
-		/// </param>
-		/// <param name="level">
-		/// Specifies the level-of-detail number. Level 0 is the base image level. Level n is the nth mipmap reduction image.
-		/// </param>
-		/// <param name="xoffset">
-		/// Specifies the texel offset within the texture array.
-		/// </param>
-		/// <param name="x">
-		/// Specify the window coordinates of the left corner of the row of pixels to be copied.
-		/// </param>
-		/// <param name="y">
-		/// Specify the window coordinates of the left corner of the row of pixels to be copied.
-		/// </param>
-		/// <param name="width">
-		/// Specifies the width of the texture subimage.
-		/// </param>
-		[RequiredByFeature("GL_VERSION_1_1")]
-		public static void CopyTexSubImage1D(int target, Int32 level, Int32 xoffset, Int32 x, Int32 y, Int32 width)
-		{
-			if        (Delegates.pglCopyTexSubImage1D != null) {
-				Delegates.pglCopyTexSubImage1D(target, level, xoffset, x, y, width);
-				CallLog("glCopyTexSubImage1D({0}, {1}, {2}, {3}, {4}, {5})", target, level, xoffset, x, y, width);
-			} else if (Delegates.pglCopyTexSubImage1DEXT != null) {
-				Delegates.pglCopyTexSubImage1DEXT(target, level, xoffset, x, y, width);
-				CallLog("glCopyTexSubImage1DEXT({0}, {1}, {2}, {3}, {4}, {5})", target, level, xoffset, x, y, width);
-			} else
-				throw new NotImplementedException("glCopyTexSubImage1D (and other aliases) are not implemented");
 			DebugCheckErrors();
 		}
 
@@ -5117,50 +4932,6 @@ namespace OpenGL
 		/// Specifies the height of the texture subimage.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_1_1")]
-		public static void CopyTexSubImage2D(int target, Int32 level, Int32 xoffset, Int32 yoffset, Int32 x, Int32 y, Int32 width, Int32 height)
-		{
-			if        (Delegates.pglCopyTexSubImage2D != null) {
-				Delegates.pglCopyTexSubImage2D(target, level, xoffset, yoffset, x, y, width, height);
-				CallLog("glCopyTexSubImage2D({0}, {1}, {2}, {3}, {4}, {5}, {6}, {7})", target, level, xoffset, yoffset, x, y, width, height);
-			} else if (Delegates.pglCopyTexSubImage2DEXT != null) {
-				Delegates.pglCopyTexSubImage2DEXT(target, level, xoffset, yoffset, x, y, width, height);
-				CallLog("glCopyTexSubImage2DEXT({0}, {1}, {2}, {3}, {4}, {5}, {6}, {7})", target, level, xoffset, yoffset, x, y, width, height);
-			} else
-				throw new NotImplementedException("glCopyTexSubImage2D (and other aliases) are not implemented");
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// copy a two-dimensional texture subimage
-		/// </summary>
-		/// <param name="target">
-		/// Specifies the target texture. Must be <see cref="Gl.TEXTURE_2D"/>, <see cref="Gl.TEXTURE_CUBE_MAP_POSITIVE_X"/>, <see 
-		/// cref="Gl.TEXTURE_CUBE_MAP_NEGATIVE_X"/>, <see cref="Gl.TEXTURE_CUBE_MAP_POSITIVE_Y"/>, <see 
-		/// cref="Gl.TEXTURE_CUBE_MAP_NEGATIVE_Y"/>, <see cref="Gl.TEXTURE_CUBE_MAP_POSITIVE_Z"/>, or <see 
-		/// cref="Gl.TEXTURE_CUBE_MAP_NEGATIVE_Z"/>.
-		/// </param>
-		/// <param name="level">
-		/// Specifies the level-of-detail number. Level 0 is the base image level. Level n is the nth mipmap reduction image.
-		/// </param>
-		/// <param name="xoffset">
-		/// Specifies a texel offset in the x direction within the texture array.
-		/// </param>
-		/// <param name="yoffset">
-		/// Specifies a texel offset in the y direction within the texture array.
-		/// </param>
-		/// <param name="x">
-		/// Specify the window coordinates of the lower left corner of the rectangular region of pixels to be copied.
-		/// </param>
-		/// <param name="y">
-		/// Specify the window coordinates of the lower left corner of the rectangular region of pixels to be copied.
-		/// </param>
-		/// <param name="width">
-		/// Specifies the width of the texture subimage.
-		/// </param>
-		/// <param name="height">
-		/// Specifies the height of the texture subimage.
-		/// </param>
-		[RequiredByFeature("GL_VERSION_1_1")]
 		public static void CopyTexSubImage2D(TextureTarget target, Int32 level, Int32 xoffset, Int32 yoffset, Int32 x, Int32 y, Int32 width, Int32 height)
 		{
 			if        (Delegates.pglCopyTexSubImage2D != null) {
@@ -5171,49 +4942,6 @@ namespace OpenGL
 				CallLog("glCopyTexSubImage2DEXT({0}, {1}, {2}, {3}, {4}, {5}, {6}, {7})", target, level, xoffset, yoffset, x, y, width, height);
 			} else
 				throw new NotImplementedException("glCopyTexSubImage2D (and other aliases) are not implemented");
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// specify a one-dimensional texture subimage
-		/// </summary>
-		/// <param name="target">
-		/// Specifies the target to which the texture is bound for glTexSubImage1D. Must be GL_TEXTURE_1D.
-		/// </param>
-		/// <param name="level">
-		/// Specifies the level-of-detail number. Level 0 is the base image level. Level n is the nth mipmap reduction image.
-		/// </param>
-		/// <param name="xoffset">
-		/// Specifies a texel offset in the x direction within the texture array.
-		/// </param>
-		/// <param name="width">
-		/// Specifies the width of the texture subimage.
-		/// </param>
-		/// <param name="format">
-		/// Specifies the format of the pixel data. The following symbolic values are accepted: GL_RED, GL_RG, GL_RGB, GL_BGR, 
-		/// GL_RGBA, GL_DEPTH_COMPONENT, and GL_STENCIL_INDEX.
-		/// </param>
-		/// <param name="type">
-		/// Specifies the data type of the pixel data. The following symbolic values are accepted: GL_UNSIGNED_BYTE, GL_BYTE, 
-		/// GL_UNSIGNED_SHORT, GL_SHORT, GL_UNSIGNED_INT, GL_INT, GL_FLOAT, GL_UNSIGNED_BYTE_3_3_2, GL_UNSIGNED_BYTE_2_3_3_REV, 
-		/// GL_UNSIGNED_SHORT_5_6_5, GL_UNSIGNED_SHORT_5_6_5_REV, GL_UNSIGNED_SHORT_4_4_4_4, GL_UNSIGNED_SHORT_4_4_4_4_REV, 
-		/// GL_UNSIGNED_SHORT_5_5_5_1, GL_UNSIGNED_SHORT_1_5_5_5_REV, GL_UNSIGNED_INT_8_8_8_8, GL_UNSIGNED_INT_8_8_8_8_REV, 
-		/// GL_UNSIGNED_INT_10_10_10_2, and GL_UNSIGNED_INT_2_10_10_10_REV.
-		/// </param>
-		/// <param name="pixels">
-		/// Specifies a pointer to the image data in memory.
-		/// </param>
-		[RequiredByFeature("GL_VERSION_1_1")]
-		public static void TexSubImage1D(int target, Int32 level, Int32 xoffset, Int32 width, int format, int type, IntPtr pixels)
-		{
-			if        (Delegates.pglTexSubImage1D != null) {
-				Delegates.pglTexSubImage1D(target, level, xoffset, width, format, type, pixels);
-				CallLog("glTexSubImage1D({0}, {1}, {2}, {3}, {4}, {5}, {6})", target, level, xoffset, width, format, type, pixels);
-			} else if (Delegates.pglTexSubImage1DEXT != null) {
-				Delegates.pglTexSubImage1DEXT(target, level, xoffset, width, format, type, pixels);
-				CallLog("glTexSubImage1DEXT({0}, {1}, {2}, {3}, {4}, {5}, {6})", target, level, xoffset, width, format, type, pixels);
-			} else
-				throw new NotImplementedException("glTexSubImage1D (and other aliases) are not implemented");
 			DebugCheckErrors();
 		}
 
@@ -5378,57 +5106,6 @@ namespace OpenGL
 		/// Specifies a pointer to the image data in memory.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_1_1")]
-		public static void TexSubImage2D(int target, Int32 level, Int32 xoffset, Int32 yoffset, Int32 width, Int32 height, int format, int type, IntPtr pixels)
-		{
-			if        (Delegates.pglTexSubImage2D != null) {
-				Delegates.pglTexSubImage2D(target, level, xoffset, yoffset, width, height, format, type, pixels);
-				CallLog("glTexSubImage2D({0}, {1}, {2}, {3}, {4}, {5}, {6}, {7}, {8})", target, level, xoffset, yoffset, width, height, format, type, pixels);
-			} else if (Delegates.pglTexSubImage2DEXT != null) {
-				Delegates.pglTexSubImage2DEXT(target, level, xoffset, yoffset, width, height, format, type, pixels);
-				CallLog("glTexSubImage2DEXT({0}, {1}, {2}, {3}, {4}, {5}, {6}, {7}, {8})", target, level, xoffset, yoffset, width, height, format, type, pixels);
-			} else
-				throw new NotImplementedException("glTexSubImage2D (and other aliases) are not implemented");
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// specify a two-dimensional texture subimage
-		/// </summary>
-		/// <param name="target">
-		/// Specifies the target to which the texture is bound for glTexSubImage2D. Must be GL_TEXTURE_2D, 
-		/// GL_TEXTURE_CUBE_MAP_POSITIVE_X, GL_TEXTURE_CUBE_MAP_NEGATIVE_X, GL_TEXTURE_CUBE_MAP_POSITIVE_Y, 
-		/// GL_TEXTURE_CUBE_MAP_NEGATIVE_Y, GL_TEXTURE_CUBE_MAP_POSITIVE_Z, GL_TEXTURE_CUBE_MAP_NEGATIVE_Z, or GL_TEXTURE_1D_ARRAY.
-		/// </param>
-		/// <param name="level">
-		/// Specifies the level-of-detail number. Level 0 is the base image level. Level n is the nth mipmap reduction image.
-		/// </param>
-		/// <param name="xoffset">
-		/// Specifies a texel offset in the x direction within the texture array.
-		/// </param>
-		/// <param name="yoffset">
-		/// Specifies a texel offset in the y direction within the texture array.
-		/// </param>
-		/// <param name="width">
-		/// Specifies the width of the texture subimage.
-		/// </param>
-		/// <param name="height">
-		/// Specifies the height of the texture subimage.
-		/// </param>
-		/// <param name="format">
-		/// Specifies the format of the pixel data. The following symbolic values are accepted: GL_RED, GL_RG, GL_RGB, GL_BGR, 
-		/// GL_RGBA, GL_BGRA, GL_DEPTH_COMPONENT, and GL_STENCIL_INDEX.
-		/// </param>
-		/// <param name="type">
-		/// Specifies the data type of the pixel data. The following symbolic values are accepted: GL_UNSIGNED_BYTE, GL_BYTE, 
-		/// GL_UNSIGNED_SHORT, GL_SHORT, GL_UNSIGNED_INT, GL_INT, GL_FLOAT, GL_UNSIGNED_BYTE_3_3_2, GL_UNSIGNED_BYTE_2_3_3_REV, 
-		/// GL_UNSIGNED_SHORT_5_6_5, GL_UNSIGNED_SHORT_5_6_5_REV, GL_UNSIGNED_SHORT_4_4_4_4, GL_UNSIGNED_SHORT_4_4_4_4_REV, 
-		/// GL_UNSIGNED_SHORT_5_5_5_1, GL_UNSIGNED_SHORT_1_5_5_5_REV, GL_UNSIGNED_INT_8_8_8_8, GL_UNSIGNED_INT_8_8_8_8_REV, 
-		/// GL_UNSIGNED_INT_10_10_10_2, and GL_UNSIGNED_INT_2_10_10_10_REV.
-		/// </param>
-		/// <param name="pixels">
-		/// Specifies a pointer to the image data in memory.
-		/// </param>
-		[RequiredByFeature("GL_VERSION_1_1")]
 		public static void TexSubImage2D(TextureTarget target, Int32 level, Int32 xoffset, Int32 yoffset, Int32 width, Int32 height, PixelFormat format, PixelType type, IntPtr pixels)
 		{
 			if        (Delegates.pglTexSubImage2D != null) {
@@ -5536,31 +5213,6 @@ namespace OpenGL
 			} finally {
 				pin_pixels.Free();
 			}
-		}
-
-		/// <summary>
-		/// bind a named texture to a texturing target
-		/// </summary>
-		/// <param name="target">
-		/// Specifies the target to which the texture is bound. Must be one of GL_TEXTURE_1D, GL_TEXTURE_2D, GL_TEXTURE_3D, 
-		/// GL_TEXTURE_1D_ARRAY, GL_TEXTURE_2D_ARRAY, GL_TEXTURE_RECTANGLE, GL_TEXTURE_CUBE_MAP, GL_TEXTURE_CUBE_MAP_ARRAY, 
-		/// GL_TEXTURE_BUFFER, GL_TEXTURE_2D_MULTISAMPLE or GL_TEXTURE_2D_MULTISAMPLE_ARRAY.
-		/// </param>
-		/// <param name="texture">
-		/// Specifies the name of a texture.
-		/// </param>
-		[RequiredByFeature("GL_VERSION_1_1")]
-		public static void BindTexture(int target, UInt32 texture)
-		{
-			if        (Delegates.pglBindTexture != null) {
-				Delegates.pglBindTexture(target, texture);
-				CallLog("glBindTexture({0}, {1})", target, texture);
-			} else if (Delegates.pglBindTextureEXT != null) {
-				Delegates.pglBindTextureEXT(target, texture);
-				CallLog("glBindTextureEXT({0}, {1})", target, texture);
-			} else
-				throw new NotImplementedException("glBindTexture (and other aliases) are not implemented");
-			DebugCheckErrors();
 		}
 
 		/// <summary>
@@ -5706,35 +5358,6 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_1_1")]
 		[RemovedByFeature("GL_VERSION_3_2")]
-		public static void ColorPointer(Int32 size, int type, Int32 stride, IntPtr pointer)
-		{
-			Debug.Assert(Delegates.pglColorPointer != null, "pglColorPointer not implemented");
-			Delegates.pglColorPointer(size, type, stride, pointer);
-			CallLog("glColorPointer({0}, {1}, {2}, {3})", size, type, stride, pointer);
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// define an array of colors
-		/// </summary>
-		/// <param name="size">
-		/// Specifies the number of components per color. Must be 3 or 4. The initial value is 4.
-		/// </param>
-		/// <param name="type">
-		/// Specifies the data type of each color component in the array. Symbolic constants <see cref="Gl.BYTE"/>, <see 
-		/// cref="Gl.UNSIGNED_BYTE"/>, <see cref="Gl.SHORT"/>, <see cref="Gl.UNSIGNED_SHORT"/>, <see cref="Gl.INT"/>, <see 
-		/// cref="Gl.UNSIGNED_INT"/>, <see cref="Gl.FLOAT"/>, and <see cref="Gl.DOUBLE"/> are accepted. The initial value is <see 
-		/// cref="Gl.FLOAT"/>.
-		/// </param>
-		/// <param name="stride">
-		/// Specifies the byte offset between consecutive colors. If <paramref name="stride"/> is 0, the colors are understood to be 
-		/// tightly packed in the array. The initial value is 0.
-		/// </param>
-		/// <param name="pointer">
-		/// Specifies a pointer to the first component of the first color element in the array. The initial value is 0.
-		/// </param>
-		[RequiredByFeature("GL_VERSION_1_1")]
-		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void ColorPointer(Int32 size, ColorPointerType type, Int32 stride, IntPtr pointer)
 		{
 			Debug.Assert(Delegates.pglColorPointer != null, "pglColorPointer not implemented");
@@ -5809,22 +5432,6 @@ namespace OpenGL
 		/// enable or disable client-side capability
 		/// </summary>
 		/// <param name="array">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		[RequiredByFeature("GL_VERSION_1_1")]
-		[RemovedByFeature("GL_VERSION_3_2")]
-		public static void DisableClientState(int array)
-		{
-			Debug.Assert(Delegates.pglDisableClientState != null, "pglDisableClientState not implemented");
-			Delegates.pglDisableClientState(array);
-			CallLog("glDisableClientState({0})", array);
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// enable or disable client-side capability
-		/// </summary>
-		/// <param name="array">
 		/// A <see cref="T:EnableCap"/>.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_1_1")]
@@ -5883,22 +5490,6 @@ namespace OpenGL
 		/// enable or disable client-side capability
 		/// </summary>
 		/// <param name="array">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		[RequiredByFeature("GL_VERSION_1_1")]
-		[RemovedByFeature("GL_VERSION_3_2")]
-		public static void EnableClientState(int array)
-		{
-			Debug.Assert(Delegates.pglEnableClientState != null, "pglEnableClientState not implemented");
-			Delegates.pglEnableClientState(array);
-			CallLog("glEnableClientState({0})", array);
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// enable or disable client-side capability
-		/// </summary>
-		/// <param name="array">
 		/// A <see cref="T:EnableCap"/>.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_1_1")]
@@ -5908,31 +5499,6 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglEnableClientState != null, "pglEnableClientState not implemented");
 			Delegates.pglEnableClientState((int)array);
 			CallLog("glEnableClientState({0})", array);
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// define an array of color indexes
-		/// </summary>
-		/// <param name="type">
-		/// Specifies the data type of each color index in the array. Symbolic constants <see cref="Gl.UNSIGNED_BYTE"/>, <see 
-		/// cref="Gl.SHORT"/>, <see cref="Gl.INT"/>, <see cref="Gl.FLOAT"/>, and <see cref="Gl.DOUBLE"/> are accepted. The initial 
-		/// value is <see cref="Gl.FLOAT"/>.
-		/// </param>
-		/// <param name="stride">
-		/// Specifies the byte offset between consecutive color indexes. If <paramref name="stride"/> is 0, the color indexes are 
-		/// understood to be tightly packed in the array. The initial value is 0.
-		/// </param>
-		/// <param name="pointer">
-		/// Specifies a pointer to the first index in the array. The initial value is 0.
-		/// </param>
-		[RequiredByFeature("GL_VERSION_1_1")]
-		[RemovedByFeature("GL_VERSION_3_2")]
-		public static void IndexPointer(int type, Int32 stride, IntPtr pointer)
-		{
-			Debug.Assert(Delegates.pglIndexPointer != null, "pglIndexPointer not implemented");
-			Delegates.pglIndexPointer(type, stride, pointer);
-			CallLog("glIndexPointer({0}, {1}, {2})", type, stride, pointer);
 			DebugCheckErrors();
 		}
 
@@ -6013,32 +5579,6 @@ namespace OpenGL
 			} finally {
 				pin_pointer.Free();
 			}
-		}
-
-		/// <summary>
-		/// simultaneously specify and enable several interleaved arrays
-		/// </summary>
-		/// <param name="format">
-		/// Specifies the type of array to enable. Symbolic constants <see cref="Gl.V2F"/>, <see cref="Gl.V3F"/>, <see 
-		/// cref="Gl.C4UB_V2F"/>, <see cref="Gl.C4UB_V3F"/>, <see cref="Gl.C3F_V3F"/>, <see cref="Gl.N3F_V3F"/>, <see 
-		/// cref="Gl.C4F_N3F_V3F"/>, <see cref="Gl.T2F_V3F"/>, <see cref="Gl.T4F_V4F"/>, <see cref="Gl.T2F_C4UB_V3F"/>, <see 
-		/// cref="Gl.T2F_C3F_V3F"/>, <see cref="Gl.T2F_N3F_V3F"/>, <see cref="Gl.T2F_C4F_N3F_V3F"/>, and <see 
-		/// cref="Gl.T4F_C4F_N3F_V4F"/> are accepted.
-		/// </param>
-		/// <param name="stride">
-		/// Specifies the offset in bytes between each aggregate array element.
-		/// </param>
-		/// <param name="pointer">
-		/// A <see cref="T:IntPtr"/>.
-		/// </param>
-		[RequiredByFeature("GL_VERSION_1_1")]
-		[RemovedByFeature("GL_VERSION_3_2")]
-		public static void InterleavedArrays(int format, Int32 stride, IntPtr pointer)
-		{
-			Debug.Assert(Delegates.pglInterleavedArrays != null, "pglInterleavedArrays not implemented");
-			Delegates.pglInterleavedArrays(format, stride, pointer);
-			CallLog("glInterleavedArrays({0}, {1}, {2})", format, stride, pointer);
-			DebugCheckErrors();
 		}
 
 		/// <summary>
@@ -6140,31 +5680,6 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_1_1")]
 		[RemovedByFeature("GL_VERSION_3_2")]
-		public static void NormalPointer(int type, Int32 stride, IntPtr pointer)
-		{
-			Debug.Assert(Delegates.pglNormalPointer != null, "pglNormalPointer not implemented");
-			Delegates.pglNormalPointer(type, stride, pointer);
-			CallLog("glNormalPointer({0}, {1}, {2})", type, stride, pointer);
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// define an array of normals
-		/// </summary>
-		/// <param name="type">
-		/// Specifies the data type of each coordinate in the array. Symbolic constants <see cref="Gl.BYTE"/>, <see 
-		/// cref="Gl.SHORT"/>, <see cref="Gl.INT"/>, <see cref="Gl.FLOAT"/>, and <see cref="Gl.DOUBLE"/> are accepted. The initial 
-		/// value is <see cref="Gl.FLOAT"/>.
-		/// </param>
-		/// <param name="stride">
-		/// Specifies the byte offset between consecutive normals. If <paramref name="stride"/> is 0, the normals are understood to 
-		/// be tightly packed in the array. The initial value is 0.
-		/// </param>
-		/// <param name="pointer">
-		/// Specifies a pointer to the first coordinate of the first normal in the array. The initial value is 0.
-		/// </param>
-		[RequiredByFeature("GL_VERSION_1_1")]
-		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void NormalPointer(NormalPointerType type, Int32 stride, IntPtr pointer)
 		{
 			Debug.Assert(Delegates.pglNormalPointer != null, "pglNormalPointer not implemented");
@@ -6225,33 +5740,6 @@ namespace OpenGL
 			} finally {
 				pin_pointer.Free();
 			}
-		}
-
-		/// <summary>
-		/// define an array of texture coordinates
-		/// </summary>
-		/// <param name="size">
-		/// Specifies the number of coordinates per array element. Must be 1, 2, 3, or 4. The initial value is 4.
-		/// </param>
-		/// <param name="type">
-		/// Specifies the data type of each texture coordinate. Symbolic constants <see cref="Gl.SHORT"/>, <see cref="Gl.INT"/>, 
-		/// <see cref="Gl.FLOAT"/>, or <see cref="Gl.DOUBLE"/> are accepted. The initial value is <see cref="Gl.FLOAT"/>.
-		/// </param>
-		/// <param name="stride">
-		/// Specifies the byte offset between consecutive texture coordinate sets. If <paramref name="stride"/> is 0, the array 
-		/// elements are understood to be tightly packed. The initial value is 0.
-		/// </param>
-		/// <param name="pointer">
-		/// Specifies a pointer to the first coordinate of the first texture coordinate set in the array. The initial value is 0.
-		/// </param>
-		[RequiredByFeature("GL_VERSION_1_1")]
-		[RemovedByFeature("GL_VERSION_3_2")]
-		public static void TexCoordPointer(Int32 size, int type, Int32 stride, IntPtr pointer)
-		{
-			Debug.Assert(Delegates.pglTexCoordPointer != null, "pglTexCoordPointer not implemented");
-			Delegates.pglTexCoordPointer(size, type, stride, pointer);
-			CallLog("glTexCoordPointer({0}, {1}, {2}, {3})", size, type, stride, pointer);
-			DebugCheckErrors();
 		}
 
 		/// <summary>
@@ -6337,34 +5825,6 @@ namespace OpenGL
 			} finally {
 				pin_pointer.Free();
 			}
-		}
-
-		/// <summary>
-		/// define an array of vertex data
-		/// </summary>
-		/// <param name="size">
-		/// Specifies the number of coordinates per vertex. Must be 2, 3, or 4. The initial value is 4.
-		/// </param>
-		/// <param name="type">
-		/// Specifies the data type of each coordinate in the array. Symbolic constants <see cref="Gl.SHORT"/>, <see 
-		/// cref="Gl.INT"/>, <see cref="Gl.FLOAT"/>, or <see cref="Gl.DOUBLE"/> are accepted. The initial value is <see 
-		/// cref="Gl.FLOAT"/>.
-		/// </param>
-		/// <param name="stride">
-		/// Specifies the byte offset between consecutive vertices. If <paramref name="stride"/> is 0, the vertices are understood 
-		/// to be tightly packed in the array. The initial value is 0.
-		/// </param>
-		/// <param name="pointer">
-		/// Specifies a pointer to the first coordinate of the first vertex in the array. The initial value is 0.
-		/// </param>
-		[RequiredByFeature("GL_VERSION_1_1")]
-		[RemovedByFeature("GL_VERSION_3_2")]
-		public static void VertexPointer(Int32 size, int type, Int32 stride, IntPtr pointer)
-		{
-			Debug.Assert(Delegates.pglVertexPointer != null, "pglVertexPointer not implemented");
-			Delegates.pglVertexPointer(size, type, stride, pointer);
-			CallLog("glVertexPointer({0}, {1}, {2}, {3})", size, type, stride, pointer);
-			DebugCheckErrors();
 		}
 
 		/// <summary>
@@ -6569,22 +6029,6 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglPopClientAttrib != null, "pglPopClientAttrib not implemented");
 			Delegates.pglPopClientAttrib();
 			CallLog("glPopClientAttrib()");
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// push and pop the client attribute stack
-		/// </summary>
-		/// <param name="mask">
-		/// Specifies a mask that indicates which attributes to save. Values for <paramref name="mask"/> are listed below.
-		/// </param>
-		[RequiredByFeature("GL_VERSION_1_1")]
-		[RemovedByFeature("GL_VERSION_3_2")]
-		public static void PushClientAttrib(uint mask)
-		{
-			Debug.Assert(Delegates.pglPushClientAttrib != null, "pglPushClientAttrib not implemented");
-			Delegates.pglPushClientAttrib(mask);
-			CallLog("glPushClientAttrib({0})", mask);
 			DebugCheckErrors();
 		}
 

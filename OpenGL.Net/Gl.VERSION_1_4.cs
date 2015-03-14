@@ -464,43 +464,6 @@ namespace OpenGL
 		/// Specifies the size of the first and count
 		/// </param>
 		[RequiredByFeature("GL_VERSION_1_4")]
-		public static void MultiDrawArrays(int mode, Int32[] first, Int32[] count, Int32 drawcount)
-		{
-			unsafe {
-				fixed (Int32* p_first = first)
-				fixed (Int32* p_count = count)
-				{
-					if        (Delegates.pglMultiDrawArrays != null) {
-						Delegates.pglMultiDrawArrays(mode, p_first, p_count, drawcount);
-						CallLog("glMultiDrawArrays({0}, {1}, {2}, {3})", mode, first, count, drawcount);
-					} else if (Delegates.pglMultiDrawArraysEXT != null) {
-						Delegates.pglMultiDrawArraysEXT(mode, p_first, p_count, drawcount);
-						CallLog("glMultiDrawArraysEXT({0}, {1}, {2}, {3})", mode, first, count, drawcount);
-					} else
-						throw new NotImplementedException("glMultiDrawArrays (and other aliases) are not implemented");
-				}
-			}
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// render multiple sets of primitives from array data
-		/// </summary>
-		/// <param name="mode">
-		/// Specifies what kind of primitives to render. Symbolic constants GL_POINTS, GL_LINE_STRIP, GL_LINE_LOOP, GL_LINES, 
-		/// GL_LINE_STRIP_ADJACENCY, GL_LINES_ADJACENCY, GL_TRIANGLE_STRIP, GL_TRIANGLE_FAN, GL_TRIANGLES, 
-		/// GL_TRIANGLE_STRIP_ADJACENCY, GL_TRIANGLES_ADJACENCY and GL_PATCHES are accepted.
-		/// </param>
-		/// <param name="first">
-		/// Points to an array of starting indices in the enabled arrays.
-		/// </param>
-		/// <param name="count">
-		/// Points to an array of the number of indices to be rendered.
-		/// </param>
-		/// <param name="drawcount">
-		/// Specifies the size of the first and count
-		/// </param>
-		[RequiredByFeature("GL_VERSION_1_4")]
 		public static void MultiDrawArrays(PrimitiveType mode, Int32[] first, Int32[] count, Int32 drawcount)
 		{
 			unsafe {
@@ -515,45 +478,6 @@ namespace OpenGL
 						CallLog("glMultiDrawArraysEXT({0}, {1}, {2}, {3})", mode, first, count, drawcount);
 					} else
 						throw new NotImplementedException("glMultiDrawArrays (and other aliases) are not implemented");
-				}
-			}
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// render multiple sets of primitives by specifying indices of array data elements
-		/// </summary>
-		/// <param name="mode">
-		/// Specifies what kind of primitives to render. Symbolic constants GL_POINTS, GL_LINE_STRIP, GL_LINE_LOOP, GL_LINES, 
-		/// GL_LINE_STRIP_ADJACENCY, GL_LINES_ADJACENCY, GL_TRIANGLE_STRIP, GL_TRIANGLE_FAN, GL_TRIANGLES, 
-		/// GL_TRIANGLE_STRIP_ADJACENCY, GL_TRIANGLES_ADJACENCY and GL_PATCHES are accepted.
-		/// </param>
-		/// <param name="count">
-		/// Points to an array of the elements counts.
-		/// </param>
-		/// <param name="type">
-		/// Specifies the type of the values in indices. Must be one of GL_UNSIGNED_BYTE, GL_UNSIGNED_SHORT, or GL_UNSIGNED_INT.
-		/// </param>
-		/// <param name="indices">
-		/// Specifies a pointer to the location where the indices are stored.
-		/// </param>
-		/// <param name="drawcount">
-		/// Specifies the size of the count and indices arrays.
-		/// </param>
-		[RequiredByFeature("GL_VERSION_1_4")]
-		public static void MultiDrawElements(int mode, Int32[] count, int type, IntPtr indices, Int32 drawcount)
-		{
-			unsafe {
-				fixed (Int32* p_count = count)
-				{
-					if        (Delegates.pglMultiDrawElements != null) {
-						Delegates.pglMultiDrawElements(mode, p_count, type, indices, drawcount);
-						CallLog("glMultiDrawElements({0}, {1}, {2}, {3}, {4})", mode, count, type, indices, drawcount);
-					} else if (Delegates.pglMultiDrawElementsEXT != null) {
-						Delegates.pglMultiDrawElementsEXT(mode, p_count, type, indices, drawcount);
-						CallLog("glMultiDrawElementsEXT({0}, {1}, {2}, {3}, {4})", mode, count, type, indices, drawcount);
-					} else
-						throw new NotImplementedException("glMultiDrawElements (and other aliases) are not implemented");
 				}
 			}
 			DebugCheckErrors();
@@ -865,35 +789,6 @@ namespace OpenGL
 						throw new NotImplementedException("glFogCoorddv (and other aliases) are not implemented");
 				}
 			}
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// define an array of fog coordinates
-		/// </summary>
-		/// <param name="type">
-		/// Specifies the data type of each fog coordinate. Symbolic constants <see cref="Gl.FLOAT"/>, or <see cref="Gl.DOUBLE"/> 
-		/// are accepted. The initial value is <see cref="Gl.FLOAT"/>.
-		/// </param>
-		/// <param name="stride">
-		/// Specifies the byte offset between consecutive fog coordinates. If <paramref name="stride"/> is 0, the array elements are 
-		/// understood to be tightly packed. The initial value is 0.
-		/// </param>
-		/// <param name="pointer">
-		/// Specifies a pointer to the first coordinate of the first fog coordinate in the array. The initial value is 0.
-		/// </param>
-		[RequiredByFeature("GL_VERSION_1_4")]
-		[RemovedByFeature("GL_VERSION_3_2")]
-		public static void FogCoordPointer(int type, Int32 stride, IntPtr pointer)
-		{
-			if        (Delegates.pglFogCoordPointer != null) {
-				Delegates.pglFogCoordPointer(type, stride, pointer);
-				CallLog("glFogCoordPointer({0}, {1}, {2})", type, stride, pointer);
-			} else if (Delegates.pglFogCoordPointerEXT != null) {
-				Delegates.pglFogCoordPointerEXT(type, stride, pointer);
-				CallLog("glFogCoordPointerEXT({0}, {1}, {2})", type, stride, pointer);
-			} else
-				throw new NotImplementedException("glFogCoordPointer (and other aliases) are not implemented");
 			DebugCheckErrors();
 		}
 
@@ -1399,40 +1294,6 @@ namespace OpenGL
 						throw new NotImplementedException("glSecondaryColor3usv (and other aliases) are not implemented");
 				}
 			}
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// define an array of secondary colors
-		/// </summary>
-		/// <param name="size">
-		/// Specifies the number of components per color. Must be 3.
-		/// </param>
-		/// <param name="type">
-		/// Specifies the data type of each color component in the array. Symbolic constants <see cref="Gl.BYTE"/>, <see 
-		/// cref="Gl.UNSIGNED_BYTE"/>, <see cref="Gl.SHORT"/>, <see cref="Gl.UNSIGNED_SHORT"/>, <see cref="Gl.INT"/>, <see 
-		/// cref="Gl.UNSIGNED_INT"/>, <see cref="Gl.FLOAT"/>, or <see cref="Gl.DOUBLE"/> are accepted. The initial value is <see 
-		/// cref="Gl.FLOAT"/>.
-		/// </param>
-		/// <param name="stride">
-		/// Specifies the byte offset between consecutive colors. If <paramref name="stride"/> is 0, the colors are understood to be 
-		/// tightly packed in the array. The initial value is 0.
-		/// </param>
-		/// <param name="pointer">
-		/// Specifies a pointer to the first component of the first color element in the array. The initial value is 0.
-		/// </param>
-		[RequiredByFeature("GL_VERSION_1_4")]
-		[RemovedByFeature("GL_VERSION_3_2")]
-		public static void SecondaryColorPointer(Int32 size, int type, Int32 stride, IntPtr pointer)
-		{
-			if        (Delegates.pglSecondaryColorPointer != null) {
-				Delegates.pglSecondaryColorPointer(size, type, stride, pointer);
-				CallLog("glSecondaryColorPointer({0}, {1}, {2}, {3})", size, type, stride, pointer);
-			} else if (Delegates.pglSecondaryColorPointerEXT != null) {
-				Delegates.pglSecondaryColorPointerEXT(size, type, stride, pointer);
-				CallLog("glSecondaryColorPointerEXT({0}, {1}, {2}, {3})", size, type, stride, pointer);
-			} else
-				throw new NotImplementedException("glSecondaryColorPointer (and other aliases) are not implemented");
 			DebugCheckErrors();
 		}
 

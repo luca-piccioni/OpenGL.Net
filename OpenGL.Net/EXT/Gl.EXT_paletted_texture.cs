@@ -80,36 +80,6 @@ namespace OpenGL
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="format">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="type">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="table">
-		/// A <see cref="T:IntPtr"/>.
-		/// </param>
-		[RequiredByFeature("GL_EXT_paletted_texture")]
-		public static void ColorTableEXT(int target, int internalFormat, Int32 width, int format, int type, IntPtr table)
-		{
-			Debug.Assert(Delegates.pglColorTableEXT != null, "pglColorTableEXT not implemented");
-			Delegates.pglColorTableEXT(target, internalFormat, width, format, type, table);
-			CallLog("glColorTableEXT({0}, {1}, {2}, {3}, {4}, {5})", target, internalFormat, width, format, type, table);
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// Binding for glColorTableEXT.
-		/// </summary>
-		/// <param name="target">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="internalFormat">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="width">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="format">
 		/// A <see cref="T:PixelFormat"/>.
 		/// </param>
 		/// <param name="type">
@@ -198,30 +168,6 @@ namespace OpenGL
 		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="format">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="type">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="data">
-		/// A <see cref="T:IntPtr"/>.
-		/// </param>
-		[RequiredByFeature("GL_EXT_paletted_texture")]
-		public static void GetColorTableEXT(int target, int format, int type, IntPtr data)
-		{
-			Debug.Assert(Delegates.pglGetColorTableEXT != null, "pglGetColorTableEXT not implemented");
-			Delegates.pglGetColorTableEXT(target, format, type, data);
-			CallLog("glGetColorTableEXT({0}, {1}, {2}, {3})", target, format, type, data);
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// Binding for glGetColorTableEXT.
-		/// </summary>
-		/// <param name="target">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="format">
 		/// A <see cref="T:PixelFormat"/>.
 		/// </param>
 		/// <param name="type">
@@ -237,6 +183,58 @@ namespace OpenGL
 			Delegates.pglGetColorTableEXT(target, (int)format, (int)type, data);
 			CallLog("glGetColorTableEXT({0}, {1}, {2}, {3})", target, format, type, data);
 			DebugCheckErrors();
+		}
+
+		/// <summary>
+		/// Binding for glGetColorTableEXT.
+		/// </summary>
+		/// <param name="target">
+		/// A <see cref="T:int"/>.
+		/// </param>
+		/// <param name="format">
+		/// A <see cref="T:int"/>.
+		/// </param>
+		/// <param name="type">
+		/// A <see cref="T:int"/>.
+		/// </param>
+		/// <param name="data">
+		/// A <see cref="T:Object"/>.
+		/// </param>
+		[RequiredByFeature("GL_EXT_paletted_texture")]
+		public static void GetColorTableEXT(int target, int format, int type, Object data)
+		{
+			GCHandle pin_data = GCHandle.Alloc(data, GCHandleType.Pinned);
+			try {
+				GetColorTableEXT(target, format, type, pin_data.AddrOfPinnedObject());
+			} finally {
+				pin_data.Free();
+			}
+		}
+
+		/// <summary>
+		/// Binding for glGetColorTableEXT.
+		/// </summary>
+		/// <param name="target">
+		/// A <see cref="T:int"/>.
+		/// </param>
+		/// <param name="format">
+		/// A <see cref="T:PixelFormat"/>.
+		/// </param>
+		/// <param name="type">
+		/// A <see cref="T:PixelType"/>.
+		/// </param>
+		/// <param name="data">
+		/// A <see cref="T:Object"/>.
+		/// </param>
+		[RequiredByFeature("GL_EXT_paletted_texture")]
+		public static void GetColorTableEXT(int target, PixelFormat format, PixelType type, Object data)
+		{
+			GCHandle pin_data = GCHandle.Alloc(data, GCHandleType.Pinned);
+			try {
+				GetColorTableEXT(target, format, type, pin_data.AddrOfPinnedObject());
+			} finally {
+				pin_data.Free();
+			}
 		}
 
 		/// <summary>

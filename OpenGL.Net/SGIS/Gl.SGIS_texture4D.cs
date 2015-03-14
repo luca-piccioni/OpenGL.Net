@@ -89,51 +89,6 @@ namespace OpenGL
 		/// Binding for glTexImage4DSGIS.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="level">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="internalformat">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="width">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="height">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="depth">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="size4d">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="border">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="format">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="type">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="pixels">
-		/// A <see cref="T:IntPtr"/>.
-		/// </param>
-		[RequiredByFeature("GL_SGIS_texture4D")]
-		public static void TexImage4DSGIS(int target, Int32 level, int internalformat, Int32 width, Int32 height, Int32 depth, Int32 size4d, Int32 border, int format, int type, IntPtr pixels)
-		{
-			Debug.Assert(Delegates.pglTexImage4DSGIS != null, "pglTexImage4DSGIS not implemented");
-			Delegates.pglTexImage4DSGIS(target, level, internalformat, width, height, depth, size4d, border, format, type, pixels);
-			CallLog("glTexImage4DSGIS({0}, {1}, {2}, {3}, {4}, {5}, {6}, {7}, {8}, {9}, {10})", target, level, internalformat, width, height, depth, size4d, border, format, type, pixels);
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// Binding for glTexImage4DSGIS.
-		/// </summary>
-		/// <param name="target">
 		/// A <see cref="T:TextureTarget"/>.
 		/// </param>
 		/// <param name="level">
@@ -267,57 +222,6 @@ namespace OpenGL
 			} finally {
 				pin_pixels.Free();
 			}
-		}
-
-		/// <summary>
-		/// Binding for glTexSubImage4DSGIS.
-		/// </summary>
-		/// <param name="target">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="level">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="xoffset">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="yoffset">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="zoffset">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="woffset">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="width">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="height">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="depth">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="size4d">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="format">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="type">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="pixels">
-		/// A <see cref="T:IntPtr"/>.
-		/// </param>
-		[RequiredByFeature("GL_SGIS_texture4D")]
-		public static void TexSubImage4DSGIS(int target, Int32 level, Int32 xoffset, Int32 yoffset, Int32 zoffset, Int32 woffset, Int32 width, Int32 height, Int32 depth, Int32 size4d, int format, int type, IntPtr pixels)
-		{
-			Debug.Assert(Delegates.pglTexSubImage4DSGIS != null, "pglTexSubImage4DSGIS not implemented");
-			Delegates.pglTexSubImage4DSGIS(target, level, xoffset, yoffset, zoffset, woffset, width, height, depth, size4d, format, type, pixels);
-			CallLog("glTexSubImage4DSGIS({0}, {1}, {2}, {3}, {4}, {5}, {6}, {7}, {8}, {9}, {10}, {11}, {12})", target, level, xoffset, yoffset, zoffset, woffset, width, height, depth, size4d, format, type, pixels);
-			DebugCheckErrors();
 		}
 
 		/// <summary>

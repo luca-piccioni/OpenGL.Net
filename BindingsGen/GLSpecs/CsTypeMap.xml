@@ -29,10 +29,10 @@
 	<!-- Pointer types -->
 	<type name="void *" value="IntPtr" />
 	<type name="GLvoid*" value="void*" />
-	<type name="void **" value="IntPtr" />
+	<type name="void **" value="IntPtr*" />
 	<type name="const void *" value="IntPtr" />
-	<type name="const void **" value="IntPtr" />
-	<type name="const void *const*" value="IntPtr" />
+	<type name="const void **" value="IntPtr*" />
+	<type name="const void *const*" value="IntPtr*" />
 	<type name="GLenum*" value="int*" />
 	<type name="GLsizei*" value="Int32*" />
 	<type name="GLsizeiptr*" value="UInt32*" />

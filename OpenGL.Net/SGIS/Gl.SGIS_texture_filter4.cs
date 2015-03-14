@@ -41,32 +41,6 @@ namespace OpenGL
 		/// Binding for glGetTexFilterFuncSGIS.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="filter">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="weights">
-		/// A <see cref="T:float[]"/>.
-		/// </param>
-		[RequiredByFeature("GL_SGIS_texture_filter4")]
-		public static void GetTexFilterFuncSGIS(int target, int filter, float[] weights)
-		{
-			unsafe {
-				fixed (float* p_weights = weights)
-				{
-					Debug.Assert(Delegates.pglGetTexFilterFuncSGIS != null, "pglGetTexFilterFuncSGIS not implemented");
-					Delegates.pglGetTexFilterFuncSGIS(target, filter, p_weights);
-					CallLog("glGetTexFilterFuncSGIS({0}, {1}, {2})", target, filter, weights);
-				}
-			}
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// Binding for glGetTexFilterFuncSGIS.
-		/// </summary>
-		/// <param name="target">
 		/// A <see cref="T:TextureTarget"/>.
 		/// </param>
 		/// <param name="filter">

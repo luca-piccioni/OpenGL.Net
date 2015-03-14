@@ -462,6 +462,36 @@ namespace OpenGL
 		}
 
 		/// <summary>
+		/// return a binary representation of a program object's compiled and linked executable source
+		/// </summary>
+		/// <param name="program">
+		/// Specifies the name of a program object whose binary representation to retrieve.
+		/// </param>
+		/// <param name="bufSize">
+		/// Specifies the size of the buffer whose address is given by binary.
+		/// </param>
+		/// <param name="length">
+		/// Specifies the address of a variable to receive the number of bytes written into binary.
+		/// </param>
+		/// <param name="binaryFormat">
+		/// Specifies the address of a variable to receive a token indicating the format of the binary data returned by the GL.
+		/// </param>
+		/// <param name="binary">
+		/// Specifies the address an array into which the GL will return program's binary representation.
+		/// </param>
+		[RequiredByFeature("GL_VERSION_4_1")]
+		[RequiredByFeature("GL_ARB_get_program_binary")]
+		public static void GetProgramBinary(UInt32 program, Int32 bufSize, out Int32 length, out int binaryFormat, Object binary)
+		{
+			GCHandle pin_binary = GCHandle.Alloc(binary, GCHandleType.Pinned);
+			try {
+				GetProgramBinary(program, bufSize, out length, out binaryFormat, pin_binary.AddrOfPinnedObject());
+			} finally {
+				pin_binary.Free();
+			}
+		}
+
+		/// <summary>
 		/// load a program object with a program binary
 		/// </summary>
 		/// <param name="program">
