@@ -62,41 +62,6 @@ namespace OpenGL
 		/// Binding for glTexSubImage1DEXT.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="level">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="xoffset">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="width">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="format">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="type">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="pixels">
-		/// A <see cref="T:Object"/>.
-		/// </param>
-		[RequiredByFeature("GL_EXT_subtexture")]
-		public static void TexSubImage1DEXT(int target, Int32 level, Int32 xoffset, Int32 width, int format, int type, Object pixels)
-		{
-			GCHandle pin_pixels = GCHandle.Alloc(pixels, GCHandleType.Pinned);
-			try {
-				TexSubImage1DEXT(target, level, xoffset, width, format, type, pin_pixels.AddrOfPinnedObject());
-			} finally {
-				pin_pixels.Free();
-			}
-		}
-
-		/// <summary>
-		/// Binding for glTexSubImage1DEXT.
-		/// </summary>
-		/// <param name="target">
 		/// A <see cref="T:TextureTarget"/>.
 		/// </param>
 		/// <param name="level">
@@ -165,47 +130,6 @@ namespace OpenGL
 			Delegates.pglTexSubImage2DEXT((int)target, level, xoffset, yoffset, width, height, (int)format, (int)type, pixels);
 			CallLog("glTexSubImage2DEXT({0}, {1}, {2}, {3}, {4}, {5}, {6}, {7}, {8})", target, level, xoffset, yoffset, width, height, format, type, pixels);
 			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// Binding for glTexSubImage2DEXT.
-		/// </summary>
-		/// <param name="target">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="level">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="xoffset">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="yoffset">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="width">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="height">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="format">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="type">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="pixels">
-		/// A <see cref="T:Object"/>.
-		/// </param>
-		[RequiredByFeature("GL_EXT_subtexture")]
-		public static void TexSubImage2DEXT(int target, Int32 level, Int32 xoffset, Int32 yoffset, Int32 width, Int32 height, int format, int type, Object pixels)
-		{
-			GCHandle pin_pixels = GCHandle.Alloc(pixels, GCHandleType.Pinned);
-			try {
-				TexSubImage2DEXT(target, level, xoffset, yoffset, width, height, format, type, pin_pixels.AddrOfPinnedObject());
-			} finally {
-				pin_pixels.Free();
-			}
 		}
 
 		/// <summary>

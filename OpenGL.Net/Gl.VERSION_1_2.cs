@@ -378,40 +378,6 @@ namespace OpenGL
 		/// Specifies a pointer to the location where the indices are stored.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_1_2")]
-		public static void DrawRangeElements(int mode, UInt32 start, UInt32 end, Int32 count, int type, Object indices)
-		{
-			GCHandle pin_indices = GCHandle.Alloc(indices, GCHandleType.Pinned);
-			try {
-				DrawRangeElements(mode, start, end, count, type, pin_indices.AddrOfPinnedObject());
-			} finally {
-				pin_indices.Free();
-			}
-		}
-
-		/// <summary>
-		/// render primitives from array data
-		/// </summary>
-		/// <param name="mode">
-		/// Specifies what kind of primitives to render. Symbolic constants GL_POINTS, GL_LINE_STRIP, GL_LINE_LOOP, GL_LINES, 
-		/// GL_LINE_STRIP_ADJACENCY, GL_LINES_ADJACENCY, GL_TRIANGLE_STRIP, GL_TRIANGLE_FAN, GL_TRIANGLES, 
-		/// GL_TRIANGLE_STRIP_ADJACENCY, GL_TRIANGLES_ADJACENCY and GL_PATCHES are accepted.
-		/// </param>
-		/// <param name="start">
-		/// Specifies the minimum array index contained in indices.
-		/// </param>
-		/// <param name="end">
-		/// Specifies the maximum array index contained in indices.
-		/// </param>
-		/// <param name="count">
-		/// Specifies the number of elements to be rendered.
-		/// </param>
-		/// <param name="type">
-		/// Specifies the type of the values in indices. Must be one of GL_UNSIGNED_BYTE, GL_UNSIGNED_SHORT, or GL_UNSIGNED_INT.
-		/// </param>
-		/// <param name="indices">
-		/// Specifies a pointer to the location where the indices are stored.
-		/// </param>
-		[RequiredByFeature("GL_VERSION_1_2")]
 		public static void DrawRangeElements(PrimitiveType mode, UInt32 start, UInt32 end, Int32 count, int type, Object indices)
 		{
 			GCHandle pin_indices = GCHandle.Alloc(indices, GCHandleType.Pinned);
@@ -538,66 +504,6 @@ namespace OpenGL
 		/// A <see cref="T:Object"/>.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_1_2")]
-		public static void TexImage3D(int target, Int32 level, Int32 internalformat, Int32 width, Int32 height, Int32 depth, Int32 border, int format, int type, Object pixels)
-		{
-			GCHandle pin_pixels = GCHandle.Alloc(pixels, GCHandleType.Pinned);
-			try {
-				TexImage3D(target, level, internalformat, width, height, depth, border, format, type, pin_pixels.AddrOfPinnedObject());
-			} finally {
-				pin_pixels.Free();
-			}
-		}
-
-		/// <summary>
-		/// specify a three-dimensional texture image
-		/// </summary>
-		/// <param name="target">
-		/// Specifies the target texture. Must be <see cref="Gl.TEXTURE_3D"/> or <see cref="Gl.PROXY_TEXTURE_3D"/>.
-		/// </param>
-		/// <param name="level">
-		/// Specifies the level-of-detail number. Level 0 is the base image level. Level n is the nth mipmap reduction image.
-		/// </param>
-		/// <param name="internalformat">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="width">
-		/// Specifies the width of the texture image including the border if any. If the GL version does not support 
-		/// non-power-of-two sizes, this value must be 2n+2⁡border for some integer n. All implementations support 3D texture images 
-		/// that are at least 16 texels wide.
-		/// </param>
-		/// <param name="height">
-		/// Specifies the height of the texture image including the border if any. If the GL version does not support 
-		/// non-power-of-two sizes, this value must be 2m+2⁡border for some integer m. All implementations support 3D texture images 
-		/// that are at least 16 texels high.
-		/// </param>
-		/// <param name="depth">
-		/// Specifies the depth of the texture image including the border if any. If the GL version does not support 
-		/// non-power-of-two sizes, this value must be 2k+2⁡border for some integer k. All implementations support 3D texture images 
-		/// that are at least 16 texels deep.
-		/// </param>
-		/// <param name="border">
-		/// Specifies the width of the border. Must be either 0 or 1.
-		/// </param>
-		/// <param name="format">
-		/// Specifies the format of the pixel data. The following symbolic values are accepted: <see cref="Gl.COLOR_INDEX"/>, <see 
-		/// cref="Gl.RED"/>, <see cref="Gl.GREEN"/>, <see cref="Gl.BLUE"/>, <see cref="Gl.ALPHA"/>, <see cref="Gl.RGB"/>, <see 
-		/// cref="Gl.BGR"/>, <see cref="Gl.RGBA"/>, <see cref="Gl.BGRA"/>, <see cref="Gl.LUMINANCE"/>, and <see 
-		/// cref="Gl.LUMINANCE_ALPHA"/>.
-		/// </param>
-		/// <param name="type">
-		/// Specifies the data type of the pixel data. The following symbolic values are accepted: <see cref="Gl.UNSIGNED_BYTE"/>, 
-		/// <see cref="Gl.BYTE"/>, <see cref="Gl.BITMAP"/>, <see cref="Gl.UNSIGNED_SHORT"/>, <see cref="Gl.SHORT"/>, <see 
-		/// cref="Gl.UNSIGNED_INT"/>, <see cref="Gl.INT"/>, <see cref="Gl.FLOAT"/>, <see cref="Gl.UNSIGNED_BYTE_3_3_2"/>, <see 
-		/// cref="Gl.UNSIGNED_BYTE_2_3_3_REV"/>, <see cref="Gl.UNSIGNED_SHORT_5_6_5"/>, <see cref="Gl.UNSIGNED_SHORT_5_6_5_REV"/>, 
-		/// <see cref="Gl.UNSIGNED_SHORT_4_4_4_4"/>, <see cref="Gl.UNSIGNED_SHORT_4_4_4_4_REV"/>, <see 
-		/// cref="Gl.UNSIGNED_SHORT_5_5_5_1"/>, <see cref="Gl.UNSIGNED_SHORT_1_5_5_5_REV"/>, <see cref="Gl.UNSIGNED_INT_8_8_8_8"/>, 
-		/// <see cref="Gl.UNSIGNED_INT_8_8_8_8_REV"/>, <see cref="Gl.UNSIGNED_INT_10_10_10_2"/>, and <see 
-		/// cref="Gl.UNSIGNED_INT_2_10_10_10_REV"/>.
-		/// </param>
-		/// <param name="pixels">
-		/// A <see cref="T:Object"/>.
-		/// </param>
-		[RequiredByFeature("GL_VERSION_1_2")]
 		public static void TexImage3D(TextureTarget target, Int32 level, Int32 internalformat, Int32 width, Int32 height, Int32 depth, Int32 border, PixelFormat format, PixelType type, Object pixels)
 		{
 			GCHandle pin_pixels = GCHandle.Alloc(pixels, GCHandleType.Pinned);
@@ -664,58 +570,6 @@ namespace OpenGL
 			} else
 				throw new NotImplementedException("glTexSubImage3D (and other aliases) are not implemented");
 			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// specify a three-dimensional texture subimage
-		/// </summary>
-		/// <param name="target">
-		/// Specifies the target to which the texture is bound for glTexSubImage3D. Must be GL_TEXTURE_3D or GL_TEXTURE_2D_ARRAY.
-		/// </param>
-		/// <param name="level">
-		/// Specifies the level-of-detail number. Level 0 is the base image level. Level n is the nth mipmap reduction image.
-		/// </param>
-		/// <param name="xoffset">
-		/// Specifies a texel offset in the x direction within the texture array.
-		/// </param>
-		/// <param name="yoffset">
-		/// Specifies a texel offset in the y direction within the texture array.
-		/// </param>
-		/// <param name="zoffset">
-		/// Specifies a texel offset in the z direction within the texture array.
-		/// </param>
-		/// <param name="width">
-		/// Specifies the width of the texture subimage.
-		/// </param>
-		/// <param name="height">
-		/// Specifies the height of the texture subimage.
-		/// </param>
-		/// <param name="depth">
-		/// Specifies the depth of the texture subimage.
-		/// </param>
-		/// <param name="format">
-		/// Specifies the format of the pixel data. The following symbolic values are accepted: GL_RED, GL_RG, GL_RGB, GL_BGR, 
-		/// GL_RGBA, GL_DEPTH_COMPONENT, and GL_STENCIL_INDEX.
-		/// </param>
-		/// <param name="type">
-		/// Specifies the data type of the pixel data. The following symbolic values are accepted: GL_UNSIGNED_BYTE, GL_BYTE, 
-		/// GL_UNSIGNED_SHORT, GL_SHORT, GL_UNSIGNED_INT, GL_INT, GL_FLOAT, GL_UNSIGNED_BYTE_3_3_2, GL_UNSIGNED_BYTE_2_3_3_REV, 
-		/// GL_UNSIGNED_SHORT_5_6_5, GL_UNSIGNED_SHORT_5_6_5_REV, GL_UNSIGNED_SHORT_4_4_4_4, GL_UNSIGNED_SHORT_4_4_4_4_REV, 
-		/// GL_UNSIGNED_SHORT_5_5_5_1, GL_UNSIGNED_SHORT_1_5_5_5_REV, GL_UNSIGNED_INT_8_8_8_8, GL_UNSIGNED_INT_8_8_8_8_REV, 
-		/// GL_UNSIGNED_INT_10_10_10_2, and GL_UNSIGNED_INT_2_10_10_10_REV.
-		/// </param>
-		/// <param name="pixels">
-		/// Specifies a pointer to the image data in memory.
-		/// </param>
-		[RequiredByFeature("GL_VERSION_1_2")]
-		public static void TexSubImage3D(int target, Int32 level, Int32 xoffset, Int32 yoffset, Int32 zoffset, Int32 width, Int32 height, Int32 depth, int format, int type, Object pixels)
-		{
-			GCHandle pin_pixels = GCHandle.Alloc(pixels, GCHandleType.Pinned);
-			try {
-				TexSubImage3D(target, level, xoffset, yoffset, zoffset, width, height, depth, format, type, pin_pixels.AddrOfPinnedObject());
-			} finally {
-				pin_pixels.Free();
-			}
 		}
 
 		/// <summary>

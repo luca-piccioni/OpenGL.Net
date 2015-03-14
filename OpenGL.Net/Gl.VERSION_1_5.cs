@@ -1007,33 +1007,6 @@ namespace OpenGL
 		/// Specifies a pointer to the new data that will be copied into the data store.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_1_5")]
-		public static void BufferSubData(int target, IntPtr offset, UInt32 size, Object data)
-		{
-			GCHandle pin_data = GCHandle.Alloc(data, GCHandleType.Pinned);
-			try {
-				BufferSubData(target, offset, size, pin_data.AddrOfPinnedObject());
-			} finally {
-				pin_data.Free();
-			}
-		}
-
-		/// <summary>
-		/// updates a subset of a buffer object's data store
-		/// </summary>
-		/// <param name="target">
-		/// Specifies the target to which the buffer object is bound for glBufferSubData, which must be one of the buffer binding 
-		/// targets in the following table:
-		/// </param>
-		/// <param name="offset">
-		/// Specifies the offset into the buffer object's data store where data replacement will begin, measured in bytes.
-		/// </param>
-		/// <param name="size">
-		/// Specifies the size in bytes of the data store region being replaced.
-		/// </param>
-		/// <param name="data">
-		/// Specifies a pointer to the new data that will be copied into the data store.
-		/// </param>
-		[RequiredByFeature("GL_VERSION_1_5")]
 		public static void BufferSubData(BufferTargetARB target, IntPtr offset, UInt32 size, Object data)
 		{
 			GCHandle pin_data = GCHandle.Alloc(data, GCHandleType.Pinned);
@@ -1072,33 +1045,6 @@ namespace OpenGL
 			} else
 				throw new NotImplementedException("glGetBufferSubData (and other aliases) are not implemented");
 			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// returns a subset of a buffer object's data store
-		/// </summary>
-		/// <param name="target">
-		/// Specifies the target to which the buffer object is bound for glGetBufferSubData, which must be one of the buffer binding 
-		/// targets in the following table:
-		/// </param>
-		/// <param name="offset">
-		/// Specifies the offset into the buffer object's data store from which data will be returned, measured in bytes.
-		/// </param>
-		/// <param name="size">
-		/// Specifies the size in bytes of the data store region being returned.
-		/// </param>
-		/// <param name="data">
-		/// Specifies a pointer to the location where buffer object data is returned.
-		/// </param>
-		[RequiredByFeature("GL_VERSION_1_5")]
-		public static void GetBufferSubData(int target, IntPtr offset, UInt32 size, Object data)
-		{
-			GCHandle pin_data = GCHandle.Alloc(data, GCHandleType.Pinned);
-			try {
-				GetBufferSubData(target, offset, size, pin_data.AddrOfPinnedObject());
-			} finally {
-				pin_data.Free();
-			}
 		}
 
 		/// <summary>
@@ -1235,38 +1181,6 @@ namespace OpenGL
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_1_5")]
-		public static void GetBufferParameter(int target, int pname, out Int32 @params)
-		{
-			unsafe {
-				fixed (Int32* p_params = &@params)
-				{
-					if        (Delegates.pglGetBufferParameteriv != null) {
-						Delegates.pglGetBufferParameteriv(target, pname, p_params);
-						CallLog("glGetBufferParameteriv({0}, {1}, {2})", target, pname, @params);
-					} else if (Delegates.pglGetBufferParameterivARB != null) {
-						Delegates.pglGetBufferParameterivARB(target, pname, p_params);
-						CallLog("glGetBufferParameterivARB({0}, {1}, {2})", target, pname, @params);
-					} else
-						throw new NotImplementedException("glGetBufferParameteriv (and other aliases) are not implemented");
-				}
-			}
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// return parameters of a buffer object
-		/// </summary>
-		/// <param name="target">
-		/// Specifies the target to which the buffer object is bound for glGetBufferParameteriv and glGetBufferParameteri64v. Must 
-		/// be one of the buffer binding targets in the following table:
-		/// </param>
-		/// <param name="pname">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="params">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		[RequiredByFeature("GL_VERSION_1_5")]
 		public static void GetBufferParameter(BufferTargetARB target, int pname, out Int32 @params)
 		{
 			unsafe {
@@ -1299,44 +1213,25 @@ namespace OpenGL
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_1_5")]
-		public static void GetBufferPointer(BufferTargetARB target, int pname, IntPtr @params)
+		public static void GetBufferPointer(BufferTargetARB target, int pname, out IntPtr @params)
 		{
-			if        (Delegates.pglGetBufferPointerv != null) {
-				Delegates.pglGetBufferPointerv((int)target, pname, @params);
-				CallLog("glGetBufferPointerv({0}, {1}, {2})", target, pname, @params);
-			} else if (Delegates.pglGetBufferPointervARB != null) {
-				Delegates.pglGetBufferPointervARB((int)target, pname, @params);
-				CallLog("glGetBufferPointervARB({0}, {1}, {2})", target, pname, @params);
-			} else if (Delegates.pglGetBufferPointervOES != null) {
-				Delegates.pglGetBufferPointervOES((int)target, pname, @params);
-				CallLog("glGetBufferPointervOES({0}, {1}, {2})", target, pname, @params);
-			} else
-				throw new NotImplementedException("glGetBufferPointerv (and other aliases) are not implemented");
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// return the pointer to a mapped buffer object's data store
-		/// </summary>
-		/// <param name="target">
-		/// Specifies the target to which the buffer object is bound for glGetBufferPointerv, which must be one of the buffer 
-		/// binding targets in the following table:
-		/// </param>
-		/// <param name="pname">
-		/// Specifies the name of the pointer to be returned. Must be GL_BUFFER_MAP_POINTER.
-		/// </param>
-		/// <param name="params">
-		/// A <see cref="T:Object"/>.
-		/// </param>
-		[RequiredByFeature("GL_VERSION_1_5")]
-		public static void GetBufferPointer(int target, int pname, Object @params)
-		{
-			GCHandle pin_params = GCHandle.Alloc(@params, GCHandleType.Pinned);
-			try {
-				GetBufferPointer(target, pname, pin_params.AddrOfPinnedObject());
-			} finally {
-				pin_params.Free();
+			unsafe {
+				fixed (IntPtr* p_params = &@params)
+				{
+					if        (Delegates.pglGetBufferPointerv != null) {
+						Delegates.pglGetBufferPointerv((int)target, pname, p_params);
+						CallLog("glGetBufferPointerv({0}, {1}, {2})", target, pname, @params);
+					} else if (Delegates.pglGetBufferPointervARB != null) {
+						Delegates.pglGetBufferPointervARB((int)target, pname, p_params);
+						CallLog("glGetBufferPointervARB({0}, {1}, {2})", target, pname, @params);
+					} else if (Delegates.pglGetBufferPointervOES != null) {
+						Delegates.pglGetBufferPointervOES((int)target, pname, p_params);
+						CallLog("glGetBufferPointervOES({0}, {1}, {2})", target, pname, @params);
+					} else
+						throw new NotImplementedException("glGetBufferPointerv (and other aliases) are not implemented");
+				}
 			}
+			DebugCheckErrors();
 		}
 
 		/// <summary>

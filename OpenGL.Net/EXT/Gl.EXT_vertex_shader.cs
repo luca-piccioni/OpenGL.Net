@@ -1532,38 +1532,20 @@ namespace OpenGL
 		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="data">
-		/// A <see cref="T:IntPtr"/>.
+		/// A <see cref="T:IntPtr[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_vertex_shader")]
-		public static void GetVariantPointerEXT(UInt32 id, int value, IntPtr data)
+		public static void GetVariantPointerEXT(UInt32 id, int value, IntPtr[] data)
 		{
-			Debug.Assert(Delegates.pglGetVariantPointervEXT != null, "pglGetVariantPointervEXT not implemented");
-			Delegates.pglGetVariantPointervEXT(id, value, data);
-			CallLog("glGetVariantPointervEXT({0}, {1}, {2})", id, value, data);
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// Binding for glGetVariantPointervEXT.
-		/// </summary>
-		/// <param name="id">
-		/// A <see cref="T:UInt32"/>.
-		/// </param>
-		/// <param name="value">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="data">
-		/// A <see cref="T:Object"/>.
-		/// </param>
-		[RequiredByFeature("GL_EXT_vertex_shader")]
-		public static void GetVariantPointerEXT(UInt32 id, int value, Object data)
-		{
-			GCHandle pin_data = GCHandle.Alloc(data, GCHandleType.Pinned);
-			try {
-				GetVariantPointerEXT(id, value, pin_data.AddrOfPinnedObject());
-			} finally {
-				pin_data.Free();
+			unsafe {
+				fixed (IntPtr* p_data = data)
+				{
+					Debug.Assert(Delegates.pglGetVariantPointervEXT != null, "pglGetVariantPointervEXT not implemented");
+					Delegates.pglGetVariantPointervEXT(id, value, p_data);
+					CallLog("glGetVariantPointervEXT({0}, {1}, {2})", id, value, data);
+				}
 			}
+			DebugCheckErrors();
 		}
 
 		/// <summary>

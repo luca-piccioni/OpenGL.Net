@@ -134,47 +134,6 @@ namespace OpenGL
 		/// Binding for glCompressedTexImage3DARB.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="level">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="internalformat">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="width">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="height">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="depth">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="border">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="imageSize">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="data">
-		/// A <see cref="T:Object"/>.
-		/// </param>
-		[RequiredByFeature("GL_ARB_texture_compression")]
-		public static void CompressedTexImage3DARB(int target, Int32 level, int internalformat, Int32 width, Int32 height, Int32 depth, Int32 border, Int32 imageSize, Object data)
-		{
-			GCHandle pin_data = GCHandle.Alloc(data, GCHandleType.Pinned);
-			try {
-				CompressedTexImage3DARB(target, level, internalformat, width, height, depth, border, imageSize, pin_data.AddrOfPinnedObject());
-			} finally {
-				pin_data.Free();
-			}
-		}
-
-		/// <summary>
-		/// Binding for glCompressedTexImage3DARB.
-		/// </summary>
-		/// <param name="target">
 		/// A <see cref="T:TextureTarget"/>.
 		/// </param>
 		/// <param name="level">
@@ -252,44 +211,6 @@ namespace OpenGL
 		/// Binding for glCompressedTexImage2DARB.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="level">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="internalformat">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="width">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="height">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="border">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="imageSize">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="data">
-		/// A <see cref="T:Object"/>.
-		/// </param>
-		[RequiredByFeature("GL_ARB_texture_compression")]
-		public static void CompressedTexImage2DARB(int target, Int32 level, int internalformat, Int32 width, Int32 height, Int32 border, Int32 imageSize, Object data)
-		{
-			GCHandle pin_data = GCHandle.Alloc(data, GCHandleType.Pinned);
-			try {
-				CompressedTexImage2DARB(target, level, internalformat, width, height, border, imageSize, pin_data.AddrOfPinnedObject());
-			} finally {
-				pin_data.Free();
-			}
-		}
-
-		/// <summary>
-		/// Binding for glCompressedTexImage2DARB.
-		/// </summary>
-		/// <param name="target">
 		/// A <see cref="T:TextureTarget"/>.
 		/// </param>
 		/// <param name="level">
@@ -355,41 +276,6 @@ namespace OpenGL
 			Delegates.pglCompressedTexImage1DARB((int)target, level, internalformat, width, border, imageSize, data);
 			CallLog("glCompressedTexImage1DARB({0}, {1}, {2}, {3}, {4}, {5}, {6})", target, level, internalformat, width, border, imageSize, data);
 			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// Binding for glCompressedTexImage1DARB.
-		/// </summary>
-		/// <param name="target">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="level">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="internalformat">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="width">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="border">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="imageSize">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="data">
-		/// A <see cref="T:Object"/>.
-		/// </param>
-		[RequiredByFeature("GL_ARB_texture_compression")]
-		public static void CompressedTexImage1DARB(int target, Int32 level, int internalformat, Int32 width, Int32 border, Int32 imageSize, Object data)
-		{
-			GCHandle pin_data = GCHandle.Alloc(data, GCHandleType.Pinned);
-			try {
-				CompressedTexImage1DARB(target, level, internalformat, width, border, imageSize, pin_data.AddrOfPinnedObject());
-			} finally {
-				pin_data.Free();
-			}
 		}
 
 		/// <summary>
@@ -470,53 +356,6 @@ namespace OpenGL
 			Delegates.pglCompressedTexSubImage3DARB((int)target, level, xoffset, yoffset, zoffset, width, height, depth, (int)format, imageSize, data);
 			CallLog("glCompressedTexSubImage3DARB({0}, {1}, {2}, {3}, {4}, {5}, {6}, {7}, {8}, {9}, {10})", target, level, xoffset, yoffset, zoffset, width, height, depth, format, imageSize, data);
 			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// Binding for glCompressedTexSubImage3DARB.
-		/// </summary>
-		/// <param name="target">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="level">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="xoffset">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="yoffset">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="zoffset">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="width">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="height">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="depth">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="format">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="imageSize">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="data">
-		/// A <see cref="T:Object"/>.
-		/// </param>
-		[RequiredByFeature("GL_ARB_texture_compression")]
-		public static void CompressedTexSubImage3DARB(int target, Int32 level, Int32 xoffset, Int32 yoffset, Int32 zoffset, Int32 width, Int32 height, Int32 depth, int format, Int32 imageSize, Object data)
-		{
-			GCHandle pin_data = GCHandle.Alloc(data, GCHandleType.Pinned);
-			try {
-				CompressedTexSubImage3DARB(target, level, xoffset, yoffset, zoffset, width, height, depth, format, imageSize, pin_data.AddrOfPinnedObject());
-			} finally {
-				pin_data.Free();
-			}
 		}
 
 		/// <summary>
@@ -609,47 +448,6 @@ namespace OpenGL
 		/// Binding for glCompressedTexSubImage2DARB.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="level">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="xoffset">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="yoffset">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="width">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="height">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="format">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="imageSize">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="data">
-		/// A <see cref="T:Object"/>.
-		/// </param>
-		[RequiredByFeature("GL_ARB_texture_compression")]
-		public static void CompressedTexSubImage2DARB(int target, Int32 level, Int32 xoffset, Int32 yoffset, Int32 width, Int32 height, int format, Int32 imageSize, Object data)
-		{
-			GCHandle pin_data = GCHandle.Alloc(data, GCHandleType.Pinned);
-			try {
-				CompressedTexSubImage2DARB(target, level, xoffset, yoffset, width, height, format, imageSize, pin_data.AddrOfPinnedObject());
-			} finally {
-				pin_data.Free();
-			}
-		}
-
-		/// <summary>
-		/// Binding for glCompressedTexSubImage2DARB.
-		/// </summary>
-		/// <param name="target">
 		/// A <see cref="T:TextureTarget"/>.
 		/// </param>
 		/// <param name="level">
@@ -724,41 +522,6 @@ namespace OpenGL
 		/// Binding for glCompressedTexSubImage1DARB.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="level">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="xoffset">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="width">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="format">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="imageSize">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="data">
-		/// A <see cref="T:Object"/>.
-		/// </param>
-		[RequiredByFeature("GL_ARB_texture_compression")]
-		public static void CompressedTexSubImage1DARB(int target, Int32 level, Int32 xoffset, Int32 width, int format, Int32 imageSize, Object data)
-		{
-			GCHandle pin_data = GCHandle.Alloc(data, GCHandleType.Pinned);
-			try {
-				CompressedTexSubImage1DARB(target, level, xoffset, width, format, imageSize, pin_data.AddrOfPinnedObject());
-			} finally {
-				pin_data.Free();
-			}
-		}
-
-		/// <summary>
-		/// Binding for glCompressedTexSubImage1DARB.
-		/// </summary>
-		/// <param name="target">
 		/// A <see cref="T:TextureTarget"/>.
 		/// </param>
 		/// <param name="level">
@@ -809,29 +572,6 @@ namespace OpenGL
 			Delegates.pglGetCompressedTexImageARB((int)target, level, img);
 			CallLog("glGetCompressedTexImageARB({0}, {1}, {2})", target, level, img);
 			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// Binding for glGetCompressedTexImageARB.
-		/// </summary>
-		/// <param name="target">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="level">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="img">
-		/// A <see cref="T:Object"/>.
-		/// </param>
-		[RequiredByFeature("GL_ARB_texture_compression")]
-		public static void GetCompressedTexImageARB(int target, Int32 level, Object img)
-		{
-			GCHandle pin_img = GCHandle.Alloc(img, GCHandleType.Pinned);
-			try {
-				GetCompressedTexImageARB(target, level, pin_img.AddrOfPinnedObject());
-			} finally {
-				pin_img.Free();
-			}
 		}
 
 		/// <summary>

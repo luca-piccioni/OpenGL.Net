@@ -106,11 +106,16 @@ namespace OpenGL
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		[RequiredByFeature("GL_APPLE_texture_range")]
-		public static void GetTexParameterPointerAPPLE(int target, int pname, IntPtr @params)
+		public static void GetTexParameterPointerAPPLE(int target, int pname, out IntPtr @params)
 		{
-			Debug.Assert(Delegates.pglGetTexParameterPointervAPPLE != null, "pglGetTexParameterPointervAPPLE not implemented");
-			Delegates.pglGetTexParameterPointervAPPLE(target, pname, @params);
-			CallLog("glGetTexParameterPointervAPPLE({0}, {1}, {2})", target, pname, @params);
+			unsafe {
+				fixed (IntPtr* p_params = &@params)
+				{
+					Debug.Assert(Delegates.pglGetTexParameterPointervAPPLE != null, "pglGetTexParameterPointervAPPLE not implemented");
+					Delegates.pglGetTexParameterPointervAPPLE(target, pname, p_params);
+					CallLog("glGetTexParameterPointervAPPLE({0}, {1}, {2})", target, pname, @params);
+				}
+			}
 			DebugCheckErrors();
 		}
 

@@ -523,59 +523,6 @@ namespace OpenGL
 		/// A <see cref="T:Object"/>.
 		/// </param>
 		[RequiredByFeature("GL_ARB_imaging")]
-		public static void ColorTable(int target, int internalformat, Int32 width, int format, int type, Object table)
-		{
-			GCHandle pin_table = GCHandle.Alloc(table, GCHandleType.Pinned);
-			try {
-				ColorTable(target, internalformat, width, format, type, pin_table.AddrOfPinnedObject());
-			} finally {
-				pin_table.Free();
-			}
-		}
-
-		/// <summary>
-		/// define a color lookup table
-		/// </summary>
-		/// <param name="target">
-		/// Must be one of <see cref="Gl.COLOR_TABLE"/>, <see cref="Gl.POST_CONVOLUTION_COLOR_TABLE"/>, <see 
-		/// cref="Gl.POST_COLOR_MATRIX_COLOR_TABLE"/>, <see cref="Gl.PROXY_COLOR_TABLE"/>, <see 
-		/// cref="Gl.PROXY_POST_CONVOLUTION_COLOR_TABLE"/>, or <see cref="Gl.PROXY_POST_COLOR_MATRIX_COLOR_TABLE"/>.
-		/// </param>
-		/// <param name="internalformat">
-		/// The internal format of the color table. The allowable values are <see cref="Gl.ALPHA"/>, <see cref="Gl.ALPHA4"/>, <see 
-		/// cref="Gl.ALPHA8"/>, <see cref="Gl.ALPHA12"/>, <see cref="Gl.ALPHA16"/>, <see cref="Gl.LUMINANCE"/>, <see 
-		/// cref="Gl.LUMINANCE4"/>, <see cref="Gl.LUMINANCE8"/>, <see cref="Gl.LUMINANCE12"/>, <see cref="Gl.LUMINANCE16"/>, <see 
-		/// cref="Gl.LUMINANCE_ALPHA"/>, <see cref="Gl.LUMINANCE4_ALPHA4"/>, <see cref="Gl.LUMINANCE6_ALPHA2"/>, <see 
-		/// cref="Gl.LUMINANCE8_ALPHA8"/>, <see cref="Gl.LUMINANCE12_ALPHA4"/>, <see cref="Gl.LUMINANCE12_ALPHA12"/>, <see 
-		/// cref="Gl.LUMINANCE16_ALPHA16"/>, <see cref="Gl.INTENSITY"/>, <see cref="Gl.INTENSITY4"/>, <see cref="Gl.INTENSITY8"/>, 
-		/// <see cref="Gl.INTENSITY12"/>, <see cref="Gl.INTENSITY16"/>, <see cref="Gl.R3_G3_B2"/>, <see cref="Gl.RGB"/>, <see 
-		/// cref="Gl.RGB4"/>, <see cref="Gl.RGB5"/>, <see cref="Gl.RGB8"/>, <see cref="Gl.RGB10"/>, <see cref="Gl.RGB12"/>, <see 
-		/// cref="Gl.RGB16"/>, <see cref="Gl.RGBA"/>, <see cref="Gl.RGBA2"/>, <see cref="Gl.RGBA4"/>, <see cref="Gl.RGB5_A1"/>, <see 
-		/// cref="Gl.RGBA8"/>, <see cref="Gl.RGB10_A2"/>, <see cref="Gl.RGBA12"/>, and <see cref="Gl.RGBA16"/>.
-		/// </param>
-		/// <param name="width">
-		/// The number of entries in the color lookup table specified by <paramref name="data"/>.
-		/// </param>
-		/// <param name="format">
-		/// The format of the pixel data in <paramref name="data"/>. The allowable values are <see cref="Gl.RED"/>, <see 
-		/// cref="Gl.GREEN"/>, <see cref="Gl.BLUE"/>, <see cref="Gl.ALPHA"/>, <see cref="Gl.LUMINANCE"/>, <see 
-		/// cref="Gl.LUMINANCE_ALPHA"/>, <see cref="Gl.RGB"/>, <see cref="Gl.BGR"/>, <see cref="Gl.RGBA"/>, and <see 
-		/// cref="Gl.BGRA"/>.
-		/// </param>
-		/// <param name="type">
-		/// The type of the pixel data in <paramref name="data"/>. The allowable values are <see cref="Gl.UNSIGNED_BYTE"/>, <see 
-		/// cref="Gl.BYTE"/>, <see cref="Gl.UNSIGNED_SHORT"/>, <see cref="Gl.SHORT"/>, <see cref="Gl.UNSIGNED_INT"/>, <see 
-		/// cref="Gl.INT"/>, <see cref="Gl.FLOAT"/>, <see cref="Gl.UNSIGNED_BYTE_3_3_2"/>, <see cref="Gl.UNSIGNED_BYTE_2_3_3_REV"/>, 
-		/// <see cref="Gl.UNSIGNED_SHORT_5_6_5"/>, <see cref="Gl.UNSIGNED_SHORT_5_6_5_REV"/>, <see 
-		/// cref="Gl.UNSIGNED_SHORT_4_4_4_4"/>, <see cref="Gl.UNSIGNED_SHORT_4_4_4_4_REV"/>, <see 
-		/// cref="Gl.UNSIGNED_SHORT_5_5_5_1"/>, <see cref="Gl.UNSIGNED_SHORT_1_5_5_5_REV"/>, <see cref="Gl.UNSIGNED_INT_8_8_8_8"/>, 
-		/// <see cref="Gl.UNSIGNED_INT_8_8_8_8_REV"/>, <see cref="Gl.UNSIGNED_INT_10_10_10_2"/>, and <see 
-		/// cref="Gl.UNSIGNED_INT_2_10_10_10_REV"/>.
-		/// </param>
-		/// <param name="table">
-		/// A <see cref="T:Object"/>.
-		/// </param>
-		[RequiredByFeature("GL_ARB_imaging")]
 		public static void ColorTable(int target, int internalformat, Int32 width, PixelFormat format, PixelType type, Object table)
 		{
 			GCHandle pin_table = GCHandle.Alloc(table, GCHandleType.Pinned);
@@ -733,43 +680,6 @@ namespace OpenGL
 			} else
 				throw new NotImplementedException("glGetColorTable (and other aliases) are not implemented");
 			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// retrieve contents of a color lookup table
-		/// </summary>
-		/// <param name="target">
-		/// Must be <see cref="Gl.COLOR_TABLE"/>, <see cref="Gl.POST_CONVOLUTION_COLOR_TABLE"/>, or <see 
-		/// cref="Gl.POST_COLOR_MATRIX_COLOR_TABLE"/>.
-		/// </param>
-		/// <param name="format">
-		/// The format of the pixel data in <paramref name="table"/>. The possible values are <see cref="Gl.RED"/>, <see 
-		/// cref="Gl.GREEN"/>, <see cref="Gl.BLUE"/>, <see cref="Gl.ALPHA"/>, <see cref="Gl.LUMINANCE"/>, <see 
-		/// cref="Gl.LUMINANCE_ALPHA"/>, <see cref="Gl.RGB"/>, <see cref="Gl.BGR"/>, <see cref="Gl.RGBA"/>, and <see 
-		/// cref="Gl.BGRA"/>.
-		/// </param>
-		/// <param name="type">
-		/// The type of the pixel data in <paramref name="table"/>. Symbolic constants <see cref="Gl.UNSIGNED_BYTE"/>, <see 
-		/// cref="Gl.BYTE"/>, <see cref="Gl.BITMAP"/>, <see cref="Gl.UNSIGNED_SHORT"/>, <see cref="Gl.SHORT"/>, <see 
-		/// cref="Gl.UNSIGNED_INT"/>, <see cref="Gl.INT"/>, <see cref="Gl.FLOAT"/>, <see cref="Gl.UNSIGNED_BYTE_3_3_2"/>, <see 
-		/// cref="Gl.UNSIGNED_BYTE_2_3_3_REV"/>, <see cref="Gl.UNSIGNED_SHORT_5_6_5"/>, <see cref="Gl.UNSIGNED_SHORT_5_6_5_REV"/>, 
-		/// <see cref="Gl.UNSIGNED_SHORT_4_4_4_4"/>, <see cref="Gl.UNSIGNED_SHORT_4_4_4_4_REV"/>, <see 
-		/// cref="Gl.UNSIGNED_SHORT_5_5_5_1"/>, <see cref="Gl.UNSIGNED_SHORT_1_5_5_5_REV"/>, <see cref="Gl.UNSIGNED_INT_8_8_8_8"/>, 
-		/// <see cref="Gl.UNSIGNED_INT_8_8_8_8_REV"/>, <see cref="Gl.UNSIGNED_INT_10_10_10_2"/>, and <see 
-		/// cref="Gl.UNSIGNED_INT_2_10_10_10_REV"/> are accepted.
-		/// </param>
-		/// <param name="table">
-		/// Pointer to a one-dimensional array of pixel data containing the contents of the color table.
-		/// </param>
-		[RequiredByFeature("GL_ARB_imaging")]
-		public static void GetColorTable(int target, int format, int type, Object table)
-		{
-			GCHandle pin_table = GCHandle.Alloc(table, GCHandleType.Pinned);
-			try {
-				GetColorTable(target, format, type, pin_table.AddrOfPinnedObject());
-			} finally {
-				pin_table.Free();
-			}
 		}
 
 		/// <summary>
@@ -962,49 +872,6 @@ namespace OpenGL
 		/// Pointer to a one-dimensional array of pixel data that is processed to replace the specified region of the color table.
 		/// </param>
 		[RequiredByFeature("GL_ARB_imaging")]
-		public static void ColorSubTable(int target, Int32 start, Int32 count, int format, int type, Object data)
-		{
-			GCHandle pin_data = GCHandle.Alloc(data, GCHandleType.Pinned);
-			try {
-				ColorSubTable(target, start, count, format, type, pin_data.AddrOfPinnedObject());
-			} finally {
-				pin_data.Free();
-			}
-		}
-
-		/// <summary>
-		/// respecify a portion of a color table
-		/// </summary>
-		/// <param name="target">
-		/// Must be one of <see cref="Gl.COLOR_TABLE"/>, <see cref="Gl.POST_CONVOLUTION_COLOR_TABLE"/>, or <see 
-		/// cref="Gl.POST_COLOR_MATRIX_COLOR_TABLE"/>.
-		/// </param>
-		/// <param name="start">
-		/// The starting index of the portion of the color table to be replaced.
-		/// </param>
-		/// <param name="count">
-		/// The number of table entries to replace.
-		/// </param>
-		/// <param name="format">
-		/// The format of the pixel data in <paramref name="data"/>. The allowable values are <see cref="Gl.RED"/>, <see 
-		/// cref="Gl.GREEN"/>, <see cref="Gl.BLUE"/>, <see cref="Gl.ALPHA"/>, <see cref="Gl.LUMINANCE"/>, <see 
-		/// cref="Gl.LUMINANCE_ALPHA"/>, <see cref="Gl.RGB"/>, <see cref="Gl.BGR"/>, <see cref="Gl.RGBA"/>, and <see 
-		/// cref="Gl.BGRA"/>.
-		/// </param>
-		/// <param name="type">
-		/// The type of the pixel data in <paramref name="data"/>. The allowable values are <see cref="Gl.UNSIGNED_BYTE"/>, <see 
-		/// cref="Gl.BYTE"/>, <see cref="Gl.UNSIGNED_SHORT"/>, <see cref="Gl.SHORT"/>, <see cref="Gl.UNSIGNED_INT"/>, <see 
-		/// cref="Gl.INT"/>, <see cref="Gl.FLOAT"/>, <see cref="Gl.UNSIGNED_BYTE_3_3_2"/>, <see cref="Gl.UNSIGNED_BYTE_2_3_3_REV"/>, 
-		/// <see cref="Gl.UNSIGNED_SHORT_5_6_5"/>, <see cref="Gl.UNSIGNED_SHORT_5_6_5_REV"/>, <see 
-		/// cref="Gl.UNSIGNED_SHORT_4_4_4_4"/>, <see cref="Gl.UNSIGNED_SHORT_4_4_4_4_REV"/>, <see 
-		/// cref="Gl.UNSIGNED_SHORT_5_5_5_1"/>, <see cref="Gl.UNSIGNED_SHORT_1_5_5_5_REV"/>, <see cref="Gl.UNSIGNED_INT_8_8_8_8"/>, 
-		/// <see cref="Gl.UNSIGNED_INT_8_8_8_8_REV"/>, <see cref="Gl.UNSIGNED_INT_10_10_10_2"/>, and <see 
-		/// cref="Gl.UNSIGNED_INT_2_10_10_10_REV"/>.
-		/// </param>
-		/// <param name="data">
-		/// Pointer to a one-dimensional array of pixel data that is processed to replace the specified region of the color table.
-		/// </param>
-		[RequiredByFeature("GL_ARB_imaging")]
 		public static void ColorSubTable(int target, Int32 start, Int32 count, PixelFormat format, PixelType type, Object data)
 		{
 			GCHandle pin_data = GCHandle.Alloc(data, GCHandleType.Pinned);
@@ -1143,57 +1010,6 @@ namespace OpenGL
 		/// A <see cref="T:Object"/>.
 		/// </param>
 		[RequiredByFeature("GL_ARB_imaging")]
-		public static void ConvolutionFilter1D(int target, int internalformat, Int32 width, int format, int type, Object image)
-		{
-			GCHandle pin_image = GCHandle.Alloc(image, GCHandleType.Pinned);
-			try {
-				ConvolutionFilter1D(target, internalformat, width, format, type, pin_image.AddrOfPinnedObject());
-			} finally {
-				pin_image.Free();
-			}
-		}
-
-		/// <summary>
-		/// define a one-dimensional convolution filter
-		/// </summary>
-		/// <param name="target">
-		/// Must be <see cref="Gl.CONVOLUTION_1D"/>.
-		/// </param>
-		/// <param name="internalformat">
-		/// The internal format of the convolution filter kernel. The allowable values are <see cref="Gl.ALPHA"/>, <see 
-		/// cref="Gl.ALPHA4"/>, <see cref="Gl.ALPHA8"/>, <see cref="Gl.ALPHA12"/>, <see cref="Gl.ALPHA16"/>, <see 
-		/// cref="Gl.LUMINANCE"/>, <see cref="Gl.LUMINANCE4"/>, <see cref="Gl.LUMINANCE8"/>, <see cref="Gl.LUMINANCE12"/>, <see 
-		/// cref="Gl.LUMINANCE16"/>, <see cref="Gl.LUMINANCE_ALPHA"/>, <see cref="Gl.LUMINANCE4_ALPHA4"/>, <see 
-		/// cref="Gl.LUMINANCE6_ALPHA2"/>, <see cref="Gl.LUMINANCE8_ALPHA8"/>, <see cref="Gl.LUMINANCE12_ALPHA4"/>, <see 
-		/// cref="Gl.LUMINANCE12_ALPHA12"/>, <see cref="Gl.LUMINANCE16_ALPHA16"/>, <see cref="Gl.INTENSITY"/>, <see 
-		/// cref="Gl.INTENSITY4"/>, <see cref="Gl.INTENSITY8"/>, <see cref="Gl.INTENSITY12"/>, <see cref="Gl.INTENSITY16"/>, <see 
-		/// cref="Gl.R3_G3_B2"/>, <see cref="Gl.RGB"/>, <see cref="Gl.RGB4"/>, <see cref="Gl.RGB5"/>, <see cref="Gl.RGB8"/>, <see 
-		/// cref="Gl.RGB10"/>, <see cref="Gl.RGB12"/>, <see cref="Gl.RGB16"/>, <see cref="Gl.RGBA"/>, <see cref="Gl.RGBA2"/>, <see 
-		/// cref="Gl.RGBA4"/>, <see cref="Gl.RGB5_A1"/>, <see cref="Gl.RGBA8"/>, <see cref="Gl.RGB10_A2"/>, <see cref="Gl.RGBA12"/>, 
-		/// or <see cref="Gl.RGBA16"/>.
-		/// </param>
-		/// <param name="width">
-		/// The width of the pixel array referenced by <paramref name="data"/>.
-		/// </param>
-		/// <param name="format">
-		/// The format of the pixel data in <paramref name="data"/>. The allowable values are <see cref="Gl.ALPHA"/>, <see 
-		/// cref="Gl.LUMINANCE"/>, <see cref="Gl.LUMINANCE_ALPHA"/>, <see cref="Gl.INTENSITY"/>, <see cref="Gl.RGB"/>, and <see 
-		/// cref="Gl.RGBA"/>.
-		/// </param>
-		/// <param name="type">
-		/// The type of the pixel data in <paramref name="data"/>. Symbolic constants <see cref="Gl.UNSIGNED_BYTE"/>, <see 
-		/// cref="Gl.BYTE"/>, <see cref="Gl.BITMAP"/>, <see cref="Gl.UNSIGNED_SHORT"/>, <see cref="Gl.SHORT"/>, <see 
-		/// cref="Gl.UNSIGNED_INT"/>, <see cref="Gl.INT"/>, <see cref="Gl.FLOAT"/>, <see cref="Gl.UNSIGNED_BYTE_3_3_2"/>, <see 
-		/// cref="Gl.UNSIGNED_BYTE_2_3_3_REV"/>, <see cref="Gl.UNSIGNED_SHORT_5_6_5"/>, <see cref="Gl.UNSIGNED_SHORT_5_6_5_REV"/>, 
-		/// <see cref="Gl.UNSIGNED_SHORT_4_4_4_4"/>, <see cref="Gl.UNSIGNED_SHORT_4_4_4_4_REV"/>, <see 
-		/// cref="Gl.UNSIGNED_SHORT_5_5_5_1"/>, <see cref="Gl.UNSIGNED_SHORT_1_5_5_5_REV"/>, <see cref="Gl.UNSIGNED_INT_8_8_8_8"/>, 
-		/// <see cref="Gl.UNSIGNED_INT_8_8_8_8_REV"/>, <see cref="Gl.UNSIGNED_INT_10_10_10_2"/>, and <see 
-		/// cref="Gl.UNSIGNED_INT_2_10_10_10_REV"/> are accepted.
-		/// </param>
-		/// <param name="image">
-		/// A <see cref="T:Object"/>.
-		/// </param>
-		[RequiredByFeature("GL_ARB_imaging")]
 		public static void ConvolutionFilter1D(int target, int internalformat, Int32 width, PixelFormat format, PixelType type, Object image)
 		{
 			GCHandle pin_image = GCHandle.Alloc(image, GCHandleType.Pinned);
@@ -1259,60 +1075,6 @@ namespace OpenGL
 			} else
 				throw new NotImplementedException("glConvolutionFilter2D (and other aliases) are not implemented");
 			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// define a two-dimensional convolution filter
-		/// </summary>
-		/// <param name="target">
-		/// Must be <see cref="Gl.CONVOLUTION_2D"/>.
-		/// </param>
-		/// <param name="internalformat">
-		/// The internal format of the convolution filter kernel. The allowable values are <see cref="Gl.ALPHA"/>, <see 
-		/// cref="Gl.ALPHA4"/>, <see cref="Gl.ALPHA8"/>, <see cref="Gl.ALPHA12"/>, <see cref="Gl.ALPHA16"/>, <see 
-		/// cref="Gl.LUMINANCE"/>, <see cref="Gl.LUMINANCE4"/>, <see cref="Gl.LUMINANCE8"/>, <see cref="Gl.LUMINANCE12"/>, <see 
-		/// cref="Gl.LUMINANCE16"/>, <see cref="Gl.LUMINANCE_ALPHA"/>, <see cref="Gl.LUMINANCE4_ALPHA4"/>, <see 
-		/// cref="Gl.LUMINANCE6_ALPHA2"/>, <see cref="Gl.LUMINANCE8_ALPHA8"/>, <see cref="Gl.LUMINANCE12_ALPHA4"/>, <see 
-		/// cref="Gl.LUMINANCE12_ALPHA12"/>, <see cref="Gl.LUMINANCE16_ALPHA16"/>, <see cref="Gl.INTENSITY"/>, <see 
-		/// cref="Gl.INTENSITY4"/>, <see cref="Gl.INTENSITY8"/>, <see cref="Gl.INTENSITY12"/>, <see cref="Gl.INTENSITY16"/>, <see 
-		/// cref="Gl.R3_G3_B2"/>, <see cref="Gl.RGB"/>, <see cref="Gl.RGB4"/>, <see cref="Gl.RGB5"/>, <see cref="Gl.RGB8"/>, <see 
-		/// cref="Gl.RGB10"/>, <see cref="Gl.RGB12"/>, <see cref="Gl.RGB16"/>, <see cref="Gl.RGBA"/>, <see cref="Gl.RGBA2"/>, <see 
-		/// cref="Gl.RGBA4"/>, <see cref="Gl.RGB5_A1"/>, <see cref="Gl.RGBA8"/>, <see cref="Gl.RGB10_A2"/>, <see cref="Gl.RGBA12"/>, 
-		/// or <see cref="Gl.RGBA16"/>.
-		/// </param>
-		/// <param name="width">
-		/// The width of the pixel array referenced by <paramref name="data"/>.
-		/// </param>
-		/// <param name="height">
-		/// The height of the pixel array referenced by <paramref name="data"/>.
-		/// </param>
-		/// <param name="format">
-		/// The format of the pixel data in <paramref name="data"/>. The allowable values are <see cref="Gl.RED"/>, <see 
-		/// cref="Gl.GREEN"/>, <see cref="Gl.BLUE"/>, <see cref="Gl.ALPHA"/>, <see cref="Gl.RGB"/>, <see cref="Gl.BGR"/>, <see 
-		/// cref="Gl.RGBA"/>, <see cref="Gl.BGRA"/>, <see cref="Gl.LUMINANCE"/>, and <see cref="Gl.LUMINANCE_ALPHA"/>.
-		/// </param>
-		/// <param name="type">
-		/// The type of the pixel data in <paramref name="data"/>. Symbolic constants <see cref="Gl.UNSIGNED_BYTE"/>, <see 
-		/// cref="Gl.BYTE"/>, <see cref="Gl.BITMAP"/>, <see cref="Gl.UNSIGNED_SHORT"/>, <see cref="Gl.SHORT"/>, <see 
-		/// cref="Gl.UNSIGNED_INT"/>, <see cref="Gl.INT"/>, <see cref="Gl.FLOAT"/>, <see cref="Gl.UNSIGNED_BYTE_3_3_2"/>, <see 
-		/// cref="Gl.UNSIGNED_BYTE_2_3_3_REV"/>, <see cref="Gl.UNSIGNED_SHORT_5_6_5"/>, <see cref="Gl.UNSIGNED_SHORT_5_6_5_REV"/>, 
-		/// <see cref="Gl.UNSIGNED_SHORT_4_4_4_4"/>, <see cref="Gl.UNSIGNED_SHORT_4_4_4_4_REV"/>, <see 
-		/// cref="Gl.UNSIGNED_SHORT_5_5_5_1"/>, <see cref="Gl.UNSIGNED_SHORT_1_5_5_5_REV"/>, <see cref="Gl.UNSIGNED_INT_8_8_8_8"/>, 
-		/// <see cref="Gl.UNSIGNED_INT_8_8_8_8_REV"/>, <see cref="Gl.UNSIGNED_INT_10_10_10_2"/>, and <see 
-		/// cref="Gl.UNSIGNED_INT_2_10_10_10_REV"/> are accepted.
-		/// </param>
-		/// <param name="image">
-		/// A <see cref="T:Object"/>.
-		/// </param>
-		[RequiredByFeature("GL_ARB_imaging")]
-		public static void ConvolutionFilter2D(int target, int internalformat, Int32 width, Int32 height, int format, int type, Object image)
-		{
-			GCHandle pin_image = GCHandle.Alloc(image, GCHandleType.Pinned);
-			try {
-				ConvolutionFilter2D(target, internalformat, width, height, format, type, pin_image.AddrOfPinnedObject());
-			} finally {
-				pin_image.Free();
-			}
 		}
 
 		/// <summary>
@@ -1632,41 +1394,6 @@ namespace OpenGL
 		/// Pointer to storage for the output image.
 		/// </param>
 		[RequiredByFeature("GL_ARB_imaging")]
-		public static void GetConvolutionFilter(int target, int format, int type, Object image)
-		{
-			GCHandle pin_image = GCHandle.Alloc(image, GCHandleType.Pinned);
-			try {
-				GetConvolutionFilter(target, format, type, pin_image.AddrOfPinnedObject());
-			} finally {
-				pin_image.Free();
-			}
-		}
-
-		/// <summary>
-		/// get current 1D or 2D convolution filter kernel
-		/// </summary>
-		/// <param name="target">
-		/// The filter to be retrieved. Must be one of <see cref="Gl.CONVOLUTION_1D"/> or <see cref="Gl.CONVOLUTION_2D"/>.
-		/// </param>
-		/// <param name="format">
-		/// Format of the output image. Must be one of <see cref="Gl.RED"/>, <see cref="Gl.GREEN"/>, <see cref="Gl.BLUE"/>, <see 
-		/// cref="Gl.ALPHA"/>, <see cref="Gl.RGB"/>, <see cref="Gl.BGR"/>, <see cref="Gl.RGBA"/>, <see cref="Gl.BGRA"/>, <see 
-		/// cref="Gl.LUMINANCE"/>, or <see cref="Gl.LUMINANCE_ALPHA"/>.
-		/// </param>
-		/// <param name="type">
-		/// Data type of components in the output image. Symbolic constants <see cref="Gl.UNSIGNED_BYTE"/>, <see cref="Gl.BYTE"/>, 
-		/// <see cref="Gl.BITMAP"/>, <see cref="Gl.UNSIGNED_SHORT"/>, <see cref="Gl.SHORT"/>, <see cref="Gl.UNSIGNED_INT"/>, <see 
-		/// cref="Gl.INT"/>, <see cref="Gl.FLOAT"/>, <see cref="Gl.UNSIGNED_BYTE_3_3_2"/>, <see cref="Gl.UNSIGNED_BYTE_2_3_3_REV"/>, 
-		/// <see cref="Gl.UNSIGNED_SHORT_5_6_5"/>, <see cref="Gl.UNSIGNED_SHORT_5_6_5_REV"/>, <see 
-		/// cref="Gl.UNSIGNED_SHORT_4_4_4_4"/>, <see cref="Gl.UNSIGNED_SHORT_4_4_4_4_REV"/>, <see 
-		/// cref="Gl.UNSIGNED_SHORT_5_5_5_1"/>, <see cref="Gl.UNSIGNED_SHORT_1_5_5_5_REV"/>, <see cref="Gl.UNSIGNED_INT_8_8_8_8"/>, 
-		/// <see cref="Gl.UNSIGNED_INT_8_8_8_8_REV"/>, <see cref="Gl.UNSIGNED_INT_10_10_10_2"/>, and <see 
-		/// cref="Gl.UNSIGNED_INT_2_10_10_10_REV"/> are accepted.
-		/// </param>
-		/// <param name="image">
-		/// Pointer to storage for the output image.
-		/// </param>
-		[RequiredByFeature("GL_ARB_imaging")]
 		public static void GetConvolutionFilter(int target, PixelFormat format, PixelType type, Object image)
 		{
 			GCHandle pin_image = GCHandle.Alloc(image, GCHandleType.Pinned);
@@ -1774,51 +1501,6 @@ namespace OpenGL
 			Delegates.pglGetSeparableFilter(target, (int)format, (int)type, row, column, span);
 			CallLog("glGetSeparableFilter({0}, {1}, {2}, {3}, {4}, {5})", target, format, type, row, column, span);
 			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// get separable convolution filter kernel images
-		/// </summary>
-		/// <param name="target">
-		/// The separable filter to be retrieved. Must be <see cref="Gl.SEPARABLE_2D"/>.
-		/// </param>
-		/// <param name="format">
-		/// Format of the output images. Must be one of <see cref="Gl.RED"/>, <see cref="Gl.GREEN"/>, <see cref="Gl.BLUE"/>, <see 
-		/// cref="Gl.ALPHA"/>, <see cref="Gl.RGB"/>, <see cref="Gl.BGR"/><see cref="Gl.RGBA"/>, <see cref="Gl.BGRA"/>, <see 
-		/// cref="Gl.LUMINANCE"/>, or <see cref="Gl.LUMINANCE_ALPHA"/>.
-		/// </param>
-		/// <param name="type">
-		/// Data type of components in the output images. Symbolic constants <see cref="Gl.UNSIGNED_BYTE"/>, <see cref="Gl.BYTE"/>, 
-		/// <see cref="Gl.BITMAP"/>, <see cref="Gl.UNSIGNED_SHORT"/>, <see cref="Gl.SHORT"/>, <see cref="Gl.UNSIGNED_INT"/>, <see 
-		/// cref="Gl.INT"/>, <see cref="Gl.FLOAT"/>, <see cref="Gl.UNSIGNED_BYTE_3_3_2"/>, <see cref="Gl.UNSIGNED_BYTE_2_3_3_REV"/>, 
-		/// <see cref="Gl.UNSIGNED_SHORT_5_6_5"/>, <see cref="Gl.UNSIGNED_SHORT_5_6_5_REV"/>, <see 
-		/// cref="Gl.UNSIGNED_SHORT_4_4_4_4"/>, <see cref="Gl.UNSIGNED_SHORT_4_4_4_4_REV"/>, <see 
-		/// cref="Gl.UNSIGNED_SHORT_5_5_5_1"/>, <see cref="Gl.UNSIGNED_SHORT_1_5_5_5_REV"/>, <see cref="Gl.UNSIGNED_INT_8_8_8_8"/>, 
-		/// <see cref="Gl.UNSIGNED_INT_8_8_8_8_REV"/>, <see cref="Gl.UNSIGNED_INT_10_10_10_2"/>, and <see 
-		/// cref="Gl.UNSIGNED_INT_2_10_10_10_REV"/> are accepted.
-		/// </param>
-		/// <param name="row">
-		/// Pointer to storage for the row filter image.
-		/// </param>
-		/// <param name="column">
-		/// Pointer to storage for the column filter image.
-		/// </param>
-		/// <param name="span">
-		/// Pointer to storage for the span filter image (currently unused).
-		/// </param>
-		[RequiredByFeature("GL_ARB_imaging")]
-		public static void GetSeparableFilter(int target, int format, int type, Object row, Object column, Object span)
-		{
-			GCHandle pin_row = GCHandle.Alloc(row, GCHandleType.Pinned);
-			GCHandle pin_column = GCHandle.Alloc(column, GCHandleType.Pinned);
-			GCHandle pin_span = GCHandle.Alloc(span, GCHandleType.Pinned);
-			try {
-				GetSeparableFilter(target, format, type, pin_row.AddrOfPinnedObject(), pin_column.AddrOfPinnedObject(), pin_span.AddrOfPinnedObject());
-			} finally {
-				pin_row.Free();
-				pin_column.Free();
-				pin_span.Free();
-			}
 		}
 
 		/// <summary>
@@ -1981,69 +1663,6 @@ namespace OpenGL
 		/// Pointer to a one-dimensional array of pixel data that is processed to build the column filter kernel.
 		/// </param>
 		[RequiredByFeature("GL_ARB_imaging")]
-		public static void SeparableFilter2D(int target, int internalformat, Int32 width, Int32 height, int format, int type, Object row, Object column)
-		{
-			GCHandle pin_row = GCHandle.Alloc(row, GCHandleType.Pinned);
-			GCHandle pin_column = GCHandle.Alloc(column, GCHandleType.Pinned);
-			try {
-				SeparableFilter2D(target, internalformat, width, height, format, type, pin_row.AddrOfPinnedObject(), pin_column.AddrOfPinnedObject());
-			} finally {
-				pin_row.Free();
-				pin_column.Free();
-			}
-		}
-
-		/// <summary>
-		/// define a separable two-dimensional convolution filter
-		/// </summary>
-		/// <param name="target">
-		/// Must be <see cref="Gl.SEPARABLE_2D"/>.
-		/// </param>
-		/// <param name="internalformat">
-		/// The internal format of the convolution filter kernel. The allowable values are <see cref="Gl.ALPHA"/>, <see 
-		/// cref="Gl.ALPHA4"/>, <see cref="Gl.ALPHA8"/>, <see cref="Gl.ALPHA12"/>, <see cref="Gl.ALPHA16"/>, <see 
-		/// cref="Gl.LUMINANCE"/>, <see cref="Gl.LUMINANCE4"/>, <see cref="Gl.LUMINANCE8"/>, <see cref="Gl.LUMINANCE12"/>, <see 
-		/// cref="Gl.LUMINANCE16"/>, <see cref="Gl.LUMINANCE_ALPHA"/>, <see cref="Gl.LUMINANCE4_ALPHA4"/>, <see 
-		/// cref="Gl.LUMINANCE6_ALPHA2"/>, <see cref="Gl.LUMINANCE8_ALPHA8"/>, <see cref="Gl.LUMINANCE12_ALPHA4"/>, <see 
-		/// cref="Gl.LUMINANCE12_ALPHA12"/>, <see cref="Gl.LUMINANCE16_ALPHA16"/>, <see cref="Gl.INTENSITY"/>, <see 
-		/// cref="Gl.INTENSITY4"/>, <see cref="Gl.INTENSITY8"/>, <see cref="Gl.INTENSITY12"/>, <see cref="Gl.INTENSITY16"/>, <see 
-		/// cref="Gl.R3_G3_B2"/>, <see cref="Gl.RGB"/>, <see cref="Gl.RGB4"/>, <see cref="Gl.RGB5"/>, <see cref="Gl.RGB8"/>, <see 
-		/// cref="Gl.RGB10"/>, <see cref="Gl.RGB12"/>, <see cref="Gl.RGB16"/>, <see cref="Gl.RGBA"/>, <see cref="Gl.RGBA2"/>, <see 
-		/// cref="Gl.RGBA4"/>, <see cref="Gl.RGB5_A1"/>, <see cref="Gl.RGBA8"/>, <see cref="Gl.RGB10_A2"/>, <see cref="Gl.RGBA12"/>, 
-		/// or <see cref="Gl.RGBA16"/>.
-		/// </param>
-		/// <param name="width">
-		/// The number of elements in the pixel array referenced by <paramref name="row"/>. (This is the width of the separable 
-		/// filter kernel.)
-		/// </param>
-		/// <param name="height">
-		/// The number of elements in the pixel array referenced by <paramref name="column"/>. (This is the height of the separable 
-		/// filter kernel.)
-		/// </param>
-		/// <param name="format">
-		/// The format of the pixel data in <paramref name="row"/> and <paramref name="column"/>. The allowable values are <see 
-		/// cref="Gl.RED"/>, <see cref="Gl.GREEN"/>, <see cref="Gl.BLUE"/>, <see cref="Gl.ALPHA"/>, <see cref="Gl.RGB"/>, <see 
-		/// cref="Gl.BGR"/>, <see cref="Gl.RGBA"/>, <see cref="Gl.BGRA"/>, <see cref="Gl.INTENSITY"/>, <see cref="Gl.LUMINANCE"/>, 
-		/// and <see cref="Gl.LUMINANCE_ALPHA"/>.
-		/// </param>
-		/// <param name="type">
-		/// The type of the pixel data in <paramref name="row"/> and <paramref name="column"/>. Symbolic constants <see 
-		/// cref="Gl.UNSIGNED_BYTE"/>, <see cref="Gl.BYTE"/>, <see cref="Gl.BITMAP"/>, <see cref="Gl.UNSIGNED_SHORT"/>, <see 
-		/// cref="Gl.SHORT"/>, <see cref="Gl.UNSIGNED_INT"/>, <see cref="Gl.INT"/>, <see cref="Gl.FLOAT"/>, <see 
-		/// cref="Gl.UNSIGNED_BYTE_3_3_2"/>, <see cref="Gl.UNSIGNED_BYTE_2_3_3_REV"/>, <see cref="Gl.UNSIGNED_SHORT_5_6_5"/>, <see 
-		/// cref="Gl.UNSIGNED_SHORT_5_6_5_REV"/>, <see cref="Gl.UNSIGNED_SHORT_4_4_4_4"/>, <see 
-		/// cref="Gl.UNSIGNED_SHORT_4_4_4_4_REV"/>, <see cref="Gl.UNSIGNED_SHORT_5_5_5_1"/>, <see 
-		/// cref="Gl.UNSIGNED_SHORT_1_5_5_5_REV"/>, <see cref="Gl.UNSIGNED_INT_8_8_8_8"/>, <see 
-		/// cref="Gl.UNSIGNED_INT_8_8_8_8_REV"/>, <see cref="Gl.UNSIGNED_INT_10_10_10_2"/>, and <see 
-		/// cref="Gl.UNSIGNED_INT_2_10_10_10_REV"/> are accepted.
-		/// </param>
-		/// <param name="row">
-		/// Pointer to a one-dimensional array of pixel data that is processed to build the row filter kernel.
-		/// </param>
-		/// <param name="column">
-		/// Pointer to a one-dimensional array of pixel data that is processed to build the column filter kernel.
-		/// </param>
-		[RequiredByFeature("GL_ARB_imaging")]
 		public static void SeparableFilter2D(int target, int internalformat, Int32 width, Int32 height, PixelFormat format, PixelType type, Object row, Object column)
 		{
 			GCHandle pin_row = GCHandle.Alloc(row, GCHandleType.Pinned);
@@ -2091,45 +1710,6 @@ namespace OpenGL
 			Delegates.pglGetHistogram(target, reset, (int)format, (int)type, values);
 			CallLog("glGetHistogram({0}, {1}, {2}, {3}, {4})", target, reset, format, type, values);
 			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// get histogram table
-		/// </summary>
-		/// <param name="target">
-		/// Must be <see cref="Gl.HISTOGRAM"/>.
-		/// </param>
-		/// <param name="reset">
-		/// If <see cref="Gl.TRUE"/>, each component counter that is actually returned is reset to zero. (Other counters are 
-		/// unaffected.) If <see cref="Gl.FALSE"/>, none of the counters in the histogram table is modified.
-		/// </param>
-		/// <param name="format">
-		/// The format of values to be returned in <paramref name="values"/>. Must be one of <see cref="Gl.RED"/>, <see 
-		/// cref="Gl.GREEN"/>, <see cref="Gl.BLUE"/>, <see cref="Gl.ALPHA"/>, <see cref="Gl.RGB"/>, <see cref="Gl.BGR"/>, <see 
-		/// cref="Gl.RGBA"/>, <see cref="Gl.BGRA"/>, <see cref="Gl.LUMINANCE"/>, or <see cref="Gl.LUMINANCE_ALPHA"/>.
-		/// </param>
-		/// <param name="type">
-		/// The type of values to be returned in <paramref name="values"/>. Symbolic constants <see cref="Gl.UNSIGNED_BYTE"/>, <see 
-		/// cref="Gl.BYTE"/>, <see cref="Gl.BITMAP"/>, <see cref="Gl.UNSIGNED_SHORT"/>, <see cref="Gl.SHORT"/>, <see 
-		/// cref="Gl.UNSIGNED_INT"/>, <see cref="Gl.INT"/>, <see cref="Gl.FLOAT"/>, <see cref="Gl.UNSIGNED_BYTE_3_3_2"/>, <see 
-		/// cref="Gl.UNSIGNED_BYTE_2_3_3_REV"/>, <see cref="Gl.UNSIGNED_SHORT_5_6_5"/>, <see cref="Gl.UNSIGNED_SHORT_5_6_5_REV"/>, 
-		/// <see cref="Gl.UNSIGNED_SHORT_4_4_4_4"/>, <see cref="Gl.UNSIGNED_SHORT_4_4_4_4_REV"/>, <see 
-		/// cref="Gl.UNSIGNED_SHORT_5_5_5_1"/>, <see cref="Gl.UNSIGNED_SHORT_1_5_5_5_REV"/>, <see cref="Gl.UNSIGNED_INT_8_8_8_8"/>, 
-		/// <see cref="Gl.UNSIGNED_INT_8_8_8_8_REV"/>, <see cref="Gl.UNSIGNED_INT_10_10_10_2"/>, and <see 
-		/// cref="Gl.UNSIGNED_INT_2_10_10_10_REV"/> are accepted.
-		/// </param>
-		/// <param name="values">
-		/// A pointer to storage for the returned histogram table.
-		/// </param>
-		[RequiredByFeature("GL_ARB_imaging")]
-		public static void GetHistogram(int target, bool reset, int format, int type, Object values)
-		{
-			GCHandle pin_values = GCHandle.Alloc(values, GCHandleType.Pinned);
-			try {
-				GetHistogram(target, reset, format, type, pin_values.AddrOfPinnedObject());
-			} finally {
-				pin_values.Free();
-			}
 		}
 
 		/// <summary>
@@ -2257,38 +1837,6 @@ namespace OpenGL
 			Delegates.pglGetMinmax(target, reset, (int)format, (int)type, values);
 			CallLog("glGetMinmax({0}, {1}, {2}, {3}, {4})", target, reset, format, type, values);
 			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// get minimum and maximum pixel values
-		/// </summary>
-		/// <param name="target">
-		/// Must be <see cref="Gl.MINMAX"/>.
-		/// </param>
-		/// <param name="reset">
-		/// If <see cref="Gl.TRUE"/>, all entries in the minmax table that are actually returned are reset to their initial values. 
-		/// (Other entries are unaltered.) If <see cref="Gl.FALSE"/>, the minmax table is unaltered.
-		/// </param>
-		/// <param name="format">
-		/// The format of the data to be returned in <paramref name="values"/>. Must be one of <see cref="Gl.RED"/>, <see 
-		/// cref="Gl.GREEN"/>, <see cref="Gl.BLUE"/>, <see cref="Gl.ALPHA"/>, <see cref="Gl.RGB"/>, <see cref="Gl.BGR"/>, <see 
-		/// cref="Gl.RGBA"/>, <see cref="Gl.BGRA"/>, <see cref="Gl.LUMINANCE"/>, or <see cref="Gl.LUMINANCE_ALPHA"/>.
-		/// </param>
-		/// <param name="type">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="values">
-		/// A pointer to storage for the returned values.
-		/// </param>
-		[RequiredByFeature("GL_ARB_imaging")]
-		public static void GetMinmax(int target, bool reset, int format, int type, Object values)
-		{
-			GCHandle pin_values = GCHandle.Alloc(values, GCHandleType.Pinned);
-			try {
-				GetMinmax(target, reset, format, type, pin_values.AddrOfPinnedObject());
-			} finally {
-				pin_values.Free();
-			}
 		}
 
 		/// <summary>

@@ -155,38 +155,6 @@ namespace OpenGL
 		/// Binding for glColorTableSGI.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="internalformat">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="width">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="format">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="type">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="table">
-		/// A <see cref="T:Object"/>.
-		/// </param>
-		[RequiredByFeature("GL_SGI_color_table")]
-		public static void ColorTableSGI(int target, int internalformat, Int32 width, int format, int type, Object table)
-		{
-			GCHandle pin_table = GCHandle.Alloc(table, GCHandleType.Pinned);
-			try {
-				ColorTableSGI(target, internalformat, width, format, type, pin_table.AddrOfPinnedObject());
-			} finally {
-				pin_table.Free();
-			}
-		}
-
-		/// <summary>
-		/// Binding for glColorTableSGI.
-		/// </summary>
-		/// <param name="target">
 		/// A <see cref="T:ColorTableTargetSGI"/>.
 		/// </param>
 		/// <param name="internalformat">
@@ -316,32 +284,6 @@ namespace OpenGL
 			Delegates.pglGetColorTableSGI((int)target, (int)format, (int)type, table);
 			CallLog("glGetColorTableSGI({0}, {1}, {2}, {3})", target, format, type, table);
 			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// Binding for glGetColorTableSGI.
-		/// </summary>
-		/// <param name="target">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="format">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="type">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="table">
-		/// A <see cref="T:Object"/>.
-		/// </param>
-		[RequiredByFeature("GL_SGI_color_table")]
-		public static void GetColorTableSGI(int target, int format, int type, Object table)
-		{
-			GCHandle pin_table = GCHandle.Alloc(table, GCHandleType.Pinned);
-			try {
-				GetColorTableSGI(target, format, type, pin_table.AddrOfPinnedObject());
-			} finally {
-				pin_table.Free();
-			}
 		}
 
 		/// <summary>

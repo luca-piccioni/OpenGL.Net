@@ -874,40 +874,21 @@ namespace OpenGL
 		/// Specifies the name of the pointer to be returned. Must be GL_BUFFER_MAP_POINTER.
 		/// </param>
 		/// <param name="params">
-		/// A <see cref="T:IntPtr"/>.
+		/// A <see cref="T:IntPtr[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_direct_state_access")]
-		public static void GetNamedBufferPointer(UInt32 buffer, int pname, IntPtr @params)
+		public static void GetNamedBufferPointer(UInt32 buffer, int pname, IntPtr[] @params)
 		{
-			Debug.Assert(Delegates.pglGetNamedBufferPointerv != null, "pglGetNamedBufferPointerv not implemented");
-			Delegates.pglGetNamedBufferPointerv(buffer, pname, @params);
-			CallLog("glGetNamedBufferPointerv({0}, {1}, {2})", buffer, pname, @params);
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// return the pointer to a mapped buffer object's data store
-		/// </summary>
-		/// <param name="buffer">
-		/// Specifies the name of the buffer object for glGetNamedBufferPointerv.
-		/// </param>
-		/// <param name="pname">
-		/// Specifies the name of the pointer to be returned. Must be GL_BUFFER_MAP_POINTER.
-		/// </param>
-		/// <param name="params">
-		/// A <see cref="T:Object"/>.
-		/// </param>
-		[RequiredByFeature("GL_VERSION_4_5")]
-		[RequiredByFeature("GL_ARB_direct_state_access")]
-		public static void GetNamedBufferPointer(UInt32 buffer, int pname, Object @params)
-		{
-			GCHandle pin_params = GCHandle.Alloc(@params, GCHandleType.Pinned);
-			try {
-				GetNamedBufferPointer(buffer, pname, pin_params.AddrOfPinnedObject());
-			} finally {
-				pin_params.Free();
+			unsafe {
+				fixed (IntPtr* p_params = @params)
+				{
+					Debug.Assert(Delegates.pglGetNamedBufferPointerv != null, "pglGetNamedBufferPointerv not implemented");
+					Delegates.pglGetNamedBufferPointerv(buffer, pname, p_params);
+					CallLog("glGetNamedBufferPointerv({0}, {1}, {2})", buffer, pname, @params);
+				}
 			}
+			DebugCheckErrors();
 		}
 
 		/// <summary>

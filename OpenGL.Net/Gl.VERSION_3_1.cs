@@ -547,37 +547,6 @@ namespace OpenGL
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_3_1")]
-		public static void DrawElementsInstanced(int mode, Int32 count, int type, Object indices, Int32 instancecount)
-		{
-			GCHandle pin_indices = GCHandle.Alloc(indices, GCHandleType.Pinned);
-			try {
-				DrawElementsInstanced(mode, count, type, pin_indices.AddrOfPinnedObject(), instancecount);
-			} finally {
-				pin_indices.Free();
-			}
-		}
-
-		/// <summary>
-		/// draw multiple instances of a set of elements
-		/// </summary>
-		/// <param name="mode">
-		/// Specifies what kind of primitives to render. Symbolic constants GL_POINTS, GL_LINE_STRIP, GL_LINE_LOOP, GL_LINES, 
-		/// GL_LINE_STRIP_ADJACENCY, GL_LINES_ADJACENCY, GL_TRIANGLE_STRIP, GL_TRIANGLE_FAN, GL_TRIANGLES, 
-		/// GL_TRIANGLE_STRIP_ADJACENCY, GL_TRIANGLES_ADJACENCY and GL_PATCHES are accepted.
-		/// </param>
-		/// <param name="count">
-		/// Specifies the number of elements to be rendered.
-		/// </param>
-		/// <param name="type">
-		/// Specifies the type of the values in indices. Must be one of GL_UNSIGNED_BYTE, GL_UNSIGNED_SHORT, or GL_UNSIGNED_INT.
-		/// </param>
-		/// <param name="indices">
-		/// Specifies a pointer to the location where the indices are stored.
-		/// </param>
-		/// <param name="instancecount">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		[RequiredByFeature("GL_VERSION_3_1")]
 		public static void DrawElementsInstanced(PrimitiveType mode, Int32 count, int type, Object indices, Int32 instancecount)
 		{
 			GCHandle pin_indices = GCHandle.Alloc(indices, GCHandleType.Pinned);

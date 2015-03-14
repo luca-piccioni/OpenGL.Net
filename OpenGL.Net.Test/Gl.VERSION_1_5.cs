@@ -93,7 +93,7 @@ namespace OpenGL.Test
 		}
 
 		/// <summary>
-		/// 
+		/// Test Gl.MapBuffer.
 		/// </summary>
 		[Test]
 		public void TestMapBuffer()
@@ -130,8 +130,8 @@ namespace OpenGL.Test
 					Gl.GetBufferParameter(BufferTargetARB.ArrayBuffer, Gl.BUFFER_ACCESS, out arrayBufferPtrParam);
 					Assert.AreEqual((int)BufferAccessARB.ReadOnly, arrayBufferPtrParam);
 
-					Gl.GetBufferPointer(BufferTargetARB.ArrayBuffer, Gl.BUFFER_MAP_POINTER, arrayBufferPtrGet);
-
+					Gl.GetBufferPointer(BufferTargetARB.ArrayBuffer, Gl.BUFFER_MAP_POINTER, out arrayBufferPtrGet);
+					Assert.AreEqual(arrayBufferPtr, arrayBufferPtrGet);
 				} finally {
 					Gl.UnmapBuffer(BufferTargetARB.ArrayBuffer);
 				}

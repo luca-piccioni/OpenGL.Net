@@ -4622,34 +4622,6 @@ namespace OpenGL
 		/// Specifies a pointer to the location where the indices are stored.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_1_1")]
-		public static void DrawElements(int mode, Int32 count, int type, Object indices)
-		{
-			GCHandle pin_indices = GCHandle.Alloc(indices, GCHandleType.Pinned);
-			try {
-				DrawElements(mode, count, type, pin_indices.AddrOfPinnedObject());
-			} finally {
-				pin_indices.Free();
-			}
-		}
-
-		/// <summary>
-		/// render primitives from array data
-		/// </summary>
-		/// <param name="mode">
-		/// Specifies what kind of primitives to render. Symbolic constants GL_POINTS, GL_LINE_STRIP, GL_LINE_LOOP, GL_LINES, 
-		/// GL_LINE_STRIP_ADJACENCY, GL_LINES_ADJACENCY, GL_TRIANGLE_STRIP, GL_TRIANGLE_FAN, GL_TRIANGLES, 
-		/// GL_TRIANGLE_STRIP_ADJACENCY, GL_TRIANGLES_ADJACENCY and GL_PATCHES are accepted.
-		/// </param>
-		/// <param name="count">
-		/// Specifies the number of elements to be rendered.
-		/// </param>
-		/// <param name="type">
-		/// Specifies the type of the values in indices. Must be one of GL_UNSIGNED_BYTE, GL_UNSIGNED_SHORT, or GL_UNSIGNED_INT.
-		/// </param>
-		/// <param name="indices">
-		/// Specifies a pointer to the location where the indices are stored.
-		/// </param>
-		[RequiredByFeature("GL_VERSION_1_1")]
 		public static void DrawElements(PrimitiveType mode, Int32 count, int type, Object indices)
 		{
 			GCHandle pin_indices = GCHandle.Alloc(indices, GCHandleType.Pinned);
@@ -4673,43 +4645,25 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_KHR_debug")]
 		[RemovedByFeature("GL_VERSION_3_2")]
-		public static void GetPointer(GetPointervPName pname, IntPtr @params)
+		public static void GetPointer(GetPointervPName pname, out IntPtr @params)
 		{
-			if        (Delegates.pglGetPointerv != null) {
-				Delegates.pglGetPointerv((int)pname, @params);
-				CallLog("glGetPointerv({0}, {1})", pname, @params);
-			} else if (Delegates.pglGetPointervEXT != null) {
-				Delegates.pglGetPointervEXT((int)pname, @params);
-				CallLog("glGetPointervEXT({0}, {1})", pname, @params);
-			} else if (Delegates.pglGetPointervKHR != null) {
-				Delegates.pglGetPointervKHR((int)pname, @params);
-				CallLog("glGetPointervKHR({0}, {1})", pname, @params);
-			} else
-				throw new NotImplementedException("glGetPointerv (and other aliases) are not implemented");
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// return the address of the specified pointer
-		/// </summary>
-		/// <param name="pname">
-		/// Specifies the pointer to be returned. Must be one of GL_DEBUG_CALLBACK_FUNCTION or GL_DEBUG_CALLBACK_USER_PARAM.
-		/// </param>
-		/// <param name="params">
-		/// A <see cref="T:Object"/>.
-		/// </param>
-		[RequiredByFeature("GL_VERSION_1_1")]
-		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_KHR_debug")]
-		[RemovedByFeature("GL_VERSION_3_2")]
-		public static void GetPointer(int pname, Object @params)
-		{
-			GCHandle pin_params = GCHandle.Alloc(@params, GCHandleType.Pinned);
-			try {
-				GetPointer(pname, pin_params.AddrOfPinnedObject());
-			} finally {
-				pin_params.Free();
+			unsafe {
+				fixed (IntPtr* p_params = &@params)
+				{
+					if        (Delegates.pglGetPointerv != null) {
+						Delegates.pglGetPointerv((int)pname, p_params);
+						CallLog("glGetPointerv({0}, {1})", pname, @params);
+					} else if (Delegates.pglGetPointervEXT != null) {
+						Delegates.pglGetPointervEXT((int)pname, p_params);
+						CallLog("glGetPointervEXT({0}, {1})", pname, @params);
+					} else if (Delegates.pglGetPointervKHR != null) {
+						Delegates.pglGetPointervKHR((int)pname, p_params);
+						CallLog("glGetPointervKHR({0}, {1})", pname, @params);
+					} else
+						throw new NotImplementedException("glGetPointerv (and other aliases) are not implemented");
+				}
 			}
+			DebugCheckErrors();
 		}
 
 		/// <summary>
@@ -5018,46 +4972,6 @@ namespace OpenGL
 		/// Specifies a pointer to the image data in memory.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_1_1")]
-		public static void TexSubImage1D(int target, Int32 level, Int32 xoffset, Int32 width, int format, int type, Object pixels)
-		{
-			GCHandle pin_pixels = GCHandle.Alloc(pixels, GCHandleType.Pinned);
-			try {
-				TexSubImage1D(target, level, xoffset, width, format, type, pin_pixels.AddrOfPinnedObject());
-			} finally {
-				pin_pixels.Free();
-			}
-		}
-
-		/// <summary>
-		/// specify a one-dimensional texture subimage
-		/// </summary>
-		/// <param name="target">
-		/// Specifies the target to which the texture is bound for glTexSubImage1D. Must be GL_TEXTURE_1D.
-		/// </param>
-		/// <param name="level">
-		/// Specifies the level-of-detail number. Level 0 is the base image level. Level n is the nth mipmap reduction image.
-		/// </param>
-		/// <param name="xoffset">
-		/// Specifies a texel offset in the x direction within the texture array.
-		/// </param>
-		/// <param name="width">
-		/// Specifies the width of the texture subimage.
-		/// </param>
-		/// <param name="format">
-		/// Specifies the format of the pixel data. The following symbolic values are accepted: GL_RED, GL_RG, GL_RGB, GL_BGR, 
-		/// GL_RGBA, GL_DEPTH_COMPONENT, and GL_STENCIL_INDEX.
-		/// </param>
-		/// <param name="type">
-		/// Specifies the data type of the pixel data. The following symbolic values are accepted: GL_UNSIGNED_BYTE, GL_BYTE, 
-		/// GL_UNSIGNED_SHORT, GL_SHORT, GL_UNSIGNED_INT, GL_INT, GL_FLOAT, GL_UNSIGNED_BYTE_3_3_2, GL_UNSIGNED_BYTE_2_3_3_REV, 
-		/// GL_UNSIGNED_SHORT_5_6_5, GL_UNSIGNED_SHORT_5_6_5_REV, GL_UNSIGNED_SHORT_4_4_4_4, GL_UNSIGNED_SHORT_4_4_4_4_REV, 
-		/// GL_UNSIGNED_SHORT_5_5_5_1, GL_UNSIGNED_SHORT_1_5_5_5_REV, GL_UNSIGNED_INT_8_8_8_8, GL_UNSIGNED_INT_8_8_8_8_REV, 
-		/// GL_UNSIGNED_INT_10_10_10_2, and GL_UNSIGNED_INT_2_10_10_10_REV.
-		/// </param>
-		/// <param name="pixels">
-		/// Specifies a pointer to the image data in memory.
-		/// </param>
-		[RequiredByFeature("GL_VERSION_1_1")]
 		public static void TexSubImage1D(TextureTarget target, Int32 level, Int32 xoffset, Int32 width, PixelFormat format, PixelType type, Object pixels)
 		{
 			GCHandle pin_pixels = GCHandle.Alloc(pixels, GCHandleType.Pinned);
@@ -5117,54 +5031,6 @@ namespace OpenGL
 			} else
 				throw new NotImplementedException("glTexSubImage2D (and other aliases) are not implemented");
 			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// specify a two-dimensional texture subimage
-		/// </summary>
-		/// <param name="target">
-		/// Specifies the target to which the texture is bound for glTexSubImage2D. Must be GL_TEXTURE_2D, 
-		/// GL_TEXTURE_CUBE_MAP_POSITIVE_X, GL_TEXTURE_CUBE_MAP_NEGATIVE_X, GL_TEXTURE_CUBE_MAP_POSITIVE_Y, 
-		/// GL_TEXTURE_CUBE_MAP_NEGATIVE_Y, GL_TEXTURE_CUBE_MAP_POSITIVE_Z, GL_TEXTURE_CUBE_MAP_NEGATIVE_Z, or GL_TEXTURE_1D_ARRAY.
-		/// </param>
-		/// <param name="level">
-		/// Specifies the level-of-detail number. Level 0 is the base image level. Level n is the nth mipmap reduction image.
-		/// </param>
-		/// <param name="xoffset">
-		/// Specifies a texel offset in the x direction within the texture array.
-		/// </param>
-		/// <param name="yoffset">
-		/// Specifies a texel offset in the y direction within the texture array.
-		/// </param>
-		/// <param name="width">
-		/// Specifies the width of the texture subimage.
-		/// </param>
-		/// <param name="height">
-		/// Specifies the height of the texture subimage.
-		/// </param>
-		/// <param name="format">
-		/// Specifies the format of the pixel data. The following symbolic values are accepted: GL_RED, GL_RG, GL_RGB, GL_BGR, 
-		/// GL_RGBA, GL_BGRA, GL_DEPTH_COMPONENT, and GL_STENCIL_INDEX.
-		/// </param>
-		/// <param name="type">
-		/// Specifies the data type of the pixel data. The following symbolic values are accepted: GL_UNSIGNED_BYTE, GL_BYTE, 
-		/// GL_UNSIGNED_SHORT, GL_SHORT, GL_UNSIGNED_INT, GL_INT, GL_FLOAT, GL_UNSIGNED_BYTE_3_3_2, GL_UNSIGNED_BYTE_2_3_3_REV, 
-		/// GL_UNSIGNED_SHORT_5_6_5, GL_UNSIGNED_SHORT_5_6_5_REV, GL_UNSIGNED_SHORT_4_4_4_4, GL_UNSIGNED_SHORT_4_4_4_4_REV, 
-		/// GL_UNSIGNED_SHORT_5_5_5_1, GL_UNSIGNED_SHORT_1_5_5_5_REV, GL_UNSIGNED_INT_8_8_8_8, GL_UNSIGNED_INT_8_8_8_8_REV, 
-		/// GL_UNSIGNED_INT_10_10_10_2, and GL_UNSIGNED_INT_2_10_10_10_REV.
-		/// </param>
-		/// <param name="pixels">
-		/// Specifies a pointer to the image data in memory.
-		/// </param>
-		[RequiredByFeature("GL_VERSION_1_1")]
-		public static void TexSubImage2D(int target, Int32 level, Int32 xoffset, Int32 yoffset, Int32 width, Int32 height, int format, int type, Object pixels)
-		{
-			GCHandle pin_pixels = GCHandle.Alloc(pixels, GCHandleType.Pinned);
-			try {
-				TexSubImage2D(target, level, xoffset, yoffset, width, height, format, type, pin_pixels.AddrOfPinnedObject());
-			} finally {
-				pin_pixels.Free();
-			}
 		}
 
 		/// <summary>
@@ -5387,37 +5253,6 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_1_1")]
 		[RemovedByFeature("GL_VERSION_3_2")]
-		public static void ColorPointer(Int32 size, int type, Int32 stride, Object pointer)
-		{
-			GCHandle pin_pointer = GCHandle.Alloc(pointer, GCHandleType.Pinned);
-			try {
-				ColorPointer(size, type, stride, pin_pointer.AddrOfPinnedObject());
-			} finally {
-				pin_pointer.Free();
-			}
-		}
-
-		/// <summary>
-		/// define an array of colors
-		/// </summary>
-		/// <param name="size">
-		/// Specifies the number of components per color. Must be 3 or 4. The initial value is 4.
-		/// </param>
-		/// <param name="type">
-		/// Specifies the data type of each color component in the array. Symbolic constants <see cref="Gl.BYTE"/>, <see 
-		/// cref="Gl.UNSIGNED_BYTE"/>, <see cref="Gl.SHORT"/>, <see cref="Gl.UNSIGNED_SHORT"/>, <see cref="Gl.INT"/>, <see 
-		/// cref="Gl.UNSIGNED_INT"/>, <see cref="Gl.FLOAT"/>, and <see cref="Gl.DOUBLE"/> are accepted. The initial value is <see 
-		/// cref="Gl.FLOAT"/>.
-		/// </param>
-		/// <param name="stride">
-		/// Specifies the byte offset between consecutive colors. If <paramref name="stride"/> is 0, the colors are understood to be 
-		/// tightly packed in the array. The initial value is 0.
-		/// </param>
-		/// <param name="pointer">
-		/// Specifies a pointer to the first component of the first color element in the array. The initial value is 0.
-		/// </param>
-		[RequiredByFeature("GL_VERSION_1_1")]
-		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void ColorPointer(Int32 size, ColorPointerType type, Int32 stride, Object pointer)
 		{
 			GCHandle pin_pointer = GCHandle.Alloc(pointer, GCHandleType.Pinned);
@@ -5544,33 +5379,6 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_1_1")]
 		[RemovedByFeature("GL_VERSION_3_2")]
-		public static void IndexPointer(int type, Int32 stride, Object pointer)
-		{
-			GCHandle pin_pointer = GCHandle.Alloc(pointer, GCHandleType.Pinned);
-			try {
-				IndexPointer(type, stride, pin_pointer.AddrOfPinnedObject());
-			} finally {
-				pin_pointer.Free();
-			}
-		}
-
-		/// <summary>
-		/// define an array of color indexes
-		/// </summary>
-		/// <param name="type">
-		/// Specifies the data type of each color index in the array. Symbolic constants <see cref="Gl.UNSIGNED_BYTE"/>, <see 
-		/// cref="Gl.SHORT"/>, <see cref="Gl.INT"/>, <see cref="Gl.FLOAT"/>, and <see cref="Gl.DOUBLE"/> are accepted. The initial 
-		/// value is <see cref="Gl.FLOAT"/>.
-		/// </param>
-		/// <param name="stride">
-		/// Specifies the byte offset between consecutive color indexes. If <paramref name="stride"/> is 0, the color indexes are 
-		/// understood to be tightly packed in the array. The initial value is 0.
-		/// </param>
-		/// <param name="pointer">
-		/// Specifies a pointer to the first index in the array. The initial value is 0.
-		/// </param>
-		[RequiredByFeature("GL_VERSION_1_1")]
-		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void IndexPointer(IndexPointerType type, Int32 stride, Object pointer)
 		{
 			GCHandle pin_pointer = GCHandle.Alloc(pointer, GCHandleType.Pinned);
@@ -5625,34 +5433,6 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_1_1")]
 		[RemovedByFeature("GL_VERSION_3_2")]
-		public static void InterleavedArrays(int format, Int32 stride, Object pointer)
-		{
-			GCHandle pin_pointer = GCHandle.Alloc(pointer, GCHandleType.Pinned);
-			try {
-				InterleavedArrays(format, stride, pin_pointer.AddrOfPinnedObject());
-			} finally {
-				pin_pointer.Free();
-			}
-		}
-
-		/// <summary>
-		/// simultaneously specify and enable several interleaved arrays
-		/// </summary>
-		/// <param name="format">
-		/// Specifies the type of array to enable. Symbolic constants <see cref="Gl.V2F"/>, <see cref="Gl.V3F"/>, <see 
-		/// cref="Gl.C4UB_V2F"/>, <see cref="Gl.C4UB_V3F"/>, <see cref="Gl.C3F_V3F"/>, <see cref="Gl.N3F_V3F"/>, <see 
-		/// cref="Gl.C4F_N3F_V3F"/>, <see cref="Gl.T2F_V3F"/>, <see cref="Gl.T4F_V4F"/>, <see cref="Gl.T2F_C4UB_V3F"/>, <see 
-		/// cref="Gl.T2F_C3F_V3F"/>, <see cref="Gl.T2F_N3F_V3F"/>, <see cref="Gl.T2F_C4F_N3F_V3F"/>, and <see 
-		/// cref="Gl.T4F_C4F_N3F_V4F"/> are accepted.
-		/// </param>
-		/// <param name="stride">
-		/// Specifies the offset in bytes between each aggregate array element.
-		/// </param>
-		/// <param name="pointer">
-		/// A <see cref="T:Object"/>.
-		/// </param>
-		[RequiredByFeature("GL_VERSION_1_1")]
-		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void InterleavedArrays(InterleavedArrayFormat format, Int32 stride, Object pointer)
 		{
 			GCHandle pin_pointer = GCHandle.Alloc(pointer, GCHandleType.Pinned);
@@ -5686,33 +5466,6 @@ namespace OpenGL
 			Delegates.pglNormalPointer((int)type, stride, pointer);
 			CallLog("glNormalPointer({0}, {1}, {2})", type, stride, pointer);
 			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// define an array of normals
-		/// </summary>
-		/// <param name="type">
-		/// Specifies the data type of each coordinate in the array. Symbolic constants <see cref="Gl.BYTE"/>, <see 
-		/// cref="Gl.SHORT"/>, <see cref="Gl.INT"/>, <see cref="Gl.FLOAT"/>, and <see cref="Gl.DOUBLE"/> are accepted. The initial 
-		/// value is <see cref="Gl.FLOAT"/>.
-		/// </param>
-		/// <param name="stride">
-		/// Specifies the byte offset between consecutive normals. If <paramref name="stride"/> is 0, the normals are understood to 
-		/// be tightly packed in the array. The initial value is 0.
-		/// </param>
-		/// <param name="pointer">
-		/// Specifies a pointer to the first coordinate of the first normal in the array. The initial value is 0.
-		/// </param>
-		[RequiredByFeature("GL_VERSION_1_1")]
-		[RemovedByFeature("GL_VERSION_3_2")]
-		public static void NormalPointer(int type, Int32 stride, Object pointer)
-		{
-			GCHandle pin_pointer = GCHandle.Alloc(pointer, GCHandleType.Pinned);
-			try {
-				NormalPointer(type, stride, pin_pointer.AddrOfPinnedObject());
-			} finally {
-				pin_pointer.Free();
-			}
 		}
 
 		/// <summary>
@@ -5788,35 +5541,6 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_1_1")]
 		[RemovedByFeature("GL_VERSION_3_2")]
-		public static void TexCoordPointer(Int32 size, int type, Int32 stride, Object pointer)
-		{
-			GCHandle pin_pointer = GCHandle.Alloc(pointer, GCHandleType.Pinned);
-			try {
-				TexCoordPointer(size, type, stride, pin_pointer.AddrOfPinnedObject());
-			} finally {
-				pin_pointer.Free();
-			}
-		}
-
-		/// <summary>
-		/// define an array of texture coordinates
-		/// </summary>
-		/// <param name="size">
-		/// Specifies the number of coordinates per array element. Must be 1, 2, 3, or 4. The initial value is 4.
-		/// </param>
-		/// <param name="type">
-		/// Specifies the data type of each texture coordinate. Symbolic constants <see cref="Gl.SHORT"/>, <see cref="Gl.INT"/>, 
-		/// <see cref="Gl.FLOAT"/>, or <see cref="Gl.DOUBLE"/> are accepted. The initial value is <see cref="Gl.FLOAT"/>.
-		/// </param>
-		/// <param name="stride">
-		/// Specifies the byte offset between consecutive texture coordinate sets. If <paramref name="stride"/> is 0, the array 
-		/// elements are understood to be tightly packed. The initial value is 0.
-		/// </param>
-		/// <param name="pointer">
-		/// Specifies a pointer to the first coordinate of the first texture coordinate set in the array. The initial value is 0.
-		/// </param>
-		[RequiredByFeature("GL_VERSION_1_1")]
-		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void TexCoordPointer(Int32 size, TexCoordPointerType type, Int32 stride, Object pointer)
 		{
 			GCHandle pin_pointer = GCHandle.Alloc(pointer, GCHandleType.Pinned);
@@ -5853,36 +5577,6 @@ namespace OpenGL
 			Delegates.pglVertexPointer(size, (int)type, stride, pointer);
 			CallLog("glVertexPointer({0}, {1}, {2}, {3})", size, type, stride, pointer);
 			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// define an array of vertex data
-		/// </summary>
-		/// <param name="size">
-		/// Specifies the number of coordinates per vertex. Must be 2, 3, or 4. The initial value is 4.
-		/// </param>
-		/// <param name="type">
-		/// Specifies the data type of each coordinate in the array. Symbolic constants <see cref="Gl.SHORT"/>, <see 
-		/// cref="Gl.INT"/>, <see cref="Gl.FLOAT"/>, or <see cref="Gl.DOUBLE"/> are accepted. The initial value is <see 
-		/// cref="Gl.FLOAT"/>.
-		/// </param>
-		/// <param name="stride">
-		/// Specifies the byte offset between consecutive vertices. If <paramref name="stride"/> is 0, the vertices are understood 
-		/// to be tightly packed in the array. The initial value is 0.
-		/// </param>
-		/// <param name="pointer">
-		/// Specifies a pointer to the first coordinate of the first vertex in the array. The initial value is 0.
-		/// </param>
-		[RequiredByFeature("GL_VERSION_1_1")]
-		[RemovedByFeature("GL_VERSION_3_2")]
-		public static void VertexPointer(Int32 size, int type, Int32 stride, Object pointer)
-		{
-			GCHandle pin_pointer = GCHandle.Alloc(pointer, GCHandleType.Pinned);
-			try {
-				VertexPointer(size, type, stride, pin_pointer.AddrOfPinnedObject());
-			} finally {
-				pin_pointer.Free();
-			}
 		}
 
 		/// <summary>

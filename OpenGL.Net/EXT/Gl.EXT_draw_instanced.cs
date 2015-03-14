@@ -80,35 +80,6 @@ namespace OpenGL
 		/// Binding for glDrawElementsInstancedEXT.
 		/// </summary>
 		/// <param name="mode">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="count">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="type">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="indices">
-		/// A <see cref="T:Object"/>.
-		/// </param>
-		/// <param name="primcount">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		[RequiredByFeature("GL_EXT_draw_instanced")]
-		public static void DrawElementsInstancedEXT(int mode, Int32 count, int type, Object indices, Int32 primcount)
-		{
-			GCHandle pin_indices = GCHandle.Alloc(indices, GCHandleType.Pinned);
-			try {
-				DrawElementsInstancedEXT(mode, count, type, pin_indices.AddrOfPinnedObject(), primcount);
-			} finally {
-				pin_indices.Free();
-			}
-		}
-
-		/// <summary>
-		/// Binding for glDrawElementsInstancedEXT.
-		/// </summary>
-		/// <param name="mode">
 		/// A <see cref="T:PrimitiveType"/>.
 		/// </param>
 		/// <param name="count">

@@ -68,38 +68,6 @@ namespace OpenGL
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="format">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="type">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="data">
-		/// A <see cref="T:Object"/>.
-		/// </param>
-		[RequiredByFeature("GL_EXT_color_subtable")]
-		public static void ColorSubTableEXT(int target, Int32 start, Int32 count, int format, int type, Object data)
-		{
-			GCHandle pin_data = GCHandle.Alloc(data, GCHandleType.Pinned);
-			try {
-				ColorSubTableEXT(target, start, count, format, type, pin_data.AddrOfPinnedObject());
-			} finally {
-				pin_data.Free();
-			}
-		}
-
-		/// <summary>
-		/// Binding for glColorSubTableEXT.
-		/// </summary>
-		/// <param name="target">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="start">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="count">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="format">
 		/// A <see cref="T:PixelFormat"/>.
 		/// </param>
 		/// <param name="type">

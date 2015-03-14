@@ -440,7 +440,7 @@ namespace OpenGL
 			internal static eglQuerySurface64KHR peglQuerySurface64KHR;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate IntPtr eglQuerySurfacePointerANGLE(IntPtr dpy, IntPtr surface, int attribute, IntPtr value);
+			internal unsafe delegate IntPtr eglQuerySurfacePointerANGLE(IntPtr dpy, IntPtr surface, int attribute, IntPtr* value);
 			[ThreadStatic]
 			internal static eglQuerySurfacePointerANGLE peglQuerySurfacePointerANGLE;
 

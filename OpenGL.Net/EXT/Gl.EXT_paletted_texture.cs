@@ -110,38 +110,6 @@ namespace OpenGL
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="format">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="type">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="table">
-		/// A <see cref="T:Object"/>.
-		/// </param>
-		[RequiredByFeature("GL_EXT_paletted_texture")]
-		public static void ColorTableEXT(int target, int internalFormat, Int32 width, int format, int type, Object table)
-		{
-			GCHandle pin_table = GCHandle.Alloc(table, GCHandleType.Pinned);
-			try {
-				ColorTableEXT(target, internalFormat, width, format, type, pin_table.AddrOfPinnedObject());
-			} finally {
-				pin_table.Free();
-			}
-		}
-
-		/// <summary>
-		/// Binding for glColorTableEXT.
-		/// </summary>
-		/// <param name="target">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="internalFormat">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="width">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="format">
 		/// A <see cref="T:PixelFormat"/>.
 		/// </param>
 		/// <param name="type">
@@ -183,32 +151,6 @@ namespace OpenGL
 			Delegates.pglGetColorTableEXT(target, (int)format, (int)type, data);
 			CallLog("glGetColorTableEXT({0}, {1}, {2}, {3})", target, format, type, data);
 			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// Binding for glGetColorTableEXT.
-		/// </summary>
-		/// <param name="target">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="format">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="type">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="data">
-		/// A <see cref="T:Object"/>.
-		/// </param>
-		[RequiredByFeature("GL_EXT_paletted_texture")]
-		public static void GetColorTableEXT(int target, int format, int type, Object data)
-		{
-			GCHandle pin_data = GCHandle.Alloc(data, GCHandleType.Pinned);
-			try {
-				GetColorTableEXT(target, format, type, pin_data.AddrOfPinnedObject());
-			} finally {
-				pin_data.Free();
-			}
 		}
 
 		/// <summary>

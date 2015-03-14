@@ -1413,19 +1413,24 @@ namespace OpenGL
 		/// Returns the pointer value.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_2_0")]
-		public static void GetVertexAttribPointer(UInt32 index, int pname, IntPtr pointer)
+		public static void GetVertexAttribPointer(UInt32 index, int pname, out IntPtr pointer)
 		{
-			if        (Delegates.pglGetVertexAttribPointerv != null) {
-				Delegates.pglGetVertexAttribPointerv(index, pname, pointer);
-				CallLog("glGetVertexAttribPointerv({0}, {1}, {2})", index, pname, pointer);
-			} else if (Delegates.pglGetVertexAttribPointervARB != null) {
-				Delegates.pglGetVertexAttribPointervARB(index, pname, pointer);
-				CallLog("glGetVertexAttribPointervARB({0}, {1}, {2})", index, pname, pointer);
-			} else if (Delegates.pglGetVertexAttribPointervNV != null) {
-				Delegates.pglGetVertexAttribPointervNV(index, pname, pointer);
-				CallLog("glGetVertexAttribPointervNV({0}, {1}, {2})", index, pname, pointer);
-			} else
-				throw new NotImplementedException("glGetVertexAttribPointerv (and other aliases) are not implemented");
+			unsafe {
+				fixed (IntPtr* p_pointer = &pointer)
+				{
+					if        (Delegates.pglGetVertexAttribPointerv != null) {
+						Delegates.pglGetVertexAttribPointerv(index, pname, p_pointer);
+						CallLog("glGetVertexAttribPointerv({0}, {1}, {2})", index, pname, pointer);
+					} else if (Delegates.pglGetVertexAttribPointervARB != null) {
+						Delegates.pglGetVertexAttribPointervARB(index, pname, p_pointer);
+						CallLog("glGetVertexAttribPointervARB({0}, {1}, {2})", index, pname, pointer);
+					} else if (Delegates.pglGetVertexAttribPointervNV != null) {
+						Delegates.pglGetVertexAttribPointervNV(index, pname, p_pointer);
+						CallLog("glGetVertexAttribPointervNV({0}, {1}, {2})", index, pname, pointer);
+					} else
+						throw new NotImplementedException("glGetVertexAttribPointerv (and other aliases) are not implemented");
+				}
+			}
 			DebugCheckErrors();
 		}
 

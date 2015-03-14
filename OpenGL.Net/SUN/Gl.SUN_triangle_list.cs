@@ -242,38 +242,20 @@ namespace OpenGL
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="pointer">
-		/// A <see cref="T:IntPtr"/>.
+		/// A <see cref="T:IntPtr[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_SUN_triangle_list")]
-		public static void ReplacementCodePointerSUN(int type, Int32 stride, IntPtr pointer)
+		public static void ReplacementCodePointerSUN(int type, Int32 stride, IntPtr[] pointer)
 		{
-			Debug.Assert(Delegates.pglReplacementCodePointerSUN != null, "pglReplacementCodePointerSUN not implemented");
-			Delegates.pglReplacementCodePointerSUN(type, stride, pointer);
-			CallLog("glReplacementCodePointerSUN({0}, {1}, {2})", type, stride, pointer);
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// Binding for glReplacementCodePointerSUN.
-		/// </summary>
-		/// <param name="type">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="stride">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="pointer">
-		/// A <see cref="T:Object"/>.
-		/// </param>
-		[RequiredByFeature("GL_SUN_triangle_list")]
-		public static void ReplacementCodePointerSUN(int type, Int32 stride, Object pointer)
-		{
-			GCHandle pin_pointer = GCHandle.Alloc(pointer, GCHandleType.Pinned);
-			try {
-				ReplacementCodePointerSUN(type, stride, pin_pointer.AddrOfPinnedObject());
-			} finally {
-				pin_pointer.Free();
+			unsafe {
+				fixed (IntPtr* p_pointer = pointer)
+				{
+					Debug.Assert(Delegates.pglReplacementCodePointerSUN != null, "pglReplacementCodePointerSUN not implemented");
+					Delegates.pglReplacementCodePointerSUN(type, stride, p_pointer);
+					CallLog("glReplacementCodePointerSUN({0}, {1}, {2})", type, stride, pointer);
+				}
 			}
+			DebugCheckErrors();
 		}
 
 	}

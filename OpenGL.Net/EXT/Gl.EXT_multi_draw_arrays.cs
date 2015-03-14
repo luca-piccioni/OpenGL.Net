@@ -68,81 +68,24 @@ namespace OpenGL
 		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="indices">
-		/// A <see cref="T:IntPtr"/>.
+		/// A <see cref="T:IntPtr[]"/>.
 		/// </param>
 		/// <param name="primcount">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_multi_draw_arrays")]
-		public static void MultiDrawElementsEXT(PrimitiveType mode, Int32[] count, int type, IntPtr indices, Int32 primcount)
+		public static void MultiDrawElementsEXT(PrimitiveType mode, Int32[] count, int type, IntPtr[] indices, Int32 primcount)
 		{
 			unsafe {
 				fixed (Int32* p_count = count)
+				fixed (IntPtr* p_indices = indices)
 				{
 					Debug.Assert(Delegates.pglMultiDrawElementsEXT != null, "pglMultiDrawElementsEXT not implemented");
-					Delegates.pglMultiDrawElementsEXT((int)mode, p_count, type, indices, primcount);
+					Delegates.pglMultiDrawElementsEXT((int)mode, p_count, type, p_indices, primcount);
 					CallLog("glMultiDrawElementsEXT({0}, {1}, {2}, {3}, {4})", mode, count, type, indices, primcount);
 				}
 			}
 			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// Binding for glMultiDrawElementsEXT.
-		/// </summary>
-		/// <param name="mode">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="count">
-		/// A <see cref="T:Int32[]"/>.
-		/// </param>
-		/// <param name="type">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="indices">
-		/// A <see cref="T:Object"/>.
-		/// </param>
-		/// <param name="primcount">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		[RequiredByFeature("GL_EXT_multi_draw_arrays")]
-		public static void MultiDrawElementsEXT(int mode, Int32[] count, int type, Object indices, Int32 primcount)
-		{
-			GCHandle pin_indices = GCHandle.Alloc(indices, GCHandleType.Pinned);
-			try {
-				MultiDrawElementsEXT(mode, count, type, pin_indices.AddrOfPinnedObject(), primcount);
-			} finally {
-				pin_indices.Free();
-			}
-		}
-
-		/// <summary>
-		/// Binding for glMultiDrawElementsEXT.
-		/// </summary>
-		/// <param name="mode">
-		/// A <see cref="T:PrimitiveType"/>.
-		/// </param>
-		/// <param name="count">
-		/// A <see cref="T:Int32[]"/>.
-		/// </param>
-		/// <param name="type">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="indices">
-		/// A <see cref="T:Object"/>.
-		/// </param>
-		/// <param name="primcount">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		[RequiredByFeature("GL_EXT_multi_draw_arrays")]
-		public static void MultiDrawElementsEXT(PrimitiveType mode, Int32[] count, int type, Object indices, Int32 primcount)
-		{
-			GCHandle pin_indices = GCHandle.Alloc(indices, GCHandleType.Pinned);
-			try {
-				MultiDrawElementsEXT(mode, count, type, pin_indices.AddrOfPinnedObject(), primcount);
-			} finally {
-				pin_indices.Free();
-			}
 		}
 
 	}

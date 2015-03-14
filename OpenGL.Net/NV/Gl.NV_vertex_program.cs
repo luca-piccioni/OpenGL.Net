@@ -885,11 +885,16 @@ namespace OpenGL
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_vertex_program")]
-		public static void GetVertexAttribPointerNV(UInt32 index, int pname, IntPtr pointer)
+		public static void GetVertexAttribPointerNV(UInt32 index, int pname, out IntPtr pointer)
 		{
-			Debug.Assert(Delegates.pglGetVertexAttribPointervNV != null, "pglGetVertexAttribPointervNV not implemented");
-			Delegates.pglGetVertexAttribPointervNV(index, pname, pointer);
-			CallLog("glGetVertexAttribPointervNV({0}, {1}, {2})", index, pname, pointer);
+			unsafe {
+				fixed (IntPtr* p_pointer = &pointer)
+				{
+					Debug.Assert(Delegates.pglGetVertexAttribPointervNV != null, "pglGetVertexAttribPointervNV not implemented");
+					Delegates.pglGetVertexAttribPointervNV(index, pname, p_pointer);
+					CallLog("glGetVertexAttribPointervNV({0}, {1}, {2})", index, pname, pointer);
+				}
+			}
 			DebugCheckErrors();
 		}
 

@@ -71,38 +71,6 @@ namespace OpenGL
 		/// Binding for glDrawRangeElementsEXT.
 		/// </summary>
 		/// <param name="mode">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="start">
-		/// A <see cref="T:UInt32"/>.
-		/// </param>
-		/// <param name="end">
-		/// A <see cref="T:UInt32"/>.
-		/// </param>
-		/// <param name="count">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="type">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="indices">
-		/// A <see cref="T:Object"/>.
-		/// </param>
-		[RequiredByFeature("GL_EXT_draw_range_elements")]
-		public static void DrawRangeElementsEXT(int mode, UInt32 start, UInt32 end, Int32 count, int type, Object indices)
-		{
-			GCHandle pin_indices = GCHandle.Alloc(indices, GCHandleType.Pinned);
-			try {
-				DrawRangeElementsEXT(mode, start, end, count, type, pin_indices.AddrOfPinnedObject());
-			} finally {
-				pin_indices.Free();
-			}
-		}
-
-		/// <summary>
-		/// Binding for glDrawRangeElementsEXT.
-		/// </summary>
-		/// <param name="mode">
 		/// A <see cref="T:PrimitiveType"/>.
 		/// </param>
 		/// <param name="start">

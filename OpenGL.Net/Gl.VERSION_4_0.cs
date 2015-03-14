@@ -774,29 +774,6 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_4_0")]
 		[RequiredByFeature("GL_ARB_draw_indirect")]
-		public static void DrawArraysIndirect(int mode, Object indirect)
-		{
-			GCHandle pin_indirect = GCHandle.Alloc(indirect, GCHandleType.Pinned);
-			try {
-				DrawArraysIndirect(mode, pin_indirect.AddrOfPinnedObject());
-			} finally {
-				pin_indirect.Free();
-			}
-		}
-
-		/// <summary>
-		/// render primitives from array data, taking parameters from memory
-		/// </summary>
-		/// <param name="mode">
-		/// Specifies what kind of primitives to render. Symbolic constants GL_POINTS, GL_LINE_STRIP, GL_LINE_LOOP, GL_LINES, 
-		/// GL_LINE_STRIP_ADJACENCY, GL_LINES_ADJACENCY, GL_TRIANGLE_STRIP, GL_TRIANGLE_FAN, GL_TRIANGLES, 
-		/// GL_TRIANGLE_STRIP_ADJACENCY, GL_TRIANGLES_ADJACENCY, and GL_PATCHES are accepted.
-		/// </param>
-		/// <param name="indirect">
-		/// Specifies the address of a structure containing the draw parameters.
-		/// </param>
-		[RequiredByFeature("GL_VERSION_4_0")]
-		[RequiredByFeature("GL_ARB_draw_indirect")]
 		public static void DrawArraysIndirect(PrimitiveType mode, Object indirect)
 		{
 			GCHandle pin_indirect = GCHandle.Alloc(indirect, GCHandleType.Pinned);
@@ -829,32 +806,6 @@ namespace OpenGL
 			Delegates.pglDrawElementsIndirect((int)mode, type, indirect);
 			CallLog("glDrawElementsIndirect({0}, {1}, {2})", mode, type, indirect);
 			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// render indexed primitives from array data, taking parameters from memory
-		/// </summary>
-		/// <param name="mode">
-		/// Specifies what kind of primitives to render. Symbolic constants GL_POINTS, GL_LINE_STRIP, GL_LINE_LOOP, GL_LINES, 
-		/// GL_LINE_STRIP_ADJACENCY, GL_LINES_ADJACENCY, GL_TRIANGLE_STRIP, GL_TRIANGLE_FAN, GL_TRIANGLES, 
-		/// GL_TRIANGLE_STRIP_ADJACENCY, GL_TRIANGLES_ADJACENCY, and GL_PATCHES are accepted.
-		/// </param>
-		/// <param name="type">
-		/// Specifies the type of data in the buffer bound to the GL_ELEMENT_ARRAY_BUFFER binding.
-		/// </param>
-		/// <param name="indirect">
-		/// Specifies the address of a structure containing the draw parameters.
-		/// </param>
-		[RequiredByFeature("GL_VERSION_4_0")]
-		[RequiredByFeature("GL_ARB_draw_indirect")]
-		public static void DrawElementsIndirect(int mode, int type, Object indirect)
-		{
-			GCHandle pin_indirect = GCHandle.Alloc(indirect, GCHandleType.Pinned);
-			try {
-				DrawElementsIndirect(mode, type, pin_indirect.AddrOfPinnedObject());
-			} finally {
-				pin_indirect.Free();
-			}
 		}
 
 		/// <summary>

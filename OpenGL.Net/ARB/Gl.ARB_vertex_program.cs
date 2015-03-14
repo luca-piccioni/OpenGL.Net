@@ -2184,11 +2184,16 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_ARB_vertex_program")]
 		[RequiredByFeature("GL_ARB_vertex_shader")]
-		public static void GetVertexAttribPointerARB(UInt32 index, int pname, IntPtr pointer)
+		public static void GetVertexAttribPointerARB(UInt32 index, int pname, out IntPtr pointer)
 		{
-			Debug.Assert(Delegates.pglGetVertexAttribPointervARB != null, "pglGetVertexAttribPointervARB not implemented");
-			Delegates.pglGetVertexAttribPointervARB(index, pname, pointer);
-			CallLog("glGetVertexAttribPointervARB({0}, {1}, {2})", index, pname, pointer);
+			unsafe {
+				fixed (IntPtr* p_pointer = &pointer)
+				{
+					Debug.Assert(Delegates.pglGetVertexAttribPointervARB != null, "pglGetVertexAttribPointervARB not implemented");
+					Delegates.pglGetVertexAttribPointervARB(index, pname, p_pointer);
+					CallLog("glGetVertexAttribPointervARB({0}, {1}, {2})", index, pname, pointer);
+				}
+			}
 			DebugCheckErrors();
 		}
 

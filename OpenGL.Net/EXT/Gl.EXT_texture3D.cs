@@ -125,50 +125,6 @@ namespace OpenGL
 		/// Binding for glTexImage3DEXT.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="level">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="internalformat">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="width">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="height">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="depth">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="border">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="format">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="type">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="pixels">
-		/// A <see cref="T:Object"/>.
-		/// </param>
-		[RequiredByFeature("GL_EXT_texture3D")]
-		public static void TexImage3DEXT(int target, Int32 level, int internalformat, Int32 width, Int32 height, Int32 depth, Int32 border, int format, int type, Object pixels)
-		{
-			GCHandle pin_pixels = GCHandle.Alloc(pixels, GCHandleType.Pinned);
-			try {
-				TexImage3DEXT(target, level, internalformat, width, height, depth, border, format, type, pin_pixels.AddrOfPinnedObject());
-			} finally {
-				pin_pixels.Free();
-			}
-		}
-
-		/// <summary>
-		/// Binding for glTexImage3DEXT.
-		/// </summary>
-		/// <param name="target">
 		/// A <see cref="T:TextureTarget"/>.
 		/// </param>
 		/// <param name="level">
@@ -252,53 +208,6 @@ namespace OpenGL
 			Delegates.pglTexSubImage3DEXT((int)target, level, xoffset, yoffset, zoffset, width, height, depth, (int)format, (int)type, pixels);
 			CallLog("glTexSubImage3DEXT({0}, {1}, {2}, {3}, {4}, {5}, {6}, {7}, {8}, {9}, {10})", target, level, xoffset, yoffset, zoffset, width, height, depth, format, type, pixels);
 			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// Binding for glTexSubImage3DEXT.
-		/// </summary>
-		/// <param name="target">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="level">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="xoffset">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="yoffset">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="zoffset">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="width">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="height">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="depth">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="format">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="type">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="pixels">
-		/// A <see cref="T:Object"/>.
-		/// </param>
-		[RequiredByFeature("GL_EXT_texture3D")]
-		public static void TexSubImage3DEXT(int target, Int32 level, Int32 xoffset, Int32 yoffset, Int32 zoffset, Int32 width, Int32 height, Int32 depth, int format, int type, Object pixels)
-		{
-			GCHandle pin_pixels = GCHandle.Alloc(pixels, GCHandleType.Pinned);
-			try {
-				TexSubImage3DEXT(target, level, xoffset, yoffset, zoffset, width, height, depth, format, type, pin_pixels.AddrOfPinnedObject());
-			} finally {
-				pin_pixels.Free();
-			}
 		}
 
 		/// <summary>

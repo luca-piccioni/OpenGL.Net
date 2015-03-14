@@ -266,35 +266,6 @@ namespace OpenGL
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="type">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="stride">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="count">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="pointer">
-		/// A <see cref="T:Object"/>.
-		/// </param>
-		[RequiredByFeature("GL_EXT_vertex_array")]
-		public static void ColorPointerEXT(Int32 size, int type, Int32 stride, Int32 count, Object pointer)
-		{
-			GCHandle pin_pointer = GCHandle.Alloc(pointer, GCHandleType.Pinned);
-			try {
-				ColorPointerEXT(size, type, stride, count, pin_pointer.AddrOfPinnedObject());
-			} finally {
-				pin_pointer.Free();
-			}
-		}
-
-		/// <summary>
-		/// Binding for glColorPointerEXT.
-		/// </summary>
-		/// <param name="size">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="type">
 		/// A <see cref="T:ColorPointerType"/>.
 		/// </param>
 		/// <param name="stride">
@@ -374,32 +345,17 @@ namespace OpenGL
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_vertex_array")]
-		public static void GetPointerEXT(GetPointervPName pname, IntPtr @params)
+		public static void GetPointerEXT(GetPointervPName pname, out IntPtr @params)
 		{
-			Debug.Assert(Delegates.pglGetPointervEXT != null, "pglGetPointervEXT not implemented");
-			Delegates.pglGetPointervEXT((int)pname, @params);
-			CallLog("glGetPointervEXT({0}, {1})", pname, @params);
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// Binding for glGetPointervEXT.
-		/// </summary>
-		/// <param name="pname">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="params">
-		/// A <see cref="T:Object"/>.
-		/// </param>
-		[RequiredByFeature("GL_EXT_vertex_array")]
-		public static void GetPointerEXT(int pname, Object @params)
-		{
-			GCHandle pin_params = GCHandle.Alloc(@params, GCHandleType.Pinned);
-			try {
-				GetPointerEXT(pname, pin_params.AddrOfPinnedObject());
-			} finally {
-				pin_params.Free();
+			unsafe {
+				fixed (IntPtr* p_params = &@params)
+				{
+					Debug.Assert(Delegates.pglGetPointervEXT != null, "pglGetPointervEXT not implemented");
+					Delegates.pglGetPointervEXT((int)pname, p_params);
+					CallLog("glGetPointervEXT({0}, {1})", pname, @params);
+				}
 			}
+			DebugCheckErrors();
 		}
 
 		/// <summary>
@@ -450,32 +406,6 @@ namespace OpenGL
 		/// Binding for glIndexPointerEXT.
 		/// </summary>
 		/// <param name="type">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="stride">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="count">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="pointer">
-		/// A <see cref="T:Object"/>.
-		/// </param>
-		[RequiredByFeature("GL_EXT_vertex_array")]
-		public static void IndexPointerEXT(int type, Int32 stride, Int32 count, Object pointer)
-		{
-			GCHandle pin_pointer = GCHandle.Alloc(pointer, GCHandleType.Pinned);
-			try {
-				IndexPointerEXT(type, stride, count, pin_pointer.AddrOfPinnedObject());
-			} finally {
-				pin_pointer.Free();
-			}
-		}
-
-		/// <summary>
-		/// Binding for glIndexPointerEXT.
-		/// </summary>
-		/// <param name="type">
 		/// A <see cref="T:IndexPointerType"/>.
 		/// </param>
 		/// <param name="stride">
@@ -520,32 +450,6 @@ namespace OpenGL
 			Delegates.pglNormalPointerEXT((int)type, stride, count, pointer);
 			CallLog("glNormalPointerEXT({0}, {1}, {2}, {3})", type, stride, count, pointer);
 			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// Binding for glNormalPointerEXT.
-		/// </summary>
-		/// <param name="type">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="stride">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="count">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="pointer">
-		/// A <see cref="T:Object"/>.
-		/// </param>
-		[RequiredByFeature("GL_EXT_vertex_array")]
-		public static void NormalPointerEXT(int type, Int32 stride, Int32 count, Object pointer)
-		{
-			GCHandle pin_pointer = GCHandle.Alloc(pointer, GCHandleType.Pinned);
-			try {
-				NormalPointerEXT(type, stride, count, pin_pointer.AddrOfPinnedObject());
-			} finally {
-				pin_pointer.Free();
-			}
 		}
 
 		/// <summary>
@@ -608,35 +512,6 @@ namespace OpenGL
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="type">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="stride">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="count">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="pointer">
-		/// A <see cref="T:Object"/>.
-		/// </param>
-		[RequiredByFeature("GL_EXT_vertex_array")]
-		public static void TexCoordPointerEXT(Int32 size, int type, Int32 stride, Int32 count, Object pointer)
-		{
-			GCHandle pin_pointer = GCHandle.Alloc(pointer, GCHandleType.Pinned);
-			try {
-				TexCoordPointerEXT(size, type, stride, count, pin_pointer.AddrOfPinnedObject());
-			} finally {
-				pin_pointer.Free();
-			}
-		}
-
-		/// <summary>
-		/// Binding for glTexCoordPointerEXT.
-		/// </summary>
-		/// <param name="size">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="type">
 		/// A <see cref="T:TexCoordPointerType"/>.
 		/// </param>
 		/// <param name="stride">
@@ -684,35 +559,6 @@ namespace OpenGL
 			Delegates.pglVertexPointerEXT(size, (int)type, stride, count, pointer);
 			CallLog("glVertexPointerEXT({0}, {1}, {2}, {3}, {4})", size, type, stride, count, pointer);
 			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// Binding for glVertexPointerEXT.
-		/// </summary>
-		/// <param name="size">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="type">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="stride">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="count">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="pointer">
-		/// A <see cref="T:Object"/>.
-		/// </param>
-		[RequiredByFeature("GL_EXT_vertex_array")]
-		public static void VertexPointerEXT(Int32 size, int type, Int32 stride, Int32 count, Object pointer)
-		{
-			GCHandle pin_pointer = GCHandle.Alloc(pointer, GCHandleType.Pinned);
-			try {
-				VertexPointerEXT(size, type, stride, count, pin_pointer.AddrOfPinnedObject());
-			} finally {
-				pin_pointer.Free();
-			}
 		}
 
 		/// <summary>

@@ -531,39 +531,6 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_3_2")]
 		[RequiredByFeature("GL_ARB_draw_elements_base_vertex")]
-		public static void DrawElementsBaseVertex(int mode, Int32 count, int type, Object indices, Int32 basevertex)
-		{
-			GCHandle pin_indices = GCHandle.Alloc(indices, GCHandleType.Pinned);
-			try {
-				DrawElementsBaseVertex(mode, count, type, pin_indices.AddrOfPinnedObject(), basevertex);
-			} finally {
-				pin_indices.Free();
-			}
-		}
-
-		/// <summary>
-		/// render primitives from array data with a per-element offset
-		/// </summary>
-		/// <param name="mode">
-		/// Specifies what kind of primitives to render. Symbolic constants GL_POINTS, GL_LINE_STRIP, GL_LINE_LOOP, GL_LINES, 
-		/// GL_TRIANGLE_STRIP, GL_TRIANGLE_FAN, GL_TRIANGLES, GL_LINES_ADJACENCY, GL_LINE_STRIP_ADJACENCY, GL_TRIANGLES_ADJACENCY, 
-		/// GL_TRIANGLE_STRIP_ADJACENCY and GL_PATCHES are accepted.
-		/// </param>
-		/// <param name="count">
-		/// Specifies the number of elements to be rendered.
-		/// </param>
-		/// <param name="type">
-		/// Specifies the type of the values in indices. Must be one of GL_UNSIGNED_BYTE, GL_UNSIGNED_SHORT, or GL_UNSIGNED_INT.
-		/// </param>
-		/// <param name="indices">
-		/// Specifies a pointer to the location where the indices are stored.
-		/// </param>
-		/// <param name="basevertex">
-		/// Specifies a constant that should be added to each element of indices when chosing elements from the enabled vertex 
-		/// arrays.
-		/// </param>
-		[RequiredByFeature("GL_VERSION_3_2")]
-		[RequiredByFeature("GL_ARB_draw_elements_base_vertex")]
 		public static void DrawElementsBaseVertex(PrimitiveType mode, Int32 count, int type, Object indices, Int32 basevertex)
 		{
 			GCHandle pin_indices = GCHandle.Alloc(indices, GCHandleType.Pinned);
@@ -617,45 +584,6 @@ namespace OpenGL
 			} else
 				throw new NotImplementedException("glDrawRangeElementsBaseVertex (and other aliases) are not implemented");
 			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// render primitives from array data with a per-element offset
-		/// </summary>
-		/// <param name="mode">
-		/// Specifies what kind of primitives to render. Symbolic constants GL_POINTS, GL_LINE_STRIP, GL_LINE_LOOP, GL_LINES, 
-		/// GL_TRIANGLE_STRIP, GL_TRIANGLE_FAN, GL_TRIANGLES, GL_LINES_ADJACENCY, GL_LINE_STRIP_ADJACENCY, GL_TRIANGLES_ADJACENCY, 
-		/// GL_TRIANGLE_STRIP_ADJACENCY and GL_PATCHES are accepted.
-		/// </param>
-		/// <param name="start">
-		/// Specifies the minimum array index contained in indices.
-		/// </param>
-		/// <param name="end">
-		/// Specifies the maximum array index contained in indices.
-		/// </param>
-		/// <param name="count">
-		/// Specifies the number of elements to be rendered.
-		/// </param>
-		/// <param name="type">
-		/// Specifies the type of the values in indices. Must be one of GL_UNSIGNED_BYTE, GL_UNSIGNED_SHORT, or GL_UNSIGNED_INT.
-		/// </param>
-		/// <param name="indices">
-		/// Specifies a pointer to the location where the indices are stored.
-		/// </param>
-		/// <param name="basevertex">
-		/// Specifies a constant that should be added to each element of indices when chosing elements from the enabled vertex 
-		/// arrays.
-		/// </param>
-		[RequiredByFeature("GL_VERSION_3_2")]
-		[RequiredByFeature("GL_ARB_draw_elements_base_vertex")]
-		public static void DrawRangeElementsBaseVertex(int mode, UInt32 start, UInt32 end, Int32 count, int type, Object indices, Int32 basevertex)
-		{
-			GCHandle pin_indices = GCHandle.Alloc(indices, GCHandleType.Pinned);
-			try {
-				DrawRangeElementsBaseVertex(mode, start, end, count, type, pin_indices.AddrOfPinnedObject(), basevertex);
-			} finally {
-				pin_indices.Free();
-			}
 		}
 
 		/// <summary>
@@ -765,42 +693,6 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_3_2")]
 		[RequiredByFeature("GL_ARB_draw_elements_base_vertex")]
-		public static void DrawElementsInstancedBaseVertex(int mode, Int32 count, int type, Object indices, Int32 instancecount, Int32 basevertex)
-		{
-			GCHandle pin_indices = GCHandle.Alloc(indices, GCHandleType.Pinned);
-			try {
-				DrawElementsInstancedBaseVertex(mode, count, type, pin_indices.AddrOfPinnedObject(), instancecount, basevertex);
-			} finally {
-				pin_indices.Free();
-			}
-		}
-
-		/// <summary>
-		/// render multiple instances of a set of primitives from array data with a per-element offset
-		/// </summary>
-		/// <param name="mode">
-		/// Specifies what kind of primitives to render. Symbolic constants GL_POINTS, GL_LINE_STRIP, GL_LINE_LOOP, GL_LINES, 
-		/// GL_TRIANGLE_STRIP, GL_TRIANGLE_FAN, GL_TRIANGLES, GL_LINES_ADJACENCY, GL_LINE_STRIP_ADJACENCY, GL_TRIANGLES_ADJACENCY, 
-		/// GL_TRIANGLE_STRIP_ADJACENCY and GL_PATCHES are accepted.
-		/// </param>
-		/// <param name="count">
-		/// Specifies the number of elements to be rendered.
-		/// </param>
-		/// <param name="type">
-		/// Specifies the type of the values in indices. Must be one of GL_UNSIGNED_BYTE, GL_UNSIGNED_SHORT, or GL_UNSIGNED_INT.
-		/// </param>
-		/// <param name="indices">
-		/// Specifies a pointer to the location where the indices are stored.
-		/// </param>
-		/// <param name="instancecount">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="basevertex">
-		/// Specifies a constant that should be added to each element of indices when chosing elements from the enabled vertex 
-		/// arrays.
-		/// </param>
-		[RequiredByFeature("GL_VERSION_3_2")]
-		[RequiredByFeature("GL_ARB_draw_elements_base_vertex")]
 		public static void DrawElementsInstancedBaseVertex(PrimitiveType mode, Int32 count, int type, Object indices, Int32 instancecount, Int32 basevertex)
 		{
 			GCHandle pin_indices = GCHandle.Alloc(indices, GCHandleType.Pinned);
@@ -836,61 +728,27 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_3_2")]
 		[RequiredByFeature("GL_ARB_draw_elements_base_vertex")]
-		public static void MultiDrawElementsBaseVertex(int mode, Int32[] count, int type, IntPtr indices, Int32 drawcount, Int32[] basevertex)
+		public static void MultiDrawElementsBaseVertex(int mode, Int32[] count, int type, IntPtr[] indices, Int32 drawcount, Int32[] basevertex)
 		{
 			unsafe {
 				fixed (Int32* p_count = count)
+				fixed (IntPtr* p_indices = indices)
 				fixed (Int32* p_basevertex = basevertex)
 				{
 					if        (Delegates.pglMultiDrawElementsBaseVertex != null) {
-						Delegates.pglMultiDrawElementsBaseVertex(mode, p_count, type, indices, drawcount, p_basevertex);
+						Delegates.pglMultiDrawElementsBaseVertex(mode, p_count, type, p_indices, drawcount, p_basevertex);
 						CallLog("glMultiDrawElementsBaseVertex({0}, {1}, {2}, {3}, {4}, {5})", mode, count, type, indices, drawcount, basevertex);
 					} else if (Delegates.pglMultiDrawElementsBaseVertexEXT != null) {
-						Delegates.pglMultiDrawElementsBaseVertexEXT(mode, p_count, type, indices, drawcount, p_basevertex);
+						Delegates.pglMultiDrawElementsBaseVertexEXT(mode, p_count, type, p_indices, drawcount, p_basevertex);
 						CallLog("glMultiDrawElementsBaseVertexEXT({0}, {1}, {2}, {3}, {4}, {5})", mode, count, type, indices, drawcount, basevertex);
 					} else if (Delegates.pglMultiDrawElementsBaseVertexOES != null) {
-						Delegates.pglMultiDrawElementsBaseVertexOES(mode, p_count, type, indices, drawcount, p_basevertex);
+						Delegates.pglMultiDrawElementsBaseVertexOES(mode, p_count, type, p_indices, drawcount, p_basevertex);
 						CallLog("glMultiDrawElementsBaseVertexOES({0}, {1}, {2}, {3}, {4}, {5})", mode, count, type, indices, drawcount, basevertex);
 					} else
 						throw new NotImplementedException("glMultiDrawElementsBaseVertex (and other aliases) are not implemented");
 				}
 			}
 			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// render multiple sets of primitives by specifying indices of array data elements and an index to apply to each index
-		/// </summary>
-		/// <param name="mode">
-		/// Specifies what kind of primitives to render. Symbolic constants GL_POINTS, GL_LINE_STRIP, GL_LINE_LOOP, GL_LINES, 
-		/// GL_LINE_STRIP_ADJACENCY, GL_LINES_ADJACENCY, GL_TRIANGLE_STRIP, GL_TRIANGLE_FAN, GL_TRIANGLES, 
-		/// GL_TRIANGLE_STRIP_ADJACENCY, GL_TRIANGLES_ADJACENCY and GL_PATCHES are accepted.
-		/// </param>
-		/// <param name="count">
-		/// Points to an array of the elements counts.
-		/// </param>
-		/// <param name="type">
-		/// Specifies the type of the values in indices. Must be one of GL_UNSIGNED_BYTE, GL_UNSIGNED_SHORT, or GL_UNSIGNED_INT.
-		/// </param>
-		/// <param name="indices">
-		/// Specifies a pointer to the location where the indices are stored.
-		/// </param>
-		/// <param name="drawcount">
-		/// Specifies the size of the count, indices and basevertex arrays.
-		/// </param>
-		/// <param name="basevertex">
-		/// Specifies a pointer to the location where the base vertices are stored.
-		/// </param>
-		[RequiredByFeature("GL_VERSION_3_2")]
-		[RequiredByFeature("GL_ARB_draw_elements_base_vertex")]
-		public static void MultiDrawElementsBaseVertex(int mode, Int32[] count, int type, Object indices, Int32 drawcount, Int32[] basevertex)
-		{
-			GCHandle pin_indices = GCHandle.Alloc(indices, GCHandleType.Pinned);
-			try {
-				MultiDrawElementsBaseVertex(mode, count, type, pin_indices.AddrOfPinnedObject(), drawcount, basevertex);
-			} finally {
-				pin_indices.Free();
-			}
 		}
 
 		/// <summary>

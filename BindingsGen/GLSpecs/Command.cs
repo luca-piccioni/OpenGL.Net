@@ -406,7 +406,7 @@ namespace BindingsGen.GLSpecs
 
 			// Pinned object implementation
 			if (isPinnedObjCompatible) {
-				if (isStrongCompatible || plainParams) {
+				if (plainParams && isStrongCompatible) {
 					parameters = new List<CommandParameter>();
 
 					foreach (CommandParameter commandParameter in Parameters)
@@ -425,7 +425,7 @@ namespace BindingsGen.GLSpecs
 
 			// Out modifier implementation
 			if (outParamCompatible) {
-				if (isStrongCompatible || plainParams) {
+				if (plainParams && isStrongCompatible) {
 					parameters = new List<CommandParameter>();
 
 					foreach (CommandParameter commandParameter in Parameters)

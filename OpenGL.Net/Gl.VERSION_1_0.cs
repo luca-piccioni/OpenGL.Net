@@ -356,56 +356,6 @@ namespace OpenGL
 		/// A <see cref="T:Object"/>.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_1_0")]
-		public static void TexImage1D(int target, Int32 level, Int32 internalformat, Int32 width, Int32 border, int format, int type, Object pixels)
-		{
-			GCHandle pin_pixels = GCHandle.Alloc(pixels, GCHandleType.Pinned);
-			try {
-				TexImage1D(target, level, internalformat, width, border, format, type, pin_pixels.AddrOfPinnedObject());
-			} finally {
-				pin_pixels.Free();
-			}
-		}
-
-		/// <summary>
-		/// specify a one-dimensional texture image
-		/// </summary>
-		/// <param name="target">
-		/// Specifies the target texture. Must be <see cref="Gl.TEXTURE_1D"/> or <see cref="Gl.PROXY_TEXTURE_1D"/>.
-		/// </param>
-		/// <param name="level">
-		/// Specifies the level-of-detail number. Level 0 is the base image level. Level n is the nth mipmap reduction image.
-		/// </param>
-		/// <param name="internalformat">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="width">
-		/// Specifies the width of the texture image including the border if any. If the GL version does not support 
-		/// non-power-of-two sizes, this value must be 2n+2⁡border for some integer n. All implementations support texture images 
-		/// that are at least 64 texels wide. The height of the 1D texture image is 1.
-		/// </param>
-		/// <param name="border">
-		/// Specifies the width of the border. Must be either 0 or 1.
-		/// </param>
-		/// <param name="format">
-		/// Specifies the format of the pixel data. The following symbolic values are accepted: <see cref="Gl.COLOR_INDEX"/>, <see 
-		/// cref="Gl.RED"/>, <see cref="Gl.GREEN"/>, <see cref="Gl.BLUE"/>, <see cref="Gl.ALPHA"/>, <see cref="Gl.RGB"/>, <see 
-		/// cref="Gl.BGR"/>, <see cref="Gl.RGBA"/>, <see cref="Gl.BGRA"/>, <see cref="Gl.LUMINANCE"/>, and <see 
-		/// cref="Gl.LUMINANCE_ALPHA"/>.
-		/// </param>
-		/// <param name="type">
-		/// Specifies the data type of the pixel data. The following symbolic values are accepted: <see cref="Gl.UNSIGNED_BYTE"/>, 
-		/// <see cref="Gl.BYTE"/>, <see cref="Gl.BITMAP"/>, <see cref="Gl.UNSIGNED_SHORT"/>, <see cref="Gl.SHORT"/>, <see 
-		/// cref="Gl.UNSIGNED_INT"/>, <see cref="Gl.INT"/>, <see cref="Gl.FLOAT"/>, <see cref="Gl.UNSIGNED_BYTE_3_3_2"/>, <see 
-		/// cref="Gl.UNSIGNED_BYTE_2_3_3_REV"/>, <see cref="Gl.UNSIGNED_SHORT_5_6_5"/>, <see cref="Gl.UNSIGNED_SHORT_5_6_5_REV"/>, 
-		/// <see cref="Gl.UNSIGNED_SHORT_4_4_4_4"/>, <see cref="Gl.UNSIGNED_SHORT_4_4_4_4_REV"/>, <see 
-		/// cref="Gl.UNSIGNED_SHORT_5_5_5_1"/>, <see cref="Gl.UNSIGNED_SHORT_1_5_5_5_REV"/>, <see cref="Gl.UNSIGNED_INT_8_8_8_8"/>, 
-		/// <see cref="Gl.UNSIGNED_INT_8_8_8_8_REV"/>, <see cref="Gl.UNSIGNED_INT_10_10_10_2"/>, and <see 
-		/// cref="Gl.UNSIGNED_INT_2_10_10_10_REV"/>.
-		/// </param>
-		/// <param name="pixels">
-		/// A <see cref="T:Object"/>.
-		/// </param>
-		[RequiredByFeature("GL_VERSION_1_0")]
 		public static void TexImage1D(TextureTarget target, Int32 level, Int32 internalformat, Int32 width, Int32 border, PixelFormat format, PixelType type, Object pixels)
 		{
 			GCHandle pin_pixels = GCHandle.Alloc(pixels, GCHandleType.Pinned);
@@ -471,65 +421,6 @@ namespace OpenGL
 			Delegates.pglTexImage2D((int)target, level, internalformat, width, height, border, (int)format, (int)type, pixels);
 			CallLog("glTexImage2D({0}, {1}, {2}, {3}, {4}, {5}, {6}, {7}, {8})", target, level, internalformat, width, height, border, format, type, pixels);
 			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// specify a two-dimensional texture image
-		/// </summary>
-		/// <param name="target">
-		/// Specifies the target texture. Must be <see cref="Gl.TEXTURE_2D"/>, <see cref="Gl.PROXY_TEXTURE_2D"/>, <see 
-		/// cref="Gl.TEXTURE_CUBE_MAP_POSITIVE_X"/>, <see cref="Gl.TEXTURE_CUBE_MAP_NEGATIVE_X"/>, <see 
-		/// cref="Gl.TEXTURE_CUBE_MAP_POSITIVE_Y"/>, <see cref="Gl.TEXTURE_CUBE_MAP_NEGATIVE_Y"/>, <see 
-		/// cref="Gl.TEXTURE_CUBE_MAP_POSITIVE_Z"/>, <see cref="Gl.TEXTURE_CUBE_MAP_NEGATIVE_Z"/>, or <see 
-		/// cref="Gl.PROXY_TEXTURE_CUBE_MAP"/>.
-		/// </param>
-		/// <param name="level">
-		/// Specifies the level-of-detail number. Level 0 is the base image level. Level n is the nth mipmap reduction image.
-		/// </param>
-		/// <param name="internalformat">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="width">
-		/// Specifies the width of the texture image including the border if any. If the GL version does not support 
-		/// non-power-of-two sizes, this value must be 2n+2⁡border for some integer n. All implementations support texture images 
-		/// that are at least 64 texels wide.
-		/// </param>
-		/// <param name="height">
-		/// Specifies the height of the texture image including the border if any. If the GL version does not support 
-		/// non-power-of-two sizes, this value must be 2m+2⁡border for some integer m. All implementations support texture images 
-		/// that are at least 64 texels high.
-		/// </param>
-		/// <param name="border">
-		/// Specifies the width of the border. Must be either 0 or 1.
-		/// </param>
-		/// <param name="format">
-		/// Specifies the format of the pixel data. The following symbolic values are accepted: <see cref="Gl.COLOR_INDEX"/>, <see 
-		/// cref="Gl.RED"/>, <see cref="Gl.GREEN"/>, <see cref="Gl.BLUE"/>, <see cref="Gl.ALPHA"/>, <see cref="Gl.RGB"/>, <see 
-		/// cref="Gl.BGR"/>, <see cref="Gl.RGBA"/>, <see cref="Gl.BGRA"/>, <see cref="Gl.LUMINANCE"/>, and <see 
-		/// cref="Gl.LUMINANCE_ALPHA"/>.
-		/// </param>
-		/// <param name="type">
-		/// Specifies the data type of the pixel data. The following symbolic values are accepted: <see cref="Gl.UNSIGNED_BYTE"/>, 
-		/// <see cref="Gl.BYTE"/>, <see cref="Gl.BITMAP"/>, <see cref="Gl.UNSIGNED_SHORT"/>, <see cref="Gl.SHORT"/>, <see 
-		/// cref="Gl.UNSIGNED_INT"/>, <see cref="Gl.INT"/>, <see cref="Gl.FLOAT"/>, <see cref="Gl.UNSIGNED_BYTE_3_3_2"/>, <see 
-		/// cref="Gl.UNSIGNED_BYTE_2_3_3_REV"/>, <see cref="Gl.UNSIGNED_SHORT_5_6_5"/>, <see cref="Gl.UNSIGNED_SHORT_5_6_5_REV"/>, 
-		/// <see cref="Gl.UNSIGNED_SHORT_4_4_4_4"/>, <see cref="Gl.UNSIGNED_SHORT_4_4_4_4_REV"/>, <see 
-		/// cref="Gl.UNSIGNED_SHORT_5_5_5_1"/>, <see cref="Gl.UNSIGNED_SHORT_1_5_5_5_REV"/>, <see cref="Gl.UNSIGNED_INT_8_8_8_8"/>, 
-		/// <see cref="Gl.UNSIGNED_INT_8_8_8_8_REV"/>, <see cref="Gl.UNSIGNED_INT_10_10_10_2"/>, and <see 
-		/// cref="Gl.UNSIGNED_INT_2_10_10_10_REV"/>.
-		/// </param>
-		/// <param name="pixels">
-		/// A <see cref="T:Object"/>.
-		/// </param>
-		[RequiredByFeature("GL_VERSION_1_0")]
-		public static void TexImage2D(int target, Int32 level, Int32 internalformat, Int32 width, Int32 height, Int32 border, int format, int type, Object pixels)
-		{
-			GCHandle pin_pixels = GCHandle.Alloc(pixels, GCHandleType.Pinned);
-			try {
-				TexImage2D(target, level, internalformat, width, height, border, format, type, pin_pixels.AddrOfPinnedObject());
-			} finally {
-				pin_pixels.Free();
-			}
 		}
 
 		/// <summary>
@@ -1501,48 +1392,6 @@ namespace OpenGL
 		/// A <see cref="T:Object"/>.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_1_0")]
-		public static void GetTexImage(int target, Int32 level, int format, int type, Object pixels)
-		{
-			GCHandle pin_pixels = GCHandle.Alloc(pixels, GCHandleType.Pinned);
-			try {
-				GetTexImage(target, level, format, type, pin_pixels.AddrOfPinnedObject());
-			} finally {
-				pin_pixels.Free();
-			}
-		}
-
-		/// <summary>
-		/// return a texture image
-		/// </summary>
-		/// <param name="target">
-		/// Specifies which texture is to be obtained. <see cref="Gl.TEXTURE_1D"/>, <see cref="Gl.TEXTURE_2D"/>, <see 
-		/// cref="Gl.TEXTURE_3D"/>, <see cref="Gl.TEXTURE_CUBE_MAP_POSITIVE_X"/>, <see cref="Gl.TEXTURE_CUBE_MAP_NEGATIVE_X"/>, <see 
-		/// cref="Gl.TEXTURE_CUBE_MAP_POSITIVE_Y"/>, <see cref="Gl.TEXTURE_CUBE_MAP_NEGATIVE_Y"/>, <see 
-		/// cref="Gl.TEXTURE_CUBE_MAP_POSITIVE_Z"/>, and <see cref="Gl.TEXTURE_CUBE_MAP_NEGATIVE_Z"/> are accepted.
-		/// </param>
-		/// <param name="level">
-		/// Specifies the level-of-detail number of the desired image. Level 0 is the base image level. Level n is the nth mipmap 
-		/// reduction image.
-		/// </param>
-		/// <param name="format">
-		/// Specifies a pixel format for the returned data. The supported formats are <see cref="Gl.RED"/>, <see cref="Gl.GREEN"/>, 
-		/// <see cref="Gl.BLUE"/>, <see cref="Gl.ALPHA"/>, <see cref="Gl.RGB"/>, <see cref="Gl.BGR"/>, <see cref="Gl.RGBA"/>, <see 
-		/// cref="Gl.BGRA"/>, <see cref="Gl.LUMINANCE"/>, and <see cref="Gl.LUMINANCE_ALPHA"/>.
-		/// </param>
-		/// <param name="type">
-		/// Specifies a pixel type for the returned data. The supported types are <see cref="Gl.UNSIGNED_BYTE"/>, <see 
-		/// cref="Gl.BYTE"/>, <see cref="Gl.UNSIGNED_SHORT"/>, <see cref="Gl.SHORT"/>, <see cref="Gl.UNSIGNED_INT"/>, <see 
-		/// cref="Gl.INT"/>, <see cref="Gl.FLOAT"/>, <see cref="Gl.UNSIGNED_BYTE_3_3_2"/>, <see cref="Gl.UNSIGNED_BYTE_2_3_3_REV"/>, 
-		/// <see cref="Gl.UNSIGNED_SHORT_5_6_5"/>, <see cref="Gl.UNSIGNED_SHORT_5_6_5_REV"/>, <see 
-		/// cref="Gl.UNSIGNED_SHORT_4_4_4_4"/>, <see cref="Gl.UNSIGNED_SHORT_4_4_4_4_REV"/>, <see 
-		/// cref="Gl.UNSIGNED_SHORT_5_5_5_1"/>, <see cref="Gl.UNSIGNED_SHORT_1_5_5_5_REV"/>, <see cref="Gl.UNSIGNED_INT_8_8_8_8"/>, 
-		/// <see cref="Gl.UNSIGNED_INT_8_8_8_8_REV"/>, <see cref="Gl.UNSIGNED_INT_10_10_10_2"/>, and <see 
-		/// cref="Gl.UNSIGNED_INT_2_10_10_10_REV"/>.
-		/// </param>
-		/// <param name="pixels">
-		/// A <see cref="T:Object"/>.
-		/// </param>
-		[RequiredByFeature("GL_VERSION_1_0")]
 		public static void GetTexImage(TextureTarget target, Int32 level, PixelFormat format, PixelType type, Object pixels)
 		{
 			GCHandle pin_pixels = GCHandle.Alloc(pixels, GCHandleType.Pinned);
@@ -1838,34 +1687,6 @@ namespace OpenGL
 			Delegates.pglCallLists(n, (int)type, lists);
 			CallLog("glCallLists({0}, {1}, {2})", n, type, lists);
 			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// execute a list of display lists
-		/// </summary>
-		/// <param name="n">
-		/// Specifies the number of display lists to be executed.
-		/// </param>
-		/// <param name="type">
-		/// Specifies the type of values in <paramref name="lists"/>. Symbolic constants <see cref="Gl.BYTE"/>, <see 
-		/// cref="Gl.UNSIGNED_BYTE"/>, <see cref="Gl.SHORT"/>, <see cref="Gl.UNSIGNED_SHORT"/>, <see cref="Gl.INT"/>, <see 
-		/// cref="Gl.UNSIGNED_INT"/>, <see cref="Gl.FLOAT"/>, <see cref="Gl.2_BYTES"/>, <see cref="Gl.3_BYTES"/>, and <see 
-		/// cref="Gl.4_BYTES"/> are accepted.
-		/// </param>
-		/// <param name="lists">
-		/// Specifies the address of an array of name offsets in the display list. The pointer type is void because the offsets can 
-		/// be bytes, shorts, ints, or floats, depending on the value of <paramref name="type"/>.
-		/// </param>
-		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
-		public static void CallLists(Int32 n, int type, Object lists)
-		{
-			GCHandle pin_lists = GCHandle.Alloc(lists, GCHandleType.Pinned);
-			try {
-				CallLists(n, type, pin_lists.AddrOfPinnedObject());
-			} finally {
-				pin_lists.Free();
-			}
 		}
 
 		/// <summary>
@@ -7053,46 +6874,6 @@ namespace OpenGL
 			Delegates.pglDrawPixels(width, height, (int)format, (int)type, pixels);
 			CallLog("glDrawPixels({0}, {1}, {2}, {3}, {4})", width, height, format, type, pixels);
 			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// write a block of pixels to the frame buffer
-		/// </summary>
-		/// <param name="width">
-		/// Specify the dimensions of the pixel rectangle to be written into the frame buffer.
-		/// </param>
-		/// <param name="height">
-		/// Specify the dimensions of the pixel rectangle to be written into the frame buffer.
-		/// </param>
-		/// <param name="format">
-		/// Specifies the format of the pixel data. Symbolic constants <see cref="Gl.COLOR_INDEX"/>, <see cref="Gl.STENCIL_INDEX"/>, 
-		/// <see cref="Gl.DEPTH_COMPONENT"/>, <see cref="Gl.RGB"/>, <see cref="Gl.BGR"/>, <see cref="Gl.RGBA"/>, <see 
-		/// cref="Gl.BGRA"/>, <see cref="Gl.RED"/>, <see cref="Gl.GREEN"/>, <see cref="Gl.BLUE"/>, <see cref="Gl.ALPHA"/>, <see 
-		/// cref="Gl.LUMINANCE"/>, and <see cref="Gl.LUMINANCE_ALPHA"/> are accepted.
-		/// </param>
-		/// <param name="type">
-		/// Specifies the data type for <paramref name="data"/>. Symbolic constants <see cref="Gl.UNSIGNED_BYTE"/>, <see 
-		/// cref="Gl.BYTE"/>, <see cref="Gl.BITMAP"/>, <see cref="Gl.UNSIGNED_SHORT"/>, <see cref="Gl.SHORT"/>, <see 
-		/// cref="Gl.UNSIGNED_INT"/>, <see cref="Gl.INT"/>, <see cref="Gl.FLOAT"/>, <see cref="Gl.UNSIGNED_BYTE_3_3_2"/>, <see 
-		/// cref="Gl.UNSIGNED_BYTE_2_3_3_REV"/>, <see cref="Gl.UNSIGNED_SHORT_5_6_5"/>, <see cref="Gl.UNSIGNED_SHORT_5_6_5_REV"/>, 
-		/// <see cref="Gl.UNSIGNED_SHORT_4_4_4_4"/>, <see cref="Gl.UNSIGNED_SHORT_4_4_4_4_REV"/>, <see 
-		/// cref="Gl.UNSIGNED_SHORT_5_5_5_1"/>, <see cref="Gl.UNSIGNED_SHORT_1_5_5_5_REV"/>, <see cref="Gl.UNSIGNED_INT_8_8_8_8"/>, 
-		/// <see cref="Gl.UNSIGNED_INT_8_8_8_8_REV"/>, <see cref="Gl.UNSIGNED_INT_10_10_10_2"/>, and <see 
-		/// cref="Gl.UNSIGNED_INT_2_10_10_10_REV"/> are accepted.
-		/// </param>
-		/// <param name="pixels">
-		/// A <see cref="T:Object"/>.
-		/// </param>
-		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
-		public static void DrawPixels(Int32 width, Int32 height, int format, int type, Object pixels)
-		{
-			GCHandle pin_pixels = GCHandle.Alloc(pixels, GCHandleType.Pinned);
-			try {
-				DrawPixels(width, height, format, type, pin_pixels.AddrOfPinnedObject());
-			} finally {
-				pin_pixels.Free();
-			}
 		}
 
 		/// <summary>

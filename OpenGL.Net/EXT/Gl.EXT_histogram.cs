@@ -140,35 +140,6 @@ namespace OpenGL
 		/// Binding for glGetHistogramEXT.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="reset">
-		/// A <see cref="T:bool"/>.
-		/// </param>
-		/// <param name="format">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="type">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="values">
-		/// A <see cref="T:Object"/>.
-		/// </param>
-		[RequiredByFeature("GL_EXT_histogram")]
-		public static void GetHistogramEXT(int target, bool reset, int format, int type, Object values)
-		{
-			GCHandle pin_values = GCHandle.Alloc(values, GCHandleType.Pinned);
-			try {
-				GetHistogramEXT(target, reset, format, type, pin_values.AddrOfPinnedObject());
-			} finally {
-				pin_values.Free();
-			}
-		}
-
-		/// <summary>
-		/// Binding for glGetHistogramEXT.
-		/// </summary>
-		/// <param name="target">
 		/// A <see cref="T:HistogramTargetEXT"/>.
 		/// </param>
 		/// <param name="reset">
@@ -271,35 +242,6 @@ namespace OpenGL
 			Delegates.pglGetMinmaxEXT((int)target, reset, (int)format, (int)type, values);
 			CallLog("glGetMinmaxEXT({0}, {1}, {2}, {3}, {4})", target, reset, format, type, values);
 			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// Binding for glGetMinmaxEXT.
-		/// </summary>
-		/// <param name="target">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="reset">
-		/// A <see cref="T:bool"/>.
-		/// </param>
-		/// <param name="format">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="type">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="values">
-		/// A <see cref="T:Object"/>.
-		/// </param>
-		[RequiredByFeature("GL_EXT_histogram")]
-		public static void GetMinmaxEXT(int target, bool reset, int format, int type, Object values)
-		{
-			GCHandle pin_values = GCHandle.Alloc(values, GCHandleType.Pinned);
-			try {
-				GetMinmaxEXT(target, reset, format, type, pin_values.AddrOfPinnedObject());
-			} finally {
-				pin_values.Free();
-			}
 		}
 
 		/// <summary>

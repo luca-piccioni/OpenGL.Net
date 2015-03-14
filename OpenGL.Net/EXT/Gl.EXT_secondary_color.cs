@@ -426,32 +426,6 @@ namespace OpenGL
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="type">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="stride">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="pointer">
-		/// A <see cref="T:Object"/>.
-		/// </param>
-		[RequiredByFeature("GL_EXT_secondary_color")]
-		public static void SecondaryColorPointerEXT(Int32 size, int type, Int32 stride, Object pointer)
-		{
-			GCHandle pin_pointer = GCHandle.Alloc(pointer, GCHandleType.Pinned);
-			try {
-				SecondaryColorPointerEXT(size, type, stride, pin_pointer.AddrOfPinnedObject());
-			} finally {
-				pin_pointer.Free();
-			}
-		}
-
-		/// <summary>
-		/// Binding for glSecondaryColorPointerEXT.
-		/// </summary>
-		/// <param name="size">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="type">
 		/// A <see cref="T:ColorPointerType"/>.
 		/// </param>
 		/// <param name="stride">

@@ -898,39 +898,6 @@ namespace OpenGL
 		/// Binding for glDrawElementsInstancedBaseInstance.
 		/// </summary>
 		/// <param name="mode">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="count">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="type">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="indices">
-		/// A <see cref="T:Object"/>.
-		/// </param>
-		/// <param name="instancecount">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="baseinstance">
-		/// A <see cref="T:UInt32"/>.
-		/// </param>
-		[RequiredByFeature("GL_VERSION_4_2")]
-		[RequiredByFeature("GL_ARB_base_instance")]
-		public static void DrawElementsInstancedBaseInstance(int mode, Int32 count, int type, Object indices, Int32 instancecount, UInt32 baseinstance)
-		{
-			GCHandle pin_indices = GCHandle.Alloc(indices, GCHandleType.Pinned);
-			try {
-				DrawElementsInstancedBaseInstance(mode, count, type, pin_indices.AddrOfPinnedObject(), instancecount, baseinstance);
-			} finally {
-				pin_indices.Free();
-			}
-		}
-
-		/// <summary>
-		/// Binding for glDrawElementsInstancedBaseInstance.
-		/// </summary>
-		/// <param name="mode">
 		/// A <see cref="T:PrimitiveType"/>.
 		/// </param>
 		/// <param name="count">
@@ -997,42 +964,6 @@ namespace OpenGL
 			} else
 				throw new NotImplementedException("glDrawElementsInstancedBaseVertexBaseInstance (and other aliases) are not implemented");
 			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// Binding for glDrawElementsInstancedBaseVertexBaseInstance.
-		/// </summary>
-		/// <param name="mode">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="count">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="type">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="indices">
-		/// A <see cref="T:Object"/>.
-		/// </param>
-		/// <param name="instancecount">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="basevertex">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="baseinstance">
-		/// A <see cref="T:UInt32"/>.
-		/// </param>
-		[RequiredByFeature("GL_VERSION_4_2")]
-		[RequiredByFeature("GL_ARB_base_instance")]
-		public static void DrawElementsInstancedBaseVertexBaseInstance(int mode, Int32 count, int type, Object indices, Int32 instancecount, Int32 basevertex, UInt32 baseinstance)
-		{
-			GCHandle pin_indices = GCHandle.Alloc(indices, GCHandleType.Pinned);
-			try {
-				DrawElementsInstancedBaseVertexBaseInstance(mode, count, type, pin_indices.AddrOfPinnedObject(), instancecount, basevertex, baseinstance);
-			} finally {
-				pin_indices.Free();
-			}
 		}
 
 		/// <summary>
