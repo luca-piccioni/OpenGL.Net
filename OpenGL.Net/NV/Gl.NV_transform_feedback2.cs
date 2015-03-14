@@ -95,31 +95,7 @@ namespace OpenGL
 		/// A <see cref="T:UInt32[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_transform_feedback2")]
-		public static void DeleteTransformFeedbackNV(Int32 n, UInt32[] ids)
-		{
-			Debug.Assert(ids.Length >= n);
-			unsafe {
-				fixed (UInt32* p_ids = ids)
-				{
-					Debug.Assert(Delegates.pglDeleteTransformFeedbacksNV != null, "pglDeleteTransformFeedbacksNV not implemented");
-					Delegates.pglDeleteTransformFeedbacksNV(n, p_ids);
-					CallLog("glDeleteTransformFeedbacksNV({0}, {1})", n, ids);
-				}
-			}
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// Binding for glDeleteTransformFeedbacksNV.
-		/// </summary>
-		/// <param name="n">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="ids">
-		/// A <see cref="T:UInt32[]"/>.
-		/// </param>
-		[RequiredByFeature("GL_NV_transform_feedback2")]
-		public static void DeleteTransformFeedbackNV(UInt32[] ids)
+		public static void DeleteTransformFeedbackNV(params UInt32[] ids)
 		{
 			unsafe {
 				fixed (UInt32* p_ids = ids)
@@ -127,30 +103,6 @@ namespace OpenGL
 					Debug.Assert(Delegates.pglDeleteTransformFeedbacksNV != null, "pglDeleteTransformFeedbacksNV not implemented");
 					Delegates.pglDeleteTransformFeedbacksNV((Int32)ids.Length, p_ids);
 					CallLog("glDeleteTransformFeedbacksNV({0}, {1})", ids.Length, ids);
-				}
-			}
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// Binding for glGenTransformFeedbacksNV.
-		/// </summary>
-		/// <param name="n">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="ids">
-		/// A <see cref="T:UInt32[]"/>.
-		/// </param>
-		[RequiredByFeature("GL_NV_transform_feedback2")]
-		public static void GenTransformFeedbackNV(Int32 n, UInt32[] ids)
-		{
-			Debug.Assert(ids.Length >= n);
-			unsafe {
-				fixed (UInt32* p_ids = ids)
-				{
-					Debug.Assert(Delegates.pglGenTransformFeedbacksNV != null, "pglGenTransformFeedbacksNV not implemented");
-					Delegates.pglGenTransformFeedbacksNV(n, p_ids);
-					CallLog("glGenTransformFeedbacksNV({0}, {1})", n, ids);
 				}
 			}
 			DebugCheckErrors();
@@ -186,7 +138,7 @@ namespace OpenGL
 		public static UInt32 GenTransformFeedbackNV()
 		{
 			UInt32[] retValue = new UInt32[1];
-			GenTransformFeedbackNV(1, retValue);
+			GenTransformFeedbackNV(retValue);
 			return (retValue[0]);
 		}
 

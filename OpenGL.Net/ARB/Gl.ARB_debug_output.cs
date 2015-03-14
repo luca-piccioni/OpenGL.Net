@@ -179,42 +179,6 @@ namespace OpenGL
 		/// A <see cref="T:bool"/>.
 		/// </param>
 		[RequiredByFeature("GL_ARB_debug_output")]
-		public static void DebugMessageControlARB(int source, int type, int severity, Int32 count, UInt32[] ids, bool enabled)
-		{
-			Debug.Assert(ids.Length >= count);
-			unsafe {
-				fixed (UInt32* p_ids = ids)
-				{
-					Debug.Assert(Delegates.pglDebugMessageControlARB != null, "pglDebugMessageControlARB not implemented");
-					Delegates.pglDebugMessageControlARB(source, type, severity, count, p_ids, enabled);
-					CallLog("glDebugMessageControlARB({0}, {1}, {2}, {3}, {4}, {5})", source, type, severity, count, ids, enabled);
-				}
-			}
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// Binding for glDebugMessageControlARB.
-		/// </summary>
-		/// <param name="source">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="type">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="severity">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="count">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="ids">
-		/// A <see cref="T:UInt32[]"/>.
-		/// </param>
-		/// <param name="enabled">
-		/// A <see cref="T:bool"/>.
-		/// </param>
-		[RequiredByFeature("GL_ARB_debug_output")]
 		public static void DebugMessageControlARB(int source, int type, int severity, UInt32[] ids, bool enabled)
 		{
 			unsafe {
@@ -294,60 +258,6 @@ namespace OpenGL
 			} finally {
 				pin_userParam.Free();
 			}
-		}
-
-		/// <summary>
-		/// Binding for glGetDebugMessageLogARB.
-		/// </summary>
-		/// <param name="count">
-		/// A <see cref="T:UInt32"/>.
-		/// </param>
-		/// <param name="bufSize">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="sources">
-		/// A <see cref="T:int[]"/>.
-		/// </param>
-		/// <param name="types">
-		/// A <see cref="T:int[]"/>.
-		/// </param>
-		/// <param name="ids">
-		/// A <see cref="T:UInt32[]"/>.
-		/// </param>
-		/// <param name="severities">
-		/// A <see cref="T:int[]"/>.
-		/// </param>
-		/// <param name="lengths">
-		/// A <see cref="T:Int32[]"/>.
-		/// </param>
-		/// <param name="messageLog">
-		/// A <see cref="T:StringBuilder"/>.
-		/// </param>
-		[RequiredByFeature("GL_ARB_debug_output")]
-		public static UInt32 GetDebugMessageLogARB(UInt32 count, Int32 bufSize, int[] sources, int[] types, UInt32[] ids, int[] severities, Int32[] lengths, [Out] StringBuilder messageLog)
-		{
-			Debug.Assert(sources.Length >= count);
-			Debug.Assert(types.Length >= count);
-			Debug.Assert(ids.Length >= count);
-			Debug.Assert(severities.Length >= count);
-			Debug.Assert(lengths.Length >= count);
-			UInt32 retValue;
-
-			unsafe {
-				fixed (int* p_sources = sources)
-				fixed (int* p_types = types)
-				fixed (UInt32* p_ids = ids)
-				fixed (int* p_severities = severities)
-				fixed (Int32* p_lengths = lengths)
-				{
-					Debug.Assert(Delegates.pglGetDebugMessageLogARB != null, "pglGetDebugMessageLogARB not implemented");
-					retValue = Delegates.pglGetDebugMessageLogARB(count, bufSize, p_sources, p_types, p_ids, p_severities, p_lengths, messageLog);
-					CallLog("glGetDebugMessageLogARB({0}, {1}, {2}, {3}, {4}, {5}, {6}, {7}) = {8}", count, bufSize, sources, types, ids, severities, lengths, messageLog, retValue);
-				}
-			}
-			DebugCheckErrors();
-
-			return (retValue);
 		}
 
 		/// <summary>

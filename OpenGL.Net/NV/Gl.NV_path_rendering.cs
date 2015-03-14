@@ -1066,42 +1066,6 @@ namespace OpenGL
 		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="coords">
-		/// A <see cref="T:IntPtr"/>.
-		/// </param>
-		[RequiredByFeature("GL_NV_path_rendering")]
-		public static void NV(UInt32 path, Int32 numCommands, byte[] commands, Int32 numCoords, int coordType, IntPtr coords)
-		{
-			Debug.Assert(commands.Length >= numCommands);
-			unsafe {
-				fixed (byte* p_commands = commands)
-				{
-					Debug.Assert(Delegates.pglPathCommandsNV != null, "pglPathCommandsNV not implemented");
-					Delegates.pglPathCommandsNV(path, numCommands, p_commands, numCoords, coordType, coords);
-					CallLog("glPathCommandsNV({0}, {1}, {2}, {3}, {4}, {5})", path, numCommands, commands, numCoords, coordType, coords);
-				}
-			}
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// Binding for glPathCommandsNV.
-		/// </summary>
-		/// <param name="path">
-		/// A <see cref="T:UInt32"/>.
-		/// </param>
-		/// <param name="numCommands">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="commands">
-		/// A <see cref="T:byte[]"/>.
-		/// </param>
-		/// <param name="numCoords">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="coordType">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="coords">
 		/// A <see cref="T:Object"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_path_rendering")]
@@ -1198,48 +1162,6 @@ namespace OpenGL
 			} finally {
 				pin_coords.Free();
 			}
-		}
-
-		/// <summary>
-		/// Binding for glPathSubCommandsNV.
-		/// </summary>
-		/// <param name="path">
-		/// A <see cref="T:UInt32"/>.
-		/// </param>
-		/// <param name="commandStart">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="commandsToDelete">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="numCommands">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="commands">
-		/// A <see cref="T:byte[]"/>.
-		/// </param>
-		/// <param name="numCoords">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="coordType">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="coords">
-		/// A <see cref="T:IntPtr"/>.
-		/// </param>
-		[RequiredByFeature("GL_NV_path_rendering")]
-		public static void PathSubCommandsNV(UInt32 path, Int32 commandStart, Int32 commandsToDelete, Int32 numCommands, byte[] commands, Int32 numCoords, int coordType, IntPtr coords)
-		{
-			Debug.Assert(commands.Length >= numCommands);
-			unsafe {
-				fixed (byte* p_commands = commands)
-				{
-					Debug.Assert(Delegates.pglPathSubCommandsNV != null, "pglPathSubCommandsNV not implemented");
-					Delegates.pglPathSubCommandsNV(path, commandStart, commandsToDelete, numCommands, p_commands, numCoords, coordType, coords);
-					CallLog("glPathSubCommandsNV({0}, {1}, {2}, {3}, {4}, {5}, {6}, {7})", path, commandStart, commandsToDelete, numCommands, commands, numCoords, coordType, coords);
-				}
-			}
-			DebugCheckErrors();
 		}
 
 		/// <summary>
@@ -1611,39 +1533,7 @@ namespace OpenGL
 		/// A <see cref="T:float[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_path_rendering")]
-		public static void WeightNV(UInt32 resultPath, Int32 numPaths, UInt32[] paths, float[] weights)
-		{
-			Debug.Assert(paths.Length >= numPaths);
-			Debug.Assert(weights.Length >= numPaths);
-			unsafe {
-				fixed (UInt32* p_paths = paths)
-				fixed (float* p_weights = weights)
-				{
-					Debug.Assert(Delegates.pglWeightPathsNV != null, "pglWeightPathsNV not implemented");
-					Delegates.pglWeightPathsNV(resultPath, numPaths, p_paths, p_weights);
-					CallLog("glWeightPathsNV({0}, {1}, {2}, {3})", resultPath, numPaths, paths, weights);
-				}
-			}
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// Binding for glWeightPathsNV.
-		/// </summary>
-		/// <param name="resultPath">
-		/// A <see cref="T:UInt32"/>.
-		/// </param>
-		/// <param name="numPaths">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="paths">
-		/// A <see cref="T:UInt32[]"/>.
-		/// </param>
-		/// <param name="weights">
-		/// A <see cref="T:float[]"/>.
-		/// </param>
-		[RequiredByFeature("GL_NV_path_rendering")]
-		public static void WeightNV(UInt32 resultPath, UInt32[] paths, float[] weights)
+		public static void WeightNV(UInt32 resultPath, UInt32[] paths, params float[] weights)
 		{
 			unsafe {
 				fixed (UInt32* p_paths = paths)
@@ -1835,34 +1725,7 @@ namespace OpenGL
 		/// A <see cref="T:float[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_path_rendering")]
-		public static void PathDashArrayNV(UInt32 path, Int32 dashCount, float[] dashArray)
-		{
-			Debug.Assert(dashArray.Length >= dashCount);
-			unsafe {
-				fixed (float* p_dashArray = dashArray)
-				{
-					Debug.Assert(Delegates.pglPathDashArrayNV != null, "pglPathDashArrayNV not implemented");
-					Delegates.pglPathDashArrayNV(path, dashCount, p_dashArray);
-					CallLog("glPathDashArrayNV({0}, {1}, {2})", path, dashCount, dashArray);
-				}
-			}
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// Binding for glPathDashArrayNV.
-		/// </summary>
-		/// <param name="path">
-		/// A <see cref="T:UInt32"/>.
-		/// </param>
-		/// <param name="dashCount">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="dashArray">
-		/// A <see cref="T:float[]"/>.
-		/// </param>
-		[RequiredByFeature("GL_NV_path_rendering")]
-		public static void PathDashArrayNV(UInt32 path, float[] dashArray)
+		public static void PathDashArrayNV(UInt32 path, params float[] dashArray)
 		{
 			unsafe {
 				fixed (float* p_dashArray = dashArray)

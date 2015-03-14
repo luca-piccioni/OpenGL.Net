@@ -5148,33 +5148,7 @@ namespace OpenGL
 		/// A <see cref="T:String[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_separate_shader_objects")]
-		public static UInt32 CreateShaderProgramEXT(int type, Int32 count, String[] strings)
-		{
-			Debug.Assert(strings.Length >= count);
-			UInt32 retValue;
-
-			Debug.Assert(Delegates.pglCreateShaderProgramvEXT != null, "pglCreateShaderProgramvEXT not implemented");
-			retValue = Delegates.pglCreateShaderProgramvEXT(type, count, strings);
-			CallLog("glCreateShaderProgramvEXT({0}, {1}, {2}) = {3}", type, count, strings, retValue);
-			DebugCheckErrors();
-
-			return (retValue);
-		}
-
-		/// <summary>
-		/// Binding for glCreateShaderProgramvEXT.
-		/// </summary>
-		/// <param name="type">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="count">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="strings">
-		/// A <see cref="T:String[]"/>.
-		/// </param>
-		[RequiredByFeature("GL_EXT_separate_shader_objects")]
-		public static UInt32 CreateShaderProgramEXT(int type, String[] strings)
+		public static UInt32 CreateShaderProgramEXT(int type, params String[] strings)
 		{
 			UInt32 retValue;
 
@@ -5312,30 +5286,7 @@ namespace OpenGL
 		/// <param name="framebuffers">
 		/// A <see cref="T:UInt32[]"/>.
 		/// </param>
-		public static void DeleteFramebuffersOES(Int32 n, UInt32[] framebuffers)
-		{
-			Debug.Assert(framebuffers.Length >= n);
-			unsafe {
-				fixed (UInt32* p_framebuffers = framebuffers)
-				{
-					Debug.Assert(Delegates.pglDeleteFramebuffersOES != null, "pglDeleteFramebuffersOES not implemented");
-					Delegates.pglDeleteFramebuffersOES(n, p_framebuffers);
-					CallLog("glDeleteFramebuffersOES({0}, {1})", n, framebuffers);
-				}
-			}
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// Binding for glDeleteFramebuffersOES.
-		/// </summary>
-		/// <param name="n">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="framebuffers">
-		/// A <see cref="T:UInt32[]"/>.
-		/// </param>
-		public static void DeleteFramebuffersOES(UInt32[] framebuffers)
+		public static void DeleteFramebuffersOES(params UInt32[] framebuffers)
 		{
 			unsafe {
 				fixed (UInt32* p_framebuffers = framebuffers)
@@ -5358,31 +5309,7 @@ namespace OpenGL
 		/// A <see cref="T:UInt32[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_separate_shader_objects")]
-		public static void DeleteProgramPipelinesEXT(Int32 n, UInt32[] pipelines)
-		{
-			Debug.Assert(pipelines.Length >= n);
-			unsafe {
-				fixed (UInt32* p_pipelines = pipelines)
-				{
-					Debug.Assert(Delegates.pglDeleteProgramPipelinesEXT != null, "pglDeleteProgramPipelinesEXT not implemented");
-					Delegates.pglDeleteProgramPipelinesEXT(n, p_pipelines);
-					CallLog("glDeleteProgramPipelinesEXT({0}, {1})", n, pipelines);
-				}
-			}
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// Binding for glDeleteProgramPipelinesEXT.
-		/// </summary>
-		/// <param name="n">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="pipelines">
-		/// A <see cref="T:UInt32[]"/>.
-		/// </param>
-		[RequiredByFeature("GL_EXT_separate_shader_objects")]
-		public static void DeleteProgramPipelinesEXT(UInt32[] pipelines)
+		public static void DeleteProgramPipelinesEXT(params UInt32[] pipelines)
 		{
 			unsafe {
 				fixed (UInt32* p_pipelines = pipelines)
@@ -5404,30 +5331,7 @@ namespace OpenGL
 		/// <param name="ids">
 		/// A <see cref="T:UInt32[]"/>.
 		/// </param>
-		public static void DeleteQueriesEXT(Int32 n, UInt32[] ids)
-		{
-			Debug.Assert(ids.Length >= n);
-			unsafe {
-				fixed (UInt32* p_ids = ids)
-				{
-					Debug.Assert(Delegates.pglDeleteQueriesEXT != null, "pglDeleteQueriesEXT not implemented");
-					Delegates.pglDeleteQueriesEXT(n, p_ids);
-					CallLog("glDeleteQueriesEXT({0}, {1})", n, ids);
-				}
-			}
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// Binding for glDeleteQueriesEXT.
-		/// </summary>
-		/// <param name="n">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="ids">
-		/// A <see cref="T:UInt32[]"/>.
-		/// </param>
-		public static void DeleteQueriesEXT(UInt32[] ids)
+		public static void DeleteQueriesEXT(params UInt32[] ids)
 		{
 			unsafe {
 				fixed (UInt32* p_ids = ids)
@@ -5449,30 +5353,7 @@ namespace OpenGL
 		/// <param name="renderbuffers">
 		/// A <see cref="T:UInt32[]"/>.
 		/// </param>
-		public static void DeleteRenderbufferOES(Int32 n, UInt32[] renderbuffers)
-		{
-			Debug.Assert(renderbuffers.Length >= n);
-			unsafe {
-				fixed (UInt32* p_renderbuffers = renderbuffers)
-				{
-					Debug.Assert(Delegates.pglDeleteRenderbuffersOES != null, "pglDeleteRenderbuffersOES not implemented");
-					Delegates.pglDeleteRenderbuffersOES(n, p_renderbuffers);
-					CallLog("glDeleteRenderbuffersOES({0}, {1})", n, renderbuffers);
-				}
-			}
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// Binding for glDeleteRenderbuffersOES.
-		/// </summary>
-		/// <param name="n">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="renderbuffers">
-		/// A <see cref="T:UInt32[]"/>.
-		/// </param>
-		public static void DeleteRenderbufferOES(UInt32[] renderbuffers)
+		public static void DeleteRenderbufferOES(params UInt32[] renderbuffers)
 		{
 			unsafe {
 				fixed (UInt32* p_renderbuffers = renderbuffers)
@@ -5508,30 +5389,7 @@ namespace OpenGL
 		/// <param name="arrays">
 		/// A <see cref="T:UInt32[]"/>.
 		/// </param>
-		public static void DeleteVertexArraysOES(Int32 n, UInt32[] arrays)
-		{
-			Debug.Assert(arrays.Length >= n);
-			unsafe {
-				fixed (UInt32* p_arrays = arrays)
-				{
-					Debug.Assert(Delegates.pglDeleteVertexArraysOES != null, "pglDeleteVertexArraysOES not implemented");
-					Delegates.pglDeleteVertexArraysOES(n, p_arrays);
-					CallLog("glDeleteVertexArraysOES({0}, {1})", n, arrays);
-				}
-			}
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// Binding for glDeleteVertexArraysOES.
-		/// </summary>
-		/// <param name="n">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="arrays">
-		/// A <see cref="T:UInt32[]"/>.
-		/// </param>
-		public static void DeleteVertexArraysOES(UInt32[] arrays)
+		public static void DeleteVertexArraysOES(params UInt32[] arrays)
 		{
 			unsafe {
 				fixed (UInt32* p_arrays = arrays)
@@ -5683,33 +5541,7 @@ namespace OpenGL
 		/// <param name="attachments">
 		/// A <see cref="T:int[]"/>.
 		/// </param>
-		public static void DiscardFramebufferEXT(int target, Int32 numAttachments, int[] attachments)
-		{
-			Debug.Assert(attachments.Length >= numAttachments);
-			unsafe {
-				fixed (int* p_attachments = attachments)
-				{
-					Debug.Assert(Delegates.pglDiscardFramebufferEXT != null, "pglDiscardFramebufferEXT not implemented");
-					Delegates.pglDiscardFramebufferEXT(target, numAttachments, p_attachments);
-					CallLog("glDiscardFramebufferEXT({0}, {1}, {2})", target, numAttachments, attachments);
-				}
-			}
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// Binding for glDiscardFramebufferEXT.
-		/// </summary>
-		/// <param name="target">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="numAttachments">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="attachments">
-		/// A <see cref="T:int[]"/>.
-		/// </param>
-		public static void DiscardFramebufferEXT(int target, int[] attachments)
+		public static void DiscardFramebufferEXT(int target, params int[] attachments)
 		{
 			unsafe {
 				fixed (int* p_attachments = attachments)
@@ -5900,35 +5732,7 @@ namespace OpenGL
 		/// <param name="indices">
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
-		public static void DrawBuffersIndexedEXT(Int32 n, int[] location, Int32[] indices)
-		{
-			Debug.Assert(location.Length >= n);
-			Debug.Assert(indices.Length >= n);
-			unsafe {
-				fixed (int* p_location = location)
-				fixed (Int32* p_indices = indices)
-				{
-					Debug.Assert(Delegates.pglDrawBuffersIndexedEXT != null, "pglDrawBuffersIndexedEXT not implemented");
-					Delegates.pglDrawBuffersIndexedEXT(n, p_location, p_indices);
-					CallLog("glDrawBuffersIndexedEXT({0}, {1}, {2})", n, location, indices);
-				}
-			}
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// Binding for glDrawBuffersIndexedEXT.
-		/// </summary>
-		/// <param name="n">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="location">
-		/// A <see cref="T:int[]"/>.
-		/// </param>
-		/// <param name="indices">
-		/// A <see cref="T:Int32[]"/>.
-		/// </param>
-		public static void DrawBuffersIndexedEXT(int[] location, Int32[] indices)
+		public static void DrawBuffersIndexedEXT(int[] location, params Int32[] indices)
 		{
 			unsafe {
 				fixed (int* p_location = location)
@@ -5951,30 +5755,7 @@ namespace OpenGL
 		/// <param name="bufs">
 		/// A <see cref="T:int[]"/>.
 		/// </param>
-		public static void DrawBuffersNV(Int32 n, int[] bufs)
-		{
-			Debug.Assert(bufs.Length >= n);
-			unsafe {
-				fixed (int* p_bufs = bufs)
-				{
-					Debug.Assert(Delegates.pglDrawBuffersNV != null, "pglDrawBuffersNV not implemented");
-					Delegates.pglDrawBuffersNV(n, p_bufs);
-					CallLog("glDrawBuffersNV({0}, {1})", n, bufs);
-				}
-			}
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// Binding for glDrawBuffersNV.
-		/// </summary>
-		/// <param name="n">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="bufs">
-		/// A <see cref="T:int[]"/>.
-		/// </param>
-		public static void DrawBuffersNV(int[] bufs)
+		public static void DrawBuffersNV(params int[] bufs)
 		{
 			unsafe {
 				fixed (int* p_bufs = bufs)
@@ -7511,33 +7292,6 @@ namespace OpenGL
 		/// <param name="numBuffers">
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
-		public static void ExtGetBuffersQCOM(UInt32[] buffers, Int32 maxBuffers, Int32[] numBuffers)
-		{
-			Debug.Assert(buffers.Length >= maxBuffers);
-			unsafe {
-				fixed (UInt32* p_buffers = buffers)
-				fixed (Int32* p_numBuffers = numBuffers)
-				{
-					Debug.Assert(Delegates.pglExtGetBuffersQCOM != null, "pglExtGetBuffersQCOM not implemented");
-					Delegates.pglExtGetBuffersQCOM(p_buffers, maxBuffers, p_numBuffers);
-					CallLog("glExtGetBuffersQCOM({0}, {1}, {2})", buffers, maxBuffers, numBuffers);
-				}
-			}
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// Binding for glExtGetBuffersQCOM.
-		/// </summary>
-		/// <param name="buffers">
-		/// A <see cref="T:UInt32[]"/>.
-		/// </param>
-		/// <param name="maxBuffers">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="numBuffers">
-		/// A <see cref="T:Int32[]"/>.
-		/// </param>
 		public static void ExtGetBuffersQCOM(UInt32[] buffers, Int32[] numBuffers)
 		{
 			unsafe {
@@ -7547,33 +7301,6 @@ namespace OpenGL
 					Debug.Assert(Delegates.pglExtGetBuffersQCOM != null, "pglExtGetBuffersQCOM not implemented");
 					Delegates.pglExtGetBuffersQCOM(p_buffers, (Int32)buffers.Length, p_numBuffers);
 					CallLog("glExtGetBuffersQCOM({0}, {1}, {2})", buffers, buffers.Length, numBuffers);
-				}
-			}
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// Binding for glExtGetFramebuffersQCOM.
-		/// </summary>
-		/// <param name="framebuffers">
-		/// A <see cref="T:UInt32[]"/>.
-		/// </param>
-		/// <param name="maxFramebuffers">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="numFramebuffers">
-		/// A <see cref="T:Int32[]"/>.
-		/// </param>
-		public static void ExtGetFramebuffersQCOM(UInt32[] framebuffers, Int32 maxFramebuffers, Int32[] numFramebuffers)
-		{
-			Debug.Assert(framebuffers.Length >= maxFramebuffers);
-			unsafe {
-				fixed (UInt32* p_framebuffers = framebuffers)
-				fixed (Int32* p_numFramebuffers = numFramebuffers)
-				{
-					Debug.Assert(Delegates.pglExtGetFramebuffersQCOM != null, "pglExtGetFramebuffersQCOM not implemented");
-					Delegates.pglExtGetFramebuffersQCOM(p_framebuffers, maxFramebuffers, p_numFramebuffers);
-					CallLog("glExtGetFramebuffersQCOM({0}, {1}, {2})", framebuffers, maxFramebuffers, numFramebuffers);
 				}
 			}
 			DebugCheckErrors();
@@ -7645,33 +7372,6 @@ namespace OpenGL
 		/// <param name="numPrograms">
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
-		public static void ExtGetProgramsQCOM(UInt32[] programs, Int32 maxPrograms, Int32[] numPrograms)
-		{
-			Debug.Assert(programs.Length >= maxPrograms);
-			unsafe {
-				fixed (UInt32* p_programs = programs)
-				fixed (Int32* p_numPrograms = numPrograms)
-				{
-					Debug.Assert(Delegates.pglExtGetProgramsQCOM != null, "pglExtGetProgramsQCOM not implemented");
-					Delegates.pglExtGetProgramsQCOM(p_programs, maxPrograms, p_numPrograms);
-					CallLog("glExtGetProgramsQCOM({0}, {1}, {2})", programs, maxPrograms, numPrograms);
-				}
-			}
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// Binding for glExtGetProgramsQCOM.
-		/// </summary>
-		/// <param name="programs">
-		/// A <see cref="T:UInt32[]"/>.
-		/// </param>
-		/// <param name="maxPrograms">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="numPrograms">
-		/// A <see cref="T:Int32[]"/>.
-		/// </param>
 		public static void ExtGetProgramsQCOM(UInt32[] programs, Int32[] numPrograms)
 		{
 			unsafe {
@@ -7698,33 +7398,6 @@ namespace OpenGL
 		/// <param name="numRenderbuffers">
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
-		public static void ExtGetRenderbuffersQCOM(UInt32[] renderbuffers, Int32 maxRenderbuffers, Int32[] numRenderbuffers)
-		{
-			Debug.Assert(renderbuffers.Length >= maxRenderbuffers);
-			unsafe {
-				fixed (UInt32* p_renderbuffers = renderbuffers)
-				fixed (Int32* p_numRenderbuffers = numRenderbuffers)
-				{
-					Debug.Assert(Delegates.pglExtGetRenderbuffersQCOM != null, "pglExtGetRenderbuffersQCOM not implemented");
-					Delegates.pglExtGetRenderbuffersQCOM(p_renderbuffers, maxRenderbuffers, p_numRenderbuffers);
-					CallLog("glExtGetRenderbuffersQCOM({0}, {1}, {2})", renderbuffers, maxRenderbuffers, numRenderbuffers);
-				}
-			}
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// Binding for glExtGetRenderbuffersQCOM.
-		/// </summary>
-		/// <param name="renderbuffers">
-		/// A <see cref="T:UInt32[]"/>.
-		/// </param>
-		/// <param name="maxRenderbuffers">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="numRenderbuffers">
-		/// A <see cref="T:Int32[]"/>.
-		/// </param>
 		public static void ExtGetRenderbuffersQCOM(UInt32[] renderbuffers, Int32[] numRenderbuffers)
 		{
 			unsafe {
@@ -7734,33 +7407,6 @@ namespace OpenGL
 					Debug.Assert(Delegates.pglExtGetRenderbuffersQCOM != null, "pglExtGetRenderbuffersQCOM not implemented");
 					Delegates.pglExtGetRenderbuffersQCOM(p_renderbuffers, (Int32)renderbuffers.Length, p_numRenderbuffers);
 					CallLog("glExtGetRenderbuffersQCOM({0}, {1}, {2})", renderbuffers, renderbuffers.Length, numRenderbuffers);
-				}
-			}
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// Binding for glExtGetShadersQCOM.
-		/// </summary>
-		/// <param name="shaders">
-		/// A <see cref="T:UInt32[]"/>.
-		/// </param>
-		/// <param name="maxShaders">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="numShaders">
-		/// A <see cref="T:Int32[]"/>.
-		/// </param>
-		public static void ExtGetShadersQCOM(UInt32[] shaders, Int32 maxShaders, Int32[] numShaders)
-		{
-			Debug.Assert(shaders.Length >= maxShaders);
-			unsafe {
-				fixed (UInt32* p_shaders = shaders)
-				fixed (Int32* p_numShaders = numShaders)
-				{
-					Debug.Assert(Delegates.pglExtGetShadersQCOM != null, "pglExtGetShadersQCOM not implemented");
-					Delegates.pglExtGetShadersQCOM(p_shaders, maxShaders, p_numShaders);
-					CallLog("glExtGetShadersQCOM({0}, {1}, {2})", shaders, maxShaders, numShaders);
 				}
 			}
 			DebugCheckErrors();
@@ -8237,29 +7883,6 @@ namespace OpenGL
 		/// <param name="framebuffers">
 		/// A <see cref="T:UInt32[]"/>.
 		/// </param>
-		public static void GenFramebuffersOES(Int32 n, UInt32[] framebuffers)
-		{
-			Debug.Assert(framebuffers.Length >= n);
-			unsafe {
-				fixed (UInt32* p_framebuffers = framebuffers)
-				{
-					Debug.Assert(Delegates.pglGenFramebuffersOES != null, "pglGenFramebuffersOES not implemented");
-					Delegates.pglGenFramebuffersOES(n, p_framebuffers);
-					CallLog("glGenFramebuffersOES({0}, {1})", n, framebuffers);
-				}
-			}
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// Binding for glGenFramebuffersOES.
-		/// </summary>
-		/// <param name="n">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="framebuffers">
-		/// A <see cref="T:UInt32[]"/>.
-		/// </param>
 		public static void GenFramebuffersOES(UInt32[] framebuffers)
 		{
 			unsafe {
@@ -8279,32 +7902,8 @@ namespace OpenGL
 		public static UInt32 GenFramebuffersOES()
 		{
 			UInt32[] retValue = new UInt32[1];
-			GenFramebuffersOES(1, retValue);
+			GenFramebuffersOES(retValue);
 			return (retValue[0]);
-		}
-
-		/// <summary>
-		/// Binding for glGenProgramPipelinesEXT.
-		/// </summary>
-		/// <param name="n">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="pipelines">
-		/// A <see cref="T:UInt32[]"/>.
-		/// </param>
-		[RequiredByFeature("GL_EXT_separate_shader_objects")]
-		public static void GenProgramPipelinesEXT(Int32 n, UInt32[] pipelines)
-		{
-			Debug.Assert(pipelines.Length >= n);
-			unsafe {
-				fixed (UInt32* p_pipelines = pipelines)
-				{
-					Debug.Assert(Delegates.pglGenProgramPipelinesEXT != null, "pglGenProgramPipelinesEXT not implemented");
-					Delegates.pglGenProgramPipelinesEXT(n, p_pipelines);
-					CallLog("glGenProgramPipelinesEXT({0}, {1})", n, pipelines);
-				}
-			}
-			DebugCheckErrors();
 		}
 
 		/// <summary>
@@ -8337,31 +7936,8 @@ namespace OpenGL
 		public static UInt32 GenProgramPipelinesEXT()
 		{
 			UInt32[] retValue = new UInt32[1];
-			GenProgramPipelinesEXT(1, retValue);
+			GenProgramPipelinesEXT(retValue);
 			return (retValue[0]);
-		}
-
-		/// <summary>
-		/// Binding for glGenQueriesEXT.
-		/// </summary>
-		/// <param name="n">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="ids">
-		/// A <see cref="T:UInt32[]"/>.
-		/// </param>
-		public static void GenQueriesEXT(Int32 n, UInt32[] ids)
-		{
-			Debug.Assert(ids.Length >= n);
-			unsafe {
-				fixed (UInt32* p_ids = ids)
-				{
-					Debug.Assert(Delegates.pglGenQueriesEXT != null, "pglGenQueriesEXT not implemented");
-					Delegates.pglGenQueriesEXT(n, p_ids);
-					CallLog("glGenQueriesEXT({0}, {1})", n, ids);
-				}
-			}
-			DebugCheckErrors();
 		}
 
 		/// <summary>
@@ -8392,31 +7968,8 @@ namespace OpenGL
 		public static UInt32 GenQueriesEXT()
 		{
 			UInt32[] retValue = new UInt32[1];
-			GenQueriesEXT(1, retValue);
+			GenQueriesEXT(retValue);
 			return (retValue[0]);
-		}
-
-		/// <summary>
-		/// Binding for glGenRenderbuffersOES.
-		/// </summary>
-		/// <param name="n">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="renderbuffers">
-		/// A <see cref="T:UInt32[]"/>.
-		/// </param>
-		public static void GenRenderbufferOES(Int32 n, UInt32[] renderbuffers)
-		{
-			Debug.Assert(renderbuffers.Length >= n);
-			unsafe {
-				fixed (UInt32* p_renderbuffers = renderbuffers)
-				{
-					Debug.Assert(Delegates.pglGenRenderbuffersOES != null, "pglGenRenderbuffersOES not implemented");
-					Delegates.pglGenRenderbuffersOES(n, p_renderbuffers);
-					CallLog("glGenRenderbuffersOES({0}, {1})", n, renderbuffers);
-				}
-			}
-			DebugCheckErrors();
 		}
 
 		/// <summary>
@@ -8447,31 +8000,8 @@ namespace OpenGL
 		public static UInt32 GenRenderbufferOES()
 		{
 			UInt32[] retValue = new UInt32[1];
-			GenRenderbufferOES(1, retValue);
+			GenRenderbufferOES(retValue);
 			return (retValue[0]);
-		}
-
-		/// <summary>
-		/// Binding for glGenVertexArraysOES.
-		/// </summary>
-		/// <param name="n">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="arrays">
-		/// A <see cref="T:UInt32[]"/>.
-		/// </param>
-		public static void GenVertexArraysOES(Int32 n, UInt32[] arrays)
-		{
-			Debug.Assert(arrays.Length >= n);
-			unsafe {
-				fixed (UInt32* p_arrays = arrays)
-				{
-					Debug.Assert(Delegates.pglGenVertexArraysOES != null, "pglGenVertexArraysOES not implemented");
-					Delegates.pglGenVertexArraysOES(n, p_arrays);
-					CallLog("glGenVertexArraysOES({0}, {1})", n, arrays);
-				}
-			}
-			DebugCheckErrors();
 		}
 
 		/// <summary>
@@ -8502,7 +8032,7 @@ namespace OpenGL
 		public static UInt32 GenVertexArraysOES()
 		{
 			UInt32[] retValue = new UInt32[1];
-			GenVertexArraysOES(1, retValue);
+			GenVertexArraysOES(retValue);
 			return (retValue[0]);
 		}
 
@@ -8612,60 +8142,6 @@ namespace OpenGL
 		/// A <see cref="T:StringBuilder"/>.
 		/// </param>
 		[RequiredByFeature("GL_KHR_debug")]
-		public static UInt32 GetDebugMessageLogKHR(UInt32 count, Int32 bufSize, int[] sources, int[] types, UInt32[] ids, int[] severities, Int32[] lengths, [Out] StringBuilder messageLog)
-		{
-			Debug.Assert(sources.Length >= count);
-			Debug.Assert(types.Length >= count);
-			Debug.Assert(ids.Length >= count);
-			Debug.Assert(severities.Length >= count);
-			Debug.Assert(lengths.Length >= count);
-			UInt32 retValue;
-
-			unsafe {
-				fixed (int* p_sources = sources)
-				fixed (int* p_types = types)
-				fixed (UInt32* p_ids = ids)
-				fixed (int* p_severities = severities)
-				fixed (Int32* p_lengths = lengths)
-				{
-					Debug.Assert(Delegates.pglGetDebugMessageLogKHR != null, "pglGetDebugMessageLogKHR not implemented");
-					retValue = Delegates.pglGetDebugMessageLogKHR(count, bufSize, p_sources, p_types, p_ids, p_severities, p_lengths, messageLog);
-					CallLog("glGetDebugMessageLogKHR({0}, {1}, {2}, {3}, {4}, {5}, {6}, {7}) = {8}", count, bufSize, sources, types, ids, severities, lengths, messageLog, retValue);
-				}
-			}
-			DebugCheckErrors();
-
-			return (retValue);
-		}
-
-		/// <summary>
-		/// Binding for glGetDebugMessageLogKHR.
-		/// </summary>
-		/// <param name="count">
-		/// A <see cref="T:UInt32"/>.
-		/// </param>
-		/// <param name="bufSize">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="sources">
-		/// A <see cref="T:int[]"/>.
-		/// </param>
-		/// <param name="types">
-		/// A <see cref="T:int[]"/>.
-		/// </param>
-		/// <param name="ids">
-		/// A <see cref="T:UInt32[]"/>.
-		/// </param>
-		/// <param name="severities">
-		/// A <see cref="T:int[]"/>.
-		/// </param>
-		/// <param name="lengths">
-		/// A <see cref="T:Int32[]"/>.
-		/// </param>
-		/// <param name="messageLog">
-		/// A <see cref="T:StringBuilder"/>.
-		/// </param>
-		[RequiredByFeature("GL_KHR_debug")]
 		public static UInt32 GetDebugMessageLogKHR(Int32 bufSize, int[] sources, int[] types, UInt32[] ids, int[] severities, Int32[] lengths, [Out] StringBuilder messageLog)
 		{
 			UInt32 retValue;
@@ -8727,34 +8203,7 @@ namespace OpenGL
 		/// <param name="driverControls">
 		/// A <see cref="T:UInt32[]"/>.
 		/// </param>
-		public static void GetDriverControlsQCOM(Int32[] num, Int32 size, UInt32[] driverControls)
-		{
-			Debug.Assert(driverControls.Length >= size);
-			unsafe {
-				fixed (Int32* p_num = num)
-				fixed (UInt32* p_driverControls = driverControls)
-				{
-					Debug.Assert(Delegates.pglGetDriverControlsQCOM != null, "pglGetDriverControlsQCOM not implemented");
-					Delegates.pglGetDriverControlsQCOM(p_num, size, p_driverControls);
-					CallLog("glGetDriverControlsQCOM({0}, {1}, {2})", num, size, driverControls);
-				}
-			}
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// Binding for glGetDriverControlsQCOM.
-		/// </summary>
-		/// <param name="num">
-		/// A <see cref="T:Int32[]"/>.
-		/// </param>
-		/// <param name="size">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="driverControls">
-		/// A <see cref="T:UInt32[]"/>.
-		/// </param>
-		public static void GetDriverControlsQCOM(Int32[] num, UInt32[] driverControls)
+		public static void GetDriverControlsQCOM(Int32[] num, params UInt32[] driverControls)
 		{
 			unsafe {
 				fixed (Int32* p_num = num)
@@ -9433,40 +8882,7 @@ namespace OpenGL
 		/// <param name="values">
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
-		public static void GetSyncAPPLE(int sync, int pname, Int32 bufSize, Int32[] length, Int32[] values)
-		{
-			Debug.Assert(values.Length >= bufSize);
-			unsafe {
-				fixed (Int32* p_length = length)
-				fixed (Int32* p_values = values)
-				{
-					Debug.Assert(Delegates.pglGetSyncivAPPLE != null, "pglGetSyncivAPPLE not implemented");
-					Delegates.pglGetSyncivAPPLE(sync, pname, bufSize, p_length, p_values);
-					CallLog("glGetSyncivAPPLE({0}, {1}, {2}, {3}, {4})", sync, pname, bufSize, length, values);
-				}
-			}
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// Binding for glGetSyncivAPPLE.
-		/// </summary>
-		/// <param name="sync">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="pname">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="bufSize">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="length">
-		/// A <see cref="T:Int32[]"/>.
-		/// </param>
-		/// <param name="values">
-		/// A <see cref="T:Int32[]"/>.
-		/// </param>
-		public static void GetSyncAPPLE(int sync, int pname, Int32[] length, Int32[] values)
+		public static void GetSyncAPPLE(int sync, int pname, Int32[] length, params Int32[] values)
 		{
 			unsafe {
 				fixed (Int32* p_length = length)
@@ -9723,36 +9139,7 @@ namespace OpenGL
 		/// <param name="params">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
-		public static void GetnUniformEXT(UInt32 program, Int32 location, Int32 bufSize, float[] @params)
-		{
-			Debug.Assert(@params.Length >= bufSize);
-			unsafe {
-				fixed (float* p_params = @params)
-				{
-					Debug.Assert(Delegates.pglGetnUniformfvEXT != null, "pglGetnUniformfvEXT not implemented");
-					Delegates.pglGetnUniformfvEXT(program, location, bufSize, p_params);
-					CallLog("glGetnUniformfvEXT({0}, {1}, {2}, {3})", program, location, bufSize, @params);
-				}
-			}
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// Binding for glGetnUniformfvEXT.
-		/// </summary>
-		/// <param name="program">
-		/// A <see cref="T:UInt32"/>.
-		/// </param>
-		/// <param name="location">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="bufSize">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="params">
-		/// A <see cref="T:float[]"/>.
-		/// </param>
-		public static void GetnUniformEXT(UInt32 program, Int32 location, float[] @params)
+		public static void GetnUniformEXT(UInt32 program, Int32 location, params float[] @params)
 		{
 			unsafe {
 				fixed (float* p_params = @params)
@@ -9809,36 +9196,7 @@ namespace OpenGL
 		/// <param name="params">
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
-		public static void GetnUniformEXT(UInt32 program, Int32 location, Int32 bufSize, Int32[] @params)
-		{
-			Debug.Assert(@params.Length >= bufSize);
-			unsafe {
-				fixed (Int32* p_params = @params)
-				{
-					Debug.Assert(Delegates.pglGetnUniformivEXT != null, "pglGetnUniformivEXT not implemented");
-					Delegates.pglGetnUniformivEXT(program, location, bufSize, p_params);
-					CallLog("glGetnUniformivEXT({0}, {1}, {2}, {3})", program, location, bufSize, @params);
-				}
-			}
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// Binding for glGetnUniformivEXT.
-		/// </summary>
-		/// <param name="program">
-		/// A <see cref="T:UInt32"/>.
-		/// </param>
-		/// <param name="location">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="bufSize">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="params">
-		/// A <see cref="T:Int32[]"/>.
-		/// </param>
-		public static void GetnUniformEXT(UInt32 program, Int32 location, Int32[] @params)
+		public static void GetnUniformEXT(UInt32 program, Int32 location, params Int32[] @params)
 		{
 			unsafe {
 				fixed (Int32* p_params = @params)

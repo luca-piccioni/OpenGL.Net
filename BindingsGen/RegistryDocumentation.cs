@@ -43,8 +43,8 @@ namespace BindingsGen
 		static RegistryDocumentation()
 		{
 #if !DEBUG
-			//ScanDocumentation_GL4();
-			//ScanDocumentation_GL2();
+			ScanDocumentation_GL4();
+			ScanDocumentation_GL2();
 			ScanDocumentation_EGL();
 #endif
 

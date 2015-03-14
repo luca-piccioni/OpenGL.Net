@@ -128,39 +128,6 @@ namespace OpenGL
 		/// A <see cref="T:bool"/>.
 		/// </param>
 		[RequiredByFeature("GL_AMD_debug_output")]
-		public static void DebugMessageEnableAMD(int category, int severity, Int32 count, UInt32[] ids, bool enabled)
-		{
-			Debug.Assert(ids.Length >= count);
-			unsafe {
-				fixed (UInt32* p_ids = ids)
-				{
-					Debug.Assert(Delegates.pglDebugMessageEnableAMD != null, "pglDebugMessageEnableAMD not implemented");
-					Delegates.pglDebugMessageEnableAMD(category, severity, count, p_ids, enabled);
-					CallLog("glDebugMessageEnableAMD({0}, {1}, {2}, {3}, {4})", category, severity, count, ids, enabled);
-				}
-			}
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// Binding for glDebugMessageEnableAMD.
-		/// </summary>
-		/// <param name="category">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="severity">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="count">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="ids">
-		/// A <see cref="T:UInt32[]"/>.
-		/// </param>
-		/// <param name="enabled">
-		/// A <see cref="T:bool"/>.
-		/// </param>
-		[RequiredByFeature("GL_AMD_debug_output")]
 		public static void DebugMessageEnableAMD(int category, int severity, UInt32[] ids, bool enabled)
 		{
 			unsafe {
@@ -217,55 +184,6 @@ namespace OpenGL
 			Delegates.pglDebugMessageCallbackAMD(callback, userParam);
 			CallLog("glDebugMessageCallbackAMD({0}, {1})", callback, userParam);
 			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// Binding for glGetDebugMessageLogAMD.
-		/// </summary>
-		/// <param name="count">
-		/// A <see cref="T:UInt32"/>.
-		/// </param>
-		/// <param name="bufsize">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="categories">
-		/// A <see cref="T:int[]"/>.
-		/// </param>
-		/// <param name="severities">
-		/// A <see cref="T:UInt32[]"/>.
-		/// </param>
-		/// <param name="ids">
-		/// A <see cref="T:UInt32[]"/>.
-		/// </param>
-		/// <param name="lengths">
-		/// A <see cref="T:Int32[]"/>.
-		/// </param>
-		/// <param name="message">
-		/// A <see cref="T:StringBuilder"/>.
-		/// </param>
-		[RequiredByFeature("GL_AMD_debug_output")]
-		public static UInt32 GetDebugMessageLogAMD(UInt32 count, Int32 bufsize, int[] categories, UInt32[] severities, UInt32[] ids, Int32[] lengths, [Out] StringBuilder message)
-		{
-			Debug.Assert(categories.Length >= count);
-			Debug.Assert(severities.Length >= count);
-			Debug.Assert(ids.Length >= count);
-			Debug.Assert(lengths.Length >= count);
-			UInt32 retValue;
-
-			unsafe {
-				fixed (int* p_categories = categories)
-				fixed (UInt32* p_severities = severities)
-				fixed (UInt32* p_ids = ids)
-				fixed (Int32* p_lengths = lengths)
-				{
-					Debug.Assert(Delegates.pglGetDebugMessageLogAMD != null, "pglGetDebugMessageLogAMD not implemented");
-					retValue = Delegates.pglGetDebugMessageLogAMD(count, bufsize, p_categories, p_severities, p_ids, p_lengths, message);
-					CallLog("glGetDebugMessageLogAMD({0}, {1}, {2}, {3}, {4}, {5}, {6}) = {7}", count, bufsize, categories, severities, ids, lengths, message, retValue);
-				}
-			}
-			DebugCheckErrors();
-
-			return (retValue);
 		}
 
 		/// <summary>

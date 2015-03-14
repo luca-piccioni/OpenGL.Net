@@ -55,6 +55,17 @@ namespace OpenGL.Test
 		}
 
 		/// <summary>
+		/// Synchronize thread-local delegates.
+		/// </summary>
+		[SetUp]
+		public void SetUp()
+		{
+			Gl.SyncDelegates();
+			Wgl.SyncDelegates();
+			Glx.SyncDelegates();
+		}
+
+		/// <summary>
 		/// Release resources allocated by <see cref="FixtureSetUp"/>.
 		/// </summary>
 		[TestFixtureTearDown]

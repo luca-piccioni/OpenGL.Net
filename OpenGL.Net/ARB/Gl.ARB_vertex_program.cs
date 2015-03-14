@@ -1617,37 +1617,7 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_ARB_fragment_program")]
 		[RequiredByFeature("GL_ARB_vertex_program")]
-		public static void DeleteProgramsARB(Int32 n, UInt32[] programs)
-		{
-			Debug.Assert(programs.Length >= n);
-			unsafe {
-				fixed (UInt32* p_programs = programs)
-				{
-					if        (Delegates.pglDeleteProgramsARB != null) {
-						Delegates.pglDeleteProgramsARB(n, p_programs);
-						CallLog("glDeleteProgramsARB({0}, {1})", n, programs);
-					} else if (Delegates.pglDeleteProgramsNV != null) {
-						Delegates.pglDeleteProgramsNV(n, p_programs);
-						CallLog("glDeleteProgramsNV({0}, {1})", n, programs);
-					} else
-						throw new NotImplementedException("glDeleteProgramsARB (and other aliases) are not implemented");
-				}
-			}
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// Binding for glDeleteProgramsARB.
-		/// </summary>
-		/// <param name="n">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="programs">
-		/// A <see cref="T:UInt32[]"/>.
-		/// </param>
-		[RequiredByFeature("GL_ARB_fragment_program")]
-		[RequiredByFeature("GL_ARB_vertex_program")]
-		public static void DeleteProgramsARB(UInt32[] programs)
+		public static void DeleteProgramsARB(params UInt32[] programs)
 		{
 			unsafe {
 				fixed (UInt32* p_programs = programs)
@@ -1660,36 +1630,6 @@ namespace OpenGL
 						CallLog("glDeleteProgramsNV({0}, {1})", programs.Length, programs);
 					} else
 						throw new NotImplementedException("glDeleteProgramsARB (and other aliases) are not implemented");
-				}
-			}
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// Binding for glGenProgramsARB.
-		/// </summary>
-		/// <param name="n">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="programs">
-		/// A <see cref="T:UInt32[]"/>.
-		/// </param>
-		[RequiredByFeature("GL_ARB_fragment_program")]
-		[RequiredByFeature("GL_ARB_vertex_program")]
-		public static void GenProgramsARB(Int32 n, UInt32[] programs)
-		{
-			Debug.Assert(programs.Length >= n);
-			unsafe {
-				fixed (UInt32* p_programs = programs)
-				{
-					if        (Delegates.pglGenProgramsARB != null) {
-						Delegates.pglGenProgramsARB(n, p_programs);
-						CallLog("glGenProgramsARB({0}, {1})", n, programs);
-					} else if (Delegates.pglGenProgramsNV != null) {
-						Delegates.pglGenProgramsNV(n, p_programs);
-						CallLog("glGenProgramsNV({0}, {1})", n, programs);
-					} else
-						throw new NotImplementedException("glGenProgramsARB (and other aliases) are not implemented");
 				}
 			}
 			DebugCheckErrors();
@@ -1732,7 +1672,7 @@ namespace OpenGL
 		public static UInt32 GenProgramsARB()
 		{
 			UInt32[] retValue = new UInt32[1];
-			GenProgramsARB(1, retValue);
+			GenProgramsARB(retValue);
 			return (retValue[0]);
 		}
 

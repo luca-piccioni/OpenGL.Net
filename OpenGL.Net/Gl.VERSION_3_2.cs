@@ -1225,47 +1225,7 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_3_2")]
 		[RequiredByFeature("GL_ARB_sync")]
-		public static void GetSync(int sync, int pname, Int32 bufSize, out Int32 length, Int32[] values)
-		{
-			Debug.Assert(values.Length >= bufSize);
-			unsafe {
-				fixed (Int32* p_length = &length)
-				fixed (Int32* p_values = values)
-				{
-					if        (Delegates.pglGetSynciv != null) {
-						Delegates.pglGetSynciv(sync, pname, bufSize, p_length, p_values);
-						CallLog("glGetSynciv({0}, {1}, {2}, {3}, {4})", sync, pname, bufSize, length, values);
-					} else if (Delegates.pglGetSyncivAPPLE != null) {
-						Delegates.pglGetSyncivAPPLE(sync, pname, bufSize, p_length, p_values);
-						CallLog("glGetSyncivAPPLE({0}, {1}, {2}, {3}, {4})", sync, pname, bufSize, length, values);
-					} else
-						throw new NotImplementedException("glGetSynciv (and other aliases) are not implemented");
-				}
-			}
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// query the properties of a sync object
-		/// </summary>
-		/// <param name="sync">
-		/// Specifies the sync object whose properties to query.
-		/// </param>
-		/// <param name="pname">
-		/// Specifies the parameter whose value to retrieve from the sync object specified in sync.
-		/// </param>
-		/// <param name="bufSize">
-		/// Specifies the size of the buffer whose address is given in values.
-		/// </param>
-		/// <param name="length">
-		/// Specifies the address of an variable to receive the number of integers placed in values.
-		/// </param>
-		/// <param name="values">
-		/// Specifies the address of an array to receive the values of the queried parameter.
-		/// </param>
-		[RequiredByFeature("GL_VERSION_3_2")]
-		[RequiredByFeature("GL_ARB_sync")]
-		public static void GetSync(int sync, int pname, out Int32 length, Int32[] values)
+		public static void GetSync(int sync, int pname, out Int32 length, params Int32[] values)
 		{
 			unsafe {
 				fixed (Int32* p_length = &length)

@@ -56,31 +56,7 @@ namespace OpenGL
 		/// A <see cref="T:UInt32[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_APPLE_vertex_array_object")]
-		public static void DeleteVertexArraysAPPLE(Int32 n, UInt32[] arrays)
-		{
-			Debug.Assert(arrays.Length >= n);
-			unsafe {
-				fixed (UInt32* p_arrays = arrays)
-				{
-					Debug.Assert(Delegates.pglDeleteVertexArraysAPPLE != null, "pglDeleteVertexArraysAPPLE not implemented");
-					Delegates.pglDeleteVertexArraysAPPLE(n, p_arrays);
-					CallLog("glDeleteVertexArraysAPPLE({0}, {1})", n, arrays);
-				}
-			}
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// Binding for glDeleteVertexArraysAPPLE.
-		/// </summary>
-		/// <param name="n">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="arrays">
-		/// A <see cref="T:UInt32[]"/>.
-		/// </param>
-		[RequiredByFeature("GL_APPLE_vertex_array_object")]
-		public static void DeleteVertexArraysAPPLE(UInt32[] arrays)
+		public static void DeleteVertexArraysAPPLE(params UInt32[] arrays)
 		{
 			unsafe {
 				fixed (UInt32* p_arrays = arrays)
@@ -88,30 +64,6 @@ namespace OpenGL
 					Debug.Assert(Delegates.pglDeleteVertexArraysAPPLE != null, "pglDeleteVertexArraysAPPLE not implemented");
 					Delegates.pglDeleteVertexArraysAPPLE((Int32)arrays.Length, p_arrays);
 					CallLog("glDeleteVertexArraysAPPLE({0}, {1})", arrays.Length, arrays);
-				}
-			}
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// Binding for glGenVertexArraysAPPLE.
-		/// </summary>
-		/// <param name="n">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="arrays">
-		/// A <see cref="T:UInt32[]"/>.
-		/// </param>
-		[RequiredByFeature("GL_APPLE_vertex_array_object")]
-		public static void GenVertexArraysAPPLE(Int32 n, UInt32[] arrays)
-		{
-			Debug.Assert(arrays.Length >= n);
-			unsafe {
-				fixed (UInt32* p_arrays = arrays)
-				{
-					Debug.Assert(Delegates.pglGenVertexArraysAPPLE != null, "pglGenVertexArraysAPPLE not implemented");
-					Delegates.pglGenVertexArraysAPPLE(n, p_arrays);
-					CallLog("glGenVertexArraysAPPLE({0}, {1})", n, arrays);
 				}
 			}
 			DebugCheckErrors();
@@ -147,7 +99,7 @@ namespace OpenGL
 		public static UInt32 GenVertexArraysAPPLE()
 		{
 			UInt32[] retValue = new UInt32[1];
-			GenVertexArraysAPPLE(1, retValue);
+			GenVertexArraysAPPLE(retValue);
 			return (retValue[0]);
 		}
 

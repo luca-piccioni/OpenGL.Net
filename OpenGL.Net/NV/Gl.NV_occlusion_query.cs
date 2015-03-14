@@ -59,30 +59,6 @@ namespace OpenGL
 		/// A <see cref="T:UInt32[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_occlusion_query")]
-		public static void GenOcclusionQueriesNV(Int32 n, UInt32[] ids)
-		{
-			Debug.Assert(ids.Length >= n);
-			unsafe {
-				fixed (UInt32* p_ids = ids)
-				{
-					Debug.Assert(Delegates.pglGenOcclusionQueriesNV != null, "pglGenOcclusionQueriesNV not implemented");
-					Delegates.pglGenOcclusionQueriesNV(n, p_ids);
-					CallLog("glGenOcclusionQueriesNV({0}, {1})", n, ids);
-				}
-			}
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// Binding for glGenOcclusionQueriesNV.
-		/// </summary>
-		/// <param name="n">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="ids">
-		/// A <see cref="T:UInt32[]"/>.
-		/// </param>
-		[RequiredByFeature("GL_NV_occlusion_query")]
 		public static void GenOcclusionQueriesNV(UInt32[] ids)
 		{
 			unsafe {
@@ -103,7 +79,7 @@ namespace OpenGL
 		public static UInt32 GenOcclusionQueriesNV()
 		{
 			UInt32[] retValue = new UInt32[1];
-			GenOcclusionQueriesNV(1, retValue);
+			GenOcclusionQueriesNV(retValue);
 			return (retValue[0]);
 		}
 
@@ -117,31 +93,7 @@ namespace OpenGL
 		/// A <see cref="T:UInt32[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_occlusion_query")]
-		public static void DeleteOcclusionQueriesNV(Int32 n, UInt32[] ids)
-		{
-			Debug.Assert(ids.Length >= n);
-			unsafe {
-				fixed (UInt32* p_ids = ids)
-				{
-					Debug.Assert(Delegates.pglDeleteOcclusionQueriesNV != null, "pglDeleteOcclusionQueriesNV not implemented");
-					Delegates.pglDeleteOcclusionQueriesNV(n, p_ids);
-					CallLog("glDeleteOcclusionQueriesNV({0}, {1})", n, ids);
-				}
-			}
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// Binding for glDeleteOcclusionQueriesNV.
-		/// </summary>
-		/// <param name="n">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="ids">
-		/// A <see cref="T:UInt32[]"/>.
-		/// </param>
-		[RequiredByFeature("GL_NV_occlusion_query")]
-		public static void DeleteOcclusionQueriesNV(UInt32[] ids)
+		public static void DeleteOcclusionQueriesNV(params UInt32[] ids)
 		{
 			unsafe {
 				fixed (UInt32* p_ids = ids)

@@ -352,36 +352,6 @@ namespace OpenGL
 		/// A <see cref="T:int"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_transform_feedback")]
-		public static void TransformFeedbackVaryingNV(UInt32 program, Int32 count, Int32[] locations, int bufferMode)
-		{
-			Debug.Assert(locations.Length >= count);
-			unsafe {
-				fixed (Int32* p_locations = locations)
-				{
-					Debug.Assert(Delegates.pglTransformFeedbackVaryingsNV != null, "pglTransformFeedbackVaryingsNV not implemented");
-					Delegates.pglTransformFeedbackVaryingsNV(program, count, p_locations, bufferMode);
-					CallLog("glTransformFeedbackVaryingsNV({0}, {1}, {2}, {3})", program, count, locations, bufferMode);
-				}
-			}
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// Binding for glTransformFeedbackVaryingsNV.
-		/// </summary>
-		/// <param name="program">
-		/// A <see cref="T:UInt32"/>.
-		/// </param>
-		/// <param name="count">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="locations">
-		/// A <see cref="T:Int32[]"/>.
-		/// </param>
-		/// <param name="bufferMode">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		[RequiredByFeature("GL_NV_transform_feedback")]
 		public static void TransformFeedbackVaryingNV(UInt32 program, Int32[] locations, int bufferMode)
 		{
 			unsafe {
@@ -496,41 +466,6 @@ namespace OpenGL
 					Debug.Assert(Delegates.pglGetTransformFeedbackVaryingNV != null, "pglGetTransformFeedbackVaryingNV not implemented");
 					Delegates.pglGetTransformFeedbackVaryingNV(program, index, p_location);
 					CallLog("glGetTransformFeedbackVaryingNV({0}, {1}, {2})", program, index, location);
-				}
-			}
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// Binding for glTransformFeedbackStreamAttribsNV.
-		/// </summary>
-		/// <param name="count">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="attribs">
-		/// A <see cref="T:Int32[]"/>.
-		/// </param>
-		/// <param name="nbuffers">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="bufstreams">
-		/// A <see cref="T:Int32[]"/>.
-		/// </param>
-		/// <param name="bufferMode">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		[RequiredByFeature("GL_NV_transform_feedback")]
-		public static void TransformFeedbackStreamAttribsNV(Int32 count, Int32[] attribs, Int32 nbuffers, Int32[] bufstreams, int bufferMode)
-		{
-			Debug.Assert(attribs.Length >= count);
-			Debug.Assert(bufstreams.Length >= nbuffers);
-			unsafe {
-				fixed (Int32* p_attribs = attribs)
-				fixed (Int32* p_bufstreams = bufstreams)
-				{
-					Debug.Assert(Delegates.pglTransformFeedbackStreamAttribsNV != null, "pglTransformFeedbackStreamAttribsNV not implemented");
-					Delegates.pglTransformFeedbackStreamAttribsNV(count, p_attribs, nbuffers, p_bufstreams, bufferMode);
-					CallLog("glTransformFeedbackStreamAttribsNV({0}, {1}, {2}, {3}, {4})", count, attribs, nbuffers, bufstreams, bufferMode);
 				}
 			}
 			DebugCheckErrors();

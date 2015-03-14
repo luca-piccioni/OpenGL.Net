@@ -86,34 +86,7 @@ namespace OpenGL
 		/// A <see cref="T:UInt32[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_gpu_program5")]
-		public static void ProgramSubroutineParametersNV(int target, Int32 count, UInt32[] @params)
-		{
-			Debug.Assert(@params.Length >= count);
-			unsafe {
-				fixed (UInt32* p_params = @params)
-				{
-					Debug.Assert(Delegates.pglProgramSubroutineParametersuivNV != null, "pglProgramSubroutineParametersuivNV not implemented");
-					Delegates.pglProgramSubroutineParametersuivNV(target, count, p_params);
-					CallLog("glProgramSubroutineParametersuivNV({0}, {1}, {2})", target, count, @params);
-				}
-			}
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// Binding for glProgramSubroutineParametersuivNV.
-		/// </summary>
-		/// <param name="target">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="count">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="params">
-		/// A <see cref="T:UInt32[]"/>.
-		/// </param>
-		[RequiredByFeature("GL_NV_gpu_program5")]
-		public static void ProgramSubroutineParametersNV(int target, UInt32[] @params)
+		public static void ProgramSubroutineParametersNV(int target, params UInt32[] @params)
 		{
 			unsafe {
 				fixed (UInt32* p_params = @params)

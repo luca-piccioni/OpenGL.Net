@@ -195,31 +195,6 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_3_3")]
 		[RequiredByFeature("GL_ARB_sampler_objects")]
-		public static void GenSamplers(Int32 count, UInt32[] samplers)
-		{
-			Debug.Assert(samplers.Length >= count);
-			unsafe {
-				fixed (UInt32* p_samplers = samplers)
-				{
-					Debug.Assert(Delegates.pglGenSamplers != null, "pglGenSamplers not implemented");
-					Delegates.pglGenSamplers(count, p_samplers);
-					CallLog("glGenSamplers({0}, {1})", count, samplers);
-				}
-			}
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// generate sampler object names
-		/// </summary>
-		/// <param name="count">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="samplers">
-		/// Specifies an array in which the generated sampler object names are stored.
-		/// </param>
-		[RequiredByFeature("GL_VERSION_3_3")]
-		[RequiredByFeature("GL_ARB_sampler_objects")]
 		public static void GenSamplers(UInt32[] samplers)
 		{
 			unsafe {
@@ -241,7 +216,7 @@ namespace OpenGL
 		public static UInt32 GenSampler()
 		{
 			UInt32[] retValue = new UInt32[1];
-			GenSamplers(1, retValue);
+			GenSamplers(retValue);
 			return (retValue[0]);
 		}
 
@@ -256,32 +231,7 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_3_3")]
 		[RequiredByFeature("GL_ARB_sampler_objects")]
-		public static void DeleteSamplers(Int32 count, UInt32[] samplers)
-		{
-			Debug.Assert(samplers.Length >= count);
-			unsafe {
-				fixed (UInt32* p_samplers = samplers)
-				{
-					Debug.Assert(Delegates.pglDeleteSamplers != null, "pglDeleteSamplers not implemented");
-					Delegates.pglDeleteSamplers(count, p_samplers);
-					CallLog("glDeleteSamplers({0}, {1})", count, samplers);
-				}
-			}
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// delete named sampler objects
-		/// </summary>
-		/// <param name="count">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="samplers">
-		/// Specifies an array of sampler objects to be deleted.
-		/// </param>
-		[RequiredByFeature("GL_VERSION_3_3")]
-		[RequiredByFeature("GL_ARB_sampler_objects")]
-		public static void DeleteSamplers(UInt32[] samplers)
+		public static void DeleteSamplers(params UInt32[] samplers)
 		{
 			unsafe {
 				fixed (UInt32* p_samplers = samplers)

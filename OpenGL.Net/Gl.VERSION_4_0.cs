@@ -1604,36 +1604,7 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_4_0")]
 		[RequiredByFeature("GL_ARB_shader_subroutine")]
-		public static void UniformSubroutines(int shadertype, Int32 count, UInt32[] indices)
-		{
-			Debug.Assert(indices.Length >= count);
-			unsafe {
-				fixed (UInt32* p_indices = indices)
-				{
-					Debug.Assert(Delegates.pglUniformSubroutinesuiv != null, "pglUniformSubroutinesuiv not implemented");
-					Delegates.pglUniformSubroutinesuiv(shadertype, count, p_indices);
-					CallLog("glUniformSubroutinesuiv({0}, {1}, {2})", shadertype, count, indices);
-				}
-			}
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// load active subroutine uniforms
-		/// </summary>
-		/// <param name="shadertype">
-		/// Specifies the shader stage from which to query for subroutine uniform index. shadertype must be one of GL_VERTEX_SHADER, 
-		/// GL_TESS_CONTROL_SHADER, GL_TESS_EVALUATION_SHADER, GL_GEOMETRY_SHADER or GL_FRAGMENT_SHADER.
-		/// </param>
-		/// <param name="count">
-		/// Specifies the number of uniform indices stored in indices.
-		/// </param>
-		/// <param name="indices">
-		/// Specifies the address of an array holding the indices to load into the shader subroutine variables.
-		/// </param>
-		[RequiredByFeature("GL_VERSION_4_0")]
-		[RequiredByFeature("GL_ARB_shader_subroutine")]
-		public static void UniformSubroutines(int shadertype, UInt32[] indices)
+		public static void UniformSubroutines(int shadertype, params UInt32[] indices)
 		{
 			unsafe {
 				fixed (UInt32* p_indices = indices)
@@ -1790,37 +1761,7 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_4_0")]
 		[RequiredByFeature("GL_ARB_transform_feedback2")]
-		public static void DeleteTransformFeedback(Int32 n, UInt32[] ids)
-		{
-			Debug.Assert(ids.Length >= n);
-			unsafe {
-				fixed (UInt32* p_ids = ids)
-				{
-					if        (Delegates.pglDeleteTransformFeedbacks != null) {
-						Delegates.pglDeleteTransformFeedbacks(n, p_ids);
-						CallLog("glDeleteTransformFeedbacks({0}, {1})", n, ids);
-					} else if (Delegates.pglDeleteTransformFeedbacksNV != null) {
-						Delegates.pglDeleteTransformFeedbacksNV(n, p_ids);
-						CallLog("glDeleteTransformFeedbacksNV({0}, {1})", n, ids);
-					} else
-						throw new NotImplementedException("glDeleteTransformFeedbacks (and other aliases) are not implemented");
-				}
-			}
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// delete transform feedback objects
-		/// </summary>
-		/// <param name="n">
-		/// Specifies the number of transform feedback objects to delete.
-		/// </param>
-		/// <param name="ids">
-		/// Specifies an array of names of transform feedback objects to delete.
-		/// </param>
-		[RequiredByFeature("GL_VERSION_4_0")]
-		[RequiredByFeature("GL_ARB_transform_feedback2")]
-		public static void DeleteTransformFeedback(UInt32[] ids)
+		public static void DeleteTransformFeedback(params UInt32[] ids)
 		{
 			unsafe {
 				fixed (UInt32* p_ids = ids)
@@ -1833,36 +1774,6 @@ namespace OpenGL
 						CallLog("glDeleteTransformFeedbacksNV({0}, {1})", ids.Length, ids);
 					} else
 						throw new NotImplementedException("glDeleteTransformFeedbacks (and other aliases) are not implemented");
-				}
-			}
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// reserve transform feedback object names
-		/// </summary>
-		/// <param name="n">
-		/// Specifies the number of transform feedback object names to reserve.
-		/// </param>
-		/// <param name="ids">
-		/// Specifies an array of into which the reserved names will be written.
-		/// </param>
-		[RequiredByFeature("GL_VERSION_4_0")]
-		[RequiredByFeature("GL_ARB_transform_feedback2")]
-		public static void GenTransformFeedback(Int32 n, UInt32[] ids)
-		{
-			Debug.Assert(ids.Length >= n);
-			unsafe {
-				fixed (UInt32* p_ids = ids)
-				{
-					if        (Delegates.pglGenTransformFeedbacks != null) {
-						Delegates.pglGenTransformFeedbacks(n, p_ids);
-						CallLog("glGenTransformFeedbacks({0}, {1})", n, ids);
-					} else if (Delegates.pglGenTransformFeedbacksNV != null) {
-						Delegates.pglGenTransformFeedbacksNV(n, p_ids);
-						CallLog("glGenTransformFeedbacksNV({0}, {1})", n, ids);
-					} else
-						throw new NotImplementedException("glGenTransformFeedbacks (and other aliases) are not implemented");
 				}
 			}
 			DebugCheckErrors();
@@ -1905,7 +1816,7 @@ namespace OpenGL
 		public static UInt32 GenTransformFeedback()
 		{
 			UInt32[] retValue = new UInt32[1];
-			GenTransformFeedback(1, retValue);
+			GenTransformFeedback(retValue);
 			return (retValue[0]);
 		}
 

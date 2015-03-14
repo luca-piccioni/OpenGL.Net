@@ -63,31 +63,7 @@ namespace OpenGL
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_SGIX_instruments")]
-		public static void InstrumentsBufferSGIX(Int32 size, Int32[] buffer)
-		{
-			Debug.Assert(buffer.Length >= size);
-			unsafe {
-				fixed (Int32* p_buffer = buffer)
-				{
-					Debug.Assert(Delegates.pglInstrumentsBufferSGIX != null, "pglInstrumentsBufferSGIX not implemented");
-					Delegates.pglInstrumentsBufferSGIX(size, p_buffer);
-					CallLog("glInstrumentsBufferSGIX({0}, {1})", size, buffer);
-				}
-			}
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// Binding for glInstrumentsBufferSGIX.
-		/// </summary>
-		/// <param name="size">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="buffer">
-		/// A <see cref="T:Int32[]"/>.
-		/// </param>
-		[RequiredByFeature("GL_SGIX_instruments")]
-		public static void InstrumentsBufferSGIX(Int32[] buffer)
+		public static void InstrumentsBufferSGIX(params Int32[] buffer)
 		{
 			unsafe {
 				fixed (Int32* p_buffer = buffer)

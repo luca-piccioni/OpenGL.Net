@@ -303,40 +303,6 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_4_1")]
 		[RequiredByFeature("GL_ARB_ES2_compatibility")]
-		public static void ShaderBinary(Int32 count, UInt32[] shaders, int binaryformat, IntPtr binary, Int32 length)
-		{
-			Debug.Assert(shaders.Length >= count);
-			unsafe {
-				fixed (UInt32* p_shaders = shaders)
-				{
-					Debug.Assert(Delegates.pglShaderBinary != null, "pglShaderBinary not implemented");
-					Delegates.pglShaderBinary(count, p_shaders, binaryformat, binary, length);
-					CallLog("glShaderBinary({0}, {1}, {2}, {3}, {4})", count, shaders, binaryformat, binary, length);
-				}
-			}
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// load pre-compiled shader binaries
-		/// </summary>
-		/// <param name="count">
-		/// Specifies the number of shader object handles contained in shaders.
-		/// </param>
-		/// <param name="shaders">
-		/// Specifies the address of an array of shader handles into which to load pre-compiled shader binaries.
-		/// </param>
-		/// <param name="binaryformat">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="binary">
-		/// Specifies the address of an array of bytes containing pre-compiled binary shader code.
-		/// </param>
-		/// <param name="length">
-		/// Specifies the length of the array whose address is given in binary.
-		/// </param>
-		[RequiredByFeature("GL_VERSION_4_1")]
-		[RequiredByFeature("GL_ARB_ES2_compatibility")]
 		public static void ShaderBinary(Int32 count, UInt32[] shaders, int binaryformat, Object binary, Int32 length)
 		{
 			GCHandle pin_binary = GCHandle.Alloc(binary, GCHandleType.Pinned);
@@ -637,34 +603,7 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_4_1")]
 		[RequiredByFeature("GL_ARB_separate_shader_objects")]
-		public static UInt32 CreateShaderProgram(int type, Int32 count, String[] strings)
-		{
-			Debug.Assert(strings.Length >= count);
-			UInt32 retValue;
-
-			Debug.Assert(Delegates.pglCreateShaderProgramv != null, "pglCreateShaderProgramv not implemented");
-			retValue = Delegates.pglCreateShaderProgramv(type, count, strings);
-			CallLog("glCreateShaderProgramv({0}, {1}, {2}) = {3}", type, count, strings, retValue);
-			DebugCheckErrors();
-
-			return (retValue);
-		}
-
-		/// <summary>
-		/// create a stand-alone program from an array of null-terminated source code strings
-		/// </summary>
-		/// <param name="type">
-		/// Specifies the type of shader to create.
-		/// </param>
-		/// <param name="count">
-		/// Specifies the number of source code strings in the array strings.
-		/// </param>
-		/// <param name="strings">
-		/// Specifies the address of an array of pointers to source code strings from which to create the program object.
-		/// </param>
-		[RequiredByFeature("GL_VERSION_4_1")]
-		[RequiredByFeature("GL_ARB_separate_shader_objects")]
-		public static UInt32 CreateShaderProgram(int type, String[] strings)
+		public static UInt32 CreateShaderProgram(int type, params String[] strings)
 		{
 			UInt32 retValue;
 
@@ -703,32 +642,7 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_4_1")]
 		[RequiredByFeature("GL_ARB_separate_shader_objects")]
-		public static void DeleteProgramPipelines(Int32 n, UInt32[] pipelines)
-		{
-			Debug.Assert(pipelines.Length >= n);
-			unsafe {
-				fixed (UInt32* p_pipelines = pipelines)
-				{
-					Debug.Assert(Delegates.pglDeleteProgramPipelines != null, "pglDeleteProgramPipelines not implemented");
-					Delegates.pglDeleteProgramPipelines(n, p_pipelines);
-					CallLog("glDeleteProgramPipelines({0}, {1})", n, pipelines);
-				}
-			}
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// delete program pipeline objects
-		/// </summary>
-		/// <param name="n">
-		/// Specifies the number of program pipeline objects to delete.
-		/// </param>
-		/// <param name="pipelines">
-		/// Specifies an array of names of program pipeline objects to delete.
-		/// </param>
-		[RequiredByFeature("GL_VERSION_4_1")]
-		[RequiredByFeature("GL_ARB_separate_shader_objects")]
-		public static void DeleteProgramPipelines(UInt32[] pipelines)
+		public static void DeleteProgramPipelines(params UInt32[] pipelines)
 		{
 			unsafe {
 				fixed (UInt32* p_pipelines = pipelines)
@@ -736,31 +650,6 @@ namespace OpenGL
 					Debug.Assert(Delegates.pglDeleteProgramPipelines != null, "pglDeleteProgramPipelines not implemented");
 					Delegates.pglDeleteProgramPipelines((Int32)pipelines.Length, p_pipelines);
 					CallLog("glDeleteProgramPipelines({0}, {1})", pipelines.Length, pipelines);
-				}
-			}
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// reserve program pipeline object names
-		/// </summary>
-		/// <param name="n">
-		/// Specifies the number of program pipeline object names to reserve.
-		/// </param>
-		/// <param name="pipelines">
-		/// Specifies an array of into which the reserved names will be written.
-		/// </param>
-		[RequiredByFeature("GL_VERSION_4_1")]
-		[RequiredByFeature("GL_ARB_separate_shader_objects")]
-		public static void GenProgramPipelines(Int32 n, UInt32[] pipelines)
-		{
-			Debug.Assert(pipelines.Length >= n);
-			unsafe {
-				fixed (UInt32* p_pipelines = pipelines)
-				{
-					Debug.Assert(Delegates.pglGenProgramPipelines != null, "pglGenProgramPipelines not implemented");
-					Delegates.pglGenProgramPipelines(n, p_pipelines);
-					CallLog("glGenProgramPipelines({0}, {1})", n, pipelines);
 				}
 			}
 			DebugCheckErrors();
@@ -798,7 +687,7 @@ namespace OpenGL
 		public static UInt32 GenProgramPipeline()
 		{
 			UInt32[] retValue = new UInt32[1];
-			GenProgramPipelines(1, retValue);
+			GenProgramPipelines(retValue);
 			return (retValue[0]);
 		}
 
@@ -2138,48 +2027,7 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_4_1")]
 		[RequiredByFeature("GL_ARB_separate_shader_objects")]
-		public static void ProgramUniformMatrix2x3(UInt32 program, Int32 location, Int32 count, bool transpose, float[] value)
-		{
-			Debug.Assert(value.Length >= count);
-			unsafe {
-				fixed (float* p_value = value)
-				{
-					if        (Delegates.pglProgramUniformMatrix2x3fv != null) {
-						Delegates.pglProgramUniformMatrix2x3fv(program, location, count, transpose, p_value);
-						CallLog("glProgramUniformMatrix2x3fv({0}, {1}, {2}, {3}, {4})", program, location, count, transpose, value);
-					} else if (Delegates.pglProgramUniformMatrix2x3fvEXT != null) {
-						Delegates.pglProgramUniformMatrix2x3fvEXT(program, location, count, transpose, p_value);
-						CallLog("glProgramUniformMatrix2x3fvEXT({0}, {1}, {2}, {3}, {4})", program, location, count, transpose, value);
-					} else
-						throw new NotImplementedException("glProgramUniformMatrix2x3fv (and other aliases) are not implemented");
-				}
-			}
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// Specify the value of a uniform variable for a specified program object
-		/// </summary>
-		/// <param name="program">
-		/// Specifies the handle of the program containing the uniform variable to be modified.
-		/// </param>
-		/// <param name="location">
-		/// Specifies the location of the uniform variable to be modified.
-		/// </param>
-		/// <param name="count">
-		/// For the vector commands (glProgramUniform*v), specifies the number of elements that are to be modified. This should be 1 
-		/// if the targeted uniform variable is not an array, and 1 or more if it is an array.
-		/// </param>
-		/// <param name="transpose">
-		/// For the matrix commands, specifies whether to transpose the matrix as the values are loaded into the uniform variable.
-		/// </param>
-		/// <param name="value">
-		/// For the vector and matrix commands, specifies a pointer to an array of count values that will be used to update the 
-		/// specified uniform variable.
-		/// </param>
-		[RequiredByFeature("GL_VERSION_4_1")]
-		[RequiredByFeature("GL_ARB_separate_shader_objects")]
-		public static void ProgramUniformMatrix2x3(UInt32 program, Int32 location, bool transpose, float[] value)
+		public static void ProgramUniformMatrix2x3(UInt32 program, Int32 location, bool transpose, params float[] value)
 		{
 			unsafe {
 				fixed (float* p_value = value)
@@ -2219,48 +2067,7 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_4_1")]
 		[RequiredByFeature("GL_ARB_separate_shader_objects")]
-		public static void ProgramUniformMatrix3x2(UInt32 program, Int32 location, Int32 count, bool transpose, float[] value)
-		{
-			Debug.Assert(value.Length >= count);
-			unsafe {
-				fixed (float* p_value = value)
-				{
-					if        (Delegates.pglProgramUniformMatrix3x2fv != null) {
-						Delegates.pglProgramUniformMatrix3x2fv(program, location, count, transpose, p_value);
-						CallLog("glProgramUniformMatrix3x2fv({0}, {1}, {2}, {3}, {4})", program, location, count, transpose, value);
-					} else if (Delegates.pglProgramUniformMatrix3x2fvEXT != null) {
-						Delegates.pglProgramUniformMatrix3x2fvEXT(program, location, count, transpose, p_value);
-						CallLog("glProgramUniformMatrix3x2fvEXT({0}, {1}, {2}, {3}, {4})", program, location, count, transpose, value);
-					} else
-						throw new NotImplementedException("glProgramUniformMatrix3x2fv (and other aliases) are not implemented");
-				}
-			}
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// Specify the value of a uniform variable for a specified program object
-		/// </summary>
-		/// <param name="program">
-		/// Specifies the handle of the program containing the uniform variable to be modified.
-		/// </param>
-		/// <param name="location">
-		/// Specifies the location of the uniform variable to be modified.
-		/// </param>
-		/// <param name="count">
-		/// For the vector commands (glProgramUniform*v), specifies the number of elements that are to be modified. This should be 1 
-		/// if the targeted uniform variable is not an array, and 1 or more if it is an array.
-		/// </param>
-		/// <param name="transpose">
-		/// For the matrix commands, specifies whether to transpose the matrix as the values are loaded into the uniform variable.
-		/// </param>
-		/// <param name="value">
-		/// For the vector and matrix commands, specifies a pointer to an array of count values that will be used to update the 
-		/// specified uniform variable.
-		/// </param>
-		[RequiredByFeature("GL_VERSION_4_1")]
-		[RequiredByFeature("GL_ARB_separate_shader_objects")]
-		public static void ProgramUniformMatrix3x2(UInt32 program, Int32 location, bool transpose, float[] value)
+		public static void ProgramUniformMatrix3x2(UInt32 program, Int32 location, bool transpose, params float[] value)
 		{
 			unsafe {
 				fixed (float* p_value = value)
@@ -2300,48 +2107,7 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_4_1")]
 		[RequiredByFeature("GL_ARB_separate_shader_objects")]
-		public static void ProgramUniformMatrix2x4(UInt32 program, Int32 location, Int32 count, bool transpose, float[] value)
-		{
-			Debug.Assert(value.Length >= count);
-			unsafe {
-				fixed (float* p_value = value)
-				{
-					if        (Delegates.pglProgramUniformMatrix2x4fv != null) {
-						Delegates.pglProgramUniformMatrix2x4fv(program, location, count, transpose, p_value);
-						CallLog("glProgramUniformMatrix2x4fv({0}, {1}, {2}, {3}, {4})", program, location, count, transpose, value);
-					} else if (Delegates.pglProgramUniformMatrix2x4fvEXT != null) {
-						Delegates.pglProgramUniformMatrix2x4fvEXT(program, location, count, transpose, p_value);
-						CallLog("glProgramUniformMatrix2x4fvEXT({0}, {1}, {2}, {3}, {4})", program, location, count, transpose, value);
-					} else
-						throw new NotImplementedException("glProgramUniformMatrix2x4fv (and other aliases) are not implemented");
-				}
-			}
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// Specify the value of a uniform variable for a specified program object
-		/// </summary>
-		/// <param name="program">
-		/// Specifies the handle of the program containing the uniform variable to be modified.
-		/// </param>
-		/// <param name="location">
-		/// Specifies the location of the uniform variable to be modified.
-		/// </param>
-		/// <param name="count">
-		/// For the vector commands (glProgramUniform*v), specifies the number of elements that are to be modified. This should be 1 
-		/// if the targeted uniform variable is not an array, and 1 or more if it is an array.
-		/// </param>
-		/// <param name="transpose">
-		/// For the matrix commands, specifies whether to transpose the matrix as the values are loaded into the uniform variable.
-		/// </param>
-		/// <param name="value">
-		/// For the vector and matrix commands, specifies a pointer to an array of count values that will be used to update the 
-		/// specified uniform variable.
-		/// </param>
-		[RequiredByFeature("GL_VERSION_4_1")]
-		[RequiredByFeature("GL_ARB_separate_shader_objects")]
-		public static void ProgramUniformMatrix2x4(UInt32 program, Int32 location, bool transpose, float[] value)
+		public static void ProgramUniformMatrix2x4(UInt32 program, Int32 location, bool transpose, params float[] value)
 		{
 			unsafe {
 				fixed (float* p_value = value)
@@ -2381,48 +2147,7 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_4_1")]
 		[RequiredByFeature("GL_ARB_separate_shader_objects")]
-		public static void ProgramUniformMatrix4x2(UInt32 program, Int32 location, Int32 count, bool transpose, float[] value)
-		{
-			Debug.Assert(value.Length >= count);
-			unsafe {
-				fixed (float* p_value = value)
-				{
-					if        (Delegates.pglProgramUniformMatrix4x2fv != null) {
-						Delegates.pglProgramUniformMatrix4x2fv(program, location, count, transpose, p_value);
-						CallLog("glProgramUniformMatrix4x2fv({0}, {1}, {2}, {3}, {4})", program, location, count, transpose, value);
-					} else if (Delegates.pglProgramUniformMatrix4x2fvEXT != null) {
-						Delegates.pglProgramUniformMatrix4x2fvEXT(program, location, count, transpose, p_value);
-						CallLog("glProgramUniformMatrix4x2fvEXT({0}, {1}, {2}, {3}, {4})", program, location, count, transpose, value);
-					} else
-						throw new NotImplementedException("glProgramUniformMatrix4x2fv (and other aliases) are not implemented");
-				}
-			}
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// Specify the value of a uniform variable for a specified program object
-		/// </summary>
-		/// <param name="program">
-		/// Specifies the handle of the program containing the uniform variable to be modified.
-		/// </param>
-		/// <param name="location">
-		/// Specifies the location of the uniform variable to be modified.
-		/// </param>
-		/// <param name="count">
-		/// For the vector commands (glProgramUniform*v), specifies the number of elements that are to be modified. This should be 1 
-		/// if the targeted uniform variable is not an array, and 1 or more if it is an array.
-		/// </param>
-		/// <param name="transpose">
-		/// For the matrix commands, specifies whether to transpose the matrix as the values are loaded into the uniform variable.
-		/// </param>
-		/// <param name="value">
-		/// For the vector and matrix commands, specifies a pointer to an array of count values that will be used to update the 
-		/// specified uniform variable.
-		/// </param>
-		[RequiredByFeature("GL_VERSION_4_1")]
-		[RequiredByFeature("GL_ARB_separate_shader_objects")]
-		public static void ProgramUniformMatrix4x2(UInt32 program, Int32 location, bool transpose, float[] value)
+		public static void ProgramUniformMatrix4x2(UInt32 program, Int32 location, bool transpose, params float[] value)
 		{
 			unsafe {
 				fixed (float* p_value = value)
@@ -2462,48 +2187,7 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_4_1")]
 		[RequiredByFeature("GL_ARB_separate_shader_objects")]
-		public static void ProgramUniformMatrix3x4(UInt32 program, Int32 location, Int32 count, bool transpose, float[] value)
-		{
-			Debug.Assert(value.Length >= count);
-			unsafe {
-				fixed (float* p_value = value)
-				{
-					if        (Delegates.pglProgramUniformMatrix3x4fv != null) {
-						Delegates.pglProgramUniformMatrix3x4fv(program, location, count, transpose, p_value);
-						CallLog("glProgramUniformMatrix3x4fv({0}, {1}, {2}, {3}, {4})", program, location, count, transpose, value);
-					} else if (Delegates.pglProgramUniformMatrix3x4fvEXT != null) {
-						Delegates.pglProgramUniformMatrix3x4fvEXT(program, location, count, transpose, p_value);
-						CallLog("glProgramUniformMatrix3x4fvEXT({0}, {1}, {2}, {3}, {4})", program, location, count, transpose, value);
-					} else
-						throw new NotImplementedException("glProgramUniformMatrix3x4fv (and other aliases) are not implemented");
-				}
-			}
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// Specify the value of a uniform variable for a specified program object
-		/// </summary>
-		/// <param name="program">
-		/// Specifies the handle of the program containing the uniform variable to be modified.
-		/// </param>
-		/// <param name="location">
-		/// Specifies the location of the uniform variable to be modified.
-		/// </param>
-		/// <param name="count">
-		/// For the vector commands (glProgramUniform*v), specifies the number of elements that are to be modified. This should be 1 
-		/// if the targeted uniform variable is not an array, and 1 or more if it is an array.
-		/// </param>
-		/// <param name="transpose">
-		/// For the matrix commands, specifies whether to transpose the matrix as the values are loaded into the uniform variable.
-		/// </param>
-		/// <param name="value">
-		/// For the vector and matrix commands, specifies a pointer to an array of count values that will be used to update the 
-		/// specified uniform variable.
-		/// </param>
-		[RequiredByFeature("GL_VERSION_4_1")]
-		[RequiredByFeature("GL_ARB_separate_shader_objects")]
-		public static void ProgramUniformMatrix3x4(UInt32 program, Int32 location, bool transpose, float[] value)
+		public static void ProgramUniformMatrix3x4(UInt32 program, Int32 location, bool transpose, params float[] value)
 		{
 			unsafe {
 				fixed (float* p_value = value)
@@ -2543,48 +2227,7 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_4_1")]
 		[RequiredByFeature("GL_ARB_separate_shader_objects")]
-		public static void ProgramUniformMatrix4x3(UInt32 program, Int32 location, Int32 count, bool transpose, float[] value)
-		{
-			Debug.Assert(value.Length >= count);
-			unsafe {
-				fixed (float* p_value = value)
-				{
-					if        (Delegates.pglProgramUniformMatrix4x3fv != null) {
-						Delegates.pglProgramUniformMatrix4x3fv(program, location, count, transpose, p_value);
-						CallLog("glProgramUniformMatrix4x3fv({0}, {1}, {2}, {3}, {4})", program, location, count, transpose, value);
-					} else if (Delegates.pglProgramUniformMatrix4x3fvEXT != null) {
-						Delegates.pglProgramUniformMatrix4x3fvEXT(program, location, count, transpose, p_value);
-						CallLog("glProgramUniformMatrix4x3fvEXT({0}, {1}, {2}, {3}, {4})", program, location, count, transpose, value);
-					} else
-						throw new NotImplementedException("glProgramUniformMatrix4x3fv (and other aliases) are not implemented");
-				}
-			}
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// Specify the value of a uniform variable for a specified program object
-		/// </summary>
-		/// <param name="program">
-		/// Specifies the handle of the program containing the uniform variable to be modified.
-		/// </param>
-		/// <param name="location">
-		/// Specifies the location of the uniform variable to be modified.
-		/// </param>
-		/// <param name="count">
-		/// For the vector commands (glProgramUniform*v), specifies the number of elements that are to be modified. This should be 1 
-		/// if the targeted uniform variable is not an array, and 1 or more if it is an array.
-		/// </param>
-		/// <param name="transpose">
-		/// For the matrix commands, specifies whether to transpose the matrix as the values are loaded into the uniform variable.
-		/// </param>
-		/// <param name="value">
-		/// For the vector and matrix commands, specifies a pointer to an array of count values that will be used to update the 
-		/// specified uniform variable.
-		/// </param>
-		[RequiredByFeature("GL_VERSION_4_1")]
-		[RequiredByFeature("GL_ARB_separate_shader_objects")]
-		public static void ProgramUniformMatrix4x3(UInt32 program, Int32 location, bool transpose, float[] value)
+		public static void ProgramUniformMatrix4x3(UInt32 program, Int32 location, bool transpose, params float[] value)
 		{
 			unsafe {
 				fixed (float* p_value = value)
@@ -2622,41 +2265,7 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_4_1")]
 		[RequiredByFeature("GL_ARB_separate_shader_objects")]
-		public static void ProgramUniformMatrix2x3(UInt32 program, Int32 location, Int32 count, bool transpose, double[] value)
-		{
-			Debug.Assert(value.Length >= count);
-			unsafe {
-				fixed (double* p_value = value)
-				{
-					Debug.Assert(Delegates.pglProgramUniformMatrix2x3dv != null, "pglProgramUniformMatrix2x3dv not implemented");
-					Delegates.pglProgramUniformMatrix2x3dv(program, location, count, transpose, p_value);
-					CallLog("glProgramUniformMatrix2x3dv({0}, {1}, {2}, {3}, {4})", program, location, count, transpose, value);
-				}
-			}
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// Binding for glProgramUniformMatrix2x3dv.
-		/// </summary>
-		/// <param name="program">
-		/// A <see cref="T:UInt32"/>.
-		/// </param>
-		/// <param name="location">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="count">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="transpose">
-		/// A <see cref="T:bool"/>.
-		/// </param>
-		/// <param name="value">
-		/// A <see cref="T:double[]"/>.
-		/// </param>
-		[RequiredByFeature("GL_VERSION_4_1")]
-		[RequiredByFeature("GL_ARB_separate_shader_objects")]
-		public static void ProgramUniformMatrix2x3(UInt32 program, Int32 location, bool transpose, double[] value)
+		public static void ProgramUniformMatrix2x3(UInt32 program, Int32 location, bool transpose, params double[] value)
 		{
 			unsafe {
 				fixed (double* p_value = value)
@@ -2689,41 +2298,7 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_4_1")]
 		[RequiredByFeature("GL_ARB_separate_shader_objects")]
-		public static void ProgramUniformMatrix3x2(UInt32 program, Int32 location, Int32 count, bool transpose, double[] value)
-		{
-			Debug.Assert(value.Length >= count);
-			unsafe {
-				fixed (double* p_value = value)
-				{
-					Debug.Assert(Delegates.pglProgramUniformMatrix3x2dv != null, "pglProgramUniformMatrix3x2dv not implemented");
-					Delegates.pglProgramUniformMatrix3x2dv(program, location, count, transpose, p_value);
-					CallLog("glProgramUniformMatrix3x2dv({0}, {1}, {2}, {3}, {4})", program, location, count, transpose, value);
-				}
-			}
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// Binding for glProgramUniformMatrix3x2dv.
-		/// </summary>
-		/// <param name="program">
-		/// A <see cref="T:UInt32"/>.
-		/// </param>
-		/// <param name="location">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="count">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="transpose">
-		/// A <see cref="T:bool"/>.
-		/// </param>
-		/// <param name="value">
-		/// A <see cref="T:double[]"/>.
-		/// </param>
-		[RequiredByFeature("GL_VERSION_4_1")]
-		[RequiredByFeature("GL_ARB_separate_shader_objects")]
-		public static void ProgramUniformMatrix3x2(UInt32 program, Int32 location, bool transpose, double[] value)
+		public static void ProgramUniformMatrix3x2(UInt32 program, Int32 location, bool transpose, params double[] value)
 		{
 			unsafe {
 				fixed (double* p_value = value)
@@ -2756,41 +2331,7 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_4_1")]
 		[RequiredByFeature("GL_ARB_separate_shader_objects")]
-		public static void ProgramUniformMatrix2x4(UInt32 program, Int32 location, Int32 count, bool transpose, double[] value)
-		{
-			Debug.Assert(value.Length >= count);
-			unsafe {
-				fixed (double* p_value = value)
-				{
-					Debug.Assert(Delegates.pglProgramUniformMatrix2x4dv != null, "pglProgramUniformMatrix2x4dv not implemented");
-					Delegates.pglProgramUniformMatrix2x4dv(program, location, count, transpose, p_value);
-					CallLog("glProgramUniformMatrix2x4dv({0}, {1}, {2}, {3}, {4})", program, location, count, transpose, value);
-				}
-			}
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// Binding for glProgramUniformMatrix2x4dv.
-		/// </summary>
-		/// <param name="program">
-		/// A <see cref="T:UInt32"/>.
-		/// </param>
-		/// <param name="location">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="count">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="transpose">
-		/// A <see cref="T:bool"/>.
-		/// </param>
-		/// <param name="value">
-		/// A <see cref="T:double[]"/>.
-		/// </param>
-		[RequiredByFeature("GL_VERSION_4_1")]
-		[RequiredByFeature("GL_ARB_separate_shader_objects")]
-		public static void ProgramUniformMatrix2x4(UInt32 program, Int32 location, bool transpose, double[] value)
+		public static void ProgramUniformMatrix2x4(UInt32 program, Int32 location, bool transpose, params double[] value)
 		{
 			unsafe {
 				fixed (double* p_value = value)
@@ -2823,41 +2364,7 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_4_1")]
 		[RequiredByFeature("GL_ARB_separate_shader_objects")]
-		public static void ProgramUniformMatrix4x2(UInt32 program, Int32 location, Int32 count, bool transpose, double[] value)
-		{
-			Debug.Assert(value.Length >= count);
-			unsafe {
-				fixed (double* p_value = value)
-				{
-					Debug.Assert(Delegates.pglProgramUniformMatrix4x2dv != null, "pglProgramUniformMatrix4x2dv not implemented");
-					Delegates.pglProgramUniformMatrix4x2dv(program, location, count, transpose, p_value);
-					CallLog("glProgramUniformMatrix4x2dv({0}, {1}, {2}, {3}, {4})", program, location, count, transpose, value);
-				}
-			}
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// Binding for glProgramUniformMatrix4x2dv.
-		/// </summary>
-		/// <param name="program">
-		/// A <see cref="T:UInt32"/>.
-		/// </param>
-		/// <param name="location">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="count">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="transpose">
-		/// A <see cref="T:bool"/>.
-		/// </param>
-		/// <param name="value">
-		/// A <see cref="T:double[]"/>.
-		/// </param>
-		[RequiredByFeature("GL_VERSION_4_1")]
-		[RequiredByFeature("GL_ARB_separate_shader_objects")]
-		public static void ProgramUniformMatrix4x2(UInt32 program, Int32 location, bool transpose, double[] value)
+		public static void ProgramUniformMatrix4x2(UInt32 program, Int32 location, bool transpose, params double[] value)
 		{
 			unsafe {
 				fixed (double* p_value = value)
@@ -2890,41 +2397,7 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_4_1")]
 		[RequiredByFeature("GL_ARB_separate_shader_objects")]
-		public static void ProgramUniformMatrix3x4(UInt32 program, Int32 location, Int32 count, bool transpose, double[] value)
-		{
-			Debug.Assert(value.Length >= count);
-			unsafe {
-				fixed (double* p_value = value)
-				{
-					Debug.Assert(Delegates.pglProgramUniformMatrix3x4dv != null, "pglProgramUniformMatrix3x4dv not implemented");
-					Delegates.pglProgramUniformMatrix3x4dv(program, location, count, transpose, p_value);
-					CallLog("glProgramUniformMatrix3x4dv({0}, {1}, {2}, {3}, {4})", program, location, count, transpose, value);
-				}
-			}
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// Binding for glProgramUniformMatrix3x4dv.
-		/// </summary>
-		/// <param name="program">
-		/// A <see cref="T:UInt32"/>.
-		/// </param>
-		/// <param name="location">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="count">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="transpose">
-		/// A <see cref="T:bool"/>.
-		/// </param>
-		/// <param name="value">
-		/// A <see cref="T:double[]"/>.
-		/// </param>
-		[RequiredByFeature("GL_VERSION_4_1")]
-		[RequiredByFeature("GL_ARB_separate_shader_objects")]
-		public static void ProgramUniformMatrix3x4(UInt32 program, Int32 location, bool transpose, double[] value)
+		public static void ProgramUniformMatrix3x4(UInt32 program, Int32 location, bool transpose, params double[] value)
 		{
 			unsafe {
 				fixed (double* p_value = value)
@@ -2957,41 +2430,7 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_4_1")]
 		[RequiredByFeature("GL_ARB_separate_shader_objects")]
-		public static void ProgramUniformMatrix4x3(UInt32 program, Int32 location, Int32 count, bool transpose, double[] value)
-		{
-			Debug.Assert(value.Length >= count);
-			unsafe {
-				fixed (double* p_value = value)
-				{
-					Debug.Assert(Delegates.pglProgramUniformMatrix4x3dv != null, "pglProgramUniformMatrix4x3dv not implemented");
-					Delegates.pglProgramUniformMatrix4x3dv(program, location, count, transpose, p_value);
-					CallLog("glProgramUniformMatrix4x3dv({0}, {1}, {2}, {3}, {4})", program, location, count, transpose, value);
-				}
-			}
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// Binding for glProgramUniformMatrix4x3dv.
-		/// </summary>
-		/// <param name="program">
-		/// A <see cref="T:UInt32"/>.
-		/// </param>
-		/// <param name="location">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="count">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="transpose">
-		/// A <see cref="T:bool"/>.
-		/// </param>
-		/// <param name="value">
-		/// A <see cref="T:double[]"/>.
-		/// </param>
-		[RequiredByFeature("GL_VERSION_4_1")]
-		[RequiredByFeature("GL_ARB_separate_shader_objects")]
-		public static void ProgramUniformMatrix4x3(UInt32 program, Int32 location, bool transpose, double[] value)
+		public static void ProgramUniformMatrix4x3(UInt32 program, Int32 location, bool transpose, params double[] value)
 		{
 			unsafe {
 				fixed (double* p_value = value)

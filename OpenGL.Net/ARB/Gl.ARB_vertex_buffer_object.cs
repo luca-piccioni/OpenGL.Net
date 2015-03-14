@@ -257,31 +257,7 @@ namespace OpenGL
 		/// A <see cref="T:UInt32[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_ARB_vertex_buffer_object")]
-		public static void DeleteBuffersARB(Int32 n, UInt32[] buffers)
-		{
-			Debug.Assert(buffers.Length >= n);
-			unsafe {
-				fixed (UInt32* p_buffers = buffers)
-				{
-					Debug.Assert(Delegates.pglDeleteBuffersARB != null, "pglDeleteBuffersARB not implemented");
-					Delegates.pglDeleteBuffersARB(n, p_buffers);
-					CallLog("glDeleteBuffersARB({0}, {1})", n, buffers);
-				}
-			}
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// Binding for glDeleteBuffersARB.
-		/// </summary>
-		/// <param name="n">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="buffers">
-		/// A <see cref="T:UInt32[]"/>.
-		/// </param>
-		[RequiredByFeature("GL_ARB_vertex_buffer_object")]
-		public static void DeleteBuffersARB(UInt32[] buffers)
+		public static void DeleteBuffersARB(params UInt32[] buffers)
 		{
 			unsafe {
 				fixed (UInt32* p_buffers = buffers)
@@ -289,30 +265,6 @@ namespace OpenGL
 					Debug.Assert(Delegates.pglDeleteBuffersARB != null, "pglDeleteBuffersARB not implemented");
 					Delegates.pglDeleteBuffersARB((Int32)buffers.Length, p_buffers);
 					CallLog("glDeleteBuffersARB({0}, {1})", buffers.Length, buffers);
-				}
-			}
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// Binding for glGenBuffersARB.
-		/// </summary>
-		/// <param name="n">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="buffers">
-		/// A <see cref="T:UInt32[]"/>.
-		/// </param>
-		[RequiredByFeature("GL_ARB_vertex_buffer_object")]
-		public static void GenBuffersARB(Int32 n, UInt32[] buffers)
-		{
-			Debug.Assert(buffers.Length >= n);
-			unsafe {
-				fixed (UInt32* p_buffers = buffers)
-				{
-					Debug.Assert(Delegates.pglGenBuffersARB != null, "pglGenBuffersARB not implemented");
-					Delegates.pglGenBuffersARB(n, p_buffers);
-					CallLog("glGenBuffersARB({0}, {1})", n, buffers);
 				}
 			}
 			DebugCheckErrors();
@@ -348,7 +300,7 @@ namespace OpenGL
 		public static UInt32 GenBuffersARB()
 		{
 			UInt32[] retValue = new UInt32[1];
-			GenBuffersARB(1, retValue);
+			GenBuffersARB(retValue);
 			return (retValue[0]);
 		}
 

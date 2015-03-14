@@ -1201,43 +1201,7 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_4_2")]
 		[RequiredByFeature("GL_ARB_internalformat_query")]
-		public static void GetInternalformat(int target, int internalformat, int pname, Int32 bufSize, Int32[] @params)
-		{
-			Debug.Assert(@params.Length >= bufSize);
-			unsafe {
-				fixed (Int32* p_params = @params)
-				{
-					Debug.Assert(Delegates.pglGetInternalformativ != null, "pglGetInternalformativ not implemented");
-					Delegates.pglGetInternalformativ(target, internalformat, pname, bufSize, p_params);
-					CallLog("glGetInternalformativ({0}, {1}, {2}, {3}, {4})", target, internalformat, pname, bufSize, @params);
-				}
-			}
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// retrieve information about implementation-dependent support for internal formats
-		/// </summary>
-		/// <param name="target">
-		/// Indicates the usage of the internal format. target must be GL_TEXTURE_1D, GL_TEXTURE_1D_ARRAY, GL_TEXTURE_2D, 
-		/// GL_TEXTURE_2D_ARRAY, GL_TEXTURE_3D, GL_TEXTURE_CUBE_MAP, GL_TEXTURE_CUBE_MAP_ARRAY, GL_TEXTURE_RECTANGLE, 
-		/// GL_TEXTURE_BUFFER, GL_RENDERBUFFER, GL_TEXTURE_2D_MULTISAMPLE or GL_TEXTURE_2D_MULTISAMPLE_ARRAY.
-		/// </param>
-		/// <param name="internalformat">
-		/// Specifies the internal format about which to retrieve information.
-		/// </param>
-		/// <param name="pname">
-		/// Specifies the type of information to query.
-		/// </param>
-		/// <param name="bufSize">
-		/// Specifies the maximum number of basic machine units that may be written to params by the function.
-		/// </param>
-		/// <param name="params">
-		/// A <see cref="T:Int32[]"/>.
-		/// </param>
-		[RequiredByFeature("GL_VERSION_4_2")]
-		[RequiredByFeature("GL_ARB_internalformat_query")]
-		public static void GetInternalformat(int target, int internalformat, int pname, Int32[] @params)
+		public static void GetInternalformat(int target, int internalformat, int pname, params Int32[] @params)
 		{
 			unsafe {
 				fixed (Int32* p_params = @params)

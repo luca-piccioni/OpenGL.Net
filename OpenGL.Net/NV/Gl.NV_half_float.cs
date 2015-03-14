@@ -926,34 +926,7 @@ namespace OpenGL
 		/// A <see cref="T:UInt16[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_half_float")]
-		public static void VertexAttribs1hvNV(UInt32 index, Int32 n, UInt16[] v)
-		{
-			Debug.Assert(v.Length >= n);
-			unsafe {
-				fixed (UInt16* p_v = v)
-				{
-					Debug.Assert(Delegates.pglVertexAttribs1hvNV != null, "pglVertexAttribs1hvNV not implemented");
-					Delegates.pglVertexAttribs1hvNV(index, n, p_v);
-					CallLog("glVertexAttribs1hvNV({0}, {1}, {2})", index, n, v);
-				}
-			}
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// Binding for glVertexAttribs1hvNV.
-		/// </summary>
-		/// <param name="index">
-		/// A <see cref="T:UInt32"/>.
-		/// </param>
-		/// <param name="n">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="v">
-		/// A <see cref="T:UInt16[]"/>.
-		/// </param>
-		[RequiredByFeature("GL_NV_half_float")]
-		public static void VertexAttribs1hvNV(UInt32 index, UInt16[] v)
+		public static void VertexAttribs1hvNV(UInt32 index, params UInt16[] v)
 		{
 			unsafe {
 				fixed (UInt16* p_v = v)
@@ -979,34 +952,7 @@ namespace OpenGL
 		/// A <see cref="T:UInt16[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_half_float")]
-		public static void VertexAttribs2hvNV(UInt32 index, Int32 n, UInt16[] v)
-		{
-			Debug.Assert(v.Length >= n);
-			unsafe {
-				fixed (UInt16* p_v = v)
-				{
-					Debug.Assert(Delegates.pglVertexAttribs2hvNV != null, "pglVertexAttribs2hvNV not implemented");
-					Delegates.pglVertexAttribs2hvNV(index, n, p_v);
-					CallLog("glVertexAttribs2hvNV({0}, {1}, {2})", index, n, v);
-				}
-			}
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// Binding for glVertexAttribs2hvNV.
-		/// </summary>
-		/// <param name="index">
-		/// A <see cref="T:UInt32"/>.
-		/// </param>
-		/// <param name="n">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="v">
-		/// A <see cref="T:UInt16[]"/>.
-		/// </param>
-		[RequiredByFeature("GL_NV_half_float")]
-		public static void VertexAttribs2hvNV(UInt32 index, UInt16[] v)
+		public static void VertexAttribs2hvNV(UInt32 index, params UInt16[] v)
 		{
 			unsafe {
 				fixed (UInt16* p_v = v)
@@ -1032,34 +978,7 @@ namespace OpenGL
 		/// A <see cref="T:UInt16[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_half_float")]
-		public static void VertexAttribs3hvNV(UInt32 index, Int32 n, UInt16[] v)
-		{
-			Debug.Assert(v.Length >= n);
-			unsafe {
-				fixed (UInt16* p_v = v)
-				{
-					Debug.Assert(Delegates.pglVertexAttribs3hvNV != null, "pglVertexAttribs3hvNV not implemented");
-					Delegates.pglVertexAttribs3hvNV(index, n, p_v);
-					CallLog("glVertexAttribs3hvNV({0}, {1}, {2})", index, n, v);
-				}
-			}
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// Binding for glVertexAttribs3hvNV.
-		/// </summary>
-		/// <param name="index">
-		/// A <see cref="T:UInt32"/>.
-		/// </param>
-		/// <param name="n">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="v">
-		/// A <see cref="T:UInt16[]"/>.
-		/// </param>
-		[RequiredByFeature("GL_NV_half_float")]
-		public static void VertexAttribs3hvNV(UInt32 index, UInt16[] v)
+		public static void VertexAttribs3hvNV(UInt32 index, params UInt16[] v)
 		{
 			unsafe {
 				fixed (UInt16* p_v = v)
@@ -1085,34 +1004,7 @@ namespace OpenGL
 		/// A <see cref="T:UInt16[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_half_float")]
-		public static void VertexAttribs4hvNV(UInt32 index, Int32 n, UInt16[] v)
-		{
-			Debug.Assert(v.Length >= n);
-			unsafe {
-				fixed (UInt16* p_v = v)
-				{
-					Debug.Assert(Delegates.pglVertexAttribs4hvNV != null, "pglVertexAttribs4hvNV not implemented");
-					Delegates.pglVertexAttribs4hvNV(index, n, p_v);
-					CallLog("glVertexAttribs4hvNV({0}, {1}, {2})", index, n, v);
-				}
-			}
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// Binding for glVertexAttribs4hvNV.
-		/// </summary>
-		/// <param name="index">
-		/// A <see cref="T:UInt32"/>.
-		/// </param>
-		/// <param name="n">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="v">
-		/// A <see cref="T:UInt16[]"/>.
-		/// </param>
-		[RequiredByFeature("GL_NV_half_float")]
-		public static void VertexAttribs4hvNV(UInt32 index, UInt16[] v)
+		public static void VertexAttribs4hvNV(UInt32 index, params UInt16[] v)
 		{
 			unsafe {
 				fixed (UInt16* p_v = v)

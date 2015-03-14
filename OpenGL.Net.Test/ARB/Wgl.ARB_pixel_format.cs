@@ -34,7 +34,7 @@ namespace OpenGL.Test
 		[Test]
 		public void TestGetPixelFormatAttribARB()
 		{
-			if (IsExtensionSupported("WGL_ARB_pixel_format") == false)
+			if (IsGlExtensionSupported("WGL_ARB_pixel_format") == false)
 				Assert.Inconclusive("OpenGL extension WGL_ARB_pixel_format not supported");
 
 			WindowsDeviceContext winDeviceContext = (WindowsDeviceContext)mDeviceContext;
@@ -60,7 +60,7 @@ namespace OpenGL.Test
 			pfAttributesCodes.Add(Wgl.DEPTH_BITS_ARB);
 			pfAttributesCodes.Add(Wgl.STENCIL_BITS_ARB);
 			// Multisample extension
-			if (IsExtensionSupported("GL_ARB_multisample") || IsExtensionSupported("WGL_ARB_multisample") || IsExtensionSupported("GLX_ARB_multisample")) {
+			if (IsGlExtensionSupported("GL_ARB_multisample") || IsGlExtensionSupported("WGL_ARB_multisample") || IsGlExtensionSupported("GLX_ARB_multisample")) {
 				pfAttributesCodes.Add(Wgl.SAMPLE_BUFFERS_ARB);
 				pfAttributesCodes.Add(Wgl.SAMPLES_ARB);
 			}

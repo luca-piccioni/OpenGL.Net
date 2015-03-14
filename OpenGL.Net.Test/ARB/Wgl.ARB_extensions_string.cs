@@ -18,6 +18,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.Text.RegularExpressions;
 
 using NUnit.Framework;
 
@@ -34,14 +35,29 @@ namespace OpenGL.Test
 		[Test]
 		public void TestGetExtensionsStringARB()
 		{
-			if (IsExtensionSupported("WGL_ARB_extensions_string") == false)
-				Assert.Inconclusive("OpenGL extension WGL_ARB_extensions_string not supported");
+			if (Wgl.HasGetExtensionsStringARB == false)
+				Assert.Inconclusive("WGL_ARB_extensions_string not supported");
 
 			WindowsDeviceContext winDeviceContext = (WindowsDeviceContext)mDeviceContext;
 
 			string extensions = Wgl.GetExtensionsStringARB(winDeviceContext.DeviceContext);
 
 			Assert.IsNotNull(extensions);
+
+			// No exposed extensions? No more assertion
+			if (extensions == String.Empty)
+				return;
+
+			string[] extensionIds = Regex.Split(extensions, " ");
+
+			// Filter empty IDs
+			extensionIds = Array.FindAll(extensionIds, delegate(string item) { return (item.Trim().Length > 0); });
+
+			Console.WriteLine("Found {0} WGL extensions:", extensionIds.Length);
+			foreach (string extensionId in extensionIds)
+				Console.WriteLine("- {0}", extensionId);
+
+			Assert.IsTrue(Regex.IsMatch(extensions, @"(WGL_(\w+)( +)?)+"));
 		}
 	}
 }

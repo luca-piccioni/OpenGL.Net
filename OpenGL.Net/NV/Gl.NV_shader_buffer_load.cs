@@ -330,37 +330,7 @@ namespace OpenGL
 		/// A <see cref="T:UInt64[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_shader_buffer_load")]
-		public static void ProgramUniformNV(UInt32 program, Int32 location, Int32 count, UInt64[] value)
-		{
-			Debug.Assert(value.Length >= count);
-			unsafe {
-				fixed (UInt64* p_value = value)
-				{
-					Debug.Assert(Delegates.pglProgramUniformui64vNV != null, "pglProgramUniformui64vNV not implemented");
-					Delegates.pglProgramUniformui64vNV(program, location, count, p_value);
-					CallLog("glProgramUniformui64vNV({0}, {1}, {2}, {3})", program, location, count, value);
-				}
-			}
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// Binding for glProgramUniformui64vNV.
-		/// </summary>
-		/// <param name="program">
-		/// A <see cref="T:UInt32"/>.
-		/// </param>
-		/// <param name="location">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="count">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="value">
-		/// A <see cref="T:UInt64[]"/>.
-		/// </param>
-		[RequiredByFeature("GL_NV_shader_buffer_load")]
-		public static void ProgramUniformNV(UInt32 program, Int32 location, UInt64[] value)
+		public static void ProgramUniformNV(UInt32 program, Int32 location, params UInt64[] value)
 		{
 			unsafe {
 				fixed (UInt64* p_value = value)

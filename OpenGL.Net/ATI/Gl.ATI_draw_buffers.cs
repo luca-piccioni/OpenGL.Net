@@ -137,31 +137,7 @@ namespace OpenGL
 		/// A <see cref="T:int[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_ATI_draw_buffers")]
-		public static void DrawBuffersATI(Int32 n, int[] bufs)
-		{
-			Debug.Assert(bufs.Length >= n);
-			unsafe {
-				fixed (int* p_bufs = bufs)
-				{
-					Debug.Assert(Delegates.pglDrawBuffersATI != null, "pglDrawBuffersATI not implemented");
-					Delegates.pglDrawBuffersATI(n, p_bufs);
-					CallLog("glDrawBuffersATI({0}, {1})", n, bufs);
-				}
-			}
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// Binding for glDrawBuffersATI.
-		/// </summary>
-		/// <param name="n">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="bufs">
-		/// A <see cref="T:int[]"/>.
-		/// </param>
-		[RequiredByFeature("GL_ATI_draw_buffers")]
-		public static void DrawBuffersATI(int[] bufs)
+		public static void DrawBuffersATI(params int[] bufs)
 		{
 			unsafe {
 				fixed (int* p_bufs = bufs)

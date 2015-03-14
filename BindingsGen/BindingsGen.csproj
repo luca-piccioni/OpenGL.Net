@@ -54,6 +54,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CLSpecs\RegistryGenerator.cs" />
     <Compile Include="GLSpecs\Command.cs" />
     <Compile Include="GLSpecs\CommandBlock.cs" />
     <Compile Include="GLSpecs\CommandFlags.cs" />
@@ -145,6 +146,9 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="GLSpecs\EglWords.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="GLSpecs\GlesWords.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

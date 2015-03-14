@@ -8493,38 +8493,7 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access")]
 		[RequiredByFeature("GL_EXT_separate_shader_objects")]
-		public static void ProgramUniform1EXT(UInt32 program, Int32 location, Int32 count, float[] value)
-		{
-			Debug.Assert(value.Length >= count);
-			unsafe {
-				fixed (float* p_value = value)
-				{
-					Debug.Assert(Delegates.pglProgramUniform1fvEXT != null, "pglProgramUniform1fvEXT not implemented");
-					Delegates.pglProgramUniform1fvEXT(program, location, count, p_value);
-					CallLog("glProgramUniform1fvEXT({0}, {1}, {2}, {3})", program, location, count, value);
-				}
-			}
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// Binding for glProgramUniform1fvEXT.
-		/// </summary>
-		/// <param name="program">
-		/// A <see cref="T:UInt32"/>.
-		/// </param>
-		/// <param name="location">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="count">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="value">
-		/// A <see cref="T:float[]"/>.
-		/// </param>
-		[RequiredByFeature("GL_EXT_direct_state_access")]
-		[RequiredByFeature("GL_EXT_separate_shader_objects")]
-		public static void ProgramUniform1EXT(UInt32 program, Int32 location, float[] value)
+		public static void ProgramUniform1EXT(UInt32 program, Int32 location, params float[] value)
 		{
 			unsafe {
 				fixed (float* p_value = value)
@@ -8644,38 +8613,7 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access")]
 		[RequiredByFeature("GL_EXT_separate_shader_objects")]
-		public static void ProgramUniform1EXT(UInt32 program, Int32 location, Int32 count, Int32[] value)
-		{
-			Debug.Assert(value.Length >= count);
-			unsafe {
-				fixed (Int32* p_value = value)
-				{
-					Debug.Assert(Delegates.pglProgramUniform1ivEXT != null, "pglProgramUniform1ivEXT not implemented");
-					Delegates.pglProgramUniform1ivEXT(program, location, count, p_value);
-					CallLog("glProgramUniform1ivEXT({0}, {1}, {2}, {3})", program, location, count, value);
-				}
-			}
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// Binding for glProgramUniform1ivEXT.
-		/// </summary>
-		/// <param name="program">
-		/// A <see cref="T:UInt32"/>.
-		/// </param>
-		/// <param name="location">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="count">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="value">
-		/// A <see cref="T:Int32[]"/>.
-		/// </param>
-		[RequiredByFeature("GL_EXT_direct_state_access")]
-		[RequiredByFeature("GL_EXT_separate_shader_objects")]
-		public static void ProgramUniform1EXT(UInt32 program, Int32 location, Int32[] value)
+		public static void ProgramUniform1EXT(UInt32 program, Int32 location, params Int32[] value)
 		{
 			unsafe {
 				fixed (Int32* p_value = value)
@@ -9758,38 +9696,7 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access")]
 		[RequiredByFeature("GL_EXT_separate_shader_objects")]
-		public static void ProgramUniform1EXT(UInt32 program, Int32 location, Int32 count, UInt32[] value)
-		{
-			Debug.Assert(value.Length >= count);
-			unsafe {
-				fixed (UInt32* p_value = value)
-				{
-					Debug.Assert(Delegates.pglProgramUniform1uivEXT != null, "pglProgramUniform1uivEXT not implemented");
-					Delegates.pglProgramUniform1uivEXT(program, location, count, p_value);
-					CallLog("glProgramUniform1uivEXT({0}, {1}, {2}, {3})", program, location, count, value);
-				}
-			}
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// Binding for glProgramUniform1uivEXT.
-		/// </summary>
-		/// <param name="program">
-		/// A <see cref="T:UInt32"/>.
-		/// </param>
-		/// <param name="location">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="count">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="value">
-		/// A <see cref="T:UInt32[]"/>.
-		/// </param>
-		[RequiredByFeature("GL_EXT_direct_state_access")]
-		[RequiredByFeature("GL_EXT_separate_shader_objects")]
-		public static void ProgramUniform1EXT(UInt32 program, Int32 location, UInt32[] value)
+		public static void ProgramUniform1EXT(UInt32 program, Int32 location, params UInt32[] value)
 		{
 			unsafe {
 				fixed (UInt32* p_value = value)
@@ -11077,34 +10984,7 @@ namespace OpenGL
 		/// A <see cref="T:int[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access")]
-		public static void FramebufferDrawBuffersEXT(UInt32 framebuffer, Int32 n, int[] bufs)
-		{
-			Debug.Assert(bufs.Length >= n);
-			unsafe {
-				fixed (int* p_bufs = bufs)
-				{
-					Debug.Assert(Delegates.pglFramebufferDrawBuffersEXT != null, "pglFramebufferDrawBuffersEXT not implemented");
-					Delegates.pglFramebufferDrawBuffersEXT(framebuffer, n, p_bufs);
-					CallLog("glFramebufferDrawBuffersEXT({0}, {1}, {2})", framebuffer, n, bufs);
-				}
-			}
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// Binding for glFramebufferDrawBuffersEXT.
-		/// </summary>
-		/// <param name="framebuffer">
-		/// A <see cref="T:UInt32"/>.
-		/// </param>
-		/// <param name="n">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="bufs">
-		/// A <see cref="T:int[]"/>.
-		/// </param>
-		[RequiredByFeature("GL_EXT_direct_state_access")]
-		public static void FramebufferDrawBuffersEXT(UInt32 framebuffer, int[] bufs)
+		public static void FramebufferDrawBuffersEXT(UInt32 framebuffer, params int[] bufs)
 		{
 			unsafe {
 				fixed (int* p_bufs = bufs)
@@ -12676,37 +12556,7 @@ namespace OpenGL
 		/// A <see cref="T:double[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access")]
-		public static void ProgramUniform1EXT(UInt32 program, Int32 location, Int32 count, double[] value)
-		{
-			Debug.Assert(value.Length >= count);
-			unsafe {
-				fixed (double* p_value = value)
-				{
-					Debug.Assert(Delegates.pglProgramUniform1dvEXT != null, "pglProgramUniform1dvEXT not implemented");
-					Delegates.pglProgramUniform1dvEXT(program, location, count, p_value);
-					CallLog("glProgramUniform1dvEXT({0}, {1}, {2}, {3})", program, location, count, value);
-				}
-			}
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// Binding for glProgramUniform1dvEXT.
-		/// </summary>
-		/// <param name="program">
-		/// A <see cref="T:UInt32"/>.
-		/// </param>
-		/// <param name="location">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="count">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="value">
-		/// A <see cref="T:double[]"/>.
-		/// </param>
-		[RequiredByFeature("GL_EXT_direct_state_access")]
-		public static void ProgramUniform1EXT(UInt32 program, Int32 location, double[] value)
+		public static void ProgramUniform1EXT(UInt32 program, Int32 location, params double[] value)
 		{
 			unsafe {
 				fixed (double* p_value = value)
@@ -12735,37 +12585,7 @@ namespace OpenGL
 		/// A <see cref="T:double[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access")]
-		public static void ProgramUniform2EXT(UInt32 program, Int32 location, Int32 count, double[] value)
-		{
-			Debug.Assert(value.Length >= count);
-			unsafe {
-				fixed (double* p_value = value)
-				{
-					Debug.Assert(Delegates.pglProgramUniform2dvEXT != null, "pglProgramUniform2dvEXT not implemented");
-					Delegates.pglProgramUniform2dvEXT(program, location, count, p_value);
-					CallLog("glProgramUniform2dvEXT({0}, {1}, {2}, {3})", program, location, count, value);
-				}
-			}
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// Binding for glProgramUniform2dvEXT.
-		/// </summary>
-		/// <param name="program">
-		/// A <see cref="T:UInt32"/>.
-		/// </param>
-		/// <param name="location">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="count">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="value">
-		/// A <see cref="T:double[]"/>.
-		/// </param>
-		[RequiredByFeature("GL_EXT_direct_state_access")]
-		public static void ProgramUniform2EXT(UInt32 program, Int32 location, double[] value)
+		public static void ProgramUniform2EXT(UInt32 program, Int32 location, params double[] value)
 		{
 			unsafe {
 				fixed (double* p_value = value)
@@ -12794,37 +12614,7 @@ namespace OpenGL
 		/// A <see cref="T:double[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access")]
-		public static void ProgramUniform3EXT(UInt32 program, Int32 location, Int32 count, double[] value)
-		{
-			Debug.Assert(value.Length >= count);
-			unsafe {
-				fixed (double* p_value = value)
-				{
-					Debug.Assert(Delegates.pglProgramUniform3dvEXT != null, "pglProgramUniform3dvEXT not implemented");
-					Delegates.pglProgramUniform3dvEXT(program, location, count, p_value);
-					CallLog("glProgramUniform3dvEXT({0}, {1}, {2}, {3})", program, location, count, value);
-				}
-			}
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// Binding for glProgramUniform3dvEXT.
-		/// </summary>
-		/// <param name="program">
-		/// A <see cref="T:UInt32"/>.
-		/// </param>
-		/// <param name="location">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="count">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="value">
-		/// A <see cref="T:double[]"/>.
-		/// </param>
-		[RequiredByFeature("GL_EXT_direct_state_access")]
-		public static void ProgramUniform3EXT(UInt32 program, Int32 location, double[] value)
+		public static void ProgramUniform3EXT(UInt32 program, Int32 location, params double[] value)
 		{
 			unsafe {
 				fixed (double* p_value = value)
@@ -12853,37 +12643,7 @@ namespace OpenGL
 		/// A <see cref="T:double[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access")]
-		public static void ProgramUniform4EXT(UInt32 program, Int32 location, Int32 count, double[] value)
-		{
-			Debug.Assert(value.Length >= count);
-			unsafe {
-				fixed (double* p_value = value)
-				{
-					Debug.Assert(Delegates.pglProgramUniform4dvEXT != null, "pglProgramUniform4dvEXT not implemented");
-					Delegates.pglProgramUniform4dvEXT(program, location, count, p_value);
-					CallLog("glProgramUniform4dvEXT({0}, {1}, {2}, {3})", program, location, count, value);
-				}
-			}
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// Binding for glProgramUniform4dvEXT.
-		/// </summary>
-		/// <param name="program">
-		/// A <see cref="T:UInt32"/>.
-		/// </param>
-		/// <param name="location">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="count">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="value">
-		/// A <see cref="T:double[]"/>.
-		/// </param>
-		[RequiredByFeature("GL_EXT_direct_state_access")]
-		public static void ProgramUniform4EXT(UInt32 program, Int32 location, double[] value)
+		public static void ProgramUniform4EXT(UInt32 program, Int32 location, params double[] value)
 		{
 			unsafe {
 				fixed (double* p_value = value)
@@ -12915,40 +12675,7 @@ namespace OpenGL
 		/// A <see cref="T:double[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access")]
-		public static void ProgramUniformMatrix2EXT(UInt32 program, Int32 location, Int32 count, bool transpose, double[] value)
-		{
-			Debug.Assert(value.Length >= count);
-			unsafe {
-				fixed (double* p_value = value)
-				{
-					Debug.Assert(Delegates.pglProgramUniformMatrix2dvEXT != null, "pglProgramUniformMatrix2dvEXT not implemented");
-					Delegates.pglProgramUniformMatrix2dvEXT(program, location, count, transpose, p_value);
-					CallLog("glProgramUniformMatrix2dvEXT({0}, {1}, {2}, {3}, {4})", program, location, count, transpose, value);
-				}
-			}
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// Binding for glProgramUniformMatrix2dvEXT.
-		/// </summary>
-		/// <param name="program">
-		/// A <see cref="T:UInt32"/>.
-		/// </param>
-		/// <param name="location">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="count">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="transpose">
-		/// A <see cref="T:bool"/>.
-		/// </param>
-		/// <param name="value">
-		/// A <see cref="T:double[]"/>.
-		/// </param>
-		[RequiredByFeature("GL_EXT_direct_state_access")]
-		public static void ProgramUniformMatrix2EXT(UInt32 program, Int32 location, bool transpose, double[] value)
+		public static void ProgramUniformMatrix2EXT(UInt32 program, Int32 location, bool transpose, params double[] value)
 		{
 			unsafe {
 				fixed (double* p_value = value)
@@ -12980,40 +12707,7 @@ namespace OpenGL
 		/// A <see cref="T:double[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access")]
-		public static void ProgramUniformMatrix3EXT(UInt32 program, Int32 location, Int32 count, bool transpose, double[] value)
-		{
-			Debug.Assert(value.Length >= count);
-			unsafe {
-				fixed (double* p_value = value)
-				{
-					Debug.Assert(Delegates.pglProgramUniformMatrix3dvEXT != null, "pglProgramUniformMatrix3dvEXT not implemented");
-					Delegates.pglProgramUniformMatrix3dvEXT(program, location, count, transpose, p_value);
-					CallLog("glProgramUniformMatrix3dvEXT({0}, {1}, {2}, {3}, {4})", program, location, count, transpose, value);
-				}
-			}
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// Binding for glProgramUniformMatrix3dvEXT.
-		/// </summary>
-		/// <param name="program">
-		/// A <see cref="T:UInt32"/>.
-		/// </param>
-		/// <param name="location">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="count">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="transpose">
-		/// A <see cref="T:bool"/>.
-		/// </param>
-		/// <param name="value">
-		/// A <see cref="T:double[]"/>.
-		/// </param>
-		[RequiredByFeature("GL_EXT_direct_state_access")]
-		public static void ProgramUniformMatrix3EXT(UInt32 program, Int32 location, bool transpose, double[] value)
+		public static void ProgramUniformMatrix3EXT(UInt32 program, Int32 location, bool transpose, params double[] value)
 		{
 			unsafe {
 				fixed (double* p_value = value)
@@ -13045,40 +12739,7 @@ namespace OpenGL
 		/// A <see cref="T:double[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access")]
-		public static void ProgramUniformMatrix4EXT(UInt32 program, Int32 location, Int32 count, bool transpose, double[] value)
-		{
-			Debug.Assert(value.Length >= count);
-			unsafe {
-				fixed (double* p_value = value)
-				{
-					Debug.Assert(Delegates.pglProgramUniformMatrix4dvEXT != null, "pglProgramUniformMatrix4dvEXT not implemented");
-					Delegates.pglProgramUniformMatrix4dvEXT(program, location, count, transpose, p_value);
-					CallLog("glProgramUniformMatrix4dvEXT({0}, {1}, {2}, {3}, {4})", program, location, count, transpose, value);
-				}
-			}
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// Binding for glProgramUniformMatrix4dvEXT.
-		/// </summary>
-		/// <param name="program">
-		/// A <see cref="T:UInt32"/>.
-		/// </param>
-		/// <param name="location">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="count">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="transpose">
-		/// A <see cref="T:bool"/>.
-		/// </param>
-		/// <param name="value">
-		/// A <see cref="T:double[]"/>.
-		/// </param>
-		[RequiredByFeature("GL_EXT_direct_state_access")]
-		public static void ProgramUniformMatrix4EXT(UInt32 program, Int32 location, bool transpose, double[] value)
+		public static void ProgramUniformMatrix4EXT(UInt32 program, Int32 location, bool transpose, params double[] value)
 		{
 			unsafe {
 				fixed (double* p_value = value)
@@ -13110,40 +12771,7 @@ namespace OpenGL
 		/// A <see cref="T:double[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access")]
-		public static void ProgramUniformMatrix2x3EXT(UInt32 program, Int32 location, Int32 count, bool transpose, double[] value)
-		{
-			Debug.Assert(value.Length >= count);
-			unsafe {
-				fixed (double* p_value = value)
-				{
-					Debug.Assert(Delegates.pglProgramUniformMatrix2x3dvEXT != null, "pglProgramUniformMatrix2x3dvEXT not implemented");
-					Delegates.pglProgramUniformMatrix2x3dvEXT(program, location, count, transpose, p_value);
-					CallLog("glProgramUniformMatrix2x3dvEXT({0}, {1}, {2}, {3}, {4})", program, location, count, transpose, value);
-				}
-			}
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// Binding for glProgramUniformMatrix2x3dvEXT.
-		/// </summary>
-		/// <param name="program">
-		/// A <see cref="T:UInt32"/>.
-		/// </param>
-		/// <param name="location">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="count">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="transpose">
-		/// A <see cref="T:bool"/>.
-		/// </param>
-		/// <param name="value">
-		/// A <see cref="T:double[]"/>.
-		/// </param>
-		[RequiredByFeature("GL_EXT_direct_state_access")]
-		public static void ProgramUniformMatrix2x3EXT(UInt32 program, Int32 location, bool transpose, double[] value)
+		public static void ProgramUniformMatrix2x3EXT(UInt32 program, Int32 location, bool transpose, params double[] value)
 		{
 			unsafe {
 				fixed (double* p_value = value)
@@ -13175,40 +12803,7 @@ namespace OpenGL
 		/// A <see cref="T:double[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access")]
-		public static void ProgramUniformMatrix2x4EXT(UInt32 program, Int32 location, Int32 count, bool transpose, double[] value)
-		{
-			Debug.Assert(value.Length >= count);
-			unsafe {
-				fixed (double* p_value = value)
-				{
-					Debug.Assert(Delegates.pglProgramUniformMatrix2x4dvEXT != null, "pglProgramUniformMatrix2x4dvEXT not implemented");
-					Delegates.pglProgramUniformMatrix2x4dvEXT(program, location, count, transpose, p_value);
-					CallLog("glProgramUniformMatrix2x4dvEXT({0}, {1}, {2}, {3}, {4})", program, location, count, transpose, value);
-				}
-			}
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// Binding for glProgramUniformMatrix2x4dvEXT.
-		/// </summary>
-		/// <param name="program">
-		/// A <see cref="T:UInt32"/>.
-		/// </param>
-		/// <param name="location">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="count">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="transpose">
-		/// A <see cref="T:bool"/>.
-		/// </param>
-		/// <param name="value">
-		/// A <see cref="T:double[]"/>.
-		/// </param>
-		[RequiredByFeature("GL_EXT_direct_state_access")]
-		public static void ProgramUniformMatrix2x4EXT(UInt32 program, Int32 location, bool transpose, double[] value)
+		public static void ProgramUniformMatrix2x4EXT(UInt32 program, Int32 location, bool transpose, params double[] value)
 		{
 			unsafe {
 				fixed (double* p_value = value)
@@ -13240,40 +12835,7 @@ namespace OpenGL
 		/// A <see cref="T:double[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access")]
-		public static void ProgramUniformMatrix3x2EXT(UInt32 program, Int32 location, Int32 count, bool transpose, double[] value)
-		{
-			Debug.Assert(value.Length >= count);
-			unsafe {
-				fixed (double* p_value = value)
-				{
-					Debug.Assert(Delegates.pglProgramUniformMatrix3x2dvEXT != null, "pglProgramUniformMatrix3x2dvEXT not implemented");
-					Delegates.pglProgramUniformMatrix3x2dvEXT(program, location, count, transpose, p_value);
-					CallLog("glProgramUniformMatrix3x2dvEXT({0}, {1}, {2}, {3}, {4})", program, location, count, transpose, value);
-				}
-			}
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// Binding for glProgramUniformMatrix3x2dvEXT.
-		/// </summary>
-		/// <param name="program">
-		/// A <see cref="T:UInt32"/>.
-		/// </param>
-		/// <param name="location">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="count">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="transpose">
-		/// A <see cref="T:bool"/>.
-		/// </param>
-		/// <param name="value">
-		/// A <see cref="T:double[]"/>.
-		/// </param>
-		[RequiredByFeature("GL_EXT_direct_state_access")]
-		public static void ProgramUniformMatrix3x2EXT(UInt32 program, Int32 location, bool transpose, double[] value)
+		public static void ProgramUniformMatrix3x2EXT(UInt32 program, Int32 location, bool transpose, params double[] value)
 		{
 			unsafe {
 				fixed (double* p_value = value)
@@ -13305,40 +12867,7 @@ namespace OpenGL
 		/// A <see cref="T:double[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access")]
-		public static void ProgramUniformMatrix3x4EXT(UInt32 program, Int32 location, Int32 count, bool transpose, double[] value)
-		{
-			Debug.Assert(value.Length >= count);
-			unsafe {
-				fixed (double* p_value = value)
-				{
-					Debug.Assert(Delegates.pglProgramUniformMatrix3x4dvEXT != null, "pglProgramUniformMatrix3x4dvEXT not implemented");
-					Delegates.pglProgramUniformMatrix3x4dvEXT(program, location, count, transpose, p_value);
-					CallLog("glProgramUniformMatrix3x4dvEXT({0}, {1}, {2}, {3}, {4})", program, location, count, transpose, value);
-				}
-			}
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// Binding for glProgramUniformMatrix3x4dvEXT.
-		/// </summary>
-		/// <param name="program">
-		/// A <see cref="T:UInt32"/>.
-		/// </param>
-		/// <param name="location">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="count">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="transpose">
-		/// A <see cref="T:bool"/>.
-		/// </param>
-		/// <param name="value">
-		/// A <see cref="T:double[]"/>.
-		/// </param>
-		[RequiredByFeature("GL_EXT_direct_state_access")]
-		public static void ProgramUniformMatrix3x4EXT(UInt32 program, Int32 location, bool transpose, double[] value)
+		public static void ProgramUniformMatrix3x4EXT(UInt32 program, Int32 location, bool transpose, params double[] value)
 		{
 			unsafe {
 				fixed (double* p_value = value)
@@ -13370,40 +12899,7 @@ namespace OpenGL
 		/// A <see cref="T:double[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access")]
-		public static void ProgramUniformMatrix4x2EXT(UInt32 program, Int32 location, Int32 count, bool transpose, double[] value)
-		{
-			Debug.Assert(value.Length >= count);
-			unsafe {
-				fixed (double* p_value = value)
-				{
-					Debug.Assert(Delegates.pglProgramUniformMatrix4x2dvEXT != null, "pglProgramUniformMatrix4x2dvEXT not implemented");
-					Delegates.pglProgramUniformMatrix4x2dvEXT(program, location, count, transpose, p_value);
-					CallLog("glProgramUniformMatrix4x2dvEXT({0}, {1}, {2}, {3}, {4})", program, location, count, transpose, value);
-				}
-			}
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// Binding for glProgramUniformMatrix4x2dvEXT.
-		/// </summary>
-		/// <param name="program">
-		/// A <see cref="T:UInt32"/>.
-		/// </param>
-		/// <param name="location">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="count">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="transpose">
-		/// A <see cref="T:bool"/>.
-		/// </param>
-		/// <param name="value">
-		/// A <see cref="T:double[]"/>.
-		/// </param>
-		[RequiredByFeature("GL_EXT_direct_state_access")]
-		public static void ProgramUniformMatrix4x2EXT(UInt32 program, Int32 location, bool transpose, double[] value)
+		public static void ProgramUniformMatrix4x2EXT(UInt32 program, Int32 location, bool transpose, params double[] value)
 		{
 			unsafe {
 				fixed (double* p_value = value)
@@ -13435,40 +12931,7 @@ namespace OpenGL
 		/// A <see cref="T:double[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access")]
-		public static void ProgramUniformMatrix4x3EXT(UInt32 program, Int32 location, Int32 count, bool transpose, double[] value)
-		{
-			Debug.Assert(value.Length >= count);
-			unsafe {
-				fixed (double* p_value = value)
-				{
-					Debug.Assert(Delegates.pglProgramUniformMatrix4x3dvEXT != null, "pglProgramUniformMatrix4x3dvEXT not implemented");
-					Delegates.pglProgramUniformMatrix4x3dvEXT(program, location, count, transpose, p_value);
-					CallLog("glProgramUniformMatrix4x3dvEXT({0}, {1}, {2}, {3}, {4})", program, location, count, transpose, value);
-				}
-			}
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// Binding for glProgramUniformMatrix4x3dvEXT.
-		/// </summary>
-		/// <param name="program">
-		/// A <see cref="T:UInt32"/>.
-		/// </param>
-		/// <param name="location">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="count">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="transpose">
-		/// A <see cref="T:bool"/>.
-		/// </param>
-		/// <param name="value">
-		/// A <see cref="T:double[]"/>.
-		/// </param>
-		[RequiredByFeature("GL_EXT_direct_state_access")]
-		public static void ProgramUniformMatrix4x3EXT(UInt32 program, Int32 location, bool transpose, double[] value)
+		public static void ProgramUniformMatrix4x3EXT(UInt32 program, Int32 location, bool transpose, params double[] value)
 		{
 			unsafe {
 				fixed (double* p_value = value)

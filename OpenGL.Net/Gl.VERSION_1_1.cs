@@ -5598,31 +5598,7 @@ namespace OpenGL
 		/// Specifies an array of textures to be deleted.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_1_1")]
-		public static void DeleteTextures(Int32 n, UInt32[] textures)
-		{
-			Debug.Assert(textures.Length >= n);
-			unsafe {
-				fixed (UInt32* p_textures = textures)
-				{
-					Debug.Assert(Delegates.pglDeleteTextures != null, "pglDeleteTextures not implemented");
-					Delegates.pglDeleteTextures(n, p_textures);
-					CallLog("glDeleteTextures({0}, {1})", n, textures);
-				}
-			}
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// delete named textures
-		/// </summary>
-		/// <param name="n">
-		/// Specifies the number of textures to be deleted.
-		/// </param>
-		/// <param name="textures">
-		/// Specifies an array of textures to be deleted.
-		/// </param>
-		[RequiredByFeature("GL_VERSION_1_1")]
-		public static void DeleteTextures(UInt32[] textures)
+		public static void DeleteTextures(params UInt32[] textures)
 		{
 			unsafe {
 				fixed (UInt32* p_textures = textures)
@@ -5630,30 +5606,6 @@ namespace OpenGL
 					Debug.Assert(Delegates.pglDeleteTextures != null, "pglDeleteTextures not implemented");
 					Delegates.pglDeleteTextures((Int32)textures.Length, p_textures);
 					CallLog("glDeleteTextures({0}, {1})", textures.Length, textures);
-				}
-			}
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// generate texture names
-		/// </summary>
-		/// <param name="n">
-		/// Specifies the number of texture names to be generated.
-		/// </param>
-		/// <param name="textures">
-		/// Specifies an array in which the generated texture names are stored.
-		/// </param>
-		[RequiredByFeature("GL_VERSION_1_1")]
-		public static void GenTextures(Int32 n, UInt32[] textures)
-		{
-			Debug.Assert(textures.Length >= n);
-			unsafe {
-				fixed (UInt32* p_textures = textures)
-				{
-					Debug.Assert(Delegates.pglGenTextures != null, "pglGenTextures not implemented");
-					Delegates.pglGenTextures(n, p_textures);
-					CallLog("glGenTextures({0}, {1})", n, textures);
 				}
 			}
 			DebugCheckErrors();
@@ -5689,7 +5641,7 @@ namespace OpenGL
 		public static UInt32 GenTexture()
 		{
 			UInt32[] retValue = new UInt32[1];
-			GenTextures(1, retValue);
+			GenTextures(retValue);
 			return (retValue[0]);
 		}
 
@@ -6518,42 +6470,7 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_1_1")]
 		[RemovedByFeature("GL_VERSION_3_2")]
-		public static bool AreTexturesResident(Int32 n, UInt32[] textures, bool[] residences)
-		{
-			Debug.Assert(textures.Length >= n);
-			Debug.Assert(residences.Length >= n);
-			bool retValue;
-
-			unsafe {
-				fixed (UInt32* p_textures = textures)
-				fixed (bool* p_residences = residences)
-				{
-					Debug.Assert(Delegates.pglAreTexturesResident != null, "pglAreTexturesResident not implemented");
-					retValue = Delegates.pglAreTexturesResident(n, p_textures, p_residences);
-					CallLog("glAreTexturesResident({0}, {1}, {2}) = {3}", n, textures, residences, retValue);
-				}
-			}
-			DebugCheckErrors();
-
-			return (retValue);
-		}
-
-		/// <summary>
-		/// determine if textures are loaded in texture memory
-		/// </summary>
-		/// <param name="n">
-		/// Specifies the number of textures to be queried.
-		/// </param>
-		/// <param name="textures">
-		/// Specifies an array containing the names of the textures to be queried.
-		/// </param>
-		/// <param name="residences">
-		/// Specifies an array in which the texture residence status is returned. The residence status of a texture named by an 
-		/// element of <paramref name="textures"/> is returned in the corresponding element of <paramref name="residences"/>.
-		/// </param>
-		[RequiredByFeature("GL_VERSION_1_1")]
-		[RemovedByFeature("GL_VERSION_3_2")]
-		public static bool AreTexturesResident(UInt32[] textures, bool[] residences)
+		public static bool AreTexturesResident(UInt32[] textures, params bool[] residences)
 		{
 			bool retValue;
 
@@ -6586,43 +6503,7 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_1_1")]
 		[RemovedByFeature("GL_VERSION_3_2")]
-		public static void PrioritizeTextures(Int32 n, UInt32[] textures, float[] priorities)
-		{
-			Debug.Assert(textures.Length >= n);
-			Debug.Assert(priorities.Length >= n);
-			unsafe {
-				fixed (UInt32* p_textures = textures)
-				fixed (float* p_priorities = priorities)
-				{
-					if        (Delegates.pglPrioritizeTextures != null) {
-						Delegates.pglPrioritizeTextures(n, p_textures, p_priorities);
-						CallLog("glPrioritizeTextures({0}, {1}, {2})", n, textures, priorities);
-					} else if (Delegates.pglPrioritizeTexturesEXT != null) {
-						Delegates.pglPrioritizeTexturesEXT(n, p_textures, p_priorities);
-						CallLog("glPrioritizeTexturesEXT({0}, {1}, {2})", n, textures, priorities);
-					} else
-						throw new NotImplementedException("glPrioritizeTextures (and other aliases) are not implemented");
-				}
-			}
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// set texture residence priority
-		/// </summary>
-		/// <param name="n">
-		/// Specifies the number of textures to be prioritized.
-		/// </param>
-		/// <param name="textures">
-		/// Specifies an array containing the names of the textures to be prioritized.
-		/// </param>
-		/// <param name="priorities">
-		/// Specifies an array containing the texture priorities. A priority given in an element of <paramref name="priorities"/> 
-		/// applies to the texture named by the corresponding element of <paramref name="textures"/>.
-		/// </param>
-		[RequiredByFeature("GL_VERSION_1_1")]
-		[RemovedByFeature("GL_VERSION_3_2")]
-		public static void PrioritizeTextures(UInt32[] textures, float[] priorities)
+		public static void PrioritizeTextures(UInt32[] textures, params float[] priorities)
 		{
 			unsafe {
 				fixed (UInt32* p_textures = textures)

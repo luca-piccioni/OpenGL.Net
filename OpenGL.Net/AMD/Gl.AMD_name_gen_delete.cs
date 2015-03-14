@@ -68,33 +68,6 @@ namespace OpenGL
 		/// A <see cref="T:UInt32[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_AMD_name_gen_delete")]
-		public static void GenNameAMD(int identifier, UInt32 num, UInt32[] names)
-		{
-			Debug.Assert(names.Length >= num);
-			unsafe {
-				fixed (UInt32* p_names = names)
-				{
-					Debug.Assert(Delegates.pglGenNamesAMD != null, "pglGenNamesAMD not implemented");
-					Delegates.pglGenNamesAMD(identifier, num, p_names);
-					CallLog("glGenNamesAMD({0}, {1}, {2})", identifier, num, names);
-				}
-			}
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// Binding for glGenNamesAMD.
-		/// </summary>
-		/// <param name="identifier">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="num">
-		/// A <see cref="T:UInt32"/>.
-		/// </param>
-		/// <param name="names">
-		/// A <see cref="T:UInt32[]"/>.
-		/// </param>
-		[RequiredByFeature("GL_AMD_name_gen_delete")]
 		public static void GenNameAMD(int identifier, UInt32[] names)
 		{
 			unsafe {
@@ -118,7 +91,7 @@ namespace OpenGL
 		public static UInt32 GenNameAMD(int identifier)
 		{
 			UInt32[] retValue = new UInt32[1];
-			GenNameAMD(identifier, 1, retValue);
+			GenNameAMD(identifier, retValue);
 			return (retValue[0]);
 		}
 
@@ -135,34 +108,7 @@ namespace OpenGL
 		/// A <see cref="T:UInt32[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_AMD_name_gen_delete")]
-		public static void DeleteNameAMD(int identifier, UInt32 num, UInt32[] names)
-		{
-			Debug.Assert(names.Length >= num);
-			unsafe {
-				fixed (UInt32* p_names = names)
-				{
-					Debug.Assert(Delegates.pglDeleteNamesAMD != null, "pglDeleteNamesAMD not implemented");
-					Delegates.pglDeleteNamesAMD(identifier, num, p_names);
-					CallLog("glDeleteNamesAMD({0}, {1}, {2})", identifier, num, names);
-				}
-			}
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// Binding for glDeleteNamesAMD.
-		/// </summary>
-		/// <param name="identifier">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="num">
-		/// A <see cref="T:UInt32"/>.
-		/// </param>
-		/// <param name="names">
-		/// A <see cref="T:UInt32[]"/>.
-		/// </param>
-		[RequiredByFeature("GL_AMD_name_gen_delete")]
-		public static void DeleteNameAMD(int identifier, UInt32[] names)
+		public static void DeleteNameAMD(int identifier, params UInt32[] names)
 		{
 			unsafe {
 				fixed (UInt32* p_names = names)

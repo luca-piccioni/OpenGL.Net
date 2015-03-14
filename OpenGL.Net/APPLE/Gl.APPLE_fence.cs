@@ -47,30 +47,6 @@ namespace OpenGL
 		/// A <see cref="T:UInt32[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_APPLE_fence")]
-		public static void GenFencesAPPLE(Int32 n, UInt32[] fences)
-		{
-			Debug.Assert(fences.Length >= n);
-			unsafe {
-				fixed (UInt32* p_fences = fences)
-				{
-					Debug.Assert(Delegates.pglGenFencesAPPLE != null, "pglGenFencesAPPLE not implemented");
-					Delegates.pglGenFencesAPPLE(n, p_fences);
-					CallLog("glGenFencesAPPLE({0}, {1})", n, fences);
-				}
-			}
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// Binding for glGenFencesAPPLE.
-		/// </summary>
-		/// <param name="n">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="fences">
-		/// A <see cref="T:UInt32[]"/>.
-		/// </param>
-		[RequiredByFeature("GL_APPLE_fence")]
 		public static void GenFencesAPPLE(UInt32[] fences)
 		{
 			unsafe {
@@ -91,7 +67,7 @@ namespace OpenGL
 		public static UInt32 GenFencesAPPLE()
 		{
 			UInt32[] retValue = new UInt32[1];
-			GenFencesAPPLE(1, retValue);
+			GenFencesAPPLE(retValue);
 			return (retValue[0]);
 		}
 
@@ -105,31 +81,7 @@ namespace OpenGL
 		/// A <see cref="T:UInt32[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_APPLE_fence")]
-		public static void DeleteFencesAPPLE(Int32 n, UInt32[] fences)
-		{
-			Debug.Assert(fences.Length >= n);
-			unsafe {
-				fixed (UInt32* p_fences = fences)
-				{
-					Debug.Assert(Delegates.pglDeleteFencesAPPLE != null, "pglDeleteFencesAPPLE not implemented");
-					Delegates.pglDeleteFencesAPPLE(n, p_fences);
-					CallLog("glDeleteFencesAPPLE({0}, {1})", n, fences);
-				}
-			}
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// Binding for glDeleteFencesAPPLE.
-		/// </summary>
-		/// <param name="n">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="fences">
-		/// A <see cref="T:UInt32[]"/>.
-		/// </param>
-		[RequiredByFeature("GL_APPLE_fence")]
-		public static void DeleteFencesAPPLE(UInt32[] fences)
+		public static void DeleteFencesAPPLE(params UInt32[] fences)
 		{
 			unsafe {
 				fixed (UInt32* p_fences = fences)

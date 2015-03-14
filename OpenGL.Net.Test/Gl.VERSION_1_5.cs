@@ -29,12 +29,20 @@ namespace OpenGL.Test
 	class Gl_VERSION_1_5 : GlTestBase
 	{
 		/// <summary>
-		/// Mainly used for testing glGet using an OpenGL state.
+		/// Test Gl.GenBuffer.
 		/// </summary>
 		[Test]
-		public void TestBuffers()
+		public void TestGenBuffer()
 		{
+			if (!HasVersion(1, 5) && !IsGlExtensionSupported("GL_ARB_vertex_buffer_object"))
+				Assert.Inconclusive("OpenGL 1.5 or GL_ARB_vertex_buffer_object");
 
+			uint arrayBuffer = Gl.GenBuffer();
+			Assert.AreNotEqual(0, arrayBuffer, "Gl.GenBuffer failure");
+			Assert.IsTrue(Gl.IsBuffer(arrayBuffer));
+
+			Gl.DeleteBuffers(arrayBuffer);
+			Assert.IsFalse(Gl.IsBuffer(arrayBuffer), "Gl.DeleteBuffers failure");
 		}
 	}
 }

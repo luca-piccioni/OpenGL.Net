@@ -53,31 +53,7 @@ namespace OpenGL
 		/// A <see cref="T:UInt32[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_fence")]
-		public static void DeleteFencesNV(Int32 n, UInt32[] fences)
-		{
-			Debug.Assert(fences.Length >= n);
-			unsafe {
-				fixed (UInt32* p_fences = fences)
-				{
-					Debug.Assert(Delegates.pglDeleteFencesNV != null, "pglDeleteFencesNV not implemented");
-					Delegates.pglDeleteFencesNV(n, p_fences);
-					CallLog("glDeleteFencesNV({0}, {1})", n, fences);
-				}
-			}
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// Binding for glDeleteFencesNV.
-		/// </summary>
-		/// <param name="n">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="fences">
-		/// A <see cref="T:UInt32[]"/>.
-		/// </param>
-		[RequiredByFeature("GL_NV_fence")]
-		public static void DeleteFencesNV(UInt32[] fences)
+		public static void DeleteFencesNV(params UInt32[] fences)
 		{
 			unsafe {
 				fixed (UInt32* p_fences = fences)
@@ -85,30 +61,6 @@ namespace OpenGL
 					Debug.Assert(Delegates.pglDeleteFencesNV != null, "pglDeleteFencesNV not implemented");
 					Delegates.pglDeleteFencesNV((Int32)fences.Length, p_fences);
 					CallLog("glDeleteFencesNV({0}, {1})", fences.Length, fences);
-				}
-			}
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// Binding for glGenFencesNV.
-		/// </summary>
-		/// <param name="n">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="fences">
-		/// A <see cref="T:UInt32[]"/>.
-		/// </param>
-		[RequiredByFeature("GL_NV_fence")]
-		public static void GenFencesNV(Int32 n, UInt32[] fences)
-		{
-			Debug.Assert(fences.Length >= n);
-			unsafe {
-				fixed (UInt32* p_fences = fences)
-				{
-					Debug.Assert(Delegates.pglGenFencesNV != null, "pglGenFencesNV not implemented");
-					Delegates.pglGenFencesNV(n, p_fences);
-					CallLog("glGenFencesNV({0}, {1})", n, fences);
 				}
 			}
 			DebugCheckErrors();
@@ -144,7 +96,7 @@ namespace OpenGL
 		public static UInt32 GenFencesNV()
 		{
 			UInt32[] retValue = new UInt32[1];
-			GenFencesNV(1, retValue);
+			GenFencesNV(retValue);
 			return (retValue[0]);
 		}
 

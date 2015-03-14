@@ -137,31 +137,7 @@ namespace OpenGL
 		/// A <see cref="T:int[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_ARB_draw_buffers")]
-		public static void DrawBuffersARB(Int32 n, int[] bufs)
-		{
-			Debug.Assert(bufs.Length >= n);
-			unsafe {
-				fixed (int* p_bufs = bufs)
-				{
-					Debug.Assert(Delegates.pglDrawBuffersARB != null, "pglDrawBuffersARB not implemented");
-					Delegates.pglDrawBuffersARB(n, p_bufs);
-					CallLog("glDrawBuffersARB({0}, {1})", n, bufs);
-				}
-			}
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// Binding for glDrawBuffersARB.
-		/// </summary>
-		/// <param name="n">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="bufs">
-		/// A <see cref="T:int[]"/>.
-		/// </param>
-		[RequiredByFeature("GL_ARB_draw_buffers")]
-		public static void DrawBuffersARB(int[] bufs)
+		public static void DrawBuffersARB(params int[] bufs)
 		{
 			unsafe {
 				fixed (int* p_bufs = bufs)

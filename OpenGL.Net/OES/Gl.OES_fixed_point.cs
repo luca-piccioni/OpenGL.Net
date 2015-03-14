@@ -1122,34 +1122,7 @@ namespace OpenGL
 		/// A <see cref="T:IntPtr[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_OES_fixed_point")]
-		public static void FeedbackBufferOES(Int32 n, int type, IntPtr[] buffer)
-		{
-			Debug.Assert(buffer.Length >= n);
-			unsafe {
-				fixed (IntPtr* p_buffer = buffer)
-				{
-					Debug.Assert(Delegates.pglFeedbackBufferxOES != null, "pglFeedbackBufferxOES not implemented");
-					Delegates.pglFeedbackBufferxOES(n, type, p_buffer);
-					CallLog("glFeedbackBufferxOES({0}, {1}, {2})", n, type, buffer);
-				}
-			}
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// Binding for glFeedbackBufferxOES.
-		/// </summary>
-		/// <param name="n">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="type">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="buffer">
-		/// A <see cref="T:IntPtr[]"/>.
-		/// </param>
-		[RequiredByFeature("GL_OES_fixed_point")]
-		public static void FeedbackBufferOES(int type, IntPtr[] buffer)
+		public static void FeedbackBufferOES(int type, params IntPtr[] buffer)
 		{
 			unsafe {
 				fixed (IntPtr* p_buffer = buffer)
@@ -1300,34 +1273,7 @@ namespace OpenGL
 		/// A <see cref="T:IntPtr[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_OES_fixed_point")]
-		public static void GetPixelMap(int map, Int32 size, IntPtr[] values)
-		{
-			Debug.Assert(values.Length >= size);
-			unsafe {
-				fixed (IntPtr* p_values = values)
-				{
-					Debug.Assert(Delegates.pglGetPixelMapxv != null, "pglGetPixelMapxv not implemented");
-					Delegates.pglGetPixelMapxv(map, size, p_values);
-					CallLog("glGetPixelMapxv({0}, {1}, {2})", map, size, values);
-				}
-			}
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// Binding for glGetPixelMapxv.
-		/// </summary>
-		/// <param name="map">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="size">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="values">
-		/// A <see cref="T:IntPtr[]"/>.
-		/// </param>
-		[RequiredByFeature("GL_OES_fixed_point")]
-		public static void GetPixelMap(int map, IntPtr[] values)
+		public static void GetPixelMap(int map, params IntPtr[] values)
 		{
 			unsafe {
 				fixed (IntPtr* p_values = values)
@@ -1793,34 +1739,7 @@ namespace OpenGL
 		/// A <see cref="T:IntPtr[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_OES_fixed_point")]
-		public static void PixelMap(int map, Int32 size, IntPtr[] values)
-		{
-			Debug.Assert(values.Length >= size);
-			unsafe {
-				fixed (IntPtr* p_values = values)
-				{
-					Debug.Assert(Delegates.pglPixelMapx != null, "pglPixelMapx not implemented");
-					Delegates.pglPixelMapx(map, size, p_values);
-					CallLog("glPixelMapx({0}, {1}, {2})", map, size, values);
-				}
-			}
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// Binding for glPixelMapx.
-		/// </summary>
-		/// <param name="map">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="size">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="values">
-		/// A <see cref="T:IntPtr[]"/>.
-		/// </param>
-		[RequiredByFeature("GL_OES_fixed_point")]
-		public static void PixelMap(int map, IntPtr[] values)
+		public static void PixelMap(int map, params IntPtr[] values)
 		{
 			unsafe {
 				fixed (IntPtr* p_values = values)
@@ -1900,36 +1819,7 @@ namespace OpenGL
 		/// A <see cref="T:IntPtr[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_OES_fixed_point")]
-		public static void PrioritizeTexturesOES(Int32 n, UInt32[] textures, IntPtr[] priorities)
-		{
-			Debug.Assert(textures.Length >= n);
-			Debug.Assert(priorities.Length >= n);
-			unsafe {
-				fixed (UInt32* p_textures = textures)
-				fixed (IntPtr* p_priorities = priorities)
-				{
-					Debug.Assert(Delegates.pglPrioritizeTexturesxOES != null, "pglPrioritizeTexturesxOES not implemented");
-					Delegates.pglPrioritizeTexturesxOES(n, p_textures, p_priorities);
-					CallLog("glPrioritizeTexturesxOES({0}, {1}, {2})", n, textures, priorities);
-				}
-			}
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// Binding for glPrioritizeTexturesxOES.
-		/// </summary>
-		/// <param name="n">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="textures">
-		/// A <see cref="T:UInt32[]"/>.
-		/// </param>
-		/// <param name="priorities">
-		/// A <see cref="T:IntPtr[]"/>.
-		/// </param>
-		[RequiredByFeature("GL_OES_fixed_point")]
-		public static void PrioritizeTexturesOES(UInt32[] textures, IntPtr[] priorities)
+		public static void PrioritizeTexturesOES(UInt32[] textures, params IntPtr[] priorities)
 		{
 			unsafe {
 				fixed (UInt32* p_textures = textures)

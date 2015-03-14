@@ -389,7 +389,8 @@ namespace BindingsGen.GLSpecs
 			bool isArrayLengthCompatible = CommandParameterArray.IsCompatible(this, ctx);
 
 			// Standard implementation - default
-			overridenParameters.Add(Parameters);
+			if (isArrayLengthCompatible == false)
+				overridenParameters.Add(Parameters);
 
 			// Strongly typed implementation
 			if (isStrongCompatible) {
@@ -561,6 +562,9 @@ namespace BindingsGen.GLSpecs
 					sw.Write("{0} ", paramAttributes);
 				if (paramModifier != null)
 					sw.Write("{0} ", paramModifier);
+
+				if (CommandParameterArray.IsCompatible(param, ctx, this) && (paramCount == 1) && !IsGenImplementation(ctx))
+					sw.Write("params ");
 
 				sw.Write("{0} {1}", param.GetImplementationType(ctx, this), param.ImplementationName);
 				paramCount--;
@@ -942,9 +946,9 @@ namespace BindingsGen.GLSpecs
 			for (int i = 0; i < commandParams.Count; i++) {
 				CommandParameter param = commandParams[i];
 
-				if       (CommandParameterArray.IsArrayLengthParameter(param, ctx, this))
-					sw.Write("1");
-				 else if (CommandParameterArray.IsCompatible(param, ctx, this))
+				if        (CommandParameterArray.IsArrayLengthParameter(param, ctx, this)) {
+					continue;
+				} else if (CommandParameterArray.IsCompatible(param, ctx, this))
 					sw.Write(ReturnVariableName);
 				else
 					param.WriteDelegateParam(sw, ctx, this);

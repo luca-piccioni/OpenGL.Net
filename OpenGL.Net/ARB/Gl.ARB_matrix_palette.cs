@@ -110,31 +110,7 @@ namespace OpenGL
 		/// A <see cref="T:byte[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_ARB_matrix_palette")]
-		public static void MatrixIndexARB(Int32 size, byte[] indices)
-		{
-			Debug.Assert(indices.Length >= size);
-			unsafe {
-				fixed (byte* p_indices = indices)
-				{
-					Debug.Assert(Delegates.pglMatrixIndexubvARB != null, "pglMatrixIndexubvARB not implemented");
-					Delegates.pglMatrixIndexubvARB(size, p_indices);
-					CallLog("glMatrixIndexubvARB({0}, {1})", size, indices);
-				}
-			}
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// Binding for glMatrixIndexubvARB.
-		/// </summary>
-		/// <param name="size">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="indices">
-		/// A <see cref="T:byte[]"/>.
-		/// </param>
-		[RequiredByFeature("GL_ARB_matrix_palette")]
-		public static void MatrixIndexARB(byte[] indices)
+		public static void MatrixIndexARB(params byte[] indices)
 		{
 			unsafe {
 				fixed (byte* p_indices = indices)
@@ -157,31 +133,7 @@ namespace OpenGL
 		/// A <see cref="T:UInt16[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_ARB_matrix_palette")]
-		public static void MatrixIndexARB(Int32 size, UInt16[] indices)
-		{
-			Debug.Assert(indices.Length >= size);
-			unsafe {
-				fixed (UInt16* p_indices = indices)
-				{
-					Debug.Assert(Delegates.pglMatrixIndexusvARB != null, "pglMatrixIndexusvARB not implemented");
-					Delegates.pglMatrixIndexusvARB(size, p_indices);
-					CallLog("glMatrixIndexusvARB({0}, {1})", size, indices);
-				}
-			}
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// Binding for glMatrixIndexusvARB.
-		/// </summary>
-		/// <param name="size">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="indices">
-		/// A <see cref="T:UInt16[]"/>.
-		/// </param>
-		[RequiredByFeature("GL_ARB_matrix_palette")]
-		public static void MatrixIndexARB(UInt16[] indices)
+		public static void MatrixIndexARB(params UInt16[] indices)
 		{
 			unsafe {
 				fixed (UInt16* p_indices = indices)
@@ -204,31 +156,7 @@ namespace OpenGL
 		/// A <see cref="T:UInt32[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_ARB_matrix_palette")]
-		public static void MatrixIndexARB(Int32 size, UInt32[] indices)
-		{
-			Debug.Assert(indices.Length >= size);
-			unsafe {
-				fixed (UInt32* p_indices = indices)
-				{
-					Debug.Assert(Delegates.pglMatrixIndexuivARB != null, "pglMatrixIndexuivARB not implemented");
-					Delegates.pglMatrixIndexuivARB(size, p_indices);
-					CallLog("glMatrixIndexuivARB({0}, {1})", size, indices);
-				}
-			}
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// Binding for glMatrixIndexuivARB.
-		/// </summary>
-		/// <param name="size">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="indices">
-		/// A <see cref="T:UInt32[]"/>.
-		/// </param>
-		[RequiredByFeature("GL_ARB_matrix_palette")]
-		public static void MatrixIndexARB(UInt32[] indices)
+		public static void MatrixIndexARB(params UInt32[] indices)
 		{
 			unsafe {
 				fixed (UInt32* p_indices = indices)

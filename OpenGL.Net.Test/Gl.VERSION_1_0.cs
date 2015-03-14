@@ -17,6 +17,7 @@
 // USA
 
 using System;
+using System.Text.RegularExpressions;
 
 using NUnit.Framework;
 
@@ -28,6 +29,63 @@ namespace OpenGL.Test
 	[TestFixture]
 	class Gl_VERSION_1_0 : GlTestBase
 	{
+		/// <summary>
+		/// Test Gl.GetString(Gl.EXTENSIONS)
+		/// </summary>
+		[Test]
+		public void TestGetString()
+		{
+			#region Gl.VERSION
+
+			string vendor = Gl.GetString(Gl.VENDOR);
+
+			Assert.IsNotNull(vendor);
+			Console.WriteLine("Vendor: {0}", vendor);
+
+			#endregion
+
+			#region Gl.RENDERER
+
+			string rendered = Gl.GetString(Gl.RENDERER);
+
+			Assert.IsNotNull(vendor);
+			Console.WriteLine("Rendered: {0}", rendered);
+
+			#endregion
+
+			#region Gl.VERSION
+
+			string version = Gl.GetString(Gl.VERSION);
+
+			Assert.IsNotNull(version);
+			Console.WriteLine("Version: {0}", version);
+
+			#endregion
+
+			#region Gl.EXTENSIONS
+
+			string extensions = Gl.GetString(Gl.EXTENSIONS);
+
+			Assert.IsNotNull(extensions);
+
+			// No exposed extensions? No more assertion
+			if (extensions == String.Empty)
+				return;
+
+			string[] extensionIds = Regex.Split(extensions, " ");
+
+			// Filter empty IDs
+			extensionIds = Array.FindAll(extensionIds, delegate(string item) { return (item.Trim().Length > 0); });
+
+			Console.WriteLine("Found {0} GL extensions:", extensionIds.Length);
+			foreach (string extensionId in extensionIds)
+				Console.WriteLine("- {0}", extensionId);
+
+			Assert.IsTrue(Regex.IsMatch(extensions, @"((WGL|GLX|GL)_(\w+)( +)?)+"));
+
+			#endregion
+		}
+
 		/// <summary>
 		/// Mainly used for testing glGet using an OpenGL state.
 		/// </summary>

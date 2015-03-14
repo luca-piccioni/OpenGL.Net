@@ -76,6 +76,17 @@ namespace OpenGL
 		#endregion
 
 		#region Special API Implementations
+		
+		/// <summary>
+		/// Utility method for testing whether wglGetExtensionsStringARB is implemented on the current system.
+		/// </summary>
+		public static bool HasGetExtensionsStringARB
+		{
+			get
+			{
+				return (Delegates.pwglGetExtensionsStringARB != null);
+			}
+		}
 
 		/// <summary>
 		/// The MakeCurrent function makes a specified OpenGL rendering context the calling thread's current rendering context. All subsequent OpenGL

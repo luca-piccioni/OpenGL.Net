@@ -197,34 +197,7 @@ namespace OpenGL
 		/// A <see cref="T:UInt64[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_ARB_bindless_texture")]
-		public static void UniformHandleARB(Int32 location, Int32 count, UInt64[] value)
-		{
-			Debug.Assert(value.Length >= count);
-			unsafe {
-				fixed (UInt64* p_value = value)
-				{
-					Debug.Assert(Delegates.pglUniformHandleui64vARB != null, "pglUniformHandleui64vARB not implemented");
-					Delegates.pglUniformHandleui64vARB(location, count, p_value);
-					CallLog("glUniformHandleui64vARB({0}, {1}, {2})", location, count, value);
-				}
-			}
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// Binding for glUniformHandleui64vARB.
-		/// </summary>
-		/// <param name="location">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="count">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="value">
-		/// A <see cref="T:UInt64[]"/>.
-		/// </param>
-		[RequiredByFeature("GL_ARB_bindless_texture")]
-		public static void UniformHandleARB(Int32 location, UInt64[] value)
+		public static void UniformHandleARB(Int32 location, params UInt64[] value)
 		{
 			unsafe {
 				fixed (UInt64* p_value = value)
@@ -274,37 +247,7 @@ namespace OpenGL
 		/// A <see cref="T:UInt64[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_ARB_bindless_texture")]
-		public static void ProgramUniformHandleARB(UInt32 program, Int32 location, Int32 count, UInt64[] values)
-		{
-			Debug.Assert(values.Length >= count);
-			unsafe {
-				fixed (UInt64* p_values = values)
-				{
-					Debug.Assert(Delegates.pglProgramUniformHandleui64vARB != null, "pglProgramUniformHandleui64vARB not implemented");
-					Delegates.pglProgramUniformHandleui64vARB(program, location, count, p_values);
-					CallLog("glProgramUniformHandleui64vARB({0}, {1}, {2}, {3})", program, location, count, values);
-				}
-			}
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// Binding for glProgramUniformHandleui64vARB.
-		/// </summary>
-		/// <param name="program">
-		/// A <see cref="T:UInt32"/>.
-		/// </param>
-		/// <param name="location">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="count">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="values">
-		/// A <see cref="T:UInt64[]"/>.
-		/// </param>
-		[RequiredByFeature("GL_ARB_bindless_texture")]
-		public static void ProgramUniformHandleARB(UInt32 program, Int32 location, UInt64[] values)
+		public static void ProgramUniformHandleARB(UInt32 program, Int32 location, params UInt64[] values)
 		{
 			unsafe {
 				fixed (UInt64* p_values = values)
