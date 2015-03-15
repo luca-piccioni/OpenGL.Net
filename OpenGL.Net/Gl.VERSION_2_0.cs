@@ -724,7 +724,8 @@ namespace OpenGL
 		/// GL_EQUAL, GL_NOTEQUAL, and GL_ALWAYS. The initial value is GL_ALWAYS.
 		/// </param>
 		/// <param name="ref">
-		/// A <see cref="T:Int32"/>.
+		/// Specifies the reference value for the stencil test. ref is clamped to the range 02n-1, where n is the number of 
+		/// bitplanes in the stencil buffer. The initial value is 0.
 		/// </param>
 		/// <param name="mask">
 		/// Specifies a mask that is ANDed with both the reference value and the stored stencil value when the test is done. The 
@@ -1076,7 +1077,7 @@ namespace OpenGL
 		/// GL_GEOMETRY_INPUT_TYPE, and GL_GEOMETRY_OUTPUT_TYPE.
 		/// </param>
 		/// <param name="params">
-		/// A <see cref="T:Int32[]"/>.
+		/// Returns the requested object parameter.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_2_0")]
 		public static void GetProgram(UInt32 program, int pname, Int32[] @params)
@@ -1132,7 +1133,7 @@ namespace OpenGL
 		/// GL_INFO_LOG_LENGTH, GL_SHADER_SOURCE_LENGTH.
 		/// </param>
 		/// <param name="params">
-		/// A <see cref="T:Int32[]"/>.
+		/// Returns the requested object parameter.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_2_0")]
 		public static void GetShader(UInt32 shader, int pname, Int32[] @params)
@@ -1159,7 +1160,7 @@ namespace OpenGL
 		/// GL_INFO_LOG_LENGTH, GL_SHADER_SOURCE_LENGTH.
 		/// </param>
 		/// <param name="params">
-		/// A <see cref="T:Int32"/>.
+		/// Returns the requested object parameter.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_2_0")]
 		public static void GetShader(UInt32 shader, int pname, out Int32 @params)
@@ -1265,7 +1266,7 @@ namespace OpenGL
 		/// Specifies the location of the uniform variable to be queried.
 		/// </param>
 		/// <param name="params">
-		/// A <see cref="T:float[]"/>.
+		/// Returns the value of the specified uniform variable.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_2_0")]
 		public static void GetUniform(UInt32 program, Int32 location, float[] @params)
@@ -1291,7 +1292,7 @@ namespace OpenGL
 		/// Specifies the location of the uniform variable to be queried.
 		/// </param>
 		/// <param name="params">
-		/// A <see cref="T:Int32[]"/>.
+		/// Returns the value of the specified uniform variable.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_2_0")]
 		public static void GetUniform(UInt32 program, Int32 location, Int32[] @params)
@@ -1320,7 +1321,7 @@ namespace OpenGL
 		/// GL_VERTEX_ATTRIB_ARRAY_INTEGER, GL_VERTEX_ATTRIB_ARRAY_DIVISOR, or GL_CURRENT_VERTEX_ATTRIB.
 		/// </param>
 		/// <param name="params">
-		/// A <see cref="T:double[]"/>.
+		/// Returns the requested data.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_2_0")]
 		public static void GetVertexAttrib(UInt32 index, int pname, double[] @params)
@@ -1349,7 +1350,7 @@ namespace OpenGL
 		/// GL_VERTEX_ATTRIB_ARRAY_INTEGER, GL_VERTEX_ATTRIB_ARRAY_DIVISOR, or GL_CURRENT_VERTEX_ATTRIB.
 		/// </param>
 		/// <param name="params">
-		/// A <see cref="T:float[]"/>.
+		/// Returns the requested data.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_2_0")]
 		public static void GetVertexAttrib(UInt32 index, int pname, float[] @params)
@@ -1378,7 +1379,7 @@ namespace OpenGL
 		/// GL_VERTEX_ATTRIB_ARRAY_INTEGER, GL_VERTEX_ATTRIB_ARRAY_DIVISOR, or GL_CURRENT_VERTEX_ATTRIB.
 		/// </param>
 		/// <param name="params">
-		/// A <see cref="T:Int32[]"/>.
+		/// Returns the requested data.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_2_0")]
 		public static void GetVertexAttrib(UInt32 index, int pname, Int32[] @params)
@@ -1407,7 +1408,7 @@ namespace OpenGL
 		/// GL_VERTEX_ATTRIB_ARRAY_INTEGER, GL_VERTEX_ATTRIB_ARRAY_DIVISOR, or GL_CURRENT_VERTEX_ATTRIB.
 		/// </param>
 		/// <param name="params">
-		/// A <see cref="T:Int32"/>.
+		/// Returns the requested data.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_2_0")]
 		public static void GetVertexAttrib(UInt32 index, int pname, out Int32 @params)
@@ -1537,7 +1538,7 @@ namespace OpenGL
 		/// Specifies the number of elements in the string and length arrays.
 		/// </param>
 		/// <param name="string">
-		/// A <see cref="T:String[]"/>.
+		/// Specifies an array of pointers to strings containing the source code to be loaded into the shader.
 		/// </param>
 		/// <param name="length">
 		/// Specifies an array of string lengths.

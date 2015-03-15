@@ -4712,7 +4712,7 @@ namespace OpenGL
 		/// Specifies the pointer to be returned. Must be one of GL_DEBUG_CALLBACK_FUNCTION or GL_DEBUG_CALLBACK_USER_PARAM.
 		/// </param>
 		/// <param name="params">
-		/// A <see cref="T:IntPtr"/>.
+		/// Returns the pointer value specified by pname.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_1_1")]
 		[RequiredByFeature("GL_VERSION_4_3")]
@@ -4738,7 +4738,7 @@ namespace OpenGL
 		/// Specifies the pointer to be returned. Must be one of GL_DEBUG_CALLBACK_FUNCTION or GL_DEBUG_CALLBACK_USER_PARAM.
 		/// </param>
 		/// <param name="params">
-		/// A <see cref="T:Object"/>.
+		/// Returns the pointer value specified by pname.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_1_1")]
 		[RequiredByFeature("GL_VERSION_4_3")]

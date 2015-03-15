@@ -589,7 +589,8 @@ namespace OpenGL
 		/// Specifies a single-valued point parameter. GL_POINT_FADE_THRESHOLD_SIZE, and GL_POINT_SPRITE_COORD_ORIGIN are accepted.
 		/// </param>
 		/// <param name="params">
-		/// A <see cref="T:float[]"/>.
+		/// For glPointParameterfv and glPointParameteriv, specifies a pointer to an array where the value or values to be assigned 
+		/// to pname are stored.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_1_4")]
 		public static void PointParameter(int pname, float[] @params)
@@ -630,7 +631,8 @@ namespace OpenGL
 		/// Specifies a single-valued point parameter. GL_POINT_FADE_THRESHOLD_SIZE, and GL_POINT_SPRITE_COORD_ORIGIN are accepted.
 		/// </param>
 		/// <param name="params">
-		/// A <see cref="T:Int32[]"/>.
+		/// For glPointParameterfv and glPointParameteriv, specifies a pointer to an array where the value or values to be assigned 
+		/// to pname are stored.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_1_4")]
 		public static void PointParameter(int pname, Int32[] @params)

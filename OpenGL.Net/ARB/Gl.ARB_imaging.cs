@@ -603,7 +603,7 @@ namespace OpenGL
 		/// cref="Gl.COLOR_TABLE_BIAS"/>.
 		/// </param>
 		/// <param name="params">
-		/// A <see cref="T:float[]"/>.
+		/// A pointer to an array where the values of the parameters are stored.
 		/// </param>
 		[RequiredByFeature("GL_ARB_imaging")]
 		public static void ColorTableParameter(int target, int pname, float[] @params)
@@ -631,7 +631,7 @@ namespace OpenGL
 		/// cref="Gl.COLOR_TABLE_BIAS"/>.
 		/// </param>
 		/// <param name="params">
-		/// A <see cref="T:Int32[]"/>.
+		/// A pointer to an array where the values of the parameters are stored.
 		/// </param>
 		[RequiredByFeature("GL_ARB_imaging")]
 		public static void ColorTableParameter(int target, int pname, Int32[] @params)
@@ -773,7 +773,7 @@ namespace OpenGL
 		/// cref="Gl.COLOR_TABLE_INTENSITY_SIZE"/>.
 		/// </param>
 		/// <param name="params">
-		/// A <see cref="T:float[]"/>.
+		/// A pointer to an array where the values of the parameter will be stored.
 		/// </param>
 		[RequiredByFeature("GL_ARB_imaging")]
 		public static void GetColorTableParameter(int target, int pname, float[] @params)
@@ -805,7 +805,7 @@ namespace OpenGL
 		/// cref="Gl.COLOR_TABLE_INTENSITY_SIZE"/>.
 		/// </param>
 		/// <param name="params">
-		/// A <see cref="T:Int32[]"/>.
+		/// A pointer to an array where the values of the parameter will be stored.
 		/// </param>
 		[RequiredByFeature("GL_ARB_imaging")]
 		public static void GetColorTableParameter(int target, int pname, Int32[] @params)
@@ -1150,7 +1150,8 @@ namespace OpenGL
 		/// The parameter to be set. Must be <see cref="Gl.CONVOLUTION_BORDER_MODE"/>.
 		/// </param>
 		/// <param name="params">
-		/// A <see cref="T:float"/>.
+		/// The parameter value. Must be one of <see cref="Gl.REDUCE"/>, <see cref="Gl.CONSTANT_BORDER"/>, <see 
+		/// cref="Gl.REPLICATE_BORDER"/>.
 		/// </param>
 		[RequiredByFeature("GL_ARB_imaging")]
 		public static void ConvolutionParameter(int target, int pname, float @params)
@@ -1172,7 +1173,8 @@ namespace OpenGL
 		/// The parameter to be set. Must be <see cref="Gl.CONVOLUTION_BORDER_MODE"/>.
 		/// </param>
 		/// <param name="params">
-		/// A <see cref="T:float[]"/>.
+		/// The parameter value. Must be one of <see cref="Gl.REDUCE"/>, <see cref="Gl.CONSTANT_BORDER"/>, <see 
+		/// cref="Gl.REPLICATE_BORDER"/>.
 		/// </param>
 		[RequiredByFeature("GL_ARB_imaging")]
 		public static void ConvolutionParameter(int target, int pname, float[] @params)
@@ -1199,7 +1201,8 @@ namespace OpenGL
 		/// The parameter to be set. Must be <see cref="Gl.CONVOLUTION_BORDER_MODE"/>.
 		/// </param>
 		/// <param name="params">
-		/// A <see cref="T:Int32"/>.
+		/// The parameter value. Must be one of <see cref="Gl.REDUCE"/>, <see cref="Gl.CONSTANT_BORDER"/>, <see 
+		/// cref="Gl.REPLICATE_BORDER"/>.
 		/// </param>
 		[RequiredByFeature("GL_ARB_imaging")]
 		public static void ConvolutionParameter(int target, int pname, Int32 @params)
@@ -1221,7 +1224,8 @@ namespace OpenGL
 		/// The parameter to be set. Must be <see cref="Gl.CONVOLUTION_BORDER_MODE"/>.
 		/// </param>
 		/// <param name="params">
-		/// A <see cref="T:Int32[]"/>.
+		/// The parameter value. Must be one of <see cref="Gl.REDUCE"/>, <see cref="Gl.CONSTANT_BORDER"/>, <see 
+		/// cref="Gl.REPLICATE_BORDER"/>.
 		/// </param>
 		[RequiredByFeature("GL_ARB_imaging")]
 		public static void ConvolutionParameter(int target, int pname, Int32[] @params)
@@ -1396,7 +1400,7 @@ namespace OpenGL
 		/// cref="Gl.CONVOLUTION_HEIGHT"/>, <see cref="Gl.MAX_CONVOLUTION_WIDTH"/>, or <see cref="Gl.MAX_CONVOLUTION_HEIGHT"/>.
 		/// </param>
 		/// <param name="params">
-		/// A <see cref="T:float[]"/>.
+		/// Pointer to storage for the parameters to be retrieved.
 		/// </param>
 		[RequiredByFeature("GL_ARB_imaging")]
 		public static void GetConvolutionParameter(int target, int pname, float[] @params)
@@ -1426,7 +1430,7 @@ namespace OpenGL
 		/// cref="Gl.CONVOLUTION_HEIGHT"/>, <see cref="Gl.MAX_CONVOLUTION_WIDTH"/>, or <see cref="Gl.MAX_CONVOLUTION_HEIGHT"/>.
 		/// </param>
 		/// <param name="params">
-		/// A <see cref="T:Int32[]"/>.
+		/// Pointer to storage for the parameters to be retrieved.
 		/// </param>
 		[RequiredByFeature("GL_ARB_imaging")]
 		public static void GetConvolutionParameter(int target, int pname, Int32[] @params)
@@ -1737,7 +1741,7 @@ namespace OpenGL
 		/// <see cref="Gl.HISTOGRAM_SINK"/>.
 		/// </param>
 		/// <param name="params">
-		/// A <see cref="T:float[]"/>.
+		/// Pointer to storage for the returned values.
 		/// </param>
 		[RequiredByFeature("GL_ARB_imaging")]
 		public static void GetHistogramParameter(int target, int pname, float[] @params)
@@ -1766,7 +1770,7 @@ namespace OpenGL
 		/// <see cref="Gl.HISTOGRAM_SINK"/>.
 		/// </param>
 		/// <param name="params">
-		/// A <see cref="T:Int32[]"/>.
+		/// Pointer to storage for the returned values.
 		/// </param>
 		[RequiredByFeature("GL_ARB_imaging")]
 		public static void GetHistogramParameter(int target, int pname, Int32[] @params)
@@ -1854,7 +1858,7 @@ namespace OpenGL
 		/// The parameter to be retrieved. Must be one of <see cref="Gl.MINMAX_FORMAT"/> or <see cref="Gl.MINMAX_SINK"/>.
 		/// </param>
 		/// <param name="params">
-		/// A <see cref="T:float[]"/>.
+		/// A pointer to storage for the retrieved parameters.
 		/// </param>
 		[RequiredByFeature("GL_ARB_imaging")]
 		public static void GetMinmaxParameter(int target, int pname, float[] @params)
@@ -1880,7 +1884,7 @@ namespace OpenGL
 		/// The parameter to be retrieved. Must be one of <see cref="Gl.MINMAX_FORMAT"/> or <see cref="Gl.MINMAX_SINK"/>.
 		/// </param>
 		/// <param name="params">
-		/// A <see cref="T:Int32[]"/>.
+		/// A pointer to storage for the retrieved parameters.
 		/// </param>
 		[RequiredByFeature("GL_ARB_imaging")]
 		public static void GetMinmaxParameter(int target, int pname, Int32[] @params)

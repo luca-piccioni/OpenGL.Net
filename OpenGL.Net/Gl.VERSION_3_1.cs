@@ -668,7 +668,8 @@ namespace OpenGL
 		/// params.
 		/// </param>
 		/// <param name="params">
-		/// A <see cref="T:Int32[]"/>.
+		/// Specifies the address of an array of uniformCount integers which are to receive the value of pname for each uniform in 
+		/// uniformIndices.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_3_1")]
 		[RequiredByFeature("GL_ARB_uniform_buffer_object")]
@@ -757,7 +758,7 @@ namespace OpenGL
 		/// Specifies the name of the parameter to query.
 		/// </param>
 		/// <param name="params">
-		/// A <see cref="T:Int32[]"/>.
+		/// Specifies the address of a variable to receive the result of the query.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_3_1")]
 		[RequiredByFeature("GL_ARB_uniform_buffer_object")]

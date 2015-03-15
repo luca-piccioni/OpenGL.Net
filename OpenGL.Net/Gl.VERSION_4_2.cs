@@ -1020,7 +1020,7 @@ namespace OpenGL
 		/// Specifies the maximum number of basic machine units that may be written to params by the function.
 		/// </param>
 		/// <param name="params">
-		/// A <see cref="T:Int32[]"/>.
+		/// Specifies the address of a variable into which to write the retrieved information.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_4_2")]
 		[RequiredByFeature("GL_ARB_internalformat_query")]
@@ -1050,7 +1050,7 @@ namespace OpenGL
 		/// Specifies which parameter of the atomic counter buffer to retrieve.
 		/// </param>
 		/// <param name="params">
-		/// A <see cref="T:Int32[]"/>.
+		/// Specifies the address of a variable into which to write the retrieved information.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_4_2")]
 		[RequiredByFeature("GL_ARB_shader_atomic_counters")]

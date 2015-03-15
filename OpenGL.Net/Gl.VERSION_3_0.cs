@@ -2114,7 +2114,7 @@ namespace OpenGL
 		/// GL_VERTEX_ATTRIB_ARRAY_INTEGER, GL_VERTEX_ATTRIB_ARRAY_DIVISOR, or GL_CURRENT_VERTEX_ATTRIB.
 		/// </param>
 		/// <param name="params">
-		/// A <see cref="T:Int32"/>.
+		/// Returns the requested data.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_3_0")]
 		public static void GetVertexAttribI(UInt32 index, int pname, out Int32 @params)
@@ -2143,7 +2143,7 @@ namespace OpenGL
 		/// GL_VERTEX_ATTRIB_ARRAY_INTEGER, GL_VERTEX_ATTRIB_ARRAY_DIVISOR, or GL_CURRENT_VERTEX_ATTRIB.
 		/// </param>
 		/// <param name="params">
-		/// A <see cref="T:UInt32"/>.
+		/// Returns the requested data.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_3_0")]
 		public static void GetVertexAttribI(UInt32 index, int pname, out UInt32 @params)
@@ -2637,7 +2637,7 @@ namespace OpenGL
 		/// Specifies the location of the uniform variable to be queried.
 		/// </param>
 		/// <param name="params">
-		/// A <see cref="T:UInt32[]"/>.
+		/// Returns the value of the specified uniform variable.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_3_0")]
 		public static void GetUniform(UInt32 program, Int32 location, UInt32[] @params)
@@ -2969,7 +2969,7 @@ namespace OpenGL
 		/// GL_TEXTURE_WRAP_S, GL_TEXTURE_WRAP_T, and GL_TEXTURE_WRAP_R are accepted.
 		/// </param>
 		/// <param name="params">
-		/// A <see cref="T:Int32[]"/>.
+		/// Returns the texture parameters.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_3_0")]
 		public static void GetTexParameterIiv(TextureTarget target, GetTextureParameter pname, Int32[] @params)
@@ -3004,7 +3004,7 @@ namespace OpenGL
 		/// GL_TEXTURE_WRAP_S, GL_TEXTURE_WRAP_T, and GL_TEXTURE_WRAP_R are accepted.
 		/// </param>
 		/// <param name="params">
-		/// A <see cref="T:UInt32[]"/>.
+		/// Returns the texture parameters.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_3_0")]
 		public static void GetTexParameterIuiv(TextureTarget target, GetTextureParameter pname, UInt32[] @params)
@@ -3280,7 +3280,7 @@ namespace OpenGL
 		/// Specifies the parameter of the renderbuffer object to query.
 		/// </param>
 		/// <param name="params">
-		/// A <see cref="T:Int32[]"/>.
+		/// Returns the value of parameter pname for the renderbuffer object.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ARB_framebuffer_object")]
@@ -3545,7 +3545,7 @@ namespace OpenGL
 		/// Specifies the parameter of attachment to query.
 		/// </param>
 		/// <param name="params">
-		/// A <see cref="T:Int32[]"/>.
+		/// Returns the value of parameter pname for attachment.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ARB_framebuffer_object")]

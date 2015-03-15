@@ -454,7 +454,7 @@ namespace OpenGL
 		/// GL_TEXTURE_BORDER_COLOR, GL_TEXTURE_COMPARE_MODE, and GL_TEXTURE_COMPARE_FUNC are accepted.
 		/// </param>
 		/// <param name="params">
-		/// A <see cref="T:Int32[]"/>.
+		/// Returns the sampler parameters.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_3_3")]
 		[RequiredByFeature("GL_ARB_sampler_objects")]
@@ -483,7 +483,7 @@ namespace OpenGL
 		/// GL_TEXTURE_BORDER_COLOR, GL_TEXTURE_COMPARE_MODE, and GL_TEXTURE_COMPARE_FUNC are accepted.
 		/// </param>
 		/// <param name="params">
-		/// A <see cref="T:Int32[]"/>.
+		/// Returns the sampler parameters.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_3_3")]
 		[RequiredByFeature("GL_ARB_sampler_objects")]
@@ -512,7 +512,7 @@ namespace OpenGL
 		/// GL_TEXTURE_BORDER_COLOR, GL_TEXTURE_COMPARE_MODE, and GL_TEXTURE_COMPARE_FUNC are accepted.
 		/// </param>
 		/// <param name="params">
-		/// A <see cref="T:float[]"/>.
+		/// Returns the sampler parameters.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_3_3")]
 		[RequiredByFeature("GL_ARB_sampler_objects")]
@@ -541,7 +541,7 @@ namespace OpenGL
 		/// GL_TEXTURE_BORDER_COLOR, GL_TEXTURE_COMPARE_MODE, and GL_TEXTURE_COMPARE_FUNC are accepted.
 		/// </param>
 		/// <param name="params">
-		/// A <see cref="T:UInt32[]"/>.
+		/// Returns the sampler parameters.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_3_3")]
 		[RequiredByFeature("GL_ARB_sampler_objects")]
@@ -588,7 +588,9 @@ namespace OpenGL
 		/// GL_QUERY_RESULT_AVAILABLE.
 		/// </param>
 		/// <param name="params">
-		/// A <see cref="T:Int64[]"/>.
+		/// If a buffer is bound to the GL_QUERY_RESULT_BUFFER target, then params is treated as an offset to a location within that 
+		/// buffer's data store to receive the result of the query. If no buffer is bound to GL_QUERY_RESULT_BUFFER, then params is 
+		/// treated as an address in client memory of a variable to receive the resulting data.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_3_3")]
 		[RequiredByFeature("GL_ARB_timer_query")]
@@ -616,7 +618,9 @@ namespace OpenGL
 		/// GL_QUERY_RESULT_AVAILABLE.
 		/// </param>
 		/// <param name="params">
-		/// A <see cref="T:UInt64[]"/>.
+		/// If a buffer is bound to the GL_QUERY_RESULT_BUFFER target, then params is treated as an offset to a location within that 
+		/// buffer's data store to receive the result of the query. If no buffer is bound to GL_QUERY_RESULT_BUFFER, then params is 
+		/// treated as an address in client memory of a variable to receive the resulting data.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_3_3")]
 		[RequiredByFeature("GL_ARB_timer_query")]

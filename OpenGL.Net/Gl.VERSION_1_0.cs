@@ -739,7 +739,8 @@ namespace OpenGL
 		/// GL_EQUAL, GL_NOTEQUAL, and GL_ALWAYS. The initial value is GL_ALWAYS.
 		/// </param>
 		/// <param name="ref">
-		/// A <see cref="T:Int32"/>.
+		/// Specifies the reference value for the stencil test. ref is clamped to the range 02n-1, where n is the number of 
+		/// bitplanes in the stencil buffer. The initial value is 0.
 		/// </param>
 		/// <param name="mask">
 		/// Specifies a mask that is ANDed with both the reference value and the stored stencil value when the test is done. The 
@@ -1421,7 +1422,7 @@ namespace OpenGL
 		/// GL_TEXTURE_WRAP_S, GL_TEXTURE_WRAP_T, and GL_TEXTURE_WRAP_R are accepted.
 		/// </param>
 		/// <param name="params">
-		/// A <see cref="T:float[]"/>.
+		/// Returns the texture parameters.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		public static void GetTexParameter(TextureTarget target, GetTextureParameter pname, float[] @params)
@@ -1456,7 +1457,7 @@ namespace OpenGL
 		/// GL_TEXTURE_WRAP_S, GL_TEXTURE_WRAP_T, and GL_TEXTURE_WRAP_R are accepted.
 		/// </param>
 		/// <param name="params">
-		/// A <see cref="T:Int32[]"/>.
+		/// Returns the texture parameters.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		public static void GetTexParameter(TextureTarget target, GetTextureParameter pname, Int32[] @params)
@@ -1496,7 +1497,7 @@ namespace OpenGL
 		/// accepted.
 		/// </param>
 		/// <param name="params">
-		/// A <see cref="T:float[]"/>.
+		/// Returns the requested data.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		public static void GetTexLevelParameter(TextureTarget target, Int32 level, GetTextureParameter pname, float[] @params)
@@ -1536,7 +1537,7 @@ namespace OpenGL
 		/// accepted.
 		/// </param>
 		/// <param name="params">
-		/// A <see cref="T:Int32[]"/>.
+		/// Returns the requested data.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		public static void GetTexLevelParameter(TextureTarget target, Int32 level, GetTextureParameter pname, Int32[] @params)
@@ -1760,7 +1761,8 @@ namespace OpenGL
 		/// set the display-list base for glCallLists
 		/// </summary>
 		/// <param name="base">
-		/// A <see cref="T:UInt32"/>.
+		/// Specifies an integer offset that will be added to Gl\.CallLists offsets to generate display-list names. The initial 
+		/// value is 0.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2")]
@@ -6549,7 +6551,8 @@ namespace OpenGL
 		/// cref="Gl.GEQUAL"/>, and <see cref="Gl.ALWAYS"/> are accepted. The initial value is <see cref="Gl.ALWAYS"/>.
 		/// </param>
 		/// <param name="ref">
-		/// A <see cref="T:float"/>.
+		/// Specifies the reference value that incoming alpha values are compared to. This value is clamped to the range 01, where 0 
+		/// represents the lowest possible alpha value and 1 the highest possible value. The initial reference value is 0.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2")]
@@ -6958,7 +6961,7 @@ namespace OpenGL
 		/// cref="Gl.LINEAR_ATTENUATION"/>, and <see cref="Gl.QUADRATIC_ATTENUATION"/>.
 		/// </param>
 		/// <param name="params">
-		/// A <see cref="T:float[]"/>.
+		/// Returns the requested data.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2")]
@@ -6990,7 +6993,7 @@ namespace OpenGL
 		/// cref="Gl.LINEAR_ATTENUATION"/>, and <see cref="Gl.QUADRATIC_ATTENUATION"/>.
 		/// </param>
 		/// <param name="params">
-		/// A <see cref="T:Int32[]"/>.
+		/// Returns the requested data.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2")]
@@ -7119,7 +7122,7 @@ namespace OpenGL
 		/// accepted.
 		/// </param>
 		/// <param name="params">
-		/// A <see cref="T:float[]"/>.
+		/// Returns the requested data.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2")]
@@ -7149,7 +7152,7 @@ namespace OpenGL
 		/// accepted.
 		/// </param>
 		/// <param name="params">
-		/// A <see cref="T:Int32[]"/>.
+		/// Returns the requested data.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2")]
@@ -7285,7 +7288,7 @@ namespace OpenGL
 		/// or <see cref="Gl.COORD_REPLACE"/>.
 		/// </param>
 		/// <param name="params">
-		/// A <see cref="T:float[]"/>.
+		/// Returns the requested data.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2")]
@@ -7319,7 +7322,7 @@ namespace OpenGL
 		/// or <see cref="Gl.COORD_REPLACE"/>.
 		/// </param>
 		/// <param name="params">
-		/// A <see cref="T:Int32[]"/>.
+		/// Returns the requested data.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2")]
@@ -7348,7 +7351,7 @@ namespace OpenGL
 		/// of one of the texture generation plane equations: <see cref="Gl.OBJECT_PLANE"/> or <see cref="Gl.EYE_PLANE"/>.
 		/// </param>
 		/// <param name="params">
-		/// A <see cref="T:double[]"/>.
+		/// Returns the requested data.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2")]
@@ -7377,7 +7380,7 @@ namespace OpenGL
 		/// of one of the texture generation plane equations: <see cref="Gl.OBJECT_PLANE"/> or <see cref="Gl.EYE_PLANE"/>.
 		/// </param>
 		/// <param name="params">
-		/// A <see cref="T:float[]"/>.
+		/// Returns the requested data.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2")]
@@ -7406,7 +7409,7 @@ namespace OpenGL
 		/// of one of the texture generation plane equations: <see cref="Gl.OBJECT_PLANE"/> or <see cref="Gl.EYE_PLANE"/>.
 		/// </param>
 		/// <param name="params">
-		/// A <see cref="T:Int32[]"/>.
+		/// Returns the requested data.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2")]

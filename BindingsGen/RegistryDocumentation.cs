@@ -214,7 +214,7 @@ namespace BindingsGen
 				paramDoc.Add(String.Format("A <see cref=\"T:{0}\"/>.", param.GetImplementationType(ctx, command)));
 
 				if (root != null) {
-					string xpath = String.Format("/refentry/refsect1[@id='parameters']/variablelist/varlistentry[term/parameter/text() = '{0}']/listitem/para", param.ImportName);
+					string xpath = String.Format("/refentry/refsect1[@id='parameters']/variablelist/varlistentry[term/parameter/text() = '{0}']/listitem/para", param.Name);
 
 					xmlIdentifier = root.SelectSingleNode(xpath, nsmgr);
 					if (xmlIdentifier != null)
@@ -400,7 +400,7 @@ namespace BindingsGen
 				paramDoc.Add(String.Format("A <see cref=\"T:{0}\"/>.", param.GetImplementationType(ctx, command)));
 
 				if (root != null) {
-					string xpath = String.Format("/x:refentry/x:refsect1[@xml:id='parameters']/x:variablelist/x:varlistentry[x:term/x:parameter/text() = '{0}']/x:listitem/x:para", param.ImportName);
+					string xpath = String.Format("/x:refentry/x:refsect1[@xml:id='parameters']/x:variablelist/x:varlistentry[x:term/x:parameter/text() = '{0}']/x:listitem/x:para", param.Name);
 
 					xmlIdentifier = root.SelectSingleNode(xpath, nsmgr);
 					if (xmlIdentifier != null)

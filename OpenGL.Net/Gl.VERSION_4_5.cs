@@ -881,7 +881,7 @@ namespace OpenGL
 		/// Specifies the name of the pointer to be returned. Must be GL_BUFFER_MAP_POINTER.
 		/// </param>
 		/// <param name="params">
-		/// A <see cref="T:IntPtr[]"/>.
+		/// Returns the pointer value specified by pname.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_direct_state_access")]
@@ -1440,7 +1440,7 @@ namespace OpenGL
 		/// Specifies the parameter of attachment to query.
 		/// </param>
 		/// <param name="params">
-		/// A <see cref="T:Int32[]"/>.
+		/// Returns the value of parameter pname for attachment.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_direct_state_access")]
@@ -1544,7 +1544,7 @@ namespace OpenGL
 		/// Specifies the parameter of the renderbuffer object to query.
 		/// </param>
 		/// <param name="params">
-		/// A <see cref="T:Int32[]"/>.
+		/// Returns the value of parameter pname for the renderbuffer object.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_direct_state_access")]
@@ -2749,7 +2749,7 @@ namespace OpenGL
 		/// accepted.
 		/// </param>
 		/// <param name="params">
-		/// A <see cref="T:float[]"/>.
+		/// Returns the requested data.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_direct_state_access")]
@@ -2783,7 +2783,7 @@ namespace OpenGL
 		/// accepted.
 		/// </param>
 		/// <param name="params">
-		/// A <see cref="T:Int32[]"/>.
+		/// Returns the requested data.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_direct_state_access")]
@@ -2817,7 +2817,7 @@ namespace OpenGL
 		/// GL_TEXTURE_WRAP_S, GL_TEXTURE_WRAP_T, and GL_TEXTURE_WRAP_R are accepted.
 		/// </param>
 		/// <param name="params">
-		/// A <see cref="T:float[]"/>.
+		/// Returns the texture parameters.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_direct_state_access")]
@@ -2851,7 +2851,7 @@ namespace OpenGL
 		/// GL_TEXTURE_WRAP_S, GL_TEXTURE_WRAP_T, and GL_TEXTURE_WRAP_R are accepted.
 		/// </param>
 		/// <param name="params">
-		/// A <see cref="T:Int32[]"/>.
+		/// Returns the texture parameters.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_direct_state_access")]
@@ -2885,7 +2885,7 @@ namespace OpenGL
 		/// GL_TEXTURE_WRAP_S, GL_TEXTURE_WRAP_T, and GL_TEXTURE_WRAP_R are accepted.
 		/// </param>
 		/// <param name="params">
-		/// A <see cref="T:UInt32[]"/>.
+		/// Returns the texture parameters.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_direct_state_access")]
@@ -2919,7 +2919,7 @@ namespace OpenGL
 		/// GL_TEXTURE_WRAP_S, GL_TEXTURE_WRAP_T, and GL_TEXTURE_WRAP_R are accepted.
 		/// </param>
 		/// <param name="params">
-		/// A <see cref="T:Int32[]"/>.
+		/// Returns the texture parameters.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_direct_state_access")]
@@ -3862,7 +3862,7 @@ namespace OpenGL
 		/// Specifies the size of the buffer params.
 		/// </param>
 		/// <param name="params">
-		/// A <see cref="T:double[]"/>.
+		/// Returns the value of the specified uniform variable.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_4_5")]
 		public static void GetnUniform(UInt32 program, Int32 location, Int32 bufSize, double[] @params)
@@ -3891,7 +3891,7 @@ namespace OpenGL
 		/// Specifies the size of the buffer params.
 		/// </param>
 		/// <param name="params">
-		/// A <see cref="T:float[]"/>.
+		/// Returns the value of the specified uniform variable.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_KHR_robustness")]
@@ -3921,7 +3921,7 @@ namespace OpenGL
 		/// Specifies the size of the buffer params.
 		/// </param>
 		/// <param name="params">
-		/// A <see cref="T:Int32[]"/>.
+		/// Returns the value of the specified uniform variable.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_KHR_robustness")]
@@ -3951,7 +3951,7 @@ namespace OpenGL
 		/// Specifies the size of the buffer params.
 		/// </param>
 		/// <param name="params">
-		/// A <see cref="T:UInt32[]"/>.
+		/// Returns the value of the specified uniform variable.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_KHR_robustness")]

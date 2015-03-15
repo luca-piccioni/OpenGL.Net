@@ -381,6 +381,37 @@ namespace OpenGL
 		}
 
 		/// <summary>
+		/// retrieve the range and precision for numeric formats supported by the shader compiler
+		/// </summary>
+		/// <param name="shadertype">
+		/// A <see cref="T:int"/>.
+		/// </param>
+		/// <param name="precisiontype">
+		/// A <see cref="T:int"/>.
+		/// </param>
+		/// <param name="range">
+		/// Specifies the address of array of two integers into which encodings of the implementation's numeric range are returned.
+		/// </param>
+		/// <param name="precision">
+		/// Specifies the address of an integer into which the numeric precision of the implementation is written.
+		/// </param>
+		[RequiredByFeature("GL_VERSION_4_1")]
+		[RequiredByFeature("GL_ARB_ES2_compatibility")]
+		public static void GetShaderPrecisionFormat(int shadertype, int precisiontype, out Int32 range, out Int32 precision)
+		{
+			unsafe {
+				fixed (Int32* p_range = &range)
+				fixed (Int32* p_precision = &precision)
+				{
+					Debug.Assert(Delegates.pglGetShaderPrecisionFormat != null, "pglGetShaderPrecisionFormat not implemented");
+					Delegates.pglGetShaderPrecisionFormat(shadertype, precisiontype, p_range, p_precision);
+					CallLog("glGetShaderPrecisionFormat({0}, {1}, {2}, {3})", shadertype, precisiontype, range, precision);
+				}
+			}
+			DebugCheckErrors();
+		}
+
+		/// <summary>
 		/// specify mapping of depth values from normalized device coordinates to window coordinates
 		/// </summary>
 		/// <param name="n">
@@ -726,7 +757,7 @@ namespace OpenGL
 		/// Specifies the name of the parameter to retrieve.
 		/// </param>
 		/// <param name="params">
-		/// A <see cref="T:Int32[]"/>.
+		/// Specifies the address of a variable into which will be written the value or values of pname for pipeline.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_4_1")]
 		[RequiredByFeature("GL_ARB_separate_shader_objects")]
@@ -2610,7 +2641,7 @@ namespace OpenGL
 		/// GL_VERTEX_ATTRIB_ARRAY_INTEGER, GL_VERTEX_ATTRIB_ARRAY_DIVISOR, or GL_CURRENT_VERTEX_ATTRIB.
 		/// </param>
 		/// <param name="params">
-		/// A <see cref="T:double[]"/>.
+		/// Returns the requested data.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_4_1")]
 		[RequiredByFeature("GL_ARB_vertex_attrib_64bit")]

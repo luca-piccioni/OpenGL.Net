@@ -441,7 +441,7 @@ namespace OpenGL
 		/// GL_QUERY_COUNTER_BITS.
 		/// </param>
 		/// <param name="params">
-		/// A <see cref="T:Int32[]"/>.
+		/// Returns the requested data.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_1_5")]
 		public static void GetQuery(int target, int pname, Int32[] @params)
@@ -468,7 +468,9 @@ namespace OpenGL
 		/// GL_QUERY_RESULT_AVAILABLE.
 		/// </param>
 		/// <param name="params">
-		/// A <see cref="T:Int32[]"/>.
+		/// If a buffer is bound to the GL_QUERY_RESULT_BUFFER target, then params is treated as an offset to a location within that 
+		/// buffer's data store to receive the result of the query. If no buffer is bound to GL_QUERY_RESULT_BUFFER, then params is 
+		/// treated as an address in client memory of a variable to receive the resulting data.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_1_5")]
 		public static void GetQueryObject(UInt32 id, int pname, Int32[] @params)
@@ -495,7 +497,9 @@ namespace OpenGL
 		/// GL_QUERY_RESULT_AVAILABLE.
 		/// </param>
 		/// <param name="params">
-		/// A <see cref="T:UInt32[]"/>.
+		/// If a buffer is bound to the GL_QUERY_RESULT_BUFFER target, then params is treated as an offset to a location within that 
+		/// buffer's data store to receive the result of the query. If no buffer is bound to GL_QUERY_RESULT_BUFFER, then params is 
+		/// treated as an address in client memory of a variable to receive the resulting data.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_1_5")]
 		public static void GetQueryObjectuiv(UInt32 id, int pname, UInt32[] @params)
@@ -930,7 +934,7 @@ namespace OpenGL
 		/// Specifies the name of the pointer to be returned. Must be GL_BUFFER_MAP_POINTER.
 		/// </param>
 		/// <param name="params">
-		/// A <see cref="T:IntPtr"/>.
+		/// Returns the pointer value specified by pname.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_1_5")]
 		public static void GetBufferPointer(BufferTargetARB target, int pname, out IntPtr @params)
@@ -957,7 +961,7 @@ namespace OpenGL
 		/// Specifies the name of the pointer to be returned. Must be GL_BUFFER_MAP_POINTER.
 		/// </param>
 		/// <param name="params">
-		/// A <see cref="T:Object"/>.
+		/// Returns the pointer value specified by pname.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_1_5")]
 		public static void GetBufferPointer(BufferTargetARB target, int pname, Object @params)

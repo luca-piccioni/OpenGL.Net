@@ -2118,7 +2118,7 @@ namespace OpenGL
 		/// Specifies the parameter of the framebuffer object to query.
 		/// </param>
 		/// <param name="params">
-		/// A <see cref="T:Int32[]"/>.
+		/// Returns the value of parameter pname for the framebuffer object.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ARB_framebuffer_no_attachments")]
@@ -2153,7 +2153,7 @@ namespace OpenGL
 		/// Specifies the maximum number of basic machine units that may be written to params by the function.
 		/// </param>
 		/// <param name="params">
-		/// A <see cref="T:Int64[]"/>.
+		/// Specifies the address of a variable into which to write the retrieved information.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ARB_internalformat_query2")]
@@ -2461,7 +2461,7 @@ namespace OpenGL
 		/// The name of the parameter within programInterface to query.
 		/// </param>
 		/// <param name="params">
-		/// A <see cref="T:Int32[]"/>.
+		/// The address of a variable to retrieve the value of pname for the program interface.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ARB_program_interface_query")]

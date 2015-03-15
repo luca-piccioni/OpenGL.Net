@@ -1283,7 +1283,7 @@ namespace OpenGL
 		/// Specifies the location of the uniform variable to be queried.
 		/// </param>
 		/// <param name="params">
-		/// A <see cref="T:double[]"/>.
+		/// Returns the value of the specified uniform variable.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_4_0")]
 		[RequiredByFeature("GL_ARB_gpu_shader_fp64")]
@@ -1827,7 +1827,7 @@ namespace OpenGL
 		/// GL_QUERY_COUNTER_BITS.
 		/// </param>
 		/// <param name="params">
-		/// A <see cref="T:Int32[]"/>.
+		/// Returns the requested data.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_4_0")]
 		[RequiredByFeature("GL_ARB_transform_feedback3")]
