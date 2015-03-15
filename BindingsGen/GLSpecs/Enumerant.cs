@@ -263,7 +263,7 @@ namespace BindingsGen.GLSpecs
 			}
 
 			foreach (Enumerant aliasOf in AliasOf)
-				sw.WriteLine("[AliasOf(\"{0}\"]", aliasOf.Name);
+				sw.WriteLine("[AliasOf(\"{0}\")]", aliasOf.Name);
 
 			foreach (IFeature feature in RequiredBy)
 				sw.WriteLine("[RequiredByFeature(\"{0}\")]", feature.Name);

@@ -653,6 +653,7 @@ namespace BindingsGen.GLSpecs
 
 				#region Dynamic Delegate Selector (Open/Close)
 
+#if false
 				if (aliases.Count > 1) {
 					if (aliasIndex == 0) {
 						sw.WriteLine( "if        (Delegates.{0} != null) {{", aliasCommand.DelegateName);
@@ -663,6 +664,7 @@ namespace BindingsGen.GLSpecs
 						sw.Indent();
 					}
 				} else
+#endif
 					sw.WriteLine("Debug.Assert(Delegates.{0} != null, \"{0} not implemented\");", aliasCommand.DelegateName);
 
 				#endregion
@@ -768,10 +770,14 @@ namespace BindingsGen.GLSpecs
 				sw.WriteLine();
 
 				#endregion
+
+				// !!! Other aliases are now managed using a single delegate!
+				break;
 			}
 
 			#region Dynamic Delegate Selector (Close - Last)
 
+#if false
 			if (aliases.Count > 1)
 			{
 				sw.Unindent();
@@ -780,6 +786,7 @@ namespace BindingsGen.GLSpecs
 				sw.WriteLine("throw new NotImplementedException(\"{0} (and other aliases) are not implemented\");", ImportName);
 				sw.Unindent();
 			}
+#endif
 
 			#endregion
 
