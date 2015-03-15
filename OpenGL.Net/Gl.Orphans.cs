@@ -5706,7 +5706,7 @@ namespace OpenGL
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="type">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:DrawElementsType"/>.
 		/// </param>
 		/// <param name="indices">
 		/// A <see cref="T:IntPtr"/>.
@@ -5714,10 +5714,10 @@ namespace OpenGL
 		/// <param name="basevertex">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
-		public static void DrawElementsBaseVertexEXT(PrimitiveType mode, Int32 count, int type, IntPtr indices, Int32 basevertex)
+		public static void DrawElementsBaseVertexEXT(PrimitiveType mode, Int32 count, DrawElementsType type, IntPtr indices, Int32 basevertex)
 		{
 			Debug.Assert(Delegates.pglDrawElementsBaseVertexEXT != null, "pglDrawElementsBaseVertexEXT not implemented");
-			Delegates.pglDrawElementsBaseVertexEXT((int)mode, count, type, indices, basevertex);
+			Delegates.pglDrawElementsBaseVertexEXT((int)mode, count, (int)type, indices, basevertex);
 			CallLog("glDrawElementsBaseVertexEXT({0}, {1}, {2}, {3}, {4})", mode, count, type, indices, basevertex);
 			DebugCheckErrors();
 		}
@@ -5732,7 +5732,7 @@ namespace OpenGL
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="type">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:DrawElementsType"/>.
 		/// </param>
 		/// <param name="indices">
 		/// A <see cref="T:Object"/>.
@@ -5740,7 +5740,7 @@ namespace OpenGL
 		/// <param name="basevertex">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
-		public static void DrawElementsBaseVertexEXT(PrimitiveType mode, Int32 count, int type, Object indices, Int32 basevertex)
+		public static void DrawElementsBaseVertexEXT(PrimitiveType mode, Int32 count, DrawElementsType type, Object indices, Int32 basevertex)
 		{
 			GCHandle pin_indices = GCHandle.Alloc(indices, GCHandleType.Pinned);
 			try {
@@ -5760,7 +5760,7 @@ namespace OpenGL
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="type">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:DrawElementsType"/>.
 		/// </param>
 		/// <param name="indices">
 		/// A <see cref="T:IntPtr"/>.
@@ -5768,10 +5768,10 @@ namespace OpenGL
 		/// <param name="basevertex">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
-		public static void DrawElementsBaseVertexOES(PrimitiveType mode, Int32 count, int type, IntPtr indices, Int32 basevertex)
+		public static void DrawElementsBaseVertexOES(PrimitiveType mode, Int32 count, DrawElementsType type, IntPtr indices, Int32 basevertex)
 		{
 			Debug.Assert(Delegates.pglDrawElementsBaseVertexOES != null, "pglDrawElementsBaseVertexOES not implemented");
-			Delegates.pglDrawElementsBaseVertexOES((int)mode, count, type, indices, basevertex);
+			Delegates.pglDrawElementsBaseVertexOES((int)mode, count, (int)type, indices, basevertex);
 			CallLog("glDrawElementsBaseVertexOES({0}, {1}, {2}, {3}, {4})", mode, count, type, indices, basevertex);
 			DebugCheckErrors();
 		}
@@ -5786,7 +5786,7 @@ namespace OpenGL
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="type">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:DrawElementsType"/>.
 		/// </param>
 		/// <param name="indices">
 		/// A <see cref="T:Object"/>.
@@ -5794,7 +5794,7 @@ namespace OpenGL
 		/// <param name="basevertex">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
-		public static void DrawElementsBaseVertexOES(PrimitiveType mode, Int32 count, int type, Object indices, Int32 basevertex)
+		public static void DrawElementsBaseVertexOES(PrimitiveType mode, Int32 count, DrawElementsType type, Object indices, Int32 basevertex)
 		{
 			GCHandle pin_indices = GCHandle.Alloc(indices, GCHandleType.Pinned);
 			try {
@@ -5928,7 +5928,7 @@ namespace OpenGL
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="type">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:DrawElementsType"/>.
 		/// </param>
 		/// <param name="indices">
 		/// A <see cref="T:IntPtr"/>.
@@ -5939,10 +5939,10 @@ namespace OpenGL
 		/// <param name="basevertex">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
-		public static void DrawElementsInstancedBaseVertexEXT(PrimitiveType mode, Int32 count, int type, IntPtr indices, Int32 instancecount, Int32 basevertex)
+		public static void DrawElementsInstancedBaseVertexEXT(PrimitiveType mode, Int32 count, DrawElementsType type, IntPtr indices, Int32 instancecount, Int32 basevertex)
 		{
 			Debug.Assert(Delegates.pglDrawElementsInstancedBaseVertexEXT != null, "pglDrawElementsInstancedBaseVertexEXT not implemented");
-			Delegates.pglDrawElementsInstancedBaseVertexEXT((int)mode, count, type, indices, instancecount, basevertex);
+			Delegates.pglDrawElementsInstancedBaseVertexEXT((int)mode, count, (int)type, indices, instancecount, basevertex);
 			CallLog("glDrawElementsInstancedBaseVertexEXT({0}, {1}, {2}, {3}, {4}, {5})", mode, count, type, indices, instancecount, basevertex);
 			DebugCheckErrors();
 		}
@@ -5957,7 +5957,7 @@ namespace OpenGL
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="type">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:DrawElementsType"/>.
 		/// </param>
 		/// <param name="indices">
 		/// A <see cref="T:Object"/>.
@@ -5968,7 +5968,7 @@ namespace OpenGL
 		/// <param name="basevertex">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
-		public static void DrawElementsInstancedBaseVertexEXT(PrimitiveType mode, Int32 count, int type, Object indices, Int32 instancecount, Int32 basevertex)
+		public static void DrawElementsInstancedBaseVertexEXT(PrimitiveType mode, Int32 count, DrawElementsType type, Object indices, Int32 instancecount, Int32 basevertex)
 		{
 			GCHandle pin_indices = GCHandle.Alloc(indices, GCHandleType.Pinned);
 			try {
@@ -5988,7 +5988,7 @@ namespace OpenGL
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="type">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:DrawElementsType"/>.
 		/// </param>
 		/// <param name="indices">
 		/// A <see cref="T:IntPtr"/>.
@@ -5999,10 +5999,10 @@ namespace OpenGL
 		/// <param name="basevertex">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
-		public static void DrawElementsInstancedBaseVertexOES(PrimitiveType mode, Int32 count, int type, IntPtr indices, Int32 instancecount, Int32 basevertex)
+		public static void DrawElementsInstancedBaseVertexOES(PrimitiveType mode, Int32 count, DrawElementsType type, IntPtr indices, Int32 instancecount, Int32 basevertex)
 		{
 			Debug.Assert(Delegates.pglDrawElementsInstancedBaseVertexOES != null, "pglDrawElementsInstancedBaseVertexOES not implemented");
-			Delegates.pglDrawElementsInstancedBaseVertexOES((int)mode, count, type, indices, instancecount, basevertex);
+			Delegates.pglDrawElementsInstancedBaseVertexOES((int)mode, count, (int)type, indices, instancecount, basevertex);
 			CallLog("glDrawElementsInstancedBaseVertexOES({0}, {1}, {2}, {3}, {4}, {5})", mode, count, type, indices, instancecount, basevertex);
 			DebugCheckErrors();
 		}
@@ -6017,7 +6017,7 @@ namespace OpenGL
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="type">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:DrawElementsType"/>.
 		/// </param>
 		/// <param name="indices">
 		/// A <see cref="T:Object"/>.
@@ -6028,7 +6028,7 @@ namespace OpenGL
 		/// <param name="basevertex">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
-		public static void DrawElementsInstancedBaseVertexOES(PrimitiveType mode, Int32 count, int type, Object indices, Int32 instancecount, Int32 basevertex)
+		public static void DrawElementsInstancedBaseVertexOES(PrimitiveType mode, Int32 count, DrawElementsType type, Object indices, Int32 instancecount, Int32 basevertex)
 		{
 			GCHandle pin_indices = GCHandle.Alloc(indices, GCHandleType.Pinned);
 			try {
@@ -6174,7 +6174,7 @@ namespace OpenGL
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="type">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:DrawElementsType"/>.
 		/// </param>
 		/// <param name="indices">
 		/// A <see cref="T:IntPtr"/>.
@@ -6182,10 +6182,10 @@ namespace OpenGL
 		/// <param name="basevertex">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
-		public static void DrawRangeElementsBaseVertexEXT(PrimitiveType mode, UInt32 start, UInt32 end, Int32 count, int type, IntPtr indices, Int32 basevertex)
+		public static void DrawRangeElementsBaseVertexEXT(PrimitiveType mode, UInt32 start, UInt32 end, Int32 count, DrawElementsType type, IntPtr indices, Int32 basevertex)
 		{
 			Debug.Assert(Delegates.pglDrawRangeElementsBaseVertexEXT != null, "pglDrawRangeElementsBaseVertexEXT not implemented");
-			Delegates.pglDrawRangeElementsBaseVertexEXT((int)mode, start, end, count, type, indices, basevertex);
+			Delegates.pglDrawRangeElementsBaseVertexEXT((int)mode, start, end, count, (int)type, indices, basevertex);
 			CallLog("glDrawRangeElementsBaseVertexEXT({0}, {1}, {2}, {3}, {4}, {5}, {6})", mode, start, end, count, type, indices, basevertex);
 			DebugCheckErrors();
 		}
@@ -6206,7 +6206,7 @@ namespace OpenGL
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="type">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:DrawElementsType"/>.
 		/// </param>
 		/// <param name="indices">
 		/// A <see cref="T:Object"/>.
@@ -6214,7 +6214,7 @@ namespace OpenGL
 		/// <param name="basevertex">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
-		public static void DrawRangeElementsBaseVertexEXT(PrimitiveType mode, UInt32 start, UInt32 end, Int32 count, int type, Object indices, Int32 basevertex)
+		public static void DrawRangeElementsBaseVertexEXT(PrimitiveType mode, UInt32 start, UInt32 end, Int32 count, DrawElementsType type, Object indices, Int32 basevertex)
 		{
 			GCHandle pin_indices = GCHandle.Alloc(indices, GCHandleType.Pinned);
 			try {
@@ -6240,7 +6240,7 @@ namespace OpenGL
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="type">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:DrawElementsType"/>.
 		/// </param>
 		/// <param name="indices">
 		/// A <see cref="T:IntPtr"/>.
@@ -6248,10 +6248,10 @@ namespace OpenGL
 		/// <param name="basevertex">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
-		public static void DrawRangeElementsBaseVertexOES(PrimitiveType mode, UInt32 start, UInt32 end, Int32 count, int type, IntPtr indices, Int32 basevertex)
+		public static void DrawRangeElementsBaseVertexOES(PrimitiveType mode, UInt32 start, UInt32 end, Int32 count, DrawElementsType type, IntPtr indices, Int32 basevertex)
 		{
 			Debug.Assert(Delegates.pglDrawRangeElementsBaseVertexOES != null, "pglDrawRangeElementsBaseVertexOES not implemented");
-			Delegates.pglDrawRangeElementsBaseVertexOES((int)mode, start, end, count, type, indices, basevertex);
+			Delegates.pglDrawRangeElementsBaseVertexOES((int)mode, start, end, count, (int)type, indices, basevertex);
 			CallLog("glDrawRangeElementsBaseVertexOES({0}, {1}, {2}, {3}, {4}, {5}, {6})", mode, start, end, count, type, indices, basevertex);
 			DebugCheckErrors();
 		}
@@ -6272,7 +6272,7 @@ namespace OpenGL
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="type">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:DrawElementsType"/>.
 		/// </param>
 		/// <param name="indices">
 		/// A <see cref="T:Object"/>.
@@ -6280,7 +6280,7 @@ namespace OpenGL
 		/// <param name="basevertex">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
-		public static void DrawRangeElementsBaseVertexOES(PrimitiveType mode, UInt32 start, UInt32 end, Int32 count, int type, Object indices, Int32 basevertex)
+		public static void DrawRangeElementsBaseVertexOES(PrimitiveType mode, UInt32 start, UInt32 end, Int32 count, DrawElementsType type, Object indices, Int32 basevertex)
 		{
 			GCHandle pin_indices = GCHandle.Alloc(indices, GCHandleType.Pinned);
 			try {
@@ -7676,7 +7676,7 @@ namespace OpenGL
 		/// <param name="params">
 		/// A <see cref="T:Int64[]"/>.
 		/// </param>
-		public static void GetInteger64vAPPLE(int pname, Int64[] @params)
+		public static void GetIntegerAPPLE(int pname, Int64[] @params)
 		{
 			unsafe {
 				fixed (Int64* p_params = @params)
@@ -7701,7 +7701,7 @@ namespace OpenGL
 		/// <param name="data">
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
-		public static void GetIntegeri_vEXT(int target, UInt32 index, Int32[] data)
+		public static void GetIntegerEXT(int target, UInt32 index, Int32[] data)
 		{
 			unsafe {
 				fixed (Int32* p_data = data)
@@ -9126,7 +9126,7 @@ namespace OpenGL
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
 		/// <param name="type">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:DrawElementsType"/>.
 		/// </param>
 		/// <param name="indices">
 		/// A <see cref="T:IntPtr[]"/>.
@@ -9137,7 +9137,7 @@ namespace OpenGL
 		/// <param name="basevertex">
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
-		public static void MultiDrawElementsBaseVertexEXT(int mode, Int32[] count, int type, IntPtr[] indices, Int32 primcount, Int32[] basevertex)
+		public static void MultiDrawElementsBaseVertexEXT(int mode, Int32[] count, DrawElementsType type, IntPtr[] indices, Int32 primcount, Int32[] basevertex)
 		{
 			unsafe {
 				fixed (Int32* p_count = count)
@@ -9145,7 +9145,7 @@ namespace OpenGL
 				fixed (Int32* p_basevertex = basevertex)
 				{
 					Debug.Assert(Delegates.pglMultiDrawElementsBaseVertexEXT != null, "pglMultiDrawElementsBaseVertexEXT not implemented");
-					Delegates.pglMultiDrawElementsBaseVertexEXT(mode, p_count, type, p_indices, primcount, p_basevertex);
+					Delegates.pglMultiDrawElementsBaseVertexEXT(mode, p_count, (int)type, p_indices, primcount, p_basevertex);
 					CallLog("glMultiDrawElementsBaseVertexEXT({0}, {1}, {2}, {3}, {4}, {5})", mode, count, type, indices, primcount, basevertex);
 				}
 			}
@@ -9162,7 +9162,7 @@ namespace OpenGL
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
 		/// <param name="type">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:DrawElementsType"/>.
 		/// </param>
 		/// <param name="indices">
 		/// A <see cref="T:IntPtr[]"/>.
@@ -9173,7 +9173,7 @@ namespace OpenGL
 		/// <param name="basevertex">
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
-		public static void MultiDrawElementsBaseVertexOES(int mode, Int32[] count, int type, IntPtr[] indices, Int32 primcount, Int32[] basevertex)
+		public static void MultiDrawElementsBaseVertexOES(int mode, Int32[] count, DrawElementsType type, IntPtr[] indices, Int32 primcount, Int32[] basevertex)
 		{
 			unsafe {
 				fixed (Int32* p_count = count)
@@ -9181,7 +9181,7 @@ namespace OpenGL
 				fixed (Int32* p_basevertex = basevertex)
 				{
 					Debug.Assert(Delegates.pglMultiDrawElementsBaseVertexOES != null, "pglMultiDrawElementsBaseVertexOES not implemented");
-					Delegates.pglMultiDrawElementsBaseVertexOES(mode, p_count, type, p_indices, primcount, p_basevertex);
+					Delegates.pglMultiDrawElementsBaseVertexOES(mode, p_count, (int)type, p_indices, primcount, p_basevertex);
 					CallLog("glMultiDrawElementsBaseVertexOES({0}, {1}, {2}, {3}, {4}, {5})", mode, count, type, indices, primcount, basevertex);
 				}
 			}

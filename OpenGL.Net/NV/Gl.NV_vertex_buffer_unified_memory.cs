@@ -416,7 +416,7 @@ namespace OpenGL
 		/// A <see cref="T:UInt64[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_vertex_buffer_unified_memory")]
-		public static void GetIntegerui64i_vNV(int value, UInt32 index, UInt64[] result)
+		public static void GetIntegerNV(int value, UInt32 index, UInt64[] result)
 		{
 			unsafe {
 				fixed (UInt64* p_result = result)

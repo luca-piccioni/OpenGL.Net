@@ -394,6 +394,12 @@ typedef unsigned int GLhandleARB;
             <enum name="GL_NONE_OES"/>
             <enum name="GL_RIGHT"/>
         </group>
+			
+        <group name="DrawElementsType">
+            <enum name="GL_UNSIGNED_BYTE"/>
+            <enum name="GL_UNSIGNED_SHORT"/>
+            <enum name="GL_UNSIGNED_INT"/>
+        </group>
 
         <group name="EnableCap">
             <enum name="GL_ALPHA_TEST"/>
@@ -2009,40 +2015,40 @@ typedef unsigned int GLhandleARB;
             <enum name="GL_SHORT"/>
         </group>
 
-			<group name="BufferTargetARB">
-						<enum name="GL_ARRAY_BUFFER"/>
-						<enum name="GL_ATOMIC_COUNTER_BUFFER" />
-						<enum name="GL_COPY_READ_BUFFER" />
-						<enum name="GL_COPY_WRITE_BUFFER" />
-						<enum name="GL_DISPATCH_INDIRECT_BUFFER" />
-						<enum name="GL_DRAW_INDIRECT_BUFFER" />
-						<enum name="GL_ELEMENT_ARRAY_BUFFER" />
-						<enum name="GL_PIXEL_PACK_BUFFER" />
-						<enum name="GL_PIXEL_UNPACK_BUFFER" />
-						<enum name="GL_QUERY_BUFFER" />
-						<enum name="GL_SHADER_STORAGE_BUFFER" />
-						<enum name="GL_TEXTURE_BUFFER" />
-						<enum name="GL_TRANSFORM_FEEDBACK_BUFFER" />
-						<enum name="GL_UNIFORM_BUFFER" />
-			</group>
+        <group name="BufferTargetARB">
+             <enum name="GL_ARRAY_BUFFER"/>
+             <enum name="GL_ATOMIC_COUNTER_BUFFER" />
+             <enum name="GL_COPY_READ_BUFFER" />
+             <enum name="GL_COPY_WRITE_BUFFER" />
+             <enum name="GL_DISPATCH_INDIRECT_BUFFER" />
+             <enum name="GL_DRAW_INDIRECT_BUFFER" />
+             <enum name="GL_ELEMENT_ARRAY_BUFFER" />
+             <enum name="GL_PIXEL_PACK_BUFFER" />
+             <enum name="GL_PIXEL_UNPACK_BUFFER" />
+             <enum name="GL_QUERY_BUFFER" />
+             <enum name="GL_SHADER_STORAGE_BUFFER" />
+             <enum name="GL_TEXTURE_BUFFER" />
+             <enum name="GL_TRANSFORM_FEEDBACK_BUFFER" />
+             <enum name="GL_UNIFORM_BUFFER" />
+         </group>
 
-			<group name="BufferUsageARB">
-						<enum name="GL_STREAM_DRAW"/>
-						<enum name="GL_STREAM_READ"/>
-						<enum name="GL_STREAM_COPY"/>
-						<enum name="GL_STATIC_DRAW"/>
-						<enum name="GL_STATIC_READ"/>
-						<enum name="GL_STATIC_COPY"/>
-						<enum name="GL_DYNAMIC_DRAW"/>
-						<enum name="GL_DYNAMIC_READ"/>
-						<enum name="GL_DYNAMIC_COPY"/>
-			</group>
+         <group name="BufferUsageARB">
+             <enum name="GL_STREAM_DRAW"/>
+             <enum name="GL_STREAM_READ"/>
+             <enum name="GL_STREAM_COPY"/>
+             <enum name="GL_STATIC_DRAW"/>
+             <enum name="GL_STATIC_READ"/>
+             <enum name="GL_STATIC_COPY"/>
+             <enum name="GL_DYNAMIC_DRAW"/>
+             <enum name="GL_DYNAMIC_READ"/>
+             <enum name="GL_DYNAMIC_COPY"/>
+         </group>
 
-			<group name="BufferAccessARB">
-						<enum name="GL_READ_ONLY"/>
-						<enum name="GL_WRITE_ONLY"/>
-						<enum name="GL_READ_WRITE"/>
-			</group>
+         <group name="BufferAccessARB">
+             <enum name="GL_READ_ONLY"/>
+             <enum name="GL_WRITE_ONLY"/>
+             <enum name="GL_READ_WRITE"/>
+         </group>
     </groups>
 
     <!-- SECTION: GL enumerant (token) definitions. -->
@@ -22122,11 +22128,11 @@ typedef unsigned int GLhandleARB;
         </command>
         <command>
             <proto>void <name>glProvokingVertex</name></proto>
-            <param><ptype>GLenum</ptype> <name>mode</name></param>
+            <param><ptype>GLenum</ptype> <name>provokeMode</name></param>
         </command>
         <command>
             <proto>void <name>glProvokingVertexEXT</name></proto>
-            <param><ptype>GLenum</ptype> <name>mode</name></param>
+            <param><ptype>GLenum</ptype> <name>provokeMode</name></param>
             <alias name="glProvokingVertex"/>
         </command>
         <command>

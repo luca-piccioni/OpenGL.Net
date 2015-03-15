@@ -7508,7 +7508,7 @@ namespace OpenGL
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access")]
-		public static void GetVertexArrayIntegeri_vEXT(UInt32 vaobj, UInt32 index, int pname, Int32[] param)
+		public static void GetVertexArrayIntegerEXT(UInt32 vaobj, UInt32 index, int pname, Int32[] param)
 		{
 			unsafe {
 				fixed (Int32* p_param = param)

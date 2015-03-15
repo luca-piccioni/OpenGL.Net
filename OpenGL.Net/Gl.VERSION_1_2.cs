@@ -341,13 +341,13 @@ namespace OpenGL
 		/// Specifies a pointer to the location where the indices are stored.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_1_2")]
-		public static void DrawRangeElements(PrimitiveType mode, UInt32 start, UInt32 end, Int32 count, int type, IntPtr indices)
+		public static void DrawRangeElements(PrimitiveType mode, UInt32 start, UInt32 end, Int32 count, DrawElementsType type, IntPtr indices)
 		{
 			if        (Delegates.pglDrawRangeElements != null) {
-				Delegates.pglDrawRangeElements((int)mode, start, end, count, type, indices);
+				Delegates.pglDrawRangeElements((int)mode, start, end, count, (int)type, indices);
 				CallLog("glDrawRangeElements({0}, {1}, {2}, {3}, {4}, {5})", mode, start, end, count, type, indices);
 			} else if (Delegates.pglDrawRangeElementsEXT != null) {
-				Delegates.pglDrawRangeElementsEXT((int)mode, start, end, count, type, indices);
+				Delegates.pglDrawRangeElementsEXT((int)mode, start, end, count, (int)type, indices);
 				CallLog("glDrawRangeElementsEXT({0}, {1}, {2}, {3}, {4}, {5})", mode, start, end, count, type, indices);
 			} else
 				throw new NotImplementedException("glDrawRangeElements (and other aliases) are not implemented");
@@ -378,7 +378,7 @@ namespace OpenGL
 		/// Specifies a pointer to the location where the indices are stored.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_1_2")]
-		public static void DrawRangeElements(PrimitiveType mode, UInt32 start, UInt32 end, Int32 count, int type, Object indices)
+		public static void DrawRangeElements(PrimitiveType mode, UInt32 start, UInt32 end, Int32 count, DrawElementsType type, Object indices)
 		{
 			GCHandle pin_indices = GCHandle.Alloc(indices, GCHandleType.Pinned);
 			try {

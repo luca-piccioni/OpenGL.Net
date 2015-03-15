@@ -209,7 +209,7 @@ namespace OpenGL
 		/// A <see cref="T:UInt64[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_shader_buffer_load")]
-		public static void GetIntegerui64vNV(int value, UInt64[] result)
+		public static void GetIntegerNV(int value, UInt64[] result)
 		{
 			unsafe {
 				fixed (UInt64* p_result = result)

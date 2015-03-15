@@ -4596,10 +4596,10 @@ namespace OpenGL
 		/// Specifies a pointer to the location where the indices are stored.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_1_1")]
-		public static void DrawElements(PrimitiveType mode, Int32 count, int type, IntPtr indices)
+		public static void DrawElements(PrimitiveType mode, Int32 count, DrawElementsType type, IntPtr indices)
 		{
 			Debug.Assert(Delegates.pglDrawElements != null, "pglDrawElements not implemented");
-			Delegates.pglDrawElements((int)mode, count, type, indices);
+			Delegates.pglDrawElements((int)mode, count, (int)type, indices);
 			CallLog("glDrawElements({0}, {1}, {2}, {3})", mode, count, type, indices);
 			DebugCheckErrors();
 		}
@@ -4622,7 +4622,7 @@ namespace OpenGL
 		/// Specifies a pointer to the location where the indices are stored.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_1_1")]
-		public static void DrawElements(PrimitiveType mode, Int32 count, int type, Object indices)
+		public static void DrawElements(PrimitiveType mode, Int32 count, DrawElementsType type, Object indices)
 		{
 			GCHandle pin_indices = GCHandle.Alloc(indices, GCHandleType.Pinned);
 			try {

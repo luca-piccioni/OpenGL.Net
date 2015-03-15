@@ -3120,7 +3120,7 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_4_1")]
 		[RequiredByFeature("GL_ARB_viewport_array")]
-		public static void GetFloat(int target, UInt32 index, float[] data)
+		public static void Get(int target, UInt32 index, float[] data)
 		{
 			unsafe {
 				fixed (float* p_data = data)
@@ -3159,10 +3159,85 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_4_1")]
 		[RequiredByFeature("GL_ARB_viewport_array")]
-		public static void GetDouble(int target, UInt32 index, double[] data)
+		public static void Get(int target, UInt32 index, out float data)
+		{
+			unsafe {
+				fixed (float* p_data = &data)
+				{
+					if        (Delegates.pglGetFloati_v != null) {
+						Delegates.pglGetFloati_v(target, index, p_data);
+						CallLog("glGetFloati_v({0}, {1}, {2})", target, index, data);
+					} else if (Delegates.pglGetFloatIndexedvEXT != null) {
+						Delegates.pglGetFloatIndexedvEXT(target, index, p_data);
+						CallLog("glGetFloatIndexedvEXT({0}, {1}, {2})", target, index, data);
+					} else if (Delegates.pglGetFloati_vNV != null) {
+						Delegates.pglGetFloati_vNV(target, index, p_data);
+						CallLog("glGetFloati_vNV({0}, {1}, {2})", target, index, data);
+					} else if (Delegates.pglGetFloati_vEXT != null) {
+						Delegates.pglGetFloati_vEXT(target, index, p_data);
+						CallLog("glGetFloati_vEXT({0}, {1}, {2})", target, index, data);
+					} else
+						throw new NotImplementedException("glGetFloati_v (and other aliases) are not implemented");
+				}
+			}
+			DebugCheckErrors();
+		}
+
+		/// <summary>
+		/// return the value or values of a selected parameter
+		/// </summary>
+		/// <param name="target">
+		/// Specifies the parameter value to be returned for indexed versions of glGet. The symbolic constants in the list below are 
+		/// accepted.
+		/// </param>
+		/// <param name="index">
+		/// Specifies the index of the particular element being queried.
+		/// </param>
+		/// <param name="data">
+		/// Returns the value or values of the specified parameter.
+		/// </param>
+		[RequiredByFeature("GL_VERSION_4_1")]
+		[RequiredByFeature("GL_ARB_viewport_array")]
+		public static void Get(int target, UInt32 index, double[] data)
 		{
 			unsafe {
 				fixed (double* p_data = data)
+				{
+					if        (Delegates.pglGetDoublei_v != null) {
+						Delegates.pglGetDoublei_v(target, index, p_data);
+						CallLog("glGetDoublei_v({0}, {1}, {2})", target, index, data);
+					} else if (Delegates.pglGetDoubleIndexedvEXT != null) {
+						Delegates.pglGetDoubleIndexedvEXT(target, index, p_data);
+						CallLog("glGetDoubleIndexedvEXT({0}, {1}, {2})", target, index, data);
+					} else if (Delegates.pglGetDoublei_vEXT != null) {
+						Delegates.pglGetDoublei_vEXT(target, index, p_data);
+						CallLog("glGetDoublei_vEXT({0}, {1}, {2})", target, index, data);
+					} else
+						throw new NotImplementedException("glGetDoublei_v (and other aliases) are not implemented");
+				}
+			}
+			DebugCheckErrors();
+		}
+
+		/// <summary>
+		/// return the value or values of a selected parameter
+		/// </summary>
+		/// <param name="target">
+		/// Specifies the parameter value to be returned for indexed versions of glGet. The symbolic constants in the list below are 
+		/// accepted.
+		/// </param>
+		/// <param name="index">
+		/// Specifies the index of the particular element being queried.
+		/// </param>
+		/// <param name="data">
+		/// Returns the value or values of the specified parameter.
+		/// </param>
+		[RequiredByFeature("GL_VERSION_4_1")]
+		[RequiredByFeature("GL_ARB_viewport_array")]
+		public static void Get(int target, UInt32 index, out double data)
+		{
+			unsafe {
+				fixed (double* p_data = &data)
 				{
 					if        (Delegates.pglGetDoublei_v != null) {
 						Delegates.pglGetDoublei_v(target, index, p_data);

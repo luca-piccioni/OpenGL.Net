@@ -8,7 +8,7 @@
 		<flags>NoGetError</flags>
 	</command>
 	
-	<command name="glGetIntegerv|glGetFloatv|glGetDoublev|glGetBooleanv">
+	<command name="^glGet(Integer(64)?|Float|Double|Boolean)(v|i_v)$">
 		<rename>Get</rename>
 		<!-- Generate "out" overloads -->
 		<flags>OutParam ForcePlainParams</flags>
@@ -20,7 +20,7 @@
 	</command>
 	
 	<command name="gl\w+TexImage(1-4)|glBufferData">
-		<!-- Let the application handles the *TexImage* errors (proxy texture targets, out of memory) -->
+		<!-- Let the application handles the *TexImage* and glBufferData errors (proxy texture targets, out of memory) -->
 		<flags>NoGetError ForcePlainParams</flags>
 	</command>
 	

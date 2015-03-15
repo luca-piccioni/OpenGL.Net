@@ -504,22 +504,22 @@ namespace OpenGL
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_3_1")]
-		public static void DrawElementsInstanced(PrimitiveType mode, Int32 count, int type, IntPtr indices, Int32 instancecount)
+		public static void DrawElementsInstanced(PrimitiveType mode, Int32 count, DrawElementsType type, IntPtr indices, Int32 instancecount)
 		{
 			if        (Delegates.pglDrawElementsInstanced != null) {
-				Delegates.pglDrawElementsInstanced((int)mode, count, type, indices, instancecount);
+				Delegates.pglDrawElementsInstanced((int)mode, count, (int)type, indices, instancecount);
 				CallLog("glDrawElementsInstanced({0}, {1}, {2}, {3}, {4})", mode, count, type, indices, instancecount);
 			} else if (Delegates.pglDrawElementsInstancedANGLE != null) {
-				Delegates.pglDrawElementsInstancedANGLE((int)mode, count, type, indices, instancecount);
+				Delegates.pglDrawElementsInstancedANGLE((int)mode, count, (int)type, indices, instancecount);
 				CallLog("glDrawElementsInstancedANGLE({0}, {1}, {2}, {3}, {4})", mode, count, type, indices, instancecount);
 			} else if (Delegates.pglDrawElementsInstancedARB != null) {
-				Delegates.pglDrawElementsInstancedARB((int)mode, count, type, indices, instancecount);
+				Delegates.pglDrawElementsInstancedARB((int)mode, count, (int)type, indices, instancecount);
 				CallLog("glDrawElementsInstancedARB({0}, {1}, {2}, {3}, {4})", mode, count, type, indices, instancecount);
 			} else if (Delegates.pglDrawElementsInstancedEXT != null) {
-				Delegates.pglDrawElementsInstancedEXT((int)mode, count, type, indices, instancecount);
+				Delegates.pglDrawElementsInstancedEXT((int)mode, count, (int)type, indices, instancecount);
 				CallLog("glDrawElementsInstancedEXT({0}, {1}, {2}, {3}, {4})", mode, count, type, indices, instancecount);
 			} else if (Delegates.pglDrawElementsInstancedNV != null) {
-				Delegates.pglDrawElementsInstancedNV((int)mode, count, type, indices, instancecount);
+				Delegates.pglDrawElementsInstancedNV((int)mode, count, (int)type, indices, instancecount);
 				CallLog("glDrawElementsInstancedNV({0}, {1}, {2}, {3}, {4})", mode, count, type, indices, instancecount);
 			} else
 				throw new NotImplementedException("glDrawElementsInstanced (and other aliases) are not implemented");
@@ -547,7 +547,7 @@ namespace OpenGL
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_3_1")]
-		public static void DrawElementsInstanced(PrimitiveType mode, Int32 count, int type, Object indices, Int32 instancecount)
+		public static void DrawElementsInstanced(PrimitiveType mode, Int32 count, DrawElementsType type, Object indices, Int32 instancecount)
 		{
 			GCHandle pin_indices = GCHandle.Alloc(indices, GCHandleType.Pinned);
 			try {

@@ -53,16 +53,16 @@ namespace OpenGL
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="type">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:DrawElementsType"/>.
 		/// </param>
 		/// <param name="indices">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_draw_range_elements")]
-		public static void DrawRangeElementsEXT(PrimitiveType mode, UInt32 start, UInt32 end, Int32 count, int type, IntPtr indices)
+		public static void DrawRangeElementsEXT(PrimitiveType mode, UInt32 start, UInt32 end, Int32 count, DrawElementsType type, IntPtr indices)
 		{
 			Debug.Assert(Delegates.pglDrawRangeElementsEXT != null, "pglDrawRangeElementsEXT not implemented");
-			Delegates.pglDrawRangeElementsEXT((int)mode, start, end, count, type, indices);
+			Delegates.pglDrawRangeElementsEXT((int)mode, start, end, count, (int)type, indices);
 			CallLog("glDrawRangeElementsEXT({0}, {1}, {2}, {3}, {4}, {5})", mode, start, end, count, type, indices);
 			DebugCheckErrors();
 		}
@@ -83,13 +83,13 @@ namespace OpenGL
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="type">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:DrawElementsType"/>.
 		/// </param>
 		/// <param name="indices">
 		/// A <see cref="T:Object"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_draw_range_elements")]
-		public static void DrawRangeElementsEXT(PrimitiveType mode, UInt32 start, UInt32 end, Int32 count, int type, Object indices)
+		public static void DrawRangeElementsEXT(PrimitiveType mode, UInt32 start, UInt32 end, Int32 count, DrawElementsType type, Object indices)
 		{
 			GCHandle pin_indices = GCHandle.Alloc(indices, GCHandleType.Pinned);
 			try {

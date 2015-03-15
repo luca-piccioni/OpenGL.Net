@@ -115,5 +115,78 @@ namespace OpenGL.Test
 				Assert.AreEqual((int)cullFaceMode, getCullFaceModev[0]);
 			}
 		}
+
+		/// <summary>
+		/// Mainly used for testing glTex* commands.
+		/// </summary>
+		[Test]
+		public void TestGenTexture()
+		{
+			if (!HasVersion(1, 1))
+				Assert.Inconclusive("OpenGL 1.1");
+
+			uint[] textureObjects = new uint[3];
+			uint textureObject;
+
+			textureObject = Gl.GenTexture();	
+			Assert.AreNotEqual(0, textureObject);
+			Assert.IsFalse(Gl.IsTexture(textureObject));
+
+			try {
+				Gl.BindTexture(TextureTarget.Texture2d, textureObject);
+				Assert.IsTrue(Gl.IsTexture(textureObject));
+			} finally {
+				Gl.DeleteTextures(textureObject);
+				Assert.IsFalse(Gl.IsTexture(textureObject));
+			}
+
+			Gl.GenTextures(textureObjects);
+			try {
+				for (int i = 0; i < textureObjects.Length; i++) {
+					Assert.AreNotEqual(0, textureObjects[i]);
+					Assert.IsFalse(Gl.IsTexture(textureObjects[i]));
+				
+					Gl.BindTexture(TextureTarget.Texture2d, textureObjects[i]);
+					Assert.IsTrue(Gl.IsTexture(textureObjects[i]));
+				}
+			} finally {
+				for (int i = 0; i < textureObjects.Length; i++) {
+					if (Gl.IsTexture(textureObjects[i])) {
+						Gl.DeleteTextures(textureObjects[i]);
+						Assert.IsFalse(Gl.IsTexture(textureObjects[i]));
+					}
+				}
+			}
+
+			Gl.GenTextures(textureObjects);
+			try {
+				for (int i = 0; i < textureObjects.Length; i++) {
+					Assert.AreNotEqual(0, textureObjects[i]);
+					Assert.IsFalse(Gl.IsTexture(textureObjects[i]));
+
+					Gl.BindTexture(TextureTarget.Texture2d, textureObjects[i]);
+					Assert.IsTrue(Gl.IsTexture(textureObjects[i]));
+				}
+			} finally {
+				Gl.DeleteTextures(textureObjects);
+				for (int i = 0; i < textureObjects.Length; i++)
+					Assert.IsFalse(Gl.IsTexture(textureObjects[i]));
+			}
+
+			Gl.GenTextures(textureObjects);
+			try {
+				for (int i = 0; i < textureObjects.Length; i++) {
+					Assert.AreNotEqual(0, textureObjects[i]);
+					Assert.IsFalse(Gl.IsTexture(textureObjects[i]));
+
+					Gl.BindTexture(TextureTarget.Texture2d, textureObjects[i]);
+					Assert.IsTrue(Gl.IsTexture(textureObjects[i]));
+				}
+			} finally {
+				Gl.DeleteTextures(textureObjects[0], textureObjects[1], textureObjects[2]);
+				for (int i = 0; i < textureObjects.Length; i++)
+					Assert.IsFalse(Gl.IsTexture(textureObjects[i]));
+			}
+		}
 	}
 }

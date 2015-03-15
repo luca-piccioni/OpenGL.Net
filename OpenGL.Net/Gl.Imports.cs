@@ -10050,12 +10050,12 @@ namespace OpenGL
 			internal static glProgramVertexLimitNV pglProgramVertexLimitNV;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glProvokingVertex(int mode);
+			internal delegate void glProvokingVertex(int provokeMode);
 			[ThreadStatic]
 			internal static glProvokingVertex pglProvokingVertex;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glProvokingVertexEXT(int mode);
+			internal delegate void glProvokingVertexEXT(int provokeMode);
 			[ThreadStatic]
 			internal static glProvokingVertexEXT pglProvokingVertexEXT;
 

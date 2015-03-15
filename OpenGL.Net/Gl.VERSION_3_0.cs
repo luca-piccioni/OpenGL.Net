@@ -1606,7 +1606,7 @@ namespace OpenGL
 		/// Returns the value or values of the specified parameter.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_3_0")]
-		public static void GetBoolean(int target, UInt32 index, bool[] data)
+		public static void Get(int target, UInt32 index, bool[] data)
 		{
 			unsafe {
 				fixed (bool* p_data = data)
@@ -1638,10 +1638,74 @@ namespace OpenGL
 		/// Returns the value or values of the specified parameter.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_3_0")]
-		public static void GetIntegeri_v(int target, UInt32 index, Int32[] data)
+		public static void Get(int target, UInt32 index, out bool data)
+		{
+			unsafe {
+				fixed (bool* p_data = &data)
+				{
+					if        (Delegates.pglGetBooleani_v != null) {
+						Delegates.pglGetBooleani_v(target, index, p_data);
+						CallLog("glGetBooleani_v({0}, {1}, {2})", target, index, data);
+					} else if (Delegates.pglGetBooleanIndexedvEXT != null) {
+						Delegates.pglGetBooleanIndexedvEXT(target, index, p_data);
+						CallLog("glGetBooleanIndexedvEXT({0}, {1}, {2})", target, index, data);
+					} else
+						throw new NotImplementedException("glGetBooleani_v (and other aliases) are not implemented");
+				}
+			}
+			DebugCheckErrors();
+		}
+
+		/// <summary>
+		/// return the value or values of a selected parameter
+		/// </summary>
+		/// <param name="target">
+		/// Specifies the parameter value to be returned for indexed versions of glGet. The symbolic constants in the list below are 
+		/// accepted.
+		/// </param>
+		/// <param name="index">
+		/// Specifies the index of the particular element being queried.
+		/// </param>
+		/// <param name="data">
+		/// Returns the value or values of the specified parameter.
+		/// </param>
+		[RequiredByFeature("GL_VERSION_3_0")]
+		public static void Get(int target, UInt32 index, Int32[] data)
 		{
 			unsafe {
 				fixed (Int32* p_data = data)
+				{
+					if        (Delegates.pglGetIntegeri_v != null) {
+						Delegates.pglGetIntegeri_v(target, index, p_data);
+						CallLog("glGetIntegeri_v({0}, {1}, {2})", target, index, data);
+					} else if (Delegates.pglGetIntegerIndexedvEXT != null) {
+						Delegates.pglGetIntegerIndexedvEXT(target, index, p_data);
+						CallLog("glGetIntegerIndexedvEXT({0}, {1}, {2})", target, index, data);
+					} else
+						throw new NotImplementedException("glGetIntegeri_v (and other aliases) are not implemented");
+				}
+			}
+			DebugCheckErrors();
+		}
+
+		/// <summary>
+		/// return the value or values of a selected parameter
+		/// </summary>
+		/// <param name="target">
+		/// Specifies the parameter value to be returned for indexed versions of glGet. The symbolic constants in the list below are 
+		/// accepted.
+		/// </param>
+		/// <param name="index">
+		/// Specifies the index of the particular element being queried.
+		/// </param>
+		/// <param name="data">
+		/// Returns the value or values of the specified parameter.
+		/// </param>
+		[RequiredByFeature("GL_VERSION_3_0")]
+		public static void Get(int target, UInt32 index, out Int32 data)
+		{
+			unsafe {
+				fixed (Int32* p_data = &data)
 				{
 					if        (Delegates.pglGetIntegeri_v != null) {
 						Delegates.pglGetIntegeri_v(target, index, p_data);

@@ -385,8 +385,15 @@ namespace BindingsGen.GLSpecs
 
 		public virtual void WriteDebugAssertion(SourceStreamWriter sw, RegistryContext ctx, Command parentCommand)
 		{
+			if (Length == null)
+				return;
+
 			if (CommandParameterArray.IsCompatible(this, ctx, parentCommand))
 				sw.WriteLine("Debug.Assert({0}.Length >= {1});", ImplementationName, Length);
+#if false
+			if (Regex.IsMatch(Length, @"[0-9]+"))
+				sw.WriteLine("Debug.Assert({0}.Length >= {1});", ImplementationName, Length);
+#endif
 		}
 
 		public virtual void WriteFixedStatement(SourceStreamWriter sw, RegistryContext ctx, Command parentCommand)

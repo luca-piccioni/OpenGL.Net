@@ -492,16 +492,16 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_3_2")]
 		[RequiredByFeature("GL_ARB_draw_elements_base_vertex")]
-		public static void DrawElementsBaseVertex(PrimitiveType mode, Int32 count, int type, IntPtr indices, Int32 basevertex)
+		public static void DrawElementsBaseVertex(PrimitiveType mode, Int32 count, DrawElementsType type, IntPtr indices, Int32 basevertex)
 		{
 			if        (Delegates.pglDrawElementsBaseVertex != null) {
-				Delegates.pglDrawElementsBaseVertex((int)mode, count, type, indices, basevertex);
+				Delegates.pglDrawElementsBaseVertex((int)mode, count, (int)type, indices, basevertex);
 				CallLog("glDrawElementsBaseVertex({0}, {1}, {2}, {3}, {4})", mode, count, type, indices, basevertex);
 			} else if (Delegates.pglDrawElementsBaseVertexEXT != null) {
-				Delegates.pglDrawElementsBaseVertexEXT((int)mode, count, type, indices, basevertex);
+				Delegates.pglDrawElementsBaseVertexEXT((int)mode, count, (int)type, indices, basevertex);
 				CallLog("glDrawElementsBaseVertexEXT({0}, {1}, {2}, {3}, {4})", mode, count, type, indices, basevertex);
 			} else if (Delegates.pglDrawElementsBaseVertexOES != null) {
-				Delegates.pglDrawElementsBaseVertexOES((int)mode, count, type, indices, basevertex);
+				Delegates.pglDrawElementsBaseVertexOES((int)mode, count, (int)type, indices, basevertex);
 				CallLog("glDrawElementsBaseVertexOES({0}, {1}, {2}, {3}, {4})", mode, count, type, indices, basevertex);
 			} else
 				throw new NotImplementedException("glDrawElementsBaseVertex (and other aliases) are not implemented");
@@ -531,7 +531,7 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_3_2")]
 		[RequiredByFeature("GL_ARB_draw_elements_base_vertex")]
-		public static void DrawElementsBaseVertex(PrimitiveType mode, Int32 count, int type, Object indices, Int32 basevertex)
+		public static void DrawElementsBaseVertex(PrimitiveType mode, Int32 count, DrawElementsType type, Object indices, Int32 basevertex)
 		{
 			GCHandle pin_indices = GCHandle.Alloc(indices, GCHandleType.Pinned);
 			try {
@@ -570,16 +570,16 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_3_2")]
 		[RequiredByFeature("GL_ARB_draw_elements_base_vertex")]
-		public static void DrawRangeElementsBaseVertex(PrimitiveType mode, UInt32 start, UInt32 end, Int32 count, int type, IntPtr indices, Int32 basevertex)
+		public static void DrawRangeElementsBaseVertex(PrimitiveType mode, UInt32 start, UInt32 end, Int32 count, DrawElementsType type, IntPtr indices, Int32 basevertex)
 		{
 			if        (Delegates.pglDrawRangeElementsBaseVertex != null) {
-				Delegates.pglDrawRangeElementsBaseVertex((int)mode, start, end, count, type, indices, basevertex);
+				Delegates.pglDrawRangeElementsBaseVertex((int)mode, start, end, count, (int)type, indices, basevertex);
 				CallLog("glDrawRangeElementsBaseVertex({0}, {1}, {2}, {3}, {4}, {5}, {6})", mode, start, end, count, type, indices, basevertex);
 			} else if (Delegates.pglDrawRangeElementsBaseVertexEXT != null) {
-				Delegates.pglDrawRangeElementsBaseVertexEXT((int)mode, start, end, count, type, indices, basevertex);
+				Delegates.pglDrawRangeElementsBaseVertexEXT((int)mode, start, end, count, (int)type, indices, basevertex);
 				CallLog("glDrawRangeElementsBaseVertexEXT({0}, {1}, {2}, {3}, {4}, {5}, {6})", mode, start, end, count, type, indices, basevertex);
 			} else if (Delegates.pglDrawRangeElementsBaseVertexOES != null) {
-				Delegates.pglDrawRangeElementsBaseVertexOES((int)mode, start, end, count, type, indices, basevertex);
+				Delegates.pglDrawRangeElementsBaseVertexOES((int)mode, start, end, count, (int)type, indices, basevertex);
 				CallLog("glDrawRangeElementsBaseVertexOES({0}, {1}, {2}, {3}, {4}, {5}, {6})", mode, start, end, count, type, indices, basevertex);
 			} else
 				throw new NotImplementedException("glDrawRangeElementsBaseVertex (and other aliases) are not implemented");
@@ -615,7 +615,7 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_3_2")]
 		[RequiredByFeature("GL_ARB_draw_elements_base_vertex")]
-		public static void DrawRangeElementsBaseVertex(PrimitiveType mode, UInt32 start, UInt32 end, Int32 count, int type, Object indices, Int32 basevertex)
+		public static void DrawRangeElementsBaseVertex(PrimitiveType mode, UInt32 start, UInt32 end, Int32 count, DrawElementsType type, Object indices, Int32 basevertex)
 		{
 			GCHandle pin_indices = GCHandle.Alloc(indices, GCHandleType.Pinned);
 			try {
@@ -651,16 +651,16 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_3_2")]
 		[RequiredByFeature("GL_ARB_draw_elements_base_vertex")]
-		public static void DrawElementsInstancedBaseVertex(PrimitiveType mode, Int32 count, int type, IntPtr indices, Int32 instancecount, Int32 basevertex)
+		public static void DrawElementsInstancedBaseVertex(PrimitiveType mode, Int32 count, DrawElementsType type, IntPtr indices, Int32 instancecount, Int32 basevertex)
 		{
 			if        (Delegates.pglDrawElementsInstancedBaseVertex != null) {
-				Delegates.pglDrawElementsInstancedBaseVertex((int)mode, count, type, indices, instancecount, basevertex);
+				Delegates.pglDrawElementsInstancedBaseVertex((int)mode, count, (int)type, indices, instancecount, basevertex);
 				CallLog("glDrawElementsInstancedBaseVertex({0}, {1}, {2}, {3}, {4}, {5})", mode, count, type, indices, instancecount, basevertex);
 			} else if (Delegates.pglDrawElementsInstancedBaseVertexEXT != null) {
-				Delegates.pglDrawElementsInstancedBaseVertexEXT((int)mode, count, type, indices, instancecount, basevertex);
+				Delegates.pglDrawElementsInstancedBaseVertexEXT((int)mode, count, (int)type, indices, instancecount, basevertex);
 				CallLog("glDrawElementsInstancedBaseVertexEXT({0}, {1}, {2}, {3}, {4}, {5})", mode, count, type, indices, instancecount, basevertex);
 			} else if (Delegates.pglDrawElementsInstancedBaseVertexOES != null) {
-				Delegates.pglDrawElementsInstancedBaseVertexOES((int)mode, count, type, indices, instancecount, basevertex);
+				Delegates.pglDrawElementsInstancedBaseVertexOES((int)mode, count, (int)type, indices, instancecount, basevertex);
 				CallLog("glDrawElementsInstancedBaseVertexOES({0}, {1}, {2}, {3}, {4}, {5})", mode, count, type, indices, instancecount, basevertex);
 			} else
 				throw new NotImplementedException("glDrawElementsInstancedBaseVertex (and other aliases) are not implemented");
@@ -693,7 +693,7 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_3_2")]
 		[RequiredByFeature("GL_ARB_draw_elements_base_vertex")]
-		public static void DrawElementsInstancedBaseVertex(PrimitiveType mode, Int32 count, int type, Object indices, Int32 instancecount, Int32 basevertex)
+		public static void DrawElementsInstancedBaseVertex(PrimitiveType mode, Int32 count, DrawElementsType type, Object indices, Int32 instancecount, Int32 basevertex)
 		{
 			GCHandle pin_indices = GCHandle.Alloc(indices, GCHandleType.Pinned);
 			try {
@@ -728,7 +728,7 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_3_2")]
 		[RequiredByFeature("GL_ARB_draw_elements_base_vertex")]
-		public static void MultiDrawElementsBaseVertex(int mode, Int32[] count, int type, IntPtr[] indices, Int32 drawcount, Int32[] basevertex)
+		public static void MultiDrawElementsBaseVertex(int mode, Int32[] count, DrawElementsType type, IntPtr[] indices, Int32 drawcount, Int32[] basevertex)
 		{
 			unsafe {
 				fixed (Int32* p_count = count)
@@ -736,13 +736,13 @@ namespace OpenGL
 				fixed (Int32* p_basevertex = basevertex)
 				{
 					if        (Delegates.pglMultiDrawElementsBaseVertex != null) {
-						Delegates.pglMultiDrawElementsBaseVertex(mode, p_count, type, p_indices, drawcount, p_basevertex);
+						Delegates.pglMultiDrawElementsBaseVertex(mode, p_count, (int)type, p_indices, drawcount, p_basevertex);
 						CallLog("glMultiDrawElementsBaseVertex({0}, {1}, {2}, {3}, {4}, {5})", mode, count, type, indices, drawcount, basevertex);
 					} else if (Delegates.pglMultiDrawElementsBaseVertexEXT != null) {
-						Delegates.pglMultiDrawElementsBaseVertexEXT(mode, p_count, type, p_indices, drawcount, p_basevertex);
+						Delegates.pglMultiDrawElementsBaseVertexEXT(mode, p_count, (int)type, p_indices, drawcount, p_basevertex);
 						CallLog("glMultiDrawElementsBaseVertexEXT({0}, {1}, {2}, {3}, {4}, {5})", mode, count, type, indices, drawcount, basevertex);
 					} else if (Delegates.pglMultiDrawElementsBaseVertexOES != null) {
-						Delegates.pglMultiDrawElementsBaseVertexOES(mode, p_count, type, p_indices, drawcount, p_basevertex);
+						Delegates.pglMultiDrawElementsBaseVertexOES(mode, p_count, (int)type, p_indices, drawcount, p_basevertex);
 						CallLog("glMultiDrawElementsBaseVertexOES({0}, {1}, {2}, {3}, {4}, {5})", mode, count, type, indices, drawcount, basevertex);
 					} else
 						throw new NotImplementedException("glMultiDrawElementsBaseVertex (and other aliases) are not implemented");
@@ -754,19 +754,19 @@ namespace OpenGL
 		/// <summary>
 		/// specifiy the vertex to be used as the source of data for flat shaded varyings
 		/// </summary>
-		/// <param name="mode">
-		/// A <see cref="T:int"/>.
+		/// <param name="provokeMode">
+		/// Specifies the vertex to be used as the source of data for flat shaded varyings.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_3_2")]
 		[RequiredByFeature("GL_ARB_provoking_vertex")]
-		public static void ProvokingVertex(int mode)
+		public static void ProvokingVertex(int provokeMode)
 		{
 			if        (Delegates.pglProvokingVertex != null) {
-				Delegates.pglProvokingVertex(mode);
-				CallLog("glProvokingVertex({0})", mode);
+				Delegates.pglProvokingVertex(provokeMode);
+				CallLog("glProvokingVertex({0})", provokeMode);
 			} else if (Delegates.pglProvokingVertexEXT != null) {
-				Delegates.pglProvokingVertexEXT(mode);
-				CallLog("glProvokingVertexEXT({0})", mode);
+				Delegates.pglProvokingVertexEXT(provokeMode);
+				CallLog("glProvokingVertexEXT({0})", provokeMode);
 			} else
 				throw new NotImplementedException("glProvokingVertex (and other aliases) are not implemented");
 			DebugCheckErrors();
@@ -919,10 +919,40 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_3_2")]
 		[RequiredByFeature("GL_ARB_sync")]
-		public static void GetInteger64v(int pname, Int64[] data)
+		public static void Get(int pname, Int64[] data)
 		{
 			unsafe {
 				fixed (Int64* p_data = data)
+				{
+					if        (Delegates.pglGetInteger64v != null) {
+						Delegates.pglGetInteger64v(pname, p_data);
+						CallLog("glGetInteger64v({0}, {1})", pname, data);
+					} else if (Delegates.pglGetInteger64vAPPLE != null) {
+						Delegates.pglGetInteger64vAPPLE(pname, p_data);
+						CallLog("glGetInteger64vAPPLE({0}, {1})", pname, data);
+					} else
+						throw new NotImplementedException("glGetInteger64v (and other aliases) are not implemented");
+				}
+			}
+			DebugCheckErrors();
+		}
+
+		/// <summary>
+		/// return the value or values of a selected parameter
+		/// </summary>
+		/// <param name="pname">
+		/// Specifies the parameter value to be returned for non-indexed versions of glGet. The symbolic constants in the list below 
+		/// are accepted.
+		/// </param>
+		/// <param name="data">
+		/// Returns the value or values of the specified parameter.
+		/// </param>
+		[RequiredByFeature("GL_VERSION_3_2")]
+		[RequiredByFeature("GL_ARB_sync")]
+		public static void Get(int pname, out Int64 data)
+		{
+			unsafe {
+				fixed (Int64* p_data = &data)
 				{
 					if        (Delegates.pglGetInteger64v != null) {
 						Delegates.pglGetInteger64v(pname, p_data);
@@ -990,10 +1020,37 @@ namespace OpenGL
 		/// Returns the value or values of the specified parameter.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_3_2")]
-		public static void GetInteger64i_v(int target, UInt32 index, Int64[] data)
+		public static void Get(int target, UInt32 index, Int64[] data)
 		{
 			unsafe {
 				fixed (Int64* p_data = data)
+				{
+					Debug.Assert(Delegates.pglGetInteger64i_v != null, "pglGetInteger64i_v not implemented");
+					Delegates.pglGetInteger64i_v(target, index, p_data);
+					CallLog("glGetInteger64i_v({0}, {1}, {2})", target, index, data);
+				}
+			}
+			DebugCheckErrors();
+		}
+
+		/// <summary>
+		/// return the value or values of a selected parameter
+		/// </summary>
+		/// <param name="target">
+		/// Specifies the parameter value to be returned for indexed versions of glGet. The symbolic constants in the list below are 
+		/// accepted.
+		/// </param>
+		/// <param name="index">
+		/// Specifies the index of the particular element being queried.
+		/// </param>
+		/// <param name="data">
+		/// Returns the value or values of the specified parameter.
+		/// </param>
+		[RequiredByFeature("GL_VERSION_3_2")]
+		public static void Get(int target, UInt32 index, out Int64 data)
+		{
+			unsafe {
+				fixed (Int64* p_data = &data)
 				{
 					Debug.Assert(Delegates.pglGetInteger64i_v != null, "pglGetInteger64i_v not implemented");
 					Delegates.pglGetInteger64i_v(target, index, p_data);

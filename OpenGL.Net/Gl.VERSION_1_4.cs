@@ -504,17 +504,17 @@ namespace OpenGL
 		/// Specifies the size of the count and indices arrays.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_1_4")]
-		public static void MultiDrawElements(PrimitiveType mode, Int32[] count, int type, IntPtr[] indices, Int32 drawcount)
+		public static void MultiDrawElements(PrimitiveType mode, Int32[] count, DrawElementsType type, IntPtr[] indices, Int32 drawcount)
 		{
 			unsafe {
 				fixed (Int32* p_count = count)
 				fixed (IntPtr* p_indices = indices)
 				{
 					if        (Delegates.pglMultiDrawElements != null) {
-						Delegates.pglMultiDrawElements((int)mode, p_count, type, p_indices, drawcount);
+						Delegates.pglMultiDrawElements((int)mode, p_count, (int)type, p_indices, drawcount);
 						CallLog("glMultiDrawElements({0}, {1}, {2}, {3}, {4})", mode, count, type, indices, drawcount);
 					} else if (Delegates.pglMultiDrawElementsEXT != null) {
-						Delegates.pglMultiDrawElementsEXT((int)mode, p_count, type, p_indices, drawcount);
+						Delegates.pglMultiDrawElementsEXT((int)mode, p_count, (int)type, p_indices, drawcount);
 						CallLog("glMultiDrawElementsEXT({0}, {1}, {2}, {3}, {4})", mode, count, type, indices, drawcount);
 					} else
 						throw new NotImplementedException("glMultiDrawElements (and other aliases) are not implemented");

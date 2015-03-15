@@ -69,7 +69,7 @@ namespace OpenGL
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
 		/// <param name="type">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:DrawElementsType"/>.
 		/// </param>
 		/// <param name="indices">
 		/// A <see cref="T:IntPtr[]"/>.
@@ -81,7 +81,7 @@ namespace OpenGL
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		[RequiredByFeature("GL_IBM_multimode_draw_arrays")]
-		public static void MultiModeDrawElementsIBM(int[] mode, Int32[] count, int type, IntPtr[] indices, Int32 primcount, Int32 modestride)
+		public static void MultiModeDrawElementsIBM(int[] mode, Int32[] count, DrawElementsType type, IntPtr[] indices, Int32 primcount, Int32 modestride)
 		{
 			unsafe {
 				fixed (int* p_mode = mode)
@@ -89,7 +89,7 @@ namespace OpenGL
 				fixed (IntPtr* p_indices = indices)
 				{
 					Debug.Assert(Delegates.pglMultiModeDrawElementsIBM != null, "pglMultiModeDrawElementsIBM not implemented");
-					Delegates.pglMultiModeDrawElementsIBM(p_mode, p_count, type, p_indices, primcount, modestride);
+					Delegates.pglMultiModeDrawElementsIBM(p_mode, p_count, (int)type, p_indices, primcount, modestride);
 					CallLog("glMultiModeDrawElementsIBM({0}, {1}, {2}, {3}, {4}, {5})", mode, count, type, indices, primcount, modestride);
 				}
 			}

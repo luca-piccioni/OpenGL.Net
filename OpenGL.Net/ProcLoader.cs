@@ -215,9 +215,9 @@ namespace OpenGL
 		}
 
 		#endregion
-		
+
 		#region Procedure Logging
-		
+
 		/// <summary>
 		/// Flags controlling procedure logging.
 		/// </summary>

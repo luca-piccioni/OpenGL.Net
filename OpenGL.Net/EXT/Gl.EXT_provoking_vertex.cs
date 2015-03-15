@@ -52,15 +52,15 @@ namespace OpenGL
 		/// <summary>
 		/// Binding for glProvokingVertexEXT.
 		/// </summary>
-		/// <param name="mode">
+		/// <param name="provokeMode">
 		/// A <see cref="T:int"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_provoking_vertex")]
-		public static void ProvokingVertexEXT(int mode)
+		public static void ProvokingVertexEXT(int provokeMode)
 		{
 			Debug.Assert(Delegates.pglProvokingVertexEXT != null, "pglProvokingVertexEXT not implemented");
-			Delegates.pglProvokingVertexEXT(mode);
-			CallLog("glProvokingVertexEXT({0})", mode);
+			Delegates.pglProvokingVertexEXT(provokeMode);
+			CallLog("glProvokingVertexEXT({0})", provokeMode);
 			DebugCheckErrors();
 		}
 

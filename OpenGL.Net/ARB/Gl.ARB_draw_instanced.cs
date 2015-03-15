@@ -59,7 +59,7 @@ namespace OpenGL
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="type">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:DrawElementsType"/>.
 		/// </param>
 		/// <param name="indices">
 		/// A <see cref="T:IntPtr"/>.
@@ -68,10 +68,10 @@ namespace OpenGL
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		[RequiredByFeature("GL_ARB_draw_instanced")]
-		public static void DrawElementsInstancedARB(PrimitiveType mode, Int32 count, int type, IntPtr indices, Int32 primcount)
+		public static void DrawElementsInstancedARB(PrimitiveType mode, Int32 count, DrawElementsType type, IntPtr indices, Int32 primcount)
 		{
 			Debug.Assert(Delegates.pglDrawElementsInstancedARB != null, "pglDrawElementsInstancedARB not implemented");
-			Delegates.pglDrawElementsInstancedARB((int)mode, count, type, indices, primcount);
+			Delegates.pglDrawElementsInstancedARB((int)mode, count, (int)type, indices, primcount);
 			CallLog("glDrawElementsInstancedARB({0}, {1}, {2}, {3}, {4})", mode, count, type, indices, primcount);
 			DebugCheckErrors();
 		}
@@ -86,7 +86,7 @@ namespace OpenGL
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="type">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:DrawElementsType"/>.
 		/// </param>
 		/// <param name="indices">
 		/// A <see cref="T:Object"/>.
@@ -95,7 +95,7 @@ namespace OpenGL
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		[RequiredByFeature("GL_ARB_draw_instanced")]
-		public static void DrawElementsInstancedARB(PrimitiveType mode, Int32 count, int type, Object indices, Int32 primcount)
+		public static void DrawElementsInstancedARB(PrimitiveType mode, Int32 count, DrawElementsType type, Object indices, Int32 primcount)
 		{
 			GCHandle pin_indices = GCHandle.Alloc(indices, GCHandleType.Pinned);
 			try {

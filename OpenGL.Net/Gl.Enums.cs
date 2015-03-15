@@ -938,6 +938,28 @@ namespace OpenGL
 	}
 
 	/// <summary>
+	/// Strongly typed enumeration DrawElementsType.
+	/// </summary>
+	public enum DrawElementsType
+	{
+		/// <summary>
+		/// Strongly typed for value GL_UNSIGNED_BYTE.
+		/// </summary>
+		UnsignedByte = Gl.UNSIGNED_BYTE,
+
+		/// <summary>
+		/// Strongly typed for value GL_UNSIGNED_SHORT.
+		/// </summary>
+		UnsignedShort = Gl.UNSIGNED_SHORT,
+
+		/// <summary>
+		/// Strongly typed for value GL_UNSIGNED_INT.
+		/// </summary>
+		UnsignedInt = Gl.UNSIGNED_INT,
+
+	}
+
+	/// <summary>
 	/// Strongly typed enumeration EnableCap.
 	/// </summary>
 	public enum EnableCap

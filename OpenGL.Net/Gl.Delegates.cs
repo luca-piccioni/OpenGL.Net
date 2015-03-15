@@ -8101,11 +8101,11 @@ namespace OpenGL
 
 			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glProvokingVertex", ExactSpelling = true)]
-			internal extern static void glProvokingVertex(int mode);
+			internal extern static void glProvokingVertex(int provokeMode);
 
 			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glProvokingVertexEXT", ExactSpelling = true)]
-			internal extern static void glProvokingVertexEXT(int mode);
+			internal extern static void glProvokingVertexEXT(int provokeMode);
 
 			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glPushAttrib", ExactSpelling = true)]
