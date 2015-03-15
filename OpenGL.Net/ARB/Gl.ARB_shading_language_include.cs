@@ -104,7 +104,7 @@ namespace OpenGL
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_ARB_shading_language_include")]
-		public static void CompileShaderIncludeARB(UInt32 shader, String[] path, params Int32[] length)
+		public static void CompileShaderIncludeARB(UInt32 shader, String[] path, Int32[] length)
 		{
 			unsafe {
 				fixed (Int32* p_length = length)

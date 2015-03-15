@@ -315,7 +315,7 @@ namespace OpenGL
 		/// A <see cref="T:UInt32[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_AMD_performance_monitor")]
-		public static void SelectPerfMonitorCountersAMD(UInt32 monitor, bool enable, UInt32 group, params UInt32[] counterList)
+		public static void SelectPerfMonitorCountersAMD(UInt32 monitor, bool enable, UInt32 group, UInt32[] counterList)
 		{
 			unsafe {
 				fixed (UInt32* p_counterList = counterList)

@@ -381,37 +381,6 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// retrieve the range and precision for numeric formats supported by the shader compiler
-		/// </summary>
-		/// <param name="shadertype">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="precisiontype">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="range">
-		/// Specifies the address of array of two integers into which encodings of the implementation's numeric range are returned.
-		/// </param>
-		/// <param name="precision">
-		/// Specifies the address of an integer into which the numeric precision of the implementation is written.
-		/// </param>
-		[RequiredByFeature("GL_VERSION_4_1")]
-		[RequiredByFeature("GL_ARB_ES2_compatibility")]
-		public static void GetShaderPrecisionFormat(int shadertype, int precisiontype, out Int32 range, out Int32 precision)
-		{
-			unsafe {
-				fixed (Int32* p_range = &range)
-				fixed (Int32* p_precision = &precision)
-				{
-					Debug.Assert(Delegates.pglGetShaderPrecisionFormat != null, "pglGetShaderPrecisionFormat not implemented");
-					Delegates.pglGetShaderPrecisionFormat(shadertype, precisiontype, p_range, p_precision);
-					CallLog("glGetShaderPrecisionFormat({0}, {1}, {2}, {3})", shadertype, precisiontype, range, precision);
-				}
-			}
-			DebugCheckErrors();
-		}
-
-		/// <summary>
 		/// specify mapping of depth values from normalized device coordinates to window coordinates
 		/// </summary>
 		/// <param name="n">
@@ -1928,7 +1897,7 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_4_1")]
 		[RequiredByFeature("GL_ARB_separate_shader_objects")]
-		public static void ProgramUniformMatrix2x3(UInt32 program, Int32 location, bool transpose, params float[] value)
+		public static void ProgramUniformMatrix2x3(UInt32 program, Int32 location, bool transpose, float[] value)
 		{
 			unsafe {
 				fixed (float* p_value = value)
@@ -1963,7 +1932,7 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_4_1")]
 		[RequiredByFeature("GL_ARB_separate_shader_objects")]
-		public static void ProgramUniformMatrix3x2(UInt32 program, Int32 location, bool transpose, params float[] value)
+		public static void ProgramUniformMatrix3x2(UInt32 program, Int32 location, bool transpose, float[] value)
 		{
 			unsafe {
 				fixed (float* p_value = value)
@@ -1998,7 +1967,7 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_4_1")]
 		[RequiredByFeature("GL_ARB_separate_shader_objects")]
-		public static void ProgramUniformMatrix2x4(UInt32 program, Int32 location, bool transpose, params float[] value)
+		public static void ProgramUniformMatrix2x4(UInt32 program, Int32 location, bool transpose, float[] value)
 		{
 			unsafe {
 				fixed (float* p_value = value)
@@ -2033,7 +2002,7 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_4_1")]
 		[RequiredByFeature("GL_ARB_separate_shader_objects")]
-		public static void ProgramUniformMatrix4x2(UInt32 program, Int32 location, bool transpose, params float[] value)
+		public static void ProgramUniformMatrix4x2(UInt32 program, Int32 location, bool transpose, float[] value)
 		{
 			unsafe {
 				fixed (float* p_value = value)
@@ -2068,7 +2037,7 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_4_1")]
 		[RequiredByFeature("GL_ARB_separate_shader_objects")]
-		public static void ProgramUniformMatrix3x4(UInt32 program, Int32 location, bool transpose, params float[] value)
+		public static void ProgramUniformMatrix3x4(UInt32 program, Int32 location, bool transpose, float[] value)
 		{
 			unsafe {
 				fixed (float* p_value = value)
@@ -2103,7 +2072,7 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_4_1")]
 		[RequiredByFeature("GL_ARB_separate_shader_objects")]
-		public static void ProgramUniformMatrix4x3(UInt32 program, Int32 location, bool transpose, params float[] value)
+		public static void ProgramUniformMatrix4x3(UInt32 program, Int32 location, bool transpose, float[] value)
 		{
 			unsafe {
 				fixed (float* p_value = value)
@@ -2136,7 +2105,7 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_4_1")]
 		[RequiredByFeature("GL_ARB_separate_shader_objects")]
-		public static void ProgramUniformMatrix2x3(UInt32 program, Int32 location, bool transpose, params double[] value)
+		public static void ProgramUniformMatrix2x3(UInt32 program, Int32 location, bool transpose, double[] value)
 		{
 			unsafe {
 				fixed (double* p_value = value)
@@ -2169,7 +2138,7 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_4_1")]
 		[RequiredByFeature("GL_ARB_separate_shader_objects")]
-		public static void ProgramUniformMatrix3x2(UInt32 program, Int32 location, bool transpose, params double[] value)
+		public static void ProgramUniformMatrix3x2(UInt32 program, Int32 location, bool transpose, double[] value)
 		{
 			unsafe {
 				fixed (double* p_value = value)
@@ -2202,7 +2171,7 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_4_1")]
 		[RequiredByFeature("GL_ARB_separate_shader_objects")]
-		public static void ProgramUniformMatrix2x4(UInt32 program, Int32 location, bool transpose, params double[] value)
+		public static void ProgramUniformMatrix2x4(UInt32 program, Int32 location, bool transpose, double[] value)
 		{
 			unsafe {
 				fixed (double* p_value = value)
@@ -2235,7 +2204,7 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_4_1")]
 		[RequiredByFeature("GL_ARB_separate_shader_objects")]
-		public static void ProgramUniformMatrix4x2(UInt32 program, Int32 location, bool transpose, params double[] value)
+		public static void ProgramUniformMatrix4x2(UInt32 program, Int32 location, bool transpose, double[] value)
 		{
 			unsafe {
 				fixed (double* p_value = value)
@@ -2268,7 +2237,7 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_4_1")]
 		[RequiredByFeature("GL_ARB_separate_shader_objects")]
-		public static void ProgramUniformMatrix3x4(UInt32 program, Int32 location, bool transpose, params double[] value)
+		public static void ProgramUniformMatrix3x4(UInt32 program, Int32 location, bool transpose, double[] value)
 		{
 			unsafe {
 				fixed (double* p_value = value)
@@ -2301,7 +2270,7 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_4_1")]
 		[RequiredByFeature("GL_ARB_separate_shader_objects")]
-		public static void ProgramUniformMatrix4x3(UInt32 program, Int32 location, bool transpose, params double[] value)
+		public static void ProgramUniformMatrix4x3(UInt32 program, Int32 location, bool transpose, double[] value)
 		{
 			unsafe {
 				fixed (double* p_value = value)

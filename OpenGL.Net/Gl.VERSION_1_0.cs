@@ -6643,7 +6643,7 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2")]
-		public static void PixelMap(PixelMap map, Int32 mapsize, params float[] values)
+		public static void PixelMap(PixelMap map, Int32 mapsize, float[] values)
 		{
 			Debug.Assert(values.Length >= mapsize);
 			unsafe {
@@ -6674,7 +6674,7 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2")]
-		public static void PixelMap(PixelMap map, params float[] values)
+		public static void PixelMap(PixelMap map, float[] values)
 		{
 			unsafe {
 				fixed (float* p_values = values)
@@ -6704,7 +6704,7 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2")]
-		public static void PixelMap(PixelMap map, Int32 mapsize, params UInt32[] values)
+		public static void PixelMap(PixelMap map, Int32 mapsize, UInt32[] values)
 		{
 			Debug.Assert(values.Length >= mapsize);
 			unsafe {
@@ -6735,7 +6735,7 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2")]
-		public static void PixelMap(PixelMap map, params UInt32[] values)
+		public static void PixelMap(PixelMap map, UInt32[] values)
 		{
 			unsafe {
 				fixed (UInt32* p_values = values)
@@ -6765,7 +6765,7 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2")]
-		public static void PixelMap(PixelMap map, Int32 mapsize, params UInt16[] values)
+		public static void PixelMap(PixelMap map, Int32 mapsize, UInt16[] values)
 		{
 			Debug.Assert(values.Length >= mapsize);
 			unsafe {
@@ -6796,7 +6796,7 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2")]
-		public static void PixelMap(PixelMap map, params UInt16[] values)
+		public static void PixelMap(PixelMap map, UInt16[] values)
 		{
 			unsafe {
 				fixed (UInt16* p_values = values)

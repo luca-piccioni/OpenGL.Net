@@ -79,7 +79,7 @@ namespace OpenGL
 		/// A <see cref="T:float[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_SGIS_texture_filter4")]
-		public static void TexFilterFuncSGIS(TextureTarget target, int filter, Int32 n, params float[] weights)
+		public static void TexFilterFuncSGIS(TextureTarget target, int filter, Int32 n, float[] weights)
 		{
 			Debug.Assert(weights.Length >= n);
 			unsafe {
@@ -109,7 +109,7 @@ namespace OpenGL
 		/// A <see cref="T:float[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_SGIS_texture_filter4")]
-		public static void TexFilterFuncSGIS(TextureTarget target, int filter, params float[] weights)
+		public static void TexFilterFuncSGIS(TextureTarget target, int filter, float[] weights)
 		{
 			unsafe {
 				fixed (float* p_weights = weights)

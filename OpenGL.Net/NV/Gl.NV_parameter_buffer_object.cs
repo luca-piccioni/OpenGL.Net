@@ -74,7 +74,7 @@ namespace OpenGL
 		/// A <see cref="T:float[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_parameter_buffer_object")]
-		public static void ProgramBufferParametersNV(int target, UInt32 bindingIndex, UInt32 wordIndex, params float[] @params)
+		public static void ProgramBufferParametersNV(int target, UInt32 bindingIndex, UInt32 wordIndex, float[] @params)
 		{
 			unsafe {
 				fixed (float* p_params = @params)
@@ -106,7 +106,7 @@ namespace OpenGL
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_parameter_buffer_object")]
-		public static void ProgramBufferParametersIivNV(int target, UInt32 bindingIndex, UInt32 wordIndex, params Int32[] @params)
+		public static void ProgramBufferParametersIivNV(int target, UInt32 bindingIndex, UInt32 wordIndex, Int32[] @params)
 		{
 			unsafe {
 				fixed (Int32* p_params = @params)
@@ -138,7 +138,7 @@ namespace OpenGL
 		/// A <see cref="T:UInt32[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_parameter_buffer_object")]
-		public static void ProgramBufferParametersIuivNV(int target, UInt32 bindingIndex, UInt32 wordIndex, params UInt32[] @params)
+		public static void ProgramBufferParametersIuivNV(int target, UInt32 bindingIndex, UInt32 wordIndex, UInt32[] @params)
 		{
 			unsafe {
 				fixed (UInt32* p_params = @params)

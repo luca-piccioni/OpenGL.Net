@@ -191,7 +191,7 @@ namespace OpenGL
 		/// A <see cref="T:UInt64[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_bindless_texture")]
-		public static void UniformHandleNV(Int32 location, params UInt64[] value)
+		public static void UniformHandleNV(Int32 location, UInt64[] value)
 		{
 			unsafe {
 				fixed (UInt64* p_value = value)
@@ -241,7 +241,7 @@ namespace OpenGL
 		/// A <see cref="T:UInt64[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_bindless_texture")]
-		public static void ProgramUniformHandleNV(UInt32 program, Int32 location, params UInt64[] values)
+		public static void ProgramUniformHandleNV(UInt32 program, Int32 location, UInt64[] values)
 		{
 			unsafe {
 				fixed (UInt64* p_values = values)

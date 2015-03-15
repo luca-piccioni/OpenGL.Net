@@ -1116,7 +1116,7 @@ namespace OpenGL
 		/// A <see cref="T:IntPtr[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_OES_fixed_point")]
-		public static void FeedbackBufferOES(int type, params IntPtr[] buffer)
+		public static void FeedbackBufferOES(int type, IntPtr[] buffer)
 		{
 			unsafe {
 				fixed (IntPtr* p_buffer = buffer)
@@ -1756,7 +1756,7 @@ namespace OpenGL
 		/// A <see cref="T:IntPtr[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_OES_fixed_point")]
-		public static void PixelMap(int map, params IntPtr[] values)
+		public static void PixelMap(int map, IntPtr[] values)
 		{
 			unsafe {
 				fixed (IntPtr* p_values = values)
@@ -1836,7 +1836,7 @@ namespace OpenGL
 		/// A <see cref="T:IntPtr[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_OES_fixed_point")]
-		public static void PrioritizeTexturesOES(UInt32[] textures, params IntPtr[] priorities)
+		public static void PrioritizeTexturesOES(UInt32[] textures, IntPtr[] priorities)
 		{
 			unsafe {
 				fixed (UInt32* p_textures = textures)

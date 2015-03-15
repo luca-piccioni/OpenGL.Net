@@ -893,33 +893,6 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// return parameters of a buffer object
-		/// </summary>
-		/// <param name="target">
-		/// Specifies the target to which the buffer object is bound for glGetBufferParameteriv and glGetBufferParameteri64v. Must 
-		/// be one of the buffer binding targets in the following table:
-		/// </param>
-		/// <param name="pname">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="params">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		[RequiredByFeature("GL_VERSION_1_5")]
-		public static void GetBufferParameter(BufferTargetARB target, int pname, out Int32 @params)
-		{
-			unsafe {
-				fixed (Int32* p_params = &@params)
-				{
-					Debug.Assert(Delegates.pglGetBufferParameteriv != null, "pglGetBufferParameteriv not implemented");
-					Delegates.pglGetBufferParameteriv((int)target, pname, p_params);
-					CallLog("glGetBufferParameteriv({0}, {1}, {2})", target, pname, @params);
-				}
-			}
-			DebugCheckErrors();
-		}
-
-		/// <summary>
 		/// return the pointer to a mapped buffer object's data store
 		/// </summary>
 		/// <param name="target">

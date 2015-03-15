@@ -177,7 +177,7 @@ namespace OpenGL
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		[RequiredByFeature("GL_APPLE_element_array")]
-		public static void MultiDrawElementArrayAPPLE(PrimitiveType mode, Int32[] first, params Int32[] count)
+		public static void MultiDrawElementArrayAPPLE(PrimitiveType mode, Int32[] first, Int32[] count)
 		{
 			unsafe {
 				fixed (Int32* p_first = first)
@@ -251,7 +251,7 @@ namespace OpenGL
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		[RequiredByFeature("GL_APPLE_element_array")]
-		public static void MultiDrawRangeElementArrayAPPLE(PrimitiveType mode, UInt32 start, UInt32 end, Int32[] first, params Int32[] count)
+		public static void MultiDrawRangeElementArrayAPPLE(PrimitiveType mode, UInt32 start, UInt32 end, Int32[] first, Int32[] count)
 		{
 			unsafe {
 				fixed (Int32* p_first = first)

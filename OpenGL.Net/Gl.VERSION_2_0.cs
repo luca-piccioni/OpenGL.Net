@@ -1395,6 +1395,35 @@ namespace OpenGL
 		}
 
 		/// <summary>
+		/// Return a generic vertex attribute parameter
+		/// </summary>
+		/// <param name="index">
+		/// Specifies the generic vertex attribute parameter to be queried.
+		/// </param>
+		/// <param name="pname">
+		/// Specifies the symbolic name of the vertex attribute parameter to be queried. Accepted values are 
+		/// GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING, GL_VERTEX_ATTRIB_ARRAY_ENABLED, GL_VERTEX_ATTRIB_ARRAY_SIZE, 
+		/// GL_VERTEX_ATTRIB_ARRAY_STRIDE, GL_VERTEX_ATTRIB_ARRAY_TYPE, GL_VERTEX_ATTRIB_ARRAY_NORMALIZED, 
+		/// GL_VERTEX_ATTRIB_ARRAY_INTEGER, GL_VERTEX_ATTRIB_ARRAY_DIVISOR, or GL_CURRENT_VERTEX_ATTRIB.
+		/// </param>
+		/// <param name="params">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		[RequiredByFeature("GL_VERSION_2_0")]
+		public static void GetVertexAttrib(UInt32 index, int pname, out Int32 @params)
+		{
+			unsafe {
+				fixed (Int32* p_params = &@params)
+				{
+					Debug.Assert(Delegates.pglGetVertexAttribiv != null, "pglGetVertexAttribiv not implemented");
+					Delegates.pglGetVertexAttribiv(index, pname, p_params);
+					CallLog("glGetVertexAttribiv({0}, {1}, {2})", index, pname, @params);
+				}
+			}
+			DebugCheckErrors();
+		}
+
+		/// <summary>
 		/// return the address of the specified generic vertex attribute pointer
 		/// </summary>
 		/// <param name="index">
@@ -1514,7 +1543,7 @@ namespace OpenGL
 		/// Specifies an array of string lengths.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_2_0")]
-		public static void ShaderSource(UInt32 shader, String[] @string, params Int32[] length)
+		public static void ShaderSource(UInt32 shader, String[] @string, Int32[] length)
 		{
 			unsafe {
 				fixed (Int32* p_length = length)

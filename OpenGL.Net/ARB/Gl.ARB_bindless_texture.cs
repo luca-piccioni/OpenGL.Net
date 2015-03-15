@@ -198,7 +198,7 @@ namespace OpenGL
 		/// A <see cref="T:UInt64[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_ARB_bindless_texture")]
-		public static void UniformHandleARB(Int32 location, params UInt64[] value)
+		public static void UniformHandleARB(Int32 location, UInt64[] value)
 		{
 			unsafe {
 				fixed (UInt64* p_value = value)
@@ -248,7 +248,7 @@ namespace OpenGL
 		/// A <see cref="T:UInt64[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_ARB_bindless_texture")]
-		public static void ProgramUniformHandleARB(UInt32 program, Int32 location, params UInt64[] values)
+		public static void ProgramUniformHandleARB(UInt32 program, Int32 location, UInt64[] values)
 		{
 			unsafe {
 				fixed (UInt64* p_values = values)

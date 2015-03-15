@@ -110,7 +110,7 @@ namespace OpenGL
 		/// A <see cref="T:byte[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_ARB_matrix_palette")]
-		public static void MatrixIndexARB(params byte[] indices)
+		public static void MatrixIndexARB(byte[] indices)
 		{
 			unsafe {
 				fixed (byte* p_indices = indices)
@@ -133,7 +133,7 @@ namespace OpenGL
 		/// A <see cref="T:UInt16[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_ARB_matrix_palette")]
-		public static void MatrixIndexARB(params UInt16[] indices)
+		public static void MatrixIndexARB(UInt16[] indices)
 		{
 			unsafe {
 				fixed (UInt16* p_indices = indices)
@@ -156,7 +156,7 @@ namespace OpenGL
 		/// A <see cref="T:UInt32[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_ARB_matrix_palette")]
-		public static void MatrixIndexARB(params UInt32[] indices)
+		public static void MatrixIndexARB(UInt32[] indices)
 		{
 			unsafe {
 				fixed (UInt32* p_indices = indices)

@@ -769,7 +769,7 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_AMD_gpu_shader_int64")]
 		[RequiredByFeature("GL_NV_gpu_shader5")]
-		public static void ProgramUniform1NV(UInt32 program, Int32 location, params Int64[] value)
+		public static void ProgramUniform1NV(UInt32 program, Int32 location, Int64[] value)
 		{
 			unsafe {
 				fixed (Int64* p_value = value)
@@ -995,7 +995,7 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_AMD_gpu_shader_int64")]
 		[RequiredByFeature("GL_NV_gpu_shader5")]
-		public static void ProgramUniform1NV(UInt32 program, Int32 location, params UInt64[] value)
+		public static void ProgramUniform1NV(UInt32 program, Int32 location, UInt64[] value)
 		{
 			unsafe {
 				fixed (UInt64* p_value = value)

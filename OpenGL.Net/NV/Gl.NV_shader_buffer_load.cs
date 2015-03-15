@@ -330,7 +330,7 @@ namespace OpenGL
 		/// A <see cref="T:UInt64[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_shader_buffer_load")]
-		public static void ProgramUniformNV(UInt32 program, Int32 location, params UInt64[] value)
+		public static void ProgramUniformNV(UInt32 program, Int32 location, UInt64[] value)
 		{
 			unsafe {
 				fixed (UInt64* p_value = value)

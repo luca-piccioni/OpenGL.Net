@@ -3195,7 +3195,7 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ARB_framebuffer_object")]
-		public static void DeleteRenderbuffer(params UInt32[] renderbuffers)
+		public static void DeleteRenderbuffer(UInt32[] renderbuffers)
 		{
 			unsafe {
 				fixed (UInt32* p_renderbuffers = renderbuffers)

@@ -96,7 +96,7 @@ namespace OpenGL
 		/// A <see cref="T:UInt32[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_AMD_name_gen_delete")]
-		public static void DeleteNameAMD(int identifier, params UInt32[] names)
+		public static void DeleteNameAMD(int identifier, UInt32[] names)
 		{
 			unsafe {
 				fixed (UInt32* p_names = names)

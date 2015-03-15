@@ -63,7 +63,7 @@ namespace OpenGL
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_SGIX_instruments")]
-		public static void InstrumentsBufferSGIX(params Int32[] buffer)
+		public static void InstrumentsBufferSGIX(Int32[] buffer)
 		{
 			unsafe {
 				fixed (Int32* p_buffer = buffer)

@@ -687,7 +687,7 @@ namespace OpenGL
 		/// A <see cref="T:byte[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_vertex_program")]
-		public static void LoadProgramNV(int target, UInt32 id, params byte[] program)
+		public static void LoadProgramNV(int target, UInt32 id, byte[] program)
 		{
 			unsafe {
 				fixed (byte* p_program = program)
@@ -880,7 +880,7 @@ namespace OpenGL
 		/// A <see cref="T:UInt32[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_vertex_program")]
-		public static void RequestResidentProgramsNV(params UInt32[] programs)
+		public static void RequestResidentProgramsNV(UInt32[] programs)
 		{
 			unsafe {
 				fixed (UInt32* p_programs = programs)
@@ -986,7 +986,7 @@ namespace OpenGL
 		/// A <see cref="T:double[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_vertex_program")]
-		public static void VertexAttribs1NV(UInt32 index, params double[] v)
+		public static void VertexAttribs1NV(UInt32 index, double[] v)
 		{
 			unsafe {
 				fixed (double* p_v = v)
@@ -1012,7 +1012,7 @@ namespace OpenGL
 		/// A <see cref="T:float[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_vertex_program")]
-		public static void VertexAttribs1NV(UInt32 index, params float[] v)
+		public static void VertexAttribs1NV(UInt32 index, float[] v)
 		{
 			unsafe {
 				fixed (float* p_v = v)
@@ -1038,7 +1038,7 @@ namespace OpenGL
 		/// A <see cref="T:Int16[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_vertex_program")]
-		public static void VertexAttribs1NV(UInt32 index, params Int16[] v)
+		public static void VertexAttribs1NV(UInt32 index, Int16[] v)
 		{
 			unsafe {
 				fixed (Int16* p_v = v)

@@ -5735,7 +5735,7 @@ namespace OpenGL
 		/// A <see cref="T:int[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access")]
-		public static void FramebufferDrawBuffersEXT(UInt32 framebuffer, params int[] bufs)
+		public static void FramebufferDrawBuffersEXT(UInt32 framebuffer, int[] bufs)
 		{
 			unsafe {
 				fixed (int* p_bufs = bufs)
@@ -6859,7 +6859,7 @@ namespace OpenGL
 		/// A <see cref="T:double[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access")]
-		public static void ProgramUniform1EXT(UInt32 program, Int32 location, params double[] value)
+		public static void ProgramUniform1EXT(UInt32 program, Int32 location, double[] value)
 		{
 			unsafe {
 				fixed (double* p_value = value)
@@ -6888,7 +6888,7 @@ namespace OpenGL
 		/// A <see cref="T:double[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access")]
-		public static void ProgramUniform2EXT(UInt32 program, Int32 location, params double[] value)
+		public static void ProgramUniform2EXT(UInt32 program, Int32 location, double[] value)
 		{
 			unsafe {
 				fixed (double* p_value = value)
@@ -6917,7 +6917,7 @@ namespace OpenGL
 		/// A <see cref="T:double[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access")]
-		public static void ProgramUniform3EXT(UInt32 program, Int32 location, params double[] value)
+		public static void ProgramUniform3EXT(UInt32 program, Int32 location, double[] value)
 		{
 			unsafe {
 				fixed (double* p_value = value)
@@ -6946,7 +6946,7 @@ namespace OpenGL
 		/// A <see cref="T:double[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access")]
-		public static void ProgramUniform4EXT(UInt32 program, Int32 location, params double[] value)
+		public static void ProgramUniform4EXT(UInt32 program, Int32 location, double[] value)
 		{
 			unsafe {
 				fixed (double* p_value = value)
@@ -6978,7 +6978,7 @@ namespace OpenGL
 		/// A <see cref="T:double[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access")]
-		public static void ProgramUniformMatrix2EXT(UInt32 program, Int32 location, bool transpose, params double[] value)
+		public static void ProgramUniformMatrix2EXT(UInt32 program, Int32 location, bool transpose, double[] value)
 		{
 			unsafe {
 				fixed (double* p_value = value)
@@ -7010,7 +7010,7 @@ namespace OpenGL
 		/// A <see cref="T:double[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access")]
-		public static void ProgramUniformMatrix3EXT(UInt32 program, Int32 location, bool transpose, params double[] value)
+		public static void ProgramUniformMatrix3EXT(UInt32 program, Int32 location, bool transpose, double[] value)
 		{
 			unsafe {
 				fixed (double* p_value = value)
@@ -7042,7 +7042,7 @@ namespace OpenGL
 		/// A <see cref="T:double[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access")]
-		public static void ProgramUniformMatrix4EXT(UInt32 program, Int32 location, bool transpose, params double[] value)
+		public static void ProgramUniformMatrix4EXT(UInt32 program, Int32 location, bool transpose, double[] value)
 		{
 			unsafe {
 				fixed (double* p_value = value)
@@ -7074,7 +7074,7 @@ namespace OpenGL
 		/// A <see cref="T:double[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access")]
-		public static void ProgramUniformMatrix2x3EXT(UInt32 program, Int32 location, bool transpose, params double[] value)
+		public static void ProgramUniformMatrix2x3EXT(UInt32 program, Int32 location, bool transpose, double[] value)
 		{
 			unsafe {
 				fixed (double* p_value = value)
@@ -7106,7 +7106,7 @@ namespace OpenGL
 		/// A <see cref="T:double[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access")]
-		public static void ProgramUniformMatrix2x4EXT(UInt32 program, Int32 location, bool transpose, params double[] value)
+		public static void ProgramUniformMatrix2x4EXT(UInt32 program, Int32 location, bool transpose, double[] value)
 		{
 			unsafe {
 				fixed (double* p_value = value)
@@ -7138,7 +7138,7 @@ namespace OpenGL
 		/// A <see cref="T:double[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access")]
-		public static void ProgramUniformMatrix3x2EXT(UInt32 program, Int32 location, bool transpose, params double[] value)
+		public static void ProgramUniformMatrix3x2EXT(UInt32 program, Int32 location, bool transpose, double[] value)
 		{
 			unsafe {
 				fixed (double* p_value = value)
@@ -7170,7 +7170,7 @@ namespace OpenGL
 		/// A <see cref="T:double[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access")]
-		public static void ProgramUniformMatrix3x4EXT(UInt32 program, Int32 location, bool transpose, params double[] value)
+		public static void ProgramUniformMatrix3x4EXT(UInt32 program, Int32 location, bool transpose, double[] value)
 		{
 			unsafe {
 				fixed (double* p_value = value)
@@ -7202,7 +7202,7 @@ namespace OpenGL
 		/// A <see cref="T:double[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access")]
-		public static void ProgramUniformMatrix4x2EXT(UInt32 program, Int32 location, bool transpose, params double[] value)
+		public static void ProgramUniformMatrix4x2EXT(UInt32 program, Int32 location, bool transpose, double[] value)
 		{
 			unsafe {
 				fixed (double* p_value = value)
@@ -7234,7 +7234,7 @@ namespace OpenGL
 		/// A <see cref="T:double[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access")]
-		public static void ProgramUniformMatrix4x3EXT(UInt32 program, Int32 location, bool transpose, params double[] value)
+		public static void ProgramUniformMatrix4x3EXT(UInt32 program, Int32 location, bool transpose, double[] value)
 		{
 			unsafe {
 				fixed (double* p_value = value)

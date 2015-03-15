@@ -289,7 +289,7 @@ namespace OpenGL
 		/// A <see cref="T:sbyte[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_ARB_vertex_blend")]
-		public static void WeightARB(params sbyte[] weights)
+		public static void WeightARB(sbyte[] weights)
 		{
 			unsafe {
 				fixed (sbyte* p_weights = weights)
@@ -312,7 +312,7 @@ namespace OpenGL
 		/// A <see cref="T:Int16[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_ARB_vertex_blend")]
-		public static void WeightARB(params Int16[] weights)
+		public static void WeightARB(Int16[] weights)
 		{
 			unsafe {
 				fixed (Int16* p_weights = weights)
@@ -335,7 +335,7 @@ namespace OpenGL
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_ARB_vertex_blend")]
-		public static void WeightARB(params Int32[] weights)
+		public static void WeightARB(Int32[] weights)
 		{
 			unsafe {
 				fixed (Int32* p_weights = weights)
@@ -358,7 +358,7 @@ namespace OpenGL
 		/// A <see cref="T:float[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_ARB_vertex_blend")]
-		public static void WeightARB(params float[] weights)
+		public static void WeightARB(float[] weights)
 		{
 			unsafe {
 				fixed (float* p_weights = weights)
@@ -381,7 +381,7 @@ namespace OpenGL
 		/// A <see cref="T:double[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_ARB_vertex_blend")]
-		public static void WeightARB(params double[] weights)
+		public static void WeightARB(double[] weights)
 		{
 			unsafe {
 				fixed (double* p_weights = weights)
@@ -404,7 +404,7 @@ namespace OpenGL
 		/// A <see cref="T:byte[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_ARB_vertex_blend")]
-		public static void WeightARB(params byte[] weights)
+		public static void WeightARB(byte[] weights)
 		{
 			unsafe {
 				fixed (byte* p_weights = weights)
@@ -427,7 +427,7 @@ namespace OpenGL
 		/// A <see cref="T:UInt16[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_ARB_vertex_blend")]
-		public static void WeightARB(params UInt16[] weights)
+		public static void WeightARB(UInt16[] weights)
 		{
 			unsafe {
 				fixed (UInt16* p_weights = weights)
@@ -450,7 +450,7 @@ namespace OpenGL
 		/// A <see cref="T:UInt32[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_ARB_vertex_blend")]
-		public static void WeightARB(params UInt32[] weights)
+		public static void WeightARB(UInt32[] weights)
 		{
 			unsafe {
 				fixed (UInt32* p_weights = weights)

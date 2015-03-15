@@ -1477,7 +1477,7 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_4_0")]
 		[RequiredByFeature("GL_ARB_shader_subroutine")]
-		public static void UniformSubroutines(int shadertype, params UInt32[] indices)
+		public static void UniformSubroutines(int shadertype, UInt32[] indices)
 		{
 			unsafe {
 				fixed (UInt32* p_indices = indices)
@@ -1626,7 +1626,7 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_4_0")]
 		[RequiredByFeature("GL_ARB_transform_feedback2")]
-		public static void DeleteTransformFeedback(params UInt32[] ids)
+		public static void DeleteTransformFeedback(UInt32[] ids)
 		{
 			unsafe {
 				fixed (UInt32* p_ids = ids)

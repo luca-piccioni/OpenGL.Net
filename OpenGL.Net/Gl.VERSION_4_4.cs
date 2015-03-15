@@ -390,7 +390,7 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_4_4")]
 		[RequiredByFeature("GL_ARB_multi_bind")]
-		public static void BindBuffersBase(int target, UInt32 first, params UInt32[] buffers)
+		public static void BindBuffersBase(int target, UInt32 first, UInt32[] buffers)
 		{
 			unsafe {
 				fixed (UInt32* p_buffers = buffers)
@@ -427,7 +427,7 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_4_4")]
 		[RequiredByFeature("GL_ARB_multi_bind")]
-		public static void BindBuffersRange(int target, UInt32 first, UInt32[] buffers, IntPtr[] offsets, params UInt32[] sizes)
+		public static void BindBuffersRange(int target, UInt32 first, UInt32[] buffers, IntPtr[] offsets, UInt32[] sizes)
 		{
 			unsafe {
 				fixed (UInt32* p_buffers = buffers)

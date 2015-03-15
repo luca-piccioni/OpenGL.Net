@@ -585,7 +585,7 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_ARB_fragment_program")]
 		[RequiredByFeature("GL_ARB_vertex_program")]
-		public static void DeleteProgramsARB(params UInt32[] programs)
+		public static void DeleteProgramsARB(UInt32[] programs)
 		{
 			unsafe {
 				fixed (UInt32* p_programs = programs)
