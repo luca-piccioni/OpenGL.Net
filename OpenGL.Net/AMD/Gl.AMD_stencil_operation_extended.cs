@@ -53,16 +53,16 @@ namespace OpenGL
 		/// Binding for glStencilOpValueAMD.
 		/// </summary>
 		/// <param name="face">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:StencilFaceDirection"/>.
 		/// </param>
 		/// <param name="value">
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
 		[RequiredByFeature("GL_AMD_stencil_operation_extended")]
-		public static void StencilOpAMD(int face, UInt32 value)
+		public static void StencilOpAMD(StencilFaceDirection face, UInt32 value)
 		{
 			Debug.Assert(Delegates.pglStencilOpValueAMD != null, "pglStencilOpValueAMD not implemented");
-			Delegates.pglStencilOpValueAMD(face, value);
+			Delegates.pglStencilOpValueAMD((int)face, value);
 			CallLog("glStencilOpValueAMD({0}, {1})", face, value);
 			DebugCheckErrors();
 		}

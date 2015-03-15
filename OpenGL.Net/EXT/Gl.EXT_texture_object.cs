@@ -56,7 +56,7 @@ namespace OpenGL
 		/// A <see cref="T:bool[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_texture_object")]
-		public static bool AreTexturesResidentEXT(UInt32[] textures, params bool[] residences)
+		public static bool AreTexturesResidentEXT(UInt32[] textures, bool[] residences)
 		{
 			bool retValue;
 

@@ -1290,7 +1290,7 @@ namespace OpenGL
 		/// A <see cref="T:IntPtr[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_OES_fixed_point")]
-		public static void GetPixelMap(int map, params IntPtr[] values)
+		public static void GetPixelMap(int map, IntPtr[] values)
 		{
 			unsafe {
 				fixed (IntPtr* p_values = values)

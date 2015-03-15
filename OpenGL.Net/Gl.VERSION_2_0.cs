@@ -704,10 +704,10 @@ namespace OpenGL
 		/// The initial value is GL_KEEP.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_2_0")]
-		public static void StencilOpSeparate(int face, StencilOp sfail, StencilOp dpfail, StencilOp dppass)
+		public static void StencilOpSeparate(StencilFaceDirection face, StencilOp sfail, StencilOp dpfail, StencilOp dppass)
 		{
 			Debug.Assert(Delegates.pglStencilOpSeparate != null, "pglStencilOpSeparate not implemented");
-			Delegates.pglStencilOpSeparate(face, (int)sfail, (int)dpfail, (int)dppass);
+			Delegates.pglStencilOpSeparate((int)face, (int)sfail, (int)dpfail, (int)dppass);
 			CallLog("glStencilOpSeparate({0}, {1}, {2}, {3})", face, sfail, dpfail, dppass);
 			DebugCheckErrors();
 		}
@@ -731,10 +731,10 @@ namespace OpenGL
 		/// initial value is all 1's.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_2_0")]
-		public static void StencilFuncSeparate(int face, StencilFunction func, Int32 @ref, UInt32 mask)
+		public static void StencilFuncSeparate(StencilFaceDirection face, StencilFunction func, Int32 @ref, UInt32 mask)
 		{
 			Debug.Assert(Delegates.pglStencilFuncSeparate != null, "pglStencilFuncSeparate not implemented");
-			Delegates.pglStencilFuncSeparate(face, (int)func, @ref, mask);
+			Delegates.pglStencilFuncSeparate((int)face, (int)func, @ref, mask);
 			CallLog("glStencilFuncSeparate({0}, {1}, {2}, {3})", face, func, @ref, mask);
 			DebugCheckErrors();
 		}
@@ -751,10 +751,10 @@ namespace OpenGL
 		/// 1's.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_2_0")]
-		public static void StencilMaskSeparate(int face, UInt32 mask)
+		public static void StencilMaskSeparate(StencilFaceDirection face, UInt32 mask)
 		{
 			Debug.Assert(Delegates.pglStencilMaskSeparate != null, "pglStencilMaskSeparate not implemented");
-			Delegates.pglStencilMaskSeparate(face, mask);
+			Delegates.pglStencilMaskSeparate((int)face, mask);
 			CallLog("glStencilMaskSeparate({0}, {1})", face, mask);
 			DebugCheckErrors();
 		}
@@ -1025,7 +1025,7 @@ namespace OpenGL
 		/// Specifies an array that is used to return the names of attached shader objects.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_2_0")]
-		public static void GetAttachedShaders(UInt32 program, out Int32 count, params UInt32[] shaders)
+		public static void GetAttachedShaders(UInt32 program, out Int32 count, UInt32[] shaders)
 		{
 			unsafe {
 				fixed (Int32* p_count = &count)
@@ -1139,6 +1139,33 @@ namespace OpenGL
 		{
 			unsafe {
 				fixed (Int32* p_params = @params)
+				{
+					Debug.Assert(Delegates.pglGetShaderiv != null, "pglGetShaderiv not implemented");
+					Delegates.pglGetShaderiv(shader, pname, p_params);
+					CallLog("glGetShaderiv({0}, {1}, {2})", shader, pname, @params);
+				}
+			}
+			DebugCheckErrors();
+		}
+
+		/// <summary>
+		/// Returns a parameter from a shader object
+		/// </summary>
+		/// <param name="shader">
+		/// Specifies the shader object to be queried.
+		/// </param>
+		/// <param name="pname">
+		/// Specifies the object parameter. Accepted symbolic names are GL_SHADER_TYPE, GL_DELETE_STATUS, GL_COMPILE_STATUS, 
+		/// GL_INFO_LOG_LENGTH, GL_SHADER_SOURCE_LENGTH.
+		/// </param>
+		/// <param name="params">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		[RequiredByFeature("GL_VERSION_2_0")]
+		public static void GetShader(UInt32 shader, int pname, out Int32 @params)
+		{
+			unsafe {
+				fixed (Int32* p_params = &@params)
 				{
 					Debug.Assert(Delegates.pglGetShaderiv != null, "pglGetShaderiv not implemented");
 					Delegates.pglGetShaderiv(shader, pname, p_params);

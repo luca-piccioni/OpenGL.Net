@@ -6753,6 +6753,28 @@ namespace OpenGL
 	}
 
 	/// <summary>
+	/// Strongly typed enumeration StencilFaceDirection.
+	/// </summary>
+	public enum StencilFaceDirection
+	{
+		/// <summary>
+		/// Strongly typed for value GL_FRONT.
+		/// </summary>
+		Front = Gl.FRONT,
+
+		/// <summary>
+		/// Strongly typed for value GL_BACK.
+		/// </summary>
+		Back = Gl.BACK,
+
+		/// <summary>
+		/// Strongly typed for value GL_FRONT_AND_BACK.
+		/// </summary>
+		FrontAndBack = Gl.FRONT_AND_BACK,
+
+	}
+
+	/// <summary>
 	/// Strongly typed enumeration StencilFunction.
 	/// </summary>
 	public enum StencilFunction

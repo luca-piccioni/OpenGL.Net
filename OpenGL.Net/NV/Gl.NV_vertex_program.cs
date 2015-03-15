@@ -488,7 +488,7 @@ namespace OpenGL
 		/// A <see cref="T:bool[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_vertex_program")]
-		public static bool AreProgramsResidentNV(UInt32[] programs, params bool[] residences)
+		public static bool AreProgramsResidentNV(UInt32[] programs, bool[] residences)
 		{
 			bool retValue;
 

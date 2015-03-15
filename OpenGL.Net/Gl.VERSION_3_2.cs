@@ -935,7 +935,7 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_3_2")]
 		[RequiredByFeature("GL_ARB_sync")]
-		public static void GetSync(int sync, int pname, out Int32 length, params Int32[] values)
+		public static void GetSync(int sync, int pname, out Int32 length, Int32[] values)
 		{
 			unsafe {
 				fixed (Int32* p_length = &length)

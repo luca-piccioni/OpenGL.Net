@@ -1024,7 +1024,7 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_4_2")]
 		[RequiredByFeature("GL_ARB_internalformat_query")]
-		public static void GetInternalformat(int target, int internalformat, int pname, params Int32[] @params)
+		public static void GetInternalformat(int target, int internalformat, int pname, Int32[] @params)
 		{
 			unsafe {
 				fixed (Int32* p_params = @params)

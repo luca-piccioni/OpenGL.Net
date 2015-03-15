@@ -5649,7 +5649,7 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_1_1")]
 		[RemovedByFeature("GL_VERSION_3_2")]
-		public static bool AreTexturesResident(UInt32[] textures, params bool[] residences)
+		public static bool AreTexturesResident(UInt32[] textures, bool[] residences)
 		{
 			bool retValue;
 

@@ -236,7 +236,7 @@ namespace OpenGL
 		/// A <see cref="T:UInt32[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_ARB_shader_objects")]
-		public static void GetAttachedObjectARB(UInt32 containerObj, out Int32 count, params UInt32[] obj)
+		public static void GetAttachedObjectARB(UInt32 containerObj, out Int32 count, UInt32[] obj)
 		{
 			unsafe {
 				fixed (Int32* p_count = &count)

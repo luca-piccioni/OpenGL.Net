@@ -2157,7 +2157,7 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ARB_internalformat_query2")]
-		public static void GetInternalformat(int target, int internalformat, int pname, params Int64[] @params)
+		public static void GetInternalformat(int target, int internalformat, int pname, Int64[] @params)
 		{
 			unsafe {
 				fixed (Int64* p_params = @params)
@@ -2569,7 +2569,7 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ARB_program_interface_query")]
-		public static void GetProgram(UInt32 program, int programInterface, UInt32 index, int[] props, out Int32 length, params Int32[] @params)
+		public static void GetProgram(UInt32 program, int programInterface, UInt32 index, int[] props, out Int32 length, Int32[] @params)
 		{
 			unsafe {
 				fixed (int* p_props = props)

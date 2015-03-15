@@ -80,7 +80,7 @@ namespace OpenGL
 		/// A <see cref="T:UInt32[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_AMD_performance_monitor")]
-		public static void GetPerfMonitorGroupsAMD(out Int32 numGroups, params UInt32[] groups)
+		public static void GetPerfMonitorGroupsAMD(out Int32 numGroups, UInt32[] groups)
 		{
 			unsafe {
 				fixed (Int32* p_numGroups = &numGroups)
@@ -113,7 +113,7 @@ namespace OpenGL
 		/// A <see cref="T:UInt32[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_AMD_performance_monitor")]
-		public static void GetPerfMonitorCountersAMD(UInt32 group, out Int32 numCounters, out Int32 maxActiveCounters, params UInt32[] counters)
+		public static void GetPerfMonitorCountersAMD(UInt32 group, out Int32 numCounters, out Int32 maxActiveCounters, UInt32[] counters)
 		{
 			unsafe {
 				fixed (Int32* p_numCounters = &numCounters)
