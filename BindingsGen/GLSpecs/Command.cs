@@ -222,6 +222,12 @@ namespace BindingsGen.GLSpecs
 		/// </param>
 		internal void GenerateDelegate(SourceStreamWriter sw, RegistryContext ctx)
 		{
+			if (Aliases.Count > 0) {
+				sw.WriteLine("[AliasOf(\"{0}\")]", ImportName);
+				foreach (Command aliasOf in Aliases)
+					sw.WriteLine("[AliasOf(\"{0}\")]", aliasOf.ImportName);
+			}
+
 			// No sure if it is really necessary
 			sw.WriteLine("[SuppressUnmanagedCodeSecurity()]");
 

@@ -85,6 +85,12 @@ namespace BindingsGen.GLSpecs
 		public Enumerant EnumAlias;
 
 		/// <summary>
+		/// Symbols aliased.
+		/// </summary>
+		[XmlIgnore]
+		public readonly List<Enumerant> AliasOf = new List<Enumerant>();
+
+		/// <summary>
 		/// Determine whether this enumerant is deprecated.
 		/// </summary>
 		public bool IsDeprecated
@@ -255,6 +261,9 @@ namespace BindingsGen.GLSpecs
 				
 				sw.WriteLine("/// </remarks>");
 			}
+
+			foreach (Enumerant aliasOf in AliasOf)
+				sw.WriteLine("[AliasOf(\"{0}\"]", aliasOf.Name);
 
 			foreach (IFeature feature in RequiredBy)
 				sw.WriteLine("[RequiredByFeature(\"{0}\")]", feature.Name);

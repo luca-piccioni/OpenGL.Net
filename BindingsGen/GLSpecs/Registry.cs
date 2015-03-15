@@ -230,8 +230,10 @@ namespace BindingsGen.GLSpecs
 						}
 
 						if (enumerantAlias != null) {
-							if (enumerantAlias.Value == enumerant.Value)
+							if (enumerantAlias.Value == enumerant.Value) {
 								enumerant.EnumAlias = enumerantAlias;
+								enumerantAlias.AliasOf.Add(enumerant);
+							}
 						}
 					}
 				}
