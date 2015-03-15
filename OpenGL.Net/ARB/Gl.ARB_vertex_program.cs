@@ -28,12 +28,14 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_VERTEX_PROGRAM_ARB symbol.
 		/// </summary>
+		[AliasOf("GL_VERTEX_PROGRAM_NV"]
 		[RequiredByFeature("GL_ARB_vertex_program")]
 		public const int VERTEX_PROGRAM_ARB = 0x8620;
 
 		/// <summary>
 		/// Value of GL_PROGRAM_LENGTH_ARB symbol.
 		/// </summary>
+		[AliasOf("GL_PROGRAM_LENGTH_NV"]
 		[RequiredByFeature("GL_ARB_fragment_program")]
 		[RequiredByFeature("GL_ARB_vertex_program")]
 		public const int PROGRAM_LENGTH_ARB = 0x8627;
@@ -41,6 +43,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_PROGRAM_STRING_ARB symbol.
 		/// </summary>
+		[AliasOf("GL_PROGRAM_STRING_NV"]
 		[RequiredByFeature("GL_ARB_fragment_program")]
 		[RequiredByFeature("GL_ARB_vertex_program")]
 		public const int PROGRAM_STRING_ARB = 0x8628;
@@ -62,6 +65,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_CURRENT_MATRIX_STACK_DEPTH_ARB symbol.
 		/// </summary>
+		[AliasOf("GL_CURRENT_MATRIX_STACK_DEPTH_NV"]
 		[RequiredByFeature("GL_ARB_fragment_program")]
 		[RequiredByFeature("GL_ARB_vertex_program")]
 		public const int CURRENT_MATRIX_STACK_DEPTH_ARB = 0x8640;
@@ -69,6 +73,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_CURRENT_MATRIX_ARB symbol.
 		/// </summary>
+		[AliasOf("GL_CURRENT_MATRIX_NV"]
 		[RequiredByFeature("GL_ARB_fragment_program")]
 		[RequiredByFeature("GL_ARB_vertex_program")]
 		public const int CURRENT_MATRIX_ARB = 0x8641;
@@ -76,6 +81,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_PROGRAM_ERROR_POSITION_ARB symbol.
 		/// </summary>
+		[AliasOf("GL_PROGRAM_ERROR_POSITION_NV"]
 		[RequiredByFeature("GL_ARB_fragment_program")]
 		[RequiredByFeature("GL_ARB_vertex_program")]
 		public const int PROGRAM_ERROR_POSITION_ARB = 0x864B;
@@ -90,6 +96,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_PROGRAM_ERROR_STRING_ARB symbol.
 		/// </summary>
+		[AliasOf("GL_PROGRAM_ERROR_STRING_NV"]
 		[RequiredByFeature("GL_ARB_fragment_program")]
 		[RequiredByFeature("GL_ARB_vertex_program")]
 		public const int PROGRAM_ERROR_STRING_ARB = 0x8874;

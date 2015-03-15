@@ -16,543 +16,678 @@
 // Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301
 // USA
 
+#pragma warning disable 649, 1572, 1573
+
 using System;
 using System.Security;
 using System.Runtime.InteropServices;
+using System.Text;
 
 namespace OpenGL
 {
 	public unsafe partial class Glx
 	{
-		internal unsafe static partial class Imports
+		internal unsafe static partial class Delegates
 		{
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "glXAssociateDMPbufferSGIX", ExactSpelling = true)]
-			internal extern static unsafe bool glXAssociateDMPbufferSGIX(IntPtr dpy, IntPtr pbuffer, IntPtr @params, IntPtr dmbuffer);
+			internal unsafe delegate bool glXAssociateDMPbufferSGIX(IntPtr dpy, IntPtr pbuffer, IntPtr @params, IntPtr dmbuffer);
+			[ThreadStatic]
+			internal static glXAssociateDMPbufferSGIX pglXAssociateDMPbufferSGIX;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "glXBindChannelToWindowSGIX", ExactSpelling = true)]
-			internal extern static unsafe int glXBindChannelToWindowSGIX(IntPtr display, int screen, int channel, IntPtr window);
+			internal unsafe delegate int glXBindChannelToWindowSGIX(IntPtr display, int screen, int channel, IntPtr window);
+			[ThreadStatic]
+			internal static glXBindChannelToWindowSGIX pglXBindChannelToWindowSGIX;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "glXBindHyperpipeSGIX", ExactSpelling = true)]
-			internal extern static unsafe int glXBindHyperpipeSGIX(IntPtr dpy, int hpId);
+			internal unsafe delegate int glXBindHyperpipeSGIX(IntPtr dpy, int hpId);
+			[ThreadStatic]
+			internal static glXBindHyperpipeSGIX pglXBindHyperpipeSGIX;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "glXBindSwapBarrierNV", ExactSpelling = true)]
-			internal extern static unsafe bool glXBindSwapBarrierNV(IntPtr dpy, UInt32 group, UInt32 barrier);
+			internal unsafe delegate bool glXBindSwapBarrierNV(IntPtr dpy, UInt32 group, UInt32 barrier);
+			[ThreadStatic]
+			internal static glXBindSwapBarrierNV pglXBindSwapBarrierNV;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "glXBindSwapBarrierSGIX", ExactSpelling = true)]
-			internal extern static unsafe void glXBindSwapBarrierSGIX(IntPtr dpy, IntPtr drawable, int barrier);
+			internal unsafe delegate void glXBindSwapBarrierSGIX(IntPtr dpy, IntPtr drawable, int barrier);
+			[ThreadStatic]
+			internal static glXBindSwapBarrierSGIX pglXBindSwapBarrierSGIX;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "glXBindTexImageEXT", ExactSpelling = true)]
-			internal extern static unsafe void glXBindTexImageEXT(IntPtr dpy, IntPtr drawable, int buffer, int* attrib_list);
+			internal unsafe delegate void glXBindTexImageEXT(IntPtr dpy, IntPtr drawable, int buffer, int* attrib_list);
+			[ThreadStatic]
+			internal static glXBindTexImageEXT pglXBindTexImageEXT;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "glXBindVideoCaptureDeviceNV", ExactSpelling = true)]
-			internal extern static unsafe int glXBindVideoCaptureDeviceNV(IntPtr dpy, UInt32 video_capture_slot, IntPtr device);
+			internal unsafe delegate int glXBindVideoCaptureDeviceNV(IntPtr dpy, UInt32 video_capture_slot, IntPtr device);
+			[ThreadStatic]
+			internal static glXBindVideoCaptureDeviceNV pglXBindVideoCaptureDeviceNV;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "glXBindVideoDeviceNV", ExactSpelling = true)]
-			internal extern static unsafe int glXBindVideoDeviceNV(IntPtr dpy, UInt32 video_slot, UInt32 video_device, int* attrib_list);
+			internal unsafe delegate int glXBindVideoDeviceNV(IntPtr dpy, UInt32 video_slot, UInt32 video_device, int* attrib_list);
+			[ThreadStatic]
+			internal static glXBindVideoDeviceNV pglXBindVideoDeviceNV;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "glXBindVideoImageNV", ExactSpelling = true)]
-			internal extern static unsafe int glXBindVideoImageNV(IntPtr dpy, IntPtr VideoDevice, IntPtr pbuf, int iVideoBuffer);
+			internal unsafe delegate int glXBindVideoImageNV(IntPtr dpy, IntPtr VideoDevice, IntPtr pbuf, int iVideoBuffer);
+			[ThreadStatic]
+			internal static glXBindVideoImageNV pglXBindVideoImageNV;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "glXBlitContextFramebufferAMD", ExactSpelling = true)]
-			internal extern static unsafe void glXBlitContextFramebufferAMD(IntPtr dstCtx, Int32 srcX0, Int32 srcY0, Int32 srcX1, Int32 srcY1, Int32 dstX0, Int32 dstY0, Int32 dstX1, Int32 dstY1, uint mask, int filter);
+			internal unsafe delegate void glXBlitContextFramebufferAMD(IntPtr dstCtx, Int32 srcX0, Int32 srcY0, Int32 srcX1, Int32 srcY1, Int32 dstX0, Int32 dstY0, Int32 dstX1, Int32 dstY1, uint mask, int filter);
+			[ThreadStatic]
+			internal static glXBlitContextFramebufferAMD pglXBlitContextFramebufferAMD;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "glXChannelRectSGIX", ExactSpelling = true)]
-			internal extern static unsafe int glXChannelRectSGIX(IntPtr display, int screen, int channel, int x, int y, int w, int h);
+			internal unsafe delegate int glXChannelRectSGIX(IntPtr display, int screen, int channel, int x, int y, int w, int h);
+			[ThreadStatic]
+			internal static glXChannelRectSGIX pglXChannelRectSGIX;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "glXChannelRectSyncSGIX", ExactSpelling = true)]
-			internal extern static unsafe int glXChannelRectSyncSGIX(IntPtr display, int screen, int channel, int synctype);
+			internal unsafe delegate int glXChannelRectSyncSGIX(IntPtr display, int screen, int channel, int synctype);
+			[ThreadStatic]
+			internal static glXChannelRectSyncSGIX pglXChannelRectSyncSGIX;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "glXChooseFBConfig", ExactSpelling = true)]
-			internal extern static unsafe IntPtr glXChooseFBConfig(IntPtr dpy, int screen, int* attrib_list, int* nelements);
+			internal unsafe delegate IntPtr glXChooseFBConfig(IntPtr dpy, int screen, int* attrib_list, int* nelements);
+			[ThreadStatic]
+			internal static glXChooseFBConfig pglXChooseFBConfig;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "glXChooseFBConfigSGIX", ExactSpelling = true)]
-			internal extern static unsafe IntPtr glXChooseFBConfigSGIX(IntPtr dpy, int screen, int* attrib_list, int* nelements);
+			internal unsafe delegate IntPtr glXChooseFBConfigSGIX(IntPtr dpy, int screen, int* attrib_list, int* nelements);
+			[ThreadStatic]
+			internal static glXChooseFBConfigSGIX pglXChooseFBConfigSGIX;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "glXChooseVisual", ExactSpelling = true)]
-			internal extern static unsafe Glx.XVisualInfo glXChooseVisual(IntPtr dpy, int screen, int* attribList);
+			internal unsafe delegate Glx.XVisualInfo glXChooseVisual(IntPtr dpy, int screen, int* attribList);
+			[ThreadStatic]
+			internal static glXChooseVisual pglXChooseVisual;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "glXCopyBufferSubDataNV", ExactSpelling = true)]
-			internal extern static unsafe void glXCopyBufferSubDataNV(IntPtr dpy, IntPtr readCtx, IntPtr writeCtx, int readTarget, int writeTarget, IntPtr readOffset, IntPtr writeOffset, UInt32 size);
+			internal unsafe delegate void glXCopyBufferSubDataNV(IntPtr dpy, IntPtr readCtx, IntPtr writeCtx, int readTarget, int writeTarget, IntPtr readOffset, IntPtr writeOffset, UInt32 size);
+			[ThreadStatic]
+			internal static glXCopyBufferSubDataNV pglXCopyBufferSubDataNV;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "glXNamedCopyBufferSubDataNV", ExactSpelling = true)]
-			internal extern static unsafe void glXNamedCopyBufferSubDataNV(IntPtr dpy, IntPtr readCtx, IntPtr writeCtx, UInt32 readBuffer, UInt32 writeBuffer, IntPtr readOffset, IntPtr writeOffset, UInt32 size);
+			internal unsafe delegate void glXNamedCopyBufferSubDataNV(IntPtr dpy, IntPtr readCtx, IntPtr writeCtx, UInt32 readBuffer, UInt32 writeBuffer, IntPtr readOffset, IntPtr writeOffset, UInt32 size);
+			[ThreadStatic]
+			internal static glXNamedCopyBufferSubDataNV pglXNamedCopyBufferSubDataNV;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "glXCopyContext", ExactSpelling = true)]
-			internal extern static unsafe void glXCopyContext(IntPtr dpy, IntPtr src, IntPtr dst, UInt32 mask);
+			internal unsafe delegate void glXCopyContext(IntPtr dpy, IntPtr src, IntPtr dst, UInt32 mask);
+			[ThreadStatic]
+			internal static glXCopyContext pglXCopyContext;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "glXCopyImageSubDataNV", ExactSpelling = true)]
-			internal extern static unsafe void glXCopyImageSubDataNV(IntPtr dpy, IntPtr srcCtx, UInt32 srcName, int srcTarget, Int32 srcLevel, Int32 srcX, Int32 srcY, Int32 srcZ, IntPtr dstCtx, UInt32 dstName, int dstTarget, Int32 dstLevel, Int32 dstX, Int32 dstY, Int32 dstZ, Int32 width, Int32 height, Int32 depth);
+			internal unsafe delegate void glXCopyImageSubDataNV(IntPtr dpy, IntPtr srcCtx, UInt32 srcName, int srcTarget, Int32 srcLevel, Int32 srcX, Int32 srcY, Int32 srcZ, IntPtr dstCtx, UInt32 dstName, int dstTarget, Int32 dstLevel, Int32 dstX, Int32 dstY, Int32 dstZ, Int32 width, Int32 height, Int32 depth);
+			[ThreadStatic]
+			internal static glXCopyImageSubDataNV pglXCopyImageSubDataNV;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "glXCopySubBufferMESA", ExactSpelling = true)]
-			internal extern static unsafe void glXCopySubBufferMESA(IntPtr dpy, IntPtr drawable, int x, int y, int width, int height);
+			internal unsafe delegate void glXCopySubBufferMESA(IntPtr dpy, IntPtr drawable, int x, int y, int width, int height);
+			[ThreadStatic]
+			internal static glXCopySubBufferMESA pglXCopySubBufferMESA;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "glXCreateAssociatedContextAMD", ExactSpelling = true)]
-			internal extern static unsafe IntPtr glXCreateAssociatedContextAMD(UInt32 id, IntPtr share_list);
+			internal unsafe delegate IntPtr glXCreateAssociatedContextAMD(UInt32 id, IntPtr share_list);
+			[ThreadStatic]
+			internal static glXCreateAssociatedContextAMD pglXCreateAssociatedContextAMD;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "glXCreateAssociatedContextAttribsAMD", ExactSpelling = true)]
-			internal extern static unsafe IntPtr glXCreateAssociatedContextAttribsAMD(UInt32 id, IntPtr share_context, int* attribList);
+			internal unsafe delegate IntPtr glXCreateAssociatedContextAttribsAMD(UInt32 id, IntPtr share_context, int* attribList);
+			[ThreadStatic]
+			internal static glXCreateAssociatedContextAttribsAMD pglXCreateAssociatedContextAttribsAMD;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "glXCreateContextAttribsARB", ExactSpelling = true)]
-			internal extern static unsafe IntPtr glXCreateContextAttribsARB(IntPtr dpy, IntPtr config, IntPtr share_context, bool direct, int* attrib_list);
+			internal unsafe delegate IntPtr glXCreateContextAttribsARB(IntPtr dpy, IntPtr config, IntPtr share_context, bool direct, int* attrib_list);
+			[ThreadStatic]
+			internal static glXCreateContextAttribsARB pglXCreateContextAttribsARB;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "glXCreateContext", ExactSpelling = true)]
-			internal extern static unsafe IntPtr glXCreateContext(IntPtr dpy, Glx.XVisualInfo vis, IntPtr shareList, bool direct);
+			internal unsafe delegate IntPtr glXCreateContext(IntPtr dpy, Glx.XVisualInfo vis, IntPtr shareList, bool direct);
+			[ThreadStatic]
+			internal static glXCreateContext pglXCreateContext;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "glXCreateContextWithConfigSGIX", ExactSpelling = true)]
-			internal extern static unsafe IntPtr glXCreateContextWithConfigSGIX(IntPtr dpy, IntPtr config, int render_type, IntPtr share_list, bool direct);
+			internal unsafe delegate IntPtr glXCreateContextWithConfigSGIX(IntPtr dpy, IntPtr config, int render_type, IntPtr share_list, bool direct);
+			[ThreadStatic]
+			internal static glXCreateContextWithConfigSGIX pglXCreateContextWithConfigSGIX;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "glXCreateGLXPbufferSGIX", ExactSpelling = true)]
-			internal extern static unsafe IntPtr glXCreateGLXPbufferSGIX(IntPtr dpy, IntPtr config, UInt32 width, UInt32 height, int* attrib_list);
+			internal unsafe delegate IntPtr glXCreateGLXPbufferSGIX(IntPtr dpy, IntPtr config, UInt32 width, UInt32 height, int* attrib_list);
+			[ThreadStatic]
+			internal static glXCreateGLXPbufferSGIX pglXCreateGLXPbufferSGIX;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "glXCreateGLXPixmap", ExactSpelling = true)]
-			internal extern static unsafe IntPtr glXCreateGLXPixmap(IntPtr dpy, Glx.XVisualInfo visual, IntPtr pixmap);
+			internal unsafe delegate IntPtr glXCreateGLXPixmap(IntPtr dpy, Glx.XVisualInfo visual, IntPtr pixmap);
+			[ThreadStatic]
+			internal static glXCreateGLXPixmap pglXCreateGLXPixmap;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "glXCreateGLXPixmapMESA", ExactSpelling = true)]
-			internal extern static unsafe IntPtr glXCreateGLXPixmapMESA(IntPtr dpy, Glx.XVisualInfo visual, IntPtr pixmap, IntPtr cmap);
+			internal unsafe delegate IntPtr glXCreateGLXPixmapMESA(IntPtr dpy, Glx.XVisualInfo visual, IntPtr pixmap, IntPtr cmap);
+			[ThreadStatic]
+			internal static glXCreateGLXPixmapMESA pglXCreateGLXPixmapMESA;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "glXCreateGLXPixmapWithConfigSGIX", ExactSpelling = true)]
-			internal extern static unsafe IntPtr glXCreateGLXPixmapWithConfigSGIX(IntPtr dpy, IntPtr config, IntPtr pixmap);
+			internal unsafe delegate IntPtr glXCreateGLXPixmapWithConfigSGIX(IntPtr dpy, IntPtr config, IntPtr pixmap);
+			[ThreadStatic]
+			internal static glXCreateGLXPixmapWithConfigSGIX pglXCreateGLXPixmapWithConfigSGIX;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "glXCreateGLXVideoSourceSGIX", ExactSpelling = true)]
-			internal extern static unsafe IntPtr glXCreateGLXVideoSourceSGIX(IntPtr display, int screen, IntPtr server, IntPtr path, int nodeClass, IntPtr drainNode);
+			internal unsafe delegate IntPtr glXCreateGLXVideoSourceSGIX(IntPtr display, int screen, IntPtr server, IntPtr path, int nodeClass, IntPtr drainNode);
+			[ThreadStatic]
+			internal static glXCreateGLXVideoSourceSGIX pglXCreateGLXVideoSourceSGIX;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "glXCreateNewContext", ExactSpelling = true)]
-			internal extern static unsafe IntPtr glXCreateNewContext(IntPtr dpy, IntPtr config, int render_type, IntPtr share_list, bool direct);
+			internal unsafe delegate IntPtr glXCreateNewContext(IntPtr dpy, IntPtr config, int render_type, IntPtr share_list, bool direct);
+			[ThreadStatic]
+			internal static glXCreateNewContext pglXCreateNewContext;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "glXCreatePbuffer", ExactSpelling = true)]
-			internal extern static unsafe IntPtr glXCreatePbuffer(IntPtr dpy, IntPtr config, int* attrib_list);
+			internal unsafe delegate IntPtr glXCreatePbuffer(IntPtr dpy, IntPtr config, int* attrib_list);
+			[ThreadStatic]
+			internal static glXCreatePbuffer pglXCreatePbuffer;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "glXCreatePixmap", ExactSpelling = true)]
-			internal extern static unsafe IntPtr glXCreatePixmap(IntPtr dpy, IntPtr config, IntPtr pixmap, int* attrib_list);
+			internal unsafe delegate IntPtr glXCreatePixmap(IntPtr dpy, IntPtr config, IntPtr pixmap, int* attrib_list);
+			[ThreadStatic]
+			internal static glXCreatePixmap pglXCreatePixmap;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "glXCreateWindow", ExactSpelling = true)]
-			internal extern static unsafe IntPtr glXCreateWindow(IntPtr dpy, IntPtr config, IntPtr win, int* attrib_list);
+			internal unsafe delegate IntPtr glXCreateWindow(IntPtr dpy, IntPtr config, IntPtr win, int* attrib_list);
+			[ThreadStatic]
+			internal static glXCreateWindow pglXCreateWindow;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "glXCushionSGI", ExactSpelling = true)]
-			internal extern static unsafe void glXCushionSGI(IntPtr dpy, IntPtr window, float cushion);
+			internal unsafe delegate void glXCushionSGI(IntPtr dpy, IntPtr window, float cushion);
+			[ThreadStatic]
+			internal static glXCushionSGI pglXCushionSGI;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "glXDelayBeforeSwapNV", ExactSpelling = true)]
-			internal extern static unsafe bool glXDelayBeforeSwapNV(IntPtr dpy, IntPtr drawable, float seconds);
+			internal unsafe delegate bool glXDelayBeforeSwapNV(IntPtr dpy, IntPtr drawable, float seconds);
+			[ThreadStatic]
+			internal static glXDelayBeforeSwapNV pglXDelayBeforeSwapNV;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "glXDeleteAssociatedContextAMD", ExactSpelling = true)]
-			internal extern static unsafe bool glXDeleteAssociatedContextAMD(IntPtr ctx);
+			internal unsafe delegate bool glXDeleteAssociatedContextAMD(IntPtr ctx);
+			[ThreadStatic]
+			internal static glXDeleteAssociatedContextAMD pglXDeleteAssociatedContextAMD;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "glXDestroyContext", ExactSpelling = true)]
-			internal extern static unsafe void glXDestroyContext(IntPtr dpy, IntPtr ctx);
+			internal unsafe delegate void glXDestroyContext(IntPtr dpy, IntPtr ctx);
+			[ThreadStatic]
+			internal static glXDestroyContext pglXDestroyContext;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "glXDestroyGLXPbufferSGIX", ExactSpelling = true)]
-			internal extern static unsafe void glXDestroyGLXPbufferSGIX(IntPtr dpy, IntPtr pbuf);
+			internal unsafe delegate void glXDestroyGLXPbufferSGIX(IntPtr dpy, IntPtr pbuf);
+			[ThreadStatic]
+			internal static glXDestroyGLXPbufferSGIX pglXDestroyGLXPbufferSGIX;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "glXDestroyGLXPixmap", ExactSpelling = true)]
-			internal extern static unsafe void glXDestroyGLXPixmap(IntPtr dpy, IntPtr pixmap);
+			internal unsafe delegate void glXDestroyGLXPixmap(IntPtr dpy, IntPtr pixmap);
+			[ThreadStatic]
+			internal static glXDestroyGLXPixmap pglXDestroyGLXPixmap;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "glXDestroyGLXVideoSourceSGIX", ExactSpelling = true)]
-			internal extern static unsafe void glXDestroyGLXVideoSourceSGIX(IntPtr dpy, IntPtr glxvideosource);
+			internal unsafe delegate void glXDestroyGLXVideoSourceSGIX(IntPtr dpy, IntPtr glxvideosource);
+			[ThreadStatic]
+			internal static glXDestroyGLXVideoSourceSGIX pglXDestroyGLXVideoSourceSGIX;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "glXDestroyHyperpipeConfigSGIX", ExactSpelling = true)]
-			internal extern static unsafe int glXDestroyHyperpipeConfigSGIX(IntPtr dpy, int hpId);
+			internal unsafe delegate int glXDestroyHyperpipeConfigSGIX(IntPtr dpy, int hpId);
+			[ThreadStatic]
+			internal static glXDestroyHyperpipeConfigSGIX pglXDestroyHyperpipeConfigSGIX;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "glXDestroyPbuffer", ExactSpelling = true)]
-			internal extern static unsafe void glXDestroyPbuffer(IntPtr dpy, IntPtr pbuf);
+			internal unsafe delegate void glXDestroyPbuffer(IntPtr dpy, IntPtr pbuf);
+			[ThreadStatic]
+			internal static glXDestroyPbuffer pglXDestroyPbuffer;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "glXDestroyPixmap", ExactSpelling = true)]
-			internal extern static unsafe void glXDestroyPixmap(IntPtr dpy, IntPtr pixmap);
+			internal unsafe delegate void glXDestroyPixmap(IntPtr dpy, IntPtr pixmap);
+			[ThreadStatic]
+			internal static glXDestroyPixmap pglXDestroyPixmap;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "glXDestroyWindow", ExactSpelling = true)]
-			internal extern static unsafe void glXDestroyWindow(IntPtr dpy, IntPtr win);
+			internal unsafe delegate void glXDestroyWindow(IntPtr dpy, IntPtr win);
+			[ThreadStatic]
+			internal static glXDestroyWindow pglXDestroyWindow;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "glXEnumerateVideoCaptureDevicesNV", ExactSpelling = true)]
-			internal extern static unsafe IntPtr glXEnumerateVideoCaptureDevicesNV(IntPtr dpy, int screen, int* nelements);
+			internal unsafe delegate IntPtr glXEnumerateVideoCaptureDevicesNV(IntPtr dpy, int screen, int* nelements);
+			[ThreadStatic]
+			internal static glXEnumerateVideoCaptureDevicesNV pglXEnumerateVideoCaptureDevicesNV;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "glXEnumerateVideoDevicesNV", ExactSpelling = true)]
-			internal extern static unsafe IntPtr glXEnumerateVideoDevicesNV(IntPtr dpy, int screen, int* nelements);
+			internal unsafe delegate IntPtr glXEnumerateVideoDevicesNV(IntPtr dpy, int screen, int* nelements);
+			[ThreadStatic]
+			internal static glXEnumerateVideoDevicesNV pglXEnumerateVideoDevicesNV;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "glXFreeContextEXT", ExactSpelling = true)]
-			internal extern static unsafe void glXFreeContextEXT(IntPtr dpy, IntPtr context);
+			internal unsafe delegate void glXFreeContextEXT(IntPtr dpy, IntPtr context);
+			[ThreadStatic]
+			internal static glXFreeContextEXT pglXFreeContextEXT;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "glXGetAGPOffsetMESA", ExactSpelling = true)]
-			internal extern static unsafe UInt32 glXGetAGPOffsetMESA(IntPtr pointer);
+			internal unsafe delegate UInt32 glXGetAGPOffsetMESA(IntPtr pointer);
+			[ThreadStatic]
+			internal static glXGetAGPOffsetMESA pglXGetAGPOffsetMESA;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "glXGetClientString", ExactSpelling = true)]
-			internal extern static unsafe string glXGetClientString(IntPtr dpy, int name);
+			internal unsafe delegate string glXGetClientString(IntPtr dpy, int name);
+			[ThreadStatic]
+			internal static glXGetClientString pglXGetClientString;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "glXGetConfig", ExactSpelling = true)]
-			internal extern static unsafe int glXGetConfig(IntPtr dpy, Glx.XVisualInfo visual, int attrib, int* value);
+			internal unsafe delegate int glXGetConfig(IntPtr dpy, Glx.XVisualInfo visual, int attrib, int* value);
+			[ThreadStatic]
+			internal static glXGetConfig pglXGetConfig;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "glXGetContextGPUIDAMD", ExactSpelling = true)]
-			internal extern static unsafe UInt32 glXGetContextGPUIDAMD(IntPtr ctx);
+			internal unsafe delegate UInt32 glXGetContextGPUIDAMD(IntPtr ctx);
+			[ThreadStatic]
+			internal static glXGetContextGPUIDAMD pglXGetContextGPUIDAMD;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "glXGetContextIDEXT", ExactSpelling = true)]
-			internal extern static unsafe IntPtr glXGetContextIDEXT(IntPtr context);
+			internal unsafe delegate IntPtr glXGetContextIDEXT(IntPtr context);
+			[ThreadStatic]
+			internal static glXGetContextIDEXT pglXGetContextIDEXT;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "glXGetCurrentAssociatedContextAMD", ExactSpelling = true)]
-			internal extern static IntPtr glXGetCurrentAssociatedContextAMD();
+			internal delegate IntPtr glXGetCurrentAssociatedContextAMD();
+			[ThreadStatic]
+			internal static glXGetCurrentAssociatedContextAMD pglXGetCurrentAssociatedContextAMD;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "glXGetCurrentContext", ExactSpelling = true)]
-			internal extern static IntPtr glXGetCurrentContext();
+			internal delegate IntPtr glXGetCurrentContext();
+			[ThreadStatic]
+			internal static glXGetCurrentContext pglXGetCurrentContext;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "glXGetCurrentDisplayEXT", ExactSpelling = true)]
-			internal extern static IntPtr glXGetCurrentDisplayEXT();
+			internal delegate IntPtr glXGetCurrentDisplayEXT();
+			[ThreadStatic]
+			internal static glXGetCurrentDisplayEXT pglXGetCurrentDisplayEXT;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "glXGetCurrentDisplay", ExactSpelling = true)]
-			internal extern static IntPtr glXGetCurrentDisplay();
+			internal delegate IntPtr glXGetCurrentDisplay();
+			[ThreadStatic]
+			internal static glXGetCurrentDisplay pglXGetCurrentDisplay;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "glXGetCurrentDrawable", ExactSpelling = true)]
-			internal extern static IntPtr glXGetCurrentDrawable();
+			internal delegate IntPtr glXGetCurrentDrawable();
+			[ThreadStatic]
+			internal static glXGetCurrentDrawable pglXGetCurrentDrawable;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "glXGetCurrentReadDrawableSGI", ExactSpelling = true)]
-			internal extern static IntPtr glXGetCurrentReadDrawableSGI();
+			internal delegate IntPtr glXGetCurrentReadDrawableSGI();
+			[ThreadStatic]
+			internal static glXGetCurrentReadDrawableSGI pglXGetCurrentReadDrawableSGI;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "glXGetCurrentReadDrawable", ExactSpelling = true)]
-			internal extern static IntPtr glXGetCurrentReadDrawable();
+			internal delegate IntPtr glXGetCurrentReadDrawable();
+			[ThreadStatic]
+			internal static glXGetCurrentReadDrawable pglXGetCurrentReadDrawable;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "glXGetFBConfigAttrib", ExactSpelling = true)]
-			internal extern static unsafe int glXGetFBConfigAttrib(IntPtr dpy, IntPtr config, int attribute, int* value);
+			internal unsafe delegate int glXGetFBConfigAttrib(IntPtr dpy, IntPtr config, int attribute, int* value);
+			[ThreadStatic]
+			internal static glXGetFBConfigAttrib pglXGetFBConfigAttrib;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "glXGetFBConfigAttribSGIX", ExactSpelling = true)]
-			internal extern static unsafe int glXGetFBConfigAttribSGIX(IntPtr dpy, IntPtr config, int attribute, int* value);
+			internal unsafe delegate int glXGetFBConfigAttribSGIX(IntPtr dpy, IntPtr config, int attribute, int* value);
+			[ThreadStatic]
+			internal static glXGetFBConfigAttribSGIX pglXGetFBConfigAttribSGIX;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "glXGetFBConfigFromVisualSGIX", ExactSpelling = true)]
-			internal extern static unsafe IntPtr glXGetFBConfigFromVisualSGIX(IntPtr dpy, Glx.XVisualInfo vis);
+			internal unsafe delegate IntPtr glXGetFBConfigFromVisualSGIX(IntPtr dpy, Glx.XVisualInfo vis);
+			[ThreadStatic]
+			internal static glXGetFBConfigFromVisualSGIX pglXGetFBConfigFromVisualSGIX;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "glXGetFBConfigs", ExactSpelling = true)]
-			internal extern static unsafe IntPtr glXGetFBConfigs(IntPtr dpy, int screen, int* nelements);
+			internal unsafe delegate IntPtr glXGetFBConfigs(IntPtr dpy, int screen, int* nelements);
+			[ThreadStatic]
+			internal static glXGetFBConfigs pglXGetFBConfigs;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "glXGetGPUIDsAMD", ExactSpelling = true)]
-			internal extern static unsafe UInt32 glXGetGPUIDsAMD(UInt32 maxCount, IntPtr ids);
+			internal unsafe delegate UInt32 glXGetGPUIDsAMD(UInt32 maxCount, IntPtr ids);
+			[ThreadStatic]
+			internal static glXGetGPUIDsAMD pglXGetGPUIDsAMD;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "glXGetGPUInfoAMD", ExactSpelling = true)]
-			internal extern static unsafe int glXGetGPUInfoAMD(UInt32 id, int property, int dataType, UInt32 size, IntPtr data);
+			internal unsafe delegate int glXGetGPUInfoAMD(UInt32 id, int property, int dataType, UInt32 size, IntPtr data);
+			[ThreadStatic]
+			internal static glXGetGPUInfoAMD pglXGetGPUInfoAMD;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "glXGetMscRateOML", ExactSpelling = true)]
-			internal extern static unsafe bool glXGetMscRateOML(IntPtr dpy, IntPtr drawable, Int32* numerator, Int32* denominator);
+			internal unsafe delegate bool glXGetMscRateOML(IntPtr dpy, IntPtr drawable, Int32* numerator, Int32* denominator);
+			[ThreadStatic]
+			internal static glXGetMscRateOML pglXGetMscRateOML;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "glXGetProcAddressARB", ExactSpelling = true)]
-			internal extern static unsafe IntPtr glXGetProcAddressARB(byte* procName);
+			internal unsafe delegate IntPtr glXGetProcAddressARB(byte* procName);
+			[ThreadStatic]
+			internal static glXGetProcAddressARB pglXGetProcAddressARB;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "glXGetProcAddress", ExactSpelling = true)]
-			internal extern static unsafe IntPtr glXGetProcAddress(byte* procName);
+			internal unsafe delegate IntPtr glXGetProcAddress(byte* procName);
+			[ThreadStatic]
+			internal static glXGetProcAddress pglXGetProcAddress;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "glXGetSelectedEvent", ExactSpelling = true)]
-			internal extern static unsafe void glXGetSelectedEvent(IntPtr dpy, IntPtr draw, UInt32* event_mask);
+			internal unsafe delegate void glXGetSelectedEvent(IntPtr dpy, IntPtr draw, UInt32* event_mask);
+			[ThreadStatic]
+			internal static glXGetSelectedEvent pglXGetSelectedEvent;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "glXGetSelectedEventSGIX", ExactSpelling = true)]
-			internal extern static unsafe void glXGetSelectedEventSGIX(IntPtr dpy, IntPtr drawable, UInt32* mask);
+			internal unsafe delegate void glXGetSelectedEventSGIX(IntPtr dpy, IntPtr drawable, UInt32* mask);
+			[ThreadStatic]
+			internal static glXGetSelectedEventSGIX pglXGetSelectedEventSGIX;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "glXGetSyncValuesOML", ExactSpelling = true)]
-			internal extern static unsafe bool glXGetSyncValuesOML(IntPtr dpy, IntPtr drawable, Int64* ust, Int64* msc, Int64* sbc);
+			internal unsafe delegate bool glXGetSyncValuesOML(IntPtr dpy, IntPtr drawable, Int64* ust, Int64* msc, Int64* sbc);
+			[ThreadStatic]
+			internal static glXGetSyncValuesOML pglXGetSyncValuesOML;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "glXGetTransparentIndexSUN", ExactSpelling = true)]
-			internal extern static unsafe Int32 glXGetTransparentIndexSUN(IntPtr dpy, IntPtr overlay, IntPtr underlay, long * pTransparentIndex);
+			internal unsafe delegate Int32 glXGetTransparentIndexSUN(IntPtr dpy, IntPtr overlay, IntPtr underlay, long * pTransparentIndex);
+			[ThreadStatic]
+			internal static glXGetTransparentIndexSUN pglXGetTransparentIndexSUN;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "glXGetVideoDeviceNV", ExactSpelling = true)]
-			internal extern static unsafe int glXGetVideoDeviceNV(IntPtr dpy, int screen, int numVideoDevices, IntPtr pVideoDevice);
+			internal unsafe delegate int glXGetVideoDeviceNV(IntPtr dpy, int screen, int numVideoDevices, IntPtr pVideoDevice);
+			[ThreadStatic]
+			internal static glXGetVideoDeviceNV pglXGetVideoDeviceNV;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "glXGetVideoInfoNV", ExactSpelling = true)]
-			internal extern static unsafe int glXGetVideoInfoNV(IntPtr dpy, int screen, IntPtr VideoDevice, UInt32* pulCounterOutputPbuffer, UInt32* pulCounterOutputVideo);
+			internal unsafe delegate int glXGetVideoInfoNV(IntPtr dpy, int screen, IntPtr VideoDevice, UInt32* pulCounterOutputPbuffer, UInt32* pulCounterOutputVideo);
+			[ThreadStatic]
+			internal static glXGetVideoInfoNV pglXGetVideoInfoNV;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "glXGetVideoSyncSGI", ExactSpelling = true)]
-			internal extern static unsafe int glXGetVideoSyncSGI(IntPtr count);
+			internal unsafe delegate int glXGetVideoSyncSGI(IntPtr count);
+			[ThreadStatic]
+			internal static glXGetVideoSyncSGI pglXGetVideoSyncSGI;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "glXGetVisualFromFBConfig", ExactSpelling = true)]
-			internal extern static unsafe Glx.XVisualInfo glXGetVisualFromFBConfig(IntPtr dpy, IntPtr config);
+			internal unsafe delegate Glx.XVisualInfo glXGetVisualFromFBConfig(IntPtr dpy, IntPtr config);
+			[ThreadStatic]
+			internal static glXGetVisualFromFBConfig pglXGetVisualFromFBConfig;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "glXGetVisualFromFBConfigSGIX", ExactSpelling = true)]
-			internal extern static unsafe Glx.XVisualInfo glXGetVisualFromFBConfigSGIX(IntPtr dpy, IntPtr config);
+			internal unsafe delegate Glx.XVisualInfo glXGetVisualFromFBConfigSGIX(IntPtr dpy, IntPtr config);
+			[ThreadStatic]
+			internal static glXGetVisualFromFBConfigSGIX pglXGetVisualFromFBConfigSGIX;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "glXHyperpipeAttribSGIX", ExactSpelling = true)]
-			internal extern static unsafe int glXHyperpipeAttribSGIX(IntPtr dpy, int timeSlice, int attrib, int size, IntPtr attribList);
+			internal unsafe delegate int glXHyperpipeAttribSGIX(IntPtr dpy, int timeSlice, int attrib, int size, IntPtr attribList);
+			[ThreadStatic]
+			internal static glXHyperpipeAttribSGIX pglXHyperpipeAttribSGIX;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "glXHyperpipeConfigSGIX", ExactSpelling = true)]
-			internal extern static unsafe int glXHyperpipeConfigSGIX(IntPtr dpy, int networkId, int npipes, IntPtr cfg, int* hpId);
+			internal unsafe delegate int glXHyperpipeConfigSGIX(IntPtr dpy, int networkId, int npipes, IntPtr cfg, int* hpId);
+			[ThreadStatic]
+			internal static glXHyperpipeConfigSGIX pglXHyperpipeConfigSGIX;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "glXImportContextEXT", ExactSpelling = true)]
-			internal extern static unsafe IntPtr glXImportContextEXT(IntPtr dpy, IntPtr contextID);
+			internal unsafe delegate IntPtr glXImportContextEXT(IntPtr dpy, IntPtr contextID);
+			[ThreadStatic]
+			internal static glXImportContextEXT pglXImportContextEXT;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "glXIsDirect", ExactSpelling = true)]
-			internal extern static unsafe bool glXIsDirect(IntPtr dpy, IntPtr ctx);
+			internal unsafe delegate bool glXIsDirect(IntPtr dpy, IntPtr ctx);
+			[ThreadStatic]
+			internal static glXIsDirect pglXIsDirect;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "glXJoinSwapGroupNV", ExactSpelling = true)]
-			internal extern static unsafe bool glXJoinSwapGroupNV(IntPtr dpy, IntPtr drawable, UInt32 group);
+			internal unsafe delegate bool glXJoinSwapGroupNV(IntPtr dpy, IntPtr drawable, UInt32 group);
+			[ThreadStatic]
+			internal static glXJoinSwapGroupNV pglXJoinSwapGroupNV;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "glXJoinSwapGroupSGIX", ExactSpelling = true)]
-			internal extern static unsafe void glXJoinSwapGroupSGIX(IntPtr dpy, IntPtr drawable, IntPtr member);
+			internal unsafe delegate void glXJoinSwapGroupSGIX(IntPtr dpy, IntPtr drawable, IntPtr member);
+			[ThreadStatic]
+			internal static glXJoinSwapGroupSGIX pglXJoinSwapGroupSGIX;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "glXLockVideoCaptureDeviceNV", ExactSpelling = true)]
-			internal extern static unsafe void glXLockVideoCaptureDeviceNV(IntPtr dpy, IntPtr device);
+			internal unsafe delegate void glXLockVideoCaptureDeviceNV(IntPtr dpy, IntPtr device);
+			[ThreadStatic]
+			internal static glXLockVideoCaptureDeviceNV pglXLockVideoCaptureDeviceNV;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "glXMakeAssociatedContextCurrentAMD", ExactSpelling = true)]
-			internal extern static unsafe bool glXMakeAssociatedContextCurrentAMD(IntPtr ctx);
+			internal unsafe delegate bool glXMakeAssociatedContextCurrentAMD(IntPtr ctx);
+			[ThreadStatic]
+			internal static glXMakeAssociatedContextCurrentAMD pglXMakeAssociatedContextCurrentAMD;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "glXMakeContextCurrent", ExactSpelling = true)]
-			internal extern static unsafe bool glXMakeContextCurrent(IntPtr dpy, IntPtr draw, IntPtr read, IntPtr ctx);
+			internal unsafe delegate bool glXMakeContextCurrent(IntPtr dpy, IntPtr draw, IntPtr read, IntPtr ctx);
+			[ThreadStatic]
+			internal static glXMakeContextCurrent pglXMakeContextCurrent;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "glXMakeCurrent", ExactSpelling = true)]
-			internal extern static unsafe bool glXMakeCurrent(IntPtr dpy, IntPtr drawable, IntPtr ctx);
+			internal unsafe delegate bool glXMakeCurrent(IntPtr dpy, IntPtr drawable, IntPtr ctx);
+			[ThreadStatic]
+			internal static glXMakeCurrent pglXMakeCurrent;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "glXMakeCurrentReadSGI", ExactSpelling = true)]
-			internal extern static unsafe bool glXMakeCurrentReadSGI(IntPtr dpy, IntPtr draw, IntPtr read, IntPtr ctx);
+			internal unsafe delegate bool glXMakeCurrentReadSGI(IntPtr dpy, IntPtr draw, IntPtr read, IntPtr ctx);
+			[ThreadStatic]
+			internal static glXMakeCurrentReadSGI pglXMakeCurrentReadSGI;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "glXQueryChannelDeltasSGIX", ExactSpelling = true)]
-			internal extern static unsafe int glXQueryChannelDeltasSGIX(IntPtr display, int screen, int channel, int* x, int* y, int* w, int* h);
+			internal unsafe delegate int glXQueryChannelDeltasSGIX(IntPtr display, int screen, int channel, int* x, int* y, int* w, int* h);
+			[ThreadStatic]
+			internal static glXQueryChannelDeltasSGIX pglXQueryChannelDeltasSGIX;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "glXQueryChannelRectSGIX", ExactSpelling = true)]
-			internal extern static unsafe int glXQueryChannelRectSGIX(IntPtr display, int screen, int channel, int* dx, int* dy, int* dw, int* dh);
+			internal unsafe delegate int glXQueryChannelRectSGIX(IntPtr display, int screen, int channel, int* dx, int* dy, int* dw, int* dh);
+			[ThreadStatic]
+			internal static glXQueryChannelRectSGIX pglXQueryChannelRectSGIX;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "glXQueryContext", ExactSpelling = true)]
-			internal extern static unsafe int glXQueryContext(IntPtr dpy, IntPtr ctx, int attribute, int* value);
+			internal unsafe delegate int glXQueryContext(IntPtr dpy, IntPtr ctx, int attribute, int* value);
+			[ThreadStatic]
+			internal static glXQueryContext pglXQueryContext;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "glXQueryContextInfoEXT", ExactSpelling = true)]
-			internal extern static unsafe int glXQueryContextInfoEXT(IntPtr dpy, IntPtr context, int attribute, int* value);
+			internal unsafe delegate int glXQueryContextInfoEXT(IntPtr dpy, IntPtr context, int attribute, int* value);
+			[ThreadStatic]
+			internal static glXQueryContextInfoEXT pglXQueryContextInfoEXT;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "glXQueryCurrentRendererIntegerMESA", ExactSpelling = true)]
-			internal extern static unsafe bool glXQueryCurrentRendererIntegerMESA(int attribute, IntPtr value);
+			internal unsafe delegate bool glXQueryCurrentRendererIntegerMESA(int attribute, IntPtr value);
+			[ThreadStatic]
+			internal static glXQueryCurrentRendererIntegerMESA pglXQueryCurrentRendererIntegerMESA;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "glXQueryCurrentRendererStringMESA", ExactSpelling = true)]
-			internal extern static string glXQueryCurrentRendererStringMESA(int attribute);
+			internal delegate string glXQueryCurrentRendererStringMESA(int attribute);
+			[ThreadStatic]
+			internal static glXQueryCurrentRendererStringMESA pglXQueryCurrentRendererStringMESA;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "glXQueryDrawable", ExactSpelling = true)]
-			internal extern static unsafe void glXQueryDrawable(IntPtr dpy, IntPtr draw, int attribute, IntPtr value);
+			internal unsafe delegate void glXQueryDrawable(IntPtr dpy, IntPtr draw, int attribute, IntPtr value);
+			[ThreadStatic]
+			internal static glXQueryDrawable pglXQueryDrawable;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "glXQueryExtension", ExactSpelling = true)]
-			internal extern static unsafe bool glXQueryExtension(IntPtr dpy, int* errorb, int* @event);
+			internal unsafe delegate bool glXQueryExtension(IntPtr dpy, int* errorb, int* @event);
+			[ThreadStatic]
+			internal static glXQueryExtension pglXQueryExtension;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "glXQueryExtensionsString", ExactSpelling = true)]
-			internal extern static unsafe string glXQueryExtensionsString(IntPtr dpy, int screen);
+			internal unsafe delegate string glXQueryExtensionsString(IntPtr dpy, int screen);
+			[ThreadStatic]
+			internal static glXQueryExtensionsString pglXQueryExtensionsString;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "glXQueryFrameCountNV", ExactSpelling = true)]
-			internal extern static unsafe bool glXQueryFrameCountNV(IntPtr dpy, int screen, UInt32* count);
+			internal unsafe delegate bool glXQueryFrameCountNV(IntPtr dpy, int screen, UInt32* count);
+			[ThreadStatic]
+			internal static glXQueryFrameCountNV pglXQueryFrameCountNV;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "glXQueryGLXPbufferSGIX", ExactSpelling = true)]
-			internal extern static unsafe int glXQueryGLXPbufferSGIX(IntPtr dpy, IntPtr pbuf, int attribute, IntPtr value);
+			internal unsafe delegate int glXQueryGLXPbufferSGIX(IntPtr dpy, IntPtr pbuf, int attribute, IntPtr value);
+			[ThreadStatic]
+			internal static glXQueryGLXPbufferSGIX pglXQueryGLXPbufferSGIX;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "glXQueryHyperpipeAttribSGIX", ExactSpelling = true)]
-			internal extern static unsafe int glXQueryHyperpipeAttribSGIX(IntPtr dpy, int timeSlice, int attrib, int size, IntPtr returnAttribList);
+			internal unsafe delegate int glXQueryHyperpipeAttribSGIX(IntPtr dpy, int timeSlice, int attrib, int size, IntPtr returnAttribList);
+			[ThreadStatic]
+			internal static glXQueryHyperpipeAttribSGIX pglXQueryHyperpipeAttribSGIX;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "glXQueryHyperpipeBestAttribSGIX", ExactSpelling = true)]
-			internal extern static unsafe int glXQueryHyperpipeBestAttribSGIX(IntPtr dpy, int timeSlice, int attrib, int size, IntPtr attribList, IntPtr returnAttribList);
+			internal unsafe delegate int glXQueryHyperpipeBestAttribSGIX(IntPtr dpy, int timeSlice, int attrib, int size, IntPtr attribList, IntPtr returnAttribList);
+			[ThreadStatic]
+			internal static glXQueryHyperpipeBestAttribSGIX pglXQueryHyperpipeBestAttribSGIX;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "glXQueryHyperpipeConfigSGIX", ExactSpelling = true)]
-			internal extern static unsafe IntPtr glXQueryHyperpipeConfigSGIX(IntPtr dpy, int hpId, int* npipes);
+			internal unsafe delegate IntPtr glXQueryHyperpipeConfigSGIX(IntPtr dpy, int hpId, int* npipes);
+			[ThreadStatic]
+			internal static glXQueryHyperpipeConfigSGIX pglXQueryHyperpipeConfigSGIX;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "glXQueryHyperpipeNetworkSGIX", ExactSpelling = true)]
-			internal extern static unsafe IntPtr glXQueryHyperpipeNetworkSGIX(IntPtr dpy, int* npipes);
+			internal unsafe delegate IntPtr glXQueryHyperpipeNetworkSGIX(IntPtr dpy, int* npipes);
+			[ThreadStatic]
+			internal static glXQueryHyperpipeNetworkSGIX pglXQueryHyperpipeNetworkSGIX;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "glXQueryMaxSwapBarriersSGIX", ExactSpelling = true)]
-			internal extern static unsafe bool glXQueryMaxSwapBarriersSGIX(IntPtr dpy, int screen, int* max);
+			internal unsafe delegate bool glXQueryMaxSwapBarriersSGIX(IntPtr dpy, int screen, int* max);
+			[ThreadStatic]
+			internal static glXQueryMaxSwapBarriersSGIX pglXQueryMaxSwapBarriersSGIX;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "glXQueryMaxSwapGroupsNV", ExactSpelling = true)]
-			internal extern static unsafe bool glXQueryMaxSwapGroupsNV(IntPtr dpy, int screen, UInt32* maxGroups, UInt32* maxBarriers);
+			internal unsafe delegate bool glXQueryMaxSwapGroupsNV(IntPtr dpy, int screen, UInt32* maxGroups, UInt32* maxBarriers);
+			[ThreadStatic]
+			internal static glXQueryMaxSwapGroupsNV pglXQueryMaxSwapGroupsNV;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "glXQueryRendererIntegerMESA", ExactSpelling = true)]
-			internal extern static unsafe bool glXQueryRendererIntegerMESA(IntPtr dpy, int screen, int renderer, int attribute, IntPtr value);
+			internal unsafe delegate bool glXQueryRendererIntegerMESA(IntPtr dpy, int screen, int renderer, int attribute, IntPtr value);
+			[ThreadStatic]
+			internal static glXQueryRendererIntegerMESA pglXQueryRendererIntegerMESA;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "glXQueryRendererStringMESA", ExactSpelling = true)]
-			internal extern static unsafe string glXQueryRendererStringMESA(IntPtr dpy, int screen, int renderer, int attribute);
+			internal unsafe delegate string glXQueryRendererStringMESA(IntPtr dpy, int screen, int renderer, int attribute);
+			[ThreadStatic]
+			internal static glXQueryRendererStringMESA pglXQueryRendererStringMESA;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "glXQueryServerString", ExactSpelling = true)]
-			internal extern static unsafe string glXQueryServerString(IntPtr dpy, int screen, int name);
+			internal unsafe delegate string glXQueryServerString(IntPtr dpy, int screen, int name);
+			[ThreadStatic]
+			internal static glXQueryServerString pglXQueryServerString;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "glXQuerySwapGroupNV", ExactSpelling = true)]
-			internal extern static unsafe bool glXQuerySwapGroupNV(IntPtr dpy, IntPtr drawable, UInt32* group, UInt32* barrier);
+			internal unsafe delegate bool glXQuerySwapGroupNV(IntPtr dpy, IntPtr drawable, UInt32* group, UInt32* barrier);
+			[ThreadStatic]
+			internal static glXQuerySwapGroupNV pglXQuerySwapGroupNV;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "glXQueryVersion", ExactSpelling = true)]
-			internal extern static unsafe bool glXQueryVersion(IntPtr dpy, int* maj, int* min);
+			internal unsafe delegate bool glXQueryVersion(IntPtr dpy, int* maj, int* min);
+			[ThreadStatic]
+			internal static glXQueryVersion pglXQueryVersion;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "glXQueryVideoCaptureDeviceNV", ExactSpelling = true)]
-			internal extern static unsafe int glXQueryVideoCaptureDeviceNV(IntPtr dpy, IntPtr device, int attribute, int* value);
+			internal unsafe delegate int glXQueryVideoCaptureDeviceNV(IntPtr dpy, IntPtr device, int attribute, int* value);
+			[ThreadStatic]
+			internal static glXQueryVideoCaptureDeviceNV pglXQueryVideoCaptureDeviceNV;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "glXReleaseBuffersMESA", ExactSpelling = true)]
-			internal extern static unsafe bool glXReleaseBuffersMESA(IntPtr dpy, IntPtr drawable);
+			internal unsafe delegate bool glXReleaseBuffersMESA(IntPtr dpy, IntPtr drawable);
+			[ThreadStatic]
+			internal static glXReleaseBuffersMESA pglXReleaseBuffersMESA;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "glXReleaseTexImageEXT", ExactSpelling = true)]
-			internal extern static unsafe void glXReleaseTexImageEXT(IntPtr dpy, IntPtr drawable, int buffer);
+			internal unsafe delegate void glXReleaseTexImageEXT(IntPtr dpy, IntPtr drawable, int buffer);
+			[ThreadStatic]
+			internal static glXReleaseTexImageEXT pglXReleaseTexImageEXT;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "glXReleaseVideoCaptureDeviceNV", ExactSpelling = true)]
-			internal extern static unsafe void glXReleaseVideoCaptureDeviceNV(IntPtr dpy, IntPtr device);
+			internal unsafe delegate void glXReleaseVideoCaptureDeviceNV(IntPtr dpy, IntPtr device);
+			[ThreadStatic]
+			internal static glXReleaseVideoCaptureDeviceNV pglXReleaseVideoCaptureDeviceNV;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "glXReleaseVideoDeviceNV", ExactSpelling = true)]
-			internal extern static unsafe int glXReleaseVideoDeviceNV(IntPtr dpy, int screen, IntPtr VideoDevice);
+			internal unsafe delegate int glXReleaseVideoDeviceNV(IntPtr dpy, int screen, IntPtr VideoDevice);
+			[ThreadStatic]
+			internal static glXReleaseVideoDeviceNV pglXReleaseVideoDeviceNV;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "glXReleaseVideoImageNV", ExactSpelling = true)]
-			internal extern static unsafe int glXReleaseVideoImageNV(IntPtr dpy, IntPtr pbuf);
+			internal unsafe delegate int glXReleaseVideoImageNV(IntPtr dpy, IntPtr pbuf);
+			[ThreadStatic]
+			internal static glXReleaseVideoImageNV pglXReleaseVideoImageNV;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "glXResetFrameCountNV", ExactSpelling = true)]
-			internal extern static unsafe bool glXResetFrameCountNV(IntPtr dpy, int screen);
+			internal unsafe delegate bool glXResetFrameCountNV(IntPtr dpy, int screen);
+			[ThreadStatic]
+			internal static glXResetFrameCountNV pglXResetFrameCountNV;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "glXSelectEvent", ExactSpelling = true)]
-			internal extern static unsafe void glXSelectEvent(IntPtr dpy, IntPtr draw, UInt32 event_mask);
+			internal unsafe delegate void glXSelectEvent(IntPtr dpy, IntPtr draw, UInt32 event_mask);
+			[ThreadStatic]
+			internal static glXSelectEvent pglXSelectEvent;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "glXSelectEventSGIX", ExactSpelling = true)]
-			internal extern static unsafe void glXSelectEventSGIX(IntPtr dpy, IntPtr drawable, UInt32 mask);
+			internal unsafe delegate void glXSelectEventSGIX(IntPtr dpy, IntPtr drawable, UInt32 mask);
+			[ThreadStatic]
+			internal static glXSelectEventSGIX pglXSelectEventSGIX;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "glXSendPbufferToVideoNV", ExactSpelling = true)]
-			internal extern static unsafe int glXSendPbufferToVideoNV(IntPtr dpy, IntPtr pbuf, int iBufferType, UInt32* pulCounterPbuffer, bool bBlock);
+			internal unsafe delegate int glXSendPbufferToVideoNV(IntPtr dpy, IntPtr pbuf, int iBufferType, UInt32* pulCounterPbuffer, bool bBlock);
+			[ThreadStatic]
+			internal static glXSendPbufferToVideoNV pglXSendPbufferToVideoNV;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "glXSet3DfxModeMESA", ExactSpelling = true)]
-			internal extern static bool glXSet3DfxModeMESA(int mode);
+			internal delegate bool glXSet3DfxModeMESA(int mode);
+			[ThreadStatic]
+			internal static glXSet3DfxModeMESA pglXSet3DfxModeMESA;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "glXSwapBuffers", ExactSpelling = true)]
-			internal extern static unsafe void glXSwapBuffers(IntPtr dpy, IntPtr drawable);
+			internal unsafe delegate void glXSwapBuffers(IntPtr dpy, IntPtr drawable);
+			[ThreadStatic]
+			internal static glXSwapBuffers pglXSwapBuffers;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "glXSwapBuffersMscOML", ExactSpelling = true)]
-			internal extern static unsafe Int64 glXSwapBuffersMscOML(IntPtr dpy, IntPtr drawable, Int64 target_msc, Int64 divisor, Int64 remainder);
+			internal unsafe delegate Int64 glXSwapBuffersMscOML(IntPtr dpy, IntPtr drawable, Int64 target_msc, Int64 divisor, Int64 remainder);
+			[ThreadStatic]
+			internal static glXSwapBuffersMscOML pglXSwapBuffersMscOML;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "glXSwapIntervalEXT", ExactSpelling = true)]
-			internal extern static unsafe void glXSwapIntervalEXT(IntPtr dpy, IntPtr drawable, int interval);
+			internal unsafe delegate void glXSwapIntervalEXT(IntPtr dpy, IntPtr drawable, int interval);
+			[ThreadStatic]
+			internal static glXSwapIntervalEXT pglXSwapIntervalEXT;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "glXSwapIntervalSGI", ExactSpelling = true)]
-			internal extern static int glXSwapIntervalSGI(int interval);
+			internal delegate int glXSwapIntervalSGI(int interval);
+			[ThreadStatic]
+			internal static glXSwapIntervalSGI pglXSwapIntervalSGI;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "glXUseXFont", ExactSpelling = true)]
-			internal extern static void glXUseXFont(Int32 font, int first, int count, int list);
+			internal delegate void glXUseXFont(Int32 font, int first, int count, int list);
+			[ThreadStatic]
+			internal static glXUseXFont pglXUseXFont;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "glXWaitForMscOML", ExactSpelling = true)]
-			internal extern static unsafe bool glXWaitForMscOML(IntPtr dpy, IntPtr drawable, Int64 target_msc, Int64 divisor, Int64 remainder, Int64* ust, Int64* msc, Int64* sbc);
+			internal unsafe delegate bool glXWaitForMscOML(IntPtr dpy, IntPtr drawable, Int64 target_msc, Int64 divisor, Int64 remainder, Int64* ust, Int64* msc, Int64* sbc);
+			[ThreadStatic]
+			internal static glXWaitForMscOML pglXWaitForMscOML;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "glXWaitForSbcOML", ExactSpelling = true)]
-			internal extern static unsafe bool glXWaitForSbcOML(IntPtr dpy, IntPtr drawable, Int64 target_sbc, Int64* ust, Int64* msc, Int64* sbc);
+			internal unsafe delegate bool glXWaitForSbcOML(IntPtr dpy, IntPtr drawable, Int64 target_sbc, Int64* ust, Int64* msc, Int64* sbc);
+			[ThreadStatic]
+			internal static glXWaitForSbcOML pglXWaitForSbcOML;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "glXWaitGL", ExactSpelling = true)]
-			internal extern static void glXWaitGL();
+			internal delegate void glXWaitGL();
+			[ThreadStatic]
+			internal static glXWaitGL pglXWaitGL;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "glXWaitVideoSyncSGI", ExactSpelling = true)]
-			internal extern static unsafe int glXWaitVideoSyncSGI(int divisor, int remainder, IntPtr count);
+			internal unsafe delegate int glXWaitVideoSyncSGI(int divisor, int remainder, IntPtr count);
+			[ThreadStatic]
+			internal static glXWaitVideoSyncSGI pglXWaitVideoSyncSGI;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "glXWaitX", ExactSpelling = true)]
-			internal extern static void glXWaitX();
+			internal delegate void glXWaitX();
+			[ThreadStatic]
+			internal static glXWaitX pglXWaitX;
 
 		}
 	}

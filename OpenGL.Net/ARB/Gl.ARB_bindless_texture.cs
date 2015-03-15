@@ -28,6 +28,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_UNSIGNED_INT64_ARB symbol.
 		/// </summary>
+		[AliasOf("GL_UNSIGNED_INT64_NV"]
 		[RequiredByFeature("GL_ARB_bindless_texture")]
 		public const int UNSIGNED_INT64_ARB = 0x140F;
 

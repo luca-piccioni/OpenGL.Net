@@ -28,24 +28,32 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_PIXEL_PACK_BUFFER symbol.
 		/// </summary>
+		[AliasOf("GL_PIXEL_PACK_BUFFER_ARB"]
+		[AliasOf("GL_PIXEL_PACK_BUFFER_EXT"]
 		[RequiredByFeature("GL_VERSION_2_1")]
 		public const int PIXEL_PACK_BUFFER = 0x88EB;
 
 		/// <summary>
 		/// Value of GL_PIXEL_UNPACK_BUFFER symbol.
 		/// </summary>
+		[AliasOf("GL_PIXEL_UNPACK_BUFFER_ARB"]
+		[AliasOf("GL_PIXEL_UNPACK_BUFFER_EXT"]
 		[RequiredByFeature("GL_VERSION_2_1")]
 		public const int PIXEL_UNPACK_BUFFER = 0x88EC;
 
 		/// <summary>
 		/// Value of GL_PIXEL_PACK_BUFFER_BINDING symbol.
 		/// </summary>
+		[AliasOf("GL_PIXEL_PACK_BUFFER_BINDING_ARB"]
+		[AliasOf("GL_PIXEL_PACK_BUFFER_BINDING_EXT"]
 		[RequiredByFeature("GL_VERSION_2_1")]
 		public const int PIXEL_PACK_BUFFER_BINDING = 0x88ED;
 
 		/// <summary>
 		/// Value of GL_PIXEL_UNPACK_BUFFER_BINDING symbol.
 		/// </summary>
+		[AliasOf("GL_PIXEL_UNPACK_BUFFER_BINDING_ARB"]
+		[AliasOf("GL_PIXEL_UNPACK_BUFFER_BINDING_EXT"]
 		[RequiredByFeature("GL_VERSION_2_1")]
 		public const int PIXEL_UNPACK_BUFFER_BINDING = 0x88EF;
 
@@ -88,36 +96,42 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_SRGB symbol.
 		/// </summary>
+		[AliasOf("GL_SRGB_EXT"]
 		[RequiredByFeature("GL_VERSION_2_1")]
 		public const int SRGB = 0x8C40;
 
 		/// <summary>
 		/// Value of GL_SRGB8 symbol.
 		/// </summary>
+		[AliasOf("GL_SRGB8_EXT"]
 		[RequiredByFeature("GL_VERSION_2_1")]
 		public const int SRGB8 = 0x8C41;
 
 		/// <summary>
 		/// Value of GL_SRGB_ALPHA symbol.
 		/// </summary>
+		[AliasOf("GL_SRGB_ALPHA_EXT"]
 		[RequiredByFeature("GL_VERSION_2_1")]
 		public const int SRGB_ALPHA = 0x8C42;
 
 		/// <summary>
 		/// Value of GL_SRGB8_ALPHA8 symbol.
 		/// </summary>
+		[AliasOf("GL_SRGB8_ALPHA8_EXT"]
 		[RequiredByFeature("GL_VERSION_2_1")]
 		public const int SRGB8_ALPHA8 = 0x8C43;
 
 		/// <summary>
 		/// Value of GL_COMPRESSED_SRGB symbol.
 		/// </summary>
+		[AliasOf("GL_COMPRESSED_SRGB_EXT"]
 		[RequiredByFeature("GL_VERSION_2_1")]
 		public const int COMPRESSED_SRGB = 0x8C48;
 
 		/// <summary>
 		/// Value of GL_COMPRESSED_SRGB_ALPHA symbol.
 		/// </summary>
+		[AliasOf("GL_COMPRESSED_SRGB_ALPHA_EXT"]
 		[RequiredByFeature("GL_VERSION_2_1")]
 		public const int COMPRESSED_SRGB_ALPHA = 0x8C49;
 
@@ -134,6 +148,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_SLUMINANCE_ALPHA symbol (DEPRECATED).
 		/// </summary>
+		[AliasOf("GL_SLUMINANCE_ALPHA_EXT"]
 		[RequiredByFeature("GL_VERSION_2_1")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
@@ -144,6 +159,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_SLUMINANCE8_ALPHA8 symbol (DEPRECATED).
 		/// </summary>
+		[AliasOf("GL_SLUMINANCE8_ALPHA8_EXT"]
 		[RequiredByFeature("GL_VERSION_2_1")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
@@ -154,6 +170,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_SLUMINANCE symbol (DEPRECATED).
 		/// </summary>
+		[AliasOf("GL_SLUMINANCE_EXT"]
 		[RequiredByFeature("GL_VERSION_2_1")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
@@ -164,6 +181,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_SLUMINANCE8 symbol (DEPRECATED).
 		/// </summary>
+		[AliasOf("GL_SLUMINANCE8_EXT"]
 		[RequiredByFeature("GL_VERSION_2_1")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
@@ -174,6 +192,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_COMPRESSED_SLUMINANCE symbol (DEPRECATED).
 		/// </summary>
+		[AliasOf("GL_COMPRESSED_SLUMINANCE_EXT"]
 		[RequiredByFeature("GL_VERSION_2_1")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
@@ -184,6 +203,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_COMPRESSED_SLUMINANCE_ALPHA symbol (DEPRECATED).
 		/// </summary>
+		[AliasOf("GL_COMPRESSED_SLUMINANCE_ALPHA_EXT"]
 		[RequiredByFeature("GL_VERSION_2_1")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE

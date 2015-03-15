@@ -28,6 +28,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_FRAMEBUFFER_INCOMPLETE_LAYER_COUNT_ARB symbol.
 		/// </summary>
+		[AliasOf("GL_FRAMEBUFFER_INCOMPLETE_LAYER_COUNT_EXT"]
 		[RequiredByFeature("GL_ARB_geometry_shader4")]
 		public const int FRAMEBUFFER_INCOMPLETE_LAYER_COUNT_ARB = 0x8DA9;
 
@@ -52,12 +53,14 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_MAX_GEOMETRY_VARYING_COMPONENTS_ARB symbol.
 		/// </summary>
+		[AliasOf("GL_MAX_GEOMETRY_VARYING_COMPONENTS_EXT"]
 		[RequiredByFeature("GL_ARB_geometry_shader4")]
 		public const int MAX_GEOMETRY_VARYING_COMPONENTS_ARB = 0x8DDD;
 
 		/// <summary>
 		/// Value of GL_MAX_VERTEX_VARYING_COMPONENTS_ARB symbol.
 		/// </summary>
+		[AliasOf("GL_MAX_VERTEX_VARYING_COMPONENTS_EXT"]
 		[RequiredByFeature("GL_ARB_geometry_shader4")]
 		public const int MAX_VERTEX_VARYING_COMPONENTS_ARB = 0x8DDE;
 

@@ -16,671 +16,713 @@
 // Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301
 // USA
 
+#pragma warning disable 649, 1572, 1573
+
 using System;
 using System.Security;
 using System.Runtime.InteropServices;
+using System.Text;
 
 namespace OpenGL
 {
 	public unsafe partial class Wgl
 	{
-		internal unsafe static partial class Imports
+		internal unsafe static partial class Delegates
 		{
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "wglAllocateMemoryNV", ExactSpelling = true)]
-			internal extern static IntPtr wglAllocateMemoryNV(Int32 size, float readfreq, float writefreq, float priority);
+			internal delegate IntPtr wglAllocateMemoryNV(Int32 size, float readfreq, float writefreq, float priority);
+			[ThreadStatic]
+			internal static wglAllocateMemoryNV pwglAllocateMemoryNV;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "wglAssociateImageBufferEventsI3D", ExactSpelling = true)]
-			[return: MarshalAs(UnmanagedType.Bool)]
-			internal extern static unsafe bool wglAssociateImageBufferEventsI3D(IntPtr hDC, IntPtr* pEvent, IntPtr* pAddress, Int32* pSize, UInt32 count);
+			internal unsafe delegate bool wglAssociateImageBufferEventsI3D(IntPtr hDC, IntPtr* pEvent, IntPtr* pAddress, Int32* pSize, UInt32 count);
+			[ThreadStatic]
+			internal static wglAssociateImageBufferEventsI3D pwglAssociateImageBufferEventsI3D;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "wglBeginFrameTrackingI3D", ExactSpelling = true)]
-			[return: MarshalAs(UnmanagedType.Bool)]
-			internal extern static bool wglBeginFrameTrackingI3D();
+			internal delegate bool wglBeginFrameTrackingI3D();
+			[ThreadStatic]
+			internal static wglBeginFrameTrackingI3D pwglBeginFrameTrackingI3D;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "wglBindDisplayColorTableEXT", ExactSpelling = true)]
-			[return: MarshalAs(UnmanagedType.I1)]
-			internal extern static bool wglBindDisplayColorTableEXT(UInt16 id);
+			internal delegate bool wglBindDisplayColorTableEXT(UInt16 id);
+			[ThreadStatic]
+			internal static wglBindDisplayColorTableEXT pwglBindDisplayColorTableEXT;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "wglBindSwapBarrierNV", ExactSpelling = true)]
-			[return: MarshalAs(UnmanagedType.Bool)]
-			internal extern static bool wglBindSwapBarrierNV(UInt32 group, UInt32 barrier);
+			internal delegate bool wglBindSwapBarrierNV(UInt32 group, UInt32 barrier);
+			[ThreadStatic]
+			internal static wglBindSwapBarrierNV pwglBindSwapBarrierNV;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "wglBindTexImageARB", ExactSpelling = true)]
-			[return: MarshalAs(UnmanagedType.Bool)]
-			internal extern static unsafe bool wglBindTexImageARB(IntPtr hPbuffer, int iBuffer);
+			internal unsafe delegate bool wglBindTexImageARB(IntPtr hPbuffer, int iBuffer);
+			[ThreadStatic]
+			internal static wglBindTexImageARB pwglBindTexImageARB;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "wglBindVideoCaptureDeviceNV", ExactSpelling = true)]
-			[return: MarshalAs(UnmanagedType.Bool)]
-			internal extern static unsafe bool wglBindVideoCaptureDeviceNV(UInt32 uVideoSlot, IntPtr hDevice);
+			internal unsafe delegate bool wglBindVideoCaptureDeviceNV(UInt32 uVideoSlot, IntPtr hDevice);
+			[ThreadStatic]
+			internal static wglBindVideoCaptureDeviceNV pwglBindVideoCaptureDeviceNV;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "wglBindVideoDeviceNV", ExactSpelling = true)]
-			[return: MarshalAs(UnmanagedType.Bool)]
-			internal extern static unsafe bool wglBindVideoDeviceNV(IntPtr hDC, UInt32 uVideoSlot, IntPtr hVideoDevice, int* piAttribList);
+			internal unsafe delegate bool wglBindVideoDeviceNV(IntPtr hDC, UInt32 uVideoSlot, IntPtr hVideoDevice, int* piAttribList);
+			[ThreadStatic]
+			internal static wglBindVideoDeviceNV pwglBindVideoDeviceNV;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "wglBindVideoImageNV", ExactSpelling = true)]
-			[return: MarshalAs(UnmanagedType.Bool)]
-			internal extern static unsafe bool wglBindVideoImageNV(IntPtr hVideoDevice, IntPtr hPbuffer, int iVideoBuffer);
+			internal unsafe delegate bool wglBindVideoImageNV(IntPtr hVideoDevice, IntPtr hPbuffer, int iVideoBuffer);
+			[ThreadStatic]
+			internal static wglBindVideoImageNV pwglBindVideoImageNV;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "wglBlitContextFramebufferAMD", ExactSpelling = true)]
-			internal extern static unsafe void wglBlitContextFramebufferAMD(IntPtr dstCtx, Int32 srcX0, Int32 srcY0, Int32 srcX1, Int32 srcY1, Int32 dstX0, Int32 dstY0, Int32 dstX1, Int32 dstY1, uint mask, int filter);
+			internal unsafe delegate void wglBlitContextFramebufferAMD(IntPtr dstCtx, Int32 srcX0, Int32 srcY0, Int32 srcX1, Int32 srcY1, Int32 dstX0, Int32 dstY0, Int32 dstX1, Int32 dstY1, uint mask, int filter);
+			[ThreadStatic]
+			internal static wglBlitContextFramebufferAMD pwglBlitContextFramebufferAMD;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "wglChoosePixelFormatARB", ExactSpelling = true)]
-			[return: MarshalAs(UnmanagedType.Bool)]
-			internal extern static unsafe bool wglChoosePixelFormatARB(IntPtr hdc, int* piAttribIList, float* pfAttribFList, UInt32 nMaxFormats, int* piFormats, UInt32* nNumFormats);
+			internal unsafe delegate bool wglChoosePixelFormatARB(IntPtr hdc, int* piAttribIList, float* pfAttribFList, UInt32 nMaxFormats, int* piFormats, UInt32* nNumFormats);
+			[ThreadStatic]
+			internal static wglChoosePixelFormatARB pwglChoosePixelFormatARB;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "wglChoosePixelFormatEXT", ExactSpelling = true)]
-			[return: MarshalAs(UnmanagedType.Bool)]
-			internal extern static unsafe bool wglChoosePixelFormatEXT(IntPtr hdc, int* piAttribIList, float* pfAttribFList, UInt32 nMaxFormats, int* piFormats, UInt32* nNumFormats);
+			internal unsafe delegate bool wglChoosePixelFormatEXT(IntPtr hdc, int* piAttribIList, float* pfAttribFList, UInt32 nMaxFormats, int* piFormats, UInt32* nNumFormats);
+			[ThreadStatic]
+			internal static wglChoosePixelFormatEXT pwglChoosePixelFormatEXT;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "wglCopyContext", ExactSpelling = true)]
-			[return: MarshalAs(UnmanagedType.Bool)]
-			internal extern static unsafe bool wglCopyContext(IntPtr hglrcSrc, IntPtr hglrcDst, UInt32 mask);
+			internal unsafe delegate bool wglCopyContext(IntPtr hglrcSrc, IntPtr hglrcDst, UInt32 mask);
+			[ThreadStatic]
+			internal static wglCopyContext pwglCopyContext;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "wglCopyImageSubDataNV", ExactSpelling = true)]
-			[return: MarshalAs(UnmanagedType.Bool)]
-			internal extern static unsafe bool wglCopyImageSubDataNV(IntPtr hSrcRC, UInt32 srcName, int srcTarget, Int32 srcLevel, Int32 srcX, Int32 srcY, Int32 srcZ, IntPtr hDstRC, UInt32 dstName, int dstTarget, Int32 dstLevel, Int32 dstX, Int32 dstY, Int32 dstZ, Int32 width, Int32 height, Int32 depth);
+			internal unsafe delegate bool wglCopyImageSubDataNV(IntPtr hSrcRC, UInt32 srcName, int srcTarget, Int32 srcLevel, Int32 srcX, Int32 srcY, Int32 srcZ, IntPtr hDstRC, UInt32 dstName, int dstTarget, Int32 dstLevel, Int32 dstX, Int32 dstY, Int32 dstZ, Int32 width, Int32 height, Int32 depth);
+			[ThreadStatic]
+			internal static wglCopyImageSubDataNV pwglCopyImageSubDataNV;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "wglCreateAffinityDCNV", ExactSpelling = true)]
-			internal extern static unsafe IntPtr wglCreateAffinityDCNV(IntPtr* phGpuList);
+			internal unsafe delegate IntPtr wglCreateAffinityDCNV(IntPtr* phGpuList);
+			[ThreadStatic]
+			internal static wglCreateAffinityDCNV pwglCreateAffinityDCNV;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "wglCreateAssociatedContextAMD", ExactSpelling = true)]
-			internal extern static IntPtr wglCreateAssociatedContextAMD(UInt32 id);
+			internal delegate IntPtr wglCreateAssociatedContextAMD(UInt32 id);
+			[ThreadStatic]
+			internal static wglCreateAssociatedContextAMD pwglCreateAssociatedContextAMD;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "wglCreateAssociatedContextAttribsAMD", ExactSpelling = true)]
-			internal extern static unsafe IntPtr wglCreateAssociatedContextAttribsAMD(UInt32 id, IntPtr hShareContext, int* attribList);
+			internal unsafe delegate IntPtr wglCreateAssociatedContextAttribsAMD(UInt32 id, IntPtr hShareContext, int* attribList);
+			[ThreadStatic]
+			internal static wglCreateAssociatedContextAttribsAMD pwglCreateAssociatedContextAttribsAMD;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "wglCreateBufferRegionARB", ExactSpelling = true)]
-			internal extern static unsafe IntPtr wglCreateBufferRegionARB(IntPtr hDC, int iLayerPlane, UInt32 uType);
+			internal unsafe delegate IntPtr wglCreateBufferRegionARB(IntPtr hDC, int iLayerPlane, UInt32 uType);
+			[ThreadStatic]
+			internal static wglCreateBufferRegionARB pwglCreateBufferRegionARB;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "wglCreateContext", ExactSpelling = true)]
-			internal extern static unsafe IntPtr wglCreateContext(IntPtr hDc);
+			internal unsafe delegate IntPtr wglCreateContext(IntPtr hDc);
+			[ThreadStatic]
+			internal static wglCreateContext pwglCreateContext;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "wglCreateContextAttribsARB", ExactSpelling = true)]
-			internal extern static unsafe IntPtr wglCreateContextAttribsARB(IntPtr hDC, IntPtr hShareContext, int* attribList);
+			internal unsafe delegate IntPtr wglCreateContextAttribsARB(IntPtr hDC, IntPtr hShareContext, int* attribList);
+			[ThreadStatic]
+			internal static wglCreateContextAttribsARB pwglCreateContextAttribsARB;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "wglCreateDisplayColorTableEXT", ExactSpelling = true)]
-			[return: MarshalAs(UnmanagedType.I1)]
-			internal extern static bool wglCreateDisplayColorTableEXT(UInt16 id);
+			internal delegate bool wglCreateDisplayColorTableEXT(UInt16 id);
+			[ThreadStatic]
+			internal static wglCreateDisplayColorTableEXT pwglCreateDisplayColorTableEXT;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "wglCreateImageBufferI3D", ExactSpelling = true)]
-			internal extern static unsafe IntPtr wglCreateImageBufferI3D(IntPtr hDC, Int32 dwSize, UInt32 uFlags);
+			internal unsafe delegate IntPtr wglCreateImageBufferI3D(IntPtr hDC, Int32 dwSize, UInt32 uFlags);
+			[ThreadStatic]
+			internal static wglCreateImageBufferI3D pwglCreateImageBufferI3D;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "wglCreateLayerContext", ExactSpelling = true)]
-			internal extern static unsafe IntPtr wglCreateLayerContext(IntPtr hDc, int level);
+			internal unsafe delegate IntPtr wglCreateLayerContext(IntPtr hDc, int level);
+			[ThreadStatic]
+			internal static wglCreateLayerContext pwglCreateLayerContext;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "wglCreatePbufferARB", ExactSpelling = true)]
-			internal extern static unsafe IntPtr wglCreatePbufferARB(IntPtr hDC, int iPixelFormat, int iWidth, int iHeight, int* piAttribList);
+			internal unsafe delegate IntPtr wglCreatePbufferARB(IntPtr hDC, int iPixelFormat, int iWidth, int iHeight, int* piAttribList);
+			[ThreadStatic]
+			internal static wglCreatePbufferARB pwglCreatePbufferARB;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "wglCreatePbufferEXT", ExactSpelling = true)]
-			internal extern static unsafe IntPtr wglCreatePbufferEXT(IntPtr hDC, int iPixelFormat, int iWidth, int iHeight, int* piAttribList);
+			internal unsafe delegate IntPtr wglCreatePbufferEXT(IntPtr hDC, int iPixelFormat, int iWidth, int iHeight, int* piAttribList);
+			[ThreadStatic]
+			internal static wglCreatePbufferEXT pwglCreatePbufferEXT;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "wglDelayBeforeSwapNV", ExactSpelling = true)]
-			[return: MarshalAs(UnmanagedType.Bool)]
-			internal extern static unsafe bool wglDelayBeforeSwapNV(IntPtr hDC, float seconds);
+			internal unsafe delegate bool wglDelayBeforeSwapNV(IntPtr hDC, float seconds);
+			[ThreadStatic]
+			internal static wglDelayBeforeSwapNV pwglDelayBeforeSwapNV;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "wglDeleteAssociatedContextAMD", ExactSpelling = true)]
-			[return: MarshalAs(UnmanagedType.Bool)]
-			internal extern static unsafe bool wglDeleteAssociatedContextAMD(IntPtr hglrc);
+			internal unsafe delegate bool wglDeleteAssociatedContextAMD(IntPtr hglrc);
+			[ThreadStatic]
+			internal static wglDeleteAssociatedContextAMD pwglDeleteAssociatedContextAMD;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "wglDeleteBufferRegionARB", ExactSpelling = true)]
-			internal extern static unsafe void wglDeleteBufferRegionARB(IntPtr hRegion);
+			internal unsafe delegate void wglDeleteBufferRegionARB(IntPtr hRegion);
+			[ThreadStatic]
+			internal static wglDeleteBufferRegionARB pwglDeleteBufferRegionARB;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "wglDeleteContext", ExactSpelling = true)]
-			[return: MarshalAs(UnmanagedType.Bool)]
-			internal extern static unsafe bool wglDeleteContext(IntPtr oldContext);
+			internal unsafe delegate bool wglDeleteContext(IntPtr oldContext);
+			[ThreadStatic]
+			internal static wglDeleteContext pwglDeleteContext;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "wglDeleteDCNV", ExactSpelling = true)]
-			[return: MarshalAs(UnmanagedType.Bool)]
-			internal extern static unsafe bool wglDeleteDCNV(IntPtr hdc);
+			internal unsafe delegate bool wglDeleteDCNV(IntPtr hdc);
+			[ThreadStatic]
+			internal static wglDeleteDCNV pwglDeleteDCNV;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "wglDescribeLayerPlane", ExactSpelling = true)]
-			[return: MarshalAs(UnmanagedType.Bool)]
-			internal extern static unsafe bool wglDescribeLayerPlane(IntPtr hDc, int pixelFormat, int layerPlane, UInt32 nBytes, IntPtr* plpd);
+			internal unsafe delegate bool wglDescribeLayerPlane(IntPtr hDc, int pixelFormat, int layerPlane, UInt32 nBytes, IntPtr* plpd);
+			[ThreadStatic]
+			internal static wglDescribeLayerPlane pwglDescribeLayerPlane;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "wglDestroyDisplayColorTableEXT", ExactSpelling = true)]
-			internal extern static void wglDestroyDisplayColorTableEXT(UInt16 id);
+			internal delegate void wglDestroyDisplayColorTableEXT(UInt16 id);
+			[ThreadStatic]
+			internal static wglDestroyDisplayColorTableEXT pwglDestroyDisplayColorTableEXT;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "wglDestroyImageBufferI3D", ExactSpelling = true)]
-			[return: MarshalAs(UnmanagedType.Bool)]
-			internal extern static unsafe bool wglDestroyImageBufferI3D(IntPtr hDC, IntPtr pAddress);
+			internal unsafe delegate bool wglDestroyImageBufferI3D(IntPtr hDC, IntPtr pAddress);
+			[ThreadStatic]
+			internal static wglDestroyImageBufferI3D pwglDestroyImageBufferI3D;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "wglDestroyPbufferARB", ExactSpelling = true)]
-			[return: MarshalAs(UnmanagedType.Bool)]
-			internal extern static unsafe bool wglDestroyPbufferARB(IntPtr hPbuffer);
+			internal unsafe delegate bool wglDestroyPbufferARB(IntPtr hPbuffer);
+			[ThreadStatic]
+			internal static wglDestroyPbufferARB pwglDestroyPbufferARB;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "wglDestroyPbufferEXT", ExactSpelling = true)]
-			[return: MarshalAs(UnmanagedType.Bool)]
-			internal extern static unsafe bool wglDestroyPbufferEXT(IntPtr hPbuffer);
+			internal unsafe delegate bool wglDestroyPbufferEXT(IntPtr hPbuffer);
+			[ThreadStatic]
+			internal static wglDestroyPbufferEXT pwglDestroyPbufferEXT;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "wglDisableFrameLockI3D", ExactSpelling = true)]
-			[return: MarshalAs(UnmanagedType.Bool)]
-			internal extern static bool wglDisableFrameLockI3D();
+			internal delegate bool wglDisableFrameLockI3D();
+			[ThreadStatic]
+			internal static wglDisableFrameLockI3D pwglDisableFrameLockI3D;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "wglDisableGenlockI3D", ExactSpelling = true)]
-			[return: MarshalAs(UnmanagedType.Bool)]
-			internal extern static unsafe bool wglDisableGenlockI3D(IntPtr hDC);
+			internal unsafe delegate bool wglDisableGenlockI3D(IntPtr hDC);
+			[ThreadStatic]
+			internal static wglDisableGenlockI3D pwglDisableGenlockI3D;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "wglDXCloseDeviceNV", ExactSpelling = true)]
-			[return: MarshalAs(UnmanagedType.Bool)]
-			internal extern static unsafe bool wglDXCloseDeviceNV(IntPtr hDevice);
+			internal unsafe delegate bool wglDXCloseDeviceNV(IntPtr hDevice);
+			[ThreadStatic]
+			internal static wglDXCloseDeviceNV pwglDXCloseDeviceNV;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "wglDXLockObjectsNV", ExactSpelling = true)]
-			[return: MarshalAs(UnmanagedType.Bool)]
-			internal extern static unsafe bool wglDXLockObjectsNV(IntPtr hDevice, Int32 count, IntPtr* hObjects);
+			internal unsafe delegate bool wglDXLockObjectsNV(IntPtr hDevice, Int32 count, IntPtr* hObjects);
+			[ThreadStatic]
+			internal static wglDXLockObjectsNV pwglDXLockObjectsNV;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "wglDXObjectAccessNV", ExactSpelling = true)]
-			[return: MarshalAs(UnmanagedType.Bool)]
-			internal extern static unsafe bool wglDXObjectAccessNV(IntPtr hObject, int access);
+			internal unsafe delegate bool wglDXObjectAccessNV(IntPtr hObject, int access);
+			[ThreadStatic]
+			internal static wglDXObjectAccessNV pwglDXObjectAccessNV;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "wglDXOpenDeviceNV", ExactSpelling = true)]
-			internal extern static unsafe IntPtr wglDXOpenDeviceNV(IntPtr dxDevice);
+			internal unsafe delegate IntPtr wglDXOpenDeviceNV(IntPtr dxDevice);
+			[ThreadStatic]
+			internal static wglDXOpenDeviceNV pwglDXOpenDeviceNV;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "wglDXRegisterObjectNV", ExactSpelling = true)]
-			internal extern static unsafe IntPtr wglDXRegisterObjectNV(IntPtr hDevice, IntPtr dxObject, UInt32 name, int type, int access);
+			internal unsafe delegate IntPtr wglDXRegisterObjectNV(IntPtr hDevice, IntPtr dxObject, UInt32 name, int type, int access);
+			[ThreadStatic]
+			internal static wglDXRegisterObjectNV pwglDXRegisterObjectNV;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "wglDXSetResourceShareHandleNV", ExactSpelling = true)]
-			[return: MarshalAs(UnmanagedType.Bool)]
-			internal extern static unsafe bool wglDXSetResourceShareHandleNV(IntPtr dxObject, IntPtr shareHandle);
+			internal unsafe delegate bool wglDXSetResourceShareHandleNV(IntPtr dxObject, IntPtr shareHandle);
+			[ThreadStatic]
+			internal static wglDXSetResourceShareHandleNV pwglDXSetResourceShareHandleNV;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "wglDXUnlockObjectsNV", ExactSpelling = true)]
-			[return: MarshalAs(UnmanagedType.Bool)]
-			internal extern static unsafe bool wglDXUnlockObjectsNV(IntPtr hDevice, Int32 count, IntPtr* hObjects);
+			internal unsafe delegate bool wglDXUnlockObjectsNV(IntPtr hDevice, Int32 count, IntPtr* hObjects);
+			[ThreadStatic]
+			internal static wglDXUnlockObjectsNV pwglDXUnlockObjectsNV;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "wglDXUnregisterObjectNV", ExactSpelling = true)]
-			[return: MarshalAs(UnmanagedType.Bool)]
-			internal extern static unsafe bool wglDXUnregisterObjectNV(IntPtr hDevice, IntPtr hObject);
+			internal unsafe delegate bool wglDXUnregisterObjectNV(IntPtr hDevice, IntPtr hObject);
+			[ThreadStatic]
+			internal static wglDXUnregisterObjectNV pwglDXUnregisterObjectNV;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "wglEnableFrameLockI3D", ExactSpelling = true)]
-			[return: MarshalAs(UnmanagedType.Bool)]
-			internal extern static bool wglEnableFrameLockI3D();
+			internal delegate bool wglEnableFrameLockI3D();
+			[ThreadStatic]
+			internal static wglEnableFrameLockI3D pwglEnableFrameLockI3D;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "wglEnableGenlockI3D", ExactSpelling = true)]
-			[return: MarshalAs(UnmanagedType.Bool)]
-			internal extern static unsafe bool wglEnableGenlockI3D(IntPtr hDC);
+			internal unsafe delegate bool wglEnableGenlockI3D(IntPtr hDC);
+			[ThreadStatic]
+			internal static wglEnableGenlockI3D pwglEnableGenlockI3D;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "wglEndFrameTrackingI3D", ExactSpelling = true)]
-			[return: MarshalAs(UnmanagedType.Bool)]
-			internal extern static bool wglEndFrameTrackingI3D();
+			internal delegate bool wglEndFrameTrackingI3D();
+			[ThreadStatic]
+			internal static wglEndFrameTrackingI3D pwglEndFrameTrackingI3D;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "wglEnumerateVideoCaptureDevicesNV", ExactSpelling = true)]
-			internal extern static unsafe UInt32 wglEnumerateVideoCaptureDevicesNV(IntPtr hDc, IntPtr* phDeviceList);
+			internal unsafe delegate UInt32 wglEnumerateVideoCaptureDevicesNV(IntPtr hDc, IntPtr* phDeviceList);
+			[ThreadStatic]
+			internal static wglEnumerateVideoCaptureDevicesNV pwglEnumerateVideoCaptureDevicesNV;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "wglEnumerateVideoDevicesNV", ExactSpelling = true)]
-			internal extern static unsafe int wglEnumerateVideoDevicesNV(IntPtr hDC, IntPtr* phDeviceList);
+			internal unsafe delegate int wglEnumerateVideoDevicesNV(IntPtr hDC, IntPtr* phDeviceList);
+			[ThreadStatic]
+			internal static wglEnumerateVideoDevicesNV pwglEnumerateVideoDevicesNV;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "wglEnumGpuDevicesNV", ExactSpelling = true)]
-			[return: MarshalAs(UnmanagedType.Bool)]
-			internal extern static unsafe bool wglEnumGpuDevicesNV(IntPtr hGpu, UInt32 iDeviceIndex, IntPtr lpGpuDevice);
+			internal unsafe delegate bool wglEnumGpuDevicesNV(IntPtr hGpu, UInt32 iDeviceIndex, IntPtr lpGpuDevice);
+			[ThreadStatic]
+			internal static wglEnumGpuDevicesNV pwglEnumGpuDevicesNV;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "wglEnumGpusFromAffinityDCNV", ExactSpelling = true)]
-			[return: MarshalAs(UnmanagedType.Bool)]
-			internal extern static unsafe bool wglEnumGpusFromAffinityDCNV(IntPtr hAffinityDC, UInt32 iGpuIndex, IntPtr* hGpu);
+			internal unsafe delegate bool wglEnumGpusFromAffinityDCNV(IntPtr hAffinityDC, UInt32 iGpuIndex, IntPtr* hGpu);
+			[ThreadStatic]
+			internal static wglEnumGpusFromAffinityDCNV pwglEnumGpusFromAffinityDCNV;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "wglEnumGpusNV", ExactSpelling = true)]
-			[return: MarshalAs(UnmanagedType.Bool)]
-			internal extern static unsafe bool wglEnumGpusNV(UInt32 iGpuIndex, IntPtr* phGpu);
+			internal unsafe delegate bool wglEnumGpusNV(UInt32 iGpuIndex, IntPtr* phGpu);
+			[ThreadStatic]
+			internal static wglEnumGpusNV pwglEnumGpusNV;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "wglFreeMemoryNV", ExactSpelling = true)]
-			internal extern static unsafe void wglFreeMemoryNV(IntPtr pointer);
+			internal unsafe delegate void wglFreeMemoryNV(IntPtr pointer);
+			[ThreadStatic]
+			internal static wglFreeMemoryNV pwglFreeMemoryNV;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "wglGenlockSampleRateI3D", ExactSpelling = true)]
-			[return: MarshalAs(UnmanagedType.Bool)]
-			internal extern static unsafe bool wglGenlockSampleRateI3D(IntPtr hDC, UInt32 uRate);
+			internal unsafe delegate bool wglGenlockSampleRateI3D(IntPtr hDC, UInt32 uRate);
+			[ThreadStatic]
+			internal static wglGenlockSampleRateI3D pwglGenlockSampleRateI3D;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "wglGenlockSourceDelayI3D", ExactSpelling = true)]
-			[return: MarshalAs(UnmanagedType.Bool)]
-			internal extern static unsafe bool wglGenlockSourceDelayI3D(IntPtr hDC, UInt32 uDelay);
+			internal unsafe delegate bool wglGenlockSourceDelayI3D(IntPtr hDC, UInt32 uDelay);
+			[ThreadStatic]
+			internal static wglGenlockSourceDelayI3D pwglGenlockSourceDelayI3D;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "wglGenlockSourceEdgeI3D", ExactSpelling = true)]
-			[return: MarshalAs(UnmanagedType.Bool)]
-			internal extern static unsafe bool wglGenlockSourceEdgeI3D(IntPtr hDC, UInt32 uEdge);
+			internal unsafe delegate bool wglGenlockSourceEdgeI3D(IntPtr hDC, UInt32 uEdge);
+			[ThreadStatic]
+			internal static wglGenlockSourceEdgeI3D pwglGenlockSourceEdgeI3D;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "wglGenlockSourceI3D", ExactSpelling = true)]
-			[return: MarshalAs(UnmanagedType.Bool)]
-			internal extern static unsafe bool wglGenlockSourceI3D(IntPtr hDC, UInt32 uSource);
+			internal unsafe delegate bool wglGenlockSourceI3D(IntPtr hDC, UInt32 uSource);
+			[ThreadStatic]
+			internal static wglGenlockSourceI3D pwglGenlockSourceI3D;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "wglGetContextGPUIDAMD", ExactSpelling = true)]
-			internal extern static unsafe UInt32 wglGetContextGPUIDAMD(IntPtr hglrc);
+			internal unsafe delegate UInt32 wglGetContextGPUIDAMD(IntPtr hglrc);
+			[ThreadStatic]
+			internal static wglGetContextGPUIDAMD pwglGetContextGPUIDAMD;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "wglGetCurrentAssociatedContextAMD", ExactSpelling = true)]
-			internal extern static IntPtr wglGetCurrentAssociatedContextAMD();
+			internal delegate IntPtr wglGetCurrentAssociatedContextAMD();
+			[ThreadStatic]
+			internal static wglGetCurrentAssociatedContextAMD pwglGetCurrentAssociatedContextAMD;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "wglGetCurrentContext", ExactSpelling = true)]
-			internal extern static IntPtr wglGetCurrentContext();
+			internal delegate IntPtr wglGetCurrentContext();
+			[ThreadStatic]
+			internal static wglGetCurrentContext pwglGetCurrentContext;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "wglGetCurrentDC", ExactSpelling = true)]
-			internal extern static IntPtr wglGetCurrentDC();
+			internal delegate IntPtr wglGetCurrentDC();
+			[ThreadStatic]
+			internal static wglGetCurrentDC pwglGetCurrentDC;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "wglGetCurrentReadDCARB", ExactSpelling = true)]
-			internal extern static IntPtr wglGetCurrentReadDCARB();
+			internal delegate IntPtr wglGetCurrentReadDCARB();
+			[ThreadStatic]
+			internal static wglGetCurrentReadDCARB pwglGetCurrentReadDCARB;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "wglGetCurrentReadDCEXT", ExactSpelling = true)]
-			internal extern static IntPtr wglGetCurrentReadDCEXT();
+			internal delegate IntPtr wglGetCurrentReadDCEXT();
+			[ThreadStatic]
+			internal static wglGetCurrentReadDCEXT pwglGetCurrentReadDCEXT;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "wglGetDigitalVideoParametersI3D", ExactSpelling = true)]
-			[return: MarshalAs(UnmanagedType.Bool)]
-			internal extern static unsafe bool wglGetDigitalVideoParametersI3D(IntPtr hDC, int iAttribute, int* piValue);
+			internal unsafe delegate bool wglGetDigitalVideoParametersI3D(IntPtr hDC, int iAttribute, int* piValue);
+			[ThreadStatic]
+			internal static wglGetDigitalVideoParametersI3D pwglGetDigitalVideoParametersI3D;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "wglGetExtensionsStringARB", ExactSpelling = true)]
-			internal extern static unsafe string wglGetExtensionsStringARB(IntPtr hdc);
+			internal unsafe delegate string wglGetExtensionsStringARB(IntPtr hdc);
+			[ThreadStatic]
+			internal static wglGetExtensionsStringARB pwglGetExtensionsStringARB;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "wglGetExtensionsStringEXT", ExactSpelling = true)]
-			internal extern static string wglGetExtensionsStringEXT();
+			internal delegate string wglGetExtensionsStringEXT();
+			[ThreadStatic]
+			internal static wglGetExtensionsStringEXT pwglGetExtensionsStringEXT;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "wglGetFrameUsageI3D", ExactSpelling = true)]
-			[return: MarshalAs(UnmanagedType.Bool)]
-			internal extern static unsafe bool wglGetFrameUsageI3D(float * pUsage);
+			internal unsafe delegate bool wglGetFrameUsageI3D(float * pUsage);
+			[ThreadStatic]
+			internal static wglGetFrameUsageI3D pwglGetFrameUsageI3D;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "wglGetGammaTableI3D", ExactSpelling = true)]
-			[return: MarshalAs(UnmanagedType.Bool)]
-			internal extern static unsafe bool wglGetGammaTableI3D(IntPtr hDC, int iEntries, UInt16* puRed, UInt16* puGreen, UInt16* puBlue);
+			internal unsafe delegate bool wglGetGammaTableI3D(IntPtr hDC, int iEntries, UInt16* puRed, UInt16* puGreen, UInt16* puBlue);
+			[ThreadStatic]
+			internal static wglGetGammaTableI3D pwglGetGammaTableI3D;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "wglGetGammaTableParametersI3D", ExactSpelling = true)]
-			[return: MarshalAs(UnmanagedType.Bool)]
-			internal extern static unsafe bool wglGetGammaTableParametersI3D(IntPtr hDC, int iAttribute, int* piValue);
+			internal unsafe delegate bool wglGetGammaTableParametersI3D(IntPtr hDC, int iAttribute, int* piValue);
+			[ThreadStatic]
+			internal static wglGetGammaTableParametersI3D pwglGetGammaTableParametersI3D;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "wglGetGenlockSampleRateI3D", ExactSpelling = true)]
-			[return: MarshalAs(UnmanagedType.Bool)]
-			internal extern static unsafe bool wglGetGenlockSampleRateI3D(IntPtr hDC, UInt32* uRate);
+			internal unsafe delegate bool wglGetGenlockSampleRateI3D(IntPtr hDC, UInt32* uRate);
+			[ThreadStatic]
+			internal static wglGetGenlockSampleRateI3D pwglGetGenlockSampleRateI3D;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "wglGetGenlockSourceDelayI3D", ExactSpelling = true)]
-			[return: MarshalAs(UnmanagedType.Bool)]
-			internal extern static unsafe bool wglGetGenlockSourceDelayI3D(IntPtr hDC, UInt32* uDelay);
+			internal unsafe delegate bool wglGetGenlockSourceDelayI3D(IntPtr hDC, UInt32* uDelay);
+			[ThreadStatic]
+			internal static wglGetGenlockSourceDelayI3D pwglGetGenlockSourceDelayI3D;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "wglGetGenlockSourceEdgeI3D", ExactSpelling = true)]
-			[return: MarshalAs(UnmanagedType.Bool)]
-			internal extern static unsafe bool wglGetGenlockSourceEdgeI3D(IntPtr hDC, UInt32* uEdge);
+			internal unsafe delegate bool wglGetGenlockSourceEdgeI3D(IntPtr hDC, UInt32* uEdge);
+			[ThreadStatic]
+			internal static wglGetGenlockSourceEdgeI3D pwglGetGenlockSourceEdgeI3D;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "wglGetGenlockSourceI3D", ExactSpelling = true)]
-			[return: MarshalAs(UnmanagedType.Bool)]
-			internal extern static unsafe bool wglGetGenlockSourceI3D(IntPtr hDC, UInt32* uSource);
+			internal unsafe delegate bool wglGetGenlockSourceI3D(IntPtr hDC, UInt32* uSource);
+			[ThreadStatic]
+			internal static wglGetGenlockSourceI3D pwglGetGenlockSourceI3D;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "wglGetGPUIDsAMD", ExactSpelling = true)]
-			internal extern static unsafe UInt32 wglGetGPUIDsAMD(UInt32 maxCount, UInt32* ids);
+			internal unsafe delegate UInt32 wglGetGPUIDsAMD(UInt32 maxCount, UInt32* ids);
+			[ThreadStatic]
+			internal static wglGetGPUIDsAMD pwglGetGPUIDsAMD;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "wglGetGPUInfoAMD", ExactSpelling = true)]
-			internal extern static unsafe Int32 wglGetGPUInfoAMD(UInt32 id, int property, int dataType, UInt32 size, IntPtr data);
+			internal unsafe delegate Int32 wglGetGPUInfoAMD(UInt32 id, int property, int dataType, UInt32 size, IntPtr data);
+			[ThreadStatic]
+			internal static wglGetGPUInfoAMD pwglGetGPUInfoAMD;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "wglGetLayerPaletteEntries", ExactSpelling = true)]
-			internal extern static unsafe int wglGetLayerPaletteEntries(IntPtr hdc, int iLayerPlane, int iStart, int cEntries, IntPtr pcr);
+			internal unsafe delegate int wglGetLayerPaletteEntries(IntPtr hdc, int iLayerPlane, int iStart, int cEntries, IntPtr pcr);
+			[ThreadStatic]
+			internal static wglGetLayerPaletteEntries pwglGetLayerPaletteEntries;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "wglGetMscRateOML", ExactSpelling = true)]
-			[return: MarshalAs(UnmanagedType.Bool)]
-			internal extern static unsafe bool wglGetMscRateOML(IntPtr hdc, Int32* numerator, Int32* denominator);
+			internal unsafe delegate bool wglGetMscRateOML(IntPtr hdc, Int32* numerator, Int32* denominator);
+			[ThreadStatic]
+			internal static wglGetMscRateOML pwglGetMscRateOML;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "wglGetPbufferDCARB", ExactSpelling = true)]
-			internal extern static unsafe IntPtr wglGetPbufferDCARB(IntPtr hPbuffer);
+			internal unsafe delegate IntPtr wglGetPbufferDCARB(IntPtr hPbuffer);
+			[ThreadStatic]
+			internal static wglGetPbufferDCARB pwglGetPbufferDCARB;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "wglGetPbufferDCEXT", ExactSpelling = true)]
-			internal extern static unsafe IntPtr wglGetPbufferDCEXT(IntPtr hPbuffer);
+			internal unsafe delegate IntPtr wglGetPbufferDCEXT(IntPtr hPbuffer);
+			[ThreadStatic]
+			internal static wglGetPbufferDCEXT pwglGetPbufferDCEXT;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "wglGetPixelFormatAttribfvARB", ExactSpelling = true)]
-			[return: MarshalAs(UnmanagedType.Bool)]
-			internal extern static unsafe bool wglGetPixelFormatAttribfvARB(IntPtr hdc, int iPixelFormat, int iLayerPlane, UInt32 nAttributes, int* piAttributes, float* pfValues);
+			internal unsafe delegate bool wglGetPixelFormatAttribfvARB(IntPtr hdc, int iPixelFormat, int iLayerPlane, UInt32 nAttributes, int* piAttributes, float* pfValues);
+			[ThreadStatic]
+			internal static wglGetPixelFormatAttribfvARB pwglGetPixelFormatAttribfvARB;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "wglGetPixelFormatAttribfvEXT", ExactSpelling = true)]
-			[return: MarshalAs(UnmanagedType.Bool)]
-			internal extern static unsafe bool wglGetPixelFormatAttribfvEXT(IntPtr hdc, int iPixelFormat, int iLayerPlane, UInt32 nAttributes, int* piAttributes, float* pfValues);
+			internal unsafe delegate bool wglGetPixelFormatAttribfvEXT(IntPtr hdc, int iPixelFormat, int iLayerPlane, UInt32 nAttributes, int* piAttributes, float* pfValues);
+			[ThreadStatic]
+			internal static wglGetPixelFormatAttribfvEXT pwglGetPixelFormatAttribfvEXT;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "wglGetPixelFormatAttribivARB", ExactSpelling = true)]
-			[return: MarshalAs(UnmanagedType.Bool)]
-			internal extern static unsafe bool wglGetPixelFormatAttribivARB(IntPtr hdc, int iPixelFormat, int iLayerPlane, UInt32 nAttributes, int* piAttributes, int* piValues);
+			internal unsafe delegate bool wglGetPixelFormatAttribivARB(IntPtr hdc, int iPixelFormat, int iLayerPlane, UInt32 nAttributes, int* piAttributes, int* piValues);
+			[ThreadStatic]
+			internal static wglGetPixelFormatAttribivARB pwglGetPixelFormatAttribivARB;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "wglGetPixelFormatAttribivEXT", ExactSpelling = true)]
-			[return: MarshalAs(UnmanagedType.Bool)]
-			internal extern static unsafe bool wglGetPixelFormatAttribivEXT(IntPtr hdc, int iPixelFormat, int iLayerPlane, UInt32 nAttributes, int* piAttributes, int* piValues);
+			internal unsafe delegate bool wglGetPixelFormatAttribivEXT(IntPtr hdc, int iPixelFormat, int iLayerPlane, UInt32 nAttributes, int* piAttributes, int* piValues);
+			[ThreadStatic]
+			internal static wglGetPixelFormatAttribivEXT pwglGetPixelFormatAttribivEXT;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "wglGetProcAddress", ExactSpelling = true)]
-			internal extern static IntPtr wglGetProcAddress(String lpszProc);
+			internal delegate IntPtr wglGetProcAddress(String lpszProc);
+			[ThreadStatic]
+			internal static wglGetProcAddress pwglGetProcAddress;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "wglGetSwapIntervalEXT", ExactSpelling = true)]
-			internal extern static int wglGetSwapIntervalEXT();
+			internal delegate int wglGetSwapIntervalEXT();
+			[ThreadStatic]
+			internal static wglGetSwapIntervalEXT pwglGetSwapIntervalEXT;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "wglGetSyncValuesOML", ExactSpelling = true)]
-			[return: MarshalAs(UnmanagedType.Bool)]
-			internal extern static unsafe bool wglGetSyncValuesOML(IntPtr hdc, Int64* ust, Int64* msc, Int64* sbc);
+			internal unsafe delegate bool wglGetSyncValuesOML(IntPtr hdc, Int64* ust, Int64* msc, Int64* sbc);
+			[ThreadStatic]
+			internal static wglGetSyncValuesOML pwglGetSyncValuesOML;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "wglGetVideoDeviceNV", ExactSpelling = true)]
-			[return: MarshalAs(UnmanagedType.Bool)]
-			internal extern static unsafe bool wglGetVideoDeviceNV(IntPtr hDC, int numDevices, IntPtr* hVideoDevice);
+			internal unsafe delegate bool wglGetVideoDeviceNV(IntPtr hDC, int numDevices, IntPtr* hVideoDevice);
+			[ThreadStatic]
+			internal static wglGetVideoDeviceNV pwglGetVideoDeviceNV;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "wglGetVideoInfoNV", ExactSpelling = true)]
-			[return: MarshalAs(UnmanagedType.Bool)]
-			internal extern static unsafe bool wglGetVideoInfoNV(IntPtr hpVideoDevice, UInt32* pulCounterOutputPbuffer, UInt32* pulCounterOutputVideo);
+			internal unsafe delegate bool wglGetVideoInfoNV(IntPtr hpVideoDevice, UInt32* pulCounterOutputPbuffer, UInt32* pulCounterOutputVideo);
+			[ThreadStatic]
+			internal static wglGetVideoInfoNV pwglGetVideoInfoNV;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "wglIsEnabledFrameLockI3D", ExactSpelling = true)]
-			[return: MarshalAs(UnmanagedType.Bool)]
-			internal extern static unsafe bool wglIsEnabledFrameLockI3D(bool* pFlag);
+			internal unsafe delegate bool wglIsEnabledFrameLockI3D(bool* pFlag);
+			[ThreadStatic]
+			internal static wglIsEnabledFrameLockI3D pwglIsEnabledFrameLockI3D;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "wglIsEnabledGenlockI3D", ExactSpelling = true)]
-			[return: MarshalAs(UnmanagedType.Bool)]
-			internal extern static unsafe bool wglIsEnabledGenlockI3D(IntPtr hDC, bool* pFlag);
+			internal unsafe delegate bool wglIsEnabledGenlockI3D(IntPtr hDC, bool* pFlag);
+			[ThreadStatic]
+			internal static wglIsEnabledGenlockI3D pwglIsEnabledGenlockI3D;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "wglJoinSwapGroupNV", ExactSpelling = true)]
-			[return: MarshalAs(UnmanagedType.Bool)]
-			internal extern static unsafe bool wglJoinSwapGroupNV(IntPtr hDC, UInt32 group);
+			internal unsafe delegate bool wglJoinSwapGroupNV(IntPtr hDC, UInt32 group);
+			[ThreadStatic]
+			internal static wglJoinSwapGroupNV pwglJoinSwapGroupNV;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "wglLoadDisplayColorTableEXT", ExactSpelling = true)]
-			[return: MarshalAs(UnmanagedType.I1)]
-			internal extern static unsafe bool wglLoadDisplayColorTableEXT(UInt16* table, UInt32 length);
+			internal unsafe delegate bool wglLoadDisplayColorTableEXT(UInt16* table, UInt32 length);
+			[ThreadStatic]
+			internal static wglLoadDisplayColorTableEXT pwglLoadDisplayColorTableEXT;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "wglLockVideoCaptureDeviceNV", ExactSpelling = true)]
-			[return: MarshalAs(UnmanagedType.Bool)]
-			internal extern static unsafe bool wglLockVideoCaptureDeviceNV(IntPtr hDc, IntPtr hDevice);
+			internal unsafe delegate bool wglLockVideoCaptureDeviceNV(IntPtr hDc, IntPtr hDevice);
+			[ThreadStatic]
+			internal static wglLockVideoCaptureDeviceNV pwglLockVideoCaptureDeviceNV;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "wglMakeAssociatedContextCurrentAMD", ExactSpelling = true)]
-			[return: MarshalAs(UnmanagedType.Bool)]
-			internal extern static unsafe bool wglMakeAssociatedContextCurrentAMD(IntPtr hglrc);
+			internal unsafe delegate bool wglMakeAssociatedContextCurrentAMD(IntPtr hglrc);
+			[ThreadStatic]
+			internal static wglMakeAssociatedContextCurrentAMD pwglMakeAssociatedContextCurrentAMD;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "wglMakeContextCurrentARB", ExactSpelling = true)]
-			[return: MarshalAs(UnmanagedType.Bool)]
-			internal extern static unsafe bool wglMakeContextCurrentARB(IntPtr hDrawDC, IntPtr hReadDC, IntPtr hglrc);
+			internal unsafe delegate bool wglMakeContextCurrentARB(IntPtr hDrawDC, IntPtr hReadDC, IntPtr hglrc);
+			[ThreadStatic]
+			internal static wglMakeContextCurrentARB pwglMakeContextCurrentARB;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "wglMakeContextCurrentEXT", ExactSpelling = true)]
-			[return: MarshalAs(UnmanagedType.Bool)]
-			internal extern static unsafe bool wglMakeContextCurrentEXT(IntPtr hDrawDC, IntPtr hReadDC, IntPtr hglrc);
+			internal unsafe delegate bool wglMakeContextCurrentEXT(IntPtr hDrawDC, IntPtr hReadDC, IntPtr hglrc);
+			[ThreadStatic]
+			internal static wglMakeContextCurrentEXT pwglMakeContextCurrentEXT;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "wglMakeCurrent", ExactSpelling = true)]
-			[return: MarshalAs(UnmanagedType.Bool)]
-			internal extern static unsafe bool wglMakeCurrent(IntPtr hDc, IntPtr newContext);
+			internal unsafe delegate bool wglMakeCurrent(IntPtr hDc, IntPtr newContext);
+			[ThreadStatic]
+			internal static wglMakeCurrent pwglMakeCurrent;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "wglQueryCurrentContextNV", ExactSpelling = true)]
-			[return: MarshalAs(UnmanagedType.Bool)]
-			internal extern static unsafe bool wglQueryCurrentContextNV(int iAttribute, int* piValue);
+			internal unsafe delegate bool wglQueryCurrentContextNV(int iAttribute, int* piValue);
+			[ThreadStatic]
+			internal static wglQueryCurrentContextNV pwglQueryCurrentContextNV;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "wglQueryFrameCountNV", ExactSpelling = true)]
-			[return: MarshalAs(UnmanagedType.Bool)]
-			internal extern static unsafe bool wglQueryFrameCountNV(IntPtr hDC, UInt32* count);
+			internal unsafe delegate bool wglQueryFrameCountNV(IntPtr hDC, UInt32* count);
+			[ThreadStatic]
+			internal static wglQueryFrameCountNV pwglQueryFrameCountNV;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "wglQueryFrameLockMasterI3D", ExactSpelling = true)]
-			[return: MarshalAs(UnmanagedType.Bool)]
-			internal extern static unsafe bool wglQueryFrameLockMasterI3D(bool* pFlag);
+			internal unsafe delegate bool wglQueryFrameLockMasterI3D(bool* pFlag);
+			[ThreadStatic]
+			internal static wglQueryFrameLockMasterI3D pwglQueryFrameLockMasterI3D;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "wglQueryFrameTrackingI3D", ExactSpelling = true)]
-			[return: MarshalAs(UnmanagedType.Bool)]
-			internal extern static unsafe bool wglQueryFrameTrackingI3D(Int32* pFrameCount, Int32* pMissedFrames, float * pLastMissedUsage);
+			internal unsafe delegate bool wglQueryFrameTrackingI3D(Int32* pFrameCount, Int32* pMissedFrames, float * pLastMissedUsage);
+			[ThreadStatic]
+			internal static wglQueryFrameTrackingI3D pwglQueryFrameTrackingI3D;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "wglQueryGenlockMaxSourceDelayI3D", ExactSpelling = true)]
-			[return: MarshalAs(UnmanagedType.Bool)]
-			internal extern static unsafe bool wglQueryGenlockMaxSourceDelayI3D(IntPtr hDC, UInt32* uMaxLineDelay, UInt32* uMaxPixelDelay);
+			internal unsafe delegate bool wglQueryGenlockMaxSourceDelayI3D(IntPtr hDC, UInt32* uMaxLineDelay, UInt32* uMaxPixelDelay);
+			[ThreadStatic]
+			internal static wglQueryGenlockMaxSourceDelayI3D pwglQueryGenlockMaxSourceDelayI3D;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "wglQueryMaxSwapGroupsNV", ExactSpelling = true)]
-			[return: MarshalAs(UnmanagedType.Bool)]
-			internal extern static unsafe bool wglQueryMaxSwapGroupsNV(IntPtr hDC, UInt32* maxGroups, UInt32* maxBarriers);
+			internal unsafe delegate bool wglQueryMaxSwapGroupsNV(IntPtr hDC, UInt32* maxGroups, UInt32* maxBarriers);
+			[ThreadStatic]
+			internal static wglQueryMaxSwapGroupsNV pwglQueryMaxSwapGroupsNV;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "wglQueryPbufferARB", ExactSpelling = true)]
-			[return: MarshalAs(UnmanagedType.Bool)]
-			internal extern static unsafe bool wglQueryPbufferARB(IntPtr hPbuffer, int iAttribute, int* piValue);
+			internal unsafe delegate bool wglQueryPbufferARB(IntPtr hPbuffer, int iAttribute, int* piValue);
+			[ThreadStatic]
+			internal static wglQueryPbufferARB pwglQueryPbufferARB;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "wglQueryPbufferEXT", ExactSpelling = true)]
-			[return: MarshalAs(UnmanagedType.Bool)]
-			internal extern static unsafe bool wglQueryPbufferEXT(IntPtr hPbuffer, int iAttribute, int* piValue);
+			internal unsafe delegate bool wglQueryPbufferEXT(IntPtr hPbuffer, int iAttribute, int* piValue);
+			[ThreadStatic]
+			internal static wglQueryPbufferEXT pwglQueryPbufferEXT;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "wglQuerySwapGroupNV", ExactSpelling = true)]
-			[return: MarshalAs(UnmanagedType.Bool)]
-			internal extern static unsafe bool wglQuerySwapGroupNV(IntPtr hDC, UInt32* group, UInt32* barrier);
+			internal unsafe delegate bool wglQuerySwapGroupNV(IntPtr hDC, UInt32* group, UInt32* barrier);
+			[ThreadStatic]
+			internal static wglQuerySwapGroupNV pwglQuerySwapGroupNV;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "wglQueryVideoCaptureDeviceNV", ExactSpelling = true)]
-			[return: MarshalAs(UnmanagedType.Bool)]
-			internal extern static unsafe bool wglQueryVideoCaptureDeviceNV(IntPtr hDc, IntPtr hDevice, int iAttribute, int* piValue);
+			internal unsafe delegate bool wglQueryVideoCaptureDeviceNV(IntPtr hDc, IntPtr hDevice, int iAttribute, int* piValue);
+			[ThreadStatic]
+			internal static wglQueryVideoCaptureDeviceNV pwglQueryVideoCaptureDeviceNV;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "wglRealizeLayerPalette", ExactSpelling = true)]
-			[return: MarshalAs(UnmanagedType.Bool)]
-			internal extern static unsafe bool wglRealizeLayerPalette(IntPtr hdc, int iLayerPlane, bool bRealize);
+			internal unsafe delegate bool wglRealizeLayerPalette(IntPtr hdc, int iLayerPlane, bool bRealize);
+			[ThreadStatic]
+			internal static wglRealizeLayerPalette pwglRealizeLayerPalette;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "wglReleaseImageBufferEventsI3D", ExactSpelling = true)]
-			[return: MarshalAs(UnmanagedType.Bool)]
-			internal extern static unsafe bool wglReleaseImageBufferEventsI3D(IntPtr hDC, IntPtr* pAddress, UInt32 count);
+			internal unsafe delegate bool wglReleaseImageBufferEventsI3D(IntPtr hDC, IntPtr* pAddress, UInt32 count);
+			[ThreadStatic]
+			internal static wglReleaseImageBufferEventsI3D pwglReleaseImageBufferEventsI3D;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "wglReleasePbufferDCARB", ExactSpelling = true)]
-			internal extern static unsafe int wglReleasePbufferDCARB(IntPtr hPbuffer, IntPtr hDC);
+			internal unsafe delegate int wglReleasePbufferDCARB(IntPtr hPbuffer, IntPtr hDC);
+			[ThreadStatic]
+			internal static wglReleasePbufferDCARB pwglReleasePbufferDCARB;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "wglReleasePbufferDCEXT", ExactSpelling = true)]
-			internal extern static unsafe int wglReleasePbufferDCEXT(IntPtr hPbuffer, IntPtr hDC);
+			internal unsafe delegate int wglReleasePbufferDCEXT(IntPtr hPbuffer, IntPtr hDC);
+			[ThreadStatic]
+			internal static wglReleasePbufferDCEXT pwglReleasePbufferDCEXT;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "wglReleaseTexImageARB", ExactSpelling = true)]
-			[return: MarshalAs(UnmanagedType.Bool)]
-			internal extern static unsafe bool wglReleaseTexImageARB(IntPtr hPbuffer, int iBuffer);
+			internal unsafe delegate bool wglReleaseTexImageARB(IntPtr hPbuffer, int iBuffer);
+			[ThreadStatic]
+			internal static wglReleaseTexImageARB pwglReleaseTexImageARB;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "wglReleaseVideoCaptureDeviceNV", ExactSpelling = true)]
-			[return: MarshalAs(UnmanagedType.Bool)]
-			internal extern static unsafe bool wglReleaseVideoCaptureDeviceNV(IntPtr hDc, IntPtr hDevice);
+			internal unsafe delegate bool wglReleaseVideoCaptureDeviceNV(IntPtr hDc, IntPtr hDevice);
+			[ThreadStatic]
+			internal static wglReleaseVideoCaptureDeviceNV pwglReleaseVideoCaptureDeviceNV;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "wglReleaseVideoDeviceNV", ExactSpelling = true)]
-			[return: MarshalAs(UnmanagedType.Bool)]
-			internal extern static unsafe bool wglReleaseVideoDeviceNV(IntPtr hVideoDevice);
+			internal unsafe delegate bool wglReleaseVideoDeviceNV(IntPtr hVideoDevice);
+			[ThreadStatic]
+			internal static wglReleaseVideoDeviceNV pwglReleaseVideoDeviceNV;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "wglReleaseVideoImageNV", ExactSpelling = true)]
-			[return: MarshalAs(UnmanagedType.Bool)]
-			internal extern static unsafe bool wglReleaseVideoImageNV(IntPtr hPbuffer, int iVideoBuffer);
+			internal unsafe delegate bool wglReleaseVideoImageNV(IntPtr hPbuffer, int iVideoBuffer);
+			[ThreadStatic]
+			internal static wglReleaseVideoImageNV pwglReleaseVideoImageNV;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "wglResetFrameCountNV", ExactSpelling = true)]
-			[return: MarshalAs(UnmanagedType.Bool)]
-			internal extern static unsafe bool wglResetFrameCountNV(IntPtr hDC);
+			internal unsafe delegate bool wglResetFrameCountNV(IntPtr hDC);
+			[ThreadStatic]
+			internal static wglResetFrameCountNV pwglResetFrameCountNV;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "wglRestoreBufferRegionARB", ExactSpelling = true)]
-			[return: MarshalAs(UnmanagedType.Bool)]
-			internal extern static unsafe bool wglRestoreBufferRegionARB(IntPtr hRegion, int x, int y, int width, int height, int xSrc, int ySrc);
+			internal unsafe delegate bool wglRestoreBufferRegionARB(IntPtr hRegion, int x, int y, int width, int height, int xSrc, int ySrc);
+			[ThreadStatic]
+			internal static wglRestoreBufferRegionARB pwglRestoreBufferRegionARB;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "wglSaveBufferRegionARB", ExactSpelling = true)]
-			[return: MarshalAs(UnmanagedType.Bool)]
-			internal extern static unsafe bool wglSaveBufferRegionARB(IntPtr hRegion, int x, int y, int width, int height);
+			internal unsafe delegate bool wglSaveBufferRegionARB(IntPtr hRegion, int x, int y, int width, int height);
+			[ThreadStatic]
+			internal static wglSaveBufferRegionARB pwglSaveBufferRegionARB;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "wglSendPbufferToVideoNV", ExactSpelling = true)]
-			[return: MarshalAs(UnmanagedType.Bool)]
-			internal extern static unsafe bool wglSendPbufferToVideoNV(IntPtr hPbuffer, int iBufferType, UInt32* pulCounterPbuffer, bool bBlock);
+			internal unsafe delegate bool wglSendPbufferToVideoNV(IntPtr hPbuffer, int iBufferType, UInt32* pulCounterPbuffer, bool bBlock);
+			[ThreadStatic]
+			internal static wglSendPbufferToVideoNV pwglSendPbufferToVideoNV;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "wglSetDigitalVideoParametersI3D", ExactSpelling = true)]
-			[return: MarshalAs(UnmanagedType.Bool)]
-			internal extern static unsafe bool wglSetDigitalVideoParametersI3D(IntPtr hDC, int iAttribute, int* piValue);
+			internal unsafe delegate bool wglSetDigitalVideoParametersI3D(IntPtr hDC, int iAttribute, int* piValue);
+			[ThreadStatic]
+			internal static wglSetDigitalVideoParametersI3D pwglSetDigitalVideoParametersI3D;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "wglSetGammaTableI3D", ExactSpelling = true)]
-			[return: MarshalAs(UnmanagedType.Bool)]
-			internal extern static unsafe bool wglSetGammaTableI3D(IntPtr hDC, int iEntries, UInt16* puRed, UInt16* puGreen, UInt16* puBlue);
+			internal unsafe delegate bool wglSetGammaTableI3D(IntPtr hDC, int iEntries, UInt16* puRed, UInt16* puGreen, UInt16* puBlue);
+			[ThreadStatic]
+			internal static wglSetGammaTableI3D pwglSetGammaTableI3D;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "wglSetGammaTableParametersI3D", ExactSpelling = true)]
-			[return: MarshalAs(UnmanagedType.Bool)]
-			internal extern static unsafe bool wglSetGammaTableParametersI3D(IntPtr hDC, int iAttribute, int* piValue);
+			internal unsafe delegate bool wglSetGammaTableParametersI3D(IntPtr hDC, int iAttribute, int* piValue);
+			[ThreadStatic]
+			internal static wglSetGammaTableParametersI3D pwglSetGammaTableParametersI3D;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "wglSetLayerPaletteEntries", ExactSpelling = true)]
-			internal extern static unsafe int wglSetLayerPaletteEntries(IntPtr hdc, int iLayerPlane, int iStart, int cEntries, IntPtr pcr);
+			internal unsafe delegate int wglSetLayerPaletteEntries(IntPtr hdc, int iLayerPlane, int iStart, int cEntries, IntPtr pcr);
+			[ThreadStatic]
+			internal static wglSetLayerPaletteEntries pwglSetLayerPaletteEntries;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "wglSetPbufferAttribARB", ExactSpelling = true)]
-			[return: MarshalAs(UnmanagedType.Bool)]
-			internal extern static unsafe bool wglSetPbufferAttribARB(IntPtr hPbuffer, int* piAttribList);
+			internal unsafe delegate bool wglSetPbufferAttribARB(IntPtr hPbuffer, int* piAttribList);
+			[ThreadStatic]
+			internal static wglSetPbufferAttribARB pwglSetPbufferAttribARB;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "wglSetStereoEmitterState3DL", ExactSpelling = true)]
-			[return: MarshalAs(UnmanagedType.Bool)]
-			internal extern static unsafe bool wglSetStereoEmitterState3DL(IntPtr hDC, UInt32 uState);
+			internal unsafe delegate bool wglSetStereoEmitterState3DL(IntPtr hDC, UInt32 uState);
+			[ThreadStatic]
+			internal static wglSetStereoEmitterState3DL pwglSetStereoEmitterState3DL;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "wglShareLists", ExactSpelling = true)]
-			[return: MarshalAs(UnmanagedType.Bool)]
-			internal extern static unsafe bool wglShareLists(IntPtr hrcSrvShare, IntPtr hrcSrvSource);
+			internal unsafe delegate bool wglShareLists(IntPtr hrcSrvShare, IntPtr hrcSrvSource);
+			[ThreadStatic]
+			internal static wglShareLists pwglShareLists;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "wglSwapBuffersMscOML", ExactSpelling = true)]
-			internal extern static unsafe Int64 wglSwapBuffersMscOML(IntPtr hdc, Int64 target_msc, Int64 divisor, Int64 remainder);
+			internal unsafe delegate Int64 wglSwapBuffersMscOML(IntPtr hdc, Int64 target_msc, Int64 divisor, Int64 remainder);
+			[ThreadStatic]
+			internal static wglSwapBuffersMscOML pwglSwapBuffersMscOML;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "wglSwapLayerBuffers", ExactSpelling = true)]
-			[return: MarshalAs(UnmanagedType.Bool)]
-			internal extern static unsafe bool wglSwapLayerBuffers(IntPtr hdc, UInt32 fuFlags);
+			internal unsafe delegate bool wglSwapLayerBuffers(IntPtr hdc, UInt32 fuFlags);
+			[ThreadStatic]
+			internal static wglSwapLayerBuffers pwglSwapLayerBuffers;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "wglSwapIntervalEXT", ExactSpelling = true)]
-			[return: MarshalAs(UnmanagedType.Bool)]
-			internal extern static bool wglSwapIntervalEXT(int interval);
+			internal delegate bool wglSwapIntervalEXT(int interval);
+			[ThreadStatic]
+			internal static wglSwapIntervalEXT pwglSwapIntervalEXT;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "wglSwapLayerBuffersMscOML", ExactSpelling = true)]
-			internal extern static unsafe Int64 wglSwapLayerBuffersMscOML(IntPtr hdc, int fuPlanes, Int64 target_msc, Int64 divisor, Int64 remainder);
+			internal unsafe delegate Int64 wglSwapLayerBuffersMscOML(IntPtr hdc, int fuPlanes, Int64 target_msc, Int64 divisor, Int64 remainder);
+			[ThreadStatic]
+			internal static wglSwapLayerBuffersMscOML pwglSwapLayerBuffersMscOML;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "wglUseFontBitmaps", ExactSpelling = true)]
-			[return: MarshalAs(UnmanagedType.Bool)]
-			internal extern static unsafe bool wglUseFontBitmaps(IntPtr hDC, Int32 first, Int32 count, Int32 listBase);
+			internal unsafe delegate bool wglUseFontBitmaps(IntPtr hDC, Int32 first, Int32 count, Int32 listBase);
+			[ThreadStatic]
+			internal static wglUseFontBitmaps pwglUseFontBitmaps;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "wglUseFontBitmapsA", ExactSpelling = true)]
-			[return: MarshalAs(UnmanagedType.Bool)]
-			internal extern static unsafe bool wglUseFontBitmapsA(IntPtr hDC, Int32 first, Int32 count, Int32 listBase);
+			internal unsafe delegate bool wglUseFontBitmapsA(IntPtr hDC, Int32 first, Int32 count, Int32 listBase);
+			[ThreadStatic]
+			internal static wglUseFontBitmapsA pwglUseFontBitmapsA;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "wglUseFontBitmapsW", ExactSpelling = true)]
-			[return: MarshalAs(UnmanagedType.Bool)]
-			internal extern static unsafe bool wglUseFontBitmapsW(IntPtr hDC, Int32 first, Int32 count, Int32 listBase);
+			internal unsafe delegate bool wglUseFontBitmapsW(IntPtr hDC, Int32 first, Int32 count, Int32 listBase);
+			[ThreadStatic]
+			internal static wglUseFontBitmapsW pwglUseFontBitmapsW;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "wglUseFontOutlines", ExactSpelling = true)]
-			[return: MarshalAs(UnmanagedType.Bool)]
-			internal extern static unsafe bool wglUseFontOutlines(IntPtr hDC, Int32 first, Int32 count, Int32 listBase, float deviation, float extrusion, int format, IntPtr lpgmf);
+			internal unsafe delegate bool wglUseFontOutlines(IntPtr hDC, Int32 first, Int32 count, Int32 listBase, float deviation, float extrusion, int format, IntPtr lpgmf);
+			[ThreadStatic]
+			internal static wglUseFontOutlines pwglUseFontOutlines;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "wglUseFontOutlinesA", ExactSpelling = true)]
-			[return: MarshalAs(UnmanagedType.Bool)]
-			internal extern static unsafe bool wglUseFontOutlinesA(IntPtr hDC, Int32 first, Int32 count, Int32 listBase, float deviation, float extrusion, int format, IntPtr lpgmf);
+			internal unsafe delegate bool wglUseFontOutlinesA(IntPtr hDC, Int32 first, Int32 count, Int32 listBase, float deviation, float extrusion, int format, IntPtr lpgmf);
+			[ThreadStatic]
+			internal static wglUseFontOutlinesA pwglUseFontOutlinesA;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "wglUseFontOutlinesW", ExactSpelling = true)]
-			[return: MarshalAs(UnmanagedType.Bool)]
-			internal extern static unsafe bool wglUseFontOutlinesW(IntPtr hDC, Int32 first, Int32 count, Int32 listBase, float deviation, float extrusion, int format, IntPtr lpgmf);
+			internal unsafe delegate bool wglUseFontOutlinesW(IntPtr hDC, Int32 first, Int32 count, Int32 listBase, float deviation, float extrusion, int format, IntPtr lpgmf);
+			[ThreadStatic]
+			internal static wglUseFontOutlinesW pwglUseFontOutlinesW;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "wglWaitForMscOML", ExactSpelling = true)]
-			[return: MarshalAs(UnmanagedType.Bool)]
-			internal extern static unsafe bool wglWaitForMscOML(IntPtr hdc, Int64 target_msc, Int64 divisor, Int64 remainder, Int64* ust, Int64* msc, Int64* sbc);
+			internal unsafe delegate bool wglWaitForMscOML(IntPtr hdc, Int64 target_msc, Int64 divisor, Int64 remainder, Int64* ust, Int64* msc, Int64* sbc);
+			[ThreadStatic]
+			internal static wglWaitForMscOML pwglWaitForMscOML;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "wglWaitForSbcOML", ExactSpelling = true)]
-			[return: MarshalAs(UnmanagedType.Bool)]
-			internal extern static unsafe bool wglWaitForSbcOML(IntPtr hdc, Int64 target_sbc, Int64* ust, Int64* msc, Int64* sbc);
+			internal unsafe delegate bool wglWaitForSbcOML(IntPtr hdc, Int64 target_sbc, Int64* ust, Int64* msc, Int64* sbc);
+			[ThreadStatic]
+			internal static wglWaitForSbcOML pwglWaitForSbcOML;
 
 		}
 	}

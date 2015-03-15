@@ -16,427 +16,521 @@
 // Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301
 // USA
 
+#pragma warning disable 649, 1572, 1573
+
 using System;
 using System.Security;
 using System.Runtime.InteropServices;
+using System.Text;
 
 namespace OpenGL
 {
 	public unsafe partial class Egl
 	{
-		internal unsafe static partial class Imports
+		internal unsafe static partial class Delegates
 		{
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "eglBindAPI", ExactSpelling = true)]
-			internal extern static IntPtr eglBindAPI(uint api);
+			internal delegate IntPtr eglBindAPI(uint api);
+			[ThreadStatic]
+			internal static eglBindAPI peglBindAPI;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "eglBindTexImage", ExactSpelling = true)]
-			internal extern static unsafe IntPtr eglBindTexImage(IntPtr dpy, IntPtr surface, int buffer);
+			internal unsafe delegate IntPtr eglBindTexImage(IntPtr dpy, IntPtr surface, int buffer);
+			[ThreadStatic]
+			internal static eglBindTexImage peglBindTexImage;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "eglChooseConfig", ExactSpelling = true)]
-			internal extern static unsafe IntPtr eglChooseConfig(IntPtr dpy, int* attrib_list, IntPtr* configs, int config_size, int* num_config);
+			internal unsafe delegate IntPtr eglChooseConfig(IntPtr dpy, int* attrib_list, IntPtr* configs, int config_size, int* num_config);
+			[ThreadStatic]
+			internal static eglChooseConfig peglChooseConfig;
 
+			[AliasOf("eglClientWaitSync"]
+			[AliasOf("eglClientWaitSyncKHR"]
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "eglClientWaitSync", ExactSpelling = true)]
-			internal extern static unsafe int eglClientWaitSync(IntPtr dpy, IntPtr sync, int flags, UInt64 timeout);
+			internal unsafe delegate int eglClientWaitSync(IntPtr dpy, IntPtr sync, int flags, UInt64 timeout);
+			[ThreadStatic]
+			internal static eglClientWaitSync peglClientWaitSync;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "eglClientWaitSyncKHR", ExactSpelling = true)]
-			internal extern static unsafe int eglClientWaitSyncKHR(IntPtr dpy, IntPtr sync, int flags, UInt64 timeout);
+			internal unsafe delegate int eglClientWaitSyncNV(IntPtr sync, int flags, UInt64 timeout);
+			[ThreadStatic]
+			internal static eglClientWaitSyncNV peglClientWaitSyncNV;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "eglClientWaitSyncNV", ExactSpelling = true)]
-			internal extern static unsafe int eglClientWaitSyncNV(IntPtr sync, int flags, UInt64 timeout);
+			internal unsafe delegate IntPtr eglCopyBuffers(IntPtr dpy, IntPtr surface, IntPtr target);
+			[ThreadStatic]
+			internal static eglCopyBuffers peglCopyBuffers;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "eglCopyBuffers", ExactSpelling = true)]
-			internal extern static unsafe IntPtr eglCopyBuffers(IntPtr dpy, IntPtr surface, IntPtr target);
+			internal unsafe delegate IntPtr eglCreateContext(IntPtr dpy, IntPtr config, IntPtr share_context, int* attrib_list);
+			[ThreadStatic]
+			internal static eglCreateContext peglCreateContext;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "eglCreateContext", ExactSpelling = true)]
-			internal extern static unsafe IntPtr eglCreateContext(IntPtr dpy, IntPtr config, IntPtr share_context, int* attrib_list);
+			internal unsafe delegate IntPtr eglCreateDRMImageMESA(IntPtr dpy, int* attrib_list);
+			[ThreadStatic]
+			internal static eglCreateDRMImageMESA peglCreateDRMImageMESA;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "eglCreateDRMImageMESA", ExactSpelling = true)]
-			internal extern static unsafe IntPtr eglCreateDRMImageMESA(IntPtr dpy, int* attrib_list);
+			internal unsafe delegate IntPtr eglCreateFenceSyncNV(IntPtr dpy, uint condition, int* attrib_list);
+			[ThreadStatic]
+			internal static eglCreateFenceSyncNV peglCreateFenceSyncNV;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "eglCreateFenceSyncNV", ExactSpelling = true)]
-			internal extern static unsafe IntPtr eglCreateFenceSyncNV(IntPtr dpy, uint condition, int* attrib_list);
+			internal unsafe delegate IntPtr eglCreateImage(IntPtr dpy, IntPtr ctx, uint target, IntPtr buffer, IntPtr* attrib_list);
+			[ThreadStatic]
+			internal static eglCreateImage peglCreateImage;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "eglCreateImage", ExactSpelling = true)]
-			internal extern static unsafe IntPtr eglCreateImage(IntPtr dpy, IntPtr ctx, uint target, IntPtr buffer, IntPtr* attrib_list);
+			internal unsafe delegate IntPtr eglCreateImageKHR(IntPtr dpy, IntPtr ctx, uint target, IntPtr buffer, int* attrib_list);
+			[ThreadStatic]
+			internal static eglCreateImageKHR peglCreateImageKHR;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "eglCreateImageKHR", ExactSpelling = true)]
-			internal extern static unsafe IntPtr eglCreateImageKHR(IntPtr dpy, IntPtr ctx, uint target, IntPtr buffer, int* attrib_list);
+			internal unsafe delegate IntPtr eglCreatePbufferFromClientBuffer(IntPtr dpy, uint buftype, IntPtr buffer, IntPtr config, int* attrib_list);
+			[ThreadStatic]
+			internal static eglCreatePbufferFromClientBuffer peglCreatePbufferFromClientBuffer;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "eglCreatePbufferFromClientBuffer", ExactSpelling = true)]
-			internal extern static unsafe IntPtr eglCreatePbufferFromClientBuffer(IntPtr dpy, uint buftype, IntPtr buffer, IntPtr config, int* attrib_list);
+			internal unsafe delegate IntPtr eglCreatePbufferSurface(IntPtr dpy, IntPtr config, int* attrib_list);
+			[ThreadStatic]
+			internal static eglCreatePbufferSurface peglCreatePbufferSurface;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "eglCreatePbufferSurface", ExactSpelling = true)]
-			internal extern static unsafe IntPtr eglCreatePbufferSurface(IntPtr dpy, IntPtr config, int* attrib_list);
+			internal unsafe delegate IntPtr eglCreatePixmapSurface(IntPtr dpy, IntPtr config, IntPtr pixmap, int* attrib_list);
+			[ThreadStatic]
+			internal static eglCreatePixmapSurface peglCreatePixmapSurface;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "eglCreatePixmapSurface", ExactSpelling = true)]
-			internal extern static unsafe IntPtr eglCreatePixmapSurface(IntPtr dpy, IntPtr config, IntPtr pixmap, int* attrib_list);
+			internal unsafe delegate IntPtr eglCreatePixmapSurfaceHI(IntPtr dpy, IntPtr config, ClientPixmap* pixmap);
+			[ThreadStatic]
+			internal static eglCreatePixmapSurfaceHI peglCreatePixmapSurfaceHI;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "eglCreatePixmapSurfaceHI", ExactSpelling = true)]
-			internal extern static unsafe IntPtr eglCreatePixmapSurfaceHI(IntPtr dpy, IntPtr config, ClientPixmap* pixmap);
+			internal unsafe delegate IntPtr eglCreatePlatformPixmapSurface(IntPtr dpy, IntPtr config, IntPtr native_pixmap, IntPtr* attrib_list);
+			[ThreadStatic]
+			internal static eglCreatePlatformPixmapSurface peglCreatePlatformPixmapSurface;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "eglCreatePlatformPixmapSurface", ExactSpelling = true)]
-			internal extern static unsafe IntPtr eglCreatePlatformPixmapSurface(IntPtr dpy, IntPtr config, IntPtr native_pixmap, IntPtr* attrib_list);
+			internal unsafe delegate IntPtr eglCreatePlatformPixmapSurfaceEXT(IntPtr dpy, IntPtr config, IntPtr native_pixmap, int* attrib_list);
+			[ThreadStatic]
+			internal static eglCreatePlatformPixmapSurfaceEXT peglCreatePlatformPixmapSurfaceEXT;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "eglCreatePlatformPixmapSurfaceEXT", ExactSpelling = true)]
-			internal extern static unsafe IntPtr eglCreatePlatformPixmapSurfaceEXT(IntPtr dpy, IntPtr config, IntPtr native_pixmap, int* attrib_list);
+			internal unsafe delegate IntPtr eglCreatePlatformWindowSurface(IntPtr dpy, IntPtr config, IntPtr native_window, IntPtr* attrib_list);
+			[ThreadStatic]
+			internal static eglCreatePlatformWindowSurface peglCreatePlatformWindowSurface;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "eglCreatePlatformWindowSurface", ExactSpelling = true)]
-			internal extern static unsafe IntPtr eglCreatePlatformWindowSurface(IntPtr dpy, IntPtr config, IntPtr native_window, IntPtr* attrib_list);
+			internal unsafe delegate IntPtr eglCreatePlatformWindowSurfaceEXT(IntPtr dpy, IntPtr config, IntPtr native_window, int* attrib_list);
+			[ThreadStatic]
+			internal static eglCreatePlatformWindowSurfaceEXT peglCreatePlatformWindowSurfaceEXT;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "eglCreatePlatformWindowSurfaceEXT", ExactSpelling = true)]
-			internal extern static unsafe IntPtr eglCreatePlatformWindowSurfaceEXT(IntPtr dpy, IntPtr config, IntPtr native_window, int* attrib_list);
+			internal unsafe delegate IntPtr eglCreateStreamFromFileDescriptorKHR(IntPtr dpy, int file_descriptor);
+			[ThreadStatic]
+			internal static eglCreateStreamFromFileDescriptorKHR peglCreateStreamFromFileDescriptorKHR;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "eglCreateStreamFromFileDescriptorKHR", ExactSpelling = true)]
-			internal extern static unsafe IntPtr eglCreateStreamFromFileDescriptorKHR(IntPtr dpy, int file_descriptor);
+			internal unsafe delegate IntPtr eglCreateStreamKHR(IntPtr dpy, int* attrib_list);
+			[ThreadStatic]
+			internal static eglCreateStreamKHR peglCreateStreamKHR;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "eglCreateStreamKHR", ExactSpelling = true)]
-			internal extern static unsafe IntPtr eglCreateStreamKHR(IntPtr dpy, int* attrib_list);
+			internal unsafe delegate IntPtr eglCreateStreamProducerSurfaceKHR(IntPtr dpy, IntPtr config, IntPtr stream, int* attrib_list);
+			[ThreadStatic]
+			internal static eglCreateStreamProducerSurfaceKHR peglCreateStreamProducerSurfaceKHR;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "eglCreateStreamProducerSurfaceKHR", ExactSpelling = true)]
-			internal extern static unsafe IntPtr eglCreateStreamProducerSurfaceKHR(IntPtr dpy, IntPtr config, IntPtr stream, int* attrib_list);
+			internal unsafe delegate IntPtr eglCreateStreamSyncNV(IntPtr dpy, IntPtr stream, uint type, int* attrib_list);
+			[ThreadStatic]
+			internal static eglCreateStreamSyncNV peglCreateStreamSyncNV;
 
+			[AliasOf("eglCreateSync"]
+			[AliasOf("eglCreateSync64KHR"]
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "eglCreateStreamSyncNV", ExactSpelling = true)]
-			internal extern static unsafe IntPtr eglCreateStreamSyncNV(IntPtr dpy, IntPtr stream, uint type, int* attrib_list);
+			internal unsafe delegate IntPtr eglCreateSync(IntPtr dpy, uint type, IntPtr* attrib_list);
+			[ThreadStatic]
+			internal static eglCreateSync peglCreateSync;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "eglCreateSync", ExactSpelling = true)]
-			internal extern static unsafe IntPtr eglCreateSync(IntPtr dpy, uint type, IntPtr* attrib_list);
+			internal unsafe delegate IntPtr eglCreateSyncKHR(IntPtr dpy, uint type, int* attrib_list);
+			[ThreadStatic]
+			internal static eglCreateSyncKHR peglCreateSyncKHR;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "eglCreateSyncKHR", ExactSpelling = true)]
-			internal extern static unsafe IntPtr eglCreateSyncKHR(IntPtr dpy, uint type, int* attrib_list);
+			internal unsafe delegate IntPtr eglCreateWindowSurface(IntPtr dpy, IntPtr config, IntPtr win, int* attrib_list);
+			[ThreadStatic]
+			internal static eglCreateWindowSurface peglCreateWindowSurface;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "eglCreateSync64KHR", ExactSpelling = true)]
-			internal extern static unsafe IntPtr eglCreateSync64KHR(IntPtr dpy, uint type, IntPtr* attrib_list);
+			internal unsafe delegate IntPtr eglDestroyContext(IntPtr dpy, IntPtr ctx);
+			[ThreadStatic]
+			internal static eglDestroyContext peglDestroyContext;
 
+			[AliasOf("eglDestroyImage"]
+			[AliasOf("eglDestroyImageKHR"]
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "eglCreateWindowSurface", ExactSpelling = true)]
-			internal extern static unsafe IntPtr eglCreateWindowSurface(IntPtr dpy, IntPtr config, IntPtr win, int* attrib_list);
+			internal unsafe delegate IntPtr eglDestroyImage(IntPtr dpy, IntPtr image);
+			[ThreadStatic]
+			internal static eglDestroyImage peglDestroyImage;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "eglDestroyContext", ExactSpelling = true)]
-			internal extern static unsafe IntPtr eglDestroyContext(IntPtr dpy, IntPtr ctx);
+			internal unsafe delegate IntPtr eglDestroyStreamKHR(IntPtr dpy, IntPtr stream);
+			[ThreadStatic]
+			internal static eglDestroyStreamKHR peglDestroyStreamKHR;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "eglDestroyImage", ExactSpelling = true)]
-			internal extern static unsafe IntPtr eglDestroyImage(IntPtr dpy, IntPtr image);
+			internal unsafe delegate IntPtr eglDestroySurface(IntPtr dpy, IntPtr surface);
+			[ThreadStatic]
+			internal static eglDestroySurface peglDestroySurface;
 
+			[AliasOf("eglDestroySync"]
+			[AliasOf("eglDestroySyncKHR"]
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "eglDestroyImageKHR", ExactSpelling = true)]
-			internal extern static unsafe IntPtr eglDestroyImageKHR(IntPtr dpy, IntPtr image);
+			internal unsafe delegate IntPtr eglDestroySync(IntPtr dpy, IntPtr sync);
+			[ThreadStatic]
+			internal static eglDestroySync peglDestroySync;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "eglDestroyStreamKHR", ExactSpelling = true)]
-			internal extern static unsafe IntPtr eglDestroyStreamKHR(IntPtr dpy, IntPtr stream);
+			internal unsafe delegate IntPtr eglDestroySyncNV(IntPtr sync);
+			[ThreadStatic]
+			internal static eglDestroySyncNV peglDestroySyncNV;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "eglDestroySurface", ExactSpelling = true)]
-			internal extern static unsafe IntPtr eglDestroySurface(IntPtr dpy, IntPtr surface);
+			internal unsafe delegate int eglDupNativeFenceFDANDROID(IntPtr dpy, IntPtr sync);
+			[ThreadStatic]
+			internal static eglDupNativeFenceFDANDROID peglDupNativeFenceFDANDROID;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "eglDestroySync", ExactSpelling = true)]
-			internal extern static unsafe IntPtr eglDestroySync(IntPtr dpy, IntPtr sync);
+			internal unsafe delegate IntPtr eglExportDRMImageMESA(IntPtr dpy, IntPtr image, int* name, int* handle, int* stride);
+			[ThreadStatic]
+			internal static eglExportDRMImageMESA peglExportDRMImageMESA;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "eglDestroySyncKHR", ExactSpelling = true)]
-			internal extern static unsafe IntPtr eglDestroySyncKHR(IntPtr dpy, IntPtr sync);
+			internal unsafe delegate IntPtr eglFenceNV(IntPtr sync);
+			[ThreadStatic]
+			internal static eglFenceNV peglFenceNV;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "eglDestroySyncNV", ExactSpelling = true)]
-			internal extern static unsafe IntPtr eglDestroySyncNV(IntPtr sync);
+			internal unsafe delegate IntPtr eglGetConfigAttrib(IntPtr dpy, IntPtr config, int attribute, int* value);
+			[ThreadStatic]
+			internal static eglGetConfigAttrib peglGetConfigAttrib;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "eglDupNativeFenceFDANDROID", ExactSpelling = true)]
-			internal extern static unsafe int eglDupNativeFenceFDANDROID(IntPtr dpy, IntPtr sync);
+			internal unsafe delegate IntPtr eglGetConfigs(IntPtr dpy, IntPtr* configs, int config_size, int* num_config);
+			[ThreadStatic]
+			internal static eglGetConfigs peglGetConfigs;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "eglExportDRMImageMESA", ExactSpelling = true)]
-			internal extern static unsafe IntPtr eglExportDRMImageMESA(IntPtr dpy, IntPtr image, int* name, int* handle, int* stride);
+			internal delegate IntPtr eglGetCurrentContext();
+			[ThreadStatic]
+			internal static eglGetCurrentContext peglGetCurrentContext;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "eglFenceNV", ExactSpelling = true)]
-			internal extern static unsafe IntPtr eglFenceNV(IntPtr sync);
+			internal delegate IntPtr eglGetCurrentDisplay();
+			[ThreadStatic]
+			internal static eglGetCurrentDisplay peglGetCurrentDisplay;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "eglGetConfigAttrib", ExactSpelling = true)]
-			internal extern static unsafe IntPtr eglGetConfigAttrib(IntPtr dpy, IntPtr config, int attribute, int* value);
+			internal delegate IntPtr eglGetCurrentSurface(int readdraw);
+			[ThreadStatic]
+			internal static eglGetCurrentSurface peglGetCurrentSurface;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "eglGetConfigs", ExactSpelling = true)]
-			internal extern static unsafe IntPtr eglGetConfigs(IntPtr dpy, IntPtr* configs, int config_size, int* num_config);
+			internal unsafe delegate IntPtr eglGetDisplay(IntPtr display_id);
+			[ThreadStatic]
+			internal static eglGetDisplay peglGetDisplay;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "eglGetCurrentContext", ExactSpelling = true)]
-			internal extern static IntPtr eglGetCurrentContext();
+			internal delegate int eglGetError();
+			[ThreadStatic]
+			internal static eglGetError peglGetError;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "eglGetCurrentDisplay", ExactSpelling = true)]
-			internal extern static IntPtr eglGetCurrentDisplay();
+			internal unsafe delegate IntPtr eglGetOutputLayersEXT(IntPtr dpy, IntPtr* attrib_list, IntPtr* layers, int max_layers, int* num_layers);
+			[ThreadStatic]
+			internal static eglGetOutputLayersEXT peglGetOutputLayersEXT;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "eglGetCurrentSurface", ExactSpelling = true)]
-			internal extern static IntPtr eglGetCurrentSurface(int readdraw);
+			internal unsafe delegate IntPtr eglGetOutputPortsEXT(IntPtr dpy, IntPtr* attrib_list, IntPtr* ports, int max_ports, int* num_ports);
+			[ThreadStatic]
+			internal static eglGetOutputPortsEXT peglGetOutputPortsEXT;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "eglGetDisplay", ExactSpelling = true)]
-			internal extern static unsafe IntPtr eglGetDisplay(IntPtr display_id);
+			internal unsafe delegate IntPtr eglGetPlatformDisplay(uint platform, IntPtr native_display, IntPtr* attrib_list);
+			[ThreadStatic]
+			internal static eglGetPlatformDisplay peglGetPlatformDisplay;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "eglGetError", ExactSpelling = true)]
-			internal extern static int eglGetError();
+			internal unsafe delegate IntPtr eglGetPlatformDisplayEXT(uint platform, IntPtr native_display, int* attrib_list);
+			[ThreadStatic]
+			internal static eglGetPlatformDisplayEXT peglGetPlatformDisplayEXT;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "eglGetOutputLayersEXT", ExactSpelling = true)]
-			internal extern static unsafe IntPtr eglGetOutputLayersEXT(IntPtr dpy, IntPtr* attrib_list, IntPtr* layers, int max_layers, int* num_layers);
+			internal delegate IntPtr eglGetProcAddress(string procname);
+			[ThreadStatic]
+			internal static eglGetProcAddress peglGetProcAddress;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "eglGetOutputPortsEXT", ExactSpelling = true)]
-			internal extern static unsafe IntPtr eglGetOutputPortsEXT(IntPtr dpy, IntPtr* attrib_list, IntPtr* ports, int max_ports, int* num_ports);
+			internal unsafe delegate int eglGetStreamFileDescriptorKHR(IntPtr dpy, IntPtr stream);
+			[ThreadStatic]
+			internal static eglGetStreamFileDescriptorKHR peglGetStreamFileDescriptorKHR;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "eglGetPlatformDisplay", ExactSpelling = true)]
-			internal extern static unsafe IntPtr eglGetPlatformDisplay(uint platform, IntPtr native_display, IntPtr* attrib_list);
+			internal unsafe delegate IntPtr eglGetSyncAttrib(IntPtr dpy, IntPtr sync, int attribute, IntPtr* value);
+			[ThreadStatic]
+			internal static eglGetSyncAttrib peglGetSyncAttrib;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "eglGetPlatformDisplayEXT", ExactSpelling = true)]
-			internal extern static unsafe IntPtr eglGetPlatformDisplayEXT(uint platform, IntPtr native_display, int* attrib_list);
+			internal unsafe delegate IntPtr eglGetSyncAttribKHR(IntPtr dpy, IntPtr sync, int attribute, int* value);
+			[ThreadStatic]
+			internal static eglGetSyncAttribKHR peglGetSyncAttribKHR;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "eglGetProcAddress", ExactSpelling = true)]
-			internal extern static IntPtr eglGetProcAddress(string procname);
+			internal unsafe delegate IntPtr eglGetSyncAttribNV(IntPtr sync, int attribute, int* value);
+			[ThreadStatic]
+			internal static eglGetSyncAttribNV peglGetSyncAttribNV;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "eglGetStreamFileDescriptorKHR", ExactSpelling = true)]
-			internal extern static unsafe int eglGetStreamFileDescriptorKHR(IntPtr dpy, IntPtr stream);
+			internal delegate UInt64 eglGetSystemTimeFrequencyNV();
+			[ThreadStatic]
+			internal static eglGetSystemTimeFrequencyNV peglGetSystemTimeFrequencyNV;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "eglGetSyncAttrib", ExactSpelling = true)]
-			internal extern static unsafe IntPtr eglGetSyncAttrib(IntPtr dpy, IntPtr sync, int attribute, IntPtr* value);
+			internal delegate UInt64 eglGetSystemTimeNV();
+			[ThreadStatic]
+			internal static eglGetSystemTimeNV peglGetSystemTimeNV;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "eglGetSyncAttribKHR", ExactSpelling = true)]
-			internal extern static unsafe IntPtr eglGetSyncAttribKHR(IntPtr dpy, IntPtr sync, int attribute, int* value);
+			internal unsafe delegate IntPtr eglInitialize(IntPtr dpy, int* major, int* minor);
+			[ThreadStatic]
+			internal static eglInitialize peglInitialize;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "eglGetSyncAttribNV", ExactSpelling = true)]
-			internal extern static unsafe IntPtr eglGetSyncAttribNV(IntPtr sync, int attribute, int* value);
+			internal unsafe delegate IntPtr eglLockSurfaceKHR(IntPtr dpy, IntPtr surface, int* attrib_list);
+			[ThreadStatic]
+			internal static eglLockSurfaceKHR peglLockSurfaceKHR;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "eglGetSystemTimeFrequencyNV", ExactSpelling = true)]
-			internal extern static UInt64 eglGetSystemTimeFrequencyNV();
+			internal unsafe delegate IntPtr eglMakeCurrent(IntPtr dpy, IntPtr draw, IntPtr read, IntPtr ctx);
+			[ThreadStatic]
+			internal static eglMakeCurrent peglMakeCurrent;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "eglGetSystemTimeNV", ExactSpelling = true)]
-			internal extern static UInt64 eglGetSystemTimeNV();
+			internal unsafe delegate IntPtr eglOutputLayerAttribEXT(IntPtr dpy, IntPtr layer, int attribute, IntPtr value);
+			[ThreadStatic]
+			internal static eglOutputLayerAttribEXT peglOutputLayerAttribEXT;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "eglInitialize", ExactSpelling = true)]
-			internal extern static unsafe IntPtr eglInitialize(IntPtr dpy, int* major, int* minor);
+			internal unsafe delegate IntPtr eglOutputPortAttribEXT(IntPtr dpy, IntPtr port, int attribute, IntPtr value);
+			[ThreadStatic]
+			internal static eglOutputPortAttribEXT peglOutputPortAttribEXT;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "eglLockSurfaceKHR", ExactSpelling = true)]
-			internal extern static unsafe IntPtr eglLockSurfaceKHR(IntPtr dpy, IntPtr surface, int* attrib_list);
+			internal unsafe delegate IntPtr eglPostSubBufferNV(IntPtr dpy, IntPtr surface, int x, int y, int width, int height);
+			[ThreadStatic]
+			internal static eglPostSubBufferNV peglPostSubBufferNV;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "eglMakeCurrent", ExactSpelling = true)]
-			internal extern static unsafe IntPtr eglMakeCurrent(IntPtr dpy, IntPtr draw, IntPtr read, IntPtr ctx);
+			internal delegate uint eglQueryAPI();
+			[ThreadStatic]
+			internal static eglQueryAPI peglQueryAPI;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "eglOutputLayerAttribEXT", ExactSpelling = true)]
-			internal extern static unsafe IntPtr eglOutputLayerAttribEXT(IntPtr dpy, IntPtr layer, int attribute, IntPtr value);
+			internal unsafe delegate IntPtr eglQueryContext(IntPtr dpy, IntPtr ctx, int attribute, int* value);
+			[ThreadStatic]
+			internal static eglQueryContext peglQueryContext;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "eglOutputPortAttribEXT", ExactSpelling = true)]
-			internal extern static unsafe IntPtr eglOutputPortAttribEXT(IntPtr dpy, IntPtr port, int attribute, IntPtr value);
+			internal unsafe delegate IntPtr eglQueryDeviceAttribEXT(IntPtr device, int attribute, IntPtr* value);
+			[ThreadStatic]
+			internal static eglQueryDeviceAttribEXT peglQueryDeviceAttribEXT;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "eglPostSubBufferNV", ExactSpelling = true)]
-			internal extern static unsafe IntPtr eglPostSubBufferNV(IntPtr dpy, IntPtr surface, int x, int y, int width, int height);
+			internal unsafe delegate string eglQueryDeviceStringEXT(IntPtr device, int name);
+			[ThreadStatic]
+			internal static eglQueryDeviceStringEXT peglQueryDeviceStringEXT;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "eglQueryAPI", ExactSpelling = true)]
-			internal extern static uint eglQueryAPI();
+			internal unsafe delegate IntPtr eglQueryDevicesEXT(int max_devices, IntPtr* devices, int* num_devices);
+			[ThreadStatic]
+			internal static eglQueryDevicesEXT peglQueryDevicesEXT;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "eglQueryContext", ExactSpelling = true)]
-			internal extern static unsafe IntPtr eglQueryContext(IntPtr dpy, IntPtr ctx, int attribute, int* value);
+			internal unsafe delegate IntPtr eglQueryDisplayAttribEXT(IntPtr dpy, int attribute, IntPtr* value);
+			[ThreadStatic]
+			internal static eglQueryDisplayAttribEXT peglQueryDisplayAttribEXT;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "eglQueryDeviceAttribEXT", ExactSpelling = true)]
-			internal extern static unsafe IntPtr eglQueryDeviceAttribEXT(IntPtr device, int attribute, IntPtr* value);
+			internal unsafe delegate IntPtr eglQueryNativeDisplayNV(IntPtr dpy, IntPtr* display_id);
+			[ThreadStatic]
+			internal static eglQueryNativeDisplayNV peglQueryNativeDisplayNV;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "eglQueryDeviceStringEXT", ExactSpelling = true)]
-			internal extern static unsafe string eglQueryDeviceStringEXT(IntPtr device, int name);
+			internal unsafe delegate IntPtr eglQueryNativePixmapNV(IntPtr dpy, IntPtr surf, IntPtr* pixmap);
+			[ThreadStatic]
+			internal static eglQueryNativePixmapNV peglQueryNativePixmapNV;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "eglQueryDevicesEXT", ExactSpelling = true)]
-			internal extern static unsafe IntPtr eglQueryDevicesEXT(int max_devices, IntPtr* devices, int* num_devices);
+			internal unsafe delegate IntPtr eglQueryNativeWindowNV(IntPtr dpy, IntPtr surf, IntPtr* window);
+			[ThreadStatic]
+			internal static eglQueryNativeWindowNV peglQueryNativeWindowNV;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "eglQueryDisplayAttribEXT", ExactSpelling = true)]
-			internal extern static unsafe IntPtr eglQueryDisplayAttribEXT(IntPtr dpy, int attribute, IntPtr* value);
+			internal unsafe delegate IntPtr eglQueryOutputLayerAttribEXT(IntPtr dpy, IntPtr layer, int attribute, IntPtr* value);
+			[ThreadStatic]
+			internal static eglQueryOutputLayerAttribEXT peglQueryOutputLayerAttribEXT;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "eglQueryNativeDisplayNV", ExactSpelling = true)]
-			internal extern static unsafe IntPtr eglQueryNativeDisplayNV(IntPtr dpy, IntPtr* display_id);
+			internal unsafe delegate string eglQueryOutputLayerStringEXT(IntPtr dpy, IntPtr layer, int name);
+			[ThreadStatic]
+			internal static eglQueryOutputLayerStringEXT peglQueryOutputLayerStringEXT;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "eglQueryNativePixmapNV", ExactSpelling = true)]
-			internal extern static unsafe IntPtr eglQueryNativePixmapNV(IntPtr dpy, IntPtr surf, IntPtr* pixmap);
+			internal unsafe delegate IntPtr eglQueryOutputPortAttribEXT(IntPtr dpy, IntPtr port, int attribute, IntPtr* value);
+			[ThreadStatic]
+			internal static eglQueryOutputPortAttribEXT peglQueryOutputPortAttribEXT;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "eglQueryNativeWindowNV", ExactSpelling = true)]
-			internal extern static unsafe IntPtr eglQueryNativeWindowNV(IntPtr dpy, IntPtr surf, IntPtr* window);
+			internal unsafe delegate string eglQueryOutputPortStringEXT(IntPtr dpy, IntPtr port, int name);
+			[ThreadStatic]
+			internal static eglQueryOutputPortStringEXT peglQueryOutputPortStringEXT;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "eglQueryOutputLayerAttribEXT", ExactSpelling = true)]
-			internal extern static unsafe IntPtr eglQueryOutputLayerAttribEXT(IntPtr dpy, IntPtr layer, int attribute, IntPtr* value);
+			internal unsafe delegate IntPtr eglQueryStreamKHR(IntPtr dpy, IntPtr stream, uint attribute, int* value);
+			[ThreadStatic]
+			internal static eglQueryStreamKHR peglQueryStreamKHR;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "eglQueryOutputLayerStringEXT", ExactSpelling = true)]
-			internal extern static unsafe string eglQueryOutputLayerStringEXT(IntPtr dpy, IntPtr layer, int name);
+			internal unsafe delegate IntPtr eglQueryStreamTimeKHR(IntPtr dpy, IntPtr stream, uint attribute, UInt64* value);
+			[ThreadStatic]
+			internal static eglQueryStreamTimeKHR peglQueryStreamTimeKHR;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "eglQueryOutputPortAttribEXT", ExactSpelling = true)]
-			internal extern static unsafe IntPtr eglQueryOutputPortAttribEXT(IntPtr dpy, IntPtr port, int attribute, IntPtr* value);
+			internal unsafe delegate IntPtr eglQueryStreamu64KHR(IntPtr dpy, IntPtr stream, uint attribute, UInt64* value);
+			[ThreadStatic]
+			internal static eglQueryStreamu64KHR peglQueryStreamu64KHR;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "eglQueryOutputPortStringEXT", ExactSpelling = true)]
-			internal extern static unsafe string eglQueryOutputPortStringEXT(IntPtr dpy, IntPtr port, int name);
+			internal unsafe delegate string eglQueryString(IntPtr dpy, int name);
+			[ThreadStatic]
+			internal static eglQueryString peglQueryString;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "eglQueryStreamKHR", ExactSpelling = true)]
-			internal extern static unsafe IntPtr eglQueryStreamKHR(IntPtr dpy, IntPtr stream, uint attribute, int* value);
+			internal unsafe delegate IntPtr eglQuerySurface(IntPtr dpy, IntPtr surface, int attribute, int* value);
+			[ThreadStatic]
+			internal static eglQuerySurface peglQuerySurface;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "eglQueryStreamTimeKHR", ExactSpelling = true)]
-			internal extern static unsafe IntPtr eglQueryStreamTimeKHR(IntPtr dpy, IntPtr stream, uint attribute, UInt64* value);
+			internal unsafe delegate IntPtr eglQuerySurface64KHR(IntPtr dpy, IntPtr surface, int attribute, IntPtr* value);
+			[ThreadStatic]
+			internal static eglQuerySurface64KHR peglQuerySurface64KHR;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "eglQueryStreamu64KHR", ExactSpelling = true)]
-			internal extern static unsafe IntPtr eglQueryStreamu64KHR(IntPtr dpy, IntPtr stream, uint attribute, UInt64* value);
+			internal unsafe delegate IntPtr eglQuerySurfacePointerANGLE(IntPtr dpy, IntPtr surface, int attribute, IntPtr* value);
+			[ThreadStatic]
+			internal static eglQuerySurfacePointerANGLE peglQuerySurfacePointerANGLE;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "eglQueryString", ExactSpelling = true)]
-			internal extern static unsafe string eglQueryString(IntPtr dpy, int name);
+			internal unsafe delegate IntPtr eglReleaseTexImage(IntPtr dpy, IntPtr surface, int buffer);
+			[ThreadStatic]
+			internal static eglReleaseTexImage peglReleaseTexImage;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "eglQuerySurface", ExactSpelling = true)]
-			internal extern static unsafe IntPtr eglQuerySurface(IntPtr dpy, IntPtr surface, int attribute, int* value);
+			internal delegate IntPtr eglReleaseThread();
+			[ThreadStatic]
+			internal static eglReleaseThread peglReleaseThread;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "eglQuerySurface64KHR", ExactSpelling = true)]
-			internal extern static unsafe IntPtr eglQuerySurface64KHR(IntPtr dpy, IntPtr surface, int attribute, IntPtr* value);
+			internal unsafe delegate void eglSetBlobCacheFuncsANDROID(IntPtr dpy, SetBlobFuncDelegate set, GetBlobFuncDelegate get);
+			[ThreadStatic]
+			internal static eglSetBlobCacheFuncsANDROID peglSetBlobCacheFuncsANDROID;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "eglQuerySurfacePointerANGLE", ExactSpelling = true)]
-			internal extern static unsafe IntPtr eglQuerySurfacePointerANGLE(IntPtr dpy, IntPtr surface, int attribute, IntPtr* value);
+			internal unsafe delegate IntPtr eglSetDamageRegionKHR(IntPtr dpy, IntPtr surface, int* rects, int n_rects);
+			[ThreadStatic]
+			internal static eglSetDamageRegionKHR peglSetDamageRegionKHR;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "eglReleaseTexImage", ExactSpelling = true)]
-			internal extern static unsafe IntPtr eglReleaseTexImage(IntPtr dpy, IntPtr surface, int buffer);
+			internal unsafe delegate IntPtr eglSignalSyncKHR(IntPtr dpy, IntPtr sync, uint mode);
+			[ThreadStatic]
+			internal static eglSignalSyncKHR peglSignalSyncKHR;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "eglReleaseThread", ExactSpelling = true)]
-			internal extern static IntPtr eglReleaseThread();
+			internal unsafe delegate IntPtr eglSignalSyncNV(IntPtr sync, uint mode);
+			[ThreadStatic]
+			internal static eglSignalSyncNV peglSignalSyncNV;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "eglSetBlobCacheFuncsANDROID", ExactSpelling = true)]
-			internal extern static unsafe void eglSetBlobCacheFuncsANDROID(IntPtr dpy, SetBlobFuncDelegate set, GetBlobFuncDelegate get);
+			internal unsafe delegate IntPtr eglStreamAttribKHR(IntPtr dpy, IntPtr stream, uint attribute, int value);
+			[ThreadStatic]
+			internal static eglStreamAttribKHR peglStreamAttribKHR;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "eglSetDamageRegionKHR", ExactSpelling = true)]
-			internal extern static unsafe IntPtr eglSetDamageRegionKHR(IntPtr dpy, IntPtr surface, int* rects, int n_rects);
+			internal unsafe delegate IntPtr eglStreamConsumerAcquireKHR(IntPtr dpy, IntPtr stream);
+			[ThreadStatic]
+			internal static eglStreamConsumerAcquireKHR peglStreamConsumerAcquireKHR;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "eglSignalSyncKHR", ExactSpelling = true)]
-			internal extern static unsafe IntPtr eglSignalSyncKHR(IntPtr dpy, IntPtr sync, uint mode);
+			internal unsafe delegate IntPtr eglStreamConsumerGLTextureExternalKHR(IntPtr dpy, IntPtr stream);
+			[ThreadStatic]
+			internal static eglStreamConsumerGLTextureExternalKHR peglStreamConsumerGLTextureExternalKHR;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "eglSignalSyncNV", ExactSpelling = true)]
-			internal extern static unsafe IntPtr eglSignalSyncNV(IntPtr sync, uint mode);
+			internal unsafe delegate IntPtr eglStreamConsumerOutputEXT(IntPtr dpy, IntPtr stream, IntPtr layer);
+			[ThreadStatic]
+			internal static eglStreamConsumerOutputEXT peglStreamConsumerOutputEXT;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "eglStreamAttribKHR", ExactSpelling = true)]
-			internal extern static unsafe IntPtr eglStreamAttribKHR(IntPtr dpy, IntPtr stream, uint attribute, int value);
+			internal unsafe delegate IntPtr eglStreamConsumerReleaseKHR(IntPtr dpy, IntPtr stream);
+			[ThreadStatic]
+			internal static eglStreamConsumerReleaseKHR peglStreamConsumerReleaseKHR;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "eglStreamConsumerAcquireKHR", ExactSpelling = true)]
-			internal extern static unsafe IntPtr eglStreamConsumerAcquireKHR(IntPtr dpy, IntPtr stream);
+			internal unsafe delegate IntPtr eglSurfaceAttrib(IntPtr dpy, IntPtr surface, int attribute, int value);
+			[ThreadStatic]
+			internal static eglSurfaceAttrib peglSurfaceAttrib;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "eglStreamConsumerGLTextureExternalKHR", ExactSpelling = true)]
-			internal extern static unsafe IntPtr eglStreamConsumerGLTextureExternalKHR(IntPtr dpy, IntPtr stream);
+			internal unsafe delegate IntPtr eglSwapInterval(IntPtr dpy, int interval);
+			[ThreadStatic]
+			internal static eglSwapInterval peglSwapInterval;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "eglStreamConsumerOutputEXT", ExactSpelling = true)]
-			internal extern static unsafe IntPtr eglStreamConsumerOutputEXT(IntPtr dpy, IntPtr stream, IntPtr layer);
+			internal unsafe delegate IntPtr eglTerminate(IntPtr dpy);
+			[ThreadStatic]
+			internal static eglTerminate peglTerminate;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "eglStreamConsumerReleaseKHR", ExactSpelling = true)]
-			internal extern static unsafe IntPtr eglStreamConsumerReleaseKHR(IntPtr dpy, IntPtr stream);
+			internal unsafe delegate IntPtr eglUnlockSurfaceKHR(IntPtr dpy, IntPtr surface);
+			[ThreadStatic]
+			internal static eglUnlockSurfaceKHR peglUnlockSurfaceKHR;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "eglSurfaceAttrib", ExactSpelling = true)]
-			internal extern static unsafe IntPtr eglSurfaceAttrib(IntPtr dpy, IntPtr surface, int attribute, int value);
+			internal delegate IntPtr eglWaitClient();
+			[ThreadStatic]
+			internal static eglWaitClient peglWaitClient;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "eglSwapInterval", ExactSpelling = true)]
-			internal extern static unsafe IntPtr eglSwapInterval(IntPtr dpy, int interval);
+			internal delegate IntPtr eglWaitGL();
+			[ThreadStatic]
+			internal static eglWaitGL peglWaitGL;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "eglTerminate", ExactSpelling = true)]
-			internal extern static unsafe IntPtr eglTerminate(IntPtr dpy);
+			internal delegate IntPtr eglWaitNative(int engine);
+			[ThreadStatic]
+			internal static eglWaitNative peglWaitNative;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "eglUnlockSurfaceKHR", ExactSpelling = true)]
-			internal extern static unsafe IntPtr eglUnlockSurfaceKHR(IntPtr dpy, IntPtr surface);
+			internal unsafe delegate IntPtr eglWaitSync(IntPtr dpy, IntPtr sync, int flags);
+			[ThreadStatic]
+			internal static eglWaitSync peglWaitSync;
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "eglWaitClient", ExactSpelling = true)]
-			internal extern static IntPtr eglWaitClient();
-
-			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "eglWaitGL", ExactSpelling = true)]
-			internal extern static IntPtr eglWaitGL();
-
-			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "eglWaitNative", ExactSpelling = true)]
-			internal extern static IntPtr eglWaitNative(int engine);
-
-			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "eglWaitSync", ExactSpelling = true)]
-			internal extern static unsafe IntPtr eglWaitSync(IntPtr dpy, IntPtr sync, int flags);
-
-			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "eglWaitSyncKHR", ExactSpelling = true)]
-			internal extern static unsafe int eglWaitSyncKHR(IntPtr dpy, IntPtr sync, int flags);
+			internal unsafe delegate int eglWaitSyncKHR(IntPtr dpy, IntPtr sync, int flags);
+			[ThreadStatic]
+			internal static eglWaitSyncKHR peglWaitSyncKHR;
 
 		}
 	}

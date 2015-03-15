@@ -28,6 +28,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of WGL_FRAMEBUFFER_SRGB_CAPABLE_ARB symbol.
 		/// </summary>
+		[AliasOf("WGL_FRAMEBUFFER_SRGB_CAPABLE_EXT"]
 		[RequiredByFeature("WGL_ARB_framebuffer_sRGB")]
 		public const int FRAMEBUFFER_SRGB_CAPABLE_ARB = 0x20A9;
 

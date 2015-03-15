@@ -28,6 +28,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of EGL_CONFORMANT symbol.
 		/// </summary>
+		[AliasOf("EGL_CONFORMANT_KHR"]
 		[RequiredByFeature("EGL_VERSION_1_3")]
 		public const int CONFORMANT = 0x3042;
 
@@ -70,6 +71,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of EGL_VG_ALPHA_FORMAT_PRE_BIT symbol.
 		/// </summary>
+		[AliasOf("EGL_VG_ALPHA_FORMAT_PRE_BIT_KHR"]
 		[RequiredByFeature("EGL_VERSION_1_3")]
 		public const int VG_ALPHA_FORMAT_PRE_BIT = 0x0040;
 
@@ -82,6 +84,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of EGL_VG_COLORSPACE_LINEAR_BIT symbol.
 		/// </summary>
+		[AliasOf("EGL_VG_COLORSPACE_LINEAR_BIT_KHR"]
 		[RequiredByFeature("EGL_VERSION_1_3")]
 		public const int VG_COLORSPACE_LINEAR_BIT = 0x0020;
 

@@ -28,234 +28,281 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_TEXTURE0 symbol.
 		/// </summary>
+		[AliasOf("GL_TEXTURE0_ARB"]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		public const int TEXTURE0 = 0x84C0;
 
 		/// <summary>
 		/// Value of GL_TEXTURE1 symbol.
 		/// </summary>
+		[AliasOf("GL_TEXTURE1_ARB"]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		public const int TEXTURE1 = 0x84C1;
 
 		/// <summary>
 		/// Value of GL_TEXTURE2 symbol.
 		/// </summary>
+		[AliasOf("GL_TEXTURE2_ARB"]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		public const int TEXTURE2 = 0x84C2;
 
 		/// <summary>
 		/// Value of GL_TEXTURE3 symbol.
 		/// </summary>
+		[AliasOf("GL_TEXTURE3_ARB"]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		public const int TEXTURE3 = 0x84C3;
 
 		/// <summary>
 		/// Value of GL_TEXTURE4 symbol.
 		/// </summary>
+		[AliasOf("GL_TEXTURE4_ARB"]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		public const int TEXTURE4 = 0x84C4;
 
 		/// <summary>
 		/// Value of GL_TEXTURE5 symbol.
 		/// </summary>
+		[AliasOf("GL_TEXTURE5_ARB"]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		public const int TEXTURE5 = 0x84C5;
 
 		/// <summary>
 		/// Value of GL_TEXTURE6 symbol.
 		/// </summary>
+		[AliasOf("GL_TEXTURE6_ARB"]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		public const int TEXTURE6 = 0x84C6;
 
 		/// <summary>
 		/// Value of GL_TEXTURE7 symbol.
 		/// </summary>
+		[AliasOf("GL_TEXTURE7_ARB"]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		public const int TEXTURE7 = 0x84C7;
 
 		/// <summary>
 		/// Value of GL_TEXTURE8 symbol.
 		/// </summary>
+		[AliasOf("GL_TEXTURE8_ARB"]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		public const int TEXTURE8 = 0x84C8;
 
 		/// <summary>
 		/// Value of GL_TEXTURE9 symbol.
 		/// </summary>
+		[AliasOf("GL_TEXTURE9_ARB"]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		public const int TEXTURE9 = 0x84C9;
 
 		/// <summary>
 		/// Value of GL_TEXTURE10 symbol.
 		/// </summary>
+		[AliasOf("GL_TEXTURE10_ARB"]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		public const int TEXTURE10 = 0x84CA;
 
 		/// <summary>
 		/// Value of GL_TEXTURE11 symbol.
 		/// </summary>
+		[AliasOf("GL_TEXTURE11_ARB"]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		public const int TEXTURE11 = 0x84CB;
 
 		/// <summary>
 		/// Value of GL_TEXTURE12 symbol.
 		/// </summary>
+		[AliasOf("GL_TEXTURE12_ARB"]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		public const int TEXTURE12 = 0x84CC;
 
 		/// <summary>
 		/// Value of GL_TEXTURE13 symbol.
 		/// </summary>
+		[AliasOf("GL_TEXTURE13_ARB"]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		public const int TEXTURE13 = 0x84CD;
 
 		/// <summary>
 		/// Value of GL_TEXTURE14 symbol.
 		/// </summary>
+		[AliasOf("GL_TEXTURE14_ARB"]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		public const int TEXTURE14 = 0x84CE;
 
 		/// <summary>
 		/// Value of GL_TEXTURE15 symbol.
 		/// </summary>
+		[AliasOf("GL_TEXTURE15_ARB"]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		public const int TEXTURE15 = 0x84CF;
 
 		/// <summary>
 		/// Value of GL_TEXTURE16 symbol.
 		/// </summary>
+		[AliasOf("GL_TEXTURE16_ARB"]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		public const int TEXTURE16 = 0x84D0;
 
 		/// <summary>
 		/// Value of GL_TEXTURE17 symbol.
 		/// </summary>
+		[AliasOf("GL_TEXTURE17_ARB"]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		public const int TEXTURE17 = 0x84D1;
 
 		/// <summary>
 		/// Value of GL_TEXTURE18 symbol.
 		/// </summary>
+		[AliasOf("GL_TEXTURE18_ARB"]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		public const int TEXTURE18 = 0x84D2;
 
 		/// <summary>
 		/// Value of GL_TEXTURE19 symbol.
 		/// </summary>
+		[AliasOf("GL_TEXTURE19_ARB"]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		public const int TEXTURE19 = 0x84D3;
 
 		/// <summary>
 		/// Value of GL_TEXTURE20 symbol.
 		/// </summary>
+		[AliasOf("GL_TEXTURE20_ARB"]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		public const int TEXTURE20 = 0x84D4;
 
 		/// <summary>
 		/// Value of GL_TEXTURE21 symbol.
 		/// </summary>
+		[AliasOf("GL_TEXTURE21_ARB"]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		public const int TEXTURE21 = 0x84D5;
 
 		/// <summary>
 		/// Value of GL_TEXTURE22 symbol.
 		/// </summary>
+		[AliasOf("GL_TEXTURE22_ARB"]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		public const int TEXTURE22 = 0x84D6;
 
 		/// <summary>
 		/// Value of GL_TEXTURE23 symbol.
 		/// </summary>
+		[AliasOf("GL_TEXTURE23_ARB"]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		public const int TEXTURE23 = 0x84D7;
 
 		/// <summary>
 		/// Value of GL_TEXTURE24 symbol.
 		/// </summary>
+		[AliasOf("GL_TEXTURE24_ARB"]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		public const int TEXTURE24 = 0x84D8;
 
 		/// <summary>
 		/// Value of GL_TEXTURE25 symbol.
 		/// </summary>
+		[AliasOf("GL_TEXTURE25_ARB"]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		public const int TEXTURE25 = 0x84D9;
 
 		/// <summary>
 		/// Value of GL_TEXTURE26 symbol.
 		/// </summary>
+		[AliasOf("GL_TEXTURE26_ARB"]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		public const int TEXTURE26 = 0x84DA;
 
 		/// <summary>
 		/// Value of GL_TEXTURE27 symbol.
 		/// </summary>
+		[AliasOf("GL_TEXTURE27_ARB"]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		public const int TEXTURE27 = 0x84DB;
 
 		/// <summary>
 		/// Value of GL_TEXTURE28 symbol.
 		/// </summary>
+		[AliasOf("GL_TEXTURE28_ARB"]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		public const int TEXTURE28 = 0x84DC;
 
 		/// <summary>
 		/// Value of GL_TEXTURE29 symbol.
 		/// </summary>
+		[AliasOf("GL_TEXTURE29_ARB"]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		public const int TEXTURE29 = 0x84DD;
 
 		/// <summary>
 		/// Value of GL_TEXTURE30 symbol.
 		/// </summary>
+		[AliasOf("GL_TEXTURE30_ARB"]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		public const int TEXTURE30 = 0x84DE;
 
 		/// <summary>
 		/// Value of GL_TEXTURE31 symbol.
 		/// </summary>
+		[AliasOf("GL_TEXTURE31_ARB"]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		public const int TEXTURE31 = 0x84DF;
 
 		/// <summary>
 		/// Value of GL_ACTIVE_TEXTURE symbol.
 		/// </summary>
+		[AliasOf("GL_ACTIVE_TEXTURE_ARB"]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		public const int ACTIVE_TEXTURE = 0x84E0;
 
 		/// <summary>
 		/// Value of GL_MULTISAMPLE symbol.
 		/// </summary>
+		[AliasOf("GL_MULTISAMPLE_ARB"]
+		[AliasOf("GL_MULTISAMPLE_EXT"]
+		[AliasOf("GL_MULTISAMPLE_SGIS"]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		public const int MULTISAMPLE = 0x809D;
 
 		/// <summary>
 		/// Value of GL_SAMPLE_ALPHA_TO_COVERAGE symbol.
 		/// </summary>
+		[AliasOf("GL_SAMPLE_ALPHA_TO_COVERAGE_ARB"]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		public const int SAMPLE_ALPHA_TO_COVERAGE = 0x809E;
 
 		/// <summary>
 		/// Value of GL_SAMPLE_ALPHA_TO_ONE symbol.
 		/// </summary>
+		[AliasOf("GL_SAMPLE_ALPHA_TO_ONE_ARB"]
+		[AliasOf("GL_SAMPLE_ALPHA_TO_ONE_EXT"]
+		[AliasOf("GL_SAMPLE_ALPHA_TO_ONE_SGIS"]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		public const int SAMPLE_ALPHA_TO_ONE = 0x809F;
 
 		/// <summary>
 		/// Value of GL_SAMPLE_COVERAGE symbol.
 		/// </summary>
+		[AliasOf("GL_SAMPLE_COVERAGE_ARB"]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		public const int SAMPLE_COVERAGE = 0x80A0;
 
 		/// <summary>
 		/// Value of GL_SAMPLE_BUFFERS symbol.
 		/// </summary>
+		[AliasOf("GL_SAMPLE_BUFFERS_ARB"]
+		[AliasOf("GL_SAMPLE_BUFFERS_EXT"]
+		[AliasOf("GL_SAMPLE_BUFFERS_SGIS"]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		public const int SAMPLE_BUFFERS = 0x80A8;
 
 		/// <summary>
 		/// Value of GL_SAMPLES symbol.
 		/// </summary>
+		[AliasOf("GL_SAMPLES_ARB"]
+		[AliasOf("GL_SAMPLES_EXT"]
+		[AliasOf("GL_SAMPLES_SGIS"]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RequiredByFeature("GL_ARB_internalformat_query2")]
 		public const int SAMPLES = 0x80A9;
@@ -263,18 +310,22 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_SAMPLE_COVERAGE_VALUE symbol.
 		/// </summary>
+		[AliasOf("GL_SAMPLE_COVERAGE_VALUE_ARB"]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		public const int SAMPLE_COVERAGE_VALUE = 0x80AA;
 
 		/// <summary>
 		/// Value of GL_SAMPLE_COVERAGE_INVERT symbol.
 		/// </summary>
+		[AliasOf("GL_SAMPLE_COVERAGE_INVERT_ARB"]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		public const int SAMPLE_COVERAGE_INVERT = 0x80AB;
 
 		/// <summary>
 		/// Value of GL_TEXTURE_CUBE_MAP symbol.
 		/// </summary>
+		[AliasOf("GL_TEXTURE_CUBE_MAP_ARB"]
+		[AliasOf("GL_TEXTURE_CUBE_MAP_EXT"]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RequiredByFeature("GL_ARB_internalformat_query2")]
 		public const int TEXTURE_CUBE_MAP = 0x8513;
@@ -282,6 +333,8 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_TEXTURE_BINDING_CUBE_MAP symbol.
 		/// </summary>
+		[AliasOf("GL_TEXTURE_BINDING_CUBE_MAP_ARB"]
+		[AliasOf("GL_TEXTURE_BINDING_CUBE_MAP_EXT"]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_direct_state_access")]
@@ -290,78 +343,99 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_TEXTURE_CUBE_MAP_POSITIVE_X symbol.
 		/// </summary>
+		[AliasOf("GL_TEXTURE_CUBE_MAP_POSITIVE_X_ARB"]
+		[AliasOf("GL_TEXTURE_CUBE_MAP_POSITIVE_X_EXT"]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		public const int TEXTURE_CUBE_MAP_POSITIVE_X = 0x8515;
 
 		/// <summary>
 		/// Value of GL_TEXTURE_CUBE_MAP_NEGATIVE_X symbol.
 		/// </summary>
+		[AliasOf("GL_TEXTURE_CUBE_MAP_NEGATIVE_X_ARB"]
+		[AliasOf("GL_TEXTURE_CUBE_MAP_NEGATIVE_X_EXT"]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		public const int TEXTURE_CUBE_MAP_NEGATIVE_X = 0x8516;
 
 		/// <summary>
 		/// Value of GL_TEXTURE_CUBE_MAP_POSITIVE_Y symbol.
 		/// </summary>
+		[AliasOf("GL_TEXTURE_CUBE_MAP_POSITIVE_Y_ARB"]
+		[AliasOf("GL_TEXTURE_CUBE_MAP_POSITIVE_Y_EXT"]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		public const int TEXTURE_CUBE_MAP_POSITIVE_Y = 0x8517;
 
 		/// <summary>
 		/// Value of GL_TEXTURE_CUBE_MAP_NEGATIVE_Y symbol.
 		/// </summary>
+		[AliasOf("GL_TEXTURE_CUBE_MAP_NEGATIVE_Y_ARB"]
+		[AliasOf("GL_TEXTURE_CUBE_MAP_NEGATIVE_Y_EXT"]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		public const int TEXTURE_CUBE_MAP_NEGATIVE_Y = 0x8518;
 
 		/// <summary>
 		/// Value of GL_TEXTURE_CUBE_MAP_POSITIVE_Z symbol.
 		/// </summary>
+		[AliasOf("GL_TEXTURE_CUBE_MAP_POSITIVE_Z_ARB"]
+		[AliasOf("GL_TEXTURE_CUBE_MAP_POSITIVE_Z_EXT"]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		public const int TEXTURE_CUBE_MAP_POSITIVE_Z = 0x8519;
 
 		/// <summary>
 		/// Value of GL_TEXTURE_CUBE_MAP_NEGATIVE_Z symbol.
 		/// </summary>
+		[AliasOf("GL_TEXTURE_CUBE_MAP_NEGATIVE_Z_ARB"]
+		[AliasOf("GL_TEXTURE_CUBE_MAP_NEGATIVE_Z_EXT"]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		public const int TEXTURE_CUBE_MAP_NEGATIVE_Z = 0x851A;
 
 		/// <summary>
 		/// Value of GL_PROXY_TEXTURE_CUBE_MAP symbol.
 		/// </summary>
+		[AliasOf("GL_PROXY_TEXTURE_CUBE_MAP_ARB"]
+		[AliasOf("GL_PROXY_TEXTURE_CUBE_MAP_EXT"]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		public const int PROXY_TEXTURE_CUBE_MAP = 0x851B;
 
 		/// <summary>
 		/// Value of GL_MAX_CUBE_MAP_TEXTURE_SIZE symbol.
 		/// </summary>
+		[AliasOf("GL_MAX_CUBE_MAP_TEXTURE_SIZE_ARB"]
+		[AliasOf("GL_MAX_CUBE_MAP_TEXTURE_SIZE_EXT"]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		public const int MAX_CUBE_MAP_TEXTURE_SIZE = 0x851C;
 
 		/// <summary>
 		/// Value of GL_COMPRESSED_RGB symbol.
 		/// </summary>
+		[AliasOf("GL_COMPRESSED_RGB_ARB"]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		public const int COMPRESSED_RGB = 0x84ED;
 
 		/// <summary>
 		/// Value of GL_COMPRESSED_RGBA symbol.
 		/// </summary>
+		[AliasOf("GL_COMPRESSED_RGBA_ARB"]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		public const int COMPRESSED_RGBA = 0x84EE;
 
 		/// <summary>
 		/// Value of GL_TEXTURE_COMPRESSION_HINT symbol.
 		/// </summary>
+		[AliasOf("GL_TEXTURE_COMPRESSION_HINT_ARB"]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		public const int TEXTURE_COMPRESSION_HINT = 0x84EF;
 
 		/// <summary>
 		/// Value of GL_TEXTURE_COMPRESSED_IMAGE_SIZE symbol.
 		/// </summary>
+		[AliasOf("GL_TEXTURE_COMPRESSED_IMAGE_SIZE_ARB"]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		public const int TEXTURE_COMPRESSED_IMAGE_SIZE = 0x86A0;
 
 		/// <summary>
 		/// Value of GL_TEXTURE_COMPRESSED symbol.
 		/// </summary>
+		[AliasOf("GL_TEXTURE_COMPRESSED_ARB"]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RequiredByFeature("GL_ARB_internalformat_query2")]
 		public const int TEXTURE_COMPRESSED = 0x86A1;
@@ -369,24 +443,29 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_NUM_COMPRESSED_TEXTURE_FORMATS symbol.
 		/// </summary>
+		[AliasOf("GL_NUM_COMPRESSED_TEXTURE_FORMATS_ARB"]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		public const int NUM_COMPRESSED_TEXTURE_FORMATS = 0x86A2;
 
 		/// <summary>
 		/// Value of GL_COMPRESSED_TEXTURE_FORMATS symbol.
 		/// </summary>
+		[AliasOf("GL_COMPRESSED_TEXTURE_FORMATS_ARB"]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		public const int COMPRESSED_TEXTURE_FORMATS = 0x86A3;
 
 		/// <summary>
 		/// Value of GL_CLAMP_TO_BORDER symbol.
 		/// </summary>
+		[AliasOf("GL_CLAMP_TO_BORDER_ARB"]
+		[AliasOf("GL_CLAMP_TO_BORDER_SGIS"]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		public const int CLAMP_TO_BORDER = 0x812D;
 
 		/// <summary>
 		/// Value of GL_CLIENT_ACTIVE_TEXTURE symbol (DEPRECATED).
 		/// </summary>
+		[AliasOf("GL_CLIENT_ACTIVE_TEXTURE_ARB"]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
@@ -397,6 +476,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_MAX_TEXTURE_UNITS symbol (DEPRECATED).
 		/// </summary>
+		[AliasOf("GL_MAX_TEXTURE_UNITS_ARB"]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
@@ -407,6 +487,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_TRANSPOSE_MODELVIEW_MATRIX symbol (DEPRECATED).
 		/// </summary>
+		[AliasOf("GL_TRANSPOSE_MODELVIEW_MATRIX_ARB"]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
@@ -417,6 +498,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_TRANSPOSE_PROJECTION_MATRIX symbol (DEPRECATED).
 		/// </summary>
+		[AliasOf("GL_TRANSPOSE_PROJECTION_MATRIX_ARB"]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
@@ -427,6 +509,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_TRANSPOSE_TEXTURE_MATRIX symbol (DEPRECATED).
 		/// </summary>
+		[AliasOf("GL_TRANSPOSE_TEXTURE_MATRIX_ARB"]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
@@ -437,6 +520,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_TRANSPOSE_COLOR_MATRIX symbol (DEPRECATED).
 		/// </summary>
+		[AliasOf("GL_TRANSPOSE_COLOR_MATRIX_ARB"]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
@@ -447,6 +531,9 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_MULTISAMPLE_BIT symbol (DEPRECATED).
 		/// </summary>
+		[AliasOf("GL_MULTISAMPLE_BIT_ARB"]
+		[AliasOf("GL_MULTISAMPLE_BIT_EXT"]
+		[AliasOf("GL_MULTISAMPLE_BIT_3DFX"]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
@@ -457,6 +544,9 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_NORMAL_MAP symbol (DEPRECATED).
 		/// </summary>
+		[AliasOf("GL_NORMAL_MAP_ARB"]
+		[AliasOf("GL_NORMAL_MAP_EXT"]
+		[AliasOf("GL_NORMAL_MAP_NV"]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
@@ -467,6 +557,9 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_REFLECTION_MAP symbol (DEPRECATED).
 		/// </summary>
+		[AliasOf("GL_REFLECTION_MAP_ARB"]
+		[AliasOf("GL_REFLECTION_MAP_EXT"]
+		[AliasOf("GL_REFLECTION_MAP_NV"]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
@@ -477,6 +570,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_COMPRESSED_ALPHA symbol (DEPRECATED).
 		/// </summary>
+		[AliasOf("GL_COMPRESSED_ALPHA_ARB"]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
@@ -487,6 +581,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_COMPRESSED_LUMINANCE symbol (DEPRECATED).
 		/// </summary>
+		[AliasOf("GL_COMPRESSED_LUMINANCE_ARB"]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
@@ -497,6 +592,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_COMPRESSED_LUMINANCE_ALPHA symbol (DEPRECATED).
 		/// </summary>
+		[AliasOf("GL_COMPRESSED_LUMINANCE_ALPHA_ARB"]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
@@ -507,6 +603,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_COMPRESSED_INTENSITY symbol (DEPRECATED).
 		/// </summary>
+		[AliasOf("GL_COMPRESSED_INTENSITY_ARB"]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
@@ -517,6 +614,8 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_COMBINE symbol (DEPRECATED).
 		/// </summary>
+		[AliasOf("GL_COMBINE_ARB"]
+		[AliasOf("GL_COMBINE_EXT"]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
@@ -527,6 +626,8 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_COMBINE_RGB symbol (DEPRECATED).
 		/// </summary>
+		[AliasOf("GL_COMBINE_RGB_ARB"]
+		[AliasOf("GL_COMBINE_RGB_EXT"]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
@@ -537,6 +638,8 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_COMBINE_ALPHA symbol (DEPRECATED).
 		/// </summary>
+		[AliasOf("GL_COMBINE_ALPHA_ARB"]
+		[AliasOf("GL_COMBINE_ALPHA_EXT"]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
@@ -547,6 +650,8 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_SOURCE0_RGB symbol (DEPRECATED).
 		/// </summary>
+		[AliasOf("GL_SOURCE0_RGB_ARB"]
+		[AliasOf("GL_SOURCE0_RGB_EXT"]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
@@ -557,6 +662,8 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_SOURCE1_RGB symbol (DEPRECATED).
 		/// </summary>
+		[AliasOf("GL_SOURCE1_RGB_ARB"]
+		[AliasOf("GL_SOURCE1_RGB_EXT"]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
@@ -567,6 +674,8 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_SOURCE2_RGB symbol (DEPRECATED).
 		/// </summary>
+		[AliasOf("GL_SOURCE2_RGB_ARB"]
+		[AliasOf("GL_SOURCE2_RGB_EXT"]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
@@ -577,6 +686,8 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_SOURCE0_ALPHA symbol (DEPRECATED).
 		/// </summary>
+		[AliasOf("GL_SOURCE0_ALPHA_ARB"]
+		[AliasOf("GL_SOURCE0_ALPHA_EXT"]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
@@ -587,6 +698,8 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_SOURCE1_ALPHA symbol (DEPRECATED).
 		/// </summary>
+		[AliasOf("GL_SOURCE1_ALPHA_ARB"]
+		[AliasOf("GL_SOURCE1_ALPHA_EXT"]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
@@ -597,6 +710,8 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_SOURCE2_ALPHA symbol (DEPRECATED).
 		/// </summary>
+		[AliasOf("GL_SOURCE2_ALPHA_ARB"]
+		[AliasOf("GL_SOURCE2_ALPHA_EXT"]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
@@ -607,6 +722,8 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_OPERAND0_RGB symbol (DEPRECATED).
 		/// </summary>
+		[AliasOf("GL_OPERAND0_RGB_ARB"]
+		[AliasOf("GL_OPERAND0_RGB_EXT"]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
@@ -617,6 +734,8 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_OPERAND1_RGB symbol (DEPRECATED).
 		/// </summary>
+		[AliasOf("GL_OPERAND1_RGB_ARB"]
+		[AliasOf("GL_OPERAND1_RGB_EXT"]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
@@ -627,6 +746,8 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_OPERAND2_RGB symbol (DEPRECATED).
 		/// </summary>
+		[AliasOf("GL_OPERAND2_RGB_ARB"]
+		[AliasOf("GL_OPERAND2_RGB_EXT"]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
@@ -637,6 +758,8 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_OPERAND0_ALPHA symbol (DEPRECATED).
 		/// </summary>
+		[AliasOf("GL_OPERAND0_ALPHA_ARB"]
+		[AliasOf("GL_OPERAND0_ALPHA_EXT"]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
@@ -647,6 +770,8 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_OPERAND1_ALPHA symbol (DEPRECATED).
 		/// </summary>
+		[AliasOf("GL_OPERAND1_ALPHA_ARB"]
+		[AliasOf("GL_OPERAND1_ALPHA_EXT"]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
@@ -657,6 +782,8 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_OPERAND2_ALPHA symbol (DEPRECATED).
 		/// </summary>
+		[AliasOf("GL_OPERAND2_ALPHA_ARB"]
+		[AliasOf("GL_OPERAND2_ALPHA_EXT"]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
@@ -667,6 +794,8 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_RGB_SCALE symbol (DEPRECATED).
 		/// </summary>
+		[AliasOf("GL_RGB_SCALE_ARB"]
+		[AliasOf("GL_RGB_SCALE_EXT"]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
@@ -677,6 +806,8 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_ADD_SIGNED symbol (DEPRECATED).
 		/// </summary>
+		[AliasOf("GL_ADD_SIGNED_ARB"]
+		[AliasOf("GL_ADD_SIGNED_EXT"]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
@@ -687,6 +818,8 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_INTERPOLATE symbol (DEPRECATED).
 		/// </summary>
+		[AliasOf("GL_INTERPOLATE_ARB"]
+		[AliasOf("GL_INTERPOLATE_EXT"]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
@@ -697,6 +830,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_SUBTRACT symbol (DEPRECATED).
 		/// </summary>
+		[AliasOf("GL_SUBTRACT_ARB"]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
@@ -707,6 +841,9 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_CONSTANT symbol (DEPRECATED).
 		/// </summary>
+		[AliasOf("GL_CONSTANT_ARB"]
+		[AliasOf("GL_CONSTANT_EXT"]
+		[AliasOf("GL_CONSTANT_NV"]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
@@ -717,6 +854,8 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_PRIMARY_COLOR symbol (DEPRECATED).
 		/// </summary>
+		[AliasOf("GL_PRIMARY_COLOR_ARB"]
+		[AliasOf("GL_PRIMARY_COLOR_EXT"]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RequiredByFeature("GL_NV_path_rendering")]
 		[RemovedByFeature("GL_VERSION_3_2")]
@@ -728,6 +867,8 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_PREVIOUS symbol (DEPRECATED).
 		/// </summary>
+		[AliasOf("GL_PREVIOUS_ARB"]
+		[AliasOf("GL_PREVIOUS_EXT"]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
@@ -738,6 +879,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_DOT3_RGB symbol (DEPRECATED).
 		/// </summary>
+		[AliasOf("GL_DOT3_RGB_ARB"]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
@@ -748,6 +890,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_DOT3_RGBA symbol (DEPRECATED).
 		/// </summary>
+		[AliasOf("GL_DOT3_RGBA_ARB"]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE

@@ -40,48 +40,64 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_LINES_ADJACENCY symbol.
 		/// </summary>
+		[AliasOf("GL_LINES_ADJACENCY_ARB"]
+		[AliasOf("GL_LINES_ADJACENCY_EXT"]
 		[RequiredByFeature("GL_VERSION_3_2")]
 		public const int LINES_ADJACENCY = 0x000A;
 
 		/// <summary>
 		/// Value of GL_LINE_STRIP_ADJACENCY symbol.
 		/// </summary>
+		[AliasOf("GL_LINE_STRIP_ADJACENCY_ARB"]
+		[AliasOf("GL_LINE_STRIP_ADJACENCY_EXT"]
 		[RequiredByFeature("GL_VERSION_3_2")]
 		public const int LINE_STRIP_ADJACENCY = 0x000B;
 
 		/// <summary>
 		/// Value of GL_TRIANGLES_ADJACENCY symbol.
 		/// </summary>
+		[AliasOf("GL_TRIANGLES_ADJACENCY_ARB"]
+		[AliasOf("GL_TRIANGLES_ADJACENCY_EXT"]
 		[RequiredByFeature("GL_VERSION_3_2")]
 		public const int TRIANGLES_ADJACENCY = 0x000C;
 
 		/// <summary>
 		/// Value of GL_TRIANGLE_STRIP_ADJACENCY symbol.
 		/// </summary>
+		[AliasOf("GL_TRIANGLE_STRIP_ADJACENCY_ARB"]
+		[AliasOf("GL_TRIANGLE_STRIP_ADJACENCY_EXT"]
 		[RequiredByFeature("GL_VERSION_3_2")]
 		public const int TRIANGLE_STRIP_ADJACENCY = 0x000D;
 
 		/// <summary>
 		/// Value of GL_MAX_GEOMETRY_TEXTURE_IMAGE_UNITS symbol.
 		/// </summary>
+		[AliasOf("GL_MAX_GEOMETRY_TEXTURE_IMAGE_UNITS_ARB"]
+		[AliasOf("GL_MAX_GEOMETRY_TEXTURE_IMAGE_UNITS_EXT"]
 		[RequiredByFeature("GL_VERSION_3_2")]
 		public const int MAX_GEOMETRY_TEXTURE_IMAGE_UNITS = 0x8C29;
 
 		/// <summary>
 		/// Value of GL_FRAMEBUFFER_ATTACHMENT_LAYERED symbol.
 		/// </summary>
+		[AliasOf("GL_FRAMEBUFFER_ATTACHMENT_LAYERED_ARB"]
+		[AliasOf("GL_FRAMEBUFFER_ATTACHMENT_LAYERED_EXT"]
 		[RequiredByFeature("GL_VERSION_3_2")]
 		public const int FRAMEBUFFER_ATTACHMENT_LAYERED = 0x8DA7;
 
 		/// <summary>
 		/// Value of GL_FRAMEBUFFER_INCOMPLETE_LAYER_TARGETS symbol.
 		/// </summary>
+		[AliasOf("GL_FRAMEBUFFER_INCOMPLETE_LAYER_TARGETS_ARB"]
+		[AliasOf("GL_FRAMEBUFFER_INCOMPLETE_LAYER_TARGETS_EXT"]
 		[RequiredByFeature("GL_VERSION_3_2")]
 		public const int FRAMEBUFFER_INCOMPLETE_LAYER_TARGETS = 0x8DA8;
 
 		/// <summary>
 		/// Value of GL_GEOMETRY_SHADER symbol.
 		/// </summary>
+		[AliasOf("GL_GEOMETRY_SHADER_ARB"]
+		[AliasOf("GL_GEOMETRY_SHADER_EXT"]
 		[RequiredByFeature("GL_VERSION_3_2")]
 		public const int GEOMETRY_SHADER = 0x8DD9;
 
@@ -106,18 +122,24 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_MAX_GEOMETRY_UNIFORM_COMPONENTS symbol.
 		/// </summary>
+		[AliasOf("GL_MAX_GEOMETRY_UNIFORM_COMPONENTS_ARB"]
+		[AliasOf("GL_MAX_GEOMETRY_UNIFORM_COMPONENTS_EXT"]
 		[RequiredByFeature("GL_VERSION_3_2")]
 		public const int MAX_GEOMETRY_UNIFORM_COMPONENTS = 0x8DDF;
 
 		/// <summary>
 		/// Value of GL_MAX_GEOMETRY_OUTPUT_VERTICES symbol.
 		/// </summary>
+		[AliasOf("GL_MAX_GEOMETRY_OUTPUT_VERTICES_ARB"]
+		[AliasOf("GL_MAX_GEOMETRY_OUTPUT_VERTICES_EXT"]
 		[RequiredByFeature("GL_VERSION_3_2")]
 		public const int MAX_GEOMETRY_OUTPUT_VERTICES = 0x8DE0;
 
 		/// <summary>
 		/// Value of GL_MAX_GEOMETRY_TOTAL_OUTPUT_COMPONENTS symbol.
 		/// </summary>
+		[AliasOf("GL_MAX_GEOMETRY_TOTAL_OUTPUT_COMPONENTS_ARB"]
+		[AliasOf("GL_MAX_GEOMETRY_TOTAL_OUTPUT_COMPONENTS_EXT"]
 		[RequiredByFeature("GL_VERSION_3_2")]
 		public const int MAX_GEOMETRY_TOTAL_OUTPUT_COMPONENTS = 0x8DE1;
 
@@ -154,6 +176,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_DEPTH_CLAMP symbol.
 		/// </summary>
+		[AliasOf("GL_DEPTH_CLAMP_NV"]
 		[RequiredByFeature("GL_VERSION_3_2")]
 		[RequiredByFeature("GL_ARB_depth_clamp")]
 		public const int DEPTH_CLAMP = 0x864F;
@@ -161,6 +184,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_QUADS_FOLLOW_PROVOKING_VERTEX_CONVENTION symbol.
 		/// </summary>
+		[AliasOf("GL_QUADS_FOLLOW_PROVOKING_VERTEX_CONVENTION_EXT"]
 		[RequiredByFeature("GL_VERSION_3_2")]
 		[RequiredByFeature("GL_ARB_provoking_vertex")]
 		public const int QUADS_FOLLOW_PROVOKING_VERTEX_CONVENTION = 0x8E4C;
@@ -168,6 +192,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_FIRST_VERTEX_CONVENTION symbol.
 		/// </summary>
+		[AliasOf("GL_FIRST_VERTEX_CONVENTION_EXT"]
 		[RequiredByFeature("GL_VERSION_3_2")]
 		[RequiredByFeature("GL_ARB_provoking_vertex")]
 		[RequiredByFeature("GL_ARB_viewport_array")]
@@ -176,6 +201,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_LAST_VERTEX_CONVENTION symbol.
 		/// </summary>
+		[AliasOf("GL_LAST_VERTEX_CONVENTION_EXT"]
 		[RequiredByFeature("GL_VERSION_3_2")]
 		[RequiredByFeature("GL_ARB_provoking_vertex")]
 		[RequiredByFeature("GL_ARB_viewport_array")]
@@ -184,6 +210,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_PROVOKING_VERTEX symbol.
 		/// </summary>
+		[AliasOf("GL_PROVOKING_VERTEX_EXT"]
 		[RequiredByFeature("GL_VERSION_3_2")]
 		[RequiredByFeature("GL_ARB_provoking_vertex")]
 		[RequiredByFeature("GL_ARB_viewport_array")]
@@ -306,6 +333,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_SAMPLE_POSITION symbol.
 		/// </summary>
+		[AliasOf("GL_SAMPLE_POSITION_NV"]
 		[RequiredByFeature("GL_VERSION_3_2")]
 		[RequiredByFeature("GL_ARB_texture_multisample")]
 		public const int SAMPLE_POSITION = 0x8E50;
@@ -313,6 +341,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_SAMPLE_MASK symbol.
 		/// </summary>
+		[AliasOf("GL_SAMPLE_MASK_NV"]
 		[RequiredByFeature("GL_VERSION_3_2")]
 		[RequiredByFeature("GL_ARB_texture_multisample")]
 		public const int SAMPLE_MASK = 0x8E51;
@@ -320,6 +349,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_SAMPLE_MASK_VALUE symbol.
 		/// </summary>
+		[AliasOf("GL_SAMPLE_MASK_VALUE_NV"]
 		[RequiredByFeature("GL_VERSION_3_2")]
 		[RequiredByFeature("GL_ARB_texture_multisample")]
 		public const int SAMPLE_MASK_VALUE = 0x8E52;
@@ -327,6 +357,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_MAX_SAMPLE_MASK_WORDS symbol.
 		/// </summary>
+		[AliasOf("GL_MAX_SAMPLE_MASK_WORDS_NV"]
 		[RequiredByFeature("GL_VERSION_3_2")]
 		[RequiredByFeature("GL_ARB_texture_multisample")]
 		public const int MAX_SAMPLE_MASK_WORDS = 0x8E59;

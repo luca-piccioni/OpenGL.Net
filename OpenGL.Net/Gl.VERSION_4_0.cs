@@ -28,30 +28,37 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_SAMPLE_SHADING symbol.
 		/// </summary>
+		[AliasOf("GL_SAMPLE_SHADING_ARB"]
 		[RequiredByFeature("GL_VERSION_4_0")]
 		public const int SAMPLE_SHADING = 0x8C36;
 
 		/// <summary>
 		/// Value of GL_MIN_SAMPLE_SHADING_VALUE symbol.
 		/// </summary>
+		[AliasOf("GL_MIN_SAMPLE_SHADING_VALUE_ARB"]
 		[RequiredByFeature("GL_VERSION_4_0")]
 		public const int MIN_SAMPLE_SHADING_VALUE = 0x8C37;
 
 		/// <summary>
 		/// Value of GL_MIN_PROGRAM_TEXTURE_GATHER_OFFSET symbol.
 		/// </summary>
+		[AliasOf("GL_MIN_PROGRAM_TEXTURE_GATHER_OFFSET_ARB"]
+		[AliasOf("GL_MIN_PROGRAM_TEXTURE_GATHER_OFFSET_NV"]
 		[RequiredByFeature("GL_VERSION_4_0")]
 		public const int MIN_PROGRAM_TEXTURE_GATHER_OFFSET = 0x8E5E;
 
 		/// <summary>
 		/// Value of GL_MAX_PROGRAM_TEXTURE_GATHER_OFFSET symbol.
 		/// </summary>
+		[AliasOf("GL_MAX_PROGRAM_TEXTURE_GATHER_OFFSET_ARB"]
+		[AliasOf("GL_MAX_PROGRAM_TEXTURE_GATHER_OFFSET_NV"]
 		[RequiredByFeature("GL_VERSION_4_0")]
 		public const int MAX_PROGRAM_TEXTURE_GATHER_OFFSET = 0x8E5F;
 
 		/// <summary>
 		/// Value of GL_TEXTURE_CUBE_MAP_ARRAY symbol.
 		/// </summary>
+		[AliasOf("GL_TEXTURE_CUBE_MAP_ARRAY_ARB"]
 		[RequiredByFeature("GL_VERSION_4_0")]
 		[RequiredByFeature("GL_ARB_internalformat_query2")]
 		public const int TEXTURE_CUBE_MAP_ARRAY = 0x9009;
@@ -59,6 +66,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_TEXTURE_BINDING_CUBE_MAP_ARRAY symbol.
 		/// </summary>
+		[AliasOf("GL_TEXTURE_BINDING_CUBE_MAP_ARRAY_ARB"]
 		[RequiredByFeature("GL_VERSION_4_0")]
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_direct_state_access")]
@@ -67,30 +75,35 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_PROXY_TEXTURE_CUBE_MAP_ARRAY symbol.
 		/// </summary>
+		[AliasOf("GL_PROXY_TEXTURE_CUBE_MAP_ARRAY_ARB"]
 		[RequiredByFeature("GL_VERSION_4_0")]
 		public const int PROXY_TEXTURE_CUBE_MAP_ARRAY = 0x900B;
 
 		/// <summary>
 		/// Value of GL_SAMPLER_CUBE_MAP_ARRAY symbol.
 		/// </summary>
+		[AliasOf("GL_SAMPLER_CUBE_MAP_ARRAY_ARB"]
 		[RequiredByFeature("GL_VERSION_4_0")]
 		public const int SAMPLER_CUBE_MAP_ARRAY = 0x900C;
 
 		/// <summary>
 		/// Value of GL_SAMPLER_CUBE_MAP_ARRAY_SHADOW symbol.
 		/// </summary>
+		[AliasOf("GL_SAMPLER_CUBE_MAP_ARRAY_SHADOW_ARB"]
 		[RequiredByFeature("GL_VERSION_4_0")]
 		public const int SAMPLER_CUBE_MAP_ARRAY_SHADOW = 0x900D;
 
 		/// <summary>
 		/// Value of GL_INT_SAMPLER_CUBE_MAP_ARRAY symbol.
 		/// </summary>
+		[AliasOf("GL_INT_SAMPLER_CUBE_MAP_ARRAY_ARB"]
 		[RequiredByFeature("GL_VERSION_4_0")]
 		public const int INT_SAMPLER_CUBE_MAP_ARRAY = 0x900E;
 
 		/// <summary>
 		/// Value of GL_UNSIGNED_INT_SAMPLER_CUBE_MAP_ARRAY symbol.
 		/// </summary>
+		[AliasOf("GL_UNSIGNED_INT_SAMPLER_CUBE_MAP_ARRAY_ARB"]
 		[RequiredByFeature("GL_VERSION_4_0")]
 		public const int UNSIGNED_INT_SAMPLER_CUBE_MAP_ARRAY = 0x900F;
 
@@ -126,6 +139,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_MIN_FRAGMENT_INTERPOLATION_OFFSET symbol.
 		/// </summary>
+		[AliasOf("GL_MIN_FRAGMENT_INTERPOLATION_OFFSET_NV"]
 		[RequiredByFeature("GL_VERSION_4_0")]
 		[RequiredByFeature("GL_ARB_gpu_shader5")]
 		public const int MIN_FRAGMENT_INTERPOLATION_OFFSET = 0x8E5B;
@@ -133,6 +147,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_MAX_FRAGMENT_INTERPOLATION_OFFSET symbol.
 		/// </summary>
+		[AliasOf("GL_MAX_FRAGMENT_INTERPOLATION_OFFSET_NV"]
 		[RequiredByFeature("GL_VERSION_4_0")]
 		[RequiredByFeature("GL_ARB_gpu_shader5")]
 		public const int MAX_FRAGMENT_INTERPOLATION_OFFSET = 0x8E5C;
@@ -155,6 +170,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_DOUBLE_VEC2 symbol.
 		/// </summary>
+		[AliasOf("GL_DOUBLE_VEC2_EXT"]
 		[RequiredByFeature("GL_VERSION_4_0")]
 		[RequiredByFeature("GL_ARB_gpu_shader_fp64")]
 		[RequiredByFeature("GL_ARB_vertex_attrib_64bit")]
@@ -163,6 +179,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_DOUBLE_VEC3 symbol.
 		/// </summary>
+		[AliasOf("GL_DOUBLE_VEC3_EXT"]
 		[RequiredByFeature("GL_VERSION_4_0")]
 		[RequiredByFeature("GL_ARB_gpu_shader_fp64")]
 		[RequiredByFeature("GL_ARB_vertex_attrib_64bit")]
@@ -171,6 +188,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_DOUBLE_VEC4 symbol.
 		/// </summary>
+		[AliasOf("GL_DOUBLE_VEC4_EXT"]
 		[RequiredByFeature("GL_VERSION_4_0")]
 		[RequiredByFeature("GL_ARB_gpu_shader_fp64")]
 		[RequiredByFeature("GL_ARB_vertex_attrib_64bit")]
@@ -179,6 +197,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_DOUBLE_MAT2 symbol.
 		/// </summary>
+		[AliasOf("GL_DOUBLE_MAT2_EXT"]
 		[RequiredByFeature("GL_VERSION_4_0")]
 		[RequiredByFeature("GL_ARB_gpu_shader_fp64")]
 		[RequiredByFeature("GL_ARB_vertex_attrib_64bit")]
@@ -187,6 +206,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_DOUBLE_MAT3 symbol.
 		/// </summary>
+		[AliasOf("GL_DOUBLE_MAT3_EXT"]
 		[RequiredByFeature("GL_VERSION_4_0")]
 		[RequiredByFeature("GL_ARB_gpu_shader_fp64")]
 		[RequiredByFeature("GL_ARB_vertex_attrib_64bit")]
@@ -195,6 +215,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_DOUBLE_MAT4 symbol.
 		/// </summary>
+		[AliasOf("GL_DOUBLE_MAT4_EXT"]
 		[RequiredByFeature("GL_VERSION_4_0")]
 		[RequiredByFeature("GL_ARB_gpu_shader_fp64")]
 		[RequiredByFeature("GL_ARB_vertex_attrib_64bit")]
@@ -203,6 +224,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_DOUBLE_MAT2x3 symbol.
 		/// </summary>
+		[AliasOf("GL_DOUBLE_MAT2x3_EXT"]
 		[RequiredByFeature("GL_VERSION_4_0")]
 		[RequiredByFeature("GL_ARB_gpu_shader_fp64")]
 		[RequiredByFeature("GL_ARB_vertex_attrib_64bit")]
@@ -211,6 +233,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_DOUBLE_MAT2x4 symbol.
 		/// </summary>
+		[AliasOf("GL_DOUBLE_MAT2x4_EXT"]
 		[RequiredByFeature("GL_VERSION_4_0")]
 		[RequiredByFeature("GL_ARB_gpu_shader_fp64")]
 		[RequiredByFeature("GL_ARB_vertex_attrib_64bit")]
@@ -219,6 +242,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_DOUBLE_MAT3x2 symbol.
 		/// </summary>
+		[AliasOf("GL_DOUBLE_MAT3x2_EXT"]
 		[RequiredByFeature("GL_VERSION_4_0")]
 		[RequiredByFeature("GL_ARB_gpu_shader_fp64")]
 		[RequiredByFeature("GL_ARB_vertex_attrib_64bit")]
@@ -227,6 +251,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_DOUBLE_MAT3x4 symbol.
 		/// </summary>
+		[AliasOf("GL_DOUBLE_MAT3x4_EXT"]
 		[RequiredByFeature("GL_VERSION_4_0")]
 		[RequiredByFeature("GL_ARB_gpu_shader_fp64")]
 		[RequiredByFeature("GL_ARB_vertex_attrib_64bit")]
@@ -235,6 +260,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_DOUBLE_MAT4x2 symbol.
 		/// </summary>
+		[AliasOf("GL_DOUBLE_MAT4x2_EXT"]
 		[RequiredByFeature("GL_VERSION_4_0")]
 		[RequiredByFeature("GL_ARB_gpu_shader_fp64")]
 		[RequiredByFeature("GL_ARB_vertex_attrib_64bit")]
@@ -243,6 +269,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_DOUBLE_MAT4x3 symbol.
 		/// </summary>
+		[AliasOf("GL_DOUBLE_MAT4x3_EXT"]
 		[RequiredByFeature("GL_VERSION_4_0")]
 		[RequiredByFeature("GL_ARB_gpu_shader_fp64")]
 		[RequiredByFeature("GL_ARB_vertex_attrib_64bit")]
@@ -541,6 +568,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_TRANSFORM_FEEDBACK symbol.
 		/// </summary>
+		[AliasOf("GL_TRANSFORM_FEEDBACK_NV"]
 		[RequiredByFeature("GL_VERSION_4_0")]
 		[RequiredByFeature("GL_ARB_transform_feedback2")]
 		[RequiredByFeature("GL_EXT_debug_label")]
@@ -549,6 +577,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_TRANSFORM_FEEDBACK_BUFFER_PAUSED symbol.
 		/// </summary>
+		[AliasOf("GL_TRANSFORM_FEEDBACK_BUFFER_PAUSED_NV"]
 		[RequiredByFeature("GL_VERSION_4_0")]
 		[RequiredByFeature("GL_ARB_transform_feedback2")]
 		public const int TRANSFORM_FEEDBACK_BUFFER_PAUSED = 0x8E23;
@@ -556,6 +585,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_TRANSFORM_FEEDBACK_BUFFER_ACTIVE symbol.
 		/// </summary>
+		[AliasOf("GL_TRANSFORM_FEEDBACK_BUFFER_ACTIVE_NV"]
 		[RequiredByFeature("GL_VERSION_4_0")]
 		[RequiredByFeature("GL_ARB_transform_feedback2")]
 		public const int TRANSFORM_FEEDBACK_BUFFER_ACTIVE = 0x8E24;
@@ -563,6 +593,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_TRANSFORM_FEEDBACK_BINDING symbol.
 		/// </summary>
+		[AliasOf("GL_TRANSFORM_FEEDBACK_BINDING_NV"]
 		[RequiredByFeature("GL_VERSION_4_0")]
 		[RequiredByFeature("GL_ARB_transform_feedback2")]
 		public const int TRANSFORM_FEEDBACK_BINDING = 0x8E25;

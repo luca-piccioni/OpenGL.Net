@@ -28,48 +28,57 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_SAMPLER_2D_RECT symbol.
 		/// </summary>
+		[AliasOf("GL_SAMPLER_2D_RECT_ARB"]
 		[RequiredByFeature("GL_VERSION_3_1")]
 		public const int SAMPLER_2D_RECT = 0x8B63;
 
 		/// <summary>
 		/// Value of GL_SAMPLER_2D_RECT_SHADOW symbol.
 		/// </summary>
+		[AliasOf("GL_SAMPLER_2D_RECT_SHADOW_ARB"]
 		[RequiredByFeature("GL_VERSION_3_1")]
 		public const int SAMPLER_2D_RECT_SHADOW = 0x8B64;
 
 		/// <summary>
 		/// Value of GL_SAMPLER_BUFFER symbol.
 		/// </summary>
+		[AliasOf("GL_SAMPLER_BUFFER_EXT"]
 		[RequiredByFeature("GL_VERSION_3_1")]
 		public const int SAMPLER_BUFFER = 0x8DC2;
 
 		/// <summary>
 		/// Value of GL_INT_SAMPLER_2D_RECT symbol.
 		/// </summary>
+		[AliasOf("GL_INT_SAMPLER_2D_RECT_EXT"]
 		[RequiredByFeature("GL_VERSION_3_1")]
 		public const int INT_SAMPLER_2D_RECT = 0x8DCD;
 
 		/// <summary>
 		/// Value of GL_INT_SAMPLER_BUFFER symbol.
 		/// </summary>
+		[AliasOf("GL_INT_SAMPLER_BUFFER_EXT"]
 		[RequiredByFeature("GL_VERSION_3_1")]
 		public const int INT_SAMPLER_BUFFER = 0x8DD0;
 
 		/// <summary>
 		/// Value of GL_UNSIGNED_INT_SAMPLER_2D_RECT symbol.
 		/// </summary>
+		[AliasOf("GL_UNSIGNED_INT_SAMPLER_2D_RECT_EXT"]
 		[RequiredByFeature("GL_VERSION_3_1")]
 		public const int UNSIGNED_INT_SAMPLER_2D_RECT = 0x8DD5;
 
 		/// <summary>
 		/// Value of GL_UNSIGNED_INT_SAMPLER_BUFFER symbol.
 		/// </summary>
+		[AliasOf("GL_UNSIGNED_INT_SAMPLER_BUFFER_EXT"]
 		[RequiredByFeature("GL_VERSION_3_1")]
 		public const int UNSIGNED_INT_SAMPLER_BUFFER = 0x8DD8;
 
 		/// <summary>
 		/// Value of GL_TEXTURE_BUFFER symbol.
 		/// </summary>
+		[AliasOf("GL_TEXTURE_BUFFER_ARB"]
+		[AliasOf("GL_TEXTURE_BUFFER_EXT"]
 		[RequiredByFeature("GL_VERSION_3_1")]
 		[RequiredByFeature("GL_ARB_internalformat_query2")]
 		public const int TEXTURE_BUFFER = 0x8C2A;
@@ -77,12 +86,16 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_MAX_TEXTURE_BUFFER_SIZE symbol.
 		/// </summary>
+		[AliasOf("GL_MAX_TEXTURE_BUFFER_SIZE_ARB"]
+		[AliasOf("GL_MAX_TEXTURE_BUFFER_SIZE_EXT"]
 		[RequiredByFeature("GL_VERSION_3_1")]
 		public const int MAX_TEXTURE_BUFFER_SIZE = 0x8C2B;
 
 		/// <summary>
 		/// Value of GL_TEXTURE_BINDING_BUFFER symbol.
 		/// </summary>
+		[AliasOf("GL_TEXTURE_BINDING_BUFFER_ARB"]
+		[AliasOf("GL_TEXTURE_BINDING_BUFFER_EXT"]
 		[RequiredByFeature("GL_VERSION_3_1")]
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_direct_state_access")]
@@ -91,12 +104,16 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_TEXTURE_BUFFER_DATA_STORE_BINDING symbol.
 		/// </summary>
+		[AliasOf("GL_TEXTURE_BUFFER_DATA_STORE_BINDING_ARB"]
+		[AliasOf("GL_TEXTURE_BUFFER_DATA_STORE_BINDING_EXT"]
 		[RequiredByFeature("GL_VERSION_3_1")]
 		public const int TEXTURE_BUFFER_DATA_STORE_BINDING = 0x8C2D;
 
 		/// <summary>
 		/// Value of GL_TEXTURE_RECTANGLE symbol.
 		/// </summary>
+		[AliasOf("GL_TEXTURE_RECTANGLE_ARB"]
+		[AliasOf("GL_TEXTURE_RECTANGLE_NV"]
 		[RequiredByFeature("GL_VERSION_3_1")]
 		[RequiredByFeature("GL_ARB_internalformat_query2")]
 		public const int TEXTURE_RECTANGLE = 0x84F5;
@@ -104,6 +121,8 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_TEXTURE_BINDING_RECTANGLE symbol.
 		/// </summary>
+		[AliasOf("GL_TEXTURE_BINDING_RECTANGLE_ARB"]
+		[AliasOf("GL_TEXTURE_BINDING_RECTANGLE_NV"]
 		[RequiredByFeature("GL_VERSION_3_1")]
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_direct_state_access")]
@@ -112,12 +131,16 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_PROXY_TEXTURE_RECTANGLE symbol.
 		/// </summary>
+		[AliasOf("GL_PROXY_TEXTURE_RECTANGLE_ARB"]
+		[AliasOf("GL_PROXY_TEXTURE_RECTANGLE_NV"]
 		[RequiredByFeature("GL_VERSION_3_1")]
 		public const int PROXY_TEXTURE_RECTANGLE = 0x84F7;
 
 		/// <summary>
 		/// Value of GL_MAX_RECTANGLE_TEXTURE_SIZE symbol.
 		/// </summary>
+		[AliasOf("GL_MAX_RECTANGLE_TEXTURE_SIZE_ARB"]
+		[AliasOf("GL_MAX_RECTANGLE_TEXTURE_SIZE_NV"]
 		[RequiredByFeature("GL_VERSION_3_1")]
 		public const int MAX_RECTANGLE_TEXTURE_SIZE = 0x84F8;
 

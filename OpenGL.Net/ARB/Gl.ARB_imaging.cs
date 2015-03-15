@@ -28,396 +28,462 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_BLEND_COLOR symbol.
 		/// </summary>
+		[AliasOf("GL_BLEND_COLOR_EXT"]
 		[RequiredByFeature("GL_ARB_imaging")]
 		public const int BLEND_COLOR = 0x8005;
 
 		/// <summary>
 		/// Value of GL_BLEND_EQUATION symbol.
 		/// </summary>
+		[AliasOf("GL_BLEND_EQUATION_EXT"]
 		[RequiredByFeature("GL_ARB_imaging")]
 		public const int BLEND_EQUATION = 0x8009;
 
 		/// <summary>
 		/// Value of GL_CONVOLUTION_1D symbol.
 		/// </summary>
+		[AliasOf("GL_CONVOLUTION_1D_EXT"]
 		[RequiredByFeature("GL_ARB_imaging")]
 		public const int CONVOLUTION_1D = 0x8010;
 
 		/// <summary>
 		/// Value of GL_CONVOLUTION_2D symbol.
 		/// </summary>
+		[AliasOf("GL_CONVOLUTION_2D_EXT"]
 		[RequiredByFeature("GL_ARB_imaging")]
 		public const int CONVOLUTION_2D = 0x8011;
 
 		/// <summary>
 		/// Value of GL_SEPARABLE_2D symbol.
 		/// </summary>
+		[AliasOf("GL_SEPARABLE_2D_EXT"]
 		[RequiredByFeature("GL_ARB_imaging")]
 		public const int SEPARABLE_2D = 0x8012;
 
 		/// <summary>
 		/// Value of GL_CONVOLUTION_BORDER_MODE symbol.
 		/// </summary>
+		[AliasOf("GL_CONVOLUTION_BORDER_MODE_EXT"]
 		[RequiredByFeature("GL_ARB_imaging")]
 		public const int CONVOLUTION_BORDER_MODE = 0x8013;
 
 		/// <summary>
 		/// Value of GL_CONVOLUTION_FILTER_SCALE symbol.
 		/// </summary>
+		[AliasOf("GL_CONVOLUTION_FILTER_SCALE_EXT"]
 		[RequiredByFeature("GL_ARB_imaging")]
 		public const int CONVOLUTION_FILTER_SCALE = 0x8014;
 
 		/// <summary>
 		/// Value of GL_CONVOLUTION_FILTER_BIAS symbol.
 		/// </summary>
+		[AliasOf("GL_CONVOLUTION_FILTER_BIAS_EXT"]
 		[RequiredByFeature("GL_ARB_imaging")]
 		public const int CONVOLUTION_FILTER_BIAS = 0x8015;
 
 		/// <summary>
 		/// Value of GL_REDUCE symbol.
 		/// </summary>
+		[AliasOf("GL_REDUCE_EXT"]
 		[RequiredByFeature("GL_ARB_imaging")]
 		public const int REDUCE = 0x8016;
 
 		/// <summary>
 		/// Value of GL_CONVOLUTION_FORMAT symbol.
 		/// </summary>
+		[AliasOf("GL_CONVOLUTION_FORMAT_EXT"]
 		[RequiredByFeature("GL_ARB_imaging")]
 		public const int CONVOLUTION_FORMAT = 0x8017;
 
 		/// <summary>
 		/// Value of GL_CONVOLUTION_WIDTH symbol.
 		/// </summary>
+		[AliasOf("GL_CONVOLUTION_WIDTH_EXT"]
 		[RequiredByFeature("GL_ARB_imaging")]
 		public const int CONVOLUTION_WIDTH = 0x8018;
 
 		/// <summary>
 		/// Value of GL_CONVOLUTION_HEIGHT symbol.
 		/// </summary>
+		[AliasOf("GL_CONVOLUTION_HEIGHT_EXT"]
 		[RequiredByFeature("GL_ARB_imaging")]
 		public const int CONVOLUTION_HEIGHT = 0x8019;
 
 		/// <summary>
 		/// Value of GL_MAX_CONVOLUTION_WIDTH symbol.
 		/// </summary>
+		[AliasOf("GL_MAX_CONVOLUTION_WIDTH_EXT"]
 		[RequiredByFeature("GL_ARB_imaging")]
 		public const int MAX_CONVOLUTION_WIDTH = 0x801A;
 
 		/// <summary>
 		/// Value of GL_MAX_CONVOLUTION_HEIGHT symbol.
 		/// </summary>
+		[AliasOf("GL_MAX_CONVOLUTION_HEIGHT_EXT"]
 		[RequiredByFeature("GL_ARB_imaging")]
 		public const int MAX_CONVOLUTION_HEIGHT = 0x801B;
 
 		/// <summary>
 		/// Value of GL_POST_CONVOLUTION_RED_SCALE symbol.
 		/// </summary>
+		[AliasOf("GL_POST_CONVOLUTION_RED_SCALE_EXT"]
 		[RequiredByFeature("GL_ARB_imaging")]
 		public const int POST_CONVOLUTION_RED_SCALE = 0x801C;
 
 		/// <summary>
 		/// Value of GL_POST_CONVOLUTION_GREEN_SCALE symbol.
 		/// </summary>
+		[AliasOf("GL_POST_CONVOLUTION_GREEN_SCALE_EXT"]
 		[RequiredByFeature("GL_ARB_imaging")]
 		public const int POST_CONVOLUTION_GREEN_SCALE = 0x801D;
 
 		/// <summary>
 		/// Value of GL_POST_CONVOLUTION_BLUE_SCALE symbol.
 		/// </summary>
+		[AliasOf("GL_POST_CONVOLUTION_BLUE_SCALE_EXT"]
 		[RequiredByFeature("GL_ARB_imaging")]
 		public const int POST_CONVOLUTION_BLUE_SCALE = 0x801E;
 
 		/// <summary>
 		/// Value of GL_POST_CONVOLUTION_ALPHA_SCALE symbol.
 		/// </summary>
+		[AliasOf("GL_POST_CONVOLUTION_ALPHA_SCALE_EXT"]
 		[RequiredByFeature("GL_ARB_imaging")]
 		public const int POST_CONVOLUTION_ALPHA_SCALE = 0x801F;
 
 		/// <summary>
 		/// Value of GL_POST_CONVOLUTION_RED_BIAS symbol.
 		/// </summary>
+		[AliasOf("GL_POST_CONVOLUTION_RED_BIAS_EXT"]
 		[RequiredByFeature("GL_ARB_imaging")]
 		public const int POST_CONVOLUTION_RED_BIAS = 0x8020;
 
 		/// <summary>
 		/// Value of GL_POST_CONVOLUTION_GREEN_BIAS symbol.
 		/// </summary>
+		[AliasOf("GL_POST_CONVOLUTION_GREEN_BIAS_EXT"]
 		[RequiredByFeature("GL_ARB_imaging")]
 		public const int POST_CONVOLUTION_GREEN_BIAS = 0x8021;
 
 		/// <summary>
 		/// Value of GL_POST_CONVOLUTION_BLUE_BIAS symbol.
 		/// </summary>
+		[AliasOf("GL_POST_CONVOLUTION_BLUE_BIAS_EXT"]
 		[RequiredByFeature("GL_ARB_imaging")]
 		public const int POST_CONVOLUTION_BLUE_BIAS = 0x8022;
 
 		/// <summary>
 		/// Value of GL_POST_CONVOLUTION_ALPHA_BIAS symbol.
 		/// </summary>
+		[AliasOf("GL_POST_CONVOLUTION_ALPHA_BIAS_EXT"]
 		[RequiredByFeature("GL_ARB_imaging")]
 		public const int POST_CONVOLUTION_ALPHA_BIAS = 0x8023;
 
 		/// <summary>
 		/// Value of GL_HISTOGRAM symbol.
 		/// </summary>
+		[AliasOf("GL_HISTOGRAM_EXT"]
 		[RequiredByFeature("GL_ARB_imaging")]
 		public const int HISTOGRAM = 0x8024;
 
 		/// <summary>
 		/// Value of GL_PROXY_HISTOGRAM symbol.
 		/// </summary>
+		[AliasOf("GL_PROXY_HISTOGRAM_EXT"]
 		[RequiredByFeature("GL_ARB_imaging")]
 		public const int PROXY_HISTOGRAM = 0x8025;
 
 		/// <summary>
 		/// Value of GL_HISTOGRAM_WIDTH symbol.
 		/// </summary>
+		[AliasOf("GL_HISTOGRAM_WIDTH_EXT"]
 		[RequiredByFeature("GL_ARB_imaging")]
 		public const int HISTOGRAM_WIDTH = 0x8026;
 
 		/// <summary>
 		/// Value of GL_HISTOGRAM_FORMAT symbol.
 		/// </summary>
+		[AliasOf("GL_HISTOGRAM_FORMAT_EXT"]
 		[RequiredByFeature("GL_ARB_imaging")]
 		public const int HISTOGRAM_FORMAT = 0x8027;
 
 		/// <summary>
 		/// Value of GL_HISTOGRAM_RED_SIZE symbol.
 		/// </summary>
+		[AliasOf("GL_HISTOGRAM_RED_SIZE_EXT"]
 		[RequiredByFeature("GL_ARB_imaging")]
 		public const int HISTOGRAM_RED_SIZE = 0x8028;
 
 		/// <summary>
 		/// Value of GL_HISTOGRAM_GREEN_SIZE symbol.
 		/// </summary>
+		[AliasOf("GL_HISTOGRAM_GREEN_SIZE_EXT"]
 		[RequiredByFeature("GL_ARB_imaging")]
 		public const int HISTOGRAM_GREEN_SIZE = 0x8029;
 
 		/// <summary>
 		/// Value of GL_HISTOGRAM_BLUE_SIZE symbol.
 		/// </summary>
+		[AliasOf("GL_HISTOGRAM_BLUE_SIZE_EXT"]
 		[RequiredByFeature("GL_ARB_imaging")]
 		public const int HISTOGRAM_BLUE_SIZE = 0x802A;
 
 		/// <summary>
 		/// Value of GL_HISTOGRAM_ALPHA_SIZE symbol.
 		/// </summary>
+		[AliasOf("GL_HISTOGRAM_ALPHA_SIZE_EXT"]
 		[RequiredByFeature("GL_ARB_imaging")]
 		public const int HISTOGRAM_ALPHA_SIZE = 0x802B;
 
 		/// <summary>
 		/// Value of GL_HISTOGRAM_LUMINANCE_SIZE symbol.
 		/// </summary>
+		[AliasOf("GL_HISTOGRAM_LUMINANCE_SIZE_EXT"]
 		[RequiredByFeature("GL_ARB_imaging")]
 		public const int HISTOGRAM_LUMINANCE_SIZE = 0x802C;
 
 		/// <summary>
 		/// Value of GL_HISTOGRAM_SINK symbol.
 		/// </summary>
+		[AliasOf("GL_HISTOGRAM_SINK_EXT"]
 		[RequiredByFeature("GL_ARB_imaging")]
 		public const int HISTOGRAM_SINK = 0x802D;
 
 		/// <summary>
 		/// Value of GL_MINMAX symbol.
 		/// </summary>
+		[AliasOf("GL_MINMAX_EXT"]
 		[RequiredByFeature("GL_ARB_imaging")]
 		public const int MINMAX = 0x802E;
 
 		/// <summary>
 		/// Value of GL_MINMAX_FORMAT symbol.
 		/// </summary>
+		[AliasOf("GL_MINMAX_FORMAT_EXT"]
 		[RequiredByFeature("GL_ARB_imaging")]
 		public const int MINMAX_FORMAT = 0x802F;
 
 		/// <summary>
 		/// Value of GL_MINMAX_SINK symbol.
 		/// </summary>
+		[AliasOf("GL_MINMAX_SINK_EXT"]
 		[RequiredByFeature("GL_ARB_imaging")]
 		public const int MINMAX_SINK = 0x8030;
 
 		/// <summary>
 		/// Value of GL_TABLE_TOO_LARGE symbol.
 		/// </summary>
+		[AliasOf("GL_TABLE_TOO_LARGE_EXT"]
 		[RequiredByFeature("GL_ARB_imaging")]
 		public const int TABLE_TOO_LARGE = 0x8031;
 
 		/// <summary>
 		/// Value of GL_COLOR_MATRIX symbol.
 		/// </summary>
+		[AliasOf("GL_COLOR_MATRIX_SGI"]
 		[RequiredByFeature("GL_ARB_imaging")]
 		public const int COLOR_MATRIX = 0x80B1;
 
 		/// <summary>
 		/// Value of GL_COLOR_MATRIX_STACK_DEPTH symbol.
 		/// </summary>
+		[AliasOf("GL_COLOR_MATRIX_STACK_DEPTH_SGI"]
 		[RequiredByFeature("GL_ARB_imaging")]
 		public const int COLOR_MATRIX_STACK_DEPTH = 0x80B2;
 
 		/// <summary>
 		/// Value of GL_MAX_COLOR_MATRIX_STACK_DEPTH symbol.
 		/// </summary>
+		[AliasOf("GL_MAX_COLOR_MATRIX_STACK_DEPTH_SGI"]
 		[RequiredByFeature("GL_ARB_imaging")]
 		public const int MAX_COLOR_MATRIX_STACK_DEPTH = 0x80B3;
 
 		/// <summary>
 		/// Value of GL_POST_COLOR_MATRIX_RED_SCALE symbol.
 		/// </summary>
+		[AliasOf("GL_POST_COLOR_MATRIX_RED_SCALE_SGI"]
 		[RequiredByFeature("GL_ARB_imaging")]
 		public const int POST_COLOR_MATRIX_RED_SCALE = 0x80B4;
 
 		/// <summary>
 		/// Value of GL_POST_COLOR_MATRIX_GREEN_SCALE symbol.
 		/// </summary>
+		[AliasOf("GL_POST_COLOR_MATRIX_GREEN_SCALE_SGI"]
 		[RequiredByFeature("GL_ARB_imaging")]
 		public const int POST_COLOR_MATRIX_GREEN_SCALE = 0x80B5;
 
 		/// <summary>
 		/// Value of GL_POST_COLOR_MATRIX_BLUE_SCALE symbol.
 		/// </summary>
+		[AliasOf("GL_POST_COLOR_MATRIX_BLUE_SCALE_SGI"]
 		[RequiredByFeature("GL_ARB_imaging")]
 		public const int POST_COLOR_MATRIX_BLUE_SCALE = 0x80B6;
 
 		/// <summary>
 		/// Value of GL_POST_COLOR_MATRIX_ALPHA_SCALE symbol.
 		/// </summary>
+		[AliasOf("GL_POST_COLOR_MATRIX_ALPHA_SCALE_SGI"]
 		[RequiredByFeature("GL_ARB_imaging")]
 		public const int POST_COLOR_MATRIX_ALPHA_SCALE = 0x80B7;
 
 		/// <summary>
 		/// Value of GL_POST_COLOR_MATRIX_RED_BIAS symbol.
 		/// </summary>
+		[AliasOf("GL_POST_COLOR_MATRIX_RED_BIAS_SGI"]
 		[RequiredByFeature("GL_ARB_imaging")]
 		public const int POST_COLOR_MATRIX_RED_BIAS = 0x80B8;
 
 		/// <summary>
 		/// Value of GL_POST_COLOR_MATRIX_GREEN_BIAS symbol.
 		/// </summary>
+		[AliasOf("GL_POST_COLOR_MATRIX_GREEN_BIAS_SGI"]
 		[RequiredByFeature("GL_ARB_imaging")]
 		public const int POST_COLOR_MATRIX_GREEN_BIAS = 0x80B9;
 
 		/// <summary>
 		/// Value of GL_POST_COLOR_MATRIX_BLUE_BIAS symbol.
 		/// </summary>
+		[AliasOf("GL_POST_COLOR_MATRIX_BLUE_BIAS_SGI"]
 		[RequiredByFeature("GL_ARB_imaging")]
 		public const int POST_COLOR_MATRIX_BLUE_BIAS = 0x80BA;
 
 		/// <summary>
 		/// Value of GL_POST_COLOR_MATRIX_ALPHA_BIAS symbol.
 		/// </summary>
+		[AliasOf("GL_POST_COLOR_MATRIX_ALPHA_BIAS_SGI"]
 		[RequiredByFeature("GL_ARB_imaging")]
 		public const int POST_COLOR_MATRIX_ALPHA_BIAS = 0x80BB;
 
 		/// <summary>
 		/// Value of GL_COLOR_TABLE symbol.
 		/// </summary>
+		[AliasOf("GL_COLOR_TABLE_SGI"]
 		[RequiredByFeature("GL_ARB_imaging")]
 		public const int COLOR_TABLE = 0x80D0;
 
 		/// <summary>
 		/// Value of GL_POST_CONVOLUTION_COLOR_TABLE symbol.
 		/// </summary>
+		[AliasOf("GL_POST_CONVOLUTION_COLOR_TABLE_SGI"]
 		[RequiredByFeature("GL_ARB_imaging")]
 		public const int POST_CONVOLUTION_COLOR_TABLE = 0x80D1;
 
 		/// <summary>
 		/// Value of GL_POST_COLOR_MATRIX_COLOR_TABLE symbol.
 		/// </summary>
+		[AliasOf("GL_POST_COLOR_MATRIX_COLOR_TABLE_SGI"]
 		[RequiredByFeature("GL_ARB_imaging")]
 		public const int POST_COLOR_MATRIX_COLOR_TABLE = 0x80D2;
 
 		/// <summary>
 		/// Value of GL_PROXY_COLOR_TABLE symbol.
 		/// </summary>
+		[AliasOf("GL_PROXY_COLOR_TABLE_SGI"]
 		[RequiredByFeature("GL_ARB_imaging")]
 		public const int PROXY_COLOR_TABLE = 0x80D3;
 
 		/// <summary>
 		/// Value of GL_PROXY_POST_CONVOLUTION_COLOR_TABLE symbol.
 		/// </summary>
+		[AliasOf("GL_PROXY_POST_CONVOLUTION_COLOR_TABLE_SGI"]
 		[RequiredByFeature("GL_ARB_imaging")]
 		public const int PROXY_POST_CONVOLUTION_COLOR_TABLE = 0x80D4;
 
 		/// <summary>
 		/// Value of GL_PROXY_POST_COLOR_MATRIX_COLOR_TABLE symbol.
 		/// </summary>
+		[AliasOf("GL_PROXY_POST_COLOR_MATRIX_COLOR_TABLE_SGI"]
 		[RequiredByFeature("GL_ARB_imaging")]
 		public const int PROXY_POST_COLOR_MATRIX_COLOR_TABLE = 0x80D5;
 
 		/// <summary>
 		/// Value of GL_COLOR_TABLE_SCALE symbol.
 		/// </summary>
+		[AliasOf("GL_COLOR_TABLE_SCALE_SGI"]
 		[RequiredByFeature("GL_ARB_imaging")]
 		public const int COLOR_TABLE_SCALE = 0x80D6;
 
 		/// <summary>
 		/// Value of GL_COLOR_TABLE_BIAS symbol.
 		/// </summary>
+		[AliasOf("GL_COLOR_TABLE_BIAS_SGI"]
 		[RequiredByFeature("GL_ARB_imaging")]
 		public const int COLOR_TABLE_BIAS = 0x80D7;
 
 		/// <summary>
 		/// Value of GL_COLOR_TABLE_FORMAT symbol.
 		/// </summary>
+		[AliasOf("GL_COLOR_TABLE_FORMAT_SGI"]
 		[RequiredByFeature("GL_ARB_imaging")]
 		public const int COLOR_TABLE_FORMAT = 0x80D8;
 
 		/// <summary>
 		/// Value of GL_COLOR_TABLE_WIDTH symbol.
 		/// </summary>
+		[AliasOf("GL_COLOR_TABLE_WIDTH_SGI"]
 		[RequiredByFeature("GL_ARB_imaging")]
 		public const int COLOR_TABLE_WIDTH = 0x80D9;
 
 		/// <summary>
 		/// Value of GL_COLOR_TABLE_RED_SIZE symbol.
 		/// </summary>
+		[AliasOf("GL_COLOR_TABLE_RED_SIZE_SGI"]
 		[RequiredByFeature("GL_ARB_imaging")]
 		public const int COLOR_TABLE_RED_SIZE = 0x80DA;
 
 		/// <summary>
 		/// Value of GL_COLOR_TABLE_GREEN_SIZE symbol.
 		/// </summary>
+		[AliasOf("GL_COLOR_TABLE_GREEN_SIZE_SGI"]
 		[RequiredByFeature("GL_ARB_imaging")]
 		public const int COLOR_TABLE_GREEN_SIZE = 0x80DB;
 
 		/// <summary>
 		/// Value of GL_COLOR_TABLE_BLUE_SIZE symbol.
 		/// </summary>
+		[AliasOf("GL_COLOR_TABLE_BLUE_SIZE_SGI"]
 		[RequiredByFeature("GL_ARB_imaging")]
 		public const int COLOR_TABLE_BLUE_SIZE = 0x80DC;
 
 		/// <summary>
 		/// Value of GL_COLOR_TABLE_ALPHA_SIZE symbol.
 		/// </summary>
+		[AliasOf("GL_COLOR_TABLE_ALPHA_SIZE_SGI"]
 		[RequiredByFeature("GL_ARB_imaging")]
 		public const int COLOR_TABLE_ALPHA_SIZE = 0x80DD;
 
 		/// <summary>
 		/// Value of GL_COLOR_TABLE_LUMINANCE_SIZE symbol.
 		/// </summary>
+		[AliasOf("GL_COLOR_TABLE_LUMINANCE_SIZE_SGI"]
 		[RequiredByFeature("GL_ARB_imaging")]
 		public const int COLOR_TABLE_LUMINANCE_SIZE = 0x80DE;
 
 		/// <summary>
 		/// Value of GL_COLOR_TABLE_INTENSITY_SIZE symbol.
 		/// </summary>
+		[AliasOf("GL_COLOR_TABLE_INTENSITY_SIZE_SGI"]
 		[RequiredByFeature("GL_ARB_imaging")]
 		public const int COLOR_TABLE_INTENSITY_SIZE = 0x80DF;
 
 		/// <summary>
 		/// Value of GL_CONSTANT_BORDER symbol.
 		/// </summary>
+		[AliasOf("GL_CONSTANT_BORDER_HP"]
 		[RequiredByFeature("GL_ARB_imaging")]
 		public const int CONSTANT_BORDER = 0x8151;
 
 		/// <summary>
 		/// Value of GL_REPLICATE_BORDER symbol.
 		/// </summary>
+		[AliasOf("GL_REPLICATE_BORDER_HP"]
 		[RequiredByFeature("GL_ARB_imaging")]
 		public const int REPLICATE_BORDER = 0x8153;
 
 		/// <summary>
 		/// Value of GL_CONVOLUTION_BORDER_COLOR symbol.
 		/// </summary>
+		[AliasOf("GL_CONVOLUTION_BORDER_COLOR_HP"]
 		[RequiredByFeature("GL_ARB_imaging")]
 		public const int CONVOLUTION_BORDER_COLOR = 0x8154;
 

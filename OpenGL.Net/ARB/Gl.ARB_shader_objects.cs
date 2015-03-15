@@ -28,12 +28,14 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_PROGRAM_OBJECT_ARB symbol.
 		/// </summary>
+		[AliasOf("GL_PROGRAM_OBJECT_EXT"]
 		[RequiredByFeature("GL_ARB_shader_objects")]
 		public const int PROGRAM_OBJECT_ARB = 0x8B40;
 
 		/// <summary>
 		/// Value of GL_SHADER_OBJECT_ARB symbol.
 		/// </summary>
+		[AliasOf("GL_SHADER_OBJECT_EXT"]
 		[RequiredByFeature("GL_ARB_shader_objects")]
 		public const int SHADER_OBJECT_ARB = 0x8B48;
 

@@ -119,6 +119,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_GUILTY_CONTEXT_RESET symbol.
 		/// </summary>
+		[AliasOf("GL_GUILTY_CONTEXT_RESET_ARB"]
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_KHR_robustness")]
 		public const int GUILTY_CONTEXT_RESET = 0x8253;
@@ -126,6 +127,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_INNOCENT_CONTEXT_RESET symbol.
 		/// </summary>
+		[AliasOf("GL_INNOCENT_CONTEXT_RESET_ARB"]
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_KHR_robustness")]
 		public const int INNOCENT_CONTEXT_RESET = 0x8254;
@@ -133,6 +135,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_UNKNOWN_CONTEXT_RESET symbol.
 		/// </summary>
+		[AliasOf("GL_UNKNOWN_CONTEXT_RESET_ARB"]
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_KHR_robustness")]
 		public const int UNKNOWN_CONTEXT_RESET = 0x8255;
@@ -140,6 +143,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_RESET_NOTIFICATION_STRATEGY symbol.
 		/// </summary>
+		[AliasOf("GL_RESET_NOTIFICATION_STRATEGY_ARB"]
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_KHR_robustness")]
 		public const int RESET_NOTIFICATION_STRATEGY = 0x8256;
@@ -147,6 +151,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_LOSE_CONTEXT_ON_RESET symbol.
 		/// </summary>
+		[AliasOf("GL_LOSE_CONTEXT_ON_RESET_ARB"]
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_KHR_robustness")]
 		public const int LOSE_CONTEXT_ON_RESET = 0x8252;
@@ -154,6 +159,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_NO_RESET_NOTIFICATION symbol.
 		/// </summary>
+		[AliasOf("GL_NO_RESET_NOTIFICATION_ARB"]
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_KHR_robustness")]
 		public const int NO_RESET_NOTIFICATION = 0x8261;
@@ -161,6 +167,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_CONTEXT_FLAG_ROBUST_ACCESS_BIT symbol.
 		/// </summary>
+		[AliasOf("GL_CONTEXT_FLAG_ROBUST_ACCESS_BIT_ARB"]
 		[RequiredByFeature("GL_VERSION_4_5")]
 		public const uint CONTEXT_FLAG_ROBUST_ACCESS_BIT = 0x00000004;
 

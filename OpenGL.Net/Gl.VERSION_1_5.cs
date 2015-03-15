@@ -28,78 +28,91 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_BUFFER_SIZE symbol.
 		/// </summary>
+		[AliasOf("GL_BUFFER_SIZE_ARB"]
 		[RequiredByFeature("GL_VERSION_1_5")]
 		public const int BUFFER_SIZE = 0x8764;
 
 		/// <summary>
 		/// Value of GL_BUFFER_USAGE symbol.
 		/// </summary>
+		[AliasOf("GL_BUFFER_USAGE_ARB"]
 		[RequiredByFeature("GL_VERSION_1_5")]
 		public const int BUFFER_USAGE = 0x8765;
 
 		/// <summary>
 		/// Value of GL_QUERY_COUNTER_BITS symbol.
 		/// </summary>
+		[AliasOf("GL_QUERY_COUNTER_BITS_ARB"]
 		[RequiredByFeature("GL_VERSION_1_5")]
 		public const int QUERY_COUNTER_BITS = 0x8864;
 
 		/// <summary>
 		/// Value of GL_CURRENT_QUERY symbol.
 		/// </summary>
+		[AliasOf("GL_CURRENT_QUERY_ARB"]
 		[RequiredByFeature("GL_VERSION_1_5")]
 		public const int CURRENT_QUERY = 0x8865;
 
 		/// <summary>
 		/// Value of GL_QUERY_RESULT symbol.
 		/// </summary>
+		[AliasOf("GL_QUERY_RESULT_ARB"]
 		[RequiredByFeature("GL_VERSION_1_5")]
 		public const int QUERY_RESULT = 0x8866;
 
 		/// <summary>
 		/// Value of GL_QUERY_RESULT_AVAILABLE symbol.
 		/// </summary>
+		[AliasOf("GL_QUERY_RESULT_AVAILABLE_ARB"]
 		[RequiredByFeature("GL_VERSION_1_5")]
 		public const int QUERY_RESULT_AVAILABLE = 0x8867;
 
 		/// <summary>
 		/// Value of GL_ARRAY_BUFFER symbol.
 		/// </summary>
+		[AliasOf("GL_ARRAY_BUFFER_ARB"]
 		[RequiredByFeature("GL_VERSION_1_5")]
 		public const int ARRAY_BUFFER = 0x8892;
 
 		/// <summary>
 		/// Value of GL_ELEMENT_ARRAY_BUFFER symbol.
 		/// </summary>
+		[AliasOf("GL_ELEMENT_ARRAY_BUFFER_ARB"]
 		[RequiredByFeature("GL_VERSION_1_5")]
 		public const int ELEMENT_ARRAY_BUFFER = 0x8893;
 
 		/// <summary>
 		/// Value of GL_ARRAY_BUFFER_BINDING symbol.
 		/// </summary>
+		[AliasOf("GL_ARRAY_BUFFER_BINDING_ARB"]
 		[RequiredByFeature("GL_VERSION_1_5")]
 		public const int ARRAY_BUFFER_BINDING = 0x8894;
 
 		/// <summary>
 		/// Value of GL_ELEMENT_ARRAY_BUFFER_BINDING symbol.
 		/// </summary>
+		[AliasOf("GL_ELEMENT_ARRAY_BUFFER_BINDING_ARB"]
 		[RequiredByFeature("GL_VERSION_1_5")]
 		public const int ELEMENT_ARRAY_BUFFER_BINDING = 0x8895;
 
 		/// <summary>
 		/// Value of GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING symbol.
 		/// </summary>
+		[AliasOf("GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB"]
 		[RequiredByFeature("GL_VERSION_1_5")]
 		public const int VERTEX_ATTRIB_ARRAY_BUFFER_BINDING = 0x889F;
 
 		/// <summary>
 		/// Value of GL_READ_ONLY symbol.
 		/// </summary>
+		[AliasOf("GL_READ_ONLY_ARB"]
 		[RequiredByFeature("GL_VERSION_1_5")]
 		public const int READ_ONLY = 0x88B8;
 
 		/// <summary>
 		/// Value of GL_WRITE_ONLY symbol.
 		/// </summary>
+		[AliasOf("GL_WRITE_ONLY_ARB"]
 		[RequiredByFeature("GL_VERSION_1_5")]
 		[RequiredByFeature("GL_NV_shader_buffer_store")]
 		public const int WRITE_ONLY = 0x88B9;
@@ -107,6 +120,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_READ_WRITE symbol.
 		/// </summary>
+		[AliasOf("GL_READ_WRITE_ARB"]
 		[RequiredByFeature("GL_VERSION_1_5")]
 		[RequiredByFeature("GL_NV_shader_buffer_store")]
 		public const int READ_WRITE = 0x88BA;
@@ -114,84 +128,98 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_BUFFER_ACCESS symbol.
 		/// </summary>
+		[AliasOf("GL_BUFFER_ACCESS_ARB"]
 		[RequiredByFeature("GL_VERSION_1_5")]
 		public const int BUFFER_ACCESS = 0x88BB;
 
 		/// <summary>
 		/// Value of GL_BUFFER_MAPPED symbol.
 		/// </summary>
+		[AliasOf("GL_BUFFER_MAPPED_ARB"]
 		[RequiredByFeature("GL_VERSION_1_5")]
 		public const int BUFFER_MAPPED = 0x88BC;
 
 		/// <summary>
 		/// Value of GL_BUFFER_MAP_POINTER symbol.
 		/// </summary>
+		[AliasOf("GL_BUFFER_MAP_POINTER_ARB"]
 		[RequiredByFeature("GL_VERSION_1_5")]
 		public const int BUFFER_MAP_POINTER = 0x88BD;
 
 		/// <summary>
 		/// Value of GL_STREAM_DRAW symbol.
 		/// </summary>
+		[AliasOf("GL_STREAM_DRAW_ARB"]
 		[RequiredByFeature("GL_VERSION_1_5")]
 		public const int STREAM_DRAW = 0x88E0;
 
 		/// <summary>
 		/// Value of GL_STREAM_READ symbol.
 		/// </summary>
+		[AliasOf("GL_STREAM_READ_ARB"]
 		[RequiredByFeature("GL_VERSION_1_5")]
 		public const int STREAM_READ = 0x88E1;
 
 		/// <summary>
 		/// Value of GL_STREAM_COPY symbol.
 		/// </summary>
+		[AliasOf("GL_STREAM_COPY_ARB"]
 		[RequiredByFeature("GL_VERSION_1_5")]
 		public const int STREAM_COPY = 0x88E2;
 
 		/// <summary>
 		/// Value of GL_STATIC_DRAW symbol.
 		/// </summary>
+		[AliasOf("GL_STATIC_DRAW_ARB"]
 		[RequiredByFeature("GL_VERSION_1_5")]
 		public const int STATIC_DRAW = 0x88E4;
 
 		/// <summary>
 		/// Value of GL_STATIC_READ symbol.
 		/// </summary>
+		[AliasOf("GL_STATIC_READ_ARB"]
 		[RequiredByFeature("GL_VERSION_1_5")]
 		public const int STATIC_READ = 0x88E5;
 
 		/// <summary>
 		/// Value of GL_STATIC_COPY symbol.
 		/// </summary>
+		[AliasOf("GL_STATIC_COPY_ARB"]
 		[RequiredByFeature("GL_VERSION_1_5")]
 		public const int STATIC_COPY = 0x88E6;
 
 		/// <summary>
 		/// Value of GL_DYNAMIC_DRAW symbol.
 		/// </summary>
+		[AliasOf("GL_DYNAMIC_DRAW_ARB"]
 		[RequiredByFeature("GL_VERSION_1_5")]
 		public const int DYNAMIC_DRAW = 0x88E8;
 
 		/// <summary>
 		/// Value of GL_DYNAMIC_READ symbol.
 		/// </summary>
+		[AliasOf("GL_DYNAMIC_READ_ARB"]
 		[RequiredByFeature("GL_VERSION_1_5")]
 		public const int DYNAMIC_READ = 0x88E9;
 
 		/// <summary>
 		/// Value of GL_DYNAMIC_COPY symbol.
 		/// </summary>
+		[AliasOf("GL_DYNAMIC_COPY_ARB"]
 		[RequiredByFeature("GL_VERSION_1_5")]
 		public const int DYNAMIC_COPY = 0x88EA;
 
 		/// <summary>
 		/// Value of GL_SAMPLES_PASSED symbol.
 		/// </summary>
+		[AliasOf("GL_SAMPLES_PASSED_ARB"]
 		[RequiredByFeature("GL_VERSION_1_5")]
 		public const int SAMPLES_PASSED = 0x8914;
 
 		/// <summary>
 		/// Value of GL_VERTEX_ARRAY_BUFFER_BINDING symbol (DEPRECATED).
 		/// </summary>
+		[AliasOf("GL_VERTEX_ARRAY_BUFFER_BINDING_ARB"]
 		[RequiredByFeature("GL_VERSION_1_5")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
@@ -202,6 +230,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_NORMAL_ARRAY_BUFFER_BINDING symbol (DEPRECATED).
 		/// </summary>
+		[AliasOf("GL_NORMAL_ARRAY_BUFFER_BINDING_ARB"]
 		[RequiredByFeature("GL_VERSION_1_5")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
@@ -212,6 +241,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_COLOR_ARRAY_BUFFER_BINDING symbol (DEPRECATED).
 		/// </summary>
+		[AliasOf("GL_COLOR_ARRAY_BUFFER_BINDING_ARB"]
 		[RequiredByFeature("GL_VERSION_1_5")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
@@ -222,6 +252,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_INDEX_ARRAY_BUFFER_BINDING symbol (DEPRECATED).
 		/// </summary>
+		[AliasOf("GL_INDEX_ARRAY_BUFFER_BINDING_ARB"]
 		[RequiredByFeature("GL_VERSION_1_5")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
@@ -232,6 +263,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_TEXTURE_COORD_ARRAY_BUFFER_BINDING symbol (DEPRECATED).
 		/// </summary>
+		[AliasOf("GL_TEXTURE_COORD_ARRAY_BUFFER_BINDING_ARB"]
 		[RequiredByFeature("GL_VERSION_1_5")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
@@ -242,6 +274,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_EDGE_FLAG_ARRAY_BUFFER_BINDING symbol (DEPRECATED).
 		/// </summary>
+		[AliasOf("GL_EDGE_FLAG_ARRAY_BUFFER_BINDING_ARB"]
 		[RequiredByFeature("GL_VERSION_1_5")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
@@ -252,6 +285,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_SECONDARY_COLOR_ARRAY_BUFFER_BINDING symbol (DEPRECATED).
 		/// </summary>
+		[AliasOf("GL_SECONDARY_COLOR_ARRAY_BUFFER_BINDING_ARB"]
 		[RequiredByFeature("GL_VERSION_1_5")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
@@ -262,6 +296,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_FOG_COORDINATE_ARRAY_BUFFER_BINDING symbol (DEPRECATED).
 		/// </summary>
+		[AliasOf("GL_FOG_COORDINATE_ARRAY_BUFFER_BINDING_ARB"]
 		[RequiredByFeature("GL_VERSION_1_5")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
@@ -272,6 +307,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_WEIGHT_ARRAY_BUFFER_BINDING symbol (DEPRECATED).
 		/// </summary>
+		[AliasOf("GL_WEIGHT_ARRAY_BUFFER_BINDING_ARB"]
 		[RequiredByFeature("GL_VERSION_1_5")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE

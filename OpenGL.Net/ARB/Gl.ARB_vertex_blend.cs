@@ -88,12 +88,14 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_MODELVIEW0_ARB symbol.
 		/// </summary>
+		[AliasOf("GL_MODELVIEW0_EXT"]
 		[RequiredByFeature("GL_ARB_vertex_blend")]
 		public const int MODELVIEW0_ARB = 0x1700;
 
 		/// <summary>
 		/// Value of GL_MODELVIEW1_ARB symbol.
 		/// </summary>
+		[AliasOf("GL_MODELVIEW1_EXT"]
 		[RequiredByFeature("GL_ARB_vertex_blend")]
 		public const int MODELVIEW1_ARB = 0x850A;
 
