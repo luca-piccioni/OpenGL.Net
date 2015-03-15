@@ -466,18 +466,12 @@ namespace OpenGL
 			if        (Delegates.pglDrawArraysInstanced != null) {
 				Delegates.pglDrawArraysInstanced((int)mode, first, count, instancecount);
 				CallLog("glDrawArraysInstanced({0}, {1}, {2}, {3})", mode, first, count, instancecount);
-			} else if (Delegates.pglDrawArraysInstancedANGLE != null) {
-				Delegates.pglDrawArraysInstancedANGLE((int)mode, first, count, instancecount);
-				CallLog("glDrawArraysInstancedANGLE({0}, {1}, {2}, {3})", mode, first, count, instancecount);
 			} else if (Delegates.pglDrawArraysInstancedARB != null) {
 				Delegates.pglDrawArraysInstancedARB((int)mode, first, count, instancecount);
 				CallLog("glDrawArraysInstancedARB({0}, {1}, {2}, {3})", mode, first, count, instancecount);
 			} else if (Delegates.pglDrawArraysInstancedEXT != null) {
 				Delegates.pglDrawArraysInstancedEXT((int)mode, first, count, instancecount);
 				CallLog("glDrawArraysInstancedEXT({0}, {1}, {2}, {3})", mode, first, count, instancecount);
-			} else if (Delegates.pglDrawArraysInstancedNV != null) {
-				Delegates.pglDrawArraysInstancedNV((int)mode, first, count, instancecount);
-				CallLog("glDrawArraysInstancedNV({0}, {1}, {2}, {3})", mode, first, count, instancecount);
 			} else
 				throw new NotImplementedException("glDrawArraysInstanced (and other aliases) are not implemented");
 			DebugCheckErrors();
@@ -509,18 +503,12 @@ namespace OpenGL
 			if        (Delegates.pglDrawElementsInstanced != null) {
 				Delegates.pglDrawElementsInstanced((int)mode, count, (int)type, indices, instancecount);
 				CallLog("glDrawElementsInstanced({0}, {1}, {2}, {3}, {4})", mode, count, type, indices, instancecount);
-			} else if (Delegates.pglDrawElementsInstancedANGLE != null) {
-				Delegates.pglDrawElementsInstancedANGLE((int)mode, count, (int)type, indices, instancecount);
-				CallLog("glDrawElementsInstancedANGLE({0}, {1}, {2}, {3}, {4})", mode, count, type, indices, instancecount);
 			} else if (Delegates.pglDrawElementsInstancedARB != null) {
 				Delegates.pglDrawElementsInstancedARB((int)mode, count, (int)type, indices, instancecount);
 				CallLog("glDrawElementsInstancedARB({0}, {1}, {2}, {3}, {4})", mode, count, type, indices, instancecount);
 			} else if (Delegates.pglDrawElementsInstancedEXT != null) {
 				Delegates.pglDrawElementsInstancedEXT((int)mode, count, (int)type, indices, instancecount);
 				CallLog("glDrawElementsInstancedEXT({0}, {1}, {2}, {3}, {4})", mode, count, type, indices, instancecount);
-			} else if (Delegates.pglDrawElementsInstancedNV != null) {
-				Delegates.pglDrawElementsInstancedNV((int)mode, count, (int)type, indices, instancecount);
-				CallLog("glDrawElementsInstancedNV({0}, {1}, {2}, {3}, {4})", mode, count, type, indices, instancecount);
 			} else
 				throw new NotImplementedException("glDrawElementsInstanced (and other aliases) are not implemented");
 			DebugCheckErrors();
@@ -581,9 +569,6 @@ namespace OpenGL
 			} else if (Delegates.pglTexBufferEXT != null) {
 				Delegates.pglTexBufferEXT((int)target, internalformat, buffer);
 				CallLog("glTexBufferEXT({0}, {1}, {2})", target, internalformat, buffer);
-			} else if (Delegates.pglTexBufferOES != null) {
-				Delegates.pglTexBufferOES((int)target, internalformat, buffer);
-				CallLog("glTexBufferOES({0}, {1}, {2})", target, internalformat, buffer);
 			} else
 				throw new NotImplementedException("glTexBuffer (and other aliases) are not implemented");
 			DebugCheckErrors();
@@ -629,14 +614,9 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_copy_buffer")]
 		public static void CopyBufferSubData(int readTarget, int writeTarget, IntPtr readOffset, IntPtr writeOffset, UInt32 size)
 		{
-			if        (Delegates.pglCopyBufferSubData != null) {
-				Delegates.pglCopyBufferSubData(readTarget, writeTarget, readOffset, writeOffset, size);
-				CallLog("glCopyBufferSubData({0}, {1}, {2}, {3}, {4})", readTarget, writeTarget, readOffset, writeOffset, size);
-			} else if (Delegates.pglCopyBufferSubDataNV != null) {
-				Delegates.pglCopyBufferSubDataNV(readTarget, writeTarget, readOffset, writeOffset, size);
-				CallLog("glCopyBufferSubDataNV({0}, {1}, {2}, {3}, {4})", readTarget, writeTarget, readOffset, writeOffset, size);
-			} else
-				throw new NotImplementedException("glCopyBufferSubData (and other aliases) are not implemented");
+			Debug.Assert(Delegates.pglCopyBufferSubData != null, "pglCopyBufferSubData not implemented");
+			Delegates.pglCopyBufferSubData(readTarget, writeTarget, readOffset, writeOffset, size);
+			CallLog("glCopyBufferSubData({0}, {1}, {2}, {3}, {4})", readTarget, writeTarget, readOffset, writeOffset, size);
 			DebugCheckErrors();
 		}
 

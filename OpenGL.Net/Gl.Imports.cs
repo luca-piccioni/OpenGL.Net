@@ -50,11 +50,6 @@ namespace OpenGL
 			internal static glActiveShaderProgram pglActiveShaderProgram;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glActiveShaderProgramEXT(UInt32 pipeline, UInt32 program);
-			[ThreadStatic]
-			internal static glActiveShaderProgramEXT pglActiveShaderProgramEXT;
-
-			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glActiveStencilFaceEXT(int face);
 			[ThreadStatic]
 			internal static glActiveStencilFaceEXT pglActiveStencilFaceEXT;
@@ -93,16 +88,6 @@ namespace OpenGL
 			internal delegate void glAlphaFunc(int func, float @ref);
 			[ThreadStatic]
 			internal static glAlphaFunc pglAlphaFunc;
-
-			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glAlphaFuncQCOM(int func, float @ref);
-			[ThreadStatic]
-			internal static glAlphaFuncQCOM pglAlphaFuncQCOM;
-
-			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glAlphaFuncx(int func, IntPtr @ref);
-			[ThreadStatic]
-			internal static glAlphaFuncx pglAlphaFuncx;
 
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glAlphaFuncxOES(int func, IntPtr @ref);
@@ -208,11 +193,6 @@ namespace OpenGL
 			internal delegate void glBeginQueryARB(int target, UInt32 id);
 			[ThreadStatic]
 			internal static glBeginQueryARB pglBeginQueryARB;
-
-			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glBeginQueryEXT(int target, UInt32 id);
-			[ThreadStatic]
-			internal static glBeginQueryEXT pglBeginQueryEXT;
 
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glBeginQueryIndexed(int target, UInt32 index, UInt32 id);
@@ -345,11 +325,6 @@ namespace OpenGL
 			internal static glBindFramebufferEXT pglBindFramebufferEXT;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glBindFramebufferOES(int target, UInt32 framebuffer);
-			[ThreadStatic]
-			internal static glBindFramebufferOES pglBindFramebufferOES;
-
-			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glBindImageTexture(UInt32 unit, UInt32 texture, Int32 level, bool layered, Int32 layer, int access, int format);
 			[ThreadStatic]
 			internal static glBindImageTexture pglBindImageTexture;
@@ -400,11 +375,6 @@ namespace OpenGL
 			internal static glBindProgramPipeline pglBindProgramPipeline;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glBindProgramPipelineEXT(UInt32 pipeline);
-			[ThreadStatic]
-			internal static glBindProgramPipelineEXT pglBindProgramPipelineEXT;
-
-			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glBindRenderbuffer(int target, UInt32 renderbuffer);
 			[ThreadStatic]
 			internal static glBindRenderbuffer pglBindRenderbuffer;
@@ -413,11 +383,6 @@ namespace OpenGL
 			internal delegate void glBindRenderbufferEXT(int target, UInt32 renderbuffer);
 			[ThreadStatic]
 			internal static glBindRenderbufferEXT pglBindRenderbufferEXT;
-
-			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glBindRenderbufferOES(int target, UInt32 renderbuffer);
-			[ThreadStatic]
-			internal static glBindRenderbufferOES pglBindRenderbufferOES;
 
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glBindSampler(UInt32 unit, UInt32 sampler);
@@ -478,11 +443,6 @@ namespace OpenGL
 			internal delegate void glBindVertexArrayAPPLE(UInt32 array);
 			[ThreadStatic]
 			internal static glBindVertexArrayAPPLE pglBindVertexArrayAPPLE;
-
-			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glBindVertexArrayOES(UInt32 array);
-			[ThreadStatic]
-			internal static glBindVertexArrayOES pglBindVertexArrayOES;
 
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glBindVertexBuffer(UInt32 bindingindex, UInt32 buffer, IntPtr offset, Int32 stride);
@@ -615,11 +575,6 @@ namespace OpenGL
 			internal static glBlendEquationIndexedAMD pglBlendEquationIndexedAMD;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glBlendEquationOES(int mode);
-			[ThreadStatic]
-			internal static glBlendEquationOES pglBlendEquationOES;
-
-			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glBlendEquationSeparate(int modeRGB, int modeAlpha);
 			[ThreadStatic]
 			internal static glBlendEquationSeparate pglBlendEquationSeparate;
@@ -635,11 +590,6 @@ namespace OpenGL
 			internal static glBlendEquationSeparateIndexedAMD pglBlendEquationSeparateIndexedAMD;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glBlendEquationSeparateOES(int modeRGB, int modeAlpha);
-			[ThreadStatic]
-			internal static glBlendEquationSeparateOES pglBlendEquationSeparateOES;
-
-			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glBlendEquationSeparatei(UInt32 buf, int modeRGB, int modeAlpha);
 			[ThreadStatic]
 			internal static glBlendEquationSeparatei pglBlendEquationSeparatei;
@@ -650,16 +600,6 @@ namespace OpenGL
 			internal static glBlendEquationSeparateiARB pglBlendEquationSeparateiARB;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glBlendEquationSeparateiEXT(UInt32 buf, int modeRGB, int modeAlpha);
-			[ThreadStatic]
-			internal static glBlendEquationSeparateiEXT pglBlendEquationSeparateiEXT;
-
-			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glBlendEquationSeparateiOES(UInt32 buf, int modeRGB, int modeAlpha);
-			[ThreadStatic]
-			internal static glBlendEquationSeparateiOES pglBlendEquationSeparateiOES;
-
-			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glBlendEquationi(UInt32 buf, int mode);
 			[ThreadStatic]
 			internal static glBlendEquationi pglBlendEquationi;
@@ -668,16 +608,6 @@ namespace OpenGL
 			internal delegate void glBlendEquationiARB(UInt32 buf, int mode);
 			[ThreadStatic]
 			internal static glBlendEquationiARB pglBlendEquationiARB;
-
-			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glBlendEquationiEXT(UInt32 buf, int mode);
-			[ThreadStatic]
-			internal static glBlendEquationiEXT pglBlendEquationiEXT;
-
-			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glBlendEquationiOES(UInt32 buf, int mode);
-			[ThreadStatic]
-			internal static glBlendEquationiOES pglBlendEquationiOES;
 
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glBlendFunc(int sfactor, int dfactor);
@@ -710,11 +640,6 @@ namespace OpenGL
 			internal static glBlendFuncSeparateIndexedAMD pglBlendFuncSeparateIndexedAMD;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glBlendFuncSeparateOES(int srcRGB, int dstRGB, int srcAlpha, int dstAlpha);
-			[ThreadStatic]
-			internal static glBlendFuncSeparateOES pglBlendFuncSeparateOES;
-
-			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glBlendFuncSeparatei(UInt32 buf, int srcRGB, int dstRGB, int srcAlpha, int dstAlpha);
 			[ThreadStatic]
 			internal static glBlendFuncSeparatei pglBlendFuncSeparatei;
@@ -723,16 +648,6 @@ namespace OpenGL
 			internal delegate void glBlendFuncSeparateiARB(UInt32 buf, int srcRGB, int dstRGB, int srcAlpha, int dstAlpha);
 			[ThreadStatic]
 			internal static glBlendFuncSeparateiARB pglBlendFuncSeparateiARB;
-
-			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glBlendFuncSeparateiEXT(UInt32 buf, int srcRGB, int dstRGB, int srcAlpha, int dstAlpha);
-			[ThreadStatic]
-			internal static glBlendFuncSeparateiEXT pglBlendFuncSeparateiEXT;
-
-			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glBlendFuncSeparateiOES(UInt32 buf, int srcRGB, int dstRGB, int srcAlpha, int dstAlpha);
-			[ThreadStatic]
-			internal static glBlendFuncSeparateiOES pglBlendFuncSeparateiOES;
 
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glBlendFunci(UInt32 buf, int src, int dst);
@@ -745,16 +660,6 @@ namespace OpenGL
 			internal static glBlendFunciARB pglBlendFunciARB;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glBlendFunciEXT(UInt32 buf, int src, int dst);
-			[ThreadStatic]
-			internal static glBlendFunciEXT pglBlendFunciEXT;
-
-			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glBlendFunciOES(UInt32 buf, int src, int dst);
-			[ThreadStatic]
-			internal static glBlendFunciOES pglBlendFunciOES;
-
-			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glBlendParameteriNV(int pname, Int32 value);
 			[ThreadStatic]
 			internal static glBlendParameteriNV pglBlendParameteriNV;
@@ -765,19 +670,9 @@ namespace OpenGL
 			internal static glBlitFramebuffer pglBlitFramebuffer;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glBlitFramebufferANGLE(Int32 srcX0, Int32 srcY0, Int32 srcX1, Int32 srcY1, Int32 dstX0, Int32 dstY0, Int32 dstX1, Int32 dstY1, uint mask, int filter);
-			[ThreadStatic]
-			internal static glBlitFramebufferANGLE pglBlitFramebufferANGLE;
-
-			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glBlitFramebufferEXT(Int32 srcX0, Int32 srcY0, Int32 srcX1, Int32 srcY1, Int32 dstX0, Int32 dstY0, Int32 dstX1, Int32 dstY1, uint mask, int filter);
 			[ThreadStatic]
 			internal static glBlitFramebufferEXT pglBlitFramebufferEXT;
-
-			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glBlitFramebufferNV(Int32 srcX0, Int32 srcY0, Int32 srcX1, Int32 srcY1, Int32 dstX0, Int32 dstY0, Int32 dstX1, Int32 dstY1, uint mask, int filter);
-			[ThreadStatic]
-			internal static glBlitFramebufferNV pglBlitFramebufferNV;
 
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glBlitNamedFramebuffer(UInt32 readFramebuffer, UInt32 drawFramebuffer, Int32 srcX0, Int32 srcY0, Int32 srcX1, Int32 srcY1, Int32 dstX0, Int32 dstY0, Int32 dstX1, Int32 dstY1, uint mask, int filter);
@@ -843,11 +738,6 @@ namespace OpenGL
 			internal delegate int glCheckFramebufferStatusEXT(int target);
 			[ThreadStatic]
 			internal static glCheckFramebufferStatusEXT pglCheckFramebufferStatusEXT;
-
-			[SuppressUnmanagedCodeSecurity()]
-			internal delegate int glCheckFramebufferStatusOES(int target);
-			[ThreadStatic]
-			internal static glCheckFramebufferStatusOES pglCheckFramebufferStatusOES;
 
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate int glCheckNamedFramebufferStatus(UInt32 framebuffer, int target);
@@ -930,11 +820,6 @@ namespace OpenGL
 			internal static glClearColorIuiEXT pglClearColorIuiEXT;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glClearColorx(IntPtr red, IntPtr green, IntPtr blue, IntPtr alpha);
-			[ThreadStatic]
-			internal static glClearColorx pglClearColorx;
-
-			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glClearColorxOES(IntPtr red, IntPtr green, IntPtr blue, IntPtr alpha);
 			[ThreadStatic]
 			internal static glClearColorxOES pglClearColorxOES;
@@ -958,11 +843,6 @@ namespace OpenGL
 			internal delegate void glClearDepthfOES(float depth);
 			[ThreadStatic]
 			internal static glClearDepthfOES pglClearDepthfOES;
-
-			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glClearDepthx(IntPtr depth);
-			[ThreadStatic]
-			internal static glClearDepthx pglClearDepthx;
 
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glClearDepthxOES(IntPtr depth);
@@ -1055,11 +935,6 @@ namespace OpenGL
 			internal static glClientWaitSync pglClientWaitSync;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate int glClientWaitSyncAPPLE(int sync, uint flags, UInt64 timeout);
-			[ThreadStatic]
-			internal static glClientWaitSyncAPPLE pglClientWaitSyncAPPLE;
-
-			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glClipControl(int origin, int depth);
 			[ThreadStatic]
 			internal static glClipControl pglClipControl;
@@ -1070,29 +945,9 @@ namespace OpenGL
 			internal static glClipPlane pglClipPlane;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glClipPlanef(int p, float* eqn);
-			[ThreadStatic]
-			internal static glClipPlanef pglClipPlanef;
-
-			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glClipPlanefIMG(int p, float* eqn);
-			[ThreadStatic]
-			internal static glClipPlanefIMG pglClipPlanefIMG;
-
-			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glClipPlanefOES(int plane, float* equation);
 			[ThreadStatic]
 			internal static glClipPlanefOES pglClipPlanefOES;
-
-			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glClipPlanex(int plane, IntPtr* equation);
-			[ThreadStatic]
-			internal static glClipPlanex pglClipPlanex;
-
-			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glClipPlanexIMG(int p, IntPtr* eqn);
-			[ThreadStatic]
-			internal static glClipPlanexIMG pglClipPlanexIMG;
 
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glClipPlanexOES(int plane, IntPtr* equation);
@@ -1330,11 +1185,6 @@ namespace OpenGL
 			internal static glColor4usv pglColor4usv;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glColor4x(IntPtr red, IntPtr green, IntPtr blue, IntPtr alpha);
-			[ThreadStatic]
-			internal static glColor4x pglColor4x;
-
-			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glColor4xOES(IntPtr red, IntPtr green, IntPtr blue, IntPtr alpha);
 			[ThreadStatic]
 			internal static glColor4xOES pglColor4xOES;
@@ -1378,16 +1228,6 @@ namespace OpenGL
 			internal delegate void glColorMaski(UInt32 index, bool r, bool g, bool b, bool a);
 			[ThreadStatic]
 			internal static glColorMaski pglColorMaski;
-
-			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glColorMaskiEXT(UInt32 index, bool r, bool g, bool b, bool a);
-			[ThreadStatic]
-			internal static glColorMaskiEXT pglColorMaskiEXT;
-
-			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glColorMaskiOES(UInt32 index, bool r, bool g, bool b, bool a);
-			[ThreadStatic]
-			internal static glColorMaskiOES pglColorMaskiOES;
 
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glColorMaterial(int face, int mode);
@@ -1590,11 +1430,6 @@ namespace OpenGL
 			internal static glCompressedTexImage3DARB pglCompressedTexImage3DARB;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glCompressedTexImage3DOES(int target, Int32 level, int internalformat, Int32 width, Int32 height, Int32 depth, Int32 border, Int32 imageSize, IntPtr data);
-			[ThreadStatic]
-			internal static glCompressedTexImage3DOES pglCompressedTexImage3DOES;
-
-			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glCompressedTexSubImage1D(int target, Int32 level, Int32 xoffset, Int32 width, int format, Int32 imageSize, IntPtr data);
 			[ThreadStatic]
 			internal static glCompressedTexSubImage1D pglCompressedTexSubImage1D;
@@ -1623,11 +1458,6 @@ namespace OpenGL
 			internal unsafe delegate void glCompressedTexSubImage3DARB(int target, Int32 level, Int32 xoffset, Int32 yoffset, Int32 zoffset, Int32 width, Int32 height, Int32 depth, int format, Int32 imageSize, IntPtr data);
 			[ThreadStatic]
 			internal static glCompressedTexSubImage3DARB pglCompressedTexSubImage3DARB;
-
-			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glCompressedTexSubImage3DOES(int target, Int32 level, Int32 xoffset, Int32 yoffset, Int32 zoffset, Int32 width, Int32 height, Int32 depth, int format, Int32 imageSize, IntPtr data);
-			[ThreadStatic]
-			internal static glCompressedTexSubImage3DOES pglCompressedTexSubImage3DOES;
 
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glCompressedTextureImage1DEXT(UInt32 texture, int target, Int32 level, int internalformat, Int32 width, Int32 border, Int32 imageSize, IntPtr bits);
@@ -1750,11 +1580,6 @@ namespace OpenGL
 			internal static glCopyBufferSubData pglCopyBufferSubData;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glCopyBufferSubDataNV(int readTarget, int writeTarget, IntPtr readOffset, IntPtr writeOffset, UInt32 size);
-			[ThreadStatic]
-			internal static glCopyBufferSubDataNV pglCopyBufferSubDataNV;
-
-			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glCopyColorSubTable(int target, Int32 start, Int32 x, Int32 y, Int32 width);
 			[ThreadStatic]
 			internal static glCopyColorSubTable pglCopyColorSubTable;
@@ -1798,16 +1623,6 @@ namespace OpenGL
 			internal delegate void glCopyImageSubData(UInt32 srcName, int srcTarget, Int32 srcLevel, Int32 srcX, Int32 srcY, Int32 srcZ, UInt32 dstName, int dstTarget, Int32 dstLevel, Int32 dstX, Int32 dstY, Int32 dstZ, Int32 srcWidth, Int32 srcHeight, Int32 srcDepth);
 			[ThreadStatic]
 			internal static glCopyImageSubData pglCopyImageSubData;
-
-			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glCopyImageSubDataEXT(UInt32 srcName, int srcTarget, Int32 srcLevel, Int32 srcX, Int32 srcY, Int32 srcZ, UInt32 dstName, int dstTarget, Int32 dstLevel, Int32 dstX, Int32 dstY, Int32 dstZ, Int32 srcWidth, Int32 srcHeight, Int32 srcDepth);
-			[ThreadStatic]
-			internal static glCopyImageSubDataEXT pglCopyImageSubDataEXT;
-
-			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glCopyImageSubDataOES(UInt32 srcName, int srcTarget, Int32 srcLevel, Int32 srcX, Int32 srcY, Int32 srcZ, UInt32 dstName, int dstTarget, Int32 dstLevel, Int32 dstX, Int32 dstY, Int32 dstZ, Int32 srcWidth, Int32 srcHeight, Int32 srcDepth);
-			[ThreadStatic]
-			internal static glCopyImageSubDataOES pglCopyImageSubDataOES;
 
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glCopyImageSubDataNV(UInt32 srcName, int srcTarget, Int32 srcLevel, Int32 srcX, Int32 srcY, Int32 srcZ, UInt32 dstName, int dstTarget, Int32 dstLevel, Int32 dstX, Int32 dstY, Int32 dstZ, Int32 width, Int32 height, Int32 depth);
@@ -1905,11 +1720,6 @@ namespace OpenGL
 			internal static glCopyTexSubImage3DEXT pglCopyTexSubImage3DEXT;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glCopyTexSubImage3DOES(int target, Int32 level, Int32 xoffset, Int32 yoffset, Int32 zoffset, Int32 x, Int32 y, Int32 width, Int32 height);
-			[ThreadStatic]
-			internal static glCopyTexSubImage3DOES pglCopyTexSubImage3DOES;
-
-			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glCopyTextureImage1DEXT(UInt32 texture, int target, Int32 level, int internalformat, Int32 x, Int32 y, Int32 width, Int32 border);
 			[ThreadStatic]
 			internal static glCopyTextureImage1DEXT pglCopyTextureImage1DEXT;
@@ -1918,11 +1728,6 @@ namespace OpenGL
 			internal delegate void glCopyTextureImage2DEXT(UInt32 texture, int target, Int32 level, int internalformat, Int32 x, Int32 y, Int32 width, Int32 height, Int32 border);
 			[ThreadStatic]
 			internal static glCopyTextureImage2DEXT pglCopyTextureImage2DEXT;
-
-			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glCopyTextureLevelsAPPLE(UInt32 destinationTexture, UInt32 sourceTexture, Int32 sourceBaseLevel, Int32 sourceLevelCount);
-			[ThreadStatic]
-			internal static glCopyTextureLevelsAPPLE pglCopyTextureLevelsAPPLE;
 
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glCopyTextureSubImage1D(UInt32 texture, Int32 level, Int32 xoffset, Int32 x, Int32 y, Int32 width);
@@ -1973,16 +1778,6 @@ namespace OpenGL
 			internal delegate void glCoverStrokePathNV(UInt32 path, int coverMode);
 			[ThreadStatic]
 			internal static glCoverStrokePathNV pglCoverStrokePathNV;
-
-			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glCoverageMaskNV(bool mask);
-			[ThreadStatic]
-			internal static glCoverageMaskNV pglCoverageMaskNV;
-
-			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glCoverageOperationNV(int operation);
-			[ThreadStatic]
-			internal static glCoverageOperationNV pglCoverageOperationNV;
 
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glCreateBuffers(Int32 n, UInt32* buffers);
@@ -2050,11 +1845,6 @@ namespace OpenGL
 			internal static glCreateShaderProgramv pglCreateShaderProgramv;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate UInt32 glCreateShaderProgramvEXT(int type, Int32 count, String[] strings);
-			[ThreadStatic]
-			internal static glCreateShaderProgramvEXT pglCreateShaderProgramvEXT;
-
-			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate int glCreateSyncFromCLeventARB(IntPtr context, IntPtr @event, uint flags);
 			[ThreadStatic]
 			internal static glCreateSyncFromCLeventARB pglCreateSyncFromCLeventARB;
@@ -2095,11 +1885,6 @@ namespace OpenGL
 			internal static glCurrentPaletteMatrixARB pglCurrentPaletteMatrixARB;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glCurrentPaletteMatrixOES(UInt32 matrixpaletteindex);
-			[ThreadStatic]
-			internal static glCurrentPaletteMatrixOES pglCurrentPaletteMatrixOES;
-
-			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glDebugMessageCallback(IntPtr callback, IntPtr userParam);
 			[ThreadStatic]
 			internal static glDebugMessageCallback pglDebugMessageCallback;
@@ -2115,11 +1900,6 @@ namespace OpenGL
 			internal static glDebugMessageCallbackARB pglDebugMessageCallbackARB;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glDebugMessageCallbackKHR(IntPtr callback, IntPtr userParam);
-			[ThreadStatic]
-			internal static glDebugMessageCallbackKHR pglDebugMessageCallbackKHR;
-
-			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glDebugMessageControl(int source, int type, int severity, Int32 count, UInt32* ids, bool enabled);
 			[ThreadStatic]
 			internal static glDebugMessageControl pglDebugMessageControl;
@@ -2128,11 +1908,6 @@ namespace OpenGL
 			internal unsafe delegate void glDebugMessageControlARB(int source, int type, int severity, Int32 count, UInt32* ids, bool enabled);
 			[ThreadStatic]
 			internal static glDebugMessageControlARB pglDebugMessageControlARB;
-
-			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glDebugMessageControlKHR(int source, int type, int severity, Int32 count, UInt32* ids, bool enabled);
-			[ThreadStatic]
-			internal static glDebugMessageControlKHR pglDebugMessageControlKHR;
 
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glDebugMessageEnableAMD(int category, int severity, Int32 count, UInt32* ids, bool enabled);
@@ -2153,11 +1928,6 @@ namespace OpenGL
 			internal delegate void glDebugMessageInsertARB(int source, int type, UInt32 id, int severity, Int32 length, String buf);
 			[ThreadStatic]
 			internal static glDebugMessageInsertARB pglDebugMessageInsertARB;
-
-			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glDebugMessageInsertKHR(int source, int type, UInt32 id, int severity, Int32 length, String buf);
-			[ThreadStatic]
-			internal static glDebugMessageInsertKHR pglDebugMessageInsertKHR;
 
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glDeformSGIX(uint mask);
@@ -2215,11 +1985,6 @@ namespace OpenGL
 			internal static glDeleteFramebuffersEXT pglDeleteFramebuffersEXT;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glDeleteFramebuffersOES(Int32 n, UInt32* framebuffers);
-			[ThreadStatic]
-			internal static glDeleteFramebuffersOES pglDeleteFramebuffersOES;
-
-			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glDeleteLists(UInt32 list, Int32 range);
 			[ThreadStatic]
 			internal static glDeleteLists pglDeleteLists;
@@ -2270,11 +2035,6 @@ namespace OpenGL
 			internal static glDeleteProgramPipelines pglDeleteProgramPipelines;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glDeleteProgramPipelinesEXT(Int32 n, UInt32* pipelines);
-			[ThreadStatic]
-			internal static glDeleteProgramPipelinesEXT pglDeleteProgramPipelinesEXT;
-
-			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glDeleteProgramsARB(Int32 n, UInt32* programs);
 			[ThreadStatic]
 			internal static glDeleteProgramsARB pglDeleteProgramsARB;
@@ -2295,11 +2055,6 @@ namespace OpenGL
 			internal static glDeleteQueriesARB pglDeleteQueriesARB;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glDeleteQueriesEXT(Int32 n, UInt32* ids);
-			[ThreadStatic]
-			internal static glDeleteQueriesEXT pglDeleteQueriesEXT;
-
-			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glDeleteRenderbuffers(Int32 n, UInt32* renderbuffers);
 			[ThreadStatic]
 			internal static glDeleteRenderbuffers pglDeleteRenderbuffers;
@@ -2308,11 +2063,6 @@ namespace OpenGL
 			internal unsafe delegate void glDeleteRenderbuffersEXT(Int32 n, UInt32* renderbuffers);
 			[ThreadStatic]
 			internal static glDeleteRenderbuffersEXT pglDeleteRenderbuffersEXT;
-
-			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glDeleteRenderbuffersOES(Int32 n, UInt32* renderbuffers);
-			[ThreadStatic]
-			internal static glDeleteRenderbuffersOES pglDeleteRenderbuffersOES;
 
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glDeleteSamplers(Int32 count, UInt32* samplers);
@@ -2328,11 +2078,6 @@ namespace OpenGL
 			internal delegate void glDeleteSync(int sync);
 			[ThreadStatic]
 			internal static glDeleteSync pglDeleteSync;
-
-			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glDeleteSyncAPPLE(int sync);
-			[ThreadStatic]
-			internal static glDeleteSyncAPPLE pglDeleteSyncAPPLE;
 
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glDeleteTextures(Int32 n, UInt32* textures);
@@ -2363,11 +2108,6 @@ namespace OpenGL
 			internal unsafe delegate void glDeleteVertexArraysAPPLE(Int32 n, UInt32* arrays);
 			[ThreadStatic]
 			internal static glDeleteVertexArraysAPPLE pglDeleteVertexArraysAPPLE;
-
-			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glDeleteVertexArraysOES(Int32 n, UInt32* arrays);
-			[ThreadStatic]
-			internal static glDeleteVertexArraysOES pglDeleteVertexArraysOES;
 
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glDeleteVertexShaderEXT(UInt32 id);
@@ -2405,19 +2145,9 @@ namespace OpenGL
 			internal static glDepthRangeArrayv pglDepthRangeArrayv;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glDepthRangeArrayfvNV(UInt32 first, Int32 count, float* v);
-			[ThreadStatic]
-			internal static glDepthRangeArrayfvNV pglDepthRangeArrayfvNV;
-
-			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glDepthRangeIndexed(UInt32 index, double n, double f);
 			[ThreadStatic]
 			internal static glDepthRangeIndexed pglDepthRangeIndexed;
-
-			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glDepthRangeIndexedfNV(UInt32 index, float n, float f);
-			[ThreadStatic]
-			internal static glDepthRangeIndexedfNV pglDepthRangeIndexedfNV;
 
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glDepthRangedNV(double zNear, double zFar);
@@ -2433,11 +2163,6 @@ namespace OpenGL
 			internal delegate void glDepthRangefOES(float n, float f);
 			[ThreadStatic]
 			internal static glDepthRangefOES pglDepthRangefOES;
-
-			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glDepthRangex(IntPtr n, IntPtr f);
-			[ThreadStatic]
-			internal static glDepthRangex pglDepthRangex;
 
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glDepthRangexOES(IntPtr n, IntPtr f);
@@ -2478,11 +2203,6 @@ namespace OpenGL
 			internal delegate void glDisableClientStateiEXT(int array, UInt32 index);
 			[ThreadStatic]
 			internal static glDisableClientStateiEXT pglDisableClientStateiEXT;
-
-			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glDisableDriverControlQCOM(UInt32 driverControl);
-			[ThreadStatic]
-			internal static glDisableDriverControlQCOM pglDisableDriverControlQCOM;
 
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glDisableIndexedEXT(int target, UInt32 index);
@@ -2530,26 +2250,6 @@ namespace OpenGL
 			internal static glDisablei pglDisablei;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glDisableiEXT(int target, UInt32 index);
-			[ThreadStatic]
-			internal static glDisableiEXT pglDisableiEXT;
-
-			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glDisableiNV(int target, UInt32 index);
-			[ThreadStatic]
-			internal static glDisableiNV pglDisableiNV;
-
-			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glDisableiOES(int target, UInt32 index);
-			[ThreadStatic]
-			internal static glDisableiOES pglDisableiOES;
-
-			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glDiscardFramebufferEXT(int target, Int32 numAttachments, int* attachments);
-			[ThreadStatic]
-			internal static glDiscardFramebufferEXT pglDiscardFramebufferEXT;
-
-			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glDispatchCompute(UInt32 num_groups_x, UInt32 num_groups_y, UInt32 num_groups_z);
 			[ThreadStatic]
 			internal static glDispatchCompute pglDispatchCompute;
@@ -2585,11 +2285,6 @@ namespace OpenGL
 			internal static glDrawArraysInstanced pglDrawArraysInstanced;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glDrawArraysInstancedANGLE(int mode, Int32 first, Int32 count, Int32 primcount);
-			[ThreadStatic]
-			internal static glDrawArraysInstancedANGLE pglDrawArraysInstancedANGLE;
-
-			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glDrawArraysInstancedARB(int mode, Int32 first, Int32 count, Int32 primcount);
 			[ThreadStatic]
 			internal static glDrawArraysInstancedARB pglDrawArraysInstancedARB;
@@ -2600,19 +2295,9 @@ namespace OpenGL
 			internal static glDrawArraysInstancedBaseInstance pglDrawArraysInstancedBaseInstance;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glDrawArraysInstancedBaseInstanceEXT(int mode, Int32 first, Int32 count, Int32 instancecount, UInt32 baseinstance);
-			[ThreadStatic]
-			internal static glDrawArraysInstancedBaseInstanceEXT pglDrawArraysInstancedBaseInstanceEXT;
-
-			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glDrawArraysInstancedEXT(int mode, Int32 start, Int32 count, Int32 primcount);
 			[ThreadStatic]
 			internal static glDrawArraysInstancedEXT pglDrawArraysInstancedEXT;
-
-			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glDrawArraysInstancedNV(int mode, Int32 first, Int32 count, Int32 primcount);
-			[ThreadStatic]
-			internal static glDrawArraysInstancedNV pglDrawArraysInstancedNV;
 
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glDrawBuffer(int buf);
@@ -2635,21 +2320,6 @@ namespace OpenGL
 			internal static glDrawBuffersATI pglDrawBuffersATI;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glDrawBuffersEXT(Int32 n, int* bufs);
-			[ThreadStatic]
-			internal static glDrawBuffersEXT pglDrawBuffersEXT;
-
-			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glDrawBuffersIndexedEXT(Int32 n, int* location, Int32* indices);
-			[ThreadStatic]
-			internal static glDrawBuffersIndexedEXT pglDrawBuffersIndexedEXT;
-
-			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glDrawBuffersNV(Int32 n, int* bufs);
-			[ThreadStatic]
-			internal static glDrawBuffersNV pglDrawBuffersNV;
-
-			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glDrawElementArrayAPPLE(int mode, Int32 first, Int32 count);
 			[ThreadStatic]
 			internal static glDrawElementArrayAPPLE pglDrawElementArrayAPPLE;
@@ -2670,16 +2340,6 @@ namespace OpenGL
 			internal static glDrawElementsBaseVertex pglDrawElementsBaseVertex;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glDrawElementsBaseVertexEXT(int mode, Int32 count, int type, IntPtr indices, Int32 basevertex);
-			[ThreadStatic]
-			internal static glDrawElementsBaseVertexEXT pglDrawElementsBaseVertexEXT;
-
-			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glDrawElementsBaseVertexOES(int mode, Int32 count, int type, IntPtr indices, Int32 basevertex);
-			[ThreadStatic]
-			internal static glDrawElementsBaseVertexOES pglDrawElementsBaseVertexOES;
-
-			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glDrawElementsIndirect(int mode, int type, IntPtr indirect);
 			[ThreadStatic]
 			internal static glDrawElementsIndirect pglDrawElementsIndirect;
@@ -2688,11 +2348,6 @@ namespace OpenGL
 			internal unsafe delegate void glDrawElementsInstanced(int mode, Int32 count, int type, IntPtr indices, Int32 instancecount);
 			[ThreadStatic]
 			internal static glDrawElementsInstanced pglDrawElementsInstanced;
-
-			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glDrawElementsInstancedANGLE(int mode, Int32 count, int type, IntPtr indices, Int32 primcount);
-			[ThreadStatic]
-			internal static glDrawElementsInstancedANGLE pglDrawElementsInstancedANGLE;
 
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glDrawElementsInstancedARB(int mode, Int32 count, int type, IntPtr indices, Int32 primcount);
@@ -2705,24 +2360,9 @@ namespace OpenGL
 			internal static glDrawElementsInstancedBaseInstance pglDrawElementsInstancedBaseInstance;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glDrawElementsInstancedBaseInstanceEXT(int mode, Int32 count, int type, IntPtr indices, Int32 instancecount, UInt32 baseinstance);
-			[ThreadStatic]
-			internal static glDrawElementsInstancedBaseInstanceEXT pglDrawElementsInstancedBaseInstanceEXT;
-
-			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glDrawElementsInstancedBaseVertex(int mode, Int32 count, int type, IntPtr indices, Int32 instancecount, Int32 basevertex);
 			[ThreadStatic]
 			internal static glDrawElementsInstancedBaseVertex pglDrawElementsInstancedBaseVertex;
-
-			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glDrawElementsInstancedBaseVertexEXT(int mode, Int32 count, int type, IntPtr indices, Int32 instancecount, Int32 basevertex);
-			[ThreadStatic]
-			internal static glDrawElementsInstancedBaseVertexEXT pglDrawElementsInstancedBaseVertexEXT;
-
-			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glDrawElementsInstancedBaseVertexOES(int mode, Int32 count, int type, IntPtr indices, Int32 instancecount, Int32 basevertex);
-			[ThreadStatic]
-			internal static glDrawElementsInstancedBaseVertexOES pglDrawElementsInstancedBaseVertexOES;
 
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glDrawElementsInstancedBaseVertexBaseInstance(int mode, Int32 count, int type, IntPtr indices, Int32 instancecount, Int32 basevertex, UInt32 baseinstance);
@@ -2730,19 +2370,9 @@ namespace OpenGL
 			internal static glDrawElementsInstancedBaseVertexBaseInstance pglDrawElementsInstancedBaseVertexBaseInstance;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glDrawElementsInstancedBaseVertexBaseInstanceEXT(int mode, Int32 count, int type, IntPtr indices, Int32 instancecount, Int32 basevertex, UInt32 baseinstance);
-			[ThreadStatic]
-			internal static glDrawElementsInstancedBaseVertexBaseInstanceEXT pglDrawElementsInstancedBaseVertexBaseInstanceEXT;
-
-			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glDrawElementsInstancedEXT(int mode, Int32 count, int type, IntPtr indices, Int32 primcount);
 			[ThreadStatic]
 			internal static glDrawElementsInstancedEXT pglDrawElementsInstancedEXT;
-
-			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glDrawElementsInstancedNV(int mode, Int32 count, int type, IntPtr indices, Int32 primcount);
-			[ThreadStatic]
-			internal static glDrawElementsInstancedNV pglDrawElementsInstancedNV;
 
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glDrawMeshArraysSUN(int mode, Int32 first, Int32 count, Int32 width);
@@ -2775,64 +2405,14 @@ namespace OpenGL
 			internal static glDrawRangeElementsBaseVertex pglDrawRangeElementsBaseVertex;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glDrawRangeElementsBaseVertexEXT(int mode, UInt32 start, UInt32 end, Int32 count, int type, IntPtr indices, Int32 basevertex);
-			[ThreadStatic]
-			internal static glDrawRangeElementsBaseVertexEXT pglDrawRangeElementsBaseVertexEXT;
-
-			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glDrawRangeElementsBaseVertexOES(int mode, UInt32 start, UInt32 end, Int32 count, int type, IntPtr indices, Int32 basevertex);
-			[ThreadStatic]
-			internal static glDrawRangeElementsBaseVertexOES pglDrawRangeElementsBaseVertexOES;
-
-			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glDrawRangeElementsEXT(int mode, UInt32 start, UInt32 end, Int32 count, int type, IntPtr indices);
 			[ThreadStatic]
 			internal static glDrawRangeElementsEXT pglDrawRangeElementsEXT;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glDrawTexfOES(float x, float y, float z, float width, float height);
-			[ThreadStatic]
-			internal static glDrawTexfOES pglDrawTexfOES;
-
-			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glDrawTexfvOES(float* coords);
-			[ThreadStatic]
-			internal static glDrawTexfvOES pglDrawTexfvOES;
-
-			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glDrawTexiOES(Int32 x, Int32 y, Int32 z, Int32 width, Int32 height);
-			[ThreadStatic]
-			internal static glDrawTexiOES pglDrawTexiOES;
-
-			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glDrawTexivOES(Int32* coords);
-			[ThreadStatic]
-			internal static glDrawTexivOES pglDrawTexivOES;
-
-			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glDrawTexsOES(Int16 x, Int16 y, Int16 z, Int16 width, Int16 height);
-			[ThreadStatic]
-			internal static glDrawTexsOES pglDrawTexsOES;
-
-			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glDrawTexsvOES(Int16* coords);
-			[ThreadStatic]
-			internal static glDrawTexsvOES pglDrawTexsvOES;
-
-			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glDrawTextureNV(UInt32 texture, UInt32 sampler, float x0, float y0, float x1, float y1, float z, float s0, float t0, float s1, float t1);
 			[ThreadStatic]
 			internal static glDrawTextureNV pglDrawTextureNV;
-
-			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glDrawTexxOES(IntPtr x, IntPtr y, IntPtr z, IntPtr width, IntPtr height);
-			[ThreadStatic]
-			internal static glDrawTexxOES pglDrawTexxOES;
-
-			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glDrawTexxvOES(IntPtr* coords);
-			[ThreadStatic]
-			internal static glDrawTexxvOES pglDrawTexxvOES;
 
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glDrawTransformFeedback(int mode, UInt32 id);
@@ -2858,16 +2438,6 @@ namespace OpenGL
 			internal delegate void glDrawTransformFeedbackStreamInstanced(int mode, UInt32 id, UInt32 stream, Int32 instancecount);
 			[ThreadStatic]
 			internal static glDrawTransformFeedbackStreamInstanced pglDrawTransformFeedbackStreamInstanced;
-
-			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glEGLImageTargetRenderbufferStorageOES(int target, IntPtr image);
-			[ThreadStatic]
-			internal static glEGLImageTargetRenderbufferStorageOES pglEGLImageTargetRenderbufferStorageOES;
-
-			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glEGLImageTargetTexture2DOES(int target, IntPtr image);
-			[ThreadStatic]
-			internal static glEGLImageTargetTexture2DOES pglEGLImageTargetTexture2DOES;
 
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glEdgeFlag(bool flag);
@@ -2930,11 +2500,6 @@ namespace OpenGL
 			internal static glEnableClientStateiEXT pglEnableClientStateiEXT;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glEnableDriverControlQCOM(UInt32 driverControl);
-			[ThreadStatic]
-			internal static glEnableDriverControlQCOM pglEnableDriverControlQCOM;
-
-			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glEnableIndexedEXT(int target, UInt32 index);
 			[ThreadStatic]
 			internal static glEnableIndexedEXT pglEnableIndexedEXT;
@@ -2978,21 +2543,6 @@ namespace OpenGL
 			internal delegate void glEnablei(int target, UInt32 index);
 			[ThreadStatic]
 			internal static glEnablei pglEnablei;
-
-			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glEnableiEXT(int target, UInt32 index);
-			[ThreadStatic]
-			internal static glEnableiEXT pglEnableiEXT;
-
-			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glEnableiNV(int target, UInt32 index);
-			[ThreadStatic]
-			internal static glEnableiNV pglEnableiNV;
-
-			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glEnableiOES(int target, UInt32 index);
-			[ThreadStatic]
-			internal static glEnableiOES pglEnableiOES;
 
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glEnd();
@@ -3050,19 +2600,9 @@ namespace OpenGL
 			internal static glEndQueryARB pglEndQueryARB;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glEndQueryEXT(int target);
-			[ThreadStatic]
-			internal static glEndQueryEXT pglEndQueryEXT;
-
-			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glEndQueryIndexed(int target, UInt32 index);
 			[ThreadStatic]
 			internal static glEndQueryIndexed pglEndQueryIndexed;
-
-			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glEndTilingQCOM(uint preserveMask);
-			[ThreadStatic]
-			internal static glEndTilingQCOM pglEndTilingQCOM;
 
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glEndTransformFeedback();
@@ -3180,66 +2720,6 @@ namespace OpenGL
 			internal static glExecuteProgramNV pglExecuteProgramNV;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glExtGetBufferPointervQCOM(int target, IntPtr* @params);
-			[ThreadStatic]
-			internal static glExtGetBufferPointervQCOM pglExtGetBufferPointervQCOM;
-
-			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glExtGetBuffersQCOM(UInt32* buffers, Int32 maxBuffers, Int32* numBuffers);
-			[ThreadStatic]
-			internal static glExtGetBuffersQCOM pglExtGetBuffersQCOM;
-
-			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glExtGetFramebuffersQCOM(UInt32* framebuffers, Int32 maxFramebuffers, Int32* numFramebuffers);
-			[ThreadStatic]
-			internal static glExtGetFramebuffersQCOM pglExtGetFramebuffersQCOM;
-
-			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glExtGetProgramBinarySourceQCOM(UInt32 program, int shadertype, String source, Int32* length);
-			[ThreadStatic]
-			internal static glExtGetProgramBinarySourceQCOM pglExtGetProgramBinarySourceQCOM;
-
-			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glExtGetProgramsQCOM(UInt32* programs, Int32 maxPrograms, Int32* numPrograms);
-			[ThreadStatic]
-			internal static glExtGetProgramsQCOM pglExtGetProgramsQCOM;
-
-			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glExtGetRenderbuffersQCOM(UInt32* renderbuffers, Int32 maxRenderbuffers, Int32* numRenderbuffers);
-			[ThreadStatic]
-			internal static glExtGetRenderbuffersQCOM pglExtGetRenderbuffersQCOM;
-
-			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glExtGetShadersQCOM(UInt32* shaders, Int32 maxShaders, Int32* numShaders);
-			[ThreadStatic]
-			internal static glExtGetShadersQCOM pglExtGetShadersQCOM;
-
-			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glExtGetTexLevelParameterivQCOM(UInt32 texture, int face, Int32 level, int pname, Int32* @params);
-			[ThreadStatic]
-			internal static glExtGetTexLevelParameterivQCOM pglExtGetTexLevelParameterivQCOM;
-
-			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glExtGetTexSubImageQCOM(int target, Int32 level, Int32 xoffset, Int32 yoffset, Int32 zoffset, Int32 width, Int32 height, Int32 depth, int format, int type, IntPtr texels);
-			[ThreadStatic]
-			internal static glExtGetTexSubImageQCOM pglExtGetTexSubImageQCOM;
-
-			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glExtGetTexturesQCOM(UInt32* textures, Int32 maxTextures, Int32* numTextures);
-			[ThreadStatic]
-			internal static glExtGetTexturesQCOM pglExtGetTexturesQCOM;
-
-			[SuppressUnmanagedCodeSecurity()]
-			internal delegate bool glExtIsProgramBinaryQCOM(UInt32 program);
-			[ThreadStatic]
-			internal static glExtIsProgramBinaryQCOM pglExtIsProgramBinaryQCOM;
-
-			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glExtTexObjectStateOverrideiQCOM(int target, int pname, Int32 param);
-			[ThreadStatic]
-			internal static glExtTexObjectStateOverrideiQCOM pglExtTexObjectStateOverrideiQCOM;
-
-			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glExtractComponentEXT(UInt32 res, UInt32 src, UInt32 num);
 			[ThreadStatic]
 			internal static glExtractComponentEXT pglExtractComponentEXT;
@@ -3258,11 +2738,6 @@ namespace OpenGL
 			internal delegate int glFenceSync(int condition, uint flags);
 			[ThreadStatic]
 			internal static glFenceSync pglFenceSync;
-
-			[SuppressUnmanagedCodeSecurity()]
-			internal delegate int glFenceSyncAPPLE(int condition, uint flags);
-			[ThreadStatic]
-			internal static glFenceSyncAPPLE pglFenceSyncAPPLE;
 
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glFinalCombinerInputNV(int variable, int input, int mapping, int componentUsage);
@@ -3313,11 +2788,6 @@ namespace OpenGL
 			internal unsafe delegate void glFlushMappedBufferRangeAPPLE(int target, IntPtr offset, UInt32 size);
 			[ThreadStatic]
 			internal static glFlushMappedBufferRangeAPPLE pglFlushMappedBufferRangeAPPLE;
-
-			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glFlushMappedBufferRangeEXT(int target, IntPtr offset, UInt32 length);
-			[ThreadStatic]
-			internal static glFlushMappedBufferRangeEXT pglFlushMappedBufferRangeEXT;
 
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glFlushMappedNamedBufferRange(UInt32 buffer, IntPtr offset, UInt32 length);
@@ -3450,19 +2920,9 @@ namespace OpenGL
 			internal static glFogiv pglFogiv;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glFogx(int pname, IntPtr param);
-			[ThreadStatic]
-			internal static glFogx pglFogx;
-
-			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glFogxOES(int pname, IntPtr param);
 			[ThreadStatic]
 			internal static glFogxOES pglFogxOES;
-
-			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glFogxv(int pname, IntPtr* param);
-			[ThreadStatic]
-			internal static glFogxv pglFogxv;
 
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glFogxvOES(int pname, IntPtr* param);
@@ -3575,11 +3035,6 @@ namespace OpenGL
 			internal static glFramebufferRenderbufferEXT pglFramebufferRenderbufferEXT;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glFramebufferRenderbufferOES(int target, int attachment, int renderbuffertarget, UInt32 renderbuffer);
-			[ThreadStatic]
-			internal static glFramebufferRenderbufferOES pglFramebufferRenderbufferOES;
-
-			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glFramebufferTexture(int target, int attachment, UInt32 texture, Int32 level);
 			[ThreadStatic]
 			internal static glFramebufferTexture pglFramebufferTexture;
@@ -3605,21 +3060,6 @@ namespace OpenGL
 			internal static glFramebufferTexture2DEXT pglFramebufferTexture2DEXT;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glFramebufferTexture2DMultisampleEXT(int target, int attachment, int textarget, UInt32 texture, Int32 level, Int32 samples);
-			[ThreadStatic]
-			internal static glFramebufferTexture2DMultisampleEXT pglFramebufferTexture2DMultisampleEXT;
-
-			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glFramebufferTexture2DMultisampleIMG(int target, int attachment, int textarget, UInt32 texture, Int32 level, Int32 samples);
-			[ThreadStatic]
-			internal static glFramebufferTexture2DMultisampleIMG pglFramebufferTexture2DMultisampleIMG;
-
-			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glFramebufferTexture2DOES(int target, int attachment, int textarget, UInt32 texture, Int32 level);
-			[ThreadStatic]
-			internal static glFramebufferTexture2DOES pglFramebufferTexture2DOES;
-
-			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glFramebufferTexture3D(int target, int attachment, int textarget, UInt32 texture, Int32 level, Int32 zoffset);
 			[ThreadStatic]
 			internal static glFramebufferTexture3D pglFramebufferTexture3D;
@@ -3630,11 +3070,6 @@ namespace OpenGL
 			internal static glFramebufferTexture3DEXT pglFramebufferTexture3DEXT;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glFramebufferTexture3DOES(int target, int attachment, int textarget, UInt32 texture, Int32 level, Int32 zoffset);
-			[ThreadStatic]
-			internal static glFramebufferTexture3DOES pglFramebufferTexture3DOES;
-
-			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glFramebufferTextureARB(int target, int attachment, UInt32 texture, Int32 level);
 			[ThreadStatic]
 			internal static glFramebufferTextureARB pglFramebufferTextureARB;
@@ -3643,11 +3078,6 @@ namespace OpenGL
 			internal delegate void glFramebufferTextureEXT(int target, int attachment, UInt32 texture, Int32 level);
 			[ThreadStatic]
 			internal static glFramebufferTextureEXT pglFramebufferTextureEXT;
-
-			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glFramebufferTextureOES(int target, int attachment, UInt32 texture, Int32 level);
-			[ThreadStatic]
-			internal static glFramebufferTextureOES pglFramebufferTextureOES;
 
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glFramebufferTextureFaceARB(int target, int attachment, UInt32 texture, Int32 level, int face);
@@ -3690,19 +3120,9 @@ namespace OpenGL
 			internal static glFrustum pglFrustum;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glFrustumf(float l, float r, float b, float t, float n, float f);
-			[ThreadStatic]
-			internal static glFrustumf pglFrustumf;
-
-			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glFrustumfOES(float l, float r, float b, float t, float n, float f);
 			[ThreadStatic]
 			internal static glFrustumfOES pglFrustumfOES;
-
-			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glFrustumx(IntPtr l, IntPtr r, IntPtr b, IntPtr t, IntPtr n, IntPtr f);
-			[ThreadStatic]
-			internal static glFrustumx pglFrustumx;
 
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glFrustumxOES(IntPtr l, IntPtr r, IntPtr b, IntPtr t, IntPtr n, IntPtr f);
@@ -3750,11 +3170,6 @@ namespace OpenGL
 			internal static glGenFramebuffersEXT pglGenFramebuffersEXT;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGenFramebuffersOES(Int32 n, UInt32* framebuffers);
-			[ThreadStatic]
-			internal static glGenFramebuffersOES pglGenFramebuffersOES;
-
-			[SuppressUnmanagedCodeSecurity()]
 			internal delegate UInt32 glGenLists(Int32 range);
 			[ThreadStatic]
 			internal static glGenLists pglGenLists;
@@ -3785,11 +3200,6 @@ namespace OpenGL
 			internal static glGenProgramPipelines pglGenProgramPipelines;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGenProgramPipelinesEXT(Int32 n, UInt32* pipelines);
-			[ThreadStatic]
-			internal static glGenProgramPipelinesEXT pglGenProgramPipelinesEXT;
-
-			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGenProgramsARB(Int32 n, UInt32* programs);
 			[ThreadStatic]
 			internal static glGenProgramsARB pglGenProgramsARB;
@@ -3810,11 +3220,6 @@ namespace OpenGL
 			internal static glGenQueriesARB pglGenQueriesARB;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGenQueriesEXT(Int32 n, UInt32* ids);
-			[ThreadStatic]
-			internal static glGenQueriesEXT pglGenQueriesEXT;
-
-			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGenRenderbuffers(Int32 n, UInt32* renderbuffers);
 			[ThreadStatic]
 			internal static glGenRenderbuffers pglGenRenderbuffers;
@@ -3823,11 +3228,6 @@ namespace OpenGL
 			internal unsafe delegate void glGenRenderbuffersEXT(Int32 n, UInt32* renderbuffers);
 			[ThreadStatic]
 			internal static glGenRenderbuffersEXT pglGenRenderbuffersEXT;
-
-			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGenRenderbuffersOES(Int32 n, UInt32* renderbuffers);
-			[ThreadStatic]
-			internal static glGenRenderbuffersOES pglGenRenderbuffersOES;
 
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGenSamplers(Int32 count, UInt32* samplers);
@@ -3870,11 +3270,6 @@ namespace OpenGL
 			internal static glGenVertexArraysAPPLE pglGenVertexArraysAPPLE;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGenVertexArraysOES(Int32 n, UInt32* arrays);
-			[ThreadStatic]
-			internal static glGenVertexArraysOES pglGenVertexArraysOES;
-
-			[SuppressUnmanagedCodeSecurity()]
 			internal delegate UInt32 glGenVertexShadersEXT(UInt32 range);
 			[ThreadStatic]
 			internal static glGenVertexShadersEXT pglGenVertexShadersEXT;
@@ -3888,11 +3283,6 @@ namespace OpenGL
 			internal delegate void glGenerateMipmapEXT(int target);
 			[ThreadStatic]
 			internal static glGenerateMipmapEXT pglGenerateMipmapEXT;
-
-			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glGenerateMipmapOES(int target);
-			[ThreadStatic]
-			internal static glGenerateMipmapOES pglGenerateMipmapOES;
 
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glGenerateMultiTexMipmapEXT(int texunit, int target);
@@ -4050,11 +3440,6 @@ namespace OpenGL
 			internal static glGetBufferPointervARB pglGetBufferPointervARB;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetBufferPointervOES(int target, int pname, IntPtr* @params);
-			[ThreadStatic]
-			internal static glGetBufferPointervOES pglGetBufferPointervOES;
-
-			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetBufferSubData(int target, IntPtr offset, UInt32 size, IntPtr data);
 			[ThreadStatic]
 			internal static glGetBufferSubData pglGetBufferSubData;
@@ -4070,19 +3455,9 @@ namespace OpenGL
 			internal static glGetClipPlane pglGetClipPlane;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetClipPlanef(int plane, float* equation);
-			[ThreadStatic]
-			internal static glGetClipPlanef pglGetClipPlanef;
-
-			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetClipPlanefOES(int plane, float* equation);
 			[ThreadStatic]
 			internal static glGetClipPlanefOES pglGetClipPlanefOES;
-
-			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetClipPlanex(int plane, IntPtr* equation);
-			[ThreadStatic]
-			internal static glGetClipPlanex pglGetClipPlanex;
 
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetClipPlanexOES(int plane, IntPtr* equation);
@@ -4240,11 +3615,6 @@ namespace OpenGL
 			internal static glGetDebugMessageLogARB pglGetDebugMessageLogARB;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate UInt32 glGetDebugMessageLogKHR(UInt32 count, Int32 bufSize, int* sources, int* types, UInt32* ids, int* severities, Int32* lengths, [Out] StringBuilder messageLog);
-			[ThreadStatic]
-			internal static glGetDebugMessageLogKHR pglGetDebugMessageLogKHR;
-
-			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetDetailTexFuncSGIS(int target, float* points);
 			[ThreadStatic]
 			internal static glGetDetailTexFuncSGIS pglGetDetailTexFuncSGIS;
@@ -4268,16 +3638,6 @@ namespace OpenGL
 			internal unsafe delegate void glGetDoublev(int pname, double* data);
 			[ThreadStatic]
 			internal static glGetDoublev pglGetDoublev;
-
-			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetDriverControlStringQCOM(UInt32 driverControl, Int32 bufSize, Int32* length, [Out] StringBuilder driverControlString);
-			[ThreadStatic]
-			internal static glGetDriverControlStringQCOM pglGetDriverControlStringQCOM;
-
-			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetDriverControlsQCOM(Int32* num, Int32 size, UInt32* driverControls);
-			[ThreadStatic]
-			internal static glGetDriverControlsQCOM pglGetDriverControlsQCOM;
 
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate int glGetError();
@@ -4305,11 +3665,6 @@ namespace OpenGL
 			internal static glGetFirstPerfQueryIdINTEL pglGetFirstPerfQueryIdINTEL;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetFixedv(int pname, IntPtr* @params);
-			[ThreadStatic]
-			internal static glGetFixedv pglGetFixedv;
-
-			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetFixedvOES(int pname, IntPtr* @params);
 			[ThreadStatic]
 			internal static glGetFixedvOES pglGetFixedvOES;
@@ -4323,11 +3678,6 @@ namespace OpenGL
 			internal unsafe delegate void glGetFloati_v(int target, UInt32 index, float* data);
 			[ThreadStatic]
 			internal static glGetFloati_v pglGetFloati_v;
-
-			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetFloati_vNV(int target, UInt32 index, float* data);
-			[ThreadStatic]
-			internal static glGetFloati_vNV pglGetFloati_vNV;
 
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetFloati_vEXT(int pname, UInt32 index, float* @params);
@@ -4390,11 +3740,6 @@ namespace OpenGL
 			internal static glGetFramebufferAttachmentParameterivEXT pglGetFramebufferAttachmentParameterivEXT;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetFramebufferAttachmentParameterivOES(int target, int attachment, int pname, Int32* @params);
-			[ThreadStatic]
-			internal static glGetFramebufferAttachmentParameterivOES pglGetFramebufferAttachmentParameterivOES;
-
-			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetFramebufferParameteriv(int target, int pname, Int32* @params);
 			[ThreadStatic]
 			internal static glGetFramebufferParameteriv pglGetFramebufferParameteriv;
@@ -4413,16 +3758,6 @@ namespace OpenGL
 			internal delegate int glGetGraphicsResetStatusARB();
 			[ThreadStatic]
 			internal static glGetGraphicsResetStatusARB pglGetGraphicsResetStatusARB;
-
-			[SuppressUnmanagedCodeSecurity()]
-			internal delegate int glGetGraphicsResetStatusEXT();
-			[ThreadStatic]
-			internal static glGetGraphicsResetStatusEXT pglGetGraphicsResetStatusEXT;
-
-			[SuppressUnmanagedCodeSecurity()]
-			internal delegate int glGetGraphicsResetStatusKHR();
-			[ThreadStatic]
-			internal static glGetGraphicsResetStatusKHR pglGetGraphicsResetStatusKHR;
 
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate UInt32 glGetHandleARB(int pname);
@@ -4505,11 +3840,6 @@ namespace OpenGL
 			internal static glGetInteger64v pglGetInteger64v;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetInteger64vAPPLE(int pname, Int64* @params);
-			[ThreadStatic]
-			internal static glGetInteger64vAPPLE pglGetInteger64vAPPLE;
-
-			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetIntegerIndexedvEXT(int target, UInt32 index, Int32* data);
 			[ThreadStatic]
 			internal static glGetIntegerIndexedvEXT pglGetIntegerIndexedvEXT;
@@ -4518,11 +3848,6 @@ namespace OpenGL
 			internal unsafe delegate void glGetIntegeri_v(int target, UInt32 index, Int32* data);
 			[ThreadStatic]
 			internal static glGetIntegeri_v pglGetIntegeri_v;
-
-			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetIntegeri_vEXT(int target, UInt32 index, Int32* data);
-			[ThreadStatic]
-			internal static glGetIntegeri_vEXT pglGetIntegeri_vEXT;
 
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetIntegerui64i_vNV(int value, UInt32 index, UInt64* result);
@@ -4583,16 +3908,6 @@ namespace OpenGL
 			internal unsafe delegate void glGetLightxOES(int light, int pname, IntPtr* @params);
 			[ThreadStatic]
 			internal static glGetLightxOES pglGetLightxOES;
-
-			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetLightxv(int light, int pname, IntPtr* @params);
-			[ThreadStatic]
-			internal static glGetLightxv pglGetLightxv;
-
-			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetLightxvOES(int light, int pname, IntPtr* @params);
-			[ThreadStatic]
-			internal static glGetLightxvOES pglGetLightxvOES;
 
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetListParameterfvSGIX(UInt32 list, int pname, float* @params);
@@ -4678,16 +3993,6 @@ namespace OpenGL
 			internal unsafe delegate void glGetMaterialxOES(int face, int pname, IntPtr param);
 			[ThreadStatic]
 			internal static glGetMaterialxOES pglGetMaterialxOES;
-
-			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetMaterialxv(int face, int pname, IntPtr* @params);
-			[ThreadStatic]
-			internal static glGetMaterialxv pglGetMaterialxv;
-
-			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetMaterialxvOES(int face, int pname, IntPtr* @params);
-			[ThreadStatic]
-			internal static glGetMaterialxvOES pglGetMaterialxvOES;
 
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetMinmax(int target, bool reset, int format, int type, IntPtr values);
@@ -4925,11 +4230,6 @@ namespace OpenGL
 			internal static glGetObjectLabelEXT pglGetObjectLabelEXT;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetObjectLabelKHR(int identifier, UInt32 name, Int32 bufSize, Int32* length, [Out] StringBuilder label);
-			[ThreadStatic]
-			internal static glGetObjectLabelKHR pglGetObjectLabelKHR;
-
-			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetObjectParameterfvARB(UInt32 obj, int pname, float* @params);
 			[ThreadStatic]
 			internal static glGetObjectParameterfvARB pglGetObjectParameterfvARB;
@@ -4948,11 +4248,6 @@ namespace OpenGL
 			internal unsafe delegate void glGetObjectPtrLabel(IntPtr ptr, Int32 bufSize, Int32* length, [Out] StringBuilder label);
 			[ThreadStatic]
 			internal static glGetObjectPtrLabel pglGetObjectPtrLabel;
-
-			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetObjectPtrLabelKHR(IntPtr ptr, Int32 bufSize, Int32* length, [Out] StringBuilder label);
-			[ThreadStatic]
-			internal static glGetObjectPtrLabelKHR pglGetObjectPtrLabelKHR;
 
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetOcclusionQueryivNV(UInt32 id, int pname, Int32* @params);
@@ -5140,11 +4435,6 @@ namespace OpenGL
 			internal static glGetPointervEXT pglGetPointervEXT;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetPointervKHR(int pname, IntPtr* @params);
-			[ThreadStatic]
-			internal static glGetPointervKHR pglGetPointervKHR;
-
-			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetPolygonStipple(byte* mask);
 			[ThreadStatic]
 			internal static glGetPolygonStipple pglGetPolygonStipple;
@@ -5153,11 +4443,6 @@ namespace OpenGL
 			internal unsafe delegate void glGetProgramBinary(UInt32 program, Int32 bufSize, Int32* length, int* binaryFormat, IntPtr binary);
 			[ThreadStatic]
 			internal static glGetProgramBinary pglGetProgramBinary;
-
-			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetProgramBinaryOES(UInt32 program, Int32 bufSize, Int32* length, int* binaryFormat, IntPtr binary);
-			[ThreadStatic]
-			internal static glGetProgramBinaryOES pglGetProgramBinaryOES;
 
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetProgramEnvParameterIivNV(int target, UInt32 index, Int32* @params);
@@ -5235,19 +4520,9 @@ namespace OpenGL
 			internal static glGetProgramPipelineInfoLog pglGetProgramPipelineInfoLog;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetProgramPipelineInfoLogEXT(UInt32 pipeline, Int32 bufSize, Int32* length, [Out] StringBuilder infoLog);
-			[ThreadStatic]
-			internal static glGetProgramPipelineInfoLogEXT pglGetProgramPipelineInfoLogEXT;
-
-			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetProgramPipelineiv(UInt32 pipeline, int pname, Int32* @params);
 			[ThreadStatic]
 			internal static glGetProgramPipelineiv pglGetProgramPipelineiv;
-
-			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetProgramPipelineivEXT(UInt32 pipeline, int pname, Int32* @params);
-			[ThreadStatic]
-			internal static glGetProgramPipelineivEXT pglGetProgramPipelineivEXT;
 
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate UInt32 glGetProgramResourceIndex(UInt32 program, int programInterface, String name);
@@ -5360,11 +4635,6 @@ namespace OpenGL
 			internal static glGetQueryObjectivARB pglGetQueryObjectivARB;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetQueryObjectivEXT(UInt32 id, int pname, Int32* @params);
-			[ThreadStatic]
-			internal static glGetQueryObjectivEXT pglGetQueryObjectivEXT;
-
-			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetQueryObjectui64v(UInt32 id, int pname, UInt64* @params);
 			[ThreadStatic]
 			internal static glGetQueryObjectui64v pglGetQueryObjectui64v;
@@ -5385,11 +4655,6 @@ namespace OpenGL
 			internal static glGetQueryObjectuivARB pglGetQueryObjectuivARB;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetQueryObjectuivEXT(UInt32 id, int pname, UInt32* @params);
-			[ThreadStatic]
-			internal static glGetQueryObjectuivEXT pglGetQueryObjectuivEXT;
-
-			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetQueryiv(int target, int pname, Int32* @params);
 			[ThreadStatic]
 			internal static glGetQueryiv pglGetQueryiv;
@@ -5398,11 +4663,6 @@ namespace OpenGL
 			internal unsafe delegate void glGetQueryivARB(int target, int pname, Int32* @params);
 			[ThreadStatic]
 			internal static glGetQueryivARB pglGetQueryivARB;
-
-			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetQueryivEXT(int target, int pname, Int32* @params);
-			[ThreadStatic]
-			internal static glGetQueryivEXT pglGetQueryivEXT;
 
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetRenderbufferParameteriv(int target, int pname, Int32* @params);
@@ -5415,39 +4675,14 @@ namespace OpenGL
 			internal static glGetRenderbufferParameterivEXT pglGetRenderbufferParameterivEXT;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetRenderbufferParameterivOES(int target, int pname, Int32* @params);
-			[ThreadStatic]
-			internal static glGetRenderbufferParameterivOES pglGetRenderbufferParameterivOES;
-
-			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetSamplerParameterIiv(UInt32 sampler, int pname, Int32* @params);
 			[ThreadStatic]
 			internal static glGetSamplerParameterIiv pglGetSamplerParameterIiv;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetSamplerParameterIivEXT(UInt32 sampler, int pname, Int32* @params);
-			[ThreadStatic]
-			internal static glGetSamplerParameterIivEXT pglGetSamplerParameterIivEXT;
-
-			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetSamplerParameterIivOES(UInt32 sampler, int pname, Int32* @params);
-			[ThreadStatic]
-			internal static glGetSamplerParameterIivOES pglGetSamplerParameterIivOES;
-
-			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetSamplerParameterIuiv(UInt32 sampler, int pname, UInt32* @params);
 			[ThreadStatic]
 			internal static glGetSamplerParameterIuiv pglGetSamplerParameterIuiv;
-
-			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetSamplerParameterIuivEXT(UInt32 sampler, int pname, UInt32* @params);
-			[ThreadStatic]
-			internal static glGetSamplerParameterIuivEXT pglGetSamplerParameterIuivEXT;
-
-			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetSamplerParameterIuivOES(UInt32 sampler, int pname, UInt32* @params);
-			[ThreadStatic]
-			internal static glGetSamplerParameterIuivOES pglGetSamplerParameterIuivOES;
 
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetSamplerParameterfv(UInt32 sampler, int pname, float* @params);
@@ -5525,11 +4760,6 @@ namespace OpenGL
 			internal static glGetSynciv pglGetSynciv;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetSyncivAPPLE(int sync, int pname, Int32 bufSize, Int32* length, Int32* values);
-			[ThreadStatic]
-			internal static glGetSyncivAPPLE pglGetSyncivAPPLE;
-
-			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetTexBumpParameterfvATI(int pname, float* param);
 			[ThreadStatic]
 			internal static glGetTexBumpParameterfvATI pglGetTexBumpParameterfvATI;
@@ -5548,11 +4778,6 @@ namespace OpenGL
 			internal unsafe delegate void glGetTexEnviv(int target, int pname, Int32* @params);
 			[ThreadStatic]
 			internal static glGetTexEnviv pglGetTexEnviv;
-
-			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetTexEnvxv(int target, int pname, IntPtr* @params);
-			[ThreadStatic]
-			internal static glGetTexEnvxv pglGetTexEnvxv;
 
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetTexEnvxvOES(int target, int pname, IntPtr* @params);
@@ -5575,19 +4800,9 @@ namespace OpenGL
 			internal static glGetTexGenfv pglGetTexGenfv;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetTexGenfvOES(int coord, int pname, float* @params);
-			[ThreadStatic]
-			internal static glGetTexGenfvOES pglGetTexGenfvOES;
-
-			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetTexGeniv(int coord, int pname, Int32* @params);
 			[ThreadStatic]
 			internal static glGetTexGeniv pglGetTexGeniv;
-
-			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetTexGenivOES(int coord, int pname, Int32* @params);
-			[ThreadStatic]
-			internal static glGetTexGenivOES pglGetTexGenivOES;
 
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetTexGenxvOES(int coord, int pname, IntPtr* @params);
@@ -5625,11 +4840,6 @@ namespace OpenGL
 			internal static glGetTexParameterIivEXT pglGetTexParameterIivEXT;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetTexParameterIivOES(int target, int pname, Int32* @params);
-			[ThreadStatic]
-			internal static glGetTexParameterIivOES pglGetTexParameterIivOES;
-
-			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetTexParameterIuiv(int target, int pname, UInt32* @params);
 			[ThreadStatic]
 			internal static glGetTexParameterIuiv pglGetTexParameterIuiv;
@@ -5638,11 +4848,6 @@ namespace OpenGL
 			internal unsafe delegate void glGetTexParameterIuivEXT(int target, int pname, UInt32* @params);
 			[ThreadStatic]
 			internal static glGetTexParameterIuivEXT pglGetTexParameterIuivEXT;
-
-			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetTexParameterIuivOES(int target, int pname, UInt32* @params);
-			[ThreadStatic]
-			internal static glGetTexParameterIuivOES pglGetTexParameterIuivOES;
 
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetTexParameterPointervAPPLE(int target, int pname, IntPtr* @params);
@@ -5658,11 +4863,6 @@ namespace OpenGL
 			internal unsafe delegate void glGetTexParameteriv(int target, int pname, Int32* @params);
 			[ThreadStatic]
 			internal static glGetTexParameteriv pglGetTexParameteriv;
-
-			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetTexParameterxv(int target, int pname, IntPtr* @params);
-			[ThreadStatic]
-			internal static glGetTexParameterxv pglGetTexParameterxv;
 
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetTexParameterxvOES(int target, int pname, IntPtr* @params);
@@ -5798,11 +4998,6 @@ namespace OpenGL
 			internal unsafe delegate void glGetTransformFeedbackiv(UInt32 xfb, int pname, Int32* param);
 			[ThreadStatic]
 			internal static glGetTransformFeedbackiv pglGetTransformFeedbackiv;
-
-			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetTranslatedShaderSourceANGLE(UInt32 shader, Int32 bufsize, Int32* length, String source);
-			[ThreadStatic]
-			internal static glGetTranslatedShaderSourceANGLE pglGetTranslatedShaderSourceANGLE;
 
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate UInt32 glGetUniformBlockIndex(UInt32 program, String uniformBlockName);
@@ -6270,16 +5465,6 @@ namespace OpenGL
 			internal static glGetnUniformfvARB pglGetnUniformfvARB;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetnUniformfvEXT(UInt32 program, Int32 location, Int32 bufSize, float* @params);
-			[ThreadStatic]
-			internal static glGetnUniformfvEXT pglGetnUniformfvEXT;
-
-			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetnUniformfvKHR(UInt32 program, Int32 location, Int32 bufSize, float* @params);
-			[ThreadStatic]
-			internal static glGetnUniformfvKHR pglGetnUniformfvKHR;
-
-			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetnUniformiv(UInt32 program, Int32 location, Int32 bufSize, Int32* @params);
 			[ThreadStatic]
 			internal static glGetnUniformiv pglGetnUniformiv;
@@ -6290,16 +5475,6 @@ namespace OpenGL
 			internal static glGetnUniformivARB pglGetnUniformivARB;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetnUniformivEXT(UInt32 program, Int32 location, Int32 bufSize, Int32* @params);
-			[ThreadStatic]
-			internal static glGetnUniformivEXT pglGetnUniformivEXT;
-
-			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetnUniformivKHR(UInt32 program, Int32 location, Int32 bufSize, Int32* @params);
-			[ThreadStatic]
-			internal static glGetnUniformivKHR pglGetnUniformivKHR;
-
-			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetnUniformuiv(UInt32 program, Int32 location, Int32 bufSize, UInt32* @params);
 			[ThreadStatic]
 			internal static glGetnUniformuiv pglGetnUniformuiv;
@@ -6308,11 +5483,6 @@ namespace OpenGL
 			internal unsafe delegate void glGetnUniformuivARB(UInt32 program, Int32 location, Int32 bufSize, UInt32* @params);
 			[ThreadStatic]
 			internal static glGetnUniformuivARB pglGetnUniformuivARB;
-
-			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetnUniformuivKHR(UInt32 program, Int32 location, Int32 bufSize, UInt32* @params);
-			[ThreadStatic]
-			internal static glGetnUniformuivKHR pglGetnUniformuivKHR;
 
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glGlobalAlphaFactorbSUN(sbyte factor);
@@ -6605,21 +5775,6 @@ namespace OpenGL
 			internal static glIsEnabledi pglIsEnabledi;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate bool glIsEnablediEXT(int target, UInt32 index);
-			[ThreadStatic]
-			internal static glIsEnablediEXT pglIsEnablediEXT;
-
-			[SuppressUnmanagedCodeSecurity()]
-			internal delegate bool glIsEnablediOES(int target, UInt32 index);
-			[ThreadStatic]
-			internal static glIsEnablediOES pglIsEnablediOES;
-
-			[SuppressUnmanagedCodeSecurity()]
-			internal delegate bool glIsEnablediNV(int target, UInt32 index);
-			[ThreadStatic]
-			internal static glIsEnablediNV pglIsEnablediNV;
-
-			[SuppressUnmanagedCodeSecurity()]
 			internal delegate bool glIsFenceAPPLE(UInt32 fence);
 			[ThreadStatic]
 			internal static glIsFenceAPPLE pglIsFenceAPPLE;
@@ -6638,11 +5793,6 @@ namespace OpenGL
 			internal delegate bool glIsFramebufferEXT(UInt32 framebuffer);
 			[ThreadStatic]
 			internal static glIsFramebufferEXT pglIsFramebufferEXT;
-
-			[SuppressUnmanagedCodeSecurity()]
-			internal delegate bool glIsFramebufferOES(UInt32 framebuffer);
-			[ThreadStatic]
-			internal static glIsFramebufferOES pglIsFramebufferOES;
 
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate bool glIsImageHandleResidentARB(UInt64 handle);
@@ -6720,11 +5870,6 @@ namespace OpenGL
 			internal static glIsProgramPipeline pglIsProgramPipeline;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate bool glIsProgramPipelineEXT(UInt32 pipeline);
-			[ThreadStatic]
-			internal static glIsProgramPipelineEXT pglIsProgramPipelineEXT;
-
-			[SuppressUnmanagedCodeSecurity()]
 			internal delegate bool glIsQuery(UInt32 id);
 			[ThreadStatic]
 			internal static glIsQuery pglIsQuery;
@@ -6735,11 +5880,6 @@ namespace OpenGL
 			internal static glIsQueryARB pglIsQueryARB;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate bool glIsQueryEXT(UInt32 id);
-			[ThreadStatic]
-			internal static glIsQueryEXT pglIsQueryEXT;
-
-			[SuppressUnmanagedCodeSecurity()]
 			internal delegate bool glIsRenderbuffer(UInt32 renderbuffer);
 			[ThreadStatic]
 			internal static glIsRenderbuffer pglIsRenderbuffer;
@@ -6748,11 +5888,6 @@ namespace OpenGL
 			internal delegate bool glIsRenderbufferEXT(UInt32 renderbuffer);
 			[ThreadStatic]
 			internal static glIsRenderbufferEXT pglIsRenderbufferEXT;
-
-			[SuppressUnmanagedCodeSecurity()]
-			internal delegate bool glIsRenderbufferOES(UInt32 renderbuffer);
-			[ThreadStatic]
-			internal static glIsRenderbufferOES pglIsRenderbufferOES;
 
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate bool glIsSampler(UInt32 sampler);
@@ -6768,11 +5903,6 @@ namespace OpenGL
 			internal delegate bool glIsSync(int sync);
 			[ThreadStatic]
 			internal static glIsSync pglIsSync;
-
-			[SuppressUnmanagedCodeSecurity()]
-			internal delegate bool glIsSyncAPPLE(int sync);
-			[ThreadStatic]
-			internal static glIsSyncAPPLE pglIsSyncAPPLE;
 
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate bool glIsTexture(UInt32 texture);
@@ -6820,11 +5950,6 @@ namespace OpenGL
 			internal static glIsVertexArrayAPPLE pglIsVertexArrayAPPLE;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate bool glIsVertexArrayOES(UInt32 array);
-			[ThreadStatic]
-			internal static glIsVertexArrayOES pglIsVertexArrayOES;
-
-			[SuppressUnmanagedCodeSecurity()]
 			internal delegate bool glIsVertexAttribEnabledAPPLE(UInt32 index, int pname);
 			[ThreadStatic]
 			internal static glIsVertexAttribEnabledAPPLE pglIsVertexAttribEnabledAPPLE;
@@ -6860,19 +5985,9 @@ namespace OpenGL
 			internal static glLightModeliv pglLightModeliv;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glLightModelx(int pname, IntPtr param);
-			[ThreadStatic]
-			internal static glLightModelx pglLightModelx;
-
-			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glLightModelxOES(int pname, IntPtr param);
 			[ThreadStatic]
 			internal static glLightModelxOES pglLightModelxOES;
-
-			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glLightModelxv(int pname, IntPtr* param);
-			[ThreadStatic]
-			internal static glLightModelxv pglLightModelxv;
 
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glLightModelxvOES(int pname, IntPtr* param);
@@ -6900,19 +6015,9 @@ namespace OpenGL
 			internal static glLightiv pglLightiv;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glLightx(int light, int pname, IntPtr param);
-			[ThreadStatic]
-			internal static glLightx pglLightx;
-
-			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glLightxOES(int light, int pname, IntPtr param);
 			[ThreadStatic]
 			internal static glLightxOES pglLightxOES;
-
-			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glLightxv(int light, int pname, IntPtr* @params);
-			[ThreadStatic]
-			internal static glLightxv pglLightxv;
 
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glLightxvOES(int light, int pname, IntPtr* @params);
@@ -6928,11 +6033,6 @@ namespace OpenGL
 			internal delegate void glLineWidth(float width);
 			[ThreadStatic]
 			internal static glLineWidth pglLineWidth;
-
-			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glLineWidthx(IntPtr width);
-			[ThreadStatic]
-			internal static glLineWidthx pglLineWidthx;
 
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glLineWidthxOES(IntPtr width);
@@ -6995,11 +6095,6 @@ namespace OpenGL
 			internal static glLoadMatrixf pglLoadMatrixf;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glLoadMatrixx(IntPtr* m);
-			[ThreadStatic]
-			internal static glLoadMatrixx pglLoadMatrixx;
-
-			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glLoadMatrixxOES(IntPtr* m);
 			[ThreadStatic]
 			internal static glLoadMatrixxOES pglLoadMatrixxOES;
@@ -7008,11 +6103,6 @@ namespace OpenGL
 			internal delegate void glLoadName(UInt32 name);
 			[ThreadStatic]
 			internal static glLoadName pglLoadName;
-
-			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glLoadPaletteFromModelViewMatrixOES();
-			[ThreadStatic]
-			internal static glLoadPaletteFromModelViewMatrixOES pglLoadPaletteFromModelViewMatrixOES;
 
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glLoadProgramNV(int target, UInt32 id, Int32 len, byte* program);
@@ -7155,19 +6245,9 @@ namespace OpenGL
 			internal static glMapBufferARB pglMapBufferARB;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate IntPtr glMapBufferOES(int target, int access);
-			[ThreadStatic]
-			internal static glMapBufferOES pglMapBufferOES;
-
-			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate IntPtr glMapBufferRange(int target, IntPtr offset, UInt32 length, uint access);
 			[ThreadStatic]
 			internal static glMapBufferRange pglMapBufferRange;
-
-			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate IntPtr glMapBufferRangeEXT(int target, IntPtr offset, UInt32 length, uint access);
-			[ThreadStatic]
-			internal static glMapBufferRangeEXT pglMapBufferRangeEXT;
 
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glMapControlPointsNV(int target, UInt32 index, int type, Int32 ustride, Int32 vstride, Int32 uorder, Int32 vorder, bool packed, IntPtr points);
@@ -7285,19 +6365,9 @@ namespace OpenGL
 			internal static glMaterialiv pglMaterialiv;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glMaterialx(int face, int pname, IntPtr param);
-			[ThreadStatic]
-			internal static glMaterialx pglMaterialx;
-
-			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glMaterialxOES(int face, int pname, IntPtr param);
 			[ThreadStatic]
 			internal static glMaterialxOES pglMaterialxOES;
-
-			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glMaterialxv(int face, int pname, IntPtr* param);
-			[ThreadStatic]
-			internal static glMaterialxv pglMaterialxv;
 
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glMaterialxvOES(int face, int pname, IntPtr* param);
@@ -7313,11 +6383,6 @@ namespace OpenGL
 			internal unsafe delegate void glMatrixIndexPointerARB(Int32 size, int type, Int32 stride, IntPtr pointer);
 			[ThreadStatic]
 			internal static glMatrixIndexPointerARB pglMatrixIndexPointerARB;
-
-			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glMatrixIndexPointerOES(Int32 size, int type, Int32 stride, IntPtr pointer);
-			[ThreadStatic]
-			internal static glMatrixIndexPointerOES pglMatrixIndexPointerOES;
 
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glMatrixIndexubvARB(Int32 size, byte* indices);
@@ -7485,11 +6550,6 @@ namespace OpenGL
 			internal static glMinSampleShadingARB pglMinSampleShadingARB;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glMinSampleShadingOES(float value);
-			[ThreadStatic]
-			internal static glMinSampleShadingOES pglMinSampleShadingOES;
-
-			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glMinmax(int target, int internalformat, bool sink);
 			[ThreadStatic]
 			internal static glMinmax pglMinmax;
@@ -7508,11 +6568,6 @@ namespace OpenGL
 			internal unsafe delegate void glMultMatrixf(float* m);
 			[ThreadStatic]
 			internal static glMultMatrixf pglMultMatrixf;
-
-			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glMultMatrixx(IntPtr* m);
-			[ThreadStatic]
-			internal static glMultMatrixx pglMultMatrixx;
 
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glMultMatrixxOES(IntPtr* m);
@@ -7565,11 +6620,6 @@ namespace OpenGL
 			internal static glMultiDrawArraysIndirectAMD pglMultiDrawArraysIndirectAMD;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glMultiDrawArraysIndirectEXT(int mode, IntPtr indirect, Int32 drawcount, Int32 stride);
-			[ThreadStatic]
-			internal static glMultiDrawArraysIndirectEXT pglMultiDrawArraysIndirectEXT;
-
-			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glMultiDrawArraysIndirectBindlessCountNV(int mode, IntPtr indirect, Int32 drawCount, Int32 maxDrawCount, Int32 stride, Int32 vertexBufferCount);
 			[ThreadStatic]
 			internal static glMultiDrawArraysIndirectBindlessCountNV pglMultiDrawArraysIndirectBindlessCountNV;
@@ -7600,16 +6650,6 @@ namespace OpenGL
 			internal static glMultiDrawElementsBaseVertex pglMultiDrawElementsBaseVertex;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glMultiDrawElementsBaseVertexEXT(int mode, Int32* count, int type, IntPtr* indices, Int32 primcount, Int32* basevertex);
-			[ThreadStatic]
-			internal static glMultiDrawElementsBaseVertexEXT pglMultiDrawElementsBaseVertexEXT;
-
-			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glMultiDrawElementsBaseVertexOES(int mode, Int32* count, int type, IntPtr* indices, Int32 primcount, Int32* basevertex);
-			[ThreadStatic]
-			internal static glMultiDrawElementsBaseVertexOES pglMultiDrawElementsBaseVertexOES;
-
-			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glMultiDrawElementsEXT(int mode, Int32* count, int type, IntPtr* indices, Int32 primcount);
 			[ThreadStatic]
 			internal static glMultiDrawElementsEXT pglMultiDrawElementsEXT;
@@ -7618,11 +6658,6 @@ namespace OpenGL
 			internal unsafe delegate void glMultiDrawElementsIndirect(int mode, int type, IntPtr indirect, Int32 drawcount, Int32 stride);
 			[ThreadStatic]
 			internal static glMultiDrawElementsIndirect pglMultiDrawElementsIndirect;
-
-			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glMultiDrawElementsIndirectEXT(int mode, int type, IntPtr indirect, Int32 drawcount, Int32 stride);
-			[ThreadStatic]
-			internal static glMultiDrawElementsIndirectEXT pglMultiDrawElementsIndirectEXT;
 
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glMultiDrawElementsIndirectAMD(int mode, int type, IntPtr indirect, Int32 primcount, Int32 stride);
@@ -8095,11 +7130,6 @@ namespace OpenGL
 			internal static glMultiTexCoord4svARB pglMultiTexCoord4svARB;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glMultiTexCoord4x(int texture, IntPtr s, IntPtr t, IntPtr r, IntPtr q);
-			[ThreadStatic]
-			internal static glMultiTexCoord4x pglMultiTexCoord4x;
-
-			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glMultiTexCoord4xOES(int texture, IntPtr s, IntPtr t, IntPtr r, IntPtr q);
 			[ThreadStatic]
 			internal static glMultiTexCoord4xOES pglMultiTexCoord4xOES;
@@ -8560,11 +7590,6 @@ namespace OpenGL
 			internal static glNormal3sv pglNormal3sv;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glNormal3x(IntPtr nx, IntPtr ny, IntPtr nz);
-			[ThreadStatic]
-			internal static glNormal3x pglNormal3x;
-
-			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glNormal3xOES(IntPtr nx, IntPtr ny, IntPtr nz);
 			[ThreadStatic]
 			internal static glNormal3xOES pglNormal3xOES;
@@ -8665,19 +7690,9 @@ namespace OpenGL
 			internal static glObjectLabel pglObjectLabel;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glObjectLabelKHR(int identifier, UInt32 name, Int32 length, String label);
-			[ThreadStatic]
-			internal static glObjectLabelKHR pglObjectLabelKHR;
-
-			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glObjectPtrLabel(IntPtr ptr, Int32 length, String label);
 			[ThreadStatic]
 			internal static glObjectPtrLabel pglObjectPtrLabel;
-
-			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glObjectPtrLabelKHR(IntPtr ptr, Int32 length, String label);
-			[ThreadStatic]
-			internal static glObjectPtrLabelKHR pglObjectPtrLabelKHR;
 
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate int glObjectPurgeableAPPLE(int objectType, UInt32 name, int option);
@@ -8695,19 +7710,9 @@ namespace OpenGL
 			internal static glOrtho pglOrtho;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glOrthof(float l, float r, float b, float t, float n, float f);
-			[ThreadStatic]
-			internal static glOrthof pglOrthof;
-
-			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glOrthofOES(float l, float r, float b, float t, float n, float f);
 			[ThreadStatic]
 			internal static glOrthofOES pglOrthofOES;
-
-			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glOrthox(IntPtr l, IntPtr r, IntPtr b, IntPtr t, IntPtr n, IntPtr f);
-			[ThreadStatic]
-			internal static glOrthox pglOrthox;
 
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glOrthoxOES(IntPtr l, IntPtr r, IntPtr b, IntPtr t, IntPtr n, IntPtr f);
@@ -8748,16 +7753,6 @@ namespace OpenGL
 			internal delegate void glPatchParameteri(int pname, Int32 value);
 			[ThreadStatic]
 			internal static glPatchParameteri pglPatchParameteri;
-
-			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glPatchParameteriEXT(int pname, Int32 value);
-			[ThreadStatic]
-			internal static glPatchParameteriEXT pglPatchParameteriEXT;
-
-			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glPatchParameteriOES(int pname, Int32 value);
-			[ThreadStatic]
-			internal static glPatchParameteriOES pglPatchParameteriOES;
 
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glPathColorGenNV(int color, int genMode, int colorFormat, float* coeffs);
@@ -9050,21 +8045,6 @@ namespace OpenGL
 			internal static glPointParameterivNV pglPointParameterivNV;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glPointParameterx(int pname, IntPtr param);
-			[ThreadStatic]
-			internal static glPointParameterx pglPointParameterx;
-
-			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glPointParameterxOES(int pname, IntPtr param);
-			[ThreadStatic]
-			internal static glPointParameterxOES pglPointParameterxOES;
-
-			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glPointParameterxv(int pname, IntPtr* @params);
-			[ThreadStatic]
-			internal static glPointParameterxv pglPointParameterxv;
-
-			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glPointParameterxvOES(int pname, IntPtr* @params);
 			[ThreadStatic]
 			internal static glPointParameterxvOES pglPointParameterxvOES;
@@ -9073,16 +8053,6 @@ namespace OpenGL
 			internal delegate void glPointSize(float size);
 			[ThreadStatic]
 			internal static glPointSize pglPointSize;
-
-			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glPointSizePointerOES(int type, Int32 stride, IntPtr pointer);
-			[ThreadStatic]
-			internal static glPointSizePointerOES pglPointSizePointerOES;
-
-			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glPointSizex(IntPtr size);
-			[ThreadStatic]
-			internal static glPointSizex pglPointSizex;
 
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glPointSizexOES(IntPtr size);
@@ -9115,11 +8085,6 @@ namespace OpenGL
 			internal static glPolygonOffsetEXT pglPolygonOffsetEXT;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glPolygonOffsetx(IntPtr factor, IntPtr units);
-			[ThreadStatic]
-			internal static glPolygonOffsetx pglPolygonOffsetx;
-
-			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glPolygonOffsetxOES(IntPtr factor, IntPtr units);
 			[ThreadStatic]
 			internal static glPolygonOffsetxOES pglPolygonOffsetxOES;
@@ -9150,11 +8115,6 @@ namespace OpenGL
 			internal static glPopDebugGroup pglPopDebugGroup;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glPopDebugGroupKHR();
-			[ThreadStatic]
-			internal static glPopDebugGroupKHR pglPopDebugGroupKHR;
-
-			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glPopGroupMarkerEXT();
 			[ThreadStatic]
 			internal static glPopGroupMarkerEXT pglPopGroupMarkerEXT;
@@ -9178,16 +8138,6 @@ namespace OpenGL
 			internal delegate void glPresentFrameKeyedNV(UInt32 video_slot, UInt64 minPresentTime, UInt32 beginPresentTimeId, UInt32 presentDurationId, int type, int target0, UInt32 fill0, UInt32 key0, int target1, UInt32 fill1, UInt32 key1);
 			[ThreadStatic]
 			internal static glPresentFrameKeyedNV pglPresentFrameKeyedNV;
-
-			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glPrimitiveBoundingBoxEXT(float minX, float minY, float minZ, float minW, float maxX, float maxY, float maxZ, float maxW);
-			[ThreadStatic]
-			internal static glPrimitiveBoundingBoxEXT pglPrimitiveBoundingBoxEXT;
-
-			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glPrimitiveBoundingBoxOES(float minX, float minY, float minZ, float minW, float maxX, float maxY, float maxZ, float maxW);
-			[ThreadStatic]
-			internal static glPrimitiveBoundingBoxOES pglPrimitiveBoundingBoxOES;
 
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glPrimitiveRestartIndex(UInt32 index);
@@ -9223,11 +8173,6 @@ namespace OpenGL
 			internal unsafe delegate void glProgramBinary(UInt32 program, int binaryFormat, IntPtr binary, Int32 length);
 			[ThreadStatic]
 			internal static glProgramBinary pglProgramBinary;
-
-			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glProgramBinaryOES(UInt32 program, int binaryFormat, IntPtr binary, Int32 length);
-			[ThreadStatic]
-			internal static glProgramBinaryOES pglProgramBinaryOES;
 
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glProgramBufferParametersIivNV(int target, UInt32 bindingIndex, UInt32 wordIndex, Int32 count, Int32* @params);
@@ -10080,11 +9025,6 @@ namespace OpenGL
 			internal static glPushDebugGroup pglPushDebugGroup;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glPushDebugGroupKHR(int source, UInt32 id, Int32 length, String message);
-			[ThreadStatic]
-			internal static glPushDebugGroupKHR pglPushDebugGroupKHR;
-
-			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glPushGroupMarkerEXT(Int32 length, String marker);
 			[ThreadStatic]
 			internal static glPushGroupMarkerEXT pglPushGroupMarkerEXT;
@@ -10103,11 +9043,6 @@ namespace OpenGL
 			internal delegate void glQueryCounter(UInt32 id, int target);
 			[ThreadStatic]
 			internal static glQueryCounter pglQueryCounter;
-
-			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glQueryCounterEXT(UInt32 id, int target);
-			[ThreadStatic]
-			internal static glQueryCounterEXT pglQueryCounterEXT;
 
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate uint glQueryMatrixxOES(IntPtr* mantissa, Int32* exponent);
@@ -10275,16 +9210,6 @@ namespace OpenGL
 			internal static glReadBuffer pglReadBuffer;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glReadBufferIndexedEXT(int src, Int32 index);
-			[ThreadStatic]
-			internal static glReadBufferIndexedEXT pglReadBufferIndexedEXT;
-
-			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glReadBufferNV(int mode);
-			[ThreadStatic]
-			internal static glReadBufferNV pglReadBufferNV;
-
-			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glReadInstrumentsSGIX(Int32 marker);
 			[ThreadStatic]
 			internal static glReadInstrumentsSGIX pglReadInstrumentsSGIX;
@@ -10303,16 +9228,6 @@ namespace OpenGL
 			internal unsafe delegate void glReadnPixelsARB(Int32 x, Int32 y, Int32 width, Int32 height, int format, int type, Int32 bufSize, IntPtr data);
 			[ThreadStatic]
 			internal static glReadnPixelsARB pglReadnPixelsARB;
-
-			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glReadnPixelsEXT(Int32 x, Int32 y, Int32 width, Int32 height, int format, int type, Int32 bufSize, IntPtr data);
-			[ThreadStatic]
-			internal static glReadnPixelsEXT pglReadnPixelsEXT;
-
-			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glReadnPixelsKHR(Int32 x, Int32 y, Int32 width, Int32 height, int format, int type, Int32 bufSize, IntPtr data);
-			[ThreadStatic]
-			internal static glReadnPixelsKHR pglReadnPixelsKHR;
 
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glRectd(double x1, double y1, double x2, double y2);
@@ -10395,16 +9310,6 @@ namespace OpenGL
 			internal static glRenderbufferStorageMultisample pglRenderbufferStorageMultisample;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glRenderbufferStorageMultisampleANGLE(int target, Int32 samples, int internalformat, Int32 width, Int32 height);
-			[ThreadStatic]
-			internal static glRenderbufferStorageMultisampleANGLE pglRenderbufferStorageMultisampleANGLE;
-
-			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glRenderbufferStorageMultisampleAPPLE(int target, Int32 samples, int internalformat, Int32 width, Int32 height);
-			[ThreadStatic]
-			internal static glRenderbufferStorageMultisampleAPPLE pglRenderbufferStorageMultisampleAPPLE;
-
-			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glRenderbufferStorageMultisampleCoverageNV(int target, Int32 coverageSamples, Int32 colorSamples, int internalformat, Int32 width, Int32 height);
 			[ThreadStatic]
 			internal static glRenderbufferStorageMultisampleCoverageNV pglRenderbufferStorageMultisampleCoverageNV;
@@ -10413,21 +9318,6 @@ namespace OpenGL
 			internal delegate void glRenderbufferStorageMultisampleEXT(int target, Int32 samples, int internalformat, Int32 width, Int32 height);
 			[ThreadStatic]
 			internal static glRenderbufferStorageMultisampleEXT pglRenderbufferStorageMultisampleEXT;
-
-			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glRenderbufferStorageMultisampleIMG(int target, Int32 samples, int internalformat, Int32 width, Int32 height);
-			[ThreadStatic]
-			internal static glRenderbufferStorageMultisampleIMG pglRenderbufferStorageMultisampleIMG;
-
-			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glRenderbufferStorageMultisampleNV(int target, Int32 samples, int internalformat, Int32 width, Int32 height);
-			[ThreadStatic]
-			internal static glRenderbufferStorageMultisampleNV pglRenderbufferStorageMultisampleNV;
-
-			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glRenderbufferStorageOES(int target, int internalformat, Int32 width, Int32 height);
-			[ThreadStatic]
-			internal static glRenderbufferStorageOES pglRenderbufferStorageOES;
 
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glReplacementCodePointerSUN(int type, Int32 stride, IntPtr* pointer);
@@ -10575,11 +9465,6 @@ namespace OpenGL
 			internal static glResizeBuffersMESA pglResizeBuffersMESA;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glResolveMultisampleFramebufferAPPLE();
-			[ThreadStatic]
-			internal static glResolveMultisampleFramebufferAPPLE pglResolveMultisampleFramebufferAPPLE;
-
-			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glResumeTransformFeedback();
 			[ThreadStatic]
 			internal static glResumeTransformFeedback pglResumeTransformFeedback;
@@ -10600,11 +9485,6 @@ namespace OpenGL
 			internal static glRotatef pglRotatef;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glRotatex(IntPtr angle, IntPtr x, IntPtr y, IntPtr z);
-			[ThreadStatic]
-			internal static glRotatex pglRotatex;
-
-			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glRotatexOES(IntPtr angle, IntPtr x, IntPtr y, IntPtr z);
 			[ThreadStatic]
 			internal static glRotatexOES pglRotatexOES;
@@ -10623,16 +9503,6 @@ namespace OpenGL
 			internal unsafe delegate void glSampleCoverageOES(IntPtr value, bool invert);
 			[ThreadStatic]
 			internal static glSampleCoverageOES pglSampleCoverageOES;
-
-			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glSampleCoveragex(Int32 value, bool invert);
-			[ThreadStatic]
-			internal static glSampleCoveragex pglSampleCoveragex;
-
-			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glSampleCoveragexOES(Int32 value, bool invert);
-			[ThreadStatic]
-			internal static glSampleCoveragexOES pglSampleCoveragexOES;
 
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glSampleMapATI(UInt32 dst, UInt32 interp, int swizzle);
@@ -10675,29 +9545,9 @@ namespace OpenGL
 			internal static glSamplerParameterIiv pglSamplerParameterIiv;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glSamplerParameterIivEXT(UInt32 sampler, int pname, Int32* param);
-			[ThreadStatic]
-			internal static glSamplerParameterIivEXT pglSamplerParameterIivEXT;
-
-			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glSamplerParameterIivOES(UInt32 sampler, int pname, Int32* param);
-			[ThreadStatic]
-			internal static glSamplerParameterIivOES pglSamplerParameterIivOES;
-
-			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glSamplerParameterIuiv(UInt32 sampler, int pname, UInt32* param);
 			[ThreadStatic]
 			internal static glSamplerParameterIuiv pglSamplerParameterIuiv;
-
-			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glSamplerParameterIuivEXT(UInt32 sampler, int pname, UInt32* param);
-			[ThreadStatic]
-			internal static glSamplerParameterIuivEXT pglSamplerParameterIuivEXT;
-
-			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glSamplerParameterIuivOES(UInt32 sampler, int pname, UInt32* param);
-			[ThreadStatic]
-			internal static glSamplerParameterIuivOES pglSamplerParameterIuivOES;
 
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glSamplerParameterf(UInt32 sampler, int pname, float param);
@@ -10730,11 +9580,6 @@ namespace OpenGL
 			internal static glScalef pglScalef;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glScalex(IntPtr x, IntPtr y, IntPtr z);
-			[ThreadStatic]
-			internal static glScalex pglScalex;
-
-			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glScalexOES(IntPtr x, IntPtr y, IntPtr z);
 			[ThreadStatic]
 			internal static glScalexOES pglScalexOES;
@@ -10750,29 +9595,14 @@ namespace OpenGL
 			internal static glScissorArrayv pglScissorArrayv;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glScissorArrayvNV(UInt32 first, Int32 count, Int32* v);
-			[ThreadStatic]
-			internal static glScissorArrayvNV pglScissorArrayvNV;
-
-			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glScissorIndexed(UInt32 index, Int32 left, Int32 bottom, Int32 width, Int32 height);
 			[ThreadStatic]
 			internal static glScissorIndexed pglScissorIndexed;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glScissorIndexedNV(UInt32 index, Int32 left, Int32 bottom, Int32 width, Int32 height);
-			[ThreadStatic]
-			internal static glScissorIndexedNV pglScissorIndexedNV;
-
-			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glScissorIndexedv(UInt32 index, Int32* v);
 			[ThreadStatic]
 			internal static glScissorIndexedv pglScissorIndexedv;
-
-			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glScissorIndexedvNV(UInt32 index, Int32* v);
-			[ThreadStatic]
-			internal static glScissorIndexedvNV pglScissorIndexedvNV;
 
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glSecondaryColor3b(sbyte red, sbyte green, sbyte blue);
@@ -11095,11 +9925,6 @@ namespace OpenGL
 			internal static glStartInstrumentsSGIX pglStartInstrumentsSGIX;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glStartTilingQCOM(UInt32 x, UInt32 y, UInt32 width, UInt32 height, uint preserveMask);
-			[ThreadStatic]
-			internal static glStartTilingQCOM pglStartTilingQCOM;
-
-			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glStencilClearTagEXT(Int32 stencilTagBits, UInt32 stencilClearTag);
 			[ThreadStatic]
 			internal static glStencilClearTagEXT pglStencilClearTagEXT;
@@ -11315,24 +10140,9 @@ namespace OpenGL
 			internal static glTexBufferEXT pglTexBufferEXT;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glTexBufferOES(int target, int internalformat, UInt32 buffer);
-			[ThreadStatic]
-			internal static glTexBufferOES pglTexBufferOES;
-
-			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glTexBufferRange(int target, int internalformat, UInt32 buffer, IntPtr offset, UInt32 size);
 			[ThreadStatic]
 			internal static glTexBufferRange pglTexBufferRange;
-
-			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glTexBufferRangeEXT(int target, int internalformat, UInt32 buffer, IntPtr offset, UInt32 size);
-			[ThreadStatic]
-			internal static glTexBufferRangeEXT pglTexBufferRangeEXT;
-
-			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glTexBufferRangeOES(int target, int internalformat, UInt32 buffer, IntPtr offset, UInt32 size);
-			[ThreadStatic]
-			internal static glTexBufferRangeOES pglTexBufferRangeOES;
 
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glTexBumpParameterfvATI(int pname, float* param);
@@ -11780,19 +10590,9 @@ namespace OpenGL
 			internal static glTexEnviv pglTexEnviv;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glTexEnvx(int target, int pname, IntPtr param);
-			[ThreadStatic]
-			internal static glTexEnvx pglTexEnvx;
-
-			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glTexEnvxOES(int target, int pname, IntPtr param);
 			[ThreadStatic]
 			internal static glTexEnvxOES pglTexEnvxOES;
-
-			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glTexEnvxv(int target, int pname, IntPtr* @params);
-			[ThreadStatic]
-			internal static glTexEnvxv pglTexEnvxv;
 
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glTexEnvxvOES(int target, int pname, IntPtr* @params);
@@ -11820,19 +10620,9 @@ namespace OpenGL
 			internal static glTexGenf pglTexGenf;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glTexGenfOES(int coord, int pname, float param);
-			[ThreadStatic]
-			internal static glTexGenfOES pglTexGenfOES;
-
-			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glTexGenfv(int coord, int pname, float* @params);
 			[ThreadStatic]
 			internal static glTexGenfv pglTexGenfv;
-
-			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glTexGenfvOES(int coord, int pname, float* @params);
-			[ThreadStatic]
-			internal static glTexGenfvOES pglTexGenfvOES;
 
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glTexGeni(int coord, int pname, Int32 param);
@@ -11840,19 +10630,9 @@ namespace OpenGL
 			internal static glTexGeni pglTexGeni;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glTexGeniOES(int coord, int pname, Int32 param);
-			[ThreadStatic]
-			internal static glTexGeniOES pglTexGeniOES;
-
-			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glTexGeniv(int coord, int pname, Int32* @params);
 			[ThreadStatic]
 			internal static glTexGeniv pglTexGeniv;
-
-			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glTexGenivOES(int coord, int pname, Int32* @params);
-			[ThreadStatic]
-			internal static glTexGenivOES pglTexGenivOES;
 
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glTexGenxOES(int coord, int pname, IntPtr param);
@@ -11905,11 +10685,6 @@ namespace OpenGL
 			internal static glTexImage3DMultisampleCoverageNV pglTexImage3DMultisampleCoverageNV;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glTexImage3DOES(int target, Int32 level, int internalformat, Int32 width, Int32 height, Int32 depth, Int32 border, int format, int type, IntPtr pixels);
-			[ThreadStatic]
-			internal static glTexImage3DOES pglTexImage3DOES;
-
-			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glTexImage4DSGIS(int target, Int32 level, int internalformat, Int32 width, Int32 height, Int32 depth, Int32 size4d, Int32 border, int format, int type, IntPtr pixels);
 			[ThreadStatic]
 			internal static glTexImage4DSGIS pglTexImage4DSGIS;
@@ -11930,11 +10705,6 @@ namespace OpenGL
 			internal static glTexParameterIivEXT pglTexParameterIivEXT;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glTexParameterIivOES(int target, int pname, Int32* @params);
-			[ThreadStatic]
-			internal static glTexParameterIivOES pglTexParameterIivOES;
-
-			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glTexParameterIuiv(int target, int pname, UInt32* @params);
 			[ThreadStatic]
 			internal static glTexParameterIuiv pglTexParameterIuiv;
@@ -11943,11 +10713,6 @@ namespace OpenGL
 			internal unsafe delegate void glTexParameterIuivEXT(int target, int pname, UInt32* @params);
 			[ThreadStatic]
 			internal static glTexParameterIuivEXT pglTexParameterIuivEXT;
-
-			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glTexParameterIuivOES(int target, int pname, UInt32* @params);
-			[ThreadStatic]
-			internal static glTexParameterIuivOES pglTexParameterIuivOES;
 
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glTexParameterf(int target, int pname, float param);
@@ -11970,19 +10735,9 @@ namespace OpenGL
 			internal static glTexParameteriv pglTexParameteriv;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glTexParameterx(int target, int pname, IntPtr param);
-			[ThreadStatic]
-			internal static glTexParameterx pglTexParameterx;
-
-			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glTexParameterxOES(int target, int pname, IntPtr param);
 			[ThreadStatic]
 			internal static glTexParameterxOES pglTexParameterxOES;
-
-			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glTexParameterxv(int target, int pname, IntPtr* @params);
-			[ThreadStatic]
-			internal static glTexParameterxv pglTexParameterxv;
 
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glTexParameterxvOES(int target, int pname, IntPtr* @params);
@@ -12000,19 +10755,9 @@ namespace OpenGL
 			internal static glTexStorage1D pglTexStorage1D;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glTexStorage1DEXT(int target, Int32 levels, int internalformat, Int32 width);
-			[ThreadStatic]
-			internal static glTexStorage1DEXT pglTexStorage1DEXT;
-
-			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glTexStorage2D(int target, Int32 levels, int internalformat, Int32 width, Int32 height);
 			[ThreadStatic]
 			internal static glTexStorage2D pglTexStorage2D;
-
-			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glTexStorage2DEXT(int target, Int32 levels, int internalformat, Int32 width, Int32 height);
-			[ThreadStatic]
-			internal static glTexStorage2DEXT pglTexStorage2DEXT;
 
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glTexStorage2DMultisample(int target, Int32 samples, int internalformat, Int32 width, Int32 height, bool fixedsamplelocations);
@@ -12025,19 +10770,9 @@ namespace OpenGL
 			internal static glTexStorage3D pglTexStorage3D;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glTexStorage3DEXT(int target, Int32 levels, int internalformat, Int32 width, Int32 height, Int32 depth);
-			[ThreadStatic]
-			internal static glTexStorage3DEXT pglTexStorage3DEXT;
-
-			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glTexStorage3DMultisample(int target, Int32 samples, int internalformat, Int32 width, Int32 height, Int32 depth, bool fixedsamplelocations);
 			[ThreadStatic]
 			internal static glTexStorage3DMultisample pglTexStorage3DMultisample;
-
-			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glTexStorage3DMultisampleOES(int target, Int32 samples, int internalformat, Int32 width, Int32 height, Int32 depth, bool fixedsamplelocations);
-			[ThreadStatic]
-			internal static glTexStorage3DMultisampleOES pglTexStorage3DMultisampleOES;
 
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glTexStorageSparseAMD(int target, int internalFormat, Int32 width, Int32 height, Int32 depth, Int32 layers, uint flags);
@@ -12073,11 +10808,6 @@ namespace OpenGL
 			internal unsafe delegate void glTexSubImage3DEXT(int target, Int32 level, Int32 xoffset, Int32 yoffset, Int32 zoffset, Int32 width, Int32 height, Int32 depth, int format, int type, IntPtr pixels);
 			[ThreadStatic]
 			internal static glTexSubImage3DEXT pglTexSubImage3DEXT;
-
-			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glTexSubImage3DOES(int target, Int32 level, Int32 xoffset, Int32 yoffset, Int32 zoffset, Int32 width, Int32 height, Int32 depth, int format, int type, IntPtr pixels);
-			[ThreadStatic]
-			internal static glTexSubImage3DOES pglTexSubImage3DOES;
 
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glTexSubImage4DSGIS(int target, Int32 level, Int32 xoffset, Int32 yoffset, Int32 zoffset, Int32 woffset, Int32 width, Int32 height, Int32 depth, Int32 size4d, int format, int type, IntPtr pixels);
@@ -12335,16 +11065,6 @@ namespace OpenGL
 			internal static glTextureView pglTextureView;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glTextureViewEXT(UInt32 texture, int target, UInt32 origtexture, int internalformat, UInt32 minlevel, UInt32 numlevels, UInt32 minlayer, UInt32 numlayers);
-			[ThreadStatic]
-			internal static glTextureViewEXT pglTextureViewEXT;
-
-			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glTextureViewOES(UInt32 texture, int target, UInt32 origtexture, int internalformat, UInt32 minlevel, UInt32 numlevels, UInt32 minlayer, UInt32 numlayers);
-			[ThreadStatic]
-			internal static glTextureViewOES pglTextureViewOES;
-
-			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glTrackMatrixNV(int target, UInt32 address, int matrix, int transform);
 			[ThreadStatic]
 			internal static glTrackMatrixNV pglTrackMatrixNV;
@@ -12398,11 +11118,6 @@ namespace OpenGL
 			internal delegate void glTranslatef(float x, float y, float z);
 			[ThreadStatic]
 			internal static glTranslatef pglTranslatef;
-
-			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glTranslatex(IntPtr x, IntPtr y, IntPtr z);
-			[ThreadStatic]
-			internal static glTranslatex pglTranslatex;
 
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glTranslatexOES(IntPtr x, IntPtr y, IntPtr z);
@@ -12825,11 +11540,6 @@ namespace OpenGL
 			internal static glUniformMatrix2x3fv pglUniformMatrix2x3fv;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glUniformMatrix2x3fvNV(Int32 location, Int32 count, bool transpose, float* value);
-			[ThreadStatic]
-			internal static glUniformMatrix2x3fvNV pglUniformMatrix2x3fvNV;
-
-			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glUniformMatrix2x4dv(Int32 location, Int32 count, bool transpose, double* value);
 			[ThreadStatic]
 			internal static glUniformMatrix2x4dv pglUniformMatrix2x4dv;
@@ -12838,11 +11548,6 @@ namespace OpenGL
 			internal unsafe delegate void glUniformMatrix2x4fv(Int32 location, Int32 count, bool transpose, float* value);
 			[ThreadStatic]
 			internal static glUniformMatrix2x4fv pglUniformMatrix2x4fv;
-
-			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glUniformMatrix2x4fvNV(Int32 location, Int32 count, bool transpose, float* value);
-			[ThreadStatic]
-			internal static glUniformMatrix2x4fvNV pglUniformMatrix2x4fvNV;
 
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glUniformMatrix3dv(Int32 location, Int32 count, bool transpose, double* value);
@@ -12870,11 +11575,6 @@ namespace OpenGL
 			internal static glUniformMatrix3x2fv pglUniformMatrix3x2fv;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glUniformMatrix3x2fvNV(Int32 location, Int32 count, bool transpose, float* value);
-			[ThreadStatic]
-			internal static glUniformMatrix3x2fvNV pglUniformMatrix3x2fvNV;
-
-			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glUniformMatrix3x4dv(Int32 location, Int32 count, bool transpose, double* value);
 			[ThreadStatic]
 			internal static glUniformMatrix3x4dv pglUniformMatrix3x4dv;
@@ -12883,11 +11583,6 @@ namespace OpenGL
 			internal unsafe delegate void glUniformMatrix3x4fv(Int32 location, Int32 count, bool transpose, float* value);
 			[ThreadStatic]
 			internal static glUniformMatrix3x4fv pglUniformMatrix3x4fv;
-
-			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glUniformMatrix3x4fvNV(Int32 location, Int32 count, bool transpose, float* value);
-			[ThreadStatic]
-			internal static glUniformMatrix3x4fvNV pglUniformMatrix3x4fvNV;
 
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glUniformMatrix4dv(Int32 location, Int32 count, bool transpose, double* value);
@@ -12915,11 +11610,6 @@ namespace OpenGL
 			internal static glUniformMatrix4x2fv pglUniformMatrix4x2fv;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glUniformMatrix4x2fvNV(Int32 location, Int32 count, bool transpose, float* value);
-			[ThreadStatic]
-			internal static glUniformMatrix4x2fvNV pglUniformMatrix4x2fvNV;
-
-			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glUniformMatrix4x3dv(Int32 location, Int32 count, bool transpose, double* value);
 			[ThreadStatic]
 			internal static glUniformMatrix4x3dv pglUniformMatrix4x3dv;
@@ -12928,11 +11618,6 @@ namespace OpenGL
 			internal unsafe delegate void glUniformMatrix4x3fv(Int32 location, Int32 count, bool transpose, float* value);
 			[ThreadStatic]
 			internal static glUniformMatrix4x3fv pglUniformMatrix4x3fv;
-
-			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glUniformMatrix4x3fvNV(Int32 location, Int32 count, bool transpose, float* value);
-			[ThreadStatic]
-			internal static glUniformMatrix4x3fvNV pglUniformMatrix4x3fvNV;
 
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glUniformSubroutinesuiv(int shadertype, Int32 count, UInt32* indices);
@@ -12963,11 +11648,6 @@ namespace OpenGL
 			internal delegate bool glUnmapBufferARB(int target);
 			[ThreadStatic]
 			internal static glUnmapBufferARB pglUnmapBufferARB;
-
-			[SuppressUnmanagedCodeSecurity()]
-			internal delegate bool glUnmapBufferOES(int target);
-			[ThreadStatic]
-			internal static glUnmapBufferOES pglUnmapBufferOES;
 
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate bool glUnmapNamedBuffer(UInt32 buffer);
@@ -13008,11 +11688,6 @@ namespace OpenGL
 			internal delegate void glUseProgramStages(UInt32 pipeline, uint stages, UInt32 program);
 			[ThreadStatic]
 			internal static glUseProgramStages pglUseProgramStages;
-
-			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glUseProgramStagesEXT(UInt32 pipeline, uint stages, UInt32 program);
-			[ThreadStatic]
-			internal static glUseProgramStagesEXT pglUseProgramStagesEXT;
 
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glUseShaderProgramEXT(int type, UInt32 program);
@@ -13083,11 +11758,6 @@ namespace OpenGL
 			internal delegate void glValidateProgramPipeline(UInt32 pipeline);
 			[ThreadStatic]
 			internal static glValidateProgramPipeline pglValidateProgramPipeline;
-
-			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glValidateProgramPipelineEXT(UInt32 pipeline);
-			[ThreadStatic]
-			internal static glValidateProgramPipelineEXT pglValidateProgramPipelineEXT;
 
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glVariantArrayObjectATI(UInt32 id, int type, Int32 stride, UInt32 buffer, UInt32 offset);
@@ -14045,24 +12715,9 @@ namespace OpenGL
 			internal static glVertexAttribDivisor pglVertexAttribDivisor;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glVertexAttribDivisorANGLE(UInt32 index, UInt32 divisor);
-			[ThreadStatic]
-			internal static glVertexAttribDivisorANGLE pglVertexAttribDivisorANGLE;
-
-			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glVertexAttribDivisorARB(UInt32 index, UInt32 divisor);
 			[ThreadStatic]
 			internal static glVertexAttribDivisorARB pglVertexAttribDivisorARB;
-
-			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glVertexAttribDivisorEXT(UInt32 index, UInt32 divisor);
-			[ThreadStatic]
-			internal static glVertexAttribDivisorEXT pglVertexAttribDivisorEXT;
-
-			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glVertexAttribDivisorNV(UInt32 index, UInt32 divisor);
-			[ThreadStatic]
-			internal static glVertexAttribDivisorNV pglVertexAttribDivisorNV;
 
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glVertexAttribFormat(UInt32 attribindex, Int32 size, int type, bool normalized, UInt32 relativeoffset);
@@ -14920,19 +13575,9 @@ namespace OpenGL
 			internal static glViewportArrayv pglViewportArrayv;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glViewportArrayvNV(UInt32 first, Int32 count, float* v);
-			[ThreadStatic]
-			internal static glViewportArrayvNV pglViewportArrayvNV;
-
-			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glViewportIndexedf(UInt32 index, float x, float y, float w, float h);
 			[ThreadStatic]
 			internal static glViewportIndexedf pglViewportIndexedf;
-
-			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glViewportIndexedfNV(UInt32 index, float x, float y, float w, float h);
-			[ThreadStatic]
-			internal static glViewportIndexedfNV pglViewportIndexedfNV;
 
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glViewportIndexedfv(UInt32 index, float* v);
@@ -14940,19 +13585,9 @@ namespace OpenGL
 			internal static glViewportIndexedfv pglViewportIndexedfv;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glViewportIndexedfvNV(UInt32 index, float* v);
-			[ThreadStatic]
-			internal static glViewportIndexedfvNV pglViewportIndexedfvNV;
-
-			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glWaitSync(int sync, uint flags, UInt64 timeout);
 			[ThreadStatic]
 			internal static glWaitSync pglWaitSync;
-
-			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glWaitSyncAPPLE(int sync, uint flags, UInt64 timeout);
-			[ThreadStatic]
-			internal static glWaitSyncAPPLE pglWaitSyncAPPLE;
 
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glWeightPathsNV(UInt32 resultPath, Int32 numPaths, UInt32* paths, float* weights);
@@ -14963,11 +13598,6 @@ namespace OpenGL
 			internal unsafe delegate void glWeightPointerARB(Int32 size, int type, Int32 stride, IntPtr pointer);
 			[ThreadStatic]
 			internal static glWeightPointerARB pglWeightPointerARB;
-
-			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glWeightPointerOES(Int32 size, int type, Int32 stride, IntPtr pointer);
-			[ThreadStatic]
-			internal static glWeightPointerOES pglWeightPointerOES;
 
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glWeightbvARB(Int32 size, sbyte* weights);

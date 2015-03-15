@@ -322,10 +322,6 @@ namespace OpenGL
 			internal extern static IntPtr wglGetCurrentReadDCEXT();
 
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "wglGetDefaultProcAddress", ExactSpelling = true)]
-			internal extern static IntPtr wglGetDefaultProcAddress(String lpszProc);
-
-			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "wglGetDigitalVideoParametersI3D", ExactSpelling = true)]
 			[return: MarshalAs(UnmanagedType.Bool)]
 			internal extern static unsafe bool wglGetDigitalVideoParametersI3D(IntPtr hDC, int iAttribute, int* piValue);

@@ -214,14 +214,9 @@ namespace OpenGL
 			unsafe {
 				fixed (float* p_value = value)
 				{
-					if        (Delegates.pglUniformMatrix2x3fv != null) {
-						Delegates.pglUniformMatrix2x3fv(location, count, transpose, p_value);
-						CallLog("glUniformMatrix2x3fv({0}, {1}, {2}, {3})", location, count, transpose, value);
-					} else if (Delegates.pglUniformMatrix2x3fvNV != null) {
-						Delegates.pglUniformMatrix2x3fvNV(location, count, transpose, p_value);
-						CallLog("glUniformMatrix2x3fvNV({0}, {1}, {2}, {3})", location, count, transpose, value);
-					} else
-						throw new NotImplementedException("glUniformMatrix2x3fv (and other aliases) are not implemented");
+					Debug.Assert(Delegates.pglUniformMatrix2x3fv != null, "pglUniformMatrix2x3fv not implemented");
+					Delegates.pglUniformMatrix2x3fv(location, count, transpose, p_value);
+					CallLog("glUniformMatrix2x3fv({0}, {1}, {2}, {3})", location, count, transpose, value);
 				}
 			}
 			DebugCheckErrors();
@@ -250,14 +245,9 @@ namespace OpenGL
 			unsafe {
 				fixed (float* p_value = value)
 				{
-					if        (Delegates.pglUniformMatrix3x2fv != null) {
-						Delegates.pglUniformMatrix3x2fv(location, count, transpose, p_value);
-						CallLog("glUniformMatrix3x2fv({0}, {1}, {2}, {3})", location, count, transpose, value);
-					} else if (Delegates.pglUniformMatrix3x2fvNV != null) {
-						Delegates.pglUniformMatrix3x2fvNV(location, count, transpose, p_value);
-						CallLog("glUniformMatrix3x2fvNV({0}, {1}, {2}, {3})", location, count, transpose, value);
-					} else
-						throw new NotImplementedException("glUniformMatrix3x2fv (and other aliases) are not implemented");
+					Debug.Assert(Delegates.pglUniformMatrix3x2fv != null, "pglUniformMatrix3x2fv not implemented");
+					Delegates.pglUniformMatrix3x2fv(location, count, transpose, p_value);
+					CallLog("glUniformMatrix3x2fv({0}, {1}, {2}, {3})", location, count, transpose, value);
 				}
 			}
 			DebugCheckErrors();
@@ -286,14 +276,9 @@ namespace OpenGL
 			unsafe {
 				fixed (float* p_value = value)
 				{
-					if        (Delegates.pglUniformMatrix2x4fv != null) {
-						Delegates.pglUniformMatrix2x4fv(location, count, transpose, p_value);
-						CallLog("glUniformMatrix2x4fv({0}, {1}, {2}, {3})", location, count, transpose, value);
-					} else if (Delegates.pglUniformMatrix2x4fvNV != null) {
-						Delegates.pglUniformMatrix2x4fvNV(location, count, transpose, p_value);
-						CallLog("glUniformMatrix2x4fvNV({0}, {1}, {2}, {3})", location, count, transpose, value);
-					} else
-						throw new NotImplementedException("glUniformMatrix2x4fv (and other aliases) are not implemented");
+					Debug.Assert(Delegates.pglUniformMatrix2x4fv != null, "pglUniformMatrix2x4fv not implemented");
+					Delegates.pglUniformMatrix2x4fv(location, count, transpose, p_value);
+					CallLog("glUniformMatrix2x4fv({0}, {1}, {2}, {3})", location, count, transpose, value);
 				}
 			}
 			DebugCheckErrors();
@@ -322,14 +307,9 @@ namespace OpenGL
 			unsafe {
 				fixed (float* p_value = value)
 				{
-					if        (Delegates.pglUniformMatrix4x2fv != null) {
-						Delegates.pglUniformMatrix4x2fv(location, count, transpose, p_value);
-						CallLog("glUniformMatrix4x2fv({0}, {1}, {2}, {3})", location, count, transpose, value);
-					} else if (Delegates.pglUniformMatrix4x2fvNV != null) {
-						Delegates.pglUniformMatrix4x2fvNV(location, count, transpose, p_value);
-						CallLog("glUniformMatrix4x2fvNV({0}, {1}, {2}, {3})", location, count, transpose, value);
-					} else
-						throw new NotImplementedException("glUniformMatrix4x2fv (and other aliases) are not implemented");
+					Debug.Assert(Delegates.pglUniformMatrix4x2fv != null, "pglUniformMatrix4x2fv not implemented");
+					Delegates.pglUniformMatrix4x2fv(location, count, transpose, p_value);
+					CallLog("glUniformMatrix4x2fv({0}, {1}, {2}, {3})", location, count, transpose, value);
 				}
 			}
 			DebugCheckErrors();
@@ -358,14 +338,9 @@ namespace OpenGL
 			unsafe {
 				fixed (float* p_value = value)
 				{
-					if        (Delegates.pglUniformMatrix3x4fv != null) {
-						Delegates.pglUniformMatrix3x4fv(location, count, transpose, p_value);
-						CallLog("glUniformMatrix3x4fv({0}, {1}, {2}, {3})", location, count, transpose, value);
-					} else if (Delegates.pglUniformMatrix3x4fvNV != null) {
-						Delegates.pglUniformMatrix3x4fvNV(location, count, transpose, p_value);
-						CallLog("glUniformMatrix3x4fvNV({0}, {1}, {2}, {3})", location, count, transpose, value);
-					} else
-						throw new NotImplementedException("glUniformMatrix3x4fv (and other aliases) are not implemented");
+					Debug.Assert(Delegates.pglUniformMatrix3x4fv != null, "pglUniformMatrix3x4fv not implemented");
+					Delegates.pglUniformMatrix3x4fv(location, count, transpose, p_value);
+					CallLog("glUniformMatrix3x4fv({0}, {1}, {2}, {3})", location, count, transpose, value);
 				}
 			}
 			DebugCheckErrors();
@@ -394,14 +369,9 @@ namespace OpenGL
 			unsafe {
 				fixed (float* p_value = value)
 				{
-					if        (Delegates.pglUniformMatrix4x3fv != null) {
-						Delegates.pglUniformMatrix4x3fv(location, count, transpose, p_value);
-						CallLog("glUniformMatrix4x3fv({0}, {1}, {2}, {3})", location, count, transpose, value);
-					} else if (Delegates.pglUniformMatrix4x3fvNV != null) {
-						Delegates.pglUniformMatrix4x3fvNV(location, count, transpose, p_value);
-						CallLog("glUniformMatrix4x3fvNV({0}, {1}, {2}, {3})", location, count, transpose, value);
-					} else
-						throw new NotImplementedException("glUniformMatrix4x3fv (and other aliases) are not implemented");
+					Debug.Assert(Delegates.pglUniformMatrix4x3fv != null, "pglUniformMatrix4x3fv not implemented");
+					Delegates.pglUniformMatrix4x3fv(location, count, transpose, p_value);
+					CallLog("glUniformMatrix4x3fv({0}, {1}, {2}, {3})", location, count, transpose, value);
 				}
 			}
 			DebugCheckErrors();

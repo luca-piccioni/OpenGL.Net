@@ -476,9 +476,6 @@ namespace OpenGL
 					} else if (Delegates.pglGetQueryObjectivARB != null) {
 						Delegates.pglGetQueryObjectivARB(id, pname, p_params);
 						CallLog("glGetQueryObjectivARB({0}, {1}, {2})", id, pname, @params);
-					} else if (Delegates.pglGetQueryObjectivEXT != null) {
-						Delegates.pglGetQueryObjectivEXT(id, pname, p_params);
-						CallLog("glGetQueryObjectivEXT({0}, {1}, {2})", id, pname, @params);
 					} else
 						throw new NotImplementedException("glGetQueryObjectiv (and other aliases) are not implemented");
 				}
@@ -890,9 +887,6 @@ namespace OpenGL
 			} else if (Delegates.pglMapBufferARB != null) {
 				retValue = Delegates.pglMapBufferARB((int)target, (int)access);
 				CallLog("glMapBufferARB({0}, {1}) = {2}", target, access, retValue);
-			} else if (Delegates.pglMapBufferOES != null) {
-				retValue = Delegates.pglMapBufferOES((int)target, (int)access);
-				CallLog("glMapBufferOES({0}, {1}) = {2}", target, access, retValue);
 			} else
 				throw new NotImplementedException("glMapBuffer (and other aliases) are not implemented");
 			DebugCheckErrors();
@@ -918,9 +912,6 @@ namespace OpenGL
 			} else if (Delegates.pglUnmapBufferARB != null) {
 				retValue = Delegates.pglUnmapBufferARB((int)target);
 				CallLog("glUnmapBufferARB({0}) = {1}", target, retValue);
-			} else if (Delegates.pglUnmapBufferOES != null) {
-				retValue = Delegates.pglUnmapBufferOES((int)target);
-				CallLog("glUnmapBufferOES({0}) = {1}", target, retValue);
 			} else
 				throw new NotImplementedException("glUnmapBuffer (and other aliases) are not implemented");
 			DebugCheckErrors();
@@ -1017,9 +1008,6 @@ namespace OpenGL
 					} else if (Delegates.pglGetBufferPointervARB != null) {
 						Delegates.pglGetBufferPointervARB((int)target, pname, p_params);
 						CallLog("glGetBufferPointervARB({0}, {1}, {2})", target, pname, @params);
-					} else if (Delegates.pglGetBufferPointervOES != null) {
-						Delegates.pglGetBufferPointervOES((int)target, pname, p_params);
-						CallLog("glGetBufferPointervOES({0}, {1}, {2})", target, pname, @params);
 					} else
 						throw new NotImplementedException("glGetBufferPointerv (and other aliases) are not implemented");
 				}

@@ -1493,12 +1493,6 @@ namespace OpenGL
 			} else if (Delegates.pglColorMaskIndexedEXT != null) {
 				Delegates.pglColorMaskIndexedEXT(index, r, g, b, a);
 				CallLog("glColorMaskIndexedEXT({0}, {1}, {2}, {3}, {4})", index, r, g, b, a);
-			} else if (Delegates.pglColorMaskiEXT != null) {
-				Delegates.pglColorMaskiEXT(index, r, g, b, a);
-				CallLog("glColorMaskiEXT({0}, {1}, {2}, {3}, {4})", index, r, g, b, a);
-			} else if (Delegates.pglColorMaskiOES != null) {
-				Delegates.pglColorMaskiOES(index, r, g, b, a);
-				CallLog("glColorMaskiOES({0}, {1}, {2}, {3}, {4})", index, r, g, b, a);
 			} else
 				throw new NotImplementedException("glColorMaski (and other aliases) are not implemented");
 			DebugCheckErrors();
@@ -1650,15 +1644,6 @@ namespace OpenGL
 			} else if (Delegates.pglEnableIndexedEXT != null) {
 				Delegates.pglEnableIndexedEXT(target, index);
 				CallLog("glEnableIndexedEXT({0}, {1})", target, index);
-			} else if (Delegates.pglEnableiEXT != null) {
-				Delegates.pglEnableiEXT(target, index);
-				CallLog("glEnableiEXT({0}, {1})", target, index);
-			} else if (Delegates.pglEnableiNV != null) {
-				Delegates.pglEnableiNV(target, index);
-				CallLog("glEnableiNV({0}, {1})", target, index);
-			} else if (Delegates.pglEnableiOES != null) {
-				Delegates.pglEnableiOES(target, index);
-				CallLog("glEnableiOES({0}, {1})", target, index);
 			} else
 				throw new NotImplementedException("glEnablei (and other aliases) are not implemented");
 			DebugCheckErrors();
@@ -1682,15 +1667,6 @@ namespace OpenGL
 			} else if (Delegates.pglDisableIndexedEXT != null) {
 				Delegates.pglDisableIndexedEXT(target, index);
 				CallLog("glDisableIndexedEXT({0}, {1})", target, index);
-			} else if (Delegates.pglDisableiEXT != null) {
-				Delegates.pglDisableiEXT(target, index);
-				CallLog("glDisableiEXT({0}, {1})", target, index);
-			} else if (Delegates.pglDisableiNV != null) {
-				Delegates.pglDisableiNV(target, index);
-				CallLog("glDisableiNV({0}, {1})", target, index);
-			} else if (Delegates.pglDisableiOES != null) {
-				Delegates.pglDisableiOES(target, index);
-				CallLog("glDisableiOES({0}, {1})", target, index);
 			} else
 				throw new NotImplementedException("glDisablei (and other aliases) are not implemented");
 			DebugCheckErrors();
@@ -1716,15 +1692,6 @@ namespace OpenGL
 			} else if (Delegates.pglIsEnabledIndexedEXT != null) {
 				retValue = Delegates.pglIsEnabledIndexedEXT(target, index);
 				CallLog("glIsEnabledIndexedEXT({0}, {1}) = {2}", target, index, retValue);
-			} else if (Delegates.pglIsEnablediEXT != null) {
-				retValue = Delegates.pglIsEnablediEXT(target, index);
-				CallLog("glIsEnablediEXT({0}, {1}) = {2}", target, index, retValue);
-			} else if (Delegates.pglIsEnablediOES != null) {
-				retValue = Delegates.pglIsEnablediOES(target, index);
-				CallLog("glIsEnablediOES({0}, {1}) = {2}", target, index, retValue);
-			} else if (Delegates.pglIsEnablediNV != null) {
-				retValue = Delegates.pglIsEnablediNV(target, index);
-				CallLog("glIsEnablediNV({0}, {1}) = {2}", target, index, retValue);
 			} else
 				throw new NotImplementedException("glIsEnabledi (and other aliases) are not implemented");
 			DebugCheckErrors();
@@ -3048,9 +3015,6 @@ namespace OpenGL
 					} else if (Delegates.pglTexParameterIivEXT != null) {
 						Delegates.pglTexParameterIivEXT((int)target, (int)pname, p_params);
 						CallLog("glTexParameterIivEXT({0}, {1}, {2})", target, pname, @params);
-					} else if (Delegates.pglTexParameterIivOES != null) {
-						Delegates.pglTexParameterIivOES((int)target, (int)pname, p_params);
-						CallLog("glTexParameterIivOES({0}, {1}, {2})", target, pname, @params);
 					} else
 						throw new NotImplementedException("glTexParameterIiv (and other aliases) are not implemented");
 				}
@@ -3082,9 +3046,6 @@ namespace OpenGL
 					} else if (Delegates.pglTexParameterIuivEXT != null) {
 						Delegates.pglTexParameterIuivEXT((int)target, (int)pname, p_params);
 						CallLog("glTexParameterIuivEXT({0}, {1}, {2})", target, pname, @params);
-					} else if (Delegates.pglTexParameterIuivOES != null) {
-						Delegates.pglTexParameterIuivOES((int)target, (int)pname, p_params);
-						CallLog("glTexParameterIuivOES({0}, {1}, {2})", target, pname, @params);
 					} else
 						throw new NotImplementedException("glTexParameterIuiv (and other aliases) are not implemented");
 				}
@@ -3125,9 +3086,6 @@ namespace OpenGL
 					} else if (Delegates.pglGetTexParameterIivEXT != null) {
 						Delegates.pglGetTexParameterIivEXT((int)target, (int)pname, p_params);
 						CallLog("glGetTexParameterIivEXT({0}, {1}, {2})", target, pname, @params);
-					} else if (Delegates.pglGetTexParameterIivOES != null) {
-						Delegates.pglGetTexParameterIivOES((int)target, (int)pname, p_params);
-						CallLog("glGetTexParameterIivOES({0}, {1}, {2})", target, pname, @params);
 					} else
 						throw new NotImplementedException("glGetTexParameterIiv (and other aliases) are not implemented");
 				}
@@ -3168,9 +3126,6 @@ namespace OpenGL
 					} else if (Delegates.pglGetTexParameterIuivEXT != null) {
 						Delegates.pglGetTexParameterIuivEXT((int)target, (int)pname, p_params);
 						CallLog("glGetTexParameterIuivEXT({0}, {1}, {2})", target, pname, @params);
-					} else if (Delegates.pglGetTexParameterIuivOES != null) {
-						Delegates.pglGetTexParameterIuivOES((int)target, (int)pname, p_params);
-						CallLog("glGetTexParameterIuivOES({0}, {1}, {2})", target, pname, @params);
 					} else
 						throw new NotImplementedException("glGetTexParameterIuiv (and other aliases) are not implemented");
 				}
@@ -3720,9 +3675,6 @@ namespace OpenGL
 			} else if (Delegates.pglFramebufferTexture3DEXT != null) {
 				Delegates.pglFramebufferTexture3DEXT(target, attachment, textarget, texture, level, zoffset);
 				CallLog("glFramebufferTexture3DEXT({0}, {1}, {2}, {3}, {4}, {5})", target, attachment, textarget, texture, level, zoffset);
-			} else if (Delegates.pglFramebufferTexture3DOES != null) {
-				Delegates.pglFramebufferTexture3DOES(target, attachment, textarget, texture, level, zoffset);
-				CallLog("glFramebufferTexture3DOES({0}, {1}, {2}, {3}, {4}, {5})", target, attachment, textarget, texture, level, zoffset);
 			} else
 				throw new NotImplementedException("glFramebufferTexture3D (and other aliases) are not implemented");
 			DebugCheckErrors();
@@ -3860,9 +3812,6 @@ namespace OpenGL
 			} else if (Delegates.pglBlitFramebufferEXT != null) {
 				Delegates.pglBlitFramebufferEXT(srcX0, srcY0, srcX1, srcY1, dstX0, dstY0, dstX1, dstY1, (uint)mask, filter);
 				CallLog("glBlitFramebufferEXT({0}, {1}, {2}, {3}, {4}, {5}, {6}, {7}, {8}, {9})", srcX0, srcY0, srcX1, srcY1, dstX0, dstY0, dstX1, dstY1, mask, filter);
-			} else if (Delegates.pglBlitFramebufferNV != null) {
-				Delegates.pglBlitFramebufferNV(srcX0, srcY0, srcX1, srcY1, dstX0, dstY0, dstX1, dstY1, (uint)mask, filter);
-				CallLog("glBlitFramebufferNV({0}, {1}, {2}, {3}, {4}, {5}, {6}, {7}, {8}, {9})", srcX0, srcY0, srcX1, srcY1, dstX0, dstY0, dstX1, dstY1, mask, filter);
 			} else
 				throw new NotImplementedException("glBlitFramebuffer (and other aliases) are not implemented");
 			DebugCheckErrors();
@@ -3896,9 +3845,6 @@ namespace OpenGL
 			} else if (Delegates.pglRenderbufferStorageMultisampleEXT != null) {
 				Delegates.pglRenderbufferStorageMultisampleEXT(target, samples, internalformat, width, height);
 				CallLog("glRenderbufferStorageMultisampleEXT({0}, {1}, {2}, {3}, {4})", target, samples, internalformat, width, height);
-			} else if (Delegates.pglRenderbufferStorageMultisampleNV != null) {
-				Delegates.pglRenderbufferStorageMultisampleNV(target, samples, internalformat, width, height);
-				CallLog("glRenderbufferStorageMultisampleNV({0}, {1}, {2}, {3}, {4})", target, samples, internalformat, width, height);
 			} else
 				throw new NotImplementedException("glRenderbufferStorageMultisample (and other aliases) are not implemented");
 			DebugCheckErrors();
@@ -3962,14 +3908,9 @@ namespace OpenGL
 		{
 			IntPtr retValue;
 
-			if        (Delegates.pglMapBufferRange != null) {
-				retValue = Delegates.pglMapBufferRange((int)target, offset, length, access);
-				CallLog("glMapBufferRange({0}, {1}, {2}, {3}) = {4}", target, offset, length, access, retValue);
-			} else if (Delegates.pglMapBufferRangeEXT != null) {
-				retValue = Delegates.pglMapBufferRangeEXT((int)target, offset, length, access);
-				CallLog("glMapBufferRangeEXT({0}, {1}, {2}, {3}) = {4}", target, offset, length, access, retValue);
-			} else
-				throw new NotImplementedException("glMapBufferRange (and other aliases) are not implemented");
+			Debug.Assert(Delegates.pglMapBufferRange != null, "pglMapBufferRange not implemented");
+			retValue = Delegates.pglMapBufferRange((int)target, offset, length, access);
+			CallLog("glMapBufferRange({0}, {1}, {2}, {3}) = {4}", target, offset, length, access, retValue);
 			DebugCheckErrors();
 
 			return (retValue);
@@ -3998,9 +3939,6 @@ namespace OpenGL
 			} else if (Delegates.pglFlushMappedBufferRangeAPPLE != null) {
 				Delegates.pglFlushMappedBufferRangeAPPLE((int)target, offset, length);
 				CallLog("glFlushMappedBufferRangeAPPLE({0}, {1}, {2})", target, offset, length);
-			} else if (Delegates.pglFlushMappedBufferRangeEXT != null) {
-				Delegates.pglFlushMappedBufferRangeEXT((int)target, offset, length);
-				CallLog("glFlushMappedBufferRangeEXT({0}, {1}, {2})", target, offset, length);
 			} else
 				throw new NotImplementedException("glFlushMappedBufferRange (and other aliases) are not implemented");
 			DebugCheckErrors();
@@ -4016,14 +3954,9 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_vertex_array_object")]
 		public static void BindVertexArray(UInt32 array)
 		{
-			if        (Delegates.pglBindVertexArray != null) {
-				Delegates.pglBindVertexArray(array);
-				CallLog("glBindVertexArray({0})", array);
-			} else if (Delegates.pglBindVertexArrayOES != null) {
-				Delegates.pglBindVertexArrayOES(array);
-				CallLog("glBindVertexArrayOES({0})", array);
-			} else
-				throw new NotImplementedException("glBindVertexArray (and other aliases) are not implemented");
+			Debug.Assert(Delegates.pglBindVertexArray != null, "pglBindVertexArray not implemented");
+			Delegates.pglBindVertexArray(array);
+			CallLog("glBindVertexArray({0})", array);
 			DebugCheckErrors();
 		}
 
@@ -4049,9 +3982,6 @@ namespace OpenGL
 					} else if (Delegates.pglDeleteVertexArraysAPPLE != null) {
 						Delegates.pglDeleteVertexArraysAPPLE((Int32)arrays.Length, p_arrays);
 						CallLog("glDeleteVertexArraysAPPLE({0}, {1})", arrays.Length, arrays);
-					} else if (Delegates.pglDeleteVertexArraysOES != null) {
-						Delegates.pglDeleteVertexArraysOES((Int32)arrays.Length, p_arrays);
-						CallLog("glDeleteVertexArraysOES({0}, {1})", arrays.Length, arrays);
 					} else
 						throw new NotImplementedException("glDeleteVertexArrays (and other aliases) are not implemented");
 				}
@@ -4081,9 +4011,6 @@ namespace OpenGL
 					} else if (Delegates.pglGenVertexArraysAPPLE != null) {
 						Delegates.pglGenVertexArraysAPPLE((Int32)arrays.Length, p_arrays);
 						CallLog("glGenVertexArraysAPPLE({0}, {1})", arrays.Length, arrays);
-					} else if (Delegates.pglGenVertexArraysOES != null) {
-						Delegates.pglGenVertexArraysOES((Int32)arrays.Length, p_arrays);
-						CallLog("glGenVertexArraysOES({0}, {1})", arrays.Length, arrays);
 					} else
 						throw new NotImplementedException("glGenVertexArrays (and other aliases) are not implemented");
 				}
@@ -4121,9 +4048,6 @@ namespace OpenGL
 			} else if (Delegates.pglIsVertexArrayAPPLE != null) {
 				retValue = Delegates.pglIsVertexArrayAPPLE(array);
 				CallLog("glIsVertexArrayAPPLE({0}) = {1}", array, retValue);
-			} else if (Delegates.pglIsVertexArrayOES != null) {
-				retValue = Delegates.pglIsVertexArrayOES(array);
-				CallLog("glIsVertexArrayOES({0}) = {1}", array, retValue);
 			} else
 				throw new NotImplementedException("glIsVertexArray (and other aliases) are not implemented");
 			DebugCheckErrors();

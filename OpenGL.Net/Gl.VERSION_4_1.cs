@@ -448,14 +448,9 @@ namespace OpenGL
 				fixed (Int32* p_length = &length)
 				fixed (int* p_binaryFormat = &binaryFormat)
 				{
-					if        (Delegates.pglGetProgramBinary != null) {
-						Delegates.pglGetProgramBinary(program, bufSize, p_length, p_binaryFormat, binary);
-						CallLog("glGetProgramBinary({0}, {1}, {2}, {3}, {4})", program, bufSize, length, binaryFormat, binary);
-					} else if (Delegates.pglGetProgramBinaryOES != null) {
-						Delegates.pglGetProgramBinaryOES(program, bufSize, p_length, p_binaryFormat, binary);
-						CallLog("glGetProgramBinaryOES({0}, {1}, {2}, {3}, {4})", program, bufSize, length, binaryFormat, binary);
-					} else
-						throw new NotImplementedException("glGetProgramBinary (and other aliases) are not implemented");
+					Debug.Assert(Delegates.pglGetProgramBinary != null, "pglGetProgramBinary not implemented");
+					Delegates.pglGetProgramBinary(program, bufSize, p_length, p_binaryFormat, binary);
+					CallLog("glGetProgramBinary({0}, {1}, {2}, {3}, {4})", program, bufSize, length, binaryFormat, binary);
 				}
 			}
 			DebugCheckErrors();
@@ -510,14 +505,9 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_get_program_binary")]
 		public static void ProgramBinary(UInt32 program, int binaryFormat, IntPtr binary, Int32 length)
 		{
-			if        (Delegates.pglProgramBinary != null) {
-				Delegates.pglProgramBinary(program, binaryFormat, binary, length);
-				CallLog("glProgramBinary({0}, {1}, {2}, {3})", program, binaryFormat, binary, length);
-			} else if (Delegates.pglProgramBinaryOES != null) {
-				Delegates.pglProgramBinaryOES(program, binaryFormat, binary, length);
-				CallLog("glProgramBinaryOES({0}, {1}, {2}, {3})", program, binaryFormat, binary, length);
-			} else
-				throw new NotImplementedException("glProgramBinary (and other aliases) are not implemented");
+			Debug.Assert(Delegates.pglProgramBinary != null, "pglProgramBinary not implemented");
+			Delegates.pglProgramBinary(program, binaryFormat, binary, length);
+			CallLog("glProgramBinary({0}, {1}, {2}, {3})", program, binaryFormat, binary, length);
 			DebugCheckErrors();
 		}
 
@@ -2886,14 +2876,9 @@ namespace OpenGL
 			unsafe {
 				fixed (float* p_v = v)
 				{
-					if        (Delegates.pglViewportArrayv != null) {
-						Delegates.pglViewportArrayv(first, count, p_v);
-						CallLog("glViewportArrayv({0}, {1}, {2})", first, count, v);
-					} else if (Delegates.pglViewportArrayvNV != null) {
-						Delegates.pglViewportArrayvNV(first, count, p_v);
-						CallLog("glViewportArrayvNV({0}, {1}, {2})", first, count, v);
-					} else
-						throw new NotImplementedException("glViewportArrayv (and other aliases) are not implemented");
+					Debug.Assert(Delegates.pglViewportArrayv != null, "pglViewportArrayv not implemented");
+					Delegates.pglViewportArrayv(first, count, p_v);
+					CallLog("glViewportArrayv({0}, {1}, {2})", first, count, v);
 				}
 			}
 			DebugCheckErrors();
@@ -2921,14 +2906,9 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_viewport_array")]
 		public static void ViewportIndexed(UInt32 index, float x, float y, float w, float h)
 		{
-			if        (Delegates.pglViewportIndexedf != null) {
-				Delegates.pglViewportIndexedf(index, x, y, w, h);
-				CallLog("glViewportIndexedf({0}, {1}, {2}, {3}, {4})", index, x, y, w, h);
-			} else if (Delegates.pglViewportIndexedfNV != null) {
-				Delegates.pglViewportIndexedfNV(index, x, y, w, h);
-				CallLog("glViewportIndexedfNV({0}, {1}, {2}, {3}, {4})", index, x, y, w, h);
-			} else
-				throw new NotImplementedException("glViewportIndexedf (and other aliases) are not implemented");
+			Debug.Assert(Delegates.pglViewportIndexedf != null, "pglViewportIndexedf not implemented");
+			Delegates.pglViewportIndexedf(index, x, y, w, h);
+			CallLog("glViewportIndexedf({0}, {1}, {2}, {3}, {4})", index, x, y, w, h);
 			DebugCheckErrors();
 		}
 
@@ -2948,14 +2928,9 @@ namespace OpenGL
 			unsafe {
 				fixed (float* p_v = v)
 				{
-					if        (Delegates.pglViewportIndexedfv != null) {
-						Delegates.pglViewportIndexedfv(index, p_v);
-						CallLog("glViewportIndexedfv({0}, {1})", index, v);
-					} else if (Delegates.pglViewportIndexedfvNV != null) {
-						Delegates.pglViewportIndexedfvNV(index, p_v);
-						CallLog("glViewportIndexedfvNV({0}, {1})", index, v);
-					} else
-						throw new NotImplementedException("glViewportIndexedfv (and other aliases) are not implemented");
+					Debug.Assert(Delegates.pglViewportIndexedfv != null, "pglViewportIndexedfv not implemented");
+					Delegates.pglViewportIndexedfv(index, p_v);
+					CallLog("glViewportIndexedfv({0}, {1})", index, v);
 				}
 			}
 			DebugCheckErrors();
@@ -2980,14 +2955,9 @@ namespace OpenGL
 			unsafe {
 				fixed (Int32* p_v = v)
 				{
-					if        (Delegates.pglScissorArrayv != null) {
-						Delegates.pglScissorArrayv(first, count, p_v);
-						CallLog("glScissorArrayv({0}, {1}, {2})", first, count, v);
-					} else if (Delegates.pglScissorArrayvNV != null) {
-						Delegates.pglScissorArrayvNV(first, count, p_v);
-						CallLog("glScissorArrayvNV({0}, {1}, {2})", first, count, v);
-					} else
-						throw new NotImplementedException("glScissorArrayv (and other aliases) are not implemented");
+					Debug.Assert(Delegates.pglScissorArrayv != null, "pglScissorArrayv not implemented");
+					Delegates.pglScissorArrayv(first, count, p_v);
+					CallLog("glScissorArrayv({0}, {1}, {2})", first, count, v);
 				}
 			}
 			DebugCheckErrors();
@@ -3015,14 +2985,9 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_viewport_array")]
 		public static void ScissorIndexed(UInt32 index, Int32 left, Int32 bottom, Int32 width, Int32 height)
 		{
-			if        (Delegates.pglScissorIndexed != null) {
-				Delegates.pglScissorIndexed(index, left, bottom, width, height);
-				CallLog("glScissorIndexed({0}, {1}, {2}, {3}, {4})", index, left, bottom, width, height);
-			} else if (Delegates.pglScissorIndexedNV != null) {
-				Delegates.pglScissorIndexedNV(index, left, bottom, width, height);
-				CallLog("glScissorIndexedNV({0}, {1}, {2}, {3}, {4})", index, left, bottom, width, height);
-			} else
-				throw new NotImplementedException("glScissorIndexed (and other aliases) are not implemented");
+			Debug.Assert(Delegates.pglScissorIndexed != null, "pglScissorIndexed not implemented");
+			Delegates.pglScissorIndexed(index, left, bottom, width, height);
+			CallLog("glScissorIndexed({0}, {1}, {2}, {3}, {4})", index, left, bottom, width, height);
 			DebugCheckErrors();
 		}
 
@@ -3043,14 +3008,9 @@ namespace OpenGL
 			unsafe {
 				fixed (Int32* p_v = v)
 				{
-					if        (Delegates.pglScissorIndexedv != null) {
-						Delegates.pglScissorIndexedv(index, p_v);
-						CallLog("glScissorIndexedv({0}, {1})", index, v);
-					} else if (Delegates.pglScissorIndexedvNV != null) {
-						Delegates.pglScissorIndexedvNV(index, p_v);
-						CallLog("glScissorIndexedvNV({0}, {1})", index, v);
-					} else
-						throw new NotImplementedException("glScissorIndexedv (and other aliases) are not implemented");
+					Debug.Assert(Delegates.pglScissorIndexedv != null, "pglScissorIndexedv not implemented");
+					Delegates.pglScissorIndexedv(index, p_v);
+					CallLog("glScissorIndexedv({0}, {1})", index, v);
 				}
 			}
 			DebugCheckErrors();
@@ -3131,9 +3091,6 @@ namespace OpenGL
 					} else if (Delegates.pglGetFloatIndexedvEXT != null) {
 						Delegates.pglGetFloatIndexedvEXT(target, index, p_data);
 						CallLog("glGetFloatIndexedvEXT({0}, {1}, {2})", target, index, data);
-					} else if (Delegates.pglGetFloati_vNV != null) {
-						Delegates.pglGetFloati_vNV(target, index, p_data);
-						CallLog("glGetFloati_vNV({0}, {1}, {2})", target, index, data);
 					} else if (Delegates.pglGetFloati_vEXT != null) {
 						Delegates.pglGetFloati_vEXT(target, index, p_data);
 						CallLog("glGetFloati_vEXT({0}, {1}, {2})", target, index, data);
@@ -3170,9 +3127,6 @@ namespace OpenGL
 					} else if (Delegates.pglGetFloatIndexedvEXT != null) {
 						Delegates.pglGetFloatIndexedvEXT(target, index, p_data);
 						CallLog("glGetFloatIndexedvEXT({0}, {1}, {2})", target, index, data);
-					} else if (Delegates.pglGetFloati_vNV != null) {
-						Delegates.pglGetFloati_vNV(target, index, p_data);
-						CallLog("glGetFloati_vNV({0}, {1}, {2})", target, index, data);
 					} else if (Delegates.pglGetFloati_vEXT != null) {
 						Delegates.pglGetFloati_vEXT(target, index, p_data);
 						CallLog("glGetFloati_vEXT({0}, {1}, {2})", target, index, data);

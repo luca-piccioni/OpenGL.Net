@@ -402,9 +402,6 @@ namespace OpenGL
 			} else if (Delegates.pglTexImage3DEXT != null) {
 				Delegates.pglTexImage3DEXT((int)target, level, internalformat, width, height, depth, border, (int)format, (int)type, pixels);
 				CallLog("glTexImage3DEXT({0}, {1}, {2}, {3}, {4}, {5}, {6}, {7}, {8}, {9})", target, level, internalformat, width, height, depth, border, format, type, pixels);
-			} else if (Delegates.pglTexImage3DOES != null) {
-				Delegates.pglTexImage3DOES((int)target, level, internalformat, width, height, depth, border, (int)format, (int)type, pixels);
-				CallLog("glTexImage3DOES({0}, {1}, {2}, {3}, {4}, {5}, {6}, {7}, {8}, {9})", target, level, internalformat, width, height, depth, border, format, type, pixels);
 			} else
 				throw new NotImplementedException("glTexImage3D (and other aliases) are not implemented");
 			DebugCheckErrors();
@@ -520,9 +517,6 @@ namespace OpenGL
 			} else if (Delegates.pglTexSubImage3DEXT != null) {
 				Delegates.pglTexSubImage3DEXT((int)target, level, xoffset, yoffset, zoffset, width, height, depth, (int)format, (int)type, pixels);
 				CallLog("glTexSubImage3DEXT({0}, {1}, {2}, {3}, {4}, {5}, {6}, {7}, {8}, {9}, {10})", target, level, xoffset, yoffset, zoffset, width, height, depth, format, type, pixels);
-			} else if (Delegates.pglTexSubImage3DOES != null) {
-				Delegates.pglTexSubImage3DOES((int)target, level, xoffset, yoffset, zoffset, width, height, depth, (int)format, (int)type, pixels);
-				CallLog("glTexSubImage3DOES({0}, {1}, {2}, {3}, {4}, {5}, {6}, {7}, {8}, {9}, {10})", target, level, xoffset, yoffset, zoffset, width, height, depth, format, type, pixels);
 			} else
 				throw new NotImplementedException("glTexSubImage3D (and other aliases) are not implemented");
 			DebugCheckErrors();
@@ -619,9 +613,6 @@ namespace OpenGL
 			} else if (Delegates.pglCopyTexSubImage3DEXT != null) {
 				Delegates.pglCopyTexSubImage3DEXT((int)target, level, xoffset, yoffset, zoffset, x, y, width, height);
 				CallLog("glCopyTexSubImage3DEXT({0}, {1}, {2}, {3}, {4}, {5}, {6}, {7}, {8})", target, level, xoffset, yoffset, zoffset, x, y, width, height);
-			} else if (Delegates.pglCopyTexSubImage3DOES != null) {
-				Delegates.pglCopyTexSubImage3DOES((int)target, level, xoffset, yoffset, zoffset, x, y, width, height);
-				CallLog("glCopyTexSubImage3DOES({0}, {1}, {2}, {3}, {4}, {5}, {6}, {7}, {8})", target, level, xoffset, yoffset, zoffset, x, y, width, height);
 			} else
 				throw new NotImplementedException("glCopyTexSubImage3D (and other aliases) are not implemented");
 			DebugCheckErrors();

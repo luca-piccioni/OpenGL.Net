@@ -159,7 +159,6 @@
     <Compile Include="Egl.cs" />
     <Compile Include="Egl.Delegates.cs" />
     <Compile Include="Egl.Imports.cs" />
-    <Compile Include="Egl.Orphans.cs" />
     <Compile Include="Egl.VERSION_1_0.cs" />
     <Compile Include="Egl.VERSION_1_1.cs" />
     <Compile Include="Egl.VERSION_1_2.cs" />
@@ -264,7 +263,6 @@
     <Compile Include="Gl.Imports.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Gl.Orphans.cs" />
     <Compile Include="Gl.VERSION_1_0.cs" />
     <Compile Include="Gl.VERSION_1_1.cs" />
     <Compile Include="Gl.VERSION_1_2.cs" />
@@ -556,7 +554,6 @@
     <Compile Include="Wgl.Imports.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Wgl.Orphans.cs" />
     <Compile Include="Wgl.VERSION_1_0.cs" />
     <Compile Include="WindowsDeviceContext.cs" />
     <Compile Include="WIN\Gl.WIN_phong_shading.cs" />

@@ -846,9 +846,6 @@ namespace OpenGL
 			} else if (Delegates.pglCompressedTexImage3DARB != null) {
 				Delegates.pglCompressedTexImage3DARB((int)target, level, internalformat, width, height, depth, border, imageSize, data);
 				CallLog("glCompressedTexImage3DARB({0}, {1}, {2}, {3}, {4}, {5}, {6}, {7}, {8})", target, level, internalformat, width, height, depth, border, imageSize, data);
-			} else if (Delegates.pglCompressedTexImage3DOES != null) {
-				Delegates.pglCompressedTexImage3DOES((int)target, level, internalformat, width, height, depth, border, imageSize, data);
-				CallLog("glCompressedTexImage3DOES({0}, {1}, {2}, {3}, {4}, {5}, {6}, {7}, {8})", target, level, internalformat, width, height, depth, border, imageSize, data);
 			} else
 				throw new NotImplementedException("glCompressedTexImage3D (and other aliases) are not implemented");
 			DebugCheckErrors();
@@ -1119,9 +1116,6 @@ namespace OpenGL
 			} else if (Delegates.pglCompressedTexSubImage3DARB != null) {
 				Delegates.pglCompressedTexSubImage3DARB((int)target, level, xoffset, yoffset, zoffset, width, height, depth, (int)format, imageSize, data);
 				CallLog("glCompressedTexSubImage3DARB({0}, {1}, {2}, {3}, {4}, {5}, {6}, {7}, {8}, {9}, {10})", target, level, xoffset, yoffset, zoffset, width, height, depth, format, imageSize, data);
-			} else if (Delegates.pglCompressedTexSubImage3DOES != null) {
-				Delegates.pglCompressedTexSubImage3DOES((int)target, level, xoffset, yoffset, zoffset, width, height, depth, (int)format, imageSize, data);
-				CallLog("glCompressedTexSubImage3DOES({0}, {1}, {2}, {3}, {4}, {5}, {6}, {7}, {8}, {9}, {10})", target, level, xoffset, yoffset, zoffset, width, height, depth, format, imageSize, data);
 			} else
 				throw new NotImplementedException("glCompressedTexSubImage3D (and other aliases) are not implemented");
 			DebugCheckErrors();

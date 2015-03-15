@@ -3714,14 +3714,9 @@ namespace OpenGL
 		{
 			int retValue;
 
-			if        (Delegates.pglGetGraphicsResetStatus != null) {
-				retValue = Delegates.pglGetGraphicsResetStatus();
-				CallLog("glGetGraphicsResetStatus() = {0}", retValue);
-			} else if (Delegates.pglGetGraphicsResetStatusKHR != null) {
-				retValue = Delegates.pglGetGraphicsResetStatusKHR();
-				CallLog("glGetGraphicsResetStatusKHR() = {0}", retValue);
-			} else
-				throw new NotImplementedException("glGetGraphicsResetStatus (and other aliases) are not implemented");
+			Debug.Assert(Delegates.pglGetGraphicsResetStatus != null, "pglGetGraphicsResetStatus not implemented");
+			retValue = Delegates.pglGetGraphicsResetStatus();
+			CallLog("glGetGraphicsResetStatus() = {0}", retValue);
 			DebugCheckErrors();
 
 			return (retValue);
@@ -3898,14 +3893,9 @@ namespace OpenGL
 			unsafe {
 				fixed (float* p_params = @params)
 				{
-					if        (Delegates.pglGetnUniformfv != null) {
-						Delegates.pglGetnUniformfv(program, location, bufSize, p_params);
-						CallLog("glGetnUniformfv({0}, {1}, {2}, {3})", program, location, bufSize, @params);
-					} else if (Delegates.pglGetnUniformfvKHR != null) {
-						Delegates.pglGetnUniformfvKHR(program, location, bufSize, p_params);
-						CallLog("glGetnUniformfvKHR({0}, {1}, {2}, {3})", program, location, bufSize, @params);
-					} else
-						throw new NotImplementedException("glGetnUniformfv (and other aliases) are not implemented");
+					Debug.Assert(Delegates.pglGetnUniformfv != null, "pglGetnUniformfv not implemented");
+					Delegates.pglGetnUniformfv(program, location, bufSize, p_params);
+					CallLog("glGetnUniformfv({0}, {1}, {2}, {3})", program, location, bufSize, @params);
 				}
 			}
 			DebugCheckErrors();
@@ -3933,14 +3923,9 @@ namespace OpenGL
 			unsafe {
 				fixed (Int32* p_params = @params)
 				{
-					if        (Delegates.pglGetnUniformiv != null) {
-						Delegates.pglGetnUniformiv(program, location, bufSize, p_params);
-						CallLog("glGetnUniformiv({0}, {1}, {2}, {3})", program, location, bufSize, @params);
-					} else if (Delegates.pglGetnUniformivKHR != null) {
-						Delegates.pglGetnUniformivKHR(program, location, bufSize, p_params);
-						CallLog("glGetnUniformivKHR({0}, {1}, {2}, {3})", program, location, bufSize, @params);
-					} else
-						throw new NotImplementedException("glGetnUniformiv (and other aliases) are not implemented");
+					Debug.Assert(Delegates.pglGetnUniformiv != null, "pglGetnUniformiv not implemented");
+					Delegates.pglGetnUniformiv(program, location, bufSize, p_params);
+					CallLog("glGetnUniformiv({0}, {1}, {2}, {3})", program, location, bufSize, @params);
 				}
 			}
 			DebugCheckErrors();
@@ -3968,14 +3953,9 @@ namespace OpenGL
 			unsafe {
 				fixed (UInt32* p_params = @params)
 				{
-					if        (Delegates.pglGetnUniformuiv != null) {
-						Delegates.pglGetnUniformuiv(program, location, bufSize, p_params);
-						CallLog("glGetnUniformuiv({0}, {1}, {2}, {3})", program, location, bufSize, @params);
-					} else if (Delegates.pglGetnUniformuivKHR != null) {
-						Delegates.pglGetnUniformuivKHR(program, location, bufSize, p_params);
-						CallLog("glGetnUniformuivKHR({0}, {1}, {2}, {3})", program, location, bufSize, @params);
-					} else
-						throw new NotImplementedException("glGetnUniformuiv (and other aliases) are not implemented");
+					Debug.Assert(Delegates.pglGetnUniformuiv != null, "pglGetnUniformuiv not implemented");
+					Delegates.pglGetnUniformuiv(program, location, bufSize, p_params);
+					CallLog("glGetnUniformuiv({0}, {1}, {2}, {3})", program, location, bufSize, @params);
 				}
 			}
 			DebugCheckErrors();
@@ -4018,12 +3998,6 @@ namespace OpenGL
 			} else if (Delegates.pglReadnPixelsARB != null) {
 				Delegates.pglReadnPixelsARB(x, y, width, height, format, type, bufSize, data);
 				CallLog("glReadnPixelsARB({0}, {1}, {2}, {3}, {4}, {5}, {6}, {7})", x, y, width, height, format, type, bufSize, data);
-			} else if (Delegates.pglReadnPixelsEXT != null) {
-				Delegates.pglReadnPixelsEXT(x, y, width, height, format, type, bufSize, data);
-				CallLog("glReadnPixelsEXT({0}, {1}, {2}, {3}, {4}, {5}, {6}, {7})", x, y, width, height, format, type, bufSize, data);
-			} else if (Delegates.pglReadnPixelsKHR != null) {
-				Delegates.pglReadnPixelsKHR(x, y, width, height, format, type, bufSize, data);
-				CallLog("glReadnPixelsKHR({0}, {1}, {2}, {3}, {4}, {5}, {6}, {7})", x, y, width, height, format, type, bufSize, data);
 			} else
 				throw new NotImplementedException("glReadnPixels (and other aliases) are not implemented");
 			DebugCheckErrors();

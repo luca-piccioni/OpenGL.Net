@@ -350,11 +350,6 @@ namespace OpenGL
 			internal static wglGetCurrentReadDCEXT pwglGetCurrentReadDCEXT;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate IntPtr wglGetDefaultProcAddress(String lpszProc);
-			[ThreadStatic]
-			internal static wglGetDefaultProcAddress pwglGetDefaultProcAddress;
-
-			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate bool wglGetDigitalVideoParametersI3D(IntPtr hDC, int iAttribute, int* piValue);
 			[ThreadStatic]
 			internal static wglGetDigitalVideoParametersI3D pwglGetDigitalVideoParametersI3D;

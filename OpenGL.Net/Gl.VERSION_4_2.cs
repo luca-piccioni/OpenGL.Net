@@ -803,14 +803,9 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_base_instance")]
 		public static void DrawArraysInstancedBaseInstance(PrimitiveType mode, Int32 first, Int32 count, Int32 instancecount, UInt32 baseinstance)
 		{
-			if        (Delegates.pglDrawArraysInstancedBaseInstance != null) {
-				Delegates.pglDrawArraysInstancedBaseInstance((int)mode, first, count, instancecount, baseinstance);
-				CallLog("glDrawArraysInstancedBaseInstance({0}, {1}, {2}, {3}, {4})", mode, first, count, instancecount, baseinstance);
-			} else if (Delegates.pglDrawArraysInstancedBaseInstanceEXT != null) {
-				Delegates.pglDrawArraysInstancedBaseInstanceEXT((int)mode, first, count, instancecount, baseinstance);
-				CallLog("glDrawArraysInstancedBaseInstanceEXT({0}, {1}, {2}, {3}, {4})", mode, first, count, instancecount, baseinstance);
-			} else
-				throw new NotImplementedException("glDrawArraysInstancedBaseInstance (and other aliases) are not implemented");
+			Debug.Assert(Delegates.pglDrawArraysInstancedBaseInstance != null, "pglDrawArraysInstancedBaseInstance not implemented");
+			Delegates.pglDrawArraysInstancedBaseInstance((int)mode, first, count, instancecount, baseinstance);
+			CallLog("glDrawArraysInstancedBaseInstance({0}, {1}, {2}, {3}, {4})", mode, first, count, instancecount, baseinstance);
 			DebugCheckErrors();
 		}
 
@@ -839,14 +834,9 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_base_instance")]
 		public static void DrawElementsInstancedBaseInstance(PrimitiveType mode, Int32 count, int type, IntPtr indices, Int32 instancecount, UInt32 baseinstance)
 		{
-			if        (Delegates.pglDrawElementsInstancedBaseInstance != null) {
-				Delegates.pglDrawElementsInstancedBaseInstance((int)mode, count, type, indices, instancecount, baseinstance);
-				CallLog("glDrawElementsInstancedBaseInstance({0}, {1}, {2}, {3}, {4}, {5})", mode, count, type, indices, instancecount, baseinstance);
-			} else if (Delegates.pglDrawElementsInstancedBaseInstanceEXT != null) {
-				Delegates.pglDrawElementsInstancedBaseInstanceEXT((int)mode, count, type, indices, instancecount, baseinstance);
-				CallLog("glDrawElementsInstancedBaseInstanceEXT({0}, {1}, {2}, {3}, {4}, {5})", mode, count, type, indices, instancecount, baseinstance);
-			} else
-				throw new NotImplementedException("glDrawElementsInstancedBaseInstance (and other aliases) are not implemented");
+			Debug.Assert(Delegates.pglDrawElementsInstancedBaseInstance != null, "pglDrawElementsInstancedBaseInstance not implemented");
+			Delegates.pglDrawElementsInstancedBaseInstance((int)mode, count, type, indices, instancecount, baseinstance);
+			CallLog("glDrawElementsInstancedBaseInstance({0}, {1}, {2}, {3}, {4}, {5})", mode, count, type, indices, instancecount, baseinstance);
 			DebugCheckErrors();
 		}
 
@@ -911,14 +901,9 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_base_instance")]
 		public static void DrawElementsInstancedBaseVertexBaseInstance(PrimitiveType mode, Int32 count, int type, IntPtr indices, Int32 instancecount, Int32 basevertex, UInt32 baseinstance)
 		{
-			if        (Delegates.pglDrawElementsInstancedBaseVertexBaseInstance != null) {
-				Delegates.pglDrawElementsInstancedBaseVertexBaseInstance((int)mode, count, type, indices, instancecount, basevertex, baseinstance);
-				CallLog("glDrawElementsInstancedBaseVertexBaseInstance({0}, {1}, {2}, {3}, {4}, {5}, {6})", mode, count, type, indices, instancecount, basevertex, baseinstance);
-			} else if (Delegates.pglDrawElementsInstancedBaseVertexBaseInstanceEXT != null) {
-				Delegates.pglDrawElementsInstancedBaseVertexBaseInstanceEXT((int)mode, count, type, indices, instancecount, basevertex, baseinstance);
-				CallLog("glDrawElementsInstancedBaseVertexBaseInstanceEXT({0}, {1}, {2}, {3}, {4}, {5}, {6})", mode, count, type, indices, instancecount, basevertex, baseinstance);
-			} else
-				throw new NotImplementedException("glDrawElementsInstancedBaseVertexBaseInstance (and other aliases) are not implemented");
+			Debug.Assert(Delegates.pglDrawElementsInstancedBaseVertexBaseInstance != null, "pglDrawElementsInstancedBaseVertexBaseInstance not implemented");
+			Delegates.pglDrawElementsInstancedBaseVertexBaseInstance((int)mode, count, type, indices, instancecount, basevertex, baseinstance);
+			CallLog("glDrawElementsInstancedBaseVertexBaseInstance({0}, {1}, {2}, {3}, {4}, {5}, {6})", mode, count, type, indices, instancecount, basevertex, baseinstance);
 			DebugCheckErrors();
 		}
 
@@ -1097,14 +1082,9 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_texture_storage")]
 		public static void TexStorage1D(int target, Int32 levels, int internalformat, Int32 width)
 		{
-			if        (Delegates.pglTexStorage1D != null) {
-				Delegates.pglTexStorage1D(target, levels, internalformat, width);
-				CallLog("glTexStorage1D({0}, {1}, {2}, {3})", target, levels, internalformat, width);
-			} else if (Delegates.pglTexStorage1DEXT != null) {
-				Delegates.pglTexStorage1DEXT(target, levels, internalformat, width);
-				CallLog("glTexStorage1DEXT({0}, {1}, {2}, {3})", target, levels, internalformat, width);
-			} else
-				throw new NotImplementedException("glTexStorage1D (and other aliases) are not implemented");
+			Debug.Assert(Delegates.pglTexStorage1D != null, "pglTexStorage1D not implemented");
+			Delegates.pglTexStorage1D(target, levels, internalformat, width);
+			CallLog("glTexStorage1D({0}, {1}, {2}, {3})", target, levels, internalformat, width);
 			DebugCheckErrors();
 		}
 
@@ -1130,14 +1110,9 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_texture_storage")]
 		public static void TexStorage2D(int target, Int32 levels, int internalformat, Int32 width, Int32 height)
 		{
-			if        (Delegates.pglTexStorage2D != null) {
-				Delegates.pglTexStorage2D(target, levels, internalformat, width, height);
-				CallLog("glTexStorage2D({0}, {1}, {2}, {3}, {4})", target, levels, internalformat, width, height);
-			} else if (Delegates.pglTexStorage2DEXT != null) {
-				Delegates.pglTexStorage2DEXT(target, levels, internalformat, width, height);
-				CallLog("glTexStorage2DEXT({0}, {1}, {2}, {3}, {4})", target, levels, internalformat, width, height);
-			} else
-				throw new NotImplementedException("glTexStorage2D (and other aliases) are not implemented");
+			Debug.Assert(Delegates.pglTexStorage2D != null, "pglTexStorage2D not implemented");
+			Delegates.pglTexStorage2D(target, levels, internalformat, width, height);
+			CallLog("glTexStorage2D({0}, {1}, {2}, {3}, {4})", target, levels, internalformat, width, height);
 			DebugCheckErrors();
 		}
 
@@ -1166,14 +1141,9 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_texture_storage")]
 		public static void TexStorage3D(int target, Int32 levels, int internalformat, Int32 width, Int32 height, Int32 depth)
 		{
-			if        (Delegates.pglTexStorage3D != null) {
-				Delegates.pglTexStorage3D(target, levels, internalformat, width, height, depth);
-				CallLog("glTexStorage3D({0}, {1}, {2}, {3}, {4}, {5})", target, levels, internalformat, width, height, depth);
-			} else if (Delegates.pglTexStorage3DEXT != null) {
-				Delegates.pglTexStorage3DEXT(target, levels, internalformat, width, height, depth);
-				CallLog("glTexStorage3DEXT({0}, {1}, {2}, {3}, {4}, {5})", target, levels, internalformat, width, height, depth);
-			} else
-				throw new NotImplementedException("glTexStorage3D (and other aliases) are not implemented");
+			Debug.Assert(Delegates.pglTexStorage3D != null, "pglTexStorage3D not implemented");
+			Delegates.pglTexStorage3D(target, levels, internalformat, width, height, depth);
+			CallLog("glTexStorage3D({0}, {1}, {2}, {3}, {4}, {5})", target, levels, internalformat, width, height, depth);
 			DebugCheckErrors();
 		}
 

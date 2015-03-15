@@ -4656,9 +4656,6 @@ namespace OpenGL
 					} else if (Delegates.pglGetPointervEXT != null) {
 						Delegates.pglGetPointervEXT((int)pname, p_params);
 						CallLog("glGetPointervEXT({0}, {1})", pname, @params);
-					} else if (Delegates.pglGetPointervKHR != null) {
-						Delegates.pglGetPointervKHR((int)pname, p_params);
-						CallLog("glGetPointervKHR({0}, {1})", pname, @params);
 					} else
 						throw new NotImplementedException("glGetPointerv (and other aliases) are not implemented");
 				}

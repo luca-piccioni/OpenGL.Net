@@ -400,17 +400,9 @@ namespace OpenGL
 			unsafe {
 				fixed (Int32* p_param = param)
 				{
-					if        (Delegates.pglSamplerParameterIiv != null) {
-						Delegates.pglSamplerParameterIiv(sampler, pname, p_param);
-						CallLog("glSamplerParameterIiv({0}, {1}, {2})", sampler, pname, param);
-					} else if (Delegates.pglSamplerParameterIivEXT != null) {
-						Delegates.pglSamplerParameterIivEXT(sampler, pname, p_param);
-						CallLog("glSamplerParameterIivEXT({0}, {1}, {2})", sampler, pname, param);
-					} else if (Delegates.pglSamplerParameterIivOES != null) {
-						Delegates.pglSamplerParameterIivOES(sampler, pname, p_param);
-						CallLog("glSamplerParameterIivOES({0}, {1}, {2})", sampler, pname, param);
-					} else
-						throw new NotImplementedException("glSamplerParameterIiv (and other aliases) are not implemented");
+					Debug.Assert(Delegates.pglSamplerParameterIiv != null, "pglSamplerParameterIiv not implemented");
+					Delegates.pglSamplerParameterIiv(sampler, pname, p_param);
+					CallLog("glSamplerParameterIiv({0}, {1}, {2})", sampler, pname, param);
 				}
 			}
 			DebugCheckErrors();
@@ -435,17 +427,9 @@ namespace OpenGL
 			unsafe {
 				fixed (UInt32* p_param = param)
 				{
-					if        (Delegates.pglSamplerParameterIuiv != null) {
-						Delegates.pglSamplerParameterIuiv(sampler, pname, p_param);
-						CallLog("glSamplerParameterIuiv({0}, {1}, {2})", sampler, pname, param);
-					} else if (Delegates.pglSamplerParameterIuivEXT != null) {
-						Delegates.pglSamplerParameterIuivEXT(sampler, pname, p_param);
-						CallLog("glSamplerParameterIuivEXT({0}, {1}, {2})", sampler, pname, param);
-					} else if (Delegates.pglSamplerParameterIuivOES != null) {
-						Delegates.pglSamplerParameterIuivOES(sampler, pname, p_param);
-						CallLog("glSamplerParameterIuivOES({0}, {1}, {2})", sampler, pname, param);
-					} else
-						throw new NotImplementedException("glSamplerParameterIuiv (and other aliases) are not implemented");
+					Debug.Assert(Delegates.pglSamplerParameterIuiv != null, "pglSamplerParameterIuiv not implemented");
+					Delegates.pglSamplerParameterIuiv(sampler, pname, p_param);
+					CallLog("glSamplerParameterIuiv({0}, {1}, {2})", sampler, pname, param);
 				}
 			}
 			DebugCheckErrors();
@@ -501,17 +485,9 @@ namespace OpenGL
 			unsafe {
 				fixed (Int32* p_params = @params)
 				{
-					if        (Delegates.pglGetSamplerParameterIiv != null) {
-						Delegates.pglGetSamplerParameterIiv(sampler, pname, p_params);
-						CallLog("glGetSamplerParameterIiv({0}, {1}, {2})", sampler, pname, @params);
-					} else if (Delegates.pglGetSamplerParameterIivEXT != null) {
-						Delegates.pglGetSamplerParameterIivEXT(sampler, pname, p_params);
-						CallLog("glGetSamplerParameterIivEXT({0}, {1}, {2})", sampler, pname, @params);
-					} else if (Delegates.pglGetSamplerParameterIivOES != null) {
-						Delegates.pglGetSamplerParameterIivOES(sampler, pname, p_params);
-						CallLog("glGetSamplerParameterIivOES({0}, {1}, {2})", sampler, pname, @params);
-					} else
-						throw new NotImplementedException("glGetSamplerParameterIiv (and other aliases) are not implemented");
+					Debug.Assert(Delegates.pglGetSamplerParameterIiv != null, "pglGetSamplerParameterIiv not implemented");
+					Delegates.pglGetSamplerParameterIiv(sampler, pname, p_params);
+					CallLog("glGetSamplerParameterIiv({0}, {1}, {2})", sampler, pname, @params);
 				}
 			}
 			DebugCheckErrors();
@@ -567,17 +543,9 @@ namespace OpenGL
 			unsafe {
 				fixed (UInt32* p_params = @params)
 				{
-					if        (Delegates.pglGetSamplerParameterIuiv != null) {
-						Delegates.pglGetSamplerParameterIuiv(sampler, pname, p_params);
-						CallLog("glGetSamplerParameterIuiv({0}, {1}, {2})", sampler, pname, @params);
-					} else if (Delegates.pglGetSamplerParameterIuivEXT != null) {
-						Delegates.pglGetSamplerParameterIuivEXT(sampler, pname, p_params);
-						CallLog("glGetSamplerParameterIuivEXT({0}, {1}, {2})", sampler, pname, @params);
-					} else if (Delegates.pglGetSamplerParameterIuivOES != null) {
-						Delegates.pglGetSamplerParameterIuivOES(sampler, pname, p_params);
-						CallLog("glGetSamplerParameterIuivOES({0}, {1}, {2})", sampler, pname, @params);
-					} else
-						throw new NotImplementedException("glGetSamplerParameterIuiv (and other aliases) are not implemented");
+					Debug.Assert(Delegates.pglGetSamplerParameterIuiv != null, "pglGetSamplerParameterIuiv not implemented");
+					Delegates.pglGetSamplerParameterIuiv(sampler, pname, p_params);
+					CallLog("glGetSamplerParameterIuiv({0}, {1}, {2})", sampler, pname, @params);
 				}
 			}
 			DebugCheckErrors();
@@ -596,14 +564,9 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_timer_query")]
 		public static void QueryCounter(UInt32 id, int target)
 		{
-			if        (Delegates.pglQueryCounter != null) {
-				Delegates.pglQueryCounter(id, target);
-				CallLog("glQueryCounter({0}, {1})", id, target);
-			} else if (Delegates.pglQueryCounterEXT != null) {
-				Delegates.pglQueryCounterEXT(id, target);
-				CallLog("glQueryCounterEXT({0}, {1})", id, target);
-			} else
-				throw new NotImplementedException("glQueryCounter (and other aliases) are not implemented");
+			Debug.Assert(Delegates.pglQueryCounter != null, "pglQueryCounter not implemented");
+			Delegates.pglQueryCounter(id, target);
+			CallLog("glQueryCounter({0}, {1})", id, target);
 			DebugCheckErrors();
 		}
 
@@ -688,18 +651,9 @@ namespace OpenGL
 			if        (Delegates.pglVertexAttribDivisor != null) {
 				Delegates.pglVertexAttribDivisor(index, divisor);
 				CallLog("glVertexAttribDivisor({0}, {1})", index, divisor);
-			} else if (Delegates.pglVertexAttribDivisorANGLE != null) {
-				Delegates.pglVertexAttribDivisorANGLE(index, divisor);
-				CallLog("glVertexAttribDivisorANGLE({0}, {1})", index, divisor);
 			} else if (Delegates.pglVertexAttribDivisorARB != null) {
 				Delegates.pglVertexAttribDivisorARB(index, divisor);
 				CallLog("glVertexAttribDivisorARB({0}, {1})", index, divisor);
-			} else if (Delegates.pglVertexAttribDivisorEXT != null) {
-				Delegates.pglVertexAttribDivisorEXT(index, divisor);
-				CallLog("glVertexAttribDivisorEXT({0}, {1})", index, divisor);
-			} else if (Delegates.pglVertexAttribDivisorNV != null) {
-				Delegates.pglVertexAttribDivisorNV(index, divisor);
-				CallLog("glVertexAttribDivisorNV({0}, {1})", index, divisor);
 			} else
 				throw new NotImplementedException("glVertexAttribDivisor (and other aliases) are not implemented");
 			DebugCheckErrors();

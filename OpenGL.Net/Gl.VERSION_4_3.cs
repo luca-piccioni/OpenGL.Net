@@ -2052,17 +2052,9 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_copy_image")]
 		public static void CopyImageSubData(UInt32 srcName, int srcTarget, Int32 srcLevel, Int32 srcX, Int32 srcY, Int32 srcZ, UInt32 dstName, int dstTarget, Int32 dstLevel, Int32 dstX, Int32 dstY, Int32 dstZ, Int32 srcWidth, Int32 srcHeight, Int32 srcDepth)
 		{
-			if        (Delegates.pglCopyImageSubData != null) {
-				Delegates.pglCopyImageSubData(srcName, srcTarget, srcLevel, srcX, srcY, srcZ, dstName, dstTarget, dstLevel, dstX, dstY, dstZ, srcWidth, srcHeight, srcDepth);
-				CallLog("glCopyImageSubData({0}, {1}, {2}, {3}, {4}, {5}, {6}, {7}, {8}, {9}, {10}, {11}, {12}, {13}, {14})", srcName, srcTarget, srcLevel, srcX, srcY, srcZ, dstName, dstTarget, dstLevel, dstX, dstY, dstZ, srcWidth, srcHeight, srcDepth);
-			} else if (Delegates.pglCopyImageSubDataEXT != null) {
-				Delegates.pglCopyImageSubDataEXT(srcName, srcTarget, srcLevel, srcX, srcY, srcZ, dstName, dstTarget, dstLevel, dstX, dstY, dstZ, srcWidth, srcHeight, srcDepth);
-				CallLog("glCopyImageSubDataEXT({0}, {1}, {2}, {3}, {4}, {5}, {6}, {7}, {8}, {9}, {10}, {11}, {12}, {13}, {14})", srcName, srcTarget, srcLevel, srcX, srcY, srcZ, dstName, dstTarget, dstLevel, dstX, dstY, dstZ, srcWidth, srcHeight, srcDepth);
-			} else if (Delegates.pglCopyImageSubDataOES != null) {
-				Delegates.pglCopyImageSubDataOES(srcName, srcTarget, srcLevel, srcX, srcY, srcZ, dstName, dstTarget, dstLevel, dstX, dstY, dstZ, srcWidth, srcHeight, srcDepth);
-				CallLog("glCopyImageSubDataOES({0}, {1}, {2}, {3}, {4}, {5}, {6}, {7}, {8}, {9}, {10}, {11}, {12}, {13}, {14})", srcName, srcTarget, srcLevel, srcX, srcY, srcZ, dstName, dstTarget, dstLevel, dstX, dstY, dstZ, srcWidth, srcHeight, srcDepth);
-			} else
-				throw new NotImplementedException("glCopyImageSubData (and other aliases) are not implemented");
+			Debug.Assert(Delegates.pglCopyImageSubData != null, "pglCopyImageSubData not implemented");
+			Delegates.pglCopyImageSubData(srcName, srcTarget, srcLevel, srcX, srcY, srcZ, dstName, dstTarget, dstLevel, dstX, dstY, dstZ, srcWidth, srcHeight, srcDepth);
+			CallLog("glCopyImageSubData({0}, {1}, {2}, {3}, {4}, {5}, {6}, {7}, {8}, {9}, {10}, {11}, {12}, {13}, {14})", srcName, srcTarget, srcLevel, srcX, srcY, srcZ, dstName, dstTarget, dstLevel, dstX, dstY, dstZ, srcWidth, srcHeight, srcDepth);
 			DebugCheckErrors();
 		}
 
@@ -2337,9 +2329,6 @@ namespace OpenGL
 			} else if (Delegates.pglMultiDrawArraysIndirectAMD != null) {
 				Delegates.pglMultiDrawArraysIndirectAMD(mode, indirect, drawcount, stride);
 				CallLog("glMultiDrawArraysIndirectAMD({0}, {1}, {2}, {3})", mode, indirect, drawcount, stride);
-			} else if (Delegates.pglMultiDrawArraysIndirectEXT != null) {
-				Delegates.pglMultiDrawArraysIndirectEXT(mode, indirect, drawcount, stride);
-				CallLog("glMultiDrawArraysIndirectEXT({0}, {1}, {2}, {3})", mode, indirect, drawcount, stride);
 			} else
 				throw new NotImplementedException("glMultiDrawArraysIndirect (and other aliases) are not implemented");
 			DebugCheckErrors();
@@ -2401,9 +2390,6 @@ namespace OpenGL
 			if        (Delegates.pglMultiDrawElementsIndirect != null) {
 				Delegates.pglMultiDrawElementsIndirect(mode, type, indirect, drawcount, stride);
 				CallLog("glMultiDrawElementsIndirect({0}, {1}, {2}, {3}, {4})", mode, type, indirect, drawcount, stride);
-			} else if (Delegates.pglMultiDrawElementsIndirectEXT != null) {
-				Delegates.pglMultiDrawElementsIndirectEXT(mode, type, indirect, drawcount, stride);
-				CallLog("glMultiDrawElementsIndirectEXT({0}, {1}, {2}, {3}, {4})", mode, type, indirect, drawcount, stride);
 			} else if (Delegates.pglMultiDrawElementsIndirectAMD != null) {
 				Delegates.pglMultiDrawElementsIndirectAMD(mode, type, indirect, drawcount, stride);
 				CallLog("glMultiDrawElementsIndirectAMD({0}, {1}, {2}, {3}, {4})", mode, type, indirect, drawcount, stride);
@@ -2676,17 +2662,9 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_texture_buffer_range")]
 		public static void TexBufferRange(int target, int internalformat, UInt32 buffer, IntPtr offset, UInt32 size)
 		{
-			if        (Delegates.pglTexBufferRange != null) {
-				Delegates.pglTexBufferRange(target, internalformat, buffer, offset, size);
-				CallLog("glTexBufferRange({0}, {1}, {2}, {3}, {4})", target, internalformat, buffer, offset, size);
-			} else if (Delegates.pglTexBufferRangeEXT != null) {
-				Delegates.pglTexBufferRangeEXT(target, internalformat, buffer, offset, size);
-				CallLog("glTexBufferRangeEXT({0}, {1}, {2}, {3}, {4})", target, internalformat, buffer, offset, size);
-			} else if (Delegates.pglTexBufferRangeOES != null) {
-				Delegates.pglTexBufferRangeOES(target, internalformat, buffer, offset, size);
-				CallLog("glTexBufferRangeOES({0}, {1}, {2}, {3}, {4})", target, internalformat, buffer, offset, size);
-			} else
-				throw new NotImplementedException("glTexBufferRange (and other aliases) are not implemented");
+			Debug.Assert(Delegates.pglTexBufferRange != null, "pglTexBufferRange not implemented");
+			Delegates.pglTexBufferRange(target, internalformat, buffer, offset, size);
+			CallLog("glTexBufferRange({0}, {1}, {2}, {3}, {4})", target, internalformat, buffer, offset, size);
 			DebugCheckErrors();
 		}
 
@@ -2753,14 +2731,9 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_texture_storage_multisample")]
 		public static void TexStorage3DMultisample(int target, Int32 samples, int internalformat, Int32 width, Int32 height, Int32 depth, bool fixedsamplelocations)
 		{
-			if        (Delegates.pglTexStorage3DMultisample != null) {
-				Delegates.pglTexStorage3DMultisample(target, samples, internalformat, width, height, depth, fixedsamplelocations);
-				CallLog("glTexStorage3DMultisample({0}, {1}, {2}, {3}, {4}, {5}, {6})", target, samples, internalformat, width, height, depth, fixedsamplelocations);
-			} else if (Delegates.pglTexStorage3DMultisampleOES != null) {
-				Delegates.pglTexStorage3DMultisampleOES(target, samples, internalformat, width, height, depth, fixedsamplelocations);
-				CallLog("glTexStorage3DMultisampleOES({0}, {1}, {2}, {3}, {4}, {5}, {6})", target, samples, internalformat, width, height, depth, fixedsamplelocations);
-			} else
-				throw new NotImplementedException("glTexStorage3DMultisample (and other aliases) are not implemented");
+			Debug.Assert(Delegates.pglTexStorage3DMultisample != null, "pglTexStorage3DMultisample not implemented");
+			Delegates.pglTexStorage3DMultisample(target, samples, internalformat, width, height, depth, fixedsamplelocations);
+			CallLog("glTexStorage3DMultisample({0}, {1}, {2}, {3}, {4}, {5}, {6})", target, samples, internalformat, width, height, depth, fixedsamplelocations);
 			DebugCheckErrors();
 		}
 
@@ -2795,17 +2768,9 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_texture_view")]
 		public static void Texture(UInt32 texture, int target, UInt32 origtexture, int internalformat, UInt32 minlevel, UInt32 numlevels, UInt32 minlayer, UInt32 numlayers)
 		{
-			if        (Delegates.pglTextureView != null) {
-				Delegates.pglTextureView(texture, target, origtexture, internalformat, minlevel, numlevels, minlayer, numlayers);
-				CallLog("glTextureView({0}, {1}, {2}, {3}, {4}, {5}, {6}, {7})", texture, target, origtexture, internalformat, minlevel, numlevels, minlayer, numlayers);
-			} else if (Delegates.pglTextureViewEXT != null) {
-				Delegates.pglTextureViewEXT(texture, target, origtexture, internalformat, minlevel, numlevels, minlayer, numlayers);
-				CallLog("glTextureViewEXT({0}, {1}, {2}, {3}, {4}, {5}, {6}, {7})", texture, target, origtexture, internalformat, minlevel, numlevels, minlayer, numlayers);
-			} else if (Delegates.pglTextureViewOES != null) {
-				Delegates.pglTextureViewOES(texture, target, origtexture, internalformat, minlevel, numlevels, minlayer, numlayers);
-				CallLog("glTextureViewOES({0}, {1}, {2}, {3}, {4}, {5}, {6}, {7})", texture, target, origtexture, internalformat, minlevel, numlevels, minlayer, numlayers);
-			} else
-				throw new NotImplementedException("glTextureView (and other aliases) are not implemented");
+			Debug.Assert(Delegates.pglTextureView != null, "pglTextureView not implemented");
+			Delegates.pglTextureView(texture, target, origtexture, internalformat, minlevel, numlevels, minlayer, numlayers);
+			CallLog("glTextureView({0}, {1}, {2}, {3}, {4}, {5}, {6}, {7})", texture, target, origtexture, internalformat, minlevel, numlevels, minlayer, numlayers);
 			DebugCheckErrors();
 		}
 
@@ -2984,9 +2949,6 @@ namespace OpenGL
 					} else if (Delegates.pglDebugMessageControlARB != null) {
 						Delegates.pglDebugMessageControlARB(source, type, severity, (Int32)ids.Length, p_ids, enabled);
 						CallLog("glDebugMessageControlARB({0}, {1}, {2}, {3}, {4}, {5})", source, type, severity, ids.Length, ids, enabled);
-					} else if (Delegates.pglDebugMessageControlKHR != null) {
-						Delegates.pglDebugMessageControlKHR(source, type, severity, (Int32)ids.Length, p_ids, enabled);
-						CallLog("glDebugMessageControlKHR({0}, {1}, {2}, {3}, {4}, {5})", source, type, severity, ids.Length, ids, enabled);
 					} else
 						throw new NotImplementedException("glDebugMessageControl (and other aliases) are not implemented");
 				}
@@ -3025,9 +2987,6 @@ namespace OpenGL
 			} else if (Delegates.pglDebugMessageInsertARB != null) {
 				Delegates.pglDebugMessageInsertARB(source, type, id, severity, length, buf);
 				CallLog("glDebugMessageInsertARB({0}, {1}, {2}, {3}, {4}, {5})", source, type, id, severity, length, buf);
-			} else if (Delegates.pglDebugMessageInsertKHR != null) {
-				Delegates.pglDebugMessageInsertKHR(source, type, id, severity, length, buf);
-				CallLog("glDebugMessageInsertKHR({0}, {1}, {2}, {3}, {4}, {5})", source, type, id, severity, length, buf);
 			} else
 				throw new NotImplementedException("glDebugMessageInsert (and other aliases) are not implemented");
 			DebugCheckErrors();
@@ -3052,9 +3011,6 @@ namespace OpenGL
 			} else if (Delegates.pglDebugMessageCallbackARB != null) {
 				Delegates.pglDebugMessageCallbackARB(callback, userParam);
 				CallLog("glDebugMessageCallbackARB({0}, {1})", callback, userParam);
-			} else if (Delegates.pglDebugMessageCallbackKHR != null) {
-				Delegates.pglDebugMessageCallbackKHR(callback, userParam);
-				CallLog("glDebugMessageCallbackKHR({0}, {1})", callback, userParam);
 			} else
 				throw new NotImplementedException("glDebugMessageCallback (and other aliases) are not implemented");
 			DebugCheckErrors();
@@ -3127,9 +3083,6 @@ namespace OpenGL
 					} else if (Delegates.pglGetDebugMessageLogARB != null) {
 						retValue = Delegates.pglGetDebugMessageLogARB((UInt32)sources.Length, bufSize, p_sources, p_types, p_ids, p_severities, p_lengths, messageLog);
 						CallLog("glGetDebugMessageLogARB({0}, {1}, {2}, {3}, {4}, {5}, {6}, {7}) = {8}", sources.Length, bufSize, sources, types, ids, severities, lengths, messageLog, retValue);
-					} else if (Delegates.pglGetDebugMessageLogKHR != null) {
-						retValue = Delegates.pglGetDebugMessageLogKHR((UInt32)sources.Length, bufSize, p_sources, p_types, p_ids, p_severities, p_lengths, messageLog);
-						CallLog("glGetDebugMessageLogKHR({0}, {1}, {2}, {3}, {4}, {5}, {6}, {7}) = {8}", sources.Length, bufSize, sources, types, ids, severities, lengths, messageLog, retValue);
 					} else
 						throw new NotImplementedException("glGetDebugMessageLog (and other aliases) are not implemented");
 				}
@@ -3158,14 +3111,9 @@ namespace OpenGL
 		[RequiredByFeature("GL_KHR_debug")]
 		public static void PushDebugGroup(int source, UInt32 id, Int32 length, String message)
 		{
-			if        (Delegates.pglPushDebugGroup != null) {
-				Delegates.pglPushDebugGroup(source, id, length, message);
-				CallLog("glPushDebugGroup({0}, {1}, {2}, {3})", source, id, length, message);
-			} else if (Delegates.pglPushDebugGroupKHR != null) {
-				Delegates.pglPushDebugGroupKHR(source, id, length, message);
-				CallLog("glPushDebugGroupKHR({0}, {1}, {2}, {3})", source, id, length, message);
-			} else
-				throw new NotImplementedException("glPushDebugGroup (and other aliases) are not implemented");
+			Debug.Assert(Delegates.pglPushDebugGroup != null, "pglPushDebugGroup not implemented");
+			Delegates.pglPushDebugGroup(source, id, length, message);
+			CallLog("glPushDebugGroup({0}, {1}, {2}, {3})", source, id, length, message);
 			DebugCheckErrors();
 		}
 
@@ -3176,14 +3124,9 @@ namespace OpenGL
 		[RequiredByFeature("GL_KHR_debug")]
 		public static void PopDebugGroup()
 		{
-			if        (Delegates.pglPopDebugGroup != null) {
-				Delegates.pglPopDebugGroup();
-				CallLog("glPopDebugGroup()");
-			} else if (Delegates.pglPopDebugGroupKHR != null) {
-				Delegates.pglPopDebugGroupKHR();
-				CallLog("glPopDebugGroupKHR()");
-			} else
-				throw new NotImplementedException("glPopDebugGroup (and other aliases) are not implemented");
+			Debug.Assert(Delegates.pglPopDebugGroup != null, "pglPopDebugGroup not implemented");
+			Delegates.pglPopDebugGroup();
+			CallLog("glPopDebugGroup()");
 			DebugCheckErrors();
 		}
 
@@ -3206,14 +3149,9 @@ namespace OpenGL
 		[RequiredByFeature("GL_KHR_debug")]
 		public static void Object(int identifier, UInt32 name, Int32 length, String label)
 		{
-			if        (Delegates.pglObjectLabel != null) {
-				Delegates.pglObjectLabel(identifier, name, length, label);
-				CallLog("glObjectLabel({0}, {1}, {2}, {3})", identifier, name, length, label);
-			} else if (Delegates.pglObjectLabelKHR != null) {
-				Delegates.pglObjectLabelKHR(identifier, name, length, label);
-				CallLog("glObjectLabelKHR({0}, {1}, {2}, {3})", identifier, name, length, label);
-			} else
-				throw new NotImplementedException("glObjectLabel (and other aliases) are not implemented");
+			Debug.Assert(Delegates.pglObjectLabel != null, "pglObjectLabel not implemented");
+			Delegates.pglObjectLabel(identifier, name, length, label);
+			CallLog("glObjectLabel({0}, {1}, {2}, {3})", identifier, name, length, label);
 			DebugCheckErrors();
 		}
 
@@ -3242,14 +3180,9 @@ namespace OpenGL
 			unsafe {
 				fixed (Int32* p_length = &length)
 				{
-					if        (Delegates.pglGetObjectLabel != null) {
-						Delegates.pglGetObjectLabel(identifier, name, bufSize, p_length, label);
-						CallLog("glGetObjectLabel({0}, {1}, {2}, {3}, {4})", identifier, name, bufSize, length, label);
-					} else if (Delegates.pglGetObjectLabelKHR != null) {
-						Delegates.pglGetObjectLabelKHR(identifier, name, bufSize, p_length, label);
-						CallLog("glGetObjectLabelKHR({0}, {1}, {2}, {3}, {4})", identifier, name, bufSize, length, label);
-					} else
-						throw new NotImplementedException("glGetObjectLabel (and other aliases) are not implemented");
+					Debug.Assert(Delegates.pglGetObjectLabel != null, "pglGetObjectLabel not implemented");
+					Delegates.pglGetObjectLabel(identifier, name, bufSize, p_length, label);
+					CallLog("glGetObjectLabel({0}, {1}, {2}, {3}, {4})", identifier, name, bufSize, length, label);
 				}
 			}
 			DebugCheckErrors();
@@ -3271,14 +3204,9 @@ namespace OpenGL
 		[RequiredByFeature("GL_KHR_debug")]
 		public static void Object(IntPtr ptr, Int32 length, String label)
 		{
-			if        (Delegates.pglObjectPtrLabel != null) {
-				Delegates.pglObjectPtrLabel(ptr, length, label);
-				CallLog("glObjectPtrLabel({0}, {1}, {2})", ptr, length, label);
-			} else if (Delegates.pglObjectPtrLabelKHR != null) {
-				Delegates.pglObjectPtrLabelKHR(ptr, length, label);
-				CallLog("glObjectPtrLabelKHR({0}, {1}, {2})", ptr, length, label);
-			} else
-				throw new NotImplementedException("glObjectPtrLabel (and other aliases) are not implemented");
+			Debug.Assert(Delegates.pglObjectPtrLabel != null, "pglObjectPtrLabel not implemented");
+			Delegates.pglObjectPtrLabel(ptr, length, label);
+			CallLog("glObjectPtrLabel({0}, {1}, {2})", ptr, length, label);
 			DebugCheckErrors();
 		}
 
@@ -3328,14 +3256,9 @@ namespace OpenGL
 			unsafe {
 				fixed (Int32* p_length = &length)
 				{
-					if        (Delegates.pglGetObjectPtrLabel != null) {
-						Delegates.pglGetObjectPtrLabel(ptr, bufSize, p_length, label);
-						CallLog("glGetObjectPtrLabel({0}, {1}, {2}, {3})", ptr, bufSize, length, label);
-					} else if (Delegates.pglGetObjectPtrLabelKHR != null) {
-						Delegates.pglGetObjectPtrLabelKHR(ptr, bufSize, p_length, label);
-						CallLog("glGetObjectPtrLabelKHR({0}, {1}, {2}, {3})", ptr, bufSize, length, label);
-					} else
-						throw new NotImplementedException("glGetObjectPtrLabel (and other aliases) are not implemented");
+					Debug.Assert(Delegates.pglGetObjectPtrLabel != null, "pglGetObjectPtrLabel not implemented");
+					Delegates.pglGetObjectPtrLabel(ptr, bufSize, p_length, label);
+					CallLog("glGetObjectPtrLabel({0}, {1}, {2}, {3})", ptr, bufSize, length, label);
 				}
 			}
 			DebugCheckErrors();

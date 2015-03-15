@@ -589,9 +589,6 @@ namespace OpenGL
 			} else if (Delegates.pglMinSampleShadingARB != null) {
 				Delegates.pglMinSampleShadingARB(value);
 				CallLog("glMinSampleShadingARB({0})", value);
-			} else if (Delegates.pglMinSampleShadingOES != null) {
-				Delegates.pglMinSampleShadingOES(value);
-				CallLog("glMinSampleShadingOES({0})", value);
 			} else
 				throw new NotImplementedException("glMinSampleShading (and other aliases) are not implemented");
 			DebugCheckErrors();
@@ -618,12 +615,6 @@ namespace OpenGL
 			} else if (Delegates.pglBlendEquationiARB != null) {
 				Delegates.pglBlendEquationiARB(buf, mode);
 				CallLog("glBlendEquationiARB({0}, {1})", buf, mode);
-			} else if (Delegates.pglBlendEquationiEXT != null) {
-				Delegates.pglBlendEquationiEXT(buf, mode);
-				CallLog("glBlendEquationiEXT({0}, {1})", buf, mode);
-			} else if (Delegates.pglBlendEquationiOES != null) {
-				Delegates.pglBlendEquationiOES(buf, mode);
-				CallLog("glBlendEquationiOES({0}, {1})", buf, mode);
 			} else
 				throw new NotImplementedException("glBlendEquationi (and other aliases) are not implemented");
 			DebugCheckErrors();
@@ -653,12 +644,6 @@ namespace OpenGL
 			} else if (Delegates.pglBlendEquationSeparateiARB != null) {
 				Delegates.pglBlendEquationSeparateiARB(buf, modeRGB, modeAlpha);
 				CallLog("glBlendEquationSeparateiARB({0}, {1}, {2})", buf, modeRGB, modeAlpha);
-			} else if (Delegates.pglBlendEquationSeparateiEXT != null) {
-				Delegates.pglBlendEquationSeparateiEXT(buf, modeRGB, modeAlpha);
-				CallLog("glBlendEquationSeparateiEXT({0}, {1}, {2})", buf, modeRGB, modeAlpha);
-			} else if (Delegates.pglBlendEquationSeparateiOES != null) {
-				Delegates.pglBlendEquationSeparateiOES(buf, modeRGB, modeAlpha);
-				CallLog("glBlendEquationSeparateiOES({0}, {1}, {2})", buf, modeRGB, modeAlpha);
 			} else
 				throw new NotImplementedException("glBlendEquationSeparatei (and other aliases) are not implemented");
 			DebugCheckErrors();
@@ -688,12 +673,6 @@ namespace OpenGL
 			} else if (Delegates.pglBlendFunciARB != null) {
 				Delegates.pglBlendFunciARB(buf, src, dst);
 				CallLog("glBlendFunciARB({0}, {1}, {2})", buf, src, dst);
-			} else if (Delegates.pglBlendFunciEXT != null) {
-				Delegates.pglBlendFunciEXT(buf, src, dst);
-				CallLog("glBlendFunciEXT({0}, {1}, {2})", buf, src, dst);
-			} else if (Delegates.pglBlendFunciOES != null) {
-				Delegates.pglBlendFunciOES(buf, src, dst);
-				CallLog("glBlendFunciOES({0}, {1}, {2})", buf, src, dst);
 			} else
 				throw new NotImplementedException("glBlendFunci (and other aliases) are not implemented");
 			DebugCheckErrors();
@@ -729,12 +708,6 @@ namespace OpenGL
 			} else if (Delegates.pglBlendFuncSeparateiARB != null) {
 				Delegates.pglBlendFuncSeparateiARB(buf, srcRGB, dstRGB, srcAlpha, dstAlpha);
 				CallLog("glBlendFuncSeparateiARB({0}, {1}, {2}, {3}, {4})", buf, srcRGB, dstRGB, srcAlpha, dstAlpha);
-			} else if (Delegates.pglBlendFuncSeparateiEXT != null) {
-				Delegates.pglBlendFuncSeparateiEXT(buf, srcRGB, dstRGB, srcAlpha, dstAlpha);
-				CallLog("glBlendFuncSeparateiEXT({0}, {1}, {2}, {3}, {4})", buf, srcRGB, dstRGB, srcAlpha, dstAlpha);
-			} else if (Delegates.pglBlendFuncSeparateiOES != null) {
-				Delegates.pglBlendFuncSeparateiOES(buf, srcRGB, dstRGB, srcAlpha, dstAlpha);
-				CallLog("glBlendFuncSeparateiOES({0}, {1}, {2}, {3}, {4})", buf, srcRGB, dstRGB, srcAlpha, dstAlpha);
 			} else
 				throw new NotImplementedException("glBlendFuncSeparatei (and other aliases) are not implemented");
 			DebugCheckErrors();
@@ -1598,17 +1571,9 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_tessellation_shader")]
 		public static void PatchParameter(int pname, Int32 value)
 		{
-			if        (Delegates.pglPatchParameteri != null) {
-				Delegates.pglPatchParameteri(pname, value);
-				CallLog("glPatchParameteri({0}, {1})", pname, value);
-			} else if (Delegates.pglPatchParameteriEXT != null) {
-				Delegates.pglPatchParameteriEXT(pname, value);
-				CallLog("glPatchParameteriEXT({0}, {1})", pname, value);
-			} else if (Delegates.pglPatchParameteriOES != null) {
-				Delegates.pglPatchParameteriOES(pname, value);
-				CallLog("glPatchParameteriOES({0}, {1})", pname, value);
-			} else
-				throw new NotImplementedException("glPatchParameteri (and other aliases) are not implemented");
+			Debug.Assert(Delegates.pglPatchParameteri != null, "pglPatchParameteri not implemented");
+			Delegates.pglPatchParameteri(pname, value);
+			CallLog("glPatchParameteri({0}, {1})", pname, value);
 			DebugCheckErrors();
 		}
 

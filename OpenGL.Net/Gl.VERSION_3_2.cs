@@ -483,17 +483,9 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_draw_elements_base_vertex")]
 		public static void DrawElementsBaseVertex(PrimitiveType mode, Int32 count, DrawElementsType type, IntPtr indices, Int32 basevertex)
 		{
-			if        (Delegates.pglDrawElementsBaseVertex != null) {
-				Delegates.pglDrawElementsBaseVertex((int)mode, count, (int)type, indices, basevertex);
-				CallLog("glDrawElementsBaseVertex({0}, {1}, {2}, {3}, {4})", mode, count, type, indices, basevertex);
-			} else if (Delegates.pglDrawElementsBaseVertexEXT != null) {
-				Delegates.pglDrawElementsBaseVertexEXT((int)mode, count, (int)type, indices, basevertex);
-				CallLog("glDrawElementsBaseVertexEXT({0}, {1}, {2}, {3}, {4})", mode, count, type, indices, basevertex);
-			} else if (Delegates.pglDrawElementsBaseVertexOES != null) {
-				Delegates.pglDrawElementsBaseVertexOES((int)mode, count, (int)type, indices, basevertex);
-				CallLog("glDrawElementsBaseVertexOES({0}, {1}, {2}, {3}, {4})", mode, count, type, indices, basevertex);
-			} else
-				throw new NotImplementedException("glDrawElementsBaseVertex (and other aliases) are not implemented");
+			Debug.Assert(Delegates.pglDrawElementsBaseVertex != null, "pglDrawElementsBaseVertex not implemented");
+			Delegates.pglDrawElementsBaseVertex((int)mode, count, (int)type, indices, basevertex);
+			CallLog("glDrawElementsBaseVertex({0}, {1}, {2}, {3}, {4})", mode, count, type, indices, basevertex);
 			DebugCheckErrors();
 		}
 
@@ -561,17 +553,9 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_draw_elements_base_vertex")]
 		public static void DrawRangeElementsBaseVertex(PrimitiveType mode, UInt32 start, UInt32 end, Int32 count, DrawElementsType type, IntPtr indices, Int32 basevertex)
 		{
-			if        (Delegates.pglDrawRangeElementsBaseVertex != null) {
-				Delegates.pglDrawRangeElementsBaseVertex((int)mode, start, end, count, (int)type, indices, basevertex);
-				CallLog("glDrawRangeElementsBaseVertex({0}, {1}, {2}, {3}, {4}, {5}, {6})", mode, start, end, count, type, indices, basevertex);
-			} else if (Delegates.pglDrawRangeElementsBaseVertexEXT != null) {
-				Delegates.pglDrawRangeElementsBaseVertexEXT((int)mode, start, end, count, (int)type, indices, basevertex);
-				CallLog("glDrawRangeElementsBaseVertexEXT({0}, {1}, {2}, {3}, {4}, {5}, {6})", mode, start, end, count, type, indices, basevertex);
-			} else if (Delegates.pglDrawRangeElementsBaseVertexOES != null) {
-				Delegates.pglDrawRangeElementsBaseVertexOES((int)mode, start, end, count, (int)type, indices, basevertex);
-				CallLog("glDrawRangeElementsBaseVertexOES({0}, {1}, {2}, {3}, {4}, {5}, {6})", mode, start, end, count, type, indices, basevertex);
-			} else
-				throw new NotImplementedException("glDrawRangeElementsBaseVertex (and other aliases) are not implemented");
+			Debug.Assert(Delegates.pglDrawRangeElementsBaseVertex != null, "pglDrawRangeElementsBaseVertex not implemented");
+			Delegates.pglDrawRangeElementsBaseVertex((int)mode, start, end, count, (int)type, indices, basevertex);
+			CallLog("glDrawRangeElementsBaseVertex({0}, {1}, {2}, {3}, {4}, {5}, {6})", mode, start, end, count, type, indices, basevertex);
 			DebugCheckErrors();
 		}
 
@@ -642,17 +626,9 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_draw_elements_base_vertex")]
 		public static void DrawElementsInstancedBaseVertex(PrimitiveType mode, Int32 count, DrawElementsType type, IntPtr indices, Int32 instancecount, Int32 basevertex)
 		{
-			if        (Delegates.pglDrawElementsInstancedBaseVertex != null) {
-				Delegates.pglDrawElementsInstancedBaseVertex((int)mode, count, (int)type, indices, instancecount, basevertex);
-				CallLog("glDrawElementsInstancedBaseVertex({0}, {1}, {2}, {3}, {4}, {5})", mode, count, type, indices, instancecount, basevertex);
-			} else if (Delegates.pglDrawElementsInstancedBaseVertexEXT != null) {
-				Delegates.pglDrawElementsInstancedBaseVertexEXT((int)mode, count, (int)type, indices, instancecount, basevertex);
-				CallLog("glDrawElementsInstancedBaseVertexEXT({0}, {1}, {2}, {3}, {4}, {5})", mode, count, type, indices, instancecount, basevertex);
-			} else if (Delegates.pglDrawElementsInstancedBaseVertexOES != null) {
-				Delegates.pglDrawElementsInstancedBaseVertexOES((int)mode, count, (int)type, indices, instancecount, basevertex);
-				CallLog("glDrawElementsInstancedBaseVertexOES({0}, {1}, {2}, {3}, {4}, {5})", mode, count, type, indices, instancecount, basevertex);
-			} else
-				throw new NotImplementedException("glDrawElementsInstancedBaseVertex (and other aliases) are not implemented");
+			Debug.Assert(Delegates.pglDrawElementsInstancedBaseVertex != null, "pglDrawElementsInstancedBaseVertex not implemented");
+			Delegates.pglDrawElementsInstancedBaseVertex((int)mode, count, (int)type, indices, instancecount, basevertex);
+			CallLog("glDrawElementsInstancedBaseVertex({0}, {1}, {2}, {3}, {4}, {5})", mode, count, type, indices, instancecount, basevertex);
 			DebugCheckErrors();
 		}
 
@@ -724,17 +700,9 @@ namespace OpenGL
 				fixed (IntPtr* p_indices = indices)
 				fixed (Int32* p_basevertex = basevertex)
 				{
-					if        (Delegates.pglMultiDrawElementsBaseVertex != null) {
-						Delegates.pglMultiDrawElementsBaseVertex(mode, p_count, (int)type, p_indices, drawcount, p_basevertex);
-						CallLog("glMultiDrawElementsBaseVertex({0}, {1}, {2}, {3}, {4}, {5})", mode, count, type, indices, drawcount, basevertex);
-					} else if (Delegates.pglMultiDrawElementsBaseVertexEXT != null) {
-						Delegates.pglMultiDrawElementsBaseVertexEXT(mode, p_count, (int)type, p_indices, drawcount, p_basevertex);
-						CallLog("glMultiDrawElementsBaseVertexEXT({0}, {1}, {2}, {3}, {4}, {5})", mode, count, type, indices, drawcount, basevertex);
-					} else if (Delegates.pglMultiDrawElementsBaseVertexOES != null) {
-						Delegates.pglMultiDrawElementsBaseVertexOES(mode, p_count, (int)type, p_indices, drawcount, p_basevertex);
-						CallLog("glMultiDrawElementsBaseVertexOES({0}, {1}, {2}, {3}, {4}, {5})", mode, count, type, indices, drawcount, basevertex);
-					} else
-						throw new NotImplementedException("glMultiDrawElementsBaseVertex (and other aliases) are not implemented");
+					Debug.Assert(Delegates.pglMultiDrawElementsBaseVertex != null, "pglMultiDrawElementsBaseVertex not implemented");
+					Delegates.pglMultiDrawElementsBaseVertex(mode, p_count, (int)type, p_indices, drawcount, p_basevertex);
+					CallLog("glMultiDrawElementsBaseVertex({0}, {1}, {2}, {3}, {4}, {5})", mode, count, type, indices, drawcount, basevertex);
 				}
 			}
 			DebugCheckErrors();
@@ -779,14 +747,9 @@ namespace OpenGL
 		{
 			int retValue;
 
-			if        (Delegates.pglFenceSync != null) {
-				retValue = Delegates.pglFenceSync(condition, flags);
-				CallLog("glFenceSync({0}, {1}) = {2}", condition, flags, retValue);
-			} else if (Delegates.pglFenceSyncAPPLE != null) {
-				retValue = Delegates.pglFenceSyncAPPLE(condition, flags);
-				CallLog("glFenceSyncAPPLE({0}, {1}) = {2}", condition, flags, retValue);
-			} else
-				throw new NotImplementedException("glFenceSync (and other aliases) are not implemented");
+			Debug.Assert(Delegates.pglFenceSync != null, "pglFenceSync not implemented");
+			retValue = Delegates.pglFenceSync(condition, flags);
+			CallLog("glFenceSync({0}, {1}) = {2}", condition, flags, retValue);
 			DebugCheckErrors();
 
 			return (retValue);
@@ -804,14 +767,9 @@ namespace OpenGL
 		{
 			bool retValue;
 
-			if        (Delegates.pglIsSync != null) {
-				retValue = Delegates.pglIsSync(sync);
-				CallLog("glIsSync({0}) = {1}", sync, retValue);
-			} else if (Delegates.pglIsSyncAPPLE != null) {
-				retValue = Delegates.pglIsSyncAPPLE(sync);
-				CallLog("glIsSyncAPPLE({0}) = {1}", sync, retValue);
-			} else
-				throw new NotImplementedException("glIsSync (and other aliases) are not implemented");
+			Debug.Assert(Delegates.pglIsSync != null, "pglIsSync not implemented");
+			retValue = Delegates.pglIsSync(sync);
+			CallLog("glIsSync({0}) = {1}", sync, retValue);
 			DebugCheckErrors();
 
 			return (retValue);
@@ -827,14 +785,9 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_sync")]
 		public static void DeleteSync(int sync)
 		{
-			if        (Delegates.pglDeleteSync != null) {
-				Delegates.pglDeleteSync(sync);
-				CallLog("glDeleteSync({0})", sync);
-			} else if (Delegates.pglDeleteSyncAPPLE != null) {
-				Delegates.pglDeleteSyncAPPLE(sync);
-				CallLog("glDeleteSyncAPPLE({0})", sync);
-			} else
-				throw new NotImplementedException("glDeleteSync (and other aliases) are not implemented");
+			Debug.Assert(Delegates.pglDeleteSync != null, "pglDeleteSync not implemented");
+			Delegates.pglDeleteSync(sync);
+			CallLog("glDeleteSync({0})", sync);
 			DebugCheckErrors();
 		}
 
@@ -856,14 +809,9 @@ namespace OpenGL
 		{
 			int retValue;
 
-			if        (Delegates.pglClientWaitSync != null) {
-				retValue = Delegates.pglClientWaitSync(sync, flags, timeout);
-				CallLog("glClientWaitSync({0}, {1}, {2}) = {3}", sync, flags, timeout, retValue);
-			} else if (Delegates.pglClientWaitSyncAPPLE != null) {
-				retValue = Delegates.pglClientWaitSyncAPPLE(sync, flags, timeout);
-				CallLog("glClientWaitSyncAPPLE({0}, {1}, {2}) = {3}", sync, flags, timeout, retValue);
-			} else
-				throw new NotImplementedException("glClientWaitSync (and other aliases) are not implemented");
+			Debug.Assert(Delegates.pglClientWaitSync != null, "pglClientWaitSync not implemented");
+			retValue = Delegates.pglClientWaitSync(sync, flags, timeout);
+			CallLog("glClientWaitSync({0}, {1}, {2}) = {3}", sync, flags, timeout, retValue);
 			DebugCheckErrors();
 
 			return (retValue);
@@ -885,14 +833,9 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_sync")]
 		public static void WaitSync(int sync, uint flags, UInt64 timeout)
 		{
-			if        (Delegates.pglWaitSync != null) {
-				Delegates.pglWaitSync(sync, flags, timeout);
-				CallLog("glWaitSync({0}, {1}, {2})", sync, flags, timeout);
-			} else if (Delegates.pglWaitSyncAPPLE != null) {
-				Delegates.pglWaitSyncAPPLE(sync, flags, timeout);
-				CallLog("glWaitSyncAPPLE({0}, {1}, {2})", sync, flags, timeout);
-			} else
-				throw new NotImplementedException("glWaitSync (and other aliases) are not implemented");
+			Debug.Assert(Delegates.pglWaitSync != null, "pglWaitSync not implemented");
+			Delegates.pglWaitSync(sync, flags, timeout);
+			CallLog("glWaitSync({0}, {1}, {2})", sync, flags, timeout);
 			DebugCheckErrors();
 		}
 
@@ -913,14 +856,9 @@ namespace OpenGL
 			unsafe {
 				fixed (Int64* p_data = data)
 				{
-					if        (Delegates.pglGetInteger64v != null) {
-						Delegates.pglGetInteger64v(pname, p_data);
-						CallLog("glGetInteger64v({0}, {1})", pname, data);
-					} else if (Delegates.pglGetInteger64vAPPLE != null) {
-						Delegates.pglGetInteger64vAPPLE(pname, p_data);
-						CallLog("glGetInteger64vAPPLE({0}, {1})", pname, data);
-					} else
-						throw new NotImplementedException("glGetInteger64v (and other aliases) are not implemented");
+					Debug.Assert(Delegates.pglGetInteger64v != null, "pglGetInteger64v not implemented");
+					Delegates.pglGetInteger64v(pname, p_data);
+					CallLog("glGetInteger64v({0}, {1})", pname, data);
 				}
 			}
 			DebugCheckErrors();
@@ -943,14 +881,9 @@ namespace OpenGL
 			unsafe {
 				fixed (Int64* p_data = &data)
 				{
-					if        (Delegates.pglGetInteger64v != null) {
-						Delegates.pglGetInteger64v(pname, p_data);
-						CallLog("glGetInteger64v({0}, {1})", pname, data);
-					} else if (Delegates.pglGetInteger64vAPPLE != null) {
-						Delegates.pglGetInteger64vAPPLE(pname, p_data);
-						CallLog("glGetInteger64vAPPLE({0}, {1})", pname, data);
-					} else
-						throw new NotImplementedException("glGetInteger64v (and other aliases) are not implemented");
+					Debug.Assert(Delegates.pglGetInteger64v != null, "pglGetInteger64v not implemented");
+					Delegates.pglGetInteger64v(pname, p_data);
+					CallLog("glGetInteger64v({0}, {1})", pname, data);
 				}
 			}
 			DebugCheckErrors();
@@ -982,14 +915,9 @@ namespace OpenGL
 				fixed (Int32* p_length = &length)
 				fixed (Int32* p_values = values)
 				{
-					if        (Delegates.pglGetSynciv != null) {
-						Delegates.pglGetSynciv(sync, pname, (Int32)values.Length, p_length, p_values);
-						CallLog("glGetSynciv({0}, {1}, {2}, {3}, {4})", sync, pname, values.Length, length, values);
-					} else if (Delegates.pglGetSyncivAPPLE != null) {
-						Delegates.pglGetSyncivAPPLE(sync, pname, (Int32)values.Length, p_length, p_values);
-						CallLog("glGetSyncivAPPLE({0}, {1}, {2}, {3}, {4})", sync, pname, values.Length, length, values);
-					} else
-						throw new NotImplementedException("glGetSynciv (and other aliases) are not implemented");
+					Debug.Assert(Delegates.pglGetSynciv != null, "pglGetSynciv not implemented");
+					Delegates.pglGetSynciv(sync, pname, (Int32)values.Length, p_length, p_values);
+					CallLog("glGetSynciv({0}, {1}, {2}, {3}, {4})", sync, pname, values.Length, length, values);
 				}
 			}
 			DebugCheckErrors();
@@ -1103,9 +1031,6 @@ namespace OpenGL
 			} else if (Delegates.pglFramebufferTextureEXT != null) {
 				Delegates.pglFramebufferTextureEXT(target, attachment, texture, level);
 				CallLog("glFramebufferTextureEXT({0}, {1}, {2}, {3})", target, attachment, texture, level);
-			} else if (Delegates.pglFramebufferTextureOES != null) {
-				Delegates.pglFramebufferTextureOES(target, attachment, texture, level);
-				CallLog("glFramebufferTextureOES({0}, {1}, {2}, {3})", target, attachment, texture, level);
 			} else
 				throw new NotImplementedException("glFramebufferTexture (and other aliases) are not implemented");
 			DebugCheckErrors();

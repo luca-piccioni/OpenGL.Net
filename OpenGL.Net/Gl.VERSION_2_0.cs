@@ -601,9 +601,6 @@ namespace OpenGL
 					} else if (Delegates.pglDrawBuffersATI != null) {
 						Delegates.pglDrawBuffersATI((Int32)bufs.Length, p_bufs);
 						CallLog("glDrawBuffersATI({0}, {1})", bufs.Length, bufs);
-					} else if (Delegates.pglDrawBuffersEXT != null) {
-						Delegates.pglDrawBuffersEXT((Int32)bufs.Length, p_bufs);
-						CallLog("glDrawBuffersEXT({0}, {1})", bufs.Length, bufs);
 					} else
 						throw new NotImplementedException("glDrawBuffers (and other aliases) are not implemented");
 				}
