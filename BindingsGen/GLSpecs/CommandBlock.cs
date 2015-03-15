@@ -25,6 +25,8 @@ namespace BindingsGen.GLSpecs
 	/// </summary>
 	public class CommandBlock
 	{
+		#region Specification
+
 		/// <summary>
 		/// Command block namespace.
 		/// </summary>
@@ -36,5 +38,24 @@ namespace BindingsGen.GLSpecs
 		/// </summary>
 		[XmlElement("command")]
 		public readonly List<Command> Commands = new List<Command>();
+
+		#endregion
+
+		#region Information LInkage
+
+		public void Link(RegistryContext ctx)
+		{
+			foreach (Command command in Commands)
+				command.Link(ctx);
+
+			// Remove enumerants not required by anyone
+			Commands.RemoveAll(delegate(Command item) {
+				if (item.RequiredBy.Count == 0)
+					return (true);
+				return (false);
+			});
+		}
+
+		#endregion
 	}
 }

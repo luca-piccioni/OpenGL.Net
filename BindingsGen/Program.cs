@@ -210,9 +210,10 @@ namespace BindingsGen
 				orphanEnums.Add(enumerant);
 			}
 
+			string orphanFile = Path.Combine(BasePath, String.Format("OpenGL.NET/{0}.Orphans.cs", ctx.Class));
+
 			if ((orphanCommands.Count != 0) || (orphanEnums.Count != 0)) {
-				glRegistryProcessor.GenerateCommands(ctx, Path.Combine(BasePath, String.Format("OpenGL.NET/{0}.Orphans.cs", ctx.Class)), delegate(RegistryContext cctx, SourceStreamWriter sw)
-				{
+				glRegistryProcessor.GenerateCommands(ctx, orphanFile, delegate(RegistryContext cctx, SourceStreamWriter sw) {
 					Console.WriteLine("\tGenerate {0} enumerants...", orphanEnums.Count);
 					foreach (Enumerant enumerant in orphanEnums) {
 						enumerant.GenerateSource(sw);
@@ -225,6 +226,9 @@ namespace BindingsGen
 						sw.WriteLine();
 					}
 				});
+			} else {
+				if (File.Exists(orphanFile))
+					File.Delete(orphanFile);
 			}
 
 			#endregion

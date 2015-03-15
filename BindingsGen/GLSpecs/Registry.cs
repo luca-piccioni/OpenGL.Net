@@ -176,15 +176,9 @@ namespace BindingsGen.GLSpecs
 		{
 			foreach (EnumerantBlock enumerantBlock in Enums)
 				enumerantBlock.Link(ctx);
-			foreach (Command command in Commands)
-				command.Link(ctx);
+			foreach (CommandBlock commandBlock in CommandBlocks)
+				commandBlock.Link(ctx);
 
-			// Remove enumerants not required by anyone
-			Commands.RemoveAll(delegate(Command item) {
-				if (item.RequiredBy.Count == 0)
-					return (true);
-				return (false);
-			});
 			// Index commands
 			foreach (Command command in Commands)
 				mCommandRegistry.Add(command.Prototype.Name, command);

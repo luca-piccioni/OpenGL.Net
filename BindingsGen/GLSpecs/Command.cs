@@ -1123,6 +1123,9 @@ namespace BindingsGen.GLSpecs
 					continue;
 
 				int requirementIndex = extension.Requirements.FindIndex(delegate(FeatureCommand item) {
+					if (item.Api != null && !Regex.IsMatch(ctx.Class.ToLowerInvariant(), item.Api))
+						return (false);
+
 					int enumIndex = item.Commands.FindIndex(delegate(FeatureCommand.Item subitem) {
 						return (subitem.Name == Prototype.Name);
 					});
@@ -1156,6 +1159,9 @@ namespace BindingsGen.GLSpecs
 					continue;
 
 				int requirementIndex = feature.Removals.FindIndex(delegate(FeatureCommand item) {
+					if (item.Api != null && !Regex.IsMatch(ctx.Class.ToLowerInvariant(), item.Api))
+						return (false);
+
 					int enumIndex = item.Commands.FindIndex(delegate(FeatureCommand.Item subitem) {
 						return (subitem.Name == Prototype.Name);
 					});
