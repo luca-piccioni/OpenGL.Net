@@ -28,91 +28,91 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_BUFFER_SIZE symbol.
 		/// </summary>
-		[AliasOf("GL_BUFFER_SIZE_ARB"]
+		[AliasOf("GL_BUFFER_SIZE_ARB")]
 		[RequiredByFeature("GL_VERSION_1_5")]
 		public const int BUFFER_SIZE = 0x8764;
 
 		/// <summary>
 		/// Value of GL_BUFFER_USAGE symbol.
 		/// </summary>
-		[AliasOf("GL_BUFFER_USAGE_ARB"]
+		[AliasOf("GL_BUFFER_USAGE_ARB")]
 		[RequiredByFeature("GL_VERSION_1_5")]
 		public const int BUFFER_USAGE = 0x8765;
 
 		/// <summary>
 		/// Value of GL_QUERY_COUNTER_BITS symbol.
 		/// </summary>
-		[AliasOf("GL_QUERY_COUNTER_BITS_ARB"]
+		[AliasOf("GL_QUERY_COUNTER_BITS_ARB")]
 		[RequiredByFeature("GL_VERSION_1_5")]
 		public const int QUERY_COUNTER_BITS = 0x8864;
 
 		/// <summary>
 		/// Value of GL_CURRENT_QUERY symbol.
 		/// </summary>
-		[AliasOf("GL_CURRENT_QUERY_ARB"]
+		[AliasOf("GL_CURRENT_QUERY_ARB")]
 		[RequiredByFeature("GL_VERSION_1_5")]
 		public const int CURRENT_QUERY = 0x8865;
 
 		/// <summary>
 		/// Value of GL_QUERY_RESULT symbol.
 		/// </summary>
-		[AliasOf("GL_QUERY_RESULT_ARB"]
+		[AliasOf("GL_QUERY_RESULT_ARB")]
 		[RequiredByFeature("GL_VERSION_1_5")]
 		public const int QUERY_RESULT = 0x8866;
 
 		/// <summary>
 		/// Value of GL_QUERY_RESULT_AVAILABLE symbol.
 		/// </summary>
-		[AliasOf("GL_QUERY_RESULT_AVAILABLE_ARB"]
+		[AliasOf("GL_QUERY_RESULT_AVAILABLE_ARB")]
 		[RequiredByFeature("GL_VERSION_1_5")]
 		public const int QUERY_RESULT_AVAILABLE = 0x8867;
 
 		/// <summary>
 		/// Value of GL_ARRAY_BUFFER symbol.
 		/// </summary>
-		[AliasOf("GL_ARRAY_BUFFER_ARB"]
+		[AliasOf("GL_ARRAY_BUFFER_ARB")]
 		[RequiredByFeature("GL_VERSION_1_5")]
 		public const int ARRAY_BUFFER = 0x8892;
 
 		/// <summary>
 		/// Value of GL_ELEMENT_ARRAY_BUFFER symbol.
 		/// </summary>
-		[AliasOf("GL_ELEMENT_ARRAY_BUFFER_ARB"]
+		[AliasOf("GL_ELEMENT_ARRAY_BUFFER_ARB")]
 		[RequiredByFeature("GL_VERSION_1_5")]
 		public const int ELEMENT_ARRAY_BUFFER = 0x8893;
 
 		/// <summary>
 		/// Value of GL_ARRAY_BUFFER_BINDING symbol.
 		/// </summary>
-		[AliasOf("GL_ARRAY_BUFFER_BINDING_ARB"]
+		[AliasOf("GL_ARRAY_BUFFER_BINDING_ARB")]
 		[RequiredByFeature("GL_VERSION_1_5")]
 		public const int ARRAY_BUFFER_BINDING = 0x8894;
 
 		/// <summary>
 		/// Value of GL_ELEMENT_ARRAY_BUFFER_BINDING symbol.
 		/// </summary>
-		[AliasOf("GL_ELEMENT_ARRAY_BUFFER_BINDING_ARB"]
+		[AliasOf("GL_ELEMENT_ARRAY_BUFFER_BINDING_ARB")]
 		[RequiredByFeature("GL_VERSION_1_5")]
 		public const int ELEMENT_ARRAY_BUFFER_BINDING = 0x8895;
 
 		/// <summary>
 		/// Value of GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING symbol.
 		/// </summary>
-		[AliasOf("GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB"]
+		[AliasOf("GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB")]
 		[RequiredByFeature("GL_VERSION_1_5")]
 		public const int VERTEX_ATTRIB_ARRAY_BUFFER_BINDING = 0x889F;
 
 		/// <summary>
 		/// Value of GL_READ_ONLY symbol.
 		/// </summary>
-		[AliasOf("GL_READ_ONLY_ARB"]
+		[AliasOf("GL_READ_ONLY_ARB")]
 		[RequiredByFeature("GL_VERSION_1_5")]
 		public const int READ_ONLY = 0x88B8;
 
 		/// <summary>
 		/// Value of GL_WRITE_ONLY symbol.
 		/// </summary>
-		[AliasOf("GL_WRITE_ONLY_ARB"]
+		[AliasOf("GL_WRITE_ONLY_ARB")]
 		[RequiredByFeature("GL_VERSION_1_5")]
 		[RequiredByFeature("GL_NV_shader_buffer_store")]
 		public const int WRITE_ONLY = 0x88B9;
@@ -120,7 +120,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_READ_WRITE symbol.
 		/// </summary>
-		[AliasOf("GL_READ_WRITE_ARB"]
+		[AliasOf("GL_READ_WRITE_ARB")]
 		[RequiredByFeature("GL_VERSION_1_5")]
 		[RequiredByFeature("GL_NV_shader_buffer_store")]
 		public const int READ_WRITE = 0x88BA;
@@ -128,98 +128,98 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_BUFFER_ACCESS symbol.
 		/// </summary>
-		[AliasOf("GL_BUFFER_ACCESS_ARB"]
+		[AliasOf("GL_BUFFER_ACCESS_ARB")]
 		[RequiredByFeature("GL_VERSION_1_5")]
 		public const int BUFFER_ACCESS = 0x88BB;
 
 		/// <summary>
 		/// Value of GL_BUFFER_MAPPED symbol.
 		/// </summary>
-		[AliasOf("GL_BUFFER_MAPPED_ARB"]
+		[AliasOf("GL_BUFFER_MAPPED_ARB")]
 		[RequiredByFeature("GL_VERSION_1_5")]
 		public const int BUFFER_MAPPED = 0x88BC;
 
 		/// <summary>
 		/// Value of GL_BUFFER_MAP_POINTER symbol.
 		/// </summary>
-		[AliasOf("GL_BUFFER_MAP_POINTER_ARB"]
+		[AliasOf("GL_BUFFER_MAP_POINTER_ARB")]
 		[RequiredByFeature("GL_VERSION_1_5")]
 		public const int BUFFER_MAP_POINTER = 0x88BD;
 
 		/// <summary>
 		/// Value of GL_STREAM_DRAW symbol.
 		/// </summary>
-		[AliasOf("GL_STREAM_DRAW_ARB"]
+		[AliasOf("GL_STREAM_DRAW_ARB")]
 		[RequiredByFeature("GL_VERSION_1_5")]
 		public const int STREAM_DRAW = 0x88E0;
 
 		/// <summary>
 		/// Value of GL_STREAM_READ symbol.
 		/// </summary>
-		[AliasOf("GL_STREAM_READ_ARB"]
+		[AliasOf("GL_STREAM_READ_ARB")]
 		[RequiredByFeature("GL_VERSION_1_5")]
 		public const int STREAM_READ = 0x88E1;
 
 		/// <summary>
 		/// Value of GL_STREAM_COPY symbol.
 		/// </summary>
-		[AliasOf("GL_STREAM_COPY_ARB"]
+		[AliasOf("GL_STREAM_COPY_ARB")]
 		[RequiredByFeature("GL_VERSION_1_5")]
 		public const int STREAM_COPY = 0x88E2;
 
 		/// <summary>
 		/// Value of GL_STATIC_DRAW symbol.
 		/// </summary>
-		[AliasOf("GL_STATIC_DRAW_ARB"]
+		[AliasOf("GL_STATIC_DRAW_ARB")]
 		[RequiredByFeature("GL_VERSION_1_5")]
 		public const int STATIC_DRAW = 0x88E4;
 
 		/// <summary>
 		/// Value of GL_STATIC_READ symbol.
 		/// </summary>
-		[AliasOf("GL_STATIC_READ_ARB"]
+		[AliasOf("GL_STATIC_READ_ARB")]
 		[RequiredByFeature("GL_VERSION_1_5")]
 		public const int STATIC_READ = 0x88E5;
 
 		/// <summary>
 		/// Value of GL_STATIC_COPY symbol.
 		/// </summary>
-		[AliasOf("GL_STATIC_COPY_ARB"]
+		[AliasOf("GL_STATIC_COPY_ARB")]
 		[RequiredByFeature("GL_VERSION_1_5")]
 		public const int STATIC_COPY = 0x88E6;
 
 		/// <summary>
 		/// Value of GL_DYNAMIC_DRAW symbol.
 		/// </summary>
-		[AliasOf("GL_DYNAMIC_DRAW_ARB"]
+		[AliasOf("GL_DYNAMIC_DRAW_ARB")]
 		[RequiredByFeature("GL_VERSION_1_5")]
 		public const int DYNAMIC_DRAW = 0x88E8;
 
 		/// <summary>
 		/// Value of GL_DYNAMIC_READ symbol.
 		/// </summary>
-		[AliasOf("GL_DYNAMIC_READ_ARB"]
+		[AliasOf("GL_DYNAMIC_READ_ARB")]
 		[RequiredByFeature("GL_VERSION_1_5")]
 		public const int DYNAMIC_READ = 0x88E9;
 
 		/// <summary>
 		/// Value of GL_DYNAMIC_COPY symbol.
 		/// </summary>
-		[AliasOf("GL_DYNAMIC_COPY_ARB"]
+		[AliasOf("GL_DYNAMIC_COPY_ARB")]
 		[RequiredByFeature("GL_VERSION_1_5")]
 		public const int DYNAMIC_COPY = 0x88EA;
 
 		/// <summary>
 		/// Value of GL_SAMPLES_PASSED symbol.
 		/// </summary>
-		[AliasOf("GL_SAMPLES_PASSED_ARB"]
+		[AliasOf("GL_SAMPLES_PASSED_ARB")]
 		[RequiredByFeature("GL_VERSION_1_5")]
 		public const int SAMPLES_PASSED = 0x8914;
 
 		/// <summary>
 		/// Value of GL_VERTEX_ARRAY_BUFFER_BINDING symbol (DEPRECATED).
 		/// </summary>
-		[AliasOf("GL_VERTEX_ARRAY_BUFFER_BINDING_ARB"]
+		[AliasOf("GL_VERTEX_ARRAY_BUFFER_BINDING_ARB")]
 		[RequiredByFeature("GL_VERSION_1_5")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
@@ -230,7 +230,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_NORMAL_ARRAY_BUFFER_BINDING symbol (DEPRECATED).
 		/// </summary>
-		[AliasOf("GL_NORMAL_ARRAY_BUFFER_BINDING_ARB"]
+		[AliasOf("GL_NORMAL_ARRAY_BUFFER_BINDING_ARB")]
 		[RequiredByFeature("GL_VERSION_1_5")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
@@ -241,7 +241,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_COLOR_ARRAY_BUFFER_BINDING symbol (DEPRECATED).
 		/// </summary>
-		[AliasOf("GL_COLOR_ARRAY_BUFFER_BINDING_ARB"]
+		[AliasOf("GL_COLOR_ARRAY_BUFFER_BINDING_ARB")]
 		[RequiredByFeature("GL_VERSION_1_5")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
@@ -252,7 +252,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_INDEX_ARRAY_BUFFER_BINDING symbol (DEPRECATED).
 		/// </summary>
-		[AliasOf("GL_INDEX_ARRAY_BUFFER_BINDING_ARB"]
+		[AliasOf("GL_INDEX_ARRAY_BUFFER_BINDING_ARB")]
 		[RequiredByFeature("GL_VERSION_1_5")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
@@ -263,7 +263,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_TEXTURE_COORD_ARRAY_BUFFER_BINDING symbol (DEPRECATED).
 		/// </summary>
-		[AliasOf("GL_TEXTURE_COORD_ARRAY_BUFFER_BINDING_ARB"]
+		[AliasOf("GL_TEXTURE_COORD_ARRAY_BUFFER_BINDING_ARB")]
 		[RequiredByFeature("GL_VERSION_1_5")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
@@ -274,7 +274,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_EDGE_FLAG_ARRAY_BUFFER_BINDING symbol (DEPRECATED).
 		/// </summary>
-		[AliasOf("GL_EDGE_FLAG_ARRAY_BUFFER_BINDING_ARB"]
+		[AliasOf("GL_EDGE_FLAG_ARRAY_BUFFER_BINDING_ARB")]
 		[RequiredByFeature("GL_VERSION_1_5")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
@@ -285,7 +285,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_SECONDARY_COLOR_ARRAY_BUFFER_BINDING symbol (DEPRECATED).
 		/// </summary>
-		[AliasOf("GL_SECONDARY_COLOR_ARRAY_BUFFER_BINDING_ARB"]
+		[AliasOf("GL_SECONDARY_COLOR_ARRAY_BUFFER_BINDING_ARB")]
 		[RequiredByFeature("GL_VERSION_1_5")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
@@ -296,7 +296,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_FOG_COORDINATE_ARRAY_BUFFER_BINDING symbol (DEPRECATED).
 		/// </summary>
-		[AliasOf("GL_FOG_COORDINATE_ARRAY_BUFFER_BINDING_ARB"]
+		[AliasOf("GL_FOG_COORDINATE_ARRAY_BUFFER_BINDING_ARB")]
 		[RequiredByFeature("GL_VERSION_1_5")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
@@ -307,7 +307,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_WEIGHT_ARRAY_BUFFER_BINDING symbol (DEPRECATED).
 		/// </summary>
-		[AliasOf("GL_WEIGHT_ARRAY_BUFFER_BINDING_ARB"]
+		[AliasOf("GL_WEIGHT_ARRAY_BUFFER_BINDING_ARB")]
 		[RequiredByFeature("GL_VERSION_1_5")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
@@ -330,14 +330,9 @@ namespace OpenGL
 			unsafe {
 				fixed (UInt32* p_ids = ids)
 				{
-					if        (Delegates.pglGenQueries != null) {
-						Delegates.pglGenQueries((Int32)ids.Length, p_ids);
-						CallLog("glGenQueries({0}, {1})", ids.Length, ids);
-					} else if (Delegates.pglGenQueriesARB != null) {
-						Delegates.pglGenQueriesARB((Int32)ids.Length, p_ids);
-						CallLog("glGenQueriesARB({0}, {1})", ids.Length, ids);
-					} else
-						throw new NotImplementedException("glGenQueries (and other aliases) are not implemented");
+					Debug.Assert(Delegates.pglGenQueries != null, "pglGenQueries not implemented");
+					Delegates.pglGenQueries((Int32)ids.Length, p_ids);
+					CallLog("glGenQueries({0}, {1})", ids.Length, ids);
 				}
 			}
 			DebugCheckErrors();
@@ -369,14 +364,9 @@ namespace OpenGL
 			unsafe {
 				fixed (UInt32* p_ids = ids)
 				{
-					if        (Delegates.pglDeleteQueries != null) {
-						Delegates.pglDeleteQueries((Int32)ids.Length, p_ids);
-						CallLog("glDeleteQueries({0}, {1})", ids.Length, ids);
-					} else if (Delegates.pglDeleteQueriesARB != null) {
-						Delegates.pglDeleteQueriesARB((Int32)ids.Length, p_ids);
-						CallLog("glDeleteQueriesARB({0}, {1})", ids.Length, ids);
-					} else
-						throw new NotImplementedException("glDeleteQueries (and other aliases) are not implemented");
+					Debug.Assert(Delegates.pglDeleteQueries != null, "pglDeleteQueries not implemented");
+					Delegates.pglDeleteQueries((Int32)ids.Length, p_ids);
+					CallLog("glDeleteQueries({0}, {1})", ids.Length, ids);
 				}
 			}
 			DebugCheckErrors();
@@ -393,14 +383,9 @@ namespace OpenGL
 		{
 			bool retValue;
 
-			if        (Delegates.pglIsQuery != null) {
-				retValue = Delegates.pglIsQuery(id);
-				CallLog("glIsQuery({0}) = {1}", id, retValue);
-			} else if (Delegates.pglIsQueryARB != null) {
-				retValue = Delegates.pglIsQueryARB(id);
-				CallLog("glIsQueryARB({0}) = {1}", id, retValue);
-			} else
-				throw new NotImplementedException("glIsQuery (and other aliases) are not implemented");
+			Debug.Assert(Delegates.pglIsQuery != null, "pglIsQuery not implemented");
+			retValue = Delegates.pglIsQuery(id);
+			CallLog("glIsQuery({0}) = {1}", id, retValue);
 			DebugCheckErrors();
 
 			return (retValue);
@@ -420,14 +405,9 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_1_5")]
 		public static void BeginQuery(int target, UInt32 id)
 		{
-			if        (Delegates.pglBeginQuery != null) {
-				Delegates.pglBeginQuery(target, id);
-				CallLog("glBeginQuery({0}, {1})", target, id);
-			} else if (Delegates.pglBeginQueryARB != null) {
-				Delegates.pglBeginQueryARB(target, id);
-				CallLog("glBeginQueryARB({0}, {1})", target, id);
-			} else
-				throw new NotImplementedException("glBeginQuery (and other aliases) are not implemented");
+			Debug.Assert(Delegates.pglBeginQuery != null, "pglBeginQuery not implemented");
+			Delegates.pglBeginQuery(target, id);
+			CallLog("glBeginQuery({0}, {1})", target, id);
 			DebugCheckErrors();
 		}
 
@@ -442,14 +422,9 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_1_5")]
 		public static void EndQuery(int target)
 		{
-			if        (Delegates.pglEndQuery != null) {
-				Delegates.pglEndQuery(target);
-				CallLog("glEndQuery({0})", target);
-			} else if (Delegates.pglEndQueryARB != null) {
-				Delegates.pglEndQueryARB(target);
-				CallLog("glEndQueryARB({0})", target);
-			} else
-				throw new NotImplementedException("glEndQuery (and other aliases) are not implemented");
+			Debug.Assert(Delegates.pglEndQuery != null, "pglEndQuery not implemented");
+			Delegates.pglEndQuery(target);
+			CallLog("glEndQuery({0})", target);
 			DebugCheckErrors();
 		}
 
@@ -474,14 +449,9 @@ namespace OpenGL
 			unsafe {
 				fixed (Int32* p_params = @params)
 				{
-					if        (Delegates.pglGetQueryiv != null) {
-						Delegates.pglGetQueryiv(target, pname, p_params);
-						CallLog("glGetQueryiv({0}, {1}, {2})", target, pname, @params);
-					} else if (Delegates.pglGetQueryivARB != null) {
-						Delegates.pglGetQueryivARB(target, pname, p_params);
-						CallLog("glGetQueryivARB({0}, {1}, {2})", target, pname, @params);
-					} else
-						throw new NotImplementedException("glGetQueryiv (and other aliases) are not implemented");
+					Debug.Assert(Delegates.pglGetQueryiv != null, "pglGetQueryiv not implemented");
+					Delegates.pglGetQueryiv(target, pname, p_params);
+					CallLog("glGetQueryiv({0}, {1}, {2})", target, pname, @params);
 				}
 			}
 			DebugCheckErrors();
@@ -506,14 +476,9 @@ namespace OpenGL
 			unsafe {
 				fixed (Int32* p_params = @params)
 				{
-					if        (Delegates.pglGetQueryObjectiv != null) {
-						Delegates.pglGetQueryObjectiv(id, pname, p_params);
-						CallLog("glGetQueryObjectiv({0}, {1}, {2})", id, pname, @params);
-					} else if (Delegates.pglGetQueryObjectivARB != null) {
-						Delegates.pglGetQueryObjectivARB(id, pname, p_params);
-						CallLog("glGetQueryObjectivARB({0}, {1}, {2})", id, pname, @params);
-					} else
-						throw new NotImplementedException("glGetQueryObjectiv (and other aliases) are not implemented");
+					Debug.Assert(Delegates.pglGetQueryObjectiv != null, "pglGetQueryObjectiv not implemented");
+					Delegates.pglGetQueryObjectiv(id, pname, p_params);
+					CallLog("glGetQueryObjectiv({0}, {1}, {2})", id, pname, @params);
 				}
 			}
 			DebugCheckErrors();
@@ -538,14 +503,9 @@ namespace OpenGL
 			unsafe {
 				fixed (UInt32* p_params = @params)
 				{
-					if        (Delegates.pglGetQueryObjectuiv != null) {
-						Delegates.pglGetQueryObjectuiv(id, pname, p_params);
-						CallLog("glGetQueryObjectuiv({0}, {1}, {2})", id, pname, @params);
-					} else if (Delegates.pglGetQueryObjectuivARB != null) {
-						Delegates.pglGetQueryObjectuivARB(id, pname, p_params);
-						CallLog("glGetQueryObjectuivARB({0}, {1}, {2})", id, pname, @params);
-					} else
-						throw new NotImplementedException("glGetQueryObjectuiv (and other aliases) are not implemented");
+					Debug.Assert(Delegates.pglGetQueryObjectuiv != null, "pglGetQueryObjectuiv not implemented");
+					Delegates.pglGetQueryObjectuiv(id, pname, p_params);
+					CallLog("glGetQueryObjectuiv({0}, {1}, {2})", id, pname, @params);
 				}
 			}
 			DebugCheckErrors();
@@ -564,14 +524,9 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_1_5")]
 		public static void BindBuffer(BufferTargetARB target, UInt32 buffer)
 		{
-			if        (Delegates.pglBindBuffer != null) {
-				Delegates.pglBindBuffer((int)target, buffer);
-				CallLog("glBindBuffer({0}, {1})", target, buffer);
-			} else if (Delegates.pglBindBufferARB != null) {
-				Delegates.pglBindBufferARB((int)target, buffer);
-				CallLog("glBindBufferARB({0}, {1})", target, buffer);
-			} else
-				throw new NotImplementedException("glBindBuffer (and other aliases) are not implemented");
+			Debug.Assert(Delegates.pglBindBuffer != null, "pglBindBuffer not implemented");
+			Delegates.pglBindBuffer((int)target, buffer);
+			CallLog("glBindBuffer({0}, {1})", target, buffer);
 			DebugCheckErrors();
 		}
 
@@ -590,14 +545,9 @@ namespace OpenGL
 			unsafe {
 				fixed (UInt32* p_buffers = buffers)
 				{
-					if        (Delegates.pglDeleteBuffers != null) {
-						Delegates.pglDeleteBuffers((Int32)buffers.Length, p_buffers);
-						CallLog("glDeleteBuffers({0}, {1})", buffers.Length, buffers);
-					} else if (Delegates.pglDeleteBuffersARB != null) {
-						Delegates.pglDeleteBuffersARB((Int32)buffers.Length, p_buffers);
-						CallLog("glDeleteBuffersARB({0}, {1})", buffers.Length, buffers);
-					} else
-						throw new NotImplementedException("glDeleteBuffers (and other aliases) are not implemented");
+					Debug.Assert(Delegates.pglDeleteBuffers != null, "pglDeleteBuffers not implemented");
+					Delegates.pglDeleteBuffers((Int32)buffers.Length, p_buffers);
+					CallLog("glDeleteBuffers({0}, {1})", buffers.Length, buffers);
 				}
 			}
 			DebugCheckErrors();
@@ -618,14 +568,9 @@ namespace OpenGL
 			unsafe {
 				fixed (UInt32* p_buffers = buffers)
 				{
-					if        (Delegates.pglGenBuffers != null) {
-						Delegates.pglGenBuffers((Int32)buffers.Length, p_buffers);
-						CallLog("glGenBuffers({0}, {1})", buffers.Length, buffers);
-					} else if (Delegates.pglGenBuffersARB != null) {
-						Delegates.pglGenBuffersARB((Int32)buffers.Length, p_buffers);
-						CallLog("glGenBuffersARB({0}, {1})", buffers.Length, buffers);
-					} else
-						throw new NotImplementedException("glGenBuffers (and other aliases) are not implemented");
+					Debug.Assert(Delegates.pglGenBuffers != null, "pglGenBuffers not implemented");
+					Delegates.pglGenBuffers((Int32)buffers.Length, p_buffers);
+					CallLog("glGenBuffers({0}, {1})", buffers.Length, buffers);
 				}
 			}
 			DebugCheckErrors();
@@ -653,14 +598,9 @@ namespace OpenGL
 		{
 			bool retValue;
 
-			if        (Delegates.pglIsBuffer != null) {
-				retValue = Delegates.pglIsBuffer(buffer);
-				CallLog("glIsBuffer({0}) = {1}", buffer, retValue);
-			} else if (Delegates.pglIsBufferARB != null) {
-				retValue = Delegates.pglIsBufferARB(buffer);
-				CallLog("glIsBufferARB({0}) = {1}", buffer, retValue);
-			} else
-				throw new NotImplementedException("glIsBuffer (and other aliases) are not implemented");
+			Debug.Assert(Delegates.pglIsBuffer != null, "pglIsBuffer not implemented");
+			retValue = Delegates.pglIsBuffer(buffer);
+			CallLog("glIsBuffer({0}) = {1}", buffer, retValue);
 			DebugCheckErrors();
 
 			return (retValue);
@@ -687,14 +627,9 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_1_5")]
 		public static void BufferData(int target, UInt32 size, IntPtr data, int usage)
 		{
-			if        (Delegates.pglBufferData != null) {
-				Delegates.pglBufferData(target, size, data, usage);
-				CallLog("glBufferData({0}, {1}, {2}, {3})", target, size, data, usage);
-			} else if (Delegates.pglBufferDataARB != null) {
-				Delegates.pglBufferDataARB(target, size, data, usage);
-				CallLog("glBufferDataARB({0}, {1}, {2}, {3})", target, size, data, usage);
-			} else
-				throw new NotImplementedException("glBufferData (and other aliases) are not implemented");
+			Debug.Assert(Delegates.pglBufferData != null, "pglBufferData not implemented");
+			Delegates.pglBufferData(target, size, data, usage);
+			CallLog("glBufferData({0}, {1}, {2}, {3})", target, size, data, usage);
 		}
 
 		/// <summary>
@@ -718,14 +653,9 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_1_5")]
 		public static void BufferData(BufferTargetARB target, UInt32 size, IntPtr data, BufferUsageARB usage)
 		{
-			if        (Delegates.pglBufferData != null) {
-				Delegates.pglBufferData((int)target, size, data, (int)usage);
-				CallLog("glBufferData({0}, {1}, {2}, {3})", target, size, data, usage);
-			} else if (Delegates.pglBufferDataARB != null) {
-				Delegates.pglBufferDataARB((int)target, size, data, (int)usage);
-				CallLog("glBufferDataARB({0}, {1}, {2}, {3})", target, size, data, usage);
-			} else
-				throw new NotImplementedException("glBufferData (and other aliases) are not implemented");
+			Debug.Assert(Delegates.pglBufferData != null, "pglBufferData not implemented");
+			Delegates.pglBufferData((int)target, size, data, (int)usage);
+			CallLog("glBufferData({0}, {1}, {2}, {3})", target, size, data, usage);
 		}
 
 		/// <summary>
@@ -805,14 +735,9 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_1_5")]
 		public static void BufferSubData(BufferTargetARB target, IntPtr offset, UInt32 size, IntPtr data)
 		{
-			if        (Delegates.pglBufferSubData != null) {
-				Delegates.pglBufferSubData((int)target, offset, size, data);
-				CallLog("glBufferSubData({0}, {1}, {2}, {3})", target, offset, size, data);
-			} else if (Delegates.pglBufferSubDataARB != null) {
-				Delegates.pglBufferSubDataARB((int)target, offset, size, data);
-				CallLog("glBufferSubDataARB({0}, {1}, {2}, {3})", target, offset, size, data);
-			} else
-				throw new NotImplementedException("glBufferSubData (and other aliases) are not implemented");
+			Debug.Assert(Delegates.pglBufferSubData != null, "pglBufferSubData not implemented");
+			Delegates.pglBufferSubData((int)target, offset, size, data);
+			CallLog("glBufferSubData({0}, {1}, {2}, {3})", target, offset, size, data);
 			DebugCheckErrors();
 		}
 
@@ -862,14 +787,9 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_1_5")]
 		public static void GetBufferSubData(BufferTargetARB target, IntPtr offset, UInt32 size, IntPtr data)
 		{
-			if        (Delegates.pglGetBufferSubData != null) {
-				Delegates.pglGetBufferSubData((int)target, offset, size, data);
-				CallLog("glGetBufferSubData({0}, {1}, {2}, {3})", target, offset, size, data);
-			} else if (Delegates.pglGetBufferSubDataARB != null) {
-				Delegates.pglGetBufferSubDataARB((int)target, offset, size, data);
-				CallLog("glGetBufferSubDataARB({0}, {1}, {2}, {3})", target, offset, size, data);
-			} else
-				throw new NotImplementedException("glGetBufferSubData (and other aliases) are not implemented");
+			Debug.Assert(Delegates.pglGetBufferSubData != null, "pglGetBufferSubData not implemented");
+			Delegates.pglGetBufferSubData((int)target, offset, size, data);
+			CallLog("glGetBufferSubData({0}, {1}, {2}, {3})", target, offset, size, data);
 			DebugCheckErrors();
 		}
 
@@ -917,14 +837,9 @@ namespace OpenGL
 		{
 			IntPtr retValue;
 
-			if        (Delegates.pglMapBuffer != null) {
-				retValue = Delegates.pglMapBuffer((int)target, (int)access);
-				CallLog("glMapBuffer({0}, {1}) = {2}", target, access, retValue);
-			} else if (Delegates.pglMapBufferARB != null) {
-				retValue = Delegates.pglMapBufferARB((int)target, (int)access);
-				CallLog("glMapBufferARB({0}, {1}) = {2}", target, access, retValue);
-			} else
-				throw new NotImplementedException("glMapBuffer (and other aliases) are not implemented");
+			Debug.Assert(Delegates.pglMapBuffer != null, "pglMapBuffer not implemented");
+			retValue = Delegates.pglMapBuffer((int)target, (int)access);
+			CallLog("glMapBuffer({0}, {1}) = {2}", target, access, retValue);
 			DebugCheckErrors();
 
 			return (retValue);
@@ -942,14 +857,9 @@ namespace OpenGL
 		{
 			bool retValue;
 
-			if        (Delegates.pglUnmapBuffer != null) {
-				retValue = Delegates.pglUnmapBuffer((int)target);
-				CallLog("glUnmapBuffer({0}) = {1}", target, retValue);
-			} else if (Delegates.pglUnmapBufferARB != null) {
-				retValue = Delegates.pglUnmapBufferARB((int)target);
-				CallLog("glUnmapBufferARB({0}) = {1}", target, retValue);
-			} else
-				throw new NotImplementedException("glUnmapBuffer (and other aliases) are not implemented");
+			Debug.Assert(Delegates.pglUnmapBuffer != null, "pglUnmapBuffer not implemented");
+			retValue = Delegates.pglUnmapBuffer((int)target);
+			CallLog("glUnmapBuffer({0}) = {1}", target, retValue);
 			DebugCheckErrors();
 
 			return (retValue);
@@ -974,14 +884,9 @@ namespace OpenGL
 			unsafe {
 				fixed (Int32* p_params = @params)
 				{
-					if        (Delegates.pglGetBufferParameteriv != null) {
-						Delegates.pglGetBufferParameteriv((int)target, pname, p_params);
-						CallLog("glGetBufferParameteriv({0}, {1}, {2})", target, pname, @params);
-					} else if (Delegates.pglGetBufferParameterivARB != null) {
-						Delegates.pglGetBufferParameterivARB((int)target, pname, p_params);
-						CallLog("glGetBufferParameterivARB({0}, {1}, {2})", target, pname, @params);
-					} else
-						throw new NotImplementedException("glGetBufferParameteriv (and other aliases) are not implemented");
+					Debug.Assert(Delegates.pglGetBufferParameteriv != null, "pglGetBufferParameteriv not implemented");
+					Delegates.pglGetBufferParameteriv((int)target, pname, p_params);
+					CallLog("glGetBufferParameteriv({0}, {1}, {2})", target, pname, @params);
 				}
 			}
 			DebugCheckErrors();
@@ -1006,14 +911,9 @@ namespace OpenGL
 			unsafe {
 				fixed (Int32* p_params = &@params)
 				{
-					if        (Delegates.pglGetBufferParameteriv != null) {
-						Delegates.pglGetBufferParameteriv((int)target, pname, p_params);
-						CallLog("glGetBufferParameteriv({0}, {1}, {2})", target, pname, @params);
-					} else if (Delegates.pglGetBufferParameterivARB != null) {
-						Delegates.pglGetBufferParameterivARB((int)target, pname, p_params);
-						CallLog("glGetBufferParameterivARB({0}, {1}, {2})", target, pname, @params);
-					} else
-						throw new NotImplementedException("glGetBufferParameteriv (and other aliases) are not implemented");
+					Debug.Assert(Delegates.pglGetBufferParameteriv != null, "pglGetBufferParameteriv not implemented");
+					Delegates.pglGetBufferParameteriv((int)target, pname, p_params);
+					CallLog("glGetBufferParameteriv({0}, {1}, {2})", target, pname, @params);
 				}
 			}
 			DebugCheckErrors();
@@ -1038,14 +938,9 @@ namespace OpenGL
 			unsafe {
 				fixed (IntPtr* p_params = &@params)
 				{
-					if        (Delegates.pglGetBufferPointerv != null) {
-						Delegates.pglGetBufferPointerv((int)target, pname, p_params);
-						CallLog("glGetBufferPointerv({0}, {1}, {2})", target, pname, @params);
-					} else if (Delegates.pglGetBufferPointervARB != null) {
-						Delegates.pglGetBufferPointervARB((int)target, pname, p_params);
-						CallLog("glGetBufferPointervARB({0}, {1}, {2})", target, pname, @params);
-					} else
-						throw new NotImplementedException("glGetBufferPointerv (and other aliases) are not implemented");
+					Debug.Assert(Delegates.pglGetBufferPointerv != null, "pglGetBufferPointerv not implemented");
+					Delegates.pglGetBufferPointerv((int)target, pname, p_params);
+					CallLog("glGetBufferPointerv({0}, {1}, {2})", target, pname, @params);
 				}
 			}
 			DebugCheckErrors();

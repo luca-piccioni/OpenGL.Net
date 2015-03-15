@@ -28,462 +28,462 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_BLEND_COLOR symbol.
 		/// </summary>
-		[AliasOf("GL_BLEND_COLOR_EXT"]
+		[AliasOf("GL_BLEND_COLOR_EXT")]
 		[RequiredByFeature("GL_ARB_imaging")]
 		public const int BLEND_COLOR = 0x8005;
 
 		/// <summary>
 		/// Value of GL_BLEND_EQUATION symbol.
 		/// </summary>
-		[AliasOf("GL_BLEND_EQUATION_EXT"]
+		[AliasOf("GL_BLEND_EQUATION_EXT")]
 		[RequiredByFeature("GL_ARB_imaging")]
 		public const int BLEND_EQUATION = 0x8009;
 
 		/// <summary>
 		/// Value of GL_CONVOLUTION_1D symbol.
 		/// </summary>
-		[AliasOf("GL_CONVOLUTION_1D_EXT"]
+		[AliasOf("GL_CONVOLUTION_1D_EXT")]
 		[RequiredByFeature("GL_ARB_imaging")]
 		public const int CONVOLUTION_1D = 0x8010;
 
 		/// <summary>
 		/// Value of GL_CONVOLUTION_2D symbol.
 		/// </summary>
-		[AliasOf("GL_CONVOLUTION_2D_EXT"]
+		[AliasOf("GL_CONVOLUTION_2D_EXT")]
 		[RequiredByFeature("GL_ARB_imaging")]
 		public const int CONVOLUTION_2D = 0x8011;
 
 		/// <summary>
 		/// Value of GL_SEPARABLE_2D symbol.
 		/// </summary>
-		[AliasOf("GL_SEPARABLE_2D_EXT"]
+		[AliasOf("GL_SEPARABLE_2D_EXT")]
 		[RequiredByFeature("GL_ARB_imaging")]
 		public const int SEPARABLE_2D = 0x8012;
 
 		/// <summary>
 		/// Value of GL_CONVOLUTION_BORDER_MODE symbol.
 		/// </summary>
-		[AliasOf("GL_CONVOLUTION_BORDER_MODE_EXT"]
+		[AliasOf("GL_CONVOLUTION_BORDER_MODE_EXT")]
 		[RequiredByFeature("GL_ARB_imaging")]
 		public const int CONVOLUTION_BORDER_MODE = 0x8013;
 
 		/// <summary>
 		/// Value of GL_CONVOLUTION_FILTER_SCALE symbol.
 		/// </summary>
-		[AliasOf("GL_CONVOLUTION_FILTER_SCALE_EXT"]
+		[AliasOf("GL_CONVOLUTION_FILTER_SCALE_EXT")]
 		[RequiredByFeature("GL_ARB_imaging")]
 		public const int CONVOLUTION_FILTER_SCALE = 0x8014;
 
 		/// <summary>
 		/// Value of GL_CONVOLUTION_FILTER_BIAS symbol.
 		/// </summary>
-		[AliasOf("GL_CONVOLUTION_FILTER_BIAS_EXT"]
+		[AliasOf("GL_CONVOLUTION_FILTER_BIAS_EXT")]
 		[RequiredByFeature("GL_ARB_imaging")]
 		public const int CONVOLUTION_FILTER_BIAS = 0x8015;
 
 		/// <summary>
 		/// Value of GL_REDUCE symbol.
 		/// </summary>
-		[AliasOf("GL_REDUCE_EXT"]
+		[AliasOf("GL_REDUCE_EXT")]
 		[RequiredByFeature("GL_ARB_imaging")]
 		public const int REDUCE = 0x8016;
 
 		/// <summary>
 		/// Value of GL_CONVOLUTION_FORMAT symbol.
 		/// </summary>
-		[AliasOf("GL_CONVOLUTION_FORMAT_EXT"]
+		[AliasOf("GL_CONVOLUTION_FORMAT_EXT")]
 		[RequiredByFeature("GL_ARB_imaging")]
 		public const int CONVOLUTION_FORMAT = 0x8017;
 
 		/// <summary>
 		/// Value of GL_CONVOLUTION_WIDTH symbol.
 		/// </summary>
-		[AliasOf("GL_CONVOLUTION_WIDTH_EXT"]
+		[AliasOf("GL_CONVOLUTION_WIDTH_EXT")]
 		[RequiredByFeature("GL_ARB_imaging")]
 		public const int CONVOLUTION_WIDTH = 0x8018;
 
 		/// <summary>
 		/// Value of GL_CONVOLUTION_HEIGHT symbol.
 		/// </summary>
-		[AliasOf("GL_CONVOLUTION_HEIGHT_EXT"]
+		[AliasOf("GL_CONVOLUTION_HEIGHT_EXT")]
 		[RequiredByFeature("GL_ARB_imaging")]
 		public const int CONVOLUTION_HEIGHT = 0x8019;
 
 		/// <summary>
 		/// Value of GL_MAX_CONVOLUTION_WIDTH symbol.
 		/// </summary>
-		[AliasOf("GL_MAX_CONVOLUTION_WIDTH_EXT"]
+		[AliasOf("GL_MAX_CONVOLUTION_WIDTH_EXT")]
 		[RequiredByFeature("GL_ARB_imaging")]
 		public const int MAX_CONVOLUTION_WIDTH = 0x801A;
 
 		/// <summary>
 		/// Value of GL_MAX_CONVOLUTION_HEIGHT symbol.
 		/// </summary>
-		[AliasOf("GL_MAX_CONVOLUTION_HEIGHT_EXT"]
+		[AliasOf("GL_MAX_CONVOLUTION_HEIGHT_EXT")]
 		[RequiredByFeature("GL_ARB_imaging")]
 		public const int MAX_CONVOLUTION_HEIGHT = 0x801B;
 
 		/// <summary>
 		/// Value of GL_POST_CONVOLUTION_RED_SCALE symbol.
 		/// </summary>
-		[AliasOf("GL_POST_CONVOLUTION_RED_SCALE_EXT"]
+		[AliasOf("GL_POST_CONVOLUTION_RED_SCALE_EXT")]
 		[RequiredByFeature("GL_ARB_imaging")]
 		public const int POST_CONVOLUTION_RED_SCALE = 0x801C;
 
 		/// <summary>
 		/// Value of GL_POST_CONVOLUTION_GREEN_SCALE symbol.
 		/// </summary>
-		[AliasOf("GL_POST_CONVOLUTION_GREEN_SCALE_EXT"]
+		[AliasOf("GL_POST_CONVOLUTION_GREEN_SCALE_EXT")]
 		[RequiredByFeature("GL_ARB_imaging")]
 		public const int POST_CONVOLUTION_GREEN_SCALE = 0x801D;
 
 		/// <summary>
 		/// Value of GL_POST_CONVOLUTION_BLUE_SCALE symbol.
 		/// </summary>
-		[AliasOf("GL_POST_CONVOLUTION_BLUE_SCALE_EXT"]
+		[AliasOf("GL_POST_CONVOLUTION_BLUE_SCALE_EXT")]
 		[RequiredByFeature("GL_ARB_imaging")]
 		public const int POST_CONVOLUTION_BLUE_SCALE = 0x801E;
 
 		/// <summary>
 		/// Value of GL_POST_CONVOLUTION_ALPHA_SCALE symbol.
 		/// </summary>
-		[AliasOf("GL_POST_CONVOLUTION_ALPHA_SCALE_EXT"]
+		[AliasOf("GL_POST_CONVOLUTION_ALPHA_SCALE_EXT")]
 		[RequiredByFeature("GL_ARB_imaging")]
 		public const int POST_CONVOLUTION_ALPHA_SCALE = 0x801F;
 
 		/// <summary>
 		/// Value of GL_POST_CONVOLUTION_RED_BIAS symbol.
 		/// </summary>
-		[AliasOf("GL_POST_CONVOLUTION_RED_BIAS_EXT"]
+		[AliasOf("GL_POST_CONVOLUTION_RED_BIAS_EXT")]
 		[RequiredByFeature("GL_ARB_imaging")]
 		public const int POST_CONVOLUTION_RED_BIAS = 0x8020;
 
 		/// <summary>
 		/// Value of GL_POST_CONVOLUTION_GREEN_BIAS symbol.
 		/// </summary>
-		[AliasOf("GL_POST_CONVOLUTION_GREEN_BIAS_EXT"]
+		[AliasOf("GL_POST_CONVOLUTION_GREEN_BIAS_EXT")]
 		[RequiredByFeature("GL_ARB_imaging")]
 		public const int POST_CONVOLUTION_GREEN_BIAS = 0x8021;
 
 		/// <summary>
 		/// Value of GL_POST_CONVOLUTION_BLUE_BIAS symbol.
 		/// </summary>
-		[AliasOf("GL_POST_CONVOLUTION_BLUE_BIAS_EXT"]
+		[AliasOf("GL_POST_CONVOLUTION_BLUE_BIAS_EXT")]
 		[RequiredByFeature("GL_ARB_imaging")]
 		public const int POST_CONVOLUTION_BLUE_BIAS = 0x8022;
 
 		/// <summary>
 		/// Value of GL_POST_CONVOLUTION_ALPHA_BIAS symbol.
 		/// </summary>
-		[AliasOf("GL_POST_CONVOLUTION_ALPHA_BIAS_EXT"]
+		[AliasOf("GL_POST_CONVOLUTION_ALPHA_BIAS_EXT")]
 		[RequiredByFeature("GL_ARB_imaging")]
 		public const int POST_CONVOLUTION_ALPHA_BIAS = 0x8023;
 
 		/// <summary>
 		/// Value of GL_HISTOGRAM symbol.
 		/// </summary>
-		[AliasOf("GL_HISTOGRAM_EXT"]
+		[AliasOf("GL_HISTOGRAM_EXT")]
 		[RequiredByFeature("GL_ARB_imaging")]
 		public const int HISTOGRAM = 0x8024;
 
 		/// <summary>
 		/// Value of GL_PROXY_HISTOGRAM symbol.
 		/// </summary>
-		[AliasOf("GL_PROXY_HISTOGRAM_EXT"]
+		[AliasOf("GL_PROXY_HISTOGRAM_EXT")]
 		[RequiredByFeature("GL_ARB_imaging")]
 		public const int PROXY_HISTOGRAM = 0x8025;
 
 		/// <summary>
 		/// Value of GL_HISTOGRAM_WIDTH symbol.
 		/// </summary>
-		[AliasOf("GL_HISTOGRAM_WIDTH_EXT"]
+		[AliasOf("GL_HISTOGRAM_WIDTH_EXT")]
 		[RequiredByFeature("GL_ARB_imaging")]
 		public const int HISTOGRAM_WIDTH = 0x8026;
 
 		/// <summary>
 		/// Value of GL_HISTOGRAM_FORMAT symbol.
 		/// </summary>
-		[AliasOf("GL_HISTOGRAM_FORMAT_EXT"]
+		[AliasOf("GL_HISTOGRAM_FORMAT_EXT")]
 		[RequiredByFeature("GL_ARB_imaging")]
 		public const int HISTOGRAM_FORMAT = 0x8027;
 
 		/// <summary>
 		/// Value of GL_HISTOGRAM_RED_SIZE symbol.
 		/// </summary>
-		[AliasOf("GL_HISTOGRAM_RED_SIZE_EXT"]
+		[AliasOf("GL_HISTOGRAM_RED_SIZE_EXT")]
 		[RequiredByFeature("GL_ARB_imaging")]
 		public const int HISTOGRAM_RED_SIZE = 0x8028;
 
 		/// <summary>
 		/// Value of GL_HISTOGRAM_GREEN_SIZE symbol.
 		/// </summary>
-		[AliasOf("GL_HISTOGRAM_GREEN_SIZE_EXT"]
+		[AliasOf("GL_HISTOGRAM_GREEN_SIZE_EXT")]
 		[RequiredByFeature("GL_ARB_imaging")]
 		public const int HISTOGRAM_GREEN_SIZE = 0x8029;
 
 		/// <summary>
 		/// Value of GL_HISTOGRAM_BLUE_SIZE symbol.
 		/// </summary>
-		[AliasOf("GL_HISTOGRAM_BLUE_SIZE_EXT"]
+		[AliasOf("GL_HISTOGRAM_BLUE_SIZE_EXT")]
 		[RequiredByFeature("GL_ARB_imaging")]
 		public const int HISTOGRAM_BLUE_SIZE = 0x802A;
 
 		/// <summary>
 		/// Value of GL_HISTOGRAM_ALPHA_SIZE symbol.
 		/// </summary>
-		[AliasOf("GL_HISTOGRAM_ALPHA_SIZE_EXT"]
+		[AliasOf("GL_HISTOGRAM_ALPHA_SIZE_EXT")]
 		[RequiredByFeature("GL_ARB_imaging")]
 		public const int HISTOGRAM_ALPHA_SIZE = 0x802B;
 
 		/// <summary>
 		/// Value of GL_HISTOGRAM_LUMINANCE_SIZE symbol.
 		/// </summary>
-		[AliasOf("GL_HISTOGRAM_LUMINANCE_SIZE_EXT"]
+		[AliasOf("GL_HISTOGRAM_LUMINANCE_SIZE_EXT")]
 		[RequiredByFeature("GL_ARB_imaging")]
 		public const int HISTOGRAM_LUMINANCE_SIZE = 0x802C;
 
 		/// <summary>
 		/// Value of GL_HISTOGRAM_SINK symbol.
 		/// </summary>
-		[AliasOf("GL_HISTOGRAM_SINK_EXT"]
+		[AliasOf("GL_HISTOGRAM_SINK_EXT")]
 		[RequiredByFeature("GL_ARB_imaging")]
 		public const int HISTOGRAM_SINK = 0x802D;
 
 		/// <summary>
 		/// Value of GL_MINMAX symbol.
 		/// </summary>
-		[AliasOf("GL_MINMAX_EXT"]
+		[AliasOf("GL_MINMAX_EXT")]
 		[RequiredByFeature("GL_ARB_imaging")]
 		public const int MINMAX = 0x802E;
 
 		/// <summary>
 		/// Value of GL_MINMAX_FORMAT symbol.
 		/// </summary>
-		[AliasOf("GL_MINMAX_FORMAT_EXT"]
+		[AliasOf("GL_MINMAX_FORMAT_EXT")]
 		[RequiredByFeature("GL_ARB_imaging")]
 		public const int MINMAX_FORMAT = 0x802F;
 
 		/// <summary>
 		/// Value of GL_MINMAX_SINK symbol.
 		/// </summary>
-		[AliasOf("GL_MINMAX_SINK_EXT"]
+		[AliasOf("GL_MINMAX_SINK_EXT")]
 		[RequiredByFeature("GL_ARB_imaging")]
 		public const int MINMAX_SINK = 0x8030;
 
 		/// <summary>
 		/// Value of GL_TABLE_TOO_LARGE symbol.
 		/// </summary>
-		[AliasOf("GL_TABLE_TOO_LARGE_EXT"]
+		[AliasOf("GL_TABLE_TOO_LARGE_EXT")]
 		[RequiredByFeature("GL_ARB_imaging")]
 		public const int TABLE_TOO_LARGE = 0x8031;
 
 		/// <summary>
 		/// Value of GL_COLOR_MATRIX symbol.
 		/// </summary>
-		[AliasOf("GL_COLOR_MATRIX_SGI"]
+		[AliasOf("GL_COLOR_MATRIX_SGI")]
 		[RequiredByFeature("GL_ARB_imaging")]
 		public const int COLOR_MATRIX = 0x80B1;
 
 		/// <summary>
 		/// Value of GL_COLOR_MATRIX_STACK_DEPTH symbol.
 		/// </summary>
-		[AliasOf("GL_COLOR_MATRIX_STACK_DEPTH_SGI"]
+		[AliasOf("GL_COLOR_MATRIX_STACK_DEPTH_SGI")]
 		[RequiredByFeature("GL_ARB_imaging")]
 		public const int COLOR_MATRIX_STACK_DEPTH = 0x80B2;
 
 		/// <summary>
 		/// Value of GL_MAX_COLOR_MATRIX_STACK_DEPTH symbol.
 		/// </summary>
-		[AliasOf("GL_MAX_COLOR_MATRIX_STACK_DEPTH_SGI"]
+		[AliasOf("GL_MAX_COLOR_MATRIX_STACK_DEPTH_SGI")]
 		[RequiredByFeature("GL_ARB_imaging")]
 		public const int MAX_COLOR_MATRIX_STACK_DEPTH = 0x80B3;
 
 		/// <summary>
 		/// Value of GL_POST_COLOR_MATRIX_RED_SCALE symbol.
 		/// </summary>
-		[AliasOf("GL_POST_COLOR_MATRIX_RED_SCALE_SGI"]
+		[AliasOf("GL_POST_COLOR_MATRIX_RED_SCALE_SGI")]
 		[RequiredByFeature("GL_ARB_imaging")]
 		public const int POST_COLOR_MATRIX_RED_SCALE = 0x80B4;
 
 		/// <summary>
 		/// Value of GL_POST_COLOR_MATRIX_GREEN_SCALE symbol.
 		/// </summary>
-		[AliasOf("GL_POST_COLOR_MATRIX_GREEN_SCALE_SGI"]
+		[AliasOf("GL_POST_COLOR_MATRIX_GREEN_SCALE_SGI")]
 		[RequiredByFeature("GL_ARB_imaging")]
 		public const int POST_COLOR_MATRIX_GREEN_SCALE = 0x80B5;
 
 		/// <summary>
 		/// Value of GL_POST_COLOR_MATRIX_BLUE_SCALE symbol.
 		/// </summary>
-		[AliasOf("GL_POST_COLOR_MATRIX_BLUE_SCALE_SGI"]
+		[AliasOf("GL_POST_COLOR_MATRIX_BLUE_SCALE_SGI")]
 		[RequiredByFeature("GL_ARB_imaging")]
 		public const int POST_COLOR_MATRIX_BLUE_SCALE = 0x80B6;
 
 		/// <summary>
 		/// Value of GL_POST_COLOR_MATRIX_ALPHA_SCALE symbol.
 		/// </summary>
-		[AliasOf("GL_POST_COLOR_MATRIX_ALPHA_SCALE_SGI"]
+		[AliasOf("GL_POST_COLOR_MATRIX_ALPHA_SCALE_SGI")]
 		[RequiredByFeature("GL_ARB_imaging")]
 		public const int POST_COLOR_MATRIX_ALPHA_SCALE = 0x80B7;
 
 		/// <summary>
 		/// Value of GL_POST_COLOR_MATRIX_RED_BIAS symbol.
 		/// </summary>
-		[AliasOf("GL_POST_COLOR_MATRIX_RED_BIAS_SGI"]
+		[AliasOf("GL_POST_COLOR_MATRIX_RED_BIAS_SGI")]
 		[RequiredByFeature("GL_ARB_imaging")]
 		public const int POST_COLOR_MATRIX_RED_BIAS = 0x80B8;
 
 		/// <summary>
 		/// Value of GL_POST_COLOR_MATRIX_GREEN_BIAS symbol.
 		/// </summary>
-		[AliasOf("GL_POST_COLOR_MATRIX_GREEN_BIAS_SGI"]
+		[AliasOf("GL_POST_COLOR_MATRIX_GREEN_BIAS_SGI")]
 		[RequiredByFeature("GL_ARB_imaging")]
 		public const int POST_COLOR_MATRIX_GREEN_BIAS = 0x80B9;
 
 		/// <summary>
 		/// Value of GL_POST_COLOR_MATRIX_BLUE_BIAS symbol.
 		/// </summary>
-		[AliasOf("GL_POST_COLOR_MATRIX_BLUE_BIAS_SGI"]
+		[AliasOf("GL_POST_COLOR_MATRIX_BLUE_BIAS_SGI")]
 		[RequiredByFeature("GL_ARB_imaging")]
 		public const int POST_COLOR_MATRIX_BLUE_BIAS = 0x80BA;
 
 		/// <summary>
 		/// Value of GL_POST_COLOR_MATRIX_ALPHA_BIAS symbol.
 		/// </summary>
-		[AliasOf("GL_POST_COLOR_MATRIX_ALPHA_BIAS_SGI"]
+		[AliasOf("GL_POST_COLOR_MATRIX_ALPHA_BIAS_SGI")]
 		[RequiredByFeature("GL_ARB_imaging")]
 		public const int POST_COLOR_MATRIX_ALPHA_BIAS = 0x80BB;
 
 		/// <summary>
 		/// Value of GL_COLOR_TABLE symbol.
 		/// </summary>
-		[AliasOf("GL_COLOR_TABLE_SGI"]
+		[AliasOf("GL_COLOR_TABLE_SGI")]
 		[RequiredByFeature("GL_ARB_imaging")]
 		public const int COLOR_TABLE = 0x80D0;
 
 		/// <summary>
 		/// Value of GL_POST_CONVOLUTION_COLOR_TABLE symbol.
 		/// </summary>
-		[AliasOf("GL_POST_CONVOLUTION_COLOR_TABLE_SGI"]
+		[AliasOf("GL_POST_CONVOLUTION_COLOR_TABLE_SGI")]
 		[RequiredByFeature("GL_ARB_imaging")]
 		public const int POST_CONVOLUTION_COLOR_TABLE = 0x80D1;
 
 		/// <summary>
 		/// Value of GL_POST_COLOR_MATRIX_COLOR_TABLE symbol.
 		/// </summary>
-		[AliasOf("GL_POST_COLOR_MATRIX_COLOR_TABLE_SGI"]
+		[AliasOf("GL_POST_COLOR_MATRIX_COLOR_TABLE_SGI")]
 		[RequiredByFeature("GL_ARB_imaging")]
 		public const int POST_COLOR_MATRIX_COLOR_TABLE = 0x80D2;
 
 		/// <summary>
 		/// Value of GL_PROXY_COLOR_TABLE symbol.
 		/// </summary>
-		[AliasOf("GL_PROXY_COLOR_TABLE_SGI"]
+		[AliasOf("GL_PROXY_COLOR_TABLE_SGI")]
 		[RequiredByFeature("GL_ARB_imaging")]
 		public const int PROXY_COLOR_TABLE = 0x80D3;
 
 		/// <summary>
 		/// Value of GL_PROXY_POST_CONVOLUTION_COLOR_TABLE symbol.
 		/// </summary>
-		[AliasOf("GL_PROXY_POST_CONVOLUTION_COLOR_TABLE_SGI"]
+		[AliasOf("GL_PROXY_POST_CONVOLUTION_COLOR_TABLE_SGI")]
 		[RequiredByFeature("GL_ARB_imaging")]
 		public const int PROXY_POST_CONVOLUTION_COLOR_TABLE = 0x80D4;
 
 		/// <summary>
 		/// Value of GL_PROXY_POST_COLOR_MATRIX_COLOR_TABLE symbol.
 		/// </summary>
-		[AliasOf("GL_PROXY_POST_COLOR_MATRIX_COLOR_TABLE_SGI"]
+		[AliasOf("GL_PROXY_POST_COLOR_MATRIX_COLOR_TABLE_SGI")]
 		[RequiredByFeature("GL_ARB_imaging")]
 		public const int PROXY_POST_COLOR_MATRIX_COLOR_TABLE = 0x80D5;
 
 		/// <summary>
 		/// Value of GL_COLOR_TABLE_SCALE symbol.
 		/// </summary>
-		[AliasOf("GL_COLOR_TABLE_SCALE_SGI"]
+		[AliasOf("GL_COLOR_TABLE_SCALE_SGI")]
 		[RequiredByFeature("GL_ARB_imaging")]
 		public const int COLOR_TABLE_SCALE = 0x80D6;
 
 		/// <summary>
 		/// Value of GL_COLOR_TABLE_BIAS symbol.
 		/// </summary>
-		[AliasOf("GL_COLOR_TABLE_BIAS_SGI"]
+		[AliasOf("GL_COLOR_TABLE_BIAS_SGI")]
 		[RequiredByFeature("GL_ARB_imaging")]
 		public const int COLOR_TABLE_BIAS = 0x80D7;
 
 		/// <summary>
 		/// Value of GL_COLOR_TABLE_FORMAT symbol.
 		/// </summary>
-		[AliasOf("GL_COLOR_TABLE_FORMAT_SGI"]
+		[AliasOf("GL_COLOR_TABLE_FORMAT_SGI")]
 		[RequiredByFeature("GL_ARB_imaging")]
 		public const int COLOR_TABLE_FORMAT = 0x80D8;
 
 		/// <summary>
 		/// Value of GL_COLOR_TABLE_WIDTH symbol.
 		/// </summary>
-		[AliasOf("GL_COLOR_TABLE_WIDTH_SGI"]
+		[AliasOf("GL_COLOR_TABLE_WIDTH_SGI")]
 		[RequiredByFeature("GL_ARB_imaging")]
 		public const int COLOR_TABLE_WIDTH = 0x80D9;
 
 		/// <summary>
 		/// Value of GL_COLOR_TABLE_RED_SIZE symbol.
 		/// </summary>
-		[AliasOf("GL_COLOR_TABLE_RED_SIZE_SGI"]
+		[AliasOf("GL_COLOR_TABLE_RED_SIZE_SGI")]
 		[RequiredByFeature("GL_ARB_imaging")]
 		public const int COLOR_TABLE_RED_SIZE = 0x80DA;
 
 		/// <summary>
 		/// Value of GL_COLOR_TABLE_GREEN_SIZE symbol.
 		/// </summary>
-		[AliasOf("GL_COLOR_TABLE_GREEN_SIZE_SGI"]
+		[AliasOf("GL_COLOR_TABLE_GREEN_SIZE_SGI")]
 		[RequiredByFeature("GL_ARB_imaging")]
 		public const int COLOR_TABLE_GREEN_SIZE = 0x80DB;
 
 		/// <summary>
 		/// Value of GL_COLOR_TABLE_BLUE_SIZE symbol.
 		/// </summary>
-		[AliasOf("GL_COLOR_TABLE_BLUE_SIZE_SGI"]
+		[AliasOf("GL_COLOR_TABLE_BLUE_SIZE_SGI")]
 		[RequiredByFeature("GL_ARB_imaging")]
 		public const int COLOR_TABLE_BLUE_SIZE = 0x80DC;
 
 		/// <summary>
 		/// Value of GL_COLOR_TABLE_ALPHA_SIZE symbol.
 		/// </summary>
-		[AliasOf("GL_COLOR_TABLE_ALPHA_SIZE_SGI"]
+		[AliasOf("GL_COLOR_TABLE_ALPHA_SIZE_SGI")]
 		[RequiredByFeature("GL_ARB_imaging")]
 		public const int COLOR_TABLE_ALPHA_SIZE = 0x80DD;
 
 		/// <summary>
 		/// Value of GL_COLOR_TABLE_LUMINANCE_SIZE symbol.
 		/// </summary>
-		[AliasOf("GL_COLOR_TABLE_LUMINANCE_SIZE_SGI"]
+		[AliasOf("GL_COLOR_TABLE_LUMINANCE_SIZE_SGI")]
 		[RequiredByFeature("GL_ARB_imaging")]
 		public const int COLOR_TABLE_LUMINANCE_SIZE = 0x80DE;
 
 		/// <summary>
 		/// Value of GL_COLOR_TABLE_INTENSITY_SIZE symbol.
 		/// </summary>
-		[AliasOf("GL_COLOR_TABLE_INTENSITY_SIZE_SGI"]
+		[AliasOf("GL_COLOR_TABLE_INTENSITY_SIZE_SGI")]
 		[RequiredByFeature("GL_ARB_imaging")]
 		public const int COLOR_TABLE_INTENSITY_SIZE = 0x80DF;
 
 		/// <summary>
 		/// Value of GL_CONSTANT_BORDER symbol.
 		/// </summary>
-		[AliasOf("GL_CONSTANT_BORDER_HP"]
+		[AliasOf("GL_CONSTANT_BORDER_HP")]
 		[RequiredByFeature("GL_ARB_imaging")]
 		public const int CONSTANT_BORDER = 0x8151;
 
 		/// <summary>
 		/// Value of GL_REPLICATE_BORDER symbol.
 		/// </summary>
-		[AliasOf("GL_REPLICATE_BORDER_HP"]
+		[AliasOf("GL_REPLICATE_BORDER_HP")]
 		[RequiredByFeature("GL_ARB_imaging")]
 		public const int REPLICATE_BORDER = 0x8153;
 
 		/// <summary>
 		/// Value of GL_CONVOLUTION_BORDER_COLOR symbol.
 		/// </summary>
-		[AliasOf("GL_CONVOLUTION_BORDER_COLOR_HP"]
+		[AliasOf("GL_CONVOLUTION_BORDER_COLOR_HP")]
 		[RequiredByFeature("GL_ARB_imaging")]
 		public const int CONVOLUTION_BORDER_COLOR = 0x8154;
 
@@ -532,17 +532,9 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_imaging")]
 		public static void ColorTable(int target, int internalformat, Int32 width, PixelFormat format, PixelType type, IntPtr table)
 		{
-			if        (Delegates.pglColorTable != null) {
-				Delegates.pglColorTable(target, internalformat, width, (int)format, (int)type, table);
-				CallLog("glColorTable({0}, {1}, {2}, {3}, {4}, {5})", target, internalformat, width, format, type, table);
-			} else if (Delegates.pglColorTableEXT != null) {
-				Delegates.pglColorTableEXT(target, internalformat, width, (int)format, (int)type, table);
-				CallLog("glColorTableEXT({0}, {1}, {2}, {3}, {4}, {5})", target, internalformat, width, format, type, table);
-			} else if (Delegates.pglColorTableSGI != null) {
-				Delegates.pglColorTableSGI(target, internalformat, width, (int)format, (int)type, table);
-				CallLog("glColorTableSGI({0}, {1}, {2}, {3}, {4}, {5})", target, internalformat, width, format, type, table);
-			} else
-				throw new NotImplementedException("glColorTable (and other aliases) are not implemented");
+			Debug.Assert(Delegates.pglColorTable != null, "pglColorTable not implemented");
+			Delegates.pglColorTable(target, internalformat, width, (int)format, (int)type, table);
+			CallLog("glColorTable({0}, {1}, {2}, {3}, {4}, {5})", target, internalformat, width, format, type, table);
 			DebugCheckErrors();
 		}
 
@@ -619,14 +611,9 @@ namespace OpenGL
 			unsafe {
 				fixed (float* p_params = @params)
 				{
-					if        (Delegates.pglColorTableParameterfv != null) {
-						Delegates.pglColorTableParameterfv(target, pname, p_params);
-						CallLog("glColorTableParameterfv({0}, {1}, {2})", target, pname, @params);
-					} else if (Delegates.pglColorTableParameterfvSGI != null) {
-						Delegates.pglColorTableParameterfvSGI(target, pname, p_params);
-						CallLog("glColorTableParameterfvSGI({0}, {1}, {2})", target, pname, @params);
-					} else
-						throw new NotImplementedException("glColorTableParameterfv (and other aliases) are not implemented");
+					Debug.Assert(Delegates.pglColorTableParameterfv != null, "pglColorTableParameterfv not implemented");
+					Delegates.pglColorTableParameterfv(target, pname, p_params);
+					CallLog("glColorTableParameterfv({0}, {1}, {2})", target, pname, @params);
 				}
 			}
 			DebugCheckErrors();
@@ -652,14 +639,9 @@ namespace OpenGL
 			unsafe {
 				fixed (Int32* p_params = @params)
 				{
-					if        (Delegates.pglColorTableParameteriv != null) {
-						Delegates.pglColorTableParameteriv(target, pname, p_params);
-						CallLog("glColorTableParameteriv({0}, {1}, {2})", target, pname, @params);
-					} else if (Delegates.pglColorTableParameterivSGI != null) {
-						Delegates.pglColorTableParameterivSGI(target, pname, p_params);
-						CallLog("glColorTableParameterivSGI({0}, {1}, {2})", target, pname, @params);
-					} else
-						throw new NotImplementedException("glColorTableParameteriv (and other aliases) are not implemented");
+					Debug.Assert(Delegates.pglColorTableParameteriv != null, "pglColorTableParameteriv not implemented");
+					Delegates.pglColorTableParameteriv(target, pname, p_params);
+					CallLog("glColorTableParameteriv({0}, {1}, {2})", target, pname, @params);
 				}
 			}
 			DebugCheckErrors();
@@ -697,14 +679,9 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_imaging")]
 		public static void CopyColorTable(int target, int internalformat, Int32 x, Int32 y, Int32 width)
 		{
-			if        (Delegates.pglCopyColorTable != null) {
-				Delegates.pglCopyColorTable(target, internalformat, x, y, width);
-				CallLog("glCopyColorTable({0}, {1}, {2}, {3}, {4})", target, internalformat, x, y, width);
-			} else if (Delegates.pglCopyColorTableSGI != null) {
-				Delegates.pglCopyColorTableSGI(target, internalformat, x, y, width);
-				CallLog("glCopyColorTableSGI({0}, {1}, {2}, {3}, {4})", target, internalformat, x, y, width);
-			} else
-				throw new NotImplementedException("glCopyColorTable (and other aliases) are not implemented");
+			Debug.Assert(Delegates.pglCopyColorTable != null, "pglCopyColorTable not implemented");
+			Delegates.pglCopyColorTable(target, internalformat, x, y, width);
+			CallLog("glCopyColorTable({0}, {1}, {2}, {3}, {4})", target, internalformat, x, y, width);
 			DebugCheckErrors();
 		}
 
@@ -737,14 +714,9 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_imaging")]
 		public static void GetColorTable(int target, PixelFormat format, PixelType type, IntPtr table)
 		{
-			if        (Delegates.pglGetColorTable != null) {
-				Delegates.pglGetColorTable(target, (int)format, (int)type, table);
-				CallLog("glGetColorTable({0}, {1}, {2}, {3})", target, format, type, table);
-			} else if (Delegates.pglGetColorTableEXT != null) {
-				Delegates.pglGetColorTableEXT(target, (int)format, (int)type, table);
-				CallLog("glGetColorTableEXT({0}, {1}, {2}, {3})", target, format, type, table);
-			} else
-				throw new NotImplementedException("glGetColorTable (and other aliases) are not implemented");
+			Debug.Assert(Delegates.pglGetColorTable != null, "pglGetColorTable not implemented");
+			Delegates.pglGetColorTable(target, (int)format, (int)type, table);
+			CallLog("glGetColorTable({0}, {1}, {2}, {3})", target, format, type, table);
 			DebugCheckErrors();
 		}
 
@@ -809,14 +781,9 @@ namespace OpenGL
 			unsafe {
 				fixed (float* p_params = @params)
 				{
-					if        (Delegates.pglGetColorTableParameterfv != null) {
-						Delegates.pglGetColorTableParameterfv(target, pname, p_params);
-						CallLog("glGetColorTableParameterfv({0}, {1}, {2})", target, pname, @params);
-					} else if (Delegates.pglGetColorTableParameterfvEXT != null) {
-						Delegates.pglGetColorTableParameterfvEXT(target, pname, p_params);
-						CallLog("glGetColorTableParameterfvEXT({0}, {1}, {2})", target, pname, @params);
-					} else
-						throw new NotImplementedException("glGetColorTableParameterfv (and other aliases) are not implemented");
+					Debug.Assert(Delegates.pglGetColorTableParameterfv != null, "pglGetColorTableParameterfv not implemented");
+					Delegates.pglGetColorTableParameterfv(target, pname, p_params);
+					CallLog("glGetColorTableParameterfv({0}, {1}, {2})", target, pname, @params);
 				}
 			}
 			DebugCheckErrors();
@@ -846,14 +813,9 @@ namespace OpenGL
 			unsafe {
 				fixed (Int32* p_params = @params)
 				{
-					if        (Delegates.pglGetColorTableParameteriv != null) {
-						Delegates.pglGetColorTableParameteriv(target, pname, p_params);
-						CallLog("glGetColorTableParameteriv({0}, {1}, {2})", target, pname, @params);
-					} else if (Delegates.pglGetColorTableParameterivEXT != null) {
-						Delegates.pglGetColorTableParameterivEXT(target, pname, p_params);
-						CallLog("glGetColorTableParameterivEXT({0}, {1}, {2})", target, pname, @params);
-					} else
-						throw new NotImplementedException("glGetColorTableParameteriv (and other aliases) are not implemented");
+					Debug.Assert(Delegates.pglGetColorTableParameteriv != null, "pglGetColorTableParameteriv not implemented");
+					Delegates.pglGetColorTableParameteriv(target, pname, p_params);
+					CallLog("glGetColorTableParameteriv({0}, {1}, {2})", target, pname, @params);
 				}
 			}
 			DebugCheckErrors();
@@ -894,14 +856,9 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_imaging")]
 		public static void ColorSubTable(int target, Int32 start, Int32 count, PixelFormat format, PixelType type, IntPtr data)
 		{
-			if        (Delegates.pglColorSubTable != null) {
-				Delegates.pglColorSubTable(target, start, count, (int)format, (int)type, data);
-				CallLog("glColorSubTable({0}, {1}, {2}, {3}, {4}, {5})", target, start, count, format, type, data);
-			} else if (Delegates.pglColorSubTableEXT != null) {
-				Delegates.pglColorSubTableEXT(target, start, count, (int)format, (int)type, data);
-				CallLog("glColorSubTableEXT({0}, {1}, {2}, {3}, {4}, {5})", target, start, count, format, type, data);
-			} else
-				throw new NotImplementedException("glColorSubTable (and other aliases) are not implemented");
+			Debug.Assert(Delegates.pglColorSubTable != null, "pglColorSubTable not implemented");
+			Delegates.pglColorSubTable(target, start, count, (int)format, (int)type, data);
+			CallLog("glColorSubTable({0}, {1}, {2}, {3}, {4}, {5})", target, start, count, format, type, data);
 			DebugCheckErrors();
 		}
 
@@ -970,14 +927,9 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_imaging")]
 		public static void CopyColorSubTable(int target, Int32 start, Int32 x, Int32 y, Int32 width)
 		{
-			if        (Delegates.pglCopyColorSubTable != null) {
-				Delegates.pglCopyColorSubTable(target, start, x, y, width);
-				CallLog("glCopyColorSubTable({0}, {1}, {2}, {3}, {4})", target, start, x, y, width);
-			} else if (Delegates.pglCopyColorSubTableEXT != null) {
-				Delegates.pglCopyColorSubTableEXT(target, start, x, y, width);
-				CallLog("glCopyColorSubTableEXT({0}, {1}, {2}, {3}, {4})", target, start, x, y, width);
-			} else
-				throw new NotImplementedException("glCopyColorSubTable (and other aliases) are not implemented");
+			Debug.Assert(Delegates.pglCopyColorSubTable != null, "pglCopyColorSubTable not implemented");
+			Delegates.pglCopyColorSubTable(target, start, x, y, width);
+			CallLog("glCopyColorSubTable({0}, {1}, {2}, {3}, {4})", target, start, x, y, width);
 			DebugCheckErrors();
 		}
 
@@ -1024,14 +976,9 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_imaging")]
 		public static void ConvolutionFilter1D(int target, int internalformat, Int32 width, PixelFormat format, PixelType type, IntPtr image)
 		{
-			if        (Delegates.pglConvolutionFilter1D != null) {
-				Delegates.pglConvolutionFilter1D(target, internalformat, width, (int)format, (int)type, image);
-				CallLog("glConvolutionFilter1D({0}, {1}, {2}, {3}, {4}, {5})", target, internalformat, width, format, type, image);
-			} else if (Delegates.pglConvolutionFilter1DEXT != null) {
-				Delegates.pglConvolutionFilter1DEXT(target, internalformat, width, (int)format, (int)type, image);
-				CallLog("glConvolutionFilter1DEXT({0}, {1}, {2}, {3}, {4}, {5})", target, internalformat, width, format, type, image);
-			} else
-				throw new NotImplementedException("glConvolutionFilter1D (and other aliases) are not implemented");
+			Debug.Assert(Delegates.pglConvolutionFilter1D != null, "pglConvolutionFilter1D not implemented");
+			Delegates.pglConvolutionFilter1D(target, internalformat, width, (int)format, (int)type, image);
+			CallLog("glConvolutionFilter1D({0}, {1}, {2}, {3}, {4}, {5})", target, internalformat, width, format, type, image);
 			DebugCheckErrors();
 		}
 
@@ -1132,14 +1079,9 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_imaging")]
 		public static void ConvolutionFilter2D(int target, int internalformat, Int32 width, Int32 height, PixelFormat format, PixelType type, IntPtr image)
 		{
-			if        (Delegates.pglConvolutionFilter2D != null) {
-				Delegates.pglConvolutionFilter2D(target, internalformat, width, height, (int)format, (int)type, image);
-				CallLog("glConvolutionFilter2D({0}, {1}, {2}, {3}, {4}, {5}, {6})", target, internalformat, width, height, format, type, image);
-			} else if (Delegates.pglConvolutionFilter2DEXT != null) {
-				Delegates.pglConvolutionFilter2DEXT(target, internalformat, width, height, (int)format, (int)type, image);
-				CallLog("glConvolutionFilter2DEXT({0}, {1}, {2}, {3}, {4}, {5}, {6})", target, internalformat, width, height, format, type, image);
-			} else
-				throw new NotImplementedException("glConvolutionFilter2D (and other aliases) are not implemented");
+			Debug.Assert(Delegates.pglConvolutionFilter2D != null, "pglConvolutionFilter2D not implemented");
+			Delegates.pglConvolutionFilter2D(target, internalformat, width, height, (int)format, (int)type, image);
+			CallLog("glConvolutionFilter2D({0}, {1}, {2}, {3}, {4}, {5}, {6})", target, internalformat, width, height, format, type, image);
 			DebugCheckErrors();
 		}
 
@@ -1213,14 +1155,9 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_imaging")]
 		public static void ConvolutionParameter(int target, int pname, float @params)
 		{
-			if        (Delegates.pglConvolutionParameterf != null) {
-				Delegates.pglConvolutionParameterf(target, pname, @params);
-				CallLog("glConvolutionParameterf({0}, {1}, {2})", target, pname, @params);
-			} else if (Delegates.pglConvolutionParameterfEXT != null) {
-				Delegates.pglConvolutionParameterfEXT(target, pname, @params);
-				CallLog("glConvolutionParameterfEXT({0}, {1}, {2})", target, pname, @params);
-			} else
-				throw new NotImplementedException("glConvolutionParameterf (and other aliases) are not implemented");
+			Debug.Assert(Delegates.pglConvolutionParameterf != null, "pglConvolutionParameterf not implemented");
+			Delegates.pglConvolutionParameterf(target, pname, @params);
+			CallLog("glConvolutionParameterf({0}, {1}, {2})", target, pname, @params);
 			DebugCheckErrors();
 		}
 
@@ -1243,14 +1180,9 @@ namespace OpenGL
 			unsafe {
 				fixed (float* p_params = @params)
 				{
-					if        (Delegates.pglConvolutionParameterfv != null) {
-						Delegates.pglConvolutionParameterfv(target, pname, p_params);
-						CallLog("glConvolutionParameterfv({0}, {1}, {2})", target, pname, @params);
-					} else if (Delegates.pglConvolutionParameterfvEXT != null) {
-						Delegates.pglConvolutionParameterfvEXT(target, pname, p_params);
-						CallLog("glConvolutionParameterfvEXT({0}, {1}, {2})", target, pname, @params);
-					} else
-						throw new NotImplementedException("glConvolutionParameterfv (and other aliases) are not implemented");
+					Debug.Assert(Delegates.pglConvolutionParameterfv != null, "pglConvolutionParameterfv not implemented");
+					Delegates.pglConvolutionParameterfv(target, pname, p_params);
+					CallLog("glConvolutionParameterfv({0}, {1}, {2})", target, pname, @params);
 				}
 			}
 			DebugCheckErrors();
@@ -1272,14 +1204,9 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_imaging")]
 		public static void ConvolutionParameter(int target, int pname, Int32 @params)
 		{
-			if        (Delegates.pglConvolutionParameteri != null) {
-				Delegates.pglConvolutionParameteri(target, pname, @params);
-				CallLog("glConvolutionParameteri({0}, {1}, {2})", target, pname, @params);
-			} else if (Delegates.pglConvolutionParameteriEXT != null) {
-				Delegates.pglConvolutionParameteriEXT(target, pname, @params);
-				CallLog("glConvolutionParameteriEXT({0}, {1}, {2})", target, pname, @params);
-			} else
-				throw new NotImplementedException("glConvolutionParameteri (and other aliases) are not implemented");
+			Debug.Assert(Delegates.pglConvolutionParameteri != null, "pglConvolutionParameteri not implemented");
+			Delegates.pglConvolutionParameteri(target, pname, @params);
+			CallLog("glConvolutionParameteri({0}, {1}, {2})", target, pname, @params);
 			DebugCheckErrors();
 		}
 
@@ -1302,14 +1229,9 @@ namespace OpenGL
 			unsafe {
 				fixed (Int32* p_params = @params)
 				{
-					if        (Delegates.pglConvolutionParameteriv != null) {
-						Delegates.pglConvolutionParameteriv(target, pname, p_params);
-						CallLog("glConvolutionParameteriv({0}, {1}, {2})", target, pname, @params);
-					} else if (Delegates.pglConvolutionParameterivEXT != null) {
-						Delegates.pglConvolutionParameterivEXT(target, pname, p_params);
-						CallLog("glConvolutionParameterivEXT({0}, {1}, {2})", target, pname, @params);
-					} else
-						throw new NotImplementedException("glConvolutionParameteriv (and other aliases) are not implemented");
+					Debug.Assert(Delegates.pglConvolutionParameteriv != null, "pglConvolutionParameteriv not implemented");
+					Delegates.pglConvolutionParameteriv(target, pname, p_params);
+					CallLog("glConvolutionParameteriv({0}, {1}, {2})", target, pname, @params);
 				}
 			}
 			DebugCheckErrors();
@@ -1346,14 +1268,9 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_imaging")]
 		public static void CopyConvolutionFilter1D(int target, int internalformat, Int32 x, Int32 y, Int32 width)
 		{
-			if        (Delegates.pglCopyConvolutionFilter1D != null) {
-				Delegates.pglCopyConvolutionFilter1D(target, internalformat, x, y, width);
-				CallLog("glCopyConvolutionFilter1D({0}, {1}, {2}, {3}, {4})", target, internalformat, x, y, width);
-			} else if (Delegates.pglCopyConvolutionFilter1DEXT != null) {
-				Delegates.pglCopyConvolutionFilter1DEXT(target, internalformat, x, y, width);
-				CallLog("glCopyConvolutionFilter1DEXT({0}, {1}, {2}, {3}, {4})", target, internalformat, x, y, width);
-			} else
-				throw new NotImplementedException("glCopyConvolutionFilter1D (and other aliases) are not implemented");
+			Debug.Assert(Delegates.pglCopyConvolutionFilter1D != null, "pglCopyConvolutionFilter1D not implemented");
+			Delegates.pglCopyConvolutionFilter1D(target, internalformat, x, y, width);
+			CallLog("glCopyConvolutionFilter1D({0}, {1}, {2}, {3}, {4})", target, internalformat, x, y, width);
 			DebugCheckErrors();
 		}
 
@@ -1391,14 +1308,9 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_imaging")]
 		public static void CopyConvolutionFilter2D(int target, int internalformat, Int32 x, Int32 y, Int32 width, Int32 height)
 		{
-			if        (Delegates.pglCopyConvolutionFilter2D != null) {
-				Delegates.pglCopyConvolutionFilter2D(target, internalformat, x, y, width, height);
-				CallLog("glCopyConvolutionFilter2D({0}, {1}, {2}, {3}, {4}, {5})", target, internalformat, x, y, width, height);
-			} else if (Delegates.pglCopyConvolutionFilter2DEXT != null) {
-				Delegates.pglCopyConvolutionFilter2DEXT(target, internalformat, x, y, width, height);
-				CallLog("glCopyConvolutionFilter2DEXT({0}, {1}, {2}, {3}, {4}, {5})", target, internalformat, x, y, width, height);
-			} else
-				throw new NotImplementedException("glCopyConvolutionFilter2D (and other aliases) are not implemented");
+			Debug.Assert(Delegates.pglCopyConvolutionFilter2D != null, "pglCopyConvolutionFilter2D not implemented");
+			Delegates.pglCopyConvolutionFilter2D(target, internalformat, x, y, width, height);
+			CallLog("glCopyConvolutionFilter2D({0}, {1}, {2}, {3}, {4}, {5})", target, internalformat, x, y, width, height);
 			DebugCheckErrors();
 		}
 
@@ -1667,14 +1579,9 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_imaging")]
 		public static void SeparableFilter2D(int target, int internalformat, Int32 width, Int32 height, PixelFormat format, PixelType type, IntPtr row, IntPtr column)
 		{
-			if        (Delegates.pglSeparableFilter2D != null) {
-				Delegates.pglSeparableFilter2D(target, internalformat, width, height, (int)format, (int)type, row, column);
-				CallLog("glSeparableFilter2D({0}, {1}, {2}, {3}, {4}, {5}, {6}, {7})", target, internalformat, width, height, format, type, row, column);
-			} else if (Delegates.pglSeparableFilter2DEXT != null) {
-				Delegates.pglSeparableFilter2DEXT(target, internalformat, width, height, (int)format, (int)type, row, column);
-				CallLog("glSeparableFilter2DEXT({0}, {1}, {2}, {3}, {4}, {5}, {6}, {7})", target, internalformat, width, height, format, type, row, column);
-			} else
-				throw new NotImplementedException("glSeparableFilter2D (and other aliases) are not implemented");
+			Debug.Assert(Delegates.pglSeparableFilter2D != null, "pglSeparableFilter2D not implemented");
+			Delegates.pglSeparableFilter2D(target, internalformat, width, height, (int)format, (int)type, row, column);
+			CallLog("glSeparableFilter2D({0}, {1}, {2}, {3}, {4}, {5}, {6}, {7})", target, internalformat, width, height, format, type, row, column);
 			DebugCheckErrors();
 		}
 
@@ -2017,14 +1924,9 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_imaging")]
 		public static void Histogram(int target, Int32 width, int internalformat, bool sink)
 		{
-			if        (Delegates.pglHistogram != null) {
-				Delegates.pglHistogram(target, width, internalformat, sink);
-				CallLog("glHistogram({0}, {1}, {2}, {3})", target, width, internalformat, sink);
-			} else if (Delegates.pglHistogramEXT != null) {
-				Delegates.pglHistogramEXT(target, width, internalformat, sink);
-				CallLog("glHistogramEXT({0}, {1}, {2}, {3})", target, width, internalformat, sink);
-			} else
-				throw new NotImplementedException("glHistogram (and other aliases) are not implemented");
+			Debug.Assert(Delegates.pglHistogram != null, "pglHistogram not implemented");
+			Delegates.pglHistogram(target, width, internalformat, sink);
+			CallLog("glHistogram({0}, {1}, {2}, {3})", target, width, internalformat, sink);
 			DebugCheckErrors();
 		}
 
@@ -2052,14 +1954,9 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_imaging")]
 		public static void Minmax(int target, int internalformat, bool sink)
 		{
-			if        (Delegates.pglMinmax != null) {
-				Delegates.pglMinmax(target, internalformat, sink);
-				CallLog("glMinmax({0}, {1}, {2})", target, internalformat, sink);
-			} else if (Delegates.pglMinmaxEXT != null) {
-				Delegates.pglMinmaxEXT(target, internalformat, sink);
-				CallLog("glMinmaxEXT({0}, {1}, {2})", target, internalformat, sink);
-			} else
-				throw new NotImplementedException("glMinmax (and other aliases) are not implemented");
+			Debug.Assert(Delegates.pglMinmax != null, "pglMinmax not implemented");
+			Delegates.pglMinmax(target, internalformat, sink);
+			CallLog("glMinmax({0}, {1}, {2})", target, internalformat, sink);
 			DebugCheckErrors();
 		}
 
@@ -2072,14 +1969,9 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_imaging")]
 		public static void ResetHistogram(int target)
 		{
-			if        (Delegates.pglResetHistogram != null) {
-				Delegates.pglResetHistogram(target);
-				CallLog("glResetHistogram({0})", target);
-			} else if (Delegates.pglResetHistogramEXT != null) {
-				Delegates.pglResetHistogramEXT(target);
-				CallLog("glResetHistogramEXT({0})", target);
-			} else
-				throw new NotImplementedException("glResetHistogram (and other aliases) are not implemented");
+			Debug.Assert(Delegates.pglResetHistogram != null, "pglResetHistogram not implemented");
+			Delegates.pglResetHistogram(target);
+			CallLog("glResetHistogram({0})", target);
 			DebugCheckErrors();
 		}
 
@@ -2092,14 +1984,9 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_imaging")]
 		public static void ResetMinmax(int target)
 		{
-			if        (Delegates.pglResetMinmax != null) {
-				Delegates.pglResetMinmax(target);
-				CallLog("glResetMinmax({0})", target);
-			} else if (Delegates.pglResetMinmaxEXT != null) {
-				Delegates.pglResetMinmaxEXT(target);
-				CallLog("glResetMinmaxEXT({0})", target);
-			} else
-				throw new NotImplementedException("glResetMinmax (and other aliases) are not implemented");
+			Debug.Assert(Delegates.pglResetMinmax != null, "pglResetMinmax not implemented");
+			Delegates.pglResetMinmax(target);
+			CallLog("glResetMinmax({0})", target);
 			DebugCheckErrors();
 		}
 

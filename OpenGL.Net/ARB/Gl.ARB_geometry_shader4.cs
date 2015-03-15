@@ -28,7 +28,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_FRAMEBUFFER_INCOMPLETE_LAYER_COUNT_ARB symbol.
 		/// </summary>
-		[AliasOf("GL_FRAMEBUFFER_INCOMPLETE_LAYER_COUNT_EXT"]
+		[AliasOf("GL_FRAMEBUFFER_INCOMPLETE_LAYER_COUNT_EXT")]
 		[RequiredByFeature("GL_ARB_geometry_shader4")]
 		public const int FRAMEBUFFER_INCOMPLETE_LAYER_COUNT_ARB = 0x8DA9;
 
@@ -53,14 +53,14 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_MAX_GEOMETRY_VARYING_COMPONENTS_ARB symbol.
 		/// </summary>
-		[AliasOf("GL_MAX_GEOMETRY_VARYING_COMPONENTS_EXT"]
+		[AliasOf("GL_MAX_GEOMETRY_VARYING_COMPONENTS_EXT")]
 		[RequiredByFeature("GL_ARB_geometry_shader4")]
 		public const int MAX_GEOMETRY_VARYING_COMPONENTS_ARB = 0x8DDD;
 
 		/// <summary>
 		/// Value of GL_MAX_VERTEX_VARYING_COMPONENTS_ARB symbol.
 		/// </summary>
-		[AliasOf("GL_MAX_VERTEX_VARYING_COMPONENTS_EXT"]
+		[AliasOf("GL_MAX_VERTEX_VARYING_COMPONENTS_EXT")]
 		[RequiredByFeature("GL_ARB_geometry_shader4")]
 		public const int MAX_VERTEX_VARYING_COMPONENTS_ARB = 0x8DDE;
 
@@ -85,14 +85,9 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_geometry_shader4")]
 		public static void FramebufferTextureFaceARB(int target, int attachment, UInt32 texture, Int32 level, TextureTarget face)
 		{
-			if        (Delegates.pglFramebufferTextureFaceARB != null) {
-				Delegates.pglFramebufferTextureFaceARB(target, attachment, texture, level, (int)face);
-				CallLog("glFramebufferTextureFaceARB({0}, {1}, {2}, {3}, {4})", target, attachment, texture, level, face);
-			} else if (Delegates.pglFramebufferTextureFaceEXT != null) {
-				Delegates.pglFramebufferTextureFaceEXT(target, attachment, texture, level, (int)face);
-				CallLog("glFramebufferTextureFaceEXT({0}, {1}, {2}, {3}, {4})", target, attachment, texture, level, face);
-			} else
-				throw new NotImplementedException("glFramebufferTextureFaceARB (and other aliases) are not implemented");
+			Debug.Assert(Delegates.pglFramebufferTextureFaceARB != null, "pglFramebufferTextureFaceARB not implemented");
+			Delegates.pglFramebufferTextureFaceARB(target, attachment, texture, level, (int)face);
+			CallLog("glFramebufferTextureFaceARB({0}, {1}, {2}, {3}, {4})", target, attachment, texture, level, face);
 			DebugCheckErrors();
 		}
 

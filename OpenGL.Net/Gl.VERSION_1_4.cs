@@ -28,127 +28,127 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_BLEND_DST_RGB symbol.
 		/// </summary>
-		[AliasOf("GL_BLEND_DST_RGB_EXT"]
+		[AliasOf("GL_BLEND_DST_RGB_EXT")]
 		[RequiredByFeature("GL_VERSION_1_4")]
 		public const int BLEND_DST_RGB = 0x80C8;
 
 		/// <summary>
 		/// Value of GL_BLEND_SRC_RGB symbol.
 		/// </summary>
-		[AliasOf("GL_BLEND_SRC_RGB_EXT"]
+		[AliasOf("GL_BLEND_SRC_RGB_EXT")]
 		[RequiredByFeature("GL_VERSION_1_4")]
 		public const int BLEND_SRC_RGB = 0x80C9;
 
 		/// <summary>
 		/// Value of GL_BLEND_DST_ALPHA symbol.
 		/// </summary>
-		[AliasOf("GL_BLEND_DST_ALPHA_EXT"]
+		[AliasOf("GL_BLEND_DST_ALPHA_EXT")]
 		[RequiredByFeature("GL_VERSION_1_4")]
 		public const int BLEND_DST_ALPHA = 0x80CA;
 
 		/// <summary>
 		/// Value of GL_BLEND_SRC_ALPHA symbol.
 		/// </summary>
-		[AliasOf("GL_BLEND_SRC_ALPHA_EXT"]
+		[AliasOf("GL_BLEND_SRC_ALPHA_EXT")]
 		[RequiredByFeature("GL_VERSION_1_4")]
 		public const int BLEND_SRC_ALPHA = 0x80CB;
 
 		/// <summary>
 		/// Value of GL_POINT_FADE_THRESHOLD_SIZE symbol.
 		/// </summary>
-		[AliasOf("GL_POINT_FADE_THRESHOLD_SIZE_ARB"]
-		[AliasOf("GL_POINT_FADE_THRESHOLD_SIZE_EXT"]
-		[AliasOf("GL_POINT_FADE_THRESHOLD_SIZE_SGIS"]
+		[AliasOf("GL_POINT_FADE_THRESHOLD_SIZE_ARB")]
+		[AliasOf("GL_POINT_FADE_THRESHOLD_SIZE_EXT")]
+		[AliasOf("GL_POINT_FADE_THRESHOLD_SIZE_SGIS")]
 		[RequiredByFeature("GL_VERSION_1_4")]
 		public const int POINT_FADE_THRESHOLD_SIZE = 0x8128;
 
 		/// <summary>
 		/// Value of GL_DEPTH_COMPONENT16 symbol.
 		/// </summary>
-		[AliasOf("GL_DEPTH_COMPONENT16_ARB"]
-		[AliasOf("GL_DEPTH_COMPONENT16_SGIX"]
+		[AliasOf("GL_DEPTH_COMPONENT16_ARB")]
+		[AliasOf("GL_DEPTH_COMPONENT16_SGIX")]
 		[RequiredByFeature("GL_VERSION_1_4")]
 		public const int DEPTH_COMPONENT16 = 0x81A5;
 
 		/// <summary>
 		/// Value of GL_DEPTH_COMPONENT24 symbol.
 		/// </summary>
-		[AliasOf("GL_DEPTH_COMPONENT24_ARB"]
-		[AliasOf("GL_DEPTH_COMPONENT24_SGIX"]
+		[AliasOf("GL_DEPTH_COMPONENT24_ARB")]
+		[AliasOf("GL_DEPTH_COMPONENT24_SGIX")]
 		[RequiredByFeature("GL_VERSION_1_4")]
 		public const int DEPTH_COMPONENT24 = 0x81A6;
 
 		/// <summary>
 		/// Value of GL_DEPTH_COMPONENT32 symbol.
 		/// </summary>
-		[AliasOf("GL_DEPTH_COMPONENT32_ARB"]
-		[AliasOf("GL_DEPTH_COMPONENT32_SGIX"]
+		[AliasOf("GL_DEPTH_COMPONENT32_ARB")]
+		[AliasOf("GL_DEPTH_COMPONENT32_SGIX")]
 		[RequiredByFeature("GL_VERSION_1_4")]
 		public const int DEPTH_COMPONENT32 = 0x81A7;
 
 		/// <summary>
 		/// Value of GL_MIRRORED_REPEAT symbol.
 		/// </summary>
-		[AliasOf("GL_MIRRORED_REPEAT_ARB"]
-		[AliasOf("GL_MIRRORED_REPEAT_IBM"]
+		[AliasOf("GL_MIRRORED_REPEAT_ARB")]
+		[AliasOf("GL_MIRRORED_REPEAT_IBM")]
 		[RequiredByFeature("GL_VERSION_1_4")]
 		public const int MIRRORED_REPEAT = 0x8370;
 
 		/// <summary>
 		/// Value of GL_MAX_TEXTURE_LOD_BIAS symbol.
 		/// </summary>
-		[AliasOf("GL_MAX_TEXTURE_LOD_BIAS_EXT"]
+		[AliasOf("GL_MAX_TEXTURE_LOD_BIAS_EXT")]
 		[RequiredByFeature("GL_VERSION_1_4")]
 		public const int MAX_TEXTURE_LOD_BIAS = 0x84FD;
 
 		/// <summary>
 		/// Value of GL_TEXTURE_LOD_BIAS symbol.
 		/// </summary>
-		[AliasOf("GL_TEXTURE_LOD_BIAS_EXT"]
+		[AliasOf("GL_TEXTURE_LOD_BIAS_EXT")]
 		[RequiredByFeature("GL_VERSION_1_4")]
 		public const int TEXTURE_LOD_BIAS = 0x8501;
 
 		/// <summary>
 		/// Value of GL_INCR_WRAP symbol.
 		/// </summary>
-		[AliasOf("GL_INCR_WRAP_EXT"]
+		[AliasOf("GL_INCR_WRAP_EXT")]
 		[RequiredByFeature("GL_VERSION_1_4")]
 		public const int INCR_WRAP = 0x8507;
 
 		/// <summary>
 		/// Value of GL_DECR_WRAP symbol.
 		/// </summary>
-		[AliasOf("GL_DECR_WRAP_EXT"]
+		[AliasOf("GL_DECR_WRAP_EXT")]
 		[RequiredByFeature("GL_VERSION_1_4")]
 		public const int DECR_WRAP = 0x8508;
 
 		/// <summary>
 		/// Value of GL_TEXTURE_DEPTH_SIZE symbol.
 		/// </summary>
-		[AliasOf("GL_TEXTURE_DEPTH_SIZE_ARB"]
+		[AliasOf("GL_TEXTURE_DEPTH_SIZE_ARB")]
 		[RequiredByFeature("GL_VERSION_1_4")]
 		public const int TEXTURE_DEPTH_SIZE = 0x884A;
 
 		/// <summary>
 		/// Value of GL_TEXTURE_COMPARE_MODE symbol.
 		/// </summary>
-		[AliasOf("GL_TEXTURE_COMPARE_MODE_ARB"]
+		[AliasOf("GL_TEXTURE_COMPARE_MODE_ARB")]
 		[RequiredByFeature("GL_VERSION_1_4")]
 		public const int TEXTURE_COMPARE_MODE = 0x884C;
 
 		/// <summary>
 		/// Value of GL_TEXTURE_COMPARE_FUNC symbol.
 		/// </summary>
-		[AliasOf("GL_TEXTURE_COMPARE_FUNC_ARB"]
+		[AliasOf("GL_TEXTURE_COMPARE_FUNC_ARB")]
 		[RequiredByFeature("GL_VERSION_1_4")]
 		public const int TEXTURE_COMPARE_FUNC = 0x884D;
 
 		/// <summary>
 		/// Value of GL_POINT_SIZE_MIN symbol (DEPRECATED).
 		/// </summary>
-		[AliasOf("GL_POINT_SIZE_MIN_ARB"]
-		[AliasOf("GL_POINT_SIZE_MIN_EXT"]
-		[AliasOf("GL_POINT_SIZE_MIN_SGIS"]
+		[AliasOf("GL_POINT_SIZE_MIN_ARB")]
+		[AliasOf("GL_POINT_SIZE_MIN_EXT")]
+		[AliasOf("GL_POINT_SIZE_MIN_SGIS")]
 		[RequiredByFeature("GL_VERSION_1_4")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
@@ -159,9 +159,9 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_POINT_SIZE_MAX symbol (DEPRECATED).
 		/// </summary>
-		[AliasOf("GL_POINT_SIZE_MAX_ARB"]
-		[AliasOf("GL_POINT_SIZE_MAX_EXT"]
-		[AliasOf("GL_POINT_SIZE_MAX_SGIS"]
+		[AliasOf("GL_POINT_SIZE_MAX_ARB")]
+		[AliasOf("GL_POINT_SIZE_MAX_EXT")]
+		[AliasOf("GL_POINT_SIZE_MAX_SGIS")]
 		[RequiredByFeature("GL_VERSION_1_4")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
@@ -172,7 +172,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_POINT_DISTANCE_ATTENUATION symbol (DEPRECATED).
 		/// </summary>
-		[AliasOf("GL_POINT_DISTANCE_ATTENUATION_ARB"]
+		[AliasOf("GL_POINT_DISTANCE_ATTENUATION_ARB")]
 		[RequiredByFeature("GL_VERSION_1_4")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
@@ -183,7 +183,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_GENERATE_MIPMAP symbol (DEPRECATED).
 		/// </summary>
-		[AliasOf("GL_GENERATE_MIPMAP_SGIS"]
+		[AliasOf("GL_GENERATE_MIPMAP_SGIS")]
 		[RequiredByFeature("GL_VERSION_1_4")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
@@ -194,7 +194,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_GENERATE_MIPMAP_HINT symbol (DEPRECATED).
 		/// </summary>
-		[AliasOf("GL_GENERATE_MIPMAP_HINT_SGIS"]
+		[AliasOf("GL_GENERATE_MIPMAP_HINT_SGIS")]
 		[RequiredByFeature("GL_VERSION_1_4")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
@@ -205,7 +205,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_FOG_COORDINATE_SOURCE symbol (DEPRECATED).
 		/// </summary>
-		[AliasOf("GL_FOG_COORDINATE_SOURCE_EXT"]
+		[AliasOf("GL_FOG_COORDINATE_SOURCE_EXT")]
 		[RequiredByFeature("GL_VERSION_1_4")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
@@ -216,7 +216,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_FOG_COORDINATE symbol (DEPRECATED).
 		/// </summary>
-		[AliasOf("GL_FOG_COORDINATE_EXT"]
+		[AliasOf("GL_FOG_COORDINATE_EXT")]
 		[RequiredByFeature("GL_VERSION_1_4")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
@@ -227,7 +227,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_FRAGMENT_DEPTH symbol (DEPRECATED).
 		/// </summary>
-		[AliasOf("GL_FRAGMENT_DEPTH_EXT"]
+		[AliasOf("GL_FRAGMENT_DEPTH_EXT")]
 		[RequiredByFeature("GL_VERSION_1_4")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
@@ -238,7 +238,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_CURRENT_FOG_COORDINATE symbol (DEPRECATED).
 		/// </summary>
-		[AliasOf("GL_CURRENT_FOG_COORDINATE_EXT"]
+		[AliasOf("GL_CURRENT_FOG_COORDINATE_EXT")]
 		[RequiredByFeature("GL_VERSION_1_4")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
@@ -249,7 +249,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_FOG_COORDINATE_ARRAY_TYPE symbol (DEPRECATED).
 		/// </summary>
-		[AliasOf("GL_FOG_COORDINATE_ARRAY_TYPE_EXT"]
+		[AliasOf("GL_FOG_COORDINATE_ARRAY_TYPE_EXT")]
 		[RequiredByFeature("GL_VERSION_1_4")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
@@ -260,7 +260,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_FOG_COORDINATE_ARRAY_STRIDE symbol (DEPRECATED).
 		/// </summary>
-		[AliasOf("GL_FOG_COORDINATE_ARRAY_STRIDE_EXT"]
+		[AliasOf("GL_FOG_COORDINATE_ARRAY_STRIDE_EXT")]
 		[RequiredByFeature("GL_VERSION_1_4")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
@@ -271,7 +271,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_FOG_COORDINATE_ARRAY_POINTER symbol (DEPRECATED).
 		/// </summary>
-		[AliasOf("GL_FOG_COORDINATE_ARRAY_POINTER_EXT"]
+		[AliasOf("GL_FOG_COORDINATE_ARRAY_POINTER_EXT")]
 		[RequiredByFeature("GL_VERSION_1_4")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
@@ -282,7 +282,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_FOG_COORDINATE_ARRAY symbol (DEPRECATED).
 		/// </summary>
-		[AliasOf("GL_FOG_COORDINATE_ARRAY_EXT"]
+		[AliasOf("GL_FOG_COORDINATE_ARRAY_EXT")]
 		[RequiredByFeature("GL_VERSION_1_4")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
@@ -293,8 +293,8 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_COLOR_SUM symbol (DEPRECATED).
 		/// </summary>
-		[AliasOf("GL_COLOR_SUM_ARB"]
-		[AliasOf("GL_COLOR_SUM_EXT"]
+		[AliasOf("GL_COLOR_SUM_ARB")]
+		[AliasOf("GL_COLOR_SUM_EXT")]
 		[RequiredByFeature("GL_VERSION_1_4")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
@@ -305,7 +305,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_CURRENT_SECONDARY_COLOR symbol (DEPRECATED).
 		/// </summary>
-		[AliasOf("GL_CURRENT_SECONDARY_COLOR_EXT"]
+		[AliasOf("GL_CURRENT_SECONDARY_COLOR_EXT")]
 		[RequiredByFeature("GL_VERSION_1_4")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
@@ -316,7 +316,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_SECONDARY_COLOR_ARRAY_SIZE symbol (DEPRECATED).
 		/// </summary>
-		[AliasOf("GL_SECONDARY_COLOR_ARRAY_SIZE_EXT"]
+		[AliasOf("GL_SECONDARY_COLOR_ARRAY_SIZE_EXT")]
 		[RequiredByFeature("GL_VERSION_1_4")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
@@ -327,7 +327,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_SECONDARY_COLOR_ARRAY_TYPE symbol (DEPRECATED).
 		/// </summary>
-		[AliasOf("GL_SECONDARY_COLOR_ARRAY_TYPE_EXT"]
+		[AliasOf("GL_SECONDARY_COLOR_ARRAY_TYPE_EXT")]
 		[RequiredByFeature("GL_VERSION_1_4")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
@@ -338,7 +338,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_SECONDARY_COLOR_ARRAY_STRIDE symbol (DEPRECATED).
 		/// </summary>
-		[AliasOf("GL_SECONDARY_COLOR_ARRAY_STRIDE_EXT"]
+		[AliasOf("GL_SECONDARY_COLOR_ARRAY_STRIDE_EXT")]
 		[RequiredByFeature("GL_VERSION_1_4")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
@@ -349,7 +349,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_SECONDARY_COLOR_ARRAY_POINTER symbol (DEPRECATED).
 		/// </summary>
-		[AliasOf("GL_SECONDARY_COLOR_ARRAY_POINTER_EXT"]
+		[AliasOf("GL_SECONDARY_COLOR_ARRAY_POINTER_EXT")]
 		[RequiredByFeature("GL_VERSION_1_4")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
@@ -360,7 +360,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_SECONDARY_COLOR_ARRAY symbol (DEPRECATED).
 		/// </summary>
-		[AliasOf("GL_SECONDARY_COLOR_ARRAY_EXT"]
+		[AliasOf("GL_SECONDARY_COLOR_ARRAY_EXT")]
 		[RequiredByFeature("GL_VERSION_1_4")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
@@ -371,7 +371,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_TEXTURE_FILTER_CONTROL symbol (DEPRECATED).
 		/// </summary>
-		[AliasOf("GL_TEXTURE_FILTER_CONTROL_EXT"]
+		[AliasOf("GL_TEXTURE_FILTER_CONTROL_EXT")]
 		[RequiredByFeature("GL_VERSION_1_4")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
@@ -382,7 +382,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_DEPTH_TEXTURE_MODE symbol (DEPRECATED).
 		/// </summary>
-		[AliasOf("GL_DEPTH_TEXTURE_MODE_ARB"]
+		[AliasOf("GL_DEPTH_TEXTURE_MODE_ARB")]
 		[RequiredByFeature("GL_VERSION_1_4")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
@@ -393,7 +393,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_COMPARE_R_TO_TEXTURE symbol (DEPRECATED).
 		/// </summary>
-		[AliasOf("GL_COMPARE_R_TO_TEXTURE_ARB"]
+		[AliasOf("GL_COMPARE_R_TO_TEXTURE_ARB")]
 		[RequiredByFeature("GL_VERSION_1_4")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
@@ -404,7 +404,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_FUNC_ADD symbol.
 		/// </summary>
-		[AliasOf("GL_FUNC_ADD_EXT"]
+		[AliasOf("GL_FUNC_ADD_EXT")]
 		[RequiredByFeature("GL_VERSION_1_4")]
 		[RequiredByFeature("GL_ARB_imaging")]
 		public const int FUNC_ADD = 0x8006;
@@ -412,7 +412,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_FUNC_SUBTRACT symbol.
 		/// </summary>
-		[AliasOf("GL_FUNC_SUBTRACT_EXT"]
+		[AliasOf("GL_FUNC_SUBTRACT_EXT")]
 		[RequiredByFeature("GL_VERSION_1_4")]
 		[RequiredByFeature("GL_ARB_imaging")]
 		public const int FUNC_SUBTRACT = 0x800A;
@@ -420,7 +420,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_FUNC_REVERSE_SUBTRACT symbol.
 		/// </summary>
-		[AliasOf("GL_FUNC_REVERSE_SUBTRACT_EXT"]
+		[AliasOf("GL_FUNC_REVERSE_SUBTRACT_EXT")]
 		[RequiredByFeature("GL_VERSION_1_4")]
 		[RequiredByFeature("GL_ARB_imaging")]
 		public const int FUNC_REVERSE_SUBTRACT = 0x800B;
@@ -428,7 +428,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_MIN symbol.
 		/// </summary>
-		[AliasOf("GL_MIN_EXT"]
+		[AliasOf("GL_MIN_EXT")]
 		[RequiredByFeature("GL_VERSION_1_4")]
 		[RequiredByFeature("GL_ARB_imaging")]
 		public const int MIN = 0x8007;
@@ -436,7 +436,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_MAX symbol.
 		/// </summary>
-		[AliasOf("GL_MAX_EXT"]
+		[AliasOf("GL_MAX_EXT")]
 		[RequiredByFeature("GL_VERSION_1_4")]
 		[RequiredByFeature("GL_ARB_imaging")]
 		public const int MAX = 0x8008;
@@ -444,7 +444,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_CONSTANT_COLOR symbol.
 		/// </summary>
-		[AliasOf("GL_CONSTANT_COLOR_EXT"]
+		[AliasOf("GL_CONSTANT_COLOR_EXT")]
 		[RequiredByFeature("GL_VERSION_1_4")]
 		[RequiredByFeature("GL_ARB_imaging")]
 		public const int CONSTANT_COLOR = 0x8001;
@@ -452,7 +452,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_ONE_MINUS_CONSTANT_COLOR symbol.
 		/// </summary>
-		[AliasOf("GL_ONE_MINUS_CONSTANT_COLOR_EXT"]
+		[AliasOf("GL_ONE_MINUS_CONSTANT_COLOR_EXT")]
 		[RequiredByFeature("GL_VERSION_1_4")]
 		[RequiredByFeature("GL_ARB_imaging")]
 		public const int ONE_MINUS_CONSTANT_COLOR = 0x8002;
@@ -460,7 +460,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_CONSTANT_ALPHA symbol.
 		/// </summary>
-		[AliasOf("GL_CONSTANT_ALPHA_EXT"]
+		[AliasOf("GL_CONSTANT_ALPHA_EXT")]
 		[RequiredByFeature("GL_VERSION_1_4")]
 		[RequiredByFeature("GL_ARB_imaging")]
 		public const int CONSTANT_ALPHA = 0x8003;
@@ -468,7 +468,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_ONE_MINUS_CONSTANT_ALPHA symbol.
 		/// </summary>
-		[AliasOf("GL_ONE_MINUS_CONSTANT_ALPHA_EXT"]
+		[AliasOf("GL_ONE_MINUS_CONSTANT_ALPHA_EXT")]
 		[RequiredByFeature("GL_VERSION_1_4")]
 		[RequiredByFeature("GL_ARB_imaging")]
 		public const int ONE_MINUS_CONSTANT_ALPHA = 0x8004;
@@ -491,17 +491,9 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_1_4")]
 		public static void BlendFuncSeparate(int sfactorRGB, int dfactorRGB, int sfactorAlpha, int dfactorAlpha)
 		{
-			if        (Delegates.pglBlendFuncSeparate != null) {
-				Delegates.pglBlendFuncSeparate(sfactorRGB, dfactorRGB, sfactorAlpha, dfactorAlpha);
-				CallLog("glBlendFuncSeparate({0}, {1}, {2}, {3})", sfactorRGB, dfactorRGB, sfactorAlpha, dfactorAlpha);
-			} else if (Delegates.pglBlendFuncSeparateEXT != null) {
-				Delegates.pglBlendFuncSeparateEXT(sfactorRGB, dfactorRGB, sfactorAlpha, dfactorAlpha);
-				CallLog("glBlendFuncSeparateEXT({0}, {1}, {2}, {3})", sfactorRGB, dfactorRGB, sfactorAlpha, dfactorAlpha);
-			} else if (Delegates.pglBlendFuncSeparateINGR != null) {
-				Delegates.pglBlendFuncSeparateINGR(sfactorRGB, dfactorRGB, sfactorAlpha, dfactorAlpha);
-				CallLog("glBlendFuncSeparateINGR({0}, {1}, {2}, {3})", sfactorRGB, dfactorRGB, sfactorAlpha, dfactorAlpha);
-			} else
-				throw new NotImplementedException("glBlendFuncSeparate (and other aliases) are not implemented");
+			Debug.Assert(Delegates.pglBlendFuncSeparate != null, "pglBlendFuncSeparate not implemented");
+			Delegates.pglBlendFuncSeparate(sfactorRGB, dfactorRGB, sfactorAlpha, dfactorAlpha);
+			CallLog("glBlendFuncSeparate({0}, {1}, {2}, {3})", sfactorRGB, dfactorRGB, sfactorAlpha, dfactorAlpha);
 			DebugCheckErrors();
 		}
 
@@ -529,14 +521,9 @@ namespace OpenGL
 				fixed (Int32* p_first = first)
 				fixed (Int32* p_count = count)
 				{
-					if        (Delegates.pglMultiDrawArrays != null) {
-						Delegates.pglMultiDrawArrays((int)mode, p_first, p_count, drawcount);
-						CallLog("glMultiDrawArrays({0}, {1}, {2}, {3})", mode, first, count, drawcount);
-					} else if (Delegates.pglMultiDrawArraysEXT != null) {
-						Delegates.pglMultiDrawArraysEXT((int)mode, p_first, p_count, drawcount);
-						CallLog("glMultiDrawArraysEXT({0}, {1}, {2}, {3})", mode, first, count, drawcount);
-					} else
-						throw new NotImplementedException("glMultiDrawArrays (and other aliases) are not implemented");
+					Debug.Assert(Delegates.pglMultiDrawArrays != null, "pglMultiDrawArrays not implemented");
+					Delegates.pglMultiDrawArrays((int)mode, p_first, p_count, drawcount);
+					CallLog("glMultiDrawArrays({0}, {1}, {2}, {3})", mode, first, count, drawcount);
 				}
 			}
 			DebugCheckErrors();
@@ -569,14 +556,9 @@ namespace OpenGL
 				fixed (Int32* p_count = count)
 				fixed (IntPtr* p_indices = indices)
 				{
-					if        (Delegates.pglMultiDrawElements != null) {
-						Delegates.pglMultiDrawElements((int)mode, p_count, (int)type, p_indices, drawcount);
-						CallLog("glMultiDrawElements({0}, {1}, {2}, {3}, {4})", mode, count, type, indices, drawcount);
-					} else if (Delegates.pglMultiDrawElementsEXT != null) {
-						Delegates.pglMultiDrawElementsEXT((int)mode, p_count, (int)type, p_indices, drawcount);
-						CallLog("glMultiDrawElementsEXT({0}, {1}, {2}, {3}, {4})", mode, count, type, indices, drawcount);
-					} else
-						throw new NotImplementedException("glMultiDrawElements (and other aliases) are not implemented");
+					Debug.Assert(Delegates.pglMultiDrawElements != null, "pglMultiDrawElements not implemented");
+					Delegates.pglMultiDrawElements((int)mode, p_count, (int)type, p_indices, drawcount);
+					CallLog("glMultiDrawElements({0}, {1}, {2}, {3}, {4})", mode, count, type, indices, drawcount);
 				}
 			}
 			DebugCheckErrors();
@@ -594,20 +576,9 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_1_4")]
 		public static void PointParameter(int pname, float param)
 		{
-			if        (Delegates.pglPointParameterf != null) {
-				Delegates.pglPointParameterf(pname, param);
-				CallLog("glPointParameterf({0}, {1})", pname, param);
-			} else if (Delegates.pglPointParameterfARB != null) {
-				Delegates.pglPointParameterfARB(pname, param);
-				CallLog("glPointParameterfARB({0}, {1})", pname, param);
-			} else if (Delegates.pglPointParameterfEXT != null) {
-				Delegates.pglPointParameterfEXT(pname, param);
-				CallLog("glPointParameterfEXT({0}, {1})", pname, param);
-			} else if (Delegates.pglPointParameterfSGIS != null) {
-				Delegates.pglPointParameterfSGIS(pname, param);
-				CallLog("glPointParameterfSGIS({0}, {1})", pname, param);
-			} else
-				throw new NotImplementedException("glPointParameterf (and other aliases) are not implemented");
+			Debug.Assert(Delegates.pglPointParameterf != null, "pglPointParameterf not implemented");
+			Delegates.pglPointParameterf(pname, param);
+			CallLog("glPointParameterf({0}, {1})", pname, param);
 			DebugCheckErrors();
 		}
 
@@ -626,20 +597,9 @@ namespace OpenGL
 			unsafe {
 				fixed (float* p_params = @params)
 				{
-					if        (Delegates.pglPointParameterfv != null) {
-						Delegates.pglPointParameterfv(pname, p_params);
-						CallLog("glPointParameterfv({0}, {1})", pname, @params);
-					} else if (Delegates.pglPointParameterfvARB != null) {
-						Delegates.pglPointParameterfvARB(pname, p_params);
-						CallLog("glPointParameterfvARB({0}, {1})", pname, @params);
-					} else if (Delegates.pglPointParameterfvEXT != null) {
-						Delegates.pglPointParameterfvEXT(pname, p_params);
-						CallLog("glPointParameterfvEXT({0}, {1})", pname, @params);
-					} else if (Delegates.pglPointParameterfvSGIS != null) {
-						Delegates.pglPointParameterfvSGIS(pname, p_params);
-						CallLog("glPointParameterfvSGIS({0}, {1})", pname, @params);
-					} else
-						throw new NotImplementedException("glPointParameterfv (and other aliases) are not implemented");
+					Debug.Assert(Delegates.pglPointParameterfv != null, "pglPointParameterfv not implemented");
+					Delegates.pglPointParameterfv(pname, p_params);
+					CallLog("glPointParameterfv({0}, {1})", pname, @params);
 				}
 			}
 			DebugCheckErrors();
@@ -657,14 +617,9 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_1_4")]
 		public static void PointParameter(int pname, Int32 param)
 		{
-			if        (Delegates.pglPointParameteri != null) {
-				Delegates.pglPointParameteri(pname, param);
-				CallLog("glPointParameteri({0}, {1})", pname, param);
-			} else if (Delegates.pglPointParameteriNV != null) {
-				Delegates.pglPointParameteriNV(pname, param);
-				CallLog("glPointParameteriNV({0}, {1})", pname, param);
-			} else
-				throw new NotImplementedException("glPointParameteri (and other aliases) are not implemented");
+			Debug.Assert(Delegates.pglPointParameteri != null, "pglPointParameteri not implemented");
+			Delegates.pglPointParameteri(pname, param);
+			CallLog("glPointParameteri({0}, {1})", pname, param);
 			DebugCheckErrors();
 		}
 
@@ -683,14 +638,9 @@ namespace OpenGL
 			unsafe {
 				fixed (Int32* p_params = @params)
 				{
-					if        (Delegates.pglPointParameteriv != null) {
-						Delegates.pglPointParameteriv(pname, p_params);
-						CallLog("glPointParameteriv({0}, {1})", pname, @params);
-					} else if (Delegates.pglPointParameterivNV != null) {
-						Delegates.pglPointParameterivNV(pname, p_params);
-						CallLog("glPointParameterivNV({0}, {1})", pname, @params);
-					} else
-						throw new NotImplementedException("glPointParameteriv (and other aliases) are not implemented");
+					Debug.Assert(Delegates.pglPointParameteriv != null, "pglPointParameteriv not implemented");
+					Delegates.pglPointParameteriv(pname, p_params);
+					CallLog("glPointParameteriv({0}, {1})", pname, @params);
 				}
 			}
 			DebugCheckErrors();
@@ -706,14 +656,9 @@ namespace OpenGL
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void FogCoord(float coord)
 		{
-			if        (Delegates.pglFogCoordf != null) {
-				Delegates.pglFogCoordf(coord);
-				CallLog("glFogCoordf({0})", coord);
-			} else if (Delegates.pglFogCoordfEXT != null) {
-				Delegates.pglFogCoordfEXT(coord);
-				CallLog("glFogCoordfEXT({0})", coord);
-			} else
-				throw new NotImplementedException("glFogCoordf (and other aliases) are not implemented");
+			Debug.Assert(Delegates.pglFogCoordf != null, "pglFogCoordf not implemented");
+			Delegates.pglFogCoordf(coord);
+			CallLog("glFogCoordf({0})", coord);
 			DebugCheckErrors();
 		}
 
@@ -730,14 +675,9 @@ namespace OpenGL
 			unsafe {
 				fixed (float* p_coord = coord)
 				{
-					if        (Delegates.pglFogCoordfv != null) {
-						Delegates.pglFogCoordfv(p_coord);
-						CallLog("glFogCoordfv({0})", coord);
-					} else if (Delegates.pglFogCoordfvEXT != null) {
-						Delegates.pglFogCoordfvEXT(p_coord);
-						CallLog("glFogCoordfvEXT({0})", coord);
-					} else
-						throw new NotImplementedException("glFogCoordfv (and other aliases) are not implemented");
+					Debug.Assert(Delegates.pglFogCoordfv != null, "pglFogCoordfv not implemented");
+					Delegates.pglFogCoordfv(p_coord);
+					CallLog("glFogCoordfv({0})", coord);
 				}
 			}
 			DebugCheckErrors();
@@ -753,14 +693,9 @@ namespace OpenGL
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void FogCoord(double coord)
 		{
-			if        (Delegates.pglFogCoordd != null) {
-				Delegates.pglFogCoordd(coord);
-				CallLog("glFogCoordd({0})", coord);
-			} else if (Delegates.pglFogCoorddEXT != null) {
-				Delegates.pglFogCoorddEXT(coord);
-				CallLog("glFogCoorddEXT({0})", coord);
-			} else
-				throw new NotImplementedException("glFogCoordd (and other aliases) are not implemented");
+			Debug.Assert(Delegates.pglFogCoordd != null, "pglFogCoordd not implemented");
+			Delegates.pglFogCoordd(coord);
+			CallLog("glFogCoordd({0})", coord);
 			DebugCheckErrors();
 		}
 
@@ -777,14 +712,9 @@ namespace OpenGL
 			unsafe {
 				fixed (double* p_coord = coord)
 				{
-					if        (Delegates.pglFogCoorddv != null) {
-						Delegates.pglFogCoorddv(p_coord);
-						CallLog("glFogCoorddv({0})", coord);
-					} else if (Delegates.pglFogCoorddvEXT != null) {
-						Delegates.pglFogCoorddvEXT(p_coord);
-						CallLog("glFogCoorddvEXT({0})", coord);
-					} else
-						throw new NotImplementedException("glFogCoorddv (and other aliases) are not implemented");
+					Debug.Assert(Delegates.pglFogCoorddv != null, "pglFogCoorddv not implemented");
+					Delegates.pglFogCoorddv(p_coord);
+					CallLog("glFogCoorddv({0})", coord);
 				}
 			}
 			DebugCheckErrors();
@@ -808,14 +738,9 @@ namespace OpenGL
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void FogCoordPointer(FogPointerTypeEXT type, Int32 stride, IntPtr pointer)
 		{
-			if        (Delegates.pglFogCoordPointer != null) {
-				Delegates.pglFogCoordPointer((int)type, stride, pointer);
-				CallLog("glFogCoordPointer({0}, {1}, {2})", type, stride, pointer);
-			} else if (Delegates.pglFogCoordPointerEXT != null) {
-				Delegates.pglFogCoordPointerEXT((int)type, stride, pointer);
-				CallLog("glFogCoordPointerEXT({0}, {1}, {2})", type, stride, pointer);
-			} else
-				throw new NotImplementedException("glFogCoordPointer (and other aliases) are not implemented");
+			Debug.Assert(Delegates.pglFogCoordPointer != null, "pglFogCoordPointer not implemented");
+			Delegates.pglFogCoordPointer((int)type, stride, pointer);
+			CallLog("glFogCoordPointer({0}, {1}, {2})", type, stride, pointer);
 			DebugCheckErrors();
 		}
 
@@ -861,14 +786,9 @@ namespace OpenGL
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void SecondaryColor3(sbyte red, sbyte green, sbyte blue)
 		{
-			if        (Delegates.pglSecondaryColor3b != null) {
-				Delegates.pglSecondaryColor3b(red, green, blue);
-				CallLog("glSecondaryColor3b({0}, {1}, {2})", red, green, blue);
-			} else if (Delegates.pglSecondaryColor3bEXT != null) {
-				Delegates.pglSecondaryColor3bEXT(red, green, blue);
-				CallLog("glSecondaryColor3bEXT({0}, {1}, {2})", red, green, blue);
-			} else
-				throw new NotImplementedException("glSecondaryColor3b (and other aliases) are not implemented");
+			Debug.Assert(Delegates.pglSecondaryColor3b != null, "pglSecondaryColor3b not implemented");
+			Delegates.pglSecondaryColor3b(red, green, blue);
+			CallLog("glSecondaryColor3b({0}, {1}, {2})", red, green, blue);
 			DebugCheckErrors();
 		}
 
@@ -885,14 +805,9 @@ namespace OpenGL
 			unsafe {
 				fixed (sbyte* p_v = v)
 				{
-					if        (Delegates.pglSecondaryColor3bv != null) {
-						Delegates.pglSecondaryColor3bv(p_v);
-						CallLog("glSecondaryColor3bv({0})", v);
-					} else if (Delegates.pglSecondaryColor3bvEXT != null) {
-						Delegates.pglSecondaryColor3bvEXT(p_v);
-						CallLog("glSecondaryColor3bvEXT({0})", v);
-					} else
-						throw new NotImplementedException("glSecondaryColor3bv (and other aliases) are not implemented");
+					Debug.Assert(Delegates.pglSecondaryColor3bv != null, "pglSecondaryColor3bv not implemented");
+					Delegates.pglSecondaryColor3bv(p_v);
+					CallLog("glSecondaryColor3bv({0})", v);
 				}
 			}
 			DebugCheckErrors();
@@ -914,14 +829,9 @@ namespace OpenGL
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void SecondaryColor3(double red, double green, double blue)
 		{
-			if        (Delegates.pglSecondaryColor3d != null) {
-				Delegates.pglSecondaryColor3d(red, green, blue);
-				CallLog("glSecondaryColor3d({0}, {1}, {2})", red, green, blue);
-			} else if (Delegates.pglSecondaryColor3dEXT != null) {
-				Delegates.pglSecondaryColor3dEXT(red, green, blue);
-				CallLog("glSecondaryColor3dEXT({0}, {1}, {2})", red, green, blue);
-			} else
-				throw new NotImplementedException("glSecondaryColor3d (and other aliases) are not implemented");
+			Debug.Assert(Delegates.pglSecondaryColor3d != null, "pglSecondaryColor3d not implemented");
+			Delegates.pglSecondaryColor3d(red, green, blue);
+			CallLog("glSecondaryColor3d({0}, {1}, {2})", red, green, blue);
 			DebugCheckErrors();
 		}
 
@@ -938,14 +848,9 @@ namespace OpenGL
 			unsafe {
 				fixed (double* p_v = v)
 				{
-					if        (Delegates.pglSecondaryColor3dv != null) {
-						Delegates.pglSecondaryColor3dv(p_v);
-						CallLog("glSecondaryColor3dv({0})", v);
-					} else if (Delegates.pglSecondaryColor3dvEXT != null) {
-						Delegates.pglSecondaryColor3dvEXT(p_v);
-						CallLog("glSecondaryColor3dvEXT({0})", v);
-					} else
-						throw new NotImplementedException("glSecondaryColor3dv (and other aliases) are not implemented");
+					Debug.Assert(Delegates.pglSecondaryColor3dv != null, "pglSecondaryColor3dv not implemented");
+					Delegates.pglSecondaryColor3dv(p_v);
+					CallLog("glSecondaryColor3dv({0})", v);
 				}
 			}
 			DebugCheckErrors();
@@ -967,14 +872,9 @@ namespace OpenGL
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void SecondaryColor3(float red, float green, float blue)
 		{
-			if        (Delegates.pglSecondaryColor3f != null) {
-				Delegates.pglSecondaryColor3f(red, green, blue);
-				CallLog("glSecondaryColor3f({0}, {1}, {2})", red, green, blue);
-			} else if (Delegates.pglSecondaryColor3fEXT != null) {
-				Delegates.pglSecondaryColor3fEXT(red, green, blue);
-				CallLog("glSecondaryColor3fEXT({0}, {1}, {2})", red, green, blue);
-			} else
-				throw new NotImplementedException("glSecondaryColor3f (and other aliases) are not implemented");
+			Debug.Assert(Delegates.pglSecondaryColor3f != null, "pglSecondaryColor3f not implemented");
+			Delegates.pglSecondaryColor3f(red, green, blue);
+			CallLog("glSecondaryColor3f({0}, {1}, {2})", red, green, blue);
 			DebugCheckErrors();
 		}
 
@@ -991,14 +891,9 @@ namespace OpenGL
 			unsafe {
 				fixed (float* p_v = v)
 				{
-					if        (Delegates.pglSecondaryColor3fv != null) {
-						Delegates.pglSecondaryColor3fv(p_v);
-						CallLog("glSecondaryColor3fv({0})", v);
-					} else if (Delegates.pglSecondaryColor3fvEXT != null) {
-						Delegates.pglSecondaryColor3fvEXT(p_v);
-						CallLog("glSecondaryColor3fvEXT({0})", v);
-					} else
-						throw new NotImplementedException("glSecondaryColor3fv (and other aliases) are not implemented");
+					Debug.Assert(Delegates.pglSecondaryColor3fv != null, "pglSecondaryColor3fv not implemented");
+					Delegates.pglSecondaryColor3fv(p_v);
+					CallLog("glSecondaryColor3fv({0})", v);
 				}
 			}
 			DebugCheckErrors();
@@ -1020,14 +915,9 @@ namespace OpenGL
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void SecondaryColor3(Int32 red, Int32 green, Int32 blue)
 		{
-			if        (Delegates.pglSecondaryColor3i != null) {
-				Delegates.pglSecondaryColor3i(red, green, blue);
-				CallLog("glSecondaryColor3i({0}, {1}, {2})", red, green, blue);
-			} else if (Delegates.pglSecondaryColor3iEXT != null) {
-				Delegates.pglSecondaryColor3iEXT(red, green, blue);
-				CallLog("glSecondaryColor3iEXT({0}, {1}, {2})", red, green, blue);
-			} else
-				throw new NotImplementedException("glSecondaryColor3i (and other aliases) are not implemented");
+			Debug.Assert(Delegates.pglSecondaryColor3i != null, "pglSecondaryColor3i not implemented");
+			Delegates.pglSecondaryColor3i(red, green, blue);
+			CallLog("glSecondaryColor3i({0}, {1}, {2})", red, green, blue);
 			DebugCheckErrors();
 		}
 
@@ -1044,14 +934,9 @@ namespace OpenGL
 			unsafe {
 				fixed (Int32* p_v = v)
 				{
-					if        (Delegates.pglSecondaryColor3iv != null) {
-						Delegates.pglSecondaryColor3iv(p_v);
-						CallLog("glSecondaryColor3iv({0})", v);
-					} else if (Delegates.pglSecondaryColor3ivEXT != null) {
-						Delegates.pglSecondaryColor3ivEXT(p_v);
-						CallLog("glSecondaryColor3ivEXT({0})", v);
-					} else
-						throw new NotImplementedException("glSecondaryColor3iv (and other aliases) are not implemented");
+					Debug.Assert(Delegates.pglSecondaryColor3iv != null, "pglSecondaryColor3iv not implemented");
+					Delegates.pglSecondaryColor3iv(p_v);
+					CallLog("glSecondaryColor3iv({0})", v);
 				}
 			}
 			DebugCheckErrors();
@@ -1073,14 +958,9 @@ namespace OpenGL
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void SecondaryColor3(Int16 red, Int16 green, Int16 blue)
 		{
-			if        (Delegates.pglSecondaryColor3s != null) {
-				Delegates.pglSecondaryColor3s(red, green, blue);
-				CallLog("glSecondaryColor3s({0}, {1}, {2})", red, green, blue);
-			} else if (Delegates.pglSecondaryColor3sEXT != null) {
-				Delegates.pglSecondaryColor3sEXT(red, green, blue);
-				CallLog("glSecondaryColor3sEXT({0}, {1}, {2})", red, green, blue);
-			} else
-				throw new NotImplementedException("glSecondaryColor3s (and other aliases) are not implemented");
+			Debug.Assert(Delegates.pglSecondaryColor3s != null, "pglSecondaryColor3s not implemented");
+			Delegates.pglSecondaryColor3s(red, green, blue);
+			CallLog("glSecondaryColor3s({0}, {1}, {2})", red, green, blue);
 			DebugCheckErrors();
 		}
 
@@ -1097,14 +977,9 @@ namespace OpenGL
 			unsafe {
 				fixed (Int16* p_v = v)
 				{
-					if        (Delegates.pglSecondaryColor3sv != null) {
-						Delegates.pglSecondaryColor3sv(p_v);
-						CallLog("glSecondaryColor3sv({0})", v);
-					} else if (Delegates.pglSecondaryColor3svEXT != null) {
-						Delegates.pglSecondaryColor3svEXT(p_v);
-						CallLog("glSecondaryColor3svEXT({0})", v);
-					} else
-						throw new NotImplementedException("glSecondaryColor3sv (and other aliases) are not implemented");
+					Debug.Assert(Delegates.pglSecondaryColor3sv != null, "pglSecondaryColor3sv not implemented");
+					Delegates.pglSecondaryColor3sv(p_v);
+					CallLog("glSecondaryColor3sv({0})", v);
 				}
 			}
 			DebugCheckErrors();
@@ -1126,14 +1001,9 @@ namespace OpenGL
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void SecondaryColor3(byte red, byte green, byte blue)
 		{
-			if        (Delegates.pglSecondaryColor3ub != null) {
-				Delegates.pglSecondaryColor3ub(red, green, blue);
-				CallLog("glSecondaryColor3ub({0}, {1}, {2})", red, green, blue);
-			} else if (Delegates.pglSecondaryColor3ubEXT != null) {
-				Delegates.pglSecondaryColor3ubEXT(red, green, blue);
-				CallLog("glSecondaryColor3ubEXT({0}, {1}, {2})", red, green, blue);
-			} else
-				throw new NotImplementedException("glSecondaryColor3ub (and other aliases) are not implemented");
+			Debug.Assert(Delegates.pglSecondaryColor3ub != null, "pglSecondaryColor3ub not implemented");
+			Delegates.pglSecondaryColor3ub(red, green, blue);
+			CallLog("glSecondaryColor3ub({0}, {1}, {2})", red, green, blue);
 			DebugCheckErrors();
 		}
 
@@ -1150,14 +1020,9 @@ namespace OpenGL
 			unsafe {
 				fixed (byte* p_v = v)
 				{
-					if        (Delegates.pglSecondaryColor3ubv != null) {
-						Delegates.pglSecondaryColor3ubv(p_v);
-						CallLog("glSecondaryColor3ubv({0})", v);
-					} else if (Delegates.pglSecondaryColor3ubvEXT != null) {
-						Delegates.pglSecondaryColor3ubvEXT(p_v);
-						CallLog("glSecondaryColor3ubvEXT({0})", v);
-					} else
-						throw new NotImplementedException("glSecondaryColor3ubv (and other aliases) are not implemented");
+					Debug.Assert(Delegates.pglSecondaryColor3ubv != null, "pglSecondaryColor3ubv not implemented");
+					Delegates.pglSecondaryColor3ubv(p_v);
+					CallLog("glSecondaryColor3ubv({0})", v);
 				}
 			}
 			DebugCheckErrors();
@@ -1179,14 +1044,9 @@ namespace OpenGL
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void SecondaryColor3(UInt32 red, UInt32 green, UInt32 blue)
 		{
-			if        (Delegates.pglSecondaryColor3ui != null) {
-				Delegates.pglSecondaryColor3ui(red, green, blue);
-				CallLog("glSecondaryColor3ui({0}, {1}, {2})", red, green, blue);
-			} else if (Delegates.pglSecondaryColor3uiEXT != null) {
-				Delegates.pglSecondaryColor3uiEXT(red, green, blue);
-				CallLog("glSecondaryColor3uiEXT({0}, {1}, {2})", red, green, blue);
-			} else
-				throw new NotImplementedException("glSecondaryColor3ui (and other aliases) are not implemented");
+			Debug.Assert(Delegates.pglSecondaryColor3ui != null, "pglSecondaryColor3ui not implemented");
+			Delegates.pglSecondaryColor3ui(red, green, blue);
+			CallLog("glSecondaryColor3ui({0}, {1}, {2})", red, green, blue);
 			DebugCheckErrors();
 		}
 
@@ -1203,14 +1063,9 @@ namespace OpenGL
 			unsafe {
 				fixed (UInt32* p_v = v)
 				{
-					if        (Delegates.pglSecondaryColor3uiv != null) {
-						Delegates.pglSecondaryColor3uiv(p_v);
-						CallLog("glSecondaryColor3uiv({0})", v);
-					} else if (Delegates.pglSecondaryColor3uivEXT != null) {
-						Delegates.pglSecondaryColor3uivEXT(p_v);
-						CallLog("glSecondaryColor3uivEXT({0})", v);
-					} else
-						throw new NotImplementedException("glSecondaryColor3uiv (and other aliases) are not implemented");
+					Debug.Assert(Delegates.pglSecondaryColor3uiv != null, "pglSecondaryColor3uiv not implemented");
+					Delegates.pglSecondaryColor3uiv(p_v);
+					CallLog("glSecondaryColor3uiv({0})", v);
 				}
 			}
 			DebugCheckErrors();
@@ -1232,14 +1087,9 @@ namespace OpenGL
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void SecondaryColor3(UInt16 red, UInt16 green, UInt16 blue)
 		{
-			if        (Delegates.pglSecondaryColor3us != null) {
-				Delegates.pglSecondaryColor3us(red, green, blue);
-				CallLog("glSecondaryColor3us({0}, {1}, {2})", red, green, blue);
-			} else if (Delegates.pglSecondaryColor3usEXT != null) {
-				Delegates.pglSecondaryColor3usEXT(red, green, blue);
-				CallLog("glSecondaryColor3usEXT({0}, {1}, {2})", red, green, blue);
-			} else
-				throw new NotImplementedException("glSecondaryColor3us (and other aliases) are not implemented");
+			Debug.Assert(Delegates.pglSecondaryColor3us != null, "pglSecondaryColor3us not implemented");
+			Delegates.pglSecondaryColor3us(red, green, blue);
+			CallLog("glSecondaryColor3us({0}, {1}, {2})", red, green, blue);
 			DebugCheckErrors();
 		}
 
@@ -1256,14 +1106,9 @@ namespace OpenGL
 			unsafe {
 				fixed (UInt16* p_v = v)
 				{
-					if        (Delegates.pglSecondaryColor3usv != null) {
-						Delegates.pglSecondaryColor3usv(p_v);
-						CallLog("glSecondaryColor3usv({0})", v);
-					} else if (Delegates.pglSecondaryColor3usvEXT != null) {
-						Delegates.pglSecondaryColor3usvEXT(p_v);
-						CallLog("glSecondaryColor3usvEXT({0})", v);
-					} else
-						throw new NotImplementedException("glSecondaryColor3usv (and other aliases) are not implemented");
+					Debug.Assert(Delegates.pglSecondaryColor3usv != null, "pglSecondaryColor3usv not implemented");
+					Delegates.pglSecondaryColor3usv(p_v);
+					CallLog("glSecondaryColor3usv({0})", v);
 				}
 			}
 			DebugCheckErrors();
@@ -1292,14 +1137,9 @@ namespace OpenGL
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void SecondaryColorPointer(Int32 size, ColorPointerType type, Int32 stride, IntPtr pointer)
 		{
-			if        (Delegates.pglSecondaryColorPointer != null) {
-				Delegates.pglSecondaryColorPointer(size, (int)type, stride, pointer);
-				CallLog("glSecondaryColorPointer({0}, {1}, {2}, {3})", size, type, stride, pointer);
-			} else if (Delegates.pglSecondaryColorPointerEXT != null) {
-				Delegates.pglSecondaryColorPointerEXT(size, (int)type, stride, pointer);
-				CallLog("glSecondaryColorPointerEXT({0}, {1}, {2}, {3})", size, type, stride, pointer);
-			} else
-				throw new NotImplementedException("glSecondaryColorPointer (and other aliases) are not implemented");
+			Debug.Assert(Delegates.pglSecondaryColorPointer != null, "pglSecondaryColorPointer not implemented");
+			Delegates.pglSecondaryColorPointer(size, (int)type, stride, pointer);
+			CallLog("glSecondaryColorPointer({0}, {1}, {2}, {3})", size, type, stride, pointer);
 			DebugCheckErrors();
 		}
 
@@ -1347,17 +1187,9 @@ namespace OpenGL
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void WindowPos2(double x, double y)
 		{
-			if        (Delegates.pglWindowPos2d != null) {
-				Delegates.pglWindowPos2d(x, y);
-				CallLog("glWindowPos2d({0}, {1})", x, y);
-			} else if (Delegates.pglWindowPos2dARB != null) {
-				Delegates.pglWindowPos2dARB(x, y);
-				CallLog("glWindowPos2dARB({0}, {1})", x, y);
-			} else if (Delegates.pglWindowPos2dMESA != null) {
-				Delegates.pglWindowPos2dMESA(x, y);
-				CallLog("glWindowPos2dMESA({0}, {1})", x, y);
-			} else
-				throw new NotImplementedException("glWindowPos2d (and other aliases) are not implemented");
+			Debug.Assert(Delegates.pglWindowPos2d != null, "pglWindowPos2d not implemented");
+			Delegates.pglWindowPos2d(x, y);
+			CallLog("glWindowPos2d({0}, {1})", x, y);
 			DebugCheckErrors();
 		}
 
@@ -1374,17 +1206,9 @@ namespace OpenGL
 			unsafe {
 				fixed (double* p_v = v)
 				{
-					if        (Delegates.pglWindowPos2dv != null) {
-						Delegates.pglWindowPos2dv(p_v);
-						CallLog("glWindowPos2dv({0})", v);
-					} else if (Delegates.pglWindowPos2dvARB != null) {
-						Delegates.pglWindowPos2dvARB(p_v);
-						CallLog("glWindowPos2dvARB({0})", v);
-					} else if (Delegates.pglWindowPos2dvMESA != null) {
-						Delegates.pglWindowPos2dvMESA(p_v);
-						CallLog("glWindowPos2dvMESA({0})", v);
-					} else
-						throw new NotImplementedException("glWindowPos2dv (and other aliases) are not implemented");
+					Debug.Assert(Delegates.pglWindowPos2dv != null, "pglWindowPos2dv not implemented");
+					Delegates.pglWindowPos2dv(p_v);
+					CallLog("glWindowPos2dv({0})", v);
 				}
 			}
 			DebugCheckErrors();
@@ -1403,17 +1227,9 @@ namespace OpenGL
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void WindowPos2(float x, float y)
 		{
-			if        (Delegates.pglWindowPos2f != null) {
-				Delegates.pglWindowPos2f(x, y);
-				CallLog("glWindowPos2f({0}, {1})", x, y);
-			} else if (Delegates.pglWindowPos2fARB != null) {
-				Delegates.pglWindowPos2fARB(x, y);
-				CallLog("glWindowPos2fARB({0}, {1})", x, y);
-			} else if (Delegates.pglWindowPos2fMESA != null) {
-				Delegates.pglWindowPos2fMESA(x, y);
-				CallLog("glWindowPos2fMESA({0}, {1})", x, y);
-			} else
-				throw new NotImplementedException("glWindowPos2f (and other aliases) are not implemented");
+			Debug.Assert(Delegates.pglWindowPos2f != null, "pglWindowPos2f not implemented");
+			Delegates.pglWindowPos2f(x, y);
+			CallLog("glWindowPos2f({0}, {1})", x, y);
 			DebugCheckErrors();
 		}
 
@@ -1430,17 +1246,9 @@ namespace OpenGL
 			unsafe {
 				fixed (float* p_v = v)
 				{
-					if        (Delegates.pglWindowPos2fv != null) {
-						Delegates.pglWindowPos2fv(p_v);
-						CallLog("glWindowPos2fv({0})", v);
-					} else if (Delegates.pglWindowPos2fvARB != null) {
-						Delegates.pglWindowPos2fvARB(p_v);
-						CallLog("glWindowPos2fvARB({0})", v);
-					} else if (Delegates.pglWindowPos2fvMESA != null) {
-						Delegates.pglWindowPos2fvMESA(p_v);
-						CallLog("glWindowPos2fvMESA({0})", v);
-					} else
-						throw new NotImplementedException("glWindowPos2fv (and other aliases) are not implemented");
+					Debug.Assert(Delegates.pglWindowPos2fv != null, "pglWindowPos2fv not implemented");
+					Delegates.pglWindowPos2fv(p_v);
+					CallLog("glWindowPos2fv({0})", v);
 				}
 			}
 			DebugCheckErrors();
@@ -1459,17 +1267,9 @@ namespace OpenGL
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void WindowPos2(Int32 x, Int32 y)
 		{
-			if        (Delegates.pglWindowPos2i != null) {
-				Delegates.pglWindowPos2i(x, y);
-				CallLog("glWindowPos2i({0}, {1})", x, y);
-			} else if (Delegates.pglWindowPos2iARB != null) {
-				Delegates.pglWindowPos2iARB(x, y);
-				CallLog("glWindowPos2iARB({0}, {1})", x, y);
-			} else if (Delegates.pglWindowPos2iMESA != null) {
-				Delegates.pglWindowPos2iMESA(x, y);
-				CallLog("glWindowPos2iMESA({0}, {1})", x, y);
-			} else
-				throw new NotImplementedException("glWindowPos2i (and other aliases) are not implemented");
+			Debug.Assert(Delegates.pglWindowPos2i != null, "pglWindowPos2i not implemented");
+			Delegates.pglWindowPos2i(x, y);
+			CallLog("glWindowPos2i({0}, {1})", x, y);
 			DebugCheckErrors();
 		}
 
@@ -1486,17 +1286,9 @@ namespace OpenGL
 			unsafe {
 				fixed (Int32* p_v = v)
 				{
-					if        (Delegates.pglWindowPos2iv != null) {
-						Delegates.pglWindowPos2iv(p_v);
-						CallLog("glWindowPos2iv({0})", v);
-					} else if (Delegates.pglWindowPos2ivARB != null) {
-						Delegates.pglWindowPos2ivARB(p_v);
-						CallLog("glWindowPos2ivARB({0})", v);
-					} else if (Delegates.pglWindowPos2ivMESA != null) {
-						Delegates.pglWindowPos2ivMESA(p_v);
-						CallLog("glWindowPos2ivMESA({0})", v);
-					} else
-						throw new NotImplementedException("glWindowPos2iv (and other aliases) are not implemented");
+					Debug.Assert(Delegates.pglWindowPos2iv != null, "pglWindowPos2iv not implemented");
+					Delegates.pglWindowPos2iv(p_v);
+					CallLog("glWindowPos2iv({0})", v);
 				}
 			}
 			DebugCheckErrors();
@@ -1515,17 +1307,9 @@ namespace OpenGL
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void WindowPos2(Int16 x, Int16 y)
 		{
-			if        (Delegates.pglWindowPos2s != null) {
-				Delegates.pglWindowPos2s(x, y);
-				CallLog("glWindowPos2s({0}, {1})", x, y);
-			} else if (Delegates.pglWindowPos2sARB != null) {
-				Delegates.pglWindowPos2sARB(x, y);
-				CallLog("glWindowPos2sARB({0}, {1})", x, y);
-			} else if (Delegates.pglWindowPos2sMESA != null) {
-				Delegates.pglWindowPos2sMESA(x, y);
-				CallLog("glWindowPos2sMESA({0}, {1})", x, y);
-			} else
-				throw new NotImplementedException("glWindowPos2s (and other aliases) are not implemented");
+			Debug.Assert(Delegates.pglWindowPos2s != null, "pglWindowPos2s not implemented");
+			Delegates.pglWindowPos2s(x, y);
+			CallLog("glWindowPos2s({0}, {1})", x, y);
 			DebugCheckErrors();
 		}
 
@@ -1542,17 +1326,9 @@ namespace OpenGL
 			unsafe {
 				fixed (Int16* p_v = v)
 				{
-					if        (Delegates.pglWindowPos2sv != null) {
-						Delegates.pglWindowPos2sv(p_v);
-						CallLog("glWindowPos2sv({0})", v);
-					} else if (Delegates.pglWindowPos2svARB != null) {
-						Delegates.pglWindowPos2svARB(p_v);
-						CallLog("glWindowPos2svARB({0})", v);
-					} else if (Delegates.pglWindowPos2svMESA != null) {
-						Delegates.pglWindowPos2svMESA(p_v);
-						CallLog("glWindowPos2svMESA({0})", v);
-					} else
-						throw new NotImplementedException("glWindowPos2sv (and other aliases) are not implemented");
+					Debug.Assert(Delegates.pglWindowPos2sv != null, "pglWindowPos2sv not implemented");
+					Delegates.pglWindowPos2sv(p_v);
+					CallLog("glWindowPos2sv({0})", v);
 				}
 			}
 			DebugCheckErrors();
@@ -1574,17 +1350,9 @@ namespace OpenGL
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void WindowPos3(double x, double y, double z)
 		{
-			if        (Delegates.pglWindowPos3d != null) {
-				Delegates.pglWindowPos3d(x, y, z);
-				CallLog("glWindowPos3d({0}, {1}, {2})", x, y, z);
-			} else if (Delegates.pglWindowPos3dARB != null) {
-				Delegates.pglWindowPos3dARB(x, y, z);
-				CallLog("glWindowPos3dARB({0}, {1}, {2})", x, y, z);
-			} else if (Delegates.pglWindowPos3dMESA != null) {
-				Delegates.pglWindowPos3dMESA(x, y, z);
-				CallLog("glWindowPos3dMESA({0}, {1}, {2})", x, y, z);
-			} else
-				throw new NotImplementedException("glWindowPos3d (and other aliases) are not implemented");
+			Debug.Assert(Delegates.pglWindowPos3d != null, "pglWindowPos3d not implemented");
+			Delegates.pglWindowPos3d(x, y, z);
+			CallLog("glWindowPos3d({0}, {1}, {2})", x, y, z);
 			DebugCheckErrors();
 		}
 
@@ -1601,17 +1369,9 @@ namespace OpenGL
 			unsafe {
 				fixed (double* p_v = v)
 				{
-					if        (Delegates.pglWindowPos3dv != null) {
-						Delegates.pglWindowPos3dv(p_v);
-						CallLog("glWindowPos3dv({0})", v);
-					} else if (Delegates.pglWindowPos3dvARB != null) {
-						Delegates.pglWindowPos3dvARB(p_v);
-						CallLog("glWindowPos3dvARB({0})", v);
-					} else if (Delegates.pglWindowPos3dvMESA != null) {
-						Delegates.pglWindowPos3dvMESA(p_v);
-						CallLog("glWindowPos3dvMESA({0})", v);
-					} else
-						throw new NotImplementedException("glWindowPos3dv (and other aliases) are not implemented");
+					Debug.Assert(Delegates.pglWindowPos3dv != null, "pglWindowPos3dv not implemented");
+					Delegates.pglWindowPos3dv(p_v);
+					CallLog("glWindowPos3dv({0})", v);
 				}
 			}
 			DebugCheckErrors();
@@ -1633,17 +1393,9 @@ namespace OpenGL
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void WindowPos3(float x, float y, float z)
 		{
-			if        (Delegates.pglWindowPos3f != null) {
-				Delegates.pglWindowPos3f(x, y, z);
-				CallLog("glWindowPos3f({0}, {1}, {2})", x, y, z);
-			} else if (Delegates.pglWindowPos3fARB != null) {
-				Delegates.pglWindowPos3fARB(x, y, z);
-				CallLog("glWindowPos3fARB({0}, {1}, {2})", x, y, z);
-			} else if (Delegates.pglWindowPos3fMESA != null) {
-				Delegates.pglWindowPos3fMESA(x, y, z);
-				CallLog("glWindowPos3fMESA({0}, {1}, {2})", x, y, z);
-			} else
-				throw new NotImplementedException("glWindowPos3f (and other aliases) are not implemented");
+			Debug.Assert(Delegates.pglWindowPos3f != null, "pglWindowPos3f not implemented");
+			Delegates.pglWindowPos3f(x, y, z);
+			CallLog("glWindowPos3f({0}, {1}, {2})", x, y, z);
 			DebugCheckErrors();
 		}
 
@@ -1660,17 +1412,9 @@ namespace OpenGL
 			unsafe {
 				fixed (float* p_v = v)
 				{
-					if        (Delegates.pglWindowPos3fv != null) {
-						Delegates.pglWindowPos3fv(p_v);
-						CallLog("glWindowPos3fv({0})", v);
-					} else if (Delegates.pglWindowPos3fvARB != null) {
-						Delegates.pglWindowPos3fvARB(p_v);
-						CallLog("glWindowPos3fvARB({0})", v);
-					} else if (Delegates.pglWindowPos3fvMESA != null) {
-						Delegates.pglWindowPos3fvMESA(p_v);
-						CallLog("glWindowPos3fvMESA({0})", v);
-					} else
-						throw new NotImplementedException("glWindowPos3fv (and other aliases) are not implemented");
+					Debug.Assert(Delegates.pglWindowPos3fv != null, "pglWindowPos3fv not implemented");
+					Delegates.pglWindowPos3fv(p_v);
+					CallLog("glWindowPos3fv({0})", v);
 				}
 			}
 			DebugCheckErrors();
@@ -1692,17 +1436,9 @@ namespace OpenGL
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void WindowPos3(Int32 x, Int32 y, Int32 z)
 		{
-			if        (Delegates.pglWindowPos3i != null) {
-				Delegates.pglWindowPos3i(x, y, z);
-				CallLog("glWindowPos3i({0}, {1}, {2})", x, y, z);
-			} else if (Delegates.pglWindowPos3iARB != null) {
-				Delegates.pglWindowPos3iARB(x, y, z);
-				CallLog("glWindowPos3iARB({0}, {1}, {2})", x, y, z);
-			} else if (Delegates.pglWindowPos3iMESA != null) {
-				Delegates.pglWindowPos3iMESA(x, y, z);
-				CallLog("glWindowPos3iMESA({0}, {1}, {2})", x, y, z);
-			} else
-				throw new NotImplementedException("glWindowPos3i (and other aliases) are not implemented");
+			Debug.Assert(Delegates.pglWindowPos3i != null, "pglWindowPos3i not implemented");
+			Delegates.pglWindowPos3i(x, y, z);
+			CallLog("glWindowPos3i({0}, {1}, {2})", x, y, z);
 			DebugCheckErrors();
 		}
 
@@ -1719,17 +1455,9 @@ namespace OpenGL
 			unsafe {
 				fixed (Int32* p_v = v)
 				{
-					if        (Delegates.pglWindowPos3iv != null) {
-						Delegates.pglWindowPos3iv(p_v);
-						CallLog("glWindowPos3iv({0})", v);
-					} else if (Delegates.pglWindowPos3ivARB != null) {
-						Delegates.pglWindowPos3ivARB(p_v);
-						CallLog("glWindowPos3ivARB({0})", v);
-					} else if (Delegates.pglWindowPos3ivMESA != null) {
-						Delegates.pglWindowPos3ivMESA(p_v);
-						CallLog("glWindowPos3ivMESA({0})", v);
-					} else
-						throw new NotImplementedException("glWindowPos3iv (and other aliases) are not implemented");
+					Debug.Assert(Delegates.pglWindowPos3iv != null, "pglWindowPos3iv not implemented");
+					Delegates.pglWindowPos3iv(p_v);
+					CallLog("glWindowPos3iv({0})", v);
 				}
 			}
 			DebugCheckErrors();
@@ -1751,17 +1479,9 @@ namespace OpenGL
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void WindowPos3(Int16 x, Int16 y, Int16 z)
 		{
-			if        (Delegates.pglWindowPos3s != null) {
-				Delegates.pglWindowPos3s(x, y, z);
-				CallLog("glWindowPos3s({0}, {1}, {2})", x, y, z);
-			} else if (Delegates.pglWindowPos3sARB != null) {
-				Delegates.pglWindowPos3sARB(x, y, z);
-				CallLog("glWindowPos3sARB({0}, {1}, {2})", x, y, z);
-			} else if (Delegates.pglWindowPos3sMESA != null) {
-				Delegates.pglWindowPos3sMESA(x, y, z);
-				CallLog("glWindowPos3sMESA({0}, {1}, {2})", x, y, z);
-			} else
-				throw new NotImplementedException("glWindowPos3s (and other aliases) are not implemented");
+			Debug.Assert(Delegates.pglWindowPos3s != null, "pglWindowPos3s not implemented");
+			Delegates.pglWindowPos3s(x, y, z);
+			CallLog("glWindowPos3s({0}, {1}, {2})", x, y, z);
 			DebugCheckErrors();
 		}
 
@@ -1778,17 +1498,9 @@ namespace OpenGL
 			unsafe {
 				fixed (Int16* p_v = v)
 				{
-					if        (Delegates.pglWindowPos3sv != null) {
-						Delegates.pglWindowPos3sv(p_v);
-						CallLog("glWindowPos3sv({0})", v);
-					} else if (Delegates.pglWindowPos3svARB != null) {
-						Delegates.pglWindowPos3svARB(p_v);
-						CallLog("glWindowPos3svARB({0})", v);
-					} else if (Delegates.pglWindowPos3svMESA != null) {
-						Delegates.pglWindowPos3svMESA(p_v);
-						CallLog("glWindowPos3svMESA({0})", v);
-					} else
-						throw new NotImplementedException("glWindowPos3sv (and other aliases) are not implemented");
+					Debug.Assert(Delegates.pglWindowPos3sv != null, "pglWindowPos3sv not implemented");
+					Delegates.pglWindowPos3sv(p_v);
+					CallLog("glWindowPos3sv({0})", v);
 				}
 			}
 			DebugCheckErrors();
@@ -1813,14 +1525,9 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_imaging")]
 		public static void BlendColor(float red, float green, float blue, float alpha)
 		{
-			if        (Delegates.pglBlendColor != null) {
-				Delegates.pglBlendColor(red, green, blue, alpha);
-				CallLog("glBlendColor({0}, {1}, {2}, {3})", red, green, blue, alpha);
-			} else if (Delegates.pglBlendColorEXT != null) {
-				Delegates.pglBlendColorEXT(red, green, blue, alpha);
-				CallLog("glBlendColorEXT({0}, {1}, {2}, {3})", red, green, blue, alpha);
-			} else
-				throw new NotImplementedException("glBlendColor (and other aliases) are not implemented");
+			Debug.Assert(Delegates.pglBlendColor != null, "pglBlendColor not implemented");
+			Delegates.pglBlendColor(red, green, blue, alpha);
+			CallLog("glBlendColor({0}, {1}, {2}, {3})", red, green, blue, alpha);
 			DebugCheckErrors();
 		}
 
@@ -1835,14 +1542,9 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_imaging")]
 		public static void BlendEquation(int mode)
 		{
-			if        (Delegates.pglBlendEquation != null) {
-				Delegates.pglBlendEquation(mode);
-				CallLog("glBlendEquation({0})", mode);
-			} else if (Delegates.pglBlendEquationEXT != null) {
-				Delegates.pglBlendEquationEXT(mode);
-				CallLog("glBlendEquationEXT({0})", mode);
-			} else
-				throw new NotImplementedException("glBlendEquation (and other aliases) are not implemented");
+			Debug.Assert(Delegates.pglBlendEquation != null, "pglBlendEquation not implemented");
+			Delegates.pglBlendEquation(mode);
+			CallLog("glBlendEquation({0})", mode);
 			DebugCheckErrors();
 		}
 

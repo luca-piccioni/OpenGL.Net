@@ -257,7 +257,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of EGL_IMAGE_PRESERVED symbol.
 		/// </summary>
-		[AliasOf("EGL_IMAGE_PRESERVED_KHR"]
+		[AliasOf("EGL_IMAGE_PRESERVED_KHR")]
 		[RequiredByFeature("EGL_VERSION_1_5")]
 		public const int IMAGE_PRESERVED = 0x30D2;
 
@@ -287,14 +287,9 @@ namespace OpenGL
 			unsafe {
 				fixed (IntPtr* p_attrib_list = attrib_list)
 				{
-					if        (Delegates.peglCreateSync != null) {
-						retValue = Delegates.peglCreateSync(dpy, type, p_attrib_list);
-						CallLog("eglCreateSync({0}, {1}, {2}) = {3}", dpy, type, attrib_list, retValue);
-					} else if (Delegates.peglCreateSync64KHR != null) {
-						retValue = Delegates.peglCreateSync64KHR(dpy, type, p_attrib_list);
-						CallLog("eglCreateSync64KHR({0}, {1}, {2}) = {3}", dpy, type, attrib_list, retValue);
-					} else
-						throw new NotImplementedException("eglCreateSync (and other aliases) are not implemented");
+					Debug.Assert(Delegates.peglCreateSync != null, "peglCreateSync not implemented");
+					retValue = Delegates.peglCreateSync(dpy, type, p_attrib_list);
+					CallLog("eglCreateSync({0}, {1}, {2}) = {3}", dpy, type, attrib_list, retValue);
 				}
 			}
 			DebugCheckErrors();
@@ -316,14 +311,9 @@ namespace OpenGL
 		{
 			IntPtr retValue;
 
-			if        (Delegates.peglDestroySync != null) {
-				retValue = Delegates.peglDestroySync(dpy, sync);
-				CallLog("eglDestroySync({0}, {1}) = {2}", dpy, sync, retValue);
-			} else if (Delegates.peglDestroySyncKHR != null) {
-				retValue = Delegates.peglDestroySyncKHR(dpy, sync);
-				CallLog("eglDestroySyncKHR({0}, {1}) = {2}", dpy, sync, retValue);
-			} else
-				throw new NotImplementedException("eglDestroySync (and other aliases) are not implemented");
+			Debug.Assert(Delegates.peglDestroySync != null, "peglDestroySync not implemented");
+			retValue = Delegates.peglDestroySync(dpy, sync);
+			CallLog("eglDestroySync({0}, {1}) = {2}", dpy, sync, retValue);
 			DebugCheckErrors();
 
 			return (retValue);
@@ -349,14 +339,9 @@ namespace OpenGL
 		{
 			int retValue;
 
-			if        (Delegates.peglClientWaitSync != null) {
-				retValue = Delegates.peglClientWaitSync(dpy, sync, flags, timeout);
-				CallLog("eglClientWaitSync({0}, {1}, {2}, {3}) = {4}", dpy, sync, flags, timeout, retValue);
-			} else if (Delegates.peglClientWaitSyncKHR != null) {
-				retValue = Delegates.peglClientWaitSyncKHR(dpy, sync, flags, timeout);
-				CallLog("eglClientWaitSyncKHR({0}, {1}, {2}, {3}) = {4}", dpy, sync, flags, timeout, retValue);
-			} else
-				throw new NotImplementedException("eglClientWaitSync (and other aliases) are not implemented");
+			Debug.Assert(Delegates.peglClientWaitSync != null, "peglClientWaitSync not implemented");
+			retValue = Delegates.peglClientWaitSync(dpy, sync, flags, timeout);
+			CallLog("eglClientWaitSync({0}, {1}, {2}, {3}) = {4}", dpy, sync, flags, timeout, retValue);
 			DebugCheckErrors();
 
 			return (retValue);
@@ -445,14 +430,9 @@ namespace OpenGL
 		{
 			IntPtr retValue;
 
-			if        (Delegates.peglDestroyImage != null) {
-				retValue = Delegates.peglDestroyImage(dpy, image);
-				CallLog("eglDestroyImage({0}, {1}) = {2}", dpy, image, retValue);
-			} else if (Delegates.peglDestroyImageKHR != null) {
-				retValue = Delegates.peglDestroyImageKHR(dpy, image);
-				CallLog("eglDestroyImageKHR({0}, {1}) = {2}", dpy, image, retValue);
-			} else
-				throw new NotImplementedException("eglDestroyImage (and other aliases) are not implemented");
+			Debug.Assert(Delegates.peglDestroyImage != null, "peglDestroyImage not implemented");
+			retValue = Delegates.peglDestroyImage(dpy, image);
+			CallLog("eglDestroyImage({0}, {1}) = {2}", dpy, image, retValue);
 			DebugCheckErrors();
 
 			return (retValue);

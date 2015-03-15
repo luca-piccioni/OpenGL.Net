@@ -43,14 +43,9 @@ namespace OpenGL
 		[RequiredByFeature("GL_EXT_transform_feedback")]
 		public static void BindBufferOffsetEXT(int target, UInt32 index, UInt32 buffer, IntPtr offset)
 		{
-			if        (Delegates.pglBindBufferOffsetEXT != null) {
-				Delegates.pglBindBufferOffsetEXT(target, index, buffer, offset);
-				CallLog("glBindBufferOffsetEXT({0}, {1}, {2}, {3})", target, index, buffer, offset);
-			} else if (Delegates.pglBindBufferOffsetNV != null) {
-				Delegates.pglBindBufferOffsetNV(target, index, buffer, offset);
-				CallLog("glBindBufferOffsetNV({0}, {1}, {2}, {3})", target, index, buffer, offset);
-			} else
-				throw new NotImplementedException("glBindBufferOffsetEXT (and other aliases) are not implemented");
+			Debug.Assert(Delegates.pglBindBufferOffsetEXT != null, "pglBindBufferOffsetEXT not implemented");
+			Delegates.pglBindBufferOffsetEXT(target, index, buffer, offset);
+			CallLog("glBindBufferOffsetEXT({0}, {1}, {2}, {3})", target, index, buffer, offset);
 			DebugCheckErrors();
 		}
 

@@ -119,7 +119,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_GUILTY_CONTEXT_RESET symbol.
 		/// </summary>
-		[AliasOf("GL_GUILTY_CONTEXT_RESET_ARB"]
+		[AliasOf("GL_GUILTY_CONTEXT_RESET_ARB")]
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_KHR_robustness")]
 		public const int GUILTY_CONTEXT_RESET = 0x8253;
@@ -127,7 +127,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_INNOCENT_CONTEXT_RESET symbol.
 		/// </summary>
-		[AliasOf("GL_INNOCENT_CONTEXT_RESET_ARB"]
+		[AliasOf("GL_INNOCENT_CONTEXT_RESET_ARB")]
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_KHR_robustness")]
 		public const int INNOCENT_CONTEXT_RESET = 0x8254;
@@ -135,7 +135,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_UNKNOWN_CONTEXT_RESET symbol.
 		/// </summary>
-		[AliasOf("GL_UNKNOWN_CONTEXT_RESET_ARB"]
+		[AliasOf("GL_UNKNOWN_CONTEXT_RESET_ARB")]
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_KHR_robustness")]
 		public const int UNKNOWN_CONTEXT_RESET = 0x8255;
@@ -143,7 +143,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_RESET_NOTIFICATION_STRATEGY symbol.
 		/// </summary>
-		[AliasOf("GL_RESET_NOTIFICATION_STRATEGY_ARB"]
+		[AliasOf("GL_RESET_NOTIFICATION_STRATEGY_ARB")]
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_KHR_robustness")]
 		public const int RESET_NOTIFICATION_STRATEGY = 0x8256;
@@ -151,7 +151,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_LOSE_CONTEXT_ON_RESET symbol.
 		/// </summary>
-		[AliasOf("GL_LOSE_CONTEXT_ON_RESET_ARB"]
+		[AliasOf("GL_LOSE_CONTEXT_ON_RESET_ARB")]
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_KHR_robustness")]
 		public const int LOSE_CONTEXT_ON_RESET = 0x8252;
@@ -159,7 +159,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_NO_RESET_NOTIFICATION symbol.
 		/// </summary>
-		[AliasOf("GL_NO_RESET_NOTIFICATION_ARB"]
+		[AliasOf("GL_NO_RESET_NOTIFICATION_ARB")]
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_KHR_robustness")]
 		public const int NO_RESET_NOTIFICATION = 0x8261;
@@ -167,7 +167,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_CONTEXT_FLAG_ROBUST_ACCESS_BIT symbol.
 		/// </summary>
-		[AliasOf("GL_CONTEXT_FLAG_ROBUST_ACCESS_BIT_ARB"]
+		[AliasOf("GL_CONTEXT_FLAG_ROBUST_ACCESS_BIT_ARB")]
 		[RequiredByFeature("GL_VERSION_4_5")]
 		public const uint CONTEXT_FLAG_ROBUST_ACCESS_BIT = 0x00000004;
 
@@ -3999,14 +3999,9 @@ namespace OpenGL
 		[RequiredByFeature("GL_KHR_robustness")]
 		public static void ReadnPixels(Int32 x, Int32 y, Int32 width, Int32 height, int format, int type, Int32 bufSize, IntPtr data)
 		{
-			if        (Delegates.pglReadnPixels != null) {
-				Delegates.pglReadnPixels(x, y, width, height, format, type, bufSize, data);
-				CallLog("glReadnPixels({0}, {1}, {2}, {3}, {4}, {5}, {6}, {7})", x, y, width, height, format, type, bufSize, data);
-			} else if (Delegates.pglReadnPixelsARB != null) {
-				Delegates.pglReadnPixelsARB(x, y, width, height, format, type, bufSize, data);
-				CallLog("glReadnPixelsARB({0}, {1}, {2}, {3}, {4}, {5}, {6}, {7})", x, y, width, height, format, type, bufSize, data);
-			} else
-				throw new NotImplementedException("glReadnPixels (and other aliases) are not implemented");
+			Debug.Assert(Delegates.pglReadnPixels != null, "pglReadnPixels not implemented");
+			Delegates.pglReadnPixels(x, y, width, height, format, type, bufSize, data);
+			CallLog("glReadnPixels({0}, {1}, {2}, {3}, {4}, {5}, {6}, {7})", x, y, width, height, format, type, bufSize, data);
 			DebugCheckErrors();
 		}
 

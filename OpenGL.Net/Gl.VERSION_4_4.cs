@@ -123,7 +123,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_QUERY_BUFFER symbol.
 		/// </summary>
-		[AliasOf("GL_QUERY_BUFFER_AMD"]
+		[AliasOf("GL_QUERY_BUFFER_AMD")]
 		[RequiredByFeature("GL_VERSION_4_4")]
 		[RequiredByFeature("GL_ARB_query_buffer_object")]
 		public const int QUERY_BUFFER = 0x9192;
@@ -138,7 +138,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_QUERY_BUFFER_BINDING symbol.
 		/// </summary>
-		[AliasOf("GL_QUERY_BUFFER_BINDING_AMD"]
+		[AliasOf("GL_QUERY_BUFFER_BINDING_AMD")]
 		[RequiredByFeature("GL_VERSION_4_4")]
 		[RequiredByFeature("GL_ARB_query_buffer_object")]
 		public const int QUERY_BUFFER_BINDING = 0x9193;
@@ -146,7 +146,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_QUERY_RESULT_NO_WAIT symbol.
 		/// </summary>
-		[AliasOf("GL_QUERY_RESULT_NO_WAIT_AMD"]
+		[AliasOf("GL_QUERY_RESULT_NO_WAIT_AMD")]
 		[RequiredByFeature("GL_VERSION_4_4")]
 		[RequiredByFeature("GL_ARB_query_buffer_object")]
 		public const int QUERY_RESULT_NO_WAIT = 0x9194;
@@ -154,8 +154,8 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_MIRROR_CLAMP_TO_EDGE symbol.
 		/// </summary>
-		[AliasOf("GL_MIRROR_CLAMP_TO_EDGE_ATI"]
-		[AliasOf("GL_MIRROR_CLAMP_TO_EDGE_EXT"]
+		[AliasOf("GL_MIRROR_CLAMP_TO_EDGE_ATI")]
+		[AliasOf("GL_MIRROR_CLAMP_TO_EDGE_EXT")]
 		[RequiredByFeature("GL_VERSION_4_4")]
 		[RequiredByFeature("GL_ARB_texture_mirror_clamp_to_edge")]
 		public const int MIRROR_CLAMP_TO_EDGE = 0x8743;

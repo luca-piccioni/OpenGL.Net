@@ -28,37 +28,37 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_SAMPLE_SHADING symbol.
 		/// </summary>
-		[AliasOf("GL_SAMPLE_SHADING_ARB"]
+		[AliasOf("GL_SAMPLE_SHADING_ARB")]
 		[RequiredByFeature("GL_VERSION_4_0")]
 		public const int SAMPLE_SHADING = 0x8C36;
 
 		/// <summary>
 		/// Value of GL_MIN_SAMPLE_SHADING_VALUE symbol.
 		/// </summary>
-		[AliasOf("GL_MIN_SAMPLE_SHADING_VALUE_ARB"]
+		[AliasOf("GL_MIN_SAMPLE_SHADING_VALUE_ARB")]
 		[RequiredByFeature("GL_VERSION_4_0")]
 		public const int MIN_SAMPLE_SHADING_VALUE = 0x8C37;
 
 		/// <summary>
 		/// Value of GL_MIN_PROGRAM_TEXTURE_GATHER_OFFSET symbol.
 		/// </summary>
-		[AliasOf("GL_MIN_PROGRAM_TEXTURE_GATHER_OFFSET_ARB"]
-		[AliasOf("GL_MIN_PROGRAM_TEXTURE_GATHER_OFFSET_NV"]
+		[AliasOf("GL_MIN_PROGRAM_TEXTURE_GATHER_OFFSET_ARB")]
+		[AliasOf("GL_MIN_PROGRAM_TEXTURE_GATHER_OFFSET_NV")]
 		[RequiredByFeature("GL_VERSION_4_0")]
 		public const int MIN_PROGRAM_TEXTURE_GATHER_OFFSET = 0x8E5E;
 
 		/// <summary>
 		/// Value of GL_MAX_PROGRAM_TEXTURE_GATHER_OFFSET symbol.
 		/// </summary>
-		[AliasOf("GL_MAX_PROGRAM_TEXTURE_GATHER_OFFSET_ARB"]
-		[AliasOf("GL_MAX_PROGRAM_TEXTURE_GATHER_OFFSET_NV"]
+		[AliasOf("GL_MAX_PROGRAM_TEXTURE_GATHER_OFFSET_ARB")]
+		[AliasOf("GL_MAX_PROGRAM_TEXTURE_GATHER_OFFSET_NV")]
 		[RequiredByFeature("GL_VERSION_4_0")]
 		public const int MAX_PROGRAM_TEXTURE_GATHER_OFFSET = 0x8E5F;
 
 		/// <summary>
 		/// Value of GL_TEXTURE_CUBE_MAP_ARRAY symbol.
 		/// </summary>
-		[AliasOf("GL_TEXTURE_CUBE_MAP_ARRAY_ARB"]
+		[AliasOf("GL_TEXTURE_CUBE_MAP_ARRAY_ARB")]
 		[RequiredByFeature("GL_VERSION_4_0")]
 		[RequiredByFeature("GL_ARB_internalformat_query2")]
 		public const int TEXTURE_CUBE_MAP_ARRAY = 0x9009;
@@ -66,7 +66,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_TEXTURE_BINDING_CUBE_MAP_ARRAY symbol.
 		/// </summary>
-		[AliasOf("GL_TEXTURE_BINDING_CUBE_MAP_ARRAY_ARB"]
+		[AliasOf("GL_TEXTURE_BINDING_CUBE_MAP_ARRAY_ARB")]
 		[RequiredByFeature("GL_VERSION_4_0")]
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_direct_state_access")]
@@ -75,35 +75,35 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_PROXY_TEXTURE_CUBE_MAP_ARRAY symbol.
 		/// </summary>
-		[AliasOf("GL_PROXY_TEXTURE_CUBE_MAP_ARRAY_ARB"]
+		[AliasOf("GL_PROXY_TEXTURE_CUBE_MAP_ARRAY_ARB")]
 		[RequiredByFeature("GL_VERSION_4_0")]
 		public const int PROXY_TEXTURE_CUBE_MAP_ARRAY = 0x900B;
 
 		/// <summary>
 		/// Value of GL_SAMPLER_CUBE_MAP_ARRAY symbol.
 		/// </summary>
-		[AliasOf("GL_SAMPLER_CUBE_MAP_ARRAY_ARB"]
+		[AliasOf("GL_SAMPLER_CUBE_MAP_ARRAY_ARB")]
 		[RequiredByFeature("GL_VERSION_4_0")]
 		public const int SAMPLER_CUBE_MAP_ARRAY = 0x900C;
 
 		/// <summary>
 		/// Value of GL_SAMPLER_CUBE_MAP_ARRAY_SHADOW symbol.
 		/// </summary>
-		[AliasOf("GL_SAMPLER_CUBE_MAP_ARRAY_SHADOW_ARB"]
+		[AliasOf("GL_SAMPLER_CUBE_MAP_ARRAY_SHADOW_ARB")]
 		[RequiredByFeature("GL_VERSION_4_0")]
 		public const int SAMPLER_CUBE_MAP_ARRAY_SHADOW = 0x900D;
 
 		/// <summary>
 		/// Value of GL_INT_SAMPLER_CUBE_MAP_ARRAY symbol.
 		/// </summary>
-		[AliasOf("GL_INT_SAMPLER_CUBE_MAP_ARRAY_ARB"]
+		[AliasOf("GL_INT_SAMPLER_CUBE_MAP_ARRAY_ARB")]
 		[RequiredByFeature("GL_VERSION_4_0")]
 		public const int INT_SAMPLER_CUBE_MAP_ARRAY = 0x900E;
 
 		/// <summary>
 		/// Value of GL_UNSIGNED_INT_SAMPLER_CUBE_MAP_ARRAY symbol.
 		/// </summary>
-		[AliasOf("GL_UNSIGNED_INT_SAMPLER_CUBE_MAP_ARRAY_ARB"]
+		[AliasOf("GL_UNSIGNED_INT_SAMPLER_CUBE_MAP_ARRAY_ARB")]
 		[RequiredByFeature("GL_VERSION_4_0")]
 		public const int UNSIGNED_INT_SAMPLER_CUBE_MAP_ARRAY = 0x900F;
 
@@ -139,7 +139,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_MIN_FRAGMENT_INTERPOLATION_OFFSET symbol.
 		/// </summary>
-		[AliasOf("GL_MIN_FRAGMENT_INTERPOLATION_OFFSET_NV"]
+		[AliasOf("GL_MIN_FRAGMENT_INTERPOLATION_OFFSET_NV")]
 		[RequiredByFeature("GL_VERSION_4_0")]
 		[RequiredByFeature("GL_ARB_gpu_shader5")]
 		public const int MIN_FRAGMENT_INTERPOLATION_OFFSET = 0x8E5B;
@@ -147,7 +147,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_MAX_FRAGMENT_INTERPOLATION_OFFSET symbol.
 		/// </summary>
-		[AliasOf("GL_MAX_FRAGMENT_INTERPOLATION_OFFSET_NV"]
+		[AliasOf("GL_MAX_FRAGMENT_INTERPOLATION_OFFSET_NV")]
 		[RequiredByFeature("GL_VERSION_4_0")]
 		[RequiredByFeature("GL_ARB_gpu_shader5")]
 		public const int MAX_FRAGMENT_INTERPOLATION_OFFSET = 0x8E5C;
@@ -170,7 +170,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_DOUBLE_VEC2 symbol.
 		/// </summary>
-		[AliasOf("GL_DOUBLE_VEC2_EXT"]
+		[AliasOf("GL_DOUBLE_VEC2_EXT")]
 		[RequiredByFeature("GL_VERSION_4_0")]
 		[RequiredByFeature("GL_ARB_gpu_shader_fp64")]
 		[RequiredByFeature("GL_ARB_vertex_attrib_64bit")]
@@ -179,7 +179,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_DOUBLE_VEC3 symbol.
 		/// </summary>
-		[AliasOf("GL_DOUBLE_VEC3_EXT"]
+		[AliasOf("GL_DOUBLE_VEC3_EXT")]
 		[RequiredByFeature("GL_VERSION_4_0")]
 		[RequiredByFeature("GL_ARB_gpu_shader_fp64")]
 		[RequiredByFeature("GL_ARB_vertex_attrib_64bit")]
@@ -188,7 +188,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_DOUBLE_VEC4 symbol.
 		/// </summary>
-		[AliasOf("GL_DOUBLE_VEC4_EXT"]
+		[AliasOf("GL_DOUBLE_VEC4_EXT")]
 		[RequiredByFeature("GL_VERSION_4_0")]
 		[RequiredByFeature("GL_ARB_gpu_shader_fp64")]
 		[RequiredByFeature("GL_ARB_vertex_attrib_64bit")]
@@ -197,7 +197,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_DOUBLE_MAT2 symbol.
 		/// </summary>
-		[AliasOf("GL_DOUBLE_MAT2_EXT"]
+		[AliasOf("GL_DOUBLE_MAT2_EXT")]
 		[RequiredByFeature("GL_VERSION_4_0")]
 		[RequiredByFeature("GL_ARB_gpu_shader_fp64")]
 		[RequiredByFeature("GL_ARB_vertex_attrib_64bit")]
@@ -206,7 +206,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_DOUBLE_MAT3 symbol.
 		/// </summary>
-		[AliasOf("GL_DOUBLE_MAT3_EXT"]
+		[AliasOf("GL_DOUBLE_MAT3_EXT")]
 		[RequiredByFeature("GL_VERSION_4_0")]
 		[RequiredByFeature("GL_ARB_gpu_shader_fp64")]
 		[RequiredByFeature("GL_ARB_vertex_attrib_64bit")]
@@ -215,7 +215,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_DOUBLE_MAT4 symbol.
 		/// </summary>
-		[AliasOf("GL_DOUBLE_MAT4_EXT"]
+		[AliasOf("GL_DOUBLE_MAT4_EXT")]
 		[RequiredByFeature("GL_VERSION_4_0")]
 		[RequiredByFeature("GL_ARB_gpu_shader_fp64")]
 		[RequiredByFeature("GL_ARB_vertex_attrib_64bit")]
@@ -224,7 +224,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_DOUBLE_MAT2x3 symbol.
 		/// </summary>
-		[AliasOf("GL_DOUBLE_MAT2x3_EXT"]
+		[AliasOf("GL_DOUBLE_MAT2x3_EXT")]
 		[RequiredByFeature("GL_VERSION_4_0")]
 		[RequiredByFeature("GL_ARB_gpu_shader_fp64")]
 		[RequiredByFeature("GL_ARB_vertex_attrib_64bit")]
@@ -233,7 +233,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_DOUBLE_MAT2x4 symbol.
 		/// </summary>
-		[AliasOf("GL_DOUBLE_MAT2x4_EXT"]
+		[AliasOf("GL_DOUBLE_MAT2x4_EXT")]
 		[RequiredByFeature("GL_VERSION_4_0")]
 		[RequiredByFeature("GL_ARB_gpu_shader_fp64")]
 		[RequiredByFeature("GL_ARB_vertex_attrib_64bit")]
@@ -242,7 +242,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_DOUBLE_MAT3x2 symbol.
 		/// </summary>
-		[AliasOf("GL_DOUBLE_MAT3x2_EXT"]
+		[AliasOf("GL_DOUBLE_MAT3x2_EXT")]
 		[RequiredByFeature("GL_VERSION_4_0")]
 		[RequiredByFeature("GL_ARB_gpu_shader_fp64")]
 		[RequiredByFeature("GL_ARB_vertex_attrib_64bit")]
@@ -251,7 +251,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_DOUBLE_MAT3x4 symbol.
 		/// </summary>
-		[AliasOf("GL_DOUBLE_MAT3x4_EXT"]
+		[AliasOf("GL_DOUBLE_MAT3x4_EXT")]
 		[RequiredByFeature("GL_VERSION_4_0")]
 		[RequiredByFeature("GL_ARB_gpu_shader_fp64")]
 		[RequiredByFeature("GL_ARB_vertex_attrib_64bit")]
@@ -260,7 +260,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_DOUBLE_MAT4x2 symbol.
 		/// </summary>
-		[AliasOf("GL_DOUBLE_MAT4x2_EXT"]
+		[AliasOf("GL_DOUBLE_MAT4x2_EXT")]
 		[RequiredByFeature("GL_VERSION_4_0")]
 		[RequiredByFeature("GL_ARB_gpu_shader_fp64")]
 		[RequiredByFeature("GL_ARB_vertex_attrib_64bit")]
@@ -269,7 +269,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_DOUBLE_MAT4x3 symbol.
 		/// </summary>
-		[AliasOf("GL_DOUBLE_MAT4x3_EXT"]
+		[AliasOf("GL_DOUBLE_MAT4x3_EXT")]
 		[RequiredByFeature("GL_VERSION_4_0")]
 		[RequiredByFeature("GL_ARB_gpu_shader_fp64")]
 		[RequiredByFeature("GL_ARB_vertex_attrib_64bit")]
@@ -568,7 +568,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_TRANSFORM_FEEDBACK symbol.
 		/// </summary>
-		[AliasOf("GL_TRANSFORM_FEEDBACK_NV"]
+		[AliasOf("GL_TRANSFORM_FEEDBACK_NV")]
 		[RequiredByFeature("GL_VERSION_4_0")]
 		[RequiredByFeature("GL_ARB_transform_feedback2")]
 		[RequiredByFeature("GL_EXT_debug_label")]
@@ -577,7 +577,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_TRANSFORM_FEEDBACK_BUFFER_PAUSED symbol.
 		/// </summary>
-		[AliasOf("GL_TRANSFORM_FEEDBACK_BUFFER_PAUSED_NV"]
+		[AliasOf("GL_TRANSFORM_FEEDBACK_BUFFER_PAUSED_NV")]
 		[RequiredByFeature("GL_VERSION_4_0")]
 		[RequiredByFeature("GL_ARB_transform_feedback2")]
 		public const int TRANSFORM_FEEDBACK_BUFFER_PAUSED = 0x8E23;
@@ -585,7 +585,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_TRANSFORM_FEEDBACK_BUFFER_ACTIVE symbol.
 		/// </summary>
-		[AliasOf("GL_TRANSFORM_FEEDBACK_BUFFER_ACTIVE_NV"]
+		[AliasOf("GL_TRANSFORM_FEEDBACK_BUFFER_ACTIVE_NV")]
 		[RequiredByFeature("GL_VERSION_4_0")]
 		[RequiredByFeature("GL_ARB_transform_feedback2")]
 		public const int TRANSFORM_FEEDBACK_BUFFER_ACTIVE = 0x8E24;
@@ -593,7 +593,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_TRANSFORM_FEEDBACK_BINDING symbol.
 		/// </summary>
-		[AliasOf("GL_TRANSFORM_FEEDBACK_BINDING_NV"]
+		[AliasOf("GL_TRANSFORM_FEEDBACK_BINDING_NV")]
 		[RequiredByFeature("GL_VERSION_4_0")]
 		[RequiredByFeature("GL_ARB_transform_feedback2")]
 		public const int TRANSFORM_FEEDBACK_BINDING = 0x8E25;
@@ -614,14 +614,9 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_4_0")]
 		public static void MinSampleShading(float value)
 		{
-			if        (Delegates.pglMinSampleShading != null) {
-				Delegates.pglMinSampleShading(value);
-				CallLog("glMinSampleShading({0})", value);
-			} else if (Delegates.pglMinSampleShadingARB != null) {
-				Delegates.pglMinSampleShadingARB(value);
-				CallLog("glMinSampleShadingARB({0})", value);
-			} else
-				throw new NotImplementedException("glMinSampleShading (and other aliases) are not implemented");
+			Debug.Assert(Delegates.pglMinSampleShading != null, "pglMinSampleShading not implemented");
+			Delegates.pglMinSampleShading(value);
+			CallLog("glMinSampleShading({0})", value);
 			DebugCheckErrors();
 		}
 
@@ -637,17 +632,9 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_4_0")]
 		public static void BlendEquation(UInt32 buf, int mode)
 		{
-			if        (Delegates.pglBlendEquationi != null) {
-				Delegates.pglBlendEquationi(buf, mode);
-				CallLog("glBlendEquationi({0}, {1})", buf, mode);
-			} else if (Delegates.pglBlendEquationIndexedAMD != null) {
-				Delegates.pglBlendEquationIndexedAMD(buf, mode);
-				CallLog("glBlendEquationIndexedAMD({0}, {1})", buf, mode);
-			} else if (Delegates.pglBlendEquationiARB != null) {
-				Delegates.pglBlendEquationiARB(buf, mode);
-				CallLog("glBlendEquationiARB({0}, {1})", buf, mode);
-			} else
-				throw new NotImplementedException("glBlendEquationi (and other aliases) are not implemented");
+			Debug.Assert(Delegates.pglBlendEquationi != null, "pglBlendEquationi not implemented");
+			Delegates.pglBlendEquationi(buf, mode);
+			CallLog("glBlendEquationi({0}, {1})", buf, mode);
 			DebugCheckErrors();
 		}
 
@@ -666,17 +653,9 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_4_0")]
 		public static void BlendEquationSeparatei(UInt32 buf, int modeRGB, int modeAlpha)
 		{
-			if        (Delegates.pglBlendEquationSeparatei != null) {
-				Delegates.pglBlendEquationSeparatei(buf, modeRGB, modeAlpha);
-				CallLog("glBlendEquationSeparatei({0}, {1}, {2})", buf, modeRGB, modeAlpha);
-			} else if (Delegates.pglBlendEquationSeparateIndexedAMD != null) {
-				Delegates.pglBlendEquationSeparateIndexedAMD(buf, modeRGB, modeAlpha);
-				CallLog("glBlendEquationSeparateIndexedAMD({0}, {1}, {2})", buf, modeRGB, modeAlpha);
-			} else if (Delegates.pglBlendEquationSeparateiARB != null) {
-				Delegates.pglBlendEquationSeparateiARB(buf, modeRGB, modeAlpha);
-				CallLog("glBlendEquationSeparateiARB({0}, {1}, {2})", buf, modeRGB, modeAlpha);
-			} else
-				throw new NotImplementedException("glBlendEquationSeparatei (and other aliases) are not implemented");
+			Debug.Assert(Delegates.pglBlendEquationSeparatei != null, "pglBlendEquationSeparatei not implemented");
+			Delegates.pglBlendEquationSeparatei(buf, modeRGB, modeAlpha);
+			CallLog("glBlendEquationSeparatei({0}, {1}, {2})", buf, modeRGB, modeAlpha);
 			DebugCheckErrors();
 		}
 
@@ -695,17 +674,9 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_4_0")]
 		public static void BlendFunci(UInt32 buf, int src, int dst)
 		{
-			if        (Delegates.pglBlendFunci != null) {
-				Delegates.pglBlendFunci(buf, src, dst);
-				CallLog("glBlendFunci({0}, {1}, {2})", buf, src, dst);
-			} else if (Delegates.pglBlendFuncIndexedAMD != null) {
-				Delegates.pglBlendFuncIndexedAMD(buf, src, dst);
-				CallLog("glBlendFuncIndexedAMD({0}, {1}, {2})", buf, src, dst);
-			} else if (Delegates.pglBlendFunciARB != null) {
-				Delegates.pglBlendFunciARB(buf, src, dst);
-				CallLog("glBlendFunciARB({0}, {1}, {2})", buf, src, dst);
-			} else
-				throw new NotImplementedException("glBlendFunci (and other aliases) are not implemented");
+			Debug.Assert(Delegates.pglBlendFunci != null, "pglBlendFunci not implemented");
+			Delegates.pglBlendFunci(buf, src, dst);
+			CallLog("glBlendFunci({0}, {1}, {2})", buf, src, dst);
 			DebugCheckErrors();
 		}
 
@@ -730,17 +701,9 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_4_0")]
 		public static void BlendFuncSeparatei(UInt32 buf, int srcRGB, int dstRGB, int srcAlpha, int dstAlpha)
 		{
-			if        (Delegates.pglBlendFuncSeparatei != null) {
-				Delegates.pglBlendFuncSeparatei(buf, srcRGB, dstRGB, srcAlpha, dstAlpha);
-				CallLog("glBlendFuncSeparatei({0}, {1}, {2}, {3}, {4})", buf, srcRGB, dstRGB, srcAlpha, dstAlpha);
-			} else if (Delegates.pglBlendFuncSeparateIndexedAMD != null) {
-				Delegates.pglBlendFuncSeparateIndexedAMD(buf, srcRGB, dstRGB, srcAlpha, dstAlpha);
-				CallLog("glBlendFuncSeparateIndexedAMD({0}, {1}, {2}, {3}, {4})", buf, srcRGB, dstRGB, srcAlpha, dstAlpha);
-			} else if (Delegates.pglBlendFuncSeparateiARB != null) {
-				Delegates.pglBlendFuncSeparateiARB(buf, srcRGB, dstRGB, srcAlpha, dstAlpha);
-				CallLog("glBlendFuncSeparateiARB({0}, {1}, {2}, {3}, {4})", buf, srcRGB, dstRGB, srcAlpha, dstAlpha);
-			} else
-				throw new NotImplementedException("glBlendFuncSeparatei (and other aliases) are not implemented");
+			Debug.Assert(Delegates.pglBlendFuncSeparatei != null, "pglBlendFuncSeparatei not implemented");
+			Delegates.pglBlendFuncSeparatei(buf, srcRGB, dstRGB, srcAlpha, dstAlpha);
+			CallLog("glBlendFuncSeparatei({0}, {1}, {2}, {3}, {4})", buf, srcRGB, dstRGB, srcAlpha, dstAlpha);
 			DebugCheckErrors();
 		}
 
@@ -1668,14 +1631,9 @@ namespace OpenGL
 			unsafe {
 				fixed (UInt32* p_ids = ids)
 				{
-					if        (Delegates.pglDeleteTransformFeedbacks != null) {
-						Delegates.pglDeleteTransformFeedbacks((Int32)ids.Length, p_ids);
-						CallLog("glDeleteTransformFeedbacks({0}, {1})", ids.Length, ids);
-					} else if (Delegates.pglDeleteTransformFeedbacksNV != null) {
-						Delegates.pglDeleteTransformFeedbacksNV((Int32)ids.Length, p_ids);
-						CallLog("glDeleteTransformFeedbacksNV({0}, {1})", ids.Length, ids);
-					} else
-						throw new NotImplementedException("glDeleteTransformFeedbacks (and other aliases) are not implemented");
+					Debug.Assert(Delegates.pglDeleteTransformFeedbacks != null, "pglDeleteTransformFeedbacks not implemented");
+					Delegates.pglDeleteTransformFeedbacks((Int32)ids.Length, p_ids);
+					CallLog("glDeleteTransformFeedbacks({0}, {1})", ids.Length, ids);
 				}
 			}
 			DebugCheckErrors();
@@ -1697,14 +1655,9 @@ namespace OpenGL
 			unsafe {
 				fixed (UInt32* p_ids = ids)
 				{
-					if        (Delegates.pglGenTransformFeedbacks != null) {
-						Delegates.pglGenTransformFeedbacks((Int32)ids.Length, p_ids);
-						CallLog("glGenTransformFeedbacks({0}, {1})", ids.Length, ids);
-					} else if (Delegates.pglGenTransformFeedbacksNV != null) {
-						Delegates.pglGenTransformFeedbacksNV((Int32)ids.Length, p_ids);
-						CallLog("glGenTransformFeedbacksNV({0}, {1})", ids.Length, ids);
-					} else
-						throw new NotImplementedException("glGenTransformFeedbacks (and other aliases) are not implemented");
+					Debug.Assert(Delegates.pglGenTransformFeedbacks != null, "pglGenTransformFeedbacks not implemented");
+					Delegates.pglGenTransformFeedbacks((Int32)ids.Length, p_ids);
+					CallLog("glGenTransformFeedbacks({0}, {1})", ids.Length, ids);
 				}
 			}
 			DebugCheckErrors();
@@ -1734,14 +1687,9 @@ namespace OpenGL
 		{
 			bool retValue;
 
-			if        (Delegates.pglIsTransformFeedback != null) {
-				retValue = Delegates.pglIsTransformFeedback(id);
-				CallLog("glIsTransformFeedback({0}) = {1}", id, retValue);
-			} else if (Delegates.pglIsTransformFeedbackNV != null) {
-				retValue = Delegates.pglIsTransformFeedbackNV(id);
-				CallLog("glIsTransformFeedbackNV({0}) = {1}", id, retValue);
-			} else
-				throw new NotImplementedException("glIsTransformFeedback (and other aliases) are not implemented");
+			Debug.Assert(Delegates.pglIsTransformFeedback != null, "pglIsTransformFeedback not implemented");
+			retValue = Delegates.pglIsTransformFeedback(id);
+			CallLog("glIsTransformFeedback({0}) = {1}", id, retValue);
 			DebugCheckErrors();
 
 			return (retValue);
@@ -1754,14 +1702,9 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_transform_feedback2")]
 		public static void PauseTransformFeedback()
 		{
-			if        (Delegates.pglPauseTransformFeedback != null) {
-				Delegates.pglPauseTransformFeedback();
-				CallLog("glPauseTransformFeedback()");
-			} else if (Delegates.pglPauseTransformFeedbackNV != null) {
-				Delegates.pglPauseTransformFeedbackNV();
-				CallLog("glPauseTransformFeedbackNV()");
-			} else
-				throw new NotImplementedException("glPauseTransformFeedback (and other aliases) are not implemented");
+			Debug.Assert(Delegates.pglPauseTransformFeedback != null, "pglPauseTransformFeedback not implemented");
+			Delegates.pglPauseTransformFeedback();
+			CallLog("glPauseTransformFeedback()");
 			DebugCheckErrors();
 		}
 
@@ -1772,14 +1715,9 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_transform_feedback2")]
 		public static void ResumeTransformFeedback()
 		{
-			if        (Delegates.pglResumeTransformFeedback != null) {
-				Delegates.pglResumeTransformFeedback();
-				CallLog("glResumeTransformFeedback()");
-			} else if (Delegates.pglResumeTransformFeedbackNV != null) {
-				Delegates.pglResumeTransformFeedbackNV();
-				CallLog("glResumeTransformFeedbackNV()");
-			} else
-				throw new NotImplementedException("glResumeTransformFeedback (and other aliases) are not implemented");
+			Debug.Assert(Delegates.pglResumeTransformFeedback != null, "pglResumeTransformFeedback not implemented");
+			Delegates.pglResumeTransformFeedback();
+			CallLog("glResumeTransformFeedback()");
 			DebugCheckErrors();
 		}
 
@@ -1798,14 +1736,9 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_transform_feedback2")]
 		public static void DrawTransformFeedback(PrimitiveType mode, UInt32 id)
 		{
-			if        (Delegates.pglDrawTransformFeedback != null) {
-				Delegates.pglDrawTransformFeedback((int)mode, id);
-				CallLog("glDrawTransformFeedback({0}, {1})", mode, id);
-			} else if (Delegates.pglDrawTransformFeedbackNV != null) {
-				Delegates.pglDrawTransformFeedbackNV((int)mode, id);
-				CallLog("glDrawTransformFeedbackNV({0}, {1})", mode, id);
-			} else
-				throw new NotImplementedException("glDrawTransformFeedback (and other aliases) are not implemented");
+			Debug.Assert(Delegates.pglDrawTransformFeedback != null, "pglDrawTransformFeedback not implemented");
+			Delegates.pglDrawTransformFeedback((int)mode, id);
+			CallLog("glDrawTransformFeedback({0}, {1})", mode, id);
 			DebugCheckErrors();
 		}
 

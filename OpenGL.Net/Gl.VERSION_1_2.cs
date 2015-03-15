@@ -28,35 +28,35 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_UNSIGNED_BYTE_3_3_2 symbol.
 		/// </summary>
-		[AliasOf("GL_UNSIGNED_BYTE_3_3_2_EXT"]
+		[AliasOf("GL_UNSIGNED_BYTE_3_3_2_EXT")]
 		[RequiredByFeature("GL_VERSION_1_2")]
 		public const int UNSIGNED_BYTE_3_3_2 = 0x8032;
 
 		/// <summary>
 		/// Value of GL_UNSIGNED_SHORT_4_4_4_4 symbol.
 		/// </summary>
-		[AliasOf("GL_UNSIGNED_SHORT_4_4_4_4_EXT"]
+		[AliasOf("GL_UNSIGNED_SHORT_4_4_4_4_EXT")]
 		[RequiredByFeature("GL_VERSION_1_2")]
 		public const int UNSIGNED_SHORT_4_4_4_4 = 0x8033;
 
 		/// <summary>
 		/// Value of GL_UNSIGNED_SHORT_5_5_5_1 symbol.
 		/// </summary>
-		[AliasOf("GL_UNSIGNED_SHORT_5_5_5_1_EXT"]
+		[AliasOf("GL_UNSIGNED_SHORT_5_5_5_1_EXT")]
 		[RequiredByFeature("GL_VERSION_1_2")]
 		public const int UNSIGNED_SHORT_5_5_5_1 = 0x8034;
 
 		/// <summary>
 		/// Value of GL_UNSIGNED_INT_8_8_8_8 symbol.
 		/// </summary>
-		[AliasOf("GL_UNSIGNED_INT_8_8_8_8_EXT"]
+		[AliasOf("GL_UNSIGNED_INT_8_8_8_8_EXT")]
 		[RequiredByFeature("GL_VERSION_1_2")]
 		public const int UNSIGNED_INT_8_8_8_8 = 0x8035;
 
 		/// <summary>
 		/// Value of GL_UNSIGNED_INT_10_10_10_2 symbol.
 		/// </summary>
-		[AliasOf("GL_UNSIGNED_INT_10_10_10_2_EXT"]
+		[AliasOf("GL_UNSIGNED_INT_10_10_10_2_EXT")]
 		[RequiredByFeature("GL_VERSION_1_2")]
 		public const int UNSIGNED_INT_10_10_10_2 = 0x8036;
 
@@ -71,35 +71,35 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_PACK_SKIP_IMAGES symbol.
 		/// </summary>
-		[AliasOf("GL_PACK_SKIP_IMAGES_EXT"]
+		[AliasOf("GL_PACK_SKIP_IMAGES_EXT")]
 		[RequiredByFeature("GL_VERSION_1_2")]
 		public const int PACK_SKIP_IMAGES = 0x806B;
 
 		/// <summary>
 		/// Value of GL_PACK_IMAGE_HEIGHT symbol.
 		/// </summary>
-		[AliasOf("GL_PACK_IMAGE_HEIGHT_EXT"]
+		[AliasOf("GL_PACK_IMAGE_HEIGHT_EXT")]
 		[RequiredByFeature("GL_VERSION_1_2")]
 		public const int PACK_IMAGE_HEIGHT = 0x806C;
 
 		/// <summary>
 		/// Value of GL_UNPACK_SKIP_IMAGES symbol.
 		/// </summary>
-		[AliasOf("GL_UNPACK_SKIP_IMAGES_EXT"]
+		[AliasOf("GL_UNPACK_SKIP_IMAGES_EXT")]
 		[RequiredByFeature("GL_VERSION_1_2")]
 		public const int UNPACK_SKIP_IMAGES = 0x806D;
 
 		/// <summary>
 		/// Value of GL_UNPACK_IMAGE_HEIGHT symbol.
 		/// </summary>
-		[AliasOf("GL_UNPACK_IMAGE_HEIGHT_EXT"]
+		[AliasOf("GL_UNPACK_IMAGE_HEIGHT_EXT")]
 		[RequiredByFeature("GL_VERSION_1_2")]
 		public const int UNPACK_IMAGE_HEIGHT = 0x806E;
 
 		/// <summary>
 		/// Value of GL_TEXTURE_3D symbol.
 		/// </summary>
-		[AliasOf("GL_TEXTURE_3D_EXT"]
+		[AliasOf("GL_TEXTURE_3D_EXT")]
 		[RequiredByFeature("GL_VERSION_1_2")]
 		[RequiredByFeature("GL_ARB_internalformat_query2")]
 		public const int TEXTURE_3D = 0x806F;
@@ -107,28 +107,28 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_PROXY_TEXTURE_3D symbol.
 		/// </summary>
-		[AliasOf("GL_PROXY_TEXTURE_3D_EXT"]
+		[AliasOf("GL_PROXY_TEXTURE_3D_EXT")]
 		[RequiredByFeature("GL_VERSION_1_2")]
 		public const int PROXY_TEXTURE_3D = 0x8070;
 
 		/// <summary>
 		/// Value of GL_TEXTURE_DEPTH symbol.
 		/// </summary>
-		[AliasOf("GL_TEXTURE_DEPTH_EXT"]
+		[AliasOf("GL_TEXTURE_DEPTH_EXT")]
 		[RequiredByFeature("GL_VERSION_1_2")]
 		public const int TEXTURE_DEPTH = 0x8071;
 
 		/// <summary>
 		/// Value of GL_TEXTURE_WRAP_R symbol.
 		/// </summary>
-		[AliasOf("GL_TEXTURE_WRAP_R_EXT"]
+		[AliasOf("GL_TEXTURE_WRAP_R_EXT")]
 		[RequiredByFeature("GL_VERSION_1_2")]
 		public const int TEXTURE_WRAP_R = 0x8072;
 
 		/// <summary>
 		/// Value of GL_MAX_3D_TEXTURE_SIZE symbol.
 		/// </summary>
-		[AliasOf("GL_MAX_3D_TEXTURE_SIZE_EXT"]
+		[AliasOf("GL_MAX_3D_TEXTURE_SIZE_EXT")]
 		[RequiredByFeature("GL_VERSION_1_2")]
 		public const int MAX_3D_TEXTURE_SIZE = 0x8073;
 
@@ -178,14 +178,14 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_BGR symbol.
 		/// </summary>
-		[AliasOf("GL_BGR_EXT"]
+		[AliasOf("GL_BGR_EXT")]
 		[RequiredByFeature("GL_VERSION_1_2")]
 		public const int BGR = 0x80E0;
 
 		/// <summary>
 		/// Value of GL_BGRA symbol.
 		/// </summary>
-		[AliasOf("GL_BGRA_EXT"]
+		[AliasOf("GL_BGRA_EXT")]
 		[RequiredByFeature("GL_VERSION_1_2")]
 		[RequiredByFeature("GL_ARB_vertex_array_bgra")]
 		[RequiredByFeature("GL_EXT_vertex_array_bgra")]
@@ -194,49 +194,49 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_MAX_ELEMENTS_VERTICES symbol.
 		/// </summary>
-		[AliasOf("GL_MAX_ELEMENTS_VERTICES_EXT"]
+		[AliasOf("GL_MAX_ELEMENTS_VERTICES_EXT")]
 		[RequiredByFeature("GL_VERSION_1_2")]
 		public const int MAX_ELEMENTS_VERTICES = 0x80E8;
 
 		/// <summary>
 		/// Value of GL_MAX_ELEMENTS_INDICES symbol.
 		/// </summary>
-		[AliasOf("GL_MAX_ELEMENTS_INDICES_EXT"]
+		[AliasOf("GL_MAX_ELEMENTS_INDICES_EXT")]
 		[RequiredByFeature("GL_VERSION_1_2")]
 		public const int MAX_ELEMENTS_INDICES = 0x80E9;
 
 		/// <summary>
 		/// Value of GL_CLAMP_TO_EDGE symbol.
 		/// </summary>
-		[AliasOf("GL_CLAMP_TO_EDGE_SGIS"]
+		[AliasOf("GL_CLAMP_TO_EDGE_SGIS")]
 		[RequiredByFeature("GL_VERSION_1_2")]
 		public const int CLAMP_TO_EDGE = 0x812F;
 
 		/// <summary>
 		/// Value of GL_TEXTURE_MIN_LOD symbol.
 		/// </summary>
-		[AliasOf("GL_TEXTURE_MIN_LOD_SGIS"]
+		[AliasOf("GL_TEXTURE_MIN_LOD_SGIS")]
 		[RequiredByFeature("GL_VERSION_1_2")]
 		public const int TEXTURE_MIN_LOD = 0x813A;
 
 		/// <summary>
 		/// Value of GL_TEXTURE_MAX_LOD symbol.
 		/// </summary>
-		[AliasOf("GL_TEXTURE_MAX_LOD_SGIS"]
+		[AliasOf("GL_TEXTURE_MAX_LOD_SGIS")]
 		[RequiredByFeature("GL_VERSION_1_2")]
 		public const int TEXTURE_MAX_LOD = 0x813B;
 
 		/// <summary>
 		/// Value of GL_TEXTURE_BASE_LEVEL symbol.
 		/// </summary>
-		[AliasOf("GL_TEXTURE_BASE_LEVEL_SGIS"]
+		[AliasOf("GL_TEXTURE_BASE_LEVEL_SGIS")]
 		[RequiredByFeature("GL_VERSION_1_2")]
 		public const int TEXTURE_BASE_LEVEL = 0x813C;
 
 		/// <summary>
 		/// Value of GL_TEXTURE_MAX_LEVEL symbol.
 		/// </summary>
-		[AliasOf("GL_TEXTURE_MAX_LEVEL_SGIS"]
+		[AliasOf("GL_TEXTURE_MAX_LEVEL_SGIS")]
 		[RequiredByFeature("GL_VERSION_1_2")]
 		public const int TEXTURE_MAX_LEVEL = 0x813D;
 
@@ -249,7 +249,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_RESCALE_NORMAL symbol (DEPRECATED).
 		/// </summary>
-		[AliasOf("GL_RESCALE_NORMAL_EXT"]
+		[AliasOf("GL_RESCALE_NORMAL_EXT")]
 		[RequiredByFeature("GL_VERSION_1_2")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
@@ -260,7 +260,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_LIGHT_MODEL_COLOR_CONTROL symbol (DEPRECATED).
 		/// </summary>
-		[AliasOf("GL_LIGHT_MODEL_COLOR_CONTROL_EXT"]
+		[AliasOf("GL_LIGHT_MODEL_COLOR_CONTROL_EXT")]
 		[RequiredByFeature("GL_VERSION_1_2")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
@@ -271,7 +271,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_SINGLE_COLOR symbol (DEPRECATED).
 		/// </summary>
-		[AliasOf("GL_SINGLE_COLOR_EXT"]
+		[AliasOf("GL_SINGLE_COLOR_EXT")]
 		[RequiredByFeature("GL_VERSION_1_2")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
@@ -282,7 +282,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_SEPARATE_SPECULAR_COLOR symbol (DEPRECATED).
 		/// </summary>
-		[AliasOf("GL_SEPARATE_SPECULAR_COLOR_EXT"]
+		[AliasOf("GL_SEPARATE_SPECULAR_COLOR_EXT")]
 		[RequiredByFeature("GL_VERSION_1_2")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
@@ -326,14 +326,9 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_1_2")]
 		public static void DrawRangeElements(PrimitiveType mode, UInt32 start, UInt32 end, Int32 count, DrawElementsType type, IntPtr indices)
 		{
-			if        (Delegates.pglDrawRangeElements != null) {
-				Delegates.pglDrawRangeElements((int)mode, start, end, count, (int)type, indices);
-				CallLog("glDrawRangeElements({0}, {1}, {2}, {3}, {4}, {5})", mode, start, end, count, type, indices);
-			} else if (Delegates.pglDrawRangeElementsEXT != null) {
-				Delegates.pglDrawRangeElementsEXT((int)mode, start, end, count, (int)type, indices);
-				CallLog("glDrawRangeElementsEXT({0}, {1}, {2}, {3}, {4}, {5})", mode, start, end, count, type, indices);
-			} else
-				throw new NotImplementedException("glDrawRangeElements (and other aliases) are not implemented");
+			Debug.Assert(Delegates.pglDrawRangeElements != null, "pglDrawRangeElements not implemented");
+			Delegates.pglDrawRangeElements((int)mode, start, end, count, (int)type, indices);
+			CallLog("glDrawRangeElements({0}, {1}, {2}, {3}, {4}, {5})", mode, start, end, count, type, indices);
 			DebugCheckErrors();
 		}
 
@@ -423,14 +418,9 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_1_2")]
 		public static void TexImage3D(TextureTarget target, Int32 level, Int32 internalformat, Int32 width, Int32 height, Int32 depth, Int32 border, PixelFormat format, PixelType type, IntPtr pixels)
 		{
-			if        (Delegates.pglTexImage3D != null) {
-				Delegates.pglTexImage3D((int)target, level, internalformat, width, height, depth, border, (int)format, (int)type, pixels);
-				CallLog("glTexImage3D({0}, {1}, {2}, {3}, {4}, {5}, {6}, {7}, {8}, {9})", target, level, internalformat, width, height, depth, border, format, type, pixels);
-			} else if (Delegates.pglTexImage3DEXT != null) {
-				Delegates.pglTexImage3DEXT((int)target, level, internalformat, width, height, depth, border, (int)format, (int)type, pixels);
-				CallLog("glTexImage3DEXT({0}, {1}, {2}, {3}, {4}, {5}, {6}, {7}, {8}, {9})", target, level, internalformat, width, height, depth, border, format, type, pixels);
-			} else
-				throw new NotImplementedException("glTexImage3D (and other aliases) are not implemented");
+			Debug.Assert(Delegates.pglTexImage3D != null, "pglTexImage3D not implemented");
+			Delegates.pglTexImage3D((int)target, level, internalformat, width, height, depth, border, (int)format, (int)type, pixels);
+			CallLog("glTexImage3D({0}, {1}, {2}, {3}, {4}, {5}, {6}, {7}, {8}, {9})", target, level, internalformat, width, height, depth, border, format, type, pixels);
 			DebugCheckErrors();
 		}
 
@@ -538,14 +528,9 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_1_2")]
 		public static void TexSubImage3D(TextureTarget target, Int32 level, Int32 xoffset, Int32 yoffset, Int32 zoffset, Int32 width, Int32 height, Int32 depth, PixelFormat format, PixelType type, IntPtr pixels)
 		{
-			if        (Delegates.pglTexSubImage3D != null) {
-				Delegates.pglTexSubImage3D((int)target, level, xoffset, yoffset, zoffset, width, height, depth, (int)format, (int)type, pixels);
-				CallLog("glTexSubImage3D({0}, {1}, {2}, {3}, {4}, {5}, {6}, {7}, {8}, {9}, {10})", target, level, xoffset, yoffset, zoffset, width, height, depth, format, type, pixels);
-			} else if (Delegates.pglTexSubImage3DEXT != null) {
-				Delegates.pglTexSubImage3DEXT((int)target, level, xoffset, yoffset, zoffset, width, height, depth, (int)format, (int)type, pixels);
-				CallLog("glTexSubImage3DEXT({0}, {1}, {2}, {3}, {4}, {5}, {6}, {7}, {8}, {9}, {10})", target, level, xoffset, yoffset, zoffset, width, height, depth, format, type, pixels);
-			} else
-				throw new NotImplementedException("glTexSubImage3D (and other aliases) are not implemented");
+			Debug.Assert(Delegates.pglTexSubImage3D != null, "pglTexSubImage3D not implemented");
+			Delegates.pglTexSubImage3D((int)target, level, xoffset, yoffset, zoffset, width, height, depth, (int)format, (int)type, pixels);
+			CallLog("glTexSubImage3D({0}, {1}, {2}, {3}, {4}, {5}, {6}, {7}, {8}, {9}, {10})", target, level, xoffset, yoffset, zoffset, width, height, depth, format, type, pixels);
 			DebugCheckErrors();
 		}
 
@@ -634,14 +619,9 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_1_2")]
 		public static void CopyTexSubImage3D(TextureTarget target, Int32 level, Int32 xoffset, Int32 yoffset, Int32 zoffset, Int32 x, Int32 y, Int32 width, Int32 height)
 		{
-			if        (Delegates.pglCopyTexSubImage3D != null) {
-				Delegates.pglCopyTexSubImage3D((int)target, level, xoffset, yoffset, zoffset, x, y, width, height);
-				CallLog("glCopyTexSubImage3D({0}, {1}, {2}, {3}, {4}, {5}, {6}, {7}, {8})", target, level, xoffset, yoffset, zoffset, x, y, width, height);
-			} else if (Delegates.pglCopyTexSubImage3DEXT != null) {
-				Delegates.pglCopyTexSubImage3DEXT((int)target, level, xoffset, yoffset, zoffset, x, y, width, height);
-				CallLog("glCopyTexSubImage3DEXT({0}, {1}, {2}, {3}, {4}, {5}, {6}, {7}, {8})", target, level, xoffset, yoffset, zoffset, x, y, width, height);
-			} else
-				throw new NotImplementedException("glCopyTexSubImage3D (and other aliases) are not implemented");
+			Debug.Assert(Delegates.pglCopyTexSubImage3D != null, "pglCopyTexSubImage3D not implemented");
+			Delegates.pglCopyTexSubImage3D((int)target, level, xoffset, yoffset, zoffset, x, y, width, height);
+			CallLog("glCopyTexSubImage3D({0}, {1}, {2}, {3}, {4}, {5}, {6}, {7}, {8})", target, level, xoffset, yoffset, zoffset, x, y, width, height);
 			DebugCheckErrors();
 		}
 

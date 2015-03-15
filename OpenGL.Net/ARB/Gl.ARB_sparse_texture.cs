@@ -52,35 +52,35 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_VIRTUAL_PAGE_SIZE_X_ARB symbol.
 		/// </summary>
-		[AliasOf("GL_VIRTUAL_PAGE_SIZE_X_AMD"]
+		[AliasOf("GL_VIRTUAL_PAGE_SIZE_X_AMD")]
 		[RequiredByFeature("GL_ARB_sparse_texture")]
 		public const int VIRTUAL_PAGE_SIZE_X_ARB = 0x9195;
 
 		/// <summary>
 		/// Value of GL_VIRTUAL_PAGE_SIZE_Y_ARB symbol.
 		/// </summary>
-		[AliasOf("GL_VIRTUAL_PAGE_SIZE_Y_AMD"]
+		[AliasOf("GL_VIRTUAL_PAGE_SIZE_Y_AMD")]
 		[RequiredByFeature("GL_ARB_sparse_texture")]
 		public const int VIRTUAL_PAGE_SIZE_Y_ARB = 0x9196;
 
 		/// <summary>
 		/// Value of GL_VIRTUAL_PAGE_SIZE_Z_ARB symbol.
 		/// </summary>
-		[AliasOf("GL_VIRTUAL_PAGE_SIZE_Z_AMD"]
+		[AliasOf("GL_VIRTUAL_PAGE_SIZE_Z_AMD")]
 		[RequiredByFeature("GL_ARB_sparse_texture")]
 		public const int VIRTUAL_PAGE_SIZE_Z_ARB = 0x9197;
 
 		/// <summary>
 		/// Value of GL_MAX_SPARSE_TEXTURE_SIZE_ARB symbol.
 		/// </summary>
-		[AliasOf("GL_MAX_SPARSE_TEXTURE_SIZE_AMD"]
+		[AliasOf("GL_MAX_SPARSE_TEXTURE_SIZE_AMD")]
 		[RequiredByFeature("GL_ARB_sparse_texture")]
 		public const int MAX_SPARSE_TEXTURE_SIZE_ARB = 0x9198;
 
 		/// <summary>
 		/// Value of GL_MAX_SPARSE_3D_TEXTURE_SIZE_ARB symbol.
 		/// </summary>
-		[AliasOf("GL_MAX_SPARSE_3D_TEXTURE_SIZE_AMD"]
+		[AliasOf("GL_MAX_SPARSE_3D_TEXTURE_SIZE_AMD")]
 		[RequiredByFeature("GL_ARB_sparse_texture")]
 		public const int MAX_SPARSE_3D_TEXTURE_SIZE_ARB = 0x9199;
 

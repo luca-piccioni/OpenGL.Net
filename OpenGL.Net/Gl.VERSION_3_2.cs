@@ -40,64 +40,64 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_LINES_ADJACENCY symbol.
 		/// </summary>
-		[AliasOf("GL_LINES_ADJACENCY_ARB"]
-		[AliasOf("GL_LINES_ADJACENCY_EXT"]
+		[AliasOf("GL_LINES_ADJACENCY_ARB")]
+		[AliasOf("GL_LINES_ADJACENCY_EXT")]
 		[RequiredByFeature("GL_VERSION_3_2")]
 		public const int LINES_ADJACENCY = 0x000A;
 
 		/// <summary>
 		/// Value of GL_LINE_STRIP_ADJACENCY symbol.
 		/// </summary>
-		[AliasOf("GL_LINE_STRIP_ADJACENCY_ARB"]
-		[AliasOf("GL_LINE_STRIP_ADJACENCY_EXT"]
+		[AliasOf("GL_LINE_STRIP_ADJACENCY_ARB")]
+		[AliasOf("GL_LINE_STRIP_ADJACENCY_EXT")]
 		[RequiredByFeature("GL_VERSION_3_2")]
 		public const int LINE_STRIP_ADJACENCY = 0x000B;
 
 		/// <summary>
 		/// Value of GL_TRIANGLES_ADJACENCY symbol.
 		/// </summary>
-		[AliasOf("GL_TRIANGLES_ADJACENCY_ARB"]
-		[AliasOf("GL_TRIANGLES_ADJACENCY_EXT"]
+		[AliasOf("GL_TRIANGLES_ADJACENCY_ARB")]
+		[AliasOf("GL_TRIANGLES_ADJACENCY_EXT")]
 		[RequiredByFeature("GL_VERSION_3_2")]
 		public const int TRIANGLES_ADJACENCY = 0x000C;
 
 		/// <summary>
 		/// Value of GL_TRIANGLE_STRIP_ADJACENCY symbol.
 		/// </summary>
-		[AliasOf("GL_TRIANGLE_STRIP_ADJACENCY_ARB"]
-		[AliasOf("GL_TRIANGLE_STRIP_ADJACENCY_EXT"]
+		[AliasOf("GL_TRIANGLE_STRIP_ADJACENCY_ARB")]
+		[AliasOf("GL_TRIANGLE_STRIP_ADJACENCY_EXT")]
 		[RequiredByFeature("GL_VERSION_3_2")]
 		public const int TRIANGLE_STRIP_ADJACENCY = 0x000D;
 
 		/// <summary>
 		/// Value of GL_MAX_GEOMETRY_TEXTURE_IMAGE_UNITS symbol.
 		/// </summary>
-		[AliasOf("GL_MAX_GEOMETRY_TEXTURE_IMAGE_UNITS_ARB"]
-		[AliasOf("GL_MAX_GEOMETRY_TEXTURE_IMAGE_UNITS_EXT"]
+		[AliasOf("GL_MAX_GEOMETRY_TEXTURE_IMAGE_UNITS_ARB")]
+		[AliasOf("GL_MAX_GEOMETRY_TEXTURE_IMAGE_UNITS_EXT")]
 		[RequiredByFeature("GL_VERSION_3_2")]
 		public const int MAX_GEOMETRY_TEXTURE_IMAGE_UNITS = 0x8C29;
 
 		/// <summary>
 		/// Value of GL_FRAMEBUFFER_ATTACHMENT_LAYERED symbol.
 		/// </summary>
-		[AliasOf("GL_FRAMEBUFFER_ATTACHMENT_LAYERED_ARB"]
-		[AliasOf("GL_FRAMEBUFFER_ATTACHMENT_LAYERED_EXT"]
+		[AliasOf("GL_FRAMEBUFFER_ATTACHMENT_LAYERED_ARB")]
+		[AliasOf("GL_FRAMEBUFFER_ATTACHMENT_LAYERED_EXT")]
 		[RequiredByFeature("GL_VERSION_3_2")]
 		public const int FRAMEBUFFER_ATTACHMENT_LAYERED = 0x8DA7;
 
 		/// <summary>
 		/// Value of GL_FRAMEBUFFER_INCOMPLETE_LAYER_TARGETS symbol.
 		/// </summary>
-		[AliasOf("GL_FRAMEBUFFER_INCOMPLETE_LAYER_TARGETS_ARB"]
-		[AliasOf("GL_FRAMEBUFFER_INCOMPLETE_LAYER_TARGETS_EXT"]
+		[AliasOf("GL_FRAMEBUFFER_INCOMPLETE_LAYER_TARGETS_ARB")]
+		[AliasOf("GL_FRAMEBUFFER_INCOMPLETE_LAYER_TARGETS_EXT")]
 		[RequiredByFeature("GL_VERSION_3_2")]
 		public const int FRAMEBUFFER_INCOMPLETE_LAYER_TARGETS = 0x8DA8;
 
 		/// <summary>
 		/// Value of GL_GEOMETRY_SHADER symbol.
 		/// </summary>
-		[AliasOf("GL_GEOMETRY_SHADER_ARB"]
-		[AliasOf("GL_GEOMETRY_SHADER_EXT"]
+		[AliasOf("GL_GEOMETRY_SHADER_ARB")]
+		[AliasOf("GL_GEOMETRY_SHADER_EXT")]
 		[RequiredByFeature("GL_VERSION_3_2")]
 		public const int GEOMETRY_SHADER = 0x8DD9;
 
@@ -122,24 +122,24 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_MAX_GEOMETRY_UNIFORM_COMPONENTS symbol.
 		/// </summary>
-		[AliasOf("GL_MAX_GEOMETRY_UNIFORM_COMPONENTS_ARB"]
-		[AliasOf("GL_MAX_GEOMETRY_UNIFORM_COMPONENTS_EXT"]
+		[AliasOf("GL_MAX_GEOMETRY_UNIFORM_COMPONENTS_ARB")]
+		[AliasOf("GL_MAX_GEOMETRY_UNIFORM_COMPONENTS_EXT")]
 		[RequiredByFeature("GL_VERSION_3_2")]
 		public const int MAX_GEOMETRY_UNIFORM_COMPONENTS = 0x8DDF;
 
 		/// <summary>
 		/// Value of GL_MAX_GEOMETRY_OUTPUT_VERTICES symbol.
 		/// </summary>
-		[AliasOf("GL_MAX_GEOMETRY_OUTPUT_VERTICES_ARB"]
-		[AliasOf("GL_MAX_GEOMETRY_OUTPUT_VERTICES_EXT"]
+		[AliasOf("GL_MAX_GEOMETRY_OUTPUT_VERTICES_ARB")]
+		[AliasOf("GL_MAX_GEOMETRY_OUTPUT_VERTICES_EXT")]
 		[RequiredByFeature("GL_VERSION_3_2")]
 		public const int MAX_GEOMETRY_OUTPUT_VERTICES = 0x8DE0;
 
 		/// <summary>
 		/// Value of GL_MAX_GEOMETRY_TOTAL_OUTPUT_COMPONENTS symbol.
 		/// </summary>
-		[AliasOf("GL_MAX_GEOMETRY_TOTAL_OUTPUT_COMPONENTS_ARB"]
-		[AliasOf("GL_MAX_GEOMETRY_TOTAL_OUTPUT_COMPONENTS_EXT"]
+		[AliasOf("GL_MAX_GEOMETRY_TOTAL_OUTPUT_COMPONENTS_ARB")]
+		[AliasOf("GL_MAX_GEOMETRY_TOTAL_OUTPUT_COMPONENTS_EXT")]
 		[RequiredByFeature("GL_VERSION_3_2")]
 		public const int MAX_GEOMETRY_TOTAL_OUTPUT_COMPONENTS = 0x8DE1;
 
@@ -176,7 +176,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_DEPTH_CLAMP symbol.
 		/// </summary>
-		[AliasOf("GL_DEPTH_CLAMP_NV"]
+		[AliasOf("GL_DEPTH_CLAMP_NV")]
 		[RequiredByFeature("GL_VERSION_3_2")]
 		[RequiredByFeature("GL_ARB_depth_clamp")]
 		public const int DEPTH_CLAMP = 0x864F;
@@ -184,7 +184,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_QUADS_FOLLOW_PROVOKING_VERTEX_CONVENTION symbol.
 		/// </summary>
-		[AliasOf("GL_QUADS_FOLLOW_PROVOKING_VERTEX_CONVENTION_EXT"]
+		[AliasOf("GL_QUADS_FOLLOW_PROVOKING_VERTEX_CONVENTION_EXT")]
 		[RequiredByFeature("GL_VERSION_3_2")]
 		[RequiredByFeature("GL_ARB_provoking_vertex")]
 		public const int QUADS_FOLLOW_PROVOKING_VERTEX_CONVENTION = 0x8E4C;
@@ -192,7 +192,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_FIRST_VERTEX_CONVENTION symbol.
 		/// </summary>
-		[AliasOf("GL_FIRST_VERTEX_CONVENTION_EXT"]
+		[AliasOf("GL_FIRST_VERTEX_CONVENTION_EXT")]
 		[RequiredByFeature("GL_VERSION_3_2")]
 		[RequiredByFeature("GL_ARB_provoking_vertex")]
 		[RequiredByFeature("GL_ARB_viewport_array")]
@@ -201,7 +201,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_LAST_VERTEX_CONVENTION symbol.
 		/// </summary>
-		[AliasOf("GL_LAST_VERTEX_CONVENTION_EXT"]
+		[AliasOf("GL_LAST_VERTEX_CONVENTION_EXT")]
 		[RequiredByFeature("GL_VERSION_3_2")]
 		[RequiredByFeature("GL_ARB_provoking_vertex")]
 		[RequiredByFeature("GL_ARB_viewport_array")]
@@ -210,7 +210,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_PROVOKING_VERTEX symbol.
 		/// </summary>
-		[AliasOf("GL_PROVOKING_VERTEX_EXT"]
+		[AliasOf("GL_PROVOKING_VERTEX_EXT")]
 		[RequiredByFeature("GL_VERSION_3_2")]
 		[RequiredByFeature("GL_ARB_provoking_vertex")]
 		[RequiredByFeature("GL_ARB_viewport_array")]
@@ -333,7 +333,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_SAMPLE_POSITION symbol.
 		/// </summary>
-		[AliasOf("GL_SAMPLE_POSITION_NV"]
+		[AliasOf("GL_SAMPLE_POSITION_NV")]
 		[RequiredByFeature("GL_VERSION_3_2")]
 		[RequiredByFeature("GL_ARB_texture_multisample")]
 		public const int SAMPLE_POSITION = 0x8E50;
@@ -341,7 +341,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_SAMPLE_MASK symbol.
 		/// </summary>
-		[AliasOf("GL_SAMPLE_MASK_NV"]
+		[AliasOf("GL_SAMPLE_MASK_NV")]
 		[RequiredByFeature("GL_VERSION_3_2")]
 		[RequiredByFeature("GL_ARB_texture_multisample")]
 		public const int SAMPLE_MASK = 0x8E51;
@@ -349,7 +349,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_SAMPLE_MASK_VALUE symbol.
 		/// </summary>
-		[AliasOf("GL_SAMPLE_MASK_VALUE_NV"]
+		[AliasOf("GL_SAMPLE_MASK_VALUE_NV")]
 		[RequiredByFeature("GL_VERSION_3_2")]
 		[RequiredByFeature("GL_ARB_texture_multisample")]
 		public const int SAMPLE_MASK_VALUE = 0x8E52;
@@ -357,7 +357,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_MAX_SAMPLE_MASK_WORDS symbol.
 		/// </summary>
-		[AliasOf("GL_MAX_SAMPLE_MASK_WORDS_NV"]
+		[AliasOf("GL_MAX_SAMPLE_MASK_WORDS_NV")]
 		[RequiredByFeature("GL_VERSION_3_2")]
 		[RequiredByFeature("GL_ARB_texture_multisample")]
 		public const int MAX_SAMPLE_MASK_WORDS = 0x8E59;
@@ -749,14 +749,9 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_provoking_vertex")]
 		public static void ProvokingVertex(int provokeMode)
 		{
-			if        (Delegates.pglProvokingVertex != null) {
-				Delegates.pglProvokingVertex(provokeMode);
-				CallLog("glProvokingVertex({0})", provokeMode);
-			} else if (Delegates.pglProvokingVertexEXT != null) {
-				Delegates.pglProvokingVertexEXT(provokeMode);
-				CallLog("glProvokingVertexEXT({0})", provokeMode);
-			} else
-				throw new NotImplementedException("glProvokingVertex (and other aliases) are not implemented");
+			Debug.Assert(Delegates.pglProvokingVertex != null, "pglProvokingVertex not implemented");
+			Delegates.pglProvokingVertex(provokeMode);
+			CallLog("glProvokingVertex({0})", provokeMode);
 			DebugCheckErrors();
 		}
 
@@ -1053,17 +1048,9 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_3_2")]
 		public static void FramebufferTexture(int target, int attachment, UInt32 texture, Int32 level)
 		{
-			if        (Delegates.pglFramebufferTexture != null) {
-				Delegates.pglFramebufferTexture(target, attachment, texture, level);
-				CallLog("glFramebufferTexture({0}, {1}, {2}, {3})", target, attachment, texture, level);
-			} else if (Delegates.pglFramebufferTextureARB != null) {
-				Delegates.pglFramebufferTextureARB(target, attachment, texture, level);
-				CallLog("glFramebufferTextureARB({0}, {1}, {2}, {3})", target, attachment, texture, level);
-			} else if (Delegates.pglFramebufferTextureEXT != null) {
-				Delegates.pglFramebufferTextureEXT(target, attachment, texture, level);
-				CallLog("glFramebufferTextureEXT({0}, {1}, {2}, {3})", target, attachment, texture, level);
-			} else
-				throw new NotImplementedException("glFramebufferTexture (and other aliases) are not implemented");
+			Debug.Assert(Delegates.pglFramebufferTexture != null, "pglFramebufferTexture not implemented");
+			Delegates.pglFramebufferTexture(target, attachment, texture, level);
+			CallLog("glFramebufferTexture({0}, {1}, {2}, {3})", target, attachment, texture, level);
 			DebugCheckErrors();
 		}
 
@@ -1156,14 +1143,9 @@ namespace OpenGL
 			unsafe {
 				fixed (float* p_val = val)
 				{
-					if        (Delegates.pglGetMultisamplefv != null) {
-						Delegates.pglGetMultisamplefv(pname, index, p_val);
-						CallLog("glGetMultisamplefv({0}, {1}, {2})", pname, index, val);
-					} else if (Delegates.pglGetMultisamplefvNV != null) {
-						Delegates.pglGetMultisamplefvNV(pname, index, p_val);
-						CallLog("glGetMultisamplefvNV({0}, {1}, {2})", pname, index, val);
-					} else
-						throw new NotImplementedException("glGetMultisamplefv (and other aliases) are not implemented");
+					Debug.Assert(Delegates.pglGetMultisamplefv != null, "pglGetMultisamplefv not implemented");
+					Delegates.pglGetMultisamplefv(pname, index, p_val);
+					CallLog("glGetMultisamplefv({0}, {1}, {2})", pname, index, val);
 				}
 			}
 			DebugCheckErrors();

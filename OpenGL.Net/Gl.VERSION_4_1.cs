@@ -28,7 +28,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_FIXED symbol.
 		/// </summary>
-		[AliasOf("GL_FIXED_OES"]
+		[AliasOf("GL_FIXED_OES")]
 		[RequiredByFeature("GL_VERSION_4_1")]
 		[RequiredByFeature("GL_ARB_ES2_compatibility")]
 		public const int FIXED = 0x140C;
@@ -36,7 +36,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_IMPLEMENTATION_COLOR_READ_TYPE symbol.
 		/// </summary>
-		[AliasOf("GL_IMPLEMENTATION_COLOR_READ_TYPE_OES"]
+		[AliasOf("GL_IMPLEMENTATION_COLOR_READ_TYPE_OES")]
 		[RequiredByFeature("GL_VERSION_4_1")]
 		[RequiredByFeature("GL_ARB_ES2_compatibility")]
 		public const int IMPLEMENTATION_COLOR_READ_TYPE = 0x8B9A;
@@ -44,7 +44,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_IMPLEMENTATION_COLOR_READ_FORMAT symbol.
 		/// </summary>
-		[AliasOf("GL_IMPLEMENTATION_COLOR_READ_FORMAT_OES"]
+		[AliasOf("GL_IMPLEMENTATION_COLOR_READ_FORMAT_OES")]
 		[RequiredByFeature("GL_VERSION_4_1")]
 		[RequiredByFeature("GL_ARB_ES2_compatibility")]
 		public const int IMPLEMENTATION_COLOR_READ_FORMAT = 0x8B9B;
@@ -393,14 +393,9 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_ES2_compatibility")]
 		public static void DepthRange(float n, float f)
 		{
-			if        (Delegates.pglDepthRangef != null) {
-				Delegates.pglDepthRangef(n, f);
-				CallLog("glDepthRangef({0}, {1})", n, f);
-			} else if (Delegates.pglDepthRangefOES != null) {
-				Delegates.pglDepthRangefOES(n, f);
-				CallLog("glDepthRangefOES({0}, {1})", n, f);
-			} else
-				throw new NotImplementedException("glDepthRangef (and other aliases) are not implemented");
+			Debug.Assert(Delegates.pglDepthRangef != null, "pglDepthRangef not implemented");
+			Delegates.pglDepthRangef(n, f);
+			CallLog("glDepthRangef({0}, {1})", n, f);
 			DebugCheckErrors();
 		}
 
@@ -414,14 +409,9 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_ES2_compatibility")]
 		public static void ClearDepth(float d)
 		{
-			if        (Delegates.pglClearDepthf != null) {
-				Delegates.pglClearDepthf(d);
-				CallLog("glClearDepthf({0})", d);
-			} else if (Delegates.pglClearDepthfOES != null) {
-				Delegates.pglClearDepthfOES(d);
-				CallLog("glClearDepthfOES({0})", d);
-			} else
-				throw new NotImplementedException("glClearDepthf (and other aliases) are not implemented");
+			Debug.Assert(Delegates.pglClearDepthf != null, "pglClearDepthf not implemented");
+			Delegates.pglClearDepthf(d);
+			CallLog("glClearDepthf({0})", d);
 			DebugCheckErrors();
 		}
 
@@ -557,17 +547,9 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_get_program_binary")]
 		public static void ProgramParameter(UInt32 program, int pname, Int32 value)
 		{
-			if        (Delegates.pglProgramParameteri != null) {
-				Delegates.pglProgramParameteri(program, pname, value);
-				CallLog("glProgramParameteri({0}, {1}, {2})", program, pname, value);
-			} else if (Delegates.pglProgramParameteriARB != null) {
-				Delegates.pglProgramParameteriARB(program, pname, value);
-				CallLog("glProgramParameteriARB({0}, {1}, {2})", program, pname, value);
-			} else if (Delegates.pglProgramParameteriEXT != null) {
-				Delegates.pglProgramParameteriEXT(program, pname, value);
-				CallLog("glProgramParameteriEXT({0}, {1}, {2})", program, pname, value);
-			} else
-				throw new NotImplementedException("glProgramParameteri (and other aliases) are not implemented");
+			Debug.Assert(Delegates.pglProgramParameteri != null, "pglProgramParameteri not implemented");
+			Delegates.pglProgramParameteri(program, pname, value);
+			CallLog("glProgramParameteri({0}, {1}, {2})", program, pname, value);
 			DebugCheckErrors();
 		}
 
@@ -777,14 +759,9 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_separate_shader_objects")]
 		public static void ProgramUniform1(UInt32 program, Int32 location, Int32 v0)
 		{
-			if        (Delegates.pglProgramUniform1i != null) {
-				Delegates.pglProgramUniform1i(program, location, v0);
-				CallLog("glProgramUniform1i({0}, {1}, {2})", program, location, v0);
-			} else if (Delegates.pglProgramUniform1iEXT != null) {
-				Delegates.pglProgramUniform1iEXT(program, location, v0);
-				CallLog("glProgramUniform1iEXT({0}, {1}, {2})", program, location, v0);
-			} else
-				throw new NotImplementedException("glProgramUniform1i (and other aliases) are not implemented");
+			Debug.Assert(Delegates.pglProgramUniform1i != null, "pglProgramUniform1i not implemented");
+			Delegates.pglProgramUniform1i(program, location, v0);
+			CallLog("glProgramUniform1i({0}, {1}, {2})", program, location, v0);
 			DebugCheckErrors();
 		}
 
@@ -812,14 +789,9 @@ namespace OpenGL
 			unsafe {
 				fixed (Int32* p_value = value)
 				{
-					if        (Delegates.pglProgramUniform1iv != null) {
-						Delegates.pglProgramUniform1iv(program, location, count, p_value);
-						CallLog("glProgramUniform1iv({0}, {1}, {2}, {3})", program, location, count, value);
-					} else if (Delegates.pglProgramUniform1ivEXT != null) {
-						Delegates.pglProgramUniform1ivEXT(program, location, count, p_value);
-						CallLog("glProgramUniform1ivEXT({0}, {1}, {2}, {3})", program, location, count, value);
-					} else
-						throw new NotImplementedException("glProgramUniform1iv (and other aliases) are not implemented");
+					Debug.Assert(Delegates.pglProgramUniform1iv != null, "pglProgramUniform1iv not implemented");
+					Delegates.pglProgramUniform1iv(program, location, count, p_value);
+					CallLog("glProgramUniform1iv({0}, {1}, {2}, {3})", program, location, count, value);
 				}
 			}
 			DebugCheckErrors();
@@ -841,14 +813,9 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_separate_shader_objects")]
 		public static void ProgramUniform1(UInt32 program, Int32 location, float v0)
 		{
-			if        (Delegates.pglProgramUniform1f != null) {
-				Delegates.pglProgramUniform1f(program, location, v0);
-				CallLog("glProgramUniform1f({0}, {1}, {2})", program, location, v0);
-			} else if (Delegates.pglProgramUniform1fEXT != null) {
-				Delegates.pglProgramUniform1fEXT(program, location, v0);
-				CallLog("glProgramUniform1fEXT({0}, {1}, {2})", program, location, v0);
-			} else
-				throw new NotImplementedException("glProgramUniform1f (and other aliases) are not implemented");
+			Debug.Assert(Delegates.pglProgramUniform1f != null, "pglProgramUniform1f not implemented");
+			Delegates.pglProgramUniform1f(program, location, v0);
+			CallLog("glProgramUniform1f({0}, {1}, {2})", program, location, v0);
 			DebugCheckErrors();
 		}
 
@@ -876,14 +843,9 @@ namespace OpenGL
 			unsafe {
 				fixed (float* p_value = value)
 				{
-					if        (Delegates.pglProgramUniform1fv != null) {
-						Delegates.pglProgramUniform1fv(program, location, count, p_value);
-						CallLog("glProgramUniform1fv({0}, {1}, {2}, {3})", program, location, count, value);
-					} else if (Delegates.pglProgramUniform1fvEXT != null) {
-						Delegates.pglProgramUniform1fvEXT(program, location, count, p_value);
-						CallLog("glProgramUniform1fvEXT({0}, {1}, {2}, {3})", program, location, count, value);
-					} else
-						throw new NotImplementedException("glProgramUniform1fv (and other aliases) are not implemented");
+					Debug.Assert(Delegates.pglProgramUniform1fv != null, "pglProgramUniform1fv not implemented");
+					Delegates.pglProgramUniform1fv(program, location, count, p_value);
+					CallLog("glProgramUniform1fv({0}, {1}, {2}, {3})", program, location, count, value);
 				}
 			}
 			DebugCheckErrors();
@@ -957,14 +919,9 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_separate_shader_objects")]
 		public static void ProgramUniform1(UInt32 program, Int32 location, UInt32 v0)
 		{
-			if        (Delegates.pglProgramUniform1ui != null) {
-				Delegates.pglProgramUniform1ui(program, location, v0);
-				CallLog("glProgramUniform1ui({0}, {1}, {2})", program, location, v0);
-			} else if (Delegates.pglProgramUniform1uiEXT != null) {
-				Delegates.pglProgramUniform1uiEXT(program, location, v0);
-				CallLog("glProgramUniform1uiEXT({0}, {1}, {2})", program, location, v0);
-			} else
-				throw new NotImplementedException("glProgramUniform1ui (and other aliases) are not implemented");
+			Debug.Assert(Delegates.pglProgramUniform1ui != null, "pglProgramUniform1ui not implemented");
+			Delegates.pglProgramUniform1ui(program, location, v0);
+			CallLog("glProgramUniform1ui({0}, {1}, {2})", program, location, v0);
 			DebugCheckErrors();
 		}
 
@@ -992,14 +949,9 @@ namespace OpenGL
 			unsafe {
 				fixed (UInt32* p_value = value)
 				{
-					if        (Delegates.pglProgramUniform1uiv != null) {
-						Delegates.pglProgramUniform1uiv(program, location, count, p_value);
-						CallLog("glProgramUniform1uiv({0}, {1}, {2}, {3})", program, location, count, value);
-					} else if (Delegates.pglProgramUniform1uivEXT != null) {
-						Delegates.pglProgramUniform1uivEXT(program, location, count, p_value);
-						CallLog("glProgramUniform1uivEXT({0}, {1}, {2}, {3})", program, location, count, value);
-					} else
-						throw new NotImplementedException("glProgramUniform1uiv (and other aliases) are not implemented");
+					Debug.Assert(Delegates.pglProgramUniform1uiv != null, "pglProgramUniform1uiv not implemented");
+					Delegates.pglProgramUniform1uiv(program, location, count, p_value);
+					CallLog("glProgramUniform1uiv({0}, {1}, {2}, {3})", program, location, count, value);
 				}
 			}
 			DebugCheckErrors();
@@ -1024,14 +976,9 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_separate_shader_objects")]
 		public static void ProgramUniform2(UInt32 program, Int32 location, Int32 v0, Int32 v1)
 		{
-			if        (Delegates.pglProgramUniform2i != null) {
-				Delegates.pglProgramUniform2i(program, location, v0, v1);
-				CallLog("glProgramUniform2i({0}, {1}, {2}, {3})", program, location, v0, v1);
-			} else if (Delegates.pglProgramUniform2iEXT != null) {
-				Delegates.pglProgramUniform2iEXT(program, location, v0, v1);
-				CallLog("glProgramUniform2iEXT({0}, {1}, {2}, {3})", program, location, v0, v1);
-			} else
-				throw new NotImplementedException("glProgramUniform2i (and other aliases) are not implemented");
+			Debug.Assert(Delegates.pglProgramUniform2i != null, "pglProgramUniform2i not implemented");
+			Delegates.pglProgramUniform2i(program, location, v0, v1);
+			CallLog("glProgramUniform2i({0}, {1}, {2}, {3})", program, location, v0, v1);
 			DebugCheckErrors();
 		}
 
@@ -1059,14 +1006,9 @@ namespace OpenGL
 			unsafe {
 				fixed (Int32* p_value = value)
 				{
-					if        (Delegates.pglProgramUniform2iv != null) {
-						Delegates.pglProgramUniform2iv(program, location, count, p_value);
-						CallLog("glProgramUniform2iv({0}, {1}, {2}, {3})", program, location, count, value);
-					} else if (Delegates.pglProgramUniform2ivEXT != null) {
-						Delegates.pglProgramUniform2ivEXT(program, location, count, p_value);
-						CallLog("glProgramUniform2ivEXT({0}, {1}, {2}, {3})", program, location, count, value);
-					} else
-						throw new NotImplementedException("glProgramUniform2iv (and other aliases) are not implemented");
+					Debug.Assert(Delegates.pglProgramUniform2iv != null, "pglProgramUniform2iv not implemented");
+					Delegates.pglProgramUniform2iv(program, location, count, p_value);
+					CallLog("glProgramUniform2iv({0}, {1}, {2}, {3})", program, location, count, value);
 				}
 			}
 			DebugCheckErrors();
@@ -1091,14 +1033,9 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_separate_shader_objects")]
 		public static void ProgramUniform2(UInt32 program, Int32 location, float v0, float v1)
 		{
-			if        (Delegates.pglProgramUniform2f != null) {
-				Delegates.pglProgramUniform2f(program, location, v0, v1);
-				CallLog("glProgramUniform2f({0}, {1}, {2}, {3})", program, location, v0, v1);
-			} else if (Delegates.pglProgramUniform2fEXT != null) {
-				Delegates.pglProgramUniform2fEXT(program, location, v0, v1);
-				CallLog("glProgramUniform2fEXT({0}, {1}, {2}, {3})", program, location, v0, v1);
-			} else
-				throw new NotImplementedException("glProgramUniform2f (and other aliases) are not implemented");
+			Debug.Assert(Delegates.pglProgramUniform2f != null, "pglProgramUniform2f not implemented");
+			Delegates.pglProgramUniform2f(program, location, v0, v1);
+			CallLog("glProgramUniform2f({0}, {1}, {2}, {3})", program, location, v0, v1);
 			DebugCheckErrors();
 		}
 
@@ -1126,14 +1063,9 @@ namespace OpenGL
 			unsafe {
 				fixed (float* p_value = value)
 				{
-					if        (Delegates.pglProgramUniform2fv != null) {
-						Delegates.pglProgramUniform2fv(program, location, count, p_value);
-						CallLog("glProgramUniform2fv({0}, {1}, {2}, {3})", program, location, count, value);
-					} else if (Delegates.pglProgramUniform2fvEXT != null) {
-						Delegates.pglProgramUniform2fvEXT(program, location, count, p_value);
-						CallLog("glProgramUniform2fvEXT({0}, {1}, {2}, {3})", program, location, count, value);
-					} else
-						throw new NotImplementedException("glProgramUniform2fv (and other aliases) are not implemented");
+					Debug.Assert(Delegates.pglProgramUniform2fv != null, "pglProgramUniform2fv not implemented");
+					Delegates.pglProgramUniform2fv(program, location, count, p_value);
+					CallLog("glProgramUniform2fv({0}, {1}, {2}, {3})", program, location, count, value);
 				}
 			}
 			DebugCheckErrors();
@@ -1213,14 +1145,9 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_separate_shader_objects")]
 		public static void ProgramUniform2(UInt32 program, Int32 location, UInt32 v0, UInt32 v1)
 		{
-			if        (Delegates.pglProgramUniform2ui != null) {
-				Delegates.pglProgramUniform2ui(program, location, v0, v1);
-				CallLog("glProgramUniform2ui({0}, {1}, {2}, {3})", program, location, v0, v1);
-			} else if (Delegates.pglProgramUniform2uiEXT != null) {
-				Delegates.pglProgramUniform2uiEXT(program, location, v0, v1);
-				CallLog("glProgramUniform2uiEXT({0}, {1}, {2}, {3})", program, location, v0, v1);
-			} else
-				throw new NotImplementedException("glProgramUniform2ui (and other aliases) are not implemented");
+			Debug.Assert(Delegates.pglProgramUniform2ui != null, "pglProgramUniform2ui not implemented");
+			Delegates.pglProgramUniform2ui(program, location, v0, v1);
+			CallLog("glProgramUniform2ui({0}, {1}, {2}, {3})", program, location, v0, v1);
 			DebugCheckErrors();
 		}
 
@@ -1248,14 +1175,9 @@ namespace OpenGL
 			unsafe {
 				fixed (UInt32* p_value = value)
 				{
-					if        (Delegates.pglProgramUniform2uiv != null) {
-						Delegates.pglProgramUniform2uiv(program, location, count, p_value);
-						CallLog("glProgramUniform2uiv({0}, {1}, {2}, {3})", program, location, count, value);
-					} else if (Delegates.pglProgramUniform2uivEXT != null) {
-						Delegates.pglProgramUniform2uivEXT(program, location, count, p_value);
-						CallLog("glProgramUniform2uivEXT({0}, {1}, {2}, {3})", program, location, count, value);
-					} else
-						throw new NotImplementedException("glProgramUniform2uiv (and other aliases) are not implemented");
+					Debug.Assert(Delegates.pglProgramUniform2uiv != null, "pglProgramUniform2uiv not implemented");
+					Delegates.pglProgramUniform2uiv(program, location, count, p_value);
+					CallLog("glProgramUniform2uiv({0}, {1}, {2}, {3})", program, location, count, value);
 				}
 			}
 			DebugCheckErrors();
@@ -1283,14 +1205,9 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_separate_shader_objects")]
 		public static void ProgramUniform3(UInt32 program, Int32 location, Int32 v0, Int32 v1, Int32 v2)
 		{
-			if        (Delegates.pglProgramUniform3i != null) {
-				Delegates.pglProgramUniform3i(program, location, v0, v1, v2);
-				CallLog("glProgramUniform3i({0}, {1}, {2}, {3}, {4})", program, location, v0, v1, v2);
-			} else if (Delegates.pglProgramUniform3iEXT != null) {
-				Delegates.pglProgramUniform3iEXT(program, location, v0, v1, v2);
-				CallLog("glProgramUniform3iEXT({0}, {1}, {2}, {3}, {4})", program, location, v0, v1, v2);
-			} else
-				throw new NotImplementedException("glProgramUniform3i (and other aliases) are not implemented");
+			Debug.Assert(Delegates.pglProgramUniform3i != null, "pglProgramUniform3i not implemented");
+			Delegates.pglProgramUniform3i(program, location, v0, v1, v2);
+			CallLog("glProgramUniform3i({0}, {1}, {2}, {3}, {4})", program, location, v0, v1, v2);
 			DebugCheckErrors();
 		}
 
@@ -1318,14 +1235,9 @@ namespace OpenGL
 			unsafe {
 				fixed (Int32* p_value = value)
 				{
-					if        (Delegates.pglProgramUniform3iv != null) {
-						Delegates.pglProgramUniform3iv(program, location, count, p_value);
-						CallLog("glProgramUniform3iv({0}, {1}, {2}, {3})", program, location, count, value);
-					} else if (Delegates.pglProgramUniform3ivEXT != null) {
-						Delegates.pglProgramUniform3ivEXT(program, location, count, p_value);
-						CallLog("glProgramUniform3ivEXT({0}, {1}, {2}, {3})", program, location, count, value);
-					} else
-						throw new NotImplementedException("glProgramUniform3iv (and other aliases) are not implemented");
+					Debug.Assert(Delegates.pglProgramUniform3iv != null, "pglProgramUniform3iv not implemented");
+					Delegates.pglProgramUniform3iv(program, location, count, p_value);
+					CallLog("glProgramUniform3iv({0}, {1}, {2}, {3})", program, location, count, value);
 				}
 			}
 			DebugCheckErrors();
@@ -1353,14 +1265,9 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_separate_shader_objects")]
 		public static void ProgramUniform3(UInt32 program, Int32 location, float v0, float v1, float v2)
 		{
-			if        (Delegates.pglProgramUniform3f != null) {
-				Delegates.pglProgramUniform3f(program, location, v0, v1, v2);
-				CallLog("glProgramUniform3f({0}, {1}, {2}, {3}, {4})", program, location, v0, v1, v2);
-			} else if (Delegates.pglProgramUniform3fEXT != null) {
-				Delegates.pglProgramUniform3fEXT(program, location, v0, v1, v2);
-				CallLog("glProgramUniform3fEXT({0}, {1}, {2}, {3}, {4})", program, location, v0, v1, v2);
-			} else
-				throw new NotImplementedException("glProgramUniform3f (and other aliases) are not implemented");
+			Debug.Assert(Delegates.pglProgramUniform3f != null, "pglProgramUniform3f not implemented");
+			Delegates.pglProgramUniform3f(program, location, v0, v1, v2);
+			CallLog("glProgramUniform3f({0}, {1}, {2}, {3}, {4})", program, location, v0, v1, v2);
 			DebugCheckErrors();
 		}
 
@@ -1388,14 +1295,9 @@ namespace OpenGL
 			unsafe {
 				fixed (float* p_value = value)
 				{
-					if        (Delegates.pglProgramUniform3fv != null) {
-						Delegates.pglProgramUniform3fv(program, location, count, p_value);
-						CallLog("glProgramUniform3fv({0}, {1}, {2}, {3})", program, location, count, value);
-					} else if (Delegates.pglProgramUniform3fvEXT != null) {
-						Delegates.pglProgramUniform3fvEXT(program, location, count, p_value);
-						CallLog("glProgramUniform3fvEXT({0}, {1}, {2}, {3})", program, location, count, value);
-					} else
-						throw new NotImplementedException("glProgramUniform3fv (and other aliases) are not implemented");
+					Debug.Assert(Delegates.pglProgramUniform3fv != null, "pglProgramUniform3fv not implemented");
+					Delegates.pglProgramUniform3fv(program, location, count, p_value);
+					CallLog("glProgramUniform3fv({0}, {1}, {2}, {3})", program, location, count, value);
 				}
 			}
 			DebugCheckErrors();
@@ -1481,14 +1383,9 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_separate_shader_objects")]
 		public static void ProgramUniform3(UInt32 program, Int32 location, UInt32 v0, UInt32 v1, UInt32 v2)
 		{
-			if        (Delegates.pglProgramUniform3ui != null) {
-				Delegates.pglProgramUniform3ui(program, location, v0, v1, v2);
-				CallLog("glProgramUniform3ui({0}, {1}, {2}, {3}, {4})", program, location, v0, v1, v2);
-			} else if (Delegates.pglProgramUniform3uiEXT != null) {
-				Delegates.pglProgramUniform3uiEXT(program, location, v0, v1, v2);
-				CallLog("glProgramUniform3uiEXT({0}, {1}, {2}, {3}, {4})", program, location, v0, v1, v2);
-			} else
-				throw new NotImplementedException("glProgramUniform3ui (and other aliases) are not implemented");
+			Debug.Assert(Delegates.pglProgramUniform3ui != null, "pglProgramUniform3ui not implemented");
+			Delegates.pglProgramUniform3ui(program, location, v0, v1, v2);
+			CallLog("glProgramUniform3ui({0}, {1}, {2}, {3}, {4})", program, location, v0, v1, v2);
 			DebugCheckErrors();
 		}
 
@@ -1516,14 +1413,9 @@ namespace OpenGL
 			unsafe {
 				fixed (UInt32* p_value = value)
 				{
-					if        (Delegates.pglProgramUniform3uiv != null) {
-						Delegates.pglProgramUniform3uiv(program, location, count, p_value);
-						CallLog("glProgramUniform3uiv({0}, {1}, {2}, {3})", program, location, count, value);
-					} else if (Delegates.pglProgramUniform3uivEXT != null) {
-						Delegates.pglProgramUniform3uivEXT(program, location, count, p_value);
-						CallLog("glProgramUniform3uivEXT({0}, {1}, {2}, {3})", program, location, count, value);
-					} else
-						throw new NotImplementedException("glProgramUniform3uiv (and other aliases) are not implemented");
+					Debug.Assert(Delegates.pglProgramUniform3uiv != null, "pglProgramUniform3uiv not implemented");
+					Delegates.pglProgramUniform3uiv(program, location, count, p_value);
+					CallLog("glProgramUniform3uiv({0}, {1}, {2}, {3})", program, location, count, value);
 				}
 			}
 			DebugCheckErrors();
@@ -1554,14 +1446,9 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_separate_shader_objects")]
 		public static void ProgramUniform4(UInt32 program, Int32 location, Int32 v0, Int32 v1, Int32 v2, Int32 v3)
 		{
-			if        (Delegates.pglProgramUniform4i != null) {
-				Delegates.pglProgramUniform4i(program, location, v0, v1, v2, v3);
-				CallLog("glProgramUniform4i({0}, {1}, {2}, {3}, {4}, {5})", program, location, v0, v1, v2, v3);
-			} else if (Delegates.pglProgramUniform4iEXT != null) {
-				Delegates.pglProgramUniform4iEXT(program, location, v0, v1, v2, v3);
-				CallLog("glProgramUniform4iEXT({0}, {1}, {2}, {3}, {4}, {5})", program, location, v0, v1, v2, v3);
-			} else
-				throw new NotImplementedException("glProgramUniform4i (and other aliases) are not implemented");
+			Debug.Assert(Delegates.pglProgramUniform4i != null, "pglProgramUniform4i not implemented");
+			Delegates.pglProgramUniform4i(program, location, v0, v1, v2, v3);
+			CallLog("glProgramUniform4i({0}, {1}, {2}, {3}, {4}, {5})", program, location, v0, v1, v2, v3);
 			DebugCheckErrors();
 		}
 
@@ -1589,14 +1476,9 @@ namespace OpenGL
 			unsafe {
 				fixed (Int32* p_value = value)
 				{
-					if        (Delegates.pglProgramUniform4iv != null) {
-						Delegates.pglProgramUniform4iv(program, location, count, p_value);
-						CallLog("glProgramUniform4iv({0}, {1}, {2}, {3})", program, location, count, value);
-					} else if (Delegates.pglProgramUniform4ivEXT != null) {
-						Delegates.pglProgramUniform4ivEXT(program, location, count, p_value);
-						CallLog("glProgramUniform4ivEXT({0}, {1}, {2}, {3})", program, location, count, value);
-					} else
-						throw new NotImplementedException("glProgramUniform4iv (and other aliases) are not implemented");
+					Debug.Assert(Delegates.pglProgramUniform4iv != null, "pglProgramUniform4iv not implemented");
+					Delegates.pglProgramUniform4iv(program, location, count, p_value);
+					CallLog("glProgramUniform4iv({0}, {1}, {2}, {3})", program, location, count, value);
 				}
 			}
 			DebugCheckErrors();
@@ -1627,14 +1509,9 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_separate_shader_objects")]
 		public static void ProgramUniform4(UInt32 program, Int32 location, float v0, float v1, float v2, float v3)
 		{
-			if        (Delegates.pglProgramUniform4f != null) {
-				Delegates.pglProgramUniform4f(program, location, v0, v1, v2, v3);
-				CallLog("glProgramUniform4f({0}, {1}, {2}, {3}, {4}, {5})", program, location, v0, v1, v2, v3);
-			} else if (Delegates.pglProgramUniform4fEXT != null) {
-				Delegates.pglProgramUniform4fEXT(program, location, v0, v1, v2, v3);
-				CallLog("glProgramUniform4fEXT({0}, {1}, {2}, {3}, {4}, {5})", program, location, v0, v1, v2, v3);
-			} else
-				throw new NotImplementedException("glProgramUniform4f (and other aliases) are not implemented");
+			Debug.Assert(Delegates.pglProgramUniform4f != null, "pglProgramUniform4f not implemented");
+			Delegates.pglProgramUniform4f(program, location, v0, v1, v2, v3);
+			CallLog("glProgramUniform4f({0}, {1}, {2}, {3}, {4}, {5})", program, location, v0, v1, v2, v3);
 			DebugCheckErrors();
 		}
 
@@ -1662,14 +1539,9 @@ namespace OpenGL
 			unsafe {
 				fixed (float* p_value = value)
 				{
-					if        (Delegates.pglProgramUniform4fv != null) {
-						Delegates.pglProgramUniform4fv(program, location, count, p_value);
-						CallLog("glProgramUniform4fv({0}, {1}, {2}, {3})", program, location, count, value);
-					} else if (Delegates.pglProgramUniform4fvEXT != null) {
-						Delegates.pglProgramUniform4fvEXT(program, location, count, p_value);
-						CallLog("glProgramUniform4fvEXT({0}, {1}, {2}, {3})", program, location, count, value);
-					} else
-						throw new NotImplementedException("glProgramUniform4fv (and other aliases) are not implemented");
+					Debug.Assert(Delegates.pglProgramUniform4fv != null, "pglProgramUniform4fv not implemented");
+					Delegates.pglProgramUniform4fv(program, location, count, p_value);
+					CallLog("glProgramUniform4fv({0}, {1}, {2}, {3})", program, location, count, value);
 				}
 			}
 			DebugCheckErrors();
@@ -1761,14 +1633,9 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_separate_shader_objects")]
 		public static void ProgramUniform4(UInt32 program, Int32 location, UInt32 v0, UInt32 v1, UInt32 v2, UInt32 v3)
 		{
-			if        (Delegates.pglProgramUniform4ui != null) {
-				Delegates.pglProgramUniform4ui(program, location, v0, v1, v2, v3);
-				CallLog("glProgramUniform4ui({0}, {1}, {2}, {3}, {4}, {5})", program, location, v0, v1, v2, v3);
-			} else if (Delegates.pglProgramUniform4uiEXT != null) {
-				Delegates.pglProgramUniform4uiEXT(program, location, v0, v1, v2, v3);
-				CallLog("glProgramUniform4uiEXT({0}, {1}, {2}, {3}, {4}, {5})", program, location, v0, v1, v2, v3);
-			} else
-				throw new NotImplementedException("glProgramUniform4ui (and other aliases) are not implemented");
+			Debug.Assert(Delegates.pglProgramUniform4ui != null, "pglProgramUniform4ui not implemented");
+			Delegates.pglProgramUniform4ui(program, location, v0, v1, v2, v3);
+			CallLog("glProgramUniform4ui({0}, {1}, {2}, {3}, {4}, {5})", program, location, v0, v1, v2, v3);
 			DebugCheckErrors();
 		}
 
@@ -1796,14 +1663,9 @@ namespace OpenGL
 			unsafe {
 				fixed (UInt32* p_value = value)
 				{
-					if        (Delegates.pglProgramUniform4uiv != null) {
-						Delegates.pglProgramUniform4uiv(program, location, count, p_value);
-						CallLog("glProgramUniform4uiv({0}, {1}, {2}, {3})", program, location, count, value);
-					} else if (Delegates.pglProgramUniform4uivEXT != null) {
-						Delegates.pglProgramUniform4uivEXT(program, location, count, p_value);
-						CallLog("glProgramUniform4uivEXT({0}, {1}, {2}, {3})", program, location, count, value);
-					} else
-						throw new NotImplementedException("glProgramUniform4uiv (and other aliases) are not implemented");
+					Debug.Assert(Delegates.pglProgramUniform4uiv != null, "pglProgramUniform4uiv not implemented");
+					Delegates.pglProgramUniform4uiv(program, location, count, p_value);
+					CallLog("glProgramUniform4uiv({0}, {1}, {2}, {3})", program, location, count, value);
 				}
 			}
 			DebugCheckErrors();
@@ -1836,14 +1698,9 @@ namespace OpenGL
 			unsafe {
 				fixed (float* p_value = value)
 				{
-					if        (Delegates.pglProgramUniformMatrix2fv != null) {
-						Delegates.pglProgramUniformMatrix2fv(program, location, count, transpose, p_value);
-						CallLog("glProgramUniformMatrix2fv({0}, {1}, {2}, {3}, {4})", program, location, count, transpose, value);
-					} else if (Delegates.pglProgramUniformMatrix2fvEXT != null) {
-						Delegates.pglProgramUniformMatrix2fvEXT(program, location, count, transpose, p_value);
-						CallLog("glProgramUniformMatrix2fvEXT({0}, {1}, {2}, {3}, {4})", program, location, count, transpose, value);
-					} else
-						throw new NotImplementedException("glProgramUniformMatrix2fv (and other aliases) are not implemented");
+					Debug.Assert(Delegates.pglProgramUniformMatrix2fv != null, "pglProgramUniformMatrix2fv not implemented");
+					Delegates.pglProgramUniformMatrix2fv(program, location, count, transpose, p_value);
+					CallLog("glProgramUniformMatrix2fv({0}, {1}, {2}, {3}, {4})", program, location, count, transpose, value);
 				}
 			}
 			DebugCheckErrors();
@@ -1876,14 +1733,9 @@ namespace OpenGL
 			unsafe {
 				fixed (float* p_value = value)
 				{
-					if        (Delegates.pglProgramUniformMatrix3fv != null) {
-						Delegates.pglProgramUniformMatrix3fv(program, location, count, transpose, p_value);
-						CallLog("glProgramUniformMatrix3fv({0}, {1}, {2}, {3}, {4})", program, location, count, transpose, value);
-					} else if (Delegates.pglProgramUniformMatrix3fvEXT != null) {
-						Delegates.pglProgramUniformMatrix3fvEXT(program, location, count, transpose, p_value);
-						CallLog("glProgramUniformMatrix3fvEXT({0}, {1}, {2}, {3}, {4})", program, location, count, transpose, value);
-					} else
-						throw new NotImplementedException("glProgramUniformMatrix3fv (and other aliases) are not implemented");
+					Debug.Assert(Delegates.pglProgramUniformMatrix3fv != null, "pglProgramUniformMatrix3fv not implemented");
+					Delegates.pglProgramUniformMatrix3fv(program, location, count, transpose, p_value);
+					CallLog("glProgramUniformMatrix3fv({0}, {1}, {2}, {3}, {4})", program, location, count, transpose, value);
 				}
 			}
 			DebugCheckErrors();
@@ -1916,14 +1768,9 @@ namespace OpenGL
 			unsafe {
 				fixed (float* p_value = value)
 				{
-					if        (Delegates.pglProgramUniformMatrix4fv != null) {
-						Delegates.pglProgramUniformMatrix4fv(program, location, count, transpose, p_value);
-						CallLog("glProgramUniformMatrix4fv({0}, {1}, {2}, {3}, {4})", program, location, count, transpose, value);
-					} else if (Delegates.pglProgramUniformMatrix4fvEXT != null) {
-						Delegates.pglProgramUniformMatrix4fvEXT(program, location, count, transpose, p_value);
-						CallLog("glProgramUniformMatrix4fvEXT({0}, {1}, {2}, {3}, {4})", program, location, count, transpose, value);
-					} else
-						throw new NotImplementedException("glProgramUniformMatrix4fv (and other aliases) are not implemented");
+					Debug.Assert(Delegates.pglProgramUniformMatrix4fv != null, "pglProgramUniformMatrix4fv not implemented");
+					Delegates.pglProgramUniformMatrix4fv(program, location, count, transpose, p_value);
+					CallLog("glProgramUniformMatrix4fv({0}, {1}, {2}, {3}, {4})", program, location, count, transpose, value);
 				}
 			}
 			DebugCheckErrors();
@@ -2055,14 +1902,9 @@ namespace OpenGL
 			unsafe {
 				fixed (float* p_value = value)
 				{
-					if        (Delegates.pglProgramUniformMatrix2x3fv != null) {
-						Delegates.pglProgramUniformMatrix2x3fv(program, location, (Int32)value.Length, transpose, p_value);
-						CallLog("glProgramUniformMatrix2x3fv({0}, {1}, {2}, {3}, {4})", program, location, value.Length, transpose, value);
-					} else if (Delegates.pglProgramUniformMatrix2x3fvEXT != null) {
-						Delegates.pglProgramUniformMatrix2x3fvEXT(program, location, (Int32)value.Length, transpose, p_value);
-						CallLog("glProgramUniformMatrix2x3fvEXT({0}, {1}, {2}, {3}, {4})", program, location, value.Length, transpose, value);
-					} else
-						throw new NotImplementedException("glProgramUniformMatrix2x3fv (and other aliases) are not implemented");
+					Debug.Assert(Delegates.pglProgramUniformMatrix2x3fv != null, "pglProgramUniformMatrix2x3fv not implemented");
+					Delegates.pglProgramUniformMatrix2x3fv(program, location, (Int32)value.Length, transpose, p_value);
+					CallLog("glProgramUniformMatrix2x3fv({0}, {1}, {2}, {3}, {4})", program, location, value.Length, transpose, value);
 				}
 			}
 			DebugCheckErrors();
@@ -2095,14 +1937,9 @@ namespace OpenGL
 			unsafe {
 				fixed (float* p_value = value)
 				{
-					if        (Delegates.pglProgramUniformMatrix3x2fv != null) {
-						Delegates.pglProgramUniformMatrix3x2fv(program, location, (Int32)value.Length, transpose, p_value);
-						CallLog("glProgramUniformMatrix3x2fv({0}, {1}, {2}, {3}, {4})", program, location, value.Length, transpose, value);
-					} else if (Delegates.pglProgramUniformMatrix3x2fvEXT != null) {
-						Delegates.pglProgramUniformMatrix3x2fvEXT(program, location, (Int32)value.Length, transpose, p_value);
-						CallLog("glProgramUniformMatrix3x2fvEXT({0}, {1}, {2}, {3}, {4})", program, location, value.Length, transpose, value);
-					} else
-						throw new NotImplementedException("glProgramUniformMatrix3x2fv (and other aliases) are not implemented");
+					Debug.Assert(Delegates.pglProgramUniformMatrix3x2fv != null, "pglProgramUniformMatrix3x2fv not implemented");
+					Delegates.pglProgramUniformMatrix3x2fv(program, location, (Int32)value.Length, transpose, p_value);
+					CallLog("glProgramUniformMatrix3x2fv({0}, {1}, {2}, {3}, {4})", program, location, value.Length, transpose, value);
 				}
 			}
 			DebugCheckErrors();
@@ -2135,14 +1972,9 @@ namespace OpenGL
 			unsafe {
 				fixed (float* p_value = value)
 				{
-					if        (Delegates.pglProgramUniformMatrix2x4fv != null) {
-						Delegates.pglProgramUniformMatrix2x4fv(program, location, (Int32)value.Length, transpose, p_value);
-						CallLog("glProgramUniformMatrix2x4fv({0}, {1}, {2}, {3}, {4})", program, location, value.Length, transpose, value);
-					} else if (Delegates.pglProgramUniformMatrix2x4fvEXT != null) {
-						Delegates.pglProgramUniformMatrix2x4fvEXT(program, location, (Int32)value.Length, transpose, p_value);
-						CallLog("glProgramUniformMatrix2x4fvEXT({0}, {1}, {2}, {3}, {4})", program, location, value.Length, transpose, value);
-					} else
-						throw new NotImplementedException("glProgramUniformMatrix2x4fv (and other aliases) are not implemented");
+					Debug.Assert(Delegates.pglProgramUniformMatrix2x4fv != null, "pglProgramUniformMatrix2x4fv not implemented");
+					Delegates.pglProgramUniformMatrix2x4fv(program, location, (Int32)value.Length, transpose, p_value);
+					CallLog("glProgramUniformMatrix2x4fv({0}, {1}, {2}, {3}, {4})", program, location, value.Length, transpose, value);
 				}
 			}
 			DebugCheckErrors();
@@ -2175,14 +2007,9 @@ namespace OpenGL
 			unsafe {
 				fixed (float* p_value = value)
 				{
-					if        (Delegates.pglProgramUniformMatrix4x2fv != null) {
-						Delegates.pglProgramUniformMatrix4x2fv(program, location, (Int32)value.Length, transpose, p_value);
-						CallLog("glProgramUniformMatrix4x2fv({0}, {1}, {2}, {3}, {4})", program, location, value.Length, transpose, value);
-					} else if (Delegates.pglProgramUniformMatrix4x2fvEXT != null) {
-						Delegates.pglProgramUniformMatrix4x2fvEXT(program, location, (Int32)value.Length, transpose, p_value);
-						CallLog("glProgramUniformMatrix4x2fvEXT({0}, {1}, {2}, {3}, {4})", program, location, value.Length, transpose, value);
-					} else
-						throw new NotImplementedException("glProgramUniformMatrix4x2fv (and other aliases) are not implemented");
+					Debug.Assert(Delegates.pglProgramUniformMatrix4x2fv != null, "pglProgramUniformMatrix4x2fv not implemented");
+					Delegates.pglProgramUniformMatrix4x2fv(program, location, (Int32)value.Length, transpose, p_value);
+					CallLog("glProgramUniformMatrix4x2fv({0}, {1}, {2}, {3}, {4})", program, location, value.Length, transpose, value);
 				}
 			}
 			DebugCheckErrors();
@@ -2215,14 +2042,9 @@ namespace OpenGL
 			unsafe {
 				fixed (float* p_value = value)
 				{
-					if        (Delegates.pglProgramUniformMatrix3x4fv != null) {
-						Delegates.pglProgramUniformMatrix3x4fv(program, location, (Int32)value.Length, transpose, p_value);
-						CallLog("glProgramUniformMatrix3x4fv({0}, {1}, {2}, {3}, {4})", program, location, value.Length, transpose, value);
-					} else if (Delegates.pglProgramUniformMatrix3x4fvEXT != null) {
-						Delegates.pglProgramUniformMatrix3x4fvEXT(program, location, (Int32)value.Length, transpose, p_value);
-						CallLog("glProgramUniformMatrix3x4fvEXT({0}, {1}, {2}, {3}, {4})", program, location, value.Length, transpose, value);
-					} else
-						throw new NotImplementedException("glProgramUniformMatrix3x4fv (and other aliases) are not implemented");
+					Debug.Assert(Delegates.pglProgramUniformMatrix3x4fv != null, "pglProgramUniformMatrix3x4fv not implemented");
+					Delegates.pglProgramUniformMatrix3x4fv(program, location, (Int32)value.Length, transpose, p_value);
+					CallLog("glProgramUniformMatrix3x4fv({0}, {1}, {2}, {3}, {4})", program, location, value.Length, transpose, value);
 				}
 			}
 			DebugCheckErrors();
@@ -2255,14 +2077,9 @@ namespace OpenGL
 			unsafe {
 				fixed (float* p_value = value)
 				{
-					if        (Delegates.pglProgramUniformMatrix4x3fv != null) {
-						Delegates.pglProgramUniformMatrix4x3fv(program, location, (Int32)value.Length, transpose, p_value);
-						CallLog("glProgramUniformMatrix4x3fv({0}, {1}, {2}, {3}, {4})", program, location, value.Length, transpose, value);
-					} else if (Delegates.pglProgramUniformMatrix4x3fvEXT != null) {
-						Delegates.pglProgramUniformMatrix4x3fvEXT(program, location, (Int32)value.Length, transpose, p_value);
-						CallLog("glProgramUniformMatrix4x3fvEXT({0}, {1}, {2}, {3}, {4})", program, location, value.Length, transpose, value);
-					} else
-						throw new NotImplementedException("glProgramUniformMatrix4x3fv (and other aliases) are not implemented");
+					Debug.Assert(Delegates.pglProgramUniformMatrix4x3fv != null, "pglProgramUniformMatrix4x3fv not implemented");
+					Delegates.pglProgramUniformMatrix4x3fv(program, location, (Int32)value.Length, transpose, p_value);
+					CallLog("glProgramUniformMatrix4x3fv({0}, {1}, {2}, {3}, {4})", program, location, value.Length, transpose, value);
 				}
 			}
 			DebugCheckErrors();
@@ -2525,14 +2342,9 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_vertex_attrib_64bit")]
 		public static void VertexAttribL1(UInt32 index, double x)
 		{
-			if        (Delegates.pglVertexAttribL1d != null) {
-				Delegates.pglVertexAttribL1d(index, x);
-				CallLog("glVertexAttribL1d({0}, {1})", index, x);
-			} else if (Delegates.pglVertexAttribL1dEXT != null) {
-				Delegates.pglVertexAttribL1dEXT(index, x);
-				CallLog("glVertexAttribL1dEXT({0}, {1})", index, x);
-			} else
-				throw new NotImplementedException("glVertexAttribL1d (and other aliases) are not implemented");
+			Debug.Assert(Delegates.pglVertexAttribL1d != null, "pglVertexAttribL1d not implemented");
+			Delegates.pglVertexAttribL1d(index, x);
+			CallLog("glVertexAttribL1d({0}, {1})", index, x);
 			DebugCheckErrors();
 		}
 
@@ -2552,14 +2364,9 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_vertex_attrib_64bit")]
 		public static void VertexAttribL2(UInt32 index, double x, double y)
 		{
-			if        (Delegates.pglVertexAttribL2d != null) {
-				Delegates.pglVertexAttribL2d(index, x, y);
-				CallLog("glVertexAttribL2d({0}, {1}, {2})", index, x, y);
-			} else if (Delegates.pglVertexAttribL2dEXT != null) {
-				Delegates.pglVertexAttribL2dEXT(index, x, y);
-				CallLog("glVertexAttribL2dEXT({0}, {1}, {2})", index, x, y);
-			} else
-				throw new NotImplementedException("glVertexAttribL2d (and other aliases) are not implemented");
+			Debug.Assert(Delegates.pglVertexAttribL2d != null, "pglVertexAttribL2d not implemented");
+			Delegates.pglVertexAttribL2d(index, x, y);
+			CallLog("glVertexAttribL2d({0}, {1}, {2})", index, x, y);
 			DebugCheckErrors();
 		}
 
@@ -2582,14 +2389,9 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_vertex_attrib_64bit")]
 		public static void VertexAttribL3(UInt32 index, double x, double y, double z)
 		{
-			if        (Delegates.pglVertexAttribL3d != null) {
-				Delegates.pglVertexAttribL3d(index, x, y, z);
-				CallLog("glVertexAttribL3d({0}, {1}, {2}, {3})", index, x, y, z);
-			} else if (Delegates.pglVertexAttribL3dEXT != null) {
-				Delegates.pglVertexAttribL3dEXT(index, x, y, z);
-				CallLog("glVertexAttribL3dEXT({0}, {1}, {2}, {3})", index, x, y, z);
-			} else
-				throw new NotImplementedException("glVertexAttribL3d (and other aliases) are not implemented");
+			Debug.Assert(Delegates.pglVertexAttribL3d != null, "pglVertexAttribL3d not implemented");
+			Delegates.pglVertexAttribL3d(index, x, y, z);
+			CallLog("glVertexAttribL3d({0}, {1}, {2}, {3})", index, x, y, z);
 			DebugCheckErrors();
 		}
 
@@ -2615,14 +2417,9 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_vertex_attrib_64bit")]
 		public static void VertexAttribL4(UInt32 index, double x, double y, double z, double w)
 		{
-			if        (Delegates.pglVertexAttribL4d != null) {
-				Delegates.pglVertexAttribL4d(index, x, y, z, w);
-				CallLog("glVertexAttribL4d({0}, {1}, {2}, {3}, {4})", index, x, y, z, w);
-			} else if (Delegates.pglVertexAttribL4dEXT != null) {
-				Delegates.pglVertexAttribL4dEXT(index, x, y, z, w);
-				CallLog("glVertexAttribL4dEXT({0}, {1}, {2}, {3}, {4})", index, x, y, z, w);
-			} else
-				throw new NotImplementedException("glVertexAttribL4d (and other aliases) are not implemented");
+			Debug.Assert(Delegates.pglVertexAttribL4d != null, "pglVertexAttribL4d not implemented");
+			Delegates.pglVertexAttribL4d(index, x, y, z, w);
+			CallLog("glVertexAttribL4d({0}, {1}, {2}, {3}, {4})", index, x, y, z, w);
 			DebugCheckErrors();
 		}
 
@@ -2643,14 +2440,9 @@ namespace OpenGL
 			unsafe {
 				fixed (double* p_v = v)
 				{
-					if        (Delegates.pglVertexAttribL1dv != null) {
-						Delegates.pglVertexAttribL1dv(index, p_v);
-						CallLog("glVertexAttribL1dv({0}, {1})", index, v);
-					} else if (Delegates.pglVertexAttribL1dvEXT != null) {
-						Delegates.pglVertexAttribL1dvEXT(index, p_v);
-						CallLog("glVertexAttribL1dvEXT({0}, {1})", index, v);
-					} else
-						throw new NotImplementedException("glVertexAttribL1dv (and other aliases) are not implemented");
+					Debug.Assert(Delegates.pglVertexAttribL1dv != null, "pglVertexAttribL1dv not implemented");
+					Delegates.pglVertexAttribL1dv(index, p_v);
+					CallLog("glVertexAttribL1dv({0}, {1})", index, v);
 				}
 			}
 			DebugCheckErrors();
@@ -2673,14 +2465,9 @@ namespace OpenGL
 			unsafe {
 				fixed (double* p_v = v)
 				{
-					if        (Delegates.pglVertexAttribL2dv != null) {
-						Delegates.pglVertexAttribL2dv(index, p_v);
-						CallLog("glVertexAttribL2dv({0}, {1})", index, v);
-					} else if (Delegates.pglVertexAttribL2dvEXT != null) {
-						Delegates.pglVertexAttribL2dvEXT(index, p_v);
-						CallLog("glVertexAttribL2dvEXT({0}, {1})", index, v);
-					} else
-						throw new NotImplementedException("glVertexAttribL2dv (and other aliases) are not implemented");
+					Debug.Assert(Delegates.pglVertexAttribL2dv != null, "pglVertexAttribL2dv not implemented");
+					Delegates.pglVertexAttribL2dv(index, p_v);
+					CallLog("glVertexAttribL2dv({0}, {1})", index, v);
 				}
 			}
 			DebugCheckErrors();
@@ -2703,14 +2490,9 @@ namespace OpenGL
 			unsafe {
 				fixed (double* p_v = v)
 				{
-					if        (Delegates.pglVertexAttribL3dv != null) {
-						Delegates.pglVertexAttribL3dv(index, p_v);
-						CallLog("glVertexAttribL3dv({0}, {1})", index, v);
-					} else if (Delegates.pglVertexAttribL3dvEXT != null) {
-						Delegates.pglVertexAttribL3dvEXT(index, p_v);
-						CallLog("glVertexAttribL3dvEXT({0}, {1})", index, v);
-					} else
-						throw new NotImplementedException("glVertexAttribL3dv (and other aliases) are not implemented");
+					Debug.Assert(Delegates.pglVertexAttribL3dv != null, "pglVertexAttribL3dv not implemented");
+					Delegates.pglVertexAttribL3dv(index, p_v);
+					CallLog("glVertexAttribL3dv({0}, {1})", index, v);
 				}
 			}
 			DebugCheckErrors();
@@ -2733,14 +2515,9 @@ namespace OpenGL
 			unsafe {
 				fixed (double* p_v = v)
 				{
-					if        (Delegates.pglVertexAttribL4dv != null) {
-						Delegates.pglVertexAttribL4dv(index, p_v);
-						CallLog("glVertexAttribL4dv({0}, {1})", index, v);
-					} else if (Delegates.pglVertexAttribL4dvEXT != null) {
-						Delegates.pglVertexAttribL4dvEXT(index, p_v);
-						CallLog("glVertexAttribL4dvEXT({0}, {1})", index, v);
-					} else
-						throw new NotImplementedException("glVertexAttribL4dv (and other aliases) are not implemented");
+					Debug.Assert(Delegates.pglVertexAttribL4dv != null, "pglVertexAttribL4dv not implemented");
+					Delegates.pglVertexAttribL4dv(index, p_v);
+					CallLog("glVertexAttribL4dv({0}, {1})", index, v);
 				}
 			}
 			DebugCheckErrors();
@@ -2776,14 +2553,9 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_vertex_attrib_64bit")]
 		public static void VertexAttribLPointer(UInt32 index, Int32 size, int type, Int32 stride, IntPtr pointer)
 		{
-			if        (Delegates.pglVertexAttribLPointer != null) {
-				Delegates.pglVertexAttribLPointer(index, size, type, stride, pointer);
-				CallLog("glVertexAttribLPointer({0}, {1}, {2}, {3}, {4})", index, size, type, stride, pointer);
-			} else if (Delegates.pglVertexAttribLPointerEXT != null) {
-				Delegates.pglVertexAttribLPointerEXT(index, size, type, stride, pointer);
-				CallLog("glVertexAttribLPointerEXT({0}, {1}, {2}, {3}, {4})", index, size, type, stride, pointer);
-			} else
-				throw new NotImplementedException("glVertexAttribLPointer (and other aliases) are not implemented");
+			Debug.Assert(Delegates.pglVertexAttribLPointer != null, "pglVertexAttribLPointer not implemented");
+			Delegates.pglVertexAttribLPointer(index, size, type, stride, pointer);
+			CallLog("glVertexAttribLPointer({0}, {1}, {2}, {3}, {4})", index, size, type, stride, pointer);
 			DebugCheckErrors();
 		}
 
@@ -2847,14 +2619,9 @@ namespace OpenGL
 			unsafe {
 				fixed (double* p_params = @params)
 				{
-					if        (Delegates.pglGetVertexAttribLdv != null) {
-						Delegates.pglGetVertexAttribLdv(index, pname, p_params);
-						CallLog("glGetVertexAttribLdv({0}, {1}, {2})", index, pname, @params);
-					} else if (Delegates.pglGetVertexAttribLdvEXT != null) {
-						Delegates.pglGetVertexAttribLdvEXT(index, pname, p_params);
-						CallLog("glGetVertexAttribLdvEXT({0}, {1}, {2})", index, pname, @params);
-					} else
-						throw new NotImplementedException("glGetVertexAttribLdv (and other aliases) are not implemented");
+					Debug.Assert(Delegates.pglGetVertexAttribLdv != null, "pglGetVertexAttribLdv not implemented");
+					Delegates.pglGetVertexAttribLdv(index, pname, p_params);
+					CallLog("glGetVertexAttribLdv({0}, {1}, {2})", index, pname, @params);
 				}
 			}
 			DebugCheckErrors();
@@ -3088,17 +2855,9 @@ namespace OpenGL
 			unsafe {
 				fixed (float* p_data = data)
 				{
-					if        (Delegates.pglGetFloati_v != null) {
-						Delegates.pglGetFloati_v(target, index, p_data);
-						CallLog("glGetFloati_v({0}, {1}, {2})", target, index, data);
-					} else if (Delegates.pglGetFloatIndexedvEXT != null) {
-						Delegates.pglGetFloatIndexedvEXT(target, index, p_data);
-						CallLog("glGetFloatIndexedvEXT({0}, {1}, {2})", target, index, data);
-					} else if (Delegates.pglGetFloati_vEXT != null) {
-						Delegates.pglGetFloati_vEXT(target, index, p_data);
-						CallLog("glGetFloati_vEXT({0}, {1}, {2})", target, index, data);
-					} else
-						throw new NotImplementedException("glGetFloati_v (and other aliases) are not implemented");
+					Debug.Assert(Delegates.pglGetFloati_v != null, "pglGetFloati_v not implemented");
+					Delegates.pglGetFloati_v(target, index, p_data);
+					CallLog("glGetFloati_v({0}, {1}, {2})", target, index, data);
 				}
 			}
 			DebugCheckErrors();
@@ -3124,17 +2883,9 @@ namespace OpenGL
 			unsafe {
 				fixed (float* p_data = &data)
 				{
-					if        (Delegates.pglGetFloati_v != null) {
-						Delegates.pglGetFloati_v(target, index, p_data);
-						CallLog("glGetFloati_v({0}, {1}, {2})", target, index, data);
-					} else if (Delegates.pglGetFloatIndexedvEXT != null) {
-						Delegates.pglGetFloatIndexedvEXT(target, index, p_data);
-						CallLog("glGetFloatIndexedvEXT({0}, {1}, {2})", target, index, data);
-					} else if (Delegates.pglGetFloati_vEXT != null) {
-						Delegates.pglGetFloati_vEXT(target, index, p_data);
-						CallLog("glGetFloati_vEXT({0}, {1}, {2})", target, index, data);
-					} else
-						throw new NotImplementedException("glGetFloati_v (and other aliases) are not implemented");
+					Debug.Assert(Delegates.pglGetFloati_v != null, "pglGetFloati_v not implemented");
+					Delegates.pglGetFloati_v(target, index, p_data);
+					CallLog("glGetFloati_v({0}, {1}, {2})", target, index, data);
 				}
 			}
 			DebugCheckErrors();
@@ -3160,17 +2911,9 @@ namespace OpenGL
 			unsafe {
 				fixed (double* p_data = data)
 				{
-					if        (Delegates.pglGetDoublei_v != null) {
-						Delegates.pglGetDoublei_v(target, index, p_data);
-						CallLog("glGetDoublei_v({0}, {1}, {2})", target, index, data);
-					} else if (Delegates.pglGetDoubleIndexedvEXT != null) {
-						Delegates.pglGetDoubleIndexedvEXT(target, index, p_data);
-						CallLog("glGetDoubleIndexedvEXT({0}, {1}, {2})", target, index, data);
-					} else if (Delegates.pglGetDoublei_vEXT != null) {
-						Delegates.pglGetDoublei_vEXT(target, index, p_data);
-						CallLog("glGetDoublei_vEXT({0}, {1}, {2})", target, index, data);
-					} else
-						throw new NotImplementedException("glGetDoublei_v (and other aliases) are not implemented");
+					Debug.Assert(Delegates.pglGetDoublei_v != null, "pglGetDoublei_v not implemented");
+					Delegates.pglGetDoublei_v(target, index, p_data);
+					CallLog("glGetDoublei_v({0}, {1}, {2})", target, index, data);
 				}
 			}
 			DebugCheckErrors();
@@ -3196,17 +2939,9 @@ namespace OpenGL
 			unsafe {
 				fixed (double* p_data = &data)
 				{
-					if        (Delegates.pglGetDoublei_v != null) {
-						Delegates.pglGetDoublei_v(target, index, p_data);
-						CallLog("glGetDoublei_v({0}, {1}, {2})", target, index, data);
-					} else if (Delegates.pglGetDoubleIndexedvEXT != null) {
-						Delegates.pglGetDoubleIndexedvEXT(target, index, p_data);
-						CallLog("glGetDoubleIndexedvEXT({0}, {1}, {2})", target, index, data);
-					} else if (Delegates.pglGetDoublei_vEXT != null) {
-						Delegates.pglGetDoublei_vEXT(target, index, p_data);
-						CallLog("glGetDoublei_vEXT({0}, {1}, {2})", target, index, data);
-					} else
-						throw new NotImplementedException("glGetDoublei_v (and other aliases) are not implemented");
+					Debug.Assert(Delegates.pglGetDoublei_v != null, "pglGetDoublei_v not implemented");
+					Delegates.pglGetDoublei_v(target, index, p_data);
+					CallLog("glGetDoublei_v({0}, {1}, {2})", target, index, data);
 				}
 			}
 			DebugCheckErrors();

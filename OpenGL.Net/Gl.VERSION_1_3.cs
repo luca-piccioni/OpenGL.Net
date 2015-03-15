@@ -28,281 +28,281 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_TEXTURE0 symbol.
 		/// </summary>
-		[AliasOf("GL_TEXTURE0_ARB"]
+		[AliasOf("GL_TEXTURE0_ARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		public const int TEXTURE0 = 0x84C0;
 
 		/// <summary>
 		/// Value of GL_TEXTURE1 symbol.
 		/// </summary>
-		[AliasOf("GL_TEXTURE1_ARB"]
+		[AliasOf("GL_TEXTURE1_ARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		public const int TEXTURE1 = 0x84C1;
 
 		/// <summary>
 		/// Value of GL_TEXTURE2 symbol.
 		/// </summary>
-		[AliasOf("GL_TEXTURE2_ARB"]
+		[AliasOf("GL_TEXTURE2_ARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		public const int TEXTURE2 = 0x84C2;
 
 		/// <summary>
 		/// Value of GL_TEXTURE3 symbol.
 		/// </summary>
-		[AliasOf("GL_TEXTURE3_ARB"]
+		[AliasOf("GL_TEXTURE3_ARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		public const int TEXTURE3 = 0x84C3;
 
 		/// <summary>
 		/// Value of GL_TEXTURE4 symbol.
 		/// </summary>
-		[AliasOf("GL_TEXTURE4_ARB"]
+		[AliasOf("GL_TEXTURE4_ARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		public const int TEXTURE4 = 0x84C4;
 
 		/// <summary>
 		/// Value of GL_TEXTURE5 symbol.
 		/// </summary>
-		[AliasOf("GL_TEXTURE5_ARB"]
+		[AliasOf("GL_TEXTURE5_ARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		public const int TEXTURE5 = 0x84C5;
 
 		/// <summary>
 		/// Value of GL_TEXTURE6 symbol.
 		/// </summary>
-		[AliasOf("GL_TEXTURE6_ARB"]
+		[AliasOf("GL_TEXTURE6_ARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		public const int TEXTURE6 = 0x84C6;
 
 		/// <summary>
 		/// Value of GL_TEXTURE7 symbol.
 		/// </summary>
-		[AliasOf("GL_TEXTURE7_ARB"]
+		[AliasOf("GL_TEXTURE7_ARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		public const int TEXTURE7 = 0x84C7;
 
 		/// <summary>
 		/// Value of GL_TEXTURE8 symbol.
 		/// </summary>
-		[AliasOf("GL_TEXTURE8_ARB"]
+		[AliasOf("GL_TEXTURE8_ARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		public const int TEXTURE8 = 0x84C8;
 
 		/// <summary>
 		/// Value of GL_TEXTURE9 symbol.
 		/// </summary>
-		[AliasOf("GL_TEXTURE9_ARB"]
+		[AliasOf("GL_TEXTURE9_ARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		public const int TEXTURE9 = 0x84C9;
 
 		/// <summary>
 		/// Value of GL_TEXTURE10 symbol.
 		/// </summary>
-		[AliasOf("GL_TEXTURE10_ARB"]
+		[AliasOf("GL_TEXTURE10_ARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		public const int TEXTURE10 = 0x84CA;
 
 		/// <summary>
 		/// Value of GL_TEXTURE11 symbol.
 		/// </summary>
-		[AliasOf("GL_TEXTURE11_ARB"]
+		[AliasOf("GL_TEXTURE11_ARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		public const int TEXTURE11 = 0x84CB;
 
 		/// <summary>
 		/// Value of GL_TEXTURE12 symbol.
 		/// </summary>
-		[AliasOf("GL_TEXTURE12_ARB"]
+		[AliasOf("GL_TEXTURE12_ARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		public const int TEXTURE12 = 0x84CC;
 
 		/// <summary>
 		/// Value of GL_TEXTURE13 symbol.
 		/// </summary>
-		[AliasOf("GL_TEXTURE13_ARB"]
+		[AliasOf("GL_TEXTURE13_ARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		public const int TEXTURE13 = 0x84CD;
 
 		/// <summary>
 		/// Value of GL_TEXTURE14 symbol.
 		/// </summary>
-		[AliasOf("GL_TEXTURE14_ARB"]
+		[AliasOf("GL_TEXTURE14_ARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		public const int TEXTURE14 = 0x84CE;
 
 		/// <summary>
 		/// Value of GL_TEXTURE15 symbol.
 		/// </summary>
-		[AliasOf("GL_TEXTURE15_ARB"]
+		[AliasOf("GL_TEXTURE15_ARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		public const int TEXTURE15 = 0x84CF;
 
 		/// <summary>
 		/// Value of GL_TEXTURE16 symbol.
 		/// </summary>
-		[AliasOf("GL_TEXTURE16_ARB"]
+		[AliasOf("GL_TEXTURE16_ARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		public const int TEXTURE16 = 0x84D0;
 
 		/// <summary>
 		/// Value of GL_TEXTURE17 symbol.
 		/// </summary>
-		[AliasOf("GL_TEXTURE17_ARB"]
+		[AliasOf("GL_TEXTURE17_ARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		public const int TEXTURE17 = 0x84D1;
 
 		/// <summary>
 		/// Value of GL_TEXTURE18 symbol.
 		/// </summary>
-		[AliasOf("GL_TEXTURE18_ARB"]
+		[AliasOf("GL_TEXTURE18_ARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		public const int TEXTURE18 = 0x84D2;
 
 		/// <summary>
 		/// Value of GL_TEXTURE19 symbol.
 		/// </summary>
-		[AliasOf("GL_TEXTURE19_ARB"]
+		[AliasOf("GL_TEXTURE19_ARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		public const int TEXTURE19 = 0x84D3;
 
 		/// <summary>
 		/// Value of GL_TEXTURE20 symbol.
 		/// </summary>
-		[AliasOf("GL_TEXTURE20_ARB"]
+		[AliasOf("GL_TEXTURE20_ARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		public const int TEXTURE20 = 0x84D4;
 
 		/// <summary>
 		/// Value of GL_TEXTURE21 symbol.
 		/// </summary>
-		[AliasOf("GL_TEXTURE21_ARB"]
+		[AliasOf("GL_TEXTURE21_ARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		public const int TEXTURE21 = 0x84D5;
 
 		/// <summary>
 		/// Value of GL_TEXTURE22 symbol.
 		/// </summary>
-		[AliasOf("GL_TEXTURE22_ARB"]
+		[AliasOf("GL_TEXTURE22_ARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		public const int TEXTURE22 = 0x84D6;
 
 		/// <summary>
 		/// Value of GL_TEXTURE23 symbol.
 		/// </summary>
-		[AliasOf("GL_TEXTURE23_ARB"]
+		[AliasOf("GL_TEXTURE23_ARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		public const int TEXTURE23 = 0x84D7;
 
 		/// <summary>
 		/// Value of GL_TEXTURE24 symbol.
 		/// </summary>
-		[AliasOf("GL_TEXTURE24_ARB"]
+		[AliasOf("GL_TEXTURE24_ARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		public const int TEXTURE24 = 0x84D8;
 
 		/// <summary>
 		/// Value of GL_TEXTURE25 symbol.
 		/// </summary>
-		[AliasOf("GL_TEXTURE25_ARB"]
+		[AliasOf("GL_TEXTURE25_ARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		public const int TEXTURE25 = 0x84D9;
 
 		/// <summary>
 		/// Value of GL_TEXTURE26 symbol.
 		/// </summary>
-		[AliasOf("GL_TEXTURE26_ARB"]
+		[AliasOf("GL_TEXTURE26_ARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		public const int TEXTURE26 = 0x84DA;
 
 		/// <summary>
 		/// Value of GL_TEXTURE27 symbol.
 		/// </summary>
-		[AliasOf("GL_TEXTURE27_ARB"]
+		[AliasOf("GL_TEXTURE27_ARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		public const int TEXTURE27 = 0x84DB;
 
 		/// <summary>
 		/// Value of GL_TEXTURE28 symbol.
 		/// </summary>
-		[AliasOf("GL_TEXTURE28_ARB"]
+		[AliasOf("GL_TEXTURE28_ARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		public const int TEXTURE28 = 0x84DC;
 
 		/// <summary>
 		/// Value of GL_TEXTURE29 symbol.
 		/// </summary>
-		[AliasOf("GL_TEXTURE29_ARB"]
+		[AliasOf("GL_TEXTURE29_ARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		public const int TEXTURE29 = 0x84DD;
 
 		/// <summary>
 		/// Value of GL_TEXTURE30 symbol.
 		/// </summary>
-		[AliasOf("GL_TEXTURE30_ARB"]
+		[AliasOf("GL_TEXTURE30_ARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		public const int TEXTURE30 = 0x84DE;
 
 		/// <summary>
 		/// Value of GL_TEXTURE31 symbol.
 		/// </summary>
-		[AliasOf("GL_TEXTURE31_ARB"]
+		[AliasOf("GL_TEXTURE31_ARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		public const int TEXTURE31 = 0x84DF;
 
 		/// <summary>
 		/// Value of GL_ACTIVE_TEXTURE symbol.
 		/// </summary>
-		[AliasOf("GL_ACTIVE_TEXTURE_ARB"]
+		[AliasOf("GL_ACTIVE_TEXTURE_ARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		public const int ACTIVE_TEXTURE = 0x84E0;
 
 		/// <summary>
 		/// Value of GL_MULTISAMPLE symbol.
 		/// </summary>
-		[AliasOf("GL_MULTISAMPLE_ARB"]
-		[AliasOf("GL_MULTISAMPLE_EXT"]
-		[AliasOf("GL_MULTISAMPLE_SGIS"]
+		[AliasOf("GL_MULTISAMPLE_ARB")]
+		[AliasOf("GL_MULTISAMPLE_EXT")]
+		[AliasOf("GL_MULTISAMPLE_SGIS")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		public const int MULTISAMPLE = 0x809D;
 
 		/// <summary>
 		/// Value of GL_SAMPLE_ALPHA_TO_COVERAGE symbol.
 		/// </summary>
-		[AliasOf("GL_SAMPLE_ALPHA_TO_COVERAGE_ARB"]
+		[AliasOf("GL_SAMPLE_ALPHA_TO_COVERAGE_ARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		public const int SAMPLE_ALPHA_TO_COVERAGE = 0x809E;
 
 		/// <summary>
 		/// Value of GL_SAMPLE_ALPHA_TO_ONE symbol.
 		/// </summary>
-		[AliasOf("GL_SAMPLE_ALPHA_TO_ONE_ARB"]
-		[AliasOf("GL_SAMPLE_ALPHA_TO_ONE_EXT"]
-		[AliasOf("GL_SAMPLE_ALPHA_TO_ONE_SGIS"]
+		[AliasOf("GL_SAMPLE_ALPHA_TO_ONE_ARB")]
+		[AliasOf("GL_SAMPLE_ALPHA_TO_ONE_EXT")]
+		[AliasOf("GL_SAMPLE_ALPHA_TO_ONE_SGIS")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		public const int SAMPLE_ALPHA_TO_ONE = 0x809F;
 
 		/// <summary>
 		/// Value of GL_SAMPLE_COVERAGE symbol.
 		/// </summary>
-		[AliasOf("GL_SAMPLE_COVERAGE_ARB"]
+		[AliasOf("GL_SAMPLE_COVERAGE_ARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		public const int SAMPLE_COVERAGE = 0x80A0;
 
 		/// <summary>
 		/// Value of GL_SAMPLE_BUFFERS symbol.
 		/// </summary>
-		[AliasOf("GL_SAMPLE_BUFFERS_ARB"]
-		[AliasOf("GL_SAMPLE_BUFFERS_EXT"]
-		[AliasOf("GL_SAMPLE_BUFFERS_SGIS"]
+		[AliasOf("GL_SAMPLE_BUFFERS_ARB")]
+		[AliasOf("GL_SAMPLE_BUFFERS_EXT")]
+		[AliasOf("GL_SAMPLE_BUFFERS_SGIS")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		public const int SAMPLE_BUFFERS = 0x80A8;
 
 		/// <summary>
 		/// Value of GL_SAMPLES symbol.
 		/// </summary>
-		[AliasOf("GL_SAMPLES_ARB"]
-		[AliasOf("GL_SAMPLES_EXT"]
-		[AliasOf("GL_SAMPLES_SGIS"]
+		[AliasOf("GL_SAMPLES_ARB")]
+		[AliasOf("GL_SAMPLES_EXT")]
+		[AliasOf("GL_SAMPLES_SGIS")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RequiredByFeature("GL_ARB_internalformat_query2")]
 		public const int SAMPLES = 0x80A9;
@@ -310,22 +310,22 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_SAMPLE_COVERAGE_VALUE symbol.
 		/// </summary>
-		[AliasOf("GL_SAMPLE_COVERAGE_VALUE_ARB"]
+		[AliasOf("GL_SAMPLE_COVERAGE_VALUE_ARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		public const int SAMPLE_COVERAGE_VALUE = 0x80AA;
 
 		/// <summary>
 		/// Value of GL_SAMPLE_COVERAGE_INVERT symbol.
 		/// </summary>
-		[AliasOf("GL_SAMPLE_COVERAGE_INVERT_ARB"]
+		[AliasOf("GL_SAMPLE_COVERAGE_INVERT_ARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		public const int SAMPLE_COVERAGE_INVERT = 0x80AB;
 
 		/// <summary>
 		/// Value of GL_TEXTURE_CUBE_MAP symbol.
 		/// </summary>
-		[AliasOf("GL_TEXTURE_CUBE_MAP_ARB"]
-		[AliasOf("GL_TEXTURE_CUBE_MAP_EXT"]
+		[AliasOf("GL_TEXTURE_CUBE_MAP_ARB")]
+		[AliasOf("GL_TEXTURE_CUBE_MAP_EXT")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RequiredByFeature("GL_ARB_internalformat_query2")]
 		public const int TEXTURE_CUBE_MAP = 0x8513;
@@ -333,8 +333,8 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_TEXTURE_BINDING_CUBE_MAP symbol.
 		/// </summary>
-		[AliasOf("GL_TEXTURE_BINDING_CUBE_MAP_ARB"]
-		[AliasOf("GL_TEXTURE_BINDING_CUBE_MAP_EXT"]
+		[AliasOf("GL_TEXTURE_BINDING_CUBE_MAP_ARB")]
+		[AliasOf("GL_TEXTURE_BINDING_CUBE_MAP_EXT")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_direct_state_access")]
@@ -343,99 +343,99 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_TEXTURE_CUBE_MAP_POSITIVE_X symbol.
 		/// </summary>
-		[AliasOf("GL_TEXTURE_CUBE_MAP_POSITIVE_X_ARB"]
-		[AliasOf("GL_TEXTURE_CUBE_MAP_POSITIVE_X_EXT"]
+		[AliasOf("GL_TEXTURE_CUBE_MAP_POSITIVE_X_ARB")]
+		[AliasOf("GL_TEXTURE_CUBE_MAP_POSITIVE_X_EXT")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		public const int TEXTURE_CUBE_MAP_POSITIVE_X = 0x8515;
 
 		/// <summary>
 		/// Value of GL_TEXTURE_CUBE_MAP_NEGATIVE_X symbol.
 		/// </summary>
-		[AliasOf("GL_TEXTURE_CUBE_MAP_NEGATIVE_X_ARB"]
-		[AliasOf("GL_TEXTURE_CUBE_MAP_NEGATIVE_X_EXT"]
+		[AliasOf("GL_TEXTURE_CUBE_MAP_NEGATIVE_X_ARB")]
+		[AliasOf("GL_TEXTURE_CUBE_MAP_NEGATIVE_X_EXT")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		public const int TEXTURE_CUBE_MAP_NEGATIVE_X = 0x8516;
 
 		/// <summary>
 		/// Value of GL_TEXTURE_CUBE_MAP_POSITIVE_Y symbol.
 		/// </summary>
-		[AliasOf("GL_TEXTURE_CUBE_MAP_POSITIVE_Y_ARB"]
-		[AliasOf("GL_TEXTURE_CUBE_MAP_POSITIVE_Y_EXT"]
+		[AliasOf("GL_TEXTURE_CUBE_MAP_POSITIVE_Y_ARB")]
+		[AliasOf("GL_TEXTURE_CUBE_MAP_POSITIVE_Y_EXT")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		public const int TEXTURE_CUBE_MAP_POSITIVE_Y = 0x8517;
 
 		/// <summary>
 		/// Value of GL_TEXTURE_CUBE_MAP_NEGATIVE_Y symbol.
 		/// </summary>
-		[AliasOf("GL_TEXTURE_CUBE_MAP_NEGATIVE_Y_ARB"]
-		[AliasOf("GL_TEXTURE_CUBE_MAP_NEGATIVE_Y_EXT"]
+		[AliasOf("GL_TEXTURE_CUBE_MAP_NEGATIVE_Y_ARB")]
+		[AliasOf("GL_TEXTURE_CUBE_MAP_NEGATIVE_Y_EXT")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		public const int TEXTURE_CUBE_MAP_NEGATIVE_Y = 0x8518;
 
 		/// <summary>
 		/// Value of GL_TEXTURE_CUBE_MAP_POSITIVE_Z symbol.
 		/// </summary>
-		[AliasOf("GL_TEXTURE_CUBE_MAP_POSITIVE_Z_ARB"]
-		[AliasOf("GL_TEXTURE_CUBE_MAP_POSITIVE_Z_EXT"]
+		[AliasOf("GL_TEXTURE_CUBE_MAP_POSITIVE_Z_ARB")]
+		[AliasOf("GL_TEXTURE_CUBE_MAP_POSITIVE_Z_EXT")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		public const int TEXTURE_CUBE_MAP_POSITIVE_Z = 0x8519;
 
 		/// <summary>
 		/// Value of GL_TEXTURE_CUBE_MAP_NEGATIVE_Z symbol.
 		/// </summary>
-		[AliasOf("GL_TEXTURE_CUBE_MAP_NEGATIVE_Z_ARB"]
-		[AliasOf("GL_TEXTURE_CUBE_MAP_NEGATIVE_Z_EXT"]
+		[AliasOf("GL_TEXTURE_CUBE_MAP_NEGATIVE_Z_ARB")]
+		[AliasOf("GL_TEXTURE_CUBE_MAP_NEGATIVE_Z_EXT")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		public const int TEXTURE_CUBE_MAP_NEGATIVE_Z = 0x851A;
 
 		/// <summary>
 		/// Value of GL_PROXY_TEXTURE_CUBE_MAP symbol.
 		/// </summary>
-		[AliasOf("GL_PROXY_TEXTURE_CUBE_MAP_ARB"]
-		[AliasOf("GL_PROXY_TEXTURE_CUBE_MAP_EXT"]
+		[AliasOf("GL_PROXY_TEXTURE_CUBE_MAP_ARB")]
+		[AliasOf("GL_PROXY_TEXTURE_CUBE_MAP_EXT")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		public const int PROXY_TEXTURE_CUBE_MAP = 0x851B;
 
 		/// <summary>
 		/// Value of GL_MAX_CUBE_MAP_TEXTURE_SIZE symbol.
 		/// </summary>
-		[AliasOf("GL_MAX_CUBE_MAP_TEXTURE_SIZE_ARB"]
-		[AliasOf("GL_MAX_CUBE_MAP_TEXTURE_SIZE_EXT"]
+		[AliasOf("GL_MAX_CUBE_MAP_TEXTURE_SIZE_ARB")]
+		[AliasOf("GL_MAX_CUBE_MAP_TEXTURE_SIZE_EXT")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		public const int MAX_CUBE_MAP_TEXTURE_SIZE = 0x851C;
 
 		/// <summary>
 		/// Value of GL_COMPRESSED_RGB symbol.
 		/// </summary>
-		[AliasOf("GL_COMPRESSED_RGB_ARB"]
+		[AliasOf("GL_COMPRESSED_RGB_ARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		public const int COMPRESSED_RGB = 0x84ED;
 
 		/// <summary>
 		/// Value of GL_COMPRESSED_RGBA symbol.
 		/// </summary>
-		[AliasOf("GL_COMPRESSED_RGBA_ARB"]
+		[AliasOf("GL_COMPRESSED_RGBA_ARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		public const int COMPRESSED_RGBA = 0x84EE;
 
 		/// <summary>
 		/// Value of GL_TEXTURE_COMPRESSION_HINT symbol.
 		/// </summary>
-		[AliasOf("GL_TEXTURE_COMPRESSION_HINT_ARB"]
+		[AliasOf("GL_TEXTURE_COMPRESSION_HINT_ARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		public const int TEXTURE_COMPRESSION_HINT = 0x84EF;
 
 		/// <summary>
 		/// Value of GL_TEXTURE_COMPRESSED_IMAGE_SIZE symbol.
 		/// </summary>
-		[AliasOf("GL_TEXTURE_COMPRESSED_IMAGE_SIZE_ARB"]
+		[AliasOf("GL_TEXTURE_COMPRESSED_IMAGE_SIZE_ARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		public const int TEXTURE_COMPRESSED_IMAGE_SIZE = 0x86A0;
 
 		/// <summary>
 		/// Value of GL_TEXTURE_COMPRESSED symbol.
 		/// </summary>
-		[AliasOf("GL_TEXTURE_COMPRESSED_ARB"]
+		[AliasOf("GL_TEXTURE_COMPRESSED_ARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RequiredByFeature("GL_ARB_internalformat_query2")]
 		public const int TEXTURE_COMPRESSED = 0x86A1;
@@ -443,29 +443,29 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_NUM_COMPRESSED_TEXTURE_FORMATS symbol.
 		/// </summary>
-		[AliasOf("GL_NUM_COMPRESSED_TEXTURE_FORMATS_ARB"]
+		[AliasOf("GL_NUM_COMPRESSED_TEXTURE_FORMATS_ARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		public const int NUM_COMPRESSED_TEXTURE_FORMATS = 0x86A2;
 
 		/// <summary>
 		/// Value of GL_COMPRESSED_TEXTURE_FORMATS symbol.
 		/// </summary>
-		[AliasOf("GL_COMPRESSED_TEXTURE_FORMATS_ARB"]
+		[AliasOf("GL_COMPRESSED_TEXTURE_FORMATS_ARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		public const int COMPRESSED_TEXTURE_FORMATS = 0x86A3;
 
 		/// <summary>
 		/// Value of GL_CLAMP_TO_BORDER symbol.
 		/// </summary>
-		[AliasOf("GL_CLAMP_TO_BORDER_ARB"]
-		[AliasOf("GL_CLAMP_TO_BORDER_SGIS"]
+		[AliasOf("GL_CLAMP_TO_BORDER_ARB")]
+		[AliasOf("GL_CLAMP_TO_BORDER_SGIS")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		public const int CLAMP_TO_BORDER = 0x812D;
 
 		/// <summary>
 		/// Value of GL_CLIENT_ACTIVE_TEXTURE symbol (DEPRECATED).
 		/// </summary>
-		[AliasOf("GL_CLIENT_ACTIVE_TEXTURE_ARB"]
+		[AliasOf("GL_CLIENT_ACTIVE_TEXTURE_ARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
@@ -476,7 +476,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_MAX_TEXTURE_UNITS symbol (DEPRECATED).
 		/// </summary>
-		[AliasOf("GL_MAX_TEXTURE_UNITS_ARB"]
+		[AliasOf("GL_MAX_TEXTURE_UNITS_ARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
@@ -487,7 +487,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_TRANSPOSE_MODELVIEW_MATRIX symbol (DEPRECATED).
 		/// </summary>
-		[AliasOf("GL_TRANSPOSE_MODELVIEW_MATRIX_ARB"]
+		[AliasOf("GL_TRANSPOSE_MODELVIEW_MATRIX_ARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
@@ -498,7 +498,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_TRANSPOSE_PROJECTION_MATRIX symbol (DEPRECATED).
 		/// </summary>
-		[AliasOf("GL_TRANSPOSE_PROJECTION_MATRIX_ARB"]
+		[AliasOf("GL_TRANSPOSE_PROJECTION_MATRIX_ARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
@@ -509,7 +509,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_TRANSPOSE_TEXTURE_MATRIX symbol (DEPRECATED).
 		/// </summary>
-		[AliasOf("GL_TRANSPOSE_TEXTURE_MATRIX_ARB"]
+		[AliasOf("GL_TRANSPOSE_TEXTURE_MATRIX_ARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
@@ -520,7 +520,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_TRANSPOSE_COLOR_MATRIX symbol (DEPRECATED).
 		/// </summary>
-		[AliasOf("GL_TRANSPOSE_COLOR_MATRIX_ARB"]
+		[AliasOf("GL_TRANSPOSE_COLOR_MATRIX_ARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
@@ -531,9 +531,9 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_MULTISAMPLE_BIT symbol (DEPRECATED).
 		/// </summary>
-		[AliasOf("GL_MULTISAMPLE_BIT_ARB"]
-		[AliasOf("GL_MULTISAMPLE_BIT_EXT"]
-		[AliasOf("GL_MULTISAMPLE_BIT_3DFX"]
+		[AliasOf("GL_MULTISAMPLE_BIT_ARB")]
+		[AliasOf("GL_MULTISAMPLE_BIT_EXT")]
+		[AliasOf("GL_MULTISAMPLE_BIT_3DFX")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
@@ -544,9 +544,9 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_NORMAL_MAP symbol (DEPRECATED).
 		/// </summary>
-		[AliasOf("GL_NORMAL_MAP_ARB"]
-		[AliasOf("GL_NORMAL_MAP_EXT"]
-		[AliasOf("GL_NORMAL_MAP_NV"]
+		[AliasOf("GL_NORMAL_MAP_ARB")]
+		[AliasOf("GL_NORMAL_MAP_EXT")]
+		[AliasOf("GL_NORMAL_MAP_NV")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
@@ -557,9 +557,9 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_REFLECTION_MAP symbol (DEPRECATED).
 		/// </summary>
-		[AliasOf("GL_REFLECTION_MAP_ARB"]
-		[AliasOf("GL_REFLECTION_MAP_EXT"]
-		[AliasOf("GL_REFLECTION_MAP_NV"]
+		[AliasOf("GL_REFLECTION_MAP_ARB")]
+		[AliasOf("GL_REFLECTION_MAP_EXT")]
+		[AliasOf("GL_REFLECTION_MAP_NV")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
@@ -570,7 +570,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_COMPRESSED_ALPHA symbol (DEPRECATED).
 		/// </summary>
-		[AliasOf("GL_COMPRESSED_ALPHA_ARB"]
+		[AliasOf("GL_COMPRESSED_ALPHA_ARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
@@ -581,7 +581,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_COMPRESSED_LUMINANCE symbol (DEPRECATED).
 		/// </summary>
-		[AliasOf("GL_COMPRESSED_LUMINANCE_ARB"]
+		[AliasOf("GL_COMPRESSED_LUMINANCE_ARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
@@ -592,7 +592,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_COMPRESSED_LUMINANCE_ALPHA symbol (DEPRECATED).
 		/// </summary>
-		[AliasOf("GL_COMPRESSED_LUMINANCE_ALPHA_ARB"]
+		[AliasOf("GL_COMPRESSED_LUMINANCE_ALPHA_ARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
@@ -603,7 +603,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_COMPRESSED_INTENSITY symbol (DEPRECATED).
 		/// </summary>
-		[AliasOf("GL_COMPRESSED_INTENSITY_ARB"]
+		[AliasOf("GL_COMPRESSED_INTENSITY_ARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
@@ -614,8 +614,8 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_COMBINE symbol (DEPRECATED).
 		/// </summary>
-		[AliasOf("GL_COMBINE_ARB"]
-		[AliasOf("GL_COMBINE_EXT"]
+		[AliasOf("GL_COMBINE_ARB")]
+		[AliasOf("GL_COMBINE_EXT")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
@@ -626,8 +626,8 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_COMBINE_RGB symbol (DEPRECATED).
 		/// </summary>
-		[AliasOf("GL_COMBINE_RGB_ARB"]
-		[AliasOf("GL_COMBINE_RGB_EXT"]
+		[AliasOf("GL_COMBINE_RGB_ARB")]
+		[AliasOf("GL_COMBINE_RGB_EXT")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
@@ -638,8 +638,8 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_COMBINE_ALPHA symbol (DEPRECATED).
 		/// </summary>
-		[AliasOf("GL_COMBINE_ALPHA_ARB"]
-		[AliasOf("GL_COMBINE_ALPHA_EXT"]
+		[AliasOf("GL_COMBINE_ALPHA_ARB")]
+		[AliasOf("GL_COMBINE_ALPHA_EXT")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
@@ -650,8 +650,8 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_SOURCE0_RGB symbol (DEPRECATED).
 		/// </summary>
-		[AliasOf("GL_SOURCE0_RGB_ARB"]
-		[AliasOf("GL_SOURCE0_RGB_EXT"]
+		[AliasOf("GL_SOURCE0_RGB_ARB")]
+		[AliasOf("GL_SOURCE0_RGB_EXT")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
@@ -662,8 +662,8 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_SOURCE1_RGB symbol (DEPRECATED).
 		/// </summary>
-		[AliasOf("GL_SOURCE1_RGB_ARB"]
-		[AliasOf("GL_SOURCE1_RGB_EXT"]
+		[AliasOf("GL_SOURCE1_RGB_ARB")]
+		[AliasOf("GL_SOURCE1_RGB_EXT")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
@@ -674,8 +674,8 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_SOURCE2_RGB symbol (DEPRECATED).
 		/// </summary>
-		[AliasOf("GL_SOURCE2_RGB_ARB"]
-		[AliasOf("GL_SOURCE2_RGB_EXT"]
+		[AliasOf("GL_SOURCE2_RGB_ARB")]
+		[AliasOf("GL_SOURCE2_RGB_EXT")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
@@ -686,8 +686,8 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_SOURCE0_ALPHA symbol (DEPRECATED).
 		/// </summary>
-		[AliasOf("GL_SOURCE0_ALPHA_ARB"]
-		[AliasOf("GL_SOURCE0_ALPHA_EXT"]
+		[AliasOf("GL_SOURCE0_ALPHA_ARB")]
+		[AliasOf("GL_SOURCE0_ALPHA_EXT")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
@@ -698,8 +698,8 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_SOURCE1_ALPHA symbol (DEPRECATED).
 		/// </summary>
-		[AliasOf("GL_SOURCE1_ALPHA_ARB"]
-		[AliasOf("GL_SOURCE1_ALPHA_EXT"]
+		[AliasOf("GL_SOURCE1_ALPHA_ARB")]
+		[AliasOf("GL_SOURCE1_ALPHA_EXT")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
@@ -710,8 +710,8 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_SOURCE2_ALPHA symbol (DEPRECATED).
 		/// </summary>
-		[AliasOf("GL_SOURCE2_ALPHA_ARB"]
-		[AliasOf("GL_SOURCE2_ALPHA_EXT"]
+		[AliasOf("GL_SOURCE2_ALPHA_ARB")]
+		[AliasOf("GL_SOURCE2_ALPHA_EXT")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
@@ -722,8 +722,8 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_OPERAND0_RGB symbol (DEPRECATED).
 		/// </summary>
-		[AliasOf("GL_OPERAND0_RGB_ARB"]
-		[AliasOf("GL_OPERAND0_RGB_EXT"]
+		[AliasOf("GL_OPERAND0_RGB_ARB")]
+		[AliasOf("GL_OPERAND0_RGB_EXT")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
@@ -734,8 +734,8 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_OPERAND1_RGB symbol (DEPRECATED).
 		/// </summary>
-		[AliasOf("GL_OPERAND1_RGB_ARB"]
-		[AliasOf("GL_OPERAND1_RGB_EXT"]
+		[AliasOf("GL_OPERAND1_RGB_ARB")]
+		[AliasOf("GL_OPERAND1_RGB_EXT")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
@@ -746,8 +746,8 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_OPERAND2_RGB symbol (DEPRECATED).
 		/// </summary>
-		[AliasOf("GL_OPERAND2_RGB_ARB"]
-		[AliasOf("GL_OPERAND2_RGB_EXT"]
+		[AliasOf("GL_OPERAND2_RGB_ARB")]
+		[AliasOf("GL_OPERAND2_RGB_EXT")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
@@ -758,8 +758,8 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_OPERAND0_ALPHA symbol (DEPRECATED).
 		/// </summary>
-		[AliasOf("GL_OPERAND0_ALPHA_ARB"]
-		[AliasOf("GL_OPERAND0_ALPHA_EXT"]
+		[AliasOf("GL_OPERAND0_ALPHA_ARB")]
+		[AliasOf("GL_OPERAND0_ALPHA_EXT")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
@@ -770,8 +770,8 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_OPERAND1_ALPHA symbol (DEPRECATED).
 		/// </summary>
-		[AliasOf("GL_OPERAND1_ALPHA_ARB"]
-		[AliasOf("GL_OPERAND1_ALPHA_EXT"]
+		[AliasOf("GL_OPERAND1_ALPHA_ARB")]
+		[AliasOf("GL_OPERAND1_ALPHA_EXT")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
@@ -782,8 +782,8 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_OPERAND2_ALPHA symbol (DEPRECATED).
 		/// </summary>
-		[AliasOf("GL_OPERAND2_ALPHA_ARB"]
-		[AliasOf("GL_OPERAND2_ALPHA_EXT"]
+		[AliasOf("GL_OPERAND2_ALPHA_ARB")]
+		[AliasOf("GL_OPERAND2_ALPHA_EXT")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
@@ -794,8 +794,8 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_RGB_SCALE symbol (DEPRECATED).
 		/// </summary>
-		[AliasOf("GL_RGB_SCALE_ARB"]
-		[AliasOf("GL_RGB_SCALE_EXT"]
+		[AliasOf("GL_RGB_SCALE_ARB")]
+		[AliasOf("GL_RGB_SCALE_EXT")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
@@ -806,8 +806,8 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_ADD_SIGNED symbol (DEPRECATED).
 		/// </summary>
-		[AliasOf("GL_ADD_SIGNED_ARB"]
-		[AliasOf("GL_ADD_SIGNED_EXT"]
+		[AliasOf("GL_ADD_SIGNED_ARB")]
+		[AliasOf("GL_ADD_SIGNED_EXT")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
@@ -818,8 +818,8 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_INTERPOLATE symbol (DEPRECATED).
 		/// </summary>
-		[AliasOf("GL_INTERPOLATE_ARB"]
-		[AliasOf("GL_INTERPOLATE_EXT"]
+		[AliasOf("GL_INTERPOLATE_ARB")]
+		[AliasOf("GL_INTERPOLATE_EXT")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
@@ -830,7 +830,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_SUBTRACT symbol (DEPRECATED).
 		/// </summary>
-		[AliasOf("GL_SUBTRACT_ARB"]
+		[AliasOf("GL_SUBTRACT_ARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
@@ -841,9 +841,9 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_CONSTANT symbol (DEPRECATED).
 		/// </summary>
-		[AliasOf("GL_CONSTANT_ARB"]
-		[AliasOf("GL_CONSTANT_EXT"]
-		[AliasOf("GL_CONSTANT_NV"]
+		[AliasOf("GL_CONSTANT_ARB")]
+		[AliasOf("GL_CONSTANT_EXT")]
+		[AliasOf("GL_CONSTANT_NV")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
@@ -854,8 +854,8 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_PRIMARY_COLOR symbol (DEPRECATED).
 		/// </summary>
-		[AliasOf("GL_PRIMARY_COLOR_ARB"]
-		[AliasOf("GL_PRIMARY_COLOR_EXT"]
+		[AliasOf("GL_PRIMARY_COLOR_ARB")]
+		[AliasOf("GL_PRIMARY_COLOR_EXT")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RequiredByFeature("GL_NV_path_rendering")]
 		[RemovedByFeature("GL_VERSION_3_2")]
@@ -867,8 +867,8 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_PREVIOUS symbol (DEPRECATED).
 		/// </summary>
-		[AliasOf("GL_PREVIOUS_ARB"]
-		[AliasOf("GL_PREVIOUS_EXT"]
+		[AliasOf("GL_PREVIOUS_ARB")]
+		[AliasOf("GL_PREVIOUS_EXT")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
@@ -879,7 +879,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_DOT3_RGB symbol (DEPRECATED).
 		/// </summary>
-		[AliasOf("GL_DOT3_RGB_ARB"]
+		[AliasOf("GL_DOT3_RGB_ARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
@@ -890,7 +890,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_DOT3_RGBA symbol (DEPRECATED).
 		/// </summary>
-		[AliasOf("GL_DOT3_RGBA_ARB"]
+		[AliasOf("GL_DOT3_RGBA_ARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
@@ -909,14 +909,9 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_1_3")]
 		public static void ActiveTexture(int texture)
 		{
-			if        (Delegates.pglActiveTexture != null) {
-				Delegates.pglActiveTexture(texture);
-				CallLog("glActiveTexture({0})", texture);
-			} else if (Delegates.pglActiveTextureARB != null) {
-				Delegates.pglActiveTextureARB(texture);
-				CallLog("glActiveTextureARB({0})", texture);
-			} else
-				throw new NotImplementedException("glActiveTexture (and other aliases) are not implemented");
+			Debug.Assert(Delegates.pglActiveTexture != null, "pglActiveTexture not implemented");
+			Delegates.pglActiveTexture(texture);
+			CallLog("glActiveTexture({0})", texture);
 			DebugCheckErrors();
 		}
 
@@ -933,14 +928,9 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_1_3")]
 		public static void SampleCoverage(float value, bool invert)
 		{
-			if        (Delegates.pglSampleCoverage != null) {
-				Delegates.pglSampleCoverage(value, invert);
-				CallLog("glSampleCoverage({0}, {1})", value, invert);
-			} else if (Delegates.pglSampleCoverageARB != null) {
-				Delegates.pglSampleCoverageARB(value, invert);
-				CallLog("glSampleCoverageARB({0}, {1})", value, invert);
-			} else
-				throw new NotImplementedException("glSampleCoverage (and other aliases) are not implemented");
+			Debug.Assert(Delegates.pglSampleCoverage != null, "pglSampleCoverage not implemented");
+			Delegates.pglSampleCoverage(value, invert);
+			CallLog("glSampleCoverage({0}, {1})", value, invert);
 			DebugCheckErrors();
 		}
 
@@ -983,14 +973,9 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_1_3")]
 		public static void CompressedTexImage3D(TextureTarget target, Int32 level, int internalformat, Int32 width, Int32 height, Int32 depth, Int32 border, Int32 imageSize, IntPtr data)
 		{
-			if        (Delegates.pglCompressedTexImage3D != null) {
-				Delegates.pglCompressedTexImage3D((int)target, level, internalformat, width, height, depth, border, imageSize, data);
-				CallLog("glCompressedTexImage3D({0}, {1}, {2}, {3}, {4}, {5}, {6}, {7}, {8})", target, level, internalformat, width, height, depth, border, imageSize, data);
-			} else if (Delegates.pglCompressedTexImage3DARB != null) {
-				Delegates.pglCompressedTexImage3DARB((int)target, level, internalformat, width, height, depth, border, imageSize, data);
-				CallLog("glCompressedTexImage3DARB({0}, {1}, {2}, {3}, {4}, {5}, {6}, {7}, {8})", target, level, internalformat, width, height, depth, border, imageSize, data);
-			} else
-				throw new NotImplementedException("glCompressedTexImage3D (and other aliases) are not implemented");
+			Debug.Assert(Delegates.pglCompressedTexImage3D != null, "pglCompressedTexImage3D not implemented");
+			Delegates.pglCompressedTexImage3D((int)target, level, internalformat, width, height, depth, border, imageSize, data);
+			CallLog("glCompressedTexImage3D({0}, {1}, {2}, {3}, {4}, {5}, {6}, {7}, {8})", target, level, internalformat, width, height, depth, border, imageSize, data);
 			DebugCheckErrors();
 		}
 
@@ -1079,14 +1064,9 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_1_3")]
 		public static void CompressedTexImage2D(TextureTarget target, Int32 level, int internalformat, Int32 width, Int32 height, Int32 border, Int32 imageSize, IntPtr data)
 		{
-			if        (Delegates.pglCompressedTexImage2D != null) {
-				Delegates.pglCompressedTexImage2D((int)target, level, internalformat, width, height, border, imageSize, data);
-				CallLog("glCompressedTexImage2D({0}, {1}, {2}, {3}, {4}, {5}, {6}, {7})", target, level, internalformat, width, height, border, imageSize, data);
-			} else if (Delegates.pglCompressedTexImage2DARB != null) {
-				Delegates.pglCompressedTexImage2DARB((int)target, level, internalformat, width, height, border, imageSize, data);
-				CallLog("glCompressedTexImage2DARB({0}, {1}, {2}, {3}, {4}, {5}, {6}, {7})", target, level, internalformat, width, height, border, imageSize, data);
-			} else
-				throw new NotImplementedException("glCompressedTexImage2D (and other aliases) are not implemented");
+			Debug.Assert(Delegates.pglCompressedTexImage2D != null, "pglCompressedTexImage2D not implemented");
+			Delegates.pglCompressedTexImage2D((int)target, level, internalformat, width, height, border, imageSize, data);
+			CallLog("glCompressedTexImage2D({0}, {1}, {2}, {3}, {4}, {5}, {6}, {7})", target, level, internalformat, width, height, border, imageSize, data);
 			DebugCheckErrors();
 		}
 
@@ -1165,14 +1145,9 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_1_3")]
 		public static void CompressedTexImage1D(TextureTarget target, Int32 level, int internalformat, Int32 width, Int32 border, Int32 imageSize, IntPtr data)
 		{
-			if        (Delegates.pglCompressedTexImage1D != null) {
-				Delegates.pglCompressedTexImage1D((int)target, level, internalformat, width, border, imageSize, data);
-				CallLog("glCompressedTexImage1D({0}, {1}, {2}, {3}, {4}, {5}, {6})", target, level, internalformat, width, border, imageSize, data);
-			} else if (Delegates.pglCompressedTexImage1DARB != null) {
-				Delegates.pglCompressedTexImage1DARB((int)target, level, internalformat, width, border, imageSize, data);
-				CallLog("glCompressedTexImage1DARB({0}, {1}, {2}, {3}, {4}, {5}, {6})", target, level, internalformat, width, border, imageSize, data);
-			} else
-				throw new NotImplementedException("glCompressedTexImage1D (and other aliases) are not implemented");
+			Debug.Assert(Delegates.pglCompressedTexImage1D != null, "pglCompressedTexImage1D not implemented");
+			Delegates.pglCompressedTexImage1D((int)target, level, internalformat, width, border, imageSize, data);
+			CallLog("glCompressedTexImage1D({0}, {1}, {2}, {3}, {4}, {5}, {6})", target, level, internalformat, width, border, imageSize, data);
 			DebugCheckErrors();
 		}
 
@@ -1253,14 +1228,9 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_1_3")]
 		public static void CompressedTexSubImage3D(TextureTarget target, Int32 level, Int32 xoffset, Int32 yoffset, Int32 zoffset, Int32 width, Int32 height, Int32 depth, PixelFormat format, Int32 imageSize, IntPtr data)
 		{
-			if        (Delegates.pglCompressedTexSubImage3D != null) {
-				Delegates.pglCompressedTexSubImage3D((int)target, level, xoffset, yoffset, zoffset, width, height, depth, (int)format, imageSize, data);
-				CallLog("glCompressedTexSubImage3D({0}, {1}, {2}, {3}, {4}, {5}, {6}, {7}, {8}, {9}, {10})", target, level, xoffset, yoffset, zoffset, width, height, depth, format, imageSize, data);
-			} else if (Delegates.pglCompressedTexSubImage3DARB != null) {
-				Delegates.pglCompressedTexSubImage3DARB((int)target, level, xoffset, yoffset, zoffset, width, height, depth, (int)format, imageSize, data);
-				CallLog("glCompressedTexSubImage3DARB({0}, {1}, {2}, {3}, {4}, {5}, {6}, {7}, {8}, {9}, {10})", target, level, xoffset, yoffset, zoffset, width, height, depth, format, imageSize, data);
-			} else
-				throw new NotImplementedException("glCompressedTexSubImage3D (and other aliases) are not implemented");
+			Debug.Assert(Delegates.pglCompressedTexSubImage3D != null, "pglCompressedTexSubImage3D not implemented");
+			Delegates.pglCompressedTexSubImage3D((int)target, level, xoffset, yoffset, zoffset, width, height, depth, (int)format, imageSize, data);
+			CallLog("glCompressedTexSubImage3D({0}, {1}, {2}, {3}, {4}, {5}, {6}, {7}, {8}, {9}, {10})", target, level, xoffset, yoffset, zoffset, width, height, depth, format, imageSize, data);
 			DebugCheckErrors();
 		}
 
@@ -1347,14 +1317,9 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_1_3")]
 		public static void CompressedTexSubImage2D(TextureTarget target, Int32 level, Int32 xoffset, Int32 yoffset, Int32 width, Int32 height, PixelFormat format, Int32 imageSize, IntPtr data)
 		{
-			if        (Delegates.pglCompressedTexSubImage2D != null) {
-				Delegates.pglCompressedTexSubImage2D((int)target, level, xoffset, yoffset, width, height, (int)format, imageSize, data);
-				CallLog("glCompressedTexSubImage2D({0}, {1}, {2}, {3}, {4}, {5}, {6}, {7}, {8})", target, level, xoffset, yoffset, width, height, format, imageSize, data);
-			} else if (Delegates.pglCompressedTexSubImage2DARB != null) {
-				Delegates.pglCompressedTexSubImage2DARB((int)target, level, xoffset, yoffset, width, height, (int)format, imageSize, data);
-				CallLog("glCompressedTexSubImage2DARB({0}, {1}, {2}, {3}, {4}, {5}, {6}, {7}, {8})", target, level, xoffset, yoffset, width, height, format, imageSize, data);
-			} else
-				throw new NotImplementedException("glCompressedTexSubImage2D (and other aliases) are not implemented");
+			Debug.Assert(Delegates.pglCompressedTexSubImage2D != null, "pglCompressedTexSubImage2D not implemented");
+			Delegates.pglCompressedTexSubImage2D((int)target, level, xoffset, yoffset, width, height, (int)format, imageSize, data);
+			CallLog("glCompressedTexSubImage2D({0}, {1}, {2}, {3}, {4}, {5}, {6}, {7}, {8})", target, level, xoffset, yoffset, width, height, format, imageSize, data);
 			DebugCheckErrors();
 		}
 
@@ -1428,14 +1393,9 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_1_3")]
 		public static void CompressedTexSubImage1D(TextureTarget target, Int32 level, Int32 xoffset, Int32 width, PixelFormat format, Int32 imageSize, IntPtr data)
 		{
-			if        (Delegates.pglCompressedTexSubImage1D != null) {
-				Delegates.pglCompressedTexSubImage1D((int)target, level, xoffset, width, (int)format, imageSize, data);
-				CallLog("glCompressedTexSubImage1D({0}, {1}, {2}, {3}, {4}, {5}, {6})", target, level, xoffset, width, format, imageSize, data);
-			} else if (Delegates.pglCompressedTexSubImage1DARB != null) {
-				Delegates.pglCompressedTexSubImage1DARB((int)target, level, xoffset, width, (int)format, imageSize, data);
-				CallLog("glCompressedTexSubImage1DARB({0}, {1}, {2}, {3}, {4}, {5}, {6})", target, level, xoffset, width, format, imageSize, data);
-			} else
-				throw new NotImplementedException("glCompressedTexSubImage1D (and other aliases) are not implemented");
+			Debug.Assert(Delegates.pglCompressedTexSubImage1D != null, "pglCompressedTexSubImage1D not implemented");
+			Delegates.pglCompressedTexSubImage1D((int)target, level, xoffset, width, (int)format, imageSize, data);
+			CallLog("glCompressedTexSubImage1D({0}, {1}, {2}, {3}, {4}, {5}, {6})", target, level, xoffset, width, format, imageSize, data);
 			DebugCheckErrors();
 		}
 
@@ -1494,14 +1454,9 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_1_3")]
 		public static void GetCompressedTexImage(TextureTarget target, Int32 level, IntPtr img)
 		{
-			if        (Delegates.pglGetCompressedTexImage != null) {
-				Delegates.pglGetCompressedTexImage((int)target, level, img);
-				CallLog("glGetCompressedTexImage({0}, {1}, {2})", target, level, img);
-			} else if (Delegates.pglGetCompressedTexImageARB != null) {
-				Delegates.pglGetCompressedTexImageARB((int)target, level, img);
-				CallLog("glGetCompressedTexImageARB({0}, {1}, {2})", target, level, img);
-			} else
-				throw new NotImplementedException("glGetCompressedTexImage (and other aliases) are not implemented");
+			Debug.Assert(Delegates.pglGetCompressedTexImage != null, "pglGetCompressedTexImage not implemented");
+			Delegates.pglGetCompressedTexImage((int)target, level, img);
+			CallLog("glGetCompressedTexImage({0}, {1}, {2})", target, level, img);
 			DebugCheckErrors();
 		}
 
@@ -1546,14 +1501,9 @@ namespace OpenGL
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void ClientActiveTexture(int texture)
 		{
-			if        (Delegates.pglClientActiveTexture != null) {
-				Delegates.pglClientActiveTexture(texture);
-				CallLog("glClientActiveTexture({0})", texture);
-			} else if (Delegates.pglClientActiveTextureARB != null) {
-				Delegates.pglClientActiveTextureARB(texture);
-				CallLog("glClientActiveTextureARB({0})", texture);
-			} else
-				throw new NotImplementedException("glClientActiveTexture (and other aliases) are not implemented");
+			Debug.Assert(Delegates.pglClientActiveTexture != null, "pglClientActiveTexture not implemented");
+			Delegates.pglClientActiveTexture(texture);
+			CallLog("glClientActiveTexture({0})", texture);
 			DebugCheckErrors();
 		}
 
@@ -1573,14 +1523,9 @@ namespace OpenGL
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void MultiTexCoord1(int target, double s)
 		{
-			if        (Delegates.pglMultiTexCoord1d != null) {
-				Delegates.pglMultiTexCoord1d(target, s);
-				CallLog("glMultiTexCoord1d({0}, {1})", target, s);
-			} else if (Delegates.pglMultiTexCoord1dARB != null) {
-				Delegates.pglMultiTexCoord1dARB(target, s);
-				CallLog("glMultiTexCoord1dARB({0}, {1})", target, s);
-			} else
-				throw new NotImplementedException("glMultiTexCoord1d (and other aliases) are not implemented");
+			Debug.Assert(Delegates.pglMultiTexCoord1d != null, "pglMultiTexCoord1d not implemented");
+			Delegates.pglMultiTexCoord1d(target, s);
+			CallLog("glMultiTexCoord1d({0}, {1})", target, s);
 			DebugCheckErrors();
 		}
 
@@ -1602,14 +1547,9 @@ namespace OpenGL
 			unsafe {
 				fixed (double* p_v = v)
 				{
-					if        (Delegates.pglMultiTexCoord1dv != null) {
-						Delegates.pglMultiTexCoord1dv(target, p_v);
-						CallLog("glMultiTexCoord1dv({0}, {1})", target, v);
-					} else if (Delegates.pglMultiTexCoord1dvARB != null) {
-						Delegates.pglMultiTexCoord1dvARB(target, p_v);
-						CallLog("glMultiTexCoord1dvARB({0}, {1})", target, v);
-					} else
-						throw new NotImplementedException("glMultiTexCoord1dv (and other aliases) are not implemented");
+					Debug.Assert(Delegates.pglMultiTexCoord1dv != null, "pglMultiTexCoord1dv not implemented");
+					Delegates.pglMultiTexCoord1dv(target, p_v);
+					CallLog("glMultiTexCoord1dv({0}, {1})", target, v);
 				}
 			}
 			DebugCheckErrors();
@@ -1631,14 +1571,9 @@ namespace OpenGL
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void MultiTexCoord1(int target, float s)
 		{
-			if        (Delegates.pglMultiTexCoord1f != null) {
-				Delegates.pglMultiTexCoord1f(target, s);
-				CallLog("glMultiTexCoord1f({0}, {1})", target, s);
-			} else if (Delegates.pglMultiTexCoord1fARB != null) {
-				Delegates.pglMultiTexCoord1fARB(target, s);
-				CallLog("glMultiTexCoord1fARB({0}, {1})", target, s);
-			} else
-				throw new NotImplementedException("glMultiTexCoord1f (and other aliases) are not implemented");
+			Debug.Assert(Delegates.pglMultiTexCoord1f != null, "pglMultiTexCoord1f not implemented");
+			Delegates.pglMultiTexCoord1f(target, s);
+			CallLog("glMultiTexCoord1f({0}, {1})", target, s);
 			DebugCheckErrors();
 		}
 
@@ -1660,14 +1595,9 @@ namespace OpenGL
 			unsafe {
 				fixed (float* p_v = v)
 				{
-					if        (Delegates.pglMultiTexCoord1fv != null) {
-						Delegates.pglMultiTexCoord1fv(target, p_v);
-						CallLog("glMultiTexCoord1fv({0}, {1})", target, v);
-					} else if (Delegates.pglMultiTexCoord1fvARB != null) {
-						Delegates.pglMultiTexCoord1fvARB(target, p_v);
-						CallLog("glMultiTexCoord1fvARB({0}, {1})", target, v);
-					} else
-						throw new NotImplementedException("glMultiTexCoord1fv (and other aliases) are not implemented");
+					Debug.Assert(Delegates.pglMultiTexCoord1fv != null, "pglMultiTexCoord1fv not implemented");
+					Delegates.pglMultiTexCoord1fv(target, p_v);
+					CallLog("glMultiTexCoord1fv({0}, {1})", target, v);
 				}
 			}
 			DebugCheckErrors();
@@ -1689,14 +1619,9 @@ namespace OpenGL
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void MultiTexCoord1(int target, Int32 s)
 		{
-			if        (Delegates.pglMultiTexCoord1i != null) {
-				Delegates.pglMultiTexCoord1i(target, s);
-				CallLog("glMultiTexCoord1i({0}, {1})", target, s);
-			} else if (Delegates.pglMultiTexCoord1iARB != null) {
-				Delegates.pglMultiTexCoord1iARB(target, s);
-				CallLog("glMultiTexCoord1iARB({0}, {1})", target, s);
-			} else
-				throw new NotImplementedException("glMultiTexCoord1i (and other aliases) are not implemented");
+			Debug.Assert(Delegates.pglMultiTexCoord1i != null, "pglMultiTexCoord1i not implemented");
+			Delegates.pglMultiTexCoord1i(target, s);
+			CallLog("glMultiTexCoord1i({0}, {1})", target, s);
 			DebugCheckErrors();
 		}
 
@@ -1718,14 +1643,9 @@ namespace OpenGL
 			unsafe {
 				fixed (Int32* p_v = v)
 				{
-					if        (Delegates.pglMultiTexCoord1iv != null) {
-						Delegates.pglMultiTexCoord1iv(target, p_v);
-						CallLog("glMultiTexCoord1iv({0}, {1})", target, v);
-					} else if (Delegates.pglMultiTexCoord1ivARB != null) {
-						Delegates.pglMultiTexCoord1ivARB(target, p_v);
-						CallLog("glMultiTexCoord1ivARB({0}, {1})", target, v);
-					} else
-						throw new NotImplementedException("glMultiTexCoord1iv (and other aliases) are not implemented");
+					Debug.Assert(Delegates.pglMultiTexCoord1iv != null, "pglMultiTexCoord1iv not implemented");
+					Delegates.pglMultiTexCoord1iv(target, p_v);
+					CallLog("glMultiTexCoord1iv({0}, {1})", target, v);
 				}
 			}
 			DebugCheckErrors();
@@ -1747,14 +1667,9 @@ namespace OpenGL
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void MultiTexCoord1(int target, Int16 s)
 		{
-			if        (Delegates.pglMultiTexCoord1s != null) {
-				Delegates.pglMultiTexCoord1s(target, s);
-				CallLog("glMultiTexCoord1s({0}, {1})", target, s);
-			} else if (Delegates.pglMultiTexCoord1sARB != null) {
-				Delegates.pglMultiTexCoord1sARB(target, s);
-				CallLog("glMultiTexCoord1sARB({0}, {1})", target, s);
-			} else
-				throw new NotImplementedException("glMultiTexCoord1s (and other aliases) are not implemented");
+			Debug.Assert(Delegates.pglMultiTexCoord1s != null, "pglMultiTexCoord1s not implemented");
+			Delegates.pglMultiTexCoord1s(target, s);
+			CallLog("glMultiTexCoord1s({0}, {1})", target, s);
 			DebugCheckErrors();
 		}
 
@@ -1776,14 +1691,9 @@ namespace OpenGL
 			unsafe {
 				fixed (Int16* p_v = v)
 				{
-					if        (Delegates.pglMultiTexCoord1sv != null) {
-						Delegates.pglMultiTexCoord1sv(target, p_v);
-						CallLog("glMultiTexCoord1sv({0}, {1})", target, v);
-					} else if (Delegates.pglMultiTexCoord1svARB != null) {
-						Delegates.pglMultiTexCoord1svARB(target, p_v);
-						CallLog("glMultiTexCoord1svARB({0}, {1})", target, v);
-					} else
-						throw new NotImplementedException("glMultiTexCoord1sv (and other aliases) are not implemented");
+					Debug.Assert(Delegates.pglMultiTexCoord1sv != null, "pglMultiTexCoord1sv not implemented");
+					Delegates.pglMultiTexCoord1sv(target, p_v);
+					CallLog("glMultiTexCoord1sv({0}, {1})", target, v);
 				}
 			}
 			DebugCheckErrors();
@@ -1809,14 +1719,9 @@ namespace OpenGL
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void MultiTexCoord2(int target, double s, double t)
 		{
-			if        (Delegates.pglMultiTexCoord2d != null) {
-				Delegates.pglMultiTexCoord2d(target, s, t);
-				CallLog("glMultiTexCoord2d({0}, {1}, {2})", target, s, t);
-			} else if (Delegates.pglMultiTexCoord2dARB != null) {
-				Delegates.pglMultiTexCoord2dARB(target, s, t);
-				CallLog("glMultiTexCoord2dARB({0}, {1}, {2})", target, s, t);
-			} else
-				throw new NotImplementedException("glMultiTexCoord2d (and other aliases) are not implemented");
+			Debug.Assert(Delegates.pglMultiTexCoord2d != null, "pglMultiTexCoord2d not implemented");
+			Delegates.pglMultiTexCoord2d(target, s, t);
+			CallLog("glMultiTexCoord2d({0}, {1}, {2})", target, s, t);
 			DebugCheckErrors();
 		}
 
@@ -1838,14 +1743,9 @@ namespace OpenGL
 			unsafe {
 				fixed (double* p_v = v)
 				{
-					if        (Delegates.pglMultiTexCoord2dv != null) {
-						Delegates.pglMultiTexCoord2dv(target, p_v);
-						CallLog("glMultiTexCoord2dv({0}, {1})", target, v);
-					} else if (Delegates.pglMultiTexCoord2dvARB != null) {
-						Delegates.pglMultiTexCoord2dvARB(target, p_v);
-						CallLog("glMultiTexCoord2dvARB({0}, {1})", target, v);
-					} else
-						throw new NotImplementedException("glMultiTexCoord2dv (and other aliases) are not implemented");
+					Debug.Assert(Delegates.pglMultiTexCoord2dv != null, "pglMultiTexCoord2dv not implemented");
+					Delegates.pglMultiTexCoord2dv(target, p_v);
+					CallLog("glMultiTexCoord2dv({0}, {1})", target, v);
 				}
 			}
 			DebugCheckErrors();
@@ -1871,14 +1771,9 @@ namespace OpenGL
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void MultiTexCoord2(int target, float s, float t)
 		{
-			if        (Delegates.pglMultiTexCoord2f != null) {
-				Delegates.pglMultiTexCoord2f(target, s, t);
-				CallLog("glMultiTexCoord2f({0}, {1}, {2})", target, s, t);
-			} else if (Delegates.pglMultiTexCoord2fARB != null) {
-				Delegates.pglMultiTexCoord2fARB(target, s, t);
-				CallLog("glMultiTexCoord2fARB({0}, {1}, {2})", target, s, t);
-			} else
-				throw new NotImplementedException("glMultiTexCoord2f (and other aliases) are not implemented");
+			Debug.Assert(Delegates.pglMultiTexCoord2f != null, "pglMultiTexCoord2f not implemented");
+			Delegates.pglMultiTexCoord2f(target, s, t);
+			CallLog("glMultiTexCoord2f({0}, {1}, {2})", target, s, t);
 			DebugCheckErrors();
 		}
 
@@ -1900,14 +1795,9 @@ namespace OpenGL
 			unsafe {
 				fixed (float* p_v = v)
 				{
-					if        (Delegates.pglMultiTexCoord2fv != null) {
-						Delegates.pglMultiTexCoord2fv(target, p_v);
-						CallLog("glMultiTexCoord2fv({0}, {1})", target, v);
-					} else if (Delegates.pglMultiTexCoord2fvARB != null) {
-						Delegates.pglMultiTexCoord2fvARB(target, p_v);
-						CallLog("glMultiTexCoord2fvARB({0}, {1})", target, v);
-					} else
-						throw new NotImplementedException("glMultiTexCoord2fv (and other aliases) are not implemented");
+					Debug.Assert(Delegates.pglMultiTexCoord2fv != null, "pglMultiTexCoord2fv not implemented");
+					Delegates.pglMultiTexCoord2fv(target, p_v);
+					CallLog("glMultiTexCoord2fv({0}, {1})", target, v);
 				}
 			}
 			DebugCheckErrors();
@@ -1933,14 +1823,9 @@ namespace OpenGL
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void MultiTexCoord2(int target, Int32 s, Int32 t)
 		{
-			if        (Delegates.pglMultiTexCoord2i != null) {
-				Delegates.pglMultiTexCoord2i(target, s, t);
-				CallLog("glMultiTexCoord2i({0}, {1}, {2})", target, s, t);
-			} else if (Delegates.pglMultiTexCoord2iARB != null) {
-				Delegates.pglMultiTexCoord2iARB(target, s, t);
-				CallLog("glMultiTexCoord2iARB({0}, {1}, {2})", target, s, t);
-			} else
-				throw new NotImplementedException("glMultiTexCoord2i (and other aliases) are not implemented");
+			Debug.Assert(Delegates.pglMultiTexCoord2i != null, "pglMultiTexCoord2i not implemented");
+			Delegates.pglMultiTexCoord2i(target, s, t);
+			CallLog("glMultiTexCoord2i({0}, {1}, {2})", target, s, t);
 			DebugCheckErrors();
 		}
 
@@ -1962,14 +1847,9 @@ namespace OpenGL
 			unsafe {
 				fixed (Int32* p_v = v)
 				{
-					if        (Delegates.pglMultiTexCoord2iv != null) {
-						Delegates.pglMultiTexCoord2iv(target, p_v);
-						CallLog("glMultiTexCoord2iv({0}, {1})", target, v);
-					} else if (Delegates.pglMultiTexCoord2ivARB != null) {
-						Delegates.pglMultiTexCoord2ivARB(target, p_v);
-						CallLog("glMultiTexCoord2ivARB({0}, {1})", target, v);
-					} else
-						throw new NotImplementedException("glMultiTexCoord2iv (and other aliases) are not implemented");
+					Debug.Assert(Delegates.pglMultiTexCoord2iv != null, "pglMultiTexCoord2iv not implemented");
+					Delegates.pglMultiTexCoord2iv(target, p_v);
+					CallLog("glMultiTexCoord2iv({0}, {1})", target, v);
 				}
 			}
 			DebugCheckErrors();
@@ -1995,14 +1875,9 @@ namespace OpenGL
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void MultiTexCoord2(int target, Int16 s, Int16 t)
 		{
-			if        (Delegates.pglMultiTexCoord2s != null) {
-				Delegates.pglMultiTexCoord2s(target, s, t);
-				CallLog("glMultiTexCoord2s({0}, {1}, {2})", target, s, t);
-			} else if (Delegates.pglMultiTexCoord2sARB != null) {
-				Delegates.pglMultiTexCoord2sARB(target, s, t);
-				CallLog("glMultiTexCoord2sARB({0}, {1}, {2})", target, s, t);
-			} else
-				throw new NotImplementedException("glMultiTexCoord2s (and other aliases) are not implemented");
+			Debug.Assert(Delegates.pglMultiTexCoord2s != null, "pglMultiTexCoord2s not implemented");
+			Delegates.pglMultiTexCoord2s(target, s, t);
+			CallLog("glMultiTexCoord2s({0}, {1}, {2})", target, s, t);
 			DebugCheckErrors();
 		}
 
@@ -2024,14 +1899,9 @@ namespace OpenGL
 			unsafe {
 				fixed (Int16* p_v = v)
 				{
-					if        (Delegates.pglMultiTexCoord2sv != null) {
-						Delegates.pglMultiTexCoord2sv(target, p_v);
-						CallLog("glMultiTexCoord2sv({0}, {1})", target, v);
-					} else if (Delegates.pglMultiTexCoord2svARB != null) {
-						Delegates.pglMultiTexCoord2svARB(target, p_v);
-						CallLog("glMultiTexCoord2svARB({0}, {1})", target, v);
-					} else
-						throw new NotImplementedException("glMultiTexCoord2sv (and other aliases) are not implemented");
+					Debug.Assert(Delegates.pglMultiTexCoord2sv != null, "pglMultiTexCoord2sv not implemented");
+					Delegates.pglMultiTexCoord2sv(target, p_v);
+					CallLog("glMultiTexCoord2sv({0}, {1})", target, v);
 				}
 			}
 			DebugCheckErrors();
@@ -2061,14 +1931,9 @@ namespace OpenGL
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void MultiTexCoord3(int target, double s, double t, double r)
 		{
-			if        (Delegates.pglMultiTexCoord3d != null) {
-				Delegates.pglMultiTexCoord3d(target, s, t, r);
-				CallLog("glMultiTexCoord3d({0}, {1}, {2}, {3})", target, s, t, r);
-			} else if (Delegates.pglMultiTexCoord3dARB != null) {
-				Delegates.pglMultiTexCoord3dARB(target, s, t, r);
-				CallLog("glMultiTexCoord3dARB({0}, {1}, {2}, {3})", target, s, t, r);
-			} else
-				throw new NotImplementedException("glMultiTexCoord3d (and other aliases) are not implemented");
+			Debug.Assert(Delegates.pglMultiTexCoord3d != null, "pglMultiTexCoord3d not implemented");
+			Delegates.pglMultiTexCoord3d(target, s, t, r);
+			CallLog("glMultiTexCoord3d({0}, {1}, {2}, {3})", target, s, t, r);
 			DebugCheckErrors();
 		}
 
@@ -2090,14 +1955,9 @@ namespace OpenGL
 			unsafe {
 				fixed (double* p_v = v)
 				{
-					if        (Delegates.pglMultiTexCoord3dv != null) {
-						Delegates.pglMultiTexCoord3dv(target, p_v);
-						CallLog("glMultiTexCoord3dv({0}, {1})", target, v);
-					} else if (Delegates.pglMultiTexCoord3dvARB != null) {
-						Delegates.pglMultiTexCoord3dvARB(target, p_v);
-						CallLog("glMultiTexCoord3dvARB({0}, {1})", target, v);
-					} else
-						throw new NotImplementedException("glMultiTexCoord3dv (and other aliases) are not implemented");
+					Debug.Assert(Delegates.pglMultiTexCoord3dv != null, "pglMultiTexCoord3dv not implemented");
+					Delegates.pglMultiTexCoord3dv(target, p_v);
+					CallLog("glMultiTexCoord3dv({0}, {1})", target, v);
 				}
 			}
 			DebugCheckErrors();
@@ -2127,14 +1987,9 @@ namespace OpenGL
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void MultiTexCoord3(int target, float s, float t, float r)
 		{
-			if        (Delegates.pglMultiTexCoord3f != null) {
-				Delegates.pglMultiTexCoord3f(target, s, t, r);
-				CallLog("glMultiTexCoord3f({0}, {1}, {2}, {3})", target, s, t, r);
-			} else if (Delegates.pglMultiTexCoord3fARB != null) {
-				Delegates.pglMultiTexCoord3fARB(target, s, t, r);
-				CallLog("glMultiTexCoord3fARB({0}, {1}, {2}, {3})", target, s, t, r);
-			} else
-				throw new NotImplementedException("glMultiTexCoord3f (and other aliases) are not implemented");
+			Debug.Assert(Delegates.pglMultiTexCoord3f != null, "pglMultiTexCoord3f not implemented");
+			Delegates.pglMultiTexCoord3f(target, s, t, r);
+			CallLog("glMultiTexCoord3f({0}, {1}, {2}, {3})", target, s, t, r);
 			DebugCheckErrors();
 		}
 
@@ -2156,14 +2011,9 @@ namespace OpenGL
 			unsafe {
 				fixed (float* p_v = v)
 				{
-					if        (Delegates.pglMultiTexCoord3fv != null) {
-						Delegates.pglMultiTexCoord3fv(target, p_v);
-						CallLog("glMultiTexCoord3fv({0}, {1})", target, v);
-					} else if (Delegates.pglMultiTexCoord3fvARB != null) {
-						Delegates.pglMultiTexCoord3fvARB(target, p_v);
-						CallLog("glMultiTexCoord3fvARB({0}, {1})", target, v);
-					} else
-						throw new NotImplementedException("glMultiTexCoord3fv (and other aliases) are not implemented");
+					Debug.Assert(Delegates.pglMultiTexCoord3fv != null, "pglMultiTexCoord3fv not implemented");
+					Delegates.pglMultiTexCoord3fv(target, p_v);
+					CallLog("glMultiTexCoord3fv({0}, {1})", target, v);
 				}
 			}
 			DebugCheckErrors();
@@ -2193,14 +2043,9 @@ namespace OpenGL
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void MultiTexCoord3(int target, Int32 s, Int32 t, Int32 r)
 		{
-			if        (Delegates.pglMultiTexCoord3i != null) {
-				Delegates.pglMultiTexCoord3i(target, s, t, r);
-				CallLog("glMultiTexCoord3i({0}, {1}, {2}, {3})", target, s, t, r);
-			} else if (Delegates.pglMultiTexCoord3iARB != null) {
-				Delegates.pglMultiTexCoord3iARB(target, s, t, r);
-				CallLog("glMultiTexCoord3iARB({0}, {1}, {2}, {3})", target, s, t, r);
-			} else
-				throw new NotImplementedException("glMultiTexCoord3i (and other aliases) are not implemented");
+			Debug.Assert(Delegates.pglMultiTexCoord3i != null, "pglMultiTexCoord3i not implemented");
+			Delegates.pglMultiTexCoord3i(target, s, t, r);
+			CallLog("glMultiTexCoord3i({0}, {1}, {2}, {3})", target, s, t, r);
 			DebugCheckErrors();
 		}
 
@@ -2222,14 +2067,9 @@ namespace OpenGL
 			unsafe {
 				fixed (Int32* p_v = v)
 				{
-					if        (Delegates.pglMultiTexCoord3iv != null) {
-						Delegates.pglMultiTexCoord3iv(target, p_v);
-						CallLog("glMultiTexCoord3iv({0}, {1})", target, v);
-					} else if (Delegates.pglMultiTexCoord3ivARB != null) {
-						Delegates.pglMultiTexCoord3ivARB(target, p_v);
-						CallLog("glMultiTexCoord3ivARB({0}, {1})", target, v);
-					} else
-						throw new NotImplementedException("glMultiTexCoord3iv (and other aliases) are not implemented");
+					Debug.Assert(Delegates.pglMultiTexCoord3iv != null, "pglMultiTexCoord3iv not implemented");
+					Delegates.pglMultiTexCoord3iv(target, p_v);
+					CallLog("glMultiTexCoord3iv({0}, {1})", target, v);
 				}
 			}
 			DebugCheckErrors();
@@ -2259,14 +2099,9 @@ namespace OpenGL
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void MultiTexCoord3(int target, Int16 s, Int16 t, Int16 r)
 		{
-			if        (Delegates.pglMultiTexCoord3s != null) {
-				Delegates.pglMultiTexCoord3s(target, s, t, r);
-				CallLog("glMultiTexCoord3s({0}, {1}, {2}, {3})", target, s, t, r);
-			} else if (Delegates.pglMultiTexCoord3sARB != null) {
-				Delegates.pglMultiTexCoord3sARB(target, s, t, r);
-				CallLog("glMultiTexCoord3sARB({0}, {1}, {2}, {3})", target, s, t, r);
-			} else
-				throw new NotImplementedException("glMultiTexCoord3s (and other aliases) are not implemented");
+			Debug.Assert(Delegates.pglMultiTexCoord3s != null, "pglMultiTexCoord3s not implemented");
+			Delegates.pglMultiTexCoord3s(target, s, t, r);
+			CallLog("glMultiTexCoord3s({0}, {1}, {2}, {3})", target, s, t, r);
 			DebugCheckErrors();
 		}
 
@@ -2288,14 +2123,9 @@ namespace OpenGL
 			unsafe {
 				fixed (Int16* p_v = v)
 				{
-					if        (Delegates.pglMultiTexCoord3sv != null) {
-						Delegates.pglMultiTexCoord3sv(target, p_v);
-						CallLog("glMultiTexCoord3sv({0}, {1})", target, v);
-					} else if (Delegates.pglMultiTexCoord3svARB != null) {
-						Delegates.pglMultiTexCoord3svARB(target, p_v);
-						CallLog("glMultiTexCoord3svARB({0}, {1})", target, v);
-					} else
-						throw new NotImplementedException("glMultiTexCoord3sv (and other aliases) are not implemented");
+					Debug.Assert(Delegates.pglMultiTexCoord3sv != null, "pglMultiTexCoord3sv not implemented");
+					Delegates.pglMultiTexCoord3sv(target, p_v);
+					CallLog("glMultiTexCoord3sv({0}, {1})", target, v);
 				}
 			}
 			DebugCheckErrors();
@@ -2329,14 +2159,9 @@ namespace OpenGL
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void MultiTexCoord4(int target, double s, double t, double r, double q)
 		{
-			if        (Delegates.pglMultiTexCoord4d != null) {
-				Delegates.pglMultiTexCoord4d(target, s, t, r, q);
-				CallLog("glMultiTexCoord4d({0}, {1}, {2}, {3}, {4})", target, s, t, r, q);
-			} else if (Delegates.pglMultiTexCoord4dARB != null) {
-				Delegates.pglMultiTexCoord4dARB(target, s, t, r, q);
-				CallLog("glMultiTexCoord4dARB({0}, {1}, {2}, {3}, {4})", target, s, t, r, q);
-			} else
-				throw new NotImplementedException("glMultiTexCoord4d (and other aliases) are not implemented");
+			Debug.Assert(Delegates.pglMultiTexCoord4d != null, "pglMultiTexCoord4d not implemented");
+			Delegates.pglMultiTexCoord4d(target, s, t, r, q);
+			CallLog("glMultiTexCoord4d({0}, {1}, {2}, {3}, {4})", target, s, t, r, q);
 			DebugCheckErrors();
 		}
 
@@ -2358,14 +2183,9 @@ namespace OpenGL
 			unsafe {
 				fixed (double* p_v = v)
 				{
-					if        (Delegates.pglMultiTexCoord4dv != null) {
-						Delegates.pglMultiTexCoord4dv(target, p_v);
-						CallLog("glMultiTexCoord4dv({0}, {1})", target, v);
-					} else if (Delegates.pglMultiTexCoord4dvARB != null) {
-						Delegates.pglMultiTexCoord4dvARB(target, p_v);
-						CallLog("glMultiTexCoord4dvARB({0}, {1})", target, v);
-					} else
-						throw new NotImplementedException("glMultiTexCoord4dv (and other aliases) are not implemented");
+					Debug.Assert(Delegates.pglMultiTexCoord4dv != null, "pglMultiTexCoord4dv not implemented");
+					Delegates.pglMultiTexCoord4dv(target, p_v);
+					CallLog("glMultiTexCoord4dv({0}, {1})", target, v);
 				}
 			}
 			DebugCheckErrors();
@@ -2399,14 +2219,9 @@ namespace OpenGL
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void MultiTexCoord4(int target, float s, float t, float r, float q)
 		{
-			if        (Delegates.pglMultiTexCoord4f != null) {
-				Delegates.pglMultiTexCoord4f(target, s, t, r, q);
-				CallLog("glMultiTexCoord4f({0}, {1}, {2}, {3}, {4})", target, s, t, r, q);
-			} else if (Delegates.pglMultiTexCoord4fARB != null) {
-				Delegates.pglMultiTexCoord4fARB(target, s, t, r, q);
-				CallLog("glMultiTexCoord4fARB({0}, {1}, {2}, {3}, {4})", target, s, t, r, q);
-			} else
-				throw new NotImplementedException("glMultiTexCoord4f (and other aliases) are not implemented");
+			Debug.Assert(Delegates.pglMultiTexCoord4f != null, "pglMultiTexCoord4f not implemented");
+			Delegates.pglMultiTexCoord4f(target, s, t, r, q);
+			CallLog("glMultiTexCoord4f({0}, {1}, {2}, {3}, {4})", target, s, t, r, q);
 			DebugCheckErrors();
 		}
 
@@ -2428,14 +2243,9 @@ namespace OpenGL
 			unsafe {
 				fixed (float* p_v = v)
 				{
-					if        (Delegates.pglMultiTexCoord4fv != null) {
-						Delegates.pglMultiTexCoord4fv(target, p_v);
-						CallLog("glMultiTexCoord4fv({0}, {1})", target, v);
-					} else if (Delegates.pglMultiTexCoord4fvARB != null) {
-						Delegates.pglMultiTexCoord4fvARB(target, p_v);
-						CallLog("glMultiTexCoord4fvARB({0}, {1})", target, v);
-					} else
-						throw new NotImplementedException("glMultiTexCoord4fv (and other aliases) are not implemented");
+					Debug.Assert(Delegates.pglMultiTexCoord4fv != null, "pglMultiTexCoord4fv not implemented");
+					Delegates.pglMultiTexCoord4fv(target, p_v);
+					CallLog("glMultiTexCoord4fv({0}, {1})", target, v);
 				}
 			}
 			DebugCheckErrors();
@@ -2469,14 +2279,9 @@ namespace OpenGL
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void MultiTexCoord4(int target, Int32 s, Int32 t, Int32 r, Int32 q)
 		{
-			if        (Delegates.pglMultiTexCoord4i != null) {
-				Delegates.pglMultiTexCoord4i(target, s, t, r, q);
-				CallLog("glMultiTexCoord4i({0}, {1}, {2}, {3}, {4})", target, s, t, r, q);
-			} else if (Delegates.pglMultiTexCoord4iARB != null) {
-				Delegates.pglMultiTexCoord4iARB(target, s, t, r, q);
-				CallLog("glMultiTexCoord4iARB({0}, {1}, {2}, {3}, {4})", target, s, t, r, q);
-			} else
-				throw new NotImplementedException("glMultiTexCoord4i (and other aliases) are not implemented");
+			Debug.Assert(Delegates.pglMultiTexCoord4i != null, "pglMultiTexCoord4i not implemented");
+			Delegates.pglMultiTexCoord4i(target, s, t, r, q);
+			CallLog("glMultiTexCoord4i({0}, {1}, {2}, {3}, {4})", target, s, t, r, q);
 			DebugCheckErrors();
 		}
 
@@ -2498,14 +2303,9 @@ namespace OpenGL
 			unsafe {
 				fixed (Int32* p_v = v)
 				{
-					if        (Delegates.pglMultiTexCoord4iv != null) {
-						Delegates.pglMultiTexCoord4iv(target, p_v);
-						CallLog("glMultiTexCoord4iv({0}, {1})", target, v);
-					} else if (Delegates.pglMultiTexCoord4ivARB != null) {
-						Delegates.pglMultiTexCoord4ivARB(target, p_v);
-						CallLog("glMultiTexCoord4ivARB({0}, {1})", target, v);
-					} else
-						throw new NotImplementedException("glMultiTexCoord4iv (and other aliases) are not implemented");
+					Debug.Assert(Delegates.pglMultiTexCoord4iv != null, "pglMultiTexCoord4iv not implemented");
+					Delegates.pglMultiTexCoord4iv(target, p_v);
+					CallLog("glMultiTexCoord4iv({0}, {1})", target, v);
 				}
 			}
 			DebugCheckErrors();
@@ -2539,14 +2339,9 @@ namespace OpenGL
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void MultiTexCoord4(int target, Int16 s, Int16 t, Int16 r, Int16 q)
 		{
-			if        (Delegates.pglMultiTexCoord4s != null) {
-				Delegates.pglMultiTexCoord4s(target, s, t, r, q);
-				CallLog("glMultiTexCoord4s({0}, {1}, {2}, {3}, {4})", target, s, t, r, q);
-			} else if (Delegates.pglMultiTexCoord4sARB != null) {
-				Delegates.pglMultiTexCoord4sARB(target, s, t, r, q);
-				CallLog("glMultiTexCoord4sARB({0}, {1}, {2}, {3}, {4})", target, s, t, r, q);
-			} else
-				throw new NotImplementedException("glMultiTexCoord4s (and other aliases) are not implemented");
+			Debug.Assert(Delegates.pglMultiTexCoord4s != null, "pglMultiTexCoord4s not implemented");
+			Delegates.pglMultiTexCoord4s(target, s, t, r, q);
+			CallLog("glMultiTexCoord4s({0}, {1}, {2}, {3}, {4})", target, s, t, r, q);
 			DebugCheckErrors();
 		}
 
@@ -2568,14 +2363,9 @@ namespace OpenGL
 			unsafe {
 				fixed (Int16* p_v = v)
 				{
-					if        (Delegates.pglMultiTexCoord4sv != null) {
-						Delegates.pglMultiTexCoord4sv(target, p_v);
-						CallLog("glMultiTexCoord4sv({0}, {1})", target, v);
-					} else if (Delegates.pglMultiTexCoord4svARB != null) {
-						Delegates.pglMultiTexCoord4svARB(target, p_v);
-						CallLog("glMultiTexCoord4svARB({0}, {1})", target, v);
-					} else
-						throw new NotImplementedException("glMultiTexCoord4sv (and other aliases) are not implemented");
+					Debug.Assert(Delegates.pglMultiTexCoord4sv != null, "pglMultiTexCoord4sv not implemented");
+					Delegates.pglMultiTexCoord4sv(target, p_v);
+					CallLog("glMultiTexCoord4sv({0}, {1})", target, v);
 				}
 			}
 			DebugCheckErrors();
@@ -2594,14 +2384,9 @@ namespace OpenGL
 			unsafe {
 				fixed (float* p_m = m)
 				{
-					if        (Delegates.pglLoadTransposeMatrixf != null) {
-						Delegates.pglLoadTransposeMatrixf(p_m);
-						CallLog("glLoadTransposeMatrixf({0})", m);
-					} else if (Delegates.pglLoadTransposeMatrixfARB != null) {
-						Delegates.pglLoadTransposeMatrixfARB(p_m);
-						CallLog("glLoadTransposeMatrixfARB({0})", m);
-					} else
-						throw new NotImplementedException("glLoadTransposeMatrixf (and other aliases) are not implemented");
+					Debug.Assert(Delegates.pglLoadTransposeMatrixf != null, "pglLoadTransposeMatrixf not implemented");
+					Delegates.pglLoadTransposeMatrixf(p_m);
+					CallLog("glLoadTransposeMatrixf({0})", m);
 				}
 			}
 			DebugCheckErrors();
@@ -2620,14 +2405,9 @@ namespace OpenGL
 			unsafe {
 				fixed (double* p_m = m)
 				{
-					if        (Delegates.pglLoadTransposeMatrixd != null) {
-						Delegates.pglLoadTransposeMatrixd(p_m);
-						CallLog("glLoadTransposeMatrixd({0})", m);
-					} else if (Delegates.pglLoadTransposeMatrixdARB != null) {
-						Delegates.pglLoadTransposeMatrixdARB(p_m);
-						CallLog("glLoadTransposeMatrixdARB({0})", m);
-					} else
-						throw new NotImplementedException("glLoadTransposeMatrixd (and other aliases) are not implemented");
+					Debug.Assert(Delegates.pglLoadTransposeMatrixd != null, "pglLoadTransposeMatrixd not implemented");
+					Delegates.pglLoadTransposeMatrixd(p_m);
+					CallLog("glLoadTransposeMatrixd({0})", m);
 				}
 			}
 			DebugCheckErrors();
@@ -2646,14 +2426,9 @@ namespace OpenGL
 			unsafe {
 				fixed (float* p_m = m)
 				{
-					if        (Delegates.pglMultTransposeMatrixf != null) {
-						Delegates.pglMultTransposeMatrixf(p_m);
-						CallLog("glMultTransposeMatrixf({0})", m);
-					} else if (Delegates.pglMultTransposeMatrixfARB != null) {
-						Delegates.pglMultTransposeMatrixfARB(p_m);
-						CallLog("glMultTransposeMatrixfARB({0})", m);
-					} else
-						throw new NotImplementedException("glMultTransposeMatrixf (and other aliases) are not implemented");
+					Debug.Assert(Delegates.pglMultTransposeMatrixf != null, "pglMultTransposeMatrixf not implemented");
+					Delegates.pglMultTransposeMatrixf(p_m);
+					CallLog("glMultTransposeMatrixf({0})", m);
 				}
 			}
 			DebugCheckErrors();
@@ -2672,14 +2447,9 @@ namespace OpenGL
 			unsafe {
 				fixed (double* p_m = m)
 				{
-					if        (Delegates.pglMultTransposeMatrixd != null) {
-						Delegates.pglMultTransposeMatrixd(p_m);
-						CallLog("glMultTransposeMatrixd({0})", m);
-					} else if (Delegates.pglMultTransposeMatrixdARB != null) {
-						Delegates.pglMultTransposeMatrixdARB(p_m);
-						CallLog("glMultTransposeMatrixdARB({0})", m);
-					} else
-						throw new NotImplementedException("glMultTransposeMatrixd (and other aliases) are not implemented");
+					Debug.Assert(Delegates.pglMultTransposeMatrixd != null, "pglMultTransposeMatrixd not implemented");
+					Delegates.pglMultTransposeMatrixd(p_m);
+					CallLog("glMultTransposeMatrixd({0})", m);
 				}
 			}
 			DebugCheckErrors();

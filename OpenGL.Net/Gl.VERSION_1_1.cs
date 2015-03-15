@@ -732,7 +732,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_POLYGON_OFFSET_FACTOR symbol.
 		/// </summary>
-		[AliasOf("GL_POLYGON_OFFSET_FACTOR_EXT"]
+		[AliasOf("GL_POLYGON_OFFSET_FACTOR_EXT")]
 		[RequiredByFeature("GL_VERSION_1_1")]
 		public const int POLYGON_OFFSET_FACTOR = 0x8038;
 
@@ -779,28 +779,28 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_TEXTURE_RED_SIZE symbol.
 		/// </summary>
-		[AliasOf("GL_TEXTURE_RED_SIZE_EXT"]
+		[AliasOf("GL_TEXTURE_RED_SIZE_EXT")]
 		[RequiredByFeature("GL_VERSION_1_1")]
 		public const int TEXTURE_RED_SIZE = 0x805C;
 
 		/// <summary>
 		/// Value of GL_TEXTURE_GREEN_SIZE symbol.
 		/// </summary>
-		[AliasOf("GL_TEXTURE_GREEN_SIZE_EXT"]
+		[AliasOf("GL_TEXTURE_GREEN_SIZE_EXT")]
 		[RequiredByFeature("GL_VERSION_1_1")]
 		public const int TEXTURE_GREEN_SIZE = 0x805D;
 
 		/// <summary>
 		/// Value of GL_TEXTURE_BLUE_SIZE symbol.
 		/// </summary>
-		[AliasOf("GL_TEXTURE_BLUE_SIZE_EXT"]
+		[AliasOf("GL_TEXTURE_BLUE_SIZE_EXT")]
 		[RequiredByFeature("GL_VERSION_1_1")]
 		public const int TEXTURE_BLUE_SIZE = 0x805E;
 
 		/// <summary>
 		/// Value of GL_TEXTURE_ALPHA_SIZE symbol.
 		/// </summary>
-		[AliasOf("GL_TEXTURE_ALPHA_SIZE_EXT"]
+		[AliasOf("GL_TEXTURE_ALPHA_SIZE_EXT")]
 		[RequiredByFeature("GL_VERSION_1_1")]
 		public const int TEXTURE_ALPHA_SIZE = 0x805F;
 
@@ -937,7 +937,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_XOR symbol.
 		/// </summary>
-		[AliasOf("GL_XOR_NV"]
+		[AliasOf("GL_XOR_NV")]
 		[RequiredByFeature("GL_VERSION_1_1")]
 		public const int XOR = 0x1506;
 
@@ -1037,7 +1037,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_RED symbol.
 		/// </summary>
-		[AliasOf("GL_RED_NV"]
+		[AliasOf("GL_RED_NV")]
 		[RequiredByFeature("GL_VERSION_1_1")]
 		[RequiredByFeature("GL_AMD_interleaved_elements")]
 		public const int RED = 0x1903;
@@ -1045,7 +1045,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_GREEN symbol.
 		/// </summary>
-		[AliasOf("GL_GREEN_NV"]
+		[AliasOf("GL_GREEN_NV")]
 		[RequiredByFeature("GL_VERSION_1_1")]
 		[RequiredByFeature("GL_AMD_interleaved_elements")]
 		public const int GREEN = 0x1904;
@@ -1053,7 +1053,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_BLUE symbol.
 		/// </summary>
-		[AliasOf("GL_BLUE_NV"]
+		[AliasOf("GL_BLUE_NV")]
 		[RequiredByFeature("GL_VERSION_1_1")]
 		[RequiredByFeature("GL_AMD_interleaved_elements")]
 		public const int BLUE = 0x1905;
@@ -1206,14 +1206,14 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_PROXY_TEXTURE_1D symbol.
 		/// </summary>
-		[AliasOf("GL_PROXY_TEXTURE_1D_EXT"]
+		[AliasOf("GL_PROXY_TEXTURE_1D_EXT")]
 		[RequiredByFeature("GL_VERSION_1_1")]
 		public const int PROXY_TEXTURE_1D = 0x8063;
 
 		/// <summary>
 		/// Value of GL_PROXY_TEXTURE_2D symbol.
 		/// </summary>
-		[AliasOf("GL_PROXY_TEXTURE_2D_EXT"]
+		[AliasOf("GL_PROXY_TEXTURE_2D_EXT")]
 		[RequiredByFeature("GL_VERSION_1_1")]
 		public const int PROXY_TEXTURE_2D = 0x8064;
 
@@ -1232,91 +1232,91 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_RGB4 symbol.
 		/// </summary>
-		[AliasOf("GL_RGB4_EXT"]
+		[AliasOf("GL_RGB4_EXT")]
 		[RequiredByFeature("GL_VERSION_1_1")]
 		public const int RGB4 = 0x804F;
 
 		/// <summary>
 		/// Value of GL_RGB5 symbol.
 		/// </summary>
-		[AliasOf("GL_RGB5_EXT"]
+		[AliasOf("GL_RGB5_EXT")]
 		[RequiredByFeature("GL_VERSION_1_1")]
 		public const int RGB5 = 0x8050;
 
 		/// <summary>
 		/// Value of GL_RGB8 symbol.
 		/// </summary>
-		[AliasOf("GL_RGB8_EXT"]
+		[AliasOf("GL_RGB8_EXT")]
 		[RequiredByFeature("GL_VERSION_1_1")]
 		public const int RGB8 = 0x8051;
 
 		/// <summary>
 		/// Value of GL_RGB10 symbol.
 		/// </summary>
-		[AliasOf("GL_RGB10_EXT"]
+		[AliasOf("GL_RGB10_EXT")]
 		[RequiredByFeature("GL_VERSION_1_1")]
 		public const int RGB10 = 0x8052;
 
 		/// <summary>
 		/// Value of GL_RGB12 symbol.
 		/// </summary>
-		[AliasOf("GL_RGB12_EXT"]
+		[AliasOf("GL_RGB12_EXT")]
 		[RequiredByFeature("GL_VERSION_1_1")]
 		public const int RGB12 = 0x8053;
 
 		/// <summary>
 		/// Value of GL_RGB16 symbol.
 		/// </summary>
-		[AliasOf("GL_RGB16_EXT"]
+		[AliasOf("GL_RGB16_EXT")]
 		[RequiredByFeature("GL_VERSION_1_1")]
 		public const int RGB16 = 0x8054;
 
 		/// <summary>
 		/// Value of GL_RGBA2 symbol.
 		/// </summary>
-		[AliasOf("GL_RGBA2_EXT"]
+		[AliasOf("GL_RGBA2_EXT")]
 		[RequiredByFeature("GL_VERSION_1_1")]
 		public const int RGBA2 = 0x8055;
 
 		/// <summary>
 		/// Value of GL_RGBA4 symbol.
 		/// </summary>
-		[AliasOf("GL_RGBA4_EXT"]
+		[AliasOf("GL_RGBA4_EXT")]
 		[RequiredByFeature("GL_VERSION_1_1")]
 		public const int RGBA4 = 0x8056;
 
 		/// <summary>
 		/// Value of GL_RGB5_A1 symbol.
 		/// </summary>
-		[AliasOf("GL_RGB5_A1_EXT"]
+		[AliasOf("GL_RGB5_A1_EXT")]
 		[RequiredByFeature("GL_VERSION_1_1")]
 		public const int RGB5_A1 = 0x8057;
 
 		/// <summary>
 		/// Value of GL_RGBA8 symbol.
 		/// </summary>
-		[AliasOf("GL_RGBA8_EXT"]
+		[AliasOf("GL_RGBA8_EXT")]
 		[RequiredByFeature("GL_VERSION_1_1")]
 		public const int RGBA8 = 0x8058;
 
 		/// <summary>
 		/// Value of GL_RGB10_A2 symbol.
 		/// </summary>
-		[AliasOf("GL_RGB10_A2_EXT"]
+		[AliasOf("GL_RGB10_A2_EXT")]
 		[RequiredByFeature("GL_VERSION_1_1")]
 		public const int RGB10_A2 = 0x8059;
 
 		/// <summary>
 		/// Value of GL_RGBA12 symbol.
 		/// </summary>
-		[AliasOf("GL_RGBA12_EXT"]
+		[AliasOf("GL_RGBA12_EXT")]
 		[RequiredByFeature("GL_VERSION_1_1")]
 		public const int RGBA12 = 0x805A;
 
 		/// <summary>
 		/// Value of GL_RGBA16 symbol.
 		/// </summary>
-		[AliasOf("GL_RGBA16_EXT"]
+		[AliasOf("GL_RGBA16_EXT")]
 		[RequiredByFeature("GL_VERSION_1_1")]
 		public const int RGBA16 = 0x805B;
 
@@ -1923,7 +1923,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_VERTEX_ARRAY_POINTER symbol (DEPRECATED).
 		/// </summary>
-		[AliasOf("GL_VERTEX_ARRAY_POINTER_EXT"]
+		[AliasOf("GL_VERTEX_ARRAY_POINTER_EXT")]
 		[RequiredByFeature("GL_VERSION_1_1")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
@@ -1934,7 +1934,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_NORMAL_ARRAY_POINTER symbol (DEPRECATED).
 		/// </summary>
-		[AliasOf("GL_NORMAL_ARRAY_POINTER_EXT"]
+		[AliasOf("GL_NORMAL_ARRAY_POINTER_EXT")]
 		[RequiredByFeature("GL_VERSION_1_1")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
@@ -1945,7 +1945,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_COLOR_ARRAY_POINTER symbol (DEPRECATED).
 		/// </summary>
-		[AliasOf("GL_COLOR_ARRAY_POINTER_EXT"]
+		[AliasOf("GL_COLOR_ARRAY_POINTER_EXT")]
 		[RequiredByFeature("GL_VERSION_1_1")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
@@ -1956,7 +1956,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_INDEX_ARRAY_POINTER symbol (DEPRECATED).
 		/// </summary>
-		[AliasOf("GL_INDEX_ARRAY_POINTER_EXT"]
+		[AliasOf("GL_INDEX_ARRAY_POINTER_EXT")]
 		[RequiredByFeature("GL_VERSION_1_1")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
@@ -1967,7 +1967,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_TEXTURE_COORD_ARRAY_POINTER symbol (DEPRECATED).
 		/// </summary>
-		[AliasOf("GL_TEXTURE_COORD_ARRAY_POINTER_EXT"]
+		[AliasOf("GL_TEXTURE_COORD_ARRAY_POINTER_EXT")]
 		[RequiredByFeature("GL_VERSION_1_1")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
@@ -1978,7 +1978,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_EDGE_FLAG_ARRAY_POINTER symbol (DEPRECATED).
 		/// </summary>
-		[AliasOf("GL_EDGE_FLAG_ARRAY_POINTER_EXT"]
+		[AliasOf("GL_EDGE_FLAG_ARRAY_POINTER_EXT")]
 		[RequiredByFeature("GL_VERSION_1_1")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
@@ -3390,7 +3390,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_VERTEX_ARRAY symbol (DEPRECATED).
 		/// </summary>
-		[AliasOf("GL_VERTEX_ARRAY_EXT"]
+		[AliasOf("GL_VERTEX_ARRAY_EXT")]
 		[RequiredByFeature("GL_VERSION_1_1")]
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_KHR_debug")]
@@ -3403,7 +3403,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_NORMAL_ARRAY symbol (DEPRECATED).
 		/// </summary>
-		[AliasOf("GL_NORMAL_ARRAY_EXT"]
+		[AliasOf("GL_NORMAL_ARRAY_EXT")]
 		[RequiredByFeature("GL_VERSION_1_1")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
@@ -3414,7 +3414,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_COLOR_ARRAY symbol (DEPRECATED).
 		/// </summary>
-		[AliasOf("GL_COLOR_ARRAY_EXT"]
+		[AliasOf("GL_COLOR_ARRAY_EXT")]
 		[RequiredByFeature("GL_VERSION_1_1")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
@@ -3425,7 +3425,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_INDEX_ARRAY symbol (DEPRECATED).
 		/// </summary>
-		[AliasOf("GL_INDEX_ARRAY_EXT"]
+		[AliasOf("GL_INDEX_ARRAY_EXT")]
 		[RequiredByFeature("GL_VERSION_1_1")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
@@ -3436,7 +3436,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_TEXTURE_COORD_ARRAY symbol (DEPRECATED).
 		/// </summary>
-		[AliasOf("GL_TEXTURE_COORD_ARRAY_EXT"]
+		[AliasOf("GL_TEXTURE_COORD_ARRAY_EXT")]
 		[RequiredByFeature("GL_VERSION_1_1")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
@@ -3447,7 +3447,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_EDGE_FLAG_ARRAY symbol (DEPRECATED).
 		/// </summary>
-		[AliasOf("GL_EDGE_FLAG_ARRAY_EXT"]
+		[AliasOf("GL_EDGE_FLAG_ARRAY_EXT")]
 		[RequiredByFeature("GL_VERSION_1_1")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
@@ -3458,7 +3458,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_VERTEX_ARRAY_SIZE symbol (DEPRECATED).
 		/// </summary>
-		[AliasOf("GL_VERTEX_ARRAY_SIZE_EXT"]
+		[AliasOf("GL_VERTEX_ARRAY_SIZE_EXT")]
 		[RequiredByFeature("GL_VERSION_1_1")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
@@ -3469,7 +3469,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_VERTEX_ARRAY_TYPE symbol (DEPRECATED).
 		/// </summary>
-		[AliasOf("GL_VERTEX_ARRAY_TYPE_EXT"]
+		[AliasOf("GL_VERTEX_ARRAY_TYPE_EXT")]
 		[RequiredByFeature("GL_VERSION_1_1")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
@@ -3480,7 +3480,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_VERTEX_ARRAY_STRIDE symbol (DEPRECATED).
 		/// </summary>
-		[AliasOf("GL_VERTEX_ARRAY_STRIDE_EXT"]
+		[AliasOf("GL_VERTEX_ARRAY_STRIDE_EXT")]
 		[RequiredByFeature("GL_VERSION_1_1")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
@@ -3491,7 +3491,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_NORMAL_ARRAY_TYPE symbol (DEPRECATED).
 		/// </summary>
-		[AliasOf("GL_NORMAL_ARRAY_TYPE_EXT"]
+		[AliasOf("GL_NORMAL_ARRAY_TYPE_EXT")]
 		[RequiredByFeature("GL_VERSION_1_1")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
@@ -3502,7 +3502,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_NORMAL_ARRAY_STRIDE symbol (DEPRECATED).
 		/// </summary>
-		[AliasOf("GL_NORMAL_ARRAY_STRIDE_EXT"]
+		[AliasOf("GL_NORMAL_ARRAY_STRIDE_EXT")]
 		[RequiredByFeature("GL_VERSION_1_1")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
@@ -3513,7 +3513,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_COLOR_ARRAY_SIZE symbol (DEPRECATED).
 		/// </summary>
-		[AliasOf("GL_COLOR_ARRAY_SIZE_EXT"]
+		[AliasOf("GL_COLOR_ARRAY_SIZE_EXT")]
 		[RequiredByFeature("GL_VERSION_1_1")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
@@ -3524,7 +3524,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_COLOR_ARRAY_TYPE symbol (DEPRECATED).
 		/// </summary>
-		[AliasOf("GL_COLOR_ARRAY_TYPE_EXT"]
+		[AliasOf("GL_COLOR_ARRAY_TYPE_EXT")]
 		[RequiredByFeature("GL_VERSION_1_1")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
@@ -3535,7 +3535,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_COLOR_ARRAY_STRIDE symbol (DEPRECATED).
 		/// </summary>
-		[AliasOf("GL_COLOR_ARRAY_STRIDE_EXT"]
+		[AliasOf("GL_COLOR_ARRAY_STRIDE_EXT")]
 		[RequiredByFeature("GL_VERSION_1_1")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
@@ -3546,7 +3546,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_INDEX_ARRAY_TYPE symbol (DEPRECATED).
 		/// </summary>
-		[AliasOf("GL_INDEX_ARRAY_TYPE_EXT"]
+		[AliasOf("GL_INDEX_ARRAY_TYPE_EXT")]
 		[RequiredByFeature("GL_VERSION_1_1")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
@@ -3557,7 +3557,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_INDEX_ARRAY_STRIDE symbol (DEPRECATED).
 		/// </summary>
-		[AliasOf("GL_INDEX_ARRAY_STRIDE_EXT"]
+		[AliasOf("GL_INDEX_ARRAY_STRIDE_EXT")]
 		[RequiredByFeature("GL_VERSION_1_1")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
@@ -3568,7 +3568,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_TEXTURE_COORD_ARRAY_SIZE symbol (DEPRECATED).
 		/// </summary>
-		[AliasOf("GL_TEXTURE_COORD_ARRAY_SIZE_EXT"]
+		[AliasOf("GL_TEXTURE_COORD_ARRAY_SIZE_EXT")]
 		[RequiredByFeature("GL_VERSION_1_1")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
@@ -3579,7 +3579,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_TEXTURE_COORD_ARRAY_TYPE symbol (DEPRECATED).
 		/// </summary>
-		[AliasOf("GL_TEXTURE_COORD_ARRAY_TYPE_EXT"]
+		[AliasOf("GL_TEXTURE_COORD_ARRAY_TYPE_EXT")]
 		[RequiredByFeature("GL_VERSION_1_1")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
@@ -3590,7 +3590,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_TEXTURE_COORD_ARRAY_STRIDE symbol (DEPRECATED).
 		/// </summary>
-		[AliasOf("GL_TEXTURE_COORD_ARRAY_STRIDE_EXT"]
+		[AliasOf("GL_TEXTURE_COORD_ARRAY_STRIDE_EXT")]
 		[RequiredByFeature("GL_VERSION_1_1")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
@@ -3601,7 +3601,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_EDGE_FLAG_ARRAY_STRIDE symbol (DEPRECATED).
 		/// </summary>
-		[AliasOf("GL_EDGE_FLAG_ARRAY_STRIDE_EXT"]
+		[AliasOf("GL_EDGE_FLAG_ARRAY_STRIDE_EXT")]
 		[RequiredByFeature("GL_VERSION_1_1")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
@@ -3632,7 +3632,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_TEXTURE_LUMINANCE_SIZE symbol (DEPRECATED).
 		/// </summary>
-		[AliasOf("GL_TEXTURE_LUMINANCE_SIZE_EXT"]
+		[AliasOf("GL_TEXTURE_LUMINANCE_SIZE_EXT")]
 		[RequiredByFeature("GL_VERSION_1_1")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
@@ -3643,7 +3643,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_TEXTURE_INTENSITY_SIZE symbol (DEPRECATED).
 		/// </summary>
-		[AliasOf("GL_TEXTURE_INTENSITY_SIZE_EXT"]
+		[AliasOf("GL_TEXTURE_INTENSITY_SIZE_EXT")]
 		[RequiredByFeature("GL_VERSION_1_1")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
@@ -3654,7 +3654,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_TEXTURE_PRIORITY symbol (DEPRECATED).
 		/// </summary>
-		[AliasOf("GL_TEXTURE_PRIORITY_EXT"]
+		[AliasOf("GL_TEXTURE_PRIORITY_EXT")]
 		[RequiredByFeature("GL_VERSION_1_1")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
@@ -3665,7 +3665,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_TEXTURE_RESIDENT symbol (DEPRECATED).
 		/// </summary>
-		[AliasOf("GL_TEXTURE_RESIDENT_EXT"]
+		[AliasOf("GL_TEXTURE_RESIDENT_EXT")]
 		[RequiredByFeature("GL_VERSION_1_1")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
@@ -3796,7 +3796,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_2_BYTES symbol (DEPRECATED).
 		/// </summary>
-		[AliasOf("GL_2_BYTES_NV"]
+		[AliasOf("GL_2_BYTES_NV")]
 		[RequiredByFeature("GL_VERSION_1_1")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
@@ -3807,7 +3807,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_3_BYTES symbol (DEPRECATED).
 		/// </summary>
-		[AliasOf("GL_3_BYTES_NV"]
+		[AliasOf("GL_3_BYTES_NV")]
 		[RequiredByFeature("GL_VERSION_1_1")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
@@ -3818,7 +3818,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_4_BYTES symbol (DEPRECATED).
 		/// </summary>
-		[AliasOf("GL_4_BYTES_NV"]
+		[AliasOf("GL_4_BYTES_NV")]
 		[RequiredByFeature("GL_VERSION_1_1")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
@@ -4069,7 +4069,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_EYE_LINEAR symbol (DEPRECATED).
 		/// </summary>
-		[AliasOf("GL_EYE_LINEAR_NV"]
+		[AliasOf("GL_EYE_LINEAR_NV")]
 		[RequiredByFeature("GL_VERSION_1_1")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
@@ -4080,7 +4080,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_OBJECT_LINEAR symbol (DEPRECATED).
 		/// </summary>
-		[AliasOf("GL_OBJECT_LINEAR_NV"]
+		[AliasOf("GL_OBJECT_LINEAR_NV")]
 		[RequiredByFeature("GL_VERSION_1_1")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
@@ -4142,7 +4142,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_ALPHA4 symbol (DEPRECATED).
 		/// </summary>
-		[AliasOf("GL_ALPHA4_EXT"]
+		[AliasOf("GL_ALPHA4_EXT")]
 		[RequiredByFeature("GL_VERSION_1_1")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
@@ -4153,7 +4153,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_ALPHA8 symbol (DEPRECATED).
 		/// </summary>
-		[AliasOf("GL_ALPHA8_EXT"]
+		[AliasOf("GL_ALPHA8_EXT")]
 		[RequiredByFeature("GL_VERSION_1_1")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
@@ -4164,7 +4164,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_ALPHA12 symbol (DEPRECATED).
 		/// </summary>
-		[AliasOf("GL_ALPHA12_EXT"]
+		[AliasOf("GL_ALPHA12_EXT")]
 		[RequiredByFeature("GL_VERSION_1_1")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
@@ -4175,7 +4175,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_ALPHA16 symbol (DEPRECATED).
 		/// </summary>
-		[AliasOf("GL_ALPHA16_EXT"]
+		[AliasOf("GL_ALPHA16_EXT")]
 		[RequiredByFeature("GL_VERSION_1_1")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
@@ -4186,7 +4186,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_LUMINANCE4 symbol (DEPRECATED).
 		/// </summary>
-		[AliasOf("GL_LUMINANCE4_EXT"]
+		[AliasOf("GL_LUMINANCE4_EXT")]
 		[RequiredByFeature("GL_VERSION_1_1")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
@@ -4197,7 +4197,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_LUMINANCE8 symbol (DEPRECATED).
 		/// </summary>
-		[AliasOf("GL_LUMINANCE8_EXT"]
+		[AliasOf("GL_LUMINANCE8_EXT")]
 		[RequiredByFeature("GL_VERSION_1_1")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
@@ -4208,7 +4208,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_LUMINANCE12 symbol (DEPRECATED).
 		/// </summary>
-		[AliasOf("GL_LUMINANCE12_EXT"]
+		[AliasOf("GL_LUMINANCE12_EXT")]
 		[RequiredByFeature("GL_VERSION_1_1")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
@@ -4219,7 +4219,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_LUMINANCE16 symbol (DEPRECATED).
 		/// </summary>
-		[AliasOf("GL_LUMINANCE16_EXT"]
+		[AliasOf("GL_LUMINANCE16_EXT")]
 		[RequiredByFeature("GL_VERSION_1_1")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
@@ -4230,7 +4230,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_LUMINANCE4_ALPHA4 symbol (DEPRECATED).
 		/// </summary>
-		[AliasOf("GL_LUMINANCE4_ALPHA4_EXT"]
+		[AliasOf("GL_LUMINANCE4_ALPHA4_EXT")]
 		[RequiredByFeature("GL_VERSION_1_1")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
@@ -4241,7 +4241,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_LUMINANCE6_ALPHA2 symbol (DEPRECATED).
 		/// </summary>
-		[AliasOf("GL_LUMINANCE6_ALPHA2_EXT"]
+		[AliasOf("GL_LUMINANCE6_ALPHA2_EXT")]
 		[RequiredByFeature("GL_VERSION_1_1")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
@@ -4252,7 +4252,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_LUMINANCE8_ALPHA8 symbol (DEPRECATED).
 		/// </summary>
-		[AliasOf("GL_LUMINANCE8_ALPHA8_EXT"]
+		[AliasOf("GL_LUMINANCE8_ALPHA8_EXT")]
 		[RequiredByFeature("GL_VERSION_1_1")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
@@ -4263,7 +4263,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_LUMINANCE12_ALPHA4 symbol (DEPRECATED).
 		/// </summary>
-		[AliasOf("GL_LUMINANCE12_ALPHA4_EXT"]
+		[AliasOf("GL_LUMINANCE12_ALPHA4_EXT")]
 		[RequiredByFeature("GL_VERSION_1_1")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
@@ -4274,7 +4274,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_LUMINANCE12_ALPHA12 symbol (DEPRECATED).
 		/// </summary>
-		[AliasOf("GL_LUMINANCE12_ALPHA12_EXT"]
+		[AliasOf("GL_LUMINANCE12_ALPHA12_EXT")]
 		[RequiredByFeature("GL_VERSION_1_1")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
@@ -4285,7 +4285,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_LUMINANCE16_ALPHA16 symbol (DEPRECATED).
 		/// </summary>
-		[AliasOf("GL_LUMINANCE16_ALPHA16_EXT"]
+		[AliasOf("GL_LUMINANCE16_ALPHA16_EXT")]
 		[RequiredByFeature("GL_VERSION_1_1")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
@@ -4296,7 +4296,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_INTENSITY symbol (DEPRECATED).
 		/// </summary>
-		[AliasOf("GL_INTENSITY_EXT"]
+		[AliasOf("GL_INTENSITY_EXT")]
 		[RequiredByFeature("GL_VERSION_1_1")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
@@ -4307,7 +4307,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_INTENSITY4 symbol (DEPRECATED).
 		/// </summary>
-		[AliasOf("GL_INTENSITY4_EXT"]
+		[AliasOf("GL_INTENSITY4_EXT")]
 		[RequiredByFeature("GL_VERSION_1_1")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
@@ -4318,7 +4318,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_INTENSITY8 symbol (DEPRECATED).
 		/// </summary>
-		[AliasOf("GL_INTENSITY8_EXT"]
+		[AliasOf("GL_INTENSITY8_EXT")]
 		[RequiredByFeature("GL_VERSION_1_1")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
@@ -4329,7 +4329,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_INTENSITY12 symbol (DEPRECATED).
 		/// </summary>
-		[AliasOf("GL_INTENSITY12_EXT"]
+		[AliasOf("GL_INTENSITY12_EXT")]
 		[RequiredByFeature("GL_VERSION_1_1")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
@@ -4340,7 +4340,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_INTENSITY16 symbol (DEPRECATED).
 		/// </summary>
-		[AliasOf("GL_INTENSITY16_EXT"]
+		[AliasOf("GL_INTENSITY16_EXT")]
 		[RequiredByFeature("GL_VERSION_1_1")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
@@ -4645,14 +4645,9 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_1_1")]
 		public static void DrawArrays(PrimitiveType mode, Int32 first, Int32 count)
 		{
-			if        (Delegates.pglDrawArrays != null) {
-				Delegates.pglDrawArrays((int)mode, first, count);
-				CallLog("glDrawArrays({0}, {1}, {2})", mode, first, count);
-			} else if (Delegates.pglDrawArraysEXT != null) {
-				Delegates.pglDrawArraysEXT((int)mode, first, count);
-				CallLog("glDrawArraysEXT({0}, {1}, {2})", mode, first, count);
-			} else
-				throw new NotImplementedException("glDrawArrays (and other aliases) are not implemented");
+			Debug.Assert(Delegates.pglDrawArrays != null, "pglDrawArrays not implemented");
+			Delegates.pglDrawArrays((int)mode, first, count);
+			CallLog("glDrawArrays({0}, {1}, {2})", mode, first, count);
 			DebugCheckErrors();
 		}
 
@@ -4728,14 +4723,9 @@ namespace OpenGL
 			unsafe {
 				fixed (IntPtr* p_params = &@params)
 				{
-					if        (Delegates.pglGetPointerv != null) {
-						Delegates.pglGetPointerv((int)pname, p_params);
-						CallLog("glGetPointerv({0}, {1})", pname, @params);
-					} else if (Delegates.pglGetPointervEXT != null) {
-						Delegates.pglGetPointervEXT((int)pname, p_params);
-						CallLog("glGetPointervEXT({0}, {1})", pname, @params);
-					} else
-						throw new NotImplementedException("glGetPointerv (and other aliases) are not implemented");
+					Debug.Assert(Delegates.pglGetPointerv != null, "pglGetPointerv not implemented");
+					Delegates.pglGetPointerv((int)pname, p_params);
+					CallLog("glGetPointerv({0}, {1})", pname, @params);
 				}
 			}
 			DebugCheckErrors();
@@ -4825,14 +4815,9 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_1_1")]
 		public static void CopyTexImage1D(TextureTarget target, Int32 level, int internalformat, Int32 x, Int32 y, Int32 width, Int32 border)
 		{
-			if        (Delegates.pglCopyTexImage1D != null) {
-				Delegates.pglCopyTexImage1D((int)target, level, internalformat, x, y, width, border);
-				CallLog("glCopyTexImage1D({0}, {1}, {2}, {3}, {4}, {5}, {6})", target, level, internalformat, x, y, width, border);
-			} else if (Delegates.pglCopyTexImage1DEXT != null) {
-				Delegates.pglCopyTexImage1DEXT((int)target, level, internalformat, x, y, width, border);
-				CallLog("glCopyTexImage1DEXT({0}, {1}, {2}, {3}, {4}, {5}, {6})", target, level, internalformat, x, y, width, border);
-			} else
-				throw new NotImplementedException("glCopyTexImage1D (and other aliases) are not implemented");
+			Debug.Assert(Delegates.pglCopyTexImage1D != null, "pglCopyTexImage1D not implemented");
+			Delegates.pglCopyTexImage1D((int)target, level, internalformat, x, y, width, border);
+			CallLog("glCopyTexImage1D({0}, {1}, {2}, {3}, {4}, {5}, {6})", target, level, internalformat, x, y, width, border);
 			DebugCheckErrors();
 		}
 
@@ -4884,14 +4869,9 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_1_1")]
 		public static void CopyTexImage2D(TextureTarget target, Int32 level, int internalformat, Int32 x, Int32 y, Int32 width, Int32 height, Int32 border)
 		{
-			if        (Delegates.pglCopyTexImage2D != null) {
-				Delegates.pglCopyTexImage2D((int)target, level, internalformat, x, y, width, height, border);
-				CallLog("glCopyTexImage2D({0}, {1}, {2}, {3}, {4}, {5}, {6}, {7})", target, level, internalformat, x, y, width, height, border);
-			} else if (Delegates.pglCopyTexImage2DEXT != null) {
-				Delegates.pglCopyTexImage2DEXT((int)target, level, internalformat, x, y, width, height, border);
-				CallLog("glCopyTexImage2DEXT({0}, {1}, {2}, {3}, {4}, {5}, {6}, {7})", target, level, internalformat, x, y, width, height, border);
-			} else
-				throw new NotImplementedException("glCopyTexImage2D (and other aliases) are not implemented");
+			Debug.Assert(Delegates.pglCopyTexImage2D != null, "pglCopyTexImage2D not implemented");
+			Delegates.pglCopyTexImage2D((int)target, level, internalformat, x, y, width, height, border);
+			CallLog("glCopyTexImage2D({0}, {1}, {2}, {3}, {4}, {5}, {6}, {7})", target, level, internalformat, x, y, width, height, border);
 			DebugCheckErrors();
 		}
 
@@ -4919,14 +4899,9 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_1_1")]
 		public static void CopyTexSubImage1D(TextureTarget target, Int32 level, Int32 xoffset, Int32 x, Int32 y, Int32 width)
 		{
-			if        (Delegates.pglCopyTexSubImage1D != null) {
-				Delegates.pglCopyTexSubImage1D((int)target, level, xoffset, x, y, width);
-				CallLog("glCopyTexSubImage1D({0}, {1}, {2}, {3}, {4}, {5})", target, level, xoffset, x, y, width);
-			} else if (Delegates.pglCopyTexSubImage1DEXT != null) {
-				Delegates.pglCopyTexSubImage1DEXT((int)target, level, xoffset, x, y, width);
-				CallLog("glCopyTexSubImage1DEXT({0}, {1}, {2}, {3}, {4}, {5})", target, level, xoffset, x, y, width);
-			} else
-				throw new NotImplementedException("glCopyTexSubImage1D (and other aliases) are not implemented");
+			Debug.Assert(Delegates.pglCopyTexSubImage1D != null, "pglCopyTexSubImage1D not implemented");
+			Delegates.pglCopyTexSubImage1D((int)target, level, xoffset, x, y, width);
+			CallLog("glCopyTexSubImage1D({0}, {1}, {2}, {3}, {4}, {5})", target, level, xoffset, x, y, width);
 			DebugCheckErrors();
 		}
 
@@ -4963,14 +4938,9 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_1_1")]
 		public static void CopyTexSubImage2D(TextureTarget target, Int32 level, Int32 xoffset, Int32 yoffset, Int32 x, Int32 y, Int32 width, Int32 height)
 		{
-			if        (Delegates.pglCopyTexSubImage2D != null) {
-				Delegates.pglCopyTexSubImage2D((int)target, level, xoffset, yoffset, x, y, width, height);
-				CallLog("glCopyTexSubImage2D({0}, {1}, {2}, {3}, {4}, {5}, {6}, {7})", target, level, xoffset, yoffset, x, y, width, height);
-			} else if (Delegates.pglCopyTexSubImage2DEXT != null) {
-				Delegates.pglCopyTexSubImage2DEXT((int)target, level, xoffset, yoffset, x, y, width, height);
-				CallLog("glCopyTexSubImage2DEXT({0}, {1}, {2}, {3}, {4}, {5}, {6}, {7})", target, level, xoffset, yoffset, x, y, width, height);
-			} else
-				throw new NotImplementedException("glCopyTexSubImage2D (and other aliases) are not implemented");
+			Debug.Assert(Delegates.pglCopyTexSubImage2D != null, "pglCopyTexSubImage2D not implemented");
+			Delegates.pglCopyTexSubImage2D((int)target, level, xoffset, yoffset, x, y, width, height);
+			CallLog("glCopyTexSubImage2D({0}, {1}, {2}, {3}, {4}, {5}, {6}, {7})", target, level, xoffset, yoffset, x, y, width, height);
 			DebugCheckErrors();
 		}
 
@@ -5006,14 +4976,9 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_1_1")]
 		public static void TexSubImage1D(TextureTarget target, Int32 level, Int32 xoffset, Int32 width, PixelFormat format, PixelType type, IntPtr pixels)
 		{
-			if        (Delegates.pglTexSubImage1D != null) {
-				Delegates.pglTexSubImage1D((int)target, level, xoffset, width, (int)format, (int)type, pixels);
-				CallLog("glTexSubImage1D({0}, {1}, {2}, {3}, {4}, {5}, {6})", target, level, xoffset, width, format, type, pixels);
-			} else if (Delegates.pglTexSubImage1DEXT != null) {
-				Delegates.pglTexSubImage1DEXT((int)target, level, xoffset, width, (int)format, (int)type, pixels);
-				CallLog("glTexSubImage1DEXT({0}, {1}, {2}, {3}, {4}, {5}, {6})", target, level, xoffset, width, format, type, pixels);
-			} else
-				throw new NotImplementedException("glTexSubImage1D (and other aliases) are not implemented");
+			Debug.Assert(Delegates.pglTexSubImage1D != null, "pglTexSubImage1D not implemented");
+			Delegates.pglTexSubImage1D((int)target, level, xoffset, width, (int)format, (int)type, pixels);
+			CallLog("glTexSubImage1D({0}, {1}, {2}, {3}, {4}, {5}, {6})", target, level, xoffset, width, format, type, pixels);
 			DebugCheckErrors();
 		}
 
@@ -5097,14 +5062,9 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_1_1")]
 		public static void TexSubImage2D(TextureTarget target, Int32 level, Int32 xoffset, Int32 yoffset, Int32 width, Int32 height, PixelFormat format, PixelType type, IntPtr pixels)
 		{
-			if        (Delegates.pglTexSubImage2D != null) {
-				Delegates.pglTexSubImage2D((int)target, level, xoffset, yoffset, width, height, (int)format, (int)type, pixels);
-				CallLog("glTexSubImage2D({0}, {1}, {2}, {3}, {4}, {5}, {6}, {7}, {8})", target, level, xoffset, yoffset, width, height, format, type, pixels);
-			} else if (Delegates.pglTexSubImage2DEXT != null) {
-				Delegates.pglTexSubImage2DEXT((int)target, level, xoffset, yoffset, width, height, (int)format, (int)type, pixels);
-				CallLog("glTexSubImage2DEXT({0}, {1}, {2}, {3}, {4}, {5}, {6}, {7}, {8})", target, level, xoffset, yoffset, width, height, format, type, pixels);
-			} else
-				throw new NotImplementedException("glTexSubImage2D (and other aliases) are not implemented");
+			Debug.Assert(Delegates.pglTexSubImage2D != null, "pglTexSubImage2D not implemented");
+			Delegates.pglTexSubImage2D((int)target, level, xoffset, yoffset, width, height, (int)format, (int)type, pixels);
+			CallLog("glTexSubImage2D({0}, {1}, {2}, {3}, {4}, {5}, {6}, {7}, {8})", target, level, xoffset, yoffset, width, height, format, type, pixels);
 			DebugCheckErrors();
 		}
 
@@ -5170,14 +5130,9 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_1_1")]
 		public static void BindTexture(TextureTarget target, UInt32 texture)
 		{
-			if        (Delegates.pglBindTexture != null) {
-				Delegates.pglBindTexture((int)target, texture);
-				CallLog("glBindTexture({0}, {1})", target, texture);
-			} else if (Delegates.pglBindTextureEXT != null) {
-				Delegates.pglBindTextureEXT((int)target, texture);
-				CallLog("glBindTextureEXT({0}, {1})", target, texture);
-			} else
-				throw new NotImplementedException("glBindTexture (and other aliases) are not implemented");
+			Debug.Assert(Delegates.pglBindTexture != null, "pglBindTexture not implemented");
+			Delegates.pglBindTexture((int)target, texture);
+			CallLog("glBindTexture({0}, {1})", target, texture);
 			DebugCheckErrors();
 		}
 
@@ -5267,14 +5222,9 @@ namespace OpenGL
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void ArrayElement(Int32 i)
 		{
-			if        (Delegates.pglArrayElement != null) {
-				Delegates.pglArrayElement(i);
-				CallLog("glArrayElement({0})", i);
-			} else if (Delegates.pglArrayElementEXT != null) {
-				Delegates.pglArrayElementEXT(i);
-				CallLog("glArrayElementEXT({0})", i);
-			} else
-				throw new NotImplementedException("glArrayElement (and other aliases) are not implemented");
+			Debug.Assert(Delegates.pglArrayElement != null, "pglArrayElement not implemented");
+			Delegates.pglArrayElement(i);
+			CallLog("glArrayElement({0})", i);
 			DebugCheckErrors();
 		}
 
@@ -5738,14 +5688,9 @@ namespace OpenGL
 				fixed (UInt32* p_textures = textures)
 				fixed (float* p_priorities = priorities)
 				{
-					if        (Delegates.pglPrioritizeTextures != null) {
-						Delegates.pglPrioritizeTextures((Int32)textures.Length, p_textures, p_priorities);
-						CallLog("glPrioritizeTextures({0}, {1}, {2})", textures.Length, textures, priorities);
-					} else if (Delegates.pglPrioritizeTexturesEXT != null) {
-						Delegates.pglPrioritizeTexturesEXT((Int32)textures.Length, p_textures, p_priorities);
-						CallLog("glPrioritizeTexturesEXT({0}, {1}, {2})", textures.Length, textures, priorities);
-					} else
-						throw new NotImplementedException("glPrioritizeTextures (and other aliases) are not implemented");
+					Debug.Assert(Delegates.pglPrioritizeTextures != null, "pglPrioritizeTextures not implemented");
+					Delegates.pglPrioritizeTextures((Int32)textures.Length, p_textures, p_priorities);
+					CallLog("glPrioritizeTextures({0}, {1}, {2})", textures.Length, textures, priorities);
 				}
 			}
 			DebugCheckErrors();

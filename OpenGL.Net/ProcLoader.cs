@@ -24,6 +24,9 @@ using System.Reflection;
 using System.Runtime.InteropServices;
 using System.Text;
 
+using ImportMap = System.Collections.Generic.SortedList<string, System.Reflection.MethodInfo>;
+using DelegateList = System.Collections.Generic.List<System.Reflection.FieldInfo>;
+
 namespace OpenGL
 {
 	/// <summary>
@@ -145,46 +148,19 @@ namespace OpenGL
 		#region Delegates Management
 
 		/// <summary>
-		/// Query delegate members.
-		/// </summary>
-		/// <param name="klass">
-		/// A <see cref="Type"/> epresenting the nested class containing delegate declarations.
-		/// </param>
-		/// <returns>
-		/// It returns an array of FieldInfo representing the delegate member.
-		/// </returns>
-		protected static FieldInfo[] QueryDelegates(Type klass)
-		{
-			return (klass.GetFields(BindingFlags.Static|BindingFlags.NonPublic));
-		}
-
-		/// <summary>
 		/// Synchronize delegate fields.
 		/// </summary>
-		/// <param name="pImports"></param>
-		/// <param name="pDelegates"></param>
-		/// <param name="name"></param>
-		protected static void SyncDelegate(SortedList<string, MethodInfo> pImports, FieldInfo[] pDelegates, string name)
+		/// <param name="imports"></param>
+		/// <param name="delegates"></param>
+		protected static void SynchDelegates(ImportMap imports, DelegateList delegates)
 		{
-			Debug.Assert(pDelegates != null);
+			if (imports == null)
+				throw new ArgumentNullException("imports");
+			if (delegates == null)
+				throw new ArgumentNullException("delegates");
 
-			foreach (FieldInfo fi in pDelegates) {
-				if (fi.Name == name)
-					fi.SetValue(null, GetDelegate(pImports, fi.Name, fi.FieldType));
-			}
-		}
-
-		/// <summary>
-		/// Synchronize delegate fields.
-		/// </summary>
-		/// <param name="pImports"></param>
-		/// <param name="pDelegates"></param>
-		protected static void SynchDelegates(SortedList<string, MethodInfo> pImports, List<FieldInfo> pDelegates)
-		{
-			Debug.Assert(pDelegates != null);
-
-			foreach (FieldInfo fi in pDelegates)
-				fi.SetValue(null, GetDelegate(pImports, fi.Name.Substring(1), fi.FieldType));
+			foreach (FieldInfo delegateField in delegates)
+				delegateField.SetValue(null, GetDelegate(imports, delegateField));
 		}
 
 		/// <summary>
@@ -194,24 +170,50 @@ namespace OpenGL
 		/// <param name="name"></param>
 		/// <param name="signature"></param>
 		/// <returns></returns>
-		private static Delegate GetDelegate(SortedList<string, MethodInfo> pImports, string name, Type signature)
+		private static Delegate GetDelegate(ImportMap imports, FieldInfo delegateField)
 		{
-			Delegate mDelegate = null;
-			IntPtr mAddr = GetProcAddress.GetOpenGLAddress(name);
+			if (imports == null)
+				throw new ArgumentNullException("imports");
 
-			if (mAddr == IntPtr.Zero)
+			Delegate importDelegate;
+			Attribute[] aliasOfAttributes = Attribute.GetCustomAttributes(delegateField, typeof(AliasOfAttribute));
+			string importName = delegateField.Name.Substring(1);
+			IntPtr importAddress = IntPtr.Zero;
+
+			#region Get Function Pointer
+
+			if (aliasOfAttributes.Length > 0) {
+				for (int i = 0; i < aliasOfAttributes.Length; i++) {
+					if ((importAddress = GetProcAddress.GetOpenGLAddress(((AliasOfAttribute)aliasOfAttributes[i]).SymbolName)) != IntPtr.Zero)
+						break;
+				}
+			} else
+				importAddress = GetProcAddress.GetOpenGLAddress(importName);
+
+			#endregion
+
+			// Is function implemented?
+			if (importAddress == IntPtr.Zero)
 				return (null);
 
 			// Try to load external symbol
-			if ((mDelegate = Marshal.GetDelegateForFunctionPointer(mAddr, signature)) == null) {
-				MethodInfo mInfo;
+			if ((importDelegate = Marshal.GetDelegateForFunctionPointer(importAddress, delegateField.FieldType)) == null) {
+				MethodInfo importMethod = null;
 
-				if (pImports.TryGetValue(name, out mInfo) == true)
-					return (Delegate.CreateDelegate(signature, mInfo));
-				else
-					return (null);
+				if (aliasOfAttributes.Length > 0) {
+					for (int i = 0; i < aliasOfAttributes.Length; i++) {
+						if ((importAddress = GetProcAddress.GetOpenGLAddress(((AliasOfAttribute)aliasOfAttributes[i]).SymbolName)) != IntPtr.Zero)
+							break;
+
+						if (imports.TryGetValue(((AliasOfAttribute)aliasOfAttributes[i]).SymbolName, out importMethod))
+							break;
+					}
+				} else
+					imports.TryGetValue(importName, out importMethod);
+
+				return (importMethod != null ? Delegate.CreateDelegate(delegateField.FieldType, importMethod) : null);
 			} else
-				return (mDelegate);
+				return (importDelegate);
 		}
 
 		#endregion
@@ -326,7 +328,7 @@ namespace OpenGL
 		public static void LogMethod(MethodBase mInfo, params object[] args)
 		{
 			if (mInfo == null)
-				throw new ArgumentNullException("mInfo");
+				throw new ArgumentNullException("importMethod");
 
 			StringBuilder sb = new StringBuilder();
 			ParameterInfo[] mInfoParams = mInfo.GetParameters();

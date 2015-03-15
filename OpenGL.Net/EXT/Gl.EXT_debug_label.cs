@@ -40,14 +40,14 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_QUERY_OBJECT_EXT symbol.
 		/// </summary>
-		[AliasOf("GL_QUERY_OBJECT_AMD"]
+		[AliasOf("GL_QUERY_OBJECT_AMD")]
 		[RequiredByFeature("GL_EXT_debug_label")]
 		public const int QUERY_OBJECT_EXT = 0x9153;
 
 		/// <summary>
 		/// Value of GL_VERTEX_ARRAY_OBJECT_EXT symbol.
 		/// </summary>
-		[AliasOf("GL_VERTEX_ARRAY_OBJECT_AMD"]
+		[AliasOf("GL_VERTEX_ARRAY_OBJECT_AMD")]
 		[RequiredByFeature("GL_EXT_debug_label")]
 		public const int VERTEX_ARRAY_OBJECT_EXT = 0x9154;
 

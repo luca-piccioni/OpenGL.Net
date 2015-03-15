@@ -23,7 +23,7 @@ namespace OpenGL
 	/// <summary>
 	/// Attribute asserting that the underlying member is an alias of the symbol specified.
 	/// </summary>
-	[AttributeUsage(AttributeTargets.Field | AttributeTargets.Method, AllowMultiple = true)]
+	[AttributeUsage(AttributeTargets.Field | AttributeTargets.Method | AttributeTargets.Delegate, AllowMultiple = true)]
 	public sealed class AliasOfAttribute : Attribute
 	{
 		/// <summary>

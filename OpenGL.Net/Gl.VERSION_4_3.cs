@@ -257,7 +257,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_DEBUG_OUTPUT_SYNCHRONOUS symbol.
 		/// </summary>
-		[AliasOf("GL_DEBUG_OUTPUT_SYNCHRONOUS_ARB"]
+		[AliasOf("GL_DEBUG_OUTPUT_SYNCHRONOUS_ARB")]
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_KHR_debug")]
 		public const int DEBUG_OUTPUT_SYNCHRONOUS = 0x8242;
@@ -265,7 +265,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_DEBUG_NEXT_LOGGED_MESSAGE_LENGTH symbol.
 		/// </summary>
-		[AliasOf("GL_DEBUG_NEXT_LOGGED_MESSAGE_LENGTH_ARB"]
+		[AliasOf("GL_DEBUG_NEXT_LOGGED_MESSAGE_LENGTH_ARB")]
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_KHR_debug")]
 		public const int DEBUG_NEXT_LOGGED_MESSAGE_LENGTH = 0x8243;
@@ -273,7 +273,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_DEBUG_CALLBACK_FUNCTION symbol.
 		/// </summary>
-		[AliasOf("GL_DEBUG_CALLBACK_FUNCTION_ARB"]
+		[AliasOf("GL_DEBUG_CALLBACK_FUNCTION_ARB")]
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_KHR_debug")]
 		public const int DEBUG_CALLBACK_FUNCTION = 0x8244;
@@ -281,7 +281,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_DEBUG_CALLBACK_USER_PARAM symbol.
 		/// </summary>
-		[AliasOf("GL_DEBUG_CALLBACK_USER_PARAM_ARB"]
+		[AliasOf("GL_DEBUG_CALLBACK_USER_PARAM_ARB")]
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_KHR_debug")]
 		public const int DEBUG_CALLBACK_USER_PARAM = 0x8245;
@@ -289,7 +289,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_DEBUG_SOURCE_API symbol.
 		/// </summary>
-		[AliasOf("GL_DEBUG_SOURCE_API_ARB"]
+		[AliasOf("GL_DEBUG_SOURCE_API_ARB")]
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_KHR_debug")]
 		public const int DEBUG_SOURCE_API = 0x8246;
@@ -297,7 +297,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_DEBUG_SOURCE_WINDOW_SYSTEM symbol.
 		/// </summary>
-		[AliasOf("GL_DEBUG_SOURCE_WINDOW_SYSTEM_ARB"]
+		[AliasOf("GL_DEBUG_SOURCE_WINDOW_SYSTEM_ARB")]
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_KHR_debug")]
 		public const int DEBUG_SOURCE_WINDOW_SYSTEM = 0x8247;
@@ -305,7 +305,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_DEBUG_SOURCE_SHADER_COMPILER symbol.
 		/// </summary>
-		[AliasOf("GL_DEBUG_SOURCE_SHADER_COMPILER_ARB"]
+		[AliasOf("GL_DEBUG_SOURCE_SHADER_COMPILER_ARB")]
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_KHR_debug")]
 		public const int DEBUG_SOURCE_SHADER_COMPILER = 0x8248;
@@ -313,7 +313,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_DEBUG_SOURCE_THIRD_PARTY symbol.
 		/// </summary>
-		[AliasOf("GL_DEBUG_SOURCE_THIRD_PARTY_ARB"]
+		[AliasOf("GL_DEBUG_SOURCE_THIRD_PARTY_ARB")]
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_KHR_debug")]
 		public const int DEBUG_SOURCE_THIRD_PARTY = 0x8249;
@@ -321,7 +321,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_DEBUG_SOURCE_APPLICATION symbol.
 		/// </summary>
-		[AliasOf("GL_DEBUG_SOURCE_APPLICATION_ARB"]
+		[AliasOf("GL_DEBUG_SOURCE_APPLICATION_ARB")]
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_KHR_debug")]
 		public const int DEBUG_SOURCE_APPLICATION = 0x824A;
@@ -329,7 +329,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_DEBUG_SOURCE_OTHER symbol.
 		/// </summary>
-		[AliasOf("GL_DEBUG_SOURCE_OTHER_ARB"]
+		[AliasOf("GL_DEBUG_SOURCE_OTHER_ARB")]
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_KHR_debug")]
 		public const int DEBUG_SOURCE_OTHER = 0x824B;
@@ -337,7 +337,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_DEBUG_TYPE_ERROR symbol.
 		/// </summary>
-		[AliasOf("GL_DEBUG_TYPE_ERROR_ARB"]
+		[AliasOf("GL_DEBUG_TYPE_ERROR_ARB")]
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_KHR_debug")]
 		public const int DEBUG_TYPE_ERROR = 0x824C;
@@ -345,7 +345,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_DEBUG_TYPE_DEPRECATED_BEHAVIOR symbol.
 		/// </summary>
-		[AliasOf("GL_DEBUG_TYPE_DEPRECATED_BEHAVIOR_ARB"]
+		[AliasOf("GL_DEBUG_TYPE_DEPRECATED_BEHAVIOR_ARB")]
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_KHR_debug")]
 		public const int DEBUG_TYPE_DEPRECATED_BEHAVIOR = 0x824D;
@@ -353,7 +353,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_DEBUG_TYPE_UNDEFINED_BEHAVIOR symbol.
 		/// </summary>
-		[AliasOf("GL_DEBUG_TYPE_UNDEFINED_BEHAVIOR_ARB"]
+		[AliasOf("GL_DEBUG_TYPE_UNDEFINED_BEHAVIOR_ARB")]
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_KHR_debug")]
 		public const int DEBUG_TYPE_UNDEFINED_BEHAVIOR = 0x824E;
@@ -361,7 +361,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_DEBUG_TYPE_PORTABILITY symbol.
 		/// </summary>
-		[AliasOf("GL_DEBUG_TYPE_PORTABILITY_ARB"]
+		[AliasOf("GL_DEBUG_TYPE_PORTABILITY_ARB")]
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_KHR_debug")]
 		public const int DEBUG_TYPE_PORTABILITY = 0x824F;
@@ -369,7 +369,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_DEBUG_TYPE_PERFORMANCE symbol.
 		/// </summary>
-		[AliasOf("GL_DEBUG_TYPE_PERFORMANCE_ARB"]
+		[AliasOf("GL_DEBUG_TYPE_PERFORMANCE_ARB")]
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_KHR_debug")]
 		public const int DEBUG_TYPE_PERFORMANCE = 0x8250;
@@ -377,7 +377,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_DEBUG_TYPE_OTHER symbol.
 		/// </summary>
-		[AliasOf("GL_DEBUG_TYPE_OTHER_ARB"]
+		[AliasOf("GL_DEBUG_TYPE_OTHER_ARB")]
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_KHR_debug")]
 		public const int DEBUG_TYPE_OTHER = 0x8251;
@@ -385,8 +385,8 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_MAX_DEBUG_MESSAGE_LENGTH symbol.
 		/// </summary>
-		[AliasOf("GL_MAX_DEBUG_MESSAGE_LENGTH_AMD"]
-		[AliasOf("GL_MAX_DEBUG_MESSAGE_LENGTH_ARB"]
+		[AliasOf("GL_MAX_DEBUG_MESSAGE_LENGTH_AMD")]
+		[AliasOf("GL_MAX_DEBUG_MESSAGE_LENGTH_ARB")]
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_KHR_debug")]
 		public const int MAX_DEBUG_MESSAGE_LENGTH = 0x9143;
@@ -394,8 +394,8 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_MAX_DEBUG_LOGGED_MESSAGES symbol.
 		/// </summary>
-		[AliasOf("GL_MAX_DEBUG_LOGGED_MESSAGES_AMD"]
-		[AliasOf("GL_MAX_DEBUG_LOGGED_MESSAGES_ARB"]
+		[AliasOf("GL_MAX_DEBUG_LOGGED_MESSAGES_AMD")]
+		[AliasOf("GL_MAX_DEBUG_LOGGED_MESSAGES_ARB")]
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_KHR_debug")]
 		public const int MAX_DEBUG_LOGGED_MESSAGES = 0x9144;
@@ -403,8 +403,8 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_DEBUG_LOGGED_MESSAGES symbol.
 		/// </summary>
-		[AliasOf("GL_DEBUG_LOGGED_MESSAGES_AMD"]
-		[AliasOf("GL_DEBUG_LOGGED_MESSAGES_ARB"]
+		[AliasOf("GL_DEBUG_LOGGED_MESSAGES_AMD")]
+		[AliasOf("GL_DEBUG_LOGGED_MESSAGES_ARB")]
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_KHR_debug")]
 		public const int DEBUG_LOGGED_MESSAGES = 0x9145;
@@ -412,8 +412,8 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_DEBUG_SEVERITY_HIGH symbol.
 		/// </summary>
-		[AliasOf("GL_DEBUG_SEVERITY_HIGH_AMD"]
-		[AliasOf("GL_DEBUG_SEVERITY_HIGH_ARB"]
+		[AliasOf("GL_DEBUG_SEVERITY_HIGH_AMD")]
+		[AliasOf("GL_DEBUG_SEVERITY_HIGH_ARB")]
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_KHR_debug")]
 		public const int DEBUG_SEVERITY_HIGH = 0x9146;
@@ -421,8 +421,8 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_DEBUG_SEVERITY_MEDIUM symbol.
 		/// </summary>
-		[AliasOf("GL_DEBUG_SEVERITY_MEDIUM_AMD"]
-		[AliasOf("GL_DEBUG_SEVERITY_MEDIUM_ARB"]
+		[AliasOf("GL_DEBUG_SEVERITY_MEDIUM_AMD")]
+		[AliasOf("GL_DEBUG_SEVERITY_MEDIUM_ARB")]
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_KHR_debug")]
 		public const int DEBUG_SEVERITY_MEDIUM = 0x9147;
@@ -430,8 +430,8 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_DEBUG_SEVERITY_LOW symbol.
 		/// </summary>
-		[AliasOf("GL_DEBUG_SEVERITY_LOW_AMD"]
-		[AliasOf("GL_DEBUG_SEVERITY_LOW_ARB"]
+		[AliasOf("GL_DEBUG_SEVERITY_LOW_AMD")]
+		[AliasOf("GL_DEBUG_SEVERITY_LOW_ARB")]
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_KHR_debug")]
 		public const int DEBUG_SEVERITY_LOW = 0x9148;
@@ -2351,14 +2351,9 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_multi_draw_indirect")]
 		public static void MultiDrawArraysIndirect(int mode, IntPtr indirect, Int32 drawcount, Int32 stride)
 		{
-			if        (Delegates.pglMultiDrawArraysIndirect != null) {
-				Delegates.pglMultiDrawArraysIndirect(mode, indirect, drawcount, stride);
-				CallLog("glMultiDrawArraysIndirect({0}, {1}, {2}, {3})", mode, indirect, drawcount, stride);
-			} else if (Delegates.pglMultiDrawArraysIndirectAMD != null) {
-				Delegates.pglMultiDrawArraysIndirectAMD(mode, indirect, drawcount, stride);
-				CallLog("glMultiDrawArraysIndirectAMD({0}, {1}, {2}, {3})", mode, indirect, drawcount, stride);
-			} else
-				throw new NotImplementedException("glMultiDrawArraysIndirect (and other aliases) are not implemented");
+			Debug.Assert(Delegates.pglMultiDrawArraysIndirect != null, "pglMultiDrawArraysIndirect not implemented");
+			Delegates.pglMultiDrawArraysIndirect(mode, indirect, drawcount, stride);
+			CallLog("glMultiDrawArraysIndirect({0}, {1}, {2}, {3})", mode, indirect, drawcount, stride);
 			DebugCheckErrors();
 		}
 
@@ -2415,14 +2410,9 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_multi_draw_indirect")]
 		public static void MultiDrawElementsIndirect(int mode, int type, IntPtr indirect, Int32 drawcount, Int32 stride)
 		{
-			if        (Delegates.pglMultiDrawElementsIndirect != null) {
-				Delegates.pglMultiDrawElementsIndirect(mode, type, indirect, drawcount, stride);
-				CallLog("glMultiDrawElementsIndirect({0}, {1}, {2}, {3}, {4})", mode, type, indirect, drawcount, stride);
-			} else if (Delegates.pglMultiDrawElementsIndirectAMD != null) {
-				Delegates.pglMultiDrawElementsIndirectAMD(mode, type, indirect, drawcount, stride);
-				CallLog("glMultiDrawElementsIndirectAMD({0}, {1}, {2}, {3}, {4})", mode, type, indirect, drawcount, stride);
-			} else
-				throw new NotImplementedException("glMultiDrawElementsIndirect (and other aliases) are not implemented");
+			Debug.Assert(Delegates.pglMultiDrawElementsIndirect != null, "pglMultiDrawElementsIndirect not implemented");
+			Delegates.pglMultiDrawElementsIndirect(mode, type, indirect, drawcount, stride);
+			CallLog("glMultiDrawElementsIndirect({0}, {1}, {2}, {3}, {4})", mode, type, indirect, drawcount, stride);
 			DebugCheckErrors();
 		}
 
@@ -2971,14 +2961,9 @@ namespace OpenGL
 			unsafe {
 				fixed (UInt32* p_ids = ids)
 				{
-					if        (Delegates.pglDebugMessageControl != null) {
-						Delegates.pglDebugMessageControl(source, type, severity, (Int32)ids.Length, p_ids, enabled);
-						CallLog("glDebugMessageControl({0}, {1}, {2}, {3}, {4}, {5})", source, type, severity, ids.Length, ids, enabled);
-					} else if (Delegates.pglDebugMessageControlARB != null) {
-						Delegates.pglDebugMessageControlARB(source, type, severity, (Int32)ids.Length, p_ids, enabled);
-						CallLog("glDebugMessageControlARB({0}, {1}, {2}, {3}, {4}, {5})", source, type, severity, ids.Length, ids, enabled);
-					} else
-						throw new NotImplementedException("glDebugMessageControl (and other aliases) are not implemented");
+					Debug.Assert(Delegates.pglDebugMessageControl != null, "pglDebugMessageControl not implemented");
+					Delegates.pglDebugMessageControl(source, type, severity, (Int32)ids.Length, p_ids, enabled);
+					CallLog("glDebugMessageControl({0}, {1}, {2}, {3}, {4}, {5})", source, type, severity, ids.Length, ids, enabled);
 				}
 			}
 			DebugCheckErrors();
@@ -3009,14 +2994,9 @@ namespace OpenGL
 		[RequiredByFeature("GL_KHR_debug")]
 		public static void DebugMessageInsert(int source, int type, UInt32 id, int severity, Int32 length, String buf)
 		{
-			if        (Delegates.pglDebugMessageInsert != null) {
-				Delegates.pglDebugMessageInsert(source, type, id, severity, length, buf);
-				CallLog("glDebugMessageInsert({0}, {1}, {2}, {3}, {4}, {5})", source, type, id, severity, length, buf);
-			} else if (Delegates.pglDebugMessageInsertARB != null) {
-				Delegates.pglDebugMessageInsertARB(source, type, id, severity, length, buf);
-				CallLog("glDebugMessageInsertARB({0}, {1}, {2}, {3}, {4}, {5})", source, type, id, severity, length, buf);
-			} else
-				throw new NotImplementedException("glDebugMessageInsert (and other aliases) are not implemented");
+			Debug.Assert(Delegates.pglDebugMessageInsert != null, "pglDebugMessageInsert not implemented");
+			Delegates.pglDebugMessageInsert(source, type, id, severity, length, buf);
+			CallLog("glDebugMessageInsert({0}, {1}, {2}, {3}, {4}, {5})", source, type, id, severity, length, buf);
 			DebugCheckErrors();
 		}
 
@@ -3033,14 +3013,9 @@ namespace OpenGL
 		[RequiredByFeature("GL_KHR_debug")]
 		public static void DebugMessageCallback(IntPtr callback, IntPtr userParam)
 		{
-			if        (Delegates.pglDebugMessageCallback != null) {
-				Delegates.pglDebugMessageCallback(callback, userParam);
-				CallLog("glDebugMessageCallback({0}, {1})", callback, userParam);
-			} else if (Delegates.pglDebugMessageCallbackARB != null) {
-				Delegates.pglDebugMessageCallbackARB(callback, userParam);
-				CallLog("glDebugMessageCallbackARB({0}, {1})", callback, userParam);
-			} else
-				throw new NotImplementedException("glDebugMessageCallback (and other aliases) are not implemented");
+			Debug.Assert(Delegates.pglDebugMessageCallback != null, "pglDebugMessageCallback not implemented");
+			Delegates.pglDebugMessageCallback(callback, userParam);
+			CallLog("glDebugMessageCallback({0}, {1})", callback, userParam);
 			DebugCheckErrors();
 		}
 
@@ -3105,14 +3080,9 @@ namespace OpenGL
 				fixed (int* p_severities = severities)
 				fixed (Int32* p_lengths = lengths)
 				{
-					if        (Delegates.pglGetDebugMessageLog != null) {
-						retValue = Delegates.pglGetDebugMessageLog((UInt32)sources.Length, bufSize, p_sources, p_types, p_ids, p_severities, p_lengths, messageLog);
-						CallLog("glGetDebugMessageLog({0}, {1}, {2}, {3}, {4}, {5}, {6}, {7}) = {8}", sources.Length, bufSize, sources, types, ids, severities, lengths, messageLog, retValue);
-					} else if (Delegates.pglGetDebugMessageLogARB != null) {
-						retValue = Delegates.pglGetDebugMessageLogARB((UInt32)sources.Length, bufSize, p_sources, p_types, p_ids, p_severities, p_lengths, messageLog);
-						CallLog("glGetDebugMessageLogARB({0}, {1}, {2}, {3}, {4}, {5}, {6}, {7}) = {8}", sources.Length, bufSize, sources, types, ids, severities, lengths, messageLog, retValue);
-					} else
-						throw new NotImplementedException("glGetDebugMessageLog (and other aliases) are not implemented");
+					Debug.Assert(Delegates.pglGetDebugMessageLog != null, "pglGetDebugMessageLog not implemented");
+					retValue = Delegates.pglGetDebugMessageLog((UInt32)sources.Length, bufSize, p_sources, p_types, p_ids, p_severities, p_lengths, messageLog);
+					CallLog("glGetDebugMessageLog({0}, {1}, {2}, {3}, {4}, {5}, {6}, {7}) = {8}", sources.Length, bufSize, sources, types, ids, severities, lengths, messageLog, retValue);
 				}
 			}
 			DebugCheckErrors();

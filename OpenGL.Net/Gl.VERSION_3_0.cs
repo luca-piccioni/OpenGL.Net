@@ -82,14 +82,14 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_RGBA32F symbol.
 		/// </summary>
-		[AliasOf("GL_RGBA32F_ARB"]
+		[AliasOf("GL_RGBA32F_ARB")]
 		[RequiredByFeature("GL_VERSION_3_0")]
 		public const int RGBA32F = 0x8814;
 
 		/// <summary>
 		/// Value of GL_RGB32F symbol.
 		/// </summary>
-		[AliasOf("GL_RGB32F_ARB"]
+		[AliasOf("GL_RGB32F_ARB")]
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ARB_texture_buffer_object_rgb32")]
 		public const int RGB32F = 0x8815;
@@ -97,59 +97,59 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_RGBA16F symbol.
 		/// </summary>
-		[AliasOf("GL_RGBA16F_ARB"]
+		[AliasOf("GL_RGBA16F_ARB")]
 		[RequiredByFeature("GL_VERSION_3_0")]
 		public const int RGBA16F = 0x881A;
 
 		/// <summary>
 		/// Value of GL_RGB16F symbol.
 		/// </summary>
-		[AliasOf("GL_RGB16F_ARB"]
+		[AliasOf("GL_RGB16F_ARB")]
 		[RequiredByFeature("GL_VERSION_3_0")]
 		public const int RGB16F = 0x881B;
 
 		/// <summary>
 		/// Value of GL_VERTEX_ATTRIB_ARRAY_INTEGER symbol.
 		/// </summary>
-		[AliasOf("GL_VERTEX_ATTRIB_ARRAY_INTEGER_EXT"]
-		[AliasOf("GL_VERTEX_ATTRIB_ARRAY_INTEGER_NV"]
+		[AliasOf("GL_VERTEX_ATTRIB_ARRAY_INTEGER_EXT")]
+		[AliasOf("GL_VERTEX_ATTRIB_ARRAY_INTEGER_NV")]
 		[RequiredByFeature("GL_VERSION_3_0")]
 		public const int VERTEX_ATTRIB_ARRAY_INTEGER = 0x88FD;
 
 		/// <summary>
 		/// Value of GL_MAX_ARRAY_TEXTURE_LAYERS symbol.
 		/// </summary>
-		[AliasOf("GL_MAX_ARRAY_TEXTURE_LAYERS_EXT"]
+		[AliasOf("GL_MAX_ARRAY_TEXTURE_LAYERS_EXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
 		public const int MAX_ARRAY_TEXTURE_LAYERS = 0x88FF;
 
 		/// <summary>
 		/// Value of GL_MIN_PROGRAM_TEXEL_OFFSET symbol.
 		/// </summary>
-		[AliasOf("GL_MIN_PROGRAM_TEXEL_OFFSET_EXT"]
-		[AliasOf("GL_MIN_PROGRAM_TEXEL_OFFSET_NV"]
+		[AliasOf("GL_MIN_PROGRAM_TEXEL_OFFSET_EXT")]
+		[AliasOf("GL_MIN_PROGRAM_TEXEL_OFFSET_NV")]
 		[RequiredByFeature("GL_VERSION_3_0")]
 		public const int MIN_PROGRAM_TEXEL_OFFSET = 0x8904;
 
 		/// <summary>
 		/// Value of GL_MAX_PROGRAM_TEXEL_OFFSET symbol.
 		/// </summary>
-		[AliasOf("GL_MAX_PROGRAM_TEXEL_OFFSET_EXT"]
-		[AliasOf("GL_MAX_PROGRAM_TEXEL_OFFSET_NV"]
+		[AliasOf("GL_MAX_PROGRAM_TEXEL_OFFSET_EXT")]
+		[AliasOf("GL_MAX_PROGRAM_TEXEL_OFFSET_NV")]
 		[RequiredByFeature("GL_VERSION_3_0")]
 		public const int MAX_PROGRAM_TEXEL_OFFSET = 0x8905;
 
 		/// <summary>
 		/// Value of GL_CLAMP_READ_COLOR symbol.
 		/// </summary>
-		[AliasOf("GL_CLAMP_READ_COLOR_ARB"]
+		[AliasOf("GL_CLAMP_READ_COLOR_ARB")]
 		[RequiredByFeature("GL_VERSION_3_0")]
 		public const int CLAMP_READ_COLOR = 0x891C;
 
 		/// <summary>
 		/// Value of GL_FIXED_ONLY symbol.
 		/// </summary>
-		[AliasOf("GL_FIXED_ONLY_ARB"]
+		[AliasOf("GL_FIXED_ONLY_ARB")]
 		[RequiredByFeature("GL_VERSION_3_0")]
 		public const int FIXED_ONLY = 0x891D;
 
@@ -161,7 +161,7 @@ namespace OpenGL
 		/// This enumerant is equaivalent to MAX_VARYING_FLOATS.
 		/// </para>
 		/// </remarks>
-		[AliasOf("GL_MAX_VARYING_COMPONENTS_EXT"]
+		[AliasOf("GL_MAX_VARYING_COMPONENTS_EXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ARB_geometry_shader4")]
 		public const int MAX_VARYING_COMPONENTS = 0x8B4B;
@@ -169,7 +169,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_TEXTURE_1D_ARRAY symbol.
 		/// </summary>
-		[AliasOf("GL_TEXTURE_1D_ARRAY_EXT"]
+		[AliasOf("GL_TEXTURE_1D_ARRAY_EXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ARB_internalformat_query2")]
 		public const int TEXTURE_1D_ARRAY = 0x8C18;
@@ -177,14 +177,14 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_PROXY_TEXTURE_1D_ARRAY symbol.
 		/// </summary>
-		[AliasOf("GL_PROXY_TEXTURE_1D_ARRAY_EXT"]
+		[AliasOf("GL_PROXY_TEXTURE_1D_ARRAY_EXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
 		public const int PROXY_TEXTURE_1D_ARRAY = 0x8C19;
 
 		/// <summary>
 		/// Value of GL_TEXTURE_2D_ARRAY symbol.
 		/// </summary>
-		[AliasOf("GL_TEXTURE_2D_ARRAY_EXT"]
+		[AliasOf("GL_TEXTURE_2D_ARRAY_EXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ARB_internalformat_query2")]
 		public const int TEXTURE_2D_ARRAY = 0x8C1A;
@@ -192,14 +192,14 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_PROXY_TEXTURE_2D_ARRAY symbol.
 		/// </summary>
-		[AliasOf("GL_PROXY_TEXTURE_2D_ARRAY_EXT"]
+		[AliasOf("GL_PROXY_TEXTURE_2D_ARRAY_EXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
 		public const int PROXY_TEXTURE_2D_ARRAY = 0x8C1B;
 
 		/// <summary>
 		/// Value of GL_TEXTURE_BINDING_1D_ARRAY symbol.
 		/// </summary>
-		[AliasOf("GL_TEXTURE_BINDING_1D_ARRAY_EXT"]
+		[AliasOf("GL_TEXTURE_BINDING_1D_ARRAY_EXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_direct_state_access")]
@@ -208,7 +208,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_TEXTURE_BINDING_2D_ARRAY symbol.
 		/// </summary>
-		[AliasOf("GL_TEXTURE_BINDING_2D_ARRAY_EXT"]
+		[AliasOf("GL_TEXTURE_BINDING_2D_ARRAY_EXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_direct_state_access")]
@@ -217,14 +217,14 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_R11F_G11F_B10F symbol.
 		/// </summary>
-		[AliasOf("GL_R11F_G11F_B10F_EXT"]
+		[AliasOf("GL_R11F_G11F_B10F_EXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
 		public const int R11F_G11F_B10F = 0x8C3A;
 
 		/// <summary>
 		/// Value of GL_UNSIGNED_INT_10F_11F_11F_REV symbol.
 		/// </summary>
-		[AliasOf("GL_UNSIGNED_INT_10F_11F_11F_REV_EXT"]
+		[AliasOf("GL_UNSIGNED_INT_10F_11F_11F_REV_EXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_VERSION_4_4")]
 		[RequiredByFeature("GL_ARB_vertex_type_10f_11f_11f_rev")]
@@ -233,132 +233,132 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_RGB9_E5 symbol.
 		/// </summary>
-		[AliasOf("GL_RGB9_E5_EXT"]
+		[AliasOf("GL_RGB9_E5_EXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
 		public const int RGB9_E5 = 0x8C3D;
 
 		/// <summary>
 		/// Value of GL_UNSIGNED_INT_5_9_9_9_REV symbol.
 		/// </summary>
-		[AliasOf("GL_UNSIGNED_INT_5_9_9_9_REV_EXT"]
+		[AliasOf("GL_UNSIGNED_INT_5_9_9_9_REV_EXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
 		public const int UNSIGNED_INT_5_9_9_9_REV = 0x8C3E;
 
 		/// <summary>
 		/// Value of GL_TEXTURE_SHARED_SIZE symbol.
 		/// </summary>
-		[AliasOf("GL_TEXTURE_SHARED_SIZE_EXT"]
+		[AliasOf("GL_TEXTURE_SHARED_SIZE_EXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
 		public const int TEXTURE_SHARED_SIZE = 0x8C3F;
 
 		/// <summary>
 		/// Value of GL_TRANSFORM_FEEDBACK_VARYING_MAX_LENGTH symbol.
 		/// </summary>
-		[AliasOf("GL_TRANSFORM_FEEDBACK_VARYING_MAX_LENGTH_EXT"]
+		[AliasOf("GL_TRANSFORM_FEEDBACK_VARYING_MAX_LENGTH_EXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
 		public const int TRANSFORM_FEEDBACK_VARYING_MAX_LENGTH = 0x8C76;
 
 		/// <summary>
 		/// Value of GL_TRANSFORM_FEEDBACK_BUFFER_MODE symbol.
 		/// </summary>
-		[AliasOf("GL_TRANSFORM_FEEDBACK_BUFFER_MODE_EXT"]
-		[AliasOf("GL_TRANSFORM_FEEDBACK_BUFFER_MODE_NV"]
+		[AliasOf("GL_TRANSFORM_FEEDBACK_BUFFER_MODE_EXT")]
+		[AliasOf("GL_TRANSFORM_FEEDBACK_BUFFER_MODE_NV")]
 		[RequiredByFeature("GL_VERSION_3_0")]
 		public const int TRANSFORM_FEEDBACK_BUFFER_MODE = 0x8C7F;
 
 		/// <summary>
 		/// Value of GL_MAX_TRANSFORM_FEEDBACK_SEPARATE_COMPONENTS symbol.
 		/// </summary>
-		[AliasOf("GL_MAX_TRANSFORM_FEEDBACK_SEPARATE_COMPONENTS_EXT"]
-		[AliasOf("GL_MAX_TRANSFORM_FEEDBACK_SEPARATE_COMPONENTS_NV"]
+		[AliasOf("GL_MAX_TRANSFORM_FEEDBACK_SEPARATE_COMPONENTS_EXT")]
+		[AliasOf("GL_MAX_TRANSFORM_FEEDBACK_SEPARATE_COMPONENTS_NV")]
 		[RequiredByFeature("GL_VERSION_3_0")]
 		public const int MAX_TRANSFORM_FEEDBACK_SEPARATE_COMPONENTS = 0x8C80;
 
 		/// <summary>
 		/// Value of GL_TRANSFORM_FEEDBACK_VARYINGS symbol.
 		/// </summary>
-		[AliasOf("GL_TRANSFORM_FEEDBACK_VARYINGS_EXT"]
-		[AliasOf("GL_TRANSFORM_FEEDBACK_VARYINGS_NV"]
+		[AliasOf("GL_TRANSFORM_FEEDBACK_VARYINGS_EXT")]
+		[AliasOf("GL_TRANSFORM_FEEDBACK_VARYINGS_NV")]
 		[RequiredByFeature("GL_VERSION_3_0")]
 		public const int TRANSFORM_FEEDBACK_VARYINGS = 0x8C83;
 
 		/// <summary>
 		/// Value of GL_TRANSFORM_FEEDBACK_BUFFER_START symbol.
 		/// </summary>
-		[AliasOf("GL_TRANSFORM_FEEDBACK_BUFFER_START_EXT"]
-		[AliasOf("GL_TRANSFORM_FEEDBACK_BUFFER_START_NV"]
+		[AliasOf("GL_TRANSFORM_FEEDBACK_BUFFER_START_EXT")]
+		[AliasOf("GL_TRANSFORM_FEEDBACK_BUFFER_START_NV")]
 		[RequiredByFeature("GL_VERSION_3_0")]
 		public const int TRANSFORM_FEEDBACK_BUFFER_START = 0x8C84;
 
 		/// <summary>
 		/// Value of GL_TRANSFORM_FEEDBACK_BUFFER_SIZE symbol.
 		/// </summary>
-		[AliasOf("GL_TRANSFORM_FEEDBACK_BUFFER_SIZE_EXT"]
-		[AliasOf("GL_TRANSFORM_FEEDBACK_BUFFER_SIZE_NV"]
+		[AliasOf("GL_TRANSFORM_FEEDBACK_BUFFER_SIZE_EXT")]
+		[AliasOf("GL_TRANSFORM_FEEDBACK_BUFFER_SIZE_NV")]
 		[RequiredByFeature("GL_VERSION_3_0")]
 		public const int TRANSFORM_FEEDBACK_BUFFER_SIZE = 0x8C85;
 
 		/// <summary>
 		/// Value of GL_PRIMITIVES_GENERATED symbol.
 		/// </summary>
-		[AliasOf("GL_PRIMITIVES_GENERATED_EXT"]
-		[AliasOf("GL_PRIMITIVES_GENERATED_NV"]
+		[AliasOf("GL_PRIMITIVES_GENERATED_EXT")]
+		[AliasOf("GL_PRIMITIVES_GENERATED_NV")]
 		[RequiredByFeature("GL_VERSION_3_0")]
 		public const int PRIMITIVES_GENERATED = 0x8C87;
 
 		/// <summary>
 		/// Value of GL_TRANSFORM_FEEDBACK_PRIMITIVES_WRITTEN symbol.
 		/// </summary>
-		[AliasOf("GL_TRANSFORM_FEEDBACK_PRIMITIVES_WRITTEN_EXT"]
-		[AliasOf("GL_TRANSFORM_FEEDBACK_PRIMITIVES_WRITTEN_NV"]
+		[AliasOf("GL_TRANSFORM_FEEDBACK_PRIMITIVES_WRITTEN_EXT")]
+		[AliasOf("GL_TRANSFORM_FEEDBACK_PRIMITIVES_WRITTEN_NV")]
 		[RequiredByFeature("GL_VERSION_3_0")]
 		public const int TRANSFORM_FEEDBACK_PRIMITIVES_WRITTEN = 0x8C88;
 
 		/// <summary>
 		/// Value of GL_RASTERIZER_DISCARD symbol.
 		/// </summary>
-		[AliasOf("GL_RASTERIZER_DISCARD_EXT"]
-		[AliasOf("GL_RASTERIZER_DISCARD_NV"]
+		[AliasOf("GL_RASTERIZER_DISCARD_EXT")]
+		[AliasOf("GL_RASTERIZER_DISCARD_NV")]
 		[RequiredByFeature("GL_VERSION_3_0")]
 		public const int RASTERIZER_DISCARD = 0x8C89;
 
 		/// <summary>
 		/// Value of GL_MAX_TRANSFORM_FEEDBACK_INTERLEAVED_COMPONENTS symbol.
 		/// </summary>
-		[AliasOf("GL_MAX_TRANSFORM_FEEDBACK_INTERLEAVED_COMPONENTS_EXT"]
-		[AliasOf("GL_MAX_TRANSFORM_FEEDBACK_INTERLEAVED_COMPONENTS_NV"]
+		[AliasOf("GL_MAX_TRANSFORM_FEEDBACK_INTERLEAVED_COMPONENTS_EXT")]
+		[AliasOf("GL_MAX_TRANSFORM_FEEDBACK_INTERLEAVED_COMPONENTS_NV")]
 		[RequiredByFeature("GL_VERSION_3_0")]
 		public const int MAX_TRANSFORM_FEEDBACK_INTERLEAVED_COMPONENTS = 0x8C8A;
 
 		/// <summary>
 		/// Value of GL_MAX_TRANSFORM_FEEDBACK_SEPARATE_ATTRIBS symbol.
 		/// </summary>
-		[AliasOf("GL_MAX_TRANSFORM_FEEDBACK_SEPARATE_ATTRIBS_EXT"]
-		[AliasOf("GL_MAX_TRANSFORM_FEEDBACK_SEPARATE_ATTRIBS_NV"]
+		[AliasOf("GL_MAX_TRANSFORM_FEEDBACK_SEPARATE_ATTRIBS_EXT")]
+		[AliasOf("GL_MAX_TRANSFORM_FEEDBACK_SEPARATE_ATTRIBS_NV")]
 		[RequiredByFeature("GL_VERSION_3_0")]
 		public const int MAX_TRANSFORM_FEEDBACK_SEPARATE_ATTRIBS = 0x8C8B;
 
 		/// <summary>
 		/// Value of GL_INTERLEAVED_ATTRIBS symbol.
 		/// </summary>
-		[AliasOf("GL_INTERLEAVED_ATTRIBS_EXT"]
-		[AliasOf("GL_INTERLEAVED_ATTRIBS_NV"]
+		[AliasOf("GL_INTERLEAVED_ATTRIBS_EXT")]
+		[AliasOf("GL_INTERLEAVED_ATTRIBS_NV")]
 		[RequiredByFeature("GL_VERSION_3_0")]
 		public const int INTERLEAVED_ATTRIBS = 0x8C8C;
 
 		/// <summary>
 		/// Value of GL_SEPARATE_ATTRIBS symbol.
 		/// </summary>
-		[AliasOf("GL_SEPARATE_ATTRIBS_EXT"]
-		[AliasOf("GL_SEPARATE_ATTRIBS_NV"]
+		[AliasOf("GL_SEPARATE_ATTRIBS_EXT")]
+		[AliasOf("GL_SEPARATE_ATTRIBS_NV")]
 		[RequiredByFeature("GL_VERSION_3_0")]
 		public const int SEPARATE_ATTRIBS = 0x8C8D;
 
 		/// <summary>
 		/// Value of GL_TRANSFORM_FEEDBACK_BUFFER symbol.
 		/// </summary>
-		[AliasOf("GL_TRANSFORM_FEEDBACK_BUFFER_EXT"]
-		[AliasOf("GL_TRANSFORM_FEEDBACK_BUFFER_NV"]
+		[AliasOf("GL_TRANSFORM_FEEDBACK_BUFFER_EXT")]
+		[AliasOf("GL_TRANSFORM_FEEDBACK_BUFFER_NV")]
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_VERSION_4_4")]
 		[RequiredByFeature("GL_ARB_enhanced_layouts")]
@@ -367,22 +367,22 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_TRANSFORM_FEEDBACK_BUFFER_BINDING symbol.
 		/// </summary>
-		[AliasOf("GL_TRANSFORM_FEEDBACK_BUFFER_BINDING_EXT"]
-		[AliasOf("GL_TRANSFORM_FEEDBACK_BUFFER_BINDING_NV"]
+		[AliasOf("GL_TRANSFORM_FEEDBACK_BUFFER_BINDING_EXT")]
+		[AliasOf("GL_TRANSFORM_FEEDBACK_BUFFER_BINDING_NV")]
 		[RequiredByFeature("GL_VERSION_3_0")]
 		public const int TRANSFORM_FEEDBACK_BUFFER_BINDING = 0x8C8F;
 
 		/// <summary>
 		/// Value of GL_RGBA32UI symbol.
 		/// </summary>
-		[AliasOf("GL_RGBA32UI_EXT"]
+		[AliasOf("GL_RGBA32UI_EXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
 		public const int RGBA32UI = 0x8D70;
 
 		/// <summary>
 		/// Value of GL_RGB32UI symbol.
 		/// </summary>
-		[AliasOf("GL_RGB32UI_EXT"]
+		[AliasOf("GL_RGB32UI_EXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ARB_texture_buffer_object_rgb32")]
 		public const int RGB32UI = 0x8D71;
@@ -390,21 +390,21 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_RGBA16UI symbol.
 		/// </summary>
-		[AliasOf("GL_RGBA16UI_EXT"]
+		[AliasOf("GL_RGBA16UI_EXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
 		public const int RGBA16UI = 0x8D76;
 
 		/// <summary>
 		/// Value of GL_RGB16UI symbol.
 		/// </summary>
-		[AliasOf("GL_RGB16UI_EXT"]
+		[AliasOf("GL_RGB16UI_EXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
 		public const int RGB16UI = 0x8D77;
 
 		/// <summary>
 		/// Value of GL_RGBA8UI symbol.
 		/// </summary>
-		[AliasOf("GL_RGBA8UI_EXT"]
+		[AliasOf("GL_RGBA8UI_EXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_AMD_interleaved_elements")]
 		public const int RGBA8UI = 0x8D7C;
@@ -412,21 +412,21 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_RGB8UI symbol.
 		/// </summary>
-		[AliasOf("GL_RGB8UI_EXT"]
+		[AliasOf("GL_RGB8UI_EXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
 		public const int RGB8UI = 0x8D7D;
 
 		/// <summary>
 		/// Value of GL_RGBA32I symbol.
 		/// </summary>
-		[AliasOf("GL_RGBA32I_EXT"]
+		[AliasOf("GL_RGBA32I_EXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
 		public const int RGBA32I = 0x8D82;
 
 		/// <summary>
 		/// Value of GL_RGB32I symbol.
 		/// </summary>
-		[AliasOf("GL_RGB32I_EXT"]
+		[AliasOf("GL_RGB32I_EXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ARB_texture_buffer_object_rgb32")]
 		[RequiredByFeature("GL_ARB_vertex_attrib_64bit")]
@@ -435,245 +435,245 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_RGBA16I symbol.
 		/// </summary>
-		[AliasOf("GL_RGBA16I_EXT"]
+		[AliasOf("GL_RGBA16I_EXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
 		public const int RGBA16I = 0x8D88;
 
 		/// <summary>
 		/// Value of GL_RGB16I symbol.
 		/// </summary>
-		[AliasOf("GL_RGB16I_EXT"]
+		[AliasOf("GL_RGB16I_EXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
 		public const int RGB16I = 0x8D89;
 
 		/// <summary>
 		/// Value of GL_RGBA8I symbol.
 		/// </summary>
-		[AliasOf("GL_RGBA8I_EXT"]
+		[AliasOf("GL_RGBA8I_EXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
 		public const int RGBA8I = 0x8D8E;
 
 		/// <summary>
 		/// Value of GL_RGB8I symbol.
 		/// </summary>
-		[AliasOf("GL_RGB8I_EXT"]
+		[AliasOf("GL_RGB8I_EXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
 		public const int RGB8I = 0x8D8F;
 
 		/// <summary>
 		/// Value of GL_RED_INTEGER symbol.
 		/// </summary>
-		[AliasOf("GL_RED_INTEGER_EXT"]
+		[AliasOf("GL_RED_INTEGER_EXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
 		public const int RED_INTEGER = 0x8D94;
 
 		/// <summary>
 		/// Value of GL_GREEN_INTEGER symbol.
 		/// </summary>
-		[AliasOf("GL_GREEN_INTEGER_EXT"]
+		[AliasOf("GL_GREEN_INTEGER_EXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
 		public const int GREEN_INTEGER = 0x8D95;
 
 		/// <summary>
 		/// Value of GL_BLUE_INTEGER symbol.
 		/// </summary>
-		[AliasOf("GL_BLUE_INTEGER_EXT"]
+		[AliasOf("GL_BLUE_INTEGER_EXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
 		public const int BLUE_INTEGER = 0x8D96;
 
 		/// <summary>
 		/// Value of GL_RGB_INTEGER symbol.
 		/// </summary>
-		[AliasOf("GL_RGB_INTEGER_EXT"]
+		[AliasOf("GL_RGB_INTEGER_EXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
 		public const int RGB_INTEGER = 0x8D98;
 
 		/// <summary>
 		/// Value of GL_RGBA_INTEGER symbol.
 		/// </summary>
-		[AliasOf("GL_RGBA_INTEGER_EXT"]
+		[AliasOf("GL_RGBA_INTEGER_EXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
 		public const int RGBA_INTEGER = 0x8D99;
 
 		/// <summary>
 		/// Value of GL_BGR_INTEGER symbol.
 		/// </summary>
-		[AliasOf("GL_BGR_INTEGER_EXT"]
+		[AliasOf("GL_BGR_INTEGER_EXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
 		public const int BGR_INTEGER = 0x8D9A;
 
 		/// <summary>
 		/// Value of GL_BGRA_INTEGER symbol.
 		/// </summary>
-		[AliasOf("GL_BGRA_INTEGER_EXT"]
+		[AliasOf("GL_BGRA_INTEGER_EXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
 		public const int BGRA_INTEGER = 0x8D9B;
 
 		/// <summary>
 		/// Value of GL_SAMPLER_1D_ARRAY symbol.
 		/// </summary>
-		[AliasOf("GL_SAMPLER_1D_ARRAY_EXT"]
+		[AliasOf("GL_SAMPLER_1D_ARRAY_EXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
 		public const int SAMPLER_1D_ARRAY = 0x8DC0;
 
 		/// <summary>
 		/// Value of GL_SAMPLER_2D_ARRAY symbol.
 		/// </summary>
-		[AliasOf("GL_SAMPLER_2D_ARRAY_EXT"]
+		[AliasOf("GL_SAMPLER_2D_ARRAY_EXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
 		public const int SAMPLER_2D_ARRAY = 0x8DC1;
 
 		/// <summary>
 		/// Value of GL_SAMPLER_1D_ARRAY_SHADOW symbol.
 		/// </summary>
-		[AliasOf("GL_SAMPLER_1D_ARRAY_SHADOW_EXT"]
+		[AliasOf("GL_SAMPLER_1D_ARRAY_SHADOW_EXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
 		public const int SAMPLER_1D_ARRAY_SHADOW = 0x8DC3;
 
 		/// <summary>
 		/// Value of GL_SAMPLER_2D_ARRAY_SHADOW symbol.
 		/// </summary>
-		[AliasOf("GL_SAMPLER_2D_ARRAY_SHADOW_EXT"]
+		[AliasOf("GL_SAMPLER_2D_ARRAY_SHADOW_EXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
 		public const int SAMPLER_2D_ARRAY_SHADOW = 0x8DC4;
 
 		/// <summary>
 		/// Value of GL_SAMPLER_CUBE_SHADOW symbol.
 		/// </summary>
-		[AliasOf("GL_SAMPLER_CUBE_SHADOW_EXT"]
+		[AliasOf("GL_SAMPLER_CUBE_SHADOW_EXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
 		public const int SAMPLER_CUBE_SHADOW = 0x8DC5;
 
 		/// <summary>
 		/// Value of GL_UNSIGNED_INT_VEC2 symbol.
 		/// </summary>
-		[AliasOf("GL_UNSIGNED_INT_VEC2_EXT"]
+		[AliasOf("GL_UNSIGNED_INT_VEC2_EXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
 		public const int UNSIGNED_INT_VEC2 = 0x8DC6;
 
 		/// <summary>
 		/// Value of GL_UNSIGNED_INT_VEC3 symbol.
 		/// </summary>
-		[AliasOf("GL_UNSIGNED_INT_VEC3_EXT"]
+		[AliasOf("GL_UNSIGNED_INT_VEC3_EXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
 		public const int UNSIGNED_INT_VEC3 = 0x8DC7;
 
 		/// <summary>
 		/// Value of GL_UNSIGNED_INT_VEC4 symbol.
 		/// </summary>
-		[AliasOf("GL_UNSIGNED_INT_VEC4_EXT"]
+		[AliasOf("GL_UNSIGNED_INT_VEC4_EXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
 		public const int UNSIGNED_INT_VEC4 = 0x8DC8;
 
 		/// <summary>
 		/// Value of GL_INT_SAMPLER_1D symbol.
 		/// </summary>
-		[AliasOf("GL_INT_SAMPLER_1D_EXT"]
+		[AliasOf("GL_INT_SAMPLER_1D_EXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
 		public const int INT_SAMPLER_1D = 0x8DC9;
 
 		/// <summary>
 		/// Value of GL_INT_SAMPLER_2D symbol.
 		/// </summary>
-		[AliasOf("GL_INT_SAMPLER_2D_EXT"]
+		[AliasOf("GL_INT_SAMPLER_2D_EXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
 		public const int INT_SAMPLER_2D = 0x8DCA;
 
 		/// <summary>
 		/// Value of GL_INT_SAMPLER_3D symbol.
 		/// </summary>
-		[AliasOf("GL_INT_SAMPLER_3D_EXT"]
+		[AliasOf("GL_INT_SAMPLER_3D_EXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
 		public const int INT_SAMPLER_3D = 0x8DCB;
 
 		/// <summary>
 		/// Value of GL_INT_SAMPLER_CUBE symbol.
 		/// </summary>
-		[AliasOf("GL_INT_SAMPLER_CUBE_EXT"]
+		[AliasOf("GL_INT_SAMPLER_CUBE_EXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
 		public const int INT_SAMPLER_CUBE = 0x8DCC;
 
 		/// <summary>
 		/// Value of GL_INT_SAMPLER_1D_ARRAY symbol.
 		/// </summary>
-		[AliasOf("GL_INT_SAMPLER_1D_ARRAY_EXT"]
+		[AliasOf("GL_INT_SAMPLER_1D_ARRAY_EXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
 		public const int INT_SAMPLER_1D_ARRAY = 0x8DCE;
 
 		/// <summary>
 		/// Value of GL_INT_SAMPLER_2D_ARRAY symbol.
 		/// </summary>
-		[AliasOf("GL_INT_SAMPLER_2D_ARRAY_EXT"]
+		[AliasOf("GL_INT_SAMPLER_2D_ARRAY_EXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
 		public const int INT_SAMPLER_2D_ARRAY = 0x8DCF;
 
 		/// <summary>
 		/// Value of GL_UNSIGNED_INT_SAMPLER_1D symbol.
 		/// </summary>
-		[AliasOf("GL_UNSIGNED_INT_SAMPLER_1D_EXT"]
+		[AliasOf("GL_UNSIGNED_INT_SAMPLER_1D_EXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
 		public const int UNSIGNED_INT_SAMPLER_1D = 0x8DD1;
 
 		/// <summary>
 		/// Value of GL_UNSIGNED_INT_SAMPLER_2D symbol.
 		/// </summary>
-		[AliasOf("GL_UNSIGNED_INT_SAMPLER_2D_EXT"]
+		[AliasOf("GL_UNSIGNED_INT_SAMPLER_2D_EXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
 		public const int UNSIGNED_INT_SAMPLER_2D = 0x8DD2;
 
 		/// <summary>
 		/// Value of GL_UNSIGNED_INT_SAMPLER_3D symbol.
 		/// </summary>
-		[AliasOf("GL_UNSIGNED_INT_SAMPLER_3D_EXT"]
+		[AliasOf("GL_UNSIGNED_INT_SAMPLER_3D_EXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
 		public const int UNSIGNED_INT_SAMPLER_3D = 0x8DD3;
 
 		/// <summary>
 		/// Value of GL_UNSIGNED_INT_SAMPLER_CUBE symbol.
 		/// </summary>
-		[AliasOf("GL_UNSIGNED_INT_SAMPLER_CUBE_EXT"]
+		[AliasOf("GL_UNSIGNED_INT_SAMPLER_CUBE_EXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
 		public const int UNSIGNED_INT_SAMPLER_CUBE = 0x8DD4;
 
 		/// <summary>
 		/// Value of GL_UNSIGNED_INT_SAMPLER_1D_ARRAY symbol.
 		/// </summary>
-		[AliasOf("GL_UNSIGNED_INT_SAMPLER_1D_ARRAY_EXT"]
+		[AliasOf("GL_UNSIGNED_INT_SAMPLER_1D_ARRAY_EXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
 		public const int UNSIGNED_INT_SAMPLER_1D_ARRAY = 0x8DD6;
 
 		/// <summary>
 		/// Value of GL_UNSIGNED_INT_SAMPLER_2D_ARRAY symbol.
 		/// </summary>
-		[AliasOf("GL_UNSIGNED_INT_SAMPLER_2D_ARRAY_EXT"]
+		[AliasOf("GL_UNSIGNED_INT_SAMPLER_2D_ARRAY_EXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
 		public const int UNSIGNED_INT_SAMPLER_2D_ARRAY = 0x8DD7;
 
 		/// <summary>
 		/// Value of GL_QUERY_WAIT symbol.
 		/// </summary>
-		[AliasOf("GL_QUERY_WAIT_NV"]
+		[AliasOf("GL_QUERY_WAIT_NV")]
 		[RequiredByFeature("GL_VERSION_3_0")]
 		public const int QUERY_WAIT = 0x8E13;
 
 		/// <summary>
 		/// Value of GL_QUERY_NO_WAIT symbol.
 		/// </summary>
-		[AliasOf("GL_QUERY_NO_WAIT_NV"]
+		[AliasOf("GL_QUERY_NO_WAIT_NV")]
 		[RequiredByFeature("GL_VERSION_3_0")]
 		public const int QUERY_NO_WAIT = 0x8E14;
 
 		/// <summary>
 		/// Value of GL_QUERY_BY_REGION_WAIT symbol.
 		/// </summary>
-		[AliasOf("GL_QUERY_BY_REGION_WAIT_NV"]
+		[AliasOf("GL_QUERY_BY_REGION_WAIT_NV")]
 		[RequiredByFeature("GL_VERSION_3_0")]
 		public const int QUERY_BY_REGION_WAIT = 0x8E15;
 
 		/// <summary>
 		/// Value of GL_QUERY_BY_REGION_NO_WAIT symbol.
 		/// </summary>
-		[AliasOf("GL_QUERY_BY_REGION_NO_WAIT_NV"]
+		[AliasOf("GL_QUERY_BY_REGION_NO_WAIT_NV")]
 		[RequiredByFeature("GL_VERSION_3_0")]
 		public const int QUERY_BY_REGION_NO_WAIT = 0x8E16;
 
@@ -712,7 +712,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_FLOAT_32_UNSIGNED_INT_24_8_REV symbol.
 		/// </summary>
-		[AliasOf("GL_FLOAT_32_UNSIGNED_INT_24_8_REV_NV"]
+		[AliasOf("GL_FLOAT_32_UNSIGNED_INT_24_8_REV_NV")]
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ARB_depth_buffer_float")]
 		public const int FLOAT_32_UNSIGNED_INT_24_8_REV = 0x8DAD;
@@ -720,7 +720,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_INVALID_FRAMEBUFFER_OPERATION symbol.
 		/// </summary>
-		[AliasOf("GL_INVALID_FRAMEBUFFER_OPERATION_EXT"]
+		[AliasOf("GL_INVALID_FRAMEBUFFER_OPERATION_EXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ARB_framebuffer_object")]
 		public const int INVALID_FRAMEBUFFER_OPERATION = 0x0506;
@@ -805,7 +805,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_MAX_RENDERBUFFER_SIZE symbol.
 		/// </summary>
-		[AliasOf("GL_MAX_RENDERBUFFER_SIZE_EXT"]
+		[AliasOf("GL_MAX_RENDERBUFFER_SIZE_EXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ARB_framebuffer_object")]
 		public const int MAX_RENDERBUFFER_SIZE = 0x84E8;
@@ -813,8 +813,8 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_DEPTH_STENCIL symbol.
 		/// </summary>
-		[AliasOf("GL_DEPTH_STENCIL_EXT"]
-		[AliasOf("GL_DEPTH_STENCIL_NV"]
+		[AliasOf("GL_DEPTH_STENCIL_EXT")]
+		[AliasOf("GL_DEPTH_STENCIL_NV")]
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ARB_framebuffer_object")]
 		public const int DEPTH_STENCIL = 0x84F9;
@@ -822,8 +822,8 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_UNSIGNED_INT_24_8 symbol.
 		/// </summary>
-		[AliasOf("GL_UNSIGNED_INT_24_8_EXT"]
-		[AliasOf("GL_UNSIGNED_INT_24_8_NV"]
+		[AliasOf("GL_UNSIGNED_INT_24_8_EXT")]
+		[AliasOf("GL_UNSIGNED_INT_24_8_NV")]
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ARB_framebuffer_object")]
 		public const int UNSIGNED_INT_24_8 = 0x84FA;
@@ -831,7 +831,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_DEPTH24_STENCIL8 symbol.
 		/// </summary>
-		[AliasOf("GL_DEPTH24_STENCIL8_EXT"]
+		[AliasOf("GL_DEPTH24_STENCIL8_EXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ARB_framebuffer_object")]
 		public const int DEPTH24_STENCIL8 = 0x88F0;
@@ -839,7 +839,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_TEXTURE_STENCIL_SIZE symbol.
 		/// </summary>
-		[AliasOf("GL_TEXTURE_STENCIL_SIZE_EXT"]
+		[AliasOf("GL_TEXTURE_STENCIL_SIZE_EXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ARB_framebuffer_object")]
 		public const int TEXTURE_STENCIL_SIZE = 0x88F1;
@@ -847,42 +847,42 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_TEXTURE_RED_TYPE symbol.
 		/// </summary>
-		[AliasOf("GL_TEXTURE_RED_TYPE_ARB"]
+		[AliasOf("GL_TEXTURE_RED_TYPE_ARB")]
 		[RequiredByFeature("GL_VERSION_3_0")]
 		public const int TEXTURE_RED_TYPE = 0x8C10;
 
 		/// <summary>
 		/// Value of GL_TEXTURE_GREEN_TYPE symbol.
 		/// </summary>
-		[AliasOf("GL_TEXTURE_GREEN_TYPE_ARB"]
+		[AliasOf("GL_TEXTURE_GREEN_TYPE_ARB")]
 		[RequiredByFeature("GL_VERSION_3_0")]
 		public const int TEXTURE_GREEN_TYPE = 0x8C11;
 
 		/// <summary>
 		/// Value of GL_TEXTURE_BLUE_TYPE symbol.
 		/// </summary>
-		[AliasOf("GL_TEXTURE_BLUE_TYPE_ARB"]
+		[AliasOf("GL_TEXTURE_BLUE_TYPE_ARB")]
 		[RequiredByFeature("GL_VERSION_3_0")]
 		public const int TEXTURE_BLUE_TYPE = 0x8C12;
 
 		/// <summary>
 		/// Value of GL_TEXTURE_ALPHA_TYPE symbol.
 		/// </summary>
-		[AliasOf("GL_TEXTURE_ALPHA_TYPE_ARB"]
+		[AliasOf("GL_TEXTURE_ALPHA_TYPE_ARB")]
 		[RequiredByFeature("GL_VERSION_3_0")]
 		public const int TEXTURE_ALPHA_TYPE = 0x8C13;
 
 		/// <summary>
 		/// Value of GL_TEXTURE_DEPTH_TYPE symbol.
 		/// </summary>
-		[AliasOf("GL_TEXTURE_DEPTH_TYPE_ARB"]
+		[AliasOf("GL_TEXTURE_DEPTH_TYPE_ARB")]
 		[RequiredByFeature("GL_VERSION_3_0")]
 		public const int TEXTURE_DEPTH_TYPE = 0x8C16;
 
 		/// <summary>
 		/// Value of GL_UNSIGNED_NORMALIZED symbol.
 		/// </summary>
-		[AliasOf("GL_UNSIGNED_NORMALIZED_ARB"]
+		[AliasOf("GL_UNSIGNED_NORMALIZED_ARB")]
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ARB_framebuffer_object")]
 		public const int UNSIGNED_NORMALIZED = 0x8C17;
@@ -890,7 +890,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_FRAMEBUFFER_BINDING symbol.
 		/// </summary>
-		[AliasOf("GL_FRAMEBUFFER_BINDING_EXT"]
+		[AliasOf("GL_FRAMEBUFFER_BINDING_EXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ARB_framebuffer_object")]
 		public const int FRAMEBUFFER_BINDING = 0x8CA6;
@@ -898,7 +898,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_DRAW_FRAMEBUFFER_BINDING symbol.
 		/// </summary>
-		[AliasOf("GL_DRAW_FRAMEBUFFER_BINDING_EXT"]
+		[AliasOf("GL_DRAW_FRAMEBUFFER_BINDING_EXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ARB_framebuffer_object")]
 		public const int DRAW_FRAMEBUFFER_BINDING = 0x8CA6;
@@ -906,7 +906,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_RENDERBUFFER_BINDING symbol.
 		/// </summary>
-		[AliasOf("GL_RENDERBUFFER_BINDING_EXT"]
+		[AliasOf("GL_RENDERBUFFER_BINDING_EXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ARB_framebuffer_object")]
 		public const int RENDERBUFFER_BINDING = 0x8CA7;
@@ -914,7 +914,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_READ_FRAMEBUFFER symbol.
 		/// </summary>
-		[AliasOf("GL_READ_FRAMEBUFFER_EXT"]
+		[AliasOf("GL_READ_FRAMEBUFFER_EXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ARB_framebuffer_object")]
 		public const int READ_FRAMEBUFFER = 0x8CA8;
@@ -922,7 +922,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_DRAW_FRAMEBUFFER symbol.
 		/// </summary>
-		[AliasOf("GL_DRAW_FRAMEBUFFER_EXT"]
+		[AliasOf("GL_DRAW_FRAMEBUFFER_EXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ARB_framebuffer_object")]
 		public const int DRAW_FRAMEBUFFER = 0x8CA9;
@@ -930,7 +930,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_READ_FRAMEBUFFER_BINDING symbol.
 		/// </summary>
-		[AliasOf("GL_READ_FRAMEBUFFER_BINDING_EXT"]
+		[AliasOf("GL_READ_FRAMEBUFFER_BINDING_EXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ARB_framebuffer_object")]
 		public const int READ_FRAMEBUFFER_BINDING = 0x8CAA;
@@ -938,7 +938,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_RENDERBUFFER_SAMPLES symbol.
 		/// </summary>
-		[AliasOf("GL_RENDERBUFFER_SAMPLES_EXT"]
+		[AliasOf("GL_RENDERBUFFER_SAMPLES_EXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ARB_framebuffer_object")]
 		public const int RENDERBUFFER_SAMPLES = 0x8CAB;
@@ -946,7 +946,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_FRAMEBUFFER_ATTACHMENT_OBJECT_TYPE symbol.
 		/// </summary>
-		[AliasOf("GL_FRAMEBUFFER_ATTACHMENT_OBJECT_TYPE_EXT"]
+		[AliasOf("GL_FRAMEBUFFER_ATTACHMENT_OBJECT_TYPE_EXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ARB_framebuffer_object")]
 		public const int FRAMEBUFFER_ATTACHMENT_OBJECT_TYPE = 0x8CD0;
@@ -954,7 +954,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_FRAMEBUFFER_ATTACHMENT_OBJECT_NAME symbol.
 		/// </summary>
-		[AliasOf("GL_FRAMEBUFFER_ATTACHMENT_OBJECT_NAME_EXT"]
+		[AliasOf("GL_FRAMEBUFFER_ATTACHMENT_OBJECT_NAME_EXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ARB_framebuffer_object")]
 		public const int FRAMEBUFFER_ATTACHMENT_OBJECT_NAME = 0x8CD1;
@@ -962,7 +962,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_FRAMEBUFFER_ATTACHMENT_TEXTURE_LEVEL symbol.
 		/// </summary>
-		[AliasOf("GL_FRAMEBUFFER_ATTACHMENT_TEXTURE_LEVEL_EXT"]
+		[AliasOf("GL_FRAMEBUFFER_ATTACHMENT_TEXTURE_LEVEL_EXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ARB_framebuffer_object")]
 		public const int FRAMEBUFFER_ATTACHMENT_TEXTURE_LEVEL = 0x8CD2;
@@ -970,7 +970,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_FRAMEBUFFER_ATTACHMENT_TEXTURE_CUBE_MAP_FACE symbol.
 		/// </summary>
-		[AliasOf("GL_FRAMEBUFFER_ATTACHMENT_TEXTURE_CUBE_MAP_FACE_EXT"]
+		[AliasOf("GL_FRAMEBUFFER_ATTACHMENT_TEXTURE_CUBE_MAP_FACE_EXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ARB_framebuffer_object")]
 		public const int FRAMEBUFFER_ATTACHMENT_TEXTURE_CUBE_MAP_FACE = 0x8CD3;
@@ -978,7 +978,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_FRAMEBUFFER_ATTACHMENT_TEXTURE_LAYER symbol.
 		/// </summary>
-		[AliasOf("GL_FRAMEBUFFER_ATTACHMENT_TEXTURE_LAYER_EXT"]
+		[AliasOf("GL_FRAMEBUFFER_ATTACHMENT_TEXTURE_LAYER_EXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ARB_framebuffer_object")]
 		[RequiredByFeature("GL_ARB_geometry_shader4")]
@@ -987,7 +987,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_FRAMEBUFFER_COMPLETE symbol.
 		/// </summary>
-		[AliasOf("GL_FRAMEBUFFER_COMPLETE_EXT"]
+		[AliasOf("GL_FRAMEBUFFER_COMPLETE_EXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ARB_framebuffer_object")]
 		public const int FRAMEBUFFER_COMPLETE = 0x8CD5;
@@ -995,7 +995,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_FRAMEBUFFER_INCOMPLETE_ATTACHMENT symbol.
 		/// </summary>
-		[AliasOf("GL_FRAMEBUFFER_INCOMPLETE_ATTACHMENT_EXT"]
+		[AliasOf("GL_FRAMEBUFFER_INCOMPLETE_ATTACHMENT_EXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ARB_framebuffer_object")]
 		public const int FRAMEBUFFER_INCOMPLETE_ATTACHMENT = 0x8CD6;
@@ -1003,7 +1003,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_FRAMEBUFFER_INCOMPLETE_MISSING_ATTACHMENT symbol.
 		/// </summary>
-		[AliasOf("GL_FRAMEBUFFER_INCOMPLETE_MISSING_ATTACHMENT_EXT"]
+		[AliasOf("GL_FRAMEBUFFER_INCOMPLETE_MISSING_ATTACHMENT_EXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ARB_framebuffer_object")]
 		public const int FRAMEBUFFER_INCOMPLETE_MISSING_ATTACHMENT = 0x8CD7;
@@ -1011,7 +1011,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_FRAMEBUFFER_INCOMPLETE_DRAW_BUFFER symbol.
 		/// </summary>
-		[AliasOf("GL_FRAMEBUFFER_INCOMPLETE_DRAW_BUFFER_EXT"]
+		[AliasOf("GL_FRAMEBUFFER_INCOMPLETE_DRAW_BUFFER_EXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ARB_framebuffer_object")]
 		public const int FRAMEBUFFER_INCOMPLETE_DRAW_BUFFER = 0x8CDB;
@@ -1019,7 +1019,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_FRAMEBUFFER_INCOMPLETE_READ_BUFFER symbol.
 		/// </summary>
-		[AliasOf("GL_FRAMEBUFFER_INCOMPLETE_READ_BUFFER_EXT"]
+		[AliasOf("GL_FRAMEBUFFER_INCOMPLETE_READ_BUFFER_EXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ARB_framebuffer_object")]
 		public const int FRAMEBUFFER_INCOMPLETE_READ_BUFFER = 0x8CDC;
@@ -1027,7 +1027,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_FRAMEBUFFER_UNSUPPORTED symbol.
 		/// </summary>
-		[AliasOf("GL_FRAMEBUFFER_UNSUPPORTED_EXT"]
+		[AliasOf("GL_FRAMEBUFFER_UNSUPPORTED_EXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ARB_framebuffer_object")]
 		public const int FRAMEBUFFER_UNSUPPORTED = 0x8CDD;
@@ -1035,7 +1035,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_MAX_COLOR_ATTACHMENTS symbol.
 		/// </summary>
-		[AliasOf("GL_MAX_COLOR_ATTACHMENTS_EXT"]
+		[AliasOf("GL_MAX_COLOR_ATTACHMENTS_EXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ARB_framebuffer_object")]
 		public const int MAX_COLOR_ATTACHMENTS = 0x8CDF;
@@ -1043,7 +1043,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_COLOR_ATTACHMENT0 symbol.
 		/// </summary>
-		[AliasOf("GL_COLOR_ATTACHMENT0_EXT"]
+		[AliasOf("GL_COLOR_ATTACHMENT0_EXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ARB_framebuffer_object")]
 		public const int COLOR_ATTACHMENT0 = 0x8CE0;
@@ -1051,7 +1051,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_COLOR_ATTACHMENT1 symbol.
 		/// </summary>
-		[AliasOf("GL_COLOR_ATTACHMENT1_EXT"]
+		[AliasOf("GL_COLOR_ATTACHMENT1_EXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ARB_framebuffer_object")]
 		public const int COLOR_ATTACHMENT1 = 0x8CE1;
@@ -1059,7 +1059,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_COLOR_ATTACHMENT2 symbol.
 		/// </summary>
-		[AliasOf("GL_COLOR_ATTACHMENT2_EXT"]
+		[AliasOf("GL_COLOR_ATTACHMENT2_EXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ARB_framebuffer_object")]
 		public const int COLOR_ATTACHMENT2 = 0x8CE2;
@@ -1067,7 +1067,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_COLOR_ATTACHMENT3 symbol.
 		/// </summary>
-		[AliasOf("GL_COLOR_ATTACHMENT3_EXT"]
+		[AliasOf("GL_COLOR_ATTACHMENT3_EXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ARB_framebuffer_object")]
 		public const int COLOR_ATTACHMENT3 = 0x8CE3;
@@ -1075,7 +1075,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_COLOR_ATTACHMENT4 symbol.
 		/// </summary>
-		[AliasOf("GL_COLOR_ATTACHMENT4_EXT"]
+		[AliasOf("GL_COLOR_ATTACHMENT4_EXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ARB_framebuffer_object")]
 		public const int COLOR_ATTACHMENT4 = 0x8CE4;
@@ -1083,7 +1083,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_COLOR_ATTACHMENT5 symbol.
 		/// </summary>
-		[AliasOf("GL_COLOR_ATTACHMENT5_EXT"]
+		[AliasOf("GL_COLOR_ATTACHMENT5_EXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ARB_framebuffer_object")]
 		public const int COLOR_ATTACHMENT5 = 0x8CE5;
@@ -1091,7 +1091,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_COLOR_ATTACHMENT6 symbol.
 		/// </summary>
-		[AliasOf("GL_COLOR_ATTACHMENT6_EXT"]
+		[AliasOf("GL_COLOR_ATTACHMENT6_EXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ARB_framebuffer_object")]
 		public const int COLOR_ATTACHMENT6 = 0x8CE6;
@@ -1099,7 +1099,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_COLOR_ATTACHMENT7 symbol.
 		/// </summary>
-		[AliasOf("GL_COLOR_ATTACHMENT7_EXT"]
+		[AliasOf("GL_COLOR_ATTACHMENT7_EXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ARB_framebuffer_object")]
 		public const int COLOR_ATTACHMENT7 = 0x8CE7;
@@ -1107,7 +1107,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_COLOR_ATTACHMENT8 symbol.
 		/// </summary>
-		[AliasOf("GL_COLOR_ATTACHMENT8_EXT"]
+		[AliasOf("GL_COLOR_ATTACHMENT8_EXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ARB_framebuffer_object")]
 		public const int COLOR_ATTACHMENT8 = 0x8CE8;
@@ -1115,7 +1115,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_COLOR_ATTACHMENT9 symbol.
 		/// </summary>
-		[AliasOf("GL_COLOR_ATTACHMENT9_EXT"]
+		[AliasOf("GL_COLOR_ATTACHMENT9_EXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ARB_framebuffer_object")]
 		public const int COLOR_ATTACHMENT9 = 0x8CE9;
@@ -1123,7 +1123,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_COLOR_ATTACHMENT10 symbol.
 		/// </summary>
-		[AliasOf("GL_COLOR_ATTACHMENT10_EXT"]
+		[AliasOf("GL_COLOR_ATTACHMENT10_EXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ARB_framebuffer_object")]
 		public const int COLOR_ATTACHMENT10 = 0x8CEA;
@@ -1131,7 +1131,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_COLOR_ATTACHMENT11 symbol.
 		/// </summary>
-		[AliasOf("GL_COLOR_ATTACHMENT11_EXT"]
+		[AliasOf("GL_COLOR_ATTACHMENT11_EXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ARB_framebuffer_object")]
 		public const int COLOR_ATTACHMENT11 = 0x8CEB;
@@ -1139,7 +1139,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_COLOR_ATTACHMENT12 symbol.
 		/// </summary>
-		[AliasOf("GL_COLOR_ATTACHMENT12_EXT"]
+		[AliasOf("GL_COLOR_ATTACHMENT12_EXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ARB_framebuffer_object")]
 		public const int COLOR_ATTACHMENT12 = 0x8CEC;
@@ -1147,7 +1147,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_COLOR_ATTACHMENT13 symbol.
 		/// </summary>
-		[AliasOf("GL_COLOR_ATTACHMENT13_EXT"]
+		[AliasOf("GL_COLOR_ATTACHMENT13_EXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ARB_framebuffer_object")]
 		public const int COLOR_ATTACHMENT13 = 0x8CED;
@@ -1155,7 +1155,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_COLOR_ATTACHMENT14 symbol.
 		/// </summary>
-		[AliasOf("GL_COLOR_ATTACHMENT14_EXT"]
+		[AliasOf("GL_COLOR_ATTACHMENT14_EXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ARB_framebuffer_object")]
 		public const int COLOR_ATTACHMENT14 = 0x8CEE;
@@ -1163,7 +1163,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_COLOR_ATTACHMENT15 symbol.
 		/// </summary>
-		[AliasOf("GL_COLOR_ATTACHMENT15_EXT"]
+		[AliasOf("GL_COLOR_ATTACHMENT15_EXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ARB_framebuffer_object")]
 		public const int COLOR_ATTACHMENT15 = 0x8CEF;
@@ -1171,7 +1171,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_DEPTH_ATTACHMENT symbol.
 		/// </summary>
-		[AliasOf("GL_DEPTH_ATTACHMENT_EXT"]
+		[AliasOf("GL_DEPTH_ATTACHMENT_EXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ARB_framebuffer_object")]
 		public const int DEPTH_ATTACHMENT = 0x8D00;
@@ -1179,7 +1179,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_STENCIL_ATTACHMENT symbol.
 		/// </summary>
-		[AliasOf("GL_STENCIL_ATTACHMENT_EXT"]
+		[AliasOf("GL_STENCIL_ATTACHMENT_EXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ARB_framebuffer_object")]
 		public const int STENCIL_ATTACHMENT = 0x8D20;
@@ -1187,7 +1187,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_FRAMEBUFFER symbol.
 		/// </summary>
-		[AliasOf("GL_FRAMEBUFFER_EXT"]
+		[AliasOf("GL_FRAMEBUFFER_EXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ARB_framebuffer_object")]
 		public const int FRAMEBUFFER = 0x8D40;
@@ -1195,7 +1195,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_RENDERBUFFER symbol.
 		/// </summary>
-		[AliasOf("GL_RENDERBUFFER_EXT"]
+		[AliasOf("GL_RENDERBUFFER_EXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ARB_framebuffer_object")]
 		[RequiredByFeature("GL_ARB_internalformat_query2")]
@@ -1205,7 +1205,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_RENDERBUFFER_WIDTH symbol.
 		/// </summary>
-		[AliasOf("GL_RENDERBUFFER_WIDTH_EXT"]
+		[AliasOf("GL_RENDERBUFFER_WIDTH_EXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ARB_framebuffer_object")]
 		public const int RENDERBUFFER_WIDTH = 0x8D42;
@@ -1213,7 +1213,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_RENDERBUFFER_HEIGHT symbol.
 		/// </summary>
-		[AliasOf("GL_RENDERBUFFER_HEIGHT_EXT"]
+		[AliasOf("GL_RENDERBUFFER_HEIGHT_EXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ARB_framebuffer_object")]
 		public const int RENDERBUFFER_HEIGHT = 0x8D43;
@@ -1221,7 +1221,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_RENDERBUFFER_INTERNAL_FORMAT symbol.
 		/// </summary>
-		[AliasOf("GL_RENDERBUFFER_INTERNAL_FORMAT_EXT"]
+		[AliasOf("GL_RENDERBUFFER_INTERNAL_FORMAT_EXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ARB_framebuffer_object")]
 		public const int RENDERBUFFER_INTERNAL_FORMAT = 0x8D44;
@@ -1229,7 +1229,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_STENCIL_INDEX1 symbol.
 		/// </summary>
-		[AliasOf("GL_STENCIL_INDEX1_EXT"]
+		[AliasOf("GL_STENCIL_INDEX1_EXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ARB_framebuffer_object")]
 		public const int STENCIL_INDEX1 = 0x8D46;
@@ -1237,7 +1237,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_STENCIL_INDEX4 symbol.
 		/// </summary>
-		[AliasOf("GL_STENCIL_INDEX4_EXT"]
+		[AliasOf("GL_STENCIL_INDEX4_EXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ARB_framebuffer_object")]
 		public const int STENCIL_INDEX4 = 0x8D47;
@@ -1245,7 +1245,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_STENCIL_INDEX8 symbol.
 		/// </summary>
-		[AliasOf("GL_STENCIL_INDEX8_EXT"]
+		[AliasOf("GL_STENCIL_INDEX8_EXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_VERSION_4_4")]
 		[RequiredByFeature("GL_ARB_framebuffer_object")]
@@ -1255,7 +1255,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_STENCIL_INDEX16 symbol.
 		/// </summary>
-		[AliasOf("GL_STENCIL_INDEX16_EXT"]
+		[AliasOf("GL_STENCIL_INDEX16_EXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ARB_framebuffer_object")]
 		public const int STENCIL_INDEX16 = 0x8D49;
@@ -1263,7 +1263,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_RENDERBUFFER_RED_SIZE symbol.
 		/// </summary>
-		[AliasOf("GL_RENDERBUFFER_RED_SIZE_EXT"]
+		[AliasOf("GL_RENDERBUFFER_RED_SIZE_EXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ARB_framebuffer_object")]
 		public const int RENDERBUFFER_RED_SIZE = 0x8D50;
@@ -1271,7 +1271,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_RENDERBUFFER_GREEN_SIZE symbol.
 		/// </summary>
-		[AliasOf("GL_RENDERBUFFER_GREEN_SIZE_EXT"]
+		[AliasOf("GL_RENDERBUFFER_GREEN_SIZE_EXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ARB_framebuffer_object")]
 		public const int RENDERBUFFER_GREEN_SIZE = 0x8D51;
@@ -1279,7 +1279,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_RENDERBUFFER_BLUE_SIZE symbol.
 		/// </summary>
-		[AliasOf("GL_RENDERBUFFER_BLUE_SIZE_EXT"]
+		[AliasOf("GL_RENDERBUFFER_BLUE_SIZE_EXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ARB_framebuffer_object")]
 		public const int RENDERBUFFER_BLUE_SIZE = 0x8D52;
@@ -1287,7 +1287,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_RENDERBUFFER_ALPHA_SIZE symbol.
 		/// </summary>
-		[AliasOf("GL_RENDERBUFFER_ALPHA_SIZE_EXT"]
+		[AliasOf("GL_RENDERBUFFER_ALPHA_SIZE_EXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ARB_framebuffer_object")]
 		public const int RENDERBUFFER_ALPHA_SIZE = 0x8D53;
@@ -1295,7 +1295,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_RENDERBUFFER_DEPTH_SIZE symbol.
 		/// </summary>
-		[AliasOf("GL_RENDERBUFFER_DEPTH_SIZE_EXT"]
+		[AliasOf("GL_RENDERBUFFER_DEPTH_SIZE_EXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ARB_framebuffer_object")]
 		public const int RENDERBUFFER_DEPTH_SIZE = 0x8D54;
@@ -1303,7 +1303,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_RENDERBUFFER_STENCIL_SIZE symbol.
 		/// </summary>
-		[AliasOf("GL_RENDERBUFFER_STENCIL_SIZE_EXT"]
+		[AliasOf("GL_RENDERBUFFER_STENCIL_SIZE_EXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ARB_framebuffer_object")]
 		public const int RENDERBUFFER_STENCIL_SIZE = 0x8D55;
@@ -1311,7 +1311,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_FRAMEBUFFER_INCOMPLETE_MULTISAMPLE symbol.
 		/// </summary>
-		[AliasOf("GL_FRAMEBUFFER_INCOMPLETE_MULTISAMPLE_EXT"]
+		[AliasOf("GL_FRAMEBUFFER_INCOMPLETE_MULTISAMPLE_EXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ARB_framebuffer_object")]
 		public const int FRAMEBUFFER_INCOMPLETE_MULTISAMPLE = 0x8D56;
@@ -1319,7 +1319,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_MAX_SAMPLES symbol.
 		/// </summary>
-		[AliasOf("GL_MAX_SAMPLES_EXT"]
+		[AliasOf("GL_MAX_SAMPLES_EXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ARB_framebuffer_object")]
 		public const int MAX_SAMPLES = 0x8D57;
@@ -1334,7 +1334,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_TEXTURE_LUMINANCE_TYPE symbol (DEPRECATED).
 		/// </summary>
-		[AliasOf("GL_TEXTURE_LUMINANCE_TYPE_ARB"]
+		[AliasOf("GL_TEXTURE_LUMINANCE_TYPE_ARB")]
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
@@ -1345,7 +1345,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_TEXTURE_INTENSITY_TYPE symbol (DEPRECATED).
 		/// </summary>
-		[AliasOf("GL_TEXTURE_INTENSITY_TYPE_ARB"]
+		[AliasOf("GL_TEXTURE_INTENSITY_TYPE_ARB")]
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
@@ -1356,7 +1356,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_FRAMEBUFFER_SRGB symbol.
 		/// </summary>
-		[AliasOf("GL_FRAMEBUFFER_SRGB_EXT"]
+		[AliasOf("GL_FRAMEBUFFER_SRGB_EXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ARB_framebuffer_sRGB")]
 		public const int FRAMEBUFFER_SRGB = 0x8DB9;
@@ -1364,8 +1364,8 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_HALF_FLOAT symbol.
 		/// </summary>
-		[AliasOf("GL_HALF_FLOAT_ARB"]
-		[AliasOf("GL_HALF_FLOAT_NV"]
+		[AliasOf("GL_HALF_FLOAT_ARB")]
+		[AliasOf("GL_HALF_FLOAT_NV")]
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ARB_half_float_vertex")]
 		public const int HALF_FLOAT = 0x140B;
@@ -1419,7 +1419,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_COMPRESSED_RED_RGTC1 symbol.
 		/// </summary>
-		[AliasOf("GL_COMPRESSED_RED_RGTC1_EXT"]
+		[AliasOf("GL_COMPRESSED_RED_RGTC1_EXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ARB_texture_compression_rgtc")]
 		public const int COMPRESSED_RED_RGTC1 = 0x8DBB;
@@ -1427,7 +1427,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_COMPRESSED_SIGNED_RED_RGTC1 symbol.
 		/// </summary>
-		[AliasOf("GL_COMPRESSED_SIGNED_RED_RGTC1_EXT"]
+		[AliasOf("GL_COMPRESSED_SIGNED_RED_RGTC1_EXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ARB_texture_compression_rgtc")]
 		public const int COMPRESSED_SIGNED_RED_RGTC1 = 0x8DBC;
@@ -1605,7 +1605,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_VERTEX_ARRAY_BINDING symbol.
 		/// </summary>
-		[AliasOf("GL_VERTEX_ARRAY_BINDING_APPLE"]
+		[AliasOf("GL_VERTEX_ARRAY_BINDING_APPLE")]
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ARB_vertex_array_object")]
 		public const int VERTEX_ARRAY_BINDING = 0x85B5;
@@ -1613,7 +1613,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_CLAMP_VERTEX_COLOR symbol (DEPRECATED).
 		/// </summary>
-		[AliasOf("GL_CLAMP_VERTEX_COLOR_ARB"]
+		[AliasOf("GL_CLAMP_VERTEX_COLOR_ARB")]
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
@@ -1624,7 +1624,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_CLAMP_FRAGMENT_COLOR symbol (DEPRECATED).
 		/// </summary>
-		[AliasOf("GL_CLAMP_FRAGMENT_COLOR_ARB"]
+		[AliasOf("GL_CLAMP_FRAGMENT_COLOR_ARB")]
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
@@ -1635,7 +1635,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_ALPHA_INTEGER symbol (DEPRECATED).
 		/// </summary>
-		[AliasOf("GL_ALPHA_INTEGER_EXT"]
+		[AliasOf("GL_ALPHA_INTEGER_EXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
@@ -1664,14 +1664,9 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_3_0")]
 		public static void ColorMask(UInt32 index, bool r, bool g, bool b, bool a)
 		{
-			if        (Delegates.pglColorMaski != null) {
-				Delegates.pglColorMaski(index, r, g, b, a);
-				CallLog("glColorMaski({0}, {1}, {2}, {3}, {4})", index, r, g, b, a);
-			} else if (Delegates.pglColorMaskIndexedEXT != null) {
-				Delegates.pglColorMaskIndexedEXT(index, r, g, b, a);
-				CallLog("glColorMaskIndexedEXT({0}, {1}, {2}, {3}, {4})", index, r, g, b, a);
-			} else
-				throw new NotImplementedException("glColorMaski (and other aliases) are not implemented");
+			Debug.Assert(Delegates.pglColorMaski != null, "pglColorMaski not implemented");
+			Delegates.pglColorMaski(index, r, g, b, a);
+			CallLog("glColorMaski({0}, {1}, {2}, {3}, {4})", index, r, g, b, a);
 			DebugCheckErrors();
 		}
 
@@ -1694,14 +1689,9 @@ namespace OpenGL
 			unsafe {
 				fixed (bool* p_data = data)
 				{
-					if        (Delegates.pglGetBooleani_v != null) {
-						Delegates.pglGetBooleani_v(target, index, p_data);
-						CallLog("glGetBooleani_v({0}, {1}, {2})", target, index, data);
-					} else if (Delegates.pglGetBooleanIndexedvEXT != null) {
-						Delegates.pglGetBooleanIndexedvEXT(target, index, p_data);
-						CallLog("glGetBooleanIndexedvEXT({0}, {1}, {2})", target, index, data);
-					} else
-						throw new NotImplementedException("glGetBooleani_v (and other aliases) are not implemented");
+					Debug.Assert(Delegates.pglGetBooleani_v != null, "pglGetBooleani_v not implemented");
+					Delegates.pglGetBooleani_v(target, index, p_data);
+					CallLog("glGetBooleani_v({0}, {1}, {2})", target, index, data);
 				}
 			}
 			DebugCheckErrors();
@@ -1726,14 +1716,9 @@ namespace OpenGL
 			unsafe {
 				fixed (bool* p_data = &data)
 				{
-					if        (Delegates.pglGetBooleani_v != null) {
-						Delegates.pglGetBooleani_v(target, index, p_data);
-						CallLog("glGetBooleani_v({0}, {1}, {2})", target, index, data);
-					} else if (Delegates.pglGetBooleanIndexedvEXT != null) {
-						Delegates.pglGetBooleanIndexedvEXT(target, index, p_data);
-						CallLog("glGetBooleanIndexedvEXT({0}, {1}, {2})", target, index, data);
-					} else
-						throw new NotImplementedException("glGetBooleani_v (and other aliases) are not implemented");
+					Debug.Assert(Delegates.pglGetBooleani_v != null, "pglGetBooleani_v not implemented");
+					Delegates.pglGetBooleani_v(target, index, p_data);
+					CallLog("glGetBooleani_v({0}, {1}, {2})", target, index, data);
 				}
 			}
 			DebugCheckErrors();
@@ -1758,14 +1743,9 @@ namespace OpenGL
 			unsafe {
 				fixed (Int32* p_data = data)
 				{
-					if        (Delegates.pglGetIntegeri_v != null) {
-						Delegates.pglGetIntegeri_v(target, index, p_data);
-						CallLog("glGetIntegeri_v({0}, {1}, {2})", target, index, data);
-					} else if (Delegates.pglGetIntegerIndexedvEXT != null) {
-						Delegates.pglGetIntegerIndexedvEXT(target, index, p_data);
-						CallLog("glGetIntegerIndexedvEXT({0}, {1}, {2})", target, index, data);
-					} else
-						throw new NotImplementedException("glGetIntegeri_v (and other aliases) are not implemented");
+					Debug.Assert(Delegates.pglGetIntegeri_v != null, "pglGetIntegeri_v not implemented");
+					Delegates.pglGetIntegeri_v(target, index, p_data);
+					CallLog("glGetIntegeri_v({0}, {1}, {2})", target, index, data);
 				}
 			}
 			DebugCheckErrors();
@@ -1790,14 +1770,9 @@ namespace OpenGL
 			unsafe {
 				fixed (Int32* p_data = &data)
 				{
-					if        (Delegates.pglGetIntegeri_v != null) {
-						Delegates.pglGetIntegeri_v(target, index, p_data);
-						CallLog("glGetIntegeri_v({0}, {1}, {2})", target, index, data);
-					} else if (Delegates.pglGetIntegerIndexedvEXT != null) {
-						Delegates.pglGetIntegerIndexedvEXT(target, index, p_data);
-						CallLog("glGetIntegerIndexedvEXT({0}, {1}, {2})", target, index, data);
-					} else
-						throw new NotImplementedException("glGetIntegeri_v (and other aliases) are not implemented");
+					Debug.Assert(Delegates.pglGetIntegeri_v != null, "pglGetIntegeri_v not implemented");
+					Delegates.pglGetIntegeri_v(target, index, p_data);
+					CallLog("glGetIntegeri_v({0}, {1}, {2})", target, index, data);
 				}
 			}
 			DebugCheckErrors();
@@ -1815,14 +1790,9 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_3_0")]
 		public static void Enable(int target, UInt32 index)
 		{
-			if        (Delegates.pglEnablei != null) {
-				Delegates.pglEnablei(target, index);
-				CallLog("glEnablei({0}, {1})", target, index);
-			} else if (Delegates.pglEnableIndexedEXT != null) {
-				Delegates.pglEnableIndexedEXT(target, index);
-				CallLog("glEnableIndexedEXT({0}, {1})", target, index);
-			} else
-				throw new NotImplementedException("glEnablei (and other aliases) are not implemented");
+			Debug.Assert(Delegates.pglEnablei != null, "pglEnablei not implemented");
+			Delegates.pglEnablei(target, index);
+			CallLog("glEnablei({0}, {1})", target, index);
 			DebugCheckErrors();
 		}
 
@@ -1838,14 +1808,9 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_3_0")]
 		public static void Disable(int target, UInt32 index)
 		{
-			if        (Delegates.pglDisablei != null) {
-				Delegates.pglDisablei(target, index);
-				CallLog("glDisablei({0}, {1})", target, index);
-			} else if (Delegates.pglDisableIndexedEXT != null) {
-				Delegates.pglDisableIndexedEXT(target, index);
-				CallLog("glDisableIndexedEXT({0}, {1})", target, index);
-			} else
-				throw new NotImplementedException("glDisablei (and other aliases) are not implemented");
+			Debug.Assert(Delegates.pglDisablei != null, "pglDisablei not implemented");
+			Delegates.pglDisablei(target, index);
+			CallLog("glDisablei({0}, {1})", target, index);
 			DebugCheckErrors();
 		}
 
@@ -1863,14 +1828,9 @@ namespace OpenGL
 		{
 			bool retValue;
 
-			if        (Delegates.pglIsEnabledi != null) {
-				retValue = Delegates.pglIsEnabledi(target, index);
-				CallLog("glIsEnabledi({0}, {1}) = {2}", target, index, retValue);
-			} else if (Delegates.pglIsEnabledIndexedEXT != null) {
-				retValue = Delegates.pglIsEnabledIndexedEXT(target, index);
-				CallLog("glIsEnabledIndexedEXT({0}, {1}) = {2}", target, index, retValue);
-			} else
-				throw new NotImplementedException("glIsEnabledi (and other aliases) are not implemented");
+			Debug.Assert(Delegates.pglIsEnabledi != null, "pglIsEnabledi not implemented");
+			retValue = Delegates.pglIsEnabledi(target, index);
+			CallLog("glIsEnabledi({0}, {1}) = {2}", target, index, retValue);
 			DebugCheckErrors();
 
 			return (retValue);
@@ -1886,17 +1846,9 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_3_0")]
 		public static void BeginTransformFeedback(int primitiveMode)
 		{
-			if        (Delegates.pglBeginTransformFeedback != null) {
-				Delegates.pglBeginTransformFeedback(primitiveMode);
-				CallLog("glBeginTransformFeedback({0})", primitiveMode);
-			} else if (Delegates.pglBeginTransformFeedbackEXT != null) {
-				Delegates.pglBeginTransformFeedbackEXT(primitiveMode);
-				CallLog("glBeginTransformFeedbackEXT({0})", primitiveMode);
-			} else if (Delegates.pglBeginTransformFeedbackNV != null) {
-				Delegates.pglBeginTransformFeedbackNV(primitiveMode);
-				CallLog("glBeginTransformFeedbackNV({0})", primitiveMode);
-			} else
-				throw new NotImplementedException("glBeginTransformFeedback (and other aliases) are not implemented");
+			Debug.Assert(Delegates.pglBeginTransformFeedback != null, "pglBeginTransformFeedback not implemented");
+			Delegates.pglBeginTransformFeedback(primitiveMode);
+			CallLog("glBeginTransformFeedback({0})", primitiveMode);
 			DebugCheckErrors();
 		}
 
@@ -1906,17 +1858,9 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_3_0")]
 		public static void EndTransformFeedback()
 		{
-			if        (Delegates.pglEndTransformFeedback != null) {
-				Delegates.pglEndTransformFeedback();
-				CallLog("glEndTransformFeedback()");
-			} else if (Delegates.pglEndTransformFeedbackEXT != null) {
-				Delegates.pglEndTransformFeedbackEXT();
-				CallLog("glEndTransformFeedbackEXT()");
-			} else if (Delegates.pglEndTransformFeedbackNV != null) {
-				Delegates.pglEndTransformFeedbackNV();
-				CallLog("glEndTransformFeedbackNV()");
-			} else
-				throw new NotImplementedException("glEndTransformFeedback (and other aliases) are not implemented");
+			Debug.Assert(Delegates.pglEndTransformFeedback != null, "pglEndTransformFeedback not implemented");
+			Delegates.pglEndTransformFeedback();
+			CallLog("glEndTransformFeedback()");
 			DebugCheckErrors();
 		}
 
@@ -1942,17 +1886,9 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_3_0")]
 		public static void BindBufferRange(int target, UInt32 index, UInt32 buffer, IntPtr offset, UInt32 size)
 		{
-			if        (Delegates.pglBindBufferRange != null) {
-				Delegates.pglBindBufferRange(target, index, buffer, offset, size);
-				CallLog("glBindBufferRange({0}, {1}, {2}, {3}, {4})", target, index, buffer, offset, size);
-			} else if (Delegates.pglBindBufferRangeEXT != null) {
-				Delegates.pglBindBufferRangeEXT(target, index, buffer, offset, size);
-				CallLog("glBindBufferRangeEXT({0}, {1}, {2}, {3}, {4})", target, index, buffer, offset, size);
-			} else if (Delegates.pglBindBufferRangeNV != null) {
-				Delegates.pglBindBufferRangeNV(target, index, buffer, offset, size);
-				CallLog("glBindBufferRangeNV({0}, {1}, {2}, {3}, {4})", target, index, buffer, offset, size);
-			} else
-				throw new NotImplementedException("glBindBufferRange (and other aliases) are not implemented");
+			Debug.Assert(Delegates.pglBindBufferRange != null, "pglBindBufferRange not implemented");
+			Delegates.pglBindBufferRange(target, index, buffer, offset, size);
+			CallLog("glBindBufferRange({0}, {1}, {2}, {3}, {4})", target, index, buffer, offset, size);
 			DebugCheckErrors();
 		}
 
@@ -1972,17 +1908,9 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_3_0")]
 		public static void BindBufferBase(int target, UInt32 index, UInt32 buffer)
 		{
-			if        (Delegates.pglBindBufferBase != null) {
-				Delegates.pglBindBufferBase(target, index, buffer);
-				CallLog("glBindBufferBase({0}, {1}, {2})", target, index, buffer);
-			} else if (Delegates.pglBindBufferBaseEXT != null) {
-				Delegates.pglBindBufferBaseEXT(target, index, buffer);
-				CallLog("glBindBufferBaseEXT({0}, {1}, {2})", target, index, buffer);
-			} else if (Delegates.pglBindBufferBaseNV != null) {
-				Delegates.pglBindBufferBaseNV(target, index, buffer);
-				CallLog("glBindBufferBaseNV({0}, {1}, {2})", target, index, buffer);
-			} else
-				throw new NotImplementedException("glBindBufferBase (and other aliases) are not implemented");
+			Debug.Assert(Delegates.pglBindBufferBase != null, "pglBindBufferBase not implemented");
+			Delegates.pglBindBufferBase(target, index, buffer);
+			CallLog("glBindBufferBase({0}, {1}, {2})", target, index, buffer);
 			DebugCheckErrors();
 		}
 
@@ -2005,14 +1933,9 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_3_0")]
 		public static void TransformFeedbackVarying(UInt32 program, String[] varyings, int bufferMode)
 		{
-			if        (Delegates.pglTransformFeedbackVaryings != null) {
-				Delegates.pglTransformFeedbackVaryings(program, (Int32)varyings.Length, varyings, bufferMode);
-				CallLog("glTransformFeedbackVaryings({0}, {1}, {2}, {3})", program, varyings.Length, varyings, bufferMode);
-			} else if (Delegates.pglTransformFeedbackVaryingsEXT != null) {
-				Delegates.pglTransformFeedbackVaryingsEXT(program, (Int32)varyings.Length, varyings, bufferMode);
-				CallLog("glTransformFeedbackVaryingsEXT({0}, {1}, {2}, {3})", program, varyings.Length, varyings, bufferMode);
-			} else
-				throw new NotImplementedException("glTransformFeedbackVaryings (and other aliases) are not implemented");
+			Debug.Assert(Delegates.pglTransformFeedbackVaryings != null, "pglTransformFeedbackVaryings not implemented");
+			Delegates.pglTransformFeedbackVaryings(program, (Int32)varyings.Length, varyings, bufferMode);
+			CallLog("glTransformFeedbackVaryings({0}, {1}, {2}, {3})", program, varyings.Length, varyings, bufferMode);
 			DebugCheckErrors();
 		}
 
@@ -2049,14 +1972,9 @@ namespace OpenGL
 				fixed (Int32* p_size = &size)
 				fixed (int* p_type = &type)
 				{
-					if        (Delegates.pglGetTransformFeedbackVarying != null) {
-						Delegates.pglGetTransformFeedbackVarying(program, index, bufSize, p_length, p_size, p_type, name);
-						CallLog("glGetTransformFeedbackVarying({0}, {1}, {2}, {3}, {4}, {5}, {6})", program, index, bufSize, length, size, type, name);
-					} else if (Delegates.pglGetTransformFeedbackVaryingEXT != null) {
-						Delegates.pglGetTransformFeedbackVaryingEXT(program, index, bufSize, p_length, p_size, p_type, name);
-						CallLog("glGetTransformFeedbackVaryingEXT({0}, {1}, {2}, {3}, {4}, {5}, {6})", program, index, bufSize, length, size, type, name);
-					} else
-						throw new NotImplementedException("glGetTransformFeedbackVarying (and other aliases) are not implemented");
+					Debug.Assert(Delegates.pglGetTransformFeedbackVarying != null, "pglGetTransformFeedbackVarying not implemented");
+					Delegates.pglGetTransformFeedbackVarying(program, index, bufSize, p_length, p_size, p_type, name);
+					CallLog("glGetTransformFeedbackVarying({0}, {1}, {2}, {3}, {4}, {5}, {6})", program, index, bufSize, length, size, type, name);
 				}
 			}
 			DebugCheckErrors();
@@ -2074,14 +1992,9 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_3_0")]
 		public static void ClampColor(int target, int clamp)
 		{
-			if        (Delegates.pglClampColor != null) {
-				Delegates.pglClampColor(target, clamp);
-				CallLog("glClampColor({0}, {1})", target, clamp);
-			} else if (Delegates.pglClampColorARB != null) {
-				Delegates.pglClampColorARB(target, clamp);
-				CallLog("glClampColorARB({0}, {1})", target, clamp);
-			} else
-				throw new NotImplementedException("glClampColor (and other aliases) are not implemented");
+			Debug.Assert(Delegates.pglClampColor != null, "pglClampColor not implemented");
+			Delegates.pglClampColor(target, clamp);
+			CallLog("glClampColor({0}, {1})", target, clamp);
 			DebugCheckErrors();
 		}
 
@@ -2098,14 +2011,9 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_3_0")]
 		public static void BeginConditionalRender(UInt32 id, int mode)
 		{
-			if        (Delegates.pglBeginConditionalRender != null) {
-				Delegates.pglBeginConditionalRender(id, mode);
-				CallLog("glBeginConditionalRender({0}, {1})", id, mode);
-			} else if (Delegates.pglBeginConditionalRenderNV != null) {
-				Delegates.pglBeginConditionalRenderNV(id, mode);
-				CallLog("glBeginConditionalRenderNV({0}, {1})", id, mode);
-			} else
-				throw new NotImplementedException("glBeginConditionalRender (and other aliases) are not implemented");
+			Debug.Assert(Delegates.pglBeginConditionalRender != null, "pglBeginConditionalRender not implemented");
+			Delegates.pglBeginConditionalRender(id, mode);
+			CallLog("glBeginConditionalRender({0}, {1})", id, mode);
 			DebugCheckErrors();
 		}
 
@@ -2115,17 +2023,9 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_3_0")]
 		public static void EndConditionalRender()
 		{
-			if        (Delegates.pglEndConditionalRender != null) {
-				Delegates.pglEndConditionalRender();
-				CallLog("glEndConditionalRender()");
-			} else if (Delegates.pglEndConditionalRenderNV != null) {
-				Delegates.pglEndConditionalRenderNV();
-				CallLog("glEndConditionalRenderNV()");
-			} else if (Delegates.pglEndConditionalRenderNVX != null) {
-				Delegates.pglEndConditionalRenderNVX();
-				CallLog("glEndConditionalRenderNVX()");
-			} else
-				throw new NotImplementedException("glEndConditionalRender (and other aliases) are not implemented");
+			Debug.Assert(Delegates.pglEndConditionalRender != null, "pglEndConditionalRender not implemented");
+			Delegates.pglEndConditionalRender();
+			CallLog("glEndConditionalRender()");
 			DebugCheckErrors();
 		}
 
@@ -2158,14 +2058,9 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_3_0")]
 		public static void VertexAttribIPointer(UInt32 index, Int32 size, int type, Int32 stride, IntPtr pointer)
 		{
-			if        (Delegates.pglVertexAttribIPointer != null) {
-				Delegates.pglVertexAttribIPointer(index, size, type, stride, pointer);
-				CallLog("glVertexAttribIPointer({0}, {1}, {2}, {3}, {4})", index, size, type, stride, pointer);
-			} else if (Delegates.pglVertexAttribIPointerEXT != null) {
-				Delegates.pglVertexAttribIPointerEXT(index, size, type, stride, pointer);
-				CallLog("glVertexAttribIPointerEXT({0}, {1}, {2}, {3}, {4})", index, size, type, stride, pointer);
-			} else
-				throw new NotImplementedException("glVertexAttribIPointer (and other aliases) are not implemented");
+			Debug.Assert(Delegates.pglVertexAttribIPointer != null, "pglVertexAttribIPointer not implemented");
+			Delegates.pglVertexAttribIPointer(index, size, type, stride, pointer);
+			CallLog("glVertexAttribIPointer({0}, {1}, {2}, {3}, {4})", index, size, type, stride, pointer);
 			DebugCheckErrors();
 		}
 
@@ -2227,14 +2122,9 @@ namespace OpenGL
 			unsafe {
 				fixed (Int32* p_params = &@params)
 				{
-					if        (Delegates.pglGetVertexAttribIiv != null) {
-						Delegates.pglGetVertexAttribIiv(index, pname, p_params);
-						CallLog("glGetVertexAttribIiv({0}, {1}, {2})", index, pname, @params);
-					} else if (Delegates.pglGetVertexAttribIivEXT != null) {
-						Delegates.pglGetVertexAttribIivEXT(index, pname, p_params);
-						CallLog("glGetVertexAttribIivEXT({0}, {1}, {2})", index, pname, @params);
-					} else
-						throw new NotImplementedException("glGetVertexAttribIiv (and other aliases) are not implemented");
+					Debug.Assert(Delegates.pglGetVertexAttribIiv != null, "pglGetVertexAttribIiv not implemented");
+					Delegates.pglGetVertexAttribIiv(index, pname, p_params);
+					CallLog("glGetVertexAttribIiv({0}, {1}, {2})", index, pname, @params);
 				}
 			}
 			DebugCheckErrors();
@@ -2261,14 +2151,9 @@ namespace OpenGL
 			unsafe {
 				fixed (UInt32* p_params = &@params)
 				{
-					if        (Delegates.pglGetVertexAttribIuiv != null) {
-						Delegates.pglGetVertexAttribIuiv(index, pname, p_params);
-						CallLog("glGetVertexAttribIuiv({0}, {1}, {2})", index, pname, @params);
-					} else if (Delegates.pglGetVertexAttribIuivEXT != null) {
-						Delegates.pglGetVertexAttribIuivEXT(index, pname, p_params);
-						CallLog("glGetVertexAttribIuivEXT({0}, {1}, {2})", index, pname, @params);
-					} else
-						throw new NotImplementedException("glGetVertexAttribIuiv (and other aliases) are not implemented");
+					Debug.Assert(Delegates.pglGetVertexAttribIuiv != null, "pglGetVertexAttribIuiv not implemented");
+					Delegates.pglGetVertexAttribIuiv(index, pname, p_params);
+					CallLog("glGetVertexAttribIuiv({0}, {1}, {2})", index, pname, @params);
 				}
 			}
 			DebugCheckErrors();
@@ -2286,14 +2171,9 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_3_0")]
 		public static void VertexAttribI1(UInt32 index, Int32 x)
 		{
-			if        (Delegates.pglVertexAttribI1i != null) {
-				Delegates.pglVertexAttribI1i(index, x);
-				CallLog("glVertexAttribI1i({0}, {1})", index, x);
-			} else if (Delegates.pglVertexAttribI1iEXT != null) {
-				Delegates.pglVertexAttribI1iEXT(index, x);
-				CallLog("glVertexAttribI1iEXT({0}, {1})", index, x);
-			} else
-				throw new NotImplementedException("glVertexAttribI1i (and other aliases) are not implemented");
+			Debug.Assert(Delegates.pglVertexAttribI1i != null, "pglVertexAttribI1i not implemented");
+			Delegates.pglVertexAttribI1i(index, x);
+			CallLog("glVertexAttribI1i({0}, {1})", index, x);
 			DebugCheckErrors();
 		}
 
@@ -2312,14 +2192,9 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_3_0")]
 		public static void VertexAttribI2(UInt32 index, Int32 x, Int32 y)
 		{
-			if        (Delegates.pglVertexAttribI2i != null) {
-				Delegates.pglVertexAttribI2i(index, x, y);
-				CallLog("glVertexAttribI2i({0}, {1}, {2})", index, x, y);
-			} else if (Delegates.pglVertexAttribI2iEXT != null) {
-				Delegates.pglVertexAttribI2iEXT(index, x, y);
-				CallLog("glVertexAttribI2iEXT({0}, {1}, {2})", index, x, y);
-			} else
-				throw new NotImplementedException("glVertexAttribI2i (and other aliases) are not implemented");
+			Debug.Assert(Delegates.pglVertexAttribI2i != null, "pglVertexAttribI2i not implemented");
+			Delegates.pglVertexAttribI2i(index, x, y);
+			CallLog("glVertexAttribI2i({0}, {1}, {2})", index, x, y);
 			DebugCheckErrors();
 		}
 
@@ -2341,14 +2216,9 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_3_0")]
 		public static void VertexAttribI3(UInt32 index, Int32 x, Int32 y, Int32 z)
 		{
-			if        (Delegates.pglVertexAttribI3i != null) {
-				Delegates.pglVertexAttribI3i(index, x, y, z);
-				CallLog("glVertexAttribI3i({0}, {1}, {2}, {3})", index, x, y, z);
-			} else if (Delegates.pglVertexAttribI3iEXT != null) {
-				Delegates.pglVertexAttribI3iEXT(index, x, y, z);
-				CallLog("glVertexAttribI3iEXT({0}, {1}, {2}, {3})", index, x, y, z);
-			} else
-				throw new NotImplementedException("glVertexAttribI3i (and other aliases) are not implemented");
+			Debug.Assert(Delegates.pglVertexAttribI3i != null, "pglVertexAttribI3i not implemented");
+			Delegates.pglVertexAttribI3i(index, x, y, z);
+			CallLog("glVertexAttribI3i({0}, {1}, {2}, {3})", index, x, y, z);
 			DebugCheckErrors();
 		}
 
@@ -2373,14 +2243,9 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_3_0")]
 		public static void VertexAttribI4(UInt32 index, Int32 x, Int32 y, Int32 z, Int32 w)
 		{
-			if        (Delegates.pglVertexAttribI4i != null) {
-				Delegates.pglVertexAttribI4i(index, x, y, z, w);
-				CallLog("glVertexAttribI4i({0}, {1}, {2}, {3}, {4})", index, x, y, z, w);
-			} else if (Delegates.pglVertexAttribI4iEXT != null) {
-				Delegates.pglVertexAttribI4iEXT(index, x, y, z, w);
-				CallLog("glVertexAttribI4iEXT({0}, {1}, {2}, {3}, {4})", index, x, y, z, w);
-			} else
-				throw new NotImplementedException("glVertexAttribI4i (and other aliases) are not implemented");
+			Debug.Assert(Delegates.pglVertexAttribI4i != null, "pglVertexAttribI4i not implemented");
+			Delegates.pglVertexAttribI4i(index, x, y, z, w);
+			CallLog("glVertexAttribI4i({0}, {1}, {2}, {3}, {4})", index, x, y, z, w);
 			DebugCheckErrors();
 		}
 
@@ -2396,14 +2261,9 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_3_0")]
 		public static void VertexAttribI1(UInt32 index, UInt32 x)
 		{
-			if        (Delegates.pglVertexAttribI1ui != null) {
-				Delegates.pglVertexAttribI1ui(index, x);
-				CallLog("glVertexAttribI1ui({0}, {1})", index, x);
-			} else if (Delegates.pglVertexAttribI1uiEXT != null) {
-				Delegates.pglVertexAttribI1uiEXT(index, x);
-				CallLog("glVertexAttribI1uiEXT({0}, {1})", index, x);
-			} else
-				throw new NotImplementedException("glVertexAttribI1ui (and other aliases) are not implemented");
+			Debug.Assert(Delegates.pglVertexAttribI1ui != null, "pglVertexAttribI1ui not implemented");
+			Delegates.pglVertexAttribI1ui(index, x);
+			CallLog("glVertexAttribI1ui({0}, {1})", index, x);
 			DebugCheckErrors();
 		}
 
@@ -2422,14 +2282,9 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_3_0")]
 		public static void VertexAttribI2(UInt32 index, UInt32 x, UInt32 y)
 		{
-			if        (Delegates.pglVertexAttribI2ui != null) {
-				Delegates.pglVertexAttribI2ui(index, x, y);
-				CallLog("glVertexAttribI2ui({0}, {1}, {2})", index, x, y);
-			} else if (Delegates.pglVertexAttribI2uiEXT != null) {
-				Delegates.pglVertexAttribI2uiEXT(index, x, y);
-				CallLog("glVertexAttribI2uiEXT({0}, {1}, {2})", index, x, y);
-			} else
-				throw new NotImplementedException("glVertexAttribI2ui (and other aliases) are not implemented");
+			Debug.Assert(Delegates.pglVertexAttribI2ui != null, "pglVertexAttribI2ui not implemented");
+			Delegates.pglVertexAttribI2ui(index, x, y);
+			CallLog("glVertexAttribI2ui({0}, {1}, {2})", index, x, y);
 			DebugCheckErrors();
 		}
 
@@ -2451,14 +2306,9 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_3_0")]
 		public static void VertexAttribI3(UInt32 index, UInt32 x, UInt32 y, UInt32 z)
 		{
-			if        (Delegates.pglVertexAttribI3ui != null) {
-				Delegates.pglVertexAttribI3ui(index, x, y, z);
-				CallLog("glVertexAttribI3ui({0}, {1}, {2}, {3})", index, x, y, z);
-			} else if (Delegates.pglVertexAttribI3uiEXT != null) {
-				Delegates.pglVertexAttribI3uiEXT(index, x, y, z);
-				CallLog("glVertexAttribI3uiEXT({0}, {1}, {2}, {3})", index, x, y, z);
-			} else
-				throw new NotImplementedException("glVertexAttribI3ui (and other aliases) are not implemented");
+			Debug.Assert(Delegates.pglVertexAttribI3ui != null, "pglVertexAttribI3ui not implemented");
+			Delegates.pglVertexAttribI3ui(index, x, y, z);
+			CallLog("glVertexAttribI3ui({0}, {1}, {2}, {3})", index, x, y, z);
 			DebugCheckErrors();
 		}
 
@@ -2483,14 +2333,9 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_3_0")]
 		public static void VertexAttribI4(UInt32 index, UInt32 x, UInt32 y, UInt32 z, UInt32 w)
 		{
-			if        (Delegates.pglVertexAttribI4ui != null) {
-				Delegates.pglVertexAttribI4ui(index, x, y, z, w);
-				CallLog("glVertexAttribI4ui({0}, {1}, {2}, {3}, {4})", index, x, y, z, w);
-			} else if (Delegates.pglVertexAttribI4uiEXT != null) {
-				Delegates.pglVertexAttribI4uiEXT(index, x, y, z, w);
-				CallLog("glVertexAttribI4uiEXT({0}, {1}, {2}, {3}, {4})", index, x, y, z, w);
-			} else
-				throw new NotImplementedException("glVertexAttribI4ui (and other aliases) are not implemented");
+			Debug.Assert(Delegates.pglVertexAttribI4ui != null, "pglVertexAttribI4ui not implemented");
+			Delegates.pglVertexAttribI4ui(index, x, y, z, w);
+			CallLog("glVertexAttribI4ui({0}, {1}, {2}, {3}, {4})", index, x, y, z, w);
 			DebugCheckErrors();
 		}
 
@@ -2510,14 +2355,9 @@ namespace OpenGL
 			unsafe {
 				fixed (Int32* p_v = v)
 				{
-					if        (Delegates.pglVertexAttribI1iv != null) {
-						Delegates.pglVertexAttribI1iv(index, p_v);
-						CallLog("glVertexAttribI1iv({0}, {1})", index, v);
-					} else if (Delegates.pglVertexAttribI1ivEXT != null) {
-						Delegates.pglVertexAttribI1ivEXT(index, p_v);
-						CallLog("glVertexAttribI1ivEXT({0}, {1})", index, v);
-					} else
-						throw new NotImplementedException("glVertexAttribI1iv (and other aliases) are not implemented");
+					Debug.Assert(Delegates.pglVertexAttribI1iv != null, "pglVertexAttribI1iv not implemented");
+					Delegates.pglVertexAttribI1iv(index, p_v);
+					CallLog("glVertexAttribI1iv({0}, {1})", index, v);
 				}
 			}
 			DebugCheckErrors();
@@ -2539,14 +2379,9 @@ namespace OpenGL
 			unsafe {
 				fixed (Int32* p_v = v)
 				{
-					if        (Delegates.pglVertexAttribI2iv != null) {
-						Delegates.pglVertexAttribI2iv(index, p_v);
-						CallLog("glVertexAttribI2iv({0}, {1})", index, v);
-					} else if (Delegates.pglVertexAttribI2ivEXT != null) {
-						Delegates.pglVertexAttribI2ivEXT(index, p_v);
-						CallLog("glVertexAttribI2ivEXT({0}, {1})", index, v);
-					} else
-						throw new NotImplementedException("glVertexAttribI2iv (and other aliases) are not implemented");
+					Debug.Assert(Delegates.pglVertexAttribI2iv != null, "pglVertexAttribI2iv not implemented");
+					Delegates.pglVertexAttribI2iv(index, p_v);
+					CallLog("glVertexAttribI2iv({0}, {1})", index, v);
 				}
 			}
 			DebugCheckErrors();
@@ -2568,14 +2403,9 @@ namespace OpenGL
 			unsafe {
 				fixed (Int32* p_v = v)
 				{
-					if        (Delegates.pglVertexAttribI3iv != null) {
-						Delegates.pglVertexAttribI3iv(index, p_v);
-						CallLog("glVertexAttribI3iv({0}, {1})", index, v);
-					} else if (Delegates.pglVertexAttribI3ivEXT != null) {
-						Delegates.pglVertexAttribI3ivEXT(index, p_v);
-						CallLog("glVertexAttribI3ivEXT({0}, {1})", index, v);
-					} else
-						throw new NotImplementedException("glVertexAttribI3iv (and other aliases) are not implemented");
+					Debug.Assert(Delegates.pglVertexAttribI3iv != null, "pglVertexAttribI3iv not implemented");
+					Delegates.pglVertexAttribI3iv(index, p_v);
+					CallLog("glVertexAttribI3iv({0}, {1})", index, v);
 				}
 			}
 			DebugCheckErrors();
@@ -2597,14 +2427,9 @@ namespace OpenGL
 			unsafe {
 				fixed (Int32* p_v = v)
 				{
-					if        (Delegates.pglVertexAttribI4iv != null) {
-						Delegates.pglVertexAttribI4iv(index, p_v);
-						CallLog("glVertexAttribI4iv({0}, {1})", index, v);
-					} else if (Delegates.pglVertexAttribI4ivEXT != null) {
-						Delegates.pglVertexAttribI4ivEXT(index, p_v);
-						CallLog("glVertexAttribI4ivEXT({0}, {1})", index, v);
-					} else
-						throw new NotImplementedException("glVertexAttribI4iv (and other aliases) are not implemented");
+					Debug.Assert(Delegates.pglVertexAttribI4iv != null, "pglVertexAttribI4iv not implemented");
+					Delegates.pglVertexAttribI4iv(index, p_v);
+					CallLog("glVertexAttribI4iv({0}, {1})", index, v);
 				}
 			}
 			DebugCheckErrors();
@@ -2626,14 +2451,9 @@ namespace OpenGL
 			unsafe {
 				fixed (UInt32* p_v = v)
 				{
-					if        (Delegates.pglVertexAttribI1uiv != null) {
-						Delegates.pglVertexAttribI1uiv(index, p_v);
-						CallLog("glVertexAttribI1uiv({0}, {1})", index, v);
-					} else if (Delegates.pglVertexAttribI1uivEXT != null) {
-						Delegates.pglVertexAttribI1uivEXT(index, p_v);
-						CallLog("glVertexAttribI1uivEXT({0}, {1})", index, v);
-					} else
-						throw new NotImplementedException("glVertexAttribI1uiv (and other aliases) are not implemented");
+					Debug.Assert(Delegates.pglVertexAttribI1uiv != null, "pglVertexAttribI1uiv not implemented");
+					Delegates.pglVertexAttribI1uiv(index, p_v);
+					CallLog("glVertexAttribI1uiv({0}, {1})", index, v);
 				}
 			}
 			DebugCheckErrors();
@@ -2655,14 +2475,9 @@ namespace OpenGL
 			unsafe {
 				fixed (UInt32* p_v = v)
 				{
-					if        (Delegates.pglVertexAttribI2uiv != null) {
-						Delegates.pglVertexAttribI2uiv(index, p_v);
-						CallLog("glVertexAttribI2uiv({0}, {1})", index, v);
-					} else if (Delegates.pglVertexAttribI2uivEXT != null) {
-						Delegates.pglVertexAttribI2uivEXT(index, p_v);
-						CallLog("glVertexAttribI2uivEXT({0}, {1})", index, v);
-					} else
-						throw new NotImplementedException("glVertexAttribI2uiv (and other aliases) are not implemented");
+					Debug.Assert(Delegates.pglVertexAttribI2uiv != null, "pglVertexAttribI2uiv not implemented");
+					Delegates.pglVertexAttribI2uiv(index, p_v);
+					CallLog("glVertexAttribI2uiv({0}, {1})", index, v);
 				}
 			}
 			DebugCheckErrors();
@@ -2684,14 +2499,9 @@ namespace OpenGL
 			unsafe {
 				fixed (UInt32* p_v = v)
 				{
-					if        (Delegates.pglVertexAttribI3uiv != null) {
-						Delegates.pglVertexAttribI3uiv(index, p_v);
-						CallLog("glVertexAttribI3uiv({0}, {1})", index, v);
-					} else if (Delegates.pglVertexAttribI3uivEXT != null) {
-						Delegates.pglVertexAttribI3uivEXT(index, p_v);
-						CallLog("glVertexAttribI3uivEXT({0}, {1})", index, v);
-					} else
-						throw new NotImplementedException("glVertexAttribI3uiv (and other aliases) are not implemented");
+					Debug.Assert(Delegates.pglVertexAttribI3uiv != null, "pglVertexAttribI3uiv not implemented");
+					Delegates.pglVertexAttribI3uiv(index, p_v);
+					CallLog("glVertexAttribI3uiv({0}, {1})", index, v);
 				}
 			}
 			DebugCheckErrors();
@@ -2713,14 +2523,9 @@ namespace OpenGL
 			unsafe {
 				fixed (UInt32* p_v = v)
 				{
-					if        (Delegates.pglVertexAttribI4uiv != null) {
-						Delegates.pglVertexAttribI4uiv(index, p_v);
-						CallLog("glVertexAttribI4uiv({0}, {1})", index, v);
-					} else if (Delegates.pglVertexAttribI4uivEXT != null) {
-						Delegates.pglVertexAttribI4uivEXT(index, p_v);
-						CallLog("glVertexAttribI4uivEXT({0}, {1})", index, v);
-					} else
-						throw new NotImplementedException("glVertexAttribI4uiv (and other aliases) are not implemented");
+					Debug.Assert(Delegates.pglVertexAttribI4uiv != null, "pglVertexAttribI4uiv not implemented");
+					Delegates.pglVertexAttribI4uiv(index, p_v);
+					CallLog("glVertexAttribI4uiv({0}, {1})", index, v);
 				}
 			}
 			DebugCheckErrors();
@@ -2742,14 +2547,9 @@ namespace OpenGL
 			unsafe {
 				fixed (sbyte* p_v = v)
 				{
-					if        (Delegates.pglVertexAttribI4bv != null) {
-						Delegates.pglVertexAttribI4bv(index, p_v);
-						CallLog("glVertexAttribI4bv({0}, {1})", index, v);
-					} else if (Delegates.pglVertexAttribI4bvEXT != null) {
-						Delegates.pglVertexAttribI4bvEXT(index, p_v);
-						CallLog("glVertexAttribI4bvEXT({0}, {1})", index, v);
-					} else
-						throw new NotImplementedException("glVertexAttribI4bv (and other aliases) are not implemented");
+					Debug.Assert(Delegates.pglVertexAttribI4bv != null, "pglVertexAttribI4bv not implemented");
+					Delegates.pglVertexAttribI4bv(index, p_v);
+					CallLog("glVertexAttribI4bv({0}, {1})", index, v);
 				}
 			}
 			DebugCheckErrors();
@@ -2771,14 +2571,9 @@ namespace OpenGL
 			unsafe {
 				fixed (Int16* p_v = v)
 				{
-					if        (Delegates.pglVertexAttribI4sv != null) {
-						Delegates.pglVertexAttribI4sv(index, p_v);
-						CallLog("glVertexAttribI4sv({0}, {1})", index, v);
-					} else if (Delegates.pglVertexAttribI4svEXT != null) {
-						Delegates.pglVertexAttribI4svEXT(index, p_v);
-						CallLog("glVertexAttribI4svEXT({0}, {1})", index, v);
-					} else
-						throw new NotImplementedException("glVertexAttribI4sv (and other aliases) are not implemented");
+					Debug.Assert(Delegates.pglVertexAttribI4sv != null, "pglVertexAttribI4sv not implemented");
+					Delegates.pglVertexAttribI4sv(index, p_v);
+					CallLog("glVertexAttribI4sv({0}, {1})", index, v);
 				}
 			}
 			DebugCheckErrors();
@@ -2800,14 +2595,9 @@ namespace OpenGL
 			unsafe {
 				fixed (byte* p_v = v)
 				{
-					if        (Delegates.pglVertexAttribI4ubv != null) {
-						Delegates.pglVertexAttribI4ubv(index, p_v);
-						CallLog("glVertexAttribI4ubv({0}, {1})", index, v);
-					} else if (Delegates.pglVertexAttribI4ubvEXT != null) {
-						Delegates.pglVertexAttribI4ubvEXT(index, p_v);
-						CallLog("glVertexAttribI4ubvEXT({0}, {1})", index, v);
-					} else
-						throw new NotImplementedException("glVertexAttribI4ubv (and other aliases) are not implemented");
+					Debug.Assert(Delegates.pglVertexAttribI4ubv != null, "pglVertexAttribI4ubv not implemented");
+					Delegates.pglVertexAttribI4ubv(index, p_v);
+					CallLog("glVertexAttribI4ubv({0}, {1})", index, v);
 				}
 			}
 			DebugCheckErrors();
@@ -2829,14 +2619,9 @@ namespace OpenGL
 			unsafe {
 				fixed (UInt16* p_v = v)
 				{
-					if        (Delegates.pglVertexAttribI4usv != null) {
-						Delegates.pglVertexAttribI4usv(index, p_v);
-						CallLog("glVertexAttribI4usv({0}, {1})", index, v);
-					} else if (Delegates.pglVertexAttribI4usvEXT != null) {
-						Delegates.pglVertexAttribI4usvEXT(index, p_v);
-						CallLog("glVertexAttribI4usvEXT({0}, {1})", index, v);
-					} else
-						throw new NotImplementedException("glVertexAttribI4usv (and other aliases) are not implemented");
+					Debug.Assert(Delegates.pglVertexAttribI4usv != null, "pglVertexAttribI4usv not implemented");
+					Delegates.pglVertexAttribI4usv(index, p_v);
+					CallLog("glVertexAttribI4usv({0}, {1})", index, v);
 				}
 			}
 			DebugCheckErrors();
@@ -2860,14 +2645,9 @@ namespace OpenGL
 			unsafe {
 				fixed (UInt32* p_params = @params)
 				{
-					if        (Delegates.pglGetUniformuiv != null) {
-						Delegates.pglGetUniformuiv(program, location, p_params);
-						CallLog("glGetUniformuiv({0}, {1}, {2})", program, location, @params);
-					} else if (Delegates.pglGetUniformuivEXT != null) {
-						Delegates.pglGetUniformuivEXT(program, location, p_params);
-						CallLog("glGetUniformuivEXT({0}, {1}, {2})", program, location, @params);
-					} else
-						throw new NotImplementedException("glGetUniformuiv (and other aliases) are not implemented");
+					Debug.Assert(Delegates.pglGetUniformuiv != null, "pglGetUniformuiv not implemented");
+					Delegates.pglGetUniformuiv(program, location, p_params);
+					CallLog("glGetUniformuiv({0}, {1}, {2})", program, location, @params);
 				}
 			}
 			DebugCheckErrors();
@@ -2888,14 +2668,9 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_3_0")]
 		public static void BindFragDataLocation(UInt32 program, UInt32 color, String name)
 		{
-			if        (Delegates.pglBindFragDataLocation != null) {
-				Delegates.pglBindFragDataLocation(program, color, name);
-				CallLog("glBindFragDataLocation({0}, {1}, {2})", program, color, name);
-			} else if (Delegates.pglBindFragDataLocationEXT != null) {
-				Delegates.pglBindFragDataLocationEXT(program, color, name);
-				CallLog("glBindFragDataLocationEXT({0}, {1}, {2})", program, color, name);
-			} else
-				throw new NotImplementedException("glBindFragDataLocation (and other aliases) are not implemented");
+			Debug.Assert(Delegates.pglBindFragDataLocation != null, "pglBindFragDataLocation not implemented");
+			Delegates.pglBindFragDataLocation(program, color, name);
+			CallLog("glBindFragDataLocation({0}, {1}, {2})", program, color, name);
 			DebugCheckErrors();
 		}
 
@@ -2913,14 +2688,9 @@ namespace OpenGL
 		{
 			Int32 retValue;
 
-			if        (Delegates.pglGetFragDataLocation != null) {
-				retValue = Delegates.pglGetFragDataLocation(program, name);
-				CallLog("glGetFragDataLocation({0}, {1}) = {2}", program, name, retValue);
-			} else if (Delegates.pglGetFragDataLocationEXT != null) {
-				retValue = Delegates.pglGetFragDataLocationEXT(program, name);
-				CallLog("glGetFragDataLocationEXT({0}, {1}) = {2}", program, name, retValue);
-			} else
-				throw new NotImplementedException("glGetFragDataLocation (and other aliases) are not implemented");
+			Debug.Assert(Delegates.pglGetFragDataLocation != null, "pglGetFragDataLocation not implemented");
+			retValue = Delegates.pglGetFragDataLocation(program, name);
+			CallLog("glGetFragDataLocation({0}, {1}) = {2}", program, name, retValue);
 			DebugCheckErrors();
 
 			return (retValue);
@@ -2938,14 +2708,9 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_3_0")]
 		public static void Uniform1(Int32 location, UInt32 v0)
 		{
-			if        (Delegates.pglUniform1ui != null) {
-				Delegates.pglUniform1ui(location, v0);
-				CallLog("glUniform1ui({0}, {1})", location, v0);
-			} else if (Delegates.pglUniform1uiEXT != null) {
-				Delegates.pglUniform1uiEXT(location, v0);
-				CallLog("glUniform1uiEXT({0}, {1})", location, v0);
-			} else
-				throw new NotImplementedException("glUniform1ui (and other aliases) are not implemented");
+			Debug.Assert(Delegates.pglUniform1ui != null, "pglUniform1ui not implemented");
+			Delegates.pglUniform1ui(location, v0);
+			CallLog("glUniform1ui({0}, {1})", location, v0);
 			DebugCheckErrors();
 		}
 
@@ -2964,14 +2729,9 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_3_0")]
 		public static void Uniform2(Int32 location, UInt32 v0, UInt32 v1)
 		{
-			if        (Delegates.pglUniform2ui != null) {
-				Delegates.pglUniform2ui(location, v0, v1);
-				CallLog("glUniform2ui({0}, {1}, {2})", location, v0, v1);
-			} else if (Delegates.pglUniform2uiEXT != null) {
-				Delegates.pglUniform2uiEXT(location, v0, v1);
-				CallLog("glUniform2uiEXT({0}, {1}, {2})", location, v0, v1);
-			} else
-				throw new NotImplementedException("glUniform2ui (and other aliases) are not implemented");
+			Debug.Assert(Delegates.pglUniform2ui != null, "pglUniform2ui not implemented");
+			Delegates.pglUniform2ui(location, v0, v1);
+			CallLog("glUniform2ui({0}, {1}, {2})", location, v0, v1);
 			DebugCheckErrors();
 		}
 
@@ -2993,14 +2753,9 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_3_0")]
 		public static void Uniform3(Int32 location, UInt32 v0, UInt32 v1, UInt32 v2)
 		{
-			if        (Delegates.pglUniform3ui != null) {
-				Delegates.pglUniform3ui(location, v0, v1, v2);
-				CallLog("glUniform3ui({0}, {1}, {2}, {3})", location, v0, v1, v2);
-			} else if (Delegates.pglUniform3uiEXT != null) {
-				Delegates.pglUniform3uiEXT(location, v0, v1, v2);
-				CallLog("glUniform3uiEXT({0}, {1}, {2}, {3})", location, v0, v1, v2);
-			} else
-				throw new NotImplementedException("glUniform3ui (and other aliases) are not implemented");
+			Debug.Assert(Delegates.pglUniform3ui != null, "pglUniform3ui not implemented");
+			Delegates.pglUniform3ui(location, v0, v1, v2);
+			CallLog("glUniform3ui({0}, {1}, {2}, {3})", location, v0, v1, v2);
 			DebugCheckErrors();
 		}
 
@@ -3025,14 +2780,9 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_3_0")]
 		public static void Uniform4(Int32 location, UInt32 v0, UInt32 v1, UInt32 v2, UInt32 v3)
 		{
-			if        (Delegates.pglUniform4ui != null) {
-				Delegates.pglUniform4ui(location, v0, v1, v2, v3);
-				CallLog("glUniform4ui({0}, {1}, {2}, {3}, {4})", location, v0, v1, v2, v3);
-			} else if (Delegates.pglUniform4uiEXT != null) {
-				Delegates.pglUniform4uiEXT(location, v0, v1, v2, v3);
-				CallLog("glUniform4uiEXT({0}, {1}, {2}, {3}, {4})", location, v0, v1, v2, v3);
-			} else
-				throw new NotImplementedException("glUniform4ui (and other aliases) are not implemented");
+			Debug.Assert(Delegates.pglUniform4ui != null, "pglUniform4ui not implemented");
+			Delegates.pglUniform4ui(location, v0, v1, v2, v3);
+			CallLog("glUniform4ui({0}, {1}, {2}, {3}, {4})", location, v0, v1, v2, v3);
 			DebugCheckErrors();
 		}
 
@@ -3056,14 +2806,9 @@ namespace OpenGL
 			unsafe {
 				fixed (UInt32* p_value = value)
 				{
-					if        (Delegates.pglUniform1uiv != null) {
-						Delegates.pglUniform1uiv(location, count, p_value);
-						CallLog("glUniform1uiv({0}, {1}, {2})", location, count, value);
-					} else if (Delegates.pglUniform1uivEXT != null) {
-						Delegates.pglUniform1uivEXT(location, count, p_value);
-						CallLog("glUniform1uivEXT({0}, {1}, {2})", location, count, value);
-					} else
-						throw new NotImplementedException("glUniform1uiv (and other aliases) are not implemented");
+					Debug.Assert(Delegates.pglUniform1uiv != null, "pglUniform1uiv not implemented");
+					Delegates.pglUniform1uiv(location, count, p_value);
+					CallLog("glUniform1uiv({0}, {1}, {2})", location, count, value);
 				}
 			}
 			DebugCheckErrors();
@@ -3089,14 +2834,9 @@ namespace OpenGL
 			unsafe {
 				fixed (UInt32* p_value = value)
 				{
-					if        (Delegates.pglUniform2uiv != null) {
-						Delegates.pglUniform2uiv(location, count, p_value);
-						CallLog("glUniform2uiv({0}, {1}, {2})", location, count, value);
-					} else if (Delegates.pglUniform2uivEXT != null) {
-						Delegates.pglUniform2uivEXT(location, count, p_value);
-						CallLog("glUniform2uivEXT({0}, {1}, {2})", location, count, value);
-					} else
-						throw new NotImplementedException("glUniform2uiv (and other aliases) are not implemented");
+					Debug.Assert(Delegates.pglUniform2uiv != null, "pglUniform2uiv not implemented");
+					Delegates.pglUniform2uiv(location, count, p_value);
+					CallLog("glUniform2uiv({0}, {1}, {2})", location, count, value);
 				}
 			}
 			DebugCheckErrors();
@@ -3122,14 +2862,9 @@ namespace OpenGL
 			unsafe {
 				fixed (UInt32* p_value = value)
 				{
-					if        (Delegates.pglUniform3uiv != null) {
-						Delegates.pglUniform3uiv(location, count, p_value);
-						CallLog("glUniform3uiv({0}, {1}, {2})", location, count, value);
-					} else if (Delegates.pglUniform3uivEXT != null) {
-						Delegates.pglUniform3uivEXT(location, count, p_value);
-						CallLog("glUniform3uivEXT({0}, {1}, {2})", location, count, value);
-					} else
-						throw new NotImplementedException("glUniform3uiv (and other aliases) are not implemented");
+					Debug.Assert(Delegates.pglUniform3uiv != null, "pglUniform3uiv not implemented");
+					Delegates.pglUniform3uiv(location, count, p_value);
+					CallLog("glUniform3uiv({0}, {1}, {2})", location, count, value);
 				}
 			}
 			DebugCheckErrors();
@@ -3155,14 +2890,9 @@ namespace OpenGL
 			unsafe {
 				fixed (UInt32* p_value = value)
 				{
-					if        (Delegates.pglUniform4uiv != null) {
-						Delegates.pglUniform4uiv(location, count, p_value);
-						CallLog("glUniform4uiv({0}, {1}, {2})", location, count, value);
-					} else if (Delegates.pglUniform4uivEXT != null) {
-						Delegates.pglUniform4uivEXT(location, count, p_value);
-						CallLog("glUniform4uivEXT({0}, {1}, {2})", location, count, value);
-					} else
-						throw new NotImplementedException("glUniform4uiv (and other aliases) are not implemented");
+					Debug.Assert(Delegates.pglUniform4uiv != null, "pglUniform4uiv not implemented");
+					Delegates.pglUniform4uiv(location, count, p_value);
+					CallLog("glUniform4uiv({0}, {1}, {2})", location, count, value);
 				}
 			}
 			DebugCheckErrors();
@@ -3186,14 +2916,9 @@ namespace OpenGL
 			unsafe {
 				fixed (Int32* p_params = @params)
 				{
-					if        (Delegates.pglTexParameterIiv != null) {
-						Delegates.pglTexParameterIiv((int)target, (int)pname, p_params);
-						CallLog("glTexParameterIiv({0}, {1}, {2})", target, pname, @params);
-					} else if (Delegates.pglTexParameterIivEXT != null) {
-						Delegates.pglTexParameterIivEXT((int)target, (int)pname, p_params);
-						CallLog("glTexParameterIivEXT({0}, {1}, {2})", target, pname, @params);
-					} else
-						throw new NotImplementedException("glTexParameterIiv (and other aliases) are not implemented");
+					Debug.Assert(Delegates.pglTexParameterIiv != null, "pglTexParameterIiv not implemented");
+					Delegates.pglTexParameterIiv((int)target, (int)pname, p_params);
+					CallLog("glTexParameterIiv({0}, {1}, {2})", target, pname, @params);
 				}
 			}
 			DebugCheckErrors();
@@ -3217,14 +2942,9 @@ namespace OpenGL
 			unsafe {
 				fixed (UInt32* p_params = @params)
 				{
-					if        (Delegates.pglTexParameterIuiv != null) {
-						Delegates.pglTexParameterIuiv((int)target, (int)pname, p_params);
-						CallLog("glTexParameterIuiv({0}, {1}, {2})", target, pname, @params);
-					} else if (Delegates.pglTexParameterIuivEXT != null) {
-						Delegates.pglTexParameterIuivEXT((int)target, (int)pname, p_params);
-						CallLog("glTexParameterIuivEXT({0}, {1}, {2})", target, pname, @params);
-					} else
-						throw new NotImplementedException("glTexParameterIuiv (and other aliases) are not implemented");
+					Debug.Assert(Delegates.pglTexParameterIuiv != null, "pglTexParameterIuiv not implemented");
+					Delegates.pglTexParameterIuiv((int)target, (int)pname, p_params);
+					CallLog("glTexParameterIuiv({0}, {1}, {2})", target, pname, @params);
 				}
 			}
 			DebugCheckErrors();
@@ -3257,14 +2977,9 @@ namespace OpenGL
 			unsafe {
 				fixed (Int32* p_params = @params)
 				{
-					if        (Delegates.pglGetTexParameterIiv != null) {
-						Delegates.pglGetTexParameterIiv((int)target, (int)pname, p_params);
-						CallLog("glGetTexParameterIiv({0}, {1}, {2})", target, pname, @params);
-					} else if (Delegates.pglGetTexParameterIivEXT != null) {
-						Delegates.pglGetTexParameterIivEXT((int)target, (int)pname, p_params);
-						CallLog("glGetTexParameterIivEXT({0}, {1}, {2})", target, pname, @params);
-					} else
-						throw new NotImplementedException("glGetTexParameterIiv (and other aliases) are not implemented");
+					Debug.Assert(Delegates.pglGetTexParameterIiv != null, "pglGetTexParameterIiv not implemented");
+					Delegates.pglGetTexParameterIiv((int)target, (int)pname, p_params);
+					CallLog("glGetTexParameterIiv({0}, {1}, {2})", target, pname, @params);
 				}
 			}
 			DebugCheckErrors();
@@ -3297,14 +3012,9 @@ namespace OpenGL
 			unsafe {
 				fixed (UInt32* p_params = @params)
 				{
-					if        (Delegates.pglGetTexParameterIuiv != null) {
-						Delegates.pglGetTexParameterIuiv((int)target, (int)pname, p_params);
-						CallLog("glGetTexParameterIuiv({0}, {1}, {2})", target, pname, @params);
-					} else if (Delegates.pglGetTexParameterIuivEXT != null) {
-						Delegates.pglGetTexParameterIuivEXT((int)target, (int)pname, p_params);
-						CallLog("glGetTexParameterIuivEXT({0}, {1}, {2})", target, pname, @params);
-					} else
-						throw new NotImplementedException("glGetTexParameterIuiv (and other aliases) are not implemented");
+					Debug.Assert(Delegates.pglGetTexParameterIuiv != null, "pglGetTexParameterIuiv not implemented");
+					Delegates.pglGetTexParameterIuiv((int)target, (int)pname, p_params);
+					CallLog("glGetTexParameterIuiv({0}, {1}, {2})", target, pname, @params);
 				}
 			}
 			DebugCheckErrors();
@@ -3447,14 +3157,9 @@ namespace OpenGL
 		{
 			bool retValue;
 
-			if        (Delegates.pglIsRenderbuffer != null) {
-				retValue = Delegates.pglIsRenderbuffer(renderbuffer);
-				CallLog("glIsRenderbuffer({0}) = {1}", renderbuffer, retValue);
-			} else if (Delegates.pglIsRenderbufferEXT != null) {
-				retValue = Delegates.pglIsRenderbufferEXT(renderbuffer);
-				CallLog("glIsRenderbufferEXT({0}) = {1}", renderbuffer, retValue);
-			} else
-				throw new NotImplementedException("glIsRenderbuffer (and other aliases) are not implemented");
+			Debug.Assert(Delegates.pglIsRenderbuffer != null, "pglIsRenderbuffer not implemented");
+			retValue = Delegates.pglIsRenderbuffer(renderbuffer);
+			CallLog("glIsRenderbuffer({0}) = {1}", renderbuffer, retValue);
 			DebugCheckErrors();
 
 			return (retValue);
@@ -3495,14 +3200,9 @@ namespace OpenGL
 			unsafe {
 				fixed (UInt32* p_renderbuffers = renderbuffers)
 				{
-					if        (Delegates.pglDeleteRenderbuffers != null) {
-						Delegates.pglDeleteRenderbuffers((Int32)renderbuffers.Length, p_renderbuffers);
-						CallLog("glDeleteRenderbuffers({0}, {1})", renderbuffers.Length, renderbuffers);
-					} else if (Delegates.pglDeleteRenderbuffersEXT != null) {
-						Delegates.pglDeleteRenderbuffersEXT((Int32)renderbuffers.Length, p_renderbuffers);
-						CallLog("glDeleteRenderbuffersEXT({0}, {1})", renderbuffers.Length, renderbuffers);
-					} else
-						throw new NotImplementedException("glDeleteRenderbuffers (and other aliases) are not implemented");
+					Debug.Assert(Delegates.pglDeleteRenderbuffers != null, "pglDeleteRenderbuffers not implemented");
+					Delegates.pglDeleteRenderbuffers((Int32)renderbuffers.Length, p_renderbuffers);
+					CallLog("glDeleteRenderbuffers({0}, {1})", renderbuffers.Length, renderbuffers);
 				}
 			}
 			DebugCheckErrors();
@@ -3524,14 +3224,9 @@ namespace OpenGL
 			unsafe {
 				fixed (UInt32* p_renderbuffers = renderbuffers)
 				{
-					if        (Delegates.pglGenRenderbuffers != null) {
-						Delegates.pglGenRenderbuffers((Int32)renderbuffers.Length, p_renderbuffers);
-						CallLog("glGenRenderbuffers({0}, {1})", renderbuffers.Length, renderbuffers);
-					} else if (Delegates.pglGenRenderbuffersEXT != null) {
-						Delegates.pglGenRenderbuffersEXT((Int32)renderbuffers.Length, p_renderbuffers);
-						CallLog("glGenRenderbuffersEXT({0}, {1})", renderbuffers.Length, renderbuffers);
-					} else
-						throw new NotImplementedException("glGenRenderbuffers (and other aliases) are not implemented");
+					Debug.Assert(Delegates.pglGenRenderbuffers != null, "pglGenRenderbuffers not implemented");
+					Delegates.pglGenRenderbuffers((Int32)renderbuffers.Length, p_renderbuffers);
+					CallLog("glGenRenderbuffers({0}, {1})", renderbuffers.Length, renderbuffers);
 				}
 			}
 			DebugCheckErrors();
@@ -3568,14 +3263,9 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_framebuffer_object")]
 		public static void RenderbufferStorage(int target, int internalformat, Int32 width, Int32 height)
 		{
-			if        (Delegates.pglRenderbufferStorage != null) {
-				Delegates.pglRenderbufferStorage(target, internalformat, width, height);
-				CallLog("glRenderbufferStorage({0}, {1}, {2}, {3})", target, internalformat, width, height);
-			} else if (Delegates.pglRenderbufferStorageEXT != null) {
-				Delegates.pglRenderbufferStorageEXT(target, internalformat, width, height);
-				CallLog("glRenderbufferStorageEXT({0}, {1}, {2}, {3})", target, internalformat, width, height);
-			} else
-				throw new NotImplementedException("glRenderbufferStorage (and other aliases) are not implemented");
+			Debug.Assert(Delegates.pglRenderbufferStorage != null, "pglRenderbufferStorage not implemented");
+			Delegates.pglRenderbufferStorage(target, internalformat, width, height);
+			CallLog("glRenderbufferStorage({0}, {1}, {2}, {3})", target, internalformat, width, height);
 			DebugCheckErrors();
 		}
 
@@ -3599,14 +3289,9 @@ namespace OpenGL
 			unsafe {
 				fixed (Int32* p_params = @params)
 				{
-					if        (Delegates.pglGetRenderbufferParameteriv != null) {
-						Delegates.pglGetRenderbufferParameteriv(target, pname, p_params);
-						CallLog("glGetRenderbufferParameteriv({0}, {1}, {2})", target, pname, @params);
-					} else if (Delegates.pglGetRenderbufferParameterivEXT != null) {
-						Delegates.pglGetRenderbufferParameterivEXT(target, pname, p_params);
-						CallLog("glGetRenderbufferParameterivEXT({0}, {1}, {2})", target, pname, @params);
-					} else
-						throw new NotImplementedException("glGetRenderbufferParameteriv (and other aliases) are not implemented");
+					Debug.Assert(Delegates.pglGetRenderbufferParameteriv != null, "pglGetRenderbufferParameteriv not implemented");
+					Delegates.pglGetRenderbufferParameteriv(target, pname, p_params);
+					CallLog("glGetRenderbufferParameteriv({0}, {1}, {2})", target, pname, @params);
 				}
 			}
 			DebugCheckErrors();
@@ -3624,14 +3309,9 @@ namespace OpenGL
 		{
 			bool retValue;
 
-			if        (Delegates.pglIsFramebuffer != null) {
-				retValue = Delegates.pglIsFramebuffer(framebuffer);
-				CallLog("glIsFramebuffer({0}) = {1}", framebuffer, retValue);
-			} else if (Delegates.pglIsFramebufferEXT != null) {
-				retValue = Delegates.pglIsFramebufferEXT(framebuffer);
-				CallLog("glIsFramebufferEXT({0}) = {1}", framebuffer, retValue);
-			} else
-				throw new NotImplementedException("glIsFramebuffer (and other aliases) are not implemented");
+			Debug.Assert(Delegates.pglIsFramebuffer != null, "pglIsFramebuffer not implemented");
+			retValue = Delegates.pglIsFramebuffer(framebuffer);
+			CallLog("glIsFramebuffer({0}) = {1}", framebuffer, retValue);
 			DebugCheckErrors();
 
 			return (retValue);
@@ -3672,14 +3352,9 @@ namespace OpenGL
 			unsafe {
 				fixed (UInt32* p_framebuffers = framebuffers)
 				{
-					if        (Delegates.pglDeleteFramebuffers != null) {
-						Delegates.pglDeleteFramebuffers((Int32)framebuffers.Length, p_framebuffers);
-						CallLog("glDeleteFramebuffers({0}, {1})", framebuffers.Length, framebuffers);
-					} else if (Delegates.pglDeleteFramebuffersEXT != null) {
-						Delegates.pglDeleteFramebuffersEXT((Int32)framebuffers.Length, p_framebuffers);
-						CallLog("glDeleteFramebuffersEXT({0}, {1})", framebuffers.Length, framebuffers);
-					} else
-						throw new NotImplementedException("glDeleteFramebuffers (and other aliases) are not implemented");
+					Debug.Assert(Delegates.pglDeleteFramebuffers != null, "pglDeleteFramebuffers not implemented");
+					Delegates.pglDeleteFramebuffers((Int32)framebuffers.Length, p_framebuffers);
+					CallLog("glDeleteFramebuffers({0}, {1})", framebuffers.Length, framebuffers);
 				}
 			}
 			DebugCheckErrors();
@@ -3701,14 +3376,9 @@ namespace OpenGL
 			unsafe {
 				fixed (UInt32* p_framebuffers = framebuffers)
 				{
-					if        (Delegates.pglGenFramebuffers != null) {
-						Delegates.pglGenFramebuffers((Int32)framebuffers.Length, p_framebuffers);
-						CallLog("glGenFramebuffers({0}, {1})", framebuffers.Length, framebuffers);
-					} else if (Delegates.pglGenFramebuffersEXT != null) {
-						Delegates.pglGenFramebuffersEXT((Int32)framebuffers.Length, p_framebuffers);
-						CallLog("glGenFramebuffersEXT({0}, {1})", framebuffers.Length, framebuffers);
-					} else
-						throw new NotImplementedException("glGenFramebuffers (and other aliases) are not implemented");
+					Debug.Assert(Delegates.pglGenFramebuffers != null, "pglGenFramebuffers not implemented");
+					Delegates.pglGenFramebuffers((Int32)framebuffers.Length, p_framebuffers);
+					CallLog("glGenFramebuffers({0}, {1})", framebuffers.Length, framebuffers);
 				}
 			}
 			DebugCheckErrors();
@@ -3739,14 +3409,9 @@ namespace OpenGL
 		{
 			int retValue;
 
-			if        (Delegates.pglCheckFramebufferStatus != null) {
-				retValue = Delegates.pglCheckFramebufferStatus(target);
-				CallLog("glCheckFramebufferStatus({0}) = {1}", target, retValue);
-			} else if (Delegates.pglCheckFramebufferStatusEXT != null) {
-				retValue = Delegates.pglCheckFramebufferStatusEXT(target);
-				CallLog("glCheckFramebufferStatusEXT({0}) = {1}", target, retValue);
-			} else
-				throw new NotImplementedException("glCheckFramebufferStatus (and other aliases) are not implemented");
+			Debug.Assert(Delegates.pglCheckFramebufferStatus != null, "pglCheckFramebufferStatus not implemented");
+			retValue = Delegates.pglCheckFramebufferStatus(target);
+			CallLog("glCheckFramebufferStatus({0}) = {1}", target, retValue);
 			DebugCheckErrors();
 
 			return (retValue);
@@ -3775,14 +3440,9 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_framebuffer_object")]
 		public static void FramebufferTexture1D(int target, int attachment, int textarget, UInt32 texture, Int32 level)
 		{
-			if        (Delegates.pglFramebufferTexture1D != null) {
-				Delegates.pglFramebufferTexture1D(target, attachment, textarget, texture, level);
-				CallLog("glFramebufferTexture1D({0}, {1}, {2}, {3}, {4})", target, attachment, textarget, texture, level);
-			} else if (Delegates.pglFramebufferTexture1DEXT != null) {
-				Delegates.pglFramebufferTexture1DEXT(target, attachment, textarget, texture, level);
-				CallLog("glFramebufferTexture1DEXT({0}, {1}, {2}, {3}, {4})", target, attachment, textarget, texture, level);
-			} else
-				throw new NotImplementedException("glFramebufferTexture1D (and other aliases) are not implemented");
+			Debug.Assert(Delegates.pglFramebufferTexture1D != null, "pglFramebufferTexture1D not implemented");
+			Delegates.pglFramebufferTexture1D(target, attachment, textarget, texture, level);
+			CallLog("glFramebufferTexture1D({0}, {1}, {2}, {3}, {4})", target, attachment, textarget, texture, level);
 			DebugCheckErrors();
 		}
 
@@ -3809,14 +3469,9 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_framebuffer_object")]
 		public static void FramebufferTexture2D(int target, int attachment, int textarget, UInt32 texture, Int32 level)
 		{
-			if        (Delegates.pglFramebufferTexture2D != null) {
-				Delegates.pglFramebufferTexture2D(target, attachment, textarget, texture, level);
-				CallLog("glFramebufferTexture2D({0}, {1}, {2}, {3}, {4})", target, attachment, textarget, texture, level);
-			} else if (Delegates.pglFramebufferTexture2DEXT != null) {
-				Delegates.pglFramebufferTexture2DEXT(target, attachment, textarget, texture, level);
-				CallLog("glFramebufferTexture2DEXT({0}, {1}, {2}, {3}, {4})", target, attachment, textarget, texture, level);
-			} else
-				throw new NotImplementedException("glFramebufferTexture2D (and other aliases) are not implemented");
+			Debug.Assert(Delegates.pglFramebufferTexture2D != null, "pglFramebufferTexture2D not implemented");
+			Delegates.pglFramebufferTexture2D(target, attachment, textarget, texture, level);
+			CallLog("glFramebufferTexture2D({0}, {1}, {2}, {3}, {4})", target, attachment, textarget, texture, level);
 			DebugCheckErrors();
 		}
 
@@ -3846,14 +3501,9 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_framebuffer_object")]
 		public static void FramebufferTexture3D(int target, int attachment, int textarget, UInt32 texture, Int32 level, Int32 zoffset)
 		{
-			if        (Delegates.pglFramebufferTexture3D != null) {
-				Delegates.pglFramebufferTexture3D(target, attachment, textarget, texture, level, zoffset);
-				CallLog("glFramebufferTexture3D({0}, {1}, {2}, {3}, {4}, {5})", target, attachment, textarget, texture, level, zoffset);
-			} else if (Delegates.pglFramebufferTexture3DEXT != null) {
-				Delegates.pglFramebufferTexture3DEXT(target, attachment, textarget, texture, level, zoffset);
-				CallLog("glFramebufferTexture3DEXT({0}, {1}, {2}, {3}, {4}, {5})", target, attachment, textarget, texture, level, zoffset);
-			} else
-				throw new NotImplementedException("glFramebufferTexture3D (and other aliases) are not implemented");
+			Debug.Assert(Delegates.pglFramebufferTexture3D != null, "pglFramebufferTexture3D not implemented");
+			Delegates.pglFramebufferTexture3D(target, attachment, textarget, texture, level, zoffset);
+			CallLog("glFramebufferTexture3D({0}, {1}, {2}, {3}, {4}, {5})", target, attachment, textarget, texture, level, zoffset);
 			DebugCheckErrors();
 		}
 
@@ -3876,14 +3526,9 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_framebuffer_object")]
 		public static void FramebufferRenderbuffer(int target, int attachment, int renderbuffertarget, UInt32 renderbuffer)
 		{
-			if        (Delegates.pglFramebufferRenderbuffer != null) {
-				Delegates.pglFramebufferRenderbuffer(target, attachment, renderbuffertarget, renderbuffer);
-				CallLog("glFramebufferRenderbuffer({0}, {1}, {2}, {3})", target, attachment, renderbuffertarget, renderbuffer);
-			} else if (Delegates.pglFramebufferRenderbufferEXT != null) {
-				Delegates.pglFramebufferRenderbufferEXT(target, attachment, renderbuffertarget, renderbuffer);
-				CallLog("glFramebufferRenderbufferEXT({0}, {1}, {2}, {3})", target, attachment, renderbuffertarget, renderbuffer);
-			} else
-				throw new NotImplementedException("glFramebufferRenderbuffer (and other aliases) are not implemented");
+			Debug.Assert(Delegates.pglFramebufferRenderbuffer != null, "pglFramebufferRenderbuffer not implemented");
+			Delegates.pglFramebufferRenderbuffer(target, attachment, renderbuffertarget, renderbuffer);
+			CallLog("glFramebufferRenderbuffer({0}, {1}, {2}, {3})", target, attachment, renderbuffertarget, renderbuffer);
 			DebugCheckErrors();
 		}
 
@@ -3909,14 +3554,9 @@ namespace OpenGL
 			unsafe {
 				fixed (Int32* p_params = @params)
 				{
-					if        (Delegates.pglGetFramebufferAttachmentParameteriv != null) {
-						Delegates.pglGetFramebufferAttachmentParameteriv(target, attachment, pname, p_params);
-						CallLog("glGetFramebufferAttachmentParameteriv({0}, {1}, {2}, {3})", target, attachment, pname, @params);
-					} else if (Delegates.pglGetFramebufferAttachmentParameterivEXT != null) {
-						Delegates.pglGetFramebufferAttachmentParameterivEXT(target, attachment, pname, p_params);
-						CallLog("glGetFramebufferAttachmentParameterivEXT({0}, {1}, {2}, {3})", target, attachment, pname, @params);
-					} else
-						throw new NotImplementedException("glGetFramebufferAttachmentParameteriv (and other aliases) are not implemented");
+					Debug.Assert(Delegates.pglGetFramebufferAttachmentParameteriv != null, "pglGetFramebufferAttachmentParameteriv not implemented");
+					Delegates.pglGetFramebufferAttachmentParameteriv(target, attachment, pname, p_params);
+					CallLog("glGetFramebufferAttachmentParameteriv({0}, {1}, {2}, {3})", target, attachment, pname, @params);
 				}
 			}
 			DebugCheckErrors();
@@ -3934,14 +3574,9 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_framebuffer_object")]
 		public static void GenerateMipmap(int target)
 		{
-			if        (Delegates.pglGenerateMipmap != null) {
-				Delegates.pglGenerateMipmap(target);
-				CallLog("glGenerateMipmap({0})", target);
-			} else if (Delegates.pglGenerateMipmapEXT != null) {
-				Delegates.pglGenerateMipmapEXT(target);
-				CallLog("glGenerateMipmapEXT({0})", target);
-			} else
-				throw new NotImplementedException("glGenerateMipmap (and other aliases) are not implemented");
+			Debug.Assert(Delegates.pglGenerateMipmap != null, "pglGenerateMipmap not implemented");
+			Delegates.pglGenerateMipmap(target);
+			CallLog("glGenerateMipmap({0})", target);
 			DebugCheckErrors();
 		}
 
@@ -3983,14 +3618,9 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_framebuffer_object")]
 		public static void BlitFramebuffer(Int32 srcX0, Int32 srcY0, Int32 srcX1, Int32 srcY1, Int32 dstX0, Int32 dstY0, Int32 dstX1, Int32 dstY1, ClearBufferMask mask, int filter)
 		{
-			if        (Delegates.pglBlitFramebuffer != null) {
-				Delegates.pglBlitFramebuffer(srcX0, srcY0, srcX1, srcY1, dstX0, dstY0, dstX1, dstY1, (uint)mask, filter);
-				CallLog("glBlitFramebuffer({0}, {1}, {2}, {3}, {4}, {5}, {6}, {7}, {8}, {9})", srcX0, srcY0, srcX1, srcY1, dstX0, dstY0, dstX1, dstY1, mask, filter);
-			} else if (Delegates.pglBlitFramebufferEXT != null) {
-				Delegates.pglBlitFramebufferEXT(srcX0, srcY0, srcX1, srcY1, dstX0, dstY0, dstX1, dstY1, (uint)mask, filter);
-				CallLog("glBlitFramebufferEXT({0}, {1}, {2}, {3}, {4}, {5}, {6}, {7}, {8}, {9})", srcX0, srcY0, srcX1, srcY1, dstX0, dstY0, dstX1, dstY1, mask, filter);
-			} else
-				throw new NotImplementedException("glBlitFramebuffer (and other aliases) are not implemented");
+			Debug.Assert(Delegates.pglBlitFramebuffer != null, "pglBlitFramebuffer not implemented");
+			Delegates.pglBlitFramebuffer(srcX0, srcY0, srcX1, srcY1, dstX0, dstY0, dstX1, dstY1, (uint)mask, filter);
+			CallLog("glBlitFramebuffer({0}, {1}, {2}, {3}, {4}, {5}, {6}, {7}, {8}, {9})", srcX0, srcY0, srcX1, srcY1, dstX0, dstY0, dstX1, dstY1, mask, filter);
 			DebugCheckErrors();
 		}
 
@@ -4016,14 +3646,9 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_framebuffer_object")]
 		public static void RenderbufferStorageMultisample(int target, Int32 samples, int internalformat, Int32 width, Int32 height)
 		{
-			if        (Delegates.pglRenderbufferStorageMultisample != null) {
-				Delegates.pglRenderbufferStorageMultisample(target, samples, internalformat, width, height);
-				CallLog("glRenderbufferStorageMultisample({0}, {1}, {2}, {3}, {4})", target, samples, internalformat, width, height);
-			} else if (Delegates.pglRenderbufferStorageMultisampleEXT != null) {
-				Delegates.pglRenderbufferStorageMultisampleEXT(target, samples, internalformat, width, height);
-				CallLog("glRenderbufferStorageMultisampleEXT({0}, {1}, {2}, {3}, {4})", target, samples, internalformat, width, height);
-			} else
-				throw new NotImplementedException("glRenderbufferStorageMultisample (and other aliases) are not implemented");
+			Debug.Assert(Delegates.pglRenderbufferStorageMultisample != null, "pglRenderbufferStorageMultisample not implemented");
+			Delegates.pglRenderbufferStorageMultisample(target, samples, internalformat, width, height);
+			CallLog("glRenderbufferStorageMultisample({0}, {1}, {2}, {3}, {4})", target, samples, internalformat, width, height);
 			DebugCheckErrors();
 		}
 
@@ -4049,17 +3674,9 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_framebuffer_object")]
 		public static void FramebufferTextureLayer(int target, int attachment, UInt32 texture, Int32 level, Int32 layer)
 		{
-			if        (Delegates.pglFramebufferTextureLayer != null) {
-				Delegates.pglFramebufferTextureLayer(target, attachment, texture, level, layer);
-				CallLog("glFramebufferTextureLayer({0}, {1}, {2}, {3}, {4})", target, attachment, texture, level, layer);
-			} else if (Delegates.pglFramebufferTextureLayerARB != null) {
-				Delegates.pglFramebufferTextureLayerARB(target, attachment, texture, level, layer);
-				CallLog("glFramebufferTextureLayerARB({0}, {1}, {2}, {3}, {4})", target, attachment, texture, level, layer);
-			} else if (Delegates.pglFramebufferTextureLayerEXT != null) {
-				Delegates.pglFramebufferTextureLayerEXT(target, attachment, texture, level, layer);
-				CallLog("glFramebufferTextureLayerEXT({0}, {1}, {2}, {3}, {4})", target, attachment, texture, level, layer);
-			} else
-				throw new NotImplementedException("glFramebufferTextureLayer (and other aliases) are not implemented");
+			Debug.Assert(Delegates.pglFramebufferTextureLayer != null, "pglFramebufferTextureLayer not implemented");
+			Delegates.pglFramebufferTextureLayer(target, attachment, texture, level, layer);
+			CallLog("glFramebufferTextureLayer({0}, {1}, {2}, {3}, {4})", target, attachment, texture, level, layer);
 			DebugCheckErrors();
 		}
 
@@ -4110,14 +3727,9 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_map_buffer_range")]
 		public static void FlushMappedBufferRange(BufferTargetARB target, IntPtr offset, UInt32 length)
 		{
-			if        (Delegates.pglFlushMappedBufferRange != null) {
-				Delegates.pglFlushMappedBufferRange((int)target, offset, length);
-				CallLog("glFlushMappedBufferRange({0}, {1}, {2})", target, offset, length);
-			} else if (Delegates.pglFlushMappedBufferRangeAPPLE != null) {
-				Delegates.pglFlushMappedBufferRangeAPPLE((int)target, offset, length);
-				CallLog("glFlushMappedBufferRangeAPPLE({0}, {1}, {2})", target, offset, length);
-			} else
-				throw new NotImplementedException("glFlushMappedBufferRange (and other aliases) are not implemented");
+			Debug.Assert(Delegates.pglFlushMappedBufferRange != null, "pglFlushMappedBufferRange not implemented");
+			Delegates.pglFlushMappedBufferRange((int)target, offset, length);
+			CallLog("glFlushMappedBufferRange({0}, {1}, {2})", target, offset, length);
 			DebugCheckErrors();
 		}
 
@@ -4153,14 +3765,9 @@ namespace OpenGL
 			unsafe {
 				fixed (UInt32* p_arrays = arrays)
 				{
-					if        (Delegates.pglDeleteVertexArrays != null) {
-						Delegates.pglDeleteVertexArrays((Int32)arrays.Length, p_arrays);
-						CallLog("glDeleteVertexArrays({0}, {1})", arrays.Length, arrays);
-					} else if (Delegates.pglDeleteVertexArraysAPPLE != null) {
-						Delegates.pglDeleteVertexArraysAPPLE((Int32)arrays.Length, p_arrays);
-						CallLog("glDeleteVertexArraysAPPLE({0}, {1})", arrays.Length, arrays);
-					} else
-						throw new NotImplementedException("glDeleteVertexArrays (and other aliases) are not implemented");
+					Debug.Assert(Delegates.pglDeleteVertexArrays != null, "pglDeleteVertexArrays not implemented");
+					Delegates.pglDeleteVertexArrays((Int32)arrays.Length, p_arrays);
+					CallLog("glDeleteVertexArrays({0}, {1})", arrays.Length, arrays);
 				}
 			}
 			DebugCheckErrors();
@@ -4182,14 +3789,9 @@ namespace OpenGL
 			unsafe {
 				fixed (UInt32* p_arrays = arrays)
 				{
-					if        (Delegates.pglGenVertexArrays != null) {
-						Delegates.pglGenVertexArrays((Int32)arrays.Length, p_arrays);
-						CallLog("glGenVertexArrays({0}, {1})", arrays.Length, arrays);
-					} else if (Delegates.pglGenVertexArraysAPPLE != null) {
-						Delegates.pglGenVertexArraysAPPLE((Int32)arrays.Length, p_arrays);
-						CallLog("glGenVertexArraysAPPLE({0}, {1})", arrays.Length, arrays);
-					} else
-						throw new NotImplementedException("glGenVertexArrays (and other aliases) are not implemented");
+					Debug.Assert(Delegates.pglGenVertexArrays != null, "pglGenVertexArrays not implemented");
+					Delegates.pglGenVertexArrays((Int32)arrays.Length, p_arrays);
+					CallLog("glGenVertexArrays({0}, {1})", arrays.Length, arrays);
 				}
 			}
 			DebugCheckErrors();
@@ -4219,14 +3821,9 @@ namespace OpenGL
 		{
 			bool retValue;
 
-			if        (Delegates.pglIsVertexArray != null) {
-				retValue = Delegates.pglIsVertexArray(array);
-				CallLog("glIsVertexArray({0}) = {1}", array, retValue);
-			} else if (Delegates.pglIsVertexArrayAPPLE != null) {
-				retValue = Delegates.pglIsVertexArrayAPPLE(array);
-				CallLog("glIsVertexArrayAPPLE({0}) = {1}", array, retValue);
-			} else
-				throw new NotImplementedException("glIsVertexArray (and other aliases) are not implemented");
+			Debug.Assert(Delegates.pglIsVertexArray != null, "pglIsVertexArray not implemented");
+			retValue = Delegates.pglIsVertexArray(array);
+			CallLog("glIsVertexArray({0}) = {1}", array, retValue);
 			DebugCheckErrors();
 
 			return (retValue);

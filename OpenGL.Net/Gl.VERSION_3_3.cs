@@ -28,7 +28,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_VERTEX_ATTRIB_ARRAY_DIVISOR symbol.
 		/// </summary>
-		[AliasOf("GL_VERTEX_ATTRIB_ARRAY_DIVISOR_ARB"]
+		[AliasOf("GL_VERTEX_ATTRIB_ARRAY_DIVISOR_ARB")]
 		[RequiredByFeature("GL_VERSION_3_3")]
 		public const int VERTEX_ATTRIB_ARRAY_DIVISOR = 0x88FE;
 
@@ -84,7 +84,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_TEXTURE_SWIZZLE_R symbol.
 		/// </summary>
-		[AliasOf("GL_TEXTURE_SWIZZLE_R_EXT"]
+		[AliasOf("GL_TEXTURE_SWIZZLE_R_EXT")]
 		[RequiredByFeature("GL_VERSION_3_3")]
 		[RequiredByFeature("GL_ARB_texture_swizzle")]
 		public const int TEXTURE_SWIZZLE_R = 0x8E42;
@@ -92,7 +92,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_TEXTURE_SWIZZLE_G symbol.
 		/// </summary>
-		[AliasOf("GL_TEXTURE_SWIZZLE_G_EXT"]
+		[AliasOf("GL_TEXTURE_SWIZZLE_G_EXT")]
 		[RequiredByFeature("GL_VERSION_3_3")]
 		[RequiredByFeature("GL_ARB_texture_swizzle")]
 		public const int TEXTURE_SWIZZLE_G = 0x8E43;
@@ -100,7 +100,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_TEXTURE_SWIZZLE_B symbol.
 		/// </summary>
-		[AliasOf("GL_TEXTURE_SWIZZLE_B_EXT"]
+		[AliasOf("GL_TEXTURE_SWIZZLE_B_EXT")]
 		[RequiredByFeature("GL_VERSION_3_3")]
 		[RequiredByFeature("GL_ARB_texture_swizzle")]
 		public const int TEXTURE_SWIZZLE_B = 0x8E44;
@@ -108,7 +108,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_TEXTURE_SWIZZLE_A symbol.
 		/// </summary>
-		[AliasOf("GL_TEXTURE_SWIZZLE_A_EXT"]
+		[AliasOf("GL_TEXTURE_SWIZZLE_A_EXT")]
 		[RequiredByFeature("GL_VERSION_3_3")]
 		[RequiredByFeature("GL_ARB_texture_swizzle")]
 		public const int TEXTURE_SWIZZLE_A = 0x8E45;
@@ -116,7 +116,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_TEXTURE_SWIZZLE_RGBA symbol.
 		/// </summary>
-		[AliasOf("GL_TEXTURE_SWIZZLE_RGBA_EXT"]
+		[AliasOf("GL_TEXTURE_SWIZZLE_RGBA_EXT")]
 		[RequiredByFeature("GL_VERSION_3_3")]
 		[RequiredByFeature("GL_ARB_texture_swizzle")]
 		public const int TEXTURE_SWIZZLE_RGBA = 0x8E46;
@@ -124,7 +124,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_TIME_ELAPSED symbol.
 		/// </summary>
-		[AliasOf("GL_TIME_ELAPSED_EXT"]
+		[AliasOf("GL_TIME_ELAPSED_EXT")]
 		[RequiredByFeature("GL_VERSION_3_3")]
 		[RequiredByFeature("GL_ARB_timer_query")]
 		public const int TIME_ELAPSED = 0x88BF;
@@ -597,14 +597,9 @@ namespace OpenGL
 			unsafe {
 				fixed (Int64* p_params = @params)
 				{
-					if        (Delegates.pglGetQueryObjecti64v != null) {
-						Delegates.pglGetQueryObjecti64v(id, pname, p_params);
-						CallLog("glGetQueryObjecti64v({0}, {1}, {2})", id, pname, @params);
-					} else if (Delegates.pglGetQueryObjecti64vEXT != null) {
-						Delegates.pglGetQueryObjecti64vEXT(id, pname, p_params);
-						CallLog("glGetQueryObjecti64vEXT({0}, {1}, {2})", id, pname, @params);
-					} else
-						throw new NotImplementedException("glGetQueryObjecti64v (and other aliases) are not implemented");
+					Debug.Assert(Delegates.pglGetQueryObjecti64v != null, "pglGetQueryObjecti64v not implemented");
+					Delegates.pglGetQueryObjecti64v(id, pname, p_params);
+					CallLog("glGetQueryObjecti64v({0}, {1}, {2})", id, pname, @params);
 				}
 			}
 			DebugCheckErrors();
@@ -630,14 +625,9 @@ namespace OpenGL
 			unsafe {
 				fixed (UInt64* p_params = @params)
 				{
-					if        (Delegates.pglGetQueryObjectui64v != null) {
-						Delegates.pglGetQueryObjectui64v(id, pname, p_params);
-						CallLog("glGetQueryObjectui64v({0}, {1}, {2})", id, pname, @params);
-					} else if (Delegates.pglGetQueryObjectui64vEXT != null) {
-						Delegates.pglGetQueryObjectui64vEXT(id, pname, p_params);
-						CallLog("glGetQueryObjectui64vEXT({0}, {1}, {2})", id, pname, @params);
-					} else
-						throw new NotImplementedException("glGetQueryObjectui64v (and other aliases) are not implemented");
+					Debug.Assert(Delegates.pglGetQueryObjectui64v != null, "pglGetQueryObjectui64v not implemented");
+					Delegates.pglGetQueryObjectui64v(id, pname, p_params);
+					CallLog("glGetQueryObjectui64v({0}, {1}, {2})", id, pname, @params);
 				}
 			}
 			DebugCheckErrors();
@@ -655,14 +645,9 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_3_3")]
 		public static void VertexAttribDivisor(UInt32 index, UInt32 divisor)
 		{
-			if        (Delegates.pglVertexAttribDivisor != null) {
-				Delegates.pglVertexAttribDivisor(index, divisor);
-				CallLog("glVertexAttribDivisor({0}, {1})", index, divisor);
-			} else if (Delegates.pglVertexAttribDivisorARB != null) {
-				Delegates.pglVertexAttribDivisorARB(index, divisor);
-				CallLog("glVertexAttribDivisorARB({0}, {1})", index, divisor);
-			} else
-				throw new NotImplementedException("glVertexAttribDivisor (and other aliases) are not implemented");
+			Debug.Assert(Delegates.pglVertexAttribDivisor != null, "pglVertexAttribDivisor not implemented");
+			Delegates.pglVertexAttribDivisor(index, divisor);
+			CallLog("glVertexAttribDivisor({0}, {1})", index, divisor);
 			DebugCheckErrors();
 		}
 

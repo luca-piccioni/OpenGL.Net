@@ -28,7 +28,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_TEXTURE_BUFFER_FORMAT_ARB symbol.
 		/// </summary>
-		[AliasOf("GL_TEXTURE_BUFFER_FORMAT_EXT"]
+		[AliasOf("GL_TEXTURE_BUFFER_FORMAT_EXT")]
 		[RequiredByFeature("GL_ARB_texture_buffer_object")]
 		public const int TEXTURE_BUFFER_FORMAT_ARB = 0x8C2E;
 

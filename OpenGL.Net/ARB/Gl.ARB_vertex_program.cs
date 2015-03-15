@@ -28,14 +28,14 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_VERTEX_PROGRAM_ARB symbol.
 		/// </summary>
-		[AliasOf("GL_VERTEX_PROGRAM_NV"]
+		[AliasOf("GL_VERTEX_PROGRAM_NV")]
 		[RequiredByFeature("GL_ARB_vertex_program")]
 		public const int VERTEX_PROGRAM_ARB = 0x8620;
 
 		/// <summary>
 		/// Value of GL_PROGRAM_LENGTH_ARB symbol.
 		/// </summary>
-		[AliasOf("GL_PROGRAM_LENGTH_NV"]
+		[AliasOf("GL_PROGRAM_LENGTH_NV")]
 		[RequiredByFeature("GL_ARB_fragment_program")]
 		[RequiredByFeature("GL_ARB_vertex_program")]
 		public const int PROGRAM_LENGTH_ARB = 0x8627;
@@ -43,7 +43,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_PROGRAM_STRING_ARB symbol.
 		/// </summary>
-		[AliasOf("GL_PROGRAM_STRING_NV"]
+		[AliasOf("GL_PROGRAM_STRING_NV")]
 		[RequiredByFeature("GL_ARB_fragment_program")]
 		[RequiredByFeature("GL_ARB_vertex_program")]
 		public const int PROGRAM_STRING_ARB = 0x8628;
@@ -65,7 +65,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_CURRENT_MATRIX_STACK_DEPTH_ARB symbol.
 		/// </summary>
-		[AliasOf("GL_CURRENT_MATRIX_STACK_DEPTH_NV"]
+		[AliasOf("GL_CURRENT_MATRIX_STACK_DEPTH_NV")]
 		[RequiredByFeature("GL_ARB_fragment_program")]
 		[RequiredByFeature("GL_ARB_vertex_program")]
 		public const int CURRENT_MATRIX_STACK_DEPTH_ARB = 0x8640;
@@ -73,7 +73,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_CURRENT_MATRIX_ARB symbol.
 		/// </summary>
-		[AliasOf("GL_CURRENT_MATRIX_NV"]
+		[AliasOf("GL_CURRENT_MATRIX_NV")]
 		[RequiredByFeature("GL_ARB_fragment_program")]
 		[RequiredByFeature("GL_ARB_vertex_program")]
 		public const int CURRENT_MATRIX_ARB = 0x8641;
@@ -81,7 +81,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_PROGRAM_ERROR_POSITION_ARB symbol.
 		/// </summary>
-		[AliasOf("GL_PROGRAM_ERROR_POSITION_NV"]
+		[AliasOf("GL_PROGRAM_ERROR_POSITION_NV")]
 		[RequiredByFeature("GL_ARB_fragment_program")]
 		[RequiredByFeature("GL_ARB_vertex_program")]
 		public const int PROGRAM_ERROR_POSITION_ARB = 0x864B;
@@ -96,7 +96,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_PROGRAM_ERROR_STRING_ARB symbol.
 		/// </summary>
-		[AliasOf("GL_PROGRAM_ERROR_STRING_NV"]
+		[AliasOf("GL_PROGRAM_ERROR_STRING_NV")]
 		[RequiredByFeature("GL_ARB_fragment_program")]
 		[RequiredByFeature("GL_ARB_vertex_program")]
 		public const int PROGRAM_ERROR_STRING_ARB = 0x8874;
@@ -568,14 +568,9 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_vertex_program")]
 		public static void BindProgramARB(int target, UInt32 program)
 		{
-			if        (Delegates.pglBindProgramARB != null) {
-				Delegates.pglBindProgramARB(target, program);
-				CallLog("glBindProgramARB({0}, {1})", target, program);
-			} else if (Delegates.pglBindProgramNV != null) {
-				Delegates.pglBindProgramNV(target, program);
-				CallLog("glBindProgramNV({0}, {1})", target, program);
-			} else
-				throw new NotImplementedException("glBindProgramARB (and other aliases) are not implemented");
+			Debug.Assert(Delegates.pglBindProgramARB != null, "pglBindProgramARB not implemented");
+			Delegates.pglBindProgramARB(target, program);
+			CallLog("glBindProgramARB({0}, {1})", target, program);
 			DebugCheckErrors();
 		}
 
@@ -595,14 +590,9 @@ namespace OpenGL
 			unsafe {
 				fixed (UInt32* p_programs = programs)
 				{
-					if        (Delegates.pglDeleteProgramsARB != null) {
-						Delegates.pglDeleteProgramsARB((Int32)programs.Length, p_programs);
-						CallLog("glDeleteProgramsARB({0}, {1})", programs.Length, programs);
-					} else if (Delegates.pglDeleteProgramsNV != null) {
-						Delegates.pglDeleteProgramsNV((Int32)programs.Length, p_programs);
-						CallLog("glDeleteProgramsNV({0}, {1})", programs.Length, programs);
-					} else
-						throw new NotImplementedException("glDeleteProgramsARB (and other aliases) are not implemented");
+					Debug.Assert(Delegates.pglDeleteProgramsARB != null, "pglDeleteProgramsARB not implemented");
+					Delegates.pglDeleteProgramsARB((Int32)programs.Length, p_programs);
+					CallLog("glDeleteProgramsARB({0}, {1})", programs.Length, programs);
 				}
 			}
 			DebugCheckErrors();
@@ -624,14 +614,9 @@ namespace OpenGL
 			unsafe {
 				fixed (UInt32* p_programs = programs)
 				{
-					if        (Delegates.pglGenProgramsARB != null) {
-						Delegates.pglGenProgramsARB((Int32)programs.Length, p_programs);
-						CallLog("glGenProgramsARB({0}, {1})", programs.Length, programs);
-					} else if (Delegates.pglGenProgramsNV != null) {
-						Delegates.pglGenProgramsNV((Int32)programs.Length, p_programs);
-						CallLog("glGenProgramsNV({0}, {1})", programs.Length, programs);
-					} else
-						throw new NotImplementedException("glGenProgramsARB (and other aliases) are not implemented");
+					Debug.Assert(Delegates.pglGenProgramsARB != null, "pglGenProgramsARB not implemented");
+					Delegates.pglGenProgramsARB((Int32)programs.Length, p_programs);
+					CallLog("glGenProgramsARB({0}, {1})", programs.Length, programs);
 				}
 			}
 			DebugCheckErrors();
@@ -1074,14 +1059,9 @@ namespace OpenGL
 		{
 			bool retValue;
 
-			if        (Delegates.pglIsProgramARB != null) {
-				retValue = Delegates.pglIsProgramARB(program);
-				CallLog("glIsProgramARB({0}) = {1}", program, retValue);
-			} else if (Delegates.pglIsProgramNV != null) {
-				retValue = Delegates.pglIsProgramNV(program);
-				CallLog("glIsProgramNV({0}) = {1}", program, retValue);
-			} else
-				throw new NotImplementedException("glIsProgramARB (and other aliases) are not implemented");
+			Debug.Assert(Delegates.pglIsProgramARB != null, "pglIsProgramARB not implemented");
+			retValue = Delegates.pglIsProgramARB(program);
+			CallLog("glIsProgramARB({0}) = {1}", program, retValue);
 			DebugCheckErrors();
 
 			return (retValue);

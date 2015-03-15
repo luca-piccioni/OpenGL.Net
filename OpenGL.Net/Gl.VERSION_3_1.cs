@@ -28,57 +28,57 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_SAMPLER_2D_RECT symbol.
 		/// </summary>
-		[AliasOf("GL_SAMPLER_2D_RECT_ARB"]
+		[AliasOf("GL_SAMPLER_2D_RECT_ARB")]
 		[RequiredByFeature("GL_VERSION_3_1")]
 		public const int SAMPLER_2D_RECT = 0x8B63;
 
 		/// <summary>
 		/// Value of GL_SAMPLER_2D_RECT_SHADOW symbol.
 		/// </summary>
-		[AliasOf("GL_SAMPLER_2D_RECT_SHADOW_ARB"]
+		[AliasOf("GL_SAMPLER_2D_RECT_SHADOW_ARB")]
 		[RequiredByFeature("GL_VERSION_3_1")]
 		public const int SAMPLER_2D_RECT_SHADOW = 0x8B64;
 
 		/// <summary>
 		/// Value of GL_SAMPLER_BUFFER symbol.
 		/// </summary>
-		[AliasOf("GL_SAMPLER_BUFFER_EXT"]
+		[AliasOf("GL_SAMPLER_BUFFER_EXT")]
 		[RequiredByFeature("GL_VERSION_3_1")]
 		public const int SAMPLER_BUFFER = 0x8DC2;
 
 		/// <summary>
 		/// Value of GL_INT_SAMPLER_2D_RECT symbol.
 		/// </summary>
-		[AliasOf("GL_INT_SAMPLER_2D_RECT_EXT"]
+		[AliasOf("GL_INT_SAMPLER_2D_RECT_EXT")]
 		[RequiredByFeature("GL_VERSION_3_1")]
 		public const int INT_SAMPLER_2D_RECT = 0x8DCD;
 
 		/// <summary>
 		/// Value of GL_INT_SAMPLER_BUFFER symbol.
 		/// </summary>
-		[AliasOf("GL_INT_SAMPLER_BUFFER_EXT"]
+		[AliasOf("GL_INT_SAMPLER_BUFFER_EXT")]
 		[RequiredByFeature("GL_VERSION_3_1")]
 		public const int INT_SAMPLER_BUFFER = 0x8DD0;
 
 		/// <summary>
 		/// Value of GL_UNSIGNED_INT_SAMPLER_2D_RECT symbol.
 		/// </summary>
-		[AliasOf("GL_UNSIGNED_INT_SAMPLER_2D_RECT_EXT"]
+		[AliasOf("GL_UNSIGNED_INT_SAMPLER_2D_RECT_EXT")]
 		[RequiredByFeature("GL_VERSION_3_1")]
 		public const int UNSIGNED_INT_SAMPLER_2D_RECT = 0x8DD5;
 
 		/// <summary>
 		/// Value of GL_UNSIGNED_INT_SAMPLER_BUFFER symbol.
 		/// </summary>
-		[AliasOf("GL_UNSIGNED_INT_SAMPLER_BUFFER_EXT"]
+		[AliasOf("GL_UNSIGNED_INT_SAMPLER_BUFFER_EXT")]
 		[RequiredByFeature("GL_VERSION_3_1")]
 		public const int UNSIGNED_INT_SAMPLER_BUFFER = 0x8DD8;
 
 		/// <summary>
 		/// Value of GL_TEXTURE_BUFFER symbol.
 		/// </summary>
-		[AliasOf("GL_TEXTURE_BUFFER_ARB"]
-		[AliasOf("GL_TEXTURE_BUFFER_EXT"]
+		[AliasOf("GL_TEXTURE_BUFFER_ARB")]
+		[AliasOf("GL_TEXTURE_BUFFER_EXT")]
 		[RequiredByFeature("GL_VERSION_3_1")]
 		[RequiredByFeature("GL_ARB_internalformat_query2")]
 		public const int TEXTURE_BUFFER = 0x8C2A;
@@ -86,16 +86,16 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_MAX_TEXTURE_BUFFER_SIZE symbol.
 		/// </summary>
-		[AliasOf("GL_MAX_TEXTURE_BUFFER_SIZE_ARB"]
-		[AliasOf("GL_MAX_TEXTURE_BUFFER_SIZE_EXT"]
+		[AliasOf("GL_MAX_TEXTURE_BUFFER_SIZE_ARB")]
+		[AliasOf("GL_MAX_TEXTURE_BUFFER_SIZE_EXT")]
 		[RequiredByFeature("GL_VERSION_3_1")]
 		public const int MAX_TEXTURE_BUFFER_SIZE = 0x8C2B;
 
 		/// <summary>
 		/// Value of GL_TEXTURE_BINDING_BUFFER symbol.
 		/// </summary>
-		[AliasOf("GL_TEXTURE_BINDING_BUFFER_ARB"]
-		[AliasOf("GL_TEXTURE_BINDING_BUFFER_EXT"]
+		[AliasOf("GL_TEXTURE_BINDING_BUFFER_ARB")]
+		[AliasOf("GL_TEXTURE_BINDING_BUFFER_EXT")]
 		[RequiredByFeature("GL_VERSION_3_1")]
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_direct_state_access")]
@@ -104,16 +104,16 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_TEXTURE_BUFFER_DATA_STORE_BINDING symbol.
 		/// </summary>
-		[AliasOf("GL_TEXTURE_BUFFER_DATA_STORE_BINDING_ARB"]
-		[AliasOf("GL_TEXTURE_BUFFER_DATA_STORE_BINDING_EXT"]
+		[AliasOf("GL_TEXTURE_BUFFER_DATA_STORE_BINDING_ARB")]
+		[AliasOf("GL_TEXTURE_BUFFER_DATA_STORE_BINDING_EXT")]
 		[RequiredByFeature("GL_VERSION_3_1")]
 		public const int TEXTURE_BUFFER_DATA_STORE_BINDING = 0x8C2D;
 
 		/// <summary>
 		/// Value of GL_TEXTURE_RECTANGLE symbol.
 		/// </summary>
-		[AliasOf("GL_TEXTURE_RECTANGLE_ARB"]
-		[AliasOf("GL_TEXTURE_RECTANGLE_NV"]
+		[AliasOf("GL_TEXTURE_RECTANGLE_ARB")]
+		[AliasOf("GL_TEXTURE_RECTANGLE_NV")]
 		[RequiredByFeature("GL_VERSION_3_1")]
 		[RequiredByFeature("GL_ARB_internalformat_query2")]
 		public const int TEXTURE_RECTANGLE = 0x84F5;
@@ -121,8 +121,8 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_TEXTURE_BINDING_RECTANGLE symbol.
 		/// </summary>
-		[AliasOf("GL_TEXTURE_BINDING_RECTANGLE_ARB"]
-		[AliasOf("GL_TEXTURE_BINDING_RECTANGLE_NV"]
+		[AliasOf("GL_TEXTURE_BINDING_RECTANGLE_ARB")]
+		[AliasOf("GL_TEXTURE_BINDING_RECTANGLE_NV")]
 		[RequiredByFeature("GL_VERSION_3_1")]
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_direct_state_access")]
@@ -131,16 +131,16 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_PROXY_TEXTURE_RECTANGLE symbol.
 		/// </summary>
-		[AliasOf("GL_PROXY_TEXTURE_RECTANGLE_ARB"]
-		[AliasOf("GL_PROXY_TEXTURE_RECTANGLE_NV"]
+		[AliasOf("GL_PROXY_TEXTURE_RECTANGLE_ARB")]
+		[AliasOf("GL_PROXY_TEXTURE_RECTANGLE_NV")]
 		[RequiredByFeature("GL_VERSION_3_1")]
 		public const int PROXY_TEXTURE_RECTANGLE = 0x84F7;
 
 		/// <summary>
 		/// Value of GL_MAX_RECTANGLE_TEXTURE_SIZE symbol.
 		/// </summary>
-		[AliasOf("GL_MAX_RECTANGLE_TEXTURE_SIZE_ARB"]
-		[AliasOf("GL_MAX_RECTANGLE_TEXTURE_SIZE_NV"]
+		[AliasOf("GL_MAX_RECTANGLE_TEXTURE_SIZE_ARB")]
+		[AliasOf("GL_MAX_RECTANGLE_TEXTURE_SIZE_NV")]
 		[RequiredByFeature("GL_VERSION_3_1")]
 		public const int MAX_RECTANGLE_TEXTURE_SIZE = 0x84F8;
 
@@ -486,17 +486,9 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_3_1")]
 		public static void DrawArraysInstanced(PrimitiveType mode, Int32 first, Int32 count, Int32 instancecount)
 		{
-			if        (Delegates.pglDrawArraysInstanced != null) {
-				Delegates.pglDrawArraysInstanced((int)mode, first, count, instancecount);
-				CallLog("glDrawArraysInstanced({0}, {1}, {2}, {3})", mode, first, count, instancecount);
-			} else if (Delegates.pglDrawArraysInstancedARB != null) {
-				Delegates.pglDrawArraysInstancedARB((int)mode, first, count, instancecount);
-				CallLog("glDrawArraysInstancedARB({0}, {1}, {2}, {3})", mode, first, count, instancecount);
-			} else if (Delegates.pglDrawArraysInstancedEXT != null) {
-				Delegates.pglDrawArraysInstancedEXT((int)mode, first, count, instancecount);
-				CallLog("glDrawArraysInstancedEXT({0}, {1}, {2}, {3})", mode, first, count, instancecount);
-			} else
-				throw new NotImplementedException("glDrawArraysInstanced (and other aliases) are not implemented");
+			Debug.Assert(Delegates.pglDrawArraysInstanced != null, "pglDrawArraysInstanced not implemented");
+			Delegates.pglDrawArraysInstanced((int)mode, first, count, instancecount);
+			CallLog("glDrawArraysInstanced({0}, {1}, {2}, {3})", mode, first, count, instancecount);
 			DebugCheckErrors();
 		}
 
@@ -523,17 +515,9 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_3_1")]
 		public static void DrawElementsInstanced(PrimitiveType mode, Int32 count, DrawElementsType type, IntPtr indices, Int32 instancecount)
 		{
-			if        (Delegates.pglDrawElementsInstanced != null) {
-				Delegates.pglDrawElementsInstanced((int)mode, count, (int)type, indices, instancecount);
-				CallLog("glDrawElementsInstanced({0}, {1}, {2}, {3}, {4})", mode, count, type, indices, instancecount);
-			} else if (Delegates.pglDrawElementsInstancedARB != null) {
-				Delegates.pglDrawElementsInstancedARB((int)mode, count, (int)type, indices, instancecount);
-				CallLog("glDrawElementsInstancedARB({0}, {1}, {2}, {3}, {4})", mode, count, type, indices, instancecount);
-			} else if (Delegates.pglDrawElementsInstancedEXT != null) {
-				Delegates.pglDrawElementsInstancedEXT((int)mode, count, (int)type, indices, instancecount);
-				CallLog("glDrawElementsInstancedEXT({0}, {1}, {2}, {3}, {4})", mode, count, type, indices, instancecount);
-			} else
-				throw new NotImplementedException("glDrawElementsInstanced (and other aliases) are not implemented");
+			Debug.Assert(Delegates.pglDrawElementsInstanced != null, "pglDrawElementsInstanced not implemented");
+			Delegates.pglDrawElementsInstanced((int)mode, count, (int)type, indices, instancecount);
+			CallLog("glDrawElementsInstanced({0}, {1}, {2}, {3}, {4})", mode, count, type, indices, instancecount);
 			DebugCheckErrors();
 		}
 
@@ -583,17 +567,9 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_3_1")]
 		public static void TexBuffer(TextureTarget target, int internalformat, UInt32 buffer)
 		{
-			if        (Delegates.pglTexBuffer != null) {
-				Delegates.pglTexBuffer((int)target, internalformat, buffer);
-				CallLog("glTexBuffer({0}, {1}, {2})", target, internalformat, buffer);
-			} else if (Delegates.pglTexBufferARB != null) {
-				Delegates.pglTexBufferARB((int)target, internalformat, buffer);
-				CallLog("glTexBufferARB({0}, {1}, {2})", target, internalformat, buffer);
-			} else if (Delegates.pglTexBufferEXT != null) {
-				Delegates.pglTexBufferEXT((int)target, internalformat, buffer);
-				CallLog("glTexBufferEXT({0}, {1}, {2})", target, internalformat, buffer);
-			} else
-				throw new NotImplementedException("glTexBuffer (and other aliases) are not implemented");
+			Debug.Assert(Delegates.pglTexBuffer != null, "pglTexBuffer not implemented");
+			Delegates.pglTexBuffer((int)target, internalformat, buffer);
+			CallLog("glTexBuffer({0}, {1}, {2})", target, internalformat, buffer);
 			DebugCheckErrors();
 		}
 

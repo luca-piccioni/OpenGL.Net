@@ -28,7 +28,7 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_RGBA_FLOAT_MODE_ARB symbol.
 		/// </summary>
-		[AliasOf("GL_RGBA_FLOAT_MODE_ATI"]
+		[AliasOf("GL_RGBA_FLOAT_MODE_ATI")]
 		[RequiredByFeature("GL_ARB_color_buffer_float")]
 		public const int RGBA_FLOAT_MODE_ARB = 0x8820;
 

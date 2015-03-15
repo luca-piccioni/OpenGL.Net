@@ -28,299 +28,299 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_BLEND_EQUATION_RGB symbol.
 		/// </summary>
-		[AliasOf("GL_BLEND_EQUATION_RGB_EXT"]
+		[AliasOf("GL_BLEND_EQUATION_RGB_EXT")]
 		[RequiredByFeature("GL_VERSION_2_0")]
 		public const int BLEND_EQUATION_RGB = 0x8009;
 
 		/// <summary>
 		/// Value of GL_VERTEX_ATTRIB_ARRAY_ENABLED symbol.
 		/// </summary>
-		[AliasOf("GL_VERTEX_ATTRIB_ARRAY_ENABLED_ARB"]
+		[AliasOf("GL_VERTEX_ATTRIB_ARRAY_ENABLED_ARB")]
 		[RequiredByFeature("GL_VERSION_2_0")]
 		public const int VERTEX_ATTRIB_ARRAY_ENABLED = 0x8622;
 
 		/// <summary>
 		/// Value of GL_VERTEX_ATTRIB_ARRAY_SIZE symbol.
 		/// </summary>
-		[AliasOf("GL_VERTEX_ATTRIB_ARRAY_SIZE_ARB"]
+		[AliasOf("GL_VERTEX_ATTRIB_ARRAY_SIZE_ARB")]
 		[RequiredByFeature("GL_VERSION_2_0")]
 		public const int VERTEX_ATTRIB_ARRAY_SIZE = 0x8623;
 
 		/// <summary>
 		/// Value of GL_VERTEX_ATTRIB_ARRAY_STRIDE symbol.
 		/// </summary>
-		[AliasOf("GL_VERTEX_ATTRIB_ARRAY_STRIDE_ARB"]
+		[AliasOf("GL_VERTEX_ATTRIB_ARRAY_STRIDE_ARB")]
 		[RequiredByFeature("GL_VERSION_2_0")]
 		public const int VERTEX_ATTRIB_ARRAY_STRIDE = 0x8624;
 
 		/// <summary>
 		/// Value of GL_VERTEX_ATTRIB_ARRAY_TYPE symbol.
 		/// </summary>
-		[AliasOf("GL_VERTEX_ATTRIB_ARRAY_TYPE_ARB"]
+		[AliasOf("GL_VERTEX_ATTRIB_ARRAY_TYPE_ARB")]
 		[RequiredByFeature("GL_VERSION_2_0")]
 		public const int VERTEX_ATTRIB_ARRAY_TYPE = 0x8625;
 
 		/// <summary>
 		/// Value of GL_CURRENT_VERTEX_ATTRIB symbol.
 		/// </summary>
-		[AliasOf("GL_CURRENT_VERTEX_ATTRIB_ARB"]
+		[AliasOf("GL_CURRENT_VERTEX_ATTRIB_ARB")]
 		[RequiredByFeature("GL_VERSION_2_0")]
 		public const int CURRENT_VERTEX_ATTRIB = 0x8626;
 
 		/// <summary>
 		/// Value of GL_VERTEX_PROGRAM_POINT_SIZE symbol.
 		/// </summary>
-		[AliasOf("GL_VERTEX_PROGRAM_POINT_SIZE_ARB"]
-		[AliasOf("GL_VERTEX_PROGRAM_POINT_SIZE_NV"]
+		[AliasOf("GL_VERTEX_PROGRAM_POINT_SIZE_ARB")]
+		[AliasOf("GL_VERTEX_PROGRAM_POINT_SIZE_NV")]
 		[RequiredByFeature("GL_VERSION_2_0")]
 		public const int VERTEX_PROGRAM_POINT_SIZE = 0x8642;
 
 		/// <summary>
 		/// Value of GL_VERTEX_ATTRIB_ARRAY_POINTER symbol.
 		/// </summary>
-		[AliasOf("GL_VERTEX_ATTRIB_ARRAY_POINTER_ARB"]
+		[AliasOf("GL_VERTEX_ATTRIB_ARRAY_POINTER_ARB")]
 		[RequiredByFeature("GL_VERSION_2_0")]
 		public const int VERTEX_ATTRIB_ARRAY_POINTER = 0x8645;
 
 		/// <summary>
 		/// Value of GL_STENCIL_BACK_FUNC symbol.
 		/// </summary>
-		[AliasOf("GL_STENCIL_BACK_FUNC_ATI"]
+		[AliasOf("GL_STENCIL_BACK_FUNC_ATI")]
 		[RequiredByFeature("GL_VERSION_2_0")]
 		public const int STENCIL_BACK_FUNC = 0x8800;
 
 		/// <summary>
 		/// Value of GL_STENCIL_BACK_FAIL symbol.
 		/// </summary>
-		[AliasOf("GL_STENCIL_BACK_FAIL_ATI"]
+		[AliasOf("GL_STENCIL_BACK_FAIL_ATI")]
 		[RequiredByFeature("GL_VERSION_2_0")]
 		public const int STENCIL_BACK_FAIL = 0x8801;
 
 		/// <summary>
 		/// Value of GL_STENCIL_BACK_PASS_DEPTH_FAIL symbol.
 		/// </summary>
-		[AliasOf("GL_STENCIL_BACK_PASS_DEPTH_FAIL_ATI"]
+		[AliasOf("GL_STENCIL_BACK_PASS_DEPTH_FAIL_ATI")]
 		[RequiredByFeature("GL_VERSION_2_0")]
 		public const int STENCIL_BACK_PASS_DEPTH_FAIL = 0x8802;
 
 		/// <summary>
 		/// Value of GL_STENCIL_BACK_PASS_DEPTH_PASS symbol.
 		/// </summary>
-		[AliasOf("GL_STENCIL_BACK_PASS_DEPTH_PASS_ATI"]
+		[AliasOf("GL_STENCIL_BACK_PASS_DEPTH_PASS_ATI")]
 		[RequiredByFeature("GL_VERSION_2_0")]
 		public const int STENCIL_BACK_PASS_DEPTH_PASS = 0x8803;
 
 		/// <summary>
 		/// Value of GL_MAX_DRAW_BUFFERS symbol.
 		/// </summary>
-		[AliasOf("GL_MAX_DRAW_BUFFERS_ARB"]
-		[AliasOf("GL_MAX_DRAW_BUFFERS_ATI"]
+		[AliasOf("GL_MAX_DRAW_BUFFERS_ARB")]
+		[AliasOf("GL_MAX_DRAW_BUFFERS_ATI")]
 		[RequiredByFeature("GL_VERSION_2_0")]
 		public const int MAX_DRAW_BUFFERS = 0x8824;
 
 		/// <summary>
 		/// Value of GL_DRAW_BUFFER0 symbol.
 		/// </summary>
-		[AliasOf("GL_DRAW_BUFFER0_ARB"]
-		[AliasOf("GL_DRAW_BUFFER0_ATI"]
+		[AliasOf("GL_DRAW_BUFFER0_ARB")]
+		[AliasOf("GL_DRAW_BUFFER0_ATI")]
 		[RequiredByFeature("GL_VERSION_2_0")]
 		public const int DRAW_BUFFER0 = 0x8825;
 
 		/// <summary>
 		/// Value of GL_DRAW_BUFFER1 symbol.
 		/// </summary>
-		[AliasOf("GL_DRAW_BUFFER1_ARB"]
-		[AliasOf("GL_DRAW_BUFFER1_ATI"]
+		[AliasOf("GL_DRAW_BUFFER1_ARB")]
+		[AliasOf("GL_DRAW_BUFFER1_ATI")]
 		[RequiredByFeature("GL_VERSION_2_0")]
 		public const int DRAW_BUFFER1 = 0x8826;
 
 		/// <summary>
 		/// Value of GL_DRAW_BUFFER2 symbol.
 		/// </summary>
-		[AliasOf("GL_DRAW_BUFFER2_ARB"]
-		[AliasOf("GL_DRAW_BUFFER2_ATI"]
+		[AliasOf("GL_DRAW_BUFFER2_ARB")]
+		[AliasOf("GL_DRAW_BUFFER2_ATI")]
 		[RequiredByFeature("GL_VERSION_2_0")]
 		public const int DRAW_BUFFER2 = 0x8827;
 
 		/// <summary>
 		/// Value of GL_DRAW_BUFFER3 symbol.
 		/// </summary>
-		[AliasOf("GL_DRAW_BUFFER3_ARB"]
-		[AliasOf("GL_DRAW_BUFFER3_ATI"]
+		[AliasOf("GL_DRAW_BUFFER3_ARB")]
+		[AliasOf("GL_DRAW_BUFFER3_ATI")]
 		[RequiredByFeature("GL_VERSION_2_0")]
 		public const int DRAW_BUFFER3 = 0x8828;
 
 		/// <summary>
 		/// Value of GL_DRAW_BUFFER4 symbol.
 		/// </summary>
-		[AliasOf("GL_DRAW_BUFFER4_ARB"]
-		[AliasOf("GL_DRAW_BUFFER4_ATI"]
+		[AliasOf("GL_DRAW_BUFFER4_ARB")]
+		[AliasOf("GL_DRAW_BUFFER4_ATI")]
 		[RequiredByFeature("GL_VERSION_2_0")]
 		public const int DRAW_BUFFER4 = 0x8829;
 
 		/// <summary>
 		/// Value of GL_DRAW_BUFFER5 symbol.
 		/// </summary>
-		[AliasOf("GL_DRAW_BUFFER5_ARB"]
-		[AliasOf("GL_DRAW_BUFFER5_ATI"]
+		[AliasOf("GL_DRAW_BUFFER5_ARB")]
+		[AliasOf("GL_DRAW_BUFFER5_ATI")]
 		[RequiredByFeature("GL_VERSION_2_0")]
 		public const int DRAW_BUFFER5 = 0x882A;
 
 		/// <summary>
 		/// Value of GL_DRAW_BUFFER6 symbol.
 		/// </summary>
-		[AliasOf("GL_DRAW_BUFFER6_ARB"]
-		[AliasOf("GL_DRAW_BUFFER6_ATI"]
+		[AliasOf("GL_DRAW_BUFFER6_ARB")]
+		[AliasOf("GL_DRAW_BUFFER6_ATI")]
 		[RequiredByFeature("GL_VERSION_2_0")]
 		public const int DRAW_BUFFER6 = 0x882B;
 
 		/// <summary>
 		/// Value of GL_DRAW_BUFFER7 symbol.
 		/// </summary>
-		[AliasOf("GL_DRAW_BUFFER7_ARB"]
-		[AliasOf("GL_DRAW_BUFFER7_ATI"]
+		[AliasOf("GL_DRAW_BUFFER7_ARB")]
+		[AliasOf("GL_DRAW_BUFFER7_ATI")]
 		[RequiredByFeature("GL_VERSION_2_0")]
 		public const int DRAW_BUFFER7 = 0x882C;
 
 		/// <summary>
 		/// Value of GL_DRAW_BUFFER8 symbol.
 		/// </summary>
-		[AliasOf("GL_DRAW_BUFFER8_ARB"]
-		[AliasOf("GL_DRAW_BUFFER8_ATI"]
+		[AliasOf("GL_DRAW_BUFFER8_ARB")]
+		[AliasOf("GL_DRAW_BUFFER8_ATI")]
 		[RequiredByFeature("GL_VERSION_2_0")]
 		public const int DRAW_BUFFER8 = 0x882D;
 
 		/// <summary>
 		/// Value of GL_DRAW_BUFFER9 symbol.
 		/// </summary>
-		[AliasOf("GL_DRAW_BUFFER9_ARB"]
-		[AliasOf("GL_DRAW_BUFFER9_ATI"]
+		[AliasOf("GL_DRAW_BUFFER9_ARB")]
+		[AliasOf("GL_DRAW_BUFFER9_ATI")]
 		[RequiredByFeature("GL_VERSION_2_0")]
 		public const int DRAW_BUFFER9 = 0x882E;
 
 		/// <summary>
 		/// Value of GL_DRAW_BUFFER10 symbol.
 		/// </summary>
-		[AliasOf("GL_DRAW_BUFFER10_ARB"]
-		[AliasOf("GL_DRAW_BUFFER10_ATI"]
+		[AliasOf("GL_DRAW_BUFFER10_ARB")]
+		[AliasOf("GL_DRAW_BUFFER10_ATI")]
 		[RequiredByFeature("GL_VERSION_2_0")]
 		public const int DRAW_BUFFER10 = 0x882F;
 
 		/// <summary>
 		/// Value of GL_DRAW_BUFFER11 symbol.
 		/// </summary>
-		[AliasOf("GL_DRAW_BUFFER11_ARB"]
-		[AliasOf("GL_DRAW_BUFFER11_ATI"]
+		[AliasOf("GL_DRAW_BUFFER11_ARB")]
+		[AliasOf("GL_DRAW_BUFFER11_ATI")]
 		[RequiredByFeature("GL_VERSION_2_0")]
 		public const int DRAW_BUFFER11 = 0x8830;
 
 		/// <summary>
 		/// Value of GL_DRAW_BUFFER12 symbol.
 		/// </summary>
-		[AliasOf("GL_DRAW_BUFFER12_ARB"]
-		[AliasOf("GL_DRAW_BUFFER12_ATI"]
+		[AliasOf("GL_DRAW_BUFFER12_ARB")]
+		[AliasOf("GL_DRAW_BUFFER12_ATI")]
 		[RequiredByFeature("GL_VERSION_2_0")]
 		public const int DRAW_BUFFER12 = 0x8831;
 
 		/// <summary>
 		/// Value of GL_DRAW_BUFFER13 symbol.
 		/// </summary>
-		[AliasOf("GL_DRAW_BUFFER13_ARB"]
-		[AliasOf("GL_DRAW_BUFFER13_ATI"]
+		[AliasOf("GL_DRAW_BUFFER13_ARB")]
+		[AliasOf("GL_DRAW_BUFFER13_ATI")]
 		[RequiredByFeature("GL_VERSION_2_0")]
 		public const int DRAW_BUFFER13 = 0x8832;
 
 		/// <summary>
 		/// Value of GL_DRAW_BUFFER14 symbol.
 		/// </summary>
-		[AliasOf("GL_DRAW_BUFFER14_ARB"]
-		[AliasOf("GL_DRAW_BUFFER14_ATI"]
+		[AliasOf("GL_DRAW_BUFFER14_ARB")]
+		[AliasOf("GL_DRAW_BUFFER14_ATI")]
 		[RequiredByFeature("GL_VERSION_2_0")]
 		public const int DRAW_BUFFER14 = 0x8833;
 
 		/// <summary>
 		/// Value of GL_DRAW_BUFFER15 symbol.
 		/// </summary>
-		[AliasOf("GL_DRAW_BUFFER15_ARB"]
-		[AliasOf("GL_DRAW_BUFFER15_ATI"]
+		[AliasOf("GL_DRAW_BUFFER15_ARB")]
+		[AliasOf("GL_DRAW_BUFFER15_ATI")]
 		[RequiredByFeature("GL_VERSION_2_0")]
 		public const int DRAW_BUFFER15 = 0x8834;
 
 		/// <summary>
 		/// Value of GL_BLEND_EQUATION_ALPHA symbol.
 		/// </summary>
-		[AliasOf("GL_BLEND_EQUATION_ALPHA_EXT"]
+		[AliasOf("GL_BLEND_EQUATION_ALPHA_EXT")]
 		[RequiredByFeature("GL_VERSION_2_0")]
 		public const int BLEND_EQUATION_ALPHA = 0x883D;
 
 		/// <summary>
 		/// Value of GL_MAX_VERTEX_ATTRIBS symbol.
 		/// </summary>
-		[AliasOf("GL_MAX_VERTEX_ATTRIBS_ARB"]
+		[AliasOf("GL_MAX_VERTEX_ATTRIBS_ARB")]
 		[RequiredByFeature("GL_VERSION_2_0")]
 		public const int MAX_VERTEX_ATTRIBS = 0x8869;
 
 		/// <summary>
 		/// Value of GL_VERTEX_ATTRIB_ARRAY_NORMALIZED symbol.
 		/// </summary>
-		[AliasOf("GL_VERTEX_ATTRIB_ARRAY_NORMALIZED_ARB"]
+		[AliasOf("GL_VERTEX_ATTRIB_ARRAY_NORMALIZED_ARB")]
 		[RequiredByFeature("GL_VERSION_2_0")]
 		public const int VERTEX_ATTRIB_ARRAY_NORMALIZED = 0x886A;
 
 		/// <summary>
 		/// Value of GL_MAX_TEXTURE_IMAGE_UNITS symbol.
 		/// </summary>
-		[AliasOf("GL_MAX_TEXTURE_IMAGE_UNITS_ARB"]
-		[AliasOf("GL_MAX_TEXTURE_IMAGE_UNITS_NV"]
+		[AliasOf("GL_MAX_TEXTURE_IMAGE_UNITS_ARB")]
+		[AliasOf("GL_MAX_TEXTURE_IMAGE_UNITS_NV")]
 		[RequiredByFeature("GL_VERSION_2_0")]
 		public const int MAX_TEXTURE_IMAGE_UNITS = 0x8872;
 
 		/// <summary>
 		/// Value of GL_FRAGMENT_SHADER symbol.
 		/// </summary>
-		[AliasOf("GL_FRAGMENT_SHADER_ARB"]
+		[AliasOf("GL_FRAGMENT_SHADER_ARB")]
 		[RequiredByFeature("GL_VERSION_2_0")]
 		public const int FRAGMENT_SHADER = 0x8B30;
 
 		/// <summary>
 		/// Value of GL_VERTEX_SHADER symbol.
 		/// </summary>
-		[AliasOf("GL_VERTEX_SHADER_ARB"]
+		[AliasOf("GL_VERTEX_SHADER_ARB")]
 		[RequiredByFeature("GL_VERSION_2_0")]
 		public const int VERTEX_SHADER = 0x8B31;
 
 		/// <summary>
 		/// Value of GL_MAX_FRAGMENT_UNIFORM_COMPONENTS symbol.
 		/// </summary>
-		[AliasOf("GL_MAX_FRAGMENT_UNIFORM_COMPONENTS_ARB"]
+		[AliasOf("GL_MAX_FRAGMENT_UNIFORM_COMPONENTS_ARB")]
 		[RequiredByFeature("GL_VERSION_2_0")]
 		public const int MAX_FRAGMENT_UNIFORM_COMPONENTS = 0x8B49;
 
 		/// <summary>
 		/// Value of GL_MAX_VERTEX_UNIFORM_COMPONENTS symbol.
 		/// </summary>
-		[AliasOf("GL_MAX_VERTEX_UNIFORM_COMPONENTS_ARB"]
+		[AliasOf("GL_MAX_VERTEX_UNIFORM_COMPONENTS_ARB")]
 		[RequiredByFeature("GL_VERSION_2_0")]
 		public const int MAX_VERTEX_UNIFORM_COMPONENTS = 0x8B4A;
 
 		/// <summary>
 		/// Value of GL_MAX_VARYING_FLOATS symbol.
 		/// </summary>
-		[AliasOf("GL_MAX_VARYING_FLOATS_ARB"]
+		[AliasOf("GL_MAX_VARYING_FLOATS_ARB")]
 		[RequiredByFeature("GL_VERSION_2_0")]
 		public const int MAX_VARYING_FLOATS = 0x8B4B;
 
 		/// <summary>
 		/// Value of GL_MAX_VERTEX_TEXTURE_IMAGE_UNITS symbol.
 		/// </summary>
-		[AliasOf("GL_MAX_VERTEX_TEXTURE_IMAGE_UNITS_ARB"]
+		[AliasOf("GL_MAX_VERTEX_TEXTURE_IMAGE_UNITS_ARB")]
 		[RequiredByFeature("GL_VERSION_2_0")]
 		public const int MAX_VERTEX_TEXTURE_IMAGE_UNITS = 0x8B4C;
 
 		/// <summary>
 		/// Value of GL_MAX_COMBINED_TEXTURE_IMAGE_UNITS symbol.
 		/// </summary>
-		[AliasOf("GL_MAX_COMBINED_TEXTURE_IMAGE_UNITS_ARB"]
+		[AliasOf("GL_MAX_COMBINED_TEXTURE_IMAGE_UNITS_ARB")]
 		[RequiredByFeature("GL_VERSION_2_0")]
 		public const int MAX_COMBINED_TEXTURE_IMAGE_UNITS = 0x8B4D;
 
@@ -333,133 +333,133 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_FLOAT_VEC2 symbol.
 		/// </summary>
-		[AliasOf("GL_FLOAT_VEC2_ARB"]
+		[AliasOf("GL_FLOAT_VEC2_ARB")]
 		[RequiredByFeature("GL_VERSION_2_0")]
 		public const int FLOAT_VEC2 = 0x8B50;
 
 		/// <summary>
 		/// Value of GL_FLOAT_VEC3 symbol.
 		/// </summary>
-		[AliasOf("GL_FLOAT_VEC3_ARB"]
+		[AliasOf("GL_FLOAT_VEC3_ARB")]
 		[RequiredByFeature("GL_VERSION_2_0")]
 		public const int FLOAT_VEC3 = 0x8B51;
 
 		/// <summary>
 		/// Value of GL_FLOAT_VEC4 symbol.
 		/// </summary>
-		[AliasOf("GL_FLOAT_VEC4_ARB"]
+		[AliasOf("GL_FLOAT_VEC4_ARB")]
 		[RequiredByFeature("GL_VERSION_2_0")]
 		public const int FLOAT_VEC4 = 0x8B52;
 
 		/// <summary>
 		/// Value of GL_INT_VEC2 symbol.
 		/// </summary>
-		[AliasOf("GL_INT_VEC2_ARB"]
+		[AliasOf("GL_INT_VEC2_ARB")]
 		[RequiredByFeature("GL_VERSION_2_0")]
 		public const int INT_VEC2 = 0x8B53;
 
 		/// <summary>
 		/// Value of GL_INT_VEC3 symbol.
 		/// </summary>
-		[AliasOf("GL_INT_VEC3_ARB"]
+		[AliasOf("GL_INT_VEC3_ARB")]
 		[RequiredByFeature("GL_VERSION_2_0")]
 		public const int INT_VEC3 = 0x8B54;
 
 		/// <summary>
 		/// Value of GL_INT_VEC4 symbol.
 		/// </summary>
-		[AliasOf("GL_INT_VEC4_ARB"]
+		[AliasOf("GL_INT_VEC4_ARB")]
 		[RequiredByFeature("GL_VERSION_2_0")]
 		public const int INT_VEC4 = 0x8B55;
 
 		/// <summary>
 		/// Value of GL_BOOL symbol.
 		/// </summary>
-		[AliasOf("GL_BOOL_ARB"]
+		[AliasOf("GL_BOOL_ARB")]
 		[RequiredByFeature("GL_VERSION_2_0")]
 		public const int BOOL = 0x8B56;
 
 		/// <summary>
 		/// Value of GL_BOOL_VEC2 symbol.
 		/// </summary>
-		[AliasOf("GL_BOOL_VEC2_ARB"]
+		[AliasOf("GL_BOOL_VEC2_ARB")]
 		[RequiredByFeature("GL_VERSION_2_0")]
 		public const int BOOL_VEC2 = 0x8B57;
 
 		/// <summary>
 		/// Value of GL_BOOL_VEC3 symbol.
 		/// </summary>
-		[AliasOf("GL_BOOL_VEC3_ARB"]
+		[AliasOf("GL_BOOL_VEC3_ARB")]
 		[RequiredByFeature("GL_VERSION_2_0")]
 		public const int BOOL_VEC3 = 0x8B58;
 
 		/// <summary>
 		/// Value of GL_BOOL_VEC4 symbol.
 		/// </summary>
-		[AliasOf("GL_BOOL_VEC4_ARB"]
+		[AliasOf("GL_BOOL_VEC4_ARB")]
 		[RequiredByFeature("GL_VERSION_2_0")]
 		public const int BOOL_VEC4 = 0x8B59;
 
 		/// <summary>
 		/// Value of GL_FLOAT_MAT2 symbol.
 		/// </summary>
-		[AliasOf("GL_FLOAT_MAT2_ARB"]
+		[AliasOf("GL_FLOAT_MAT2_ARB")]
 		[RequiredByFeature("GL_VERSION_2_0")]
 		public const int FLOAT_MAT2 = 0x8B5A;
 
 		/// <summary>
 		/// Value of GL_FLOAT_MAT3 symbol.
 		/// </summary>
-		[AliasOf("GL_FLOAT_MAT3_ARB"]
+		[AliasOf("GL_FLOAT_MAT3_ARB")]
 		[RequiredByFeature("GL_VERSION_2_0")]
 		public const int FLOAT_MAT3 = 0x8B5B;
 
 		/// <summary>
 		/// Value of GL_FLOAT_MAT4 symbol.
 		/// </summary>
-		[AliasOf("GL_FLOAT_MAT4_ARB"]
+		[AliasOf("GL_FLOAT_MAT4_ARB")]
 		[RequiredByFeature("GL_VERSION_2_0")]
 		public const int FLOAT_MAT4 = 0x8B5C;
 
 		/// <summary>
 		/// Value of GL_SAMPLER_1D symbol.
 		/// </summary>
-		[AliasOf("GL_SAMPLER_1D_ARB"]
+		[AliasOf("GL_SAMPLER_1D_ARB")]
 		[RequiredByFeature("GL_VERSION_2_0")]
 		public const int SAMPLER_1D = 0x8B5D;
 
 		/// <summary>
 		/// Value of GL_SAMPLER_2D symbol.
 		/// </summary>
-		[AliasOf("GL_SAMPLER_2D_ARB"]
+		[AliasOf("GL_SAMPLER_2D_ARB")]
 		[RequiredByFeature("GL_VERSION_2_0")]
 		public const int SAMPLER_2D = 0x8B5E;
 
 		/// <summary>
 		/// Value of GL_SAMPLER_3D symbol.
 		/// </summary>
-		[AliasOf("GL_SAMPLER_3D_ARB"]
+		[AliasOf("GL_SAMPLER_3D_ARB")]
 		[RequiredByFeature("GL_VERSION_2_0")]
 		public const int SAMPLER_3D = 0x8B5F;
 
 		/// <summary>
 		/// Value of GL_SAMPLER_CUBE symbol.
 		/// </summary>
-		[AliasOf("GL_SAMPLER_CUBE_ARB"]
+		[AliasOf("GL_SAMPLER_CUBE_ARB")]
 		[RequiredByFeature("GL_VERSION_2_0")]
 		public const int SAMPLER_CUBE = 0x8B60;
 
 		/// <summary>
 		/// Value of GL_SAMPLER_1D_SHADOW symbol.
 		/// </summary>
-		[AliasOf("GL_SAMPLER_1D_SHADOW_ARB"]
+		[AliasOf("GL_SAMPLER_1D_SHADOW_ARB")]
 		[RequiredByFeature("GL_VERSION_2_0")]
 		public const int SAMPLER_1D_SHADOW = 0x8B61;
 
 		/// <summary>
 		/// Value of GL_SAMPLER_2D_SHADOW symbol.
 		/// </summary>
-		[AliasOf("GL_SAMPLER_2D_SHADOW_ARB"]
+		[AliasOf("GL_SAMPLER_2D_SHADOW_ARB")]
 		[RequiredByFeature("GL_VERSION_2_0")]
 		public const int SAMPLER_2D_SHADOW = 0x8B62;
 
@@ -532,14 +532,14 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_FRAGMENT_SHADER_DERIVATIVE_HINT symbol.
 		/// </summary>
-		[AliasOf("GL_FRAGMENT_SHADER_DERIVATIVE_HINT_ARB"]
+		[AliasOf("GL_FRAGMENT_SHADER_DERIVATIVE_HINT_ARB")]
 		[RequiredByFeature("GL_VERSION_2_0")]
 		public const int FRAGMENT_SHADER_DERIVATIVE_HINT = 0x8B8B;
 
 		/// <summary>
 		/// Value of GL_SHADING_LANGUAGE_VERSION symbol.
 		/// </summary>
-		[AliasOf("GL_SHADING_LANGUAGE_VERSION_ARB"]
+		[AliasOf("GL_SHADING_LANGUAGE_VERSION_ARB")]
 		[RequiredByFeature("GL_VERSION_2_0")]
 		public const int SHADING_LANGUAGE_VERSION = 0x8B8C;
 
@@ -592,8 +592,8 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_VERTEX_PROGRAM_TWO_SIDE symbol (DEPRECATED).
 		/// </summary>
-		[AliasOf("GL_VERTEX_PROGRAM_TWO_SIDE_ARB"]
-		[AliasOf("GL_VERTEX_PROGRAM_TWO_SIDE_NV"]
+		[AliasOf("GL_VERTEX_PROGRAM_TWO_SIDE_ARB")]
+		[AliasOf("GL_VERTEX_PROGRAM_TWO_SIDE_NV")]
 		[RequiredByFeature("GL_VERSION_2_0")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
@@ -604,8 +604,8 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_POINT_SPRITE symbol (DEPRECATED).
 		/// </summary>
-		[AliasOf("GL_POINT_SPRITE_ARB"]
-		[AliasOf("GL_POINT_SPRITE_NV"]
+		[AliasOf("GL_POINT_SPRITE_ARB")]
+		[AliasOf("GL_POINT_SPRITE_NV")]
 		[RequiredByFeature("GL_VERSION_2_0")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
@@ -616,8 +616,8 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_COORD_REPLACE symbol (DEPRECATED).
 		/// </summary>
-		[AliasOf("GL_COORD_REPLACE_ARB"]
-		[AliasOf("GL_COORD_REPLACE_NV"]
+		[AliasOf("GL_COORD_REPLACE_ARB")]
+		[AliasOf("GL_COORD_REPLACE_NV")]
 		[RequiredByFeature("GL_VERSION_2_0")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
@@ -628,8 +628,8 @@ namespace OpenGL
 		/// <summary>
 		/// Value of GL_MAX_TEXTURE_COORDS symbol (DEPRECATED).
 		/// </summary>
-		[AliasOf("GL_MAX_TEXTURE_COORDS_ARB"]
-		[AliasOf("GL_MAX_TEXTURE_COORDS_NV"]
+		[AliasOf("GL_MAX_TEXTURE_COORDS_ARB")]
+		[AliasOf("GL_MAX_TEXTURE_COORDS_NV")]
 		[RequiredByFeature("GL_VERSION_2_0")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
@@ -653,14 +653,9 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_2_0")]
 		public static void BlendEquationSeparate(BlendEquationModeEXT modeRGB, BlendEquationModeEXT modeAlpha)
 		{
-			if        (Delegates.pglBlendEquationSeparate != null) {
-				Delegates.pglBlendEquationSeparate((int)modeRGB, (int)modeAlpha);
-				CallLog("glBlendEquationSeparate({0}, {1})", modeRGB, modeAlpha);
-			} else if (Delegates.pglBlendEquationSeparateEXT != null) {
-				Delegates.pglBlendEquationSeparateEXT((int)modeRGB, (int)modeAlpha);
-				CallLog("glBlendEquationSeparateEXT({0}, {1})", modeRGB, modeAlpha);
-			} else
-				throw new NotImplementedException("glBlendEquationSeparate (and other aliases) are not implemented");
+			Debug.Assert(Delegates.pglBlendEquationSeparate != null, "pglBlendEquationSeparate not implemented");
+			Delegates.pglBlendEquationSeparate((int)modeRGB, (int)modeAlpha);
+			CallLog("glBlendEquationSeparate({0}, {1})", modeRGB, modeAlpha);
 			DebugCheckErrors();
 		}
 
@@ -680,17 +675,9 @@ namespace OpenGL
 			unsafe {
 				fixed (int* p_bufs = bufs)
 				{
-					if        (Delegates.pglDrawBuffers != null) {
-						Delegates.pglDrawBuffers((Int32)bufs.Length, p_bufs);
-						CallLog("glDrawBuffers({0}, {1})", bufs.Length, bufs);
-					} else if (Delegates.pglDrawBuffersARB != null) {
-						Delegates.pglDrawBuffersARB((Int32)bufs.Length, p_bufs);
-						CallLog("glDrawBuffersARB({0}, {1})", bufs.Length, bufs);
-					} else if (Delegates.pglDrawBuffersATI != null) {
-						Delegates.pglDrawBuffersATI((Int32)bufs.Length, p_bufs);
-						CallLog("glDrawBuffersATI({0}, {1})", bufs.Length, bufs);
-					} else
-						throw new NotImplementedException("glDrawBuffers (and other aliases) are not implemented");
+					Debug.Assert(Delegates.pglDrawBuffers != null, "pglDrawBuffers not implemented");
+					Delegates.pglDrawBuffers((Int32)bufs.Length, p_bufs);
+					CallLog("glDrawBuffers({0}, {1})", bufs.Length, bufs);
 				}
 			}
 			DebugCheckErrors();
@@ -719,14 +706,9 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_2_0")]
 		public static void StencilOpSeparate(int face, StencilOp sfail, StencilOp dpfail, StencilOp dppass)
 		{
-			if        (Delegates.pglStencilOpSeparate != null) {
-				Delegates.pglStencilOpSeparate(face, (int)sfail, (int)dpfail, (int)dppass);
-				CallLog("glStencilOpSeparate({0}, {1}, {2}, {3})", face, sfail, dpfail, dppass);
-			} else if (Delegates.pglStencilOpSeparateATI != null) {
-				Delegates.pglStencilOpSeparateATI(face, (int)sfail, (int)dpfail, (int)dppass);
-				CallLog("glStencilOpSeparateATI({0}, {1}, {2}, {3})", face, sfail, dpfail, dppass);
-			} else
-				throw new NotImplementedException("glStencilOpSeparate (and other aliases) are not implemented");
+			Debug.Assert(Delegates.pglStencilOpSeparate != null, "pglStencilOpSeparate not implemented");
+			Delegates.pglStencilOpSeparate(face, (int)sfail, (int)dpfail, (int)dppass);
+			CallLog("glStencilOpSeparate({0}, {1}, {2}, {3})", face, sfail, dpfail, dppass);
 			DebugCheckErrors();
 		}
 
@@ -789,14 +771,9 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_2_0")]
 		public static void AttachShader(UInt32 program, UInt32 shader)
 		{
-			if        (Delegates.pglAttachShader != null) {
-				Delegates.pglAttachShader(program, shader);
-				CallLog("glAttachShader({0}, {1})", program, shader);
-			} else if (Delegates.pglAttachObjectARB != null) {
-				Delegates.pglAttachObjectARB(program, shader);
-				CallLog("glAttachObjectARB({0}, {1})", program, shader);
-			} else
-				throw new NotImplementedException("glAttachShader (and other aliases) are not implemented");
+			Debug.Assert(Delegates.pglAttachShader != null, "pglAttachShader not implemented");
+			Delegates.pglAttachShader(program, shader);
+			CallLog("glAttachShader({0}, {1})", program, shader);
 			DebugCheckErrors();
 		}
 
@@ -816,14 +793,9 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_2_0")]
 		public static void BindAttribLocation(UInt32 program, UInt32 index, String name)
 		{
-			if        (Delegates.pglBindAttribLocation != null) {
-				Delegates.pglBindAttribLocation(program, index, name);
-				CallLog("glBindAttribLocation({0}, {1}, {2})", program, index, name);
-			} else if (Delegates.pglBindAttribLocationARB != null) {
-				Delegates.pglBindAttribLocationARB(program, index, name);
-				CallLog("glBindAttribLocationARB({0}, {1}, {2})", program, index, name);
-			} else
-				throw new NotImplementedException("glBindAttribLocation (and other aliases) are not implemented");
+			Debug.Assert(Delegates.pglBindAttribLocation != null, "pglBindAttribLocation not implemented");
+			Delegates.pglBindAttribLocation(program, index, name);
+			CallLog("glBindAttribLocation({0}, {1}, {2})", program, index, name);
 			DebugCheckErrors();
 		}
 
@@ -836,14 +808,9 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_2_0")]
 		public static void CompileShader(UInt32 shader)
 		{
-			if        (Delegates.pglCompileShader != null) {
-				Delegates.pglCompileShader(shader);
-				CallLog("glCompileShader({0})", shader);
-			} else if (Delegates.pglCompileShaderARB != null) {
-				Delegates.pglCompileShaderARB(shader);
-				CallLog("glCompileShaderARB({0})", shader);
-			} else
-				throw new NotImplementedException("glCompileShader (and other aliases) are not implemented");
+			Debug.Assert(Delegates.pglCompileShader != null, "pglCompileShader not implemented");
+			Delegates.pglCompileShader(shader);
+			CallLog("glCompileShader({0})", shader);
 			DebugCheckErrors();
 		}
 
@@ -855,14 +822,9 @@ namespace OpenGL
 		{
 			UInt32 retValue;
 
-			if        (Delegates.pglCreateProgram != null) {
-				retValue = Delegates.pglCreateProgram();
-				CallLog("glCreateProgram() = {0}", retValue);
-			} else if (Delegates.pglCreateProgramObjectARB != null) {
-				retValue = Delegates.pglCreateProgramObjectARB();
-				CallLog("glCreateProgramObjectARB() = {0}", retValue);
-			} else
-				throw new NotImplementedException("glCreateProgram (and other aliases) are not implemented");
+			Debug.Assert(Delegates.pglCreateProgram != null, "pglCreateProgram not implemented");
+			retValue = Delegates.pglCreateProgram();
+			CallLog("glCreateProgram() = {0}", retValue);
 			DebugCheckErrors();
 
 			return (retValue);
@@ -879,14 +841,9 @@ namespace OpenGL
 		{
 			UInt32 retValue;
 
-			if        (Delegates.pglCreateShader != null) {
-				retValue = Delegates.pglCreateShader(type);
-				CallLog("glCreateShader({0}) = {1}", type, retValue);
-			} else if (Delegates.pglCreateShaderObjectARB != null) {
-				retValue = Delegates.pglCreateShaderObjectARB(type);
-				CallLog("glCreateShaderObjectARB({0}) = {1}", type, retValue);
-			} else
-				throw new NotImplementedException("glCreateShader (and other aliases) are not implemented");
+			Debug.Assert(Delegates.pglCreateShader != null, "pglCreateShader not implemented");
+			retValue = Delegates.pglCreateShader(type);
+			CallLog("glCreateShader({0}) = {1}", type, retValue);
 			DebugCheckErrors();
 
 			return (retValue);
@@ -934,14 +891,9 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_2_0")]
 		public static void DetachShader(UInt32 program, UInt32 shader)
 		{
-			if        (Delegates.pglDetachShader != null) {
-				Delegates.pglDetachShader(program, shader);
-				CallLog("glDetachShader({0}, {1})", program, shader);
-			} else if (Delegates.pglDetachObjectARB != null) {
-				Delegates.pglDetachObjectARB(program, shader);
-				CallLog("glDetachObjectARB({0}, {1})", program, shader);
-			} else
-				throw new NotImplementedException("glDetachShader (and other aliases) are not implemented");
+			Debug.Assert(Delegates.pglDetachShader != null, "pglDetachShader not implemented");
+			Delegates.pglDetachShader(program, shader);
+			CallLog("glDetachShader({0}, {1})", program, shader);
 			DebugCheckErrors();
 		}
 
@@ -954,14 +906,9 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_2_0")]
 		public static void DisableVertexAttribArray(UInt32 index)
 		{
-			if        (Delegates.pglDisableVertexAttribArray != null) {
-				Delegates.pglDisableVertexAttribArray(index);
-				CallLog("glDisableVertexAttribArray({0})", index);
-			} else if (Delegates.pglDisableVertexAttribArrayARB != null) {
-				Delegates.pglDisableVertexAttribArrayARB(index);
-				CallLog("glDisableVertexAttribArrayARB({0})", index);
-			} else
-				throw new NotImplementedException("glDisableVertexAttribArray (and other aliases) are not implemented");
+			Debug.Assert(Delegates.pglDisableVertexAttribArray != null, "pglDisableVertexAttribArray not implemented");
+			Delegates.pglDisableVertexAttribArray(index);
+			CallLog("glDisableVertexAttribArray({0})", index);
 			DebugCheckErrors();
 		}
 
@@ -974,14 +921,9 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_2_0")]
 		public static void EnableVertexAttribArray(UInt32 index)
 		{
-			if        (Delegates.pglEnableVertexAttribArray != null) {
-				Delegates.pglEnableVertexAttribArray(index);
-				CallLog("glEnableVertexAttribArray({0})", index);
-			} else if (Delegates.pglEnableVertexAttribArrayARB != null) {
-				Delegates.pglEnableVertexAttribArrayARB(index);
-				CallLog("glEnableVertexAttribArrayARB({0})", index);
-			} else
-				throw new NotImplementedException("glEnableVertexAttribArray (and other aliases) are not implemented");
+			Debug.Assert(Delegates.pglEnableVertexAttribArray != null, "pglEnableVertexAttribArray not implemented");
+			Delegates.pglEnableVertexAttribArray(index);
+			CallLog("glEnableVertexAttribArray({0})", index);
 			DebugCheckErrors();
 		}
 
@@ -1018,14 +960,9 @@ namespace OpenGL
 				fixed (Int32* p_size = &size)
 				fixed (int* p_type = &type)
 				{
-					if        (Delegates.pglGetActiveAttrib != null) {
-						Delegates.pglGetActiveAttrib(program, index, bufSize, p_length, p_size, p_type, name);
-						CallLog("glGetActiveAttrib({0}, {1}, {2}, {3}, {4}, {5}, {6})", program, index, bufSize, length, size, type, name);
-					} else if (Delegates.pglGetActiveAttribARB != null) {
-						Delegates.pglGetActiveAttribARB(program, index, bufSize, p_length, p_size, p_type, name);
-						CallLog("glGetActiveAttribARB({0}, {1}, {2}, {3}, {4}, {5}, {6})", program, index, bufSize, length, size, type, name);
-					} else
-						throw new NotImplementedException("glGetActiveAttrib (and other aliases) are not implemented");
+					Debug.Assert(Delegates.pglGetActiveAttrib != null, "pglGetActiveAttrib not implemented");
+					Delegates.pglGetActiveAttrib(program, index, bufSize, p_length, p_size, p_type, name);
+					CallLog("glGetActiveAttrib({0}, {1}, {2}, {3}, {4}, {5}, {6})", program, index, bufSize, length, size, type, name);
 				}
 			}
 			DebugCheckErrors();
@@ -1064,14 +1001,9 @@ namespace OpenGL
 				fixed (Int32* p_size = &size)
 				fixed (int* p_type = &type)
 				{
-					if        (Delegates.pglGetActiveUniform != null) {
-						Delegates.pglGetActiveUniform(program, index, bufSize, p_length, p_size, p_type, name);
-						CallLog("glGetActiveUniform({0}, {1}, {2}, {3}, {4}, {5}, {6})", program, index, bufSize, length, size, type, name);
-					} else if (Delegates.pglGetActiveUniformARB != null) {
-						Delegates.pglGetActiveUniformARB(program, index, bufSize, p_length, p_size, p_type, name);
-						CallLog("glGetActiveUniformARB({0}, {1}, {2}, {3}, {4}, {5}, {6})", program, index, bufSize, length, size, type, name);
-					} else
-						throw new NotImplementedException("glGetActiveUniform (and other aliases) are not implemented");
+					Debug.Assert(Delegates.pglGetActiveUniform != null, "pglGetActiveUniform not implemented");
+					Delegates.pglGetActiveUniform(program, index, bufSize, p_length, p_size, p_type, name);
+					CallLog("glGetActiveUniform({0}, {1}, {2}, {3}, {4}, {5}, {6})", program, index, bufSize, length, size, type, name);
 				}
 			}
 			DebugCheckErrors();
@@ -1121,14 +1053,9 @@ namespace OpenGL
 		{
 			Int32 retValue;
 
-			if        (Delegates.pglGetAttribLocation != null) {
-				retValue = Delegates.pglGetAttribLocation(program, name);
-				CallLog("glGetAttribLocation({0}, {1}) = {2}", program, name, retValue);
-			} else if (Delegates.pglGetAttribLocationARB != null) {
-				retValue = Delegates.pglGetAttribLocationARB(program, name);
-				CallLog("glGetAttribLocationARB({0}, {1}) = {2}", program, name, retValue);
-			} else
-				throw new NotImplementedException("glGetAttribLocation (and other aliases) are not implemented");
+			Debug.Assert(Delegates.pglGetAttribLocation != null, "pglGetAttribLocation not implemented");
+			retValue = Delegates.pglGetAttribLocation(program, name);
+			CallLog("glGetAttribLocation({0}, {1}) = {2}", program, name, retValue);
 			DebugCheckErrors();
 
 			return (retValue);
@@ -1271,14 +1198,9 @@ namespace OpenGL
 			unsafe {
 				fixed (Int32* p_length = &length)
 				{
-					if        (Delegates.pglGetShaderSource != null) {
-						Delegates.pglGetShaderSource(shader, bufSize, p_length, source);
-						CallLog("glGetShaderSource({0}, {1}, {2}, {3})", shader, bufSize, length, source);
-					} else if (Delegates.pglGetShaderSourceARB != null) {
-						Delegates.pglGetShaderSourceARB(shader, bufSize, p_length, source);
-						CallLog("glGetShaderSourceARB({0}, {1}, {2}, {3})", shader, bufSize, length, source);
-					} else
-						throw new NotImplementedException("glGetShaderSource (and other aliases) are not implemented");
+					Debug.Assert(Delegates.pglGetShaderSource != null, "pglGetShaderSource not implemented");
+					Delegates.pglGetShaderSource(shader, bufSize, p_length, source);
+					CallLog("glGetShaderSource({0}, {1}, {2}, {3})", shader, bufSize, length, source);
 				}
 			}
 			DebugCheckErrors();
@@ -1298,14 +1220,9 @@ namespace OpenGL
 		{
 			Int32 retValue;
 
-			if        (Delegates.pglGetUniformLocation != null) {
-				retValue = Delegates.pglGetUniformLocation(program, name);
-				CallLog("glGetUniformLocation({0}, {1}) = {2}", program, name, retValue);
-			} else if (Delegates.pglGetUniformLocationARB != null) {
-				retValue = Delegates.pglGetUniformLocationARB(program, name);
-				CallLog("glGetUniformLocationARB({0}, {1}) = {2}", program, name, retValue);
-			} else
-				throw new NotImplementedException("glGetUniformLocation (and other aliases) are not implemented");
+			Debug.Assert(Delegates.pglGetUniformLocation != null, "pglGetUniformLocation not implemented");
+			retValue = Delegates.pglGetUniformLocation(program, name);
+			CallLog("glGetUniformLocation({0}, {1}) = {2}", program, name, retValue);
 			DebugCheckErrors();
 
 			return (retValue);
@@ -1329,14 +1246,9 @@ namespace OpenGL
 			unsafe {
 				fixed (float* p_params = @params)
 				{
-					if        (Delegates.pglGetUniformfv != null) {
-						Delegates.pglGetUniformfv(program, location, p_params);
-						CallLog("glGetUniformfv({0}, {1}, {2})", program, location, @params);
-					} else if (Delegates.pglGetUniformfvARB != null) {
-						Delegates.pglGetUniformfvARB(program, location, p_params);
-						CallLog("glGetUniformfvARB({0}, {1}, {2})", program, location, @params);
-					} else
-						throw new NotImplementedException("glGetUniformfv (and other aliases) are not implemented");
+					Debug.Assert(Delegates.pglGetUniformfv != null, "pglGetUniformfv not implemented");
+					Delegates.pglGetUniformfv(program, location, p_params);
+					CallLog("glGetUniformfv({0}, {1}, {2})", program, location, @params);
 				}
 			}
 			DebugCheckErrors();
@@ -1360,14 +1272,9 @@ namespace OpenGL
 			unsafe {
 				fixed (Int32* p_params = @params)
 				{
-					if        (Delegates.pglGetUniformiv != null) {
-						Delegates.pglGetUniformiv(program, location, p_params);
-						CallLog("glGetUniformiv({0}, {1}, {2})", program, location, @params);
-					} else if (Delegates.pglGetUniformivARB != null) {
-						Delegates.pglGetUniformivARB(program, location, p_params);
-						CallLog("glGetUniformivARB({0}, {1}, {2})", program, location, @params);
-					} else
-						throw new NotImplementedException("glGetUniformiv (and other aliases) are not implemented");
+					Debug.Assert(Delegates.pglGetUniformiv != null, "pglGetUniformiv not implemented");
+					Delegates.pglGetUniformiv(program, location, p_params);
+					CallLog("glGetUniformiv({0}, {1}, {2})", program, location, @params);
 				}
 			}
 			DebugCheckErrors();
@@ -1394,17 +1301,9 @@ namespace OpenGL
 			unsafe {
 				fixed (double* p_params = @params)
 				{
-					if        (Delegates.pglGetVertexAttribdv != null) {
-						Delegates.pglGetVertexAttribdv(index, pname, p_params);
-						CallLog("glGetVertexAttribdv({0}, {1}, {2})", index, pname, @params);
-					} else if (Delegates.pglGetVertexAttribdvARB != null) {
-						Delegates.pglGetVertexAttribdvARB(index, pname, p_params);
-						CallLog("glGetVertexAttribdvARB({0}, {1}, {2})", index, pname, @params);
-					} else if (Delegates.pglGetVertexAttribdvNV != null) {
-						Delegates.pglGetVertexAttribdvNV(index, pname, p_params);
-						CallLog("glGetVertexAttribdvNV({0}, {1}, {2})", index, pname, @params);
-					} else
-						throw new NotImplementedException("glGetVertexAttribdv (and other aliases) are not implemented");
+					Debug.Assert(Delegates.pglGetVertexAttribdv != null, "pglGetVertexAttribdv not implemented");
+					Delegates.pglGetVertexAttribdv(index, pname, p_params);
+					CallLog("glGetVertexAttribdv({0}, {1}, {2})", index, pname, @params);
 				}
 			}
 			DebugCheckErrors();
@@ -1431,17 +1330,9 @@ namespace OpenGL
 			unsafe {
 				fixed (float* p_params = @params)
 				{
-					if        (Delegates.pglGetVertexAttribfv != null) {
-						Delegates.pglGetVertexAttribfv(index, pname, p_params);
-						CallLog("glGetVertexAttribfv({0}, {1}, {2})", index, pname, @params);
-					} else if (Delegates.pglGetVertexAttribfvARB != null) {
-						Delegates.pglGetVertexAttribfvARB(index, pname, p_params);
-						CallLog("glGetVertexAttribfvARB({0}, {1}, {2})", index, pname, @params);
-					} else if (Delegates.pglGetVertexAttribfvNV != null) {
-						Delegates.pglGetVertexAttribfvNV(index, pname, p_params);
-						CallLog("glGetVertexAttribfvNV({0}, {1}, {2})", index, pname, @params);
-					} else
-						throw new NotImplementedException("glGetVertexAttribfv (and other aliases) are not implemented");
+					Debug.Assert(Delegates.pglGetVertexAttribfv != null, "pglGetVertexAttribfv not implemented");
+					Delegates.pglGetVertexAttribfv(index, pname, p_params);
+					CallLog("glGetVertexAttribfv({0}, {1}, {2})", index, pname, @params);
 				}
 			}
 			DebugCheckErrors();
@@ -1468,17 +1359,9 @@ namespace OpenGL
 			unsafe {
 				fixed (Int32* p_params = @params)
 				{
-					if        (Delegates.pglGetVertexAttribiv != null) {
-						Delegates.pglGetVertexAttribiv(index, pname, p_params);
-						CallLog("glGetVertexAttribiv({0}, {1}, {2})", index, pname, @params);
-					} else if (Delegates.pglGetVertexAttribivARB != null) {
-						Delegates.pglGetVertexAttribivARB(index, pname, p_params);
-						CallLog("glGetVertexAttribivARB({0}, {1}, {2})", index, pname, @params);
-					} else if (Delegates.pglGetVertexAttribivNV != null) {
-						Delegates.pglGetVertexAttribivNV(index, pname, p_params);
-						CallLog("glGetVertexAttribivNV({0}, {1}, {2})", index, pname, @params);
-					} else
-						throw new NotImplementedException("glGetVertexAttribiv (and other aliases) are not implemented");
+					Debug.Assert(Delegates.pglGetVertexAttribiv != null, "pglGetVertexAttribiv not implemented");
+					Delegates.pglGetVertexAttribiv(index, pname, p_params);
+					CallLog("glGetVertexAttribiv({0}, {1}, {2})", index, pname, @params);
 				}
 			}
 			DebugCheckErrors();
@@ -1503,17 +1386,9 @@ namespace OpenGL
 			unsafe {
 				fixed (IntPtr* p_pointer = &pointer)
 				{
-					if        (Delegates.pglGetVertexAttribPointerv != null) {
-						Delegates.pglGetVertexAttribPointerv(index, pname, p_pointer);
-						CallLog("glGetVertexAttribPointerv({0}, {1}, {2})", index, pname, pointer);
-					} else if (Delegates.pglGetVertexAttribPointervARB != null) {
-						Delegates.pglGetVertexAttribPointervARB(index, pname, p_pointer);
-						CallLog("glGetVertexAttribPointervARB({0}, {1}, {2})", index, pname, pointer);
-					} else if (Delegates.pglGetVertexAttribPointervNV != null) {
-						Delegates.pglGetVertexAttribPointervNV(index, pname, p_pointer);
-						CallLog("glGetVertexAttribPointervNV({0}, {1}, {2})", index, pname, pointer);
-					} else
-						throw new NotImplementedException("glGetVertexAttribPointerv (and other aliases) are not implemented");
+					Debug.Assert(Delegates.pglGetVertexAttribPointerv != null, "pglGetVertexAttribPointerv not implemented");
+					Delegates.pglGetVertexAttribPointerv(index, pname, p_pointer);
+					CallLog("glGetVertexAttribPointerv({0}, {1}, {2})", index, pname, pointer);
 				}
 			}
 			DebugCheckErrors();
@@ -1590,14 +1465,9 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_2_0")]
 		public static void LinkProgram(UInt32 program)
 		{
-			if        (Delegates.pglLinkProgram != null) {
-				Delegates.pglLinkProgram(program);
-				CallLog("glLinkProgram({0})", program);
-			} else if (Delegates.pglLinkProgramARB != null) {
-				Delegates.pglLinkProgramARB(program);
-				CallLog("glLinkProgramARB({0})", program);
-			} else
-				throw new NotImplementedException("glLinkProgram (and other aliases) are not implemented");
+			Debug.Assert(Delegates.pglLinkProgram != null, "pglLinkProgram not implemented");
+			Delegates.pglLinkProgram(program);
+			CallLog("glLinkProgram({0})", program);
 			DebugCheckErrors();
 		}
 
@@ -1622,14 +1492,9 @@ namespace OpenGL
 			unsafe {
 				fixed (Int32* p_length = length)
 				{
-					if        (Delegates.pglShaderSource != null) {
-						Delegates.pglShaderSource(shader, (Int32)@string.Length, @string, p_length);
-						CallLog("glShaderSource({0}, {1}, {2}, {3})", shader, @string.Length, @string, length);
-					} else if (Delegates.pglShaderSourceARB != null) {
-						Delegates.pglShaderSourceARB(shader, (Int32)@string.Length, @string, p_length);
-						CallLog("glShaderSourceARB({0}, {1}, {2}, {3})", shader, @string.Length, @string, length);
-					} else
-						throw new NotImplementedException("glShaderSource (and other aliases) are not implemented");
+					Debug.Assert(Delegates.pglShaderSource != null, "pglShaderSource not implemented");
+					Delegates.pglShaderSource(shader, (Int32)@string.Length, @string, p_length);
+					CallLog("glShaderSource({0}, {1}, {2}, {3})", shader, @string.Length, @string, length);
 				}
 			}
 			DebugCheckErrors();
@@ -1644,14 +1509,9 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_2_0")]
 		public static void UseProgram(UInt32 program)
 		{
-			if        (Delegates.pglUseProgram != null) {
-				Delegates.pglUseProgram(program);
-				CallLog("glUseProgram({0})", program);
-			} else if (Delegates.pglUseProgramObjectARB != null) {
-				Delegates.pglUseProgramObjectARB(program);
-				CallLog("glUseProgramObjectARB({0})", program);
-			} else
-				throw new NotImplementedException("glUseProgram (and other aliases) are not implemented");
+			Debug.Assert(Delegates.pglUseProgram != null, "pglUseProgram not implemented");
+			Delegates.pglUseProgram(program);
+			CallLog("glUseProgram({0})", program);
 			DebugCheckErrors();
 		}
 
@@ -1667,14 +1527,9 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_2_0")]
 		public static void Uniform1(Int32 location, float v0)
 		{
-			if        (Delegates.pglUniform1f != null) {
-				Delegates.pglUniform1f(location, v0);
-				CallLog("glUniform1f({0}, {1})", location, v0);
-			} else if (Delegates.pglUniform1fARB != null) {
-				Delegates.pglUniform1fARB(location, v0);
-				CallLog("glUniform1fARB({0}, {1})", location, v0);
-			} else
-				throw new NotImplementedException("glUniform1f (and other aliases) are not implemented");
+			Debug.Assert(Delegates.pglUniform1f != null, "pglUniform1f not implemented");
+			Delegates.pglUniform1f(location, v0);
+			CallLog("glUniform1f({0}, {1})", location, v0);
 			DebugCheckErrors();
 		}
 
@@ -1693,14 +1548,9 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_2_0")]
 		public static void Uniform2(Int32 location, float v0, float v1)
 		{
-			if        (Delegates.pglUniform2f != null) {
-				Delegates.pglUniform2f(location, v0, v1);
-				CallLog("glUniform2f({0}, {1}, {2})", location, v0, v1);
-			} else if (Delegates.pglUniform2fARB != null) {
-				Delegates.pglUniform2fARB(location, v0, v1);
-				CallLog("glUniform2fARB({0}, {1}, {2})", location, v0, v1);
-			} else
-				throw new NotImplementedException("glUniform2f (and other aliases) are not implemented");
+			Debug.Assert(Delegates.pglUniform2f != null, "pglUniform2f not implemented");
+			Delegates.pglUniform2f(location, v0, v1);
+			CallLog("glUniform2f({0}, {1}, {2})", location, v0, v1);
 			DebugCheckErrors();
 		}
 
@@ -1722,14 +1572,9 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_2_0")]
 		public static void Uniform3(Int32 location, float v0, float v1, float v2)
 		{
-			if        (Delegates.pglUniform3f != null) {
-				Delegates.pglUniform3f(location, v0, v1, v2);
-				CallLog("glUniform3f({0}, {1}, {2}, {3})", location, v0, v1, v2);
-			} else if (Delegates.pglUniform3fARB != null) {
-				Delegates.pglUniform3fARB(location, v0, v1, v2);
-				CallLog("glUniform3fARB({0}, {1}, {2}, {3})", location, v0, v1, v2);
-			} else
-				throw new NotImplementedException("glUniform3f (and other aliases) are not implemented");
+			Debug.Assert(Delegates.pglUniform3f != null, "pglUniform3f not implemented");
+			Delegates.pglUniform3f(location, v0, v1, v2);
+			CallLog("glUniform3f({0}, {1}, {2}, {3})", location, v0, v1, v2);
 			DebugCheckErrors();
 		}
 
@@ -1754,14 +1599,9 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_2_0")]
 		public static void Uniform4(Int32 location, float v0, float v1, float v2, float v3)
 		{
-			if        (Delegates.pglUniform4f != null) {
-				Delegates.pglUniform4f(location, v0, v1, v2, v3);
-				CallLog("glUniform4f({0}, {1}, {2}, {3}, {4})", location, v0, v1, v2, v3);
-			} else if (Delegates.pglUniform4fARB != null) {
-				Delegates.pglUniform4fARB(location, v0, v1, v2, v3);
-				CallLog("glUniform4fARB({0}, {1}, {2}, {3}, {4})", location, v0, v1, v2, v3);
-			} else
-				throw new NotImplementedException("glUniform4f (and other aliases) are not implemented");
+			Debug.Assert(Delegates.pglUniform4f != null, "pglUniform4f not implemented");
+			Delegates.pglUniform4f(location, v0, v1, v2, v3);
+			CallLog("glUniform4f({0}, {1}, {2}, {3}, {4})", location, v0, v1, v2, v3);
 			DebugCheckErrors();
 		}
 
@@ -1777,14 +1617,9 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_2_0")]
 		public static void Uniform1(Int32 location, Int32 v0)
 		{
-			if        (Delegates.pglUniform1i != null) {
-				Delegates.pglUniform1i(location, v0);
-				CallLog("glUniform1i({0}, {1})", location, v0);
-			} else if (Delegates.pglUniform1iARB != null) {
-				Delegates.pglUniform1iARB(location, v0);
-				CallLog("glUniform1iARB({0}, {1})", location, v0);
-			} else
-				throw new NotImplementedException("glUniform1i (and other aliases) are not implemented");
+			Debug.Assert(Delegates.pglUniform1i != null, "pglUniform1i not implemented");
+			Delegates.pglUniform1i(location, v0);
+			CallLog("glUniform1i({0}, {1})", location, v0);
 			DebugCheckErrors();
 		}
 
@@ -1803,14 +1638,9 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_2_0")]
 		public static void Uniform2(Int32 location, Int32 v0, Int32 v1)
 		{
-			if        (Delegates.pglUniform2i != null) {
-				Delegates.pglUniform2i(location, v0, v1);
-				CallLog("glUniform2i({0}, {1}, {2})", location, v0, v1);
-			} else if (Delegates.pglUniform2iARB != null) {
-				Delegates.pglUniform2iARB(location, v0, v1);
-				CallLog("glUniform2iARB({0}, {1}, {2})", location, v0, v1);
-			} else
-				throw new NotImplementedException("glUniform2i (and other aliases) are not implemented");
+			Debug.Assert(Delegates.pglUniform2i != null, "pglUniform2i not implemented");
+			Delegates.pglUniform2i(location, v0, v1);
+			CallLog("glUniform2i({0}, {1}, {2})", location, v0, v1);
 			DebugCheckErrors();
 		}
 
@@ -1832,14 +1662,9 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_2_0")]
 		public static void Uniform3(Int32 location, Int32 v0, Int32 v1, Int32 v2)
 		{
-			if        (Delegates.pglUniform3i != null) {
-				Delegates.pglUniform3i(location, v0, v1, v2);
-				CallLog("glUniform3i({0}, {1}, {2}, {3})", location, v0, v1, v2);
-			} else if (Delegates.pglUniform3iARB != null) {
-				Delegates.pglUniform3iARB(location, v0, v1, v2);
-				CallLog("glUniform3iARB({0}, {1}, {2}, {3})", location, v0, v1, v2);
-			} else
-				throw new NotImplementedException("glUniform3i (and other aliases) are not implemented");
+			Debug.Assert(Delegates.pglUniform3i != null, "pglUniform3i not implemented");
+			Delegates.pglUniform3i(location, v0, v1, v2);
+			CallLog("glUniform3i({0}, {1}, {2}, {3})", location, v0, v1, v2);
 			DebugCheckErrors();
 		}
 
@@ -1864,14 +1689,9 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_2_0")]
 		public static void Uniform4(Int32 location, Int32 v0, Int32 v1, Int32 v2, Int32 v3)
 		{
-			if        (Delegates.pglUniform4i != null) {
-				Delegates.pglUniform4i(location, v0, v1, v2, v3);
-				CallLog("glUniform4i({0}, {1}, {2}, {3}, {4})", location, v0, v1, v2, v3);
-			} else if (Delegates.pglUniform4iARB != null) {
-				Delegates.pglUniform4iARB(location, v0, v1, v2, v3);
-				CallLog("glUniform4iARB({0}, {1}, {2}, {3}, {4})", location, v0, v1, v2, v3);
-			} else
-				throw new NotImplementedException("glUniform4i (and other aliases) are not implemented");
+			Debug.Assert(Delegates.pglUniform4i != null, "pglUniform4i not implemented");
+			Delegates.pglUniform4i(location, v0, v1, v2, v3);
+			CallLog("glUniform4i({0}, {1}, {2}, {3}, {4})", location, v0, v1, v2, v3);
 			DebugCheckErrors();
 		}
 
@@ -1895,14 +1715,9 @@ namespace OpenGL
 			unsafe {
 				fixed (float* p_value = value)
 				{
-					if        (Delegates.pglUniform1fv != null) {
-						Delegates.pglUniform1fv(location, count, p_value);
-						CallLog("glUniform1fv({0}, {1}, {2})", location, count, value);
-					} else if (Delegates.pglUniform1fvARB != null) {
-						Delegates.pglUniform1fvARB(location, count, p_value);
-						CallLog("glUniform1fvARB({0}, {1}, {2})", location, count, value);
-					} else
-						throw new NotImplementedException("glUniform1fv (and other aliases) are not implemented");
+					Debug.Assert(Delegates.pglUniform1fv != null, "pglUniform1fv not implemented");
+					Delegates.pglUniform1fv(location, count, p_value);
+					CallLog("glUniform1fv({0}, {1}, {2})", location, count, value);
 				}
 			}
 			DebugCheckErrors();
@@ -1928,14 +1743,9 @@ namespace OpenGL
 			unsafe {
 				fixed (float* p_value = value)
 				{
-					if        (Delegates.pglUniform2fv != null) {
-						Delegates.pglUniform2fv(location, count, p_value);
-						CallLog("glUniform2fv({0}, {1}, {2})", location, count, value);
-					} else if (Delegates.pglUniform2fvARB != null) {
-						Delegates.pglUniform2fvARB(location, count, p_value);
-						CallLog("glUniform2fvARB({0}, {1}, {2})", location, count, value);
-					} else
-						throw new NotImplementedException("glUniform2fv (and other aliases) are not implemented");
+					Debug.Assert(Delegates.pglUniform2fv != null, "pglUniform2fv not implemented");
+					Delegates.pglUniform2fv(location, count, p_value);
+					CallLog("glUniform2fv({0}, {1}, {2})", location, count, value);
 				}
 			}
 			DebugCheckErrors();
@@ -1961,14 +1771,9 @@ namespace OpenGL
 			unsafe {
 				fixed (float* p_value = value)
 				{
-					if        (Delegates.pglUniform3fv != null) {
-						Delegates.pglUniform3fv(location, count, p_value);
-						CallLog("glUniform3fv({0}, {1}, {2})", location, count, value);
-					} else if (Delegates.pglUniform3fvARB != null) {
-						Delegates.pglUniform3fvARB(location, count, p_value);
-						CallLog("glUniform3fvARB({0}, {1}, {2})", location, count, value);
-					} else
-						throw new NotImplementedException("glUniform3fv (and other aliases) are not implemented");
+					Debug.Assert(Delegates.pglUniform3fv != null, "pglUniform3fv not implemented");
+					Delegates.pglUniform3fv(location, count, p_value);
+					CallLog("glUniform3fv({0}, {1}, {2})", location, count, value);
 				}
 			}
 			DebugCheckErrors();
@@ -1994,14 +1799,9 @@ namespace OpenGL
 			unsafe {
 				fixed (float* p_value = value)
 				{
-					if        (Delegates.pglUniform4fv != null) {
-						Delegates.pglUniform4fv(location, count, p_value);
-						CallLog("glUniform4fv({0}, {1}, {2})", location, count, value);
-					} else if (Delegates.pglUniform4fvARB != null) {
-						Delegates.pglUniform4fvARB(location, count, p_value);
-						CallLog("glUniform4fvARB({0}, {1}, {2})", location, count, value);
-					} else
-						throw new NotImplementedException("glUniform4fv (and other aliases) are not implemented");
+					Debug.Assert(Delegates.pglUniform4fv != null, "pglUniform4fv not implemented");
+					Delegates.pglUniform4fv(location, count, p_value);
+					CallLog("glUniform4fv({0}, {1}, {2})", location, count, value);
 				}
 			}
 			DebugCheckErrors();
@@ -2027,14 +1827,9 @@ namespace OpenGL
 			unsafe {
 				fixed (Int32* p_value = value)
 				{
-					if        (Delegates.pglUniform1iv != null) {
-						Delegates.pglUniform1iv(location, count, p_value);
-						CallLog("glUniform1iv({0}, {1}, {2})", location, count, value);
-					} else if (Delegates.pglUniform1ivARB != null) {
-						Delegates.pglUniform1ivARB(location, count, p_value);
-						CallLog("glUniform1ivARB({0}, {1}, {2})", location, count, value);
-					} else
-						throw new NotImplementedException("glUniform1iv (and other aliases) are not implemented");
+					Debug.Assert(Delegates.pglUniform1iv != null, "pglUniform1iv not implemented");
+					Delegates.pglUniform1iv(location, count, p_value);
+					CallLog("glUniform1iv({0}, {1}, {2})", location, count, value);
 				}
 			}
 			DebugCheckErrors();
@@ -2060,14 +1855,9 @@ namespace OpenGL
 			unsafe {
 				fixed (Int32* p_value = value)
 				{
-					if        (Delegates.pglUniform2iv != null) {
-						Delegates.pglUniform2iv(location, count, p_value);
-						CallLog("glUniform2iv({0}, {1}, {2})", location, count, value);
-					} else if (Delegates.pglUniform2ivARB != null) {
-						Delegates.pglUniform2ivARB(location, count, p_value);
-						CallLog("glUniform2ivARB({0}, {1}, {2})", location, count, value);
-					} else
-						throw new NotImplementedException("glUniform2iv (and other aliases) are not implemented");
+					Debug.Assert(Delegates.pglUniform2iv != null, "pglUniform2iv not implemented");
+					Delegates.pglUniform2iv(location, count, p_value);
+					CallLog("glUniform2iv({0}, {1}, {2})", location, count, value);
 				}
 			}
 			DebugCheckErrors();
@@ -2093,14 +1883,9 @@ namespace OpenGL
 			unsafe {
 				fixed (Int32* p_value = value)
 				{
-					if        (Delegates.pglUniform3iv != null) {
-						Delegates.pglUniform3iv(location, count, p_value);
-						CallLog("glUniform3iv({0}, {1}, {2})", location, count, value);
-					} else if (Delegates.pglUniform3ivARB != null) {
-						Delegates.pglUniform3ivARB(location, count, p_value);
-						CallLog("glUniform3ivARB({0}, {1}, {2})", location, count, value);
-					} else
-						throw new NotImplementedException("glUniform3iv (and other aliases) are not implemented");
+					Debug.Assert(Delegates.pglUniform3iv != null, "pglUniform3iv not implemented");
+					Delegates.pglUniform3iv(location, count, p_value);
+					CallLog("glUniform3iv({0}, {1}, {2})", location, count, value);
 				}
 			}
 			DebugCheckErrors();
@@ -2126,14 +1911,9 @@ namespace OpenGL
 			unsafe {
 				fixed (Int32* p_value = value)
 				{
-					if        (Delegates.pglUniform4iv != null) {
-						Delegates.pglUniform4iv(location, count, p_value);
-						CallLog("glUniform4iv({0}, {1}, {2})", location, count, value);
-					} else if (Delegates.pglUniform4ivARB != null) {
-						Delegates.pglUniform4ivARB(location, count, p_value);
-						CallLog("glUniform4ivARB({0}, {1}, {2})", location, count, value);
-					} else
-						throw new NotImplementedException("glUniform4iv (and other aliases) are not implemented");
+					Debug.Assert(Delegates.pglUniform4iv != null, "pglUniform4iv not implemented");
+					Delegates.pglUniform4iv(location, count, p_value);
+					CallLog("glUniform4iv({0}, {1}, {2})", location, count, value);
 				}
 			}
 			DebugCheckErrors();
@@ -2162,14 +1942,9 @@ namespace OpenGL
 			unsafe {
 				fixed (float* p_value = value)
 				{
-					if        (Delegates.pglUniformMatrix2fv != null) {
-						Delegates.pglUniformMatrix2fv(location, count, transpose, p_value);
-						CallLog("glUniformMatrix2fv({0}, {1}, {2}, {3})", location, count, transpose, value);
-					} else if (Delegates.pglUniformMatrix2fvARB != null) {
-						Delegates.pglUniformMatrix2fvARB(location, count, transpose, p_value);
-						CallLog("glUniformMatrix2fvARB({0}, {1}, {2}, {3})", location, count, transpose, value);
-					} else
-						throw new NotImplementedException("glUniformMatrix2fv (and other aliases) are not implemented");
+					Debug.Assert(Delegates.pglUniformMatrix2fv != null, "pglUniformMatrix2fv not implemented");
+					Delegates.pglUniformMatrix2fv(location, count, transpose, p_value);
+					CallLog("glUniformMatrix2fv({0}, {1}, {2}, {3})", location, count, transpose, value);
 				}
 			}
 			DebugCheckErrors();
@@ -2198,14 +1973,9 @@ namespace OpenGL
 			unsafe {
 				fixed (float* p_value = value)
 				{
-					if        (Delegates.pglUniformMatrix3fv != null) {
-						Delegates.pglUniformMatrix3fv(location, count, transpose, p_value);
-						CallLog("glUniformMatrix3fv({0}, {1}, {2}, {3})", location, count, transpose, value);
-					} else if (Delegates.pglUniformMatrix3fvARB != null) {
-						Delegates.pglUniformMatrix3fvARB(location, count, transpose, p_value);
-						CallLog("glUniformMatrix3fvARB({0}, {1}, {2}, {3})", location, count, transpose, value);
-					} else
-						throw new NotImplementedException("glUniformMatrix3fv (and other aliases) are not implemented");
+					Debug.Assert(Delegates.pglUniformMatrix3fv != null, "pglUniformMatrix3fv not implemented");
+					Delegates.pglUniformMatrix3fv(location, count, transpose, p_value);
+					CallLog("glUniformMatrix3fv({0}, {1}, {2}, {3})", location, count, transpose, value);
 				}
 			}
 			DebugCheckErrors();
@@ -2234,14 +2004,9 @@ namespace OpenGL
 			unsafe {
 				fixed (float* p_value = value)
 				{
-					if        (Delegates.pglUniformMatrix4fv != null) {
-						Delegates.pglUniformMatrix4fv(location, count, transpose, p_value);
-						CallLog("glUniformMatrix4fv({0}, {1}, {2}, {3})", location, count, transpose, value);
-					} else if (Delegates.pglUniformMatrix4fvARB != null) {
-						Delegates.pglUniformMatrix4fvARB(location, count, transpose, p_value);
-						CallLog("glUniformMatrix4fvARB({0}, {1}, {2}, {3})", location, count, transpose, value);
-					} else
-						throw new NotImplementedException("glUniformMatrix4fv (and other aliases) are not implemented");
+					Debug.Assert(Delegates.pglUniformMatrix4fv != null, "pglUniformMatrix4fv not implemented");
+					Delegates.pglUniformMatrix4fv(location, count, transpose, p_value);
+					CallLog("glUniformMatrix4fv({0}, {1}, {2}, {3})", location, count, transpose, value);
 				}
 			}
 			DebugCheckErrors();
@@ -2256,14 +2021,9 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_2_0")]
 		public static void ValidateProgram(UInt32 program)
 		{
-			if        (Delegates.pglValidateProgram != null) {
-				Delegates.pglValidateProgram(program);
-				CallLog("glValidateProgram({0})", program);
-			} else if (Delegates.pglValidateProgramARB != null) {
-				Delegates.pglValidateProgramARB(program);
-				CallLog("glValidateProgramARB({0})", program);
-			} else
-				throw new NotImplementedException("glValidateProgram (and other aliases) are not implemented");
+			Debug.Assert(Delegates.pglValidateProgram != null, "pglValidateProgram not implemented");
+			Delegates.pglValidateProgram(program);
+			CallLog("glValidateProgram({0})", program);
 			DebugCheckErrors();
 		}
 
@@ -2279,17 +2039,9 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_2_0")]
 		public static void VertexAttrib1(UInt32 index, double x)
 		{
-			if        (Delegates.pglVertexAttrib1d != null) {
-				Delegates.pglVertexAttrib1d(index, x);
-				CallLog("glVertexAttrib1d({0}, {1})", index, x);
-			} else if (Delegates.pglVertexAttrib1dARB != null) {
-				Delegates.pglVertexAttrib1dARB(index, x);
-				CallLog("glVertexAttrib1dARB({0}, {1})", index, x);
-			} else if (Delegates.pglVertexAttrib1dNV != null) {
-				Delegates.pglVertexAttrib1dNV(index, x);
-				CallLog("glVertexAttrib1dNV({0}, {1})", index, x);
-			} else
-				throw new NotImplementedException("glVertexAttrib1d (and other aliases) are not implemented");
+			Debug.Assert(Delegates.pglVertexAttrib1d != null, "pglVertexAttrib1d not implemented");
+			Delegates.pglVertexAttrib1d(index, x);
+			CallLog("glVertexAttrib1d({0}, {1})", index, x);
 			DebugCheckErrors();
 		}
 
@@ -2309,17 +2061,9 @@ namespace OpenGL
 			unsafe {
 				fixed (double* p_v = v)
 				{
-					if        (Delegates.pglVertexAttrib1dv != null) {
-						Delegates.pglVertexAttrib1dv(index, p_v);
-						CallLog("glVertexAttrib1dv({0}, {1})", index, v);
-					} else if (Delegates.pglVertexAttrib1dvARB != null) {
-						Delegates.pglVertexAttrib1dvARB(index, p_v);
-						CallLog("glVertexAttrib1dvARB({0}, {1})", index, v);
-					} else if (Delegates.pglVertexAttrib1dvNV != null) {
-						Delegates.pglVertexAttrib1dvNV(index, p_v);
-						CallLog("glVertexAttrib1dvNV({0}, {1})", index, v);
-					} else
-						throw new NotImplementedException("glVertexAttrib1dv (and other aliases) are not implemented");
+					Debug.Assert(Delegates.pglVertexAttrib1dv != null, "pglVertexAttrib1dv not implemented");
+					Delegates.pglVertexAttrib1dv(index, p_v);
+					CallLog("glVertexAttrib1dv({0}, {1})", index, v);
 				}
 			}
 			DebugCheckErrors();
@@ -2337,17 +2081,9 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_2_0")]
 		public static void VertexAttrib1(UInt32 index, float x)
 		{
-			if        (Delegates.pglVertexAttrib1f != null) {
-				Delegates.pglVertexAttrib1f(index, x);
-				CallLog("glVertexAttrib1f({0}, {1})", index, x);
-			} else if (Delegates.pglVertexAttrib1fARB != null) {
-				Delegates.pglVertexAttrib1fARB(index, x);
-				CallLog("glVertexAttrib1fARB({0}, {1})", index, x);
-			} else if (Delegates.pglVertexAttrib1fNV != null) {
-				Delegates.pglVertexAttrib1fNV(index, x);
-				CallLog("glVertexAttrib1fNV({0}, {1})", index, x);
-			} else
-				throw new NotImplementedException("glVertexAttrib1f (and other aliases) are not implemented");
+			Debug.Assert(Delegates.pglVertexAttrib1f != null, "pglVertexAttrib1f not implemented");
+			Delegates.pglVertexAttrib1f(index, x);
+			CallLog("glVertexAttrib1f({0}, {1})", index, x);
 			DebugCheckErrors();
 		}
 
@@ -2367,17 +2103,9 @@ namespace OpenGL
 			unsafe {
 				fixed (float* p_v = v)
 				{
-					if        (Delegates.pglVertexAttrib1fv != null) {
-						Delegates.pglVertexAttrib1fv(index, p_v);
-						CallLog("glVertexAttrib1fv({0}, {1})", index, v);
-					} else if (Delegates.pglVertexAttrib1fvARB != null) {
-						Delegates.pglVertexAttrib1fvARB(index, p_v);
-						CallLog("glVertexAttrib1fvARB({0}, {1})", index, v);
-					} else if (Delegates.pglVertexAttrib1fvNV != null) {
-						Delegates.pglVertexAttrib1fvNV(index, p_v);
-						CallLog("glVertexAttrib1fvNV({0}, {1})", index, v);
-					} else
-						throw new NotImplementedException("glVertexAttrib1fv (and other aliases) are not implemented");
+					Debug.Assert(Delegates.pglVertexAttrib1fv != null, "pglVertexAttrib1fv not implemented");
+					Delegates.pglVertexAttrib1fv(index, p_v);
+					CallLog("glVertexAttrib1fv({0}, {1})", index, v);
 				}
 			}
 			DebugCheckErrors();
@@ -2395,17 +2123,9 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_2_0")]
 		public static void VertexAttrib1(UInt32 index, Int16 x)
 		{
-			if        (Delegates.pglVertexAttrib1s != null) {
-				Delegates.pglVertexAttrib1s(index, x);
-				CallLog("glVertexAttrib1s({0}, {1})", index, x);
-			} else if (Delegates.pglVertexAttrib1sARB != null) {
-				Delegates.pglVertexAttrib1sARB(index, x);
-				CallLog("glVertexAttrib1sARB({0}, {1})", index, x);
-			} else if (Delegates.pglVertexAttrib1sNV != null) {
-				Delegates.pglVertexAttrib1sNV(index, x);
-				CallLog("glVertexAttrib1sNV({0}, {1})", index, x);
-			} else
-				throw new NotImplementedException("glVertexAttrib1s (and other aliases) are not implemented");
+			Debug.Assert(Delegates.pglVertexAttrib1s != null, "pglVertexAttrib1s not implemented");
+			Delegates.pglVertexAttrib1s(index, x);
+			CallLog("glVertexAttrib1s({0}, {1})", index, x);
 			DebugCheckErrors();
 		}
 
@@ -2425,17 +2145,9 @@ namespace OpenGL
 			unsafe {
 				fixed (Int16* p_v = v)
 				{
-					if        (Delegates.pglVertexAttrib1sv != null) {
-						Delegates.pglVertexAttrib1sv(index, p_v);
-						CallLog("glVertexAttrib1sv({0}, {1})", index, v);
-					} else if (Delegates.pglVertexAttrib1svARB != null) {
-						Delegates.pglVertexAttrib1svARB(index, p_v);
-						CallLog("glVertexAttrib1svARB({0}, {1})", index, v);
-					} else if (Delegates.pglVertexAttrib1svNV != null) {
-						Delegates.pglVertexAttrib1svNV(index, p_v);
-						CallLog("glVertexAttrib1svNV({0}, {1})", index, v);
-					} else
-						throw new NotImplementedException("glVertexAttrib1sv (and other aliases) are not implemented");
+					Debug.Assert(Delegates.pglVertexAttrib1sv != null, "pglVertexAttrib1sv not implemented");
+					Delegates.pglVertexAttrib1sv(index, p_v);
+					CallLog("glVertexAttrib1sv({0}, {1})", index, v);
 				}
 			}
 			DebugCheckErrors();
@@ -2456,17 +2168,9 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_2_0")]
 		public static void VertexAttrib2(UInt32 index, double x, double y)
 		{
-			if        (Delegates.pglVertexAttrib2d != null) {
-				Delegates.pglVertexAttrib2d(index, x, y);
-				CallLog("glVertexAttrib2d({0}, {1}, {2})", index, x, y);
-			} else if (Delegates.pglVertexAttrib2dARB != null) {
-				Delegates.pglVertexAttrib2dARB(index, x, y);
-				CallLog("glVertexAttrib2dARB({0}, {1}, {2})", index, x, y);
-			} else if (Delegates.pglVertexAttrib2dNV != null) {
-				Delegates.pglVertexAttrib2dNV(index, x, y);
-				CallLog("glVertexAttrib2dNV({0}, {1}, {2})", index, x, y);
-			} else
-				throw new NotImplementedException("glVertexAttrib2d (and other aliases) are not implemented");
+			Debug.Assert(Delegates.pglVertexAttrib2d != null, "pglVertexAttrib2d not implemented");
+			Delegates.pglVertexAttrib2d(index, x, y);
+			CallLog("glVertexAttrib2d({0}, {1}, {2})", index, x, y);
 			DebugCheckErrors();
 		}
 
@@ -2486,17 +2190,9 @@ namespace OpenGL
 			unsafe {
 				fixed (double* p_v = v)
 				{
-					if        (Delegates.pglVertexAttrib2dv != null) {
-						Delegates.pglVertexAttrib2dv(index, p_v);
-						CallLog("glVertexAttrib2dv({0}, {1})", index, v);
-					} else if (Delegates.pglVertexAttrib2dvARB != null) {
-						Delegates.pglVertexAttrib2dvARB(index, p_v);
-						CallLog("glVertexAttrib2dvARB({0}, {1})", index, v);
-					} else if (Delegates.pglVertexAttrib2dvNV != null) {
-						Delegates.pglVertexAttrib2dvNV(index, p_v);
-						CallLog("glVertexAttrib2dvNV({0}, {1})", index, v);
-					} else
-						throw new NotImplementedException("glVertexAttrib2dv (and other aliases) are not implemented");
+					Debug.Assert(Delegates.pglVertexAttrib2dv != null, "pglVertexAttrib2dv not implemented");
+					Delegates.pglVertexAttrib2dv(index, p_v);
+					CallLog("glVertexAttrib2dv({0}, {1})", index, v);
 				}
 			}
 			DebugCheckErrors();
@@ -2517,17 +2213,9 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_2_0")]
 		public static void VertexAttrib2(UInt32 index, float x, float y)
 		{
-			if        (Delegates.pglVertexAttrib2f != null) {
-				Delegates.pglVertexAttrib2f(index, x, y);
-				CallLog("glVertexAttrib2f({0}, {1}, {2})", index, x, y);
-			} else if (Delegates.pglVertexAttrib2fARB != null) {
-				Delegates.pglVertexAttrib2fARB(index, x, y);
-				CallLog("glVertexAttrib2fARB({0}, {1}, {2})", index, x, y);
-			} else if (Delegates.pglVertexAttrib2fNV != null) {
-				Delegates.pglVertexAttrib2fNV(index, x, y);
-				CallLog("glVertexAttrib2fNV({0}, {1}, {2})", index, x, y);
-			} else
-				throw new NotImplementedException("glVertexAttrib2f (and other aliases) are not implemented");
+			Debug.Assert(Delegates.pglVertexAttrib2f != null, "pglVertexAttrib2f not implemented");
+			Delegates.pglVertexAttrib2f(index, x, y);
+			CallLog("glVertexAttrib2f({0}, {1}, {2})", index, x, y);
 			DebugCheckErrors();
 		}
 
@@ -2547,17 +2235,9 @@ namespace OpenGL
 			unsafe {
 				fixed (float* p_v = v)
 				{
-					if        (Delegates.pglVertexAttrib2fv != null) {
-						Delegates.pglVertexAttrib2fv(index, p_v);
-						CallLog("glVertexAttrib2fv({0}, {1})", index, v);
-					} else if (Delegates.pglVertexAttrib2fvARB != null) {
-						Delegates.pglVertexAttrib2fvARB(index, p_v);
-						CallLog("glVertexAttrib2fvARB({0}, {1})", index, v);
-					} else if (Delegates.pglVertexAttrib2fvNV != null) {
-						Delegates.pglVertexAttrib2fvNV(index, p_v);
-						CallLog("glVertexAttrib2fvNV({0}, {1})", index, v);
-					} else
-						throw new NotImplementedException("glVertexAttrib2fv (and other aliases) are not implemented");
+					Debug.Assert(Delegates.pglVertexAttrib2fv != null, "pglVertexAttrib2fv not implemented");
+					Delegates.pglVertexAttrib2fv(index, p_v);
+					CallLog("glVertexAttrib2fv({0}, {1})", index, v);
 				}
 			}
 			DebugCheckErrors();
@@ -2578,17 +2258,9 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_2_0")]
 		public static void VertexAttrib2(UInt32 index, Int16 x, Int16 y)
 		{
-			if        (Delegates.pglVertexAttrib2s != null) {
-				Delegates.pglVertexAttrib2s(index, x, y);
-				CallLog("glVertexAttrib2s({0}, {1}, {2})", index, x, y);
-			} else if (Delegates.pglVertexAttrib2sARB != null) {
-				Delegates.pglVertexAttrib2sARB(index, x, y);
-				CallLog("glVertexAttrib2sARB({0}, {1}, {2})", index, x, y);
-			} else if (Delegates.pglVertexAttrib2sNV != null) {
-				Delegates.pglVertexAttrib2sNV(index, x, y);
-				CallLog("glVertexAttrib2sNV({0}, {1}, {2})", index, x, y);
-			} else
-				throw new NotImplementedException("glVertexAttrib2s (and other aliases) are not implemented");
+			Debug.Assert(Delegates.pglVertexAttrib2s != null, "pglVertexAttrib2s not implemented");
+			Delegates.pglVertexAttrib2s(index, x, y);
+			CallLog("glVertexAttrib2s({0}, {1}, {2})", index, x, y);
 			DebugCheckErrors();
 		}
 
@@ -2608,17 +2280,9 @@ namespace OpenGL
 			unsafe {
 				fixed (Int16* p_v = v)
 				{
-					if        (Delegates.pglVertexAttrib2sv != null) {
-						Delegates.pglVertexAttrib2sv(index, p_v);
-						CallLog("glVertexAttrib2sv({0}, {1})", index, v);
-					} else if (Delegates.pglVertexAttrib2svARB != null) {
-						Delegates.pglVertexAttrib2svARB(index, p_v);
-						CallLog("glVertexAttrib2svARB({0}, {1})", index, v);
-					} else if (Delegates.pglVertexAttrib2svNV != null) {
-						Delegates.pglVertexAttrib2svNV(index, p_v);
-						CallLog("glVertexAttrib2svNV({0}, {1})", index, v);
-					} else
-						throw new NotImplementedException("glVertexAttrib2sv (and other aliases) are not implemented");
+					Debug.Assert(Delegates.pglVertexAttrib2sv != null, "pglVertexAttrib2sv not implemented");
+					Delegates.pglVertexAttrib2sv(index, p_v);
+					CallLog("glVertexAttrib2sv({0}, {1})", index, v);
 				}
 			}
 			DebugCheckErrors();
@@ -2642,17 +2306,9 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_2_0")]
 		public static void VertexAttrib3(UInt32 index, double x, double y, double z)
 		{
-			if        (Delegates.pglVertexAttrib3d != null) {
-				Delegates.pglVertexAttrib3d(index, x, y, z);
-				CallLog("glVertexAttrib3d({0}, {1}, {2}, {3})", index, x, y, z);
-			} else if (Delegates.pglVertexAttrib3dARB != null) {
-				Delegates.pglVertexAttrib3dARB(index, x, y, z);
-				CallLog("glVertexAttrib3dARB({0}, {1}, {2}, {3})", index, x, y, z);
-			} else if (Delegates.pglVertexAttrib3dNV != null) {
-				Delegates.pglVertexAttrib3dNV(index, x, y, z);
-				CallLog("glVertexAttrib3dNV({0}, {1}, {2}, {3})", index, x, y, z);
-			} else
-				throw new NotImplementedException("glVertexAttrib3d (and other aliases) are not implemented");
+			Debug.Assert(Delegates.pglVertexAttrib3d != null, "pglVertexAttrib3d not implemented");
+			Delegates.pglVertexAttrib3d(index, x, y, z);
+			CallLog("glVertexAttrib3d({0}, {1}, {2}, {3})", index, x, y, z);
 			DebugCheckErrors();
 		}
 
@@ -2672,17 +2328,9 @@ namespace OpenGL
 			unsafe {
 				fixed (double* p_v = v)
 				{
-					if        (Delegates.pglVertexAttrib3dv != null) {
-						Delegates.pglVertexAttrib3dv(index, p_v);
-						CallLog("glVertexAttrib3dv({0}, {1})", index, v);
-					} else if (Delegates.pglVertexAttrib3dvARB != null) {
-						Delegates.pglVertexAttrib3dvARB(index, p_v);
-						CallLog("glVertexAttrib3dvARB({0}, {1})", index, v);
-					} else if (Delegates.pglVertexAttrib3dvNV != null) {
-						Delegates.pglVertexAttrib3dvNV(index, p_v);
-						CallLog("glVertexAttrib3dvNV({0}, {1})", index, v);
-					} else
-						throw new NotImplementedException("glVertexAttrib3dv (and other aliases) are not implemented");
+					Debug.Assert(Delegates.pglVertexAttrib3dv != null, "pglVertexAttrib3dv not implemented");
+					Delegates.pglVertexAttrib3dv(index, p_v);
+					CallLog("glVertexAttrib3dv({0}, {1})", index, v);
 				}
 			}
 			DebugCheckErrors();
@@ -2706,17 +2354,9 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_2_0")]
 		public static void VertexAttrib3(UInt32 index, float x, float y, float z)
 		{
-			if        (Delegates.pglVertexAttrib3f != null) {
-				Delegates.pglVertexAttrib3f(index, x, y, z);
-				CallLog("glVertexAttrib3f({0}, {1}, {2}, {3})", index, x, y, z);
-			} else if (Delegates.pglVertexAttrib3fARB != null) {
-				Delegates.pglVertexAttrib3fARB(index, x, y, z);
-				CallLog("glVertexAttrib3fARB({0}, {1}, {2}, {3})", index, x, y, z);
-			} else if (Delegates.pglVertexAttrib3fNV != null) {
-				Delegates.pglVertexAttrib3fNV(index, x, y, z);
-				CallLog("glVertexAttrib3fNV({0}, {1}, {2}, {3})", index, x, y, z);
-			} else
-				throw new NotImplementedException("glVertexAttrib3f (and other aliases) are not implemented");
+			Debug.Assert(Delegates.pglVertexAttrib3f != null, "pglVertexAttrib3f not implemented");
+			Delegates.pglVertexAttrib3f(index, x, y, z);
+			CallLog("glVertexAttrib3f({0}, {1}, {2}, {3})", index, x, y, z);
 			DebugCheckErrors();
 		}
 
@@ -2736,17 +2376,9 @@ namespace OpenGL
 			unsafe {
 				fixed (float* p_v = v)
 				{
-					if        (Delegates.pglVertexAttrib3fv != null) {
-						Delegates.pglVertexAttrib3fv(index, p_v);
-						CallLog("glVertexAttrib3fv({0}, {1})", index, v);
-					} else if (Delegates.pglVertexAttrib3fvARB != null) {
-						Delegates.pglVertexAttrib3fvARB(index, p_v);
-						CallLog("glVertexAttrib3fvARB({0}, {1})", index, v);
-					} else if (Delegates.pglVertexAttrib3fvNV != null) {
-						Delegates.pglVertexAttrib3fvNV(index, p_v);
-						CallLog("glVertexAttrib3fvNV({0}, {1})", index, v);
-					} else
-						throw new NotImplementedException("glVertexAttrib3fv (and other aliases) are not implemented");
+					Debug.Assert(Delegates.pglVertexAttrib3fv != null, "pglVertexAttrib3fv not implemented");
+					Delegates.pglVertexAttrib3fv(index, p_v);
+					CallLog("glVertexAttrib3fv({0}, {1})", index, v);
 				}
 			}
 			DebugCheckErrors();
@@ -2770,17 +2402,9 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_2_0")]
 		public static void VertexAttrib3(UInt32 index, Int16 x, Int16 y, Int16 z)
 		{
-			if        (Delegates.pglVertexAttrib3s != null) {
-				Delegates.pglVertexAttrib3s(index, x, y, z);
-				CallLog("glVertexAttrib3s({0}, {1}, {2}, {3})", index, x, y, z);
-			} else if (Delegates.pglVertexAttrib3sARB != null) {
-				Delegates.pglVertexAttrib3sARB(index, x, y, z);
-				CallLog("glVertexAttrib3sARB({0}, {1}, {2}, {3})", index, x, y, z);
-			} else if (Delegates.pglVertexAttrib3sNV != null) {
-				Delegates.pglVertexAttrib3sNV(index, x, y, z);
-				CallLog("glVertexAttrib3sNV({0}, {1}, {2}, {3})", index, x, y, z);
-			} else
-				throw new NotImplementedException("glVertexAttrib3s (and other aliases) are not implemented");
+			Debug.Assert(Delegates.pglVertexAttrib3s != null, "pglVertexAttrib3s not implemented");
+			Delegates.pglVertexAttrib3s(index, x, y, z);
+			CallLog("glVertexAttrib3s({0}, {1}, {2}, {3})", index, x, y, z);
 			DebugCheckErrors();
 		}
 
@@ -2800,17 +2424,9 @@ namespace OpenGL
 			unsafe {
 				fixed (Int16* p_v = v)
 				{
-					if        (Delegates.pglVertexAttrib3sv != null) {
-						Delegates.pglVertexAttrib3sv(index, p_v);
-						CallLog("glVertexAttrib3sv({0}, {1})", index, v);
-					} else if (Delegates.pglVertexAttrib3svARB != null) {
-						Delegates.pglVertexAttrib3svARB(index, p_v);
-						CallLog("glVertexAttrib3svARB({0}, {1})", index, v);
-					} else if (Delegates.pglVertexAttrib3svNV != null) {
-						Delegates.pglVertexAttrib3svNV(index, p_v);
-						CallLog("glVertexAttrib3svNV({0}, {1})", index, v);
-					} else
-						throw new NotImplementedException("glVertexAttrib3sv (and other aliases) are not implemented");
+					Debug.Assert(Delegates.pglVertexAttrib3sv != null, "pglVertexAttrib3sv not implemented");
+					Delegates.pglVertexAttrib3sv(index, p_v);
+					CallLog("glVertexAttrib3sv({0}, {1})", index, v);
 				}
 			}
 			DebugCheckErrors();
@@ -2832,14 +2448,9 @@ namespace OpenGL
 			unsafe {
 				fixed (sbyte* p_v = v)
 				{
-					if        (Delegates.pglVertexAttrib4Nbv != null) {
-						Delegates.pglVertexAttrib4Nbv(index, p_v);
-						CallLog("glVertexAttrib4Nbv({0}, {1})", index, v);
-					} else if (Delegates.pglVertexAttrib4NbvARB != null) {
-						Delegates.pglVertexAttrib4NbvARB(index, p_v);
-						CallLog("glVertexAttrib4NbvARB({0}, {1})", index, v);
-					} else
-						throw new NotImplementedException("glVertexAttrib4Nbv (and other aliases) are not implemented");
+					Debug.Assert(Delegates.pglVertexAttrib4Nbv != null, "pglVertexAttrib4Nbv not implemented");
+					Delegates.pglVertexAttrib4Nbv(index, p_v);
+					CallLog("glVertexAttrib4Nbv({0}, {1})", index, v);
 				}
 			}
 			DebugCheckErrors();
@@ -2861,14 +2472,9 @@ namespace OpenGL
 			unsafe {
 				fixed (Int32* p_v = v)
 				{
-					if        (Delegates.pglVertexAttrib4Niv != null) {
-						Delegates.pglVertexAttrib4Niv(index, p_v);
-						CallLog("glVertexAttrib4Niv({0}, {1})", index, v);
-					} else if (Delegates.pglVertexAttrib4NivARB != null) {
-						Delegates.pglVertexAttrib4NivARB(index, p_v);
-						CallLog("glVertexAttrib4NivARB({0}, {1})", index, v);
-					} else
-						throw new NotImplementedException("glVertexAttrib4Niv (and other aliases) are not implemented");
+					Debug.Assert(Delegates.pglVertexAttrib4Niv != null, "pglVertexAttrib4Niv not implemented");
+					Delegates.pglVertexAttrib4Niv(index, p_v);
+					CallLog("glVertexAttrib4Niv({0}, {1})", index, v);
 				}
 			}
 			DebugCheckErrors();
@@ -2890,14 +2496,9 @@ namespace OpenGL
 			unsafe {
 				fixed (Int16* p_v = v)
 				{
-					if        (Delegates.pglVertexAttrib4Nsv != null) {
-						Delegates.pglVertexAttrib4Nsv(index, p_v);
-						CallLog("glVertexAttrib4Nsv({0}, {1})", index, v);
-					} else if (Delegates.pglVertexAttrib4NsvARB != null) {
-						Delegates.pglVertexAttrib4NsvARB(index, p_v);
-						CallLog("glVertexAttrib4NsvARB({0}, {1})", index, v);
-					} else
-						throw new NotImplementedException("glVertexAttrib4Nsv (and other aliases) are not implemented");
+					Debug.Assert(Delegates.pglVertexAttrib4Nsv != null, "pglVertexAttrib4Nsv not implemented");
+					Delegates.pglVertexAttrib4Nsv(index, p_v);
+					CallLog("glVertexAttrib4Nsv({0}, {1})", index, v);
 				}
 			}
 			DebugCheckErrors();
@@ -2924,17 +2525,9 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_2_0")]
 		public static void VertexAttrib4N(UInt32 index, byte x, byte y, byte z, byte w)
 		{
-			if        (Delegates.pglVertexAttrib4Nub != null) {
-				Delegates.pglVertexAttrib4Nub(index, x, y, z, w);
-				CallLog("glVertexAttrib4Nub({0}, {1}, {2}, {3}, {4})", index, x, y, z, w);
-			} else if (Delegates.pglVertexAttrib4NubARB != null) {
-				Delegates.pglVertexAttrib4NubARB(index, x, y, z, w);
-				CallLog("glVertexAttrib4NubARB({0}, {1}, {2}, {3}, {4})", index, x, y, z, w);
-			} else if (Delegates.pglVertexAttrib4ubNV != null) {
-				Delegates.pglVertexAttrib4ubNV(index, x, y, z, w);
-				CallLog("glVertexAttrib4ubNV({0}, {1}, {2}, {3}, {4})", index, x, y, z, w);
-			} else
-				throw new NotImplementedException("glVertexAttrib4Nub (and other aliases) are not implemented");
+			Debug.Assert(Delegates.pglVertexAttrib4Nub != null, "pglVertexAttrib4Nub not implemented");
+			Delegates.pglVertexAttrib4Nub(index, x, y, z, w);
+			CallLog("glVertexAttrib4Nub({0}, {1}, {2}, {3}, {4})", index, x, y, z, w);
 			DebugCheckErrors();
 		}
 
@@ -2954,17 +2547,9 @@ namespace OpenGL
 			unsafe {
 				fixed (byte* p_v = v)
 				{
-					if        (Delegates.pglVertexAttrib4Nubv != null) {
-						Delegates.pglVertexAttrib4Nubv(index, p_v);
-						CallLog("glVertexAttrib4Nubv({0}, {1})", index, v);
-					} else if (Delegates.pglVertexAttrib4NubvARB != null) {
-						Delegates.pglVertexAttrib4NubvARB(index, p_v);
-						CallLog("glVertexAttrib4NubvARB({0}, {1})", index, v);
-					} else if (Delegates.pglVertexAttrib4ubvNV != null) {
-						Delegates.pglVertexAttrib4ubvNV(index, p_v);
-						CallLog("glVertexAttrib4ubvNV({0}, {1})", index, v);
-					} else
-						throw new NotImplementedException("glVertexAttrib4Nubv (and other aliases) are not implemented");
+					Debug.Assert(Delegates.pglVertexAttrib4Nubv != null, "pglVertexAttrib4Nubv not implemented");
+					Delegates.pglVertexAttrib4Nubv(index, p_v);
+					CallLog("glVertexAttrib4Nubv({0}, {1})", index, v);
 				}
 			}
 			DebugCheckErrors();
@@ -2986,14 +2571,9 @@ namespace OpenGL
 			unsafe {
 				fixed (UInt32* p_v = v)
 				{
-					if        (Delegates.pglVertexAttrib4Nuiv != null) {
-						Delegates.pglVertexAttrib4Nuiv(index, p_v);
-						CallLog("glVertexAttrib4Nuiv({0}, {1})", index, v);
-					} else if (Delegates.pglVertexAttrib4NuivARB != null) {
-						Delegates.pglVertexAttrib4NuivARB(index, p_v);
-						CallLog("glVertexAttrib4NuivARB({0}, {1})", index, v);
-					} else
-						throw new NotImplementedException("glVertexAttrib4Nuiv (and other aliases) are not implemented");
+					Debug.Assert(Delegates.pglVertexAttrib4Nuiv != null, "pglVertexAttrib4Nuiv not implemented");
+					Delegates.pglVertexAttrib4Nuiv(index, p_v);
+					CallLog("glVertexAttrib4Nuiv({0}, {1})", index, v);
 				}
 			}
 			DebugCheckErrors();
@@ -3015,14 +2595,9 @@ namespace OpenGL
 			unsafe {
 				fixed (UInt16* p_v = v)
 				{
-					if        (Delegates.pglVertexAttrib4Nusv != null) {
-						Delegates.pglVertexAttrib4Nusv(index, p_v);
-						CallLog("glVertexAttrib4Nusv({0}, {1})", index, v);
-					} else if (Delegates.pglVertexAttrib4NusvARB != null) {
-						Delegates.pglVertexAttrib4NusvARB(index, p_v);
-						CallLog("glVertexAttrib4NusvARB({0}, {1})", index, v);
-					} else
-						throw new NotImplementedException("glVertexAttrib4Nusv (and other aliases) are not implemented");
+					Debug.Assert(Delegates.pglVertexAttrib4Nusv != null, "pglVertexAttrib4Nusv not implemented");
+					Delegates.pglVertexAttrib4Nusv(index, p_v);
+					CallLog("glVertexAttrib4Nusv({0}, {1})", index, v);
 				}
 			}
 			DebugCheckErrors();
@@ -3044,14 +2619,9 @@ namespace OpenGL
 			unsafe {
 				fixed (sbyte* p_v = v)
 				{
-					if        (Delegates.pglVertexAttrib4bv != null) {
-						Delegates.pglVertexAttrib4bv(index, p_v);
-						CallLog("glVertexAttrib4bv({0}, {1})", index, v);
-					} else if (Delegates.pglVertexAttrib4bvARB != null) {
-						Delegates.pglVertexAttrib4bvARB(index, p_v);
-						CallLog("glVertexAttrib4bvARB({0}, {1})", index, v);
-					} else
-						throw new NotImplementedException("glVertexAttrib4bv (and other aliases) are not implemented");
+					Debug.Assert(Delegates.pglVertexAttrib4bv != null, "pglVertexAttrib4bv not implemented");
+					Delegates.pglVertexAttrib4bv(index, p_v);
+					CallLog("glVertexAttrib4bv({0}, {1})", index, v);
 				}
 			}
 			DebugCheckErrors();
@@ -3078,17 +2648,9 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_2_0")]
 		public static void VertexAttrib4(UInt32 index, double x, double y, double z, double w)
 		{
-			if        (Delegates.pglVertexAttrib4d != null) {
-				Delegates.pglVertexAttrib4d(index, x, y, z, w);
-				CallLog("glVertexAttrib4d({0}, {1}, {2}, {3}, {4})", index, x, y, z, w);
-			} else if (Delegates.pglVertexAttrib4dARB != null) {
-				Delegates.pglVertexAttrib4dARB(index, x, y, z, w);
-				CallLog("glVertexAttrib4dARB({0}, {1}, {2}, {3}, {4})", index, x, y, z, w);
-			} else if (Delegates.pglVertexAttrib4dNV != null) {
-				Delegates.pglVertexAttrib4dNV(index, x, y, z, w);
-				CallLog("glVertexAttrib4dNV({0}, {1}, {2}, {3}, {4})", index, x, y, z, w);
-			} else
-				throw new NotImplementedException("glVertexAttrib4d (and other aliases) are not implemented");
+			Debug.Assert(Delegates.pglVertexAttrib4d != null, "pglVertexAttrib4d not implemented");
+			Delegates.pglVertexAttrib4d(index, x, y, z, w);
+			CallLog("glVertexAttrib4d({0}, {1}, {2}, {3}, {4})", index, x, y, z, w);
 			DebugCheckErrors();
 		}
 
@@ -3108,17 +2670,9 @@ namespace OpenGL
 			unsafe {
 				fixed (double* p_v = v)
 				{
-					if        (Delegates.pglVertexAttrib4dv != null) {
-						Delegates.pglVertexAttrib4dv(index, p_v);
-						CallLog("glVertexAttrib4dv({0}, {1})", index, v);
-					} else if (Delegates.pglVertexAttrib4dvARB != null) {
-						Delegates.pglVertexAttrib4dvARB(index, p_v);
-						CallLog("glVertexAttrib4dvARB({0}, {1})", index, v);
-					} else if (Delegates.pglVertexAttrib4dvNV != null) {
-						Delegates.pglVertexAttrib4dvNV(index, p_v);
-						CallLog("glVertexAttrib4dvNV({0}, {1})", index, v);
-					} else
-						throw new NotImplementedException("glVertexAttrib4dv (and other aliases) are not implemented");
+					Debug.Assert(Delegates.pglVertexAttrib4dv != null, "pglVertexAttrib4dv not implemented");
+					Delegates.pglVertexAttrib4dv(index, p_v);
+					CallLog("glVertexAttrib4dv({0}, {1})", index, v);
 				}
 			}
 			DebugCheckErrors();
@@ -3145,17 +2699,9 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_2_0")]
 		public static void VertexAttrib4(UInt32 index, float x, float y, float z, float w)
 		{
-			if        (Delegates.pglVertexAttrib4f != null) {
-				Delegates.pglVertexAttrib4f(index, x, y, z, w);
-				CallLog("glVertexAttrib4f({0}, {1}, {2}, {3}, {4})", index, x, y, z, w);
-			} else if (Delegates.pglVertexAttrib4fARB != null) {
-				Delegates.pglVertexAttrib4fARB(index, x, y, z, w);
-				CallLog("glVertexAttrib4fARB({0}, {1}, {2}, {3}, {4})", index, x, y, z, w);
-			} else if (Delegates.pglVertexAttrib4fNV != null) {
-				Delegates.pglVertexAttrib4fNV(index, x, y, z, w);
-				CallLog("glVertexAttrib4fNV({0}, {1}, {2}, {3}, {4})", index, x, y, z, w);
-			} else
-				throw new NotImplementedException("glVertexAttrib4f (and other aliases) are not implemented");
+			Debug.Assert(Delegates.pglVertexAttrib4f != null, "pglVertexAttrib4f not implemented");
+			Delegates.pglVertexAttrib4f(index, x, y, z, w);
+			CallLog("glVertexAttrib4f({0}, {1}, {2}, {3}, {4})", index, x, y, z, w);
 			DebugCheckErrors();
 		}
 
@@ -3175,17 +2721,9 @@ namespace OpenGL
 			unsafe {
 				fixed (float* p_v = v)
 				{
-					if        (Delegates.pglVertexAttrib4fv != null) {
-						Delegates.pglVertexAttrib4fv(index, p_v);
-						CallLog("glVertexAttrib4fv({0}, {1})", index, v);
-					} else if (Delegates.pglVertexAttrib4fvARB != null) {
-						Delegates.pglVertexAttrib4fvARB(index, p_v);
-						CallLog("glVertexAttrib4fvARB({0}, {1})", index, v);
-					} else if (Delegates.pglVertexAttrib4fvNV != null) {
-						Delegates.pglVertexAttrib4fvNV(index, p_v);
-						CallLog("glVertexAttrib4fvNV({0}, {1})", index, v);
-					} else
-						throw new NotImplementedException("glVertexAttrib4fv (and other aliases) are not implemented");
+					Debug.Assert(Delegates.pglVertexAttrib4fv != null, "pglVertexAttrib4fv not implemented");
+					Delegates.pglVertexAttrib4fv(index, p_v);
+					CallLog("glVertexAttrib4fv({0}, {1})", index, v);
 				}
 			}
 			DebugCheckErrors();
@@ -3207,14 +2745,9 @@ namespace OpenGL
 			unsafe {
 				fixed (Int32* p_v = v)
 				{
-					if        (Delegates.pglVertexAttrib4iv != null) {
-						Delegates.pglVertexAttrib4iv(index, p_v);
-						CallLog("glVertexAttrib4iv({0}, {1})", index, v);
-					} else if (Delegates.pglVertexAttrib4ivARB != null) {
-						Delegates.pglVertexAttrib4ivARB(index, p_v);
-						CallLog("glVertexAttrib4ivARB({0}, {1})", index, v);
-					} else
-						throw new NotImplementedException("glVertexAttrib4iv (and other aliases) are not implemented");
+					Debug.Assert(Delegates.pglVertexAttrib4iv != null, "pglVertexAttrib4iv not implemented");
+					Delegates.pglVertexAttrib4iv(index, p_v);
+					CallLog("glVertexAttrib4iv({0}, {1})", index, v);
 				}
 			}
 			DebugCheckErrors();
@@ -3241,17 +2774,9 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_2_0")]
 		public static void VertexAttrib4(UInt32 index, Int16 x, Int16 y, Int16 z, Int16 w)
 		{
-			if        (Delegates.pglVertexAttrib4s != null) {
-				Delegates.pglVertexAttrib4s(index, x, y, z, w);
-				CallLog("glVertexAttrib4s({0}, {1}, {2}, {3}, {4})", index, x, y, z, w);
-			} else if (Delegates.pglVertexAttrib4sARB != null) {
-				Delegates.pglVertexAttrib4sARB(index, x, y, z, w);
-				CallLog("glVertexAttrib4sARB({0}, {1}, {2}, {3}, {4})", index, x, y, z, w);
-			} else if (Delegates.pglVertexAttrib4sNV != null) {
-				Delegates.pglVertexAttrib4sNV(index, x, y, z, w);
-				CallLog("glVertexAttrib4sNV({0}, {1}, {2}, {3}, {4})", index, x, y, z, w);
-			} else
-				throw new NotImplementedException("glVertexAttrib4s (and other aliases) are not implemented");
+			Debug.Assert(Delegates.pglVertexAttrib4s != null, "pglVertexAttrib4s not implemented");
+			Delegates.pglVertexAttrib4s(index, x, y, z, w);
+			CallLog("glVertexAttrib4s({0}, {1}, {2}, {3}, {4})", index, x, y, z, w);
 			DebugCheckErrors();
 		}
 
@@ -3271,17 +2796,9 @@ namespace OpenGL
 			unsafe {
 				fixed (Int16* p_v = v)
 				{
-					if        (Delegates.pglVertexAttrib4sv != null) {
-						Delegates.pglVertexAttrib4sv(index, p_v);
-						CallLog("glVertexAttrib4sv({0}, {1})", index, v);
-					} else if (Delegates.pglVertexAttrib4svARB != null) {
-						Delegates.pglVertexAttrib4svARB(index, p_v);
-						CallLog("glVertexAttrib4svARB({0}, {1})", index, v);
-					} else if (Delegates.pglVertexAttrib4svNV != null) {
-						Delegates.pglVertexAttrib4svNV(index, p_v);
-						CallLog("glVertexAttrib4svNV({0}, {1})", index, v);
-					} else
-						throw new NotImplementedException("glVertexAttrib4sv (and other aliases) are not implemented");
+					Debug.Assert(Delegates.pglVertexAttrib4sv != null, "pglVertexAttrib4sv not implemented");
+					Delegates.pglVertexAttrib4sv(index, p_v);
+					CallLog("glVertexAttrib4sv({0}, {1})", index, v);
 				}
 			}
 			DebugCheckErrors();
@@ -3303,14 +2820,9 @@ namespace OpenGL
 			unsafe {
 				fixed (byte* p_v = v)
 				{
-					if        (Delegates.pglVertexAttrib4ubv != null) {
-						Delegates.pglVertexAttrib4ubv(index, p_v);
-						CallLog("glVertexAttrib4ubv({0}, {1})", index, v);
-					} else if (Delegates.pglVertexAttrib4ubvARB != null) {
-						Delegates.pglVertexAttrib4ubvARB(index, p_v);
-						CallLog("glVertexAttrib4ubvARB({0}, {1})", index, v);
-					} else
-						throw new NotImplementedException("glVertexAttrib4ubv (and other aliases) are not implemented");
+					Debug.Assert(Delegates.pglVertexAttrib4ubv != null, "pglVertexAttrib4ubv not implemented");
+					Delegates.pglVertexAttrib4ubv(index, p_v);
+					CallLog("glVertexAttrib4ubv({0}, {1})", index, v);
 				}
 			}
 			DebugCheckErrors();
@@ -3332,14 +2844,9 @@ namespace OpenGL
 			unsafe {
 				fixed (UInt32* p_v = v)
 				{
-					if        (Delegates.pglVertexAttrib4uiv != null) {
-						Delegates.pglVertexAttrib4uiv(index, p_v);
-						CallLog("glVertexAttrib4uiv({0}, {1})", index, v);
-					} else if (Delegates.pglVertexAttrib4uivARB != null) {
-						Delegates.pglVertexAttrib4uivARB(index, p_v);
-						CallLog("glVertexAttrib4uivARB({0}, {1})", index, v);
-					} else
-						throw new NotImplementedException("glVertexAttrib4uiv (and other aliases) are not implemented");
+					Debug.Assert(Delegates.pglVertexAttrib4uiv != null, "pglVertexAttrib4uiv not implemented");
+					Delegates.pglVertexAttrib4uiv(index, p_v);
+					CallLog("glVertexAttrib4uiv({0}, {1})", index, v);
 				}
 			}
 			DebugCheckErrors();
@@ -3361,14 +2868,9 @@ namespace OpenGL
 			unsafe {
 				fixed (UInt16* p_v = v)
 				{
-					if        (Delegates.pglVertexAttrib4usv != null) {
-						Delegates.pglVertexAttrib4usv(index, p_v);
-						CallLog("glVertexAttrib4usv({0}, {1})", index, v);
-					} else if (Delegates.pglVertexAttrib4usvARB != null) {
-						Delegates.pglVertexAttrib4usvARB(index, p_v);
-						CallLog("glVertexAttrib4usvARB({0}, {1})", index, v);
-					} else
-						throw new NotImplementedException("glVertexAttrib4usv (and other aliases) are not implemented");
+					Debug.Assert(Delegates.pglVertexAttrib4usv != null, "pglVertexAttrib4usv not implemented");
+					Delegates.pglVertexAttrib4usv(index, p_v);
+					CallLog("glVertexAttrib4usv({0}, {1})", index, v);
 				}
 			}
 			DebugCheckErrors();
@@ -3407,14 +2909,9 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_2_0")]
 		public static void VertexAttribPointer(UInt32 index, Int32 size, int type, bool normalized, Int32 stride, IntPtr pointer)
 		{
-			if        (Delegates.pglVertexAttribPointer != null) {
-				Delegates.pglVertexAttribPointer(index, size, type, normalized, stride, pointer);
-				CallLog("glVertexAttribPointer({0}, {1}, {2}, {3}, {4}, {5})", index, size, type, normalized, stride, pointer);
-			} else if (Delegates.pglVertexAttribPointerARB != null) {
-				Delegates.pglVertexAttribPointerARB(index, size, type, normalized, stride, pointer);
-				CallLog("glVertexAttribPointerARB({0}, {1}, {2}, {3}, {4}, {5})", index, size, type, normalized, stride, pointer);
-			} else
-				throw new NotImplementedException("glVertexAttribPointer (and other aliases) are not implemented");
+			Debug.Assert(Delegates.pglVertexAttribPointer != null, "pglVertexAttribPointer not implemented");
+			Delegates.pglVertexAttribPointer(index, size, type, normalized, stride, pointer);
+			CallLog("glVertexAttribPointer({0}, {1}, {2}, {3}, {4}, {5})", index, size, type, normalized, stride, pointer);
 			DebugCheckErrors();
 		}
 

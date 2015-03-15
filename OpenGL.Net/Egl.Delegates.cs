@@ -44,8 +44,8 @@ namespace OpenGL
 			[ThreadStatic]
 			internal static eglChooseConfig peglChooseConfig;
 
-			[AliasOf("eglClientWaitSync"]
-			[AliasOf("eglClientWaitSyncKHR"]
+			[AliasOf("eglClientWaitSync")]
+			[AliasOf("eglClientWaitSyncKHR")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate int eglClientWaitSync(IntPtr dpy, IntPtr sync, int flags, UInt64 timeout);
 			[ThreadStatic]
@@ -146,8 +146,8 @@ namespace OpenGL
 			[ThreadStatic]
 			internal static eglCreateStreamSyncNV peglCreateStreamSyncNV;
 
-			[AliasOf("eglCreateSync"]
-			[AliasOf("eglCreateSync64KHR"]
+			[AliasOf("eglCreateSync")]
+			[AliasOf("eglCreateSync64KHR")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate IntPtr eglCreateSync(IntPtr dpy, uint type, IntPtr* attrib_list);
 			[ThreadStatic]
@@ -168,8 +168,8 @@ namespace OpenGL
 			[ThreadStatic]
 			internal static eglDestroyContext peglDestroyContext;
 
-			[AliasOf("eglDestroyImage"]
-			[AliasOf("eglDestroyImageKHR"]
+			[AliasOf("eglDestroyImage")]
+			[AliasOf("eglDestroyImageKHR")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate IntPtr eglDestroyImage(IntPtr dpy, IntPtr image);
 			[ThreadStatic]
@@ -185,8 +185,8 @@ namespace OpenGL
 			[ThreadStatic]
 			internal static eglDestroySurface peglDestroySurface;
 
-			[AliasOf("eglDestroySync"]
-			[AliasOf("eglDestroySyncKHR"]
+			[AliasOf("eglDestroySync")]
+			[AliasOf("eglDestroySyncKHR")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate IntPtr eglDestroySync(IntPtr dpy, IntPtr sync);
 			[ThreadStatic]
