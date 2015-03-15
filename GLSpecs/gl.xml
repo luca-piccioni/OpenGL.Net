@@ -1805,6 +1805,12 @@ typedef unsigned int GLhandleARB;
             <enum name="GL_SMOOTH"/>
         </group>
 
+        <group name="StencilFaceDirection">
+             <enum name="GL_FRONT"/>
+             <enum name="GL_BACK"/>
+             <enum name="GL_FRONT_AND_BACK"/>
+        </group>
+
         <group name="StencilFunction">
             <enum name="GL_ALWAYS"/>
             <enum name="GL_EQUAL"/>

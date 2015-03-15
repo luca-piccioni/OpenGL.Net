@@ -571,7 +571,7 @@ namespace BindingsGen.GLSpecs
 				if (paramModifier != null)
 					sw.Write("{0} ", paramModifier);
 
-				if (CommandParameterArray.IsCompatible(param, ctx, this) && (paramCount == 1) && !IsGenImplementation(ctx))
+				if ((paramCount == 1) && (param.IsManagedArray) && ((Flags & CommandFlags.VariadicParams) != 0))
 					sw.Write("params ");
 
 				sw.Write("{0} {1}", param.GetImplementationType(ctx, this), param.ImplementationName);

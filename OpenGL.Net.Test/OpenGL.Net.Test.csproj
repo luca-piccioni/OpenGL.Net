@@ -47,6 +47,7 @@
     <Compile Include="ARB\Wgl.ARB_pixel_format.cs" />
     <Compile Include="Gl.VERSION_1_0.cs" />
     <Compile Include="Gl.VERSION_1_5.cs" />
+    <Compile Include="Gl.VERSION_2_0.cs" />
     <Compile Include="GlTestBase.cs" />
     <Compile Include="TestBase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

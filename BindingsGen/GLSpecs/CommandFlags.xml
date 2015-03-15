@@ -3,25 +3,60 @@
 	
 	<!-- GL -->
 	
-	<command name="glGetError">
+	<command name="(e)?glGetError$">
 		<!-- Avoid stack overflow -->
 		<flags>NoGetError</flags>
 	</command>
 	
-	<command name="^glGet(Integer(64)?|Float|Double|Boolean)(v|i_v)$">
+	<!-- glGet* commands (even indexed) -->
+	<command name="^glGet((Integer(64)?|Float|Double|Boolean)(v|i_v))$">
 		<rename>Get</rename>
 		<!-- Generate "out" overloads -->
 		<flags>OutParam ForcePlainParams</flags>
 	</command>
 
-	<command name="GetBufferParameteriv(ARB)?">
+	<command name="^glGet(Shaderiv|glGetShaderPrecisionFormat|VertexAttribiv|BufferParameteriv(ARB)?)$">
 		<!-- Generate "out" overloads -->
 		<flags>OutParam</flags>
 	</command>
 	
-	<command name="gl\w+TexImage(1-4)|glBufferData">
+	<command name="(gl\w+TexImage(1-4)|glBufferData)">
 		<!-- Let the application handles the *TexImage* and glBufferData errors (proxy texture targets, out of memory) -->
 		<flags>NoGetError ForcePlainParams</flags>
+	</command>
+	
+	<!-- GL - Variadic Commands -->
+
+	<command name="^gl(Feedback|Select)Buffer$">
+		<flags>VariadicParams</flags>
+	</command>
+
+	<command name="^glPrioritize(Textures)$">
+		<flags>VariadicParams</flags>
+	</command>
+
+	<command name="^glBind(Textures|Samplers|ImageTextures|VertexBuffers|PerfMonitorsAMD)$">
+		<flags>VariadicParams</flags>
+	</command>
+
+	<command name="^glDelete(Buffers|Queries|Textures|Renderbuffer|Framebuffers|VertexArrays|Samplers|TransformFeedback|ProgramPipelines)(ARB|EXT)?$">
+		<flags>VariadicParams</flags>
+	</command>
+
+	<command name="^glDelete(Fences)APPLE$">
+		<flags>VariadicParams</flags>
+	</command>
+
+	<command name="^glDelete(Name|PerfMonitors)AMD$">
+		<flags>VariadicParams</flags>
+	</command>
+
+	<command name="^glDelete(Fences|OcclusionQueries)NV$">
+		<flags>VariadicParams</flags>
+	</command>
+
+	<command name="^gl(DrawBuffers|UniformSubroutines|CreateShaderProgramv|InvalidateFramebuffer)$">
+		<flags>VariadicParams</flags>
 	</command>
 	
 	<!-- WGL -->

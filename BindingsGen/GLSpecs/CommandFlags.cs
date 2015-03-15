@@ -32,27 +32,32 @@ namespace BindingsGen.GLSpecs
 		/// <summary>
 		/// Default behaviour.
 		/// </summary>
-		None =			0x00,
+		None =				0x00,
 
 		/// <summary>
 		/// Do not generate any implementation.
 		/// </summary>
-		Disable =		0x01,
+		Disable =			0x01,
 
 		/// <summary>
 		/// Do not generate glGetError call.
 		/// </summary>
-		NoGetError =	0x02,
+		NoGetError =		0x02,
 
 		/// <summary>
 		/// Generate an "out" parameter even if the declared array length is not 1.
 		/// </summary>
-		OutParam =		0x04,
+		OutParam =			0x04,
 
 		/// <summary>
 		/// Generate the method overload with plain parameters even if parameters are stringly typed.
 		/// </summary>
 		ForcePlainParams =	0x08,
+
+		/// <summary>
+		/// Variable arguments.
+		/// </summary>
+		VariadicParams =	0x10,
 	}
 
 	/// <summary>
