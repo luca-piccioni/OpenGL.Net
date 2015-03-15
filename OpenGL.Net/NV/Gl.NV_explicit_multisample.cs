@@ -26,24 +26,6 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Value of GL_SAMPLE_POSITION_NV symbol.
-		/// </summary>
-		[RequiredByFeature("GL_NV_explicit_multisample")]
-		public const int SAMPLE_POSITION_NV = 0x8E50;
-
-		/// <summary>
-		/// Value of GL_SAMPLE_MASK_NV symbol.
-		/// </summary>
-		[RequiredByFeature("GL_NV_explicit_multisample")]
-		public const int SAMPLE_MASK_NV = 0x8E51;
-
-		/// <summary>
-		/// Value of GL_SAMPLE_MASK_VALUE_NV symbol.
-		/// </summary>
-		[RequiredByFeature("GL_NV_explicit_multisample")]
-		public const int SAMPLE_MASK_VALUE_NV = 0x8E52;
-
-		/// <summary>
 		/// Value of GL_TEXTURE_BINDING_RENDERBUFFER_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_explicit_multisample")]
@@ -78,38 +60,6 @@ namespace OpenGL
 		/// </summary>
 		[RequiredByFeature("GL_NV_explicit_multisample")]
 		public const int UNSIGNED_INT_SAMPLER_RENDERBUFFER_NV = 0x8E58;
-
-		/// <summary>
-		/// Value of GL_MAX_SAMPLE_MASK_WORDS_NV symbol.
-		/// </summary>
-		[RequiredByFeature("GL_NV_explicit_multisample")]
-		public const int MAX_SAMPLE_MASK_WORDS_NV = 0x8E59;
-
-		/// <summary>
-		/// Binding for glGetMultisamplefvNV.
-		/// </summary>
-		/// <param name="pname">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="index">
-		/// A <see cref="T:UInt32"/>.
-		/// </param>
-		/// <param name="val">
-		/// A <see cref="T:float[]"/>.
-		/// </param>
-		[RequiredByFeature("GL_NV_explicit_multisample")]
-		public static void GetMultisampleNV(int pname, UInt32 index, float[] val)
-		{
-			unsafe {
-				fixed (float* p_val = val)
-				{
-					Debug.Assert(Delegates.pglGetMultisamplefvNV != null, "pglGetMultisamplefvNV not implemented");
-					Delegates.pglGetMultisamplefvNV(pname, index, p_val);
-					CallLog("glGetMultisamplefvNV({0}, {1}, {2})", pname, index, val);
-				}
-			}
-			DebugCheckErrors();
-		}
 
 		/// <summary>
 		/// Binding for glSampleMaskIndexedNV.

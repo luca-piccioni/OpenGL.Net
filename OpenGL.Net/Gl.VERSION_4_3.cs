@@ -1705,18 +1705,6 @@ namespace OpenGL
 		public const uint SHADER_STORAGE_BARRIER_BIT = 0x00002000;
 
 		/// <summary>
-		/// Value of GL_MAX_COMBINED_SHADER_OUTPUT_RESOURCES symbol.
-		/// </summary>
-		/// <remarks>
-		/// <para>
-		/// This enumerant is equaivalent to MAX_COMBINED_IMAGE_UNITS_AND_FRAGMENT_OUTPUTS.
-		/// </para>
-		/// </remarks>
-		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ARB_shader_storage_buffer_object")]
-		public const int MAX_COMBINED_SHADER_OUTPUT_RESOURCES = 0x8F39;
-
-		/// <summary>
 		/// Value of GL_DEPTH_STENCIL_TEXTURE_MODE symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]

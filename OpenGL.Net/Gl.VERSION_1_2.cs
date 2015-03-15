@@ -218,50 +218,6 @@ namespace OpenGL
 		public const int TEXTURE_MAX_LEVEL = 0x813D;
 
 		/// <summary>
-		/// Value of GL_SMOOTH_POINT_SIZE_RANGE symbol.
-		/// </summary>
-		/// <remarks>
-		/// <para>
-		/// This enumerant is equaivalent to POINT_SIZE_RANGE.
-		/// </para>
-		/// </remarks>
-		[RequiredByFeature("GL_VERSION_1_2")]
-		public const int SMOOTH_POINT_SIZE_RANGE = 0x0B12;
-
-		/// <summary>
-		/// Value of GL_SMOOTH_POINT_SIZE_GRANULARITY symbol.
-		/// </summary>
-		/// <remarks>
-		/// <para>
-		/// This enumerant is equaivalent to POINT_SIZE_GRANULARITY.
-		/// </para>
-		/// </remarks>
-		[RequiredByFeature("GL_VERSION_1_2")]
-		public const int SMOOTH_POINT_SIZE_GRANULARITY = 0x0B13;
-
-		/// <summary>
-		/// Value of GL_SMOOTH_LINE_WIDTH_RANGE symbol.
-		/// </summary>
-		/// <remarks>
-		/// <para>
-		/// This enumerant is equaivalent to LINE_WIDTH_RANGE.
-		/// </para>
-		/// </remarks>
-		[RequiredByFeature("GL_VERSION_1_2")]
-		public const int SMOOTH_LINE_WIDTH_RANGE = 0x0B22;
-
-		/// <summary>
-		/// Value of GL_SMOOTH_LINE_WIDTH_GRANULARITY symbol.
-		/// </summary>
-		/// <remarks>
-		/// <para>
-		/// This enumerant is equaivalent to LINE_WIDTH_GRANULARITY.
-		/// </para>
-		/// </remarks>
-		[RequiredByFeature("GL_VERSION_1_2")]
-		public const int SMOOTH_LINE_WIDTH_GRANULARITY = 0x0B23;
-
-		/// <summary>
 		/// Value of GL_ALIASED_LINE_WIDTH_RANGE symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_2")]

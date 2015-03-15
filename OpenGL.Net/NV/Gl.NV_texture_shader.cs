@@ -110,39 +110,6 @@ namespace OpenGL
 		public const int OFFSET_TEXTURE_BIAS_NV = 0x86E3;
 
 		/// <summary>
-		/// Value of GL_OFFSET_TEXTURE_2D_MATRIX_NV symbol.
-		/// </summary>
-		/// <remarks>
-		/// <para>
-		/// This enumerant is equaivalent to OFFSET_TEXTURE_MATRIX_NV.
-		/// </para>
-		/// </remarks>
-		[RequiredByFeature("GL_NV_texture_shader")]
-		public const int OFFSET_TEXTURE_2D_MATRIX_NV = 0x86E1;
-
-		/// <summary>
-		/// Value of GL_OFFSET_TEXTURE_2D_SCALE_NV symbol.
-		/// </summary>
-		/// <remarks>
-		/// <para>
-		/// This enumerant is equaivalent to OFFSET_TEXTURE_SCALE_NV.
-		/// </para>
-		/// </remarks>
-		[RequiredByFeature("GL_NV_texture_shader")]
-		public const int OFFSET_TEXTURE_2D_SCALE_NV = 0x86E2;
-
-		/// <summary>
-		/// Value of GL_OFFSET_TEXTURE_2D_BIAS_NV symbol.
-		/// </summary>
-		/// <remarks>
-		/// <para>
-		/// This enumerant is equaivalent to OFFSET_TEXTURE_BIAS_NV.
-		/// </para>
-		/// </remarks>
-		[RequiredByFeature("GL_NV_texture_shader")]
-		public const int OFFSET_TEXTURE_2D_BIAS_NV = 0x86E3;
-
-		/// <summary>
 		/// Value of GL_PREVIOUS_TEXTURE_INPUT_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_texture_shader")]

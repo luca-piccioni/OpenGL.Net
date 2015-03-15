@@ -43,12 +43,6 @@ namespace OpenGL
 		[RequiredByFeature("GL_3DFX_multisample")]
 		public const int SAMPLES_3DFX = 0x86B4;
 
-		/// <summary>
-		/// Value of GL_MULTISAMPLE_BIT_3DFX symbol.
-		/// </summary>
-		[RequiredByFeature("GL_3DFX_multisample")]
-		public const uint MULTISAMPLE_BIT_3DFX = 0x20000000;
-
 	}
 
 }

@@ -103,20 +103,6 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_fragment_program")]
 		public const int MAX_PROGRAM_NATIVE_TEX_INDIRECTIONS_ARB = 0x8810;
 
-		/// <summary>
-		/// Value of GL_MAX_TEXTURE_COORDS_ARB symbol.
-		/// </summary>
-		[RequiredByFeature("GL_ARB_fragment_program")]
-		[RequiredByFeature("GL_ARB_vertex_shader")]
-		public const int MAX_TEXTURE_COORDS_ARB = 0x8871;
-
-		/// <summary>
-		/// Value of GL_MAX_TEXTURE_IMAGE_UNITS_ARB symbol.
-		/// </summary>
-		[RequiredByFeature("GL_ARB_fragment_program")]
-		[RequiredByFeature("GL_ARB_vertex_shader")]
-		public const int MAX_TEXTURE_IMAGE_UNITS_ARB = 0x8872;
-
 	}
 
 }

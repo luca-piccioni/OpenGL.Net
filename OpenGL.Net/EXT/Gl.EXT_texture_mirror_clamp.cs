@@ -32,12 +32,6 @@ namespace OpenGL
 		public const int MIRROR_CLAMP_EXT = 0x8742;
 
 		/// <summary>
-		/// Value of GL_MIRROR_CLAMP_TO_EDGE_EXT symbol.
-		/// </summary>
-		[RequiredByFeature("GL_EXT_texture_mirror_clamp")]
-		public const int MIRROR_CLAMP_TO_EDGE_EXT = 0x8743;
-
-		/// <summary>
 		/// Value of GL_MIRROR_CLAMP_TO_BORDER_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_texture_mirror_clamp")]

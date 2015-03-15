@@ -657,6 +657,8 @@ namespace BindingsGen
 
 			if (sDocumentationMap2.TryGetValue(command.Prototype.Name, out path))
 				return (path);
+			if ((command.Alias != null) && sDocumentationMap2.TryGetValue(command.Alias.Name, out path))
+				return (path);
 
 			return (null);
 		}
@@ -675,6 +677,8 @@ namespace BindingsGen
 			string path;
 
 			if (sDocumentationMap4.TryGetValue(command.Prototype.Name, out path))
+				return (path);
+			if ((command.Alias != null) && sDocumentationMap4.TryGetValue(command.Alias.Name, out path))
 				return (path);
 
 			return (null);

@@ -26,12 +26,6 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Value of GL_HALF_FLOAT_NV symbol.
-		/// </summary>
-		[RequiredByFeature("GL_NV_half_float")]
-		public const int HALF_FLOAT_NV = 0x140B;
-
-		/// <summary>
 		/// Binding for glVertex2hNV.
 		/// </summary>
 		/// <param name="x">

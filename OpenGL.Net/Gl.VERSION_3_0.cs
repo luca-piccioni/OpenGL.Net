@@ -26,83 +26,6 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Value of GL_COMPARE_REF_TO_TEXTURE symbol.
-		/// </summary>
-		/// <remarks>
-		/// <para>
-		/// This enumerant is equaivalent to COMPARE_R_TO_TEXTURE.
-		/// </para>
-		/// </remarks>
-		[RequiredByFeature("GL_VERSION_3_0")]
-		public const int COMPARE_REF_TO_TEXTURE = 0x884E;
-
-		/// <summary>
-		/// Value of GL_CLIP_DISTANCE0 symbol.
-		/// </summary>
-		/// <remarks>
-		/// <para>
-		/// This enumerant is equaivalent to CLIP_PLANE0.
-		/// </para>
-		/// </remarks>
-		[RequiredByFeature("GL_VERSION_3_0")]
-		public const int CLIP_DISTANCE0 = 0x3000;
-
-		/// <summary>
-		/// Value of GL_CLIP_DISTANCE1 symbol.
-		/// </summary>
-		/// <remarks>
-		/// <para>
-		/// This enumerant is equaivalent to CLIP_PLANE1.
-		/// </para>
-		/// </remarks>
-		[RequiredByFeature("GL_VERSION_3_0")]
-		public const int CLIP_DISTANCE1 = 0x3001;
-
-		/// <summary>
-		/// Value of GL_CLIP_DISTANCE2 symbol.
-		/// </summary>
-		/// <remarks>
-		/// <para>
-		/// This enumerant is equaivalent to CLIP_PLANE2.
-		/// </para>
-		/// </remarks>
-		[RequiredByFeature("GL_VERSION_3_0")]
-		public const int CLIP_DISTANCE2 = 0x3002;
-
-		/// <summary>
-		/// Value of GL_CLIP_DISTANCE3 symbol.
-		/// </summary>
-		/// <remarks>
-		/// <para>
-		/// This enumerant is equaivalent to CLIP_PLANE3.
-		/// </para>
-		/// </remarks>
-		[RequiredByFeature("GL_VERSION_3_0")]
-		public const int CLIP_DISTANCE3 = 0x3003;
-
-		/// <summary>
-		/// Value of GL_CLIP_DISTANCE4 symbol.
-		/// </summary>
-		/// <remarks>
-		/// <para>
-		/// This enumerant is equaivalent to CLIP_PLANE4.
-		/// </para>
-		/// </remarks>
-		[RequiredByFeature("GL_VERSION_3_0")]
-		public const int CLIP_DISTANCE4 = 0x3004;
-
-		/// <summary>
-		/// Value of GL_CLIP_DISTANCE5 symbol.
-		/// </summary>
-		/// <remarks>
-		/// <para>
-		/// This enumerant is equaivalent to CLIP_PLANE5.
-		/// </para>
-		/// </remarks>
-		[RequiredByFeature("GL_VERSION_3_0")]
-		public const int CLIP_DISTANCE5 = 0x3005;
-
-		/// <summary>
 		/// Value of GL_CLIP_DISTANCE6 symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_3_0")]
@@ -113,17 +36,6 @@ namespace OpenGL
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_3_0")]
 		public const int CLIP_DISTANCE7 = 0x3007;
-
-		/// <summary>
-		/// Value of GL_MAX_CLIP_DISTANCES symbol.
-		/// </summary>
-		/// <remarks>
-		/// <para>
-		/// This enumerant is equaivalent to MAX_CLIP_PLANES.
-		/// </para>
-		/// </remarks>
-		[RequiredByFeature("GL_VERSION_3_0")]
-		public const int MAX_CLIP_DISTANCES = 0x0D32;
 
 		/// <summary>
 		/// Value of GL_MAJOR_VERSION symbol.

@@ -38,12 +38,6 @@ namespace OpenGL
 		public const int BLEND_PREMULTIPLIED_SRC_NV = 0x9280;
 
 		/// <summary>
-		/// Value of GL_BLUE_NV symbol.
-		/// </summary>
-		[RequiredByFeature("GL_NV_blend_equation_advanced")]
-		public const int BLUE_NV = 0x1905;
-
-		/// <summary>
 		/// Value of GL_COLORBURN_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_blend_equation_advanced")]
@@ -120,12 +114,6 @@ namespace OpenGL
 		/// </summary>
 		[RequiredByFeature("GL_NV_blend_equation_advanced")]
 		public const int EXCLUSION_NV = 0x92A0;
-
-		/// <summary>
-		/// Value of GL_GREEN_NV symbol.
-		/// </summary>
-		[RequiredByFeature("GL_NV_blend_equation_advanced")]
-		public const int GREEN_NV = 0x1904;
 
 		/// <summary>
 		/// Value of GL_HARDLIGHT_NV symbol.
@@ -254,12 +242,6 @@ namespace OpenGL
 		public const int PLUS_NV = 0x9291;
 
 		/// <summary>
-		/// Value of GL_RED_NV symbol.
-		/// </summary>
-		[RequiredByFeature("GL_NV_blend_equation_advanced")]
-		public const int RED_NV = 0x1903;
-
-		/// <summary>
 		/// Value of GL_SCREEN_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_blend_equation_advanced")]
@@ -312,12 +294,6 @@ namespace OpenGL
 		/// </summary>
 		[RequiredByFeature("GL_NV_blend_equation_advanced")]
 		public const int VIVIDLIGHT_NV = 0x92A6;
-
-		/// <summary>
-		/// Value of GL_XOR_NV symbol.
-		/// </summary>
-		[RequiredByFeature("GL_NV_blend_equation_advanced")]
-		public const int XOR_NV = 0x1506;
 
 		/// <summary>
 		/// Binding for glBlendParameteriNV.

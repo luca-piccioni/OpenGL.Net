@@ -31,24 +31,6 @@ namespace OpenGL
 		[RequiredByFeature("GL_HP_convolution_border_modes")]
 		public const int IGNORE_BORDER_HP = 0x8150;
 
-		/// <summary>
-		/// Value of GL_CONSTANT_BORDER_HP symbol.
-		/// </summary>
-		[RequiredByFeature("GL_HP_convolution_border_modes")]
-		public const int CONSTANT_BORDER_HP = 0x8151;
-
-		/// <summary>
-		/// Value of GL_REPLICATE_BORDER_HP symbol.
-		/// </summary>
-		[RequiredByFeature("GL_HP_convolution_border_modes")]
-		public const int REPLICATE_BORDER_HP = 0x8153;
-
-		/// <summary>
-		/// Value of GL_CONVOLUTION_BORDER_COLOR_HP symbol.
-		/// </summary>
-		[RequiredByFeature("GL_HP_convolution_border_modes")]
-		public const int CONVOLUTION_BORDER_COLOR_HP = 0x8154;
-
 	}
 
 }

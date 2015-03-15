@@ -26,12 +26,6 @@ namespace OpenGL
 	public partial class Egl
 	{
 		/// <summary>
-		/// Value of EGL_BUFFER_AGE_KHR symbol.
-		/// </summary>
-		[RequiredByFeature("EGL_KHR_partial_update")]
-		public const int BUFFER_AGE_KHR = 0x313D;
-
-		/// <summary>
 		/// Binding for eglSetDamageRegionKHR.
 		/// </summary>
 		/// <param name="dpy">

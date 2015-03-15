@@ -878,42 +878,6 @@ namespace OpenGL
 		public const int STANDARD_FONT_FORMAT_NV = 0x936C;
 
 		/// <summary>
-		/// Value of GL_2_BYTES_NV symbol.
-		/// </summary>
-		[RequiredByFeature("GL_NV_path_rendering")]
-		public const int _2_BYTES_NV = 0x1407;
-
-		/// <summary>
-		/// Value of GL_3_BYTES_NV symbol.
-		/// </summary>
-		[RequiredByFeature("GL_NV_path_rendering")]
-		public const int _3_BYTES_NV = 0x1408;
-
-		/// <summary>
-		/// Value of GL_4_BYTES_NV symbol.
-		/// </summary>
-		[RequiredByFeature("GL_NV_path_rendering")]
-		public const int _4_BYTES_NV = 0x1409;
-
-		/// <summary>
-		/// Value of GL_EYE_LINEAR_NV symbol.
-		/// </summary>
-		[RequiredByFeature("GL_NV_path_rendering")]
-		public const int EYE_LINEAR_NV = 0x2400;
-
-		/// <summary>
-		/// Value of GL_OBJECT_LINEAR_NV symbol.
-		/// </summary>
-		[RequiredByFeature("GL_NV_path_rendering")]
-		public const int OBJECT_LINEAR_NV = 0x2401;
-
-		/// <summary>
-		/// Value of GL_CONSTANT_NV symbol.
-		/// </summary>
-		[RequiredByFeature("GL_NV_path_rendering")]
-		public const int CONSTANT_NV = 0x8576;
-
-		/// <summary>
 		/// Value of GL_PATH_FOG_GEN_MODE_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_path_rendering")]

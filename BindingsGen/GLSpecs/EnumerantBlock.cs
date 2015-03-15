@@ -17,6 +17,7 @@
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Text.RegularExpressions;
 using System.Xml.Serialization;
 
 namespace BindingsGen.GLSpecs
@@ -105,7 +106,14 @@ namespace BindingsGen.GLSpecs
 				// Recurse
 				enumerant.Link(ctx);
 			}
-				
+
+			Enums.RemoveAll(delegate(Enumerant item) {
+				if (item.RequiredBy.Count == 0)
+					return (true);
+				if (item.Api != null && !Regex.IsMatch(ctx.Class.ToUpperInvariant(), item.Api))
+					return (true);
+				return (false);
+			});
 		}
 
 		#endregion

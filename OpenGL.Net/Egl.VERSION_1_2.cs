@@ -26,39 +26,6 @@ namespace OpenGL
 	public partial class Egl
 	{
 		/// <summary>
-		/// Value of EGL_ALPHA_FORMAT symbol.
-		/// </summary>
-		/// <remarks>
-		/// <para>
-		/// This enumerant is equaivalent to VG_ALPHA_FORMAT.
-		/// </para>
-		/// </remarks>
-		[RequiredByFeature("EGL_VERSION_1_2")]
-		public const int ALPHA_FORMAT = 0x3088;
-
-		/// <summary>
-		/// Value of EGL_ALPHA_FORMAT_NONPRE symbol.
-		/// </summary>
-		/// <remarks>
-		/// <para>
-		/// This enumerant is equaivalent to VG_ALPHA_FORMAT_NONPRE.
-		/// </para>
-		/// </remarks>
-		[RequiredByFeature("EGL_VERSION_1_2")]
-		public const int ALPHA_FORMAT_NONPRE = 0x308B;
-
-		/// <summary>
-		/// Value of EGL_ALPHA_FORMAT_PRE symbol.
-		/// </summary>
-		/// <remarks>
-		/// <para>
-		/// This enumerant is equaivalent to VG_ALPHA_FORMAT_PRE.
-		/// </para>
-		/// </remarks>
-		[RequiredByFeature("EGL_VERSION_1_2")]
-		public const int ALPHA_FORMAT_PRE = 0x308C;
-
-		/// <summary>
 		/// Value of EGL_ALPHA_MASK_SIZE symbol.
 		/// </summary>
 		[RequiredByFeature("EGL_VERSION_1_2")]
@@ -81,17 +48,6 @@ namespace OpenGL
 		/// </summary>
 		[RequiredByFeature("EGL_VERSION_1_2")]
 		public const int CLIENT_APIS = 0x308D;
-
-		/// <summary>
-		/// Value of EGL_COLORSPACE symbol.
-		/// </summary>
-		/// <remarks>
-		/// <para>
-		/// This enumerant is equaivalent to VG_COLORSPACE.
-		/// </para>
-		/// </remarks>
-		[RequiredByFeature("EGL_VERSION_1_2")]
-		public const int COLORSPACE = 0x3087;
 
 		/// <summary>
 		/// Value of EGL_COLORSPACE_sRGB symbol.

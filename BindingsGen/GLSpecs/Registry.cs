@@ -174,25 +174,73 @@ namespace BindingsGen.GLSpecs
 		/// </summary>
 		internal void Link(RegistryContext ctx)
 		{
-			foreach (Enumerant enumerant in Enumerants) {
-				if ((enumerant.Api == null) || (enumerant.Api == "gl"))
-					mGlEnumerants[enumerant.Name] = enumerant;
-			}
-
 			foreach (EnumerantBlock enumerantBlock in Enums)
 				enumerantBlock.Link(ctx);
-
-			foreach (Command command in Commands) {
+			foreach (Command command in Commands)
 				command.Link(ctx);
 
+			// Remove enumerants not required by anyone
+			Commands.RemoveAll(delegate(Command item) {
+				if (item.RequiredBy.Count == 0)
+					return (true);
+				return (false);
+			});
+			// Index commands
+			foreach (Command command in Commands)
 				mCommandRegistry.Add(command.Prototype.Name, command);
-			}
-
+			// Link command aliases
 			foreach (Command command in Commands) {
 				if (command.Alias == null)
 					continue;
 				Command aliasCommand = GetCommand(command.Alias.Name);
 				aliasCommand.Aliases.Add(command);
+			}
+
+			// Index required enumerants
+			foreach (Enumerant enumerant in Enumerants) {
+				if ((enumerant.Api == null) || (Regex.IsMatch(ctx.Class.ToUpperInvariant(), enumerant.Api)))
+					mGlEnumerants[enumerant.Name] = enumerant;
+			}
+			// Link enumerant aliases
+			foreach (Enumerant enumerant in Enumerants) {
+				if (enumerant.Alias != null)
+					enumerant.EnumAlias = GetGlEnumerant(enumerant.Alias);
+
+				if (enumerant.EnumAlias == null) {
+					foreach (string extensionPostfix in ctx.ExtensionsDictionary.Words) {
+						if (!enumerant.Name.EndsWith("_" + extensionPostfix))
+							continue;
+
+						Enumerant enumerantAlias = null;
+						string aliasName = enumerant.Name.Substring(0, enumerant.Name.Length - (extensionPostfix.Length + 1));
+						bool isArb = extensionPostfix == "ARB", isExt = extensionPostfix == "EXT";
+
+						if (!isArb && !isExt) {
+							// Core enumerant
+							enumerantAlias = GetGlEnumerant(aliasName);
+							// ARB enumerant
+							if (enumerantAlias == null)
+								enumerantAlias = GetGlEnumerant(aliasName + "_ARB");
+							// EXT enumerant
+							if (enumerantAlias == null)
+								enumerantAlias = GetGlEnumerant(aliasName + "_EXT");
+						} else if (isExt) {
+							// Core enumerant
+							enumerantAlias = GetGlEnumerant(aliasName);
+							// ARB enumerant
+							if (enumerantAlias == null)
+								enumerantAlias = GetGlEnumerant(aliasName + "_ARB");
+						} else if (isArb) {
+							// Core enumerant
+							enumerantAlias = GetGlEnumerant(aliasName);
+						}
+
+						if (enumerantAlias != null) {
+							if (enumerantAlias.Value == enumerant.Value)
+								enumerant.EnumAlias = enumerantAlias;
+						}
+					}
+				}
 			}
 		}
 

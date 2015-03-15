@@ -26,12 +26,6 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Value of GL_FIXED_OES symbol.
-		/// </summary>
-		[RequiredByFeature("GL_OES_fixed_point")]
-		public const int FIXED_OES = 0x140C;
-
-		/// <summary>
 		/// Binding for glAlphaFuncxOES.
 		/// </summary>
 		/// <param name="func">

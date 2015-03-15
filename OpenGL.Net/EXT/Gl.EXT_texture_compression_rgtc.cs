@@ -26,18 +26,6 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Value of GL_COMPRESSED_RED_RGTC1_EXT symbol.
-		/// </summary>
-		[RequiredByFeature("GL_EXT_texture_compression_rgtc")]
-		public const int COMPRESSED_RED_RGTC1_EXT = 0x8DBB;
-
-		/// <summary>
-		/// Value of GL_COMPRESSED_SIGNED_RED_RGTC1_EXT symbol.
-		/// </summary>
-		[RequiredByFeature("GL_EXT_texture_compression_rgtc")]
-		public const int COMPRESSED_SIGNED_RED_RGTC1_EXT = 0x8DBC;
-
-		/// <summary>
 		/// Value of GL_COMPRESSED_RED_GREEN_RGTC2_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_texture_compression_rgtc")]

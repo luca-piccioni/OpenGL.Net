@@ -64,14 +64,14 @@ namespace BindingsGen.GLSpecs
 			bool bitmask = Enums.TrueForAll(delegate(Enumerant item) {
 				Enumerant actualEnumerant = ctx.Registry.GetGlEnumerant(item.Name);
 
-				return (actualEnumerant.ParentEnumerantBlock.Type == "bitmask");
+				return (actualEnumerant == null || actualEnumerant.ParentEnumerantBlock.Type == "bitmask");
 			});
 
 			// Collect group enumerants by their value
 			Dictionary<string, List<Enumerant>> groupEnums = new Dictionary<string, List<Enumerant>>();
 
 			foreach (Enumerant item in Enums) {
-				Enumerant itemValue = ctx.Registry.Enumerants.Find(delegate(Enumerant e) { return (e.Name == item.Name); });
+				Enumerant itemValue = ctx.Registry.GetGlEnumerant(item.Name);
 
 				if (itemValue != null) {
 					if (!groupEnums.ContainsKey(itemValue.Value))
@@ -108,8 +108,8 @@ namespace BindingsGen.GLSpecs
 			sw.Indent();
 			foreach (Enumerant enumerant in uniqueEnums) {
 				List<Enumerant> allEnums = groupEnums[enumerant.Value];
-				string camelCase = SpecificationStyle.GetCamelCase(enumerant.ImplementationName);
-				string bindingName = enumerant.ImplementationName;
+				string bindingName = enumerant.EnumAlias == null ? enumerant.ImplementationName : enumerant.EnumAlias.ImplementationName;
+				string camelCase = SpecificationStyle.GetCamelCase(bindingName);
 
 				sw.WriteLine("/// <summary>");
 				if (allEnums.Count > 1) {

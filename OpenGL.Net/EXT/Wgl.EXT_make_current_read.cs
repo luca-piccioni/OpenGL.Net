@@ -26,12 +26,6 @@ namespace OpenGL
 	public partial class Wgl
 	{
 		/// <summary>
-		/// Value of ERROR_INVALID_PIXEL_TYPE_EXT symbol.
-		/// </summary>
-		[RequiredByFeature("WGL_EXT_make_current_read")]
-		public const int ERROR_INVALID_PIXEL_TYPE_EXT = 0x2043;
-
-		/// <summary>
 		/// Binding for wglMakeContextCurrentEXT.
 		/// </summary>
 		/// <param name="hDrawDC">

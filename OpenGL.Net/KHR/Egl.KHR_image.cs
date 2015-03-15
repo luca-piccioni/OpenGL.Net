@@ -76,29 +76,6 @@ namespace OpenGL
 			return (retValue);
 		}
 
-		/// <summary>
-		/// Binding for eglDestroyImageKHR.
-		/// </summary>
-		/// <param name="dpy">
-		/// A <see cref="T:IntPtr"/>.
-		/// </param>
-		/// <param name="image">
-		/// A <see cref="T:IntPtr"/>.
-		/// </param>
-		[RequiredByFeature("EGL_KHR_image")]
-		[RequiredByFeature("EGL_KHR_image_base")]
-		public static IntPtr DestroyImageKHR(IntPtr dpy, IntPtr image)
-		{
-			IntPtr retValue;
-
-			Debug.Assert(Delegates.peglDestroyImageKHR != null, "peglDestroyImageKHR not implemented");
-			retValue = Delegates.peglDestroyImageKHR(dpy, image);
-			CallLog("eglDestroyImageKHR({0}, {1}) = {2}", dpy, image, retValue);
-			DebugCheckErrors();
-
-			return (retValue);
-		}
-
 	}
 
 }

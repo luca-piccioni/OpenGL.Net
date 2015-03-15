@@ -30,7 +30,7 @@ namespace OpenGL.Test
 	class Gl_VERSION_1_0 : GlTestBase
 	{
 		/// <summary>
-		/// Test Gl.GetString(Gl.EXTENSIONS)
+		/// Test Gl.GetString.
 		/// </summary>
 		[Test]
 		public void TestGetString()
@@ -117,7 +117,7 @@ namespace OpenGL.Test
 		}
 
 		/// <summary>
-		/// Mainly used for testing glTex* commands.
+		/// Mainly used for testing glGen* and glDelete* commands.
 		/// </summary>
 		[Test]
 		public void TestGenTexture()

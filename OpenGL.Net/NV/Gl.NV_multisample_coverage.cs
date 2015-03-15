@@ -26,13 +26,6 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Value of GL_SAMPLES_ARB symbol.
-		/// </summary>
-		[RequiredByFeature("GL_ARB_multisample")]
-		[RequiredByFeature("GL_NV_multisample_coverage")]
-		public const int SAMPLES_ARB = 0x80A9;
-
-		/// <summary>
 		/// Value of GL_COLOR_SAMPLES_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_framebuffer_mixed_samples")]

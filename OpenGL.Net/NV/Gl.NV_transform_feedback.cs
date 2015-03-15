@@ -74,18 +74,6 @@ namespace OpenGL
 		public const int TRANSFORM_FEEDBACK_ATTRIBS_NV = 0x8C7E;
 
 		/// <summary>
-		/// Value of GL_TRANSFORM_FEEDBACK_BUFFER_MODE_NV symbol.
-		/// </summary>
-		[RequiredByFeature("GL_NV_transform_feedback")]
-		public const int TRANSFORM_FEEDBACK_BUFFER_MODE_NV = 0x8C7F;
-
-		/// <summary>
-		/// Value of GL_MAX_TRANSFORM_FEEDBACK_SEPARATE_COMPONENTS_NV symbol.
-		/// </summary>
-		[RequiredByFeature("GL_NV_transform_feedback")]
-		public const int MAX_TRANSFORM_FEEDBACK_SEPARATE_COMPONENTS_NV = 0x8C80;
-
-		/// <summary>
 		/// Value of GL_ACTIVE_VARYINGS_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_transform_feedback")]
@@ -98,82 +86,10 @@ namespace OpenGL
 		public const int ACTIVE_VARYING_MAX_LENGTH_NV = 0x8C82;
 
 		/// <summary>
-		/// Value of GL_TRANSFORM_FEEDBACK_VARYINGS_NV symbol.
-		/// </summary>
-		[RequiredByFeature("GL_NV_transform_feedback")]
-		public const int TRANSFORM_FEEDBACK_VARYINGS_NV = 0x8C83;
-
-		/// <summary>
-		/// Value of GL_TRANSFORM_FEEDBACK_BUFFER_START_NV symbol.
-		/// </summary>
-		[RequiredByFeature("GL_NV_transform_feedback")]
-		public const int TRANSFORM_FEEDBACK_BUFFER_START_NV = 0x8C84;
-
-		/// <summary>
-		/// Value of GL_TRANSFORM_FEEDBACK_BUFFER_SIZE_NV symbol.
-		/// </summary>
-		[RequiredByFeature("GL_NV_transform_feedback")]
-		public const int TRANSFORM_FEEDBACK_BUFFER_SIZE_NV = 0x8C85;
-
-		/// <summary>
 		/// Value of GL_TRANSFORM_FEEDBACK_RECORD_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_transform_feedback")]
 		public const int TRANSFORM_FEEDBACK_RECORD_NV = 0x8C86;
-
-		/// <summary>
-		/// Value of GL_PRIMITIVES_GENERATED_NV symbol.
-		/// </summary>
-		[RequiredByFeature("GL_NV_transform_feedback")]
-		public const int PRIMITIVES_GENERATED_NV = 0x8C87;
-
-		/// <summary>
-		/// Value of GL_TRANSFORM_FEEDBACK_PRIMITIVES_WRITTEN_NV symbol.
-		/// </summary>
-		[RequiredByFeature("GL_NV_transform_feedback")]
-		public const int TRANSFORM_FEEDBACK_PRIMITIVES_WRITTEN_NV = 0x8C88;
-
-		/// <summary>
-		/// Value of GL_RASTERIZER_DISCARD_NV symbol.
-		/// </summary>
-		[RequiredByFeature("GL_NV_transform_feedback")]
-		public const int RASTERIZER_DISCARD_NV = 0x8C89;
-
-		/// <summary>
-		/// Value of GL_MAX_TRANSFORM_FEEDBACK_INTERLEAVED_COMPONENTS_NV symbol.
-		/// </summary>
-		[RequiredByFeature("GL_NV_transform_feedback")]
-		public const int MAX_TRANSFORM_FEEDBACK_INTERLEAVED_COMPONENTS_NV = 0x8C8A;
-
-		/// <summary>
-		/// Value of GL_MAX_TRANSFORM_FEEDBACK_SEPARATE_ATTRIBS_NV symbol.
-		/// </summary>
-		[RequiredByFeature("GL_NV_transform_feedback")]
-		public const int MAX_TRANSFORM_FEEDBACK_SEPARATE_ATTRIBS_NV = 0x8C8B;
-
-		/// <summary>
-		/// Value of GL_INTERLEAVED_ATTRIBS_NV symbol.
-		/// </summary>
-		[RequiredByFeature("GL_NV_transform_feedback")]
-		public const int INTERLEAVED_ATTRIBS_NV = 0x8C8C;
-
-		/// <summary>
-		/// Value of GL_SEPARATE_ATTRIBS_NV symbol.
-		/// </summary>
-		[RequiredByFeature("GL_NV_transform_feedback")]
-		public const int SEPARATE_ATTRIBS_NV = 0x8C8D;
-
-		/// <summary>
-		/// Value of GL_TRANSFORM_FEEDBACK_BUFFER_NV symbol.
-		/// </summary>
-		[RequiredByFeature("GL_NV_transform_feedback")]
-		public const int TRANSFORM_FEEDBACK_BUFFER_NV = 0x8C8E;
-
-		/// <summary>
-		/// Value of GL_TRANSFORM_FEEDBACK_BUFFER_BINDING_NV symbol.
-		/// </summary>
-		[RequiredByFeature("GL_NV_transform_feedback")]
-		public const int TRANSFORM_FEEDBACK_BUFFER_BINDING_NV = 0x8C8F;
 
 		/// <summary>
 		/// Value of GL_LAYER_NV symbol.
@@ -212,33 +128,6 @@ namespace OpenGL
 		public const int SKIP_COMPONENTS1_NV = -6;
 
 		/// <summary>
-		/// Binding for glBeginTransformFeedbackNV.
-		/// </summary>
-		/// <param name="primitiveMode">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		[RequiredByFeature("GL_NV_transform_feedback")]
-		public static void BeginTransformFeedbackNV(int primitiveMode)
-		{
-			Debug.Assert(Delegates.pglBeginTransformFeedbackNV != null, "pglBeginTransformFeedbackNV not implemented");
-			Delegates.pglBeginTransformFeedbackNV(primitiveMode);
-			CallLog("glBeginTransformFeedbackNV({0})", primitiveMode);
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// Binding for glEndTransformFeedbackNV.
-		/// </summary>
-		[RequiredByFeature("GL_NV_transform_feedback")]
-		public static void EndTransformFeedbackNV()
-		{
-			Debug.Assert(Delegates.pglEndTransformFeedbackNV != null, "pglEndTransformFeedbackNV not implemented");
-			Delegates.pglEndTransformFeedbackNV();
-			CallLog("glEndTransformFeedbackNV()");
-			DebugCheckErrors();
-		}
-
-		/// <summary>
 		/// Binding for glTransformFeedbackAttribsNV.
 		/// </summary>
 		/// <param name="count">
@@ -261,78 +150,6 @@ namespace OpenGL
 					CallLog("glTransformFeedbackAttribsNV({0}, {1}, {2})", count, attribs, bufferMode);
 				}
 			}
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// Binding for glBindBufferRangeNV.
-		/// </summary>
-		/// <param name="target">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="index">
-		/// A <see cref="T:UInt32"/>.
-		/// </param>
-		/// <param name="buffer">
-		/// A <see cref="T:UInt32"/>.
-		/// </param>
-		/// <param name="offset">
-		/// A <see cref="T:IntPtr"/>.
-		/// </param>
-		/// <param name="size">
-		/// A <see cref="T:UInt32"/>.
-		/// </param>
-		[RequiredByFeature("GL_NV_transform_feedback")]
-		public static void BindBufferRangeNV(int target, UInt32 index, UInt32 buffer, IntPtr offset, UInt32 size)
-		{
-			Debug.Assert(Delegates.pglBindBufferRangeNV != null, "pglBindBufferRangeNV not implemented");
-			Delegates.pglBindBufferRangeNV(target, index, buffer, offset, size);
-			CallLog("glBindBufferRangeNV({0}, {1}, {2}, {3}, {4})", target, index, buffer, offset, size);
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// Binding for glBindBufferOffsetNV.
-		/// </summary>
-		/// <param name="target">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="index">
-		/// A <see cref="T:UInt32"/>.
-		/// </param>
-		/// <param name="buffer">
-		/// A <see cref="T:UInt32"/>.
-		/// </param>
-		/// <param name="offset">
-		/// A <see cref="T:IntPtr"/>.
-		/// </param>
-		[RequiredByFeature("GL_NV_transform_feedback")]
-		public static void BindBufferOffsetNV(int target, UInt32 index, UInt32 buffer, IntPtr offset)
-		{
-			Debug.Assert(Delegates.pglBindBufferOffsetNV != null, "pglBindBufferOffsetNV not implemented");
-			Delegates.pglBindBufferOffsetNV(target, index, buffer, offset);
-			CallLog("glBindBufferOffsetNV({0}, {1}, {2}, {3})", target, index, buffer, offset);
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// Binding for glBindBufferBaseNV.
-		/// </summary>
-		/// <param name="target">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="index">
-		/// A <see cref="T:UInt32"/>.
-		/// </param>
-		/// <param name="buffer">
-		/// A <see cref="T:UInt32"/>.
-		/// </param>
-		[RequiredByFeature("GL_NV_transform_feedback")]
-		public static void BindBufferBaseNV(int target, UInt32 index, UInt32 buffer)
-		{
-			Debug.Assert(Delegates.pglBindBufferBaseNV != null, "pglBindBufferBaseNV not implemented");
-			Delegates.pglBindBufferBaseNV(target, index, buffer);
-			CallLog("glBindBufferBaseNV({0}, {1}, {2})", target, index, buffer);
 			DebugCheckErrors();
 		}
 

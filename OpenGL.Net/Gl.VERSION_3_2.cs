@@ -62,17 +62,6 @@ namespace OpenGL
 		public const int TRIANGLE_STRIP_ADJACENCY = 0x000D;
 
 		/// <summary>
-		/// Value of GL_PROGRAM_POINT_SIZE symbol.
-		/// </summary>
-		/// <remarks>
-		/// <para>
-		/// This enumerant is equaivalent to VERTEX_PROGRAM_POINT_SIZE.
-		/// </para>
-		/// </remarks>
-		[RequiredByFeature("GL_VERSION_3_2")]
-		public const int PROGRAM_POINT_SIZE = 0x8642;
-
-		/// <summary>
 		/// Value of GL_MAX_GEOMETRY_TEXTURE_IMAGE_UNITS symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_3_2")]

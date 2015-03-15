@@ -238,17 +238,17 @@ namespace OpenGL
 		/// <summary>
 		/// Strongly typed for value GL_FUNC_ADD_EXT.
 		/// </summary>
-		FuncAddExt = Gl.FUNC_ADD_EXT,
+		FuncAdd = Gl.FUNC_ADD,
 
 		/// <summary>
 		/// Strongly typed for value GL_FUNC_REVERSE_SUBTRACT_EXT.
 		/// </summary>
-		FuncReverseSubtractExt = Gl.FUNC_REVERSE_SUBTRACT_EXT,
+		FuncReverseSubtract = Gl.FUNC_REVERSE_SUBTRACT,
 
 		/// <summary>
 		/// Strongly typed for value GL_FUNC_SUBTRACT_EXT.
 		/// </summary>
-		FuncSubtractExt = Gl.FUNC_SUBTRACT_EXT,
+		FuncSubtract = Gl.FUNC_SUBTRACT,
 
 		/// <summary>
 		/// Strongly typed for value GL_LOGIC_OP.
@@ -258,12 +258,12 @@ namespace OpenGL
 		/// <summary>
 		/// Strongly typed for value GL_MAX_EXT.
 		/// </summary>
-		MaxExt = Gl.MAX_EXT,
+		Max = Gl.MAX,
 
 		/// <summary>
 		/// Strongly typed for value GL_MIN_EXT.
 		/// </summary>
-		MinExt = Gl.MIN_EXT,
+		Min = Gl.MIN,
 
 	}
 
@@ -275,12 +275,12 @@ namespace OpenGL
 		/// <summary>
 		/// Strongly typed for value GL_CONSTANT_ALPHA_EXT.
 		/// </summary>
-		ConstantAlphaExt = Gl.CONSTANT_ALPHA_EXT,
+		ConstantAlpha = Gl.CONSTANT_ALPHA,
 
 		/// <summary>
 		/// Strongly typed for value GL_CONSTANT_COLOR_EXT.
 		/// </summary>
-		ConstantColorExt = Gl.CONSTANT_COLOR_EXT,
+		ConstantColor = Gl.CONSTANT_COLOR,
 
 		/// <summary>
 		/// Strongly typed for value GL_DST_ALPHA.
@@ -295,12 +295,12 @@ namespace OpenGL
 		/// <summary>
 		/// Strongly typed for value GL_ONE_MINUS_CONSTANT_ALPHA_EXT.
 		/// </summary>
-		OneMinusConstantAlphaExt = Gl.ONE_MINUS_CONSTANT_ALPHA_EXT,
+		OneMinusConstantAlpha = Gl.ONE_MINUS_CONSTANT_ALPHA,
 
 		/// <summary>
 		/// Strongly typed for value GL_ONE_MINUS_CONSTANT_COLOR_EXT.
 		/// </summary>
-		OneMinusConstantColorExt = Gl.ONE_MINUS_CONSTANT_COLOR_EXT,
+		OneMinusConstantColor = Gl.ONE_MINUS_CONSTANT_COLOR,
 
 		/// <summary>
 		/// Strongly typed for value GL_ONE_MINUS_DST_ALPHA.
@@ -342,12 +342,12 @@ namespace OpenGL
 		/// <summary>
 		/// Strongly typed for value GL_CONSTANT_ALPHA_EXT.
 		/// </summary>
-		ConstantAlphaExt = Gl.CONSTANT_ALPHA_EXT,
+		ConstantAlpha = Gl.CONSTANT_ALPHA,
 
 		/// <summary>
 		/// Strongly typed for value GL_CONSTANT_COLOR_EXT.
 		/// </summary>
-		ConstantColorExt = Gl.CONSTANT_COLOR_EXT,
+		ConstantColor = Gl.CONSTANT_COLOR,
 
 		/// <summary>
 		/// Strongly typed for value GL_DST_ALPHA.
@@ -367,12 +367,12 @@ namespace OpenGL
 		/// <summary>
 		/// Strongly typed for value GL_ONE_MINUS_CONSTANT_ALPHA_EXT.
 		/// </summary>
-		OneMinusConstantAlphaExt = Gl.ONE_MINUS_CONSTANT_ALPHA_EXT,
+		OneMinusConstantAlpha = Gl.ONE_MINUS_CONSTANT_ALPHA,
 
 		/// <summary>
 		/// Strongly typed for value GL_ONE_MINUS_CONSTANT_COLOR_EXT.
 		/// </summary>
-		OneMinusConstantColorExt = Gl.ONE_MINUS_CONSTANT_COLOR_EXT,
+		OneMinusConstantColor = Gl.ONE_MINUS_CONSTANT_COLOR,
 
 		/// <summary>
 		/// Strongly typed for value GL_ONE_MINUS_DST_ALPHA.
@@ -438,11 +438,6 @@ namespace OpenGL
 		/// Strongly typed for value GL_COLOR_BUFFER_BIT.
 		/// </summary>
 		ColorBufferBit = Gl.COLOR_BUFFER_BIT,
-
-		/// <summary>
-		/// Strongly typed for value GL_COVERAGE_BUFFER_BIT_NV.
-		/// </summary>
-		CoverageBufferBitNv = Gl.COVERAGE_BUFFER_BIT_NV,
 
 		/// <summary>
 		/// Strongly typed for value GL_DEPTH_BUFFER_BIT.
@@ -698,7 +693,7 @@ namespace OpenGL
 	public enum ContextFlagMask : uint
 	{
 		/// <summary>
-		/// /// Strongly typed for value GL_CONTEXT_FLAG_DEBUG_BIT, GL_CONTEXT_FLAG_DEBUG_BIT_KHR.
+		/// Strongly typed for value GL_CONTEXT_FLAG_DEBUG_BIT.
 		/// </summary>
 		ContextFlagDebugBit = Gl.CONTEXT_FLAG_DEBUG_BIT,
 
@@ -710,7 +705,7 @@ namespace OpenGL
 		/// <summary>
 		/// Strongly typed for value GL_CONTEXT_FLAG_ROBUST_ACCESS_BIT_ARB.
 		/// </summary>
-		ContextFlagRobustAccessBitArb = Gl.CONTEXT_FLAG_ROBUST_ACCESS_BIT_ARB,
+		ContextFlagRobustAccessBit = Gl.CONTEXT_FLAG_ROBUST_ACCESS_BIT,
 
 	}
 
@@ -926,7 +921,7 @@ namespace OpenGL
 		Left = Gl.LEFT,
 
 		/// <summary>
-		/// /// Strongly typed for value GL_NONE, GL_NONE_OES.
+		/// Strongly typed for value GL_NONE.
 		/// </summary>
 		None = Gl.NONE,
 
@@ -1052,17 +1047,17 @@ namespace OpenGL
 		/// <summary>
 		/// Strongly typed for value GL_COLOR_TABLE_SGI.
 		/// </summary>
-		ColorTableSgi = Gl.COLOR_TABLE_SGI,
+		ColorTable = Gl.COLOR_TABLE,
 
 		/// <summary>
 		/// Strongly typed for value GL_CONVOLUTION_1D_EXT.
 		/// </summary>
-		Convolution1dExt = Gl.CONVOLUTION_1D_EXT,
+		Convolution1d = Gl.CONVOLUTION_1D,
 
 		/// <summary>
 		/// Strongly typed for value GL_CONVOLUTION_2D_EXT.
 		/// </summary>
-		Convolution2dExt = Gl.CONVOLUTION_2D_EXT,
+		Convolution2d = Gl.CONVOLUTION_2D,
 
 		/// <summary>
 		/// Strongly typed for value GL_CULL_FACE.
@@ -1152,7 +1147,7 @@ namespace OpenGL
 		/// <summary>
 		/// Strongly typed for value GL_HISTOGRAM_EXT.
 		/// </summary>
-		HistogramExt = Gl.HISTOGRAM_EXT,
+		Histogram = Gl.HISTOGRAM,
 
 		/// <summary>
 		/// Strongly typed for value GL_INDEX_ARRAY.
@@ -1322,12 +1317,12 @@ namespace OpenGL
 		/// <summary>
 		/// Strongly typed for value GL_MINMAX_EXT.
 		/// </summary>
-		MinmaxExt = Gl.MINMAX_EXT,
+		Minmax = Gl.MINMAX,
 
 		/// <summary>
 		/// Strongly typed for value GL_MULTISAMPLE_SGIS.
 		/// </summary>
-		MultisampleSgis = Gl.MULTISAMPLE_SGIS,
+		Multisample = Gl.MULTISAMPLE,
 
 		/// <summary>
 		/// Strongly typed for value GL_NORMALIZE.
@@ -1382,12 +1377,12 @@ namespace OpenGL
 		/// <summary>
 		/// Strongly typed for value GL_POST_COLOR_MATRIX_COLOR_TABLE_SGI.
 		/// </summary>
-		PostColorMatrixColorTableSgi = Gl.POST_COLOR_MATRIX_COLOR_TABLE_SGI,
+		PostColorMatrixColorTable = Gl.POST_COLOR_MATRIX_COLOR_TABLE,
 
 		/// <summary>
 		/// Strongly typed for value GL_POST_CONVOLUTION_COLOR_TABLE_SGI.
 		/// </summary>
-		PostConvolutionColorTableSgi = Gl.POST_CONVOLUTION_COLOR_TABLE_SGI,
+		PostConvolutionColorTable = Gl.POST_CONVOLUTION_COLOR_TABLE,
 
 		/// <summary>
 		/// Strongly typed for value GL_REFERENCE_PLANE_SGIX.
@@ -1397,17 +1392,17 @@ namespace OpenGL
 		/// <summary>
 		/// Strongly typed for value GL_RESCALE_NORMAL_EXT.
 		/// </summary>
-		RescaleNormalExt = Gl.RESCALE_NORMAL_EXT,
+		RescaleNormal = Gl.RESCALE_NORMAL,
 
 		/// <summary>
 		/// Strongly typed for value GL_SAMPLE_ALPHA_TO_MASK_SGIS.
 		/// </summary>
-		SampleAlphaToMaskSgis = Gl.SAMPLE_ALPHA_TO_MASK_SGIS,
+		SampleAlphaToMaskExt = Gl.SAMPLE_ALPHA_TO_MASK_EXT,
 
 		/// <summary>
 		/// Strongly typed for value GL_SAMPLE_ALPHA_TO_ONE_SGIS.
 		/// </summary>
-		SampleAlphaToOneSgis = Gl.SAMPLE_ALPHA_TO_ONE_SGIS,
+		SampleAlphaToOne = Gl.SAMPLE_ALPHA_TO_ONE,
 
 		/// <summary>
 		/// Strongly typed for value GL_SAMPLE_MASK_SGIS.
@@ -1422,7 +1417,7 @@ namespace OpenGL
 		/// <summary>
 		/// Strongly typed for value GL_SEPARABLE_2D_EXT.
 		/// </summary>
-		Separable2dExt = Gl.SEPARABLE_2D_EXT,
+		Separable2d = Gl.SEPARABLE_2D,
 
 		/// <summary>
 		/// Strongly typed for value GL_SHARED_TEXTURE_PALETTE_EXT.
@@ -1452,7 +1447,7 @@ namespace OpenGL
 		/// <summary>
 		/// Strongly typed for value GL_TEXTURE_3D_EXT.
 		/// </summary>
-		Texture3dExt = Gl.TEXTURE_3D_EXT,
+		Texture3d = Gl.TEXTURE_3D,
 
 		/// <summary>
 		/// Strongly typed for value GL_TEXTURE_4D_SGIS.
@@ -1507,8 +1502,7 @@ namespace OpenGL
 		InvalidEnum = Gl.INVALID_ENUM,
 
 		/// <summary>
-		/// /// Strongly typed for value GL_INVALID_FRAMEBUFFER_OPERATION, GL_INVALID_FRAMEBUFFER_OPERATION_EXT, 
-		/// GL_INVALID_FRAMEBUFFER_OPERATION_OES.
+		/// /// Strongly typed for value GL_INVALID_FRAMEBUFFER_OPERATION, GL_INVALID_FRAMEBUFFER_OPERATION_EXT.
 		/// </summary>
 		InvalidFramebufferOperation = Gl.INVALID_FRAMEBUFFER_OPERATION,
 
@@ -1830,52 +1824,52 @@ namespace OpenGL
 		/// <summary>
 		/// Strongly typed for value GL_COLOR_TABLE_ALPHA_SIZE_SGI.
 		/// </summary>
-		ColorTableAlphaSizeSgi = Gl.COLOR_TABLE_ALPHA_SIZE_SGI,
+		ColorTableAlphaSize = Gl.COLOR_TABLE_ALPHA_SIZE,
 
 		/// <summary>
 		/// Strongly typed for value GL_COLOR_TABLE_BIAS_SGI.
 		/// </summary>
-		ColorTableBiasSgi = Gl.COLOR_TABLE_BIAS_SGI,
+		ColorTableBias = Gl.COLOR_TABLE_BIAS,
 
 		/// <summary>
 		/// Strongly typed for value GL_COLOR_TABLE_BLUE_SIZE_SGI.
 		/// </summary>
-		ColorTableBlueSizeSgi = Gl.COLOR_TABLE_BLUE_SIZE_SGI,
+		ColorTableBlueSize = Gl.COLOR_TABLE_BLUE_SIZE,
 
 		/// <summary>
 		/// Strongly typed for value GL_COLOR_TABLE_FORMAT_SGI.
 		/// </summary>
-		ColorTableFormatSgi = Gl.COLOR_TABLE_FORMAT_SGI,
+		ColorTableFormat = Gl.COLOR_TABLE_FORMAT,
 
 		/// <summary>
 		/// Strongly typed for value GL_COLOR_TABLE_GREEN_SIZE_SGI.
 		/// </summary>
-		ColorTableGreenSizeSgi = Gl.COLOR_TABLE_GREEN_SIZE_SGI,
+		ColorTableGreenSize = Gl.COLOR_TABLE_GREEN_SIZE,
 
 		/// <summary>
 		/// Strongly typed for value GL_COLOR_TABLE_INTENSITY_SIZE_SGI.
 		/// </summary>
-		ColorTableIntensitySizeSgi = Gl.COLOR_TABLE_INTENSITY_SIZE_SGI,
+		ColorTableIntensitySize = Gl.COLOR_TABLE_INTENSITY_SIZE,
 
 		/// <summary>
 		/// Strongly typed for value GL_COLOR_TABLE_LUMINANCE_SIZE_SGI.
 		/// </summary>
-		ColorTableLuminanceSizeSgi = Gl.COLOR_TABLE_LUMINANCE_SIZE_SGI,
+		ColorTableLuminanceSize = Gl.COLOR_TABLE_LUMINANCE_SIZE,
 
 		/// <summary>
 		/// Strongly typed for value GL_COLOR_TABLE_RED_SIZE_SGI.
 		/// </summary>
-		ColorTableRedSizeSgi = Gl.COLOR_TABLE_RED_SIZE_SGI,
+		ColorTableRedSize = Gl.COLOR_TABLE_RED_SIZE,
 
 		/// <summary>
 		/// Strongly typed for value GL_COLOR_TABLE_SCALE_SGI.
 		/// </summary>
-		ColorTableScaleSgi = Gl.COLOR_TABLE_SCALE_SGI,
+		ColorTableScale = Gl.COLOR_TABLE_SCALE,
 
 		/// <summary>
 		/// Strongly typed for value GL_COLOR_TABLE_WIDTH_SGI.
 		/// </summary>
-		ColorTableWidthSgi = Gl.COLOR_TABLE_WIDTH_SGI,
+		ColorTableWidth = Gl.COLOR_TABLE_WIDTH,
 
 	}
 
@@ -1887,42 +1881,42 @@ namespace OpenGL
 		/// <summary>
 		/// Strongly typed for value GL_CONVOLUTION_BORDER_MODE_EXT.
 		/// </summary>
-		ConvolutionBorderModeExt = Gl.CONVOLUTION_BORDER_MODE_EXT,
+		ConvolutionBorderMode = Gl.CONVOLUTION_BORDER_MODE,
 
 		/// <summary>
 		/// Strongly typed for value GL_CONVOLUTION_FILTER_BIAS_EXT.
 		/// </summary>
-		ConvolutionFilterBiasExt = Gl.CONVOLUTION_FILTER_BIAS_EXT,
+		ConvolutionFilterBias = Gl.CONVOLUTION_FILTER_BIAS,
 
 		/// <summary>
 		/// Strongly typed for value GL_CONVOLUTION_FILTER_SCALE_EXT.
 		/// </summary>
-		ConvolutionFilterScaleExt = Gl.CONVOLUTION_FILTER_SCALE_EXT,
+		ConvolutionFilterScale = Gl.CONVOLUTION_FILTER_SCALE,
 
 		/// <summary>
 		/// Strongly typed for value GL_CONVOLUTION_FORMAT_EXT.
 		/// </summary>
-		ConvolutionFormatExt = Gl.CONVOLUTION_FORMAT_EXT,
+		ConvolutionFormat = Gl.CONVOLUTION_FORMAT,
 
 		/// <summary>
 		/// Strongly typed for value GL_CONVOLUTION_HEIGHT_EXT.
 		/// </summary>
-		ConvolutionHeightExt = Gl.CONVOLUTION_HEIGHT_EXT,
+		ConvolutionHeight = Gl.CONVOLUTION_HEIGHT,
 
 		/// <summary>
 		/// Strongly typed for value GL_CONVOLUTION_WIDTH_EXT.
 		/// </summary>
-		ConvolutionWidthExt = Gl.CONVOLUTION_WIDTH_EXT,
+		ConvolutionWidth = Gl.CONVOLUTION_WIDTH,
 
 		/// <summary>
 		/// Strongly typed for value GL_MAX_CONVOLUTION_HEIGHT_EXT.
 		/// </summary>
-		MaxConvolutionHeightExt = Gl.MAX_CONVOLUTION_HEIGHT_EXT,
+		MaxConvolutionHeight = Gl.MAX_CONVOLUTION_HEIGHT,
 
 		/// <summary>
 		/// Strongly typed for value GL_MAX_CONVOLUTION_WIDTH_EXT.
 		/// </summary>
-		MaxConvolutionWidthExt = Gl.MAX_CONVOLUTION_WIDTH_EXT,
+		MaxConvolutionWidth = Gl.MAX_CONVOLUTION_WIDTH,
 
 	}
 
@@ -1934,42 +1928,42 @@ namespace OpenGL
 		/// <summary>
 		/// Strongly typed for value GL_HISTOGRAM_ALPHA_SIZE_EXT.
 		/// </summary>
-		HistogramAlphaSizeExt = Gl.HISTOGRAM_ALPHA_SIZE_EXT,
+		HistogramAlphaSize = Gl.HISTOGRAM_ALPHA_SIZE,
 
 		/// <summary>
 		/// Strongly typed for value GL_HISTOGRAM_BLUE_SIZE_EXT.
 		/// </summary>
-		HistogramBlueSizeExt = Gl.HISTOGRAM_BLUE_SIZE_EXT,
+		HistogramBlueSize = Gl.HISTOGRAM_BLUE_SIZE,
 
 		/// <summary>
 		/// Strongly typed for value GL_HISTOGRAM_FORMAT_EXT.
 		/// </summary>
-		HistogramFormatExt = Gl.HISTOGRAM_FORMAT_EXT,
+		HistogramFormat = Gl.HISTOGRAM_FORMAT,
 
 		/// <summary>
 		/// Strongly typed for value GL_HISTOGRAM_GREEN_SIZE_EXT.
 		/// </summary>
-		HistogramGreenSizeExt = Gl.HISTOGRAM_GREEN_SIZE_EXT,
+		HistogramGreenSize = Gl.HISTOGRAM_GREEN_SIZE,
 
 		/// <summary>
 		/// Strongly typed for value GL_HISTOGRAM_LUMINANCE_SIZE_EXT.
 		/// </summary>
-		HistogramLuminanceSizeExt = Gl.HISTOGRAM_LUMINANCE_SIZE_EXT,
+		HistogramLuminanceSize = Gl.HISTOGRAM_LUMINANCE_SIZE,
 
 		/// <summary>
 		/// Strongly typed for value GL_HISTOGRAM_RED_SIZE_EXT.
 		/// </summary>
-		HistogramRedSizeExt = Gl.HISTOGRAM_RED_SIZE_EXT,
+		HistogramRedSize = Gl.HISTOGRAM_RED_SIZE,
 
 		/// <summary>
 		/// Strongly typed for value GL_HISTOGRAM_SINK_EXT.
 		/// </summary>
-		HistogramSinkExt = Gl.HISTOGRAM_SINK_EXT,
+		HistogramSink = Gl.HISTOGRAM_SINK,
 
 		/// <summary>
 		/// Strongly typed for value GL_HISTOGRAM_WIDTH_EXT.
 		/// </summary>
-		HistogramWidthExt = Gl.HISTOGRAM_WIDTH_EXT,
+		HistogramWidth = Gl.HISTOGRAM_WIDTH,
 
 	}
 
@@ -2125,17 +2119,17 @@ namespace OpenGL
 		AlphaScale = Gl.ALPHA_SCALE,
 
 		/// <summary>
-		/// /// Strongly typed for value GL_ALPHA_TEST, GL_ALPHA_TEST_QCOM.
+		/// Strongly typed for value GL_ALPHA_TEST.
 		/// </summary>
 		AlphaTest = Gl.ALPHA_TEST,
 
 		/// <summary>
-		/// /// Strongly typed for value GL_ALPHA_TEST_FUNC, GL_ALPHA_TEST_FUNC_QCOM.
+		/// Strongly typed for value GL_ALPHA_TEST_FUNC.
 		/// </summary>
 		AlphaTestFunc = Gl.ALPHA_TEST_FUNC,
 
 		/// <summary>
-		/// /// Strongly typed for value GL_ALPHA_TEST_REF, GL_ALPHA_TEST_REF_QCOM.
+		/// Strongly typed for value GL_ALPHA_TEST_REF.
 		/// </summary>
 		AlphaTestRef = Gl.ALPHA_TEST_REF,
 
@@ -2187,7 +2181,7 @@ namespace OpenGL
 		/// <summary>
 		/// Strongly typed for value GL_BLEND_COLOR_EXT.
 		/// </summary>
-		BlendColorExt = Gl.BLEND_COLOR_EXT,
+		BlendColor = Gl.BLEND_COLOR,
 
 		/// <summary>
 		/// Strongly typed for value GL_BLEND_DST.
@@ -2197,7 +2191,7 @@ namespace OpenGL
 		/// <summary>
 		/// Strongly typed for value GL_BLEND_EQUATION_EXT.
 		/// </summary>
-		BlendEquationExt = Gl.BLEND_EQUATION_EXT,
+		BlendEquation = Gl.BLEND_EQUATION,
 
 		/// <summary>
 		/// Strongly typed for value GL_BLEND_SRC.
@@ -2312,17 +2306,17 @@ namespace OpenGL
 		/// <summary>
 		/// Strongly typed for value GL_COLOR_MATRIX_SGI.
 		/// </summary>
-		ColorMatrixSgi = Gl.COLOR_MATRIX_SGI,
+		ColorMatrix = Gl.COLOR_MATRIX,
 
 		/// <summary>
 		/// Strongly typed for value GL_COLOR_MATRIX_STACK_DEPTH_SGI.
 		/// </summary>
-		ColorMatrixStackDepthSgi = Gl.COLOR_MATRIX_STACK_DEPTH_SGI,
+		ColorMatrixStackDepth = Gl.COLOR_MATRIX_STACK_DEPTH,
 
 		/// <summary>
 		/// Strongly typed for value GL_COLOR_TABLE_SGI.
 		/// </summary>
-		ColorTableSgi = Gl.COLOR_TABLE_SGI,
+		ColorTable = Gl.COLOR_TABLE,
 
 		/// <summary>
 		/// Strongly typed for value GL_COLOR_WRITEMASK.
@@ -2332,12 +2326,12 @@ namespace OpenGL
 		/// <summary>
 		/// Strongly typed for value GL_CONVOLUTION_1D_EXT.
 		/// </summary>
-		Convolution1dExt = Gl.CONVOLUTION_1D_EXT,
+		Convolution1d = Gl.CONVOLUTION_1D,
 
 		/// <summary>
 		/// Strongly typed for value GL_CONVOLUTION_2D_EXT.
 		/// </summary>
-		Convolution2dExt = Gl.CONVOLUTION_2D_EXT,
+		Convolution2d = Gl.CONVOLUTION_2D,
 
 		/// <summary>
 		/// Strongly typed for value GL_CONVOLUTION_HINT_SGIX.
@@ -2457,7 +2451,7 @@ namespace OpenGL
 		/// <summary>
 		/// Strongly typed for value GL_DISTANCE_ATTENUATION_SGIS.
 		/// </summary>
-		DistanceAttenuationSgis = Gl.DISTANCE_ATTENUATION_SGIS,
+		DistanceAttenuationExt = Gl.DISTANCE_ATTENUATION_EXT,
 
 		/// <summary>
 		/// Strongly typed for value GL_DITHER.
@@ -2470,7 +2464,7 @@ namespace OpenGL
 		Doublebuffer = Gl.DOUBLEBUFFER,
 
 		/// <summary>
-		/// /// Strongly typed for value GL_DRAW_BUFFER, GL_DRAW_BUFFER_EXT.
+		/// Strongly typed for value GL_DRAW_BUFFER.
 		/// </summary>
 		DrawBuffer = Gl.DRAW_BUFFER,
 
@@ -2622,7 +2616,7 @@ namespace OpenGL
 		/// <summary>
 		/// Strongly typed for value GL_GENERATE_MIPMAP_HINT_SGIS.
 		/// </summary>
-		GenerateMipmapHintSgis = Gl.GENERATE_MIPMAP_HINT_SGIS,
+		GenerateMipmapHint = Gl.GENERATE_MIPMAP_HINT,
 
 		/// <summary>
 		/// Strongly typed for value GL_GREEN_BIAS.
@@ -2642,7 +2636,7 @@ namespace OpenGL
 		/// <summary>
 		/// Strongly typed for value GL_HISTOGRAM_EXT.
 		/// </summary>
-		HistogramExt = Gl.HISTOGRAM_EXT,
+		Histogram = Gl.HISTOGRAM,
 
 		/// <summary>
 		/// Strongly typed for value GL_INDEX_ARRAY.
@@ -2972,7 +2966,7 @@ namespace OpenGL
 		/// <summary>
 		/// Strongly typed for value GL_MAX_3D_TEXTURE_SIZE_EXT.
 		/// </summary>
-		Max3dTextureSizeExt = Gl.MAX_3D_TEXTURE_SIZE_EXT,
+		Max3dTextureSize = Gl.MAX_3D_TEXTURE_SIZE,
 
 		/// <summary>
 		/// Strongly typed for value GL_MAX_4D_TEXTURE_SIZE_SGIS.
@@ -3032,7 +3026,7 @@ namespace OpenGL
 		/// <summary>
 		/// Strongly typed for value GL_MAX_COLOR_MATRIX_STACK_DEPTH_SGI.
 		/// </summary>
-		MaxColorMatrixStackDepthSgi = Gl.MAX_COLOR_MATRIX_STACK_DEPTH_SGI,
+		MaxColorMatrixStackDepth = Gl.MAX_COLOR_MATRIX_STACK_DEPTH,
 
 		/// <summary>
 		/// Strongly typed for value GL_MAX_EVAL_ORDER.
@@ -3102,7 +3096,7 @@ namespace OpenGL
 		/// <summary>
 		/// Strongly typed for value GL_MINMAX_EXT.
 		/// </summary>
-		MinmaxExt = Gl.MINMAX_EXT,
+		Minmax = Gl.MINMAX,
 
 		/// <summary>
 		/// /// Strongly typed for value GL_MODELVIEW0_MATRIX_EXT, GL_MODELVIEW_MATRIX.
@@ -3117,7 +3111,7 @@ namespace OpenGL
 		/// <summary>
 		/// Strongly typed for value GL_MULTISAMPLE_SGIS.
 		/// </summary>
-		MultisampleSgis = Gl.MULTISAMPLE_SGIS,
+		Multisample = Gl.MULTISAMPLE,
 
 		/// <summary>
 		/// Strongly typed for value GL_NAME_STACK_DEPTH.
@@ -3167,7 +3161,7 @@ namespace OpenGL
 		/// <summary>
 		/// Strongly typed for value GL_PACK_IMAGE_HEIGHT_EXT.
 		/// </summary>
-		PackImageHeightExt = Gl.PACK_IMAGE_HEIGHT_EXT,
+		PackImageHeight = Gl.PACK_IMAGE_HEIGHT,
 
 		/// <summary>
 		/// Strongly typed for value GL_PACK_LSB_FIRST.
@@ -3187,7 +3181,7 @@ namespace OpenGL
 		/// <summary>
 		/// Strongly typed for value GL_PACK_SKIP_IMAGES_EXT.
 		/// </summary>
-		PackSkipImagesExt = Gl.PACK_SKIP_IMAGES_EXT,
+		PackSkipImages = Gl.PACK_SKIP_IMAGES,
 
 		/// <summary>
 		/// Strongly typed for value GL_PACK_SKIP_PIXELS.
@@ -3327,7 +3321,7 @@ namespace OpenGL
 		/// <summary>
 		/// Strongly typed for value GL_POINT_FADE_THRESHOLD_SIZE_SGIS.
 		/// </summary>
-		PointFadeThresholdSizeSgis = Gl.POINT_FADE_THRESHOLD_SIZE_SGIS,
+		PointFadeThresholdSize = Gl.POINT_FADE_THRESHOLD_SIZE,
 
 		/// <summary>
 		/// Strongly typed for value GL_POINT_SIZE.
@@ -3342,12 +3336,12 @@ namespace OpenGL
 		/// <summary>
 		/// Strongly typed for value GL_POINT_SIZE_MAX_SGIS.
 		/// </summary>
-		PointSizeMaxSgis = Gl.POINT_SIZE_MAX_SGIS,
+		PointSizeMax = Gl.POINT_SIZE_MAX,
 
 		/// <summary>
 		/// Strongly typed for value GL_POINT_SIZE_MIN_SGIS.
 		/// </summary>
-		PointSizeMinSgis = Gl.POINT_SIZE_MIN_SGIS,
+		PointSizeMin = Gl.POINT_SIZE_MIN,
 
 		/// <summary>
 		/// /// Strongly typed for value GL_POINT_SIZE_RANGE, GL_SMOOTH_POINT_SIZE_RANGE.
@@ -3417,92 +3411,92 @@ namespace OpenGL
 		/// <summary>
 		/// Strongly typed for value GL_POST_COLOR_MATRIX_ALPHA_BIAS_SGI.
 		/// </summary>
-		PostColorMatrixAlphaBiasSgi = Gl.POST_COLOR_MATRIX_ALPHA_BIAS_SGI,
+		PostColorMatrixAlphaBias = Gl.POST_COLOR_MATRIX_ALPHA_BIAS,
 
 		/// <summary>
 		/// Strongly typed for value GL_POST_COLOR_MATRIX_ALPHA_SCALE_SGI.
 		/// </summary>
-		PostColorMatrixAlphaScaleSgi = Gl.POST_COLOR_MATRIX_ALPHA_SCALE_SGI,
+		PostColorMatrixAlphaScale = Gl.POST_COLOR_MATRIX_ALPHA_SCALE,
 
 		/// <summary>
 		/// Strongly typed for value GL_POST_COLOR_MATRIX_BLUE_BIAS_SGI.
 		/// </summary>
-		PostColorMatrixBlueBiasSgi = Gl.POST_COLOR_MATRIX_BLUE_BIAS_SGI,
+		PostColorMatrixBlueBias = Gl.POST_COLOR_MATRIX_BLUE_BIAS,
 
 		/// <summary>
 		/// Strongly typed for value GL_POST_COLOR_MATRIX_BLUE_SCALE_SGI.
 		/// </summary>
-		PostColorMatrixBlueScaleSgi = Gl.POST_COLOR_MATRIX_BLUE_SCALE_SGI,
+		PostColorMatrixBlueScale = Gl.POST_COLOR_MATRIX_BLUE_SCALE,
 
 		/// <summary>
 		/// Strongly typed for value GL_POST_COLOR_MATRIX_COLOR_TABLE_SGI.
 		/// </summary>
-		PostColorMatrixColorTableSgi = Gl.POST_COLOR_MATRIX_COLOR_TABLE_SGI,
+		PostColorMatrixColorTable = Gl.POST_COLOR_MATRIX_COLOR_TABLE,
 
 		/// <summary>
 		/// Strongly typed for value GL_POST_COLOR_MATRIX_GREEN_BIAS_SGI.
 		/// </summary>
-		PostColorMatrixGreenBiasSgi = Gl.POST_COLOR_MATRIX_GREEN_BIAS_SGI,
+		PostColorMatrixGreenBias = Gl.POST_COLOR_MATRIX_GREEN_BIAS,
 
 		/// <summary>
 		/// Strongly typed for value GL_POST_COLOR_MATRIX_GREEN_SCALE_SGI.
 		/// </summary>
-		PostColorMatrixGreenScaleSgi = Gl.POST_COLOR_MATRIX_GREEN_SCALE_SGI,
+		PostColorMatrixGreenScale = Gl.POST_COLOR_MATRIX_GREEN_SCALE,
 
 		/// <summary>
 		/// Strongly typed for value GL_POST_COLOR_MATRIX_RED_BIAS_SGI.
 		/// </summary>
-		PostColorMatrixRedBiasSgi = Gl.POST_COLOR_MATRIX_RED_BIAS_SGI,
+		PostColorMatrixRedBias = Gl.POST_COLOR_MATRIX_RED_BIAS,
 
 		/// <summary>
 		/// Strongly typed for value GL_POST_COLOR_MATRIX_RED_SCALE_SGI.
 		/// </summary>
-		PostColorMatrixRedScaleSgi = Gl.POST_COLOR_MATRIX_RED_SCALE_SGI,
+		PostColorMatrixRedScale = Gl.POST_COLOR_MATRIX_RED_SCALE,
 
 		/// <summary>
 		/// Strongly typed for value GL_POST_CONVOLUTION_ALPHA_BIAS_EXT.
 		/// </summary>
-		PostConvolutionAlphaBiasExt = Gl.POST_CONVOLUTION_ALPHA_BIAS_EXT,
+		PostConvolutionAlphaBias = Gl.POST_CONVOLUTION_ALPHA_BIAS,
 
 		/// <summary>
 		/// Strongly typed for value GL_POST_CONVOLUTION_ALPHA_SCALE_EXT.
 		/// </summary>
-		PostConvolutionAlphaScaleExt = Gl.POST_CONVOLUTION_ALPHA_SCALE_EXT,
+		PostConvolutionAlphaScale = Gl.POST_CONVOLUTION_ALPHA_SCALE,
 
 		/// <summary>
 		/// Strongly typed for value GL_POST_CONVOLUTION_BLUE_BIAS_EXT.
 		/// </summary>
-		PostConvolutionBlueBiasExt = Gl.POST_CONVOLUTION_BLUE_BIAS_EXT,
+		PostConvolutionBlueBias = Gl.POST_CONVOLUTION_BLUE_BIAS,
 
 		/// <summary>
 		/// Strongly typed for value GL_POST_CONVOLUTION_BLUE_SCALE_EXT.
 		/// </summary>
-		PostConvolutionBlueScaleExt = Gl.POST_CONVOLUTION_BLUE_SCALE_EXT,
+		PostConvolutionBlueScale = Gl.POST_CONVOLUTION_BLUE_SCALE,
 
 		/// <summary>
 		/// Strongly typed for value GL_POST_CONVOLUTION_COLOR_TABLE_SGI.
 		/// </summary>
-		PostConvolutionColorTableSgi = Gl.POST_CONVOLUTION_COLOR_TABLE_SGI,
+		PostConvolutionColorTable = Gl.POST_CONVOLUTION_COLOR_TABLE,
 
 		/// <summary>
 		/// Strongly typed for value GL_POST_CONVOLUTION_GREEN_BIAS_EXT.
 		/// </summary>
-		PostConvolutionGreenBiasExt = Gl.POST_CONVOLUTION_GREEN_BIAS_EXT,
+		PostConvolutionGreenBias = Gl.POST_CONVOLUTION_GREEN_BIAS,
 
 		/// <summary>
 		/// Strongly typed for value GL_POST_CONVOLUTION_GREEN_SCALE_EXT.
 		/// </summary>
-		PostConvolutionGreenScaleExt = Gl.POST_CONVOLUTION_GREEN_SCALE_EXT,
+		PostConvolutionGreenScale = Gl.POST_CONVOLUTION_GREEN_SCALE,
 
 		/// <summary>
 		/// Strongly typed for value GL_POST_CONVOLUTION_RED_BIAS_EXT.
 		/// </summary>
-		PostConvolutionRedBiasExt = Gl.POST_CONVOLUTION_RED_BIAS_EXT,
+		PostConvolutionRedBias = Gl.POST_CONVOLUTION_RED_BIAS,
 
 		/// <summary>
 		/// Strongly typed for value GL_POST_CONVOLUTION_RED_SCALE_EXT.
 		/// </summary>
-		PostConvolutionRedScaleExt = Gl.POST_CONVOLUTION_RED_SCALE_EXT,
+		PostConvolutionRedScale = Gl.POST_CONVOLUTION_RED_SCALE,
 
 		/// <summary>
 		/// Strongly typed for value GL_POST_TEXTURE_FILTER_BIAS_RANGE_SGIX.
@@ -3525,7 +3519,7 @@ namespace OpenGL
 		ProjectionStackDepth = Gl.PROJECTION_STACK_DEPTH,
 
 		/// <summary>
-		/// /// Strongly typed for value GL_READ_BUFFER, GL_READ_BUFFER_EXT, GL_READ_BUFFER_NV.
+		/// Strongly typed for value GL_READ_BUFFER.
 		/// </summary>
 		ReadBuffer = Gl.READ_BUFFER,
 
@@ -3562,7 +3556,7 @@ namespace OpenGL
 		/// <summary>
 		/// Strongly typed for value GL_RESCALE_NORMAL_EXT.
 		/// </summary>
-		RescaleNormalExt = Gl.RESCALE_NORMAL_EXT,
+		RescaleNormal = Gl.RESCALE_NORMAL,
 
 		/// <summary>
 		/// Strongly typed for value GL_RGBA_MODE.
@@ -3572,27 +3566,27 @@ namespace OpenGL
 		/// <summary>
 		/// Strongly typed for value GL_SAMPLES_SGIS.
 		/// </summary>
-		SamplesSgis = Gl.SAMPLES_SGIS,
+		Samples = Gl.SAMPLES,
 
 		/// <summary>
 		/// Strongly typed for value GL_SAMPLE_ALPHA_TO_MASK_SGIS.
 		/// </summary>
-		SampleAlphaToMaskSgis = Gl.SAMPLE_ALPHA_TO_MASK_SGIS,
+		SampleAlphaToMaskExt = Gl.SAMPLE_ALPHA_TO_MASK_EXT,
 
 		/// <summary>
 		/// Strongly typed for value GL_SAMPLE_ALPHA_TO_ONE_SGIS.
 		/// </summary>
-		SampleAlphaToOneSgis = Gl.SAMPLE_ALPHA_TO_ONE_SGIS,
+		SampleAlphaToOne = Gl.SAMPLE_ALPHA_TO_ONE,
 
 		/// <summary>
 		/// Strongly typed for value GL_SAMPLE_BUFFERS_SGIS.
 		/// </summary>
-		SampleBuffersSgis = Gl.SAMPLE_BUFFERS_SGIS,
+		SampleBuffers = Gl.SAMPLE_BUFFERS,
 
 		/// <summary>
 		/// Strongly typed for value GL_SAMPLE_MASK_INVERT_SGIS.
 		/// </summary>
-		SampleMaskInvertSgis = Gl.SAMPLE_MASK_INVERT_SGIS,
+		SampleMaskInvertExt = Gl.SAMPLE_MASK_INVERT_EXT,
 
 		/// <summary>
 		/// Strongly typed for value GL_SAMPLE_MASK_SGIS.
@@ -3607,7 +3601,7 @@ namespace OpenGL
 		/// <summary>
 		/// Strongly typed for value GL_SAMPLE_PATTERN_SGIS.
 		/// </summary>
-		SamplePatternSgis = Gl.SAMPLE_PATTERN_SGIS,
+		SamplePatternExt = Gl.SAMPLE_PATTERN_EXT,
 
 		/// <summary>
 		/// Strongly typed for value GL_SCISSOR_BOX.
@@ -3627,7 +3621,7 @@ namespace OpenGL
 		/// <summary>
 		/// Strongly typed for value GL_SEPARABLE_2D_EXT.
 		/// </summary>
-		Separable2dExt = Gl.SEPARABLE_2D_EXT,
+		Separable2d = Gl.SEPARABLE_2D,
 
 		/// <summary>
 		/// Strongly typed for value GL_SHADE_MODEL.
@@ -3737,7 +3731,7 @@ namespace OpenGL
 		/// <summary>
 		/// Strongly typed for value GL_TEXTURE_3D_EXT.
 		/// </summary>
-		Texture3dExt = Gl.TEXTURE_3D_EXT,
+		Texture3d = Gl.TEXTURE_3D,
 
 		/// <summary>
 		/// Strongly typed for value GL_TEXTURE_4D_BINDING_SGIS.
@@ -3837,7 +3831,7 @@ namespace OpenGL
 		/// <summary>
 		/// Strongly typed for value GL_UNPACK_IMAGE_HEIGHT_EXT.
 		/// </summary>
-		UnpackImageHeightExt = Gl.UNPACK_IMAGE_HEIGHT_EXT,
+		UnpackImageHeight = Gl.UNPACK_IMAGE_HEIGHT,
 
 		/// <summary>
 		/// Strongly typed for value GL_UNPACK_LSB_FIRST.
@@ -3857,7 +3851,7 @@ namespace OpenGL
 		/// <summary>
 		/// Strongly typed for value GL_UNPACK_SKIP_IMAGES_EXT.
 		/// </summary>
-		UnpackSkipImagesExt = Gl.UNPACK_SKIP_IMAGES_EXT,
+		UnpackSkipImages = Gl.UNPACK_SKIP_IMAGES,
 
 		/// <summary>
 		/// Strongly typed for value GL_UNPACK_SKIP_PIXELS.
@@ -4016,7 +4010,7 @@ namespace OpenGL
 		/// <summary>
 		/// Strongly typed for value GL_GENERATE_MIPMAP_SGIS.
 		/// </summary>
-		GenerateMipmapSgis = Gl.GENERATE_MIPMAP_SGIS,
+		GenerateMipmap = Gl.GENERATE_MIPMAP,
 
 		/// <summary>
 		/// Strongly typed for value GL_POST_TEXTURE_FILTER_BIAS_SGIX.
@@ -4056,7 +4050,7 @@ namespace OpenGL
 		/// <summary>
 		/// Strongly typed for value GL_TEXTURE_BASE_LEVEL_SGIS.
 		/// </summary>
-		TextureBaseLevelSgis = Gl.TEXTURE_BASE_LEVEL_SGIS,
+		TextureBaseLevel = Gl.TEXTURE_BASE_LEVEL,
 
 		/// <summary>
 		/// Strongly typed for value GL_TEXTURE_BLUE_SIZE.
@@ -4069,7 +4063,7 @@ namespace OpenGL
 		TextureBorder = Gl.TEXTURE_BORDER,
 
 		/// <summary>
-		/// /// Strongly typed for value GL_TEXTURE_BORDER_COLOR, GL_TEXTURE_BORDER_COLOR_NV.
+		/// Strongly typed for value GL_TEXTURE_BORDER_COLOR.
 		/// </summary>
 		TextureBorderColor = Gl.TEXTURE_BORDER_COLOR,
 
@@ -4121,7 +4115,7 @@ namespace OpenGL
 		/// <summary>
 		/// Strongly typed for value GL_TEXTURE_DEPTH_EXT.
 		/// </summary>
-		TextureDepthExt = Gl.TEXTURE_DEPTH_EXT,
+		TextureDepth = Gl.TEXTURE_DEPTH,
 
 		/// <summary>
 		/// Strongly typed for value GL_TEXTURE_FILTER4_SIZE_SGIS.
@@ -4196,12 +4190,12 @@ namespace OpenGL
 		/// <summary>
 		/// Strongly typed for value GL_TEXTURE_MAX_LEVEL_SGIS.
 		/// </summary>
-		TextureMaxLevelSgis = Gl.TEXTURE_MAX_LEVEL_SGIS,
+		TextureMaxLevel = Gl.TEXTURE_MAX_LEVEL,
 
 		/// <summary>
 		/// Strongly typed for value GL_TEXTURE_MAX_LOD_SGIS.
 		/// </summary>
-		TextureMaxLodSgis = Gl.TEXTURE_MAX_LOD_SGIS,
+		TextureMaxLod = Gl.TEXTURE_MAX_LOD,
 
 		/// <summary>
 		/// Strongly typed for value GL_TEXTURE_MIN_FILTER.
@@ -4211,7 +4205,7 @@ namespace OpenGL
 		/// <summary>
 		/// Strongly typed for value GL_TEXTURE_MIN_LOD_SGIS.
 		/// </summary>
-		TextureMinLodSgis = Gl.TEXTURE_MIN_LOD_SGIS,
+		TextureMinLod = Gl.TEXTURE_MIN_LOD,
 
 		/// <summary>
 		/// Strongly typed for value GL_TEXTURE_PRIORITY.
@@ -4241,7 +4235,7 @@ namespace OpenGL
 		/// <summary>
 		/// Strongly typed for value GL_TEXTURE_WRAP_R_EXT.
 		/// </summary>
-		TextureWrapRExt = Gl.TEXTURE_WRAP_R_EXT,
+		TextureWrapR = Gl.TEXTURE_WRAP_R,
 
 		/// <summary>
 		/// Strongly typed for value GL_TEXTURE_WRAP_S.
@@ -4318,11 +4312,6 @@ namespace OpenGL
 		BackNormalsHintPgi = Gl.BACK_NORMALS_HINT_PGI,
 
 		/// <summary>
-		/// Strongly typed for value GL_BINNING_CONTROL_HINT_QCOM.
-		/// </summary>
-		BinningControlHintQcom = Gl.BINNING_CONTROL_HINT_QCOM,
-
-		/// <summary>
 		/// Strongly typed for value GL_CLIP_FAR_HINT_PGI.
 		/// </summary>
 		ClipFarHintPgi = Gl.CLIP_FAR_HINT_PGI,
@@ -4353,8 +4342,7 @@ namespace OpenGL
 		FogHint = Gl.FOG_HINT,
 
 		/// <summary>
-		/// /// Strongly typed for value GL_FRAGMENT_SHADER_DERIVATIVE_HINT, GL_FRAGMENT_SHADER_DERIVATIVE_HINT_ARB, 
-		/// GL_FRAGMENT_SHADER_DERIVATIVE_HINT_OES.
+		/// /// Strongly typed for value GL_FRAGMENT_SHADER_DERIVATIVE_HINT, GL_FRAGMENT_SHADER_DERIVATIVE_HINT_ARB.
 		/// </summary>
 		FragmentShaderDerivativeHint = Gl.FRAGMENT_SHADER_DERIVATIVE_HINT,
 
@@ -4367,11 +4355,6 @@ namespace OpenGL
 		/// /// Strongly typed for value GL_GENERATE_MIPMAP_HINT, GL_GENERATE_MIPMAP_HINT_SGIS.
 		/// </summary>
 		GenerateMipmapHint = Gl.GENERATE_MIPMAP_HINT,
-
-		/// <summary>
-		/// Strongly typed for value GL_LINE_QUALITY_HINT_SGIX.
-		/// </summary>
-		LineQualityHintSgix = Gl.LINE_QUALITY_HINT_SGIX,
 
 		/// <summary>
 		/// Strongly typed for value GL_LINE_SMOOTH_HINT.
@@ -5058,17 +5041,17 @@ namespace OpenGL
 		MapCoherentBit = Gl.MAP_COHERENT_BIT,
 
 		/// <summary>
-		/// /// Strongly typed for value GL_MAP_FLUSH_EXPLICIT_BIT, GL_MAP_FLUSH_EXPLICIT_BIT_EXT.
+		/// Strongly typed for value GL_MAP_FLUSH_EXPLICIT_BIT.
 		/// </summary>
 		MapFlushExplicitBit = Gl.MAP_FLUSH_EXPLICIT_BIT,
 
 		/// <summary>
-		/// /// Strongly typed for value GL_MAP_INVALIDATE_BUFFER_BIT, GL_MAP_INVALIDATE_BUFFER_BIT_EXT.
+		/// Strongly typed for value GL_MAP_INVALIDATE_BUFFER_BIT.
 		/// </summary>
 		MapInvalidateBufferBit = Gl.MAP_INVALIDATE_BUFFER_BIT,
 
 		/// <summary>
-		/// /// Strongly typed for value GL_MAP_INVALIDATE_RANGE_BIT, GL_MAP_INVALIDATE_RANGE_BIT_EXT.
+		/// Strongly typed for value GL_MAP_INVALIDATE_RANGE_BIT.
 		/// </summary>
 		MapInvalidateRangeBit = Gl.MAP_INVALIDATE_RANGE_BIT,
 
@@ -5078,17 +5061,17 @@ namespace OpenGL
 		MapPersistentBit = Gl.MAP_PERSISTENT_BIT,
 
 		/// <summary>
-		/// /// Strongly typed for value GL_MAP_READ_BIT, GL_MAP_READ_BIT_EXT.
+		/// Strongly typed for value GL_MAP_READ_BIT.
 		/// </summary>
 		MapReadBit = Gl.MAP_READ_BIT,
 
 		/// <summary>
-		/// /// Strongly typed for value GL_MAP_UNSYNCHRONIZED_BIT, GL_MAP_UNSYNCHRONIZED_BIT_EXT.
+		/// Strongly typed for value GL_MAP_UNSYNCHRONIZED_BIT.
 		/// </summary>
 		MapUnsynchronizedBit = Gl.MAP_UNSYNCHRONIZED_BIT,
 
 		/// <summary>
-		/// /// Strongly typed for value GL_MAP_WRITE_BIT, GL_MAP_WRITE_BIT_EXT.
+		/// Strongly typed for value GL_MAP_WRITE_BIT.
 		/// </summary>
 		MapWriteBit = Gl.MAP_WRITE_BIT,
 
@@ -5491,17 +5474,17 @@ namespace OpenGL
 	public enum PixelCopyType
 	{
 		/// <summary>
-		/// /// Strongly typed for value GL_COLOR, GL_COLOR_EXT.
+		/// Strongly typed for value GL_COLOR.
 		/// </summary>
 		Color = Gl.COLOR,
 
 		/// <summary>
-		/// /// Strongly typed for value GL_DEPTH, GL_DEPTH_EXT.
+		/// Strongly typed for value GL_DEPTH.
 		/// </summary>
 		Depth = Gl.DEPTH,
 
 		/// <summary>
-		/// /// Strongly typed for value GL_STENCIL, GL_STENCIL_EXT.
+		/// Strongly typed for value GL_STENCIL.
 		/// </summary>
 		Stencil = Gl.STENCIL,
 
@@ -5563,7 +5546,7 @@ namespace OpenGL
 		LuminanceAlpha = Gl.LUMINANCE_ALPHA,
 
 		/// <summary>
-		/// /// Strongly typed for value GL_RED, GL_RED_EXT.
+		/// Strongly typed for value GL_RED.
 		/// </summary>
 		Red = Gl.RED,
 
@@ -5632,17 +5615,17 @@ namespace OpenGL
 		/// <summary>
 		/// Strongly typed for value GL_DEPTH_COMPONENT16_SGIX.
 		/// </summary>
-		DepthComponent16Sgix = Gl.DEPTH_COMPONENT16_SGIX,
+		DepthComponent16 = Gl.DEPTH_COMPONENT16,
 
 		/// <summary>
 		/// Strongly typed for value GL_DEPTH_COMPONENT24_SGIX.
 		/// </summary>
-		DepthComponent24Sgix = Gl.DEPTH_COMPONENT24_SGIX,
+		DepthComponent24 = Gl.DEPTH_COMPONENT24,
 
 		/// <summary>
 		/// Strongly typed for value GL_DEPTH_COMPONENT32_SGIX.
 		/// </summary>
-		DepthComponent32Sgix = Gl.DEPTH_COMPONENT32_SGIX,
+		DepthComponent32 = Gl.DEPTH_COMPONENT32,
 
 		/// <summary>
 		/// Strongly typed for value GL_DUAL_ALPHA12_SGIS.
@@ -6084,7 +6067,7 @@ namespace OpenGL
 		UnpackResampleSgix = Gl.UNPACK_RESAMPLE_SGIX,
 
 		/// <summary>
-		/// /// Strongly typed for value GL_UNPACK_ROW_LENGTH, GL_UNPACK_ROW_LENGTH_EXT.
+		/// Strongly typed for value GL_UNPACK_ROW_LENGTH.
 		/// </summary>
 		UnpackRowLength = Gl.UNPACK_ROW_LENGTH,
 
@@ -6094,12 +6077,12 @@ namespace OpenGL
 		UnpackSkipImages = Gl.UNPACK_SKIP_IMAGES,
 
 		/// <summary>
-		/// /// Strongly typed for value GL_UNPACK_SKIP_PIXELS, GL_UNPACK_SKIP_PIXELS_EXT.
+		/// Strongly typed for value GL_UNPACK_SKIP_PIXELS.
 		/// </summary>
 		UnpackSkipPixels = Gl.UNPACK_SKIP_PIXELS,
 
 		/// <summary>
-		/// /// Strongly typed for value GL_UNPACK_SKIP_ROWS, GL_UNPACK_SKIP_ROWS_EXT.
+		/// Strongly typed for value GL_UNPACK_SKIP_ROWS.
 		/// </summary>
 		UnpackSkipRows = Gl.UNPACK_SKIP_ROWS,
 
@@ -6183,26 +6166,6 @@ namespace OpenGL
 		/// Strongly typed for value GL_NONE.
 		/// </summary>
 		None = Gl.NONE,
-
-		/// <summary>
-		/// Strongly typed for value GL_PIXEL_TEX_GEN_ALPHA_LS_SGIX.
-		/// </summary>
-		PixelTexGenAlphaLsSgix = Gl.PIXEL_TEX_GEN_ALPHA_LS_SGIX,
-
-		/// <summary>
-		/// Strongly typed for value GL_PIXEL_TEX_GEN_ALPHA_MS_SGIX.
-		/// </summary>
-		PixelTexGenAlphaMsSgix = Gl.PIXEL_TEX_GEN_ALPHA_MS_SGIX,
-
-		/// <summary>
-		/// Strongly typed for value GL_PIXEL_TEX_GEN_ALPHA_NO_REPLACE_SGIX.
-		/// </summary>
-		PixelTexGenAlphaNoReplaceSgix = Gl.PIXEL_TEX_GEN_ALPHA_NO_REPLACE_SGIX,
-
-		/// <summary>
-		/// Strongly typed for value GL_PIXEL_TEX_GEN_ALPHA_REPLACE_SGIX.
-		/// </summary>
-		PixelTexGenAlphaReplaceSgix = Gl.PIXEL_TEX_GEN_ALPHA_REPLACE_SGIX,
 
 		/// <summary>
 		/// Strongly typed for value GL_RGB.
@@ -6544,7 +6507,7 @@ namespace OpenGL
 		LineStripAdjacency = Gl.LINE_STRIP_ADJACENCY,
 
 		/// <summary>
-		/// /// Strongly typed for value GL_PATCHES, GL_PATCHES_EXT.
+		/// Strongly typed for value GL_PATCHES.
 		/// </summary>
 		Patches = Gl.PATCHES,
 
@@ -6559,7 +6522,7 @@ namespace OpenGL
 		Polygon = Gl.POLYGON,
 
 		/// <summary>
-		/// /// Strongly typed for value GL_QUADS, GL_QUADS_EXT.
+		/// Strongly typed for value GL_QUADS.
 		/// </summary>
 		Quads = Gl.QUADS,
 
@@ -7166,21 +7129,6 @@ namespace OpenGL
 		/// </summary>
 		Nearest = Gl.NEAREST,
 
-		/// <summary>
-		/// Strongly typed for value GL_PIXEL_TEX_GEN_Q_CEILING_SGIX.
-		/// </summary>
-		PixelTexGenQCeilingSgix = Gl.PIXEL_TEX_GEN_Q_CEILING_SGIX,
-
-		/// <summary>
-		/// Strongly typed for value GL_PIXEL_TEX_GEN_Q_FLOOR_SGIX.
-		/// </summary>
-		PixelTexGenQFloorSgix = Gl.PIXEL_TEX_GEN_Q_FLOOR_SGIX,
-
-		/// <summary>
-		/// Strongly typed for value GL_PIXEL_TEX_GEN_Q_ROUND_SGIX.
-		/// </summary>
-		PixelTexGenQRoundSgix = Gl.PIXEL_TEX_GEN_Q_ROUND_SGIX,
-
 	}
 
 	/// <summary>
@@ -7242,21 +7190,6 @@ namespace OpenGL
 		/// Strongly typed for value GL_NEAREST_MIPMAP_NEAREST.
 		/// </summary>
 		NearestMipmapNearest = Gl.NEAREST_MIPMAP_NEAREST,
-
-		/// <summary>
-		/// Strongly typed for value GL_PIXEL_TEX_GEN_Q_CEILING_SGIX.
-		/// </summary>
-		PixelTexGenQCeilingSgix = Gl.PIXEL_TEX_GEN_Q_CEILING_SGIX,
-
-		/// <summary>
-		/// Strongly typed for value GL_PIXEL_TEX_GEN_Q_FLOOR_SGIX.
-		/// </summary>
-		PixelTexGenQFloorSgix = Gl.PIXEL_TEX_GEN_Q_FLOOR_SGIX,
-
-		/// <summary>
-		/// Strongly typed for value GL_PIXEL_TEX_GEN_Q_ROUND_SGIX.
-		/// </summary>
-		PixelTexGenQRoundSgix = Gl.PIXEL_TEX_GEN_Q_ROUND_SGIX,
 
 	}
 
@@ -7396,7 +7329,7 @@ namespace OpenGL
 		TextureWrapQSgis = Gl.TEXTURE_WRAP_Q_SGIS,
 
 		/// <summary>
-		/// /// Strongly typed for value GL_TEXTURE_WRAP_R, GL_TEXTURE_WRAP_R_EXT, GL_TEXTURE_WRAP_R_OES.
+		/// /// Strongly typed for value GL_TEXTURE_WRAP_R, GL_TEXTURE_WRAP_R_EXT.
 		/// </summary>
 		TextureWrapR = Gl.TEXTURE_WRAP_R,
 
@@ -7453,7 +7386,7 @@ namespace OpenGL
 		Texture2d = Gl.TEXTURE_2D,
 
 		/// <summary>
-		/// /// Strongly typed for value GL_TEXTURE_3D, GL_TEXTURE_3D_EXT, GL_TEXTURE_3D_OES.
+		/// /// Strongly typed for value GL_TEXTURE_3D, GL_TEXTURE_3D_EXT.
 		/// </summary>
 		Texture3d = Gl.TEXTURE_3D,
 
@@ -7495,7 +7428,7 @@ namespace OpenGL
 		Clamp = Gl.CLAMP,
 
 		/// <summary>
-		/// /// Strongly typed for value GL_CLAMP_TO_BORDER, GL_CLAMP_TO_BORDER_ARB, GL_CLAMP_TO_BORDER_NV, GL_CLAMP_TO_BORDER_SGIS.
+		/// /// Strongly typed for value GL_CLAMP_TO_BORDER, GL_CLAMP_TO_BORDER_ARB, GL_CLAMP_TO_BORDER_SGIS.
 		/// </summary>
 		ClampToBorder = Gl.CLAMP_TO_BORDER,
 
@@ -7518,27 +7451,27 @@ namespace OpenGL
 	public enum UseProgramStageMask : uint
 	{
 		/// <summary>
-		/// /// Strongly typed for value GL_VERTEX_SHADER_BIT, GL_VERTEX_SHADER_BIT_EXT.
+		/// Strongly typed for value GL_VERTEX_SHADER_BIT.
 		/// </summary>
 		VertexShaderBit = Gl.VERTEX_SHADER_BIT,
 
 		/// <summary>
-		/// /// Strongly typed for value GL_FRAGMENT_SHADER_BIT, GL_FRAGMENT_SHADER_BIT_EXT.
+		/// Strongly typed for value GL_FRAGMENT_SHADER_BIT.
 		/// </summary>
 		FragmentShaderBit = Gl.FRAGMENT_SHADER_BIT,
 
 		/// <summary>
-		/// /// Strongly typed for value GL_GEOMETRY_SHADER_BIT, GL_GEOMETRY_SHADER_BIT_EXT.
+		/// Strongly typed for value GL_GEOMETRY_SHADER_BIT.
 		/// </summary>
 		GeometryShaderBit = Gl.GEOMETRY_SHADER_BIT,
 
 		/// <summary>
-		/// /// Strongly typed for value GL_TESS_CONTROL_SHADER_BIT, GL_TESS_CONTROL_SHADER_BIT_EXT.
+		/// Strongly typed for value GL_TESS_CONTROL_SHADER_BIT.
 		/// </summary>
 		TessControlShaderBit = Gl.TESS_CONTROL_SHADER_BIT,
 
 		/// <summary>
-		/// /// Strongly typed for value GL_TESS_EVALUATION_SHADER_BIT, GL_TESS_EVALUATION_SHADER_BIT_EXT.
+		/// Strongly typed for value GL_TESS_EVALUATION_SHADER_BIT.
 		/// </summary>
 		TessEvaluationShaderBit = Gl.TESS_EVALUATION_SHADER_BIT,
 
@@ -7548,7 +7481,7 @@ namespace OpenGL
 		ComputeShaderBit = Gl.COMPUTE_SHADER_BIT,
 
 		/// <summary>
-		/// /// Strongly typed for value GL_ALL_SHADER_BITS, GL_ALL_SHADER_BITS_EXT.
+		/// Strongly typed for value GL_ALL_SHADER_BITS.
 		/// </summary>
 		AllShaderBits = Gl.ALL_SHADER_BITS,
 

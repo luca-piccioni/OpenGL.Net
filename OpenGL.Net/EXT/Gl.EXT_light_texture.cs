@@ -80,13 +80,6 @@ namespace OpenGL
 		public const int TEXTURE_MATERIAL_PARAMETER_EXT = 0x8352;
 
 		/// <summary>
-		/// Value of GL_FRAGMENT_DEPTH_EXT symbol.
-		/// </summary>
-		[RequiredByFeature("GL_EXT_fog_coord")]
-		[RequiredByFeature("GL_EXT_light_texture")]
-		public const int FRAGMENT_DEPTH_EXT = 0x8452;
-
-		/// <summary>
 		/// Binding for glApplyTextureEXT.
 		/// </summary>
 		/// <param name="mode">

@@ -26,88 +26,16 @@ namespace OpenGL
 	public partial class Glx
 	{
 		/// <summary>
-		/// Value of GLX_PBUFFER_BIT_SGIX symbol.
-		/// </summary>
-		[RequiredByFeature("GLX_SGIX_pbuffer")]
-		public const uint PBUFFER_BIT_SGIX = 0x00000004;
-
-		/// <summary>
 		/// Value of GLX_BUFFER_CLOBBER_MASK_SGIX symbol.
 		/// </summary>
 		[RequiredByFeature("GLX_SGIX_pbuffer")]
 		public const uint BUFFER_CLOBBER_MASK_SGIX = 0x08000000;
 
 		/// <summary>
-		/// Value of GLX_FRONT_LEFT_BUFFER_BIT_SGIX symbol.
-		/// </summary>
-		[RequiredByFeature("GLX_SGIX_pbuffer")]
-		public const uint FRONT_LEFT_BUFFER_BIT_SGIX = 0x00000001;
-
-		/// <summary>
-		/// Value of GLX_FRONT_RIGHT_BUFFER_BIT_SGIX symbol.
-		/// </summary>
-		[RequiredByFeature("GLX_SGIX_pbuffer")]
-		public const uint FRONT_RIGHT_BUFFER_BIT_SGIX = 0x00000002;
-
-		/// <summary>
-		/// Value of GLX_BACK_LEFT_BUFFER_BIT_SGIX symbol.
-		/// </summary>
-		[RequiredByFeature("GLX_SGIX_pbuffer")]
-		public const uint BACK_LEFT_BUFFER_BIT_SGIX = 0x00000004;
-
-		/// <summary>
-		/// Value of GLX_BACK_RIGHT_BUFFER_BIT_SGIX symbol.
-		/// </summary>
-		[RequiredByFeature("GLX_SGIX_pbuffer")]
-		public const uint BACK_RIGHT_BUFFER_BIT_SGIX = 0x00000008;
-
-		/// <summary>
-		/// Value of GLX_AUX_BUFFERS_BIT_SGIX symbol.
-		/// </summary>
-		[RequiredByFeature("GLX_SGIX_pbuffer")]
-		public const uint AUX_BUFFERS_BIT_SGIX = 0x00000010;
-
-		/// <summary>
-		/// Value of GLX_DEPTH_BUFFER_BIT_SGIX symbol.
-		/// </summary>
-		[RequiredByFeature("GLX_SGIX_pbuffer")]
-		public const uint DEPTH_BUFFER_BIT_SGIX = 0x00000020;
-
-		/// <summary>
-		/// Value of GLX_STENCIL_BUFFER_BIT_SGIX symbol.
-		/// </summary>
-		[RequiredByFeature("GLX_SGIX_pbuffer")]
-		public const uint STENCIL_BUFFER_BIT_SGIX = 0x00000040;
-
-		/// <summary>
-		/// Value of GLX_ACCUM_BUFFER_BIT_SGIX symbol.
-		/// </summary>
-		[RequiredByFeature("GLX_SGIX_pbuffer")]
-		public const uint ACCUM_BUFFER_BIT_SGIX = 0x00000080;
-
-		/// <summary>
 		/// Value of GLX_SAMPLE_BUFFERS_BIT_SGIX symbol.
 		/// </summary>
 		[RequiredByFeature("GLX_SGIX_pbuffer")]
 		public const uint SAMPLE_BUFFERS_BIT_SGIX = 0x00000100;
-
-		/// <summary>
-		/// Value of GLX_MAX_PBUFFER_WIDTH_SGIX symbol.
-		/// </summary>
-		[RequiredByFeature("GLX_SGIX_pbuffer")]
-		public const int MAX_PBUFFER_WIDTH_SGIX = 0x8016;
-
-		/// <summary>
-		/// Value of GLX_MAX_PBUFFER_HEIGHT_SGIX symbol.
-		/// </summary>
-		[RequiredByFeature("GLX_SGIX_pbuffer")]
-		public const int MAX_PBUFFER_HEIGHT_SGIX = 0x8017;
-
-		/// <summary>
-		/// Value of GLX_MAX_PBUFFER_PIXELS_SGIX symbol.
-		/// </summary>
-		[RequiredByFeature("GLX_SGIX_pbuffer")]
-		public const int MAX_PBUFFER_PIXELS_SGIX = 0x8018;
 
 		/// <summary>
 		/// Value of GLX_OPTIMAL_PBUFFER_WIDTH_SGIX symbol.
@@ -120,60 +48,6 @@ namespace OpenGL
 		/// </summary>
 		[RequiredByFeature("GLX_SGIX_pbuffer")]
 		public const int OPTIMAL_PBUFFER_HEIGHT_SGIX = 0x801A;
-
-		/// <summary>
-		/// Value of GLX_PRESERVED_CONTENTS_SGIX symbol.
-		/// </summary>
-		[RequiredByFeature("GLX_SGIX_pbuffer")]
-		public const int PRESERVED_CONTENTS_SGIX = 0x801B;
-
-		/// <summary>
-		/// Value of GLX_LARGEST_PBUFFER_SGIX symbol.
-		/// </summary>
-		[RequiredByFeature("GLX_SGIX_pbuffer")]
-		public const int LARGEST_PBUFFER_SGIX = 0x801C;
-
-		/// <summary>
-		/// Value of GLX_WIDTH_SGIX symbol.
-		/// </summary>
-		[RequiredByFeature("GLX_SGIX_pbuffer")]
-		public const int WIDTH_SGIX = 0x801D;
-
-		/// <summary>
-		/// Value of GLX_HEIGHT_SGIX symbol.
-		/// </summary>
-		[RequiredByFeature("GLX_SGIX_pbuffer")]
-		public const int HEIGHT_SGIX = 0x801E;
-
-		/// <summary>
-		/// Value of GLX_EVENT_MASK_SGIX symbol.
-		/// </summary>
-		[RequiredByFeature("GLX_SGIX_pbuffer")]
-		public const int EVENT_MASK_SGIX = 0x801F;
-
-		/// <summary>
-		/// Value of GLX_DAMAGED_SGIX symbol.
-		/// </summary>
-		[RequiredByFeature("GLX_SGIX_pbuffer")]
-		public const int DAMAGED_SGIX = 0x8020;
-
-		/// <summary>
-		/// Value of GLX_SAVED_SGIX symbol.
-		/// </summary>
-		[RequiredByFeature("GLX_SGIX_pbuffer")]
-		public const int SAVED_SGIX = 0x8021;
-
-		/// <summary>
-		/// Value of GLX_WINDOW_SGIX symbol.
-		/// </summary>
-		[RequiredByFeature("GLX_SGIX_pbuffer")]
-		public const int WINDOW_SGIX = 0x8022;
-
-		/// <summary>
-		/// Value of GLX_PBUFFER_SGIX symbol.
-		/// </summary>
-		[RequiredByFeature("GLX_SGIX_pbuffer")]
-		public const int PBUFFER_SGIX = 0x8023;
 
 		/// <summary>
 		/// Binding for glXCreateGLXPbufferSGIX.

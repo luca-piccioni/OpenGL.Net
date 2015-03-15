@@ -32,19 +32,6 @@ namespace OpenGL
 		public const int SHARE_CONTEXT_EXT = 0x800A;
 
 		/// <summary>
-		/// Value of GLX_VISUAL_ID_EXT symbol.
-		/// </summary>
-		[RequiredByFeature("GLX_EXT_import_context")]
-		public const int VISUAL_ID_EXT = 0x800B;
-
-		/// <summary>
-		/// Value of GLX_SCREEN_EXT symbol.
-		/// </summary>
-		[RequiredByFeature("GLX_EXT_import_context")]
-		[RequiredByFeature("GLX_SGIX_fbconfig")]
-		public const int SCREEN_EXT = 0x800C;
-
-		/// <summary>
 		/// Binding for glXGetCurrentDisplayEXT.
 		/// </summary>
 		[RequiredByFeature("GLX_EXT_import_context")]

@@ -26,18 +26,6 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Value of GL_R11F_G11F_B10F_EXT symbol.
-		/// </summary>
-		[RequiredByFeature("GL_EXT_packed_float")]
-		public const int R11F_G11F_B10F_EXT = 0x8C3A;
-
-		/// <summary>
-		/// Value of GL_UNSIGNED_INT_10F_11F_11F_REV_EXT symbol.
-		/// </summary>
-		[RequiredByFeature("GL_EXT_packed_float")]
-		public const int UNSIGNED_INT_10F_11F_11F_REV_EXT = 0x8C3B;
-
-		/// <summary>
 		/// Value of GL_RGBA_SIGNED_COMPONENTS_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_packed_float")]

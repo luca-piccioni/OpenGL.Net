@@ -26,17 +26,6 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Value of GL_ACTIVE_PROGRAM_EXT symbol.
-		/// </summary>
-		/// <remarks>
-		/// <para>
-		/// This enumerant is equaivalent to CURRENT_PROGRAM.
-		/// </para>
-		/// </remarks>
-		[RequiredByFeature("GL_EXT_separate_shader_objects")]
-		public const int ACTIVE_PROGRAM_EXT = 0x8B8D;
-
-		/// <summary>
 		/// Binding for glUseShaderProgramEXT.
 		/// </summary>
 		/// <param name="type">

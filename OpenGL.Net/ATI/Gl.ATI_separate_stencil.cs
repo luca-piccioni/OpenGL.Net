@@ -26,54 +26,6 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Value of GL_STENCIL_BACK_FUNC_ATI symbol.
-		/// </summary>
-		[RequiredByFeature("GL_ATI_separate_stencil")]
-		public const int STENCIL_BACK_FUNC_ATI = 0x8800;
-
-		/// <summary>
-		/// Value of GL_STENCIL_BACK_FAIL_ATI symbol.
-		/// </summary>
-		[RequiredByFeature("GL_ATI_separate_stencil")]
-		public const int STENCIL_BACK_FAIL_ATI = 0x8801;
-
-		/// <summary>
-		/// Value of GL_STENCIL_BACK_PASS_DEPTH_FAIL_ATI symbol.
-		/// </summary>
-		[RequiredByFeature("GL_ATI_separate_stencil")]
-		public const int STENCIL_BACK_PASS_DEPTH_FAIL_ATI = 0x8802;
-
-		/// <summary>
-		/// Value of GL_STENCIL_BACK_PASS_DEPTH_PASS_ATI symbol.
-		/// </summary>
-		[RequiredByFeature("GL_ATI_separate_stencil")]
-		public const int STENCIL_BACK_PASS_DEPTH_PASS_ATI = 0x8803;
-
-		/// <summary>
-		/// Binding for glStencilOpSeparateATI.
-		/// </summary>
-		/// <param name="face">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="sfail">
-		/// A <see cref="T:StencilOp"/>.
-		/// </param>
-		/// <param name="dpfail">
-		/// A <see cref="T:StencilOp"/>.
-		/// </param>
-		/// <param name="dppass">
-		/// A <see cref="T:StencilOp"/>.
-		/// </param>
-		[RequiredByFeature("GL_ATI_separate_stencil")]
-		public static void StencilOpSeparateATI(int face, StencilOp sfail, StencilOp dpfail, StencilOp dppass)
-		{
-			Debug.Assert(Delegates.pglStencilOpSeparateATI != null, "pglStencilOpSeparateATI not implemented");
-			Delegates.pglStencilOpSeparateATI(face, (int)sfail, (int)dpfail, (int)dppass);
-			CallLog("glStencilOpSeparateATI({0}, {1}, {2}, {3})", face, sfail, dpfail, dppass);
-			DebugCheckErrors();
-		}
-
-		/// <summary>
 		/// Binding for glStencilFuncSeparateATI.
 		/// </summary>
 		/// <param name="frontfunc">

@@ -26,66 +26,6 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Value of GL_TEXTURE_RED_TYPE_ARB symbol.
-		/// </summary>
-		[RequiredByFeature("GL_ARB_texture_float")]
-		public const int TEXTURE_RED_TYPE_ARB = 0x8C10;
-
-		/// <summary>
-		/// Value of GL_TEXTURE_GREEN_TYPE_ARB symbol.
-		/// </summary>
-		[RequiredByFeature("GL_ARB_texture_float")]
-		public const int TEXTURE_GREEN_TYPE_ARB = 0x8C11;
-
-		/// <summary>
-		/// Value of GL_TEXTURE_BLUE_TYPE_ARB symbol.
-		/// </summary>
-		[RequiredByFeature("GL_ARB_texture_float")]
-		public const int TEXTURE_BLUE_TYPE_ARB = 0x8C12;
-
-		/// <summary>
-		/// Value of GL_TEXTURE_ALPHA_TYPE_ARB symbol.
-		/// </summary>
-		[RequiredByFeature("GL_ARB_texture_float")]
-		public const int TEXTURE_ALPHA_TYPE_ARB = 0x8C13;
-
-		/// <summary>
-		/// Value of GL_TEXTURE_LUMINANCE_TYPE_ARB symbol.
-		/// </summary>
-		[RequiredByFeature("GL_ARB_texture_float")]
-		public const int TEXTURE_LUMINANCE_TYPE_ARB = 0x8C14;
-
-		/// <summary>
-		/// Value of GL_TEXTURE_INTENSITY_TYPE_ARB symbol.
-		/// </summary>
-		[RequiredByFeature("GL_ARB_texture_float")]
-		public const int TEXTURE_INTENSITY_TYPE_ARB = 0x8C15;
-
-		/// <summary>
-		/// Value of GL_TEXTURE_DEPTH_TYPE_ARB symbol.
-		/// </summary>
-		[RequiredByFeature("GL_ARB_texture_float")]
-		public const int TEXTURE_DEPTH_TYPE_ARB = 0x8C16;
-
-		/// <summary>
-		/// Value of GL_UNSIGNED_NORMALIZED_ARB symbol.
-		/// </summary>
-		[RequiredByFeature("GL_ARB_texture_float")]
-		public const int UNSIGNED_NORMALIZED_ARB = 0x8C17;
-
-		/// <summary>
-		/// Value of GL_RGBA32F_ARB symbol.
-		/// </summary>
-		[RequiredByFeature("GL_ARB_texture_float")]
-		public const int RGBA32F_ARB = 0x8814;
-
-		/// <summary>
-		/// Value of GL_RGB32F_ARB symbol.
-		/// </summary>
-		[RequiredByFeature("GL_ARB_texture_float")]
-		public const int RGB32F_ARB = 0x8815;
-
-		/// <summary>
 		/// Value of GL_ALPHA32F_ARB symbol.
 		/// </summary>
 		[RequiredByFeature("GL_ARB_texture_float")]
@@ -108,18 +48,6 @@ namespace OpenGL
 		/// </summary>
 		[RequiredByFeature("GL_ARB_texture_float")]
 		public const int LUMINANCE_ALPHA32F_ARB = 0x8819;
-
-		/// <summary>
-		/// Value of GL_RGBA16F_ARB symbol.
-		/// </summary>
-		[RequiredByFeature("GL_ARB_texture_float")]
-		public const int RGBA16F_ARB = 0x881A;
-
-		/// <summary>
-		/// Value of GL_RGB16F_ARB symbol.
-		/// </summary>
-		[RequiredByFeature("GL_ARB_texture_float")]
-		public const int RGB16F_ARB = 0x881B;
 
 		/// <summary>
 		/// Value of GL_ALPHA16F_ARB symbol.

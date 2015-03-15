@@ -58,27 +58,6 @@ namespace OpenGL
 			DebugCheckErrors();
 		}
 
-		/// <summary>
-		/// Binding for glFlushMappedBufferRangeAPPLE.
-		/// </summary>
-		/// <param name="target">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="offset">
-		/// A <see cref="T:IntPtr"/>.
-		/// </param>
-		/// <param name="size">
-		/// A <see cref="T:UInt32"/>.
-		/// </param>
-		[RequiredByFeature("GL_APPLE_flush_buffer_range")]
-		public static void FlushMappedBufferRangeAPPLE(int target, IntPtr offset, UInt32 size)
-		{
-			Debug.Assert(Delegates.pglFlushMappedBufferRangeAPPLE != null, "pglFlushMappedBufferRangeAPPLE not implemented");
-			Delegates.pglFlushMappedBufferRangeAPPLE(target, offset, size);
-			CallLog("glFlushMappedBufferRangeAPPLE({0}, {1}, {2})", target, offset, size);
-			DebugCheckErrors();
-		}
-
 	}
 
 }

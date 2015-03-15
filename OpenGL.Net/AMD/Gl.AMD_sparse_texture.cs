@@ -26,36 +26,6 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Value of GL_VIRTUAL_PAGE_SIZE_X_AMD symbol.
-		/// </summary>
-		[RequiredByFeature("GL_AMD_sparse_texture")]
-		public const int VIRTUAL_PAGE_SIZE_X_AMD = 0x9195;
-
-		/// <summary>
-		/// Value of GL_VIRTUAL_PAGE_SIZE_Y_AMD symbol.
-		/// </summary>
-		[RequiredByFeature("GL_AMD_sparse_texture")]
-		public const int VIRTUAL_PAGE_SIZE_Y_AMD = 0x9196;
-
-		/// <summary>
-		/// Value of GL_VIRTUAL_PAGE_SIZE_Z_AMD symbol.
-		/// </summary>
-		[RequiredByFeature("GL_AMD_sparse_texture")]
-		public const int VIRTUAL_PAGE_SIZE_Z_AMD = 0x9197;
-
-		/// <summary>
-		/// Value of GL_MAX_SPARSE_TEXTURE_SIZE_AMD symbol.
-		/// </summary>
-		[RequiredByFeature("GL_AMD_sparse_texture")]
-		public const int MAX_SPARSE_TEXTURE_SIZE_AMD = 0x9198;
-
-		/// <summary>
-		/// Value of GL_MAX_SPARSE_3D_TEXTURE_SIZE_AMD symbol.
-		/// </summary>
-		[RequiredByFeature("GL_AMD_sparse_texture")]
-		public const int MAX_SPARSE_3D_TEXTURE_SIZE_AMD = 0x9199;
-
-		/// <summary>
 		/// Value of GL_MAX_SPARSE_ARRAY_TEXTURE_LAYERS symbol.
 		/// </summary>
 		[RequiredByFeature("GL_AMD_sparse_texture")]

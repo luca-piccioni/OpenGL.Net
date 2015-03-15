@@ -26,76 +26,10 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Value of GL_VERTEX_ARRAY_EXT symbol.
-		/// </summary>
-		[RequiredByFeature("GL_EXT_vertex_array")]
-		public const int VERTEX_ARRAY_EXT = 0x8074;
-
-		/// <summary>
-		/// Value of GL_NORMAL_ARRAY_EXT symbol.
-		/// </summary>
-		[RequiredByFeature("GL_EXT_vertex_array")]
-		public const int NORMAL_ARRAY_EXT = 0x8075;
-
-		/// <summary>
-		/// Value of GL_COLOR_ARRAY_EXT symbol.
-		/// </summary>
-		[RequiredByFeature("GL_EXT_vertex_array")]
-		public const int COLOR_ARRAY_EXT = 0x8076;
-
-		/// <summary>
-		/// Value of GL_INDEX_ARRAY_EXT symbol.
-		/// </summary>
-		[RequiredByFeature("GL_EXT_vertex_array")]
-		public const int INDEX_ARRAY_EXT = 0x8077;
-
-		/// <summary>
-		/// Value of GL_TEXTURE_COORD_ARRAY_EXT symbol.
-		/// </summary>
-		[RequiredByFeature("GL_EXT_vertex_array")]
-		public const int TEXTURE_COORD_ARRAY_EXT = 0x8078;
-
-		/// <summary>
-		/// Value of GL_EDGE_FLAG_ARRAY_EXT symbol.
-		/// </summary>
-		[RequiredByFeature("GL_EXT_vertex_array")]
-		public const int EDGE_FLAG_ARRAY_EXT = 0x8079;
-
-		/// <summary>
-		/// Value of GL_VERTEX_ARRAY_SIZE_EXT symbol.
-		/// </summary>
-		[RequiredByFeature("GL_EXT_vertex_array")]
-		public const int VERTEX_ARRAY_SIZE_EXT = 0x807A;
-
-		/// <summary>
-		/// Value of GL_VERTEX_ARRAY_TYPE_EXT symbol.
-		/// </summary>
-		[RequiredByFeature("GL_EXT_vertex_array")]
-		public const int VERTEX_ARRAY_TYPE_EXT = 0x807B;
-
-		/// <summary>
-		/// Value of GL_VERTEX_ARRAY_STRIDE_EXT symbol.
-		/// </summary>
-		[RequiredByFeature("GL_EXT_vertex_array")]
-		public const int VERTEX_ARRAY_STRIDE_EXT = 0x807C;
-
-		/// <summary>
 		/// Value of GL_VERTEX_ARRAY_COUNT_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_vertex_array")]
 		public const int VERTEX_ARRAY_COUNT_EXT = 0x807D;
-
-		/// <summary>
-		/// Value of GL_NORMAL_ARRAY_TYPE_EXT symbol.
-		/// </summary>
-		[RequiredByFeature("GL_EXT_vertex_array")]
-		public const int NORMAL_ARRAY_TYPE_EXT = 0x807E;
-
-		/// <summary>
-		/// Value of GL_NORMAL_ARRAY_STRIDE_EXT symbol.
-		/// </summary>
-		[RequiredByFeature("GL_EXT_vertex_array")]
-		public const int NORMAL_ARRAY_STRIDE_EXT = 0x807F;
 
 		/// <summary>
 		/// Value of GL_NORMAL_ARRAY_COUNT_EXT symbol.
@@ -104,40 +38,10 @@ namespace OpenGL
 		public const int NORMAL_ARRAY_COUNT_EXT = 0x8080;
 
 		/// <summary>
-		/// Value of GL_COLOR_ARRAY_SIZE_EXT symbol.
-		/// </summary>
-		[RequiredByFeature("GL_EXT_vertex_array")]
-		public const int COLOR_ARRAY_SIZE_EXT = 0x8081;
-
-		/// <summary>
-		/// Value of GL_COLOR_ARRAY_TYPE_EXT symbol.
-		/// </summary>
-		[RequiredByFeature("GL_EXT_vertex_array")]
-		public const int COLOR_ARRAY_TYPE_EXT = 0x8082;
-
-		/// <summary>
-		/// Value of GL_COLOR_ARRAY_STRIDE_EXT symbol.
-		/// </summary>
-		[RequiredByFeature("GL_EXT_vertex_array")]
-		public const int COLOR_ARRAY_STRIDE_EXT = 0x8083;
-
-		/// <summary>
 		/// Value of GL_COLOR_ARRAY_COUNT_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_vertex_array")]
 		public const int COLOR_ARRAY_COUNT_EXT = 0x8084;
-
-		/// <summary>
-		/// Value of GL_INDEX_ARRAY_TYPE_EXT symbol.
-		/// </summary>
-		[RequiredByFeature("GL_EXT_vertex_array")]
-		public const int INDEX_ARRAY_TYPE_EXT = 0x8085;
-
-		/// <summary>
-		/// Value of GL_INDEX_ARRAY_STRIDE_EXT symbol.
-		/// </summary>
-		[RequiredByFeature("GL_EXT_vertex_array")]
-		public const int INDEX_ARRAY_STRIDE_EXT = 0x8086;
 
 		/// <summary>
 		/// Value of GL_INDEX_ARRAY_COUNT_EXT symbol.
@@ -146,91 +50,16 @@ namespace OpenGL
 		public const int INDEX_ARRAY_COUNT_EXT = 0x8087;
 
 		/// <summary>
-		/// Value of GL_TEXTURE_COORD_ARRAY_SIZE_EXT symbol.
-		/// </summary>
-		[RequiredByFeature("GL_EXT_vertex_array")]
-		public const int TEXTURE_COORD_ARRAY_SIZE_EXT = 0x8088;
-
-		/// <summary>
-		/// Value of GL_TEXTURE_COORD_ARRAY_TYPE_EXT symbol.
-		/// </summary>
-		[RequiredByFeature("GL_EXT_vertex_array")]
-		public const int TEXTURE_COORD_ARRAY_TYPE_EXT = 0x8089;
-
-		/// <summary>
-		/// Value of GL_TEXTURE_COORD_ARRAY_STRIDE_EXT symbol.
-		/// </summary>
-		[RequiredByFeature("GL_EXT_vertex_array")]
-		public const int TEXTURE_COORD_ARRAY_STRIDE_EXT = 0x808A;
-
-		/// <summary>
 		/// Value of GL_TEXTURE_COORD_ARRAY_COUNT_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_vertex_array")]
 		public const int TEXTURE_COORD_ARRAY_COUNT_EXT = 0x808B;
 
 		/// <summary>
-		/// Value of GL_EDGE_FLAG_ARRAY_STRIDE_EXT symbol.
-		/// </summary>
-		[RequiredByFeature("GL_EXT_vertex_array")]
-		public const int EDGE_FLAG_ARRAY_STRIDE_EXT = 0x808C;
-
-		/// <summary>
 		/// Value of GL_EDGE_FLAG_ARRAY_COUNT_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_vertex_array")]
 		public const int EDGE_FLAG_ARRAY_COUNT_EXT = 0x808D;
-
-		/// <summary>
-		/// Value of GL_VERTEX_ARRAY_POINTER_EXT symbol.
-		/// </summary>
-		[RequiredByFeature("GL_EXT_vertex_array")]
-		public const int VERTEX_ARRAY_POINTER_EXT = 0x808E;
-
-		/// <summary>
-		/// Value of GL_NORMAL_ARRAY_POINTER_EXT symbol.
-		/// </summary>
-		[RequiredByFeature("GL_EXT_vertex_array")]
-		public const int NORMAL_ARRAY_POINTER_EXT = 0x808F;
-
-		/// <summary>
-		/// Value of GL_COLOR_ARRAY_POINTER_EXT symbol.
-		/// </summary>
-		[RequiredByFeature("GL_EXT_vertex_array")]
-		public const int COLOR_ARRAY_POINTER_EXT = 0x8090;
-
-		/// <summary>
-		/// Value of GL_INDEX_ARRAY_POINTER_EXT symbol.
-		/// </summary>
-		[RequiredByFeature("GL_EXT_vertex_array")]
-		public const int INDEX_ARRAY_POINTER_EXT = 0x8091;
-
-		/// <summary>
-		/// Value of GL_TEXTURE_COORD_ARRAY_POINTER_EXT symbol.
-		/// </summary>
-		[RequiredByFeature("GL_EXT_vertex_array")]
-		public const int TEXTURE_COORD_ARRAY_POINTER_EXT = 0x8092;
-
-		/// <summary>
-		/// Value of GL_EDGE_FLAG_ARRAY_POINTER_EXT symbol.
-		/// </summary>
-		[RequiredByFeature("GL_EXT_vertex_array")]
-		public const int EDGE_FLAG_ARRAY_POINTER_EXT = 0x8093;
-
-		/// <summary>
-		/// Binding for glArrayElementEXT.
-		/// </summary>
-		/// <param name="i">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		[RequiredByFeature("GL_EXT_vertex_array")]
-		public static void ArrayElementEXT(Int32 i)
-		{
-			Debug.Assert(Delegates.pglArrayElementEXT != null, "pglArrayElementEXT not implemented");
-			Delegates.pglArrayElementEXT(i);
-			CallLog("glArrayElementEXT({0})", i);
-			DebugCheckErrors();
-		}
 
 		/// <summary>
 		/// Binding for glColorPointerEXT.
@@ -289,27 +118,6 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glDrawArraysEXT.
-		/// </summary>
-		/// <param name="mode">
-		/// A <see cref="T:PrimitiveType"/>.
-		/// </param>
-		/// <param name="first">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="count">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		[RequiredByFeature("GL_EXT_vertex_array")]
-		public static void DrawArraysEXT(PrimitiveType mode, Int32 first, Int32 count)
-		{
-			Debug.Assert(Delegates.pglDrawArraysEXT != null, "pglDrawArraysEXT not implemented");
-			Delegates.pglDrawArraysEXT((int)mode, first, count);
-			CallLog("glDrawArraysEXT({0}, {1}, {2})", mode, first, count);
-			DebugCheckErrors();
-		}
-
-		/// <summary>
 		/// Binding for glEdgeFlagPointerEXT.
 		/// </summary>
 		/// <param name="stride">
@@ -333,49 +141,6 @@ namespace OpenGL
 				}
 			}
 			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// Binding for glGetPointervEXT.
-		/// </summary>
-		/// <param name="pname">
-		/// A <see cref="T:GetPointervPName"/>.
-		/// </param>
-		/// <param name="params">
-		/// A <see cref="T:IntPtr"/>.
-		/// </param>
-		[RequiredByFeature("GL_EXT_vertex_array")]
-		public static void GetPointerEXT(GetPointervPName pname, out IntPtr @params)
-		{
-			unsafe {
-				fixed (IntPtr* p_params = &@params)
-				{
-					Debug.Assert(Delegates.pglGetPointervEXT != null, "pglGetPointervEXT not implemented");
-					Delegates.pglGetPointervEXT((int)pname, p_params);
-					CallLog("glGetPointervEXT({0}, {1})", pname, @params);
-				}
-			}
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// Binding for glGetPointervEXT.
-		/// </summary>
-		/// <param name="pname">
-		/// A <see cref="T:GetPointervPName"/>.
-		/// </param>
-		/// <param name="params">
-		/// A <see cref="T:Object"/>.
-		/// </param>
-		[RequiredByFeature("GL_EXT_vertex_array")]
-		public static void GetPointerEXT(GetPointervPName pname, Object @params)
-		{
-			GCHandle pin_params = GCHandle.Alloc(@params, GCHandleType.Pinned);
-			try {
-				GetPointerEXT(pname, pin_params.AddrOfPinnedObject());
-			} finally {
-				pin_params.Free();
-			}
 		}
 
 		/// <summary>

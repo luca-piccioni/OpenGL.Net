@@ -32,18 +32,6 @@ namespace OpenGL
 		public const int PROGRAM_PIPELINE_OBJECT_EXT = 0x8A4F;
 
 		/// <summary>
-		/// Value of GL_PROGRAM_OBJECT_EXT symbol.
-		/// </summary>
-		[RequiredByFeature("GL_EXT_debug_label")]
-		public const int PROGRAM_OBJECT_EXT = 0x8B40;
-
-		/// <summary>
-		/// Value of GL_SHADER_OBJECT_EXT symbol.
-		/// </summary>
-		[RequiredByFeature("GL_EXT_debug_label")]
-		public const int SHADER_OBJECT_EXT = 0x8B48;
-
-		/// <summary>
 		/// Value of GL_BUFFER_OBJECT_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_debug_label")]

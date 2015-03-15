@@ -18,6 +18,7 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
+using System.Text.RegularExpressions;
 using System.Xml.Serialization;
 
 using BindingsGen.GLSpecs;
@@ -108,9 +109,11 @@ namespace BindingsGen
 				List<Command> featureCommands = new List<Command>();
 				List<Enumerant> featureEnums = new List<Enumerant>();
 
+				#region Select enumerants and commands
+
 				foreach (FeatureCommand featureCommand in feature.Requirements)
 				{
-					if (featureCommand.Api != null && featureCommand.Api != ctx.Class.ToLower())
+					if (featureCommand.Api != null && !Regex.IsMatch(ctx.Class.ToLower(), featureCommand.Api))
 						continue;
 
 					foreach (FeatureCommand.Item featureCommandItem in featureCommand.Commands) {
@@ -122,24 +125,46 @@ namespace BindingsGen
 
 						serializedCommands.Add(command.Prototype.Name, true);
 
-						if ((command.Flags & CommandFlags.Disable) == 0)
-							featureCommands.Add(command);
+						// Do not generate manually disabled command
+						if ((command.Flags & CommandFlags.Disable) != 0)
+							continue;
+						// Do not generate command with aliases
+						if (command.Alias != null)
+							continue;
+							
+						featureCommands.Add(command);
 					}
 
 					foreach (FeatureCommand.Item featureEnumItem in featureCommand.Enums) {
 						Enumerant enumerant = ctx.Registry.GetGlEnumerant(featureEnumItem.Name);
 
-						Debug.Assert(enumerant != null);
+						if (enumerant == null)
+							continue;
 						if (serializedEnums.ContainsKey(enumerant.Name))
 							continue;
 
 						serializedEnums.Add(enumerant.Name, true);
+
+						// Do not generate enumerant if it has an alias
+						if (enumerant.EnumAlias != null)
+							continue;
+
 						featureEnums.Add(enumerant);
 					}
 				}
 
-				if ((featureCommands.Count == 0) && (featureEnums.Count == 0))
+				#endregion
+
+				if ((featureCommands.Count == 0) && (featureEnums.Count == 0)) {
+					// No commands and no enumerations: remove file if existing
+					string sourceFilePath = GetFeatureFilePath(feature, ctx);
+
+					if (File.Exists(sourceFilePath))
+						File.Delete(sourceFilePath);
+
+					// Next...
 					continue;
+				}
 
 				glRegistryProcessor.GenerateCommands(ctx, GetFeatureFilePath(feature, ctx), delegate(RegistryContext cctx, SourceStreamWriter sw)
 				{
@@ -159,11 +184,20 @@ namespace BindingsGen
 
 			#endregion
 
+			#region Orphans
+
 			List<Command> orphanCommands = new List<Command>();
 			List<Enumerant> orphanEnums = new List<Enumerant>();
 
 			foreach (Command command in ctx.Registry.Commands) {
 				if (serializedCommands.ContainsKey(command.Prototype.Name))
+					continue;
+
+				// Do not generate manually disabled command
+				if ((command.Flags & CommandFlags.Disable) != 0)
+					continue;
+				// Do not generate command with aliases
+				if (command.Alias != null)
 					continue;
 
 				orphanCommands.Add(command);
@@ -192,6 +226,8 @@ namespace BindingsGen
 					}
 				});
 			}
+
+			#endregion
 		}
 
 		/// <summary>

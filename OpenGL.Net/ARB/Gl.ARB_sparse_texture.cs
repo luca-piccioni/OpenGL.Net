@@ -80,12 +80,6 @@ namespace OpenGL
 		public const int MAX_SPARSE_3D_TEXTURE_SIZE_ARB = 0x9199;
 
 		/// <summary>
-		/// Value of GL_MAX_SPARSE_ARRAY_TEXTURE_LAYERS_ARB symbol.
-		/// </summary>
-		[RequiredByFeature("GL_ARB_sparse_texture")]
-		public const int MAX_SPARSE_ARRAY_TEXTURE_LAYERS_ARB = 0x919A;
-
-		/// <summary>
 		/// Value of GL_SPARSE_TEXTURE_FULL_ARRAY_CUBE_MIPMAPS_ARB symbol.
 		/// </summary>
 		[RequiredByFeature("GL_ARB_sparse_texture")]

@@ -26,17 +26,6 @@ namespace OpenGL
 	public partial class Egl
 	{
 		/// <summary>
-		/// Value of EGL_CONTEXT_MAJOR_VERSION symbol.
-		/// </summary>
-		/// <remarks>
-		/// <para>
-		/// This enumerant is equaivalent to CONTEXT_CLIENT_VERSION.
-		/// </para>
-		/// </remarks>
-		[RequiredByFeature("EGL_VERSION_1_5")]
-		public const int CONTEXT_MAJOR_VERSION = 0x3098;
-
-		/// <summary>
 		/// Value of EGL_CONTEXT_MINOR_VERSION symbol.
 		/// </summary>
 		[RequiredByFeature("EGL_VERSION_1_5")]
@@ -198,28 +187,6 @@ namespace OpenGL
 		/// </summary>
 		[RequiredByFeature("EGL_VERSION_1_5")]
 		public const int GL_COLORSPACE = 0x309D;
-
-		/// <summary>
-		/// Value of EGL_GL_COLORSPACE_SRGB symbol.
-		/// </summary>
-		/// <remarks>
-		/// <para>
-		/// This enumerant is equaivalent to COLORSPACE_sRGB.
-		/// </para>
-		/// </remarks>
-		[RequiredByFeature("EGL_VERSION_1_5")]
-		public const int GL_COLORSPACE_SRGB = 0x3089;
-
-		/// <summary>
-		/// Value of EGL_GL_COLORSPACE_LINEAR symbol.
-		/// </summary>
-		/// <remarks>
-		/// <para>
-		/// This enumerant is equaivalent to COLORSPACE_LINEAR.
-		/// </para>
-		/// </remarks>
-		[RequiredByFeature("EGL_VERSION_1_5")]
-		public const int GL_COLORSPACE_LINEAR = 0x308A;
 
 		/// <summary>
 		/// Value of EGL_GL_RENDERBUFFER symbol.

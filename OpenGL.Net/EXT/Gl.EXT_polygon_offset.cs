@@ -32,12 +32,6 @@ namespace OpenGL
 		public const int POLYGON_OFFSET_EXT = 0x8037;
 
 		/// <summary>
-		/// Value of GL_POLYGON_OFFSET_FACTOR_EXT symbol.
-		/// </summary>
-		[RequiredByFeature("GL_EXT_polygon_offset")]
-		public const int POLYGON_OFFSET_FACTOR_EXT = 0x8038;
-
-		/// <summary>
 		/// Value of GL_POLYGON_OFFSET_BIAS_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_polygon_offset")]

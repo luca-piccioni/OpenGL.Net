@@ -26,12 +26,6 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Value of GL_VERTEX_ARRAY_BINDING_APPLE symbol.
-		/// </summary>
-		[RequiredByFeature("GL_APPLE_vertex_array_object")]
-		public const int VERTEX_ARRAY_BINDING_APPLE = 0x85B5;
-
-		/// <summary>
 		/// Binding for glBindVertexArrayAPPLE.
 		/// </summary>
 		/// <param name="array">
@@ -44,82 +38,6 @@ namespace OpenGL
 			Delegates.pglBindVertexArrayAPPLE(array);
 			CallLog("glBindVertexArrayAPPLE({0})", array);
 			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// Binding for glDeleteVertexArraysAPPLE.
-		/// </summary>
-		/// <param name="n">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="arrays">
-		/// A <see cref="T:UInt32[]"/>.
-		/// </param>
-		[RequiredByFeature("GL_APPLE_vertex_array_object")]
-		public static void DeleteVertexArraysAPPLE(params UInt32[] arrays)
-		{
-			unsafe {
-				fixed (UInt32* p_arrays = arrays)
-				{
-					Debug.Assert(Delegates.pglDeleteVertexArraysAPPLE != null, "pglDeleteVertexArraysAPPLE not implemented");
-					Delegates.pglDeleteVertexArraysAPPLE((Int32)arrays.Length, p_arrays);
-					CallLog("glDeleteVertexArraysAPPLE({0}, {1})", arrays.Length, arrays);
-				}
-			}
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// Binding for glGenVertexArraysAPPLE.
-		/// </summary>
-		/// <param name="n">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="arrays">
-		/// A <see cref="T:UInt32[]"/>.
-		/// </param>
-		[RequiredByFeature("GL_APPLE_vertex_array_object")]
-		public static void GenVertexArraysAPPLE(UInt32[] arrays)
-		{
-			unsafe {
-				fixed (UInt32* p_arrays = arrays)
-				{
-					Debug.Assert(Delegates.pglGenVertexArraysAPPLE != null, "pglGenVertexArraysAPPLE not implemented");
-					Delegates.pglGenVertexArraysAPPLE((Int32)arrays.Length, p_arrays);
-					CallLog("glGenVertexArraysAPPLE({0}, {1})", arrays.Length, arrays);
-				}
-			}
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// Binding for glGenVertexArraysAPPLE.
-		/// </summary>
-		[RequiredByFeature("GL_APPLE_vertex_array_object")]
-		public static UInt32 GenVertexArraysAPPLE()
-		{
-			UInt32[] retValue = new UInt32[1];
-			GenVertexArraysAPPLE(retValue);
-			return (retValue[0]);
-		}
-
-		/// <summary>
-		/// Binding for glIsVertexArrayAPPLE.
-		/// </summary>
-		/// <param name="array">
-		/// A <see cref="T:UInt32"/>.
-		/// </param>
-		[RequiredByFeature("GL_APPLE_vertex_array_object")]
-		public static bool IsVertexArrayAPPLE(UInt32 array)
-		{
-			bool retValue;
-
-			Debug.Assert(Delegates.pglIsVertexArrayAPPLE != null, "pglIsVertexArrayAPPLE not implemented");
-			retValue = Delegates.pglIsVertexArrayAPPLE(array);
-			CallLog("glIsVertexArrayAPPLE({0}) = {1}", array, retValue);
-			DebugCheckErrors();
-
-			return (retValue);
 		}
 
 	}

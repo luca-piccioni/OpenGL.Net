@@ -38,12 +38,6 @@ namespace OpenGL
 		public const int DEPTH32F_STENCIL8_NV = 0x8DAC;
 
 		/// <summary>
-		/// Value of GL_FLOAT_32_UNSIGNED_INT_24_8_REV_NV symbol.
-		/// </summary>
-		[RequiredByFeature("GL_NV_depth_buffer_float")]
-		public const int FLOAT_32_UNSIGNED_INT_24_8_REV_NV = 0x8DAD;
-
-		/// <summary>
 		/// Value of GL_DEPTH_BUFFER_FLOAT_MODE_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_depth_buffer_float")]

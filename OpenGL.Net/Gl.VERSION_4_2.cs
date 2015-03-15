@@ -26,50 +26,6 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Value of GL_COPY_READ_BUFFER_BINDING symbol.
-		/// </summary>
-		/// <remarks>
-		/// <para>
-		/// This enumerant is equaivalent to COPY_READ_BUFFER.
-		/// </para>
-		/// </remarks>
-		[RequiredByFeature("GL_VERSION_4_2")]
-		public const int COPY_READ_BUFFER_BINDING = 0x8F36;
-
-		/// <summary>
-		/// Value of GL_COPY_WRITE_BUFFER_BINDING symbol.
-		/// </summary>
-		/// <remarks>
-		/// <para>
-		/// This enumerant is equaivalent to COPY_WRITE_BUFFER.
-		/// </para>
-		/// </remarks>
-		[RequiredByFeature("GL_VERSION_4_2")]
-		public const int COPY_WRITE_BUFFER_BINDING = 0x8F37;
-
-		/// <summary>
-		/// Value of GL_TRANSFORM_FEEDBACK_ACTIVE symbol.
-		/// </summary>
-		/// <remarks>
-		/// <para>
-		/// This enumerant is equaivalent to TRANSFORM_FEEDBACK_BUFFER_ACTIVE.
-		/// </para>
-		/// </remarks>
-		[RequiredByFeature("GL_VERSION_4_2")]
-		public const int TRANSFORM_FEEDBACK_ACTIVE = 0x8E24;
-
-		/// <summary>
-		/// Value of GL_TRANSFORM_FEEDBACK_PAUSED symbol.
-		/// </summary>
-		/// <remarks>
-		/// <para>
-		/// This enumerant is equaivalent to TRANSFORM_FEEDBACK_BUFFER_PAUSED.
-		/// </para>
-		/// </remarks>
-		[RequiredByFeature("GL_VERSION_4_2")]
-		public const int TRANSFORM_FEEDBACK_PAUSED = 0x8E23;
-
-		/// <summary>
 		/// Value of GL_UNPACK_COMPRESSED_BLOCK_WIDTH symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_2")]

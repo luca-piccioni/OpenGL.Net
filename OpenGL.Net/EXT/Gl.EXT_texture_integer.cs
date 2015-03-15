@@ -26,18 +26,6 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Value of GL_RGBA32UI_EXT symbol.
-		/// </summary>
-		[RequiredByFeature("GL_EXT_texture_integer")]
-		public const int RGBA32UI_EXT = 0x8D70;
-
-		/// <summary>
-		/// Value of GL_RGB32UI_EXT symbol.
-		/// </summary>
-		[RequiredByFeature("GL_EXT_texture_integer")]
-		public const int RGB32UI_EXT = 0x8D71;
-
-		/// <summary>
 		/// Value of GL_ALPHA32UI_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_texture_integer")]
@@ -60,18 +48,6 @@ namespace OpenGL
 		/// </summary>
 		[RequiredByFeature("GL_EXT_texture_integer")]
 		public const int LUMINANCE_ALPHA32UI_EXT = 0x8D75;
-
-		/// <summary>
-		/// Value of GL_RGBA16UI_EXT symbol.
-		/// </summary>
-		[RequiredByFeature("GL_EXT_texture_integer")]
-		public const int RGBA16UI_EXT = 0x8D76;
-
-		/// <summary>
-		/// Value of GL_RGB16UI_EXT symbol.
-		/// </summary>
-		[RequiredByFeature("GL_EXT_texture_integer")]
-		public const int RGB16UI_EXT = 0x8D77;
 
 		/// <summary>
 		/// Value of GL_ALPHA16UI_EXT symbol.
@@ -98,18 +74,6 @@ namespace OpenGL
 		public const int LUMINANCE_ALPHA16UI_EXT = 0x8D7B;
 
 		/// <summary>
-		/// Value of GL_RGBA8UI_EXT symbol.
-		/// </summary>
-		[RequiredByFeature("GL_EXT_texture_integer")]
-		public const int RGBA8UI_EXT = 0x8D7C;
-
-		/// <summary>
-		/// Value of GL_RGB8UI_EXT symbol.
-		/// </summary>
-		[RequiredByFeature("GL_EXT_texture_integer")]
-		public const int RGB8UI_EXT = 0x8D7D;
-
-		/// <summary>
 		/// Value of GL_ALPHA8UI_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_texture_integer")]
@@ -132,18 +96,6 @@ namespace OpenGL
 		/// </summary>
 		[RequiredByFeature("GL_EXT_texture_integer")]
 		public const int LUMINANCE_ALPHA8UI_EXT = 0x8D81;
-
-		/// <summary>
-		/// Value of GL_RGBA32I_EXT symbol.
-		/// </summary>
-		[RequiredByFeature("GL_EXT_texture_integer")]
-		public const int RGBA32I_EXT = 0x8D82;
-
-		/// <summary>
-		/// Value of GL_RGB32I_EXT symbol.
-		/// </summary>
-		[RequiredByFeature("GL_EXT_texture_integer")]
-		public const int RGB32I_EXT = 0x8D83;
 
 		/// <summary>
 		/// Value of GL_ALPHA32I_EXT symbol.
@@ -170,18 +122,6 @@ namespace OpenGL
 		public const int LUMINANCE_ALPHA32I_EXT = 0x8D87;
 
 		/// <summary>
-		/// Value of GL_RGBA16I_EXT symbol.
-		/// </summary>
-		[RequiredByFeature("GL_EXT_texture_integer")]
-		public const int RGBA16I_EXT = 0x8D88;
-
-		/// <summary>
-		/// Value of GL_RGB16I_EXT symbol.
-		/// </summary>
-		[RequiredByFeature("GL_EXT_texture_integer")]
-		public const int RGB16I_EXT = 0x8D89;
-
-		/// <summary>
 		/// Value of GL_ALPHA16I_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_texture_integer")]
@@ -204,18 +144,6 @@ namespace OpenGL
 		/// </summary>
 		[RequiredByFeature("GL_EXT_texture_integer")]
 		public const int LUMINANCE_ALPHA16I_EXT = 0x8D8D;
-
-		/// <summary>
-		/// Value of GL_RGBA8I_EXT symbol.
-		/// </summary>
-		[RequiredByFeature("GL_EXT_texture_integer")]
-		public const int RGBA8I_EXT = 0x8D8E;
-
-		/// <summary>
-		/// Value of GL_RGB8I_EXT symbol.
-		/// </summary>
-		[RequiredByFeature("GL_EXT_texture_integer")]
-		public const int RGB8I_EXT = 0x8D8F;
 
 		/// <summary>
 		/// Value of GL_ALPHA8I_EXT symbol.
@@ -242,54 +170,6 @@ namespace OpenGL
 		public const int LUMINANCE_ALPHA8I_EXT = 0x8D93;
 
 		/// <summary>
-		/// Value of GL_RED_INTEGER_EXT symbol.
-		/// </summary>
-		[RequiredByFeature("GL_EXT_texture_integer")]
-		public const int RED_INTEGER_EXT = 0x8D94;
-
-		/// <summary>
-		/// Value of GL_GREEN_INTEGER_EXT symbol.
-		/// </summary>
-		[RequiredByFeature("GL_EXT_texture_integer")]
-		public const int GREEN_INTEGER_EXT = 0x8D95;
-
-		/// <summary>
-		/// Value of GL_BLUE_INTEGER_EXT symbol.
-		/// </summary>
-		[RequiredByFeature("GL_EXT_texture_integer")]
-		public const int BLUE_INTEGER_EXT = 0x8D96;
-
-		/// <summary>
-		/// Value of GL_ALPHA_INTEGER_EXT symbol.
-		/// </summary>
-		[RequiredByFeature("GL_EXT_texture_integer")]
-		public const int ALPHA_INTEGER_EXT = 0x8D97;
-
-		/// <summary>
-		/// Value of GL_RGB_INTEGER_EXT symbol.
-		/// </summary>
-		[RequiredByFeature("GL_EXT_texture_integer")]
-		public const int RGB_INTEGER_EXT = 0x8D98;
-
-		/// <summary>
-		/// Value of GL_RGBA_INTEGER_EXT symbol.
-		/// </summary>
-		[RequiredByFeature("GL_EXT_texture_integer")]
-		public const int RGBA_INTEGER_EXT = 0x8D99;
-
-		/// <summary>
-		/// Value of GL_BGR_INTEGER_EXT symbol.
-		/// </summary>
-		[RequiredByFeature("GL_EXT_texture_integer")]
-		public const int BGR_INTEGER_EXT = 0x8D9A;
-
-		/// <summary>
-		/// Value of GL_BGRA_INTEGER_EXT symbol.
-		/// </summary>
-		[RequiredByFeature("GL_EXT_texture_integer")]
-		public const int BGRA_INTEGER_EXT = 0x8D9B;
-
-		/// <summary>
 		/// Value of GL_LUMINANCE_INTEGER_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_texture_integer")]
@@ -306,110 +186,6 @@ namespace OpenGL
 		/// </summary>
 		[RequiredByFeature("GL_EXT_texture_integer")]
 		public const int RGBA_INTEGER_MODE_EXT = 0x8D9E;
-
-		/// <summary>
-		/// Binding for glTexParameterIivEXT.
-		/// </summary>
-		/// <param name="target">
-		/// A <see cref="T:TextureTarget"/>.
-		/// </param>
-		/// <param name="pname">
-		/// A <see cref="T:TextureParameterName"/>.
-		/// </param>
-		/// <param name="params">
-		/// A <see cref="T:Int32[]"/>.
-		/// </param>
-		[RequiredByFeature("GL_EXT_texture_integer")]
-		public static void TexParameterIivEXT(TextureTarget target, TextureParameterName pname, Int32[] @params)
-		{
-			unsafe {
-				fixed (Int32* p_params = @params)
-				{
-					Debug.Assert(Delegates.pglTexParameterIivEXT != null, "pglTexParameterIivEXT not implemented");
-					Delegates.pglTexParameterIivEXT((int)target, (int)pname, p_params);
-					CallLog("glTexParameterIivEXT({0}, {1}, {2})", target, pname, @params);
-				}
-			}
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// Binding for glTexParameterIuivEXT.
-		/// </summary>
-		/// <param name="target">
-		/// A <see cref="T:TextureTarget"/>.
-		/// </param>
-		/// <param name="pname">
-		/// A <see cref="T:TextureParameterName"/>.
-		/// </param>
-		/// <param name="params">
-		/// A <see cref="T:UInt32[]"/>.
-		/// </param>
-		[RequiredByFeature("GL_EXT_texture_integer")]
-		public static void TexParameterIuivEXT(TextureTarget target, TextureParameterName pname, UInt32[] @params)
-		{
-			unsafe {
-				fixed (UInt32* p_params = @params)
-				{
-					Debug.Assert(Delegates.pglTexParameterIuivEXT != null, "pglTexParameterIuivEXT not implemented");
-					Delegates.pglTexParameterIuivEXT((int)target, (int)pname, p_params);
-					CallLog("glTexParameterIuivEXT({0}, {1}, {2})", target, pname, @params);
-				}
-			}
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// Binding for glGetTexParameterIivEXT.
-		/// </summary>
-		/// <param name="target">
-		/// A <see cref="T:TextureTarget"/>.
-		/// </param>
-		/// <param name="pname">
-		/// A <see cref="T:GetTextureParameter"/>.
-		/// </param>
-		/// <param name="params">
-		/// A <see cref="T:Int32[]"/>.
-		/// </param>
-		[RequiredByFeature("GL_EXT_texture_integer")]
-		public static void GetTexParameterIivEXT(TextureTarget target, GetTextureParameter pname, Int32[] @params)
-		{
-			unsafe {
-				fixed (Int32* p_params = @params)
-				{
-					Debug.Assert(Delegates.pglGetTexParameterIivEXT != null, "pglGetTexParameterIivEXT not implemented");
-					Delegates.pglGetTexParameterIivEXT((int)target, (int)pname, p_params);
-					CallLog("glGetTexParameterIivEXT({0}, {1}, {2})", target, pname, @params);
-				}
-			}
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// Binding for glGetTexParameterIuivEXT.
-		/// </summary>
-		/// <param name="target">
-		/// A <see cref="T:TextureTarget"/>.
-		/// </param>
-		/// <param name="pname">
-		/// A <see cref="T:GetTextureParameter"/>.
-		/// </param>
-		/// <param name="params">
-		/// A <see cref="T:UInt32[]"/>.
-		/// </param>
-		[RequiredByFeature("GL_EXT_texture_integer")]
-		public static void GetTexParameterIuivEXT(TextureTarget target, GetTextureParameter pname, UInt32[] @params)
-		{
-			unsafe {
-				fixed (UInt32* p_params = @params)
-				{
-					Debug.Assert(Delegates.pglGetTexParameterIuivEXT != null, "pglGetTexParameterIuivEXT not implemented");
-					Delegates.pglGetTexParameterIuivEXT((int)target, (int)pname, p_params);
-					CallLog("glGetTexParameterIuivEXT({0}, {1}, {2})", target, pname, @params);
-				}
-			}
-			DebugCheckErrors();
-		}
 
 		/// <summary>
 		/// Binding for glClearColorIiEXT.

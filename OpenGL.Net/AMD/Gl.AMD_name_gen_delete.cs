@@ -38,18 +38,6 @@ namespace OpenGL
 		public const int PERFORMANCE_MONITOR_AMD = 0x9152;
 
 		/// <summary>
-		/// Value of GL_QUERY_OBJECT_AMD symbol.
-		/// </summary>
-		[RequiredByFeature("GL_AMD_name_gen_delete")]
-		public const int QUERY_OBJECT_AMD = 0x9153;
-
-		/// <summary>
-		/// Value of GL_VERTEX_ARRAY_OBJECT_AMD symbol.
-		/// </summary>
-		[RequiredByFeature("GL_AMD_name_gen_delete")]
-		public const int VERTEX_ARRAY_OBJECT_AMD = 0x9154;
-
-		/// <summary>
 		/// Value of GL_SAMPLER_OBJECT_AMD symbol.
 		/// </summary>
 		[RequiredByFeature("GL_AMD_name_gen_delete")]

@@ -26,43 +26,10 @@ namespace OpenGL
 	public partial class Egl
 	{
 		/// <summary>
-		/// Value of EGL_CONTEXT_OPENGL_ROBUST_ACCESS_EXT symbol.
-		/// </summary>
-		/// <remarks>
-		/// <para>
-		/// This enumerant is equaivalent to CONTEXT_OPENGL_ROBUST_ACCESS.
-		/// </para>
-		/// </remarks>
-		[RequiredByFeature("EGL_EXT_create_context_robustness")]
-		public const int CONTEXT_OPENGL_ROBUST_ACCESS_EXT = 0x30BF;
-
-		/// <summary>
 		/// Value of EGL_CONTEXT_OPENGL_RESET_NOTIFICATION_STRATEGY_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("EGL_EXT_create_context_robustness")]
 		public const int CONTEXT_OPENGL_RESET_NOTIFICATION_STRATEGY_EXT = 0x3138;
-
-		/// <summary>
-		/// Value of EGL_NO_RESET_NOTIFICATION_EXT symbol.
-		/// </summary>
-		/// <remarks>
-		/// <para>
-		/// This enumerant is equaivalent to NO_RESET_NOTIFICATION.
-		/// </para>
-		/// </remarks>
-		[RequiredByFeature("EGL_EXT_create_context_robustness")]
-		public const int NO_RESET_NOTIFICATION_EXT = 0x31BE;
-
-		/// <summary>
-		/// Value of EGL_LOSE_CONTEXT_ON_RESET_EXT symbol.
-		/// </summary>
-		/// <remarks>
-		/// <para>
-		/// This enumerant is equaivalent to LOSE_CONTEXT_ON_RESET.
-		/// </para>
-		/// </remarks>
-		[RequiredByFeature("EGL_EXT_create_context_robustness")]
-		public const int LOSE_CONTEXT_ON_RESET_EXT = 0x31BF;
 
 	}
 

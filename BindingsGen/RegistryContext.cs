@@ -51,15 +51,15 @@ namespace BindingsGen
 		{
 			// Store the class
 			Class = @class;
+			// Loads the extension dictionary
+			ExtensionsDictionary = SpecWordsDictionary.Load("BindingsGen.GLSpecs.ExtWords.xml");
+			// Loads the words dictionary
+			WordsDictionary = SpecWordsDictionary.Load(String.Format("BindingsGen.GLSpecs.{0}Words.xml", @class));
 			// Load and parse OpenGL specification
 			using (StreamReader sr = new StreamReader(registryPath)) {
 				Registry = ((Registry)SpecSerializer.Deserialize(sr));
 				Registry.Link(this);
 			}
-			// Loads the extension dictionary
-			ExtensionsDictionary = SpecWordsDictionary.Load("BindingsGen.GLSpecs.ExtWords.xml");
-			// Loads the words dictionary
-			WordsDictionary = SpecWordsDictionary.Load(String.Format("BindingsGen.GLSpecs.{0}Words.xml", @class));
 		}
 
 		/// <summary>

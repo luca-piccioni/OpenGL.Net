@@ -26,48 +26,6 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Value of GL_CONTEXT_FLAG_ROBUST_ACCESS_BIT_ARB symbol.
-		/// </summary>
-		[RequiredByFeature("GL_ARB_robustness")]
-		public const uint CONTEXT_FLAG_ROBUST_ACCESS_BIT_ARB = 0x00000004;
-
-		/// <summary>
-		/// Value of GL_LOSE_CONTEXT_ON_RESET_ARB symbol.
-		/// </summary>
-		[RequiredByFeature("GL_ARB_robustness")]
-		public const int LOSE_CONTEXT_ON_RESET_ARB = 0x8252;
-
-		/// <summary>
-		/// Value of GL_GUILTY_CONTEXT_RESET_ARB symbol.
-		/// </summary>
-		[RequiredByFeature("GL_ARB_robustness")]
-		public const int GUILTY_CONTEXT_RESET_ARB = 0x8253;
-
-		/// <summary>
-		/// Value of GL_INNOCENT_CONTEXT_RESET_ARB symbol.
-		/// </summary>
-		[RequiredByFeature("GL_ARB_robustness")]
-		public const int INNOCENT_CONTEXT_RESET_ARB = 0x8254;
-
-		/// <summary>
-		/// Value of GL_UNKNOWN_CONTEXT_RESET_ARB symbol.
-		/// </summary>
-		[RequiredByFeature("GL_ARB_robustness")]
-		public const int UNKNOWN_CONTEXT_RESET_ARB = 0x8255;
-
-		/// <summary>
-		/// Value of GL_RESET_NOTIFICATION_STRATEGY_ARB symbol.
-		/// </summary>
-		[RequiredByFeature("GL_ARB_robustness")]
-		public const int RESET_NOTIFICATION_STRATEGY_ARB = 0x8256;
-
-		/// <summary>
-		/// Value of GL_NO_RESET_NOTIFICATION_ARB symbol.
-		/// </summary>
-		[RequiredByFeature("GL_ARB_robustness")]
-		public const int NO_RESET_NOTIFICATION_ARB = 0x8261;
-
-		/// <summary>
 		/// Binding for glGetGraphicsResetStatusARB.
 		/// </summary>
 		[RequiredByFeature("GL_ARB_robustness")]
@@ -143,42 +101,6 @@ namespace OpenGL
 			} finally {
 				pin_img.Free();
 			}
-		}
-
-		/// <summary>
-		/// Binding for glReadnPixelsARB.
-		/// </summary>
-		/// <param name="x">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="y">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="width">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="height">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="format">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="type">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="bufSize">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="data">
-		/// A <see cref="T:IntPtr"/>.
-		/// </param>
-		[RequiredByFeature("GL_ARB_robustness")]
-		public static void ReadnPixelsARB(Int32 x, Int32 y, Int32 width, Int32 height, int format, int type, Int32 bufSize, IntPtr data)
-		{
-			Debug.Assert(Delegates.pglReadnPixelsARB != null, "pglReadnPixelsARB not implemented");
-			Delegates.pglReadnPixelsARB(x, y, width, height, format, type, bufSize, data);
-			CallLog("glReadnPixelsARB({0}, {1}, {2}, {3}, {4}, {5}, {6}, {7})", x, y, width, height, format, type, bufSize, data);
-			DebugCheckErrors();
 		}
 
 		/// <summary>

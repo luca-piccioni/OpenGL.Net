@@ -80,28 +80,6 @@ namespace OpenGL
 		public const int VG_COLORSPACE = 0x3087;
 
 		/// <summary>
-		/// Value of EGL_VG_COLORSPACE_sRGB symbol.
-		/// </summary>
-		/// <remarks>
-		/// <para>
-		/// This enumerant is equaivalent to COLORSPACE_sRGB.
-		/// </para>
-		/// </remarks>
-		[RequiredByFeature("EGL_VERSION_1_3")]
-		public const int VG_COLORSPACE_sRGB = 0x3089;
-
-		/// <summary>
-		/// Value of EGL_VG_COLORSPACE_LINEAR symbol.
-		/// </summary>
-		/// <remarks>
-		/// <para>
-		/// This enumerant is equaivalent to COLORSPACE_LINEAR.
-		/// </para>
-		/// </remarks>
-		[RequiredByFeature("EGL_VERSION_1_3")]
-		public const int VG_COLORSPACE_LINEAR = 0x308A;
-
-		/// <summary>
 		/// Value of EGL_VG_COLORSPACE_LINEAR_BIT symbol.
 		/// </summary>
 		[RequiredByFeature("EGL_VERSION_1_3")]

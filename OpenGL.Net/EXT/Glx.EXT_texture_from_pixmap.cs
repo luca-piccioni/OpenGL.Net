@@ -152,28 +152,6 @@ namespace OpenGL
 		public const int BACK_RIGHT_EXT = 0x20E1;
 
 		/// <summary>
-		/// Value of GLX_FRONT_EXT symbol.
-		/// </summary>
-		/// <remarks>
-		/// <para>
-		/// This enumerant is equaivalent to FRONT_LEFT_EXT.
-		/// </para>
-		/// </remarks>
-		[RequiredByFeature("GLX_EXT_texture_from_pixmap")]
-		public const int FRONT_EXT = 0x20DE;
-
-		/// <summary>
-		/// Value of GLX_BACK_EXT symbol.
-		/// </summary>
-		/// <remarks>
-		/// <para>
-		/// This enumerant is equaivalent to BACK_LEFT_EXT.
-		/// </para>
-		/// </remarks>
-		[RequiredByFeature("GLX_EXT_texture_from_pixmap")]
-		public const int BACK_EXT = 0x20E0;
-
-		/// <summary>
 		/// Value of GLX_AUX0_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GLX_EXT_texture_from_pixmap")]

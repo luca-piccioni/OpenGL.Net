@@ -40,18 +40,6 @@ namespace OpenGL
 			DebugCheckErrors();
 		}
 
-		/// <summary>
-		/// Binding for glEndConditionalRenderNVX.
-		/// </summary>
-		[RequiredByFeature("GL_NVX_conditional_render")]
-		public static void EndConditionalRenderNVX()
-		{
-			Debug.Assert(Delegates.pglEndConditionalRenderNVX != null, "pglEndConditionalRenderNVX not implemented");
-			Delegates.pglEndConditionalRenderNVX();
-			CallLog("glEndConditionalRenderNVX()");
-			DebugCheckErrors();
-		}
-
 	}
 
 }

@@ -26,66 +26,6 @@ namespace OpenGL
 	public partial class Glx
 	{
 		/// <summary>
-		/// Value of GLX_WINDOW_BIT_SGIX symbol.
-		/// </summary>
-		[RequiredByFeature("GLX_SGIX_fbconfig")]
-		public const uint WINDOW_BIT_SGIX = 0x00000001;
-
-		/// <summary>
-		/// Value of GLX_PIXMAP_BIT_SGIX symbol.
-		/// </summary>
-		[RequiredByFeature("GLX_SGIX_fbconfig")]
-		public const uint PIXMAP_BIT_SGIX = 0x00000002;
-
-		/// <summary>
-		/// Value of GLX_RGBA_BIT_SGIX symbol.
-		/// </summary>
-		[RequiredByFeature("GLX_SGIX_fbconfig")]
-		public const uint RGBA_BIT_SGIX = 0x00000001;
-
-		/// <summary>
-		/// Value of GLX_COLOR_INDEX_BIT_SGIX symbol.
-		/// </summary>
-		[RequiredByFeature("GLX_SGIX_fbconfig")]
-		public const uint COLOR_INDEX_BIT_SGIX = 0x00000002;
-
-		/// <summary>
-		/// Value of GLX_DRAWABLE_TYPE_SGIX symbol.
-		/// </summary>
-		[RequiredByFeature("GLX_SGIX_fbconfig")]
-		public const int DRAWABLE_TYPE_SGIX = 0x8010;
-
-		/// <summary>
-		/// Value of GLX_RENDER_TYPE_SGIX symbol.
-		/// </summary>
-		[RequiredByFeature("GLX_SGIX_fbconfig")]
-		public const int RENDER_TYPE_SGIX = 0x8011;
-
-		/// <summary>
-		/// Value of GLX_X_RENDERABLE_SGIX symbol.
-		/// </summary>
-		[RequiredByFeature("GLX_SGIX_fbconfig")]
-		public const int X_RENDERABLE_SGIX = 0x8012;
-
-		/// <summary>
-		/// Value of GLX_FBCONFIG_ID_SGIX symbol.
-		/// </summary>
-		[RequiredByFeature("GLX_SGIX_fbconfig")]
-		public const int FBCONFIG_ID_SGIX = 0x8013;
-
-		/// <summary>
-		/// Value of GLX_RGBA_TYPE_SGIX symbol.
-		/// </summary>
-		[RequiredByFeature("GLX_SGIX_fbconfig")]
-		public const int RGBA_TYPE_SGIX = 0x8014;
-
-		/// <summary>
-		/// Value of GLX_COLOR_INDEX_TYPE_SGIX symbol.
-		/// </summary>
-		[RequiredByFeature("GLX_SGIX_fbconfig")]
-		public const int COLOR_INDEX_TYPE_SGIX = 0x8015;
-
-		/// <summary>
 		/// Binding for glXGetFBConfigAttribSGIX.
 		/// </summary>
 		/// <param name="dpy">

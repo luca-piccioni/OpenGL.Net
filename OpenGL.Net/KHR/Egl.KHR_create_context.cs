@@ -26,76 +26,10 @@ namespace OpenGL
 	public partial class Egl
 	{
 		/// <summary>
-		/// Value of EGL_CONTEXT_MAJOR_VERSION_KHR symbol.
-		/// </summary>
-		/// <remarks>
-		/// <para>
-		/// This enumerant is equaivalent to CONTEXT_CLIENT_VERSION.
-		/// </para>
-		/// </remarks>
-		[RequiredByFeature("EGL_KHR_create_context")]
-		public const int CONTEXT_MAJOR_VERSION_KHR = 0x3098;
-
-		/// <summary>
-		/// Value of EGL_CONTEXT_MINOR_VERSION_KHR symbol.
-		/// </summary>
-		/// <remarks>
-		/// <para>
-		/// This enumerant is equaivalent to CONTEXT_MINOR_VERSION.
-		/// </para>
-		/// </remarks>
-		[RequiredByFeature("EGL_KHR_create_context")]
-		public const int CONTEXT_MINOR_VERSION_KHR = 0x30FB;
-
-		/// <summary>
 		/// Value of EGL_CONTEXT_FLAGS_KHR symbol.
 		/// </summary>
 		[RequiredByFeature("EGL_KHR_create_context")]
 		public const int CONTEXT_FLAGS_KHR = 0x30FC;
-
-		/// <summary>
-		/// Value of EGL_CONTEXT_OPENGL_PROFILE_MASK_KHR symbol.
-		/// </summary>
-		/// <remarks>
-		/// <para>
-		/// This enumerant is equaivalent to CONTEXT_OPENGL_PROFILE_MASK.
-		/// </para>
-		/// </remarks>
-		[RequiredByFeature("EGL_KHR_create_context")]
-		public const int CONTEXT_OPENGL_PROFILE_MASK_KHR = 0x30FD;
-
-		/// <summary>
-		/// Value of EGL_CONTEXT_OPENGL_RESET_NOTIFICATION_STRATEGY_KHR symbol.
-		/// </summary>
-		/// <remarks>
-		/// <para>
-		/// This enumerant is equaivalent to CONTEXT_OPENGL_RESET_NOTIFICATION_STRATEGY.
-		/// </para>
-		/// </remarks>
-		[RequiredByFeature("EGL_KHR_create_context")]
-		public const int CONTEXT_OPENGL_RESET_NOTIFICATION_STRATEGY_KHR = 0x31BD;
-
-		/// <summary>
-		/// Value of EGL_NO_RESET_NOTIFICATION_KHR symbol.
-		/// </summary>
-		/// <remarks>
-		/// <para>
-		/// This enumerant is equaivalent to NO_RESET_NOTIFICATION.
-		/// </para>
-		/// </remarks>
-		[RequiredByFeature("EGL_KHR_create_context")]
-		public const int NO_RESET_NOTIFICATION_KHR = 0x31BE;
-
-		/// <summary>
-		/// Value of EGL_LOSE_CONTEXT_ON_RESET_KHR symbol.
-		/// </summary>
-		/// <remarks>
-		/// <para>
-		/// This enumerant is equaivalent to LOSE_CONTEXT_ON_RESET.
-		/// </para>
-		/// </remarks>
-		[RequiredByFeature("EGL_KHR_create_context")]
-		public const int LOSE_CONTEXT_ON_RESET_KHR = 0x31BF;
 
 		/// <summary>
 		/// Value of EGL_CONTEXT_OPENGL_DEBUG_BIT_KHR symbol.
@@ -114,39 +48,6 @@ namespace OpenGL
 		/// </summary>
 		[RequiredByFeature("EGL_KHR_create_context")]
 		public const uint CONTEXT_OPENGL_ROBUST_ACCESS_BIT_KHR = 0x00000004;
-
-		/// <summary>
-		/// Value of EGL_CONTEXT_OPENGL_CORE_PROFILE_BIT_KHR symbol.
-		/// </summary>
-		/// <remarks>
-		/// <para>
-		/// This enumerant is equaivalent to CONTEXT_OPENGL_CORE_PROFILE_BIT.
-		/// </para>
-		/// </remarks>
-		[RequiredByFeature("EGL_KHR_create_context")]
-		public const uint CONTEXT_OPENGL_CORE_PROFILE_BIT_KHR = 0x00000001;
-
-		/// <summary>
-		/// Value of EGL_CONTEXT_OPENGL_COMPATIBILITY_PROFILE_BIT_KHR symbol.
-		/// </summary>
-		/// <remarks>
-		/// <para>
-		/// This enumerant is equaivalent to CONTEXT_OPENGL_COMPATIBILITY_PROFILE_BIT.
-		/// </para>
-		/// </remarks>
-		[RequiredByFeature("EGL_KHR_create_context")]
-		public const uint CONTEXT_OPENGL_COMPATIBILITY_PROFILE_BIT_KHR = 0x00000002;
-
-		/// <summary>
-		/// Value of EGL_OPENGL_ES3_BIT_KHR symbol.
-		/// </summary>
-		/// <remarks>
-		/// <para>
-		/// This enumerant is equaivalent to OPENGL_ES3_BIT.
-		/// </para>
-		/// </remarks>
-		[RequiredByFeature("EGL_KHR_create_context")]
-		public const uint OPENGL_ES3_BIT_KHR = 0x00000040;
 
 	}
 

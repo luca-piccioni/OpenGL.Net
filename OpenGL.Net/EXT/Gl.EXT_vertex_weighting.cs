@@ -56,18 +56,6 @@ namespace OpenGL
 		public const int VERTEX_WEIGHTING_EXT = 0x8509;
 
 		/// <summary>
-		/// Value of GL_MODELVIEW0_EXT symbol.
-		/// </summary>
-		[RequiredByFeature("GL_EXT_vertex_weighting")]
-		public const int MODELVIEW0_EXT = 0x1700;
-
-		/// <summary>
-		/// Value of GL_MODELVIEW1_EXT symbol.
-		/// </summary>
-		[RequiredByFeature("GL_EXT_vertex_weighting")]
-		public const int MODELVIEW1_EXT = 0x850A;
-
-		/// <summary>
 		/// Value of GL_CURRENT_VERTEX_WEIGHT_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_vertex_weighting")]

@@ -26,18 +26,6 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Value of GL_MIN_PROGRAM_TEXTURE_GATHER_OFFSET_ARB symbol.
-		/// </summary>
-		[RequiredByFeature("GL_ARB_texture_gather")]
-		public const int MIN_PROGRAM_TEXTURE_GATHER_OFFSET_ARB = 0x8E5E;
-
-		/// <summary>
-		/// Value of GL_MAX_PROGRAM_TEXTURE_GATHER_OFFSET_ARB symbol.
-		/// </summary>
-		[RequiredByFeature("GL_ARB_texture_gather")]
-		public const int MAX_PROGRAM_TEXTURE_GATHER_OFFSET_ARB = 0x8E5F;
-
-		/// <summary>
 		/// Value of GL_MAX_PROGRAM_TEXTURE_GATHER_COMPONENTS_ARB symbol.
 		/// </summary>
 		[RequiredByFeature("GL_ARB_texture_gather")]

@@ -26,22 +26,10 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Value of GL_MULTISAMPLE_EXT symbol.
-		/// </summary>
-		[RequiredByFeature("GL_EXT_multisample")]
-		public const int MULTISAMPLE_EXT = 0x809D;
-
-		/// <summary>
 		/// Value of GL_SAMPLE_ALPHA_TO_MASK_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_multisample")]
 		public const int SAMPLE_ALPHA_TO_MASK_EXT = 0x809E;
-
-		/// <summary>
-		/// Value of GL_SAMPLE_ALPHA_TO_ONE_EXT symbol.
-		/// </summary>
-		[RequiredByFeature("GL_EXT_multisample")]
-		public const int SAMPLE_ALPHA_TO_ONE_EXT = 0x809F;
 
 		/// <summary>
 		/// Value of GL_SAMPLE_MASK_EXT symbol.
@@ -92,18 +80,6 @@ namespace OpenGL
 		public const int _4PASS_3_EXT = 0x80A7;
 
 		/// <summary>
-		/// Value of GL_SAMPLE_BUFFERS_EXT symbol.
-		/// </summary>
-		[RequiredByFeature("GL_EXT_multisample")]
-		public const int SAMPLE_BUFFERS_EXT = 0x80A8;
-
-		/// <summary>
-		/// Value of GL_SAMPLES_EXT symbol.
-		/// </summary>
-		[RequiredByFeature("GL_EXT_multisample")]
-		public const int SAMPLES_EXT = 0x80A9;
-
-		/// <summary>
 		/// Value of GL_SAMPLE_MASK_VALUE_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_multisample")]
@@ -120,12 +96,6 @@ namespace OpenGL
 		/// </summary>
 		[RequiredByFeature("GL_EXT_multisample")]
 		public const int SAMPLE_PATTERN_EXT = 0x80AC;
-
-		/// <summary>
-		/// Value of GL_MULTISAMPLE_BIT_EXT symbol.
-		/// </summary>
-		[RequiredByFeature("GL_EXT_multisample")]
-		public const uint MULTISAMPLE_BIT_EXT = 0x20000000;
 
 		/// <summary>
 		/// Binding for glSampleMaskEXT.

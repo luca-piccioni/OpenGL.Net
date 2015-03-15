@@ -32,32 +32,10 @@ namespace OpenGL
 		public const int MAX_COMPUTE_VARIABLE_GROUP_INVOCATIONS_ARB = 0x9344;
 
 		/// <summary>
-		/// Value of GL_MAX_COMPUTE_FIXED_GROUP_INVOCATIONS_ARB symbol.
-		/// </summary>
-		/// <remarks>
-		/// <para>
-		/// This enumerant is equaivalent to MAX_COMPUTE_WORK_GROUP_INVOCATIONS.
-		/// </para>
-		/// </remarks>
-		[RequiredByFeature("GL_ARB_compute_variable_group_size")]
-		public const int MAX_COMPUTE_FIXED_GROUP_INVOCATIONS_ARB = 0x90EB;
-
-		/// <summary>
 		/// Value of GL_MAX_COMPUTE_VARIABLE_GROUP_SIZE_ARB symbol.
 		/// </summary>
 		[RequiredByFeature("GL_ARB_compute_variable_group_size")]
 		public const int MAX_COMPUTE_VARIABLE_GROUP_SIZE_ARB = 0x9345;
-
-		/// <summary>
-		/// Value of GL_MAX_COMPUTE_FIXED_GROUP_SIZE_ARB symbol.
-		/// </summary>
-		/// <remarks>
-		/// <para>
-		/// This enumerant is equaivalent to MAX_COMPUTE_WORK_GROUP_SIZE.
-		/// </para>
-		/// </remarks>
-		[RequiredByFeature("GL_ARB_compute_variable_group_size")]
-		public const int MAX_COMPUTE_FIXED_GROUP_SIZE_ARB = 0x91BF;
 
 		/// <summary>
 		/// Binding for glDispatchComputeGroupSizeARB.

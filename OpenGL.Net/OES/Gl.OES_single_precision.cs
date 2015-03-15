@@ -26,21 +26,6 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Binding for glClearDepthfOES.
-		/// </summary>
-		/// <param name="depth">
-		/// A <see cref="T:float"/>.
-		/// </param>
-		[RequiredByFeature("GL_OES_single_precision")]
-		public static void ClearDepthOES(float depth)
-		{
-			Debug.Assert(Delegates.pglClearDepthfOES != null, "pglClearDepthfOES not implemented");
-			Delegates.pglClearDepthfOES(depth);
-			CallLog("glClearDepthfOES({0})", depth);
-			DebugCheckErrors();
-		}
-
-		/// <summary>
 		/// Binding for glClipPlanefOES.
 		/// </summary>
 		/// <param name="plane">
@@ -60,24 +45,6 @@ namespace OpenGL
 					CallLog("glClipPlanefOES({0}, {1})", plane, equation);
 				}
 			}
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// Binding for glDepthRangefOES.
-		/// </summary>
-		/// <param name="n">
-		/// A <see cref="T:float"/>.
-		/// </param>
-		/// <param name="f">
-		/// A <see cref="T:float"/>.
-		/// </param>
-		[RequiredByFeature("GL_OES_single_precision")]
-		public static void DepthRangeOES(float n, float f)
-		{
-			Debug.Assert(Delegates.pglDepthRangefOES != null, "pglDepthRangefOES not implemented");
-			Delegates.pglDepthRangefOES(n, f);
-			CallLog("glDepthRangefOES({0}, {1})", n, f);
 			DebugCheckErrors();
 		}
 

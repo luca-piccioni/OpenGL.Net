@@ -26,18 +26,6 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Value of GL_MIN_PROGRAM_TEXEL_OFFSET_NV symbol.
-		/// </summary>
-		[RequiredByFeature("GL_NV_gpu_program4")]
-		public const int MIN_PROGRAM_TEXEL_OFFSET_NV = 0x8904;
-
-		/// <summary>
-		/// Value of GL_MAX_PROGRAM_TEXEL_OFFSET_NV symbol.
-		/// </summary>
-		[RequiredByFeature("GL_NV_gpu_program4")]
-		public const int MAX_PROGRAM_TEXEL_OFFSET_NV = 0x8905;
-
-		/// <summary>
 		/// Value of GL_PROGRAM_ATTRIB_COMPONENTS_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_gpu_program4")]

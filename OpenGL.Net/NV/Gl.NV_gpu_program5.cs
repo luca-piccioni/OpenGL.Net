@@ -32,34 +32,10 @@ namespace OpenGL
 		public const int MAX_GEOMETRY_PROGRAM_INVOCATIONS_NV = 0x8E5A;
 
 		/// <summary>
-		/// Value of GL_MIN_FRAGMENT_INTERPOLATION_OFFSET_NV symbol.
-		/// </summary>
-		[RequiredByFeature("GL_NV_gpu_program5")]
-		public const int MIN_FRAGMENT_INTERPOLATION_OFFSET_NV = 0x8E5B;
-
-		/// <summary>
-		/// Value of GL_MAX_FRAGMENT_INTERPOLATION_OFFSET_NV symbol.
-		/// </summary>
-		[RequiredByFeature("GL_NV_gpu_program5")]
-		public const int MAX_FRAGMENT_INTERPOLATION_OFFSET_NV = 0x8E5C;
-
-		/// <summary>
 		/// Value of GL_FRAGMENT_PROGRAM_INTERPOLATION_OFFSET_BITS_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_gpu_program5")]
 		public const int FRAGMENT_PROGRAM_INTERPOLATION_OFFSET_BITS_NV = 0x8E5D;
-
-		/// <summary>
-		/// Value of GL_MIN_PROGRAM_TEXTURE_GATHER_OFFSET_NV symbol.
-		/// </summary>
-		[RequiredByFeature("GL_NV_gpu_program5")]
-		public const int MIN_PROGRAM_TEXTURE_GATHER_OFFSET_NV = 0x8E5E;
-
-		/// <summary>
-		/// Value of GL_MAX_PROGRAM_TEXTURE_GATHER_OFFSET_NV symbol.
-		/// </summary>
-		[RequiredByFeature("GL_NV_gpu_program5")]
-		public const int MAX_PROGRAM_TEXTURE_GATHER_OFFSET_NV = 0x8E5F;
 
 		/// <summary>
 		/// Value of GL_MAX_PROGRAM_SUBROUTINE_PARAMETERS_NV symbol.

@@ -50,28 +50,6 @@ namespace OpenGL
 		public const int UNSIGNALED_NV = 0x30E9;
 
 		/// <summary>
-		/// Value of EGL_SYNC_FLUSH_COMMANDS_BIT_NV symbol.
-		/// </summary>
-		/// <remarks>
-		/// <para>
-		/// This enumerant is equaivalent to SYNC_FLUSH_COMMANDS_BIT.
-		/// </para>
-		/// </remarks>
-		[RequiredByFeature("EGL_NV_sync")]
-		public const int SYNC_FLUSH_COMMANDS_BIT_NV = 0x0001;
-
-		/// <summary>
-		/// Value of EGL_FOREVER_NV symbol.
-		/// </summary>
-		/// <remarks>
-		/// <para>
-		/// This enumerant is equaivalent to FOREVER.
-		/// </para>
-		/// </remarks>
-		[RequiredByFeature("EGL_NV_sync")]
-		public const ulong FOREVER_NV = 0xFFFFFFFFFFFFF;
-
-		/// <summary>
 		/// Value of EGL_ALREADY_SIGNALED_NV symbol.
 		/// </summary>
 		[RequiredByFeature("EGL_NV_sync")]
@@ -106,17 +84,6 @@ namespace OpenGL
 		/// </summary>
 		[RequiredByFeature("EGL_NV_sync")]
 		public const int SYNC_FENCE_NV = 0x30EF;
-
-		/// <summary>
-		/// Value of EGL_NO_SYNC_NV symbol.
-		/// </summary>
-		/// <remarks>
-		/// <para>
-		/// This enumerant is equaivalent to NO_SYNC.
-		/// </para>
-		/// </remarks>
-		[RequiredByFeature("EGL_NV_sync")]
-		public const int NO_SYNC_NV = 0;
 
 		/// <summary>
 		/// Binding for eglCreateFenceSyncNV.

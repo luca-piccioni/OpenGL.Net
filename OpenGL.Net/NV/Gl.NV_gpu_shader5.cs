@@ -34,14 +34,6 @@ namespace OpenGL
 		public const int INT64_NV = 0x140E;
 
 		/// <summary>
-		/// Value of GL_UNSIGNED_INT64_NV symbol.
-		/// </summary>
-		[RequiredByFeature("GL_AMD_gpu_shader_int64")]
-		[RequiredByFeature("GL_NV_gpu_shader5")]
-		[RequiredByFeature("GL_NV_vertex_attrib_integer_64bit")]
-		public const int UNSIGNED_INT64_NV = 0x140F;
-
-		/// <summary>
 		/// Value of GL_INT8_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_AMD_gpu_shader_int64")]

@@ -76,7 +76,13 @@ namespace BindingsGen.GLSpecs
 
 		#endregion
 
-		#region Deprecation
+		#region Promotion and Deprecation
+
+		/// <summary>
+		/// Enumerant alias.
+		/// </summary>
+		[XmlIgnore]
+		public Enumerant EnumAlias;
 
 		/// <summary>
 		/// Determine whether this enumerant is deprecated.
@@ -123,10 +129,13 @@ namespace BindingsGen.GLSpecs
 
 			// Features
 			foreach (Feature feature in ctx.Registry.Features) {
-				if (feature.Api != null && feature.Api != ctx.Class.ToLowerInvariant())
+				if (feature.Api != null && !Regex.IsMatch(ctx.Class.ToLowerInvariant(), feature.Api))
 					continue;
 
 				int requirementIndex = feature.Requirements.FindIndex(delegate(FeatureCommand item) {
+					if (item.Api != null && !Regex.IsMatch(ctx.Class.ToLowerInvariant(), item.Api))
+						return (false);
+
 					int enumIndex = item.Enums.FindIndex(delegate(FeatureCommand.Item subitem) {
 						return (subitem.Name == Name);
 					});
@@ -144,6 +153,9 @@ namespace BindingsGen.GLSpecs
 					continue;
 
 				int requirementIndex = extension.Requirements.FindIndex(delegate(FeatureCommand item) {
+					if (item.Api != null && !Regex.IsMatch(ctx.Class.ToLowerInvariant(), item.Api))
+						return (false);
+
 					int enumIndex = item.Enums.FindIndex(delegate(FeatureCommand.Item subitem) {
 						return (subitem.Name == Name);
 					});
@@ -173,10 +185,13 @@ namespace BindingsGen.GLSpecs
 
 			// Features
 			foreach (Feature feature in ctx.Registry.Features) {
-				if (feature.Api != null && feature.Api != ctx.Class.ToLowerInvariant())
+				if (feature.Api != null && !Regex.IsMatch(ctx.Class.ToLowerInvariant(), feature.Api))
 					continue;
 
 				int requirementIndex = feature.Removals.FindIndex(delegate(FeatureCommand item) {
+					if (item.Api != null && !Regex.IsMatch(ctx.Class.ToLowerInvariant(), item.Api))
+						return (false);
+
 					int enumIndex = item.Enums.FindIndex(delegate(FeatureCommand.Item subitem) {
 						return (subitem.Name == Name);
 					});
@@ -194,12 +209,14 @@ namespace BindingsGen.GLSpecs
 		/// <summary>
 		/// List of <see cref="IFeature"/> that requires this Enumerant.
 		/// </summary>
-		private readonly List<IFeature> RequiredBy = new List<IFeature>();
+		[XmlIgnore]
+		public readonly List<IFeature> RequiredBy = new List<IFeature>();
 
 		/// <summary>
 		/// List of <see cref="IFeature"/> that removes this Enumerant.
 		/// </summary>
-		private readonly List<IFeature> RemovedBy = new List<IFeature>();
+		[XmlIgnore]
+		public readonly List<IFeature> RemovedBy = new List<IFeature>();
 
 		/// <summary>
 		/// Parent <see cref="EnumerantBlock"/> defining this Enumerant.

@@ -38,28 +38,10 @@ namespace OpenGL
 		public const int FRAGMENT_PROGRAM_NV = 0x8870;
 
 		/// <summary>
-		/// Value of GL_MAX_TEXTURE_COORDS_NV symbol.
-		/// </summary>
-		[RequiredByFeature("GL_NV_fragment_program")]
-		public const int MAX_TEXTURE_COORDS_NV = 0x8871;
-
-		/// <summary>
-		/// Value of GL_MAX_TEXTURE_IMAGE_UNITS_NV symbol.
-		/// </summary>
-		[RequiredByFeature("GL_NV_fragment_program")]
-		public const int MAX_TEXTURE_IMAGE_UNITS_NV = 0x8872;
-
-		/// <summary>
 		/// Value of GL_FRAGMENT_PROGRAM_BINDING_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_fragment_program")]
 		public const int FRAGMENT_PROGRAM_BINDING_NV = 0x8873;
-
-		/// <summary>
-		/// Value of GL_PROGRAM_ERROR_STRING_NV symbol.
-		/// </summary>
-		[RequiredByFeature("GL_NV_fragment_program")]
-		public const int PROGRAM_ERROR_STRING_NV = 0x8874;
 
 		/// <summary>
 		/// Binding for glProgramNamedParameter4fNV.

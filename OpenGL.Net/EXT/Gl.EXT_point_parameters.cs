@@ -26,69 +26,10 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Value of GL_POINT_SIZE_MIN_EXT symbol.
-		/// </summary>
-		[RequiredByFeature("GL_EXT_point_parameters")]
-		public const int POINT_SIZE_MIN_EXT = 0x8126;
-
-		/// <summary>
-		/// Value of GL_POINT_SIZE_MAX_EXT symbol.
-		/// </summary>
-		[RequiredByFeature("GL_EXT_point_parameters")]
-		public const int POINT_SIZE_MAX_EXT = 0x8127;
-
-		/// <summary>
-		/// Value of GL_POINT_FADE_THRESHOLD_SIZE_EXT symbol.
-		/// </summary>
-		[RequiredByFeature("GL_EXT_point_parameters")]
-		public const int POINT_FADE_THRESHOLD_SIZE_EXT = 0x8128;
-
-		/// <summary>
 		/// Value of GL_DISTANCE_ATTENUATION_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_point_parameters")]
 		public const int DISTANCE_ATTENUATION_EXT = 0x8129;
-
-		/// <summary>
-		/// Binding for glPointParameterfEXT.
-		/// </summary>
-		/// <param name="pname">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="param">
-		/// A <see cref="T:float"/>.
-		/// </param>
-		[RequiredByFeature("GL_EXT_point_parameters")]
-		public static void PointParameterEXT(int pname, float param)
-		{
-			Debug.Assert(Delegates.pglPointParameterfEXT != null, "pglPointParameterfEXT not implemented");
-			Delegates.pglPointParameterfEXT(pname, param);
-			CallLog("glPointParameterfEXT({0}, {1})", pname, param);
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// Binding for glPointParameterfvEXT.
-		/// </summary>
-		/// <param name="pname">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="params">
-		/// A <see cref="T:float[]"/>.
-		/// </param>
-		[RequiredByFeature("GL_EXT_point_parameters")]
-		public static void PointParameterEXT(int pname, float[] @params)
-		{
-			unsafe {
-				fixed (float* p_params = @params)
-				{
-					Debug.Assert(Delegates.pglPointParameterfvEXT != null, "pglPointParameterfvEXT not implemented");
-					Delegates.pglPointParameterfvEXT(pname, p_params);
-					CallLog("glPointParameterfvEXT({0}, {1})", pname, @params);
-				}
-			}
-			DebugCheckErrors();
-		}
 
 	}
 

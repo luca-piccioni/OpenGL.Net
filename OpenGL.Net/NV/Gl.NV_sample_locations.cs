@@ -50,17 +50,6 @@ namespace OpenGL
 		public const int PROGRAMMABLE_SAMPLE_LOCATION_TABLE_SIZE_NV = 0x9340;
 
 		/// <summary>
-		/// Value of GL_SAMPLE_LOCATION_NV symbol.
-		/// </summary>
-		/// <remarks>
-		/// <para>
-		/// This enumerant is equaivalent to SAMPLE_POSITION_NV.
-		/// </para>
-		/// </remarks>
-		[RequiredByFeature("GL_NV_sample_locations")]
-		public const int SAMPLE_LOCATION_NV = 0x8E50;
-
-		/// <summary>
 		/// Value of GL_PROGRAMMABLE_SAMPLE_LOCATION_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_NV_sample_locations")]

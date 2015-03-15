@@ -26,42 +26,6 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Value of GL_MAX_DEBUG_MESSAGE_LENGTH_AMD symbol.
-		/// </summary>
-		[RequiredByFeature("GL_AMD_debug_output")]
-		public const int MAX_DEBUG_MESSAGE_LENGTH_AMD = 0x9143;
-
-		/// <summary>
-		/// Value of GL_MAX_DEBUG_LOGGED_MESSAGES_AMD symbol.
-		/// </summary>
-		[RequiredByFeature("GL_AMD_debug_output")]
-		public const int MAX_DEBUG_LOGGED_MESSAGES_AMD = 0x9144;
-
-		/// <summary>
-		/// Value of GL_DEBUG_LOGGED_MESSAGES_AMD symbol.
-		/// </summary>
-		[RequiredByFeature("GL_AMD_debug_output")]
-		public const int DEBUG_LOGGED_MESSAGES_AMD = 0x9145;
-
-		/// <summary>
-		/// Value of GL_DEBUG_SEVERITY_HIGH_AMD symbol.
-		/// </summary>
-		[RequiredByFeature("GL_AMD_debug_output")]
-		public const int DEBUG_SEVERITY_HIGH_AMD = 0x9146;
-
-		/// <summary>
-		/// Value of GL_DEBUG_SEVERITY_MEDIUM_AMD symbol.
-		/// </summary>
-		[RequiredByFeature("GL_AMD_debug_output")]
-		public const int DEBUG_SEVERITY_MEDIUM_AMD = 0x9147;
-
-		/// <summary>
-		/// Value of GL_DEBUG_SEVERITY_LOW_AMD symbol.
-		/// </summary>
-		[RequiredByFeature("GL_AMD_debug_output")]
-		public const int DEBUG_SEVERITY_LOW_AMD = 0x9148;
-
-		/// <summary>
 		/// Value of GL_DEBUG_CATEGORY_API_ERROR_AMD symbol.
 		/// </summary>
 		[RequiredByFeature("GL_AMD_debug_output")]
