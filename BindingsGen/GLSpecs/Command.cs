@@ -543,7 +543,7 @@ namespace BindingsGen.GLSpecs
 		{
 #if !DEBUG
 			// Documentation
-			RegistryDocumentation.GenerateCommandDocumentation(sw, ctx, this, commandParams);
+			RegistryDocumentation.GenerateDocumentation(sw, ctx, this, commandParams);
 #endif
 
 			foreach (IFeature feature in RequiredBy)
