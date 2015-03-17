@@ -61,7 +61,8 @@ namespace OpenGL
 		public const int UNSIGNED_INT_10_10_10_2 = 0x8036;
 
 		/// <summary>
-		/// Value of GL_TEXTURE_BINDING_3D symbol.
+		/// Gl.Get: data returns a single value, the name of the texture currently bound to the target Gl.TEXTURE_3D. The initial 
+		/// value is 0. See Gl.BindTexture.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_2")]
 		[RequiredByFeature("GL_VERSION_4_5")]
@@ -69,35 +70,46 @@ namespace OpenGL
 		public const int TEXTURE_BINDING_3D = 0x806A;
 
 		/// <summary>
-		/// Value of GL_PACK_SKIP_IMAGES symbol.
+		/// Gl.Get: data returns one value, the number of pixel images skipped before the first pixel is written into memory. The 
+		/// initial value is 0. See Gl.PixelStore.
 		/// </summary>
 		[AliasOf("GL_PACK_SKIP_IMAGES_EXT")]
 		[RequiredByFeature("GL_VERSION_1_2")]
 		public const int PACK_SKIP_IMAGES = 0x806B;
 
 		/// <summary>
-		/// Value of GL_PACK_IMAGE_HEIGHT symbol.
+		/// Gl.Get: data returns one value, the image height used for writing pixel data to memory. The initial value is 0. See 
+		/// Gl.PixelStore.
 		/// </summary>
 		[AliasOf("GL_PACK_IMAGE_HEIGHT_EXT")]
 		[RequiredByFeature("GL_VERSION_1_2")]
 		public const int PACK_IMAGE_HEIGHT = 0x806C;
 
 		/// <summary>
-		/// Value of GL_UNPACK_SKIP_IMAGES symbol.
+		/// Gl.Get: data returns one value, the number of pixel images skipped before the first pixel is read from memory. The 
+		/// initial value is 0. See Gl.PixelStore.
 		/// </summary>
 		[AliasOf("GL_UNPACK_SKIP_IMAGES_EXT")]
 		[RequiredByFeature("GL_VERSION_1_2")]
 		public const int UNPACK_SKIP_IMAGES = 0x806D;
 
 		/// <summary>
-		/// Value of GL_UNPACK_IMAGE_HEIGHT symbol.
+		/// Gl.Get: data returns one value, the image height used for reading pixel data from memory. The initial is 0. See 
+		/// Gl.PixelStore.
 		/// </summary>
 		[AliasOf("GL_UNPACK_IMAGE_HEIGHT_EXT")]
 		[RequiredByFeature("GL_VERSION_1_2")]
 		public const int UNPACK_IMAGE_HEIGHT = 0x806E;
 
 		/// <summary>
-		/// Value of GL_TEXTURE_3D symbol.
+		/// <para>
+		/// Gl.Get: params returns a single boolean value indicating whether 3D texture mapping is enabled. The initial value is 
+		/// Gl.FALSE. See Gl.TexImage3D.
+		/// </para>
+		/// <para>
+		/// Gl.Enable: if enabled and no fragment shader is active, three-dimensional texturing is performed (unless cube-mapped 
+		/// texturing is also enabled). See Gl.TexImage3D.
+		/// </para>
 		/// </summary>
 		[AliasOf("GL_TEXTURE_3D_EXT")]
 		[RequiredByFeature("GL_VERSION_1_2")]
@@ -112,21 +124,29 @@ namespace OpenGL
 		public const int PROXY_TEXTURE_3D = 0x8070;
 
 		/// <summary>
-		/// Value of GL_TEXTURE_DEPTH symbol.
+		/// Gl.GetTexLevelParameter: params returns a single value, the depth of the texture image. The initial value is 0.
 		/// </summary>
 		[AliasOf("GL_TEXTURE_DEPTH_EXT")]
 		[RequiredByFeature("GL_VERSION_1_2")]
 		public const int TEXTURE_DEPTH = 0x8071;
 
 		/// <summary>
-		/// Value of GL_TEXTURE_WRAP_R symbol.
+		/// <para>
+		/// Gl.GetSamplerParameter: returns the single-valued wrapping function for texture coordinate r, a symbolic constant. The 
+		/// initial value is Gl.REPEAT.
+		/// </para>
+		/// <para>
+		/// Gl.GetTexParameter: returns the single-valued wrapping function for texture coordinate r, a symbolic constant. The 
+		/// initial value is Gl.REPEAT.
+		/// </para>
 		/// </summary>
 		[AliasOf("GL_TEXTURE_WRAP_R_EXT")]
 		[RequiredByFeature("GL_VERSION_1_2")]
 		public const int TEXTURE_WRAP_R = 0x8072;
 
 		/// <summary>
-		/// Value of GL_MAX_3D_TEXTURE_SIZE symbol.
+		/// Gl.Get: data returns one value, a rough estimate of the largest 3D texture that the GL can handle. The value must be at 
+		/// least 64. Use Gl.PROXY_TEXTURE_3D to determine if a texture is too large. See Gl.TexImage3D.
 		/// </summary>
 		[AliasOf("GL_MAX_3D_TEXTURE_SIZE_EXT")]
 		[RequiredByFeature("GL_VERSION_1_2")]
@@ -176,14 +196,67 @@ namespace OpenGL
 		public const int UNSIGNED_INT_2_10_10_10_REV = 0x8368;
 
 		/// <summary>
-		/// Value of GL_BGR symbol.
+		/// <para>
+		/// Gl.ReadPixels: 
+		/// </para>
+		/// <para>
+		/// Gl.TexImage1D: each element is an RGB triple. The GL converts it to floating point and assembles it into an RGBA element 
+		/// by attaching 1 for alpha. Each component is then multiplied by the signed scale factor Gl.c_SCALE, added to the signed 
+		/// bias Gl.c_BIAS, and clamped to the range [0,1] (see Gl.PixelTransfer).
+		/// </para>
+		/// <para>
+		/// Gl.TexImage2D: each element is an RGB triple. The GL converts it to floating point and assembles it into an RGBA element 
+		/// by attaching 1 for alpha. Each component is then multiplied by the signed scale factor Gl.c_SCALE, added to the signed 
+		/// bias Gl.c_BIAS, and clamped to the range [0,1] (see Gl.PixelTransfer).
+		/// </para>
+		/// <para>
+		/// Gl.TexImage3D: each element is an RGB triple. The GL converts it to floating point and assembles it into an RGBA element 
+		/// by attaching 1 for alpha. Each component is then multiplied by the signed scale factor Gl.c_SCALE, added to the signed 
+		/// bias Gl.c_BIAS, and clamped to the range [0,1] (see Gl.PixelTransfer).
+		/// </para>
+		/// <para>
+		/// Gl.DrawPixels: each pixel is a three-component group: red first, followed by green, followed by blue; for Gl.BGR, the 
+		/// first component is blue, followed by green and then red. Each component is converted to the internal floating-point 
+		/// format in the same way the red, green, and blue components of an RGBA pixel are. The color triple is converted to an 
+		/// RGBA pixel with alpha set to 1. After this conversion, the pixel is treated as if it had been read as an RGBA pixel.
+		/// </para>
 		/// </summary>
 		[AliasOf("GL_BGR_EXT")]
 		[RequiredByFeature("GL_VERSION_1_2")]
 		public const int BGR = 0x80E0;
 
 		/// <summary>
-		/// Value of GL_BGRA symbol.
+		/// <para>
+		/// Gl.ReadPixels: 
+		/// </para>
+		/// <para>
+		/// Gl.TexImage1D: each element contains all four components. Each component is multiplied by the signed scale factor 
+		/// Gl.c_SCALE, added to the signed bias Gl.c_BIAS, and clamped to the range [0,1] (see Gl.PixelTransfer).
+		/// </para>
+		/// <para>
+		/// Gl.TexImage2D: each element contains all four components. Each component is multiplied by the signed scale factor 
+		/// Gl.c_SCALE, added to the signed bias Gl.c_BIAS, and clamped to the range [0,1] (see Gl.PixelTransfer).
+		/// </para>
+		/// <para>
+		/// Gl.TexImage3D: each element contains all four components. Each component is multiplied by the signed scale factor 
+		/// Gl.c_SCALE, added to the signed bias Gl.c_BIAS, and clamped to the range [0,1] (see Gl.PixelTransfer).
+		/// </para>
+		/// <para>
+		/// Gl.DrawPixels: each pixel is a four-component group: For Gl.RGBA, the red component is first, followed by green, 
+		/// followed by blue, followed by alpha; for Gl.BGRA the order is blue, green, red and then alpha. Floating-point values are 
+		/// converted directly to an internal floating-point format with unspecified precision. Signed integer values are mapped 
+		/// linearly to the internal floating-point format such that the most positive representable integer value maps to 1.0, and 
+		/// the most negative representable value maps to -1.0. (Note that this mapping does not convert 0 precisely to 0.0.) 
+		/// Unsigned integer data is mapped similarly: The largest integer value maps to 1.0, and 0 maps to 0.0. The resulting 
+		/// floating-point color values are then multiplied by Gl.c_SCALE and added to Gl.c_BIAS, where c is RED, GREEN, BLUE, and 
+		/// ALPHA for the respective color components. The results are clamped to the range 01. If Gl.MAP_COLOR is true, each color 
+		/// component is scaled by the size of lookup table Gl.PIXEL_MAP_c_TO_c, then replaced by the value that it references in 
+		/// that table. c is R, G, B, or A respectively. The GL then converts the resulting RGBA colors to fragments by attaching 
+		/// the current raster position z coordinate and texture coordinates to each pixel, then assigning x and y window 
+		/// coordinates to the nth fragment such that xn=xr+n%widthyn=yr+nwidth where xryr is the current raster position. These 
+		/// pixel fragments are then treated just like the fragments generated by rasterizing points, lines, or polygons. Texture 
+		/// mapping, fog, and all the fragment operations are applied before the fragments are written to the frame buffer.
+		/// </para>
 		/// </summary>
 		[AliasOf("GL_BGRA_EXT")]
 		[RequiredByFeature("GL_VERSION_1_2")]
@@ -192,14 +265,14 @@ namespace OpenGL
 		public const int BGRA = 0x80E1;
 
 		/// <summary>
-		/// Value of GL_MAX_ELEMENTS_VERTICES symbol.
+		/// Gl.Get: data returns one value, the recommended maximum number of vertex array vertices. See Gl.DrawRangeElements.
 		/// </summary>
 		[AliasOf("GL_MAX_ELEMENTS_VERTICES_EXT")]
 		[RequiredByFeature("GL_VERSION_1_2")]
 		public const int MAX_ELEMENTS_VERTICES = 0x80E8;
 
 		/// <summary>
-		/// Value of GL_MAX_ELEMENTS_INDICES symbol.
+		/// Gl.Get: data returns one value, the recommended maximum number of vertex array indices. See Gl.DrawRangeElements.
 		/// </summary>
 		[AliasOf("GL_MAX_ELEMENTS_INDICES_EXT")]
 		[RequiredByFeature("GL_VERSION_1_2")]
@@ -213,41 +286,59 @@ namespace OpenGL
 		public const int CLAMP_TO_EDGE = 0x812F;
 
 		/// <summary>
-		/// Value of GL_TEXTURE_MIN_LOD symbol.
+		/// <para>
+		/// Gl.GetSamplerParameter: returns the single-valued texture minimum level-of-detail value. The initial value is -1000.
+		/// </para>
+		/// <para>
+		/// Gl.GetTexParameter: returns the single-valued texture minimum level-of-detail value. The initial value is -1000.
+		/// </para>
 		/// </summary>
 		[AliasOf("GL_TEXTURE_MIN_LOD_SGIS")]
 		[RequiredByFeature("GL_VERSION_1_2")]
 		public const int TEXTURE_MIN_LOD = 0x813A;
 
 		/// <summary>
-		/// Value of GL_TEXTURE_MAX_LOD symbol.
+		/// <para>
+		/// Gl.GetSamplerParameter: returns the single-valued texture maximum level-of-detail value. The initial value is 1000.
+		/// </para>
+		/// <para>
+		/// Gl.GetTexParameter: returns the single-valued texture maximum level-of-detail value. The initial value is 1000.
+		/// </para>
 		/// </summary>
 		[AliasOf("GL_TEXTURE_MAX_LOD_SGIS")]
 		[RequiredByFeature("GL_VERSION_1_2")]
 		public const int TEXTURE_MAX_LOD = 0x813B;
 
 		/// <summary>
-		/// Value of GL_TEXTURE_BASE_LEVEL symbol.
+		/// Gl.GetTexParameter: returns the single-valued base texture mipmap level. The initial value is 0.
 		/// </summary>
 		[AliasOf("GL_TEXTURE_BASE_LEVEL_SGIS")]
 		[RequiredByFeature("GL_VERSION_1_2")]
 		public const int TEXTURE_BASE_LEVEL = 0x813C;
 
 		/// <summary>
-		/// Value of GL_TEXTURE_MAX_LEVEL symbol.
+		/// Gl.GetTexParameter: returns the single-valued maximum texture mipmap array level. The initial value is 1000.
 		/// </summary>
 		[AliasOf("GL_TEXTURE_MAX_LEVEL_SGIS")]
 		[RequiredByFeature("GL_VERSION_1_2")]
 		public const int TEXTURE_MAX_LEVEL = 0x813D;
 
 		/// <summary>
-		/// Value of GL_ALIASED_LINE_WIDTH_RANGE symbol.
+		/// Gl.Get: data returns a pair of values indicating the range of widths supported for aliased lines. See Gl.LineWidth.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_2")]
 		public const int ALIASED_LINE_WIDTH_RANGE = 0x846E;
 
 		/// <summary>
-		/// Value of GL_RESCALE_NORMAL symbol (DEPRECATED).
+		/// <para>
+		/// Gl.Get: params returns single boolean value indicating whether normal rescaling is enabled. See Gl.Enable.
+		/// </para>
+		/// <para>
+		/// Gl.Enable: if enabled and no vertex shader is active, normal vectors are scaled after transformation and before lighting 
+		/// by a factor computed from the modelview matrix. If the modelview matrix scales space uniformly, this has the effect of 
+		/// restoring the transformed normal to unit length. This method is generally more efficient than Gl.NORMALIZE. See 
+		/// Gl.Normal and Gl.NormalPointer.
+		/// </para>
 		/// </summary>
 		[AliasOf("GL_RESCALE_NORMAL_EXT")]
 		[RequiredByFeature("GL_VERSION_1_2")]
@@ -258,7 +349,17 @@ namespace OpenGL
 		public const int RESCALE_NORMAL = 0x803A;
 
 		/// <summary>
-		/// Value of GL_LIGHT_MODEL_COLOR_CONTROL symbol (DEPRECATED).
+		/// <para>
+		/// Gl.Get: params returns single enumerated value indicating whether specular reflection calculations are separated from 
+		/// normal lighting computations. The initial value is Gl.SINGLE_COLOR.
+		/// </para>
+		/// <para>
+		/// Gl.LightModel: params must be either Gl.SEPARATE_SPECULAR_COLOR or Gl.SINGLE_COLOR. Gl.SINGLE_COLOR specifies that a 
+		/// single color is generated from the lighting computation for a vertex. Gl.SEPARATE_SPECULAR_COLOR specifies that the 
+		/// specular color computation of lighting be stored separately from the remainder of the lighting computation. The specular 
+		/// color is summed into the generated fragment's color after the application of texture mapping (if enabled). The initial 
+		/// value is Gl.SINGLE_COLOR.
+		/// </para>
 		/// </summary>
 		[AliasOf("GL_LIGHT_MODEL_COLOR_CONTROL_EXT")]
 		[RequiredByFeature("GL_VERSION_1_2")]
@@ -291,7 +392,7 @@ namespace OpenGL
 		public const int SEPARATE_SPECULAR_COLOR = 0x81FA;
 
 		/// <summary>
-		/// Value of GL_ALIASED_POINT_SIZE_RANGE symbol (DEPRECATED).
+		/// Gl.Get: params returns two values, the smallest and largest supported sizes for aliased points.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_2")]
 		[RemovedByFeature("GL_VERSION_3_2")]

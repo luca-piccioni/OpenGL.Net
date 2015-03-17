@@ -90,14 +90,15 @@ namespace OpenGL
 		public const int NUM_SAMPLE_COUNTS = 0x9380;
 
 		/// <summary>
-		/// Value of GL_MIN_MAP_BUFFER_ALIGNMENT symbol.
+		/// Gl.Get: data returns one value, the minimum alignment in basic machine units of pointers returned fromGl.MapBuffer and 
+		/// Gl.MapBufferRange. This value must be a power of two and must be at least 64.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_2")]
 		[RequiredByFeature("GL_ARB_map_buffer_alignment")]
 		public const int MIN_MAP_BUFFER_ALIGNMENT = 0x90BC;
 
 		/// <summary>
-		/// Value of GL_ATOMIC_COUNTER_BUFFER symbol.
+		/// Gl.GetProgramInterface: the query is targeted at the set of active atomic counter buffer binding points within program.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_2")]
 		[RequiredByFeature("GL_ARB_program_interface_query")]
@@ -224,42 +225,42 @@ namespace OpenGL
 		public const int MAX_COMBINED_ATOMIC_COUNTER_BUFFERS = 0x92D1;
 
 		/// <summary>
-		/// Value of GL_MAX_VERTEX_ATOMIC_COUNTERS symbol.
+		/// Gl.Get: data returns a single value, the maximum number of atomic counters available to vertex shaders.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_2")]
 		[RequiredByFeature("GL_ARB_shader_atomic_counters")]
 		public const int MAX_VERTEX_ATOMIC_COUNTERS = 0x92D2;
 
 		/// <summary>
-		/// Value of GL_MAX_TESS_CONTROL_ATOMIC_COUNTERS symbol.
+		/// Gl.Get: data returns a single value, the maximum number of atomic counters available to tessellation control shaders.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_2")]
 		[RequiredByFeature("GL_ARB_shader_atomic_counters")]
 		public const int MAX_TESS_CONTROL_ATOMIC_COUNTERS = 0x92D3;
 
 		/// <summary>
-		/// Value of GL_MAX_TESS_EVALUATION_ATOMIC_COUNTERS symbol.
+		/// Gl.Get: data returns a single value, the maximum number of atomic counters available to tessellation evaluation shaders.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_2")]
 		[RequiredByFeature("GL_ARB_shader_atomic_counters")]
 		public const int MAX_TESS_EVALUATION_ATOMIC_COUNTERS = 0x92D4;
 
 		/// <summary>
-		/// Value of GL_MAX_GEOMETRY_ATOMIC_COUNTERS symbol.
+		/// Gl.Get: data returns a single value, the maximum number of atomic counters available to geometry shaders.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_2")]
 		[RequiredByFeature("GL_ARB_shader_atomic_counters")]
 		public const int MAX_GEOMETRY_ATOMIC_COUNTERS = 0x92D5;
 
 		/// <summary>
-		/// Value of GL_MAX_FRAGMENT_ATOMIC_COUNTERS symbol.
+		/// Gl.Get: data returns a single value, the maximum number of atomic counters available to fragment shaders.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_2")]
 		[RequiredByFeature("GL_ARB_shader_atomic_counters")]
 		public const int MAX_FRAGMENT_ATOMIC_COUNTERS = 0x92D6;
 
 		/// <summary>
-		/// Value of GL_MAX_COMBINED_ATOMIC_COUNTERS symbol.
+		/// Gl.Get: data returns a single value, the maximum number of atomic counters available to all active shaders.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_2")]
 		[RequiredByFeature("GL_ARB_shader_atomic_counters")]
@@ -280,7 +281,7 @@ namespace OpenGL
 		public const int MAX_ATOMIC_COUNTER_BUFFER_BINDINGS = 0x92DC;
 
 		/// <summary>
-		/// Value of GL_ACTIVE_ATOMIC_COUNTER_BUFFERS symbol.
+		/// Gl.GetProgram: params returns the number of active attribute atomic counter buffers used by program.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_2")]
 		[RequiredByFeature("GL_ARB_shader_atomic_counters")]
@@ -742,7 +743,8 @@ namespace OpenGL
 		public const int IMAGE_BINDING_FORMAT = 0x906E;
 
 		/// <summary>
-		/// Value of GL_IMAGE_FORMAT_COMPATIBILITY_TYPE symbol.
+		/// Gl.GetTexParameter: returns the matching criteria use for the texture when used as an image texture. Can return 
+		/// Gl.IMAGE_FORMAT_COMPATIBILITY_BY_SIZE, Gl.IMAGE_FORMAT_COMPATIBILITY_BY_CLASS or Gl.NONE.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_2")]
 		[RequiredByFeature("GL_ARB_internalformat_query2")]
@@ -834,7 +836,8 @@ namespace OpenGL
 		public const int COMPRESSED_RGB_BPTC_UNSIGNED_FLOAT = 0x8E8F;
 
 		/// <summary>
-		/// Value of GL_TEXTURE_IMMUTABLE_FORMAT symbol.
+		/// Gl.GetTexParameter: returns non-zero if the texture has an immutable format. Textures become immutable if their storage 
+		/// is specified with Gl.TexStorage1D, Gl.TexStorage2D or Gl.TexStorage3D. The initial value is Gl.FALSE.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_2")]
 		[RequiredByFeature("GL_ARB_texture_storage")]

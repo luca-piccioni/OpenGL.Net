@@ -70,7 +70,8 @@ namespace OpenGL
 		public const int TRIANGLE_STRIP_ADJACENCY = 0x000D;
 
 		/// <summary>
-		/// Value of GL_MAX_GEOMETRY_TEXTURE_IMAGE_UNITS symbol.
+		/// Gl.Get: data returns one value, the maximum supported texture image units that can be used to access texture maps from 
+		/// the geometry shader. The value must be at least 16. See Gl.ActiveTexture.
 		/// </summary>
 		[AliasOf("GL_MAX_GEOMETRY_TEXTURE_IMAGE_UNITS_ARB")]
 		[AliasOf("GL_MAX_GEOMETRY_TEXTURE_IMAGE_UNITS_EXT")]
@@ -102,25 +103,28 @@ namespace OpenGL
 		public const int GEOMETRY_SHADER = 0x8DD9;
 
 		/// <summary>
-		/// Value of GL_GEOMETRY_VERTICES_OUT symbol.
+		/// Gl.GetProgram: params returns the maximum number of vertices that the geometry shader in program will output.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_3_2")]
 		public const int GEOMETRY_VERTICES_OUT = 0x8916;
 
 		/// <summary>
-		/// Value of GL_GEOMETRY_INPUT_TYPE symbol.
+		/// Gl.GetProgram: params returns a symbolic constant indicating the primitive type accepted as input to the geometry shader 
+		/// contained in program.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_3_2")]
 		public const int GEOMETRY_INPUT_TYPE = 0x8917;
 
 		/// <summary>
-		/// Value of GL_GEOMETRY_OUTPUT_TYPE symbol.
+		/// Gl.GetProgram: params returns a symbolic constant indicating the primitive type that will be output by the geometry 
+		/// shader contained in program.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_3_2")]
 		public const int GEOMETRY_OUTPUT_TYPE = 0x8918;
 
 		/// <summary>
-		/// Value of GL_MAX_GEOMETRY_UNIFORM_COMPONENTS symbol.
+		/// Gl.Get: data returns one value, the maximum number of individual floating-point, integer, or boolean values that can be 
+		/// held in uniform variable storage for a geometry shader. The value must be at least 1024. See Gl.Uniform.
 		/// </summary>
 		[AliasOf("GL_MAX_GEOMETRY_UNIFORM_COMPONENTS_ARB")]
 		[AliasOf("GL_MAX_GEOMETRY_UNIFORM_COMPONENTS_EXT")]
@@ -144,25 +148,29 @@ namespace OpenGL
 		public const int MAX_GEOMETRY_TOTAL_OUTPUT_COMPONENTS = 0x8DE1;
 
 		/// <summary>
-		/// Value of GL_MAX_VERTEX_OUTPUT_COMPONENTS symbol.
+		/// Gl.Get: data returns one value, the maximum number of components of output written by a vertex shader, which must be at 
+		/// least 64.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_3_2")]
 		public const int MAX_VERTEX_OUTPUT_COMPONENTS = 0x9122;
 
 		/// <summary>
-		/// Value of GL_MAX_GEOMETRY_INPUT_COMPONENTS symbol.
+		/// Gl.Get: data returns one value, the maximum number of components of inputs read by a geometry shader, which must be at 
+		/// least 64.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_3_2")]
 		public const int MAX_GEOMETRY_INPUT_COMPONENTS = 0x9123;
 
 		/// <summary>
-		/// Value of GL_MAX_GEOMETRY_OUTPUT_COMPONENTS symbol.
+		/// Gl.Get: data returns one value, the maximum number of components of outputs written by a geometry shader, which must be 
+		/// at least 128.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_3_2")]
 		public const int MAX_GEOMETRY_OUTPUT_COMPONENTS = 0x9124;
 
 		/// <summary>
-		/// Value of GL_MAX_FRAGMENT_INPUT_COMPONENTS symbol.
+		/// Gl.Get: data returns one value, the maximum number of components of the inputs read by the fragment shader, which must 
+		/// be at least 128.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_3_2")]
 		public const int MAX_FRAGMENT_INPUT_COMPONENTS = 0x9125;
@@ -208,7 +216,8 @@ namespace OpenGL
 		public const int LAST_VERTEX_CONVENTION = 0x8E4E;
 
 		/// <summary>
-		/// Value of GL_PROVOKING_VERTEX symbol.
+		/// Gl.Get: data returns one value, the currently selected provoking vertex convention. The initial value is 
+		/// Gl.LAST_VERTEX_CONVENTION. See Gl.ProvokingVertex.
 		/// </summary>
 		[AliasOf("GL_PROVOKING_VERTEX_EXT")]
 		[RequiredByFeature("GL_VERSION_3_2")]
@@ -226,7 +235,7 @@ namespace OpenGL
 		public const int TEXTURE_CUBE_MAP_SEAMLESS = 0x884F;
 
 		/// <summary>
-		/// Value of GL_MAX_SERVER_WAIT_TIMEOUT symbol.
+		/// Gl.Get: data returns one value, the maximum Gl.WaitSync timeout interval.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_3_2")]
 		[RequiredByFeature("GL_ARB_sync")]
@@ -355,7 +364,7 @@ namespace OpenGL
 		public const int SAMPLE_MASK_VALUE = 0x8E52;
 
 		/// <summary>
-		/// Value of GL_MAX_SAMPLE_MASK_WORDS symbol.
+		/// Gl.Get: data returns one value, the maximum number of sample mask words.
 		/// </summary>
 		[AliasOf("GL_MAX_SAMPLE_MASK_WORDS_NV")]
 		[RequiredByFeature("GL_VERSION_3_2")]
@@ -395,7 +404,8 @@ namespace OpenGL
 		public const int PROXY_TEXTURE_2D_MULTISAMPLE_ARRAY = 0x9103;
 
 		/// <summary>
-		/// Value of GL_TEXTURE_BINDING_2D_MULTISAMPLE symbol.
+		/// Gl.Get: data returns a single value, the name of the texture currently bound to the target Gl.TEXTURE_2D_MULTISAMPLE. 
+		/// The initial value is 0. See Gl.BindTexture.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_3_2")]
 		[RequiredByFeature("GL_VERSION_4_5")]
@@ -404,7 +414,8 @@ namespace OpenGL
 		public const int TEXTURE_BINDING_2D_MULTISAMPLE = 0x9104;
 
 		/// <summary>
-		/// Value of GL_TEXTURE_BINDING_2D_MULTISAMPLE_ARRAY symbol.
+		/// Gl.Get: data returns a single value, the name of the texture currently bound to the target 
+		/// Gl.TEXTURE_2D_MULTISAMPLE_ARRAY. The initial value is 0. See Gl.BindTexture.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_3_2")]
 		[RequiredByFeature("GL_VERSION_4_5")]
@@ -469,21 +480,21 @@ namespace OpenGL
 		public const int UNSIGNED_INT_SAMPLER_2D_MULTISAMPLE_ARRAY = 0x910D;
 
 		/// <summary>
-		/// Value of GL_MAX_COLOR_TEXTURE_SAMPLES symbol.
+		/// Gl.Get: data returns one value, the maximum number of samples in a color multisample texture.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_3_2")]
 		[RequiredByFeature("GL_ARB_texture_multisample")]
 		public const int MAX_COLOR_TEXTURE_SAMPLES = 0x910E;
 
 		/// <summary>
-		/// Value of GL_MAX_DEPTH_TEXTURE_SAMPLES symbol.
+		/// Gl.Get: data returns one value, the maximum number of samples in a multisample depth or depth-stencil texture.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_3_2")]
 		[RequiredByFeature("GL_ARB_texture_multisample")]
 		public const int MAX_DEPTH_TEXTURE_SAMPLES = 0x910F;
 
 		/// <summary>
-		/// Value of GL_MAX_INTEGER_SAMPLES symbol.
+		/// Gl.Get: data returns one value, the maximum number of samples supported in integer format multisample buffers.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_3_2")]
 		[RequiredByFeature("GL_ARB_texture_multisample")]

@@ -26,7 +26,8 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Value of GL_VERTEX_ATTRIB_ARRAY_DIVISOR symbol.
+		/// Gl.GetVertexAttrib: params returns a single value that is the frequency divisor used for instanced rendering. See 
+		/// Gl.VertexAttribDivisor. The initial value is 0.
 		/// </summary>
 		[AliasOf("GL_VERTEX_ATTRIB_ARRAY_DIVISOR_ARB")]
 		[RequiredByFeature("GL_VERSION_3_3")]
@@ -54,7 +55,8 @@ namespace OpenGL
 		public const int ONE_MINUS_SRC1_ALPHA = 0x88FB;
 
 		/// <summary>
-		/// Value of GL_MAX_DUAL_SOURCE_DRAW_BUFFERS symbol.
+		/// Gl.Get: data returns one value, the maximum number of active draw buffers when using dual-source blending. The value 
+		/// must be at least 1. See Gl.BlendFunc and Gl.BlendFuncSeparate.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_3_3")]
 		[RequiredByFeature("GL_ARB_blend_func_extended")]
@@ -68,7 +70,8 @@ namespace OpenGL
 		public const int ANY_SAMPLES_PASSED = 0x8C2F;
 
 		/// <summary>
-		/// Value of GL_SAMPLER_BINDING symbol.
+		/// Gl.Get: data returns a single value, the name of the sampler object currently bound to the active texture unit. The 
+		/// initial value is 0. See Gl.BindSampler.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_3_3")]
 		[RequiredByFeature("GL_ARB_sampler_objects")]
@@ -82,7 +85,7 @@ namespace OpenGL
 		public const int RGB10_A2UI = 0x906F;
 
 		/// <summary>
-		/// Value of GL_TEXTURE_SWIZZLE_R symbol.
+		/// Gl.GetTexParameter: returns the red component swizzle. The initial value is Gl.RED.
 		/// </summary>
 		[AliasOf("GL_TEXTURE_SWIZZLE_R_EXT")]
 		[RequiredByFeature("GL_VERSION_3_3")]
@@ -90,7 +93,7 @@ namespace OpenGL
 		public const int TEXTURE_SWIZZLE_R = 0x8E42;
 
 		/// <summary>
-		/// Value of GL_TEXTURE_SWIZZLE_G symbol.
+		/// Gl.GetTexParameter: returns the green component swizzle. The initial value is Gl.GREEN.
 		/// </summary>
 		[AliasOf("GL_TEXTURE_SWIZZLE_G_EXT")]
 		[RequiredByFeature("GL_VERSION_3_3")]
@@ -98,7 +101,7 @@ namespace OpenGL
 		public const int TEXTURE_SWIZZLE_G = 0x8E43;
 
 		/// <summary>
-		/// Value of GL_TEXTURE_SWIZZLE_B symbol.
+		/// Gl.GetTexParameter: returns the blue component swizzle. The initial value is Gl.BLUE.
 		/// </summary>
 		[AliasOf("GL_TEXTURE_SWIZZLE_B_EXT")]
 		[RequiredByFeature("GL_VERSION_3_3")]
@@ -106,7 +109,7 @@ namespace OpenGL
 		public const int TEXTURE_SWIZZLE_B = 0x8E44;
 
 		/// <summary>
-		/// Value of GL_TEXTURE_SWIZZLE_A symbol.
+		/// Gl.GetTexParameter: returns the alpha component swizzle. The initial value is Gl.ALPHA.
 		/// </summary>
 		[AliasOf("GL_TEXTURE_SWIZZLE_A_EXT")]
 		[RequiredByFeature("GL_VERSION_3_3")]
@@ -114,7 +117,7 @@ namespace OpenGL
 		public const int TEXTURE_SWIZZLE_A = 0x8E45;
 
 		/// <summary>
-		/// Value of GL_TEXTURE_SWIZZLE_RGBA symbol.
+		/// Gl.GetTexParameter: returns the component swizzle for all channels in a single query.
 		/// </summary>
 		[AliasOf("GL_TEXTURE_SWIZZLE_RGBA_EXT")]
 		[RequiredByFeature("GL_VERSION_3_3")]
@@ -130,7 +133,7 @@ namespace OpenGL
 		public const int TIME_ELAPSED = 0x88BF;
 
 		/// <summary>
-		/// Value of GL_TIMESTAMP symbol.
+		/// Gl.Get: data returns a single value, the 64-bit value of the current GL time. See Gl.QueryCounter.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_3_3")]
 		[RequiredByFeature("GL_ARB_timer_query")]

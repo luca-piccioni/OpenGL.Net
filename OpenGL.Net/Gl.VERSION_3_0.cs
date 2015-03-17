@@ -38,25 +38,26 @@ namespace OpenGL
 		public const int CLIP_DISTANCE7 = 0x3007;
 
 		/// <summary>
-		/// Value of GL_MAJOR_VERSION symbol.
+		/// Gl.Get: data returns one value, the major version number of the OpenGL API supported by the current context.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_3_0")]
 		public const int MAJOR_VERSION = 0x821B;
 
 		/// <summary>
-		/// Value of GL_MINOR_VERSION symbol.
+		/// Gl.Get: data returns one value, the minor version number of the OpenGL API supported by the current context.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_3_0")]
 		public const int MINOR_VERSION = 0x821C;
 
 		/// <summary>
-		/// Value of GL_NUM_EXTENSIONS symbol.
+		/// Gl.Get: data returns one value, the number of extensions supported by the GL implementation for the current context. See 
+		/// Gl.GetString.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_3_0")]
 		public const int NUM_EXTENSIONS = 0x821D;
 
 		/// <summary>
-		/// Value of GL_CONTEXT_FLAGS symbol.
+		/// Gl.Get: data returns one value, the flags with which the context was created (such as debugging functionality).
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_3_0")]
 		public const int CONTEXT_FLAGS = 0x821E;
@@ -109,7 +110,8 @@ namespace OpenGL
 		public const int RGB16F = 0x881B;
 
 		/// <summary>
-		/// Value of GL_VERTEX_ATTRIB_ARRAY_INTEGER symbol.
+		/// Gl.GetVertexAttrib: params returns a single value that is non-zero (true) if fixed-point data types for the vertex 
+		/// attribute array indicated by index have integer data types, and 0 (false) otherwise. The initial value is 0 (Gl.FALSE).
 		/// </summary>
 		[AliasOf("GL_VERTEX_ATTRIB_ARRAY_INTEGER_EXT")]
 		[AliasOf("GL_VERTEX_ATTRIB_ARRAY_INTEGER_NV")]
@@ -117,14 +119,15 @@ namespace OpenGL
 		public const int VERTEX_ATTRIB_ARRAY_INTEGER = 0x88FD;
 
 		/// <summary>
-		/// Value of GL_MAX_ARRAY_TEXTURE_LAYERS symbol.
+		/// Gl.Get: data returns one value. The value indicates the maximum number of layers allowed in an array texture, and must 
+		/// be at least 256. See Gl.TexImage2D.
 		/// </summary>
 		[AliasOf("GL_MAX_ARRAY_TEXTURE_LAYERS_EXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
 		public const int MAX_ARRAY_TEXTURE_LAYERS = 0x88FF;
 
 		/// <summary>
-		/// Value of GL_MIN_PROGRAM_TEXEL_OFFSET symbol.
+		/// Gl.Get: data returns one value, the minimum texel offset allowed in a texture lookup, which must be at most -8.
 		/// </summary>
 		[AliasOf("GL_MIN_PROGRAM_TEXEL_OFFSET_EXT")]
 		[AliasOf("GL_MIN_PROGRAM_TEXEL_OFFSET_NV")]
@@ -132,7 +135,7 @@ namespace OpenGL
 		public const int MIN_PROGRAM_TEXEL_OFFSET = 0x8904;
 
 		/// <summary>
-		/// Value of GL_MAX_PROGRAM_TEXEL_OFFSET symbol.
+		/// Gl.Get: data returns one value, the maximum texel offset allowed in a texture lookup, which must be at least 7.
 		/// </summary>
 		[AliasOf("GL_MAX_PROGRAM_TEXEL_OFFSET_EXT")]
 		[AliasOf("GL_MAX_PROGRAM_TEXEL_OFFSET_NV")]
@@ -154,13 +157,8 @@ namespace OpenGL
 		public const int FIXED_ONLY = 0x891D;
 
 		/// <summary>
-		/// Value of GL_MAX_VARYING_COMPONENTS symbol.
+		/// Gl.Get: data returns one value, the number components for varying variables, which must be at least 60.
 		/// </summary>
-		/// <remarks>
-		/// <para>
-		/// This enumerant is equaivalent to MAX_VARYING_FLOATS.
-		/// </para>
-		/// </remarks>
 		[AliasOf("GL_MAX_VARYING_COMPONENTS_EXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ARB_geometry_shader4")]
@@ -197,7 +195,8 @@ namespace OpenGL
 		public const int PROXY_TEXTURE_2D_ARRAY = 0x8C1B;
 
 		/// <summary>
-		/// Value of GL_TEXTURE_BINDING_1D_ARRAY symbol.
+		/// Gl.Get: data returns a single value, the name of the texture currently bound to the target Gl.TEXTURE_1D_ARRAY. The 
+		/// initial value is 0. See Gl.BindTexture.
 		/// </summary>
 		[AliasOf("GL_TEXTURE_BINDING_1D_ARRAY_EXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
@@ -206,7 +205,8 @@ namespace OpenGL
 		public const int TEXTURE_BINDING_1D_ARRAY = 0x8C1C;
 
 		/// <summary>
-		/// Value of GL_TEXTURE_BINDING_2D_ARRAY symbol.
+		/// Gl.Get: data returns a single value, the name of the texture currently bound to the target Gl.TEXTURE_2D_ARRAY. The 
+		/// initial value is 0. See Gl.BindTexture.
 		/// </summary>
 		[AliasOf("GL_TEXTURE_BINDING_2D_ARRAY_EXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
@@ -252,14 +252,16 @@ namespace OpenGL
 		public const int TEXTURE_SHARED_SIZE = 0x8C3F;
 
 		/// <summary>
-		/// Value of GL_TRANSFORM_FEEDBACK_VARYING_MAX_LENGTH symbol.
+		/// Gl.GetProgram: params returns the length of the longest variable name to be used for transform feedback, including the 
+		/// null-terminator.
 		/// </summary>
 		[AliasOf("GL_TRANSFORM_FEEDBACK_VARYING_MAX_LENGTH_EXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
 		public const int TRANSFORM_FEEDBACK_VARYING_MAX_LENGTH = 0x8C76;
 
 		/// <summary>
-		/// Value of GL_TRANSFORM_FEEDBACK_BUFFER_MODE symbol.
+		/// Gl.GetProgram: params returns a symbolic constant indicating the buffer mode used when transform feedback is active. 
+		/// This may be Gl.SEPARATE_ATTRIBS or Gl.INTERLEAVED_ATTRIBS.
 		/// </summary>
 		[AliasOf("GL_TRANSFORM_FEEDBACK_BUFFER_MODE_EXT")]
 		[AliasOf("GL_TRANSFORM_FEEDBACK_BUFFER_MODE_NV")]
@@ -275,7 +277,7 @@ namespace OpenGL
 		public const int MAX_TRANSFORM_FEEDBACK_SEPARATE_COMPONENTS = 0x8C80;
 
 		/// <summary>
-		/// Value of GL_TRANSFORM_FEEDBACK_VARYINGS symbol.
+		/// Gl.GetProgram: params returns the number of varying variables to capture in transform feedback mode for the program.
 		/// </summary>
 		[AliasOf("GL_TRANSFORM_FEEDBACK_VARYINGS_EXT")]
 		[AliasOf("GL_TRANSFORM_FEEDBACK_VARYINGS_NV")]
@@ -283,7 +285,9 @@ namespace OpenGL
 		public const int TRANSFORM_FEEDBACK_VARYINGS = 0x8C83;
 
 		/// <summary>
-		/// Value of GL_TRANSFORM_FEEDBACK_BUFFER_START symbol.
+		/// Gl.Get: when used with indexed variants of glGet (such as glGetInteger64i_v), data returns a single value, the start 
+		/// offset of the binding range for each transform feedback attribute stream. The initial value is 0 for all streams. See 
+		/// Gl.BindBufferRange.
 		/// </summary>
 		[AliasOf("GL_TRANSFORM_FEEDBACK_BUFFER_START_EXT")]
 		[AliasOf("GL_TRANSFORM_FEEDBACK_BUFFER_START_NV")]
@@ -291,7 +295,9 @@ namespace OpenGL
 		public const int TRANSFORM_FEEDBACK_BUFFER_START = 0x8C84;
 
 		/// <summary>
-		/// Value of GL_TRANSFORM_FEEDBACK_BUFFER_SIZE symbol.
+		/// Gl.Get: when used with indexed variants of glGet (such as glGetInteger64i_v), data returns a single value, the size of 
+		/// the binding range for each transform feedback attribute stream. The initial value is 0 for all streams. See 
+		/// Gl.BindBufferRange.
 		/// </summary>
 		[AliasOf("GL_TRANSFORM_FEEDBACK_BUFFER_SIZE_EXT")]
 		[AliasOf("GL_TRANSFORM_FEEDBACK_BUFFER_SIZE_NV")]
@@ -355,7 +361,14 @@ namespace OpenGL
 		public const int SEPARATE_ATTRIBS = 0x8C8D;
 
 		/// <summary>
-		/// Value of GL_TRANSFORM_FEEDBACK_BUFFER symbol.
+		/// <para>
+		/// Gl.GetProgramInterface: the query is targeted at the set of active buffer binding points to which output variables in 
+		/// the Gl.TRANSFORM_FEEDBACK_VARYING interface are written.
+		/// </para>
+		/// <para>
+		/// Gl.GetProgramResourceIndex: the query is targeted at the set of active buffer binding points to which output variables 
+		/// in the Gl.TRANSFORM_FEEDBACK_VARYING interface are written.
+		/// </para>
 		/// </summary>
 		[AliasOf("GL_TRANSFORM_FEEDBACK_BUFFER_EXT")]
 		[AliasOf("GL_TRANSFORM_FEEDBACK_BUFFER_NV")]
@@ -365,7 +378,11 @@ namespace OpenGL
 		public const int TRANSFORM_FEEDBACK_BUFFER = 0x8C8E;
 
 		/// <summary>
-		/// Value of GL_TRANSFORM_FEEDBACK_BUFFER_BINDING symbol.
+		/// Gl.Get: when used with non-indexed variants of glGet (such as glGetIntegerv), data returns a single value, the name of 
+		/// the buffer object currently bound to the target Gl.TRANSFORM_FEEDBACK_BUFFER. If no buffer object is bound to this 
+		/// target, 0 is returned. When used with indexed variants of glGet (such as glGetIntegeri_v), data returns a single value, 
+		/// the name of the buffer object bound to the indexed transform feedback attribute stream. The initial value is 0 for all 
+		/// targets. See Gl.BindBuffer, Gl.BindBufferBase, and Gl.BindBufferRange.
 		/// </summary>
 		[AliasOf("GL_TRANSFORM_FEEDBACK_BUFFER_BINDING_EXT")]
 		[AliasOf("GL_TRANSFORM_FEEDBACK_BUFFER_BINDING_NV")]
@@ -678,19 +695,24 @@ namespace OpenGL
 		public const int QUERY_BY_REGION_NO_WAIT = 0x8E16;
 
 		/// <summary>
-		/// Value of GL_BUFFER_ACCESS_FLAGS symbol.
+		/// Gl.GetBufferParameter: params returns the access policy set while mapping the buffer object (the value of the access 
+		/// parameter bitfield passed to glMapBufferRange). If the buffer was mapped with glMapBuffer, the access policy is 
+		/// determined by translating the enums in that access parameter to the corresponding bits for glMapBufferRange as described 
+		/// in the OpenGL Specification. The initial value is zero.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_3_0")]
 		public const int BUFFER_ACCESS_FLAGS = 0x911F;
 
 		/// <summary>
-		/// Value of GL_BUFFER_MAP_LENGTH symbol.
+		/// Gl.GetBufferParameter: params returns the length of the mapping into the buffer object established with glMapBuffer*. 
+		/// The i64v versions of these queries should be used for this parameter. The initial value is zero.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_3_0")]
 		public const int BUFFER_MAP_LENGTH = 0x9120;
 
 		/// <summary>
-		/// Value of GL_BUFFER_MAP_OFFSET symbol.
+		/// Gl.GetBufferParameter: params returns the offset of the mapping into the buffer object established with glMapBuffer*. 
+		/// The i64v versions of these queries should be used for this parameter. The initial value is zero.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_3_0")]
 		public const int BUFFER_MAP_OFFSET = 0x9121;
@@ -718,7 +740,8 @@ namespace OpenGL
 		public const int FLOAT_32_UNSIGNED_INT_24_8_REV = 0x8DAD;
 
 		/// <summary>
-		/// Value of GL_INVALID_FRAMEBUFFER_OPERATION symbol.
+		/// Gl.GetError: the framebuffer object is not complete. The offending command is ignored and has no other side effect than 
+		/// to set the error flag.
 		/// </summary>
 		[AliasOf("GL_INVALID_FRAMEBUFFER_OPERATION_EXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
@@ -803,7 +826,8 @@ namespace OpenGL
 		public const int DEPTH_STENCIL_ATTACHMENT = 0x821A;
 
 		/// <summary>
-		/// Value of GL_MAX_RENDERBUFFER_SIZE symbol.
+		/// Gl.Get: data returns one value. The value indicates the maximum supported size for renderbuffers. See 
+		/// Gl.FramebufferRenderbuffer.
 		/// </summary>
 		[AliasOf("GL_MAX_RENDERBUFFER_SIZE_EXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
@@ -845,7 +869,10 @@ namespace OpenGL
 		public const int TEXTURE_STENCIL_SIZE = 0x88F1;
 
 		/// <summary>
-		/// Value of GL_TEXTURE_RED_TYPE symbol.
+		/// Gl.GetTexLevelParameter: the data type used to store the component. The types Gl.NONE, Gl.SIGNED_NORMALIZED, 
+		/// Gl.UNSIGNED_NORMALIZED, Gl.FLOAT, Gl.INT, and Gl.UNSIGNED_INT may be returned to indicate signed normalized fixed-point, 
+		/// unsigned normalized fixed-point, floating-point, integer unnormalized, and unsigned integer unnormalized components, 
+		/// respectively.
 		/// </summary>
 		[AliasOf("GL_TEXTURE_RED_TYPE_ARB")]
 		[RequiredByFeature("GL_VERSION_3_0")]
@@ -896,7 +923,8 @@ namespace OpenGL
 		public const int FRAMEBUFFER_BINDING = 0x8CA6;
 
 		/// <summary>
-		/// Value of GL_DRAW_FRAMEBUFFER_BINDING symbol.
+		/// Gl.Get: data returns one value, the name of the framebuffer object currently bound to the Gl.DRAW_FRAMEBUFFER target. If 
+		/// the default framebuffer is bound, this value will be zero. The initial value is zero. See Gl.BindFramebuffer.
 		/// </summary>
 		[AliasOf("GL_DRAW_FRAMEBUFFER_BINDING_EXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
@@ -904,7 +932,8 @@ namespace OpenGL
 		public const int DRAW_FRAMEBUFFER_BINDING = 0x8CA6;
 
 		/// <summary>
-		/// Value of GL_RENDERBUFFER_BINDING symbol.
+		/// Gl.Get: data returns a single value, the name of the renderbuffer object currently bound to the target Gl.RENDERBUFFER. 
+		/// If no renderbuffer object is bound to this target, 0 is returned. The initial value is 0. See Gl.BindRenderbuffer.
 		/// </summary>
 		[AliasOf("GL_RENDERBUFFER_BINDING_EXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
@@ -928,7 +957,8 @@ namespace OpenGL
 		public const int DRAW_FRAMEBUFFER = 0x8CA9;
 
 		/// <summary>
-		/// Value of GL_READ_FRAMEBUFFER_BINDING symbol.
+		/// Gl.Get: data returns one value, the name of the framebuffer object currently bound to the Gl.READ_FRAMEBUFFER target. If 
+		/// the default framebuffer is bound, this value will be zero. The initial value is zero. See Gl.BindFramebuffer.
 		/// </summary>
 		[AliasOf("GL_READ_FRAMEBUFFER_BINDING_EXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
@@ -1203,7 +1233,8 @@ namespace OpenGL
 		public const int RENDERBUFFER = 0x8D41;
 
 		/// <summary>
-		/// Value of GL_RENDERBUFFER_WIDTH symbol.
+		/// Gl.GetRenderbufferParameter: params returns the width in pixels, the height in pixels, internal format, or the number of 
+		/// samples, respectively, of the image of the specified renderbuffer object.
 		/// </summary>
 		[AliasOf("GL_RENDERBUFFER_WIDTH_EXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
@@ -1261,7 +1292,9 @@ namespace OpenGL
 		public const int STENCIL_INDEX16 = 0x8D49;
 
 		/// <summary>
-		/// Value of GL_RENDERBUFFER_RED_SIZE symbol.
+		/// Gl.GetRenderbufferParameter: params returns the actual resolution in bits (not the resolution specified when the image 
+		/// was defined) for the red, green, blue, alpha, depth or stencil components, respectively, of the image of the 
+		/// renderbuffer object.
 		/// </summary>
 		[AliasOf("GL_RENDERBUFFER_RED_SIZE_EXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
@@ -1603,7 +1636,8 @@ namespace OpenGL
 		public const int RG32UI = 0x823C;
 
 		/// <summary>
-		/// Value of GL_VERTEX_ARRAY_BINDING symbol.
+		/// Gl.Get: data returns a single value, the name of the vertex array object currently bound to the context. If no vertex 
+		/// array object is bound to the context, 0 is returned. The initial value is 0. See Gl.BindVertexArray.
 		/// </summary>
 		[AliasOf("GL_VERTEX_ARRAY_BINDING_APPLE")]
 		[RequiredByFeature("GL_VERSION_3_0")]

@@ -103,7 +103,9 @@ namespace OpenGL
 		public const int MAX_COMBINED_CLIP_AND_CULL_DISTANCES = 0x82FA;
 
 		/// <summary>
-		/// Value of GL_TEXTURE_TARGET symbol.
+		/// Gl.GetTexParameter: returns the effective target of the texture object. For glGetTex*Parameter functions, this is the 
+		/// target parameter. For glGetTextureParameter*, it is the target to which the texture was initially bound when it was 
+		/// created, or the value of the target parameter to the call to glCreateTextures which created the texture.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_direct_state_access")]
@@ -117,7 +119,7 @@ namespace OpenGL
 		public const int QUERY_TARGET = 0x82EA;
 
 		/// <summary>
-		/// Value of GL_GUILTY_CONTEXT_RESET symbol.
+		/// Gl.GetGraphicsResetStatus: indicates that a reset has been detected that is attributable to the current GL context.
 		/// </summary>
 		[AliasOf("GL_GUILTY_CONTEXT_RESET_ARB")]
 		[RequiredByFeature("GL_VERSION_4_5")]
@@ -125,7 +127,7 @@ namespace OpenGL
 		public const int GUILTY_CONTEXT_RESET = 0x8253;
 
 		/// <summary>
-		/// Value of GL_INNOCENT_CONTEXT_RESET symbol.
+		/// Gl.GetGraphicsResetStatus: indicates a reset has been detected that is not attributable to the current GL context.
 		/// </summary>
 		[AliasOf("GL_INNOCENT_CONTEXT_RESET_ARB")]
 		[RequiredByFeature("GL_VERSION_4_5")]
@@ -133,7 +135,7 @@ namespace OpenGL
 		public const int INNOCENT_CONTEXT_RESET = 0x8254;
 
 		/// <summary>
-		/// Value of GL_UNKNOWN_CONTEXT_RESET symbol.
+		/// Gl.GetGraphicsResetStatus: indicates a detected graphics reset whose cause is unknown.
 		/// </summary>
 		[AliasOf("GL_UNKNOWN_CONTEXT_RESET_ARB")]
 		[RequiredByFeature("GL_VERSION_4_5")]

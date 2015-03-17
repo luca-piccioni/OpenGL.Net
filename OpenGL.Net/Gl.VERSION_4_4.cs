@@ -79,14 +79,18 @@ namespace OpenGL
 		public const uint CLIENT_MAPPED_BUFFER_BARRIER_BIT = 0x00004000;
 
 		/// <summary>
-		/// Value of GL_BUFFER_IMMUTABLE_STORAGE symbol.
+		/// Gl.GetBufferParameter: params returns a boolean flag indicating whether the buffer object is immutable. The initial 
+		/// value is Gl.FALSE.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_4")]
 		[RequiredByFeature("GL_ARB_buffer_storage")]
 		public const int BUFFER_IMMUTABLE_STORAGE = 0x821F;
 
 		/// <summary>
-		/// Value of GL_BUFFER_STORAGE_FLAGS symbol.
+		/// Gl.GetBufferParameter: params returns a bitfield indicating the storage flags for the buffer object. If the buffer 
+		/// object is immutable, the value returned will be that specified when the data store was established with glBufferStorage. 
+		/// If the data store was established with glBufferData, the value will be Gl.MAP_READ_BIT | Gl.MAP_WRITE_BIT | 
+		/// Gl.DYNAMIC_STORAGE_BIT | Gl.MAP_WRITE_BIT. The initial value is zero.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_4")]
 		[RequiredByFeature("GL_ARB_buffer_storage")]
@@ -144,7 +148,9 @@ namespace OpenGL
 		public const int QUERY_BUFFER_BINDING = 0x9193;
 
 		/// <summary>
-		/// Value of GL_QUERY_RESULT_NO_WAIT symbol.
+		/// Gl.GetQueryObject: if the result of the query is available (that is, a query of Gl.QUERY_RESULT_AVAILABLE would return 
+		/// non-zero), then params returns the value of the query object's passed samples counter, otherwise, the data referred to 
+		/// by params is not modified. The initial value is 0.
 		/// </summary>
 		[AliasOf("GL_QUERY_RESULT_NO_WAIT_AMD")]
 		[RequiredByFeature("GL_VERSION_4_4")]

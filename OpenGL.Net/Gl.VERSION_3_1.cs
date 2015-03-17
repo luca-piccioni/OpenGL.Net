@@ -84,7 +84,8 @@ namespace OpenGL
 		public const int TEXTURE_BUFFER = 0x8C2A;
 
 		/// <summary>
-		/// Value of GL_MAX_TEXTURE_BUFFER_SIZE symbol.
+		/// Gl.Get: data returns one value. The value gives the maximum number of texels allowed in the texel array of a texture 
+		/// buffer object. Value must be at least 65536.
 		/// </summary>
 		[AliasOf("GL_MAX_TEXTURE_BUFFER_SIZE_ARB")]
 		[AliasOf("GL_MAX_TEXTURE_BUFFER_SIZE_EXT")]
@@ -92,7 +93,14 @@ namespace OpenGL
 		public const int MAX_TEXTURE_BUFFER_SIZE = 0x8C2B;
 
 		/// <summary>
-		/// Value of GL_TEXTURE_BINDING_BUFFER symbol.
+		/// <para>
+		/// Gl.Get: data returns a single value, the name of the texture currently bound to the target Gl.TEXTURE_BUFFER. The 
+		/// initial value is 0. See Gl.BindTexture.
+		/// </para>
+		/// <para>
+		/// Gl.Get: data returns a single value, the name of the buffer object currently bound to the Gl.TEXTURE_BUFFER buffer 
+		/// binding point. The initial value is 0. See Gl.BindBuffer.
+		/// </para>
 		/// </summary>
 		[AliasOf("GL_TEXTURE_BINDING_BUFFER_ARB")]
 		[AliasOf("GL_TEXTURE_BINDING_BUFFER_EXT")]
@@ -119,7 +127,8 @@ namespace OpenGL
 		public const int TEXTURE_RECTANGLE = 0x84F5;
 
 		/// <summary>
-		/// Value of GL_TEXTURE_BINDING_RECTANGLE symbol.
+		/// Gl.Get: data returns a single value, the name of the texture currently bound to the target Gl.TEXTURE_RECTANGLE. The 
+		/// initial value is 0. See Gl.BindTexture.
 		/// </summary>
 		[AliasOf("GL_TEXTURE_BINDING_RECTANGLE_ARB")]
 		[AliasOf("GL_TEXTURE_BINDING_RECTANGLE_NV")]
@@ -137,7 +146,9 @@ namespace OpenGL
 		public const int PROXY_TEXTURE_RECTANGLE = 0x84F7;
 
 		/// <summary>
-		/// Value of GL_MAX_RECTANGLE_TEXTURE_SIZE symbol.
+		/// Gl.Get: data returns one value. The value gives a rough estimate of the largest rectangular texture that the GL can 
+		/// handle. The value must be at least 1024. Use Gl.PROXY_TEXTURE_RECTANGLE to determine if a texture is too large. See 
+		/// Gl.TexImage2D.
 		/// </summary>
 		[AliasOf("GL_MAX_RECTANGLE_TEXTURE_SIZE_ARB")]
 		[AliasOf("GL_MAX_RECTANGLE_TEXTURE_SIZE_NV")]
@@ -214,7 +225,8 @@ namespace OpenGL
 		public const int PRIMITIVE_RESTART = 0x8F9D;
 
 		/// <summary>
-		/// Value of GL_PRIMITIVE_RESTART_INDEX symbol.
+		/// Gl.Get: data returns one value, the current primitive restart index. The initial value is 0. See 
+		/// Gl.PrimitiveRestartIndex.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_3_1")]
 		public const int PRIMITIVE_RESTART_INDEX = 0x8F9E;
@@ -241,91 +253,109 @@ namespace OpenGL
 		public const int UNIFORM_BUFFER = 0x8A11;
 
 		/// <summary>
-		/// Value of GL_UNIFORM_BUFFER_BINDING symbol.
+		/// Gl.Get: when used with non-indexed variants of glGet (such as glGetIntegerv), data returns a single value, the name of 
+		/// the buffer object currently bound to the target Gl.UNIFORM_BUFFER. If no buffer object is bound to this target, 0 is 
+		/// returned. When used with indexed variants of glGet (such as glGetIntegeri_v), data returns a single value, the name of 
+		/// the buffer object bound to the indexed uniform buffer binding point. The initial value is 0 for all targets. See 
+		/// Gl.BindBuffer, Gl.BindBufferBase, and Gl.BindBufferRange.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_3_1")]
 		[RequiredByFeature("GL_ARB_uniform_buffer_object")]
 		public const int UNIFORM_BUFFER_BINDING = 0x8A28;
 
 		/// <summary>
-		/// Value of GL_UNIFORM_BUFFER_START symbol.
+		/// Gl.Get: when used with indexed variants of glGet (such as glGetInteger64i_v), data returns a single value, the start 
+		/// offset of the binding range for each indexed uniform buffer binding. The initial value is 0 for all bindings. See 
+		/// Gl.BindBufferRange.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_3_1")]
 		[RequiredByFeature("GL_ARB_uniform_buffer_object")]
 		public const int UNIFORM_BUFFER_START = 0x8A29;
 
 		/// <summary>
-		/// Value of GL_UNIFORM_BUFFER_SIZE symbol.
+		/// Gl.Get: when used with indexed variants of glGet (such as glGetInteger64i_v), data returns a single value, the size of 
+		/// the binding range for each indexed uniform buffer binding. The initial value is 0 for all bindings. See 
+		/// Gl.BindBufferRange.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_3_1")]
 		[RequiredByFeature("GL_ARB_uniform_buffer_object")]
 		public const int UNIFORM_BUFFER_SIZE = 0x8A2A;
 
 		/// <summary>
-		/// Value of GL_MAX_VERTEX_UNIFORM_BLOCKS symbol.
+		/// Gl.Get: data returns one value, the maximum number of uniform blocks per vertex shader. The value must be at least 12. 
+		/// See Gl.UniformBlockBinding.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_3_1")]
 		[RequiredByFeature("GL_ARB_uniform_buffer_object")]
 		public const int MAX_VERTEX_UNIFORM_BLOCKS = 0x8A2B;
 
 		/// <summary>
-		/// Value of GL_MAX_GEOMETRY_UNIFORM_BLOCKS symbol.
+		/// Gl.Get: data returns one value, the maximum number of uniform blocks per geometry shader. The value must be at least 12. 
+		/// See Gl.UniformBlockBinding.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_3_1")]
 		[RequiredByFeature("GL_ARB_uniform_buffer_object")]
 		public const int MAX_GEOMETRY_UNIFORM_BLOCKS = 0x8A2C;
 
 		/// <summary>
-		/// Value of GL_MAX_FRAGMENT_UNIFORM_BLOCKS symbol.
+		/// Gl.Get: data returns one value, the maximum number of uniform blocks per fragment shader. The value must be at least 12. 
+		/// See Gl.UniformBlockBinding.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_3_1")]
 		[RequiredByFeature("GL_ARB_uniform_buffer_object")]
 		public const int MAX_FRAGMENT_UNIFORM_BLOCKS = 0x8A2D;
 
 		/// <summary>
-		/// Value of GL_MAX_COMBINED_UNIFORM_BLOCKS symbol.
+		/// Gl.Get: data returns one value, the maximum number of uniform blocks per program. The value must be at least 70. See 
+		/// Gl.UniformBlockBinding.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_3_1")]
 		[RequiredByFeature("GL_ARB_uniform_buffer_object")]
 		public const int MAX_COMBINED_UNIFORM_BLOCKS = 0x8A2E;
 
 		/// <summary>
-		/// Value of GL_MAX_UNIFORM_BUFFER_BINDINGS symbol.
+		/// Gl.Get: data returns one value, the maximum number of uniform buffer binding points on the context, which must be at 
+		/// least 36.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_3_1")]
 		[RequiredByFeature("GL_ARB_uniform_buffer_object")]
 		public const int MAX_UNIFORM_BUFFER_BINDINGS = 0x8A2F;
 
 		/// <summary>
-		/// Value of GL_MAX_UNIFORM_BLOCK_SIZE symbol.
+		/// Gl.Get: data returns one value, the maximum size in basic machine units of a uniform block, which must be at least 
+		/// 16384.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_3_1")]
 		[RequiredByFeature("GL_ARB_uniform_buffer_object")]
 		public const int MAX_UNIFORM_BLOCK_SIZE = 0x8A30;
 
 		/// <summary>
-		/// Value of GL_MAX_COMBINED_VERTEX_UNIFORM_COMPONENTS symbol.
+		/// Gl.Get: data returns one value, the number of words for vertex shader uniform variables in all uniform blocks (including 
+		/// default). The value must be at least 1. See Gl.Uniform.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_3_1")]
 		[RequiredByFeature("GL_ARB_uniform_buffer_object")]
 		public const int MAX_COMBINED_VERTEX_UNIFORM_COMPONENTS = 0x8A31;
 
 		/// <summary>
-		/// Value of GL_MAX_COMBINED_GEOMETRY_UNIFORM_COMPONENTS symbol.
+		/// Gl.Get: data returns one value, the number of words for geometry shader uniform variables in all uniform blocks 
+		/// (including default). The value must be at least 1. See Gl.Uniform.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_3_1")]
 		[RequiredByFeature("GL_ARB_uniform_buffer_object")]
 		public const int MAX_COMBINED_GEOMETRY_UNIFORM_COMPONENTS = 0x8A32;
 
 		/// <summary>
-		/// Value of GL_MAX_COMBINED_FRAGMENT_UNIFORM_COMPONENTS symbol.
+		/// Gl.Get: data returns one value, the number of words for fragment shader uniform variables in all uniform blocks 
+		/// (including default). The value must be at least 1. See Gl.Uniform.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_3_1")]
 		[RequiredByFeature("GL_ARB_uniform_buffer_object")]
 		public const int MAX_COMBINED_FRAGMENT_UNIFORM_COMPONENTS = 0x8A33;
 
 		/// <summary>
-		/// Value of GL_UNIFORM_BUFFER_OFFSET_ALIGNMENT symbol.
+		/// Gl.Get: data returns a single value, the minimum required alignment for uniform buffer sizes and offset. The initial 
+		/// value is 1. See Gl.UniformBlockBinding.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_3_1")]
 		[RequiredByFeature("GL_ARB_uniform_buffer_object")]

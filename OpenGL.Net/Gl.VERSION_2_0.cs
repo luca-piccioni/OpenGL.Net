@@ -26,49 +26,71 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Value of GL_BLEND_EQUATION_RGB symbol.
+		/// Gl.Get: data returns one value, a symbolic constant indicating whether the RGB blend equation is Gl.FUNC_ADD, 
+		/// Gl.FUNC_SUBTRACT, Gl.FUNC_REVERSE_SUBTRACT, Gl.MIN or Gl.MAX. See Gl.BlendEquationSeparate.
 		/// </summary>
 		[AliasOf("GL_BLEND_EQUATION_RGB_EXT")]
 		[RequiredByFeature("GL_VERSION_2_0")]
 		public const int BLEND_EQUATION_RGB = 0x8009;
 
 		/// <summary>
-		/// Value of GL_VERTEX_ATTRIB_ARRAY_ENABLED symbol.
+		/// Gl.GetVertexAttrib: params returns a single value that is non-zero (true) if the vertex attribute array for index is 
+		/// enabled and 0 (false) if it is disabled. The initial value is Gl.FALSE.
 		/// </summary>
 		[AliasOf("GL_VERTEX_ATTRIB_ARRAY_ENABLED_ARB")]
 		[RequiredByFeature("GL_VERSION_2_0")]
 		public const int VERTEX_ATTRIB_ARRAY_ENABLED = 0x8622;
 
 		/// <summary>
-		/// Value of GL_VERTEX_ATTRIB_ARRAY_SIZE symbol.
+		/// Gl.GetVertexAttrib: params returns a single value, the size of the vertex attribute array for index. The size is the 
+		/// number of values for each element of the vertex attribute array, and it will be 1, 2, 3, or 4. The initial value is 4.
 		/// </summary>
 		[AliasOf("GL_VERTEX_ATTRIB_ARRAY_SIZE_ARB")]
 		[RequiredByFeature("GL_VERSION_2_0")]
 		public const int VERTEX_ATTRIB_ARRAY_SIZE = 0x8623;
 
 		/// <summary>
-		/// Value of GL_VERTEX_ATTRIB_ARRAY_STRIDE symbol.
+		/// Gl.GetVertexAttrib: params returns a single value, the array stride for (number of bytes between successive elements in) 
+		/// the vertex attribute array for index. A value of 0 indicates that the array elements are stored sequentially in memory. 
+		/// The initial value is 0.
 		/// </summary>
 		[AliasOf("GL_VERTEX_ATTRIB_ARRAY_STRIDE_ARB")]
 		[RequiredByFeature("GL_VERSION_2_0")]
 		public const int VERTEX_ATTRIB_ARRAY_STRIDE = 0x8624;
 
 		/// <summary>
-		/// Value of GL_VERTEX_ATTRIB_ARRAY_TYPE symbol.
+		/// Gl.GetVertexAttrib: params returns a single value, a symbolic constant indicating the array type for the vertex 
+		/// attribute array for index. Possible values are Gl.BYTE, Gl.UNSIGNED_BYTE, Gl.SHORT, Gl.UNSIGNED_SHORT, Gl.INT, 
+		/// Gl.UNSIGNED_INT, Gl.FLOAT, and Gl.DOUBLE. The initial value is Gl.FLOAT.
 		/// </summary>
 		[AliasOf("GL_VERTEX_ATTRIB_ARRAY_TYPE_ARB")]
 		[RequiredByFeature("GL_VERSION_2_0")]
 		public const int VERTEX_ATTRIB_ARRAY_TYPE = 0x8625;
 
 		/// <summary>
-		/// Value of GL_CURRENT_VERTEX_ATTRIB symbol.
+		/// Gl.GetVertexAttrib: params returns four values that represent the current value for the generic vertex attribute 
+		/// specified by index. Generic vertex attribute 0 is unique in that it has no current state, so an error will be generated 
+		/// if index is 0. The initial value for all other generic vertex attributes is (0,0,0,1).glGetVertexAttribdv and 
+		/// glGetVertexAttribfv return the current attribute values as four single-precision floating-point values; 
+		/// glGetVertexAttribiv reads them as floating-point values and converts them to four integer values; glGetVertexAttribIiv 
+		/// and glGetVertexAttribIuiv read and return them as signed or unsigned integer values, respectively; glGetVertexAttribLdv 
+		/// reads and returns them as four double-precision floating-point values.
 		/// </summary>
 		[AliasOf("GL_CURRENT_VERTEX_ATTRIB_ARB")]
 		[RequiredByFeature("GL_VERSION_2_0")]
 		public const int CURRENT_VERTEX_ATTRIB = 0x8626;
 
 		/// <summary>
-		/// Value of GL_VERTEX_PROGRAM_POINT_SIZE symbol.
+		/// <para>
+		/// Gl.Get: params returns a single boolean value indicating whether vertex program point size mode is enabled. If enabled, 
+		/// and a vertex shader is active, then the point size is taken from the shader built-in gl_PointSize. If disabled, and a 
+		/// vertex shader is active, then the point size is taken from the point state as specified by Gl.PointSize. The initial 
+		/// value is Gl.FALSE.
+		/// </para>
+		/// <para>
+		/// Gl.Enable: if enabled and a vertex shader is active, then the derived point size is taken from the (potentially clipped) 
+		/// shader builtin Gl.PointSize and clamped to the implementation-dependent point size range.
+		/// </para>
 		/// </summary>
 		[AliasOf("GL_VERTEX_PROGRAM_POINT_SIZE_ARB")]
 		[AliasOf("GL_VERTEX_PROGRAM_POINT_SIZE_NV")]
@@ -83,35 +105,40 @@ namespace OpenGL
 		public const int VERTEX_ATTRIB_ARRAY_POINTER = 0x8645;
 
 		/// <summary>
-		/// Value of GL_STENCIL_BACK_FUNC symbol.
+		/// Gl.Get: data returns one value, a symbolic constant indicating what function is used for back-facing polygons to compare 
+		/// the stencil reference value with the stencil buffer value. The initial value is Gl.ALWAYS. See Gl.StencilFuncSeparate.
 		/// </summary>
 		[AliasOf("GL_STENCIL_BACK_FUNC_ATI")]
 		[RequiredByFeature("GL_VERSION_2_0")]
 		public const int STENCIL_BACK_FUNC = 0x8800;
 
 		/// <summary>
-		/// Value of GL_STENCIL_BACK_FAIL symbol.
+		/// Gl.Get: data returns one value, a symbolic constant indicating what action is taken for back-facing polygons when the 
+		/// stencil test fails. The initial value is Gl.KEEP. See Gl.StencilOpSeparate.
 		/// </summary>
 		[AliasOf("GL_STENCIL_BACK_FAIL_ATI")]
 		[RequiredByFeature("GL_VERSION_2_0")]
 		public const int STENCIL_BACK_FAIL = 0x8801;
 
 		/// <summary>
-		/// Value of GL_STENCIL_BACK_PASS_DEPTH_FAIL symbol.
+		/// Gl.Get: data returns one value, a symbolic constant indicating what action is taken for back-facing polygons when the 
+		/// stencil test passes, but the depth test fails. The initial value is Gl.KEEP. See Gl.StencilOpSeparate.
 		/// </summary>
 		[AliasOf("GL_STENCIL_BACK_PASS_DEPTH_FAIL_ATI")]
 		[RequiredByFeature("GL_VERSION_2_0")]
 		public const int STENCIL_BACK_PASS_DEPTH_FAIL = 0x8802;
 
 		/// <summary>
-		/// Value of GL_STENCIL_BACK_PASS_DEPTH_PASS symbol.
+		/// Gl.Get: data returns one value, a symbolic constant indicating what action is taken for back-facing polygons when the 
+		/// stencil test passes and the depth test passes. The initial value is Gl.KEEP. See Gl.StencilOpSeparate.
 		/// </summary>
 		[AliasOf("GL_STENCIL_BACK_PASS_DEPTH_PASS_ATI")]
 		[RequiredByFeature("GL_VERSION_2_0")]
 		public const int STENCIL_BACK_PASS_DEPTH_PASS = 0x8803;
 
 		/// <summary>
-		/// Value of GL_MAX_DRAW_BUFFERS symbol.
+		/// Gl.Get: data returns one value, the maximum number of simultaneous outputs that may be written in a fragment shader. The 
+		/// value must be at least 8. See Gl.DrawBuffers.
 		/// </summary>
 		[AliasOf("GL_MAX_DRAW_BUFFERS_ARB")]
 		[AliasOf("GL_MAX_DRAW_BUFFERS_ATI")]
@@ -247,28 +274,33 @@ namespace OpenGL
 		public const int DRAW_BUFFER15 = 0x8834;
 
 		/// <summary>
-		/// Value of GL_BLEND_EQUATION_ALPHA symbol.
+		/// Gl.Get: data returns one value, a symbolic constant indicating whether the Alpha blend equation is Gl.FUNC_ADD, 
+		/// Gl.FUNC_SUBTRACT, Gl.FUNC_REVERSE_SUBTRACT, Gl.MIN or Gl.MAX. See Gl.BlendEquationSeparate.
 		/// </summary>
 		[AliasOf("GL_BLEND_EQUATION_ALPHA_EXT")]
 		[RequiredByFeature("GL_VERSION_2_0")]
 		public const int BLEND_EQUATION_ALPHA = 0x883D;
 
 		/// <summary>
-		/// Value of GL_MAX_VERTEX_ATTRIBS symbol.
+		/// Gl.Get: data returns one value, the maximum number of 4-component generic vertex attributes accessible to a vertex 
+		/// shader. The value must be at least 16. See Gl.VertexAttrib.
 		/// </summary>
 		[AliasOf("GL_MAX_VERTEX_ATTRIBS_ARB")]
 		[RequiredByFeature("GL_VERSION_2_0")]
 		public const int MAX_VERTEX_ATTRIBS = 0x8869;
 
 		/// <summary>
-		/// Value of GL_VERTEX_ATTRIB_ARRAY_NORMALIZED symbol.
+		/// Gl.GetVertexAttrib: params returns a single value that is non-zero (true) if fixed-point data types for the vertex 
+		/// attribute array indicated by index are normalized when they are converted to floating point, and 0 (false) otherwise. 
+		/// The initial value is Gl.FALSE.
 		/// </summary>
 		[AliasOf("GL_VERTEX_ATTRIB_ARRAY_NORMALIZED_ARB")]
 		[RequiredByFeature("GL_VERSION_2_0")]
 		public const int VERTEX_ATTRIB_ARRAY_NORMALIZED = 0x886A;
 
 		/// <summary>
-		/// Value of GL_MAX_TEXTURE_IMAGE_UNITS symbol.
+		/// Gl.Get: data returns one value, the maximum supported texture image units that can be used to access texture maps from 
+		/// the fragment shader. The value must be at least 16. See Gl.ActiveTexture.
 		/// </summary>
 		[AliasOf("GL_MAX_TEXTURE_IMAGE_UNITS_ARB")]
 		[AliasOf("GL_MAX_TEXTURE_IMAGE_UNITS_NV")]
@@ -290,42 +322,52 @@ namespace OpenGL
 		public const int VERTEX_SHADER = 0x8B31;
 
 		/// <summary>
-		/// Value of GL_MAX_FRAGMENT_UNIFORM_COMPONENTS symbol.
+		/// Gl.Get: data returns one value, the maximum number of individual floating-point, integer, or boolean values that can be 
+		/// held in uniform variable storage for a fragment shader. The value must be at least 1024. See Gl.Uniform.
 		/// </summary>
 		[AliasOf("GL_MAX_FRAGMENT_UNIFORM_COMPONENTS_ARB")]
 		[RequiredByFeature("GL_VERSION_2_0")]
 		public const int MAX_FRAGMENT_UNIFORM_COMPONENTS = 0x8B49;
 
 		/// <summary>
-		/// Value of GL_MAX_VERTEX_UNIFORM_COMPONENTS symbol.
+		/// Gl.Get: data returns one value, the maximum number of individual floating-point, integer, or boolean values that can be 
+		/// held in uniform variable storage for a vertex shader. The value must be at least 1024. See Gl.Uniform.
 		/// </summary>
 		[AliasOf("GL_MAX_VERTEX_UNIFORM_COMPONENTS_ARB")]
 		[RequiredByFeature("GL_VERSION_2_0")]
 		public const int MAX_VERTEX_UNIFORM_COMPONENTS = 0x8B4A;
 
 		/// <summary>
-		/// Value of GL_MAX_VARYING_FLOATS symbol.
+		/// Gl.Get: data returns one value, the maximum number of interpolators available for processing varying variables used by 
+		/// vertex and fragment shaders. This value represents the number of individual floating-point values that can be 
+		/// interpolated; varying variables declared as vectors, matrices, and arrays will all consume multiple interpolators. The 
+		/// value must be at least 32.
 		/// </summary>
 		[AliasOf("GL_MAX_VARYING_FLOATS_ARB")]
 		[RequiredByFeature("GL_VERSION_2_0")]
 		public const int MAX_VARYING_FLOATS = 0x8B4B;
 
 		/// <summary>
-		/// Value of GL_MAX_VERTEX_TEXTURE_IMAGE_UNITS symbol.
+		/// Gl.Get: data returns one value, the maximum supported texture image units that can be used to access texture maps from 
+		/// the vertex shader. The value may be at least 16. See Gl.ActiveTexture.
 		/// </summary>
 		[AliasOf("GL_MAX_VERTEX_TEXTURE_IMAGE_UNITS_ARB")]
 		[RequiredByFeature("GL_VERSION_2_0")]
 		public const int MAX_VERTEX_TEXTURE_IMAGE_UNITS = 0x8B4C;
 
 		/// <summary>
-		/// Value of GL_MAX_COMBINED_TEXTURE_IMAGE_UNITS symbol.
+		/// Gl.Get: data returns one value, the maximum supported texture image units that can be used to access texture maps from 
+		/// the vertex shader and the fragment processor combined. If both the vertex shader and the fragment processing stage 
+		/// access the same texture image unit, then that counts as using two texture image units against this limit. The value must 
+		/// be at least 48. See Gl.ActiveTexture.
 		/// </summary>
 		[AliasOf("GL_MAX_COMBINED_TEXTURE_IMAGE_UNITS_ARB")]
 		[RequiredByFeature("GL_VERSION_2_0")]
 		public const int MAX_COMBINED_TEXTURE_IMAGE_UNITS = 0x8B4D;
 
 		/// <summary>
-		/// Value of GL_SHADER_TYPE symbol.
+		/// Gl.GetShader: params returns Gl.VERTEX_SHADER if shader is a vertex shader object, Gl.GEOMETRY_SHADER if shader is a 
+		/// geometry shader object, and Gl.FRAGMENT_SHADER if shader is a fragment shader object.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_2_0")]
 		public const int SHADER_TYPE = 0x8B4F;
@@ -464,93 +506,123 @@ namespace OpenGL
 		public const int SAMPLER_2D_SHADOW = 0x8B62;
 
 		/// <summary>
-		/// Value of GL_DELETE_STATUS symbol.
+		/// <para>
+		/// Gl.GetProgram: params returns Gl.TRUE if program is currently flagged for deletion, and Gl.FALSE otherwise.
+		/// </para>
+		/// <para>
+		/// Gl.GetShader: params returns Gl.TRUE if shader is currently flagged for deletion, and Gl.FALSE otherwise.
+		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_2_0")]
 		public const int DELETE_STATUS = 0x8B80;
 
 		/// <summary>
-		/// Value of GL_COMPILE_STATUS symbol.
+		/// Gl.GetShader: params returns Gl.TRUE if the last compile operation on shader was successful, and Gl.FALSE otherwise.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_2_0")]
 		public const int COMPILE_STATUS = 0x8B81;
 
 		/// <summary>
-		/// Value of GL_LINK_STATUS symbol.
+		/// Gl.GetProgram: params returns Gl.TRUE if the last link operation on program was successful, and Gl.FALSE otherwise.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_2_0")]
 		public const int LINK_STATUS = 0x8B82;
 
 		/// <summary>
-		/// Value of GL_VALIDATE_STATUS symbol.
+		/// Gl.GetProgram: params returns Gl.TRUE or if the last validation operation on program was successful, and Gl.FALSE 
+		/// otherwise.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_2_0")]
 		public const int VALIDATE_STATUS = 0x8B83;
 
 		/// <summary>
-		/// Value of GL_INFO_LOG_LENGTH symbol.
+		/// <para>
+		/// Gl.GetProgram: params returns the number of characters in the information log for program including the null termination 
+		/// character (i.e., the size of the character buffer required to store the information log). If program has no information 
+		/// log, a value of 0 is returned.
+		/// </para>
+		/// <para>
+		/// Gl.GetShader: params returns the number of characters in the information log for shader including the null termination 
+		/// character (i.e., the size of the character buffer required to store the information log). If shader has no information 
+		/// log, a value of 0 is returned.
+		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_2_0")]
 		public const int INFO_LOG_LENGTH = 0x8B84;
 
 		/// <summary>
-		/// Value of GL_ATTACHED_SHADERS symbol.
+		/// Gl.GetProgram: params returns the number of shader objects attached to program.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_2_0")]
 		public const int ATTACHED_SHADERS = 0x8B85;
 
 		/// <summary>
-		/// Value of GL_ACTIVE_UNIFORMS symbol.
+		/// Gl.GetProgram: params returns the number of active uniform variables for program.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_2_0")]
 		public const int ACTIVE_UNIFORMS = 0x8B86;
 
 		/// <summary>
-		/// Value of GL_ACTIVE_UNIFORM_MAX_LENGTH symbol.
+		/// Gl.GetProgram: params returns the length of the longest active uniform variable name for program, including the null 
+		/// termination character (i.e., the size of the character buffer required to store the longest uniform variable name). If 
+		/// no active uniform variables exist, 0 is returned.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_2_0")]
 		public const int ACTIVE_UNIFORM_MAX_LENGTH = 0x8B87;
 
 		/// <summary>
-		/// Value of GL_SHADER_SOURCE_LENGTH symbol.
+		/// Gl.GetShader: params returns the length of the concatenation of the source strings that make up the shader source for 
+		/// the shader, including the null termination character. (i.e., the size of the character buffer required to store the 
+		/// shader source). If no source code exists, 0 is returned.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_2_0")]
 		public const int SHADER_SOURCE_LENGTH = 0x8B88;
 
 		/// <summary>
-		/// Value of GL_ACTIVE_ATTRIBUTES symbol.
+		/// Gl.GetProgram: params returns the number of active attribute variables for program.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_2_0")]
 		public const int ACTIVE_ATTRIBUTES = 0x8B89;
 
 		/// <summary>
-		/// Value of GL_ACTIVE_ATTRIBUTE_MAX_LENGTH symbol.
+		/// Gl.GetProgram: params returns the length of the longest active attribute name for program, including the null 
+		/// termination character (i.e., the size of the character buffer required to store the longest attribute name). If no 
+		/// active attributes exist, 0 is returned.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_2_0")]
 		public const int ACTIVE_ATTRIBUTE_MAX_LENGTH = 0x8B8A;
 
 		/// <summary>
-		/// Value of GL_FRAGMENT_SHADER_DERIVATIVE_HINT symbol.
+		/// <para>
+		/// Gl.Get: data returns one value, a symbolic constant indicating the mode of the derivative accuracy hint for fragment 
+		/// shaders. The initial value is Gl.DONT_CARE. See Gl.Hint.
+		/// </para>
+		/// <para>
+		/// Gl.Hint: indicates the accuracy of the derivative calculation for the GL shading language fragment processing built-in 
+		/// functions: Gl.x, Gl.y, and Gl.dth.
+		/// </para>
 		/// </summary>
 		[AliasOf("GL_FRAGMENT_SHADER_DERIVATIVE_HINT_ARB")]
 		[RequiredByFeature("GL_VERSION_2_0")]
 		public const int FRAGMENT_SHADER_DERIVATIVE_HINT = 0x8B8B;
 
 		/// <summary>
-		/// Value of GL_SHADING_LANGUAGE_VERSION symbol.
+		/// Gl.GetString: returns a version or release number for the shading language.
 		/// </summary>
 		[AliasOf("GL_SHADING_LANGUAGE_VERSION_ARB")]
 		[RequiredByFeature("GL_VERSION_2_0")]
 		public const int SHADING_LANGUAGE_VERSION = 0x8B8C;
 
 		/// <summary>
-		/// Value of GL_CURRENT_PROGRAM symbol.
+		/// Gl.Get: data returns one value, the name of the program object that is currently active, or 0 if no program object is 
+		/// active. See Gl.UseProgram.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_2_0")]
 		public const int CURRENT_PROGRAM = 0x8B8D;
 
 		/// <summary>
-		/// Value of GL_POINT_SPRITE_COORD_ORIGIN symbol.
+		/// Gl.PointParameter: params is a single enum specifying the point sprite texture coordinate origin, either Gl.LOWER_LEFT 
+		/// or Gl.UPPER_LEFT. The default value is Gl.UPPER_LEFT.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_2_0")]
 		public const int POINT_SPRITE_COORD_ORIGIN = 0x8CA0;
@@ -572,25 +644,37 @@ namespace OpenGL
 		public const int UPPER_LEFT = 0x8CA2;
 
 		/// <summary>
-		/// Value of GL_STENCIL_BACK_REF symbol.
+		/// Gl.Get: data returns one value, the reference value that is compared with the contents of the stencil buffer for 
+		/// back-facing polygons. The initial value is 0. See Gl.StencilFuncSeparate.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_2_0")]
 		public const int STENCIL_BACK_REF = 0x8CA3;
 
 		/// <summary>
-		/// Value of GL_STENCIL_BACK_VALUE_MASK symbol.
+		/// Gl.Get: data returns one value, the mask that is used for back-facing polygons to mask both the stencil reference value 
+		/// and the stencil buffer value before they are compared. The initial value is all 1's. See Gl.StencilFuncSeparate.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_2_0")]
 		public const int STENCIL_BACK_VALUE_MASK = 0x8CA4;
 
 		/// <summary>
-		/// Value of GL_STENCIL_BACK_WRITEMASK symbol.
+		/// Gl.Get: data returns one value, the mask that controls writing of the stencil bitplanes for back-facing polygons. The 
+		/// initial value is all 1's. See Gl.StencilMaskSeparate.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_2_0")]
 		public const int STENCIL_BACK_WRITEMASK = 0x8CA5;
 
 		/// <summary>
-		/// Value of GL_VERTEX_PROGRAM_TWO_SIDE symbol (DEPRECATED).
+		/// <para>
+		/// Gl.Get: params returns a single boolean value indicating whether vertex program two-sided color mode is enabled. If 
+		/// enabled, and a vertex shader is active, then the GL chooses the back color output for back-facing polygons, and the 
+		/// front color output for non-polygons and front-facing polygons. If disabled, and a vertex shader is active, then the 
+		/// front color output is always selected. The initial value is Gl.FALSE.
+		/// </para>
+		/// <para>
+		/// Gl.Enable: if enabled and a vertex shader is active, it specifies that the GL will choose between front and back colors 
+		/// based on the polygon's face direction of which the vertex being shaded is a part. It has no effect on points or lines.
+		/// </para>
 		/// </summary>
 		[AliasOf("GL_VERTEX_PROGRAM_TWO_SIDE_ARB")]
 		[AliasOf("GL_VERTEX_PROGRAM_TWO_SIDE_NV")]
@@ -602,7 +686,13 @@ namespace OpenGL
 		public const int VERTEX_PROGRAM_TWO_SIDE = 0x8643;
 
 		/// <summary>
-		/// Value of GL_POINT_SPRITE symbol (DEPRECATED).
+		/// <para>
+		/// Gl.Get: params returns a single boolean value indicating whether point sprite is enabled. The initial value is Gl.FALSE.
+		/// </para>
+		/// <para>
+		/// Gl.Enable: if enabled, calculate texture coordinates for points based on texture environment and point parameter 
+		/// settings. Otherwise texture coordinates are constant across points.
+		/// </para>
 		/// </summary>
 		[AliasOf("GL_POINT_SPRITE_ARB")]
 		[AliasOf("GL_POINT_SPRITE_NV")]
@@ -614,7 +704,8 @@ namespace OpenGL
 		public const int POINT_SPRITE = 0x8861;
 
 		/// <summary>
-		/// Value of GL_COORD_REPLACE symbol (DEPRECATED).
+		/// Gl.GetTexEnv: params returns a single boolean value representing the current point sprite texture coordinate replacement 
+		/// enable state. The initial value is Gl.FALSE.
 		/// </summary>
 		[AliasOf("GL_COORD_REPLACE_ARB")]
 		[AliasOf("GL_COORD_REPLACE_NV")]
@@ -626,7 +717,8 @@ namespace OpenGL
 		public const int COORD_REPLACE = 0x8862;
 
 		/// <summary>
-		/// Value of GL_MAX_TEXTURE_COORDS symbol (DEPRECATED).
+		/// Gl.Get: params returns one value, the maximum number of texture coordinate sets available to vertex and fragment 
+		/// shaders. The value must be at least 2. See Gl.ActiveTexture and Gl.ClientActiveTexture.
 		/// </summary>
 		[AliasOf("GL_MAX_TEXTURE_COORDS_ARB")]
 		[AliasOf("GL_MAX_TEXTURE_COORDS_NV")]

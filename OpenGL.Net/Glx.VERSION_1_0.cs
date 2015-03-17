@@ -92,103 +92,336 @@ namespace OpenGL
 		public const int BAD_ENUM = 7;
 
 		/// <summary>
-		/// Value of GLX_USE_GL symbol.
+		/// <para>
+		/// Glx.ChooseVisual: ignored. Only visuals that can be rendered with GLX are considered.
+		/// </para>
+		/// <para>
+		/// Glx.GetConfig: glx. if OpenGL rendering is supported by this visual, Glx.e otherwise.
+		/// </para>
 		/// </summary>
 		[RequiredByFeature("GLX_VERSION_1_0")]
 		public const int USE_GL = 1;
 
 		/// <summary>
-		/// Value of GLX_BUFFER_SIZE symbol.
+		/// <para>
+		/// Glx.ChooseFBConfig: must be followed by a nonnegative integer that indicates the desired color index buffer size. The 
+		/// smallest index buffer of at least the specified size is preferred. This attribute is ignored if Glx.COLOR_INDEX_BIT is 
+		/// not set in Glx.RENDER_TYPE. The default value is 0.
+		/// </para>
+		/// <para>
+		/// Glx.ChooseVisual: must be followed by a nonnegative integer that indicates the desired color index buffer size. The 
+		/// smallest index buffer of at least the specified size is preferred. Ignored if Glx.RGBA is asserted.
+		/// </para>
+		/// <para>
+		/// Glx.GetConfig: number of bits per color buffer. For RGBA visuals, Glx.BUFFER_SIZE is the sum of Glx.RED_SIZE, 
+		/// Glx.GREEN_SIZE, Glx.BLUE_SIZE, and Glx.ALPHA_SIZE. For color index visuals, Glx.BUFFER_SIZE is the size of the color 
+		/// indexes.
+		/// </para>
+		/// <para>
+		/// Glx.GetFBConfigAttrib: number of bits per color buffer. If the frame buffer configuration supports RGBA contexts, then 
+		/// Glx.BUFFER_SIZE is the sum of Glx.RED_SIZE, Glx.GREEN_SIZE, Glx.BLUE_SIZE, and Glx.ALPHA_SIZE. If the frame buffer 
+		/// configuration supports only color index contexts, Glx.BUFFER_SIZE is the size of the color indexes.
+		/// </para>
 		/// </summary>
 		[RequiredByFeature("GLX_VERSION_1_0")]
 		public const int BUFFER_SIZE = 2;
 
 		/// <summary>
-		/// Value of GLX_LEVEL symbol.
+		/// <para>
+		/// Glx.ChooseFBConfig: must be followed by an integer buffer-level specification. This specification is honored exactly. 
+		/// Buffer level 0 corresponds to the default frame buffer of the display. Buffer level 1 is the first overlay frame buffer, 
+		/// level two the second overlay frame buffer, and so on. Negative buffer levels correspond to underlay frame buffers. The 
+		/// default value is 0.
+		/// </para>
+		/// <para>
+		/// Glx.ChooseVisual: must be followed by an integer buffer-level specification. This specification is honored exactly. 
+		/// Buffer level zero corresponds to the main frame buffer of the display. Buffer level one is the first overlay frame 
+		/// buffer, level two the second overlay frame buffer, and so on. Negative buffer levels correspond to underlay frame 
+		/// buffers.
+		/// </para>
+		/// <para>
+		/// Glx.GetConfig: frame buffer level of the visual. Level zero is the default frame buffer. Positive levels correspond to 
+		/// frame buffers that overlay the default buffer, and negative levels correspond to frame buffers that underlay the default 
+		/// buffer.
+		/// </para>
+		/// <para>
+		/// Glx.GetFBConfigAttrib: frame buffer level of the configuration. Level zero is the default frame buffer. Positive levels 
+		/// correspond to frame buffers that overlay the default buffer, and negative levels correspond to frame buffers that 
+		/// underlie the default buffer.
+		/// </para>
 		/// </summary>
 		[RequiredByFeature("GLX_VERSION_1_0")]
 		public const int LEVEL = 3;
 
 		/// <summary>
-		/// Value of GLX_RGBA symbol.
+		/// <para>
+		/// Glx.ChooseVisual: if present, only TrueColor and DirectColor visuals are considered. Otherwise, only PseudoColor and 
+		/// StaticColor visuals are considered.
+		/// </para>
+		/// <para>
+		/// Glx.GetConfig: glx. if color buffers store red, green, blue, and alpha values. Glx.e if they store color indexes.
+		/// </para>
 		/// </summary>
 		[RequiredByFeature("GLX_VERSION_1_0")]
 		public const int RGBA = 4;
 
 		/// <summary>
-		/// Value of GLX_DOUBLEBUFFER symbol.
+		/// <para>
+		/// Glx.ChooseFBConfig: must be followed by Glx. or Glx.e. If Glx. is specified, then only double-buffered frame buffer 
+		/// configurations are considered; if Glx.e is specified, then only single-buffered frame buffer configurations are 
+		/// considered. The default value is Glx.DONT_CARE.
+		/// </para>
+		/// <para>
+		/// Glx.ChooseVisual: if present, only double-buffered visuals are considered. Otherwise, only single-buffered visuals are 
+		/// considered.
+		/// </para>
+		/// <para>
+		/// Glx.GetConfig: glx. if color buffers exist in front/back pairs that can be swapped, Glx.e otherwise.
+		/// </para>
+		/// <para>
+		/// Glx.GetFBConfigAttrib: glx. if color buffers exist in front/back pairs that can be swapped, Glx.e otherwise.
+		/// </para>
 		/// </summary>
 		[RequiredByFeature("GLX_VERSION_1_0")]
 		public const int DOUBLEBUFFER = 5;
 
 		/// <summary>
-		/// Value of GLX_STEREO symbol.
+		/// <para>
+		/// Glx.ChooseFBConfig: must be followed by Glx. or Glx.e. If Glx. is specified, then only stereo frame buffer 
+		/// configurations are considered; if Glx.e is specified, then only monoscopic frame buffer configurations are considered. 
+		/// The default value is Glx.e.
+		/// </para>
+		/// <para>
+		/// Glx.ChooseVisual: if present, only stereo visuals are considered. Otherwise, only monoscopic visuals are considered.
+		/// </para>
+		/// <para>
+		/// Glx.GetConfig: glx. if color buffers exist in left/right pairs, Glx.e otherwise.
+		/// </para>
+		/// <para>
+		/// Glx.GetFBConfigAttrib: glx. if color buffers exist in left/right pairs, Glx.e otherwise.
+		/// </para>
 		/// </summary>
 		[RequiredByFeature("GLX_VERSION_1_0")]
 		public const int STEREO = 6;
 
 		/// <summary>
-		/// Value of GLX_AUX_BUFFERS symbol.
+		/// <para>
+		/// Glx.ChooseFBConfig: must be followed by a nonnegative integer that indicates the desired number of auxiliary buffers. 
+		/// Configurations with the smallest number of auxiliary buffers that meet or exceed the specified number are preferred. The 
+		/// default value is 0.
+		/// </para>
+		/// <para>
+		/// Glx.ChooseVisual: must be followed by a nonnegative integer that indicates the desired number of auxiliary buffers. 
+		/// Visuals with the smallest number of auxiliary buffers that meets or exceeds the specified number are preferred.
+		/// </para>
+		/// <para>
+		/// Glx.GetConfig: number of auxiliary color buffers that are available. Zero indicates that no auxiliary color buffers 
+		/// exist.
+		/// </para>
+		/// <para>
+		/// Glx.GetFBConfigAttrib: number of auxiliary color buffers that are available. Zero indicates that no auxiliary color 
+		/// buffers exist.
+		/// </para>
 		/// </summary>
 		[RequiredByFeature("GLX_VERSION_1_0")]
 		public const int AUX_BUFFERS = 7;
 
 		/// <summary>
-		/// Value of GLX_RED_SIZE symbol.
+		/// <para>
+		/// Glx.ChooseFBConfig: each attribute, if present, must be followed by a nonnegative minimum size specification or 
+		/// Glx.DONT_CARE. The largest available total RGBA color buffer size (sum of Glx.RED_SIZE, Glx.GREEN_SIZE, Glx.BLUE_SIZE, 
+		/// and Glx.ALPHA_SIZE) of at least the minimum size specified for each color component is preferred. If the requested 
+		/// number of bits for a color component is 0 or Glx.DONT_CARE, it is not considered. The default value for each color 
+		/// component is 0.
+		/// </para>
+		/// <para>
+		/// Glx.ChooseVisual: must be followed by a nonnegative minimum size specification. If this value is zero, the smallest 
+		/// available red buffer is preferred. Otherwise, the largest available red buffer of at least the minimum size is 
+		/// preferred.
+		/// </para>
+		/// <para>
+		/// Glx.GetConfig: number of bits of red stored in each color buffer. Undefined if Glx.RGBA is Glx.e.
+		/// </para>
+		/// <para>
+		/// Glx.GetFBConfigAttrib: number of bits of red stored in each color buffer. Undefined if RGBA contexts are not supported 
+		/// by the frame buffer configuration.
+		/// </para>
 		/// </summary>
 		[RequiredByFeature("GLX_VERSION_1_0")]
 		public const int RED_SIZE = 8;
 
 		/// <summary>
-		/// Value of GLX_GREEN_SIZE symbol.
+		/// <para>
+		/// Glx.ChooseVisual: must be followed by a nonnegative minimum size specification. If this value is zero, the smallest 
+		/// available green buffer is preferred. Otherwise, the largest available green buffer of at least the minimum size is 
+		/// preferred.
+		/// </para>
+		/// <para>
+		/// Glx.GetConfig: number of bits of green stored in each color buffer. Undefined if Glx.RGBA is Glx.e.
+		/// </para>
+		/// <para>
+		/// Glx.GetFBConfigAttrib: number of bits of green stored in each color buffer. Undefined if RGBA contexts are not supported 
+		/// by the frame buffer configuration.
+		/// </para>
 		/// </summary>
 		[RequiredByFeature("GLX_VERSION_1_0")]
 		public const int GREEN_SIZE = 9;
 
 		/// <summary>
-		/// Value of GLX_BLUE_SIZE symbol.
+		/// <para>
+		/// Glx.ChooseVisual: must be followed by a nonnegative minimum size specification. If this value is zero, the smallest 
+		/// available blue buffer is preferred. Otherwise, the largest available blue buffer of at least the minimum size is 
+		/// preferred.
+		/// </para>
+		/// <para>
+		/// Glx.GetConfig: number of bits of blue stored in each color buffer. Undefined if Glx.RGBA is Glx.e.
+		/// </para>
+		/// <para>
+		/// Glx.GetFBConfigAttrib: number of bits of blue stored in each color buffer. Undefined if RGBA contexts are not supported 
+		/// by the frame buffer configuration.
+		/// </para>
 		/// </summary>
 		[RequiredByFeature("GLX_VERSION_1_0")]
 		public const int BLUE_SIZE = 10;
 
 		/// <summary>
-		/// Value of GLX_ALPHA_SIZE symbol.
+		/// <para>
+		/// Glx.ChooseVisual: must be followed by a nonnegative minimum size specification. If this value is zero, the smallest 
+		/// available alpha buffer is preferred. Otherwise, the largest available alpha buffer of at least the minimum size is 
+		/// preferred.
+		/// </para>
+		/// <para>
+		/// Glx.GetConfig: number of bits of alpha stored in each color buffer. Undefined if Glx.RGBA is Glx.e.
+		/// </para>
+		/// <para>
+		/// Glx.GetFBConfigAttrib: number of bits of alpha stored in each color buffer. Undefined if RGBA contexts are not supported 
+		/// by the frame buffer configuration.
+		/// </para>
 		/// </summary>
 		[RequiredByFeature("GLX_VERSION_1_0")]
 		public const int ALPHA_SIZE = 11;
 
 		/// <summary>
-		/// Value of GLX_DEPTH_SIZE symbol.
+		/// <para>
+		/// Glx.ChooseFBConfig: must be followed by a nonnegative minimum size specification. If this value is zero, frame buffer 
+		/// configurations with no depth buffer are preferred. Otherwise, the largest available depth buffer of at least the minimum 
+		/// size is preferred. The default value is 0.
+		/// </para>
+		/// <para>
+		/// Glx.ChooseVisual: must be followed by a nonnegative minimum size specification. If this value is zero, visuals with no 
+		/// depth buffer are preferred. Otherwise, the largest available depth buffer of at least the minimum size is preferred.
+		/// </para>
+		/// <para>
+		/// Glx.GetConfig: number of bits in the depth buffer.
+		/// </para>
+		/// <para>
+		/// Glx.GetFBConfigAttrib: number of bits in the depth buffer.
+		/// </para>
 		/// </summary>
 		[RequiredByFeature("GLX_VERSION_1_0")]
 		public const int DEPTH_SIZE = 12;
 
 		/// <summary>
-		/// Value of GLX_STENCIL_SIZE symbol.
+		/// <para>
+		/// Glx.ChooseFBConfig: must be followed by a nonnegative integer that indicates the desired number of stencil bitplanes. 
+		/// The smallest stencil buffer of at least the specified size is preferred. If the desired value is zero, frame buffer 
+		/// configurations with no stencil buffer are preferred. The default value is 0.
+		/// </para>
+		/// <para>
+		/// Glx.ChooseVisual: must be followed by a nonnegative integer that indicates the desired number of stencil bitplanes. The 
+		/// smallest stencil buffer of at least the specified size is preferred. If the desired value is zero, visuals with no 
+		/// stencil buffer are preferred.
+		/// </para>
+		/// <para>
+		/// Glx.GetConfig: number of bits in the stencil buffer.
+		/// </para>
+		/// <para>
+		/// Glx.GetFBConfigAttrib: number of bits in the stencil buffer.
+		/// </para>
 		/// </summary>
 		[RequiredByFeature("GLX_VERSION_1_0")]
 		public const int STENCIL_SIZE = 13;
 
 		/// <summary>
-		/// Value of GLX_ACCUM_RED_SIZE symbol.
+		/// <para>
+		/// Glx.ChooseFBConfig: must be followed by a nonnegative minimum size specification. If this value is zero, frame buffer 
+		/// configurations with no red accumulation buffer are preferred. Otherwise, the largest possible red accumulation buffer of 
+		/// at least the minimum size is preferred. The default value is 0.
+		/// </para>
+		/// <para>
+		/// Glx.ChooseVisual: must be followed by a nonnegative minimum size specification. If this value is zero, visuals with no 
+		/// red accumulation buffer are preferred. Otherwise, the largest possible red accumulation buffer of at least the minimum 
+		/// size is preferred.
+		/// </para>
+		/// <para>
+		/// Glx.GetConfig: number of bits of red stored in the accumulation buffer.
+		/// </para>
+		/// <para>
+		/// Glx.GetFBConfigAttrib: number of bits of red stored in the accumulation buffer.
+		/// </para>
 		/// </summary>
 		[RequiredByFeature("GLX_VERSION_1_0")]
 		public const int ACCUM_RED_SIZE = 14;
 
 		/// <summary>
-		/// Value of GLX_ACCUM_GREEN_SIZE symbol.
+		/// <para>
+		/// Glx.ChooseFBConfig: must be followed by a nonnegative minimum size specification. If this value is zero, frame buffer 
+		/// configurations with no green accumulation buffer are preferred. Otherwise, the largest possible green accumulation 
+		/// buffer of at least the minimum size is preferred. The default value is 0.
+		/// </para>
+		/// <para>
+		/// Glx.ChooseVisual: must be followed by a nonnegative minimum size specification. If this value is zero, visuals with no 
+		/// green accumulation buffer are preferred. Otherwise, the largest possible green accumulation buffer of at least the 
+		/// minimum size is preferred.
+		/// </para>
+		/// <para>
+		/// Glx.GetConfig: number of bits of green stored in the accumulation buffer.
+		/// </para>
+		/// <para>
+		/// Glx.GetFBConfigAttrib: number of bits of green stored in the accumulation buffer.
+		/// </para>
 		/// </summary>
 		[RequiredByFeature("GLX_VERSION_1_0")]
 		public const int ACCUM_GREEN_SIZE = 15;
 
 		/// <summary>
-		/// Value of GLX_ACCUM_BLUE_SIZE symbol.
+		/// <para>
+		/// Glx.ChooseFBConfig: must be followed by a nonnegative minimum size specification. If this value is zero, frame buffer 
+		/// configurations with no blue accumulation buffer are preferred. Otherwise, the largest possible blue accumulation buffer 
+		/// of at least the minimum size is preferred. The default value is 0.
+		/// </para>
+		/// <para>
+		/// Glx.ChooseVisual: must be followed by a nonnegative minimum size specification. If this value is zero, visuals with no 
+		/// blue accumulation buffer are preferred. Otherwise, the largest possible blue accumulation buffer of at least the minimum 
+		/// size is preferred.
+		/// </para>
+		/// <para>
+		/// Glx.GetConfig: number of bits of blue stored in the accumulation buffer.
+		/// </para>
+		/// <para>
+		/// Glx.GetFBConfigAttrib: number of bits of blue stored in the accumulation buffer.
+		/// </para>
 		/// </summary>
 		[RequiredByFeature("GLX_VERSION_1_0")]
 		public const int ACCUM_BLUE_SIZE = 16;
 
 		/// <summary>
-		/// Value of GLX_ACCUM_ALPHA_SIZE symbol.
+		/// <para>
+		/// Glx.ChooseFBConfig: must be followed by a nonnegative minimum size specification. If this value is zero, frame buffer 
+		/// configurations with no alpha accumulation buffer are preferred. Otherwise, the largest possible alpha accumulation 
+		/// buffer of at least the minimum size is preferred. The default value is 0.
+		/// </para>
+		/// <para>
+		/// Glx.ChooseVisual: must be followed by a nonnegative minimum size specification. If this value is zero, visuals with no 
+		/// alpha accumulation buffer are preferred. Otherwise, the largest possible alpha accumulation buffer of at least the 
+		/// minimum size is preferred.
+		/// </para>
+		/// <para>
+		/// Glx.GetConfig: number of bits of alpha stored in the accumulation buffer.
+		/// </para>
+		/// <para>
+		/// Glx.GetFBConfigAttrib: number of bits of alpha stored in the accumulation buffer.
+		/// </para>
 		/// </summary>
 		[RequiredByFeature("GLX_VERSION_1_0")]
 		public const int ACCUM_ALPHA_SIZE = 17;

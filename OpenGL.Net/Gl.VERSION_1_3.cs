@@ -250,14 +250,15 @@ namespace OpenGL
 		public const int TEXTURE31 = 0x84DF;
 
 		/// <summary>
-		/// Value of GL_ACTIVE_TEXTURE symbol.
+		/// Gl.Get: data returns a single value indicating the active multitexture unit. The initial value is Gl.TEXTURE0. See 
+		/// Gl.ActiveTexture.
 		/// </summary>
 		[AliasOf("GL_ACTIVE_TEXTURE_ARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		public const int ACTIVE_TEXTURE = 0x84E0;
 
 		/// <summary>
-		/// Value of GL_MULTISAMPLE symbol.
+		/// Gl.Enable: if enabled, use multiple fragment samples in computing the final color of a pixel. See Gl.SampleCoverage.
 		/// </summary>
 		[AliasOf("GL_MULTISAMPLE_ARB")]
 		[AliasOf("GL_MULTISAMPLE_EXT")]
@@ -266,14 +267,15 @@ namespace OpenGL
 		public const int MULTISAMPLE = 0x809D;
 
 		/// <summary>
-		/// Value of GL_SAMPLE_ALPHA_TO_COVERAGE symbol.
+		/// Gl.Enable: if enabled, compute a temporary coverage value where each bit is determined by the alpha value at the 
+		/// corresponding sample location. The temporary coverage value is then ANDed with the fragment coverage value.
 		/// </summary>
 		[AliasOf("GL_SAMPLE_ALPHA_TO_COVERAGE_ARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		public const int SAMPLE_ALPHA_TO_COVERAGE = 0x809E;
 
 		/// <summary>
-		/// Value of GL_SAMPLE_ALPHA_TO_ONE symbol.
+		/// Gl.Enable: if enabled, each sample alpha value is replaced by the maximum representable alpha value.
 		/// </summary>
 		[AliasOf("GL_SAMPLE_ALPHA_TO_ONE_ARB")]
 		[AliasOf("GL_SAMPLE_ALPHA_TO_ONE_EXT")]
@@ -282,14 +284,22 @@ namespace OpenGL
 		public const int SAMPLE_ALPHA_TO_ONE = 0x809F;
 
 		/// <summary>
-		/// Value of GL_SAMPLE_COVERAGE symbol.
+		/// Gl.Enable: if enabled, the fragment's coverage is ANDed with the temporary coverage value. If Gl.SAMPLE_COVERAGE_INVERT 
+		/// is set to Gl.TRUE, invert the coverage value. See Gl.SampleCoverage.
 		/// </summary>
 		[AliasOf("GL_SAMPLE_COVERAGE_ARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		public const int SAMPLE_COVERAGE = 0x80A0;
 
 		/// <summary>
-		/// Value of GL_SAMPLE_BUFFERS symbol.
+		/// <para>
+		/// Gl.Get: data returns a single integer value indicating the number of sample buffers associated with the framebuffer. See 
+		/// Gl.SampleCoverage.
+		/// </para>
+		/// <para>
+		/// Gl.GetFramebufferParameter: param returns an integer value indicating the number of sample buffers associated with the 
+		/// framebuffer object. See Gl.SampleCoverage.
+		/// </para>
 		/// </summary>
 		[AliasOf("GL_SAMPLE_BUFFERS_ARB")]
 		[AliasOf("GL_SAMPLE_BUFFERS_EXT")]
@@ -298,7 +308,13 @@ namespace OpenGL
 		public const int SAMPLE_BUFFERS = 0x80A8;
 
 		/// <summary>
-		/// Value of GL_SAMPLES symbol.
+		/// <para>
+		/// Gl.Get: data returns a single integer value indicating the coverage mask size. See Gl.SampleCoverage.
+		/// </para>
+		/// <para>
+		/// Gl.GetFramebufferParameter: param returns an integer value indicating the coverage mask size for the framebuffer object. 
+		/// See Gl.SampleCoverage.
+		/// </para>
 		/// </summary>
 		[AliasOf("GL_SAMPLES_ARB")]
 		[AliasOf("GL_SAMPLES_EXT")]
@@ -308,21 +324,29 @@ namespace OpenGL
 		public const int SAMPLES = 0x80A9;
 
 		/// <summary>
-		/// Value of GL_SAMPLE_COVERAGE_VALUE symbol.
+		/// Gl.Get: data returns a single positive floating-point value indicating the current sample coverage value. See 
+		/// Gl.SampleCoverage.
 		/// </summary>
 		[AliasOf("GL_SAMPLE_COVERAGE_VALUE_ARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		public const int SAMPLE_COVERAGE_VALUE = 0x80AA;
 
 		/// <summary>
-		/// Value of GL_SAMPLE_COVERAGE_INVERT symbol.
+		/// Gl.Get: data returns a single boolean value indicating if the temporary coverage value should be inverted. See 
+		/// Gl.SampleCoverage.
 		/// </summary>
 		[AliasOf("GL_SAMPLE_COVERAGE_INVERT_ARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		public const int SAMPLE_COVERAGE_INVERT = 0x80AB;
 
 		/// <summary>
-		/// Value of GL_TEXTURE_CUBE_MAP symbol.
+		/// <para>
+		/// Gl.Get: params returns a single boolean value indicating whether cube-mapped texture mapping is enabled. The initial 
+		/// value is Gl.FALSE. See Gl.TexImage2D.
+		/// </para>
+		/// <para>
+		/// Gl.Enable: if enabled and no fragment shader is active, cube-mapped texturing is performed. See Gl.TexImage2D.
+		/// </para>
 		/// </summary>
 		[AliasOf("GL_TEXTURE_CUBE_MAP_ARB")]
 		[AliasOf("GL_TEXTURE_CUBE_MAP_EXT")]
@@ -331,7 +355,8 @@ namespace OpenGL
 		public const int TEXTURE_CUBE_MAP = 0x8513;
 
 		/// <summary>
-		/// Value of GL_TEXTURE_BINDING_CUBE_MAP symbol.
+		/// Gl.Get: data returns a single value, the name of the texture currently bound to the target Gl.TEXTURE_CUBE_MAP. The 
+		/// initial value is 0. See Gl.BindTexture.
 		/// </summary>
 		[AliasOf("GL_TEXTURE_BINDING_CUBE_MAP_ARB")]
 		[AliasOf("GL_TEXTURE_BINDING_CUBE_MAP_EXT")]
@@ -397,7 +422,9 @@ namespace OpenGL
 		public const int PROXY_TEXTURE_CUBE_MAP = 0x851B;
 
 		/// <summary>
-		/// Value of GL_MAX_CUBE_MAP_TEXTURE_SIZE symbol.
+		/// Gl.Get: data returns one value. The value gives a rough estimate of the largest cube-map texture that the GL can handle. 
+		/// The value must be at least 1024. Use Gl.PROXY_TEXTURE_CUBE_MAP to determine if a texture is too large. See 
+		/// Gl.TexImage2D.
 		/// </summary>
 		[AliasOf("GL_MAX_CUBE_MAP_TEXTURE_SIZE_ARB")]
 		[AliasOf("GL_MAX_CUBE_MAP_TEXTURE_SIZE_EXT")]
@@ -419,21 +446,32 @@ namespace OpenGL
 		public const int COMPRESSED_RGBA = 0x84EE;
 
 		/// <summary>
-		/// Value of GL_TEXTURE_COMPRESSION_HINT symbol.
+		/// <para>
+		/// Gl.Get: data returns a single value indicating the mode of the texture compression hint. The initial value is 
+		/// Gl.DONT_CARE.
+		/// </para>
+		/// <para>
+		/// Gl.Hint: indicates the quality and performance of the compressing texture images. Hinting Gl.FASTEST indicates that 
+		/// texture images should be compressed as quickly as possible, while Gl.NICEST indicates that texture images should be 
+		/// compressed with as little image quality loss as possible. Gl.NICEST should be selected if the texture is to be retrieved 
+		/// by Gl.GetCompressedTexImage for reuse.
+		/// </para>
 		/// </summary>
 		[AliasOf("GL_TEXTURE_COMPRESSION_HINT_ARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		public const int TEXTURE_COMPRESSION_HINT = 0x84EF;
 
 		/// <summary>
-		/// Value of GL_TEXTURE_COMPRESSED_IMAGE_SIZE symbol.
+		/// Gl.GetTexLevelParameter: params returns a single integer value, the number of unsigned bytes of the compressed texture 
+		/// image that would be returned from Gl.GetCompressedTexImage.
 		/// </summary>
 		[AliasOf("GL_TEXTURE_COMPRESSED_IMAGE_SIZE_ARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		public const int TEXTURE_COMPRESSED_IMAGE_SIZE = 0x86A0;
 
 		/// <summary>
-		/// Value of GL_TEXTURE_COMPRESSED symbol.
+		/// Gl.GetTexLevelParameter: params returns a single boolean value indicating if the texture image is stored in a compressed 
+		/// internal format. The initiali value is Gl.FALSE.
 		/// </summary>
 		[AliasOf("GL_TEXTURE_COMPRESSED_ARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
@@ -441,14 +479,16 @@ namespace OpenGL
 		public const int TEXTURE_COMPRESSED = 0x86A1;
 
 		/// <summary>
-		/// Value of GL_NUM_COMPRESSED_TEXTURE_FORMATS symbol.
+		/// Gl.Get: data returns a single integer value indicating the number of available compressed texture formats. The minimum 
+		/// value is 4. See Gl.CompressedTexImage2D.
 		/// </summary>
 		[AliasOf("GL_NUM_COMPRESSED_TEXTURE_FORMATS_ARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		public const int NUM_COMPRESSED_TEXTURE_FORMATS = 0x86A2;
 
 		/// <summary>
-		/// Value of GL_COMPRESSED_TEXTURE_FORMATS symbol.
+		/// Gl.Get: data returns a list of symbolic constants of length Gl.NUM_COMPRESSED_TEXTURE_FORMATS indicating which 
+		/// compressed texture formats are available. See Gl.CompressedTexImage2D.
 		/// </summary>
 		[AliasOf("GL_COMPRESSED_TEXTURE_FORMATS_ARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
@@ -463,7 +503,8 @@ namespace OpenGL
 		public const int CLAMP_TO_BORDER = 0x812D;
 
 		/// <summary>
-		/// Value of GL_CLIENT_ACTIVE_TEXTURE symbol (DEPRECATED).
+		/// Gl.Get: params returns a single integer value indicating the current client active multitexture unit. The initial value 
+		/// is Gl.TEXTURE0. See Gl.ClientActiveTexture.
 		/// </summary>
 		[AliasOf("GL_CLIENT_ACTIVE_TEXTURE_ARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
@@ -474,7 +515,10 @@ namespace OpenGL
 		public const int CLIENT_ACTIVE_TEXTURE = 0x84E1;
 
 		/// <summary>
-		/// Value of GL_MAX_TEXTURE_UNITS symbol (DEPRECATED).
+		/// Gl.Get: params returns a single value indicating the number of conventional texture units supported. Each conventional 
+		/// texture unit includes both a texture coordinate set and a texture image unit. Conventional texture units may be used for 
+		/// fixed-function (non-shader) rendering. The value must be at least 2. Additional texture coordinate sets and texture 
+		/// image units may be accessed from vertex and fragment shaders. See Gl.ActiveTexture and Gl.ClientActiveTexture.
 		/// </summary>
 		[AliasOf("GL_MAX_TEXTURE_UNITS_ARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
@@ -485,7 +529,7 @@ namespace OpenGL
 		public const int MAX_TEXTURE_UNITS = 0x84E2;
 
 		/// <summary>
-		/// Value of GL_TRANSPOSE_MODELVIEW_MATRIX symbol (DEPRECATED).
+		/// Gl.Get: params returns 16 values, the elements of the modelview matrix in row-major order. See Gl.LoadTransposeMatrix.
 		/// </summary>
 		[AliasOf("GL_TRANSPOSE_MODELVIEW_MATRIX_ARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
@@ -496,7 +540,7 @@ namespace OpenGL
 		public const int TRANSPOSE_MODELVIEW_MATRIX = 0x84E3;
 
 		/// <summary>
-		/// Value of GL_TRANSPOSE_PROJECTION_MATRIX symbol (DEPRECATED).
+		/// Gl.Get: params returns 16 values, the elements of the projection matrix in row-major order. See Gl.LoadTransposeMatrix.
 		/// </summary>
 		[AliasOf("GL_TRANSPOSE_PROJECTION_MATRIX_ARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
@@ -507,7 +551,7 @@ namespace OpenGL
 		public const int TRANSPOSE_PROJECTION_MATRIX = 0x84E4;
 
 		/// <summary>
-		/// Value of GL_TRANSPOSE_TEXTURE_MATRIX symbol (DEPRECATED).
+		/// Gl.Get: params returns 16 values, the elements of the texture matrix in row-major order. See Gl.LoadTransposeMatrix.
 		/// </summary>
 		[AliasOf("GL_TRANSPOSE_TEXTURE_MATRIX_ARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
@@ -518,7 +562,7 @@ namespace OpenGL
 		public const int TRANSPOSE_TEXTURE_MATRIX = 0x84E5;
 
 		/// <summary>
-		/// Value of GL_TRANSPOSE_COLOR_MATRIX symbol (DEPRECATED).
+		/// Gl.Get: params returns 16 values, the elements of the color matrix in row-major order. See Gl.LoadTransposeMatrix.
 		/// </summary>
 		[AliasOf("GL_TRANSPOSE_COLOR_MATRIX_ARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
@@ -624,7 +668,8 @@ namespace OpenGL
 		public const int COMBINE = 0x8570;
 
 		/// <summary>
-		/// Value of GL_COMBINE_RGB symbol (DEPRECATED).
+		/// Gl.GetTexEnv: params returns a single symbolic constant value representing the current RGB combine mode. The initial 
+		/// value is Gl.MODULATE.
 		/// </summary>
 		[AliasOf("GL_COMBINE_RGB_ARB")]
 		[AliasOf("GL_COMBINE_RGB_EXT")]
@@ -636,7 +681,8 @@ namespace OpenGL
 		public const int COMBINE_RGB = 0x8571;
 
 		/// <summary>
-		/// Value of GL_COMBINE_ALPHA symbol (DEPRECATED).
+		/// Gl.GetTexEnv: params returns a single symbolic constant value representing the current alpha combine mode. The initial 
+		/// value is Gl.MODULATE.
 		/// </summary>
 		[AliasOf("GL_COMBINE_ALPHA_ARB")]
 		[AliasOf("GL_COMBINE_ALPHA_EXT")]
@@ -720,7 +766,8 @@ namespace OpenGL
 		public const int SOURCE2_ALPHA = 0x858A;
 
 		/// <summary>
-		/// Value of GL_OPERAND0_RGB symbol (DEPRECATED).
+		/// Gl.GetTexEnv: params returns a single symbolic constant value representing the texture combiner zero's RGB operand. The 
+		/// initial value is Gl.SRC_COLOR.
 		/// </summary>
 		[AliasOf("GL_OPERAND0_RGB_ARB")]
 		[AliasOf("GL_OPERAND0_RGB_EXT")]
@@ -732,7 +779,8 @@ namespace OpenGL
 		public const int OPERAND0_RGB = 0x8590;
 
 		/// <summary>
-		/// Value of GL_OPERAND1_RGB symbol (DEPRECATED).
+		/// Gl.GetTexEnv: params returns a single symbolic constant value representing the texture combiner one's RGB operand. The 
+		/// initial value is Gl.SRC_COLOR.
 		/// </summary>
 		[AliasOf("GL_OPERAND1_RGB_ARB")]
 		[AliasOf("GL_OPERAND1_RGB_EXT")]
@@ -744,7 +792,8 @@ namespace OpenGL
 		public const int OPERAND1_RGB = 0x8591;
 
 		/// <summary>
-		/// Value of GL_OPERAND2_RGB symbol (DEPRECATED).
+		/// Gl.GetTexEnv: params returns a single symbolic constant value representing the texture combiner two's RGB operand. The 
+		/// initial value is Gl.SRC_ALPHA.
 		/// </summary>
 		[AliasOf("GL_OPERAND2_RGB_ARB")]
 		[AliasOf("GL_OPERAND2_RGB_EXT")]
@@ -756,7 +805,8 @@ namespace OpenGL
 		public const int OPERAND2_RGB = 0x8592;
 
 		/// <summary>
-		/// Value of GL_OPERAND0_ALPHA symbol (DEPRECATED).
+		/// Gl.GetTexEnv: params returns a single symbolic constant value representing the texture combiner zero's alpha operand. 
+		/// The initial value is Gl.SRC_ALPHA.
 		/// </summary>
 		[AliasOf("GL_OPERAND0_ALPHA_ARB")]
 		[AliasOf("GL_OPERAND0_ALPHA_EXT")]
@@ -768,7 +818,8 @@ namespace OpenGL
 		public const int OPERAND0_ALPHA = 0x8598;
 
 		/// <summary>
-		/// Value of GL_OPERAND1_ALPHA symbol (DEPRECATED).
+		/// Gl.GetTexEnv: params returns a single symbolic constant value representing the texture combiner one's alpha operand. The 
+		/// initial value is Gl.SRC_ALPHA.
 		/// </summary>
 		[AliasOf("GL_OPERAND1_ALPHA_ARB")]
 		[AliasOf("GL_OPERAND1_ALPHA_EXT")]
@@ -780,7 +831,8 @@ namespace OpenGL
 		public const int OPERAND1_ALPHA = 0x8599;
 
 		/// <summary>
-		/// Value of GL_OPERAND2_ALPHA symbol (DEPRECATED).
+		/// Gl.GetTexEnv: params returns a single symbolic constant value representing the texture combiner two's alpha operand. The 
+		/// initial value is Gl.SRC_ALPHA.
 		/// </summary>
 		[AliasOf("GL_OPERAND2_ALPHA_ARB")]
 		[AliasOf("GL_OPERAND2_ALPHA_EXT")]
@@ -792,7 +844,8 @@ namespace OpenGL
 		public const int OPERAND2_ALPHA = 0x859A;
 
 		/// <summary>
-		/// Value of GL_RGB_SCALE symbol (DEPRECATED).
+		/// Gl.GetTexEnv: params returns a single floating-point value representing the current RGB texture combiner scaling factor. 
+		/// The initial value is 1.0.
 		/// </summary>
 		[AliasOf("GL_RGB_SCALE_ARB")]
 		[AliasOf("GL_RGB_SCALE_EXT")]

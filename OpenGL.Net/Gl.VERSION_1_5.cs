@@ -26,42 +26,47 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Value of GL_BUFFER_SIZE symbol.
+		/// Gl.GetBufferParameter: params returns the size of the buffer object, measured in bytes. The initial value is 0.
 		/// </summary>
 		[AliasOf("GL_BUFFER_SIZE_ARB")]
 		[RequiredByFeature("GL_VERSION_1_5")]
 		public const int BUFFER_SIZE = 0x8764;
 
 		/// <summary>
-		/// Value of GL_BUFFER_USAGE symbol.
+		/// Gl.GetBufferParameter: params returns the buffer object's usage pattern. The initial value is Gl.STATIC_DRAW.
 		/// </summary>
 		[AliasOf("GL_BUFFER_USAGE_ARB")]
 		[RequiredByFeature("GL_VERSION_1_5")]
 		public const int BUFFER_USAGE = 0x8765;
 
 		/// <summary>
-		/// Value of GL_QUERY_COUNTER_BITS symbol.
+		/// Gl.GetQuery: params returns the number of bits in the query counter used to accumulate passing samples. If the number of 
+		/// bits returned is 0, the implementation does not support a query counter, and the results obtained from Gl.GetQueryObject 
+		/// are useless.
 		/// </summary>
 		[AliasOf("GL_QUERY_COUNTER_BITS_ARB")]
 		[RequiredByFeature("GL_VERSION_1_5")]
 		public const int QUERY_COUNTER_BITS = 0x8864;
 
 		/// <summary>
-		/// Value of GL_CURRENT_QUERY symbol.
+		/// Gl.GetQuery: params returns the name of the currently active occlusion query object. If no occlusion query is active, 0 
+		/// is returned. The initial value is 0.
 		/// </summary>
 		[AliasOf("GL_CURRENT_QUERY_ARB")]
 		[RequiredByFeature("GL_VERSION_1_5")]
 		public const int CURRENT_QUERY = 0x8865;
 
 		/// <summary>
-		/// Value of GL_QUERY_RESULT symbol.
+		/// Gl.GetQueryObject: params returns the value of the query object's passed samples counter. The initial value is 0.
 		/// </summary>
 		[AliasOf("GL_QUERY_RESULT_ARB")]
 		[RequiredByFeature("GL_VERSION_1_5")]
 		public const int QUERY_RESULT = 0x8866;
 
 		/// <summary>
-		/// Value of GL_QUERY_RESULT_AVAILABLE symbol.
+		/// Gl.GetQueryObject: params returns whether the passed samples counter is immediately available. If a delay would occur 
+		/// waiting for the query result, Gl.FALSE is returned. Otherwise, Gl.TRUE is returned, which also indicates that the 
+		/// results of all previous queries are available as well.
 		/// </summary>
 		[AliasOf("GL_QUERY_RESULT_AVAILABLE_ARB")]
 		[RequiredByFeature("GL_VERSION_1_5")]
@@ -82,21 +87,26 @@ namespace OpenGL
 		public const int ELEMENT_ARRAY_BUFFER = 0x8893;
 
 		/// <summary>
-		/// Value of GL_ARRAY_BUFFER_BINDING symbol.
+		/// Gl.Get: data returns a single value, the name of the buffer object currently bound to the target Gl.ARRAY_BUFFER. If no 
+		/// buffer object is bound to this target, 0 is returned. The initial value is 0. See Gl.BindBuffer.
 		/// </summary>
 		[AliasOf("GL_ARRAY_BUFFER_BINDING_ARB")]
 		[RequiredByFeature("GL_VERSION_1_5")]
 		public const int ARRAY_BUFFER_BINDING = 0x8894;
 
 		/// <summary>
-		/// Value of GL_ELEMENT_ARRAY_BUFFER_BINDING symbol.
+		/// Gl.Get: data returns a single value, the name of the buffer object currently bound to the target 
+		/// Gl.ELEMENT_ARRAY_BUFFER. If no buffer object is bound to this target, 0 is returned. The initial value is 0. See 
+		/// Gl.BindBuffer.
 		/// </summary>
 		[AliasOf("GL_ELEMENT_ARRAY_BUFFER_BINDING_ARB")]
 		[RequiredByFeature("GL_VERSION_1_5")]
 		public const int ELEMENT_ARRAY_BUFFER_BINDING = 0x8895;
 
 		/// <summary>
-		/// Value of GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING symbol.
+		/// Gl.GetVertexAttrib: params returns a single value, the name of the buffer object currently bound to the binding point 
+		/// corresponding to generic vertex attribute array index. If no buffer object is bound, 0 is returned. The initial value is 
+		/// 0.
 		/// </summary>
 		[AliasOf("GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB")]
 		[RequiredByFeature("GL_VERSION_1_5")]
@@ -126,14 +136,18 @@ namespace OpenGL
 		public const int READ_WRITE = 0x88BA;
 
 		/// <summary>
-		/// Value of GL_BUFFER_ACCESS symbol.
+		/// Gl.GetBufferParameter: params returns the access policy set while mapping the buffer object (the value of the access 
+		/// parameter enum passed to glMapBuffer). If the buffer was mapped with glMapBufferRange, the access policy is determined 
+		/// by translating the bits in that access parameter to one of the supported enums for glMapBuffer as described in the 
+		/// OpenGL Specification.
 		/// </summary>
 		[AliasOf("GL_BUFFER_ACCESS_ARB")]
 		[RequiredByFeature("GL_VERSION_1_5")]
 		public const int BUFFER_ACCESS = 0x88BB;
 
 		/// <summary>
-		/// Value of GL_BUFFER_MAPPED symbol.
+		/// Gl.GetBufferParameter: params returns a flag indicating whether the buffer object is currently mapped. The initial value 
+		/// is Gl.FALSE.
 		/// </summary>
 		[AliasOf("GL_BUFFER_MAPPED_ARB")]
 		[RequiredByFeature("GL_VERSION_1_5")]
@@ -217,7 +231,9 @@ namespace OpenGL
 		public const int SAMPLES_PASSED = 0x8914;
 
 		/// <summary>
-		/// Value of GL_VERTEX_ARRAY_BUFFER_BINDING symbol (DEPRECATED).
+		/// Gl.Get: params returns a single value, the name of the buffer object associated with the vertex array. This buffer 
+		/// object would have been bound to the target Gl.ARRAY_BUFFER at the time of the most recent call to Gl.VertexPointer. If 
+		/// no buffer object was bound to this target, 0 is returned. The initial value is 0. See Gl.BindBuffer.
 		/// </summary>
 		[AliasOf("GL_VERTEX_ARRAY_BUFFER_BINDING_ARB")]
 		[RequiredByFeature("GL_VERSION_1_5")]
@@ -228,7 +244,9 @@ namespace OpenGL
 		public const int VERTEX_ARRAY_BUFFER_BINDING = 0x8896;
 
 		/// <summary>
-		/// Value of GL_NORMAL_ARRAY_BUFFER_BINDING symbol (DEPRECATED).
+		/// Gl.Get: params returns a single value, the name of the buffer object associated with the normal array. This buffer 
+		/// object would have been bound to the target Gl.ARRAY_BUFFER at the time of the most recent call to Gl.NormalPointer. If 
+		/// no buffer object was bound to this target, 0 is returned. The initial value is 0. See Gl.BindBuffer.
 		/// </summary>
 		[AliasOf("GL_NORMAL_ARRAY_BUFFER_BINDING_ARB")]
 		[RequiredByFeature("GL_VERSION_1_5")]
@@ -239,7 +257,9 @@ namespace OpenGL
 		public const int NORMAL_ARRAY_BUFFER_BINDING = 0x8897;
 
 		/// <summary>
-		/// Value of GL_COLOR_ARRAY_BUFFER_BINDING symbol (DEPRECATED).
+		/// Gl.Get: params returns a single value, the name of the buffer object associated with the color array. This buffer object 
+		/// would have been bound to the target Gl.ARRAY_BUFFER at the time of the most recent call to Gl.ColorPointer. If no buffer 
+		/// object was bound to this target, 0 is returned. The initial value is 0. See Gl.BindBuffer.
 		/// </summary>
 		[AliasOf("GL_COLOR_ARRAY_BUFFER_BINDING_ARB")]
 		[RequiredByFeature("GL_VERSION_1_5")]
@@ -250,7 +270,9 @@ namespace OpenGL
 		public const int COLOR_ARRAY_BUFFER_BINDING = 0x8898;
 
 		/// <summary>
-		/// Value of GL_INDEX_ARRAY_BUFFER_BINDING symbol (DEPRECATED).
+		/// Gl.Get: params returns a single value, the name of the buffer object associated with the color index array. This buffer 
+		/// object would have been bound to the target Gl.ARRAY_BUFFER at the time of the most recent call to Gl.IndexPointer. If no 
+		/// buffer object was bound to this target, 0 is returned. The initial value is 0. See Gl.BindBuffer.
 		/// </summary>
 		[AliasOf("GL_INDEX_ARRAY_BUFFER_BINDING_ARB")]
 		[RequiredByFeature("GL_VERSION_1_5")]
@@ -261,7 +283,10 @@ namespace OpenGL
 		public const int INDEX_ARRAY_BUFFER_BINDING = 0x8899;
 
 		/// <summary>
-		/// Value of GL_TEXTURE_COORD_ARRAY_BUFFER_BINDING symbol (DEPRECATED).
+		/// Gl.Get: params returns a single value, the name of the buffer object associated with the texture coordinate array. This 
+		/// buffer object would have been bound to the target Gl.ARRAY_BUFFER at the time of the most recent call to 
+		/// Gl.TexCoordPointer. If no buffer object was bound to this target, 0 is returned. The initial value is 0. See 
+		/// Gl.BindBuffer.
 		/// </summary>
 		[AliasOf("GL_TEXTURE_COORD_ARRAY_BUFFER_BINDING_ARB")]
 		[RequiredByFeature("GL_VERSION_1_5")]
@@ -272,7 +297,9 @@ namespace OpenGL
 		public const int TEXTURE_COORD_ARRAY_BUFFER_BINDING = 0x889A;
 
 		/// <summary>
-		/// Value of GL_EDGE_FLAG_ARRAY_BUFFER_BINDING symbol (DEPRECATED).
+		/// Gl.Get: params returns a single value, the name of the buffer object associated with the edge flag array. This buffer 
+		/// object would have been bound to the target Gl.ARRAY_BUFFER at the time of the most recent call to Gl.EdgeFlagPointer. If 
+		/// no buffer object was bound to this target, 0 is returned. The initial value is 0. See Gl.BindBuffer.
 		/// </summary>
 		[AliasOf("GL_EDGE_FLAG_ARRAY_BUFFER_BINDING_ARB")]
 		[RequiredByFeature("GL_VERSION_1_5")]
@@ -283,7 +310,10 @@ namespace OpenGL
 		public const int EDGE_FLAG_ARRAY_BUFFER_BINDING = 0x889B;
 
 		/// <summary>
-		/// Value of GL_SECONDARY_COLOR_ARRAY_BUFFER_BINDING symbol (DEPRECATED).
+		/// Gl.Get: params returns a single value, the name of the buffer object associated with the secondary color array. This 
+		/// buffer object would have been bound to the target Gl.ARRAY_BUFFER at the time of the most recent call to 
+		/// Gl.SecondaryColorPointer. If no buffer object was bound to this target, 0 is returned. The initial value is 0. See 
+		/// Gl.BindBuffer.
 		/// </summary>
 		[AliasOf("GL_SECONDARY_COLOR_ARRAY_BUFFER_BINDING_ARB")]
 		[RequiredByFeature("GL_VERSION_1_5")]

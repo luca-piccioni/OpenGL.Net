@@ -42,7 +42,8 @@ namespace OpenGL
 		public const int PIXEL_UNPACK_BUFFER = 0x88EC;
 
 		/// <summary>
-		/// Value of GL_PIXEL_PACK_BUFFER_BINDING symbol.
+		/// Gl.Get: data returns a single value, the name of the buffer object currently bound to the target Gl.PIXEL_PACK_BUFFER. 
+		/// If no buffer object is bound to this target, 0 is returned. The initial value is 0. See Gl.BindBuffer.
 		/// </summary>
 		[AliasOf("GL_PIXEL_PACK_BUFFER_BINDING_ARB")]
 		[AliasOf("GL_PIXEL_PACK_BUFFER_BINDING_EXT")]
@@ -50,7 +51,8 @@ namespace OpenGL
 		public const int PIXEL_PACK_BUFFER_BINDING = 0x88ED;
 
 		/// <summary>
-		/// Value of GL_PIXEL_UNPACK_BUFFER_BINDING symbol.
+		/// Gl.Get: data returns a single value, the name of the buffer object currently bound to the target Gl.PIXEL_UNPACK_BUFFER. 
+		/// If no buffer object is bound to this target, 0 is returned. The initial value is 0. See Gl.BindBuffer.
 		/// </summary>
 		[AliasOf("GL_PIXEL_UNPACK_BUFFER_BINDING_ARB")]
 		[AliasOf("GL_PIXEL_UNPACK_BUFFER_BINDING_EXT")]
@@ -136,7 +138,10 @@ namespace OpenGL
 		public const int COMPRESSED_SRGB_ALPHA = 0x8C49;
 
 		/// <summary>
-		/// Value of GL_CURRENT_RASTER_SECONDARY_COLOR symbol (DEPRECATED).
+		/// Gl.Get: params returns four values: the red, green, blue, and alpha secondary color values of the current raster 
+		/// position. Integer values, if requested, are linearly mapped from the internal floating-point representation such that 
+		/// 1.0 returns the most positive representable integer value, and -1.0 returns the most negative representable integer 
+		/// value. The initial value is (1, 1, 1, 1). See Gl.RasterPos.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_2_1")]
 		[RemovedByFeature("GL_VERSION_3_2")]

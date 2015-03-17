@@ -122,7 +122,8 @@ namespace OpenGL
 		public const int ANY_SAMPLES_PASSED_CONSERVATIVE = 0x8D6A;
 
 		/// <summary>
-		/// Value of GL_MAX_ELEMENT_INDEX symbol.
+		/// Gl.Get: data returns a single value, the maximum index that may be specified during the transfer of generic vertex 
+		/// attributes to the GL.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ARB_ES3_compatibility")]
@@ -136,14 +137,16 @@ namespace OpenGL
 		public const int COMPUTE_SHADER = 0x91B9;
 
 		/// <summary>
-		/// Value of GL_MAX_COMPUTE_UNIFORM_BLOCKS symbol.
+		/// Gl.Get: data returns one value, the maximum number of uniform blocks per compute shader. The value must be at least 14. 
+		/// See Gl.UniformBlockBinding.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ARB_compute_shader")]
 		public const int MAX_COMPUTE_UNIFORM_BLOCKS = 0x91BB;
 
 		/// <summary>
-		/// Value of GL_MAX_COMPUTE_TEXTURE_IMAGE_UNITS symbol.
+		/// Gl.Get: data returns one value, the maximum supported texture image units that can be used to access texture maps from 
+		/// the compute shader. The value may be at least 16. See Gl.ActiveTexture.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ARB_compute_shader")]
@@ -164,56 +167,64 @@ namespace OpenGL
 		public const int MAX_COMPUTE_SHARED_MEMORY_SIZE = 0x8262;
 
 		/// <summary>
-		/// Value of GL_MAX_COMPUTE_UNIFORM_COMPONENTS symbol.
+		/// Gl.Get: data returns one value, the maximum number of individual floating-point, integer, or boolean values that can be 
+		/// held in uniform variable storage for a compute shader. The value must be at least 1024. See Gl.Uniform.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ARB_compute_shader")]
 		public const int MAX_COMPUTE_UNIFORM_COMPONENTS = 0x8263;
 
 		/// <summary>
-		/// Value of GL_MAX_COMPUTE_ATOMIC_COUNTER_BUFFERS symbol.
+		/// Gl.Get: data returns a single value, the maximum number of atomic counter buffers that may be accessed by a compute 
+		/// shader.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ARB_compute_shader")]
 		public const int MAX_COMPUTE_ATOMIC_COUNTER_BUFFERS = 0x8264;
 
 		/// <summary>
-		/// Value of GL_MAX_COMPUTE_ATOMIC_COUNTERS symbol.
+		/// Gl.Get: data returns a single value, the maximum number of atomic counters available to compute shaders.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ARB_compute_shader")]
 		public const int MAX_COMPUTE_ATOMIC_COUNTERS = 0x8265;
 
 		/// <summary>
-		/// Value of GL_MAX_COMBINED_COMPUTE_UNIFORM_COMPONENTS symbol.
+		/// Gl.Get: data returns one value, the number of words for compute shader uniform variables in all uniform blocks 
+		/// (including default). The value must be at least 1. See Gl.Uniform.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ARB_compute_shader")]
 		public const int MAX_COMBINED_COMPUTE_UNIFORM_COMPONENTS = 0x8266;
 
 		/// <summary>
-		/// Value of GL_MAX_COMPUTE_WORK_GROUP_INVOCATIONS symbol.
+		/// Gl.Get: data returns one value, the number of invocations in a single local work group (i.e., the product of the three 
+		/// dimensions) that may be dispatched to a compute shader.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ARB_compute_shader")]
 		public const int MAX_COMPUTE_WORK_GROUP_INVOCATIONS = 0x90EB;
 
 		/// <summary>
-		/// Value of GL_MAX_COMPUTE_WORK_GROUP_COUNT symbol.
+		/// Gl.Get: accepted by the indexed versions of glGet. data the maximum number of work groups that may be dispatched to a 
+		/// compute shader. Indices 0, 1, and 2 correspond to the X, Y and Z dimensions, respectively.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ARB_compute_shader")]
 		public const int MAX_COMPUTE_WORK_GROUP_COUNT = 0x91BE;
 
 		/// <summary>
-		/// Value of GL_MAX_COMPUTE_WORK_GROUP_SIZE symbol.
+		/// Gl.Get: accepted by the indexed versions of glGet. data the maximum size of a work groups that may be used during 
+		/// compilation of a compute shader. Indices 0, 1, and 2 correspond to the X, Y and Z dimensions, respectively.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ARB_compute_shader")]
 		public const int MAX_COMPUTE_WORK_GROUP_SIZE = 0x91BF;
 
 		/// <summary>
-		/// Value of GL_COMPUTE_WORK_GROUP_SIZE symbol.
+		/// Gl.GetProgram: params returns an array of three integers containing the local work group size of the compute program as 
+		/// specified by its input layout qualifier(s). program must be the name of a program object that has been previously linked 
+		/// successfully and contains a binary for the compute shader stage.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ARB_compute_shader")]
@@ -241,7 +252,9 @@ namespace OpenGL
 		public const int DISPATCH_INDIRECT_BUFFER = 0x90EE;
 
 		/// <summary>
-		/// Value of GL_DISPATCH_INDIRECT_BUFFER_BINDING symbol.
+		/// Gl.Get: data returns a single value, the name of the buffer object currently bound to the target 
+		/// Gl.DISPATCH_INDIRECT_BUFFER. If no buffer object is bound to this target, 0 is returned. The initial value is 0. See 
+		/// Gl.BindBuffer.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ARB_compute_shader")]
@@ -271,7 +284,7 @@ namespace OpenGL
 		public const int DEBUG_NEXT_LOGGED_MESSAGE_LENGTH = 0x8243;
 
 		/// <summary>
-		/// Value of GL_DEBUG_CALLBACK_FUNCTION symbol.
+		/// Gl.GetPointer: returns the current callback function set with the callback argument of Gl.DebugMessageCallback.
 		/// </summary>
 		[AliasOf("GL_DEBUG_CALLBACK_FUNCTION_ARB")]
 		[RequiredByFeature("GL_VERSION_4_3")]
@@ -279,7 +292,8 @@ namespace OpenGL
 		public const int DEBUG_CALLBACK_FUNCTION = 0x8244;
 
 		/// <summary>
-		/// Value of GL_DEBUG_CALLBACK_USER_PARAM symbol.
+		/// Gl.GetPointer: returns the user parameter to the current callback function set with the userParam argument of 
+		/// Gl.DebugMessageCallback.
 		/// </summary>
 		[AliasOf("GL_DEBUG_CALLBACK_USER_PARAM_ARB")]
 		[RequiredByFeature("GL_VERSION_4_3")]
@@ -465,14 +479,14 @@ namespace OpenGL
 		public const int DEBUG_SEVERITY_NOTIFICATION = 0x826B;
 
 		/// <summary>
-		/// Value of GL_MAX_DEBUG_GROUP_STACK_DEPTH symbol.
+		/// Gl.Get: data returns a single value, the maximum depth of the debug message group stack.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_KHR_debug")]
 		public const int MAX_DEBUG_GROUP_STACK_DEPTH = 0x826C;
 
 		/// <summary>
-		/// Value of GL_DEBUG_GROUP_STACK_DEPTH symbol.
+		/// Gl.Get: data returns a single value, the current depth of the debug message group stack.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_KHR_debug")]
@@ -522,7 +536,8 @@ namespace OpenGL
 		public const int SAMPLER = 0x82E6;
 
 		/// <summary>
-		/// Value of GL_MAX_LABEL_LENGTH symbol.
+		/// Gl.Get: data returns one value, the maximum length of a label that may be assigned to an object. See Gl.ObjectLabel and 
+		/// Gl.ObjectPtrLabel.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_KHR_debug")]
@@ -543,70 +558,115 @@ namespace OpenGL
 		public const uint CONTEXT_FLAG_DEBUG_BIT = 0x00000002;
 
 		/// <summary>
-		/// Value of GL_MAX_UNIFORM_LOCATIONS symbol.
+		/// Gl.Get: data returns one value, the maximum number of explicitly assignable uniform locations, which must be at least 
+		/// 1024.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ARB_explicit_uniform_location")]
 		public const int MAX_UNIFORM_LOCATIONS = 0x826E;
 
 		/// <summary>
-		/// Value of GL_FRAMEBUFFER_DEFAULT_WIDTH symbol.
+		/// <para>
+		/// Gl.FramebufferParameter: param specifies the assumed with for a framebuffer object with no attachments. If a framebuffer 
+		/// has attachments then the width of those attachments is used, otherwise the value of Gl.FRAMEBUFFER_DEFAULT_WIDTH is used 
+		/// for the framebuffer. param must be greater than or equal to zero and less than or equal to the value of 
+		/// Gl.MAX_FRAMEBUFFER_WIDTH.
+		/// </para>
+		/// <para>
+		/// Gl.GetFramebufferParameter: params returns the value of Gl.FRAMEBUFFER_DEFAULT_WIDTH for the framebuffer object.
+		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ARB_framebuffer_no_attachments")]
 		public const int FRAMEBUFFER_DEFAULT_WIDTH = 0x9310;
 
 		/// <summary>
-		/// Value of GL_FRAMEBUFFER_DEFAULT_HEIGHT symbol.
+		/// <para>
+		/// Gl.FramebufferParameter: param specifies the assumed height for a framebuffer object with no attachments. If a 
+		/// framebuffer has attachments then the height of those attachments is used, otherwise the value of 
+		/// Gl.FRAMEBUFFER_DEFAULT_HEIGHT is used for the framebuffer. param must be greater than or equal to zero and less than or 
+		/// equal to the value of Gl.MAX_FRAMEBUFFER_HEIGHT.
+		/// </para>
+		/// <para>
+		/// Gl.GetFramebufferParameter: params returns the value of Gl.FRAMEBUFFER_DEFAULT_HEIGHT for the framebuffer object.
+		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ARB_framebuffer_no_attachments")]
 		public const int FRAMEBUFFER_DEFAULT_HEIGHT = 0x9311;
 
 		/// <summary>
-		/// Value of GL_FRAMEBUFFER_DEFAULT_LAYERS symbol.
+		/// <para>
+		/// Gl.FramebufferParameter: param specifies the assumed number of layers for a framebuffer object with no attachments. If a 
+		/// framebuffer has attachments then the layer count of those attachments is used, otherwise the value of 
+		/// Gl.FRAMEBUFFER_DEFAULT_LAYERS is used for the framebuffer. param must be greater than or equal to zero and less than or 
+		/// equal to the value of Gl.MAX_FRAMEBUFFER_LAYERS.
+		/// </para>
+		/// <para>
+		/// Gl.GetFramebufferParameter: params returns the value of Gl.FRAMEBUFFER_DEFAULT_LAYERS for the framebuffer object.
+		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ARB_framebuffer_no_attachments")]
 		public const int FRAMEBUFFER_DEFAULT_LAYERS = 0x9312;
 
 		/// <summary>
-		/// Value of GL_FRAMEBUFFER_DEFAULT_SAMPLES symbol.
+		/// <para>
+		/// Gl.FramebufferParameter: param specifies the assumed number of samples in a framebuffer object with no attachments. If a 
+		/// framebuffer has attachments then the sample count of those attachments is used, otherwise the value of 
+		/// Gl.FRAMEBUFFER_DEFAULT_SAMPLES is used for the framebuffer. param must be greater than or equal to zero and less than or 
+		/// equal to the value of Gl.MAX_FRAMEBUFFER_SAMPLE.
+		/// </para>
+		/// <para>
+		/// Gl.GetFramebufferParameter: params returns the value of Gl.FRAMEBUFFER_DEFAULT_SAMPLES for the framebuffer object.
+		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ARB_framebuffer_no_attachments")]
 		public const int FRAMEBUFFER_DEFAULT_SAMPLES = 0x9313;
 
 		/// <summary>
-		/// Value of GL_FRAMEBUFFER_DEFAULT_FIXED_SAMPLE_LOCATIONS symbol.
+		/// <para>
+		/// Gl.FramebufferParameter: param specifies whether the framebuffer should assume identical sample locations and the same 
+		/// number of samples for all texels in the virtual image. If param is zero, then the implementation may vary the position 
+		/// or the count of samples within the virtual image from pixel to pixel, otherwise it will use the same sample position and 
+		/// count for all pixels in the virtual image.
+		/// </para>
+		/// <para>
+		/// Gl.GetFramebufferParameter: params returns the boolean value of Gl.FRAMEBUFFER_DEFAULT_FIXED_SAMPLE_LOCATIONS.
+		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ARB_framebuffer_no_attachments")]
 		public const int FRAMEBUFFER_DEFAULT_FIXED_SAMPLE_LOCATIONS = 0x9314;
 
 		/// <summary>
-		/// Value of GL_MAX_FRAMEBUFFER_WIDTH symbol.
+		/// Gl.Get: data returns one value, the maximum width for a framebuffer that has no attachments, which must be at least 
+		/// 16384. See Gl.FramebufferParameter.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ARB_framebuffer_no_attachments")]
 		public const int MAX_FRAMEBUFFER_WIDTH = 0x9315;
 
 		/// <summary>
-		/// Value of GL_MAX_FRAMEBUFFER_HEIGHT symbol.
+		/// Gl.Get: data returns one value, the maximum height for a framebuffer that has no attachments, which must be at least 
+		/// 16384. See Gl.FramebufferParameter.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ARB_framebuffer_no_attachments")]
 		public const int MAX_FRAMEBUFFER_HEIGHT = 0x9316;
 
 		/// <summary>
-		/// Value of GL_MAX_FRAMEBUFFER_LAYERS symbol.
+		/// Gl.Get: data returns one value, the maximum number of layers for a framebuffer that has no attachments, which must be at 
+		/// least 2048. See Gl.FramebufferParameter.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ARB_framebuffer_no_attachments")]
 		public const int MAX_FRAMEBUFFER_LAYERS = 0x9317;
 
 		/// <summary>
-		/// Value of GL_MAX_FRAMEBUFFER_SAMPLES symbol.
+		/// Gl.Get: data returns one value, the maximum samples in a framebuffer that has no attachments, which must be at least 4. 
+		/// See Gl.FramebufferParameter.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ARB_framebuffer_no_attachments")]
@@ -1299,49 +1359,120 @@ namespace OpenGL
 		public const int VIEW_CLASS_BPTC_FLOAT = 0x82D3;
 
 		/// <summary>
-		/// Value of GL_UNIFORM symbol.
+		/// <para>
+		/// Gl.GetProgramInterface: the query is targeted at the set of active uniforms within program.
+		/// </para>
+		/// <para>
+		/// Gl.GetProgramResourceIndex: the query is targeted at the set of active uniforms within program.
+		/// </para>
+		/// <para>
+		/// Gl.GetProgramResourceName: the query is targeted at the set of active uniforms within program.
+		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ARB_program_interface_query")]
 		public const int UNIFORM = 0x92E1;
 
 		/// <summary>
-		/// Value of GL_UNIFORM_BLOCK symbol.
+		/// <para>
+		/// Gl.GetProgramInterface: the query is targeted at the set of active uniform blocks within program.
+		/// </para>
+		/// <para>
+		/// Gl.GetProgramResourceIndex: the query is targeted at the set of active uniform blocks within program.
+		/// </para>
+		/// <para>
+		/// Gl.GetProgramResourceName: the query is targeted at the set of active uniform blocks within program.
+		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ARB_program_interface_query")]
 		public const int UNIFORM_BLOCK = 0x92E2;
 
 		/// <summary>
-		/// Value of GL_PROGRAM_INPUT symbol.
+		/// <para>
+		/// Gl.GetProgramInterface: the query is targeted at the set of active input variables used by the first shader stage of 
+		/// program. If program contains multiple shader stages then input variables from any stage other than the first will not be 
+		/// enumerated.
+		/// </para>
+		/// <para>
+		/// Gl.GetProgramResourceIndex: the query is targeted at the set of active input variables used by the first shader stage of 
+		/// program. If program contains multiple shader stages then input variables from any stage other than the first will not be 
+		/// enumerated.
+		/// </para>
+		/// <para>
+		/// Gl.GetProgramResourceName: the query is targeted at the set of active input variables used by the first shader stage of 
+		/// program. If program contains multiple shader stages then input variables from any stage other than the first will not be 
+		/// enumerated.
+		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ARB_program_interface_query")]
 		public const int PROGRAM_INPUT = 0x92E3;
 
 		/// <summary>
-		/// Value of GL_PROGRAM_OUTPUT symbol.
+		/// <para>
+		/// Gl.GetProgramInterface: the query is targeted at the set of active output variables produced by the last shader stage of 
+		/// program. If program contains multiple shader stages then output variables from any stage other than the last will not be 
+		/// enumerated.
+		/// </para>
+		/// <para>
+		/// Gl.GetProgramResourceIndex: the query is targeted at the set of active output variables produced by the last shader 
+		/// stage of program. If program contains multiple shader stages then output variables from any stage other than the last 
+		/// will not be enumerated.
+		/// </para>
+		/// <para>
+		/// Gl.GetProgramResourceName: the query is targeted at the set of active output variables produced by the last shader stage 
+		/// of program. If program contains multiple shader stages then output variables from any stage other than the last will not 
+		/// be enumerated.
+		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ARB_program_interface_query")]
 		public const int PROGRAM_OUTPUT = 0x92E4;
 
 		/// <summary>
-		/// Value of GL_BUFFER_VARIABLE symbol.
+		/// <para>
+		/// Gl.GetProgramInterface: the query is targeted at the set of active buffer variables used by program.
+		/// </para>
+		/// <para>
+		/// Gl.GetProgramResourceIndex: the query is targeted at the set of active buffer variables used by program.
+		/// </para>
+		/// <para>
+		/// Gl.GetProgramResourceName: the query is targeted at the set of active buffer variables used by program.
+		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ARB_program_interface_query")]
 		public const int BUFFER_VARIABLE = 0x92E5;
 
 		/// <summary>
-		/// Value of GL_SHADER_STORAGE_BLOCK symbol.
+		/// <para>
+		/// Gl.GetProgramInterface: the query is targeted at the set of active shader storage blocks used by program.
+		/// </para>
+		/// <para>
+		/// Gl.GetProgramResourceIndex: the query is targeted at the set of active shader storage blocks used by program.
+		/// </para>
+		/// <para>
+		/// Gl.GetProgramResourceName: the query is targeted at the set of active shader storage blocks used by program.
+		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ARB_program_interface_query")]
 		public const int SHADER_STORAGE_BLOCK = 0x92E6;
 
 		/// <summary>
-		/// Value of GL_VERTEX_SUBROUTINE symbol.
+		/// <para>
+		/// Gl.GetProgramInterface: the query is targeted at the set of active subroutines for the vertex, tessellation control, 
+		/// tessellation evaluation, geometry, fragment and compute shader stages of program, respectively.
+		/// </para>
+		/// <para>
+		/// Gl.GetProgramResourceIndex: the query is targeted at the set of active subroutines for the vertex, tessellation control, 
+		/// tessellation evaluation, geometry, fragment and compute shader stages of program, respectively.
+		/// </para>
+		/// <para>
+		/// Gl.GetProgramResourceName: the query is targeted at the set of active subroutines for the vertex, tessellation control, 
+		/// tessellation evaluation, geometry, fragment and compute shader stages of program, respectively.
+		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ARB_program_interface_query")]
@@ -1383,7 +1514,18 @@ namespace OpenGL
 		public const int COMPUTE_SUBROUTINE = 0x92ED;
 
 		/// <summary>
-		/// Value of GL_VERTEX_SUBROUTINE_UNIFORM symbol.
+		/// <para>
+		/// Gl.GetProgramInterface: the query is targeted at the set of active subroutine uniform variables used by the vertex, 
+		/// tessellation control, tessellation evaluation, geometry, fragment and compute shader stages of program, respectively.
+		/// </para>
+		/// <para>
+		/// Gl.GetProgramResourceIndex: the query is targeted at the set of active subroutine uniform variables used by the vertex, 
+		/// tessellation control, tessellation evaluation, geometry, fragment and compute shader stages of program, respectively.
+		/// </para>
+		/// <para>
+		/// Gl.GetProgramResourceName: the query is targeted at the set of active subroutine uniform variables used by the vertex, 
+		/// tessellation control, tessellation evaluation, geometry, fragment and compute shader stages of program, respectively.
+		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ARB_program_interface_query")]
@@ -1425,7 +1567,18 @@ namespace OpenGL
 		public const int COMPUTE_SUBROUTINE_UNIFORM = 0x92F3;
 
 		/// <summary>
-		/// Value of GL_TRANSFORM_FEEDBACK_VARYING symbol.
+		/// <para>
+		/// Gl.GetProgramInterface: the query is targeted at the set of output variables from the last non-fragment stage of program 
+		/// that would be captured if transform feedback were active.
+		/// </para>
+		/// <para>
+		/// Gl.GetProgramResourceIndex: the query is targeted at the set of output variables from the last non-fragment stage of 
+		/// program that would be captured if transform feedback were active.
+		/// </para>
+		/// <para>
+		/// Gl.GetProgramResourceName: the query is targeted at the set of output variables from the last non-fragment stage of 
+		/// program that would be captured if transform feedback were active.
+		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ARB_program_interface_query")]
@@ -1635,77 +1788,93 @@ namespace OpenGL
 		public const int SHADER_STORAGE_BUFFER = 0x90D2;
 
 		/// <summary>
-		/// Value of GL_SHADER_STORAGE_BUFFER_BINDING symbol.
+		/// Gl.Get: when used with non-indexed variants of glGet (such as glGetIntegerv), data returns a single value, the name of 
+		/// the buffer object currently bound to the target Gl.SHADER_STORAGE_BUFFER. If no buffer object is bound to this target, 0 
+		/// is returned. When used with indexed variants of glGet (such as glGetIntegeri_v), data returns a single value, the name 
+		/// of the buffer object bound to the indexed shader storage buffer binding points. The initial value is 0 for all targets. 
+		/// See Gl.BindBuffer, Gl.BindBufferBase, and Gl.BindBufferRange.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ARB_shader_storage_buffer_object")]
 		public const int SHADER_STORAGE_BUFFER_BINDING = 0x90D3;
 
 		/// <summary>
-		/// Value of GL_SHADER_STORAGE_BUFFER_START symbol.
+		/// Gl.Get: when used with indexed variants of glGet (such as glGetInteger64i_v), data returns a single value, the start 
+		/// offset of the binding range for each indexed shader storage buffer binding. The initial value is 0 for all bindings. See 
+		/// Gl.BindBufferRange.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ARB_shader_storage_buffer_object")]
 		public const int SHADER_STORAGE_BUFFER_START = 0x90D4;
 
 		/// <summary>
-		/// Value of GL_SHADER_STORAGE_BUFFER_SIZE symbol.
+		/// Gl.Get: when used with indexed variants of glGet (such as glGetInteger64i_v), data returns a single value, the size of 
+		/// the binding range for each indexed shader storage buffer binding. The initial value is 0 for all bindings. See 
+		/// Gl.BindBufferRange.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ARB_shader_storage_buffer_object")]
 		public const int SHADER_STORAGE_BUFFER_SIZE = 0x90D5;
 
 		/// <summary>
-		/// Value of GL_MAX_VERTEX_SHADER_STORAGE_BLOCKS symbol.
+		/// Gl.Get: data returns one value, the maximum number of active shader storage blocks that may be accessed by a vertex 
+		/// shader.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ARB_shader_storage_buffer_object")]
 		public const int MAX_VERTEX_SHADER_STORAGE_BLOCKS = 0x90D6;
 
 		/// <summary>
-		/// Value of GL_MAX_GEOMETRY_SHADER_STORAGE_BLOCKS symbol.
+		/// Gl.Get: data returns one value, the maximum number of active shader storage blocks that may be accessed by a geometry 
+		/// shader.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ARB_shader_storage_buffer_object")]
 		public const int MAX_GEOMETRY_SHADER_STORAGE_BLOCKS = 0x90D7;
 
 		/// <summary>
-		/// Value of GL_MAX_TESS_CONTROL_SHADER_STORAGE_BLOCKS symbol.
+		/// Gl.Get: data returns one value, the maximum number of active shader storage blocks that may be accessed by a 
+		/// tessellation control shader.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ARB_shader_storage_buffer_object")]
 		public const int MAX_TESS_CONTROL_SHADER_STORAGE_BLOCKS = 0x90D8;
 
 		/// <summary>
-		/// Value of GL_MAX_TESS_EVALUATION_SHADER_STORAGE_BLOCKS symbol.
+		/// Gl.Get: data returns one value, the maximum number of active shader storage blocks that may be accessed by a 
+		/// tessellation evaluation shader.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ARB_shader_storage_buffer_object")]
 		public const int MAX_TESS_EVALUATION_SHADER_STORAGE_BLOCKS = 0x90D9;
 
 		/// <summary>
-		/// Value of GL_MAX_FRAGMENT_SHADER_STORAGE_BLOCKS symbol.
+		/// Gl.Get: data returns one value, the maximum number of active shader storage blocks that may be accessed by a fragment 
+		/// shader.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ARB_shader_storage_buffer_object")]
 		public const int MAX_FRAGMENT_SHADER_STORAGE_BLOCKS = 0x90DA;
 
 		/// <summary>
-		/// Value of GL_MAX_COMPUTE_SHADER_STORAGE_BLOCKS symbol.
+		/// Gl.Get: data returns one value, the maximum number of active shader storage blocks that may be accessed by a compute 
+		/// shader.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ARB_shader_storage_buffer_object")]
 		public const int MAX_COMPUTE_SHADER_STORAGE_BLOCKS = 0x90DB;
 
 		/// <summary>
-		/// Value of GL_MAX_COMBINED_SHADER_STORAGE_BLOCKS symbol.
+		/// Gl.Get: data returns one value, the maximum total number of active shader storage blocks that may be accessed by all 
+		/// active shaders.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ARB_shader_storage_buffer_object")]
 		public const int MAX_COMBINED_SHADER_STORAGE_BLOCKS = 0x90DC;
 
 		/// <summary>
-		/// Value of GL_MAX_SHADER_STORAGE_BUFFER_BINDINGS symbol.
+		/// Gl.Get: data returns one value, the maximum number of shader storage buffer binding points on the context, which must be 
+		/// at least 8.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ARB_shader_storage_buffer_object")]
@@ -1719,7 +1888,8 @@ namespace OpenGL
 		public const int MAX_SHADER_STORAGE_BLOCK_SIZE = 0x90DE;
 
 		/// <summary>
-		/// Value of GL_SHADER_STORAGE_BUFFER_OFFSET_ALIGNMENT symbol.
+		/// Gl.Get: data returns a single value, the minimum required alignment for shader storage buffer sizes and offset. The 
+		/// initial value is 1. See Gl.ShaderStorateBlockBinding.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ARB_shader_storage_buffer_object")]
@@ -1733,63 +1903,69 @@ namespace OpenGL
 		public const uint SHADER_STORAGE_BARRIER_BIT = 0x00002000;
 
 		/// <summary>
-		/// Value of GL_DEPTH_STENCIL_TEXTURE_MODE symbol.
+		/// Gl.GetTexParameter: returns the single-value depth stencil texture mode, a symbolic constant. The initial value is 
+		/// Gl.DEPTH_COMPONENT.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ARB_stencil_texturing")]
 		public const int DEPTH_STENCIL_TEXTURE_MODE = 0x90EA;
 
 		/// <summary>
-		/// Value of GL_TEXTURE_BUFFER_OFFSET symbol.
+		/// Gl.GetTexLevelParameter: params returns a single integer value, the offset into the data store of the buffer bound to a 
+		/// buffer texture. Gl.TexBufferRange.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ARB_texture_buffer_range")]
 		public const int TEXTURE_BUFFER_OFFSET = 0x919D;
 
 		/// <summary>
-		/// Value of GL_TEXTURE_BUFFER_SIZE symbol.
+		/// Gl.GetTexLevelParameter: params returns a single integer value, the size of the range of a data store of the buffer 
+		/// bound to a buffer texture. Gl.TexBufferRange.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ARB_texture_buffer_range")]
 		public const int TEXTURE_BUFFER_SIZE = 0x919E;
 
 		/// <summary>
-		/// Value of GL_TEXTURE_BUFFER_OFFSET_ALIGNMENT symbol.
+		/// Gl.Get: data returns a single value, the minimum required alignment for texture buffer sizes and offset. The initial 
+		/// value is 1. See Gl.UniformBlockBinding.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ARB_texture_buffer_range")]
 		public const int TEXTURE_BUFFER_OFFSET_ALIGNMENT = 0x919F;
 
 		/// <summary>
-		/// Value of GL_TEXTURE_VIEW_MIN_LEVEL symbol.
+		/// Gl.GetTexParameter: returns a single-valued base level of a texture view relative to its parent. The initial value is 0. 
+		/// See Gl.TextureView.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ARB_texture_view")]
 		public const int TEXTURE_VIEW_MIN_LEVEL = 0x82DB;
 
 		/// <summary>
-		/// Value of GL_TEXTURE_VIEW_NUM_LEVELS symbol.
+		/// Gl.GetTexParameter: returns a single-valued number of levels of detail of a texture view. See Gl.TextureView.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ARB_texture_view")]
 		public const int TEXTURE_VIEW_NUM_LEVELS = 0x82DC;
 
 		/// <summary>
-		/// Value of GL_TEXTURE_VIEW_MIN_LAYER symbol.
+		/// Gl.GetTexParameter: returns a single-valued first level of a texture array view relative to its parent. See 
+		/// Gl.TextureView.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ARB_texture_view")]
 		public const int TEXTURE_VIEW_MIN_LAYER = 0x82DD;
 
 		/// <summary>
-		/// Value of GL_TEXTURE_VIEW_NUM_LAYERS symbol.
+		/// Gl.GetTexParameter: returns a single-valued number of layers in a texture array view. See Gl.TextureView.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ARB_texture_view")]
 		public const int TEXTURE_VIEW_NUM_LAYERS = 0x82DE;
 
 		/// <summary>
-		/// Value of GL_TEXTURE_IMMUTABLE_LEVELS symbol.
+		/// Gl.GetTexParameter: returns a single-valued number of immutable texture levels in a texture view. See Gl.TextureView.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ARB_texture_view")]
@@ -1810,35 +1986,38 @@ namespace OpenGL
 		public const int VERTEX_ATTRIB_RELATIVE_OFFSET = 0x82D5;
 
 		/// <summary>
-		/// Value of GL_VERTEX_BINDING_DIVISOR symbol.
+		/// Gl.Get: accepted by the indexed forms. data returns a single integer value representing the instance step divisor of the 
+		/// first element in the bound buffer's data store for vertex attribute bound to index.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ARB_vertex_attrib_binding")]
 		public const int VERTEX_BINDING_DIVISOR = 0x82D6;
 
 		/// <summary>
-		/// Value of GL_VERTEX_BINDING_OFFSET symbol.
+		/// Gl.Get: accepted by the indexed forms. data returns a single integer value representing the byte offset of the first 
+		/// element in the bound buffer's data store for vertex attribute bound to index.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ARB_vertex_attrib_binding")]
 		public const int VERTEX_BINDING_OFFSET = 0x82D7;
 
 		/// <summary>
-		/// Value of GL_VERTEX_BINDING_STRIDE symbol.
+		/// Gl.Get: accepted by the indexed forms. data returns a single integer value representing the byte offset between the 
+		/// start of each element in the bound buffer's data store for vertex attribute bound to index.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ARB_vertex_attrib_binding")]
 		public const int VERTEX_BINDING_STRIDE = 0x82D8;
 
 		/// <summary>
-		/// Value of GL_MAX_VERTEX_ATTRIB_RELATIVE_OFFSET symbol.
+		/// Gl.Get: data returns a single integer value containing the maximum offset that may be added to a vertex binding offset.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ARB_vertex_attrib_binding")]
 		public const int MAX_VERTEX_ATTRIB_RELATIVE_OFFSET = 0x82D9;
 
 		/// <summary>
-		/// Value of GL_MAX_VERTEX_ATTRIB_BINDINGS symbol.
+		/// Gl.Get: data returns a single integer value containing the maximum number of vertex buffers that may be bound.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ARB_vertex_attrib_binding")]
