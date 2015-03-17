@@ -11491,7 +11491,7 @@ typedef unsigned int GLhandleARB;
         </command>
         <command>
             <proto><ptype>GLuint</ptype> <name>glCreateShader</name></proto>
-            <param><ptype>GLenum</ptype> <name>type</name></param>
+            <param><ptype>GLenum</ptype> <name>shaderType</name></param>
         </command>
         <command>
             <proto group="handleARB"><ptype>GLhandleARB</ptype> <name>glCreateShaderObjectARB</name></proto>

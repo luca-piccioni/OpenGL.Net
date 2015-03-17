@@ -1009,9 +1009,9 @@ namespace OpenGL
 		/// retrieve information about implementation-dependent support for internal formats
 		/// </summary>
 		/// <param name="target">
-		/// Indicates the usage of the internal format. target must be GL_TEXTURE_1D, GL_TEXTURE_1D_ARRAY, GL_TEXTURE_2D, 
-		/// GL_TEXTURE_2D_ARRAY, GL_TEXTURE_3D, GL_TEXTURE_CUBE_MAP, GL_TEXTURE_CUBE_MAP_ARRAY, GL_TEXTURE_RECTANGLE, 
-		/// GL_TEXTURE_BUFFER, GL_RENDERBUFFER, GL_TEXTURE_2D_MULTISAMPLE or GL_TEXTURE_2D_MULTISAMPLE_ARRAY.
+		/// Indicates the usage of the internal format. <paramref name="target"/> must be Gl.TEXTURE_1D, Gl.TEXTURE_1D_ARRAY, 
+		/// Gl.TEXTURE_2D, Gl.TEXTURE_2D_ARRAY, Gl.TEXTURE_3D, Gl.TEXTURE_CUBE_MAP, Gl.TEXTURE_CUBE_MAP_ARRAY, Gl.TEXTURE_RECTANGLE, 
+		/// Gl.TEXTURE_BUFFER, Gl.RENDERBUFFER, Gl.TEXTURE_2D_MULTISAMPLE or Gl.TEXTURE_2D_MULTISAMPLE_ARRAY.
 		/// </param>
 		/// <param name="internalformat">
 		/// Specifies the internal format about which to retrieve information.
@@ -1020,11 +1020,24 @@ namespace OpenGL
 		/// Specifies the type of information to query.
 		/// </param>
 		/// <param name="bufSize">
-		/// Specifies the maximum number of basic machine units that may be written to params by the function.
+		/// Specifies the maximum number of basic machine units that may be written to <paramref name="params"/> by the function.
 		/// </param>
 		/// <param name="params">
 		/// Specifies the address of a variable into which to write the retrieved information.
 		/// </param>
+		/// <remarks>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_VALUE is generated if <paramref name="bufSize"/> is negative.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated if <paramref name="pname"/> is not Gl.SAMPLES or Gl.NUM_SAMPLE_COUNTS.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated if <paramref name="internalformat"/> is not color-, depth-, or stencil-renderable.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated if <paramref name="target"/> is not one of Gl.TEXTURE_2D_MULTISAMPLE, 
+		/// Gl.TEXTURE_2D_MULTISAMPLE_ARRAY or Gl.RENDERBUFFER.
+		/// </exception>
+		/// <seealso cref="Gl.Get"/>
 		[RequiredByFeature("GL_VERSION_4_2")]
 		[RequiredByFeature("GL_ARB_internalformat_query")]
 		public static void GetInternalformat(int target, int internalformat, int pname, Int32[] @params)
@@ -1055,6 +1068,21 @@ namespace OpenGL
 		/// <param name="params">
 		/// Specifies the address of a variable into which to write the retrieved information.
 		/// </param>
+		/// <remarks>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_VALUE is generated if <paramref name="program"/> is not the name of a program object for which glLinkProgram 
+		/// has been called in the past.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_VALUE is generated if <paramref name="bufferIndex"/> is greater than or equal to the value of 
+		/// Gl.ACTIVE_ATOMIC_COUNTER_BUFFERS for <paramref name="program"/>.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated if <paramref name="pname"/> is not one of the accepted tokens.
+		/// </exception>
+		/// <seealso cref="Gl.GetProgram"/>
+		/// <seealso cref="Gl.GetActiveSubroutineUniform"/>
+		/// <seealso cref="Gl.GetActiveSubroutineUniformName"/>
+		/// <seealso cref="Gl.GetUniformLocation"/>
 		[RequiredByFeature("GL_VERSION_4_2")]
 		[RequiredByFeature("GL_ARB_shader_atomic_counters")]
 		public static void GetActiveAtomicCounterBuffer(UInt32 program, UInt32 bufferIndex, int pname, Int32[] @params)
@@ -1086,7 +1114,8 @@ namespace OpenGL
 		/// Specifies whether a layered texture binding is to be established.
 		/// </param>
 		/// <param name="layer">
-		/// If layered is GL_FALSE, specifies the layer of texture to be bound to the image unit. Ignored otherwise.
+		/// If <paramref name="layered"/> is Gl.FALSE, specifies the layer of <paramref name="texture"/> to be bound to the image 
+		/// unit. Ignored otherwise.
 		/// </param>
 		/// <param name="access">
 		/// Specifies a token indicating the type of access that will be performed on the image.
@@ -1094,6 +1123,26 @@ namespace OpenGL
 		/// <param name="format">
 		/// Specifies the format that the elements of the image will be treated as for the purposes of formatted stores.
 		/// </param>
+		/// <remarks>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_VALUE is generated if <paramref name="unit"/> greater than or equal to the value of Gl.MAX_IMAGE_UNITS.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_VALUE is generated if <paramref name="texture"/> is not the name of an existing texture object.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_VALUE is generated if <paramref name="level"/> or <paramref name="layer"/> is less than zero.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated if <paramref name="access"/> or <paramref name="format"/> is not one of the supported 
+		/// tokens.
+		/// </exception>
+		/// <seealso cref="Gl.GenTextures"/>
+		/// <seealso cref="Gl.TexImage1D"/>
+		/// <seealso cref="Gl.TexImage2D"/>
+		/// <seealso cref="Gl.TexImage3D"/>
+		/// <seealso cref="Gl.TexStorage1D"/>
+		/// <seealso cref="Gl.TexStorage2D"/>
+		/// <seealso cref="Gl.TexStorage3D"/>
+		/// <seealso cref="Gl.BindTexture"/>
 		[RequiredByFeature("GL_VERSION_4_2")]
 		[RequiredByFeature("GL_ARB_shader_image_load_store")]
 		public static void BindImageTexture(UInt32 unit, UInt32 texture, Int32 level, bool layered, Int32 layer, int access, int format)
@@ -1110,6 +1159,18 @@ namespace OpenGL
 		/// <param name="barriers">
 		/// Specifies the barriers to insert.
 		/// </param>
+		/// <remarks>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_VALUE is generated if <paramref name="barriers"/> is not the special value Gl.ALL_BARRIER_BITS, and has any 
+		/// bits set other than those described above for Gl.MemoryBarrier or Gl.MemoryBarrierByRegion respectively.
+		/// </exception>
+		/// <seealso cref="Gl.BindImageTexture"/>
+		/// <seealso cref="Gl.BufferData"/>
+		/// <seealso cref="Gl.MapBuffer"/>
+		/// <seealso cref="Gl.MapBufferRange"/>
+		/// <seealso cref="Gl.FlushMappedBufferRange"/>
+		/// <seealso cref="Gl.moryBarrier"/>
 		[RequiredByFeature("GL_VERSION_4_2")]
 		[RequiredByFeature("GL_ARB_shader_image_load_store")]
 		public static void MemoryBarrier(uint barriers)
@@ -1208,9 +1269,9 @@ namespace OpenGL
 		/// render multiple instances of primitives using a count derived from a transform feedback object
 		/// </summary>
 		/// <param name="mode">
-		/// Specifies what kind of primitives to render. Symbolic constants GL_POINTS, GL_LINE_STRIP, GL_LINE_LOOP, GL_LINES, 
-		/// GL_LINE_STRIP_ADJACENCY, GL_LINES_ADJACENCY, GL_TRIANGLE_STRIP, GL_TRIANGLE_FAN, GL_TRIANGLES, 
-		/// GL_TRIANGLE_STRIP_ADJACENCY, GL_TRIANGLES_ADJACENCY, and GL_PATCHES are accepted.
+		/// Specifies what kind of primitives to render. Symbolic constants Gl.POINTS, Gl.LINE_STRIP, Gl.LINE_LOOP, Gl.LINES, 
+		/// Gl.LINE_STRIP_ADJACENCY, Gl.LINES_ADJACENCY, Gl.TRIANGLE_STRIP, Gl.TRIANGLE_FAN, Gl.TRIANGLES, 
+		/// Gl.TRIANGLE_STRIP_ADJACENCY, Gl.TRIANGLES_ADJACENCY, and Gl.PATCHES are accepted.
 		/// </param>
 		/// <param name="id">
 		/// Specifies the name of a transform feedback object from which to retrieve a primitive count.
@@ -1218,6 +1279,33 @@ namespace OpenGL
 		/// <param name="instancecount">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
+		/// <remarks>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated if <paramref name="mode"/> is not an accepted value.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_VALUE is generated if <paramref name="id"/> is not the name of a transform feedback object.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_VALUE is generated if <paramref name="stream"/> is greater than or equal to the value of 
+		/// Gl.MAX_VERTEX_STREAMS.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if a non-zero buffer object name is bound to an enabled array and the buffer object's 
+		/// data store is currently mapped.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if a geometry shader is active and <paramref name="mode"/> is incompatible with the 
+		/// input primitive type of the geometry shader in the currently installed program object.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if <paramref name="mode"/> is Gl.PATCHES and no tessellation control shader is active.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if glEndTransformFeedback has never been called while the transform feedback object 
+		/// named by <paramref name="id"/> was bound.
+		/// </exception>
+		/// <seealso cref="Gl.DrawArrays"/>
+		/// <seealso cref="Gl.DrawArraysInstanced"/>
+		/// <seealso cref="Gl.DrawElements"/>
+		/// <seealso cref="Gl.DrawRangeElements"/>
+		/// <seealso cref="Gl.DrawTransformFeedback"/>
+		/// <seealso cref="Gl.DrawTransformFeedbackStreamInstanced"/>
 		[RequiredByFeature("GL_VERSION_4_2")]
 		[RequiredByFeature("GL_ARB_transform_feedback_instanced")]
 		public static void DrawTransformFeedbackInstanced(PrimitiveType mode, UInt32 id, Int32 instancecount)
@@ -1232,9 +1320,9 @@ namespace OpenGL
 		/// render multiple instances of primitives using a count derived from a specifed stream of a transform feedback object
 		/// </summary>
 		/// <param name="mode">
-		/// Specifies what kind of primitives to render. Symbolic constants GL_POINTS, GL_LINE_STRIP, GL_LINE_LOOP, GL_LINES, 
-		/// GL_LINE_STRIP_ADJACENCY, GL_LINES_ADJACENCY, GL_TRIANGLE_STRIP, GL_TRIANGLE_FAN, GL_TRIANGLES, 
-		/// GL_TRIANGLE_STRIP_ADJACENCY, GL_TRIANGLES_ADJACENCY, and GL_PATCHES are accepted.
+		/// Specifies what kind of primitives to render. Symbolic constants Gl.POINTS, Gl.LINE_STRIP, Gl.LINE_LOOP, Gl.LINES, 
+		/// Gl.LINE_STRIP_ADJACENCY, Gl.LINES_ADJACENCY, Gl.TRIANGLE_STRIP, Gl.TRIANGLE_FAN, Gl.TRIANGLES, 
+		/// Gl.TRIANGLE_STRIP_ADJACENCY, Gl.TRIANGLES_ADJACENCY, and Gl.PATCHES are accepted.
 		/// </param>
 		/// <param name="id">
 		/// Specifies the name of a transform feedback object from which to retrieve a primitive count.
@@ -1245,6 +1333,33 @@ namespace OpenGL
 		/// <param name="instancecount">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
+		/// <remarks>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated if <paramref name="mode"/> is not an accepted value.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_VALUE is generated if <paramref name="id"/> is not the name of a transform feedback object.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_VALUE is generated if <paramref name="stream"/> is greater than or equal to the value of 
+		/// Gl.MAX_VERTEX_STREAMS.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if a non-zero buffer object name is bound to an enabled array and the buffer object's 
+		/// data store is currently mapped.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if a geometry shader is active and <paramref name="mode"/> is incompatible with the 
+		/// input primitive type of the geometry shader in the currently installed program object.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if <paramref name="mode"/> is Gl.PATCHES and no tessellation control shader is active.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if glEndTransformFeedback has never been called while the transform feedback object 
+		/// named by <paramref name="id"/> was bound.
+		/// </exception>
+		/// <seealso cref="Gl.DrawArrays"/>
+		/// <seealso cref="Gl.DrawArraysInstanced"/>
+		/// <seealso cref="Gl.DrawElements"/>
+		/// <seealso cref="Gl.DrawRangeElements"/>
+		/// <seealso cref="Gl.DrawTransformFeedback"/>
+		/// <seealso cref="Gl.DrawTransformFeedbackStream"/>
 		[RequiredByFeature("GL_VERSION_4_2")]
 		[RequiredByFeature("GL_ARB_transform_feedback_instanced")]
 		public static void DrawTransformFeedbackStreamInstanced(PrimitiveType mode, UInt32 id, UInt32 stream, Int32 instancecount)

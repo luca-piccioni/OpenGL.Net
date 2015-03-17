@@ -504,23 +504,41 @@ namespace OpenGL
 		/// render primitives from array data with a per-element offset
 		/// </summary>
 		/// <param name="mode">
-		/// Specifies what kind of primitives to render. Symbolic constants GL_POINTS, GL_LINE_STRIP, GL_LINE_LOOP, GL_LINES, 
-		/// GL_TRIANGLE_STRIP, GL_TRIANGLE_FAN, GL_TRIANGLES, GL_LINES_ADJACENCY, GL_LINE_STRIP_ADJACENCY, GL_TRIANGLES_ADJACENCY, 
-		/// GL_TRIANGLE_STRIP_ADJACENCY and GL_PATCHES are accepted.
+		/// Specifies what kind of primitives to render. Symbolic constants Gl.POINTS, Gl.LINE_STRIP, Gl.LINE_LOOP, Gl.LINES, 
+		/// Gl.TRIANGLE_STRIP, Gl.TRIANGLE_FAN, Gl.TRIANGLES, Gl.LINES_ADJACENCY, Gl.LINE_STRIP_ADJACENCY, Gl.TRIANGLES_ADJACENCY, 
+		/// Gl.TRIANGLE_STRIP_ADJACENCY and Gl.PATCHES are accepted.
 		/// </param>
 		/// <param name="count">
 		/// Specifies the number of elements to be rendered.
 		/// </param>
 		/// <param name="type">
-		/// Specifies the type of the values in indices. Must be one of GL_UNSIGNED_BYTE, GL_UNSIGNED_SHORT, or GL_UNSIGNED_INT.
+		/// Specifies the type of the values in indices. Must be one of Gl.UNSIGNED_BYTE, Gl.UNSIGNED_SHORT, or Gl.UNSIGNED_INT.
 		/// </param>
 		/// <param name="indices">
 		/// Specifies a pointer to the location where the indices are stored.
 		/// </param>
 		/// <param name="basevertex">
-		/// Specifies a constant that should be added to each element of indices when chosing elements from the enabled vertex 
-		/// arrays.
+		/// Specifies a constant that should be added to each element of <paramref name="indices"/> when chosing elements from the 
+		/// enabled vertex arrays.
 		/// </param>
+		/// <remarks>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated if <paramref name="mode"/> is not an accepted value.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_VALUE is generated if <paramref name="count"/> is negative.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if a geometry shader is active and <paramref name="mode"/> is incompatible with the 
+		/// input primitive type of the geometry shader in the currently installed program object.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if a non-zero buffer object name is bound to an enabled array or the element array and 
+		/// the buffer object's data store is currently mapped.
+		/// </exception>
+		/// <seealso cref="Gl.DrawElements"/>
+		/// <seealso cref="Gl.DrawRangeElements"/>
+		/// <seealso cref="Gl.DrawRangeElementsBaseVertex"/>
+		/// <seealso cref="Gl.DrawElementsInstanced"/>
+		/// <seealso cref="Gl.DrawElementsInstancedBaseVertex"/>
 		[RequiredByFeature("GL_VERSION_3_2")]
 		[RequiredByFeature("GL_ARB_draw_elements_base_vertex")]
 		public static void DrawElementsBaseVertex(PrimitiveType mode, Int32 count, DrawElementsType type, IntPtr indices, Int32 basevertex)
@@ -535,23 +553,41 @@ namespace OpenGL
 		/// render primitives from array data with a per-element offset
 		/// </summary>
 		/// <param name="mode">
-		/// Specifies what kind of primitives to render. Symbolic constants GL_POINTS, GL_LINE_STRIP, GL_LINE_LOOP, GL_LINES, 
-		/// GL_TRIANGLE_STRIP, GL_TRIANGLE_FAN, GL_TRIANGLES, GL_LINES_ADJACENCY, GL_LINE_STRIP_ADJACENCY, GL_TRIANGLES_ADJACENCY, 
-		/// GL_TRIANGLE_STRIP_ADJACENCY and GL_PATCHES are accepted.
+		/// Specifies what kind of primitives to render. Symbolic constants Gl.POINTS, Gl.LINE_STRIP, Gl.LINE_LOOP, Gl.LINES, 
+		/// Gl.TRIANGLE_STRIP, Gl.TRIANGLE_FAN, Gl.TRIANGLES, Gl.LINES_ADJACENCY, Gl.LINE_STRIP_ADJACENCY, Gl.TRIANGLES_ADJACENCY, 
+		/// Gl.TRIANGLE_STRIP_ADJACENCY and Gl.PATCHES are accepted.
 		/// </param>
 		/// <param name="count">
 		/// Specifies the number of elements to be rendered.
 		/// </param>
 		/// <param name="type">
-		/// Specifies the type of the values in indices. Must be one of GL_UNSIGNED_BYTE, GL_UNSIGNED_SHORT, or GL_UNSIGNED_INT.
+		/// Specifies the type of the values in indices. Must be one of Gl.UNSIGNED_BYTE, Gl.UNSIGNED_SHORT, or Gl.UNSIGNED_INT.
 		/// </param>
 		/// <param name="indices">
 		/// Specifies a pointer to the location where the indices are stored.
 		/// </param>
 		/// <param name="basevertex">
-		/// Specifies a constant that should be added to each element of indices when chosing elements from the enabled vertex 
-		/// arrays.
+		/// Specifies a constant that should be added to each element of <paramref name="indices"/> when chosing elements from the 
+		/// enabled vertex arrays.
 		/// </param>
+		/// <remarks>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated if <paramref name="mode"/> is not an accepted value.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_VALUE is generated if <paramref name="count"/> is negative.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if a geometry shader is active and <paramref name="mode"/> is incompatible with the 
+		/// input primitive type of the geometry shader in the currently installed program object.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if a non-zero buffer object name is bound to an enabled array or the element array and 
+		/// the buffer object's data store is currently mapped.
+		/// </exception>
+		/// <seealso cref="Gl.DrawElements"/>
+		/// <seealso cref="Gl.DrawRangeElements"/>
+		/// <seealso cref="Gl.DrawRangeElementsBaseVertex"/>
+		/// <seealso cref="Gl.DrawElementsInstanced"/>
+		/// <seealso cref="Gl.DrawElementsInstancedBaseVertex"/>
 		[RequiredByFeature("GL_VERSION_3_2")]
 		[RequiredByFeature("GL_ARB_draw_elements_base_vertex")]
 		public static void DrawElementsBaseVertex(PrimitiveType mode, Int32 count, DrawElementsType type, Object indices, Int32 basevertex)
@@ -568,29 +604,49 @@ namespace OpenGL
 		/// render primitives from array data with a per-element offset
 		/// </summary>
 		/// <param name="mode">
-		/// Specifies what kind of primitives to render. Symbolic constants GL_POINTS, GL_LINE_STRIP, GL_LINE_LOOP, GL_LINES, 
-		/// GL_TRIANGLE_STRIP, GL_TRIANGLE_FAN, GL_TRIANGLES, GL_LINES_ADJACENCY, GL_LINE_STRIP_ADJACENCY, GL_TRIANGLES_ADJACENCY, 
-		/// GL_TRIANGLE_STRIP_ADJACENCY and GL_PATCHES are accepted.
+		/// Specifies what kind of primitives to render. Symbolic constants Gl.POINTS, Gl.LINE_STRIP, Gl.LINE_LOOP, Gl.LINES, 
+		/// Gl.TRIANGLE_STRIP, Gl.TRIANGLE_FAN, Gl.TRIANGLES, Gl.LINES_ADJACENCY, Gl.LINE_STRIP_ADJACENCY, Gl.TRIANGLES_ADJACENCY, 
+		/// Gl.TRIANGLE_STRIP_ADJACENCY and Gl.PATCHES are accepted.
 		/// </param>
 		/// <param name="start">
-		/// Specifies the minimum array index contained in indices.
+		/// Specifies the minimum array index contained in <paramref name="indices"/>.
 		/// </param>
 		/// <param name="end">
-		/// Specifies the maximum array index contained in indices.
+		/// Specifies the maximum array index contained in <paramref name="indices"/>.
 		/// </param>
 		/// <param name="count">
 		/// Specifies the number of elements to be rendered.
 		/// </param>
 		/// <param name="type">
-		/// Specifies the type of the values in indices. Must be one of GL_UNSIGNED_BYTE, GL_UNSIGNED_SHORT, or GL_UNSIGNED_INT.
+		/// Specifies the type of the values in indices. Must be one of Gl.UNSIGNED_BYTE, Gl.UNSIGNED_SHORT, or Gl.UNSIGNED_INT.
 		/// </param>
 		/// <param name="indices">
 		/// Specifies a pointer to the location where the indices are stored.
 		/// </param>
 		/// <param name="basevertex">
-		/// Specifies a constant that should be added to each element of indices when chosing elements from the enabled vertex 
-		/// arrays.
+		/// Specifies a constant that should be added to each element of <paramref name="indices"/> when chosing elements from the 
+		/// enabled vertex arrays.
 		/// </param>
+		/// <remarks>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated if <paramref name="mode"/> is not an accepted value.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_VALUE is generated if <paramref name="count"/> is negative.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_VALUE is generated if <paramref name="end"/> &lt; <paramref name="start"/>.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if a geometry shader is active and <paramref name="mode"/> is incompatible with the 
+		/// input primitive type of the geometry shader in the currently installed program object.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if a non-zero buffer object name is bound to an enabled array or the element array and 
+		/// the buffer object's data store is currently mapped.
+		/// </exception>
+		/// <seealso cref="Gl.DrawElements"/>
+		/// <seealso cref="Gl.DrawElementsBaseVertex"/>
+		/// <seealso cref="Gl.DrawRangeElements"/>
+		/// <seealso cref="Gl.DrawElementsInstanced"/>
+		/// <seealso cref="Gl.DrawElementsInstancedBaseVertex"/>
 		[RequiredByFeature("GL_VERSION_3_2")]
 		[RequiredByFeature("GL_ARB_draw_elements_base_vertex")]
 		public static void DrawRangeElementsBaseVertex(PrimitiveType mode, UInt32 start, UInt32 end, Int32 count, DrawElementsType type, IntPtr indices, Int32 basevertex)
@@ -605,29 +661,49 @@ namespace OpenGL
 		/// render primitives from array data with a per-element offset
 		/// </summary>
 		/// <param name="mode">
-		/// Specifies what kind of primitives to render. Symbolic constants GL_POINTS, GL_LINE_STRIP, GL_LINE_LOOP, GL_LINES, 
-		/// GL_TRIANGLE_STRIP, GL_TRIANGLE_FAN, GL_TRIANGLES, GL_LINES_ADJACENCY, GL_LINE_STRIP_ADJACENCY, GL_TRIANGLES_ADJACENCY, 
-		/// GL_TRIANGLE_STRIP_ADJACENCY and GL_PATCHES are accepted.
+		/// Specifies what kind of primitives to render. Symbolic constants Gl.POINTS, Gl.LINE_STRIP, Gl.LINE_LOOP, Gl.LINES, 
+		/// Gl.TRIANGLE_STRIP, Gl.TRIANGLE_FAN, Gl.TRIANGLES, Gl.LINES_ADJACENCY, Gl.LINE_STRIP_ADJACENCY, Gl.TRIANGLES_ADJACENCY, 
+		/// Gl.TRIANGLE_STRIP_ADJACENCY and Gl.PATCHES are accepted.
 		/// </param>
 		/// <param name="start">
-		/// Specifies the minimum array index contained in indices.
+		/// Specifies the minimum array index contained in <paramref name="indices"/>.
 		/// </param>
 		/// <param name="end">
-		/// Specifies the maximum array index contained in indices.
+		/// Specifies the maximum array index contained in <paramref name="indices"/>.
 		/// </param>
 		/// <param name="count">
 		/// Specifies the number of elements to be rendered.
 		/// </param>
 		/// <param name="type">
-		/// Specifies the type of the values in indices. Must be one of GL_UNSIGNED_BYTE, GL_UNSIGNED_SHORT, or GL_UNSIGNED_INT.
+		/// Specifies the type of the values in indices. Must be one of Gl.UNSIGNED_BYTE, Gl.UNSIGNED_SHORT, or Gl.UNSIGNED_INT.
 		/// </param>
 		/// <param name="indices">
 		/// Specifies a pointer to the location where the indices are stored.
 		/// </param>
 		/// <param name="basevertex">
-		/// Specifies a constant that should be added to each element of indices when chosing elements from the enabled vertex 
-		/// arrays.
+		/// Specifies a constant that should be added to each element of <paramref name="indices"/> when chosing elements from the 
+		/// enabled vertex arrays.
 		/// </param>
+		/// <remarks>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated if <paramref name="mode"/> is not an accepted value.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_VALUE is generated if <paramref name="count"/> is negative.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_VALUE is generated if <paramref name="end"/> &lt; <paramref name="start"/>.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if a geometry shader is active and <paramref name="mode"/> is incompatible with the 
+		/// input primitive type of the geometry shader in the currently installed program object.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if a non-zero buffer object name is bound to an enabled array or the element array and 
+		/// the buffer object's data store is currently mapped.
+		/// </exception>
+		/// <seealso cref="Gl.DrawElements"/>
+		/// <seealso cref="Gl.DrawElementsBaseVertex"/>
+		/// <seealso cref="Gl.DrawRangeElements"/>
+		/// <seealso cref="Gl.DrawElementsInstanced"/>
+		/// <seealso cref="Gl.DrawElementsInstancedBaseVertex"/>
 		[RequiredByFeature("GL_VERSION_3_2")]
 		[RequiredByFeature("GL_ARB_draw_elements_base_vertex")]
 		public static void DrawRangeElementsBaseVertex(PrimitiveType mode, UInt32 start, UInt32 end, Int32 count, DrawElementsType type, Object indices, Int32 basevertex)
@@ -644,15 +720,15 @@ namespace OpenGL
 		/// render multiple instances of a set of primitives from array data with a per-element offset
 		/// </summary>
 		/// <param name="mode">
-		/// Specifies what kind of primitives to render. Symbolic constants GL_POINTS, GL_LINE_STRIP, GL_LINE_LOOP, GL_LINES, 
-		/// GL_TRIANGLE_STRIP, GL_TRIANGLE_FAN, GL_TRIANGLES, GL_LINES_ADJACENCY, GL_LINE_STRIP_ADJACENCY, GL_TRIANGLES_ADJACENCY, 
-		/// GL_TRIANGLE_STRIP_ADJACENCY and GL_PATCHES are accepted.
+		/// Specifies what kind of primitives to render. Symbolic constants Gl.POINTS, Gl.LINE_STRIP, Gl.LINE_LOOP, Gl.LINES, 
+		/// Gl.TRIANGLE_STRIP, Gl.TRIANGLE_FAN, Gl.TRIANGLES, Gl.LINES_ADJACENCY, Gl.LINE_STRIP_ADJACENCY, Gl.TRIANGLES_ADJACENCY, 
+		/// Gl.TRIANGLE_STRIP_ADJACENCY and Gl.PATCHES are accepted.
 		/// </param>
 		/// <param name="count">
 		/// Specifies the number of elements to be rendered.
 		/// </param>
 		/// <param name="type">
-		/// Specifies the type of the values in indices. Must be one of GL_UNSIGNED_BYTE, GL_UNSIGNED_SHORT, or GL_UNSIGNED_INT.
+		/// Specifies the type of the values in indices. Must be one of Gl.UNSIGNED_BYTE, Gl.UNSIGNED_SHORT, or Gl.UNSIGNED_INT.
 		/// </param>
 		/// <param name="indices">
 		/// Specifies a pointer to the location where the indices are stored.
@@ -661,9 +737,27 @@ namespace OpenGL
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="basevertex">
-		/// Specifies a constant that should be added to each element of indices when chosing elements from the enabled vertex 
-		/// arrays.
+		/// Specifies a constant that should be added to each element of <paramref name="indices"/> when chosing elements from the 
+		/// enabled vertex arrays.
 		/// </param>
+		/// <remarks>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated if <paramref name="mode"/> is not an accepted value.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_VALUE is generated if <paramref name="count"/> or <paramref name="primcount"/> is negative.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if a geometry shader is active and <paramref name="mode"/> is incompatible with the 
+		/// input primitive type of the geometry shader in the currently installed program object.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if a non-zero buffer object name is bound to an enabled array or the element array and 
+		/// the buffer object's data store is currently mapped.
+		/// </exception>
+		/// <seealso cref="Gl.DrawElements"/>
+		/// <seealso cref="Gl.DrawRangeElements"/>
+		/// <seealso cref="Gl.DrawRangeElementsBaseVertex"/>
+		/// <seealso cref="Gl.DrawElementsInstanced"/>
+		/// <seealso cref="Gl.DrawElementsInstancedBaseVertex"/>
 		[RequiredByFeature("GL_VERSION_3_2")]
 		[RequiredByFeature("GL_ARB_draw_elements_base_vertex")]
 		public static void DrawElementsInstancedBaseVertex(PrimitiveType mode, Int32 count, DrawElementsType type, IntPtr indices, Int32 instancecount, Int32 basevertex)
@@ -678,15 +772,15 @@ namespace OpenGL
 		/// render multiple instances of a set of primitives from array data with a per-element offset
 		/// </summary>
 		/// <param name="mode">
-		/// Specifies what kind of primitives to render. Symbolic constants GL_POINTS, GL_LINE_STRIP, GL_LINE_LOOP, GL_LINES, 
-		/// GL_TRIANGLE_STRIP, GL_TRIANGLE_FAN, GL_TRIANGLES, GL_LINES_ADJACENCY, GL_LINE_STRIP_ADJACENCY, GL_TRIANGLES_ADJACENCY, 
-		/// GL_TRIANGLE_STRIP_ADJACENCY and GL_PATCHES are accepted.
+		/// Specifies what kind of primitives to render. Symbolic constants Gl.POINTS, Gl.LINE_STRIP, Gl.LINE_LOOP, Gl.LINES, 
+		/// Gl.TRIANGLE_STRIP, Gl.TRIANGLE_FAN, Gl.TRIANGLES, Gl.LINES_ADJACENCY, Gl.LINE_STRIP_ADJACENCY, Gl.TRIANGLES_ADJACENCY, 
+		/// Gl.TRIANGLE_STRIP_ADJACENCY and Gl.PATCHES are accepted.
 		/// </param>
 		/// <param name="count">
 		/// Specifies the number of elements to be rendered.
 		/// </param>
 		/// <param name="type">
-		/// Specifies the type of the values in indices. Must be one of GL_UNSIGNED_BYTE, GL_UNSIGNED_SHORT, or GL_UNSIGNED_INT.
+		/// Specifies the type of the values in indices. Must be one of Gl.UNSIGNED_BYTE, Gl.UNSIGNED_SHORT, or Gl.UNSIGNED_INT.
 		/// </param>
 		/// <param name="indices">
 		/// Specifies a pointer to the location where the indices are stored.
@@ -695,9 +789,27 @@ namespace OpenGL
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="basevertex">
-		/// Specifies a constant that should be added to each element of indices when chosing elements from the enabled vertex 
-		/// arrays.
+		/// Specifies a constant that should be added to each element of <paramref name="indices"/> when chosing elements from the 
+		/// enabled vertex arrays.
 		/// </param>
+		/// <remarks>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated if <paramref name="mode"/> is not an accepted value.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_VALUE is generated if <paramref name="count"/> or <paramref name="primcount"/> is negative.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if a geometry shader is active and <paramref name="mode"/> is incompatible with the 
+		/// input primitive type of the geometry shader in the currently installed program object.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if a non-zero buffer object name is bound to an enabled array or the element array and 
+		/// the buffer object's data store is currently mapped.
+		/// </exception>
+		/// <seealso cref="Gl.DrawElements"/>
+		/// <seealso cref="Gl.DrawRangeElements"/>
+		/// <seealso cref="Gl.DrawRangeElementsBaseVertex"/>
+		/// <seealso cref="Gl.DrawElementsInstanced"/>
+		/// <seealso cref="Gl.DrawElementsInstancedBaseVertex"/>
 		[RequiredByFeature("GL_VERSION_3_2")]
 		[RequiredByFeature("GL_ARB_draw_elements_base_vertex")]
 		public static void DrawElementsInstancedBaseVertex(PrimitiveType mode, Int32 count, DrawElementsType type, Object indices, Int32 instancecount, Int32 basevertex)
@@ -714,25 +826,40 @@ namespace OpenGL
 		/// render multiple sets of primitives by specifying indices of array data elements and an index to apply to each index
 		/// </summary>
 		/// <param name="mode">
-		/// Specifies what kind of primitives to render. Symbolic constants GL_POINTS, GL_LINE_STRIP, GL_LINE_LOOP, GL_LINES, 
-		/// GL_LINE_STRIP_ADJACENCY, GL_LINES_ADJACENCY, GL_TRIANGLE_STRIP, GL_TRIANGLE_FAN, GL_TRIANGLES, 
-		/// GL_TRIANGLE_STRIP_ADJACENCY, GL_TRIANGLES_ADJACENCY and GL_PATCHES are accepted.
+		/// Specifies what kind of primitives to render. Symbolic constants Gl.POINTS, Gl.LINE_STRIP, Gl.LINE_LOOP, Gl.LINES, 
+		/// Gl.LINE_STRIP_ADJACENCY, Gl.LINES_ADJACENCY, Gl.TRIANGLE_STRIP, Gl.TRIANGLE_FAN, Gl.TRIANGLES, 
+		/// Gl.TRIANGLE_STRIP_ADJACENCY, Gl.TRIANGLES_ADJACENCY and Gl.PATCHES are accepted.
 		/// </param>
 		/// <param name="count">
 		/// Points to an array of the elements counts.
 		/// </param>
 		/// <param name="type">
-		/// Specifies the type of the values in indices. Must be one of GL_UNSIGNED_BYTE, GL_UNSIGNED_SHORT, or GL_UNSIGNED_INT.
+		/// Specifies the type of the values in <paramref name="indices"/>. Must be one of Gl.UNSIGNED_BYTE, Gl.UNSIGNED_SHORT, or 
+		/// Gl.UNSIGNED_INT.
 		/// </param>
 		/// <param name="indices">
 		/// Specifies a pointer to the location where the indices are stored.
 		/// </param>
 		/// <param name="drawcount">
-		/// Specifies the size of the count, indices and basevertex arrays.
+		/// Specifies the size of the <paramref name="count"/>, <paramref name="indices"/> and <paramref name="basevertex"/> arrays.
 		/// </param>
 		/// <param name="basevertex">
 		/// Specifies a pointer to the location where the base vertices are stored.
 		/// </param>
+		/// <remarks>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated if <paramref name="mode"/> is not an accepted value.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_VALUE is generated if <paramref name="drawcount"/> is negative.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if a non-zero buffer object name is bound to an enabled array or the element array and 
+		/// the buffer object's data store is currently mapped.
+		/// </exception>
+		/// <seealso cref="Gl.MultiDrawElements"/>
+		/// <seealso cref="Gl.DrawElementsBaseVertex"/>
+		/// <seealso cref="Gl.DrawArrays"/>
+		/// <seealso cref="Gl.VertexAttribPointer"/>
 		[RequiredByFeature("GL_VERSION_3_2")]
 		[RequiredByFeature("GL_ARB_draw_elements_base_vertex")]
 		public static void MultiDrawElementsBaseVertex(int mode, Int32[] count, DrawElementsType type, IntPtr[] indices, Int32 drawcount, Int32[] basevertex)
@@ -756,6 +883,11 @@ namespace OpenGL
 		/// <param name="provokeMode">
 		/// Specifies the vertex to be used as the source of data for flat shaded varyings.
 		/// </param>
+		/// <remarks>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated if <paramref name="provokeMode"/> is not an accepted value.
+		/// </exception>
 		[RequiredByFeature("GL_VERSION_3_2")]
 		[RequiredByFeature("GL_ARB_provoking_vertex")]
 		public static void ProvokingVertex(int provokeMode)
@@ -770,14 +902,27 @@ namespace OpenGL
 		/// create a new sync object and insert it into the GL command stream
 		/// </summary>
 		/// <param name="condition">
-		/// Specifies the condition that must be met to set the sync object's state to signaled. condition must be 
-		/// GL_SYNC_GPU_COMMANDS_COMPLETE.
+		/// Specifies the condition that must be met to set the sync object's state to signaled. <paramref name="condition"/> must 
+		/// be Gl.SYNC_GPU_COMMANDS_COMPLETE.
 		/// </param>
 		/// <param name="flags">
 		/// Specifies a bitwise combination of flags controlling the behavior of the sync object. No flags are presently defined for 
-		/// this operation and flags must be zero.flags is a placeholder for anticipated future extensions of fence sync object 
-		/// capabilities.
+		/// this operation and <paramref name="flags"/> must be zero.<paramref name="flags"/> is a placeholder for anticipated 
+		/// future extensions of fence sync object capabilities.
 		/// </param>
+		/// <remarks>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated if <paramref name="condition"/> is not Gl.SYNC_GPU_COMMANDS_COMPLETE.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_VALUE is generated if <paramref name="flags"/> is not zero.
+		/// <exception cref="InvalidOperationException">
+		/// Additionally, if Gl.FenceSync fails, it will return zero.
+		/// </exception>
+		/// <seealso cref="Gl.DeleteSync"/>
+		/// <seealso cref="Gl.GetSync"/>
+		/// <seealso cref="Gl.WaitSync"/>
+		/// <seealso cref="Gl.ClientWaitSync"/>
 		[RequiredByFeature("GL_VERSION_3_2")]
 		[RequiredByFeature("GL_ARB_sync")]
 		public static int FenceSync(int condition, uint flags)
@@ -798,6 +943,10 @@ namespace OpenGL
 		/// <param name="sync">
 		/// Specifies a value that may be the name of a sync object.
 		/// </param>
+		/// <seealso cref="Gl.FenceSync"/>
+		/// <seealso cref="Gl.WaitSync"/>
+		/// <seealso cref="Gl.ClientWaitSync"/>
+		/// <seealso cref="Gl.DeleteSync"/>
 		[RequiredByFeature("GL_VERSION_3_2")]
 		[RequiredByFeature("GL_ARB_sync")]
 		public static bool IsSync(int sync)
@@ -818,6 +967,14 @@ namespace OpenGL
 		/// <param name="sync">
 		/// The sync object to be deleted.
 		/// </param>
+		/// <remarks>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_VALUE is generated if <paramref name="sync"/> is neither zero or the name of a sync object.
+		/// </exception>
+		/// <seealso cref="Gl.FenceSync"/>
+		/// <seealso cref="Gl.WaitSync"/>
+		/// <seealso cref="Gl.ClientWaitSync"/>
 		[RequiredByFeature("GL_VERSION_3_2")]
 		[RequiredByFeature("GL_ARB_sync")]
 		public static void DeleteSync(int sync)
@@ -835,11 +992,22 @@ namespace OpenGL
 		/// The sync object whose status to wait on.
 		/// </param>
 		/// <param name="flags">
-		/// A bitfield controlling the command flushing behavior. flags may be GL_SYNC_FLUSH_COMMANDS_BIT.
+		/// A bitfield controlling the command flushing behavior. <paramref name="flags"/> may be Gl.SYNC_FLUSH_COMMANDS_BIT.
 		/// </param>
 		/// <param name="timeout">
-		/// The timeout, specified in nanoseconds, for which the implementation should wait for sync to become signaled.
+		/// The timeout, specified in nanoseconds, for which the implementation should wait for <paramref name="sync"/> to become 
+		/// signaled.
 		/// </param>
+		/// <remarks>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_VALUE is generated if <paramref name="sync"/> is not the name of an existing sync object.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_VALUE is generated if <paramref name="flags"/> contains any unsupported flag.
+		/// </exception>
+		/// <seealso cref="Gl.FenceSync"/>
+		/// <seealso cref="Gl.IsSync"/>
+		/// <seealso cref="Gl.WaitSync"/>
 		[RequiredByFeature("GL_VERSION_3_2")]
 		[RequiredByFeature("GL_ARB_sync")]
 		public static int ClientWaitSync(int sync, uint flags, UInt64 timeout)
@@ -861,11 +1029,23 @@ namespace OpenGL
 		/// Specifies the sync object whose status to wait on.
 		/// </param>
 		/// <param name="flags">
-		/// A bitfield controlling the command flushing behavior. flags may be zero.
+		/// A bitfield controlling the command flushing behavior. <paramref name="flags"/> may be zero.
 		/// </param>
 		/// <param name="timeout">
-		/// Specifies the timeout that the server should wait before continuing. timeout must be GL_TIMEOUT_IGNORED.
+		/// Specifies the timeout that the server should wait before continuing. <paramref name="timeout"/> must be 
+		/// Gl.TIMEOUT_IGNORED.
 		/// </param>
+		/// <remarks>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_VALUE is generated if <paramref name="sync"/> is not the name of a sync object.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_VALUE is generated if <paramref name="flags"/> is not zero.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_VALUE is generated if <paramref name="timeout"/> is not Gl.TIMEOUT_IGNORED.
+		/// </exception>
+		/// <seealso cref="Gl.FenceSync"/>
+		/// <seealso cref="Gl.ClientWaitSync"/>
 		[RequiredByFeature("GL_VERSION_3_2")]
 		[RequiredByFeature("GL_ARB_sync")]
 		public static void WaitSync(int sync, uint flags, UInt64 timeout)
@@ -880,12 +1060,44 @@ namespace OpenGL
 		/// return the value or values of a selected parameter
 		/// </summary>
 		/// <param name="pname">
-		/// Specifies the parameter value to be returned for non-indexed versions of glGet. The symbolic constants in the list below 
-		/// are accepted.
+		/// Specifies the parameter value to be returned for non-indexed versions of Gl.Get. The symbolic constants in the list 
+		/// below are accepted.
 		/// </param>
 		/// <param name="data">
 		/// Returns the value or values of the specified parameter.
 		/// </param>
+		/// <remarks>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated if <paramref name="pname"/> is not an accepted value.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_VALUE is generated on any of Gl.GetBooleani_v, Gl.GetIntegeri_v, or Gl.GetInteger64i_v if <paramref 
+		/// name="index"/> is outside of the valid range for the indexed state <paramref name="target"/>.
+		/// </exception>
+		/// <seealso cref="Gl.GetActiveUniform"/>
+		/// <seealso cref="Gl.GetAttachedShaders"/>
+		/// <seealso cref="Gl.GetAttribLocation"/>
+		/// <seealso cref="Gl.GetBufferParameter"/>
+		/// <seealso cref="Gl.GetBufferPointerv"/>
+		/// <seealso cref="Gl.GetBufferSubData"/>
+		/// <seealso cref="Gl.GetCompressedTexImage"/>
+		/// <seealso cref="Gl.GetError"/>
+		/// <seealso cref="Gl.GetProgram"/>
+		/// <seealso cref="Gl.GetProgramInfoLog"/>
+		/// <seealso cref="Gl.GetQueryiv"/>
+		/// <seealso cref="Gl.GetQueryObject"/>
+		/// <seealso cref="Gl.GetShader"/>
+		/// <seealso cref="Gl.GetShaderInfoLog"/>
+		/// <seealso cref="Gl.GetShaderSource"/>
+		/// <seealso cref="Gl.GetString"/>
+		/// <seealso cref="Gl.GetTexImage"/>
+		/// <seealso cref="Gl.GetTexLevelParameter"/>
+		/// <seealso cref="Gl.GetTexParameter"/>
+		/// <seealso cref="Gl.GetUniform"/>
+		/// <seealso cref="Gl.GetUniformLocation"/>
+		/// <seealso cref="Gl.GetVertexAttrib"/>
+		/// <seealso cref="Gl.GetVertexAttribPointerv"/>
+		/// <seealso cref="Gl.IsEnabled"/>
 		[RequiredByFeature("GL_VERSION_3_2")]
 		[RequiredByFeature("GL_ARB_sync")]
 		public static void Get(int pname, Int64[] data)
@@ -905,12 +1117,44 @@ namespace OpenGL
 		/// return the value or values of a selected parameter
 		/// </summary>
 		/// <param name="pname">
-		/// Specifies the parameter value to be returned for non-indexed versions of glGet. The symbolic constants in the list below 
-		/// are accepted.
+		/// Specifies the parameter value to be returned for non-indexed versions of Gl.Get. The symbolic constants in the list 
+		/// below are accepted.
 		/// </param>
 		/// <param name="data">
 		/// Returns the value or values of the specified parameter.
 		/// </param>
+		/// <remarks>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated if <paramref name="pname"/> is not an accepted value.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_VALUE is generated on any of Gl.GetBooleani_v, Gl.GetIntegeri_v, or Gl.GetInteger64i_v if <paramref 
+		/// name="index"/> is outside of the valid range for the indexed state <paramref name="target"/>.
+		/// </exception>
+		/// <seealso cref="Gl.GetActiveUniform"/>
+		/// <seealso cref="Gl.GetAttachedShaders"/>
+		/// <seealso cref="Gl.GetAttribLocation"/>
+		/// <seealso cref="Gl.GetBufferParameter"/>
+		/// <seealso cref="Gl.GetBufferPointerv"/>
+		/// <seealso cref="Gl.GetBufferSubData"/>
+		/// <seealso cref="Gl.GetCompressedTexImage"/>
+		/// <seealso cref="Gl.GetError"/>
+		/// <seealso cref="Gl.GetProgram"/>
+		/// <seealso cref="Gl.GetProgramInfoLog"/>
+		/// <seealso cref="Gl.GetQueryiv"/>
+		/// <seealso cref="Gl.GetQueryObject"/>
+		/// <seealso cref="Gl.GetShader"/>
+		/// <seealso cref="Gl.GetShaderInfoLog"/>
+		/// <seealso cref="Gl.GetShaderSource"/>
+		/// <seealso cref="Gl.GetString"/>
+		/// <seealso cref="Gl.GetTexImage"/>
+		/// <seealso cref="Gl.GetTexLevelParameter"/>
+		/// <seealso cref="Gl.GetTexParameter"/>
+		/// <seealso cref="Gl.GetUniform"/>
+		/// <seealso cref="Gl.GetUniformLocation"/>
+		/// <seealso cref="Gl.GetVertexAttrib"/>
+		/// <seealso cref="Gl.GetVertexAttribPointerv"/>
+		/// <seealso cref="Gl.IsEnabled"/>
 		[RequiredByFeature("GL_VERSION_3_2")]
 		[RequiredByFeature("GL_ARB_sync")]
 		public static void Get(int pname, out Int64 data)
@@ -933,17 +1177,27 @@ namespace OpenGL
 		/// Specifies the sync object whose properties to query.
 		/// </param>
 		/// <param name="pname">
-		/// Specifies the parameter whose value to retrieve from the sync object specified in sync.
+		/// Specifies the parameter whose value to retrieve from the sync object specified in <paramref name="sync"/>.
 		/// </param>
 		/// <param name="bufSize">
-		/// Specifies the size of the buffer whose address is given in values.
+		/// Specifies the size of the buffer whose address is given in <paramref name="values"/>.
 		/// </param>
 		/// <param name="length">
-		/// Specifies the address of an variable to receive the number of integers placed in values.
+		/// Specifies the address of an variable to receive the number of integers placed in <paramref name="values"/>.
 		/// </param>
 		/// <param name="values">
 		/// Specifies the address of an array to receive the values of the queried parameter.
 		/// </param>
+		/// <remarks>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_VALUE is generated if <paramref name="sync"/> is not the name of a sync object.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated if <paramref name="pname"/> is not one of the accepted tokens.
+		/// </exception>
+		/// <seealso cref="Gl.FenceSync"/>
+		/// <seealso cref="Gl.WaitSync"/>
+		/// <seealso cref="Gl.ClientWaitSync"/>
 		[RequiredByFeature("GL_VERSION_3_2")]
 		[RequiredByFeature("GL_ARB_sync")]
 		public static void GetSync(int sync, int pname, out Int32 length, Int32[] values)
@@ -964,8 +1218,8 @@ namespace OpenGL
 		/// return the value or values of a selected parameter
 		/// </summary>
 		/// <param name="target">
-		/// Specifies the parameter value to be returned for indexed versions of glGet. The symbolic constants in the list below are 
-		/// accepted.
+		/// Specifies the parameter value to be returned for indexed versions of Gl.Get. The symbolic constants in the list below 
+		/// are accepted.
 		/// </param>
 		/// <param name="index">
 		/// Specifies the index of the particular element being queried.
@@ -973,6 +1227,38 @@ namespace OpenGL
 		/// <param name="data">
 		/// Returns the value or values of the specified parameter.
 		/// </param>
+		/// <remarks>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated if <paramref name="pname"/> is not an accepted value.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_VALUE is generated on any of Gl.GetBooleani_v, Gl.GetIntegeri_v, or Gl.GetInteger64i_v if <paramref 
+		/// name="index"/> is outside of the valid range for the indexed state <paramref name="target"/>.
+		/// </exception>
+		/// <seealso cref="Gl.GetActiveUniform"/>
+		/// <seealso cref="Gl.GetAttachedShaders"/>
+		/// <seealso cref="Gl.GetAttribLocation"/>
+		/// <seealso cref="Gl.GetBufferParameter"/>
+		/// <seealso cref="Gl.GetBufferPointerv"/>
+		/// <seealso cref="Gl.GetBufferSubData"/>
+		/// <seealso cref="Gl.GetCompressedTexImage"/>
+		/// <seealso cref="Gl.GetError"/>
+		/// <seealso cref="Gl.GetProgram"/>
+		/// <seealso cref="Gl.GetProgramInfoLog"/>
+		/// <seealso cref="Gl.GetQueryiv"/>
+		/// <seealso cref="Gl.GetQueryObject"/>
+		/// <seealso cref="Gl.GetShader"/>
+		/// <seealso cref="Gl.GetShaderInfoLog"/>
+		/// <seealso cref="Gl.GetShaderSource"/>
+		/// <seealso cref="Gl.GetString"/>
+		/// <seealso cref="Gl.GetTexImage"/>
+		/// <seealso cref="Gl.GetTexLevelParameter"/>
+		/// <seealso cref="Gl.GetTexParameter"/>
+		/// <seealso cref="Gl.GetUniform"/>
+		/// <seealso cref="Gl.GetUniformLocation"/>
+		/// <seealso cref="Gl.GetVertexAttrib"/>
+		/// <seealso cref="Gl.GetVertexAttribPointerv"/>
+		/// <seealso cref="Gl.IsEnabled"/>
 		[RequiredByFeature("GL_VERSION_3_2")]
 		public static void Get(int target, UInt32 index, Int64[] data)
 		{
@@ -991,8 +1277,8 @@ namespace OpenGL
 		/// return the value or values of a selected parameter
 		/// </summary>
 		/// <param name="target">
-		/// Specifies the parameter value to be returned for indexed versions of glGet. The symbolic constants in the list below are 
-		/// accepted.
+		/// Specifies the parameter value to be returned for indexed versions of Gl.Get. The symbolic constants in the list below 
+		/// are accepted.
 		/// </param>
 		/// <param name="index">
 		/// Specifies the index of the particular element being queried.
@@ -1000,6 +1286,38 @@ namespace OpenGL
 		/// <param name="data">
 		/// Returns the value or values of the specified parameter.
 		/// </param>
+		/// <remarks>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated if <paramref name="pname"/> is not an accepted value.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_VALUE is generated on any of Gl.GetBooleani_v, Gl.GetIntegeri_v, or Gl.GetInteger64i_v if <paramref 
+		/// name="index"/> is outside of the valid range for the indexed state <paramref name="target"/>.
+		/// </exception>
+		/// <seealso cref="Gl.GetActiveUniform"/>
+		/// <seealso cref="Gl.GetAttachedShaders"/>
+		/// <seealso cref="Gl.GetAttribLocation"/>
+		/// <seealso cref="Gl.GetBufferParameter"/>
+		/// <seealso cref="Gl.GetBufferPointerv"/>
+		/// <seealso cref="Gl.GetBufferSubData"/>
+		/// <seealso cref="Gl.GetCompressedTexImage"/>
+		/// <seealso cref="Gl.GetError"/>
+		/// <seealso cref="Gl.GetProgram"/>
+		/// <seealso cref="Gl.GetProgramInfoLog"/>
+		/// <seealso cref="Gl.GetQueryiv"/>
+		/// <seealso cref="Gl.GetQueryObject"/>
+		/// <seealso cref="Gl.GetShader"/>
+		/// <seealso cref="Gl.GetShaderInfoLog"/>
+		/// <seealso cref="Gl.GetShaderSource"/>
+		/// <seealso cref="Gl.GetString"/>
+		/// <seealso cref="Gl.GetTexImage"/>
+		/// <seealso cref="Gl.GetTexLevelParameter"/>
+		/// <seealso cref="Gl.GetTexParameter"/>
+		/// <seealso cref="Gl.GetUniform"/>
+		/// <seealso cref="Gl.GetUniformLocation"/>
+		/// <seealso cref="Gl.GetVertexAttrib"/>
+		/// <seealso cref="Gl.GetVertexAttribPointerv"/>
+		/// <seealso cref="Gl.IsEnabled"/>
 		[RequiredByFeature("GL_VERSION_3_2")]
 		public static void Get(int target, UInt32 index, out Int64 data)
 		{
@@ -1018,7 +1336,7 @@ namespace OpenGL
 		/// return parameters of a buffer object
 		/// </summary>
 		/// <param name="target">
-		/// Specifies the target to which the buffer object is bound for glGetBufferParameteriv and glGetBufferParameteri64v. Must 
+		/// Specifies the target to which the buffer object is bound for Gl.GetBufferParameteriv and Gl.GetBufferParameteri64v. Must 
 		/// be one of the buffer binding targets in the following table:
 		/// </param>
 		/// <param name="pname">
@@ -1027,6 +1345,25 @@ namespace OpenGL
 		/// <param name="params">
 		/// A <see cref="T:Int64[]"/>.
 		/// </param>
+		/// <remarks>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated by Gl.GetBufferParameter* if <paramref name="target"/> is not one of the accepted buffer 
+		/// targets.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated by Gl.GetBufferParameter* if zero is bound to <paramref name="target"/>.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated by Gl.GetNamedBufferParameter* if <paramref name="buffer"/> is not the name of an 
+		/// existing buffer object.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated if <paramref name="pname"/> is not one of the buffer object parameter names described 
+		/// above.
+		/// </exception>
+		/// <seealso cref="Gl.BindBuffer"/>
+		/// <seealso cref="Gl.BufferData"/>
+		/// <seealso cref="Gl.GetBufferPointerv"/>
+		/// <seealso cref="Gl.MapBuffer"/>
+		/// <seealso cref="Gl.UnmapBuffer"/>
 		[RequiredByFeature("GL_VERSION_3_2")]
 		public static void GetBufferParameter(BufferTargetARB target, int pname, Int64[] @params)
 		{
@@ -1045,7 +1382,7 @@ namespace OpenGL
 		/// attach a level of a texture object as a logical buffer of a framebuffer object
 		/// </summary>
 		/// <param name="target">
-		/// Specifies the target to which the framebuffer is bound for all commands exceptglNamedFramebufferTexture.
+		/// Specifies the target to which the framebuffer is bound for all commands exceptGl.NamedFramebufferTexture.
 		/// </param>
 		/// <param name="attachment">
 		/// Specifies the attachment point of the framebuffer.
@@ -1056,6 +1393,41 @@ namespace OpenGL
 		/// <param name="level">
 		/// Specifies the mipmap level of the texture object to attach.
 		/// </param>
+		/// <remarks>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated by all commands accepting a <paramref name="target"/> parameter if it is not one of the 
+		/// accepted framebuffer targets.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated by all commands accepting a <paramref name="target"/> parameter if zero is bound to 
+		/// that target.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated by Gl.NamedFramebufferTexture if <paramref name="framebuffer"/> is not the name of an 
+		/// existing framebuffer object.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated if <paramref name="attachment"/> is not one of the accepted attachment points.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_VALUE is generated if <paramref name="texture"/> is not zero or the name of an existing texture object.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_VALUE is generated if <paramref name="texture"/> is not zero and <paramref name="level"/> is not a supported 
+		/// texture level for <paramref name="texture"/>.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_VALUE is generated by Gl.FramebufferTexture3D if <paramref name="texture"/> is not zero and <paramref 
+		/// name="layer"/> is larger than the value of Gl.MAX_3D_TEXTURE_SIZE minus one.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated by all commands accepting a <paramref name="textarget"/> parameter if <paramref 
+		/// name="texture"/> is not zero, and <paramref name="textarget"/> and the effective target of <paramref name="texture"/> 
+		/// are not compatible.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated by if <paramref name="texture"/> is a buffer texture.
+		/// </exception>
+		/// <seealso cref="Gl.GenFramebuffers"/>
+		/// <seealso cref="Gl.BindFramebuffer"/>
+		/// <seealso cref="Gl.GenRenderbuffers"/>
+		/// <seealso cref="Gl.FramebufferTexture"/>
+		/// <seealso cref="Gl.FramebufferTexture1D"/>
+		/// <seealso cref="Gl.FramebufferTexture2D"/>
+		/// <seealso cref="Gl.FramebufferTexture3D"/>
 		[RequiredByFeature("GL_VERSION_3_2")]
 		public static void FramebufferTexture(int target, int attachment, UInt32 texture, Int32 level)
 		{
@@ -1069,14 +1441,15 @@ namespace OpenGL
 		/// establish the data storage, format, dimensions, and number of samples of a multisample texture's image
 		/// </summary>
 		/// <param name="target">
-		/// Specifies the target of the operation. target must be GL_TEXTURE_2D_MULTISAMPLE or GL_PROXY_TEXTURE_2D_MULTISAMPLE.
+		/// Specifies the target of the operation. <paramref name="target"/> must be Gl.TEXTURE_2D_MULTISAMPLE or 
+		/// Gl.PROXY_TEXTURE_2D_MULTISAMPLE.
 		/// </param>
 		/// <param name="samples">
 		/// The number of samples in the multisample texture's image.
 		/// </param>
 		/// <param name="internalformat">
-		/// The internal format to be used to store the multisample texture's image. internalformat must specify a color-renderable, 
-		/// depth-renderable, or stencil-renderable format.
+		/// The internal format to be used to store the multisample texture's image. <paramref name="internalformat"/> must specify 
+		/// a color-renderable, depth-renderable, or stencil-renderable format.
 		/// </param>
 		/// <param name="width">
 		/// The width of the multisample texture's image, in texels.
@@ -1088,6 +1461,25 @@ namespace OpenGL
 		/// Specifies whether the image will use identical sample locations and the same number of samples for all texels in the 
 		/// image, and the sample locations will not depend on the internal format or size of the image.
 		/// </param>
+		/// <remarks>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if <paramref name="internalformat"/> is a depth- or stencil-renderable format and 
+		/// <paramref name="samples"/> is greater than the value of Gl.MAX_DEPTH_TEXTURE_SAMPLES.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if <paramref name="internalformat"/> is a color-renderable format and <paramref 
+		/// name="samples"/> is greater than the value of Gl.MAX_COLOR_TEXTURE_SAMPLES.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if <paramref name="internalformat"/> is a signed or unsigned integer format and 
+		/// <paramref name="samples"/> is greater than the value of Gl.MAX_INTEGER_SAMPLES.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_VALUE is generated if either <paramref name="width"/> or <paramref name="height"/> negative or is greater 
+		/// than Gl.MAX_TEXTURE_SIZE.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_VALUE is generated if <paramref name="samples"/> is greater than Gl.MAX_SAMPLES.
+		/// </exception>
+		/// <seealso cref="Gl.TexImage3D"/>
+		/// <seealso cref="Gl.TexImage2DMultisample"/>
 		[RequiredByFeature("GL_VERSION_3_2")]
 		[RequiredByFeature("GL_ARB_texture_multisample")]
 		public static void TexImage2DMultisample(int target, Int32 samples, int internalformat, Int32 width, Int32 height, bool fixedsamplelocations)
@@ -1102,15 +1494,15 @@ namespace OpenGL
 		/// establish the data storage, format, dimensions, and number of samples of a multisample texture's image
 		/// </summary>
 		/// <param name="target">
-		/// Specifies the target of the operation. target must be GL_TEXTURE_2D_MULTISAMPLE_ARRAY or 
-		/// GL_PROXY_TEXTURE_2D_MULTISAMPLE_ARRAY.
+		/// Specifies the target of the operation. <paramref name="target"/> must be Gl.TEXTURE_2D_MULTISAMPLE_ARRAY or 
+		/// Gl.PROXY_TEXTURE_2D_MULTISAMPLE_ARRAY.
 		/// </param>
 		/// <param name="samples">
 		/// The number of samples in the multisample texture's image.
 		/// </param>
 		/// <param name="internalformat">
-		/// The internal format to be used to store the multisample texture's image. internalformat must specify a color-renderable, 
-		/// depth-renderable, or stencil-renderable format.
+		/// The internal format to be used to store the multisample texture's image. <paramref name="internalformat"/> must specify 
+		/// a color-renderable, depth-renderable, or stencil-renderable format.
 		/// </param>
 		/// <param name="width">
 		/// The width of the multisample texture's image, in texels.
@@ -1125,6 +1517,27 @@ namespace OpenGL
 		/// Specifies whether the image will use identical sample locations and the same number of samples for all texels in the 
 		/// image, and the sample locations will not depend on the internal format or size of the image.
 		/// </param>
+		/// <remarks>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if <paramref name="internalformat"/> is a depth- or stencil-renderable format and 
+		/// <paramref name="samples"/> is greater than the value of Gl.MAX_DEPTH_TEXTURE_SAMPLES.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if <paramref name="internalformat"/> is a color-renderable format and <paramref 
+		/// name="samples"/> is greater than the value of Gl.MAX_COLOR_TEXTURE_SAMPLES.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if <paramref name="internalformat"/> is a signed or unsigned integer format and 
+		/// <paramref name="samples"/> is greater than the value of Gl.MAX_INTEGER_SAMPLES.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_VALUE is generated if either <paramref name="width"/> or <paramref name="height"/> negative or is greater 
+		/// than Gl.MAX_TEXTURE_SIZE.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_VALUE is generated if <paramref name="depth"/> is negative or is greater than Gl.MAX_ARRAY_TEXTURE_LAYERS.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_VALUE is generated if <paramref name="samples"/> is greater than Gl.MAX_SAMPLES.
+		/// </exception>
+		/// <seealso cref="Gl.TexImage3D"/>
+		/// <seealso cref="Gl.TexImage2DMultisample"/>
 		[RequiredByFeature("GL_VERSION_3_2")]
 		[RequiredByFeature("GL_ARB_texture_multisample")]
 		public static void TexImage3DMultisample(int target, Int32 samples, int internalformat, Int32 width, Int32 height, Int32 depth, bool fixedsamplelocations)
@@ -1139,7 +1552,7 @@ namespace OpenGL
 		/// retrieve the location of a sample
 		/// </summary>
 		/// <param name="pname">
-		/// Specifies the sample parameter name. pname must be GL_SAMPLE_POSITION.
+		/// Specifies the sample parameter name. <paramref name="pname"/> must be Gl.SAMPLE_POSITION.
 		/// </param>
 		/// <param name="index">
 		/// Specifies the index of the sample whose position to query.
@@ -1147,6 +1560,15 @@ namespace OpenGL
 		/// <param name="val">
 		/// Specifies the address of an array to receive the position of the sample.
 		/// </param>
+		/// <remarks>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated if <paramref name="pname"/> is not one Gl.SAMPLE_POSITION.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_VALUE is generated if <paramref name="index"/> is greater than or equal to the value of Gl.SAMPLES.
+		/// </exception>
+		/// <seealso cref="Gl.GenFramebuffers"/>
+		/// <seealso cref="Gl.BindFramebuffer"/>
 		[RequiredByFeature("GL_VERSION_3_2")]
 		[RequiredByFeature("GL_ARB_texture_multisample")]
 		public static void GetMultisample(int pname, UInt32 index, float[] val)
@@ -1171,6 +1593,17 @@ namespace OpenGL
 		/// <param name="mask">
 		/// Specifies the new value of the mask sub-word.
 		/// </param>
+		/// <remarks>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_VALUE is generated if <paramref name="maskIndex"/> is greater than or equal to the value of 
+		/// Gl.MAX_SAMPLE_MASK_WORDS.
+		/// </exception>
+		/// <seealso cref="Gl.GenRenderbuffers"/>
+		/// <seealso cref="Gl.BindRenderbuffer"/>
+		/// <seealso cref="Gl.RenderbufferStorageMultisample"/>
+		/// <seealso cref="Gl.FramebufferRenderbuffer"/>
+		/// <seealso cref="Gl.DeleteRenderbuffers"/>
 		[RequiredByFeature("GL_VERSION_3_2")]
 		[RequiredByFeature("GL_ARB_texture_multisample")]
 		public static void SampleMask(UInt32 maskNumber, uint mask)

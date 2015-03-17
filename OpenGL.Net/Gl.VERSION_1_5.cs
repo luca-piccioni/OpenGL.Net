@@ -354,6 +354,14 @@ namespace OpenGL
 		/// <param name="ids">
 		/// Specifies an array in which the generated query object names are stored.
 		/// </param>
+		/// <remarks>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_VALUE is generated if <paramref name="n"/> is negative.
+		/// </exception>
+		/// <seealso cref="Gl.BeginQuery"/>
+		/// <seealso cref="Gl.DeleteQueries"/>
+		/// <seealso cref="Gl.EndQuery"/>
 		[RequiredByFeature("GL_VERSION_1_5")]
 		public static void GenQueries(UInt32[] ids)
 		{
@@ -371,6 +379,14 @@ namespace OpenGL
 		/// <summary>
 		/// generate query object names
 		/// </summary>
+		/// <remarks>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_VALUE is generated if <paramref name="n"/> is negative.
+		/// </exception>
+		/// <seealso cref="Gl.BeginQuery"/>
+		/// <seealso cref="Gl.DeleteQueries"/>
+		/// <seealso cref="Gl.EndQuery"/>
 		[RequiredByFeature("GL_VERSION_1_5")]
 		public static UInt32 GenQuery()
 		{
@@ -388,6 +404,16 @@ namespace OpenGL
 		/// <param name="ids">
 		/// Specifies an array of query objects to be deleted.
 		/// </param>
+		/// <remarks>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_VALUE is generated if <paramref name="n"/> is negative.
+		/// </exception>
+		/// <seealso cref="Gl.BeginQuery"/>
+		/// <seealso cref="Gl.EndQuery"/>
+		/// <seealso cref="Gl.GenQueries"/>
+		/// <seealso cref="Gl.GetQueryiv"/>
+		/// <seealso cref="Gl.GetQueryObject"/>
 		[RequiredByFeature("GL_VERSION_1_5")]
 		public static void DeleteQueries(params UInt32[] ids)
 		{
@@ -408,6 +434,10 @@ namespace OpenGL
 		/// <param name="id">
 		/// Specifies a value that may be the name of a query object.
 		/// </param>
+		/// <seealso cref="Gl.BeginQuery"/>
+		/// <seealso cref="Gl.DeleteQueries"/>
+		/// <seealso cref="Gl.EndQuery"/>
+		/// <seealso cref="Gl.GenQueries"/>
 		[RequiredByFeature("GL_VERSION_1_5")]
 		public static bool IsQuery(UInt32 id)
 		{
@@ -425,13 +455,38 @@ namespace OpenGL
 		/// delimit the boundaries of a query object
 		/// </summary>
 		/// <param name="target">
-		/// Specifies the target type of query object established between glBeginQuery and the subsequent glEndQuery. The symbolic 
-		/// constant must be one of GL_SAMPLES_PASSED, GL_ANY_SAMPLES_PASSED, GL_ANY_SAMPLES_PASSED_CONSERVATIVE, 
-		/// GL_PRIMITIVES_GENERATED, GL_TRANSFORM_FEEDBACK_PRIMITIVES_WRITTEN, or GL_TIME_ELAPSED.
+		/// Specifies the target type of query object established between Gl.BeginQuery and the subsequent glEndQuery. The symbolic 
+		/// constant must be one of Gl.SAMPLES_PASSED, Gl.ANY_SAMPLES_PASSED, Gl.ANY_SAMPLES_PASSED_CONSERVATIVE, 
+		/// Gl.PRIMITIVES_GENERATED, Gl.TRANSFORM_FEEDBACK_PRIMITIVES_WRITTEN, or Gl.TIME_ELAPSED.
 		/// </param>
 		/// <param name="id">
 		/// Specifies the name of a query object.
 		/// </param>
+		/// <remarks>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated if <paramref name="target"/> is not one of the accepted tokens.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if Gl.BeginQuery is executed while a query object of the same <paramref 
+		/// name="target"/> is already active.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if glEndQuery is executed when a query object of the same <paramref name="target"/> is 
+		/// not active.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if <paramref name="id"/> is 0.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if <paramref name="id"/> is the name of an already active query object.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if <paramref name="id"/> refers to an existing query object whose type does not does 
+		/// not match <paramref name="target"/>.
+		/// </exception>
+		/// <seealso cref="Gl.BeginQueryIndexed"/>
+		/// <seealso cref="Gl.DeleteQueries"/>
+		/// <seealso cref="Gl.EndQuery"/>
+		/// <seealso cref="Gl.GenQueries"/>
+		/// <seealso cref="Gl.GetQueryObject"/>
+		/// <seealso cref="Gl.GetQueryiv"/>
+		/// <seealso cref="Gl.IsQuery"/>
 		[RequiredByFeature("GL_VERSION_1_5")]
 		public static void BeginQuery(int target, UInt32 id)
 		{
@@ -445,10 +500,35 @@ namespace OpenGL
 		/// delimit the boundaries of a query object
 		/// </summary>
 		/// <param name="target">
-		/// Specifies the target type of query object established between glBeginQuery and the subsequent glEndQuery. The symbolic 
-		/// constant must be one of GL_SAMPLES_PASSED, GL_ANY_SAMPLES_PASSED, GL_ANY_SAMPLES_PASSED_CONSERVATIVE, 
-		/// GL_PRIMITIVES_GENERATED, GL_TRANSFORM_FEEDBACK_PRIMITIVES_WRITTEN, or GL_TIME_ELAPSED.
+		/// Specifies the target type of query object established between Gl.BeginQuery and the subsequent glEndQuery. The symbolic 
+		/// constant must be one of Gl.SAMPLES_PASSED, Gl.ANY_SAMPLES_PASSED, Gl.ANY_SAMPLES_PASSED_CONSERVATIVE, 
+		/// Gl.PRIMITIVES_GENERATED, Gl.TRANSFORM_FEEDBACK_PRIMITIVES_WRITTEN, or Gl.TIME_ELAPSED.
 		/// </param>
+		/// <remarks>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated if <paramref name="target"/> is not one of the accepted tokens.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if Gl.BeginQuery is executed while a query object of the same <paramref 
+		/// name="target"/> is already active.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if glEndQuery is executed when a query object of the same <paramref name="target"/> is 
+		/// not active.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if <paramref name="id"/> is 0.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if <paramref name="id"/> is the name of an already active query object.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if <paramref name="id"/> refers to an existing query object whose type does not does 
+		/// not match <paramref name="target"/>.
+		/// </exception>
+		/// <seealso cref="Gl.BeginQueryIndexed"/>
+		/// <seealso cref="Gl.DeleteQueries"/>
+		/// <seealso cref="Gl.EndQuery"/>
+		/// <seealso cref="Gl.GenQueries"/>
+		/// <seealso cref="Gl.GetQueryObject"/>
+		/// <seealso cref="Gl.GetQueryiv"/>
+		/// <seealso cref="Gl.IsQuery"/>
 		[RequiredByFeature("GL_VERSION_1_5")]
 		public static void EndQuery(int target)
 		{
@@ -462,17 +542,24 @@ namespace OpenGL
 		/// return parameters of a query object target
 		/// </summary>
 		/// <param name="target">
-		/// Specifies a query object target. Must be GL_SAMPLES_PASSED, GL_ANY_SAMPLES_PASSED, 
-		/// GL_ANY_SAMPLES_PASSED_CONSERVATIVEGL_PRIMITIVES_GENERATED, GL_TRANSFORM_FEEDBACK_PRIMITIVES_WRITTEN, GL_TIME_ELAPSED, or 
-		/// GL_TIMESTAMP.
+		/// Specifies a query object target. Must be Gl.SAMPLES_PASSED, Gl.ANY_SAMPLES_PASSED, 
+		/// Gl.ANY_SAMPLES_PASSED_CONSERVATIVEGl.PRIMITIVES_GENERATED, Gl.TRANSFORM_FEEDBACK_PRIMITIVES_WRITTEN, Gl.TIME_ELAPSED, or 
+		/// Gl.TIMESTAMP.
 		/// </param>
 		/// <param name="pname">
-		/// Specifies the symbolic name of a query object target parameter. Accepted values are GL_CURRENT_QUERY or 
-		/// GL_QUERY_COUNTER_BITS.
+		/// Specifies the symbolic name of a query object target parameter. Accepted values are Gl.CURRENT_QUERY or 
+		/// Gl.QUERY_COUNTER_BITS.
 		/// </param>
 		/// <param name="params">
 		/// Returns the requested data.
 		/// </param>
+		/// <remarks>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated if <paramref name="target"/> or <paramref name="pname"/> is not an accepted value.
+		/// </exception>
+		/// <seealso cref="Gl.GetQueryObject"/>
+		/// <seealso cref="Gl.IsQuery"/>
 		[RequiredByFeature("GL_VERSION_1_5")]
 		public static void GetQuery(int target, int pname, Int32[] @params)
 		{
@@ -494,14 +581,32 @@ namespace OpenGL
 		/// Specifies the name of a query object.
 		/// </param>
 		/// <param name="pname">
-		/// Specifies the symbolic name of a query object parameter. Accepted values are GL_QUERY_RESULT or 
-		/// GL_QUERY_RESULT_AVAILABLE.
+		/// Specifies the symbolic name of a query object parameter. Accepted values are Gl.QUERY_RESULT or 
+		/// Gl.QUERY_RESULT_AVAILABLE.
 		/// </param>
 		/// <param name="params">
-		/// If a buffer is bound to the GL_QUERY_RESULT_BUFFER target, then params is treated as an offset to a location within that 
-		/// buffer's data store to receive the result of the query. If no buffer is bound to GL_QUERY_RESULT_BUFFER, then params is 
-		/// treated as an address in client memory of a variable to receive the resulting data.
+		/// If a buffer is bound to the Gl.QUERY_RESULT_BUFFER target, then <paramref name="params"/> is treated as an offset to a 
+		/// location within that buffer's data store to receive the result of the query. If no buffer is bound to 
+		/// Gl.QUERY_RESULT_BUFFER, then <paramref name="params"/> is treated as an address in client memory of a variable to 
+		/// receive the resulting data.
 		/// </param>
+		/// <remarks>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated if <paramref name="pname"/> is not an accepted value.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if <paramref name="id"/> is not the name of a query object.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if <paramref name="id"/> is the name of a currently active query object.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if a buffer is currently bound to the Gl.QUERY_RESULT_BUFFER target and the command 
+		/// would cause data to be written beyond the bounds of that buffer's data store.
+		/// </exception>
+		/// <seealso cref="Gl.BeginQuery"/>
+		/// <seealso cref="Gl.EndQuery"/>
+		/// <seealso cref="Gl.GetQueryiv"/>
+		/// <seealso cref="Gl.IsQuery"/>
+		/// <seealso cref="Gl.QueryCounter"/>
 		[RequiredByFeature("GL_VERSION_1_5")]
 		public static void GetQueryObject(UInt32 id, int pname, Int32[] @params)
 		{
@@ -523,14 +628,32 @@ namespace OpenGL
 		/// Specifies the name of a query object.
 		/// </param>
 		/// <param name="pname">
-		/// Specifies the symbolic name of a query object parameter. Accepted values are GL_QUERY_RESULT or 
-		/// GL_QUERY_RESULT_AVAILABLE.
+		/// Specifies the symbolic name of a query object parameter. Accepted values are Gl.QUERY_RESULT or 
+		/// Gl.QUERY_RESULT_AVAILABLE.
 		/// </param>
 		/// <param name="params">
-		/// If a buffer is bound to the GL_QUERY_RESULT_BUFFER target, then params is treated as an offset to a location within that 
-		/// buffer's data store to receive the result of the query. If no buffer is bound to GL_QUERY_RESULT_BUFFER, then params is 
-		/// treated as an address in client memory of a variable to receive the resulting data.
+		/// If a buffer is bound to the Gl.QUERY_RESULT_BUFFER target, then <paramref name="params"/> is treated as an offset to a 
+		/// location within that buffer's data store to receive the result of the query. If no buffer is bound to 
+		/// Gl.QUERY_RESULT_BUFFER, then <paramref name="params"/> is treated as an address in client memory of a variable to 
+		/// receive the resulting data.
 		/// </param>
+		/// <remarks>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated if <paramref name="pname"/> is not an accepted value.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if <paramref name="id"/> is not the name of a query object.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if <paramref name="id"/> is the name of a currently active query object.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if a buffer is currently bound to the Gl.QUERY_RESULT_BUFFER target and the command 
+		/// would cause data to be written beyond the bounds of that buffer's data store.
+		/// </exception>
+		/// <seealso cref="Gl.BeginQuery"/>
+		/// <seealso cref="Gl.EndQuery"/>
+		/// <seealso cref="Gl.GetQueryiv"/>
+		/// <seealso cref="Gl.IsQuery"/>
+		/// <seealso cref="Gl.QueryCounter"/>
 		[RequiredByFeature("GL_VERSION_1_5")]
 		public static void GetQueryObjectuiv(UInt32 id, int pname, UInt32[] @params)
 		{
@@ -555,6 +678,22 @@ namespace OpenGL
 		/// <param name="buffer">
 		/// Specifies the name of a buffer object.
 		/// </param>
+		/// <remarks>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated if <paramref name="target"/> is not one of the allowable values.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_VALUE is generated if <paramref name="buffer"/> is not a name previously returned from a call to 
+		/// glGenBuffers.
+		/// </exception>
+		/// <seealso cref="Gl.GenBuffers"/>
+		/// <seealso cref="Gl.BindBufferBase"/>
+		/// <seealso cref="Gl.BindBufferRange"/>
+		/// <seealso cref="Gl.MapBuffer"/>
+		/// <seealso cref="Gl.UnmapBuffer"/>
+		/// <seealso cref="Gl.DeleteBuffers"/>
+		/// <seealso cref="Gl.Get"/>
+		/// <seealso cref="Gl.IsBuffer"/>
 		[RequiredByFeature("GL_VERSION_1_5")]
 		public static void BindBuffer(BufferTargetARB target, UInt32 buffer)
 		{
@@ -573,6 +712,14 @@ namespace OpenGL
 		/// <param name="buffers">
 		/// Specifies an array of buffer objects to be deleted.
 		/// </param>
+		/// <remarks>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_VALUE is generated if <paramref name="n"/> is negative.
+		/// </exception>
+		/// <seealso cref="Gl.BindBuffer"/>
+		/// <seealso cref="Gl.GenBuffers"/>
+		/// <seealso cref="Gl.Get"/>
 		[RequiredByFeature("GL_VERSION_1_5")]
 		public static void DeleteBuffers(params UInt32[] buffers)
 		{
@@ -596,6 +743,14 @@ namespace OpenGL
 		/// <param name="buffers">
 		/// Specifies an array in which the generated buffer object names are stored.
 		/// </param>
+		/// <remarks>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_VALUE is generated if <paramref name="n"/> is negative.
+		/// </exception>
+		/// <seealso cref="Gl.BindBuffer"/>
+		/// <seealso cref="Gl.DeleteBuffers"/>
+		/// <seealso cref="Gl.Get"/>
 		[RequiredByFeature("GL_VERSION_1_5")]
 		public static void GenBuffers(UInt32[] buffers)
 		{
@@ -613,6 +768,14 @@ namespace OpenGL
 		/// <summary>
 		/// generate buffer object names
 		/// </summary>
+		/// <remarks>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_VALUE is generated if <paramref name="n"/> is negative.
+		/// </exception>
+		/// <seealso cref="Gl.BindBuffer"/>
+		/// <seealso cref="Gl.DeleteBuffers"/>
+		/// <seealso cref="Gl.Get"/>
 		[RequiredByFeature("GL_VERSION_1_5")]
 		public static UInt32 GenBuffer()
 		{
@@ -627,6 +790,10 @@ namespace OpenGL
 		/// <param name="buffer">
 		/// Specifies a value that may be the name of a buffer object.
 		/// </param>
+		/// <seealso cref="Gl.BindBuffer"/>
+		/// <seealso cref="Gl.DeleteBuffers"/>
+		/// <seealso cref="Gl.GenBuffers"/>
+		/// <seealso cref="Gl.Get"/>
 		[RequiredByFeature("GL_VERSION_1_5")]
 		public static bool IsBuffer(UInt32 buffer)
 		{
@@ -644,20 +811,44 @@ namespace OpenGL
 		/// creates and initializes a buffer object's data store
 		/// </summary>
 		/// <param name="target">
-		/// Specifies the target to which the buffer object is bound for glBufferData, which must be one of the buffer binding 
+		/// Specifies the target to which the buffer object is bound for Gl.BufferData, which must be one of the buffer binding 
 		/// targets in the following table:
 		/// </param>
 		/// <param name="size">
 		/// Specifies the size in bytes of the buffer object's new data store.
 		/// </param>
 		/// <param name="data">
-		/// Specifies a pointer to data that will be copied into the data store for initialization, or NULL if no data is to be 
+		/// Specifies a pointer to data that will be copied into the data store for initialization, or Gl.L if no data is to be 
 		/// copied.
 		/// </param>
 		/// <param name="usage">
-		/// Specifies the expected usage pattern of the data store. The symbolic constant must be GL_STREAM_DRAW, GL_STREAM_READ, 
-		/// GL_STREAM_COPY, GL_STATIC_DRAW, GL_STATIC_READ, GL_STATIC_COPY, GL_DYNAMIC_DRAW, GL_DYNAMIC_READ, or GL_DYNAMIC_COPY.
+		/// Specifies the expected usage pattern of the data store. The symbolic constant must be Gl.STREAM_DRAW, Gl.STREAM_READ, 
+		/// Gl.STREAM_COPY, Gl.STATIC_DRAW, Gl.STATIC_READ, Gl.STATIC_COPY, Gl.DYNAMIC_DRAW, Gl.DYNAMIC_READ, or Gl.DYNAMIC_COPY.
 		/// </param>
+		/// <remarks>
+		/// <para>The exceptions below won't be thrown; caller must check result manually.</para>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated by Gl.BufferData if <paramref name="target"/> is not one of the accepted buffer targets.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated if <paramref name="usage"/> is not Gl.STREAM_DRAW, Gl.STREAM_READ, Gl.STREAM_COPY, 
+		/// Gl.STATIC_DRAW, Gl.STATIC_READ, Gl.STATIC_COPY, Gl.DYNAMIC_DRAW, Gl.DYNAMIC_READ, or Gl.DYNAMIC_COPY.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_VALUE is generated if <paramref name="size"/> is negative.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated by Gl.BufferData if the reserved buffer object name 0 is bound to <paramref 
+		/// name="target"/>.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated by Gl.NamedBufferData if buffer is not the name of an existing buffer object.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if the Gl.BUFFER_IMMUTABLE_STORAGE flag of the buffer object is Gl.TRUE.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.OUT_OF_MEMORY is generated if the GL is unable to create a data store with the specified <paramref name="size"/>.
+		/// </exception>
+		/// <seealso cref="Gl.BindBuffer"/>
+		/// <seealso cref="Gl.BufferSubData"/>
+		/// <seealso cref="Gl.MapBuffer"/>
+		/// <seealso cref="Gl.UnmapBuffer"/>
 		[RequiredByFeature("GL_VERSION_1_5")]
 		public static void BufferData(int target, UInt32 size, IntPtr data, int usage)
 		{
@@ -670,20 +861,44 @@ namespace OpenGL
 		/// creates and initializes a buffer object's data store
 		/// </summary>
 		/// <param name="target">
-		/// Specifies the target to which the buffer object is bound for glBufferData, which must be one of the buffer binding 
+		/// Specifies the target to which the buffer object is bound for Gl.BufferData, which must be one of the buffer binding 
 		/// targets in the following table:
 		/// </param>
 		/// <param name="size">
 		/// Specifies the size in bytes of the buffer object's new data store.
 		/// </param>
 		/// <param name="data">
-		/// Specifies a pointer to data that will be copied into the data store for initialization, or NULL if no data is to be 
+		/// Specifies a pointer to data that will be copied into the data store for initialization, or Gl.L if no data is to be 
 		/// copied.
 		/// </param>
 		/// <param name="usage">
-		/// Specifies the expected usage pattern of the data store. The symbolic constant must be GL_STREAM_DRAW, GL_STREAM_READ, 
-		/// GL_STREAM_COPY, GL_STATIC_DRAW, GL_STATIC_READ, GL_STATIC_COPY, GL_DYNAMIC_DRAW, GL_DYNAMIC_READ, or GL_DYNAMIC_COPY.
+		/// Specifies the expected usage pattern of the data store. The symbolic constant must be Gl.STREAM_DRAW, Gl.STREAM_READ, 
+		/// Gl.STREAM_COPY, Gl.STATIC_DRAW, Gl.STATIC_READ, Gl.STATIC_COPY, Gl.DYNAMIC_DRAW, Gl.DYNAMIC_READ, or Gl.DYNAMIC_COPY.
 		/// </param>
+		/// <remarks>
+		/// <para>The exceptions below won't be thrown; caller must check result manually.</para>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated by Gl.BufferData if <paramref name="target"/> is not one of the accepted buffer targets.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated if <paramref name="usage"/> is not Gl.STREAM_DRAW, Gl.STREAM_READ, Gl.STREAM_COPY, 
+		/// Gl.STATIC_DRAW, Gl.STATIC_READ, Gl.STATIC_COPY, Gl.DYNAMIC_DRAW, Gl.DYNAMIC_READ, or Gl.DYNAMIC_COPY.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_VALUE is generated if <paramref name="size"/> is negative.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated by Gl.BufferData if the reserved buffer object name 0 is bound to <paramref 
+		/// name="target"/>.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated by Gl.NamedBufferData if buffer is not the name of an existing buffer object.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if the Gl.BUFFER_IMMUTABLE_STORAGE flag of the buffer object is Gl.TRUE.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.OUT_OF_MEMORY is generated if the GL is unable to create a data store with the specified <paramref name="size"/>.
+		/// </exception>
+		/// <seealso cref="Gl.BindBuffer"/>
+		/// <seealso cref="Gl.BufferSubData"/>
+		/// <seealso cref="Gl.MapBuffer"/>
+		/// <seealso cref="Gl.UnmapBuffer"/>
 		[RequiredByFeature("GL_VERSION_1_5")]
 		public static void BufferData(BufferTargetARB target, UInt32 size, IntPtr data, BufferUsageARB usage)
 		{
@@ -696,20 +911,44 @@ namespace OpenGL
 		/// creates and initializes a buffer object's data store
 		/// </summary>
 		/// <param name="target">
-		/// Specifies the target to which the buffer object is bound for glBufferData, which must be one of the buffer binding 
+		/// Specifies the target to which the buffer object is bound for Gl.BufferData, which must be one of the buffer binding 
 		/// targets in the following table:
 		/// </param>
 		/// <param name="size">
 		/// Specifies the size in bytes of the buffer object's new data store.
 		/// </param>
 		/// <param name="data">
-		/// Specifies a pointer to data that will be copied into the data store for initialization, or NULL if no data is to be 
+		/// Specifies a pointer to data that will be copied into the data store for initialization, or Gl.L if no data is to be 
 		/// copied.
 		/// </param>
 		/// <param name="usage">
-		/// Specifies the expected usage pattern of the data store. The symbolic constant must be GL_STREAM_DRAW, GL_STREAM_READ, 
-		/// GL_STREAM_COPY, GL_STATIC_DRAW, GL_STATIC_READ, GL_STATIC_COPY, GL_DYNAMIC_DRAW, GL_DYNAMIC_READ, or GL_DYNAMIC_COPY.
+		/// Specifies the expected usage pattern of the data store. The symbolic constant must be Gl.STREAM_DRAW, Gl.STREAM_READ, 
+		/// Gl.STREAM_COPY, Gl.STATIC_DRAW, Gl.STATIC_READ, Gl.STATIC_COPY, Gl.DYNAMIC_DRAW, Gl.DYNAMIC_READ, or Gl.DYNAMIC_COPY.
 		/// </param>
+		/// <remarks>
+		/// <para>The exceptions below won't be thrown; caller must check result manually.</para>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated by Gl.BufferData if <paramref name="target"/> is not one of the accepted buffer targets.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated if <paramref name="usage"/> is not Gl.STREAM_DRAW, Gl.STREAM_READ, Gl.STREAM_COPY, 
+		/// Gl.STATIC_DRAW, Gl.STATIC_READ, Gl.STATIC_COPY, Gl.DYNAMIC_DRAW, Gl.DYNAMIC_READ, or Gl.DYNAMIC_COPY.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_VALUE is generated if <paramref name="size"/> is negative.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated by Gl.BufferData if the reserved buffer object name 0 is bound to <paramref 
+		/// name="target"/>.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated by Gl.NamedBufferData if buffer is not the name of an existing buffer object.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if the Gl.BUFFER_IMMUTABLE_STORAGE flag of the buffer object is Gl.TRUE.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.OUT_OF_MEMORY is generated if the GL is unable to create a data store with the specified <paramref name="size"/>.
+		/// </exception>
+		/// <seealso cref="Gl.BindBuffer"/>
+		/// <seealso cref="Gl.BufferSubData"/>
+		/// <seealso cref="Gl.MapBuffer"/>
+		/// <seealso cref="Gl.UnmapBuffer"/>
 		[RequiredByFeature("GL_VERSION_1_5")]
 		public static void BufferData(int target, UInt32 size, Object data, int usage)
 		{
@@ -725,20 +964,44 @@ namespace OpenGL
 		/// creates and initializes a buffer object's data store
 		/// </summary>
 		/// <param name="target">
-		/// Specifies the target to which the buffer object is bound for glBufferData, which must be one of the buffer binding 
+		/// Specifies the target to which the buffer object is bound for Gl.BufferData, which must be one of the buffer binding 
 		/// targets in the following table:
 		/// </param>
 		/// <param name="size">
 		/// Specifies the size in bytes of the buffer object's new data store.
 		/// </param>
 		/// <param name="data">
-		/// Specifies a pointer to data that will be copied into the data store for initialization, or NULL if no data is to be 
+		/// Specifies a pointer to data that will be copied into the data store for initialization, or Gl.L if no data is to be 
 		/// copied.
 		/// </param>
 		/// <param name="usage">
-		/// Specifies the expected usage pattern of the data store. The symbolic constant must be GL_STREAM_DRAW, GL_STREAM_READ, 
-		/// GL_STREAM_COPY, GL_STATIC_DRAW, GL_STATIC_READ, GL_STATIC_COPY, GL_DYNAMIC_DRAW, GL_DYNAMIC_READ, or GL_DYNAMIC_COPY.
+		/// Specifies the expected usage pattern of the data store. The symbolic constant must be Gl.STREAM_DRAW, Gl.STREAM_READ, 
+		/// Gl.STREAM_COPY, Gl.STATIC_DRAW, Gl.STATIC_READ, Gl.STATIC_COPY, Gl.DYNAMIC_DRAW, Gl.DYNAMIC_READ, or Gl.DYNAMIC_COPY.
 		/// </param>
+		/// <remarks>
+		/// <para>The exceptions below won't be thrown; caller must check result manually.</para>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated by Gl.BufferData if <paramref name="target"/> is not one of the accepted buffer targets.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated if <paramref name="usage"/> is not Gl.STREAM_DRAW, Gl.STREAM_READ, Gl.STREAM_COPY, 
+		/// Gl.STATIC_DRAW, Gl.STATIC_READ, Gl.STATIC_COPY, Gl.DYNAMIC_DRAW, Gl.DYNAMIC_READ, or Gl.DYNAMIC_COPY.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_VALUE is generated if <paramref name="size"/> is negative.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated by Gl.BufferData if the reserved buffer object name 0 is bound to <paramref 
+		/// name="target"/>.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated by Gl.NamedBufferData if buffer is not the name of an existing buffer object.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if the Gl.BUFFER_IMMUTABLE_STORAGE flag of the buffer object is Gl.TRUE.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.OUT_OF_MEMORY is generated if the GL is unable to create a data store with the specified <paramref name="size"/>.
+		/// </exception>
+		/// <seealso cref="Gl.BindBuffer"/>
+		/// <seealso cref="Gl.BufferSubData"/>
+		/// <seealso cref="Gl.MapBuffer"/>
+		/// <seealso cref="Gl.UnmapBuffer"/>
 		[RequiredByFeature("GL_VERSION_1_5")]
 		public static void BufferData(BufferTargetARB target, UInt32 size, Object data, BufferUsageARB usage)
 		{
@@ -754,7 +1017,7 @@ namespace OpenGL
 		/// updates a subset of a buffer object's data store
 		/// </summary>
 		/// <param name="target">
-		/// Specifies the target to which the buffer object is bound for glBufferSubData, which must be one of the buffer binding 
+		/// Specifies the target to which the buffer object is bound for Gl.BufferSubData, which must be one of the buffer binding 
 		/// targets in the following table:
 		/// </param>
 		/// <param name="offset">
@@ -766,6 +1029,31 @@ namespace OpenGL
 		/// <param name="data">
 		/// Specifies a pointer to the new data that will be copied into the data store.
 		/// </param>
+		/// <remarks>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated by Gl.BufferSubData if <paramref name="target"/> is not one of the accepted buffer targets.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated by Gl.BufferSubData if zero is bound to <paramref name="target"/>.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated by Gl.NamedBufferSubData if <paramref name="buffer"/> is not the name of an existing 
+		/// buffer object.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_VALUE is generated if <paramref name="offset"/> or <paramref name="size"/> is negative, or if $offset + size$ 
+		/// is greater than the value of Gl.BUFFER_SIZE for the specified buffer object.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if any part of the specified range of the buffer object is mapped with 
+		/// glMapBufferRange or glMapBuffer, unless it was mapped with the Gl.MAP_PERSISTENT_BIT bit set in the 
+		/// Gl.MapBufferRange<paramref name="access"/> flags.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if the value of the Gl.BUFFER_IMMUTABLE_STORAGE flag of the buffer object is Gl.TRUE 
+		/// and the value of Gl.BUFFER_STORAGE_FLAGS for the buffer object does not have the Gl.DYNAMIC_STORAGE_BIT bit set.
+		/// </exception>
+		/// <seealso cref="Gl.BindBuffer"/>
+		/// <seealso cref="Gl.BufferData"/>
+		/// <seealso cref="Gl.MapBuffer"/>
+		/// <seealso cref="Gl.MapBufferRange"/>
+		/// <seealso cref="Gl.UnmapBuffer"/>
 		[RequiredByFeature("GL_VERSION_1_5")]
 		public static void BufferSubData(BufferTargetARB target, IntPtr offset, UInt32 size, IntPtr data)
 		{
@@ -779,7 +1067,7 @@ namespace OpenGL
 		/// updates a subset of a buffer object's data store
 		/// </summary>
 		/// <param name="target">
-		/// Specifies the target to which the buffer object is bound for glBufferSubData, which must be one of the buffer binding 
+		/// Specifies the target to which the buffer object is bound for Gl.BufferSubData, which must be one of the buffer binding 
 		/// targets in the following table:
 		/// </param>
 		/// <param name="offset">
@@ -791,6 +1079,31 @@ namespace OpenGL
 		/// <param name="data">
 		/// Specifies a pointer to the new data that will be copied into the data store.
 		/// </param>
+		/// <remarks>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated by Gl.BufferSubData if <paramref name="target"/> is not one of the accepted buffer targets.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated by Gl.BufferSubData if zero is bound to <paramref name="target"/>.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated by Gl.NamedBufferSubData if <paramref name="buffer"/> is not the name of an existing 
+		/// buffer object.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_VALUE is generated if <paramref name="offset"/> or <paramref name="size"/> is negative, or if $offset + size$ 
+		/// is greater than the value of Gl.BUFFER_SIZE for the specified buffer object.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if any part of the specified range of the buffer object is mapped with 
+		/// glMapBufferRange or glMapBuffer, unless it was mapped with the Gl.MAP_PERSISTENT_BIT bit set in the 
+		/// Gl.MapBufferRange<paramref name="access"/> flags.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if the value of the Gl.BUFFER_IMMUTABLE_STORAGE flag of the buffer object is Gl.TRUE 
+		/// and the value of Gl.BUFFER_STORAGE_FLAGS for the buffer object does not have the Gl.DYNAMIC_STORAGE_BIT bit set.
+		/// </exception>
+		/// <seealso cref="Gl.BindBuffer"/>
+		/// <seealso cref="Gl.BufferData"/>
+		/// <seealso cref="Gl.MapBuffer"/>
+		/// <seealso cref="Gl.MapBufferRange"/>
+		/// <seealso cref="Gl.UnmapBuffer"/>
 		[RequiredByFeature("GL_VERSION_1_5")]
 		public static void BufferSubData(BufferTargetARB target, IntPtr offset, UInt32 size, Object data)
 		{
@@ -806,8 +1119,8 @@ namespace OpenGL
 		/// returns a subset of a buffer object's data store
 		/// </summary>
 		/// <param name="target">
-		/// Specifies the target to which the buffer object is bound for glGetBufferSubData, which must be one of the buffer binding 
-		/// targets in the following table:
+		/// Specifies the target to which the buffer object is bound for Gl.GetBufferSubData, which must be one of the buffer 
+		/// binding targets in the following table:
 		/// </param>
 		/// <param name="offset">
 		/// Specifies the offset into the buffer object's data store from which data will be returned, measured in bytes.
@@ -818,6 +1131,28 @@ namespace OpenGL
 		/// <param name="data">
 		/// Specifies a pointer to the location where buffer object data is returned.
 		/// </param>
+		/// <remarks>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated by Gl.GetBufferSubData if <paramref name="target"/> is not one of the generic buffer 
+		/// binding targets.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated by Gl.GetBufferSubData if zero is bound to <paramref name="target"/>.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated by Gl.GetNamedBufferSubData if <paramref name="buffer"/> is not the name of an 
+		/// existing buffer object.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_VALUE is generated if <paramref name="offset"/> or <paramref name="size"/> is negative, or if $offset + size$ 
+		/// is greater than the value of Gl.BUFFER_SIZE for the buffer object.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if the buffer object is mapped with glMapBufferRange or glMapBuffer, unless it was 
+		/// mapped with the Gl.MAP_PERSISTENT_BIT bit set in the Gl.MapBufferRange<paramref name="access"/> flags.
+		/// </exception>
+		/// <seealso cref="Gl.BindBuffer"/>
+		/// <seealso cref="Gl.BufferData"/>
+		/// <seealso cref="Gl.BufferSubData"/>
+		/// <seealso cref="Gl.MapBuffer"/>
+		/// <seealso cref="Gl.UnmapBuffer"/>
 		[RequiredByFeature("GL_VERSION_1_5")]
 		public static void GetBufferSubData(BufferTargetARB target, IntPtr offset, UInt32 size, IntPtr data)
 		{
@@ -831,8 +1166,8 @@ namespace OpenGL
 		/// returns a subset of a buffer object's data store
 		/// </summary>
 		/// <param name="target">
-		/// Specifies the target to which the buffer object is bound for glGetBufferSubData, which must be one of the buffer binding 
-		/// targets in the following table:
+		/// Specifies the target to which the buffer object is bound for Gl.GetBufferSubData, which must be one of the buffer 
+		/// binding targets in the following table:
 		/// </param>
 		/// <param name="offset">
 		/// Specifies the offset into the buffer object's data store from which data will be returned, measured in bytes.
@@ -843,6 +1178,28 @@ namespace OpenGL
 		/// <param name="data">
 		/// Specifies a pointer to the location where buffer object data is returned.
 		/// </param>
+		/// <remarks>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated by Gl.GetBufferSubData if <paramref name="target"/> is not one of the generic buffer 
+		/// binding targets.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated by Gl.GetBufferSubData if zero is bound to <paramref name="target"/>.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated by Gl.GetNamedBufferSubData if <paramref name="buffer"/> is not the name of an 
+		/// existing buffer object.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_VALUE is generated if <paramref name="offset"/> or <paramref name="size"/> is negative, or if $offset + size$ 
+		/// is greater than the value of Gl.BUFFER_SIZE for the buffer object.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if the buffer object is mapped with glMapBufferRange or glMapBuffer, unless it was 
+		/// mapped with the Gl.MAP_PERSISTENT_BIT bit set in the Gl.MapBufferRange<paramref name="access"/> flags.
+		/// </exception>
+		/// <seealso cref="Gl.BindBuffer"/>
+		/// <seealso cref="Gl.BufferData"/>
+		/// <seealso cref="Gl.BufferSubData"/>
+		/// <seealso cref="Gl.MapBuffer"/>
+		/// <seealso cref="Gl.UnmapBuffer"/>
 		[RequiredByFeature("GL_VERSION_1_5")]
 		public static void GetBufferSubData(BufferTargetARB target, IntPtr offset, UInt32 size, Object data)
 		{
@@ -858,14 +1215,40 @@ namespace OpenGL
 		/// map all of a buffer object's data store into the client's address space
 		/// </summary>
 		/// <param name="target">
-		/// Specifies the target to which the buffer object is bound for glMapBuffer, which must be one of the buffer binding 
+		/// Specifies the target to which the buffer object is bound for Gl.MapBuffer, which must be one of the buffer binding 
 		/// targets in the following table:
 		/// </param>
 		/// <param name="access">
-		/// Specifies the access policy for glMapBuffer and glMapNamedBuffer, indicating whether it will be possible to read from, 
+		/// Specifies the access policy for Gl.MapBuffer and Gl.MapNamedBuffer, indicating whether it will be possible to read from, 
 		/// write to, or both read from and write to the buffer object's mapped data store. The symbolic constant must be 
-		/// GL_READ_ONLY, GL_WRITE_ONLY, or GL_READ_WRITE.
+		/// Gl.READ_ONLY, Gl.WRITE_ONLY, or Gl.READ_WRITE.
 		/// </param>
+		/// <remarks>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated by Gl.MapBuffer if <paramref name="target"/> is not one of the buffer binding targets 
+		/// listed above.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated by Gl.MapBuffer if zero is bound to <paramref name="target"/>.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated by Gl.MapNamedBuffer if <paramref name="buffer"/> is not the name of an existing 
+		/// buffer object.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated if <paramref name="access"/> is not Gl.READ_ONLY, Gl.WRITE_ONLY, or Gl.READ_WRITE.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.OUT_OF_MEMORY is generated if the GL is unable to map the buffer object's data store. This may occur for a variety of 
+		/// system-specific reasons, such as the absence of sufficient remaining virtual memory.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if the buffer object is in a mapped state.
+		/// </exception>
+		/// <seealso cref="Gl.BindBuffer"/>
+		/// <seealso cref="Gl.BindBufferBase"/>
+		/// <seealso cref="Gl.BindBufferRange"/>
+		/// <seealso cref="Gl.BufferData"/>
+		/// <seealso cref="Gl.BufferSubData"/>
+		/// <seealso cref="Gl.DeleteBuffers"/>
+		/// <seealso cref="Gl.MapBufferRange"/>
+		/// <seealso cref="Gl.UnmapBuffer"/>
 		[RequiredByFeature("GL_VERSION_1_5")]
 		public static IntPtr MapBuffer(BufferTargetARB target, BufferAccessARB access)
 		{
@@ -883,9 +1266,26 @@ namespace OpenGL
 		/// release the mapping of a buffer object's data store into the client's address space
 		/// </summary>
 		/// <param name="target">
-		/// Specifies the target to which the buffer object is bound for glUnmapBuffer, which must be one of the buffer binding 
+		/// Specifies the target to which the buffer object is bound for Gl.UnmapBuffer, which must be one of the buffer binding 
 		/// targets in the following table:
 		/// </param>
+		/// <remarks>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated by Gl.UnmapBuffer if <paramref name="target"/> is not one of the buffer binding targets 
+		/// listed above.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated by Gl.UnmapBuffer if zero is bound to <paramref name="target"/>.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated by Gl.UnmapNamedBuffer if <paramref name="buffer"/> is not the name of an existing 
+		/// buffer object.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if the buffer object is not in a mapped state.
+		/// </exception>
+		/// <seealso cref="Gl.BufferData"/>
+		/// <seealso cref="Gl.DeleteBuffers"/>
+		/// <seealso cref="Gl.MapBuffer"/>
+		/// <seealso cref="Gl.MapBufferRange"/>
 		[RequiredByFeature("GL_VERSION_1_5")]
 		public static bool UnmapBuffer(BufferTargetARB target)
 		{
@@ -903,7 +1303,7 @@ namespace OpenGL
 		/// return parameters of a buffer object
 		/// </summary>
 		/// <param name="target">
-		/// Specifies the target to which the buffer object is bound for glGetBufferParameteriv and glGetBufferParameteri64v. Must 
+		/// Specifies the target to which the buffer object is bound for Gl.GetBufferParameteriv and Gl.GetBufferParameteri64v. Must 
 		/// be one of the buffer binding targets in the following table:
 		/// </param>
 		/// <param name="pname">
@@ -912,6 +1312,25 @@ namespace OpenGL
 		/// <param name="params">
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
+		/// <remarks>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated by Gl.GetBufferParameter* if <paramref name="target"/> is not one of the accepted buffer 
+		/// targets.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated by Gl.GetBufferParameter* if zero is bound to <paramref name="target"/>.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated by Gl.GetNamedBufferParameter* if <paramref name="buffer"/> is not the name of an 
+		/// existing buffer object.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated if <paramref name="pname"/> is not one of the buffer object parameter names described 
+		/// above.
+		/// </exception>
+		/// <seealso cref="Gl.BindBuffer"/>
+		/// <seealso cref="Gl.BufferData"/>
+		/// <seealso cref="Gl.GetBufferPointerv"/>
+		/// <seealso cref="Gl.MapBuffer"/>
+		/// <seealso cref="Gl.UnmapBuffer"/>
 		[RequiredByFeature("GL_VERSION_1_5")]
 		public static void GetBufferParameter(BufferTargetARB target, int pname, Int32[] @params)
 		{
@@ -930,7 +1349,7 @@ namespace OpenGL
 		/// return parameters of a buffer object
 		/// </summary>
 		/// <param name="target">
-		/// Specifies the target to which the buffer object is bound for glGetBufferParameteriv and glGetBufferParameteri64v. Must 
+		/// Specifies the target to which the buffer object is bound for Gl.GetBufferParameteriv and Gl.GetBufferParameteri64v. Must 
 		/// be one of the buffer binding targets in the following table:
 		/// </param>
 		/// <param name="pname">
@@ -939,6 +1358,25 @@ namespace OpenGL
 		/// <param name="params">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
+		/// <remarks>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated by Gl.GetBufferParameter* if <paramref name="target"/> is not one of the accepted buffer 
+		/// targets.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated by Gl.GetBufferParameter* if zero is bound to <paramref name="target"/>.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated by Gl.GetNamedBufferParameter* if <paramref name="buffer"/> is not the name of an 
+		/// existing buffer object.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated if <paramref name="pname"/> is not one of the buffer object parameter names described 
+		/// above.
+		/// </exception>
+		/// <seealso cref="Gl.BindBuffer"/>
+		/// <seealso cref="Gl.BufferData"/>
+		/// <seealso cref="Gl.GetBufferPointerv"/>
+		/// <seealso cref="Gl.MapBuffer"/>
+		/// <seealso cref="Gl.UnmapBuffer"/>
 		[RequiredByFeature("GL_VERSION_1_5")]
 		public static void GetBufferParameter(BufferTargetARB target, int pname, out Int32 @params)
 		{
@@ -957,15 +1395,28 @@ namespace OpenGL
 		/// return the pointer to a mapped buffer object's data store
 		/// </summary>
 		/// <param name="target">
-		/// Specifies the target to which the buffer object is bound for glGetBufferPointerv, which must be one of the buffer 
+		/// Specifies the target to which the buffer object is bound for Gl.GetBufferPointerv, which must be one of the buffer 
 		/// binding targets in the following table:
 		/// </param>
 		/// <param name="pname">
-		/// Specifies the name of the pointer to be returned. Must be GL_BUFFER_MAP_POINTER.
+		/// Specifies the name of the pointer to be returned. Must be Gl.BUFFER_MAP_POINTER.
 		/// </param>
 		/// <param name="params">
-		/// Returns the pointer value specified by pname.
+		/// Returns the pointer value specified by <paramref name="pname"/>.
 		/// </param>
+		/// <remarks>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated if by Gl.GetBufferPointerv if <paramref name="target"/> is not one of the accepted buffer 
+		/// targets, or if <paramref name="pname"/> is not Gl.BUFFER_MAP_POINTER.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated by Gl.GetBufferPointerv if zero is bound to <paramref name="target"/>.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated by Gl.GetNamedBufferPointerv if <paramref name="buffer"/> is not the name of an 
+		/// existing buffer object.
+		/// </exception>
+		/// <seealso cref="Gl.BindBuffer"/>
+		/// <seealso cref="Gl.MapBuffer"/>
 		[RequiredByFeature("GL_VERSION_1_5")]
 		public static void GetBufferPointer(BufferTargetARB target, int pname, out IntPtr @params)
 		{
@@ -984,15 +1435,28 @@ namespace OpenGL
 		/// return the pointer to a mapped buffer object's data store
 		/// </summary>
 		/// <param name="target">
-		/// Specifies the target to which the buffer object is bound for glGetBufferPointerv, which must be one of the buffer 
+		/// Specifies the target to which the buffer object is bound for Gl.GetBufferPointerv, which must be one of the buffer 
 		/// binding targets in the following table:
 		/// </param>
 		/// <param name="pname">
-		/// Specifies the name of the pointer to be returned. Must be GL_BUFFER_MAP_POINTER.
+		/// Specifies the name of the pointer to be returned. Must be Gl.BUFFER_MAP_POINTER.
 		/// </param>
 		/// <param name="params">
-		/// Returns the pointer value specified by pname.
+		/// Returns the pointer value specified by <paramref name="pname"/>.
 		/// </param>
+		/// <remarks>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated if by Gl.GetBufferPointerv if <paramref name="target"/> is not one of the accepted buffer 
+		/// targets, or if <paramref name="pname"/> is not Gl.BUFFER_MAP_POINTER.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated by Gl.GetBufferPointerv if zero is bound to <paramref name="target"/>.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated by Gl.GetNamedBufferPointerv if <paramref name="buffer"/> is not the name of an 
+		/// existing buffer object.
+		/// </exception>
+		/// <seealso cref="Gl.BindBuffer"/>
+		/// <seealso cref="Gl.MapBuffer"/>
 		[RequiredByFeature("GL_VERSION_1_5")]
 		public static void GetBufferPointer(BufferTargetARB target, int pname, Object @params)
 		{

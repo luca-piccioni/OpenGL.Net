@@ -28,6 +28,10 @@ namespace OpenGL
 		/// <summary>
 		/// get display for current context
 		/// </summary>
+		/// <seealso cref="Glx.GetCurrentContext"/>
+		/// <seealso cref="Glx.GetCurrentDrawable"/>
+		/// <seealso cref="Glx.QueryVersion"/>
+		/// <seealso cref="Glx.QueryExtensionsString"/>
 		[RequiredByFeature("GLX_VERSION_1_2")]
 		public static IntPtr GetCurrentDisplay()
 		{

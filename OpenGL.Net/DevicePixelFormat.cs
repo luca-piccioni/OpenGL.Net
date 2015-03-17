@@ -109,7 +109,7 @@ namespace OpenGL
 		/// <remarks>
 		/// This value is obtained by calling Glx.GetFBConfigs or Glx.ChooseFBConfig.
 		/// </remarks>
-		// public IntPtr XFbConfig;
+		public IntPtr XFbConfig;
 
 		/// <summary>
 		/// GLX visual information (valid only for X11).
@@ -117,7 +117,7 @@ namespace OpenGL
 		/// <remarks>
 		/// This value is obtained by GetVisualFromFBConfig using <see cref="XFbConfig"/>.
 		/// </remarks>
-		// public Glx.XVisualInfo XVisualInfo;			GLX still missing
+		public Glx.XVisualInfo XVisualInfo;
 
 		#endregion
 	}

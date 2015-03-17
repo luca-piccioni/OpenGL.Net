@@ -77,7 +77,7 @@ namespace BindingsGen
 					if ((filter != null) && (filter(enumerant) == false))
 						continue;
 
-					enumerant.GenerateSource(sw);
+					enumerant.GenerateSource(sw, ctx);
 					sw.WriteLine();
 				}
 

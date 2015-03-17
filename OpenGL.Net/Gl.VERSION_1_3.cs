@@ -956,9 +956,39 @@ namespace OpenGL
 		/// </summary>
 		/// <param name="texture">
 		/// Specifies which texture unit to make active. The number of texture units is implementation dependent, but must be at 
-		/// least 80. texture must be one of GL_TEXTUREi, where i ranges from zero to the value of 
-		/// GL_MAX_COMBINED_TEXTURE_IMAGE_UNITS minus one. The initial value is GL_TEXTURE0.
+		/// least 80. <paramref name="texture"/> must be one of Gl.TEXTUREi, where i ranges from zero to the value of 
+		/// Gl.MAX_COMBINED_TEXTURE_IMAGE_UNITS minus one. The initial value is Gl.TEXTURE0.
 		/// </param>
+		/// <remarks>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated if <paramref name="texture"/> is not one of Gl.TEXTUREi, where i ranges from zero to the 
+		/// value of Gl.MAX_COMBINED_TEXTURE_IMAGE_UNITS minus one.
+		/// </exception>
+		/// <seealso cref="Gl.GenTextures"/>
+		/// <seealso cref="Gl.BindTexture"/>
+		/// <seealso cref="Gl.CompressedTexImage1D"/>
+		/// <seealso cref="Gl.CompressedTexImage2D"/>
+		/// <seealso cref="Gl.CompressedTexImage3D"/>
+		/// <seealso cref="Gl.CompressedTexSubImage1D"/>
+		/// <seealso cref="Gl.CompressedTexSubImage2D"/>
+		/// <seealso cref="Gl.CompressedTexSubImage3D"/>
+		/// <seealso cref="Gl.CopyTexImage1D"/>
+		/// <seealso cref="Gl.CopyTexImage2D"/>
+		/// <seealso cref="Gl.CopyTexSubImage1D"/>
+		/// <seealso cref="Gl.CopyTexSubImage2D"/>
+		/// <seealso cref="Gl.CopyTexSubImage3D"/>
+		/// <seealso cref="Gl.DeleteTextures"/>
+		/// <seealso cref="Gl.IsTexture"/>
+		/// <seealso cref="Gl.TexImage1D"/>
+		/// <seealso cref="Gl.TexImage2D"/>
+		/// <seealso cref="Gl.TexImage2DMultisample"/>
+		/// <seealso cref="Gl.TexImage3D"/>
+		/// <seealso cref="Gl.TexImage3DMultisample"/>
+		/// <seealso cref="Gl.TexSubImage1D"/>
+		/// <seealso cref="Gl.TexSubImage2D"/>
+		/// <seealso cref="Gl.TexSubImage3D"/>
+		/// <seealso cref="Gl.TexParameter"/>
 		[RequiredByFeature("GL_VERSION_1_3")]
 		public static void ActiveTexture(int texture)
 		{
@@ -975,9 +1005,11 @@ namespace OpenGL
 		/// Specify a single floating-point sample coverage value. The value is clamped to the range 01. The initial value is 1.0.
 		/// </param>
 		/// <param name="invert">
-		/// Specify a single boolean value representing if the coverage masks should be inverted. GL_TRUE and GL_FALSE are accepted. 
-		/// The initial value is GL_FALSE.
+		/// Specify a single boolean value representing if the coverage masks should be inverted. Gl.TRUE and Gl.FALSE are accepted. 
+		/// The initial value is Gl.FALSE.
 		/// </param>
+		/// <seealso cref="Gl.Enable"/>
+		/// <seealso cref="Gl.removedTypes"/>
 		[RequiredByFeature("GL_VERSION_1_3")]
 		public static void SampleCoverage(float value, bool invert)
 		{
@@ -991,7 +1023,7 @@ namespace OpenGL
 		/// specify a three-dimensional texture image in a compressed format
 		/// </summary>
 		/// <param name="target">
-		/// Specifies the target texture. Must be <see cref="Gl.TEXTURE_3D"/> or <see cref="Gl.PROXY_TEXTURE_3D"/>.
+		/// Specifies the target texture. Must be Gl.TEXTURE_3D or Gl.PROXY_TEXTURE_3D.
 		/// </param>
 		/// <param name="level">
 		/// Specifies the level-of-detail number. Level 0 is the base image level. Level n is the nth mipmap reduction image.
@@ -1023,6 +1055,56 @@ namespace OpenGL
 		/// <param name="data">
 		/// Specifies a pointer to the compressed image data in memory.
 		/// </param>
+		/// <remarks>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated if <paramref name="internalformat"/> is one of the generic compressed internal formats: 
+		/// Gl.COMPRESSED_ALPHA, Gl.COMPRESSED_LUMINANCE, Gl.COMPRESSED_LUMINANCE_ALPHA, Gl.COMPRESSED_INTENSITY, Gl.COMPRESSED_RGB, 
+		/// or Gl.COMPRESSED_RGBA.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_VALUE is generated if <paramref name="imageSize"/> is not consistent with the format, dimensions, and 
+		/// contents of the specified compressed image data.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if parameter combinations are not supported by the specific compressed internal format 
+		/// as specified in the specific texture compression extension.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if a non-zero buffer object name is bound to the Gl.PIXEL_UNPACK_BUFFER target and the 
+		/// buffer object's data store is currently mapped.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if a non-zero buffer object name is bound to the Gl.PIXEL_UNPACK_BUFFER target and the 
+		/// data would be unpacked from the buffer object such that the memory reads required would exceed the data store size.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if Gl.CompressedTexImage3D is executed between the execution of Gl\.Begin and the 
+		/// corresponding execution of Gl\.End.
+		/// <exception cref="InvalidOperationException">
+		/// Undefined results, including abnormal program termination, are generated if <paramref name="data"/> is not encoded in a 
+		/// manner consistent with the extension specification defining the internal compression format.
+		/// </exception>
+		/// <seealso cref="Gl.ActiveTexture"/>
+		/// <seealso cref="Gl.ColorTable"/>
+		/// <seealso cref="Gl.CompressedTexImage1D"/>
+		/// <seealso cref="Gl.CompressedTexImage2D"/>
+		/// <seealso cref="Gl.CompressedTexSubImage1D"/>
+		/// <seealso cref="Gl.CompressedTexSubImage2D"/>
+		/// <seealso cref="Gl.CompressedTexSubImage3D"/>
+		/// <seealso cref="Gl.ConvolutionFilter1D"/>
+		/// <seealso cref="Gl.CopyPixels"/>
+		/// <seealso cref="Gl.CopyTexImage1D"/>
+		/// <seealso cref="Gl.CopyTexSubImage1D"/>
+		/// <seealso cref="Gl.CopyTexSubImage2D"/>
+		/// <seealso cref="Gl.CopyTexSubImage3D"/>
+		/// <seealso cref="Gl.DrawPixels"/>
+		/// <seealso cref="Gl.MatrixMode"/>
+		/// <seealso cref="Gl.PixelStore"/>
+		/// <seealso cref="Gl.PixelTransfer"/>
+		/// <seealso cref="Gl.TexEnv"/>
+		/// <seealso cref="Gl.TexGen"/>
+		/// <seealso cref="Gl.TexImage1D"/>
+		/// <seealso cref="Gl.TexImage2D"/>
+		/// <seealso cref="Gl.TexSubImage1D"/>
+		/// <seealso cref="Gl.TexSubImage2D"/>
+		/// <seealso cref="Gl.TexSubImage3D"/>
+		/// <seealso cref="Gl.TexParameter"/>
 		[RequiredByFeature("GL_VERSION_1_3")]
 		public static void CompressedTexImage3D(TextureTarget target, Int32 level, int internalformat, Int32 width, Int32 height, Int32 depth, Int32 border, Int32 imageSize, IntPtr data)
 		{
@@ -1036,7 +1118,7 @@ namespace OpenGL
 		/// specify a three-dimensional texture image in a compressed format
 		/// </summary>
 		/// <param name="target">
-		/// Specifies the target texture. Must be <see cref="Gl.TEXTURE_3D"/> or <see cref="Gl.PROXY_TEXTURE_3D"/>.
+		/// Specifies the target texture. Must be Gl.TEXTURE_3D or Gl.PROXY_TEXTURE_3D.
 		/// </param>
 		/// <param name="level">
 		/// Specifies the level-of-detail number. Level 0 is the base image level. Level n is the nth mipmap reduction image.
@@ -1068,6 +1150,56 @@ namespace OpenGL
 		/// <param name="data">
 		/// Specifies a pointer to the compressed image data in memory.
 		/// </param>
+		/// <remarks>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated if <paramref name="internalformat"/> is one of the generic compressed internal formats: 
+		/// Gl.COMPRESSED_ALPHA, Gl.COMPRESSED_LUMINANCE, Gl.COMPRESSED_LUMINANCE_ALPHA, Gl.COMPRESSED_INTENSITY, Gl.COMPRESSED_RGB, 
+		/// or Gl.COMPRESSED_RGBA.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_VALUE is generated if <paramref name="imageSize"/> is not consistent with the format, dimensions, and 
+		/// contents of the specified compressed image data.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if parameter combinations are not supported by the specific compressed internal format 
+		/// as specified in the specific texture compression extension.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if a non-zero buffer object name is bound to the Gl.PIXEL_UNPACK_BUFFER target and the 
+		/// buffer object's data store is currently mapped.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if a non-zero buffer object name is bound to the Gl.PIXEL_UNPACK_BUFFER target and the 
+		/// data would be unpacked from the buffer object such that the memory reads required would exceed the data store size.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if Gl.CompressedTexImage3D is executed between the execution of Gl\.Begin and the 
+		/// corresponding execution of Gl\.End.
+		/// <exception cref="InvalidOperationException">
+		/// Undefined results, including abnormal program termination, are generated if <paramref name="data"/> is not encoded in a 
+		/// manner consistent with the extension specification defining the internal compression format.
+		/// </exception>
+		/// <seealso cref="Gl.ActiveTexture"/>
+		/// <seealso cref="Gl.ColorTable"/>
+		/// <seealso cref="Gl.CompressedTexImage1D"/>
+		/// <seealso cref="Gl.CompressedTexImage2D"/>
+		/// <seealso cref="Gl.CompressedTexSubImage1D"/>
+		/// <seealso cref="Gl.CompressedTexSubImage2D"/>
+		/// <seealso cref="Gl.CompressedTexSubImage3D"/>
+		/// <seealso cref="Gl.ConvolutionFilter1D"/>
+		/// <seealso cref="Gl.CopyPixels"/>
+		/// <seealso cref="Gl.CopyTexImage1D"/>
+		/// <seealso cref="Gl.CopyTexSubImage1D"/>
+		/// <seealso cref="Gl.CopyTexSubImage2D"/>
+		/// <seealso cref="Gl.CopyTexSubImage3D"/>
+		/// <seealso cref="Gl.DrawPixels"/>
+		/// <seealso cref="Gl.MatrixMode"/>
+		/// <seealso cref="Gl.PixelStore"/>
+		/// <seealso cref="Gl.PixelTransfer"/>
+		/// <seealso cref="Gl.TexEnv"/>
+		/// <seealso cref="Gl.TexGen"/>
+		/// <seealso cref="Gl.TexImage1D"/>
+		/// <seealso cref="Gl.TexImage2D"/>
+		/// <seealso cref="Gl.TexSubImage1D"/>
+		/// <seealso cref="Gl.TexSubImage2D"/>
+		/// <seealso cref="Gl.TexSubImage3D"/>
+		/// <seealso cref="Gl.TexParameter"/>
 		[RequiredByFeature("GL_VERSION_1_3")]
 		public static void CompressedTexImage3D(TextureTarget target, Int32 level, int internalformat, Int32 width, Int32 height, Int32 depth, Int32 border, Int32 imageSize, Object data)
 		{
@@ -1083,11 +1215,9 @@ namespace OpenGL
 		/// specify a two-dimensional texture image in a compressed format
 		/// </summary>
 		/// <param name="target">
-		/// Specifies the target texture. Must be <see cref="Gl.TEXTURE_2D"/>, <see cref="Gl.PROXY_TEXTURE_2D"/>, <see 
-		/// cref="Gl.TEXTURE_CUBE_MAP_POSITIVE_X"/>, <see cref="Gl.TEXTURE_CUBE_MAP_NEGATIVE_X"/>, <see 
-		/// cref="Gl.TEXTURE_CUBE_MAP_POSITIVE_Y"/>, <see cref="Gl.TEXTURE_CUBE_MAP_NEGATIVE_Y"/>, <see 
-		/// cref="Gl.TEXTURE_CUBE_MAP_POSITIVE_Z"/>, <see cref="Gl.TEXTURE_CUBE_MAP_NEGATIVE_Z"/>, or <see 
-		/// cref="Gl.PROXY_TEXTURE_CUBE_MAP"/>.
+		/// Specifies the target texture. Must be Gl.TEXTURE_2D, Gl.PROXY_TEXTURE_2D, Gl.TEXTURE_CUBE_MAP_POSITIVE_X, 
+		/// Gl.TEXTURE_CUBE_MAP_NEGATIVE_X, Gl.TEXTURE_CUBE_MAP_POSITIVE_Y, Gl.TEXTURE_CUBE_MAP_NEGATIVE_Y, 
+		/// Gl.TEXTURE_CUBE_MAP_POSITIVE_Z, Gl.TEXTURE_CUBE_MAP_NEGATIVE_Z, or Gl.PROXY_TEXTURE_CUBE_MAP.
 		/// </param>
 		/// <param name="level">
 		/// Specifies the level-of-detail number. Level 0 is the base image level. Level n is the nth mipmap reduction image.
@@ -1114,6 +1244,56 @@ namespace OpenGL
 		/// <param name="data">
 		/// Specifies a pointer to the compressed image data in memory.
 		/// </param>
+		/// <remarks>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated if <paramref name="internalformat"/> is one of the generic compressed internal formats: 
+		/// Gl.COMPRESSED_ALPHA, Gl.COMPRESSED_LUMINANCE, Gl.COMPRESSED_LUMINANCE_ALPHA, Gl.COMPRESSED_INTENSITY, Gl.COMPRESSED_RGB, 
+		/// or Gl.COMPRESSED_RGBA.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_VALUE is generated if <paramref name="imageSize"/> is not consistent with the format, dimensions, and 
+		/// contents of the specified compressed image data.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if parameter combinations are not supported by the specific compressed internal format 
+		/// as specified in the specific texture compression extension.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if a non-zero buffer object name is bound to the Gl.PIXEL_UNPACK_BUFFER target and the 
+		/// buffer object's data store is currently mapped.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if a non-zero buffer object name is bound to the Gl.PIXEL_UNPACK_BUFFER target and the 
+		/// data would be unpacked from the buffer object such that the memory reads required would exceed the data store size.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if Gl.CompressedTexImage2D is executed between the execution of Gl\.Begin and the 
+		/// corresponding execution of Gl\.End.
+		/// <exception cref="InvalidOperationException">
+		/// Undefined results, including abnormal program termination, are generated if <paramref name="data"/> is not encoded in a 
+		/// manner consistent with the extension specification defining the internal compression format.
+		/// </exception>
+		/// <seealso cref="Gl.ActiveTexture"/>
+		/// <seealso cref="Gl.ColorTable"/>
+		/// <seealso cref="Gl.CompressedTexImage1D"/>
+		/// <seealso cref="Gl.CompressedTexImage3D"/>
+		/// <seealso cref="Gl.CompressedTexSubImage1D"/>
+		/// <seealso cref="Gl.CompressedTexSubImage2D"/>
+		/// <seealso cref="Gl.CompressedTexSubImage3D"/>
+		/// <seealso cref="Gl.ConvolutionFilter1D"/>
+		/// <seealso cref="Gl.CopyPixels"/>
+		/// <seealso cref="Gl.CopyTexImage1D"/>
+		/// <seealso cref="Gl.CopyTexSubImage1D"/>
+		/// <seealso cref="Gl.CopyTexSubImage2D"/>
+		/// <seealso cref="Gl.CopyTexSubImage3D"/>
+		/// <seealso cref="Gl.DrawPixels"/>
+		/// <seealso cref="Gl.MatrixMode"/>
+		/// <seealso cref="Gl.PixelStore"/>
+		/// <seealso cref="Gl.PixelTransfer"/>
+		/// <seealso cref="Gl.TexEnv"/>
+		/// <seealso cref="Gl.TexGen"/>
+		/// <seealso cref="Gl.TexImage2D"/>
+		/// <seealso cref="Gl.TexImage3D"/>
+		/// <seealso cref="Gl.TexSubImage1D"/>
+		/// <seealso cref="Gl.TexSubImage2D"/>
+		/// <seealso cref="Gl.TexSubImage3D"/>
+		/// <seealso cref="Gl.TexParameter"/>
 		[RequiredByFeature("GL_VERSION_1_3")]
 		public static void CompressedTexImage2D(TextureTarget target, Int32 level, int internalformat, Int32 width, Int32 height, Int32 border, Int32 imageSize, IntPtr data)
 		{
@@ -1127,11 +1307,9 @@ namespace OpenGL
 		/// specify a two-dimensional texture image in a compressed format
 		/// </summary>
 		/// <param name="target">
-		/// Specifies the target texture. Must be <see cref="Gl.TEXTURE_2D"/>, <see cref="Gl.PROXY_TEXTURE_2D"/>, <see 
-		/// cref="Gl.TEXTURE_CUBE_MAP_POSITIVE_X"/>, <see cref="Gl.TEXTURE_CUBE_MAP_NEGATIVE_X"/>, <see 
-		/// cref="Gl.TEXTURE_CUBE_MAP_POSITIVE_Y"/>, <see cref="Gl.TEXTURE_CUBE_MAP_NEGATIVE_Y"/>, <see 
-		/// cref="Gl.TEXTURE_CUBE_MAP_POSITIVE_Z"/>, <see cref="Gl.TEXTURE_CUBE_MAP_NEGATIVE_Z"/>, or <see 
-		/// cref="Gl.PROXY_TEXTURE_CUBE_MAP"/>.
+		/// Specifies the target texture. Must be Gl.TEXTURE_2D, Gl.PROXY_TEXTURE_2D, Gl.TEXTURE_CUBE_MAP_POSITIVE_X, 
+		/// Gl.TEXTURE_CUBE_MAP_NEGATIVE_X, Gl.TEXTURE_CUBE_MAP_POSITIVE_Y, Gl.TEXTURE_CUBE_MAP_NEGATIVE_Y, 
+		/// Gl.TEXTURE_CUBE_MAP_POSITIVE_Z, Gl.TEXTURE_CUBE_MAP_NEGATIVE_Z, or Gl.PROXY_TEXTURE_CUBE_MAP.
 		/// </param>
 		/// <param name="level">
 		/// Specifies the level-of-detail number. Level 0 is the base image level. Level n is the nth mipmap reduction image.
@@ -1158,6 +1336,56 @@ namespace OpenGL
 		/// <param name="data">
 		/// Specifies a pointer to the compressed image data in memory.
 		/// </param>
+		/// <remarks>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated if <paramref name="internalformat"/> is one of the generic compressed internal formats: 
+		/// Gl.COMPRESSED_ALPHA, Gl.COMPRESSED_LUMINANCE, Gl.COMPRESSED_LUMINANCE_ALPHA, Gl.COMPRESSED_INTENSITY, Gl.COMPRESSED_RGB, 
+		/// or Gl.COMPRESSED_RGBA.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_VALUE is generated if <paramref name="imageSize"/> is not consistent with the format, dimensions, and 
+		/// contents of the specified compressed image data.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if parameter combinations are not supported by the specific compressed internal format 
+		/// as specified in the specific texture compression extension.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if a non-zero buffer object name is bound to the Gl.PIXEL_UNPACK_BUFFER target and the 
+		/// buffer object's data store is currently mapped.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if a non-zero buffer object name is bound to the Gl.PIXEL_UNPACK_BUFFER target and the 
+		/// data would be unpacked from the buffer object such that the memory reads required would exceed the data store size.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if Gl.CompressedTexImage2D is executed between the execution of Gl\.Begin and the 
+		/// corresponding execution of Gl\.End.
+		/// <exception cref="InvalidOperationException">
+		/// Undefined results, including abnormal program termination, are generated if <paramref name="data"/> is not encoded in a 
+		/// manner consistent with the extension specification defining the internal compression format.
+		/// </exception>
+		/// <seealso cref="Gl.ActiveTexture"/>
+		/// <seealso cref="Gl.ColorTable"/>
+		/// <seealso cref="Gl.CompressedTexImage1D"/>
+		/// <seealso cref="Gl.CompressedTexImage3D"/>
+		/// <seealso cref="Gl.CompressedTexSubImage1D"/>
+		/// <seealso cref="Gl.CompressedTexSubImage2D"/>
+		/// <seealso cref="Gl.CompressedTexSubImage3D"/>
+		/// <seealso cref="Gl.ConvolutionFilter1D"/>
+		/// <seealso cref="Gl.CopyPixels"/>
+		/// <seealso cref="Gl.CopyTexImage1D"/>
+		/// <seealso cref="Gl.CopyTexSubImage1D"/>
+		/// <seealso cref="Gl.CopyTexSubImage2D"/>
+		/// <seealso cref="Gl.CopyTexSubImage3D"/>
+		/// <seealso cref="Gl.DrawPixels"/>
+		/// <seealso cref="Gl.MatrixMode"/>
+		/// <seealso cref="Gl.PixelStore"/>
+		/// <seealso cref="Gl.PixelTransfer"/>
+		/// <seealso cref="Gl.TexEnv"/>
+		/// <seealso cref="Gl.TexGen"/>
+		/// <seealso cref="Gl.TexImage2D"/>
+		/// <seealso cref="Gl.TexImage3D"/>
+		/// <seealso cref="Gl.TexSubImage1D"/>
+		/// <seealso cref="Gl.TexSubImage2D"/>
+		/// <seealso cref="Gl.TexSubImage3D"/>
+		/// <seealso cref="Gl.TexParameter"/>
 		[RequiredByFeature("GL_VERSION_1_3")]
 		public static void CompressedTexImage2D(TextureTarget target, Int32 level, int internalformat, Int32 width, Int32 height, Int32 border, Int32 imageSize, Object data)
 		{
@@ -1173,7 +1401,7 @@ namespace OpenGL
 		/// specify a one-dimensional texture image in a compressed format
 		/// </summary>
 		/// <param name="target">
-		/// Specifies the target texture. Must be <see cref="Gl.TEXTURE_1D"/> or <see cref="Gl.PROXY_TEXTURE_1D"/>.
+		/// Specifies the target texture. Must be Gl.TEXTURE_1D or Gl.PROXY_TEXTURE_1D.
 		/// </param>
 		/// <param name="level">
 		/// Specifies the level-of-detail number. Level 0 is the base image level. Level n is the nth mipmap reduction image.
@@ -1195,6 +1423,57 @@ namespace OpenGL
 		/// <param name="data">
 		/// Specifies a pointer to the compressed image data in memory.
 		/// </param>
+		/// <remarks>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated if <paramref name="internalformat"/> is one of the generic compressed internal formats: 
+		/// Gl.COMPRESSED_ALPHA, Gl.COMPRESSED_LUMINANCE, Gl.COMPRESSED_LUMINANCE_ALPHA, Gl.COMPRESSED_INTENSITY, Gl.COMPRESSED_RGB, 
+		/// or Gl.COMPRESSED_RGBA.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_VALUE is generated if <paramref name="imageSize"/> is not consistent with the format, dimensions, and 
+		/// contents of the specified compressed image data.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if parameter combinations are not supported by the specific compressed internal format 
+		/// as specified in the specific texture compression extension.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if a non-zero buffer object name is bound to the Gl.PIXEL_UNPACK_BUFFER target and the 
+		/// buffer object's data store is currently mapped.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if a non-zero buffer object name is bound to the Gl.PIXEL_UNPACK_BUFFER target and the 
+		/// data would be unpacked from the buffer object such that the memory reads required would exceed the data store size.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if Gl.CompressedTexImage1D is executed between the execution of Gl\.Begin and the 
+		/// corresponding execution of Gl\.End.
+		/// <exception cref="InvalidOperationException">
+		/// Undefined results, including abnormal program termination, are generated if <paramref name="data"/> is not encoded in a 
+		/// manner consistent with the extension specification defining the internal compression format.
+		/// </exception>
+		/// <seealso cref="Gl.ActiveTexture"/>
+		/// <seealso cref="Gl.ColorTable"/>
+		/// <seealso cref="Gl.CompressedTexImage2D"/>
+		/// <seealso cref="Gl.CompressedTexImage3D"/>
+		/// <seealso cref="Gl.CompressedTexSubImage1D"/>
+		/// <seealso cref="Gl.CompressedTexSubImage2D"/>
+		/// <seealso cref="Gl.CompressedTexSubImage3D"/>
+		/// <seealso cref="Gl.ConvolutionFilter1D"/>
+		/// <seealso cref="Gl.CopyPixels"/>
+		/// <seealso cref="Gl.CopyTexImage1D"/>
+		/// <seealso cref="Gl.CopyTexImage2D"/>
+		/// <seealso cref="Gl.CopyTexSubImage1D"/>
+		/// <seealso cref="Gl.CopyTexSubImage2D"/>
+		/// <seealso cref="Gl.CopyTexSubImage3D"/>
+		/// <seealso cref="Gl.DrawPixels"/>
+		/// <seealso cref="Gl.MatrixMode"/>
+		/// <seealso cref="Gl.PixelStore"/>
+		/// <seealso cref="Gl.PixelTransfer"/>
+		/// <seealso cref="Gl.TexEnv"/>
+		/// <seealso cref="Gl.TexGen"/>
+		/// <seealso cref="Gl.TexImage2D"/>
+		/// <seealso cref="Gl.TexImage3D"/>
+		/// <seealso cref="Gl.TexSubImage1D"/>
+		/// <seealso cref="Gl.TexSubImage2D"/>
+		/// <seealso cref="Gl.TexSubImage3D"/>
+		/// <seealso cref="Gl.TexParameter"/>
 		[RequiredByFeature("GL_VERSION_1_3")]
 		public static void CompressedTexImage1D(TextureTarget target, Int32 level, int internalformat, Int32 width, Int32 border, Int32 imageSize, IntPtr data)
 		{
@@ -1208,7 +1487,7 @@ namespace OpenGL
 		/// specify a one-dimensional texture image in a compressed format
 		/// </summary>
 		/// <param name="target">
-		/// Specifies the target texture. Must be <see cref="Gl.TEXTURE_1D"/> or <see cref="Gl.PROXY_TEXTURE_1D"/>.
+		/// Specifies the target texture. Must be Gl.TEXTURE_1D or Gl.PROXY_TEXTURE_1D.
 		/// </param>
 		/// <param name="level">
 		/// Specifies the level-of-detail number. Level 0 is the base image level. Level n is the nth mipmap reduction image.
@@ -1230,6 +1509,57 @@ namespace OpenGL
 		/// <param name="data">
 		/// Specifies a pointer to the compressed image data in memory.
 		/// </param>
+		/// <remarks>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated if <paramref name="internalformat"/> is one of the generic compressed internal formats: 
+		/// Gl.COMPRESSED_ALPHA, Gl.COMPRESSED_LUMINANCE, Gl.COMPRESSED_LUMINANCE_ALPHA, Gl.COMPRESSED_INTENSITY, Gl.COMPRESSED_RGB, 
+		/// or Gl.COMPRESSED_RGBA.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_VALUE is generated if <paramref name="imageSize"/> is not consistent with the format, dimensions, and 
+		/// contents of the specified compressed image data.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if parameter combinations are not supported by the specific compressed internal format 
+		/// as specified in the specific texture compression extension.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if a non-zero buffer object name is bound to the Gl.PIXEL_UNPACK_BUFFER target and the 
+		/// buffer object's data store is currently mapped.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if a non-zero buffer object name is bound to the Gl.PIXEL_UNPACK_BUFFER target and the 
+		/// data would be unpacked from the buffer object such that the memory reads required would exceed the data store size.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if Gl.CompressedTexImage1D is executed between the execution of Gl\.Begin and the 
+		/// corresponding execution of Gl\.End.
+		/// <exception cref="InvalidOperationException">
+		/// Undefined results, including abnormal program termination, are generated if <paramref name="data"/> is not encoded in a 
+		/// manner consistent with the extension specification defining the internal compression format.
+		/// </exception>
+		/// <seealso cref="Gl.ActiveTexture"/>
+		/// <seealso cref="Gl.ColorTable"/>
+		/// <seealso cref="Gl.CompressedTexImage2D"/>
+		/// <seealso cref="Gl.CompressedTexImage3D"/>
+		/// <seealso cref="Gl.CompressedTexSubImage1D"/>
+		/// <seealso cref="Gl.CompressedTexSubImage2D"/>
+		/// <seealso cref="Gl.CompressedTexSubImage3D"/>
+		/// <seealso cref="Gl.ConvolutionFilter1D"/>
+		/// <seealso cref="Gl.CopyPixels"/>
+		/// <seealso cref="Gl.CopyTexImage1D"/>
+		/// <seealso cref="Gl.CopyTexImage2D"/>
+		/// <seealso cref="Gl.CopyTexSubImage1D"/>
+		/// <seealso cref="Gl.CopyTexSubImage2D"/>
+		/// <seealso cref="Gl.CopyTexSubImage3D"/>
+		/// <seealso cref="Gl.DrawPixels"/>
+		/// <seealso cref="Gl.MatrixMode"/>
+		/// <seealso cref="Gl.PixelStore"/>
+		/// <seealso cref="Gl.PixelTransfer"/>
+		/// <seealso cref="Gl.TexEnv"/>
+		/// <seealso cref="Gl.TexGen"/>
+		/// <seealso cref="Gl.TexImage2D"/>
+		/// <seealso cref="Gl.TexImage3D"/>
+		/// <seealso cref="Gl.TexSubImage1D"/>
+		/// <seealso cref="Gl.TexSubImage2D"/>
+		/// <seealso cref="Gl.TexSubImage3D"/>
+		/// <seealso cref="Gl.TexParameter"/>
 		[RequiredByFeature("GL_VERSION_1_3")]
 		public static void CompressedTexImage1D(TextureTarget target, Int32 level, int internalformat, Int32 width, Int32 border, Int32 imageSize, Object data)
 		{
@@ -1245,8 +1575,8 @@ namespace OpenGL
 		/// specify a three-dimensional texture subimage in a compressed format
 		/// </summary>
 		/// <param name="target">
-		/// Specifies the target to which the texture is bound for glCompressedTexSubImage3D function. Must be GL_TEXTURE_2D_ARRAY, 
-		/// GL_TEXTURE_3D, or GL_TEXTURE_CUBE_MAP_ARRAY.
+		/// Specifies the target to which the texture is bound for Gl.CompressedTexSubImage3D function. Must be Gl.TEXTURE_2D_ARRAY, 
+		/// Gl.TEXTURE_3D, or Gl.TEXTURE_CUBE_MAP_ARRAY.
 		/// </param>
 		/// <param name="level">
 		/// Specifies the level-of-detail number. Level 0 is the base image level. Level n is the nth mipmap reduction image.
@@ -1270,14 +1600,60 @@ namespace OpenGL
 		/// Specifies the depth of the texture subimage.
 		/// </param>
 		/// <param name="format">
-		/// Specifies the format of the compressed image data stored at address data.
+		/// Specifies the format of the compressed image data stored at address <paramref name="data"/>.
 		/// </param>
 		/// <param name="imageSize">
-		/// Specifies the number of unsigned bytes of image data starting at the address specified by data.
+		/// Specifies the number of unsigned bytes of image data starting at the address specified by <paramref name="data"/>.
 		/// </param>
 		/// <param name="data">
 		/// Specifies a pointer to the compressed image data in memory.
 		/// </param>
+		/// <remarks>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated if <paramref name="internalformat"/> is one of the generic compressed internal formats: 
+		/// Gl.COMPRESSED_RED, Gl.COMPRESSED_RG, Gl.COMPRESSED_RGB, Gl.COMPRESSED_RGBA. Gl.COMPRESSED_SRGB, or 
+		/// Gl.COMPRESSED_SRGB_ALPHA.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated by Gl.CompressedTexSubImage3D if <paramref name="target"/> is not Gl.TEXTURE_2D_ARRAY, 
+		/// Gl.TEXTURE_3D, or Gl.TEXTURE_CUBE_MAP_ARRAY.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated by Gl.CompressedTextureSubImage3D if <paramref name="texture"/> is not the name of an 
+		/// existing texture object.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_VALUE is generated if <paramref name="imageSize"/> is not consistent with the format, dimensions, and 
+		/// contents of the specified compressed image data.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if parameter combinations are not supported by the specific compressed internal format 
+		/// as specified in the specific texture compression extension.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if a non-zero buffer object name is bound to the Gl.PIXEL_UNPACK_BUFFER target and the 
+		/// buffer object's data store is currently mapped.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if a non-zero buffer object name is bound to the Gl.PIXEL_UNPACK_BUFFER target and the 
+		/// data would be unpacked from the buffer object such that the memory reads required would exceed the data store size.
+		/// <exception cref="InvalidOperationException">
+		/// Undefined results, including abnormal program termination, are generated if <paramref name="data"/> is not encoded in a 
+		/// manner consistent with the extension specification defining the internal compression format.
+		/// </exception>
+		/// <seealso cref="Gl.ActiveTexture"/>
+		/// <seealso cref="Gl.CompressedTexImage1D"/>
+		/// <seealso cref="Gl.CompressedTexImage2D"/>
+		/// <seealso cref="Gl.CompressedTexImage3D"/>
+		/// <seealso cref="Gl.CompressedTexSubImage1D"/>
+		/// <seealso cref="Gl.CompressedTexSubImage2D"/>
+		/// <seealso cref="Gl.CopyTexImage1D"/>
+		/// <seealso cref="Gl.CopyTexImage2D"/>
+		/// <seealso cref="Gl.CopyTexSubImage1D"/>
+		/// <seealso cref="Gl.CopyTexSubImage2D"/>
+		/// <seealso cref="Gl.CopyTexSubImage3D"/>
+		/// <seealso cref="Gl.PixelStore"/>
+		/// <seealso cref="Gl.TexImage2D"/>
+		/// <seealso cref="Gl.TexImage3D"/>
+		/// <seealso cref="Gl.TexSubImage1D"/>
+		/// <seealso cref="Gl.TexSubImage2D"/>
+		/// <seealso cref="Gl.TexSubImage3D"/>
+		/// <seealso cref="Gl.TexParameter"/>
 		[RequiredByFeature("GL_VERSION_1_3")]
 		public static void CompressedTexSubImage3D(TextureTarget target, Int32 level, Int32 xoffset, Int32 yoffset, Int32 zoffset, Int32 width, Int32 height, Int32 depth, PixelFormat format, Int32 imageSize, IntPtr data)
 		{
@@ -1291,8 +1667,8 @@ namespace OpenGL
 		/// specify a three-dimensional texture subimage in a compressed format
 		/// </summary>
 		/// <param name="target">
-		/// Specifies the target to which the texture is bound for glCompressedTexSubImage3D function. Must be GL_TEXTURE_2D_ARRAY, 
-		/// GL_TEXTURE_3D, or GL_TEXTURE_CUBE_MAP_ARRAY.
+		/// Specifies the target to which the texture is bound for Gl.CompressedTexSubImage3D function. Must be Gl.TEXTURE_2D_ARRAY, 
+		/// Gl.TEXTURE_3D, or Gl.TEXTURE_CUBE_MAP_ARRAY.
 		/// </param>
 		/// <param name="level">
 		/// Specifies the level-of-detail number. Level 0 is the base image level. Level n is the nth mipmap reduction image.
@@ -1316,14 +1692,60 @@ namespace OpenGL
 		/// Specifies the depth of the texture subimage.
 		/// </param>
 		/// <param name="format">
-		/// Specifies the format of the compressed image data stored at address data.
+		/// Specifies the format of the compressed image data stored at address <paramref name="data"/>.
 		/// </param>
 		/// <param name="imageSize">
-		/// Specifies the number of unsigned bytes of image data starting at the address specified by data.
+		/// Specifies the number of unsigned bytes of image data starting at the address specified by <paramref name="data"/>.
 		/// </param>
 		/// <param name="data">
 		/// Specifies a pointer to the compressed image data in memory.
 		/// </param>
+		/// <remarks>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated if <paramref name="internalformat"/> is one of the generic compressed internal formats: 
+		/// Gl.COMPRESSED_RED, Gl.COMPRESSED_RG, Gl.COMPRESSED_RGB, Gl.COMPRESSED_RGBA. Gl.COMPRESSED_SRGB, or 
+		/// Gl.COMPRESSED_SRGB_ALPHA.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated by Gl.CompressedTexSubImage3D if <paramref name="target"/> is not Gl.TEXTURE_2D_ARRAY, 
+		/// Gl.TEXTURE_3D, or Gl.TEXTURE_CUBE_MAP_ARRAY.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated by Gl.CompressedTextureSubImage3D if <paramref name="texture"/> is not the name of an 
+		/// existing texture object.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_VALUE is generated if <paramref name="imageSize"/> is not consistent with the format, dimensions, and 
+		/// contents of the specified compressed image data.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if parameter combinations are not supported by the specific compressed internal format 
+		/// as specified in the specific texture compression extension.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if a non-zero buffer object name is bound to the Gl.PIXEL_UNPACK_BUFFER target and the 
+		/// buffer object's data store is currently mapped.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if a non-zero buffer object name is bound to the Gl.PIXEL_UNPACK_BUFFER target and the 
+		/// data would be unpacked from the buffer object such that the memory reads required would exceed the data store size.
+		/// <exception cref="InvalidOperationException">
+		/// Undefined results, including abnormal program termination, are generated if <paramref name="data"/> is not encoded in a 
+		/// manner consistent with the extension specification defining the internal compression format.
+		/// </exception>
+		/// <seealso cref="Gl.ActiveTexture"/>
+		/// <seealso cref="Gl.CompressedTexImage1D"/>
+		/// <seealso cref="Gl.CompressedTexImage2D"/>
+		/// <seealso cref="Gl.CompressedTexImage3D"/>
+		/// <seealso cref="Gl.CompressedTexSubImage1D"/>
+		/// <seealso cref="Gl.CompressedTexSubImage2D"/>
+		/// <seealso cref="Gl.CopyTexImage1D"/>
+		/// <seealso cref="Gl.CopyTexImage2D"/>
+		/// <seealso cref="Gl.CopyTexSubImage1D"/>
+		/// <seealso cref="Gl.CopyTexSubImage2D"/>
+		/// <seealso cref="Gl.CopyTexSubImage3D"/>
+		/// <seealso cref="Gl.PixelStore"/>
+		/// <seealso cref="Gl.TexImage2D"/>
+		/// <seealso cref="Gl.TexImage3D"/>
+		/// <seealso cref="Gl.TexSubImage1D"/>
+		/// <seealso cref="Gl.TexSubImage2D"/>
+		/// <seealso cref="Gl.TexSubImage3D"/>
+		/// <seealso cref="Gl.TexParameter"/>
 		[RequiredByFeature("GL_VERSION_1_3")]
 		public static void CompressedTexSubImage3D(TextureTarget target, Int32 level, Int32 xoffset, Int32 yoffset, Int32 zoffset, Int32 width, Int32 height, Int32 depth, PixelFormat format, Int32 imageSize, Object data)
 		{
@@ -1339,9 +1761,9 @@ namespace OpenGL
 		/// specify a two-dimensional texture subimage in a compressed format
 		/// </summary>
 		/// <param name="target">
-		/// Specifies the target to which the texture is bound for glCompressedTexSubImage2D function. Must be GL_TEXTURE_1D_ARRAY, 
-		/// GL_TEXTURE_2D, GL_TEXTURE_CUBE_MAP_POSITIVE_X, GL_TEXTURE_CUBE_MAP_NEGATIVE_X, GL_TEXTURE_CUBE_MAP_POSITIVE_Y, 
-		/// GL_TEXTURE_CUBE_MAP_NEGATIVE_Y, GL_TEXTURE_CUBE_MAP_POSITIVE_Z, or GL_TEXTURE_CUBE_MAP_NEGATIVE_Z.
+		/// Specifies the target to which the texture is bound for Gl.CompressedTexSubImage2D function. Must be Gl.TEXTURE_1D_ARRAY, 
+		/// Gl.TEXTURE_2D, Gl.TEXTURE_CUBE_MAP_POSITIVE_X, Gl.TEXTURE_CUBE_MAP_NEGATIVE_X, Gl.TEXTURE_CUBE_MAP_POSITIVE_Y, 
+		/// Gl.TEXTURE_CUBE_MAP_NEGATIVE_Y, Gl.TEXTURE_CUBE_MAP_POSITIVE_Z, or Gl.TEXTURE_CUBE_MAP_NEGATIVE_Z.
 		/// </param>
 		/// <param name="level">
 		/// Specifies the level-of-detail number. Level 0 is the base image level. Level n is the nth mipmap reduction image.
@@ -1359,14 +1781,62 @@ namespace OpenGL
 		/// Specifies the height of the texture subimage.
 		/// </param>
 		/// <param name="format">
-		/// Specifies the format of the compressed image data stored at address data.
+		/// Specifies the format of the compressed image data stored at address <paramref name="data"/>.
 		/// </param>
 		/// <param name="imageSize">
-		/// Specifies the number of unsigned bytes of image data starting at the address specified by data.
+		/// Specifies the number of unsigned bytes of image data starting at the address specified by <paramref name="data"/>.
 		/// </param>
 		/// <param name="data">
 		/// Specifies a pointer to the compressed image data in memory.
 		/// </param>
+		/// <remarks>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated if <paramref name="internalformat"/> is of the generic compressed internal formats: 
+		/// Gl.COMPRESSED_RED, Gl.COMPRESSED_RG, Gl.COMPRESSED_RGB, Gl.COMPRESSED_RGBA. Gl.COMPRESSED_SRGB, or 
+		/// Gl.COMPRESSED_SRGB_ALPHA.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated by Gl.CompressedTexSubImage2D if <paramref name="target"/> is Gl.TEXTURE_RECTANGLE or 
+		/// Gl.PROXY_TEXTURE_RECTANGLE.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_VALUE is generated if <paramref name="imageSize"/> is not consistent with the format, dimensions, and 
+		/// contents of the specified compressed image data.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if parameter combinations are not supported by the specific compressed internal format 
+		/// as specified in the specific texture compression extension.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if a non-zero buffer object name is bound to the Gl.PIXEL_UNPACK_BUFFER target and the 
+		/// buffer object's data store is currently mapped.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if a non-zero buffer object name is bound to the Gl.PIXEL_UNPACK_BUFFER target and the 
+		/// data would be unpacked from the buffer object such that the memory reads required would exceed the data store size.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated by Gl.CompressedTextureSubImage2D if <paramref name="texture"/> is not the name of an 
+		/// existing texture object.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated by Gl.CompressedTextureSubImage2D if the effective target is Gl.TEXTURE_RECTANGLE.
+		/// <exception cref="InvalidOperationException">
+		/// Undefined results, including abnormal program termination, are generated if <paramref name="data"/> is not encoded in a 
+		/// manner consistent with the extension specification defining the internal compression format.
+		/// </exception>
+		/// <seealso cref="Gl.ActiveTexture"/>
+		/// <seealso cref="Gl.CompressedTexImage1D"/>
+		/// <seealso cref="Gl.CompressedTexImage2D"/>
+		/// <seealso cref="Gl.CompressedTexImage3D"/>
+		/// <seealso cref="Gl.CompressedTexSubImage1D"/>
+		/// <seealso cref="Gl.CompressedTexSubImage3D"/>
+		/// <seealso cref="Gl.CopyTexImage1D"/>
+		/// <seealso cref="Gl.CopyTexImage2D"/>
+		/// <seealso cref="Gl.CopyTexSubImage1D"/>
+		/// <seealso cref="Gl.CopyTexSubImage2D"/>
+		/// <seealso cref="Gl.CopyTexSubImage3D"/>
+		/// <seealso cref="Gl.PixelStore"/>
+		/// <seealso cref="Gl.TexImage2D"/>
+		/// <seealso cref="Gl.TexImage3D"/>
+		/// <seealso cref="Gl.TexSubImage1D"/>
+		/// <seealso cref="Gl.TexSubImage2D"/>
+		/// <seealso cref="Gl.TexSubImage3D"/>
+		/// <seealso cref="Gl.TexParameter"/>
 		[RequiredByFeature("GL_VERSION_1_3")]
 		public static void CompressedTexSubImage2D(TextureTarget target, Int32 level, Int32 xoffset, Int32 yoffset, Int32 width, Int32 height, PixelFormat format, Int32 imageSize, IntPtr data)
 		{
@@ -1380,9 +1850,9 @@ namespace OpenGL
 		/// specify a two-dimensional texture subimage in a compressed format
 		/// </summary>
 		/// <param name="target">
-		/// Specifies the target to which the texture is bound for glCompressedTexSubImage2D function. Must be GL_TEXTURE_1D_ARRAY, 
-		/// GL_TEXTURE_2D, GL_TEXTURE_CUBE_MAP_POSITIVE_X, GL_TEXTURE_CUBE_MAP_NEGATIVE_X, GL_TEXTURE_CUBE_MAP_POSITIVE_Y, 
-		/// GL_TEXTURE_CUBE_MAP_NEGATIVE_Y, GL_TEXTURE_CUBE_MAP_POSITIVE_Z, or GL_TEXTURE_CUBE_MAP_NEGATIVE_Z.
+		/// Specifies the target to which the texture is bound for Gl.CompressedTexSubImage2D function. Must be Gl.TEXTURE_1D_ARRAY, 
+		/// Gl.TEXTURE_2D, Gl.TEXTURE_CUBE_MAP_POSITIVE_X, Gl.TEXTURE_CUBE_MAP_NEGATIVE_X, Gl.TEXTURE_CUBE_MAP_POSITIVE_Y, 
+		/// Gl.TEXTURE_CUBE_MAP_NEGATIVE_Y, Gl.TEXTURE_CUBE_MAP_POSITIVE_Z, or Gl.TEXTURE_CUBE_MAP_NEGATIVE_Z.
 		/// </param>
 		/// <param name="level">
 		/// Specifies the level-of-detail number. Level 0 is the base image level. Level n is the nth mipmap reduction image.
@@ -1400,14 +1870,62 @@ namespace OpenGL
 		/// Specifies the height of the texture subimage.
 		/// </param>
 		/// <param name="format">
-		/// Specifies the format of the compressed image data stored at address data.
+		/// Specifies the format of the compressed image data stored at address <paramref name="data"/>.
 		/// </param>
 		/// <param name="imageSize">
-		/// Specifies the number of unsigned bytes of image data starting at the address specified by data.
+		/// Specifies the number of unsigned bytes of image data starting at the address specified by <paramref name="data"/>.
 		/// </param>
 		/// <param name="data">
 		/// Specifies a pointer to the compressed image data in memory.
 		/// </param>
+		/// <remarks>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated if <paramref name="internalformat"/> is of the generic compressed internal formats: 
+		/// Gl.COMPRESSED_RED, Gl.COMPRESSED_RG, Gl.COMPRESSED_RGB, Gl.COMPRESSED_RGBA. Gl.COMPRESSED_SRGB, or 
+		/// Gl.COMPRESSED_SRGB_ALPHA.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated by Gl.CompressedTexSubImage2D if <paramref name="target"/> is Gl.TEXTURE_RECTANGLE or 
+		/// Gl.PROXY_TEXTURE_RECTANGLE.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_VALUE is generated if <paramref name="imageSize"/> is not consistent with the format, dimensions, and 
+		/// contents of the specified compressed image data.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if parameter combinations are not supported by the specific compressed internal format 
+		/// as specified in the specific texture compression extension.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if a non-zero buffer object name is bound to the Gl.PIXEL_UNPACK_BUFFER target and the 
+		/// buffer object's data store is currently mapped.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if a non-zero buffer object name is bound to the Gl.PIXEL_UNPACK_BUFFER target and the 
+		/// data would be unpacked from the buffer object such that the memory reads required would exceed the data store size.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated by Gl.CompressedTextureSubImage2D if <paramref name="texture"/> is not the name of an 
+		/// existing texture object.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated by Gl.CompressedTextureSubImage2D if the effective target is Gl.TEXTURE_RECTANGLE.
+		/// <exception cref="InvalidOperationException">
+		/// Undefined results, including abnormal program termination, are generated if <paramref name="data"/> is not encoded in a 
+		/// manner consistent with the extension specification defining the internal compression format.
+		/// </exception>
+		/// <seealso cref="Gl.ActiveTexture"/>
+		/// <seealso cref="Gl.CompressedTexImage1D"/>
+		/// <seealso cref="Gl.CompressedTexImage2D"/>
+		/// <seealso cref="Gl.CompressedTexImage3D"/>
+		/// <seealso cref="Gl.CompressedTexSubImage1D"/>
+		/// <seealso cref="Gl.CompressedTexSubImage3D"/>
+		/// <seealso cref="Gl.CopyTexImage1D"/>
+		/// <seealso cref="Gl.CopyTexImage2D"/>
+		/// <seealso cref="Gl.CopyTexSubImage1D"/>
+		/// <seealso cref="Gl.CopyTexSubImage2D"/>
+		/// <seealso cref="Gl.CopyTexSubImage3D"/>
+		/// <seealso cref="Gl.PixelStore"/>
+		/// <seealso cref="Gl.TexImage2D"/>
+		/// <seealso cref="Gl.TexImage3D"/>
+		/// <seealso cref="Gl.TexSubImage1D"/>
+		/// <seealso cref="Gl.TexSubImage2D"/>
+		/// <seealso cref="Gl.TexSubImage3D"/>
+		/// <seealso cref="Gl.TexParameter"/>
 		[RequiredByFeature("GL_VERSION_1_3")]
 		public static void CompressedTexSubImage2D(TextureTarget target, Int32 level, Int32 xoffset, Int32 yoffset, Int32 width, Int32 height, PixelFormat format, Int32 imageSize, Object data)
 		{
@@ -1423,7 +1941,7 @@ namespace OpenGL
 		/// specify a one-dimensional texture subimage in a compressed format
 		/// </summary>
 		/// <param name="target">
-		/// Specifies the target, to which the texture is bound, for glCompressedTexSubImage1D function. Must be GL_TEXTURE_1D.
+		/// Specifies the target, to which the texture is bound, for Gl.CompressedTexSubImage1D function. Must be Gl.TEXTURE_1D.
 		/// </param>
 		/// <param name="level">
 		/// Specifies the level-of-detail number. Level 0 is the base image level. Level n is the nth mipmap reduction image.
@@ -1435,14 +1953,57 @@ namespace OpenGL
 		/// Specifies the width of the texture subimage.
 		/// </param>
 		/// <param name="format">
-		/// Specifies the format of the compressed image data stored at address data.
+		/// Specifies the format of the compressed image data stored at address <paramref name="data"/>.
 		/// </param>
 		/// <param name="imageSize">
-		/// Specifies the number of unsigned bytes of image data starting at the address specified by data.
+		/// Specifies the number of unsigned bytes of image data starting at the address specified by <paramref name="data"/>.
 		/// </param>
 		/// <param name="data">
 		/// Specifies a pointer to the compressed image data in memory.
 		/// </param>
+		/// <remarks>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated if <paramref name="internalformat"/> is not one of the generic compressed internal formats: 
+		/// Gl.COMPRESSED_RED, Gl.COMPRESSED_RG, Gl.COMPRESSED_RGB, Gl.COMPRESSED_RGBA. Gl.COMPRESSED_SRGB, or 
+		/// Gl.COMPRESSED_SRGB_ALPHA.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_VALUE is generated if <paramref name="imageSize"/> is not consistent with the format, dimensions, and 
+		/// contents of the specified compressed image data.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if parameter combinations are not supported by the specific compressed internal format 
+		/// as specified in the specific texture compression extension.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if a non-zero buffer object name is bound to the Gl.PIXEL_UNPACK_BUFFER target and the 
+		/// buffer object's data store is currently mapped.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if a non-zero buffer object name is bound to the Gl.PIXEL_UNPACK_BUFFER target and the 
+		/// data would be unpacked from the buffer object such that the memory reads required would exceed the data store size.
+		/// <exception cref="InvalidOperationException">
+		/// GL_INVALID_OPERATION is generated by Gl.CompressedTextureSubImage1D function if texture is not the name of an existing 
+		/// texture object.
+		/// <exception cref="InvalidOperationException">
+		/// Undefined results, including abnormal program termination, are generated if <paramref name="data"/> is not encoded in a 
+		/// manner consistent with the extension specification defining the internal compression format.
+		/// </exception>
+		/// <seealso cref="Gl.ActiveTexture"/>
+		/// <seealso cref="Gl.CompressedTexImage1D"/>
+		/// <seealso cref="Gl.CompressedTexImage2D"/>
+		/// <seealso cref="Gl.CompressedTexImage3D"/>
+		/// <seealso cref="Gl.CompressedTexSubImage2D"/>
+		/// <seealso cref="Gl.CompressedTexSubImage3D"/>
+		/// <seealso cref="Gl.CopyTexImage1D"/>
+		/// <seealso cref="Gl.CopyTexImage2D"/>
+		/// <seealso cref="Gl.CopyTexSubImage1D"/>
+		/// <seealso cref="Gl.CopyTexSubImage2D"/>
+		/// <seealso cref="Gl.CopyTexSubImage3D"/>
+		/// <seealso cref="Gl.PixelStore"/>
+		/// <seealso cref="Gl.TexImage2D"/>
+		/// <seealso cref="Gl.TexImage3D"/>
+		/// <seealso cref="Gl.TexSubImage1D"/>
+		/// <seealso cref="Gl.TexSubImage2D"/>
+		/// <seealso cref="Gl.TexSubImage3D"/>
+		/// <seealso cref="Gl.TexParameter"/>
 		[RequiredByFeature("GL_VERSION_1_3")]
 		public static void CompressedTexSubImage1D(TextureTarget target, Int32 level, Int32 xoffset, Int32 width, PixelFormat format, Int32 imageSize, IntPtr data)
 		{
@@ -1456,7 +2017,7 @@ namespace OpenGL
 		/// specify a one-dimensional texture subimage in a compressed format
 		/// </summary>
 		/// <param name="target">
-		/// Specifies the target, to which the texture is bound, for glCompressedTexSubImage1D function. Must be GL_TEXTURE_1D.
+		/// Specifies the target, to which the texture is bound, for Gl.CompressedTexSubImage1D function. Must be Gl.TEXTURE_1D.
 		/// </param>
 		/// <param name="level">
 		/// Specifies the level-of-detail number. Level 0 is the base image level. Level n is the nth mipmap reduction image.
@@ -1468,14 +2029,57 @@ namespace OpenGL
 		/// Specifies the width of the texture subimage.
 		/// </param>
 		/// <param name="format">
-		/// Specifies the format of the compressed image data stored at address data.
+		/// Specifies the format of the compressed image data stored at address <paramref name="data"/>.
 		/// </param>
 		/// <param name="imageSize">
-		/// Specifies the number of unsigned bytes of image data starting at the address specified by data.
+		/// Specifies the number of unsigned bytes of image data starting at the address specified by <paramref name="data"/>.
 		/// </param>
 		/// <param name="data">
 		/// Specifies a pointer to the compressed image data in memory.
 		/// </param>
+		/// <remarks>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated if <paramref name="internalformat"/> is not one of the generic compressed internal formats: 
+		/// Gl.COMPRESSED_RED, Gl.COMPRESSED_RG, Gl.COMPRESSED_RGB, Gl.COMPRESSED_RGBA. Gl.COMPRESSED_SRGB, or 
+		/// Gl.COMPRESSED_SRGB_ALPHA.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_VALUE is generated if <paramref name="imageSize"/> is not consistent with the format, dimensions, and 
+		/// contents of the specified compressed image data.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if parameter combinations are not supported by the specific compressed internal format 
+		/// as specified in the specific texture compression extension.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if a non-zero buffer object name is bound to the Gl.PIXEL_UNPACK_BUFFER target and the 
+		/// buffer object's data store is currently mapped.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if a non-zero buffer object name is bound to the Gl.PIXEL_UNPACK_BUFFER target and the 
+		/// data would be unpacked from the buffer object such that the memory reads required would exceed the data store size.
+		/// <exception cref="InvalidOperationException">
+		/// GL_INVALID_OPERATION is generated by Gl.CompressedTextureSubImage1D function if texture is not the name of an existing 
+		/// texture object.
+		/// <exception cref="InvalidOperationException">
+		/// Undefined results, including abnormal program termination, are generated if <paramref name="data"/> is not encoded in a 
+		/// manner consistent with the extension specification defining the internal compression format.
+		/// </exception>
+		/// <seealso cref="Gl.ActiveTexture"/>
+		/// <seealso cref="Gl.CompressedTexImage1D"/>
+		/// <seealso cref="Gl.CompressedTexImage2D"/>
+		/// <seealso cref="Gl.CompressedTexImage3D"/>
+		/// <seealso cref="Gl.CompressedTexSubImage2D"/>
+		/// <seealso cref="Gl.CompressedTexSubImage3D"/>
+		/// <seealso cref="Gl.CopyTexImage1D"/>
+		/// <seealso cref="Gl.CopyTexImage2D"/>
+		/// <seealso cref="Gl.CopyTexSubImage1D"/>
+		/// <seealso cref="Gl.CopyTexSubImage2D"/>
+		/// <seealso cref="Gl.CopyTexSubImage3D"/>
+		/// <seealso cref="Gl.PixelStore"/>
+		/// <seealso cref="Gl.TexImage2D"/>
+		/// <seealso cref="Gl.TexImage3D"/>
+		/// <seealso cref="Gl.TexSubImage1D"/>
+		/// <seealso cref="Gl.TexSubImage2D"/>
+		/// <seealso cref="Gl.TexSubImage3D"/>
+		/// <seealso cref="Gl.TexParameter"/>
 		[RequiredByFeature("GL_VERSION_1_3")]
 		public static void CompressedTexSubImage1D(TextureTarget target, Int32 level, Int32 xoffset, Int32 width, PixelFormat format, Int32 imageSize, Object data)
 		{
@@ -1491,10 +2095,10 @@ namespace OpenGL
 		/// return a compressed texture image
 		/// </summary>
 		/// <param name="target">
-		/// Specifies the target to which the texture is bound for glGetCompressedTexImage and glGetnCompressedTexImage functions. 
-		/// GL_TEXTURE_1D, GL_TEXTURE_1D_ARRAY, GL_TEXTURE_2D, GL_TEXTURE_2D_ARRAY, GL_TEXTURE_3D, GL_TEXTURE_CUBE_MAP_ARRAY, 
-		/// GL_TEXTURE_CUBE_MAP_POSITIVE_X, GL_TEXTURE_CUBE_MAP_NEGATIVE_X, GL_TEXTURE_CUBE_MAP_POSITIVE_Y, 
-		/// GL_TEXTURE_CUBE_MAP_NEGATIVE_Y, GL_TEXTURE_CUBE_MAP_POSITIVE_Z, and GL_TEXTURE_CUBE_MAP_NEGATIVE_Z, GL_TEXTURE_RECTANGLE 
+		/// Specifies the target to which the texture is bound for Gl.GetCompressedTexImage and Gl.GetnCompressedTexImage functions. 
+		/// Gl.TEXTURE_1D, Gl.TEXTURE_1D_ARRAY, Gl.TEXTURE_2D, Gl.TEXTURE_2D_ARRAY, Gl.TEXTURE_3D, Gl.TEXTURE_CUBE_MAP_ARRAY, 
+		/// Gl.TEXTURE_CUBE_MAP_POSITIVE_X, Gl.TEXTURE_CUBE_MAP_NEGATIVE_X, Gl.TEXTURE_CUBE_MAP_POSITIVE_Y, 
+		/// Gl.TEXTURE_CUBE_MAP_NEGATIVE_Y, Gl.TEXTURE_CUBE_MAP_POSITIVE_Z, and Gl.TEXTURE_CUBE_MAP_NEGATIVE_Z, Gl.TEXTURE_RECTANGLE 
 		/// are accepted.
 		/// </param>
 		/// <param name="level">
@@ -1504,6 +2108,40 @@ namespace OpenGL
 		/// <param name="img">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
+		/// <remarks>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated by Gl.GetCompressedTextureImage if <paramref name="texture"/> is not the name of an 
+		/// existing texture object.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_VALUE is generated if <paramref name="level"/> is less than zero or greater than the maximum number of LODs 
+		/// permitted by the implementation.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if Gl.GetCompressedTexImage, Gl.GetnCompressedTexImage, and 
+		/// Gl.GetCompressedTextureImage is used to retrieve a texture that is in an uncompressed internal format.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if a non-zero buffer object name is bound to the Gl.PIXEL_PACK_BUFFER target, the 
+		/// buffer storage was not initialized with Gl.BufferStorage using Gl.MAP_PERSISTENT_BIT flag, and the buffer object's data 
+		/// store is currently mapped.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if a non-zero buffer object name is bound to the Gl.PIXEL_PACK_BUFFER target and the 
+		/// data would be packed to the buffer object such that the memory writes required would exceed the data store size.
+		/// </exception>
+		/// <seealso cref="Gl.ActiveTexture"/>
+		/// <seealso cref="Gl.CompressedTexImage1D"/>
+		/// <seealso cref="Gl.CompressedTexImage2D"/>
+		/// <seealso cref="Gl.CompressedTexImage3D"/>
+		/// <seealso cref="Gl.CompressedTexSubImage1D"/>
+		/// <seealso cref="Gl.CompressedTexSubImage2D"/>
+		/// <seealso cref="Gl.CompressedTexSubImage3D"/>
+		/// <seealso cref="Gl.ReadPixels"/>
+		/// <seealso cref="Gl.TexImage1D"/>
+		/// <seealso cref="Gl.TexImage2D"/>
+		/// <seealso cref="Gl.TexImage3D"/>
+		/// <seealso cref="Gl.TexParameter"/>
+		/// <seealso cref="Gl.TexSubImage1D"/>
+		/// <seealso cref="Gl.TexSubImage2D"/>
+		/// <seealso cref="Gl.TexSubImage3D"/>
 		[RequiredByFeature("GL_VERSION_1_3")]
 		public static void GetCompressedTexImage(TextureTarget target, Int32 level, IntPtr img)
 		{
@@ -1517,10 +2155,10 @@ namespace OpenGL
 		/// return a compressed texture image
 		/// </summary>
 		/// <param name="target">
-		/// Specifies the target to which the texture is bound for glGetCompressedTexImage and glGetnCompressedTexImage functions. 
-		/// GL_TEXTURE_1D, GL_TEXTURE_1D_ARRAY, GL_TEXTURE_2D, GL_TEXTURE_2D_ARRAY, GL_TEXTURE_3D, GL_TEXTURE_CUBE_MAP_ARRAY, 
-		/// GL_TEXTURE_CUBE_MAP_POSITIVE_X, GL_TEXTURE_CUBE_MAP_NEGATIVE_X, GL_TEXTURE_CUBE_MAP_POSITIVE_Y, 
-		/// GL_TEXTURE_CUBE_MAP_NEGATIVE_Y, GL_TEXTURE_CUBE_MAP_POSITIVE_Z, and GL_TEXTURE_CUBE_MAP_NEGATIVE_Z, GL_TEXTURE_RECTANGLE 
+		/// Specifies the target to which the texture is bound for Gl.GetCompressedTexImage and Gl.GetnCompressedTexImage functions. 
+		/// Gl.TEXTURE_1D, Gl.TEXTURE_1D_ARRAY, Gl.TEXTURE_2D, Gl.TEXTURE_2D_ARRAY, Gl.TEXTURE_3D, Gl.TEXTURE_CUBE_MAP_ARRAY, 
+		/// Gl.TEXTURE_CUBE_MAP_POSITIVE_X, Gl.TEXTURE_CUBE_MAP_NEGATIVE_X, Gl.TEXTURE_CUBE_MAP_POSITIVE_Y, 
+		/// Gl.TEXTURE_CUBE_MAP_NEGATIVE_Y, Gl.TEXTURE_CUBE_MAP_POSITIVE_Z, and Gl.TEXTURE_CUBE_MAP_NEGATIVE_Z, Gl.TEXTURE_RECTANGLE 
 		/// are accepted.
 		/// </param>
 		/// <param name="level">
@@ -1530,6 +2168,40 @@ namespace OpenGL
 		/// <param name="img">
 		/// A <see cref="T:Object"/>.
 		/// </param>
+		/// <remarks>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated by Gl.GetCompressedTextureImage if <paramref name="texture"/> is not the name of an 
+		/// existing texture object.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_VALUE is generated if <paramref name="level"/> is less than zero or greater than the maximum number of LODs 
+		/// permitted by the implementation.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if Gl.GetCompressedTexImage, Gl.GetnCompressedTexImage, and 
+		/// Gl.GetCompressedTextureImage is used to retrieve a texture that is in an uncompressed internal format.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if a non-zero buffer object name is bound to the Gl.PIXEL_PACK_BUFFER target, the 
+		/// buffer storage was not initialized with Gl.BufferStorage using Gl.MAP_PERSISTENT_BIT flag, and the buffer object's data 
+		/// store is currently mapped.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if a non-zero buffer object name is bound to the Gl.PIXEL_PACK_BUFFER target and the 
+		/// data would be packed to the buffer object such that the memory writes required would exceed the data store size.
+		/// </exception>
+		/// <seealso cref="Gl.ActiveTexture"/>
+		/// <seealso cref="Gl.CompressedTexImage1D"/>
+		/// <seealso cref="Gl.CompressedTexImage2D"/>
+		/// <seealso cref="Gl.CompressedTexImage3D"/>
+		/// <seealso cref="Gl.CompressedTexSubImage1D"/>
+		/// <seealso cref="Gl.CompressedTexSubImage2D"/>
+		/// <seealso cref="Gl.CompressedTexSubImage3D"/>
+		/// <seealso cref="Gl.ReadPixels"/>
+		/// <seealso cref="Gl.TexImage1D"/>
+		/// <seealso cref="Gl.TexImage2D"/>
+		/// <seealso cref="Gl.TexImage3D"/>
+		/// <seealso cref="Gl.TexParameter"/>
+		/// <seealso cref="Gl.TexSubImage1D"/>
+		/// <seealso cref="Gl.TexSubImage2D"/>
+		/// <seealso cref="Gl.TexSubImage3D"/>
 		[RequiredByFeature("GL_VERSION_1_3")]
 		public static void GetCompressedTexImage(TextureTarget target, Int32 level, Object img)
 		{
@@ -1546,10 +2218,20 @@ namespace OpenGL
 		/// </summary>
 		/// <param name="texture">
 		/// Specifies which texture unit to make active. The number of texture units is implementation dependent, but must be at 
-		/// least two. <paramref name="texture"/> must be one of <see cref="Gl.TEXTURE"/>i, where i ranges from 0 to the value of 
-		/// <see cref="Gl.MAX_TEXTURE_COORDS"/> - 1, which is an implementation-dependent value. The initial value is <see 
-		/// cref="Gl.TEXTURE0"/>.
+		/// least two. <paramref name="texture"/> must be one of Gl.TEXTUREi, where i ranges from 0 to the value of 
+		/// Gl.MAX_TEXTURE_COORDS - 1, which is an implementation-dependent value. The initial value is Gl.TEXTURE0.
 		/// </param>
+		/// <remarks>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated if <paramref name="texture"/> is not one of Gl.TEXTUREi, where i ranges from 0 to the value 
+		/// of Gl.MAX_TEXTURE_COORDS - 1.
+		/// </exception>
+		/// <seealso cref="Gl.ActiveTexture"/>
+		/// <seealso cref="Gl.DisableClientState"/>
+		/// <seealso cref="Gl.EnableClientState"/>
+		/// <seealso cref="Gl.MultiTexCoord"/>
+		/// <seealso cref="Gl.TexCoordPointer"/>
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void ClientActiveTexture(int texture)
@@ -1565,13 +2247,18 @@ namespace OpenGL
 		/// </summary>
 		/// <param name="target">
 		/// Specifies the texture unit whose coordinates should be modified. The number of texture units is implementation 
-		/// dependent, but must be at least two. Symbolic constant must be one of <see cref="Gl.TEXTURE"/>i, where i ranges from 0 
-		/// to <see cref="Gl.MAX_TEXTURE_COORDS"/> - 1, which is an implementation-dependent value.
+		/// dependent, but must be at least two. Symbolic constant must be one of Gl.TEXTUREi, where i ranges from 0 to 
+		/// Gl.MAX_TEXTURE_COORDS - 1, which is an implementation-dependent value.
 		/// </param>
 		/// <param name="s">
 		/// Specify <paramref name="s"/>, <paramref name="t"/>, <paramref name="r"/>, and <paramref name="q"/> texture coordinates 
 		/// for <paramref name="target"/> texture unit. Not all parameters are present in all forms of the command.
 		/// </param>
+		/// <seealso cref="Gl.ActiveTexture"/>
+		/// <seealso cref="Gl.ClientActiveTexture"/>
+		/// <seealso cref="Gl.TexCoord"/>
+		/// <seealso cref="Gl.TexCoordPointer"/>
+		/// <seealso cref="Gl.Vertex"/>
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void MultiTexCoord1(int target, double s)
@@ -1587,12 +2274,17 @@ namespace OpenGL
 		/// </summary>
 		/// <param name="target">
 		/// Specifies the texture unit whose coordinates should be modified. The number of texture units is implementation 
-		/// dependent, but must be at least two. Symbolic constant must be one of <see cref="Gl.TEXTURE"/>i, where i ranges from 0 
-		/// to <see cref="Gl.MAX_TEXTURE_COORDS"/> - 1, which is an implementation-dependent value.
+		/// dependent, but must be at least two. Symbolic constant must be one of Gl.TEXTUREi, where i ranges from 0 to 
+		/// Gl.MAX_TEXTURE_COORDS - 1, which is an implementation-dependent value.
 		/// </param>
 		/// <param name="v">
 		/// A <see cref="T:double[]"/>.
 		/// </param>
+		/// <seealso cref="Gl.ActiveTexture"/>
+		/// <seealso cref="Gl.ClientActiveTexture"/>
+		/// <seealso cref="Gl.TexCoord"/>
+		/// <seealso cref="Gl.TexCoordPointer"/>
+		/// <seealso cref="Gl.Vertex"/>
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void MultiTexCoord1(int target, double[] v)
@@ -1613,13 +2305,18 @@ namespace OpenGL
 		/// </summary>
 		/// <param name="target">
 		/// Specifies the texture unit whose coordinates should be modified. The number of texture units is implementation 
-		/// dependent, but must be at least two. Symbolic constant must be one of <see cref="Gl.TEXTURE"/>i, where i ranges from 0 
-		/// to <see cref="Gl.MAX_TEXTURE_COORDS"/> - 1, which is an implementation-dependent value.
+		/// dependent, but must be at least two. Symbolic constant must be one of Gl.TEXTUREi, where i ranges from 0 to 
+		/// Gl.MAX_TEXTURE_COORDS - 1, which is an implementation-dependent value.
 		/// </param>
 		/// <param name="s">
 		/// Specify <paramref name="s"/>, <paramref name="t"/>, <paramref name="r"/>, and <paramref name="q"/> texture coordinates 
 		/// for <paramref name="target"/> texture unit. Not all parameters are present in all forms of the command.
 		/// </param>
+		/// <seealso cref="Gl.ActiveTexture"/>
+		/// <seealso cref="Gl.ClientActiveTexture"/>
+		/// <seealso cref="Gl.TexCoord"/>
+		/// <seealso cref="Gl.TexCoordPointer"/>
+		/// <seealso cref="Gl.Vertex"/>
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void MultiTexCoord1(int target, float s)
@@ -1635,12 +2332,17 @@ namespace OpenGL
 		/// </summary>
 		/// <param name="target">
 		/// Specifies the texture unit whose coordinates should be modified. The number of texture units is implementation 
-		/// dependent, but must be at least two. Symbolic constant must be one of <see cref="Gl.TEXTURE"/>i, where i ranges from 0 
-		/// to <see cref="Gl.MAX_TEXTURE_COORDS"/> - 1, which is an implementation-dependent value.
+		/// dependent, but must be at least two. Symbolic constant must be one of Gl.TEXTUREi, where i ranges from 0 to 
+		/// Gl.MAX_TEXTURE_COORDS - 1, which is an implementation-dependent value.
 		/// </param>
 		/// <param name="v">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
+		/// <seealso cref="Gl.ActiveTexture"/>
+		/// <seealso cref="Gl.ClientActiveTexture"/>
+		/// <seealso cref="Gl.TexCoord"/>
+		/// <seealso cref="Gl.TexCoordPointer"/>
+		/// <seealso cref="Gl.Vertex"/>
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void MultiTexCoord1(int target, float[] v)
@@ -1661,13 +2363,18 @@ namespace OpenGL
 		/// </summary>
 		/// <param name="target">
 		/// Specifies the texture unit whose coordinates should be modified. The number of texture units is implementation 
-		/// dependent, but must be at least two. Symbolic constant must be one of <see cref="Gl.TEXTURE"/>i, where i ranges from 0 
-		/// to <see cref="Gl.MAX_TEXTURE_COORDS"/> - 1, which is an implementation-dependent value.
+		/// dependent, but must be at least two. Symbolic constant must be one of Gl.TEXTUREi, where i ranges from 0 to 
+		/// Gl.MAX_TEXTURE_COORDS - 1, which is an implementation-dependent value.
 		/// </param>
 		/// <param name="s">
 		/// Specify <paramref name="s"/>, <paramref name="t"/>, <paramref name="r"/>, and <paramref name="q"/> texture coordinates 
 		/// for <paramref name="target"/> texture unit. Not all parameters are present in all forms of the command.
 		/// </param>
+		/// <seealso cref="Gl.ActiveTexture"/>
+		/// <seealso cref="Gl.ClientActiveTexture"/>
+		/// <seealso cref="Gl.TexCoord"/>
+		/// <seealso cref="Gl.TexCoordPointer"/>
+		/// <seealso cref="Gl.Vertex"/>
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void MultiTexCoord1(int target, Int32 s)
@@ -1683,12 +2390,17 @@ namespace OpenGL
 		/// </summary>
 		/// <param name="target">
 		/// Specifies the texture unit whose coordinates should be modified. The number of texture units is implementation 
-		/// dependent, but must be at least two. Symbolic constant must be one of <see cref="Gl.TEXTURE"/>i, where i ranges from 0 
-		/// to <see cref="Gl.MAX_TEXTURE_COORDS"/> - 1, which is an implementation-dependent value.
+		/// dependent, but must be at least two. Symbolic constant must be one of Gl.TEXTUREi, where i ranges from 0 to 
+		/// Gl.MAX_TEXTURE_COORDS - 1, which is an implementation-dependent value.
 		/// </param>
 		/// <param name="v">
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
+		/// <seealso cref="Gl.ActiveTexture"/>
+		/// <seealso cref="Gl.ClientActiveTexture"/>
+		/// <seealso cref="Gl.TexCoord"/>
+		/// <seealso cref="Gl.TexCoordPointer"/>
+		/// <seealso cref="Gl.Vertex"/>
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void MultiTexCoord1(int target, Int32[] v)
@@ -1709,13 +2421,18 @@ namespace OpenGL
 		/// </summary>
 		/// <param name="target">
 		/// Specifies the texture unit whose coordinates should be modified. The number of texture units is implementation 
-		/// dependent, but must be at least two. Symbolic constant must be one of <see cref="Gl.TEXTURE"/>i, where i ranges from 0 
-		/// to <see cref="Gl.MAX_TEXTURE_COORDS"/> - 1, which is an implementation-dependent value.
+		/// dependent, but must be at least two. Symbolic constant must be one of Gl.TEXTUREi, where i ranges from 0 to 
+		/// Gl.MAX_TEXTURE_COORDS - 1, which is an implementation-dependent value.
 		/// </param>
 		/// <param name="s">
 		/// Specify <paramref name="s"/>, <paramref name="t"/>, <paramref name="r"/>, and <paramref name="q"/> texture coordinates 
 		/// for <paramref name="target"/> texture unit. Not all parameters are present in all forms of the command.
 		/// </param>
+		/// <seealso cref="Gl.ActiveTexture"/>
+		/// <seealso cref="Gl.ClientActiveTexture"/>
+		/// <seealso cref="Gl.TexCoord"/>
+		/// <seealso cref="Gl.TexCoordPointer"/>
+		/// <seealso cref="Gl.Vertex"/>
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void MultiTexCoord1(int target, Int16 s)
@@ -1731,12 +2448,17 @@ namespace OpenGL
 		/// </summary>
 		/// <param name="target">
 		/// Specifies the texture unit whose coordinates should be modified. The number of texture units is implementation 
-		/// dependent, but must be at least two. Symbolic constant must be one of <see cref="Gl.TEXTURE"/>i, where i ranges from 0 
-		/// to <see cref="Gl.MAX_TEXTURE_COORDS"/> - 1, which is an implementation-dependent value.
+		/// dependent, but must be at least two. Symbolic constant must be one of Gl.TEXTUREi, where i ranges from 0 to 
+		/// Gl.MAX_TEXTURE_COORDS - 1, which is an implementation-dependent value.
 		/// </param>
 		/// <param name="v">
 		/// A <see cref="T:Int16[]"/>.
 		/// </param>
+		/// <seealso cref="Gl.ActiveTexture"/>
+		/// <seealso cref="Gl.ClientActiveTexture"/>
+		/// <seealso cref="Gl.TexCoord"/>
+		/// <seealso cref="Gl.TexCoordPointer"/>
+		/// <seealso cref="Gl.Vertex"/>
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void MultiTexCoord1(int target, Int16[] v)
@@ -1757,8 +2479,8 @@ namespace OpenGL
 		/// </summary>
 		/// <param name="target">
 		/// Specifies the texture unit whose coordinates should be modified. The number of texture units is implementation 
-		/// dependent, but must be at least two. Symbolic constant must be one of <see cref="Gl.TEXTURE"/>i, where i ranges from 0 
-		/// to <see cref="Gl.MAX_TEXTURE_COORDS"/> - 1, which is an implementation-dependent value.
+		/// dependent, but must be at least two. Symbolic constant must be one of Gl.TEXTUREi, where i ranges from 0 to 
+		/// Gl.MAX_TEXTURE_COORDS - 1, which is an implementation-dependent value.
 		/// </param>
 		/// <param name="s">
 		/// Specify <paramref name="s"/>, <paramref name="t"/>, <paramref name="r"/>, and <paramref name="q"/> texture coordinates 
@@ -1768,6 +2490,11 @@ namespace OpenGL
 		/// Specify <paramref name="s"/>, <paramref name="t"/>, <paramref name="r"/>, and <paramref name="q"/> texture coordinates 
 		/// for <paramref name="target"/> texture unit. Not all parameters are present in all forms of the command.
 		/// </param>
+		/// <seealso cref="Gl.ActiveTexture"/>
+		/// <seealso cref="Gl.ClientActiveTexture"/>
+		/// <seealso cref="Gl.TexCoord"/>
+		/// <seealso cref="Gl.TexCoordPointer"/>
+		/// <seealso cref="Gl.Vertex"/>
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void MultiTexCoord2(int target, double s, double t)
@@ -1783,12 +2510,17 @@ namespace OpenGL
 		/// </summary>
 		/// <param name="target">
 		/// Specifies the texture unit whose coordinates should be modified. The number of texture units is implementation 
-		/// dependent, but must be at least two. Symbolic constant must be one of <see cref="Gl.TEXTURE"/>i, where i ranges from 0 
-		/// to <see cref="Gl.MAX_TEXTURE_COORDS"/> - 1, which is an implementation-dependent value.
+		/// dependent, but must be at least two. Symbolic constant must be one of Gl.TEXTUREi, where i ranges from 0 to 
+		/// Gl.MAX_TEXTURE_COORDS - 1, which is an implementation-dependent value.
 		/// </param>
 		/// <param name="v">
 		/// A <see cref="T:double[]"/>.
 		/// </param>
+		/// <seealso cref="Gl.ActiveTexture"/>
+		/// <seealso cref="Gl.ClientActiveTexture"/>
+		/// <seealso cref="Gl.TexCoord"/>
+		/// <seealso cref="Gl.TexCoordPointer"/>
+		/// <seealso cref="Gl.Vertex"/>
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void MultiTexCoord2(int target, double[] v)
@@ -1809,8 +2541,8 @@ namespace OpenGL
 		/// </summary>
 		/// <param name="target">
 		/// Specifies the texture unit whose coordinates should be modified. The number of texture units is implementation 
-		/// dependent, but must be at least two. Symbolic constant must be one of <see cref="Gl.TEXTURE"/>i, where i ranges from 0 
-		/// to <see cref="Gl.MAX_TEXTURE_COORDS"/> - 1, which is an implementation-dependent value.
+		/// dependent, but must be at least two. Symbolic constant must be one of Gl.TEXTUREi, where i ranges from 0 to 
+		/// Gl.MAX_TEXTURE_COORDS - 1, which is an implementation-dependent value.
 		/// </param>
 		/// <param name="s">
 		/// Specify <paramref name="s"/>, <paramref name="t"/>, <paramref name="r"/>, and <paramref name="q"/> texture coordinates 
@@ -1820,6 +2552,11 @@ namespace OpenGL
 		/// Specify <paramref name="s"/>, <paramref name="t"/>, <paramref name="r"/>, and <paramref name="q"/> texture coordinates 
 		/// for <paramref name="target"/> texture unit. Not all parameters are present in all forms of the command.
 		/// </param>
+		/// <seealso cref="Gl.ActiveTexture"/>
+		/// <seealso cref="Gl.ClientActiveTexture"/>
+		/// <seealso cref="Gl.TexCoord"/>
+		/// <seealso cref="Gl.TexCoordPointer"/>
+		/// <seealso cref="Gl.Vertex"/>
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void MultiTexCoord2(int target, float s, float t)
@@ -1835,12 +2572,17 @@ namespace OpenGL
 		/// </summary>
 		/// <param name="target">
 		/// Specifies the texture unit whose coordinates should be modified. The number of texture units is implementation 
-		/// dependent, but must be at least two. Symbolic constant must be one of <see cref="Gl.TEXTURE"/>i, where i ranges from 0 
-		/// to <see cref="Gl.MAX_TEXTURE_COORDS"/> - 1, which is an implementation-dependent value.
+		/// dependent, but must be at least two. Symbolic constant must be one of Gl.TEXTUREi, where i ranges from 0 to 
+		/// Gl.MAX_TEXTURE_COORDS - 1, which is an implementation-dependent value.
 		/// </param>
 		/// <param name="v">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
+		/// <seealso cref="Gl.ActiveTexture"/>
+		/// <seealso cref="Gl.ClientActiveTexture"/>
+		/// <seealso cref="Gl.TexCoord"/>
+		/// <seealso cref="Gl.TexCoordPointer"/>
+		/// <seealso cref="Gl.Vertex"/>
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void MultiTexCoord2(int target, float[] v)
@@ -1861,8 +2603,8 @@ namespace OpenGL
 		/// </summary>
 		/// <param name="target">
 		/// Specifies the texture unit whose coordinates should be modified. The number of texture units is implementation 
-		/// dependent, but must be at least two. Symbolic constant must be one of <see cref="Gl.TEXTURE"/>i, where i ranges from 0 
-		/// to <see cref="Gl.MAX_TEXTURE_COORDS"/> - 1, which is an implementation-dependent value.
+		/// dependent, but must be at least two. Symbolic constant must be one of Gl.TEXTUREi, where i ranges from 0 to 
+		/// Gl.MAX_TEXTURE_COORDS - 1, which is an implementation-dependent value.
 		/// </param>
 		/// <param name="s">
 		/// Specify <paramref name="s"/>, <paramref name="t"/>, <paramref name="r"/>, and <paramref name="q"/> texture coordinates 
@@ -1872,6 +2614,11 @@ namespace OpenGL
 		/// Specify <paramref name="s"/>, <paramref name="t"/>, <paramref name="r"/>, and <paramref name="q"/> texture coordinates 
 		/// for <paramref name="target"/> texture unit. Not all parameters are present in all forms of the command.
 		/// </param>
+		/// <seealso cref="Gl.ActiveTexture"/>
+		/// <seealso cref="Gl.ClientActiveTexture"/>
+		/// <seealso cref="Gl.TexCoord"/>
+		/// <seealso cref="Gl.TexCoordPointer"/>
+		/// <seealso cref="Gl.Vertex"/>
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void MultiTexCoord2(int target, Int32 s, Int32 t)
@@ -1887,12 +2634,17 @@ namespace OpenGL
 		/// </summary>
 		/// <param name="target">
 		/// Specifies the texture unit whose coordinates should be modified. The number of texture units is implementation 
-		/// dependent, but must be at least two. Symbolic constant must be one of <see cref="Gl.TEXTURE"/>i, where i ranges from 0 
-		/// to <see cref="Gl.MAX_TEXTURE_COORDS"/> - 1, which is an implementation-dependent value.
+		/// dependent, but must be at least two. Symbolic constant must be one of Gl.TEXTUREi, where i ranges from 0 to 
+		/// Gl.MAX_TEXTURE_COORDS - 1, which is an implementation-dependent value.
 		/// </param>
 		/// <param name="v">
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
+		/// <seealso cref="Gl.ActiveTexture"/>
+		/// <seealso cref="Gl.ClientActiveTexture"/>
+		/// <seealso cref="Gl.TexCoord"/>
+		/// <seealso cref="Gl.TexCoordPointer"/>
+		/// <seealso cref="Gl.Vertex"/>
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void MultiTexCoord2(int target, Int32[] v)
@@ -1913,8 +2665,8 @@ namespace OpenGL
 		/// </summary>
 		/// <param name="target">
 		/// Specifies the texture unit whose coordinates should be modified. The number of texture units is implementation 
-		/// dependent, but must be at least two. Symbolic constant must be one of <see cref="Gl.TEXTURE"/>i, where i ranges from 0 
-		/// to <see cref="Gl.MAX_TEXTURE_COORDS"/> - 1, which is an implementation-dependent value.
+		/// dependent, but must be at least two. Symbolic constant must be one of Gl.TEXTUREi, where i ranges from 0 to 
+		/// Gl.MAX_TEXTURE_COORDS - 1, which is an implementation-dependent value.
 		/// </param>
 		/// <param name="s">
 		/// Specify <paramref name="s"/>, <paramref name="t"/>, <paramref name="r"/>, and <paramref name="q"/> texture coordinates 
@@ -1924,6 +2676,11 @@ namespace OpenGL
 		/// Specify <paramref name="s"/>, <paramref name="t"/>, <paramref name="r"/>, and <paramref name="q"/> texture coordinates 
 		/// for <paramref name="target"/> texture unit. Not all parameters are present in all forms of the command.
 		/// </param>
+		/// <seealso cref="Gl.ActiveTexture"/>
+		/// <seealso cref="Gl.ClientActiveTexture"/>
+		/// <seealso cref="Gl.TexCoord"/>
+		/// <seealso cref="Gl.TexCoordPointer"/>
+		/// <seealso cref="Gl.Vertex"/>
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void MultiTexCoord2(int target, Int16 s, Int16 t)
@@ -1939,12 +2696,17 @@ namespace OpenGL
 		/// </summary>
 		/// <param name="target">
 		/// Specifies the texture unit whose coordinates should be modified. The number of texture units is implementation 
-		/// dependent, but must be at least two. Symbolic constant must be one of <see cref="Gl.TEXTURE"/>i, where i ranges from 0 
-		/// to <see cref="Gl.MAX_TEXTURE_COORDS"/> - 1, which is an implementation-dependent value.
+		/// dependent, but must be at least two. Symbolic constant must be one of Gl.TEXTUREi, where i ranges from 0 to 
+		/// Gl.MAX_TEXTURE_COORDS - 1, which is an implementation-dependent value.
 		/// </param>
 		/// <param name="v">
 		/// A <see cref="T:Int16[]"/>.
 		/// </param>
+		/// <seealso cref="Gl.ActiveTexture"/>
+		/// <seealso cref="Gl.ClientActiveTexture"/>
+		/// <seealso cref="Gl.TexCoord"/>
+		/// <seealso cref="Gl.TexCoordPointer"/>
+		/// <seealso cref="Gl.Vertex"/>
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void MultiTexCoord2(int target, Int16[] v)
@@ -1965,8 +2727,8 @@ namespace OpenGL
 		/// </summary>
 		/// <param name="target">
 		/// Specifies the texture unit whose coordinates should be modified. The number of texture units is implementation 
-		/// dependent, but must be at least two. Symbolic constant must be one of <see cref="Gl.TEXTURE"/>i, where i ranges from 0 
-		/// to <see cref="Gl.MAX_TEXTURE_COORDS"/> - 1, which is an implementation-dependent value.
+		/// dependent, but must be at least two. Symbolic constant must be one of Gl.TEXTUREi, where i ranges from 0 to 
+		/// Gl.MAX_TEXTURE_COORDS - 1, which is an implementation-dependent value.
 		/// </param>
 		/// <param name="s">
 		/// Specify <paramref name="s"/>, <paramref name="t"/>, <paramref name="r"/>, and <paramref name="q"/> texture coordinates 
@@ -1980,6 +2742,11 @@ namespace OpenGL
 		/// Specify <paramref name="s"/>, <paramref name="t"/>, <paramref name="r"/>, and <paramref name="q"/> texture coordinates 
 		/// for <paramref name="target"/> texture unit. Not all parameters are present in all forms of the command.
 		/// </param>
+		/// <seealso cref="Gl.ActiveTexture"/>
+		/// <seealso cref="Gl.ClientActiveTexture"/>
+		/// <seealso cref="Gl.TexCoord"/>
+		/// <seealso cref="Gl.TexCoordPointer"/>
+		/// <seealso cref="Gl.Vertex"/>
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void MultiTexCoord3(int target, double s, double t, double r)
@@ -1995,12 +2762,17 @@ namespace OpenGL
 		/// </summary>
 		/// <param name="target">
 		/// Specifies the texture unit whose coordinates should be modified. The number of texture units is implementation 
-		/// dependent, but must be at least two. Symbolic constant must be one of <see cref="Gl.TEXTURE"/>i, where i ranges from 0 
-		/// to <see cref="Gl.MAX_TEXTURE_COORDS"/> - 1, which is an implementation-dependent value.
+		/// dependent, but must be at least two. Symbolic constant must be one of Gl.TEXTUREi, where i ranges from 0 to 
+		/// Gl.MAX_TEXTURE_COORDS - 1, which is an implementation-dependent value.
 		/// </param>
 		/// <param name="v">
 		/// A <see cref="T:double[]"/>.
 		/// </param>
+		/// <seealso cref="Gl.ActiveTexture"/>
+		/// <seealso cref="Gl.ClientActiveTexture"/>
+		/// <seealso cref="Gl.TexCoord"/>
+		/// <seealso cref="Gl.TexCoordPointer"/>
+		/// <seealso cref="Gl.Vertex"/>
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void MultiTexCoord3(int target, double[] v)
@@ -2021,8 +2793,8 @@ namespace OpenGL
 		/// </summary>
 		/// <param name="target">
 		/// Specifies the texture unit whose coordinates should be modified. The number of texture units is implementation 
-		/// dependent, but must be at least two. Symbolic constant must be one of <see cref="Gl.TEXTURE"/>i, where i ranges from 0 
-		/// to <see cref="Gl.MAX_TEXTURE_COORDS"/> - 1, which is an implementation-dependent value.
+		/// dependent, but must be at least two. Symbolic constant must be one of Gl.TEXTUREi, where i ranges from 0 to 
+		/// Gl.MAX_TEXTURE_COORDS - 1, which is an implementation-dependent value.
 		/// </param>
 		/// <param name="s">
 		/// Specify <paramref name="s"/>, <paramref name="t"/>, <paramref name="r"/>, and <paramref name="q"/> texture coordinates 
@@ -2036,6 +2808,11 @@ namespace OpenGL
 		/// Specify <paramref name="s"/>, <paramref name="t"/>, <paramref name="r"/>, and <paramref name="q"/> texture coordinates 
 		/// for <paramref name="target"/> texture unit. Not all parameters are present in all forms of the command.
 		/// </param>
+		/// <seealso cref="Gl.ActiveTexture"/>
+		/// <seealso cref="Gl.ClientActiveTexture"/>
+		/// <seealso cref="Gl.TexCoord"/>
+		/// <seealso cref="Gl.TexCoordPointer"/>
+		/// <seealso cref="Gl.Vertex"/>
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void MultiTexCoord3(int target, float s, float t, float r)
@@ -2051,12 +2828,17 @@ namespace OpenGL
 		/// </summary>
 		/// <param name="target">
 		/// Specifies the texture unit whose coordinates should be modified. The number of texture units is implementation 
-		/// dependent, but must be at least two. Symbolic constant must be one of <see cref="Gl.TEXTURE"/>i, where i ranges from 0 
-		/// to <see cref="Gl.MAX_TEXTURE_COORDS"/> - 1, which is an implementation-dependent value.
+		/// dependent, but must be at least two. Symbolic constant must be one of Gl.TEXTUREi, where i ranges from 0 to 
+		/// Gl.MAX_TEXTURE_COORDS - 1, which is an implementation-dependent value.
 		/// </param>
 		/// <param name="v">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
+		/// <seealso cref="Gl.ActiveTexture"/>
+		/// <seealso cref="Gl.ClientActiveTexture"/>
+		/// <seealso cref="Gl.TexCoord"/>
+		/// <seealso cref="Gl.TexCoordPointer"/>
+		/// <seealso cref="Gl.Vertex"/>
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void MultiTexCoord3(int target, float[] v)
@@ -2077,8 +2859,8 @@ namespace OpenGL
 		/// </summary>
 		/// <param name="target">
 		/// Specifies the texture unit whose coordinates should be modified. The number of texture units is implementation 
-		/// dependent, but must be at least two. Symbolic constant must be one of <see cref="Gl.TEXTURE"/>i, where i ranges from 0 
-		/// to <see cref="Gl.MAX_TEXTURE_COORDS"/> - 1, which is an implementation-dependent value.
+		/// dependent, but must be at least two. Symbolic constant must be one of Gl.TEXTUREi, where i ranges from 0 to 
+		/// Gl.MAX_TEXTURE_COORDS - 1, which is an implementation-dependent value.
 		/// </param>
 		/// <param name="s">
 		/// Specify <paramref name="s"/>, <paramref name="t"/>, <paramref name="r"/>, and <paramref name="q"/> texture coordinates 
@@ -2092,6 +2874,11 @@ namespace OpenGL
 		/// Specify <paramref name="s"/>, <paramref name="t"/>, <paramref name="r"/>, and <paramref name="q"/> texture coordinates 
 		/// for <paramref name="target"/> texture unit. Not all parameters are present in all forms of the command.
 		/// </param>
+		/// <seealso cref="Gl.ActiveTexture"/>
+		/// <seealso cref="Gl.ClientActiveTexture"/>
+		/// <seealso cref="Gl.TexCoord"/>
+		/// <seealso cref="Gl.TexCoordPointer"/>
+		/// <seealso cref="Gl.Vertex"/>
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void MultiTexCoord3(int target, Int32 s, Int32 t, Int32 r)
@@ -2107,12 +2894,17 @@ namespace OpenGL
 		/// </summary>
 		/// <param name="target">
 		/// Specifies the texture unit whose coordinates should be modified. The number of texture units is implementation 
-		/// dependent, but must be at least two. Symbolic constant must be one of <see cref="Gl.TEXTURE"/>i, where i ranges from 0 
-		/// to <see cref="Gl.MAX_TEXTURE_COORDS"/> - 1, which is an implementation-dependent value.
+		/// dependent, but must be at least two. Symbolic constant must be one of Gl.TEXTUREi, where i ranges from 0 to 
+		/// Gl.MAX_TEXTURE_COORDS - 1, which is an implementation-dependent value.
 		/// </param>
 		/// <param name="v">
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
+		/// <seealso cref="Gl.ActiveTexture"/>
+		/// <seealso cref="Gl.ClientActiveTexture"/>
+		/// <seealso cref="Gl.TexCoord"/>
+		/// <seealso cref="Gl.TexCoordPointer"/>
+		/// <seealso cref="Gl.Vertex"/>
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void MultiTexCoord3(int target, Int32[] v)
@@ -2133,8 +2925,8 @@ namespace OpenGL
 		/// </summary>
 		/// <param name="target">
 		/// Specifies the texture unit whose coordinates should be modified. The number of texture units is implementation 
-		/// dependent, but must be at least two. Symbolic constant must be one of <see cref="Gl.TEXTURE"/>i, where i ranges from 0 
-		/// to <see cref="Gl.MAX_TEXTURE_COORDS"/> - 1, which is an implementation-dependent value.
+		/// dependent, but must be at least two. Symbolic constant must be one of Gl.TEXTUREi, where i ranges from 0 to 
+		/// Gl.MAX_TEXTURE_COORDS - 1, which is an implementation-dependent value.
 		/// </param>
 		/// <param name="s">
 		/// Specify <paramref name="s"/>, <paramref name="t"/>, <paramref name="r"/>, and <paramref name="q"/> texture coordinates 
@@ -2148,6 +2940,11 @@ namespace OpenGL
 		/// Specify <paramref name="s"/>, <paramref name="t"/>, <paramref name="r"/>, and <paramref name="q"/> texture coordinates 
 		/// for <paramref name="target"/> texture unit. Not all parameters are present in all forms of the command.
 		/// </param>
+		/// <seealso cref="Gl.ActiveTexture"/>
+		/// <seealso cref="Gl.ClientActiveTexture"/>
+		/// <seealso cref="Gl.TexCoord"/>
+		/// <seealso cref="Gl.TexCoordPointer"/>
+		/// <seealso cref="Gl.Vertex"/>
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void MultiTexCoord3(int target, Int16 s, Int16 t, Int16 r)
@@ -2163,12 +2960,17 @@ namespace OpenGL
 		/// </summary>
 		/// <param name="target">
 		/// Specifies the texture unit whose coordinates should be modified. The number of texture units is implementation 
-		/// dependent, but must be at least two. Symbolic constant must be one of <see cref="Gl.TEXTURE"/>i, where i ranges from 0 
-		/// to <see cref="Gl.MAX_TEXTURE_COORDS"/> - 1, which is an implementation-dependent value.
+		/// dependent, but must be at least two. Symbolic constant must be one of Gl.TEXTUREi, where i ranges from 0 to 
+		/// Gl.MAX_TEXTURE_COORDS - 1, which is an implementation-dependent value.
 		/// </param>
 		/// <param name="v">
 		/// A <see cref="T:Int16[]"/>.
 		/// </param>
+		/// <seealso cref="Gl.ActiveTexture"/>
+		/// <seealso cref="Gl.ClientActiveTexture"/>
+		/// <seealso cref="Gl.TexCoord"/>
+		/// <seealso cref="Gl.TexCoordPointer"/>
+		/// <seealso cref="Gl.Vertex"/>
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void MultiTexCoord3(int target, Int16[] v)
@@ -2189,8 +2991,8 @@ namespace OpenGL
 		/// </summary>
 		/// <param name="target">
 		/// Specifies the texture unit whose coordinates should be modified. The number of texture units is implementation 
-		/// dependent, but must be at least two. Symbolic constant must be one of <see cref="Gl.TEXTURE"/>i, where i ranges from 0 
-		/// to <see cref="Gl.MAX_TEXTURE_COORDS"/> - 1, which is an implementation-dependent value.
+		/// dependent, but must be at least two. Symbolic constant must be one of Gl.TEXTUREi, where i ranges from 0 to 
+		/// Gl.MAX_TEXTURE_COORDS - 1, which is an implementation-dependent value.
 		/// </param>
 		/// <param name="s">
 		/// Specify <paramref name="s"/>, <paramref name="t"/>, <paramref name="r"/>, and <paramref name="q"/> texture coordinates 
@@ -2208,6 +3010,11 @@ namespace OpenGL
 		/// Specify <paramref name="s"/>, <paramref name="t"/>, <paramref name="r"/>, and <paramref name="q"/> texture coordinates 
 		/// for <paramref name="target"/> texture unit. Not all parameters are present in all forms of the command.
 		/// </param>
+		/// <seealso cref="Gl.ActiveTexture"/>
+		/// <seealso cref="Gl.ClientActiveTexture"/>
+		/// <seealso cref="Gl.TexCoord"/>
+		/// <seealso cref="Gl.TexCoordPointer"/>
+		/// <seealso cref="Gl.Vertex"/>
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void MultiTexCoord4(int target, double s, double t, double r, double q)
@@ -2223,12 +3030,17 @@ namespace OpenGL
 		/// </summary>
 		/// <param name="target">
 		/// Specifies the texture unit whose coordinates should be modified. The number of texture units is implementation 
-		/// dependent, but must be at least two. Symbolic constant must be one of <see cref="Gl.TEXTURE"/>i, where i ranges from 0 
-		/// to <see cref="Gl.MAX_TEXTURE_COORDS"/> - 1, which is an implementation-dependent value.
+		/// dependent, but must be at least two. Symbolic constant must be one of Gl.TEXTUREi, where i ranges from 0 to 
+		/// Gl.MAX_TEXTURE_COORDS - 1, which is an implementation-dependent value.
 		/// </param>
 		/// <param name="v">
 		/// A <see cref="T:double[]"/>.
 		/// </param>
+		/// <seealso cref="Gl.ActiveTexture"/>
+		/// <seealso cref="Gl.ClientActiveTexture"/>
+		/// <seealso cref="Gl.TexCoord"/>
+		/// <seealso cref="Gl.TexCoordPointer"/>
+		/// <seealso cref="Gl.Vertex"/>
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void MultiTexCoord4(int target, double[] v)
@@ -2249,8 +3061,8 @@ namespace OpenGL
 		/// </summary>
 		/// <param name="target">
 		/// Specifies the texture unit whose coordinates should be modified. The number of texture units is implementation 
-		/// dependent, but must be at least two. Symbolic constant must be one of <see cref="Gl.TEXTURE"/>i, where i ranges from 0 
-		/// to <see cref="Gl.MAX_TEXTURE_COORDS"/> - 1, which is an implementation-dependent value.
+		/// dependent, but must be at least two. Symbolic constant must be one of Gl.TEXTUREi, where i ranges from 0 to 
+		/// Gl.MAX_TEXTURE_COORDS - 1, which is an implementation-dependent value.
 		/// </param>
 		/// <param name="s">
 		/// Specify <paramref name="s"/>, <paramref name="t"/>, <paramref name="r"/>, and <paramref name="q"/> texture coordinates 
@@ -2268,6 +3080,11 @@ namespace OpenGL
 		/// Specify <paramref name="s"/>, <paramref name="t"/>, <paramref name="r"/>, and <paramref name="q"/> texture coordinates 
 		/// for <paramref name="target"/> texture unit. Not all parameters are present in all forms of the command.
 		/// </param>
+		/// <seealso cref="Gl.ActiveTexture"/>
+		/// <seealso cref="Gl.ClientActiveTexture"/>
+		/// <seealso cref="Gl.TexCoord"/>
+		/// <seealso cref="Gl.TexCoordPointer"/>
+		/// <seealso cref="Gl.Vertex"/>
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void MultiTexCoord4(int target, float s, float t, float r, float q)
@@ -2283,12 +3100,17 @@ namespace OpenGL
 		/// </summary>
 		/// <param name="target">
 		/// Specifies the texture unit whose coordinates should be modified. The number of texture units is implementation 
-		/// dependent, but must be at least two. Symbolic constant must be one of <see cref="Gl.TEXTURE"/>i, where i ranges from 0 
-		/// to <see cref="Gl.MAX_TEXTURE_COORDS"/> - 1, which is an implementation-dependent value.
+		/// dependent, but must be at least two. Symbolic constant must be one of Gl.TEXTUREi, where i ranges from 0 to 
+		/// Gl.MAX_TEXTURE_COORDS - 1, which is an implementation-dependent value.
 		/// </param>
 		/// <param name="v">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
+		/// <seealso cref="Gl.ActiveTexture"/>
+		/// <seealso cref="Gl.ClientActiveTexture"/>
+		/// <seealso cref="Gl.TexCoord"/>
+		/// <seealso cref="Gl.TexCoordPointer"/>
+		/// <seealso cref="Gl.Vertex"/>
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void MultiTexCoord4(int target, float[] v)
@@ -2309,8 +3131,8 @@ namespace OpenGL
 		/// </summary>
 		/// <param name="target">
 		/// Specifies the texture unit whose coordinates should be modified. The number of texture units is implementation 
-		/// dependent, but must be at least two. Symbolic constant must be one of <see cref="Gl.TEXTURE"/>i, where i ranges from 0 
-		/// to <see cref="Gl.MAX_TEXTURE_COORDS"/> - 1, which is an implementation-dependent value.
+		/// dependent, but must be at least two. Symbolic constant must be one of Gl.TEXTUREi, where i ranges from 0 to 
+		/// Gl.MAX_TEXTURE_COORDS - 1, which is an implementation-dependent value.
 		/// </param>
 		/// <param name="s">
 		/// Specify <paramref name="s"/>, <paramref name="t"/>, <paramref name="r"/>, and <paramref name="q"/> texture coordinates 
@@ -2328,6 +3150,11 @@ namespace OpenGL
 		/// Specify <paramref name="s"/>, <paramref name="t"/>, <paramref name="r"/>, and <paramref name="q"/> texture coordinates 
 		/// for <paramref name="target"/> texture unit. Not all parameters are present in all forms of the command.
 		/// </param>
+		/// <seealso cref="Gl.ActiveTexture"/>
+		/// <seealso cref="Gl.ClientActiveTexture"/>
+		/// <seealso cref="Gl.TexCoord"/>
+		/// <seealso cref="Gl.TexCoordPointer"/>
+		/// <seealso cref="Gl.Vertex"/>
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void MultiTexCoord4(int target, Int32 s, Int32 t, Int32 r, Int32 q)
@@ -2343,12 +3170,17 @@ namespace OpenGL
 		/// </summary>
 		/// <param name="target">
 		/// Specifies the texture unit whose coordinates should be modified. The number of texture units is implementation 
-		/// dependent, but must be at least two. Symbolic constant must be one of <see cref="Gl.TEXTURE"/>i, where i ranges from 0 
-		/// to <see cref="Gl.MAX_TEXTURE_COORDS"/> - 1, which is an implementation-dependent value.
+		/// dependent, but must be at least two. Symbolic constant must be one of Gl.TEXTUREi, where i ranges from 0 to 
+		/// Gl.MAX_TEXTURE_COORDS - 1, which is an implementation-dependent value.
 		/// </param>
 		/// <param name="v">
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
+		/// <seealso cref="Gl.ActiveTexture"/>
+		/// <seealso cref="Gl.ClientActiveTexture"/>
+		/// <seealso cref="Gl.TexCoord"/>
+		/// <seealso cref="Gl.TexCoordPointer"/>
+		/// <seealso cref="Gl.Vertex"/>
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void MultiTexCoord4(int target, Int32[] v)
@@ -2369,8 +3201,8 @@ namespace OpenGL
 		/// </summary>
 		/// <param name="target">
 		/// Specifies the texture unit whose coordinates should be modified. The number of texture units is implementation 
-		/// dependent, but must be at least two. Symbolic constant must be one of <see cref="Gl.TEXTURE"/>i, where i ranges from 0 
-		/// to <see cref="Gl.MAX_TEXTURE_COORDS"/> - 1, which is an implementation-dependent value.
+		/// dependent, but must be at least two. Symbolic constant must be one of Gl.TEXTUREi, where i ranges from 0 to 
+		/// Gl.MAX_TEXTURE_COORDS - 1, which is an implementation-dependent value.
 		/// </param>
 		/// <param name="s">
 		/// Specify <paramref name="s"/>, <paramref name="t"/>, <paramref name="r"/>, and <paramref name="q"/> texture coordinates 
@@ -2388,6 +3220,11 @@ namespace OpenGL
 		/// Specify <paramref name="s"/>, <paramref name="t"/>, <paramref name="r"/>, and <paramref name="q"/> texture coordinates 
 		/// for <paramref name="target"/> texture unit. Not all parameters are present in all forms of the command.
 		/// </param>
+		/// <seealso cref="Gl.ActiveTexture"/>
+		/// <seealso cref="Gl.ClientActiveTexture"/>
+		/// <seealso cref="Gl.TexCoord"/>
+		/// <seealso cref="Gl.TexCoordPointer"/>
+		/// <seealso cref="Gl.Vertex"/>
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void MultiTexCoord4(int target, Int16 s, Int16 t, Int16 r, Int16 q)
@@ -2403,12 +3240,17 @@ namespace OpenGL
 		/// </summary>
 		/// <param name="target">
 		/// Specifies the texture unit whose coordinates should be modified. The number of texture units is implementation 
-		/// dependent, but must be at least two. Symbolic constant must be one of <see cref="Gl.TEXTURE"/>i, where i ranges from 0 
-		/// to <see cref="Gl.MAX_TEXTURE_COORDS"/> - 1, which is an implementation-dependent value.
+		/// dependent, but must be at least two. Symbolic constant must be one of Gl.TEXTUREi, where i ranges from 0 to 
+		/// Gl.MAX_TEXTURE_COORDS - 1, which is an implementation-dependent value.
 		/// </param>
 		/// <param name="v">
 		/// A <see cref="T:Int16[]"/>.
 		/// </param>
+		/// <seealso cref="Gl.ActiveTexture"/>
+		/// <seealso cref="Gl.ClientActiveTexture"/>
+		/// <seealso cref="Gl.TexCoord"/>
+		/// <seealso cref="Gl.TexCoordPointer"/>
+		/// <seealso cref="Gl.Vertex"/>
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void MultiTexCoord4(int target, Int16[] v)
@@ -2430,6 +3272,18 @@ namespace OpenGL
 		/// <param name="m">
 		/// Specifies a pointer to 16 consecutive values, which are used as the elements of a 4×4 row-major matrix.
 		/// </param>
+		/// <remarks>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if Gl.LoadTransposeMatrix is executed between the execution of Gl\.Begin and the 
+		/// corresponding execution of Gl\.End.
+		/// </exception>
+		/// <seealso cref="Gl.LoadIdentity"/>
+		/// <seealso cref="Gl.LoadMatrix"/>
+		/// <seealso cref="Gl.MatrixMode"/>
+		/// <seealso cref="Gl.MultMatrix"/>
+		/// <seealso cref="Gl.MultTransposeMatrix"/>
+		/// <seealso cref="Gl.PushMatrix"/>
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void LoadTransposeMatrix(float[] m)
@@ -2451,6 +3305,18 @@ namespace OpenGL
 		/// <param name="m">
 		/// Specifies a pointer to 16 consecutive values, which are used as the elements of a 4×4 row-major matrix.
 		/// </param>
+		/// <remarks>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if Gl.LoadTransposeMatrix is executed between the execution of Gl\.Begin and the 
+		/// corresponding execution of Gl\.End.
+		/// </exception>
+		/// <seealso cref="Gl.LoadIdentity"/>
+		/// <seealso cref="Gl.LoadMatrix"/>
+		/// <seealso cref="Gl.MatrixMode"/>
+		/// <seealso cref="Gl.MultMatrix"/>
+		/// <seealso cref="Gl.MultTransposeMatrix"/>
+		/// <seealso cref="Gl.PushMatrix"/>
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void LoadTransposeMatrix(double[] m)
@@ -2472,6 +3338,17 @@ namespace OpenGL
 		/// <param name="m">
 		/// Points to 16 consecutive values that are used as the elements of a 4×4 row-major matrix.
 		/// </param>
+		/// <remarks>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if Gl.MultTransposeMatrix is executed between the execution of Gl\.Begin and the 
+		/// corresponding execution of Gl\.End.
+		/// </exception>
+		/// <seealso cref="Gl.LoadIdentity"/>
+		/// <seealso cref="Gl.LoadMatrix"/>
+		/// <seealso cref="Gl.LoadTransposeMatrix"/>
+		/// <seealso cref="Gl.MatrixMode"/>
+		/// <seealso cref="Gl.PushMatrix"/>
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void MultTransposeMatrix(float[] m)
@@ -2493,6 +3370,17 @@ namespace OpenGL
 		/// <param name="m">
 		/// Points to 16 consecutive values that are used as the elements of a 4×4 row-major matrix.
 		/// </param>
+		/// <remarks>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if Gl.MultTransposeMatrix is executed between the execution of Gl\.Begin and the 
+		/// corresponding execution of Gl\.End.
+		/// </exception>
+		/// <seealso cref="Gl.LoadIdentity"/>
+		/// <seealso cref="Gl.LoadMatrix"/>
+		/// <seealso cref="Gl.LoadTransposeMatrix"/>
+		/// <seealso cref="Gl.MatrixMode"/>
+		/// <seealso cref="Gl.PushMatrix"/>
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void MultTransposeMatrix(double[] m)

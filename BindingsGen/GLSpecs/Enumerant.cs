@@ -239,28 +239,12 @@ namespace BindingsGen.GLSpecs
 		/// <param name="sw">
 		/// A <see cref="SourceStreamWriter"/> used for writing the source code.
 		/// </param>
-		internal void GenerateSource(SourceStreamWriter sw)
+		internal void GenerateSource(SourceStreamWriter sw, RegistryContext ctx)
 		{
 			if (sw == null)
 				throw new ArgumentNullException("sw");
 
-			bool requireRemarks = (Alias != null);
-
-			sw.WriteLine("/// <summary>");
-			sw.WriteLine("/// Value of {0} symbol{1}.", Name, IsDeprecated ? " (DEPRECATED)" : String.Empty);
-			sw.WriteLine("/// </summary>");
-
-			if (requireRemarks) {
-				sw.WriteLine("/// <remarks>");
-
-				if (Alias != null) {
-					sw.WriteLine("/// <para>");
-					sw.WriteLine("/// This enumerant is equaivalent to {0}.", SpecificationStyle.GetEnumBindingName(Alias));
-					sw.WriteLine("/// </para>");
-				}
-				
-				sw.WriteLine("/// </remarks>");
-			}
+			RegistryDocumentation.GenerateDocumentation(sw, ctx, this);
 
 			foreach (Enumerant aliasOf in AliasOf)
 				sw.WriteLine("[AliasOf(\"{0}\")]", aliasOf.Name);

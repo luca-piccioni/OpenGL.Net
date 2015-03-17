@@ -172,7 +172,7 @@ namespace BindingsGen
 				{
 					Console.WriteLine("\tGenerate {0} enumerants...", featureEnums.Count);
 					foreach (Enumerant enumerant in featureEnums) {
-						enumerant.GenerateSource(sw);
+						enumerant.GenerateSource(sw, ctx);
 						sw.WriteLine();
 					}
 
@@ -218,7 +218,7 @@ namespace BindingsGen
 				glRegistryProcessor.GenerateCommands(ctx, orphanFile, delegate(RegistryContext cctx, SourceStreamWriter sw) {
 					Console.WriteLine("\tGenerate {0} enumerants...", orphanEnums.Count);
 					foreach (Enumerant enumerant in orphanEnums) {
-						enumerant.GenerateSource(sw);
+						enumerant.GenerateSource(sw, ctx);
 						sw.WriteLine();
 					}
 

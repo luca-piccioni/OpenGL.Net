@@ -592,6 +592,23 @@ namespace OpenGL
 		/// <param name="dfactorAlpha">
 		/// A <see cref="T:int"/>.
 		/// </param>
+		/// <remarks>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated if either <paramref name="srcRGB"/> or <paramref name="dstRGB"/> is not an accepted value.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if Gl.BlendFuncSeparate is executed between the execution of Gl\.Begin and the 
+		/// corresponding execution of Gl\.End.
+		/// </exception>
+		/// <seealso cref="Gl.AlphaFunc"/>
+		/// <seealso cref="Gl.BlendColor"/>
+		/// <seealso cref="Gl.BlendFunc"/>
+		/// <seealso cref="Gl.BlendEquation"/>
+		/// <seealso cref="Gl.Clear"/>
+		/// <seealso cref="Gl.DrawBuffer"/>
+		/// <seealso cref="Gl.Enable"/>
+		/// <seealso cref="Gl.LogicOp"/>
+		/// <seealso cref="Gl.StencilFunc"/>
 		[RequiredByFeature("GL_VERSION_1_4")]
 		public static void BlendFuncSeparate(int sfactorRGB, int dfactorRGB, int sfactorAlpha, int dfactorAlpha)
 		{
@@ -605,9 +622,9 @@ namespace OpenGL
 		/// render multiple sets of primitives from array data
 		/// </summary>
 		/// <param name="mode">
-		/// Specifies what kind of primitives to render. Symbolic constants GL_POINTS, GL_LINE_STRIP, GL_LINE_LOOP, GL_LINES, 
-		/// GL_LINE_STRIP_ADJACENCY, GL_LINES_ADJACENCY, GL_TRIANGLE_STRIP, GL_TRIANGLE_FAN, GL_TRIANGLES, 
-		/// GL_TRIANGLE_STRIP_ADJACENCY, GL_TRIANGLES_ADJACENCY and GL_PATCHES are accepted.
+		/// Specifies what kind of primitives to render. Symbolic constants Gl.POINTS, Gl.LINE_STRIP, Gl.LINE_LOOP, Gl.LINES, 
+		/// Gl.LINE_STRIP_ADJACENCY, Gl.LINES_ADJACENCY, Gl.TRIANGLE_STRIP, Gl.TRIANGLE_FAN, Gl.TRIANGLES, 
+		/// Gl.TRIANGLE_STRIP_ADJACENCY, Gl.TRIANGLES_ADJACENCY and Gl.PATCHES are accepted.
 		/// </param>
 		/// <param name="first">
 		/// Points to an array of starting indices in the enabled arrays.
@@ -618,6 +635,18 @@ namespace OpenGL
 		/// <param name="drawcount">
 		/// Specifies the size of the first and count
 		/// </param>
+		/// <remarks>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated if <paramref name="mode"/> is not an accepted value.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_VALUE is generated if <paramref name="drawcount"/> is negative.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if a non-zero buffer object name is bound to an enabled array and the buffer object's 
+		/// data store is currently mapped.
+		/// </exception>
+		/// <seealso cref="Gl.DrawElements"/>
+		/// <seealso cref="Gl.DrawRangeElements"/>
 		[RequiredByFeature("GL_VERSION_1_4")]
 		public static void MultiDrawArrays(PrimitiveType mode, Int32[] first, Int32[] count, Int32 drawcount)
 		{
@@ -637,22 +666,35 @@ namespace OpenGL
 		/// render multiple sets of primitives by specifying indices of array data elements
 		/// </summary>
 		/// <param name="mode">
-		/// Specifies what kind of primitives to render. Symbolic constants GL_POINTS, GL_LINE_STRIP, GL_LINE_LOOP, GL_LINES, 
-		/// GL_LINE_STRIP_ADJACENCY, GL_LINES_ADJACENCY, GL_TRIANGLE_STRIP, GL_TRIANGLE_FAN, GL_TRIANGLES, 
-		/// GL_TRIANGLE_STRIP_ADJACENCY, GL_TRIANGLES_ADJACENCY and GL_PATCHES are accepted.
+		/// Specifies what kind of primitives to render. Symbolic constants Gl.POINTS, Gl.LINE_STRIP, Gl.LINE_LOOP, Gl.LINES, 
+		/// Gl.LINE_STRIP_ADJACENCY, Gl.LINES_ADJACENCY, Gl.TRIANGLE_STRIP, Gl.TRIANGLE_FAN, Gl.TRIANGLES, 
+		/// Gl.TRIANGLE_STRIP_ADJACENCY, Gl.TRIANGLES_ADJACENCY and Gl.PATCHES are accepted.
 		/// </param>
 		/// <param name="count">
 		/// Points to an array of the elements counts.
 		/// </param>
 		/// <param name="type">
-		/// Specifies the type of the values in indices. Must be one of GL_UNSIGNED_BYTE, GL_UNSIGNED_SHORT, or GL_UNSIGNED_INT.
+		/// Specifies the type of the values in <paramref name="indices"/>. Must be one of Gl.UNSIGNED_BYTE, Gl.UNSIGNED_SHORT, or 
+		/// Gl.UNSIGNED_INT.
 		/// </param>
 		/// <param name="indices">
 		/// Specifies a pointer to the location where the indices are stored.
 		/// </param>
 		/// <param name="drawcount">
-		/// Specifies the size of the count and indices arrays.
+		/// Specifies the size of the <paramref name="count"/> and <paramref name="indices"/> arrays.
 		/// </param>
+		/// <remarks>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated if <paramref name="mode"/> is not an accepted value.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_VALUE is generated if <paramref name="drawcount"/> is negative.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if a non-zero buffer object name is bound to an enabled array or the element array and 
+		/// the buffer object's data store is currently mapped.
+		/// </exception>
+		/// <seealso cref="Gl.DrawArrays"/>
+		/// <seealso cref="Gl.DrawRangeElements"/>
 		[RequiredByFeature("GL_VERSION_1_4")]
 		public static void MultiDrawElements(PrimitiveType mode, Int32[] count, DrawElementsType type, IntPtr[] indices, Int32 drawcount)
 		{
@@ -672,11 +714,20 @@ namespace OpenGL
 		/// specify point parameters
 		/// </summary>
 		/// <param name="pname">
-		/// Specifies a single-valued point parameter. GL_POINT_FADE_THRESHOLD_SIZE, and GL_POINT_SPRITE_COORD_ORIGIN are accepted.
+		/// Specifies a single-valued point parameter. Gl.POINT_FADE_THRESHOLD_SIZE, and Gl.POINT_SPRITE_COORD_ORIGIN are accepted.
 		/// </param>
 		/// <param name="param">
-		/// For glPointParameterf and glPointParameteri, specifies the value that pname will be set to.
+		/// For Gl.PointParameterf and Gl.PointParameteri, specifies the value that <paramref name="pname"/> will be set to.
 		/// </param>
+		/// <remarks>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_VALUE is generated if the value specified for Gl.POINT_FADE_THRESHOLD_SIZE is less than zero.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated If the value specified for Gl.POINT_SPRITE_COORD_ORIGIN is not Gl.LOWER_LEFT or 
+		/// Gl.UPPER_LEFT.
+		/// </exception>
+		/// <seealso cref="Gl.PointSize"/>
 		[RequiredByFeature("GL_VERSION_1_4")]
 		public static void PointParameter(int pname, float param)
 		{
@@ -690,12 +741,21 @@ namespace OpenGL
 		/// specify point parameters
 		/// </summary>
 		/// <param name="pname">
-		/// Specifies a single-valued point parameter. GL_POINT_FADE_THRESHOLD_SIZE, and GL_POINT_SPRITE_COORD_ORIGIN are accepted.
+		/// Specifies a single-valued point parameter. Gl.POINT_FADE_THRESHOLD_SIZE, and Gl.POINT_SPRITE_COORD_ORIGIN are accepted.
 		/// </param>
 		/// <param name="params">
-		/// For glPointParameterfv and glPointParameteriv, specifies a pointer to an array where the value or values to be assigned 
-		/// to pname are stored.
+		/// For Gl.PointParameterfv and Gl.PointParameteriv, specifies a pointer to an array where the value or values to be 
+		/// assigned to <paramref name="pname"/> are stored.
 		/// </param>
+		/// <remarks>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_VALUE is generated if the value specified for Gl.POINT_FADE_THRESHOLD_SIZE is less than zero.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated If the value specified for Gl.POINT_SPRITE_COORD_ORIGIN is not Gl.LOWER_LEFT or 
+		/// Gl.UPPER_LEFT.
+		/// </exception>
+		/// <seealso cref="Gl.PointSize"/>
 		[RequiredByFeature("GL_VERSION_1_4")]
 		public static void PointParameter(int pname, float[] @params)
 		{
@@ -714,11 +774,20 @@ namespace OpenGL
 		/// specify point parameters
 		/// </summary>
 		/// <param name="pname">
-		/// Specifies a single-valued point parameter. GL_POINT_FADE_THRESHOLD_SIZE, and GL_POINT_SPRITE_COORD_ORIGIN are accepted.
+		/// Specifies a single-valued point parameter. Gl.POINT_FADE_THRESHOLD_SIZE, and Gl.POINT_SPRITE_COORD_ORIGIN are accepted.
 		/// </param>
 		/// <param name="param">
-		/// For glPointParameterf and glPointParameteri, specifies the value that pname will be set to.
+		/// For Gl.PointParameterf and Gl.PointParameteri, specifies the value that <paramref name="pname"/> will be set to.
 		/// </param>
+		/// <remarks>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_VALUE is generated if the value specified for Gl.POINT_FADE_THRESHOLD_SIZE is less than zero.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated If the value specified for Gl.POINT_SPRITE_COORD_ORIGIN is not Gl.LOWER_LEFT or 
+		/// Gl.UPPER_LEFT.
+		/// </exception>
+		/// <seealso cref="Gl.PointSize"/>
 		[RequiredByFeature("GL_VERSION_1_4")]
 		public static void PointParameter(int pname, Int32 param)
 		{
@@ -732,12 +801,21 @@ namespace OpenGL
 		/// specify point parameters
 		/// </summary>
 		/// <param name="pname">
-		/// Specifies a single-valued point parameter. GL_POINT_FADE_THRESHOLD_SIZE, and GL_POINT_SPRITE_COORD_ORIGIN are accepted.
+		/// Specifies a single-valued point parameter. Gl.POINT_FADE_THRESHOLD_SIZE, and Gl.POINT_SPRITE_COORD_ORIGIN are accepted.
 		/// </param>
 		/// <param name="params">
-		/// For glPointParameterfv and glPointParameteriv, specifies a pointer to an array where the value or values to be assigned 
-		/// to pname are stored.
+		/// For Gl.PointParameterfv and Gl.PointParameteriv, specifies a pointer to an array where the value or values to be 
+		/// assigned to <paramref name="pname"/> are stored.
 		/// </param>
+		/// <remarks>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_VALUE is generated if the value specified for Gl.POINT_FADE_THRESHOLD_SIZE is less than zero.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated If the value specified for Gl.POINT_SPRITE_COORD_ORIGIN is not Gl.LOWER_LEFT or 
+		/// Gl.UPPER_LEFT.
+		/// </exception>
+		/// <seealso cref="Gl.PointSize"/>
 		[RequiredByFeature("GL_VERSION_1_4")]
 		public static void PointParameter(int pname, Int32[] @params)
 		{
@@ -758,6 +836,9 @@ namespace OpenGL
 		/// <param name="coord">
 		/// Specify the fog distance.
 		/// </param>
+		/// <seealso cref="Gl.Fog"/>
+		/// <seealso cref="Gl.FogCoordPointer"/>
+		/// <seealso cref="Gl.Vertex"/>
 		[RequiredByFeature("GL_VERSION_1_4")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void FogCoord(float coord)
@@ -774,6 +855,9 @@ namespace OpenGL
 		/// <param name="coord">
 		/// Specify the fog distance.
 		/// </param>
+		/// <seealso cref="Gl.Fog"/>
+		/// <seealso cref="Gl.FogCoordPointer"/>
+		/// <seealso cref="Gl.Vertex"/>
 		[RequiredByFeature("GL_VERSION_1_4")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void FogCoord(float[] coord)
@@ -795,6 +879,9 @@ namespace OpenGL
 		/// <param name="coord">
 		/// Specify the fog distance.
 		/// </param>
+		/// <seealso cref="Gl.Fog"/>
+		/// <seealso cref="Gl.FogCoordPointer"/>
+		/// <seealso cref="Gl.Vertex"/>
 		[RequiredByFeature("GL_VERSION_1_4")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void FogCoord(double coord)
@@ -811,6 +898,9 @@ namespace OpenGL
 		/// <param name="coord">
 		/// Specify the fog distance.
 		/// </param>
+		/// <seealso cref="Gl.Fog"/>
+		/// <seealso cref="Gl.FogCoordPointer"/>
+		/// <seealso cref="Gl.Vertex"/>
 		[RequiredByFeature("GL_VERSION_1_4")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void FogCoord(double[] coord)
@@ -830,8 +920,8 @@ namespace OpenGL
 		/// define an array of fog coordinates
 		/// </summary>
 		/// <param name="type">
-		/// Specifies the data type of each fog coordinate. Symbolic constants <see cref="Gl.FLOAT"/>, or <see cref="Gl.DOUBLE"/> 
-		/// are accepted. The initial value is <see cref="Gl.FLOAT"/>.
+		/// Specifies the data type of each fog coordinate. Symbolic constants Gl.FLOAT, or Gl.DOUBLE are accepted. The initial 
+		/// value is Gl.FLOAT.
 		/// </param>
 		/// <param name="stride">
 		/// Specifies the byte offset between consecutive fog coordinates. If <paramref name="stride"/> is 0, the array elements are 
@@ -840,6 +930,34 @@ namespace OpenGL
 		/// <param name="pointer">
 		/// Specifies a pointer to the first coordinate of the first fog coordinate in the array. The initial value is 0.
 		/// </param>
+		/// <remarks>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated if <paramref name="type"/> is not either Gl.FLOAT or Gl.DOUBLE.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_VALUE is generated if <paramref name="stride"/> is negative.
+		/// </exception>
+		/// <seealso cref="Gl.ArrayElement"/>
+		/// <seealso cref="Gl.BindBuffer"/>
+		/// <seealso cref="Gl.ColorPointer"/>
+		/// <seealso cref="Gl.DisableClientState"/>
+		/// <seealso cref="Gl.DrawArrays"/>
+		/// <seealso cref="Gl.DrawElements"/>
+		/// <seealso cref="Gl.DrawRangeElements"/>
+		/// <seealso cref="Gl.EdgeFlagPointer"/>
+		/// <seealso cref="Gl.EnableClientState"/>
+		/// <seealso cref="Gl.FogCoord"/>
+		/// <seealso cref="Gl.IndexPointer"/>
+		/// <seealso cref="Gl.InterleavedArrays"/>
+		/// <seealso cref="Gl.MultiDrawArrays"/>
+		/// <seealso cref="Gl.MultiDrawElements"/>
+		/// <seealso cref="Gl.NormalPointer"/>
+		/// <seealso cref="Gl.PopClientAttrib"/>
+		/// <seealso cref="Gl.PushClientAttrib"/>
+		/// <seealso cref="Gl.SecondaryColorPointer"/>
+		/// <seealso cref="Gl.TexCoordPointer"/>
+		/// <seealso cref="Gl.VertexAttribPointer"/>
+		/// <seealso cref="Gl.VertexPointer"/>
 		[RequiredByFeature("GL_VERSION_1_4")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void FogCoordPointer(FogPointerTypeEXT type, Int32 stride, IntPtr pointer)
@@ -854,8 +972,8 @@ namespace OpenGL
 		/// define an array of fog coordinates
 		/// </summary>
 		/// <param name="type">
-		/// Specifies the data type of each fog coordinate. Symbolic constants <see cref="Gl.FLOAT"/>, or <see cref="Gl.DOUBLE"/> 
-		/// are accepted. The initial value is <see cref="Gl.FLOAT"/>.
+		/// Specifies the data type of each fog coordinate. Symbolic constants Gl.FLOAT, or Gl.DOUBLE are accepted. The initial 
+		/// value is Gl.FLOAT.
 		/// </param>
 		/// <param name="stride">
 		/// Specifies the byte offset between consecutive fog coordinates. If <paramref name="stride"/> is 0, the array elements are 
@@ -864,6 +982,34 @@ namespace OpenGL
 		/// <param name="pointer">
 		/// Specifies a pointer to the first coordinate of the first fog coordinate in the array. The initial value is 0.
 		/// </param>
+		/// <remarks>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated if <paramref name="type"/> is not either Gl.FLOAT or Gl.DOUBLE.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_VALUE is generated if <paramref name="stride"/> is negative.
+		/// </exception>
+		/// <seealso cref="Gl.ArrayElement"/>
+		/// <seealso cref="Gl.BindBuffer"/>
+		/// <seealso cref="Gl.ColorPointer"/>
+		/// <seealso cref="Gl.DisableClientState"/>
+		/// <seealso cref="Gl.DrawArrays"/>
+		/// <seealso cref="Gl.DrawElements"/>
+		/// <seealso cref="Gl.DrawRangeElements"/>
+		/// <seealso cref="Gl.EdgeFlagPointer"/>
+		/// <seealso cref="Gl.EnableClientState"/>
+		/// <seealso cref="Gl.FogCoord"/>
+		/// <seealso cref="Gl.IndexPointer"/>
+		/// <seealso cref="Gl.InterleavedArrays"/>
+		/// <seealso cref="Gl.MultiDrawArrays"/>
+		/// <seealso cref="Gl.MultiDrawElements"/>
+		/// <seealso cref="Gl.NormalPointer"/>
+		/// <seealso cref="Gl.PopClientAttrib"/>
+		/// <seealso cref="Gl.PushClientAttrib"/>
+		/// <seealso cref="Gl.SecondaryColorPointer"/>
+		/// <seealso cref="Gl.TexCoordPointer"/>
+		/// <seealso cref="Gl.VertexAttribPointer"/>
+		/// <seealso cref="Gl.VertexPointer"/>
 		[RequiredByFeature("GL_VERSION_1_4")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void FogCoordPointer(FogPointerTypeEXT type, Int32 stride, Object pointer)
@@ -888,6 +1034,10 @@ namespace OpenGL
 		/// <param name="blue">
 		/// Specify new red, green, and blue values for the current secondary color.
 		/// </param>
+		/// <seealso cref="Gl.Color"/>
+		/// <seealso cref="Gl.Index"/>
+		/// <seealso cref="Gl.IsEnabled"/>
+		/// <seealso cref="Gl.LightModel"/>
 		[RequiredByFeature("GL_VERSION_1_4")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void SecondaryColor3(sbyte red, sbyte green, sbyte blue)
@@ -904,6 +1054,10 @@ namespace OpenGL
 		/// <param name="v">
 		/// A <see cref="T:sbyte[]"/>.
 		/// </param>
+		/// <seealso cref="Gl.Color"/>
+		/// <seealso cref="Gl.Index"/>
+		/// <seealso cref="Gl.IsEnabled"/>
+		/// <seealso cref="Gl.LightModel"/>
 		[RequiredByFeature("GL_VERSION_1_4")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void SecondaryColor3(sbyte[] v)
@@ -931,6 +1085,10 @@ namespace OpenGL
 		/// <param name="blue">
 		/// Specify new red, green, and blue values for the current secondary color.
 		/// </param>
+		/// <seealso cref="Gl.Color"/>
+		/// <seealso cref="Gl.Index"/>
+		/// <seealso cref="Gl.IsEnabled"/>
+		/// <seealso cref="Gl.LightModel"/>
 		[RequiredByFeature("GL_VERSION_1_4")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void SecondaryColor3(double red, double green, double blue)
@@ -947,6 +1105,10 @@ namespace OpenGL
 		/// <param name="v">
 		/// A <see cref="T:double[]"/>.
 		/// </param>
+		/// <seealso cref="Gl.Color"/>
+		/// <seealso cref="Gl.Index"/>
+		/// <seealso cref="Gl.IsEnabled"/>
+		/// <seealso cref="Gl.LightModel"/>
 		[RequiredByFeature("GL_VERSION_1_4")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void SecondaryColor3(double[] v)
@@ -974,6 +1136,10 @@ namespace OpenGL
 		/// <param name="blue">
 		/// Specify new red, green, and blue values for the current secondary color.
 		/// </param>
+		/// <seealso cref="Gl.Color"/>
+		/// <seealso cref="Gl.Index"/>
+		/// <seealso cref="Gl.IsEnabled"/>
+		/// <seealso cref="Gl.LightModel"/>
 		[RequiredByFeature("GL_VERSION_1_4")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void SecondaryColor3(float red, float green, float blue)
@@ -990,6 +1156,10 @@ namespace OpenGL
 		/// <param name="v">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
+		/// <seealso cref="Gl.Color"/>
+		/// <seealso cref="Gl.Index"/>
+		/// <seealso cref="Gl.IsEnabled"/>
+		/// <seealso cref="Gl.LightModel"/>
 		[RequiredByFeature("GL_VERSION_1_4")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void SecondaryColor3(float[] v)
@@ -1017,6 +1187,10 @@ namespace OpenGL
 		/// <param name="blue">
 		/// Specify new red, green, and blue values for the current secondary color.
 		/// </param>
+		/// <seealso cref="Gl.Color"/>
+		/// <seealso cref="Gl.Index"/>
+		/// <seealso cref="Gl.IsEnabled"/>
+		/// <seealso cref="Gl.LightModel"/>
 		[RequiredByFeature("GL_VERSION_1_4")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void SecondaryColor3(Int32 red, Int32 green, Int32 blue)
@@ -1033,6 +1207,10 @@ namespace OpenGL
 		/// <param name="v">
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
+		/// <seealso cref="Gl.Color"/>
+		/// <seealso cref="Gl.Index"/>
+		/// <seealso cref="Gl.IsEnabled"/>
+		/// <seealso cref="Gl.LightModel"/>
 		[RequiredByFeature("GL_VERSION_1_4")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void SecondaryColor3(Int32[] v)
@@ -1060,6 +1238,10 @@ namespace OpenGL
 		/// <param name="blue">
 		/// Specify new red, green, and blue values for the current secondary color.
 		/// </param>
+		/// <seealso cref="Gl.Color"/>
+		/// <seealso cref="Gl.Index"/>
+		/// <seealso cref="Gl.IsEnabled"/>
+		/// <seealso cref="Gl.LightModel"/>
 		[RequiredByFeature("GL_VERSION_1_4")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void SecondaryColor3(Int16 red, Int16 green, Int16 blue)
@@ -1076,6 +1258,10 @@ namespace OpenGL
 		/// <param name="v">
 		/// A <see cref="T:Int16[]"/>.
 		/// </param>
+		/// <seealso cref="Gl.Color"/>
+		/// <seealso cref="Gl.Index"/>
+		/// <seealso cref="Gl.IsEnabled"/>
+		/// <seealso cref="Gl.LightModel"/>
 		[RequiredByFeature("GL_VERSION_1_4")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void SecondaryColor3(Int16[] v)
@@ -1103,6 +1289,10 @@ namespace OpenGL
 		/// <param name="blue">
 		/// Specify new red, green, and blue values for the current secondary color.
 		/// </param>
+		/// <seealso cref="Gl.Color"/>
+		/// <seealso cref="Gl.Index"/>
+		/// <seealso cref="Gl.IsEnabled"/>
+		/// <seealso cref="Gl.LightModel"/>
 		[RequiredByFeature("GL_VERSION_1_4")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void SecondaryColor3(byte red, byte green, byte blue)
@@ -1119,6 +1309,10 @@ namespace OpenGL
 		/// <param name="v">
 		/// A <see cref="T:byte[]"/>.
 		/// </param>
+		/// <seealso cref="Gl.Color"/>
+		/// <seealso cref="Gl.Index"/>
+		/// <seealso cref="Gl.IsEnabled"/>
+		/// <seealso cref="Gl.LightModel"/>
 		[RequiredByFeature("GL_VERSION_1_4")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void SecondaryColor3(byte[] v)
@@ -1146,6 +1340,10 @@ namespace OpenGL
 		/// <param name="blue">
 		/// Specify new red, green, and blue values for the current secondary color.
 		/// </param>
+		/// <seealso cref="Gl.Color"/>
+		/// <seealso cref="Gl.Index"/>
+		/// <seealso cref="Gl.IsEnabled"/>
+		/// <seealso cref="Gl.LightModel"/>
 		[RequiredByFeature("GL_VERSION_1_4")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void SecondaryColor3(UInt32 red, UInt32 green, UInt32 blue)
@@ -1162,6 +1360,10 @@ namespace OpenGL
 		/// <param name="v">
 		/// A <see cref="T:UInt32[]"/>.
 		/// </param>
+		/// <seealso cref="Gl.Color"/>
+		/// <seealso cref="Gl.Index"/>
+		/// <seealso cref="Gl.IsEnabled"/>
+		/// <seealso cref="Gl.LightModel"/>
 		[RequiredByFeature("GL_VERSION_1_4")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void SecondaryColor3(UInt32[] v)
@@ -1189,6 +1391,10 @@ namespace OpenGL
 		/// <param name="blue">
 		/// Specify new red, green, and blue values for the current secondary color.
 		/// </param>
+		/// <seealso cref="Gl.Color"/>
+		/// <seealso cref="Gl.Index"/>
+		/// <seealso cref="Gl.IsEnabled"/>
+		/// <seealso cref="Gl.LightModel"/>
 		[RequiredByFeature("GL_VERSION_1_4")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void SecondaryColor3(UInt16 red, UInt16 green, UInt16 blue)
@@ -1205,6 +1411,10 @@ namespace OpenGL
 		/// <param name="v">
 		/// A <see cref="T:UInt16[]"/>.
 		/// </param>
+		/// <seealso cref="Gl.Color"/>
+		/// <seealso cref="Gl.Index"/>
+		/// <seealso cref="Gl.IsEnabled"/>
+		/// <seealso cref="Gl.LightModel"/>
 		[RequiredByFeature("GL_VERSION_1_4")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void SecondaryColor3(UInt16[] v)
@@ -1227,10 +1437,8 @@ namespace OpenGL
 		/// Specifies the number of components per color. Must be 3.
 		/// </param>
 		/// <param name="type">
-		/// Specifies the data type of each color component in the array. Symbolic constants <see cref="Gl.BYTE"/>, <see 
-		/// cref="Gl.UNSIGNED_BYTE"/>, <see cref="Gl.SHORT"/>, <see cref="Gl.UNSIGNED_SHORT"/>, <see cref="Gl.INT"/>, <see 
-		/// cref="Gl.UNSIGNED_INT"/>, <see cref="Gl.FLOAT"/>, or <see cref="Gl.DOUBLE"/> are accepted. The initial value is <see 
-		/// cref="Gl.FLOAT"/>.
+		/// Specifies the data type of each color component in the array. Symbolic constants Gl.BYTE, Gl.UNSIGNED_BYTE, Gl.SHORT, 
+		/// Gl.UNSIGNED_SHORT, Gl.INT, Gl.UNSIGNED_INT, Gl.FLOAT, or Gl.DOUBLE are accepted. The initial value is Gl.FLOAT.
 		/// </param>
 		/// <param name="stride">
 		/// Specifies the byte offset between consecutive colors. If <paramref name="stride"/> is 0, the colors are understood to be 
@@ -1239,6 +1447,36 @@ namespace OpenGL
 		/// <param name="pointer">
 		/// Specifies a pointer to the first component of the first color element in the array. The initial value is 0.
 		/// </param>
+		/// <remarks>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_VALUE is generated if <paramref name="size"/> is not 3.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated if <paramref name="type"/> is not an accepted value.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_VALUE is generated if <paramref name="stride"/> is negative.
+		/// </exception>
+		/// <seealso cref="Gl.ArrayElement"/>
+		/// <seealso cref="Gl.BindBuffer"/>
+		/// <seealso cref="Gl.ColorPointer"/>
+		/// <seealso cref="Gl.DisableClientState"/>
+		/// <seealso cref="Gl.DrawArrays"/>
+		/// <seealso cref="Gl.DrawElements"/>
+		/// <seealso cref="Gl.DrawRangeElements"/>
+		/// <seealso cref="Gl.EdgeFlagPointer"/>
+		/// <seealso cref="Gl.EnableClientState"/>
+		/// <seealso cref="Gl.FogCoordPointer"/>
+		/// <seealso cref="Gl.IndexPointer"/>
+		/// <seealso cref="Gl.InterleavedArrays"/>
+		/// <seealso cref="Gl.MultiDrawArrays"/>
+		/// <seealso cref="Gl.MultiDrawElements"/>
+		/// <seealso cref="Gl.NormalPointer"/>
+		/// <seealso cref="Gl.PopClientAttrib"/>
+		/// <seealso cref="Gl.PushClientAttrib"/>
+		/// <seealso cref="Gl.SecondaryColor"/>
+		/// <seealso cref="Gl.TexCoordPointer"/>
+		/// <seealso cref="Gl.VertexAttribPointer"/>
+		/// <seealso cref="Gl.VertexPointer"/>
 		[RequiredByFeature("GL_VERSION_1_4")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void SecondaryColorPointer(Int32 size, ColorPointerType type, Int32 stride, IntPtr pointer)
@@ -1256,10 +1494,8 @@ namespace OpenGL
 		/// Specifies the number of components per color. Must be 3.
 		/// </param>
 		/// <param name="type">
-		/// Specifies the data type of each color component in the array. Symbolic constants <see cref="Gl.BYTE"/>, <see 
-		/// cref="Gl.UNSIGNED_BYTE"/>, <see cref="Gl.SHORT"/>, <see cref="Gl.UNSIGNED_SHORT"/>, <see cref="Gl.INT"/>, <see 
-		/// cref="Gl.UNSIGNED_INT"/>, <see cref="Gl.FLOAT"/>, or <see cref="Gl.DOUBLE"/> are accepted. The initial value is <see 
-		/// cref="Gl.FLOAT"/>.
+		/// Specifies the data type of each color component in the array. Symbolic constants Gl.BYTE, Gl.UNSIGNED_BYTE, Gl.SHORT, 
+		/// Gl.UNSIGNED_SHORT, Gl.INT, Gl.UNSIGNED_INT, Gl.FLOAT, or Gl.DOUBLE are accepted. The initial value is Gl.FLOAT.
 		/// </param>
 		/// <param name="stride">
 		/// Specifies the byte offset between consecutive colors. If <paramref name="stride"/> is 0, the colors are understood to be 
@@ -1268,6 +1504,36 @@ namespace OpenGL
 		/// <param name="pointer">
 		/// Specifies a pointer to the first component of the first color element in the array. The initial value is 0.
 		/// </param>
+		/// <remarks>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_VALUE is generated if <paramref name="size"/> is not 3.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated if <paramref name="type"/> is not an accepted value.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_VALUE is generated if <paramref name="stride"/> is negative.
+		/// </exception>
+		/// <seealso cref="Gl.ArrayElement"/>
+		/// <seealso cref="Gl.BindBuffer"/>
+		/// <seealso cref="Gl.ColorPointer"/>
+		/// <seealso cref="Gl.DisableClientState"/>
+		/// <seealso cref="Gl.DrawArrays"/>
+		/// <seealso cref="Gl.DrawElements"/>
+		/// <seealso cref="Gl.DrawRangeElements"/>
+		/// <seealso cref="Gl.EdgeFlagPointer"/>
+		/// <seealso cref="Gl.EnableClientState"/>
+		/// <seealso cref="Gl.FogCoordPointer"/>
+		/// <seealso cref="Gl.IndexPointer"/>
+		/// <seealso cref="Gl.InterleavedArrays"/>
+		/// <seealso cref="Gl.MultiDrawArrays"/>
+		/// <seealso cref="Gl.MultiDrawElements"/>
+		/// <seealso cref="Gl.NormalPointer"/>
+		/// <seealso cref="Gl.PopClientAttrib"/>
+		/// <seealso cref="Gl.PushClientAttrib"/>
+		/// <seealso cref="Gl.SecondaryColor"/>
+		/// <seealso cref="Gl.TexCoordPointer"/>
+		/// <seealso cref="Gl.VertexAttribPointer"/>
+		/// <seealso cref="Gl.VertexPointer"/>
 		[RequiredByFeature("GL_VERSION_1_4")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void SecondaryColorPointer(Int32 size, ColorPointerType type, Int32 stride, Object pointer)
@@ -1289,6 +1555,23 @@ namespace OpenGL
 		/// <param name="y">
 		/// Specify the x, y, z coordinates for the raster position.
 		/// </param>
+		/// <remarks>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if Gl.WindowPos is executed between the execution of Gl\.Begin and the corresponding 
+		/// execution of Gl\.End.
+		/// </exception>
+		/// <seealso cref="Gl.Bitmap"/>
+		/// <seealso cref="Gl.CopyPixels"/>
+		/// <seealso cref="Gl.DrawArrays"/>
+		/// <seealso cref="Gl.DrawElements"/>
+		/// <seealso cref="Gl.DrawRangeElements"/>
+		/// <seealso cref="Gl.DrawPixels"/>
+		/// <seealso cref="Gl.MultiTexCoord"/>
+		/// <seealso cref="Gl.RasterPos"/>
+		/// <seealso cref="Gl.TexCoord"/>
+		/// <seealso cref="Gl.TexGen"/>
+		/// <seealso cref="Gl.Vertex"/>
 		[RequiredByFeature("GL_VERSION_1_4")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void WindowPos2(double x, double y)
@@ -1305,6 +1588,23 @@ namespace OpenGL
 		/// <param name="v">
 		/// A <see cref="T:double[]"/>.
 		/// </param>
+		/// <remarks>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if Gl.WindowPos is executed between the execution of Gl\.Begin and the corresponding 
+		/// execution of Gl\.End.
+		/// </exception>
+		/// <seealso cref="Gl.Bitmap"/>
+		/// <seealso cref="Gl.CopyPixels"/>
+		/// <seealso cref="Gl.DrawArrays"/>
+		/// <seealso cref="Gl.DrawElements"/>
+		/// <seealso cref="Gl.DrawRangeElements"/>
+		/// <seealso cref="Gl.DrawPixels"/>
+		/// <seealso cref="Gl.MultiTexCoord"/>
+		/// <seealso cref="Gl.RasterPos"/>
+		/// <seealso cref="Gl.TexCoord"/>
+		/// <seealso cref="Gl.TexGen"/>
+		/// <seealso cref="Gl.Vertex"/>
 		[RequiredByFeature("GL_VERSION_1_4")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void WindowPos2(double[] v)
@@ -1329,6 +1629,23 @@ namespace OpenGL
 		/// <param name="y">
 		/// Specify the x, y, z coordinates for the raster position.
 		/// </param>
+		/// <remarks>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if Gl.WindowPos is executed between the execution of Gl\.Begin and the corresponding 
+		/// execution of Gl\.End.
+		/// </exception>
+		/// <seealso cref="Gl.Bitmap"/>
+		/// <seealso cref="Gl.CopyPixels"/>
+		/// <seealso cref="Gl.DrawArrays"/>
+		/// <seealso cref="Gl.DrawElements"/>
+		/// <seealso cref="Gl.DrawRangeElements"/>
+		/// <seealso cref="Gl.DrawPixels"/>
+		/// <seealso cref="Gl.MultiTexCoord"/>
+		/// <seealso cref="Gl.RasterPos"/>
+		/// <seealso cref="Gl.TexCoord"/>
+		/// <seealso cref="Gl.TexGen"/>
+		/// <seealso cref="Gl.Vertex"/>
 		[RequiredByFeature("GL_VERSION_1_4")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void WindowPos2(float x, float y)
@@ -1345,6 +1662,23 @@ namespace OpenGL
 		/// <param name="v">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
+		/// <remarks>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if Gl.WindowPos is executed between the execution of Gl\.Begin and the corresponding 
+		/// execution of Gl\.End.
+		/// </exception>
+		/// <seealso cref="Gl.Bitmap"/>
+		/// <seealso cref="Gl.CopyPixels"/>
+		/// <seealso cref="Gl.DrawArrays"/>
+		/// <seealso cref="Gl.DrawElements"/>
+		/// <seealso cref="Gl.DrawRangeElements"/>
+		/// <seealso cref="Gl.DrawPixels"/>
+		/// <seealso cref="Gl.MultiTexCoord"/>
+		/// <seealso cref="Gl.RasterPos"/>
+		/// <seealso cref="Gl.TexCoord"/>
+		/// <seealso cref="Gl.TexGen"/>
+		/// <seealso cref="Gl.Vertex"/>
 		[RequiredByFeature("GL_VERSION_1_4")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void WindowPos2(float[] v)
@@ -1369,6 +1703,23 @@ namespace OpenGL
 		/// <param name="y">
 		/// Specify the x, y, z coordinates for the raster position.
 		/// </param>
+		/// <remarks>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if Gl.WindowPos is executed between the execution of Gl\.Begin and the corresponding 
+		/// execution of Gl\.End.
+		/// </exception>
+		/// <seealso cref="Gl.Bitmap"/>
+		/// <seealso cref="Gl.CopyPixels"/>
+		/// <seealso cref="Gl.DrawArrays"/>
+		/// <seealso cref="Gl.DrawElements"/>
+		/// <seealso cref="Gl.DrawRangeElements"/>
+		/// <seealso cref="Gl.DrawPixels"/>
+		/// <seealso cref="Gl.MultiTexCoord"/>
+		/// <seealso cref="Gl.RasterPos"/>
+		/// <seealso cref="Gl.TexCoord"/>
+		/// <seealso cref="Gl.TexGen"/>
+		/// <seealso cref="Gl.Vertex"/>
 		[RequiredByFeature("GL_VERSION_1_4")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void WindowPos2(Int32 x, Int32 y)
@@ -1385,6 +1736,23 @@ namespace OpenGL
 		/// <param name="v">
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
+		/// <remarks>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if Gl.WindowPos is executed between the execution of Gl\.Begin and the corresponding 
+		/// execution of Gl\.End.
+		/// </exception>
+		/// <seealso cref="Gl.Bitmap"/>
+		/// <seealso cref="Gl.CopyPixels"/>
+		/// <seealso cref="Gl.DrawArrays"/>
+		/// <seealso cref="Gl.DrawElements"/>
+		/// <seealso cref="Gl.DrawRangeElements"/>
+		/// <seealso cref="Gl.DrawPixels"/>
+		/// <seealso cref="Gl.MultiTexCoord"/>
+		/// <seealso cref="Gl.RasterPos"/>
+		/// <seealso cref="Gl.TexCoord"/>
+		/// <seealso cref="Gl.TexGen"/>
+		/// <seealso cref="Gl.Vertex"/>
 		[RequiredByFeature("GL_VERSION_1_4")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void WindowPos2(Int32[] v)
@@ -1409,6 +1777,23 @@ namespace OpenGL
 		/// <param name="y">
 		/// Specify the x, y, z coordinates for the raster position.
 		/// </param>
+		/// <remarks>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if Gl.WindowPos is executed between the execution of Gl\.Begin and the corresponding 
+		/// execution of Gl\.End.
+		/// </exception>
+		/// <seealso cref="Gl.Bitmap"/>
+		/// <seealso cref="Gl.CopyPixels"/>
+		/// <seealso cref="Gl.DrawArrays"/>
+		/// <seealso cref="Gl.DrawElements"/>
+		/// <seealso cref="Gl.DrawRangeElements"/>
+		/// <seealso cref="Gl.DrawPixels"/>
+		/// <seealso cref="Gl.MultiTexCoord"/>
+		/// <seealso cref="Gl.RasterPos"/>
+		/// <seealso cref="Gl.TexCoord"/>
+		/// <seealso cref="Gl.TexGen"/>
+		/// <seealso cref="Gl.Vertex"/>
 		[RequiredByFeature("GL_VERSION_1_4")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void WindowPos2(Int16 x, Int16 y)
@@ -1425,6 +1810,23 @@ namespace OpenGL
 		/// <param name="v">
 		/// A <see cref="T:Int16[]"/>.
 		/// </param>
+		/// <remarks>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if Gl.WindowPos is executed between the execution of Gl\.Begin and the corresponding 
+		/// execution of Gl\.End.
+		/// </exception>
+		/// <seealso cref="Gl.Bitmap"/>
+		/// <seealso cref="Gl.CopyPixels"/>
+		/// <seealso cref="Gl.DrawArrays"/>
+		/// <seealso cref="Gl.DrawElements"/>
+		/// <seealso cref="Gl.DrawRangeElements"/>
+		/// <seealso cref="Gl.DrawPixels"/>
+		/// <seealso cref="Gl.MultiTexCoord"/>
+		/// <seealso cref="Gl.RasterPos"/>
+		/// <seealso cref="Gl.TexCoord"/>
+		/// <seealso cref="Gl.TexGen"/>
+		/// <seealso cref="Gl.Vertex"/>
 		[RequiredByFeature("GL_VERSION_1_4")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void WindowPos2(Int16[] v)
@@ -1452,6 +1854,23 @@ namespace OpenGL
 		/// <param name="z">
 		/// Specify the x, y, z coordinates for the raster position.
 		/// </param>
+		/// <remarks>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if Gl.WindowPos is executed between the execution of Gl\.Begin and the corresponding 
+		/// execution of Gl\.End.
+		/// </exception>
+		/// <seealso cref="Gl.Bitmap"/>
+		/// <seealso cref="Gl.CopyPixels"/>
+		/// <seealso cref="Gl.DrawArrays"/>
+		/// <seealso cref="Gl.DrawElements"/>
+		/// <seealso cref="Gl.DrawRangeElements"/>
+		/// <seealso cref="Gl.DrawPixels"/>
+		/// <seealso cref="Gl.MultiTexCoord"/>
+		/// <seealso cref="Gl.RasterPos"/>
+		/// <seealso cref="Gl.TexCoord"/>
+		/// <seealso cref="Gl.TexGen"/>
+		/// <seealso cref="Gl.Vertex"/>
 		[RequiredByFeature("GL_VERSION_1_4")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void WindowPos3(double x, double y, double z)
@@ -1468,6 +1887,23 @@ namespace OpenGL
 		/// <param name="v">
 		/// A <see cref="T:double[]"/>.
 		/// </param>
+		/// <remarks>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if Gl.WindowPos is executed between the execution of Gl\.Begin and the corresponding 
+		/// execution of Gl\.End.
+		/// </exception>
+		/// <seealso cref="Gl.Bitmap"/>
+		/// <seealso cref="Gl.CopyPixels"/>
+		/// <seealso cref="Gl.DrawArrays"/>
+		/// <seealso cref="Gl.DrawElements"/>
+		/// <seealso cref="Gl.DrawRangeElements"/>
+		/// <seealso cref="Gl.DrawPixels"/>
+		/// <seealso cref="Gl.MultiTexCoord"/>
+		/// <seealso cref="Gl.RasterPos"/>
+		/// <seealso cref="Gl.TexCoord"/>
+		/// <seealso cref="Gl.TexGen"/>
+		/// <seealso cref="Gl.Vertex"/>
 		[RequiredByFeature("GL_VERSION_1_4")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void WindowPos3(double[] v)
@@ -1495,6 +1931,23 @@ namespace OpenGL
 		/// <param name="z">
 		/// Specify the x, y, z coordinates for the raster position.
 		/// </param>
+		/// <remarks>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if Gl.WindowPos is executed between the execution of Gl\.Begin and the corresponding 
+		/// execution of Gl\.End.
+		/// </exception>
+		/// <seealso cref="Gl.Bitmap"/>
+		/// <seealso cref="Gl.CopyPixels"/>
+		/// <seealso cref="Gl.DrawArrays"/>
+		/// <seealso cref="Gl.DrawElements"/>
+		/// <seealso cref="Gl.DrawRangeElements"/>
+		/// <seealso cref="Gl.DrawPixels"/>
+		/// <seealso cref="Gl.MultiTexCoord"/>
+		/// <seealso cref="Gl.RasterPos"/>
+		/// <seealso cref="Gl.TexCoord"/>
+		/// <seealso cref="Gl.TexGen"/>
+		/// <seealso cref="Gl.Vertex"/>
 		[RequiredByFeature("GL_VERSION_1_4")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void WindowPos3(float x, float y, float z)
@@ -1511,6 +1964,23 @@ namespace OpenGL
 		/// <param name="v">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
+		/// <remarks>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if Gl.WindowPos is executed between the execution of Gl\.Begin and the corresponding 
+		/// execution of Gl\.End.
+		/// </exception>
+		/// <seealso cref="Gl.Bitmap"/>
+		/// <seealso cref="Gl.CopyPixels"/>
+		/// <seealso cref="Gl.DrawArrays"/>
+		/// <seealso cref="Gl.DrawElements"/>
+		/// <seealso cref="Gl.DrawRangeElements"/>
+		/// <seealso cref="Gl.DrawPixels"/>
+		/// <seealso cref="Gl.MultiTexCoord"/>
+		/// <seealso cref="Gl.RasterPos"/>
+		/// <seealso cref="Gl.TexCoord"/>
+		/// <seealso cref="Gl.TexGen"/>
+		/// <seealso cref="Gl.Vertex"/>
 		[RequiredByFeature("GL_VERSION_1_4")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void WindowPos3(float[] v)
@@ -1538,6 +2008,23 @@ namespace OpenGL
 		/// <param name="z">
 		/// Specify the x, y, z coordinates for the raster position.
 		/// </param>
+		/// <remarks>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if Gl.WindowPos is executed between the execution of Gl\.Begin and the corresponding 
+		/// execution of Gl\.End.
+		/// </exception>
+		/// <seealso cref="Gl.Bitmap"/>
+		/// <seealso cref="Gl.CopyPixels"/>
+		/// <seealso cref="Gl.DrawArrays"/>
+		/// <seealso cref="Gl.DrawElements"/>
+		/// <seealso cref="Gl.DrawRangeElements"/>
+		/// <seealso cref="Gl.DrawPixels"/>
+		/// <seealso cref="Gl.MultiTexCoord"/>
+		/// <seealso cref="Gl.RasterPos"/>
+		/// <seealso cref="Gl.TexCoord"/>
+		/// <seealso cref="Gl.TexGen"/>
+		/// <seealso cref="Gl.Vertex"/>
 		[RequiredByFeature("GL_VERSION_1_4")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void WindowPos3(Int32 x, Int32 y, Int32 z)
@@ -1554,6 +2041,23 @@ namespace OpenGL
 		/// <param name="v">
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
+		/// <remarks>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if Gl.WindowPos is executed between the execution of Gl\.Begin and the corresponding 
+		/// execution of Gl\.End.
+		/// </exception>
+		/// <seealso cref="Gl.Bitmap"/>
+		/// <seealso cref="Gl.CopyPixels"/>
+		/// <seealso cref="Gl.DrawArrays"/>
+		/// <seealso cref="Gl.DrawElements"/>
+		/// <seealso cref="Gl.DrawRangeElements"/>
+		/// <seealso cref="Gl.DrawPixels"/>
+		/// <seealso cref="Gl.MultiTexCoord"/>
+		/// <seealso cref="Gl.RasterPos"/>
+		/// <seealso cref="Gl.TexCoord"/>
+		/// <seealso cref="Gl.TexGen"/>
+		/// <seealso cref="Gl.Vertex"/>
 		[RequiredByFeature("GL_VERSION_1_4")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void WindowPos3(Int32[] v)
@@ -1581,6 +2085,23 @@ namespace OpenGL
 		/// <param name="z">
 		/// Specify the x, y, z coordinates for the raster position.
 		/// </param>
+		/// <remarks>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if Gl.WindowPos is executed between the execution of Gl\.Begin and the corresponding 
+		/// execution of Gl\.End.
+		/// </exception>
+		/// <seealso cref="Gl.Bitmap"/>
+		/// <seealso cref="Gl.CopyPixels"/>
+		/// <seealso cref="Gl.DrawArrays"/>
+		/// <seealso cref="Gl.DrawElements"/>
+		/// <seealso cref="Gl.DrawRangeElements"/>
+		/// <seealso cref="Gl.DrawPixels"/>
+		/// <seealso cref="Gl.MultiTexCoord"/>
+		/// <seealso cref="Gl.RasterPos"/>
+		/// <seealso cref="Gl.TexCoord"/>
+		/// <seealso cref="Gl.TexGen"/>
+		/// <seealso cref="Gl.Vertex"/>
 		[RequiredByFeature("GL_VERSION_1_4")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void WindowPos3(Int16 x, Int16 y, Int16 z)
@@ -1597,6 +2118,23 @@ namespace OpenGL
 		/// <param name="v">
 		/// A <see cref="T:Int16[]"/>.
 		/// </param>
+		/// <remarks>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if Gl.WindowPos is executed between the execution of Gl\.Begin and the corresponding 
+		/// execution of Gl\.End.
+		/// </exception>
+		/// <seealso cref="Gl.Bitmap"/>
+		/// <seealso cref="Gl.CopyPixels"/>
+		/// <seealso cref="Gl.DrawArrays"/>
+		/// <seealso cref="Gl.DrawElements"/>
+		/// <seealso cref="Gl.DrawRangeElements"/>
+		/// <seealso cref="Gl.DrawPixels"/>
+		/// <seealso cref="Gl.MultiTexCoord"/>
+		/// <seealso cref="Gl.RasterPos"/>
+		/// <seealso cref="Gl.TexCoord"/>
+		/// <seealso cref="Gl.TexGen"/>
+		/// <seealso cref="Gl.Vertex"/>
 		[RequiredByFeature("GL_VERSION_1_4")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void WindowPos3(Int16[] v)
@@ -1616,17 +2154,21 @@ namespace OpenGL
 		/// set the blend color
 		/// </summary>
 		/// <param name="red">
-		/// specify the components of GL_BLEND_COLOR
+		/// specify the components of Gl.BLEND_COLOR
 		/// </param>
 		/// <param name="green">
-		/// specify the components of GL_BLEND_COLOR
+		/// specify the components of Gl.BLEND_COLOR
 		/// </param>
 		/// <param name="blue">
-		/// specify the components of GL_BLEND_COLOR
+		/// specify the components of Gl.BLEND_COLOR
 		/// </param>
 		/// <param name="alpha">
-		/// specify the components of GL_BLEND_COLOR
+		/// specify the components of Gl.BLEND_COLOR
 		/// </param>
+		/// <seealso cref="Gl.BlendEquation"/>
+		/// <seealso cref="Gl.BlendFunc"/>
+		/// <seealso cref="Gl.GetString"/>
+		/// <seealso cref="Gl.removedTypes"/>
 		[RequiredByFeature("GL_VERSION_1_4")]
 		[RequiredByFeature("GL_ARB_imaging")]
 		public static void BlendColor(float red, float green, float blue, float alpha)
@@ -1641,9 +2183,22 @@ namespace OpenGL
 		/// specify the equation used for both the RGB blend equation and the Alpha blend equation
 		/// </summary>
 		/// <param name="mode">
-		/// specifies how source and destination colors are combined. It must be <see cref="Gl.FUNC_ADD"/>, <see 
-		/// cref="Gl.FUNC_SUBTRACT"/>, <see cref="Gl.FUNC_REVERSE_SUBTRACT"/>, <see cref="Gl.MIN"/>, <see cref="Gl.MAX"/>.
+		/// specifies how source and destination colors are combined. It must be Gl.FUNC_ADD, Gl.FUNC_SUBTRACT, 
+		/// Gl.FUNC_REVERSE_SUBTRACT, Gl.MIN, Gl.MAX.
 		/// </param>
+		/// <remarks>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated if <paramref name="mode"/> is not one of Gl.FUNC_ADD, Gl.FUNC_SUBTRACT, 
+		/// Gl.FUNC_REVERSE_SUBTRACT, Gl.MAX, or Gl.MIN.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if Gl.BlendEquation is executed between the execution of Gl\.Begin and the 
+		/// corresponding execution of Gl\.End.
+		/// </exception>
+		/// <seealso cref="Gl.GetString"/>
+		/// <seealso cref="Gl.BlendColor"/>
+		/// <seealso cref="Gl.BlendFunc"/>
+		/// <seealso cref="Gl.BlendFuncSeparate"/>
 		[RequiredByFeature("GL_VERSION_1_4")]
 		[RequiredByFeature("GL_ARB_imaging")]
 		public static void BlendEquation(int mode)

@@ -223,16 +223,47 @@ namespace OpenGL
 		/// Specifies the location of the uniform variable to be modified.
 		/// </param>
 		/// <param name="count">
-		/// For the vector (glUniform*v) commands, specifies the number of elements that are to be modified. This should be 1 if the 
-		/// targeted uniform variable is not an array, and 1 or more if it is an array.
+		/// For the vector (Gl.Uniform*v) commands, specifies the number of elements that are to be modified. This should be 1 if 
+		/// the targeted uniform variable is not an array, and 1 or more if it is an array.
 		/// </param>
 		/// <param name="transpose">
 		/// For the matrix commands, specifies whether to transpose the matrix as the values are loaded into the uniform variable.
 		/// </param>
 		/// <param name="value">
-		/// For the vector and matrix commands, specifies a pointer to an array of count values that will be used to update the 
-		/// specified uniform variable.
+		/// For the vector and matrix commands, specifies a pointer to an array of <paramref name="count"/> values that will be used 
+		/// to update the specified uniform variable.
 		/// </param>
+		/// <remarks>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if there is no current program object.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if the size of the uniform variable declared in the shader does not match the size 
+		/// indicated by the Gl.Uniform command.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if one of the signed or unsigned integer variants of this function is used to load a 
+		/// uniform variable of type float, vec2, vec3, vec4, or an array of these, or if one of the floating-point variants of this 
+		/// function is used to load a uniform variable of type int, ivec2, ivec3, ivec4, unsigned int, uvec2, uvec3, uvec4, or an 
+		/// array of these.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if one of the signed integer variants of this function is used to load a uniform 
+		/// variable of type unsigned int, uvec2, uvec3, uvec4, or an array of these.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if one of the unsigned integer variants of this function is used to load a uniform 
+		/// variable of type int, ivec2, ivec3, ivec4, or an array of these.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if <paramref name="location"/> is an invalid uniform location for the current program 
+		/// object and <paramref name="location"/> is not equal to -1.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_VALUE is generated if <paramref name="count"/> is less than 0.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if <paramref name="count"/> is greater than 1 and the indicated uniform variable is 
+		/// not an array variable.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if a sampler is loaded using a command other than Gl.Uniform1i and Gl.Uniform1iv.
+		/// </exception>
+		/// <seealso cref="Gl.LinkProgram"/>
+		/// <seealso cref="Gl.UseProgram"/>
 		[RequiredByFeature("GL_VERSION_2_1")]
 		public static void UniformMatrix2x3(Int32 location, Int32 count, bool transpose, float[] value)
 		{
@@ -254,16 +285,47 @@ namespace OpenGL
 		/// Specifies the location of the uniform variable to be modified.
 		/// </param>
 		/// <param name="count">
-		/// For the vector (glUniform*v) commands, specifies the number of elements that are to be modified. This should be 1 if the 
-		/// targeted uniform variable is not an array, and 1 or more if it is an array.
+		/// For the vector (Gl.Uniform*v) commands, specifies the number of elements that are to be modified. This should be 1 if 
+		/// the targeted uniform variable is not an array, and 1 or more if it is an array.
 		/// </param>
 		/// <param name="transpose">
 		/// For the matrix commands, specifies whether to transpose the matrix as the values are loaded into the uniform variable.
 		/// </param>
 		/// <param name="value">
-		/// For the vector and matrix commands, specifies a pointer to an array of count values that will be used to update the 
-		/// specified uniform variable.
+		/// For the vector and matrix commands, specifies a pointer to an array of <paramref name="count"/> values that will be used 
+		/// to update the specified uniform variable.
 		/// </param>
+		/// <remarks>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if there is no current program object.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if the size of the uniform variable declared in the shader does not match the size 
+		/// indicated by the Gl.Uniform command.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if one of the signed or unsigned integer variants of this function is used to load a 
+		/// uniform variable of type float, vec2, vec3, vec4, or an array of these, or if one of the floating-point variants of this 
+		/// function is used to load a uniform variable of type int, ivec2, ivec3, ivec4, unsigned int, uvec2, uvec3, uvec4, or an 
+		/// array of these.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if one of the signed integer variants of this function is used to load a uniform 
+		/// variable of type unsigned int, uvec2, uvec3, uvec4, or an array of these.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if one of the unsigned integer variants of this function is used to load a uniform 
+		/// variable of type int, ivec2, ivec3, ivec4, or an array of these.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if <paramref name="location"/> is an invalid uniform location for the current program 
+		/// object and <paramref name="location"/> is not equal to -1.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_VALUE is generated if <paramref name="count"/> is less than 0.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if <paramref name="count"/> is greater than 1 and the indicated uniform variable is 
+		/// not an array variable.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if a sampler is loaded using a command other than Gl.Uniform1i and Gl.Uniform1iv.
+		/// </exception>
+		/// <seealso cref="Gl.LinkProgram"/>
+		/// <seealso cref="Gl.UseProgram"/>
 		[RequiredByFeature("GL_VERSION_2_1")]
 		public static void UniformMatrix3x2(Int32 location, Int32 count, bool transpose, float[] value)
 		{
@@ -285,16 +347,47 @@ namespace OpenGL
 		/// Specifies the location of the uniform variable to be modified.
 		/// </param>
 		/// <param name="count">
-		/// For the vector (glUniform*v) commands, specifies the number of elements that are to be modified. This should be 1 if the 
-		/// targeted uniform variable is not an array, and 1 or more if it is an array.
+		/// For the vector (Gl.Uniform*v) commands, specifies the number of elements that are to be modified. This should be 1 if 
+		/// the targeted uniform variable is not an array, and 1 or more if it is an array.
 		/// </param>
 		/// <param name="transpose">
 		/// For the matrix commands, specifies whether to transpose the matrix as the values are loaded into the uniform variable.
 		/// </param>
 		/// <param name="value">
-		/// For the vector and matrix commands, specifies a pointer to an array of count values that will be used to update the 
-		/// specified uniform variable.
+		/// For the vector and matrix commands, specifies a pointer to an array of <paramref name="count"/> values that will be used 
+		/// to update the specified uniform variable.
 		/// </param>
+		/// <remarks>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if there is no current program object.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if the size of the uniform variable declared in the shader does not match the size 
+		/// indicated by the Gl.Uniform command.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if one of the signed or unsigned integer variants of this function is used to load a 
+		/// uniform variable of type float, vec2, vec3, vec4, or an array of these, or if one of the floating-point variants of this 
+		/// function is used to load a uniform variable of type int, ivec2, ivec3, ivec4, unsigned int, uvec2, uvec3, uvec4, or an 
+		/// array of these.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if one of the signed integer variants of this function is used to load a uniform 
+		/// variable of type unsigned int, uvec2, uvec3, uvec4, or an array of these.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if one of the unsigned integer variants of this function is used to load a uniform 
+		/// variable of type int, ivec2, ivec3, ivec4, or an array of these.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if <paramref name="location"/> is an invalid uniform location for the current program 
+		/// object and <paramref name="location"/> is not equal to -1.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_VALUE is generated if <paramref name="count"/> is less than 0.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if <paramref name="count"/> is greater than 1 and the indicated uniform variable is 
+		/// not an array variable.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if a sampler is loaded using a command other than Gl.Uniform1i and Gl.Uniform1iv.
+		/// </exception>
+		/// <seealso cref="Gl.LinkProgram"/>
+		/// <seealso cref="Gl.UseProgram"/>
 		[RequiredByFeature("GL_VERSION_2_1")]
 		public static void UniformMatrix2x4(Int32 location, Int32 count, bool transpose, float[] value)
 		{
@@ -316,16 +409,47 @@ namespace OpenGL
 		/// Specifies the location of the uniform variable to be modified.
 		/// </param>
 		/// <param name="count">
-		/// For the vector (glUniform*v) commands, specifies the number of elements that are to be modified. This should be 1 if the 
-		/// targeted uniform variable is not an array, and 1 or more if it is an array.
+		/// For the vector (Gl.Uniform*v) commands, specifies the number of elements that are to be modified. This should be 1 if 
+		/// the targeted uniform variable is not an array, and 1 or more if it is an array.
 		/// </param>
 		/// <param name="transpose">
 		/// For the matrix commands, specifies whether to transpose the matrix as the values are loaded into the uniform variable.
 		/// </param>
 		/// <param name="value">
-		/// For the vector and matrix commands, specifies a pointer to an array of count values that will be used to update the 
-		/// specified uniform variable.
+		/// For the vector and matrix commands, specifies a pointer to an array of <paramref name="count"/> values that will be used 
+		/// to update the specified uniform variable.
 		/// </param>
+		/// <remarks>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if there is no current program object.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if the size of the uniform variable declared in the shader does not match the size 
+		/// indicated by the Gl.Uniform command.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if one of the signed or unsigned integer variants of this function is used to load a 
+		/// uniform variable of type float, vec2, vec3, vec4, or an array of these, or if one of the floating-point variants of this 
+		/// function is used to load a uniform variable of type int, ivec2, ivec3, ivec4, unsigned int, uvec2, uvec3, uvec4, or an 
+		/// array of these.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if one of the signed integer variants of this function is used to load a uniform 
+		/// variable of type unsigned int, uvec2, uvec3, uvec4, or an array of these.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if one of the unsigned integer variants of this function is used to load a uniform 
+		/// variable of type int, ivec2, ivec3, ivec4, or an array of these.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if <paramref name="location"/> is an invalid uniform location for the current program 
+		/// object and <paramref name="location"/> is not equal to -1.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_VALUE is generated if <paramref name="count"/> is less than 0.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if <paramref name="count"/> is greater than 1 and the indicated uniform variable is 
+		/// not an array variable.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if a sampler is loaded using a command other than Gl.Uniform1i and Gl.Uniform1iv.
+		/// </exception>
+		/// <seealso cref="Gl.LinkProgram"/>
+		/// <seealso cref="Gl.UseProgram"/>
 		[RequiredByFeature("GL_VERSION_2_1")]
 		public static void UniformMatrix4x2(Int32 location, Int32 count, bool transpose, float[] value)
 		{
@@ -347,16 +471,47 @@ namespace OpenGL
 		/// Specifies the location of the uniform variable to be modified.
 		/// </param>
 		/// <param name="count">
-		/// For the vector (glUniform*v) commands, specifies the number of elements that are to be modified. This should be 1 if the 
-		/// targeted uniform variable is not an array, and 1 or more if it is an array.
+		/// For the vector (Gl.Uniform*v) commands, specifies the number of elements that are to be modified. This should be 1 if 
+		/// the targeted uniform variable is not an array, and 1 or more if it is an array.
 		/// </param>
 		/// <param name="transpose">
 		/// For the matrix commands, specifies whether to transpose the matrix as the values are loaded into the uniform variable.
 		/// </param>
 		/// <param name="value">
-		/// For the vector and matrix commands, specifies a pointer to an array of count values that will be used to update the 
-		/// specified uniform variable.
+		/// For the vector and matrix commands, specifies a pointer to an array of <paramref name="count"/> values that will be used 
+		/// to update the specified uniform variable.
 		/// </param>
+		/// <remarks>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if there is no current program object.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if the size of the uniform variable declared in the shader does not match the size 
+		/// indicated by the Gl.Uniform command.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if one of the signed or unsigned integer variants of this function is used to load a 
+		/// uniform variable of type float, vec2, vec3, vec4, or an array of these, or if one of the floating-point variants of this 
+		/// function is used to load a uniform variable of type int, ivec2, ivec3, ivec4, unsigned int, uvec2, uvec3, uvec4, or an 
+		/// array of these.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if one of the signed integer variants of this function is used to load a uniform 
+		/// variable of type unsigned int, uvec2, uvec3, uvec4, or an array of these.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if one of the unsigned integer variants of this function is used to load a uniform 
+		/// variable of type int, ivec2, ivec3, ivec4, or an array of these.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if <paramref name="location"/> is an invalid uniform location for the current program 
+		/// object and <paramref name="location"/> is not equal to -1.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_VALUE is generated if <paramref name="count"/> is less than 0.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if <paramref name="count"/> is greater than 1 and the indicated uniform variable is 
+		/// not an array variable.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if a sampler is loaded using a command other than Gl.Uniform1i and Gl.Uniform1iv.
+		/// </exception>
+		/// <seealso cref="Gl.LinkProgram"/>
+		/// <seealso cref="Gl.UseProgram"/>
 		[RequiredByFeature("GL_VERSION_2_1")]
 		public static void UniformMatrix3x4(Int32 location, Int32 count, bool transpose, float[] value)
 		{
@@ -378,16 +533,47 @@ namespace OpenGL
 		/// Specifies the location of the uniform variable to be modified.
 		/// </param>
 		/// <param name="count">
-		/// For the vector (glUniform*v) commands, specifies the number of elements that are to be modified. This should be 1 if the 
-		/// targeted uniform variable is not an array, and 1 or more if it is an array.
+		/// For the vector (Gl.Uniform*v) commands, specifies the number of elements that are to be modified. This should be 1 if 
+		/// the targeted uniform variable is not an array, and 1 or more if it is an array.
 		/// </param>
 		/// <param name="transpose">
 		/// For the matrix commands, specifies whether to transpose the matrix as the values are loaded into the uniform variable.
 		/// </param>
 		/// <param name="value">
-		/// For the vector and matrix commands, specifies a pointer to an array of count values that will be used to update the 
-		/// specified uniform variable.
+		/// For the vector and matrix commands, specifies a pointer to an array of <paramref name="count"/> values that will be used 
+		/// to update the specified uniform variable.
 		/// </param>
+		/// <remarks>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if there is no current program object.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if the size of the uniform variable declared in the shader does not match the size 
+		/// indicated by the Gl.Uniform command.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if one of the signed or unsigned integer variants of this function is used to load a 
+		/// uniform variable of type float, vec2, vec3, vec4, or an array of these, or if one of the floating-point variants of this 
+		/// function is used to load a uniform variable of type int, ivec2, ivec3, ivec4, unsigned int, uvec2, uvec3, uvec4, or an 
+		/// array of these.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if one of the signed integer variants of this function is used to load a uniform 
+		/// variable of type unsigned int, uvec2, uvec3, uvec4, or an array of these.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if one of the unsigned integer variants of this function is used to load a uniform 
+		/// variable of type int, ivec2, ivec3, ivec4, or an array of these.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if <paramref name="location"/> is an invalid uniform location for the current program 
+		/// object and <paramref name="location"/> is not equal to -1.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_VALUE is generated if <paramref name="count"/> is less than 0.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if <paramref name="count"/> is greater than 1 and the indicated uniform variable is 
+		/// not an array variable.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if a sampler is loaded using a command other than Gl.Uniform1i and Gl.Uniform1iv.
+		/// </exception>
+		/// <seealso cref="Gl.LinkProgram"/>
+		/// <seealso cref="Gl.UseProgram"/>
 		[RequiredByFeature("GL_VERSION_2_1")]
 		public static void UniformMatrix4x3(Int32 location, Int32 count, bool transpose, float[] value)
 		{

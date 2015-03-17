@@ -571,44 +571,67 @@ namespace OpenGL
 		/// define a color lookup table
 		/// </summary>
 		/// <param name="target">
-		/// Must be one of <see cref="Gl.COLOR_TABLE"/>, <see cref="Gl.POST_CONVOLUTION_COLOR_TABLE"/>, <see 
-		/// cref="Gl.POST_COLOR_MATRIX_COLOR_TABLE"/>, <see cref="Gl.PROXY_COLOR_TABLE"/>, <see 
-		/// cref="Gl.PROXY_POST_CONVOLUTION_COLOR_TABLE"/>, or <see cref="Gl.PROXY_POST_COLOR_MATRIX_COLOR_TABLE"/>.
+		/// Must be one of Gl.COLOR_TABLE, Gl.POST_CONVOLUTION_COLOR_TABLE, Gl.POST_COLOR_MATRIX_COLOR_TABLE, Gl.PROXY_COLOR_TABLE, 
+		/// Gl.PROXY_POST_CONVOLUTION_COLOR_TABLE, or Gl.PROXY_POST_COLOR_MATRIX_COLOR_TABLE.
 		/// </param>
 		/// <param name="internalformat">
-		/// The internal format of the color table. The allowable values are <see cref="Gl.ALPHA"/>, <see cref="Gl.ALPHA4"/>, <see 
-		/// cref="Gl.ALPHA8"/>, <see cref="Gl.ALPHA12"/>, <see cref="Gl.ALPHA16"/>, <see cref="Gl.LUMINANCE"/>, <see 
-		/// cref="Gl.LUMINANCE4"/>, <see cref="Gl.LUMINANCE8"/>, <see cref="Gl.LUMINANCE12"/>, <see cref="Gl.LUMINANCE16"/>, <see 
-		/// cref="Gl.LUMINANCE_ALPHA"/>, <see cref="Gl.LUMINANCE4_ALPHA4"/>, <see cref="Gl.LUMINANCE6_ALPHA2"/>, <see 
-		/// cref="Gl.LUMINANCE8_ALPHA8"/>, <see cref="Gl.LUMINANCE12_ALPHA4"/>, <see cref="Gl.LUMINANCE12_ALPHA12"/>, <see 
-		/// cref="Gl.LUMINANCE16_ALPHA16"/>, <see cref="Gl.INTENSITY"/>, <see cref="Gl.INTENSITY4"/>, <see cref="Gl.INTENSITY8"/>, 
-		/// <see cref="Gl.INTENSITY12"/>, <see cref="Gl.INTENSITY16"/>, <see cref="Gl.R3_G3_B2"/>, <see cref="Gl.RGB"/>, <see 
-		/// cref="Gl.RGB4"/>, <see cref="Gl.RGB5"/>, <see cref="Gl.RGB8"/>, <see cref="Gl.RGB10"/>, <see cref="Gl.RGB12"/>, <see 
-		/// cref="Gl.RGB16"/>, <see cref="Gl.RGBA"/>, <see cref="Gl.RGBA2"/>, <see cref="Gl.RGBA4"/>, <see cref="Gl.RGB5_A1"/>, <see 
-		/// cref="Gl.RGBA8"/>, <see cref="Gl.RGB10_A2"/>, <see cref="Gl.RGBA12"/>, and <see cref="Gl.RGBA16"/>.
+		/// The internal format of the color table. The allowable values are Gl.ALPHA, Gl.ALPHA4, Gl.ALPHA8, Gl.ALPHA12, Gl.ALPHA16, 
+		/// Gl.LUMINANCE, Gl.LUMINANCE4, Gl.LUMINANCE8, Gl.LUMINANCE12, Gl.LUMINANCE16, Gl.LUMINANCE_ALPHA, Gl.LUMINANCE4_ALPHA4, 
+		/// Gl.LUMINANCE6_ALPHA2, Gl.LUMINANCE8_ALPHA8, Gl.LUMINANCE12_ALPHA4, Gl.LUMINANCE12_ALPHA12, Gl.LUMINANCE16_ALPHA16, 
+		/// Gl.INTENSITY, Gl.INTENSITY4, Gl.INTENSITY8, Gl.INTENSITY12, Gl.INTENSITY16, Gl.R3_G3_B2, Gl.RGB, Gl.RGB4, Gl.RGB5, 
+		/// Gl.RGB8, Gl.RGB10, Gl.RGB12, Gl.RGB16, Gl.RGBA, Gl.RGBA2, Gl.RGBA4, Gl.RGB5_A1, Gl.RGBA8, Gl.RGB10_A2, Gl.RGBA12, and 
+		/// Gl.RGBA16.
 		/// </param>
 		/// <param name="width">
 		/// The number of entries in the color lookup table specified by <paramref name="data"/>.
 		/// </param>
 		/// <param name="format">
-		/// The format of the pixel data in <paramref name="data"/>. The allowable values are <see cref="Gl.RED"/>, <see 
-		/// cref="Gl.GREEN"/>, <see cref="Gl.BLUE"/>, <see cref="Gl.ALPHA"/>, <see cref="Gl.LUMINANCE"/>, <see 
-		/// cref="Gl.LUMINANCE_ALPHA"/>, <see cref="Gl.RGB"/>, <see cref="Gl.BGR"/>, <see cref="Gl.RGBA"/>, and <see 
-		/// cref="Gl.BGRA"/>.
+		/// The format of the pixel data in <paramref name="data"/>. The allowable values are Gl.RED, Gl.GREEN, Gl.BLUE, Gl.ALPHA, 
+		/// Gl.LUMINANCE, Gl.LUMINANCE_ALPHA, Gl.RGB, Gl.BGR, Gl.RGBA, and Gl.BGRA.
 		/// </param>
 		/// <param name="type">
-		/// The type of the pixel data in <paramref name="data"/>. The allowable values are <see cref="Gl.UNSIGNED_BYTE"/>, <see 
-		/// cref="Gl.BYTE"/>, <see cref="Gl.UNSIGNED_SHORT"/>, <see cref="Gl.SHORT"/>, <see cref="Gl.UNSIGNED_INT"/>, <see 
-		/// cref="Gl.INT"/>, <see cref="Gl.FLOAT"/>, <see cref="Gl.UNSIGNED_BYTE_3_3_2"/>, <see cref="Gl.UNSIGNED_BYTE_2_3_3_REV"/>, 
-		/// <see cref="Gl.UNSIGNED_SHORT_5_6_5"/>, <see cref="Gl.UNSIGNED_SHORT_5_6_5_REV"/>, <see 
-		/// cref="Gl.UNSIGNED_SHORT_4_4_4_4"/>, <see cref="Gl.UNSIGNED_SHORT_4_4_4_4_REV"/>, <see 
-		/// cref="Gl.UNSIGNED_SHORT_5_5_5_1"/>, <see cref="Gl.UNSIGNED_SHORT_1_5_5_5_REV"/>, <see cref="Gl.UNSIGNED_INT_8_8_8_8"/>, 
-		/// <see cref="Gl.UNSIGNED_INT_8_8_8_8_REV"/>, <see cref="Gl.UNSIGNED_INT_10_10_10_2"/>, and <see 
-		/// cref="Gl.UNSIGNED_INT_2_10_10_10_REV"/>.
+		/// The type of the pixel data in <paramref name="data"/>. The allowable values are Gl.UNSIGNED_BYTE, Gl.BYTE, 
+		/// Gl.UNSIGNED_SHORT, Gl.SHORT, Gl.UNSIGNED_INT, Gl.INT, Gl.FLOAT, Gl.UNSIGNED_BYTE_3_3_2, Gl.UNSIGNED_BYTE_2_3_3_REV, 
+		/// Gl.UNSIGNED_SHORT_5_6_5, Gl.UNSIGNED_SHORT_5_6_5_REV, Gl.UNSIGNED_SHORT_4_4_4_4, Gl.UNSIGNED_SHORT_4_4_4_4_REV, 
+		/// Gl.UNSIGNED_SHORT_5_5_5_1, Gl.UNSIGNED_SHORT_1_5_5_5_REV, Gl.UNSIGNED_INT_8_8_8_8, Gl.UNSIGNED_INT_8_8_8_8_REV, 
+		/// Gl.UNSIGNED_INT_10_10_10_2, and Gl.UNSIGNED_INT_2_10_10_10_REV.
 		/// </param>
 		/// <param name="table">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
+		/// <remarks>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated if <paramref name="target"/> is not one of the allowable values.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated if <paramref name="internalformat"/> is not one of the allowable values.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated if <paramref name="format"/> is not one of the allowable values.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated if <paramref name="type"/> is not one of the allowable values.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_VALUE is generated if <paramref name="width"/> is less than zero.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.TABLE_TOO_LARGE is generated if the requested color table is too large to be supported by the implementation, and 
+		/// <paramref name="target"/> is not a Gl.PROXY_* target.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if a non-zero buffer object name is bound to the Gl.PIXEL_UNPACK_BUFFER target and the 
+		/// buffer object's data store is currently mapped.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if a non-zero buffer object name is bound to the Gl.PIXEL_UNPACK_BUFFER target and the 
+		/// data would be unpacked from the buffer object such that the memory reads required would exceed the data store size.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if a non-zero buffer object name is bound to the Gl.PIXEL_UNPACK_BUFFER target and 
+		/// <paramref name="data"/> is not evenly divisible into the number of bytes needed to store in memory a datum indicated by 
+		/// <paramref name="type"/>.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if Gl.ColorTable is executed between the execution of Gl\.Begin and the corresponding 
+		/// execution of Gl\.End.
+		/// </exception>
+		/// <seealso cref="Gl.ColorSubTable"/>
+		/// <seealso cref="Gl.CopyColorTable"/>
+		/// <seealso cref="Gl.CopyColorSubTable"/>
+		/// <seealso cref="Gl.GetColorTable"/>
 		[RequiredByFeature("GL_ARB_imaging")]
 		public static void ColorTable(int target, int internalformat, Int32 width, PixelFormat format, PixelType type, IntPtr table)
 		{
@@ -622,44 +645,67 @@ namespace OpenGL
 		/// define a color lookup table
 		/// </summary>
 		/// <param name="target">
-		/// Must be one of <see cref="Gl.COLOR_TABLE"/>, <see cref="Gl.POST_CONVOLUTION_COLOR_TABLE"/>, <see 
-		/// cref="Gl.POST_COLOR_MATRIX_COLOR_TABLE"/>, <see cref="Gl.PROXY_COLOR_TABLE"/>, <see 
-		/// cref="Gl.PROXY_POST_CONVOLUTION_COLOR_TABLE"/>, or <see cref="Gl.PROXY_POST_COLOR_MATRIX_COLOR_TABLE"/>.
+		/// Must be one of Gl.COLOR_TABLE, Gl.POST_CONVOLUTION_COLOR_TABLE, Gl.POST_COLOR_MATRIX_COLOR_TABLE, Gl.PROXY_COLOR_TABLE, 
+		/// Gl.PROXY_POST_CONVOLUTION_COLOR_TABLE, or Gl.PROXY_POST_COLOR_MATRIX_COLOR_TABLE.
 		/// </param>
 		/// <param name="internalformat">
-		/// The internal format of the color table. The allowable values are <see cref="Gl.ALPHA"/>, <see cref="Gl.ALPHA4"/>, <see 
-		/// cref="Gl.ALPHA8"/>, <see cref="Gl.ALPHA12"/>, <see cref="Gl.ALPHA16"/>, <see cref="Gl.LUMINANCE"/>, <see 
-		/// cref="Gl.LUMINANCE4"/>, <see cref="Gl.LUMINANCE8"/>, <see cref="Gl.LUMINANCE12"/>, <see cref="Gl.LUMINANCE16"/>, <see 
-		/// cref="Gl.LUMINANCE_ALPHA"/>, <see cref="Gl.LUMINANCE4_ALPHA4"/>, <see cref="Gl.LUMINANCE6_ALPHA2"/>, <see 
-		/// cref="Gl.LUMINANCE8_ALPHA8"/>, <see cref="Gl.LUMINANCE12_ALPHA4"/>, <see cref="Gl.LUMINANCE12_ALPHA12"/>, <see 
-		/// cref="Gl.LUMINANCE16_ALPHA16"/>, <see cref="Gl.INTENSITY"/>, <see cref="Gl.INTENSITY4"/>, <see cref="Gl.INTENSITY8"/>, 
-		/// <see cref="Gl.INTENSITY12"/>, <see cref="Gl.INTENSITY16"/>, <see cref="Gl.R3_G3_B2"/>, <see cref="Gl.RGB"/>, <see 
-		/// cref="Gl.RGB4"/>, <see cref="Gl.RGB5"/>, <see cref="Gl.RGB8"/>, <see cref="Gl.RGB10"/>, <see cref="Gl.RGB12"/>, <see 
-		/// cref="Gl.RGB16"/>, <see cref="Gl.RGBA"/>, <see cref="Gl.RGBA2"/>, <see cref="Gl.RGBA4"/>, <see cref="Gl.RGB5_A1"/>, <see 
-		/// cref="Gl.RGBA8"/>, <see cref="Gl.RGB10_A2"/>, <see cref="Gl.RGBA12"/>, and <see cref="Gl.RGBA16"/>.
+		/// The internal format of the color table. The allowable values are Gl.ALPHA, Gl.ALPHA4, Gl.ALPHA8, Gl.ALPHA12, Gl.ALPHA16, 
+		/// Gl.LUMINANCE, Gl.LUMINANCE4, Gl.LUMINANCE8, Gl.LUMINANCE12, Gl.LUMINANCE16, Gl.LUMINANCE_ALPHA, Gl.LUMINANCE4_ALPHA4, 
+		/// Gl.LUMINANCE6_ALPHA2, Gl.LUMINANCE8_ALPHA8, Gl.LUMINANCE12_ALPHA4, Gl.LUMINANCE12_ALPHA12, Gl.LUMINANCE16_ALPHA16, 
+		/// Gl.INTENSITY, Gl.INTENSITY4, Gl.INTENSITY8, Gl.INTENSITY12, Gl.INTENSITY16, Gl.R3_G3_B2, Gl.RGB, Gl.RGB4, Gl.RGB5, 
+		/// Gl.RGB8, Gl.RGB10, Gl.RGB12, Gl.RGB16, Gl.RGBA, Gl.RGBA2, Gl.RGBA4, Gl.RGB5_A1, Gl.RGBA8, Gl.RGB10_A2, Gl.RGBA12, and 
+		/// Gl.RGBA16.
 		/// </param>
 		/// <param name="width">
 		/// The number of entries in the color lookup table specified by <paramref name="data"/>.
 		/// </param>
 		/// <param name="format">
-		/// The format of the pixel data in <paramref name="data"/>. The allowable values are <see cref="Gl.RED"/>, <see 
-		/// cref="Gl.GREEN"/>, <see cref="Gl.BLUE"/>, <see cref="Gl.ALPHA"/>, <see cref="Gl.LUMINANCE"/>, <see 
-		/// cref="Gl.LUMINANCE_ALPHA"/>, <see cref="Gl.RGB"/>, <see cref="Gl.BGR"/>, <see cref="Gl.RGBA"/>, and <see 
-		/// cref="Gl.BGRA"/>.
+		/// The format of the pixel data in <paramref name="data"/>. The allowable values are Gl.RED, Gl.GREEN, Gl.BLUE, Gl.ALPHA, 
+		/// Gl.LUMINANCE, Gl.LUMINANCE_ALPHA, Gl.RGB, Gl.BGR, Gl.RGBA, and Gl.BGRA.
 		/// </param>
 		/// <param name="type">
-		/// The type of the pixel data in <paramref name="data"/>. The allowable values are <see cref="Gl.UNSIGNED_BYTE"/>, <see 
-		/// cref="Gl.BYTE"/>, <see cref="Gl.UNSIGNED_SHORT"/>, <see cref="Gl.SHORT"/>, <see cref="Gl.UNSIGNED_INT"/>, <see 
-		/// cref="Gl.INT"/>, <see cref="Gl.FLOAT"/>, <see cref="Gl.UNSIGNED_BYTE_3_3_2"/>, <see cref="Gl.UNSIGNED_BYTE_2_3_3_REV"/>, 
-		/// <see cref="Gl.UNSIGNED_SHORT_5_6_5"/>, <see cref="Gl.UNSIGNED_SHORT_5_6_5_REV"/>, <see 
-		/// cref="Gl.UNSIGNED_SHORT_4_4_4_4"/>, <see cref="Gl.UNSIGNED_SHORT_4_4_4_4_REV"/>, <see 
-		/// cref="Gl.UNSIGNED_SHORT_5_5_5_1"/>, <see cref="Gl.UNSIGNED_SHORT_1_5_5_5_REV"/>, <see cref="Gl.UNSIGNED_INT_8_8_8_8"/>, 
-		/// <see cref="Gl.UNSIGNED_INT_8_8_8_8_REV"/>, <see cref="Gl.UNSIGNED_INT_10_10_10_2"/>, and <see 
-		/// cref="Gl.UNSIGNED_INT_2_10_10_10_REV"/>.
+		/// The type of the pixel data in <paramref name="data"/>. The allowable values are Gl.UNSIGNED_BYTE, Gl.BYTE, 
+		/// Gl.UNSIGNED_SHORT, Gl.SHORT, Gl.UNSIGNED_INT, Gl.INT, Gl.FLOAT, Gl.UNSIGNED_BYTE_3_3_2, Gl.UNSIGNED_BYTE_2_3_3_REV, 
+		/// Gl.UNSIGNED_SHORT_5_6_5, Gl.UNSIGNED_SHORT_5_6_5_REV, Gl.UNSIGNED_SHORT_4_4_4_4, Gl.UNSIGNED_SHORT_4_4_4_4_REV, 
+		/// Gl.UNSIGNED_SHORT_5_5_5_1, Gl.UNSIGNED_SHORT_1_5_5_5_REV, Gl.UNSIGNED_INT_8_8_8_8, Gl.UNSIGNED_INT_8_8_8_8_REV, 
+		/// Gl.UNSIGNED_INT_10_10_10_2, and Gl.UNSIGNED_INT_2_10_10_10_REV.
 		/// </param>
 		/// <param name="table">
 		/// A <see cref="T:Object"/>.
 		/// </param>
+		/// <remarks>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated if <paramref name="target"/> is not one of the allowable values.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated if <paramref name="internalformat"/> is not one of the allowable values.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated if <paramref name="format"/> is not one of the allowable values.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated if <paramref name="type"/> is not one of the allowable values.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_VALUE is generated if <paramref name="width"/> is less than zero.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.TABLE_TOO_LARGE is generated if the requested color table is too large to be supported by the implementation, and 
+		/// <paramref name="target"/> is not a Gl.PROXY_* target.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if a non-zero buffer object name is bound to the Gl.PIXEL_UNPACK_BUFFER target and the 
+		/// buffer object's data store is currently mapped.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if a non-zero buffer object name is bound to the Gl.PIXEL_UNPACK_BUFFER target and the 
+		/// data would be unpacked from the buffer object such that the memory reads required would exceed the data store size.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if a non-zero buffer object name is bound to the Gl.PIXEL_UNPACK_BUFFER target and 
+		/// <paramref name="data"/> is not evenly divisible into the number of bytes needed to store in memory a datum indicated by 
+		/// <paramref name="type"/>.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if Gl.ColorTable is executed between the execution of Gl\.Begin and the corresponding 
+		/// execution of Gl\.End.
+		/// </exception>
+		/// <seealso cref="Gl.ColorSubTable"/>
+		/// <seealso cref="Gl.CopyColorTable"/>
+		/// <seealso cref="Gl.CopyColorSubTable"/>
+		/// <seealso cref="Gl.GetColorTable"/>
 		[RequiredByFeature("GL_ARB_imaging")]
 		public static void ColorTable(int target, int internalformat, Int32 width, PixelFormat format, PixelType type, Object table)
 		{
@@ -675,16 +721,24 @@ namespace OpenGL
 		/// set color lookup table parameters
 		/// </summary>
 		/// <param name="target">
-		/// The target color table. Must be <see cref="Gl.COLOR_TABLE"/>, <see cref="Gl.POST_CONVOLUTION_COLOR_TABLE"/>, or <see 
-		/// cref="Gl.POST_COLOR_MATRIX_COLOR_TABLE"/>.
+		/// The target color table. Must be Gl.COLOR_TABLE, Gl.POST_CONVOLUTION_COLOR_TABLE, or Gl.POST_COLOR_MATRIX_COLOR_TABLE.
 		/// </param>
 		/// <param name="pname">
-		/// The symbolic name of a texture color lookup table parameter. Must be one of <see cref="Gl.COLOR_TABLE_SCALE"/> or <see 
-		/// cref="Gl.COLOR_TABLE_BIAS"/>.
+		/// The symbolic name of a texture color lookup table parameter. Must be one of Gl.COLOR_TABLE_SCALE or Gl.COLOR_TABLE_BIAS.
 		/// </param>
 		/// <param name="params">
 		/// A pointer to an array where the values of the parameters are stored.
 		/// </param>
+		/// <remarks>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated if <paramref name="target"/> or <paramref name="pname"/> is not an acceptable value.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if Gl.ColorTableParameter is executed between the execution of Gl\.Begin and the 
+		/// corresponding execution of Gl\.End.
+		/// </exception>
+		/// <seealso cref="Gl.ColorTable"/>
+		/// <seealso cref="Gl.PixelTransfer"/>
 		[RequiredByFeature("GL_ARB_imaging")]
 		public static void ColorTableParameter(int target, int pname, float[] @params)
 		{
@@ -703,16 +757,24 @@ namespace OpenGL
 		/// set color lookup table parameters
 		/// </summary>
 		/// <param name="target">
-		/// The target color table. Must be <see cref="Gl.COLOR_TABLE"/>, <see cref="Gl.POST_CONVOLUTION_COLOR_TABLE"/>, or <see 
-		/// cref="Gl.POST_COLOR_MATRIX_COLOR_TABLE"/>.
+		/// The target color table. Must be Gl.COLOR_TABLE, Gl.POST_CONVOLUTION_COLOR_TABLE, or Gl.POST_COLOR_MATRIX_COLOR_TABLE.
 		/// </param>
 		/// <param name="pname">
-		/// The symbolic name of a texture color lookup table parameter. Must be one of <see cref="Gl.COLOR_TABLE_SCALE"/> or <see 
-		/// cref="Gl.COLOR_TABLE_BIAS"/>.
+		/// The symbolic name of a texture color lookup table parameter. Must be one of Gl.COLOR_TABLE_SCALE or Gl.COLOR_TABLE_BIAS.
 		/// </param>
 		/// <param name="params">
 		/// A pointer to an array where the values of the parameters are stored.
 		/// </param>
+		/// <remarks>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated if <paramref name="target"/> or <paramref name="pname"/> is not an acceptable value.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if Gl.ColorTableParameter is executed between the execution of Gl\.Begin and the 
+		/// corresponding execution of Gl\.End.
+		/// </exception>
+		/// <seealso cref="Gl.ColorTable"/>
+		/// <seealso cref="Gl.PixelTransfer"/>
 		[RequiredByFeature("GL_ARB_imaging")]
 		public static void ColorTableParameter(int target, int pname, Int32[] @params)
 		{
@@ -731,21 +793,15 @@ namespace OpenGL
 		/// copy pixels into a color table
 		/// </summary>
 		/// <param name="target">
-		/// The color table target. Must be <see cref="Gl.COLOR_TABLE"/>, <see cref="Gl.POST_CONVOLUTION_COLOR_TABLE"/>, or <see 
-		/// cref="Gl.POST_COLOR_MATRIX_COLOR_TABLE"/>.
+		/// The color table target. Must be Gl.COLOR_TABLE, Gl.POST_CONVOLUTION_COLOR_TABLE, or Gl.POST_COLOR_MATRIX_COLOR_TABLE.
 		/// </param>
 		/// <param name="internalformat">
-		/// The internal storage format of the texture image. Must be one of the following symbolic constants: <see 
-		/// cref="Gl.ALPHA"/>, <see cref="Gl.ALPHA4"/>, <see cref="Gl.ALPHA8"/>, <see cref="Gl.ALPHA12"/>, <see cref="Gl.ALPHA16"/>, 
-		/// <see cref="Gl.LUMINANCE"/>, <see cref="Gl.LUMINANCE4"/>, <see cref="Gl.LUMINANCE8"/>, <see cref="Gl.LUMINANCE12"/>, <see 
-		/// cref="Gl.LUMINANCE16"/>, <see cref="Gl.LUMINANCE_ALPHA"/>, <see cref="Gl.LUMINANCE4_ALPHA4"/>, <see 
-		/// cref="Gl.LUMINANCE6_ALPHA2"/>, <see cref="Gl.LUMINANCE8_ALPHA8"/>, <see cref="Gl.LUMINANCE12_ALPHA4"/>, <see 
-		/// cref="Gl.LUMINANCE12_ALPHA12"/>, <see cref="Gl.LUMINANCE16_ALPHA16"/>, <see cref="Gl.INTENSITY"/>, <see 
-		/// cref="Gl.INTENSITY4"/>, <see cref="Gl.INTENSITY8"/>, <see cref="Gl.INTENSITY12"/>, <see cref="Gl.INTENSITY16"/>, <see 
-		/// cref="Gl.R3_G3_B2"/>, <see cref="Gl.RGB"/>, <see cref="Gl.RGB4"/>, <see cref="Gl.RGB5"/>, <see cref="Gl.RGB8"/>, <see 
-		/// cref="Gl.RGB10"/>, <see cref="Gl.RGB12"/>, <see cref="Gl.RGB16"/>, <see cref="Gl.RGBA"/>, <see cref="Gl.RGBA2"/>, <see 
-		/// cref="Gl.RGBA4"/>, <see cref="Gl.RGB5_A1"/>, <see cref="Gl.RGBA8"/>, <see cref="Gl.RGB10_A2"/>, <see cref="Gl.RGBA12"/>, 
-		/// or <see cref="Gl.RGBA16"/>.
+		/// The internal storage format of the texture image. Must be one of the following symbolic constants: Gl.ALPHA, Gl.ALPHA4, 
+		/// Gl.ALPHA8, Gl.ALPHA12, Gl.ALPHA16, Gl.LUMINANCE, Gl.LUMINANCE4, Gl.LUMINANCE8, Gl.LUMINANCE12, Gl.LUMINANCE16, 
+		/// Gl.LUMINANCE_ALPHA, Gl.LUMINANCE4_ALPHA4, Gl.LUMINANCE6_ALPHA2, Gl.LUMINANCE8_ALPHA8, Gl.LUMINANCE12_ALPHA4, 
+		/// Gl.LUMINANCE12_ALPHA12, Gl.LUMINANCE16_ALPHA16, Gl.INTENSITY, Gl.INTENSITY4, Gl.INTENSITY8, Gl.INTENSITY12, 
+		/// Gl.INTENSITY16, Gl.R3_G3_B2, Gl.RGB, Gl.RGB4, Gl.RGB5, Gl.RGB8, Gl.RGB10, Gl.RGB12, Gl.RGB16, Gl.RGBA, Gl.RGBA2, 
+		/// Gl.RGBA4, Gl.RGB5_A1, Gl.RGBA8, Gl.RGB10_A2, Gl.RGBA12, or Gl.RGBA16.
 		/// </param>
 		/// <param name="x">
 		/// The x coordinate of the lower-left corner of the pixel rectangle to be transferred to the color table.
@@ -756,6 +812,23 @@ namespace OpenGL
 		/// <param name="width">
 		/// The width of the pixel rectangle.
 		/// </param>
+		/// <remarks>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated when <paramref name="target"/> is not one of the allowable values.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_VALUE is generated if <paramref name="width"/> is less than zero.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_VALUE is generated if <paramref name="internalformat"/> is not one of the allowable values.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.TABLE_TOO_LARGE is generated if the requested color table is too large to be supported by the implementation.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if Gl.CopyColorTable is executed between the execution of Gl\.Begin and the 
+		/// corresponding execution of Gl\.End.
+		/// </exception>
+		/// <seealso cref="Gl.ColorTable"/>
+		/// <seealso cref="Gl.ColorTableParameter"/>
+		/// <seealso cref="Gl.ReadPixels"/>
 		[RequiredByFeature("GL_ARB_imaging")]
 		public static void CopyColorTable(int target, int internalformat, Int32 x, Int32 y, Int32 width)
 		{
@@ -769,28 +842,55 @@ namespace OpenGL
 		/// retrieve contents of a color lookup table
 		/// </summary>
 		/// <param name="target">
-		/// Must be <see cref="Gl.COLOR_TABLE"/>, <see cref="Gl.POST_CONVOLUTION_COLOR_TABLE"/>, or <see 
-		/// cref="Gl.POST_COLOR_MATRIX_COLOR_TABLE"/>.
+		/// Must be Gl.COLOR_TABLE, Gl.POST_CONVOLUTION_COLOR_TABLE, or Gl.POST_COLOR_MATRIX_COLOR_TABLE.
 		/// </param>
 		/// <param name="format">
-		/// The format of the pixel data in <paramref name="table"/>. The possible values are <see cref="Gl.RED"/>, <see 
-		/// cref="Gl.GREEN"/>, <see cref="Gl.BLUE"/>, <see cref="Gl.ALPHA"/>, <see cref="Gl.LUMINANCE"/>, <see 
-		/// cref="Gl.LUMINANCE_ALPHA"/>, <see cref="Gl.RGB"/>, <see cref="Gl.BGR"/>, <see cref="Gl.RGBA"/>, and <see 
-		/// cref="Gl.BGRA"/>.
+		/// The format of the pixel data in <paramref name="table"/>. The possible values are Gl.RED, Gl.GREEN, Gl.BLUE, Gl.ALPHA, 
+		/// Gl.LUMINANCE, Gl.LUMINANCE_ALPHA, Gl.RGB, Gl.BGR, Gl.RGBA, and Gl.BGRA.
 		/// </param>
 		/// <param name="type">
-		/// The type of the pixel data in <paramref name="table"/>. Symbolic constants <see cref="Gl.UNSIGNED_BYTE"/>, <see 
-		/// cref="Gl.BYTE"/>, <see cref="Gl.BITMAP"/>, <see cref="Gl.UNSIGNED_SHORT"/>, <see cref="Gl.SHORT"/>, <see 
-		/// cref="Gl.UNSIGNED_INT"/>, <see cref="Gl.INT"/>, <see cref="Gl.FLOAT"/>, <see cref="Gl.UNSIGNED_BYTE_3_3_2"/>, <see 
-		/// cref="Gl.UNSIGNED_BYTE_2_3_3_REV"/>, <see cref="Gl.UNSIGNED_SHORT_5_6_5"/>, <see cref="Gl.UNSIGNED_SHORT_5_6_5_REV"/>, 
-		/// <see cref="Gl.UNSIGNED_SHORT_4_4_4_4"/>, <see cref="Gl.UNSIGNED_SHORT_4_4_4_4_REV"/>, <see 
-		/// cref="Gl.UNSIGNED_SHORT_5_5_5_1"/>, <see cref="Gl.UNSIGNED_SHORT_1_5_5_5_REV"/>, <see cref="Gl.UNSIGNED_INT_8_8_8_8"/>, 
-		/// <see cref="Gl.UNSIGNED_INT_8_8_8_8_REV"/>, <see cref="Gl.UNSIGNED_INT_10_10_10_2"/>, and <see 
-		/// cref="Gl.UNSIGNED_INT_2_10_10_10_REV"/> are accepted.
+		/// The type of the pixel data in <paramref name="table"/>. Symbolic constants Gl.UNSIGNED_BYTE, Gl.BYTE, Gl.BITMAP, 
+		/// Gl.UNSIGNED_SHORT, Gl.SHORT, Gl.UNSIGNED_INT, Gl.INT, Gl.FLOAT, Gl.UNSIGNED_BYTE_3_3_2, Gl.UNSIGNED_BYTE_2_3_3_REV, 
+		/// Gl.UNSIGNED_SHORT_5_6_5, Gl.UNSIGNED_SHORT_5_6_5_REV, Gl.UNSIGNED_SHORT_4_4_4_4, Gl.UNSIGNED_SHORT_4_4_4_4_REV, 
+		/// Gl.UNSIGNED_SHORT_5_5_5_1, Gl.UNSIGNED_SHORT_1_5_5_5_REV, Gl.UNSIGNED_INT_8_8_8_8, Gl.UNSIGNED_INT_8_8_8_8_REV, 
+		/// Gl.UNSIGNED_INT_10_10_10_2, and Gl.UNSIGNED_INT_2_10_10_10_REV are accepted.
 		/// </param>
 		/// <param name="table">
 		/// Pointer to a one-dimensional array of pixel data containing the contents of the color table.
 		/// </param>
+		/// <remarks>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated if <paramref name="target"/> is not one of the allowable values.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated if <paramref name="format"/> is not one of the allowable values.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated if <paramref name="type"/> is not one of the allowable values.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if <paramref name="type"/> is one of Gl.UNSIGNED_BYTE_3_3_2, 
+		/// Gl.UNSIGNED_BYTE_2_3_3_REV, Gl.UNSIGNED_SHORT_5_6_5, or Gl.UNSIGNED_SHORT_5_6_5_REV and <paramref name="format"/> is not 
+		/// Gl.RGB.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if <paramref name="type"/> is one of Gl.UNSIGNED_SHORT_4_4_4_4, 
+		/// Gl.UNSIGNED_SHORT_4_4_4_4_REV, Gl.UNSIGNED_SHORT_5_5_5_1, Gl.UNSIGNED_SHORT_1_5_5_5_REV, Gl.UNSIGNED_INT_8_8_8_8, 
+		/// Gl.UNSIGNED_INT_8_8_8_8_REV, Gl.UNSIGNED_INT_10_10_10_2, or Gl.UNSIGNED_INT_2_10_10_10_REV and <paramref name="format"/> 
+		/// is neither Gl.RGBA nor Gl.BGRA.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if a non-zero buffer object name is bound to the Gl.PIXEL_PACK_BUFFER target and the 
+		/// buffer object's data store is currently mapped.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if a non-zero buffer object name is bound to the Gl.PIXEL_PACK_BUFFER target and the 
+		/// data would be packed to the buffer object such that the memory writes required would exceed the data store size.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if a non-zero buffer object name is bound to the Gl.PIXEL_PACK_BUFFER target and 
+		/// <paramref name="table"/> is not evenly divisible into the number of bytes needed to store in memory a datum indicated by 
+		/// <paramref name="type"/>.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if Gl.GetColorTable is executed between the execution of Gl\.Begin and the 
+		/// corresponding execution of Gl\.End.
+		/// </exception>
+		/// <seealso cref="Gl.ColorTable"/>
+		/// <seealso cref="Gl.ColorTableParameter"/>
 		[RequiredByFeature("GL_ARB_imaging")]
 		public static void GetColorTable(int target, PixelFormat format, PixelType type, IntPtr table)
 		{
@@ -804,28 +904,55 @@ namespace OpenGL
 		/// retrieve contents of a color lookup table
 		/// </summary>
 		/// <param name="target">
-		/// Must be <see cref="Gl.COLOR_TABLE"/>, <see cref="Gl.POST_CONVOLUTION_COLOR_TABLE"/>, or <see 
-		/// cref="Gl.POST_COLOR_MATRIX_COLOR_TABLE"/>.
+		/// Must be Gl.COLOR_TABLE, Gl.POST_CONVOLUTION_COLOR_TABLE, or Gl.POST_COLOR_MATRIX_COLOR_TABLE.
 		/// </param>
 		/// <param name="format">
-		/// The format of the pixel data in <paramref name="table"/>. The possible values are <see cref="Gl.RED"/>, <see 
-		/// cref="Gl.GREEN"/>, <see cref="Gl.BLUE"/>, <see cref="Gl.ALPHA"/>, <see cref="Gl.LUMINANCE"/>, <see 
-		/// cref="Gl.LUMINANCE_ALPHA"/>, <see cref="Gl.RGB"/>, <see cref="Gl.BGR"/>, <see cref="Gl.RGBA"/>, and <see 
-		/// cref="Gl.BGRA"/>.
+		/// The format of the pixel data in <paramref name="table"/>. The possible values are Gl.RED, Gl.GREEN, Gl.BLUE, Gl.ALPHA, 
+		/// Gl.LUMINANCE, Gl.LUMINANCE_ALPHA, Gl.RGB, Gl.BGR, Gl.RGBA, and Gl.BGRA.
 		/// </param>
 		/// <param name="type">
-		/// The type of the pixel data in <paramref name="table"/>. Symbolic constants <see cref="Gl.UNSIGNED_BYTE"/>, <see 
-		/// cref="Gl.BYTE"/>, <see cref="Gl.BITMAP"/>, <see cref="Gl.UNSIGNED_SHORT"/>, <see cref="Gl.SHORT"/>, <see 
-		/// cref="Gl.UNSIGNED_INT"/>, <see cref="Gl.INT"/>, <see cref="Gl.FLOAT"/>, <see cref="Gl.UNSIGNED_BYTE_3_3_2"/>, <see 
-		/// cref="Gl.UNSIGNED_BYTE_2_3_3_REV"/>, <see cref="Gl.UNSIGNED_SHORT_5_6_5"/>, <see cref="Gl.UNSIGNED_SHORT_5_6_5_REV"/>, 
-		/// <see cref="Gl.UNSIGNED_SHORT_4_4_4_4"/>, <see cref="Gl.UNSIGNED_SHORT_4_4_4_4_REV"/>, <see 
-		/// cref="Gl.UNSIGNED_SHORT_5_5_5_1"/>, <see cref="Gl.UNSIGNED_SHORT_1_5_5_5_REV"/>, <see cref="Gl.UNSIGNED_INT_8_8_8_8"/>, 
-		/// <see cref="Gl.UNSIGNED_INT_8_8_8_8_REV"/>, <see cref="Gl.UNSIGNED_INT_10_10_10_2"/>, and <see 
-		/// cref="Gl.UNSIGNED_INT_2_10_10_10_REV"/> are accepted.
+		/// The type of the pixel data in <paramref name="table"/>. Symbolic constants Gl.UNSIGNED_BYTE, Gl.BYTE, Gl.BITMAP, 
+		/// Gl.UNSIGNED_SHORT, Gl.SHORT, Gl.UNSIGNED_INT, Gl.INT, Gl.FLOAT, Gl.UNSIGNED_BYTE_3_3_2, Gl.UNSIGNED_BYTE_2_3_3_REV, 
+		/// Gl.UNSIGNED_SHORT_5_6_5, Gl.UNSIGNED_SHORT_5_6_5_REV, Gl.UNSIGNED_SHORT_4_4_4_4, Gl.UNSIGNED_SHORT_4_4_4_4_REV, 
+		/// Gl.UNSIGNED_SHORT_5_5_5_1, Gl.UNSIGNED_SHORT_1_5_5_5_REV, Gl.UNSIGNED_INT_8_8_8_8, Gl.UNSIGNED_INT_8_8_8_8_REV, 
+		/// Gl.UNSIGNED_INT_10_10_10_2, and Gl.UNSIGNED_INT_2_10_10_10_REV are accepted.
 		/// </param>
 		/// <param name="table">
 		/// Pointer to a one-dimensional array of pixel data containing the contents of the color table.
 		/// </param>
+		/// <remarks>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated if <paramref name="target"/> is not one of the allowable values.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated if <paramref name="format"/> is not one of the allowable values.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated if <paramref name="type"/> is not one of the allowable values.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if <paramref name="type"/> is one of Gl.UNSIGNED_BYTE_3_3_2, 
+		/// Gl.UNSIGNED_BYTE_2_3_3_REV, Gl.UNSIGNED_SHORT_5_6_5, or Gl.UNSIGNED_SHORT_5_6_5_REV and <paramref name="format"/> is not 
+		/// Gl.RGB.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if <paramref name="type"/> is one of Gl.UNSIGNED_SHORT_4_4_4_4, 
+		/// Gl.UNSIGNED_SHORT_4_4_4_4_REV, Gl.UNSIGNED_SHORT_5_5_5_1, Gl.UNSIGNED_SHORT_1_5_5_5_REV, Gl.UNSIGNED_INT_8_8_8_8, 
+		/// Gl.UNSIGNED_INT_8_8_8_8_REV, Gl.UNSIGNED_INT_10_10_10_2, or Gl.UNSIGNED_INT_2_10_10_10_REV and <paramref name="format"/> 
+		/// is neither Gl.RGBA nor Gl.BGRA.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if a non-zero buffer object name is bound to the Gl.PIXEL_PACK_BUFFER target and the 
+		/// buffer object's data store is currently mapped.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if a non-zero buffer object name is bound to the Gl.PIXEL_PACK_BUFFER target and the 
+		/// data would be packed to the buffer object such that the memory writes required would exceed the data store size.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if a non-zero buffer object name is bound to the Gl.PIXEL_PACK_BUFFER target and 
+		/// <paramref name="table"/> is not evenly divisible into the number of bytes needed to store in memory a datum indicated by 
+		/// <paramref name="type"/>.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if Gl.GetColorTable is executed between the execution of Gl\.Begin and the 
+		/// corresponding execution of Gl\.End.
+		/// </exception>
+		/// <seealso cref="Gl.ColorTable"/>
+		/// <seealso cref="Gl.ColorTableParameter"/>
 		[RequiredByFeature("GL_ARB_imaging")]
 		public static void GetColorTable(int target, PixelFormat format, PixelType type, Object table)
 		{
@@ -841,20 +968,28 @@ namespace OpenGL
 		/// get color lookup table parameters
 		/// </summary>
 		/// <param name="target">
-		/// The target color table. Must be <see cref="Gl.COLOR_TABLE"/>, <see cref="Gl.POST_CONVOLUTION_COLOR_TABLE"/>, <see 
-		/// cref="Gl.POST_COLOR_MATRIX_COLOR_TABLE"/>, <see cref="Gl.PROXY_COLOR_TABLE"/>, <see 
-		/// cref="Gl.PROXY_POST_CONVOLUTION_COLOR_TABLE"/>, or <see cref="Gl.PROXY_POST_COLOR_MATRIX_COLOR_TABLE"/>.
+		/// The target color table. Must be Gl.COLOR_TABLE, Gl.POST_CONVOLUTION_COLOR_TABLE, Gl.POST_COLOR_MATRIX_COLOR_TABLE, 
+		/// Gl.PROXY_COLOR_TABLE, Gl.PROXY_POST_CONVOLUTION_COLOR_TABLE, or Gl.PROXY_POST_COLOR_MATRIX_COLOR_TABLE.
 		/// </param>
 		/// <param name="pname">
-		/// The symbolic name of a color lookup table parameter. Must be one of <see cref="Gl.COLOR_TABLE_BIAS"/>, <see 
-		/// cref="Gl.COLOR_TABLE_SCALE"/>, <see cref="Gl.COLOR_TABLE_FORMAT"/>, <see cref="Gl.COLOR_TABLE_WIDTH"/>, <see 
-		/// cref="Gl.COLOR_TABLE_RED_SIZE"/>, <see cref="Gl.COLOR_TABLE_GREEN_SIZE"/>, <see cref="Gl.COLOR_TABLE_BLUE_SIZE"/>, <see 
-		/// cref="Gl.COLOR_TABLE_ALPHA_SIZE"/>, <see cref="Gl.COLOR_TABLE_LUMINANCE_SIZE"/>, or <see 
-		/// cref="Gl.COLOR_TABLE_INTENSITY_SIZE"/>.
+		/// The symbolic name of a color lookup table parameter. Must be one of Gl.COLOR_TABLE_BIAS, Gl.COLOR_TABLE_SCALE, 
+		/// Gl.COLOR_TABLE_FORMAT, Gl.COLOR_TABLE_WIDTH, Gl.COLOR_TABLE_RED_SIZE, Gl.COLOR_TABLE_GREEN_SIZE, 
+		/// Gl.COLOR_TABLE_BLUE_SIZE, Gl.COLOR_TABLE_ALPHA_SIZE, Gl.COLOR_TABLE_LUMINANCE_SIZE, or Gl.COLOR_TABLE_INTENSITY_SIZE.
 		/// </param>
 		/// <param name="params">
 		/// A pointer to an array where the values of the parameter will be stored.
 		/// </param>
+		/// <remarks>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated if <paramref name="target"/> or <paramref name="pname"/> is not an acceptable value.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if Gl.GetColorTableParameter is executed between the execution of Gl\.Begin and the 
+		/// corresponding execution of Gl\.End.
+		/// </exception>
+		/// <seealso cref="Gl.ColorTable"/>
+		/// <seealso cref="Gl.TexParameter"/>
+		/// <seealso cref="Gl.ColorTableParameter"/>
 		[RequiredByFeature("GL_ARB_imaging")]
 		public static void GetColorTableParameter(int target, int pname, float[] @params)
 		{
@@ -873,20 +1008,28 @@ namespace OpenGL
 		/// get color lookup table parameters
 		/// </summary>
 		/// <param name="target">
-		/// The target color table. Must be <see cref="Gl.COLOR_TABLE"/>, <see cref="Gl.POST_CONVOLUTION_COLOR_TABLE"/>, <see 
-		/// cref="Gl.POST_COLOR_MATRIX_COLOR_TABLE"/>, <see cref="Gl.PROXY_COLOR_TABLE"/>, <see 
-		/// cref="Gl.PROXY_POST_CONVOLUTION_COLOR_TABLE"/>, or <see cref="Gl.PROXY_POST_COLOR_MATRIX_COLOR_TABLE"/>.
+		/// The target color table. Must be Gl.COLOR_TABLE, Gl.POST_CONVOLUTION_COLOR_TABLE, Gl.POST_COLOR_MATRIX_COLOR_TABLE, 
+		/// Gl.PROXY_COLOR_TABLE, Gl.PROXY_POST_CONVOLUTION_COLOR_TABLE, or Gl.PROXY_POST_COLOR_MATRIX_COLOR_TABLE.
 		/// </param>
 		/// <param name="pname">
-		/// The symbolic name of a color lookup table parameter. Must be one of <see cref="Gl.COLOR_TABLE_BIAS"/>, <see 
-		/// cref="Gl.COLOR_TABLE_SCALE"/>, <see cref="Gl.COLOR_TABLE_FORMAT"/>, <see cref="Gl.COLOR_TABLE_WIDTH"/>, <see 
-		/// cref="Gl.COLOR_TABLE_RED_SIZE"/>, <see cref="Gl.COLOR_TABLE_GREEN_SIZE"/>, <see cref="Gl.COLOR_TABLE_BLUE_SIZE"/>, <see 
-		/// cref="Gl.COLOR_TABLE_ALPHA_SIZE"/>, <see cref="Gl.COLOR_TABLE_LUMINANCE_SIZE"/>, or <see 
-		/// cref="Gl.COLOR_TABLE_INTENSITY_SIZE"/>.
+		/// The symbolic name of a color lookup table parameter. Must be one of Gl.COLOR_TABLE_BIAS, Gl.COLOR_TABLE_SCALE, 
+		/// Gl.COLOR_TABLE_FORMAT, Gl.COLOR_TABLE_WIDTH, Gl.COLOR_TABLE_RED_SIZE, Gl.COLOR_TABLE_GREEN_SIZE, 
+		/// Gl.COLOR_TABLE_BLUE_SIZE, Gl.COLOR_TABLE_ALPHA_SIZE, Gl.COLOR_TABLE_LUMINANCE_SIZE, or Gl.COLOR_TABLE_INTENSITY_SIZE.
 		/// </param>
 		/// <param name="params">
 		/// A pointer to an array where the values of the parameter will be stored.
 		/// </param>
+		/// <remarks>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated if <paramref name="target"/> or <paramref name="pname"/> is not an acceptable value.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if Gl.GetColorTableParameter is executed between the execution of Gl\.Begin and the 
+		/// corresponding execution of Gl\.End.
+		/// </exception>
+		/// <seealso cref="Gl.ColorTable"/>
+		/// <seealso cref="Gl.TexParameter"/>
+		/// <seealso cref="Gl.ColorTableParameter"/>
 		[RequiredByFeature("GL_ARB_imaging")]
 		public static void GetColorTableParameter(int target, int pname, Int32[] @params)
 		{
@@ -905,8 +1048,7 @@ namespace OpenGL
 		/// respecify a portion of a color table
 		/// </summary>
 		/// <param name="target">
-		/// Must be one of <see cref="Gl.COLOR_TABLE"/>, <see cref="Gl.POST_CONVOLUTION_COLOR_TABLE"/>, or <see 
-		/// cref="Gl.POST_COLOR_MATRIX_COLOR_TABLE"/>.
+		/// Must be one of Gl.COLOR_TABLE, Gl.POST_CONVOLUTION_COLOR_TABLE, or Gl.POST_COLOR_MATRIX_COLOR_TABLE.
 		/// </param>
 		/// <param name="start">
 		/// The starting index of the portion of the color table to be replaced.
@@ -915,24 +1057,48 @@ namespace OpenGL
 		/// The number of table entries to replace.
 		/// </param>
 		/// <param name="format">
-		/// The format of the pixel data in <paramref name="data"/>. The allowable values are <see cref="Gl.RED"/>, <see 
-		/// cref="Gl.GREEN"/>, <see cref="Gl.BLUE"/>, <see cref="Gl.ALPHA"/>, <see cref="Gl.LUMINANCE"/>, <see 
-		/// cref="Gl.LUMINANCE_ALPHA"/>, <see cref="Gl.RGB"/>, <see cref="Gl.BGR"/>, <see cref="Gl.RGBA"/>, and <see 
-		/// cref="Gl.BGRA"/>.
+		/// The format of the pixel data in <paramref name="data"/>. The allowable values are Gl.RED, Gl.GREEN, Gl.BLUE, Gl.ALPHA, 
+		/// Gl.LUMINANCE, Gl.LUMINANCE_ALPHA, Gl.RGB, Gl.BGR, Gl.RGBA, and Gl.BGRA.
 		/// </param>
 		/// <param name="type">
-		/// The type of the pixel data in <paramref name="data"/>. The allowable values are <see cref="Gl.UNSIGNED_BYTE"/>, <see 
-		/// cref="Gl.BYTE"/>, <see cref="Gl.UNSIGNED_SHORT"/>, <see cref="Gl.SHORT"/>, <see cref="Gl.UNSIGNED_INT"/>, <see 
-		/// cref="Gl.INT"/>, <see cref="Gl.FLOAT"/>, <see cref="Gl.UNSIGNED_BYTE_3_3_2"/>, <see cref="Gl.UNSIGNED_BYTE_2_3_3_REV"/>, 
-		/// <see cref="Gl.UNSIGNED_SHORT_5_6_5"/>, <see cref="Gl.UNSIGNED_SHORT_5_6_5_REV"/>, <see 
-		/// cref="Gl.UNSIGNED_SHORT_4_4_4_4"/>, <see cref="Gl.UNSIGNED_SHORT_4_4_4_4_REV"/>, <see 
-		/// cref="Gl.UNSIGNED_SHORT_5_5_5_1"/>, <see cref="Gl.UNSIGNED_SHORT_1_5_5_5_REV"/>, <see cref="Gl.UNSIGNED_INT_8_8_8_8"/>, 
-		/// <see cref="Gl.UNSIGNED_INT_8_8_8_8_REV"/>, <see cref="Gl.UNSIGNED_INT_10_10_10_2"/>, and <see 
-		/// cref="Gl.UNSIGNED_INT_2_10_10_10_REV"/>.
+		/// The type of the pixel data in <paramref name="data"/>. The allowable values are Gl.UNSIGNED_BYTE, Gl.BYTE, 
+		/// Gl.UNSIGNED_SHORT, Gl.SHORT, Gl.UNSIGNED_INT, Gl.INT, Gl.FLOAT, Gl.UNSIGNED_BYTE_3_3_2, Gl.UNSIGNED_BYTE_2_3_3_REV, 
+		/// Gl.UNSIGNED_SHORT_5_6_5, Gl.UNSIGNED_SHORT_5_6_5_REV, Gl.UNSIGNED_SHORT_4_4_4_4, Gl.UNSIGNED_SHORT_4_4_4_4_REV, 
+		/// Gl.UNSIGNED_SHORT_5_5_5_1, Gl.UNSIGNED_SHORT_1_5_5_5_REV, Gl.UNSIGNED_INT_8_8_8_8, Gl.UNSIGNED_INT_8_8_8_8_REV, 
+		/// Gl.UNSIGNED_INT_10_10_10_2, and Gl.UNSIGNED_INT_2_10_10_10_REV.
 		/// </param>
 		/// <param name="data">
 		/// Pointer to a one-dimensional array of pixel data that is processed to replace the specified region of the color table.
 		/// </param>
+		/// <remarks>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated if <paramref name="target"/> is not one of the allowable values.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated if <paramref name="format"/> is not one of the allowable values.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated if <paramref name="type"/> is not one of the allowable values.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_VALUE is generated if start+count&gt;width.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if a non-zero buffer object name is bound to the Gl.PIXEL_UNPACK_BUFFER target and the 
+		/// buffer object's data store is currently mapped.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if a non-zero buffer object name is bound to the Gl.PIXEL_UNPACK_BUFFER target and the 
+		/// data would be unpacked from the buffer object such that the memory reads required would exceed the data store size.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if a non-zero buffer object name is bound to the Gl.PIXEL_UNPACK_BUFFER target and 
+		/// <paramref name="data"/> is not evenly divisible into the number of bytes needed to store in memory a datum indicated by 
+		/// <paramref name="type"/>.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if Gl.ColorSubTable is executed between the execution of Gl\.Begin and the 
+		/// corresponding execution of Gl\.End.
+		/// </exception>
+		/// <seealso cref="Gl.ColorTable"/>
+		/// <seealso cref="Gl.ColorTableParameter"/>
+		/// <seealso cref="Gl.CopyColorTable"/>
+		/// <seealso cref="Gl.CopyColorSubTable"/>
+		/// <seealso cref="Gl.GetColorTable"/>
 		[RequiredByFeature("GL_ARB_imaging")]
 		public static void ColorSubTable(int target, Int32 start, Int32 count, PixelFormat format, PixelType type, IntPtr data)
 		{
@@ -946,8 +1112,7 @@ namespace OpenGL
 		/// respecify a portion of a color table
 		/// </summary>
 		/// <param name="target">
-		/// Must be one of <see cref="Gl.COLOR_TABLE"/>, <see cref="Gl.POST_CONVOLUTION_COLOR_TABLE"/>, or <see 
-		/// cref="Gl.POST_COLOR_MATRIX_COLOR_TABLE"/>.
+		/// Must be one of Gl.COLOR_TABLE, Gl.POST_CONVOLUTION_COLOR_TABLE, or Gl.POST_COLOR_MATRIX_COLOR_TABLE.
 		/// </param>
 		/// <param name="start">
 		/// The starting index of the portion of the color table to be replaced.
@@ -956,24 +1121,48 @@ namespace OpenGL
 		/// The number of table entries to replace.
 		/// </param>
 		/// <param name="format">
-		/// The format of the pixel data in <paramref name="data"/>. The allowable values are <see cref="Gl.RED"/>, <see 
-		/// cref="Gl.GREEN"/>, <see cref="Gl.BLUE"/>, <see cref="Gl.ALPHA"/>, <see cref="Gl.LUMINANCE"/>, <see 
-		/// cref="Gl.LUMINANCE_ALPHA"/>, <see cref="Gl.RGB"/>, <see cref="Gl.BGR"/>, <see cref="Gl.RGBA"/>, and <see 
-		/// cref="Gl.BGRA"/>.
+		/// The format of the pixel data in <paramref name="data"/>. The allowable values are Gl.RED, Gl.GREEN, Gl.BLUE, Gl.ALPHA, 
+		/// Gl.LUMINANCE, Gl.LUMINANCE_ALPHA, Gl.RGB, Gl.BGR, Gl.RGBA, and Gl.BGRA.
 		/// </param>
 		/// <param name="type">
-		/// The type of the pixel data in <paramref name="data"/>. The allowable values are <see cref="Gl.UNSIGNED_BYTE"/>, <see 
-		/// cref="Gl.BYTE"/>, <see cref="Gl.UNSIGNED_SHORT"/>, <see cref="Gl.SHORT"/>, <see cref="Gl.UNSIGNED_INT"/>, <see 
-		/// cref="Gl.INT"/>, <see cref="Gl.FLOAT"/>, <see cref="Gl.UNSIGNED_BYTE_3_3_2"/>, <see cref="Gl.UNSIGNED_BYTE_2_3_3_REV"/>, 
-		/// <see cref="Gl.UNSIGNED_SHORT_5_6_5"/>, <see cref="Gl.UNSIGNED_SHORT_5_6_5_REV"/>, <see 
-		/// cref="Gl.UNSIGNED_SHORT_4_4_4_4"/>, <see cref="Gl.UNSIGNED_SHORT_4_4_4_4_REV"/>, <see 
-		/// cref="Gl.UNSIGNED_SHORT_5_5_5_1"/>, <see cref="Gl.UNSIGNED_SHORT_1_5_5_5_REV"/>, <see cref="Gl.UNSIGNED_INT_8_8_8_8"/>, 
-		/// <see cref="Gl.UNSIGNED_INT_8_8_8_8_REV"/>, <see cref="Gl.UNSIGNED_INT_10_10_10_2"/>, and <see 
-		/// cref="Gl.UNSIGNED_INT_2_10_10_10_REV"/>.
+		/// The type of the pixel data in <paramref name="data"/>. The allowable values are Gl.UNSIGNED_BYTE, Gl.BYTE, 
+		/// Gl.UNSIGNED_SHORT, Gl.SHORT, Gl.UNSIGNED_INT, Gl.INT, Gl.FLOAT, Gl.UNSIGNED_BYTE_3_3_2, Gl.UNSIGNED_BYTE_2_3_3_REV, 
+		/// Gl.UNSIGNED_SHORT_5_6_5, Gl.UNSIGNED_SHORT_5_6_5_REV, Gl.UNSIGNED_SHORT_4_4_4_4, Gl.UNSIGNED_SHORT_4_4_4_4_REV, 
+		/// Gl.UNSIGNED_SHORT_5_5_5_1, Gl.UNSIGNED_SHORT_1_5_5_5_REV, Gl.UNSIGNED_INT_8_8_8_8, Gl.UNSIGNED_INT_8_8_8_8_REV, 
+		/// Gl.UNSIGNED_INT_10_10_10_2, and Gl.UNSIGNED_INT_2_10_10_10_REV.
 		/// </param>
 		/// <param name="data">
 		/// Pointer to a one-dimensional array of pixel data that is processed to replace the specified region of the color table.
 		/// </param>
+		/// <remarks>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated if <paramref name="target"/> is not one of the allowable values.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated if <paramref name="format"/> is not one of the allowable values.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated if <paramref name="type"/> is not one of the allowable values.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_VALUE is generated if start+count&gt;width.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if a non-zero buffer object name is bound to the Gl.PIXEL_UNPACK_BUFFER target and the 
+		/// buffer object's data store is currently mapped.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if a non-zero buffer object name is bound to the Gl.PIXEL_UNPACK_BUFFER target and the 
+		/// data would be unpacked from the buffer object such that the memory reads required would exceed the data store size.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if a non-zero buffer object name is bound to the Gl.PIXEL_UNPACK_BUFFER target and 
+		/// <paramref name="data"/> is not evenly divisible into the number of bytes needed to store in memory a datum indicated by 
+		/// <paramref name="type"/>.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if Gl.ColorSubTable is executed between the execution of Gl\.Begin and the 
+		/// corresponding execution of Gl\.End.
+		/// </exception>
+		/// <seealso cref="Gl.ColorTable"/>
+		/// <seealso cref="Gl.ColorTableParameter"/>
+		/// <seealso cref="Gl.CopyColorTable"/>
+		/// <seealso cref="Gl.CopyColorSubTable"/>
+		/// <seealso cref="Gl.GetColorTable"/>
 		[RequiredByFeature("GL_ARB_imaging")]
 		public static void ColorSubTable(int target, Int32 start, Int32 count, PixelFormat format, PixelType type, Object data)
 		{
@@ -989,8 +1178,7 @@ namespace OpenGL
 		/// respecify a portion of a color table
 		/// </summary>
 		/// <param name="target">
-		/// Must be one of <see cref="Gl.COLOR_TABLE"/>, <see cref="Gl.POST_CONVOLUTION_COLOR_TABLE"/>, or <see 
-		/// cref="Gl.POST_COLOR_MATRIX_COLOR_TABLE"/>.
+		/// Must be one of Gl.COLOR_TABLE, Gl.POST_CONVOLUTION_COLOR_TABLE, or Gl.POST_COLOR_MATRIX_COLOR_TABLE.
 		/// </param>
 		/// <param name="start">
 		/// The starting index of the portion of the color table to be replaced.
@@ -1004,6 +1192,22 @@ namespace OpenGL
 		/// <param name="width">
 		/// The number of table entries to replace.
 		/// </param>
+		/// <remarks>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_VALUE is generated if <paramref name="target"/> is not a previously defined color table.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_VALUE is generated if <paramref name="target"/> is not one of the allowable values.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_VALUE is generated if start+x&gt;width.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if Gl.CopyColorSubTable is executed between the execution of Gl\.Begin and the 
+		/// corresponding execution of Gl\.End.
+		/// </exception>
+		/// <seealso cref="Gl.ColorSubTable"/>
+		/// <seealso cref="Gl.ColorTableParameter"/>
+		/// <seealso cref="Gl.CopyColorTable"/>
+		/// <seealso cref="Gl.GetColorTable"/>
 		[RequiredByFeature("GL_ARB_imaging")]
 		public static void CopyColorSubTable(int target, Int32 start, Int32 x, Int32 y, Int32 width)
 		{
@@ -1017,42 +1221,74 @@ namespace OpenGL
 		/// define a one-dimensional convolution filter
 		/// </summary>
 		/// <param name="target">
-		/// Must be <see cref="Gl.CONVOLUTION_1D"/>.
+		/// Must be Gl.CONVOLUTION_1D.
 		/// </param>
 		/// <param name="internalformat">
-		/// The internal format of the convolution filter kernel. The allowable values are <see cref="Gl.ALPHA"/>, <see 
-		/// cref="Gl.ALPHA4"/>, <see cref="Gl.ALPHA8"/>, <see cref="Gl.ALPHA12"/>, <see cref="Gl.ALPHA16"/>, <see 
-		/// cref="Gl.LUMINANCE"/>, <see cref="Gl.LUMINANCE4"/>, <see cref="Gl.LUMINANCE8"/>, <see cref="Gl.LUMINANCE12"/>, <see 
-		/// cref="Gl.LUMINANCE16"/>, <see cref="Gl.LUMINANCE_ALPHA"/>, <see cref="Gl.LUMINANCE4_ALPHA4"/>, <see 
-		/// cref="Gl.LUMINANCE6_ALPHA2"/>, <see cref="Gl.LUMINANCE8_ALPHA8"/>, <see cref="Gl.LUMINANCE12_ALPHA4"/>, <see 
-		/// cref="Gl.LUMINANCE12_ALPHA12"/>, <see cref="Gl.LUMINANCE16_ALPHA16"/>, <see cref="Gl.INTENSITY"/>, <see 
-		/// cref="Gl.INTENSITY4"/>, <see cref="Gl.INTENSITY8"/>, <see cref="Gl.INTENSITY12"/>, <see cref="Gl.INTENSITY16"/>, <see 
-		/// cref="Gl.R3_G3_B2"/>, <see cref="Gl.RGB"/>, <see cref="Gl.RGB4"/>, <see cref="Gl.RGB5"/>, <see cref="Gl.RGB8"/>, <see 
-		/// cref="Gl.RGB10"/>, <see cref="Gl.RGB12"/>, <see cref="Gl.RGB16"/>, <see cref="Gl.RGBA"/>, <see cref="Gl.RGBA2"/>, <see 
-		/// cref="Gl.RGBA4"/>, <see cref="Gl.RGB5_A1"/>, <see cref="Gl.RGBA8"/>, <see cref="Gl.RGB10_A2"/>, <see cref="Gl.RGBA12"/>, 
-		/// or <see cref="Gl.RGBA16"/>.
+		/// The internal format of the convolution filter kernel. The allowable values are Gl.ALPHA, Gl.ALPHA4, Gl.ALPHA8, 
+		/// Gl.ALPHA12, Gl.ALPHA16, Gl.LUMINANCE, Gl.LUMINANCE4, Gl.LUMINANCE8, Gl.LUMINANCE12, Gl.LUMINANCE16, Gl.LUMINANCE_ALPHA, 
+		/// Gl.LUMINANCE4_ALPHA4, Gl.LUMINANCE6_ALPHA2, Gl.LUMINANCE8_ALPHA8, Gl.LUMINANCE12_ALPHA4, Gl.LUMINANCE12_ALPHA12, 
+		/// Gl.LUMINANCE16_ALPHA16, Gl.INTENSITY, Gl.INTENSITY4, Gl.INTENSITY8, Gl.INTENSITY12, Gl.INTENSITY16, Gl.R3_G3_B2, Gl.RGB, 
+		/// Gl.RGB4, Gl.RGB5, Gl.RGB8, Gl.RGB10, Gl.RGB12, Gl.RGB16, Gl.RGBA, Gl.RGBA2, Gl.RGBA4, Gl.RGB5_A1, Gl.RGBA8, Gl.RGB10_A2, 
+		/// Gl.RGBA12, or Gl.RGBA16.
 		/// </param>
 		/// <param name="width">
 		/// The width of the pixel array referenced by <paramref name="data"/>.
 		/// </param>
 		/// <param name="format">
-		/// The format of the pixel data in <paramref name="data"/>. The allowable values are <see cref="Gl.ALPHA"/>, <see 
-		/// cref="Gl.LUMINANCE"/>, <see cref="Gl.LUMINANCE_ALPHA"/>, <see cref="Gl.INTENSITY"/>, <see cref="Gl.RGB"/>, and <see 
-		/// cref="Gl.RGBA"/>.
+		/// The format of the pixel data in <paramref name="data"/>. The allowable values are Gl.ALPHA, Gl.LUMINANCE, 
+		/// Gl.LUMINANCE_ALPHA, Gl.INTENSITY, Gl.RGB, and Gl.RGBA.
 		/// </param>
 		/// <param name="type">
-		/// The type of the pixel data in <paramref name="data"/>. Symbolic constants <see cref="Gl.UNSIGNED_BYTE"/>, <see 
-		/// cref="Gl.BYTE"/>, <see cref="Gl.BITMAP"/>, <see cref="Gl.UNSIGNED_SHORT"/>, <see cref="Gl.SHORT"/>, <see 
-		/// cref="Gl.UNSIGNED_INT"/>, <see cref="Gl.INT"/>, <see cref="Gl.FLOAT"/>, <see cref="Gl.UNSIGNED_BYTE_3_3_2"/>, <see 
-		/// cref="Gl.UNSIGNED_BYTE_2_3_3_REV"/>, <see cref="Gl.UNSIGNED_SHORT_5_6_5"/>, <see cref="Gl.UNSIGNED_SHORT_5_6_5_REV"/>, 
-		/// <see cref="Gl.UNSIGNED_SHORT_4_4_4_4"/>, <see cref="Gl.UNSIGNED_SHORT_4_4_4_4_REV"/>, <see 
-		/// cref="Gl.UNSIGNED_SHORT_5_5_5_1"/>, <see cref="Gl.UNSIGNED_SHORT_1_5_5_5_REV"/>, <see cref="Gl.UNSIGNED_INT_8_8_8_8"/>, 
-		/// <see cref="Gl.UNSIGNED_INT_8_8_8_8_REV"/>, <see cref="Gl.UNSIGNED_INT_10_10_10_2"/>, and <see 
-		/// cref="Gl.UNSIGNED_INT_2_10_10_10_REV"/> are accepted.
+		/// The type of the pixel data in <paramref name="data"/>. Symbolic constants Gl.UNSIGNED_BYTE, Gl.BYTE, Gl.BITMAP, 
+		/// Gl.UNSIGNED_SHORT, Gl.SHORT, Gl.UNSIGNED_INT, Gl.INT, Gl.FLOAT, Gl.UNSIGNED_BYTE_3_3_2, Gl.UNSIGNED_BYTE_2_3_3_REV, 
+		/// Gl.UNSIGNED_SHORT_5_6_5, Gl.UNSIGNED_SHORT_5_6_5_REV, Gl.UNSIGNED_SHORT_4_4_4_4, Gl.UNSIGNED_SHORT_4_4_4_4_REV, 
+		/// Gl.UNSIGNED_SHORT_5_5_5_1, Gl.UNSIGNED_SHORT_1_5_5_5_REV, Gl.UNSIGNED_INT_8_8_8_8, Gl.UNSIGNED_INT_8_8_8_8_REV, 
+		/// Gl.UNSIGNED_INT_10_10_10_2, and Gl.UNSIGNED_INT_2_10_10_10_REV are accepted.
 		/// </param>
 		/// <param name="image">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
+		/// <remarks>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated if <paramref name="target"/> is not Gl.CONVOLUTION_1D.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated if <paramref name="internalformat"/> is not one of the allowable values.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated if <paramref name="format"/> is not one of the allowable values.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated if <paramref name="type"/> is not one of the allowable values.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_VALUE is generated if <paramref name="width"/> is less than zero or greater than the maximum supported value. 
+		/// This value may be queried with Gl\.GetConvolutionParameter using target Gl.CONVOLUTION_1D and name 
+		/// Gl.MAX_CONVOLUTION_WIDTH.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if <paramref name="format"/> is one of Gl.UNSIGNED_BYTE_3_3_2, 
+		/// Gl.UNSIGNED_BYTE_2_3_3_REV, Gl.UNSIGNED_SHORT_5_6_5, or Gl.UNSIGNED_SHORT_5_6_5_REV and <paramref name="type"/> is not 
+		/// Gl.RGB.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if <paramref name="format"/> is one of Gl.UNSIGNED_SHORT_4_4_4_4, 
+		/// Gl.UNSIGNED_SHORT_4_4_4_4_REV, Gl.UNSIGNED_SHORT_5_5_5_1, Gl.UNSIGNED_SHORT_1_5_5_5_REV, Gl.UNSIGNED_INT_8_8_8_8, 
+		/// Gl.UNSIGNED_INT_8_8_8_8_REV, Gl.UNSIGNED_INT_10_10_10_2, or Gl.UNSIGNED_INT_2_10_10_10_REV and <paramref name="type"/> 
+		/// is neither Gl.RGBA nor Gl.BGRA.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if a non-zero buffer object name is bound to the Gl.PIXEL_UNPACK_BUFFER target and the 
+		/// buffer object's data store is currently mapped.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if a non-zero buffer object name is bound to the Gl.PIXEL_UNPACK_BUFFER target and the 
+		/// data would be unpacked from the buffer object such that the memory reads required would exceed the data store size.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if a non-zero buffer object name is bound to the Gl.PIXEL_UNPACK_BUFFER target and 
+		/// <paramref name="data"/> is not evenly divisible into the number of bytes needed to store in memory a datum indicated by 
+		/// <paramref name="type"/>.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if Gl.ConvolutionFilter1D is executed between the execution of Gl\.Begin and the 
+		/// corresponding execution of Gl\.End.
+		/// </exception>
+		/// <seealso cref="Gl.ConvolutionFilter2D"/>
+		/// <seealso cref="Gl.SeparableFilter2D"/>
+		/// <seealso cref="Gl.ConvolutionParameter"/>
+		/// <seealso cref="Gl.PixelTransfer"/>
 		[RequiredByFeature("GL_ARB_imaging")]
 		public static void ConvolutionFilter1D(int target, int internalformat, Int32 width, PixelFormat format, PixelType type, IntPtr image)
 		{
@@ -1066,42 +1302,74 @@ namespace OpenGL
 		/// define a one-dimensional convolution filter
 		/// </summary>
 		/// <param name="target">
-		/// Must be <see cref="Gl.CONVOLUTION_1D"/>.
+		/// Must be Gl.CONVOLUTION_1D.
 		/// </param>
 		/// <param name="internalformat">
-		/// The internal format of the convolution filter kernel. The allowable values are <see cref="Gl.ALPHA"/>, <see 
-		/// cref="Gl.ALPHA4"/>, <see cref="Gl.ALPHA8"/>, <see cref="Gl.ALPHA12"/>, <see cref="Gl.ALPHA16"/>, <see 
-		/// cref="Gl.LUMINANCE"/>, <see cref="Gl.LUMINANCE4"/>, <see cref="Gl.LUMINANCE8"/>, <see cref="Gl.LUMINANCE12"/>, <see 
-		/// cref="Gl.LUMINANCE16"/>, <see cref="Gl.LUMINANCE_ALPHA"/>, <see cref="Gl.LUMINANCE4_ALPHA4"/>, <see 
-		/// cref="Gl.LUMINANCE6_ALPHA2"/>, <see cref="Gl.LUMINANCE8_ALPHA8"/>, <see cref="Gl.LUMINANCE12_ALPHA4"/>, <see 
-		/// cref="Gl.LUMINANCE12_ALPHA12"/>, <see cref="Gl.LUMINANCE16_ALPHA16"/>, <see cref="Gl.INTENSITY"/>, <see 
-		/// cref="Gl.INTENSITY4"/>, <see cref="Gl.INTENSITY8"/>, <see cref="Gl.INTENSITY12"/>, <see cref="Gl.INTENSITY16"/>, <see 
-		/// cref="Gl.R3_G3_B2"/>, <see cref="Gl.RGB"/>, <see cref="Gl.RGB4"/>, <see cref="Gl.RGB5"/>, <see cref="Gl.RGB8"/>, <see 
-		/// cref="Gl.RGB10"/>, <see cref="Gl.RGB12"/>, <see cref="Gl.RGB16"/>, <see cref="Gl.RGBA"/>, <see cref="Gl.RGBA2"/>, <see 
-		/// cref="Gl.RGBA4"/>, <see cref="Gl.RGB5_A1"/>, <see cref="Gl.RGBA8"/>, <see cref="Gl.RGB10_A2"/>, <see cref="Gl.RGBA12"/>, 
-		/// or <see cref="Gl.RGBA16"/>.
+		/// The internal format of the convolution filter kernel. The allowable values are Gl.ALPHA, Gl.ALPHA4, Gl.ALPHA8, 
+		/// Gl.ALPHA12, Gl.ALPHA16, Gl.LUMINANCE, Gl.LUMINANCE4, Gl.LUMINANCE8, Gl.LUMINANCE12, Gl.LUMINANCE16, Gl.LUMINANCE_ALPHA, 
+		/// Gl.LUMINANCE4_ALPHA4, Gl.LUMINANCE6_ALPHA2, Gl.LUMINANCE8_ALPHA8, Gl.LUMINANCE12_ALPHA4, Gl.LUMINANCE12_ALPHA12, 
+		/// Gl.LUMINANCE16_ALPHA16, Gl.INTENSITY, Gl.INTENSITY4, Gl.INTENSITY8, Gl.INTENSITY12, Gl.INTENSITY16, Gl.R3_G3_B2, Gl.RGB, 
+		/// Gl.RGB4, Gl.RGB5, Gl.RGB8, Gl.RGB10, Gl.RGB12, Gl.RGB16, Gl.RGBA, Gl.RGBA2, Gl.RGBA4, Gl.RGB5_A1, Gl.RGBA8, Gl.RGB10_A2, 
+		/// Gl.RGBA12, or Gl.RGBA16.
 		/// </param>
 		/// <param name="width">
 		/// The width of the pixel array referenced by <paramref name="data"/>.
 		/// </param>
 		/// <param name="format">
-		/// The format of the pixel data in <paramref name="data"/>. The allowable values are <see cref="Gl.ALPHA"/>, <see 
-		/// cref="Gl.LUMINANCE"/>, <see cref="Gl.LUMINANCE_ALPHA"/>, <see cref="Gl.INTENSITY"/>, <see cref="Gl.RGB"/>, and <see 
-		/// cref="Gl.RGBA"/>.
+		/// The format of the pixel data in <paramref name="data"/>. The allowable values are Gl.ALPHA, Gl.LUMINANCE, 
+		/// Gl.LUMINANCE_ALPHA, Gl.INTENSITY, Gl.RGB, and Gl.RGBA.
 		/// </param>
 		/// <param name="type">
-		/// The type of the pixel data in <paramref name="data"/>. Symbolic constants <see cref="Gl.UNSIGNED_BYTE"/>, <see 
-		/// cref="Gl.BYTE"/>, <see cref="Gl.BITMAP"/>, <see cref="Gl.UNSIGNED_SHORT"/>, <see cref="Gl.SHORT"/>, <see 
-		/// cref="Gl.UNSIGNED_INT"/>, <see cref="Gl.INT"/>, <see cref="Gl.FLOAT"/>, <see cref="Gl.UNSIGNED_BYTE_3_3_2"/>, <see 
-		/// cref="Gl.UNSIGNED_BYTE_2_3_3_REV"/>, <see cref="Gl.UNSIGNED_SHORT_5_6_5"/>, <see cref="Gl.UNSIGNED_SHORT_5_6_5_REV"/>, 
-		/// <see cref="Gl.UNSIGNED_SHORT_4_4_4_4"/>, <see cref="Gl.UNSIGNED_SHORT_4_4_4_4_REV"/>, <see 
-		/// cref="Gl.UNSIGNED_SHORT_5_5_5_1"/>, <see cref="Gl.UNSIGNED_SHORT_1_5_5_5_REV"/>, <see cref="Gl.UNSIGNED_INT_8_8_8_8"/>, 
-		/// <see cref="Gl.UNSIGNED_INT_8_8_8_8_REV"/>, <see cref="Gl.UNSIGNED_INT_10_10_10_2"/>, and <see 
-		/// cref="Gl.UNSIGNED_INT_2_10_10_10_REV"/> are accepted.
+		/// The type of the pixel data in <paramref name="data"/>. Symbolic constants Gl.UNSIGNED_BYTE, Gl.BYTE, Gl.BITMAP, 
+		/// Gl.UNSIGNED_SHORT, Gl.SHORT, Gl.UNSIGNED_INT, Gl.INT, Gl.FLOAT, Gl.UNSIGNED_BYTE_3_3_2, Gl.UNSIGNED_BYTE_2_3_3_REV, 
+		/// Gl.UNSIGNED_SHORT_5_6_5, Gl.UNSIGNED_SHORT_5_6_5_REV, Gl.UNSIGNED_SHORT_4_4_4_4, Gl.UNSIGNED_SHORT_4_4_4_4_REV, 
+		/// Gl.UNSIGNED_SHORT_5_5_5_1, Gl.UNSIGNED_SHORT_1_5_5_5_REV, Gl.UNSIGNED_INT_8_8_8_8, Gl.UNSIGNED_INT_8_8_8_8_REV, 
+		/// Gl.UNSIGNED_INT_10_10_10_2, and Gl.UNSIGNED_INT_2_10_10_10_REV are accepted.
 		/// </param>
 		/// <param name="image">
 		/// A <see cref="T:Object"/>.
 		/// </param>
+		/// <remarks>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated if <paramref name="target"/> is not Gl.CONVOLUTION_1D.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated if <paramref name="internalformat"/> is not one of the allowable values.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated if <paramref name="format"/> is not one of the allowable values.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated if <paramref name="type"/> is not one of the allowable values.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_VALUE is generated if <paramref name="width"/> is less than zero or greater than the maximum supported value. 
+		/// This value may be queried with Gl\.GetConvolutionParameter using target Gl.CONVOLUTION_1D and name 
+		/// Gl.MAX_CONVOLUTION_WIDTH.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if <paramref name="format"/> is one of Gl.UNSIGNED_BYTE_3_3_2, 
+		/// Gl.UNSIGNED_BYTE_2_3_3_REV, Gl.UNSIGNED_SHORT_5_6_5, or Gl.UNSIGNED_SHORT_5_6_5_REV and <paramref name="type"/> is not 
+		/// Gl.RGB.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if <paramref name="format"/> is one of Gl.UNSIGNED_SHORT_4_4_4_4, 
+		/// Gl.UNSIGNED_SHORT_4_4_4_4_REV, Gl.UNSIGNED_SHORT_5_5_5_1, Gl.UNSIGNED_SHORT_1_5_5_5_REV, Gl.UNSIGNED_INT_8_8_8_8, 
+		/// Gl.UNSIGNED_INT_8_8_8_8_REV, Gl.UNSIGNED_INT_10_10_10_2, or Gl.UNSIGNED_INT_2_10_10_10_REV and <paramref name="type"/> 
+		/// is neither Gl.RGBA nor Gl.BGRA.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if a non-zero buffer object name is bound to the Gl.PIXEL_UNPACK_BUFFER target and the 
+		/// buffer object's data store is currently mapped.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if a non-zero buffer object name is bound to the Gl.PIXEL_UNPACK_BUFFER target and the 
+		/// data would be unpacked from the buffer object such that the memory reads required would exceed the data store size.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if a non-zero buffer object name is bound to the Gl.PIXEL_UNPACK_BUFFER target and 
+		/// <paramref name="data"/> is not evenly divisible into the number of bytes needed to store in memory a datum indicated by 
+		/// <paramref name="type"/>.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if Gl.ConvolutionFilter1D is executed between the execution of Gl\.Begin and the 
+		/// corresponding execution of Gl\.End.
+		/// </exception>
+		/// <seealso cref="Gl.ConvolutionFilter2D"/>
+		/// <seealso cref="Gl.SeparableFilter2D"/>
+		/// <seealso cref="Gl.ConvolutionParameter"/>
+		/// <seealso cref="Gl.PixelTransfer"/>
 		[RequiredByFeature("GL_ARB_imaging")]
 		public static void ConvolutionFilter1D(int target, int internalformat, Int32 width, PixelFormat format, PixelType type, Object image)
 		{
@@ -1117,20 +1385,15 @@ namespace OpenGL
 		/// define a two-dimensional convolution filter
 		/// </summary>
 		/// <param name="target">
-		/// Must be <see cref="Gl.CONVOLUTION_2D"/>.
+		/// Must be Gl.CONVOLUTION_2D.
 		/// </param>
 		/// <param name="internalformat">
-		/// The internal format of the convolution filter kernel. The allowable values are <see cref="Gl.ALPHA"/>, <see 
-		/// cref="Gl.ALPHA4"/>, <see cref="Gl.ALPHA8"/>, <see cref="Gl.ALPHA12"/>, <see cref="Gl.ALPHA16"/>, <see 
-		/// cref="Gl.LUMINANCE"/>, <see cref="Gl.LUMINANCE4"/>, <see cref="Gl.LUMINANCE8"/>, <see cref="Gl.LUMINANCE12"/>, <see 
-		/// cref="Gl.LUMINANCE16"/>, <see cref="Gl.LUMINANCE_ALPHA"/>, <see cref="Gl.LUMINANCE4_ALPHA4"/>, <see 
-		/// cref="Gl.LUMINANCE6_ALPHA2"/>, <see cref="Gl.LUMINANCE8_ALPHA8"/>, <see cref="Gl.LUMINANCE12_ALPHA4"/>, <see 
-		/// cref="Gl.LUMINANCE12_ALPHA12"/>, <see cref="Gl.LUMINANCE16_ALPHA16"/>, <see cref="Gl.INTENSITY"/>, <see 
-		/// cref="Gl.INTENSITY4"/>, <see cref="Gl.INTENSITY8"/>, <see cref="Gl.INTENSITY12"/>, <see cref="Gl.INTENSITY16"/>, <see 
-		/// cref="Gl.R3_G3_B2"/>, <see cref="Gl.RGB"/>, <see cref="Gl.RGB4"/>, <see cref="Gl.RGB5"/>, <see cref="Gl.RGB8"/>, <see 
-		/// cref="Gl.RGB10"/>, <see cref="Gl.RGB12"/>, <see cref="Gl.RGB16"/>, <see cref="Gl.RGBA"/>, <see cref="Gl.RGBA2"/>, <see 
-		/// cref="Gl.RGBA4"/>, <see cref="Gl.RGB5_A1"/>, <see cref="Gl.RGBA8"/>, <see cref="Gl.RGB10_A2"/>, <see cref="Gl.RGBA12"/>, 
-		/// or <see cref="Gl.RGBA16"/>.
+		/// The internal format of the convolution filter kernel. The allowable values are Gl.ALPHA, Gl.ALPHA4, Gl.ALPHA8, 
+		/// Gl.ALPHA12, Gl.ALPHA16, Gl.LUMINANCE, Gl.LUMINANCE4, Gl.LUMINANCE8, Gl.LUMINANCE12, Gl.LUMINANCE16, Gl.LUMINANCE_ALPHA, 
+		/// Gl.LUMINANCE4_ALPHA4, Gl.LUMINANCE6_ALPHA2, Gl.LUMINANCE8_ALPHA8, Gl.LUMINANCE12_ALPHA4, Gl.LUMINANCE12_ALPHA12, 
+		/// Gl.LUMINANCE16_ALPHA16, Gl.INTENSITY, Gl.INTENSITY4, Gl.INTENSITY8, Gl.INTENSITY12, Gl.INTENSITY16, Gl.R3_G3_B2, Gl.RGB, 
+		/// Gl.RGB4, Gl.RGB5, Gl.RGB8, Gl.RGB10, Gl.RGB12, Gl.RGB16, Gl.RGBA, Gl.RGBA2, Gl.RGBA4, Gl.RGB5_A1, Gl.RGBA8, Gl.RGB10_A2, 
+		/// Gl.RGBA12, or Gl.RGBA16.
 		/// </param>
 		/// <param name="width">
 		/// The width of the pixel array referenced by <paramref name="data"/>.
@@ -1139,23 +1402,64 @@ namespace OpenGL
 		/// The height of the pixel array referenced by <paramref name="data"/>.
 		/// </param>
 		/// <param name="format">
-		/// The format of the pixel data in <paramref name="data"/>. The allowable values are <see cref="Gl.RED"/>, <see 
-		/// cref="Gl.GREEN"/>, <see cref="Gl.BLUE"/>, <see cref="Gl.ALPHA"/>, <see cref="Gl.RGB"/>, <see cref="Gl.BGR"/>, <see 
-		/// cref="Gl.RGBA"/>, <see cref="Gl.BGRA"/>, <see cref="Gl.LUMINANCE"/>, and <see cref="Gl.LUMINANCE_ALPHA"/>.
+		/// The format of the pixel data in <paramref name="data"/>. The allowable values are Gl.RED, Gl.GREEN, Gl.BLUE, Gl.ALPHA, 
+		/// Gl.RGB, Gl.BGR, Gl.RGBA, Gl.BGRA, Gl.LUMINANCE, and Gl.LUMINANCE_ALPHA.
 		/// </param>
 		/// <param name="type">
-		/// The type of the pixel data in <paramref name="data"/>. Symbolic constants <see cref="Gl.UNSIGNED_BYTE"/>, <see 
-		/// cref="Gl.BYTE"/>, <see cref="Gl.BITMAP"/>, <see cref="Gl.UNSIGNED_SHORT"/>, <see cref="Gl.SHORT"/>, <see 
-		/// cref="Gl.UNSIGNED_INT"/>, <see cref="Gl.INT"/>, <see cref="Gl.FLOAT"/>, <see cref="Gl.UNSIGNED_BYTE_3_3_2"/>, <see 
-		/// cref="Gl.UNSIGNED_BYTE_2_3_3_REV"/>, <see cref="Gl.UNSIGNED_SHORT_5_6_5"/>, <see cref="Gl.UNSIGNED_SHORT_5_6_5_REV"/>, 
-		/// <see cref="Gl.UNSIGNED_SHORT_4_4_4_4"/>, <see cref="Gl.UNSIGNED_SHORT_4_4_4_4_REV"/>, <see 
-		/// cref="Gl.UNSIGNED_SHORT_5_5_5_1"/>, <see cref="Gl.UNSIGNED_SHORT_1_5_5_5_REV"/>, <see cref="Gl.UNSIGNED_INT_8_8_8_8"/>, 
-		/// <see cref="Gl.UNSIGNED_INT_8_8_8_8_REV"/>, <see cref="Gl.UNSIGNED_INT_10_10_10_2"/>, and <see 
-		/// cref="Gl.UNSIGNED_INT_2_10_10_10_REV"/> are accepted.
+		/// The type of the pixel data in <paramref name="data"/>. Symbolic constants Gl.UNSIGNED_BYTE, Gl.BYTE, Gl.BITMAP, 
+		/// Gl.UNSIGNED_SHORT, Gl.SHORT, Gl.UNSIGNED_INT, Gl.INT, Gl.FLOAT, Gl.UNSIGNED_BYTE_3_3_2, Gl.UNSIGNED_BYTE_2_3_3_REV, 
+		/// Gl.UNSIGNED_SHORT_5_6_5, Gl.UNSIGNED_SHORT_5_6_5_REV, Gl.UNSIGNED_SHORT_4_4_4_4, Gl.UNSIGNED_SHORT_4_4_4_4_REV, 
+		/// Gl.UNSIGNED_SHORT_5_5_5_1, Gl.UNSIGNED_SHORT_1_5_5_5_REV, Gl.UNSIGNED_INT_8_8_8_8, Gl.UNSIGNED_INT_8_8_8_8_REV, 
+		/// Gl.UNSIGNED_INT_10_10_10_2, and Gl.UNSIGNED_INT_2_10_10_10_REV are accepted.
 		/// </param>
 		/// <param name="image">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
+		/// <remarks>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated if <paramref name="target"/> is not Gl.CONVOLUTION_2D.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated if <paramref name="internalformat"/> is not one of the allowable values.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated if <paramref name="format"/> is not one of the allowable values.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated if <paramref name="type"/> is not one of the allowable values.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_VALUE is generated if <paramref name="width"/> is less than zero or greater than the maximum supported value. 
+		/// This value may be queried with Gl\.GetConvolutionParameter using target Gl.CONVOLUTION_2D and name 
+		/// Gl.MAX_CONVOLUTION_WIDTH.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_VALUE is generated if <paramref name="height"/> is less than zero or greater than the maximum supported 
+		/// value. This value may be queried with Gl\.GetConvolutionParameter using target Gl.CONVOLUTION_2D and name 
+		/// Gl.MAX_CONVOLUTION_HEIGHT.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if <paramref name="height"/> is one of Gl.UNSIGNED_BYTE_3_3_2, 
+		/// Gl.UNSIGNED_BYTE_2_3_3_REV, Gl.UNSIGNED_SHORT_5_6_5, or Gl.UNSIGNED_SHORT_5_6_5_REV and <paramref name="format"/> is not 
+		/// Gl.RGB.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if <paramref name="height"/> is one of Gl.UNSIGNED_SHORT_4_4_4_4, 
+		/// Gl.UNSIGNED_SHORT_4_4_4_4_REV, Gl.UNSIGNED_SHORT_5_5_5_1, Gl.UNSIGNED_SHORT_1_5_5_5_REV, Gl.UNSIGNED_INT_8_8_8_8, 
+		/// Gl.UNSIGNED_INT_8_8_8_8_REV, Gl.UNSIGNED_INT_10_10_10_2, or Gl.UNSIGNED_INT_2_10_10_10_REV and <paramref name="format"/> 
+		/// is neither Gl.RGBA nor Gl.BGRA.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if a non-zero buffer object name is bound to the Gl.PIXEL_UNPACK_BUFFER target and the 
+		/// buffer object's data store is currently mapped.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if a non-zero buffer object name is bound to the Gl.PIXEL_UNPACK_BUFFER target and the 
+		/// data would be unpacked from the buffer object such that the memory reads required would exceed the data store size.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if a non-zero buffer object name is bound to the Gl.PIXEL_UNPACK_BUFFER target and 
+		/// <paramref name="data"/> is not evenly divisible into the number of bytes needed to store in memory a datum indicated by 
+		/// <paramref name="type"/>.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if Gl.ConvolutionFilter2D is executed between the execution of Gl\.Begin and the 
+		/// corresponding execution of Gl\.End.
+		/// </exception>
+		/// <seealso cref="Gl.ConvolutionFilter1D"/>
+		/// <seealso cref="Gl.SeparableFilter2D"/>
+		/// <seealso cref="Gl.ConvolutionParameter"/>
+		/// <seealso cref="Gl.PixelTransfer"/>
 		[RequiredByFeature("GL_ARB_imaging")]
 		public static void ConvolutionFilter2D(int target, int internalformat, Int32 width, Int32 height, PixelFormat format, PixelType type, IntPtr image)
 		{
@@ -1169,20 +1473,15 @@ namespace OpenGL
 		/// define a two-dimensional convolution filter
 		/// </summary>
 		/// <param name="target">
-		/// Must be <see cref="Gl.CONVOLUTION_2D"/>.
+		/// Must be Gl.CONVOLUTION_2D.
 		/// </param>
 		/// <param name="internalformat">
-		/// The internal format of the convolution filter kernel. The allowable values are <see cref="Gl.ALPHA"/>, <see 
-		/// cref="Gl.ALPHA4"/>, <see cref="Gl.ALPHA8"/>, <see cref="Gl.ALPHA12"/>, <see cref="Gl.ALPHA16"/>, <see 
-		/// cref="Gl.LUMINANCE"/>, <see cref="Gl.LUMINANCE4"/>, <see cref="Gl.LUMINANCE8"/>, <see cref="Gl.LUMINANCE12"/>, <see 
-		/// cref="Gl.LUMINANCE16"/>, <see cref="Gl.LUMINANCE_ALPHA"/>, <see cref="Gl.LUMINANCE4_ALPHA4"/>, <see 
-		/// cref="Gl.LUMINANCE6_ALPHA2"/>, <see cref="Gl.LUMINANCE8_ALPHA8"/>, <see cref="Gl.LUMINANCE12_ALPHA4"/>, <see 
-		/// cref="Gl.LUMINANCE12_ALPHA12"/>, <see cref="Gl.LUMINANCE16_ALPHA16"/>, <see cref="Gl.INTENSITY"/>, <see 
-		/// cref="Gl.INTENSITY4"/>, <see cref="Gl.INTENSITY8"/>, <see cref="Gl.INTENSITY12"/>, <see cref="Gl.INTENSITY16"/>, <see 
-		/// cref="Gl.R3_G3_B2"/>, <see cref="Gl.RGB"/>, <see cref="Gl.RGB4"/>, <see cref="Gl.RGB5"/>, <see cref="Gl.RGB8"/>, <see 
-		/// cref="Gl.RGB10"/>, <see cref="Gl.RGB12"/>, <see cref="Gl.RGB16"/>, <see cref="Gl.RGBA"/>, <see cref="Gl.RGBA2"/>, <see 
-		/// cref="Gl.RGBA4"/>, <see cref="Gl.RGB5_A1"/>, <see cref="Gl.RGBA8"/>, <see cref="Gl.RGB10_A2"/>, <see cref="Gl.RGBA12"/>, 
-		/// or <see cref="Gl.RGBA16"/>.
+		/// The internal format of the convolution filter kernel. The allowable values are Gl.ALPHA, Gl.ALPHA4, Gl.ALPHA8, 
+		/// Gl.ALPHA12, Gl.ALPHA16, Gl.LUMINANCE, Gl.LUMINANCE4, Gl.LUMINANCE8, Gl.LUMINANCE12, Gl.LUMINANCE16, Gl.LUMINANCE_ALPHA, 
+		/// Gl.LUMINANCE4_ALPHA4, Gl.LUMINANCE6_ALPHA2, Gl.LUMINANCE8_ALPHA8, Gl.LUMINANCE12_ALPHA4, Gl.LUMINANCE12_ALPHA12, 
+		/// Gl.LUMINANCE16_ALPHA16, Gl.INTENSITY, Gl.INTENSITY4, Gl.INTENSITY8, Gl.INTENSITY12, Gl.INTENSITY16, Gl.R3_G3_B2, Gl.RGB, 
+		/// Gl.RGB4, Gl.RGB5, Gl.RGB8, Gl.RGB10, Gl.RGB12, Gl.RGB16, Gl.RGBA, Gl.RGBA2, Gl.RGBA4, Gl.RGB5_A1, Gl.RGBA8, Gl.RGB10_A2, 
+		/// Gl.RGBA12, or Gl.RGBA16.
 		/// </param>
 		/// <param name="width">
 		/// The width of the pixel array referenced by <paramref name="data"/>.
@@ -1191,23 +1490,64 @@ namespace OpenGL
 		/// The height of the pixel array referenced by <paramref name="data"/>.
 		/// </param>
 		/// <param name="format">
-		/// The format of the pixel data in <paramref name="data"/>. The allowable values are <see cref="Gl.RED"/>, <see 
-		/// cref="Gl.GREEN"/>, <see cref="Gl.BLUE"/>, <see cref="Gl.ALPHA"/>, <see cref="Gl.RGB"/>, <see cref="Gl.BGR"/>, <see 
-		/// cref="Gl.RGBA"/>, <see cref="Gl.BGRA"/>, <see cref="Gl.LUMINANCE"/>, and <see cref="Gl.LUMINANCE_ALPHA"/>.
+		/// The format of the pixel data in <paramref name="data"/>. The allowable values are Gl.RED, Gl.GREEN, Gl.BLUE, Gl.ALPHA, 
+		/// Gl.RGB, Gl.BGR, Gl.RGBA, Gl.BGRA, Gl.LUMINANCE, and Gl.LUMINANCE_ALPHA.
 		/// </param>
 		/// <param name="type">
-		/// The type of the pixel data in <paramref name="data"/>. Symbolic constants <see cref="Gl.UNSIGNED_BYTE"/>, <see 
-		/// cref="Gl.BYTE"/>, <see cref="Gl.BITMAP"/>, <see cref="Gl.UNSIGNED_SHORT"/>, <see cref="Gl.SHORT"/>, <see 
-		/// cref="Gl.UNSIGNED_INT"/>, <see cref="Gl.INT"/>, <see cref="Gl.FLOAT"/>, <see cref="Gl.UNSIGNED_BYTE_3_3_2"/>, <see 
-		/// cref="Gl.UNSIGNED_BYTE_2_3_3_REV"/>, <see cref="Gl.UNSIGNED_SHORT_5_6_5"/>, <see cref="Gl.UNSIGNED_SHORT_5_6_5_REV"/>, 
-		/// <see cref="Gl.UNSIGNED_SHORT_4_4_4_4"/>, <see cref="Gl.UNSIGNED_SHORT_4_4_4_4_REV"/>, <see 
-		/// cref="Gl.UNSIGNED_SHORT_5_5_5_1"/>, <see cref="Gl.UNSIGNED_SHORT_1_5_5_5_REV"/>, <see cref="Gl.UNSIGNED_INT_8_8_8_8"/>, 
-		/// <see cref="Gl.UNSIGNED_INT_8_8_8_8_REV"/>, <see cref="Gl.UNSIGNED_INT_10_10_10_2"/>, and <see 
-		/// cref="Gl.UNSIGNED_INT_2_10_10_10_REV"/> are accepted.
+		/// The type of the pixel data in <paramref name="data"/>. Symbolic constants Gl.UNSIGNED_BYTE, Gl.BYTE, Gl.BITMAP, 
+		/// Gl.UNSIGNED_SHORT, Gl.SHORT, Gl.UNSIGNED_INT, Gl.INT, Gl.FLOAT, Gl.UNSIGNED_BYTE_3_3_2, Gl.UNSIGNED_BYTE_2_3_3_REV, 
+		/// Gl.UNSIGNED_SHORT_5_6_5, Gl.UNSIGNED_SHORT_5_6_5_REV, Gl.UNSIGNED_SHORT_4_4_4_4, Gl.UNSIGNED_SHORT_4_4_4_4_REV, 
+		/// Gl.UNSIGNED_SHORT_5_5_5_1, Gl.UNSIGNED_SHORT_1_5_5_5_REV, Gl.UNSIGNED_INT_8_8_8_8, Gl.UNSIGNED_INT_8_8_8_8_REV, 
+		/// Gl.UNSIGNED_INT_10_10_10_2, and Gl.UNSIGNED_INT_2_10_10_10_REV are accepted.
 		/// </param>
 		/// <param name="image">
 		/// A <see cref="T:Object"/>.
 		/// </param>
+		/// <remarks>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated if <paramref name="target"/> is not Gl.CONVOLUTION_2D.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated if <paramref name="internalformat"/> is not one of the allowable values.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated if <paramref name="format"/> is not one of the allowable values.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated if <paramref name="type"/> is not one of the allowable values.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_VALUE is generated if <paramref name="width"/> is less than zero or greater than the maximum supported value. 
+		/// This value may be queried with Gl\.GetConvolutionParameter using target Gl.CONVOLUTION_2D and name 
+		/// Gl.MAX_CONVOLUTION_WIDTH.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_VALUE is generated if <paramref name="height"/> is less than zero or greater than the maximum supported 
+		/// value. This value may be queried with Gl\.GetConvolutionParameter using target Gl.CONVOLUTION_2D and name 
+		/// Gl.MAX_CONVOLUTION_HEIGHT.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if <paramref name="height"/> is one of Gl.UNSIGNED_BYTE_3_3_2, 
+		/// Gl.UNSIGNED_BYTE_2_3_3_REV, Gl.UNSIGNED_SHORT_5_6_5, or Gl.UNSIGNED_SHORT_5_6_5_REV and <paramref name="format"/> is not 
+		/// Gl.RGB.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if <paramref name="height"/> is one of Gl.UNSIGNED_SHORT_4_4_4_4, 
+		/// Gl.UNSIGNED_SHORT_4_4_4_4_REV, Gl.UNSIGNED_SHORT_5_5_5_1, Gl.UNSIGNED_SHORT_1_5_5_5_REV, Gl.UNSIGNED_INT_8_8_8_8, 
+		/// Gl.UNSIGNED_INT_8_8_8_8_REV, Gl.UNSIGNED_INT_10_10_10_2, or Gl.UNSIGNED_INT_2_10_10_10_REV and <paramref name="format"/> 
+		/// is neither Gl.RGBA nor Gl.BGRA.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if a non-zero buffer object name is bound to the Gl.PIXEL_UNPACK_BUFFER target and the 
+		/// buffer object's data store is currently mapped.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if a non-zero buffer object name is bound to the Gl.PIXEL_UNPACK_BUFFER target and the 
+		/// data would be unpacked from the buffer object such that the memory reads required would exceed the data store size.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if a non-zero buffer object name is bound to the Gl.PIXEL_UNPACK_BUFFER target and 
+		/// <paramref name="data"/> is not evenly divisible into the number of bytes needed to store in memory a datum indicated by 
+		/// <paramref name="type"/>.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if Gl.ConvolutionFilter2D is executed between the execution of Gl\.Begin and the 
+		/// corresponding execution of Gl\.End.
+		/// </exception>
+		/// <seealso cref="Gl.ConvolutionFilter1D"/>
+		/// <seealso cref="Gl.SeparableFilter2D"/>
+		/// <seealso cref="Gl.ConvolutionParameter"/>
+		/// <seealso cref="Gl.PixelTransfer"/>
 		[RequiredByFeature("GL_ARB_imaging")]
 		public static void ConvolutionFilter2D(int target, int internalformat, Int32 width, Int32 height, PixelFormat format, PixelType type, Object image)
 		{
@@ -1223,16 +1563,31 @@ namespace OpenGL
 		/// set convolution parameters
 		/// </summary>
 		/// <param name="target">
-		/// The target for the convolution parameter. Must be one of <see cref="Gl.CONVOLUTION_1D"/>, <see 
-		/// cref="Gl.CONVOLUTION_2D"/>, or <see cref="Gl.SEPARABLE_2D"/>.
+		/// The target for the convolution parameter. Must be one of Gl.CONVOLUTION_1D, Gl.CONVOLUTION_2D, or Gl.SEPARABLE_2D.
 		/// </param>
 		/// <param name="pname">
-		/// The parameter to be set. Must be <see cref="Gl.CONVOLUTION_BORDER_MODE"/>.
+		/// The parameter to be set. Must be Gl.CONVOLUTION_BORDER_MODE.
 		/// </param>
 		/// <param name="params">
-		/// The parameter value. Must be one of <see cref="Gl.REDUCE"/>, <see cref="Gl.CONSTANT_BORDER"/>, <see 
-		/// cref="Gl.REPLICATE_BORDER"/>.
+		/// The parameter value. Must be one of Gl.REDUCE, Gl.CONSTANT_BORDER, Gl.REPLICATE_BORDER.
 		/// </param>
+		/// <remarks>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated if <paramref name="target"/> is not one of the allowable values.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated if <paramref name="pname"/> is not one of the allowable values.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated if <paramref name="pname"/> is Gl.CONVOLUTION_BORDER_MODE and <paramref name="params"/> is 
+		/// not one of Gl.REDUCE, Gl.CONSTANT_BORDER, or Gl.REPLICATE_BORDER.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if Gl.ConvolutionParameter is executed between the execution of Gl\.Begin and the 
+		/// corresponding execution of Gl\.End.
+		/// </exception>
+		/// <seealso cref="Gl.ConvolutionFilter1D"/>
+		/// <seealso cref="Gl.ConvolutionFilter2D"/>
+		/// <seealso cref="Gl.SeparableFilter2D"/>
+		/// <seealso cref="Gl.GetConvolutionParameter"/>
 		[RequiredByFeature("GL_ARB_imaging")]
 		public static void ConvolutionParameter(int target, int pname, float @params)
 		{
@@ -1246,16 +1601,31 @@ namespace OpenGL
 		/// set convolution parameters
 		/// </summary>
 		/// <param name="target">
-		/// The target for the convolution parameter. Must be one of <see cref="Gl.CONVOLUTION_1D"/>, <see 
-		/// cref="Gl.CONVOLUTION_2D"/>, or <see cref="Gl.SEPARABLE_2D"/>.
+		/// The target for the convolution parameter. Must be one of Gl.CONVOLUTION_1D, Gl.CONVOLUTION_2D, or Gl.SEPARABLE_2D.
 		/// </param>
 		/// <param name="pname">
-		/// The parameter to be set. Must be <see cref="Gl.CONVOLUTION_BORDER_MODE"/>.
+		/// The parameter to be set. Must be Gl.CONVOLUTION_BORDER_MODE.
 		/// </param>
 		/// <param name="params">
-		/// The parameter value. Must be one of <see cref="Gl.REDUCE"/>, <see cref="Gl.CONSTANT_BORDER"/>, <see 
-		/// cref="Gl.REPLICATE_BORDER"/>.
+		/// The parameter value. Must be one of Gl.REDUCE, Gl.CONSTANT_BORDER, Gl.REPLICATE_BORDER.
 		/// </param>
+		/// <remarks>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated if <paramref name="target"/> is not one of the allowable values.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated if <paramref name="pname"/> is not one of the allowable values.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated if <paramref name="pname"/> is Gl.CONVOLUTION_BORDER_MODE and <paramref name="params"/> is 
+		/// not one of Gl.REDUCE, Gl.CONSTANT_BORDER, or Gl.REPLICATE_BORDER.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if Gl.ConvolutionParameter is executed between the execution of Gl\.Begin and the 
+		/// corresponding execution of Gl\.End.
+		/// </exception>
+		/// <seealso cref="Gl.ConvolutionFilter1D"/>
+		/// <seealso cref="Gl.ConvolutionFilter2D"/>
+		/// <seealso cref="Gl.SeparableFilter2D"/>
+		/// <seealso cref="Gl.GetConvolutionParameter"/>
 		[RequiredByFeature("GL_ARB_imaging")]
 		public static void ConvolutionParameter(int target, int pname, float[] @params)
 		{
@@ -1274,16 +1644,31 @@ namespace OpenGL
 		/// set convolution parameters
 		/// </summary>
 		/// <param name="target">
-		/// The target for the convolution parameter. Must be one of <see cref="Gl.CONVOLUTION_1D"/>, <see 
-		/// cref="Gl.CONVOLUTION_2D"/>, or <see cref="Gl.SEPARABLE_2D"/>.
+		/// The target for the convolution parameter. Must be one of Gl.CONVOLUTION_1D, Gl.CONVOLUTION_2D, or Gl.SEPARABLE_2D.
 		/// </param>
 		/// <param name="pname">
-		/// The parameter to be set. Must be <see cref="Gl.CONVOLUTION_BORDER_MODE"/>.
+		/// The parameter to be set. Must be Gl.CONVOLUTION_BORDER_MODE.
 		/// </param>
 		/// <param name="params">
-		/// The parameter value. Must be one of <see cref="Gl.REDUCE"/>, <see cref="Gl.CONSTANT_BORDER"/>, <see 
-		/// cref="Gl.REPLICATE_BORDER"/>.
+		/// The parameter value. Must be one of Gl.REDUCE, Gl.CONSTANT_BORDER, Gl.REPLICATE_BORDER.
 		/// </param>
+		/// <remarks>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated if <paramref name="target"/> is not one of the allowable values.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated if <paramref name="pname"/> is not one of the allowable values.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated if <paramref name="pname"/> is Gl.CONVOLUTION_BORDER_MODE and <paramref name="params"/> is 
+		/// not one of Gl.REDUCE, Gl.CONSTANT_BORDER, or Gl.REPLICATE_BORDER.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if Gl.ConvolutionParameter is executed between the execution of Gl\.Begin and the 
+		/// corresponding execution of Gl\.End.
+		/// </exception>
+		/// <seealso cref="Gl.ConvolutionFilter1D"/>
+		/// <seealso cref="Gl.ConvolutionFilter2D"/>
+		/// <seealso cref="Gl.SeparableFilter2D"/>
+		/// <seealso cref="Gl.GetConvolutionParameter"/>
 		[RequiredByFeature("GL_ARB_imaging")]
 		public static void ConvolutionParameter(int target, int pname, Int32 @params)
 		{
@@ -1297,16 +1682,31 @@ namespace OpenGL
 		/// set convolution parameters
 		/// </summary>
 		/// <param name="target">
-		/// The target for the convolution parameter. Must be one of <see cref="Gl.CONVOLUTION_1D"/>, <see 
-		/// cref="Gl.CONVOLUTION_2D"/>, or <see cref="Gl.SEPARABLE_2D"/>.
+		/// The target for the convolution parameter. Must be one of Gl.CONVOLUTION_1D, Gl.CONVOLUTION_2D, or Gl.SEPARABLE_2D.
 		/// </param>
 		/// <param name="pname">
-		/// The parameter to be set. Must be <see cref="Gl.CONVOLUTION_BORDER_MODE"/>.
+		/// The parameter to be set. Must be Gl.CONVOLUTION_BORDER_MODE.
 		/// </param>
 		/// <param name="params">
-		/// The parameter value. Must be one of <see cref="Gl.REDUCE"/>, <see cref="Gl.CONSTANT_BORDER"/>, <see 
-		/// cref="Gl.REPLICATE_BORDER"/>.
+		/// The parameter value. Must be one of Gl.REDUCE, Gl.CONSTANT_BORDER, Gl.REPLICATE_BORDER.
 		/// </param>
+		/// <remarks>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated if <paramref name="target"/> is not one of the allowable values.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated if <paramref name="pname"/> is not one of the allowable values.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated if <paramref name="pname"/> is Gl.CONVOLUTION_BORDER_MODE and <paramref name="params"/> is 
+		/// not one of Gl.REDUCE, Gl.CONSTANT_BORDER, or Gl.REPLICATE_BORDER.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if Gl.ConvolutionParameter is executed between the execution of Gl\.Begin and the 
+		/// corresponding execution of Gl\.End.
+		/// </exception>
+		/// <seealso cref="Gl.ConvolutionFilter1D"/>
+		/// <seealso cref="Gl.ConvolutionFilter2D"/>
+		/// <seealso cref="Gl.SeparableFilter2D"/>
+		/// <seealso cref="Gl.GetConvolutionParameter"/>
 		[RequiredByFeature("GL_ARB_imaging")]
 		public static void ConvolutionParameter(int target, int pname, Int32[] @params)
 		{
@@ -1325,20 +1725,15 @@ namespace OpenGL
 		/// copy pixels into a one-dimensional convolution filter
 		/// </summary>
 		/// <param name="target">
-		/// Must be <see cref="Gl.CONVOLUTION_1D"/>.
+		/// Must be Gl.CONVOLUTION_1D.
 		/// </param>
 		/// <param name="internalformat">
-		/// The internal format of the convolution filter kernel. The allowable values are <see cref="Gl.ALPHA"/>, <see 
-		/// cref="Gl.ALPHA4"/>, <see cref="Gl.ALPHA8"/>, <see cref="Gl.ALPHA12"/>, <see cref="Gl.ALPHA16"/>, <see 
-		/// cref="Gl.LUMINANCE"/>, <see cref="Gl.LUMINANCE4"/>, <see cref="Gl.LUMINANCE8"/>, <see cref="Gl.LUMINANCE12"/>, <see 
-		/// cref="Gl.LUMINANCE16"/>, <see cref="Gl.LUMINANCE_ALPHA"/>, <see cref="Gl.LUMINANCE4_ALPHA4"/>, <see 
-		/// cref="Gl.LUMINANCE6_ALPHA2"/>, <see cref="Gl.LUMINANCE8_ALPHA8"/>, <see cref="Gl.LUMINANCE12_ALPHA4"/>, <see 
-		/// cref="Gl.LUMINANCE12_ALPHA12"/>, <see cref="Gl.LUMINANCE16_ALPHA16"/>, <see cref="Gl.INTENSITY"/>, <see 
-		/// cref="Gl.INTENSITY4"/>, <see cref="Gl.INTENSITY8"/>, <see cref="Gl.INTENSITY12"/>, <see cref="Gl.INTENSITY16"/>, <see 
-		/// cref="Gl.R3_G3_B2"/>, <see cref="Gl.RGB"/>, <see cref="Gl.RGB4"/>, <see cref="Gl.RGB5"/>, <see cref="Gl.RGB8"/>, <see 
-		/// cref="Gl.RGB10"/>, <see cref="Gl.RGB12"/>, <see cref="Gl.RGB16"/>, <see cref="Gl.RGBA"/>, <see cref="Gl.RGBA2"/>, <see 
-		/// cref="Gl.RGBA4"/>, <see cref="Gl.RGB5_A1"/>, <see cref="Gl.RGBA8"/>, <see cref="Gl.RGB10_A2"/>, <see cref="Gl.RGBA12"/>, 
-		/// or <see cref="Gl.RGBA16"/>.
+		/// The internal format of the convolution filter kernel. The allowable values are Gl.ALPHA, Gl.ALPHA4, Gl.ALPHA8, 
+		/// Gl.ALPHA12, Gl.ALPHA16, Gl.LUMINANCE, Gl.LUMINANCE4, Gl.LUMINANCE8, Gl.LUMINANCE12, Gl.LUMINANCE16, Gl.LUMINANCE_ALPHA, 
+		/// Gl.LUMINANCE4_ALPHA4, Gl.LUMINANCE6_ALPHA2, Gl.LUMINANCE8_ALPHA8, Gl.LUMINANCE12_ALPHA4, Gl.LUMINANCE12_ALPHA12, 
+		/// Gl.LUMINANCE16_ALPHA16, Gl.INTENSITY, Gl.INTENSITY4, Gl.INTENSITY8, Gl.INTENSITY12, Gl.INTENSITY16, Gl.R3_G3_B2, Gl.RGB, 
+		/// Gl.RGB4, Gl.RGB5, Gl.RGB8, Gl.RGB10, Gl.RGB12, Gl.RGB16, Gl.RGBA, Gl.RGBA2, Gl.RGBA4, Gl.RGB5_A1, Gl.RGBA8, Gl.RGB10_A2, 
+		/// Gl.RGBA12, or Gl.RGBA16.
 		/// </param>
 		/// <param name="x">
 		/// The window space coordinates of the lower-left coordinate of the pixel array to copy.
@@ -1349,6 +1744,23 @@ namespace OpenGL
 		/// <param name="width">
 		/// The width of the pixel array to copy.
 		/// </param>
+		/// <remarks>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated if <paramref name="target"/> is not Gl.CONVOLUTION_1D.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated if <paramref name="internalformat"/> is not one of the allowable values.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_VALUE is generated if <paramref name="width"/> is less than zero or greater than the maximum supported value. 
+		/// This value may be queried with Gl\.GetConvolutionParameter using target Gl.CONVOLUTION_1D and name 
+		/// Gl.MAX_CONVOLUTION_WIDTH.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if Gl.CopyConvolutionFilter1D is executed between the execution of Gl\.Begin and the 
+		/// corresponding execution of Gl\.End.
+		/// </exception>
+		/// <seealso cref="Gl.ConvolutionFilter1D"/>
+		/// <seealso cref="Gl.ConvolutionParameter"/>
+		/// <seealso cref="Gl.PixelTransfer"/>
 		[RequiredByFeature("GL_ARB_imaging")]
 		public static void CopyConvolutionFilter1D(int target, int internalformat, Int32 x, Int32 y, Int32 width)
 		{
@@ -1362,20 +1774,15 @@ namespace OpenGL
 		/// copy pixels into a two-dimensional convolution filter
 		/// </summary>
 		/// <param name="target">
-		/// Must be <see cref="Gl.CONVOLUTION_2D"/>.
+		/// Must be Gl.CONVOLUTION_2D.
 		/// </param>
 		/// <param name="internalformat">
-		/// The internal format of the convolution filter kernel. The allowable values are <see cref="Gl.ALPHA"/>, <see 
-		/// cref="Gl.ALPHA4"/>, <see cref="Gl.ALPHA8"/>, <see cref="Gl.ALPHA12"/>, <see cref="Gl.ALPHA16"/>, <see 
-		/// cref="Gl.LUMINANCE"/>, <see cref="Gl.LUMINANCE4"/>, <see cref="Gl.LUMINANCE8"/>, <see cref="Gl.LUMINANCE12"/>, <see 
-		/// cref="Gl.LUMINANCE16"/>, <see cref="Gl.LUMINANCE_ALPHA"/>, <see cref="Gl.LUMINANCE4_ALPHA4"/>, <see 
-		/// cref="Gl.LUMINANCE6_ALPHA2"/>, <see cref="Gl.LUMINANCE8_ALPHA8"/>, <see cref="Gl.LUMINANCE12_ALPHA4"/>, <see 
-		/// cref="Gl.LUMINANCE12_ALPHA12"/>, <see cref="Gl.LUMINANCE16_ALPHA16"/>, <see cref="Gl.INTENSITY"/>, <see 
-		/// cref="Gl.INTENSITY4"/>, <see cref="Gl.INTENSITY8"/>, <see cref="Gl.INTENSITY12"/>, <see cref="Gl.INTENSITY16"/>, <see 
-		/// cref="Gl.R3_G3_B2"/>, <see cref="Gl.RGB"/>, <see cref="Gl.RGB4"/>, <see cref="Gl.RGB5"/>, <see cref="Gl.RGB8"/>, <see 
-		/// cref="Gl.RGB10"/>, <see cref="Gl.RGB12"/>, <see cref="Gl.RGB16"/>, <see cref="Gl.RGBA"/>, <see cref="Gl.RGBA2"/>, <see 
-		/// cref="Gl.RGBA4"/>, <see cref="Gl.RGB5_A1"/>, <see cref="Gl.RGBA8"/>, <see cref="Gl.RGB10_A2"/>, <see cref="Gl.RGBA12"/>, 
-		/// or <see cref="Gl.RGBA16"/>.
+		/// The internal format of the convolution filter kernel. The allowable values are Gl.ALPHA, Gl.ALPHA4, Gl.ALPHA8, 
+		/// Gl.ALPHA12, Gl.ALPHA16, Gl.LUMINANCE, Gl.LUMINANCE4, Gl.LUMINANCE8, Gl.LUMINANCE12, Gl.LUMINANCE16, Gl.LUMINANCE_ALPHA, 
+		/// Gl.LUMINANCE4_ALPHA4, Gl.LUMINANCE6_ALPHA2, Gl.LUMINANCE8_ALPHA8, Gl.LUMINANCE12_ALPHA4, Gl.LUMINANCE12_ALPHA12, 
+		/// Gl.LUMINANCE16_ALPHA16, Gl.INTENSITY, Gl.INTENSITY4, Gl.INTENSITY8, Gl.INTENSITY12, Gl.INTENSITY16, Gl.R3_G3_B2, Gl.RGB, 
+		/// Gl.RGB4, Gl.RGB5, Gl.RGB8, Gl.RGB10, Gl.RGB12, Gl.RGB16, Gl.RGBA, Gl.RGBA2, Gl.RGBA4, Gl.RGB5_A1, Gl.RGBA8, Gl.RGB10_A2, 
+		/// Gl.RGBA12, or Gl.RGBA16.
 		/// </param>
 		/// <param name="x">
 		/// The window space coordinates of the lower-left coordinate of the pixel array to copy.
@@ -1389,6 +1796,27 @@ namespace OpenGL
 		/// <param name="height">
 		/// The height of the pixel array to copy.
 		/// </param>
+		/// <remarks>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated if <paramref name="target"/> is not Gl.CONVOLUTION_2D.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated if <paramref name="internalformat"/> is not one of the allowable values.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_VALUE is generated if <paramref name="width"/> is less than zero or greater than the maximum supported value. 
+		/// This value may be queried with Gl\.GetConvolutionParameter using target Gl.CONVOLUTION_2D and name 
+		/// Gl.MAX_CONVOLUTION_WIDTH.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_VALUE is generated if <paramref name="height"/> is less than zero or greater than the maximum supported 
+		/// value. This value may be queried with Gl\.GetConvolutionParameter using target Gl.CONVOLUTION_2D and name 
+		/// Gl.MAX_CONVOLUTION_HEIGHT.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if Gl.CopyConvolutionFilter2D is executed between the execution of Gl\.Begin and the 
+		/// corresponding execution of Gl\.End.
+		/// </exception>
+		/// <seealso cref="Gl.ConvolutionFilter2D"/>
+		/// <seealso cref="Gl.ConvolutionParameter"/>
+		/// <seealso cref="Gl.PixelTransfer"/>
 		[RequiredByFeature("GL_ARB_imaging")]
 		public static void CopyConvolutionFilter2D(int target, int internalformat, Int32 x, Int32 y, Int32 width, Int32 height)
 		{
@@ -1402,26 +1830,57 @@ namespace OpenGL
 		/// get current 1D or 2D convolution filter kernel
 		/// </summary>
 		/// <param name="target">
-		/// The filter to be retrieved. Must be one of <see cref="Gl.CONVOLUTION_1D"/> or <see cref="Gl.CONVOLUTION_2D"/>.
+		/// The filter to be retrieved. Must be one of Gl.CONVOLUTION_1D or Gl.CONVOLUTION_2D.
 		/// </param>
 		/// <param name="format">
-		/// Format of the output image. Must be one of <see cref="Gl.RED"/>, <see cref="Gl.GREEN"/>, <see cref="Gl.BLUE"/>, <see 
-		/// cref="Gl.ALPHA"/>, <see cref="Gl.RGB"/>, <see cref="Gl.BGR"/>, <see cref="Gl.RGBA"/>, <see cref="Gl.BGRA"/>, <see 
-		/// cref="Gl.LUMINANCE"/>, or <see cref="Gl.LUMINANCE_ALPHA"/>.
+		/// Format of the output image. Must be one of Gl.RED, Gl.GREEN, Gl.BLUE, Gl.ALPHA, Gl.RGB, Gl.BGR, Gl.RGBA, Gl.BGRA, 
+		/// Gl.LUMINANCE, or Gl.LUMINANCE_ALPHA.
 		/// </param>
 		/// <param name="type">
-		/// Data type of components in the output image. Symbolic constants <see cref="Gl.UNSIGNED_BYTE"/>, <see cref="Gl.BYTE"/>, 
-		/// <see cref="Gl.BITMAP"/>, <see cref="Gl.UNSIGNED_SHORT"/>, <see cref="Gl.SHORT"/>, <see cref="Gl.UNSIGNED_INT"/>, <see 
-		/// cref="Gl.INT"/>, <see cref="Gl.FLOAT"/>, <see cref="Gl.UNSIGNED_BYTE_3_3_2"/>, <see cref="Gl.UNSIGNED_BYTE_2_3_3_REV"/>, 
-		/// <see cref="Gl.UNSIGNED_SHORT_5_6_5"/>, <see cref="Gl.UNSIGNED_SHORT_5_6_5_REV"/>, <see 
-		/// cref="Gl.UNSIGNED_SHORT_4_4_4_4"/>, <see cref="Gl.UNSIGNED_SHORT_4_4_4_4_REV"/>, <see 
-		/// cref="Gl.UNSIGNED_SHORT_5_5_5_1"/>, <see cref="Gl.UNSIGNED_SHORT_1_5_5_5_REV"/>, <see cref="Gl.UNSIGNED_INT_8_8_8_8"/>, 
-		/// <see cref="Gl.UNSIGNED_INT_8_8_8_8_REV"/>, <see cref="Gl.UNSIGNED_INT_10_10_10_2"/>, and <see 
-		/// cref="Gl.UNSIGNED_INT_2_10_10_10_REV"/> are accepted.
+		/// Data type of components in the output image. Symbolic constants Gl.UNSIGNED_BYTE, Gl.BYTE, Gl.BITMAP, Gl.UNSIGNED_SHORT, 
+		/// Gl.SHORT, Gl.UNSIGNED_INT, Gl.INT, Gl.FLOAT, Gl.UNSIGNED_BYTE_3_3_2, Gl.UNSIGNED_BYTE_2_3_3_REV, 
+		/// Gl.UNSIGNED_SHORT_5_6_5, Gl.UNSIGNED_SHORT_5_6_5_REV, Gl.UNSIGNED_SHORT_4_4_4_4, Gl.UNSIGNED_SHORT_4_4_4_4_REV, 
+		/// Gl.UNSIGNED_SHORT_5_5_5_1, Gl.UNSIGNED_SHORT_1_5_5_5_REV, Gl.UNSIGNED_INT_8_8_8_8, Gl.UNSIGNED_INT_8_8_8_8_REV, 
+		/// Gl.UNSIGNED_INT_10_10_10_2, and Gl.UNSIGNED_INT_2_10_10_10_REV are accepted.
 		/// </param>
 		/// <param name="image">
 		/// Pointer to storage for the output image.
 		/// </param>
+		/// <remarks>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated if <paramref name="target"/> is not one of the allowable values.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated if <paramref name="format"/> is not one of the allowable values.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated if <paramref name="type"/> is not one of the allowable values.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if <paramref name="type"/> is one of Gl.UNSIGNED_BYTE_3_3_2, 
+		/// Gl.UNSIGNED_BYTE_2_3_3_REV, Gl.UNSIGNED_SHORT_5_6_5, or Gl.UNSIGNED_SHORT_5_6_5_REV and <paramref name="format"/> is not 
+		/// Gl.RGB.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if <paramref name="type"/> is one of Gl.UNSIGNED_SHORT_4_4_4_4, 
+		/// Gl.UNSIGNED_SHORT_4_4_4_4_REV, Gl.UNSIGNED_SHORT_5_5_5_1, Gl.UNSIGNED_SHORT_1_5_5_5_REV, Gl.UNSIGNED_INT_8_8_8_8, 
+		/// Gl.UNSIGNED_INT_8_8_8_8_REV, Gl.UNSIGNED_INT_10_10_10_2, or Gl.UNSIGNED_INT_2_10_10_10_REV and <paramref name="format"/> 
+		/// is neither Gl.RGBA nor Gl.BGRA.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if a non-zero buffer object name is bound to the Gl.PIXEL_PACK_BUFFER target and the 
+		/// buffer object's data store is currently mapped.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if a non-zero buffer object name is bound to the Gl.PIXEL_PACK_BUFFER target and the 
+		/// data would be packed to the buffer object such that the memory writes required would exceed the data store size.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if a non-zero buffer object name is bound to the Gl.PIXEL_PACK_BUFFER target and 
+		/// <paramref name="image"/> is not evenly divisible into the number of bytes needed to store in memory a datum indicated by 
+		/// <paramref name="type"/>.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if Gl.GetConvolutionFilter is executed between the execution of Gl\.Begin and the 
+		/// corresponding execution of Gl\.End.
+		/// </exception>
+		/// <seealso cref="Gl.GetSeparableFilter"/>
+		/// <seealso cref="Gl.ConvolutionParameter"/>
+		/// <seealso cref="Gl.ConvolutionFilter1D"/>
+		/// <seealso cref="Gl.ConvolutionFilter2D"/>
 		[RequiredByFeature("GL_ARB_imaging")]
 		public static void GetConvolutionFilter(int target, PixelFormat format, PixelType type, IntPtr image)
 		{
@@ -1435,26 +1894,57 @@ namespace OpenGL
 		/// get current 1D or 2D convolution filter kernel
 		/// </summary>
 		/// <param name="target">
-		/// The filter to be retrieved. Must be one of <see cref="Gl.CONVOLUTION_1D"/> or <see cref="Gl.CONVOLUTION_2D"/>.
+		/// The filter to be retrieved. Must be one of Gl.CONVOLUTION_1D or Gl.CONVOLUTION_2D.
 		/// </param>
 		/// <param name="format">
-		/// Format of the output image. Must be one of <see cref="Gl.RED"/>, <see cref="Gl.GREEN"/>, <see cref="Gl.BLUE"/>, <see 
-		/// cref="Gl.ALPHA"/>, <see cref="Gl.RGB"/>, <see cref="Gl.BGR"/>, <see cref="Gl.RGBA"/>, <see cref="Gl.BGRA"/>, <see 
-		/// cref="Gl.LUMINANCE"/>, or <see cref="Gl.LUMINANCE_ALPHA"/>.
+		/// Format of the output image. Must be one of Gl.RED, Gl.GREEN, Gl.BLUE, Gl.ALPHA, Gl.RGB, Gl.BGR, Gl.RGBA, Gl.BGRA, 
+		/// Gl.LUMINANCE, or Gl.LUMINANCE_ALPHA.
 		/// </param>
 		/// <param name="type">
-		/// Data type of components in the output image. Symbolic constants <see cref="Gl.UNSIGNED_BYTE"/>, <see cref="Gl.BYTE"/>, 
-		/// <see cref="Gl.BITMAP"/>, <see cref="Gl.UNSIGNED_SHORT"/>, <see cref="Gl.SHORT"/>, <see cref="Gl.UNSIGNED_INT"/>, <see 
-		/// cref="Gl.INT"/>, <see cref="Gl.FLOAT"/>, <see cref="Gl.UNSIGNED_BYTE_3_3_2"/>, <see cref="Gl.UNSIGNED_BYTE_2_3_3_REV"/>, 
-		/// <see cref="Gl.UNSIGNED_SHORT_5_6_5"/>, <see cref="Gl.UNSIGNED_SHORT_5_6_5_REV"/>, <see 
-		/// cref="Gl.UNSIGNED_SHORT_4_4_4_4"/>, <see cref="Gl.UNSIGNED_SHORT_4_4_4_4_REV"/>, <see 
-		/// cref="Gl.UNSIGNED_SHORT_5_5_5_1"/>, <see cref="Gl.UNSIGNED_SHORT_1_5_5_5_REV"/>, <see cref="Gl.UNSIGNED_INT_8_8_8_8"/>, 
-		/// <see cref="Gl.UNSIGNED_INT_8_8_8_8_REV"/>, <see cref="Gl.UNSIGNED_INT_10_10_10_2"/>, and <see 
-		/// cref="Gl.UNSIGNED_INT_2_10_10_10_REV"/> are accepted.
+		/// Data type of components in the output image. Symbolic constants Gl.UNSIGNED_BYTE, Gl.BYTE, Gl.BITMAP, Gl.UNSIGNED_SHORT, 
+		/// Gl.SHORT, Gl.UNSIGNED_INT, Gl.INT, Gl.FLOAT, Gl.UNSIGNED_BYTE_3_3_2, Gl.UNSIGNED_BYTE_2_3_3_REV, 
+		/// Gl.UNSIGNED_SHORT_5_6_5, Gl.UNSIGNED_SHORT_5_6_5_REV, Gl.UNSIGNED_SHORT_4_4_4_4, Gl.UNSIGNED_SHORT_4_4_4_4_REV, 
+		/// Gl.UNSIGNED_SHORT_5_5_5_1, Gl.UNSIGNED_SHORT_1_5_5_5_REV, Gl.UNSIGNED_INT_8_8_8_8, Gl.UNSIGNED_INT_8_8_8_8_REV, 
+		/// Gl.UNSIGNED_INT_10_10_10_2, and Gl.UNSIGNED_INT_2_10_10_10_REV are accepted.
 		/// </param>
 		/// <param name="image">
 		/// Pointer to storage for the output image.
 		/// </param>
+		/// <remarks>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated if <paramref name="target"/> is not one of the allowable values.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated if <paramref name="format"/> is not one of the allowable values.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated if <paramref name="type"/> is not one of the allowable values.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if <paramref name="type"/> is one of Gl.UNSIGNED_BYTE_3_3_2, 
+		/// Gl.UNSIGNED_BYTE_2_3_3_REV, Gl.UNSIGNED_SHORT_5_6_5, or Gl.UNSIGNED_SHORT_5_6_5_REV and <paramref name="format"/> is not 
+		/// Gl.RGB.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if <paramref name="type"/> is one of Gl.UNSIGNED_SHORT_4_4_4_4, 
+		/// Gl.UNSIGNED_SHORT_4_4_4_4_REV, Gl.UNSIGNED_SHORT_5_5_5_1, Gl.UNSIGNED_SHORT_1_5_5_5_REV, Gl.UNSIGNED_INT_8_8_8_8, 
+		/// Gl.UNSIGNED_INT_8_8_8_8_REV, Gl.UNSIGNED_INT_10_10_10_2, or Gl.UNSIGNED_INT_2_10_10_10_REV and <paramref name="format"/> 
+		/// is neither Gl.RGBA nor Gl.BGRA.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if a non-zero buffer object name is bound to the Gl.PIXEL_PACK_BUFFER target and the 
+		/// buffer object's data store is currently mapped.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if a non-zero buffer object name is bound to the Gl.PIXEL_PACK_BUFFER target and the 
+		/// data would be packed to the buffer object such that the memory writes required would exceed the data store size.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if a non-zero buffer object name is bound to the Gl.PIXEL_PACK_BUFFER target and 
+		/// <paramref name="image"/> is not evenly divisible into the number of bytes needed to store in memory a datum indicated by 
+		/// <paramref name="type"/>.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if Gl.GetConvolutionFilter is executed between the execution of Gl\.Begin and the 
+		/// corresponding execution of Gl\.End.
+		/// </exception>
+		/// <seealso cref="Gl.GetSeparableFilter"/>
+		/// <seealso cref="Gl.ConvolutionParameter"/>
+		/// <seealso cref="Gl.ConvolutionFilter1D"/>
+		/// <seealso cref="Gl.ConvolutionFilter2D"/>
 		[RequiredByFeature("GL_ARB_imaging")]
 		public static void GetConvolutionFilter(int target, PixelFormat format, PixelType type, Object image)
 		{
@@ -1470,18 +1960,33 @@ namespace OpenGL
 		/// get convolution parameters
 		/// </summary>
 		/// <param name="target">
-		/// The filter whose parameters are to be retrieved. Must be one of <see cref="Gl.CONVOLUTION_1D"/>, <see 
-		/// cref="Gl.CONVOLUTION_2D"/>, or <see cref="Gl.SEPARABLE_2D"/>.
+		/// The filter whose parameters are to be retrieved. Must be one of Gl.CONVOLUTION_1D, Gl.CONVOLUTION_2D, or 
+		/// Gl.SEPARABLE_2D.
 		/// </param>
 		/// <param name="pname">
-		/// The parameter to be retrieved. Must be one of <see cref="Gl.CONVOLUTION_BORDER_MODE"/>, <see 
-		/// cref="Gl.CONVOLUTION_BORDER_COLOR"/>, <see cref="Gl.CONVOLUTION_FILTER_SCALE"/>, <see 
-		/// cref="Gl.CONVOLUTION_FILTER_BIAS"/>, <see cref="Gl.CONVOLUTION_FORMAT"/>, <see cref="Gl.CONVOLUTION_WIDTH"/>, <see 
-		/// cref="Gl.CONVOLUTION_HEIGHT"/>, <see cref="Gl.MAX_CONVOLUTION_WIDTH"/>, or <see cref="Gl.MAX_CONVOLUTION_HEIGHT"/>.
+		/// The parameter to be retrieved. Must be one of Gl.CONVOLUTION_BORDER_MODE, Gl.CONVOLUTION_BORDER_COLOR, 
+		/// Gl.CONVOLUTION_FILTER_SCALE, Gl.CONVOLUTION_FILTER_BIAS, Gl.CONVOLUTION_FORMAT, Gl.CONVOLUTION_WIDTH, 
+		/// Gl.CONVOLUTION_HEIGHT, Gl.MAX_CONVOLUTION_WIDTH, or Gl.MAX_CONVOLUTION_HEIGHT.
 		/// </param>
 		/// <param name="params">
 		/// Pointer to storage for the parameters to be retrieved.
 		/// </param>
+		/// <remarks>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated if <paramref name="target"/> is not one of the allowable values.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated if <paramref name="pname"/> is not one of the allowable values.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated if <paramref name="target"/> is Gl.CONVOLUTION_1D and <paramref name="pname"/> is 
+		/// Gl.CONVOLUTION_HEIGHT or Gl.MAX_CONVOLUTION_HEIGHT.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if Gl.GetConvolutionParameter is executed between the execution of Gl\.Begin and the 
+		/// corresponding execution of Gl\.End.
+		/// </exception>
+		/// <seealso cref="Gl.GetConvolutionFilter"/>
+		/// <seealso cref="Gl.GetSeparableFilter"/>
+		/// <seealso cref="Gl.ConvolutionParameter"/>
 		[RequiredByFeature("GL_ARB_imaging")]
 		public static void GetConvolutionParameter(int target, int pname, float[] @params)
 		{
@@ -1500,18 +2005,33 @@ namespace OpenGL
 		/// get convolution parameters
 		/// </summary>
 		/// <param name="target">
-		/// The filter whose parameters are to be retrieved. Must be one of <see cref="Gl.CONVOLUTION_1D"/>, <see 
-		/// cref="Gl.CONVOLUTION_2D"/>, or <see cref="Gl.SEPARABLE_2D"/>.
+		/// The filter whose parameters are to be retrieved. Must be one of Gl.CONVOLUTION_1D, Gl.CONVOLUTION_2D, or 
+		/// Gl.SEPARABLE_2D.
 		/// </param>
 		/// <param name="pname">
-		/// The parameter to be retrieved. Must be one of <see cref="Gl.CONVOLUTION_BORDER_MODE"/>, <see 
-		/// cref="Gl.CONVOLUTION_BORDER_COLOR"/>, <see cref="Gl.CONVOLUTION_FILTER_SCALE"/>, <see 
-		/// cref="Gl.CONVOLUTION_FILTER_BIAS"/>, <see cref="Gl.CONVOLUTION_FORMAT"/>, <see cref="Gl.CONVOLUTION_WIDTH"/>, <see 
-		/// cref="Gl.CONVOLUTION_HEIGHT"/>, <see cref="Gl.MAX_CONVOLUTION_WIDTH"/>, or <see cref="Gl.MAX_CONVOLUTION_HEIGHT"/>.
+		/// The parameter to be retrieved. Must be one of Gl.CONVOLUTION_BORDER_MODE, Gl.CONVOLUTION_BORDER_COLOR, 
+		/// Gl.CONVOLUTION_FILTER_SCALE, Gl.CONVOLUTION_FILTER_BIAS, Gl.CONVOLUTION_FORMAT, Gl.CONVOLUTION_WIDTH, 
+		/// Gl.CONVOLUTION_HEIGHT, Gl.MAX_CONVOLUTION_WIDTH, or Gl.MAX_CONVOLUTION_HEIGHT.
 		/// </param>
 		/// <param name="params">
 		/// Pointer to storage for the parameters to be retrieved.
 		/// </param>
+		/// <remarks>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated if <paramref name="target"/> is not one of the allowable values.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated if <paramref name="pname"/> is not one of the allowable values.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated if <paramref name="target"/> is Gl.CONVOLUTION_1D and <paramref name="pname"/> is 
+		/// Gl.CONVOLUTION_HEIGHT or Gl.MAX_CONVOLUTION_HEIGHT.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if Gl.GetConvolutionParameter is executed between the execution of Gl\.Begin and the 
+		/// corresponding execution of Gl\.End.
+		/// </exception>
+		/// <seealso cref="Gl.GetConvolutionFilter"/>
+		/// <seealso cref="Gl.GetSeparableFilter"/>
+		/// <seealso cref="Gl.ConvolutionParameter"/>
 		[RequiredByFeature("GL_ARB_imaging")]
 		public static void GetConvolutionParameter(int target, int pname, Int32[] @params)
 		{
@@ -1530,22 +2050,18 @@ namespace OpenGL
 		/// get separable convolution filter kernel images
 		/// </summary>
 		/// <param name="target">
-		/// The separable filter to be retrieved. Must be <see cref="Gl.SEPARABLE_2D"/>.
+		/// The separable filter to be retrieved. Must be Gl.SEPARABLE_2D.
 		/// </param>
 		/// <param name="format">
-		/// Format of the output images. Must be one of <see cref="Gl.RED"/>, <see cref="Gl.GREEN"/>, <see cref="Gl.BLUE"/>, <see 
-		/// cref="Gl.ALPHA"/>, <see cref="Gl.RGB"/>, <see cref="Gl.BGR"/><see cref="Gl.RGBA"/>, <see cref="Gl.BGRA"/>, <see 
-		/// cref="Gl.LUMINANCE"/>, or <see cref="Gl.LUMINANCE_ALPHA"/>.
+		/// Format of the output images. Must be one of Gl.RED, Gl.GREEN, Gl.BLUE, Gl.ALPHA, Gl.RGB, Gl.BGRGl.RGBA, Gl.BGRA, 
+		/// Gl.LUMINANCE, or Gl.LUMINANCE_ALPHA.
 		/// </param>
 		/// <param name="type">
-		/// Data type of components in the output images. Symbolic constants <see cref="Gl.UNSIGNED_BYTE"/>, <see cref="Gl.BYTE"/>, 
-		/// <see cref="Gl.BITMAP"/>, <see cref="Gl.UNSIGNED_SHORT"/>, <see cref="Gl.SHORT"/>, <see cref="Gl.UNSIGNED_INT"/>, <see 
-		/// cref="Gl.INT"/>, <see cref="Gl.FLOAT"/>, <see cref="Gl.UNSIGNED_BYTE_3_3_2"/>, <see cref="Gl.UNSIGNED_BYTE_2_3_3_REV"/>, 
-		/// <see cref="Gl.UNSIGNED_SHORT_5_6_5"/>, <see cref="Gl.UNSIGNED_SHORT_5_6_5_REV"/>, <see 
-		/// cref="Gl.UNSIGNED_SHORT_4_4_4_4"/>, <see cref="Gl.UNSIGNED_SHORT_4_4_4_4_REV"/>, <see 
-		/// cref="Gl.UNSIGNED_SHORT_5_5_5_1"/>, <see cref="Gl.UNSIGNED_SHORT_1_5_5_5_REV"/>, <see cref="Gl.UNSIGNED_INT_8_8_8_8"/>, 
-		/// <see cref="Gl.UNSIGNED_INT_8_8_8_8_REV"/>, <see cref="Gl.UNSIGNED_INT_10_10_10_2"/>, and <see 
-		/// cref="Gl.UNSIGNED_INT_2_10_10_10_REV"/> are accepted.
+		/// Data type of components in the output images. Symbolic constants Gl.UNSIGNED_BYTE, Gl.BYTE, Gl.BITMAP, 
+		/// Gl.UNSIGNED_SHORT, Gl.SHORT, Gl.UNSIGNED_INT, Gl.INT, Gl.FLOAT, Gl.UNSIGNED_BYTE_3_3_2, Gl.UNSIGNED_BYTE_2_3_3_REV, 
+		/// Gl.UNSIGNED_SHORT_5_6_5, Gl.UNSIGNED_SHORT_5_6_5_REV, Gl.UNSIGNED_SHORT_4_4_4_4, Gl.UNSIGNED_SHORT_4_4_4_4_REV, 
+		/// Gl.UNSIGNED_SHORT_5_5_5_1, Gl.UNSIGNED_SHORT_1_5_5_5_REV, Gl.UNSIGNED_INT_8_8_8_8, Gl.UNSIGNED_INT_8_8_8_8_REV, 
+		/// Gl.UNSIGNED_INT_10_10_10_2, and Gl.UNSIGNED_INT_2_10_10_10_REV are accepted.
 		/// </param>
 		/// <param name="row">
 		/// Pointer to storage for the row filter image.
@@ -1556,6 +2072,40 @@ namespace OpenGL
 		/// <param name="span">
 		/// Pointer to storage for the span filter image (currently unused).
 		/// </param>
+		/// <remarks>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated if <paramref name="target"/> is not Gl.SEPARABLE_2D.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated if <paramref name="format"/> is not one of the allowable values.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated if <paramref name="type"/> is not one of the allowable values.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if <paramref name="type"/> is one of Gl.UNSIGNED_BYTE_3_3_2, 
+		/// Gl.UNSIGNED_BYTE_2_3_3_REV, Gl.UNSIGNED_SHORT_5_6_5, or Gl.UNSIGNED_SHORT_5_6_5_REV and <paramref name="format"/> is not 
+		/// Gl.RGB.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if <paramref name="type"/> is one of Gl.UNSIGNED_SHORT_4_4_4_4, 
+		/// Gl.UNSIGNED_SHORT_4_4_4_4_REV, Gl.UNSIGNED_SHORT_5_5_5_1, Gl.UNSIGNED_SHORT_1_5_5_5_REV, Gl.UNSIGNED_INT_8_8_8_8, 
+		/// Gl.UNSIGNED_INT_8_8_8_8_REV, Gl.UNSIGNED_INT_10_10_10_2, or Gl.UNSIGNED_INT_2_10_10_10_REV and <paramref name="format"/> 
+		/// is neither Gl.RGBA nor Gl.BGRA.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if a non-zero buffer object name is bound to the Gl.PIXEL_PACK_BUFFER target and the 
+		/// buffer object's data store is currently mapped.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if a non-zero buffer object name is bound to the Gl.PIXEL_PACK_BUFFER target and the 
+		/// data would be packed to the buffer object such that the memory writes required would exceed the data store size.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if a non-zero buffer object name is bound to the Gl.PIXEL_PACK_BUFFER target and 
+		/// <paramref name="row"/> or <paramref name="column"/> is not evenly divisible into the number of bytes needed to store in 
+		/// memory a datum indicated by <paramref name="type"/>.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if Gl.GetSeparableFilter is executed between the execution of Gl\.Begin and the 
+		/// corresponding execution of Gl\.End.
+		/// </exception>
+		/// <seealso cref="Gl.GetConvolutionFilter"/>
+		/// <seealso cref="Gl.ConvolutionParameter"/>
+		/// <seealso cref="Gl.SeparableFilter2D"/>
 		[RequiredByFeature("GL_ARB_imaging")]
 		public static void GetSeparableFilter(int target, PixelFormat format, PixelType type, IntPtr row, IntPtr column, IntPtr span)
 		{
@@ -1569,22 +2119,18 @@ namespace OpenGL
 		/// get separable convolution filter kernel images
 		/// </summary>
 		/// <param name="target">
-		/// The separable filter to be retrieved. Must be <see cref="Gl.SEPARABLE_2D"/>.
+		/// The separable filter to be retrieved. Must be Gl.SEPARABLE_2D.
 		/// </param>
 		/// <param name="format">
-		/// Format of the output images. Must be one of <see cref="Gl.RED"/>, <see cref="Gl.GREEN"/>, <see cref="Gl.BLUE"/>, <see 
-		/// cref="Gl.ALPHA"/>, <see cref="Gl.RGB"/>, <see cref="Gl.BGR"/><see cref="Gl.RGBA"/>, <see cref="Gl.BGRA"/>, <see 
-		/// cref="Gl.LUMINANCE"/>, or <see cref="Gl.LUMINANCE_ALPHA"/>.
+		/// Format of the output images. Must be one of Gl.RED, Gl.GREEN, Gl.BLUE, Gl.ALPHA, Gl.RGB, Gl.BGRGl.RGBA, Gl.BGRA, 
+		/// Gl.LUMINANCE, or Gl.LUMINANCE_ALPHA.
 		/// </param>
 		/// <param name="type">
-		/// Data type of components in the output images. Symbolic constants <see cref="Gl.UNSIGNED_BYTE"/>, <see cref="Gl.BYTE"/>, 
-		/// <see cref="Gl.BITMAP"/>, <see cref="Gl.UNSIGNED_SHORT"/>, <see cref="Gl.SHORT"/>, <see cref="Gl.UNSIGNED_INT"/>, <see 
-		/// cref="Gl.INT"/>, <see cref="Gl.FLOAT"/>, <see cref="Gl.UNSIGNED_BYTE_3_3_2"/>, <see cref="Gl.UNSIGNED_BYTE_2_3_3_REV"/>, 
-		/// <see cref="Gl.UNSIGNED_SHORT_5_6_5"/>, <see cref="Gl.UNSIGNED_SHORT_5_6_5_REV"/>, <see 
-		/// cref="Gl.UNSIGNED_SHORT_4_4_4_4"/>, <see cref="Gl.UNSIGNED_SHORT_4_4_4_4_REV"/>, <see 
-		/// cref="Gl.UNSIGNED_SHORT_5_5_5_1"/>, <see cref="Gl.UNSIGNED_SHORT_1_5_5_5_REV"/>, <see cref="Gl.UNSIGNED_INT_8_8_8_8"/>, 
-		/// <see cref="Gl.UNSIGNED_INT_8_8_8_8_REV"/>, <see cref="Gl.UNSIGNED_INT_10_10_10_2"/>, and <see 
-		/// cref="Gl.UNSIGNED_INT_2_10_10_10_REV"/> are accepted.
+		/// Data type of components in the output images. Symbolic constants Gl.UNSIGNED_BYTE, Gl.BYTE, Gl.BITMAP, 
+		/// Gl.UNSIGNED_SHORT, Gl.SHORT, Gl.UNSIGNED_INT, Gl.INT, Gl.FLOAT, Gl.UNSIGNED_BYTE_3_3_2, Gl.UNSIGNED_BYTE_2_3_3_REV, 
+		/// Gl.UNSIGNED_SHORT_5_6_5, Gl.UNSIGNED_SHORT_5_6_5_REV, Gl.UNSIGNED_SHORT_4_4_4_4, Gl.UNSIGNED_SHORT_4_4_4_4_REV, 
+		/// Gl.UNSIGNED_SHORT_5_5_5_1, Gl.UNSIGNED_SHORT_1_5_5_5_REV, Gl.UNSIGNED_INT_8_8_8_8, Gl.UNSIGNED_INT_8_8_8_8_REV, 
+		/// Gl.UNSIGNED_INT_10_10_10_2, and Gl.UNSIGNED_INT_2_10_10_10_REV are accepted.
 		/// </param>
 		/// <param name="row">
 		/// Pointer to storage for the row filter image.
@@ -1595,6 +2141,40 @@ namespace OpenGL
 		/// <param name="span">
 		/// Pointer to storage for the span filter image (currently unused).
 		/// </param>
+		/// <remarks>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated if <paramref name="target"/> is not Gl.SEPARABLE_2D.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated if <paramref name="format"/> is not one of the allowable values.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated if <paramref name="type"/> is not one of the allowable values.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if <paramref name="type"/> is one of Gl.UNSIGNED_BYTE_3_3_2, 
+		/// Gl.UNSIGNED_BYTE_2_3_3_REV, Gl.UNSIGNED_SHORT_5_6_5, or Gl.UNSIGNED_SHORT_5_6_5_REV and <paramref name="format"/> is not 
+		/// Gl.RGB.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if <paramref name="type"/> is one of Gl.UNSIGNED_SHORT_4_4_4_4, 
+		/// Gl.UNSIGNED_SHORT_4_4_4_4_REV, Gl.UNSIGNED_SHORT_5_5_5_1, Gl.UNSIGNED_SHORT_1_5_5_5_REV, Gl.UNSIGNED_INT_8_8_8_8, 
+		/// Gl.UNSIGNED_INT_8_8_8_8_REV, Gl.UNSIGNED_INT_10_10_10_2, or Gl.UNSIGNED_INT_2_10_10_10_REV and <paramref name="format"/> 
+		/// is neither Gl.RGBA nor Gl.BGRA.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if a non-zero buffer object name is bound to the Gl.PIXEL_PACK_BUFFER target and the 
+		/// buffer object's data store is currently mapped.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if a non-zero buffer object name is bound to the Gl.PIXEL_PACK_BUFFER target and the 
+		/// data would be packed to the buffer object such that the memory writes required would exceed the data store size.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if a non-zero buffer object name is bound to the Gl.PIXEL_PACK_BUFFER target and 
+		/// <paramref name="row"/> or <paramref name="column"/> is not evenly divisible into the number of bytes needed to store in 
+		/// memory a datum indicated by <paramref name="type"/>.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if Gl.GetSeparableFilter is executed between the execution of Gl\.Begin and the 
+		/// corresponding execution of Gl\.End.
+		/// </exception>
+		/// <seealso cref="Gl.GetConvolutionFilter"/>
+		/// <seealso cref="Gl.ConvolutionParameter"/>
+		/// <seealso cref="Gl.SeparableFilter2D"/>
 		[RequiredByFeature("GL_ARB_imaging")]
 		public static void GetSeparableFilter(int target, PixelFormat format, PixelType type, Object row, Object column, Object span)
 		{
@@ -1614,20 +2194,15 @@ namespace OpenGL
 		/// define a separable two-dimensional convolution filter
 		/// </summary>
 		/// <param name="target">
-		/// Must be <see cref="Gl.SEPARABLE_2D"/>.
+		/// Must be Gl.SEPARABLE_2D.
 		/// </param>
 		/// <param name="internalformat">
-		/// The internal format of the convolution filter kernel. The allowable values are <see cref="Gl.ALPHA"/>, <see 
-		/// cref="Gl.ALPHA4"/>, <see cref="Gl.ALPHA8"/>, <see cref="Gl.ALPHA12"/>, <see cref="Gl.ALPHA16"/>, <see 
-		/// cref="Gl.LUMINANCE"/>, <see cref="Gl.LUMINANCE4"/>, <see cref="Gl.LUMINANCE8"/>, <see cref="Gl.LUMINANCE12"/>, <see 
-		/// cref="Gl.LUMINANCE16"/>, <see cref="Gl.LUMINANCE_ALPHA"/>, <see cref="Gl.LUMINANCE4_ALPHA4"/>, <see 
-		/// cref="Gl.LUMINANCE6_ALPHA2"/>, <see cref="Gl.LUMINANCE8_ALPHA8"/>, <see cref="Gl.LUMINANCE12_ALPHA4"/>, <see 
-		/// cref="Gl.LUMINANCE12_ALPHA12"/>, <see cref="Gl.LUMINANCE16_ALPHA16"/>, <see cref="Gl.INTENSITY"/>, <see 
-		/// cref="Gl.INTENSITY4"/>, <see cref="Gl.INTENSITY8"/>, <see cref="Gl.INTENSITY12"/>, <see cref="Gl.INTENSITY16"/>, <see 
-		/// cref="Gl.R3_G3_B2"/>, <see cref="Gl.RGB"/>, <see cref="Gl.RGB4"/>, <see cref="Gl.RGB5"/>, <see cref="Gl.RGB8"/>, <see 
-		/// cref="Gl.RGB10"/>, <see cref="Gl.RGB12"/>, <see cref="Gl.RGB16"/>, <see cref="Gl.RGBA"/>, <see cref="Gl.RGBA2"/>, <see 
-		/// cref="Gl.RGBA4"/>, <see cref="Gl.RGB5_A1"/>, <see cref="Gl.RGBA8"/>, <see cref="Gl.RGB10_A2"/>, <see cref="Gl.RGBA12"/>, 
-		/// or <see cref="Gl.RGBA16"/>.
+		/// The internal format of the convolution filter kernel. The allowable values are Gl.ALPHA, Gl.ALPHA4, Gl.ALPHA8, 
+		/// Gl.ALPHA12, Gl.ALPHA16, Gl.LUMINANCE, Gl.LUMINANCE4, Gl.LUMINANCE8, Gl.LUMINANCE12, Gl.LUMINANCE16, Gl.LUMINANCE_ALPHA, 
+		/// Gl.LUMINANCE4_ALPHA4, Gl.LUMINANCE6_ALPHA2, Gl.LUMINANCE8_ALPHA8, Gl.LUMINANCE12_ALPHA4, Gl.LUMINANCE12_ALPHA12, 
+		/// Gl.LUMINANCE16_ALPHA16, Gl.INTENSITY, Gl.INTENSITY4, Gl.INTENSITY8, Gl.INTENSITY12, Gl.INTENSITY16, Gl.R3_G3_B2, Gl.RGB, 
+		/// Gl.RGB4, Gl.RGB5, Gl.RGB8, Gl.RGB10, Gl.RGB12, Gl.RGB16, Gl.RGBA, Gl.RGBA2, Gl.RGBA4, Gl.RGB5_A1, Gl.RGBA8, Gl.RGB10_A2, 
+		/// Gl.RGBA12, or Gl.RGBA16.
 		/// </param>
 		/// <param name="width">
 		/// The number of elements in the pixel array referenced by <paramref name="row"/>. (This is the width of the separable 
@@ -1638,21 +2213,15 @@ namespace OpenGL
 		/// filter kernel.)
 		/// </param>
 		/// <param name="format">
-		/// The format of the pixel data in <paramref name="row"/> and <paramref name="column"/>. The allowable values are <see 
-		/// cref="Gl.RED"/>, <see cref="Gl.GREEN"/>, <see cref="Gl.BLUE"/>, <see cref="Gl.ALPHA"/>, <see cref="Gl.RGB"/>, <see 
-		/// cref="Gl.BGR"/>, <see cref="Gl.RGBA"/>, <see cref="Gl.BGRA"/>, <see cref="Gl.INTENSITY"/>, <see cref="Gl.LUMINANCE"/>, 
-		/// and <see cref="Gl.LUMINANCE_ALPHA"/>.
+		/// The format of the pixel data in <paramref name="row"/> and <paramref name="column"/>. The allowable values are Gl.RED, 
+		/// Gl.GREEN, Gl.BLUE, Gl.ALPHA, Gl.RGB, Gl.BGR, Gl.RGBA, Gl.BGRA, Gl.INTENSITY, Gl.LUMINANCE, and Gl.LUMINANCE_ALPHA.
 		/// </param>
 		/// <param name="type">
-		/// The type of the pixel data in <paramref name="row"/> and <paramref name="column"/>. Symbolic constants <see 
-		/// cref="Gl.UNSIGNED_BYTE"/>, <see cref="Gl.BYTE"/>, <see cref="Gl.BITMAP"/>, <see cref="Gl.UNSIGNED_SHORT"/>, <see 
-		/// cref="Gl.SHORT"/>, <see cref="Gl.UNSIGNED_INT"/>, <see cref="Gl.INT"/>, <see cref="Gl.FLOAT"/>, <see 
-		/// cref="Gl.UNSIGNED_BYTE_3_3_2"/>, <see cref="Gl.UNSIGNED_BYTE_2_3_3_REV"/>, <see cref="Gl.UNSIGNED_SHORT_5_6_5"/>, <see 
-		/// cref="Gl.UNSIGNED_SHORT_5_6_5_REV"/>, <see cref="Gl.UNSIGNED_SHORT_4_4_4_4"/>, <see 
-		/// cref="Gl.UNSIGNED_SHORT_4_4_4_4_REV"/>, <see cref="Gl.UNSIGNED_SHORT_5_5_5_1"/>, <see 
-		/// cref="Gl.UNSIGNED_SHORT_1_5_5_5_REV"/>, <see cref="Gl.UNSIGNED_INT_8_8_8_8"/>, <see 
-		/// cref="Gl.UNSIGNED_INT_8_8_8_8_REV"/>, <see cref="Gl.UNSIGNED_INT_10_10_10_2"/>, and <see 
-		/// cref="Gl.UNSIGNED_INT_2_10_10_10_REV"/> are accepted.
+		/// The type of the pixel data in <paramref name="row"/> and <paramref name="column"/>. Symbolic constants Gl.UNSIGNED_BYTE, 
+		/// Gl.BYTE, Gl.BITMAP, Gl.UNSIGNED_SHORT, Gl.SHORT, Gl.UNSIGNED_INT, Gl.INT, Gl.FLOAT, Gl.UNSIGNED_BYTE_3_3_2, 
+		/// Gl.UNSIGNED_BYTE_2_3_3_REV, Gl.UNSIGNED_SHORT_5_6_5, Gl.UNSIGNED_SHORT_5_6_5_REV, Gl.UNSIGNED_SHORT_4_4_4_4, 
+		/// Gl.UNSIGNED_SHORT_4_4_4_4_REV, Gl.UNSIGNED_SHORT_5_5_5_1, Gl.UNSIGNED_SHORT_1_5_5_5_REV, Gl.UNSIGNED_INT_8_8_8_8, 
+		/// Gl.UNSIGNED_INT_8_8_8_8_REV, Gl.UNSIGNED_INT_10_10_10_2, and Gl.UNSIGNED_INT_2_10_10_10_REV are accepted.
 		/// </param>
 		/// <param name="row">
 		/// Pointer to a one-dimensional array of pixel data that is processed to build the row filter kernel.
@@ -1660,6 +2229,51 @@ namespace OpenGL
 		/// <param name="column">
 		/// Pointer to a one-dimensional array of pixel data that is processed to build the column filter kernel.
 		/// </param>
+		/// <remarks>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated if <paramref name="target"/> is not Gl.SEPARABLE_2D.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated if <paramref name="internalformat"/> is not one of the allowable values.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated if <paramref name="format"/> is not one of the allowable values.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated if <paramref name="type"/> is not one of the allowable values.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_VALUE is generated if <paramref name="width"/> is less than zero or greater than the maximum supported value. 
+		/// This value may be queried with Gl\.GetConvolutionParameter using target Gl.SEPARABLE_2D and name 
+		/// Gl.MAX_CONVOLUTION_WIDTH.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_VALUE is generated if <paramref name="height"/> is less than zero or greater than the maximum supported 
+		/// value. This value may be queried with Gl\.GetConvolutionParameter using target Gl.SEPARABLE_2D and name 
+		/// Gl.MAX_CONVOLUTION_HEIGHT.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if <paramref name="height"/> is one of Gl.UNSIGNED_BYTE_3_3_2, 
+		/// Gl.UNSIGNED_BYTE_2_3_3_REV, Gl.UNSIGNED_SHORT_5_6_5, or Gl.UNSIGNED_SHORT_5_6_5_REV and <paramref name="format"/> is not 
+		/// Gl.RGB.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if <paramref name="height"/> is one of Gl.UNSIGNED_SHORT_4_4_4_4, 
+		/// Gl.UNSIGNED_SHORT_4_4_4_4_REV, Gl.UNSIGNED_SHORT_5_5_5_1, Gl.UNSIGNED_SHORT_1_5_5_5_REV, Gl.UNSIGNED_INT_8_8_8_8, 
+		/// Gl.UNSIGNED_INT_8_8_8_8_REV, Gl.UNSIGNED_INT_10_10_10_2, or Gl.UNSIGNED_INT_2_10_10_10_REV and <paramref name="format"/> 
+		/// is neither Gl.RGBA nor Gl.BGRA.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if a non-zero buffer object name is bound to the Gl.PIXEL_UNPACK_BUFFER target and the 
+		/// buffer object's data store is currently mapped.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if a non-zero buffer object name is bound to the Gl.PIXEL_UNPACK_BUFFER target and the 
+		/// data would be unpacked from the buffer object such that the memory reads required would exceed the data store size.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if a non-zero buffer object name is bound to the Gl.PIXEL_UNPACK_BUFFER target and 
+		/// <paramref name="row"/> or <paramref name="column"/> is not evenly divisible into the number of bytes needed to store in 
+		/// memory a datum indicated by <paramref name="type"/>.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if Gl.SeparableFilter2D is executed between the execution of Gl\.Begin and the 
+		/// corresponding execution of Gl\.End.
+		/// </exception>
+		/// <seealso cref="Gl.ConvolutionFilter1D"/>
+		/// <seealso cref="Gl.ConvolutionFilter2D"/>
+		/// <seealso cref="Gl.ConvolutionParameter"/>
+		/// <seealso cref="Gl.PixelTransfer"/>
 		[RequiredByFeature("GL_ARB_imaging")]
 		public static void SeparableFilter2D(int target, int internalformat, Int32 width, Int32 height, PixelFormat format, PixelType type, IntPtr row, IntPtr column)
 		{
@@ -1673,20 +2287,15 @@ namespace OpenGL
 		/// define a separable two-dimensional convolution filter
 		/// </summary>
 		/// <param name="target">
-		/// Must be <see cref="Gl.SEPARABLE_2D"/>.
+		/// Must be Gl.SEPARABLE_2D.
 		/// </param>
 		/// <param name="internalformat">
-		/// The internal format of the convolution filter kernel. The allowable values are <see cref="Gl.ALPHA"/>, <see 
-		/// cref="Gl.ALPHA4"/>, <see cref="Gl.ALPHA8"/>, <see cref="Gl.ALPHA12"/>, <see cref="Gl.ALPHA16"/>, <see 
-		/// cref="Gl.LUMINANCE"/>, <see cref="Gl.LUMINANCE4"/>, <see cref="Gl.LUMINANCE8"/>, <see cref="Gl.LUMINANCE12"/>, <see 
-		/// cref="Gl.LUMINANCE16"/>, <see cref="Gl.LUMINANCE_ALPHA"/>, <see cref="Gl.LUMINANCE4_ALPHA4"/>, <see 
-		/// cref="Gl.LUMINANCE6_ALPHA2"/>, <see cref="Gl.LUMINANCE8_ALPHA8"/>, <see cref="Gl.LUMINANCE12_ALPHA4"/>, <see 
-		/// cref="Gl.LUMINANCE12_ALPHA12"/>, <see cref="Gl.LUMINANCE16_ALPHA16"/>, <see cref="Gl.INTENSITY"/>, <see 
-		/// cref="Gl.INTENSITY4"/>, <see cref="Gl.INTENSITY8"/>, <see cref="Gl.INTENSITY12"/>, <see cref="Gl.INTENSITY16"/>, <see 
-		/// cref="Gl.R3_G3_B2"/>, <see cref="Gl.RGB"/>, <see cref="Gl.RGB4"/>, <see cref="Gl.RGB5"/>, <see cref="Gl.RGB8"/>, <see 
-		/// cref="Gl.RGB10"/>, <see cref="Gl.RGB12"/>, <see cref="Gl.RGB16"/>, <see cref="Gl.RGBA"/>, <see cref="Gl.RGBA2"/>, <see 
-		/// cref="Gl.RGBA4"/>, <see cref="Gl.RGB5_A1"/>, <see cref="Gl.RGBA8"/>, <see cref="Gl.RGB10_A2"/>, <see cref="Gl.RGBA12"/>, 
-		/// or <see cref="Gl.RGBA16"/>.
+		/// The internal format of the convolution filter kernel. The allowable values are Gl.ALPHA, Gl.ALPHA4, Gl.ALPHA8, 
+		/// Gl.ALPHA12, Gl.ALPHA16, Gl.LUMINANCE, Gl.LUMINANCE4, Gl.LUMINANCE8, Gl.LUMINANCE12, Gl.LUMINANCE16, Gl.LUMINANCE_ALPHA, 
+		/// Gl.LUMINANCE4_ALPHA4, Gl.LUMINANCE6_ALPHA2, Gl.LUMINANCE8_ALPHA8, Gl.LUMINANCE12_ALPHA4, Gl.LUMINANCE12_ALPHA12, 
+		/// Gl.LUMINANCE16_ALPHA16, Gl.INTENSITY, Gl.INTENSITY4, Gl.INTENSITY8, Gl.INTENSITY12, Gl.INTENSITY16, Gl.R3_G3_B2, Gl.RGB, 
+		/// Gl.RGB4, Gl.RGB5, Gl.RGB8, Gl.RGB10, Gl.RGB12, Gl.RGB16, Gl.RGBA, Gl.RGBA2, Gl.RGBA4, Gl.RGB5_A1, Gl.RGBA8, Gl.RGB10_A2, 
+		/// Gl.RGBA12, or Gl.RGBA16.
 		/// </param>
 		/// <param name="width">
 		/// The number of elements in the pixel array referenced by <paramref name="row"/>. (This is the width of the separable 
@@ -1697,21 +2306,15 @@ namespace OpenGL
 		/// filter kernel.)
 		/// </param>
 		/// <param name="format">
-		/// The format of the pixel data in <paramref name="row"/> and <paramref name="column"/>. The allowable values are <see 
-		/// cref="Gl.RED"/>, <see cref="Gl.GREEN"/>, <see cref="Gl.BLUE"/>, <see cref="Gl.ALPHA"/>, <see cref="Gl.RGB"/>, <see 
-		/// cref="Gl.BGR"/>, <see cref="Gl.RGBA"/>, <see cref="Gl.BGRA"/>, <see cref="Gl.INTENSITY"/>, <see cref="Gl.LUMINANCE"/>, 
-		/// and <see cref="Gl.LUMINANCE_ALPHA"/>.
+		/// The format of the pixel data in <paramref name="row"/> and <paramref name="column"/>. The allowable values are Gl.RED, 
+		/// Gl.GREEN, Gl.BLUE, Gl.ALPHA, Gl.RGB, Gl.BGR, Gl.RGBA, Gl.BGRA, Gl.INTENSITY, Gl.LUMINANCE, and Gl.LUMINANCE_ALPHA.
 		/// </param>
 		/// <param name="type">
-		/// The type of the pixel data in <paramref name="row"/> and <paramref name="column"/>. Symbolic constants <see 
-		/// cref="Gl.UNSIGNED_BYTE"/>, <see cref="Gl.BYTE"/>, <see cref="Gl.BITMAP"/>, <see cref="Gl.UNSIGNED_SHORT"/>, <see 
-		/// cref="Gl.SHORT"/>, <see cref="Gl.UNSIGNED_INT"/>, <see cref="Gl.INT"/>, <see cref="Gl.FLOAT"/>, <see 
-		/// cref="Gl.UNSIGNED_BYTE_3_3_2"/>, <see cref="Gl.UNSIGNED_BYTE_2_3_3_REV"/>, <see cref="Gl.UNSIGNED_SHORT_5_6_5"/>, <see 
-		/// cref="Gl.UNSIGNED_SHORT_5_6_5_REV"/>, <see cref="Gl.UNSIGNED_SHORT_4_4_4_4"/>, <see 
-		/// cref="Gl.UNSIGNED_SHORT_4_4_4_4_REV"/>, <see cref="Gl.UNSIGNED_SHORT_5_5_5_1"/>, <see 
-		/// cref="Gl.UNSIGNED_SHORT_1_5_5_5_REV"/>, <see cref="Gl.UNSIGNED_INT_8_8_8_8"/>, <see 
-		/// cref="Gl.UNSIGNED_INT_8_8_8_8_REV"/>, <see cref="Gl.UNSIGNED_INT_10_10_10_2"/>, and <see 
-		/// cref="Gl.UNSIGNED_INT_2_10_10_10_REV"/> are accepted.
+		/// The type of the pixel data in <paramref name="row"/> and <paramref name="column"/>. Symbolic constants Gl.UNSIGNED_BYTE, 
+		/// Gl.BYTE, Gl.BITMAP, Gl.UNSIGNED_SHORT, Gl.SHORT, Gl.UNSIGNED_INT, Gl.INT, Gl.FLOAT, Gl.UNSIGNED_BYTE_3_3_2, 
+		/// Gl.UNSIGNED_BYTE_2_3_3_REV, Gl.UNSIGNED_SHORT_5_6_5, Gl.UNSIGNED_SHORT_5_6_5_REV, Gl.UNSIGNED_SHORT_4_4_4_4, 
+		/// Gl.UNSIGNED_SHORT_4_4_4_4_REV, Gl.UNSIGNED_SHORT_5_5_5_1, Gl.UNSIGNED_SHORT_1_5_5_5_REV, Gl.UNSIGNED_INT_8_8_8_8, 
+		/// Gl.UNSIGNED_INT_8_8_8_8_REV, Gl.UNSIGNED_INT_10_10_10_2, and Gl.UNSIGNED_INT_2_10_10_10_REV are accepted.
 		/// </param>
 		/// <param name="row">
 		/// Pointer to a one-dimensional array of pixel data that is processed to build the row filter kernel.
@@ -1719,6 +2322,51 @@ namespace OpenGL
 		/// <param name="column">
 		/// Pointer to a one-dimensional array of pixel data that is processed to build the column filter kernel.
 		/// </param>
+		/// <remarks>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated if <paramref name="target"/> is not Gl.SEPARABLE_2D.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated if <paramref name="internalformat"/> is not one of the allowable values.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated if <paramref name="format"/> is not one of the allowable values.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated if <paramref name="type"/> is not one of the allowable values.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_VALUE is generated if <paramref name="width"/> is less than zero or greater than the maximum supported value. 
+		/// This value may be queried with Gl\.GetConvolutionParameter using target Gl.SEPARABLE_2D and name 
+		/// Gl.MAX_CONVOLUTION_WIDTH.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_VALUE is generated if <paramref name="height"/> is less than zero or greater than the maximum supported 
+		/// value. This value may be queried with Gl\.GetConvolutionParameter using target Gl.SEPARABLE_2D and name 
+		/// Gl.MAX_CONVOLUTION_HEIGHT.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if <paramref name="height"/> is one of Gl.UNSIGNED_BYTE_3_3_2, 
+		/// Gl.UNSIGNED_BYTE_2_3_3_REV, Gl.UNSIGNED_SHORT_5_6_5, or Gl.UNSIGNED_SHORT_5_6_5_REV and <paramref name="format"/> is not 
+		/// Gl.RGB.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if <paramref name="height"/> is one of Gl.UNSIGNED_SHORT_4_4_4_4, 
+		/// Gl.UNSIGNED_SHORT_4_4_4_4_REV, Gl.UNSIGNED_SHORT_5_5_5_1, Gl.UNSIGNED_SHORT_1_5_5_5_REV, Gl.UNSIGNED_INT_8_8_8_8, 
+		/// Gl.UNSIGNED_INT_8_8_8_8_REV, Gl.UNSIGNED_INT_10_10_10_2, or Gl.UNSIGNED_INT_2_10_10_10_REV and <paramref name="format"/> 
+		/// is neither Gl.RGBA nor Gl.BGRA.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if a non-zero buffer object name is bound to the Gl.PIXEL_UNPACK_BUFFER target and the 
+		/// buffer object's data store is currently mapped.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if a non-zero buffer object name is bound to the Gl.PIXEL_UNPACK_BUFFER target and the 
+		/// data would be unpacked from the buffer object such that the memory reads required would exceed the data store size.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if a non-zero buffer object name is bound to the Gl.PIXEL_UNPACK_BUFFER target and 
+		/// <paramref name="row"/> or <paramref name="column"/> is not evenly divisible into the number of bytes needed to store in 
+		/// memory a datum indicated by <paramref name="type"/>.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if Gl.SeparableFilter2D is executed between the execution of Gl\.Begin and the 
+		/// corresponding execution of Gl\.End.
+		/// </exception>
+		/// <seealso cref="Gl.ConvolutionFilter1D"/>
+		/// <seealso cref="Gl.ConvolutionFilter2D"/>
+		/// <seealso cref="Gl.ConvolutionParameter"/>
+		/// <seealso cref="Gl.PixelTransfer"/>
 		[RequiredByFeature("GL_ARB_imaging")]
 		public static void SeparableFilter2D(int target, int internalformat, Int32 width, Int32 height, PixelFormat format, PixelType type, Object row, Object column)
 		{
@@ -1736,30 +2384,59 @@ namespace OpenGL
 		/// get histogram table
 		/// </summary>
 		/// <param name="target">
-		/// Must be <see cref="Gl.HISTOGRAM"/>.
+		/// Must be Gl.HISTOGRAM.
 		/// </param>
 		/// <param name="reset">
-		/// If <see cref="Gl.TRUE"/>, each component counter that is actually returned is reset to zero. (Other counters are 
-		/// unaffected.) If <see cref="Gl.FALSE"/>, none of the counters in the histogram table is modified.
+		/// If Gl.TRUE, each component counter that is actually returned is reset to zero. (Other counters are unaffected.) If 
+		/// Gl.FALSE, none of the counters in the histogram table is modified.
 		/// </param>
 		/// <param name="format">
-		/// The format of values to be returned in <paramref name="values"/>. Must be one of <see cref="Gl.RED"/>, <see 
-		/// cref="Gl.GREEN"/>, <see cref="Gl.BLUE"/>, <see cref="Gl.ALPHA"/>, <see cref="Gl.RGB"/>, <see cref="Gl.BGR"/>, <see 
-		/// cref="Gl.RGBA"/>, <see cref="Gl.BGRA"/>, <see cref="Gl.LUMINANCE"/>, or <see cref="Gl.LUMINANCE_ALPHA"/>.
+		/// The format of values to be returned in <paramref name="values"/>. Must be one of Gl.RED, Gl.GREEN, Gl.BLUE, Gl.ALPHA, 
+		/// Gl.RGB, Gl.BGR, Gl.RGBA, Gl.BGRA, Gl.LUMINANCE, or Gl.LUMINANCE_ALPHA.
 		/// </param>
 		/// <param name="type">
-		/// The type of values to be returned in <paramref name="values"/>. Symbolic constants <see cref="Gl.UNSIGNED_BYTE"/>, <see 
-		/// cref="Gl.BYTE"/>, <see cref="Gl.BITMAP"/>, <see cref="Gl.UNSIGNED_SHORT"/>, <see cref="Gl.SHORT"/>, <see 
-		/// cref="Gl.UNSIGNED_INT"/>, <see cref="Gl.INT"/>, <see cref="Gl.FLOAT"/>, <see cref="Gl.UNSIGNED_BYTE_3_3_2"/>, <see 
-		/// cref="Gl.UNSIGNED_BYTE_2_3_3_REV"/>, <see cref="Gl.UNSIGNED_SHORT_5_6_5"/>, <see cref="Gl.UNSIGNED_SHORT_5_6_5_REV"/>, 
-		/// <see cref="Gl.UNSIGNED_SHORT_4_4_4_4"/>, <see cref="Gl.UNSIGNED_SHORT_4_4_4_4_REV"/>, <see 
-		/// cref="Gl.UNSIGNED_SHORT_5_5_5_1"/>, <see cref="Gl.UNSIGNED_SHORT_1_5_5_5_REV"/>, <see cref="Gl.UNSIGNED_INT_8_8_8_8"/>, 
-		/// <see cref="Gl.UNSIGNED_INT_8_8_8_8_REV"/>, <see cref="Gl.UNSIGNED_INT_10_10_10_2"/>, and <see 
-		/// cref="Gl.UNSIGNED_INT_2_10_10_10_REV"/> are accepted.
+		/// The type of values to be returned in <paramref name="values"/>. Symbolic constants Gl.UNSIGNED_BYTE, Gl.BYTE, Gl.BITMAP, 
+		/// Gl.UNSIGNED_SHORT, Gl.SHORT, Gl.UNSIGNED_INT, Gl.INT, Gl.FLOAT, Gl.UNSIGNED_BYTE_3_3_2, Gl.UNSIGNED_BYTE_2_3_3_REV, 
+		/// Gl.UNSIGNED_SHORT_5_6_5, Gl.UNSIGNED_SHORT_5_6_5_REV, Gl.UNSIGNED_SHORT_4_4_4_4, Gl.UNSIGNED_SHORT_4_4_4_4_REV, 
+		/// Gl.UNSIGNED_SHORT_5_5_5_1, Gl.UNSIGNED_SHORT_1_5_5_5_REV, Gl.UNSIGNED_INT_8_8_8_8, Gl.UNSIGNED_INT_8_8_8_8_REV, 
+		/// Gl.UNSIGNED_INT_10_10_10_2, and Gl.UNSIGNED_INT_2_10_10_10_REV are accepted.
 		/// </param>
 		/// <param name="values">
 		/// A pointer to storage for the returned histogram table.
 		/// </param>
+		/// <remarks>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated if <paramref name="target"/> is not Gl.HISTOGRAM.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated if <paramref name="format"/> is not one of the allowable values.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated if <paramref name="type"/> is not one of the allowable values.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if <paramref name="type"/> is one of Gl.UNSIGNED_BYTE_3_3_2, 
+		/// Gl.UNSIGNED_BYTE_2_3_3_REV, Gl.UNSIGNED_SHORT_5_6_5, or Gl.UNSIGNED_SHORT_5_6_5_REV and <paramref name="format"/> is not 
+		/// Gl.RGB.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if <paramref name="type"/> is one of Gl.UNSIGNED_SHORT_4_4_4_4, 
+		/// Gl.UNSIGNED_SHORT_4_4_4_4_REV, Gl.UNSIGNED_SHORT_5_5_5_1, Gl.UNSIGNED_SHORT_1_5_5_5_REV, Gl.UNSIGNED_INT_8_8_8_8, 
+		/// Gl.UNSIGNED_INT_8_8_8_8_REV, Gl.UNSIGNED_INT_10_10_10_2, or Gl.UNSIGNED_INT_2_10_10_10_REV and <paramref name="format"/> 
+		/// is neither Gl.RGBA nor Gl.BGRA.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if a non-zero buffer object name is bound to the Gl.PIXEL_PACK_BUFFER target and the 
+		/// buffer object's data store is currently mapped.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if a non-zero buffer object name is bound to the Gl.PIXEL_PACK_BUFFER target and the 
+		/// data would be packed to the buffer object such that the memory writes required would exceed the data store size.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if a non-zero buffer object name is bound to the Gl.PIXEL_PACK_BUFFER target and 
+		/// <paramref name="values"/> is not evenly divisible into the number of bytes needed to store in memory a datum indicated 
+		/// by <paramref name="type"/>.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if Gl.GetHistogram is executed between the execution of Gl\.Begin and the 
+		/// corresponding execution of Gl\.End.
+		/// </exception>
+		/// <seealso cref="Gl.Histogram"/>
+		/// <seealso cref="Gl.ResetHistogram"/>
 		[RequiredByFeature("GL_ARB_imaging")]
 		public static void GetHistogram(int target, bool reset, PixelFormat format, PixelType type, IntPtr values)
 		{
@@ -1773,30 +2450,59 @@ namespace OpenGL
 		/// get histogram table
 		/// </summary>
 		/// <param name="target">
-		/// Must be <see cref="Gl.HISTOGRAM"/>.
+		/// Must be Gl.HISTOGRAM.
 		/// </param>
 		/// <param name="reset">
-		/// If <see cref="Gl.TRUE"/>, each component counter that is actually returned is reset to zero. (Other counters are 
-		/// unaffected.) If <see cref="Gl.FALSE"/>, none of the counters in the histogram table is modified.
+		/// If Gl.TRUE, each component counter that is actually returned is reset to zero. (Other counters are unaffected.) If 
+		/// Gl.FALSE, none of the counters in the histogram table is modified.
 		/// </param>
 		/// <param name="format">
-		/// The format of values to be returned in <paramref name="values"/>. Must be one of <see cref="Gl.RED"/>, <see 
-		/// cref="Gl.GREEN"/>, <see cref="Gl.BLUE"/>, <see cref="Gl.ALPHA"/>, <see cref="Gl.RGB"/>, <see cref="Gl.BGR"/>, <see 
-		/// cref="Gl.RGBA"/>, <see cref="Gl.BGRA"/>, <see cref="Gl.LUMINANCE"/>, or <see cref="Gl.LUMINANCE_ALPHA"/>.
+		/// The format of values to be returned in <paramref name="values"/>. Must be one of Gl.RED, Gl.GREEN, Gl.BLUE, Gl.ALPHA, 
+		/// Gl.RGB, Gl.BGR, Gl.RGBA, Gl.BGRA, Gl.LUMINANCE, or Gl.LUMINANCE_ALPHA.
 		/// </param>
 		/// <param name="type">
-		/// The type of values to be returned in <paramref name="values"/>. Symbolic constants <see cref="Gl.UNSIGNED_BYTE"/>, <see 
-		/// cref="Gl.BYTE"/>, <see cref="Gl.BITMAP"/>, <see cref="Gl.UNSIGNED_SHORT"/>, <see cref="Gl.SHORT"/>, <see 
-		/// cref="Gl.UNSIGNED_INT"/>, <see cref="Gl.INT"/>, <see cref="Gl.FLOAT"/>, <see cref="Gl.UNSIGNED_BYTE_3_3_2"/>, <see 
-		/// cref="Gl.UNSIGNED_BYTE_2_3_3_REV"/>, <see cref="Gl.UNSIGNED_SHORT_5_6_5"/>, <see cref="Gl.UNSIGNED_SHORT_5_6_5_REV"/>, 
-		/// <see cref="Gl.UNSIGNED_SHORT_4_4_4_4"/>, <see cref="Gl.UNSIGNED_SHORT_4_4_4_4_REV"/>, <see 
-		/// cref="Gl.UNSIGNED_SHORT_5_5_5_1"/>, <see cref="Gl.UNSIGNED_SHORT_1_5_5_5_REV"/>, <see cref="Gl.UNSIGNED_INT_8_8_8_8"/>, 
-		/// <see cref="Gl.UNSIGNED_INT_8_8_8_8_REV"/>, <see cref="Gl.UNSIGNED_INT_10_10_10_2"/>, and <see 
-		/// cref="Gl.UNSIGNED_INT_2_10_10_10_REV"/> are accepted.
+		/// The type of values to be returned in <paramref name="values"/>. Symbolic constants Gl.UNSIGNED_BYTE, Gl.BYTE, Gl.BITMAP, 
+		/// Gl.UNSIGNED_SHORT, Gl.SHORT, Gl.UNSIGNED_INT, Gl.INT, Gl.FLOAT, Gl.UNSIGNED_BYTE_3_3_2, Gl.UNSIGNED_BYTE_2_3_3_REV, 
+		/// Gl.UNSIGNED_SHORT_5_6_5, Gl.UNSIGNED_SHORT_5_6_5_REV, Gl.UNSIGNED_SHORT_4_4_4_4, Gl.UNSIGNED_SHORT_4_4_4_4_REV, 
+		/// Gl.UNSIGNED_SHORT_5_5_5_1, Gl.UNSIGNED_SHORT_1_5_5_5_REV, Gl.UNSIGNED_INT_8_8_8_8, Gl.UNSIGNED_INT_8_8_8_8_REV, 
+		/// Gl.UNSIGNED_INT_10_10_10_2, and Gl.UNSIGNED_INT_2_10_10_10_REV are accepted.
 		/// </param>
 		/// <param name="values">
 		/// A pointer to storage for the returned histogram table.
 		/// </param>
+		/// <remarks>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated if <paramref name="target"/> is not Gl.HISTOGRAM.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated if <paramref name="format"/> is not one of the allowable values.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated if <paramref name="type"/> is not one of the allowable values.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if <paramref name="type"/> is one of Gl.UNSIGNED_BYTE_3_3_2, 
+		/// Gl.UNSIGNED_BYTE_2_3_3_REV, Gl.UNSIGNED_SHORT_5_6_5, or Gl.UNSIGNED_SHORT_5_6_5_REV and <paramref name="format"/> is not 
+		/// Gl.RGB.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if <paramref name="type"/> is one of Gl.UNSIGNED_SHORT_4_4_4_4, 
+		/// Gl.UNSIGNED_SHORT_4_4_4_4_REV, Gl.UNSIGNED_SHORT_5_5_5_1, Gl.UNSIGNED_SHORT_1_5_5_5_REV, Gl.UNSIGNED_INT_8_8_8_8, 
+		/// Gl.UNSIGNED_INT_8_8_8_8_REV, Gl.UNSIGNED_INT_10_10_10_2, or Gl.UNSIGNED_INT_2_10_10_10_REV and <paramref name="format"/> 
+		/// is neither Gl.RGBA nor Gl.BGRA.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if a non-zero buffer object name is bound to the Gl.PIXEL_PACK_BUFFER target and the 
+		/// buffer object's data store is currently mapped.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if a non-zero buffer object name is bound to the Gl.PIXEL_PACK_BUFFER target and the 
+		/// data would be packed to the buffer object such that the memory writes required would exceed the data store size.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if a non-zero buffer object name is bound to the Gl.PIXEL_PACK_BUFFER target and 
+		/// <paramref name="values"/> is not evenly divisible into the number of bytes needed to store in memory a datum indicated 
+		/// by <paramref name="type"/>.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if Gl.GetHistogram is executed between the execution of Gl\.Begin and the 
+		/// corresponding execution of Gl\.End.
+		/// </exception>
+		/// <seealso cref="Gl.Histogram"/>
+		/// <seealso cref="Gl.ResetHistogram"/>
 		[RequiredByFeature("GL_ARB_imaging")]
 		public static void GetHistogram(int target, bool reset, PixelFormat format, PixelType type, Object values)
 		{
@@ -1812,17 +2518,28 @@ namespace OpenGL
 		/// get histogram parameters
 		/// </summary>
 		/// <param name="target">
-		/// Must be one of <see cref="Gl.HISTOGRAM"/> or <see cref="Gl.PROXY_HISTOGRAM"/>.
+		/// Must be one of Gl.HISTOGRAM or Gl.PROXY_HISTOGRAM.
 		/// </param>
 		/// <param name="pname">
-		/// The name of the parameter to be retrieved. Must be one of <see cref="Gl.HISTOGRAM_WIDTH"/>, <see 
-		/// cref="Gl.HISTOGRAM_FORMAT"/>, <see cref="Gl.HISTOGRAM_RED_SIZE"/>, <see cref="Gl.HISTOGRAM_GREEN_SIZE"/>, <see 
-		/// cref="Gl.HISTOGRAM_BLUE_SIZE"/>, <see cref="Gl.HISTOGRAM_ALPHA_SIZE"/>, <see cref="Gl.HISTOGRAM_LUMINANCE_SIZE"/>, or 
-		/// <see cref="Gl.HISTOGRAM_SINK"/>.
+		/// The name of the parameter to be retrieved. Must be one of Gl.HISTOGRAM_WIDTH, Gl.HISTOGRAM_FORMAT, 
+		/// Gl.HISTOGRAM_RED_SIZE, Gl.HISTOGRAM_GREEN_SIZE, Gl.HISTOGRAM_BLUE_SIZE, Gl.HISTOGRAM_ALPHA_SIZE, 
+		/// Gl.HISTOGRAM_LUMINANCE_SIZE, or Gl.HISTOGRAM_SINK.
 		/// </param>
 		/// <param name="params">
 		/// Pointer to storage for the returned values.
 		/// </param>
+		/// <remarks>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated if <paramref name="target"/> is not one of the allowable values.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated if <paramref name="pname"/> is not one of the allowable values.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if Gl.GetHistogramParameter is executed between the execution of Gl\.Begin and the 
+		/// corresponding execution of Gl\.End.
+		/// </exception>
+		/// <seealso cref="Gl.GetHistogram"/>
+		/// <seealso cref="Gl.Histogram"/>
 		[RequiredByFeature("GL_ARB_imaging")]
 		public static void GetHistogramParameter(int target, int pname, float[] @params)
 		{
@@ -1841,17 +2558,28 @@ namespace OpenGL
 		/// get histogram parameters
 		/// </summary>
 		/// <param name="target">
-		/// Must be one of <see cref="Gl.HISTOGRAM"/> or <see cref="Gl.PROXY_HISTOGRAM"/>.
+		/// Must be one of Gl.HISTOGRAM or Gl.PROXY_HISTOGRAM.
 		/// </param>
 		/// <param name="pname">
-		/// The name of the parameter to be retrieved. Must be one of <see cref="Gl.HISTOGRAM_WIDTH"/>, <see 
-		/// cref="Gl.HISTOGRAM_FORMAT"/>, <see cref="Gl.HISTOGRAM_RED_SIZE"/>, <see cref="Gl.HISTOGRAM_GREEN_SIZE"/>, <see 
-		/// cref="Gl.HISTOGRAM_BLUE_SIZE"/>, <see cref="Gl.HISTOGRAM_ALPHA_SIZE"/>, <see cref="Gl.HISTOGRAM_LUMINANCE_SIZE"/>, or 
-		/// <see cref="Gl.HISTOGRAM_SINK"/>.
+		/// The name of the parameter to be retrieved. Must be one of Gl.HISTOGRAM_WIDTH, Gl.HISTOGRAM_FORMAT, 
+		/// Gl.HISTOGRAM_RED_SIZE, Gl.HISTOGRAM_GREEN_SIZE, Gl.HISTOGRAM_BLUE_SIZE, Gl.HISTOGRAM_ALPHA_SIZE, 
+		/// Gl.HISTOGRAM_LUMINANCE_SIZE, or Gl.HISTOGRAM_SINK.
 		/// </param>
 		/// <param name="params">
 		/// Pointer to storage for the returned values.
 		/// </param>
+		/// <remarks>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated if <paramref name="target"/> is not one of the allowable values.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated if <paramref name="pname"/> is not one of the allowable values.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if Gl.GetHistogramParameter is executed between the execution of Gl\.Begin and the 
+		/// corresponding execution of Gl\.End.
+		/// </exception>
+		/// <seealso cref="Gl.GetHistogram"/>
+		/// <seealso cref="Gl.Histogram"/>
 		[RequiredByFeature("GL_ARB_imaging")]
 		public static void GetHistogramParameter(int target, int pname, Int32[] @params)
 		{
@@ -1870,16 +2598,15 @@ namespace OpenGL
 		/// get minimum and maximum pixel values
 		/// </summary>
 		/// <param name="target">
-		/// Must be <see cref="Gl.MINMAX"/>.
+		/// Must be Gl.MINMAX.
 		/// </param>
 		/// <param name="reset">
-		/// If <see cref="Gl.TRUE"/>, all entries in the minmax table that are actually returned are reset to their initial values. 
-		/// (Other entries are unaltered.) If <see cref="Gl.FALSE"/>, the minmax table is unaltered.
+		/// If Gl.TRUE, all entries in the minmax table that are actually returned are reset to their initial values. (Other entries 
+		/// are unaltered.) If Gl.FALSE, the minmax table is unaltered.
 		/// </param>
 		/// <param name="format">
-		/// The format of the data to be returned in <paramref name="values"/>. Must be one of <see cref="Gl.RED"/>, <see 
-		/// cref="Gl.GREEN"/>, <see cref="Gl.BLUE"/>, <see cref="Gl.ALPHA"/>, <see cref="Gl.RGB"/>, <see cref="Gl.BGR"/>, <see 
-		/// cref="Gl.RGBA"/>, <see cref="Gl.BGRA"/>, <see cref="Gl.LUMINANCE"/>, or <see cref="Gl.LUMINANCE_ALPHA"/>.
+		/// The format of the data to be returned in <paramref name="values"/>. Must be one of Gl.RED, Gl.GREEN, Gl.BLUE, Gl.ALPHA, 
+		/// Gl.RGB, Gl.BGR, Gl.RGBA, Gl.BGRA, Gl.LUMINANCE, or Gl.LUMINANCE_ALPHA.
 		/// </param>
 		/// <param name="type">
 		/// A <see cref="T:PixelType"/>.
@@ -1887,6 +2614,39 @@ namespace OpenGL
 		/// <param name="values">
 		/// A pointer to storage for the returned values.
 		/// </param>
+		/// <remarks>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated if <paramref name="target"/> is not Gl.MINMAX.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated if <paramref name="format"/> is not one of the allowable values.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated if <paramref name="types"/> is not one of the allowable values.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if <paramref name="types"/> is one of Gl.UNSIGNED_BYTE_3_3_2, 
+		/// Gl.UNSIGNED_BYTE_2_3_3_REV, Gl.UNSIGNED_SHORT_5_6_5, or Gl.UNSIGNED_SHORT_5_6_5_REV and <paramref name="format"/> is not 
+		/// Gl.RGB.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if <paramref name="types"/> is one of Gl.UNSIGNED_SHORT_4_4_4_4, 
+		/// Gl.UNSIGNED_SHORT_4_4_4_4_REV, Gl.UNSIGNED_SHORT_5_5_5_1, Gl.UNSIGNED_SHORT_1_5_5_5_REV, Gl.UNSIGNED_INT_8_8_8_8, 
+		/// Gl.UNSIGNED_INT_8_8_8_8_REV, Gl.UNSIGNED_INT_10_10_10_2, or Gl.UNSIGNED_INT_2_10_10_10_REV and <paramref name="format"/> 
+		/// is neither Gl.RGBA nor Gl.BGRA.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if a non-zero buffer object name is bound to the Gl.PIXEL_PACK_BUFFER target and the 
+		/// buffer object's data store is currently mapped.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if a non-zero buffer object name is bound to the Gl.PIXEL_PACK_BUFFER target and the 
+		/// data would be packed to the buffer object such that the memory writes required would exceed the data store size.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if a non-zero buffer object name is bound to the Gl.PIXEL_PACK_BUFFER target and 
+		/// <paramref name="values"/> is not evenly divisible into the number of bytes needed to store in memory a datum indicated 
+		/// by <paramref name="type"/>.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if Gl.GetMinmax is executed between the execution of Gl\.Begin and the corresponding 
+		/// execution of Gl\.End.
+		/// </exception>
+		/// <seealso cref="Gl.Minmax"/>
+		/// <seealso cref="Gl.ResetMinmax"/>
 		[RequiredByFeature("GL_ARB_imaging")]
 		public static void GetMinmax(int target, bool reset, PixelFormat format, PixelType type, IntPtr values)
 		{
@@ -1900,16 +2660,15 @@ namespace OpenGL
 		/// get minimum and maximum pixel values
 		/// </summary>
 		/// <param name="target">
-		/// Must be <see cref="Gl.MINMAX"/>.
+		/// Must be Gl.MINMAX.
 		/// </param>
 		/// <param name="reset">
-		/// If <see cref="Gl.TRUE"/>, all entries in the minmax table that are actually returned are reset to their initial values. 
-		/// (Other entries are unaltered.) If <see cref="Gl.FALSE"/>, the minmax table is unaltered.
+		/// If Gl.TRUE, all entries in the minmax table that are actually returned are reset to their initial values. (Other entries 
+		/// are unaltered.) If Gl.FALSE, the minmax table is unaltered.
 		/// </param>
 		/// <param name="format">
-		/// The format of the data to be returned in <paramref name="values"/>. Must be one of <see cref="Gl.RED"/>, <see 
-		/// cref="Gl.GREEN"/>, <see cref="Gl.BLUE"/>, <see cref="Gl.ALPHA"/>, <see cref="Gl.RGB"/>, <see cref="Gl.BGR"/>, <see 
-		/// cref="Gl.RGBA"/>, <see cref="Gl.BGRA"/>, <see cref="Gl.LUMINANCE"/>, or <see cref="Gl.LUMINANCE_ALPHA"/>.
+		/// The format of the data to be returned in <paramref name="values"/>. Must be one of Gl.RED, Gl.GREEN, Gl.BLUE, Gl.ALPHA, 
+		/// Gl.RGB, Gl.BGR, Gl.RGBA, Gl.BGRA, Gl.LUMINANCE, or Gl.LUMINANCE_ALPHA.
 		/// </param>
 		/// <param name="type">
 		/// A <see cref="T:PixelType"/>.
@@ -1917,6 +2676,39 @@ namespace OpenGL
 		/// <param name="values">
 		/// A pointer to storage for the returned values.
 		/// </param>
+		/// <remarks>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated if <paramref name="target"/> is not Gl.MINMAX.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated if <paramref name="format"/> is not one of the allowable values.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated if <paramref name="types"/> is not one of the allowable values.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if <paramref name="types"/> is one of Gl.UNSIGNED_BYTE_3_3_2, 
+		/// Gl.UNSIGNED_BYTE_2_3_3_REV, Gl.UNSIGNED_SHORT_5_6_5, or Gl.UNSIGNED_SHORT_5_6_5_REV and <paramref name="format"/> is not 
+		/// Gl.RGB.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if <paramref name="types"/> is one of Gl.UNSIGNED_SHORT_4_4_4_4, 
+		/// Gl.UNSIGNED_SHORT_4_4_4_4_REV, Gl.UNSIGNED_SHORT_5_5_5_1, Gl.UNSIGNED_SHORT_1_5_5_5_REV, Gl.UNSIGNED_INT_8_8_8_8, 
+		/// Gl.UNSIGNED_INT_8_8_8_8_REV, Gl.UNSIGNED_INT_10_10_10_2, or Gl.UNSIGNED_INT_2_10_10_10_REV and <paramref name="format"/> 
+		/// is neither Gl.RGBA nor Gl.BGRA.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if a non-zero buffer object name is bound to the Gl.PIXEL_PACK_BUFFER target and the 
+		/// buffer object's data store is currently mapped.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if a non-zero buffer object name is bound to the Gl.PIXEL_PACK_BUFFER target and the 
+		/// data would be packed to the buffer object such that the memory writes required would exceed the data store size.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if a non-zero buffer object name is bound to the Gl.PIXEL_PACK_BUFFER target and 
+		/// <paramref name="values"/> is not evenly divisible into the number of bytes needed to store in memory a datum indicated 
+		/// by <paramref name="type"/>.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if Gl.GetMinmax is executed between the execution of Gl\.Begin and the corresponding 
+		/// execution of Gl\.End.
+		/// </exception>
+		/// <seealso cref="Gl.Minmax"/>
+		/// <seealso cref="Gl.ResetMinmax"/>
 		[RequiredByFeature("GL_ARB_imaging")]
 		public static void GetMinmax(int target, bool reset, PixelFormat format, PixelType type, Object values)
 		{
@@ -1932,14 +2724,26 @@ namespace OpenGL
 		/// get minmax parameters
 		/// </summary>
 		/// <param name="target">
-		/// Must be <see cref="Gl.MINMAX"/>.
+		/// Must be Gl.MINMAX.
 		/// </param>
 		/// <param name="pname">
-		/// The parameter to be retrieved. Must be one of <see cref="Gl.MINMAX_FORMAT"/> or <see cref="Gl.MINMAX_SINK"/>.
+		/// The parameter to be retrieved. Must be one of Gl.MINMAX_FORMAT or Gl.MINMAX_SINK.
 		/// </param>
 		/// <param name="params">
 		/// A pointer to storage for the retrieved parameters.
 		/// </param>
+		/// <remarks>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated if <paramref name="target"/> is not Gl.MINMAX.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated if <paramref name="pname"/> is not one of the allowable values.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if Gl.GetMinmaxParameter is executed between the execution of Gl\.Begin and the 
+		/// corresponding execution of Gl\.End.
+		/// </exception>
+		/// <seealso cref="Gl.Minmax"/>
+		/// <seealso cref="Gl.GetMinmax"/>
 		[RequiredByFeature("GL_ARB_imaging")]
 		public static void GetMinmaxParameter(int target, int pname, float[] @params)
 		{
@@ -1958,14 +2762,26 @@ namespace OpenGL
 		/// get minmax parameters
 		/// </summary>
 		/// <param name="target">
-		/// Must be <see cref="Gl.MINMAX"/>.
+		/// Must be Gl.MINMAX.
 		/// </param>
 		/// <param name="pname">
-		/// The parameter to be retrieved. Must be one of <see cref="Gl.MINMAX_FORMAT"/> or <see cref="Gl.MINMAX_SINK"/>.
+		/// The parameter to be retrieved. Must be one of Gl.MINMAX_FORMAT or Gl.MINMAX_SINK.
 		/// </param>
 		/// <param name="params">
 		/// A pointer to storage for the retrieved parameters.
 		/// </param>
+		/// <remarks>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated if <paramref name="target"/> is not Gl.MINMAX.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated if <paramref name="pname"/> is not one of the allowable values.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if Gl.GetMinmaxParameter is executed between the execution of Gl\.Begin and the 
+		/// corresponding execution of Gl\.End.
+		/// </exception>
+		/// <seealso cref="Gl.Minmax"/>
+		/// <seealso cref="Gl.GetMinmax"/>
 		[RequiredByFeature("GL_ARB_imaging")]
 		public static void GetMinmaxParameter(int target, int pname, Int32[] @params)
 		{
@@ -1984,27 +2800,39 @@ namespace OpenGL
 		/// define histogram table
 		/// </summary>
 		/// <param name="target">
-		/// The histogram whose parameters are to be set. Must be one of <see cref="Gl.HISTOGRAM"/> or <see 
-		/// cref="Gl.PROXY_HISTOGRAM"/>.
+		/// The histogram whose parameters are to be set. Must be one of Gl.HISTOGRAM or Gl.PROXY_HISTOGRAM.
 		/// </param>
 		/// <param name="width">
 		/// The number of entries in the histogram table. Must be a power of 2.
 		/// </param>
 		/// <param name="internalformat">
-		/// The format of entries in the histogram table. Must be one of <see cref="Gl.ALPHA"/>, <see cref="Gl.ALPHA4"/>, <see 
-		/// cref="Gl.ALPHA8"/>, <see cref="Gl.ALPHA12"/>, <see cref="Gl.ALPHA16"/>, <see cref="Gl.LUMINANCE"/>, <see 
-		/// cref="Gl.LUMINANCE4"/>, <see cref="Gl.LUMINANCE8"/>, <see cref="Gl.LUMINANCE12"/>, <see cref="Gl.LUMINANCE16"/>, <see 
-		/// cref="Gl.LUMINANCE_ALPHA"/>, <see cref="Gl.LUMINANCE4_ALPHA4"/>, <see cref="Gl.LUMINANCE6_ALPHA2"/>, <see 
-		/// cref="Gl.LUMINANCE8_ALPHA8"/>, <see cref="Gl.LUMINANCE12_ALPHA4"/>, <see cref="Gl.LUMINANCE12_ALPHA12"/>, <see 
-		/// cref="Gl.LUMINANCE16_ALPHA16"/>, <see cref="Gl.R3_G3_B2"/>, <see cref="Gl.RGB"/>, <see cref="Gl.RGB4"/>, <see 
-		/// cref="Gl.RGB5"/>, <see cref="Gl.RGB8"/>, <see cref="Gl.RGB10"/>, <see cref="Gl.RGB12"/>, <see cref="Gl.RGB16"/>, <see 
-		/// cref="Gl.RGBA"/>, <see cref="Gl.RGBA2"/>, <see cref="Gl.RGBA4"/>, <see cref="Gl.RGB5_A1"/>, <see cref="Gl.RGBA8"/>, <see 
-		/// cref="Gl.RGB10_A2"/>, <see cref="Gl.RGBA12"/>, or <see cref="Gl.RGBA16"/>.
+		/// The format of entries in the histogram table. Must be one of Gl.ALPHA, Gl.ALPHA4, Gl.ALPHA8, Gl.ALPHA12, Gl.ALPHA16, 
+		/// Gl.LUMINANCE, Gl.LUMINANCE4, Gl.LUMINANCE8, Gl.LUMINANCE12, Gl.LUMINANCE16, Gl.LUMINANCE_ALPHA, Gl.LUMINANCE4_ALPHA4, 
+		/// Gl.LUMINANCE6_ALPHA2, Gl.LUMINANCE8_ALPHA8, Gl.LUMINANCE12_ALPHA4, Gl.LUMINANCE12_ALPHA12, Gl.LUMINANCE16_ALPHA16, 
+		/// Gl.R3_G3_B2, Gl.RGB, Gl.RGB4, Gl.RGB5, Gl.RGB8, Gl.RGB10, Gl.RGB12, Gl.RGB16, Gl.RGBA, Gl.RGBA2, Gl.RGBA4, Gl.RGB5_A1, 
+		/// Gl.RGBA8, Gl.RGB10_A2, Gl.RGBA12, or Gl.RGBA16.
 		/// </param>
 		/// <param name="sink">
-		/// If <see cref="Gl.TRUE"/>, pixels will be consumed by the histogramming process and no drawing or texture loading will 
-		/// take place. If <see cref="Gl.FALSE"/>, pixels will proceed to the minmax process after histogramming.
+		/// If Gl.TRUE, pixels will be consumed by the histogramming process and no drawing or texture loading will take place. If 
+		/// Gl.FALSE, pixels will proceed to the minmax process after histogramming.
 		/// </param>
+		/// <remarks>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated if <paramref name="target"/> is not one of the allowable values.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_VALUE is generated if <paramref name="width"/> is less than zero or is not a power of 2.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated if <paramref name="internalformat"/> is not one of the allowable values.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.TABLE_TOO_LARGE is generated if <paramref name="target"/> is Gl.HISTOGRAM and the histogram table specified is too 
+		/// large for the implementation.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if Gl.Histogram is executed between the execution of Gl\.Begin and the corresponding 
+		/// execution of Gl\.End.
+		/// </exception>
+		/// <seealso cref="Gl.GetHistogram"/>
+		/// <seealso cref="Gl.ResetHistogram"/>
 		[RequiredByFeature("GL_ARB_imaging")]
 		public static void Histogram(int target, Int32 width, int internalformat, bool sink)
 		{
@@ -2018,23 +2846,31 @@ namespace OpenGL
 		/// define minmax table
 		/// </summary>
 		/// <param name="target">
-		/// The minmax table whose parameters are to be set. Must be <see cref="Gl.MINMAX"/>.
+		/// The minmax table whose parameters are to be set. Must be Gl.MINMAX.
 		/// </param>
 		/// <param name="internalformat">
-		/// The format of entries in the minmax table. Must be one of <see cref="Gl.ALPHA"/>, <see cref="Gl.ALPHA4"/>, <see 
-		/// cref="Gl.ALPHA8"/>, <see cref="Gl.ALPHA12"/>, <see cref="Gl.ALPHA16"/>, <see cref="Gl.LUMINANCE"/>, <see 
-		/// cref="Gl.LUMINANCE4"/>, <see cref="Gl.LUMINANCE8"/>, <see cref="Gl.LUMINANCE12"/>, <see cref="Gl.LUMINANCE16"/>, <see 
-		/// cref="Gl.LUMINANCE_ALPHA"/>, <see cref="Gl.LUMINANCE4_ALPHA4"/>, <see cref="Gl.LUMINANCE6_ALPHA2"/>, <see 
-		/// cref="Gl.LUMINANCE8_ALPHA8"/>, <see cref="Gl.LUMINANCE12_ALPHA4"/>, <see cref="Gl.LUMINANCE12_ALPHA12"/>, <see 
-		/// cref="Gl.LUMINANCE16_ALPHA16"/>, <see cref="Gl.R3_G3_B2"/>, <see cref="Gl.RGB"/>, <see cref="Gl.RGB4"/>, <see 
-		/// cref="Gl.RGB5"/>, <see cref="Gl.RGB8"/>, <see cref="Gl.RGB10"/>, <see cref="Gl.RGB12"/>, <see cref="Gl.RGB16"/>, <see 
-		/// cref="Gl.RGBA"/>, <see cref="Gl.RGBA2"/>, <see cref="Gl.RGBA4"/>, <see cref="Gl.RGB5_A1"/>, <see cref="Gl.RGBA8"/>, <see 
-		/// cref="Gl.RGB10_A2"/>, <see cref="Gl.RGBA12"/>, or <see cref="Gl.RGBA16"/>.
+		/// The format of entries in the minmax table. Must be one of Gl.ALPHA, Gl.ALPHA4, Gl.ALPHA8, Gl.ALPHA12, Gl.ALPHA16, 
+		/// Gl.LUMINANCE, Gl.LUMINANCE4, Gl.LUMINANCE8, Gl.LUMINANCE12, Gl.LUMINANCE16, Gl.LUMINANCE_ALPHA, Gl.LUMINANCE4_ALPHA4, 
+		/// Gl.LUMINANCE6_ALPHA2, Gl.LUMINANCE8_ALPHA8, Gl.LUMINANCE12_ALPHA4, Gl.LUMINANCE12_ALPHA12, Gl.LUMINANCE16_ALPHA16, 
+		/// Gl.R3_G3_B2, Gl.RGB, Gl.RGB4, Gl.RGB5, Gl.RGB8, Gl.RGB10, Gl.RGB12, Gl.RGB16, Gl.RGBA, Gl.RGBA2, Gl.RGBA4, Gl.RGB5_A1, 
+		/// Gl.RGBA8, Gl.RGB10_A2, Gl.RGBA12, or Gl.RGBA16.
 		/// </param>
 		/// <param name="sink">
-		/// If <see cref="Gl.TRUE"/>, pixels will be consumed by the minmax process and no drawing or texture loading will take 
-		/// place. If <see cref="Gl.FALSE"/>, pixels will proceed to the final conversion process after minmax.
+		/// If Gl.TRUE, pixels will be consumed by the minmax process and no drawing or texture loading will take place. If 
+		/// Gl.FALSE, pixels will proceed to the final conversion process after minmax.
 		/// </param>
+		/// <remarks>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated if <paramref name="target"/> is not one of the allowable values.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated if <paramref name="internalformat"/> is not one of the allowable values.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if Gl.Minmax is executed between the execution of Gl\.Begin and the corresponding 
+		/// execution of Gl\.End.
+		/// </exception>
+		/// <seealso cref="Gl.GetMinmax"/>
+		/// <seealso cref="Gl.ResetMinmax"/>
 		[RequiredByFeature("GL_ARB_imaging")]
 		public static void Minmax(int target, int internalformat, bool sink)
 		{
@@ -2048,8 +2884,17 @@ namespace OpenGL
 		/// reset histogram table entries to zero
 		/// </summary>
 		/// <param name="target">
-		/// Must be <see cref="Gl.HISTOGRAM"/>.
+		/// Must be Gl.HISTOGRAM.
 		/// </param>
+		/// <remarks>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated if <paramref name="target"/> is not Gl.HISTOGRAM.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if Gl.ResetHistogram is executed between the execution of Gl\.Begin and the 
+		/// corresponding execution of Gl\.End.
+		/// </exception>
+		/// <seealso cref="Gl.Histogram"/>
 		[RequiredByFeature("GL_ARB_imaging")]
 		public static void ResetHistogram(int target)
 		{
@@ -2063,8 +2908,17 @@ namespace OpenGL
 		/// reset minmax table entries to initial values
 		/// </summary>
 		/// <param name="target">
-		/// Must be <see cref="Gl.MINMAX"/>.
+		/// Must be Gl.MINMAX.
 		/// </param>
+		/// <remarks>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated if <paramref name="target"/> is not Gl.MINMAX.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if Gl.ResetMinmax is executed between the execution of Gl\.Begin and the corresponding 
+		/// execution of Gl\.End.
+		/// </exception>
+		/// <seealso cref="Gl.Minmax"/>
 		[RequiredByFeature("GL_ARB_imaging")]
 		public static void ResetMinmax(int target)
 		{

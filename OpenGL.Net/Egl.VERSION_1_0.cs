@@ -380,22 +380,22 @@ namespace OpenGL
 		public const int WINDOW_BIT = 0x0004;
 
 		/// <summary>
-		/// return a list of EGL frame buffer configurations that match specified attributes
+		/// Binding for eglChooseConfig.
 		/// </summary>
 		/// <param name="dpy">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		/// <param name="attrib_list">
-		/// Specifies attributes required to match by configs.
+		/// A <see cref="T:int[]"/>.
 		/// </param>
 		/// <param name="configs">
-		/// Returns an array of frame buffer configurations.
+		/// A <see cref="T:IntPtr[]"/>.
 		/// </param>
 		/// <param name="config_size">
-		/// Specifies the size of the array of frame buffer configurations.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="num_config">
-		/// Returns the number of frame buffer configurations returned.
+		/// A <see cref="T:int[]"/>.
 		/// </param>
 		[RequiredByFeature("EGL_VERSION_1_0")]
 		public static IntPtr ChooseConfig(IntPtr dpy, int[] attrib_list, IntPtr[] configs, int config_size, int[] num_config)
@@ -418,13 +418,13 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// copy EGL surface color buffer to a native pixmap
+		/// Binding for eglCopyBuffers.
 		/// </summary>
 		/// <param name="dpy">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		/// <param name="surface">
-		/// Specifies the EGL surface whose color buffer is to be copied.
+		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		/// <param name="target">
 		/// A <see cref="T:IntPtr"/>.
@@ -443,22 +443,19 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// create a new EGL rendering context
+		/// Binding for eglCreateContext.
 		/// </summary>
 		/// <param name="dpy">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		/// <param name="config">
-		/// Specifies the EGL frame buffer configuration that defines the frame buffer resource available to the rendering context.
+		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		/// <param name="share_context">
-		/// Specifies another EGL rendering context with which to share data, as defined by the client API corresponding to the 
-		/// contexts. Data is also shared with all other contexts with which share_context shares data. EGL_NO_CONTEXT indicates 
-		/// that no sharing is to take place.
+		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		/// <param name="attrib_list">
-		/// Specifies attributes and attribute values for the context being created. Only the attribute EGL_CONTEXT_CLIENT_VERSION 
-		/// may be specified.
+		/// A <see cref="T:int[]"/>.
 		/// </param>
 		[RequiredByFeature("EGL_VERSION_1_0")]
 		public static IntPtr CreateContext(IntPtr dpy, IntPtr config, IntPtr share_context, int[] attrib_list)
@@ -479,16 +476,16 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// create a new EGL pixel buffer surface
+		/// Binding for eglCreatePbufferSurface.
 		/// </summary>
 		/// <param name="dpy">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		/// <param name="config">
-		/// Specifies the EGL frame buffer configuration that defines the frame buffer resource available to the surface.
+		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		/// <param name="attrib_list">
-		/// Specifies pixel buffer surface attributes. May be NULL or empty (first attribute is EGL_NONE).
+		/// A <see cref="T:int[]"/>.
 		/// </param>
 		[RequiredByFeature("EGL_VERSION_1_0")]
 		public static IntPtr CreatePbufferSurface(IntPtr dpy, IntPtr config, int[] attrib_list)
@@ -509,19 +506,19 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// create a new EGL pixmap surface
+		/// Binding for eglCreatePixmapSurface.
 		/// </summary>
 		/// <param name="dpy">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		/// <param name="config">
-		/// Specifies the EGL frame buffer configuration that defines the frame buffer resource available to the surface.
+		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		/// <param name="pixmap">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		/// <param name="attrib_list">
-		/// Specifies pixmap surface attributes. May be NULL or empty (first attribute is EGL_NONE).
+		/// A <see cref="T:int[]"/>.
 		/// </param>
 		[RequiredByFeature("EGL_VERSION_1_0")]
 		public static IntPtr CreatePixmapSurface(IntPtr dpy, IntPtr config, IntPtr pixmap, int[] attrib_list)
@@ -542,19 +539,19 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// create a new EGL window surface
+		/// Binding for eglCreateWindowSurface.
 		/// </summary>
 		/// <param name="dpy">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		/// <param name="config">
-		/// Specifies the EGL frame buffer configuration that defines the frame buffer resource available to the surface.
+		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		/// <param name="win">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		/// <param name="attrib_list">
-		/// Specifies window surface attributes. May be NULL or empty (first attribute is EGL_NONE).
+		/// A <see cref="T:int[]"/>.
 		/// </param>
 		[RequiredByFeature("EGL_VERSION_1_0")]
 		public static IntPtr CreateWindowSurface(IntPtr dpy, IntPtr config, IntPtr win, int[] attrib_list)
@@ -575,7 +572,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// destroy an EGL rendering context
+		/// Binding for eglDestroyContext.
 		/// </summary>
 		/// <param name="dpy">
 		/// A <see cref="T:IntPtr"/>.
@@ -597,13 +594,13 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// destroy an EGL surface
+		/// Binding for eglDestroySurface.
 		/// </summary>
 		/// <param name="dpy">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		/// <param name="surface">
-		/// Specifies the EGL surface to be destroyed.
+		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		[RequiredByFeature("EGL_VERSION_1_0")]
 		public static IntPtr DestroySurface(IntPtr dpy, IntPtr surface)
@@ -619,19 +616,19 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// return information about an EGL frame buffer configuration
+		/// Binding for eglGetConfigAttrib.
 		/// </summary>
 		/// <param name="dpy">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		/// <param name="config">
-		/// Specifies the EGL frame buffer configuration to be queried.
+		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		/// <param name="attribute">
-		/// Specifies the EGL rendering context attribute to be returned.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="value">
-		/// Returns the requested value.
+		/// A <see cref="T:int[]"/>.
 		/// </param>
 		[RequiredByFeature("EGL_VERSION_1_0")]
 		public static IntPtr GetConfigAttrib(IntPtr dpy, IntPtr config, int attribute, int[] value)
@@ -652,19 +649,19 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// return a list of all EGL frame buffer configurations for a display
+		/// Binding for eglGetConfigs.
 		/// </summary>
 		/// <param name="dpy">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		/// <param name="configs">
-		/// Returns a list of configs.
+		/// A <see cref="T:IntPtr[]"/>.
 		/// </param>
 		/// <param name="config_size">
-		/// Specifies the size of the list of configs.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="num_config">
-		/// Returns the number of configs returned.
+		/// A <see cref="T:int[]"/>.
 		/// </param>
 		[RequiredByFeature("EGL_VERSION_1_0")]
 		public static IntPtr GetConfigs(IntPtr dpy, IntPtr[] configs, int config_size, int[] num_config)
@@ -686,7 +683,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// return the display for the current EGL rendering context
+		/// Binding for eglGetCurrentDisplay.
 		/// </summary>
 		[RequiredByFeature("EGL_VERSION_1_0")]
 		public static IntPtr GetCurrentDisplay()
@@ -702,10 +699,10 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// return the read or draw surface for the current EGL rendering context
+		/// Binding for eglGetCurrentSurface.
 		/// </summary>
 		/// <param name="readdraw">
-		/// Specifies whether the EGL read or draw surface is to be returned.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		[RequiredByFeature("EGL_VERSION_1_0")]
 		public static IntPtr GetCurrentSurface(int readdraw)
@@ -721,7 +718,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// return an EGL display connection
+		/// Binding for eglGetDisplay.
 		/// </summary>
 		/// <param name="display_id">
 		/// A <see cref="T:IntPtr"/>.
@@ -740,7 +737,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// return error information
+		/// Binding for eglGetError.
 		/// </summary>
 		[RequiredByFeature("EGL_VERSION_1_0")]
 		public static int GetError()
@@ -755,10 +752,10 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// return a GL or an EGL extension function
+		/// Binding for eglGetProcAddress.
 		/// </summary>
 		/// <param name="procname">
-		/// Specifies the name of the function to return.
+		/// A <see cref="T:string"/>.
 		/// </param>
 		[RequiredByFeature("EGL_VERSION_1_0")]
 		public static IntPtr GetProcAddress(string procname)
@@ -774,16 +771,16 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// initialize an EGL display connection
+		/// Binding for eglInitialize.
 		/// </summary>
 		/// <param name="dpy">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		/// <param name="major">
-		/// Returns the major version number of the EGL implementation. May be NULL.
+		/// A <see cref="T:int[]"/>.
 		/// </param>
 		/// <param name="minor">
-		/// Returns the minor version number of the EGL implementation. May be NULL.
+		/// A <see cref="T:int[]"/>.
 		/// </param>
 		[RequiredByFeature("EGL_VERSION_1_0")]
 		public static IntPtr Initialize(IntPtr dpy, int[] major, int[] minor)
@@ -805,16 +802,16 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// attach an EGL rendering context to EGL surfaces
+		/// Binding for eglMakeCurrent.
 		/// </summary>
 		/// <param name="dpy">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		/// <param name="draw">
-		/// Specifies the EGL draw surface.
+		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		/// <param name="read">
-		/// Specifies the EGL read surface.
+		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		/// <param name="ctx">
 		/// A <see cref="T:IntPtr"/>.
@@ -833,7 +830,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// return EGL rendering context information
+		/// Binding for eglQueryContext.
 		/// </summary>
 		/// <param name="dpy">
 		/// A <see cref="T:IntPtr"/>.
@@ -842,10 +839,10 @@ namespace OpenGL
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		/// <param name="attribute">
-		/// Specifies the EGL rendering context attribute to be returned.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="value">
-		/// Returns the requested value.
+		/// A <see cref="T:int[]"/>.
 		/// </param>
 		[RequiredByFeature("EGL_VERSION_1_0")]
 		public static IntPtr QueryContext(IntPtr dpy, IntPtr ctx, int attribute, int[] value)
@@ -866,13 +863,13 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// return a string describing an EGL display connection
+		/// Binding for eglQueryString.
 		/// </summary>
 		/// <param name="dpy">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		/// <param name="name">
-		/// Specifies a symbolic constant, one of EGL_CLIENT_APIS, EGL_VENDOR, EGL_VERSION, or EGL_EXTENSIONS.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		[RequiredByFeature("EGL_VERSION_1_0")]
 		public static string QueryString(IntPtr dpy, int name)
@@ -888,19 +885,19 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// return EGL surface information
+		/// Binding for eglQuerySurface.
 		/// </summary>
 		/// <param name="dpy">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		/// <param name="surface">
-		/// Specifies the EGL surface to query.
+		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		/// <param name="attribute">
-		/// Specifies the EGL surface attribute to be returned.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="value">
-		/// Returns the requested value.
+		/// A <see cref="T:int[]"/>.
 		/// </param>
 		[RequiredByFeature("EGL_VERSION_1_0")]
 		public static IntPtr QuerySurface(IntPtr dpy, IntPtr surface, int attribute, int[] value)
@@ -921,7 +918,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// terminate an EGL display connection
+		/// Binding for eglTerminate.
 		/// </summary>
 		/// <param name="dpy">
 		/// A <see cref="T:IntPtr"/>.
@@ -940,7 +937,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Complete GL execution prior to subsequent native rendering calls
+		/// Binding for eglWaitGL.
 		/// </summary>
 		[RequiredByFeature("EGL_VERSION_1_0")]
 		public static IntPtr WaitGL()
@@ -956,10 +953,10 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// complete native execution prior to subsequent GL rendering calls
+		/// Binding for eglWaitNative.
 		/// </summary>
 		/// <param name="engine">
-		/// Specifies a particular marking engine to be waited on. Must be EGL_CORE_NATIVE_ENGINE.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		[RequiredByFeature("EGL_VERSION_1_0")]
 		public static IntPtr WaitNative(int engine)

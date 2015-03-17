@@ -436,8 +436,16 @@ namespace OpenGL
 		/// Specifies the screen number.
 		/// </param>
 		/// <param name="attribList">
-		/// Specifies a list of boolean attributes and integer attribute/value pairs. The last attribute must be <see cref="Gl.e"/>.
+		/// Specifies a list of boolean attributes and integer attribute/value pairs. The last attribute must be Glx..
 		/// </param>
+		/// <remarks>
+		/// <para>The exception below won't be thrown; caller must check result manually.</para>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Glx. is returned if an undefined GLX attribute is encountered in <paramref name="attribList"/>.
+		/// </exception>
+		/// <seealso cref="Glx.CreateContext"/>
+		/// <seealso cref="Glx.GetConfig"/>
 		[RequiredByFeature("GLX_VERSION_1_0")]
 		public static Glx.XVisualInfo ChooseVisual(IntPtr dpy, int screen, int[] attribList)
 		{
@@ -463,15 +471,35 @@ namespace OpenGL
 		/// </param>
 		/// <param name="vis">
 		/// Specifies the visual that defines the frame buffer resources available to the rendering context. It is a pointer to an 
-		/// <see cref="Gl.sualInfo"/> structure, not a visual ID or a pointer to a <see cref="Gl.ual"/>.
+		/// Glx.ualInfo structure, not a visual ID or a pointer to a Glx.al.
 		/// </param>
 		/// <param name="shareList">
-		/// Specifies the context with which to share display lists. <see cref="Gl.L"/> indicates that no sharing is to take place.
+		/// Specifies the context with which to share display lists. Glx. indicates that no sharing is to take place.
 		/// </param>
 		/// <param name="direct">
-		/// Specifies whether rendering is to be done with a direct connection to the graphics system if possible (<see 
-		/// cref="Gl.e"/>) or through the X server (<see cref="Gl.se"/>).
+		/// Specifies whether rendering is to be done with a direct connection to the graphics system if possible (Glx.) or through 
+		/// the X server (Glx.e).
 		/// </param>
+		/// <remarks>
+		/// <para>The exceptions below won't be thrown; caller must check result manually.</para>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Glx. is returned if execution fails on the client side.
+		/// <exception cref="InvalidOperationException">
+		/// Glx.atch is generated if the context to be created would not share the address space or the screen of the context 
+		/// specified by <paramref name="shareList"/>.
+		/// <exception cref="InvalidOperationException">
+		/// Glx.alue is generated if <paramref name="vis"/> is not a valid visual (for example, if a particular GLX implementation 
+		/// does not support it).
+		/// <exception cref="InvalidOperationException">
+		/// Glx.adContext is generated if <paramref name="shareList"/> is not a GLX context and is not Glx..
+		/// <exception cref="InvalidOperationException">
+		/// Glx.lloc is generated if the server does not have enough resources to allocate the new context.
+		/// </exception>
+		/// <seealso cref="Glx.DestroyContext"/>
+		/// <seealso cref="Glx.GetConfig"/>
+		/// <seealso cref="Glx.IsDirect"/>
+		/// <seealso cref="Glx.MakeCurrent"/>
 		[RequiredByFeature("GLX_VERSION_1_0")]
 		public static IntPtr CreateContext(IntPtr dpy, Glx.XVisualInfo vis, IntPtr shareList, bool direct)
 		{
@@ -493,6 +521,15 @@ namespace OpenGL
 		/// <param name="ctx">
 		/// Specifies the GLX context to be destroyed.
 		/// </param>
+		/// <remarks>
+		/// <para>The exception below won't be thrown; caller must check result manually.</para>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Glx.adContext is generated if <paramref name="ctx"/> is not a valid GLX context.
+		/// </exception>
+		/// <seealso cref="Glx.CreateContext"/>
+		/// <seealso cref="Glx.CreateNewContext"/>
+		/// <seealso cref="Glx.MakeCurrent"/>
 		[RequiredByFeature("GLX_VERSION_1_0")]
 		public static void DestroyContext(IntPtr dpy, IntPtr ctx)
 		{
@@ -513,6 +550,38 @@ namespace OpenGL
 		/// <param name="ctx">
 		/// Specifies a GLX rendering context that is to be attached to <paramref name="drawable"/>.
 		/// </param>
+		/// <remarks>
+		/// <para>The exceptions below won't be thrown; caller must check result manually.</para>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Glx.atch is generated if <paramref name="drawable"/> was not created with the same X screen and visual as <paramref 
+		/// name="ctx"/>. It is also generated if <paramref name="drawable"/> is Glx. and <paramref name="ctx"/> is not Glx..
+		/// <exception cref="InvalidOperationException">
+		/// Glx.ccess is generated if <paramref name="ctx"/> was current to another thread at the time Glx.MakeCurrent was called.
+		/// <exception cref="InvalidOperationException">
+		/// Glx.adDrawable is generated if <paramref name="drawable"/> is not a valid GLX drawable.
+		/// <exception cref="InvalidOperationException">
+		/// Glx.adContext is generated if <paramref name="ctx"/> is not a valid GLX context.
+		/// <exception cref="InvalidOperationException">
+		/// Glx.adContextState is generated if Glx.MakeCurrent is executed between the execution of Gl\.Begin and the corresponding 
+		/// execution of Gl\.End.
+		/// <exception cref="InvalidOperationException">
+		/// Glx.adContextState is also generated if the rendering context current to the calling thread has GL renderer state 
+		/// Glx.FEEDBACK or Glx.SELECT.
+		/// <exception cref="InvalidOperationException">
+		/// Glx.adCurrentWindow is generated if there are pending GL commands for the previous context and the current drawable is a 
+		/// window that is no longer valid.
+		/// <exception cref="InvalidOperationException">
+		/// Glx.lloc may be generated if the server has delayed allocation of ancillary buffers until Glx.MakeCurrent is called, 
+		/// only to find that it has insufficient resources to complete the allocation.
+		/// </exception>
+		/// <seealso cref="Glx.CreateContext"/>
+		/// <seealso cref="Glx.CreateGLXPixmap"/>
+		/// <seealso cref="Glx.GetCurrentContext"/>
+		/// <seealso cref="Glx.GetCurrentDisplay"/>
+		/// <seealso cref="Glx.GetCurrentDrawable"/>
+		/// <seealso cref="Glx.GetCurrentReadDrawable"/>
+		/// <seealso cref="Glx.MakeContextCurrent"/>
 		[RequiredByFeature("GLX_VERSION_1_0")]
 		public static bool MakeCurrent(IntPtr dpy, IntPtr drawable, IntPtr ctx)
 		{
@@ -540,6 +609,24 @@ namespace OpenGL
 		/// <param name="mask">
 		/// Specifies which portions of <paramref name="src"/> state are to be copied to <paramref name="dst"/>.
 		/// </param>
+		/// <remarks>
+		/// <para>The exceptions below won't be thrown; caller must check result manually.</para>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Glx.atch is generated if rendering contexts <paramref name="src"/> and <paramref name="dst"/> do not share an address 
+		/// space or were not created with respect to the same screen.
+		/// <exception cref="InvalidOperationException">
+		/// Glx.ccess is generated if <paramref name="dst"/> is current to any thread (including the calling thread) at the time 
+		/// Glx.CopyContext is called.
+		/// <exception cref="InvalidOperationException">
+		/// Glx.adCurrentWindow is generated if <paramref name="src"/> is the current context and the current drawable is a window 
+		/// that is no longer valid.
+		/// <exception cref="InvalidOperationException">
+		/// Glx.adContext is generated if either <paramref name="src"/> or <paramref name="dst"/> is not a valid GLX context.
+		/// </exception>
+		/// <seealso cref="Glx.ushAttrib"/>
+		/// <seealso cref="Glx.CreateContext"/>
+		/// <seealso cref="Glx.IsDirect"/>
 		[RequiredByFeature("GLX_VERSION_1_0")]
 		public static void CopyContext(IntPtr dpy, IntPtr src, IntPtr dst, UInt32 mask)
 		{
@@ -557,6 +644,17 @@ namespace OpenGL
 		/// <param name="drawable">
 		/// Specifies the drawable whose buffers are to be swapped.
 		/// </param>
+		/// <remarks>
+		/// <para>The exceptions below won't be thrown; caller must check result manually.</para>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Glx.adDrawable is generated if <paramref name="drawable"/> is not a valid GLX drawable.
+		/// <exception cref="InvalidOperationException">
+		/// Glx.adCurrentWindow is generated if <paramref name="dpy"/> and <paramref name="drawable"/> are respectively the display 
+		/// and drawable associated with the current context of the calling thread, and <paramref name="drawable"/> identifies a 
+		/// window that is no longer valid.
+		/// </exception>
+		/// <seealso cref="Glx.glFlush"/>
 		[RequiredByFeature("GLX_VERSION_1_0")]
 		public static void SwapBuffers(IntPtr dpy, IntPtr drawable)
 		{
@@ -577,6 +675,26 @@ namespace OpenGL
 		/// <param name="pixmap">
 		/// Specifies the X pixmap that will be used as the front left color buffer of the off-screen rendering area.
 		/// </param>
+		/// <remarks>
+		/// <para>The exceptions below won't be thrown; caller must check result manually.</para>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Glx.atch is generated if the depth of <paramref name="pixmap"/> does not match the depth value reported by core X11 for 
+		/// <paramref name="vis"/>, or if <paramref name="pixmap"/> was not created with respect to the same screen as <paramref 
+		/// name="vis"/>.
+		/// <exception cref="InvalidOperationException">
+		/// Glx.alue is generated if <paramref name="vis"/> is not a valid XVisualInfo pointer (for example, if a particular GLX 
+		/// implementation does not support this visual).
+		/// <exception cref="InvalidOperationException">
+		/// Glx.ixmap is generated if <paramref name="pixmap"/> is not a valid pixmap.
+		/// <exception cref="InvalidOperationException">
+		/// Glx.lloc is generated if the server cannot allocate the GLX pixmap.
+		/// </exception>
+		/// <seealso cref="Glx.CreateContext"/>
+		/// <seealso cref="Glx.CreatePixmap"/>
+		/// <seealso cref="Glx.DestroyGLXPixmap"/>
+		/// <seealso cref="Glx.IsDirect"/>
+		/// <seealso cref="Glx.MakeCurrent"/>
 		[RequiredByFeature("GLX_VERSION_1_0")]
 		public static IntPtr CreateGLXPixmap(IntPtr dpy, Glx.XVisualInfo visual, IntPtr pixmap)
 		{
@@ -598,6 +716,15 @@ namespace OpenGL
 		/// <param name="pixmap">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
+		/// <remarks>
+		/// <para>The exception below won't be thrown; caller must check result manually.</para>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Glx.adPixmap is generated if <paramref name="pix"/> is not a valid GLX pixmap.
+		/// </exception>
+		/// <seealso cref="Glx.CreateGLXPixmap"/>
+		/// <seealso cref="Glx.DestroyPixmap"/>
+		/// <seealso cref="Glx.MakeCurrent"/>
 		[RequiredByFeature("GLX_VERSION_1_0")]
 		public static void DestroyGLXPixmap(IntPtr dpy, IntPtr pixmap)
 		{
@@ -618,6 +745,7 @@ namespace OpenGL
 		/// <param name="event">
 		/// A <see cref="T:int[]"/>.
 		/// </param>
+		/// <seealso cref="Glx.QueryVersion"/>
 		[RequiredByFeature("GLX_VERSION_1_0")]
 		public static bool Query(IntPtr dpy, int[] errorb, int[] @event)
 		{
@@ -648,6 +776,15 @@ namespace OpenGL
 		/// <param name="min">
 		/// A <see cref="T:int[]"/>.
 		/// </param>
+		/// <remarks>
+		/// <para>The exceptions below won't be thrown; caller must check result manually.</para>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Glx.QueryVersion returns Glx.e if it fails, Glx. otherwise.
+		/// <exception cref="InvalidOperationException">
+		/// <paramref name="major"/> and <paramref name="minor"/> are not updated when Glx.e is returned.
+		/// </exception>
+		/// <seealso cref="Glx.QueryExtension"/>
 		[RequiredByFeature("GLX_VERSION_1_0")]
 		public static bool QueryVersion(IntPtr dpy, int[] maj, int[] min)
 		{
@@ -675,6 +812,14 @@ namespace OpenGL
 		/// <param name="ctx">
 		/// Specifies the GLX context that is being queried.
 		/// </param>
+		/// <remarks>
+		/// <para>The exception below won't be thrown; caller must check result manually.</para>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Glx.adContext is generated if <paramref name="ctx"/> is not a valid GLX context.
+		/// </exception>
+		/// <seealso cref="Glx.CreateContext"/>
+		/// <seealso cref="Glx.CreateNewContext"/>
 		[RequiredByFeature("GLX_VERSION_1_0")]
 		public static bool IsDirect(IntPtr dpy, IntPtr ctx)
 		{
@@ -702,6 +847,21 @@ namespace OpenGL
 		/// <param name="value">
 		/// Returns the requested value.
 		/// </param>
+		/// <remarks>
+		/// <para>The exceptions below won't be thrown; caller must check result manually.</para>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Glx.NO_EXTENSION is returned if <paramref name="dpy"/> does not support the GLX extension.
+		/// <exception cref="InvalidOperationException">
+		/// Glx.BAD_SCREEN is returned if the screen of <paramref name="vis"/> does not correspond to a screen.
+		/// <exception cref="InvalidOperationException">
+		/// Glx.BAD_ATTRIBUTE is returned if <paramref name="attrib"/> is not a valid GLX attribute.
+		/// <exception cref="InvalidOperationException">
+		/// Glx.BAD_VISUAL is returned if <paramref name="vis"/> doesn't support GLX and an attribute other than Glx.USE_GL is 
+		/// requested.
+		/// </exception>
+		/// <seealso cref="Glx.ChooseVisual"/>
+		/// <seealso cref="Glx.CreateContext"/>
 		[RequiredByFeature("GLX_VERSION_1_0")]
 		public static int GetConfig(IntPtr dpy, Glx.XVisualInfo visual, int attrib, int[] value)
 		{
@@ -722,6 +882,10 @@ namespace OpenGL
 		/// <summary>
 		/// return the current context
 		/// </summary>
+		/// <seealso cref="Glx.CreateContext"/>
+		/// <seealso cref="Glx.GetCurrentDisplay"/>
+		/// <seealso cref="Glx.GetCurrentDrawable"/>
+		/// <seealso cref="Glx.MakeCurrent"/>
 		[RequiredByFeature("GLX_VERSION_1_0")]
 		public static IntPtr GetCurrentContext()
 		{
@@ -737,6 +901,11 @@ namespace OpenGL
 		/// <summary>
 		/// return the current drawable
 		/// </summary>
+		/// <seealso cref="Glx.CreateGLXPixmap"/>
+		/// <seealso cref="Glx.GetCurrentContext"/>
+		/// <seealso cref="Glx.GetCurrentDisplay"/>
+		/// <seealso cref="Glx.GetCurrentReadDrawable"/>
+		/// <seealso cref="Glx.MakeCurrent"/>
 		[RequiredByFeature("GLX_VERSION_1_0")]
 		public static IntPtr GetCurrentDrawable()
 		{
@@ -752,6 +921,16 @@ namespace OpenGL
 		/// <summary>
 		/// complete GL execution prior to subsequent X calls
 		/// </summary>
+		/// <remarks>
+		/// <para>The exception below won't be thrown; caller must check result manually.</para>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Glx.adCurrentWindow is generated if the drawable associated with the current context of the calling thread is a window, 
+		/// and that window is no longer valid.
+		/// </exception>
+		/// <seealso cref="Glx.glFinish"/>
+		/// <seealso cref="Glx.glFlush"/>
+		/// <seealso cref="Glx.WaitX"/>
 		[RequiredByFeature("GLX_VERSION_1_0")]
 		public static void WaitGL()
 		{
@@ -763,6 +942,16 @@ namespace OpenGL
 		/// <summary>
 		/// complete X execution prior to subsequent GL calls
 		/// </summary>
+		/// <remarks>
+		/// <para>The exception below won't be thrown; caller must check result manually.</para>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Glx.adCurrentWindow is generated if the drawable associated with the current context of the calling thread is a window, 
+		/// and that window is no longer valid.
+		/// </exception>
+		/// <seealso cref="Glx.glFinish"/>
+		/// <seealso cref="Glx.glFlush"/>
+		/// <seealso cref="Glx.WaitGL"/>
 		[RequiredByFeature("GLX_VERSION_1_0")]
 		public static void WaitX()
 		{
@@ -786,6 +975,19 @@ namespace OpenGL
 		/// <param name="list">
 		/// A <see cref="T:int"/>.
 		/// </param>
+		/// <remarks>
+		/// <para>The exceptions below won't be thrown; caller must check result manually.</para>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Glx.ont is generated if <paramref name="font"/> is not a valid font.
+		/// <exception cref="InvalidOperationException">
+		/// Glx.adContextState is generated if the current GLX context is in display-list construction mode.
+		/// <exception cref="InvalidOperationException">
+		/// Glx.adCurrentWindow is generated if the drawable associated with the current context of the calling thread is a window, 
+		/// and that window is no longer valid.
+		/// </exception>
+		/// <seealso cref="Glx.glBitmap"/>
+		/// <seealso cref="Glx.MakeCurrent"/>
 		[RequiredByFeature("GLX_VERSION_1_0")]
 		public static void UseXFont(Int32 font, int first, int count, int list)
 		{

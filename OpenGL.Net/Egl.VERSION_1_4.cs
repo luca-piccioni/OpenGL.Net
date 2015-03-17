@@ -74,7 +74,7 @@ namespace OpenGL
 		public const int SWAP_BEHAVIOR_PRESERVED_BIT = 0x0400;
 
 		/// <summary>
-		/// return the current EGL rendering context
+		/// Binding for eglGetCurrentContext.
 		/// </summary>
 		[RequiredByFeature("EGL_VERSION_1_4")]
 		public static IntPtr GetCurrentContext()

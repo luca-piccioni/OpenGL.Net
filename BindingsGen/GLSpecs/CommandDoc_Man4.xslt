@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="iso-8859-1"?>
-<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns="http://docbook.org/ns/docbook">
-  
+<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:x="http://docbook.org/ns/docbook">
+
+	<xsl:param name="class"/>
+	
   <!-- Do not output XML declaration -->
 	<xsl:output omit-xml-declaration="yes"/>
   <!-- Root template -->
@@ -14,21 +16,17 @@
 	<xsl:variable name="uppercase" select="'ABCDEFGHIJKLMNOPQRSTUVWXYZ'"/>
 
 	<!-- Constant renaming: 'GL_FOO' -> 'GL.FOO' -->
-	<xsl:template match="constant">
-		<xsl:variable name="prefix">&lt;see_cref="Gl.</xsl:variable>
-		<xsl:variable name="postfix">"/&gt;</xsl:variable>
-		<xsl:value-of select="concat($prefix, substring(., 4), $postfix)" disable-output-escaping="yes"/>
+	<xsl:template match="x:constant">
+		<xsl:value-of select="$class"/>.<xsl:value-of select="substring(., string-length($class) + 2)"/>
 	</xsl:template>
 
 	<!-- Function renaming: 'glFoo' -> 'Gl.Foo' -->
-	<xsl:template match="function">
-		<xsl:variable name="prefix">&lt;see_cref="Gl.</xsl:variable>
-		<xsl:variable name="postfix">"/&gt;</xsl:variable>
-		<xsl:value-of select="concat($prefix, substring(., 3), $postfix)" disable-output-escaping="yes"/>
+	<xsl:template match="x:function">
+		<xsl:value-of select="$class"/>.<xsl:value-of select="substring(., string-length($class) + 1)"/>
 	</xsl:template>
 
 	<!-- Parameter reference: 'param' -> <paramref name="param" /> -->
-	<xsl:template match="parameter">
+	<xsl:template match="x:parameter">
 		<xsl:variable name="prefix">&lt;paramref_name="</xsl:variable>
 		<xsl:variable name="postfix">"/&gt;</xsl:variable>
 		<xsl:value-of select="concat($prefix, ., $postfix)" disable-output-escaping="yes"/>

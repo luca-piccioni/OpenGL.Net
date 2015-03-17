@@ -161,6 +161,25 @@ namespace OpenGL
 		/// <param name="name">
 		/// The name of the user-defined varying out variable whose binding to modify
 		/// </param>
+		/// <remarks>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_VALUE is generated if <paramref name="colorNumber"/> is greater than or equal to Gl.MAX_DRAW_BUFFERS.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_VALUE is generated if <paramref name="colorNumber"/> is greater than or equal to 
+		/// Gl.MAX_DUAL_SOURCE_DRAW_BUFFERS and <paramref name="index"/> is greater than or equal to one.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_VALUE is generated if <paramref name="index"/> is greater than one.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if <paramref name="name"/> starts with the reserved Gl. prefix.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if Gl.ogram is not the name of a program object.
+		/// </exception>
+		/// <seealso cref="Gl.CreateProgram"/>
+		/// <seealso cref="Gl.LinkProgram"/>
+		/// <seealso cref="Gl.GetFragDataLocation"/>
+		/// <seealso cref="Gl.GetFragDataIndex"/>
+		/// <seealso cref="Gl.BindFragDataLocation"/>
 		[RequiredByFeature("GL_VERSION_3_3")]
 		[RequiredByFeature("GL_ARB_blend_func_extended")]
 		public static void BindFragDataLocationIndexed(UInt32 program, UInt32 colorNumber, UInt32 index, String name)
@@ -180,6 +199,15 @@ namespace OpenGL
 		/// <param name="name">
 		/// The name of the user-defined varying out variable whose index to query
 		/// </param>
+		/// <remarks>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if <paramref name="program"/> is not the name of a program object.
+		/// </exception>
+		/// <seealso cref="Gl.CreateProgram"/>
+		/// <seealso cref="Gl.BindFragDataLocation"/>
+		/// <seealso cref="Gl.BindFragDataLocationIndexed"/>
+		/// <seealso cref="Gl.GetFragDataLocation"/>
 		[RequiredByFeature("GL_VERSION_3_3")]
 		[RequiredByFeature("GL_ARB_blend_func_extended")]
 		public static Int32 GetFragDataIndex(UInt32 program, String name)
@@ -203,6 +231,14 @@ namespace OpenGL
 		/// <param name="samplers">
 		/// Specifies an array in which the generated sampler object names are stored.
 		/// </param>
+		/// <remarks>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_VALUE is generated if <paramref name="n"/> is negative.
+		/// </exception>
+		/// <seealso cref="Gl.BindSampler"/>
+		/// <seealso cref="Gl.IsSampler"/>
+		/// <seealso cref="Gl.DeleteSamplers"/>
 		[RequiredByFeature("GL_VERSION_3_3")]
 		[RequiredByFeature("GL_ARB_sampler_objects")]
 		public static void GenSamplers(UInt32[] samplers)
@@ -221,6 +257,14 @@ namespace OpenGL
 		/// <summary>
 		/// generate sampler object names
 		/// </summary>
+		/// <remarks>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_VALUE is generated if <paramref name="n"/> is negative.
+		/// </exception>
+		/// <seealso cref="Gl.BindSampler"/>
+		/// <seealso cref="Gl.IsSampler"/>
+		/// <seealso cref="Gl.DeleteSamplers"/>
 		[RequiredByFeature("GL_VERSION_3_3")]
 		[RequiredByFeature("GL_ARB_sampler_objects")]
 		public static UInt32 GenSampler()
@@ -239,6 +283,15 @@ namespace OpenGL
 		/// <param name="samplers">
 		/// Specifies an array of sampler objects to be deleted.
 		/// </param>
+		/// <remarks>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_VALUE is generated if <paramref name="n"/> is negative.
+		/// </exception>
+		/// <seealso cref="Gl.GenSamplers"/>
+		/// <seealso cref="Gl.BindSampler"/>
+		/// <seealso cref="Gl.DeleteSamplers"/>
+		/// <seealso cref="Gl.IsSampler"/>
 		[RequiredByFeature("GL_VERSION_3_3")]
 		[RequiredByFeature("GL_ARB_sampler_objects")]
 		public static void DeleteSamplers(params UInt32[] samplers)
@@ -260,6 +313,9 @@ namespace OpenGL
 		/// <param name="sampler">
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
+		/// <seealso cref="Gl.GenSamplers"/>
+		/// <seealso cref="Gl.BindSampler"/>
+		/// <seealso cref="Gl.DeleteSamplers"/>
 		[RequiredByFeature("GL_VERSION_3_3")]
 		[RequiredByFeature("GL_ARB_sampler_objects")]
 		public static bool IsSampler(UInt32 sampler)
@@ -283,6 +339,23 @@ namespace OpenGL
 		/// <param name="sampler">
 		/// Specifies the name of a sampler.
 		/// </param>
+		/// <remarks>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_VALUE is generated if <paramref name="unit"/> is greater than or equal to the value of 
+		/// Gl.MAX_COMBINED_TEXTURE_IMAGE_UNITS.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if <paramref name="sampler"/> is not zero or a name previously returned from a call to 
+		/// glGenSamplers, or if such a name has been deleted by a call to glDeleteSamplers.
+		/// </exception>
+		/// <seealso cref="Gl.GenSamplers"/>
+		/// <seealso cref="Gl.DeleteSamplers"/>
+		/// <seealso cref="Gl.Get"/>
+		/// <seealso cref="Gl.SamplerParameter"/>
+		/// <seealso cref="Gl.GetSamplerParameter"/>
+		/// <seealso cref="Gl.GenTextures"/>
+		/// <seealso cref="Gl.BindTexture"/>
+		/// <seealso cref="Gl.DeleteTextures"/>
 		[RequiredByFeature("GL_VERSION_3_3")]
 		[RequiredByFeature("GL_ARB_sampler_objects")]
 		public static void BindSampler(UInt32 unit, UInt32 sampler)
@@ -452,13 +525,25 @@ namespace OpenGL
 		/// Specifies name of the sampler object from which to retrieve parameters.
 		/// </param>
 		/// <param name="pname">
-		/// Specifies the symbolic name of a sampler parameter. GL_TEXTURE_MAG_FILTER, GL_TEXTURE_MIN_FILTER, GL_TEXTURE_MIN_LOD, 
-		/// GL_TEXTURE_MAX_LOD, GL_TEXTURE_LOD_BIAS, GL_TEXTURE_WRAP_S, GL_TEXTURE_WRAP_T, GL_TEXTURE_WRAP_R, 
-		/// GL_TEXTURE_BORDER_COLOR, GL_TEXTURE_COMPARE_MODE, and GL_TEXTURE_COMPARE_FUNC are accepted.
+		/// Specifies the symbolic name of a sampler parameter. Gl.TEXTURE_MAG_FILTER, Gl.TEXTURE_MIN_FILTER, Gl.TEXTURE_MIN_LOD, 
+		/// Gl.TEXTURE_MAX_LOD, Gl.TEXTURE_LOD_BIAS, Gl.TEXTURE_WRAP_S, Gl.TEXTURE_WRAP_T, Gl.TEXTURE_WRAP_R, 
+		/// Gl.TEXTURE_BORDER_COLOR, Gl.TEXTURE_COMPARE_MODE, and Gl.TEXTURE_COMPARE_FUNC are accepted.
 		/// </param>
 		/// <param name="params">
 		/// Returns the sampler parameters.
 		/// </param>
+		/// <remarks>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_VALUE is generated if <paramref name="sampler"/> is not the name of a sampler object returned from a previous 
+		/// call to glGenSamplers.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated if <paramref name="pname"/> is not an accepted value.
+		/// </exception>
+		/// <seealso cref="Gl.SamplerParameter"/>
+		/// <seealso cref="Gl.GenSamplers"/>
+		/// <seealso cref="Gl.DeleteSamplers"/>
+		/// <seealso cref="Gl.SamplerParameter"/>
 		[RequiredByFeature("GL_VERSION_3_3")]
 		[RequiredByFeature("GL_ARB_sampler_objects")]
 		public static void GetSamplerParameter(UInt32 sampler, int pname, Int32[] @params)
@@ -481,13 +566,25 @@ namespace OpenGL
 		/// Specifies name of the sampler object from which to retrieve parameters.
 		/// </param>
 		/// <param name="pname">
-		/// Specifies the symbolic name of a sampler parameter. GL_TEXTURE_MAG_FILTER, GL_TEXTURE_MIN_FILTER, GL_TEXTURE_MIN_LOD, 
-		/// GL_TEXTURE_MAX_LOD, GL_TEXTURE_LOD_BIAS, GL_TEXTURE_WRAP_S, GL_TEXTURE_WRAP_T, GL_TEXTURE_WRAP_R, 
-		/// GL_TEXTURE_BORDER_COLOR, GL_TEXTURE_COMPARE_MODE, and GL_TEXTURE_COMPARE_FUNC are accepted.
+		/// Specifies the symbolic name of a sampler parameter. Gl.TEXTURE_MAG_FILTER, Gl.TEXTURE_MIN_FILTER, Gl.TEXTURE_MIN_LOD, 
+		/// Gl.TEXTURE_MAX_LOD, Gl.TEXTURE_LOD_BIAS, Gl.TEXTURE_WRAP_S, Gl.TEXTURE_WRAP_T, Gl.TEXTURE_WRAP_R, 
+		/// Gl.TEXTURE_BORDER_COLOR, Gl.TEXTURE_COMPARE_MODE, and Gl.TEXTURE_COMPARE_FUNC are accepted.
 		/// </param>
 		/// <param name="params">
 		/// Returns the sampler parameters.
 		/// </param>
+		/// <remarks>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_VALUE is generated if <paramref name="sampler"/> is not the name of a sampler object returned from a previous 
+		/// call to glGenSamplers.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated if <paramref name="pname"/> is not an accepted value.
+		/// </exception>
+		/// <seealso cref="Gl.SamplerParameter"/>
+		/// <seealso cref="Gl.GenSamplers"/>
+		/// <seealso cref="Gl.DeleteSamplers"/>
+		/// <seealso cref="Gl.SamplerParameter"/>
 		[RequiredByFeature("GL_VERSION_3_3")]
 		[RequiredByFeature("GL_ARB_sampler_objects")]
 		public static void GetSamplerParameterIiv(UInt32 sampler, int pname, Int32[] @params)
@@ -510,13 +607,25 @@ namespace OpenGL
 		/// Specifies name of the sampler object from which to retrieve parameters.
 		/// </param>
 		/// <param name="pname">
-		/// Specifies the symbolic name of a sampler parameter. GL_TEXTURE_MAG_FILTER, GL_TEXTURE_MIN_FILTER, GL_TEXTURE_MIN_LOD, 
-		/// GL_TEXTURE_MAX_LOD, GL_TEXTURE_LOD_BIAS, GL_TEXTURE_WRAP_S, GL_TEXTURE_WRAP_T, GL_TEXTURE_WRAP_R, 
-		/// GL_TEXTURE_BORDER_COLOR, GL_TEXTURE_COMPARE_MODE, and GL_TEXTURE_COMPARE_FUNC are accepted.
+		/// Specifies the symbolic name of a sampler parameter. Gl.TEXTURE_MAG_FILTER, Gl.TEXTURE_MIN_FILTER, Gl.TEXTURE_MIN_LOD, 
+		/// Gl.TEXTURE_MAX_LOD, Gl.TEXTURE_LOD_BIAS, Gl.TEXTURE_WRAP_S, Gl.TEXTURE_WRAP_T, Gl.TEXTURE_WRAP_R, 
+		/// Gl.TEXTURE_BORDER_COLOR, Gl.TEXTURE_COMPARE_MODE, and Gl.TEXTURE_COMPARE_FUNC are accepted.
 		/// </param>
 		/// <param name="params">
 		/// Returns the sampler parameters.
 		/// </param>
+		/// <remarks>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_VALUE is generated if <paramref name="sampler"/> is not the name of a sampler object returned from a previous 
+		/// call to glGenSamplers.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated if <paramref name="pname"/> is not an accepted value.
+		/// </exception>
+		/// <seealso cref="Gl.SamplerParameter"/>
+		/// <seealso cref="Gl.GenSamplers"/>
+		/// <seealso cref="Gl.DeleteSamplers"/>
+		/// <seealso cref="Gl.SamplerParameter"/>
 		[RequiredByFeature("GL_VERSION_3_3")]
 		[RequiredByFeature("GL_ARB_sampler_objects")]
 		public static void GetSamplerParameter(UInt32 sampler, int pname, float[] @params)
@@ -539,13 +648,25 @@ namespace OpenGL
 		/// Specifies name of the sampler object from which to retrieve parameters.
 		/// </param>
 		/// <param name="pname">
-		/// Specifies the symbolic name of a sampler parameter. GL_TEXTURE_MAG_FILTER, GL_TEXTURE_MIN_FILTER, GL_TEXTURE_MIN_LOD, 
-		/// GL_TEXTURE_MAX_LOD, GL_TEXTURE_LOD_BIAS, GL_TEXTURE_WRAP_S, GL_TEXTURE_WRAP_T, GL_TEXTURE_WRAP_R, 
-		/// GL_TEXTURE_BORDER_COLOR, GL_TEXTURE_COMPARE_MODE, and GL_TEXTURE_COMPARE_FUNC are accepted.
+		/// Specifies the symbolic name of a sampler parameter. Gl.TEXTURE_MAG_FILTER, Gl.TEXTURE_MIN_FILTER, Gl.TEXTURE_MIN_LOD, 
+		/// Gl.TEXTURE_MAX_LOD, Gl.TEXTURE_LOD_BIAS, Gl.TEXTURE_WRAP_S, Gl.TEXTURE_WRAP_T, Gl.TEXTURE_WRAP_R, 
+		/// Gl.TEXTURE_BORDER_COLOR, Gl.TEXTURE_COMPARE_MODE, and Gl.TEXTURE_COMPARE_FUNC are accepted.
 		/// </param>
 		/// <param name="params">
 		/// Returns the sampler parameters.
 		/// </param>
+		/// <remarks>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_VALUE is generated if <paramref name="sampler"/> is not the name of a sampler object returned from a previous 
+		/// call to glGenSamplers.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated if <paramref name="pname"/> is not an accepted value.
+		/// </exception>
+		/// <seealso cref="Gl.SamplerParameter"/>
+		/// <seealso cref="Gl.GenSamplers"/>
+		/// <seealso cref="Gl.DeleteSamplers"/>
+		/// <seealso cref="Gl.SamplerParameter"/>
 		[RequiredByFeature("GL_VERSION_3_3")]
 		[RequiredByFeature("GL_ARB_sampler_objects")]
 		public static void GetSamplerParameterIuiv(UInt32 sampler, int pname, UInt32[] @params)
@@ -568,8 +689,26 @@ namespace OpenGL
 		/// Specify the name of a query object into which to record the GL time.
 		/// </param>
 		/// <param name="target">
-		/// Specify the counter to query. target must be GL_TIMESTAMP.
+		/// Specify the counter to query. <paramref name="target"/> must be Gl.TIMESTAMP.
 		/// </param>
+		/// <remarks>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if <paramref name="id"/> is the name of a query object that is already in use within a 
+		/// glBeginQuery / glEndQuery block.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_VALUE is generated if <paramref name="id"/> is not the name of a query object returned from a previous call 
+		/// to glGenQueries.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated if <paramref name="target"/> is not Gl.TIMESTAMP.
+		/// </exception>
+		/// <seealso cref="Gl.GenQueries"/>
+		/// <seealso cref="Gl.BeginQuery"/>
+		/// <seealso cref="Gl.EndQuery"/>
+		/// <seealso cref="Gl.DeleteQueries"/>
+		/// <seealso cref="Gl.GetQueryObject"/>
+		/// <seealso cref="Gl.GetQueryiv"/>
+		/// <seealso cref="Gl.Get"/>
 		[RequiredByFeature("GL_VERSION_3_3")]
 		[RequiredByFeature("GL_ARB_timer_query")]
 		public static void QueryCounter(UInt32 id, int target)
@@ -587,14 +726,32 @@ namespace OpenGL
 		/// Specifies the name of a query object.
 		/// </param>
 		/// <param name="pname">
-		/// Specifies the symbolic name of a query object parameter. Accepted values are GL_QUERY_RESULT or 
-		/// GL_QUERY_RESULT_AVAILABLE.
+		/// Specifies the symbolic name of a query object parameter. Accepted values are Gl.QUERY_RESULT or 
+		/// Gl.QUERY_RESULT_AVAILABLE.
 		/// </param>
 		/// <param name="params">
-		/// If a buffer is bound to the GL_QUERY_RESULT_BUFFER target, then params is treated as an offset to a location within that 
-		/// buffer's data store to receive the result of the query. If no buffer is bound to GL_QUERY_RESULT_BUFFER, then params is 
-		/// treated as an address in client memory of a variable to receive the resulting data.
+		/// If a buffer is bound to the Gl.QUERY_RESULT_BUFFER target, then <paramref name="params"/> is treated as an offset to a 
+		/// location within that buffer's data store to receive the result of the query. If no buffer is bound to 
+		/// Gl.QUERY_RESULT_BUFFER, then <paramref name="params"/> is treated as an address in client memory of a variable to 
+		/// receive the resulting data.
 		/// </param>
+		/// <remarks>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated if <paramref name="pname"/> is not an accepted value.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if <paramref name="id"/> is not the name of a query object.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if <paramref name="id"/> is the name of a currently active query object.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if a buffer is currently bound to the Gl.QUERY_RESULT_BUFFER target and the command 
+		/// would cause data to be written beyond the bounds of that buffer's data store.
+		/// </exception>
+		/// <seealso cref="Gl.BeginQuery"/>
+		/// <seealso cref="Gl.EndQuery"/>
+		/// <seealso cref="Gl.GetQueryiv"/>
+		/// <seealso cref="Gl.IsQuery"/>
+		/// <seealso cref="Gl.QueryCounter"/>
 		[RequiredByFeature("GL_VERSION_3_3")]
 		[RequiredByFeature("GL_ARB_timer_query")]
 		public static void GetQueryObjecti64v(UInt32 id, int pname, Int64[] @params)
@@ -617,14 +774,32 @@ namespace OpenGL
 		/// Specifies the name of a query object.
 		/// </param>
 		/// <param name="pname">
-		/// Specifies the symbolic name of a query object parameter. Accepted values are GL_QUERY_RESULT or 
-		/// GL_QUERY_RESULT_AVAILABLE.
+		/// Specifies the symbolic name of a query object parameter. Accepted values are Gl.QUERY_RESULT or 
+		/// Gl.QUERY_RESULT_AVAILABLE.
 		/// </param>
 		/// <param name="params">
-		/// If a buffer is bound to the GL_QUERY_RESULT_BUFFER target, then params is treated as an offset to a location within that 
-		/// buffer's data store to receive the result of the query. If no buffer is bound to GL_QUERY_RESULT_BUFFER, then params is 
-		/// treated as an address in client memory of a variable to receive the resulting data.
+		/// If a buffer is bound to the Gl.QUERY_RESULT_BUFFER target, then <paramref name="params"/> is treated as an offset to a 
+		/// location within that buffer's data store to receive the result of the query. If no buffer is bound to 
+		/// Gl.QUERY_RESULT_BUFFER, then <paramref name="params"/> is treated as an address in client memory of a variable to 
+		/// receive the resulting data.
 		/// </param>
+		/// <remarks>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated if <paramref name="pname"/> is not an accepted value.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if <paramref name="id"/> is not the name of a query object.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if <paramref name="id"/> is the name of a currently active query object.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if a buffer is currently bound to the Gl.QUERY_RESULT_BUFFER target and the command 
+		/// would cause data to be written beyond the bounds of that buffer's data store.
+		/// </exception>
+		/// <seealso cref="Gl.BeginQuery"/>
+		/// <seealso cref="Gl.EndQuery"/>
+		/// <seealso cref="Gl.GetQueryiv"/>
+		/// <seealso cref="Gl.IsQuery"/>
+		/// <seealso cref="Gl.QueryCounter"/>
 		[RequiredByFeature("GL_VERSION_3_3")]
 		[RequiredByFeature("GL_ARB_timer_query")]
 		public static void GetQueryObjectui64v(UInt32 id, int pname, UInt64[] @params)
@@ -647,8 +822,18 @@ namespace OpenGL
 		/// Specify the index of the generic vertex attribute.
 		/// </param>
 		/// <param name="divisor">
-		/// Specify the number of instances that will pass between updates of the generic attribute at slot index.
+		/// Specify the number of instances that will pass between updates of the generic attribute at slot <paramref 
+		/// name="index"/>.
 		/// </param>
+		/// <remarks>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_VALUE is generated if <paramref name="index"/> is greater than or equal to the value of 
+		/// Gl.MAX_VERTEX_ATTRIBS.
+		/// </exception>
+		/// <seealso cref="Gl.VertexAttribPointer"/>
+		/// <seealso cref="Gl.EnableVertexAttribArray"/>
+		/// <seealso cref="Gl.DisableVertexAttribArray"/>
 		[RequiredByFeature("GL_VERSION_3_3")]
 		public static void VertexAttribDivisor(UInt32 index, UInt32 divisor)
 		{
@@ -665,18 +850,30 @@ namespace OpenGL
 		/// Specifies the index of the generic vertex attribute to be modified.
 		/// </param>
 		/// <param name="type">
-		/// For the packed commands (glVertexAttribP*), specified the type of packing used on the data. This parameter must be 
-		/// GL_INT_2_10_10_10_REV or GL_UNSIGNED_INT_2_10_10_10_REV, to specify signed or unsigned data, respectively, or 
-		/// GL_UNSIGNED_INT_10F_11F_11F_REV to specify floating point data.
+		/// For the packed commands (Gl.VertexAttribP*), specified the type of packing used on the data. This parameter must be 
+		/// Gl.INT_2_10_10_10_REV or Gl.UNSIGNED_INT_2_10_10_10_REV, to specify signed or unsigned data, respectively, or 
+		/// Gl.UNSIGNED_INT_10F_11F_11F_REV to specify floating point data.
 		/// </param>
 		/// <param name="normalized">
-		/// For the packed commands, if GL_TRUE, then the values are to be converted to floating point values by normalizing. 
-		/// Otherwise, they are converted directly to floating-point values. If type indicates a floating-pont format, then 
-		/// normalized value must be GL_FALSE.
+		/// For the packed commands, if Gl.TRUE, then the values are to be converted to floating point values by normalizing. 
+		/// Otherwise, they are converted directly to floating-point values. If <paramref name="type"/> indicates a floating-pont 
+		/// format, then <paramref name="normalized"/> value must be Gl.FALSE.
 		/// </param>
 		/// <param name="value">
 		/// For the packed commands, specifies the new packed value to be used for the specified vertex attribute.
 		/// </param>
+		/// <remarks>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_VALUE is generated if <paramref name="index"/> is greater than or equal to Gl.MAX_VERTEX_ATTRIBS.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated if Gl.VertexAttribP* is used with a <paramref name="type"/> other than 
+		/// Gl.INT_2_10_10_10_REV, Gl.UNSIGNED_INT_2_10_10_10_REV, or Gl.UNSIGNED_INT_10F_11F_11F_REV.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated if Gl.VertexAttribL is used with a <paramref name="type"/> other than Gl.DOUBLE.
+		/// </exception>
+		/// <seealso cref="Gl.BindAttribLocation"/>
+		/// <seealso cref="Gl.VertexAttribPointer"/>
 		[RequiredByFeature("GL_VERSION_3_3")]
 		[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev")]
 		public static void VertexAttribP1(UInt32 index, int type, bool normalized, UInt32 value)
@@ -724,18 +921,30 @@ namespace OpenGL
 		/// Specifies the index of the generic vertex attribute to be modified.
 		/// </param>
 		/// <param name="type">
-		/// For the packed commands (glVertexAttribP*), specified the type of packing used on the data. This parameter must be 
-		/// GL_INT_2_10_10_10_REV or GL_UNSIGNED_INT_2_10_10_10_REV, to specify signed or unsigned data, respectively, or 
-		/// GL_UNSIGNED_INT_10F_11F_11F_REV to specify floating point data.
+		/// For the packed commands (Gl.VertexAttribP*), specified the type of packing used on the data. This parameter must be 
+		/// Gl.INT_2_10_10_10_REV or Gl.UNSIGNED_INT_2_10_10_10_REV, to specify signed or unsigned data, respectively, or 
+		/// Gl.UNSIGNED_INT_10F_11F_11F_REV to specify floating point data.
 		/// </param>
 		/// <param name="normalized">
-		/// For the packed commands, if GL_TRUE, then the values are to be converted to floating point values by normalizing. 
-		/// Otherwise, they are converted directly to floating-point values. If type indicates a floating-pont format, then 
-		/// normalized value must be GL_FALSE.
+		/// For the packed commands, if Gl.TRUE, then the values are to be converted to floating point values by normalizing. 
+		/// Otherwise, they are converted directly to floating-point values. If <paramref name="type"/> indicates a floating-pont 
+		/// format, then <paramref name="normalized"/> value must be Gl.FALSE.
 		/// </param>
 		/// <param name="value">
 		/// For the packed commands, specifies the new packed value to be used for the specified vertex attribute.
 		/// </param>
+		/// <remarks>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_VALUE is generated if <paramref name="index"/> is greater than or equal to Gl.MAX_VERTEX_ATTRIBS.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated if Gl.VertexAttribP* is used with a <paramref name="type"/> other than 
+		/// Gl.INT_2_10_10_10_REV, Gl.UNSIGNED_INT_2_10_10_10_REV, or Gl.UNSIGNED_INT_10F_11F_11F_REV.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated if Gl.VertexAttribL is used with a <paramref name="type"/> other than Gl.DOUBLE.
+		/// </exception>
+		/// <seealso cref="Gl.BindAttribLocation"/>
+		/// <seealso cref="Gl.VertexAttribPointer"/>
 		[RequiredByFeature("GL_VERSION_3_3")]
 		[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev")]
 		public static void VertexAttribP2(UInt32 index, int type, bool normalized, UInt32 value)
@@ -783,18 +992,30 @@ namespace OpenGL
 		/// Specifies the index of the generic vertex attribute to be modified.
 		/// </param>
 		/// <param name="type">
-		/// For the packed commands (glVertexAttribP*), specified the type of packing used on the data. This parameter must be 
-		/// GL_INT_2_10_10_10_REV or GL_UNSIGNED_INT_2_10_10_10_REV, to specify signed or unsigned data, respectively, or 
-		/// GL_UNSIGNED_INT_10F_11F_11F_REV to specify floating point data.
+		/// For the packed commands (Gl.VertexAttribP*), specified the type of packing used on the data. This parameter must be 
+		/// Gl.INT_2_10_10_10_REV or Gl.UNSIGNED_INT_2_10_10_10_REV, to specify signed or unsigned data, respectively, or 
+		/// Gl.UNSIGNED_INT_10F_11F_11F_REV to specify floating point data.
 		/// </param>
 		/// <param name="normalized">
-		/// For the packed commands, if GL_TRUE, then the values are to be converted to floating point values by normalizing. 
-		/// Otherwise, they are converted directly to floating-point values. If type indicates a floating-pont format, then 
-		/// normalized value must be GL_FALSE.
+		/// For the packed commands, if Gl.TRUE, then the values are to be converted to floating point values by normalizing. 
+		/// Otherwise, they are converted directly to floating-point values. If <paramref name="type"/> indicates a floating-pont 
+		/// format, then <paramref name="normalized"/> value must be Gl.FALSE.
 		/// </param>
 		/// <param name="value">
 		/// For the packed commands, specifies the new packed value to be used for the specified vertex attribute.
 		/// </param>
+		/// <remarks>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_VALUE is generated if <paramref name="index"/> is greater than or equal to Gl.MAX_VERTEX_ATTRIBS.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated if Gl.VertexAttribP* is used with a <paramref name="type"/> other than 
+		/// Gl.INT_2_10_10_10_REV, Gl.UNSIGNED_INT_2_10_10_10_REV, or Gl.UNSIGNED_INT_10F_11F_11F_REV.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated if Gl.VertexAttribL is used with a <paramref name="type"/> other than Gl.DOUBLE.
+		/// </exception>
+		/// <seealso cref="Gl.BindAttribLocation"/>
+		/// <seealso cref="Gl.VertexAttribPointer"/>
 		[RequiredByFeature("GL_VERSION_3_3")]
 		[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev")]
 		public static void VertexAttribP3(UInt32 index, int type, bool normalized, UInt32 value)
@@ -842,18 +1063,30 @@ namespace OpenGL
 		/// Specifies the index of the generic vertex attribute to be modified.
 		/// </param>
 		/// <param name="type">
-		/// For the packed commands (glVertexAttribP*), specified the type of packing used on the data. This parameter must be 
-		/// GL_INT_2_10_10_10_REV or GL_UNSIGNED_INT_2_10_10_10_REV, to specify signed or unsigned data, respectively, or 
-		/// GL_UNSIGNED_INT_10F_11F_11F_REV to specify floating point data.
+		/// For the packed commands (Gl.VertexAttribP*), specified the type of packing used on the data. This parameter must be 
+		/// Gl.INT_2_10_10_10_REV or Gl.UNSIGNED_INT_2_10_10_10_REV, to specify signed or unsigned data, respectively, or 
+		/// Gl.UNSIGNED_INT_10F_11F_11F_REV to specify floating point data.
 		/// </param>
 		/// <param name="normalized">
-		/// For the packed commands, if GL_TRUE, then the values are to be converted to floating point values by normalizing. 
-		/// Otherwise, they are converted directly to floating-point values. If type indicates a floating-pont format, then 
-		/// normalized value must be GL_FALSE.
+		/// For the packed commands, if Gl.TRUE, then the values are to be converted to floating point values by normalizing. 
+		/// Otherwise, they are converted directly to floating-point values. If <paramref name="type"/> indicates a floating-pont 
+		/// format, then <paramref name="normalized"/> value must be Gl.FALSE.
 		/// </param>
 		/// <param name="value">
 		/// For the packed commands, specifies the new packed value to be used for the specified vertex attribute.
 		/// </param>
+		/// <remarks>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_VALUE is generated if <paramref name="index"/> is greater than or equal to Gl.MAX_VERTEX_ATTRIBS.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated if Gl.VertexAttribP* is used with a <paramref name="type"/> other than 
+		/// Gl.INT_2_10_10_10_REV, Gl.UNSIGNED_INT_2_10_10_10_REV, or Gl.UNSIGNED_INT_10F_11F_11F_REV.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated if Gl.VertexAttribL is used with a <paramref name="type"/> other than Gl.DOUBLE.
+		/// </exception>
+		/// <seealso cref="Gl.BindAttribLocation"/>
+		/// <seealso cref="Gl.VertexAttribPointer"/>
 		[RequiredByFeature("GL_VERSION_3_3")]
 		[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev")]
 		public static void VertexAttribP4(UInt32 index, int type, bool normalized, UInt32 value)

@@ -611,6 +611,12 @@ namespace OpenGL
 		/// <param name="value">
 		/// Specifies the rate at which samples are shaded within each covered pixel.
 		/// </param>
+		/// <remarks>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// None.
+		/// </exception>
+		/// <seealso cref="Gl.removedTypes"/>
 		[RequiredByFeature("GL_VERSION_4_0")]
 		public static void MinSampleShading(float value)
 		{
@@ -711,13 +717,30 @@ namespace OpenGL
 		/// render primitives from array data, taking parameters from memory
 		/// </summary>
 		/// <param name="mode">
-		/// Specifies what kind of primitives to render. Symbolic constants GL_POINTS, GL_LINE_STRIP, GL_LINE_LOOP, GL_LINES, 
-		/// GL_LINE_STRIP_ADJACENCY, GL_LINES_ADJACENCY, GL_TRIANGLE_STRIP, GL_TRIANGLE_FAN, GL_TRIANGLES, 
-		/// GL_TRIANGLE_STRIP_ADJACENCY, GL_TRIANGLES_ADJACENCY, and GL_PATCHES are accepted.
+		/// Specifies what kind of primitives to render. Symbolic constants Gl.POINTS, Gl.LINE_STRIP, Gl.LINE_LOOP, Gl.LINES, 
+		/// Gl.LINE_STRIP_ADJACENCY, Gl.LINES_ADJACENCY, Gl.TRIANGLE_STRIP, Gl.TRIANGLE_FAN, Gl.TRIANGLES, 
+		/// Gl.TRIANGLE_STRIP_ADJACENCY, Gl.TRIANGLES_ADJACENCY, and Gl.PATCHES are accepted.
 		/// </param>
 		/// <param name="indirect">
 		/// Specifies the address of a structure containing the draw parameters.
 		/// </param>
+		/// <remarks>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated if <paramref name="mode"/> is not an accepted value.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if a non-zero buffer object name is bound to an enabled array or to the 
+		/// Gl.DRAW_INDIRECT_BUFFER binding and the buffer object's data store is currently mapped.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if a geometry shader is active and <paramref name="mode"/> is incompatible with the 
+		/// input primitive type of the geometry shader in the currently installed program object.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if <paramref name="mode"/> is Gl.PATCHES and no tessellation control shader is active.
+		/// </exception>
+		/// <seealso cref="Gl.DrawArrays"/>
+		/// <seealso cref="Gl.DrawArraysInstanced"/>
+		/// <seealso cref="Gl.DrawElements"/>
+		/// <seealso cref="Gl.DrawRangeElements"/>
 		[RequiredByFeature("GL_VERSION_4_0")]
 		[RequiredByFeature("GL_ARB_draw_indirect")]
 		public static void DrawArraysIndirect(PrimitiveType mode, IntPtr indirect)
@@ -732,13 +755,30 @@ namespace OpenGL
 		/// render primitives from array data, taking parameters from memory
 		/// </summary>
 		/// <param name="mode">
-		/// Specifies what kind of primitives to render. Symbolic constants GL_POINTS, GL_LINE_STRIP, GL_LINE_LOOP, GL_LINES, 
-		/// GL_LINE_STRIP_ADJACENCY, GL_LINES_ADJACENCY, GL_TRIANGLE_STRIP, GL_TRIANGLE_FAN, GL_TRIANGLES, 
-		/// GL_TRIANGLE_STRIP_ADJACENCY, GL_TRIANGLES_ADJACENCY, and GL_PATCHES are accepted.
+		/// Specifies what kind of primitives to render. Symbolic constants Gl.POINTS, Gl.LINE_STRIP, Gl.LINE_LOOP, Gl.LINES, 
+		/// Gl.LINE_STRIP_ADJACENCY, Gl.LINES_ADJACENCY, Gl.TRIANGLE_STRIP, Gl.TRIANGLE_FAN, Gl.TRIANGLES, 
+		/// Gl.TRIANGLE_STRIP_ADJACENCY, Gl.TRIANGLES_ADJACENCY, and Gl.PATCHES are accepted.
 		/// </param>
 		/// <param name="indirect">
 		/// Specifies the address of a structure containing the draw parameters.
 		/// </param>
+		/// <remarks>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated if <paramref name="mode"/> is not an accepted value.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if a non-zero buffer object name is bound to an enabled array or to the 
+		/// Gl.DRAW_INDIRECT_BUFFER binding and the buffer object's data store is currently mapped.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if a geometry shader is active and <paramref name="mode"/> is incompatible with the 
+		/// input primitive type of the geometry shader in the currently installed program object.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if <paramref name="mode"/> is Gl.PATCHES and no tessellation control shader is active.
+		/// </exception>
+		/// <seealso cref="Gl.DrawArrays"/>
+		/// <seealso cref="Gl.DrawArraysInstanced"/>
+		/// <seealso cref="Gl.DrawElements"/>
+		/// <seealso cref="Gl.DrawRangeElements"/>
 		[RequiredByFeature("GL_VERSION_4_0")]
 		[RequiredByFeature("GL_ARB_draw_indirect")]
 		public static void DrawArraysIndirect(PrimitiveType mode, Object indirect)
@@ -755,16 +795,37 @@ namespace OpenGL
 		/// render indexed primitives from array data, taking parameters from memory
 		/// </summary>
 		/// <param name="mode">
-		/// Specifies what kind of primitives to render. Symbolic constants GL_POINTS, GL_LINE_STRIP, GL_LINE_LOOP, GL_LINES, 
-		/// GL_LINE_STRIP_ADJACENCY, GL_LINES_ADJACENCY, GL_TRIANGLE_STRIP, GL_TRIANGLE_FAN, GL_TRIANGLES, 
-		/// GL_TRIANGLE_STRIP_ADJACENCY, GL_TRIANGLES_ADJACENCY, and GL_PATCHES are accepted.
+		/// Specifies what kind of primitives to render. Symbolic constants Gl.POINTS, Gl.LINE_STRIP, Gl.LINE_LOOP, Gl.LINES, 
+		/// Gl.LINE_STRIP_ADJACENCY, Gl.LINES_ADJACENCY, Gl.TRIANGLE_STRIP, Gl.TRIANGLE_FAN, Gl.TRIANGLES, 
+		/// Gl.TRIANGLE_STRIP_ADJACENCY, Gl.TRIANGLES_ADJACENCY, and Gl.PATCHES are accepted.
 		/// </param>
 		/// <param name="type">
-		/// Specifies the type of data in the buffer bound to the GL_ELEMENT_ARRAY_BUFFER binding.
+		/// Specifies the type of data in the buffer bound to the Gl.ELEMENT_ARRAY_BUFFER binding.
 		/// </param>
 		/// <param name="indirect">
 		/// Specifies the address of a structure containing the draw parameters.
 		/// </param>
+		/// <remarks>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated if <paramref name="mode"/> is not an accepted value.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if no buffer is bound to the Gl.ELEMENT_ARRAY_BUFFER binding, or if such a buffer's 
+		/// data store is currently mapped.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if a non-zero buffer object name is bound to an enabled array or to the 
+		/// Gl.DRAW_INDIRECT_BUFFER binding and the buffer object's data store is currently mapped.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if a geometry shader is active and <paramref name="mode"/> is incompatible with the 
+		/// input primitive type of the geometry shader in the currently installed program object.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if <paramref name="mode"/> is Gl.PATCHES and no tessellation control shader is active.
+		/// </exception>
+		/// <seealso cref="Gl.DrawArrays"/>
+		/// <seealso cref="Gl.DrawArraysInstanced"/>
+		/// <seealso cref="Gl.DrawArraysIndirect"/>
+		/// <seealso cref="Gl.DrawElements"/>
+		/// <seealso cref="Gl.DrawRangeElements"/>
 		[RequiredByFeature("GL_VERSION_4_0")]
 		[RequiredByFeature("GL_ARB_draw_indirect")]
 		public static void DrawElementsIndirect(PrimitiveType mode, int type, IntPtr indirect)
@@ -779,16 +840,37 @@ namespace OpenGL
 		/// render indexed primitives from array data, taking parameters from memory
 		/// </summary>
 		/// <param name="mode">
-		/// Specifies what kind of primitives to render. Symbolic constants GL_POINTS, GL_LINE_STRIP, GL_LINE_LOOP, GL_LINES, 
-		/// GL_LINE_STRIP_ADJACENCY, GL_LINES_ADJACENCY, GL_TRIANGLE_STRIP, GL_TRIANGLE_FAN, GL_TRIANGLES, 
-		/// GL_TRIANGLE_STRIP_ADJACENCY, GL_TRIANGLES_ADJACENCY, and GL_PATCHES are accepted.
+		/// Specifies what kind of primitives to render. Symbolic constants Gl.POINTS, Gl.LINE_STRIP, Gl.LINE_LOOP, Gl.LINES, 
+		/// Gl.LINE_STRIP_ADJACENCY, Gl.LINES_ADJACENCY, Gl.TRIANGLE_STRIP, Gl.TRIANGLE_FAN, Gl.TRIANGLES, 
+		/// Gl.TRIANGLE_STRIP_ADJACENCY, Gl.TRIANGLES_ADJACENCY, and Gl.PATCHES are accepted.
 		/// </param>
 		/// <param name="type">
-		/// Specifies the type of data in the buffer bound to the GL_ELEMENT_ARRAY_BUFFER binding.
+		/// Specifies the type of data in the buffer bound to the Gl.ELEMENT_ARRAY_BUFFER binding.
 		/// </param>
 		/// <param name="indirect">
 		/// Specifies the address of a structure containing the draw parameters.
 		/// </param>
+		/// <remarks>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated if <paramref name="mode"/> is not an accepted value.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if no buffer is bound to the Gl.ELEMENT_ARRAY_BUFFER binding, or if such a buffer's 
+		/// data store is currently mapped.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if a non-zero buffer object name is bound to an enabled array or to the 
+		/// Gl.DRAW_INDIRECT_BUFFER binding and the buffer object's data store is currently mapped.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if a geometry shader is active and <paramref name="mode"/> is incompatible with the 
+		/// input primitive type of the geometry shader in the currently installed program object.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if <paramref name="mode"/> is Gl.PATCHES and no tessellation control shader is active.
+		/// </exception>
+		/// <seealso cref="Gl.DrawArrays"/>
+		/// <seealso cref="Gl.DrawArraysInstanced"/>
+		/// <seealso cref="Gl.DrawArraysIndirect"/>
+		/// <seealso cref="Gl.DrawElements"/>
+		/// <seealso cref="Gl.DrawRangeElements"/>
 		[RequiredByFeature("GL_VERSION_4_0")]
 		[RequiredByFeature("GL_ARB_draw_indirect")]
 		public static void DrawElementsIndirect(PrimitiveType mode, int type, Object indirect)
@@ -1285,6 +1367,24 @@ namespace OpenGL
 		/// <param name="params">
 		/// Returns the value of the specified uniform variable.
 		/// </param>
+		/// <remarks>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_VALUE is generated if <paramref name="program"/> is not a value generated by OpenGL.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if <paramref name="program"/> is not a program object.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if <paramref name="program"/> has not been successfully linked.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if <paramref name="location"/> does not correspond to a valid uniform variable 
+		/// location for the specified program object.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated by Gl.GetnUniform if the buffer size required to store the requested data is greater 
+		/// than <paramref name="bufSize"/>.
+		/// </exception>
+		/// <seealso cref="Gl.CreateProgram"/>
+		/// <seealso cref="Gl.LinkProgram"/>
+		/// <seealso cref="Gl.Uniform"/>
 		[RequiredByFeature("GL_VERSION_4_0")]
 		[RequiredByFeature("GL_ARB_gpu_shader_fp64")]
 		public static void GetUniform(UInt32 program, Int32 location, double[] @params)
@@ -1307,12 +1407,24 @@ namespace OpenGL
 		/// Specifies the name of the program containing shader stage.
 		/// </param>
 		/// <param name="shadertype">
-		/// Specifies the shader stage from which to query for subroutine uniform index. shadertype must be one of GL_VERTEX_SHADER, 
-		/// GL_TESS_CONTROL_SHADER, GL_TESS_EVALUATION_SHADER, GL_GEOMETRY_SHADER or GL_FRAGMENT_SHADER.
+		/// Specifies the shader stage from which to query for subroutine uniform index. <paramref name="shadertype"/> must be one 
+		/// of Gl.VERTEX_SHADER, Gl.TESS_CONTROL_SHADER, Gl.TESS_EVALUATION_SHADER, Gl.GEOMETRY_SHADER or Gl.FRAGMENT_SHADER.
 		/// </param>
 		/// <param name="name">
 		/// Specifies the name of the subroutine uniform whose index to query.
 		/// </param>
+		/// <remarks>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated if <paramref name="shadertype"/> or <paramref name="pname"/> is not one of the accepted 
+		/// values.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_VALUE is generated if <paramref name="program"/> is not the name of an existing program object.
+		/// </exception>
+		/// <seealso cref="Gl.GetProgram"/>
+		/// <seealso cref="Gl.GetActiveSubroutineUniform"/>
+		/// <seealso cref="Gl.GetActiveSubroutineUniformName"/>
+		/// <seealso cref="Gl.GetUniformLocation"/>
 		[RequiredByFeature("GL_VERSION_4_0")]
 		[RequiredByFeature("GL_ARB_shader_subroutine")]
 		public static Int32 GetSubroutineUniformLocation(UInt32 program, int shadertype, String name)
@@ -1334,12 +1446,23 @@ namespace OpenGL
 		/// Specifies the name of the program containing shader stage.
 		/// </param>
 		/// <param name="shadertype">
-		/// Specifies the shader stage from which to query for subroutine uniform index. shadertype must be one of GL_VERTEX_SHADER, 
-		/// GL_TESS_CONTROL_SHADER, GL_TESS_EVALUATION_SHADER, GL_GEOMETRY_SHADER or GL_FRAGMENT_SHADER.
+		/// Specifies the shader stage from which to query for subroutine uniform index. <paramref name="shadertype"/> must be one 
+		/// of Gl.VERTEX_SHADER, Gl.TESS_CONTROL_SHADER, Gl.TESS_EVALUATION_SHADER, Gl.GEOMETRY_SHADER or Gl.FRAGMENT_SHADER.
 		/// </param>
 		/// <param name="name">
 		/// Specifies the name of the subroutine uniform whose index to query.
 		/// </param>
+		/// <remarks>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated if <paramref name="shadertype"/> or <paramref name="pname"/> is not one of the accepted 
+		/// values.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_VALUE is generated if <paramref name="program"/> is not the name of an existing program object.
+		/// </exception>
+		/// <seealso cref="Gl.GetProgram"/>
+		/// <seealso cref="Gl.GetActiveSubroutineUniform"/>
+		/// <seealso cref="Gl.GetActiveSubroutineUniformName"/>
 		[RequiredByFeature("GL_VERSION_4_0")]
 		[RequiredByFeature("GL_ARB_shader_subroutine")]
 		public static UInt32 GetSubroutineIndex(UInt32 program, int shadertype, String name)
@@ -1361,19 +1484,33 @@ namespace OpenGL
 		/// Specifies the name of the program containing the subroutine.
 		/// </param>
 		/// <param name="shadertype">
-		/// Specifies the shader stage from which to query for the subroutine parameter. shadertype must be one of GL_VERTEX_SHADER, 
-		/// GL_TESS_CONTROL_SHADER, GL_TESS_EVALUATION_SHADER, GL_GEOMETRY_SHADER or GL_FRAGMENT_SHADER.
+		/// Specifies the shader stage from which to query for the subroutine parameter. <paramref name="shadertype"/> must be one 
+		/// of Gl.VERTEX_SHADER, Gl.TESS_CONTROL_SHADER, Gl.TESS_EVALUATION_SHADER, Gl.GEOMETRY_SHADER or Gl.FRAGMENT_SHADER.
 		/// </param>
 		/// <param name="index">
 		/// Specifies the index of the shader subroutine uniform.
 		/// </param>
 		/// <param name="pname">
-		/// Specifies the parameter of the shader subroutine uniform to query. pname must be GL_NUM_COMPATIBLE_SUBROUTINES, 
-		/// GL_COMPATIBLE_SUBROUTINES, GL_UNIFORM_SIZE or GL_UNIFORM_NAME_LENGTH.
+		/// Specifies the parameter of the shader subroutine uniform to query. <paramref name="pname"/> must be 
+		/// Gl.NUM_COMPATIBLE_SUBROUTINES, Gl.COMPATIBLE_SUBROUTINES, Gl.UNIFORM_SIZE or Gl.UNIFORM_NAME_LENGTH.
 		/// </param>
 		/// <param name="values">
 		/// Specifies the address of a into which the queried value or values will be placed.
 		/// </param>
+		/// <remarks>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated if <paramref name="shadertype"/> or <paramref name="pname"/> is not one of the accepted 
+		/// values.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_VALUE is generated if <paramref name="index"/> is greater than or equal to the value of 
+		/// Gl.ACTIVE_SUBROUTINES.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_VALUE is generated if <paramref name="program"/> is not the name of an existing program object.
+		/// </exception>
+		/// <seealso cref="Gl.GetSubroutineIndex"/>
+		/// <seealso cref="Gl.GetActiveSubroutineUniformName"/>
+		/// <seealso cref="Gl.GetProgramStage"/>
 		[RequiredByFeature("GL_VERSION_4_0")]
 		[RequiredByFeature("GL_ARB_shader_subroutine")]
 		public static void GetActiveSubroutineUniform(UInt32 program, int shadertype, UInt32 index, int pname, Int32[] values)
@@ -1396,21 +1533,35 @@ namespace OpenGL
 		/// Specifies the name of the program containing the subroutine.
 		/// </param>
 		/// <param name="shadertype">
-		/// Specifies the shader stage from which to query for the subroutine parameter. shadertype must be one of GL_VERTEX_SHADER, 
-		/// GL_TESS_CONTROL_SHADER, GL_TESS_EVALUATION_SHADER, GL_GEOMETRY_SHADER or GL_FRAGMENT_SHADER.
+		/// Specifies the shader stage from which to query for the subroutine parameter. <paramref name="shadertype"/> must be one 
+		/// of Gl.VERTEX_SHADER, Gl.TESS_CONTROL_SHADER, Gl.TESS_EVALUATION_SHADER, Gl.GEOMETRY_SHADER or Gl.FRAGMENT_SHADER.
 		/// </param>
 		/// <param name="index">
 		/// Specifies the index of the shader subroutine uniform.
 		/// </param>
 		/// <param name="bufsize">
-		/// Specifies the size of the buffer whose address is given in name.
+		/// Specifies the size of the buffer whose address is given in <paramref name="name"/>.
 		/// </param>
 		/// <param name="length">
-		/// Specifies the address of a variable into which is written the number of characters copied into name.
+		/// Specifies the address of a variable into which is written the number of characters copied into <paramref name="name"/>.
 		/// </param>
 		/// <param name="name">
 		/// Specifies the address of a buffer that will receive the name of the specified shader subroutine uniform.
 		/// </param>
+		/// <remarks>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated if <paramref name="shadertype"/> or <paramref name="pname"/> is not one of the accepted 
+		/// values.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_VALUE is generated if <paramref name="index"/> is greater than or equal to the value of 
+		/// Gl.ACTIVE_SUBROUTINES.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_VALUE is generated if <paramref name="program"/> is not the name of an existing program object.
+		/// </exception>
+		/// <seealso cref="Gl.GetSubroutineIndex"/>
+		/// <seealso cref="Gl.GetActiveSubroutineUniform"/>
+		/// <seealso cref="Gl.GetProgramStage"/>
 		[RequiredByFeature("GL_VERSION_4_0")]
 		[RequiredByFeature("GL_ARB_shader_subroutine")]
 		public static void GetActiveSubroutineUniformName(UInt32 program, int shadertype, UInt32 index, Int32 bufsize, out Int32 length, [Out] StringBuilder name)
@@ -1439,7 +1590,7 @@ namespace OpenGL
 		/// Specifies the index of the shader subroutine uniform.
 		/// </param>
 		/// <param name="bufsize">
-		/// Specifies the size of the buffer whose address is given in name.
+		/// Specifies the size of the buffer whose address is given in <paramref name="name"/>.
 		/// </param>
 		/// <param name="length">
 		/// Specifies the address of a variable which is to receive the length of the shader subroutine uniform name.
@@ -1447,6 +1598,17 @@ namespace OpenGL
 		/// <param name="name">
 		/// Specifies the address of an array into which the name of the shader subroutine uniform will be written.
 		/// </param>
+		/// <remarks>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_VALUE is generated if <paramref name="index"/> is greater than or equal to the value of 
+		/// Gl.ACTIVE_SUBROUTINES.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_VALUE is generated if <paramref name="program"/> is not the name of an existing program object.
+		/// </exception>
+		/// <seealso cref="Gl.GetSubroutineIndex"/>
+		/// <seealso cref="Gl.GetActiveSubroutineUniform"/>
+		/// <seealso cref="Gl.GetProgramStage"/>
 		[RequiredByFeature("GL_VERSION_4_0")]
 		[RequiredByFeature("GL_ARB_shader_subroutine")]
 		public static void GetActiveSubroutineName(UInt32 program, int shadertype, UInt32 index, Int32 bufsize, out Int32 length, [Out] StringBuilder name)
@@ -1466,15 +1628,32 @@ namespace OpenGL
 		/// load active subroutine uniforms
 		/// </summary>
 		/// <param name="shadertype">
-		/// Specifies the shader stage from which to query for subroutine uniform index. shadertype must be one of GL_VERTEX_SHADER, 
-		/// GL_TESS_CONTROL_SHADER, GL_TESS_EVALUATION_SHADER, GL_GEOMETRY_SHADER or GL_FRAGMENT_SHADER.
+		/// Specifies the shader stage from which to query for subroutine uniform index. <paramref name="shadertype"/> must be one 
+		/// of Gl.VERTEX_SHADER, Gl.TESS_CONTROL_SHADER, Gl.TESS_EVALUATION_SHADER, Gl.GEOMETRY_SHADER or Gl.FRAGMENT_SHADER.
 		/// </param>
 		/// <param name="count">
-		/// Specifies the number of uniform indices stored in indices.
+		/// Specifies the number of uniform indices stored in <paramref name="indices"/>.
 		/// </param>
 		/// <param name="indices">
 		/// Specifies the address of an array holding the indices to load into the shader subroutine variables.
 		/// </param>
+		/// <remarks>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if no program object is current.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_VALUE is generated if <paramref name="count"/> is not equal to the value of 
+		/// Gl.ACTIVE_SUBROUTINE_UNIFORM_LOCATIONS for the shader stage <paramref name="shadertype"/> of the current program.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_VALUE is generated if any value in <paramref name="indices"/> is geater than or equal to the value of 
+		/// Gl.ACTIVE_SUBROUTINES for the shader stage <paramref name="shadertype"/> of the current program.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated if <paramref name="shadertype"/> is not one of the accepted values.
+		/// </exception>
+		/// <seealso cref="Gl.GetProgram"/>
+		/// <seealso cref="Gl.GetActiveSubroutineUniform"/>
+		/// <seealso cref="Gl.GetActiveSubroutineUniformName"/>
+		/// <seealso cref="Gl.GetProgramStage"/>
 		[RequiredByFeature("GL_VERSION_4_0")]
 		[RequiredByFeature("GL_ARB_shader_subroutine")]
 		public static void UniformSubroutines(int shadertype, UInt32[] indices)
@@ -1494,8 +1673,8 @@ namespace OpenGL
 		/// retrieve the value of a subroutine uniform of a given shader stage of the current program
 		/// </summary>
 		/// <param name="shadertype">
-		/// Specifies the shader stage from which to query for subroutine uniform index. shadertype must be one of GL_VERTEX_SHADER, 
-		/// GL_TESS_CONTROL_SHADER, GL_TESS_EVALUATION_SHADER, GL_GEOMETRY_SHADER or GL_FRAGMENT_SHADER.
+		/// Specifies the shader stage from which to query for subroutine uniform index. <paramref name="shadertype"/> must be one 
+		/// of Gl.VERTEX_SHADER, Gl.TESS_CONTROL_SHADER, Gl.TESS_EVALUATION_SHADER, Gl.GEOMETRY_SHADER or Gl.FRAGMENT_SHADER.
 		/// </param>
 		/// <param name="location">
 		/// Specifies the location of the subroutine uniform.
@@ -1503,6 +1682,20 @@ namespace OpenGL
 		/// <param name="params">
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
+		/// <remarks>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated if <paramref name="shadertype"/> is not one of the accepted values.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_VALUE is generated if <paramref name="location"/> is greater than or equal to the value of 
+		/// Gl.ACTIVE_SUBROUTINE_UNIFORM_LOCATIONS for the shader currently in use at shader stage <paramref name="shadertype"/>.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if no program is active.
+		/// </exception>
+		/// <seealso cref="Gl.GetProgram"/>
+		/// <seealso cref="Gl.GetActiveSubroutineUniform"/>
+		/// <seealso cref="Gl.GetActiveSubroutineUniformName"/>
+		/// <seealso cref="Gl.GetUniformLocation"/>
 		[RequiredByFeature("GL_VERSION_4_0")]
 		[RequiredByFeature("GL_ARB_shader_subroutine")]
 		public static void GetUniformSubroutine(int shadertype, Int32 location, out UInt32 @params)
@@ -1525,17 +1718,26 @@ namespace OpenGL
 		/// Specifies the name of the program containing shader stage.
 		/// </param>
 		/// <param name="shadertype">
-		/// Specifies the shader stage from which to query for the subroutine parameter. shadertype must be one of GL_VERTEX_SHADER, 
-		/// GL_TESS_CONTROL_SHADER, GL_TESS_EVALUATION_SHADER, GL_GEOMETRY_SHADER or GL_FRAGMENT_SHADER.
+		/// Specifies the shader stage from which to query for the subroutine parameter. <paramref name="shadertype"/> must be one 
+		/// of Gl.VERTEX_SHADER, Gl.TESS_CONTROL_SHADER, Gl.TESS_EVALUATION_SHADER, Gl.GEOMETRY_SHADER or Gl.FRAGMENT_SHADER.
 		/// </param>
 		/// <param name="pname">
-		/// Specifies the parameter of the shader to query. pname must be GL_ACTIVE_SUBROUTINE_UNIFORMS, 
-		/// GL_ACTIVE_SUBROUTINE_UNIFORM_LOCATIONS, GL_ACTIVE_SUBROUTINES, GL_ACTIVE_SUBROUTINE_UNIFORM_MAX_LENGTH, or 
-		/// GL_ACTIVE_SUBROUTINE_MAX_LENGTH.
+		/// Specifies the parameter of the shader to query. <paramref name="pname"/> must be Gl.ACTIVE_SUBROUTINE_UNIFORMS, 
+		/// Gl.ACTIVE_SUBROUTINE_UNIFORM_LOCATIONS, Gl.ACTIVE_SUBROUTINES, Gl.ACTIVE_SUBROUTINE_UNIFORM_MAX_LENGTH, or 
+		/// Gl.ACTIVE_SUBROUTINE_MAX_LENGTH.
 		/// </param>
 		/// <param name="values">
 		/// Specifies the address of a variable into which the queried value or values will be placed.
 		/// </param>
+		/// <remarks>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated if <paramref name="shadertype"/> or <paramref name="pname"/> is not one of the accepted 
+		/// values.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_VALUE is generated if <paramref name="program"/> is not the name of an existing program object.
+		/// </exception>
+		/// <seealso cref="Gl.GetProgram"/>
 		[RequiredByFeature("GL_VERSION_4_0")]
 		[RequiredByFeature("GL_ARB_shader_subroutine")]
 		public static void GetProgramStage(UInt32 program, int shadertype, int pname, out Int32 values)
@@ -1555,12 +1757,24 @@ namespace OpenGL
 		/// specifies the parameters for patch primitives
 		/// </summary>
 		/// <param name="pname">
-		/// Specifies the name of the parameter to set. The symbolc constants GL_PATCH_VERTICES, GL_PATCH_DEFAULT_OUTER_LEVEL, and 
-		/// GL_PATCH_DEFAULT_INNER_LEVEL are accepted.
+		/// Specifies the name of the parameter to set. The symbolc constants Gl.PATCH_VERTICES, Gl.PATCH_DEFAULT_OUTER_LEVEL, and 
+		/// Gl.PATCH_DEFAULT_INNER_LEVEL are accepted.
 		/// </param>
 		/// <param name="value">
-		/// Specifies the new value for the parameter given by pname.
+		/// Specifies the new value for the parameter given by <paramref name="pname"/>.
 		/// </param>
+		/// <remarks>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated if <paramref name="pname"/> is not an accepted value.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_VALUE is generated if <paramref name="pname"/> is Gl.PATCH_VERTICES and <paramref name="value"/> is less than 
+		/// or equal to zero, or greater than the value of Gl.MAX_PATCH_VERTICES.
+		/// </exception>
+		/// <seealso cref="Gl.DrawArrays"/>
+		/// <seealso cref="Gl.DrawArraysInstanced"/>
+		/// <seealso cref="Gl.DrawElements"/>
+		/// <seealso cref="Gl.DrawRangeElements"/>
 		[RequiredByFeature("GL_VERSION_4_0")]
 		[RequiredByFeature("GL_ARB_tessellation_shader")]
 		public static void PatchParameter(int pname, Int32 value)
@@ -1575,12 +1789,24 @@ namespace OpenGL
 		/// specifies the parameters for patch primitives
 		/// </summary>
 		/// <param name="pname">
-		/// Specifies the name of the parameter to set. The symbolc constants GL_PATCH_VERTICES, GL_PATCH_DEFAULT_OUTER_LEVEL, and 
-		/// GL_PATCH_DEFAULT_INNER_LEVEL are accepted.
+		/// Specifies the name of the parameter to set. The symbolc constants Gl.PATCH_VERTICES, Gl.PATCH_DEFAULT_OUTER_LEVEL, and 
+		/// Gl.PATCH_DEFAULT_INNER_LEVEL are accepted.
 		/// </param>
 		/// <param name="values">
-		/// Specifies the address of an array containing the new values for the parameter given by pname.
+		/// Specifies the address of an array containing the new values for the parameter given by <paramref name="pname"/>.
 		/// </param>
+		/// <remarks>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated if <paramref name="pname"/> is not an accepted value.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_VALUE is generated if <paramref name="pname"/> is Gl.PATCH_VERTICES and <paramref name="value"/> is less than 
+		/// or equal to zero, or greater than the value of Gl.MAX_PATCH_VERTICES.
+		/// </exception>
+		/// <seealso cref="Gl.DrawArrays"/>
+		/// <seealso cref="Gl.DrawArraysInstanced"/>
+		/// <seealso cref="Gl.DrawElements"/>
+		/// <seealso cref="Gl.DrawRangeElements"/>
 		[RequiredByFeature("GL_VERSION_4_0")]
 		[RequiredByFeature("GL_ARB_tessellation_shader")]
 		public static void PatchParameter(int pname, float[] values)
@@ -1600,11 +1826,31 @@ namespace OpenGL
 		/// bind a transform feedback object
 		/// </summary>
 		/// <param name="target">
-		/// Specifies the target to which to bind the transform feedback object id. target must be GL_TRANSFORM_FEEDBACK.
+		/// Specifies the target to which to bind the transform feedback object <paramref name="id"/>. <paramref name="target"/> 
+		/// must be Gl.TRANSFORM_FEEDBACK.
 		/// </param>
 		/// <param name="id">
 		/// Specifies the name of a transform feedback object reserved by glGenTransformFeedbacks.
 		/// </param>
+		/// <remarks>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated if <paramref name="target"/> is not Gl.TRANSFORM_FEEDBACK.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if the transform feedback operation is active on the currently bound transform 
+		/// feedback object, and that operation is not paused.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if <paramref name="id"/> is not zero or the name of a transform feedback object 
+		/// returned from a previous call to glGenTransformFeedbacks, or if such a name has been deleted by 
+		/// glDeleteTransformFeedbacks.
+		/// </exception>
+		/// <seealso cref="Gl.GenTransformFeedbacks"/>
+		/// <seealso cref="Gl.DeleteTransformFeedbacks"/>
+		/// <seealso cref="Gl.IsTransformFeedback"/>
+		/// <seealso cref="Gl.BeginTransformFeedback"/>
+		/// <seealso cref="Gl.PauseTransformFeedback"/>
+		/// <seealso cref="Gl.ResumeTransformFeedback"/>
+		/// <seealso cref="Gl.EndTransformFeedback"/>
 		[RequiredByFeature("GL_VERSION_4_0")]
 		[RequiredByFeature("GL_ARB_transform_feedback2")]
 		public static void BindTransformFeedback(int target, UInt32 id)
@@ -1624,6 +1870,13 @@ namespace OpenGL
 		/// <param name="ids">
 		/// Specifies an array of names of transform feedback objects to delete.
 		/// </param>
+		/// <seealso cref="Gl.GenTransformFeedbacks"/>
+		/// <seealso cref="Gl.BindTransformFeedback"/>
+		/// <seealso cref="Gl.IsTransformFeedback"/>
+		/// <seealso cref="Gl.BeginTransformFeedback"/>
+		/// <seealso cref="Gl.PauseTransformFeedback"/>
+		/// <seealso cref="Gl.ResumeTransformFeedback"/>
+		/// <seealso cref="Gl.EndTransformFeedback"/>
 		[RequiredByFeature("GL_VERSION_4_0")]
 		[RequiredByFeature("GL_ARB_transform_feedback2")]
 		public static void DeleteTransformFeedback(UInt32[] ids)
@@ -1648,6 +1901,13 @@ namespace OpenGL
 		/// <param name="ids">
 		/// Specifies an array of into which the reserved names will be written.
 		/// </param>
+		/// <seealso cref="Gl.DeleteTransformFeedbacks"/>
+		/// <seealso cref="Gl.BindTransformFeedback"/>
+		/// <seealso cref="Gl.IsTransformFeedback"/>
+		/// <seealso cref="Gl.BeginTransformFeedback"/>
+		/// <seealso cref="Gl.PauseTransformFeedback"/>
+		/// <seealso cref="Gl.ResumeTransformFeedback"/>
+		/// <seealso cref="Gl.EndTransformFeedback"/>
 		[RequiredByFeature("GL_VERSION_4_0")]
 		[RequiredByFeature("GL_ARB_transform_feedback2")]
 		public static void GenTransformFeedback(UInt32[] ids)
@@ -1666,6 +1926,13 @@ namespace OpenGL
 		/// <summary>
 		/// reserve transform feedback object names
 		/// </summary>
+		/// <seealso cref="Gl.DeleteTransformFeedbacks"/>
+		/// <seealso cref="Gl.BindTransformFeedback"/>
+		/// <seealso cref="Gl.IsTransformFeedback"/>
+		/// <seealso cref="Gl.BeginTransformFeedback"/>
+		/// <seealso cref="Gl.PauseTransformFeedback"/>
+		/// <seealso cref="Gl.ResumeTransformFeedback"/>
+		/// <seealso cref="Gl.EndTransformFeedback"/>
 		[RequiredByFeature("GL_VERSION_4_0")]
 		[RequiredByFeature("GL_ARB_transform_feedback2")]
 		public static UInt32 GenTransformFeedback()
@@ -1681,6 +1948,9 @@ namespace OpenGL
 		/// <param name="id">
 		/// Specifies a value that may be the name of a transform feedback object.
 		/// </param>
+		/// <seealso cref="Gl.GenTransformFeedbacks"/>
+		/// <seealso cref="Gl.BindTransformFeedback"/>
+		/// <seealso cref="Gl.DeleteTransformFeedbacks"/>
 		[RequiredByFeature("GL_VERSION_4_0")]
 		[RequiredByFeature("GL_ARB_transform_feedback2")]
 		public static bool IsTransformFeedback(UInt32 id)
@@ -1698,6 +1968,17 @@ namespace OpenGL
 		/// <summary>
 		/// pause transform feedback operations
 		/// </summary>
+		/// <remarks>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if the currently bound transform feedback object is not active or is paused.
+		/// </exception>
+		/// <seealso cref="Gl.GenTransformFeedbacks"/>
+		/// <seealso cref="Gl.BindTransformFeedback"/>
+		/// <seealso cref="Gl.BeginTransformFeedback"/>
+		/// <seealso cref="Gl.ResumeTransformFeedback"/>
+		/// <seealso cref="Gl.EndTransformFeedback"/>
+		/// <seealso cref="Gl.DeleteTransformFeedbacks"/>
 		[RequiredByFeature("GL_VERSION_4_0")]
 		[RequiredByFeature("GL_ARB_transform_feedback2")]
 		public static void PauseTransformFeedback()
@@ -1711,6 +1992,17 @@ namespace OpenGL
 		/// <summary>
 		/// resume transform feedback operations
 		/// </summary>
+		/// <remarks>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if the currently bound transform feedback object is not active or is not paused.
+		/// </exception>
+		/// <seealso cref="Gl.GenTransformFeedbacks"/>
+		/// <seealso cref="Gl.BindTransformFeedback"/>
+		/// <seealso cref="Gl.BeginTransformFeedback"/>
+		/// <seealso cref="Gl.PauseTransformFeedback"/>
+		/// <seealso cref="Gl.EndTransformFeedback"/>
+		/// <seealso cref="Gl.DeleteTransformFeedbacks"/>
 		[RequiredByFeature("GL_VERSION_4_0")]
 		[RequiredByFeature("GL_ARB_transform_feedback2")]
 		public static void ResumeTransformFeedback()
@@ -1725,13 +2017,36 @@ namespace OpenGL
 		/// render primitives using a count derived from a transform feedback object
 		/// </summary>
 		/// <param name="mode">
-		/// Specifies what kind of primitives to render. Symbolic constants GL_POINTS, GL_LINE_STRIP, GL_LINE_LOOP, GL_LINES, 
-		/// GL_LINE_STRIP_ADJACENCY, GL_LINES_ADJACENCY, GL_TRIANGLE_STRIP, GL_TRIANGLE_FAN, GL_TRIANGLES, 
-		/// GL_TRIANGLE_STRIP_ADJACENCY, GL_TRIANGLES_ADJACENCY, and GL_PATCHES are accepted.
+		/// Specifies what kind of primitives to render. Symbolic constants Gl.POINTS, Gl.LINE_STRIP, Gl.LINE_LOOP, Gl.LINES, 
+		/// Gl.LINE_STRIP_ADJACENCY, Gl.LINES_ADJACENCY, Gl.TRIANGLE_STRIP, Gl.TRIANGLE_FAN, Gl.TRIANGLES, 
+		/// Gl.TRIANGLE_STRIP_ADJACENCY, Gl.TRIANGLES_ADJACENCY, and Gl.PATCHES are accepted.
 		/// </param>
 		/// <param name="id">
 		/// Specifies the name of a transform feedback object from which to retrieve a primitive count.
 		/// </param>
+		/// <remarks>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated if <paramref name="mode"/> is not an accepted value.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_VALUE is generated if <paramref name="id"/> is not the name of a transform feedback object.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if a non-zero buffer object name is bound to an enabled array and the buffer object's 
+		/// data store is currently mapped.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if a geometry shader is active and <paramref name="mode"/> is incompatible with the 
+		/// input primitive type of the geometry shader in the currently installed program object.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if <paramref name="mode"/> is Gl.PATCHES and no tessellation control shader is active.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if glEndTransformFeedback has never been called while the transform feedback object 
+		/// named by <paramref name="id"/> was bound.
+		/// </exception>
+		/// <seealso cref="Gl.DrawArrays"/>
+		/// <seealso cref="Gl.DrawArraysInstanced"/>
+		/// <seealso cref="Gl.DrawElements"/>
+		/// <seealso cref="Gl.DrawRangeElements"/>
+		/// <seealso cref="Gl.DrawTransformFeedbackStream"/>
 		[RequiredByFeature("GL_VERSION_4_0")]
 		[RequiredByFeature("GL_ARB_transform_feedback2")]
 		public static void DrawTransformFeedback(PrimitiveType mode, UInt32 id)
@@ -1746,9 +2061,9 @@ namespace OpenGL
 		/// render primitives using a count derived from a specifed stream of a transform feedback object
 		/// </summary>
 		/// <param name="mode">
-		/// Specifies what kind of primitives to render. Symbolic constants GL_POINTS, GL_LINE_STRIP, GL_LINE_LOOP, GL_LINES, 
-		/// GL_LINE_STRIP_ADJACENCY, GL_LINES_ADJACENCY, GL_TRIANGLE_STRIP, GL_TRIANGLE_FAN, GL_TRIANGLES, 
-		/// GL_TRIANGLE_STRIP_ADJACENCY, GL_TRIANGLES_ADJACENCY, and GL_PATCHES are accepted.
+		/// Specifies what kind of primitives to render. Symbolic constants Gl.POINTS, Gl.LINE_STRIP, Gl.LINE_LOOP, Gl.LINES, 
+		/// Gl.LINE_STRIP_ADJACENCY, Gl.LINES_ADJACENCY, Gl.TRIANGLE_STRIP, Gl.TRIANGLE_FAN, Gl.TRIANGLES, 
+		/// Gl.TRIANGLE_STRIP_ADJACENCY, Gl.TRIANGLES_ADJACENCY, and Gl.PATCHES are accepted.
 		/// </param>
 		/// <param name="id">
 		/// Specifies the name of a transform feedback object from which to retrieve a primitive count.
@@ -1756,6 +2071,32 @@ namespace OpenGL
 		/// <param name="stream">
 		/// Specifies the index of the transform feedback stream from which to retrieve a primitive count.
 		/// </param>
+		/// <remarks>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated if <paramref name="mode"/> is not an accepted value.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_VALUE is generated if <paramref name="id"/> is not the name of a transform feedback object.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_VALUE is generated if <paramref name="stream"/> is greater than or equal to the value of 
+		/// Gl.MAX_VERTEX_STREAMS.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if a non-zero buffer object name is bound to an enabled array and the buffer object's 
+		/// data store is currently mapped.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if a geometry shader is active and <paramref name="mode"/> is incompatible with the 
+		/// input primitive type of the geometry shader in the currently installed program object.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if <paramref name="mode"/> is Gl.PATCHES and no tessellation control shader is active.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if glEndTransformFeedback has never been called while the transform feedback object 
+		/// named by <paramref name="id"/> was bound.
+		/// </exception>
+		/// <seealso cref="Gl.DrawArrays"/>
+		/// <seealso cref="Gl.DrawArraysInstanced"/>
+		/// <seealso cref="Gl.DrawElements"/>
+		/// <seealso cref="Gl.DrawRangeElements"/>
+		/// <seealso cref="Gl.DrawTransformFeedback"/>
 		[RequiredByFeature("GL_VERSION_4_0")]
 		[RequiredByFeature("GL_ARB_transform_feedback3")]
 		public static void DrawTransformFeedbackStream(PrimitiveType mode, UInt32 id, UInt32 stream)
@@ -1770,9 +2111,9 @@ namespace OpenGL
 		/// delimit the boundaries of a query object on an indexed target
 		/// </summary>
 		/// <param name="target">
-		/// Specifies the target type of query object established between glBeginQueryIndexed and the subsequent glEndQueryIndexed. 
-		/// The symbolic constant must be one of GL_SAMPLES_PASSED, GL_ANY_SAMPLES_PASSED, GL_PRIMITIVES_GENERATED, 
-		/// GL_TRANSFORM_FEEDBACK_PRIMITIVES_WRITTEN, or GL_TIME_ELAPSED.
+		/// Specifies the target type of query object established between Gl.BeginQueryIndexed and the subsequent glEndQueryIndexed. 
+		/// The symbolic constant must be one of Gl.SAMPLES_PASSED, Gl.ANY_SAMPLES_PASSED, Gl.PRIMITIVES_GENERATED, 
+		/// Gl.TRANSFORM_FEEDBACK_PRIMITIVES_WRITTEN, or Gl.TIME_ELAPSED.
 		/// </param>
 		/// <param name="index">
 		/// Specifies the index of the query target upon which to begin the query.
@@ -1780,6 +2121,33 @@ namespace OpenGL
 		/// <param name="id">
 		/// Specifies the name of a query object.
 		/// </param>
+		/// <remarks>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated if <paramref name="target"/> is not one of the accepted tokens.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_VALUE is generated if <paramref name="index"/> is greater than the query target-specific maximum.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if Gl.BeginQueryIndexed is executed while a query object of the same <paramref 
+		/// name="target"/> is already active.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if glEndQueryIndexed is executed when a query object of the same <paramref 
+		/// name="target"/> is not active.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if <paramref name="id"/> is 0.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if <paramref name="id"/> is the name of an already active query object.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if <paramref name="id"/> refers to an existing query object whose type does not does 
+		/// not match <paramref name="target"/>.
+		/// </exception>
+		/// <seealso cref="Gl.BeginQuery"/>
+		/// <seealso cref="Gl.DeleteQueries"/>
+		/// <seealso cref="Gl.EndQuery"/>
+		/// <seealso cref="Gl.GenQueries"/>
+		/// <seealso cref="Gl.GetQueryObject"/>
+		/// <seealso cref="Gl.GetQueryiv"/>
+		/// <seealso cref="Gl.IsQuery"/>
 		[RequiredByFeature("GL_VERSION_4_0")]
 		[RequiredByFeature("GL_ARB_transform_feedback3")]
 		public static void BeginQueryIndexed(int target, UInt32 index, UInt32 id)
@@ -1794,13 +2162,40 @@ namespace OpenGL
 		/// delimit the boundaries of a query object on an indexed target
 		/// </summary>
 		/// <param name="target">
-		/// Specifies the target type of query object established between glBeginQueryIndexed and the subsequent glEndQueryIndexed. 
-		/// The symbolic constant must be one of GL_SAMPLES_PASSED, GL_ANY_SAMPLES_PASSED, GL_PRIMITIVES_GENERATED, 
-		/// GL_TRANSFORM_FEEDBACK_PRIMITIVES_WRITTEN, or GL_TIME_ELAPSED.
+		/// Specifies the target type of query object established between Gl.BeginQueryIndexed and the subsequent glEndQueryIndexed. 
+		/// The symbolic constant must be one of Gl.SAMPLES_PASSED, Gl.ANY_SAMPLES_PASSED, Gl.PRIMITIVES_GENERATED, 
+		/// Gl.TRANSFORM_FEEDBACK_PRIMITIVES_WRITTEN, or Gl.TIME_ELAPSED.
 		/// </param>
 		/// <param name="index">
 		/// Specifies the index of the query target upon which to begin the query.
 		/// </param>
+		/// <remarks>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated if <paramref name="target"/> is not one of the accepted tokens.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_VALUE is generated if <paramref name="index"/> is greater than the query target-specific maximum.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if Gl.BeginQueryIndexed is executed while a query object of the same <paramref 
+		/// name="target"/> is already active.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if glEndQueryIndexed is executed when a query object of the same <paramref 
+		/// name="target"/> is not active.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if <paramref name="id"/> is 0.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if <paramref name="id"/> is the name of an already active query object.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if <paramref name="id"/> refers to an existing query object whose type does not does 
+		/// not match <paramref name="target"/>.
+		/// </exception>
+		/// <seealso cref="Gl.BeginQuery"/>
+		/// <seealso cref="Gl.DeleteQueries"/>
+		/// <seealso cref="Gl.EndQuery"/>
+		/// <seealso cref="Gl.GenQueries"/>
+		/// <seealso cref="Gl.GetQueryObject"/>
+		/// <seealso cref="Gl.GetQueryiv"/>
+		/// <seealso cref="Gl.IsQuery"/>
 		[RequiredByFeature("GL_VERSION_4_0")]
 		[RequiredByFeature("GL_ARB_transform_feedback3")]
 		public static void EndQueryIndexed(int target, UInt32 index)
@@ -1815,20 +2210,30 @@ namespace OpenGL
 		/// return parameters of an indexed query object target
 		/// </summary>
 		/// <param name="target">
-		/// Specifies a query object target. Must be GL_SAMPLES_PASSED, GL_ANY_SAMPLES_PASSED, 
-		/// GL_ANY_SAMPLES_PASSED_CONSERVATIVEGL_PRIMITIVES_GENERATED, GL_TRANSFORM_FEEDBACK_PRIMITIVES_WRITTEN, GL_TIME_ELAPSED, or 
-		/// GL_TIMESTAMP.
+		/// Specifies a query object target. Must be Gl.SAMPLES_PASSED, Gl.ANY_SAMPLES_PASSED, 
+		/// Gl.ANY_SAMPLES_PASSED_CONSERVATIVEGl.PRIMITIVES_GENERATED, Gl.TRANSFORM_FEEDBACK_PRIMITIVES_WRITTEN, Gl.TIME_ELAPSED, or 
+		/// Gl.TIMESTAMP.
 		/// </param>
 		/// <param name="index">
 		/// Specifies the index of the query object target.
 		/// </param>
 		/// <param name="pname">
-		/// Specifies the symbolic name of a query object target parameter. Accepted values are GL_CURRENT_QUERY or 
-		/// GL_QUERY_COUNTER_BITS.
+		/// Specifies the symbolic name of a query object target parameter. Accepted values are Gl.CURRENT_QUERY or 
+		/// Gl.QUERY_COUNTER_BITS.
 		/// </param>
 		/// <param name="params">
 		/// Returns the requested data.
 		/// </param>
+		/// <remarks>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated if <paramref name="target"/> or <paramref name="pname"/> is not an accepted value.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_VALUE is generated if <paramref name="index"/> is greater than or equal to the <paramref 
+		/// name="target"/>-specific maximum.
+		/// </exception>
+		/// <seealso cref="Gl.GetQueryObject"/>
+		/// <seealso cref="Gl.IsQuery"/>
 		[RequiredByFeature("GL_VERSION_4_0")]
 		[RequiredByFeature("GL_ARB_transform_feedback3")]
 		public static void GetQueryIndexed(int target, UInt32 index, int pname, Int32[] @params)

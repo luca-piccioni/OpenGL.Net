@@ -53,7 +53,7 @@ namespace OpenGL.Test
 		/// Test Gl.CreateProgram.
 		/// </summary>
 		[Test]
-		public void CreateShader()
+		public void TestCreateShader()
 		{
 			if (!HasVersion(2, 0))
 				Assert.Inconclusive("OpenGL 2.0");

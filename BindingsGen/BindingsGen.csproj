@@ -97,10 +97,10 @@
     <EmbeddedResource Include="GLSpecs\ExtWords.xml" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="GLSpecs\CsCodeDoc_Man2.xslt" />
+    <EmbeddedResource Include="GLSpecs\CommandDoc_Man2.xslt" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="GLSpecs\CsCodeDoc_Man4.xslt" />
+    <EmbeddedResource Include="GLSpecs\CommandDoc_Man4.xslt" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
@@ -148,6 +148,12 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="GLSpecs\GlesWords.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="GLSpecs\EnumerantDoc_Man4.xslt" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="GLSpecs\EnumerantDoc_Man2.xslt" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

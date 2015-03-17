@@ -1467,7 +1467,7 @@ namespace OpenGL
 
 			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glCreateShader", ExactSpelling = true)]
-			internal extern static UInt32 glCreateShader(int type);
+			internal extern static UInt32 glCreateShader(int shaderType);
 
 			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glCreateShaderObjectARB", ExactSpelling = true)]

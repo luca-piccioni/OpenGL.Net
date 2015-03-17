@@ -56,12 +56,25 @@ namespace OpenGL
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		/// <param name="attribute">
-		/// Specifies that a context parameter should be retrieved. Must be one of <see cref="Gl._SHARED_CONTEXT_EXT"/>, <see 
-		/// cref="Gl._VISUAL_ID_EXT"/>, or <see cref="Gl._SCREEN_EXT"/>.
+		/// Specifies that a context parameter should be retrieved. Must be one of Glx.SHARED_CONTEXT_EXT, Glx.VISUAL_ID_EXT, or 
+		/// Glx.SCREEN_EXT.
 		/// </param>
 		/// <param name="value">
 		/// Contains the return value for <paramref name="attribute"/>.
 		/// </param>
+		/// <remarks>
+		/// <para>The exceptions below won't be thrown; caller must check result manually.</para>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Glx.adContext is generated if <paramref name="ctx"/> does not refer to a valid context.
+		/// <exception cref="InvalidOperationException">
+		/// Glx.BAD_ATTRIBUTE is returned if <paramref name="attribute"/> is not a valid GLX context attribute.
+		/// <exception cref="InvalidOperationException">
+		/// fred Glx.BAD_CONTEXT is returned if <paramref name="attribute"/> is not a valid context.
+		/// </exception>
+		/// <seealso cref="Glx.CreateContext"/>
+		/// <seealso cref="Glx.QueryVersion"/>
+		/// <seealso cref="Glx.QueryExtensionsString"/>
 		[RequiredByFeature("GLX_EXT_import_context")]
 		public static int QueryContextInfoEXT(IntPtr dpy, IntPtr context, int attribute, int[] value)
 		{
@@ -85,6 +98,15 @@ namespace OpenGL
 		/// <param name="context">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
+		/// <remarks>
+		/// <para>The exception below won't be thrown; caller must check result manually.</para>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Glx.adContext is generated if <paramref name="ctx"/> does not refer to a valid context.
+		/// </exception>
+		/// <seealso cref="Glx.CreateContext"/>
+		/// <seealso cref="Glx.QueryVersion"/>
+		/// <seealso cref="Glx.QueryExtensionsString"/>
 		[RequiredByFeature("GLX_EXT_import_context")]
 		public static IntPtr GetContextIDEXT(IntPtr context)
 		{
@@ -106,6 +128,17 @@ namespace OpenGL
 		/// <param name="contextID">
 		/// Specifies a GLX rendering context.
 		/// </param>
+		/// <remarks>
+		/// <para>The exception below won't be thrown; caller must check result manually.</para>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Glx.adContext is generated if <paramref name="contextID"/> does not refer to a valid context.
+		/// </exception>
+		/// <seealso cref="Glx.CreateContext"/>
+		/// <seealso cref="Glx.QueryVersion"/>
+		/// <seealso cref="Glx.QueryExtensionsString"/>
+		/// <seealso cref="Glx.GetContextIDEXT"/>
+		/// <seealso cref="Glx.FreeContextEXT"/>
 		[RequiredByFeature("GLX_EXT_import_context")]
 		public static IntPtr ImportContextEXT(IntPtr dpy, IntPtr contextID)
 		{
@@ -127,6 +160,16 @@ namespace OpenGL
 		/// <param name="context">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
+		/// <remarks>
+		/// <para>The exception below won't be thrown; caller must check result manually.</para>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Glx.adContext is generated if <paramref name="ctx"/> does not refer to a valid context.
+		/// </exception>
+		/// <seealso cref="Glx.CreateContext"/>
+		/// <seealso cref="Glx.QueryVersion"/>
+		/// <seealso cref="Glx.QueryExtensionsString"/>
+		/// <seealso cref="Glx.ImportContextEXT"/>
 		[RequiredByFeature("GLX_EXT_import_context")]
 		public static void FreeContextEXT(IntPtr dpy, IntPtr context)
 		{

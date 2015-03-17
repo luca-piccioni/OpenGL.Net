@@ -1695,6 +1695,9 @@ namespace OpenGL
 		/// <param name="a">
 		/// A <see cref="T:bool"/>.
 		/// </param>
+		/// <seealso cref="Gl.Clear"/>
+		/// <seealso cref="Gl.DepthMask"/>
+		/// <seealso cref="Gl.StencilMask"/>
 		[RequiredByFeature("GL_VERSION_3_0")]
 		public static void ColorMask(UInt32 index, bool r, bool g, bool b, bool a)
 		{
@@ -1708,8 +1711,8 @@ namespace OpenGL
 		/// return the value or values of a selected parameter
 		/// </summary>
 		/// <param name="target">
-		/// Specifies the parameter value to be returned for indexed versions of glGet. The symbolic constants in the list below are 
-		/// accepted.
+		/// Specifies the parameter value to be returned for indexed versions of Gl.Get. The symbolic constants in the list below 
+		/// are accepted.
 		/// </param>
 		/// <param name="index">
 		/// Specifies the index of the particular element being queried.
@@ -1717,6 +1720,38 @@ namespace OpenGL
 		/// <param name="data">
 		/// Returns the value or values of the specified parameter.
 		/// </param>
+		/// <remarks>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated if <paramref name="pname"/> is not an accepted value.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_VALUE is generated on any of Gl.GetBooleani_v, Gl.GetIntegeri_v, or Gl.GetInteger64i_v if <paramref 
+		/// name="index"/> is outside of the valid range for the indexed state <paramref name="target"/>.
+		/// </exception>
+		/// <seealso cref="Gl.GetActiveUniform"/>
+		/// <seealso cref="Gl.GetAttachedShaders"/>
+		/// <seealso cref="Gl.GetAttribLocation"/>
+		/// <seealso cref="Gl.GetBufferParameter"/>
+		/// <seealso cref="Gl.GetBufferPointerv"/>
+		/// <seealso cref="Gl.GetBufferSubData"/>
+		/// <seealso cref="Gl.GetCompressedTexImage"/>
+		/// <seealso cref="Gl.GetError"/>
+		/// <seealso cref="Gl.GetProgram"/>
+		/// <seealso cref="Gl.GetProgramInfoLog"/>
+		/// <seealso cref="Gl.GetQueryiv"/>
+		/// <seealso cref="Gl.GetQueryObject"/>
+		/// <seealso cref="Gl.GetShader"/>
+		/// <seealso cref="Gl.GetShaderInfoLog"/>
+		/// <seealso cref="Gl.GetShaderSource"/>
+		/// <seealso cref="Gl.GetString"/>
+		/// <seealso cref="Gl.GetTexImage"/>
+		/// <seealso cref="Gl.GetTexLevelParameter"/>
+		/// <seealso cref="Gl.GetTexParameter"/>
+		/// <seealso cref="Gl.GetUniform"/>
+		/// <seealso cref="Gl.GetUniformLocation"/>
+		/// <seealso cref="Gl.GetVertexAttrib"/>
+		/// <seealso cref="Gl.GetVertexAttribPointerv"/>
+		/// <seealso cref="Gl.IsEnabled"/>
 		[RequiredByFeature("GL_VERSION_3_0")]
 		public static void Get(int target, UInt32 index, bool[] data)
 		{
@@ -1735,8 +1770,8 @@ namespace OpenGL
 		/// return the value or values of a selected parameter
 		/// </summary>
 		/// <param name="target">
-		/// Specifies the parameter value to be returned for indexed versions of glGet. The symbolic constants in the list below are 
-		/// accepted.
+		/// Specifies the parameter value to be returned for indexed versions of Gl.Get. The symbolic constants in the list below 
+		/// are accepted.
 		/// </param>
 		/// <param name="index">
 		/// Specifies the index of the particular element being queried.
@@ -1744,6 +1779,38 @@ namespace OpenGL
 		/// <param name="data">
 		/// Returns the value or values of the specified parameter.
 		/// </param>
+		/// <remarks>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated if <paramref name="pname"/> is not an accepted value.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_VALUE is generated on any of Gl.GetBooleani_v, Gl.GetIntegeri_v, or Gl.GetInteger64i_v if <paramref 
+		/// name="index"/> is outside of the valid range for the indexed state <paramref name="target"/>.
+		/// </exception>
+		/// <seealso cref="Gl.GetActiveUniform"/>
+		/// <seealso cref="Gl.GetAttachedShaders"/>
+		/// <seealso cref="Gl.GetAttribLocation"/>
+		/// <seealso cref="Gl.GetBufferParameter"/>
+		/// <seealso cref="Gl.GetBufferPointerv"/>
+		/// <seealso cref="Gl.GetBufferSubData"/>
+		/// <seealso cref="Gl.GetCompressedTexImage"/>
+		/// <seealso cref="Gl.GetError"/>
+		/// <seealso cref="Gl.GetProgram"/>
+		/// <seealso cref="Gl.GetProgramInfoLog"/>
+		/// <seealso cref="Gl.GetQueryiv"/>
+		/// <seealso cref="Gl.GetQueryObject"/>
+		/// <seealso cref="Gl.GetShader"/>
+		/// <seealso cref="Gl.GetShaderInfoLog"/>
+		/// <seealso cref="Gl.GetShaderSource"/>
+		/// <seealso cref="Gl.GetString"/>
+		/// <seealso cref="Gl.GetTexImage"/>
+		/// <seealso cref="Gl.GetTexLevelParameter"/>
+		/// <seealso cref="Gl.GetTexParameter"/>
+		/// <seealso cref="Gl.GetUniform"/>
+		/// <seealso cref="Gl.GetUniformLocation"/>
+		/// <seealso cref="Gl.GetVertexAttrib"/>
+		/// <seealso cref="Gl.GetVertexAttribPointerv"/>
+		/// <seealso cref="Gl.IsEnabled"/>
 		[RequiredByFeature("GL_VERSION_3_0")]
 		public static void Get(int target, UInt32 index, out bool data)
 		{
@@ -1762,8 +1829,8 @@ namespace OpenGL
 		/// return the value or values of a selected parameter
 		/// </summary>
 		/// <param name="target">
-		/// Specifies the parameter value to be returned for indexed versions of glGet. The symbolic constants in the list below are 
-		/// accepted.
+		/// Specifies the parameter value to be returned for indexed versions of Gl.Get. The symbolic constants in the list below 
+		/// are accepted.
 		/// </param>
 		/// <param name="index">
 		/// Specifies the index of the particular element being queried.
@@ -1771,6 +1838,38 @@ namespace OpenGL
 		/// <param name="data">
 		/// Returns the value or values of the specified parameter.
 		/// </param>
+		/// <remarks>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated if <paramref name="pname"/> is not an accepted value.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_VALUE is generated on any of Gl.GetBooleani_v, Gl.GetIntegeri_v, or Gl.GetInteger64i_v if <paramref 
+		/// name="index"/> is outside of the valid range for the indexed state <paramref name="target"/>.
+		/// </exception>
+		/// <seealso cref="Gl.GetActiveUniform"/>
+		/// <seealso cref="Gl.GetAttachedShaders"/>
+		/// <seealso cref="Gl.GetAttribLocation"/>
+		/// <seealso cref="Gl.GetBufferParameter"/>
+		/// <seealso cref="Gl.GetBufferPointerv"/>
+		/// <seealso cref="Gl.GetBufferSubData"/>
+		/// <seealso cref="Gl.GetCompressedTexImage"/>
+		/// <seealso cref="Gl.GetError"/>
+		/// <seealso cref="Gl.GetProgram"/>
+		/// <seealso cref="Gl.GetProgramInfoLog"/>
+		/// <seealso cref="Gl.GetQueryiv"/>
+		/// <seealso cref="Gl.GetQueryObject"/>
+		/// <seealso cref="Gl.GetShader"/>
+		/// <seealso cref="Gl.GetShaderInfoLog"/>
+		/// <seealso cref="Gl.GetShaderSource"/>
+		/// <seealso cref="Gl.GetString"/>
+		/// <seealso cref="Gl.GetTexImage"/>
+		/// <seealso cref="Gl.GetTexLevelParameter"/>
+		/// <seealso cref="Gl.GetTexParameter"/>
+		/// <seealso cref="Gl.GetUniform"/>
+		/// <seealso cref="Gl.GetUniformLocation"/>
+		/// <seealso cref="Gl.GetVertexAttrib"/>
+		/// <seealso cref="Gl.GetVertexAttribPointerv"/>
+		/// <seealso cref="Gl.IsEnabled"/>
 		[RequiredByFeature("GL_VERSION_3_0")]
 		public static void Get(int target, UInt32 index, Int32[] data)
 		{
@@ -1789,8 +1888,8 @@ namespace OpenGL
 		/// return the value or values of a selected parameter
 		/// </summary>
 		/// <param name="target">
-		/// Specifies the parameter value to be returned for indexed versions of glGet. The symbolic constants in the list below are 
-		/// accepted.
+		/// Specifies the parameter value to be returned for indexed versions of Gl.Get. The symbolic constants in the list below 
+		/// are accepted.
 		/// </param>
 		/// <param name="index">
 		/// Specifies the index of the particular element being queried.
@@ -1798,6 +1897,38 @@ namespace OpenGL
 		/// <param name="data">
 		/// Returns the value or values of the specified parameter.
 		/// </param>
+		/// <remarks>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated if <paramref name="pname"/> is not an accepted value.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_VALUE is generated on any of Gl.GetBooleani_v, Gl.GetIntegeri_v, or Gl.GetInteger64i_v if <paramref 
+		/// name="index"/> is outside of the valid range for the indexed state <paramref name="target"/>.
+		/// </exception>
+		/// <seealso cref="Gl.GetActiveUniform"/>
+		/// <seealso cref="Gl.GetAttachedShaders"/>
+		/// <seealso cref="Gl.GetAttribLocation"/>
+		/// <seealso cref="Gl.GetBufferParameter"/>
+		/// <seealso cref="Gl.GetBufferPointerv"/>
+		/// <seealso cref="Gl.GetBufferSubData"/>
+		/// <seealso cref="Gl.GetCompressedTexImage"/>
+		/// <seealso cref="Gl.GetError"/>
+		/// <seealso cref="Gl.GetProgram"/>
+		/// <seealso cref="Gl.GetProgramInfoLog"/>
+		/// <seealso cref="Gl.GetQueryiv"/>
+		/// <seealso cref="Gl.GetQueryObject"/>
+		/// <seealso cref="Gl.GetShader"/>
+		/// <seealso cref="Gl.GetShaderInfoLog"/>
+		/// <seealso cref="Gl.GetShaderSource"/>
+		/// <seealso cref="Gl.GetString"/>
+		/// <seealso cref="Gl.GetTexImage"/>
+		/// <seealso cref="Gl.GetTexLevelParameter"/>
+		/// <seealso cref="Gl.GetTexParameter"/>
+		/// <seealso cref="Gl.GetUniform"/>
+		/// <seealso cref="Gl.GetUniformLocation"/>
+		/// <seealso cref="Gl.GetVertexAttrib"/>
+		/// <seealso cref="Gl.GetVertexAttribPointerv"/>
+		/// <seealso cref="Gl.IsEnabled"/>
 		[RequiredByFeature("GL_VERSION_3_0")]
 		public static void Get(int target, UInt32 index, out Int32 data)
 		{
@@ -1857,6 +1988,17 @@ namespace OpenGL
 		/// <param name="index">
 		/// Specifies the index of the capability.
 		/// </param>
+		/// <remarks>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated if <paramref name="cap"/> is not an accepted value.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_VALUE is generated by Gl.IsEnabledi if <paramref name="index"/> is outside the valid range for the indexed 
+		/// state <paramref name="cap"/>.
+		/// </exception>
+		/// <seealso cref="Gl.Enable"/>
+		/// <seealso cref="Gl.Disable"/>
+		/// <seealso cref="Gl.Get"/>
 		[RequiredByFeature("GL_VERSION_3_0")]
 		public static bool IsEnabledi(int target, UInt32 index)
 		{
@@ -1877,6 +2019,25 @@ namespace OpenGL
 		/// Specify the output type of the primitives that will be recorded into the buffer objects that are bound for transform 
 		/// feedback.
 		/// </param>
+		/// <remarks>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if Gl.BeginTransformFeedback is executed while transform feedback is active.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if Gl.EndTransformFeedback is executed while transform feedback is not active.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated by glDrawArrays if no geometry shader is present, transform feedback is active and 
+		/// <paramref name="mode"/> is not one of the allowed modes.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated by glDrawArrays if a geometry shader is present, transform feedback is active and the 
+		/// output primitive type of the geometry shader does not match the transform feedback <paramref name="primitiveMode"/>.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated by Gl.EndTransformFeedback if any binding point used in transform feedback mode does 
+		/// not have a buffer object bound.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated by Gl.EndTransformFeedback if no binding points would be used, either because no 
+		/// program object is active of because the active program object has specified no varying variables to record.
+		/// </exception>
 		[RequiredByFeature("GL_VERSION_3_0")]
 		public static void BeginTransformFeedback(int primitiveMode)
 		{
@@ -1889,6 +2050,25 @@ namespace OpenGL
 		/// <summary>
 		/// start transform feedback operation
 		/// </summary>
+		/// <remarks>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if Gl.BeginTransformFeedback is executed while transform feedback is active.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if Gl.EndTransformFeedback is executed while transform feedback is not active.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated by glDrawArrays if no geometry shader is present, transform feedback is active and 
+		/// <paramref name="mode"/> is not one of the allowed modes.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated by glDrawArrays if a geometry shader is present, transform feedback is active and the 
+		/// output primitive type of the geometry shader does not match the transform feedback <paramref name="primitiveMode"/>.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated by Gl.EndTransformFeedback if any binding point used in transform feedback mode does 
+		/// not have a buffer object bound.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated by Gl.EndTransformFeedback if no binding points would be used, either because no 
+		/// program object is active of because the active program object has specified no varying variables to record.
+		/// </exception>
 		[RequiredByFeature("GL_VERSION_3_0")]
 		public static void EndTransformFeedback()
 		{
@@ -1902,21 +2082,42 @@ namespace OpenGL
 		/// bind a range within a buffer object to an indexed buffer target
 		/// </summary>
 		/// <param name="target">
-		/// Specify the target of the bind operation. target must be one of GL_ATOMIC_COUNTER_BUFFER, GL_TRANSFORM_FEEDBACK_BUFFER, 
-		/// GL_UNIFORM_BUFFER, or GL_SHADER_STORAGE_BUFFER.
+		/// Specify the target of the bind operation. <paramref name="target"/> must be one of Gl.ATOMIC_COUNTER_BUFFER, 
+		/// Gl.TRANSFORM_FEEDBACK_BUFFER, Gl.UNIFORM_BUFFER, or Gl.SHADER_STORAGE_BUFFER.
 		/// </param>
 		/// <param name="index">
-		/// Specify the index of the binding point within the array specified by target.
+		/// Specify the index of the binding point within the array specified by <paramref name="target"/>.
 		/// </param>
 		/// <param name="buffer">
 		/// The name of a buffer object to bind to the specified binding point.
 		/// </param>
 		/// <param name="offset">
-		/// The starting offset in basic machine units into the buffer object buffer.
+		/// The starting offset in basic machine units into the buffer object <paramref name="buffer"/>.
 		/// </param>
 		/// <param name="size">
 		/// The amount of data in machine units that can be read from the buffer object while used as an indexed target.
 		/// </param>
+		/// <remarks>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated if <paramref name="target"/> is not one of Gl.ATOMIC_COUNTER_BUFFER, 
+		/// Gl.TRANSFORM_FEEDBACK_BUFFER, Gl.UNIFORM_BUFFER or Gl.SHADER_STORAGE_BUFFER.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_VALUE is generated if <paramref name="index"/> is greater than or equal to the number of <paramref 
+		/// name="target"/>-specific indexed binding points.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_VALUE is generated if <paramref name="size"/> is less than or equal to zero, or if <paramref name="offset"/> 
+		/// + <paramref name="size"/> is greater than the value of Gl.BUFFER_SIZE.
+		/// <exception cref="InvalidOperationException">
+		/// Additional errors may be generated if <paramref name="offset"/> violates any <paramref name="target"/>-specific 
+		/// alignmemt restrictions.
+		/// </exception>
+		/// <seealso cref="Gl.GenBuffers"/>
+		/// <seealso cref="Gl.DeleteBuffers"/>
+		/// <seealso cref="Gl.BindBuffer"/>
+		/// <seealso cref="Gl.BindBufferBase"/>
+		/// <seealso cref="Gl.MapBuffer"/>
+		/// <seealso cref="Gl.UnmapBuffer"/>
 		[RequiredByFeature("GL_VERSION_3_0")]
 		public static void BindBufferRange(int target, UInt32 index, UInt32 buffer, IntPtr offset, UInt32 size)
 		{
@@ -1930,15 +2131,33 @@ namespace OpenGL
 		/// bind a buffer object to an indexed buffer target
 		/// </summary>
 		/// <param name="target">
-		/// Specify the target of the bind operation. target must be one of GL_ATOMIC_COUNTER_BUFFER, GL_TRANSFORM_FEEDBACK_BUFFER, 
-		/// GL_UNIFORM_BUFFER or GL_SHADER_STORAGE_BUFFER.
+		/// Specify the target of the bind operation. <paramref name="target"/> must be one of Gl.ATOMIC_COUNTER_BUFFER, 
+		/// Gl.TRANSFORM_FEEDBACK_BUFFER, Gl.UNIFORM_BUFFER or Gl.SHADER_STORAGE_BUFFER.
 		/// </param>
 		/// <param name="index">
-		/// Specify the index of the binding point within the array specified by target.
+		/// Specify the index of the binding point within the array specified by <paramref name="target"/>.
 		/// </param>
 		/// <param name="buffer">
 		/// The name of a buffer object to bind to the specified binding point.
 		/// </param>
+		/// <remarks>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated if <paramref name="target"/> is not Gl.ATOMIC_COUNTER_BUFFER, Gl.TRANSFORM_FEEDBACK_BUFFER, 
+		/// Gl.UNIFORM_BUFFER or Gl.SHADER_STORAGE_BUFFER.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_VALUE is generated if <paramref name="index"/> is greater than or equal to the number of <paramref 
+		/// name="target"/>-specific indexed binding points.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_VALUE is generated if <paramref name="buffer"/> does not have an associated data store, or if the size of 
+		/// that store is zero.
+		/// </exception>
+		/// <seealso cref="Gl.GenBuffers"/>
+		/// <seealso cref="Gl.DeleteBuffers"/>
+		/// <seealso cref="Gl.BindBuffer"/>
+		/// <seealso cref="Gl.BindBufferRange"/>
+		/// <seealso cref="Gl.MapBuffer"/>
+		/// <seealso cref="Gl.UnmapBuffer"/>
 		[RequiredByFeature("GL_VERSION_3_0")]
 		public static void BindBufferBase(int target, UInt32 index, UInt32 buffer)
 		{
@@ -1958,12 +2177,24 @@ namespace OpenGL
 		/// The number of varying variables used for transform feedback.
 		/// </param>
 		/// <param name="varyings">
-		/// An array of count zero-terminated strings specifying the names of the varying variables to use for transform feedback.
+		/// An array of <paramref name="count"/> zero-terminated strings specifying the names of the varying variables to use for 
+		/// transform feedback.
 		/// </param>
 		/// <param name="bufferMode">
-		/// Identifies the mode used to capture the varying variables when transform feedback is active. bufferMode must be 
-		/// GL_INTERLEAVED_ATTRIBS or GL_SEPARATE_ATTRIBS.
+		/// Identifies the mode used to capture the varying variables when transform feedback is active. <paramref 
+		/// name="bufferMode"/> must be Gl.INTERLEAVED_ATTRIBS or Gl.SEPARATE_ATTRIBS.
 		/// </param>
+		/// <remarks>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_VALUE is generated if <paramref name="program"/> is not the name of a program object.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_VALUE is generated if <paramref name="bufferMode"/> is Gl.SEPARATE_ATTRIBS and <paramref name="count"/> is 
+		/// greater than the implementation-dependent limit Gl.MAX_TRANSFORM_FEEDBACK_SEPARATE_ATTRIBS.
+		/// </exception>
+		/// <seealso cref="Gl.BeginTransformFeedback"/>
+		/// <seealso cref="Gl.EndTransformFeedback"/>
+		/// <seealso cref="Gl.GetTransformFeedbackVarying"/>
 		[RequiredByFeature("GL_VERSION_3_0")]
 		public static void TransformFeedbackVarying(UInt32 program, String[] varyings, int bufferMode)
 		{
@@ -1983,11 +2214,11 @@ namespace OpenGL
 		/// The index of the varying variable whose information to retrieve.
 		/// </param>
 		/// <param name="bufSize">
-		/// The maximum number of characters, including the null terminator, that may be written into name.
+		/// The maximum number of characters, including the null terminator, that may be written into <paramref name="name"/>.
 		/// </param>
 		/// <param name="length">
-		/// The address of a variable which will receive the number of characters written into name, excluding the null-terminator. 
-		/// If length is NULL no length is returned.
+		/// The address of a variable which will receive the number of characters written into <paramref name="name"/>, excluding 
+		/// the null-terminator. If <paramref name="length"/> is Gl.L no length is returned.
 		/// </param>
 		/// <param name="size">
 		/// The address of a variable that will receive the size of the varying.
@@ -1998,6 +2229,20 @@ namespace OpenGL
 		/// <param name="name">
 		/// The address of a buffer into which will be written the name of the varying.
 		/// </param>
+		/// <remarks>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_VALUE is generated if <paramref name="program"/> is not the name of a program object.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_VALUE is generated if <paramref name="index"/> is greater or equal to the value of 
+		/// Gl.TRANSFORM_FEEDBACK_VARYINGS.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated <paramref name="program"/> has not been linked.
+		/// </exception>
+		/// <seealso cref="Gl.BeginTransformFeedback"/>
+		/// <seealso cref="Gl.EndTransformFeedback"/>
+		/// <seealso cref="Gl.TransformFeedbackVaryings"/>
+		/// <seealso cref="Gl.GetProgram"/>
 		[RequiredByFeature("GL_VERSION_3_0")]
 		public static void GetTransformFeedbackVarying(UInt32 program, UInt32 index, Int32 bufSize, out Int32 length, out Int32 size, out int type, [Out] StringBuilder name)
 		{
@@ -2018,11 +2263,18 @@ namespace OpenGL
 		/// specify whether data read via glReadPixels should be clamped
 		/// </summary>
 		/// <param name="target">
-		/// Target for color clamping. target must be GL_CLAMP_READ_COLOR.
+		/// Target for color clamping. <paramref name="target"/> must be Gl.CLAMP_READ_COLOR.
 		/// </param>
 		/// <param name="clamp">
-		/// Specifies whether to apply color clamping. clamp must be GL_TRUE or GL_FALSE.
+		/// Specifies whether to apply color clamping. <paramref name="clamp"/> must be Gl.TRUE or Gl.FALSE.
 		/// </param>
+		/// <remarks>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated if <paramref name="target"/> is not Gl.CLAMP_READ_COLOR.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated if <paramref name="clamp"/> is not Gl.TRUE or Gl.FALSE.
+		/// </exception>
 		[RequiredByFeature("GL_VERSION_3_0")]
 		public static void ClampColor(int target, int clamp)
 		{
@@ -2040,8 +2292,26 @@ namespace OpenGL
 		/// discarded.
 		/// </param>
 		/// <param name="mode">
-		/// Specifies how glBeginConditionalRender interprets the results of the occlusion query.
+		/// Specifies how Gl.BeginConditionalRender interprets the results of the occlusion query.
 		/// </param>
+		/// <remarks>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_VALUE is generated if <paramref name="id"/> is not the name of an existing query object.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated if <paramref name="mode"/> is not one of the accepted tokens.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if Gl.BeginConditionalRender is called while conditional rendering is active, or if 
+		/// Gl.EndConditionalRender is called while conditional rendering is inactive.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if <paramref name="id"/> is the name of a query object with a target other than 
+		/// Gl.SAMPLES_PASSED or Gl.ANY_SAMPLES_PASSED.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if <paramref name="id"/> is the name of a query currently in progress.
+		/// </exception>
+		/// <seealso cref="Gl.GenQueries"/>
+		/// <seealso cref="Gl.DeleteQueries"/>
+		/// <seealso cref="Gl.BeginQuery"/>
 		[RequiredByFeature("GL_VERSION_3_0")]
 		public static void BeginConditionalRender(UInt32 id, int mode)
 		{
@@ -2054,6 +2324,24 @@ namespace OpenGL
 		/// <summary>
 		/// start conditional rendering
 		/// </summary>
+		/// <remarks>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_VALUE is generated if <paramref name="id"/> is not the name of an existing query object.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated if <paramref name="mode"/> is not one of the accepted tokens.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if Gl.BeginConditionalRender is called while conditional rendering is active, or if 
+		/// Gl.EndConditionalRender is called while conditional rendering is inactive.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if <paramref name="id"/> is the name of a query object with a target other than 
+		/// Gl.SAMPLES_PASSED or Gl.ANY_SAMPLES_PASSED.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if <paramref name="id"/> is the name of a query currently in progress.
+		/// </exception>
+		/// <seealso cref="Gl.GenQueries"/>
+		/// <seealso cref="Gl.DeleteQueries"/>
+		/// <seealso cref="Gl.BeginQuery"/>
 		[RequiredByFeature("GL_VERSION_3_0")]
 		public static void EndConditionalRender()
 		{
@@ -2071,24 +2359,60 @@ namespace OpenGL
 		/// </param>
 		/// <param name="size">
 		/// Specifies the number of components per generic vertex attribute. Must be 1, 2, 3, 4. Additionally, the symbolic constant 
-		/// GL_BGRA is accepted by glVertexAttribPointer. The initial value is 4.
+		/// Gl.BGRA is accepted by Gl.VertexAttribPointer. The initial value is 4.
 		/// </param>
 		/// <param name="type">
-		/// Specifies the data type of each component in the array. The symbolic constants GL_BYTE, GL_UNSIGNED_BYTE, GL_SHORT, 
-		/// GL_UNSIGNED_SHORT, GL_INT, and GL_UNSIGNED_INT are accepted by glVertexAttribPointer and glVertexAttribIPointer. 
-		/// Additionally GL_HALF_FLOAT, GL_FLOAT, GL_DOUBLE, GL_FIXED, GL_INT_2_10_10_10_REV, GL_UNSIGNED_INT_2_10_10_10_REV and 
-		/// GL_UNSIGNED_INT_10F_11F_11F_REV are accepted by glVertexAttribPointer. GL_DOUBLE is also accepted by 
-		/// glVertexAttribLPointer and is the only token accepted by the type parameter for that function. The initial value is 
-		/// GL_FLOAT.
+		/// Specifies the data type of each component in the array. The symbolic constants Gl.BYTE, Gl.UNSIGNED_BYTE, Gl.SHORT, 
+		/// Gl.UNSIGNED_SHORT, Gl.INT, and Gl.UNSIGNED_INT are accepted by Gl.VertexAttribPointer and Gl.VertexAttribIPointer. 
+		/// Additionally Gl.HALF_FLOAT, Gl.FLOAT, Gl.DOUBLE, Gl.FIXED, Gl.INT_2_10_10_10_REV, Gl.UNSIGNED_INT_2_10_10_10_REV and 
+		/// Gl.UNSIGNED_INT_10F_11F_11F_REV are accepted by Gl.VertexAttribPointer. Gl.DOUBLE is also accepted by 
+		/// Gl.VertexAttribLPointer and is the only token accepted by the <paramref name="type"/> parameter for that function. The 
+		/// initial value is Gl.FLOAT.
 		/// </param>
 		/// <param name="stride">
-		/// Specifies the byte offset between consecutive generic vertex attributes. If stride is 0, the generic vertex attributes 
-		/// are understood to be tightly packed in the array. The initial value is 0.
+		/// Specifies the byte offset between consecutive generic vertex attributes. If <paramref name="stride"/> is 0, the generic 
+		/// vertex attributes are understood to be tightly packed in the array. The initial value is 0.
 		/// </param>
 		/// <param name="pointer">
 		/// Specifies a offset of the first component of the first generic vertex attribute in the array in the data store of the 
-		/// buffer currently bound to the GL_ARRAY_BUFFER target. The initial value is 0.
+		/// buffer currently bound to the Gl.ARRAY_BUFFER target. The initial value is 0.
 		/// </param>
+		/// <remarks>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_VALUE is generated if <paramref name="index"/> is greater than or equal to Gl.MAX_VERTEX_ATTRIBS.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_VALUE is generated if <paramref name="size"/> is not 1, 2, 3, 4 or (for Gl.VertexAttribPointer), Gl.BGRA.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated if <paramref name="type"/> is not an accepted value.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_VALUE is generated if <paramref name="stride"/> is negative.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if <paramref name="size"/> is Gl.BGRA and <paramref name="type"/> is not 
+		/// Gl.UNSIGNED_BYTE, Gl.INT_2_10_10_10_REV or Gl.UNSIGNED_INT_2_10_10_10_REV.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if <paramref name="type"/> is Gl.INT_2_10_10_10_REV or Gl.UNSIGNED_INT_2_10_10_10_REV 
+		/// and <paramref name="size"/> is not 4 or Gl.BGRA.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if <paramref name="type"/> is Gl.UNSIGNED_INT_10F_11F_11F_REV and <paramref 
+		/// name="size"/> is not 3.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated by Gl.VertexAttribPointer if <paramref name="size"/> is Gl.BGRA and <paramref 
+		/// name="noramlized"/> is Gl.FALSE.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if zero is bound to the Gl.ARRAY_BUFFER buffer object binding point and the <paramref 
+		/// name="pointer"/> argument is not Gl.L.
+		/// </exception>
+		/// <seealso cref="Gl.BindAttribLocation"/>
+		/// <seealso cref="Gl.BindBuffer"/>
+		/// <seealso cref="Gl.DisableVertexAttribArray"/>
+		/// <seealso cref="Gl.DrawArrays"/>
+		/// <seealso cref="Gl.DrawElements"/>
+		/// <seealso cref="Gl.DrawRangeElements"/>
+		/// <seealso cref="Gl.EnableVertexAttribArray"/>
+		/// <seealso cref="Gl.MultiDrawArrays"/>
+		/// <seealso cref="Gl.MultiDrawElements"/>
+		/// <seealso cref="Gl.VertexAttrib"/>
 		[RequiredByFeature("GL_VERSION_3_0")]
 		public static void VertexAttribIPointer(UInt32 index, Int32 size, int type, Int32 stride, IntPtr pointer)
 		{
@@ -2106,24 +2430,60 @@ namespace OpenGL
 		/// </param>
 		/// <param name="size">
 		/// Specifies the number of components per generic vertex attribute. Must be 1, 2, 3, 4. Additionally, the symbolic constant 
-		/// GL_BGRA is accepted by glVertexAttribPointer. The initial value is 4.
+		/// Gl.BGRA is accepted by Gl.VertexAttribPointer. The initial value is 4.
 		/// </param>
 		/// <param name="type">
-		/// Specifies the data type of each component in the array. The symbolic constants GL_BYTE, GL_UNSIGNED_BYTE, GL_SHORT, 
-		/// GL_UNSIGNED_SHORT, GL_INT, and GL_UNSIGNED_INT are accepted by glVertexAttribPointer and glVertexAttribIPointer. 
-		/// Additionally GL_HALF_FLOAT, GL_FLOAT, GL_DOUBLE, GL_FIXED, GL_INT_2_10_10_10_REV, GL_UNSIGNED_INT_2_10_10_10_REV and 
-		/// GL_UNSIGNED_INT_10F_11F_11F_REV are accepted by glVertexAttribPointer. GL_DOUBLE is also accepted by 
-		/// glVertexAttribLPointer and is the only token accepted by the type parameter for that function. The initial value is 
-		/// GL_FLOAT.
+		/// Specifies the data type of each component in the array. The symbolic constants Gl.BYTE, Gl.UNSIGNED_BYTE, Gl.SHORT, 
+		/// Gl.UNSIGNED_SHORT, Gl.INT, and Gl.UNSIGNED_INT are accepted by Gl.VertexAttribPointer and Gl.VertexAttribIPointer. 
+		/// Additionally Gl.HALF_FLOAT, Gl.FLOAT, Gl.DOUBLE, Gl.FIXED, Gl.INT_2_10_10_10_REV, Gl.UNSIGNED_INT_2_10_10_10_REV and 
+		/// Gl.UNSIGNED_INT_10F_11F_11F_REV are accepted by Gl.VertexAttribPointer. Gl.DOUBLE is also accepted by 
+		/// Gl.VertexAttribLPointer and is the only token accepted by the <paramref name="type"/> parameter for that function. The 
+		/// initial value is Gl.FLOAT.
 		/// </param>
 		/// <param name="stride">
-		/// Specifies the byte offset between consecutive generic vertex attributes. If stride is 0, the generic vertex attributes 
-		/// are understood to be tightly packed in the array. The initial value is 0.
+		/// Specifies the byte offset between consecutive generic vertex attributes. If <paramref name="stride"/> is 0, the generic 
+		/// vertex attributes are understood to be tightly packed in the array. The initial value is 0.
 		/// </param>
 		/// <param name="pointer">
 		/// Specifies a offset of the first component of the first generic vertex attribute in the array in the data store of the 
-		/// buffer currently bound to the GL_ARRAY_BUFFER target. The initial value is 0.
+		/// buffer currently bound to the Gl.ARRAY_BUFFER target. The initial value is 0.
 		/// </param>
+		/// <remarks>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_VALUE is generated if <paramref name="index"/> is greater than or equal to Gl.MAX_VERTEX_ATTRIBS.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_VALUE is generated if <paramref name="size"/> is not 1, 2, 3, 4 or (for Gl.VertexAttribPointer), Gl.BGRA.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated if <paramref name="type"/> is not an accepted value.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_VALUE is generated if <paramref name="stride"/> is negative.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if <paramref name="size"/> is Gl.BGRA and <paramref name="type"/> is not 
+		/// Gl.UNSIGNED_BYTE, Gl.INT_2_10_10_10_REV or Gl.UNSIGNED_INT_2_10_10_10_REV.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if <paramref name="type"/> is Gl.INT_2_10_10_10_REV or Gl.UNSIGNED_INT_2_10_10_10_REV 
+		/// and <paramref name="size"/> is not 4 or Gl.BGRA.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if <paramref name="type"/> is Gl.UNSIGNED_INT_10F_11F_11F_REV and <paramref 
+		/// name="size"/> is not 3.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated by Gl.VertexAttribPointer if <paramref name="size"/> is Gl.BGRA and <paramref 
+		/// name="noramlized"/> is Gl.FALSE.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if zero is bound to the Gl.ARRAY_BUFFER buffer object binding point and the <paramref 
+		/// name="pointer"/> argument is not Gl.L.
+		/// </exception>
+		/// <seealso cref="Gl.BindAttribLocation"/>
+		/// <seealso cref="Gl.BindBuffer"/>
+		/// <seealso cref="Gl.DisableVertexAttribArray"/>
+		/// <seealso cref="Gl.DrawArrays"/>
+		/// <seealso cref="Gl.DrawElements"/>
+		/// <seealso cref="Gl.DrawRangeElements"/>
+		/// <seealso cref="Gl.EnableVertexAttribArray"/>
+		/// <seealso cref="Gl.MultiDrawArrays"/>
+		/// <seealso cref="Gl.MultiDrawElements"/>
+		/// <seealso cref="Gl.VertexAttrib"/>
 		[RequiredByFeature("GL_VERSION_3_0")]
 		public static void VertexAttribIPointer(UInt32 index, Int32 size, int type, Int32 stride, Object pointer)
 		{
@@ -2143,13 +2503,33 @@ namespace OpenGL
 		/// </param>
 		/// <param name="pname">
 		/// Specifies the symbolic name of the vertex attribute parameter to be queried. Accepted values are 
-		/// GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING, GL_VERTEX_ATTRIB_ARRAY_ENABLED, GL_VERTEX_ATTRIB_ARRAY_SIZE, 
-		/// GL_VERTEX_ATTRIB_ARRAY_STRIDE, GL_VERTEX_ATTRIB_ARRAY_TYPE, GL_VERTEX_ATTRIB_ARRAY_NORMALIZED, 
-		/// GL_VERTEX_ATTRIB_ARRAY_INTEGER, GL_VERTEX_ATTRIB_ARRAY_DIVISOR, or GL_CURRENT_VERTEX_ATTRIB.
+		/// Gl.VERTEX_ATTRIB_ARRAY_BUFFER_BINDING, Gl.VERTEX_ATTRIB_ARRAY_ENABLED, Gl.VERTEX_ATTRIB_ARRAY_SIZE, 
+		/// Gl.VERTEX_ATTRIB_ARRAY_STRIDE, Gl.VERTEX_ATTRIB_ARRAY_TYPE, Gl.VERTEX_ATTRIB_ARRAY_NORMALIZED, 
+		/// Gl.VERTEX_ATTRIB_ARRAY_INTEGER, Gl.VERTEX_ATTRIB_ARRAY_DIVISOR, or Gl.CURRENT_VERTEX_ATTRIB.
 		/// </param>
 		/// <param name="params">
 		/// Returns the requested data.
 		/// </param>
+		/// <remarks>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if <paramref name="pname"/> is not Gl.CURRENT_VERTEX_ATTRIB and there is no currently 
+		/// bound vertex array object.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_VALUE is generated if <paramref name="index"/> is greater than or equal to Gl.MAX_VERTEX_ATTRIBS.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated if <paramref name="pname"/> is not an accepted value.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if <paramref name="index"/> is 0 and <paramref name="pname"/> is 
+		/// Gl.CURRENT_VERTEX_ATTRIB.
+		/// </exception>
+		/// <seealso cref="Gl.BindAttribLocation"/>
+		/// <seealso cref="Gl.BindBuffer"/>
+		/// <seealso cref="Gl.DisableVertexAttribArray"/>
+		/// <seealso cref="Gl.EnableVertexAttribArray"/>
+		/// <seealso cref="Gl.VertexAttrib"/>
+		/// <seealso cref="Gl.VertexAttribDivisor"/>
+		/// <seealso cref="Gl.VertexAttribPointer"/>
 		[RequiredByFeature("GL_VERSION_3_0")]
 		public static void GetVertexAttribI(UInt32 index, int pname, out Int32 @params)
 		{
@@ -2172,13 +2552,33 @@ namespace OpenGL
 		/// </param>
 		/// <param name="pname">
 		/// Specifies the symbolic name of the vertex attribute parameter to be queried. Accepted values are 
-		/// GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING, GL_VERTEX_ATTRIB_ARRAY_ENABLED, GL_VERTEX_ATTRIB_ARRAY_SIZE, 
-		/// GL_VERTEX_ATTRIB_ARRAY_STRIDE, GL_VERTEX_ATTRIB_ARRAY_TYPE, GL_VERTEX_ATTRIB_ARRAY_NORMALIZED, 
-		/// GL_VERTEX_ATTRIB_ARRAY_INTEGER, GL_VERTEX_ATTRIB_ARRAY_DIVISOR, or GL_CURRENT_VERTEX_ATTRIB.
+		/// Gl.VERTEX_ATTRIB_ARRAY_BUFFER_BINDING, Gl.VERTEX_ATTRIB_ARRAY_ENABLED, Gl.VERTEX_ATTRIB_ARRAY_SIZE, 
+		/// Gl.VERTEX_ATTRIB_ARRAY_STRIDE, Gl.VERTEX_ATTRIB_ARRAY_TYPE, Gl.VERTEX_ATTRIB_ARRAY_NORMALIZED, 
+		/// Gl.VERTEX_ATTRIB_ARRAY_INTEGER, Gl.VERTEX_ATTRIB_ARRAY_DIVISOR, or Gl.CURRENT_VERTEX_ATTRIB.
 		/// </param>
 		/// <param name="params">
 		/// Returns the requested data.
 		/// </param>
+		/// <remarks>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if <paramref name="pname"/> is not Gl.CURRENT_VERTEX_ATTRIB and there is no currently 
+		/// bound vertex array object.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_VALUE is generated if <paramref name="index"/> is greater than or equal to Gl.MAX_VERTEX_ATTRIBS.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated if <paramref name="pname"/> is not an accepted value.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if <paramref name="index"/> is 0 and <paramref name="pname"/> is 
+		/// Gl.CURRENT_VERTEX_ATTRIB.
+		/// </exception>
+		/// <seealso cref="Gl.BindAttribLocation"/>
+		/// <seealso cref="Gl.BindBuffer"/>
+		/// <seealso cref="Gl.DisableVertexAttribArray"/>
+		/// <seealso cref="Gl.EnableVertexAttribArray"/>
+		/// <seealso cref="Gl.VertexAttrib"/>
+		/// <seealso cref="Gl.VertexAttribDivisor"/>
+		/// <seealso cref="Gl.VertexAttribPointer"/>
 		[RequiredByFeature("GL_VERSION_3_0")]
 		public static void GetVertexAttribI(UInt32 index, int pname, out UInt32 @params)
 		{
@@ -2202,6 +2602,18 @@ namespace OpenGL
 		/// <param name="x">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
+		/// <remarks>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_VALUE is generated if <paramref name="index"/> is greater than or equal to Gl.MAX_VERTEX_ATTRIBS.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated if Gl.VertexAttribP* is used with a <paramref name="type"/> other than 
+		/// Gl.INT_2_10_10_10_REV, Gl.UNSIGNED_INT_2_10_10_10_REV, or Gl.UNSIGNED_INT_10F_11F_11F_REV.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated if Gl.VertexAttribL is used with a <paramref name="type"/> other than Gl.DOUBLE.
+		/// </exception>
+		/// <seealso cref="Gl.BindAttribLocation"/>
+		/// <seealso cref="Gl.VertexAttribPointer"/>
 		[RequiredByFeature("GL_VERSION_3_0")]
 		public static void VertexAttribI1(UInt32 index, Int32 x)
 		{
@@ -2223,6 +2635,18 @@ namespace OpenGL
 		/// <param name="y">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
+		/// <remarks>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_VALUE is generated if <paramref name="index"/> is greater than or equal to Gl.MAX_VERTEX_ATTRIBS.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated if Gl.VertexAttribP* is used with a <paramref name="type"/> other than 
+		/// Gl.INT_2_10_10_10_REV, Gl.UNSIGNED_INT_2_10_10_10_REV, or Gl.UNSIGNED_INT_10F_11F_11F_REV.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated if Gl.VertexAttribL is used with a <paramref name="type"/> other than Gl.DOUBLE.
+		/// </exception>
+		/// <seealso cref="Gl.BindAttribLocation"/>
+		/// <seealso cref="Gl.VertexAttribPointer"/>
 		[RequiredByFeature("GL_VERSION_3_0")]
 		public static void VertexAttribI2(UInt32 index, Int32 x, Int32 y)
 		{
@@ -2247,6 +2671,18 @@ namespace OpenGL
 		/// <param name="z">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
+		/// <remarks>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_VALUE is generated if <paramref name="index"/> is greater than or equal to Gl.MAX_VERTEX_ATTRIBS.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated if Gl.VertexAttribP* is used with a <paramref name="type"/> other than 
+		/// Gl.INT_2_10_10_10_REV, Gl.UNSIGNED_INT_2_10_10_10_REV, or Gl.UNSIGNED_INT_10F_11F_11F_REV.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated if Gl.VertexAttribL is used with a <paramref name="type"/> other than Gl.DOUBLE.
+		/// </exception>
+		/// <seealso cref="Gl.BindAttribLocation"/>
+		/// <seealso cref="Gl.VertexAttribPointer"/>
 		[RequiredByFeature("GL_VERSION_3_0")]
 		public static void VertexAttribI3(UInt32 index, Int32 x, Int32 y, Int32 z)
 		{
@@ -2274,6 +2710,18 @@ namespace OpenGL
 		/// <param name="w">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
+		/// <remarks>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_VALUE is generated if <paramref name="index"/> is greater than or equal to Gl.MAX_VERTEX_ATTRIBS.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated if Gl.VertexAttribP* is used with a <paramref name="type"/> other than 
+		/// Gl.INT_2_10_10_10_REV, Gl.UNSIGNED_INT_2_10_10_10_REV, or Gl.UNSIGNED_INT_10F_11F_11F_REV.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated if Gl.VertexAttribL is used with a <paramref name="type"/> other than Gl.DOUBLE.
+		/// </exception>
+		/// <seealso cref="Gl.BindAttribLocation"/>
+		/// <seealso cref="Gl.VertexAttribPointer"/>
 		[RequiredByFeature("GL_VERSION_3_0")]
 		public static void VertexAttribI4(UInt32 index, Int32 x, Int32 y, Int32 z, Int32 w)
 		{
@@ -2292,6 +2740,18 @@ namespace OpenGL
 		/// <param name="x">
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
+		/// <remarks>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_VALUE is generated if <paramref name="index"/> is greater than or equal to Gl.MAX_VERTEX_ATTRIBS.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated if Gl.VertexAttribP* is used with a <paramref name="type"/> other than 
+		/// Gl.INT_2_10_10_10_REV, Gl.UNSIGNED_INT_2_10_10_10_REV, or Gl.UNSIGNED_INT_10F_11F_11F_REV.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated if Gl.VertexAttribL is used with a <paramref name="type"/> other than Gl.DOUBLE.
+		/// </exception>
+		/// <seealso cref="Gl.BindAttribLocation"/>
+		/// <seealso cref="Gl.VertexAttribPointer"/>
 		[RequiredByFeature("GL_VERSION_3_0")]
 		public static void VertexAttribI1(UInt32 index, UInt32 x)
 		{
@@ -2313,6 +2773,18 @@ namespace OpenGL
 		/// <param name="y">
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
+		/// <remarks>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_VALUE is generated if <paramref name="index"/> is greater than or equal to Gl.MAX_VERTEX_ATTRIBS.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated if Gl.VertexAttribP* is used with a <paramref name="type"/> other than 
+		/// Gl.INT_2_10_10_10_REV, Gl.UNSIGNED_INT_2_10_10_10_REV, or Gl.UNSIGNED_INT_10F_11F_11F_REV.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated if Gl.VertexAttribL is used with a <paramref name="type"/> other than Gl.DOUBLE.
+		/// </exception>
+		/// <seealso cref="Gl.BindAttribLocation"/>
+		/// <seealso cref="Gl.VertexAttribPointer"/>
 		[RequiredByFeature("GL_VERSION_3_0")]
 		public static void VertexAttribI2(UInt32 index, UInt32 x, UInt32 y)
 		{
@@ -2337,6 +2809,18 @@ namespace OpenGL
 		/// <param name="z">
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
+		/// <remarks>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_VALUE is generated if <paramref name="index"/> is greater than or equal to Gl.MAX_VERTEX_ATTRIBS.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated if Gl.VertexAttribP* is used with a <paramref name="type"/> other than 
+		/// Gl.INT_2_10_10_10_REV, Gl.UNSIGNED_INT_2_10_10_10_REV, or Gl.UNSIGNED_INT_10F_11F_11F_REV.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated if Gl.VertexAttribL is used with a <paramref name="type"/> other than Gl.DOUBLE.
+		/// </exception>
+		/// <seealso cref="Gl.BindAttribLocation"/>
+		/// <seealso cref="Gl.VertexAttribPointer"/>
 		[RequiredByFeature("GL_VERSION_3_0")]
 		public static void VertexAttribI3(UInt32 index, UInt32 x, UInt32 y, UInt32 z)
 		{
@@ -2364,6 +2848,18 @@ namespace OpenGL
 		/// <param name="w">
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
+		/// <remarks>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_VALUE is generated if <paramref name="index"/> is greater than or equal to Gl.MAX_VERTEX_ATTRIBS.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated if Gl.VertexAttribP* is used with a <paramref name="type"/> other than 
+		/// Gl.INT_2_10_10_10_REV, Gl.UNSIGNED_INT_2_10_10_10_REV, or Gl.UNSIGNED_INT_10F_11F_11F_REV.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated if Gl.VertexAttribL is used with a <paramref name="type"/> other than Gl.DOUBLE.
+		/// </exception>
+		/// <seealso cref="Gl.BindAttribLocation"/>
+		/// <seealso cref="Gl.VertexAttribPointer"/>
 		[RequiredByFeature("GL_VERSION_3_0")]
 		public static void VertexAttribI4(UInt32 index, UInt32 x, UInt32 y, UInt32 z, UInt32 w)
 		{
@@ -2380,9 +2876,21 @@ namespace OpenGL
 		/// Specifies the index of the generic vertex attribute to be modified.
 		/// </param>
 		/// <param name="v">
-		/// For the vector commands (glVertexAttrib*v), specifies a pointer to an array of values to be used for the generic vertex 
+		/// For the vector commands (Gl.VertexAttrib*v), specifies a pointer to an array of values to be used for the generic vertex 
 		/// attribute.
 		/// </param>
+		/// <remarks>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_VALUE is generated if <paramref name="index"/> is greater than or equal to Gl.MAX_VERTEX_ATTRIBS.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated if Gl.VertexAttribP* is used with a <paramref name="type"/> other than 
+		/// Gl.INT_2_10_10_10_REV, Gl.UNSIGNED_INT_2_10_10_10_REV, or Gl.UNSIGNED_INT_10F_11F_11F_REV.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated if Gl.VertexAttribL is used with a <paramref name="type"/> other than Gl.DOUBLE.
+		/// </exception>
+		/// <seealso cref="Gl.BindAttribLocation"/>
+		/// <seealso cref="Gl.VertexAttribPointer"/>
 		[RequiredByFeature("GL_VERSION_3_0")]
 		public static void VertexAttribI1(UInt32 index, Int32[] v)
 		{
@@ -2404,9 +2912,21 @@ namespace OpenGL
 		/// Specifies the index of the generic vertex attribute to be modified.
 		/// </param>
 		/// <param name="v">
-		/// For the vector commands (glVertexAttrib*v), specifies a pointer to an array of values to be used for the generic vertex 
+		/// For the vector commands (Gl.VertexAttrib*v), specifies a pointer to an array of values to be used for the generic vertex 
 		/// attribute.
 		/// </param>
+		/// <remarks>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_VALUE is generated if <paramref name="index"/> is greater than or equal to Gl.MAX_VERTEX_ATTRIBS.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated if Gl.VertexAttribP* is used with a <paramref name="type"/> other than 
+		/// Gl.INT_2_10_10_10_REV, Gl.UNSIGNED_INT_2_10_10_10_REV, or Gl.UNSIGNED_INT_10F_11F_11F_REV.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated if Gl.VertexAttribL is used with a <paramref name="type"/> other than Gl.DOUBLE.
+		/// </exception>
+		/// <seealso cref="Gl.BindAttribLocation"/>
+		/// <seealso cref="Gl.VertexAttribPointer"/>
 		[RequiredByFeature("GL_VERSION_3_0")]
 		public static void VertexAttribI2(UInt32 index, Int32[] v)
 		{
@@ -2428,9 +2948,21 @@ namespace OpenGL
 		/// Specifies the index of the generic vertex attribute to be modified.
 		/// </param>
 		/// <param name="v">
-		/// For the vector commands (glVertexAttrib*v), specifies a pointer to an array of values to be used for the generic vertex 
+		/// For the vector commands (Gl.VertexAttrib*v), specifies a pointer to an array of values to be used for the generic vertex 
 		/// attribute.
 		/// </param>
+		/// <remarks>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_VALUE is generated if <paramref name="index"/> is greater than or equal to Gl.MAX_VERTEX_ATTRIBS.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated if Gl.VertexAttribP* is used with a <paramref name="type"/> other than 
+		/// Gl.INT_2_10_10_10_REV, Gl.UNSIGNED_INT_2_10_10_10_REV, or Gl.UNSIGNED_INT_10F_11F_11F_REV.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated if Gl.VertexAttribL is used with a <paramref name="type"/> other than Gl.DOUBLE.
+		/// </exception>
+		/// <seealso cref="Gl.BindAttribLocation"/>
+		/// <seealso cref="Gl.VertexAttribPointer"/>
 		[RequiredByFeature("GL_VERSION_3_0")]
 		public static void VertexAttribI3(UInt32 index, Int32[] v)
 		{
@@ -2452,9 +2984,21 @@ namespace OpenGL
 		/// Specifies the index of the generic vertex attribute to be modified.
 		/// </param>
 		/// <param name="v">
-		/// For the vector commands (glVertexAttrib*v), specifies a pointer to an array of values to be used for the generic vertex 
+		/// For the vector commands (Gl.VertexAttrib*v), specifies a pointer to an array of values to be used for the generic vertex 
 		/// attribute.
 		/// </param>
+		/// <remarks>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_VALUE is generated if <paramref name="index"/> is greater than or equal to Gl.MAX_VERTEX_ATTRIBS.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated if Gl.VertexAttribP* is used with a <paramref name="type"/> other than 
+		/// Gl.INT_2_10_10_10_REV, Gl.UNSIGNED_INT_2_10_10_10_REV, or Gl.UNSIGNED_INT_10F_11F_11F_REV.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated if Gl.VertexAttribL is used with a <paramref name="type"/> other than Gl.DOUBLE.
+		/// </exception>
+		/// <seealso cref="Gl.BindAttribLocation"/>
+		/// <seealso cref="Gl.VertexAttribPointer"/>
 		[RequiredByFeature("GL_VERSION_3_0")]
 		public static void VertexAttribI4(UInt32 index, Int32[] v)
 		{
@@ -2476,9 +3020,21 @@ namespace OpenGL
 		/// Specifies the index of the generic vertex attribute to be modified.
 		/// </param>
 		/// <param name="v">
-		/// For the vector commands (glVertexAttrib*v), specifies a pointer to an array of values to be used for the generic vertex 
+		/// For the vector commands (Gl.VertexAttrib*v), specifies a pointer to an array of values to be used for the generic vertex 
 		/// attribute.
 		/// </param>
+		/// <remarks>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_VALUE is generated if <paramref name="index"/> is greater than or equal to Gl.MAX_VERTEX_ATTRIBS.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated if Gl.VertexAttribP* is used with a <paramref name="type"/> other than 
+		/// Gl.INT_2_10_10_10_REV, Gl.UNSIGNED_INT_2_10_10_10_REV, or Gl.UNSIGNED_INT_10F_11F_11F_REV.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated if Gl.VertexAttribL is used with a <paramref name="type"/> other than Gl.DOUBLE.
+		/// </exception>
+		/// <seealso cref="Gl.BindAttribLocation"/>
+		/// <seealso cref="Gl.VertexAttribPointer"/>
 		[RequiredByFeature("GL_VERSION_3_0")]
 		public static void VertexAttribI1(UInt32 index, UInt32[] v)
 		{
@@ -2500,9 +3056,21 @@ namespace OpenGL
 		/// Specifies the index of the generic vertex attribute to be modified.
 		/// </param>
 		/// <param name="v">
-		/// For the vector commands (glVertexAttrib*v), specifies a pointer to an array of values to be used for the generic vertex 
+		/// For the vector commands (Gl.VertexAttrib*v), specifies a pointer to an array of values to be used for the generic vertex 
 		/// attribute.
 		/// </param>
+		/// <remarks>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_VALUE is generated if <paramref name="index"/> is greater than or equal to Gl.MAX_VERTEX_ATTRIBS.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated if Gl.VertexAttribP* is used with a <paramref name="type"/> other than 
+		/// Gl.INT_2_10_10_10_REV, Gl.UNSIGNED_INT_2_10_10_10_REV, or Gl.UNSIGNED_INT_10F_11F_11F_REV.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated if Gl.VertexAttribL is used with a <paramref name="type"/> other than Gl.DOUBLE.
+		/// </exception>
+		/// <seealso cref="Gl.BindAttribLocation"/>
+		/// <seealso cref="Gl.VertexAttribPointer"/>
 		[RequiredByFeature("GL_VERSION_3_0")]
 		public static void VertexAttribI2(UInt32 index, UInt32[] v)
 		{
@@ -2524,9 +3092,21 @@ namespace OpenGL
 		/// Specifies the index of the generic vertex attribute to be modified.
 		/// </param>
 		/// <param name="v">
-		/// For the vector commands (glVertexAttrib*v), specifies a pointer to an array of values to be used for the generic vertex 
+		/// For the vector commands (Gl.VertexAttrib*v), specifies a pointer to an array of values to be used for the generic vertex 
 		/// attribute.
 		/// </param>
+		/// <remarks>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_VALUE is generated if <paramref name="index"/> is greater than or equal to Gl.MAX_VERTEX_ATTRIBS.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated if Gl.VertexAttribP* is used with a <paramref name="type"/> other than 
+		/// Gl.INT_2_10_10_10_REV, Gl.UNSIGNED_INT_2_10_10_10_REV, or Gl.UNSIGNED_INT_10F_11F_11F_REV.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated if Gl.VertexAttribL is used with a <paramref name="type"/> other than Gl.DOUBLE.
+		/// </exception>
+		/// <seealso cref="Gl.BindAttribLocation"/>
+		/// <seealso cref="Gl.VertexAttribPointer"/>
 		[RequiredByFeature("GL_VERSION_3_0")]
 		public static void VertexAttribI3(UInt32 index, UInt32[] v)
 		{
@@ -2548,9 +3128,21 @@ namespace OpenGL
 		/// Specifies the index of the generic vertex attribute to be modified.
 		/// </param>
 		/// <param name="v">
-		/// For the vector commands (glVertexAttrib*v), specifies a pointer to an array of values to be used for the generic vertex 
+		/// For the vector commands (Gl.VertexAttrib*v), specifies a pointer to an array of values to be used for the generic vertex 
 		/// attribute.
 		/// </param>
+		/// <remarks>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_VALUE is generated if <paramref name="index"/> is greater than or equal to Gl.MAX_VERTEX_ATTRIBS.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated if Gl.VertexAttribP* is used with a <paramref name="type"/> other than 
+		/// Gl.INT_2_10_10_10_REV, Gl.UNSIGNED_INT_2_10_10_10_REV, or Gl.UNSIGNED_INT_10F_11F_11F_REV.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated if Gl.VertexAttribL is used with a <paramref name="type"/> other than Gl.DOUBLE.
+		/// </exception>
+		/// <seealso cref="Gl.BindAttribLocation"/>
+		/// <seealso cref="Gl.VertexAttribPointer"/>
 		[RequiredByFeature("GL_VERSION_3_0")]
 		public static void VertexAttribI4(UInt32 index, UInt32[] v)
 		{
@@ -2572,9 +3164,21 @@ namespace OpenGL
 		/// Specifies the index of the generic vertex attribute to be modified.
 		/// </param>
 		/// <param name="v">
-		/// For the vector commands (glVertexAttrib*v), specifies a pointer to an array of values to be used for the generic vertex 
+		/// For the vector commands (Gl.VertexAttrib*v), specifies a pointer to an array of values to be used for the generic vertex 
 		/// attribute.
 		/// </param>
+		/// <remarks>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_VALUE is generated if <paramref name="index"/> is greater than or equal to Gl.MAX_VERTEX_ATTRIBS.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated if Gl.VertexAttribP* is used with a <paramref name="type"/> other than 
+		/// Gl.INT_2_10_10_10_REV, Gl.UNSIGNED_INT_2_10_10_10_REV, or Gl.UNSIGNED_INT_10F_11F_11F_REV.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated if Gl.VertexAttribL is used with a <paramref name="type"/> other than Gl.DOUBLE.
+		/// </exception>
+		/// <seealso cref="Gl.BindAttribLocation"/>
+		/// <seealso cref="Gl.VertexAttribPointer"/>
 		[RequiredByFeature("GL_VERSION_3_0")]
 		public static void VertexAttribI4(UInt32 index, sbyte[] v)
 		{
@@ -2596,9 +3200,21 @@ namespace OpenGL
 		/// Specifies the index of the generic vertex attribute to be modified.
 		/// </param>
 		/// <param name="v">
-		/// For the vector commands (glVertexAttrib*v), specifies a pointer to an array of values to be used for the generic vertex 
+		/// For the vector commands (Gl.VertexAttrib*v), specifies a pointer to an array of values to be used for the generic vertex 
 		/// attribute.
 		/// </param>
+		/// <remarks>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_VALUE is generated if <paramref name="index"/> is greater than or equal to Gl.MAX_VERTEX_ATTRIBS.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated if Gl.VertexAttribP* is used with a <paramref name="type"/> other than 
+		/// Gl.INT_2_10_10_10_REV, Gl.UNSIGNED_INT_2_10_10_10_REV, or Gl.UNSIGNED_INT_10F_11F_11F_REV.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated if Gl.VertexAttribL is used with a <paramref name="type"/> other than Gl.DOUBLE.
+		/// </exception>
+		/// <seealso cref="Gl.BindAttribLocation"/>
+		/// <seealso cref="Gl.VertexAttribPointer"/>
 		[RequiredByFeature("GL_VERSION_3_0")]
 		public static void VertexAttribI4(UInt32 index, Int16[] v)
 		{
@@ -2620,9 +3236,21 @@ namespace OpenGL
 		/// Specifies the index of the generic vertex attribute to be modified.
 		/// </param>
 		/// <param name="v">
-		/// For the vector commands (glVertexAttrib*v), specifies a pointer to an array of values to be used for the generic vertex 
+		/// For the vector commands (Gl.VertexAttrib*v), specifies a pointer to an array of values to be used for the generic vertex 
 		/// attribute.
 		/// </param>
+		/// <remarks>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_VALUE is generated if <paramref name="index"/> is greater than or equal to Gl.MAX_VERTEX_ATTRIBS.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated if Gl.VertexAttribP* is used with a <paramref name="type"/> other than 
+		/// Gl.INT_2_10_10_10_REV, Gl.UNSIGNED_INT_2_10_10_10_REV, or Gl.UNSIGNED_INT_10F_11F_11F_REV.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated if Gl.VertexAttribL is used with a <paramref name="type"/> other than Gl.DOUBLE.
+		/// </exception>
+		/// <seealso cref="Gl.BindAttribLocation"/>
+		/// <seealso cref="Gl.VertexAttribPointer"/>
 		[RequiredByFeature("GL_VERSION_3_0")]
 		public static void VertexAttribI4(UInt32 index, byte[] v)
 		{
@@ -2644,9 +3272,21 @@ namespace OpenGL
 		/// Specifies the index of the generic vertex attribute to be modified.
 		/// </param>
 		/// <param name="v">
-		/// For the vector commands (glVertexAttrib*v), specifies a pointer to an array of values to be used for the generic vertex 
+		/// For the vector commands (Gl.VertexAttrib*v), specifies a pointer to an array of values to be used for the generic vertex 
 		/// attribute.
 		/// </param>
+		/// <remarks>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_VALUE is generated if <paramref name="index"/> is greater than or equal to Gl.MAX_VERTEX_ATTRIBS.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated if Gl.VertexAttribP* is used with a <paramref name="type"/> other than 
+		/// Gl.INT_2_10_10_10_REV, Gl.UNSIGNED_INT_2_10_10_10_REV, or Gl.UNSIGNED_INT_10F_11F_11F_REV.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated if Gl.VertexAttribL is used with a <paramref name="type"/> other than Gl.DOUBLE.
+		/// </exception>
+		/// <seealso cref="Gl.BindAttribLocation"/>
+		/// <seealso cref="Gl.VertexAttribPointer"/>
 		[RequiredByFeature("GL_VERSION_3_0")]
 		public static void VertexAttribI4(UInt32 index, UInt16[] v)
 		{
@@ -2673,6 +3313,24 @@ namespace OpenGL
 		/// <param name="params">
 		/// Returns the value of the specified uniform variable.
 		/// </param>
+		/// <remarks>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_VALUE is generated if <paramref name="program"/> is not a value generated by OpenGL.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if <paramref name="program"/> is not a program object.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if <paramref name="program"/> has not been successfully linked.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if <paramref name="location"/> does not correspond to a valid uniform variable 
+		/// location for the specified program object.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated by Gl.GetnUniform if the buffer size required to store the requested data is greater 
+		/// than <paramref name="bufSize"/>.
+		/// </exception>
+		/// <seealso cref="Gl.CreateProgram"/>
+		/// <seealso cref="Gl.LinkProgram"/>
+		/// <seealso cref="Gl.Uniform"/>
 		[RequiredByFeature("GL_VERSION_3_0")]
 		public static void GetUniform(UInt32 program, Int32 location, UInt32[] @params)
 		{
@@ -2699,6 +3357,17 @@ namespace OpenGL
 		/// <param name="name">
 		/// The name of the user-defined varying out variable whose binding to modify
 		/// </param>
+		/// <remarks>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_VALUE is generated if <paramref name="colorNumber"/> is greater than or equal to Gl.MAX_DRAW_BUFFERS.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if <paramref name="name"/> starts with the reserved Gl. prefix.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if Gl.ogram is not the name of a program object.
+		/// </exception>
+		/// <seealso cref="Gl.CreateProgram"/>
+		/// <seealso cref="Gl.GetFragDataLocation"/>
 		[RequiredByFeature("GL_VERSION_3_0")]
 		public static void BindFragDataLocation(UInt32 program, UInt32 color, String name)
 		{
@@ -2717,6 +3386,13 @@ namespace OpenGL
 		/// <param name="name">
 		/// The name of the user-defined varying out variable whose binding to query
 		/// </param>
+		/// <remarks>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if <paramref name="program"/> is not the name of a program object.
+		/// </exception>
+		/// <seealso cref="Gl.CreateProgram"/>
+		/// <seealso cref="Gl.BindFragDataLocation"/>
 		[RequiredByFeature("GL_VERSION_3_0")]
 		public static Int32 GetFragDataLocation(UInt32 program, String name)
 		{
@@ -2739,6 +3415,37 @@ namespace OpenGL
 		/// <param name="v0">
 		/// For the scalar commands, specifies the new values to be used for the specified uniform variable.
 		/// </param>
+		/// <remarks>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if there is no current program object.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if the size of the uniform variable declared in the shader does not match the size 
+		/// indicated by the Gl.Uniform command.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if one of the signed or unsigned integer variants of this function is used to load a 
+		/// uniform variable of type float, vec2, vec3, vec4, or an array of these, or if one of the floating-point variants of this 
+		/// function is used to load a uniform variable of type int, ivec2, ivec3, ivec4, unsigned int, uvec2, uvec3, uvec4, or an 
+		/// array of these.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if one of the signed integer variants of this function is used to load a uniform 
+		/// variable of type unsigned int, uvec2, uvec3, uvec4, or an array of these.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if one of the unsigned integer variants of this function is used to load a uniform 
+		/// variable of type int, ivec2, ivec3, ivec4, or an array of these.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if <paramref name="location"/> is an invalid uniform location for the current program 
+		/// object and <paramref name="location"/> is not equal to -1.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_VALUE is generated if <paramref name="count"/> is less than 0.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if <paramref name="count"/> is greater than 1 and the indicated uniform variable is 
+		/// not an array variable.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if a sampler is loaded using a command other than Gl.Uniform1i and Gl.Uniform1iv.
+		/// </exception>
+		/// <seealso cref="Gl.LinkProgram"/>
+		/// <seealso cref="Gl.UseProgram"/>
 		[RequiredByFeature("GL_VERSION_3_0")]
 		public static void Uniform1(Int32 location, UInt32 v0)
 		{
@@ -2760,6 +3467,37 @@ namespace OpenGL
 		/// <param name="v1">
 		/// For the scalar commands, specifies the new values to be used for the specified uniform variable.
 		/// </param>
+		/// <remarks>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if there is no current program object.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if the size of the uniform variable declared in the shader does not match the size 
+		/// indicated by the Gl.Uniform command.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if one of the signed or unsigned integer variants of this function is used to load a 
+		/// uniform variable of type float, vec2, vec3, vec4, or an array of these, or if one of the floating-point variants of this 
+		/// function is used to load a uniform variable of type int, ivec2, ivec3, ivec4, unsigned int, uvec2, uvec3, uvec4, or an 
+		/// array of these.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if one of the signed integer variants of this function is used to load a uniform 
+		/// variable of type unsigned int, uvec2, uvec3, uvec4, or an array of these.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if one of the unsigned integer variants of this function is used to load a uniform 
+		/// variable of type int, ivec2, ivec3, ivec4, or an array of these.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if <paramref name="location"/> is an invalid uniform location for the current program 
+		/// object and <paramref name="location"/> is not equal to -1.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_VALUE is generated if <paramref name="count"/> is less than 0.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if <paramref name="count"/> is greater than 1 and the indicated uniform variable is 
+		/// not an array variable.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if a sampler is loaded using a command other than Gl.Uniform1i and Gl.Uniform1iv.
+		/// </exception>
+		/// <seealso cref="Gl.LinkProgram"/>
+		/// <seealso cref="Gl.UseProgram"/>
 		[RequiredByFeature("GL_VERSION_3_0")]
 		public static void Uniform2(Int32 location, UInt32 v0, UInt32 v1)
 		{
@@ -2784,6 +3522,37 @@ namespace OpenGL
 		/// <param name="v2">
 		/// For the scalar commands, specifies the new values to be used for the specified uniform variable.
 		/// </param>
+		/// <remarks>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if there is no current program object.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if the size of the uniform variable declared in the shader does not match the size 
+		/// indicated by the Gl.Uniform command.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if one of the signed or unsigned integer variants of this function is used to load a 
+		/// uniform variable of type float, vec2, vec3, vec4, or an array of these, or if one of the floating-point variants of this 
+		/// function is used to load a uniform variable of type int, ivec2, ivec3, ivec4, unsigned int, uvec2, uvec3, uvec4, or an 
+		/// array of these.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if one of the signed integer variants of this function is used to load a uniform 
+		/// variable of type unsigned int, uvec2, uvec3, uvec4, or an array of these.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if one of the unsigned integer variants of this function is used to load a uniform 
+		/// variable of type int, ivec2, ivec3, ivec4, or an array of these.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if <paramref name="location"/> is an invalid uniform location for the current program 
+		/// object and <paramref name="location"/> is not equal to -1.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_VALUE is generated if <paramref name="count"/> is less than 0.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if <paramref name="count"/> is greater than 1 and the indicated uniform variable is 
+		/// not an array variable.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if a sampler is loaded using a command other than Gl.Uniform1i and Gl.Uniform1iv.
+		/// </exception>
+		/// <seealso cref="Gl.LinkProgram"/>
+		/// <seealso cref="Gl.UseProgram"/>
 		[RequiredByFeature("GL_VERSION_3_0")]
 		public static void Uniform3(Int32 location, UInt32 v0, UInt32 v1, UInt32 v2)
 		{
@@ -2811,6 +3580,37 @@ namespace OpenGL
 		/// <param name="v3">
 		/// For the scalar commands, specifies the new values to be used for the specified uniform variable.
 		/// </param>
+		/// <remarks>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if there is no current program object.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if the size of the uniform variable declared in the shader does not match the size 
+		/// indicated by the Gl.Uniform command.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if one of the signed or unsigned integer variants of this function is used to load a 
+		/// uniform variable of type float, vec2, vec3, vec4, or an array of these, or if one of the floating-point variants of this 
+		/// function is used to load a uniform variable of type int, ivec2, ivec3, ivec4, unsigned int, uvec2, uvec3, uvec4, or an 
+		/// array of these.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if one of the signed integer variants of this function is used to load a uniform 
+		/// variable of type unsigned int, uvec2, uvec3, uvec4, or an array of these.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if one of the unsigned integer variants of this function is used to load a uniform 
+		/// variable of type int, ivec2, ivec3, ivec4, or an array of these.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if <paramref name="location"/> is an invalid uniform location for the current program 
+		/// object and <paramref name="location"/> is not equal to -1.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_VALUE is generated if <paramref name="count"/> is less than 0.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if <paramref name="count"/> is greater than 1 and the indicated uniform variable is 
+		/// not an array variable.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if a sampler is loaded using a command other than Gl.Uniform1i and Gl.Uniform1iv.
+		/// </exception>
+		/// <seealso cref="Gl.LinkProgram"/>
+		/// <seealso cref="Gl.UseProgram"/>
 		[RequiredByFeature("GL_VERSION_3_0")]
 		public static void Uniform4(Int32 location, UInt32 v0, UInt32 v1, UInt32 v2, UInt32 v3)
 		{
@@ -2827,13 +3627,44 @@ namespace OpenGL
 		/// Specifies the location of the uniform variable to be modified.
 		/// </param>
 		/// <param name="count">
-		/// For the vector (glUniform*v) commands, specifies the number of elements that are to be modified. This should be 1 if the 
-		/// targeted uniform variable is not an array, and 1 or more if it is an array.
+		/// For the vector (Gl.Uniform*v) commands, specifies the number of elements that are to be modified. This should be 1 if 
+		/// the targeted uniform variable is not an array, and 1 or more if it is an array.
 		/// </param>
 		/// <param name="value">
-		/// For the vector and matrix commands, specifies a pointer to an array of count values that will be used to update the 
-		/// specified uniform variable.
+		/// For the vector and matrix commands, specifies a pointer to an array of <paramref name="count"/> values that will be used 
+		/// to update the specified uniform variable.
 		/// </param>
+		/// <remarks>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if there is no current program object.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if the size of the uniform variable declared in the shader does not match the size 
+		/// indicated by the Gl.Uniform command.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if one of the signed or unsigned integer variants of this function is used to load a 
+		/// uniform variable of type float, vec2, vec3, vec4, or an array of these, or if one of the floating-point variants of this 
+		/// function is used to load a uniform variable of type int, ivec2, ivec3, ivec4, unsigned int, uvec2, uvec3, uvec4, or an 
+		/// array of these.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if one of the signed integer variants of this function is used to load a uniform 
+		/// variable of type unsigned int, uvec2, uvec3, uvec4, or an array of these.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if one of the unsigned integer variants of this function is used to load a uniform 
+		/// variable of type int, ivec2, ivec3, ivec4, or an array of these.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if <paramref name="location"/> is an invalid uniform location for the current program 
+		/// object and <paramref name="location"/> is not equal to -1.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_VALUE is generated if <paramref name="count"/> is less than 0.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if <paramref name="count"/> is greater than 1 and the indicated uniform variable is 
+		/// not an array variable.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if a sampler is loaded using a command other than Gl.Uniform1i and Gl.Uniform1iv.
+		/// </exception>
+		/// <seealso cref="Gl.LinkProgram"/>
+		/// <seealso cref="Gl.UseProgram"/>
 		[RequiredByFeature("GL_VERSION_3_0")]
 		public static void Uniform1(Int32 location, Int32 count, UInt32[] value)
 		{
@@ -2855,13 +3686,44 @@ namespace OpenGL
 		/// Specifies the location of the uniform variable to be modified.
 		/// </param>
 		/// <param name="count">
-		/// For the vector (glUniform*v) commands, specifies the number of elements that are to be modified. This should be 1 if the 
-		/// targeted uniform variable is not an array, and 1 or more if it is an array.
+		/// For the vector (Gl.Uniform*v) commands, specifies the number of elements that are to be modified. This should be 1 if 
+		/// the targeted uniform variable is not an array, and 1 or more if it is an array.
 		/// </param>
 		/// <param name="value">
-		/// For the vector and matrix commands, specifies a pointer to an array of count values that will be used to update the 
-		/// specified uniform variable.
+		/// For the vector and matrix commands, specifies a pointer to an array of <paramref name="count"/> values that will be used 
+		/// to update the specified uniform variable.
 		/// </param>
+		/// <remarks>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if there is no current program object.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if the size of the uniform variable declared in the shader does not match the size 
+		/// indicated by the Gl.Uniform command.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if one of the signed or unsigned integer variants of this function is used to load a 
+		/// uniform variable of type float, vec2, vec3, vec4, or an array of these, or if one of the floating-point variants of this 
+		/// function is used to load a uniform variable of type int, ivec2, ivec3, ivec4, unsigned int, uvec2, uvec3, uvec4, or an 
+		/// array of these.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if one of the signed integer variants of this function is used to load a uniform 
+		/// variable of type unsigned int, uvec2, uvec3, uvec4, or an array of these.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if one of the unsigned integer variants of this function is used to load a uniform 
+		/// variable of type int, ivec2, ivec3, ivec4, or an array of these.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if <paramref name="location"/> is an invalid uniform location for the current program 
+		/// object and <paramref name="location"/> is not equal to -1.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_VALUE is generated if <paramref name="count"/> is less than 0.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if <paramref name="count"/> is greater than 1 and the indicated uniform variable is 
+		/// not an array variable.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if a sampler is loaded using a command other than Gl.Uniform1i and Gl.Uniform1iv.
+		/// </exception>
+		/// <seealso cref="Gl.LinkProgram"/>
+		/// <seealso cref="Gl.UseProgram"/>
 		[RequiredByFeature("GL_VERSION_3_0")]
 		public static void Uniform2(Int32 location, Int32 count, UInt32[] value)
 		{
@@ -2883,13 +3745,44 @@ namespace OpenGL
 		/// Specifies the location of the uniform variable to be modified.
 		/// </param>
 		/// <param name="count">
-		/// For the vector (glUniform*v) commands, specifies the number of elements that are to be modified. This should be 1 if the 
-		/// targeted uniform variable is not an array, and 1 or more if it is an array.
+		/// For the vector (Gl.Uniform*v) commands, specifies the number of elements that are to be modified. This should be 1 if 
+		/// the targeted uniform variable is not an array, and 1 or more if it is an array.
 		/// </param>
 		/// <param name="value">
-		/// For the vector and matrix commands, specifies a pointer to an array of count values that will be used to update the 
-		/// specified uniform variable.
+		/// For the vector and matrix commands, specifies a pointer to an array of <paramref name="count"/> values that will be used 
+		/// to update the specified uniform variable.
 		/// </param>
+		/// <remarks>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if there is no current program object.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if the size of the uniform variable declared in the shader does not match the size 
+		/// indicated by the Gl.Uniform command.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if one of the signed or unsigned integer variants of this function is used to load a 
+		/// uniform variable of type float, vec2, vec3, vec4, or an array of these, or if one of the floating-point variants of this 
+		/// function is used to load a uniform variable of type int, ivec2, ivec3, ivec4, unsigned int, uvec2, uvec3, uvec4, or an 
+		/// array of these.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if one of the signed integer variants of this function is used to load a uniform 
+		/// variable of type unsigned int, uvec2, uvec3, uvec4, or an array of these.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if one of the unsigned integer variants of this function is used to load a uniform 
+		/// variable of type int, ivec2, ivec3, ivec4, or an array of these.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if <paramref name="location"/> is an invalid uniform location for the current program 
+		/// object and <paramref name="location"/> is not equal to -1.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_VALUE is generated if <paramref name="count"/> is less than 0.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if <paramref name="count"/> is greater than 1 and the indicated uniform variable is 
+		/// not an array variable.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if a sampler is loaded using a command other than Gl.Uniform1i and Gl.Uniform1iv.
+		/// </exception>
+		/// <seealso cref="Gl.LinkProgram"/>
+		/// <seealso cref="Gl.UseProgram"/>
 		[RequiredByFeature("GL_VERSION_3_0")]
 		public static void Uniform3(Int32 location, Int32 count, UInt32[] value)
 		{
@@ -2911,13 +3804,44 @@ namespace OpenGL
 		/// Specifies the location of the uniform variable to be modified.
 		/// </param>
 		/// <param name="count">
-		/// For the vector (glUniform*v) commands, specifies the number of elements that are to be modified. This should be 1 if the 
-		/// targeted uniform variable is not an array, and 1 or more if it is an array.
+		/// For the vector (Gl.Uniform*v) commands, specifies the number of elements that are to be modified. This should be 1 if 
+		/// the targeted uniform variable is not an array, and 1 or more if it is an array.
 		/// </param>
 		/// <param name="value">
-		/// For the vector and matrix commands, specifies a pointer to an array of count values that will be used to update the 
-		/// specified uniform variable.
+		/// For the vector and matrix commands, specifies a pointer to an array of <paramref name="count"/> values that will be used 
+		/// to update the specified uniform variable.
 		/// </param>
+		/// <remarks>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if there is no current program object.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if the size of the uniform variable declared in the shader does not match the size 
+		/// indicated by the Gl.Uniform command.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if one of the signed or unsigned integer variants of this function is used to load a 
+		/// uniform variable of type float, vec2, vec3, vec4, or an array of these, or if one of the floating-point variants of this 
+		/// function is used to load a uniform variable of type int, ivec2, ivec3, ivec4, unsigned int, uvec2, uvec3, uvec4, or an 
+		/// array of these.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if one of the signed integer variants of this function is used to load a uniform 
+		/// variable of type unsigned int, uvec2, uvec3, uvec4, or an array of these.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if one of the unsigned integer variants of this function is used to load a uniform 
+		/// variable of type int, ivec2, ivec3, ivec4, or an array of these.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if <paramref name="location"/> is an invalid uniform location for the current program 
+		/// object and <paramref name="location"/> is not equal to -1.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_VALUE is generated if <paramref name="count"/> is less than 0.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if <paramref name="count"/> is greater than 1 and the indicated uniform variable is 
+		/// not an array variable.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if a sampler is loaded using a command other than Gl.Uniform1i and Gl.Uniform1iv.
+		/// </exception>
+		/// <seealso cref="Gl.LinkProgram"/>
+		/// <seealso cref="Gl.UseProgram"/>
 		[RequiredByFeature("GL_VERSION_3_0")]
 		public static void Uniform4(Int32 location, Int32 count, UInt32[] value)
 		{
@@ -2988,23 +3912,43 @@ namespace OpenGL
 		/// return texture parameter values
 		/// </summary>
 		/// <param name="target">
-		/// Specifies the target to which the texture is bound for glGetTexParameterfv, glGetTexParameteriv, glGetTexParameterIiv, 
-		/// and glGetTexParameterIuiv functions. GL_TEXTURE_1D, GL_TEXTURE_1D_ARRAY, GL_TEXTURE_2D, GL_TEXTURE_2D_ARRAY, 
-		/// GL_TEXTURE_2D_MULTISAMPLE, GL_TEXTURE_2D_MULTISAMPLE_ARRAY, GL_TEXTURE_3D, GL_TEXTURE_CUBE_MAP, GL_TEXTURE_RECTANGLE, 
-		/// and GL_TEXTURE_CUBE_MAP_ARRAY are accepted.
+		/// Specifies the target to which the texture is bound for Gl.GetTexParameterfv, Gl.GetTexParameteriv, 
+		/// Gl.GetTexParameterIiv, and Gl.GetTexParameterIuiv functions. Gl.TEXTURE_1D, Gl.TEXTURE_1D_ARRAY, Gl.TEXTURE_2D, 
+		/// Gl.TEXTURE_2D_ARRAY, Gl.TEXTURE_2D_MULTISAMPLE, Gl.TEXTURE_2D_MULTISAMPLE_ARRAY, Gl.TEXTURE_3D, Gl.TEXTURE_CUBE_MAP, 
+		/// Gl.TEXTURE_RECTANGLE, and Gl.TEXTURE_CUBE_MAP_ARRAY are accepted.
 		/// </param>
 		/// <param name="pname">
-		/// Specifies the symbolic name of a texture parameter. GL_DEPTH_STENCIL_TEXTURE_MODE, GL_IMAGE_FORMAT_COMPATIBILITY_TYPE, 
-		/// GL_TEXTURE_BASE_LEVEL, GL_TEXTURE_BORDER_COLOR, GL_TEXTURE_COMPARE_MODE, GL_TEXTURE_COMPARE_FUNC, 
-		/// GL_TEXTURE_IMMUTABLE_FORMAT, GL_TEXTURE_IMMUTABLE_LEVELS, GL_TEXTURE_LOD_BIAS, GL_TEXTURE_MAG_FILTER, 
-		/// GL_TEXTURE_MAX_LEVEL, GL_TEXTURE_MAX_LOD, GL_TEXTURE_MIN_FILTER, GL_TEXTURE_MIN_LOD, GL_TEXTURE_SWIZZLE_R, 
-		/// GL_TEXTURE_SWIZZLE_G, GL_TEXTURE_SWIZZLE_B, GL_TEXTURE_SWIZZLE_A, GL_TEXTURE_SWIZZLE_RGBA, GL_TEXTURE_TARGET, 
-		/// GL_TEXTURE_VIEW_MIN_LAYER, GL_TEXTURE_VIEW_MIN_LEVEL, GL_TEXTURE_VIEW_NUM_LAYERS, GL_TEXTURE_VIEW_NUM_LEVELS, 
-		/// GL_TEXTURE_WRAP_S, GL_TEXTURE_WRAP_T, and GL_TEXTURE_WRAP_R are accepted.
+		/// Specifies the symbolic name of a texture parameter. Gl.DEPTH_STENCIL_TEXTURE_MODE, Gl.IMAGE_FORMAT_COMPATIBILITY_TYPE, 
+		/// Gl.TEXTURE_BASE_LEVEL, Gl.TEXTURE_BORDER_COLOR, Gl.TEXTURE_COMPARE_MODE, Gl.TEXTURE_COMPARE_FUNC, 
+		/// Gl.TEXTURE_IMMUTABLE_FORMAT, Gl.TEXTURE_IMMUTABLE_LEVELS, Gl.TEXTURE_LOD_BIAS, Gl.TEXTURE_MAG_FILTER, 
+		/// Gl.TEXTURE_MAX_LEVEL, Gl.TEXTURE_MAX_LOD, Gl.TEXTURE_MIN_FILTER, Gl.TEXTURE_MIN_LOD, Gl.TEXTURE_SWIZZLE_R, 
+		/// Gl.TEXTURE_SWIZZLE_G, Gl.TEXTURE_SWIZZLE_B, Gl.TEXTURE_SWIZZLE_A, Gl.TEXTURE_SWIZZLE_RGBA, Gl.TEXTURE_TARGET, 
+		/// Gl.TEXTURE_VIEW_MIN_LAYER, Gl.TEXTURE_VIEW_MIN_LEVEL, Gl.TEXTURE_VIEW_NUM_LAYERS, Gl.TEXTURE_VIEW_NUM_LEVELS, 
+		/// Gl.TEXTURE_WRAP_S, Gl.TEXTURE_WRAP_T, and Gl.TEXTURE_WRAP_R are accepted.
 		/// </param>
 		/// <param name="params">
 		/// Returns the texture parameters.
 		/// </param>
+		/// <remarks>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated if <paramref name="pname"/> is not an accepted value.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM error is generated by Gl.GetTexParameter if the effective <paramref name="target"/> is not one of the 
+		/// accepted texture targets.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated by Gl.GetTextureParameter* if <paramref name="texture"/> is not the name of an 
+		/// existing texture object.
+		/// </exception>
+		/// <seealso cref="Gl.TexParameter"/>
+		/// <seealso cref="Gl.TextureParameter"/>
+		/// <seealso cref="Gl.TexStorage1D"/>
+		/// <seealso cref="Gl.TexStorage2D"/>
+		/// <seealso cref="Gl.TexStorage3D"/>
+		/// <seealso cref="Gl.TextureStorage1D"/>
+		/// <seealso cref="Gl.TextureStorage2D"/>
+		/// <seealso cref="Gl.TextureStorage3D"/>
+		/// <seealso cref="Gl.TextureView"/>
 		[RequiredByFeature("GL_VERSION_3_0")]
 		public static void GetTexParameterIiv(TextureTarget target, GetTextureParameter pname, Int32[] @params)
 		{
@@ -3023,23 +3967,43 @@ namespace OpenGL
 		/// return texture parameter values
 		/// </summary>
 		/// <param name="target">
-		/// Specifies the target to which the texture is bound for glGetTexParameterfv, glGetTexParameteriv, glGetTexParameterIiv, 
-		/// and glGetTexParameterIuiv functions. GL_TEXTURE_1D, GL_TEXTURE_1D_ARRAY, GL_TEXTURE_2D, GL_TEXTURE_2D_ARRAY, 
-		/// GL_TEXTURE_2D_MULTISAMPLE, GL_TEXTURE_2D_MULTISAMPLE_ARRAY, GL_TEXTURE_3D, GL_TEXTURE_CUBE_MAP, GL_TEXTURE_RECTANGLE, 
-		/// and GL_TEXTURE_CUBE_MAP_ARRAY are accepted.
+		/// Specifies the target to which the texture is bound for Gl.GetTexParameterfv, Gl.GetTexParameteriv, 
+		/// Gl.GetTexParameterIiv, and Gl.GetTexParameterIuiv functions. Gl.TEXTURE_1D, Gl.TEXTURE_1D_ARRAY, Gl.TEXTURE_2D, 
+		/// Gl.TEXTURE_2D_ARRAY, Gl.TEXTURE_2D_MULTISAMPLE, Gl.TEXTURE_2D_MULTISAMPLE_ARRAY, Gl.TEXTURE_3D, Gl.TEXTURE_CUBE_MAP, 
+		/// Gl.TEXTURE_RECTANGLE, and Gl.TEXTURE_CUBE_MAP_ARRAY are accepted.
 		/// </param>
 		/// <param name="pname">
-		/// Specifies the symbolic name of a texture parameter. GL_DEPTH_STENCIL_TEXTURE_MODE, GL_IMAGE_FORMAT_COMPATIBILITY_TYPE, 
-		/// GL_TEXTURE_BASE_LEVEL, GL_TEXTURE_BORDER_COLOR, GL_TEXTURE_COMPARE_MODE, GL_TEXTURE_COMPARE_FUNC, 
-		/// GL_TEXTURE_IMMUTABLE_FORMAT, GL_TEXTURE_IMMUTABLE_LEVELS, GL_TEXTURE_LOD_BIAS, GL_TEXTURE_MAG_FILTER, 
-		/// GL_TEXTURE_MAX_LEVEL, GL_TEXTURE_MAX_LOD, GL_TEXTURE_MIN_FILTER, GL_TEXTURE_MIN_LOD, GL_TEXTURE_SWIZZLE_R, 
-		/// GL_TEXTURE_SWIZZLE_G, GL_TEXTURE_SWIZZLE_B, GL_TEXTURE_SWIZZLE_A, GL_TEXTURE_SWIZZLE_RGBA, GL_TEXTURE_TARGET, 
-		/// GL_TEXTURE_VIEW_MIN_LAYER, GL_TEXTURE_VIEW_MIN_LEVEL, GL_TEXTURE_VIEW_NUM_LAYERS, GL_TEXTURE_VIEW_NUM_LEVELS, 
-		/// GL_TEXTURE_WRAP_S, GL_TEXTURE_WRAP_T, and GL_TEXTURE_WRAP_R are accepted.
+		/// Specifies the symbolic name of a texture parameter. Gl.DEPTH_STENCIL_TEXTURE_MODE, Gl.IMAGE_FORMAT_COMPATIBILITY_TYPE, 
+		/// Gl.TEXTURE_BASE_LEVEL, Gl.TEXTURE_BORDER_COLOR, Gl.TEXTURE_COMPARE_MODE, Gl.TEXTURE_COMPARE_FUNC, 
+		/// Gl.TEXTURE_IMMUTABLE_FORMAT, Gl.TEXTURE_IMMUTABLE_LEVELS, Gl.TEXTURE_LOD_BIAS, Gl.TEXTURE_MAG_FILTER, 
+		/// Gl.TEXTURE_MAX_LEVEL, Gl.TEXTURE_MAX_LOD, Gl.TEXTURE_MIN_FILTER, Gl.TEXTURE_MIN_LOD, Gl.TEXTURE_SWIZZLE_R, 
+		/// Gl.TEXTURE_SWIZZLE_G, Gl.TEXTURE_SWIZZLE_B, Gl.TEXTURE_SWIZZLE_A, Gl.TEXTURE_SWIZZLE_RGBA, Gl.TEXTURE_TARGET, 
+		/// Gl.TEXTURE_VIEW_MIN_LAYER, Gl.TEXTURE_VIEW_MIN_LEVEL, Gl.TEXTURE_VIEW_NUM_LAYERS, Gl.TEXTURE_VIEW_NUM_LEVELS, 
+		/// Gl.TEXTURE_WRAP_S, Gl.TEXTURE_WRAP_T, and Gl.TEXTURE_WRAP_R are accepted.
 		/// </param>
 		/// <param name="params">
 		/// Returns the texture parameters.
 		/// </param>
+		/// <remarks>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated if <paramref name="pname"/> is not an accepted value.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM error is generated by Gl.GetTexParameter if the effective <paramref name="target"/> is not one of the 
+		/// accepted texture targets.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated by Gl.GetTextureParameter* if <paramref name="texture"/> is not the name of an 
+		/// existing texture object.
+		/// </exception>
+		/// <seealso cref="Gl.TexParameter"/>
+		/// <seealso cref="Gl.TextureParameter"/>
+		/// <seealso cref="Gl.TexStorage1D"/>
+		/// <seealso cref="Gl.TexStorage2D"/>
+		/// <seealso cref="Gl.TexStorage3D"/>
+		/// <seealso cref="Gl.TextureStorage1D"/>
+		/// <seealso cref="Gl.TextureStorage2D"/>
+		/// <seealso cref="Gl.TextureStorage3D"/>
+		/// <seealso cref="Gl.TextureView"/>
 		[RequiredByFeature("GL_VERSION_3_0")]
 		public static void GetTexParameterIuiv(TextureTarget target, GetTextureParameter pname, UInt32[] @params)
 		{
@@ -3066,6 +4030,34 @@ namespace OpenGL
 		/// <param name="value">
 		/// A pointer to the value or values to clear the buffer to.
 		/// </param>
+		/// <remarks>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated by Gl.ClearNamedFramebuffer* if <paramref name="framebuffer"/> is not zero or the name 
+		/// of an existing framebuffer object.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated by Gl.ClearBufferiv and Gl.ClearNamedFramebufferiv<paramref name="buffer"/> is not Gl.COLOR 
+		/// or Gl.STENCIL.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated by Gl.ClearBufferuiv and Gl.ClearNamedFramebufferuiv<paramref name="buffer"/> is not 
+		/// Gl.COLOR.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated by Gl.ClearBufferfv and Gl.ClearNamedFramebufferfv<paramref name="buffer"/> is not Gl.COLOR 
+		/// or Gl.DEPTH.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated by Gl.ClearBufferfi and Gl.ClearNamedFramebufferfi<paramref name="buffer"/> is not 
+		/// Gl.DEPTH_STENCIL.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_VALUE is generated if <paramref name="buffer"/> is Gl.COLOR<paramref name="drawbuffer"/> is negative, or 
+		/// greater than the value of Gl.MAX_DRAW_BUFFERS minus one.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_VALUE is generated if <paramref name="buffer"/> is Gl.DEPTH, Gl.STENCIL or Gl.DEPTH_STENCIL and <paramref 
+		/// name="drawbuffer"/> is not zero.
+		/// </exception>
+		/// <seealso cref="Gl.ClearColor"/>
+		/// <seealso cref="Gl.ClearDepth"/>
+		/// <seealso cref="Gl.ClearStencil"/>
+		/// <seealso cref="Gl.Clear"/>
 		[RequiredByFeature("GL_VERSION_3_0")]
 		public static void ClearBuffer(int buffer, Int32 drawbuffer, Int32[] value)
 		{
@@ -3092,6 +4084,34 @@ namespace OpenGL
 		/// <param name="value">
 		/// A pointer to the value or values to clear the buffer to.
 		/// </param>
+		/// <remarks>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated by Gl.ClearNamedFramebuffer* if <paramref name="framebuffer"/> is not zero or the name 
+		/// of an existing framebuffer object.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated by Gl.ClearBufferiv and Gl.ClearNamedFramebufferiv<paramref name="buffer"/> is not Gl.COLOR 
+		/// or Gl.STENCIL.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated by Gl.ClearBufferuiv and Gl.ClearNamedFramebufferuiv<paramref name="buffer"/> is not 
+		/// Gl.COLOR.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated by Gl.ClearBufferfv and Gl.ClearNamedFramebufferfv<paramref name="buffer"/> is not Gl.COLOR 
+		/// or Gl.DEPTH.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated by Gl.ClearBufferfi and Gl.ClearNamedFramebufferfi<paramref name="buffer"/> is not 
+		/// Gl.DEPTH_STENCIL.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_VALUE is generated if <paramref name="buffer"/> is Gl.COLOR<paramref name="drawbuffer"/> is negative, or 
+		/// greater than the value of Gl.MAX_DRAW_BUFFERS minus one.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_VALUE is generated if <paramref name="buffer"/> is Gl.DEPTH, Gl.STENCIL or Gl.DEPTH_STENCIL and <paramref 
+		/// name="drawbuffer"/> is not zero.
+		/// </exception>
+		/// <seealso cref="Gl.ClearColor"/>
+		/// <seealso cref="Gl.ClearDepth"/>
+		/// <seealso cref="Gl.ClearStencil"/>
+		/// <seealso cref="Gl.Clear"/>
 		[RequiredByFeature("GL_VERSION_3_0")]
 		public static void ClearBuffer(int buffer, Int32 drawbuffer, UInt32[] value)
 		{
@@ -3118,6 +4138,34 @@ namespace OpenGL
 		/// <param name="value">
 		/// A pointer to the value or values to clear the buffer to.
 		/// </param>
+		/// <remarks>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated by Gl.ClearNamedFramebuffer* if <paramref name="framebuffer"/> is not zero or the name 
+		/// of an existing framebuffer object.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated by Gl.ClearBufferiv and Gl.ClearNamedFramebufferiv<paramref name="buffer"/> is not Gl.COLOR 
+		/// or Gl.STENCIL.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated by Gl.ClearBufferuiv and Gl.ClearNamedFramebufferuiv<paramref name="buffer"/> is not 
+		/// Gl.COLOR.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated by Gl.ClearBufferfv and Gl.ClearNamedFramebufferfv<paramref name="buffer"/> is not Gl.COLOR 
+		/// or Gl.DEPTH.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated by Gl.ClearBufferfi and Gl.ClearNamedFramebufferfi<paramref name="buffer"/> is not 
+		/// Gl.DEPTH_STENCIL.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_VALUE is generated if <paramref name="buffer"/> is Gl.COLOR<paramref name="drawbuffer"/> is negative, or 
+		/// greater than the value of Gl.MAX_DRAW_BUFFERS minus one.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_VALUE is generated if <paramref name="buffer"/> is Gl.DEPTH, Gl.STENCIL or Gl.DEPTH_STENCIL and <paramref 
+		/// name="drawbuffer"/> is not zero.
+		/// </exception>
+		/// <seealso cref="Gl.ClearColor"/>
+		/// <seealso cref="Gl.ClearDepth"/>
+		/// <seealso cref="Gl.ClearStencil"/>
+		/// <seealso cref="Gl.Clear"/>
 		[RequiredByFeature("GL_VERSION_3_0")]
 		public static void ClearBuffer(int buffer, Int32 drawbuffer, float[] value)
 		{
@@ -3147,6 +4195,34 @@ namespace OpenGL
 		/// <param name="stencil">
 		/// The value to clear the stencil buffer to.
 		/// </param>
+		/// <remarks>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated by Gl.ClearNamedFramebuffer* if <paramref name="framebuffer"/> is not zero or the name 
+		/// of an existing framebuffer object.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated by Gl.ClearBufferiv and Gl.ClearNamedFramebufferiv<paramref name="buffer"/> is not Gl.COLOR 
+		/// or Gl.STENCIL.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated by Gl.ClearBufferuiv and Gl.ClearNamedFramebufferuiv<paramref name="buffer"/> is not 
+		/// Gl.COLOR.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated by Gl.ClearBufferfv and Gl.ClearNamedFramebufferfv<paramref name="buffer"/> is not Gl.COLOR 
+		/// or Gl.DEPTH.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated by Gl.ClearBufferfi and Gl.ClearNamedFramebufferfi<paramref name="buffer"/> is not 
+		/// Gl.DEPTH_STENCIL.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_VALUE is generated if <paramref name="buffer"/> is Gl.COLOR<paramref name="drawbuffer"/> is negative, or 
+		/// greater than the value of Gl.MAX_DRAW_BUFFERS minus one.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_VALUE is generated if <paramref name="buffer"/> is Gl.DEPTH, Gl.STENCIL or Gl.DEPTH_STENCIL and <paramref 
+		/// name="drawbuffer"/> is not zero.
+		/// </exception>
+		/// <seealso cref="Gl.ClearColor"/>
+		/// <seealso cref="Gl.ClearDepth"/>
+		/// <seealso cref="Gl.ClearStencil"/>
+		/// <seealso cref="Gl.Clear"/>
 		[RequiredByFeature("GL_VERSION_3_0")]
 		public static void ClearBuffer(int buffer, Int32 drawbuffer, float depth, Int32 stencil)
 		{
@@ -3160,12 +4236,20 @@ namespace OpenGL
 		/// return a string describing the current GL connection
 		/// </summary>
 		/// <param name="name">
-		/// Specifies a symbolic constant, one of GL_VENDOR, GL_RENDERER, GL_VERSION, or GL_SHADING_LANGUAGE_VERSION. Additionally, 
-		/// glGetStringi accepts the GL_EXTENSIONS token.
+		/// Specifies a symbolic constant, one of Gl.VENDOR, Gl.RENDERER, Gl.VERSION, or Gl.SHADING_LANGUAGE_VERSION. Additionally, 
+		/// Gl.GetStringi accepts the Gl.EXTENSIONS token.
 		/// </param>
 		/// <param name="index">
-		/// For glGetStringi, specifies the index of the string to return.
+		/// For Gl.GetStringi, specifies the index of the string to return.
 		/// </param>
+		/// <remarks>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated if <paramref name="name"/> is not an accepted value.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_VALUE is generated by Gl.GetStringi if <paramref name="index"/> is outside the valid range for indexed state 
+		/// <paramref name="name"/>.
+		/// </exception>
 		[RequiredByFeature("GL_VERSION_3_0")]
 		public static String GetString(int name, UInt32 index)
 		{
@@ -3185,6 +4269,10 @@ namespace OpenGL
 		/// <param name="renderbuffer">
 		/// Specifies a value that may be the name of a renderbuffer object.
 		/// </param>
+		/// <seealso cref="Gl.GenRenderbuffers"/>
+		/// <seealso cref="Gl.BindRenderbuffer"/>
+		/// <seealso cref="Gl.FramebufferRenderbuffer"/>
+		/// <seealso cref="Gl.DeleteRenderbuffers"/>
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ARB_framebuffer_object")]
 		public static bool IsRenderbuffer(UInt32 renderbuffer)
@@ -3203,11 +4291,24 @@ namespace OpenGL
 		/// bind a renderbuffer to a renderbuffer target
 		/// </summary>
 		/// <param name="target">
-		/// Specifies the renderbuffer target of the binding operation. target must be GL_RENDERBUFFER.
+		/// Specifies the renderbuffer target of the binding operation. <paramref name="target"/> must be Gl.RENDERBUFFER.
 		/// </param>
 		/// <param name="renderbuffer">
 		/// Specifies the name of the renderbuffer object to bind.
 		/// </param>
+		/// <remarks>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated if <paramref name="target"/> is not Gl.RENDERBUFFER.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if <paramref name="renderbuffer"/> is not zero or the name of a renderbuffer 
+		/// previously returned from a call to glGenRenderbuffers.
+		/// </exception>
+		/// <seealso cref="Gl.DeleteRenderbuffers"/>
+		/// <seealso cref="Gl.GenRenderbuffers"/>
+		/// <seealso cref="Gl.IsRenderbuffer"/>
+		/// <seealso cref="Gl.RenderbufferStorage"/>
+		/// <seealso cref="Gl.RenderbufferStorageMultisample"/>
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ARB_framebuffer_object")]
 		public static void BindRenderbuffer(int target, UInt32 renderbuffer)
@@ -3225,8 +4326,17 @@ namespace OpenGL
 		/// Specifies the number of renderbuffer objects to be deleted.
 		/// </param>
 		/// <param name="renderbuffers">
-		/// A pointer to an array containing n renderbuffer objects to be deleted.
+		/// A pointer to an array containing <paramref name="n"/> renderbuffer objects to be deleted.
 		/// </param>
+		/// <remarks>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_VALUE is generated if <paramref name="n"/> is negative.
+		/// </exception>
+		/// <seealso cref="Gl.GenRenderbuffers"/>
+		/// <seealso cref="Gl.FramebufferRenderbuffer"/>
+		/// <seealso cref="Gl.RenderbufferStorage"/>
+		/// <seealso cref="Gl.RenderbufferStorageMultisample"/>
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ARB_framebuffer_object")]
 		public static void DeleteRenderbuffer(UInt32[] renderbuffers)
@@ -3251,6 +4361,13 @@ namespace OpenGL
 		/// <param name="renderbuffers">
 		/// Specifies an array in which the generated renderbuffer object names are stored.
 		/// </param>
+		/// <remarks>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_VALUE is generated if <paramref name="n"/> is negative.
+		/// </exception>
+		/// <seealso cref="Gl.FramebufferRenderbuffer"/>
+		/// <seealso cref="Gl.DeleteRenderbuffers"/>
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ARB_framebuffer_object")]
 		public static void GenRenderbuffer(UInt32[] renderbuffers)
@@ -3269,6 +4386,13 @@ namespace OpenGL
 		/// <summary>
 		/// generate renderbuffer object names
 		/// </summary>
+		/// <remarks>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_VALUE is generated if <paramref name="n"/> is negative.
+		/// </exception>
+		/// <seealso cref="Gl.FramebufferRenderbuffer"/>
+		/// <seealso cref="Gl.DeleteRenderbuffers"/>
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ARB_framebuffer_object")]
 		public static UInt32 GenRenderbuffer()
@@ -3282,7 +4406,7 @@ namespace OpenGL
 		/// establish data storage, format and dimensions of a renderbuffer object's image
 		/// </summary>
 		/// <param name="target">
-		/// Specifies a binding target of the allocation for glRenderbufferStorage function. Must be GL_RENDERBUFFER.
+		/// Specifies a binding target of the allocation for Gl.RenderbufferStorage function. Must be Gl.RENDERBUFFER.
 		/// </param>
 		/// <param name="internalformat">
 		/// Specifies the internal format to use for the renderbuffer object's image.
@@ -3293,6 +4417,28 @@ namespace OpenGL
 		/// <param name="height">
 		/// Specifies the height of the renderbuffer, in pixels.
 		/// </param>
+		/// <remarks>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated by Gl.RenderbufferStorage if <paramref name="target"/> is not Gl.RENDERBUFFER.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated by glNamedRenderbufferStorage if <paramref name="renderbuffer"/> is not the name of an 
+		/// existing renderbuffer object.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_VALUE is generated if either of <paramref name="width"/> or <paramref name="height"/> is negative, or greater 
+		/// than the value of Gl.MAX_RENDERBUFFER_SIZE.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated if <paramref name="internalformat"/> is not a color-renderable, depth-renderable, or 
+		/// stencil-renderable format.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.OUT_OF_MEMORY is generated if the GL is unable to create a data store of the requested size.
+		/// </exception>
+		/// <seealso cref="Gl.GenRenderbuffers"/>
+		/// <seealso cref="Gl.BindRenderbuffer"/>
+		/// <seealso cref="Gl.NamedRenderbufferStorageMultisample"/>
+		/// <seealso cref="Gl.RenderbufferStorageMultisample"/>
+		/// <seealso cref="Gl.FramebufferRenderbuffer"/>
+		/// <seealso cref="Gl.DeleteRenderbuffers"/>
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ARB_framebuffer_object")]
 		public static void RenderbufferStorage(int target, int internalformat, Int32 width, Int32 height)
@@ -3307,15 +4453,32 @@ namespace OpenGL
 		/// query a named parameter of a renderbuffer object
 		/// </summary>
 		/// <param name="target">
-		/// Specifies the target to which the renderbuffer object is bound for glGetRenderbufferParameteriv. target must be 
-		/// GL_RENDERBUFFER.
+		/// Specifies the target to which the renderbuffer object is bound for Gl.GetRenderbufferParameteriv. <paramref 
+		/// name="target"/> must be Gl.RENDERBUFFER.
 		/// </param>
 		/// <param name="pname">
 		/// Specifies the parameter of the renderbuffer object to query.
 		/// </param>
 		/// <param name="params">
-		/// Returns the value of parameter pname for the renderbuffer object.
+		/// Returns the value of parameter <paramref name="pname"/> for the renderbuffer object.
 		/// </param>
+		/// <remarks>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated by Gl.GetRenderbufferParameteriv if <paramref name="target"/> is not Gl.RENDERBUFFER.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated by Gl.GetRenderbufferParameteriv if zero is bound to <paramref name="target"/>.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated by Gl.GetNamedRenderbufferParameteriv if <paramref name="renderbuffer"/> is not the 
+		/// name of an existing renderbuffer object.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated if <paramref name="pname"/> is not one of the accepted parameter names described above.
+		/// </exception>
+		/// <seealso cref="Gl.GenRenderbuffers"/>
+		/// <seealso cref="Gl.FramebufferRenderbuffer"/>
+		/// <seealso cref="Gl.BindRenderbuffer"/>
+		/// <seealso cref="Gl.RenderbufferStorage"/>
+		/// <seealso cref="Gl.RenderbufferStorageMultisample"/>
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ARB_framebuffer_object")]
 		public static void GetRenderbufferParameter(int target, int pname, Int32[] @params)
@@ -3337,6 +4500,9 @@ namespace OpenGL
 		/// <param name="framebuffer">
 		/// Specifies a value that may be the name of a framebuffer object.
 		/// </param>
+		/// <seealso cref="Gl.GenFramebuffers"/>
+		/// <seealso cref="Gl.BindFramebuffer"/>
+		/// <seealso cref="Gl.DeleteFramebuffers"/>
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ARB_framebuffer_object")]
 		public static bool IsFramebuffer(UInt32 framebuffer)
@@ -3360,6 +4526,25 @@ namespace OpenGL
 		/// <param name="framebuffer">
 		/// Specifies the name of the framebuffer object to bind.
 		/// </param>
+		/// <remarks>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated if <paramref name="target"/> is not Gl.DRAW_FRAMEBUFFER, Gl.READ_FRAMEBUFFER or 
+		/// Gl.FRAMEBUFFER.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if <paramref name="framebuffer"/> is not zero or the name of a framebuffer previously 
+		/// returned from a call to glGenFramebuffers.
+		/// </exception>
+		/// <seealso cref="Gl.GenFramebuffers"/>
+		/// <seealso cref="Gl.FramebufferRenderbuffer"/>
+		/// <seealso cref="Gl.FramebufferTexture"/>
+		/// <seealso cref="Gl.FramebufferTexture1D"/>
+		/// <seealso cref="Gl.FramebufferTexture2D"/>
+		/// <seealso cref="Gl.FramebufferTexture3D"/>
+		/// <seealso cref="Gl.FramebufferTextureFace"/>
+		/// <seealso cref="Gl.FramebufferTextureLayer"/>
+		/// <seealso cref="Gl.DeleteFramebuffers"/>
+		/// <seealso cref="Gl.IsFramebuffer"/>
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ARB_framebuffer_object")]
 		public static void BindFramebuffer(int target, UInt32 framebuffer)
@@ -3377,8 +4562,16 @@ namespace OpenGL
 		/// Specifies the number of framebuffer objects to be deleted.
 		/// </param>
 		/// <param name="framebuffers">
-		/// A pointer to an array containing n framebuffer objects to be deleted.
+		/// A pointer to an array containing <paramref name="n"/> framebuffer objects to be deleted.
 		/// </param>
+		/// <remarks>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_VALUE is generated if <paramref name="n"/> is negative.
+		/// </exception>
+		/// <seealso cref="Gl.GenFramebuffers"/>
+		/// <seealso cref="Gl.BindFramebuffer"/>
+		/// <seealso cref="Gl.CheckFramebufferStatus"/>
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ARB_framebuffer_object")]
 		public static void DeleteFramebuffers(params UInt32[] framebuffers)
@@ -3403,6 +4596,13 @@ namespace OpenGL
 		/// <param name="framebuffers">
 		/// A <see cref="T:UInt32[]"/>.
 		/// </param>
+		/// <remarks>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_VALUE is generated if <paramref name="n"/> is negative.
+		/// </exception>
+		/// <seealso cref="Gl.BindFramebuffer"/>
+		/// <seealso cref="Gl.DeleteFramebuffers"/>
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ARB_framebuffer_object")]
 		public static void GenFramebuffers(UInt32[] framebuffers)
@@ -3421,6 +4621,13 @@ namespace OpenGL
 		/// <summary>
 		/// generate framebuffer object names
 		/// </summary>
+		/// <remarks>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_VALUE is generated if <paramref name="n"/> is negative.
+		/// </exception>
+		/// <seealso cref="Gl.BindFramebuffer"/>
+		/// <seealso cref="Gl.DeleteFramebuffers"/>
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ARB_framebuffer_object")]
 		public static UInt32 GenFramebuffer()
@@ -3434,9 +4641,21 @@ namespace OpenGL
 		/// check the completeness status of a framebuffer
 		/// </summary>
 		/// <param name="target">
-		/// Specify the target to which the framebuffer is bound for glCheckFramebufferStatus, and the target against which 
-		/// framebuffer completeness of framebuffer is checked for glCheckNamedFramebufferStatus.
+		/// Specify the target to which the framebuffer is bound for Gl.CheckFramebufferStatus, and the target against which 
+		/// framebuffer completeness of <paramref name="framebuffer"/> is checked for Gl.CheckNamedFramebufferStatus.
 		/// </param>
+		/// <remarks>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated if <paramref name="target"/> is not Gl.DRAW_FRAMEBUFFER, Gl.READ_FRAMEBUFFER or 
+		/// Gl.FRAMEBUFFER.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated by Gl.CheckNamedFramebufferStatus if <paramref name="framebuffer"/> is not zero or the 
+		/// name of an existing framebuffer object.
+		/// </exception>
+		/// <seealso cref="Gl.GenFramebuffers"/>
+		/// <seealso cref="Gl.DeleteFramebuffers"/>
+		/// <seealso cref="Gl.BindFramebuffer"/>
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ARB_framebuffer_object")]
 		public static int CheckFramebufferStatus(int target)
@@ -3455,14 +4674,14 @@ namespace OpenGL
 		/// attach a level of a texture object as a logical buffer of a framebuffer object
 		/// </summary>
 		/// <param name="target">
-		/// Specifies the target to which the framebuffer is bound for all commands exceptglNamedFramebufferTexture.
+		/// Specifies the target to which the framebuffer is bound for all commands exceptGl.NamedFramebufferTexture.
 		/// </param>
 		/// <param name="attachment">
 		/// Specifies the attachment point of the framebuffer.
 		/// </param>
 		/// <param name="textarget">
-		/// For glFramebufferTexture1D, glFramebufferTexture2D and glFramebufferTexture3D, specifies what type of texture is 
-		/// expected in the texture parameter, or for cube map textures, which face is to be attached.
+		/// For Gl.FramebufferTexture1D, Gl.FramebufferTexture2D and Gl.FramebufferTexture3D, specifies what type of texture is 
+		/// expected in the <paramref name="texture"/> parameter, or for cube map textures, which face is to be attached.
 		/// </param>
 		/// <param name="texture">
 		/// Specifies the name of an existing texture object to attach.
@@ -3470,6 +4689,41 @@ namespace OpenGL
 		/// <param name="level">
 		/// Specifies the mipmap level of the texture object to attach.
 		/// </param>
+		/// <remarks>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated by all commands accepting a <paramref name="target"/> parameter if it is not one of the 
+		/// accepted framebuffer targets.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated by all commands accepting a <paramref name="target"/> parameter if zero is bound to 
+		/// that target.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated by Gl.NamedFramebufferTexture if <paramref name="framebuffer"/> is not the name of an 
+		/// existing framebuffer object.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated if <paramref name="attachment"/> is not one of the accepted attachment points.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_VALUE is generated if <paramref name="texture"/> is not zero or the name of an existing texture object.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_VALUE is generated if <paramref name="texture"/> is not zero and <paramref name="level"/> is not a supported 
+		/// texture level for <paramref name="texture"/>.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_VALUE is generated by Gl.FramebufferTexture3D if <paramref name="texture"/> is not zero and <paramref 
+		/// name="layer"/> is larger than the value of Gl.MAX_3D_TEXTURE_SIZE minus one.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated by all commands accepting a <paramref name="textarget"/> parameter if <paramref 
+		/// name="texture"/> is not zero, and <paramref name="textarget"/> and the effective target of <paramref name="texture"/> 
+		/// are not compatible.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated by if <paramref name="texture"/> is a buffer texture.
+		/// </exception>
+		/// <seealso cref="Gl.GenFramebuffers"/>
+		/// <seealso cref="Gl.BindFramebuffer"/>
+		/// <seealso cref="Gl.GenRenderbuffers"/>
+		/// <seealso cref="Gl.FramebufferTexture"/>
+		/// <seealso cref="Gl.FramebufferTexture1D"/>
+		/// <seealso cref="Gl.FramebufferTexture2D"/>
+		/// <seealso cref="Gl.FramebufferTexture3D"/>
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ARB_framebuffer_object")]
 		public static void FramebufferTexture1D(int target, int attachment, int textarget, UInt32 texture, Int32 level)
@@ -3484,14 +4738,14 @@ namespace OpenGL
 		/// attach a level of a texture object as a logical buffer of a framebuffer object
 		/// </summary>
 		/// <param name="target">
-		/// Specifies the target to which the framebuffer is bound for all commands exceptglNamedFramebufferTexture.
+		/// Specifies the target to which the framebuffer is bound for all commands exceptGl.NamedFramebufferTexture.
 		/// </param>
 		/// <param name="attachment">
 		/// Specifies the attachment point of the framebuffer.
 		/// </param>
 		/// <param name="textarget">
-		/// For glFramebufferTexture1D, glFramebufferTexture2D and glFramebufferTexture3D, specifies what type of texture is 
-		/// expected in the texture parameter, or for cube map textures, which face is to be attached.
+		/// For Gl.FramebufferTexture1D, Gl.FramebufferTexture2D and Gl.FramebufferTexture3D, specifies what type of texture is 
+		/// expected in the <paramref name="texture"/> parameter, or for cube map textures, which face is to be attached.
 		/// </param>
 		/// <param name="texture">
 		/// Specifies the name of an existing texture object to attach.
@@ -3499,6 +4753,41 @@ namespace OpenGL
 		/// <param name="level">
 		/// Specifies the mipmap level of the texture object to attach.
 		/// </param>
+		/// <remarks>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated by all commands accepting a <paramref name="target"/> parameter if it is not one of the 
+		/// accepted framebuffer targets.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated by all commands accepting a <paramref name="target"/> parameter if zero is bound to 
+		/// that target.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated by Gl.NamedFramebufferTexture if <paramref name="framebuffer"/> is not the name of an 
+		/// existing framebuffer object.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated if <paramref name="attachment"/> is not one of the accepted attachment points.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_VALUE is generated if <paramref name="texture"/> is not zero or the name of an existing texture object.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_VALUE is generated if <paramref name="texture"/> is not zero and <paramref name="level"/> is not a supported 
+		/// texture level for <paramref name="texture"/>.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_VALUE is generated by Gl.FramebufferTexture3D if <paramref name="texture"/> is not zero and <paramref 
+		/// name="layer"/> is larger than the value of Gl.MAX_3D_TEXTURE_SIZE minus one.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated by all commands accepting a <paramref name="textarget"/> parameter if <paramref 
+		/// name="texture"/> is not zero, and <paramref name="textarget"/> and the effective target of <paramref name="texture"/> 
+		/// are not compatible.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated by if <paramref name="texture"/> is a buffer texture.
+		/// </exception>
+		/// <seealso cref="Gl.GenFramebuffers"/>
+		/// <seealso cref="Gl.BindFramebuffer"/>
+		/// <seealso cref="Gl.GenRenderbuffers"/>
+		/// <seealso cref="Gl.FramebufferTexture"/>
+		/// <seealso cref="Gl.FramebufferTexture1D"/>
+		/// <seealso cref="Gl.FramebufferTexture2D"/>
+		/// <seealso cref="Gl.FramebufferTexture3D"/>
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ARB_framebuffer_object")]
 		public static void FramebufferTexture2D(int target, int attachment, int textarget, UInt32 texture, Int32 level)
@@ -3513,14 +4802,14 @@ namespace OpenGL
 		/// attach a level of a texture object as a logical buffer of a framebuffer object
 		/// </summary>
 		/// <param name="target">
-		/// Specifies the target to which the framebuffer is bound for all commands exceptglNamedFramebufferTexture.
+		/// Specifies the target to which the framebuffer is bound for all commands exceptGl.NamedFramebufferTexture.
 		/// </param>
 		/// <param name="attachment">
 		/// Specifies the attachment point of the framebuffer.
 		/// </param>
 		/// <param name="textarget">
-		/// For glFramebufferTexture1D, glFramebufferTexture2D and glFramebufferTexture3D, specifies what type of texture is 
-		/// expected in the texture parameter, or for cube map textures, which face is to be attached.
+		/// For Gl.FramebufferTexture1D, Gl.FramebufferTexture2D and Gl.FramebufferTexture3D, specifies what type of texture is 
+		/// expected in the <paramref name="texture"/> parameter, or for cube map textures, which face is to be attached.
 		/// </param>
 		/// <param name="texture">
 		/// Specifies the name of an existing texture object to attach.
@@ -3531,6 +4820,41 @@ namespace OpenGL
 		/// <param name="zoffset">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
+		/// <remarks>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated by all commands accepting a <paramref name="target"/> parameter if it is not one of the 
+		/// accepted framebuffer targets.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated by all commands accepting a <paramref name="target"/> parameter if zero is bound to 
+		/// that target.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated by Gl.NamedFramebufferTexture if <paramref name="framebuffer"/> is not the name of an 
+		/// existing framebuffer object.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated if <paramref name="attachment"/> is not one of the accepted attachment points.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_VALUE is generated if <paramref name="texture"/> is not zero or the name of an existing texture object.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_VALUE is generated if <paramref name="texture"/> is not zero and <paramref name="level"/> is not a supported 
+		/// texture level for <paramref name="texture"/>.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_VALUE is generated by Gl.FramebufferTexture3D if <paramref name="texture"/> is not zero and <paramref 
+		/// name="layer"/> is larger than the value of Gl.MAX_3D_TEXTURE_SIZE minus one.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated by all commands accepting a <paramref name="textarget"/> parameter if <paramref 
+		/// name="texture"/> is not zero, and <paramref name="textarget"/> and the effective target of <paramref name="texture"/> 
+		/// are not compatible.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated by if <paramref name="texture"/> is a buffer texture.
+		/// </exception>
+		/// <seealso cref="Gl.GenFramebuffers"/>
+		/// <seealso cref="Gl.BindFramebuffer"/>
+		/// <seealso cref="Gl.GenRenderbuffers"/>
+		/// <seealso cref="Gl.FramebufferTexture"/>
+		/// <seealso cref="Gl.FramebufferTexture1D"/>
+		/// <seealso cref="Gl.FramebufferTexture2D"/>
+		/// <seealso cref="Gl.FramebufferTexture3D"/>
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ARB_framebuffer_object")]
 		public static void FramebufferTexture3D(int target, int attachment, int textarget, UInt32 texture, Int32 level, Int32 zoffset)
@@ -3545,17 +4869,42 @@ namespace OpenGL
 		/// attach a renderbuffer as a logical buffer of a framebuffer object
 		/// </summary>
 		/// <param name="target">
-		/// Specifies the target to which the framebuffer is bound for glFramebufferRenderbuffer.
+		/// Specifies the target to which the framebuffer is bound for Gl.FramebufferRenderbuffer.
 		/// </param>
 		/// <param name="attachment">
 		/// Specifies the attachment point of the framebuffer.
 		/// </param>
 		/// <param name="renderbuffertarget">
-		/// Specifies the renderbuffer target. Must be GL_RENDERBUFFER.
+		/// Specifies the renderbuffer target. Must be Gl.RENDERBUFFER.
 		/// </param>
 		/// <param name="renderbuffer">
-		/// Specifies the name of an existing renderbuffer object of type renderbuffertarget to attach.
+		/// Specifies the name of an existing renderbuffer object of type <paramref name="renderbuffertarget"/> to attach.
 		/// </param>
+		/// <remarks>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated by Gl.FramebufferRenderbuffer if <paramref name="target"/> is not one of the accepted 
+		/// framebuffer targets.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated by Gl.FramebufferRenderbuffer if zero is bound to <paramref name="target"/>.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated by Gl.NamedFramebufferRenderbuffer if <paramref name="framebuffer"/> is not the name 
+		/// of an existing framebuffer object.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated if <paramref name="attachment"/> is not one of the accepted attachment points.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated if <paramref name="renderbuffertarget"/> is not Gl.RENDERBUFFER.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if <paramref name="renderbuffertarget"/> is not zero or the name of an existing 
+		/// renderbuffer object of type Gl.RENDERBUFFER.
+		/// </exception>
+		/// <seealso cref="Gl.GenFramebuffers"/>
+		/// <seealso cref="Gl.BindFramebuffer"/>
+		/// <seealso cref="Gl.GenRenderbuffers"/>
+		/// <seealso cref="Gl.FramebufferTexture"/>
+		/// <seealso cref="Gl.FramebufferTexture1D"/>
+		/// <seealso cref="Gl.FramebufferTexture2D"/>
+		/// <seealso cref="Gl.FramebufferTexture3D"/>
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ARB_framebuffer_object")]
 		public static void FramebufferRenderbuffer(int target, int attachment, int renderbuffertarget, UInt32 renderbuffer)
@@ -3570,17 +4919,44 @@ namespace OpenGL
 		/// retrieve information about attachments of a framebuffer object
 		/// </summary>
 		/// <param name="target">
-		/// Specifies the target to which the framebuffer object is bound for glGetFramebufferAttachmentParameteriv.
+		/// Specifies the target to which the framebuffer object is bound for Gl.GetFramebufferAttachmentParameteriv.
 		/// </param>
 		/// <param name="attachment">
 		/// Specifies the attachment of the framebuffer object to query.
 		/// </param>
 		/// <param name="pname">
-		/// Specifies the parameter of attachment to query.
+		/// Specifies the parameter of <paramref name="attachment"/> to query.
 		/// </param>
 		/// <param name="params">
-		/// Returns the value of parameter pname for attachment.
+		/// Returns the value of parameter <paramref name="pname"/> for <paramref name="attachment"/>.
 		/// </param>
+		/// <remarks>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated by Gl.GetFramebufferAttachmentParameteriv if <paramref name="target"/> is not one of the 
+		/// accepted framebuffer targets.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated by Gl.GetNamedFramebufferAttachmentParameteriv if <paramref name="framebuffer"/> is 
+		/// not zero or the name of an existing framebuffer object.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated if <paramref name="pname"/> is not valid for the value of 
+		/// Gl.FRAMEBUFFER_ATTACHMENT_OBJECT_TYPE, as described above.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if <paramref name="attachment"/> is not one of the accepted framebuffer attachment 
+		/// points, as described above.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if the value of Gl.FRAMEBUFFER_ATTACHMENT_OBJECT_TYPE is Gl.NONE and <paramref 
+		/// name="pname"/> is not Gl.FRAMEBUFFER_ATTACHMENT_OBJECT_NAME or Gl.FRAMEBUFFER_ATTACHMENT_OBJECT_TYPE.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if <paramref name="attachment"/> is Gl.DEPTH_STENCIL_ATTACHMENT and different objects 
+		/// are bound to the depth and stencil attachment points of <paramref name="target"/>.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if <paramref name="attachment"/> is Gl.DEPTH_STENCIL_ATTACHMENT and <paramref 
+		/// name="pname"/> is Gl.FRAMEBUFFER_ATTACHMENT_COMPONENT_TYPE.
+		/// </exception>
+		/// <seealso cref="Gl.GenFramebuffers"/>
+		/// <seealso cref="Gl.BindFramebuffer"/>
+		/// <seealso cref="Gl.GetFramebufferParameter"/>
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ARB_framebuffer_object")]
 		public static void GetFramebufferAttachmentParameter(int target, int attachment, int pname, Int32[] @params)
@@ -3600,10 +4976,25 @@ namespace OpenGL
 		/// generate mipmaps for a specified texture object
 		/// </summary>
 		/// <param name="target">
-		/// Specifies the target to which the texture object is bound for glGenerateMipmap. Must be one of GL_TEXTURE_1D, 
-		/// GL_TEXTURE_2D, GL_TEXTURE_3D, GL_TEXTURE_1D_ARRAY, GL_TEXTURE_2D_ARRAY, GL_TEXTURE_CUBE_MAP, or 
-		/// GL_TEXTURE_CUBE_MAP_ARRAY.
+		/// Specifies the target to which the texture object is bound for Gl.GenerateMipmap. Must be one of Gl.TEXTURE_1D, 
+		/// Gl.TEXTURE_2D, Gl.TEXTURE_3D, Gl.TEXTURE_1D_ARRAY, Gl.TEXTURE_2D_ARRAY, Gl.TEXTURE_CUBE_MAP, or 
+		/// Gl.TEXTURE_CUBE_MAP_ARRAY.
 		/// </param>
+		/// <remarks>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated by Gl.GenerateMipmap if <paramref name="target"/> is not one of the accepted texture 
+		/// targets.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated by Gl.GenerateTextureMipmap if <paramref name="texture"/> is not the name of an 
+		/// existing texture object.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if <paramref name="target"/> is Gl.TEXTURE_CUBE_MAP or Gl.TEXTURE_CUBE_MAP_ARRAY, and 
+		/// the specified texture object is not cube complete or cube array complete, respectively.
+		/// </exception>
+		/// <seealso cref="Gl.TexImage2D"/>
+		/// <seealso cref="Gl.BindTexture"/>
+		/// <seealso cref="Gl.GenTextures"/>
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ARB_framebuffer_object")]
 		public static void GenerateMipmap(int target)
@@ -3642,12 +5033,45 @@ namespace OpenGL
 		/// Specify the bounds of the destination rectangle within the write buffer of the write framebuffer.
 		/// </param>
 		/// <param name="mask">
-		/// The bitwise OR of the flags indicating which buffers are to be copied. The allowed flags are GL_COLOR_BUFFER_BIT, 
-		/// GL_DEPTH_BUFFER_BIT and GL_STENCIL_BUFFER_BIT.
+		/// The bitwise OR of the flags indicating which buffers are to be copied. The allowed flags are Gl.COLOR_BUFFER_BIT, 
+		/// Gl.DEPTH_BUFFER_BIT and Gl.STENCIL_BUFFER_BIT.
 		/// </param>
 		/// <param name="filter">
-		/// Specifies the interpolation to be applied if the image is stretched. Must be GL_NEAREST or GL_LINEAR.
+		/// Specifies the interpolation to be applied if the image is stretched. Must be Gl.NEAREST or Gl.LINEAR.
 		/// </param>
+		/// <remarks>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated by Gl.itNamedFramebuffer if <paramref name="readFramebuffer"/> or <paramref 
+		/// name="drawFramebuffer"/> is not zero or the name of an existing framebuffer object.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if <paramref name="mask"/> contains any of the Gl.DEPTH_BUFFER_BIT or 
+		/// Gl.STENCIL_BUFFER_BIT and <paramref name="filter"/> is not Gl.NEAREST.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if <paramref name="mask"/> contains Gl.COLOR_BUFFER_BIT and any of the following 
+		/// conditions hold: The read buffer contains fixed-point or floating-point values and any draw buffer contains neither 
+		/// fixed-point nor floating-point values. The read buffer contains unsigned integer values and any draw buffer does not 
+		/// contain unsigned integer values. The read buffer contains signed integer values and any draw buffer does not contain 
+		/// signed integer values.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if <paramref name="mask"/> contains Gl.DEPTH_BUFFER_BIT or Gl.STENCIL_BUFFER_BIT and 
+		/// the source and destination depth and stencil formats do not match.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if <paramref name="filter"/> is Gl.LINEAR and the read buffer contains integer data.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if the effective value of Gl.SAMPLES for the read and draw framebuffers is not 
+		/// identical.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if the value of Gl.SAMPLE_BUFFERS for both read and draw buffers is greater than zero 
+		/// and the dimensions of the source and destination rectangles is not identical.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_FRAMEBUFFER_OPERATION is generated if the specified read and draw framebuffers are not framebuffer complete.
+		/// </exception>
+		/// <seealso cref="Gl.ReadPixels"/>
+		/// <seealso cref="Gl.CheckFramebufferStatus"/>
+		/// <seealso cref="Gl.GenFramebuffers"/>
+		/// <seealso cref="Gl.BindFramebuffer"/>
+		/// <seealso cref="Gl.DeleteFramebuffers"/>
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ARB_framebuffer_object")]
 		public static void BlitFramebuffer(Int32 srcX0, Int32 srcY0, Int32 srcX1, Int32 srcY1, Int32 dstX0, Int32 dstY0, Int32 dstX1, Int32 dstY1, ClearBufferMask mask, int filter)
@@ -3662,7 +5086,7 @@ namespace OpenGL
 		/// establish data storage, format, dimensions and sample count of a renderbuffer object's image
 		/// </summary>
 		/// <param name="target">
-		/// Specifies a binding target of the allocation for glRenderbufferStorageMultisample function. Must be GL_RENDERBUFFER.
+		/// Specifies a binding target of the allocation for Gl.RenderbufferStorageMultisample function. Must be Gl.RENDERBUFFER.
 		/// </param>
 		/// <param name="samples">
 		/// Specifies the number of samples to be used for the renderbuffer object's storage.
@@ -3676,6 +5100,34 @@ namespace OpenGL
 		/// <param name="height">
 		/// Specifies the height of the renderbuffer, in pixels.
 		/// </param>
+		/// <remarks>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated by Gl.RenderbufferStorageMultisample function if <paramref name="target"/> is not 
+		/// Gl.RENDERBUFFER.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated by Gl.NamedRenderbufferStorageMultisample function if <paramref name="renderbuffer"/> 
+		/// is not the name of an existing renderbuffer object.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_VALUE is generated if <paramref name="samples"/> is greater than Gl.MAX_SAMPLES.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated if <paramref name="internalformat"/> is not a color-renderable, depth-renderable, or 
+		/// stencil-renderable format.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if <paramref name="internalformat"/> is a signed or unsigned integer format and 
+		/// <paramref name="samples"/> is greater than the value of Gl.MAX_INTEGER_SAMPLES
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_VALUE is generated if either of <paramref name="width"/> or <paramref name="height"/> is negative, or greater 
+		/// than the value of Gl.MAX_RENDERBUFFER_SIZE.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.OUT_OF_MEMORY is generated if the GL is unable to create a data store of the requested size.
+		/// </exception>
+		/// <seealso cref="Gl.GenRenderbuffers"/>
+		/// <seealso cref="Gl.BindRenderbuffer"/>
+		/// <seealso cref="Gl.NamedRenderbufferStorage"/>
+		/// <seealso cref="Gl.RenderbufferStorage"/>
+		/// <seealso cref="Gl.FramebufferRenderbuffer"/>
+		/// <seealso cref="Gl.DeleteRenderbuffers"/>
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ARB_framebuffer_object")]
 		public static void RenderbufferStorageMultisample(int target, Int32 samples, int internalformat, Int32 width, Int32 height)
@@ -3690,7 +5142,7 @@ namespace OpenGL
 		/// attach a single layer of a texture object as a logical buffer of a framebuffer object
 		/// </summary>
 		/// <param name="target">
-		/// Specifies the target to which the framebuffer is bound for glFramebufferTextureLayer.
+		/// Specifies the target to which the framebuffer is bound for Gl.FramebufferTextureLayer.
 		/// </param>
 		/// <param name="attachment">
 		/// Specifies the attachment point of the framebuffer.
@@ -3704,6 +5156,39 @@ namespace OpenGL
 		/// <param name="layer">
 		/// Specifies the layer of the texture object to attach.
 		/// </param>
+		/// <remarks>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated by Gl.FramebufferTexture if <paramref name="target"/> is not one of the accepted 
+		/// framebuffer targets.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated by Gl.FramebufferTexture if zero is bound to <paramref name="target"/>.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated by Gl.NamedFramebufferTexture if <paramref name="framebuffer"/> is not the name of an 
+		/// existing framebuffer object.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated if <paramref name="attachment"/> is not one of the accepted attachment points.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if <paramref name="texture"/> is not zero and is not the name of an existing 
+		/// three-dimensional, two-dimensional multisample array, one- or two-dimensional array, cube map, or cube map array 
+		/// texture.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_VALUE is generated if <paramref name="texture"/> is not zero and <paramref name="level"/> is not a supported 
+		/// texture level for <paramref name="texture"/>, as described above.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_VALUE is generated if <paramref name="texture"/> is not zero and <paramref name="layer"/> is larger than the 
+		/// value of Gl.MAX_3D_TEXTURE_SIZE minus one (for three-dimensional texture objects), or larger than the value of 
+		/// Gl.MAX_ARRAY_TEXTURE_LAYERS minus one (for array texture objects).
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_VALUE is generated if <paramref name="texture"/> is not zero and <paramref name="layer"/> is negative.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated by if <paramref name="texture"/> is a buffer texture.
+		/// </exception>
+		/// <seealso cref="Gl.GenFramebuffers"/>
+		/// <seealso cref="Gl.BindFramebuffer"/>
+		/// <seealso cref="Gl.GenRenderbuffers"/>
+		/// <seealso cref="Gl.FramebufferTexture"/>
+		/// <seealso cref="Gl.FramebufferTextureFace"/>
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ARB_framebuffer_object")]
 		public static void FramebufferTextureLayer(int target, int attachment, UInt32 texture, Int32 level, Int32 layer)
@@ -3718,7 +5203,7 @@ namespace OpenGL
 		/// map all or part of a buffer object's data store into the client's address space
 		/// </summary>
 		/// <param name="target">
-		/// Specifies the target to which the buffer object is bound for glMapBufferRange, which must be one of the buffer binding 
+		/// Specifies the target to which the buffer object is bound for Gl.MapBufferRange, which must be one of the buffer binding 
 		/// targets in the following table:
 		/// </param>
 		/// <param name="offset">
@@ -3730,6 +5215,35 @@ namespace OpenGL
 		/// <param name="access">
 		/// Specifies a combination of access flags indicating the desired access to the mapped range.
 		/// </param>
+		/// <remarks>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated by Gl.MapBufferRange if <paramref name="target"/> is not one of the buffer binding targets 
+		/// listed above.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated by Gl.MapBufferRange if zero is bound to <paramref name="target"/>.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated by Gl.MapNamedBufferRange if <paramref name="buffer"/> is not the name of an existing 
+		/// buffer object.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_VALUE is generated if <paramref name="offset"/> or <paramref name="length"/> is negative, if $offset + 
+		/// length$ is greater than the value of Gl.BUFFER_SIZE for the buffer object, or if <paramref name="access"/> has any bits 
+		/// set other than those defined above.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated for any of the following conditions: <paramref name="length"/> is zero. The buffer 
+		/// object is already in a mapped state. Neither Gl.MAP_READ_BIT nor Gl.MAP_WRITE_BIT is set. Gl.MAP_READ_BIT is set and any 
+		/// of Gl.MAP_INVALIDATE_RANGE_BIT, Gl.MAP_INVALIDATE_BUFFER_BIT or Gl.MAP_UNSYNCHRONIZED_BIT is set. 
+		/// Gl.MAP_FLUSH_EXPLICIT_BIT is set and Gl.MAP_WRITE_BIT is not set. Any of Gl.MAP_READ_BIT, Gl.MAP_WRITE_BIT, 
+		/// Gl.MAP_PERSISTENT_BIT, or Gl.MAP_COHERENT_BIT are set, but the same bit is not included in the buffer's storage flags.
+		/// <exception cref="InvalidOperationException">
+		/// No error is generated if memory outside the mapped range is modified or queried, but the result is undefined and system 
+		/// errors (possibly including program termination) may occur.
+		/// </exception>
+		/// <seealso cref="Gl.MapBuffer"/>
+		/// <seealso cref="Gl.UnmapBuffer"/>
+		/// <seealso cref="Gl.FlushMappedBufferRange"/>
+		/// <seealso cref="Gl.BindBuffer"/>
+		/// <seealso cref="Gl.BufferStorage"/>
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ARB_map_buffer_range")]
 		public static IntPtr MapBufferRange(BufferTargetARB target, IntPtr offset, UInt32 length, uint access)
@@ -3748,7 +5262,7 @@ namespace OpenGL
 		/// indicate modifications to a range of a mapped buffer
 		/// </summary>
 		/// <param name="target">
-		/// Specifies the target to which the buffer object is bound for glFlushMappedBufferRange, which must be one of the buffer 
+		/// Specifies the target to which the buffer object is bound for Gl.FlushMappedBufferRange, which must be one of the buffer 
 		/// binding targets in the following table:
 		/// </param>
 		/// <param name="offset">
@@ -3757,6 +5271,26 @@ namespace OpenGL
 		/// <param name="length">
 		/// Specifies the length of the buffer subrange, in basic machine units.
 		/// </param>
+		/// <remarks>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated by Gl.FlushMappedBufferRange if <paramref name="target"/> is not one of the buffer binding 
+		/// targets listed above.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated by Gl.FlushMappedBufferRange if zero is bound to <paramref name="target"/>.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated by Gl.FlushMappedNamedBufferRange if <paramref name="buffer"/> is not the name of an 
+		/// existing buffer object.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_VALUE is generated if <paramref name="offset"/> or <paramref name="length"/> is negative, or if <paramref 
+		/// name="offset"/> + <paramref name="length"/> exceeds the size of the mapping.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if the buffer object is not mapped, or is mapped without the Gl.MAP_FLUSH_EXPLICIT_BIT 
+		/// flag.
+		/// </exception>
+		/// <seealso cref="Gl.MapBufferRange"/>
+		/// <seealso cref="Gl.MapBuffer"/>
+		/// <seealso cref="Gl.UnmapBuffer"/>
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ARB_map_buffer_range")]
 		public static void FlushMappedBufferRange(BufferTargetARB target, IntPtr offset, UInt32 length)
@@ -3773,6 +5307,17 @@ namespace OpenGL
 		/// <param name="array">
 		/// Specifies the name of the vertex array to bind.
 		/// </param>
+		/// <remarks>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if <paramref name="array"/> is not zero or the name of a vertex array object 
+		/// previously returned from a call to glGenVertexArrays.
+		/// </exception>
+		/// <seealso cref="Gl.DeleteVertexArrays"/>
+		/// <seealso cref="Gl.EnableVertexAttribArray"/>
+		/// <seealso cref="Gl.GenVertexArrays"/>
+		/// <seealso cref="Gl.IsVertexArray"/>
+		/// <seealso cref="Gl.VertexAttribPointer"/>
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ARB_vertex_array_object")]
 		public static void BindVertexArray(UInt32 array)
@@ -3790,8 +5335,16 @@ namespace OpenGL
 		/// Specifies the number of vertex array objects to be deleted.
 		/// </param>
 		/// <param name="arrays">
-		/// Specifies the address of an array containing the n names of the objects to be deleted.
+		/// Specifies the address of an array containing the <paramref name="n"/> names of the objects to be deleted.
 		/// </param>
+		/// <remarks>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_VALUE is generated if <paramref name="n"/> is negative.
+		/// </exception>
+		/// <seealso cref="Gl.GenVertexArrays"/>
+		/// <seealso cref="Gl.IsVertexArray"/>
+		/// <seealso cref="Gl.BindVertexArray"/>
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ARB_vertex_array_object")]
 		public static void DeleteVertexArrays(params UInt32[] arrays)
@@ -3816,6 +5369,13 @@ namespace OpenGL
 		/// <param name="arrays">
 		/// Specifies an array in which the generated vertex array object names are stored.
 		/// </param>
+		/// <remarks>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_VALUE is generated if <paramref name="n"/> is negative.
+		/// </exception>
+		/// <seealso cref="Gl.BindVertexArray"/>
+		/// <seealso cref="Gl.DeleteVertexArrays"/>
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ARB_vertex_array_object")]
 		public static void GenVertexArrays(UInt32[] arrays)
@@ -3834,6 +5394,13 @@ namespace OpenGL
 		/// <summary>
 		/// generate vertex array object names
 		/// </summary>
+		/// <remarks>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_VALUE is generated if <paramref name="n"/> is negative.
+		/// </exception>
+		/// <seealso cref="Gl.BindVertexArray"/>
+		/// <seealso cref="Gl.DeleteVertexArrays"/>
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ARB_vertex_array_object")]
 		public static UInt32 GenVertexArray()
@@ -3849,6 +5416,9 @@ namespace OpenGL
 		/// <param name="array">
 		/// Specifies a value that may be the name of a vertex array object.
 		/// </param>
+		/// <seealso cref="Gl.GenVertexArrays"/>
+		/// <seealso cref="Gl.BindVertexArray"/>
+		/// <seealso cref="Gl.DeleteVertexArrays"/>
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ARB_vertex_array_object")]
 		public static bool IsVertexArray(UInt32 array)

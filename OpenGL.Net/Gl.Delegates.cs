@@ -1620,7 +1620,7 @@ namespace OpenGL
 			[AliasOf("glCreateShader")]
 			[AliasOf("glCreateShaderObjectARB")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate UInt32 glCreateShader(int type);
+			internal delegate UInt32 glCreateShader(int shaderType);
 			[ThreadStatic]
 			internal static glCreateShader pglCreateShader;
 
