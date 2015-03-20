@@ -108,7 +108,10 @@ namespace OpenGL
 		public const int COMPRESSED_SIGNED_RG11_EAC = 0x9273;
 
 		/// <summary>
-		/// Value of GL_PRIMITIVE_RESTART_FIXED_INDEX symbol.
+		/// Gl.Enable: enables primitive restarting with a fixed index. If enabled, any one of the draw commands which transfers a 
+		/// set of generic attribute array elements to the GL will restart the primitive when the index of the vertex is equal to 
+		/// the fixed primitive index for the specified index type. The fixed index is equal to 2n−1 where n is equal to 8 for 
+		/// Gl.UNSIGNED_BYTE, 16 for Gl.UNSIGNED_SHORT and 32 for Gl.UNSIGNED_INT.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ARB_ES3_compatibility")]
@@ -268,7 +271,10 @@ namespace OpenGL
 		public const uint COMPUTE_SHADER_BIT = 0x00000020;
 
 		/// <summary>
-		/// Value of GL_DEBUG_OUTPUT_SYNCHRONOUS symbol.
+		/// Gl.Enable: if enabled, debug messages are produced synchronously by a debug context. If disabled, debug messages may be 
+		/// produced asynchronously. In particular, they may be delayed relative to the execution of GL commands, and the debug 
+		/// callback function may be called from a thread other than that in which the commands are executed. See 
+		/// Gl.DebugMessageCallback.
 		/// </summary>
 		[AliasOf("GL_DEBUG_OUTPUT_SYNCHRONOUS_ARB")]
 		[RequiredByFeature("GL_VERSION_4_3")]
@@ -544,7 +550,8 @@ namespace OpenGL
 		public const int MAX_LABEL_LENGTH = 0x82E8;
 
 		/// <summary>
-		/// Value of GL_DEBUG_OUTPUT symbol.
+		/// Gl.Enable: if enabled, debug messages are produced by a debug context. When disabled, the debug message log is silenced. 
+		/// Note that in a non-debug context, very few, if any messages might be produced, even when Gl.DEBUG_OUTPUT is enabled.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_KHR_debug")]
@@ -1903,8 +1910,17 @@ namespace OpenGL
 		public const uint SHADER_STORAGE_BARRIER_BIT = 0x00002000;
 
 		/// <summary>
+		/// <para>
 		/// Gl.GetTexParameter: returns the single-value depth stencil texture mode, a symbolic constant. The initial value is 
 		/// Gl.DEPTH_COMPONENT.
+		/// </para>
+		/// <para>
+		/// Gl.TexParameter: specifies the mode used to read from depth-stencil format textures. params must be one of 
+		/// Gl.DEPTH_COMPONENT or Gl.STENCIL_COMPONENT. If the depth stencil mode is Gl.DEPTH_COMPONENT, then reads from 
+		/// depth-stencil format textures will return the depth component of the texel in Rt and the stencil component will be 
+		/// discarded. If the depth stencil mode is Gl.STENCIL_COMPONENT then the stencil component is returned in Rt and the depth 
+		/// component is discarded. The initial value is Gl.DEPTH_COMPONENT.
+		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ARB_stencil_texturing")]

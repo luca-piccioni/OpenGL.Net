@@ -25,13 +25,13 @@
         <funcsynopsis>
             <funcprototype>
                 <funcdef>void <function>glDepthRange</function></funcdef>
-                <paramdef>GLdouble <parameter>nearVal</parameter></paramdef>
-                <paramdef>GLdouble <parameter>farVal</parameter></paramdef>
+                <paramdef>GLdouble <parameter>near</parameter></paramdef>
+                <paramdef>GLdouble <parameter>far</parameter></paramdef>
             </funcprototype>
             <funcprototype>
                 <funcdef>void <function>glDepthRangef</function></funcdef>
-                <paramdef>GLfloat <parameter>nearVal</parameter></paramdef>
-                <paramdef>GLfloat <parameter>farVal</parameter></paramdef>
+                <paramdef>GLfloat <parameter>near</parameter></paramdef>
+                <paramdef>GLfloat <parameter>far</parameter></paramdef>
             </funcprototype>
         </funcsynopsis>
     </refsynopsisdiv>

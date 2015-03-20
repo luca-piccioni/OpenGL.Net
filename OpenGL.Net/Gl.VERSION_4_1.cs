@@ -4152,17 +4152,30 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glViewportArrayv.
+		/// set multiple viewports
 		/// </summary>
 		/// <param name="first">
-		/// A <see cref="T:UInt32"/>.
+		/// Specify the first viewport to set.
 		/// </param>
 		/// <param name="count">
-		/// A <see cref="T:Int32"/>.
+		/// Specify the number of viewports to set.
 		/// </param>
 		/// <param name="v">
-		/// A <see cref="T:float[]"/>.
+		/// Specify the address of an array containing the viewport parameters.
 		/// </param>
+		/// <remarks>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_VALUE is generated if <paramref name="first"/> is greater than or equal to the value of Gl.MAX_VIEWPORTS.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_VALUE is generated if <paramref name="first"/> + <paramref name="count"/> is greater than or equal to the 
+		/// value of Gl.MAX_VIEWPORTS.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_VALUE is generated if either <paramref name="width"/> or <paramref name="height"/> is negative.
+		/// </exception>
+		/// <seealso cref="Gl.DepthRange"/>
+		/// <seealso cref="Gl.Viewport"/>
+		/// <seealso cref="Gl.ViewportIndexed"/>
 		[RequiredByFeature("GL_VERSION_4_1")]
 		[RequiredByFeature("GL_ARB_viewport_array")]
 		public static void ViewportArray(UInt32 first, Int32 count, float[] v)
@@ -4179,16 +4192,18 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glViewportIndexedf.
+		/// set a specified viewport
 		/// </summary>
 		/// <param name="index">
-		/// A <see cref="T:UInt32"/>.
+		/// Specify the first viewport to set.
 		/// </param>
 		/// <param name="x">
-		/// A <see cref="T:float"/>.
+		/// For Gl.ViewportIndexedf, specifies the lower left corner of the viewport rectangle, in pixels. The initial value is 
+		/// (0,0).
 		/// </param>
 		/// <param name="y">
-		/// A <see cref="T:float"/>.
+		/// For Gl.ViewportIndexedf, specifies the lower left corner of the viewport rectangle, in pixels. The initial value is 
+		/// (0,0).
 		/// </param>
 		/// <param name="w">
 		/// A <see cref="T:float"/>.
@@ -4196,6 +4211,16 @@ namespace OpenGL
 		/// <param name="h">
 		/// A <see cref="T:float"/>.
 		/// </param>
+		/// <remarks>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_VALUE is generated if <paramref name="index"/> is greater than or equal to the value of Gl.MAX_VIEWPORTS.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_VALUE is generated if either <paramref name="width"/> or <paramref name="height"/> is negative.
+		/// </exception>
+		/// <seealso cref="Gl.DepthRange"/>
+		/// <seealso cref="Gl.Viewport"/>
+		/// <seealso cref="Gl.ViewportArray"/>
 		[RequiredByFeature("GL_VERSION_4_1")]
 		[RequiredByFeature("GL_ARB_viewport_array")]
 		public static void ViewportIndexed(UInt32 index, float x, float y, float w, float h)
@@ -4207,14 +4232,24 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glViewportIndexedfv.
+		/// set a specified viewport
 		/// </summary>
 		/// <param name="index">
-		/// A <see cref="T:UInt32"/>.
+		/// Specify the first viewport to set.
 		/// </param>
 		/// <param name="v">
-		/// A <see cref="T:float[]"/>.
+		/// For Gl.ViewportIndexedfv, specifies the address of an array containing the viewport parameters.
 		/// </param>
+		/// <remarks>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_VALUE is generated if <paramref name="index"/> is greater than or equal to the value of Gl.MAX_VIEWPORTS.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_VALUE is generated if either <paramref name="width"/> or <paramref name="height"/> is negative.
+		/// </exception>
+		/// <seealso cref="Gl.DepthRange"/>
+		/// <seealso cref="Gl.Viewport"/>
+		/// <seealso cref="Gl.ViewportArray"/>
 		[RequiredByFeature("GL_VERSION_4_1")]
 		[RequiredByFeature("GL_ARB_viewport_array")]
 		public static void ViewportIndexed(UInt32 index, float[] v)

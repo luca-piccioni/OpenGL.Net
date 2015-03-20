@@ -182,7 +182,8 @@ namespace OpenGL
 		public const int CONTEXT_PROFILE_MASK = 0x9126;
 
 		/// <summary>
-		/// Value of GL_DEPTH_CLAMP symbol.
+		/// Gl.Enable: if enabled, the -wc≤zc≤wc plane equation is ignored by view volume clipping (effectively, there is no near or 
+		/// far plane clipping). See Gl.DepthRange.
 		/// </summary>
 		[AliasOf("GL_DEPTH_CLAMP_NV")]
 		[RequiredByFeature("GL_VERSION_3_2")]
@@ -226,7 +227,9 @@ namespace OpenGL
 		public const int PROVOKING_VERTEX = 0x8E4F;
 
 		/// <summary>
-		/// Value of GL_TEXTURE_CUBE_MAP_SEAMLESS symbol.
+		/// Gl.Enable: if enabled, cubemap textures are sampled such that when linearly sampling from the border between two 
+		/// adjacent faces, texels from both faces are used to generate the final sample value. When disabled, texels from only a 
+		/// single face are used to construct the final sample value.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_3_2")]
 		[RequiredByFeature("GL_AMD_seamless_cubemap_per_texture")]
@@ -348,7 +351,8 @@ namespace OpenGL
 		public const int SAMPLE_POSITION = 0x8E50;
 
 		/// <summary>
-		/// Value of GL_SAMPLE_MASK symbol.
+		/// Gl.Enable: if enabled, the sample coverage mask generated for a fragment during rasterization will be ANDed with the 
+		/// value of Gl.SAMPLE_MASK_VALUE before shading occurs. See Gl.SampleMaski.
 		/// </summary>
 		[AliasOf("GL_SAMPLE_MASK_NV")]
 		[RequiredByFeature("GL_VERSION_3_2")]

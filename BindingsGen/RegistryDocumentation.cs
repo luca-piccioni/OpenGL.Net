@@ -516,6 +516,8 @@ namespace BindingsGen
 					XmlNode xmlIdentifier = root.SelectSingleNode(xpath, nsmgr);
 					if (xmlIdentifier != null)
 						paramDoc = GetDocumentationLines(xmlIdentifier.InnerXml, TranformCommandMan4, ctx);
+					else
+						Console.WriteLine("Unable to to document {0}.{1}.{2}", ctx.Class, command.GetImplementationName(ctx), param.Name);
 				}
 
 				sw.WriteLine("/// <param name=\"{0}\">", param.Name);
@@ -1015,6 +1017,8 @@ namespace BindingsGen
 			foreach (string documentationFile in Directory.GetFiles(Path.Combine(Program.BasePath, "GLMan/GL4"))) {
 				if (documentationFile.ToLowerInvariant().EndsWith(".xml") == false)
 					continue;
+				if (Regex.IsMatch(Path.GetFileNameWithoutExtension(documentationFile), @"(gl|wgl|glX)\w+") == false)
+					continue;
 
 				try {
 					// Load XML file
@@ -1029,8 +1033,9 @@ namespace BindingsGen
 
 						xmlReaderSettings.ProhibitDtd = false;
 						xmlReaderSettings.ConformanceLevel = ConformanceLevel.Auto;
-						xmlReaderSettings.XmlResolver = null;
+						xmlReaderSettings.XmlResolver = new LocalXhtmlXmlResolver(documentationFile);
 						xmlReaderSettings.IgnoreComments = true;
+						xmlReaderSettings.IgnoreProcessingInstructions = true;
 						xmlReaderSettings.CheckCharacters = false;
 						xmlReaderSettings.ValidationType = ValidationType.None;
 						xmlReaderSettings.ValidationFlags = XmlSchemaValidationFlags.None;
@@ -1307,7 +1312,30 @@ namespace BindingsGen
 
 				KnownUris["-//W3C//DTD XHTML 1.0 Transitional//EN"] = "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd";
 				LocalDtdPaths[KnownUris["-//W3C//DTD XHTML 1.0 Transitional//EN"]] = "xhtml1-transitional.dtd";
+
+				mDtdPath = Path.Combine(Program.BasePath, "GLMan/DTD");
+
+				string[] dtdFiles;
+
+				dtdFiles = Directory.GetFiles(mDtdPath, "*.dtd");
+				foreach (string dtdFile in dtdFiles)
+					LocalDtdRelPaths[dtdFile] = dtdFile.Replace('\\', '/');
+
+				dtdFiles = Directory.GetFiles(mDtdPath, "*.mod");
+				foreach (string dtdFile in dtdFiles)
+					LocalDtdRelPaths[dtdFile] = dtdFile.Replace('\\', '/');
+
+				dtdFiles = Directory.GetFiles(mDtdPath, "*.ent");
+				foreach (string dtdFile in dtdFiles)
+					LocalDtdRelPaths[dtdFile] = dtdFile.Replace('\\', '/');
 			}
+
+			public LocalXhtmlXmlResolver(string documentPath)
+			{
+				DocumentPath = Path.GetDirectoryName(documentPath);
+			}
+
+			public readonly string DocumentPath;
 
 			public static void Touch() { }
 
@@ -1317,28 +1345,7 @@ namespace BindingsGen
 			private static readonly Dictionary<string, string> LocalDtdRelPaths = new Dictionary<string, string>();
 
 
-			private string mDtdPath;
-
-			public LocalXhtmlXmlResolver(string dtdPath)
-			{
-				lock (sSyncObject) {
-					string[] dtdFiles;
-
-					mDtdPath = dtdPath;
-
-					dtdFiles = Directory.GetFiles(dtdPath, "*.dtd");
-					foreach (string dtdFile in dtdFiles)
-						LocalDtdRelPaths[dtdFile] = dtdFile.Replace('\\', '/');
-
-					dtdFiles = Directory.GetFiles(dtdPath, "*.mod");
-					foreach (string dtdFile in dtdFiles)
-						LocalDtdRelPaths[dtdFile] = dtdFile.Replace('\\', '/');
-
-					dtdFiles = Directory.GetFiles(dtdPath, "*.ent");
-					foreach (string dtdFile in dtdFiles)
-						LocalDtdRelPaths[dtdFile] = dtdFile.Replace('\\', '/');
-				}
-			}
+			private static string mDtdPath;
 
 			public override Uri ResolveUri(Uri baseUri, string relativeUri)
 			{
@@ -1414,6 +1421,10 @@ namespace BindingsGen
 						}
 
 						return (new FileStream(Path.Combine(mDtdPath, LocalDtdPaths[absoluteUri.OriginalString]), FileMode.Open, FileAccess.Read));
+					} else if ((absoluteUri.Scheme == "file") && (ofObjectToReturn == null || ofObjectToReturn == typeof(Stream))) {
+						string localPath = Path.GetFileName(absoluteUri.OriginalString);
+
+						return (new FileStream(Path.Combine(DocumentPath, localPath), FileMode.Open, FileAccess.Read));
 					}
 
 					//otherwise use the default behavior of the XmlUrlResolver class (resolve resources from source)

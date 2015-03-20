@@ -478,8 +478,13 @@ namespace OpenGL
 		public const int POINT_SIZE_GRANULARITY = 0x0B13;
 
 		/// <summary>
+		/// <para>
+		/// Gl.Enable: if enabled, draw lines with correct filtering. Otherwise, draw aliased lines. See Gl.LineWidth.
+		/// </para>
+		/// <para>
 		/// Gl.Get: data returns a single boolean value indicating whether antialiasing of lines is enabled. The initial value is 
 		/// Gl.FALSE. See Gl.LineWidth.
+		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
 		public const int LINE_SMOOTH = 0x0B20;
@@ -511,15 +516,26 @@ namespace OpenGL
 		public const int POLYGON_MODE = 0x0B40;
 
 		/// <summary>
+		/// <para>
+		/// Gl.Enable: if enabled, draw polygons with proper filtering. Otherwise, draw aliased polygons. For correct antialiased 
+		/// polygons, an alpha buffer is needed and the polygons must be sorted front to back.
+		/// </para>
+		/// <para>
 		/// Gl.Get: data returns a single boolean value indicating whether antialiasing of polygons is enabled. The initial value is 
 		/// Gl.FALSE. See Gl.PolygonMode.
+		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
 		public const int POLYGON_SMOOTH = 0x0B41;
 
 		/// <summary>
+		/// <para>
+		/// Gl.Enable: if enabled, cull polygons based on their winding in window coordinates. See Gl.CullFace.
+		/// </para>
+		/// <para>
 		/// Gl.Get: data returns a single boolean value indicating whether polygon culling is enabled. The initial value is 
 		/// Gl.FALSE. See Gl.CullFace.
+		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
 		public const int CULL_FACE = 0x0B44;
@@ -549,8 +565,15 @@ namespace OpenGL
 		public const int DEPTH_RANGE = 0x0B70;
 
 		/// <summary>
+		/// <para>
+		/// Gl.Enable: if enabled, do depth comparisons and update the depth buffer. Note that even if the depth buffer exists and 
+		/// the depth mask is non-zero, the depth buffer is not updated if the depth test is disabled. See Gl.DepthFunc and 
+		/// Gl.DepthRange.
+		/// </para>
+		/// <para>
 		/// Gl.Get: data returns a single boolean value indicating whether depth testing of fragments is enabled. The initial value 
 		/// is Gl.FALSE. See Gl.DepthFunc and Gl.DepthRange.
+		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
 		public const int DEPTH_TEST = 0x0B71;
@@ -579,8 +602,13 @@ namespace OpenGL
 		public const int DEPTH_FUNC = 0x0B74;
 
 		/// <summary>
+		/// <para>
+		/// Gl.Enable: if enabled, do stencil testing and update the stencil buffer. See Gl.StencilFunc and Gl.StencilOp.
+		/// </para>
+		/// <para>
 		/// Gl.Get: data returns a single boolean value indicating whether stencil testing of fragments is enabled. The initial 
 		/// value is Gl.FALSE. See Gl.StencilFunc and Gl.StencilOp.
+		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
 		public const int STENCIL_TEST = 0x0B90;
@@ -662,8 +690,13 @@ namespace OpenGL
 		public const int VIEWPORT = 0x0BA2;
 
 		/// <summary>
+		/// <para>
+		/// Gl.Enable: if enabled, dither color components or indices before they are written to the color buffer.
+		/// </para>
+		/// <para>
 		/// Gl.Get: data returns a single boolean value indicating whether dithering of fragment colors and indices is enabled. The 
 		/// initial value is Gl.TRUE.
+		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
 		public const int DITHER = 0x0BD0;
@@ -681,8 +714,13 @@ namespace OpenGL
 		public const int BLEND_SRC = 0x0BE1;
 
 		/// <summary>
+		/// <para>
+		/// Gl.Enable: if enabled, blend the computed fragment color values with the values in the color buffers. See Gl.BlendFunc.
+		/// </para>
+		/// <para>
 		/// Gl.Get: data returns a single boolean value indicating whether blending is enabled. The initial value is Gl.FALSE. See 
 		/// Gl.BlendFunc.
+		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
 		public const int BLEND = 0x0BE2;
@@ -695,8 +733,14 @@ namespace OpenGL
 		public const int LOGIC_OP_MODE = 0x0BF0;
 
 		/// <summary>
+		/// <para>
+		/// Gl.Enable: if enabled, apply the currently selected logical operation to the computed fragment color and color buffer 
+		/// values. See Gl.LogicOp.
+		/// </para>
+		/// <para>
 		/// Gl.Get: data returns a single boolean value indicating whether a fragment's RGBA color values are merged into the 
 		/// framebuffer using a logical operation. The initial value is Gl.FALSE. See Gl.LogicOp.
+		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
 		public const int COLOR_LOGIC_OP = 0x0BF2;
@@ -732,8 +776,13 @@ namespace OpenGL
 		public const int SCISSOR_BOX = 0x0C10;
 
 		/// <summary>
+		/// <para>
+		/// Gl.Enable: if enabled, discard fragments that are outside the scissor rectangle. See Gl.Scissor.
+		/// </para>
+		/// <para>
 		/// Gl.Get: data returns a single boolean value indicating whether scissoring is enabled. The initial value is Gl.FALSE. See 
 		/// Gl.Scissor.
+		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
 		[RequiredByFeature("GL_ARB_viewport_array")]
@@ -806,22 +855,49 @@ namespace OpenGL
 		public const int POLYGON_SMOOTH_HINT = 0x0C53;
 
 		/// <summary>
+		/// <para>
 		/// Gl.Get: data returns a single boolean value indicating whether the bytes of two-byte and four-byte pixel indices and 
 		/// components are swapped after being read from memory. The initial value is Gl.FALSE. See Gl.PixelStore.
+		/// </para>
+		/// <para>
+		/// Gl.PixelStore: if true, byte ordering for multibyte color components, depth components, or stencil indices is reversed. 
+		/// That is, if a four-byte component consists of bytes b0, b1, b2, b3, it is taken from memory as b3, b2, b1, b0 if 
+		/// Gl.UNPACK_SWAP_BYTES is true. Gl.UNPACK_SWAP_BYTES has no effect on the memory order of components within a pixel, only 
+		/// on the order of bytes within components or indices. For example, the three components of a Gl.RGB format pixel are 
+		/// always stored with red first, green second, and blue third, regardless of the value of Gl.UNPACK_SWAP_BYTES.
+		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
 		public const int UNPACK_SWAP_BYTES = 0x0CF0;
 
 		/// <summary>
+		/// <para>
 		/// Gl.Get: data returns a single boolean value indicating whether single-bit pixels being read from memory are read first 
 		/// from the least significant bit of each unsigned byte. The initial value is Gl.FALSE. See Gl.PixelStore.
+		/// </para>
+		/// <para>
+		/// Gl.PixelStore: if true, bits are ordered within a byte from least significant to most significant; otherwise, the first 
+		/// bit in each byte is the most significant one.
+		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
 		public const int UNPACK_LSB_FIRST = 0x0CF1;
 
 		/// <summary>
+		/// <para>
 		/// Gl.Get: data returns one value, the row length used for reading pixel data from memory. The initial value is 0. See 
 		/// Gl.PixelStore.
+		/// </para>
+		/// <para>
+		/// Gl.PixelStore: if greater than 0, Gl.UNPACK_ROW_LENGTH defines the number of pixels in a row. If the first pixel of a 
+		/// row is placed at location p in memory, then the location of the first pixel of the next row is obtained by skipping 
+		/// k=n⁢las⁢s⁢n⁢la⁢s&gt;=as&lt;a components or indices, where n is the number of components or indices in a pixel, l is the 
+		/// number of pixels in a row (Gl.UNPACK_ROW_LENGTH if it is greater than 0, the width argument to the pixel routine 
+		/// otherwise), a is the value of Gl.UNPACK_ALIGNMENT, and s is the size, in bytes, of a single component (if a&lt;s, then 
+		/// it is as if a=s). In the case of 1-bit values, the location of the next row is obtained by skipping k=8⁢a⁢n⁢l8⁢a 
+		/// components or indices. The word component in this description refers to the nonindex values red, green, blue, alpha, and 
+		/// depth. Storage format Gl.RGB, for example, has three components per pixel: first red, then green, and finally blue.
+		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
 		public const int UNPACK_ROW_LENGTH = 0x0CF2;
@@ -834,36 +910,80 @@ namespace OpenGL
 		public const int UNPACK_SKIP_ROWS = 0x0CF3;
 
 		/// <summary>
+		/// <para>
 		/// Gl.Get: data returns one value, the number of pixel locations skipped before the first pixel is read from memory. The 
 		/// initial value is 0. See Gl.PixelStore.
+		/// </para>
+		/// <para>
+		/// Gl.PixelStore: these values are provided as a convenience to the programmer; they provide no functionality that cannot 
+		/// be duplicated by incrementing the pointer passed to Gl.TexImage1D, Gl.TexImage2D, Gl.TexSubImage1D or Gl.TexSubImage2D. 
+		/// Setting Gl.UNPACK_SKIP_PIXELS to i is equivalent to incrementing the pointer by i⁢n components or indices, where n is 
+		/// the number of components or indices in each pixel. Setting Gl.UNPACK_SKIP_ROWS to j is equivalent to incrementing the 
+		/// pointer by j⁢k components or indices, where k is the number of components or indices per row, as just computed in the 
+		/// Gl.UNPACK_ROW_LENGTH section.
+		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
 		public const int UNPACK_SKIP_PIXELS = 0x0CF4;
 
 		/// <summary>
+		/// <para>
 		/// Gl.Get: data returns one value, the byte alignment used for reading pixel data from memory. The initial value is 4. See 
 		/// Gl.PixelStore.
+		/// </para>
+		/// <para>
+		/// Gl.PixelStore: specifies the alignment requirements for the start of each pixel row in memory. The allowable values are 
+		/// 1 (byte-alignment), 2 (rows aligned to even-numbered bytes), 4 (word-alignment), and 8 (rows start on double-word 
+		/// boundaries).
+		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
 		public const int UNPACK_ALIGNMENT = 0x0CF5;
 
 		/// <summary>
+		/// <para>
 		/// Gl.Get: data returns a single boolean value indicating whether the bytes of two-byte and four-byte pixel indices and 
 		/// components are swapped before being written to memory. The initial value is Gl.FALSE. See Gl.PixelStore.
+		/// </para>
+		/// <para>
+		/// Gl.PixelStore: if true, byte ordering for multibyte color components, depth components, or stencil indices is reversed. 
+		/// That is, if a four-byte component consists of bytes b0, b1, b2, b3, it is stored in memory as b3, b2, b1, b0 if 
+		/// Gl.PACK_SWAP_BYTES is true. Gl.PACK_SWAP_BYTES has no effect on the memory order of components within a pixel, only on 
+		/// the order of bytes within components or indices. For example, the three components of a Gl.RGB format pixel are always 
+		/// stored with red first, green second, and blue third, regardless of the value of Gl.PACK_SWAP_BYTES.
+		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
 		public const int PACK_SWAP_BYTES = 0x0D00;
 
 		/// <summary>
+		/// <para>
 		/// Gl.Get: data returns a single boolean value indicating whether single-bit pixels being written to memory are written 
 		/// first to the least significant bit of each unsigned byte. The initial value is Gl.FALSE. See Gl.PixelStore.
+		/// </para>
+		/// <para>
+		/// Gl.PixelStore: if true, bits are ordered within a byte from least significant to most significant; otherwise, the first 
+		/// bit in each byte is the most significant one.
+		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
 		public const int PACK_LSB_FIRST = 0x0D01;
 
 		/// <summary>
+		/// <para>
 		/// Gl.Get: data returns one value, the row length used for writing pixel data to memory. The initial value is 0. See 
 		/// Gl.PixelStore.
+		/// </para>
+		/// <para>
+		/// Gl.PixelStore: if greater than 0, Gl.PACK_ROW_LENGTH defines the number of pixels in a row. If the first pixel of a row 
+		/// is placed at location p in memory, then the location of the first pixel of the next row is obtained by skipping 
+		/// k=n⁢las⁢s⁢n⁢la⁢s&gt;=as&lt;a components or indices, where n is the number of components or indices in a pixel, l is the 
+		/// number of pixels in a row (Gl.PACK_ROW_LENGTH if it is greater than 0, the width argument to the pixel routine 
+		/// otherwise), a is the value of Gl.PACK_ALIGNMENT, and s is the size, in bytes, of a single component (if a&lt;s, then it 
+		/// is as if a=s). In the case of 1-bit values, the location of the next row is obtained by skipping k=8⁢a⁢n⁢l8⁢a components 
+		/// or indices. The word component in this description refers to the nonindex values red, green, blue, alpha, and depth. 
+		/// Storage format Gl.RGB, for example, has three components per pixel: first red, then green, and finally blue.
+		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
 		public const int PACK_ROW_LENGTH = 0x0D02;
@@ -876,15 +996,33 @@ namespace OpenGL
 		public const int PACK_SKIP_ROWS = 0x0D03;
 
 		/// <summary>
+		/// <para>
 		/// Gl.Get: data returns one value, the number of pixel locations skipped before the first pixel is written into memory. The 
 		/// initial value is 0. See Gl.PixelStore.
+		/// </para>
+		/// <para>
+		/// Gl.PixelStore: these values are provided as a convenience to the programmer; they provide no functionality that cannot 
+		/// be duplicated simply by incrementing the pointer passed to Gl.ReadPixels. Setting Gl.PACK_SKIP_PIXELS to i is equivalent 
+		/// to incrementing the pointer by i⁢n components or indices, where n is the number of components or indices in each pixel. 
+		/// Setting Gl.PACK_SKIP_ROWS to j is equivalent to incrementing the pointer by j⁢m components or indices, where m is the 
+		/// number of components or indices per row, as just computed in the Gl.PACK_ROW_LENGTH section. Setting Gl.PACK_SKIP_IMAGES 
+		/// to k is equivalent to incrementing the pointer by k⁢p, where p is the number of components or indices per image, as 
+		/// computed in the Gl.PACK_IMAGE_HEIGHT section.
+		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
 		public const int PACK_SKIP_PIXELS = 0x0D04;
 
 		/// <summary>
+		/// <para>
 		/// Gl.Get: data returns one value, the byte alignment used for writing pixel data to memory. The initial value is 4. See 
 		/// Gl.PixelStore.
+		/// </para>
+		/// <para>
+		/// Gl.PixelStore: specifies the alignment requirements for the start of each pixel row in memory. The allowable values are 
+		/// 1 (byte-alignment), 2 (rows aligned to even-numbered bytes), 4 (word-alignment), and 8 (rows start on double-word 
+		/// boundaries).
+		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
 		public const int PACK_ALIGNMENT = 0x0D05;
@@ -947,22 +1085,40 @@ namespace OpenGL
 		public const int POLYGON_OFFSET_UNITS = 0x2A00;
 
 		/// <summary>
+		/// <para>
+		/// Gl.Enable: if enabled, an offset is added to depth values of a polygon's fragments before the depth comparison is 
+		/// performed, if the polygon is rendered in Gl.POINT mode. See Gl.PolygonOffset.
+		/// </para>
+		/// <para>
 		/// Gl.Get: data returns a single boolean value indicating whether polygon offset is enabled for polygons in point mode. The 
 		/// initial value is Gl.FALSE. See Gl.PolygonOffset.
+		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
 		public const int POLYGON_OFFSET_POINT = 0x2A01;
 
 		/// <summary>
+		/// <para>
+		/// Gl.Enable: if enabled, and if the polygon is rendered in Gl.LINE mode, an offset is added to depth values of a polygon's 
+		/// fragments before the depth comparison is performed. See Gl.PolygonOffset.
+		/// </para>
+		/// <para>
 		/// Gl.Get: data returns a single boolean value indicating whether polygon offset is enabled for polygons in line mode. The 
 		/// initial value is Gl.FALSE. See Gl.PolygonOffset.
+		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
 		public const int POLYGON_OFFSET_LINE = 0x2A02;
 
 		/// <summary>
+		/// <para>
+		/// Gl.Enable: if enabled, and if the polygon is rendered in Gl.FILL mode, an offset is added to depth values of a polygon's 
+		/// fragments before the depth comparison is performed. See Gl.PolygonOffset.
+		/// </para>
+		/// <para>
 		/// Gl.Get: data returns a single boolean value indicating whether polygon offset is enabled for polygons in fill mode. The 
 		/// initial value is Gl.FALSE. See Gl.PolygonOffset.
+		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
 		public const int POLYGON_OFFSET_FILL = 0x8037;
@@ -1023,6 +1179,23 @@ namespace OpenGL
 		/// Floating-point values are returned in the range 01. Integer values are returned as a linear mapping of the internal 
 		/// floating-point representation such that 1.0 maps to the most positive representable integer and -1.0 maps to the most 
 		/// negative representable integer. The initial value is (0, 0, 0, 0).
+		/// </para>
+		/// <para>
+		/// Gl.SamplerParameter: the data in params specifies four values that define the border values that should be used for 
+		/// border texels. If a texel is sampled from the border of the texture, the values of Gl.TEXTURE_BORDER_COLOR are 
+		/// interpreted as an RGBA color to match the texture's internal format and substituted for the non-existent texel data. If 
+		/// the texture contains depth components, the first component of Gl.TEXTURE_BORDER_COLOR is interpreted as a depth value. 
+		/// The initial value is 0.0,0.0,0.0,0.0.
+		/// </para>
+		/// <para>
+		/// Gl.TexParameter: the data in params specifies four values that define the border values that should be used for border 
+		/// texels. If a texel is sampled from the border of the texture, the values of Gl.TEXTURE_BORDER_COLOR are interpreted as 
+		/// an RGBA color to match the texture's internal format and substituted for the non-existent texel data. If the texture 
+		/// contains depth components, the first component of Gl.TEXTURE_BORDER_COLOR is interpreted as a depth value. The initial 
+		/// value is 0.0,0.0,0.0,0.0. If the values for Gl.TEXTURE_BORDER_COLOR are specified with glTexParameterIiv or 
+		/// glTexParameterIuiv, the values are stored unmodified with an internal data type of integer. If specified with 
+		/// glTexParameteriv, they are converted to floating point with the following equation: f=2c+12b-1. If specified with 
+		/// glTexParameterfv, they are stored unmodified as floating-point values.
 		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
@@ -1318,24 +1491,7 @@ namespace OpenGL
 		public const int STENCIL = 0x1802;
 
 		/// <summary>
-		/// <para>
-		/// Gl.ReadPixels: stencil values are read from the stencil buffer. Each index is converted to fixed point, shifted left or 
-		/// right depending on the value and sign of Gl.INDEX_SHIFT, and added to Gl.INDEX_OFFSET. If Gl.MAP_STENCIL is Gl.TRUE, 
-		/// indices are replaced by their mappings in the table Gl.PIXEL_MAP_S_TO_S.
-		/// </para>
-		/// <para>
-		/// Gl.DrawPixels: each pixel is a single value, a stencil index. It is converted to fixed-point format, with an unspecified 
-		/// number of bits to the right of the binary point, regardless of the memory data type. Floating-point values convert to 
-		/// true fixed-point values. Signed and unsigned integer data is converted with all fraction bits set to 0. Bitmap data 
-		/// convert to either 0 or 1. Each fixed-point index is then shifted left by Gl.INDEX_SHIFT bits, and added to 
-		/// Gl.INDEX_OFFSET. If Gl.INDEX_SHIFT is negative, the shift is to the right. In either case, zero bits fill otherwise 
-		/// unspecified bit locations in the result. If Gl.MAP_STENCIL is true, the index is replaced with the value that it 
-		/// references in lookup table Gl.PIXEL_MAP_S_TO_S. Whether the lookup replacement of the index is done or not, the integer 
-		/// part of the index is then ANDed with 2b-1, where b is the number of bits in the stencil buffer. The resulting stencil 
-		/// indices are then written to the stencil buffer such that the nth index is written to location xn=xr+n%widthyn=yr+nwidth 
-		/// where xryr is the current raster position. Only the pixel ownership test, the scissor test, and the stencil writemask 
-		/// affect these write operations.
-		/// </para>
+		/// Gl.ReadPixels: stencil values are read from the stencil buffer.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
 		[RequiredByFeature("GL_VERSION_4_4")]
@@ -1345,28 +1501,13 @@ namespace OpenGL
 		/// <summary>
 		/// <para>
 		/// Gl.ReadPixels: depth values are read from the depth buffer. Each component is converted to floating point such that the 
-		/// minimum depth value maps to 0 and the maximum value maps to 1. Each component is then multiplied by Gl.DEPTH_SCALE, 
-		/// added to Gl.DEPTH_BIAS, and finally clamped to the range 01.
+		/// minimum depth value maps to 0 and the maximum value maps to 1. Each component is clamped to the range 01.
 		/// </para>
 		/// <para>
-		/// Gl.TexImage1D: each element is a single depth value. The GL converts it to floating point, multiplies by the signed 
-		/// scale factor Gl.DEPTH_SCALE, adds the signed bias Gl.DEPTH_BIAS, and clamps to the range [0,1] (see Gl.PixelTransfer).
+		/// Gl.TexImage1D: each element is a single depth value. The GL converts it to floating point and clamps to the range [0,1].
 		/// </para>
 		/// <para>
-		/// Gl.TexImage2D: each element is a single depth value. The GL converts it to floating point, multiplies by the signed 
-		/// scale factor Gl.DEPTH_SCALE, adds the signed bias Gl.DEPTH_BIAS, and clamps to the range [0,1] (see Gl.PixelTransfer).
-		/// </para>
-		/// <para>
-		/// Gl.DrawPixels: each pixel is a single-depth component. Floating-point data is converted directly to an internal 
-		/// floating-point format with unspecified precision. Signed integer data is mapped linearly to the internal floating-point 
-		/// format such that the most positive representable integer value maps to 1.0, and the most negative representable value 
-		/// maps to -1.0. Unsigned integer data is mapped similarly: the largest integer value maps to 1.0, and 0 maps to 0.0. The 
-		/// resulting floating-point depth value is then multiplied by Gl.DEPTH_SCALE and added to Gl.DEPTH_BIAS. The result is 
-		/// clamped to the range 01. The GL then converts the resulting depth components to fragments by attaching the current 
-		/// raster position color or color index and texture coordinates to each pixel, then assigning x and y window coordinates to 
-		/// the nth fragment such that xn=xr+n%widthyn=yr+nwidth where xryr is the current raster position. These pixel fragments 
-		/// are then treated just like the fragments generated by rasterizing points, lines, or polygons. Texture mapping, fog, and 
-		/// all the fragment operations are applied before the fragments are written to the frame buffer.
+		/// Gl.TexImage2D: each element is a single depth value. The GL converts it to floating point and clamps to the range [0,1].
 		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
@@ -1374,27 +1515,19 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// Gl.ReadPixels: 
+		/// Gl.ReadPixels: color values are taken from the color buffer.
 		/// </para>
 		/// <para>
 		/// Gl.TexImage1D: each element is a single red component. The GL converts it to floating point and assembles it into an 
-		/// RGBA element by attaching 0 for green and blue, and 1 for alpha. Each component is then multiplied by the signed scale 
-		/// factor Gl.c_SCALE, added to the signed bias Gl.c_BIAS, and clamped to the range [0,1] (see Gl.PixelTransfer).
+		/// RGBA element by attaching 0 for green and blue, and 1 for alpha. Each component is clamped to the range [0,1].
 		/// </para>
 		/// <para>
 		/// Gl.TexImage2D: each element is a single red component. The GL converts it to floating point and assembles it into an 
-		/// RGBA element by attaching 0 for green and blue, and 1 for alpha. Each component is then multiplied by the signed scale 
-		/// factor Gl.c_SCALE, added to the signed bias Gl.c_BIAS, and clamped to the range [0,1] (see Gl.PixelTransfer).
+		/// RGBA element by attaching 0 for green and blue, and 1 for alpha. Each component is clamped to the range [0,1].
 		/// </para>
 		/// <para>
 		/// Gl.TexImage3D: each element is a single red component. The GL converts it to floating point and assembles it into an 
-		/// RGBA element by attaching 0 for green and blue, and 1 for alpha. Each component is then multiplied by the signed scale 
-		/// factor Gl.c_SCALE, added to the signed bias Gl.c_BIAS, and clamped to the range [0,1] (see Gl.PixelTransfer).
-		/// </para>
-		/// <para>
-		/// Gl.DrawPixels: each pixel is a single red component. This component is converted to the internal floating-point format 
-		/// in the same way the red component of an RGBA pixel is. It is then converted to an RGBA pixel with green and blue set to 
-		/// 0, and alpha set to 1. After this conversion, the pixel is treated as if it had been read as an RGBA pixel.
+		/// RGBA element by attaching 0 for green and blue, and 1 for alpha. Each component is clamped to the range [0,1].
 		/// </para>
 		/// </summary>
 		[AliasOf("GL_RED_NV")]
@@ -1493,19 +1626,16 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// Gl.ReadPixels: 
+		/// Gl.TexImage1D: each element is an RGB triple. The GL converts it to floating point and assembles it into an RGBA element 
+		/// by attaching 1 for alpha. Each component is clamped to the range [0,1].
 		/// </para>
 		/// <para>
-		/// Gl.TexImage1D: 
+		/// Gl.TexImage2D: each element is an RGB triple. The GL converts it to floating point and assembles it into an RGBA element 
+		/// by attaching 1 for alpha. Each component is clamped to the range [0,1].
 		/// </para>
 		/// <para>
-		/// Gl.TexImage2D: 
-		/// </para>
-		/// <para>
-		/// Gl.TexImage3D: 
-		/// </para>
-		/// <para>
-		/// Gl.DrawPixels: 
+		/// Gl.TexImage3D: each element is an RGB triple. The GL converts it to floating point and assembles it into an RGBA element 
+		/// by attaching 1 for alpha. Each component is clamped to the range [0,1].
 		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
@@ -1513,19 +1643,13 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// Gl.ReadPixels: 
+		/// Gl.TexImage1D: each element contains all four components. Each component clamped to the range [0,1].
 		/// </para>
 		/// <para>
-		/// Gl.TexImage1D: 
+		/// Gl.TexImage2D: each element contains all four components. Each component is clamped to the range [0,1].
 		/// </para>
 		/// <para>
-		/// Gl.TexImage2D: 
-		/// </para>
-		/// <para>
-		/// Gl.TexImage3D: 
-		/// </para>
-		/// <para>
-		/// Gl.DrawPixels: 
+		/// Gl.TexImage3D: each element contains all four components. Each component is clamped to the range [0,1].
 		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
@@ -1669,6 +1793,26 @@ namespace OpenGL
 		/// Gl.GetTexParameter: returns the single-valued texture magnification filter, a symbolic constant. The initial value is 
 		/// Gl.LINEAR.
 		/// </para>
+		/// <para>
+		/// Gl.SamplerParameter: the texture magnification function is used when the pixel being textured maps to an area less than 
+		/// or equal to one texture element. It sets the texture magnification function to either Gl.NEAREST or Gl.LINEAR (see 
+		/// below). Gl.NEAREST is generally faster than Gl.LINEAR, but it can produce textured images with sharper edges because the 
+		/// transition between texture elements is not as smooth. The initial value of Gl.TEXTURE_MAG_FILTER is Gl.LINEAR. 
+		/// Gl.NEAREST Returns the value of the texture element that is nearest (in Manhattan distance) to the center of the pixel 
+		/// being textured. Gl.LINEAR Returns the weighted average of the four texture elements that are closest to the center of 
+		/// the pixel being textured. These can include border texture elements, depending on the values of Gl.TEXTURE_WRAP_S and 
+		/// Gl.TEXTURE_WRAP_T, and on the exact mapping.
+		/// </para>
+		/// <para>
+		/// Gl.TexParameter: the texture magnification function is used whenever the level-of-detail function used when sampling 
+		/// from the texture determines that the texture should be magified. It sets the texture magnification function to either 
+		/// Gl.NEAREST or Gl.LINEAR (see below). Gl.NEAREST is generally faster than Gl.LINEAR, but it can produce textured images 
+		/// with sharper edges because the transition between texture elements is not as smooth. The initial value of 
+		/// Gl.TEXTURE_MAG_FILTER is Gl.LINEAR. Gl.NEAREST Returns the value of the texture element that is nearest (in Manhattan 
+		/// distance) to the specified texture coordinates. Gl.LINEAR Returns the weighted average of the texture elements that are 
+		/// closest to the specified texture coordinates. These can include items wrapped or repeated from other parts of a texture, 
+		/// depending on the values of Gl.TEXTURE_WRAP_S and Gl.TEXTURE_WRAP_T, and on the exact mapping.
+		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
 		public const int TEXTURE_MAG_FILTER = 0x2800;
@@ -1681,6 +1825,65 @@ namespace OpenGL
 		/// <para>
 		/// Gl.GetTexParameter: returns the single-valued texture minification filter, a symbolic constant. The initial value is 
 		/// Gl.NEAREST_MIPMAP_LINEAR.
+		/// </para>
+		/// <para>
+		/// Gl.SamplerParameter: the texture minifying function is used whenever the pixel being textured maps to an area greater 
+		/// than one texture element. There are six defined minifying functions. Two of them use the nearest one or nearest four 
+		/// texture elements to compute the texture value. The other four use mipmaps. A mipmap is an ordered set of arrays 
+		/// representing the same image at progressively lower resolutions. If the texture has dimensions 2n×2m, there are max⁡nm+1 
+		/// mipmaps. The first mipmap is the original texture, with dimensions 2n×2m. Each subsequent mipmap has dimensions 
+		/// 2k-1×2l-1, where 2k×2l are the dimensions of the previous mipmap, until either k=0 or l=0. At that point, subsequent 
+		/// mipmaps have dimension 1×2l-1 or 2k-1×1 until the final mipmap, which has dimension 1×1. To define the mipmaps, call 
+		/// Gl.TexImage1D, Gl.TexImage2D, Gl.TexImage3D, Gl.CopyTexImage1D, or Gl.CopyTexImage2D with the level argument indicating 
+		/// the order of the mipmaps. Level 0 is the original texture; level max⁡nm is the final 1×1 mipmap. params supplies a 
+		/// function for minifying the texture as one of the following: Gl.NEAREST Returns the value of the texture element that is 
+		/// nearest (in Manhattan distance) to the center of the pixel being textured. Gl.LINEAR Returns the weighted average of the 
+		/// four texture elements that are closest to the center of the pixel being textured. These can include border texture 
+		/// elements, depending on the values of Gl.TEXTURE_WRAP_S and Gl.TEXTURE_WRAP_T, and on the exact mapping. 
+		/// Gl.NEAREST_MIPMAP_NEAREST Chooses the mipmap that most closely matches the size of the pixel being textured and uses the 
+		/// Gl.NEAREST criterion (the texture element nearest to the center of the pixel) to produce a texture value. 
+		/// Gl.LINEAR_MIPMAP_NEAREST Chooses the mipmap that most closely matches the size of the pixel being textured and uses the 
+		/// Gl.LINEAR criterion (a weighted average of the four texture elements that are closest to the center of the pixel) to 
+		/// produce a texture value. Gl.NEAREST_MIPMAP_LINEAR Chooses the two mipmaps that most closely match the size of the pixel 
+		/// being textured and uses the Gl.NEAREST criterion (the texture element nearest to the center of the pixel) to produce a 
+		/// texture value from each mipmap. The final texture value is a weighted average of those two values. 
+		/// Gl.LINEAR_MIPMAP_LINEAR Chooses the two mipmaps that most closely match the size of the pixel being textured and uses 
+		/// the Gl.LINEAR criterion (a weighted average of the four texture elements that are closest to the center of the pixel) to 
+		/// produce a texture value from each mipmap. The final texture value is a weighted average of those two values. As more 
+		/// texture elements are sampled in the minification process, fewer aliasing artifacts will be apparent. While the 
+		/// Gl.NEAREST and Gl.LINEAR minification functions can be faster than the other four, they sample only one or four texture 
+		/// elements to determine the texture value of the pixel being rendered and can produce moire patterns or ragged 
+		/// transitions. The initial value of Gl.TEXTURE_MIN_FILTER is Gl.NEAREST_MIPMAP_LINEAR.
+		/// </para>
+		/// <para>
+		/// Gl.TexParameter: the texture minifying function is used whenever the level-of-detail function used when sampling from 
+		/// the texture determines that the texture should be minified. There are six defined minifying functions. Two of them use 
+		/// either the nearest texture elements or a weighted average of multiple texture elements to compute the texture value. The 
+		/// other four use mipmaps. A mipmap is an ordered set of arrays representing the same image at progressively lower 
+		/// resolutions. If the texture has dimensions 2n×2m, there are max⁡nm+1 mipmaps. The first mipmap is the original texture, 
+		/// with dimensions 2n×2m. Each subsequent mipmap has dimensions 2k-1×2l-1, where 2k×2l are the dimensions of the previous 
+		/// mipmap, until either k=0 or l=0. At that point, subsequent mipmaps have dimension 1×2l-1 or 2k-1×1 until the final 
+		/// mipmap, which has dimension 1×1. To define the mipmaps, call Gl.TexImage1D, Gl.TexImage2D, Gl.TexImage3D, 
+		/// Gl.CopyTexImage1D, or Gl.CopyTexImage2D with the level argument indicating the order of the mipmaps. Level 0 is the 
+		/// original texture; level max⁡nm is the final 1×1 mipmap. params supplies a function for minifying the texture as one of 
+		/// the following: Gl.NEAREST Returns the value of the texture element that is nearest (in Manhattan distance) to the 
+		/// specified texture coordinates. Gl.LINEAR Returns the weighted average of the four texture elements that are closest to 
+		/// the specified texture coordinates. These can include items wrapped or repeated from other parts of a texture, depending 
+		/// on the values of Gl.TEXTURE_WRAP_S and Gl.TEXTURE_WRAP_T, and on the exact mapping. Gl.NEAREST_MIPMAP_NEAREST Chooses 
+		/// the mipmap that most closely matches the size of the pixel being textured and uses the Gl.NEAREST criterion (the texture 
+		/// element closest to the specified texture coordinates) to produce a texture value. Gl.LINEAR_MIPMAP_NEAREST Chooses the 
+		/// mipmap that most closely matches the size of the pixel being textured and uses the Gl.LINEAR criterion (a weighted 
+		/// average of the four texture elements that are closest to the specified texture coordinates) to produce a texture value. 
+		/// Gl.NEAREST_MIPMAP_LINEAR Chooses the two mipmaps that most closely match the size of the pixel being textured and uses 
+		/// the Gl.NEAREST criterion (the texture element closest to the specified texture coordinates ) to produce a texture value 
+		/// from each mipmap. The final texture value is a weighted average of those two values. Gl.LINEAR_MIPMAP_LINEAR Chooses the 
+		/// two mipmaps that most closely match the size of the pixel being textured and uses the Gl.LINEAR criterion (a weighted 
+		/// average of the texture elements that are closest to the specified texture coordinates) to produce a texture value from 
+		/// each mipmap. The final texture value is a weighted average of those two values. As more texture elements are sampled in 
+		/// the minification process, fewer aliasing artifacts will be apparent. While the Gl.NEAREST and Gl.LINEAR minification 
+		/// functions can be faster than the other four, they sample only one or multiple texture elements to determine the texture 
+		/// value of the pixel being rendered and can produce moire patterns or ragged transitions. The initial value of 
+		/// Gl.TEXTURE_MIN_FILTER is Gl.NEAREST_MIPMAP_LINEAR.
 		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
@@ -1695,6 +1898,31 @@ namespace OpenGL
 		/// Gl.GetTexParameter: returns the single-valued wrapping function for texture coordinate s, a symbolic constant. The 
 		/// initial value is Gl.REPEAT.
 		/// </para>
+		/// <para>
+		/// Gl.SamplerParameter: sets the wrap parameter for texture coordinate s to either Gl.CLAMP_TO_EDGE, Gl.MIRRORED_REPEAT, 
+		/// Gl.REPEAT, or Gl.MIRROR_CLAMP_TO_EDGE. Gl.CLAMP_TO_BORDER causes the s coordinate to be clamped to the range -12N1+12N, 
+		/// where N is the size of the texture in the direction of clamping.Gl.CLAMP_TO_EDGE causes s coordinates to be clamped to 
+		/// the range 12N1-12N, where N is the size of the texture in the direction of clamping. Gl.REPEAT causes the integer part 
+		/// of the s coordinate to be ignored; the GL uses only the fractional part, thereby creating a repeating pattern. 
+		/// Gl.MIRRORED_REPEAT causes the s coordinate to be set to the fractional part of the texture coordinate if the integer 
+		/// part of s is even; if the integer part of s is odd, then the s texture coordinate is set to 1-frac⁡s, where frac⁡s 
+		/// represents the fractional part of s. Gl.MIRROR_CLAMP_TO_EDGE causes the the s coordinate to be repeated as for 
+		/// Gl.MIRRORED_REPEAT for one reptition of the texture, at which point the coordinate to be clamped as in Gl.CLAMP_TO_EDGE. 
+		/// Initially, Gl.TEXTURE_WRAP_S is set to Gl.REPEAT.
+		/// </para>
+		/// <para>
+		/// Gl.TexParameter: sets the wrap parameter for texture coordinate s to either Gl.CLAMP_TO_EDGE, Gl.CLAMP_TO_BORDER, 
+		/// Gl.MIRRORED_REPEAT, Gl.REPEAT, or Gl.MIRROR_CLAMP_TO_EDGE. Gl.CLAMP_TO_EDGE causes s coordinates to be clamped to the 
+		/// range 12N1-12N, where N is the size of the texture in the direction of clamping. Gl.CLAMP_TO_BORDER evaluates s 
+		/// coordinates in a similar manner to Gl.CLAMP_TO_EDGE. However, in cases where clamping would have occurred in 
+		/// Gl.CLAMP_TO_EDGE mode, the fetched texel data is substituted with the values specified by Gl.TEXTURE_BORDER_COLOR. 
+		/// Gl.REPEAT causes the integer part of the s coordinate to be ignored; the GL uses only the fractional part, thereby 
+		/// creating a repeating pattern. Gl.MIRRORED_REPEAT causes the s coordinate to be set to the fractional part of the texture 
+		/// coordinate if the integer part of s is even; if the integer part of s is odd, then the s texture coordinate is set to 
+		/// 1-frac⁡s, where frac⁡s represents the fractional part of s. Gl.MIRROR_CLAMP_TO_EDGE causes the the s coordinate to be 
+		/// repeated as for Gl.MIRRORED_REPEAT for one reptition of the texture, at which point the coordinate to be clamped as in 
+		/// Gl.CLAMP_TO_EDGE. Initially, Gl.TEXTURE_WRAP_S is set to Gl.REPEAT.
+		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
 		public const int TEXTURE_WRAP_S = 0x2802;
@@ -1707,6 +1935,16 @@ namespace OpenGL
 		/// <para>
 		/// Gl.GetTexParameter: returns the single-valued wrapping function for texture coordinate t, a symbolic constant. The 
 		/// initial value is Gl.REPEAT.
+		/// </para>
+		/// <para>
+		/// Gl.SamplerParameter: sets the wrap parameter for texture coordinate t to either Gl.CLAMP_TO_EDGE, Gl.MIRRORED_REPEAT, 
+		/// Gl.REPEAT, or Gl.MIRROR_CLAMP_TO_EDGE. See the discussion under Gl.TEXTURE_WRAP_S. Initially, Gl.TEXTURE_WRAP_T is set 
+		/// to Gl.REPEAT.
+		/// </para>
+		/// <para>
+		/// Gl.TexParameter: sets the wrap parameter for texture coordinate t to either Gl.CLAMP_TO_EDGE, Gl.CLAMP_TO_BORDER, 
+		/// Gl.MIRRORED_REPEAT, Gl.REPEAT, or Gl.MIRROR_CLAMP_TO_EDGE. See the discussion under Gl.TEXTURE_WRAP_S. Initially, 
+		/// Gl.TEXTURE_WRAP_T is set to Gl.REPEAT.
 		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
@@ -6250,12 +6488,6 @@ namespace OpenGL
 		/// <param name="units">
 		/// Is multiplied by an implementation-specific value to create a constant depth offset. The initial value is 0.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
-		/// <exception cref="InvalidOperationException">
-		/// Gl.INVALID_OPERATION is generated if Gl.PolygonOffset is executed between the execution of Gl\.Begin and the 
-		/// corresponding execution of Gl\.End.
-		/// </exception>
 		/// <seealso cref="Gl.DepthFunc"/>
 		/// <seealso cref="Gl.Enable"/>
 		/// <seealso cref="Gl.Get"/>
@@ -6279,15 +6511,11 @@ namespace OpenGL
 		/// Specifies the level-of-detail number. Level 0 is the base image level. Level n is the nth mipmap reduction image.
 		/// </param>
 		/// <param name="internalformat">
-		/// Specifies the internal format of the texture. Must be one of the following symbolic constants: Gl.ALPHA, Gl.ALPHA4, 
-		/// Gl.ALPHA8, Gl.ALPHA12, Gl.ALPHA16, Gl.COMPRESSED_ALPHA, Gl.COMPRESSED_LUMINANCE, Gl.COMPRESSED_LUMINANCE_ALPHA, 
-		/// Gl.COMPRESSED_INTENSITY, Gl.COMPRESSED_RGB, Gl.COMPRESSED_RGBA, Gl.DEPTH_COMPONENT, Gl.DEPTH_COMPONENT16, 
-		/// Gl.DEPTH_COMPONENT24, Gl.DEPTH_COMPONENT32, Gl.LUMINANCE, Gl.LUMINANCE4, Gl.LUMINANCE8, Gl.LUMINANCE12, Gl.LUMINANCE16, 
-		/// Gl.LUMINANCE_ALPHA, Gl.LUMINANCE4_ALPHA4, Gl.LUMINANCE6_ALPHA2, Gl.LUMINANCE8_ALPHA8, Gl.LUMINANCE12_ALPHA4, 
-		/// Gl.LUMINANCE12_ALPHA12, Gl.LUMINANCE16_ALPHA16, Gl.INTENSITY, Gl.INTENSITY4, Gl.INTENSITY8, Gl.INTENSITY12, 
-		/// Gl.INTENSITY16, Gl.RGB, Gl.R3_G3_B2, Gl.RGB4, Gl.RGB5, Gl.RGB8, Gl.RGB10, Gl.RGB12, Gl.RGB16, Gl.RGBA, Gl.RGBA2, 
-		/// Gl.RGBA4, Gl.RGB5_A1, Gl.RGBA8, Gl.RGB10_A2, Gl.RGBA12, Gl.RGBA16, Gl.SLUMINANCE, Gl.SLUMINANCE8, Gl.SLUMINANCE_ALPHA, 
-		/// Gl.SLUMINANCE8_ALPHA8, Gl.SRGB, Gl.SRGB8, Gl.SRGB_ALPHA, or Gl.SRGB8_ALPHA8.
+		/// Specifies the internal format of the texture. Must be one of the following symbolic constants: Gl.COMPRESSED_RED, 
+		/// Gl.COMPRESSED_RG, Gl.COMPRESSED_RGB, Gl.COMPRESSED_RGBA. Gl.COMPRESSED_SRGB, Gl.COMPRESSED_SRGB_ALPHA. 
+		/// Gl.DEPTH_COMPONENT, Gl.DEPTH_COMPONENT16, Gl.DEPTH_COMPONENT24, Gl.DEPTH_COMPONENT32, Gl.STENCIL_INDEX8, Gl.RED, Gl.RG, 
+		/// Gl.RGB, Gl.R3_G3_B2, Gl.RGB4, Gl.RGB5, Gl.RGB8, Gl.RGB10, Gl.RGB12, Gl.RGB16, Gl.RGBA, Gl.RGBA2, Gl.RGBA4, Gl.RGB5_A1, 
+		/// Gl.RGBA8, Gl.RGB10_A2, Gl.RGBA12, Gl.RGBA16, Gl.SRGB, Gl.SRGB8, Gl.SRGB_ALPHA, or Gl.SRGB8_ALPHA8.
 		/// </param>
 		/// <param name="x">
 		/// Specify the window coordinates of the left corner of the row of pixels to be copied.
@@ -6296,11 +6524,10 @@ namespace OpenGL
 		/// Specify the window coordinates of the left corner of the row of pixels to be copied.
 		/// </param>
 		/// <param name="width">
-		/// Specifies the width of the texture image. Must be 0 or 2n+2⁡border for some integer n. The height of the texture image 
-		/// is 1.
+		/// Specifies the width of the texture image. The height of the texture image is 1.
 		/// </param>
 		/// <param name="border">
-		/// Specifies the width of the border. Must be either 0 or 1.
+		/// Must be 0.
 		/// </param>
 		/// <remarks>
 		/// </remarks>
@@ -6314,27 +6541,17 @@ namespace OpenGL
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_VALUE is generated if <paramref name="internalformat"/> is not an allowable value.
 		/// <exception cref="InvalidOperationException">
-		/// Gl.INVALID_VALUE is generated if <paramref name="width"/> is less than 0 or greater than 2 + Gl.MAX_TEXTURE_SIZE.
+		/// Gl.INVALID_VALUE is generated if <paramref name="width"/> is less than 0 or greater than Gl.MAX_TEXTURE_SIZE.
 		/// <exception cref="InvalidOperationException">
-		/// Gl.INVALID_VALUE is generated if non-power-of-two textures are not supported and the <paramref name="width"/> cannot be 
-		/// represented as 2n+2⁡border for some integer value of n.
-		/// <exception cref="InvalidOperationException">
-		/// Gl.INVALID_VALUE is generated if <paramref name="border"/> is not 0 or 1.
-		/// <exception cref="InvalidOperationException">
-		/// Gl.INVALID_OPERATION is generated if Gl.CopyTexImage1D is executed between the execution of Gl\.Begin and the 
-		/// corresponding execution of Gl\.End.
+		/// Gl.INVALID_VALUE is generated if <paramref name="border"/> is not 0.
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if <paramref name="internalformat"/> is Gl.DEPTH_COMPONENT, Gl.DEPTH_COMPONENT16, 
 		/// Gl.DEPTH_COMPONENT24, or Gl.DEPTH_COMPONENT32 and there is no depth buffer.
 		/// </exception>
-		/// <seealso cref="Gl.CopyPixels"/>
 		/// <seealso cref="Gl.CopyTexImage2D"/>
 		/// <seealso cref="Gl.CopyTexSubImage1D"/>
 		/// <seealso cref="Gl.CopyTexSubImage2D"/>
 		/// <seealso cref="Gl.PixelStore"/>
-		/// <seealso cref="Gl.PixelTransfer"/>
-		/// <seealso cref="Gl.TexEnv"/>
-		/// <seealso cref="Gl.TexGen"/>
 		/// <seealso cref="Gl.TexImage1D"/>
 		/// <seealso cref="Gl.TexImage2D"/>
 		/// <seealso cref="Gl.TexSubImage1D"/>
@@ -6361,15 +6578,11 @@ namespace OpenGL
 		/// Specifies the level-of-detail number. Level 0 is the base image level. Level n is the nth mipmap reduction image.
 		/// </param>
 		/// <param name="internalformat">
-		/// Specifies the internal format of the texture. Must be one of the following symbolic constants: Gl.ALPHA, Gl.ALPHA4, 
-		/// Gl.ALPHA8, Gl.ALPHA12, Gl.ALPHA16, Gl.COMPRESSED_ALPHA, Gl.COMPRESSED_LUMINANCE, Gl.COMPRESSED_LUMINANCE_ALPHA, 
-		/// Gl.COMPRESSED_INTENSITY, Gl.COMPRESSED_RGB, Gl.COMPRESSED_RGBA, Gl.DEPTH_COMPONENT, Gl.DEPTH_COMPONENT16, 
-		/// Gl.DEPTH_COMPONENT24, Gl.DEPTH_COMPONENT32, Gl.LUMINANCE, Gl.LUMINANCE4, Gl.LUMINANCE8, Gl.LUMINANCE12, Gl.LUMINANCE16, 
-		/// Gl.LUMINANCE_ALPHA, Gl.LUMINANCE4_ALPHA4, Gl.LUMINANCE6_ALPHA2, Gl.LUMINANCE8_ALPHA8, Gl.LUMINANCE12_ALPHA4, 
-		/// Gl.LUMINANCE12_ALPHA12, Gl.LUMINANCE16_ALPHA16, Gl.INTENSITY, Gl.INTENSITY4, Gl.INTENSITY8, Gl.INTENSITY12, 
-		/// Gl.INTENSITY16, Gl.RGB, Gl.R3_G3_B2, Gl.RGB4, Gl.RGB5, Gl.RGB8, Gl.RGB10, Gl.RGB12, Gl.RGB16, Gl.RGBA, Gl.RGBA2, 
-		/// Gl.RGBA4, Gl.RGB5_A1, Gl.RGBA8, Gl.RGB10_A2, Gl.RGBA12, Gl.RGBA16, Gl.SLUMINANCE, Gl.SLUMINANCE8, Gl.SLUMINANCE_ALPHA, 
-		/// Gl.SLUMINANCE8_ALPHA8, Gl.SRGB, Gl.SRGB8, Gl.SRGB_ALPHA, or Gl.SRGB8_ALPHA8.
+		/// Specifies the internal format of the texture. Must be one of the following symbolic constants: Gl.COMPRESSED_RED, 
+		/// Gl.COMPRESSED_RG, Gl.COMPRESSED_RGB, Gl.COMPRESSED_RGBA. Gl.COMPRESSED_SRGB, Gl.COMPRESSED_SRGB_ALPHA. 
+		/// Gl.DEPTH_COMPONENT, Gl.DEPTH_COMPONENT16, Gl.DEPTH_COMPONENT24, Gl.DEPTH_COMPONENT32, Gl.STENCIL_INDEX8, Gl.RED, Gl.RG, 
+		/// Gl.RGB, Gl.R3_G3_B2, Gl.RGB4, Gl.RGB5, Gl.RGB8, Gl.RGB10, Gl.RGB12, Gl.RGB16, Gl.RGBA, Gl.RGBA2, Gl.RGBA4, Gl.RGB5_A1, 
+		/// Gl.RGBA8, Gl.RGB10_A2, Gl.RGBA12, Gl.RGBA16, Gl.SRGB, Gl.SRGB8, Gl.SRGB_ALPHA, or Gl.SRGB8_ALPHA8.
 		/// </param>
 		/// <param name="x">
 		/// Specify the window coordinates of the lower left corner of the rectangular region of pixels to be copied.
@@ -6378,13 +6591,13 @@ namespace OpenGL
 		/// Specify the window coordinates of the lower left corner of the rectangular region of pixels to be copied.
 		/// </param>
 		/// <param name="width">
-		/// Specifies the width of the texture image. Must be 0 or 2n+2⁡border for some integer n.
+		/// Specifies the width of the texture image.
 		/// </param>
 		/// <param name="height">
-		/// Specifies the height of the texture image. Must be 0 or 2m+2⁡border for some integer m.
+		/// Specifies the height of the texture image.
 		/// </param>
 		/// <param name="border">
-		/// Specifies the width of the border. Must be either 0 or 1.
+		/// Must be 0.
 		/// </param>
 		/// <remarks>
 		/// </remarks>
@@ -6398,29 +6611,19 @@ namespace OpenGL
 		/// Gl.INVALID_VALUE may be generated if <paramref name="level"/> is greater than log2⁢max, where max is the returned value 
 		/// of Gl.MAX_TEXTURE_SIZE.
 		/// <exception cref="InvalidOperationException">
-		/// Gl.INVALID_VALUE is generated if <paramref name="width"/> is less than 0 or greater than 2 + Gl.MAX_TEXTURE_SIZE.
+		/// Gl.INVALID_VALUE is generated if <paramref name="width"/> is less than 0 or greater than Gl.MAX_TEXTURE_SIZE.
 		/// <exception cref="InvalidOperationException">
-		/// Gl.INVALID_VALUE is generated if non-power-of-two textures are not supported and the <paramref name="width"/> or 
-		/// <paramref name="depth"/> cannot be represented as 2k+2⁡border for some integer k.
-		/// <exception cref="InvalidOperationException">
-		/// Gl.INVALID_VALUE is generated if <paramref name="border"/> is not 0 or 1.
+		/// Gl.INVALID_VALUE is generated if <paramref name="border"/> is not 0.
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_VALUE is generated if <paramref name="internalformat"/> is not an accepted format.
-		/// <exception cref="InvalidOperationException">
-		/// Gl.INVALID_OPERATION is generated if Gl.CopyTexImage2D is executed between the execution of Gl\.Begin and the 
-		/// corresponding execution of Gl\.End.
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if <paramref name="internalformat"/> is Gl.DEPTH_COMPONENT, Gl.DEPTH_COMPONENT16, 
 		/// Gl.DEPTH_COMPONENT24, or Gl.DEPTH_COMPONENT32 and there is no depth buffer.
 		/// </exception>
-		/// <seealso cref="Gl.CopyPixels"/>
 		/// <seealso cref="Gl.CopyTexImage1D"/>
 		/// <seealso cref="Gl.CopyTexSubImage1D"/>
 		/// <seealso cref="Gl.CopyTexSubImage2D"/>
 		/// <seealso cref="Gl.PixelStore"/>
-		/// <seealso cref="Gl.PixelTransfer"/>
-		/// <seealso cref="Gl.TexEnv"/>
-		/// <seealso cref="Gl.TexGen"/>
 		/// <seealso cref="Gl.TexImage1D"/>
 		/// <seealso cref="Gl.TexImage2D"/>
 		/// <seealso cref="Gl.TexSubImage1D"/>
@@ -6439,7 +6642,7 @@ namespace OpenGL
 		/// copy a one-dimensional texture subimage
 		/// </summary>
 		/// <param name="target">
-		/// Specifies the target texture. Must be Gl.TEXTURE_1D.
+		/// Specifies the target to which the texture object is bound for Gl.CopyTexSubImage1D function. Must be Gl.TEXTURE_1D.
 		/// </param>
 		/// <param name="level">
 		/// Specifies the level-of-detail number. Level 0 is the base image level. Level n is the nth mipmap reduction image.
@@ -6459,29 +6662,36 @@ namespace OpenGL
 		/// <remarks>
 		/// </remarks>
 		/// <exception cref="InvalidOperationException">
-		/// Gl.INVALID_ENUM is generated if /<paramref name="target"/> is not Gl.TEXTURE_1D.
+		/// Gl.INVALID_ENUM is generated by Gl.CopyTexSubImage1D if <paramref name="target"/> is not Gl.TEXTURE_1D.
 		/// <exception cref="InvalidOperationException">
-		/// Gl.INVALID_OPERATION is generated if the texture array has not been defined by a previous Gl\.TexImage1D or 
-		/// Gl\.CopyTexImage1D operation.
+		/// Gl.INVALID_FRAMEBUFFER_OPERATION is generated if the object bound to Gl.READ_FRAMEBUFFER_BINDING is not framebuffer 
+		/// complete.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated by Gl.CopyTextureSubImage1D if <paramref name="texture"/> is not the name of an 
+		/// existing texture object, or if the effective target of <paramref name="texture"/> is not Gl.TEXTURE_1D.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if the texture array has not been defined by a previous glTexImage1D, 
+		/// glCopyTexImage1D, or glTexStorage1D operation.
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_VALUE is generated if <paramref name="level"/> is less than 0.
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_VALUE may be generated if level&gt;log2⁡max, where max is the returned value of Gl.MAX_TEXTURE_SIZE.
 		/// <exception cref="InvalidOperationException">
-		/// Gl.INVALID_VALUE is generated if xoffset&lt;-b, or xoffset+width&gt;w-b, where w is the Gl.TEXTURE_WIDTH and b is the 
-		/// Gl.TEXTURE_BORDER of the texture image being modified. Note that w includes twice the border width.
+		/// Gl.INVALID_VALUE is generated if xoffset&lt;0, or xoffset+width&gt;w, where w is the Gl.TEXTURE_WIDTH of the texture 
+		/// image being modified.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if:
+		/// <exception cref="InvalidOperationException">
+		/// the read buffer is Gl.NONE, orthe value of Gl.READ_FRAMEBUFFER_BINDING is non-zero, and:the read buffer selects an 
+		/// attachment that has no image attached, orthe effective value of Gl.SAMPLE_BUFFERS for the read framebuffer is one.
 		/// <exception cref="InvalidOperationException">
 		/// </exception>
-		/// <seealso cref="Gl.CopyPixels"/>
 		/// <seealso cref="Gl.CopyTexImage1D"/>
 		/// <seealso cref="Gl.CopyTexImage2D"/>
 		/// <seealso cref="Gl.CopyTexSubImage2D"/>
 		/// <seealso cref="Gl.CopyTexSubImage3D"/>
 		/// <seealso cref="Gl.PixelStore"/>
-		/// <seealso cref="Gl.PixelTransfer"/>
 		/// <seealso cref="Gl.ReadBuffer"/>
-		/// <seealso cref="Gl.TexEnv"/>
-		/// <seealso cref="Gl.TexGen"/>
 		/// <seealso cref="Gl.TexImage1D"/>
 		/// <seealso cref="Gl.TexImage2D"/>
 		/// <seealso cref="Gl.TexImage3D"/>
@@ -6502,9 +6712,10 @@ namespace OpenGL
 		/// copy a two-dimensional texture subimage
 		/// </summary>
 		/// <param name="target">
-		/// Specifies the target texture. Must be Gl.TEXTURE_2D, Gl.TEXTURE_CUBE_MAP_POSITIVE_X, Gl.TEXTURE_CUBE_MAP_NEGATIVE_X, 
-		/// Gl.TEXTURE_CUBE_MAP_POSITIVE_Y, Gl.TEXTURE_CUBE_MAP_NEGATIVE_Y, Gl.TEXTURE_CUBE_MAP_POSITIVE_Z, or 
-		/// Gl.TEXTURE_CUBE_MAP_NEGATIVE_Z.
+		/// Specifies the target to which the texture object is bound for Gl.CopyTexSubImage2D function. Must be 
+		/// Gl.TEXTURE_1D_ARRAY, Gl.TEXTURE_2D, Gl.TEXTURE_CUBE_MAP_POSITIVE_X, Gl.TEXTURE_CUBE_MAP_NEGATIVE_X, 
+		/// Gl.TEXTURE_CUBE_MAP_POSITIVE_Y, Gl.TEXTURE_CUBE_MAP_NEGATIVE_Y, Gl.TEXTURE_CUBE_MAP_POSITIVE_Z, 
+		/// Gl.TEXTURE_CUBE_MAP_NEGATIVE_Z, or Gl.TEXTURE_RECTANGLE.
 		/// </param>
 		/// <param name="level">
 		/// Specifies the level-of-detail number. Level 0 is the base image level. Level n is the nth mipmap reduction image.
@@ -6532,32 +6743,40 @@ namespace OpenGL
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_ENUM is generated if <paramref name="target"/> is not Gl.TEXTURE_2D, Gl.TEXTURE_CUBE_MAP_POSITIVE_X, 
 		/// Gl.TEXTURE_CUBE_MAP_NEGATIVE_X, Gl.TEXTURE_CUBE_MAP_POSITIVE_Y, Gl.TEXTURE_CUBE_MAP_NEGATIVE_Y, 
-		/// Gl.TEXTURE_CUBE_MAP_POSITIVE_Z, or Gl.TEXTURE_CUBE_MAP_NEGATIVE_Z.
+		/// Gl.TEXTURE_CUBE_MAP_POSITIVE_Z, Gl.TEXTURE_CUBE_MAP_NEGATIVE_Z, Gl.TEXTURE_1D_ARRAY, or Gl.RECTANGLE.
 		/// <exception cref="InvalidOperationException">
-		/// Gl.INVALID_OPERATION is generated if the texture array has not been defined by a previous Gl\.TexImage2D or 
-		/// Gl\.CopyTexImage2D operation.
+		/// Gl.INVALID_FRAMEBUFFER_OPERATION is generated if the object bound to Gl.READ_FRAMEBUFFER_BINDING is not framebuffer 
+		/// complete.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if the texture array has not been defined by a previous glTexImage2D, glTexStorage2D 
+		/// or glCopyTexImage2D operation.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated by Gl.CopyTextureSubImage2D if <paramref name="texture"/> is not the name of an 
+		/// existing texture object.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated by Gl.CopyTextureSubImage2D if the effective target of texture does not correspond to 
+		/// one of the texture targets supported by the function.
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_VALUE is generated if <paramref name="level"/> is less than 0.
 		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_VALUE is generated if the effective target is Gl.TEXTURE_RECTANGLE and <paramref name="level"/> is not zero.
+		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_VALUE may be generated if level&gt;log2⁡max, where max is the returned value of Gl.MAX_TEXTURE_SIZE.
 		/// <exception cref="InvalidOperationException">
-		/// Gl.INVALID_VALUE is generated if xoffset&lt;-b, xoffset+width&gt;w-b, yoffset&lt;-b, or yoffset+height&gt;h-b, where w 
-		/// is the Gl.TEXTURE_WIDTH, h is the Gl.TEXTURE_HEIGHT, and b is the Gl.TEXTURE_BORDER of the texture image being modified. 
-		/// Note that w and h include twice the border width.
+		/// Gl.INVALID_VALUE is generated if xoffset&lt;0, xoffset+width&gt;w, yoffset&lt;0, or yoffset+height&gt;0,, where w is the 
+		/// Gl.TEXTURE_WIDTH, h is the Gl.TEXTURE_HEIGHT and of the texture image being modified.
 		/// <exception cref="InvalidOperationException">
-		/// Gl.INVALID_OPERATION is generated if Gl.CopyTexSubImage2D is executed between the execution of Gl\.Begin and the 
-		/// corresponding execution of Gl\.End.
+		/// Gl.INVALID_OPERATION is generated if:
+		/// <exception cref="InvalidOperationException">
+		/// the read buffer is Gl.NONE, orthe value of Gl.READ_FRAMEBUFFER_BINDING is non-zero, and:the read buffer selects an 
+		/// attachment that has no image attached, orthe effective value of Gl.SAMPLE_BUFFERS for the read framebuffer is one.
 		/// </exception>
-		/// <seealso cref="Gl.CopyPixels"/>
 		/// <seealso cref="Gl.CopyTexImage1D"/>
 		/// <seealso cref="Gl.CopyTexImage2D"/>
 		/// <seealso cref="Gl.CopyTexSubImage1D"/>
 		/// <seealso cref="Gl.CopyTexSubImage3D"/>
 		/// <seealso cref="Gl.PixelStore"/>
-		/// <seealso cref="Gl.PixelTransfer"/>
 		/// <seealso cref="Gl.ReadBuffer"/>
-		/// <seealso cref="Gl.TexEnv"/>
-		/// <seealso cref="Gl.TexGen"/>
 		/// <seealso cref="Gl.TexImage1D"/>
 		/// <seealso cref="Gl.TexImage2D"/>
 		/// <seealso cref="Gl.TexImage3D"/>

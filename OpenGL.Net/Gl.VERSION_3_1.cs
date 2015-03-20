@@ -219,7 +219,9 @@ namespace OpenGL
 		public const int SIGNED_NORMALIZED = 0x8F9C;
 
 		/// <summary>
-		/// Value of GL_PRIMITIVE_RESTART symbol.
+		/// Gl.Enable: enables primitive restarting. If enabled, any one of the draw commands which transfers a set of generic 
+		/// attribute array elements to the GL will restart the primitive when the index of the vertex is equal to the primitive 
+		/// restart index. See Gl.PrimitiveRestartIndex.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_3_1")]
 		public const int PRIMITIVE_RESTART = 0x8F9D;

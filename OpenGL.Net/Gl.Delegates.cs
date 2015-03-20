@@ -6683,7 +6683,7 @@ namespace OpenGL
 			internal static glNamedFramebufferParameteriEXT pglNamedFramebufferParameteriEXT;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glNamedFramebufferReadBuffer(UInt32 framebuffer, int src);
+			internal delegate void glNamedFramebufferReadBuffer(UInt32 framebuffer, int mode);
 			[ThreadStatic]
 			internal static glNamedFramebufferReadBuffer pglNamedFramebufferReadBuffer;
 
@@ -8380,7 +8380,7 @@ namespace OpenGL
 			internal static glRasterPos4xvOES pglRasterPos4xvOES;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glReadBuffer(int src);
+			internal delegate void glReadBuffer(int mode);
 			[ThreadStatic]
 			internal static glReadBuffer pglReadBuffer;
 
@@ -9056,7 +9056,7 @@ namespace OpenGL
 			internal static glStencilMaskSeparate pglStencilMaskSeparate;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glStencilOp(int fail, int zfail, int zpass);
+			internal delegate void glStencilOp(int fail, int dpfail, int dppass);
 			[ThreadStatic]
 			internal static glStencilOp pglStencilOp;
 

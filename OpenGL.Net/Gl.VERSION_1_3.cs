@@ -1023,7 +1023,8 @@ namespace OpenGL
 		/// specify a three-dimensional texture image in a compressed format
 		/// </summary>
 		/// <param name="target">
-		/// Specifies the target texture. Must be Gl.TEXTURE_3D or Gl.PROXY_TEXTURE_3D.
+		/// Specifies the target texture. Must be Gl.TEXTURE_3D, Gl.PROXY_TEXTURE_3D, Gl.TEXTURE_2D_ARRAY or 
+		/// Gl.PROXY_TEXTURE_2D_ARRAY.
 		/// </param>
 		/// <param name="level">
 		/// Specifies the level-of-detail number. Level 0 is the base image level. Level n is the nth mipmap reduction image.
@@ -1032,22 +1033,19 @@ namespace OpenGL
 		/// Specifies the format of the compressed image data stored at address <paramref name="data"/>.
 		/// </param>
 		/// <param name="width">
-		/// Specifies the width of the texture image including the border if any. If the GL version does not support 
-		/// non-power-of-two sizes, this value must be 2n+2⁡border for some integer n. All implementations support 3D texture images 
-		/// that are at least 16 texels wide.
+		/// Specifies the width of the texture image. All implementations support 3D texture images that are at least 16 texels 
+		/// wide.
 		/// </param>
 		/// <param name="height">
-		/// Specifies the height of the texture image including the border if any. If the GL version does not support 
-		/// non-power-of-two sizes, this value must be 2n+2⁡border for some integer n. All implementations support 3D texture images 
-		/// that are at least 16 texels high.
+		/// Specifies the height of the texture image. All implementations support 3D texture images that are at least 16 texels 
+		/// high.
 		/// </param>
 		/// <param name="depth">
-		/// Specifies the depth of the texture image including the border if any. If the GL version does not support 
-		/// non-power-of-two sizes, this value must be 2n+2⁡border for some integer n. All implementations support 3D texture images 
-		/// that are at least 16 texels deep.
+		/// Specifies the depth of the texture image. All implementations support 3D texture images that are at least 16 texels 
+		/// deep.
 		/// </param>
 		/// <param name="border">
-		/// Specifies the width of the border. Must be either 0 or 1.
+		/// This value must be 0.
 		/// </param>
 		/// <param name="imageSize">
 		/// Specifies the number of unsigned bytes of image data starting at the address specified by <paramref name="data"/>.
@@ -1058,12 +1056,14 @@ namespace OpenGL
 		/// <remarks>
 		/// </remarks>
 		/// <exception cref="InvalidOperationException">
-		/// Gl.INVALID_ENUM is generated if <paramref name="internalformat"/> is one of the generic compressed internal formats: 
-		/// Gl.COMPRESSED_ALPHA, Gl.COMPRESSED_LUMINANCE, Gl.COMPRESSED_LUMINANCE_ALPHA, Gl.COMPRESSED_INTENSITY, Gl.COMPRESSED_RGB, 
-		/// or Gl.COMPRESSED_RGBA.
+		/// Gl.INVALID_ENUM is generated if <paramref name="internalformat"/> is not one of the generic compressed internal formats: 
+		/// Gl.COMPRESSED_RED, Gl.COMPRESSED_RG, Gl.COMPRESSED_RGB, Gl.COMPRESSED_RGBA. Gl.COMPRESSED_SRGB, or 
+		/// Gl.COMPRESSED_SRGB_ALPHA.
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_VALUE is generated if <paramref name="imageSize"/> is not consistent with the format, dimensions, and 
 		/// contents of the specified compressed image data.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_VALUE is generated if <paramref name="border"/> is not 0.
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if parameter combinations are not supported by the specific compressed internal format 
 		/// as specified in the specific texture compression extension.
@@ -1074,31 +1074,20 @@ namespace OpenGL
 		/// Gl.INVALID_OPERATION is generated if a non-zero buffer object name is bound to the Gl.PIXEL_UNPACK_BUFFER target and the 
 		/// data would be unpacked from the buffer object such that the memory reads required would exceed the data store size.
 		/// <exception cref="InvalidOperationException">
-		/// Gl.INVALID_OPERATION is generated if Gl.CompressedTexImage3D is executed between the execution of Gl\.Begin and the 
-		/// corresponding execution of Gl\.End.
-		/// <exception cref="InvalidOperationException">
 		/// Undefined results, including abnormal program termination, are generated if <paramref name="data"/> is not encoded in a 
 		/// manner consistent with the extension specification defining the internal compression format.
 		/// </exception>
 		/// <seealso cref="Gl.ActiveTexture"/>
-		/// <seealso cref="Gl.ColorTable"/>
 		/// <seealso cref="Gl.CompressedTexImage1D"/>
 		/// <seealso cref="Gl.CompressedTexImage2D"/>
 		/// <seealso cref="Gl.CompressedTexSubImage1D"/>
 		/// <seealso cref="Gl.CompressedTexSubImage2D"/>
 		/// <seealso cref="Gl.CompressedTexSubImage3D"/>
-		/// <seealso cref="Gl.ConvolutionFilter1D"/>
-		/// <seealso cref="Gl.CopyPixels"/>
 		/// <seealso cref="Gl.CopyTexImage1D"/>
 		/// <seealso cref="Gl.CopyTexSubImage1D"/>
 		/// <seealso cref="Gl.CopyTexSubImage2D"/>
 		/// <seealso cref="Gl.CopyTexSubImage3D"/>
-		/// <seealso cref="Gl.DrawPixels"/>
-		/// <seealso cref="Gl.MatrixMode"/>
 		/// <seealso cref="Gl.PixelStore"/>
-		/// <seealso cref="Gl.PixelTransfer"/>
-		/// <seealso cref="Gl.TexEnv"/>
-		/// <seealso cref="Gl.TexGen"/>
 		/// <seealso cref="Gl.TexImage1D"/>
 		/// <seealso cref="Gl.TexImage2D"/>
 		/// <seealso cref="Gl.TexSubImage1D"/>
@@ -1118,7 +1107,8 @@ namespace OpenGL
 		/// specify a three-dimensional texture image in a compressed format
 		/// </summary>
 		/// <param name="target">
-		/// Specifies the target texture. Must be Gl.TEXTURE_3D or Gl.PROXY_TEXTURE_3D.
+		/// Specifies the target texture. Must be Gl.TEXTURE_3D, Gl.PROXY_TEXTURE_3D, Gl.TEXTURE_2D_ARRAY or 
+		/// Gl.PROXY_TEXTURE_2D_ARRAY.
 		/// </param>
 		/// <param name="level">
 		/// Specifies the level-of-detail number. Level 0 is the base image level. Level n is the nth mipmap reduction image.
@@ -1127,22 +1117,19 @@ namespace OpenGL
 		/// Specifies the format of the compressed image data stored at address <paramref name="data"/>.
 		/// </param>
 		/// <param name="width">
-		/// Specifies the width of the texture image including the border if any. If the GL version does not support 
-		/// non-power-of-two sizes, this value must be 2n+2⁡border for some integer n. All implementations support 3D texture images 
-		/// that are at least 16 texels wide.
+		/// Specifies the width of the texture image. All implementations support 3D texture images that are at least 16 texels 
+		/// wide.
 		/// </param>
 		/// <param name="height">
-		/// Specifies the height of the texture image including the border if any. If the GL version does not support 
-		/// non-power-of-two sizes, this value must be 2n+2⁡border for some integer n. All implementations support 3D texture images 
-		/// that are at least 16 texels high.
+		/// Specifies the height of the texture image. All implementations support 3D texture images that are at least 16 texels 
+		/// high.
 		/// </param>
 		/// <param name="depth">
-		/// Specifies the depth of the texture image including the border if any. If the GL version does not support 
-		/// non-power-of-two sizes, this value must be 2n+2⁡border for some integer n. All implementations support 3D texture images 
-		/// that are at least 16 texels deep.
+		/// Specifies the depth of the texture image. All implementations support 3D texture images that are at least 16 texels 
+		/// deep.
 		/// </param>
 		/// <param name="border">
-		/// Specifies the width of the border. Must be either 0 or 1.
+		/// This value must be 0.
 		/// </param>
 		/// <param name="imageSize">
 		/// Specifies the number of unsigned bytes of image data starting at the address specified by <paramref name="data"/>.
@@ -1153,12 +1140,14 @@ namespace OpenGL
 		/// <remarks>
 		/// </remarks>
 		/// <exception cref="InvalidOperationException">
-		/// Gl.INVALID_ENUM is generated if <paramref name="internalformat"/> is one of the generic compressed internal formats: 
-		/// Gl.COMPRESSED_ALPHA, Gl.COMPRESSED_LUMINANCE, Gl.COMPRESSED_LUMINANCE_ALPHA, Gl.COMPRESSED_INTENSITY, Gl.COMPRESSED_RGB, 
-		/// or Gl.COMPRESSED_RGBA.
+		/// Gl.INVALID_ENUM is generated if <paramref name="internalformat"/> is not one of the generic compressed internal formats: 
+		/// Gl.COMPRESSED_RED, Gl.COMPRESSED_RG, Gl.COMPRESSED_RGB, Gl.COMPRESSED_RGBA. Gl.COMPRESSED_SRGB, or 
+		/// Gl.COMPRESSED_SRGB_ALPHA.
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_VALUE is generated if <paramref name="imageSize"/> is not consistent with the format, dimensions, and 
 		/// contents of the specified compressed image data.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_VALUE is generated if <paramref name="border"/> is not 0.
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if parameter combinations are not supported by the specific compressed internal format 
 		/// as specified in the specific texture compression extension.
@@ -1169,31 +1158,20 @@ namespace OpenGL
 		/// Gl.INVALID_OPERATION is generated if a non-zero buffer object name is bound to the Gl.PIXEL_UNPACK_BUFFER target and the 
 		/// data would be unpacked from the buffer object such that the memory reads required would exceed the data store size.
 		/// <exception cref="InvalidOperationException">
-		/// Gl.INVALID_OPERATION is generated if Gl.CompressedTexImage3D is executed between the execution of Gl\.Begin and the 
-		/// corresponding execution of Gl\.End.
-		/// <exception cref="InvalidOperationException">
 		/// Undefined results, including abnormal program termination, are generated if <paramref name="data"/> is not encoded in a 
 		/// manner consistent with the extension specification defining the internal compression format.
 		/// </exception>
 		/// <seealso cref="Gl.ActiveTexture"/>
-		/// <seealso cref="Gl.ColorTable"/>
 		/// <seealso cref="Gl.CompressedTexImage1D"/>
 		/// <seealso cref="Gl.CompressedTexImage2D"/>
 		/// <seealso cref="Gl.CompressedTexSubImage1D"/>
 		/// <seealso cref="Gl.CompressedTexSubImage2D"/>
 		/// <seealso cref="Gl.CompressedTexSubImage3D"/>
-		/// <seealso cref="Gl.ConvolutionFilter1D"/>
-		/// <seealso cref="Gl.CopyPixels"/>
 		/// <seealso cref="Gl.CopyTexImage1D"/>
 		/// <seealso cref="Gl.CopyTexSubImage1D"/>
 		/// <seealso cref="Gl.CopyTexSubImage2D"/>
 		/// <seealso cref="Gl.CopyTexSubImage3D"/>
-		/// <seealso cref="Gl.DrawPixels"/>
-		/// <seealso cref="Gl.MatrixMode"/>
 		/// <seealso cref="Gl.PixelStore"/>
-		/// <seealso cref="Gl.PixelTransfer"/>
-		/// <seealso cref="Gl.TexEnv"/>
-		/// <seealso cref="Gl.TexGen"/>
 		/// <seealso cref="Gl.TexImage1D"/>
 		/// <seealso cref="Gl.TexImage2D"/>
 		/// <seealso cref="Gl.TexSubImage1D"/>
@@ -1215,9 +1193,10 @@ namespace OpenGL
 		/// specify a two-dimensional texture image in a compressed format
 		/// </summary>
 		/// <param name="target">
-		/// Specifies the target texture. Must be Gl.TEXTURE_2D, Gl.PROXY_TEXTURE_2D, Gl.TEXTURE_CUBE_MAP_POSITIVE_X, 
-		/// Gl.TEXTURE_CUBE_MAP_NEGATIVE_X, Gl.TEXTURE_CUBE_MAP_POSITIVE_Y, Gl.TEXTURE_CUBE_MAP_NEGATIVE_Y, 
-		/// Gl.TEXTURE_CUBE_MAP_POSITIVE_Z, Gl.TEXTURE_CUBE_MAP_NEGATIVE_Z, or Gl.PROXY_TEXTURE_CUBE_MAP.
+		/// Specifies the target texture. Must be Gl.TEXTURE_2D, Gl.PROXY_TEXTURE_2D, Gl.TEXTURE_1D_ARRAY, 
+		/// Gl.PROXY_TEXTURE_1D_ARRAY, Gl.TEXTURE_CUBE_MAP_POSITIVE_X, Gl.TEXTURE_CUBE_MAP_NEGATIVE_X, 
+		/// Gl.TEXTURE_CUBE_MAP_POSITIVE_Y, Gl.TEXTURE_CUBE_MAP_NEGATIVE_Y, Gl.TEXTURE_CUBE_MAP_POSITIVE_Z, 
+		/// Gl.TEXTURE_CUBE_MAP_NEGATIVE_Z, or Gl.PROXY_TEXTURE_CUBE_MAP.
 		/// </param>
 		/// <param name="level">
 		/// Specifies the level-of-detail number. Level 0 is the base image level. Level n is the nth mipmap reduction image.
@@ -1226,17 +1205,15 @@ namespace OpenGL
 		/// Specifies the format of the compressed image data stored at address <paramref name="data"/>.
 		/// </param>
 		/// <param name="width">
-		/// Specifies the width of the texture image including the border if any. If the GL version does not support 
-		/// non-power-of-two sizes, this value must be 2n+2⁡border for some integer n. All implementations support 2D texture images 
-		/// that are at least 64 texels wide and cube-mapped texture images that are at least 16 texels wide.
+		/// Specifies the width of the texture image. All implementations support 2D texture and cube map texture images that are at 
+		/// least 16384 texels wide.
 		/// </param>
 		/// <param name="height">
-		/// Specifies the height of the texture image including the border if any. If the GL version does not support 
-		/// non-power-of-two sizes, this value must be Must be 2n+2⁡border for some integer n. All implementations support 2D 
-		/// texture images that are at least 64 texels high and cube-mapped texture images that are at least 16 texels high.
+		/// Specifies the height of the texture image. All implementations support 2D texture and cube map texture images that are 
+		/// at least 16384 texels high.
 		/// </param>
 		/// <param name="border">
-		/// Specifies the width of the border. Must be either 0 or 1.
+		/// This value must be 0.
 		/// </param>
 		/// <param name="imageSize">
 		/// Specifies the number of unsigned bytes of image data starting at the address specified by <paramref name="data"/>.
@@ -1247,12 +1224,18 @@ namespace OpenGL
 		/// <remarks>
 		/// </remarks>
 		/// <exception cref="InvalidOperationException">
-		/// Gl.INVALID_ENUM is generated if <paramref name="internalformat"/> is one of the generic compressed internal formats: 
-		/// Gl.COMPRESSED_ALPHA, Gl.COMPRESSED_LUMINANCE, Gl.COMPRESSED_LUMINANCE_ALPHA, Gl.COMPRESSED_INTENSITY, Gl.COMPRESSED_RGB, 
-		/// or Gl.COMPRESSED_RGBA.
+		/// Gl.INVALID_ENUM is generated if <paramref name="internalformat"/> is not one of the specific compressed internal 
+		/// formats: Gl.COMPRESSED_RED_RGTC1, Gl.COMPRESSED_SIGNED_RED_RGTC1, Gl.COMPRESSED_RG_RGTC2, Gl.COMPRESSED_SIGNED_RG_RGTC2. 
+		/// Gl.COMPRESSED_RGBA_BPTC_UNORM, Gl.COMPRESSED_SRGB_ALPHA_BPTC_UNORM, Gl.COMPRESSED_RGB_BPTC_SIGNED_FLOAT, 
+		/// Gl.COMPRESSED_RGB_BPTC_UNSIGNED_FLOAT, Gl.COMPRESSED_RGB8_ETC2, Gl.COMPRESSED_SRGB8_ETC2, 
+		/// Gl.COMPRESSED_RGB8_PUNCHTHROUGH_ALPHA1_ETC2, Gl.COMPRESSED_SRGB8_PUNCHTHROUGH_ALPHA1_ETC2, Gl.COMPRESSED_RGBA8_ETC2_EAC, 
+		/// Gl.COMPRESSED_SRGB8_ALPHA8_ETC2_EAC, Gl.COMPRESSED_R11_EAC, Gl.COMPRESSED_SIGNED_R11_EAC, Gl.COMPRESSED_RG11_EAC, or 
+		/// Gl.COMPRESSED_SIGNED_RG11_EAC.
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_VALUE is generated if <paramref name="imageSize"/> is not consistent with the format, dimensions, and 
 		/// contents of the specified compressed image data.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_VALUE is generated if <paramref name="border"/> is not 0.
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if parameter combinations are not supported by the specific compressed internal format 
 		/// as specified in the specific texture compression extension.
@@ -1263,31 +1246,20 @@ namespace OpenGL
 		/// Gl.INVALID_OPERATION is generated if a non-zero buffer object name is bound to the Gl.PIXEL_UNPACK_BUFFER target and the 
 		/// data would be unpacked from the buffer object such that the memory reads required would exceed the data store size.
 		/// <exception cref="InvalidOperationException">
-		/// Gl.INVALID_OPERATION is generated if Gl.CompressedTexImage2D is executed between the execution of Gl\.Begin and the 
-		/// corresponding execution of Gl\.End.
-		/// <exception cref="InvalidOperationException">
 		/// Undefined results, including abnormal program termination, are generated if <paramref name="data"/> is not encoded in a 
 		/// manner consistent with the extension specification defining the internal compression format.
 		/// </exception>
 		/// <seealso cref="Gl.ActiveTexture"/>
-		/// <seealso cref="Gl.ColorTable"/>
 		/// <seealso cref="Gl.CompressedTexImage1D"/>
 		/// <seealso cref="Gl.CompressedTexImage3D"/>
 		/// <seealso cref="Gl.CompressedTexSubImage1D"/>
 		/// <seealso cref="Gl.CompressedTexSubImage2D"/>
 		/// <seealso cref="Gl.CompressedTexSubImage3D"/>
-		/// <seealso cref="Gl.ConvolutionFilter1D"/>
-		/// <seealso cref="Gl.CopyPixels"/>
 		/// <seealso cref="Gl.CopyTexImage1D"/>
 		/// <seealso cref="Gl.CopyTexSubImage1D"/>
 		/// <seealso cref="Gl.CopyTexSubImage2D"/>
 		/// <seealso cref="Gl.CopyTexSubImage3D"/>
-		/// <seealso cref="Gl.DrawPixels"/>
-		/// <seealso cref="Gl.MatrixMode"/>
 		/// <seealso cref="Gl.PixelStore"/>
-		/// <seealso cref="Gl.PixelTransfer"/>
-		/// <seealso cref="Gl.TexEnv"/>
-		/// <seealso cref="Gl.TexGen"/>
 		/// <seealso cref="Gl.TexImage2D"/>
 		/// <seealso cref="Gl.TexImage3D"/>
 		/// <seealso cref="Gl.TexSubImage1D"/>
@@ -1307,9 +1279,10 @@ namespace OpenGL
 		/// specify a two-dimensional texture image in a compressed format
 		/// </summary>
 		/// <param name="target">
-		/// Specifies the target texture. Must be Gl.TEXTURE_2D, Gl.PROXY_TEXTURE_2D, Gl.TEXTURE_CUBE_MAP_POSITIVE_X, 
-		/// Gl.TEXTURE_CUBE_MAP_NEGATIVE_X, Gl.TEXTURE_CUBE_MAP_POSITIVE_Y, Gl.TEXTURE_CUBE_MAP_NEGATIVE_Y, 
-		/// Gl.TEXTURE_CUBE_MAP_POSITIVE_Z, Gl.TEXTURE_CUBE_MAP_NEGATIVE_Z, or Gl.PROXY_TEXTURE_CUBE_MAP.
+		/// Specifies the target texture. Must be Gl.TEXTURE_2D, Gl.PROXY_TEXTURE_2D, Gl.TEXTURE_1D_ARRAY, 
+		/// Gl.PROXY_TEXTURE_1D_ARRAY, Gl.TEXTURE_CUBE_MAP_POSITIVE_X, Gl.TEXTURE_CUBE_MAP_NEGATIVE_X, 
+		/// Gl.TEXTURE_CUBE_MAP_POSITIVE_Y, Gl.TEXTURE_CUBE_MAP_NEGATIVE_Y, Gl.TEXTURE_CUBE_MAP_POSITIVE_Z, 
+		/// Gl.TEXTURE_CUBE_MAP_NEGATIVE_Z, or Gl.PROXY_TEXTURE_CUBE_MAP.
 		/// </param>
 		/// <param name="level">
 		/// Specifies the level-of-detail number. Level 0 is the base image level. Level n is the nth mipmap reduction image.
@@ -1318,17 +1291,15 @@ namespace OpenGL
 		/// Specifies the format of the compressed image data stored at address <paramref name="data"/>.
 		/// </param>
 		/// <param name="width">
-		/// Specifies the width of the texture image including the border if any. If the GL version does not support 
-		/// non-power-of-two sizes, this value must be 2n+2⁡border for some integer n. All implementations support 2D texture images 
-		/// that are at least 64 texels wide and cube-mapped texture images that are at least 16 texels wide.
+		/// Specifies the width of the texture image. All implementations support 2D texture and cube map texture images that are at 
+		/// least 16384 texels wide.
 		/// </param>
 		/// <param name="height">
-		/// Specifies the height of the texture image including the border if any. If the GL version does not support 
-		/// non-power-of-two sizes, this value must be Must be 2n+2⁡border for some integer n. All implementations support 2D 
-		/// texture images that are at least 64 texels high and cube-mapped texture images that are at least 16 texels high.
+		/// Specifies the height of the texture image. All implementations support 2D texture and cube map texture images that are 
+		/// at least 16384 texels high.
 		/// </param>
 		/// <param name="border">
-		/// Specifies the width of the border. Must be either 0 or 1.
+		/// This value must be 0.
 		/// </param>
 		/// <param name="imageSize">
 		/// Specifies the number of unsigned bytes of image data starting at the address specified by <paramref name="data"/>.
@@ -1339,12 +1310,18 @@ namespace OpenGL
 		/// <remarks>
 		/// </remarks>
 		/// <exception cref="InvalidOperationException">
-		/// Gl.INVALID_ENUM is generated if <paramref name="internalformat"/> is one of the generic compressed internal formats: 
-		/// Gl.COMPRESSED_ALPHA, Gl.COMPRESSED_LUMINANCE, Gl.COMPRESSED_LUMINANCE_ALPHA, Gl.COMPRESSED_INTENSITY, Gl.COMPRESSED_RGB, 
-		/// or Gl.COMPRESSED_RGBA.
+		/// Gl.INVALID_ENUM is generated if <paramref name="internalformat"/> is not one of the specific compressed internal 
+		/// formats: Gl.COMPRESSED_RED_RGTC1, Gl.COMPRESSED_SIGNED_RED_RGTC1, Gl.COMPRESSED_RG_RGTC2, Gl.COMPRESSED_SIGNED_RG_RGTC2. 
+		/// Gl.COMPRESSED_RGBA_BPTC_UNORM, Gl.COMPRESSED_SRGB_ALPHA_BPTC_UNORM, Gl.COMPRESSED_RGB_BPTC_SIGNED_FLOAT, 
+		/// Gl.COMPRESSED_RGB_BPTC_UNSIGNED_FLOAT, Gl.COMPRESSED_RGB8_ETC2, Gl.COMPRESSED_SRGB8_ETC2, 
+		/// Gl.COMPRESSED_RGB8_PUNCHTHROUGH_ALPHA1_ETC2, Gl.COMPRESSED_SRGB8_PUNCHTHROUGH_ALPHA1_ETC2, Gl.COMPRESSED_RGBA8_ETC2_EAC, 
+		/// Gl.COMPRESSED_SRGB8_ALPHA8_ETC2_EAC, Gl.COMPRESSED_R11_EAC, Gl.COMPRESSED_SIGNED_R11_EAC, Gl.COMPRESSED_RG11_EAC, or 
+		/// Gl.COMPRESSED_SIGNED_RG11_EAC.
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_VALUE is generated if <paramref name="imageSize"/> is not consistent with the format, dimensions, and 
 		/// contents of the specified compressed image data.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_VALUE is generated if <paramref name="border"/> is not 0.
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if parameter combinations are not supported by the specific compressed internal format 
 		/// as specified in the specific texture compression extension.
@@ -1355,31 +1332,20 @@ namespace OpenGL
 		/// Gl.INVALID_OPERATION is generated if a non-zero buffer object name is bound to the Gl.PIXEL_UNPACK_BUFFER target and the 
 		/// data would be unpacked from the buffer object such that the memory reads required would exceed the data store size.
 		/// <exception cref="InvalidOperationException">
-		/// Gl.INVALID_OPERATION is generated if Gl.CompressedTexImage2D is executed between the execution of Gl\.Begin and the 
-		/// corresponding execution of Gl\.End.
-		/// <exception cref="InvalidOperationException">
 		/// Undefined results, including abnormal program termination, are generated if <paramref name="data"/> is not encoded in a 
 		/// manner consistent with the extension specification defining the internal compression format.
 		/// </exception>
 		/// <seealso cref="Gl.ActiveTexture"/>
-		/// <seealso cref="Gl.ColorTable"/>
 		/// <seealso cref="Gl.CompressedTexImage1D"/>
 		/// <seealso cref="Gl.CompressedTexImage3D"/>
 		/// <seealso cref="Gl.CompressedTexSubImage1D"/>
 		/// <seealso cref="Gl.CompressedTexSubImage2D"/>
 		/// <seealso cref="Gl.CompressedTexSubImage3D"/>
-		/// <seealso cref="Gl.ConvolutionFilter1D"/>
-		/// <seealso cref="Gl.CopyPixels"/>
 		/// <seealso cref="Gl.CopyTexImage1D"/>
 		/// <seealso cref="Gl.CopyTexSubImage1D"/>
 		/// <seealso cref="Gl.CopyTexSubImage2D"/>
 		/// <seealso cref="Gl.CopyTexSubImage3D"/>
-		/// <seealso cref="Gl.DrawPixels"/>
-		/// <seealso cref="Gl.MatrixMode"/>
 		/// <seealso cref="Gl.PixelStore"/>
-		/// <seealso cref="Gl.PixelTransfer"/>
-		/// <seealso cref="Gl.TexEnv"/>
-		/// <seealso cref="Gl.TexGen"/>
 		/// <seealso cref="Gl.TexImage2D"/>
 		/// <seealso cref="Gl.TexImage3D"/>
 		/// <seealso cref="Gl.TexSubImage1D"/>
@@ -1410,12 +1376,11 @@ namespace OpenGL
 		/// Specifies the format of the compressed image data stored at address <paramref name="data"/>.
 		/// </param>
 		/// <param name="width">
-		/// Specifies the width of the texture image including the border if any. If the GL version does not support 
-		/// non-power-of-two sizes, this value must be 2n+2⁡border for some integer n. All implementations support texture images 
-		/// that are at least 64 texels wide. The height of the 1D texture image is 1.
+		/// Specifies the width of the texture image. All implementations support texture images that are at least 64 texels wide. 
+		/// The height of the 1D texture image is 1.
 		/// </param>
 		/// <param name="border">
-		/// Specifies the width of the border. Must be either 0 or 1.
+		/// This value must be 0.
 		/// </param>
 		/// <param name="imageSize">
 		/// Specifies the number of unsigned bytes of image data starting at the address specified by <paramref name="data"/>.
@@ -1426,12 +1391,14 @@ namespace OpenGL
 		/// <remarks>
 		/// </remarks>
 		/// <exception cref="InvalidOperationException">
-		/// Gl.INVALID_ENUM is generated if <paramref name="internalformat"/> is one of the generic compressed internal formats: 
-		/// Gl.COMPRESSED_ALPHA, Gl.COMPRESSED_LUMINANCE, Gl.COMPRESSED_LUMINANCE_ALPHA, Gl.COMPRESSED_INTENSITY, Gl.COMPRESSED_RGB, 
-		/// or Gl.COMPRESSED_RGBA.
+		/// Gl.INVALID_ENUM is generated if <paramref name="internalformat"/> is not a supported specific compressed internal 
+		/// formats, or is one of the generic compressed internal formats: Gl.COMPRESSED_RED, Gl.COMPRESSED_RG, Gl.COMPRESSED_RGB, 
+		/// Gl.COMPRESSED_RGBA. Gl.COMPRESSED_SRGB, or Gl.COMPRESSED_SRGB_ALPHA.
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_VALUE is generated if <paramref name="imageSize"/> is not consistent with the format, dimensions, and 
 		/// contents of the specified compressed image data.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_VALUE is generated if <paramref name="border"/> is not 0.
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if parameter combinations are not supported by the specific compressed internal format 
 		/// as specified in the specific texture compression extension.
@@ -1442,32 +1409,21 @@ namespace OpenGL
 		/// Gl.INVALID_OPERATION is generated if a non-zero buffer object name is bound to the Gl.PIXEL_UNPACK_BUFFER target and the 
 		/// data would be unpacked from the buffer object such that the memory reads required would exceed the data store size.
 		/// <exception cref="InvalidOperationException">
-		/// Gl.INVALID_OPERATION is generated if Gl.CompressedTexImage1D is executed between the execution of Gl\.Begin and the 
-		/// corresponding execution of Gl\.End.
-		/// <exception cref="InvalidOperationException">
 		/// Undefined results, including abnormal program termination, are generated if <paramref name="data"/> is not encoded in a 
 		/// manner consistent with the extension specification defining the internal compression format.
 		/// </exception>
 		/// <seealso cref="Gl.ActiveTexture"/>
-		/// <seealso cref="Gl.ColorTable"/>
 		/// <seealso cref="Gl.CompressedTexImage2D"/>
 		/// <seealso cref="Gl.CompressedTexImage3D"/>
 		/// <seealso cref="Gl.CompressedTexSubImage1D"/>
 		/// <seealso cref="Gl.CompressedTexSubImage2D"/>
 		/// <seealso cref="Gl.CompressedTexSubImage3D"/>
-		/// <seealso cref="Gl.ConvolutionFilter1D"/>
-		/// <seealso cref="Gl.CopyPixels"/>
 		/// <seealso cref="Gl.CopyTexImage1D"/>
 		/// <seealso cref="Gl.CopyTexImage2D"/>
 		/// <seealso cref="Gl.CopyTexSubImage1D"/>
 		/// <seealso cref="Gl.CopyTexSubImage2D"/>
 		/// <seealso cref="Gl.CopyTexSubImage3D"/>
-		/// <seealso cref="Gl.DrawPixels"/>
-		/// <seealso cref="Gl.MatrixMode"/>
 		/// <seealso cref="Gl.PixelStore"/>
-		/// <seealso cref="Gl.PixelTransfer"/>
-		/// <seealso cref="Gl.TexEnv"/>
-		/// <seealso cref="Gl.TexGen"/>
 		/// <seealso cref="Gl.TexImage2D"/>
 		/// <seealso cref="Gl.TexImage3D"/>
 		/// <seealso cref="Gl.TexSubImage1D"/>
@@ -1496,12 +1452,11 @@ namespace OpenGL
 		/// Specifies the format of the compressed image data stored at address <paramref name="data"/>.
 		/// </param>
 		/// <param name="width">
-		/// Specifies the width of the texture image including the border if any. If the GL version does not support 
-		/// non-power-of-two sizes, this value must be 2n+2⁡border for some integer n. All implementations support texture images 
-		/// that are at least 64 texels wide. The height of the 1D texture image is 1.
+		/// Specifies the width of the texture image. All implementations support texture images that are at least 64 texels wide. 
+		/// The height of the 1D texture image is 1.
 		/// </param>
 		/// <param name="border">
-		/// Specifies the width of the border. Must be either 0 or 1.
+		/// This value must be 0.
 		/// </param>
 		/// <param name="imageSize">
 		/// Specifies the number of unsigned bytes of image data starting at the address specified by <paramref name="data"/>.
@@ -1512,12 +1467,14 @@ namespace OpenGL
 		/// <remarks>
 		/// </remarks>
 		/// <exception cref="InvalidOperationException">
-		/// Gl.INVALID_ENUM is generated if <paramref name="internalformat"/> is one of the generic compressed internal formats: 
-		/// Gl.COMPRESSED_ALPHA, Gl.COMPRESSED_LUMINANCE, Gl.COMPRESSED_LUMINANCE_ALPHA, Gl.COMPRESSED_INTENSITY, Gl.COMPRESSED_RGB, 
-		/// or Gl.COMPRESSED_RGBA.
+		/// Gl.INVALID_ENUM is generated if <paramref name="internalformat"/> is not a supported specific compressed internal 
+		/// formats, or is one of the generic compressed internal formats: Gl.COMPRESSED_RED, Gl.COMPRESSED_RG, Gl.COMPRESSED_RGB, 
+		/// Gl.COMPRESSED_RGBA. Gl.COMPRESSED_SRGB, or Gl.COMPRESSED_SRGB_ALPHA.
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_VALUE is generated if <paramref name="imageSize"/> is not consistent with the format, dimensions, and 
 		/// contents of the specified compressed image data.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_VALUE is generated if <paramref name="border"/> is not 0.
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if parameter combinations are not supported by the specific compressed internal format 
 		/// as specified in the specific texture compression extension.
@@ -1528,32 +1485,21 @@ namespace OpenGL
 		/// Gl.INVALID_OPERATION is generated if a non-zero buffer object name is bound to the Gl.PIXEL_UNPACK_BUFFER target and the 
 		/// data would be unpacked from the buffer object such that the memory reads required would exceed the data store size.
 		/// <exception cref="InvalidOperationException">
-		/// Gl.INVALID_OPERATION is generated if Gl.CompressedTexImage1D is executed between the execution of Gl\.Begin and the 
-		/// corresponding execution of Gl\.End.
-		/// <exception cref="InvalidOperationException">
 		/// Undefined results, including abnormal program termination, are generated if <paramref name="data"/> is not encoded in a 
 		/// manner consistent with the extension specification defining the internal compression format.
 		/// </exception>
 		/// <seealso cref="Gl.ActiveTexture"/>
-		/// <seealso cref="Gl.ColorTable"/>
 		/// <seealso cref="Gl.CompressedTexImage2D"/>
 		/// <seealso cref="Gl.CompressedTexImage3D"/>
 		/// <seealso cref="Gl.CompressedTexSubImage1D"/>
 		/// <seealso cref="Gl.CompressedTexSubImage2D"/>
 		/// <seealso cref="Gl.CompressedTexSubImage3D"/>
-		/// <seealso cref="Gl.ConvolutionFilter1D"/>
-		/// <seealso cref="Gl.CopyPixels"/>
 		/// <seealso cref="Gl.CopyTexImage1D"/>
 		/// <seealso cref="Gl.CopyTexImage2D"/>
 		/// <seealso cref="Gl.CopyTexSubImage1D"/>
 		/// <seealso cref="Gl.CopyTexSubImage2D"/>
 		/// <seealso cref="Gl.CopyTexSubImage3D"/>
-		/// <seealso cref="Gl.DrawPixels"/>
-		/// <seealso cref="Gl.MatrixMode"/>
 		/// <seealso cref="Gl.PixelStore"/>
-		/// <seealso cref="Gl.PixelTransfer"/>
-		/// <seealso cref="Gl.TexEnv"/>
-		/// <seealso cref="Gl.TexGen"/>
 		/// <seealso cref="Gl.TexImage2D"/>
 		/// <seealso cref="Gl.TexImage3D"/>
 		/// <seealso cref="Gl.TexSubImage1D"/>

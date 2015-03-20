@@ -844,23 +844,40 @@ namespace OpenGL
 		public const int TEXTURE_IMMUTABLE_FORMAT = 0x912F;
 
 		/// <summary>
-		/// Binding for glDrawArraysInstancedBaseInstance.
+		/// draw multiple instances of a range of elements with offset applied to instanced attributes
 		/// </summary>
 		/// <param name="mode">
-		/// A <see cref="T:PrimitiveType"/>.
+		/// Specifies what kind of primitives to render. Symbolic constants Gl.POINTS, Gl.LINE_STRIP, Gl.LINE_LOOP, Gl.LINES, 
+		/// Gl.TRIANGLE_STRIP, Gl.TRIANGLE_FAN, Gl.TRIANGLESGl.LINES_ADJACENCY, Gl.LINE_STRIP_ADJACENCY, Gl.TRIANGLES_ADJACENCY, 
+		/// Gl.TRIANGLE_STRIP_ADJACENCY and Gl.PATCHES are accepted.
 		/// </param>
 		/// <param name="first">
-		/// A <see cref="T:Int32"/>.
+		/// Specifies the starting index in the enabled arrays.
 		/// </param>
 		/// <param name="count">
-		/// A <see cref="T:Int32"/>.
+		/// Specifies the number of indices to be rendered.
 		/// </param>
 		/// <param name="instancecount">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="baseinstance">
-		/// A <see cref="T:UInt32"/>.
+		/// Specifies the base instance for use in fetching instanced vertex attributes.
 		/// </param>
+		/// <remarks>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated if <paramref name="mode"/> is not one of the accepted values.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if a geometry shader is active and <paramref name="mode"/> is incompatible with the 
+		/// input primitive type of the geometry shader in the currently installed program object.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_VALUE is generated if <paramref name="count"/> or <paramref name="primcount"/> are negative.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if a non-zero buffer object name is bound to an enabled array and the buffer object's 
+		/// data store is currently mapped.
+		/// </exception>
+		/// <seealso cref="Gl.DrawArrays"/>
+		/// <seealso cref="Gl.DrawElementsInstanced"/>
 		[RequiredByFeature("GL_VERSION_4_2")]
 		[RequiredByFeature("GL_ARB_base_instance")]
 		public static void DrawArraysInstancedBaseInstance(PrimitiveType mode, Int32 first, Int32 count, Int32 instancecount, UInt32 baseinstance)
@@ -872,26 +889,45 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glDrawElementsInstancedBaseInstance.
+		/// draw multiple instances of a set of elements with offset applied to instanced attributes
 		/// </summary>
 		/// <param name="mode">
-		/// A <see cref="T:PrimitiveType"/>.
+		/// Specifies what kind of primitives to render. Symbolic constants Gl.POINTS, Gl.LINE_STRIP, Gl.LINE_LOOP, Gl.LINES, 
+		/// Gl.LINE_STRIP_ADJACENCY, Gl.LINES_ADJACENCY, Gl.TRIANGLE_STRIP, Gl.TRIANGLE_FAN, Gl.TRIANGLES, 
+		/// Gl.TRIANGLE_STRIP_ADJACENCY, Gl.TRIANGLES_ADJACENCY and Gl.PATCHES are accepted.
 		/// </param>
 		/// <param name="count">
-		/// A <see cref="T:Int32"/>.
+		/// Specifies the number of elements to be rendered.
 		/// </param>
 		/// <param name="type">
-		/// A <see cref="T:int"/>.
+		/// Specifies the type of the values in <paramref name="indices"/>. Must be one of Gl.UNSIGNED_BYTE, Gl.UNSIGNED_SHORT, or 
+		/// Gl.UNSIGNED_INT.
 		/// </param>
 		/// <param name="indices">
-		/// A <see cref="T:IntPtr"/>.
+		/// Specifies a pointer to the location where the indices are stored.
 		/// </param>
 		/// <param name="instancecount">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="baseinstance">
-		/// A <see cref="T:UInt32"/>.
+		/// Specifies the base instance for use in fetching instanced vertex attributes.
 		/// </param>
+		/// <remarks>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated if <paramref name="mode"/> is not one of Gl.POINTS, Gl.LINE_STRIP, Gl.LINE_LOOP, Gl.LINES, 
+		/// Gl.TRIANGLE_STRIP, Gl.TRIANGLE_FAN, or Gl.TRIANGLES.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_VALUE is generated if <paramref name="count"/> or <paramref name="primcount"/> are negative.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if a geometry shader is active and <paramref name="mode"/> is incompatible with the 
+		/// input primitive type of the geometry shader in the currently installed program object.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if a non-zero buffer object name is bound to an enabled array and the buffer object's 
+		/// data store is currently mapped.
+		/// </exception>
+		/// <seealso cref="Gl.DrawElements"/>
+		/// <seealso cref="Gl.DrawArraysInstanced"/>
 		[RequiredByFeature("GL_VERSION_4_2")]
 		[RequiredByFeature("GL_ARB_base_instance")]
 		public static void DrawElementsInstancedBaseInstance(PrimitiveType mode, Int32 count, int type, IntPtr indices, Int32 instancecount, UInt32 baseinstance)
@@ -903,26 +939,45 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glDrawElementsInstancedBaseInstance.
+		/// draw multiple instances of a set of elements with offset applied to instanced attributes
 		/// </summary>
 		/// <param name="mode">
-		/// A <see cref="T:PrimitiveType"/>.
+		/// Specifies what kind of primitives to render. Symbolic constants Gl.POINTS, Gl.LINE_STRIP, Gl.LINE_LOOP, Gl.LINES, 
+		/// Gl.LINE_STRIP_ADJACENCY, Gl.LINES_ADJACENCY, Gl.TRIANGLE_STRIP, Gl.TRIANGLE_FAN, Gl.TRIANGLES, 
+		/// Gl.TRIANGLE_STRIP_ADJACENCY, Gl.TRIANGLES_ADJACENCY and Gl.PATCHES are accepted.
 		/// </param>
 		/// <param name="count">
-		/// A <see cref="T:Int32"/>.
+		/// Specifies the number of elements to be rendered.
 		/// </param>
 		/// <param name="type">
-		/// A <see cref="T:int"/>.
+		/// Specifies the type of the values in <paramref name="indices"/>. Must be one of Gl.UNSIGNED_BYTE, Gl.UNSIGNED_SHORT, or 
+		/// Gl.UNSIGNED_INT.
 		/// </param>
 		/// <param name="indices">
-		/// A <see cref="T:Object"/>.
+		/// Specifies a pointer to the location where the indices are stored.
 		/// </param>
 		/// <param name="instancecount">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="baseinstance">
-		/// A <see cref="T:UInt32"/>.
+		/// Specifies the base instance for use in fetching instanced vertex attributes.
 		/// </param>
+		/// <remarks>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated if <paramref name="mode"/> is not one of Gl.POINTS, Gl.LINE_STRIP, Gl.LINE_LOOP, Gl.LINES, 
+		/// Gl.TRIANGLE_STRIP, Gl.TRIANGLE_FAN, or Gl.TRIANGLES.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_VALUE is generated if <paramref name="count"/> or <paramref name="primcount"/> are negative.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if a geometry shader is active and <paramref name="mode"/> is incompatible with the 
+		/// input primitive type of the geometry shader in the currently installed program object.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if a non-zero buffer object name is bound to an enabled array and the buffer object's 
+		/// data store is currently mapped.
+		/// </exception>
+		/// <seealso cref="Gl.DrawElements"/>
+		/// <seealso cref="Gl.DrawArraysInstanced"/>
 		[RequiredByFeature("GL_VERSION_4_2")]
 		[RequiredByFeature("GL_ARB_base_instance")]
 		public static void DrawElementsInstancedBaseInstance(PrimitiveType mode, Int32 count, int type, Object indices, Int32 instancecount, UInt32 baseinstance)
@@ -936,29 +991,50 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glDrawElementsInstancedBaseVertexBaseInstance.
+		/// render multiple instances of a set of primitives from array data with a per-element offset
 		/// </summary>
 		/// <param name="mode">
-		/// A <see cref="T:PrimitiveType"/>.
+		/// Specifies what kind of primitives to render. Symbolic constants Gl.POINTS, Gl.LINE_STRIP, Gl.LINE_LOOP, Gl.LINES, 
+		/// Gl.TRIANGLE_STRIP, Gl.TRIANGLE_FAN, Gl.TRIANGLES, Gl.LINES_ADJACENCY, Gl.LINE_STRIP_ADJACENCY, Gl.TRIANGLES_ADJACENCY, 
+		/// Gl.TRIANGLE_STRIP_ADJACENCY and Gl.PATCHES are accepted.
 		/// </param>
 		/// <param name="count">
-		/// A <see cref="T:Int32"/>.
+		/// Specifies the number of elements to be rendered.
 		/// </param>
 		/// <param name="type">
-		/// A <see cref="T:int"/>.
+		/// Specifies the type of the values in indices. Must be one of Gl.UNSIGNED_BYTE, Gl.UNSIGNED_SHORT, or Gl.UNSIGNED_INT.
 		/// </param>
 		/// <param name="indices">
-		/// A <see cref="T:IntPtr"/>.
+		/// Specifies a pointer to the location where the indices are stored.
 		/// </param>
 		/// <param name="instancecount">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="basevertex">
-		/// A <see cref="T:Int32"/>.
+		/// Specifies a constant that should be added to each element of <paramref name="indices"/> when chosing elements from the 
+		/// enabled vertex arrays.
 		/// </param>
 		/// <param name="baseinstance">
-		/// A <see cref="T:UInt32"/>.
+		/// Specifies the base instance for use in fetching instanced vertex attributes.
 		/// </param>
+		/// <remarks>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated if <paramref name="mode"/> is not an accepted value.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_VALUE is generated if <paramref name="count"/> or <paramref name="primcount"/> is negative.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if a geometry shader is active and <paramref name="mode"/> is incompatible with the 
+		/// input primitive type of the geometry shader in the currently installed program object.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if a non-zero buffer object name is bound to an enabled array or the element array and 
+		/// the buffer object's data store is currently mapped.
+		/// </exception>
+		/// <seealso cref="Gl.DrawElements"/>
+		/// <seealso cref="Gl.DrawRangeElements"/>
+		/// <seealso cref="Gl.DrawRangeElementsBaseVertex"/>
+		/// <seealso cref="Gl.DrawElementsInstanced"/>
+		/// <seealso cref="Gl.DrawElementsInstancedBaseVertex"/>
 		[RequiredByFeature("GL_VERSION_4_2")]
 		[RequiredByFeature("GL_ARB_base_instance")]
 		public static void DrawElementsInstancedBaseVertexBaseInstance(PrimitiveType mode, Int32 count, int type, IntPtr indices, Int32 instancecount, Int32 basevertex, UInt32 baseinstance)
@@ -970,29 +1046,50 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glDrawElementsInstancedBaseVertexBaseInstance.
+		/// render multiple instances of a set of primitives from array data with a per-element offset
 		/// </summary>
 		/// <param name="mode">
-		/// A <see cref="T:PrimitiveType"/>.
+		/// Specifies what kind of primitives to render. Symbolic constants Gl.POINTS, Gl.LINE_STRIP, Gl.LINE_LOOP, Gl.LINES, 
+		/// Gl.TRIANGLE_STRIP, Gl.TRIANGLE_FAN, Gl.TRIANGLES, Gl.LINES_ADJACENCY, Gl.LINE_STRIP_ADJACENCY, Gl.TRIANGLES_ADJACENCY, 
+		/// Gl.TRIANGLE_STRIP_ADJACENCY and Gl.PATCHES are accepted.
 		/// </param>
 		/// <param name="count">
-		/// A <see cref="T:Int32"/>.
+		/// Specifies the number of elements to be rendered.
 		/// </param>
 		/// <param name="type">
-		/// A <see cref="T:int"/>.
+		/// Specifies the type of the values in indices. Must be one of Gl.UNSIGNED_BYTE, Gl.UNSIGNED_SHORT, or Gl.UNSIGNED_INT.
 		/// </param>
 		/// <param name="indices">
-		/// A <see cref="T:Object"/>.
+		/// Specifies a pointer to the location where the indices are stored.
 		/// </param>
 		/// <param name="instancecount">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="basevertex">
-		/// A <see cref="T:Int32"/>.
+		/// Specifies a constant that should be added to each element of <paramref name="indices"/> when chosing elements from the 
+		/// enabled vertex arrays.
 		/// </param>
 		/// <param name="baseinstance">
-		/// A <see cref="T:UInt32"/>.
+		/// Specifies the base instance for use in fetching instanced vertex attributes.
 		/// </param>
+		/// <remarks>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated if <paramref name="mode"/> is not an accepted value.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_VALUE is generated if <paramref name="count"/> or <paramref name="primcount"/> is negative.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if a geometry shader is active and <paramref name="mode"/> is incompatible with the 
+		/// input primitive type of the geometry shader in the currently installed program object.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if a non-zero buffer object name is bound to an enabled array or the element array and 
+		/// the buffer object's data store is currently mapped.
+		/// </exception>
+		/// <seealso cref="Gl.DrawElements"/>
+		/// <seealso cref="Gl.DrawRangeElements"/>
+		/// <seealso cref="Gl.DrawRangeElementsBaseVertex"/>
+		/// <seealso cref="Gl.DrawElementsInstanced"/>
+		/// <seealso cref="Gl.DrawElementsInstancedBaseVertex"/>
 		[RequiredByFeature("GL_VERSION_4_2")]
 		[RequiredByFeature("GL_ARB_base_instance")]
 		public static void DrawElementsInstancedBaseVertexBaseInstance(PrimitiveType mode, Int32 count, int type, Object indices, Int32 instancecount, Int32 basevertex, UInt32 baseinstance)
@@ -1182,20 +1279,41 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glTexStorage1D.
+		/// simultaneously specify storage for all levels of a one-dimensional texture
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:int"/>.
+		/// Specifies the target to which the texture object is bound for Gl.TexStorage1D. Must be one of Gl.TEXTURE_1D or 
+		/// Gl.PROXY_TEXTURE_1D.
 		/// </param>
 		/// <param name="levels">
-		/// A <see cref="T:Int32"/>.
+		/// Specify the number of texture levels.
 		/// </param>
 		/// <param name="internalformat">
-		/// A <see cref="T:int"/>.
+		/// Specifies the sized internal format to be used to store texture image data.
 		/// </param>
 		/// <param name="width">
-		/// A <see cref="T:Int32"/>.
+		/// Specifies the width of the texture, in texels.
 		/// </param>
+		/// <remarks>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated by Gl.TexStorage1D if zero is bound to <paramref name="target"/>.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated by Gl.TextureStorage1D if <paramref name="texture"/> is not the name of an existing 
+		/// texture object.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated if <paramref name="internalformat"/> is not a valid sized internal format.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated if <paramref name="target"/> or the effective target of <paramref name="texture"/> is not 
+		/// one of the accepted targets described above.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_VALUE is generated if <paramref name="width"/> or <paramref name="levels"/> are less than 1.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if <paramref name="levels"/> is greater than log2width+1.
+		/// </exception>
+		/// <seealso cref="Gl.TexImage1D"/>
+		/// <seealso cref="Gl.TexStorage2D"/>
+		/// <seealso cref="Gl.TexStorage3D"/>
 		[RequiredByFeature("GL_VERSION_4_2")]
 		[RequiredByFeature("GL_ARB_texture_storage")]
 		public static void TexStorage1D(int target, Int32 levels, int internalformat, Int32 width)
@@ -1207,23 +1325,50 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glTexStorage2D.
+		/// simultaneously specify storage for all levels of a two-dimensional or one-dimensional array texture
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:int"/>.
+		/// Specifies the target to which the texture object is bound for Gl.TexStorage2D. Must be one of Gl.TEXTURE_2D, 
+		/// Gl.TEXTURE_1D_ARRAY, Gl.TEXTURE_RECTANGLE, Gl.PROXY_TEXTURE_2D, Gl.PROXY_TEXTURE_1D_ARRAY, Gl.PROXY_TEXTURE_RECTANGLE, 
+		/// or Gl.PROXY_TEXTURE_CUBE_MAP.
 		/// </param>
 		/// <param name="levels">
-		/// A <see cref="T:Int32"/>.
+		/// Specify the number of texture levels.
 		/// </param>
 		/// <param name="internalformat">
-		/// A <see cref="T:int"/>.
+		/// Specifies the sized internal format to be used to store texture image data.
 		/// </param>
 		/// <param name="width">
-		/// A <see cref="T:Int32"/>.
+		/// Specifies the width of the texture, in texels.
 		/// </param>
 		/// <param name="height">
-		/// A <see cref="T:Int32"/>.
+		/// Specifies the height of the texture, in texels.
 		/// </param>
+		/// <remarks>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated by Gl.TexStorage2D if zero is bound to <paramref name="target"/>.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated by Gl.TextureStorage2D if <paramref name="texture"/> is not the name of an existing 
+		/// texture object.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated if <paramref name="internalformat"/> is not a valid sized internal format.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated if <paramref name="target"/> or the effective target of <paramref name="texture"/> is not 
+		/// one of the accepted targets described above.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_VALUE is generated if <paramref name="width"/>, <paramref name="height"/> or <paramref name="levels"/> are 
+		/// less than 1.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if <paramref name="target"/> is Gl.TEXTURE_1D_ARRAY or Gl.PROXY_TEXTURE_1D_ARRAY and 
+		/// <paramref name="levels"/> is greater than log2width+1.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if <paramref name="target"/> is not Gl.TEXTURE_1D_ARRAY or Gl.PROXY_TEXTURE_1D_ARRAY 
+		/// and <paramref name="levels"/> is greater than log2maxwidth, height+1.
+		/// </exception>
+		/// <seealso cref="Gl.TexImage2D"/>
+		/// <seealso cref="Gl.TexStorage1D"/>
+		/// <seealso cref="Gl.TexStorage3D"/>
 		[RequiredByFeature("GL_VERSION_4_2")]
 		[RequiredByFeature("GL_ARB_texture_storage")]
 		public static void TexStorage2D(int target, Int32 levels, int internalformat, Int32 width, Int32 height)
@@ -1235,26 +1380,54 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glTexStorage3D.
+		/// simultaneously specify storage for all levels of a three-dimensional, two-dimensional array or cube-map array texture
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:int"/>.
+		/// Specifies the target to which the texture object is bound for Gl.TexStorage3D. Must be one of Gl.TEXTURE_3D, 
+		/// Gl.TEXTURE_2D_ARRAY, Gl.TEXTURE_CUBE_ARRAY, Gl.PROXY_TEXTURE_3D, Gl.PROXY_TEXTURE_2D_ARRAY or 
+		/// Gl.PROXY_TEXTURE_CUBE_ARRAY.
 		/// </param>
 		/// <param name="levels">
-		/// A <see cref="T:Int32"/>.
+		/// Specify the number of texture levels.
 		/// </param>
 		/// <param name="internalformat">
-		/// A <see cref="T:int"/>.
+		/// Specifies the sized internal format to be used to store texture image data.
 		/// </param>
 		/// <param name="width">
-		/// A <see cref="T:Int32"/>.
+		/// Specifies the width of the texture, in texels.
 		/// </param>
 		/// <param name="height">
-		/// A <see cref="T:Int32"/>.
+		/// Specifies the height of the texture, in texels.
 		/// </param>
 		/// <param name="depth">
-		/// A <see cref="T:Int32"/>.
+		/// Specifies the depth of the texture, in texels.
 		/// </param>
+		/// <remarks>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated by Gl.TexStorage3D if zero is bound to <paramref name="target"/>.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated by Gl.TextureStorage3D if <paramref name="texture"/> is not the name of an existing 
+		/// texture object.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated if <paramref name="internalformat"/> is not a valid sized internal format.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated if <paramref name="target"/> or the effective target of <paramref name="texture"/> is not 
+		/// one of the accepted targets described above.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_VALUE is generated if <paramref name="width"/>, <paramref name="height"/>, <paramref name="depth"/> or 
+		/// <paramref name="levels"/> are less than 1.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if <paramref name="target"/> is Gl.TEXTURE_3D or Gl.PROXY_TEXTURE_3D and <paramref 
+		/// name="levels"/> is greater than log2maxwidth, height, depth+1.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if <paramref name="target"/> is Gl.TEXTURE_2D_ARRAY, Gl.PROXY_TEXTURE_2D_ARRAY, 
+		/// Gl.TEXURE_CUBE_ARRAY, or Gl.PROXY_TEXTURE_CUBE_MAP_ARRAY and <paramref name="levels"/> is greater than 
+		/// log2maxwidth, height+1.
+		/// </exception>
+		/// <seealso cref="Gl.TexImage3D"/>
+		/// <seealso cref="Gl.TexStorage1D"/>
+		/// <seealso cref="Gl.TexStorage2D"/>
 		[RequiredByFeature("GL_VERSION_4_2")]
 		[RequiredByFeature("GL_ARB_texture_storage")]
 		public static void TexStorage3D(int target, Int32 levels, int internalformat, Int32 width, Int32 height, Int32 depth)

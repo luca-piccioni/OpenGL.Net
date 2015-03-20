@@ -5942,7 +5942,7 @@ namespace OpenGL
 
 			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glNamedFramebufferReadBuffer", ExactSpelling = true)]
-			internal extern static void glNamedFramebufferReadBuffer(UInt32 framebuffer, int src);
+			internal extern static void glNamedFramebufferReadBuffer(UInt32 framebuffer, int mode);
 
 			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glNamedFramebufferRenderbuffer", ExactSpelling = true)]
@@ -7415,7 +7415,7 @@ namespace OpenGL
 
 			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glReadBuffer", ExactSpelling = true)]
-			internal extern static void glReadBuffer(int src);
+			internal extern static void glReadBuffer(int mode);
 
 			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glReadInstrumentsSGIX", ExactSpelling = true)]
@@ -8023,7 +8023,7 @@ namespace OpenGL
 
 			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glStencilOp", ExactSpelling = true)]
-			internal extern static void glStencilOp(int fail, int zfail, int zpass);
+			internal extern static void glStencilOp(int fail, int dpfail, int dppass);
 
 			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glStencilOpSeparate", ExactSpelling = true)]

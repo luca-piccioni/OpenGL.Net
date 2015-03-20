@@ -85,7 +85,19 @@ namespace OpenGL
 		public const int RGB10_A2UI = 0x906F;
 
 		/// <summary>
+		/// <para>
 		/// Gl.GetTexParameter: returns the red component swizzle. The initial value is Gl.RED.
+		/// </para>
+		/// <para>
+		/// Gl.TexParameter: sets the swizzle that will be applied to the r component of a texel before it is returned to the 
+		/// shader. Valid values for param are Gl.RED, Gl.GREEN, Gl.BLUE, Gl.ALPHA, Gl.ZERO and Gl.ONE. If Gl.TEXTURE_SWIZZLE_R is 
+		/// Gl.RED, the value for r will be taken from the first channel of the fetched texel. If Gl.TEXTURE_SWIZZLE_R is Gl.GREEN, 
+		/// the value for r will be taken from the second channel of the fetched texel. If Gl.TEXTURE_SWIZZLE_R is Gl.BLUE, the 
+		/// value for r will be taken from the third channel of the fetched texel. If Gl.TEXTURE_SWIZZLE_R is Gl.ALPHA, the value 
+		/// for r will be taken from the fourth channel of the fetched texel. If Gl.TEXTURE_SWIZZLE_R is Gl.ZERO, the value for r 
+		/// will be subtituted with 0.0. If Gl.TEXTURE_SWIZZLE_R is Gl.ONE, the value for r will be subtituted with 1.0. The initial 
+		/// value is Gl.RED.
+		/// </para>
 		/// </summary>
 		[AliasOf("GL_TEXTURE_SWIZZLE_R_EXT")]
 		[RequiredByFeature("GL_VERSION_3_3")]
@@ -93,7 +105,14 @@ namespace OpenGL
 		public const int TEXTURE_SWIZZLE_R = 0x8E42;
 
 		/// <summary>
+		/// <para>
 		/// Gl.GetTexParameter: returns the green component swizzle. The initial value is Gl.GREEN.
+		/// </para>
+		/// <para>
+		/// Gl.TexParameter: sets the swizzle that will be applied to the g component of a texel before it is returned to the 
+		/// shader. Valid values for param and their effects are similar to those of Gl.TEXTURE_SWIZZLE_R. The initial value is 
+		/// Gl.GREEN.
+		/// </para>
 		/// </summary>
 		[AliasOf("GL_TEXTURE_SWIZZLE_G_EXT")]
 		[RequiredByFeature("GL_VERSION_3_3")]
@@ -101,7 +120,14 @@ namespace OpenGL
 		public const int TEXTURE_SWIZZLE_G = 0x8E43;
 
 		/// <summary>
+		/// <para>
 		/// Gl.GetTexParameter: returns the blue component swizzle. The initial value is Gl.BLUE.
+		/// </para>
+		/// <para>
+		/// Gl.TexParameter: sets the swizzle that will be applied to the b component of a texel before it is returned to the 
+		/// shader. Valid values for param and their effects are similar to those of Gl.TEXTURE_SWIZZLE_R. The initial value is 
+		/// Gl.BLUE.
+		/// </para>
 		/// </summary>
 		[AliasOf("GL_TEXTURE_SWIZZLE_B_EXT")]
 		[RequiredByFeature("GL_VERSION_3_3")]
@@ -109,7 +135,14 @@ namespace OpenGL
 		public const int TEXTURE_SWIZZLE_B = 0x8E44;
 
 		/// <summary>
+		/// <para>
 		/// Gl.GetTexParameter: returns the alpha component swizzle. The initial value is Gl.ALPHA.
+		/// </para>
+		/// <para>
+		/// Gl.TexParameter: sets the swizzle that will be applied to the a component of a texel before it is returned to the 
+		/// shader. Valid values for param and their effects are similar to those of Gl.TEXTURE_SWIZZLE_R. The initial value is 
+		/// Gl.ALPHA.
+		/// </para>
 		/// </summary>
 		[AliasOf("GL_TEXTURE_SWIZZLE_A_EXT")]
 		[RequiredByFeature("GL_VERSION_3_3")]
@@ -117,7 +150,16 @@ namespace OpenGL
 		public const int TEXTURE_SWIZZLE_A = 0x8E45;
 
 		/// <summary>
+		/// <para>
 		/// Gl.GetTexParameter: returns the component swizzle for all channels in a single query.
+		/// </para>
+		/// <para>
+		/// Gl.TexParameter: sets the swizzles that will be applied to the r, g, b, and a components of a texel before they are 
+		/// returned to the shader. Valid values for params and their effects are similar to those of Gl.TEXTURE_SWIZZLE_R, except 
+		/// that all channels are specified simultaneously. Setting the value of Gl.TEXTURE_SWIZZLE_RGBA is equivalent (assuming no 
+		/// errors are generated) to setting the parameters of each of Gl.TEXTURE_SWIZZLE_R, Gl.TEXTURE_SWIZZLE_G, 
+		/// Gl.TEXTURE_SWIZZLE_B, and Gl.TEXTURE_SWIZZLE_A successively.
+		/// </para>
 		/// </summary>
 		[AliasOf("GL_TEXTURE_SWIZZLE_RGBA_EXT")]
 		[RequiredByFeature("GL_VERSION_3_3")]
@@ -367,17 +409,35 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glSamplerParameteri.
+		/// set sampler parameters
 		/// </summary>
 		/// <param name="sampler">
-		/// A <see cref="T:UInt32"/>.
+		/// Specifies the sampler object whose parameter to modify.
 		/// </param>
 		/// <param name="pname">
-		/// A <see cref="T:int"/>.
+		/// Specifies the symbolic name of a sampler parameter. <paramref name="pname"/> can be one of the following: 
+		/// Gl.TEXTURE_WRAP_S, Gl.TEXTURE_WRAP_T, Gl.TEXTURE_WRAP_R, Gl.TEXTURE_MIN_FILTER, Gl.TEXTURE_MAG_FILTER, 
+		/// Gl.TEXTURE_BORDER_COLOR, Gl.TEXTURE_MIN_LOD, Gl.TEXTURE_MAX_LOD, Gl.TEXTURE_LOD_BIASGl.TEXTURE_COMPARE_MODE, or 
+		/// Gl.TEXTURE_COMPARE_FUNC.
 		/// </param>
 		/// <param name="param">
-		/// A <see cref="T:Int32"/>.
+		/// For the scalar commands, specifies the value of <paramref name="pname"/>.
 		/// </param>
+		/// <remarks>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_VALUE is generated if <paramref name="sampler"/> is not the name of a sampler object previously returned from 
+		/// a call to glGenSamplers.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated if <paramref name="params"/> should have a defined constant value (based on the value of 
+		/// <paramref name="pname"/>) and does not.
+		/// </exception>
+		/// <seealso cref="Gl.GenSamplers"/>
+		/// <seealso cref="Gl.BindSampler"/>
+		/// <seealso cref="Gl.DeleteSamplers"/>
+		/// <seealso cref="Gl.IsSampler"/>
+		/// <seealso cref="Gl.BindTexture"/>
+		/// <seealso cref="Gl.TexParameter"/>
 		[RequiredByFeature("GL_VERSION_3_3")]
 		[RequiredByFeature("GL_ARB_sampler_objects")]
 		public static void SamplerParameter(UInt32 sampler, int pname, Int32 param)
@@ -389,17 +449,35 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glSamplerParameteriv.
+		/// set sampler parameters
 		/// </summary>
 		/// <param name="sampler">
-		/// A <see cref="T:UInt32"/>.
+		/// Specifies the sampler object whose parameter to modify.
 		/// </param>
 		/// <param name="pname">
-		/// A <see cref="T:int"/>.
+		/// Specifies the symbolic name of a sampler parameter. <paramref name="pname"/> can be one of the following: 
+		/// Gl.TEXTURE_WRAP_S, Gl.TEXTURE_WRAP_T, Gl.TEXTURE_WRAP_R, Gl.TEXTURE_MIN_FILTER, Gl.TEXTURE_MAG_FILTER, 
+		/// Gl.TEXTURE_BORDER_COLOR, Gl.TEXTURE_MIN_LOD, Gl.TEXTURE_MAX_LOD, Gl.TEXTURE_LOD_BIASGl.TEXTURE_COMPARE_MODE, or 
+		/// Gl.TEXTURE_COMPARE_FUNC.
 		/// </param>
 		/// <param name="param">
-		/// A <see cref="T:Int32[]"/>.
+		/// For the scalar commands, specifies the value of <paramref name="pname"/>.
 		/// </param>
+		/// <remarks>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_VALUE is generated if <paramref name="sampler"/> is not the name of a sampler object previously returned from 
+		/// a call to glGenSamplers.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated if <paramref name="params"/> should have a defined constant value (based on the value of 
+		/// <paramref name="pname"/>) and does not.
+		/// </exception>
+		/// <seealso cref="Gl.GenSamplers"/>
+		/// <seealso cref="Gl.BindSampler"/>
+		/// <seealso cref="Gl.DeleteSamplers"/>
+		/// <seealso cref="Gl.IsSampler"/>
+		/// <seealso cref="Gl.BindTexture"/>
+		/// <seealso cref="Gl.TexParameter"/>
 		[RequiredByFeature("GL_VERSION_3_3")]
 		[RequiredByFeature("GL_ARB_sampler_objects")]
 		public static void SamplerParameter(UInt32 sampler, int pname, Int32[] param)
@@ -416,17 +494,35 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glSamplerParameterf.
+		/// set sampler parameters
 		/// </summary>
 		/// <param name="sampler">
-		/// A <see cref="T:UInt32"/>.
+		/// Specifies the sampler object whose parameter to modify.
 		/// </param>
 		/// <param name="pname">
-		/// A <see cref="T:int"/>.
+		/// Specifies the symbolic name of a sampler parameter. <paramref name="pname"/> can be one of the following: 
+		/// Gl.TEXTURE_WRAP_S, Gl.TEXTURE_WRAP_T, Gl.TEXTURE_WRAP_R, Gl.TEXTURE_MIN_FILTER, Gl.TEXTURE_MAG_FILTER, 
+		/// Gl.TEXTURE_BORDER_COLOR, Gl.TEXTURE_MIN_LOD, Gl.TEXTURE_MAX_LOD, Gl.TEXTURE_LOD_BIASGl.TEXTURE_COMPARE_MODE, or 
+		/// Gl.TEXTURE_COMPARE_FUNC.
 		/// </param>
 		/// <param name="param">
-		/// A <see cref="T:float"/>.
+		/// For the scalar commands, specifies the value of <paramref name="pname"/>.
 		/// </param>
+		/// <remarks>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_VALUE is generated if <paramref name="sampler"/> is not the name of a sampler object previously returned from 
+		/// a call to glGenSamplers.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated if <paramref name="params"/> should have a defined constant value (based on the value of 
+		/// <paramref name="pname"/>) and does not.
+		/// </exception>
+		/// <seealso cref="Gl.GenSamplers"/>
+		/// <seealso cref="Gl.BindSampler"/>
+		/// <seealso cref="Gl.DeleteSamplers"/>
+		/// <seealso cref="Gl.IsSampler"/>
+		/// <seealso cref="Gl.BindTexture"/>
+		/// <seealso cref="Gl.TexParameter"/>
 		[RequiredByFeature("GL_VERSION_3_3")]
 		[RequiredByFeature("GL_ARB_sampler_objects")]
 		public static void SamplerParameter(UInt32 sampler, int pname, float param)
@@ -438,17 +534,35 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glSamplerParameterfv.
+		/// set sampler parameters
 		/// </summary>
 		/// <param name="sampler">
-		/// A <see cref="T:UInt32"/>.
+		/// Specifies the sampler object whose parameter to modify.
 		/// </param>
 		/// <param name="pname">
-		/// A <see cref="T:int"/>.
+		/// Specifies the symbolic name of a sampler parameter. <paramref name="pname"/> can be one of the following: 
+		/// Gl.TEXTURE_WRAP_S, Gl.TEXTURE_WRAP_T, Gl.TEXTURE_WRAP_R, Gl.TEXTURE_MIN_FILTER, Gl.TEXTURE_MAG_FILTER, 
+		/// Gl.TEXTURE_BORDER_COLOR, Gl.TEXTURE_MIN_LOD, Gl.TEXTURE_MAX_LOD, Gl.TEXTURE_LOD_BIASGl.TEXTURE_COMPARE_MODE, or 
+		/// Gl.TEXTURE_COMPARE_FUNC.
 		/// </param>
 		/// <param name="param">
-		/// A <see cref="T:float[]"/>.
+		/// For the scalar commands, specifies the value of <paramref name="pname"/>.
 		/// </param>
+		/// <remarks>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_VALUE is generated if <paramref name="sampler"/> is not the name of a sampler object previously returned from 
+		/// a call to glGenSamplers.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated if <paramref name="params"/> should have a defined constant value (based on the value of 
+		/// <paramref name="pname"/>) and does not.
+		/// </exception>
+		/// <seealso cref="Gl.GenSamplers"/>
+		/// <seealso cref="Gl.BindSampler"/>
+		/// <seealso cref="Gl.DeleteSamplers"/>
+		/// <seealso cref="Gl.IsSampler"/>
+		/// <seealso cref="Gl.BindTexture"/>
+		/// <seealso cref="Gl.TexParameter"/>
 		[RequiredByFeature("GL_VERSION_3_3")]
 		[RequiredByFeature("GL_ARB_sampler_objects")]
 		public static void SamplerParameter(UInt32 sampler, int pname, float[] param)
@@ -465,17 +579,35 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glSamplerParameterIiv.
+		/// set sampler parameters
 		/// </summary>
 		/// <param name="sampler">
-		/// A <see cref="T:UInt32"/>.
+		/// Specifies the sampler object whose parameter to modify.
 		/// </param>
 		/// <param name="pname">
-		/// A <see cref="T:int"/>.
+		/// Specifies the symbolic name of a sampler parameter. <paramref name="pname"/> can be one of the following: 
+		/// Gl.TEXTURE_WRAP_S, Gl.TEXTURE_WRAP_T, Gl.TEXTURE_WRAP_R, Gl.TEXTURE_MIN_FILTER, Gl.TEXTURE_MAG_FILTER, 
+		/// Gl.TEXTURE_BORDER_COLOR, Gl.TEXTURE_MIN_LOD, Gl.TEXTURE_MAX_LOD, Gl.TEXTURE_LOD_BIASGl.TEXTURE_COMPARE_MODE, or 
+		/// Gl.TEXTURE_COMPARE_FUNC.
 		/// </param>
 		/// <param name="param">
-		/// A <see cref="T:Int32[]"/>.
+		/// For the scalar commands, specifies the value of <paramref name="pname"/>.
 		/// </param>
+		/// <remarks>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_VALUE is generated if <paramref name="sampler"/> is not the name of a sampler object previously returned from 
+		/// a call to glGenSamplers.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated if <paramref name="params"/> should have a defined constant value (based on the value of 
+		/// <paramref name="pname"/>) and does not.
+		/// </exception>
+		/// <seealso cref="Gl.GenSamplers"/>
+		/// <seealso cref="Gl.BindSampler"/>
+		/// <seealso cref="Gl.DeleteSamplers"/>
+		/// <seealso cref="Gl.IsSampler"/>
+		/// <seealso cref="Gl.BindTexture"/>
+		/// <seealso cref="Gl.TexParameter"/>
 		[RequiredByFeature("GL_VERSION_3_3")]
 		[RequiredByFeature("GL_ARB_sampler_objects")]
 		public static void SamplerParameterIiv(UInt32 sampler, int pname, Int32[] param)
@@ -492,17 +624,35 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glSamplerParameterIuiv.
+		/// set sampler parameters
 		/// </summary>
 		/// <param name="sampler">
-		/// A <see cref="T:UInt32"/>.
+		/// Specifies the sampler object whose parameter to modify.
 		/// </param>
 		/// <param name="pname">
-		/// A <see cref="T:int"/>.
+		/// Specifies the symbolic name of a sampler parameter. <paramref name="pname"/> can be one of the following: 
+		/// Gl.TEXTURE_WRAP_S, Gl.TEXTURE_WRAP_T, Gl.TEXTURE_WRAP_R, Gl.TEXTURE_MIN_FILTER, Gl.TEXTURE_MAG_FILTER, 
+		/// Gl.TEXTURE_BORDER_COLOR, Gl.TEXTURE_MIN_LOD, Gl.TEXTURE_MAX_LOD, Gl.TEXTURE_LOD_BIASGl.TEXTURE_COMPARE_MODE, or 
+		/// Gl.TEXTURE_COMPARE_FUNC.
 		/// </param>
 		/// <param name="param">
-		/// A <see cref="T:UInt32[]"/>.
+		/// For the scalar commands, specifies the value of <paramref name="pname"/>.
 		/// </param>
+		/// <remarks>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_VALUE is generated if <paramref name="sampler"/> is not the name of a sampler object previously returned from 
+		/// a call to glGenSamplers.
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated if <paramref name="params"/> should have a defined constant value (based on the value of 
+		/// <paramref name="pname"/>) and does not.
+		/// </exception>
+		/// <seealso cref="Gl.GenSamplers"/>
+		/// <seealso cref="Gl.BindSampler"/>
+		/// <seealso cref="Gl.DeleteSamplers"/>
+		/// <seealso cref="Gl.IsSampler"/>
+		/// <seealso cref="Gl.BindTexture"/>
+		/// <seealso cref="Gl.TexParameter"/>
 		[RequiredByFeature("GL_VERSION_3_3")]
 		[RequiredByFeature("GL_ARB_sampler_objects")]
 		public static void SamplerParameterIuiv(UInt32 sampler, int pname, UInt32[] param)
