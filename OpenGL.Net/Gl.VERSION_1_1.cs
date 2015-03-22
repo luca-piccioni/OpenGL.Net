@@ -4181,12 +4181,12 @@ namespace OpenGL
 		/// Gl.FALSE. See Gl.Map1.
 		/// </para>
 		/// <para>
-		/// Gl.Enable: if enabled, calls to Gl.EvalCoord1, Gl.EvalMesh1, and Gl.EvalPoint1 generate RGBA values. See Gl.Map1.
-		/// </para>
-		/// <para>
 		/// Gl.Map1: each control point is four floating-point values representing red, green, blue, and alpha. Internal Gl.Color4 
 		/// commands are generated when the map is evaluated but the current color is not updated with the value of these Gl.Color4 
 		/// commands.
+		/// </para>
+		/// <para>
+		/// Gl.Enable: if enabled, calls to Gl.EvalCoord1, Gl.EvalMesh1, and Gl.EvalPoint1 generate RGBA values. See Gl.Map1.
 		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
@@ -4202,11 +4202,11 @@ namespace OpenGL
 		/// value is Gl.FALSE. See Gl.Map1.
 		/// </para>
 		/// <para>
-		/// Gl.Enable: if enabled, calls to Gl.EvalCoord1, Gl.EvalMesh1, and Gl.EvalPoint1 generate color indices. See Gl.Map1.
-		/// </para>
-		/// <para>
 		/// Gl.Map1: each control point is a single floating-point value representing a color index. Internal Gl.Index commands are 
 		/// generated when the map is evaluated but the current index is not updated with the value of these Gl.Index commands.
+		/// </para>
+		/// <para>
+		/// Gl.Enable: if enabled, calls to Gl.EvalCoord1, Gl.EvalMesh1, and Gl.EvalPoint1 generate color indices. See Gl.Map1.
 		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
@@ -4222,12 +4222,12 @@ namespace OpenGL
 		/// Gl.FALSE. See Gl.Map1.
 		/// </para>
 		/// <para>
-		/// Gl.Enable: if enabled, calls to Gl.EvalCoord1, Gl.EvalMesh1, and Gl.EvalPoint1 generate normals. See Gl.Map1.
-		/// </para>
-		/// <para>
 		/// Gl.Map1: each control point is three floating-point values representing the x, y, and z components of a normal vector. 
 		/// Internal Gl.Normal commands are generated when the map is evaluated but the current normal is not updated with the value 
 		/// of these Gl.Normal commands.
+		/// </para>
+		/// <para>
+		/// Gl.Enable: if enabled, calls to Gl.EvalCoord1, Gl.EvalMesh1, and Gl.EvalPoint1 generate normals. See Gl.Map1.
 		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
@@ -4243,13 +4243,13 @@ namespace OpenGL
 		/// initial value is Gl.FALSE. See Gl.Map1.
 		/// </para>
 		/// <para>
-		/// Gl.Enable: if enabled, calls to Gl.EvalCoord1, Gl.EvalMesh1, and Gl.EvalPoint1 generate s texture coordinates. See 
-		/// Gl.Map1.
-		/// </para>
-		/// <para>
 		/// Gl.Map1: each control point is a single floating-point value representing the s texture coordinate. Internal 
 		/// Gl.TexCoord1 commands are generated when the map is evaluated but the current texture coordinates are not updated with 
 		/// the value of these Gl.TexCoord commands.
+		/// </para>
+		/// <para>
+		/// Gl.Enable: if enabled, calls to Gl.EvalCoord1, Gl.EvalMesh1, and Gl.EvalPoint1 generate s texture coordinates. See 
+		/// Gl.Map1.
 		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
@@ -4265,13 +4265,13 @@ namespace OpenGL
 		/// initial value is Gl.FALSE. See Gl.Map1.
 		/// </para>
 		/// <para>
-		/// Gl.Enable: if enabled, calls to Gl.EvalCoord1, Gl.EvalMesh1, and Gl.EvalPoint1 generate s and t texture coordinates. See 
-		/// Gl.Map1.
-		/// </para>
-		/// <para>
 		/// Gl.Map1: each control point is two floating-point values representing the s and t texture coordinates. Internal 
 		/// Gl.TexCoord2 commands are generated when the map is evaluated but the current texture coordinates are not updated with 
 		/// the value of these Gl.TexCoord commands.
+		/// </para>
+		/// <para>
+		/// Gl.Enable: if enabled, calls to Gl.EvalCoord1, Gl.EvalMesh1, and Gl.EvalPoint1 generate s and t texture coordinates. See 
+		/// Gl.Map1.
 		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
@@ -4287,13 +4287,13 @@ namespace OpenGL
 		/// initial value is Gl.FALSE. See Gl.Map1.
 		/// </para>
 		/// <para>
-		/// Gl.Enable: if enabled, calls to Gl.EvalCoord1, Gl.EvalMesh1, and Gl.EvalPoint1 generate s, t, and r texture coordinates. 
-		/// See Gl.Map1.
-		/// </para>
-		/// <para>
 		/// Gl.Map1: each control point is three floating-point values representing the s, t, and r texture coordinates. Internal 
 		/// Gl.TexCoord3 commands are generated when the map is evaluated but the current texture coordinates are not updated with 
 		/// the value of these Gl.TexCoord commands.
+		/// </para>
+		/// <para>
+		/// Gl.Enable: if enabled, calls to Gl.EvalCoord1, Gl.EvalMesh1, and Gl.EvalPoint1 generate s, t, and r texture coordinates. 
+		/// See Gl.Map1.
 		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
@@ -4309,13 +4309,13 @@ namespace OpenGL
 		/// initial value is Gl.FALSE. See Gl.Map1.
 		/// </para>
 		/// <para>
-		/// Gl.Enable: if enabled, calls to Gl.EvalCoord1, Gl.EvalMesh1, and Gl.EvalPoint1 generate s, t, r, and q texture 
-		/// coordinates. See Gl.Map1.
-		/// </para>
-		/// <para>
 		/// Gl.Map1: each control point is four floating-point values representing the s, t, r, and q texture coordinates. Internal 
 		/// Gl.TexCoord4 commands are generated when the map is evaluated but the current texture coordinates are not updated with 
 		/// the value of these Gl.TexCoord commands.
+		/// </para>
+		/// <para>
+		/// Gl.Enable: if enabled, calls to Gl.EvalCoord1, Gl.EvalMesh1, and Gl.EvalPoint1 generate s, t, r, and q texture 
+		/// coordinates. See Gl.Map1.
 		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
@@ -4331,12 +4331,12 @@ namespace OpenGL
 		/// initial value is Gl.FALSE. See Gl.Map1.
 		/// </para>
 		/// <para>
-		/// Gl.Enable: if enabled, calls to Gl.EvalCoord1, Gl.EvalMesh1, and Gl.EvalPoint1 generate x, y, and z vertex coordinates. 
-		/// See Gl.Map1.
-		/// </para>
-		/// <para>
 		/// Gl.Map1: each control point is three floating-point values representing x, y, and z. Internal Gl.Vertex3 commands are 
 		/// generated when the map is evaluated.
+		/// </para>
+		/// <para>
+		/// Gl.Enable: if enabled, calls to Gl.EvalCoord1, Gl.EvalMesh1, and Gl.EvalPoint1 generate x, y, and z vertex coordinates. 
+		/// See Gl.Map1.
 		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
@@ -4352,12 +4352,12 @@ namespace OpenGL
 		/// initial value is Gl.FALSE. See Gl.Map1.
 		/// </para>
 		/// <para>
-		/// Gl.Enable: if enabled, calls to Gl.EvalCoord1, Gl.EvalMesh1, and Gl.EvalPoint1 generate homogeneous x, y, z, and w 
-		/// vertex coordinates. See Gl.Map1.
-		/// </para>
-		/// <para>
 		/// Gl.Map1: each control point is four floating-point values representing x, y, z, and w. Internal Gl.Vertex4 commands are 
 		/// generated when the map is evaluated.
+		/// </para>
+		/// <para>
+		/// Gl.Enable: if enabled, calls to Gl.EvalCoord1, Gl.EvalMesh1, and Gl.EvalPoint1 generate homogeneous x, y, z, and w 
+		/// vertex coordinates. See Gl.Map1.
 		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]

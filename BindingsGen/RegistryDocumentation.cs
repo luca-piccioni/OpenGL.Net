@@ -888,7 +888,7 @@ namespace BindingsGen
 
 		public static List<string> SplitDocumentationPeriods(string documentation)
 		{
-			string[] periods = Regex.Split(documentation, @"\.( |\n|\t|$)");
+			string[] periods = Regex.Split(documentation, @"(\.|\,)( |\n|\t|$)");
 
 			return (new List<string>(periods));
 		}
@@ -1149,9 +1149,9 @@ namespace BindingsGen
 							continue;
 
 						foreach (XmlNode xmlIdentifier in xmlIdentifiers) {
-							if (!Regex.IsMatch(xmlIdentifier.InnerText, "^(gl|wgl|glX).*"))
+							if (!Regex.IsMatch(xmlIdentifier.InnerText, "^(gl|wgl|glX|egl).*"))
 								continue;
-							if (sDocumentationMap4.ContainsKey(xmlIdentifier.InnerText))
+							if (sDocumentationMapE.ContainsKey(xmlIdentifier.InnerText))
 								continue;
 
 							sDocumentationMapE.Add(xmlIdentifier.InnerText, xml);
@@ -1169,7 +1169,7 @@ namespace BindingsGen
 							if (enumerantDoc == null)
 								continue;
 
-							if (!Regex.IsMatch(enumerantId.InnerText, "^(GL_|WGL_|GLX_).*"))
+							if (!Regex.IsMatch(enumerantId.InnerText, "^(GL_|WGL_|GLX_|EGL_).*"))
 								continue;
 
 							if (!sDocumentationEnumMapE.ContainsKey(enumerantId.InnerText))
@@ -1185,7 +1185,7 @@ namespace BindingsGen
 
 
 
-			Console.WriteLine("\tFound documentation for {0} commands.", sDocumentationMap4.Count);
+			Console.WriteLine("\tFound documentation for {0} commands.", sDocumentationMapE.Count);
 		}
 
 		private abstract class EnumerationDocumentationBase
@@ -1246,13 +1246,13 @@ namespace BindingsGen
 
 				List<string> periods = SplitDocumentationPeriods(EnumDescriptionNode.InnerXml);
 
-				for (int i = 0; i < periods.Count - 1; i++) {
+				for (int i = 0; (i < 1) && (i < (periods.Count - 1)); i++) {
 					string documentationLine = GetDocumentationLine(periods[i], transform, ctx);
 
 					if (documentationLine.Length == 0)
 						continue;
 
-					doc.AppendFormat("{0}. ", GetDocumentationLine(periods[i], transform, ctx));
+					doc.AppendFormat("{0}", GetDocumentationLine(periods[i], transform, ctx));
 				}
 
 				return (doc.ToString());

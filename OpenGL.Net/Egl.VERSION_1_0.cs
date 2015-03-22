@@ -26,103 +26,158 @@ namespace OpenGL
 	public partial class Egl
 	{
 		/// <summary>
-		/// Value of EGL_ALPHA_SIZE symbol.
+		/// <para>
+		/// Egl.ChooseConfig: must be followed by a nonnegative integer that indicates the desired size of the alpha component of 
+		/// the color buffer, in bits. If this value is zero, color buffers with the smallest alpha component size are preferred. 
+		/// Otherwise, color buffers with the largest alpha component of at least the specified size are preferred. The default 
+		/// value is zero.
+		/// </para>
+		/// <para>
+		/// Egl.GetConfigAttrib: returns the number of bits of alpha stored in the color buffer.
+		/// </para>
 		/// </summary>
 		[RequiredByFeature("EGL_VERSION_1_0")]
 		public const int ALPHA_SIZE = 0x3021;
 
 		/// <summary>
-		/// Value of EGL_BAD_ACCESS symbol.
+		/// Egl.GetError: eGL cannot access a requested resource (for example a context is bound in another thread).
 		/// </summary>
 		[RequiredByFeature("EGL_VERSION_1_0")]
 		public const int BAD_ACCESS = 0x3002;
 
 		/// <summary>
-		/// Value of EGL_BAD_ALLOC symbol.
+		/// Egl.GetError: eGL failed to allocate resources for the requested operation.
 		/// </summary>
 		[RequiredByFeature("EGL_VERSION_1_0")]
 		public const int BAD_ALLOC = 0x3003;
 
 		/// <summary>
-		/// Value of EGL_BAD_ATTRIBUTE symbol.
+		/// Egl.GetError: an unrecognized attribute or attribute value was passed in the attribute list.
 		/// </summary>
 		[RequiredByFeature("EGL_VERSION_1_0")]
 		public const int BAD_ATTRIBUTE = 0x3004;
 
 		/// <summary>
-		/// Value of EGL_BAD_CONFIG symbol.
+		/// Egl.GetError: an EGLConfig argument does not name a valid EGL frame buffer configuration.
 		/// </summary>
 		[RequiredByFeature("EGL_VERSION_1_0")]
 		public const int BAD_CONFIG = 0x3005;
 
 		/// <summary>
-		/// Value of EGL_BAD_CONTEXT symbol.
+		/// Egl.GetError: an EGLContext argument does not name a valid EGL rendering context.
 		/// </summary>
 		[RequiredByFeature("EGL_VERSION_1_0")]
 		public const int BAD_CONTEXT = 0x3006;
 
 		/// <summary>
-		/// Value of EGL_BAD_CURRENT_SURFACE symbol.
+		/// Egl.GetError: the current surface of the calling thread is a window, pixel buffer or pixmap that is no longer valid.
 		/// </summary>
 		[RequiredByFeature("EGL_VERSION_1_0")]
 		public const int BAD_CURRENT_SURFACE = 0x3007;
 
 		/// <summary>
-		/// Value of EGL_BAD_DISPLAY symbol.
+		/// Egl.GetError: an EGLDisplay argument does not name a valid EGL display connection.
 		/// </summary>
 		[RequiredByFeature("EGL_VERSION_1_0")]
 		public const int BAD_DISPLAY = 0x3008;
 
 		/// <summary>
-		/// Value of EGL_BAD_MATCH symbol.
+		/// Egl.GetError: arguments are inconsistent (for example, a valid context requires buffers not supplied by a valid 
+		/// surface).
 		/// </summary>
 		[RequiredByFeature("EGL_VERSION_1_0")]
 		public const int BAD_MATCH = 0x3009;
 
 		/// <summary>
-		/// Value of EGL_BAD_NATIVE_PIXMAP symbol.
+		/// Egl.GetError: a NativePixmapType argument does not refer to a valid native pixmap.
 		/// </summary>
 		[RequiredByFeature("EGL_VERSION_1_0")]
 		public const int BAD_NATIVE_PIXMAP = 0x300A;
 
 		/// <summary>
-		/// Value of EGL_BAD_NATIVE_WINDOW symbol.
+		/// Egl.GetError: a NativeWindowType argument does not refer to a valid native window.
 		/// </summary>
 		[RequiredByFeature("EGL_VERSION_1_0")]
 		public const int BAD_NATIVE_WINDOW = 0x300B;
 
 		/// <summary>
-		/// Value of EGL_BAD_PARAMETER symbol.
+		/// Egl.GetError: one or more argument values are invalid.
 		/// </summary>
 		[RequiredByFeature("EGL_VERSION_1_0")]
 		public const int BAD_PARAMETER = 0x300C;
 
 		/// <summary>
-		/// Value of EGL_BAD_SURFACE symbol.
+		/// Egl.GetError: an EGLSurface argument does not name a valid surface (window, pixel buffer or pixmap) configured for GL 
+		/// rendering.
 		/// </summary>
 		[RequiredByFeature("EGL_VERSION_1_0")]
 		public const int BAD_SURFACE = 0x300D;
 
 		/// <summary>
-		/// Value of EGL_BLUE_SIZE symbol.
+		/// <para>
+		/// Egl.ChooseConfig: must be followed by a nonnegative integer that indicates the desired size of the blue component of the 
+		/// color buffer, in bits. If this value is zero, color buffers with the smallest blue component size are preferred. 
+		/// Otherwise, color buffers with the largest blue component of at least the specified size are preferred. The default value 
+		/// is zero.
+		/// </para>
+		/// <para>
+		/// Egl.GetConfigAttrib: returns the number of bits of blue stored in the color buffer.
+		/// </para>
 		/// </summary>
 		[RequiredByFeature("EGL_VERSION_1_0")]
 		public const int BLUE_SIZE = 0x3022;
 
 		/// <summary>
-		/// Value of EGL_BUFFER_SIZE symbol.
+		/// <para>
+		/// Egl.ChooseConfig: must be followed by a nonnegative integer that indicates the desired color buffer size, in bits. The 
+		/// smallest color buffers of at least the specified size are preferred. The default value is zero. The color buffer size is 
+		/// the sum of Egl.RED_SIZE, Egl.GREEN_SIZE, Egl.BLUE_SIZE, and Egl.ALPHA_SIZE, and does not include any padding bits which 
+		/// may be present in the pixel format. It is usually preferable to specify desired sizes for these color components 
+		/// individually.
+		/// </para>
+		/// <para>
+		/// Egl.GetConfigAttrib: returns the depth of the color buffer. It is the sum of Egl.RED_SIZE, Egl.GREEN_SIZE, 
+		/// Egl.BLUE_SIZE, and Egl.ALPHA_SIZE.
+		/// </para>
 		/// </summary>
 		[RequiredByFeature("EGL_VERSION_1_0")]
 		public const int BUFFER_SIZE = 0x3020;
 
 		/// <summary>
-		/// Value of EGL_CONFIG_CAVEAT symbol.
+		/// <para>
+		/// Egl.ChooseConfig: must be followed by Egl.DONT_CARE, Egl.NONE, Egl.SLOW_CONFIG, or Egl.NON_CONFORMANT_CONFIG. If 
+		/// Egl.DONT_CARE is specified, then configs are not matched for this attribute. The default value is Egl.DONT_CARE. If 
+		/// Egl.NONE is specified, then configs are matched for this attribute, but only configs with no caveats (neither 
+		/// Egl.SLOW_CONFIG or Egl.NON_CONFORMANT_CONFIG) will be considered. If Egl.SLOW_CONFIG is specified, then only slow 
+		/// configs configurations will be considered. The meaning of``slow'' is implementation-dependent, but typically indicates a 
+		/// non-hardware-accelerated (software) implementation. If Egl.NON_CONFORMANT_CONFIG is specified, then only configs 
+		/// supporting non-conformant OpenGL ES contexts will be considered. If the EGL version is 1.3 or later, caveat 
+		/// Egl.NON_CONFORMANT_CONFIG is obsolete, since the same information can be specified via the Egl.CONFORMANT attribute on a 
+		/// per-client-API basis, not just for OpenGL ES.
+		/// </para>
+		/// <para>
+		/// Egl.GetConfigAttrib: returns the caveats for the frame buffer configuration. Possible caveat values are Egl.NONE, 
+		/// Egl.SLOW_CONFIG, and Egl.NON_CONFORMANT.
+		/// </para>
 		/// </summary>
 		[RequiredByFeature("EGL_VERSION_1_0")]
 		public const int CONFIG_CAVEAT = 0x3027;
 
 		/// <summary>
-		/// Value of EGL_CONFIG_ID symbol.
+		/// <para>
+		/// Egl.ChooseConfig: must be followed by a valid integer ID that indicates the desired EGL frame buffer configuration. When 
+		/// a Egl.CONFIG_ID is specified, all other attributes are ignored. The default value is Egl.DONT_CARE. The meaning of 
+		/// config IDs is implementation-dependent. They are used only to uniquely identify different frame buffer configurations.
+		/// </para>
+		/// <para>
+		/// Egl.GetConfigAttrib: returns the ID of the frame buffer configuration.
+		/// </para>
+		/// <para>
+		/// Egl.QueryContext: returns the ID of the EGL frame buffer configuration with respect to which the context was created.
+		/// </para>
+		/// <para>
+		/// Egl.QuerySurface: returns the ID of the EGL frame buffer configuration with respect to which the surface was created.
+		/// </para>
 		/// </summary>
 		[RequiredByFeature("EGL_VERSION_1_0")]
 		public const int CONFIG_ID = 0x3028;
@@ -134,7 +189,15 @@ namespace OpenGL
 		public const int CORE_NATIVE_ENGINE = 0x305B;
 
 		/// <summary>
-		/// Value of EGL_DEPTH_SIZE symbol.
+		/// <para>
+		/// Egl.ChooseConfig: must be followed by a nonnegative integer that indicates the desired depth buffer size, in bits. The 
+		/// smallest depth buffers of at least the specified size is preferred. If the desired size is zero, frame buffer 
+		/// configurations with no depth buffer are preferred. The default value is zero. The depth buffer is used only by OpenGL 
+		/// and OpenGL ES client APIs.
+		/// </para>
+		/// <para>
+		/// Egl.GetConfigAttrib: returns the number of bits in the depth buffer.
+		/// </para>
 		/// </summary>
 		[RequiredByFeature("EGL_VERSION_1_0")]
 		public const int DEPTH_SIZE = 0x3025;
@@ -152,7 +215,7 @@ namespace OpenGL
 		public const int DRAW = 0x3059;
 
 		/// <summary>
-		/// Value of EGL_EXTENSIONS symbol.
+		/// Egl.QueryString: returns a space separated list of supported extensions to EGL.
 		/// </summary>
 		[RequiredByFeature("EGL_VERSION_1_0")]
 		public const int EXTENSIONS = 0x3055;
@@ -164,61 +227,99 @@ namespace OpenGL
 		public const int FALSE = 0;
 
 		/// <summary>
-		/// Value of EGL_GREEN_SIZE symbol.
+		/// <para>
+		/// Egl.ChooseConfig: must be followed by a nonnegative integer that indicates the desired size of the green component of 
+		/// the color buffer, in bits. If this value is zero, color buffers with the smallest green component size are preferred. 
+		/// Otherwise, color buffers with the largest green component of at least the specified size are preferred. The default 
+		/// value is zero.
+		/// </para>
+		/// <para>
+		/// Egl.GetConfigAttrib: returns the number of bits of green stored in the color buffer.
+		/// </para>
 		/// </summary>
 		[RequiredByFeature("EGL_VERSION_1_0")]
 		public const int GREEN_SIZE = 0x3023;
 
 		/// <summary>
-		/// Value of EGL_HEIGHT symbol.
+		/// <para>
+		/// Egl.CreatePbufferSurface: specifies the required height of the pixel buffer surface. The default value is Egl..
+		/// </para>
+		/// <para>
+		/// Egl.QuerySurface: returns the height of the surface in pixels.
+		/// </para>
 		/// </summary>
 		[RequiredByFeature("EGL_VERSION_1_0")]
 		public const int HEIGHT = 0x3056;
 
 		/// <summary>
-		/// Value of EGL_LARGEST_PBUFFER symbol.
+		/// <para>
+		/// Egl.CreatePbufferSurface: requests the largest available pixel buffer surface when the allocation would otherwise fail. 
+		/// Use Egl.QuerySurface to retrieve the dimensions of the allocated pixel buffer. The default value is Egl.FALSE.
+		/// </para>
+		/// <para>
+		/// Egl.QuerySurface: returns the same attribute value specified when the surface was created with Egl.CreatePbufferSurface. 
+		/// For a window or pixmap surface, value is not modified.
+		/// </para>
 		/// </summary>
 		[RequiredByFeature("EGL_VERSION_1_0")]
 		public const int LARGEST_PBUFFER = 0x3058;
 
 		/// <summary>
-		/// Value of EGL_LEVEL symbol.
+		/// <para>
+		/// Egl.ChooseConfig: must be followed by an integer buffer level specification. This specification is honored exactly. 
+		/// Buffer level zero corresponds to the default frame buffer of the display. Buffer level one is the first overlay frame 
+		/// buffer, level two the second overlay frame buffer, and so on. Negative buffer levels correspond to underlay frame 
+		/// buffers. The default value is zero. Most imlementations do not support overlay or underlay planes (buffer levels other 
+		/// than zero).
+		/// </para>
+		/// <para>
+		/// Egl.GetConfigAttrib: returns the frame buffer level. Level zero is the default frame buffer. Positive levels correspond 
+		/// to frame buffers that overlay the default buffer and negative levels correspond to frame buffers that underlay the 
+		/// default buffer.
+		/// </para>
 		/// </summary>
 		[RequiredByFeature("EGL_VERSION_1_0")]
 		public const int LEVEL = 0x3029;
 
 		/// <summary>
-		/// Value of EGL_MAX_PBUFFER_HEIGHT symbol.
+		/// Egl.GetConfigAttrib: returns the maximum height of a pixel buffer surface in pixels.
 		/// </summary>
 		[RequiredByFeature("EGL_VERSION_1_0")]
 		public const int MAX_PBUFFER_HEIGHT = 0x302A;
 
 		/// <summary>
-		/// Value of EGL_MAX_PBUFFER_PIXELS symbol.
+		/// Egl.GetConfigAttrib: returns the maximum size of a pixel buffer surface in pixels.
 		/// </summary>
 		[RequiredByFeature("EGL_VERSION_1_0")]
 		public const int MAX_PBUFFER_PIXELS = 0x302B;
 
 		/// <summary>
-		/// Value of EGL_MAX_PBUFFER_WIDTH symbol.
+		/// Egl.GetConfigAttrib: returns the maximum width of a pixel buffer surface in pixels.
 		/// </summary>
 		[RequiredByFeature("EGL_VERSION_1_0")]
 		public const int MAX_PBUFFER_WIDTH = 0x302C;
 
 		/// <summary>
-		/// Value of EGL_NATIVE_RENDERABLE symbol.
+		/// <para>
+		/// Egl.ChooseConfig: must be followed by Egl.DONT_CARE, Egl.TRUE, or Egl.FALSE. If Egl.TRUE is specified, then only frame 
+		/// buffer configurations that allow native rendering into the surface will be considered. The default value is 
+		/// Egl.DONT_CARE.
+		/// </para>
+		/// <para>
+		/// Egl.GetConfigAttrib: returns Egl.TRUE if native rendering APIs can render into the surface, Egl.FALSE otherwise.
+		/// </para>
 		/// </summary>
 		[RequiredByFeature("EGL_VERSION_1_0")]
 		public const int NATIVE_RENDERABLE = 0x302D;
 
 		/// <summary>
-		/// Value of EGL_NATIVE_VISUAL_ID symbol.
+		/// Egl.GetConfigAttrib: returns the ID of the associated native visual.
 		/// </summary>
 		[RequiredByFeature("EGL_VERSION_1_0")]
 		public const int NATIVE_VISUAL_ID = 0x302E;
 
 		/// <summary>
-		/// Value of EGL_NATIVE_VISUAL_TYPE symbol.
+		/// Egl.GetConfigAttrib: returns the type of the associated native visual.
 		/// </summary>
 		[RequiredByFeature("EGL_VERSION_1_0")]
 		public const int NATIVE_VISUAL_TYPE = 0x302F;
@@ -236,7 +337,7 @@ namespace OpenGL
 		public const int NON_CONFORMANT_CONFIG = 0x3051;
 
 		/// <summary>
-		/// Value of EGL_NOT_INITIALIZED symbol.
+		/// Egl.GetError: eGL is not initialized, or could not be initialized, for the specified EGL display connection.
 		/// </summary>
 		[RequiredByFeature("EGL_VERSION_1_0")]
 		public const int NOT_INITIALIZED = 0x3001;
@@ -278,19 +379,43 @@ namespace OpenGL
 		public const int READ = 0x305A;
 
 		/// <summary>
-		/// Value of EGL_RED_SIZE symbol.
+		/// <para>
+		/// Egl.ChooseConfig: must be followed by a nonnegative integer that indicates the desired size of the red component of the 
+		/// color buffer, in bits. If this value is zero, color buffers with the smallest red component size are preferred. 
+		/// Otherwise, color buffers with the largest red component of at least the specified size are preferred. The default value 
+		/// is zero.
+		/// </para>
+		/// <para>
+		/// Egl.GetConfigAttrib: returns the number of bits of red stored in the color buffer.
+		/// </para>
 		/// </summary>
 		[RequiredByFeature("EGL_VERSION_1_0")]
 		public const int RED_SIZE = 0x3024;
 
 		/// <summary>
-		/// Value of EGL_SAMPLES symbol.
+		/// <para>
+		/// Egl.ChooseConfig: must be followed by the minimum number of samples required in multisample buffers. Configurations with 
+		/// the smallest number of samples that meet or exceed the specified minimum number are preferred. Note that it is possible 
+		/// for color samples in the multisample buffer to have fewer bits than colors in the main color buffers. However, 
+		/// multisampled colors maintain at least as much color resolution in aggregate as the main color buffers.
+		/// </para>
+		/// <para>
+		/// Egl.GetConfigAttrib: returns the number of samples per pixel.
+		/// </para>
 		/// </summary>
 		[RequiredByFeature("EGL_VERSION_1_0")]
 		public const int SAMPLES = 0x3031;
 
 		/// <summary>
-		/// Value of EGL_SAMPLE_BUFFERS symbol.
+		/// <para>
+		/// Egl.ChooseConfig: must be followed by the minimum acceptable number of multisample buffers. Configurations with the 
+		/// smallest number of multisample buffers that meet or exceed this minimum number are preferred. Currently operation with 
+		/// more than one multisample buffer is undefined, so only values of zero or one will produce a match. The default value is 
+		/// zero.
+		/// </para>
+		/// <para>
+		/// Egl.GetConfigAttrib: returns the number of multisample buffers.
+		/// </para>
 		/// </summary>
 		[RequiredByFeature("EGL_VERSION_1_0")]
 		public const int SAMPLE_BUFFERS = 0x3032;
@@ -302,37 +427,84 @@ namespace OpenGL
 		public const int SLOW_CONFIG = 0x3050;
 
 		/// <summary>
-		/// Value of EGL_STENCIL_SIZE symbol.
+		/// <para>
+		/// Egl.ChooseConfig: must be followed by a nonnegative integer that indicates the desired stencil buffer size, in bits. The 
+		/// smallest stencil buffers of at least the specified size are preferred. If the desired size is zero, frame buffer 
+		/// configurations with no stencil buffer are preferred. The default value is zero. The stencil buffer is used only by 
+		/// OpenGL and OpenGL ES client APIs.
+		/// </para>
+		/// <para>
+		/// Egl.GetConfigAttrib: returns the number of bits in the stencil buffer.
+		/// </para>
 		/// </summary>
 		[RequiredByFeature("EGL_VERSION_1_0")]
 		public const int STENCIL_SIZE = 0x3026;
 
 		/// <summary>
-		/// Value of EGL_SUCCESS symbol.
+		/// Egl.GetError: the last function succeeded without error.
 		/// </summary>
 		[RequiredByFeature("EGL_VERSION_1_0")]
 		public const int SUCCESS = 0x3000;
 
 		/// <summary>
-		/// Value of EGL_SURFACE_TYPE symbol.
+		/// <para>
+		/// Egl.ChooseConfig: must be followed by a bitmask indicating which EGL surface types and capabilities the frame buffer 
+		/// configuration must support. Mask bits include: Egl.MULTISAMPLE_RESOLVE_BOX_BIT Config allows specifying box filtered 
+		/// multisample resolve behavior with Egl.SurfaceAttrib. Egl.PBUFFER_BIT Config supports creating pixel buffer surfaces. 
+		/// Egl.PIXMAP_BIT Config supports creating pixmap surfaces. Egl.SWAP_BEHAVIOR_PRESERVED_BIT Config allows setting swap 
+		/// behavior for color buffers with Egl.SurfaceAttrib. Egl.VG_ALPHA_FORMAT_PRE_BIT Config allows specifying OpenVG rendering 
+		/// with premultiplied alpha values at surface creation time (see Egl.CreatePbufferSurface, Egl.CreatePixmapSurface, and 
+		/// Egl.CreateWindowSurface). Egl.VG_COLORSPACE_LINEAR_BIT Config allows specifying OpenVG rendering in a linear colorspace 
+		/// at surface creation time (see Egl.CreatePbufferSurface, Egl.CreatePixmapSurface, and Egl.CreateWindowSurface). 
+		/// Egl.WINDOW_BIT Config supports creating window surfaces. For example, if the bitmask is set to Egl.WINDOW_BIT | 
+		/// Egl.PIXMAP_BIT, only frame buffer configurations that support both windows and pixmaps will be considered. The default 
+		/// value is Egl.WINDOW_BIT.
+		/// </para>
+		/// <para>
+		/// Egl.GetConfigAttrib: returns a bitmask indicating the types of supported EGL surfaces.
+		/// </para>
 		/// </summary>
 		[RequiredByFeature("EGL_VERSION_1_0")]
 		public const int SURFACE_TYPE = 0x3033;
 
 		/// <summary>
-		/// Value of EGL_TRANSPARENT_BLUE_VALUE symbol.
+		/// <para>
+		/// Egl.ChooseConfig: must be followed by an integer value indicating the transparent blue value. The value must be between 
+		/// zero and the maximum color buffer value for blue. Only frame buffer configurations that use the specified transparent 
+		/// blue value will be considered. The default value is Egl.DONT_CARE. This attribute is ignored unless Egl.TRANSPARENT_TYPE 
+		/// is included in attrib_list and specified as Egl.TRANSPARENT_RGB.
+		/// </para>
+		/// <para>
+		/// Egl.GetConfigAttrib: returns the transparent blue value.
+		/// </para>
 		/// </summary>
 		[RequiredByFeature("EGL_VERSION_1_0")]
 		public const int TRANSPARENT_BLUE_VALUE = 0x3035;
 
 		/// <summary>
-		/// Value of EGL_TRANSPARENT_GREEN_VALUE symbol.
+		/// <para>
+		/// Egl.ChooseConfig: must be followed by an integer value indicating the transparent green value. The value must be between 
+		/// zero and the maximum color buffer value for green. Only frame buffer configurations that use the specified transparent 
+		/// green value will be considered. The default value is Egl.DONT_CARE. This attribute is ignored unless 
+		/// Egl.TRANSPARENT_TYPE is included in attrib_list and specified as Egl.TRANSPARENT_RGB.
+		/// </para>
+		/// <para>
+		/// Egl.GetConfigAttrib: returns the transparent green value.
+		/// </para>
 		/// </summary>
 		[RequiredByFeature("EGL_VERSION_1_0")]
 		public const int TRANSPARENT_GREEN_VALUE = 0x3036;
 
 		/// <summary>
-		/// Value of EGL_TRANSPARENT_RED_VALUE symbol.
+		/// <para>
+		/// Egl.ChooseConfig: must be followed by an integer value indicating the transparent red value. The value must be between 
+		/// zero and the maximum color buffer value for red. Only frame buffer configurations that use the specified transparent red 
+		/// value will be considered. The default value is Egl.DONT_CARE. This attribute is ignored unless Egl.TRANSPARENT_TYPE is 
+		/// included in attrib_list and specified as Egl.TRANSPARENT_RGB.
+		/// </para>
+		/// <para>
+		/// Egl.GetConfigAttrib: returns the transparent red value.
+		/// </para>
 		/// </summary>
 		[RequiredByFeature("EGL_VERSION_1_0")]
 		public const int TRANSPARENT_RED_VALUE = 0x3037;
@@ -344,7 +516,16 @@ namespace OpenGL
 		public const int TRANSPARENT_RGB = 0x3052;
 
 		/// <summary>
-		/// Value of EGL_TRANSPARENT_TYPE symbol.
+		/// <para>
+		/// Egl.ChooseConfig: must be followed by one of Egl.NONE or Egl.TRANSPARENT_RGB. If Egl.NONE is specified, then only opaque 
+		/// frame buffer configurations will be considered. If Egl.TRANSPARENT_RGB is specified, then only transparent frame buffer 
+		/// configurations will be considered. The default value is Egl.NONE. Most implementations support only opaque frame buffer 
+		/// configurations.
+		/// </para>
+		/// <para>
+		/// Egl.GetConfigAttrib: returns the type of supported transparency. Possible transparency values are: Egl.NONE, and 
+		/// Egl.TRANSPARENT_RGB.
+		/// </para>
 		/// </summary>
 		[RequiredByFeature("EGL_VERSION_1_0")]
 		public const int TRANSPARENT_TYPE = 0x3034;
@@ -356,19 +537,26 @@ namespace OpenGL
 		public const int TRUE = 1;
 
 		/// <summary>
-		/// Value of EGL_VENDOR symbol.
+		/// Egl.QueryString: returns the company responsible for this EGL implementation. This name does not change from release to 
+		/// release.
 		/// </summary>
 		[RequiredByFeature("EGL_VERSION_1_0")]
 		public const int VENDOR = 0x3053;
 
 		/// <summary>
-		/// Value of EGL_VERSION symbol.
+		/// Egl.QueryString: returns a version or release number. The Egl.VERSION string is laid out as 
+		/// follows:major_version.minor_version space vendor_specific_info
 		/// </summary>
 		[RequiredByFeature("EGL_VERSION_1_0")]
 		public const int VERSION = 0x3054;
 
 		/// <summary>
-		/// Value of EGL_WIDTH symbol.
+		/// <para>
+		/// Egl.CreatePbufferSurface: specifies the required width of the pixel buffer surface. The default value is Egl..
+		/// </para>
+		/// <para>
+		/// Egl.QuerySurface: returns the width of the surface in pixels.
+		/// </para>
 		/// </summary>
 		[RequiredByFeature("EGL_VERSION_1_0")]
 		public const int WIDTH = 0x3057;
@@ -380,22 +568,22 @@ namespace OpenGL
 		public const int WINDOW_BIT = 0x0004;
 
 		/// <summary>
-		/// Binding for eglChooseConfig.
+		/// return a list of EGL frame buffer configurations that match specified attributes
 		/// </summary>
 		/// <param name="dpy">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		/// <param name="attrib_list">
-		/// A <see cref="T:int[]"/>.
+		/// Specifies attributes required to match by configs.
 		/// </param>
 		/// <param name="configs">
-		/// A <see cref="T:IntPtr[]"/>.
+		/// Returns an array of frame buffer configurations.
 		/// </param>
 		/// <param name="config_size">
-		/// A <see cref="T:int"/>.
+		/// Specifies the size of the array of frame buffer configurations.
 		/// </param>
 		/// <param name="num_config">
-		/// A <see cref="T:int[]"/>.
+		/// Returns the number of frame buffer configurations returned.
 		/// </param>
 		[RequiredByFeature("EGL_VERSION_1_0")]
 		public static IntPtr ChooseConfig(IntPtr dpy, int[] attrib_list, IntPtr[] configs, int config_size, int[] num_config)
@@ -418,13 +606,13 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for eglCopyBuffers.
+		/// copy EGL surface color buffer to a native pixmap
 		/// </summary>
 		/// <param name="dpy">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		/// <param name="surface">
-		/// A <see cref="T:IntPtr"/>.
+		/// Specifies the EGL surface whose color buffer is to be copied.
 		/// </param>
 		/// <param name="target">
 		/// A <see cref="T:IntPtr"/>.
@@ -443,19 +631,22 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for eglCreateContext.
+		/// create a new EGL rendering context
 		/// </summary>
 		/// <param name="dpy">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		/// <param name="config">
-		/// A <see cref="T:IntPtr"/>.
+		/// Specifies the EGL frame buffer configuration that defines the frame buffer resource available to the rendering context.
 		/// </param>
 		/// <param name="share_context">
-		/// A <see cref="T:IntPtr"/>.
+		/// Specifies another EGL rendering context with which to share data, as defined by the client API corresponding to the 
+		/// contexts. Data is also shared with all other contexts with which <paramref name="share_context"/> shares data. 
+		/// Egl.NO_CONTEXT indicates that no sharing is to take place.
 		/// </param>
 		/// <param name="attrib_list">
-		/// A <see cref="T:int[]"/>.
+		/// Specifies attributes and attribute values for the context being created. Only the attribute Egl.CONTEXT_CLIENT_VERSION 
+		/// may be specified.
 		/// </param>
 		[RequiredByFeature("EGL_VERSION_1_0")]
 		public static IntPtr CreateContext(IntPtr dpy, IntPtr config, IntPtr share_context, int[] attrib_list)
@@ -476,16 +667,16 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for eglCreatePbufferSurface.
+		/// create a new EGL pixel buffer surface
 		/// </summary>
 		/// <param name="dpy">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		/// <param name="config">
-		/// A <see cref="T:IntPtr"/>.
+		/// Specifies the EGL frame buffer configuration that defines the frame buffer resource available to the surface.
 		/// </param>
 		/// <param name="attrib_list">
-		/// A <see cref="T:int[]"/>.
+		/// Specifies pixel buffer surface attributes. May be Egl. or empty (first attribute is Egl.NONE).
 		/// </param>
 		[RequiredByFeature("EGL_VERSION_1_0")]
 		public static IntPtr CreatePbufferSurface(IntPtr dpy, IntPtr config, int[] attrib_list)
@@ -506,19 +697,19 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for eglCreatePixmapSurface.
+		/// create a new EGL pixmap surface
 		/// </summary>
 		/// <param name="dpy">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		/// <param name="config">
-		/// A <see cref="T:IntPtr"/>.
+		/// Specifies the EGL frame buffer configuration that defines the frame buffer resource available to the surface.
 		/// </param>
 		/// <param name="pixmap">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		/// <param name="attrib_list">
-		/// A <see cref="T:int[]"/>.
+		/// Specifies pixmap surface attributes. May be Egl. or empty (first attribute is Egl.NONE).
 		/// </param>
 		[RequiredByFeature("EGL_VERSION_1_0")]
 		public static IntPtr CreatePixmapSurface(IntPtr dpy, IntPtr config, IntPtr pixmap, int[] attrib_list)
@@ -539,19 +730,19 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for eglCreateWindowSurface.
+		/// create a new EGL window surface
 		/// </summary>
 		/// <param name="dpy">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		/// <param name="config">
-		/// A <see cref="T:IntPtr"/>.
+		/// Specifies the EGL frame buffer configuration that defines the frame buffer resource available to the surface.
 		/// </param>
 		/// <param name="win">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		/// <param name="attrib_list">
-		/// A <see cref="T:int[]"/>.
+		/// Specifies window surface attributes. May be Egl. or empty (first attribute is Egl.NONE).
 		/// </param>
 		[RequiredByFeature("EGL_VERSION_1_0")]
 		public static IntPtr CreateWindowSurface(IntPtr dpy, IntPtr config, IntPtr win, int[] attrib_list)
@@ -572,7 +763,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for eglDestroyContext.
+		/// destroy an EGL rendering context
 		/// </summary>
 		/// <param name="dpy">
 		/// A <see cref="T:IntPtr"/>.
@@ -594,13 +785,13 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for eglDestroySurface.
+		/// destroy an EGL surface
 		/// </summary>
 		/// <param name="dpy">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		/// <param name="surface">
-		/// A <see cref="T:IntPtr"/>.
+		/// Specifies the EGL surface to be destroyed.
 		/// </param>
 		[RequiredByFeature("EGL_VERSION_1_0")]
 		public static IntPtr DestroySurface(IntPtr dpy, IntPtr surface)
@@ -616,19 +807,19 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for eglGetConfigAttrib.
+		/// return information about an EGL frame buffer configuration
 		/// </summary>
 		/// <param name="dpy">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		/// <param name="config">
-		/// A <see cref="T:IntPtr"/>.
+		/// Specifies the EGL frame buffer configuration to be queried.
 		/// </param>
 		/// <param name="attribute">
-		/// A <see cref="T:int"/>.
+		/// Specifies the EGL rendering context attribute to be returned.
 		/// </param>
 		/// <param name="value">
-		/// A <see cref="T:int[]"/>.
+		/// Returns the requested value.
 		/// </param>
 		[RequiredByFeature("EGL_VERSION_1_0")]
 		public static IntPtr GetConfigAttrib(IntPtr dpy, IntPtr config, int attribute, int[] value)
@@ -649,19 +840,19 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for eglGetConfigs.
+		/// return a list of all EGL frame buffer configurations for a display
 		/// </summary>
 		/// <param name="dpy">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		/// <param name="configs">
-		/// A <see cref="T:IntPtr[]"/>.
+		/// Returns a list of configs.
 		/// </param>
 		/// <param name="config_size">
-		/// A <see cref="T:int"/>.
+		/// Specifies the size of the list of configs.
 		/// </param>
 		/// <param name="num_config">
-		/// A <see cref="T:int[]"/>.
+		/// Returns the number of configs returned.
 		/// </param>
 		[RequiredByFeature("EGL_VERSION_1_0")]
 		public static IntPtr GetConfigs(IntPtr dpy, IntPtr[] configs, int config_size, int[] num_config)
@@ -683,7 +874,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for eglGetCurrentDisplay.
+		/// return the display for the current EGL rendering context
 		/// </summary>
 		[RequiredByFeature("EGL_VERSION_1_0")]
 		public static IntPtr GetCurrentDisplay()
@@ -699,10 +890,10 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for eglGetCurrentSurface.
+		/// return the read or draw surface for the current EGL rendering context
 		/// </summary>
 		/// <param name="readdraw">
-		/// A <see cref="T:int"/>.
+		/// Specifies whether the EGL read or draw surface is to be returned.
 		/// </param>
 		[RequiredByFeature("EGL_VERSION_1_0")]
 		public static IntPtr GetCurrentSurface(int readdraw)
@@ -718,7 +909,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for eglGetDisplay.
+		/// return an EGL display connection
 		/// </summary>
 		/// <param name="display_id">
 		/// A <see cref="T:IntPtr"/>.
@@ -737,7 +928,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for eglGetError.
+		/// return error information
 		/// </summary>
 		[RequiredByFeature("EGL_VERSION_1_0")]
 		public static int GetError()
@@ -752,10 +943,10 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for eglGetProcAddress.
+		/// return a GL or an EGL extension function
 		/// </summary>
 		/// <param name="procname">
-		/// A <see cref="T:string"/>.
+		/// Specifies the name of the function to return.
 		/// </param>
 		[RequiredByFeature("EGL_VERSION_1_0")]
 		public static IntPtr GetProcAddress(string procname)
@@ -771,16 +962,16 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for eglInitialize.
+		/// initialize an EGL display connection
 		/// </summary>
 		/// <param name="dpy">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		/// <param name="major">
-		/// A <see cref="T:int[]"/>.
+		/// Returns the major version number of the EGL implementation. May be Egl..
 		/// </param>
 		/// <param name="minor">
-		/// A <see cref="T:int[]"/>.
+		/// Returns the minor version number of the EGL implementation. May be Egl..
 		/// </param>
 		[RequiredByFeature("EGL_VERSION_1_0")]
 		public static IntPtr Initialize(IntPtr dpy, int[] major, int[] minor)
@@ -802,16 +993,16 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for eglMakeCurrent.
+		/// attach an EGL rendering context to EGL surfaces
 		/// </summary>
 		/// <param name="dpy">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		/// <param name="draw">
-		/// A <see cref="T:IntPtr"/>.
+		/// Specifies the EGL draw surface.
 		/// </param>
 		/// <param name="read">
-		/// A <see cref="T:IntPtr"/>.
+		/// Specifies the EGL read surface.
 		/// </param>
 		/// <param name="ctx">
 		/// A <see cref="T:IntPtr"/>.
@@ -830,7 +1021,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for eglQueryContext.
+		/// return EGL rendering context information
 		/// </summary>
 		/// <param name="dpy">
 		/// A <see cref="T:IntPtr"/>.
@@ -839,10 +1030,10 @@ namespace OpenGL
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		/// <param name="attribute">
-		/// A <see cref="T:int"/>.
+		/// Specifies the EGL rendering context attribute to be returned.
 		/// </param>
 		/// <param name="value">
-		/// A <see cref="T:int[]"/>.
+		/// Returns the requested value.
 		/// </param>
 		[RequiredByFeature("EGL_VERSION_1_0")]
 		public static IntPtr QueryContext(IntPtr dpy, IntPtr ctx, int attribute, int[] value)
@@ -863,13 +1054,13 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for eglQueryString.
+		/// return a string describing an EGL display connection
 		/// </summary>
 		/// <param name="dpy">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		/// <param name="name">
-		/// A <see cref="T:int"/>.
+		/// Specifies a symbolic constant, one of Egl.CLIENT_APIS, Egl.VENDOR, Egl.VERSION, or Egl.EXTENSIONS.
 		/// </param>
 		[RequiredByFeature("EGL_VERSION_1_0")]
 		public static string QueryString(IntPtr dpy, int name)
@@ -885,19 +1076,19 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for eglQuerySurface.
+		/// return EGL surface information
 		/// </summary>
 		/// <param name="dpy">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		/// <param name="surface">
-		/// A <see cref="T:IntPtr"/>.
+		/// Specifies the EGL surface to query.
 		/// </param>
 		/// <param name="attribute">
-		/// A <see cref="T:int"/>.
+		/// Specifies the EGL surface attribute to be returned.
 		/// </param>
 		/// <param name="value">
-		/// A <see cref="T:int[]"/>.
+		/// Returns the requested value.
 		/// </param>
 		[RequiredByFeature("EGL_VERSION_1_0")]
 		public static IntPtr QuerySurface(IntPtr dpy, IntPtr surface, int attribute, int[] value)
@@ -918,7 +1109,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for eglTerminate.
+		/// terminate an EGL display connection
 		/// </summary>
 		/// <param name="dpy">
 		/// A <see cref="T:IntPtr"/>.
@@ -937,7 +1128,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for eglWaitGL.
+		/// Complete GL execution prior to subsequent native rendering calls
 		/// </summary>
 		[RequiredByFeature("EGL_VERSION_1_0")]
 		public static IntPtr WaitGL()
@@ -953,10 +1144,10 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for eglWaitNative.
+		/// complete native execution prior to subsequent GL rendering calls
 		/// </summary>
 		/// <param name="engine">
-		/// A <see cref="T:int"/>.
+		/// Specifies a particular marking engine to be waited on. Must be Egl.CORE_NATIVE_ENGINE.
 		/// </param>
 		[RequiredByFeature("EGL_VERSION_1_0")]
 		public static IntPtr WaitNative(int engine)

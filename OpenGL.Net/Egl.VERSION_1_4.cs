@@ -38,7 +38,17 @@ namespace OpenGL
 		public const int MULTISAMPLE_RESOLVE_BOX_BIT = 0x0200;
 
 		/// <summary>
-		/// Value of EGL_MULTISAMPLE_RESOLVE symbol.
+		/// <para>
+		/// Egl.QuerySurface: returns the filter used when resolving the multisample buffer. The filter may be either 
+		/// Egl.MULTISAMPLE_RESOLVE_DEFAULT or Egl.MULTISAMPLE_RESOLVE_BOX, as described for Egl.SurfaceAttrib.
+		/// </para>
+		/// <para>
+		/// Egl.SurfaceAttrib: specifies the filter to use when resolving the multisample buffer (this may occur when swapping or 
+		/// copying the surface, or when changing the client API context bound to the surface). A value of 
+		/// Egl.MULTISAMPLE_RESOLVE_DEFAULT chooses the default implementation-defined filtering method, while 
+		/// Egl.MULTISAMPLE_RESOLVE_BOX chooses a one-pixel wide box filter placing equal weighting on all multisample values. The 
+		/// initial value of Egl.MULTISAMPLE_RESOLVE is Egl.MULTISAMPLE_RESOLVE_DEFAULT.
+		/// </para>
 		/// </summary>
 		[RequiredByFeature("EGL_VERSION_1_4")]
 		public const int MULTISAMPLE_RESOLVE = 0x3099;
@@ -74,7 +84,7 @@ namespace OpenGL
 		public const int SWAP_BEHAVIOR_PRESERVED_BIT = 0x0400;
 
 		/// <summary>
-		/// Binding for eglGetCurrentContext.
+		/// return the current EGL rendering context
 		/// </summary>
 		[RequiredByFeature("EGL_VERSION_1_4")]
 		public static IntPtr GetCurrentContext()
