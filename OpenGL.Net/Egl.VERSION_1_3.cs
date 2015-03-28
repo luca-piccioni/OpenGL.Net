@@ -43,6 +43,7 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("EGL_CONFORMANT_KHR")]
 		[RequiredByFeature("EGL_VERSION_1_3")]
+		[RequiredByFeature("EGL_KHR_config_attribs")]
 		public const int CONFORMANT = 0x3042;
 
 		/// <summary>
@@ -113,6 +114,7 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("EGL_VG_ALPHA_FORMAT_PRE_BIT_KHR")]
 		[RequiredByFeature("EGL_VERSION_1_3")]
+		[RequiredByFeature("EGL_KHR_config_attribs")]
 		public const int VG_ALPHA_FORMAT_PRE_BIT = 0x0040;
 
 		/// <summary>
@@ -143,6 +145,7 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("EGL_VG_COLORSPACE_LINEAR_BIT_KHR")]
 		[RequiredByFeature("EGL_VERSION_1_3")]
+		[RequiredByFeature("EGL_KHR_config_attribs")]
 		public const int VG_COLORSPACE_LINEAR_BIT = 0x0020;
 
 	}

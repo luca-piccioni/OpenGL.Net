@@ -30,6 +30,7 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_PROGRAM_OBJECT_EXT")]
 		[RequiredByFeature("GL_ARB_shader_objects")]
+		[RequiredByFeature("GL_EXT_debug_label")]
 		public const int PROGRAM_OBJECT_ARB = 0x8B40;
 
 		/// <summary>
@@ -37,6 +38,7 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_SHADER_OBJECT_EXT")]
 		[RequiredByFeature("GL_ARB_shader_objects")]
+		[RequiredByFeature("GL_EXT_debug_label")]
 		public const int SHADER_OBJECT_ARB = 0x8B48;
 
 		/// <summary>

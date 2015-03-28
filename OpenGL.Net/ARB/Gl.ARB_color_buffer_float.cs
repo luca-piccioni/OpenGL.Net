@@ -30,6 +30,7 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_RGBA_FLOAT_MODE_ATI")]
 		[RequiredByFeature("GL_ARB_color_buffer_float")]
+		[RequiredByFeature("GL_ATI_pixel_format_float")]
 		public const int RGBA_FLOAT_MODE_ARB = 0x8820;
 
 	}

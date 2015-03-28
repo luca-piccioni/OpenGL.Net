@@ -30,6 +30,7 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_MIRROR_CLAMP_ATI")]
 		[RequiredByFeature("GL_EXT_texture_mirror_clamp")]
+		[RequiredByFeature("GL_ATI_texture_mirror_once")]
 		public const int MIRROR_CLAMP_EXT = 0x8742;
 
 		/// <summary>

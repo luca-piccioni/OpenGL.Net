@@ -31,6 +31,7 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_BLEND_DST_RGB_EXT")]
 		[RequiredByFeature("GL_VERSION_1_4")]
+		[RequiredByFeature("GL_EXT_blend_func_separate")]
 		public const int BLEND_DST_RGB = 0x80C8;
 
 		/// <summary>
@@ -39,6 +40,7 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_BLEND_SRC_RGB_EXT")]
 		[RequiredByFeature("GL_VERSION_1_4")]
+		[RequiredByFeature("GL_EXT_blend_func_separate")]
 		public const int BLEND_SRC_RGB = 0x80C9;
 
 		/// <summary>
@@ -47,6 +49,7 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_BLEND_DST_ALPHA_EXT")]
 		[RequiredByFeature("GL_VERSION_1_4")]
+		[RequiredByFeature("GL_EXT_blend_func_separate")]
 		public const int BLEND_DST_ALPHA = 0x80CA;
 
 		/// <summary>
@@ -55,6 +58,7 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_BLEND_SRC_ALPHA_EXT")]
 		[RequiredByFeature("GL_VERSION_1_4")]
+		[RequiredByFeature("GL_EXT_blend_func_separate")]
 		public const int BLEND_SRC_ALPHA = 0x80CB;
 
 		/// <summary>
@@ -70,6 +74,9 @@ namespace OpenGL
 		[AliasOf("GL_POINT_FADE_THRESHOLD_SIZE_EXT")]
 		[AliasOf("GL_POINT_FADE_THRESHOLD_SIZE_SGIS")]
 		[RequiredByFeature("GL_VERSION_1_4")]
+		[RequiredByFeature("GL_ARB_point_parameters")]
+		[RequiredByFeature("GL_EXT_point_parameters")]
+		[RequiredByFeature("GL_SGIS_point_parameters")]
 		public const int POINT_FADE_THRESHOLD_SIZE = 0x8128;
 
 		/// <summary>
@@ -78,6 +85,8 @@ namespace OpenGL
 		[AliasOf("GL_DEPTH_COMPONENT16_ARB")]
 		[AliasOf("GL_DEPTH_COMPONENT16_SGIX")]
 		[RequiredByFeature("GL_VERSION_1_4")]
+		[RequiredByFeature("GL_ARB_depth_texture")]
+		[RequiredByFeature("GL_SGIX_depth_texture")]
 		public const int DEPTH_COMPONENT16 = 0x81A5;
 
 		/// <summary>
@@ -86,6 +95,8 @@ namespace OpenGL
 		[AliasOf("GL_DEPTH_COMPONENT24_ARB")]
 		[AliasOf("GL_DEPTH_COMPONENT24_SGIX")]
 		[RequiredByFeature("GL_VERSION_1_4")]
+		[RequiredByFeature("GL_ARB_depth_texture")]
+		[RequiredByFeature("GL_SGIX_depth_texture")]
 		public const int DEPTH_COMPONENT24 = 0x81A6;
 
 		/// <summary>
@@ -94,6 +105,8 @@ namespace OpenGL
 		[AliasOf("GL_DEPTH_COMPONENT32_ARB")]
 		[AliasOf("GL_DEPTH_COMPONENT32_SGIX")]
 		[RequiredByFeature("GL_VERSION_1_4")]
+		[RequiredByFeature("GL_ARB_depth_texture")]
+		[RequiredByFeature("GL_SGIX_depth_texture")]
 		public const int DEPTH_COMPONENT32 = 0x81A7;
 
 		/// <summary>
@@ -102,6 +115,8 @@ namespace OpenGL
 		[AliasOf("GL_MIRRORED_REPEAT_ARB")]
 		[AliasOf("GL_MIRRORED_REPEAT_IBM")]
 		[RequiredByFeature("GL_VERSION_1_4")]
+		[RequiredByFeature("GL_ARB_texture_mirrored_repeat")]
+		[RequiredByFeature("GL_IBM_texture_mirrored_repeat")]
 		public const int MIRRORED_REPEAT = 0x8370;
 
 		/// <summary>
@@ -110,6 +125,7 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_MAX_TEXTURE_LOD_BIAS_EXT")]
 		[RequiredByFeature("GL_VERSION_1_4")]
+		[RequiredByFeature("GL_EXT_texture_lod_bias")]
 		public const int MAX_TEXTURE_LOD_BIAS = 0x84FD;
 
 		/// <summary>
@@ -120,6 +136,7 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_TEXTURE_LOD_BIAS_EXT")]
 		[RequiredByFeature("GL_VERSION_1_4")]
+		[RequiredByFeature("GL_EXT_texture_lod_bias")]
 		public const int TEXTURE_LOD_BIAS = 0x8501;
 
 		/// <summary>
@@ -134,6 +151,7 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_INCR_WRAP_EXT")]
 		[RequiredByFeature("GL_VERSION_1_4")]
+		[RequiredByFeature("GL_EXT_stencil_wrap")]
 		public const int INCR_WRAP = 0x8507;
 
 		/// <summary>
@@ -148,6 +166,7 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_DECR_WRAP_EXT")]
 		[RequiredByFeature("GL_VERSION_1_4")]
+		[RequiredByFeature("GL_EXT_stencil_wrap")]
 		public const int DECR_WRAP = 0x8508;
 
 		/// <summary>
@@ -157,6 +176,7 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_TEXTURE_DEPTH_SIZE_ARB")]
 		[RequiredByFeature("GL_VERSION_1_4")]
+		[RequiredByFeature("GL_ARB_depth_texture")]
 		public const int TEXTURE_DEPTH_SIZE = 0x884A;
 
 		/// <summary>
@@ -187,6 +207,7 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_TEXTURE_COMPARE_MODE_ARB")]
 		[RequiredByFeature("GL_VERSION_1_4")]
+		[RequiredByFeature("GL_ARB_shadow")]
 		public const int TEXTURE_COMPARE_MODE = 0x884C;
 
 		/// <summary>
@@ -215,6 +236,7 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_TEXTURE_COMPARE_FUNC_ARB")]
 		[RequiredByFeature("GL_VERSION_1_4")]
+		[RequiredByFeature("GL_ARB_shadow")]
 		public const int TEXTURE_COMPARE_FUNC = 0x884D;
 
 		/// <summary>
@@ -231,6 +253,9 @@ namespace OpenGL
 		[AliasOf("GL_POINT_SIZE_MIN_EXT")]
 		[AliasOf("GL_POINT_SIZE_MIN_SGIS")]
 		[RequiredByFeature("GL_VERSION_1_4")]
+		[RequiredByFeature("GL_ARB_point_parameters")]
+		[RequiredByFeature("GL_EXT_point_parameters")]
+		[RequiredByFeature("GL_SGIS_point_parameters")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
 		[Obsolete("Deprecated/removed by OpenGL 3.2.")]
@@ -251,6 +276,9 @@ namespace OpenGL
 		[AliasOf("GL_POINT_SIZE_MAX_EXT")]
 		[AliasOf("GL_POINT_SIZE_MAX_SGIS")]
 		[RequiredByFeature("GL_VERSION_1_4")]
+		[RequiredByFeature("GL_ARB_point_parameters")]
+		[RequiredByFeature("GL_EXT_point_parameters")]
+		[RequiredByFeature("GL_SGIS_point_parameters")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
 		[Obsolete("Deprecated/removed by OpenGL 3.2.")]
@@ -269,6 +297,7 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_POINT_DISTANCE_ATTENUATION_ARB")]
 		[RequiredByFeature("GL_VERSION_1_4")]
+		[RequiredByFeature("GL_ARB_point_parameters")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
 		[Obsolete("Deprecated/removed by OpenGL 3.2.")]
@@ -287,6 +316,7 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_GENERATE_MIPMAP_SGIS")]
 		[RequiredByFeature("GL_VERSION_1_4")]
+		[RequiredByFeature("GL_SGIS_generate_mipmap")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
 		[Obsolete("Deprecated/removed by OpenGL 3.2.")]
@@ -304,6 +334,7 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_GENERATE_MIPMAP_HINT_SGIS")]
 		[RequiredByFeature("GL_VERSION_1_4")]
+		[RequiredByFeature("GL_SGIS_generate_mipmap")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
 		[Obsolete("Deprecated/removed by OpenGL 3.2.")]
@@ -315,6 +346,7 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_FOG_COORDINATE_SOURCE_EXT")]
 		[RequiredByFeature("GL_VERSION_1_4")]
+		[RequiredByFeature("GL_EXT_fog_coord")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
 		[Obsolete("Deprecated/removed by OpenGL 3.2.")]
@@ -326,6 +358,7 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_FOG_COORDINATE_EXT")]
 		[RequiredByFeature("GL_VERSION_1_4")]
+		[RequiredByFeature("GL_EXT_fog_coord")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
 		[Obsolete("Deprecated/removed by OpenGL 3.2.")]
@@ -337,6 +370,8 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_FRAGMENT_DEPTH_EXT")]
 		[RequiredByFeature("GL_VERSION_1_4")]
+		[RequiredByFeature("GL_EXT_fog_coord")]
+		[RequiredByFeature("GL_EXT_light_texture")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
 		[Obsolete("Deprecated/removed by OpenGL 3.2.")]
@@ -348,6 +383,7 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_CURRENT_FOG_COORDINATE_EXT")]
 		[RequiredByFeature("GL_VERSION_1_4")]
+		[RequiredByFeature("GL_EXT_fog_coord")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
 		[Obsolete("Deprecated/removed by OpenGL 3.2.")]
@@ -359,6 +395,7 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_FOG_COORDINATE_ARRAY_TYPE_EXT")]
 		[RequiredByFeature("GL_VERSION_1_4")]
+		[RequiredByFeature("GL_EXT_fog_coord")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
 		[Obsolete("Deprecated/removed by OpenGL 3.2.")]
@@ -370,6 +407,7 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_FOG_COORDINATE_ARRAY_STRIDE_EXT")]
 		[RequiredByFeature("GL_VERSION_1_4")]
+		[RequiredByFeature("GL_EXT_fog_coord")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
 		[Obsolete("Deprecated/removed by OpenGL 3.2.")]
@@ -381,6 +419,7 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_FOG_COORDINATE_ARRAY_POINTER_EXT")]
 		[RequiredByFeature("GL_VERSION_1_4")]
+		[RequiredByFeature("GL_EXT_fog_coord")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
 		[Obsolete("Deprecated/removed by OpenGL 3.2.")]
@@ -392,6 +431,7 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_FOG_COORDINATE_ARRAY_EXT")]
 		[RequiredByFeature("GL_VERSION_1_4")]
+		[RequiredByFeature("GL_EXT_fog_coord")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
 		[Obsolete("Deprecated/removed by OpenGL 3.2.")]
@@ -411,6 +451,8 @@ namespace OpenGL
 		[AliasOf("GL_COLOR_SUM_ARB")]
 		[AliasOf("GL_COLOR_SUM_EXT")]
 		[RequiredByFeature("GL_VERSION_1_4")]
+		[RequiredByFeature("GL_ARB_vertex_program")]
+		[RequiredByFeature("GL_EXT_secondary_color")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
 		[Obsolete("Deprecated/removed by OpenGL 3.2.")]
@@ -425,6 +467,7 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_CURRENT_SECONDARY_COLOR_EXT")]
 		[RequiredByFeature("GL_VERSION_1_4")]
+		[RequiredByFeature("GL_EXT_secondary_color")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
 		[Obsolete("Deprecated/removed by OpenGL 3.2.")]
@@ -437,6 +480,7 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_SECONDARY_COLOR_ARRAY_SIZE_EXT")]
 		[RequiredByFeature("GL_VERSION_1_4")]
+		[RequiredByFeature("GL_EXT_secondary_color")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
 		[Obsolete("Deprecated/removed by OpenGL 3.2.")]
@@ -449,6 +493,7 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_SECONDARY_COLOR_ARRAY_TYPE_EXT")]
 		[RequiredByFeature("GL_VERSION_1_4")]
+		[RequiredByFeature("GL_EXT_secondary_color")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
 		[Obsolete("Deprecated/removed by OpenGL 3.2.")]
@@ -461,6 +506,7 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_SECONDARY_COLOR_ARRAY_STRIDE_EXT")]
 		[RequiredByFeature("GL_VERSION_1_4")]
+		[RequiredByFeature("GL_EXT_secondary_color")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
 		[Obsolete("Deprecated/removed by OpenGL 3.2.")]
@@ -472,6 +518,7 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_SECONDARY_COLOR_ARRAY_POINTER_EXT")]
 		[RequiredByFeature("GL_VERSION_1_4")]
+		[RequiredByFeature("GL_EXT_secondary_color")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
 		[Obsolete("Deprecated/removed by OpenGL 3.2.")]
@@ -491,6 +538,7 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_SECONDARY_COLOR_ARRAY_EXT")]
 		[RequiredByFeature("GL_VERSION_1_4")]
+		[RequiredByFeature("GL_EXT_secondary_color")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
 		[Obsolete("Deprecated/removed by OpenGL 3.2.")]
@@ -502,6 +550,7 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_TEXTURE_FILTER_CONTROL_EXT")]
 		[RequiredByFeature("GL_VERSION_1_4")]
+		[RequiredByFeature("GL_EXT_texture_lod_bias")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
 		[Obsolete("Deprecated/removed by OpenGL 3.2.")]
@@ -520,6 +569,7 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_DEPTH_TEXTURE_MODE_ARB")]
 		[RequiredByFeature("GL_VERSION_1_4")]
+		[RequiredByFeature("GL_ARB_depth_texture")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
 		[Obsolete("Deprecated/removed by OpenGL 3.2.")]
@@ -531,6 +581,7 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_COMPARE_R_TO_TEXTURE_ARB")]
 		[RequiredByFeature("GL_VERSION_1_4")]
+		[RequiredByFeature("GL_ARB_shadow")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
 		[Obsolete("Deprecated/removed by OpenGL 3.2.")]
@@ -543,6 +594,7 @@ namespace OpenGL
 		[AliasOf("GL_FUNC_ADD_EXT")]
 		[RequiredByFeature("GL_VERSION_1_4")]
 		[RequiredByFeature("GL_ARB_imaging")]
+		[RequiredByFeature("GL_EXT_blend_minmax")]
 		public const int FUNC_ADD = 0x8006;
 
 		/// <summary>
@@ -551,6 +603,7 @@ namespace OpenGL
 		[AliasOf("GL_FUNC_SUBTRACT_EXT")]
 		[RequiredByFeature("GL_VERSION_1_4")]
 		[RequiredByFeature("GL_ARB_imaging")]
+		[RequiredByFeature("GL_EXT_blend_subtract")]
 		public const int FUNC_SUBTRACT = 0x800A;
 
 		/// <summary>
@@ -559,6 +612,7 @@ namespace OpenGL
 		[AliasOf("GL_FUNC_REVERSE_SUBTRACT_EXT")]
 		[RequiredByFeature("GL_VERSION_1_4")]
 		[RequiredByFeature("GL_ARB_imaging")]
+		[RequiredByFeature("GL_EXT_blend_subtract")]
 		public const int FUNC_REVERSE_SUBTRACT = 0x800B;
 
 		/// <summary>
@@ -567,6 +621,7 @@ namespace OpenGL
 		[AliasOf("GL_MIN_EXT")]
 		[RequiredByFeature("GL_VERSION_1_4")]
 		[RequiredByFeature("GL_ARB_imaging")]
+		[RequiredByFeature("GL_EXT_blend_minmax")]
 		public const int MIN = 0x8007;
 
 		/// <summary>
@@ -575,6 +630,7 @@ namespace OpenGL
 		[AliasOf("GL_MAX_EXT")]
 		[RequiredByFeature("GL_VERSION_1_4")]
 		[RequiredByFeature("GL_ARB_imaging")]
+		[RequiredByFeature("GL_EXT_blend_minmax")]
 		public const int MAX = 0x8008;
 
 		/// <summary>
@@ -583,6 +639,7 @@ namespace OpenGL
 		[AliasOf("GL_CONSTANT_COLOR_EXT")]
 		[RequiredByFeature("GL_VERSION_1_4")]
 		[RequiredByFeature("GL_ARB_imaging")]
+		[RequiredByFeature("GL_EXT_blend_color")]
 		public const int CONSTANT_COLOR = 0x8001;
 
 		/// <summary>
@@ -591,6 +648,7 @@ namespace OpenGL
 		[AliasOf("GL_ONE_MINUS_CONSTANT_COLOR_EXT")]
 		[RequiredByFeature("GL_VERSION_1_4")]
 		[RequiredByFeature("GL_ARB_imaging")]
+		[RequiredByFeature("GL_EXT_blend_color")]
 		public const int ONE_MINUS_CONSTANT_COLOR = 0x8002;
 
 		/// <summary>
@@ -599,6 +657,7 @@ namespace OpenGL
 		[AliasOf("GL_CONSTANT_ALPHA_EXT")]
 		[RequiredByFeature("GL_VERSION_1_4")]
 		[RequiredByFeature("GL_ARB_imaging")]
+		[RequiredByFeature("GL_EXT_blend_color")]
 		public const int CONSTANT_ALPHA = 0x8003;
 
 		/// <summary>
@@ -607,6 +666,7 @@ namespace OpenGL
 		[AliasOf("GL_ONE_MINUS_CONSTANT_ALPHA_EXT")]
 		[RequiredByFeature("GL_VERSION_1_4")]
 		[RequiredByFeature("GL_ARB_imaging")]
+		[RequiredByFeature("GL_EXT_blend_color")]
 		public const int ONE_MINUS_CONSTANT_ALPHA = 0x8004;
 
 		/// <summary>

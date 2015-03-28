@@ -31,6 +31,7 @@ namespace OpenGL
 		[AliasOf("GL_FIXED_OES")]
 		[RequiredByFeature("GL_VERSION_4_1")]
 		[RequiredByFeature("GL_ARB_ES2_compatibility")]
+		[RequiredByFeature("GL_OES_fixed_point")]
 		public const int FIXED = 0x140C;
 
 		/// <summary>
@@ -45,6 +46,7 @@ namespace OpenGL
 		[AliasOf("GL_IMPLEMENTATION_COLOR_READ_TYPE_OES")]
 		[RequiredByFeature("GL_VERSION_4_1")]
 		[RequiredByFeature("GL_ARB_ES2_compatibility")]
+		[RequiredByFeature("GL_OES_read_format")]
 		public const int IMPLEMENTATION_COLOR_READ_TYPE = 0x8B9A;
 
 		/// <summary>
@@ -60,6 +62,7 @@ namespace OpenGL
 		[AliasOf("GL_IMPLEMENTATION_COLOR_READ_FORMAT_OES")]
 		[RequiredByFeature("GL_VERSION_4_1")]
 		[RequiredByFeature("GL_ARB_ES2_compatibility")]
+		[RequiredByFeature("GL_OES_read_format")]
 		public const int IMPLEMENTATION_COLOR_READ_FORMAT = 0x8B9B;
 
 		/// <summary>

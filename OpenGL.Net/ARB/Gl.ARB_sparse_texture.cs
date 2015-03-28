@@ -54,6 +54,7 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_VIRTUAL_PAGE_SIZE_X_AMD")]
 		[RequiredByFeature("GL_ARB_sparse_texture")]
+		[RequiredByFeature("GL_AMD_sparse_texture")]
 		public const int VIRTUAL_PAGE_SIZE_X_ARB = 0x9195;
 
 		/// <summary>
@@ -61,6 +62,7 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_VIRTUAL_PAGE_SIZE_Y_AMD")]
 		[RequiredByFeature("GL_ARB_sparse_texture")]
+		[RequiredByFeature("GL_AMD_sparse_texture")]
 		public const int VIRTUAL_PAGE_SIZE_Y_ARB = 0x9196;
 
 		/// <summary>
@@ -68,6 +70,7 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_VIRTUAL_PAGE_SIZE_Z_AMD")]
 		[RequiredByFeature("GL_ARB_sparse_texture")]
+		[RequiredByFeature("GL_AMD_sparse_texture")]
 		public const int VIRTUAL_PAGE_SIZE_Z_ARB = 0x9197;
 
 		/// <summary>
@@ -75,6 +78,7 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_MAX_SPARSE_TEXTURE_SIZE_AMD")]
 		[RequiredByFeature("GL_ARB_sparse_texture")]
+		[RequiredByFeature("GL_AMD_sparse_texture")]
 		public const int MAX_SPARSE_TEXTURE_SIZE_ARB = 0x9198;
 
 		/// <summary>
@@ -82,6 +86,7 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_MAX_SPARSE_3D_TEXTURE_SIZE_AMD")]
 		[RequiredByFeature("GL_ARB_sparse_texture")]
+		[RequiredByFeature("GL_AMD_sparse_texture")]
 		public const int MAX_SPARSE_3D_TEXTURE_SIZE_ARB = 0x9199;
 
 		/// <summary>

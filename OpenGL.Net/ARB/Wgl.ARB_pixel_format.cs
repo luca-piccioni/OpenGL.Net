@@ -30,6 +30,7 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("WGL_NUMBER_PIXEL_FORMATS_EXT")]
 		[RequiredByFeature("WGL_ARB_pixel_format")]
+		[RequiredByFeature("WGL_EXT_pixel_format")]
 		public const int NUMBER_PIXEL_FORMATS_ARB = 0x2000;
 
 		/// <summary>
@@ -37,6 +38,7 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("WGL_DRAW_TO_WINDOW_EXT")]
 		[RequiredByFeature("WGL_ARB_pixel_format")]
+		[RequiredByFeature("WGL_EXT_pixel_format")]
 		public const int DRAW_TO_WINDOW_ARB = 0x2001;
 
 		/// <summary>
@@ -44,6 +46,7 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("WGL_DRAW_TO_BITMAP_EXT")]
 		[RequiredByFeature("WGL_ARB_pixel_format")]
+		[RequiredByFeature("WGL_EXT_pixel_format")]
 		public const int DRAW_TO_BITMAP_ARB = 0x2002;
 
 		/// <summary>
@@ -51,6 +54,7 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("WGL_ACCELERATION_EXT")]
 		[RequiredByFeature("WGL_ARB_pixel_format")]
+		[RequiredByFeature("WGL_EXT_pixel_format")]
 		public const int ACCELERATION_ARB = 0x2003;
 
 		/// <summary>
@@ -58,6 +62,7 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("WGL_NEED_PALETTE_EXT")]
 		[RequiredByFeature("WGL_ARB_pixel_format")]
+		[RequiredByFeature("WGL_EXT_pixel_format")]
 		public const int NEED_PALETTE_ARB = 0x2004;
 
 		/// <summary>
@@ -65,6 +70,7 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("WGL_NEED_SYSTEM_PALETTE_EXT")]
 		[RequiredByFeature("WGL_ARB_pixel_format")]
+		[RequiredByFeature("WGL_EXT_pixel_format")]
 		public const int NEED_SYSTEM_PALETTE_ARB = 0x2005;
 
 		/// <summary>
@@ -72,6 +78,7 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("WGL_SWAP_LAYER_BUFFERS_EXT")]
 		[RequiredByFeature("WGL_ARB_pixel_format")]
+		[RequiredByFeature("WGL_EXT_pixel_format")]
 		public const int SWAP_LAYER_BUFFERS_ARB = 0x2006;
 
 		/// <summary>
@@ -79,6 +86,7 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("WGL_SWAP_METHOD_EXT")]
 		[RequiredByFeature("WGL_ARB_pixel_format")]
+		[RequiredByFeature("WGL_EXT_pixel_format")]
 		public const int SWAP_METHOD_ARB = 0x2007;
 
 		/// <summary>
@@ -86,6 +94,7 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("WGL_NUMBER_OVERLAYS_EXT")]
 		[RequiredByFeature("WGL_ARB_pixel_format")]
+		[RequiredByFeature("WGL_EXT_pixel_format")]
 		public const int NUMBER_OVERLAYS_ARB = 0x2008;
 
 		/// <summary>
@@ -93,6 +102,7 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("WGL_NUMBER_UNDERLAYS_EXT")]
 		[RequiredByFeature("WGL_ARB_pixel_format")]
+		[RequiredByFeature("WGL_EXT_pixel_format")]
 		public const int NUMBER_UNDERLAYS_ARB = 0x2009;
 
 		/// <summary>
@@ -100,6 +110,7 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("WGL_TRANSPARENT_EXT")]
 		[RequiredByFeature("WGL_ARB_pixel_format")]
+		[RequiredByFeature("WGL_EXT_pixel_format")]
 		public const int TRANSPARENT_ARB = 0x200A;
 
 		/// <summary>
@@ -137,6 +148,7 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("WGL_SHARE_DEPTH_EXT")]
 		[RequiredByFeature("WGL_ARB_pixel_format")]
+		[RequiredByFeature("WGL_EXT_pixel_format")]
 		public const int SHARE_DEPTH_ARB = 0x200C;
 
 		/// <summary>
@@ -144,6 +156,7 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("WGL_SHARE_STENCIL_EXT")]
 		[RequiredByFeature("WGL_ARB_pixel_format")]
+		[RequiredByFeature("WGL_EXT_pixel_format")]
 		public const int SHARE_STENCIL_ARB = 0x200D;
 
 		/// <summary>
@@ -151,6 +164,7 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("WGL_SHARE_ACCUM_EXT")]
 		[RequiredByFeature("WGL_ARB_pixel_format")]
+		[RequiredByFeature("WGL_EXT_pixel_format")]
 		public const int SHARE_ACCUM_ARB = 0x200E;
 
 		/// <summary>
@@ -158,6 +172,7 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("WGL_SUPPORT_GDI_EXT")]
 		[RequiredByFeature("WGL_ARB_pixel_format")]
+		[RequiredByFeature("WGL_EXT_pixel_format")]
 		public const int SUPPORT_GDI_ARB = 0x200F;
 
 		/// <summary>
@@ -165,6 +180,7 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("WGL_SUPPORT_OPENGL_EXT")]
 		[RequiredByFeature("WGL_ARB_pixel_format")]
+		[RequiredByFeature("WGL_EXT_pixel_format")]
 		public const int SUPPORT_OPENGL_ARB = 0x2010;
 
 		/// <summary>
@@ -172,6 +188,7 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("WGL_DOUBLE_BUFFER_EXT")]
 		[RequiredByFeature("WGL_ARB_pixel_format")]
+		[RequiredByFeature("WGL_EXT_pixel_format")]
 		public const int DOUBLE_BUFFER_ARB = 0x2011;
 
 		/// <summary>
@@ -179,6 +196,7 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("WGL_STEREO_EXT")]
 		[RequiredByFeature("WGL_ARB_pixel_format")]
+		[RequiredByFeature("WGL_EXT_pixel_format")]
 		public const int STEREO_ARB = 0x2012;
 
 		/// <summary>
@@ -186,6 +204,7 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("WGL_PIXEL_TYPE_EXT")]
 		[RequiredByFeature("WGL_ARB_pixel_format")]
+		[RequiredByFeature("WGL_EXT_pixel_format")]
 		public const int PIXEL_TYPE_ARB = 0x2013;
 
 		/// <summary>
@@ -193,6 +212,7 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("WGL_COLOR_BITS_EXT")]
 		[RequiredByFeature("WGL_ARB_pixel_format")]
+		[RequiredByFeature("WGL_EXT_pixel_format")]
 		public const int COLOR_BITS_ARB = 0x2014;
 
 		/// <summary>
@@ -200,6 +220,7 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("WGL_RED_BITS_EXT")]
 		[RequiredByFeature("WGL_ARB_pixel_format")]
+		[RequiredByFeature("WGL_EXT_pixel_format")]
 		public const int RED_BITS_ARB = 0x2015;
 
 		/// <summary>
@@ -207,6 +228,7 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("WGL_RED_SHIFT_EXT")]
 		[RequiredByFeature("WGL_ARB_pixel_format")]
+		[RequiredByFeature("WGL_EXT_pixel_format")]
 		public const int RED_SHIFT_ARB = 0x2016;
 
 		/// <summary>
@@ -214,6 +236,7 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("WGL_GREEN_BITS_EXT")]
 		[RequiredByFeature("WGL_ARB_pixel_format")]
+		[RequiredByFeature("WGL_EXT_pixel_format")]
 		public const int GREEN_BITS_ARB = 0x2017;
 
 		/// <summary>
@@ -221,6 +244,7 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("WGL_GREEN_SHIFT_EXT")]
 		[RequiredByFeature("WGL_ARB_pixel_format")]
+		[RequiredByFeature("WGL_EXT_pixel_format")]
 		public const int GREEN_SHIFT_ARB = 0x2018;
 
 		/// <summary>
@@ -228,6 +252,7 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("WGL_BLUE_BITS_EXT")]
 		[RequiredByFeature("WGL_ARB_pixel_format")]
+		[RequiredByFeature("WGL_EXT_pixel_format")]
 		public const int BLUE_BITS_ARB = 0x2019;
 
 		/// <summary>
@@ -235,6 +260,7 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("WGL_BLUE_SHIFT_EXT")]
 		[RequiredByFeature("WGL_ARB_pixel_format")]
+		[RequiredByFeature("WGL_EXT_pixel_format")]
 		public const int BLUE_SHIFT_ARB = 0x201A;
 
 		/// <summary>
@@ -242,6 +268,7 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("WGL_ALPHA_BITS_EXT")]
 		[RequiredByFeature("WGL_ARB_pixel_format")]
+		[RequiredByFeature("WGL_EXT_pixel_format")]
 		public const int ALPHA_BITS_ARB = 0x201B;
 
 		/// <summary>
@@ -249,6 +276,7 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("WGL_ALPHA_SHIFT_EXT")]
 		[RequiredByFeature("WGL_ARB_pixel_format")]
+		[RequiredByFeature("WGL_EXT_pixel_format")]
 		public const int ALPHA_SHIFT_ARB = 0x201C;
 
 		/// <summary>
@@ -256,6 +284,7 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("WGL_ACCUM_BITS_EXT")]
 		[RequiredByFeature("WGL_ARB_pixel_format")]
+		[RequiredByFeature("WGL_EXT_pixel_format")]
 		public const int ACCUM_BITS_ARB = 0x201D;
 
 		/// <summary>
@@ -263,6 +292,7 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("WGL_ACCUM_RED_BITS_EXT")]
 		[RequiredByFeature("WGL_ARB_pixel_format")]
+		[RequiredByFeature("WGL_EXT_pixel_format")]
 		public const int ACCUM_RED_BITS_ARB = 0x201E;
 
 		/// <summary>
@@ -270,6 +300,7 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("WGL_ACCUM_GREEN_BITS_EXT")]
 		[RequiredByFeature("WGL_ARB_pixel_format")]
+		[RequiredByFeature("WGL_EXT_pixel_format")]
 		public const int ACCUM_GREEN_BITS_ARB = 0x201F;
 
 		/// <summary>
@@ -277,6 +308,7 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("WGL_ACCUM_BLUE_BITS_EXT")]
 		[RequiredByFeature("WGL_ARB_pixel_format")]
+		[RequiredByFeature("WGL_EXT_pixel_format")]
 		public const int ACCUM_BLUE_BITS_ARB = 0x2020;
 
 		/// <summary>
@@ -284,6 +316,7 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("WGL_ACCUM_ALPHA_BITS_EXT")]
 		[RequiredByFeature("WGL_ARB_pixel_format")]
+		[RequiredByFeature("WGL_EXT_pixel_format")]
 		public const int ACCUM_ALPHA_BITS_ARB = 0x2021;
 
 		/// <summary>
@@ -291,6 +324,7 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("WGL_DEPTH_BITS_EXT")]
 		[RequiredByFeature("WGL_ARB_pixel_format")]
+		[RequiredByFeature("WGL_EXT_pixel_format")]
 		public const int DEPTH_BITS_ARB = 0x2022;
 
 		/// <summary>
@@ -298,6 +332,7 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("WGL_STENCIL_BITS_EXT")]
 		[RequiredByFeature("WGL_ARB_pixel_format")]
+		[RequiredByFeature("WGL_EXT_pixel_format")]
 		public const int STENCIL_BITS_ARB = 0x2023;
 
 		/// <summary>
@@ -305,6 +340,7 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("WGL_AUX_BUFFERS_EXT")]
 		[RequiredByFeature("WGL_ARB_pixel_format")]
+		[RequiredByFeature("WGL_EXT_pixel_format")]
 		public const int AUX_BUFFERS_ARB = 0x2024;
 
 		/// <summary>
@@ -312,6 +348,7 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("WGL_NO_ACCELERATION_EXT")]
 		[RequiredByFeature("WGL_ARB_pixel_format")]
+		[RequiredByFeature("WGL_EXT_pixel_format")]
 		public const int NO_ACCELERATION_ARB = 0x2025;
 
 		/// <summary>
@@ -319,6 +356,7 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("WGL_GENERIC_ACCELERATION_EXT")]
 		[RequiredByFeature("WGL_ARB_pixel_format")]
+		[RequiredByFeature("WGL_EXT_pixel_format")]
 		public const int GENERIC_ACCELERATION_ARB = 0x2026;
 
 		/// <summary>
@@ -326,6 +364,7 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("WGL_FULL_ACCELERATION_EXT")]
 		[RequiredByFeature("WGL_ARB_pixel_format")]
+		[RequiredByFeature("WGL_EXT_pixel_format")]
 		public const int FULL_ACCELERATION_ARB = 0x2027;
 
 		/// <summary>
@@ -333,6 +372,7 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("WGL_SWAP_EXCHANGE_EXT")]
 		[RequiredByFeature("WGL_ARB_pixel_format")]
+		[RequiredByFeature("WGL_EXT_pixel_format")]
 		public const int SWAP_EXCHANGE_ARB = 0x2028;
 
 		/// <summary>
@@ -340,6 +380,7 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("WGL_SWAP_COPY_EXT")]
 		[RequiredByFeature("WGL_ARB_pixel_format")]
+		[RequiredByFeature("WGL_EXT_pixel_format")]
 		public const int SWAP_COPY_ARB = 0x2029;
 
 		/// <summary>
@@ -347,6 +388,7 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("WGL_SWAP_UNDEFINED_EXT")]
 		[RequiredByFeature("WGL_ARB_pixel_format")]
+		[RequiredByFeature("WGL_EXT_pixel_format")]
 		public const int SWAP_UNDEFINED_ARB = 0x202A;
 
 		/// <summary>
@@ -354,6 +396,7 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("WGL_TYPE_RGBA_EXT")]
 		[RequiredByFeature("WGL_ARB_pixel_format")]
+		[RequiredByFeature("WGL_EXT_pixel_format")]
 		public const int TYPE_RGBA_ARB = 0x202B;
 
 		/// <summary>
@@ -361,6 +404,7 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("WGL_TYPE_COLORINDEX_EXT")]
 		[RequiredByFeature("WGL_ARB_pixel_format")]
+		[RequiredByFeature("WGL_EXT_pixel_format")]
 		public const int TYPE_COLORINDEX_ARB = 0x202C;
 
 		/// <summary>

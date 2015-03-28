@@ -15,10 +15,11 @@
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 using System;
+using System.Collections.Generic;
 using System.Text;
 using System.Text.RegularExpressions;
 
-namespace BindingsGen.GLSpecs
+namespace BindingsGen
 {
 	/// <summary>
 	/// Class determining the OpenGL bindings style.
@@ -75,6 +76,44 @@ namespace BindingsGen.GLSpecs
 				specificationName = specificationName.Substring(4, specificationName.Length - 4);
 
 			return (GetLegalCsField(specificationName));
+		}
+
+		/// <summary>
+		/// Get the OpenGL "strong" name.
+		/// </summary>
+		/// <param name="specificationName">
+		/// The OpenGL specification name to be converted.
+		/// </param>
+		/// <returns>
+		/// It returns the name of the enumerant for the OpenGL binding.
+		/// </returns>
+		public static string GetExtensionBindingName(string specificationName)
+		{
+			if (specificationName == null)
+				throw new ArgumentNullException("specificationName");
+
+			int namespaceIndex = specificationName.IndexOf("_");
+			int extIndex = specificationName.IndexOf("_", namespaceIndex + 1);
+			List<int> wordsIndices = new List<int>();
+			int wordsIndex = extIndex;
+
+			wordsIndices.Add(extIndex + 1);
+			while ((wordsIndex = specificationName.IndexOf("_", wordsIndex + 1)) >= 0)
+				wordsIndices.Add(wordsIndex + 1);
+			wordsIndices.Add(specificationName.Length + 1);
+
+			StringBuilder sb = new StringBuilder();
+
+			for (int i = 0; i < wordsIndices.Count - 1; i++) {
+				string token = specificationName.Substring(wordsIndices[i], wordsIndices[i+1] - wordsIndices[i] - 1);
+
+				sb.Append(SpecificationStyle.EnsureFirstUpperCase(token));
+			}
+
+			sb.Append("_");
+			sb.Append(specificationName.Substring(namespaceIndex + 1, extIndex - namespaceIndex - 1));
+
+			return (GetLegalCsField(sb.ToString()));
 		}
 
 		/// <summary>
@@ -143,6 +182,22 @@ namespace BindingsGen.GLSpecs
 				return ("_" + token);
 			else
 				return (token);
+		}
+
+		public static string EnsureFirstLowerCase(string input)
+		{
+			if ((input.Length > 0) && Char.IsUpper(input[0]))
+				return (input.Substring(0, 1).ToLower() + input.Substring(1));
+			else
+				return (input);
+		}
+
+		public static string EnsureFirstUpperCase(string input)
+		{
+			if ((input.Length > 0) && Char.IsLower(input[0]))
+				return (input.Substring(0, 1).ToUpper() + input.Substring(1));
+			else
+				return (input);
 		}
 	}
 }

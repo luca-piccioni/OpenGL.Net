@@ -31,6 +31,7 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_BLEND_EQUATION_RGB_EXT")]
 		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_EXT_blend_equation_separate")]
 		public const int BLEND_EQUATION_RGB = 0x8009;
 
 		/// <summary>
@@ -39,6 +40,8 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_VERTEX_ATTRIB_ARRAY_ENABLED_ARB")]
 		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ARB_vertex_program")]
+		[RequiredByFeature("GL_ARB_vertex_shader")]
 		public const int VERTEX_ATTRIB_ARRAY_ENABLED = 0x8622;
 
 		/// <summary>
@@ -47,6 +50,8 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_VERTEX_ATTRIB_ARRAY_SIZE_ARB")]
 		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ARB_vertex_program")]
+		[RequiredByFeature("GL_ARB_vertex_shader")]
 		public const int VERTEX_ATTRIB_ARRAY_SIZE = 0x8623;
 
 		/// <summary>
@@ -56,6 +61,8 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_VERTEX_ATTRIB_ARRAY_STRIDE_ARB")]
 		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ARB_vertex_program")]
+		[RequiredByFeature("GL_ARB_vertex_shader")]
 		public const int VERTEX_ATTRIB_ARRAY_STRIDE = 0x8624;
 
 		/// <summary>
@@ -65,6 +72,8 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_VERTEX_ATTRIB_ARRAY_TYPE_ARB")]
 		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ARB_vertex_program")]
+		[RequiredByFeature("GL_ARB_vertex_shader")]
 		public const int VERTEX_ATTRIB_ARRAY_TYPE = 0x8625;
 
 		/// <summary>
@@ -78,6 +87,8 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_CURRENT_VERTEX_ATTRIB_ARB")]
 		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ARB_vertex_program")]
+		[RequiredByFeature("GL_ARB_vertex_shader")]
 		public const int CURRENT_VERTEX_ATTRIB = 0x8626;
 
 		/// <summary>
@@ -95,6 +106,9 @@ namespace OpenGL
 		[AliasOf("GL_VERTEX_PROGRAM_POINT_SIZE_ARB")]
 		[AliasOf("GL_VERTEX_PROGRAM_POINT_SIZE_NV")]
 		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ARB_vertex_program")]
+		[RequiredByFeature("GL_ARB_vertex_shader")]
+		[RequiredByFeature("GL_NV_vertex_program")]
 		public const int VERTEX_PROGRAM_POINT_SIZE = 0x8642;
 
 		/// <summary>
@@ -102,6 +116,8 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_VERTEX_ATTRIB_ARRAY_POINTER_ARB")]
 		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ARB_vertex_program")]
+		[RequiredByFeature("GL_ARB_vertex_shader")]
 		public const int VERTEX_ATTRIB_ARRAY_POINTER = 0x8645;
 
 		/// <summary>
@@ -110,6 +126,7 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_STENCIL_BACK_FUNC_ATI")]
 		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ATI_separate_stencil")]
 		public const int STENCIL_BACK_FUNC = 0x8800;
 
 		/// <summary>
@@ -118,6 +135,7 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_STENCIL_BACK_FAIL_ATI")]
 		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ATI_separate_stencil")]
 		public const int STENCIL_BACK_FAIL = 0x8801;
 
 		/// <summary>
@@ -126,6 +144,7 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_STENCIL_BACK_PASS_DEPTH_FAIL_ATI")]
 		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ATI_separate_stencil")]
 		public const int STENCIL_BACK_PASS_DEPTH_FAIL = 0x8802;
 
 		/// <summary>
@@ -134,6 +153,7 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_STENCIL_BACK_PASS_DEPTH_PASS_ATI")]
 		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ATI_separate_stencil")]
 		public const int STENCIL_BACK_PASS_DEPTH_PASS = 0x8803;
 
 		/// <summary>
@@ -143,6 +163,8 @@ namespace OpenGL
 		[AliasOf("GL_MAX_DRAW_BUFFERS_ARB")]
 		[AliasOf("GL_MAX_DRAW_BUFFERS_ATI")]
 		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ARB_draw_buffers")]
+		[RequiredByFeature("GL_ATI_draw_buffers")]
 		public const int MAX_DRAW_BUFFERS = 0x8824;
 
 		/// <summary>
@@ -151,6 +173,8 @@ namespace OpenGL
 		[AliasOf("GL_DRAW_BUFFER0_ARB")]
 		[AliasOf("GL_DRAW_BUFFER0_ATI")]
 		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ARB_draw_buffers")]
+		[RequiredByFeature("GL_ATI_draw_buffers")]
 		public const int DRAW_BUFFER0 = 0x8825;
 
 		/// <summary>
@@ -159,6 +183,8 @@ namespace OpenGL
 		[AliasOf("GL_DRAW_BUFFER1_ARB")]
 		[AliasOf("GL_DRAW_BUFFER1_ATI")]
 		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ARB_draw_buffers")]
+		[RequiredByFeature("GL_ATI_draw_buffers")]
 		public const int DRAW_BUFFER1 = 0x8826;
 
 		/// <summary>
@@ -167,6 +193,8 @@ namespace OpenGL
 		[AliasOf("GL_DRAW_BUFFER2_ARB")]
 		[AliasOf("GL_DRAW_BUFFER2_ATI")]
 		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ARB_draw_buffers")]
+		[RequiredByFeature("GL_ATI_draw_buffers")]
 		public const int DRAW_BUFFER2 = 0x8827;
 
 		/// <summary>
@@ -175,6 +203,8 @@ namespace OpenGL
 		[AliasOf("GL_DRAW_BUFFER3_ARB")]
 		[AliasOf("GL_DRAW_BUFFER3_ATI")]
 		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ARB_draw_buffers")]
+		[RequiredByFeature("GL_ATI_draw_buffers")]
 		public const int DRAW_BUFFER3 = 0x8828;
 
 		/// <summary>
@@ -183,6 +213,8 @@ namespace OpenGL
 		[AliasOf("GL_DRAW_BUFFER4_ARB")]
 		[AliasOf("GL_DRAW_BUFFER4_ATI")]
 		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ARB_draw_buffers")]
+		[RequiredByFeature("GL_ATI_draw_buffers")]
 		public const int DRAW_BUFFER4 = 0x8829;
 
 		/// <summary>
@@ -191,6 +223,8 @@ namespace OpenGL
 		[AliasOf("GL_DRAW_BUFFER5_ARB")]
 		[AliasOf("GL_DRAW_BUFFER5_ATI")]
 		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ARB_draw_buffers")]
+		[RequiredByFeature("GL_ATI_draw_buffers")]
 		public const int DRAW_BUFFER5 = 0x882A;
 
 		/// <summary>
@@ -199,6 +233,8 @@ namespace OpenGL
 		[AliasOf("GL_DRAW_BUFFER6_ARB")]
 		[AliasOf("GL_DRAW_BUFFER6_ATI")]
 		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ARB_draw_buffers")]
+		[RequiredByFeature("GL_ATI_draw_buffers")]
 		public const int DRAW_BUFFER6 = 0x882B;
 
 		/// <summary>
@@ -207,6 +243,8 @@ namespace OpenGL
 		[AliasOf("GL_DRAW_BUFFER7_ARB")]
 		[AliasOf("GL_DRAW_BUFFER7_ATI")]
 		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ARB_draw_buffers")]
+		[RequiredByFeature("GL_ATI_draw_buffers")]
 		public const int DRAW_BUFFER7 = 0x882C;
 
 		/// <summary>
@@ -215,6 +253,8 @@ namespace OpenGL
 		[AliasOf("GL_DRAW_BUFFER8_ARB")]
 		[AliasOf("GL_DRAW_BUFFER8_ATI")]
 		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ARB_draw_buffers")]
+		[RequiredByFeature("GL_ATI_draw_buffers")]
 		public const int DRAW_BUFFER8 = 0x882D;
 
 		/// <summary>
@@ -223,6 +263,8 @@ namespace OpenGL
 		[AliasOf("GL_DRAW_BUFFER9_ARB")]
 		[AliasOf("GL_DRAW_BUFFER9_ATI")]
 		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ARB_draw_buffers")]
+		[RequiredByFeature("GL_ATI_draw_buffers")]
 		public const int DRAW_BUFFER9 = 0x882E;
 
 		/// <summary>
@@ -231,6 +273,8 @@ namespace OpenGL
 		[AliasOf("GL_DRAW_BUFFER10_ARB")]
 		[AliasOf("GL_DRAW_BUFFER10_ATI")]
 		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ARB_draw_buffers")]
+		[RequiredByFeature("GL_ATI_draw_buffers")]
 		public const int DRAW_BUFFER10 = 0x882F;
 
 		/// <summary>
@@ -239,6 +283,8 @@ namespace OpenGL
 		[AliasOf("GL_DRAW_BUFFER11_ARB")]
 		[AliasOf("GL_DRAW_BUFFER11_ATI")]
 		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ARB_draw_buffers")]
+		[RequiredByFeature("GL_ATI_draw_buffers")]
 		public const int DRAW_BUFFER11 = 0x8830;
 
 		/// <summary>
@@ -247,6 +293,8 @@ namespace OpenGL
 		[AliasOf("GL_DRAW_BUFFER12_ARB")]
 		[AliasOf("GL_DRAW_BUFFER12_ATI")]
 		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ARB_draw_buffers")]
+		[RequiredByFeature("GL_ATI_draw_buffers")]
 		public const int DRAW_BUFFER12 = 0x8831;
 
 		/// <summary>
@@ -255,6 +303,8 @@ namespace OpenGL
 		[AliasOf("GL_DRAW_BUFFER13_ARB")]
 		[AliasOf("GL_DRAW_BUFFER13_ATI")]
 		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ARB_draw_buffers")]
+		[RequiredByFeature("GL_ATI_draw_buffers")]
 		public const int DRAW_BUFFER13 = 0x8832;
 
 		/// <summary>
@@ -263,6 +313,8 @@ namespace OpenGL
 		[AliasOf("GL_DRAW_BUFFER14_ARB")]
 		[AliasOf("GL_DRAW_BUFFER14_ATI")]
 		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ARB_draw_buffers")]
+		[RequiredByFeature("GL_ATI_draw_buffers")]
 		public const int DRAW_BUFFER14 = 0x8833;
 
 		/// <summary>
@@ -271,6 +323,8 @@ namespace OpenGL
 		[AliasOf("GL_DRAW_BUFFER15_ARB")]
 		[AliasOf("GL_DRAW_BUFFER15_ATI")]
 		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ARB_draw_buffers")]
+		[RequiredByFeature("GL_ATI_draw_buffers")]
 		public const int DRAW_BUFFER15 = 0x8834;
 
 		/// <summary>
@@ -279,6 +333,7 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_BLEND_EQUATION_ALPHA_EXT")]
 		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_EXT_blend_equation_separate")]
 		public const int BLEND_EQUATION_ALPHA = 0x883D;
 
 		/// <summary>
@@ -287,6 +342,8 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_MAX_VERTEX_ATTRIBS_ARB")]
 		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ARB_vertex_program")]
+		[RequiredByFeature("GL_ARB_vertex_shader")]
 		public const int MAX_VERTEX_ATTRIBS = 0x8869;
 
 		/// <summary>
@@ -296,6 +353,8 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_VERTEX_ATTRIB_ARRAY_NORMALIZED_ARB")]
 		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ARB_vertex_program")]
+		[RequiredByFeature("GL_ARB_vertex_shader")]
 		public const int VERTEX_ATTRIB_ARRAY_NORMALIZED = 0x886A;
 
 		/// <summary>
@@ -305,6 +364,9 @@ namespace OpenGL
 		[AliasOf("GL_MAX_TEXTURE_IMAGE_UNITS_ARB")]
 		[AliasOf("GL_MAX_TEXTURE_IMAGE_UNITS_NV")]
 		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ARB_fragment_program")]
+		[RequiredByFeature("GL_ARB_vertex_shader")]
+		[RequiredByFeature("GL_NV_fragment_program")]
 		public const int MAX_TEXTURE_IMAGE_UNITS = 0x8872;
 
 		/// <summary>
@@ -312,6 +374,7 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_FRAGMENT_SHADER_ARB")]
 		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ARB_fragment_shader")]
 		public const int FRAGMENT_SHADER = 0x8B30;
 
 		/// <summary>
@@ -319,6 +382,7 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_VERTEX_SHADER_ARB")]
 		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ARB_vertex_shader")]
 		public const int VERTEX_SHADER = 0x8B31;
 
 		/// <summary>
@@ -327,6 +391,7 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_MAX_FRAGMENT_UNIFORM_COMPONENTS_ARB")]
 		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ARB_fragment_shader")]
 		public const int MAX_FRAGMENT_UNIFORM_COMPONENTS = 0x8B49;
 
 		/// <summary>
@@ -335,6 +400,7 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_MAX_VERTEX_UNIFORM_COMPONENTS_ARB")]
 		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ARB_vertex_shader")]
 		public const int MAX_VERTEX_UNIFORM_COMPONENTS = 0x8B4A;
 
 		/// <summary>
@@ -345,6 +411,7 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_MAX_VARYING_FLOATS_ARB")]
 		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ARB_vertex_shader")]
 		public const int MAX_VARYING_FLOATS = 0x8B4B;
 
 		/// <summary>
@@ -353,6 +420,8 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_MAX_VERTEX_TEXTURE_IMAGE_UNITS_ARB")]
 		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ARB_vertex_shader")]
+		[RequiredByFeature("GL_NV_vertex_program3")]
 		public const int MAX_VERTEX_TEXTURE_IMAGE_UNITS = 0x8B4C;
 
 		/// <summary>
@@ -363,6 +432,7 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_MAX_COMBINED_TEXTURE_IMAGE_UNITS_ARB")]
 		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ARB_vertex_shader")]
 		public const int MAX_COMBINED_TEXTURE_IMAGE_UNITS = 0x8B4D;
 
 		/// <summary>
@@ -377,6 +447,8 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_FLOAT_VEC2_ARB")]
 		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ARB_shader_objects")]
+		[RequiredByFeature("GL_ARB_vertex_shader")]
 		public const int FLOAT_VEC2 = 0x8B50;
 
 		/// <summary>
@@ -384,6 +456,8 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_FLOAT_VEC3_ARB")]
 		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ARB_shader_objects")]
+		[RequiredByFeature("GL_ARB_vertex_shader")]
 		public const int FLOAT_VEC3 = 0x8B51;
 
 		/// <summary>
@@ -391,6 +465,8 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_FLOAT_VEC4_ARB")]
 		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ARB_shader_objects")]
+		[RequiredByFeature("GL_ARB_vertex_shader")]
 		public const int FLOAT_VEC4 = 0x8B52;
 
 		/// <summary>
@@ -398,6 +474,7 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_INT_VEC2_ARB")]
 		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ARB_shader_objects")]
 		public const int INT_VEC2 = 0x8B53;
 
 		/// <summary>
@@ -405,6 +482,7 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_INT_VEC3_ARB")]
 		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ARB_shader_objects")]
 		public const int INT_VEC3 = 0x8B54;
 
 		/// <summary>
@@ -412,6 +490,7 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_INT_VEC4_ARB")]
 		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ARB_shader_objects")]
 		public const int INT_VEC4 = 0x8B55;
 
 		/// <summary>
@@ -419,6 +498,7 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_BOOL_ARB")]
 		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ARB_shader_objects")]
 		public const int BOOL = 0x8B56;
 
 		/// <summary>
@@ -426,6 +506,7 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_BOOL_VEC2_ARB")]
 		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ARB_shader_objects")]
 		public const int BOOL_VEC2 = 0x8B57;
 
 		/// <summary>
@@ -433,6 +514,7 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_BOOL_VEC3_ARB")]
 		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ARB_shader_objects")]
 		public const int BOOL_VEC3 = 0x8B58;
 
 		/// <summary>
@@ -440,6 +522,7 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_BOOL_VEC4_ARB")]
 		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ARB_shader_objects")]
 		public const int BOOL_VEC4 = 0x8B59;
 
 		/// <summary>
@@ -447,6 +530,8 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_FLOAT_MAT2_ARB")]
 		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ARB_shader_objects")]
+		[RequiredByFeature("GL_ARB_vertex_shader")]
 		public const int FLOAT_MAT2 = 0x8B5A;
 
 		/// <summary>
@@ -454,6 +539,8 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_FLOAT_MAT3_ARB")]
 		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ARB_shader_objects")]
+		[RequiredByFeature("GL_ARB_vertex_shader")]
 		public const int FLOAT_MAT3 = 0x8B5B;
 
 		/// <summary>
@@ -461,6 +548,8 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_FLOAT_MAT4_ARB")]
 		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ARB_shader_objects")]
+		[RequiredByFeature("GL_ARB_vertex_shader")]
 		public const int FLOAT_MAT4 = 0x8B5C;
 
 		/// <summary>
@@ -468,6 +557,7 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_SAMPLER_1D_ARB")]
 		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ARB_shader_objects")]
 		public const int SAMPLER_1D = 0x8B5D;
 
 		/// <summary>
@@ -475,6 +565,7 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_SAMPLER_2D_ARB")]
 		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ARB_shader_objects")]
 		public const int SAMPLER_2D = 0x8B5E;
 
 		/// <summary>
@@ -482,6 +573,7 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_SAMPLER_3D_ARB")]
 		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ARB_shader_objects")]
 		public const int SAMPLER_3D = 0x8B5F;
 
 		/// <summary>
@@ -489,6 +581,7 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_SAMPLER_CUBE_ARB")]
 		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ARB_shader_objects")]
 		public const int SAMPLER_CUBE = 0x8B60;
 
 		/// <summary>
@@ -496,6 +589,7 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_SAMPLER_1D_SHADOW_ARB")]
 		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ARB_shader_objects")]
 		public const int SAMPLER_1D_SHADOW = 0x8B61;
 
 		/// <summary>
@@ -503,6 +597,7 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_SAMPLER_2D_SHADOW_ARB")]
 		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ARB_shader_objects")]
 		public const int SAMPLER_2D_SHADOW = 0x8B62;
 
 		/// <summary>
@@ -604,6 +699,7 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_FRAGMENT_SHADER_DERIVATIVE_HINT_ARB")]
 		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ARB_fragment_shader")]
 		public const int FRAGMENT_SHADER_DERIVATIVE_HINT = 0x8B8B;
 
 		/// <summary>
@@ -611,6 +707,7 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_SHADING_LANGUAGE_VERSION_ARB")]
 		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ARB_shading_language_100")]
 		public const int SHADING_LANGUAGE_VERSION = 0x8B8C;
 
 		/// <summary>
@@ -679,6 +776,9 @@ namespace OpenGL
 		[AliasOf("GL_VERTEX_PROGRAM_TWO_SIDE_ARB")]
 		[AliasOf("GL_VERTEX_PROGRAM_TWO_SIDE_NV")]
 		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ARB_vertex_program")]
+		[RequiredByFeature("GL_ARB_vertex_shader")]
+		[RequiredByFeature("GL_NV_vertex_program")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
 		[Obsolete("Deprecated/removed by OpenGL 3.2.")]
@@ -697,6 +797,8 @@ namespace OpenGL
 		[AliasOf("GL_POINT_SPRITE_ARB")]
 		[AliasOf("GL_POINT_SPRITE_NV")]
 		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ARB_point_sprite")]
+		[RequiredByFeature("GL_NV_point_sprite")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
 		[Obsolete("Deprecated/removed by OpenGL 3.2.")]
@@ -710,6 +812,8 @@ namespace OpenGL
 		[AliasOf("GL_COORD_REPLACE_ARB")]
 		[AliasOf("GL_COORD_REPLACE_NV")]
 		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ARB_point_sprite")]
+		[RequiredByFeature("GL_NV_point_sprite")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
 		[Obsolete("Deprecated/removed by OpenGL 3.2.")]
@@ -723,6 +827,9 @@ namespace OpenGL
 		[AliasOf("GL_MAX_TEXTURE_COORDS_ARB")]
 		[AliasOf("GL_MAX_TEXTURE_COORDS_NV")]
 		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ARB_fragment_program")]
+		[RequiredByFeature("GL_ARB_vertex_shader")]
+		[RequiredByFeature("GL_NV_fragment_program")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
 		[Obsolete("Deprecated/removed by OpenGL 3.2.")]

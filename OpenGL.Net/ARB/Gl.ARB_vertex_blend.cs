@@ -90,6 +90,7 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_MODELVIEW0_EXT")]
 		[RequiredByFeature("GL_ARB_vertex_blend")]
+		[RequiredByFeature("GL_EXT_vertex_weighting")]
 		public const int MODELVIEW0_ARB = 0x1700;
 
 		/// <summary>
@@ -97,6 +98,7 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_MODELVIEW1_EXT")]
 		[RequiredByFeature("GL_ARB_vertex_blend")]
+		[RequiredByFeature("GL_EXT_vertex_weighting")]
 		public const int MODELVIEW1_ARB = 0x850A;
 
 		/// <summary>

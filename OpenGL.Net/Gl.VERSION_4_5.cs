@@ -124,6 +124,7 @@ namespace OpenGL
 		[AliasOf("GL_GUILTY_CONTEXT_RESET_ARB")]
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_KHR_robustness")]
+		[RequiredByFeature("GL_ARB_robustness")]
 		public const int GUILTY_CONTEXT_RESET = 0x8253;
 
 		/// <summary>
@@ -132,6 +133,7 @@ namespace OpenGL
 		[AliasOf("GL_INNOCENT_CONTEXT_RESET_ARB")]
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_KHR_robustness")]
+		[RequiredByFeature("GL_ARB_robustness")]
 		public const int INNOCENT_CONTEXT_RESET = 0x8254;
 
 		/// <summary>
@@ -140,6 +142,7 @@ namespace OpenGL
 		[AliasOf("GL_UNKNOWN_CONTEXT_RESET_ARB")]
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_KHR_robustness")]
+		[RequiredByFeature("GL_ARB_robustness")]
 		public const int UNKNOWN_CONTEXT_RESET = 0x8255;
 
 		/// <summary>
@@ -148,6 +151,7 @@ namespace OpenGL
 		[AliasOf("GL_RESET_NOTIFICATION_STRATEGY_ARB")]
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_KHR_robustness")]
+		[RequiredByFeature("GL_ARB_robustness")]
 		public const int RESET_NOTIFICATION_STRATEGY = 0x8256;
 
 		/// <summary>
@@ -156,6 +160,7 @@ namespace OpenGL
 		[AliasOf("GL_LOSE_CONTEXT_ON_RESET_ARB")]
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_KHR_robustness")]
+		[RequiredByFeature("GL_ARB_robustness")]
 		public const int LOSE_CONTEXT_ON_RESET = 0x8252;
 
 		/// <summary>
@@ -164,6 +169,7 @@ namespace OpenGL
 		[AliasOf("GL_NO_RESET_NOTIFICATION_ARB")]
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_KHR_robustness")]
+		[RequiredByFeature("GL_ARB_robustness")]
 		public const int NO_RESET_NOTIFICATION = 0x8261;
 
 		/// <summary>
@@ -171,6 +177,7 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_CONTEXT_FLAG_ROBUST_ACCESS_BIT_ARB")]
 		[RequiredByFeature("GL_VERSION_4_5")]
+		[RequiredByFeature("GL_ARB_robustness")]
 		public const uint CONTEXT_FLAG_ROBUST_ACCESS_BIT = 0x00000004;
 
 		/// <summary>

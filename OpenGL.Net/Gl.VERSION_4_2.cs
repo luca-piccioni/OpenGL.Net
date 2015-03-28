@@ -307,6 +307,7 @@ namespace OpenGL
 		[AliasOf("GL_VERTEX_ATTRIB_ARRAY_BARRIER_BIT_EXT")]
 		[RequiredByFeature("GL_VERSION_4_2")]
 		[RequiredByFeature("GL_ARB_shader_image_load_store")]
+		[RequiredByFeature("GL_EXT_shader_image_load_store")]
 		public const uint VERTEX_ATTRIB_ARRAY_BARRIER_BIT = 0x00000001;
 
 		/// <summary>
@@ -315,6 +316,7 @@ namespace OpenGL
 		[AliasOf("GL_ELEMENT_ARRAY_BARRIER_BIT_EXT")]
 		[RequiredByFeature("GL_VERSION_4_2")]
 		[RequiredByFeature("GL_ARB_shader_image_load_store")]
+		[RequiredByFeature("GL_EXT_shader_image_load_store")]
 		public const uint ELEMENT_ARRAY_BARRIER_BIT = 0x00000002;
 
 		/// <summary>
@@ -323,6 +325,7 @@ namespace OpenGL
 		[AliasOf("GL_UNIFORM_BARRIER_BIT_EXT")]
 		[RequiredByFeature("GL_VERSION_4_2")]
 		[RequiredByFeature("GL_ARB_shader_image_load_store")]
+		[RequiredByFeature("GL_EXT_shader_image_load_store")]
 		public const uint UNIFORM_BARRIER_BIT = 0x00000004;
 
 		/// <summary>
@@ -331,6 +334,7 @@ namespace OpenGL
 		[AliasOf("GL_TEXTURE_FETCH_BARRIER_BIT_EXT")]
 		[RequiredByFeature("GL_VERSION_4_2")]
 		[RequiredByFeature("GL_ARB_shader_image_load_store")]
+		[RequiredByFeature("GL_EXT_shader_image_load_store")]
 		public const uint TEXTURE_FETCH_BARRIER_BIT = 0x00000008;
 
 		/// <summary>
@@ -339,6 +343,7 @@ namespace OpenGL
 		[AliasOf("GL_SHADER_IMAGE_ACCESS_BARRIER_BIT_EXT")]
 		[RequiredByFeature("GL_VERSION_4_2")]
 		[RequiredByFeature("GL_ARB_shader_image_load_store")]
+		[RequiredByFeature("GL_EXT_shader_image_load_store")]
 		public const uint SHADER_IMAGE_ACCESS_BARRIER_BIT = 0x00000020;
 
 		/// <summary>
@@ -347,6 +352,7 @@ namespace OpenGL
 		[AliasOf("GL_COMMAND_BARRIER_BIT_EXT")]
 		[RequiredByFeature("GL_VERSION_4_2")]
 		[RequiredByFeature("GL_ARB_shader_image_load_store")]
+		[RequiredByFeature("GL_EXT_shader_image_load_store")]
 		public const uint COMMAND_BARRIER_BIT = 0x00000040;
 
 		/// <summary>
@@ -355,6 +361,7 @@ namespace OpenGL
 		[AliasOf("GL_PIXEL_BUFFER_BARRIER_BIT_EXT")]
 		[RequiredByFeature("GL_VERSION_4_2")]
 		[RequiredByFeature("GL_ARB_shader_image_load_store")]
+		[RequiredByFeature("GL_EXT_shader_image_load_store")]
 		public const uint PIXEL_BUFFER_BARRIER_BIT = 0x00000080;
 
 		/// <summary>
@@ -363,6 +370,7 @@ namespace OpenGL
 		[AliasOf("GL_TEXTURE_UPDATE_BARRIER_BIT_EXT")]
 		[RequiredByFeature("GL_VERSION_4_2")]
 		[RequiredByFeature("GL_ARB_shader_image_load_store")]
+		[RequiredByFeature("GL_EXT_shader_image_load_store")]
 		public const uint TEXTURE_UPDATE_BARRIER_BIT = 0x00000100;
 
 		/// <summary>
@@ -371,6 +379,7 @@ namespace OpenGL
 		[AliasOf("GL_BUFFER_UPDATE_BARRIER_BIT_EXT")]
 		[RequiredByFeature("GL_VERSION_4_2")]
 		[RequiredByFeature("GL_ARB_shader_image_load_store")]
+		[RequiredByFeature("GL_EXT_shader_image_load_store")]
 		public const uint BUFFER_UPDATE_BARRIER_BIT = 0x00000200;
 
 		/// <summary>
@@ -379,6 +388,7 @@ namespace OpenGL
 		[AliasOf("GL_FRAMEBUFFER_BARRIER_BIT_EXT")]
 		[RequiredByFeature("GL_VERSION_4_2")]
 		[RequiredByFeature("GL_ARB_shader_image_load_store")]
+		[RequiredByFeature("GL_EXT_shader_image_load_store")]
 		public const uint FRAMEBUFFER_BARRIER_BIT = 0x00000400;
 
 		/// <summary>
@@ -387,6 +397,7 @@ namespace OpenGL
 		[AliasOf("GL_TRANSFORM_FEEDBACK_BARRIER_BIT_EXT")]
 		[RequiredByFeature("GL_VERSION_4_2")]
 		[RequiredByFeature("GL_ARB_shader_image_load_store")]
+		[RequiredByFeature("GL_EXT_shader_image_load_store")]
 		public const uint TRANSFORM_FEEDBACK_BARRIER_BIT = 0x00000800;
 
 		/// <summary>
@@ -395,6 +406,7 @@ namespace OpenGL
 		[AliasOf("GL_ATOMIC_COUNTER_BARRIER_BIT_EXT")]
 		[RequiredByFeature("GL_VERSION_4_2")]
 		[RequiredByFeature("GL_ARB_shader_image_load_store")]
+		[RequiredByFeature("GL_EXT_shader_image_load_store")]
 		public const uint ATOMIC_COUNTER_BARRIER_BIT = 0x00001000;
 
 		/// <summary>
@@ -403,6 +415,7 @@ namespace OpenGL
 		[AliasOf("GL_ALL_BARRIER_BITS_EXT")]
 		[RequiredByFeature("GL_VERSION_4_2")]
 		[RequiredByFeature("GL_ARB_shader_image_load_store")]
+		[RequiredByFeature("GL_EXT_shader_image_load_store")]
 		public const uint ALL_BARRIER_BITS = 0xFFFFFFFF;
 
 		/// <summary>
@@ -411,6 +424,7 @@ namespace OpenGL
 		[AliasOf("GL_MAX_IMAGE_UNITS_EXT")]
 		[RequiredByFeature("GL_VERSION_4_2")]
 		[RequiredByFeature("GL_ARB_shader_image_load_store")]
+		[RequiredByFeature("GL_EXT_shader_image_load_store")]
 		public const int MAX_IMAGE_UNITS = 0x8F38;
 
 		/// <summary>
@@ -420,6 +434,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_4_2")]
 		[RequiredByFeature("GL_ARB_shader_image_load_store")]
 		[RequiredByFeature("GL_ARB_shader_storage_buffer_object")]
+		[RequiredByFeature("GL_EXT_shader_image_load_store")]
 		public const int MAX_COMBINED_IMAGE_UNITS_AND_FRAGMENT_OUTPUTS = 0x8F39;
 
 		/// <summary>
@@ -428,6 +443,7 @@ namespace OpenGL
 		[AliasOf("GL_IMAGE_BINDING_NAME_EXT")]
 		[RequiredByFeature("GL_VERSION_4_2")]
 		[RequiredByFeature("GL_ARB_shader_image_load_store")]
+		[RequiredByFeature("GL_EXT_shader_image_load_store")]
 		public const int IMAGE_BINDING_NAME = 0x8F3A;
 
 		/// <summary>
@@ -436,6 +452,7 @@ namespace OpenGL
 		[AliasOf("GL_IMAGE_BINDING_LEVEL_EXT")]
 		[RequiredByFeature("GL_VERSION_4_2")]
 		[RequiredByFeature("GL_ARB_shader_image_load_store")]
+		[RequiredByFeature("GL_EXT_shader_image_load_store")]
 		public const int IMAGE_BINDING_LEVEL = 0x8F3B;
 
 		/// <summary>
@@ -444,6 +461,7 @@ namespace OpenGL
 		[AliasOf("GL_IMAGE_BINDING_LAYERED_EXT")]
 		[RequiredByFeature("GL_VERSION_4_2")]
 		[RequiredByFeature("GL_ARB_shader_image_load_store")]
+		[RequiredByFeature("GL_EXT_shader_image_load_store")]
 		public const int IMAGE_BINDING_LAYERED = 0x8F3C;
 
 		/// <summary>
@@ -452,6 +470,7 @@ namespace OpenGL
 		[AliasOf("GL_IMAGE_BINDING_LAYER_EXT")]
 		[RequiredByFeature("GL_VERSION_4_2")]
 		[RequiredByFeature("GL_ARB_shader_image_load_store")]
+		[RequiredByFeature("GL_EXT_shader_image_load_store")]
 		public const int IMAGE_BINDING_LAYER = 0x8F3D;
 
 		/// <summary>
@@ -460,6 +479,7 @@ namespace OpenGL
 		[AliasOf("GL_IMAGE_BINDING_ACCESS_EXT")]
 		[RequiredByFeature("GL_VERSION_4_2")]
 		[RequiredByFeature("GL_ARB_shader_image_load_store")]
+		[RequiredByFeature("GL_EXT_shader_image_load_store")]
 		public const int IMAGE_BINDING_ACCESS = 0x8F3E;
 
 		/// <summary>
@@ -468,6 +488,7 @@ namespace OpenGL
 		[AliasOf("GL_IMAGE_1D_EXT")]
 		[RequiredByFeature("GL_VERSION_4_2")]
 		[RequiredByFeature("GL_ARB_shader_image_load_store")]
+		[RequiredByFeature("GL_EXT_shader_image_load_store")]
 		public const int IMAGE_1D = 0x904C;
 
 		/// <summary>
@@ -476,6 +497,7 @@ namespace OpenGL
 		[AliasOf("GL_IMAGE_2D_EXT")]
 		[RequiredByFeature("GL_VERSION_4_2")]
 		[RequiredByFeature("GL_ARB_shader_image_load_store")]
+		[RequiredByFeature("GL_EXT_shader_image_load_store")]
 		public const int IMAGE_2D = 0x904D;
 
 		/// <summary>
@@ -484,6 +506,7 @@ namespace OpenGL
 		[AliasOf("GL_IMAGE_3D_EXT")]
 		[RequiredByFeature("GL_VERSION_4_2")]
 		[RequiredByFeature("GL_ARB_shader_image_load_store")]
+		[RequiredByFeature("GL_EXT_shader_image_load_store")]
 		public const int IMAGE_3D = 0x904E;
 
 		/// <summary>
@@ -492,6 +515,7 @@ namespace OpenGL
 		[AliasOf("GL_IMAGE_2D_RECT_EXT")]
 		[RequiredByFeature("GL_VERSION_4_2")]
 		[RequiredByFeature("GL_ARB_shader_image_load_store")]
+		[RequiredByFeature("GL_EXT_shader_image_load_store")]
 		public const int IMAGE_2D_RECT = 0x904F;
 
 		/// <summary>
@@ -500,6 +524,7 @@ namespace OpenGL
 		[AliasOf("GL_IMAGE_CUBE_EXT")]
 		[RequiredByFeature("GL_VERSION_4_2")]
 		[RequiredByFeature("GL_ARB_shader_image_load_store")]
+		[RequiredByFeature("GL_EXT_shader_image_load_store")]
 		public const int IMAGE_CUBE = 0x9050;
 
 		/// <summary>
@@ -508,6 +533,7 @@ namespace OpenGL
 		[AliasOf("GL_IMAGE_BUFFER_EXT")]
 		[RequiredByFeature("GL_VERSION_4_2")]
 		[RequiredByFeature("GL_ARB_shader_image_load_store")]
+		[RequiredByFeature("GL_EXT_shader_image_load_store")]
 		public const int IMAGE_BUFFER = 0x9051;
 
 		/// <summary>
@@ -516,6 +542,7 @@ namespace OpenGL
 		[AliasOf("GL_IMAGE_1D_ARRAY_EXT")]
 		[RequiredByFeature("GL_VERSION_4_2")]
 		[RequiredByFeature("GL_ARB_shader_image_load_store")]
+		[RequiredByFeature("GL_EXT_shader_image_load_store")]
 		public const int IMAGE_1D_ARRAY = 0x9052;
 
 		/// <summary>
@@ -524,6 +551,7 @@ namespace OpenGL
 		[AliasOf("GL_IMAGE_2D_ARRAY_EXT")]
 		[RequiredByFeature("GL_VERSION_4_2")]
 		[RequiredByFeature("GL_ARB_shader_image_load_store")]
+		[RequiredByFeature("GL_EXT_shader_image_load_store")]
 		public const int IMAGE_2D_ARRAY = 0x9053;
 
 		/// <summary>
@@ -532,6 +560,7 @@ namespace OpenGL
 		[AliasOf("GL_IMAGE_CUBE_MAP_ARRAY_EXT")]
 		[RequiredByFeature("GL_VERSION_4_2")]
 		[RequiredByFeature("GL_ARB_shader_image_load_store")]
+		[RequiredByFeature("GL_EXT_shader_image_load_store")]
 		public const int IMAGE_CUBE_MAP_ARRAY = 0x9054;
 
 		/// <summary>
@@ -540,6 +569,7 @@ namespace OpenGL
 		[AliasOf("GL_IMAGE_2D_MULTISAMPLE_EXT")]
 		[RequiredByFeature("GL_VERSION_4_2")]
 		[RequiredByFeature("GL_ARB_shader_image_load_store")]
+		[RequiredByFeature("GL_EXT_shader_image_load_store")]
 		public const int IMAGE_2D_MULTISAMPLE = 0x9055;
 
 		/// <summary>
@@ -548,6 +578,7 @@ namespace OpenGL
 		[AliasOf("GL_IMAGE_2D_MULTISAMPLE_ARRAY_EXT")]
 		[RequiredByFeature("GL_VERSION_4_2")]
 		[RequiredByFeature("GL_ARB_shader_image_load_store")]
+		[RequiredByFeature("GL_EXT_shader_image_load_store")]
 		public const int IMAGE_2D_MULTISAMPLE_ARRAY = 0x9056;
 
 		/// <summary>
@@ -556,6 +587,7 @@ namespace OpenGL
 		[AliasOf("GL_INT_IMAGE_1D_EXT")]
 		[RequiredByFeature("GL_VERSION_4_2")]
 		[RequiredByFeature("GL_ARB_shader_image_load_store")]
+		[RequiredByFeature("GL_EXT_shader_image_load_store")]
 		public const int INT_IMAGE_1D = 0x9057;
 
 		/// <summary>
@@ -564,6 +596,7 @@ namespace OpenGL
 		[AliasOf("GL_INT_IMAGE_2D_EXT")]
 		[RequiredByFeature("GL_VERSION_4_2")]
 		[RequiredByFeature("GL_ARB_shader_image_load_store")]
+		[RequiredByFeature("GL_EXT_shader_image_load_store")]
 		public const int INT_IMAGE_2D = 0x9058;
 
 		/// <summary>
@@ -572,6 +605,7 @@ namespace OpenGL
 		[AliasOf("GL_INT_IMAGE_3D_EXT")]
 		[RequiredByFeature("GL_VERSION_4_2")]
 		[RequiredByFeature("GL_ARB_shader_image_load_store")]
+		[RequiredByFeature("GL_EXT_shader_image_load_store")]
 		public const int INT_IMAGE_3D = 0x9059;
 
 		/// <summary>
@@ -580,6 +614,7 @@ namespace OpenGL
 		[AliasOf("GL_INT_IMAGE_2D_RECT_EXT")]
 		[RequiredByFeature("GL_VERSION_4_2")]
 		[RequiredByFeature("GL_ARB_shader_image_load_store")]
+		[RequiredByFeature("GL_EXT_shader_image_load_store")]
 		public const int INT_IMAGE_2D_RECT = 0x905A;
 
 		/// <summary>
@@ -588,6 +623,7 @@ namespace OpenGL
 		[AliasOf("GL_INT_IMAGE_CUBE_EXT")]
 		[RequiredByFeature("GL_VERSION_4_2")]
 		[RequiredByFeature("GL_ARB_shader_image_load_store")]
+		[RequiredByFeature("GL_EXT_shader_image_load_store")]
 		public const int INT_IMAGE_CUBE = 0x905B;
 
 		/// <summary>
@@ -596,6 +632,7 @@ namespace OpenGL
 		[AliasOf("GL_INT_IMAGE_BUFFER_EXT")]
 		[RequiredByFeature("GL_VERSION_4_2")]
 		[RequiredByFeature("GL_ARB_shader_image_load_store")]
+		[RequiredByFeature("GL_EXT_shader_image_load_store")]
 		public const int INT_IMAGE_BUFFER = 0x905C;
 
 		/// <summary>
@@ -604,6 +641,7 @@ namespace OpenGL
 		[AliasOf("GL_INT_IMAGE_1D_ARRAY_EXT")]
 		[RequiredByFeature("GL_VERSION_4_2")]
 		[RequiredByFeature("GL_ARB_shader_image_load_store")]
+		[RequiredByFeature("GL_EXT_shader_image_load_store")]
 		public const int INT_IMAGE_1D_ARRAY = 0x905D;
 
 		/// <summary>
@@ -612,6 +650,7 @@ namespace OpenGL
 		[AliasOf("GL_INT_IMAGE_2D_ARRAY_EXT")]
 		[RequiredByFeature("GL_VERSION_4_2")]
 		[RequiredByFeature("GL_ARB_shader_image_load_store")]
+		[RequiredByFeature("GL_EXT_shader_image_load_store")]
 		public const int INT_IMAGE_2D_ARRAY = 0x905E;
 
 		/// <summary>
@@ -620,6 +659,7 @@ namespace OpenGL
 		[AliasOf("GL_INT_IMAGE_CUBE_MAP_ARRAY_EXT")]
 		[RequiredByFeature("GL_VERSION_4_2")]
 		[RequiredByFeature("GL_ARB_shader_image_load_store")]
+		[RequiredByFeature("GL_EXT_shader_image_load_store")]
 		public const int INT_IMAGE_CUBE_MAP_ARRAY = 0x905F;
 
 		/// <summary>
@@ -628,6 +668,7 @@ namespace OpenGL
 		[AliasOf("GL_INT_IMAGE_2D_MULTISAMPLE_EXT")]
 		[RequiredByFeature("GL_VERSION_4_2")]
 		[RequiredByFeature("GL_ARB_shader_image_load_store")]
+		[RequiredByFeature("GL_EXT_shader_image_load_store")]
 		public const int INT_IMAGE_2D_MULTISAMPLE = 0x9060;
 
 		/// <summary>
@@ -636,6 +677,7 @@ namespace OpenGL
 		[AliasOf("GL_INT_IMAGE_2D_MULTISAMPLE_ARRAY_EXT")]
 		[RequiredByFeature("GL_VERSION_4_2")]
 		[RequiredByFeature("GL_ARB_shader_image_load_store")]
+		[RequiredByFeature("GL_EXT_shader_image_load_store")]
 		public const int INT_IMAGE_2D_MULTISAMPLE_ARRAY = 0x9061;
 
 		/// <summary>
@@ -644,6 +686,7 @@ namespace OpenGL
 		[AliasOf("GL_UNSIGNED_INT_IMAGE_1D_EXT")]
 		[RequiredByFeature("GL_VERSION_4_2")]
 		[RequiredByFeature("GL_ARB_shader_image_load_store")]
+		[RequiredByFeature("GL_EXT_shader_image_load_store")]
 		public const int UNSIGNED_INT_IMAGE_1D = 0x9062;
 
 		/// <summary>
@@ -652,6 +695,7 @@ namespace OpenGL
 		[AliasOf("GL_UNSIGNED_INT_IMAGE_2D_EXT")]
 		[RequiredByFeature("GL_VERSION_4_2")]
 		[RequiredByFeature("GL_ARB_shader_image_load_store")]
+		[RequiredByFeature("GL_EXT_shader_image_load_store")]
 		public const int UNSIGNED_INT_IMAGE_2D = 0x9063;
 
 		/// <summary>
@@ -660,6 +704,7 @@ namespace OpenGL
 		[AliasOf("GL_UNSIGNED_INT_IMAGE_3D_EXT")]
 		[RequiredByFeature("GL_VERSION_4_2")]
 		[RequiredByFeature("GL_ARB_shader_image_load_store")]
+		[RequiredByFeature("GL_EXT_shader_image_load_store")]
 		public const int UNSIGNED_INT_IMAGE_3D = 0x9064;
 
 		/// <summary>
@@ -668,6 +713,7 @@ namespace OpenGL
 		[AliasOf("GL_UNSIGNED_INT_IMAGE_2D_RECT_EXT")]
 		[RequiredByFeature("GL_VERSION_4_2")]
 		[RequiredByFeature("GL_ARB_shader_image_load_store")]
+		[RequiredByFeature("GL_EXT_shader_image_load_store")]
 		public const int UNSIGNED_INT_IMAGE_2D_RECT = 0x9065;
 
 		/// <summary>
@@ -676,6 +722,7 @@ namespace OpenGL
 		[AliasOf("GL_UNSIGNED_INT_IMAGE_CUBE_EXT")]
 		[RequiredByFeature("GL_VERSION_4_2")]
 		[RequiredByFeature("GL_ARB_shader_image_load_store")]
+		[RequiredByFeature("GL_EXT_shader_image_load_store")]
 		public const int UNSIGNED_INT_IMAGE_CUBE = 0x9066;
 
 		/// <summary>
@@ -684,6 +731,7 @@ namespace OpenGL
 		[AliasOf("GL_UNSIGNED_INT_IMAGE_BUFFER_EXT")]
 		[RequiredByFeature("GL_VERSION_4_2")]
 		[RequiredByFeature("GL_ARB_shader_image_load_store")]
+		[RequiredByFeature("GL_EXT_shader_image_load_store")]
 		public const int UNSIGNED_INT_IMAGE_BUFFER = 0x9067;
 
 		/// <summary>
@@ -692,6 +740,7 @@ namespace OpenGL
 		[AliasOf("GL_UNSIGNED_INT_IMAGE_1D_ARRAY_EXT")]
 		[RequiredByFeature("GL_VERSION_4_2")]
 		[RequiredByFeature("GL_ARB_shader_image_load_store")]
+		[RequiredByFeature("GL_EXT_shader_image_load_store")]
 		public const int UNSIGNED_INT_IMAGE_1D_ARRAY = 0x9068;
 
 		/// <summary>
@@ -700,6 +749,7 @@ namespace OpenGL
 		[AliasOf("GL_UNSIGNED_INT_IMAGE_2D_ARRAY_EXT")]
 		[RequiredByFeature("GL_VERSION_4_2")]
 		[RequiredByFeature("GL_ARB_shader_image_load_store")]
+		[RequiredByFeature("GL_EXT_shader_image_load_store")]
 		public const int UNSIGNED_INT_IMAGE_2D_ARRAY = 0x9069;
 
 		/// <summary>
@@ -708,6 +758,7 @@ namespace OpenGL
 		[AliasOf("GL_UNSIGNED_INT_IMAGE_CUBE_MAP_ARRAY_EXT")]
 		[RequiredByFeature("GL_VERSION_4_2")]
 		[RequiredByFeature("GL_ARB_shader_image_load_store")]
+		[RequiredByFeature("GL_EXT_shader_image_load_store")]
 		public const int UNSIGNED_INT_IMAGE_CUBE_MAP_ARRAY = 0x906A;
 
 		/// <summary>
@@ -716,6 +767,7 @@ namespace OpenGL
 		[AliasOf("GL_UNSIGNED_INT_IMAGE_2D_MULTISAMPLE_EXT")]
 		[RequiredByFeature("GL_VERSION_4_2")]
 		[RequiredByFeature("GL_ARB_shader_image_load_store")]
+		[RequiredByFeature("GL_EXT_shader_image_load_store")]
 		public const int UNSIGNED_INT_IMAGE_2D_MULTISAMPLE = 0x906B;
 
 		/// <summary>
@@ -724,6 +776,7 @@ namespace OpenGL
 		[AliasOf("GL_UNSIGNED_INT_IMAGE_2D_MULTISAMPLE_ARRAY_EXT")]
 		[RequiredByFeature("GL_VERSION_4_2")]
 		[RequiredByFeature("GL_ARB_shader_image_load_store")]
+		[RequiredByFeature("GL_EXT_shader_image_load_store")]
 		public const int UNSIGNED_INT_IMAGE_2D_MULTISAMPLE_ARRAY = 0x906C;
 
 		/// <summary>
@@ -732,6 +785,7 @@ namespace OpenGL
 		[AliasOf("GL_MAX_IMAGE_SAMPLES_EXT")]
 		[RequiredByFeature("GL_VERSION_4_2")]
 		[RequiredByFeature("GL_ARB_shader_image_load_store")]
+		[RequiredByFeature("GL_EXT_shader_image_load_store")]
 		public const int MAX_IMAGE_SAMPLES = 0x906D;
 
 		/// <summary>
@@ -740,6 +794,7 @@ namespace OpenGL
 		[AliasOf("GL_IMAGE_BINDING_FORMAT_EXT")]
 		[RequiredByFeature("GL_VERSION_4_2")]
 		[RequiredByFeature("GL_ARB_shader_image_load_store")]
+		[RequiredByFeature("GL_EXT_shader_image_load_store")]
 		public const int IMAGE_BINDING_FORMAT = 0x906E;
 
 		/// <summary>
@@ -812,6 +867,7 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_COMPRESSED_RGBA_BPTC_UNORM_ARB")]
 		[RequiredByFeature("GL_VERSION_4_2")]
+		[RequiredByFeature("GL_ARB_texture_compression_bptc")]
 		public const int COMPRESSED_RGBA_BPTC_UNORM = 0x8E8C;
 
 		/// <summary>
@@ -819,6 +875,7 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_COMPRESSED_SRGB_ALPHA_BPTC_UNORM_ARB")]
 		[RequiredByFeature("GL_VERSION_4_2")]
+		[RequiredByFeature("GL_ARB_texture_compression_bptc")]
 		public const int COMPRESSED_SRGB_ALPHA_BPTC_UNORM = 0x8E8D;
 
 		/// <summary>
@@ -826,6 +883,7 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_COMPRESSED_RGB_BPTC_SIGNED_FLOAT_ARB")]
 		[RequiredByFeature("GL_VERSION_4_2")]
+		[RequiredByFeature("GL_ARB_texture_compression_bptc")]
 		public const int COMPRESSED_RGB_BPTC_SIGNED_FLOAT = 0x8E8E;
 
 		/// <summary>
@@ -833,6 +891,7 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_COMPRESSED_RGB_BPTC_UNSIGNED_FLOAT_ARB")]
 		[RequiredByFeature("GL_VERSION_4_2")]
+		[RequiredByFeature("GL_ARB_texture_compression_bptc")]
 		public const int COMPRESSED_RGB_BPTC_UNSIGNED_FLOAT = 0x8E8F;
 
 		/// <summary>

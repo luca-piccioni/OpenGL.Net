@@ -31,6 +31,7 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_VERTEX_ATTRIB_ARRAY_DIVISOR_ARB")]
 		[RequiredByFeature("GL_VERSION_3_3")]
+		[RequiredByFeature("GL_ARB_instanced_arrays")]
 		public const int VERTEX_ATTRIB_ARRAY_DIVISOR = 0x88FE;
 
 		/// <summary>
@@ -102,6 +103,7 @@ namespace OpenGL
 		[AliasOf("GL_TEXTURE_SWIZZLE_R_EXT")]
 		[RequiredByFeature("GL_VERSION_3_3")]
 		[RequiredByFeature("GL_ARB_texture_swizzle")]
+		[RequiredByFeature("GL_EXT_texture_swizzle")]
 		public const int TEXTURE_SWIZZLE_R = 0x8E42;
 
 		/// <summary>
@@ -117,6 +119,7 @@ namespace OpenGL
 		[AliasOf("GL_TEXTURE_SWIZZLE_G_EXT")]
 		[RequiredByFeature("GL_VERSION_3_3")]
 		[RequiredByFeature("GL_ARB_texture_swizzle")]
+		[RequiredByFeature("GL_EXT_texture_swizzle")]
 		public const int TEXTURE_SWIZZLE_G = 0x8E43;
 
 		/// <summary>
@@ -132,6 +135,7 @@ namespace OpenGL
 		[AliasOf("GL_TEXTURE_SWIZZLE_B_EXT")]
 		[RequiredByFeature("GL_VERSION_3_3")]
 		[RequiredByFeature("GL_ARB_texture_swizzle")]
+		[RequiredByFeature("GL_EXT_texture_swizzle")]
 		public const int TEXTURE_SWIZZLE_B = 0x8E44;
 
 		/// <summary>
@@ -147,6 +151,7 @@ namespace OpenGL
 		[AliasOf("GL_TEXTURE_SWIZZLE_A_EXT")]
 		[RequiredByFeature("GL_VERSION_3_3")]
 		[RequiredByFeature("GL_ARB_texture_swizzle")]
+		[RequiredByFeature("GL_EXT_texture_swizzle")]
 		public const int TEXTURE_SWIZZLE_A = 0x8E45;
 
 		/// <summary>
@@ -164,6 +169,7 @@ namespace OpenGL
 		[AliasOf("GL_TEXTURE_SWIZZLE_RGBA_EXT")]
 		[RequiredByFeature("GL_VERSION_3_3")]
 		[RequiredByFeature("GL_ARB_texture_swizzle")]
+		[RequiredByFeature("GL_EXT_texture_swizzle")]
 		public const int TEXTURE_SWIZZLE_RGBA = 0x8E46;
 
 		/// <summary>
@@ -172,6 +178,7 @@ namespace OpenGL
 		[AliasOf("GL_TIME_ELAPSED_EXT")]
 		[RequiredByFeature("GL_VERSION_3_3")]
 		[RequiredByFeature("GL_ARB_timer_query")]
+		[RequiredByFeature("GL_EXT_timer_query")]
 		public const int TIME_ELAPSED = 0x88BF;
 
 		/// <summary>

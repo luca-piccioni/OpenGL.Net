@@ -870,22 +870,6 @@ namespace BindingsGen
 			return (documentationLines);
 		}
 
-		public static string EnsureFirstLowerCase(string input)
-		{
-			if ((input.Length > 0) && Char.IsUpper(input[0]))
-				return (input.Substring(0, 1).ToLower() + input.Substring(1));
-			else
-				return (input);
-		}
-
-		public static string EnsureFirstUpperCase(string input)
-		{
-			if ((input.Length > 0) && Char.IsLower(input[0]))
-				return (input.Substring(0, 1).ToUpper() + input.Substring(1));
-			else
-				return (input);
-		}
-
 		public static List<string> SplitDocumentationPeriods(string documentation)
 		{
 			string[] periods = Regex.Split(documentation, @"(\.|\,)( |\n|\t|$)");
@@ -1222,7 +1206,7 @@ namespace BindingsGen
 				doc.AppendFormat("{0}.{1}: ", ctx.Class, commandRef.GetImplementationName(ctx));
 
 				string actualDoc = GetDocumentationLine(EnumNode.InnerXml, transform, ctx);
-				actualDoc = EnsureFirstLowerCase(actualDoc);
+				actualDoc = SpecificationStyle.EnsureFirstLowerCase(actualDoc);
 				doc.Append(actualDoc);
 
 				return (doc.ToString());

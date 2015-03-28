@@ -31,6 +31,8 @@ namespace OpenGL
 		[AliasOf("GL_PIXEL_PACK_BUFFER_ARB")]
 		[AliasOf("GL_PIXEL_PACK_BUFFER_EXT")]
 		[RequiredByFeature("GL_VERSION_2_1")]
+		[RequiredByFeature("GL_ARB_pixel_buffer_object")]
+		[RequiredByFeature("GL_EXT_pixel_buffer_object")]
 		public const int PIXEL_PACK_BUFFER = 0x88EB;
 
 		/// <summary>
@@ -39,6 +41,8 @@ namespace OpenGL
 		[AliasOf("GL_PIXEL_UNPACK_BUFFER_ARB")]
 		[AliasOf("GL_PIXEL_UNPACK_BUFFER_EXT")]
 		[RequiredByFeature("GL_VERSION_2_1")]
+		[RequiredByFeature("GL_ARB_pixel_buffer_object")]
+		[RequiredByFeature("GL_EXT_pixel_buffer_object")]
 		public const int PIXEL_UNPACK_BUFFER = 0x88EC;
 
 		/// <summary>
@@ -48,6 +52,8 @@ namespace OpenGL
 		[AliasOf("GL_PIXEL_PACK_BUFFER_BINDING_ARB")]
 		[AliasOf("GL_PIXEL_PACK_BUFFER_BINDING_EXT")]
 		[RequiredByFeature("GL_VERSION_2_1")]
+		[RequiredByFeature("GL_ARB_pixel_buffer_object")]
+		[RequiredByFeature("GL_EXT_pixel_buffer_object")]
 		public const int PIXEL_PACK_BUFFER_BINDING = 0x88ED;
 
 		/// <summary>
@@ -57,6 +63,8 @@ namespace OpenGL
 		[AliasOf("GL_PIXEL_UNPACK_BUFFER_BINDING_ARB")]
 		[AliasOf("GL_PIXEL_UNPACK_BUFFER_BINDING_EXT")]
 		[RequiredByFeature("GL_VERSION_2_1")]
+		[RequiredByFeature("GL_ARB_pixel_buffer_object")]
+		[RequiredByFeature("GL_EXT_pixel_buffer_object")]
 		public const int PIXEL_UNPACK_BUFFER_BINDING = 0x88EF;
 
 		/// <summary>
@@ -100,6 +108,7 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_SRGB_EXT")]
 		[RequiredByFeature("GL_VERSION_2_1")]
+		[RequiredByFeature("GL_EXT_texture_sRGB")]
 		public const int SRGB = 0x8C40;
 
 		/// <summary>
@@ -107,6 +116,7 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_SRGB8_EXT")]
 		[RequiredByFeature("GL_VERSION_2_1")]
+		[RequiredByFeature("GL_EXT_texture_sRGB")]
 		public const int SRGB8 = 0x8C41;
 
 		/// <summary>
@@ -114,6 +124,7 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_SRGB_ALPHA_EXT")]
 		[RequiredByFeature("GL_VERSION_2_1")]
+		[RequiredByFeature("GL_EXT_texture_sRGB")]
 		public const int SRGB_ALPHA = 0x8C42;
 
 		/// <summary>
@@ -121,6 +132,7 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_SRGB8_ALPHA8_EXT")]
 		[RequiredByFeature("GL_VERSION_2_1")]
+		[RequiredByFeature("GL_EXT_texture_sRGB")]
 		public const int SRGB8_ALPHA8 = 0x8C43;
 
 		/// <summary>
@@ -128,6 +140,7 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_COMPRESSED_SRGB_EXT")]
 		[RequiredByFeature("GL_VERSION_2_1")]
+		[RequiredByFeature("GL_EXT_texture_sRGB")]
 		public const int COMPRESSED_SRGB = 0x8C48;
 
 		/// <summary>
@@ -135,6 +148,7 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_COMPRESSED_SRGB_ALPHA_EXT")]
 		[RequiredByFeature("GL_VERSION_2_1")]
+		[RequiredByFeature("GL_EXT_texture_sRGB")]
 		public const int COMPRESSED_SRGB_ALPHA = 0x8C49;
 
 		/// <summary>
@@ -155,6 +169,7 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_SLUMINANCE_ALPHA_EXT")]
 		[RequiredByFeature("GL_VERSION_2_1")]
+		[RequiredByFeature("GL_EXT_texture_sRGB")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
 		[Obsolete("Deprecated/removed by OpenGL 3.2.")]
@@ -166,6 +181,7 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_SLUMINANCE8_ALPHA8_EXT")]
 		[RequiredByFeature("GL_VERSION_2_1")]
+		[RequiredByFeature("GL_EXT_texture_sRGB")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
 		[Obsolete("Deprecated/removed by OpenGL 3.2.")]
@@ -177,6 +193,7 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_SLUMINANCE_EXT")]
 		[RequiredByFeature("GL_VERSION_2_1")]
+		[RequiredByFeature("GL_EXT_texture_sRGB")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
 		[Obsolete("Deprecated/removed by OpenGL 3.2.")]
@@ -188,6 +205,7 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_SLUMINANCE8_EXT")]
 		[RequiredByFeature("GL_VERSION_2_1")]
+		[RequiredByFeature("GL_EXT_texture_sRGB")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
 		[Obsolete("Deprecated/removed by OpenGL 3.2.")]
@@ -199,6 +217,7 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_COMPRESSED_SLUMINANCE_EXT")]
 		[RequiredByFeature("GL_VERSION_2_1")]
+		[RequiredByFeature("GL_EXT_texture_sRGB")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
 		[Obsolete("Deprecated/removed by OpenGL 3.2.")]
@@ -210,6 +229,7 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_COMPRESSED_SLUMINANCE_ALPHA_EXT")]
 		[RequiredByFeature("GL_VERSION_2_1")]
+		[RequiredByFeature("GL_EXT_texture_sRGB")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 #if DEBUG && !OPENGL_NET_COMPATIBILITY_PROFILE
 		[Obsolete("Deprecated/removed by OpenGL 3.2.")]

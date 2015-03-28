@@ -30,6 +30,7 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_DISTANCE_ATTENUATION_SGIS")]
 		[RequiredByFeature("GL_EXT_point_parameters")]
+		[RequiredByFeature("GL_SGIS_point_parameters")]
 		public const int DISTANCE_ATTENUATION_EXT = 0x8129;
 
 	}

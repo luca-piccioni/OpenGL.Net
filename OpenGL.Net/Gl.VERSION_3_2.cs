@@ -43,6 +43,9 @@ namespace OpenGL
 		[AliasOf("GL_LINES_ADJACENCY_ARB")]
 		[AliasOf("GL_LINES_ADJACENCY_EXT")]
 		[RequiredByFeature("GL_VERSION_3_2")]
+		[RequiredByFeature("GL_ARB_geometry_shader4")]
+		[RequiredByFeature("GL_EXT_geometry_shader4")]
+		[RequiredByFeature("GL_NV_geometry_program4")]
 		public const int LINES_ADJACENCY = 0x000A;
 
 		/// <summary>
@@ -51,6 +54,9 @@ namespace OpenGL
 		[AliasOf("GL_LINE_STRIP_ADJACENCY_ARB")]
 		[AliasOf("GL_LINE_STRIP_ADJACENCY_EXT")]
 		[RequiredByFeature("GL_VERSION_3_2")]
+		[RequiredByFeature("GL_ARB_geometry_shader4")]
+		[RequiredByFeature("GL_EXT_geometry_shader4")]
+		[RequiredByFeature("GL_NV_geometry_program4")]
 		public const int LINE_STRIP_ADJACENCY = 0x000B;
 
 		/// <summary>
@@ -59,6 +65,9 @@ namespace OpenGL
 		[AliasOf("GL_TRIANGLES_ADJACENCY_ARB")]
 		[AliasOf("GL_TRIANGLES_ADJACENCY_EXT")]
 		[RequiredByFeature("GL_VERSION_3_2")]
+		[RequiredByFeature("GL_ARB_geometry_shader4")]
+		[RequiredByFeature("GL_EXT_geometry_shader4")]
+		[RequiredByFeature("GL_NV_geometry_program4")]
 		public const int TRIANGLES_ADJACENCY = 0x000C;
 
 		/// <summary>
@@ -67,6 +76,9 @@ namespace OpenGL
 		[AliasOf("GL_TRIANGLE_STRIP_ADJACENCY_ARB")]
 		[AliasOf("GL_TRIANGLE_STRIP_ADJACENCY_EXT")]
 		[RequiredByFeature("GL_VERSION_3_2")]
+		[RequiredByFeature("GL_ARB_geometry_shader4")]
+		[RequiredByFeature("GL_EXT_geometry_shader4")]
+		[RequiredByFeature("GL_NV_geometry_program4")]
 		public const int TRIANGLE_STRIP_ADJACENCY = 0x000D;
 
 		/// <summary>
@@ -76,6 +88,9 @@ namespace OpenGL
 		[AliasOf("GL_MAX_GEOMETRY_TEXTURE_IMAGE_UNITS_ARB")]
 		[AliasOf("GL_MAX_GEOMETRY_TEXTURE_IMAGE_UNITS_EXT")]
 		[RequiredByFeature("GL_VERSION_3_2")]
+		[RequiredByFeature("GL_ARB_geometry_shader4")]
+		[RequiredByFeature("GL_EXT_geometry_shader4")]
+		[RequiredByFeature("GL_NV_geometry_program4")]
 		public const int MAX_GEOMETRY_TEXTURE_IMAGE_UNITS = 0x8C29;
 
 		/// <summary>
@@ -84,6 +99,9 @@ namespace OpenGL
 		[AliasOf("GL_FRAMEBUFFER_ATTACHMENT_LAYERED_ARB")]
 		[AliasOf("GL_FRAMEBUFFER_ATTACHMENT_LAYERED_EXT")]
 		[RequiredByFeature("GL_VERSION_3_2")]
+		[RequiredByFeature("GL_ARB_geometry_shader4")]
+		[RequiredByFeature("GL_EXT_geometry_shader4")]
+		[RequiredByFeature("GL_NV_geometry_program4")]
 		public const int FRAMEBUFFER_ATTACHMENT_LAYERED = 0x8DA7;
 
 		/// <summary>
@@ -92,6 +110,9 @@ namespace OpenGL
 		[AliasOf("GL_FRAMEBUFFER_INCOMPLETE_LAYER_TARGETS_ARB")]
 		[AliasOf("GL_FRAMEBUFFER_INCOMPLETE_LAYER_TARGETS_EXT")]
 		[RequiredByFeature("GL_VERSION_3_2")]
+		[RequiredByFeature("GL_ARB_geometry_shader4")]
+		[RequiredByFeature("GL_EXT_geometry_shader4")]
+		[RequiredByFeature("GL_NV_geometry_program4")]
 		public const int FRAMEBUFFER_INCOMPLETE_LAYER_TARGETS = 0x8DA8;
 
 		/// <summary>
@@ -100,6 +121,8 @@ namespace OpenGL
 		[AliasOf("GL_GEOMETRY_SHADER_ARB")]
 		[AliasOf("GL_GEOMETRY_SHADER_EXT")]
 		[RequiredByFeature("GL_VERSION_3_2")]
+		[RequiredByFeature("GL_ARB_geometry_shader4")]
+		[RequiredByFeature("GL_EXT_geometry_shader4")]
 		public const int GEOMETRY_SHADER = 0x8DD9;
 
 		/// <summary>
@@ -129,6 +152,8 @@ namespace OpenGL
 		[AliasOf("GL_MAX_GEOMETRY_UNIFORM_COMPONENTS_ARB")]
 		[AliasOf("GL_MAX_GEOMETRY_UNIFORM_COMPONENTS_EXT")]
 		[RequiredByFeature("GL_VERSION_3_2")]
+		[RequiredByFeature("GL_ARB_geometry_shader4")]
+		[RequiredByFeature("GL_EXT_geometry_shader4")]
 		public const int MAX_GEOMETRY_UNIFORM_COMPONENTS = 0x8DDF;
 
 		/// <summary>
@@ -137,6 +162,8 @@ namespace OpenGL
 		[AliasOf("GL_MAX_GEOMETRY_OUTPUT_VERTICES_ARB")]
 		[AliasOf("GL_MAX_GEOMETRY_OUTPUT_VERTICES_EXT")]
 		[RequiredByFeature("GL_VERSION_3_2")]
+		[RequiredByFeature("GL_ARB_geometry_shader4")]
+		[RequiredByFeature("GL_EXT_geometry_shader4")]
 		public const int MAX_GEOMETRY_OUTPUT_VERTICES = 0x8DE0;
 
 		/// <summary>
@@ -145,6 +172,8 @@ namespace OpenGL
 		[AliasOf("GL_MAX_GEOMETRY_TOTAL_OUTPUT_COMPONENTS_ARB")]
 		[AliasOf("GL_MAX_GEOMETRY_TOTAL_OUTPUT_COMPONENTS_EXT")]
 		[RequiredByFeature("GL_VERSION_3_2")]
+		[RequiredByFeature("GL_ARB_geometry_shader4")]
+		[RequiredByFeature("GL_EXT_geometry_shader4")]
 		public const int MAX_GEOMETRY_TOTAL_OUTPUT_COMPONENTS = 0x8DE1;
 
 		/// <summary>
@@ -188,6 +217,7 @@ namespace OpenGL
 		[AliasOf("GL_DEPTH_CLAMP_NV")]
 		[RequiredByFeature("GL_VERSION_3_2")]
 		[RequiredByFeature("GL_ARB_depth_clamp")]
+		[RequiredByFeature("GL_NV_depth_clamp")]
 		public const int DEPTH_CLAMP = 0x864F;
 
 		/// <summary>
@@ -196,6 +226,7 @@ namespace OpenGL
 		[AliasOf("GL_QUADS_FOLLOW_PROVOKING_VERTEX_CONVENTION_EXT")]
 		[RequiredByFeature("GL_VERSION_3_2")]
 		[RequiredByFeature("GL_ARB_provoking_vertex")]
+		[RequiredByFeature("GL_EXT_provoking_vertex")]
 		public const int QUADS_FOLLOW_PROVOKING_VERTEX_CONVENTION = 0x8E4C;
 
 		/// <summary>
@@ -205,6 +236,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_3_2")]
 		[RequiredByFeature("GL_ARB_provoking_vertex")]
 		[RequiredByFeature("GL_ARB_viewport_array")]
+		[RequiredByFeature("GL_EXT_provoking_vertex")]
 		public const int FIRST_VERTEX_CONVENTION = 0x8E4D;
 
 		/// <summary>
@@ -214,6 +246,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_3_2")]
 		[RequiredByFeature("GL_ARB_provoking_vertex")]
 		[RequiredByFeature("GL_ARB_viewport_array")]
+		[RequiredByFeature("GL_EXT_provoking_vertex")]
 		public const int LAST_VERTEX_CONVENTION = 0x8E4E;
 
 		/// <summary>
@@ -224,6 +257,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_3_2")]
 		[RequiredByFeature("GL_ARB_provoking_vertex")]
 		[RequiredByFeature("GL_ARB_viewport_array")]
+		[RequiredByFeature("GL_EXT_provoking_vertex")]
 		public const int PROVOKING_VERTEX = 0x8E4F;
 
 		/// <summary>
@@ -348,6 +382,7 @@ namespace OpenGL
 		[AliasOf("GL_SAMPLE_POSITION_NV")]
 		[RequiredByFeature("GL_VERSION_3_2")]
 		[RequiredByFeature("GL_ARB_texture_multisample")]
+		[RequiredByFeature("GL_NV_explicit_multisample")]
 		public const int SAMPLE_POSITION = 0x8E50;
 
 		/// <summary>
@@ -357,6 +392,7 @@ namespace OpenGL
 		[AliasOf("GL_SAMPLE_MASK_NV")]
 		[RequiredByFeature("GL_VERSION_3_2")]
 		[RequiredByFeature("GL_ARB_texture_multisample")]
+		[RequiredByFeature("GL_NV_explicit_multisample")]
 		public const int SAMPLE_MASK = 0x8E51;
 
 		/// <summary>
@@ -365,6 +401,7 @@ namespace OpenGL
 		[AliasOf("GL_SAMPLE_MASK_VALUE_NV")]
 		[RequiredByFeature("GL_VERSION_3_2")]
 		[RequiredByFeature("GL_ARB_texture_multisample")]
+		[RequiredByFeature("GL_NV_explicit_multisample")]
 		public const int SAMPLE_MASK_VALUE = 0x8E52;
 
 		/// <summary>
@@ -373,6 +410,7 @@ namespace OpenGL
 		[AliasOf("GL_MAX_SAMPLE_MASK_WORDS_NV")]
 		[RequiredByFeature("GL_VERSION_3_2")]
 		[RequiredByFeature("GL_ARB_texture_multisample")]
+		[RequiredByFeature("GL_NV_explicit_multisample")]
 		public const int MAX_SAMPLE_MASK_WORDS = 0x8E59;
 
 		/// <summary>

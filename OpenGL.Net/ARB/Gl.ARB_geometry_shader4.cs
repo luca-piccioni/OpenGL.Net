@@ -30,6 +30,8 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_FRAMEBUFFER_INCOMPLETE_LAYER_COUNT_EXT")]
 		[RequiredByFeature("GL_ARB_geometry_shader4")]
+		[RequiredByFeature("GL_EXT_geometry_shader4")]
+		[RequiredByFeature("GL_NV_geometry_program4")]
 		public const int FRAMEBUFFER_INCOMPLETE_LAYER_COUNT_ARB = 0x8DA9;
 
 		/// <summary>
@@ -55,6 +57,7 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_MAX_GEOMETRY_VARYING_COMPONENTS_EXT")]
 		[RequiredByFeature("GL_ARB_geometry_shader4")]
+		[RequiredByFeature("GL_EXT_geometry_shader4")]
 		public const int MAX_GEOMETRY_VARYING_COMPONENTS_ARB = 0x8DDD;
 
 		/// <summary>
@@ -62,6 +65,7 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_MAX_VERTEX_VARYING_COMPONENTS_EXT")]
 		[RequiredByFeature("GL_ARB_geometry_shader4")]
+		[RequiredByFeature("GL_EXT_geometry_shader4")]
 		public const int MAX_VERTEX_VARYING_COMPONENTS_ARB = 0x8DDE;
 
 		/// <summary>

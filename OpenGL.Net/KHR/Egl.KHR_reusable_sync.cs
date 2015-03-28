@@ -32,6 +32,37 @@ namespace OpenGL
 		public const int SYNC_REUSABLE_KHR = 0x30FA;
 
 		/// <summary>
+		/// Binding for eglCreateSyncKHR.
+		/// </summary>
+		/// <param name="dpy">
+		/// A <see cref="T:IntPtr"/>.
+		/// </param>
+		/// <param name="type">
+		/// A <see cref="T:uint"/>.
+		/// </param>
+		/// <param name="attrib_list">
+		/// A <see cref="T:int[]"/>.
+		/// </param>
+		[RequiredByFeature("EGL_KHR_fence_sync")]
+		[RequiredByFeature("EGL_KHR_reusable_sync")]
+		public static IntPtr CreateSyncKHR(IntPtr dpy, uint type, int[] attrib_list)
+		{
+			IntPtr retValue;
+
+			unsafe {
+				fixed (int* p_attrib_list = attrib_list)
+				{
+					Debug.Assert(Delegates.peglCreateSyncKHR != null, "peglCreateSyncKHR not implemented");
+					retValue = Delegates.peglCreateSyncKHR(dpy, type, p_attrib_list);
+					CallLog("eglCreateSyncKHR({0}, {1}, {2}) = {3}", dpy, type, attrib_list, retValue);
+				}
+			}
+			DebugCheckErrors();
+
+			return (retValue);
+		}
+
+		/// <summary>
 		/// Binding for eglSignalSyncKHR.
 		/// </summary>
 		/// <param name="dpy">
@@ -51,6 +82,40 @@ namespace OpenGL
 			Debug.Assert(Delegates.peglSignalSyncKHR != null, "peglSignalSyncKHR not implemented");
 			retValue = Delegates.peglSignalSyncKHR(dpy, sync, mode);
 			CallLog("eglSignalSyncKHR({0}, {1}, {2}) = {3}", dpy, sync, mode, retValue);
+			DebugCheckErrors();
+
+			return (retValue);
+		}
+
+		/// <summary>
+		/// Binding for eglGetSyncAttribKHR.
+		/// </summary>
+		/// <param name="dpy">
+		/// A <see cref="T:IntPtr"/>.
+		/// </param>
+		/// <param name="sync">
+		/// A <see cref="T:IntPtr"/>.
+		/// </param>
+		/// <param name="attribute">
+		/// A <see cref="T:int"/>.
+		/// </param>
+		/// <param name="value">
+		/// A <see cref="T:int[]"/>.
+		/// </param>
+		[RequiredByFeature("EGL_KHR_fence_sync")]
+		[RequiredByFeature("EGL_KHR_reusable_sync")]
+		public static IntPtr GetSyncAttribKHR(IntPtr dpy, IntPtr sync, int attribute, int[] value)
+		{
+			IntPtr retValue;
+
+			unsafe {
+				fixed (int* p_value = value)
+				{
+					Debug.Assert(Delegates.peglGetSyncAttribKHR != null, "peglGetSyncAttribKHR not implemented");
+					retValue = Delegates.peglGetSyncAttribKHR(dpy, sync, attribute, p_value);
+					CallLog("eglGetSyncAttribKHR({0}, {1}, {2}, {3}) = {4}", dpy, sync, attribute, value, retValue);
+				}
+			}
 			DebugCheckErrors();
 
 			return (retValue);

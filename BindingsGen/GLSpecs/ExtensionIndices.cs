@@ -16,9 +16,11 @@
 
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Reflection;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Xml.Serialization;
 
 namespace BindingsGen.GLSpecs
@@ -39,7 +41,25 @@ namespace BindingsGen.GLSpecs
 			foreach (Index index in sExtensionIndices.Indices) {
 				string extension = index.Extension.Trim();
 
-				sExtensionIndices.mIndicesMap.Add(extension, index.IndexValue);
+				if (!Extension.IsArbVendor(extension))
+					continue;
+
+				foreach (string extensionItem in Regex.Split(extension, " ")) {
+					sExtensionIndices.mIndicesMap.Add(extensionItem, index.IndexValue);
+				}
+			}
+
+			// Build map
+			sVendorExtensionIndices = new ExtensionIndices();
+			foreach (Index index in sExtensionIndices.Indices) {
+				string extension = index.Extension.Trim();
+
+				if (Extension.IsArbVendor(extension))
+					continue;
+
+				foreach (string extensionItem in Regex.Split(extension, " ")) {
+					sVendorExtensionIndices.mIndicesMap.Add(extensionItem, index.IndexValue);
+				}
 			}
 		}
 
@@ -61,14 +81,33 @@ namespace BindingsGen.GLSpecs
 		{
 			int index;
 
-			if (sExtensionIndices.mIndicesMap.TryGetValue(extension, out index))
-				return (index);
+			if (Extension.IsArbVendor(extension)) {
+				if (sExtensionIndices.mIndicesMap.TryGetValue(extension, out index))
+					return (index);
 
-			return (Int32.MaxValue);
+				Console.WriteLine("Extension {0} has automatically assigned the index {1}", extension, sUnknownExtensionIndex + 1);
+
+				sExtensionIndices.mIndicesMap.Add(extension, ++sUnknownExtensionIndex);
+
+				return (sUnknownExtensionIndex);
+			} else {
+				if (sVendorExtensionIndices.mIndicesMap.TryGetValue(extension, out index))
+					return (index);
+
+				Console.WriteLine("Extension {0} has automatically assigned the index {1}", extension, sUnknownExtensionIndex + 1);
+
+				sVendorExtensionIndices.mIndicesMap.Add(extension, ++sUnknownExtensionIndex);
+
+				return (sUnknownExtensionIndex);
+			}
 		}
+
+		private static int sUnknownExtensionIndex = UInt16.MaxValue;
 
 		private readonly Dictionary<string, int> mIndicesMap = new Dictionary<string,int>();
 
 		private static readonly ExtensionIndices sExtensionIndices;
+
+		private static readonly ExtensionIndices sVendorExtensionIndices;
 	}
 }

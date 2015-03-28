@@ -218,6 +218,38 @@ namespace OpenGL
 
 		#endregion
 
+		#region Extension Support
+
+		/// <summary>
+		/// Attribute asserting the extension requiring the underlying member.
+		/// </summary>
+		[AttributeUsage(AttributeTargets.Field, AllowMultiple = true)]
+		public sealed class ExtensionAttribute : Attribute
+		{
+			/// <summary>
+			/// Construct a ExtensionAttribute, specifying the extension name.
+			/// </summary>
+			/// <param name="extensionName">
+			/// A <see cref="String"/> that specifies the name of the extension that requires the element.
+			/// </param>
+			/// <exception cref="ArgumentException">
+			/// Exception thrown if <paramref name="extensionName"/> is null or empty.
+			/// </exception>
+			public ExtensionAttribute(string extensionName)
+			{
+				if (String.IsNullOrEmpty(extensionName))
+					throw new ArgumentException("null or empty feature not allowed", "extensionName");
+				ExtensionName = extensionName;
+			}
+
+			/// <summary>
+			/// The name of the extension.
+			/// </summary>
+			public readonly string ExtensionName;
+		}
+
+		#endregion
+
 		#region Procedure Logging
 
 		/// <summary>

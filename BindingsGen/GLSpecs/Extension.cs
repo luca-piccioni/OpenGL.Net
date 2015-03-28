@@ -17,6 +17,7 @@
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Text.RegularExpressions;
 using System.Xml.Serialization;
 
 namespace BindingsGen.GLSpecs
@@ -61,6 +62,39 @@ namespace BindingsGen.GLSpecs
 		/// </summary>
 		[XmlElement("require")]
 		public readonly List<FeatureCommand> Requirements = new List<FeatureCommand>();
+
+		#endregion
+
+		#region Utilities
+
+		public string Vendor
+		{
+			get
+			{
+				return (GetVendor(Name));
+			}
+		}
+
+		public static string GetVendor(string extensionName)
+		{
+			Match vendorMatch = Regex.Match(extensionName, @"^(GL|WGL|GLX|GLU|EGL)_(?<Vendor>[^_]+).*");
+
+			if (vendorMatch.Success == false)
+				throw new NotSupportedException();
+
+			return (vendorMatch.Groups["Vendor"].Value);
+		}
+
+		public static bool IsArbVendor(string extensionName)
+		{
+			switch (Extension.GetVendor(extensionName)) {
+				case "ARB":
+				case "KHR":
+					return (true);
+				default:
+					return (false);
+			}
+		}
 
 		#endregion
 

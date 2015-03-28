@@ -30,6 +30,7 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_VERTEX_PROGRAM_NV")]
 		[RequiredByFeature("GL_ARB_vertex_program")]
+		[RequiredByFeature("GL_NV_vertex_program")]
 		public const int VERTEX_PROGRAM_ARB = 0x8620;
 
 		/// <summary>
@@ -38,6 +39,7 @@ namespace OpenGL
 		[AliasOf("GL_PROGRAM_LENGTH_NV")]
 		[RequiredByFeature("GL_ARB_fragment_program")]
 		[RequiredByFeature("GL_ARB_vertex_program")]
+		[RequiredByFeature("GL_NV_vertex_program")]
 		public const int PROGRAM_LENGTH_ARB = 0x8627;
 
 		/// <summary>
@@ -46,6 +48,7 @@ namespace OpenGL
 		[AliasOf("GL_PROGRAM_STRING_NV")]
 		[RequiredByFeature("GL_ARB_fragment_program")]
 		[RequiredByFeature("GL_ARB_vertex_program")]
+		[RequiredByFeature("GL_NV_vertex_program")]
 		public const int PROGRAM_STRING_ARB = 0x8628;
 
 		/// <summary>
@@ -68,6 +71,7 @@ namespace OpenGL
 		[AliasOf("GL_CURRENT_MATRIX_STACK_DEPTH_NV")]
 		[RequiredByFeature("GL_ARB_fragment_program")]
 		[RequiredByFeature("GL_ARB_vertex_program")]
+		[RequiredByFeature("GL_NV_vertex_program")]
 		public const int CURRENT_MATRIX_STACK_DEPTH_ARB = 0x8640;
 
 		/// <summary>
@@ -76,6 +80,7 @@ namespace OpenGL
 		[AliasOf("GL_CURRENT_MATRIX_NV")]
 		[RequiredByFeature("GL_ARB_fragment_program")]
 		[RequiredByFeature("GL_ARB_vertex_program")]
+		[RequiredByFeature("GL_NV_vertex_program")]
 		public const int CURRENT_MATRIX_ARB = 0x8641;
 
 		/// <summary>
@@ -84,6 +89,7 @@ namespace OpenGL
 		[AliasOf("GL_PROGRAM_ERROR_POSITION_NV")]
 		[RequiredByFeature("GL_ARB_fragment_program")]
 		[RequiredByFeature("GL_ARB_vertex_program")]
+		[RequiredByFeature("GL_NV_vertex_program")]
 		public const int PROGRAM_ERROR_POSITION_ARB = 0x864B;
 
 		/// <summary>
@@ -99,6 +105,7 @@ namespace OpenGL
 		[AliasOf("GL_PROGRAM_ERROR_STRING_NV")]
 		[RequiredByFeature("GL_ARB_fragment_program")]
 		[RequiredByFeature("GL_ARB_vertex_program")]
+		[RequiredByFeature("GL_NV_fragment_program")]
 		public const int PROGRAM_ERROR_STRING_ARB = 0x8874;
 
 		/// <summary>

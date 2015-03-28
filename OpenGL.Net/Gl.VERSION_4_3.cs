@@ -279,6 +279,7 @@ namespace OpenGL
 		[AliasOf("GL_DEBUG_OUTPUT_SYNCHRONOUS_ARB")]
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_KHR_debug")]
+		[RequiredByFeature("GL_ARB_debug_output")]
 		public const int DEBUG_OUTPUT_SYNCHRONOUS = 0x8242;
 
 		/// <summary>
@@ -287,6 +288,7 @@ namespace OpenGL
 		[AliasOf("GL_DEBUG_NEXT_LOGGED_MESSAGE_LENGTH_ARB")]
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_KHR_debug")]
+		[RequiredByFeature("GL_ARB_debug_output")]
 		public const int DEBUG_NEXT_LOGGED_MESSAGE_LENGTH = 0x8243;
 
 		/// <summary>
@@ -295,6 +297,7 @@ namespace OpenGL
 		[AliasOf("GL_DEBUG_CALLBACK_FUNCTION_ARB")]
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_KHR_debug")]
+		[RequiredByFeature("GL_ARB_debug_output")]
 		public const int DEBUG_CALLBACK_FUNCTION = 0x8244;
 
 		/// <summary>
@@ -304,6 +307,7 @@ namespace OpenGL
 		[AliasOf("GL_DEBUG_CALLBACK_USER_PARAM_ARB")]
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_KHR_debug")]
+		[RequiredByFeature("GL_ARB_debug_output")]
 		public const int DEBUG_CALLBACK_USER_PARAM = 0x8245;
 
 		/// <summary>
@@ -312,6 +316,7 @@ namespace OpenGL
 		[AliasOf("GL_DEBUG_SOURCE_API_ARB")]
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_KHR_debug")]
+		[RequiredByFeature("GL_ARB_debug_output")]
 		public const int DEBUG_SOURCE_API = 0x8246;
 
 		/// <summary>
@@ -320,6 +325,7 @@ namespace OpenGL
 		[AliasOf("GL_DEBUG_SOURCE_WINDOW_SYSTEM_ARB")]
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_KHR_debug")]
+		[RequiredByFeature("GL_ARB_debug_output")]
 		public const int DEBUG_SOURCE_WINDOW_SYSTEM = 0x8247;
 
 		/// <summary>
@@ -328,6 +334,7 @@ namespace OpenGL
 		[AliasOf("GL_DEBUG_SOURCE_SHADER_COMPILER_ARB")]
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_KHR_debug")]
+		[RequiredByFeature("GL_ARB_debug_output")]
 		public const int DEBUG_SOURCE_SHADER_COMPILER = 0x8248;
 
 		/// <summary>
@@ -336,6 +343,7 @@ namespace OpenGL
 		[AliasOf("GL_DEBUG_SOURCE_THIRD_PARTY_ARB")]
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_KHR_debug")]
+		[RequiredByFeature("GL_ARB_debug_output")]
 		public const int DEBUG_SOURCE_THIRD_PARTY = 0x8249;
 
 		/// <summary>
@@ -344,6 +352,7 @@ namespace OpenGL
 		[AliasOf("GL_DEBUG_SOURCE_APPLICATION_ARB")]
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_KHR_debug")]
+		[RequiredByFeature("GL_ARB_debug_output")]
 		public const int DEBUG_SOURCE_APPLICATION = 0x824A;
 
 		/// <summary>
@@ -352,6 +361,7 @@ namespace OpenGL
 		[AliasOf("GL_DEBUG_SOURCE_OTHER_ARB")]
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_KHR_debug")]
+		[RequiredByFeature("GL_ARB_debug_output")]
 		public const int DEBUG_SOURCE_OTHER = 0x824B;
 
 		/// <summary>
@@ -360,6 +370,7 @@ namespace OpenGL
 		[AliasOf("GL_DEBUG_TYPE_ERROR_ARB")]
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_KHR_debug")]
+		[RequiredByFeature("GL_ARB_debug_output")]
 		public const int DEBUG_TYPE_ERROR = 0x824C;
 
 		/// <summary>
@@ -368,6 +379,7 @@ namespace OpenGL
 		[AliasOf("GL_DEBUG_TYPE_DEPRECATED_BEHAVIOR_ARB")]
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_KHR_debug")]
+		[RequiredByFeature("GL_ARB_debug_output")]
 		public const int DEBUG_TYPE_DEPRECATED_BEHAVIOR = 0x824D;
 
 		/// <summary>
@@ -376,6 +388,7 @@ namespace OpenGL
 		[AliasOf("GL_DEBUG_TYPE_UNDEFINED_BEHAVIOR_ARB")]
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_KHR_debug")]
+		[RequiredByFeature("GL_ARB_debug_output")]
 		public const int DEBUG_TYPE_UNDEFINED_BEHAVIOR = 0x824E;
 
 		/// <summary>
@@ -384,6 +397,7 @@ namespace OpenGL
 		[AliasOf("GL_DEBUG_TYPE_PORTABILITY_ARB")]
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_KHR_debug")]
+		[RequiredByFeature("GL_ARB_debug_output")]
 		public const int DEBUG_TYPE_PORTABILITY = 0x824F;
 
 		/// <summary>
@@ -392,6 +406,7 @@ namespace OpenGL
 		[AliasOf("GL_DEBUG_TYPE_PERFORMANCE_ARB")]
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_KHR_debug")]
+		[RequiredByFeature("GL_ARB_debug_output")]
 		public const int DEBUG_TYPE_PERFORMANCE = 0x8250;
 
 		/// <summary>
@@ -400,6 +415,7 @@ namespace OpenGL
 		[AliasOf("GL_DEBUG_TYPE_OTHER_ARB")]
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_KHR_debug")]
+		[RequiredByFeature("GL_ARB_debug_output")]
 		public const int DEBUG_TYPE_OTHER = 0x8251;
 
 		/// <summary>
@@ -409,6 +425,8 @@ namespace OpenGL
 		[AliasOf("GL_MAX_DEBUG_MESSAGE_LENGTH_ARB")]
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_KHR_debug")]
+		[RequiredByFeature("GL_AMD_debug_output")]
+		[RequiredByFeature("GL_ARB_debug_output")]
 		public const int MAX_DEBUG_MESSAGE_LENGTH = 0x9143;
 
 		/// <summary>
@@ -418,6 +436,8 @@ namespace OpenGL
 		[AliasOf("GL_MAX_DEBUG_LOGGED_MESSAGES_ARB")]
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_KHR_debug")]
+		[RequiredByFeature("GL_AMD_debug_output")]
+		[RequiredByFeature("GL_ARB_debug_output")]
 		public const int MAX_DEBUG_LOGGED_MESSAGES = 0x9144;
 
 		/// <summary>
@@ -427,6 +447,8 @@ namespace OpenGL
 		[AliasOf("GL_DEBUG_LOGGED_MESSAGES_ARB")]
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_KHR_debug")]
+		[RequiredByFeature("GL_AMD_debug_output")]
+		[RequiredByFeature("GL_ARB_debug_output")]
 		public const int DEBUG_LOGGED_MESSAGES = 0x9145;
 
 		/// <summary>
@@ -436,6 +458,8 @@ namespace OpenGL
 		[AliasOf("GL_DEBUG_SEVERITY_HIGH_ARB")]
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_KHR_debug")]
+		[RequiredByFeature("GL_AMD_debug_output")]
+		[RequiredByFeature("GL_ARB_debug_output")]
 		public const int DEBUG_SEVERITY_HIGH = 0x9146;
 
 		/// <summary>
@@ -445,6 +469,8 @@ namespace OpenGL
 		[AliasOf("GL_DEBUG_SEVERITY_MEDIUM_ARB")]
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_KHR_debug")]
+		[RequiredByFeature("GL_AMD_debug_output")]
+		[RequiredByFeature("GL_ARB_debug_output")]
 		public const int DEBUG_SEVERITY_MEDIUM = 0x9147;
 
 		/// <summary>
@@ -454,6 +480,8 @@ namespace OpenGL
 		[AliasOf("GL_DEBUG_SEVERITY_LOW_ARB")]
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_KHR_debug")]
+		[RequiredByFeature("GL_AMD_debug_output")]
+		[RequiredByFeature("GL_ARB_debug_output")]
 		public const int DEBUG_SEVERITY_LOW = 0x9148;
 
 		/// <summary>

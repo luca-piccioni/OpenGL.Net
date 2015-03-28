@@ -300,7 +300,7 @@ namespace BindingsGen
 			}
 		}
 
-		private void GenerateLicensePreamble(SourceStreamWriter sw)
+		internal static void GenerateLicensePreamble(SourceStreamWriter sw)
 		{
 			using (StreamReader sr = new StreamReader(Assembly.GetExecutingAssembly().GetManifestResourceStream("BindingsGen.Licenses.LGPL2.txt"))) {
 				string line;

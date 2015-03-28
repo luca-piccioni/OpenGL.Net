@@ -30,6 +30,7 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("WGL_DRAW_TO_PBUFFER_EXT")]
 		[RequiredByFeature("WGL_ARB_pbuffer")]
+		[RequiredByFeature("WGL_EXT_pbuffer")]
 		public const int DRAW_TO_PBUFFER_ARB = 0x202D;
 
 		/// <summary>
@@ -37,6 +38,7 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("WGL_MAX_PBUFFER_PIXELS_EXT")]
 		[RequiredByFeature("WGL_ARB_pbuffer")]
+		[RequiredByFeature("WGL_EXT_pbuffer")]
 		public const int MAX_PBUFFER_PIXELS_ARB = 0x202E;
 
 		/// <summary>
@@ -44,6 +46,7 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("WGL_MAX_PBUFFER_WIDTH_EXT")]
 		[RequiredByFeature("WGL_ARB_pbuffer")]
+		[RequiredByFeature("WGL_EXT_pbuffer")]
 		public const int MAX_PBUFFER_WIDTH_ARB = 0x202F;
 
 		/// <summary>
@@ -51,6 +54,7 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("WGL_MAX_PBUFFER_HEIGHT_EXT")]
 		[RequiredByFeature("WGL_ARB_pbuffer")]
+		[RequiredByFeature("WGL_EXT_pbuffer")]
 		public const int MAX_PBUFFER_HEIGHT_ARB = 0x2030;
 
 		/// <summary>
@@ -58,6 +62,7 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("WGL_PBUFFER_LARGEST_EXT")]
 		[RequiredByFeature("WGL_ARB_pbuffer")]
+		[RequiredByFeature("WGL_EXT_pbuffer")]
 		public const int PBUFFER_LARGEST_ARB = 0x2033;
 
 		/// <summary>
@@ -65,6 +70,7 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("WGL_PBUFFER_WIDTH_EXT")]
 		[RequiredByFeature("WGL_ARB_pbuffer")]
+		[RequiredByFeature("WGL_EXT_pbuffer")]
 		public const int PBUFFER_WIDTH_ARB = 0x2034;
 
 		/// <summary>
@@ -72,6 +78,7 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("WGL_PBUFFER_HEIGHT_EXT")]
 		[RequiredByFeature("WGL_ARB_pbuffer")]
+		[RequiredByFeature("WGL_EXT_pbuffer")]
 		public const int PBUFFER_HEIGHT_ARB = 0x2035;
 
 		/// <summary>

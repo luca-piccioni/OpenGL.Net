@@ -46,6 +46,7 @@ namespace BindingsGen
 				ctx = new RegistryContext("Gl", Path.Combine(BasePath, "GLSpecs/gl.xml"));
 				glRegistryProcessor = new RegistryProcessor(ctx.Registry);
 				GenerateCommandsAndEnums(glRegistryProcessor, ctx);
+				GenerateExtensionsSupportClass(glRegistryProcessor, ctx);
 			}
 
 #if false
@@ -62,6 +63,7 @@ namespace BindingsGen
 				ctx = new RegistryContext("Wgl", Path.Combine(BasePath, "GLSpecs/wgl.xml"));
 				glRegistryProcessor = new RegistryProcessor(ctx.Registry);
 				GenerateCommandsAndEnums(glRegistryProcessor, ctx);
+				GenerateExtensionsSupportClass(glRegistryProcessor, ctx);
 			}
 
 			// OpenGL for Unix
@@ -69,6 +71,7 @@ namespace BindingsGen
 				ctx = new RegistryContext("Glx", Path.Combine(BasePath, "GLSpecs/glx.xml"));
 				glRegistryProcessor = new RegistryProcessor(ctx.Registry);
 				GenerateCommandsAndEnums(glRegistryProcessor, ctx);
+				GenerateExtensionsSupportClass(glRegistryProcessor, ctx);
 			}
 
 			// EGL
@@ -76,6 +79,7 @@ namespace BindingsGen
 				ctx = new RegistryContext("Egl", Path.Combine(BasePath, "GLSpecs/egl.xml"));
 				glRegistryProcessor = new RegistryProcessor(ctx.Registry);
 				GenerateCommandsAndEnums(glRegistryProcessor, ctx);
+				GenerateExtensionsSupportClass(glRegistryProcessor, ctx);
 			}
 		}
 
@@ -106,15 +110,13 @@ namespace BindingsGen
 
 			#region By features and extensions
 
-			foreach (IFeature feature in ctx.Registry.AllFeatures(ctx))
-			{
+			foreach (IFeature feature in ctx.Registry.AllFeatures(ctx)) {
 				List<Command> featureCommands = new List<Command>();
 				List<Enumerant> featureEnums = new List<Enumerant>();
 
 				#region Select enumerants and commands
 
-				foreach (FeatureCommand featureCommand in feature.Requirements)
-				{
+				foreach (FeatureCommand featureCommand in feature.Requirements) {
 					if (featureCommand.Api != null && !Regex.IsMatch(ctx.Class.ToLower(), featureCommand.Api))
 						continue;
 
@@ -234,6 +236,98 @@ namespace BindingsGen
 			}
 
 			#endregion
+		}
+
+		private static void GenerateExtensionsSupportClass(RegistryProcessor glRegistryProcessor, RegistryContext ctx)
+		{
+			string path = String.Format("OpenGL.NET/{0}.Extensions.cs", ctx.Class);
+
+			Console.WriteLine("Generate registry khronosExtensions to {0}.", path);
+
+			SortedList<int, List<IFeature>> khronosExtensions = new SortedList<int, List<IFeature>>();
+			SortedList<int, List<IFeature>> vendorExtensions = new SortedList<int, List<IFeature>>();
+
+			foreach (IFeature feature in ctx.Registry.Extensions) {
+				SortedList<int, List<IFeature>> extensionDict;
+				List<IFeature> extensionFeatures;
+
+				if (Extension.IsArbVendor(feature.Name))
+					extensionDict = khronosExtensions;
+				else
+					extensionDict = vendorExtensions;
+
+				int index = ExtensionIndices.GetIndex(feature.Name);
+
+				if (extensionDict.TryGetValue(index, out extensionFeatures) == false) {
+					extensionFeatures = new List<IFeature>();
+					extensionDict.Add(index, extensionFeatures);
+				}
+
+				extensionFeatures.Add(feature);
+			}
+
+			using (SourceStreamWriter sw = new SourceStreamWriter(Path.Combine(BasePath, path), false)) {
+				RegistryProcessor.GenerateLicensePreamble(sw);
+
+				sw.WriteLine();
+
+				sw.WriteLine("using System;");
+				sw.WriteLine();
+
+				sw.WriteLine("namespace OpenGL");
+				sw.WriteLine("{");
+				sw.Indent();
+
+				sw.WriteLine("public partial class {0}", ctx.Class);
+				sw.WriteLine("{");
+				sw.Indent();
+
+				sw.WriteLine("/// <summary>");
+				sw.WriteLine("/// Extension support listing.");
+				sw.WriteLine("/// </summary>");
+				sw.WriteLine("public class Extensions");
+				sw.WriteLine("{");
+				sw.Indent();
+
+				foreach (KeyValuePair<int, List<IFeature>> pair in khronosExtensions) {
+					IFeature mainFeature = pair.Value[0];
+					string extensionFieldName = SpecificationStyle.GetExtensionBindingName(mainFeature.Name);
+
+					sw.WriteLine("/// <summary>");
+					sw.WriteLine("/// Support for extension {0}.", mainFeature.Name);
+					sw.WriteLine("/// </summary>");
+					foreach (IFeature feature in pair.Value)
+						sw.WriteLine("[Extension(\"{0}\")]", feature.Name);
+
+					sw.WriteLine("public bool {0};", extensionFieldName);
+					sw.WriteLine();
+				}
+
+				foreach (KeyValuePair<int, List<IFeature>> pair in vendorExtensions) {
+					IFeature mainFeature = pair.Value[0];
+					string extensionFieldName = SpecificationStyle.GetExtensionBindingName(mainFeature.Name);
+
+					sw.WriteLine("/// <summary>");
+					sw.WriteLine("/// Support for extension {0}.", mainFeature.Name);
+					sw.WriteLine("/// </summary>");
+					foreach (IFeature feature in pair.Value)
+						sw.WriteLine("[Extension(\"{0}\")]", feature.Name);
+
+					sw.WriteLine("public bool {0};", extensionFieldName);
+					sw.WriteLine();
+				}
+
+				sw.Unindent();
+				sw.WriteLine("}");
+				sw.Unindent();
+
+				sw.Unindent();
+				sw.WriteLine("}");
+				sw.Unindent();
+
+				sw.WriteLine();
+				sw.WriteLine("}");
+			}
 		}
 
 		/// <summary>

@@ -76,16 +76,49 @@ namespace BindingsGen.GLSpecs
 
 		#endregion
 
+		#region Utilities
+
+		public string Vendor
+		{
+			get
+			{
+				return (GetVendor(Name));
+			}
+		}
+
+		public static string GetVendor(string enumerantName)
+		{
+			Match vendorMatch = Regex.Match(enumerantName, @"^.*_(?<Vendor>[A-Z0-9]+)$");
+
+			if (vendorMatch.Success == false)
+				throw new NotSupportedException();
+
+			return (vendorMatch.Groups["Vendor"].Value);
+		}
+
+		public static bool IsArbVendor(string enumerantName)
+		{
+			switch (Extension.GetVendor(enumerantName)) {
+				case "ARB":
+				case "KHR":
+					return (true);
+				default:
+					return (false);
+			}
+		}
+
+		#endregion
+
 		#region Promotion and Deprecation
 
 		/// <summary>
-		/// Enumerant alias.
+		/// Enumerant alias (EnumAlias overrides this Enumerant).
 		/// </summary>
 		[XmlIgnore]
 		public Enumerant EnumAlias;
 
 		/// <summary>
-		/// Symbols aliased.
+		/// Symbols aliased (AliasOf[*] are overriden by this Enumerant).
 		/// </summary>
 		[XmlIgnore]
 		public readonly List<Enumerant> AliasOf = new List<Enumerant>();
@@ -251,6 +284,10 @@ namespace BindingsGen.GLSpecs
 
 			foreach (IFeature feature in RequiredBy)
 				sw.WriteLine("[RequiredByFeature(\"{0}\")]", feature.Name);
+			foreach (Enumerant aliasOf in AliasOf) {
+				foreach (IFeature feature in aliasOf.RequiredBy)
+					sw.WriteLine("[RequiredByFeature(\"{0}\")]", feature.Name);
+			}
 			foreach (IFeature feature in RemovedBy)
 				sw.WriteLine("[RemovedByFeature(\"{0}\")]", feature.Name);
 

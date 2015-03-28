@@ -30,6 +30,7 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_SAMPLE_ALPHA_TO_MASK_SGIS")]
 		[RequiredByFeature("GL_EXT_multisample")]
+		[RequiredByFeature("GL_SGIS_multisample")]
 		public const int SAMPLE_ALPHA_TO_MASK_EXT = 0x809E;
 
 		/// <summary>
@@ -43,6 +44,7 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_1PASS_SGIS")]
 		[RequiredByFeature("GL_EXT_multisample")]
+		[RequiredByFeature("GL_SGIS_multisample")]
 		public const int _1PASS_EXT = 0x80A1;
 
 		/// <summary>
@@ -50,6 +52,7 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_2PASS_0_SGIS")]
 		[RequiredByFeature("GL_EXT_multisample")]
+		[RequiredByFeature("GL_SGIS_multisample")]
 		public const int _2PASS_0_EXT = 0x80A2;
 
 		/// <summary>
@@ -57,6 +60,7 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_2PASS_1_SGIS")]
 		[RequiredByFeature("GL_EXT_multisample")]
+		[RequiredByFeature("GL_SGIS_multisample")]
 		public const int _2PASS_1_EXT = 0x80A3;
 
 		/// <summary>
@@ -64,6 +68,7 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_4PASS_0_SGIS")]
 		[RequiredByFeature("GL_EXT_multisample")]
+		[RequiredByFeature("GL_SGIS_multisample")]
 		public const int _4PASS_0_EXT = 0x80A4;
 
 		/// <summary>
@@ -71,6 +76,7 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_4PASS_1_SGIS")]
 		[RequiredByFeature("GL_EXT_multisample")]
+		[RequiredByFeature("GL_SGIS_multisample")]
 		public const int _4PASS_1_EXT = 0x80A5;
 
 		/// <summary>
@@ -78,6 +84,7 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_4PASS_2_SGIS")]
 		[RequiredByFeature("GL_EXT_multisample")]
+		[RequiredByFeature("GL_SGIS_multisample")]
 		public const int _4PASS_2_EXT = 0x80A6;
 
 		/// <summary>
@@ -85,6 +92,7 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_4PASS_3_SGIS")]
 		[RequiredByFeature("GL_EXT_multisample")]
+		[RequiredByFeature("GL_SGIS_multisample")]
 		public const int _4PASS_3_EXT = 0x80A7;
 
 		/// <summary>
@@ -98,6 +106,7 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_SAMPLE_MASK_INVERT_SGIS")]
 		[RequiredByFeature("GL_EXT_multisample")]
+		[RequiredByFeature("GL_SGIS_multisample")]
 		public const int SAMPLE_MASK_INVERT_EXT = 0x80AB;
 
 		/// <summary>
@@ -105,6 +114,7 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_SAMPLE_PATTERN_SGIS")]
 		[RequiredByFeature("GL_EXT_multisample")]
+		[RequiredByFeature("GL_SGIS_multisample")]
 		public const int SAMPLE_PATTERN_EXT = 0x80AC;
 
 		/// <summary>

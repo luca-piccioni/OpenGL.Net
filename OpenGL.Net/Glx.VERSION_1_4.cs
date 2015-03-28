@@ -31,6 +31,8 @@ namespace OpenGL
 		[AliasOf("GLX_SAMPLE_BUFFERS_ARB")]
 		[AliasOf("GLX_SAMPLE_BUFFERS_SGIS")]
 		[RequiredByFeature("GLX_VERSION_1_4")]
+		[RequiredByFeature("GLX_ARB_multisample")]
+		[RequiredByFeature("GLX_SGIS_multisample")]
 		public const int SAMPLE_BUFFERS = 100000;
 
 		/// <summary>
@@ -39,6 +41,8 @@ namespace OpenGL
 		[AliasOf("GLX_SAMPLES_ARB")]
 		[AliasOf("GLX_SAMPLES_SGIS")]
 		[RequiredByFeature("GLX_VERSION_1_4")]
+		[RequiredByFeature("GLX_ARB_multisample")]
+		[RequiredByFeature("GLX_SGIS_multisample")]
 		public const int SAMPLES = 100001;
 
 		/// <summary>

@@ -30,6 +30,7 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_MAX_SPARSE_ARRAY_TEXTURE_LAYERS_ARB")]
 		[RequiredByFeature("GL_AMD_sparse_texture")]
+		[RequiredByFeature("GL_ARB_sparse_texture")]
 		public const int MAX_SPARSE_ARRAY_TEXTURE_LAYERS = 0x919A;
 
 		/// <summary>

@@ -30,6 +30,7 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GLX_WINDOW_BIT_SGIX")]
 		[RequiredByFeature("GLX_VERSION_1_3")]
+		[RequiredByFeature("GLX_SGIX_fbconfig")]
 		public const uint WINDOW_BIT = 0x00000001;
 
 		/// <summary>
@@ -37,6 +38,7 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GLX_PIXMAP_BIT_SGIX")]
 		[RequiredByFeature("GLX_VERSION_1_3")]
+		[RequiredByFeature("GLX_SGIX_fbconfig")]
 		public const uint PIXMAP_BIT = 0x00000002;
 
 		/// <summary>
@@ -44,6 +46,7 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GLX_PBUFFER_BIT_SGIX")]
 		[RequiredByFeature("GLX_VERSION_1_3")]
+		[RequiredByFeature("GLX_SGIX_pbuffer")]
 		public const uint PBUFFER_BIT = 0x00000004;
 
 		/// <summary>
@@ -51,6 +54,7 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GLX_RGBA_BIT_SGIX")]
 		[RequiredByFeature("GLX_VERSION_1_3")]
+		[RequiredByFeature("GLX_SGIX_fbconfig")]
 		public const uint RGBA_BIT = 0x00000001;
 
 		/// <summary>
@@ -58,6 +62,7 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GLX_COLOR_INDEX_BIT_SGIX")]
 		[RequiredByFeature("GLX_VERSION_1_3")]
+		[RequiredByFeature("GLX_SGIX_fbconfig")]
 		public const uint COLOR_INDEX_BIT = 0x00000002;
 
 		/// <summary>
@@ -71,6 +76,7 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GLX_FRONT_LEFT_BUFFER_BIT_SGIX")]
 		[RequiredByFeature("GLX_VERSION_1_3")]
+		[RequiredByFeature("GLX_SGIX_pbuffer")]
 		public const uint FRONT_LEFT_BUFFER_BIT = 0x00000001;
 
 		/// <summary>
@@ -78,6 +84,7 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GLX_FRONT_RIGHT_BUFFER_BIT_SGIX")]
 		[RequiredByFeature("GLX_VERSION_1_3")]
+		[RequiredByFeature("GLX_SGIX_pbuffer")]
 		public const uint FRONT_RIGHT_BUFFER_BIT = 0x00000002;
 
 		/// <summary>
@@ -85,6 +92,7 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GLX_BACK_LEFT_BUFFER_BIT_SGIX")]
 		[RequiredByFeature("GLX_VERSION_1_3")]
+		[RequiredByFeature("GLX_SGIX_pbuffer")]
 		public const uint BACK_LEFT_BUFFER_BIT = 0x00000004;
 
 		/// <summary>
@@ -92,6 +100,7 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GLX_BACK_RIGHT_BUFFER_BIT_SGIX")]
 		[RequiredByFeature("GLX_VERSION_1_3")]
+		[RequiredByFeature("GLX_SGIX_pbuffer")]
 		public const uint BACK_RIGHT_BUFFER_BIT = 0x00000008;
 
 		/// <summary>
@@ -99,6 +108,7 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GLX_AUX_BUFFERS_BIT_SGIX")]
 		[RequiredByFeature("GLX_VERSION_1_3")]
+		[RequiredByFeature("GLX_SGIX_pbuffer")]
 		public const uint AUX_BUFFERS_BIT = 0x00000010;
 
 		/// <summary>
@@ -106,6 +116,7 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GLX_DEPTH_BUFFER_BIT_SGIX")]
 		[RequiredByFeature("GLX_VERSION_1_3")]
+		[RequiredByFeature("GLX_SGIX_pbuffer")]
 		public const uint DEPTH_BUFFER_BIT = 0x00000020;
 
 		/// <summary>
@@ -113,6 +124,7 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GLX_STENCIL_BUFFER_BIT_SGIX")]
 		[RequiredByFeature("GLX_VERSION_1_3")]
+		[RequiredByFeature("GLX_SGIX_pbuffer")]
 		public const uint STENCIL_BUFFER_BIT = 0x00000040;
 
 		/// <summary>
@@ -120,6 +132,7 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GLX_ACCUM_BUFFER_BIT_SGIX")]
 		[RequiredByFeature("GLX_VERSION_1_3")]
+		[RequiredByFeature("GLX_SGIX_pbuffer")]
 		public const uint ACCUM_BUFFER_BIT = 0x00000080;
 
 		/// <summary>
@@ -157,6 +170,7 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GLX_X_VISUAL_TYPE_EXT")]
 		[RequiredByFeature("GLX_VERSION_1_3")]
+		[RequiredByFeature("GLX_EXT_visual_info")]
 		public const int X_VISUAL_TYPE = 0x22;
 
 		/// <summary>
@@ -175,6 +189,7 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GLX_TRANSPARENT_TYPE_EXT")]
 		[RequiredByFeature("GLX_VERSION_1_3")]
+		[RequiredByFeature("GLX_EXT_visual_info")]
 		public const int TRANSPARENT_TYPE = 0x23;
 
 		/// <summary>
@@ -192,6 +207,7 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GLX_TRANSPARENT_INDEX_VALUE_EXT")]
 		[RequiredByFeature("GLX_VERSION_1_3")]
+		[RequiredByFeature("GLX_EXT_visual_info")]
 		public const int TRANSPARENT_INDEX_VALUE = 0x24;
 
 		/// <summary>
@@ -208,6 +224,7 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GLX_TRANSPARENT_RED_VALUE_EXT")]
 		[RequiredByFeature("GLX_VERSION_1_3")]
+		[RequiredByFeature("GLX_EXT_visual_info")]
 		public const int TRANSPARENT_RED_VALUE = 0x25;
 
 		/// <summary>
@@ -224,6 +241,7 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GLX_TRANSPARENT_GREEN_VALUE_EXT")]
 		[RequiredByFeature("GLX_VERSION_1_3")]
+		[RequiredByFeature("GLX_EXT_visual_info")]
 		public const int TRANSPARENT_GREEN_VALUE = 0x26;
 
 		/// <summary>
@@ -240,6 +258,7 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GLX_TRANSPARENT_BLUE_VALUE_EXT")]
 		[RequiredByFeature("GLX_VERSION_1_3")]
+		[RequiredByFeature("GLX_EXT_visual_info")]
 		public const int TRANSPARENT_BLUE_VALUE = 0x27;
 
 		/// <summary>
@@ -255,6 +274,7 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GLX_TRANSPARENT_ALPHA_VALUE_EXT")]
 		[RequiredByFeature("GLX_VERSION_1_3")]
+		[RequiredByFeature("GLX_EXT_visual_info")]
 		public const int TRANSPARENT_ALPHA_VALUE = 0x28;
 
 		/// <summary>
@@ -268,6 +288,8 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GLX_NONE_EXT")]
 		[RequiredByFeature("GLX_VERSION_1_3")]
+		[RequiredByFeature("GLX_EXT_visual_info")]
+		[RequiredByFeature("GLX_EXT_visual_rating")]
 		public const int NONE = 0x8000;
 
 		/// <summary>
@@ -281,6 +303,7 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GLX_TRUE_COLOR_EXT")]
 		[RequiredByFeature("GLX_VERSION_1_3")]
+		[RequiredByFeature("GLX_EXT_visual_info")]
 		public const int TRUE_COLOR = 0x8002;
 
 		/// <summary>
@@ -288,6 +311,7 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GLX_DIRECT_COLOR_EXT")]
 		[RequiredByFeature("GLX_VERSION_1_3")]
+		[RequiredByFeature("GLX_EXT_visual_info")]
 		public const int DIRECT_COLOR = 0x8003;
 
 		/// <summary>
@@ -295,6 +319,7 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GLX_PSEUDO_COLOR_EXT")]
 		[RequiredByFeature("GLX_VERSION_1_3")]
+		[RequiredByFeature("GLX_EXT_visual_info")]
 		public const int PSEUDO_COLOR = 0x8004;
 
 		/// <summary>
@@ -302,6 +327,7 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GLX_STATIC_COLOR_EXT")]
 		[RequiredByFeature("GLX_VERSION_1_3")]
+		[RequiredByFeature("GLX_EXT_visual_info")]
 		public const int STATIC_COLOR = 0x8005;
 
 		/// <summary>
@@ -309,6 +335,7 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GLX_GRAY_SCALE_EXT")]
 		[RequiredByFeature("GLX_VERSION_1_3")]
+		[RequiredByFeature("GLX_EXT_visual_info")]
 		public const int GRAY_SCALE = 0x8006;
 
 		/// <summary>
@@ -316,6 +343,7 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GLX_STATIC_GRAY_EXT")]
 		[RequiredByFeature("GLX_VERSION_1_3")]
+		[RequiredByFeature("GLX_EXT_visual_info")]
 		public const int STATIC_GRAY = 0x8007;
 
 		/// <summary>
@@ -323,6 +351,7 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GLX_TRANSPARENT_RGB_EXT")]
 		[RequiredByFeature("GLX_VERSION_1_3")]
+		[RequiredByFeature("GLX_EXT_visual_info")]
 		public const int TRANSPARENT_RGB = 0x8008;
 
 		/// <summary>
@@ -330,6 +359,7 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GLX_TRANSPARENT_INDEX_EXT")]
 		[RequiredByFeature("GLX_VERSION_1_3")]
+		[RequiredByFeature("GLX_EXT_visual_info")]
 		public const int TRANSPARENT_INDEX = 0x8009;
 
 		/// <summary>
@@ -338,6 +368,7 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GLX_VISUAL_ID_EXT")]
 		[RequiredByFeature("GLX_VERSION_1_3")]
+		[RequiredByFeature("GLX_EXT_import_context")]
 		public const int VISUAL_ID = 0x800B;
 
 		/// <summary>
@@ -345,6 +376,8 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GLX_SCREEN_EXT")]
 		[RequiredByFeature("GLX_VERSION_1_3")]
+		[RequiredByFeature("GLX_EXT_import_context")]
+		[RequiredByFeature("GLX_SGIX_fbconfig")]
 		public const int SCREEN = 0x800C;
 
 		/// <summary>
@@ -367,6 +400,7 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GLX_DRAWABLE_TYPE_SGIX")]
 		[RequiredByFeature("GLX_VERSION_1_3")]
+		[RequiredByFeature("GLX_SGIX_fbconfig")]
 		public const int DRAWABLE_TYPE = 0x8010;
 
 		/// <summary>
@@ -386,6 +420,7 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GLX_RENDER_TYPE_SGIX")]
 		[RequiredByFeature("GLX_VERSION_1_3")]
+		[RequiredByFeature("GLX_SGIX_fbconfig")]
 		public const int RENDER_TYPE = 0x8011;
 
 		/// <summary>
@@ -400,6 +435,7 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GLX_X_RENDERABLE_SGIX")]
 		[RequiredByFeature("GLX_VERSION_1_3")]
+		[RequiredByFeature("GLX_SGIX_fbconfig")]
 		public const int X_RENDERABLE = 0x8012;
 
 		/// <summary>
@@ -419,6 +455,7 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GLX_FBCONFIG_ID_SGIX")]
 		[RequiredByFeature("GLX_VERSION_1_3")]
+		[RequiredByFeature("GLX_SGIX_fbconfig")]
 		public const int FBCONFIG_ID = 0x8013;
 
 		/// <summary>
@@ -426,6 +463,7 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GLX_RGBA_TYPE_SGIX")]
 		[RequiredByFeature("GLX_VERSION_1_3")]
+		[RequiredByFeature("GLX_SGIX_fbconfig")]
 		public const int RGBA_TYPE = 0x8014;
 
 		/// <summary>
@@ -433,6 +471,7 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GLX_COLOR_INDEX_TYPE_SGIX")]
 		[RequiredByFeature("GLX_VERSION_1_3")]
+		[RequiredByFeature("GLX_SGIX_fbconfig")]
 		public const int COLOR_INDEX_TYPE = 0x8015;
 
 		/// <summary>
@@ -440,6 +479,7 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GLX_MAX_PBUFFER_WIDTH_SGIX")]
 		[RequiredByFeature("GLX_VERSION_1_3")]
+		[RequiredByFeature("GLX_SGIX_pbuffer")]
 		public const int MAX_PBUFFER_WIDTH = 0x8016;
 
 		/// <summary>
@@ -447,6 +487,7 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GLX_MAX_PBUFFER_HEIGHT_SGIX")]
 		[RequiredByFeature("GLX_VERSION_1_3")]
+		[RequiredByFeature("GLX_SGIX_pbuffer")]
 		public const int MAX_PBUFFER_HEIGHT = 0x8017;
 
 		/// <summary>
@@ -457,6 +498,7 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GLX_MAX_PBUFFER_PIXELS_SGIX")]
 		[RequiredByFeature("GLX_VERSION_1_3")]
+		[RequiredByFeature("GLX_SGIX_pbuffer")]
 		public const int MAX_PBUFFER_PIXELS = 0x8018;
 
 		/// <summary>
@@ -474,6 +516,7 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GLX_PRESERVED_CONTENTS_SGIX")]
 		[RequiredByFeature("GLX_VERSION_1_3")]
+		[RequiredByFeature("GLX_SGIX_pbuffer")]
 		public const int PRESERVED_CONTENTS = 0x801B;
 
 		/// <summary>
@@ -492,6 +535,7 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GLX_LARGEST_PBUFFER_SGIX")]
 		[RequiredByFeature("GLX_VERSION_1_3")]
+		[RequiredByFeature("GLX_SGIX_pbuffer")]
 		public const int LARGEST_PBUFFER = 0x801C;
 
 		/// <summary>
@@ -499,6 +543,7 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GLX_WIDTH_SGIX")]
 		[RequiredByFeature("GLX_VERSION_1_3")]
+		[RequiredByFeature("GLX_SGIX_pbuffer")]
 		public const int WIDTH = 0x801D;
 
 		/// <summary>
@@ -506,6 +551,7 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GLX_HEIGHT_SGIX")]
 		[RequiredByFeature("GLX_VERSION_1_3")]
+		[RequiredByFeature("GLX_SGIX_pbuffer")]
 		public const int HEIGHT = 0x801E;
 
 		/// <summary>
@@ -513,6 +559,7 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GLX_EVENT_MASK_SGIX")]
 		[RequiredByFeature("GLX_VERSION_1_3")]
+		[RequiredByFeature("GLX_SGIX_pbuffer")]
 		public const int EVENT_MASK = 0x801F;
 
 		/// <summary>
@@ -520,6 +567,7 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GLX_DAMAGED_SGIX")]
 		[RequiredByFeature("GLX_VERSION_1_3")]
+		[RequiredByFeature("GLX_SGIX_pbuffer")]
 		public const int DAMAGED = 0x8020;
 
 		/// <summary>
@@ -527,6 +575,7 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GLX_SAVED_SGIX")]
 		[RequiredByFeature("GLX_VERSION_1_3")]
+		[RequiredByFeature("GLX_SGIX_pbuffer")]
 		public const int SAVED = 0x8021;
 
 		/// <summary>
@@ -534,6 +583,7 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GLX_WINDOW_SGIX")]
 		[RequiredByFeature("GLX_VERSION_1_3")]
+		[RequiredByFeature("GLX_SGIX_pbuffer")]
 		public const int WINDOW = 0x8022;
 
 		/// <summary>
@@ -541,6 +591,7 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GLX_PBUFFER_SGIX")]
 		[RequiredByFeature("GLX_VERSION_1_3")]
+		[RequiredByFeature("GLX_SGIX_pbuffer")]
 		public const int PBUFFER = 0x8023;
 
 		/// <summary>

@@ -259,6 +259,7 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("EGL_IMAGE_PRESERVED_KHR")]
 		[RequiredByFeature("EGL_VERSION_1_5")]
+		[RequiredByFeature("EGL_KHR_image_base")]
 		public const int IMAGE_PRESERVED = 0x30D2;
 
 		/// <summary>

@@ -72,8 +72,8 @@
     <Compile Include="ANDROID\Egl.ANDROID_image_native_buffer.cs" />
     <Compile Include="ANDROID\Egl.ANDROID_native_fence_sync.cs" />
     <Compile Include="ANDROID\Egl.ANDROID_recordable.cs" />
-    <Compile Include="ANGLE\Egl.ANGLE_d3d_share_handle_client_buffer.cs" />
     <Compile Include="ANGLE\Egl.ANGLE_query_surface_pointer.cs" />
+    <Compile Include="ANGLE\Egl.ANGLE_surface_d3d_texture_2d_share_handle.cs" />
     <Compile Include="ANGLE\Egl.ANGLE_window_fixed_size.cs" />
     <Compile Include="APPLE\Gl.APPLE_aux_depth_stencil.cs" />
     <Compile Include="APPLE\Gl.APPLE_client_storage.cs" />
@@ -159,6 +159,7 @@
     <Compile Include="DevicePixelFormatCollection.cs" />
     <Compile Include="Egl.cs" />
     <Compile Include="Egl.Delegates.cs" />
+    <Compile Include="Egl.Extensions.cs" />
     <Compile Include="Egl.Imports.cs" />
     <Compile Include="Egl.VERSION_1_0.cs" />
     <Compile Include="Egl.VERSION_1_1.cs" />
@@ -261,6 +262,7 @@
     <Compile Include="Gl.Enums.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Gl.Extensions.cs" />
     <Compile Include="Gl.Imports.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -284,6 +286,7 @@
     <Compile Include="Gl.VERSION_4_5.cs" />
     <Compile Include="Glx.cs" />
     <Compile Include="Glx.Delegates.cs" />
+    <Compile Include="Glx.Extensions.cs" />
     <Compile Include="Glx.Imports.cs" />
     <Compile Include="Glx.VERSION_1_0.cs" />
     <Compile Include="Glx.VERSION_1_1.cs" />
@@ -318,10 +321,8 @@
     <Compile Include="INTEL\Gl.INTEL_performance_query.cs" />
     <Compile Include="INTEL\Glx.INTEL_swap_event.cs" />
     <Compile Include="KHR\Egl.KHR_create_context.cs" />
-    <Compile Include="KHR\Egl.KHR_fence_sync.cs" />
-    <Compile Include="KHR\Egl.KHR_image.cs" />
-    <Compile Include="KHR\Egl.KHR_lock_surface.cs" />
-    <Compile Include="KHR\Egl.KHR_lock_surface2.cs" />
+    <Compile Include="KHR\Egl.KHR_image_base.cs" />
+    <Compile Include="KHR\Egl.KHR_image_pixmap.cs" />
     <Compile Include="KHR\Egl.KHR_lock_surface3.cs" />
     <Compile Include="KHR\Egl.KHR_partial_update.cs" />
     <Compile Include="KHR\Egl.KHR_platform_android.cs" />
@@ -390,11 +391,9 @@
     <Compile Include="NV\Gl.NV_geometry_program4.cs" />
     <Compile Include="NV\Gl.NV_gpu_program4.cs" />
     <Compile Include="NV\Gl.NV_gpu_program5.cs" />
-    <Compile Include="NV\Gl.NV_gpu_shader5.cs" />
     <Compile Include="NV\Gl.NV_half_float.cs" />
     <Compile Include="NV\Gl.NV_internalformat_sample_query.cs" />
     <Compile Include="NV\Gl.NV_light_max_exponent.cs" />
-    <Compile Include="NV\Gl.NV_multisample_coverage.cs" />
     <Compile Include="NV\Gl.NV_multisample_filter_hint.cs" />
     <Compile Include="NV\Gl.NV_occlusion_query.cs" />
     <Compile Include="NV\Gl.NV_parameter_buffer_object.cs" />
@@ -552,6 +551,7 @@
     <Compile Include="Wgl.Delegates.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Wgl.Extensions.cs" />
     <Compile Include="Wgl.Imports.cs">
       <SubType>Code</SubType>
     </Compile>

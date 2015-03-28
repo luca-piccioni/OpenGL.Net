@@ -12,7 +12,7 @@
     <FileUpgradeFlags>
     </FileUpgradeFlags>
     <OldToolsVersion>2.0</OldToolsVersion>
-    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
     <UpgradeBackupLocation>
     </UpgradeBackupLocation>
     <PublishUrl>publish\</PublishUrl>
@@ -30,6 +30,8 @@
     <IsWebBootstrapper>false</IsWebBootstrapper>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
+    <TargetFrameworkSubset>
+    </TargetFrameworkSubset>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -74,7 +76,7 @@
     <Compile Include="GLSpecs\ICommandParameter.cs" />
     <Compile Include="GLSpecs\IFeature.cs" />
     <Compile Include="GLSpecs\Registry.cs" />
-    <Compile Include="GLSpecs\SpecificationStyle.cs" />
+    <Compile Include="SpecificationStyle.cs" />
     <Compile Include="GLSpecs\SpecWordsDictionary.cs" />
     <Compile Include="GLSpecs\Type.cs" />
     <Compile Include="GLSpecs\TypeMap.cs" />
@@ -154,6 +156,9 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="GLSpecs\EnumerantDoc_Man2.xslt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

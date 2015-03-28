@@ -130,6 +130,7 @@ namespace OpenGL
 		[AliasOf("GL_QUERY_BUFFER_AMD")]
 		[RequiredByFeature("GL_VERSION_4_4")]
 		[RequiredByFeature("GL_ARB_query_buffer_object")]
+		[RequiredByFeature("GL_AMD_query_buffer_object")]
 		public const int QUERY_BUFFER = 0x9192;
 
 		/// <summary>
@@ -145,6 +146,7 @@ namespace OpenGL
 		[AliasOf("GL_QUERY_BUFFER_BINDING_AMD")]
 		[RequiredByFeature("GL_VERSION_4_4")]
 		[RequiredByFeature("GL_ARB_query_buffer_object")]
+		[RequiredByFeature("GL_AMD_query_buffer_object")]
 		public const int QUERY_BUFFER_BINDING = 0x9193;
 
 		/// <summary>
@@ -155,6 +157,7 @@ namespace OpenGL
 		[AliasOf("GL_QUERY_RESULT_NO_WAIT_AMD")]
 		[RequiredByFeature("GL_VERSION_4_4")]
 		[RequiredByFeature("GL_ARB_query_buffer_object")]
+		[RequiredByFeature("GL_AMD_query_buffer_object")]
 		public const int QUERY_RESULT_NO_WAIT = 0x9194;
 
 		/// <summary>
@@ -164,6 +167,8 @@ namespace OpenGL
 		[AliasOf("GL_MIRROR_CLAMP_TO_EDGE_EXT")]
 		[RequiredByFeature("GL_VERSION_4_4")]
 		[RequiredByFeature("GL_ARB_texture_mirror_clamp_to_edge")]
+		[RequiredByFeature("GL_ATI_texture_mirror_once")]
+		[RequiredByFeature("GL_EXT_texture_mirror_clamp")]
 		public const int MIRROR_CLAMP_TO_EDGE = 0x8743;
 
 		/// <summary>
