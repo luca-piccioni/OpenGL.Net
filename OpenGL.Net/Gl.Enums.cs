@@ -121,8 +121,7 @@ namespace OpenGL
 		ListBit = Gl.LIST_BIT,
 
 		/// <summary>
-		/// /// Strongly typed for value GL_MULTISAMPLE_BIT, GL_MULTISAMPLE_BIT_3DFX, GL_MULTISAMPLE_BIT_ARB, 
-		/// GL_MULTISAMPLE_BIT_EXT.
+		/// Strongly typed for value GL_MULTISAMPLE_BIT, GL_MULTISAMPLE_BIT_3DFX, GL_MULTISAMPLE_BIT_ARB, GL_MULTISAMPLE_BIT_EXT.
 		/// </summary>
 		MultisampleBit = Gl.MULTISAMPLE_BIT,
 
@@ -480,32 +479,32 @@ namespace OpenGL
 	public enum ClipPlaneName
 	{
 		/// <summary>
-		/// /// Strongly typed for value GL_CLIP_DISTANCE0, GL_CLIP_PLANE0.
+		/// Strongly typed for value GL_CLIP_DISTANCE0, GL_CLIP_PLANE0.
 		/// </summary>
 		ClipPlane0 = Gl.CLIP_PLANE0,
 
 		/// <summary>
-		/// /// Strongly typed for value GL_CLIP_DISTANCE1, GL_CLIP_PLANE1.
+		/// Strongly typed for value GL_CLIP_DISTANCE1, GL_CLIP_PLANE1.
 		/// </summary>
 		ClipPlane1 = Gl.CLIP_PLANE1,
 
 		/// <summary>
-		/// /// Strongly typed for value GL_CLIP_DISTANCE2, GL_CLIP_PLANE2.
+		/// Strongly typed for value GL_CLIP_DISTANCE2, GL_CLIP_PLANE2.
 		/// </summary>
 		ClipPlane2 = Gl.CLIP_PLANE2,
 
 		/// <summary>
-		/// /// Strongly typed for value GL_CLIP_DISTANCE3, GL_CLIP_PLANE3.
+		/// Strongly typed for value GL_CLIP_DISTANCE3, GL_CLIP_PLANE3.
 		/// </summary>
 		ClipPlane3 = Gl.CLIP_PLANE3,
 
 		/// <summary>
-		/// /// Strongly typed for value GL_CLIP_DISTANCE4, GL_CLIP_PLANE4.
+		/// Strongly typed for value GL_CLIP_DISTANCE4, GL_CLIP_PLANE4.
 		/// </summary>
 		ClipPlane4 = Gl.CLIP_PLANE4,
 
 		/// <summary>
-		/// /// Strongly typed for value GL_CLIP_DISTANCE5, GL_CLIP_PLANE5.
+		/// Strongly typed for value GL_CLIP_DISTANCE5, GL_CLIP_PLANE5.
 		/// </summary>
 		ClipPlane5 = Gl.CLIP_PLANE5,
 
@@ -628,12 +627,12 @@ namespace OpenGL
 	public enum ColorTableParameterPNameSGI
 	{
 		/// <summary>
-		/// /// Strongly typed for value GL_COLOR_TABLE_BIAS, GL_COLOR_TABLE_BIAS_SGI.
+		/// Strongly typed for value GL_COLOR_TABLE_BIAS, GL_COLOR_TABLE_BIAS_SGI.
 		/// </summary>
 		ColorTableBias = Gl.COLOR_TABLE_BIAS,
 
 		/// <summary>
-		/// /// Strongly typed for value GL_COLOR_TABLE_SCALE, GL_COLOR_TABLE_SCALE_SGI.
+		/// Strongly typed for value GL_COLOR_TABLE_SCALE, GL_COLOR_TABLE_SCALE_SGI.
 		/// </summary>
 		ColorTableScale = Gl.COLOR_TABLE_SCALE,
 
@@ -645,32 +644,32 @@ namespace OpenGL
 	public enum ColorTableTargetSGI
 	{
 		/// <summary>
-		/// /// Strongly typed for value GL_COLOR_TABLE, GL_COLOR_TABLE_SGI.
+		/// Strongly typed for value GL_COLOR_TABLE, GL_COLOR_TABLE_SGI.
 		/// </summary>
 		ColorTable = Gl.COLOR_TABLE,
 
 		/// <summary>
-		/// /// Strongly typed for value GL_POST_COLOR_MATRIX_COLOR_TABLE, GL_POST_COLOR_MATRIX_COLOR_TABLE_SGI.
+		/// Strongly typed for value GL_POST_COLOR_MATRIX_COLOR_TABLE, GL_POST_COLOR_MATRIX_COLOR_TABLE_SGI.
 		/// </summary>
 		PostColorMatrixColorTable = Gl.POST_COLOR_MATRIX_COLOR_TABLE,
 
 		/// <summary>
-		/// /// Strongly typed for value GL_POST_CONVOLUTION_COLOR_TABLE, GL_POST_CONVOLUTION_COLOR_TABLE_SGI.
+		/// Strongly typed for value GL_POST_CONVOLUTION_COLOR_TABLE, GL_POST_CONVOLUTION_COLOR_TABLE_SGI.
 		/// </summary>
 		PostConvolutionColorTable = Gl.POST_CONVOLUTION_COLOR_TABLE,
 
 		/// <summary>
-		/// /// Strongly typed for value GL_PROXY_COLOR_TABLE, GL_PROXY_COLOR_TABLE_SGI.
+		/// Strongly typed for value GL_PROXY_COLOR_TABLE, GL_PROXY_COLOR_TABLE_SGI.
 		/// </summary>
 		ProxyColorTable = Gl.PROXY_COLOR_TABLE,
 
 		/// <summary>
-		/// /// Strongly typed for value GL_PROXY_POST_COLOR_MATRIX_COLOR_TABLE, GL_PROXY_POST_COLOR_MATRIX_COLOR_TABLE_SGI.
+		/// Strongly typed for value GL_PROXY_POST_COLOR_MATRIX_COLOR_TABLE, GL_PROXY_POST_COLOR_MATRIX_COLOR_TABLE_SGI.
 		/// </summary>
 		ProxyPostColorMatrixColorTable = Gl.PROXY_POST_COLOR_MATRIX_COLOR_TABLE,
 
 		/// <summary>
-		/// /// Strongly typed for value GL_PROXY_POST_CONVOLUTION_COLOR_TABLE, GL_PROXY_POST_CONVOLUTION_COLOR_TABLE_SGI.
+		/// Strongly typed for value GL_PROXY_POST_CONVOLUTION_COLOR_TABLE, GL_PROXY_POST_CONVOLUTION_COLOR_TABLE_SGI.
 		/// </summary>
 		ProxyPostConvolutionColorTable = Gl.PROXY_POST_CONVOLUTION_COLOR_TABLE,
 
@@ -733,7 +732,7 @@ namespace OpenGL
 	public enum ConvolutionBorderModeEXT
 	{
 		/// <summary>
-		/// /// Strongly typed for value GL_REDUCE, GL_REDUCE_EXT.
+		/// Strongly typed for value GL_REDUCE, GL_REDUCE_EXT.
 		/// </summary>
 		Reduce = Gl.REDUCE,
 
@@ -745,17 +744,17 @@ namespace OpenGL
 	public enum ConvolutionParameterEXT
 	{
 		/// <summary>
-		/// /// Strongly typed for value GL_CONVOLUTION_BORDER_MODE, GL_CONVOLUTION_BORDER_MODE_EXT.
+		/// Strongly typed for value GL_CONVOLUTION_BORDER_MODE, GL_CONVOLUTION_BORDER_MODE_EXT.
 		/// </summary>
 		ConvolutionBorderMode = Gl.CONVOLUTION_BORDER_MODE,
 
 		/// <summary>
-		/// /// Strongly typed for value GL_CONVOLUTION_FILTER_BIAS, GL_CONVOLUTION_FILTER_BIAS_EXT.
+		/// Strongly typed for value GL_CONVOLUTION_FILTER_BIAS, GL_CONVOLUTION_FILTER_BIAS_EXT.
 		/// </summary>
 		ConvolutionFilterBias = Gl.CONVOLUTION_FILTER_BIAS,
 
 		/// <summary>
-		/// /// Strongly typed for value GL_CONVOLUTION_FILTER_SCALE, GL_CONVOLUTION_FILTER_SCALE_EXT.
+		/// Strongly typed for value GL_CONVOLUTION_FILTER_SCALE, GL_CONVOLUTION_FILTER_SCALE_EXT.
 		/// </summary>
 		ConvolutionFilterScale = Gl.CONVOLUTION_FILTER_SCALE,
 
@@ -767,12 +766,12 @@ namespace OpenGL
 	public enum ConvolutionTargetEXT
 	{
 		/// <summary>
-		/// /// Strongly typed for value GL_CONVOLUTION_1D, GL_CONVOLUTION_1D_EXT.
+		/// Strongly typed for value GL_CONVOLUTION_1D, GL_CONVOLUTION_1D_EXT.
 		/// </summary>
 		Convolution1d = Gl.CONVOLUTION_1D,
 
 		/// <summary>
-		/// /// Strongly typed for value GL_CONVOLUTION_2D, GL_CONVOLUTION_2D_EXT.
+		/// Strongly typed for value GL_CONVOLUTION_2D, GL_CONVOLUTION_2D_EXT.
 		/// </summary>
 		Convolution2d = Gl.CONVOLUTION_2D,
 
@@ -1502,7 +1501,7 @@ namespace OpenGL
 		InvalidEnum = Gl.INVALID_ENUM,
 
 		/// <summary>
-		/// /// Strongly typed for value GL_INVALID_FRAMEBUFFER_OPERATION, GL_INVALID_FRAMEBUFFER_OPERATION_EXT.
+		/// Strongly typed for value GL_INVALID_FRAMEBUFFER_OPERATION, GL_INVALID_FRAMEBUFFER_OPERATION_EXT.
 		/// </summary>
 		InvalidFramebufferOperation = Gl.INVALID_FRAMEBUFFER_OPERATION,
 
@@ -1537,7 +1536,7 @@ namespace OpenGL
 		StackUnderflow = Gl.STACK_UNDERFLOW,
 
 		/// <summary>
-		/// /// Strongly typed for value GL_TABLE_TOO_LARGE, GL_TABLE_TOO_LARGE_EXT.
+		/// Strongly typed for value GL_TABLE_TOO_LARGE, GL_TABLE_TOO_LARGE_EXT.
 		/// </summary>
 		TableTooLarge = Gl.TABLE_TOO_LARGE,
 
@@ -1995,12 +1994,12 @@ namespace OpenGL
 	public enum GetMinmaxParameterPNameEXT
 	{
 		/// <summary>
-		/// /// Strongly typed for value GL_MINMAX_FORMAT, GL_MINMAX_FORMAT_EXT.
+		/// Strongly typed for value GL_MINMAX_FORMAT, GL_MINMAX_FORMAT_EXT.
 		/// </summary>
 		MinmaxFormat = Gl.MINMAX_FORMAT,
 
 		/// <summary>
-		/// /// Strongly typed for value GL_MINMAX_SINK, GL_MINMAX_SINK_EXT.
+		/// Strongly typed for value GL_MINMAX_SINK, GL_MINMAX_SINK_EXT.
 		/// </summary>
 		MinmaxSink = Gl.MINMAX_SINK,
 
@@ -2669,7 +2668,7 @@ namespace OpenGL
 		IndexClearValue = Gl.INDEX_CLEAR_VALUE,
 
 		/// <summary>
-		/// /// Strongly typed for value GL_INDEX_LOGIC_OP, GL_LOGIC_OP.
+		/// Strongly typed for value GL_INDEX_LOGIC_OP, GL_LOGIC_OP.
 		/// </summary>
 		LogicOp = Gl.LOGIC_OP,
 
@@ -2809,12 +2808,12 @@ namespace OpenGL
 		LineWidth = Gl.LINE_WIDTH,
 
 		/// <summary>
-		/// /// Strongly typed for value GL_LINE_WIDTH_GRANULARITY, GL_SMOOTH_LINE_WIDTH_GRANULARITY.
+		/// Strongly typed for value GL_LINE_WIDTH_GRANULARITY, GL_SMOOTH_LINE_WIDTH_GRANULARITY.
 		/// </summary>
 		LineWidthGranularity = Gl.LINE_WIDTH_GRANULARITY,
 
 		/// <summary>
-		/// /// Strongly typed for value GL_LINE_WIDTH_RANGE, GL_SMOOTH_LINE_WIDTH_RANGE.
+		/// Strongly typed for value GL_LINE_WIDTH_RANGE, GL_SMOOTH_LINE_WIDTH_RANGE.
 		/// </summary>
 		LineWidthRange = Gl.LINE_WIDTH_RANGE,
 
@@ -3019,7 +3018,7 @@ namespace OpenGL
 		MaxClipmapVirtualDepthSgix = Gl.MAX_CLIPMAP_VIRTUAL_DEPTH_SGIX,
 
 		/// <summary>
-		/// /// Strongly typed for value GL_MAX_CLIP_DISTANCES, GL_MAX_CLIP_PLANES.
+		/// Strongly typed for value GL_MAX_CLIP_DISTANCES, GL_MAX_CLIP_PLANES.
 		/// </summary>
 		MaxClipPlanes = Gl.MAX_CLIP_PLANES,
 
@@ -3099,12 +3098,12 @@ namespace OpenGL
 		Minmax = Gl.MINMAX,
 
 		/// <summary>
-		/// /// Strongly typed for value GL_MODELVIEW0_MATRIX_EXT, GL_MODELVIEW_MATRIX.
+		/// Strongly typed for value GL_MODELVIEW0_MATRIX_EXT, GL_MODELVIEW_MATRIX.
 		/// </summary>
 		ModelviewMatrix = Gl.MODELVIEW_MATRIX,
 
 		/// <summary>
-		/// /// Strongly typed for value GL_MODELVIEW0_STACK_DEPTH_EXT, GL_MODELVIEW_STACK_DEPTH.
+		/// Strongly typed for value GL_MODELVIEW0_STACK_DEPTH_EXT, GL_MODELVIEW_STACK_DEPTH.
 		/// </summary>
 		ModelviewStackDepth = Gl.MODELVIEW_STACK_DEPTH,
 
@@ -3329,7 +3328,7 @@ namespace OpenGL
 		PointSize = Gl.POINT_SIZE,
 
 		/// <summary>
-		/// /// Strongly typed for value GL_POINT_SIZE_GRANULARITY, GL_SMOOTH_POINT_SIZE_GRANULARITY.
+		/// Strongly typed for value GL_POINT_SIZE_GRANULARITY, GL_SMOOTH_POINT_SIZE_GRANULARITY.
 		/// </summary>
 		PointSizeGranularity = Gl.POINT_SIZE_GRANULARITY,
 
@@ -3344,7 +3343,7 @@ namespace OpenGL
 		PointSizeMin = Gl.POINT_SIZE_MIN,
 
 		/// <summary>
-		/// /// Strongly typed for value GL_POINT_SIZE_RANGE, GL_SMOOTH_POINT_SIZE_RANGE.
+		/// Strongly typed for value GL_POINT_SIZE_RANGE, GL_SMOOTH_POINT_SIZE_RANGE.
 		/// </summary>
 		PointSizeRange = Gl.POINT_SIZE_RANGE,
 
@@ -3724,7 +3723,7 @@ namespace OpenGL
 		Texture2d = Gl.TEXTURE_2D,
 
 		/// <summary>
-		/// /// Strongly typed for value GL_TEXTURE_3D_BINDING_EXT, GL_TEXTURE_BINDING_3D.
+		/// Strongly typed for value GL_TEXTURE_3D_BINDING_EXT, GL_TEXTURE_BINDING_3D.
 		/// </summary>
 		TextureBinding3d = Gl.TEXTURE_BINDING_3D,
 
@@ -3936,12 +3935,12 @@ namespace OpenGL
 	public enum GetPointervPName
 	{
 		/// <summary>
-		/// /// Strongly typed for value GL_COLOR_ARRAY_POINTER, GL_COLOR_ARRAY_POINTER_EXT.
+		/// Strongly typed for value GL_COLOR_ARRAY_POINTER, GL_COLOR_ARRAY_POINTER_EXT.
 		/// </summary>
 		ColorArrayPointer = Gl.COLOR_ARRAY_POINTER,
 
 		/// <summary>
-		/// /// Strongly typed for value GL_EDGE_FLAG_ARRAY_POINTER, GL_EDGE_FLAG_ARRAY_POINTER_EXT.
+		/// Strongly typed for value GL_EDGE_FLAG_ARRAY_POINTER, GL_EDGE_FLAG_ARRAY_POINTER_EXT.
 		/// </summary>
 		EdgeFlagArrayPointer = Gl.EDGE_FLAG_ARRAY_POINTER,
 
@@ -3951,7 +3950,7 @@ namespace OpenGL
 		FeedbackBufferPointer = Gl.FEEDBACK_BUFFER_POINTER,
 
 		/// <summary>
-		/// /// Strongly typed for value GL_INDEX_ARRAY_POINTER, GL_INDEX_ARRAY_POINTER_EXT.
+		/// Strongly typed for value GL_INDEX_ARRAY_POINTER, GL_INDEX_ARRAY_POINTER_EXT.
 		/// </summary>
 		IndexArrayPointer = Gl.INDEX_ARRAY_POINTER,
 
@@ -3961,7 +3960,7 @@ namespace OpenGL
 		InstrumentBufferPointerSgix = Gl.INSTRUMENT_BUFFER_POINTER_SGIX,
 
 		/// <summary>
-		/// /// Strongly typed for value GL_NORMAL_ARRAY_POINTER, GL_NORMAL_ARRAY_POINTER_EXT.
+		/// Strongly typed for value GL_NORMAL_ARRAY_POINTER, GL_NORMAL_ARRAY_POINTER_EXT.
 		/// </summary>
 		NormalArrayPointer = Gl.NORMAL_ARRAY_POINTER,
 
@@ -3971,12 +3970,12 @@ namespace OpenGL
 		SelectionBufferPointer = Gl.SELECTION_BUFFER_POINTER,
 
 		/// <summary>
-		/// /// Strongly typed for value GL_TEXTURE_COORD_ARRAY_POINTER, GL_TEXTURE_COORD_ARRAY_POINTER_EXT.
+		/// Strongly typed for value GL_TEXTURE_COORD_ARRAY_POINTER, GL_TEXTURE_COORD_ARRAY_POINTER_EXT.
 		/// </summary>
 		TextureCoordArrayPointer = Gl.TEXTURE_COORD_ARRAY_POINTER,
 
 		/// <summary>
-		/// /// Strongly typed for value GL_VERTEX_ARRAY_POINTER, GL_VERTEX_ARRAY_POINTER_EXT.
+		/// Strongly typed for value GL_VERTEX_ARRAY_POINTER, GL_VERTEX_ARRAY_POINTER_EXT.
 		/// </summary>
 		VertexArrayPointer = Gl.VERTEX_ARRAY_POINTER,
 
@@ -4108,7 +4107,7 @@ namespace OpenGL
 		TextureCompareSgix = Gl.TEXTURE_COMPARE_SGIX,
 
 		/// <summary>
-		/// /// Strongly typed for value GL_TEXTURE_COMPONENTS, GL_TEXTURE_INTERNAL_FORMAT.
+		/// Strongly typed for value GL_TEXTURE_COMPONENTS, GL_TEXTURE_INTERNAL_FORMAT.
 		/// </summary>
 		TextureComponents = Gl.TEXTURE_COMPONENTS,
 
@@ -4342,7 +4341,7 @@ namespace OpenGL
 		FogHint = Gl.FOG_HINT,
 
 		/// <summary>
-		/// /// Strongly typed for value GL_FRAGMENT_SHADER_DERIVATIVE_HINT, GL_FRAGMENT_SHADER_DERIVATIVE_HINT_ARB.
+		/// Strongly typed for value GL_FRAGMENT_SHADER_DERIVATIVE_HINT, GL_FRAGMENT_SHADER_DERIVATIVE_HINT_ARB.
 		/// </summary>
 		FragmentShaderDerivativeHint = Gl.FRAGMENT_SHADER_DERIVATIVE_HINT,
 
@@ -4352,7 +4351,7 @@ namespace OpenGL
 		FullStippleHintPgi = Gl.FULL_STIPPLE_HINT_PGI,
 
 		/// <summary>
-		/// /// Strongly typed for value GL_GENERATE_MIPMAP_HINT, GL_GENERATE_MIPMAP_HINT_SGIS.
+		/// Strongly typed for value GL_GENERATE_MIPMAP_HINT, GL_GENERATE_MIPMAP_HINT_SGIS.
 		/// </summary>
 		GenerateMipmapHint = Gl.GENERATE_MIPMAP_HINT,
 
@@ -4447,7 +4446,7 @@ namespace OpenGL
 		StrictScissorHintPgi = Gl.STRICT_SCISSOR_HINT_PGI,
 
 		/// <summary>
-		/// /// Strongly typed for value GL_TEXTURE_COMPRESSION_HINT, GL_TEXTURE_COMPRESSION_HINT_ARB.
+		/// Strongly typed for value GL_TEXTURE_COMPRESSION_HINT, GL_TEXTURE_COMPRESSION_HINT_ARB.
 		/// </summary>
 		TextureCompressionHint = Gl.TEXTURE_COMPRESSION_HINT,
 
@@ -4509,12 +4508,12 @@ namespace OpenGL
 	public enum HistogramTargetEXT
 	{
 		/// <summary>
-		/// /// Strongly typed for value GL_HISTOGRAM, GL_HISTOGRAM_EXT.
+		/// Strongly typed for value GL_HISTOGRAM, GL_HISTOGRAM_EXT.
 		/// </summary>
 		Histogram = Gl.HISTOGRAM,
 
 		/// <summary>
-		/// /// Strongly typed for value GL_PROXY_HISTOGRAM, GL_PROXY_HISTOGRAM_EXT.
+		/// Strongly typed for value GL_PROXY_HISTOGRAM, GL_PROXY_HISTOGRAM_EXT.
 		/// </summary>
 		ProxyHistogram = Gl.PROXY_HISTOGRAM,
 
@@ -4664,12 +4663,12 @@ namespace OpenGL
 	public enum LightModelColorControl
 	{
 		/// <summary>
-		/// /// Strongly typed for value GL_SEPARATE_SPECULAR_COLOR, GL_SEPARATE_SPECULAR_COLOR_EXT.
+		/// Strongly typed for value GL_SEPARATE_SPECULAR_COLOR, GL_SEPARATE_SPECULAR_COLOR_EXT.
 		/// </summary>
 		SeparateSpecularColor = Gl.SEPARATE_SPECULAR_COLOR,
 
 		/// <summary>
-		/// /// Strongly typed for value GL_SINGLE_COLOR, GL_SINGLE_COLOR_EXT.
+		/// Strongly typed for value GL_SINGLE_COLOR, GL_SINGLE_COLOR_EXT.
 		/// </summary>
 		SingleColor = Gl.SINGLE_COLOR,
 
@@ -4686,7 +4685,7 @@ namespace OpenGL
 		LightModelAmbient = Gl.LIGHT_MODEL_AMBIENT,
 
 		/// <summary>
-		/// /// Strongly typed for value GL_LIGHT_MODEL_COLOR_CONTROL, GL_LIGHT_MODEL_COLOR_CONTROL_EXT.
+		/// Strongly typed for value GL_LIGHT_MODEL_COLOR_CONTROL, GL_LIGHT_MODEL_COLOR_CONTROL_EXT.
 		/// </summary>
 		LightModelColorControl = Gl.LIGHT_MODEL_COLOR_CONTROL,
 
@@ -5276,7 +5275,7 @@ namespace OpenGL
 	public enum MatrixMode
 	{
 		/// <summary>
-		/// /// Strongly typed for value GL_MODELVIEW, GL_MODELVIEW0_EXT.
+		/// Strongly typed for value GL_MODELVIEW, GL_MODELVIEW0_EXT.
 		/// </summary>
 		Modelview = Gl.MODELVIEW,
 
@@ -5299,17 +5298,17 @@ namespace OpenGL
 	public enum MemoryBarrierMask : uint
 	{
 		/// <summary>
-		/// /// Strongly typed for value GL_ALL_BARRIER_BITS, GL_ALL_BARRIER_BITS_EXT.
+		/// Strongly typed for value GL_ALL_BARRIER_BITS, GL_ALL_BARRIER_BITS_EXT.
 		/// </summary>
 		AllBarrierBits = Gl.ALL_BARRIER_BITS,
 
 		/// <summary>
-		/// /// Strongly typed for value GL_ATOMIC_COUNTER_BARRIER_BIT, GL_ATOMIC_COUNTER_BARRIER_BIT_EXT.
+		/// Strongly typed for value GL_ATOMIC_COUNTER_BARRIER_BIT, GL_ATOMIC_COUNTER_BARRIER_BIT_EXT.
 		/// </summary>
 		AtomicCounterBarrierBit = Gl.ATOMIC_COUNTER_BARRIER_BIT,
 
 		/// <summary>
-		/// /// Strongly typed for value GL_BUFFER_UPDATE_BARRIER_BIT, GL_BUFFER_UPDATE_BARRIER_BIT_EXT.
+		/// Strongly typed for value GL_BUFFER_UPDATE_BARRIER_BIT, GL_BUFFER_UPDATE_BARRIER_BIT_EXT.
 		/// </summary>
 		BufferUpdateBarrierBit = Gl.BUFFER_UPDATE_BARRIER_BIT,
 
@@ -5319,22 +5318,22 @@ namespace OpenGL
 		ClientMappedBufferBarrierBit = Gl.CLIENT_MAPPED_BUFFER_BARRIER_BIT,
 
 		/// <summary>
-		/// /// Strongly typed for value GL_COMMAND_BARRIER_BIT, GL_COMMAND_BARRIER_BIT_EXT.
+		/// Strongly typed for value GL_COMMAND_BARRIER_BIT, GL_COMMAND_BARRIER_BIT_EXT.
 		/// </summary>
 		CommandBarrierBit = Gl.COMMAND_BARRIER_BIT,
 
 		/// <summary>
-		/// /// Strongly typed for value GL_ELEMENT_ARRAY_BARRIER_BIT, GL_ELEMENT_ARRAY_BARRIER_BIT_EXT.
+		/// Strongly typed for value GL_ELEMENT_ARRAY_BARRIER_BIT, GL_ELEMENT_ARRAY_BARRIER_BIT_EXT.
 		/// </summary>
 		ElementArrayBarrierBit = Gl.ELEMENT_ARRAY_BARRIER_BIT,
 
 		/// <summary>
-		/// /// Strongly typed for value GL_FRAMEBUFFER_BARRIER_BIT, GL_FRAMEBUFFER_BARRIER_BIT_EXT.
+		/// Strongly typed for value GL_FRAMEBUFFER_BARRIER_BIT, GL_FRAMEBUFFER_BARRIER_BIT_EXT.
 		/// </summary>
 		FramebufferBarrierBit = Gl.FRAMEBUFFER_BARRIER_BIT,
 
 		/// <summary>
-		/// /// Strongly typed for value GL_PIXEL_BUFFER_BARRIER_BIT, GL_PIXEL_BUFFER_BARRIER_BIT_EXT.
+		/// Strongly typed for value GL_PIXEL_BUFFER_BARRIER_BIT, GL_PIXEL_BUFFER_BARRIER_BIT_EXT.
 		/// </summary>
 		PixelBufferBarrierBit = Gl.PIXEL_BUFFER_BARRIER_BIT,
 
@@ -5349,7 +5348,7 @@ namespace OpenGL
 		ShaderGlobalAccessBarrierBitNv = Gl.SHADER_GLOBAL_ACCESS_BARRIER_BIT_NV,
 
 		/// <summary>
-		/// /// Strongly typed for value GL_SHADER_IMAGE_ACCESS_BARRIER_BIT, GL_SHADER_IMAGE_ACCESS_BARRIER_BIT_EXT.
+		/// Strongly typed for value GL_SHADER_IMAGE_ACCESS_BARRIER_BIT, GL_SHADER_IMAGE_ACCESS_BARRIER_BIT_EXT.
 		/// </summary>
 		ShaderImageAccessBarrierBit = Gl.SHADER_IMAGE_ACCESS_BARRIER_BIT,
 
@@ -5359,27 +5358,27 @@ namespace OpenGL
 		ShaderStorageBarrierBit = Gl.SHADER_STORAGE_BARRIER_BIT,
 
 		/// <summary>
-		/// /// Strongly typed for value GL_TEXTURE_FETCH_BARRIER_BIT, GL_TEXTURE_FETCH_BARRIER_BIT_EXT.
+		/// Strongly typed for value GL_TEXTURE_FETCH_BARRIER_BIT, GL_TEXTURE_FETCH_BARRIER_BIT_EXT.
 		/// </summary>
 		TextureFetchBarrierBit = Gl.TEXTURE_FETCH_BARRIER_BIT,
 
 		/// <summary>
-		/// /// Strongly typed for value GL_TEXTURE_UPDATE_BARRIER_BIT, GL_TEXTURE_UPDATE_BARRIER_BIT_EXT.
+		/// Strongly typed for value GL_TEXTURE_UPDATE_BARRIER_BIT, GL_TEXTURE_UPDATE_BARRIER_BIT_EXT.
 		/// </summary>
 		TextureUpdateBarrierBit = Gl.TEXTURE_UPDATE_BARRIER_BIT,
 
 		/// <summary>
-		/// /// Strongly typed for value GL_TRANSFORM_FEEDBACK_BARRIER_BIT, GL_TRANSFORM_FEEDBACK_BARRIER_BIT_EXT.
+		/// Strongly typed for value GL_TRANSFORM_FEEDBACK_BARRIER_BIT, GL_TRANSFORM_FEEDBACK_BARRIER_BIT_EXT.
 		/// </summary>
 		TransformFeedbackBarrierBit = Gl.TRANSFORM_FEEDBACK_BARRIER_BIT,
 
 		/// <summary>
-		/// /// Strongly typed for value GL_UNIFORM_BARRIER_BIT, GL_UNIFORM_BARRIER_BIT_EXT.
+		/// Strongly typed for value GL_UNIFORM_BARRIER_BIT, GL_UNIFORM_BARRIER_BIT_EXT.
 		/// </summary>
 		UniformBarrierBit = Gl.UNIFORM_BARRIER_BIT,
 
 		/// <summary>
-		/// /// Strongly typed for value GL_VERTEX_ATTRIB_ARRAY_BARRIER_BIT, GL_VERTEX_ATTRIB_ARRAY_BARRIER_BIT_EXT.
+		/// Strongly typed for value GL_VERTEX_ATTRIB_ARRAY_BARRIER_BIT, GL_VERTEX_ATTRIB_ARRAY_BARRIER_BIT_EXT.
 		/// </summary>
 		VertexAttribArrayBarrierBit = Gl.VERTEX_ATTRIB_ARRAY_BARRIER_BIT,
 
@@ -5430,7 +5429,7 @@ namespace OpenGL
 	public enum MinmaxTargetEXT
 	{
 		/// <summary>
-		/// /// Strongly typed for value GL_MINMAX, GL_MINMAX_EXT.
+		/// Strongly typed for value GL_MINMAX, GL_MINMAX_EXT.
 		/// </summary>
 		Minmax = Gl.MINMAX,
 
@@ -5952,7 +5951,7 @@ namespace OpenGL
 		PackImageDepthSgis = Gl.PACK_IMAGE_DEPTH_SGIS,
 
 		/// <summary>
-		/// /// Strongly typed for value GL_PACK_IMAGE_HEIGHT, GL_PACK_IMAGE_HEIGHT_EXT.
+		/// Strongly typed for value GL_PACK_IMAGE_HEIGHT, GL_PACK_IMAGE_HEIGHT_EXT.
 		/// </summary>
 		PackImageHeight = Gl.PACK_IMAGE_HEIGHT,
 
@@ -5977,7 +5976,7 @@ namespace OpenGL
 		PackRowLength = Gl.PACK_ROW_LENGTH,
 
 		/// <summary>
-		/// /// Strongly typed for value GL_PACK_SKIP_IMAGES, GL_PACK_SKIP_IMAGES_EXT.
+		/// Strongly typed for value GL_PACK_SKIP_IMAGES, GL_PACK_SKIP_IMAGES_EXT.
 		/// </summary>
 		PackSkipImages = Gl.PACK_SKIP_IMAGES,
 
@@ -6047,7 +6046,7 @@ namespace OpenGL
 		UnpackImageDepthSgis = Gl.UNPACK_IMAGE_DEPTH_SGIS,
 
 		/// <summary>
-		/// /// Strongly typed for value GL_UNPACK_IMAGE_HEIGHT, GL_UNPACK_IMAGE_HEIGHT_EXT.
+		/// Strongly typed for value GL_UNPACK_IMAGE_HEIGHT, GL_UNPACK_IMAGE_HEIGHT_EXT.
 		/// </summary>
 		UnpackImageHeight = Gl.UNPACK_IMAGE_HEIGHT,
 
@@ -6072,7 +6071,7 @@ namespace OpenGL
 		UnpackRowLength = Gl.UNPACK_ROW_LENGTH,
 
 		/// <summary>
-		/// /// Strongly typed for value GL_UNPACK_SKIP_IMAGES, GL_UNPACK_SKIP_IMAGES_EXT.
+		/// Strongly typed for value GL_UNPACK_SKIP_IMAGES, GL_UNPACK_SKIP_IMAGES_EXT.
 		/// </summary>
 		UnpackSkipImages = Gl.UNPACK_SKIP_IMAGES,
 
@@ -6262,82 +6261,82 @@ namespace OpenGL
 		MapStencil = Gl.MAP_STENCIL,
 
 		/// <summary>
-		/// /// Strongly typed for value GL_POST_COLOR_MATRIX_ALPHA_BIAS, GL_POST_COLOR_MATRIX_ALPHA_BIAS_SGI.
+		/// Strongly typed for value GL_POST_COLOR_MATRIX_ALPHA_BIAS, GL_POST_COLOR_MATRIX_ALPHA_BIAS_SGI.
 		/// </summary>
 		PostColorMatrixAlphaBias = Gl.POST_COLOR_MATRIX_ALPHA_BIAS,
 
 		/// <summary>
-		/// /// Strongly typed for value GL_POST_COLOR_MATRIX_ALPHA_SCALE, GL_POST_COLOR_MATRIX_ALPHA_SCALE_SGI.
+		/// Strongly typed for value GL_POST_COLOR_MATRIX_ALPHA_SCALE, GL_POST_COLOR_MATRIX_ALPHA_SCALE_SGI.
 		/// </summary>
 		PostColorMatrixAlphaScale = Gl.POST_COLOR_MATRIX_ALPHA_SCALE,
 
 		/// <summary>
-		/// /// Strongly typed for value GL_POST_COLOR_MATRIX_BLUE_BIAS, GL_POST_COLOR_MATRIX_BLUE_BIAS_SGI.
+		/// Strongly typed for value GL_POST_COLOR_MATRIX_BLUE_BIAS, GL_POST_COLOR_MATRIX_BLUE_BIAS_SGI.
 		/// </summary>
 		PostColorMatrixBlueBias = Gl.POST_COLOR_MATRIX_BLUE_BIAS,
 
 		/// <summary>
-		/// /// Strongly typed for value GL_POST_COLOR_MATRIX_BLUE_SCALE, GL_POST_COLOR_MATRIX_BLUE_SCALE_SGI.
+		/// Strongly typed for value GL_POST_COLOR_MATRIX_BLUE_SCALE, GL_POST_COLOR_MATRIX_BLUE_SCALE_SGI.
 		/// </summary>
 		PostColorMatrixBlueScale = Gl.POST_COLOR_MATRIX_BLUE_SCALE,
 
 		/// <summary>
-		/// /// Strongly typed for value GL_POST_COLOR_MATRIX_GREEN_BIAS, GL_POST_COLOR_MATRIX_GREEN_BIAS_SGI.
+		/// Strongly typed for value GL_POST_COLOR_MATRIX_GREEN_BIAS, GL_POST_COLOR_MATRIX_GREEN_BIAS_SGI.
 		/// </summary>
 		PostColorMatrixGreenBias = Gl.POST_COLOR_MATRIX_GREEN_BIAS,
 
 		/// <summary>
-		/// /// Strongly typed for value GL_POST_COLOR_MATRIX_GREEN_SCALE, GL_POST_COLOR_MATRIX_GREEN_SCALE_SGI.
+		/// Strongly typed for value GL_POST_COLOR_MATRIX_GREEN_SCALE, GL_POST_COLOR_MATRIX_GREEN_SCALE_SGI.
 		/// </summary>
 		PostColorMatrixGreenScale = Gl.POST_COLOR_MATRIX_GREEN_SCALE,
 
 		/// <summary>
-		/// /// Strongly typed for value GL_POST_COLOR_MATRIX_RED_BIAS, GL_POST_COLOR_MATRIX_RED_BIAS_SGI.
+		/// Strongly typed for value GL_POST_COLOR_MATRIX_RED_BIAS, GL_POST_COLOR_MATRIX_RED_BIAS_SGI.
 		/// </summary>
 		PostColorMatrixRedBias = Gl.POST_COLOR_MATRIX_RED_BIAS,
 
 		/// <summary>
-		/// /// Strongly typed for value GL_POST_COLOR_MATRIX_RED_SCALE, GL_POST_COLOR_MATRIX_RED_SCALE_SGI.
+		/// Strongly typed for value GL_POST_COLOR_MATRIX_RED_SCALE, GL_POST_COLOR_MATRIX_RED_SCALE_SGI.
 		/// </summary>
 		PostColorMatrixRedScale = Gl.POST_COLOR_MATRIX_RED_SCALE,
 
 		/// <summary>
-		/// /// Strongly typed for value GL_POST_CONVOLUTION_ALPHA_BIAS, GL_POST_CONVOLUTION_ALPHA_BIAS_EXT.
+		/// Strongly typed for value GL_POST_CONVOLUTION_ALPHA_BIAS, GL_POST_CONVOLUTION_ALPHA_BIAS_EXT.
 		/// </summary>
 		PostConvolutionAlphaBias = Gl.POST_CONVOLUTION_ALPHA_BIAS,
 
 		/// <summary>
-		/// /// Strongly typed for value GL_POST_CONVOLUTION_ALPHA_SCALE, GL_POST_CONVOLUTION_ALPHA_SCALE_EXT.
+		/// Strongly typed for value GL_POST_CONVOLUTION_ALPHA_SCALE, GL_POST_CONVOLUTION_ALPHA_SCALE_EXT.
 		/// </summary>
 		PostConvolutionAlphaScale = Gl.POST_CONVOLUTION_ALPHA_SCALE,
 
 		/// <summary>
-		/// /// Strongly typed for value GL_POST_CONVOLUTION_BLUE_BIAS, GL_POST_CONVOLUTION_BLUE_BIAS_EXT.
+		/// Strongly typed for value GL_POST_CONVOLUTION_BLUE_BIAS, GL_POST_CONVOLUTION_BLUE_BIAS_EXT.
 		/// </summary>
 		PostConvolutionBlueBias = Gl.POST_CONVOLUTION_BLUE_BIAS,
 
 		/// <summary>
-		/// /// Strongly typed for value GL_POST_CONVOLUTION_BLUE_SCALE, GL_POST_CONVOLUTION_BLUE_SCALE_EXT.
+		/// Strongly typed for value GL_POST_CONVOLUTION_BLUE_SCALE, GL_POST_CONVOLUTION_BLUE_SCALE_EXT.
 		/// </summary>
 		PostConvolutionBlueScale = Gl.POST_CONVOLUTION_BLUE_SCALE,
 
 		/// <summary>
-		/// /// Strongly typed for value GL_POST_CONVOLUTION_GREEN_BIAS, GL_POST_CONVOLUTION_GREEN_BIAS_EXT.
+		/// Strongly typed for value GL_POST_CONVOLUTION_GREEN_BIAS, GL_POST_CONVOLUTION_GREEN_BIAS_EXT.
 		/// </summary>
 		PostConvolutionGreenBias = Gl.POST_CONVOLUTION_GREEN_BIAS,
 
 		/// <summary>
-		/// /// Strongly typed for value GL_POST_CONVOLUTION_GREEN_SCALE, GL_POST_CONVOLUTION_GREEN_SCALE_EXT.
+		/// Strongly typed for value GL_POST_CONVOLUTION_GREEN_SCALE, GL_POST_CONVOLUTION_GREEN_SCALE_EXT.
 		/// </summary>
 		PostConvolutionGreenScale = Gl.POST_CONVOLUTION_GREEN_SCALE,
 
 		/// <summary>
-		/// /// Strongly typed for value GL_POST_CONVOLUTION_RED_BIAS, GL_POST_CONVOLUTION_RED_BIAS_EXT.
+		/// Strongly typed for value GL_POST_CONVOLUTION_RED_BIAS, GL_POST_CONVOLUTION_RED_BIAS_EXT.
 		/// </summary>
 		PostConvolutionRedBias = Gl.POST_CONVOLUTION_RED_BIAS,
 
 		/// <summary>
-		/// /// Strongly typed for value GL_POST_CONVOLUTION_RED_SCALE, GL_POST_CONVOLUTION_RED_SCALE_EXT.
+		/// Strongly typed for value GL_POST_CONVOLUTION_RED_SCALE, GL_POST_CONVOLUTION_RED_SCALE_EXT.
 		/// </summary>
 		PostConvolutionRedScale = Gl.POST_CONVOLUTION_RED_SCALE,
 
@@ -6389,7 +6388,7 @@ namespace OpenGL
 		UnsignedByte = Gl.UNSIGNED_BYTE,
 
 		/// <summary>
-		/// /// Strongly typed for value GL_UNSIGNED_BYTE_3_3_2, GL_UNSIGNED_BYTE_3_3_2_EXT.
+		/// Strongly typed for value GL_UNSIGNED_BYTE_3_3_2, GL_UNSIGNED_BYTE_3_3_2_EXT.
 		/// </summary>
 		UnsignedByte332 = Gl.UNSIGNED_BYTE_3_3_2,
 
@@ -6399,12 +6398,12 @@ namespace OpenGL
 		UnsignedInt = Gl.UNSIGNED_INT,
 
 		/// <summary>
-		/// /// Strongly typed for value GL_UNSIGNED_INT_10_10_10_2, GL_UNSIGNED_INT_10_10_10_2_EXT.
+		/// Strongly typed for value GL_UNSIGNED_INT_10_10_10_2, GL_UNSIGNED_INT_10_10_10_2_EXT.
 		/// </summary>
 		UnsignedInt1010102 = Gl.UNSIGNED_INT_10_10_10_2,
 
 		/// <summary>
-		/// /// Strongly typed for value GL_UNSIGNED_INT_8_8_8_8, GL_UNSIGNED_INT_8_8_8_8_EXT.
+		/// Strongly typed for value GL_UNSIGNED_INT_8_8_8_8, GL_UNSIGNED_INT_8_8_8_8_EXT.
 		/// </summary>
 		UnsignedInt8888 = Gl.UNSIGNED_INT_8_8_8_8,
 
@@ -6414,12 +6413,12 @@ namespace OpenGL
 		UnsignedShort = Gl.UNSIGNED_SHORT,
 
 		/// <summary>
-		/// /// Strongly typed for value GL_UNSIGNED_SHORT_4_4_4_4, GL_UNSIGNED_SHORT_4_4_4_4_EXT.
+		/// Strongly typed for value GL_UNSIGNED_SHORT_4_4_4_4, GL_UNSIGNED_SHORT_4_4_4_4_EXT.
 		/// </summary>
 		UnsignedShort4444 = Gl.UNSIGNED_SHORT_4_4_4_4,
 
 		/// <summary>
-		/// /// Strongly typed for value GL_UNSIGNED_SHORT_5_5_5_1, GL_UNSIGNED_SHORT_5_5_5_1_EXT.
+		/// Strongly typed for value GL_UNSIGNED_SHORT_5_5_5_1, GL_UNSIGNED_SHORT_5_5_5_1_EXT.
 		/// </summary>
 		UnsignedShort5551 = Gl.UNSIGNED_SHORT_5_5_5_1,
 
@@ -6431,24 +6430,24 @@ namespace OpenGL
 	public enum PointParameterNameSGIS
 	{
 		/// <summary>
-		/// /// Strongly typed for value GL_DISTANCE_ATTENUATION_EXT, GL_DISTANCE_ATTENUATION_SGIS, GL_POINT_DISTANCE_ATTENUATION, 
+		/// Strongly typed for value GL_DISTANCE_ATTENUATION_EXT, GL_DISTANCE_ATTENUATION_SGIS, GL_POINT_DISTANCE_ATTENUATION, 
 		/// GL_POINT_DISTANCE_ATTENUATION_ARB.
 		/// </summary>
 		DistanceAttenuationExt = Gl.DISTANCE_ATTENUATION_EXT,
 
 		/// <summary>
-		/// /// Strongly typed for value GL_POINT_FADE_THRESHOLD_SIZE, GL_POINT_FADE_THRESHOLD_SIZE_ARB, 
+		/// Strongly typed for value GL_POINT_FADE_THRESHOLD_SIZE, GL_POINT_FADE_THRESHOLD_SIZE_ARB, 
 		/// GL_POINT_FADE_THRESHOLD_SIZE_EXT, GL_POINT_FADE_THRESHOLD_SIZE_SGIS.
 		/// </summary>
 		PointFadeThresholdSize = Gl.POINT_FADE_THRESHOLD_SIZE,
 
 		/// <summary>
-		/// /// Strongly typed for value GL_POINT_SIZE_MAX, GL_POINT_SIZE_MAX_ARB, GL_POINT_SIZE_MAX_EXT, GL_POINT_SIZE_MAX_SGIS.
+		/// Strongly typed for value GL_POINT_SIZE_MAX, GL_POINT_SIZE_MAX_ARB, GL_POINT_SIZE_MAX_EXT, GL_POINT_SIZE_MAX_SGIS.
 		/// </summary>
 		PointSizeMax = Gl.POINT_SIZE_MAX,
 
 		/// <summary>
-		/// /// Strongly typed for value GL_POINT_SIZE_MIN, GL_POINT_SIZE_MIN_ARB, GL_POINT_SIZE_MIN_EXT, GL_POINT_SIZE_MIN_SGIS.
+		/// Strongly typed for value GL_POINT_SIZE_MIN, GL_POINT_SIZE_MIN_ARB, GL_POINT_SIZE_MIN_EXT, GL_POINT_SIZE_MIN_SGIS.
 		/// </summary>
 		PointSizeMin = Gl.POINT_SIZE_MIN,
 
@@ -6487,7 +6486,7 @@ namespace OpenGL
 		Lines = Gl.LINES,
 
 		/// <summary>
-		/// /// Strongly typed for value GL_LINES_ADJACENCY, GL_LINES_ADJACENCY_ARB, GL_LINES_ADJACENCY_EXT.
+		/// Strongly typed for value GL_LINES_ADJACENCY, GL_LINES_ADJACENCY_ARB, GL_LINES_ADJACENCY_EXT.
 		/// </summary>
 		LinesAdjacency = Gl.LINES_ADJACENCY,
 
@@ -6502,7 +6501,7 @@ namespace OpenGL
 		LineStrip = Gl.LINE_STRIP,
 
 		/// <summary>
-		/// /// Strongly typed for value GL_LINE_STRIP_ADJACENCY, GL_LINE_STRIP_ADJACENCY_ARB, GL_LINE_STRIP_ADJACENCY_EXT.
+		/// Strongly typed for value GL_LINE_STRIP_ADJACENCY, GL_LINE_STRIP_ADJACENCY_ARB, GL_LINE_STRIP_ADJACENCY_EXT.
 		/// </summary>
 		LineStripAdjacency = Gl.LINE_STRIP_ADJACENCY,
 
@@ -6537,7 +6536,7 @@ namespace OpenGL
 		Triangles = Gl.TRIANGLES,
 
 		/// <summary>
-		/// /// Strongly typed for value GL_TRIANGLES_ADJACENCY, GL_TRIANGLES_ADJACENCY_ARB, GL_TRIANGLES_ADJACENCY_EXT.
+		/// Strongly typed for value GL_TRIANGLES_ADJACENCY, GL_TRIANGLES_ADJACENCY_ARB, GL_TRIANGLES_ADJACENCY_EXT.
 		/// </summary>
 		TrianglesAdjacency = Gl.TRIANGLES_ADJACENCY,
 
@@ -6552,8 +6551,7 @@ namespace OpenGL
 		TriangleStrip = Gl.TRIANGLE_STRIP,
 
 		/// <summary>
-		/// /// Strongly typed for value GL_TRIANGLE_STRIP_ADJACENCY, GL_TRIANGLE_STRIP_ADJACENCY_ARB, 
-		/// GL_TRIANGLE_STRIP_ADJACENCY_EXT.
+		/// Strongly typed for value GL_TRIANGLE_STRIP_ADJACENCY, GL_TRIANGLE_STRIP_ADJACENCY_ARB, GL_TRIANGLE_STRIP_ADJACENCY_EXT.
 		/// </summary>
 		TriangleStripAdjacency = Gl.TRIANGLE_STRIP_ADJACENCY,
 
@@ -6687,37 +6685,37 @@ namespace OpenGL
 	public enum SamplePatternSGIS
 	{
 		/// <summary>
-		/// /// Strongly typed for value GL_1PASS_EXT, GL_1PASS_SGIS.
+		/// Strongly typed for value GL_1PASS_EXT, GL_1PASS_SGIS.
 		/// </summary>
 		_1passExt = Gl._1PASS_EXT,
 
 		/// <summary>
-		/// /// Strongly typed for value GL_2PASS_0_EXT, GL_2PASS_0_SGIS.
+		/// Strongly typed for value GL_2PASS_0_EXT, GL_2PASS_0_SGIS.
 		/// </summary>
 		_2pass0Ext = Gl._2PASS_0_EXT,
 
 		/// <summary>
-		/// /// Strongly typed for value GL_2PASS_1_EXT, GL_2PASS_1_SGIS.
+		/// Strongly typed for value GL_2PASS_1_EXT, GL_2PASS_1_SGIS.
 		/// </summary>
 		_2pass1Ext = Gl._2PASS_1_EXT,
 
 		/// <summary>
-		/// /// Strongly typed for value GL_4PASS_0_EXT, GL_4PASS_0_SGIS.
+		/// Strongly typed for value GL_4PASS_0_EXT, GL_4PASS_0_SGIS.
 		/// </summary>
 		_4pass0Ext = Gl._4PASS_0_EXT,
 
 		/// <summary>
-		/// /// Strongly typed for value GL_4PASS_1_EXT, GL_4PASS_1_SGIS.
+		/// Strongly typed for value GL_4PASS_1_EXT, GL_4PASS_1_SGIS.
 		/// </summary>
 		_4pass1Ext = Gl._4PASS_1_EXT,
 
 		/// <summary>
-		/// /// Strongly typed for value GL_4PASS_2_EXT, GL_4PASS_2_SGIS.
+		/// Strongly typed for value GL_4PASS_2_EXT, GL_4PASS_2_SGIS.
 		/// </summary>
 		_4pass2Ext = Gl._4PASS_2_EXT,
 
 		/// <summary>
-		/// /// Strongly typed for value GL_4PASS_3_EXT, GL_4PASS_3_SGIS.
+		/// Strongly typed for value GL_4PASS_3_EXT, GL_4PASS_3_SGIS.
 		/// </summary>
 		_4pass3Ext = Gl._4PASS_3_EXT,
 
@@ -6729,7 +6727,7 @@ namespace OpenGL
 	public enum SeparableTargetEXT
 	{
 		/// <summary>
-		/// /// Strongly typed for value GL_SEPARABLE_2D, GL_SEPARABLE_2D_EXT.
+		/// Strongly typed for value GL_SEPARABLE_2D, GL_SEPARABLE_2D_EXT.
 		/// </summary>
 		Separable2d = Gl.SEPARABLE_2D,
 
@@ -7236,7 +7234,7 @@ namespace OpenGL
 		DualTextureSelectSgis = Gl.DUAL_TEXTURE_SELECT_SGIS,
 
 		/// <summary>
-		/// /// Strongly typed for value GL_GENERATE_MIPMAP, GL_GENERATE_MIPMAP_SGIS.
+		/// Strongly typed for value GL_GENERATE_MIPMAP, GL_GENERATE_MIPMAP_SGIS.
 		/// </summary>
 		GenerateMipmap = Gl.GENERATE_MIPMAP,
 
@@ -7341,7 +7339,7 @@ namespace OpenGL
 		TextureMinFilter = Gl.TEXTURE_MIN_FILTER,
 
 		/// <summary>
-		/// /// Strongly typed for value GL_TEXTURE_PRIORITY, GL_TEXTURE_PRIORITY_EXT.
+		/// Strongly typed for value GL_TEXTURE_PRIORITY, GL_TEXTURE_PRIORITY_EXT.
 		/// </summary>
 		TexturePriority = Gl.TEXTURE_PRIORITY,
 
@@ -7351,7 +7349,7 @@ namespace OpenGL
 		TextureWrapQSgis = Gl.TEXTURE_WRAP_Q_SGIS,
 
 		/// <summary>
-		/// /// Strongly typed for value GL_TEXTURE_WRAP_R, GL_TEXTURE_WRAP_R_EXT.
+		/// Strongly typed for value GL_TEXTURE_WRAP_R, GL_TEXTURE_WRAP_R_EXT.
 		/// </summary>
 		TextureWrapR = Gl.TEXTURE_WRAP_R,
 
@@ -7378,17 +7376,17 @@ namespace OpenGL
 		DetailTexture2dSgis = Gl.DETAIL_TEXTURE_2D_SGIS,
 
 		/// <summary>
-		/// /// Strongly typed for value GL_PROXY_TEXTURE_1D, GL_PROXY_TEXTURE_1D_EXT.
+		/// Strongly typed for value GL_PROXY_TEXTURE_1D, GL_PROXY_TEXTURE_1D_EXT.
 		/// </summary>
 		ProxyTexture1d = Gl.PROXY_TEXTURE_1D,
 
 		/// <summary>
-		/// /// Strongly typed for value GL_PROXY_TEXTURE_2D, GL_PROXY_TEXTURE_2D_EXT.
+		/// Strongly typed for value GL_PROXY_TEXTURE_2D, GL_PROXY_TEXTURE_2D_EXT.
 		/// </summary>
 		ProxyTexture2d = Gl.PROXY_TEXTURE_2D,
 
 		/// <summary>
-		/// /// Strongly typed for value GL_PROXY_TEXTURE_3D, GL_PROXY_TEXTURE_3D_EXT.
+		/// Strongly typed for value GL_PROXY_TEXTURE_3D, GL_PROXY_TEXTURE_3D_EXT.
 		/// </summary>
 		ProxyTexture3d = Gl.PROXY_TEXTURE_3D,
 
@@ -7408,7 +7406,7 @@ namespace OpenGL
 		Texture2d = Gl.TEXTURE_2D,
 
 		/// <summary>
-		/// /// Strongly typed for value GL_TEXTURE_3D, GL_TEXTURE_3D_EXT.
+		/// Strongly typed for value GL_TEXTURE_3D, GL_TEXTURE_3D_EXT.
 		/// </summary>
 		Texture3d = Gl.TEXTURE_3D,
 
@@ -7418,22 +7416,22 @@ namespace OpenGL
 		Texture4dSgis = Gl.TEXTURE_4D_SGIS,
 
 		/// <summary>
-		/// /// Strongly typed for value GL_TEXTURE_BASE_LEVEL, GL_TEXTURE_BASE_LEVEL_SGIS.
+		/// Strongly typed for value GL_TEXTURE_BASE_LEVEL, GL_TEXTURE_BASE_LEVEL_SGIS.
 		/// </summary>
 		TextureBaseLevel = Gl.TEXTURE_BASE_LEVEL,
 
 		/// <summary>
-		/// /// Strongly typed for value GL_TEXTURE_MAX_LEVEL, GL_TEXTURE_MAX_LEVEL_SGIS.
+		/// Strongly typed for value GL_TEXTURE_MAX_LEVEL, GL_TEXTURE_MAX_LEVEL_SGIS.
 		/// </summary>
 		TextureMaxLevel = Gl.TEXTURE_MAX_LEVEL,
 
 		/// <summary>
-		/// /// Strongly typed for value GL_TEXTURE_MAX_LOD, GL_TEXTURE_MAX_LOD_SGIS.
+		/// Strongly typed for value GL_TEXTURE_MAX_LOD, GL_TEXTURE_MAX_LOD_SGIS.
 		/// </summary>
 		TextureMaxLod = Gl.TEXTURE_MAX_LOD,
 
 		/// <summary>
-		/// /// Strongly typed for value GL_TEXTURE_MIN_LOD, GL_TEXTURE_MIN_LOD_SGIS.
+		/// Strongly typed for value GL_TEXTURE_MIN_LOD, GL_TEXTURE_MIN_LOD_SGIS.
 		/// </summary>
 		TextureMinLod = Gl.TEXTURE_MIN_LOD,
 
@@ -7450,12 +7448,12 @@ namespace OpenGL
 		Clamp = Gl.CLAMP,
 
 		/// <summary>
-		/// /// Strongly typed for value GL_CLAMP_TO_BORDER, GL_CLAMP_TO_BORDER_ARB, GL_CLAMP_TO_BORDER_SGIS.
+		/// Strongly typed for value GL_CLAMP_TO_BORDER, GL_CLAMP_TO_BORDER_ARB, GL_CLAMP_TO_BORDER_SGIS.
 		/// </summary>
 		ClampToBorder = Gl.CLAMP_TO_BORDER,
 
 		/// <summary>
-		/// /// Strongly typed for value GL_CLAMP_TO_EDGE, GL_CLAMP_TO_EDGE_SGIS.
+		/// Strongly typed for value GL_CLAMP_TO_EDGE, GL_CLAMP_TO_EDGE_SGIS.
 		/// </summary>
 		ClampToEdge = Gl.CLAMP_TO_EDGE,
 
