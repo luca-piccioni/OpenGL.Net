@@ -115,7 +115,7 @@ namespace BindingsGen.GLSpecs
 				if (allEnums.Count > 1) {
 					StringBuilder sb = new StringBuilder();
 
-					sb.Append("/// Strongly typed for value ");
+					sb.Append("Strongly typed for value ");
 					for (int i = 0; i < allEnums.Count; i++) {
 						sb.Append(allEnums[i].Name);
 						if (i < allEnums.Count - 1)

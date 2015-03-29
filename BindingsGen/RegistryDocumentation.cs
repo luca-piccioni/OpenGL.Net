@@ -430,8 +430,9 @@ namespace BindingsGen
 
 						foreach (string line in lines)
 							sw.WriteLine("/// {0}", line);
+
+						sw.WriteLine("/// </exception>");
 					}
-					sw.WriteLine("/// </exception>");
 				}
 			}
 
@@ -603,8 +604,9 @@ namespace BindingsGen
 
 						foreach (string line in lines)
 							sw.WriteLine("/// {0}", line);
+
+						sw.WriteLine("/// </exception>");
 					}
-					sw.WriteLine("/// </exception>");
 				}
 			}
 

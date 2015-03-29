@@ -1205,20 +1205,26 @@ namespace OpenGL
 		/// Gl.INVALID_ENUM is generated if <paramref name="internalformat"/> is not one of the generic compressed internal formats: 
 		/// Gl.COMPRESSED_RED, Gl.COMPRESSED_RG, Gl.COMPRESSED_RGB, Gl.COMPRESSED_RGBA. Gl.COMPRESSED_SRGB, or 
 		/// Gl.COMPRESSED_SRGB_ALPHA.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_VALUE is generated if <paramref name="imageSize"/> is not consistent with the format, dimensions, and 
 		/// contents of the specified compressed image data.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_VALUE is generated if <paramref name="border"/> is not 0.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if parameter combinations are not supported by the specific compressed internal format 
 		/// as specified in the specific texture compression extension.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if a non-zero buffer object name is bound to the Gl.PIXEL_UNPACK_BUFFER target and the 
 		/// buffer object's data store is currently mapped.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if a non-zero buffer object name is bound to the Gl.PIXEL_UNPACK_BUFFER target and the 
 		/// data would be unpacked from the buffer object such that the memory reads required would exceed the data store size.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Undefined results, including abnormal program termination, are generated if <paramref name="data"/> is not encoded in a 
 		/// manner consistent with the extension specification defining the internal compression format.
@@ -1289,20 +1295,26 @@ namespace OpenGL
 		/// Gl.INVALID_ENUM is generated if <paramref name="internalformat"/> is not one of the generic compressed internal formats: 
 		/// Gl.COMPRESSED_RED, Gl.COMPRESSED_RG, Gl.COMPRESSED_RGB, Gl.COMPRESSED_RGBA. Gl.COMPRESSED_SRGB, or 
 		/// Gl.COMPRESSED_SRGB_ALPHA.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_VALUE is generated if <paramref name="imageSize"/> is not consistent with the format, dimensions, and 
 		/// contents of the specified compressed image data.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_VALUE is generated if <paramref name="border"/> is not 0.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if parameter combinations are not supported by the specific compressed internal format 
 		/// as specified in the specific texture compression extension.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if a non-zero buffer object name is bound to the Gl.PIXEL_UNPACK_BUFFER target and the 
 		/// buffer object's data store is currently mapped.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if a non-zero buffer object name is bound to the Gl.PIXEL_UNPACK_BUFFER target and the 
 		/// data would be unpacked from the buffer object such that the memory reads required would exceed the data store size.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Undefined results, including abnormal program termination, are generated if <paramref name="data"/> is not encoded in a 
 		/// manner consistent with the extension specification defining the internal compression format.
@@ -1377,20 +1389,26 @@ namespace OpenGL
 		/// Gl.COMPRESSED_RGB8_PUNCHTHROUGH_ALPHA1_ETC2, Gl.COMPRESSED_SRGB8_PUNCHTHROUGH_ALPHA1_ETC2, Gl.COMPRESSED_RGBA8_ETC2_EAC, 
 		/// Gl.COMPRESSED_SRGB8_ALPHA8_ETC2_EAC, Gl.COMPRESSED_R11_EAC, Gl.COMPRESSED_SIGNED_R11_EAC, Gl.COMPRESSED_RG11_EAC, or 
 		/// Gl.COMPRESSED_SIGNED_RG11_EAC.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_VALUE is generated if <paramref name="imageSize"/> is not consistent with the format, dimensions, and 
 		/// contents of the specified compressed image data.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_VALUE is generated if <paramref name="border"/> is not 0.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if parameter combinations are not supported by the specific compressed internal format 
 		/// as specified in the specific texture compression extension.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if a non-zero buffer object name is bound to the Gl.PIXEL_UNPACK_BUFFER target and the 
 		/// buffer object's data store is currently mapped.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if a non-zero buffer object name is bound to the Gl.PIXEL_UNPACK_BUFFER target and the 
 		/// data would be unpacked from the buffer object such that the memory reads required would exceed the data store size.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Undefined results, including abnormal program termination, are generated if <paramref name="data"/> is not encoded in a 
 		/// manner consistent with the extension specification defining the internal compression format.
@@ -1463,20 +1481,26 @@ namespace OpenGL
 		/// Gl.COMPRESSED_RGB8_PUNCHTHROUGH_ALPHA1_ETC2, Gl.COMPRESSED_SRGB8_PUNCHTHROUGH_ALPHA1_ETC2, Gl.COMPRESSED_RGBA8_ETC2_EAC, 
 		/// Gl.COMPRESSED_SRGB8_ALPHA8_ETC2_EAC, Gl.COMPRESSED_R11_EAC, Gl.COMPRESSED_SIGNED_R11_EAC, Gl.COMPRESSED_RG11_EAC, or 
 		/// Gl.COMPRESSED_SIGNED_RG11_EAC.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_VALUE is generated if <paramref name="imageSize"/> is not consistent with the format, dimensions, and 
 		/// contents of the specified compressed image data.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_VALUE is generated if <paramref name="border"/> is not 0.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if parameter combinations are not supported by the specific compressed internal format 
 		/// as specified in the specific texture compression extension.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if a non-zero buffer object name is bound to the Gl.PIXEL_UNPACK_BUFFER target and the 
 		/// buffer object's data store is currently mapped.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if a non-zero buffer object name is bound to the Gl.PIXEL_UNPACK_BUFFER target and the 
 		/// data would be unpacked from the buffer object such that the memory reads required would exceed the data store size.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Undefined results, including abnormal program termination, are generated if <paramref name="data"/> is not encoded in a 
 		/// manner consistent with the extension specification defining the internal compression format.
@@ -1540,20 +1564,26 @@ namespace OpenGL
 		/// Gl.INVALID_ENUM is generated if <paramref name="internalformat"/> is not a supported specific compressed internal 
 		/// formats, or is one of the generic compressed internal formats: Gl.COMPRESSED_RED, Gl.COMPRESSED_RG, Gl.COMPRESSED_RGB, 
 		/// Gl.COMPRESSED_RGBA. Gl.COMPRESSED_SRGB, or Gl.COMPRESSED_SRGB_ALPHA.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_VALUE is generated if <paramref name="imageSize"/> is not consistent with the format, dimensions, and 
 		/// contents of the specified compressed image data.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_VALUE is generated if <paramref name="border"/> is not 0.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if parameter combinations are not supported by the specific compressed internal format 
 		/// as specified in the specific texture compression extension.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if a non-zero buffer object name is bound to the Gl.PIXEL_UNPACK_BUFFER target and the 
 		/// buffer object's data store is currently mapped.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if a non-zero buffer object name is bound to the Gl.PIXEL_UNPACK_BUFFER target and the 
 		/// data would be unpacked from the buffer object such that the memory reads required would exceed the data store size.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Undefined results, including abnormal program termination, are generated if <paramref name="data"/> is not encoded in a 
 		/// manner consistent with the extension specification defining the internal compression format.
@@ -1616,20 +1646,26 @@ namespace OpenGL
 		/// Gl.INVALID_ENUM is generated if <paramref name="internalformat"/> is not a supported specific compressed internal 
 		/// formats, or is one of the generic compressed internal formats: Gl.COMPRESSED_RED, Gl.COMPRESSED_RG, Gl.COMPRESSED_RGB, 
 		/// Gl.COMPRESSED_RGBA. Gl.COMPRESSED_SRGB, or Gl.COMPRESSED_SRGB_ALPHA.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_VALUE is generated if <paramref name="imageSize"/> is not consistent with the format, dimensions, and 
 		/// contents of the specified compressed image data.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_VALUE is generated if <paramref name="border"/> is not 0.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if parameter combinations are not supported by the specific compressed internal format 
 		/// as specified in the specific texture compression extension.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if a non-zero buffer object name is bound to the Gl.PIXEL_UNPACK_BUFFER target and the 
 		/// buffer object's data store is currently mapped.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if a non-zero buffer object name is bound to the Gl.PIXEL_UNPACK_BUFFER target and the 
 		/// data would be unpacked from the buffer object such that the memory reads required would exceed the data store size.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Undefined results, including abnormal program termination, are generated if <paramref name="data"/> is not encoded in a 
 		/// manner consistent with the extension specification defining the internal compression format.
@@ -1706,24 +1742,31 @@ namespace OpenGL
 		/// Gl.INVALID_ENUM is generated if <paramref name="internalformat"/> is one of the generic compressed internal formats: 
 		/// Gl.COMPRESSED_RED, Gl.COMPRESSED_RG, Gl.COMPRESSED_RGB, Gl.COMPRESSED_RGBA. Gl.COMPRESSED_SRGB, or 
 		/// Gl.COMPRESSED_SRGB_ALPHA.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_ENUM is generated by Gl.CompressedTexSubImage3D if <paramref name="target"/> is not Gl.TEXTURE_2D_ARRAY, 
 		/// Gl.TEXTURE_3D, or Gl.TEXTURE_CUBE_MAP_ARRAY.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated by Gl.CompressedTextureSubImage3D if <paramref name="texture"/> is not the name of an 
 		/// existing texture object.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_VALUE is generated if <paramref name="imageSize"/> is not consistent with the format, dimensions, and 
 		/// contents of the specified compressed image data.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if parameter combinations are not supported by the specific compressed internal format 
 		/// as specified in the specific texture compression extension.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if a non-zero buffer object name is bound to the Gl.PIXEL_UNPACK_BUFFER target and the 
 		/// buffer object's data store is currently mapped.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if a non-zero buffer object name is bound to the Gl.PIXEL_UNPACK_BUFFER target and the 
 		/// data would be unpacked from the buffer object such that the memory reads required would exceed the data store size.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Undefined results, including abnormal program termination, are generated if <paramref name="data"/> is not encoded in a 
 		/// manner consistent with the extension specification defining the internal compression format.
@@ -1798,24 +1841,31 @@ namespace OpenGL
 		/// Gl.INVALID_ENUM is generated if <paramref name="internalformat"/> is one of the generic compressed internal formats: 
 		/// Gl.COMPRESSED_RED, Gl.COMPRESSED_RG, Gl.COMPRESSED_RGB, Gl.COMPRESSED_RGBA. Gl.COMPRESSED_SRGB, or 
 		/// Gl.COMPRESSED_SRGB_ALPHA.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_ENUM is generated by Gl.CompressedTexSubImage3D if <paramref name="target"/> is not Gl.TEXTURE_2D_ARRAY, 
 		/// Gl.TEXTURE_3D, or Gl.TEXTURE_CUBE_MAP_ARRAY.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated by Gl.CompressedTextureSubImage3D if <paramref name="texture"/> is not the name of an 
 		/// existing texture object.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_VALUE is generated if <paramref name="imageSize"/> is not consistent with the format, dimensions, and 
 		/// contents of the specified compressed image data.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if parameter combinations are not supported by the specific compressed internal format 
 		/// as specified in the specific texture compression extension.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if a non-zero buffer object name is bound to the Gl.PIXEL_UNPACK_BUFFER target and the 
 		/// buffer object's data store is currently mapped.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if a non-zero buffer object name is bound to the Gl.PIXEL_UNPACK_BUFFER target and the 
 		/// data would be unpacked from the buffer object such that the memory reads required would exceed the data store size.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Undefined results, including abnormal program termination, are generated if <paramref name="data"/> is not encoded in a 
 		/// manner consistent with the extension specification defining the internal compression format.
@@ -1887,26 +1937,34 @@ namespace OpenGL
 		/// Gl.INVALID_ENUM is generated if <paramref name="internalformat"/> is of the generic compressed internal formats: 
 		/// Gl.COMPRESSED_RED, Gl.COMPRESSED_RG, Gl.COMPRESSED_RGB, Gl.COMPRESSED_RGBA. Gl.COMPRESSED_SRGB, or 
 		/// Gl.COMPRESSED_SRGB_ALPHA.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_ENUM is generated by Gl.CompressedTexSubImage2D if <paramref name="target"/> is Gl.TEXTURE_RECTANGLE or 
 		/// Gl.PROXY_TEXTURE_RECTANGLE.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_VALUE is generated if <paramref name="imageSize"/> is not consistent with the format, dimensions, and 
 		/// contents of the specified compressed image data.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if parameter combinations are not supported by the specific compressed internal format 
 		/// as specified in the specific texture compression extension.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if a non-zero buffer object name is bound to the Gl.PIXEL_UNPACK_BUFFER target and the 
 		/// buffer object's data store is currently mapped.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if a non-zero buffer object name is bound to the Gl.PIXEL_UNPACK_BUFFER target and the 
 		/// data would be unpacked from the buffer object such that the memory reads required would exceed the data store size.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated by Gl.CompressedTextureSubImage2D if <paramref name="texture"/> is not the name of an 
 		/// existing texture object.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated by Gl.CompressedTextureSubImage2D if the effective target is Gl.TEXTURE_RECTANGLE.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Undefined results, including abnormal program termination, are generated if <paramref name="data"/> is not encoded in a 
 		/// manner consistent with the extension specification defining the internal compression format.
@@ -1976,26 +2034,34 @@ namespace OpenGL
 		/// Gl.INVALID_ENUM is generated if <paramref name="internalformat"/> is of the generic compressed internal formats: 
 		/// Gl.COMPRESSED_RED, Gl.COMPRESSED_RG, Gl.COMPRESSED_RGB, Gl.COMPRESSED_RGBA. Gl.COMPRESSED_SRGB, or 
 		/// Gl.COMPRESSED_SRGB_ALPHA.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_ENUM is generated by Gl.CompressedTexSubImage2D if <paramref name="target"/> is Gl.TEXTURE_RECTANGLE or 
 		/// Gl.PROXY_TEXTURE_RECTANGLE.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_VALUE is generated if <paramref name="imageSize"/> is not consistent with the format, dimensions, and 
 		/// contents of the specified compressed image data.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if parameter combinations are not supported by the specific compressed internal format 
 		/// as specified in the specific texture compression extension.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if a non-zero buffer object name is bound to the Gl.PIXEL_UNPACK_BUFFER target and the 
 		/// buffer object's data store is currently mapped.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if a non-zero buffer object name is bound to the Gl.PIXEL_UNPACK_BUFFER target and the 
 		/// data would be unpacked from the buffer object such that the memory reads required would exceed the data store size.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated by Gl.CompressedTextureSubImage2D if <paramref name="texture"/> is not the name of an 
 		/// existing texture object.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated by Gl.CompressedTextureSubImage2D if the effective target is Gl.TEXTURE_RECTANGLE.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Undefined results, including abnormal program termination, are generated if <paramref name="data"/> is not encoded in a 
 		/// manner consistent with the extension specification defining the internal compression format.
@@ -2059,21 +2125,27 @@ namespace OpenGL
 		/// Gl.INVALID_ENUM is generated if <paramref name="internalformat"/> is not one of the generic compressed internal formats: 
 		/// Gl.COMPRESSED_RED, Gl.COMPRESSED_RG, Gl.COMPRESSED_RGB, Gl.COMPRESSED_RGBA. Gl.COMPRESSED_SRGB, or 
 		/// Gl.COMPRESSED_SRGB_ALPHA.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_VALUE is generated if <paramref name="imageSize"/> is not consistent with the format, dimensions, and 
 		/// contents of the specified compressed image data.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if parameter combinations are not supported by the specific compressed internal format 
 		/// as specified in the specific texture compression extension.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if a non-zero buffer object name is bound to the Gl.PIXEL_UNPACK_BUFFER target and the 
 		/// buffer object's data store is currently mapped.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if a non-zero buffer object name is bound to the Gl.PIXEL_UNPACK_BUFFER target and the 
 		/// data would be unpacked from the buffer object such that the memory reads required would exceed the data store size.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// GL_INVALID_OPERATION is generated by Gl.CompressedTextureSubImage1D function if texture is not the name of an existing 
 		/// texture object.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Undefined results, including abnormal program termination, are generated if <paramref name="data"/> is not encoded in a 
 		/// manner consistent with the extension specification defining the internal compression format.
@@ -2135,21 +2207,27 @@ namespace OpenGL
 		/// Gl.INVALID_ENUM is generated if <paramref name="internalformat"/> is not one of the generic compressed internal formats: 
 		/// Gl.COMPRESSED_RED, Gl.COMPRESSED_RG, Gl.COMPRESSED_RGB, Gl.COMPRESSED_RGBA. Gl.COMPRESSED_SRGB, or 
 		/// Gl.COMPRESSED_SRGB_ALPHA.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_VALUE is generated if <paramref name="imageSize"/> is not consistent with the format, dimensions, and 
 		/// contents of the specified compressed image data.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if parameter combinations are not supported by the specific compressed internal format 
 		/// as specified in the specific texture compression extension.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if a non-zero buffer object name is bound to the Gl.PIXEL_UNPACK_BUFFER target and the 
 		/// buffer object's data store is currently mapped.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if a non-zero buffer object name is bound to the Gl.PIXEL_UNPACK_BUFFER target and the 
 		/// data would be unpacked from the buffer object such that the memory reads required would exceed the data store size.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// GL_INVALID_OPERATION is generated by Gl.CompressedTextureSubImage1D function if texture is not the name of an existing 
 		/// texture object.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Undefined results, including abnormal program termination, are generated if <paramref name="data"/> is not encoded in a 
 		/// manner consistent with the extension specification defining the internal compression format.
@@ -2205,16 +2283,20 @@ namespace OpenGL
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated by Gl.GetCompressedTextureImage if <paramref name="texture"/> is not the name of an 
 		/// existing texture object.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_VALUE is generated if <paramref name="level"/> is less than zero or greater than the maximum number of LODs 
 		/// permitted by the implementation.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if Gl.GetCompressedTexImage, Gl.GetnCompressedTexImage, and 
 		/// Gl.GetCompressedTextureImage is used to retrieve a texture that is in an uncompressed internal format.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if a non-zero buffer object name is bound to the Gl.PIXEL_PACK_BUFFER target, the 
 		/// buffer storage was not initialized with Gl.BufferStorage using Gl.MAP_PERSISTENT_BIT flag, and the buffer object's data 
 		/// store is currently mapped.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if a non-zero buffer object name is bound to the Gl.PIXEL_PACK_BUFFER target and the 
 		/// data would be packed to the buffer object such that the memory writes required would exceed the data store size.
@@ -2265,16 +2347,20 @@ namespace OpenGL
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated by Gl.GetCompressedTextureImage if <paramref name="texture"/> is not the name of an 
 		/// existing texture object.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_VALUE is generated if <paramref name="level"/> is less than zero or greater than the maximum number of LODs 
 		/// permitted by the implementation.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if Gl.GetCompressedTexImage, Gl.GetnCompressedTexImage, and 
 		/// Gl.GetCompressedTextureImage is used to retrieve a texture that is in an uncompressed internal format.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if a non-zero buffer object name is bound to the Gl.PIXEL_PACK_BUFFER target, the 
 		/// buffer storage was not initialized with Gl.BufferStorage using Gl.MAP_PERSISTENT_BIT flag, and the buffer object's data 
 		/// store is currently mapped.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if a non-zero buffer object name is bound to the Gl.PIXEL_PACK_BUFFER target and the 
 		/// data would be packed to the buffer object such that the memory writes required would exceed the data store size.

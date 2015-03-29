@@ -567,11 +567,14 @@ namespace OpenGL
 		/// </remarks>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_ENUM is generated if <paramref name="mode"/> is not an accepted value.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_VALUE is generated if <paramref name="count"/> is negative.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if a geometry shader is active and <paramref name="mode"/> is incompatible with the 
 		/// input primitive type of the geometry shader in the currently installed program object.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if a non-zero buffer object name is bound to an enabled array or the element array and 
 		/// the buffer object's data store is currently mapped.
@@ -616,11 +619,14 @@ namespace OpenGL
 		/// </remarks>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_ENUM is generated if <paramref name="mode"/> is not an accepted value.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_VALUE is generated if <paramref name="count"/> is negative.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if a geometry shader is active and <paramref name="mode"/> is incompatible with the 
 		/// input primitive type of the geometry shader in the currently installed program object.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if a non-zero buffer object name is bound to an enabled array or the element array and 
 		/// the buffer object's data store is currently mapped.
@@ -673,13 +679,17 @@ namespace OpenGL
 		/// </remarks>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_ENUM is generated if <paramref name="mode"/> is not an accepted value.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_VALUE is generated if <paramref name="count"/> is negative.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_VALUE is generated if <paramref name="end"/> &lt; <paramref name="start"/>.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if a geometry shader is active and <paramref name="mode"/> is incompatible with the 
 		/// input primitive type of the geometry shader in the currently installed program object.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if a non-zero buffer object name is bound to an enabled array or the element array and 
 		/// the buffer object's data store is currently mapped.
@@ -730,13 +740,17 @@ namespace OpenGL
 		/// </remarks>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_ENUM is generated if <paramref name="mode"/> is not an accepted value.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_VALUE is generated if <paramref name="count"/> is negative.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_VALUE is generated if <paramref name="end"/> &lt; <paramref name="start"/>.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if a geometry shader is active and <paramref name="mode"/> is incompatible with the 
 		/// input primitive type of the geometry shader in the currently installed program object.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if a non-zero buffer object name is bound to an enabled array or the element array and 
 		/// the buffer object's data store is currently mapped.
@@ -786,11 +800,14 @@ namespace OpenGL
 		/// </remarks>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_ENUM is generated if <paramref name="mode"/> is not an accepted value.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_VALUE is generated if <paramref name="count"/> or <paramref name="primcount"/> is negative.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if a geometry shader is active and <paramref name="mode"/> is incompatible with the 
 		/// input primitive type of the geometry shader in the currently installed program object.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if a non-zero buffer object name is bound to an enabled array or the element array and 
 		/// the buffer object's data store is currently mapped.
@@ -838,11 +855,14 @@ namespace OpenGL
 		/// </remarks>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_ENUM is generated if <paramref name="mode"/> is not an accepted value.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_VALUE is generated if <paramref name="count"/> or <paramref name="primcount"/> is negative.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if a geometry shader is active and <paramref name="mode"/> is incompatible with the 
 		/// input primitive type of the geometry shader in the currently installed program object.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if a non-zero buffer object name is bound to an enabled array or the element array and 
 		/// the buffer object's data store is currently mapped.
@@ -892,8 +912,10 @@ namespace OpenGL
 		/// </remarks>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_ENUM is generated if <paramref name="mode"/> is not an accepted value.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_VALUE is generated if <paramref name="drawcount"/> is negative.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if a non-zero buffer object name is bound to an enabled array or the element array and 
 		/// the buffer object's data store is currently mapped.
@@ -956,8 +978,10 @@ namespace OpenGL
 		/// </remarks>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_ENUM is generated if <paramref name="condition"/> is not Gl.SYNC_GPU_COMMANDS_COMPLETE.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_VALUE is generated if <paramref name="flags"/> is not zero.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Additionally, if Gl.FenceSync fails, it will return zero.
 		/// </exception>
@@ -1044,6 +1068,7 @@ namespace OpenGL
 		/// </remarks>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_VALUE is generated if <paramref name="sync"/> is not the name of an existing sync object.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_VALUE is generated if <paramref name="flags"/> contains any unsupported flag.
 		/// </exception>
@@ -1081,8 +1106,10 @@ namespace OpenGL
 		/// </remarks>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_VALUE is generated if <paramref name="sync"/> is not the name of a sync object.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_VALUE is generated if <paramref name="flags"/> is not zero.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_VALUE is generated if <paramref name="timeout"/> is not Gl.TIMEOUT_IGNORED.
 		/// </exception>
@@ -1112,6 +1139,7 @@ namespace OpenGL
 		/// </remarks>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_ENUM is generated if <paramref name="pname"/> is not an accepted value.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_VALUE is generated on any of Gl.GetBooleani_v, Gl.GetIntegeri_v, or Gl.GetInteger64i_v if <paramref 
 		/// name="index"/> is outside of the valid range for the indexed state <paramref name="target"/>.
@@ -1169,6 +1197,7 @@ namespace OpenGL
 		/// </remarks>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_ENUM is generated if <paramref name="pname"/> is not an accepted value.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_VALUE is generated on any of Gl.GetBooleani_v, Gl.GetIntegeri_v, or Gl.GetInteger64i_v if <paramref 
 		/// name="index"/> is outside of the valid range for the indexed state <paramref name="target"/>.
@@ -1234,6 +1263,7 @@ namespace OpenGL
 		/// </remarks>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_VALUE is generated if <paramref name="sync"/> is not the name of a sync object.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_ENUM is generated if <paramref name="pname"/> is not one of the accepted tokens.
 		/// </exception>
@@ -1273,6 +1303,7 @@ namespace OpenGL
 		/// </remarks>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_ENUM is generated if <paramref name="pname"/> is not an accepted value.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_VALUE is generated on any of Gl.GetBooleani_v, Gl.GetIntegeri_v, or Gl.GetInteger64i_v if <paramref 
 		/// name="index"/> is outside of the valid range for the indexed state <paramref name="target"/>.
@@ -1332,6 +1363,7 @@ namespace OpenGL
 		/// </remarks>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_ENUM is generated if <paramref name="pname"/> is not an accepted value.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_VALUE is generated on any of Gl.GetBooleani_v, Gl.GetIntegeri_v, or Gl.GetInteger64i_v if <paramref 
 		/// name="index"/> is outside of the valid range for the indexed state <paramref name="target"/>.
@@ -1392,11 +1424,14 @@ namespace OpenGL
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_ENUM is generated by Gl.GetBufferParameter* if <paramref name="target"/> is not one of the accepted buffer 
 		/// targets.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated by Gl.GetBufferParameter* if zero is bound to <paramref name="target"/>.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated by Gl.GetNamedBufferParameter* if <paramref name="buffer"/> is not the name of an 
 		/// existing buffer object.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_ENUM is generated if <paramref name="pname"/> is not one of the buffer object parameter names described 
 		/// above.
@@ -1440,26 +1475,34 @@ namespace OpenGL
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_ENUM is generated by all commands accepting a <paramref name="target"/> parameter if it is not one of the 
 		/// accepted framebuffer targets.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated by all commands accepting a <paramref name="target"/> parameter if zero is bound to 
 		/// that target.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated by Gl.NamedFramebufferTexture if <paramref name="framebuffer"/> is not the name of an 
 		/// existing framebuffer object.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_ENUM is generated if <paramref name="attachment"/> is not one of the accepted attachment points.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_VALUE is generated if <paramref name="texture"/> is not zero or the name of an existing texture object.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_VALUE is generated if <paramref name="texture"/> is not zero and <paramref name="level"/> is not a supported 
 		/// texture level for <paramref name="texture"/>.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_VALUE is generated by Gl.FramebufferTexture3D if <paramref name="texture"/> is not zero and <paramref 
 		/// name="layer"/> is larger than the value of Gl.MAX_3D_TEXTURE_SIZE minus one.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated by all commands accepting a <paramref name="textarget"/> parameter if <paramref 
 		/// name="texture"/> is not zero, and <paramref name="textarget"/> and the effective target of <paramref name="texture"/> 
 		/// are not compatible.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated by if <paramref name="texture"/> is a buffer texture.
 		/// </exception>
@@ -1508,15 +1551,19 @@ namespace OpenGL
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if <paramref name="internalformat"/> is a depth- or stencil-renderable format and 
 		/// <paramref name="samples"/> is greater than the value of Gl.MAX_DEPTH_TEXTURE_SAMPLES.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if <paramref name="internalformat"/> is a color-renderable format and <paramref 
 		/// name="samples"/> is greater than the value of Gl.MAX_COLOR_TEXTURE_SAMPLES.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if <paramref name="internalformat"/> is a signed or unsigned integer format and 
 		/// <paramref name="samples"/> is greater than the value of Gl.MAX_INTEGER_SAMPLES.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_VALUE is generated if either <paramref name="width"/> or <paramref name="height"/> negative or is greater 
 		/// than Gl.MAX_TEXTURE_SIZE.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_VALUE is generated if <paramref name="samples"/> is greater than Gl.MAX_SAMPLES.
 		/// </exception>
@@ -1564,17 +1611,22 @@ namespace OpenGL
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if <paramref name="internalformat"/> is a depth- or stencil-renderable format and 
 		/// <paramref name="samples"/> is greater than the value of Gl.MAX_DEPTH_TEXTURE_SAMPLES.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if <paramref name="internalformat"/> is a color-renderable format and <paramref 
 		/// name="samples"/> is greater than the value of Gl.MAX_COLOR_TEXTURE_SAMPLES.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if <paramref name="internalformat"/> is a signed or unsigned integer format and 
 		/// <paramref name="samples"/> is greater than the value of Gl.MAX_INTEGER_SAMPLES.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_VALUE is generated if either <paramref name="width"/> or <paramref name="height"/> negative or is greater 
 		/// than Gl.MAX_TEXTURE_SIZE.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_VALUE is generated if <paramref name="depth"/> is negative or is greater than Gl.MAX_ARRAY_TEXTURE_LAYERS.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_VALUE is generated if <paramref name="samples"/> is greater than Gl.MAX_SAMPLES.
 		/// </exception>
@@ -1606,6 +1658,7 @@ namespace OpenGL
 		/// </remarks>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_ENUM is generated if <paramref name="pname"/> is not one Gl.SAMPLE_POSITION.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_VALUE is generated if <paramref name="index"/> is greater than or equal to the value of Gl.SAMPLES.
 		/// </exception>

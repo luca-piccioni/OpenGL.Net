@@ -776,17 +776,23 @@ namespace OpenGL
 		/// <exception cref="InvalidOperationException">
 		/// Glx.atch is generated if <paramref name="win"/> was not created with a visual that corresponds to <paramref 
 		/// name="config"/>.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Glx.atch is generated if <paramref name="config"/> does not support rendering to windows (i.e., Glx.DRAWABLE_TYPE does 
 		/// not contain Glx.WINDOW_BIT).
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Glx.indow is generated if <paramref name="win"/> is not a valid pixmap XID.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Glx.lloc is generated if there is already a GLXFBConfig associated with <paramref name="win"/>.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Glx.lloc is generated if the X server cannot allocate a new GLX window.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Glx.adFBConfig is generated if <paramref name="config"/> is not a valid GLXFBConfig.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// </exception>
 		/// <seealso cref="Glx.ChooseFBConfig"/>
@@ -856,16 +862,21 @@ namespace OpenGL
 		/// <exception cref="InvalidOperationException">
 		/// Glx.atch is generated if <paramref name="pixmap"/> was not created with a visual that corresponds to <paramref 
 		/// name="config"/>.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Glx.atch is generated if <paramref name="config"/> does not support rendering to windows (e.g., Glx.DRAWABLE_TYPE does 
 		/// not contain Glx.WINDOW_BIT).
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Glx.indow is generated if <paramref name="pixmap"/> is not a valid window XID. Glx.lloc is generated if there is already 
 		/// a GLXFBConfig associated with <paramref name="pixmap"/>.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Glx.lloc is generated if the X server cannot allocate a new GLX window.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Glx.adFBConfig is generated if <paramref name="config"/> is not a valid GLXFBConfig.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// </exception>
 		/// <seealso cref="Glx.ChooseFBConfig"/>
@@ -934,8 +945,10 @@ namespace OpenGL
 		/// </remarks>
 		/// <exception cref="InvalidOperationException">
 		/// Glx.lloc is generated if there are insufficient resources to allocate the requested GLXPbuffer.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Glx.adFBConfig is generated if <paramref name="config"/> is not a valid GLXFBConfig.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Glx.atch is generated if <paramref name="config"/> does not support rendering to pixel buffers (e.g., Glx.DRAWABLE_TYPE 
 		/// does not contain Glx.PBUFFER_BIT).
@@ -1044,15 +1057,20 @@ namespace OpenGL
 		/// </remarks>
 		/// <exception cref="InvalidOperationException">
 		/// Glx. is returned if execution fails on the client side.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Glx.adContext is generated if <paramref name="render_type"/> is not a GLX context and is not Glx..
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Glx.adFBConfig is generated if <paramref name="config"/> is not a valid GLXFBConfig.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Glx.atch is generated if the context to be created would not share the address space or the screen of the context 
 		/// specified by <paramref name="render_type"/>.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Glx.lloc is generated if the server does not have enough resources to allocate the new context.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Glx.alue is generated if <paramref name="config"/> is not a valid visual (for example, if a particular GLX 
 		/// implementation does not support it).
@@ -1096,33 +1114,45 @@ namespace OpenGL
 		/// </remarks>
 		/// <exception cref="InvalidOperationException">
 		/// Glx.atch is generated if <paramref name="draw"/> and <paramref name="read"/> are not compatible.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Glx.ccess is generated if <paramref name="ctx"/> is current to some other thread.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Glx.ontextState is generated if there is a current rendering context and its render mode is either Glx.FEEDBACK or 
 		/// Glx.SELECT.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Glx.adContext is generated if <paramref name="ctx"/> is not a valid GLX rendering context.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Glx.adDrawable is generated if <paramref name="draw"/> or <paramref name="read"/> is not a valid GLX drawable.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Glx.adWindow is generated if the underlying X window for either <paramref name="draw"/> or <paramref name="read"/> is no 
 		/// longer valid.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Glx.adCurrentDrawable is generated if the previous context of the calling thread has unflushed commands and the previous 
 		/// drawable is no longer valid.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Glx.lloc is generated if the X server does not have enough resources to allocate the buffers.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Glx.atch is generated if:
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// <paramref name="draw"/> and <paramref name="read"/> cannot fit into frame buffer memory simultaneously.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// <paramref name="draw"/> or <paramref name="read"/> is a GLXPixmap and <paramref name="ctx"/> is a direct-rendering 
 		/// context.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// <paramref name="draw"/> or <paramref name="read"/> is a GLXPixmap and <paramref name="ctx"/> was previously bound to a 
 		/// GLXWindow or GLXPbuffer.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// <paramref name="draw"/> or <paramref name="read"/> is a GLXWindow or GLXPbuffer and <paramref name="ctx"/> was 
 		/// previously bound to a GLXPixmap.

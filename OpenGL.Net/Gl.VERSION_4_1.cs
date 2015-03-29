@@ -354,8 +354,10 @@ namespace OpenGL
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if more than one of the handles in <paramref name="shaders"/> refers to the same 
 		/// shader object.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_ENUM is generated if <paramref name="binaryFormat"/> is not an accepted value.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_VALUE is generated if the data pointed to by <paramref name="binary"/> does not match the format specified by 
 		/// <paramref name="binaryFormat"/>.
@@ -398,8 +400,10 @@ namespace OpenGL
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if more than one of the handles in <paramref name="shaders"/> refers to the same 
 		/// shader object.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_ENUM is generated if <paramref name="binaryFormat"/> is not an accepted value.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_VALUE is generated if the data pointed to by <paramref name="binary"/> does not match the format specified by 
 		/// <paramref name="binaryFormat"/>.
@@ -560,6 +564,7 @@ namespace OpenGL
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if <paramref name="bufSize"/> is less than the size of Gl.PROGRAM_BINARY_LENGTH for 
 		/// <paramref name="program"/>.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if Gl.LINK_STATUS for the program object is false.
 		/// </exception>
@@ -604,6 +609,7 @@ namespace OpenGL
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if <paramref name="bufSize"/> is less than the size of Gl.PROGRAM_BINARY_LENGTH for 
 		/// <paramref name="program"/>.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if Gl.LINK_STATUS for the program object is false.
 		/// </exception>
@@ -640,6 +646,7 @@ namespace OpenGL
 		/// </remarks>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if <paramref name="program"/> is not the name of an existing program object.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_ENUM is generated if <paramref name="binaryFormat"/> is not a value recognized by the implementation.
 		/// </exception>
@@ -674,6 +681,7 @@ namespace OpenGL
 		/// </remarks>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if <paramref name="program"/> is not the name of an existing program object.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_ENUM is generated if <paramref name="binaryFormat"/> is not a value recognized by the implementation.
 		/// </exception>
@@ -707,8 +715,10 @@ namespace OpenGL
 		/// </remarks>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if <paramref name="program"/> is not the name of an existing program object.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_ENUM is generated if <paramref name="pname"/> is not one of the accepted values.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_VALUE is generated if <paramref name="value"/> is not a valid value for the parameter named by <paramref 
 		/// name="pname"/>.
@@ -743,12 +753,15 @@ namespace OpenGL
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_VALUE is generated if <paramref name="shaders"/> contains set bits that are not recognized, and is not the 
 		/// reserved value Gl.ALL_SHADER_BITS.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if <paramref name="program"/> refers to a program object that was not linked with its 
 		/// Gl.PROGRAM_SEPARABLE status set.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if <paramref name="program"/> refers to a program object that has not been 
 		/// successfully linked.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if <paramref name="pipeline"/> is not a name previously returned from a call to 
 		/// glGenProgramPipelines or if such a name has been deleted by a call to glDeleteProgramPipelines.
@@ -780,6 +793,7 @@ namespace OpenGL
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if <paramref name="pipeline"/> is not a name previously returned from a call to 
 		/// glGenProgramPipelines or if such a name has been deleted by a call to glDeleteProgramPipelines.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if <paramref name="program"/> refers to a program object that has not been 
 		/// successfully linked.
@@ -815,8 +829,10 @@ namespace OpenGL
 		/// </remarks>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_ENUM is generated if if <paramref name="type"/> is not an accepted shader type.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_VALUE is generated if <paramref name="count"/> is negative.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Other errors are generated if the supplied shader code fails to compile and link, as described for the commands in the 
 		/// pseudocode sequence above, but all such errors are generated without any side effects of executing those commands.
@@ -984,6 +1000,7 @@ namespace OpenGL
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if <paramref name="pipeline"/> is not zero or a name previously returned from a call 
 		/// to glGenProgramPipelines or if such a name has been deleted by a call to glDeleteProgramPipelines.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_ENUM is generated if <paramref name="pname"/> is not one of the accepted values.
 		/// </exception>
@@ -1021,28 +1038,36 @@ namespace OpenGL
 		/// </remarks>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if <paramref name="program"/> does not refer to a program object owned by the GL.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if the size of the uniform variable declared in the shader does not match the size 
 		/// indicated by the Gl.ProgramUniform command.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if one of the signed or unsigned integer variants of this function is used to load a 
 		/// uniform variable of type float, vec2, vec3, vec4, or an array of these, or if one of the floating-point variants of this 
 		/// function is used to load a uniform variable of type int, ivec2, ivec3, ivec4, unsigned int, uvec2, uvec3, uvec4, or an 
 		/// array of these.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if one of the signed integer variants of this function is used to load a uniform 
 		/// variable of type unsigned int, uvec2, uvec3, uvec4, or an array of these.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if one of the unsigned integer variants of this function is used to load a uniform 
 		/// variable of type int, ivec2, ivec3, ivec4, or an array of these.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if <paramref name="location"/> is an invalid uniform location for <paramref 
 		/// name="program"/> and <paramref name="location"/> is not equal to -1.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_VALUE is generated if <paramref name="count"/> is less than 0.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if <paramref name="count"/> is greater than 1 and the indicated uniform variable is 
 		/// not an array variable.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if a sampler is loaded using a command other than Gl.ProgramUniform1i and 
 		/// Gl.ProgramUniform1iv.
@@ -1080,28 +1105,36 @@ namespace OpenGL
 		/// </remarks>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if <paramref name="program"/> does not refer to a program object owned by the GL.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if the size of the uniform variable declared in the shader does not match the size 
 		/// indicated by the Gl.ProgramUniform command.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if one of the signed or unsigned integer variants of this function is used to load a 
 		/// uniform variable of type float, vec2, vec3, vec4, or an array of these, or if one of the floating-point variants of this 
 		/// function is used to load a uniform variable of type int, ivec2, ivec3, ivec4, unsigned int, uvec2, uvec3, uvec4, or an 
 		/// array of these.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if one of the signed integer variants of this function is used to load a uniform 
 		/// variable of type unsigned int, uvec2, uvec3, uvec4, or an array of these.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if one of the unsigned integer variants of this function is used to load a uniform 
 		/// variable of type int, ivec2, ivec3, ivec4, or an array of these.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if <paramref name="location"/> is an invalid uniform location for <paramref 
 		/// name="program"/> and <paramref name="location"/> is not equal to -1.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_VALUE is generated if <paramref name="count"/> is less than 0.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if <paramref name="count"/> is greater than 1 and the indicated uniform variable is 
 		/// not an array variable.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if a sampler is loaded using a command other than Gl.ProgramUniform1i and 
 		/// Gl.ProgramUniform1iv.
@@ -1139,28 +1172,36 @@ namespace OpenGL
 		/// </remarks>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if <paramref name="program"/> does not refer to a program object owned by the GL.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if the size of the uniform variable declared in the shader does not match the size 
 		/// indicated by the Gl.ProgramUniform command.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if one of the signed or unsigned integer variants of this function is used to load a 
 		/// uniform variable of type float, vec2, vec3, vec4, or an array of these, or if one of the floating-point variants of this 
 		/// function is used to load a uniform variable of type int, ivec2, ivec3, ivec4, unsigned int, uvec2, uvec3, uvec4, or an 
 		/// array of these.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if one of the signed integer variants of this function is used to load a uniform 
 		/// variable of type unsigned int, uvec2, uvec3, uvec4, or an array of these.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if one of the unsigned integer variants of this function is used to load a uniform 
 		/// variable of type int, ivec2, ivec3, ivec4, or an array of these.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if <paramref name="location"/> is an invalid uniform location for <paramref 
 		/// name="program"/> and <paramref name="location"/> is not equal to -1.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_VALUE is generated if <paramref name="count"/> is less than 0.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if <paramref name="count"/> is greater than 1 and the indicated uniform variable is 
 		/// not an array variable.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if a sampler is loaded using a command other than Gl.ProgramUniform1i and 
 		/// Gl.ProgramUniform1iv.
@@ -1198,28 +1239,36 @@ namespace OpenGL
 		/// </remarks>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if <paramref name="program"/> does not refer to a program object owned by the GL.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if the size of the uniform variable declared in the shader does not match the size 
 		/// indicated by the Gl.ProgramUniform command.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if one of the signed or unsigned integer variants of this function is used to load a 
 		/// uniform variable of type float, vec2, vec3, vec4, or an array of these, or if one of the floating-point variants of this 
 		/// function is used to load a uniform variable of type int, ivec2, ivec3, ivec4, unsigned int, uvec2, uvec3, uvec4, or an 
 		/// array of these.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if one of the signed integer variants of this function is used to load a uniform 
 		/// variable of type unsigned int, uvec2, uvec3, uvec4, or an array of these.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if one of the unsigned integer variants of this function is used to load a uniform 
 		/// variable of type int, ivec2, ivec3, ivec4, or an array of these.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if <paramref name="location"/> is an invalid uniform location for <paramref 
 		/// name="program"/> and <paramref name="location"/> is not equal to -1.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_VALUE is generated if <paramref name="count"/> is less than 0.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if <paramref name="count"/> is greater than 1 and the indicated uniform variable is 
 		/// not an array variable.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if a sampler is loaded using a command other than Gl.ProgramUniform1i and 
 		/// Gl.ProgramUniform1iv.
@@ -1309,28 +1358,36 @@ namespace OpenGL
 		/// </remarks>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if <paramref name="program"/> does not refer to a program object owned by the GL.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if the size of the uniform variable declared in the shader does not match the size 
 		/// indicated by the Gl.ProgramUniform command.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if one of the signed or unsigned integer variants of this function is used to load a 
 		/// uniform variable of type float, vec2, vec3, vec4, or an array of these, or if one of the floating-point variants of this 
 		/// function is used to load a uniform variable of type int, ivec2, ivec3, ivec4, unsigned int, uvec2, uvec3, uvec4, or an 
 		/// array of these.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if one of the signed integer variants of this function is used to load a uniform 
 		/// variable of type unsigned int, uvec2, uvec3, uvec4, or an array of these.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if one of the unsigned integer variants of this function is used to load a uniform 
 		/// variable of type int, ivec2, ivec3, ivec4, or an array of these.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if <paramref name="location"/> is an invalid uniform location for <paramref 
 		/// name="program"/> and <paramref name="location"/> is not equal to -1.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_VALUE is generated if <paramref name="count"/> is less than 0.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if <paramref name="count"/> is greater than 1 and the indicated uniform variable is 
 		/// not an array variable.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if a sampler is loaded using a command other than Gl.ProgramUniform1i and 
 		/// Gl.ProgramUniform1iv.
@@ -1368,28 +1425,36 @@ namespace OpenGL
 		/// </remarks>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if <paramref name="program"/> does not refer to a program object owned by the GL.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if the size of the uniform variable declared in the shader does not match the size 
 		/// indicated by the Gl.ProgramUniform command.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if one of the signed or unsigned integer variants of this function is used to load a 
 		/// uniform variable of type float, vec2, vec3, vec4, or an array of these, or if one of the floating-point variants of this 
 		/// function is used to load a uniform variable of type int, ivec2, ivec3, ivec4, unsigned int, uvec2, uvec3, uvec4, or an 
 		/// array of these.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if one of the signed integer variants of this function is used to load a uniform 
 		/// variable of type unsigned int, uvec2, uvec3, uvec4, or an array of these.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if one of the unsigned integer variants of this function is used to load a uniform 
 		/// variable of type int, ivec2, ivec3, ivec4, or an array of these.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if <paramref name="location"/> is an invalid uniform location for <paramref 
 		/// name="program"/> and <paramref name="location"/> is not equal to -1.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_VALUE is generated if <paramref name="count"/> is less than 0.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if <paramref name="count"/> is greater than 1 and the indicated uniform variable is 
 		/// not an array variable.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if a sampler is loaded using a command other than Gl.ProgramUniform1i and 
 		/// Gl.ProgramUniform1iv.
@@ -1430,28 +1495,36 @@ namespace OpenGL
 		/// </remarks>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if <paramref name="program"/> does not refer to a program object owned by the GL.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if the size of the uniform variable declared in the shader does not match the size 
 		/// indicated by the Gl.ProgramUniform command.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if one of the signed or unsigned integer variants of this function is used to load a 
 		/// uniform variable of type float, vec2, vec3, vec4, or an array of these, or if one of the floating-point variants of this 
 		/// function is used to load a uniform variable of type int, ivec2, ivec3, ivec4, unsigned int, uvec2, uvec3, uvec4, or an 
 		/// array of these.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if one of the signed integer variants of this function is used to load a uniform 
 		/// variable of type unsigned int, uvec2, uvec3, uvec4, or an array of these.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if one of the unsigned integer variants of this function is used to load a uniform 
 		/// variable of type int, ivec2, ivec3, ivec4, or an array of these.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if <paramref name="location"/> is an invalid uniform location for <paramref 
 		/// name="program"/> and <paramref name="location"/> is not equal to -1.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_VALUE is generated if <paramref name="count"/> is less than 0.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if <paramref name="count"/> is greater than 1 and the indicated uniform variable is 
 		/// not an array variable.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if a sampler is loaded using a command other than Gl.ProgramUniform1i and 
 		/// Gl.ProgramUniform1iv.
@@ -1489,28 +1562,36 @@ namespace OpenGL
 		/// </remarks>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if <paramref name="program"/> does not refer to a program object owned by the GL.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if the size of the uniform variable declared in the shader does not match the size 
 		/// indicated by the Gl.ProgramUniform command.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if one of the signed or unsigned integer variants of this function is used to load a 
 		/// uniform variable of type float, vec2, vec3, vec4, or an array of these, or if one of the floating-point variants of this 
 		/// function is used to load a uniform variable of type int, ivec2, ivec3, ivec4, unsigned int, uvec2, uvec3, uvec4, or an 
 		/// array of these.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if one of the signed integer variants of this function is used to load a uniform 
 		/// variable of type unsigned int, uvec2, uvec3, uvec4, or an array of these.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if one of the unsigned integer variants of this function is used to load a uniform 
 		/// variable of type int, ivec2, ivec3, ivec4, or an array of these.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if <paramref name="location"/> is an invalid uniform location for <paramref 
 		/// name="program"/> and <paramref name="location"/> is not equal to -1.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_VALUE is generated if <paramref name="count"/> is less than 0.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if <paramref name="count"/> is greater than 1 and the indicated uniform variable is 
 		/// not an array variable.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if a sampler is loaded using a command other than Gl.ProgramUniform1i and 
 		/// Gl.ProgramUniform1iv.
@@ -1551,28 +1632,36 @@ namespace OpenGL
 		/// </remarks>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if <paramref name="program"/> does not refer to a program object owned by the GL.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if the size of the uniform variable declared in the shader does not match the size 
 		/// indicated by the Gl.ProgramUniform command.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if one of the signed or unsigned integer variants of this function is used to load a 
 		/// uniform variable of type float, vec2, vec3, vec4, or an array of these, or if one of the floating-point variants of this 
 		/// function is used to load a uniform variable of type int, ivec2, ivec3, ivec4, unsigned int, uvec2, uvec3, uvec4, or an 
 		/// array of these.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if one of the signed integer variants of this function is used to load a uniform 
 		/// variable of type unsigned int, uvec2, uvec3, uvec4, or an array of these.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if one of the unsigned integer variants of this function is used to load a uniform 
 		/// variable of type int, ivec2, ivec3, ivec4, or an array of these.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if <paramref name="location"/> is an invalid uniform location for <paramref 
 		/// name="program"/> and <paramref name="location"/> is not equal to -1.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_VALUE is generated if <paramref name="count"/> is less than 0.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if <paramref name="count"/> is greater than 1 and the indicated uniform variable is 
 		/// not an array variable.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if a sampler is loaded using a command other than Gl.ProgramUniform1i and 
 		/// Gl.ProgramUniform1iv.
@@ -1610,28 +1699,36 @@ namespace OpenGL
 		/// </remarks>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if <paramref name="program"/> does not refer to a program object owned by the GL.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if the size of the uniform variable declared in the shader does not match the size 
 		/// indicated by the Gl.ProgramUniform command.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if one of the signed or unsigned integer variants of this function is used to load a 
 		/// uniform variable of type float, vec2, vec3, vec4, or an array of these, or if one of the floating-point variants of this 
 		/// function is used to load a uniform variable of type int, ivec2, ivec3, ivec4, unsigned int, uvec2, uvec3, uvec4, or an 
 		/// array of these.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if one of the signed integer variants of this function is used to load a uniform 
 		/// variable of type unsigned int, uvec2, uvec3, uvec4, or an array of these.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if one of the unsigned integer variants of this function is used to load a uniform 
 		/// variable of type int, ivec2, ivec3, ivec4, or an array of these.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if <paramref name="location"/> is an invalid uniform location for <paramref 
 		/// name="program"/> and <paramref name="location"/> is not equal to -1.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_VALUE is generated if <paramref name="count"/> is less than 0.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if <paramref name="count"/> is greater than 1 and the indicated uniform variable is 
 		/// not an array variable.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if a sampler is loaded using a command other than Gl.ProgramUniform1i and 
 		/// Gl.ProgramUniform1iv.
@@ -1727,28 +1824,36 @@ namespace OpenGL
 		/// </remarks>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if <paramref name="program"/> does not refer to a program object owned by the GL.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if the size of the uniform variable declared in the shader does not match the size 
 		/// indicated by the Gl.ProgramUniform command.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if one of the signed or unsigned integer variants of this function is used to load a 
 		/// uniform variable of type float, vec2, vec3, vec4, or an array of these, or if one of the floating-point variants of this 
 		/// function is used to load a uniform variable of type int, ivec2, ivec3, ivec4, unsigned int, uvec2, uvec3, uvec4, or an 
 		/// array of these.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if one of the signed integer variants of this function is used to load a uniform 
 		/// variable of type unsigned int, uvec2, uvec3, uvec4, or an array of these.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if one of the unsigned integer variants of this function is used to load a uniform 
 		/// variable of type int, ivec2, ivec3, ivec4, or an array of these.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if <paramref name="location"/> is an invalid uniform location for <paramref 
 		/// name="program"/> and <paramref name="location"/> is not equal to -1.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_VALUE is generated if <paramref name="count"/> is less than 0.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if <paramref name="count"/> is greater than 1 and the indicated uniform variable is 
 		/// not an array variable.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if a sampler is loaded using a command other than Gl.ProgramUniform1i and 
 		/// Gl.ProgramUniform1iv.
@@ -1786,28 +1891,36 @@ namespace OpenGL
 		/// </remarks>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if <paramref name="program"/> does not refer to a program object owned by the GL.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if the size of the uniform variable declared in the shader does not match the size 
 		/// indicated by the Gl.ProgramUniform command.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if one of the signed or unsigned integer variants of this function is used to load a 
 		/// uniform variable of type float, vec2, vec3, vec4, or an array of these, or if one of the floating-point variants of this 
 		/// function is used to load a uniform variable of type int, ivec2, ivec3, ivec4, unsigned int, uvec2, uvec3, uvec4, or an 
 		/// array of these.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if one of the signed integer variants of this function is used to load a uniform 
 		/// variable of type unsigned int, uvec2, uvec3, uvec4, or an array of these.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if one of the unsigned integer variants of this function is used to load a uniform 
 		/// variable of type int, ivec2, ivec3, ivec4, or an array of these.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if <paramref name="location"/> is an invalid uniform location for <paramref 
 		/// name="program"/> and <paramref name="location"/> is not equal to -1.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_VALUE is generated if <paramref name="count"/> is less than 0.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if <paramref name="count"/> is greater than 1 and the indicated uniform variable is 
 		/// not an array variable.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if a sampler is loaded using a command other than Gl.ProgramUniform1i and 
 		/// Gl.ProgramUniform1iv.
@@ -1851,28 +1964,36 @@ namespace OpenGL
 		/// </remarks>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if <paramref name="program"/> does not refer to a program object owned by the GL.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if the size of the uniform variable declared in the shader does not match the size 
 		/// indicated by the Gl.ProgramUniform command.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if one of the signed or unsigned integer variants of this function is used to load a 
 		/// uniform variable of type float, vec2, vec3, vec4, or an array of these, or if one of the floating-point variants of this 
 		/// function is used to load a uniform variable of type int, ivec2, ivec3, ivec4, unsigned int, uvec2, uvec3, uvec4, or an 
 		/// array of these.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if one of the signed integer variants of this function is used to load a uniform 
 		/// variable of type unsigned int, uvec2, uvec3, uvec4, or an array of these.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if one of the unsigned integer variants of this function is used to load a uniform 
 		/// variable of type int, ivec2, ivec3, ivec4, or an array of these.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if <paramref name="location"/> is an invalid uniform location for <paramref 
 		/// name="program"/> and <paramref name="location"/> is not equal to -1.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_VALUE is generated if <paramref name="count"/> is less than 0.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if <paramref name="count"/> is greater than 1 and the indicated uniform variable is 
 		/// not an array variable.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if a sampler is loaded using a command other than Gl.ProgramUniform1i and 
 		/// Gl.ProgramUniform1iv.
@@ -1910,28 +2031,36 @@ namespace OpenGL
 		/// </remarks>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if <paramref name="program"/> does not refer to a program object owned by the GL.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if the size of the uniform variable declared in the shader does not match the size 
 		/// indicated by the Gl.ProgramUniform command.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if one of the signed or unsigned integer variants of this function is used to load a 
 		/// uniform variable of type float, vec2, vec3, vec4, or an array of these, or if one of the floating-point variants of this 
 		/// function is used to load a uniform variable of type int, ivec2, ivec3, ivec4, unsigned int, uvec2, uvec3, uvec4, or an 
 		/// array of these.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if one of the signed integer variants of this function is used to load a uniform 
 		/// variable of type unsigned int, uvec2, uvec3, uvec4, or an array of these.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if one of the unsigned integer variants of this function is used to load a uniform 
 		/// variable of type int, ivec2, ivec3, ivec4, or an array of these.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if <paramref name="location"/> is an invalid uniform location for <paramref 
 		/// name="program"/> and <paramref name="location"/> is not equal to -1.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_VALUE is generated if <paramref name="count"/> is less than 0.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if <paramref name="count"/> is greater than 1 and the indicated uniform variable is 
 		/// not an array variable.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if a sampler is loaded using a command other than Gl.ProgramUniform1i and 
 		/// Gl.ProgramUniform1iv.
@@ -1975,28 +2104,36 @@ namespace OpenGL
 		/// </remarks>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if <paramref name="program"/> does not refer to a program object owned by the GL.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if the size of the uniform variable declared in the shader does not match the size 
 		/// indicated by the Gl.ProgramUniform command.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if one of the signed or unsigned integer variants of this function is used to load a 
 		/// uniform variable of type float, vec2, vec3, vec4, or an array of these, or if one of the floating-point variants of this 
 		/// function is used to load a uniform variable of type int, ivec2, ivec3, ivec4, unsigned int, uvec2, uvec3, uvec4, or an 
 		/// array of these.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if one of the signed integer variants of this function is used to load a uniform 
 		/// variable of type unsigned int, uvec2, uvec3, uvec4, or an array of these.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if one of the unsigned integer variants of this function is used to load a uniform 
 		/// variable of type int, ivec2, ivec3, ivec4, or an array of these.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if <paramref name="location"/> is an invalid uniform location for <paramref 
 		/// name="program"/> and <paramref name="location"/> is not equal to -1.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_VALUE is generated if <paramref name="count"/> is less than 0.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if <paramref name="count"/> is greater than 1 and the indicated uniform variable is 
 		/// not an array variable.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if a sampler is loaded using a command other than Gl.ProgramUniform1i and 
 		/// Gl.ProgramUniform1iv.
@@ -2034,28 +2171,36 @@ namespace OpenGL
 		/// </remarks>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if <paramref name="program"/> does not refer to a program object owned by the GL.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if the size of the uniform variable declared in the shader does not match the size 
 		/// indicated by the Gl.ProgramUniform command.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if one of the signed or unsigned integer variants of this function is used to load a 
 		/// uniform variable of type float, vec2, vec3, vec4, or an array of these, or if one of the floating-point variants of this 
 		/// function is used to load a uniform variable of type int, ivec2, ivec3, ivec4, unsigned int, uvec2, uvec3, uvec4, or an 
 		/// array of these.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if one of the signed integer variants of this function is used to load a uniform 
 		/// variable of type unsigned int, uvec2, uvec3, uvec4, or an array of these.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if one of the unsigned integer variants of this function is used to load a uniform 
 		/// variable of type int, ivec2, ivec3, ivec4, or an array of these.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if <paramref name="location"/> is an invalid uniform location for <paramref 
 		/// name="program"/> and <paramref name="location"/> is not equal to -1.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_VALUE is generated if <paramref name="count"/> is less than 0.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if <paramref name="count"/> is greater than 1 and the indicated uniform variable is 
 		/// not an array variable.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if a sampler is loaded using a command other than Gl.ProgramUniform1i and 
 		/// Gl.ProgramUniform1iv.
@@ -2157,28 +2302,36 @@ namespace OpenGL
 		/// </remarks>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if <paramref name="program"/> does not refer to a program object owned by the GL.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if the size of the uniform variable declared in the shader does not match the size 
 		/// indicated by the Gl.ProgramUniform command.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if one of the signed or unsigned integer variants of this function is used to load a 
 		/// uniform variable of type float, vec2, vec3, vec4, or an array of these, or if one of the floating-point variants of this 
 		/// function is used to load a uniform variable of type int, ivec2, ivec3, ivec4, unsigned int, uvec2, uvec3, uvec4, or an 
 		/// array of these.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if one of the signed integer variants of this function is used to load a uniform 
 		/// variable of type unsigned int, uvec2, uvec3, uvec4, or an array of these.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if one of the unsigned integer variants of this function is used to load a uniform 
 		/// variable of type int, ivec2, ivec3, ivec4, or an array of these.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if <paramref name="location"/> is an invalid uniform location for <paramref 
 		/// name="program"/> and <paramref name="location"/> is not equal to -1.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_VALUE is generated if <paramref name="count"/> is less than 0.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if <paramref name="count"/> is greater than 1 and the indicated uniform variable is 
 		/// not an array variable.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if a sampler is loaded using a command other than Gl.ProgramUniform1i and 
 		/// Gl.ProgramUniform1iv.
@@ -2216,28 +2369,36 @@ namespace OpenGL
 		/// </remarks>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if <paramref name="program"/> does not refer to a program object owned by the GL.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if the size of the uniform variable declared in the shader does not match the size 
 		/// indicated by the Gl.ProgramUniform command.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if one of the signed or unsigned integer variants of this function is used to load a 
 		/// uniform variable of type float, vec2, vec3, vec4, or an array of these, or if one of the floating-point variants of this 
 		/// function is used to load a uniform variable of type int, ivec2, ivec3, ivec4, unsigned int, uvec2, uvec3, uvec4, or an 
 		/// array of these.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if one of the signed integer variants of this function is used to load a uniform 
 		/// variable of type unsigned int, uvec2, uvec3, uvec4, or an array of these.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if one of the unsigned integer variants of this function is used to load a uniform 
 		/// variable of type int, ivec2, ivec3, ivec4, or an array of these.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if <paramref name="location"/> is an invalid uniform location for <paramref 
 		/// name="program"/> and <paramref name="location"/> is not equal to -1.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_VALUE is generated if <paramref name="count"/> is less than 0.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if <paramref name="count"/> is greater than 1 and the indicated uniform variable is 
 		/// not an array variable.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if a sampler is loaded using a command other than Gl.ProgramUniform1i and 
 		/// Gl.ProgramUniform1iv.
@@ -2284,28 +2445,36 @@ namespace OpenGL
 		/// </remarks>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if <paramref name="program"/> does not refer to a program object owned by the GL.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if the size of the uniform variable declared in the shader does not match the size 
 		/// indicated by the Gl.ProgramUniform command.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if one of the signed or unsigned integer variants of this function is used to load a 
 		/// uniform variable of type float, vec2, vec3, vec4, or an array of these, or if one of the floating-point variants of this 
 		/// function is used to load a uniform variable of type int, ivec2, ivec3, ivec4, unsigned int, uvec2, uvec3, uvec4, or an 
 		/// array of these.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if one of the signed integer variants of this function is used to load a uniform 
 		/// variable of type unsigned int, uvec2, uvec3, uvec4, or an array of these.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if one of the unsigned integer variants of this function is used to load a uniform 
 		/// variable of type int, ivec2, ivec3, ivec4, or an array of these.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if <paramref name="location"/> is an invalid uniform location for <paramref 
 		/// name="program"/> and <paramref name="location"/> is not equal to -1.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_VALUE is generated if <paramref name="count"/> is less than 0.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if <paramref name="count"/> is greater than 1 and the indicated uniform variable is 
 		/// not an array variable.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if a sampler is loaded using a command other than Gl.ProgramUniform1i and 
 		/// Gl.ProgramUniform1iv.
@@ -2343,28 +2512,36 @@ namespace OpenGL
 		/// </remarks>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if <paramref name="program"/> does not refer to a program object owned by the GL.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if the size of the uniform variable declared in the shader does not match the size 
 		/// indicated by the Gl.ProgramUniform command.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if one of the signed or unsigned integer variants of this function is used to load a 
 		/// uniform variable of type float, vec2, vec3, vec4, or an array of these, or if one of the floating-point variants of this 
 		/// function is used to load a uniform variable of type int, ivec2, ivec3, ivec4, unsigned int, uvec2, uvec3, uvec4, or an 
 		/// array of these.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if one of the signed integer variants of this function is used to load a uniform 
 		/// variable of type unsigned int, uvec2, uvec3, uvec4, or an array of these.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if one of the unsigned integer variants of this function is used to load a uniform 
 		/// variable of type int, ivec2, ivec3, ivec4, or an array of these.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if <paramref name="location"/> is an invalid uniform location for <paramref 
 		/// name="program"/> and <paramref name="location"/> is not equal to -1.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_VALUE is generated if <paramref name="count"/> is less than 0.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if <paramref name="count"/> is greater than 1 and the indicated uniform variable is 
 		/// not an array variable.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if a sampler is loaded using a command other than Gl.ProgramUniform1i and 
 		/// Gl.ProgramUniform1iv.
@@ -2411,28 +2588,36 @@ namespace OpenGL
 		/// </remarks>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if <paramref name="program"/> does not refer to a program object owned by the GL.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if the size of the uniform variable declared in the shader does not match the size 
 		/// indicated by the Gl.ProgramUniform command.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if one of the signed or unsigned integer variants of this function is used to load a 
 		/// uniform variable of type float, vec2, vec3, vec4, or an array of these, or if one of the floating-point variants of this 
 		/// function is used to load a uniform variable of type int, ivec2, ivec3, ivec4, unsigned int, uvec2, uvec3, uvec4, or an 
 		/// array of these.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if one of the signed integer variants of this function is used to load a uniform 
 		/// variable of type unsigned int, uvec2, uvec3, uvec4, or an array of these.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if one of the unsigned integer variants of this function is used to load a uniform 
 		/// variable of type int, ivec2, ivec3, ivec4, or an array of these.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if <paramref name="location"/> is an invalid uniform location for <paramref 
 		/// name="program"/> and <paramref name="location"/> is not equal to -1.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_VALUE is generated if <paramref name="count"/> is less than 0.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if <paramref name="count"/> is greater than 1 and the indicated uniform variable is 
 		/// not an array variable.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if a sampler is loaded using a command other than Gl.ProgramUniform1i and 
 		/// Gl.ProgramUniform1iv.
@@ -2470,28 +2655,36 @@ namespace OpenGL
 		/// </remarks>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if <paramref name="program"/> does not refer to a program object owned by the GL.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if the size of the uniform variable declared in the shader does not match the size 
 		/// indicated by the Gl.ProgramUniform command.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if one of the signed or unsigned integer variants of this function is used to load a 
 		/// uniform variable of type float, vec2, vec3, vec4, or an array of these, or if one of the floating-point variants of this 
 		/// function is used to load a uniform variable of type int, ivec2, ivec3, ivec4, unsigned int, uvec2, uvec3, uvec4, or an 
 		/// array of these.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if one of the signed integer variants of this function is used to load a uniform 
 		/// variable of type unsigned int, uvec2, uvec3, uvec4, or an array of these.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if one of the unsigned integer variants of this function is used to load a uniform 
 		/// variable of type int, ivec2, ivec3, ivec4, or an array of these.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if <paramref name="location"/> is an invalid uniform location for <paramref 
 		/// name="program"/> and <paramref name="location"/> is not equal to -1.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_VALUE is generated if <paramref name="count"/> is less than 0.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if <paramref name="count"/> is greater than 1 and the indicated uniform variable is 
 		/// not an array variable.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if a sampler is loaded using a command other than Gl.ProgramUniform1i and 
 		/// Gl.ProgramUniform1iv.
@@ -2599,28 +2792,36 @@ namespace OpenGL
 		/// </remarks>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if <paramref name="program"/> does not refer to a program object owned by the GL.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if the size of the uniform variable declared in the shader does not match the size 
 		/// indicated by the Gl.ProgramUniform command.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if one of the signed or unsigned integer variants of this function is used to load a 
 		/// uniform variable of type float, vec2, vec3, vec4, or an array of these, or if one of the floating-point variants of this 
 		/// function is used to load a uniform variable of type int, ivec2, ivec3, ivec4, unsigned int, uvec2, uvec3, uvec4, or an 
 		/// array of these.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if one of the signed integer variants of this function is used to load a uniform 
 		/// variable of type unsigned int, uvec2, uvec3, uvec4, or an array of these.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if one of the unsigned integer variants of this function is used to load a uniform 
 		/// variable of type int, ivec2, ivec3, ivec4, or an array of these.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if <paramref name="location"/> is an invalid uniform location for <paramref 
 		/// name="program"/> and <paramref name="location"/> is not equal to -1.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_VALUE is generated if <paramref name="count"/> is less than 0.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if <paramref name="count"/> is greater than 1 and the indicated uniform variable is 
 		/// not an array variable.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if a sampler is loaded using a command other than Gl.ProgramUniform1i and 
 		/// Gl.ProgramUniform1iv.
@@ -2658,28 +2859,36 @@ namespace OpenGL
 		/// </remarks>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if <paramref name="program"/> does not refer to a program object owned by the GL.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if the size of the uniform variable declared in the shader does not match the size 
 		/// indicated by the Gl.ProgramUniform command.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if one of the signed or unsigned integer variants of this function is used to load a 
 		/// uniform variable of type float, vec2, vec3, vec4, or an array of these, or if one of the floating-point variants of this 
 		/// function is used to load a uniform variable of type int, ivec2, ivec3, ivec4, unsigned int, uvec2, uvec3, uvec4, or an 
 		/// array of these.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if one of the signed integer variants of this function is used to load a uniform 
 		/// variable of type unsigned int, uvec2, uvec3, uvec4, or an array of these.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if one of the unsigned integer variants of this function is used to load a uniform 
 		/// variable of type int, ivec2, ivec3, ivec4, or an array of these.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if <paramref name="location"/> is an invalid uniform location for <paramref 
 		/// name="program"/> and <paramref name="location"/> is not equal to -1.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_VALUE is generated if <paramref name="count"/> is less than 0.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if <paramref name="count"/> is greater than 1 and the indicated uniform variable is 
 		/// not an array variable.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if a sampler is loaded using a command other than Gl.ProgramUniform1i and 
 		/// Gl.ProgramUniform1iv.
@@ -2725,28 +2934,36 @@ namespace OpenGL
 		/// </remarks>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if <paramref name="program"/> does not refer to a program object owned by the GL.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if the size of the uniform variable declared in the shader does not match the size 
 		/// indicated by the Gl.ProgramUniform command.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if one of the signed or unsigned integer variants of this function is used to load a 
 		/// uniform variable of type float, vec2, vec3, vec4, or an array of these, or if one of the floating-point variants of this 
 		/// function is used to load a uniform variable of type int, ivec2, ivec3, ivec4, unsigned int, uvec2, uvec3, uvec4, or an 
 		/// array of these.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if one of the signed integer variants of this function is used to load a uniform 
 		/// variable of type unsigned int, uvec2, uvec3, uvec4, or an array of these.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if one of the unsigned integer variants of this function is used to load a uniform 
 		/// variable of type int, ivec2, ivec3, ivec4, or an array of these.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if <paramref name="location"/> is an invalid uniform location for <paramref 
 		/// name="program"/> and <paramref name="location"/> is not equal to -1.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_VALUE is generated if <paramref name="count"/> is less than 0.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if <paramref name="count"/> is greater than 1 and the indicated uniform variable is 
 		/// not an array variable.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if a sampler is loaded using a command other than Gl.ProgramUniform1i and 
 		/// Gl.ProgramUniform1iv.
@@ -2792,28 +3009,36 @@ namespace OpenGL
 		/// </remarks>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if <paramref name="program"/> does not refer to a program object owned by the GL.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if the size of the uniform variable declared in the shader does not match the size 
 		/// indicated by the Gl.ProgramUniform command.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if one of the signed or unsigned integer variants of this function is used to load a 
 		/// uniform variable of type float, vec2, vec3, vec4, or an array of these, or if one of the floating-point variants of this 
 		/// function is used to load a uniform variable of type int, ivec2, ivec3, ivec4, unsigned int, uvec2, uvec3, uvec4, or an 
 		/// array of these.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if one of the signed integer variants of this function is used to load a uniform 
 		/// variable of type unsigned int, uvec2, uvec3, uvec4, or an array of these.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if one of the unsigned integer variants of this function is used to load a uniform 
 		/// variable of type int, ivec2, ivec3, ivec4, or an array of these.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if <paramref name="location"/> is an invalid uniform location for <paramref 
 		/// name="program"/> and <paramref name="location"/> is not equal to -1.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_VALUE is generated if <paramref name="count"/> is less than 0.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if <paramref name="count"/> is greater than 1 and the indicated uniform variable is 
 		/// not an array variable.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if a sampler is loaded using a command other than Gl.ProgramUniform1i and 
 		/// Gl.ProgramUniform1iv.
@@ -2859,28 +3084,36 @@ namespace OpenGL
 		/// </remarks>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if <paramref name="program"/> does not refer to a program object owned by the GL.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if the size of the uniform variable declared in the shader does not match the size 
 		/// indicated by the Gl.ProgramUniform command.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if one of the signed or unsigned integer variants of this function is used to load a 
 		/// uniform variable of type float, vec2, vec3, vec4, or an array of these, or if one of the floating-point variants of this 
 		/// function is used to load a uniform variable of type int, ivec2, ivec3, ivec4, unsigned int, uvec2, uvec3, uvec4, or an 
 		/// array of these.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if one of the signed integer variants of this function is used to load a uniform 
 		/// variable of type unsigned int, uvec2, uvec3, uvec4, or an array of these.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if one of the unsigned integer variants of this function is used to load a uniform 
 		/// variable of type int, ivec2, ivec3, ivec4, or an array of these.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if <paramref name="location"/> is an invalid uniform location for <paramref 
 		/// name="program"/> and <paramref name="location"/> is not equal to -1.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_VALUE is generated if <paramref name="count"/> is less than 0.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if <paramref name="count"/> is greater than 1 and the indicated uniform variable is 
 		/// not an array variable.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if a sampler is loaded using a command other than Gl.ProgramUniform1i and 
 		/// Gl.ProgramUniform1iv.
@@ -3025,28 +3258,36 @@ namespace OpenGL
 		/// </remarks>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if <paramref name="program"/> does not refer to a program object owned by the GL.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if the size of the uniform variable declared in the shader does not match the size 
 		/// indicated by the Gl.ProgramUniform command.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if one of the signed or unsigned integer variants of this function is used to load a 
 		/// uniform variable of type float, vec2, vec3, vec4, or an array of these, or if one of the floating-point variants of this 
 		/// function is used to load a uniform variable of type int, ivec2, ivec3, ivec4, unsigned int, uvec2, uvec3, uvec4, or an 
 		/// array of these.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if one of the signed integer variants of this function is used to load a uniform 
 		/// variable of type unsigned int, uvec2, uvec3, uvec4, or an array of these.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if one of the unsigned integer variants of this function is used to load a uniform 
 		/// variable of type int, ivec2, ivec3, ivec4, or an array of these.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if <paramref name="location"/> is an invalid uniform location for <paramref 
 		/// name="program"/> and <paramref name="location"/> is not equal to -1.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_VALUE is generated if <paramref name="count"/> is less than 0.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if <paramref name="count"/> is greater than 1 and the indicated uniform variable is 
 		/// not an array variable.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if a sampler is loaded using a command other than Gl.ProgramUniform1i and 
 		/// Gl.ProgramUniform1iv.
@@ -3092,28 +3333,36 @@ namespace OpenGL
 		/// </remarks>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if <paramref name="program"/> does not refer to a program object owned by the GL.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if the size of the uniform variable declared in the shader does not match the size 
 		/// indicated by the Gl.ProgramUniform command.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if one of the signed or unsigned integer variants of this function is used to load a 
 		/// uniform variable of type float, vec2, vec3, vec4, or an array of these, or if one of the floating-point variants of this 
 		/// function is used to load a uniform variable of type int, ivec2, ivec3, ivec4, unsigned int, uvec2, uvec3, uvec4, or an 
 		/// array of these.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if one of the signed integer variants of this function is used to load a uniform 
 		/// variable of type unsigned int, uvec2, uvec3, uvec4, or an array of these.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if one of the unsigned integer variants of this function is used to load a uniform 
 		/// variable of type int, ivec2, ivec3, ivec4, or an array of these.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if <paramref name="location"/> is an invalid uniform location for <paramref 
 		/// name="program"/> and <paramref name="location"/> is not equal to -1.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_VALUE is generated if <paramref name="count"/> is less than 0.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if <paramref name="count"/> is greater than 1 and the indicated uniform variable is 
 		/// not an array variable.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if a sampler is loaded using a command other than Gl.ProgramUniform1i and 
 		/// Gl.ProgramUniform1iv.
@@ -3159,28 +3408,36 @@ namespace OpenGL
 		/// </remarks>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if <paramref name="program"/> does not refer to a program object owned by the GL.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if the size of the uniform variable declared in the shader does not match the size 
 		/// indicated by the Gl.ProgramUniform command.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if one of the signed or unsigned integer variants of this function is used to load a 
 		/// uniform variable of type float, vec2, vec3, vec4, or an array of these, or if one of the floating-point variants of this 
 		/// function is used to load a uniform variable of type int, ivec2, ivec3, ivec4, unsigned int, uvec2, uvec3, uvec4, or an 
 		/// array of these.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if one of the signed integer variants of this function is used to load a uniform 
 		/// variable of type unsigned int, uvec2, uvec3, uvec4, or an array of these.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if one of the unsigned integer variants of this function is used to load a uniform 
 		/// variable of type int, ivec2, ivec3, ivec4, or an array of these.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if <paramref name="location"/> is an invalid uniform location for <paramref 
 		/// name="program"/> and <paramref name="location"/> is not equal to -1.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_VALUE is generated if <paramref name="count"/> is less than 0.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if <paramref name="count"/> is greater than 1 and the indicated uniform variable is 
 		/// not an array variable.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if a sampler is loaded using a command other than Gl.ProgramUniform1i and 
 		/// Gl.ProgramUniform1iv.
@@ -3226,28 +3483,36 @@ namespace OpenGL
 		/// </remarks>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if <paramref name="program"/> does not refer to a program object owned by the GL.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if the size of the uniform variable declared in the shader does not match the size 
 		/// indicated by the Gl.ProgramUniform command.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if one of the signed or unsigned integer variants of this function is used to load a 
 		/// uniform variable of type float, vec2, vec3, vec4, or an array of these, or if one of the floating-point variants of this 
 		/// function is used to load a uniform variable of type int, ivec2, ivec3, ivec4, unsigned int, uvec2, uvec3, uvec4, or an 
 		/// array of these.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if one of the signed integer variants of this function is used to load a uniform 
 		/// variable of type unsigned int, uvec2, uvec3, uvec4, or an array of these.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if one of the unsigned integer variants of this function is used to load a uniform 
 		/// variable of type int, ivec2, ivec3, ivec4, or an array of these.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if <paramref name="location"/> is an invalid uniform location for <paramref 
 		/// name="program"/> and <paramref name="location"/> is not equal to -1.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_VALUE is generated if <paramref name="count"/> is less than 0.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if <paramref name="count"/> is greater than 1 and the indicated uniform variable is 
 		/// not an array variable.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if a sampler is loaded using a command other than Gl.ProgramUniform1i and 
 		/// Gl.ProgramUniform1iv.
@@ -3293,28 +3558,36 @@ namespace OpenGL
 		/// </remarks>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if <paramref name="program"/> does not refer to a program object owned by the GL.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if the size of the uniform variable declared in the shader does not match the size 
 		/// indicated by the Gl.ProgramUniform command.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if one of the signed or unsigned integer variants of this function is used to load a 
 		/// uniform variable of type float, vec2, vec3, vec4, or an array of these, or if one of the floating-point variants of this 
 		/// function is used to load a uniform variable of type int, ivec2, ivec3, ivec4, unsigned int, uvec2, uvec3, uvec4, or an 
 		/// array of these.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if one of the signed integer variants of this function is used to load a uniform 
 		/// variable of type unsigned int, uvec2, uvec3, uvec4, or an array of these.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if one of the unsigned integer variants of this function is used to load a uniform 
 		/// variable of type int, ivec2, ivec3, ivec4, or an array of these.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if <paramref name="location"/> is an invalid uniform location for <paramref 
 		/// name="program"/> and <paramref name="location"/> is not equal to -1.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_VALUE is generated if <paramref name="count"/> is less than 0.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if <paramref name="count"/> is greater than 1 and the indicated uniform variable is 
 		/// not an array variable.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if a sampler is loaded using a command other than Gl.ProgramUniform1i and 
 		/// Gl.ProgramUniform1iv.
@@ -3360,28 +3633,36 @@ namespace OpenGL
 		/// </remarks>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if <paramref name="program"/> does not refer to a program object owned by the GL.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if the size of the uniform variable declared in the shader does not match the size 
 		/// indicated by the Gl.ProgramUniform command.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if one of the signed or unsigned integer variants of this function is used to load a 
 		/// uniform variable of type float, vec2, vec3, vec4, or an array of these, or if one of the floating-point variants of this 
 		/// function is used to load a uniform variable of type int, ivec2, ivec3, ivec4, unsigned int, uvec2, uvec3, uvec4, or an 
 		/// array of these.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if one of the signed integer variants of this function is used to load a uniform 
 		/// variable of type unsigned int, uvec2, uvec3, uvec4, or an array of these.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if one of the unsigned integer variants of this function is used to load a uniform 
 		/// variable of type int, ivec2, ivec3, ivec4, or an array of these.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if <paramref name="location"/> is an invalid uniform location for <paramref 
 		/// name="program"/> and <paramref name="location"/> is not equal to -1.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_VALUE is generated if <paramref name="count"/> is less than 0.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if <paramref name="count"/> is greater than 1 and the indicated uniform variable is 
 		/// not an array variable.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if a sampler is loaded using a command other than Gl.ProgramUniform1i and 
 		/// Gl.ProgramUniform1iv.
@@ -3681,9 +3962,11 @@ namespace OpenGL
 		/// </remarks>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_VALUE is generated if <paramref name="index"/> is greater than or equal to Gl.MAX_VERTEX_ATTRIBS.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_ENUM is generated if Gl.VertexAttribP* is used with a <paramref name="type"/> other than 
 		/// Gl.INT_2_10_10_10_REV, Gl.UNSIGNED_INT_2_10_10_10_REV, or Gl.UNSIGNED_INT_10F_11F_11F_REV.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_ENUM is generated if Gl.VertexAttribL is used with a <paramref name="type"/> other than Gl.DOUBLE.
 		/// </exception>
@@ -3715,9 +3998,11 @@ namespace OpenGL
 		/// </remarks>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_VALUE is generated if <paramref name="index"/> is greater than or equal to Gl.MAX_VERTEX_ATTRIBS.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_ENUM is generated if Gl.VertexAttribP* is used with a <paramref name="type"/> other than 
 		/// Gl.INT_2_10_10_10_REV, Gl.UNSIGNED_INT_2_10_10_10_REV, or Gl.UNSIGNED_INT_10F_11F_11F_REV.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_ENUM is generated if Gl.VertexAttribL is used with a <paramref name="type"/> other than Gl.DOUBLE.
 		/// </exception>
@@ -3752,9 +4037,11 @@ namespace OpenGL
 		/// </remarks>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_VALUE is generated if <paramref name="index"/> is greater than or equal to Gl.MAX_VERTEX_ATTRIBS.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_ENUM is generated if Gl.VertexAttribP* is used with a <paramref name="type"/> other than 
 		/// Gl.INT_2_10_10_10_REV, Gl.UNSIGNED_INT_2_10_10_10_REV, or Gl.UNSIGNED_INT_10F_11F_11F_REV.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_ENUM is generated if Gl.VertexAttribL is used with a <paramref name="type"/> other than Gl.DOUBLE.
 		/// </exception>
@@ -3792,9 +4079,11 @@ namespace OpenGL
 		/// </remarks>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_VALUE is generated if <paramref name="index"/> is greater than or equal to Gl.MAX_VERTEX_ATTRIBS.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_ENUM is generated if Gl.VertexAttribP* is used with a <paramref name="type"/> other than 
 		/// Gl.INT_2_10_10_10_REV, Gl.UNSIGNED_INT_2_10_10_10_REV, or Gl.UNSIGNED_INT_10F_11F_11F_REV.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_ENUM is generated if Gl.VertexAttribL is used with a <paramref name="type"/> other than Gl.DOUBLE.
 		/// </exception>
@@ -3824,9 +4113,11 @@ namespace OpenGL
 		/// </remarks>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_VALUE is generated if <paramref name="index"/> is greater than or equal to Gl.MAX_VERTEX_ATTRIBS.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_ENUM is generated if Gl.VertexAttribP* is used with a <paramref name="type"/> other than 
 		/// Gl.INT_2_10_10_10_REV, Gl.UNSIGNED_INT_2_10_10_10_REV, or Gl.UNSIGNED_INT_10F_11F_11F_REV.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_ENUM is generated if Gl.VertexAttribL is used with a <paramref name="type"/> other than Gl.DOUBLE.
 		/// </exception>
@@ -3861,9 +4152,11 @@ namespace OpenGL
 		/// </remarks>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_VALUE is generated if <paramref name="index"/> is greater than or equal to Gl.MAX_VERTEX_ATTRIBS.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_ENUM is generated if Gl.VertexAttribP* is used with a <paramref name="type"/> other than 
 		/// Gl.INT_2_10_10_10_REV, Gl.UNSIGNED_INT_2_10_10_10_REV, or Gl.UNSIGNED_INT_10F_11F_11F_REV.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_ENUM is generated if Gl.VertexAttribL is used with a <paramref name="type"/> other than Gl.DOUBLE.
 		/// </exception>
@@ -3898,9 +4191,11 @@ namespace OpenGL
 		/// </remarks>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_VALUE is generated if <paramref name="index"/> is greater than or equal to Gl.MAX_VERTEX_ATTRIBS.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_ENUM is generated if Gl.VertexAttribP* is used with a <paramref name="type"/> other than 
 		/// Gl.INT_2_10_10_10_REV, Gl.UNSIGNED_INT_2_10_10_10_REV, or Gl.UNSIGNED_INT_10F_11F_11F_REV.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_ENUM is generated if Gl.VertexAttribL is used with a <paramref name="type"/> other than Gl.DOUBLE.
 		/// </exception>
@@ -3935,9 +4230,11 @@ namespace OpenGL
 		/// </remarks>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_VALUE is generated if <paramref name="index"/> is greater than or equal to Gl.MAX_VERTEX_ATTRIBS.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_ENUM is generated if Gl.VertexAttribP* is used with a <paramref name="type"/> other than 
 		/// Gl.INT_2_10_10_10_REV, Gl.UNSIGNED_INT_2_10_10_10_REV, or Gl.UNSIGNED_INT_10F_11F_11F_REV.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_ENUM is generated if Gl.VertexAttribL is used with a <paramref name="type"/> other than Gl.DOUBLE.
 		/// </exception>
@@ -3988,24 +4285,32 @@ namespace OpenGL
 		/// </remarks>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_VALUE is generated if <paramref name="index"/> is greater than or equal to Gl.MAX_VERTEX_ATTRIBS.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_VALUE is generated if <paramref name="size"/> is not 1, 2, 3, 4 or (for Gl.VertexAttribPointer), Gl.BGRA.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_ENUM is generated if <paramref name="type"/> is not an accepted value.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_VALUE is generated if <paramref name="stride"/> is negative.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if <paramref name="size"/> is Gl.BGRA and <paramref name="type"/> is not 
 		/// Gl.UNSIGNED_BYTE, Gl.INT_2_10_10_10_REV or Gl.UNSIGNED_INT_2_10_10_10_REV.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if <paramref name="type"/> is Gl.INT_2_10_10_10_REV or Gl.UNSIGNED_INT_2_10_10_10_REV 
 		/// and <paramref name="size"/> is not 4 or Gl.BGRA.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if <paramref name="type"/> is Gl.UNSIGNED_INT_10F_11F_11F_REV and <paramref 
 		/// name="size"/> is not 3.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated by Gl.VertexAttribPointer if <paramref name="size"/> is Gl.BGRA and <paramref 
 		/// name="noramlized"/> is Gl.FALSE.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if zero is bound to the Gl.ARRAY_BUFFER buffer object binding point and the <paramref 
 		/// name="pointer"/> argument is not Gl.L.
@@ -4060,24 +4365,32 @@ namespace OpenGL
 		/// </remarks>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_VALUE is generated if <paramref name="index"/> is greater than or equal to Gl.MAX_VERTEX_ATTRIBS.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_VALUE is generated if <paramref name="size"/> is not 1, 2, 3, 4 or (for Gl.VertexAttribPointer), Gl.BGRA.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_ENUM is generated if <paramref name="type"/> is not an accepted value.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_VALUE is generated if <paramref name="stride"/> is negative.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if <paramref name="size"/> is Gl.BGRA and <paramref name="type"/> is not 
 		/// Gl.UNSIGNED_BYTE, Gl.INT_2_10_10_10_REV or Gl.UNSIGNED_INT_2_10_10_10_REV.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if <paramref name="type"/> is Gl.INT_2_10_10_10_REV or Gl.UNSIGNED_INT_2_10_10_10_REV 
 		/// and <paramref name="size"/> is not 4 or Gl.BGRA.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if <paramref name="type"/> is Gl.UNSIGNED_INT_10F_11F_11F_REV and <paramref 
 		/// name="size"/> is not 3.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated by Gl.VertexAttribPointer if <paramref name="size"/> is Gl.BGRA and <paramref 
 		/// name="noramlized"/> is Gl.FALSE.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if zero is bound to the Gl.ARRAY_BUFFER buffer object binding point and the <paramref 
 		/// name="pointer"/> argument is not Gl.L.
@@ -4124,10 +4437,13 @@ namespace OpenGL
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if <paramref name="pname"/> is not Gl.CURRENT_VERTEX_ATTRIB and there is no currently 
 		/// bound vertex array object.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_VALUE is generated if <paramref name="index"/> is greater than or equal to Gl.MAX_VERTEX_ATTRIBS.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_ENUM is generated if <paramref name="pname"/> is not an accepted value.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if <paramref name="index"/> is 0 and <paramref name="pname"/> is 
 		/// Gl.CURRENT_VERTEX_ATTRIB.
@@ -4170,9 +4486,11 @@ namespace OpenGL
 		/// </remarks>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_VALUE is generated if <paramref name="first"/> is greater than or equal to the value of Gl.MAX_VIEWPORTS.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_VALUE is generated if <paramref name="first"/> + <paramref name="count"/> is greater than or equal to the 
 		/// value of Gl.MAX_VIEWPORTS.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_VALUE is generated if either <paramref name="width"/> or <paramref name="height"/> is negative.
 		/// </exception>
@@ -4218,6 +4536,7 @@ namespace OpenGL
 		/// </remarks>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_VALUE is generated if <paramref name="index"/> is greater than or equal to the value of Gl.MAX_VIEWPORTS.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_VALUE is generated if either <paramref name="width"/> or <paramref name="height"/> is negative.
 		/// </exception>
@@ -4247,6 +4566,7 @@ namespace OpenGL
 		/// </remarks>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_VALUE is generated if <paramref name="index"/> is greater than or equal to the value of Gl.MAX_VIEWPORTS.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_VALUE is generated if either <paramref name="width"/> or <paramref name="height"/> is negative.
 		/// </exception>
@@ -4284,9 +4604,11 @@ namespace OpenGL
 		/// </remarks>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_VALUE is generated if <paramref name="first"/> is greater than or equal to the value of Gl.MAX_VIEWPORTS.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_VALUE is generated if <paramref name="first"/> + <paramref name="count"/> is greater than or equal to the 
 		/// value of Gl.MAX_VIEWPORTS.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_VALUE is generated if any width or height specified in the array <paramref name="v"/> is negative.
 		/// </exception>
@@ -4331,6 +4653,7 @@ namespace OpenGL
 		/// </remarks>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_VALUE is generated if <paramref name="index"/> is greater than or equal to the value of Gl.MAX_VIEWPORTS.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_VALUE is generated if any width or height specified in the array <paramref name="v"/> is negative.
 		/// </exception>
@@ -4361,6 +4684,7 @@ namespace OpenGL
 		/// </remarks>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_VALUE is generated if <paramref name="index"/> is greater than or equal to the value of Gl.MAX_VIEWPORTS.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_VALUE is generated if any width or height specified in the array <paramref name="v"/> is negative.
 		/// </exception>
@@ -4398,6 +4722,7 @@ namespace OpenGL
 		/// </remarks>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_VALUE is generated if <paramref name="first"/> is greater than or equal to the value of Gl.MAX_VIEWPORTS.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_VALUE is generated if <paramref name="first"/> + <paramref name="count"/> is greater than or equal to the 
 		/// value of Gl.MAX_VIEWPORTS.
@@ -4475,6 +4800,7 @@ namespace OpenGL
 		/// </remarks>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_ENUM is generated if <paramref name="pname"/> is not an accepted value.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_VALUE is generated on any of Gl.GetBooleani_v, Gl.GetIntegeri_v, or Gl.GetInteger64i_v if <paramref 
 		/// name="index"/> is outside of the valid range for the indexed state <paramref name="target"/>.
@@ -4535,6 +4861,7 @@ namespace OpenGL
 		/// </remarks>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_ENUM is generated if <paramref name="pname"/> is not an accepted value.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_VALUE is generated on any of Gl.GetBooleani_v, Gl.GetIntegeri_v, or Gl.GetInteger64i_v if <paramref 
 		/// name="index"/> is outside of the valid range for the indexed state <paramref name="target"/>.
@@ -4595,6 +4922,7 @@ namespace OpenGL
 		/// </remarks>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_ENUM is generated if <paramref name="pname"/> is not an accepted value.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_VALUE is generated on any of Gl.GetBooleani_v, Gl.GetIntegeri_v, or Gl.GetInteger64i_v if <paramref 
 		/// name="index"/> is outside of the valid range for the indexed state <paramref name="target"/>.
@@ -4655,6 +4983,7 @@ namespace OpenGL
 		/// </remarks>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_ENUM is generated if <paramref name="pname"/> is not an accepted value.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_VALUE is generated on any of Gl.GetBooleani_v, Gl.GetIntegeri_v, or Gl.GetInteger64i_v if <paramref 
 		/// name="index"/> is outside of the valid range for the indexed state <paramref name="target"/>.

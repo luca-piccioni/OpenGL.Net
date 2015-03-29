@@ -67,8 +67,10 @@ namespace OpenGL
 		/// </remarks>
 		/// <exception cref="InvalidOperationException">
 		/// Glx.adContext is generated if <paramref name="ctx"/> does not refer to a valid context.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Glx.BAD_ATTRIBUTE is returned if <paramref name="attribute"/> is not a valid GLX context attribute.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// fred Glx.BAD_CONTEXT is returned if <paramref name="attribute"/> is not a valid context.
 		/// </exception>

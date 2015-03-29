@@ -214,13 +214,17 @@ namespace OpenGL
 		/// </remarks>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_VALUE is generated if <paramref name="colorNumber"/> is greater than or equal to Gl.MAX_DRAW_BUFFERS.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_VALUE is generated if <paramref name="colorNumber"/> is greater than or equal to 
 		/// Gl.MAX_DUAL_SOURCE_DRAW_BUFFERS and <paramref name="index"/> is greater than or equal to one.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_VALUE is generated if <paramref name="index"/> is greater than one.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if <paramref name="name"/> starts with the reserved Gl. prefix.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if Gl.ogram is not the name of a program object.
 		/// </exception>
@@ -393,6 +397,7 @@ namespace OpenGL
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_VALUE is generated if <paramref name="unit"/> is greater than or equal to the value of 
 		/// Gl.MAX_COMBINED_TEXTURE_IMAGE_UNITS.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if <paramref name="sampler"/> is not zero or a name previously returned from a call to 
 		/// glGenSamplers, or if such a name has been deleted by a call to glDeleteSamplers.
@@ -435,6 +440,7 @@ namespace OpenGL
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_VALUE is generated if <paramref name="sampler"/> is not the name of a sampler object previously returned from 
 		/// a call to glGenSamplers.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_ENUM is generated if <paramref name="params"/> should have a defined constant value (based on the value of 
 		/// <paramref name="pname"/>) and does not.
@@ -475,6 +481,7 @@ namespace OpenGL
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_VALUE is generated if <paramref name="sampler"/> is not the name of a sampler object previously returned from 
 		/// a call to glGenSamplers.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_ENUM is generated if <paramref name="params"/> should have a defined constant value (based on the value of 
 		/// <paramref name="pname"/>) and does not.
@@ -520,6 +527,7 @@ namespace OpenGL
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_VALUE is generated if <paramref name="sampler"/> is not the name of a sampler object previously returned from 
 		/// a call to glGenSamplers.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_ENUM is generated if <paramref name="params"/> should have a defined constant value (based on the value of 
 		/// <paramref name="pname"/>) and does not.
@@ -560,6 +568,7 @@ namespace OpenGL
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_VALUE is generated if <paramref name="sampler"/> is not the name of a sampler object previously returned from 
 		/// a call to glGenSamplers.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_ENUM is generated if <paramref name="params"/> should have a defined constant value (based on the value of 
 		/// <paramref name="pname"/>) and does not.
@@ -605,6 +614,7 @@ namespace OpenGL
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_VALUE is generated if <paramref name="sampler"/> is not the name of a sampler object previously returned from 
 		/// a call to glGenSamplers.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_ENUM is generated if <paramref name="params"/> should have a defined constant value (based on the value of 
 		/// <paramref name="pname"/>) and does not.
@@ -650,6 +660,7 @@ namespace OpenGL
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_VALUE is generated if <paramref name="sampler"/> is not the name of a sampler object previously returned from 
 		/// a call to glGenSamplers.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_ENUM is generated if <paramref name="params"/> should have a defined constant value (based on the value of 
 		/// <paramref name="pname"/>) and does not.
@@ -694,6 +705,7 @@ namespace OpenGL
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_VALUE is generated if <paramref name="sampler"/> is not the name of a sampler object returned from a previous 
 		/// call to glGenSamplers.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_ENUM is generated if <paramref name="pname"/> is not an accepted value.
 		/// </exception>
@@ -735,6 +747,7 @@ namespace OpenGL
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_VALUE is generated if <paramref name="sampler"/> is not the name of a sampler object returned from a previous 
 		/// call to glGenSamplers.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_ENUM is generated if <paramref name="pname"/> is not an accepted value.
 		/// </exception>
@@ -776,6 +789,7 @@ namespace OpenGL
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_VALUE is generated if <paramref name="sampler"/> is not the name of a sampler object returned from a previous 
 		/// call to glGenSamplers.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_ENUM is generated if <paramref name="pname"/> is not an accepted value.
 		/// </exception>
@@ -817,6 +831,7 @@ namespace OpenGL
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_VALUE is generated if <paramref name="sampler"/> is not the name of a sampler object returned from a previous 
 		/// call to glGenSamplers.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_ENUM is generated if <paramref name="pname"/> is not an accepted value.
 		/// </exception>
@@ -853,9 +868,11 @@ namespace OpenGL
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if <paramref name="id"/> is the name of a query object that is already in use within a 
 		/// glBeginQuery / glEndQuery block.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_VALUE is generated if <paramref name="id"/> is not the name of a query object returned from a previous call 
 		/// to glGenQueries.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_ENUM is generated if <paramref name="target"/> is not Gl.TIMESTAMP.
 		/// </exception>
@@ -896,10 +913,13 @@ namespace OpenGL
 		/// </remarks>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_ENUM is generated if <paramref name="pname"/> is not an accepted value.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if <paramref name="id"/> is not the name of a query object.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if <paramref name="id"/> is the name of a currently active query object.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if a buffer is currently bound to the Gl.QUERY_RESULT_BUFFER target and the command 
 		/// would cause data to be written beyond the bounds of that buffer's data store.
@@ -944,10 +964,13 @@ namespace OpenGL
 		/// </remarks>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_ENUM is generated if <paramref name="pname"/> is not an accepted value.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if <paramref name="id"/> is not the name of a query object.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if <paramref name="id"/> is the name of a currently active query object.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if a buffer is currently bound to the Gl.QUERY_RESULT_BUFFER target and the command 
 		/// would cause data to be written beyond the bounds of that buffer's data store.
@@ -1023,9 +1046,11 @@ namespace OpenGL
 		/// </remarks>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_VALUE is generated if <paramref name="index"/> is greater than or equal to Gl.MAX_VERTEX_ATTRIBS.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_ENUM is generated if Gl.VertexAttribP* is used with a <paramref name="type"/> other than 
 		/// Gl.INT_2_10_10_10_REV, Gl.UNSIGNED_INT_2_10_10_10_REV, or Gl.UNSIGNED_INT_10F_11F_11F_REV.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_ENUM is generated if Gl.VertexAttribL is used with a <paramref name="type"/> other than Gl.DOUBLE.
 		/// </exception>
@@ -1094,9 +1119,11 @@ namespace OpenGL
 		/// </remarks>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_VALUE is generated if <paramref name="index"/> is greater than or equal to Gl.MAX_VERTEX_ATTRIBS.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_ENUM is generated if Gl.VertexAttribP* is used with a <paramref name="type"/> other than 
 		/// Gl.INT_2_10_10_10_REV, Gl.UNSIGNED_INT_2_10_10_10_REV, or Gl.UNSIGNED_INT_10F_11F_11F_REV.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_ENUM is generated if Gl.VertexAttribL is used with a <paramref name="type"/> other than Gl.DOUBLE.
 		/// </exception>
@@ -1165,9 +1192,11 @@ namespace OpenGL
 		/// </remarks>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_VALUE is generated if <paramref name="index"/> is greater than or equal to Gl.MAX_VERTEX_ATTRIBS.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_ENUM is generated if Gl.VertexAttribP* is used with a <paramref name="type"/> other than 
 		/// Gl.INT_2_10_10_10_REV, Gl.UNSIGNED_INT_2_10_10_10_REV, or Gl.UNSIGNED_INT_10F_11F_11F_REV.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_ENUM is generated if Gl.VertexAttribL is used with a <paramref name="type"/> other than Gl.DOUBLE.
 		/// </exception>
@@ -1236,9 +1265,11 @@ namespace OpenGL
 		/// </remarks>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_VALUE is generated if <paramref name="index"/> is greater than or equal to Gl.MAX_VERTEX_ATTRIBS.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_ENUM is generated if Gl.VertexAttribP* is used with a <paramref name="type"/> other than 
 		/// Gl.INT_2_10_10_10_REV, Gl.UNSIGNED_INT_2_10_10_10_REV, or Gl.UNSIGNED_INT_10F_11F_11F_REV.
+		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_ENUM is generated if Gl.VertexAttribL is used with a <paramref name="type"/> other than Gl.DOUBLE.
 		/// </exception>
