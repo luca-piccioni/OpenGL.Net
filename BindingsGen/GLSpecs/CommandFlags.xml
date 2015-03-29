@@ -15,7 +15,7 @@
 		<flags>OutParam ForcePlainParams</flags>
 	</command>
 
-	<command name="^glGet(Shaderiv|ShaderPrecisionFormat|VertexAttribiv|BufferParameteriv(ARB)?)$">
+	<command name="^glGet(Shaderiv|Programiv|ShaderPrecisionFormat|VertexAttribiv|BufferParameteriv(ARB)?)$">
 		<!-- Generate "out" overloads -->
 		<flags>OutParam</flags>
 	</command>

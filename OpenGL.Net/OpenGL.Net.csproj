@@ -273,6 +273,7 @@
     <Compile Include="Gl.VERSION_1_4.cs" />
     <Compile Include="Gl.VERSION_1_5.cs" />
     <Compile Include="Gl.VERSION_2_0.cs" />
+    <Compile Include="Gl.VERSION_2_0.Overloads.cs" />
     <Compile Include="Gl.VERSION_2_1.cs" />
     <Compile Include="Gl.VERSION_3_0.cs" />
     <Compile Include="Gl.VERSION_3_1.cs" />

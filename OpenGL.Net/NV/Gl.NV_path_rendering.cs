@@ -3224,7 +3224,7 @@ namespace OpenGL
 		/// A <see cref="T:float[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_path_rendering")]
-		public static void GetProgramNV(UInt32 program, int programInterface, UInt32 index, Int32 propCount, int[] props, Int32 bufSize, Int32[] length, float[] @params)
+		public static void GetProgramResourceNV(UInt32 program, int programInterface, UInt32 index, Int32 propCount, int[] props, Int32 bufSize, Int32[] length, float[] @params)
 		{
 			unsafe {
 				fixed (int* p_props = props)

@@ -3385,7 +3385,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.GetProgramResourceLocationIndex"/>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ARB_program_interface_query")]
-		public static void GetProgram(UInt32 program, int programInterface, UInt32 index, int[] props, out Int32 length, Int32[] @params)
+		public static void GetProgramResource(UInt32 program, int programInterface, UInt32 index, int[] props, out Int32 length, Int32[] @params)
 		{
 			unsafe {
 				fixed (int* p_props = props)
