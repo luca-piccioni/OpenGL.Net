@@ -42,9 +42,7 @@ namespace OpenGL.Test
 		{
 			try {
 				// Create context
-				WindowsDeviceContext winDeviceContext = mDeviceContext as WindowsDeviceContext;
-				if ((winDeviceContext != null) && (mContext = Wgl.CreateContext(winDeviceContext.DeviceContext)) == IntPtr.Zero)
-					throw new InvalidOperationException("unable to create the OpenGL context");
+				mContext = CreateContext();
 
 				// Make OpenGL context current
 				if (Gl.MakeContextCurrent(mDeviceContext, mContext) == false)
@@ -109,6 +107,30 @@ namespace OpenGL.Test
 		/// The OpenGL context for this tst fixture.
 		/// </summary>
 		protected IntPtr mContext;
+
+		#endregion
+
+		#region Context Creation
+
+		private IntPtr CreateContext()
+		{
+			IntPtr context;
+
+			ContextAttribute contextAttribute = (ContextAttribute)Attribute.GetCustomAttribute(GetType(), typeof(ContextAttribute));
+
+			if (contextAttribute == null) {
+				// Create compatibility profile context
+				if ((context = Gl.CreateContext(mDeviceContext)) == IntPtr.Zero)
+					throw new InvalidOperationException("unable to create compatibility profile OpenGL context");
+			} else {
+				List<int> contextAttribs = new List<int>();
+
+				if ((context = Gl.CreateContextAttrib(mDeviceContext, IntPtr.Zero, contextAttribs.ToArray())) == IntPtr.Zero)
+					throw new InvalidOperationException("unable to create core profile OpenGL context");
+			}
+
+			return (context);
+		}
 
 		#endregion
 

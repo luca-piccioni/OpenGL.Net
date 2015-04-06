@@ -45,6 +45,7 @@
   <ItemGroup>
     <Compile Include="ARB\Wgl.ARB_extensions_string.cs" />
     <Compile Include="ARB\Wgl.ARB_pixel_format.cs" />
+    <Compile Include="ARB\GL.ARB_shader_precision.cs" />
     <Compile Include="Gl.VERSION_1_0.cs" />
     <Compile Include="Gl.VERSION_1_5.cs" />
     <Compile Include="Gl.VERSION_2_0.cs" />
@@ -57,6 +58,11 @@
       <Project>{ABB8DFA8-473A-4FC1-85C0-E21680772A58}</Project>
       <Name>OpenGL.Net</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="ARB\Gl.ARB_shader_precision.glvs" />
+    <Compile Include="ContextAttribute.cs" />
+    <Compile Include="Gl.ShaderTestBase.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

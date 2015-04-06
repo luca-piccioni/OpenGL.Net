@@ -35,7 +35,7 @@ namespace OpenGL.Test
 		public void TestGenBuffer()
 		{
 			if (!HasVersion(1, 5) && !IsGlExtensionSupported("GL_ARB_vertex_buffer_object"))
-				Assert.Inconclusive("OpenGL 1.5 or GL_ARB_vertex_buffer_object");
+				Assert.Inconclusive("OpenGL 1.5 or GL_ARB_vertex_buffer_object not supported");
 
 			uint arrayBuffer = Gl.GenBuffer();
 			try {
@@ -56,7 +56,7 @@ namespace OpenGL.Test
 		public void TestBufferData()
 		{
 			if (!HasVersion(1, 5) && !IsGlExtensionSupported("GL_ARB_vertex_buffer_object"))
-				Assert.Inconclusive("OpenGL 1.5 or GL_ARB_vertex_buffer_object");
+				Assert.Inconclusive("OpenGL 1.5 or GL_ARB_vertex_buffer_object not supported");
 
 			int arrayBufferGet;
 
@@ -99,7 +99,7 @@ namespace OpenGL.Test
 		public void TestMapBuffer()
 		{
 			if (!HasVersion(1, 5) && !IsGlExtensionSupported("GL_ARB_vertex_buffer_object"))
-				Assert.Inconclusive("OpenGL 1.5 or GL_ARB_vertex_buffer_object");
+				Assert.Inconclusive("OpenGL 1.5 or GL_ARB_vertex_buffer_object not supported");
 
 			int arrayBufferGet;
 

@@ -46,6 +46,8 @@ namespace OpenGL.Test
 				mDeviceContext = DeviceContextFactory.Create(Form);
 				// Set pixel format
 				SetPixelFormatWgl();
+				// Synch delegates
+				SetUp();
 			} catch {
 				// Release resources manually
 				FixtureTearDown();

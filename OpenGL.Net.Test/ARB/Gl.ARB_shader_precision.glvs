@@ -1,0 +1,14 @@
+﻿
+#version 150
+
+in vec4 vertexIn;
+
+out vec4 vertexOut;
+
+float TestMethod(float v);
+
+void main()
+{
+	float v = TestMethod(vertexIn.x);
+	vertexOut = vec4(v, v, v, v);
+}
