@@ -621,6 +621,42 @@ namespace OpenGL
 		}
 
 		/// <summary>
+		/// return parameters of a query object target
+		/// </summary>
+		/// <param name="target">
+		/// Specifies a query object target. Must be Gl.SAMPLES_PASSED, Gl.ANY_SAMPLES_PASSED, 
+		/// Gl.ANY_SAMPLES_PASSED_CONSERVATIVEGl.PRIMITIVES_GENERATED, Gl.TRANSFORM_FEEDBACK_PRIMITIVES_WRITTEN, Gl.TIME_ELAPSED, or 
+		/// Gl.TIMESTAMP.
+		/// </param>
+		/// <param name="pname">
+		/// Specifies the symbolic name of a query object target parameter. Accepted values are Gl.CURRENT_QUERY or 
+		/// Gl.QUERY_COUNTER_BITS.
+		/// </param>
+		/// <param name="params">
+		/// Returns the requested data.
+		/// </param>
+		/// <remarks>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated if <paramref name="target"/> or <paramref name="pname"/> is not an accepted value.
+		/// </exception>
+		/// <seealso cref="Gl.GetQueryObject"/>
+		/// <seealso cref="Gl.IsQuery"/>
+		[RequiredByFeature("GL_VERSION_1_5")]
+		public static void GetQuery(int target, int pname, out Int32 @params)
+		{
+			unsafe {
+				fixed (Int32* p_params = &@params)
+				{
+					Debug.Assert(Delegates.pglGetQueryiv != null, "pglGetQueryiv not implemented");
+					Delegates.pglGetQueryiv(target, pname, p_params);
+					CallLog("glGetQueryiv({0}, {1}, {2})", target, pname, @params);
+				}
+			}
+			DebugCheckErrors();
+		}
+
+		/// <summary>
 		/// return parameters of a query object
 		/// </summary>
 		/// <param name="id">
@@ -707,10 +743,110 @@ namespace OpenGL
 		/// <seealso cref="Gl.IsQuery"/>
 		/// <seealso cref="Gl.QueryCounter"/>
 		[RequiredByFeature("GL_VERSION_1_5")]
+		public static void GetQueryObject(UInt32 id, int pname, out Int32 @params)
+		{
+			unsafe {
+				fixed (Int32* p_params = &@params)
+				{
+					Debug.Assert(Delegates.pglGetQueryObjectiv != null, "pglGetQueryObjectiv not implemented");
+					Delegates.pglGetQueryObjectiv(id, pname, p_params);
+					CallLog("glGetQueryObjectiv({0}, {1}, {2})", id, pname, @params);
+				}
+			}
+			DebugCheckErrors();
+		}
+
+		/// <summary>
+		/// return parameters of a query object
+		/// </summary>
+		/// <param name="id">
+		/// Specifies the name of a query object.
+		/// </param>
+		/// <param name="pname">
+		/// Specifies the symbolic name of a query object parameter. Accepted values are Gl.QUERY_RESULT or 
+		/// Gl.QUERY_RESULT_AVAILABLE.
+		/// </param>
+		/// <param name="params">
+		/// If a buffer is bound to the Gl.QUERY_RESULT_BUFFER target, then <paramref name="params"/> is treated as an offset to a 
+		/// location within that buffer's data store to receive the result of the query. If no buffer is bound to 
+		/// Gl.QUERY_RESULT_BUFFER, then <paramref name="params"/> is treated as an address in client memory of a variable to 
+		/// receive the resulting data.
+		/// </param>
+		/// <remarks>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated if <paramref name="pname"/> is not an accepted value.
+		/// </exception>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if <paramref name="id"/> is not the name of a query object.
+		/// </exception>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if <paramref name="id"/> is the name of a currently active query object.
+		/// </exception>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if a buffer is currently bound to the Gl.QUERY_RESULT_BUFFER target and the command 
+		/// would cause data to be written beyond the bounds of that buffer's data store.
+		/// </exception>
+		/// <seealso cref="Gl.BeginQuery"/>
+		/// <seealso cref="Gl.EndQuery"/>
+		/// <seealso cref="Gl.GetQueryiv"/>
+		/// <seealso cref="Gl.IsQuery"/>
+		/// <seealso cref="Gl.QueryCounter"/>
+		[RequiredByFeature("GL_VERSION_1_5")]
 		public static void GetQueryObjectuiv(UInt32 id, int pname, UInt32[] @params)
 		{
 			unsafe {
 				fixed (UInt32* p_params = @params)
+				{
+					Debug.Assert(Delegates.pglGetQueryObjectuiv != null, "pglGetQueryObjectuiv not implemented");
+					Delegates.pglGetQueryObjectuiv(id, pname, p_params);
+					CallLog("glGetQueryObjectuiv({0}, {1}, {2})", id, pname, @params);
+				}
+			}
+			DebugCheckErrors();
+		}
+
+		/// <summary>
+		/// return parameters of a query object
+		/// </summary>
+		/// <param name="id">
+		/// Specifies the name of a query object.
+		/// </param>
+		/// <param name="pname">
+		/// Specifies the symbolic name of a query object parameter. Accepted values are Gl.QUERY_RESULT or 
+		/// Gl.QUERY_RESULT_AVAILABLE.
+		/// </param>
+		/// <param name="params">
+		/// If a buffer is bound to the Gl.QUERY_RESULT_BUFFER target, then <paramref name="params"/> is treated as an offset to a 
+		/// location within that buffer's data store to receive the result of the query. If no buffer is bound to 
+		/// Gl.QUERY_RESULT_BUFFER, then <paramref name="params"/> is treated as an address in client memory of a variable to 
+		/// receive the resulting data.
+		/// </param>
+		/// <remarks>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated if <paramref name="pname"/> is not an accepted value.
+		/// </exception>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if <paramref name="id"/> is not the name of a query object.
+		/// </exception>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if <paramref name="id"/> is the name of a currently active query object.
+		/// </exception>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if a buffer is currently bound to the Gl.QUERY_RESULT_BUFFER target and the command 
+		/// would cause data to be written beyond the bounds of that buffer's data store.
+		/// </exception>
+		/// <seealso cref="Gl.BeginQuery"/>
+		/// <seealso cref="Gl.EndQuery"/>
+		/// <seealso cref="Gl.GetQueryiv"/>
+		/// <seealso cref="Gl.IsQuery"/>
+		/// <seealso cref="Gl.QueryCounter"/>
+		[RequiredByFeature("GL_VERSION_1_5")]
+		public static void GetQueryObjectuiv(UInt32 id, int pname, out UInt32 @params)
+		{
+			unsafe {
+				fixed (UInt32* p_params = &@params)
 				{
 					Debug.Assert(Delegates.pglGetQueryObjectuiv != null, "pglGetQueryObjectuiv not implemented");
 					Delegates.pglGetQueryObjectuiv(id, pname, p_params);
