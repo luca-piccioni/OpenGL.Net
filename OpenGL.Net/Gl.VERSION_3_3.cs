@@ -627,7 +627,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexParameter"/>
 		[RequiredByFeature("GL_VERSION_3_3")]
 		[RequiredByFeature("GL_ARB_sampler_objects")]
-		public static void SamplerParameterIiv(UInt32 sampler, int pname, Int32[] param)
+		public static void SamplerParameterI(UInt32 sampler, int pname, Int32[] param)
 		{
 			unsafe {
 				fixed (Int32* p_param = param)
@@ -757,7 +757,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.SamplerParameter"/>
 		[RequiredByFeature("GL_VERSION_3_3")]
 		[RequiredByFeature("GL_ARB_sampler_objects")]
-		public static void GetSamplerParameterIiv(UInt32 sampler, int pname, Int32[] @params)
+		public static void GetSamplerParameterI(UInt32 sampler, int pname, Int32[] @params)
 		{
 			unsafe {
 				fixed (Int32* p_params = @params)

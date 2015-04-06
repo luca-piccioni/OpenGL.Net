@@ -138,7 +138,6 @@
 	<word>Edge</word>
 	<word>Elements</word>
 	<word>Element</word>
-	<word>Enabledi</word>
 	<word>Enabled</word>
 	<word>Enable</word>
 	<word>End</word>
@@ -201,7 +200,6 @@
 	<word>I4</word>
 	<word>Identity</word>
 	<word>Igloo</word>
-	<word>Iiv</word>
 	<word>Image1D</word>
 	<word>Image2D</word>
 	<word>Image3D</word>
@@ -226,8 +224,6 @@
 	<word>Internalformat</word>
 	<word>Invariant</word>
 	<word>Is</word>
-	<word>Iuiv</word>
-	<word>Iui</word>
 	<word>Keyed</word>
 	<word>L1ui64v</word>
 	<word>L1ui64</word>
@@ -385,6 +381,7 @@
 	<word>Region</word>
 	<word>Register</word>
 	<word>Release</word>
+	<word>Renderbuffers</word>
 	<word>Renderbuffer</word>
 	<word>Render</word>
 	<word>Replacement</word>

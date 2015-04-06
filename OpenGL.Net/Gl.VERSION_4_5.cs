@@ -5325,7 +5325,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexSubImage3D"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_direct_state_access")]
-		public static void TextureParameterIiv(UInt32 texture, int pname, Int32[] @params)
+		public static void TextureParameterI(UInt32 texture, int pname, Int32[] @params)
 		{
 			unsafe {
 				fixed (Int32* p_params = @params)
@@ -6190,7 +6190,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.TextureView"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_direct_state_access")]
-		public static void GetTextureParameterIiv(UInt32 texture, int pname, Int32[] @params)
+		public static void GetTextureParameterI(UInt32 texture, int pname, Int32[] @params)
 		{
 			unsafe {
 				fixed (Int32* p_params = @params)

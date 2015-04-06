@@ -4358,7 +4358,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexSubImage2D"/>
 		/// <seealso cref="Gl.TexSubImage3D"/>
 		[RequiredByFeature("GL_VERSION_3_0")]
-		public static void TexParameterIiv(TextureTarget target, TextureParameterName pname, Int32[] @params)
+		public static void TexParameterI(TextureTarget target, TextureParameterName pname, Int32[] @params)
 		{
 			unsafe {
 				fixed (Int32* p_params = @params)
@@ -4508,7 +4508,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.TextureStorage3D"/>
 		/// <seealso cref="Gl.TextureView"/>
 		[RequiredByFeature("GL_VERSION_3_0")]
-		public static void GetTexParameterIiv(TextureTarget target, GetTextureParameter pname, Int32[] @params)
+		public static void GetTexParameterI(TextureTarget target, GetTextureParameter pname, Int32[] @params)
 		{
 			unsafe {
 				fixed (Int32* p_params = @params)
