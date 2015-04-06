@@ -2475,7 +2475,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.EndTransformFeedback"/>
 		/// <seealso cref="Gl.GetTransformFeedbackVarying"/>
 		[RequiredByFeature("GL_VERSION_3_0")]
-		public static void TransformFeedbackVarying(UInt32 program, String[] varyings, int bufferMode)
+		public static void TransformFeedbackVaryings(UInt32 program, String[] varyings, int bufferMode)
 		{
 			Debug.Assert(Delegates.pglTransformFeedbackVaryings != null, "pglTransformFeedbackVaryings not implemented");
 			Delegates.pglTransformFeedbackVaryings(program, (Int32)varyings.Length, varyings, bufferMode);

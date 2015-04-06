@@ -169,7 +169,7 @@ namespace OpenGL
 		/// A <see cref="T:int"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_transform_feedback")]
-		public static void TransformFeedbackVaryingNV(UInt32 program, Int32[] locations, int bufferMode)
+		public static void TransformFeedbackVaryingsNV(UInt32 program, Int32[] locations, int bufferMode)
 		{
 			unsafe {
 				fixed (Int32* p_locations = locations)
