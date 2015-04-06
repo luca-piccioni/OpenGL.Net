@@ -926,7 +926,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.VertexAttribPointer"/>
 		[RequiredByFeature("GL_VERSION_3_2")]
 		[RequiredByFeature("GL_ARB_draw_elements_base_vertex")]
-		public static void MultiDrawElementsBaseVertex(int mode, Int32[] count, DrawElementsType type, IntPtr[] indices, Int32 drawcount, Int32[] basevertex)
+		public static void MultiDrawElementsBaseVertex(PrimitiveType mode, Int32[] count, DrawElementsType type, IntPtr[] indices, Int32 drawcount, Int32[] basevertex)
 		{
 			unsafe {
 				fixed (Int32* p_count = count)
@@ -934,7 +934,7 @@ namespace OpenGL
 				fixed (Int32* p_basevertex = basevertex)
 				{
 					Debug.Assert(Delegates.pglMultiDrawElementsBaseVertex != null, "pglMultiDrawElementsBaseVertex not implemented");
-					Delegates.pglMultiDrawElementsBaseVertex(mode, p_count, (int)type, p_indices, drawcount, p_basevertex);
+					Delegates.pglMultiDrawElementsBaseVertex((int)mode, p_count, (int)type, p_indices, drawcount, p_basevertex);
 					CallLog("glMultiDrawElementsBaseVertex({0}, {1}, {2}, {3}, {4}, {5})", mode, count, type, indices, drawcount, basevertex);
 				}
 			}

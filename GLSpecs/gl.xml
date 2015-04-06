@@ -18593,7 +18593,7 @@ typedef unsigned int GLhandleARB;
         </command>
         <command>
             <proto>void <name>glMultiDrawElementsBaseVertex</name></proto>
-            <param><ptype>GLenum</ptype> <name>mode</name></param>
+            <param group="PrimitiveType"><ptype>GLenum</ptype> <name>mode</name></param>
             <param len="COMPSIZE(drawcount)">const <ptype>GLsizei</ptype> *<name>count</name></param>
             <param group="DrawElementsType"><ptype>GLenum</ptype> <name>type</name></param>
             <param len="COMPSIZE(drawcount)">const void *const*<name>indices</name></param>
