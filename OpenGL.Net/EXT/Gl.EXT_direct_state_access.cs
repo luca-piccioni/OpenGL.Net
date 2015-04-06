@@ -4535,7 +4535,7 @@ namespace OpenGL
 		/// A <see cref="T:UInt32[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access")]
-		public static void TextureParameterIuivEXT(UInt32 texture, TextureTarget target, TextureParameterName pname, UInt32[] @params)
+		public static void TextureParameterIEXT(UInt32 texture, TextureTarget target, TextureParameterName pname, UInt32[] @params)
 		{
 			unsafe {
 				fixed (UInt32* p_params = @params)
@@ -4593,7 +4593,7 @@ namespace OpenGL
 		/// A <see cref="T:UInt32[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access")]
-		public static void GetTextureParameterIuivEXT(UInt32 texture, TextureTarget target, GetTextureParameter pname, UInt32[] @params)
+		public static void GetTextureParameterIEXT(UInt32 texture, TextureTarget target, GetTextureParameter pname, UInt32[] @params)
 		{
 			unsafe {
 				fixed (UInt32* p_params = @params)
@@ -4651,7 +4651,7 @@ namespace OpenGL
 		/// A <see cref="T:UInt32[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access")]
-		public static void MultiTexParameterIuivEXT(int texunit, TextureTarget target, TextureParameterName pname, UInt32[] @params)
+		public static void MultiTexParameterIEXT(int texunit, TextureTarget target, TextureParameterName pname, UInt32[] @params)
 		{
 			unsafe {
 				fixed (UInt32* p_params = @params)
@@ -4709,7 +4709,7 @@ namespace OpenGL
 		/// A <see cref="T:UInt32[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access")]
-		public static void GetMultiTexParameterIuivEXT(int texunit, TextureTarget target, GetTextureParameter pname, UInt32[] @params)
+		public static void GetMultiTexParameterIEXT(int texunit, TextureTarget target, GetTextureParameter pname, UInt32[] @params)
 		{
 			unsafe {
 				fixed (UInt32* p_params = @params)
@@ -4987,7 +4987,7 @@ namespace OpenGL
 		/// A <see cref="T:UInt32[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access")]
-		public static void GetNamedProgramLocalParameterIuivEXT(UInt32 program, int target, UInt32 index, UInt32[] @params)
+		public static void GetNamedProgramLocalParameterIEXT(UInt32 program, int target, UInt32 index, UInt32[] @params)
 		{
 			unsafe {
 				fixed (UInt32* p_params = @params)

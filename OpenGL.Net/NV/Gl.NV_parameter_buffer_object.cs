@@ -138,7 +138,7 @@ namespace OpenGL
 		/// A <see cref="T:UInt32[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_parameter_buffer_object")]
-		public static void ProgramBufferParametersIuivNV(int target, UInt32 bindingIndex, UInt32 wordIndex, UInt32[] @params)
+		public static void ProgramBufferParametersINV(int target, UInt32 bindingIndex, UInt32 wordIndex, UInt32[] @params)
 		{
 			unsafe {
 				fixed (UInt32* p_params = @params)

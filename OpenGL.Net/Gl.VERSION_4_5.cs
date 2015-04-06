@@ -2768,7 +2768,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.RenderbufferStorageMultisample"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_direct_state_access")]
-		public static void CreateRenderbuffer(Int32 n, UInt32[] renderbuffers)
+		public static void CreateRenderbuffers(Int32 n, UInt32[] renderbuffers)
 		{
 			unsafe {
 				fixed (UInt32* p_renderbuffers = renderbuffers)
@@ -5417,7 +5417,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexSubImage3D"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_direct_state_access")]
-		public static void TextureParameterIuiv(UInt32 texture, int pname, UInt32[] @params)
+		public static void TextureParameterI(UInt32 texture, int pname, UInt32[] @params)
 		{
 			unsafe {
 				fixed (UInt32* p_params = @params)
@@ -6246,7 +6246,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.TextureView"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_direct_state_access")]
-		public static void GetTextureParameterIuiv(UInt32 texture, int pname, UInt32[] @params)
+		public static void GetTextureParameterI(UInt32 texture, int pname, UInt32[] @params)
 		{
 			unsafe {
 				fixed (UInt32* p_params = @params)

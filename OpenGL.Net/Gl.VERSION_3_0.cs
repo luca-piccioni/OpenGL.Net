@@ -2263,7 +2263,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.Disable"/>
 		/// <seealso cref="Gl.Get"/>
 		[RequiredByFeature("GL_VERSION_3_0")]
-		public static bool IsEnabledi(int target, UInt32 index)
+		public static bool IsEnabled(int target, UInt32 index)
 		{
 			bool retValue;
 
@@ -4451,7 +4451,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexSubImage2D"/>
 		/// <seealso cref="Gl.TexSubImage3D"/>
 		[RequiredByFeature("GL_VERSION_3_0")]
-		public static void TexParameterIuiv(TextureTarget target, TextureParameterName pname, UInt32[] @params)
+		public static void TexParameterI(TextureTarget target, TextureParameterName pname, UInt32[] @params)
 		{
 			unsafe {
 				fixed (UInt32* p_params = @params)
@@ -4565,7 +4565,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.TextureStorage3D"/>
 		/// <seealso cref="Gl.TextureView"/>
 		[RequiredByFeature("GL_VERSION_3_0")]
-		public static void GetTexParameterIuiv(TextureTarget target, GetTextureParameter pname, UInt32[] @params)
+		public static void GetTexParameterI(TextureTarget target, GetTextureParameter pname, UInt32[] @params)
 		{
 			unsafe {
 				fixed (UInt32* p_params = @params)
@@ -4925,7 +4925,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.RenderbufferStorageMultisample"/>
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ARB_framebuffer_object")]
-		public static void DeleteRenderbuffer(UInt32[] renderbuffers)
+		public static void DeleteRenderbuffers(UInt32[] renderbuffers)
 		{
 			unsafe {
 				fixed (UInt32* p_renderbuffers = renderbuffers)
@@ -4956,7 +4956,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.DeleteRenderbuffers"/>
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ARB_framebuffer_object")]
-		public static void GenRenderbuffer(UInt32[] renderbuffers)
+		public static void GenRenderbuffers(UInt32[] renderbuffers)
 		{
 			unsafe {
 				fixed (UInt32* p_renderbuffers = renderbuffers)
@@ -4984,7 +4984,7 @@ namespace OpenGL
 		public static UInt32 GenRenderbuffer()
 		{
 			UInt32[] retValue = new UInt32[1];
-			GenRenderbuffer(retValue);
+			GenRenderbuffers(retValue);
 			return (retValue[0]);
 		}
 
