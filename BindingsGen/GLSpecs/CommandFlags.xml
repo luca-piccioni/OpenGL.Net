@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <command_overrides>
 	
-	<!-- GL -->
+	<!-- GL - Special Cases -->
 	
 	<command name="(e)?glGetError$">
 		<!-- Avoid stack overflow -->
@@ -14,6 +14,8 @@
 		<!-- Generate "out" overloads -->
 		<flags>OutParam ForcePlainParams</flags>
 	</command>
+
+	<!-- GL - Out Parameter -->
 
 	<command name="^glGet(Query(Object)?|Shader|Program|VertexAttrib)iv$">
 		<!-- Generate "out" overloads -->

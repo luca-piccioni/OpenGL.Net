@@ -402,7 +402,7 @@ namespace OpenGL
 		/// A <see cref="T:Int64[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_vertex_attrib_integer_64bit")]
-		public static void GetVertexAttribLi64vNV(UInt32 index, int pname, Int64[] @params)
+		public static void GetVertexAttribLNV(UInt32 index, int pname, Int64[] @params)
 		{
 			unsafe {
 				fixed (Int64* p_params = @params)

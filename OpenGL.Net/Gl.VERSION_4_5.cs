@@ -7132,7 +7132,7 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_direct_state_access")]
-		public static void GetQueryBufferObjecti64v(UInt32 id, UInt32 buffer, int pname, IntPtr offset)
+		public static void GetQueryBufferObjecti64(UInt32 id, UInt32 buffer, int pname, IntPtr offset)
 		{
 			Debug.Assert(Delegates.pglGetQueryBufferObjecti64v != null, "pglGetQueryBufferObjecti64v not implemented");
 			Delegates.pglGetQueryBufferObjecti64v(id, buffer, pname, offset);
@@ -7182,7 +7182,7 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_direct_state_access")]
-		public static void GetQueryBufferObjectui64v(UInt32 id, UInt32 buffer, int pname, IntPtr offset)
+		public static void GetQueryBufferObjectui64(UInt32 id, UInt32 buffer, int pname, IntPtr offset)
 		{
 			Debug.Assert(Delegates.pglGetQueryBufferObjectui64v != null, "pglGetQueryBufferObjectui64v not implemented");
 			Delegates.pglGetQueryBufferObjectui64v(id, buffer, pname, offset);
@@ -7207,7 +7207,7 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_direct_state_access")]
-		public static void GetQueryBufferObjectuiv(UInt32 id, UInt32 buffer, int pname, IntPtr offset)
+		public static void GetQueryBufferObjectui(UInt32 id, UInt32 buffer, int pname, IntPtr offset)
 		{
 			Debug.Assert(Delegates.pglGetQueryBufferObjectuiv != null, "pglGetQueryBufferObjectuiv not implemented");
 			Delegates.pglGetQueryBufferObjectuiv(id, buffer, pname, offset);

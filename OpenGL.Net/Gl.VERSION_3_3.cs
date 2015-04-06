@@ -931,7 +931,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.QueryCounter"/>
 		[RequiredByFeature("GL_VERSION_3_3")]
 		[RequiredByFeature("GL_ARB_timer_query")]
-		public static void GetQueryObjecti64v(UInt32 id, int pname, Int64[] @params)
+		public static void GetQueryObjecti64(UInt32 id, int pname, Int64[] @params)
 		{
 			unsafe {
 				fixed (Int64* p_params = @params)
@@ -982,7 +982,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.QueryCounter"/>
 		[RequiredByFeature("GL_VERSION_3_3")]
 		[RequiredByFeature("GL_ARB_timer_query")]
-		public static void GetQueryObjectui64v(UInt32 id, int pname, UInt64[] @params)
+		public static void GetQueryObjectui64(UInt32 id, int pname, UInt64[] @params)
 		{
 			unsafe {
 				fixed (UInt64* p_params = @params)

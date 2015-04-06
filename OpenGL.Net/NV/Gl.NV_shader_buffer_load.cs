@@ -160,7 +160,7 @@ namespace OpenGL
 		/// A <see cref="T:UInt64[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_shader_buffer_load")]
-		public static void GetBufferParameterui64vNV(int target, int pname, UInt64[] @params)
+		public static void GetBufferParameterNV(int target, int pname, UInt64[] @params)
 		{
 			unsafe {
 				fixed (UInt64* p_params = @params)
@@ -186,7 +186,7 @@ namespace OpenGL
 		/// A <see cref="T:UInt64[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_shader_buffer_load")]
-		public static void GetNamedBufferParameterui64vNV(UInt32 buffer, int pname, UInt64[] @params)
+		public static void GetNamedBufferParameterNV(UInt32 buffer, int pname, UInt64[] @params)
 		{
 			unsafe {
 				fixed (UInt64* p_params = @params)

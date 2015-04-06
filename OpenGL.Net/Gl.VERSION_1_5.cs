@@ -793,7 +793,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.IsQuery"/>
 		/// <seealso cref="Gl.QueryCounter"/>
 		[RequiredByFeature("GL_VERSION_1_5")]
-		public static void GetQueryObjectuiv(UInt32 id, int pname, UInt32[] @params)
+		public static void GetQueryObjectui(UInt32 id, int pname, UInt32[] @params)
 		{
 			unsafe {
 				fixed (UInt32* p_params = @params)
@@ -843,7 +843,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.IsQuery"/>
 		/// <seealso cref="Gl.QueryCounter"/>
 		[RequiredByFeature("GL_VERSION_1_5")]
-		public static void GetQueryObjectuiv(UInt32 id, int pname, out UInt32 @params)
+		public static void GetQueryObjectui(UInt32 id, int pname, out UInt32 @params)
 		{
 			unsafe {
 				fixed (UInt32* p_params = &@params)

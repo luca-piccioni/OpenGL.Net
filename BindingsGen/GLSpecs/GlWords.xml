@@ -225,22 +225,13 @@
 	<word>Invariant</word>
 	<word>Is</word>
 	<word>Keyed</word>
-	<word>L1ui64v</word>
-	<word>L1ui64</word>
 	<word>L1</word>
-	<word>L2ui64v</word>
-	<word>L2ui64</word>
 	<word>L2</word>
-	<word>L3ui64v</word>
-	<word>L3ui64</word>
 	<word>L3</word>
-	<word>L4ui64v</word>
-	<word>L4ui64</word>
 	<word>L4</word>
 	<word>Layer</word>
 	<word>Level</word>
 	<word>Levent</word>
-	<word>Li64v</word>
 	<word>Lightxv</word>
 	<!-- glGetLightxv/glGetLightxvOES -->
 	<word>Lightx</word>
@@ -307,9 +298,9 @@
 	<word>Normal3</word>
 	<word>Normal</word>
 	<word>Nub</word>
-	<word>Objecti64v</word>
-	<word>Objectui64v</word>
-	<word>Objectuiv</word>
+	<word>Objecti64</word>
+	<word>Objectui64</word>
+	<word>Objectui</word>
 	<word>Object</word>
 	<word>Occlusion</word>
 	<word>Offset</word>
@@ -333,7 +324,6 @@
 	<word>ParametersI4</word>
 	<word>ParametersI</word>
 	<word>Parameters</word>
-	<word>Parameterui64v</word>
 	<word>Parameter</word>
 	<word>Pass</word>
 	<word>Patch</word>
