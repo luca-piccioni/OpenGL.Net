@@ -154,7 +154,7 @@ namespace OpenGL
 		/// A <see cref="T:float[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_ARB_shader_objects")]
-		public static void GetObjectParameterARB(UInt32 obj, int pname, float[] @params)
+		public static void GetObjectParameterARB(UInt32 obj, int pname, [Out] float[] @params)
 		{
 			unsafe {
 				fixed (float* p_params = @params)
@@ -180,7 +180,7 @@ namespace OpenGL
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_ARB_shader_objects")]
-		public static void GetObjectParameterARB(UInt32 obj, int pname, Int32[] @params)
+		public static void GetObjectParameterARB(UInt32 obj, int pname, [Out] Int32[] @params)
 		{
 			unsafe {
 				fixed (Int32* p_params = @params)
@@ -238,7 +238,7 @@ namespace OpenGL
 		/// A <see cref="T:UInt32[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_ARB_shader_objects")]
-		public static void GetAttachedObjectARB(UInt32 containerObj, out Int32 count, UInt32[] obj)
+		public static void GetAttachedObjectARB(UInt32 containerObj, out Int32 count, [Out] UInt32[] obj)
 		{
 			unsafe {
 				fixed (Int32* p_count = &count)

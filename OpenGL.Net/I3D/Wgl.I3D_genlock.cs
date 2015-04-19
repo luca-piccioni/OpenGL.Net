@@ -125,7 +125,7 @@ namespace OpenGL
 		/// A <see cref="T:bool[]"/>.
 		/// </param>
 		[RequiredByFeature("WGL_I3D_genlock")]
-		public static bool IsEnabledGenlockI3D(IntPtr hDC, bool[] pFlag)
+		public static bool IsEnabledGenlockI3D(IntPtr hDC, [Out] bool[] pFlag)
 		{
 			bool retValue;
 
@@ -172,7 +172,7 @@ namespace OpenGL
 		/// A <see cref="T:UInt32[]"/>.
 		/// </param>
 		[RequiredByFeature("WGL_I3D_genlock")]
-		public static bool GetGenlockSourceI3D(IntPtr hDC, UInt32[] uSource)
+		public static bool GetGenlockSourceI3D(IntPtr hDC, [Out] UInt32[] uSource)
 		{
 			bool retValue;
 
@@ -219,7 +219,7 @@ namespace OpenGL
 		/// A <see cref="T:UInt32[]"/>.
 		/// </param>
 		[RequiredByFeature("WGL_I3D_genlock")]
-		public static bool GetGenlockSourceEdgeI3D(IntPtr hDC, UInt32[] uEdge)
+		public static bool GetGenlockSourceEdgeI3D(IntPtr hDC, [Out] UInt32[] uEdge)
 		{
 			bool retValue;
 
@@ -266,7 +266,7 @@ namespace OpenGL
 		/// A <see cref="T:UInt32[]"/>.
 		/// </param>
 		[RequiredByFeature("WGL_I3D_genlock")]
-		public static bool GetGenlockSampleRateI3D(IntPtr hDC, UInt32[] uRate)
+		public static bool GetGenlockSampleRateI3D(IntPtr hDC, [Out] UInt32[] uRate)
 		{
 			bool retValue;
 
@@ -313,7 +313,7 @@ namespace OpenGL
 		/// A <see cref="T:UInt32[]"/>.
 		/// </param>
 		[RequiredByFeature("WGL_I3D_genlock")]
-		public static bool GetGenlockSourceDelayI3D(IntPtr hDC, UInt32[] uDelay)
+		public static bool GetGenlockSourceDelayI3D(IntPtr hDC, [Out] UInt32[] uDelay)
 		{
 			bool retValue;
 

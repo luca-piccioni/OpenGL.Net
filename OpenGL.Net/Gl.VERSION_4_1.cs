@@ -449,7 +449,7 @@ namespace OpenGL
 		/// </exception>
 		[RequiredByFeature("GL_VERSION_4_1")]
 		[RequiredByFeature("GL_ARB_ES2_compatibility")]
-		public static void GetShaderPrecisionFormat(int shadertype, int precisiontype, Int32[] range, Int32[] precision)
+		public static void GetShaderPrecisionFormat(int shadertype, int precisiontype, [Out] Int32[] range, [Out] Int32[] precision)
 		{
 			unsafe {
 				fixed (Int32* p_range = range)
@@ -1009,7 +1009,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.DeleteProgramPipelines"/>
 		[RequiredByFeature("GL_VERSION_4_1")]
 		[RequiredByFeature("GL_ARB_separate_shader_objects")]
-		public static void GetProgramPipeline(UInt32 pipeline, int pname, Int32[] @params)
+		public static void GetProgramPipeline(UInt32 pipeline, int pname, [Out] Int32[] @params)
 		{
 			unsafe {
 				fixed (Int32* p_params = @params)
@@ -4457,7 +4457,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.VertexAttribPointer"/>
 		[RequiredByFeature("GL_VERSION_4_1")]
 		[RequiredByFeature("GL_ARB_vertex_attrib_64bit")]
-		public static void GetVertexAttribL(UInt32 index, int pname, double[] @params)
+		public static void GetVertexAttribL(UInt32 index, int pname, [Out] double[] @params)
 		{
 			unsafe {
 				fixed (double* p_params = @params)
@@ -4831,7 +4831,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.IsEnabled"/>
 		[RequiredByFeature("GL_VERSION_4_1")]
 		[RequiredByFeature("GL_ARB_viewport_array")]
-		public static void Get(int target, UInt32 index, float[] data)
+		public static void Get(int target, UInt32 index, [Out] float[] data)
 		{
 			unsafe {
 				fixed (float* p_data = data)
@@ -4953,7 +4953,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.IsEnabled"/>
 		[RequiredByFeature("GL_VERSION_4_1")]
 		[RequiredByFeature("GL_ARB_viewport_array")]
-		public static void Get(int target, UInt32 index, double[] data)
+		public static void Get(int target, UInt32 index, [Out] double[] data)
 		{
 			unsafe {
 				fixed (double* p_data = data)

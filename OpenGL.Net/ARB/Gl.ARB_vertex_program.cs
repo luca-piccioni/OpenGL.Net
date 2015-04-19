@@ -887,7 +887,7 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_ARB_fragment_program")]
 		[RequiredByFeature("GL_ARB_vertex_program")]
-		public static void GetProgramEnvParameterARB(int target, UInt32 index, double[] @params)
+		public static void GetProgramEnvParameterARB(int target, UInt32 index, [Out] double[] @params)
 		{
 			unsafe {
 				fixed (double* p_params = @params)
@@ -914,7 +914,7 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_ARB_fragment_program")]
 		[RequiredByFeature("GL_ARB_vertex_program")]
-		public static void GetProgramEnvParameterARB(int target, UInt32 index, float[] @params)
+		public static void GetProgramEnvParameterARB(int target, UInt32 index, [Out] float[] @params)
 		{
 			unsafe {
 				fixed (float* p_params = @params)
@@ -941,7 +941,7 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_ARB_fragment_program")]
 		[RequiredByFeature("GL_ARB_vertex_program")]
-		public static void GetProgramLocalParameterARB(int target, UInt32 index, double[] @params)
+		public static void GetProgramLocalParameterARB(int target, UInt32 index, [Out] double[] @params)
 		{
 			unsafe {
 				fixed (double* p_params = @params)
@@ -968,7 +968,7 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_ARB_fragment_program")]
 		[RequiredByFeature("GL_ARB_vertex_program")]
-		public static void GetProgramLocalParameterARB(int target, UInt32 index, float[] @params)
+		public static void GetProgramLocalParameterARB(int target, UInt32 index, [Out] float[] @params)
 		{
 			unsafe {
 				fixed (float* p_params = @params)

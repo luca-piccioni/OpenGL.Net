@@ -41,7 +41,7 @@ namespace OpenGL
 		/// A <see cref="T:Int64[]"/>.
 		/// </param>
 		[RequiredByFeature("WGL_OML_sync_control")]
-		public static bool GetSyncValuesOML(IntPtr hdc, Int64[] ust, Int64[] msc, Int64[] sbc)
+		public static bool GetSyncValuesOML(IntPtr hdc, [Out] Int64[] ust, [Out] Int64[] msc, [Out] Int64[] sbc)
 		{
 			bool retValue;
 
@@ -72,7 +72,7 @@ namespace OpenGL
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
 		[RequiredByFeature("WGL_OML_sync_control")]
-		public static bool GetMscRateOML(IntPtr hdc, Int32[] numerator, Int32[] denominator)
+		public static bool GetMscRateOML(IntPtr hdc, [Out] Int32[] numerator, [Out] Int32[] denominator)
 		{
 			bool retValue;
 

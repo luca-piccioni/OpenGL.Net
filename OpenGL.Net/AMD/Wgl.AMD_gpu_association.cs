@@ -95,7 +95,7 @@ namespace OpenGL
 		/// A <see cref="T:UInt32[]"/>.
 		/// </param>
 		[RequiredByFeature("WGL_AMD_gpu_association")]
-		public static UInt32 GetGPUIDsAMD(UInt32 maxCount, UInt32[] ids)
+		public static UInt32 GetGPUIDsAMD(UInt32 maxCount, [Out] UInt32[] ids)
 		{
 			UInt32 retValue;
 

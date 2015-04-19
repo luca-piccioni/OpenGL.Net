@@ -607,7 +607,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.GetQueryObject"/>
 		/// <seealso cref="Gl.IsQuery"/>
 		[RequiredByFeature("GL_VERSION_1_5")]
-		public static void GetQuery(int target, int pname, Int32[] @params)
+		public static void GetQuery(int target, int pname, [Out] Int32[] @params)
 		{
 			unsafe {
 				fixed (Int32* p_params = @params)
@@ -693,7 +693,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.IsQuery"/>
 		/// <seealso cref="Gl.QueryCounter"/>
 		[RequiredByFeature("GL_VERSION_1_5")]
-		public static void GetQueryObject(UInt32 id, int pname, Int32[] @params)
+		public static void GetQueryObject(UInt32 id, int pname, [Out] Int32[] @params)
 		{
 			unsafe {
 				fixed (Int32* p_params = @params)
@@ -793,7 +793,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.IsQuery"/>
 		/// <seealso cref="Gl.QueryCounter"/>
 		[RequiredByFeature("GL_VERSION_1_5")]
-		public static void GetQueryObjectui(UInt32 id, int pname, UInt32[] @params)
+		public static void GetQueryObjectui(UInt32 id, int pname, [Out] UInt32[] @params)
 		{
 			unsafe {
 				fixed (UInt32* p_params = @params)
@@ -1574,7 +1574,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.MapBuffer"/>
 		/// <seealso cref="Gl.UnmapBuffer"/>
 		[RequiredByFeature("GL_VERSION_1_5")]
-		public static void GetBufferParameter(BufferTargetARB target, int pname, Int32[] @params)
+		public static void GetBufferParameter(BufferTargetARB target, int pname, [Out] Int32[] @params)
 		{
 			unsafe {
 				fixed (Int32* p_params = @params)

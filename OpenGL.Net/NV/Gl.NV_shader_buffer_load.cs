@@ -160,7 +160,7 @@ namespace OpenGL
 		/// A <see cref="T:UInt64[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_shader_buffer_load")]
-		public static void GetBufferParameterNV(int target, int pname, UInt64[] @params)
+		public static void GetBufferParameterNV(int target, int pname, [Out] UInt64[] @params)
 		{
 			unsafe {
 				fixed (UInt64* p_params = @params)
@@ -186,7 +186,7 @@ namespace OpenGL
 		/// A <see cref="T:UInt64[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_shader_buffer_load")]
-		public static void GetNamedBufferParameterNV(UInt32 buffer, int pname, UInt64[] @params)
+		public static void GetNamedBufferParameterNV(UInt32 buffer, int pname, [Out] UInt64[] @params)
 		{
 			unsafe {
 				fixed (UInt64* p_params = @params)
@@ -209,7 +209,7 @@ namespace OpenGL
 		/// A <see cref="T:UInt64[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_shader_buffer_load")]
-		public static void GetIntegerNV(int value, UInt64[] result)
+		public static void GetIntegerNV(int value, [Out] UInt64[] result)
 		{
 			unsafe {
 				fixed (UInt64* p_result = result)
@@ -280,7 +280,7 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_AMD_gpu_shader_int64")]
 		[RequiredByFeature("GL_NV_shader_buffer_load")]
-		public static void GetUniformNV(UInt32 program, Int32 location, UInt64[] @params)
+		public static void GetUniformNV(UInt32 program, Int32 location, [Out] UInt64[] @params)
 		{
 			unsafe {
 				fixed (UInt64* p_params = @params)

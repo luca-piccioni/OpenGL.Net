@@ -44,7 +44,7 @@ namespace OpenGL
 		/// A <see cref="T:float[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_SGIX_list_priority")]
-		public static void GetListParameterSGIX(UInt32 list, ListParameterName pname, float[] @params)
+		public static void GetListParameterSGIX(UInt32 list, ListParameterName pname, [Out] float[] @params)
 		{
 			unsafe {
 				fixed (float* p_params = @params)
@@ -70,7 +70,7 @@ namespace OpenGL
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_SGIX_list_priority")]
-		public static void GetListParameterSGIX(UInt32 list, ListParameterName pname, Int32[] @params)
+		public static void GetListParameterSGIX(UInt32 list, ListParameterName pname, [Out] Int32[] @params)
 		{
 			unsafe {
 				fixed (Int32* p_params = @params)

@@ -74,7 +74,7 @@ namespace OpenGL
 		/// A <see cref="T:int[]"/>.
 		/// </param>
 		[RequiredByFeature("EGL_EXT_output_base")]
-		public static IntPtr GetOutputLayersEXT(IntPtr dpy, IntPtr[] attrib_list, IntPtr[] layers, int max_layers, int[] num_layers)
+		public static IntPtr GetOutputLayersEXT(IntPtr dpy, IntPtr[] attrib_list, [Out] IntPtr[] layers, int max_layers, [Out] int[] num_layers)
 		{
 			IntPtr retValue;
 
@@ -112,7 +112,7 @@ namespace OpenGL
 		/// A <see cref="T:int[]"/>.
 		/// </param>
 		[RequiredByFeature("EGL_EXT_output_base")]
-		public static IntPtr GetOutputPortsEXT(IntPtr dpy, IntPtr[] attrib_list, IntPtr[] ports, int max_ports, int[] num_ports)
+		public static IntPtr GetOutputPortsEXT(IntPtr dpy, IntPtr[] attrib_list, [Out] IntPtr[] ports, int max_ports, [Out] int[] num_ports)
 		{
 			IntPtr retValue;
 

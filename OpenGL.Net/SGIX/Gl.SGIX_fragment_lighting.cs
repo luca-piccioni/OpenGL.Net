@@ -446,7 +446,7 @@ namespace OpenGL
 		/// A <see cref="T:float[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_SGIX_fragment_lighting")]
-		public static void GetFragmentLightSGIX(int light, int pname, float[] @params)
+		public static void GetFragmentLightSGIX(int light, int pname, [Out] float[] @params)
 		{
 			unsafe {
 				fixed (float* p_params = @params)
@@ -472,7 +472,7 @@ namespace OpenGL
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_SGIX_fragment_lighting")]
-		public static void GetFragmentLightSGIX(int light, int pname, Int32[] @params)
+		public static void GetFragmentLightSGIX(int light, int pname, [Out] Int32[] @params)
 		{
 			unsafe {
 				fixed (Int32* p_params = @params)
@@ -498,7 +498,7 @@ namespace OpenGL
 		/// A <see cref="T:float[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_SGIX_fragment_lighting")]
-		public static void GetFragmentMaterialSGIX(MaterialFace face, MaterialParameter pname, float[] @params)
+		public static void GetFragmentMaterialSGIX(MaterialFace face, MaterialParameter pname, [Out] float[] @params)
 		{
 			unsafe {
 				fixed (float* p_params = @params)
@@ -524,7 +524,7 @@ namespace OpenGL
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_SGIX_fragment_lighting")]
-		public static void GetFragmentMaterialSGIX(MaterialFace face, MaterialParameter pname, Int32[] @params)
+		public static void GetFragmentMaterialSGIX(MaterialFace face, MaterialParameter pname, [Out] Int32[] @params)
 		{
 			unsafe {
 				fixed (Int32* p_params = @params)

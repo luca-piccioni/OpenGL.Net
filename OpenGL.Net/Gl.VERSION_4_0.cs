@@ -1502,7 +1502,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.Uniform"/>
 		[RequiredByFeature("GL_VERSION_4_0")]
 		[RequiredByFeature("GL_ARB_gpu_shader_fp64")]
-		public static void GetUniform(UInt32 program, Int32 location, double[] @params)
+		public static void GetUniform(UInt32 program, Int32 location, [Out] double[] @params)
 		{
 			unsafe {
 				fixed (double* p_params = @params)
@@ -1632,7 +1632,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.GetProgramStage"/>
 		[RequiredByFeature("GL_VERSION_4_0")]
 		[RequiredByFeature("GL_ARB_shader_subroutine")]
-		public static void GetActiveSubroutineUniform(UInt32 program, int shadertype, UInt32 index, int pname, Int32[] values)
+		public static void GetActiveSubroutineUniform(UInt32 program, int shadertype, UInt32 index, int pname, [Out] Int32[] values)
 		{
 			unsafe {
 				fixed (Int32* p_values = values)
@@ -2392,7 +2392,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.IsQuery"/>
 		[RequiredByFeature("GL_VERSION_4_0")]
 		[RequiredByFeature("GL_ARB_transform_feedback3")]
-		public static void GetQueryIndexed(int target, UInt32 index, int pname, Int32[] @params)
+		public static void GetQueryIndexed(int target, UInt32 index, int pname, [Out] Int32[] @params)
 		{
 			unsafe {
 				fixed (Int32* p_params = @params)

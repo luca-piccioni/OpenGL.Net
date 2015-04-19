@@ -62,7 +62,7 @@ namespace OpenGL
 		/// A <see cref="T:bool[]"/>.
 		/// </param>
 		[RequiredByFeature("WGL_I3D_swap_frame_lock")]
-		public static bool IsEnabledFrameLockI3D(bool[] pFlag)
+		public static bool IsEnabledFrameLockI3D([Out] bool[] pFlag)
 		{
 			bool retValue;
 

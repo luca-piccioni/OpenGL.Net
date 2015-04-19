@@ -488,7 +488,7 @@ namespace OpenGL
 		/// A <see cref="T:bool[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_vertex_program")]
-		public static bool AreProgramsResidentNV(UInt32[] programs, bool[] residences)
+		public static bool AreProgramsResidentNV(UInt32[] programs, [Out] bool[] residences)
 		{
 			bool retValue;
 
@@ -548,7 +548,7 @@ namespace OpenGL
 		/// A <see cref="T:double[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_vertex_program")]
-		public static void GetProgramParameterNV(int target, UInt32 index, int pname, double[] @params)
+		public static void GetProgramParameterNV(int target, UInt32 index, int pname, [Out] double[] @params)
 		{
 			unsafe {
 				fixed (double* p_params = @params)
@@ -577,7 +577,7 @@ namespace OpenGL
 		/// A <see cref="T:float[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_vertex_program")]
-		public static void GetProgramParameterNV(int target, UInt32 index, int pname, float[] @params)
+		public static void GetProgramParameterNV(int target, UInt32 index, int pname, [Out] float[] @params)
 		{
 			unsafe {
 				fixed (float* p_params = @params)
@@ -603,7 +603,7 @@ namespace OpenGL
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_vertex_program")]
-		public static void GetProgramNV(UInt32 id, int pname, Int32[] @params)
+		public static void GetProgramNV(UInt32 id, int pname, [Out] Int32[] @params)
 		{
 			unsafe {
 				fixed (Int32* p_params = @params)
@@ -629,7 +629,7 @@ namespace OpenGL
 		/// A <see cref="T:byte[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_vertex_program")]
-		public static void GetProgramStringNV(UInt32 id, int pname, byte[] program)
+		public static void GetProgramStringNV(UInt32 id, int pname, [Out] byte[] program)
 		{
 			unsafe {
 				fixed (byte* p_program = program)

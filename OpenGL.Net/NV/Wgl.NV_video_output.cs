@@ -116,7 +116,7 @@ namespace OpenGL
 		/// A <see cref="T:IntPtr[]"/>.
 		/// </param>
 		[RequiredByFeature("WGL_NV_video_output")]
-		public static bool GetVideoDeviceNV(IntPtr hDC, int numDevices, IntPtr[] hVideoDevice)
+		public static bool GetVideoDeviceNV(IntPtr hDC, int numDevices, [Out] IntPtr[] hVideoDevice)
 		{
 			bool retValue;
 
@@ -240,7 +240,7 @@ namespace OpenGL
 		/// A <see cref="T:UInt32[]"/>.
 		/// </param>
 		[RequiredByFeature("WGL_NV_video_output")]
-		public static bool GetVideoInfoNV(IntPtr hpVideoDevice, UInt32[] pulCounterOutputPbuffer, UInt32[] pulCounterOutputVideo)
+		public static bool GetVideoInfoNV(IntPtr hpVideoDevice, [Out] UInt32[] pulCounterOutputPbuffer, [Out] UInt32[] pulCounterOutputVideo)
 		{
 			bool retValue;
 

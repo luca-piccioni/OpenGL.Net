@@ -195,7 +195,7 @@ namespace OpenGL
 		/// A <see cref="T:float[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_fragment_program")]
-		public static void GetProgramNamedParameterNV(UInt32 id, Int32 len, byte[] name, float[] @params)
+		public static void GetProgramNamedParameterNV(UInt32 id, Int32 len, byte[] name, [Out] float[] @params)
 		{
 			unsafe {
 				fixed (byte* p_name = name)
@@ -225,7 +225,7 @@ namespace OpenGL
 		/// A <see cref="T:double[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_fragment_program")]
-		public static void GetProgramNamedParameterNV(UInt32 id, Int32 len, byte[] name, double[] @params)
+		public static void GetProgramNamedParameterNV(UInt32 id, Int32 len, byte[] name, [Out] double[] @params)
 		{
 			unsafe {
 				fixed (byte* p_name = name)

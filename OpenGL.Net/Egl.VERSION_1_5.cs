@@ -364,7 +364,7 @@ namespace OpenGL
 		/// A <see cref="T:IntPtr[]"/>.
 		/// </param>
 		[RequiredByFeature("EGL_VERSION_1_5")]
-		public static IntPtr GetSyncAttrib(IntPtr dpy, IntPtr sync, int attribute, IntPtr[] value)
+		public static IntPtr GetSyncAttrib(IntPtr dpy, IntPtr sync, int attribute, [Out] IntPtr[] value)
 		{
 			IntPtr retValue;
 

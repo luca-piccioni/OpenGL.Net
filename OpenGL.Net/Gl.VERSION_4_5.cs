@@ -395,7 +395,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.BindTransformFeedback"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_direct_state_access")]
-		public static void GetTransformFeedback(UInt32 xfb, int pname, Int32[] param)
+		public static void GetTransformFeedback(UInt32 xfb, int pname, [Out] Int32[] param)
 		{
 			unsafe {
 				fixed (Int32* p_param = param)
@@ -455,7 +455,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.BindTransformFeedback"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_direct_state_access")]
-		public static void GetTransformFeedback(UInt32 xfb, int pname, UInt32 index, Int32[] param)
+		public static void GetTransformFeedback(UInt32 xfb, int pname, UInt32 index, [Out] Int32[] param)
 		{
 			unsafe {
 				fixed (Int32* p_param = param)
@@ -515,7 +515,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.BindTransformFeedback"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_direct_state_access")]
-		public static void GetTransformFeedback(UInt32 xfb, int pname, UInt32 index, Int64[] param)
+		public static void GetTransformFeedback(UInt32 xfb, int pname, UInt32 index, [Out] Int64[] param)
 		{
 			unsafe {
 				fixed (Int64* p_param = param)
@@ -1488,7 +1488,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.UnmapBuffer"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_direct_state_access")]
-		public static void GetNamedBufferParameter(UInt32 buffer, int pname, Int32[] @params)
+		public static void GetNamedBufferParameter(UInt32 buffer, int pname, [Out] Int32[] @params)
 		{
 			unsafe {
 				fixed (Int32* p_params = @params)
@@ -1537,7 +1537,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.UnmapBuffer"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_direct_state_access")]
-		public static void GetNamedBufferParameter(UInt32 buffer, int pname, Int64[] @params)
+		public static void GetNamedBufferParameter(UInt32 buffer, int pname, [Out] Int64[] @params)
 		{
 			unsafe {
 				fixed (Int64* p_params = @params)
@@ -1579,7 +1579,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.MapBuffer"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_direct_state_access")]
-		public static void GetNamedBufferPointer(UInt32 buffer, int pname, IntPtr[] @params)
+		public static void GetNamedBufferPointer(UInt32 buffer, int pname, [Out] IntPtr[] @params)
 		{
 			unsafe {
 				fixed (IntPtr* p_params = @params)
@@ -2670,7 +2670,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.GetFramebufferAttachmentParameter"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_direct_state_access")]
-		public static void GetNamedFramebufferParameter(UInt32 framebuffer, int pname, Int32[] param)
+		public static void GetNamedFramebufferParameter(UInt32 framebuffer, int pname, [Out] Int32[] param)
 		{
 			unsafe {
 				fixed (Int32* p_param = param)
@@ -2733,7 +2733,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.GetFramebufferParameter"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_direct_state_access")]
-		public static void GetNamedFramebufferAttachmentParameter(UInt32 framebuffer, int attachment, int pname, Int32[] @params)
+		public static void GetNamedFramebufferAttachmentParameter(UInt32 framebuffer, int attachment, int pname, [Out] Int32[] @params)
 		{
 			unsafe {
 				fixed (Int32* p_params = @params)
@@ -2928,7 +2928,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.RenderbufferStorageMultisample"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_direct_state_access")]
-		public static void GetNamedRenderbufferParameter(UInt32 renderbuffer, int pname, Int32[] @params)
+		public static void GetNamedRenderbufferParameter(UInt32 renderbuffer, int pname, [Out] Int32[] @params)
 		{
 			unsafe {
 				fixed (Int32* p_params = @params)
@@ -6005,7 +6005,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexParameter"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_direct_state_access")]
-		public static void GetTextureLevelParameter(UInt32 texture, Int32 level, int pname, float[] @params)
+		public static void GetTextureLevelParameter(UInt32 texture, Int32 level, int pname, [Out] float[] @params)
 		{
 			unsafe {
 				fixed (float* p_params = @params)
@@ -6078,7 +6078,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexParameter"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_direct_state_access")]
-		public static void GetTextureLevelParameter(UInt32 texture, Int32 level, int pname, Int32[] @params)
+		public static void GetTextureLevelParameter(UInt32 texture, Int32 level, int pname, [Out] Int32[] @params)
 		{
 			unsafe {
 				fixed (Int32* p_params = @params)
@@ -6134,7 +6134,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.TextureView"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_direct_state_access")]
-		public static void GetTextureParameter(UInt32 texture, int pname, float[] @params)
+		public static void GetTextureParameter(UInt32 texture, int pname, [Out] float[] @params)
 		{
 			unsafe {
 				fixed (float* p_params = @params)
@@ -6190,7 +6190,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.TextureView"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_direct_state_access")]
-		public static void GetTextureParameterI(UInt32 texture, int pname, Int32[] @params)
+		public static void GetTextureParameterI(UInt32 texture, int pname, [Out] Int32[] @params)
 		{
 			unsafe {
 				fixed (Int32* p_params = @params)
@@ -6246,7 +6246,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.TextureView"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_direct_state_access")]
-		public static void GetTextureParameterI(UInt32 texture, int pname, UInt32[] @params)
+		public static void GetTextureParameterI(UInt32 texture, int pname, [Out] UInt32[] @params)
 		{
 			unsafe {
 				fixed (UInt32* p_params = @params)
@@ -6302,7 +6302,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.TextureView"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_direct_state_access")]
-		public static void GetTextureParameter(UInt32 texture, int pname, Int32[] @params)
+		public static void GetTextureParameter(UInt32 texture, int pname, [Out] Int32[] @params)
 		{
 			unsafe {
 				fixed (Int32* p_params = @params)
@@ -6882,7 +6882,7 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_direct_state_access")]
-		public static void GetVertexArray(UInt32 vaobj, int pname, Int32[] param)
+		public static void GetVertexArray(UInt32 vaobj, int pname, [Out] Int32[] param)
 		{
 			unsafe {
 				fixed (Int32* p_param = param)
@@ -6933,7 +6933,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.VertexAttribPointer"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_direct_state_access")]
-		public static void GetVertexArrayIndexed(UInt32 vaobj, UInt32 index, int pname, Int32[] param)
+		public static void GetVertexArrayIndexed(UInt32 vaobj, UInt32 index, int pname, [Out] Int32[] param)
 		{
 			unsafe {
 				fixed (Int32* p_param = param)
@@ -6984,7 +6984,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.VertexAttribPointer"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_direct_state_access")]
-		public static void GetVertexArrayIndexed(UInt32 vaobj, UInt32 index, int pname, Int64[] param)
+		public static void GetVertexArrayIndexed(UInt32 vaobj, UInt32 index, int pname, [Out] Int64[] param)
 		{
 			unsafe {
 				fixed (Int64* p_param = param)
@@ -8054,7 +8054,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.LinkProgram"/>
 		/// <seealso cref="Gl.Uniform"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
-		public static void GetnUniform(UInt32 program, Int32 location, Int32 bufSize, double[] @params)
+		public static void GetnUniform(UInt32 program, Int32 location, Int32 bufSize, [Out] double[] @params)
 		{
 			unsafe {
 				fixed (double* p_params = @params)
@@ -8106,7 +8106,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.Uniform"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_KHR_robustness")]
-		public static void GetnUniform(UInt32 program, Int32 location, Int32 bufSize, float[] @params)
+		public static void GetnUniform(UInt32 program, Int32 location, Int32 bufSize, [Out] float[] @params)
 		{
 			unsafe {
 				fixed (float* p_params = @params)
@@ -8158,7 +8158,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.Uniform"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_KHR_robustness")]
-		public static void GetnUniform(UInt32 program, Int32 location, Int32 bufSize, Int32[] @params)
+		public static void GetnUniform(UInt32 program, Int32 location, Int32 bufSize, [Out] Int32[] @params)
 		{
 			unsafe {
 				fixed (Int32* p_params = @params)
@@ -8210,7 +8210,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.Uniform"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_KHR_robustness")]
-		public static void GetnUniform(UInt32 program, Int32 location, Int32 bufSize, UInt32[] @params)
+		public static void GetnUniform(UInt32 program, Int32 location, Int32 bufSize, [Out] UInt32[] @params)
 		{
 			unsafe {
 				fixed (UInt32* p_params = @params)
@@ -8342,7 +8342,7 @@ namespace OpenGL
 		/// A <see cref="T:double[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_4_5")]
-		public static void GetnMap(int target, int query, Int32 bufSize, double[] v)
+		public static void GetnMap(int target, int query, Int32 bufSize, [Out] double[] v)
 		{
 			unsafe {
 				fixed (double* p_v = v)
@@ -8371,7 +8371,7 @@ namespace OpenGL
 		/// A <see cref="T:float[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_4_5")]
-		public static void GetnMap(int target, int query, Int32 bufSize, float[] v)
+		public static void GetnMap(int target, int query, Int32 bufSize, [Out] float[] v)
 		{
 			unsafe {
 				fixed (float* p_v = v)
@@ -8400,7 +8400,7 @@ namespace OpenGL
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_4_5")]
-		public static void GetnMap(int target, int query, Int32 bufSize, Int32[] v)
+		public static void GetnMap(int target, int query, Int32 bufSize, [Out] Int32[] v)
 		{
 			unsafe {
 				fixed (Int32* p_v = v)
@@ -8426,7 +8426,7 @@ namespace OpenGL
 		/// A <see cref="T:float[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_4_5")]
-		public static void GetnPixelMap(int map, Int32 bufSize, float[] values)
+		public static void GetnPixelMap(int map, Int32 bufSize, [Out] float[] values)
 		{
 			unsafe {
 				fixed (float* p_values = values)
@@ -8452,7 +8452,7 @@ namespace OpenGL
 		/// A <see cref="T:UInt32[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_4_5")]
-		public static void GetnPixelMap(int map, Int32 bufSize, UInt32[] values)
+		public static void GetnPixelMap(int map, Int32 bufSize, [Out] UInt32[] values)
 		{
 			unsafe {
 				fixed (UInt32* p_values = values)
@@ -8478,7 +8478,7 @@ namespace OpenGL
 		/// A <see cref="T:UInt16[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_4_5")]
-		public static void GetnPixelMap(int map, Int32 bufSize, UInt16[] values)
+		public static void GetnPixelMap(int map, Int32 bufSize, [Out] UInt16[] values)
 		{
 			unsafe {
 				fixed (UInt16* p_values = values)
@@ -8501,7 +8501,7 @@ namespace OpenGL
 		/// A <see cref="T:byte[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_4_5")]
-		public static void GetnPolygonStipple(Int32 bufSize, byte[] pattern)
+		public static void GetnPolygonStipple(Int32 bufSize, [Out] byte[] pattern)
 		{
 			unsafe {
 				fixed (byte* p_pattern = pattern)

@@ -1527,7 +1527,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.AttachShader"/>
 		/// <seealso cref="Gl.DetachShader"/>
 		[RequiredByFeature("GL_VERSION_2_0")]
-		public static void GetAttachedShaders(UInt32 program, out Int32 count, UInt32[] shaders)
+		public static void GetAttachedShaders(UInt32 program, out Int32 count, [Out] UInt32[] shaders)
 		{
 			unsafe {
 				fixed (Int32* p_count = &count)
@@ -1621,7 +1621,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.LinkProgram"/>
 		/// <seealso cref="Gl.ValidateProgram"/>
 		[RequiredByFeature("GL_VERSION_2_0")]
-		public static void GetProgram(UInt32 program, int pname, Int32[] @params)
+		public static void GetProgram(UInt32 program, int pname, [Out] Int32[] @params)
 		{
 			unsafe {
 				fixed (Int32* p_params = @params)
@@ -1764,7 +1764,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.GetProgram"/>
 		/// <seealso cref="Gl.ShaderSource"/>
 		[RequiredByFeature("GL_VERSION_2_0")]
-		public static void GetShader(UInt32 shader, int pname, Int32[] @params)
+		public static void GetShader(UInt32 shader, int pname, [Out] Int32[] @params)
 		{
 			unsafe {
 				fixed (Int32* p_params = @params)
@@ -1976,7 +1976,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.LinkProgram"/>
 		/// <seealso cref="Gl.Uniform"/>
 		[RequiredByFeature("GL_VERSION_2_0")]
-		public static void GetUniform(UInt32 program, Int32 location, float[] @params)
+		public static void GetUniform(UInt32 program, Int32 location, [Out] float[] @params)
 		{
 			unsafe {
 				fixed (float* p_params = @params)
@@ -2024,7 +2024,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.LinkProgram"/>
 		/// <seealso cref="Gl.Uniform"/>
 		[RequiredByFeature("GL_VERSION_2_0")]
-		public static void GetUniform(UInt32 program, Int32 location, Int32[] @params)
+		public static void GetUniform(UInt32 program, Int32 location, [Out] Int32[] @params)
 		{
 			unsafe {
 				fixed (Int32* p_params = @params)
@@ -2076,7 +2076,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.VertexAttribDivisor"/>
 		/// <seealso cref="Gl.VertexAttribPointer"/>
 		[RequiredByFeature("GL_VERSION_2_0")]
-		public static void GetVertexAttrib(UInt32 index, int pname, double[] @params)
+		public static void GetVertexAttrib(UInt32 index, int pname, [Out] double[] @params)
 		{
 			unsafe {
 				fixed (double* p_params = @params)
@@ -2128,7 +2128,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.VertexAttribDivisor"/>
 		/// <seealso cref="Gl.VertexAttribPointer"/>
 		[RequiredByFeature("GL_VERSION_2_0")]
-		public static void GetVertexAttrib(UInt32 index, int pname, float[] @params)
+		public static void GetVertexAttrib(UInt32 index, int pname, [Out] float[] @params)
 		{
 			unsafe {
 				fixed (float* p_params = @params)
@@ -2180,7 +2180,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.VertexAttribDivisor"/>
 		/// <seealso cref="Gl.VertexAttribPointer"/>
 		[RequiredByFeature("GL_VERSION_2_0")]
-		public static void GetVertexAttrib(UInt32 index, int pname, Int32[] @params)
+		public static void GetVertexAttrib(UInt32 index, int pname, [Out] Int32[] @params)
 		{
 			unsafe {
 				fixed (Int32* p_params = @params)

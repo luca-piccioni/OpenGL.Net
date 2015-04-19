@@ -85,7 +85,7 @@ namespace OpenGL
 		/// A <see cref="T:float[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_SGIS_sharpen_texture")]
-		public static void GetSharpenTexFuncSGIS(TextureTarget target, float[] points)
+		public static void GetSharpenTexFuncSGIS(TextureTarget target, [Out] float[] points)
 		{
 			unsafe {
 				fixed (float* p_points = points)

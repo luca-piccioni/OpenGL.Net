@@ -414,7 +414,7 @@ namespace OpenGL
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_gpu_program4")]
-		public static void GetProgramLocalParameterINV(int target, UInt32 index, Int32[] @params)
+		public static void GetProgramLocalParameterINV(int target, UInt32 index, [Out] Int32[] @params)
 		{
 			unsafe {
 				fixed (Int32* p_params = @params)
@@ -440,7 +440,7 @@ namespace OpenGL
 		/// A <see cref="T:UInt32[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_gpu_program4")]
-		public static void GetProgramLocalParameterINV(int target, UInt32 index, UInt32[] @params)
+		public static void GetProgramLocalParameterINV(int target, UInt32 index, [Out] UInt32[] @params)
 		{
 			unsafe {
 				fixed (UInt32* p_params = @params)
@@ -466,7 +466,7 @@ namespace OpenGL
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_gpu_program4")]
-		public static void GetProgramEnvParameterINV(int target, UInt32 index, Int32[] @params)
+		public static void GetProgramEnvParameterINV(int target, UInt32 index, [Out] Int32[] @params)
 		{
 			unsafe {
 				fixed (Int32* p_params = @params)
@@ -492,7 +492,7 @@ namespace OpenGL
 		/// A <see cref="T:UInt32[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_gpu_program4")]
-		public static void GetProgramEnvParameterINV(int target, UInt32 index, UInt32[] @params)
+		public static void GetProgramEnvParameterINV(int target, UInt32 index, [Out] UInt32[] @params)
 		{
 			unsafe {
 				fixed (UInt32* p_params = @params)

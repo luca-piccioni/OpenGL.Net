@@ -70,7 +70,7 @@ namespace OpenGL
 		/// A <see cref="T:float[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_register_combiners2")]
-		public static void GetCombinerStageParameterNV(int stage, int pname, float[] @params)
+		public static void GetCombinerStageParameterNV(int stage, int pname, [Out] float[] @params)
 		{
 			unsafe {
 				fixed (float* p_params = @params)

@@ -32,7 +32,7 @@ namespace OpenGL
 		/// A <see cref="T:float []"/>.
 		/// </param>
 		[RequiredByFeature("WGL_I3D_swap_frame_usage")]
-		public static bool GetFrameUsageI3D(float [] pUsage)
+		public static bool GetFrameUsageI3D([Out] float [] pUsage)
 		{
 			bool retValue;
 

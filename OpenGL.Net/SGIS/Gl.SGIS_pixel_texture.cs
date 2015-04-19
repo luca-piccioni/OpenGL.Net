@@ -141,7 +141,7 @@ namespace OpenGL
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_SGIS_pixel_texture")]
-		public static void GetPixelTexGenParameterSGIS(PixelTexGenParameterNameSGIS pname, Int32[] @params)
+		public static void GetPixelTexGenParameterSGIS(PixelTexGenParameterNameSGIS pname, [Out] Int32[] @params)
 		{
 			unsafe {
 				fixed (Int32* p_params = @params)
@@ -164,7 +164,7 @@ namespace OpenGL
 		/// A <see cref="T:float[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_SGIS_pixel_texture")]
-		public static void GetPixelTexGenParameterSGIS(PixelTexGenParameterNameSGIS pname, float[] @params)
+		public static void GetPixelTexGenParameterSGIS(PixelTexGenParameterNameSGIS pname, [Out] float[] @params)
 		{
 			unsafe {
 				fixed (float* p_params = @params)

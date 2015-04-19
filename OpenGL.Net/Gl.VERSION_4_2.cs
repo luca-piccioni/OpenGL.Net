@@ -1214,7 +1214,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.Get"/>
 		[RequiredByFeature("GL_VERSION_4_2")]
 		[RequiredByFeature("GL_ARB_internalformat_query")]
-		public static void GetInternalformat(int target, int internalformat, int pname, Int32[] @params)
+		public static void GetInternalformat(int target, int internalformat, int pname, [Out] Int32[] @params)
 		{
 			unsafe {
 				fixed (Int32* p_params = @params)
@@ -1261,7 +1261,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.GetUniformLocation"/>
 		[RequiredByFeature("GL_VERSION_4_2")]
 		[RequiredByFeature("GL_ARB_shader_atomic_counters")]
-		public static void GetActiveAtomicCounterBuffer(UInt32 program, UInt32 bufferIndex, int pname, Int32[] @params)
+		public static void GetActiveAtomicCounterBuffer(UInt32 program, UInt32 bufferIndex, int pname, [Out] Int32[] @params)
 		{
 			unsafe {
 				fixed (Int32* p_params = @params)

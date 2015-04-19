@@ -88,7 +88,7 @@ namespace OpenGL
 		/// A <see cref="T:float[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_OES_single_precision")]
-		public static void GetClipPlaneOES(int plane, float[] equation)
+		public static void GetClipPlaneOES(int plane, [Out] float[] equation)
 		{
 			unsafe {
 				fixed (float* p_equation = equation)

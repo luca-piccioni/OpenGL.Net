@@ -429,7 +429,7 @@ namespace OpenGL
 		/// A <see cref="T:int[]"/>.
 		/// </param>
 		[RequiredByFeature("WGL_ARB_pixel_format")]
-		public static bool GetPixelFormatAttribARB(IntPtr hdc, int iPixelFormat, int iLayerPlane, UInt32 nAttributes, int[] piAttributes, int[] piValues)
+		public static bool GetPixelFormatAttribARB(IntPtr hdc, int iPixelFormat, int iLayerPlane, UInt32 nAttributes, int[] piAttributes, [Out] int[] piValues)
 		{
 			bool retValue;
 
@@ -468,7 +468,7 @@ namespace OpenGL
 		/// A <see cref="T:float[]"/>.
 		/// </param>
 		[RequiredByFeature("WGL_ARB_pixel_format")]
-		public static bool GetPixelFormatAttribARB(IntPtr hdc, int iPixelFormat, int iLayerPlane, UInt32 nAttributes, int[] piAttributes, float[] pfValues)
+		public static bool GetPixelFormatAttribARB(IntPtr hdc, int iPixelFormat, int iLayerPlane, UInt32 nAttributes, int[] piAttributes, [Out] float[] pfValues)
 		{
 			bool retValue;
 

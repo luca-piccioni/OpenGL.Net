@@ -1956,7 +1956,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.GetVertexAttribPointerv"/>
 		/// <seealso cref="Gl.IsEnabled"/>
 		[RequiredByFeature("GL_VERSION_3_0")]
-		public static void Get(int target, UInt32 index, bool[] data)
+		public static void Get(int target, UInt32 index, [Out] bool[] data)
 		{
 			unsafe {
 				fixed (bool* p_data = data)
@@ -2076,7 +2076,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.GetVertexAttribPointerv"/>
 		/// <seealso cref="Gl.IsEnabled"/>
 		[RequiredByFeature("GL_VERSION_3_0")]
-		public static void Get(int target, UInt32 index, Int32[] data)
+		public static void Get(int target, UInt32 index, [Out] Int32[] data)
 		{
 			unsafe {
 				fixed (Int32* p_data = data)
@@ -3688,7 +3688,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.LinkProgram"/>
 		/// <seealso cref="Gl.Uniform"/>
 		[RequiredByFeature("GL_VERSION_3_0")]
-		public static void GetUniform(UInt32 program, Int32 location, UInt32[] @params)
+		public static void GetUniform(UInt32 program, Int32 location, [Out] UInt32[] @params)
 		{
 			unsafe {
 				fixed (UInt32* p_params = @params)
@@ -4508,7 +4508,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.TextureStorage3D"/>
 		/// <seealso cref="Gl.TextureView"/>
 		[RequiredByFeature("GL_VERSION_3_0")]
-		public static void GetTexParameterI(TextureTarget target, GetTextureParameter pname, Int32[] @params)
+		public static void GetTexParameterI(TextureTarget target, GetTextureParameter pname, [Out] Int32[] @params)
 		{
 			unsafe {
 				fixed (Int32* p_params = @params)
@@ -4565,7 +4565,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.TextureStorage3D"/>
 		/// <seealso cref="Gl.TextureView"/>
 		[RequiredByFeature("GL_VERSION_3_0")]
-		public static void GetTexParameterI(TextureTarget target, GetTextureParameter pname, UInt32[] @params)
+		public static void GetTexParameterI(TextureTarget target, GetTextureParameter pname, [Out] UInt32[] @params)
 		{
 			unsafe {
 				fixed (UInt32* p_params = @params)
@@ -5074,7 +5074,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.RenderbufferStorageMultisample"/>
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ARB_framebuffer_object")]
-		public static void GetRenderbufferParameter(int target, int pname, Int32[] @params)
+		public static void GetRenderbufferParameter(int target, int pname, [Out] Int32[] @params)
 		{
 			unsafe {
 				fixed (Int32* p_params = @params)
@@ -5589,7 +5589,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.GetFramebufferParameter"/>
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ARB_framebuffer_object")]
-		public static void GetFramebufferAttachmentParameter(int target, int attachment, int pname, Int32[] @params)
+		public static void GetFramebufferAttachmentParameter(int target, int attachment, int pname, [Out] Int32[] @params)
 		{
 			unsafe {
 				fixed (Int32* p_params = @params)

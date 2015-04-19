@@ -175,7 +175,7 @@ namespace OpenGL
 		/// A <see cref="T:StringBuilder"/>.
 		/// </param>
 		[RequiredByFeature("GL_AMD_debug_output")]
-		public static UInt32 GetDebugMessageLogAMD(Int32 bufsize, int[] categories, UInt32[] severities, UInt32[] ids, Int32[] lengths, [Out] StringBuilder message)
+		public static UInt32 GetDebugMessageLogAMD(Int32 bufsize, [Out] int[] categories, [Out] UInt32[] severities, [Out] UInt32[] ids, [Out] Int32[] lengths, [Out] StringBuilder message)
 		{
 			UInt32 retValue;
 

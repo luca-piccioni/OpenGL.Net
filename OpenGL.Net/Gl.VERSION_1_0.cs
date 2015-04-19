@@ -1844,7 +1844,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.GetVertexAttribPointerv"/>
 		/// <seealso cref="Gl.IsEnabled"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
-		public static void Get(int pname, bool[] data)
+		public static void Get(int pname, [Out] bool[] data)
 		{
 			unsafe {
 				fixed (bool* p_data = data)
@@ -1901,7 +1901,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.GetVertexAttribPointerv"/>
 		/// <seealso cref="Gl.IsEnabled"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
-		public static void Get(GetPName pname, bool[] data)
+		public static void Get(GetPName pname, [Out] bool[] data)
 		{
 			unsafe {
 				fixed (bool* p_data = data)
@@ -2072,7 +2072,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.GetVertexAttribPointerv"/>
 		/// <seealso cref="Gl.IsEnabled"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
-		public static void Get(int pname, double[] data)
+		public static void Get(int pname, [Out] double[] data)
 		{
 			unsafe {
 				fixed (double* p_data = data)
@@ -2129,7 +2129,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.GetVertexAttribPointerv"/>
 		/// <seealso cref="Gl.IsEnabled"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
-		public static void Get(GetPName pname, double[] data)
+		public static void Get(GetPName pname, [Out] double[] data)
 		{
 			unsafe {
 				fixed (double* p_data = data)
@@ -2315,7 +2315,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.GetVertexAttribPointerv"/>
 		/// <seealso cref="Gl.IsEnabled"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
-		public static void Get(int pname, float[] data)
+		public static void Get(int pname, [Out] float[] data)
 		{
 			unsafe {
 				fixed (float* p_data = data)
@@ -2372,7 +2372,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.GetVertexAttribPointerv"/>
 		/// <seealso cref="Gl.IsEnabled"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
-		public static void Get(GetPName pname, float[] data)
+		public static void Get(GetPName pname, [Out] float[] data)
 		{
 			unsafe {
 				fixed (float* p_data = data)
@@ -2543,7 +2543,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.GetVertexAttribPointerv"/>
 		/// <seealso cref="Gl.IsEnabled"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
-		public static void Get(int pname, Int32[] data)
+		public static void Get(int pname, [Out] Int32[] data)
 		{
 			unsafe {
 				fixed (Int32* p_data = data)
@@ -2600,7 +2600,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.GetVertexAttribPointerv"/>
 		/// <seealso cref="Gl.IsEnabled"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
-		public static void Get(GetPName pname, Int32[] data)
+		public static void Get(GetPName pname, [Out] Int32[] data)
 		{
 			unsafe {
 				fixed (Int32* p_data = data)
@@ -3022,7 +3022,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.TextureStorage3D"/>
 		/// <seealso cref="Gl.TextureView"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
-		public static void GetTexParameter(TextureTarget target, GetTextureParameter pname, float[] @params)
+		public static void GetTexParameter(TextureTarget target, GetTextureParameter pname, [Out] float[] @params)
 		{
 			unsafe {
 				fixed (float* p_params = @params)
@@ -3079,7 +3079,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.TextureStorage3D"/>
 		/// <seealso cref="Gl.TextureView"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
-		public static void GetTexParameter(TextureTarget target, GetTextureParameter pname, Int32[] @params)
+		public static void GetTexParameter(TextureTarget target, GetTextureParameter pname, [Out] Int32[] @params)
 		{
 			unsafe {
 				fixed (Int32* p_params = @params)
@@ -3158,7 +3158,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexSubImage3D"/>
 		/// <seealso cref="Gl.TexParameter"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
-		public static void GetTexLevelParameter(TextureTarget target, Int32 level, GetTextureParameter pname, float[] @params)
+		public static void GetTexLevelParameter(TextureTarget target, Int32 level, GetTextureParameter pname, [Out] float[] @params)
 		{
 			unsafe {
 				fixed (float* p_params = @params)
@@ -3237,7 +3237,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexSubImage3D"/>
 		/// <seealso cref="Gl.TexParameter"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
-		public static void GetTexLevelParameter(TextureTarget target, Int32 level, GetTextureParameter pname, Int32[] @params)
+		public static void GetTexLevelParameter(TextureTarget target, Int32 level, GetTextureParameter pname, [Out] Int32[] @params)
 		{
 			unsafe {
 				fixed (Int32* p_params = @params)
@@ -11573,7 +11573,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.ClipPlane"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2")]
-		public static void GetClipPlane(ClipPlaneName plane, double[] equation)
+		public static void GetClipPlane(ClipPlaneName plane, [Out] double[] equation)
 		{
 			unsafe {
 				fixed (double* p_equation = equation)
@@ -11614,7 +11614,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.Light"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2")]
-		public static void GetLight(LightName light, LightParameter pname, float[] @params)
+		public static void GetLight(LightName light, LightParameter pname, [Out] float[] @params)
 		{
 			unsafe {
 				fixed (float* p_params = @params)
@@ -11655,7 +11655,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.Light"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2")]
-		public static void GetLight(LightName light, LightParameter pname, Int32[] @params)
+		public static void GetLight(LightName light, LightParameter pname, [Out] Int32[] @params)
 		{
 			unsafe {
 				fixed (Int32* p_params = @params)
@@ -11697,7 +11697,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.Map2"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2")]
-		public static void GetMap(MapTarget target, GetMapQuery query, double[] v)
+		public static void GetMap(MapTarget target, GetMapQuery query, [Out] double[] v)
 		{
 			unsafe {
 				fixed (double* p_v = v)
@@ -11739,7 +11739,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.Map2"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2")]
-		public static void GetMap(MapTarget target, GetMapQuery query, float[] v)
+		public static void GetMap(MapTarget target, GetMapQuery query, [Out] float[] v)
 		{
 			unsafe {
 				fixed (float* p_v = v)
@@ -11781,7 +11781,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.Map2"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2")]
-		public static void GetMap(MapTarget target, GetMapQuery query, Int32[] v)
+		public static void GetMap(MapTarget target, GetMapQuery query, [Out] Int32[] v)
 		{
 			unsafe {
 				fixed (Int32* p_v = v)
@@ -11820,7 +11820,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.Material"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2")]
-		public static void GetMaterial(MaterialFace face, MaterialParameter pname, float[] @params)
+		public static void GetMaterial(MaterialFace face, MaterialParameter pname, [Out] float[] @params)
 		{
 			unsafe {
 				fixed (float* p_params = @params)
@@ -11859,7 +11859,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.Material"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2")]
-		public static void GetMaterial(MaterialFace face, MaterialParameter pname, Int32[] @params)
+		public static void GetMaterial(MaterialFace face, MaterialParameter pname, [Out] Int32[] @params)
 		{
 			unsafe {
 				fixed (Int32* p_params = @params)
@@ -11945,7 +11945,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexSubImage3D"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2")]
-		public static void GetPixelMap(PixelMap map, float[] values)
+		public static void GetPixelMap(PixelMap map, [Out] float[] values)
 		{
 			unsafe {
 				fixed (float* p_values = values)
@@ -12031,7 +12031,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexSubImage3D"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2")]
-		public static void GetPixelMap(PixelMap map, UInt32[] values)
+		public static void GetPixelMap(PixelMap map, [Out] UInt32[] values)
 		{
 			unsafe {
 				fixed (UInt32* p_values = values)
@@ -12117,7 +12117,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexSubImage3D"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2")]
-		public static void GetPixelMap(PixelMap map, UInt16[] values)
+		public static void GetPixelMap(PixelMap map, [Out] UInt16[] values)
 		{
 			unsafe {
 				fixed (UInt16* p_values = values)
@@ -12156,7 +12156,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.ReadPixels"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2")]
-		public static void GetPolygonStipple(byte[] mask)
+		public static void GetPolygonStipple([Out] byte[] mask)
 		{
 			unsafe {
 				fixed (byte* p_mask = mask)
@@ -12197,7 +12197,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexEnv"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2")]
-		public static void GetTexEnv(TextureEnvTarget target, TextureEnvParameter pname, float[] @params)
+		public static void GetTexEnv(TextureEnvTarget target, TextureEnvParameter pname, [Out] float[] @params)
 		{
 			unsafe {
 				fixed (float* p_params = @params)
@@ -12238,7 +12238,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexEnv"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2")]
-		public static void GetTexEnv(TextureEnvTarget target, TextureEnvParameter pname, Int32[] @params)
+		public static void GetTexEnv(TextureEnvTarget target, TextureEnvParameter pname, [Out] Int32[] @params)
 		{
 			unsafe {
 				fixed (Int32* p_params = @params)
@@ -12277,7 +12277,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexGen"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2")]
-		public static void GetTexGen(TextureCoordName coord, TextureGenParameter pname, double[] @params)
+		public static void GetTexGen(TextureCoordName coord, TextureGenParameter pname, [Out] double[] @params)
 		{
 			unsafe {
 				fixed (double* p_params = @params)
@@ -12316,7 +12316,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexGen"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2")]
-		public static void GetTexGen(TextureCoordName coord, TextureGenParameter pname, float[] @params)
+		public static void GetTexGen(TextureCoordName coord, TextureGenParameter pname, [Out] float[] @params)
 		{
 			unsafe {
 				fixed (float* p_params = @params)
@@ -12355,7 +12355,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexGen"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2")]
-		public static void GetTexGen(TextureCoordName coord, TextureGenParameter pname, Int32[] @params)
+		public static void GetTexGen(TextureCoordName coord, TextureGenParameter pname, [Out] Int32[] @params)
 		{
 			unsafe {
 				fixed (Int32* p_params = @params)

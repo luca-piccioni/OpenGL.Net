@@ -100,7 +100,7 @@ namespace OpenGL
 		/// A <see cref="T:float[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_framebuffer_mixed_samples")]
-		public static void GetCoverageModulationTableNV(Int32 bufsize, float[] v)
+		public static void GetCoverageModulationTableNV(Int32 bufsize, [Out] float[] v)
 		{
 			unsafe {
 				fixed (float* p_v = v)

@@ -50,7 +50,7 @@ namespace OpenGL
 		/// A <see cref="T:float[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_SGIS_texture_filter4")]
-		public static void GetTexFilterFuncSGIS(TextureTarget target, int filter, float[] weights)
+		public static void GetTexFilterFuncSGIS(TextureTarget target, int filter, [Out] float[] weights)
 		{
 			unsafe {
 				fixed (float* p_weights = weights)

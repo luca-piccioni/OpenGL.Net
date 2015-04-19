@@ -170,7 +170,7 @@ namespace OpenGL
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_present_video")]
-		public static void GetVideoNV(UInt32 video_slot, int pname, Int32[] @params)
+		public static void GetVideoNV(UInt32 video_slot, int pname, [Out] Int32[] @params)
 		{
 			unsafe {
 				fixed (Int32* p_params = @params)
@@ -196,7 +196,7 @@ namespace OpenGL
 		/// A <see cref="T:UInt32[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_present_video")]
-		public static void GetVideoNV(UInt32 video_slot, int pname, UInt32[] @params)
+		public static void GetVideoNV(UInt32 video_slot, int pname, [Out] UInt32[] @params)
 		{
 			unsafe {
 				fixed (UInt32* p_params = @params)
@@ -222,7 +222,7 @@ namespace OpenGL
 		/// A <see cref="T:Int64[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_present_video")]
-		public static void GetVideoNV(UInt32 video_slot, int pname, Int64[] @params)
+		public static void GetVideoNV(UInt32 video_slot, int pname, [Out] Int64[] @params)
 		{
 			unsafe {
 				fixed (Int64* p_params = @params)
@@ -248,7 +248,7 @@ namespace OpenGL
 		/// A <see cref="T:UInt64[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_present_video")]
-		public static void GetVideoui64vNV(UInt32 video_slot, int pname, UInt64[] @params)
+		public static void GetVideoui64vNV(UInt32 video_slot, int pname, [Out] UInt64[] @params)
 		{
 			unsafe {
 				fixed (UInt64* p_params = @params)

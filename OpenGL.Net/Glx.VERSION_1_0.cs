@@ -885,7 +885,7 @@ namespace OpenGL
 		/// <seealso cref="Glx.ChooseVisual"/>
 		/// <seealso cref="Glx.CreateContext"/>
 		[RequiredByFeature("GLX_VERSION_1_0")]
-		public static int GetConfig(IntPtr dpy, Glx.XVisualInfo visual, int attrib, int[] value)
+		public static int GetConfig(IntPtr dpy, Glx.XVisualInfo visual, int attrib, [Out] int[] value)
 		{
 			int retValue;
 

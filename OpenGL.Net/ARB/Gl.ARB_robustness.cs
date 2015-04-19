@@ -169,7 +169,7 @@ namespace OpenGL
 		/// A <see cref="T:float[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_ARB_robustness")]
-		public static void GetnUniformARB(UInt32 program, Int32 location, float[] @params)
+		public static void GetnUniformARB(UInt32 program, Int32 location, [Out] float[] @params)
 		{
 			unsafe {
 				fixed (float* p_params = @params)
@@ -198,7 +198,7 @@ namespace OpenGL
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_ARB_robustness")]
-		public static void GetnUniformARB(UInt32 program, Int32 location, Int32[] @params)
+		public static void GetnUniformARB(UInt32 program, Int32 location, [Out] Int32[] @params)
 		{
 			unsafe {
 				fixed (Int32* p_params = @params)
@@ -227,7 +227,7 @@ namespace OpenGL
 		/// A <see cref="T:UInt32[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_ARB_robustness")]
-		public static void GetnUniformARB(UInt32 program, Int32 location, UInt32[] @params)
+		public static void GetnUniformARB(UInt32 program, Int32 location, [Out] UInt32[] @params)
 		{
 			unsafe {
 				fixed (UInt32* p_params = @params)
@@ -256,7 +256,7 @@ namespace OpenGL
 		/// A <see cref="T:double[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_ARB_robustness")]
-		public static void GetnUniformARB(UInt32 program, Int32 location, double[] @params)
+		public static void GetnUniformARB(UInt32 program, Int32 location, [Out] double[] @params)
 		{
 			unsafe {
 				fixed (double* p_params = @params)
@@ -285,7 +285,7 @@ namespace OpenGL
 		/// A <see cref="T:double[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_ARB_robustness")]
-		public static void GetnMapARB(int target, int query, double[] v)
+		public static void GetnMapARB(int target, int query, [Out] double[] v)
 		{
 			unsafe {
 				fixed (double* p_v = v)
@@ -314,7 +314,7 @@ namespace OpenGL
 		/// A <see cref="T:float[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_ARB_robustness")]
-		public static void GetnMapARB(int target, int query, float[] v)
+		public static void GetnMapARB(int target, int query, [Out] float[] v)
 		{
 			unsafe {
 				fixed (float* p_v = v)
@@ -343,7 +343,7 @@ namespace OpenGL
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_ARB_robustness")]
-		public static void GetnMapARB(int target, int query, Int32[] v)
+		public static void GetnMapARB(int target, int query, [Out] Int32[] v)
 		{
 			unsafe {
 				fixed (Int32* p_v = v)
@@ -369,7 +369,7 @@ namespace OpenGL
 		/// A <see cref="T:float[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_ARB_robustness")]
-		public static void GetnPixelMapARB(int map, float[] values)
+		public static void GetnPixelMapARB(int map, [Out] float[] values)
 		{
 			unsafe {
 				fixed (float* p_values = values)
@@ -395,7 +395,7 @@ namespace OpenGL
 		/// A <see cref="T:UInt32[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_ARB_robustness")]
-		public static void GetnPixelMapARB(int map, UInt32[] values)
+		public static void GetnPixelMapARB(int map, [Out] UInt32[] values)
 		{
 			unsafe {
 				fixed (UInt32* p_values = values)
@@ -421,7 +421,7 @@ namespace OpenGL
 		/// A <see cref="T:UInt16[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_ARB_robustness")]
-		public static void GetnPixelMapARB(int map, UInt16[] values)
+		public static void GetnPixelMapARB(int map, [Out] UInt16[] values)
 		{
 			unsafe {
 				fixed (UInt16* p_values = values)
@@ -444,7 +444,7 @@ namespace OpenGL
 		/// A <see cref="T:byte[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_ARB_robustness")]
-		public static void GetnPolygonStippleARB(byte[] pattern)
+		public static void GetnPolygonStippleARB([Out] byte[] pattern)
 		{
 			unsafe {
 				fixed (byte* p_pattern = pattern)

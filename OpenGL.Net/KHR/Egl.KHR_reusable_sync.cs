@@ -104,7 +104,7 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("EGL_KHR_fence_sync")]
 		[RequiredByFeature("EGL_KHR_reusable_sync")]
-		public static IntPtr GetSyncAttribKHR(IntPtr dpy, IntPtr sync, int attribute, int[] value)
+		public static IntPtr GetSyncAttribKHR(IntPtr dpy, IntPtr sync, int attribute, [Out] int[] value)
 		{
 			IntPtr retValue;
 

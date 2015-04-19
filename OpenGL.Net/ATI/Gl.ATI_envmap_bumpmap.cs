@@ -129,7 +129,7 @@ namespace OpenGL
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_ATI_envmap_bumpmap")]
-		public static void GetTexBumpParameterATI(int pname, Int32[] param)
+		public static void GetTexBumpParameterATI(int pname, [Out] Int32[] param)
 		{
 			unsafe {
 				fixed (Int32* p_param = param)
@@ -152,7 +152,7 @@ namespace OpenGL
 		/// A <see cref="T:float[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_ATI_envmap_bumpmap")]
-		public static void GetTexBumpParameterATI(int pname, float[] param)
+		public static void GetTexBumpParameterATI(int pname, [Out] float[] param)
 		{
 			unsafe {
 				fixed (float* p_param = param)

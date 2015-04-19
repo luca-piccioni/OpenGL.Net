@@ -88,7 +88,7 @@ namespace OpenGL
 		/// A <see cref="T:UInt32[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_gpu_program5")]
-		public static void GetProgramSubroutineParameterNV(int target, UInt32 index, UInt32[] param)
+		public static void GetProgramSubroutineParameterNV(int target, UInt32 index, [Out] UInt32[] param)
 		{
 			unsafe {
 				fixed (UInt32* p_param = param)

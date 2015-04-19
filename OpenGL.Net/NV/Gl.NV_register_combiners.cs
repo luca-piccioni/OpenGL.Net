@@ -530,7 +530,7 @@ namespace OpenGL
 		/// A <see cref="T:float[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_register_combiners")]
-		public static void GetCombinerInputParameterNV(int stage, int portion, int variable, int pname, float[] @params)
+		public static void GetCombinerInputParameterNV(int stage, int portion, int variable, int pname, [Out] float[] @params)
 		{
 			unsafe {
 				fixed (float* p_params = @params)
@@ -562,7 +562,7 @@ namespace OpenGL
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_register_combiners")]
-		public static void GetCombinerInputParameterNV(int stage, int portion, int variable, int pname, Int32[] @params)
+		public static void GetCombinerInputParameterNV(int stage, int portion, int variable, int pname, [Out] Int32[] @params)
 		{
 			unsafe {
 				fixed (Int32* p_params = @params)
@@ -591,7 +591,7 @@ namespace OpenGL
 		/// A <see cref="T:float[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_register_combiners")]
-		public static void GetCombinerOutputParameterNV(int stage, int portion, int pname, float[] @params)
+		public static void GetCombinerOutputParameterNV(int stage, int portion, int pname, [Out] float[] @params)
 		{
 			unsafe {
 				fixed (float* p_params = @params)
@@ -620,7 +620,7 @@ namespace OpenGL
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_register_combiners")]
-		public static void GetCombinerOutputParameterNV(int stage, int portion, int pname, Int32[] @params)
+		public static void GetCombinerOutputParameterNV(int stage, int portion, int pname, [Out] Int32[] @params)
 		{
 			unsafe {
 				fixed (Int32* p_params = @params)
@@ -646,7 +646,7 @@ namespace OpenGL
 		/// A <see cref="T:float[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_register_combiners")]
-		public static void GetFinalCombinerInputParameterNV(int variable, int pname, float[] @params)
+		public static void GetFinalCombinerInputParameterNV(int variable, int pname, [Out] float[] @params)
 		{
 			unsafe {
 				fixed (float* p_params = @params)
@@ -672,7 +672,7 @@ namespace OpenGL
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_register_combiners")]
-		public static void GetFinalCombinerInputParameterNV(int variable, int pname, Int32[] @params)
+		public static void GetFinalCombinerInputParameterNV(int variable, int pname, [Out] Int32[] @params)
 		{
 			unsafe {
 				fixed (Int32* p_params = @params)

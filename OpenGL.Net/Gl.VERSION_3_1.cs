@@ -825,7 +825,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.LinkProgram"/>
 		[RequiredByFeature("GL_VERSION_3_1")]
 		[RequiredByFeature("GL_ARB_uniform_buffer_object")]
-		public static void GetUniformIndices(UInt32 program, Int32 uniformCount, String[] uniformNames, UInt32[] uniformIndices)
+		public static void GetUniformIndices(UInt32 program, Int32 uniformCount, String[] uniformNames, [Out] UInt32[] uniformIndices)
 		{
 			unsafe {
 				fixed (UInt32* p_uniformIndices = uniformIndices)
@@ -883,7 +883,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.UseProgram"/>
 		[RequiredByFeature("GL_VERSION_3_1")]
 		[RequiredByFeature("GL_ARB_uniform_buffer_object")]
-		public static void GetActiveUniforms(UInt32 program, UInt32[] uniformIndices, int pname, Int32[] @params)
+		public static void GetActiveUniforms(UInt32 program, UInt32[] uniformIndices, int pname, [Out] Int32[] @params)
 		{
 			unsafe {
 				fixed (UInt32* p_uniformIndices = uniformIndices)
@@ -1015,7 +1015,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.LinkProgram"/>
 		[RequiredByFeature("GL_VERSION_3_1")]
 		[RequiredByFeature("GL_ARB_uniform_buffer_object")]
-		public static void GetActiveUniformBlock(UInt32 program, UInt32 uniformBlockIndex, int pname, Int32[] @params)
+		public static void GetActiveUniformBlock(UInt32 program, UInt32 uniformBlockIndex, int pname, [Out] Int32[] @params)
 		{
 			unsafe {
 				fixed (Int32* p_params = @params)

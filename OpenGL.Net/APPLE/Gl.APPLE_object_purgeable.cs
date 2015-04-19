@@ -127,7 +127,7 @@ namespace OpenGL
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_APPLE_object_purgeable")]
-		public static void GetObjectParameterAPPLE(int objectType, UInt32 name, int pname, Int32[] @params)
+		public static void GetObjectParameterAPPLE(int objectType, UInt32 name, int pname, [Out] Int32[] @params)
 		{
 			unsafe {
 				fixed (Int32* p_params = @params)

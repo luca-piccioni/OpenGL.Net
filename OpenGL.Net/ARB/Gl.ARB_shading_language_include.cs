@@ -187,7 +187,7 @@ namespace OpenGL
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_ARB_shading_language_include")]
-		public static void GetNamedStringARB(Int32 namelen, String name, int pname, Int32[] @params)
+		public static void GetNamedStringARB(Int32 namelen, String name, int pname, [Out] Int32[] @params)
 		{
 			unsafe {
 				fixed (Int32* p_params = @params)

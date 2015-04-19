@@ -186,7 +186,7 @@ namespace OpenGL
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_pixel_transform")]
-		public static void GetPixelTransformParameterEXT(int target, int pname, Int32[] @params)
+		public static void GetPixelTransformParameterEXT(int target, int pname, [Out] Int32[] @params)
 		{
 			unsafe {
 				fixed (Int32* p_params = @params)
@@ -212,7 +212,7 @@ namespace OpenGL
 		/// A <see cref="T:float[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_pixel_transform")]
-		public static void GetPixelTransformParameterEXT(int target, int pname, float[] @params)
+		public static void GetPixelTransformParameterEXT(int target, int pname, [Out] float[] @params)
 		{
 			unsafe {
 				fixed (float* p_params = @params)

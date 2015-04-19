@@ -633,7 +633,7 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_AMD_gpu_shader_int64")]
 		[RequiredByFeature("GL_NV_gpu_shader5")]
-		public static void GetUniformNV(UInt32 program, Int32 location, Int64[] @params)
+		public static void GetUniformNV(UInt32 program, Int32 location, [Out] Int64[] @params)
 		{
 			unsafe {
 				fixed (Int64* p_params = @params)

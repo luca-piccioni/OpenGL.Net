@@ -50,7 +50,7 @@ namespace OpenGL
 		/// A <see cref="T:int[]"/>.
 		/// </param>
 		[RequiredByFeature("WGL_I3D_gamma")]
-		public static bool GetGammaTableParametersI3D(IntPtr hDC, int iAttribute, int[] piValue)
+		public static bool GetGammaTableParametersI3D(IntPtr hDC, int iAttribute, [Out] int[] piValue)
 		{
 			bool retValue;
 
@@ -114,7 +114,7 @@ namespace OpenGL
 		/// A <see cref="T:UInt16[]"/>.
 		/// </param>
 		[RequiredByFeature("WGL_I3D_gamma")]
-		public static bool GetGammaTableI3D(IntPtr hDC, int iEntries, UInt16[] puRed, UInt16[] puGreen, UInt16[] puBlue)
+		public static bool GetGammaTableI3D(IntPtr hDC, int iEntries, [Out] UInt16[] puRed, [Out] UInt16[] puGreen, [Out] UInt16[] puBlue)
 		{
 			bool retValue;
 

@@ -1098,7 +1098,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexParameter"/>
 		/// <seealso cref="Gl.ColorTableParameter"/>
 		[RequiredByFeature("GL_ARB_imaging")]
-		public static void GetColorTableParameter(int target, int pname, float[] @params)
+		public static void GetColorTableParameter(int target, int pname, [Out] float[] @params)
 		{
 			unsafe {
 				fixed (float* p_params = @params)
@@ -1139,7 +1139,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexParameter"/>
 		/// <seealso cref="Gl.ColorTableParameter"/>
 		[RequiredByFeature("GL_ARB_imaging")]
-		public static void GetColorTableParameter(int target, int pname, Int32[] @params)
+		public static void GetColorTableParameter(int target, int pname, [Out] Int32[] @params)
 		{
 			unsafe {
 				fixed (Int32* p_params = @params)
@@ -2193,7 +2193,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.GetSeparableFilter"/>
 		/// <seealso cref="Gl.ConvolutionParameter"/>
 		[RequiredByFeature("GL_ARB_imaging")]
-		public static void GetConvolutionParameter(int target, int pname, float[] @params)
+		public static void GetConvolutionParameter(int target, int pname, [Out] float[] @params)
 		{
 			unsafe {
 				fixed (float* p_params = @params)
@@ -2241,7 +2241,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.GetSeparableFilter"/>
 		/// <seealso cref="Gl.ConvolutionParameter"/>
 		[RequiredByFeature("GL_ARB_imaging")]
-		public static void GetConvolutionParameter(int target, int pname, Int32[] @params)
+		public static void GetConvolutionParameter(int target, int pname, [Out] Int32[] @params)
 		{
 			unsafe {
 				fixed (Int32* p_params = @params)
@@ -2805,7 +2805,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.GetHistogram"/>
 		/// <seealso cref="Gl.Histogram"/>
 		[RequiredByFeature("GL_ARB_imaging")]
-		public static void GetHistogramParameter(int target, int pname, float[] @params)
+		public static void GetHistogramParameter(int target, int pname, [Out] float[] @params)
 		{
 			unsafe {
 				fixed (float* p_params = @params)
@@ -2847,7 +2847,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.GetHistogram"/>
 		/// <seealso cref="Gl.Histogram"/>
 		[RequiredByFeature("GL_ARB_imaging")]
-		public static void GetHistogramParameter(int target, int pname, Int32[] @params)
+		public static void GetHistogramParameter(int target, int pname, [Out] Int32[] @params)
 		{
 			unsafe {
 				fixed (Int32* p_params = @params)
@@ -3029,7 +3029,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.Minmax"/>
 		/// <seealso cref="Gl.GetMinmax"/>
 		[RequiredByFeature("GL_ARB_imaging")]
-		public static void GetMinmaxParameter(int target, int pname, float[] @params)
+		public static void GetMinmaxParameter(int target, int pname, [Out] float[] @params)
 		{
 			unsafe {
 				fixed (float* p_params = @params)
@@ -3069,7 +3069,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.Minmax"/>
 		/// <seealso cref="Gl.GetMinmax"/>
 		[RequiredByFeature("GL_ARB_imaging")]
-		public static void GetMinmaxParameter(int target, int pname, Int32[] @params)
+		public static void GetMinmaxParameter(int target, int pname, [Out] Int32[] @params)
 		{
 			unsafe {
 				fixed (Int32* p_params = @params)

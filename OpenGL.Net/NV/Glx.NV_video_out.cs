@@ -238,7 +238,7 @@ namespace OpenGL
 		/// A <see cref="T:UInt32[]"/>.
 		/// </param>
 		[RequiredByFeature("GLX_NV_video_out")]
-		public static int GetVideoInfoNV(IntPtr dpy, int screen, IntPtr VideoDevice, UInt32[] pulCounterOutputPbuffer, UInt32[] pulCounterOutputVideo)
+		public static int GetVideoInfoNV(IntPtr dpy, int screen, IntPtr VideoDevice, [Out] UInt32[] pulCounterOutputPbuffer, [Out] UInt32[] pulCounterOutputVideo)
 		{
 			int retValue;
 

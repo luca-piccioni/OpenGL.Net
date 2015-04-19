@@ -222,7 +222,7 @@ namespace OpenGL
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_HP_image_transform")]
-		public static void GetImageTransformParameterHP(int target, int pname, Int32[] @params)
+		public static void GetImageTransformParameterHP(int target, int pname, [Out] Int32[] @params)
 		{
 			unsafe {
 				fixed (Int32* p_params = @params)
@@ -248,7 +248,7 @@ namespace OpenGL
 		/// A <see cref="T:float[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_HP_image_transform")]
-		public static void GetImageTransformParameterHP(int target, int pname, float[] @params)
+		public static void GetImageTransformParameterHP(int target, int pname, [Out] float[] @params)
 		{
 			unsafe {
 				fixed (float* p_params = @params)

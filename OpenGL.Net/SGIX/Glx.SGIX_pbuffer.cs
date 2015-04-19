@@ -161,7 +161,7 @@ namespace OpenGL
 		/// A <see cref="T:UInt32[]"/>.
 		/// </param>
 		[RequiredByFeature("GLX_SGIX_pbuffer")]
-		public static void GetSelectedEventSGIX(IntPtr dpy, IntPtr drawable, UInt32[] mask)
+		public static void GetSelectedEventSGIX(IntPtr dpy, IntPtr drawable, [Out] UInt32[] mask)
 		{
 			unsafe {
 				fixed (UInt32* p_mask = mask)

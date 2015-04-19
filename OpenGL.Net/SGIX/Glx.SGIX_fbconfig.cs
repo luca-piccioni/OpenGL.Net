@@ -41,7 +41,7 @@ namespace OpenGL
 		/// A <see cref="T:int[]"/>.
 		/// </param>
 		[RequiredByFeature("GLX_SGIX_fbconfig")]
-		public static int GetFBConfigAttribSGIX(IntPtr dpy, IntPtr config, int attribute, int[] value)
+		public static int GetFBConfigAttribSGIX(IntPtr dpy, IntPtr config, int attribute, [Out] int[] value)
 		{
 			int retValue;
 

@@ -356,7 +356,7 @@ namespace OpenGL
 		/// A <see cref="T:UInt64[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_ARB_bindless_texture")]
-		public static void GetVertexAttribLARB(UInt32 index, int pname, UInt64[] @params)
+		public static void GetVertexAttribLARB(UInt32 index, int pname, [Out] UInt64[] @params)
 		{
 			unsafe {
 				fixed (UInt64* p_params = @params)

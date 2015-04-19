@@ -2586,7 +2586,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.GetFramebufferAttachmentParameter"/>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ARB_framebuffer_no_attachments")]
-		public static void GetFramebufferParameter(int target, int pname, Int32[] @params)
+		public static void GetFramebufferParameter(int target, int pname, [Out] Int32[] @params)
 		{
 			unsafe {
 				fixed (Int32* p_params = @params)
@@ -2637,7 +2637,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.Get"/>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ARB_internalformat_query2")]
-		public static void GetInternalformat(int target, int internalformat, int pname, Int64[] @params)
+		public static void GetInternalformat(int target, int internalformat, int pname, [Out] Int64[] @params)
 		{
 			unsafe {
 				fixed (Int64* p_params = @params)
@@ -3221,7 +3221,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.GetObjectLabel"/>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ARB_program_interface_query")]
-		public static void GetProgramInterface(UInt32 program, int programInterface, int pname, Int32[] @params)
+		public static void GetProgramInterface(UInt32 program, int programInterface, int pname, [Out] Int32[] @params)
 		{
 			unsafe {
 				fixed (Int32* p_params = @params)
@@ -3385,7 +3385,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.GetProgramResourceLocationIndex"/>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ARB_program_interface_query")]
-		public static void GetProgramResource(UInt32 program, int programInterface, UInt32 index, int[] props, out Int32 length, Int32[] @params)
+		public static void GetProgramResource(UInt32 program, int programInterface, UInt32 index, int[] props, out Int32 length, [Out] Int32[] @params)
 		{
 			unsafe {
 				fixed (int* p_props = props)
@@ -4313,7 +4313,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.DebugMessageControl"/>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_KHR_debug")]
-		public static UInt32 GetDebugMessageLog(Int32 bufSize, int[] sources, int[] types, UInt32[] ids, int[] severities, Int32[] lengths, [Out] StringBuilder messageLog)
+		public static UInt32 GetDebugMessageLog(Int32 bufSize, [Out] int[] sources, [Out] int[] types, [Out] UInt32[] ids, [Out] int[] severities, [Out] Int32[] lengths, [Out] StringBuilder messageLog)
 		{
 			UInt32 retValue;
 

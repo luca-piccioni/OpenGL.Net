@@ -213,7 +213,7 @@ namespace OpenGL
 		/// A <see cref="T:int[]"/>.
 		/// </param>
 		[RequiredByFeature("EGL_NV_sync")]
-		public static IntPtr GetSyncAttribNV(IntPtr sync, int attribute, int[] value)
+		public static IntPtr GetSyncAttribNV(IntPtr sync, int attribute, [Out] int[] value)
 		{
 			IntPtr retValue;
 

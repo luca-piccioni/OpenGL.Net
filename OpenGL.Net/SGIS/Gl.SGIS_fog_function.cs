@@ -73,7 +73,7 @@ namespace OpenGL
 		/// A <see cref="T:float[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_SGIS_fog_function")]
-		public static void GetFogFuncSGIS(float[] points)
+		public static void GetFogFuncSGIS([Out] float[] points)
 		{
 			unsafe {
 				fixed (float* p_points = points)

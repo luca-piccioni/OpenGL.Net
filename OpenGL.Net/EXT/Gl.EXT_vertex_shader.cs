@@ -1457,7 +1457,7 @@ namespace OpenGL
 		/// A <see cref="T:bool[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_vertex_shader")]
-		public static void GetVariantBooleanEXT(UInt32 id, int value, bool[] data)
+		public static void GetVariantBooleanEXT(UInt32 id, int value, [Out] bool[] data)
 		{
 			unsafe {
 				fixed (bool* p_data = data)
@@ -1483,7 +1483,7 @@ namespace OpenGL
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_vertex_shader")]
-		public static void GetVariantIntegerEXT(UInt32 id, int value, Int32[] data)
+		public static void GetVariantIntegerEXT(UInt32 id, int value, [Out] Int32[] data)
 		{
 			unsafe {
 				fixed (Int32* p_data = data)
@@ -1509,7 +1509,7 @@ namespace OpenGL
 		/// A <see cref="T:float[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_vertex_shader")]
-		public static void GetVariantFloatEXT(UInt32 id, int value, float[] data)
+		public static void GetVariantFloatEXT(UInt32 id, int value, [Out] float[] data)
 		{
 			unsafe {
 				fixed (float* p_data = data)
@@ -1535,7 +1535,7 @@ namespace OpenGL
 		/// A <see cref="T:IntPtr[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_vertex_shader")]
-		public static void GetVariantPointerEXT(UInt32 id, int value, IntPtr[] data)
+		public static void GetVariantPointerEXT(UInt32 id, int value, [Out] IntPtr[] data)
 		{
 			unsafe {
 				fixed (IntPtr* p_data = data)
@@ -1561,7 +1561,7 @@ namespace OpenGL
 		/// A <see cref="T:bool[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_vertex_shader")]
-		public static void GetInvariantBooleanEXT(UInt32 id, int value, bool[] data)
+		public static void GetInvariantBooleanEXT(UInt32 id, int value, [Out] bool[] data)
 		{
 			unsafe {
 				fixed (bool* p_data = data)
@@ -1587,7 +1587,7 @@ namespace OpenGL
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_vertex_shader")]
-		public static void GetInvariantIntegerEXT(UInt32 id, int value, Int32[] data)
+		public static void GetInvariantIntegerEXT(UInt32 id, int value, [Out] Int32[] data)
 		{
 			unsafe {
 				fixed (Int32* p_data = data)
@@ -1613,7 +1613,7 @@ namespace OpenGL
 		/// A <see cref="T:float[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_vertex_shader")]
-		public static void GetInvariantFloatEXT(UInt32 id, int value, float[] data)
+		public static void GetInvariantFloatEXT(UInt32 id, int value, [Out] float[] data)
 		{
 			unsafe {
 				fixed (float* p_data = data)
@@ -1639,7 +1639,7 @@ namespace OpenGL
 		/// A <see cref="T:bool[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_vertex_shader")]
-		public static void GetLocalConstantBooleanEXT(UInt32 id, int value, bool[] data)
+		public static void GetLocalConstantBooleanEXT(UInt32 id, int value, [Out] bool[] data)
 		{
 			unsafe {
 				fixed (bool* p_data = data)
@@ -1665,7 +1665,7 @@ namespace OpenGL
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_vertex_shader")]
-		public static void GetLocalConstantIntegerEXT(UInt32 id, int value, Int32[] data)
+		public static void GetLocalConstantIntegerEXT(UInt32 id, int value, [Out] Int32[] data)
 		{
 			unsafe {
 				fixed (Int32* p_data = data)
@@ -1691,7 +1691,7 @@ namespace OpenGL
 		/// A <see cref="T:float[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_vertex_shader")]
-		public static void GetLocalConstantFloatEXT(UInt32 id, int value, float[] data)
+		public static void GetLocalConstantFloatEXT(UInt32 id, int value, [Out] float[] data)
 		{
 			unsafe {
 				fixed (float* p_data = data)

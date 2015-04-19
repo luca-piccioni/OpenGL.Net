@@ -41,7 +41,7 @@ namespace OpenGL
 		/// A <see cref="T:long []"/>.
 		/// </param>
 		[RequiredByFeature("GLX_SUN_get_transparent_index")]
-		public static Int32 GetTransparentIndexSUN(IntPtr dpy, IntPtr overlay, IntPtr underlay, long [] pTransparentIndex)
+		public static Int32 GetTransparentIndexSUN(IntPtr dpy, IntPtr overlay, IntPtr underlay, [Out] long [] pTransparentIndex)
 		{
 			Int32 retValue;
 

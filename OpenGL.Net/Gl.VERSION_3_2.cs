@@ -1170,7 +1170,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.IsEnabled"/>
 		[RequiredByFeature("GL_VERSION_3_2")]
 		[RequiredByFeature("GL_ARB_sync")]
-		public static void Get(int pname, Int64[] data)
+		public static void Get(int pname, [Out] Int64[] data)
 		{
 			unsafe {
 				fixed (Int64* p_data = data)
@@ -1272,7 +1272,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.ClientWaitSync"/>
 		[RequiredByFeature("GL_VERSION_3_2")]
 		[RequiredByFeature("GL_ARB_sync")]
-		public static void GetSync(int sync, int pname, out Int32 length, Int32[] values)
+		public static void GetSync(int sync, int pname, out Int32 length, [Out] Int32[] values)
 		{
 			unsafe {
 				fixed (Int32* p_length = &length)
@@ -1333,7 +1333,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.GetVertexAttribPointerv"/>
 		/// <seealso cref="Gl.IsEnabled"/>
 		[RequiredByFeature("GL_VERSION_3_2")]
-		public static void Get(int target, UInt32 index, Int64[] data)
+		public static void Get(int target, UInt32 index, [Out] Int64[] data)
 		{
 			unsafe {
 				fixed (Int64* p_data = data)
@@ -1442,7 +1442,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.MapBuffer"/>
 		/// <seealso cref="Gl.UnmapBuffer"/>
 		[RequiredByFeature("GL_VERSION_3_2")]
-		public static void GetBufferParameter(BufferTargetARB target, int pname, Int64[] @params)
+		public static void GetBufferParameter(BufferTargetARB target, int pname, [Out] Int64[] @params)
 		{
 			unsafe {
 				fixed (Int64* p_params = @params)
@@ -1666,7 +1666,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.BindFramebuffer"/>
 		[RequiredByFeature("GL_VERSION_3_2")]
 		[RequiredByFeature("GL_ARB_texture_multisample")]
-		public static void GetMultisample(int pname, UInt32 index, float[] val)
+		public static void GetMultisample(int pname, UInt32 index, [Out] float[] val)
 		{
 			unsafe {
 				fixed (float* p_val = val)

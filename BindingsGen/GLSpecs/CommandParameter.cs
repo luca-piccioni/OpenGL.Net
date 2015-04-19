@@ -216,10 +216,14 @@ namespace BindingsGen.GLSpecs
 		public string GetImplementationTypeAttributes(RegistryContext ctx, Command parentCommand)
 		{
 			string implementationType = ManagedImplementationType;
+			string implementationMod = GetImplementationTypeModifier(ctx, parentCommand);
 			string attribute = null;
 
 			// String + Length!=null && !IsConst -> [Out] StringBuilder (in Get commands)
 			if ((IsConstant == false) && (implementationType == "String") && (Length != null) && ((parentCommand.IsGetImplementation(ctx) || ((parentCommand.Flags & CommandFlags.OutParam) != 0))))
+				attribute = "[Out]";
+			// Array && !IsConst -> [Out] T[] (in Get commands)
+			if ((IsConstant == false) && (implementationType.EndsWith("[]")) && ((implementationMod != "out") && (implementationMod != "ref")) && ((parentCommand.IsGetImplementation(ctx) || ((parentCommand.Flags & CommandFlags.OutParam) != 0))))
 				attribute = "[Out]";
 
 			return (attribute);

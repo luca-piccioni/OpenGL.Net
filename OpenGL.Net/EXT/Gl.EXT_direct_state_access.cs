@@ -1083,7 +1083,7 @@ namespace OpenGL
 		/// A <see cref="T:float[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access")]
-		public static void GetTextureParameterEXT(UInt32 texture, TextureTarget target, GetTextureParameter pname, float[] @params)
+		public static void GetTextureParameterEXT(UInt32 texture, TextureTarget target, GetTextureParameter pname, [Out] float[] @params)
 		{
 			unsafe {
 				fixed (float* p_params = @params)
@@ -1112,7 +1112,7 @@ namespace OpenGL
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access")]
-		public static void GetTextureParameterEXT(UInt32 texture, TextureTarget target, GetTextureParameter pname, Int32[] @params)
+		public static void GetTextureParameterEXT(UInt32 texture, TextureTarget target, GetTextureParameter pname, [Out] Int32[] @params)
 		{
 			unsafe {
 				fixed (Int32* p_params = @params)
@@ -1144,7 +1144,7 @@ namespace OpenGL
 		/// A <see cref="T:float[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access")]
-		public static void GetTextureLevelParameterEXT(UInt32 texture, TextureTarget target, Int32 level, GetTextureParameter pname, float[] @params)
+		public static void GetTextureLevelParameterEXT(UInt32 texture, TextureTarget target, Int32 level, GetTextureParameter pname, [Out] float[] @params)
 		{
 			unsafe {
 				fixed (float* p_params = @params)
@@ -1176,7 +1176,7 @@ namespace OpenGL
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access")]
-		public static void GetTextureLevelParameterEXT(UInt32 texture, TextureTarget target, Int32 level, GetTextureParameter pname, Int32[] @params)
+		public static void GetTextureLevelParameterEXT(UInt32 texture, TextureTarget target, Int32 level, GetTextureParameter pname, [Out] Int32[] @params)
 		{
 			unsafe {
 				fixed (Int32* p_params = @params)
@@ -1779,7 +1779,7 @@ namespace OpenGL
 		/// A <see cref="T:float[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access")]
-		public static void GetMultiTexEnvEXT(int texunit, TextureEnvTarget target, TextureEnvParameter pname, float[] @params)
+		public static void GetMultiTexEnvEXT(int texunit, TextureEnvTarget target, TextureEnvParameter pname, [Out] float[] @params)
 		{
 			unsafe {
 				fixed (float* p_params = @params)
@@ -1808,7 +1808,7 @@ namespace OpenGL
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access")]
-		public static void GetMultiTexEnvEXT(int texunit, TextureEnvTarget target, TextureEnvParameter pname, Int32[] @params)
+		public static void GetMultiTexEnvEXT(int texunit, TextureEnvTarget target, TextureEnvParameter pname, [Out] Int32[] @params)
 		{
 			unsafe {
 				fixed (Int32* p_params = @params)
@@ -1837,7 +1837,7 @@ namespace OpenGL
 		/// A <see cref="T:double[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access")]
-		public static void GetMultiTexGenEXT(int texunit, TextureCoordName coord, TextureGenParameter pname, double[] @params)
+		public static void GetMultiTexGenEXT(int texunit, TextureCoordName coord, TextureGenParameter pname, [Out] double[] @params)
 		{
 			unsafe {
 				fixed (double* p_params = @params)
@@ -1866,7 +1866,7 @@ namespace OpenGL
 		/// A <see cref="T:float[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access")]
-		public static void GetMultiTexGenEXT(int texunit, TextureCoordName coord, TextureGenParameter pname, float[] @params)
+		public static void GetMultiTexGenEXT(int texunit, TextureCoordName coord, TextureGenParameter pname, [Out] float[] @params)
 		{
 			unsafe {
 				fixed (float* p_params = @params)
@@ -1895,7 +1895,7 @@ namespace OpenGL
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access")]
-		public static void GetMultiTexGenEXT(int texunit, TextureCoordName coord, TextureGenParameter pname, Int32[] @params)
+		public static void GetMultiTexGenEXT(int texunit, TextureCoordName coord, TextureGenParameter pname, [Out] Int32[] @params)
 		{
 			unsafe {
 				fixed (Int32* p_params = @params)
@@ -2565,7 +2565,7 @@ namespace OpenGL
 		/// A <see cref="T:float[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access")]
-		public static void GetMultiTexParameterEXT(int texunit, TextureTarget target, GetTextureParameter pname, float[] @params)
+		public static void GetMultiTexParameterEXT(int texunit, TextureTarget target, GetTextureParameter pname, [Out] float[] @params)
 		{
 			unsafe {
 				fixed (float* p_params = @params)
@@ -2594,7 +2594,7 @@ namespace OpenGL
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access")]
-		public static void GetMultiTexParameterEXT(int texunit, TextureTarget target, GetTextureParameter pname, Int32[] @params)
+		public static void GetMultiTexParameterEXT(int texunit, TextureTarget target, GetTextureParameter pname, [Out] Int32[] @params)
 		{
 			unsafe {
 				fixed (Int32* p_params = @params)
@@ -2626,7 +2626,7 @@ namespace OpenGL
 		/// A <see cref="T:float[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access")]
-		public static void GetMultiTexLevelParameterEXT(int texunit, TextureTarget target, Int32 level, GetTextureParameter pname, float[] @params)
+		public static void GetMultiTexLevelParameterEXT(int texunit, TextureTarget target, Int32 level, GetTextureParameter pname, [Out] float[] @params)
 		{
 			unsafe {
 				fixed (float* p_params = @params)
@@ -2658,7 +2658,7 @@ namespace OpenGL
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access")]
-		public static void GetMultiTexLevelParameterEXT(int texunit, TextureTarget target, Int32 level, GetTextureParameter pname, Int32[] @params)
+		public static void GetMultiTexLevelParameterEXT(int texunit, TextureTarget target, Int32 level, GetTextureParameter pname, [Out] Int32[] @params)
 		{
 			unsafe {
 				fixed (Int32* p_params = @params)
@@ -4330,7 +4330,7 @@ namespace OpenGL
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access")]
-		public static void GetNamedBufferParameterEXT(UInt32 buffer, int pname, Int32[] @params)
+		public static void GetNamedBufferParameterEXT(UInt32 buffer, int pname, [Out] Int32[] @params)
 		{
 			unsafe {
 				fixed (Int32* p_params = @params)
@@ -4564,7 +4564,7 @@ namespace OpenGL
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access")]
-		public static void GetTextureParameterIEXT(UInt32 texture, TextureTarget target, GetTextureParameter pname, Int32[] @params)
+		public static void GetTextureParameterIEXT(UInt32 texture, TextureTarget target, GetTextureParameter pname, [Out] Int32[] @params)
 		{
 			unsafe {
 				fixed (Int32* p_params = @params)
@@ -4593,7 +4593,7 @@ namespace OpenGL
 		/// A <see cref="T:UInt32[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access")]
-		public static void GetTextureParameterIEXT(UInt32 texture, TextureTarget target, GetTextureParameter pname, UInt32[] @params)
+		public static void GetTextureParameterIEXT(UInt32 texture, TextureTarget target, GetTextureParameter pname, [Out] UInt32[] @params)
 		{
 			unsafe {
 				fixed (UInt32* p_params = @params)
@@ -4680,7 +4680,7 @@ namespace OpenGL
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access")]
-		public static void GetMultiTexParameterIEXT(int texunit, TextureTarget target, GetTextureParameter pname, Int32[] @params)
+		public static void GetMultiTexParameterIEXT(int texunit, TextureTarget target, GetTextureParameter pname, [Out] Int32[] @params)
 		{
 			unsafe {
 				fixed (Int32* p_params = @params)
@@ -4709,7 +4709,7 @@ namespace OpenGL
 		/// A <see cref="T:UInt32[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access")]
-		public static void GetMultiTexParameterIEXT(int texunit, TextureTarget target, GetTextureParameter pname, UInt32[] @params)
+		public static void GetMultiTexParameterIEXT(int texunit, TextureTarget target, GetTextureParameter pname, [Out] UInt32[] @params)
 		{
 			unsafe {
 				fixed (UInt32* p_params = @params)
@@ -4958,7 +4958,7 @@ namespace OpenGL
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access")]
-		public static void GetNamedProgramLocalParameterIEXT(UInt32 program, int target, UInt32 index, Int32[] @params)
+		public static void GetNamedProgramLocalParameterIEXT(UInt32 program, int target, UInt32 index, [Out] Int32[] @params)
 		{
 			unsafe {
 				fixed (Int32* p_params = @params)
@@ -4987,7 +4987,7 @@ namespace OpenGL
 		/// A <see cref="T:UInt32[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access")]
-		public static void GetNamedProgramLocalParameterIEXT(UInt32 program, int target, UInt32 index, UInt32[] @params)
+		public static void GetNamedProgramLocalParameterIEXT(UInt32 program, int target, UInt32 index, [Out] UInt32[] @params)
 		{
 			unsafe {
 				fixed (UInt32* p_params = @params)
@@ -5281,7 +5281,7 @@ namespace OpenGL
 		/// A <see cref="T:double[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access")]
-		public static void GetNamedProgramLocalParameterEXT(UInt32 program, int target, UInt32 index, double[] @params)
+		public static void GetNamedProgramLocalParameterEXT(UInt32 program, int target, UInt32 index, [Out] double[] @params)
 		{
 			unsafe {
 				fixed (double* p_params = @params)
@@ -5310,7 +5310,7 @@ namespace OpenGL
 		/// A <see cref="T:float[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access")]
-		public static void GetNamedProgramLocalParameterEXT(UInt32 program, int target, UInt32 index, float[] @params)
+		public static void GetNamedProgramLocalParameterEXT(UInt32 program, int target, UInt32 index, [Out] float[] @params)
 		{
 			unsafe {
 				fixed (float* p_params = @params)
@@ -5439,7 +5439,7 @@ namespace OpenGL
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access")]
-		public static void GetNamedRenderbufferParameterEXT(UInt32 renderbuffer, int pname, Int32[] @params)
+		public static void GetNamedRenderbufferParameterEXT(UInt32 renderbuffer, int pname, [Out] Int32[] @params)
 		{
 			unsafe {
 				fixed (Int32* p_params = @params)
@@ -5655,7 +5655,7 @@ namespace OpenGL
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access")]
-		public static void GetNamedFramebufferAttachmentParameterEXT(UInt32 framebuffer, int attachment, int pname, Int32[] @params)
+		public static void GetNamedFramebufferAttachmentParameterEXT(UInt32 framebuffer, int attachment, int pname, [Out] Int32[] @params)
 		{
 			unsafe {
 				fixed (Int32* p_params = @params)
@@ -5779,7 +5779,7 @@ namespace OpenGL
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access")]
-		public static void GetFramebufferParameterEXT(UInt32 framebuffer, int pname, Int32[] @params)
+		public static void GetFramebufferParameterEXT(UInt32 framebuffer, int pname, [Out] Int32[] @params)
 		{
 			unsafe {
 				fixed (Int32* p_params = @params)
@@ -6351,7 +6351,7 @@ namespace OpenGL
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access")]
-		public static void GetVertexArrayIntegerEXT(UInt32 vaobj, int pname, Int32[] param)
+		public static void GetVertexArrayIntegerEXT(UInt32 vaobj, int pname, [Out] Int32[] param)
 		{
 			unsafe {
 				fixed (Int32* p_param = param)
@@ -6429,7 +6429,7 @@ namespace OpenGL
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access")]
-		public static void GetVertexArrayIntegerEXT(UInt32 vaobj, UInt32 index, int pname, Int32[] param)
+		public static void GetVertexArrayIntegerEXT(UInt32 vaobj, UInt32 index, int pname, [Out] Int32[] param)
 		{
 			unsafe {
 				fixed (Int32* p_param = param)
@@ -6458,7 +6458,7 @@ namespace OpenGL
 		/// A <see cref="T:IntPtr[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access")]
-		public static void GetVertexArrayPointerEXT(UInt32 vaobj, UInt32 index, int pname, IntPtr[] param)
+		public static void GetVertexArrayPointerEXT(UInt32 vaobj, UInt32 index, int pname, [Out] IntPtr[] param)
 		{
 			unsafe {
 				fixed (IntPtr* p_param = param)
@@ -6728,7 +6728,7 @@ namespace OpenGL
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access")]
-		public static void GetNamedFramebufferParameterEXT(UInt32 framebuffer, int pname, Int32[] @params)
+		public static void GetNamedFramebufferParameterEXT(UInt32 framebuffer, int pname, [Out] Int32[] @params)
 		{
 			unsafe {
 				fixed (Int32* p_params = @params)

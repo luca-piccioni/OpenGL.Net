@@ -382,7 +382,7 @@ namespace OpenGL
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_evaluators")]
-		public static void GetMapParameterNV(int target, int pname, Int32[] @params)
+		public static void GetMapParameterNV(int target, int pname, [Out] Int32[] @params)
 		{
 			unsafe {
 				fixed (Int32* p_params = @params)
@@ -408,7 +408,7 @@ namespace OpenGL
 		/// A <see cref="T:float[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_evaluators")]
-		public static void GetMapParameterNV(int target, int pname, float[] @params)
+		public static void GetMapParameterNV(int target, int pname, [Out] float[] @params)
 		{
 			unsafe {
 				fixed (float* p_params = @params)
@@ -437,7 +437,7 @@ namespace OpenGL
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_evaluators")]
-		public static void GetMapAttribParameterNV(int target, UInt32 index, int pname, Int32[] @params)
+		public static void GetMapAttribParameterNV(int target, UInt32 index, int pname, [Out] Int32[] @params)
 		{
 			unsafe {
 				fixed (Int32* p_params = @params)
@@ -466,7 +466,7 @@ namespace OpenGL
 		/// A <see cref="T:float[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_evaluators")]
-		public static void GetMapAttribParameterNV(int target, UInt32 index, int pname, float[] @params)
+		public static void GetMapAttribParameterNV(int target, UInt32 index, int pname, [Out] float[] @params)
 		{
 			unsafe {
 				fixed (float* p_params = @params)

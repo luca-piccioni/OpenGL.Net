@@ -62,7 +62,7 @@ namespace OpenGL
 		/// A <see cref="T:int[]"/>.
 		/// </param>
 		[RequiredByFeature("WGL_I3D_digital_video_control")]
-		public static bool GetDigitalVideoParametersI3D(IntPtr hDC, int iAttribute, int[] piValue)
+		public static bool GetDigitalVideoParametersI3D(IntPtr hDC, int iAttribute, [Out] int[] piValue)
 		{
 			bool retValue;
 

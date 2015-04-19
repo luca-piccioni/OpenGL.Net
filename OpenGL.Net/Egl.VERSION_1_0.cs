@@ -822,7 +822,7 @@ namespace OpenGL
 		/// Returns the requested value.
 		/// </param>
 		[RequiredByFeature("EGL_VERSION_1_0")]
-		public static IntPtr GetConfigAttrib(IntPtr dpy, IntPtr config, int attribute, int[] value)
+		public static IntPtr GetConfigAttrib(IntPtr dpy, IntPtr config, int attribute, [Out] int[] value)
 		{
 			IntPtr retValue;
 
@@ -855,7 +855,7 @@ namespace OpenGL
 		/// Returns the number of configs returned.
 		/// </param>
 		[RequiredByFeature("EGL_VERSION_1_0")]
-		public static IntPtr GetConfigs(IntPtr dpy, IntPtr[] configs, int config_size, int[] num_config)
+		public static IntPtr GetConfigs(IntPtr dpy, [Out] IntPtr[] configs, int config_size, [Out] int[] num_config)
 		{
 			IntPtr retValue;
 

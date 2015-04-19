@@ -109,7 +109,7 @@ namespace OpenGL
 		/// A <see cref="T:float[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_SGIS_detail_texture")]
-		public static void GetDetailTexFuncSGIS(TextureTarget target, float[] points)
+		public static void GetDetailTexFuncSGIS(TextureTarget target, [Out] float[] points)
 		{
 			unsafe {
 				fixed (float* p_points = points)

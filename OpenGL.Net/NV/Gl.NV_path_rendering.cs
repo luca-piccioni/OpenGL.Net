@@ -2151,7 +2151,7 @@ namespace OpenGL
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_path_rendering")]
-		public static void GetPathParameterNV(UInt32 path, int pname, Int32[] value)
+		public static void GetPathParameterNV(UInt32 path, int pname, [Out] Int32[] value)
 		{
 			unsafe {
 				fixed (Int32* p_value = value)
@@ -2177,7 +2177,7 @@ namespace OpenGL
 		/// A <see cref="T:float[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_path_rendering")]
-		public static void GetPathParameterNV(UInt32 path, int pname, float[] value)
+		public static void GetPathParameterNV(UInt32 path, int pname, [Out] float[] value)
 		{
 			unsafe {
 				fixed (float* p_value = value)
@@ -2200,7 +2200,7 @@ namespace OpenGL
 		/// A <see cref="T:byte[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_path_rendering")]
-		public static void GetPathCommandsNV(UInt32 path, byte[] commands)
+		public static void GetPathCommandsNV(UInt32 path, [Out] byte[] commands)
 		{
 			unsafe {
 				fixed (byte* p_commands = commands)
@@ -2223,7 +2223,7 @@ namespace OpenGL
 		/// A <see cref="T:float[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_path_rendering")]
-		public static void GetPathCoordsNV(UInt32 path, float[] coords)
+		public static void GetPathCoordsNV(UInt32 path, [Out] float[] coords)
 		{
 			unsafe {
 				fixed (float* p_coords = coords)
@@ -2246,7 +2246,7 @@ namespace OpenGL
 		/// A <see cref="T:float[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_path_rendering")]
-		public static void GetPathDashArrayNV(UInt32 path, float[] dashArray)
+		public static void GetPathDashArrayNV(UInt32 path, [Out] float[] dashArray)
 		{
 			unsafe {
 				fixed (float* p_dashArray = dashArray)
@@ -2284,7 +2284,7 @@ namespace OpenGL
 		/// A <see cref="T:float[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_path_rendering")]
-		public static void GetPathMetricsNV(uint metricQueryMask, Int32 numPaths, int pathNameType, IntPtr paths, UInt32 pathBase, Int32 stride, float[] metrics)
+		public static void GetPathMetricsNV(uint metricQueryMask, Int32 numPaths, int pathNameType, IntPtr paths, UInt32 pathBase, Int32 stride, [Out] float[] metrics)
 		{
 			unsafe {
 				fixed (float* p_metrics = metrics)
@@ -2322,7 +2322,7 @@ namespace OpenGL
 		/// A <see cref="T:float[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_path_rendering")]
-		public static void GetPathMetricsNV(uint metricQueryMask, Int32 numPaths, int pathNameType, Object paths, UInt32 pathBase, Int32 stride, float[] metrics)
+		public static void GetPathMetricsNV(uint metricQueryMask, Int32 numPaths, int pathNameType, Object paths, UInt32 pathBase, Int32 stride, [Out] float[] metrics)
 		{
 			GCHandle pin_paths = GCHandle.Alloc(paths, GCHandleType.Pinned);
 			try {
@@ -2351,7 +2351,7 @@ namespace OpenGL
 		/// A <see cref="T:float[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_path_rendering")]
-		public static void GetPathMetricRangeNV(uint metricQueryMask, UInt32 firstPathName, Int32 numPaths, Int32 stride, float[] metrics)
+		public static void GetPathMetricRangeNV(uint metricQueryMask, UInt32 firstPathName, Int32 numPaths, Int32 stride, [Out] float[] metrics)
 		{
 			unsafe {
 				fixed (float* p_metrics = metrics)
@@ -2395,7 +2395,7 @@ namespace OpenGL
 		/// A <see cref="T:float[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_path_rendering")]
-		public static void GetPathSpacingNV(int pathListMode, Int32 numPaths, int pathNameType, IntPtr paths, UInt32 pathBase, float advanceScale, float kerningScale, int transformType, float[] returnedSpacing)
+		public static void GetPathSpacingNV(int pathListMode, Int32 numPaths, int pathNameType, IntPtr paths, UInt32 pathBase, float advanceScale, float kerningScale, int transformType, [Out] float[] returnedSpacing)
 		{
 			unsafe {
 				fixed (float* p_returnedSpacing = returnedSpacing)
@@ -2439,7 +2439,7 @@ namespace OpenGL
 		/// A <see cref="T:float[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_path_rendering")]
-		public static void GetPathSpacingNV(int pathListMode, Int32 numPaths, int pathNameType, Object paths, UInt32 pathBase, float advanceScale, float kerningScale, int transformType, float[] returnedSpacing)
+		public static void GetPathSpacingNV(int pathListMode, Int32 numPaths, int pathNameType, Object paths, UInt32 pathBase, float advanceScale, float kerningScale, int transformType, [Out] float[] returnedSpacing)
 		{
 			GCHandle pin_paths = GCHandle.Alloc(paths, GCHandleType.Pinned);
 			try {
@@ -3224,7 +3224,7 @@ namespace OpenGL
 		/// A <see cref="T:float[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_path_rendering")]
-		public static void GetProgramResourceNV(UInt32 program, int programInterface, UInt32 index, Int32 propCount, int[] props, Int32 bufSize, Int32[] length, float[] @params)
+		public static void GetProgramResourceNV(UInt32 program, int programInterface, UInt32 index, Int32 propCount, int[] props, Int32 bufSize, [Out] Int32[] length, [Out] float[] @params)
 		{
 			unsafe {
 				fixed (int* p_props = props)
@@ -3325,7 +3325,7 @@ namespace OpenGL
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_path_rendering")]
-		public static void GetPathColorGenNV(int color, int pname, Int32[] value)
+		public static void GetPathColorGenNV(int color, int pname, [Out] Int32[] value)
 		{
 			unsafe {
 				fixed (Int32* p_value = value)
@@ -3351,7 +3351,7 @@ namespace OpenGL
 		/// A <see cref="T:float[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_path_rendering")]
-		public static void GetPathColorGenNV(int color, int pname, float[] value)
+		public static void GetPathColorGenNV(int color, int pname, [Out] float[] value)
 		{
 			unsafe {
 				fixed (float* p_value = value)
@@ -3377,7 +3377,7 @@ namespace OpenGL
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_path_rendering")]
-		public static void GetPathTexGenNV(int texCoordSet, int pname, Int32[] value)
+		public static void GetPathTexGenNV(int texCoordSet, int pname, [Out] Int32[] value)
 		{
 			unsafe {
 				fixed (Int32* p_value = value)
@@ -3403,7 +3403,7 @@ namespace OpenGL
 		/// A <see cref="T:float[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_path_rendering")]
-		public static void GetPathTexGenNV(int texCoordSet, int pname, float[] value)
+		public static void GetPathTexGenNV(int texCoordSet, int pname, [Out] float[] value)
 		{
 			unsafe {
 				fixed (float* p_value = value)

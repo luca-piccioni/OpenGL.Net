@@ -715,7 +715,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.SamplerParameter"/>
 		[RequiredByFeature("GL_VERSION_3_3")]
 		[RequiredByFeature("GL_ARB_sampler_objects")]
-		public static void GetSamplerParameter(UInt32 sampler, int pname, Int32[] @params)
+		public static void GetSamplerParameter(UInt32 sampler, int pname, [Out] Int32[] @params)
 		{
 			unsafe {
 				fixed (Int32* p_params = @params)
@@ -757,7 +757,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.SamplerParameter"/>
 		[RequiredByFeature("GL_VERSION_3_3")]
 		[RequiredByFeature("GL_ARB_sampler_objects")]
-		public static void GetSamplerParameterI(UInt32 sampler, int pname, Int32[] @params)
+		public static void GetSamplerParameterI(UInt32 sampler, int pname, [Out] Int32[] @params)
 		{
 			unsafe {
 				fixed (Int32* p_params = @params)
@@ -799,7 +799,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.SamplerParameter"/>
 		[RequiredByFeature("GL_VERSION_3_3")]
 		[RequiredByFeature("GL_ARB_sampler_objects")]
-		public static void GetSamplerParameter(UInt32 sampler, int pname, float[] @params)
+		public static void GetSamplerParameter(UInt32 sampler, int pname, [Out] float[] @params)
 		{
 			unsafe {
 				fixed (float* p_params = @params)
@@ -841,7 +841,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.SamplerParameter"/>
 		[RequiredByFeature("GL_VERSION_3_3")]
 		[RequiredByFeature("GL_ARB_sampler_objects")]
-		public static void GetSamplerParameterI(UInt32 sampler, int pname, UInt32[] @params)
+		public static void GetSamplerParameterI(UInt32 sampler, int pname, [Out] UInt32[] @params)
 		{
 			unsafe {
 				fixed (UInt32* p_params = @params)
@@ -931,7 +931,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.QueryCounter"/>
 		[RequiredByFeature("GL_VERSION_3_3")]
 		[RequiredByFeature("GL_ARB_timer_query")]
-		public static void GetQueryObjecti64(UInt32 id, int pname, Int64[] @params)
+		public static void GetQueryObjecti64(UInt32 id, int pname, [Out] Int64[] @params)
 		{
 			unsafe {
 				fixed (Int64* p_params = @params)
@@ -982,7 +982,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.QueryCounter"/>
 		[RequiredByFeature("GL_VERSION_3_3")]
 		[RequiredByFeature("GL_ARB_timer_query")]
-		public static void GetQueryObjectui64(UInt32 id, int pname, UInt64[] @params)
+		public static void GetQueryObjectui64(UInt32 id, int pname, [Out] UInt64[] @params)
 		{
 			unsafe {
 				fixed (UInt64* p_params = @params)

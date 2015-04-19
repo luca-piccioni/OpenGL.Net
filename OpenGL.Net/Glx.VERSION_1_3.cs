@@ -622,7 +622,7 @@ namespace OpenGL
 		/// <seealso cref="Glx.GetVisualFromFBConfig"/>
 		/// <seealso cref="Glx.ChooseFBConfig"/>
 		[RequiredByFeature("GLX_VERSION_1_3")]
-		public static IntPtr GetFBConfigs(IntPtr dpy, int screen, int[] nelements)
+		public static IntPtr GetFBConfigs(IntPtr dpy, int screen, [Out] int[] nelements)
 		{
 			IntPtr retValue;
 
@@ -708,7 +708,7 @@ namespace OpenGL
 		/// <seealso cref="Glx.GetVisualFromFBConfig"/>
 		/// <seealso cref="Glx.GetConfig"/>
 		[RequiredByFeature("GLX_VERSION_1_3")]
-		public static int GetFBConfigAttrib(IntPtr dpy, IntPtr config, int attribute, int[] value)
+		public static int GetFBConfigAttrib(IntPtr dpy, IntPtr config, int attribute, [Out] int[] value)
 		{
 			int retValue;
 
@@ -1288,7 +1288,7 @@ namespace OpenGL
 		/// <seealso cref="Glx.SelectEvent"/>
 		/// <seealso cref="Glx.CreatePbuffer"/>
 		[RequiredByFeature("GLX_VERSION_1_3")]
-		public static void GetSelectedEvent(IntPtr dpy, IntPtr draw, UInt32[] event_mask)
+		public static void GetSelectedEvent(IntPtr dpy, IntPtr draw, [Out] UInt32[] event_mask)
 		{
 			unsafe {
 				fixed (UInt32* p_event_mask = event_mask)

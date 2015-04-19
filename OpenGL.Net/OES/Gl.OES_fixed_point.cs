@@ -228,7 +228,7 @@ namespace OpenGL
 		/// A <see cref="T:IntPtr[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_OES_fixed_point")]
-		public static void GetClipPlaneOES(int plane, IntPtr[] equation)
+		public static void GetClipPlaneOES(int plane, [Out] IntPtr[] equation)
 		{
 			unsafe {
 				fixed (IntPtr* p_equation = equation)
@@ -251,7 +251,7 @@ namespace OpenGL
 		/// A <see cref="T:IntPtr[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_OES_fixed_point")]
-		public static void GetFixedOES(int pname, IntPtr[] @params)
+		public static void GetFixedOES(int pname, [Out] IntPtr[] @params)
 		{
 			unsafe {
 				fixed (IntPtr* p_params = @params)
@@ -277,7 +277,7 @@ namespace OpenGL
 		/// A <see cref="T:IntPtr[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_OES_fixed_point")]
-		public static void GetTexEnvOES(int target, int pname, IntPtr[] @params)
+		public static void GetTexEnvOES(int target, int pname, [Out] IntPtr[] @params)
 		{
 			unsafe {
 				fixed (IntPtr* p_params = @params)
@@ -303,7 +303,7 @@ namespace OpenGL
 		/// A <see cref="T:IntPtr[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_OES_fixed_point")]
-		public static void GetTexParameterOES(int target, int pname, IntPtr[] @params)
+		public static void GetTexParameterOES(int target, int pname, [Out] IntPtr[] @params)
 		{
 			unsafe {
 				fixed (IntPtr* p_params = @params)
@@ -1142,7 +1142,7 @@ namespace OpenGL
 		/// A <see cref="T:IntPtr[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_OES_fixed_point")]
-		public static void GetConvolutionParameterOES(int target, int pname, IntPtr[] @params)
+		public static void GetConvolutionParameterOES(int target, int pname, [Out] IntPtr[] @params)
 		{
 			unsafe {
 				fixed (IntPtr* p_params = @params)
@@ -1168,7 +1168,7 @@ namespace OpenGL
 		/// A <see cref="T:IntPtr[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_OES_fixed_point")]
-		public static void GetHistogramParameterOES(int target, int pname, IntPtr[] @params)
+		public static void GetHistogramParameterOES(int target, int pname, [Out] IntPtr[] @params)
 		{
 			unsafe {
 				fixed (IntPtr* p_params = @params)
@@ -1194,7 +1194,7 @@ namespace OpenGL
 		/// A <see cref="T:IntPtr[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_OES_fixed_point")]
-		public static void GetLightxOES(int light, int pname, IntPtr[] @params)
+		public static void GetLightxOES(int light, int pname, [Out] IntPtr[] @params)
 		{
 			unsafe {
 				fixed (IntPtr* p_params = @params)
@@ -1220,7 +1220,7 @@ namespace OpenGL
 		/// A <see cref="T:IntPtr[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_OES_fixed_point")]
-		public static void GetMapOES(int target, int query, IntPtr[] v)
+		public static void GetMapOES(int target, int query, [Out] IntPtr[] v)
 		{
 			unsafe {
 				fixed (IntPtr* p_v = v)
@@ -1290,7 +1290,7 @@ namespace OpenGL
 		/// A <see cref="T:IntPtr[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_OES_fixed_point")]
-		public static void GetPixelMap(int map, IntPtr[] values)
+		public static void GetPixelMap(int map, [Out] IntPtr[] values)
 		{
 			unsafe {
 				fixed (IntPtr* p_values = values)
@@ -1316,7 +1316,7 @@ namespace OpenGL
 		/// A <see cref="T:IntPtr[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_OES_fixed_point")]
-		public static void GetTexGenOES(int coord, int pname, IntPtr[] @params)
+		public static void GetTexGenOES(int coord, int pname, [Out] IntPtr[] @params)
 		{
 			unsafe {
 				fixed (IntPtr* p_params = @params)
@@ -1345,7 +1345,7 @@ namespace OpenGL
 		/// A <see cref="T:IntPtr[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_OES_fixed_point")]
-		public static void GetTexLevelParameterOES(int target, Int32 level, int pname, IntPtr[] @params)
+		public static void GetTexLevelParameterOES(int target, Int32 level, int pname, [Out] IntPtr[] @params)
 		{
 			unsafe {
 				fixed (IntPtr* p_params = @params)

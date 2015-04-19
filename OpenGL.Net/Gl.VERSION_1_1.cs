@@ -8476,7 +8476,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexParameter"/>
 		[RequiredByFeature("GL_VERSION_1_1")]
 		[RemovedByFeature("GL_VERSION_3_2")]
-		public static bool AreTexturesResident(UInt32[] textures, bool[] residences)
+		public static bool AreTexturesResident(UInt32[] textures, [Out] bool[] residences)
 		{
 			bool retValue;
 

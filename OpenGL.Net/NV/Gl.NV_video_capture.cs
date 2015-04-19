@@ -293,7 +293,7 @@ namespace OpenGL
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_video_capture")]
-		public static void GetVideoCaptureNV(UInt32 video_capture_slot, int pname, Int32[] @params)
+		public static void GetVideoCaptureNV(UInt32 video_capture_slot, int pname, [Out] Int32[] @params)
 		{
 			unsafe {
 				fixed (Int32* p_params = @params)
@@ -322,7 +322,7 @@ namespace OpenGL
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_video_capture")]
-		public static void GetVideoCaptureStreamNV(UInt32 video_capture_slot, UInt32 stream, int pname, Int32[] @params)
+		public static void GetVideoCaptureStreamNV(UInt32 video_capture_slot, UInt32 stream, int pname, [Out] Int32[] @params)
 		{
 			unsafe {
 				fixed (Int32* p_params = @params)
@@ -351,7 +351,7 @@ namespace OpenGL
 		/// A <see cref="T:float[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_video_capture")]
-		public static void GetVideoCaptureStreamNV(UInt32 video_capture_slot, UInt32 stream, int pname, float[] @params)
+		public static void GetVideoCaptureStreamNV(UInt32 video_capture_slot, UInt32 stream, int pname, [Out] float[] @params)
 		{
 			unsafe {
 				fixed (float* p_params = @params)
@@ -380,7 +380,7 @@ namespace OpenGL
 		/// A <see cref="T:double[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_video_capture")]
-		public static void GetVideoCaptureStreamNV(UInt32 video_capture_slot, UInt32 stream, int pname, double[] @params)
+		public static void GetVideoCaptureStreamNV(UInt32 video_capture_slot, UInt32 stream, int pname, [Out] double[] @params)
 		{
 			unsafe {
 				fixed (double* p_params = @params)
