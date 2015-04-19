@@ -371,6 +371,7 @@
     <Compile Include="NV\Gl.NV_bindless_texture.cs" />
     <Compile Include="NV\Gl.NV_blend_equation_advanced.cs" />
     <Compile Include="NV\Gl.NV_blend_equation_advanced_coherent.cs" />
+    <Compile Include="NV\Gl.NV_command_list.cs" />
     <Compile Include="NV\Gl.NV_compute_program5.cs" />
     <Compile Include="NV\Gl.NV_conservative_raster.cs" />
     <Compile Include="NV\Gl.NV_copy_depth_to_color.cs" />

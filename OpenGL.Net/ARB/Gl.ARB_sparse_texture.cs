@@ -122,15 +122,15 @@ namespace OpenGL
 		/// <param name="depth">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
-		/// <param name="resident">
+		/// <param name="commit">
 		/// A <see cref="T:bool"/>.
 		/// </param>
 		[RequiredByFeature("GL_ARB_sparse_texture")]
-		public static void TexPageCommitmentARB(Int32 target, Int32 level, Int32 xoffset, Int32 yoffset, Int32 zoffset, Int32 width, Int32 height, Int32 depth, bool resident)
+		public static void TexPageCommitmentARB(Int32 target, Int32 level, Int32 xoffset, Int32 yoffset, Int32 zoffset, Int32 width, Int32 height, Int32 depth, bool commit)
 		{
 			Debug.Assert(Delegates.pglTexPageCommitmentARB != null, "pglTexPageCommitmentARB not implemented");
-			Delegates.pglTexPageCommitmentARB(target, level, xoffset, yoffset, zoffset, width, height, depth, resident);
-			CallLog("glTexPageCommitmentARB({0}, {1}, {2}, {3}, {4}, {5}, {6}, {7}, {8})", target, level, xoffset, yoffset, zoffset, width, height, depth, resident);
+			Delegates.pglTexPageCommitmentARB(target, level, xoffset, yoffset, zoffset, width, height, depth, commit);
+			CallLog("glTexPageCommitmentARB({0}, {1}, {2}, {3}, {4}, {5}, {6}, {7}, {8})", target, level, xoffset, yoffset, zoffset, width, height, depth, commit);
 			DebugCheckErrors();
 		}
 

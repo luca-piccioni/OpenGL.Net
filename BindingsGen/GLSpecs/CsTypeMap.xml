@@ -3,58 +3,78 @@
 	<!-- Basic types -->
 	<type name="void" value="void" />
 	<type name="GLvoid" value="void" />
-	<type name="GLenum" value="int" />
-	<type name="GLsizei" value="Int32" />
-	<type name="GLsizeiptr" value="UInt32" />
-	<type name="GLintptr" value="IntPtr" />
-	<type name="GLboolean" value="bool" />
-	<type name="GLbitfield" value="uint" />
-	<type name="GLchar" value="char" />
-	<type name="GLbyte" value="sbyte" />
-	<type name="GLubyte" value="byte" />
-	<type name="GLshort" value="Int16" />
-	<type name="GLushort" value="UInt16" />
-	<type name="GLint" value="Int32" />
-	<type name="GLuint" value="UInt32" />
-	<type name="GLfloat" value="float" />
-	<type name="GLdouble" value="double" />
-	<type name="GLstring" value="string" />
-	<type name="GLsync" value="int" />
-	<type name="GLfixed" value="IntPtr" />
-	<type name="GLint64EXT" value="Int64" />
-	<type name="GLuint64EXT" value="UInt64" />
-	<type name="GLint64" value="Int64" />
-	<type name="GLuint64" value="UInt64" />
-
-	<!-- Pointer types -->
 	<type name="void *" value="IntPtr" />
 	<type name="GLvoid*" value="void*" />
 	<type name="void **" value="IntPtr*" />
 	<type name="const void *" value="IntPtr" />
 	<type name="const void **" value="IntPtr*" />
 	<type name="const void *const*" value="IntPtr*" />
-	<type name="GLenum*" value="int*" />
+	
+	<type name="GLenum" value="Int32" />
+	<type name="GLenum*" value="Int32*" />
+	
+	<type name="GLsizei" value="Int32" />
 	<type name="GLsizei*" value="Int32*" />
+	<type name="const size_t *" value="UInt32*" />
+	
+	<type name="GLsizeiptr" value="UInt32" />
 	<type name="GLsizeiptr*" value="UInt32*" />
+	
+	<type name="GLintptr" value="IntPtr" />
 	<type name="GLintptr*" value="IntPtr*" />
+	
+	<type name="GLboolean" value="bool" />
 	<type name="GLboolean*" value="bool*" />
 	<type name="GLboolean**" value="bool[]" />
+	
+	<type name="GLbitfield" value="UInt32" />
+	
+	<type name="GLchar" value="char" />
 	<type name="GLchar*" value="String" />
 	<type name="GLchar*const*" value="String[]" />
 	<type name="GLchar**" value="String[]" />
-	<type name="GLshort*" value="Int16*" />
+	
+	<type name="GLbyte" value="sbyte" />
 	<type name="GLbyte*" value="sbyte*" />
+	
+	<type name="GLubyte" value="byte" />
 	<type name="GLubyte*" value="byte*" />
+	
+	<type name="GLshort" value="Int16" />
+	<type name="GLshort*" value="Int16*" />
+	
+	<type name="GLushort" value="UInt16" />
 	<type name="GLushort*" value="UInt16*" />
+	
+	<type name="GLint" value="Int32" />
 	<type name="GLint*" value="Int32*" />
+	
+	<type name="GLuint" value="UInt32" />
 	<type name="GLuint*" value="UInt32*" />
+	
+	<type name="GLfloat" value="float" />
 	<type name="GLfloat*" value="float*" />
+	
+	<type name="GLdouble" value="double" />
 	<type name="GLdouble*" value="double*" />
+	
+	<type name="GLstring" value="String" />
+	
+	<type name="GLsync" value="Int32" />
+	
+	<type name="GLfixed" value="IntPtr" />
+	
+	<type name="GLint64" value="Int64" />
+	<type name="GLint64EXT" value="Int64" />
+	<type name="GLint64*" value="Int64*" />
+	
+	<type name="GLuint64" value="UInt64" />
+	<type name="GLuint64EXT" value="UInt64" />
+	<type name="GLuint64*" value="UInt64*" />
+
 	<type name="GLfixed*" value="IntPtr*" />
 	<type name="GLint64EXT*" value="Int64*" />
 	<type name="GLuint64EXT*" value="UInt64*" />
-	<type name="GLint64*" value="Int64*" />
-	<type name="GLuint64*" value="UInt64*" />
 
 	<!-- Compatibility types -->
 	<type name="GLclampf" value="float" />

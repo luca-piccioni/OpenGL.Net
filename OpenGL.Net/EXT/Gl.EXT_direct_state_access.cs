@@ -4227,56 +4227,6 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glNamedBufferSubDataEXT.
-		/// </summary>
-		/// <param name="buffer">
-		/// A <see cref="T:UInt32"/>.
-		/// </param>
-		/// <param name="offset">
-		/// A <see cref="T:IntPtr"/>.
-		/// </param>
-		/// <param name="size">
-		/// A <see cref="T:UInt32"/>.
-		/// </param>
-		/// <param name="data">
-		/// A <see cref="T:IntPtr"/>.
-		/// </param>
-		[RequiredByFeature("GL_EXT_direct_state_access")]
-		public static void NamedBufferSubDataEXT(UInt32 buffer, IntPtr offset, UInt32 size, IntPtr data)
-		{
-			Debug.Assert(Delegates.pglNamedBufferSubDataEXT != null, "pglNamedBufferSubDataEXT not implemented");
-			Delegates.pglNamedBufferSubDataEXT(buffer, offset, size, data);
-			CallLog("glNamedBufferSubDataEXT({0}, {1}, {2}, {3})", buffer, offset, size, data);
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// Binding for glNamedBufferSubDataEXT.
-		/// </summary>
-		/// <param name="buffer">
-		/// A <see cref="T:UInt32"/>.
-		/// </param>
-		/// <param name="offset">
-		/// A <see cref="T:IntPtr"/>.
-		/// </param>
-		/// <param name="size">
-		/// A <see cref="T:UInt32"/>.
-		/// </param>
-		/// <param name="data">
-		/// A <see cref="T:Object"/>.
-		/// </param>
-		[RequiredByFeature("GL_EXT_direct_state_access")]
-		public static void NamedBufferSubDataEXT(UInt32 buffer, IntPtr offset, UInt32 size, Object data)
-		{
-			GCHandle pin_data = GCHandle.Alloc(data, GCHandleType.Pinned);
-			try {
-				NamedBufferSubDataEXT(buffer, offset, size, pin_data.AddrOfPinnedObject());
-			} finally {
-				pin_data.Free();
-			}
-		}
-
-		/// <summary>
 		/// Binding for glMapNamedBufferEXT.
 		/// </summary>
 		/// <param name="buffer">
@@ -6521,56 +6471,6 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glNamedBufferStorageEXT.
-		/// </summary>
-		/// <param name="buffer">
-		/// A <see cref="T:UInt32"/>.
-		/// </param>
-		/// <param name="size">
-		/// A <see cref="T:UInt32"/>.
-		/// </param>
-		/// <param name="data">
-		/// A <see cref="T:IntPtr"/>.
-		/// </param>
-		/// <param name="flags">
-		/// A <see cref="T:UInt32"/>.
-		/// </param>
-		[RequiredByFeature("GL_EXT_direct_state_access")]
-		public static void NamedBufferStorageEXT(UInt32 buffer, UInt32 size, IntPtr data, UInt32 flags)
-		{
-			Debug.Assert(Delegates.pglNamedBufferStorageEXT != null, "pglNamedBufferStorageEXT not implemented");
-			Delegates.pglNamedBufferStorageEXT(buffer, size, data, flags);
-			CallLog("glNamedBufferStorageEXT({0}, {1}, {2}, {3})", buffer, size, data, flags);
-			DebugCheckErrors();
-		}
-
-		/// <summary>
-		/// Binding for glNamedBufferStorageEXT.
-		/// </summary>
-		/// <param name="buffer">
-		/// A <see cref="T:UInt32"/>.
-		/// </param>
-		/// <param name="size">
-		/// A <see cref="T:UInt32"/>.
-		/// </param>
-		/// <param name="data">
-		/// A <see cref="T:Object"/>.
-		/// </param>
-		/// <param name="flags">
-		/// A <see cref="T:UInt32"/>.
-		/// </param>
-		[RequiredByFeature("GL_EXT_direct_state_access")]
-		public static void NamedBufferStorageEXT(UInt32 buffer, UInt32 size, Object data, UInt32 flags)
-		{
-			GCHandle pin_data = GCHandle.Alloc(data, GCHandleType.Pinned);
-			try {
-				NamedBufferStorageEXT(buffer, size, pin_data.AddrOfPinnedObject(), flags);
-			} finally {
-				pin_data.Free();
-			}
-		}
-
-		/// <summary>
 		/// Binding for glClearNamedBufferDataEXT.
 		/// </summary>
 		/// <param name="buffer">
@@ -7649,15 +7549,15 @@ namespace OpenGL
 		/// <param name="depth">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
-		/// <param name="resident">
+		/// <param name="commit">
 		/// A <see cref="T:bool"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access")]
-		public static void TexturePageCommitmentEXT(UInt32 texture, Int32 level, Int32 xoffset, Int32 yoffset, Int32 zoffset, Int32 width, Int32 height, Int32 depth, bool resident)
+		public static void TexturePageCommitmentEXT(UInt32 texture, Int32 level, Int32 xoffset, Int32 yoffset, Int32 zoffset, Int32 width, Int32 height, Int32 depth, bool commit)
 		{
 			Debug.Assert(Delegates.pglTexturePageCommitmentEXT != null, "pglTexturePageCommitmentEXT not implemented");
-			Delegates.pglTexturePageCommitmentEXT(texture, level, xoffset, yoffset, zoffset, width, height, depth, resident);
-			CallLog("glTexturePageCommitmentEXT({0}, {1}, {2}, {3}, {4}, {5}, {6}, {7}, {8})", texture, level, xoffset, yoffset, zoffset, width, height, depth, resident);
+			Delegates.pglTexturePageCommitmentEXT(texture, level, xoffset, yoffset, zoffset, width, height, depth, commit);
+			CallLog("glTexturePageCommitmentEXT({0}, {1}, {2}, {3}, {4}, {5}, {6}, {7}, {8})", texture, level, xoffset, yoffset, zoffset, width, height, depth, commit);
 			DebugCheckErrors();
 		}
 

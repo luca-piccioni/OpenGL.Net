@@ -3128,6 +3128,12 @@ namespace OpenGL
 			public bool PixelFormatFloat_ATI;
 
 			/// <summary>
+			/// Support for extension GL_NV_command_list.
+			/// </summary>
+			[Extension("GL_NV_command_list")]
+			public bool CommandList_NV;
+
+			/// <summary>
 			/// Support for extension GL_INGR_blend_func_separate.
 			/// </summary>
 			[Extension("GL_INGR_blend_func_separate")]
@@ -3326,6 +3332,12 @@ namespace OpenGL
 			public bool BaseInstance_EXT;
 
 			/// <summary>
+			/// Support for extension GL_EXT_buffer_storage.
+			/// </summary>
+			[Extension("GL_EXT_buffer_storage")]
+			public bool BufferStorage_EXT;
+
+			/// <summary>
 			/// Support for extension GL_EXT_color_buffer_half_float.
 			/// </summary>
 			[Extension("GL_EXT_color_buffer_half_float")]
@@ -3366,6 +3378,12 @@ namespace OpenGL
 			/// </summary>
 			[Extension("GL_EXT_draw_elements_base_vertex")]
 			public bool DrawElementsBaseVertex_EXT;
+
+			/// <summary>
+			/// Support for extension GL_EXT_float_blend.
+			/// </summary>
+			[Extension("GL_EXT_float_blend")]
+			public bool FloatBlend_EXT;
 
 			/// <summary>
 			/// Support for extension GL_EXT_geometry_point_size.
@@ -3500,6 +3518,12 @@ namespace OpenGL
 			public bool ShadowSamplers_EXT;
 
 			/// <summary>
+			/// Support for extension GL_EXT_sparse_texture.
+			/// </summary>
+			[Extension("GL_EXT_sparse_texture")]
+			public bool SparseTexture_EXT;
+
+			/// <summary>
 			/// Support for extension GL_EXT_tessellation_point_size.
 			/// </summary>
 			[Extension("GL_EXT_tessellation_point_size")]
@@ -3548,6 +3572,18 @@ namespace OpenGL
 			public bool TextureRg_EXT;
 
 			/// <summary>
+			/// Support for extension GL_EXT_texture_sRGB_R8.
+			/// </summary>
+			[Extension("GL_EXT_texture_sRGB_R8")]
+			public bool TextureSRGBR8_EXT;
+
+			/// <summary>
+			/// Support for extension GL_EXT_texture_sRGB_RG8.
+			/// </summary>
+			[Extension("GL_EXT_texture_sRGB_RG8")]
+			public bool TextureSRGBRG8_EXT;
+
+			/// <summary>
 			/// Support for extension GL_EXT_texture_storage.
 			/// </summary>
 			[Extension("GL_EXT_texture_storage")]
@@ -3570,6 +3606,12 @@ namespace OpenGL
 			/// </summary>
 			[Extension("GL_EXT_unpack_subimage")]
 			public bool UnpackSubimage_EXT;
+
+			/// <summary>
+			/// Support for extension GL_EXT_YUV_target.
+			/// </summary>
+			[Extension("GL_EXT_YUV_target")]
+			public bool YUVTarget_EXT;
 
 			/// <summary>
 			/// Support for extension GL_FJ_shader_binary_GCCSO.
@@ -3702,6 +3744,12 @@ namespace OpenGL
 			/// </summary>
 			[Extension("GL_NV_non_square_matrices")]
 			public bool NonSquareMatrices_NV;
+
+			/// <summary>
+			/// Support for extension GL_NV_polygon_mode.
+			/// </summary>
+			[Extension("GL_NV_polygon_mode")]
+			public bool PolygonMode_NV;
 
 			/// <summary>
 			/// Support for extension GL_NV_read_buffer.

@@ -2076,6 +2076,8 @@ namespace OpenGL
 		/// <seealso cref="Gl.GetVertexAttribPointerv"/>
 		/// <seealso cref="Gl.IsEnabled"/>
 		[RequiredByFeature("GL_VERSION_3_0")]
+		[RequiredByFeature("GL_VERSION_3_1")]
+		[RequiredByFeature("GL_ARB_uniform_buffer_object")]
 		public static void Get(Int32 target, UInt32 index, [Out] Int32[] data)
 		{
 			unsafe {
@@ -2136,6 +2138,8 @@ namespace OpenGL
 		/// <seealso cref="Gl.GetVertexAttribPointerv"/>
 		/// <seealso cref="Gl.IsEnabled"/>
 		[RequiredByFeature("GL_VERSION_3_0")]
+		[RequiredByFeature("GL_VERSION_3_1")]
+		[RequiredByFeature("GL_ARB_uniform_buffer_object")]
 		public static void Get(Int32 target, UInt32 index, out Int32 data)
 		{
 			unsafe {
@@ -2395,6 +2399,8 @@ namespace OpenGL
 		/// <seealso cref="Gl.MapBuffer"/>
 		/// <seealso cref="Gl.UnmapBuffer"/>
 		[RequiredByFeature("GL_VERSION_3_0")]
+		[RequiredByFeature("GL_VERSION_3_1")]
+		[RequiredByFeature("GL_ARB_uniform_buffer_object")]
 		public static void BindBufferRange(Int32 target, UInt32 index, UInt32 buffer, IntPtr offset, UInt32 size)
 		{
 			Debug.Assert(Delegates.pglBindBufferRange != null, "pglBindBufferRange not implemented");
@@ -2437,6 +2443,8 @@ namespace OpenGL
 		/// <seealso cref="Gl.MapBuffer"/>
 		/// <seealso cref="Gl.UnmapBuffer"/>
 		[RequiredByFeature("GL_VERSION_3_0")]
+		[RequiredByFeature("GL_VERSION_3_1")]
+		[RequiredByFeature("GL_ARB_uniform_buffer_object")]
 		public static void BindBufferBase(Int32 target, UInt32 index, UInt32 buffer)
 		{
 			Debug.Assert(Delegates.pglBindBufferBase != null, "pglBindBufferBase not implemented");
