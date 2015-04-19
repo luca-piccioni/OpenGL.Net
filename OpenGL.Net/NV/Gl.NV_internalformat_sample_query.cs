@@ -53,16 +53,16 @@ namespace OpenGL
 		/// Binding for glGetInternalformatSampleivNV.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="internalformat">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="samples">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="pname">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="bufSize">
 		/// A <see cref="T:Int32"/>.
@@ -71,7 +71,7 @@ namespace OpenGL
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_internalformat_sample_query")]
-		public static void GetInternalformatSampleNV(int target, int internalformat, Int32 samples, int pname, [Out] Int32[] @params)
+		public static void GetInternalformatSampleNV(Int32 target, Int32 internalformat, Int32 samples, Int32 pname, [Out] Int32[] @params)
 		{
 			unsafe {
 				fixed (Int32* p_params = @params)

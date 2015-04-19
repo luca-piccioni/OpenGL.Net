@@ -92,22 +92,22 @@ namespace OpenGL
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="access">
-		/// A <see cref="T:uint"/>.
+		/// A <see cref="T:UInt32"/>.
 		/// </param>
 		/// <param name="stride">
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
 		/// <param name="layout">
-		/// A <see cref="T:int[]"/>.
+		/// A <see cref="T:Int32[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_INTEL_map_texture")]
-		public static IntPtr MapTexture2DINTEL(UInt32 texture, Int32 level, uint access, Int32[] stride, int[] layout)
+		public static IntPtr MapTexture2DINTEL(UInt32 texture, Int32 level, UInt32 access, Int32[] stride, Int32[] layout)
 		{
 			IntPtr retValue;
 
 			unsafe {
 				fixed (Int32* p_stride = stride)
-				fixed (int* p_layout = layout)
+				fixed (Int32* p_layout = layout)
 				{
 					Debug.Assert(Delegates.pglMapTexture2DINTEL != null, "pglMapTexture2DINTEL not implemented");
 					retValue = Delegates.pglMapTexture2DINTEL(texture, level, access, p_stride, p_layout);

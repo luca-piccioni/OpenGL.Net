@@ -47,7 +47,7 @@ namespace OpenGL
 		/// Binding for glNamedStringARB.
 		/// </summary>
 		/// <param name="type">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="namelen">
 		/// A <see cref="T:Int32"/>.
@@ -62,7 +62,7 @@ namespace OpenGL
 		/// A <see cref="T:String"/>.
 		/// </param>
 		[RequiredByFeature("GL_ARB_shading_language_include")]
-		public static void NamedStringARB(int type, Int32 namelen, String name, Int32 stringlen, String @string)
+		public static void NamedStringARB(Int32 type, Int32 namelen, String name, Int32 stringlen, String @string)
 		{
 			Debug.Assert(Delegates.pglNamedStringARB != null, "pglNamedStringARB not implemented");
 			Delegates.pglNamedStringARB(type, namelen, name, stringlen, @string);
@@ -181,13 +181,13 @@ namespace OpenGL
 		/// A <see cref="T:String"/>.
 		/// </param>
 		/// <param name="pname">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="params">
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_ARB_shading_language_include")]
-		public static void GetNamedStringARB(Int32 namelen, String name, int pname, [Out] Int32[] @params)
+		public static void GetNamedStringARB(Int32 namelen, String name, Int32 pname, [Out] Int32[] @params)
 		{
 			unsafe {
 				fixed (Int32* p_params = @params)

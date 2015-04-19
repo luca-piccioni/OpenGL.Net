@@ -75,7 +75,7 @@ namespace OpenGL
 			internal static wglBindVideoImageNV pwglBindVideoImageNV;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void wglBlitContextFramebufferAMD(IntPtr dstCtx, Int32 srcX0, Int32 srcY0, Int32 srcX1, Int32 srcY1, Int32 dstX0, Int32 dstY0, Int32 dstX1, Int32 dstY1, uint mask, int filter);
+			internal unsafe delegate void wglBlitContextFramebufferAMD(IntPtr dstCtx, Int32 srcX0, Int32 srcY0, Int32 srcX1, Int32 srcY1, Int32 dstX0, Int32 dstY0, Int32 dstX1, Int32 dstY1, UInt32 mask, Int32 filter);
 			[ThreadStatic]
 			internal static wglBlitContextFramebufferAMD pwglBlitContextFramebufferAMD;
 
@@ -95,7 +95,7 @@ namespace OpenGL
 			internal static wglCopyContext pwglCopyContext;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate bool wglCopyImageSubDataNV(IntPtr hSrcRC, UInt32 srcName, int srcTarget, Int32 srcLevel, Int32 srcX, Int32 srcY, Int32 srcZ, IntPtr hDstRC, UInt32 dstName, int dstTarget, Int32 dstLevel, Int32 dstX, Int32 dstY, Int32 dstZ, Int32 width, Int32 height, Int32 depth);
+			internal unsafe delegate bool wglCopyImageSubDataNV(IntPtr hSrcRC, UInt32 srcName, Int32 srcTarget, Int32 srcLevel, Int32 srcX, Int32 srcY, Int32 srcZ, IntPtr hDstRC, UInt32 dstName, Int32 dstTarget, Int32 dstLevel, Int32 dstX, Int32 dstY, Int32 dstZ, Int32 width, Int32 height, Int32 depth);
 			[ThreadStatic]
 			internal static wglCopyImageSubDataNV pwglCopyImageSubDataNV;
 
@@ -225,7 +225,7 @@ namespace OpenGL
 			internal static wglDXLockObjectsNV pwglDXLockObjectsNV;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate bool wglDXObjectAccessNV(IntPtr hObject, int access);
+			internal unsafe delegate bool wglDXObjectAccessNV(IntPtr hObject, Int32 access);
 			[ThreadStatic]
 			internal static wglDXObjectAccessNV pwglDXObjectAccessNV;
 
@@ -235,7 +235,7 @@ namespace OpenGL
 			internal static wglDXOpenDeviceNV pwglDXOpenDeviceNV;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate IntPtr wglDXRegisterObjectNV(IntPtr hDevice, IntPtr dxObject, UInt32 name, int type, int access);
+			internal unsafe delegate IntPtr wglDXRegisterObjectNV(IntPtr hDevice, IntPtr dxObject, UInt32 name, Int32 type, Int32 access);
 			[ThreadStatic]
 			internal static wglDXRegisterObjectNV pwglDXRegisterObjectNV;
 
@@ -405,7 +405,7 @@ namespace OpenGL
 			internal static wglGetGPUIDsAMD pwglGetGPUIDsAMD;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate Int32 wglGetGPUInfoAMD(UInt32 id, int property, int dataType, UInt32 size, IntPtr data);
+			internal unsafe delegate Int32 wglGetGPUInfoAMD(UInt32 id, int property, Int32 dataType, UInt32 size, IntPtr data);
 			[ThreadStatic]
 			internal static wglGetGPUInfoAMD pwglGetGPUInfoAMD;
 

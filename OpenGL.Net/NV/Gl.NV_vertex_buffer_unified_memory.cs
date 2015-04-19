@@ -179,7 +179,7 @@ namespace OpenGL
 		/// Binding for glBufferAddressRangeNV.
 		/// </summary>
 		/// <param name="pname">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="index">
 		/// A <see cref="T:UInt32"/>.
@@ -191,7 +191,7 @@ namespace OpenGL
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_vertex_buffer_unified_memory")]
-		public static void BufferAddressRangeNV(int pname, UInt32 index, UInt64 address, UInt32 length)
+		public static void BufferAddressRangeNV(Int32 pname, UInt32 index, UInt64 address, UInt32 length)
 		{
 			Debug.Assert(Delegates.pglBufferAddressRangeNV != null, "pglBufferAddressRangeNV not implemented");
 			Delegates.pglBufferAddressRangeNV(pname, index, address, length);
@@ -206,13 +206,13 @@ namespace OpenGL
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="type">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="stride">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_vertex_buffer_unified_memory")]
-		public static void VertexFormatNV(Int32 size, int type, Int32 stride)
+		public static void VertexFormatNV(Int32 size, Int32 type, Int32 stride)
 		{
 			Debug.Assert(Delegates.pglVertexFormatNV != null, "pglVertexFormatNV not implemented");
 			Delegates.pglVertexFormatNV(size, type, stride);
@@ -224,13 +224,13 @@ namespace OpenGL
 		/// Binding for glNormalFormatNV.
 		/// </summary>
 		/// <param name="type">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="stride">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_vertex_buffer_unified_memory")]
-		public static void NormalFormatNV(int type, Int32 stride)
+		public static void NormalFormatNV(Int32 type, Int32 stride)
 		{
 			Debug.Assert(Delegates.pglNormalFormatNV != null, "pglNormalFormatNV not implemented");
 			Delegates.pglNormalFormatNV(type, stride);
@@ -245,13 +245,13 @@ namespace OpenGL
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="type">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="stride">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_vertex_buffer_unified_memory")]
-		public static void ColorFormatNV(Int32 size, int type, Int32 stride)
+		public static void ColorFormatNV(Int32 size, Int32 type, Int32 stride)
 		{
 			Debug.Assert(Delegates.pglColorFormatNV != null, "pglColorFormatNV not implemented");
 			Delegates.pglColorFormatNV(size, type, stride);
@@ -263,13 +263,13 @@ namespace OpenGL
 		/// Binding for glIndexFormatNV.
 		/// </summary>
 		/// <param name="type">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="stride">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_vertex_buffer_unified_memory")]
-		public static void IndexFormatNV(int type, Int32 stride)
+		public static void IndexFormatNV(Int32 type, Int32 stride)
 		{
 			Debug.Assert(Delegates.pglIndexFormatNV != null, "pglIndexFormatNV not implemented");
 			Delegates.pglIndexFormatNV(type, stride);
@@ -284,13 +284,13 @@ namespace OpenGL
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="type">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="stride">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_vertex_buffer_unified_memory")]
-		public static void TexCoordFormatNV(Int32 size, int type, Int32 stride)
+		public static void TexCoordFormatNV(Int32 size, Int32 type, Int32 stride)
 		{
 			Debug.Assert(Delegates.pglTexCoordFormatNV != null, "pglTexCoordFormatNV not implemented");
 			Delegates.pglTexCoordFormatNV(size, type, stride);
@@ -320,13 +320,13 @@ namespace OpenGL
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="type">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="stride">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_vertex_buffer_unified_memory")]
-		public static void SecondaryColorFormatNV(Int32 size, int type, Int32 stride)
+		public static void SecondaryColorFormatNV(Int32 size, Int32 type, Int32 stride)
 		{
 			Debug.Assert(Delegates.pglSecondaryColorFormatNV != null, "pglSecondaryColorFormatNV not implemented");
 			Delegates.pglSecondaryColorFormatNV(size, type, stride);
@@ -338,13 +338,13 @@ namespace OpenGL
 		/// Binding for glFogCoordFormatNV.
 		/// </summary>
 		/// <param name="type">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="stride">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_vertex_buffer_unified_memory")]
-		public static void FogCoordFormatNV(int type, Int32 stride)
+		public static void FogCoordFormatNV(Int32 type, Int32 stride)
 		{
 			Debug.Assert(Delegates.pglFogCoordFormatNV != null, "pglFogCoordFormatNV not implemented");
 			Delegates.pglFogCoordFormatNV(type, stride);
@@ -362,7 +362,7 @@ namespace OpenGL
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="type">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="normalized">
 		/// A <see cref="T:bool"/>.
@@ -371,7 +371,7 @@ namespace OpenGL
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_vertex_buffer_unified_memory")]
-		public static void VertexAttribFormatNV(UInt32 index, Int32 size, int type, bool normalized, Int32 stride)
+		public static void VertexAttribFormatNV(UInt32 index, Int32 size, Int32 type, bool normalized, Int32 stride)
 		{
 			Debug.Assert(Delegates.pglVertexAttribFormatNV != null, "pglVertexAttribFormatNV not implemented");
 			Delegates.pglVertexAttribFormatNV(index, size, type, normalized, stride);
@@ -389,13 +389,13 @@ namespace OpenGL
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="type">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="stride">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_vertex_buffer_unified_memory")]
-		public static void VertexAttribIFormatNV(UInt32 index, Int32 size, int type, Int32 stride)
+		public static void VertexAttribIFormatNV(UInt32 index, Int32 size, Int32 type, Int32 stride)
 		{
 			Debug.Assert(Delegates.pglVertexAttribIFormatNV != null, "pglVertexAttribIFormatNV not implemented");
 			Delegates.pglVertexAttribIFormatNV(index, size, type, stride);
@@ -407,7 +407,7 @@ namespace OpenGL
 		/// Binding for glGetIntegerui64i_vNV.
 		/// </summary>
 		/// <param name="value">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="index">
 		/// A <see cref="T:UInt32"/>.
@@ -416,7 +416,7 @@ namespace OpenGL
 		/// A <see cref="T:UInt64[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_vertex_buffer_unified_memory")]
-		public static void GetIntegerNV(int value, UInt32 index, [Out] UInt64[] result)
+		public static void GetIntegerNV(Int32 value, UInt32 index, [Out] UInt64[] result)
 		{
 			unsafe {
 				fixed (UInt64* p_result = result)

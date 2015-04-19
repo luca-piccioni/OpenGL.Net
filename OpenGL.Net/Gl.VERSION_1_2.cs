@@ -548,7 +548,7 @@ namespace OpenGL
 		public static void DrawRangeElements(PrimitiveType mode, UInt32 start, UInt32 end, Int32 count, DrawElementsType type, IntPtr indices)
 		{
 			Debug.Assert(Delegates.pglDrawRangeElements != null, "pglDrawRangeElements not implemented");
-			Delegates.pglDrawRangeElements((int)mode, start, end, count, (int)type, indices);
+			Delegates.pglDrawRangeElements((Int32)mode, start, end, count, (Int32)type, indices);
 			CallLog("glDrawRangeElements({0}, {1}, {2}, {3}, {4}, {5})", mode, start, end, count, type, indices);
 			DebugCheckErrors();
 		}
@@ -739,7 +739,7 @@ namespace OpenGL
 		public static void TexImage3D(TextureTarget target, Int32 level, Int32 internalformat, Int32 width, Int32 height, Int32 depth, Int32 border, PixelFormat format, PixelType type, IntPtr pixels)
 		{
 			Debug.Assert(Delegates.pglTexImage3D != null, "pglTexImage3D not implemented");
-			Delegates.pglTexImage3D((int)target, level, internalformat, width, height, depth, border, (int)format, (int)type, pixels);
+			Delegates.pglTexImage3D((Int32)target, level, internalformat, width, height, depth, border, (Int32)format, (Int32)type, pixels);
 			CallLog("glTexImage3D({0}, {1}, {2}, {3}, {4}, {5}, {6}, {7}, {8}, {9})", target, level, internalformat, width, height, depth, border, format, type, pixels);
 			DebugCheckErrors();
 		}
@@ -999,7 +999,7 @@ namespace OpenGL
 		public static void TexSubImage3D(TextureTarget target, Int32 level, Int32 xoffset, Int32 yoffset, Int32 zoffset, Int32 width, Int32 height, Int32 depth, PixelFormat format, PixelType type, IntPtr pixels)
 		{
 			Debug.Assert(Delegates.pglTexSubImage3D != null, "pglTexSubImage3D not implemented");
-			Delegates.pglTexSubImage3D((int)target, level, xoffset, yoffset, zoffset, width, height, depth, (int)format, (int)type, pixels);
+			Delegates.pglTexSubImage3D((Int32)target, level, xoffset, yoffset, zoffset, width, height, depth, (Int32)format, (Int32)type, pixels);
 			CallLog("glTexSubImage3D({0}, {1}, {2}, {3}, {4}, {5}, {6}, {7}, {8}, {9}, {10})", target, level, xoffset, yoffset, zoffset, width, height, depth, format, type, pixels);
 			DebugCheckErrors();
 		}
@@ -1222,7 +1222,7 @@ namespace OpenGL
 		public static void CopyTexSubImage3D(TextureTarget target, Int32 level, Int32 xoffset, Int32 yoffset, Int32 zoffset, Int32 x, Int32 y, Int32 width, Int32 height)
 		{
 			Debug.Assert(Delegates.pglCopyTexSubImage3D != null, "pglCopyTexSubImage3D not implemented");
-			Delegates.pglCopyTexSubImage3D((int)target, level, xoffset, yoffset, zoffset, x, y, width, height);
+			Delegates.pglCopyTexSubImage3D((Int32)target, level, xoffset, yoffset, zoffset, x, y, width, height);
 			CallLog("glCopyTexSubImage3D({0}, {1}, {2}, {3}, {4}, {5}, {6}, {7}, {8})", target, level, xoffset, yoffset, zoffset, x, y, width, height);
 			DebugCheckErrors();
 		}

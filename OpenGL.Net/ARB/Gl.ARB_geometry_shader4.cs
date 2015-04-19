@@ -72,10 +72,10 @@ namespace OpenGL
 		/// Binding for glFramebufferTextureFaceARB.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="attachment">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="texture">
 		/// A <see cref="T:UInt32"/>.
@@ -87,10 +87,10 @@ namespace OpenGL
 		/// A <see cref="T:TextureTarget"/>.
 		/// </param>
 		[RequiredByFeature("GL_ARB_geometry_shader4")]
-		public static void FramebufferTextureFaceARB(int target, int attachment, UInt32 texture, Int32 level, TextureTarget face)
+		public static void FramebufferTextureFaceARB(Int32 target, Int32 attachment, UInt32 texture, Int32 level, TextureTarget face)
 		{
 			Debug.Assert(Delegates.pglFramebufferTextureFaceARB != null, "pglFramebufferTextureFaceARB not implemented");
-			Delegates.pglFramebufferTextureFaceARB(target, attachment, texture, level, (int)face);
+			Delegates.pglFramebufferTextureFaceARB(target, attachment, texture, level, (Int32)face);
 			CallLog("glFramebufferTextureFaceARB({0}, {1}, {2}, {3}, {4})", target, attachment, texture, level, face);
 			DebugCheckErrors();
 		}

@@ -396,13 +396,13 @@ namespace OpenGL
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
 		/// <param name="pname">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="params">
 		/// A <see cref="T:Int64[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_vertex_attrib_integer_64bit")]
-		public static void GetVertexAttribLNV(UInt32 index, int pname, [Out] Int64[] @params)
+		public static void GetVertexAttribLNV(UInt32 index, Int32 pname, [Out] Int64[] @params)
 		{
 			unsafe {
 				fixed (Int64* p_params = @params)
@@ -422,13 +422,13 @@ namespace OpenGL
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
 		/// <param name="pname">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="params">
 		/// A <see cref="T:UInt64[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_vertex_attrib_integer_64bit")]
-		public static void GetVertexAttribLNV(UInt32 index, int pname, [Out] UInt64[] @params)
+		public static void GetVertexAttribLNV(UInt32 index, Int32 pname, [Out] UInt64[] @params)
 		{
 			unsafe {
 				fixed (UInt64* p_params = @params)
@@ -451,13 +451,13 @@ namespace OpenGL
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="type">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="stride">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_vertex_attrib_integer_64bit")]
-		public static void VertexAttribLFormatNV(UInt32 index, Int32 size, int type, Int32 stride)
+		public static void VertexAttribLFormatNV(UInt32 index, Int32 size, Int32 type, Int32 stride)
 		{
 			Debug.Assert(Delegates.pglVertexAttribLFormatNV != null, "pglVertexAttribLFormatNV not implemented");
 			Delegates.pglVertexAttribLFormatNV(index, size, type, stride);

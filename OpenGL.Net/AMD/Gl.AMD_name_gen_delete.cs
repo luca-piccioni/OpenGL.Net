@@ -47,7 +47,7 @@ namespace OpenGL
 		/// Binding for glGenNamesAMD.
 		/// </summary>
 		/// <param name="identifier">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="num">
 		/// A <see cref="T:UInt32"/>.
@@ -56,7 +56,7 @@ namespace OpenGL
 		/// A <see cref="T:UInt32[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_AMD_name_gen_delete")]
-		public static void GenNameAMD(int identifier, UInt32[] names)
+		public static void GenNameAMD(Int32 identifier, UInt32[] names)
 		{
 			unsafe {
 				fixed (UInt32* p_names = names)
@@ -73,10 +73,10 @@ namespace OpenGL
 		/// Binding for glGenNamesAMD.
 		/// </summary>
 		/// <param name="identifier">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		[RequiredByFeature("GL_AMD_name_gen_delete")]
-		public static UInt32 GenNameAMD(int identifier)
+		public static UInt32 GenNameAMD(Int32 identifier)
 		{
 			UInt32[] retValue = new UInt32[1];
 			GenNameAMD(identifier, retValue);
@@ -87,7 +87,7 @@ namespace OpenGL
 		/// Binding for glDeleteNamesAMD.
 		/// </summary>
 		/// <param name="identifier">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="num">
 		/// A <see cref="T:UInt32"/>.
@@ -96,7 +96,7 @@ namespace OpenGL
 		/// A <see cref="T:UInt32[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_AMD_name_gen_delete")]
-		public static void DeleteNameAMD(int identifier, UInt32[] names)
+		public static void DeleteNameAMD(Int32 identifier, UInt32[] names)
 		{
 			unsafe {
 				fixed (UInt32* p_names = names)
@@ -113,13 +113,13 @@ namespace OpenGL
 		/// Binding for glIsNameAMD.
 		/// </summary>
 		/// <param name="identifier">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="name">
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
 		[RequiredByFeature("GL_AMD_name_gen_delete")]
-		public static bool IsNameAMD(int identifier, UInt32 name)
+		public static bool IsNameAMD(Int32 identifier, UInt32 name)
 		{
 			bool retValue;
 

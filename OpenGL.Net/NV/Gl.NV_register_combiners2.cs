@@ -35,16 +35,16 @@ namespace OpenGL
 		/// Binding for glCombinerStageParameterfvNV.
 		/// </summary>
 		/// <param name="stage">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="pname">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="params">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_register_combiners2")]
-		public static void CombinerStageParameterNV(int stage, int pname, float[] @params)
+		public static void CombinerStageParameterNV(Int32 stage, Int32 pname, float[] @params)
 		{
 			unsafe {
 				fixed (float* p_params = @params)
@@ -61,16 +61,16 @@ namespace OpenGL
 		/// Binding for glGetCombinerStageParameterfvNV.
 		/// </summary>
 		/// <param name="stage">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="pname">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="params">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_register_combiners2")]
-		public static void GetCombinerStageParameterNV(int stage, int pname, [Out] float[] @params)
+		public static void GetCombinerStageParameterNV(Int32 stage, Int32 pname, [Out] float[] @params)
 		{
 			unsafe {
 				fixed (float* p_params = @params)

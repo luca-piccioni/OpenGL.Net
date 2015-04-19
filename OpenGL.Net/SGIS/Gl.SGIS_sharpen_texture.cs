@@ -68,7 +68,7 @@ namespace OpenGL
 				fixed (float* p_points = points)
 				{
 					Debug.Assert(Delegates.pglSharpenTexFuncSGIS != null, "pglSharpenTexFuncSGIS not implemented");
-					Delegates.pglSharpenTexFuncSGIS((int)target, n, p_points);
+					Delegates.pglSharpenTexFuncSGIS((Int32)target, n, p_points);
 					CallLog("glSharpenTexFuncSGIS({0}, {1}, {2})", target, n, points);
 				}
 			}
@@ -91,7 +91,7 @@ namespace OpenGL
 				fixed (float* p_points = points)
 				{
 					Debug.Assert(Delegates.pglGetSharpenTexFuncSGIS != null, "pglGetSharpenTexFuncSGIS not implemented");
-					Delegates.pglGetSharpenTexFuncSGIS((int)target, p_points);
+					Delegates.pglGetSharpenTexFuncSGIS((Int32)target, p_points);
 					CallLog("glGetSharpenTexFuncSGIS({0}, {1})", target, points);
 				}
 			}

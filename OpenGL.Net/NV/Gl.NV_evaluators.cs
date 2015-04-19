@@ -173,13 +173,13 @@ namespace OpenGL
 		/// Binding for glMapControlPointsNV.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="index">
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
 		/// <param name="type">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="ustride">
 		/// A <see cref="T:Int32"/>.
@@ -200,7 +200,7 @@ namespace OpenGL
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_evaluators")]
-		public static void MapControlPointNV(int target, UInt32 index, int type, Int32 ustride, Int32 vstride, Int32 uorder, Int32 vorder, bool packed, IntPtr points)
+		public static void MapControlPointNV(Int32 target, UInt32 index, Int32 type, Int32 ustride, Int32 vstride, Int32 uorder, Int32 vorder, bool packed, IntPtr points)
 		{
 			Debug.Assert(Delegates.pglMapControlPointsNV != null, "pglMapControlPointsNV not implemented");
 			Delegates.pglMapControlPointsNV(target, index, type, ustride, vstride, uorder, vorder, packed, points);
@@ -212,13 +212,13 @@ namespace OpenGL
 		/// Binding for glMapControlPointsNV.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="index">
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
 		/// <param name="type">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="ustride">
 		/// A <see cref="T:Int32"/>.
@@ -239,7 +239,7 @@ namespace OpenGL
 		/// A <see cref="T:Object"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_evaluators")]
-		public static void MapControlPointNV(int target, UInt32 index, int type, Int32 ustride, Int32 vstride, Int32 uorder, Int32 vorder, bool packed, Object points)
+		public static void MapControlPointNV(Int32 target, UInt32 index, Int32 type, Int32 ustride, Int32 vstride, Int32 uorder, Int32 vorder, bool packed, Object points)
 		{
 			GCHandle pin_points = GCHandle.Alloc(points, GCHandleType.Pinned);
 			try {
@@ -253,16 +253,16 @@ namespace OpenGL
 		/// Binding for glMapParameterivNV.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="pname">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="params">
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_evaluators")]
-		public static void MapParameterNV(int target, int pname, Int32[] @params)
+		public static void MapParameterNV(Int32 target, Int32 pname, Int32[] @params)
 		{
 			unsafe {
 				fixed (Int32* p_params = @params)
@@ -279,16 +279,16 @@ namespace OpenGL
 		/// Binding for glMapParameterfvNV.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="pname">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="params">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_evaluators")]
-		public static void MapParameterNV(int target, int pname, float[] @params)
+		public static void MapParameterNV(Int32 target, Int32 pname, float[] @params)
 		{
 			unsafe {
 				fixed (float* p_params = @params)
@@ -305,13 +305,13 @@ namespace OpenGL
 		/// Binding for glGetMapControlPointsNV.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="index">
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
 		/// <param name="type">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="ustride">
 		/// A <see cref="T:Int32"/>.
@@ -326,7 +326,7 @@ namespace OpenGL
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_evaluators")]
-		public static void GetMapControlPointNV(int target, UInt32 index, int type, Int32 ustride, Int32 vstride, bool packed, IntPtr points)
+		public static void GetMapControlPointNV(Int32 target, UInt32 index, Int32 type, Int32 ustride, Int32 vstride, bool packed, IntPtr points)
 		{
 			Debug.Assert(Delegates.pglGetMapControlPointsNV != null, "pglGetMapControlPointsNV not implemented");
 			Delegates.pglGetMapControlPointsNV(target, index, type, ustride, vstride, packed, points);
@@ -338,13 +338,13 @@ namespace OpenGL
 		/// Binding for glGetMapControlPointsNV.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="index">
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
 		/// <param name="type">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="ustride">
 		/// A <see cref="T:Int32"/>.
@@ -359,7 +359,7 @@ namespace OpenGL
 		/// A <see cref="T:Object"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_evaluators")]
-		public static void GetMapControlPointNV(int target, UInt32 index, int type, Int32 ustride, Int32 vstride, bool packed, Object points)
+		public static void GetMapControlPointNV(Int32 target, UInt32 index, Int32 type, Int32 ustride, Int32 vstride, bool packed, Object points)
 		{
 			GCHandle pin_points = GCHandle.Alloc(points, GCHandleType.Pinned);
 			try {
@@ -373,16 +373,16 @@ namespace OpenGL
 		/// Binding for glGetMapParameterivNV.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="pname">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="params">
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_evaluators")]
-		public static void GetMapParameterNV(int target, int pname, [Out] Int32[] @params)
+		public static void GetMapParameterNV(Int32 target, Int32 pname, [Out] Int32[] @params)
 		{
 			unsafe {
 				fixed (Int32* p_params = @params)
@@ -399,16 +399,16 @@ namespace OpenGL
 		/// Binding for glGetMapParameterfvNV.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="pname">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="params">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_evaluators")]
-		public static void GetMapParameterNV(int target, int pname, [Out] float[] @params)
+		public static void GetMapParameterNV(Int32 target, Int32 pname, [Out] float[] @params)
 		{
 			unsafe {
 				fixed (float* p_params = @params)
@@ -425,19 +425,19 @@ namespace OpenGL
 		/// Binding for glGetMapAttribParameterivNV.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="index">
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
 		/// <param name="pname">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="params">
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_evaluators")]
-		public static void GetMapAttribParameterNV(int target, UInt32 index, int pname, [Out] Int32[] @params)
+		public static void GetMapAttribParameterNV(Int32 target, UInt32 index, Int32 pname, [Out] Int32[] @params)
 		{
 			unsafe {
 				fixed (Int32* p_params = @params)
@@ -454,19 +454,19 @@ namespace OpenGL
 		/// Binding for glGetMapAttribParameterfvNV.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="index">
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
 		/// <param name="pname">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="params">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_evaluators")]
-		public static void GetMapAttribParameterNV(int target, UInt32 index, int pname, [Out] float[] @params)
+		public static void GetMapAttribParameterNV(Int32 target, UInt32 index, Int32 pname, [Out] float[] @params)
 		{
 			unsafe {
 				fixed (float* p_params = @params)
@@ -483,13 +483,13 @@ namespace OpenGL
 		/// Binding for glEvalMapsNV.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="mode">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_evaluators")]
-		public static void EvalMapNV(int target, int mode)
+		public static void EvalMapNV(Int32 target, Int32 mode)
 		{
 			Debug.Assert(Delegates.pglEvalMapsNV != null, "pglEvalMapsNV not implemented");
 			Delegates.pglEvalMapsNV(target, mode);

@@ -95,7 +95,7 @@ namespace OpenGL
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="internalformat">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="width">
 		/// A <see cref="T:Int32"/>.
@@ -122,10 +122,10 @@ namespace OpenGL
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		[RequiredByFeature("GL_SGIS_texture4D")]
-		public static void TexImage4DSGIS(TextureTarget target, Int32 level, int internalformat, Int32 width, Int32 height, Int32 depth, Int32 size4d, Int32 border, PixelFormat format, PixelType type, IntPtr pixels)
+		public static void TexImage4DSGIS(TextureTarget target, Int32 level, Int32 internalformat, Int32 width, Int32 height, Int32 depth, Int32 size4d, Int32 border, PixelFormat format, PixelType type, IntPtr pixels)
 		{
 			Debug.Assert(Delegates.pglTexImage4DSGIS != null, "pglTexImage4DSGIS not implemented");
-			Delegates.pglTexImage4DSGIS((int)target, level, internalformat, width, height, depth, size4d, border, (int)format, (int)type, pixels);
+			Delegates.pglTexImage4DSGIS((Int32)target, level, internalformat, width, height, depth, size4d, border, (Int32)format, (Int32)type, pixels);
 			CallLog("glTexImage4DSGIS({0}, {1}, {2}, {3}, {4}, {5}, {6}, {7}, {8}, {9}, {10})", target, level, internalformat, width, height, depth, size4d, border, format, type, pixels);
 			DebugCheckErrors();
 		}
@@ -140,7 +140,7 @@ namespace OpenGL
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="internalformat">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="width">
 		/// A <see cref="T:Int32"/>.
@@ -167,7 +167,7 @@ namespace OpenGL
 		/// A <see cref="T:Object"/>.
 		/// </param>
 		[RequiredByFeature("GL_SGIS_texture4D")]
-		public static void TexImage4DSGIS(TextureTarget target, Int32 level, int internalformat, Int32 width, Int32 height, Int32 depth, Int32 size4d, Int32 border, PixelFormat format, PixelType type, Object pixels)
+		public static void TexImage4DSGIS(TextureTarget target, Int32 level, Int32 internalformat, Int32 width, Int32 height, Int32 depth, Int32 size4d, Int32 border, PixelFormat format, PixelType type, Object pixels)
 		{
 			GCHandle pin_pixels = GCHandle.Alloc(pixels, GCHandleType.Pinned);
 			try {
@@ -223,7 +223,7 @@ namespace OpenGL
 		public static void TexSubImage4DSGIS(TextureTarget target, Int32 level, Int32 xoffset, Int32 yoffset, Int32 zoffset, Int32 woffset, Int32 width, Int32 height, Int32 depth, Int32 size4d, PixelFormat format, PixelType type, IntPtr pixels)
 		{
 			Debug.Assert(Delegates.pglTexSubImage4DSGIS != null, "pglTexSubImage4DSGIS not implemented");
-			Delegates.pglTexSubImage4DSGIS((int)target, level, xoffset, yoffset, zoffset, woffset, width, height, depth, size4d, (int)format, (int)type, pixels);
+			Delegates.pglTexSubImage4DSGIS((Int32)target, level, xoffset, yoffset, zoffset, woffset, width, height, depth, size4d, (Int32)format, (Int32)type, pixels);
 			CallLog("glTexSubImage4DSGIS({0}, {1}, {2}, {3}, {4}, {5}, {6}, {7}, {8}, {9}, {10}, {11}, {12})", target, level, xoffset, yoffset, zoffset, woffset, width, height, depth, size4d, format, type, pixels);
 			DebugCheckErrors();
 		}

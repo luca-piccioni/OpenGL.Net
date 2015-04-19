@@ -83,13 +83,13 @@ namespace OpenGL
 		/// Binding for glPNTrianglesiATI.
 		/// </summary>
 		/// <param name="pname">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="param">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		[RequiredByFeature("GL_ATI_pn_triangles")]
-		public static void PNTrianglesATI(int pname, Int32 param)
+		public static void PNTrianglesATI(Int32 pname, Int32 param)
 		{
 			Debug.Assert(Delegates.pglPNTrianglesiATI != null, "pglPNTrianglesiATI not implemented");
 			Delegates.pglPNTrianglesiATI(pname, param);
@@ -101,13 +101,13 @@ namespace OpenGL
 		/// Binding for glPNTrianglesfATI.
 		/// </summary>
 		/// <param name="pname">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="param">
 		/// A <see cref="T:float"/>.
 		/// </param>
 		[RequiredByFeature("GL_ATI_pn_triangles")]
-		public static void PNTrianglesATI(int pname, float param)
+		public static void PNTrianglesATI(Int32 pname, float param)
 		{
 			Debug.Assert(Delegates.pglPNTrianglesfATI != null, "pglPNTrianglesfATI not implemented");
 			Delegates.pglPNTrianglesfATI(pname, param);

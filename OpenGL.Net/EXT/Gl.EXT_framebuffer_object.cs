@@ -47,13 +47,13 @@ namespace OpenGL
 		/// Binding for glBindRenderbufferEXT.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="renderbuffer">
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_framebuffer_object")]
-		public static void BindRenderbufferEXT(int target, UInt32 renderbuffer)
+		public static void BindRenderbufferEXT(Int32 target, UInt32 renderbuffer)
 		{
 			Debug.Assert(Delegates.pglBindRenderbufferEXT != null, "pglBindRenderbufferEXT not implemented");
 			Delegates.pglBindRenderbufferEXT(target, renderbuffer);
@@ -65,13 +65,13 @@ namespace OpenGL
 		/// Binding for glBindFramebufferEXT.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="framebuffer">
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_framebuffer_object")]
-		public static void BindFramebufferEXT(int target, UInt32 framebuffer)
+		public static void BindFramebufferEXT(Int32 target, UInt32 framebuffer)
 		{
 			Debug.Assert(Delegates.pglBindFramebufferEXT != null, "pglBindFramebufferEXT not implemented");
 			Delegates.pglBindFramebufferEXT(target, framebuffer);

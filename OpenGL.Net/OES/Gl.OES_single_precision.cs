@@ -29,13 +29,13 @@ namespace OpenGL
 		/// Binding for glClipPlanefOES.
 		/// </summary>
 		/// <param name="plane">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="equation">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_OES_single_precision")]
-		public static void ClipPlaneOES(int plane, float[] equation)
+		public static void ClipPlaneOES(Int32 plane, float[] equation)
 		{
 			unsafe {
 				fixed (float* p_equation = equation)
@@ -82,13 +82,13 @@ namespace OpenGL
 		/// Binding for glGetClipPlanefOES.
 		/// </summary>
 		/// <param name="plane">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="equation">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_OES_single_precision")]
-		public static void GetClipPlaneOES(int plane, [Out] float[] equation)
+		public static void GetClipPlaneOES(Int32 plane, [Out] float[] equation)
 		{
 			unsafe {
 				fixed (float* p_equation = equation)

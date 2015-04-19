@@ -41,7 +41,7 @@ namespace OpenGL
 		/// Binding for glMultiDrawArraysIndirectCountARB.
 		/// </summary>
 		/// <param name="mode">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="indirect">
 		/// A <see cref="T:IntPtr"/>.
@@ -56,7 +56,7 @@ namespace OpenGL
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		[RequiredByFeature("GL_ARB_indirect_parameters")]
-		public static void MultiDrawArraysIndirectARB(int mode, IntPtr indirect, IntPtr drawcount, Int32 maxdrawcount, Int32 stride)
+		public static void MultiDrawArraysIndirectARB(Int32 mode, IntPtr indirect, IntPtr drawcount, Int32 maxdrawcount, Int32 stride)
 		{
 			Debug.Assert(Delegates.pglMultiDrawArraysIndirectCountARB != null, "pglMultiDrawArraysIndirectCountARB not implemented");
 			Delegates.pglMultiDrawArraysIndirectCountARB(mode, indirect, drawcount, maxdrawcount, stride);
@@ -68,10 +68,10 @@ namespace OpenGL
 		/// Binding for glMultiDrawElementsIndirectCountARB.
 		/// </summary>
 		/// <param name="mode">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="type">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="indirect">
 		/// A <see cref="T:IntPtr"/>.
@@ -86,7 +86,7 @@ namespace OpenGL
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		[RequiredByFeature("GL_ARB_indirect_parameters")]
-		public static void MultiDrawElementsIndirectARB(int mode, int type, IntPtr indirect, IntPtr drawcount, Int32 maxdrawcount, Int32 stride)
+		public static void MultiDrawElementsIndirectARB(Int32 mode, Int32 type, IntPtr indirect, IntPtr drawcount, Int32 maxdrawcount, Int32 stride)
 		{
 			Debug.Assert(Delegates.pglMultiDrawElementsIndirectCountARB != null, "pglMultiDrawElementsIndirectCountARB not implemented");
 			Delegates.pglMultiDrawElementsIndirectCountARB(mode, type, indirect, drawcount, maxdrawcount, stride);

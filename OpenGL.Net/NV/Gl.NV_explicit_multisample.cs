@@ -68,10 +68,10 @@ namespace OpenGL
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
 		/// <param name="mask">
-		/// A <see cref="T:uint"/>.
+		/// A <see cref="T:UInt32"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_explicit_multisample")]
-		public static void SampleMaskIndexedNV(UInt32 index, uint mask)
+		public static void SampleMaskIndexedNV(UInt32 index, UInt32 mask)
 		{
 			Debug.Assert(Delegates.pglSampleMaskIndexedNV != null, "pglSampleMaskIndexedNV not implemented");
 			Delegates.pglSampleMaskIndexedNV(index, mask);
@@ -92,7 +92,7 @@ namespace OpenGL
 		public static void TexRenderbufferNV(TextureTarget target, UInt32 renderbuffer)
 		{
 			Debug.Assert(Delegates.pglTexRenderbufferNV != null, "pglTexRenderbufferNV not implemented");
-			Delegates.pglTexRenderbufferNV((int)target, renderbuffer);
+			Delegates.pglTexRenderbufferNV((Int32)target, renderbuffer);
 			CallLog("glTexRenderbufferNV({0}, {1})", target, renderbuffer);
 			DebugCheckErrors();
 		}

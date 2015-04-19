@@ -72,7 +72,7 @@ namespace OpenGL
 
 			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "wglBlitContextFramebufferAMD", ExactSpelling = true)]
-			internal extern static unsafe void wglBlitContextFramebufferAMD(IntPtr dstCtx, Int32 srcX0, Int32 srcY0, Int32 srcX1, Int32 srcY1, Int32 dstX0, Int32 dstY0, Int32 dstX1, Int32 dstY1, uint mask, int filter);
+			internal extern static unsafe void wglBlitContextFramebufferAMD(IntPtr dstCtx, Int32 srcX0, Int32 srcY0, Int32 srcX1, Int32 srcY1, Int32 dstX0, Int32 dstY0, Int32 dstX1, Int32 dstY1, UInt32 mask, Int32 filter);
 
 			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "wglChoosePixelFormatARB", ExactSpelling = true)]
@@ -92,7 +92,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "wglCopyImageSubDataNV", ExactSpelling = true)]
 			[return: MarshalAs(UnmanagedType.Bool)]
-			internal extern static unsafe bool wglCopyImageSubDataNV(IntPtr hSrcRC, UInt32 srcName, int srcTarget, Int32 srcLevel, Int32 srcX, Int32 srcY, Int32 srcZ, IntPtr hDstRC, UInt32 dstName, int dstTarget, Int32 dstLevel, Int32 dstX, Int32 dstY, Int32 dstZ, Int32 width, Int32 height, Int32 depth);
+			internal extern static unsafe bool wglCopyImageSubDataNV(IntPtr hSrcRC, UInt32 srcName, Int32 srcTarget, Int32 srcLevel, Int32 srcX, Int32 srcY, Int32 srcZ, IntPtr hDstRC, UInt32 dstName, Int32 dstTarget, Int32 dstLevel, Int32 dstX, Int32 dstY, Int32 dstZ, Int32 width, Int32 height, Int32 depth);
 
 			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "wglCreateAffinityDCNV", ExactSpelling = true)]
@@ -210,7 +210,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "wglDXObjectAccessNV", ExactSpelling = true)]
 			[return: MarshalAs(UnmanagedType.Bool)]
-			internal extern static unsafe bool wglDXObjectAccessNV(IntPtr hObject, int access);
+			internal extern static unsafe bool wglDXObjectAccessNV(IntPtr hObject, Int32 access);
 
 			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "wglDXOpenDeviceNV", ExactSpelling = true)]
@@ -218,7 +218,7 @@ namespace OpenGL
 
 			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "wglDXRegisterObjectNV", ExactSpelling = true)]
-			internal extern static unsafe IntPtr wglDXRegisterObjectNV(IntPtr hDevice, IntPtr dxObject, UInt32 name, int type, int access);
+			internal extern static unsafe IntPtr wglDXRegisterObjectNV(IntPtr hDevice, IntPtr dxObject, UInt32 name, Int32 type, Int32 access);
 
 			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "wglDXSetResourceShareHandleNV", ExactSpelling = true)]
@@ -375,7 +375,7 @@ namespace OpenGL
 
 			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "wglGetGPUInfoAMD", ExactSpelling = true)]
-			internal extern static unsafe Int32 wglGetGPUInfoAMD(UInt32 id, int property, int dataType, UInt32 size, IntPtr data);
+			internal extern static unsafe Int32 wglGetGPUInfoAMD(UInt32 id, int property, Int32 dataType, UInt32 size, IntPtr data);
 
 			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "wglGetLayerPaletteEntries", ExactSpelling = true)]

@@ -29,13 +29,13 @@ namespace OpenGL
 		/// Binding for glAlphaFuncxOES.
 		/// </summary>
 		/// <param name="func">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="ref">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		[RequiredByFeature("GL_OES_fixed_point")]
-		public static void AlphaFuncOES(int func, IntPtr @ref)
+		public static void AlphaFuncOES(Int32 func, IntPtr @ref)
 		{
 			Debug.Assert(Delegates.pglAlphaFuncxOES != null, "pglAlphaFuncxOES not implemented");
 			Delegates.pglAlphaFuncxOES(func, @ref);
@@ -86,13 +86,13 @@ namespace OpenGL
 		/// Binding for glClipPlanexOES.
 		/// </summary>
 		/// <param name="plane">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="equation">
 		/// A <see cref="T:IntPtr[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_OES_fixed_point")]
-		public static void ClipPlaneOES(int plane, IntPtr[] equation)
+		public static void ClipPlaneOES(Int32 plane, IntPtr[] equation)
 		{
 			unsafe {
 				fixed (IntPtr* p_equation = equation)
@@ -151,13 +151,13 @@ namespace OpenGL
 		/// Binding for glFogxOES.
 		/// </summary>
 		/// <param name="pname">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="param">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		[RequiredByFeature("GL_OES_fixed_point")]
-		public static void FogOES(int pname, IntPtr param)
+		public static void FogOES(Int32 pname, IntPtr param)
 		{
 			Debug.Assert(Delegates.pglFogxOES != null, "pglFogxOES not implemented");
 			Delegates.pglFogxOES(pname, param);
@@ -169,13 +169,13 @@ namespace OpenGL
 		/// Binding for glFogxvOES.
 		/// </summary>
 		/// <param name="pname">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="param">
 		/// A <see cref="T:IntPtr[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_OES_fixed_point")]
-		public static void FogOES(int pname, IntPtr[] param)
+		public static void FogOES(Int32 pname, IntPtr[] param)
 		{
 			unsafe {
 				fixed (IntPtr* p_param = param)
@@ -222,13 +222,13 @@ namespace OpenGL
 		/// Binding for glGetClipPlanexOES.
 		/// </summary>
 		/// <param name="plane">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="equation">
 		/// A <see cref="T:IntPtr[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_OES_fixed_point")]
-		public static void GetClipPlaneOES(int plane, [Out] IntPtr[] equation)
+		public static void GetClipPlaneOES(Int32 plane, [Out] IntPtr[] equation)
 		{
 			unsafe {
 				fixed (IntPtr* p_equation = equation)
@@ -245,13 +245,13 @@ namespace OpenGL
 		/// Binding for glGetFixedvOES.
 		/// </summary>
 		/// <param name="pname">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="params">
 		/// A <see cref="T:IntPtr[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_OES_fixed_point")]
-		public static void GetFixedOES(int pname, [Out] IntPtr[] @params)
+		public static void GetFixedOES(Int32 pname, [Out] IntPtr[] @params)
 		{
 			unsafe {
 				fixed (IntPtr* p_params = @params)
@@ -268,16 +268,16 @@ namespace OpenGL
 		/// Binding for glGetTexEnvxvOES.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="pname">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="params">
 		/// A <see cref="T:IntPtr[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_OES_fixed_point")]
-		public static void GetTexEnvOES(int target, int pname, [Out] IntPtr[] @params)
+		public static void GetTexEnvOES(Int32 target, Int32 pname, [Out] IntPtr[] @params)
 		{
 			unsafe {
 				fixed (IntPtr* p_params = @params)
@@ -294,16 +294,16 @@ namespace OpenGL
 		/// Binding for glGetTexParameterxvOES.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="pname">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="params">
 		/// A <see cref="T:IntPtr[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_OES_fixed_point")]
-		public static void GetTexParameterOES(int target, int pname, [Out] IntPtr[] @params)
+		public static void GetTexParameterOES(Int32 target, Int32 pname, [Out] IntPtr[] @params)
 		{
 			unsafe {
 				fixed (IntPtr* p_params = @params)
@@ -320,13 +320,13 @@ namespace OpenGL
 		/// Binding for glLightModelxOES.
 		/// </summary>
 		/// <param name="pname">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="param">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		[RequiredByFeature("GL_OES_fixed_point")]
-		public static void LightModelOES(int pname, IntPtr param)
+		public static void LightModelOES(Int32 pname, IntPtr param)
 		{
 			Debug.Assert(Delegates.pglLightModelxOES != null, "pglLightModelxOES not implemented");
 			Delegates.pglLightModelxOES(pname, param);
@@ -338,13 +338,13 @@ namespace OpenGL
 		/// Binding for glLightModelxvOES.
 		/// </summary>
 		/// <param name="pname">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="param">
 		/// A <see cref="T:IntPtr[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_OES_fixed_point")]
-		public static void LightModelOES(int pname, IntPtr[] param)
+		public static void LightModelOES(Int32 pname, IntPtr[] param)
 		{
 			unsafe {
 				fixed (IntPtr* p_param = param)
@@ -361,16 +361,16 @@ namespace OpenGL
 		/// Binding for glLightxOES.
 		/// </summary>
 		/// <param name="light">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="pname">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="param">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		[RequiredByFeature("GL_OES_fixed_point")]
-		public static void LightxOES(int light, int pname, IntPtr param)
+		public static void LightxOES(Int32 light, Int32 pname, IntPtr param)
 		{
 			Debug.Assert(Delegates.pglLightxOES != null, "pglLightxOES not implemented");
 			Delegates.pglLightxOES(light, pname, param);
@@ -382,16 +382,16 @@ namespace OpenGL
 		/// Binding for glLightxvOES.
 		/// </summary>
 		/// <param name="light">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="pname">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="params">
 		/// A <see cref="T:IntPtr[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_OES_fixed_point")]
-		public static void LightxvOES(int light, int pname, IntPtr[] @params)
+		public static void LightxvOES(Int32 light, Int32 pname, IntPtr[] @params)
 		{
 			unsafe {
 				fixed (IntPtr* p_params = @params)
@@ -443,16 +443,16 @@ namespace OpenGL
 		/// Binding for glMaterialxOES.
 		/// </summary>
 		/// <param name="face">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="pname">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="param">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		[RequiredByFeature("GL_OES_fixed_point")]
-		public static void MaterialOES(int face, int pname, IntPtr param)
+		public static void MaterialOES(Int32 face, Int32 pname, IntPtr param)
 		{
 			Debug.Assert(Delegates.pglMaterialxOES != null, "pglMaterialxOES not implemented");
 			Delegates.pglMaterialxOES(face, pname, param);
@@ -464,16 +464,16 @@ namespace OpenGL
 		/// Binding for glMaterialxvOES.
 		/// </summary>
 		/// <param name="face">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="pname">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="param">
 		/// A <see cref="T:IntPtr[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_OES_fixed_point")]
-		public static void MaterialOES(int face, int pname, IntPtr[] param)
+		public static void MaterialOES(Int32 face, Int32 pname, IntPtr[] param)
 		{
 			unsafe {
 				fixed (IntPtr* p_param = param)
@@ -510,7 +510,7 @@ namespace OpenGL
 		/// Binding for glMultiTexCoord4xOES.
 		/// </summary>
 		/// <param name="texture">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="s">
 		/// A <see cref="T:IntPtr"/>.
@@ -525,7 +525,7 @@ namespace OpenGL
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		[RequiredByFeature("GL_OES_fixed_point")]
-		public static void MultiTexCoord4OES(int texture, IntPtr s, IntPtr t, IntPtr r, IntPtr q)
+		public static void MultiTexCoord4OES(Int32 texture, IntPtr s, IntPtr t, IntPtr r, IntPtr q)
 		{
 			Debug.Assert(Delegates.pglMultiTexCoord4xOES != null, "pglMultiTexCoord4xOES not implemented");
 			Delegates.pglMultiTexCoord4xOES(texture, s, t, r, q);
@@ -588,13 +588,13 @@ namespace OpenGL
 		/// Binding for glPointParameterxvOES.
 		/// </summary>
 		/// <param name="pname">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="params">
 		/// A <see cref="T:IntPtr[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_OES_fixed_point")]
-		public static void PointParameterOES(int pname, IntPtr[] @params)
+		public static void PointParameterOES(Int32 pname, IntPtr[] @params)
 		{
 			unsafe {
 				fixed (IntPtr* p_params = @params)
@@ -707,16 +707,16 @@ namespace OpenGL
 		/// Binding for glTexEnvxOES.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="pname">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="param">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		[RequiredByFeature("GL_OES_fixed_point")]
-		public static void TexEnvOES(int target, int pname, IntPtr param)
+		public static void TexEnvOES(Int32 target, Int32 pname, IntPtr param)
 		{
 			Debug.Assert(Delegates.pglTexEnvxOES != null, "pglTexEnvxOES not implemented");
 			Delegates.pglTexEnvxOES(target, pname, param);
@@ -728,16 +728,16 @@ namespace OpenGL
 		/// Binding for glTexEnvxvOES.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="pname">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="params">
 		/// A <see cref="T:IntPtr[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_OES_fixed_point")]
-		public static void TexEnvOES(int target, int pname, IntPtr[] @params)
+		public static void TexEnvOES(Int32 target, Int32 pname, IntPtr[] @params)
 		{
 			unsafe {
 				fixed (IntPtr* p_params = @params)
@@ -754,16 +754,16 @@ namespace OpenGL
 		/// Binding for glTexParameterxOES.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="pname">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="param">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		[RequiredByFeature("GL_OES_fixed_point")]
-		public static void TexParameterOES(int target, int pname, IntPtr param)
+		public static void TexParameterOES(Int32 target, Int32 pname, IntPtr param)
 		{
 			Debug.Assert(Delegates.pglTexParameterxOES != null, "pglTexParameterxOES not implemented");
 			Delegates.pglTexParameterxOES(target, pname, param);
@@ -775,16 +775,16 @@ namespace OpenGL
 		/// Binding for glTexParameterxvOES.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="pname">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="params">
 		/// A <see cref="T:IntPtr[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_OES_fixed_point")]
-		public static void TexParameterOES(int target, int pname, IntPtr[] @params)
+		public static void TexParameterOES(Int32 target, Int32 pname, IntPtr[] @params)
 		{
 			unsafe {
 				fixed (IntPtr* p_params = @params)
@@ -822,13 +822,13 @@ namespace OpenGL
 		/// Binding for glAccumxOES.
 		/// </summary>
 		/// <param name="op">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="value">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		[RequiredByFeature("GL_OES_fixed_point")]
-		public static void AccumOES(int op, IntPtr value)
+		public static void AccumOES(Int32 op, IntPtr value)
 		{
 			Debug.Assert(Delegates.pglAccumxOES != null, "pglAccumxOES not implemented");
 			Delegates.pglAccumxOES(op, value);
@@ -987,16 +987,16 @@ namespace OpenGL
 		/// Binding for glConvolutionParameterxOES.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="pname">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="param">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		[RequiredByFeature("GL_OES_fixed_point")]
-		public static void ConvolutionParameterOES(int target, int pname, IntPtr param)
+		public static void ConvolutionParameterOES(Int32 target, Int32 pname, IntPtr param)
 		{
 			Debug.Assert(Delegates.pglConvolutionParameterxOES != null, "pglConvolutionParameterxOES not implemented");
 			Delegates.pglConvolutionParameterxOES(target, pname, param);
@@ -1008,16 +1008,16 @@ namespace OpenGL
 		/// Binding for glConvolutionParameterxvOES.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="pname">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="params">
 		/// A <see cref="T:IntPtr[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_OES_fixed_point")]
-		public static void ConvolutionParameterOES(int target, int pname, IntPtr[] @params)
+		public static void ConvolutionParameterOES(Int32 target, Int32 pname, IntPtr[] @params)
 		{
 			unsafe {
 				fixed (IntPtr* p_params = @params)
@@ -1110,13 +1110,13 @@ namespace OpenGL
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="type">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="buffer">
 		/// A <see cref="T:IntPtr[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_OES_fixed_point")]
-		public static void FeedbackBufferOES(int type, IntPtr[] buffer)
+		public static void FeedbackBufferOES(Int32 type, IntPtr[] buffer)
 		{
 			unsafe {
 				fixed (IntPtr* p_buffer = buffer)
@@ -1133,16 +1133,16 @@ namespace OpenGL
 		/// Binding for glGetConvolutionParameterxvOES.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="pname">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="params">
 		/// A <see cref="T:IntPtr[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_OES_fixed_point")]
-		public static void GetConvolutionParameterOES(int target, int pname, [Out] IntPtr[] @params)
+		public static void GetConvolutionParameterOES(Int32 target, Int32 pname, [Out] IntPtr[] @params)
 		{
 			unsafe {
 				fixed (IntPtr* p_params = @params)
@@ -1159,16 +1159,16 @@ namespace OpenGL
 		/// Binding for glGetHistogramParameterxvOES.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="pname">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="params">
 		/// A <see cref="T:IntPtr[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_OES_fixed_point")]
-		public static void GetHistogramParameterOES(int target, int pname, [Out] IntPtr[] @params)
+		public static void GetHistogramParameterOES(Int32 target, Int32 pname, [Out] IntPtr[] @params)
 		{
 			unsafe {
 				fixed (IntPtr* p_params = @params)
@@ -1185,16 +1185,16 @@ namespace OpenGL
 		/// Binding for glGetLightxOES.
 		/// </summary>
 		/// <param name="light">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="pname">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="params">
 		/// A <see cref="T:IntPtr[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_OES_fixed_point")]
-		public static void GetLightxOES(int light, int pname, [Out] IntPtr[] @params)
+		public static void GetLightxOES(Int32 light, Int32 pname, [Out] IntPtr[] @params)
 		{
 			unsafe {
 				fixed (IntPtr* p_params = @params)
@@ -1211,16 +1211,16 @@ namespace OpenGL
 		/// Binding for glGetMapxvOES.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="query">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="v">
 		/// A <see cref="T:IntPtr[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_OES_fixed_point")]
-		public static void GetMapOES(int target, int query, [Out] IntPtr[] v)
+		public static void GetMapOES(Int32 target, Int32 query, [Out] IntPtr[] v)
 		{
 			unsafe {
 				fixed (IntPtr* p_v = v)
@@ -1237,16 +1237,16 @@ namespace OpenGL
 		/// Binding for glGetMaterialxOES.
 		/// </summary>
 		/// <param name="face">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="pname">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="param">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		[RequiredByFeature("GL_OES_fixed_point")]
-		public static void GetMaterialOES(int face, int pname, IntPtr param)
+		public static void GetMaterialOES(Int32 face, Int32 pname, IntPtr param)
 		{
 			Debug.Assert(Delegates.pglGetMaterialxOES != null, "pglGetMaterialxOES not implemented");
 			Delegates.pglGetMaterialxOES(face, pname, param);
@@ -1258,16 +1258,16 @@ namespace OpenGL
 		/// Binding for glGetMaterialxOES.
 		/// </summary>
 		/// <param name="face">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="pname">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="param">
 		/// A <see cref="T:Object"/>.
 		/// </param>
 		[RequiredByFeature("GL_OES_fixed_point")]
-		public static void GetMaterialOES(int face, int pname, Object param)
+		public static void GetMaterialOES(Int32 face, Int32 pname, Object param)
 		{
 			GCHandle pin_param = GCHandle.Alloc(param, GCHandleType.Pinned);
 			try {
@@ -1281,7 +1281,7 @@ namespace OpenGL
 		/// Binding for glGetPixelMapxv.
 		/// </summary>
 		/// <param name="map">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="size">
 		/// A <see cref="T:Int32"/>.
@@ -1290,7 +1290,7 @@ namespace OpenGL
 		/// A <see cref="T:IntPtr[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_OES_fixed_point")]
-		public static void GetPixelMap(int map, [Out] IntPtr[] values)
+		public static void GetPixelMap(Int32 map, [Out] IntPtr[] values)
 		{
 			unsafe {
 				fixed (IntPtr* p_values = values)
@@ -1307,16 +1307,16 @@ namespace OpenGL
 		/// Binding for glGetTexGenxvOES.
 		/// </summary>
 		/// <param name="coord">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="pname">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="params">
 		/// A <see cref="T:IntPtr[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_OES_fixed_point")]
-		public static void GetTexGenOES(int coord, int pname, [Out] IntPtr[] @params)
+		public static void GetTexGenOES(Int32 coord, Int32 pname, [Out] IntPtr[] @params)
 		{
 			unsafe {
 				fixed (IntPtr* p_params = @params)
@@ -1333,19 +1333,19 @@ namespace OpenGL
 		/// Binding for glGetTexLevelParameterxvOES.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="level">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="pname">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="params">
 		/// A <see cref="T:IntPtr[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_OES_fixed_point")]
-		public static void GetTexLevelParameterOES(int target, Int32 level, int pname, [Out] IntPtr[] @params)
+		public static void GetTexLevelParameterOES(Int32 target, Int32 level, Int32 pname, [Out] IntPtr[] @params)
 		{
 			unsafe {
 				fixed (IntPtr* p_params = @params)
@@ -1417,7 +1417,7 @@ namespace OpenGL
 		/// Binding for glMap1xOES.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="u1">
 		/// A <see cref="T:IntPtr"/>.
@@ -1435,7 +1435,7 @@ namespace OpenGL
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		[RequiredByFeature("GL_OES_fixed_point")]
-		public static void Map1OES(int target, IntPtr u1, IntPtr u2, Int32 stride, Int32 order, IntPtr points)
+		public static void Map1OES(Int32 target, IntPtr u1, IntPtr u2, Int32 stride, Int32 order, IntPtr points)
 		{
 			Debug.Assert(Delegates.pglMap1xOES != null, "pglMap1xOES not implemented");
 			Delegates.pglMap1xOES(target, u1, u2, stride, order, points);
@@ -1447,7 +1447,7 @@ namespace OpenGL
 		/// Binding for glMap2xOES.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="u1">
 		/// A <see cref="T:IntPtr"/>.
@@ -1477,7 +1477,7 @@ namespace OpenGL
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		[RequiredByFeature("GL_OES_fixed_point")]
-		public static void Map2OES(int target, IntPtr u1, IntPtr u2, Int32 ustride, Int32 uorder, IntPtr v1, IntPtr v2, Int32 vstride, Int32 vorder, IntPtr points)
+		public static void Map2OES(Int32 target, IntPtr u1, IntPtr u2, Int32 ustride, Int32 uorder, IntPtr v1, IntPtr v2, Int32 vstride, Int32 vorder, IntPtr points)
 		{
 			Debug.Assert(Delegates.pglMap2xOES != null, "pglMap2xOES not implemented");
 			Delegates.pglMap2xOES(target, u1, u2, ustride, uorder, v1, v2, vstride, vorder, points);
@@ -1557,13 +1557,13 @@ namespace OpenGL
 		/// Binding for glMultiTexCoord1xOES.
 		/// </summary>
 		/// <param name="texture">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="s">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		[RequiredByFeature("GL_OES_fixed_point")]
-		public static void MultiTexCoord1OES(int texture, IntPtr s)
+		public static void MultiTexCoord1OES(Int32 texture, IntPtr s)
 		{
 			Debug.Assert(Delegates.pglMultiTexCoord1xOES != null, "pglMultiTexCoord1xOES not implemented");
 			Delegates.pglMultiTexCoord1xOES(texture, s);
@@ -1575,13 +1575,13 @@ namespace OpenGL
 		/// Binding for glMultiTexCoord1xvOES.
 		/// </summary>
 		/// <param name="texture">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="coords">
 		/// A <see cref="T:IntPtr[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_OES_fixed_point")]
-		public static void MultiTexCoord1OES(int texture, IntPtr[] coords)
+		public static void MultiTexCoord1OES(Int32 texture, IntPtr[] coords)
 		{
 			unsafe {
 				fixed (IntPtr* p_coords = coords)
@@ -1598,7 +1598,7 @@ namespace OpenGL
 		/// Binding for glMultiTexCoord2xOES.
 		/// </summary>
 		/// <param name="texture">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="s">
 		/// A <see cref="T:IntPtr"/>.
@@ -1607,7 +1607,7 @@ namespace OpenGL
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		[RequiredByFeature("GL_OES_fixed_point")]
-		public static void MultiTexCoord2OES(int texture, IntPtr s, IntPtr t)
+		public static void MultiTexCoord2OES(Int32 texture, IntPtr s, IntPtr t)
 		{
 			Debug.Assert(Delegates.pglMultiTexCoord2xOES != null, "pglMultiTexCoord2xOES not implemented");
 			Delegates.pglMultiTexCoord2xOES(texture, s, t);
@@ -1619,13 +1619,13 @@ namespace OpenGL
 		/// Binding for glMultiTexCoord2xvOES.
 		/// </summary>
 		/// <param name="texture">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="coords">
 		/// A <see cref="T:IntPtr[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_OES_fixed_point")]
-		public static void MultiTexCoord2OES(int texture, IntPtr[] coords)
+		public static void MultiTexCoord2OES(Int32 texture, IntPtr[] coords)
 		{
 			unsafe {
 				fixed (IntPtr* p_coords = coords)
@@ -1642,7 +1642,7 @@ namespace OpenGL
 		/// Binding for glMultiTexCoord3xOES.
 		/// </summary>
 		/// <param name="texture">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="s">
 		/// A <see cref="T:IntPtr"/>.
@@ -1654,7 +1654,7 @@ namespace OpenGL
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		[RequiredByFeature("GL_OES_fixed_point")]
-		public static void MultiTexCoord3OES(int texture, IntPtr s, IntPtr t, IntPtr r)
+		public static void MultiTexCoord3OES(Int32 texture, IntPtr s, IntPtr t, IntPtr r)
 		{
 			Debug.Assert(Delegates.pglMultiTexCoord3xOES != null, "pglMultiTexCoord3xOES not implemented");
 			Delegates.pglMultiTexCoord3xOES(texture, s, t, r);
@@ -1666,13 +1666,13 @@ namespace OpenGL
 		/// Binding for glMultiTexCoord3xvOES.
 		/// </summary>
 		/// <param name="texture">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="coords">
 		/// A <see cref="T:IntPtr[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_OES_fixed_point")]
-		public static void MultiTexCoord3OES(int texture, IntPtr[] coords)
+		public static void MultiTexCoord3OES(Int32 texture, IntPtr[] coords)
 		{
 			unsafe {
 				fixed (IntPtr* p_coords = coords)
@@ -1689,13 +1689,13 @@ namespace OpenGL
 		/// Binding for glMultiTexCoord4xvOES.
 		/// </summary>
 		/// <param name="texture">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="coords">
 		/// A <see cref="T:IntPtr[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_OES_fixed_point")]
-		public static void MultiTexCoord4OES(int texture, IntPtr[] coords)
+		public static void MultiTexCoord4OES(Int32 texture, IntPtr[] coords)
 		{
 			unsafe {
 				fixed (IntPtr* p_coords = coords)
@@ -1747,7 +1747,7 @@ namespace OpenGL
 		/// Binding for glPixelMapx.
 		/// </summary>
 		/// <param name="map">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="size">
 		/// A <see cref="T:Int32"/>.
@@ -1756,7 +1756,7 @@ namespace OpenGL
 		/// A <see cref="T:IntPtr[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_OES_fixed_point")]
-		public static void PixelMap(int map, IntPtr[] values)
+		public static void PixelMap(Int32 map, IntPtr[] values)
 		{
 			unsafe {
 				fixed (IntPtr* p_values = values)
@@ -1773,13 +1773,13 @@ namespace OpenGL
 		/// Binding for glPixelStorex.
 		/// </summary>
 		/// <param name="pname">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="param">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		[RequiredByFeature("GL_OES_fixed_point")]
-		public static void PixelStore(int pname, IntPtr param)
+		public static void PixelStore(Int32 pname, IntPtr param)
 		{
 			Debug.Assert(Delegates.pglPixelStorex != null, "pglPixelStorex not implemented");
 			Delegates.pglPixelStorex(pname, param);
@@ -1791,13 +1791,13 @@ namespace OpenGL
 		/// Binding for glPixelTransferxOES.
 		/// </summary>
 		/// <param name="pname">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="param">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		[RequiredByFeature("GL_OES_fixed_point")]
-		public static void PixelTransferOES(int pname, IntPtr param)
+		public static void PixelTransferOES(Int32 pname, IntPtr param)
 		{
 			Debug.Assert(Delegates.pglPixelTransferxOES != null, "pglPixelTransferxOES not implemented");
 			Delegates.pglPixelTransferxOES(pname, param);
@@ -2183,16 +2183,16 @@ namespace OpenGL
 		/// Binding for glTexGenxOES.
 		/// </summary>
 		/// <param name="coord">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="pname">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="param">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		[RequiredByFeature("GL_OES_fixed_point")]
-		public static void TexGenOES(int coord, int pname, IntPtr param)
+		public static void TexGenOES(Int32 coord, Int32 pname, IntPtr param)
 		{
 			Debug.Assert(Delegates.pglTexGenxOES != null, "pglTexGenxOES not implemented");
 			Delegates.pglTexGenxOES(coord, pname, param);
@@ -2204,16 +2204,16 @@ namespace OpenGL
 		/// Binding for glTexGenxvOES.
 		/// </summary>
 		/// <param name="coord">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="pname">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="params">
 		/// A <see cref="T:IntPtr[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_OES_fixed_point")]
-		public static void TexGenOES(int coord, int pname, IntPtr[] @params)
+		public static void TexGenOES(Int32 coord, Int32 pname, IntPtr[] @params)
 		{
 			unsafe {
 				fixed (IntPtr* p_params = @params)

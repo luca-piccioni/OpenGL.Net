@@ -83,10 +83,10 @@ namespace OpenGL
 		/// Binding for glApplyTextureEXT.
 		/// </summary>
 		/// <param name="mode">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_light_texture")]
-		public static void ApplyTextureEXT(int mode)
+		public static void ApplyTextureEXT(Int32 mode)
 		{
 			Debug.Assert(Delegates.pglApplyTextureEXT != null, "pglApplyTextureEXT not implemented");
 			Delegates.pglApplyTextureEXT(mode);
@@ -98,10 +98,10 @@ namespace OpenGL
 		/// Binding for glTextureLightEXT.
 		/// </summary>
 		/// <param name="pname">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_light_texture")]
-		public static void TextureLightEXT(int pname)
+		public static void TextureLightEXT(Int32 pname)
 		{
 			Debug.Assert(Delegates.pglTextureLightEXT != null, "pglTextureLightEXT not implemented");
 			Delegates.pglTextureLightEXT(pname);
@@ -122,7 +122,7 @@ namespace OpenGL
 		public static void TextureMaterialEXT(MaterialFace face, MaterialParameter mode)
 		{
 			Debug.Assert(Delegates.pglTextureMaterialEXT != null, "pglTextureMaterialEXT not implemented");
-			Delegates.pglTextureMaterialEXT((int)face, (int)mode);
+			Delegates.pglTextureMaterialEXT((Int32)face, (Int32)mode);
 			CallLog("glTextureMaterialEXT({0}, {1})", face, mode);
 			DebugCheckErrors();
 		}

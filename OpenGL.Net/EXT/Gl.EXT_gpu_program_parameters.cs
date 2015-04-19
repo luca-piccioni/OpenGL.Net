@@ -29,7 +29,7 @@ namespace OpenGL
 		/// Binding for glProgramEnvParameters4fvEXT.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="index">
 		/// A <see cref="T:UInt32"/>.
@@ -41,7 +41,7 @@ namespace OpenGL
 		/// A <see cref="T:float[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_gpu_program_parameters")]
-		public static void ProgramEnvParameters4EXT(int target, UInt32 index, Int32 count, float[] @params)
+		public static void ProgramEnvParameters4EXT(Int32 target, UInt32 index, Int32 count, float[] @params)
 		{
 			unsafe {
 				fixed (float* p_params = @params)
@@ -58,7 +58,7 @@ namespace OpenGL
 		/// Binding for glProgramLocalParameters4fvEXT.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="index">
 		/// A <see cref="T:UInt32"/>.
@@ -70,7 +70,7 @@ namespace OpenGL
 		/// A <see cref="T:float[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_gpu_program_parameters")]
-		public static void ProgramLocalParameters4EXT(int target, UInt32 index, Int32 count, float[] @params)
+		public static void ProgramLocalParameters4EXT(Int32 target, UInt32 index, Int32 count, float[] @params)
 		{
 			unsafe {
 				fixed (float* p_params = @params)

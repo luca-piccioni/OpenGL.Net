@@ -41,16 +41,16 @@ namespace OpenGL
 		/// Binding for glBufferParameteriAPPLE.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="pname">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="param">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		[RequiredByFeature("GL_APPLE_flush_buffer_range")]
-		public static void BufferParameterAPPLE(int target, int pname, Int32 param)
+		public static void BufferParameterAPPLE(Int32 target, Int32 pname, Int32 param)
 		{
 			Debug.Assert(Delegates.pglBufferParameteriAPPLE != null, "pglBufferParameteriAPPLE not implemented");
 			Delegates.pglBufferParameteriAPPLE(target, pname, param);

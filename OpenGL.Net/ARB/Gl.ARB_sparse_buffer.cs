@@ -41,7 +41,7 @@ namespace OpenGL
 		/// Binding for glBufferPageCommitmentARB.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="offset">
 		/// A <see cref="T:IntPtr"/>.
@@ -53,7 +53,7 @@ namespace OpenGL
 		/// A <see cref="T:bool"/>.
 		/// </param>
 		[RequiredByFeature("GL_ARB_sparse_buffer")]
-		public static void BufferPageCommitmentARB(int target, IntPtr offset, UInt32 size, bool commit)
+		public static void BufferPageCommitmentARB(Int32 target, IntPtr offset, UInt32 size, bool commit)
 		{
 			Debug.Assert(Delegates.pglBufferPageCommitmentARB != null, "pglBufferPageCommitmentARB not implemented");
 			Delegates.pglBufferPageCommitmentARB(target, offset, size, commit);

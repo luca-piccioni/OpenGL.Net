@@ -83,16 +83,16 @@ namespace OpenGL
 		/// Binding for glPixelTransformParameteriEXT.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="pname">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="param">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_pixel_transform")]
-		public static void PixelTransformParameterEXT(int target, int pname, Int32 param)
+		public static void PixelTransformParameterEXT(Int32 target, Int32 pname, Int32 param)
 		{
 			Debug.Assert(Delegates.pglPixelTransformParameteriEXT != null, "pglPixelTransformParameteriEXT not implemented");
 			Delegates.pglPixelTransformParameteriEXT(target, pname, param);
@@ -104,16 +104,16 @@ namespace OpenGL
 		/// Binding for glPixelTransformParameterfEXT.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="pname">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="param">
 		/// A <see cref="T:float"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_pixel_transform")]
-		public static void PixelTransformParameterEXT(int target, int pname, float param)
+		public static void PixelTransformParameterEXT(Int32 target, Int32 pname, float param)
 		{
 			Debug.Assert(Delegates.pglPixelTransformParameterfEXT != null, "pglPixelTransformParameterfEXT not implemented");
 			Delegates.pglPixelTransformParameterfEXT(target, pname, param);
@@ -125,16 +125,16 @@ namespace OpenGL
 		/// Binding for glPixelTransformParameterivEXT.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="pname">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="params">
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_pixel_transform")]
-		public static void PixelTransformParameterEXT(int target, int pname, Int32[] @params)
+		public static void PixelTransformParameterEXT(Int32 target, Int32 pname, Int32[] @params)
 		{
 			unsafe {
 				fixed (Int32* p_params = @params)
@@ -151,16 +151,16 @@ namespace OpenGL
 		/// Binding for glPixelTransformParameterfvEXT.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="pname">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="params">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_pixel_transform")]
-		public static void PixelTransformParameterEXT(int target, int pname, float[] @params)
+		public static void PixelTransformParameterEXT(Int32 target, Int32 pname, float[] @params)
 		{
 			unsafe {
 				fixed (float* p_params = @params)
@@ -177,16 +177,16 @@ namespace OpenGL
 		/// Binding for glGetPixelTransformParameterivEXT.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="pname">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="params">
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_pixel_transform")]
-		public static void GetPixelTransformParameterEXT(int target, int pname, [Out] Int32[] @params)
+		public static void GetPixelTransformParameterEXT(Int32 target, Int32 pname, [Out] Int32[] @params)
 		{
 			unsafe {
 				fixed (Int32* p_params = @params)
@@ -203,16 +203,16 @@ namespace OpenGL
 		/// Binding for glGetPixelTransformParameterfvEXT.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="pname">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="params">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_pixel_transform")]
-		public static void GetPixelTransformParameterEXT(int target, int pname, [Out] float[] @params)
+		public static void GetPixelTransformParameterEXT(Int32 target, Int32 pname, [Out] float[] @params)
 		{
 			unsafe {
 				fixed (float* p_params = @params)

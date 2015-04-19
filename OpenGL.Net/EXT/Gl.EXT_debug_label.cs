@@ -57,7 +57,7 @@ namespace OpenGL
 		/// Binding for glLabelObjectEXT.
 		/// </summary>
 		/// <param name="type">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="object">
 		/// A <see cref="T:UInt32"/>.
@@ -69,7 +69,7 @@ namespace OpenGL
 		/// A <see cref="T:String"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_debug_label")]
-		public static void LabelObjectEXT(int type, UInt32 @object, Int32 length, String label)
+		public static void LabelObjectEXT(Int32 type, UInt32 @object, Int32 length, String label)
 		{
 			Debug.Assert(Delegates.pglLabelObjectEXT != null, "pglLabelObjectEXT not implemented");
 			Delegates.pglLabelObjectEXT(type, @object, length, label);
@@ -81,7 +81,7 @@ namespace OpenGL
 		/// Binding for glGetObjectLabelEXT.
 		/// </summary>
 		/// <param name="type">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="object">
 		/// A <see cref="T:UInt32"/>.
@@ -96,7 +96,7 @@ namespace OpenGL
 		/// A <see cref="T:StringBuilder"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_debug_label")]
-		public static void GetObjectEXT(int type, UInt32 @object, Int32 bufSize, out Int32 length, [Out] StringBuilder label)
+		public static void GetObjectEXT(Int32 type, UInt32 @object, Int32 bufSize, out Int32 length, [Out] StringBuilder label)
 		{
 			unsafe {
 				fixed (Int32* p_length = &length)

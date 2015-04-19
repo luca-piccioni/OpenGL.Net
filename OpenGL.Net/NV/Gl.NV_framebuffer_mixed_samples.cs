@@ -117,10 +117,10 @@ namespace OpenGL
 		/// Binding for glCoverageModulationNV.
 		/// </summary>
 		/// <param name="components">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_framebuffer_mixed_samples")]
-		public static void CoverageNV(int components)
+		public static void CoverageNV(Int32 components)
 		{
 			Debug.Assert(Delegates.pglCoverageModulationNV != null, "pglCoverageModulationNV not implemented");
 			Delegates.pglCoverageModulationNV(components);

@@ -35,9 +35,9 @@ namespace OpenGL
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_OES_query_matrix")]
-		public static uint QueryMatrixxOES(IntPtr[] mantissa, Int32[] exponent)
+		public static UInt32 QueryMatrixxOES(IntPtr[] mantissa, Int32[] exponent)
 		{
-			uint retValue;
+			UInt32 retValue;
 
 			unsafe {
 				fixed (IntPtr* p_mantissa = mantissa)

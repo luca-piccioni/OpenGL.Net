@@ -29,13 +29,13 @@ namespace OpenGL
 		/// Binding for glUseShaderProgramEXT.
 		/// </summary>
 		/// <param name="type">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="program">
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_separate_shader_objects")]
-		public static void UseShaderProgramEXT(int type, UInt32 program)
+		public static void UseShaderProgramEXT(Int32 type, UInt32 program)
 		{
 			Debug.Assert(Delegates.pglUseShaderProgramEXT != null, "pglUseShaderProgramEXT not implemented");
 			Delegates.pglUseShaderProgramEXT(type, program);
@@ -62,13 +62,13 @@ namespace OpenGL
 		/// Binding for glCreateShaderProgramEXT.
 		/// </summary>
 		/// <param name="type">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="string">
 		/// A <see cref="T:String"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_separate_shader_objects")]
-		public static UInt32 CreateShaderProgramEXT(int type, String @string)
+		public static UInt32 CreateShaderProgramEXT(Int32 type, String @string)
 		{
 			UInt32 retValue;
 

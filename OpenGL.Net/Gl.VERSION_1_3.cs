@@ -1136,7 +1136,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexSubImage3D"/>
 		/// <seealso cref="Gl.TexParameter"/>
 		[RequiredByFeature("GL_VERSION_1_3")]
-		public static void ActiveTexture(int texture)
+		public static void ActiveTexture(Int32 texture)
 		{
 			Debug.Assert(Delegates.pglActiveTexture != null, "pglActiveTexture not implemented");
 			Delegates.pglActiveTexture(texture);
@@ -1247,10 +1247,10 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexSubImage3D"/>
 		/// <seealso cref="Gl.TexParameter"/>
 		[RequiredByFeature("GL_VERSION_1_3")]
-		public static void CompressedTexImage3D(TextureTarget target, Int32 level, int internalformat, Int32 width, Int32 height, Int32 depth, Int32 border, Int32 imageSize, IntPtr data)
+		public static void CompressedTexImage3D(TextureTarget target, Int32 level, Int32 internalformat, Int32 width, Int32 height, Int32 depth, Int32 border, Int32 imageSize, IntPtr data)
 		{
 			Debug.Assert(Delegates.pglCompressedTexImage3D != null, "pglCompressedTexImage3D not implemented");
-			Delegates.pglCompressedTexImage3D((int)target, level, internalformat, width, height, depth, border, imageSize, data);
+			Delegates.pglCompressedTexImage3D((Int32)target, level, internalformat, width, height, depth, border, imageSize, data);
 			CallLog("glCompressedTexImage3D({0}, {1}, {2}, {3}, {4}, {5}, {6}, {7}, {8})", target, level, internalformat, width, height, depth, border, imageSize, data);
 			DebugCheckErrors();
 		}
@@ -1337,7 +1337,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexSubImage3D"/>
 		/// <seealso cref="Gl.TexParameter"/>
 		[RequiredByFeature("GL_VERSION_1_3")]
-		public static void CompressedTexImage3D(TextureTarget target, Int32 level, int internalformat, Int32 width, Int32 height, Int32 depth, Int32 border, Int32 imageSize, Object data)
+		public static void CompressedTexImage3D(TextureTarget target, Int32 level, Int32 internalformat, Int32 width, Int32 height, Int32 depth, Int32 border, Int32 imageSize, Object data)
 		{
 			GCHandle pin_data = GCHandle.Alloc(data, GCHandleType.Pinned);
 			try {
@@ -1431,10 +1431,10 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexSubImage3D"/>
 		/// <seealso cref="Gl.TexParameter"/>
 		[RequiredByFeature("GL_VERSION_1_3")]
-		public static void CompressedTexImage2D(TextureTarget target, Int32 level, int internalformat, Int32 width, Int32 height, Int32 border, Int32 imageSize, IntPtr data)
+		public static void CompressedTexImage2D(TextureTarget target, Int32 level, Int32 internalformat, Int32 width, Int32 height, Int32 border, Int32 imageSize, IntPtr data)
 		{
 			Debug.Assert(Delegates.pglCompressedTexImage2D != null, "pglCompressedTexImage2D not implemented");
-			Delegates.pglCompressedTexImage2D((int)target, level, internalformat, width, height, border, imageSize, data);
+			Delegates.pglCompressedTexImage2D((Int32)target, level, internalformat, width, height, border, imageSize, data);
 			CallLog("glCompressedTexImage2D({0}, {1}, {2}, {3}, {4}, {5}, {6}, {7})", target, level, internalformat, width, height, border, imageSize, data);
 			DebugCheckErrors();
 		}
@@ -1523,7 +1523,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexSubImage3D"/>
 		/// <seealso cref="Gl.TexParameter"/>
 		[RequiredByFeature("GL_VERSION_1_3")]
-		public static void CompressedTexImage2D(TextureTarget target, Int32 level, int internalformat, Int32 width, Int32 height, Int32 border, Int32 imageSize, Object data)
+		public static void CompressedTexImage2D(TextureTarget target, Int32 level, Int32 internalformat, Int32 width, Int32 height, Int32 border, Int32 imageSize, Object data)
 		{
 			GCHandle pin_data = GCHandle.Alloc(data, GCHandleType.Pinned);
 			try {
@@ -1607,10 +1607,10 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexSubImage3D"/>
 		/// <seealso cref="Gl.TexParameter"/>
 		[RequiredByFeature("GL_VERSION_1_3")]
-		public static void CompressedTexImage1D(TextureTarget target, Int32 level, int internalformat, Int32 width, Int32 border, Int32 imageSize, IntPtr data)
+		public static void CompressedTexImage1D(TextureTarget target, Int32 level, Int32 internalformat, Int32 width, Int32 border, Int32 imageSize, IntPtr data)
 		{
 			Debug.Assert(Delegates.pglCompressedTexImage1D != null, "pglCompressedTexImage1D not implemented");
-			Delegates.pglCompressedTexImage1D((int)target, level, internalformat, width, border, imageSize, data);
+			Delegates.pglCompressedTexImage1D((Int32)target, level, internalformat, width, border, imageSize, data);
 			CallLog("glCompressedTexImage1D({0}, {1}, {2}, {3}, {4}, {5}, {6})", target, level, internalformat, width, border, imageSize, data);
 			DebugCheckErrors();
 		}
@@ -1689,7 +1689,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexSubImage3D"/>
 		/// <seealso cref="Gl.TexParameter"/>
 		[RequiredByFeature("GL_VERSION_1_3")]
-		public static void CompressedTexImage1D(TextureTarget target, Int32 level, int internalformat, Int32 width, Int32 border, Int32 imageSize, Object data)
+		public static void CompressedTexImage1D(TextureTarget target, Int32 level, Int32 internalformat, Int32 width, Int32 border, Int32 imageSize, Object data)
 		{
 			GCHandle pin_data = GCHandle.Alloc(data, GCHandleType.Pinned);
 			try {
@@ -1793,7 +1793,7 @@ namespace OpenGL
 		public static void CompressedTexSubImage3D(TextureTarget target, Int32 level, Int32 xoffset, Int32 yoffset, Int32 zoffset, Int32 width, Int32 height, Int32 depth, PixelFormat format, Int32 imageSize, IntPtr data)
 		{
 			Debug.Assert(Delegates.pglCompressedTexSubImage3D != null, "pglCompressedTexSubImage3D not implemented");
-			Delegates.pglCompressedTexSubImage3D((int)target, level, xoffset, yoffset, zoffset, width, height, depth, (int)format, imageSize, data);
+			Delegates.pglCompressedTexSubImage3D((Int32)target, level, xoffset, yoffset, zoffset, width, height, depth, (Int32)format, imageSize, data);
 			CallLog("glCompressedTexSubImage3D({0}, {1}, {2}, {3}, {4}, {5}, {6}, {7}, {8}, {9}, {10})", target, level, xoffset, yoffset, zoffset, width, height, depth, format, imageSize, data);
 			DebugCheckErrors();
 		}
@@ -1991,7 +1991,7 @@ namespace OpenGL
 		public static void CompressedTexSubImage2D(TextureTarget target, Int32 level, Int32 xoffset, Int32 yoffset, Int32 width, Int32 height, PixelFormat format, Int32 imageSize, IntPtr data)
 		{
 			Debug.Assert(Delegates.pglCompressedTexSubImage2D != null, "pglCompressedTexSubImage2D not implemented");
-			Delegates.pglCompressedTexSubImage2D((int)target, level, xoffset, yoffset, width, height, (int)format, imageSize, data);
+			Delegates.pglCompressedTexSubImage2D((Int32)target, level, xoffset, yoffset, width, height, (Int32)format, imageSize, data);
 			CallLog("glCompressedTexSubImage2D({0}, {1}, {2}, {3}, {4}, {5}, {6}, {7}, {8})", target, level, xoffset, yoffset, width, height, format, imageSize, data);
 			DebugCheckErrors();
 		}
@@ -2172,7 +2172,7 @@ namespace OpenGL
 		public static void CompressedTexSubImage1D(TextureTarget target, Int32 level, Int32 xoffset, Int32 width, PixelFormat format, Int32 imageSize, IntPtr data)
 		{
 			Debug.Assert(Delegates.pglCompressedTexSubImage1D != null, "pglCompressedTexSubImage1D not implemented");
-			Delegates.pglCompressedTexSubImage1D((int)target, level, xoffset, width, (int)format, imageSize, data);
+			Delegates.pglCompressedTexSubImage1D((Int32)target, level, xoffset, width, (Int32)format, imageSize, data);
 			CallLog("glCompressedTexSubImage1D({0}, {1}, {2}, {3}, {4}, {5}, {6})", target, level, xoffset, width, format, imageSize, data);
 			DebugCheckErrors();
 		}
@@ -2320,7 +2320,7 @@ namespace OpenGL
 		public static void GetCompressedTexImage(TextureTarget target, Int32 level, IntPtr img)
 		{
 			Debug.Assert(Delegates.pglGetCompressedTexImage != null, "pglGetCompressedTexImage not implemented");
-			Delegates.pglGetCompressedTexImage((int)target, level, img);
+			Delegates.pglGetCompressedTexImage((Int32)target, level, img);
 			CallLog("glGetCompressedTexImage({0}, {1}, {2})", target, level, img);
 			DebugCheckErrors();
 		}
@@ -2412,7 +2412,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexCoordPointer"/>
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RemovedByFeature("GL_VERSION_3_2")]
-		public static void ClientActiveTexture(int texture)
+		public static void ClientActiveTexture(Int32 texture)
 		{
 			Debug.Assert(Delegates.pglClientActiveTexture != null, "pglClientActiveTexture not implemented");
 			Delegates.pglClientActiveTexture(texture);
@@ -2439,7 +2439,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.Vertex"/>
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RemovedByFeature("GL_VERSION_3_2")]
-		public static void MultiTexCoord1(int target, double s)
+		public static void MultiTexCoord1(Int32 target, double s)
 		{
 			Debug.Assert(Delegates.pglMultiTexCoord1d != null, "pglMultiTexCoord1d not implemented");
 			Delegates.pglMultiTexCoord1d(target, s);
@@ -2465,7 +2465,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.Vertex"/>
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RemovedByFeature("GL_VERSION_3_2")]
-		public static void MultiTexCoord1(int target, double[] v)
+		public static void MultiTexCoord1(Int32 target, double[] v)
 		{
 			unsafe {
 				fixed (double* p_v = v)
@@ -2497,7 +2497,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.Vertex"/>
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RemovedByFeature("GL_VERSION_3_2")]
-		public static void MultiTexCoord1(int target, float s)
+		public static void MultiTexCoord1(Int32 target, float s)
 		{
 			Debug.Assert(Delegates.pglMultiTexCoord1f != null, "pglMultiTexCoord1f not implemented");
 			Delegates.pglMultiTexCoord1f(target, s);
@@ -2523,7 +2523,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.Vertex"/>
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RemovedByFeature("GL_VERSION_3_2")]
-		public static void MultiTexCoord1(int target, float[] v)
+		public static void MultiTexCoord1(Int32 target, float[] v)
 		{
 			unsafe {
 				fixed (float* p_v = v)
@@ -2555,7 +2555,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.Vertex"/>
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RemovedByFeature("GL_VERSION_3_2")]
-		public static void MultiTexCoord1(int target, Int32 s)
+		public static void MultiTexCoord1(Int32 target, Int32 s)
 		{
 			Debug.Assert(Delegates.pglMultiTexCoord1i != null, "pglMultiTexCoord1i not implemented");
 			Delegates.pglMultiTexCoord1i(target, s);
@@ -2581,7 +2581,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.Vertex"/>
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RemovedByFeature("GL_VERSION_3_2")]
-		public static void MultiTexCoord1(int target, Int32[] v)
+		public static void MultiTexCoord1(Int32 target, Int32[] v)
 		{
 			unsafe {
 				fixed (Int32* p_v = v)
@@ -2613,7 +2613,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.Vertex"/>
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RemovedByFeature("GL_VERSION_3_2")]
-		public static void MultiTexCoord1(int target, Int16 s)
+		public static void MultiTexCoord1(Int32 target, Int16 s)
 		{
 			Debug.Assert(Delegates.pglMultiTexCoord1s != null, "pglMultiTexCoord1s not implemented");
 			Delegates.pglMultiTexCoord1s(target, s);
@@ -2639,7 +2639,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.Vertex"/>
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RemovedByFeature("GL_VERSION_3_2")]
-		public static void MultiTexCoord1(int target, Int16[] v)
+		public static void MultiTexCoord1(Int32 target, Int16[] v)
 		{
 			unsafe {
 				fixed (Int16* p_v = v)
@@ -2675,7 +2675,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.Vertex"/>
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RemovedByFeature("GL_VERSION_3_2")]
-		public static void MultiTexCoord2(int target, double s, double t)
+		public static void MultiTexCoord2(Int32 target, double s, double t)
 		{
 			Debug.Assert(Delegates.pglMultiTexCoord2d != null, "pglMultiTexCoord2d not implemented");
 			Delegates.pglMultiTexCoord2d(target, s, t);
@@ -2701,7 +2701,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.Vertex"/>
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RemovedByFeature("GL_VERSION_3_2")]
-		public static void MultiTexCoord2(int target, double[] v)
+		public static void MultiTexCoord2(Int32 target, double[] v)
 		{
 			unsafe {
 				fixed (double* p_v = v)
@@ -2737,7 +2737,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.Vertex"/>
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RemovedByFeature("GL_VERSION_3_2")]
-		public static void MultiTexCoord2(int target, float s, float t)
+		public static void MultiTexCoord2(Int32 target, float s, float t)
 		{
 			Debug.Assert(Delegates.pglMultiTexCoord2f != null, "pglMultiTexCoord2f not implemented");
 			Delegates.pglMultiTexCoord2f(target, s, t);
@@ -2763,7 +2763,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.Vertex"/>
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RemovedByFeature("GL_VERSION_3_2")]
-		public static void MultiTexCoord2(int target, float[] v)
+		public static void MultiTexCoord2(Int32 target, float[] v)
 		{
 			unsafe {
 				fixed (float* p_v = v)
@@ -2799,7 +2799,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.Vertex"/>
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RemovedByFeature("GL_VERSION_3_2")]
-		public static void MultiTexCoord2(int target, Int32 s, Int32 t)
+		public static void MultiTexCoord2(Int32 target, Int32 s, Int32 t)
 		{
 			Debug.Assert(Delegates.pglMultiTexCoord2i != null, "pglMultiTexCoord2i not implemented");
 			Delegates.pglMultiTexCoord2i(target, s, t);
@@ -2825,7 +2825,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.Vertex"/>
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RemovedByFeature("GL_VERSION_3_2")]
-		public static void MultiTexCoord2(int target, Int32[] v)
+		public static void MultiTexCoord2(Int32 target, Int32[] v)
 		{
 			unsafe {
 				fixed (Int32* p_v = v)
@@ -2861,7 +2861,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.Vertex"/>
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RemovedByFeature("GL_VERSION_3_2")]
-		public static void MultiTexCoord2(int target, Int16 s, Int16 t)
+		public static void MultiTexCoord2(Int32 target, Int16 s, Int16 t)
 		{
 			Debug.Assert(Delegates.pglMultiTexCoord2s != null, "pglMultiTexCoord2s not implemented");
 			Delegates.pglMultiTexCoord2s(target, s, t);
@@ -2887,7 +2887,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.Vertex"/>
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RemovedByFeature("GL_VERSION_3_2")]
-		public static void MultiTexCoord2(int target, Int16[] v)
+		public static void MultiTexCoord2(Int32 target, Int16[] v)
 		{
 			unsafe {
 				fixed (Int16* p_v = v)
@@ -2927,7 +2927,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.Vertex"/>
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RemovedByFeature("GL_VERSION_3_2")]
-		public static void MultiTexCoord3(int target, double s, double t, double r)
+		public static void MultiTexCoord3(Int32 target, double s, double t, double r)
 		{
 			Debug.Assert(Delegates.pglMultiTexCoord3d != null, "pglMultiTexCoord3d not implemented");
 			Delegates.pglMultiTexCoord3d(target, s, t, r);
@@ -2953,7 +2953,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.Vertex"/>
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RemovedByFeature("GL_VERSION_3_2")]
-		public static void MultiTexCoord3(int target, double[] v)
+		public static void MultiTexCoord3(Int32 target, double[] v)
 		{
 			unsafe {
 				fixed (double* p_v = v)
@@ -2993,7 +2993,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.Vertex"/>
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RemovedByFeature("GL_VERSION_3_2")]
-		public static void MultiTexCoord3(int target, float s, float t, float r)
+		public static void MultiTexCoord3(Int32 target, float s, float t, float r)
 		{
 			Debug.Assert(Delegates.pglMultiTexCoord3f != null, "pglMultiTexCoord3f not implemented");
 			Delegates.pglMultiTexCoord3f(target, s, t, r);
@@ -3019,7 +3019,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.Vertex"/>
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RemovedByFeature("GL_VERSION_3_2")]
-		public static void MultiTexCoord3(int target, float[] v)
+		public static void MultiTexCoord3(Int32 target, float[] v)
 		{
 			unsafe {
 				fixed (float* p_v = v)
@@ -3059,7 +3059,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.Vertex"/>
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RemovedByFeature("GL_VERSION_3_2")]
-		public static void MultiTexCoord3(int target, Int32 s, Int32 t, Int32 r)
+		public static void MultiTexCoord3(Int32 target, Int32 s, Int32 t, Int32 r)
 		{
 			Debug.Assert(Delegates.pglMultiTexCoord3i != null, "pglMultiTexCoord3i not implemented");
 			Delegates.pglMultiTexCoord3i(target, s, t, r);
@@ -3085,7 +3085,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.Vertex"/>
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RemovedByFeature("GL_VERSION_3_2")]
-		public static void MultiTexCoord3(int target, Int32[] v)
+		public static void MultiTexCoord3(Int32 target, Int32[] v)
 		{
 			unsafe {
 				fixed (Int32* p_v = v)
@@ -3125,7 +3125,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.Vertex"/>
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RemovedByFeature("GL_VERSION_3_2")]
-		public static void MultiTexCoord3(int target, Int16 s, Int16 t, Int16 r)
+		public static void MultiTexCoord3(Int32 target, Int16 s, Int16 t, Int16 r)
 		{
 			Debug.Assert(Delegates.pglMultiTexCoord3s != null, "pglMultiTexCoord3s not implemented");
 			Delegates.pglMultiTexCoord3s(target, s, t, r);
@@ -3151,7 +3151,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.Vertex"/>
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RemovedByFeature("GL_VERSION_3_2")]
-		public static void MultiTexCoord3(int target, Int16[] v)
+		public static void MultiTexCoord3(Int32 target, Int16[] v)
 		{
 			unsafe {
 				fixed (Int16* p_v = v)
@@ -3195,7 +3195,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.Vertex"/>
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RemovedByFeature("GL_VERSION_3_2")]
-		public static void MultiTexCoord4(int target, double s, double t, double r, double q)
+		public static void MultiTexCoord4(Int32 target, double s, double t, double r, double q)
 		{
 			Debug.Assert(Delegates.pglMultiTexCoord4d != null, "pglMultiTexCoord4d not implemented");
 			Delegates.pglMultiTexCoord4d(target, s, t, r, q);
@@ -3221,7 +3221,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.Vertex"/>
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RemovedByFeature("GL_VERSION_3_2")]
-		public static void MultiTexCoord4(int target, double[] v)
+		public static void MultiTexCoord4(Int32 target, double[] v)
 		{
 			unsafe {
 				fixed (double* p_v = v)
@@ -3265,7 +3265,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.Vertex"/>
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RemovedByFeature("GL_VERSION_3_2")]
-		public static void MultiTexCoord4(int target, float s, float t, float r, float q)
+		public static void MultiTexCoord4(Int32 target, float s, float t, float r, float q)
 		{
 			Debug.Assert(Delegates.pglMultiTexCoord4f != null, "pglMultiTexCoord4f not implemented");
 			Delegates.pglMultiTexCoord4f(target, s, t, r, q);
@@ -3291,7 +3291,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.Vertex"/>
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RemovedByFeature("GL_VERSION_3_2")]
-		public static void MultiTexCoord4(int target, float[] v)
+		public static void MultiTexCoord4(Int32 target, float[] v)
 		{
 			unsafe {
 				fixed (float* p_v = v)
@@ -3335,7 +3335,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.Vertex"/>
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RemovedByFeature("GL_VERSION_3_2")]
-		public static void MultiTexCoord4(int target, Int32 s, Int32 t, Int32 r, Int32 q)
+		public static void MultiTexCoord4(Int32 target, Int32 s, Int32 t, Int32 r, Int32 q)
 		{
 			Debug.Assert(Delegates.pglMultiTexCoord4i != null, "pglMultiTexCoord4i not implemented");
 			Delegates.pglMultiTexCoord4i(target, s, t, r, q);
@@ -3361,7 +3361,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.Vertex"/>
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RemovedByFeature("GL_VERSION_3_2")]
-		public static void MultiTexCoord4(int target, Int32[] v)
+		public static void MultiTexCoord4(Int32 target, Int32[] v)
 		{
 			unsafe {
 				fixed (Int32* p_v = v)
@@ -3405,7 +3405,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.Vertex"/>
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RemovedByFeature("GL_VERSION_3_2")]
-		public static void MultiTexCoord4(int target, Int16 s, Int16 t, Int16 r, Int16 q)
+		public static void MultiTexCoord4(Int32 target, Int16 s, Int16 t, Int16 r, Int16 q)
 		{
 			Debug.Assert(Delegates.pglMultiTexCoord4s != null, "pglMultiTexCoord4s not implemented");
 			Delegates.pglMultiTexCoord4s(target, s, t, r, q);
@@ -3431,7 +3431,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.Vertex"/>
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RemovedByFeature("GL_VERSION_3_2")]
-		public static void MultiTexCoord4(int target, Int16[] v)
+		public static void MultiTexCoord4(Int32 target, Int16[] v)
 		{
 			unsafe {
 				fixed (Int16* p_v = v)

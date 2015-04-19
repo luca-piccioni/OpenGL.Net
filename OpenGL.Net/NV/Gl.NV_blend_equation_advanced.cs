@@ -299,13 +299,13 @@ namespace OpenGL
 		/// Binding for glBlendParameteriNV.
 		/// </summary>
 		/// <param name="pname">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="value">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_blend_equation_advanced")]
-		public static void BlendParameterNV(int pname, Int32 value)
+		public static void BlendParameterNV(Int32 pname, Int32 value)
 		{
 			Debug.Assert(Delegates.pglBlendParameteriNV != null, "pglBlendParameteriNV not implemented");
 			Delegates.pglBlendParameteriNV(pname, value);

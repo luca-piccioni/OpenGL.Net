@@ -44,7 +44,7 @@ namespace OpenGL
 		public static void StencilFuncSeparateATI(StencilFunction frontfunc, StencilFunction backfunc, Int32 @ref, UInt32 mask)
 		{
 			Debug.Assert(Delegates.pglStencilFuncSeparateATI != null, "pglStencilFuncSeparateATI not implemented");
-			Delegates.pglStencilFuncSeparateATI((int)frontfunc, (int)backfunc, @ref, mask);
+			Delegates.pglStencilFuncSeparateATI((Int32)frontfunc, (Int32)backfunc, @ref, mask);
 			CallLog("glStencilFuncSeparateATI({0}, {1}, {2}, {3})", frontfunc, backfunc, @ref, mask);
 			DebugCheckErrors();
 		}

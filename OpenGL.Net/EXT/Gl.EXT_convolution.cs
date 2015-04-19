@@ -44,7 +44,7 @@ namespace OpenGL
 		public static void GetConvolutionFilterEXT(ConvolutionTargetEXT target, PixelFormat format, PixelType type, IntPtr image)
 		{
 			Debug.Assert(Delegates.pglGetConvolutionFilterEXT != null, "pglGetConvolutionFilterEXT not implemented");
-			Delegates.pglGetConvolutionFilterEXT((int)target, (int)format, (int)type, image);
+			Delegates.pglGetConvolutionFilterEXT((Int32)target, (Int32)format, (Int32)type, image);
 			CallLog("glGetConvolutionFilterEXT({0}, {1}, {2}, {3})", target, format, type, image);
 			DebugCheckErrors();
 		}
@@ -94,7 +94,7 @@ namespace OpenGL
 				fixed (float* p_params = @params)
 				{
 					Debug.Assert(Delegates.pglGetConvolutionParameterfvEXT != null, "pglGetConvolutionParameterfvEXT not implemented");
-					Delegates.pglGetConvolutionParameterfvEXT((int)target, (int)pname, p_params);
+					Delegates.pglGetConvolutionParameterfvEXT((Int32)target, (Int32)pname, p_params);
 					CallLog("glGetConvolutionParameterfvEXT({0}, {1}, {2})", target, pname, @params);
 				}
 			}
@@ -120,7 +120,7 @@ namespace OpenGL
 				fixed (Int32* p_params = @params)
 				{
 					Debug.Assert(Delegates.pglGetConvolutionParameterivEXT != null, "pglGetConvolutionParameterivEXT not implemented");
-					Delegates.pglGetConvolutionParameterivEXT((int)target, (int)pname, p_params);
+					Delegates.pglGetConvolutionParameterivEXT((Int32)target, (Int32)pname, p_params);
 					CallLog("glGetConvolutionParameterivEXT({0}, {1}, {2})", target, pname, @params);
 				}
 			}
@@ -152,7 +152,7 @@ namespace OpenGL
 		public static void GetSeparableFilterEXT(SeparableTargetEXT target, PixelFormat format, PixelType type, IntPtr row, IntPtr column, IntPtr span)
 		{
 			Debug.Assert(Delegates.pglGetSeparableFilterEXT != null, "pglGetSeparableFilterEXT not implemented");
-			Delegates.pglGetSeparableFilterEXT((int)target, (int)format, (int)type, row, column, span);
+			Delegates.pglGetSeparableFilterEXT((Int32)target, (Int32)format, (Int32)type, row, column, span);
 			CallLog("glGetSeparableFilterEXT({0}, {1}, {2}, {3}, {4}, {5})", target, format, type, row, column, span);
 			DebugCheckErrors();
 		}

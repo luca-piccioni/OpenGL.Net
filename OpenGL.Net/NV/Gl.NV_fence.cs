@@ -145,13 +145,13 @@ namespace OpenGL
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
 		/// <param name="pname">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="params">
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_fence")]
-		public static void GetFenceNV(UInt32 fence, int pname, [Out] Int32[] @params)
+		public static void GetFenceNV(UInt32 fence, Int32 pname, [Out] Int32[] @params)
 		{
 			unsafe {
 				fixed (Int32* p_params = @params)
@@ -186,10 +186,10 @@ namespace OpenGL
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
 		/// <param name="condition">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_fence")]
-		public static void SetFenceNV(UInt32 fence, int condition)
+		public static void SetFenceNV(UInt32 fence, Int32 condition)
 		{
 			Debug.Assert(Delegates.pglSetFenceNV != null, "pglSetFenceNV not implemented");
 			Delegates.pglSetFenceNV(fence, condition);

@@ -41,10 +41,10 @@ namespace OpenGL
 		/// Binding for glFlushStaticDataIBM.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		[RequiredByFeature("GL_IBM_static_data")]
-		public static void FlushStaticDataIBM(int target)
+		public static void FlushStaticDataIBM(Int32 target)
 		{
 			Debug.Assert(Delegates.pglFlushStaticDataIBM != null, "pglFlushStaticDataIBM not implemented");
 			Delegates.pglFlushStaticDataIBM(target);

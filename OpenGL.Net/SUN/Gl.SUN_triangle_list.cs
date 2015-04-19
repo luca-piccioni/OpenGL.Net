@@ -236,7 +236,7 @@ namespace OpenGL
 		/// Binding for glReplacementCodePointerSUN.
 		/// </summary>
 		/// <param name="type">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="stride">
 		/// A <see cref="T:Int32"/>.
@@ -245,7 +245,7 @@ namespace OpenGL
 		/// A <see cref="T:IntPtr[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_SUN_triangle_list")]
-		public static void ReplacementCodePointerSUN(int type, Int32 stride, IntPtr[] pointer)
+		public static void ReplacementCodePointerSUN(Int32 type, Int32 stride, IntPtr[] pointer)
 		{
 			unsafe {
 				fixed (IntPtr* p_pointer = pointer)

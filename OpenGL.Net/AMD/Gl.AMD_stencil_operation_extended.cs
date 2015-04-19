@@ -62,7 +62,7 @@ namespace OpenGL
 		public static void StencilOpAMD(StencilFaceDirection face, UInt32 value)
 		{
 			Debug.Assert(Delegates.pglStencilOpValueAMD != null, "pglStencilOpValueAMD not implemented");
-			Delegates.pglStencilOpValueAMD((int)face, value);
+			Delegates.pglStencilOpValueAMD((Int32)face, value);
 			CallLog("glStencilOpValueAMD({0}, {1})", face, value);
 			DebugCheckErrors();
 		}

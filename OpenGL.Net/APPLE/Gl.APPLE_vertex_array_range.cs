@@ -109,13 +109,13 @@ namespace OpenGL
 		/// Binding for glVertexArrayParameteriAPPLE.
 		/// </summary>
 		/// <param name="pname">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="param">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		[RequiredByFeature("GL_APPLE_vertex_array_range")]
-		public static void VertexArrayParameterAPPLE(int pname, Int32 param)
+		public static void VertexArrayParameterAPPLE(Int32 pname, Int32 param)
 		{
 			Debug.Assert(Delegates.pglVertexArrayParameteriAPPLE != null, "pglVertexArrayParameteriAPPLE not implemented");
 			Delegates.pglVertexArrayParameteriAPPLE(pname, param);

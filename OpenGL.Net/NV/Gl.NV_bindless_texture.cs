@@ -112,10 +112,10 @@ namespace OpenGL
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="format">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_bindless_texture")]
-		public static UInt64 GetImageHandleNV(UInt32 texture, Int32 level, bool layered, Int32 layer, int format)
+		public static UInt64 GetImageHandleNV(UInt32 texture, Int32 level, bool layered, Int32 layer, Int32 format)
 		{
 			UInt64 retValue;
 
@@ -134,10 +134,10 @@ namespace OpenGL
 		/// A <see cref="T:UInt64"/>.
 		/// </param>
 		/// <param name="access">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_bindless_texture")]
-		public static void MakeImageHandleResidentNV(UInt64 handle, int access)
+		public static void MakeImageHandleResidentNV(UInt64 handle, Int32 access)
 		{
 			Debug.Assert(Delegates.pglMakeImageHandleResidentNV != null, "pglMakeImageHandleResidentNV not implemented");
 			Delegates.pglMakeImageHandleResidentNV(handle, access);

@@ -673,16 +673,16 @@ namespace OpenGL
 		/// specify pixel arithmetic for RGB and alpha components separately
 		/// </summary>
 		/// <param name="sfactorRGB">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="dfactorRGB">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="sfactorAlpha">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="dfactorAlpha">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <remarks>
 		/// </remarks>
@@ -702,7 +702,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.LogicOp"/>
 		/// <seealso cref="Gl.StencilFunc"/>
 		[RequiredByFeature("GL_VERSION_1_4")]
-		public static void BlendFuncSeparate(int sfactorRGB, int dfactorRGB, int sfactorAlpha, int dfactorAlpha)
+		public static void BlendFuncSeparate(Int32 sfactorRGB, Int32 dfactorRGB, Int32 sfactorAlpha, Int32 dfactorAlpha)
 		{
 			Debug.Assert(Delegates.pglBlendFuncSeparate != null, "pglBlendFuncSeparate not implemented");
 			Delegates.pglBlendFuncSeparate(sfactorRGB, dfactorRGB, sfactorAlpha, dfactorAlpha);
@@ -749,7 +749,7 @@ namespace OpenGL
 				fixed (Int32* p_count = count)
 				{
 					Debug.Assert(Delegates.pglMultiDrawArrays != null, "pglMultiDrawArrays not implemented");
-					Delegates.pglMultiDrawArrays((int)mode, p_first, p_count, drawcount);
+					Delegates.pglMultiDrawArrays((Int32)mode, p_first, p_count, drawcount);
 					CallLog("glMultiDrawArrays({0}, {1}, {2}, {3})", mode, first, count, drawcount);
 				}
 			}
@@ -799,7 +799,7 @@ namespace OpenGL
 				fixed (IntPtr* p_indices = indices)
 				{
 					Debug.Assert(Delegates.pglMultiDrawElements != null, "pglMultiDrawElements not implemented");
-					Delegates.pglMultiDrawElements((int)mode, p_count, (int)type, p_indices, drawcount);
+					Delegates.pglMultiDrawElements((Int32)mode, p_count, (Int32)type, p_indices, drawcount);
 					CallLog("glMultiDrawElements({0}, {1}, {2}, {3}, {4})", mode, count, type, indices, drawcount);
 				}
 			}
@@ -826,7 +826,7 @@ namespace OpenGL
 		/// </exception>
 		/// <seealso cref="Gl.PointSize"/>
 		[RequiredByFeature("GL_VERSION_1_4")]
-		public static void PointParameter(int pname, float param)
+		public static void PointParameter(Int32 pname, float param)
 		{
 			Debug.Assert(Delegates.pglPointParameterf != null, "pglPointParameterf not implemented");
 			Delegates.pglPointParameterf(pname, param);
@@ -855,7 +855,7 @@ namespace OpenGL
 		/// </exception>
 		/// <seealso cref="Gl.PointSize"/>
 		[RequiredByFeature("GL_VERSION_1_4")]
-		public static void PointParameter(int pname, float[] @params)
+		public static void PointParameter(Int32 pname, float[] @params)
 		{
 			unsafe {
 				fixed (float* p_params = @params)
@@ -888,7 +888,7 @@ namespace OpenGL
 		/// </exception>
 		/// <seealso cref="Gl.PointSize"/>
 		[RequiredByFeature("GL_VERSION_1_4")]
-		public static void PointParameter(int pname, Int32 param)
+		public static void PointParameter(Int32 pname, Int32 param)
 		{
 			Debug.Assert(Delegates.pglPointParameteri != null, "pglPointParameteri not implemented");
 			Delegates.pglPointParameteri(pname, param);
@@ -917,7 +917,7 @@ namespace OpenGL
 		/// </exception>
 		/// <seealso cref="Gl.PointSize"/>
 		[RequiredByFeature("GL_VERSION_1_4")]
-		public static void PointParameter(int pname, Int32[] @params)
+		public static void PointParameter(Int32 pname, Int32[] @params)
 		{
 			unsafe {
 				fixed (Int32* p_params = @params)
@@ -1064,7 +1064,7 @@ namespace OpenGL
 		public static void FogCoordPointer(FogPointerTypeEXT type, Int32 stride, IntPtr pointer)
 		{
 			Debug.Assert(Delegates.pglFogCoordPointer != null, "pglFogCoordPointer not implemented");
-			Delegates.pglFogCoordPointer((int)type, stride, pointer);
+			Delegates.pglFogCoordPointer((Int32)type, stride, pointer);
 			CallLog("glFogCoordPointer({0}, {1}, {2})", type, stride, pointer);
 			DebugCheckErrors();
 		}
@@ -1586,7 +1586,7 @@ namespace OpenGL
 		public static void SecondaryColorPointer(Int32 size, ColorPointerType type, Int32 stride, IntPtr pointer)
 		{
 			Debug.Assert(Delegates.pglSecondaryColorPointer != null, "pglSecondaryColorPointer not implemented");
-			Delegates.pglSecondaryColorPointer(size, (int)type, stride, pointer);
+			Delegates.pglSecondaryColorPointer(size, (Int32)type, stride, pointer);
 			CallLog("glSecondaryColorPointer({0}, {1}, {2}, {3})", size, type, stride, pointer);
 			DebugCheckErrors();
 		}
@@ -2307,7 +2307,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.BlendFuncSeparate"/>
 		[RequiredByFeature("GL_VERSION_1_4")]
 		[RequiredByFeature("GL_ARB_imaging")]
-		public static void BlendEquation(int mode)
+		public static void BlendEquation(Int32 mode)
 		{
 			Debug.Assert(Delegates.pglBlendEquation != null, "pglBlendEquation not implemented");
 			Delegates.pglBlendEquation(mode);

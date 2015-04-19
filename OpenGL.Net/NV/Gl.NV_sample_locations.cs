@@ -71,7 +71,7 @@ namespace OpenGL
 		/// Binding for glFramebufferSampleLocationsfvNV.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="start">
 		/// A <see cref="T:UInt32"/>.
@@ -83,7 +83,7 @@ namespace OpenGL
 		/// A <see cref="T:float[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_sample_locations")]
-		public static void FramebufferSampleLocationNV(int target, UInt32 start, Int32 count, float[] v)
+		public static void FramebufferSampleLocationNV(Int32 target, UInt32 start, Int32 count, float[] v)
 		{
 			unsafe {
 				fixed (float* p_v = v)

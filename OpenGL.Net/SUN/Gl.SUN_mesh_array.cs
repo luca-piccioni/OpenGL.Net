@@ -56,7 +56,7 @@ namespace OpenGL
 		public static void DrawMeshArraysSUN(PrimitiveType mode, Int32 first, Int32 count, Int32 width)
 		{
 			Debug.Assert(Delegates.pglDrawMeshArraysSUN != null, "pglDrawMeshArraysSUN not implemented");
-			Delegates.pglDrawMeshArraysSUN((int)mode, first, count, width);
+			Delegates.pglDrawMeshArraysSUN((Int32)mode, first, count, width);
 			CallLog("glDrawMeshArraysSUN({0}, {1}, {2}, {3})", mode, first, count, width);
 			DebugCheckErrors();
 		}

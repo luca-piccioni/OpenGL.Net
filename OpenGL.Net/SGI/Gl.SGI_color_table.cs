@@ -44,7 +44,7 @@ namespace OpenGL
 		public static void GetColorTableSGI(ColorTableTargetSGI target, PixelFormat format, PixelType type, IntPtr table)
 		{
 			Debug.Assert(Delegates.pglGetColorTableSGI != null, "pglGetColorTableSGI not implemented");
-			Delegates.pglGetColorTableSGI((int)target, (int)format, (int)type, table);
+			Delegates.pglGetColorTableSGI((Int32)target, (Int32)format, (Int32)type, table);
 			CallLog("glGetColorTableSGI({0}, {1}, {2}, {3})", target, format, type, table);
 			DebugCheckErrors();
 		}
@@ -94,7 +94,7 @@ namespace OpenGL
 				fixed (float* p_params = @params)
 				{
 					Debug.Assert(Delegates.pglGetColorTableParameterfvSGI != null, "pglGetColorTableParameterfvSGI not implemented");
-					Delegates.pglGetColorTableParameterfvSGI((int)target, (int)pname, p_params);
+					Delegates.pglGetColorTableParameterfvSGI((Int32)target, (Int32)pname, p_params);
 					CallLog("glGetColorTableParameterfvSGI({0}, {1}, {2})", target, pname, @params);
 				}
 			}
@@ -120,7 +120,7 @@ namespace OpenGL
 				fixed (Int32* p_params = @params)
 				{
 					Debug.Assert(Delegates.pglGetColorTableParameterivSGI != null, "pglGetColorTableParameterivSGI not implemented");
-					Delegates.pglGetColorTableParameterivSGI((int)target, (int)pname, p_params);
+					Delegates.pglGetColorTableParameterivSGI((Int32)target, (Int32)pname, p_params);
 					CallLog("glGetColorTableParameterivSGI({0}, {1}, {2})", target, pname, @params);
 				}
 			}

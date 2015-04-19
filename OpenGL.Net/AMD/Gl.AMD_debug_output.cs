@@ -77,10 +77,10 @@ namespace OpenGL
 		/// Binding for glDebugMessageEnableAMD.
 		/// </summary>
 		/// <param name="category">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="severity">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="count">
 		/// A <see cref="T:Int32"/>.
@@ -92,7 +92,7 @@ namespace OpenGL
 		/// A <see cref="T:bool"/>.
 		/// </param>
 		[RequiredByFeature("GL_AMD_debug_output")]
-		public static void DebugMessageEnableAMD(int category, int severity, UInt32[] ids, bool enabled)
+		public static void DebugMessageEnableAMD(Int32 category, Int32 severity, UInt32[] ids, bool enabled)
 		{
 			unsafe {
 				fixed (UInt32* p_ids = ids)
@@ -109,10 +109,10 @@ namespace OpenGL
 		/// Binding for glDebugMessageInsertAMD.
 		/// </summary>
 		/// <param name="category">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="severity">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="id">
 		/// A <see cref="T:UInt32"/>.
@@ -124,7 +124,7 @@ namespace OpenGL
 		/// A <see cref="T:String"/>.
 		/// </param>
 		[RequiredByFeature("GL_AMD_debug_output")]
-		public static void DebugMessageInsertAMD(int category, int severity, UInt32 id, Int32 length, String buf)
+		public static void DebugMessageInsertAMD(Int32 category, Int32 severity, UInt32 id, Int32 length, String buf)
 		{
 			Debug.Assert(Delegates.pglDebugMessageInsertAMD != null, "pglDebugMessageInsertAMD not implemented");
 			Delegates.pglDebugMessageInsertAMD(category, severity, id, length, buf);
@@ -160,7 +160,7 @@ namespace OpenGL
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="categories">
-		/// A <see cref="T:int[]"/>.
+		/// A <see cref="T:Int32[]"/>.
 		/// </param>
 		/// <param name="severities">
 		/// A <see cref="T:UInt32[]"/>.
@@ -175,12 +175,12 @@ namespace OpenGL
 		/// A <see cref="T:StringBuilder"/>.
 		/// </param>
 		[RequiredByFeature("GL_AMD_debug_output")]
-		public static UInt32 GetDebugMessageLogAMD(Int32 bufsize, [Out] int[] categories, [Out] UInt32[] severities, [Out] UInt32[] ids, [Out] Int32[] lengths, [Out] StringBuilder message)
+		public static UInt32 GetDebugMessageLogAMD(Int32 bufsize, [Out] Int32[] categories, [Out] UInt32[] severities, [Out] UInt32[] ids, [Out] Int32[] lengths, [Out] StringBuilder message)
 		{
 			UInt32 retValue;
 
 			unsafe {
-				fixed (int* p_categories = categories)
+				fixed (Int32* p_categories = categories)
 				fixed (UInt32* p_severities = severities)
 				fixed (UInt32* p_ids = ids)
 				fixed (Int32* p_lengths = lengths)

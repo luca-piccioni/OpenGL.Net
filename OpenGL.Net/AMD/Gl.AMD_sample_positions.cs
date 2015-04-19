@@ -35,7 +35,7 @@ namespace OpenGL
 		/// Binding for glSetMultisamplefvAMD.
 		/// </summary>
 		/// <param name="pname">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="index">
 		/// A <see cref="T:UInt32"/>.
@@ -44,7 +44,7 @@ namespace OpenGL
 		/// A <see cref="T:float[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_AMD_sample_positions")]
-		public static void SetMultisampleAMD(int pname, UInt32 index, float[] val)
+		public static void SetMultisampleAMD(Int32 pname, UInt32 index, float[] val)
 		{
 			unsafe {
 				fixed (float* p_val = val)

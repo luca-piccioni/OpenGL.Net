@@ -137,10 +137,10 @@ namespace OpenGL
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
 		/// <param name="bufferMode">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_transform_feedback")]
-		public static void TransformFeedbackAttribsNV(Int32 count, Int32[] attribs, int bufferMode)
+		public static void TransformFeedbackAttribsNV(Int32 count, Int32[] attribs, Int32 bufferMode)
 		{
 			unsafe {
 				fixed (Int32* p_attribs = attribs)
@@ -166,10 +166,10 @@ namespace OpenGL
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
 		/// <param name="bufferMode">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_transform_feedback")]
-		public static void TransformFeedbackVaryingsNV(UInt32 program, Int32[] locations, int bufferMode)
+		public static void TransformFeedbackVaryingsNV(UInt32 program, Int32[] locations, Int32 bufferMode)
 		{
 			unsafe {
 				fixed (Int32* p_locations = locations)
@@ -241,18 +241,18 @@ namespace OpenGL
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="type">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="name">
 		/// A <see cref="T:StringBuilder"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_transform_feedback")]
-		public static void GetActiveVaryingNV(UInt32 program, UInt32 index, Int32 bufSize, out Int32 length, out Int32 size, out int type, [Out] StringBuilder name)
+		public static void GetActiveVaryingNV(UInt32 program, UInt32 index, Int32 bufSize, out Int32 length, out Int32 size, out Int32 type, [Out] StringBuilder name)
 		{
 			unsafe {
 				fixed (Int32* p_length = &length)
 				fixed (Int32* p_size = &size)
-				fixed (int* p_type = &type)
+				fixed (Int32* p_type = &type)
 				{
 					Debug.Assert(Delegates.pglGetActiveVaryingNV != null, "pglGetActiveVaryingNV not implemented");
 					Delegates.pglGetActiveVaryingNV(program, index, bufSize, p_length, p_size, p_type, name);
@@ -304,10 +304,10 @@ namespace OpenGL
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
 		/// <param name="bufferMode">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_transform_feedback")]
-		public static void TransformFeedbackStreamAttribsNV(Int32[] attribs, Int32[] bufstreams, int bufferMode)
+		public static void TransformFeedbackStreamAttribsNV(Int32[] attribs, Int32[] bufstreams, Int32 bufferMode)
 		{
 			unsafe {
 				fixed (Int32* p_attribs = attribs)

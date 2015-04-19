@@ -75,7 +75,7 @@ namespace OpenGL
 			internal static glXBindVideoImageNV pglXBindVideoImageNV;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glXBlitContextFramebufferAMD(IntPtr dstCtx, Int32 srcX0, Int32 srcY0, Int32 srcX1, Int32 srcY1, Int32 dstX0, Int32 dstY0, Int32 dstX1, Int32 dstY1, uint mask, int filter);
+			internal unsafe delegate void glXBlitContextFramebufferAMD(IntPtr dstCtx, Int32 srcX0, Int32 srcY0, Int32 srcX1, Int32 srcY1, Int32 dstX0, Int32 dstY0, Int32 dstX1, Int32 dstY1, UInt32 mask, Int32 filter);
 			[ThreadStatic]
 			internal static glXBlitContextFramebufferAMD pglXBlitContextFramebufferAMD;
 
@@ -85,7 +85,7 @@ namespace OpenGL
 			internal static glXChannelRectSGIX pglXChannelRectSGIX;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate int glXChannelRectSyncSGIX(IntPtr display, int screen, int channel, int synctype);
+			internal unsafe delegate int glXChannelRectSyncSGIX(IntPtr display, int screen, int channel, Int32 synctype);
 			[ThreadStatic]
 			internal static glXChannelRectSyncSGIX pglXChannelRectSyncSGIX;
 
@@ -105,7 +105,7 @@ namespace OpenGL
 			internal static glXChooseVisual pglXChooseVisual;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glXCopyBufferSubDataNV(IntPtr dpy, IntPtr readCtx, IntPtr writeCtx, int readTarget, int writeTarget, IntPtr readOffset, IntPtr writeOffset, UInt32 size);
+			internal unsafe delegate void glXCopyBufferSubDataNV(IntPtr dpy, IntPtr readCtx, IntPtr writeCtx, Int32 readTarget, Int32 writeTarget, IntPtr readOffset, IntPtr writeOffset, UInt32 size);
 			[ThreadStatic]
 			internal static glXCopyBufferSubDataNV pglXCopyBufferSubDataNV;
 
@@ -120,7 +120,7 @@ namespace OpenGL
 			internal static glXCopyContext pglXCopyContext;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glXCopyImageSubDataNV(IntPtr dpy, IntPtr srcCtx, UInt32 srcName, int srcTarget, Int32 srcLevel, Int32 srcX, Int32 srcY, Int32 srcZ, IntPtr dstCtx, UInt32 dstName, int dstTarget, Int32 dstLevel, Int32 dstX, Int32 dstY, Int32 dstZ, Int32 width, Int32 height, Int32 depth);
+			internal unsafe delegate void glXCopyImageSubDataNV(IntPtr dpy, IntPtr srcCtx, UInt32 srcName, Int32 srcTarget, Int32 srcLevel, Int32 srcX, Int32 srcY, Int32 srcZ, IntPtr dstCtx, UInt32 dstName, Int32 dstTarget, Int32 dstLevel, Int32 dstX, Int32 dstY, Int32 dstZ, Int32 width, Int32 height, Int32 depth);
 			[ThreadStatic]
 			internal static glXCopyImageSubDataNV pglXCopyImageSubDataNV;
 
@@ -355,7 +355,7 @@ namespace OpenGL
 			internal static glXGetGPUIDsAMD pglXGetGPUIDsAMD;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate int glXGetGPUInfoAMD(UInt32 id, int property, int dataType, UInt32 size, IntPtr data);
+			internal unsafe delegate int glXGetGPUInfoAMD(UInt32 id, int property, Int32 dataType, UInt32 size, IntPtr data);
 			[ThreadStatic]
 			internal static glXGetGPUInfoAMD pglXGetGPUInfoAMD;
 

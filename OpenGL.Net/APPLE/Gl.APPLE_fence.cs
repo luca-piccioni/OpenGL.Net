@@ -166,13 +166,13 @@ namespace OpenGL
 		/// Binding for glTestObjectAPPLE.
 		/// </summary>
 		/// <param name="object">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="name">
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
 		[RequiredByFeature("GL_APPLE_fence")]
-		public static bool TestObjectAPPLE(int @object, UInt32 name)
+		public static bool TestObjectAPPLE(Int32 @object, UInt32 name)
 		{
 			bool retValue;
 
@@ -188,13 +188,13 @@ namespace OpenGL
 		/// Binding for glFinishObjectAPPLE.
 		/// </summary>
 		/// <param name="object">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="name">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		[RequiredByFeature("GL_APPLE_fence")]
-		public static void FinishObjectAPPLE(int @object, Int32 name)
+		public static void FinishObjectAPPLE(Int32 @object, Int32 name)
 		{
 			Debug.Assert(Delegates.pglFinishObjectAPPLE != null, "pglFinishObjectAPPLE not implemented");
 			Delegates.pglFinishObjectAPPLE(@object, name);

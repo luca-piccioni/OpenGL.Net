@@ -47,13 +47,13 @@ namespace OpenGL
 		/// Binding for glIndexFuncEXT.
 		/// </summary>
 		/// <param name="func">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="ref">
 		/// A <see cref="T:float"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_index_func")]
-		public static void IndexFuncEXT(int func, float @ref)
+		public static void IndexFuncEXT(Int32 func, float @ref)
 		{
 			Debug.Assert(Delegates.pglIndexFuncEXT != null, "pglIndexFuncEXT not implemented");
 			Delegates.pglIndexFuncEXT(func, @ref);

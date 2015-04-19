@@ -560,7 +560,7 @@ namespace OpenGL
 		public static void DrawArraysInstanced(PrimitiveType mode, Int32 first, Int32 count, Int32 instancecount)
 		{
 			Debug.Assert(Delegates.pglDrawArraysInstanced != null, "pglDrawArraysInstanced not implemented");
-			Delegates.pglDrawArraysInstanced((int)mode, first, count, instancecount);
+			Delegates.pglDrawArraysInstanced((Int32)mode, first, count, instancecount);
 			CallLog("glDrawArraysInstanced({0}, {1}, {2}, {3})", mode, first, count, instancecount);
 			DebugCheckErrors();
 		}
@@ -609,7 +609,7 @@ namespace OpenGL
 		public static void DrawElementsInstanced(PrimitiveType mode, Int32 count, DrawElementsType type, IntPtr indices, Int32 instancecount)
 		{
 			Debug.Assert(Delegates.pglDrawElementsInstanced != null, "pglDrawElementsInstanced not implemented");
-			Delegates.pglDrawElementsInstanced((int)mode, count, (int)type, indices, instancecount);
+			Delegates.pglDrawElementsInstanced((Int32)mode, count, (Int32)type, indices, instancecount);
 			CallLog("glDrawElementsInstanced({0}, {1}, {2}, {3}, {4})", mode, count, type, indices, instancecount);
 			DebugCheckErrors();
 		}
@@ -672,7 +672,7 @@ namespace OpenGL
 		/// Specifies the target to which the texture is bound for Gl.TexBuffer. Must be Gl.TEXTURE_BUFFER.
 		/// </param>
 		/// <param name="internalformat">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="buffer">
 		/// Specifies the name of the buffer object whose storage to attach to the active buffer texture.
@@ -706,10 +706,10 @@ namespace OpenGL
 		/// <seealso cref="Gl.BindTexture"/>
 		/// <seealso cref="Gl.DeleteTextures"/>
 		[RequiredByFeature("GL_VERSION_3_1")]
-		public static void TexBuffer(TextureTarget target, int internalformat, UInt32 buffer)
+		public static void TexBuffer(TextureTarget target, Int32 internalformat, UInt32 buffer)
 		{
 			Debug.Assert(Delegates.pglTexBuffer != null, "pglTexBuffer not implemented");
-			Delegates.pglTexBuffer((int)target, internalformat, buffer);
+			Delegates.pglTexBuffer((Int32)target, internalformat, buffer);
 			CallLog("glTexBuffer({0}, {1}, {2})", target, internalformat, buffer);
 			DebugCheckErrors();
 		}
@@ -791,7 +791,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.MapBufferRange"/>
 		[RequiredByFeature("GL_VERSION_3_1")]
 		[RequiredByFeature("GL_ARB_copy_buffer")]
-		public static void CopyBufferSubData(int readTarget, int writeTarget, IntPtr readOffset, IntPtr writeOffset, UInt32 size)
+		public static void CopyBufferSubData(Int32 readTarget, Int32 writeTarget, IntPtr readOffset, IntPtr writeOffset, UInt32 size)
 		{
 			Debug.Assert(Delegates.pglCopyBufferSubData != null, "pglCopyBufferSubData not implemented");
 			Delegates.pglCopyBufferSubData(readTarget, writeTarget, readOffset, writeOffset, size);
@@ -883,7 +883,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.UseProgram"/>
 		[RequiredByFeature("GL_VERSION_3_1")]
 		[RequiredByFeature("GL_ARB_uniform_buffer_object")]
-		public static void GetActiveUniforms(UInt32 program, UInt32[] uniformIndices, int pname, [Out] Int32[] @params)
+		public static void GetActiveUniforms(UInt32 program, UInt32[] uniformIndices, Int32 pname, [Out] Int32[] @params)
 		{
 			unsafe {
 				fixed (UInt32* p_uniformIndices = uniformIndices)
@@ -1015,7 +1015,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.LinkProgram"/>
 		[RequiredByFeature("GL_VERSION_3_1")]
 		[RequiredByFeature("GL_ARB_uniform_buffer_object")]
-		public static void GetActiveUniformBlock(UInt32 program, UInt32 uniformBlockIndex, int pname, [Out] Int32[] @params)
+		public static void GetActiveUniformBlock(UInt32 program, UInt32 uniformBlockIndex, Int32 pname, [Out] Int32[] @params)
 		{
 			unsafe {
 				fixed (Int32* p_params = @params)

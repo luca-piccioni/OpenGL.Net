@@ -514,10 +514,10 @@ namespace OpenGL
 		/// Binding for glProgramStringARB.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="format">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="len">
 		/// A <see cref="T:Int32"/>.
@@ -527,7 +527,7 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_ARB_fragment_program")]
 		[RequiredByFeature("GL_ARB_vertex_program")]
-		public static void ProgramStringARB(int target, int format, Int32 len, IntPtr @string)
+		public static void ProgramStringARB(Int32 target, Int32 format, Int32 len, IntPtr @string)
 		{
 			Debug.Assert(Delegates.pglProgramStringARB != null, "pglProgramStringARB not implemented");
 			Delegates.pglProgramStringARB(target, format, len, @string);
@@ -539,10 +539,10 @@ namespace OpenGL
 		/// Binding for glProgramStringARB.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="format">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="len">
 		/// A <see cref="T:Int32"/>.
@@ -552,7 +552,7 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_ARB_fragment_program")]
 		[RequiredByFeature("GL_ARB_vertex_program")]
-		public static void ProgramStringARB(int target, int format, Int32 len, Object @string)
+		public static void ProgramStringARB(Int32 target, Int32 format, Int32 len, Object @string)
 		{
 			GCHandle pin_string = GCHandle.Alloc(@string, GCHandleType.Pinned);
 			try {
@@ -566,14 +566,14 @@ namespace OpenGL
 		/// Binding for glBindProgramARB.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="program">
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
 		[RequiredByFeature("GL_ARB_fragment_program")]
 		[RequiredByFeature("GL_ARB_vertex_program")]
-		public static void BindProgramARB(int target, UInt32 program)
+		public static void BindProgramARB(Int32 target, UInt32 program)
 		{
 			Debug.Assert(Delegates.pglBindProgramARB != null, "pglBindProgramARB not implemented");
 			Delegates.pglBindProgramARB(target, program);
@@ -645,7 +645,7 @@ namespace OpenGL
 		/// Binding for glProgramEnvParameter4dARB.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="index">
 		/// A <see cref="T:UInt32"/>.
@@ -664,7 +664,7 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_ARB_fragment_program")]
 		[RequiredByFeature("GL_ARB_vertex_program")]
-		public static void ProgramEnvParameter4ARB(int target, UInt32 index, double x, double y, double z, double w)
+		public static void ProgramEnvParameter4ARB(Int32 target, UInt32 index, double x, double y, double z, double w)
 		{
 			Debug.Assert(Delegates.pglProgramEnvParameter4dARB != null, "pglProgramEnvParameter4dARB not implemented");
 			Delegates.pglProgramEnvParameter4dARB(target, index, x, y, z, w);
@@ -676,7 +676,7 @@ namespace OpenGL
 		/// Binding for glProgramEnvParameter4dvARB.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="index">
 		/// A <see cref="T:UInt32"/>.
@@ -686,7 +686,7 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_ARB_fragment_program")]
 		[RequiredByFeature("GL_ARB_vertex_program")]
-		public static void ProgramEnvParameter4ARB(int target, UInt32 index, double[] @params)
+		public static void ProgramEnvParameter4ARB(Int32 target, UInt32 index, double[] @params)
 		{
 			unsafe {
 				fixed (double* p_params = @params)
@@ -703,7 +703,7 @@ namespace OpenGL
 		/// Binding for glProgramEnvParameter4fARB.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="index">
 		/// A <see cref="T:UInt32"/>.
@@ -722,7 +722,7 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_ARB_fragment_program")]
 		[RequiredByFeature("GL_ARB_vertex_program")]
-		public static void ProgramEnvParameter4ARB(int target, UInt32 index, float x, float y, float z, float w)
+		public static void ProgramEnvParameter4ARB(Int32 target, UInt32 index, float x, float y, float z, float w)
 		{
 			Debug.Assert(Delegates.pglProgramEnvParameter4fARB != null, "pglProgramEnvParameter4fARB not implemented");
 			Delegates.pglProgramEnvParameter4fARB(target, index, x, y, z, w);
@@ -734,7 +734,7 @@ namespace OpenGL
 		/// Binding for glProgramEnvParameter4fvARB.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="index">
 		/// A <see cref="T:UInt32"/>.
@@ -744,7 +744,7 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_ARB_fragment_program")]
 		[RequiredByFeature("GL_ARB_vertex_program")]
-		public static void ProgramEnvParameter4ARB(int target, UInt32 index, float[] @params)
+		public static void ProgramEnvParameter4ARB(Int32 target, UInt32 index, float[] @params)
 		{
 			unsafe {
 				fixed (float* p_params = @params)
@@ -761,7 +761,7 @@ namespace OpenGL
 		/// Binding for glProgramLocalParameter4dARB.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="index">
 		/// A <see cref="T:UInt32"/>.
@@ -780,7 +780,7 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_ARB_fragment_program")]
 		[RequiredByFeature("GL_ARB_vertex_program")]
-		public static void ProgramLocalParameter4ARB(int target, UInt32 index, double x, double y, double z, double w)
+		public static void ProgramLocalParameter4ARB(Int32 target, UInt32 index, double x, double y, double z, double w)
 		{
 			Debug.Assert(Delegates.pglProgramLocalParameter4dARB != null, "pglProgramLocalParameter4dARB not implemented");
 			Delegates.pglProgramLocalParameter4dARB(target, index, x, y, z, w);
@@ -792,7 +792,7 @@ namespace OpenGL
 		/// Binding for glProgramLocalParameter4dvARB.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="index">
 		/// A <see cref="T:UInt32"/>.
@@ -802,7 +802,7 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_ARB_fragment_program")]
 		[RequiredByFeature("GL_ARB_vertex_program")]
-		public static void ProgramLocalParameter4ARB(int target, UInt32 index, double[] @params)
+		public static void ProgramLocalParameter4ARB(Int32 target, UInt32 index, double[] @params)
 		{
 			unsafe {
 				fixed (double* p_params = @params)
@@ -819,7 +819,7 @@ namespace OpenGL
 		/// Binding for glProgramLocalParameter4fARB.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="index">
 		/// A <see cref="T:UInt32"/>.
@@ -838,7 +838,7 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_ARB_fragment_program")]
 		[RequiredByFeature("GL_ARB_vertex_program")]
-		public static void ProgramLocalParameter4ARB(int target, UInt32 index, float x, float y, float z, float w)
+		public static void ProgramLocalParameter4ARB(Int32 target, UInt32 index, float x, float y, float z, float w)
 		{
 			Debug.Assert(Delegates.pglProgramLocalParameter4fARB != null, "pglProgramLocalParameter4fARB not implemented");
 			Delegates.pglProgramLocalParameter4fARB(target, index, x, y, z, w);
@@ -850,7 +850,7 @@ namespace OpenGL
 		/// Binding for glProgramLocalParameter4fvARB.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="index">
 		/// A <see cref="T:UInt32"/>.
@@ -860,7 +860,7 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_ARB_fragment_program")]
 		[RequiredByFeature("GL_ARB_vertex_program")]
-		public static void ProgramLocalParameter4ARB(int target, UInt32 index, float[] @params)
+		public static void ProgramLocalParameter4ARB(Int32 target, UInt32 index, float[] @params)
 		{
 			unsafe {
 				fixed (float* p_params = @params)
@@ -877,7 +877,7 @@ namespace OpenGL
 		/// Binding for glGetProgramEnvParameterdvARB.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="index">
 		/// A <see cref="T:UInt32"/>.
@@ -887,7 +887,7 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_ARB_fragment_program")]
 		[RequiredByFeature("GL_ARB_vertex_program")]
-		public static void GetProgramEnvParameterARB(int target, UInt32 index, [Out] double[] @params)
+		public static void GetProgramEnvParameterARB(Int32 target, UInt32 index, [Out] double[] @params)
 		{
 			unsafe {
 				fixed (double* p_params = @params)
@@ -904,7 +904,7 @@ namespace OpenGL
 		/// Binding for glGetProgramEnvParameterfvARB.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="index">
 		/// A <see cref="T:UInt32"/>.
@@ -914,7 +914,7 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_ARB_fragment_program")]
 		[RequiredByFeature("GL_ARB_vertex_program")]
-		public static void GetProgramEnvParameterARB(int target, UInt32 index, [Out] float[] @params)
+		public static void GetProgramEnvParameterARB(Int32 target, UInt32 index, [Out] float[] @params)
 		{
 			unsafe {
 				fixed (float* p_params = @params)
@@ -931,7 +931,7 @@ namespace OpenGL
 		/// Binding for glGetProgramLocalParameterdvARB.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="index">
 		/// A <see cref="T:UInt32"/>.
@@ -941,7 +941,7 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_ARB_fragment_program")]
 		[RequiredByFeature("GL_ARB_vertex_program")]
-		public static void GetProgramLocalParameterARB(int target, UInt32 index, [Out] double[] @params)
+		public static void GetProgramLocalParameterARB(Int32 target, UInt32 index, [Out] double[] @params)
 		{
 			unsafe {
 				fixed (double* p_params = @params)
@@ -958,7 +958,7 @@ namespace OpenGL
 		/// Binding for glGetProgramLocalParameterfvARB.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="index">
 		/// A <see cref="T:UInt32"/>.
@@ -968,7 +968,7 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_ARB_fragment_program")]
 		[RequiredByFeature("GL_ARB_vertex_program")]
-		public static void GetProgramLocalParameterARB(int target, UInt32 index, [Out] float[] @params)
+		public static void GetProgramLocalParameterARB(Int32 target, UInt32 index, [Out] float[] @params)
 		{
 			unsafe {
 				fixed (float* p_params = @params)
@@ -985,17 +985,17 @@ namespace OpenGL
 		/// Binding for glGetProgramivARB.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="pname">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="params">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		[RequiredByFeature("GL_ARB_fragment_program")]
 		[RequiredByFeature("GL_ARB_vertex_program")]
-		public static void GetProgramARB(int target, int pname, out Int32 @params)
+		public static void GetProgramARB(Int32 target, Int32 pname, out Int32 @params)
 		{
 			unsafe {
 				fixed (Int32* p_params = &@params)
@@ -1012,17 +1012,17 @@ namespace OpenGL
 		/// Binding for glGetProgramStringARB.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="pname">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="string">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		[RequiredByFeature("GL_ARB_fragment_program")]
 		[RequiredByFeature("GL_ARB_vertex_program")]
-		public static void GetProgramStringARB(int target, int pname, IntPtr @string)
+		public static void GetProgramStringARB(Int32 target, Int32 pname, IntPtr @string)
 		{
 			Debug.Assert(Delegates.pglGetProgramStringARB != null, "pglGetProgramStringARB not implemented");
 			Delegates.pglGetProgramStringARB(target, pname, @string);
@@ -1034,17 +1034,17 @@ namespace OpenGL
 		/// Binding for glGetProgramStringARB.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="pname">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="string">
 		/// A <see cref="T:Object"/>.
 		/// </param>
 		[RequiredByFeature("GL_ARB_fragment_program")]
 		[RequiredByFeature("GL_ARB_vertex_program")]
-		public static void GetProgramStringARB(int target, int pname, Object @string)
+		public static void GetProgramStringARB(Int32 target, Int32 pname, Object @string)
 		{
 			GCHandle pin_string = GCHandle.Alloc(@string, GCHandleType.Pinned);
 			try {

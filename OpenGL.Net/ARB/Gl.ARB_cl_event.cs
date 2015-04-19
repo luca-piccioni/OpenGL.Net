@@ -47,12 +47,12 @@ namespace OpenGL
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		/// <param name="flags">
-		/// A <see cref="T:uint"/>.
+		/// A <see cref="T:UInt32"/>.
 		/// </param>
 		[RequiredByFeature("GL_ARB_cl_event")]
-		public static int CreateSyncFromCLeventARB(IntPtr context, IntPtr @event, uint flags)
+		public static Int32 CreateSyncFromCLeventARB(IntPtr context, IntPtr @event, UInt32 flags)
 		{
-			int retValue;
+			Int32 retValue;
 
 			Debug.Assert(Delegates.pglCreateSyncFromCLeventARB != null, "pglCreateSyncFromCLeventARB not implemented");
 			retValue = Delegates.pglCreateSyncFromCLeventARB(context, @event, flags);

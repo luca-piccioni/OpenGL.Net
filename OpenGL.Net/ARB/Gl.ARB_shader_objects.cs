@@ -126,10 +126,10 @@ namespace OpenGL
 		/// Binding for glGetHandleARB.
 		/// </summary>
 		/// <param name="pname">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		[RequiredByFeature("GL_ARB_shader_objects")]
-		public static UInt32 GetHandleARB(int pname)
+		public static UInt32 GetHandleARB(Int32 pname)
 		{
 			UInt32 retValue;
 
@@ -148,13 +148,13 @@ namespace OpenGL
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
 		/// <param name="pname">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="params">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_ARB_shader_objects")]
-		public static void GetObjectParameterARB(UInt32 obj, int pname, [Out] float[] @params)
+		public static void GetObjectParameterARB(UInt32 obj, Int32 pname, [Out] float[] @params)
 		{
 			unsafe {
 				fixed (float* p_params = @params)
@@ -174,13 +174,13 @@ namespace OpenGL
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
 		/// <param name="pname">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="params">
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_ARB_shader_objects")]
-		public static void GetObjectParameterARB(UInt32 obj, int pname, [Out] Int32[] @params)
+		public static void GetObjectParameterARB(UInt32 obj, Int32 pname, [Out] Int32[] @params)
 		{
 			unsafe {
 				fixed (Int32* p_params = @params)

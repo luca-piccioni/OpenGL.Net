@@ -74,7 +74,7 @@ namespace OpenGL
 				fixed (IntPtr* p_pointer = pointer)
 				{
 					Debug.Assert(Delegates.pglVertexPointervINTEL != null, "pglVertexPointervINTEL not implemented");
-					Delegates.pglVertexPointervINTEL(size, (int)type, p_pointer);
+					Delegates.pglVertexPointervINTEL(size, (Int32)type, p_pointer);
 					CallLog("glVertexPointervINTEL({0}, {1}, {2})", size, type, pointer);
 				}
 			}
@@ -97,7 +97,7 @@ namespace OpenGL
 				fixed (IntPtr* p_pointer = pointer)
 				{
 					Debug.Assert(Delegates.pglNormalPointervINTEL != null, "pglNormalPointervINTEL not implemented");
-					Delegates.pglNormalPointervINTEL((int)type, p_pointer);
+					Delegates.pglNormalPointervINTEL((Int32)type, p_pointer);
 					CallLog("glNormalPointervINTEL({0}, {1})", type, pointer);
 				}
 			}
@@ -123,7 +123,7 @@ namespace OpenGL
 				fixed (IntPtr* p_pointer = pointer)
 				{
 					Debug.Assert(Delegates.pglColorPointervINTEL != null, "pglColorPointervINTEL not implemented");
-					Delegates.pglColorPointervINTEL(size, (int)type, p_pointer);
+					Delegates.pglColorPointervINTEL(size, (Int32)type, p_pointer);
 					CallLog("glColorPointervINTEL({0}, {1}, {2})", size, type, pointer);
 				}
 			}
@@ -149,7 +149,7 @@ namespace OpenGL
 				fixed (IntPtr* p_pointer = pointer)
 				{
 					Debug.Assert(Delegates.pglTexCoordPointervINTEL != null, "pglTexCoordPointervINTEL not implemented");
-					Delegates.pglTexCoordPointervINTEL(size, (int)type, p_pointer);
+					Delegates.pglTexCoordPointervINTEL(size, (Int32)type, p_pointer);
 					CallLog("glTexCoordPointervINTEL({0}, {1}, {2})", size, type, pointer);
 				}
 			}

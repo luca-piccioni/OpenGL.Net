@@ -50,13 +50,13 @@ namespace OpenGL
 		/// A <see cref="T:MaterialFace"/>.
 		/// </param>
 		/// <param name="mode">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_index_material")]
-		public static void IndexMaterialEXT(MaterialFace face, int mode)
+		public static void IndexMaterialEXT(MaterialFace face, Int32 mode)
 		{
 			Debug.Assert(Delegates.pglIndexMaterialEXT != null, "pglIndexMaterialEXT not implemented");
-			Delegates.pglIndexMaterialEXT((int)face, mode);
+			Delegates.pglIndexMaterialEXT((Int32)face, mode);
 			CallLog("glIndexMaterialEXT({0}, {1})", face, mode);
 			DebugCheckErrors();
 		}

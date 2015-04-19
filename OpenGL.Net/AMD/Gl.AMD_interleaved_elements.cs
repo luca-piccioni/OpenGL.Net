@@ -44,13 +44,13 @@ namespace OpenGL
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
 		/// <param name="pname">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="param">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		[RequiredByFeature("GL_AMD_interleaved_elements")]
-		public static void VertexAttribParameterAMD(UInt32 index, int pname, Int32 param)
+		public static void VertexAttribParameterAMD(UInt32 index, Int32 pname, Int32 param)
 		{
 			Debug.Assert(Delegates.pglVertexAttribParameteriAMD != null, "pglVertexAttribParameteriAMD not implemented");
 			Delegates.pglVertexAttribParameteriAMD(index, pname, param);

@@ -865,7 +865,7 @@ namespace OpenGL
 		public static void BlendEquationSeparate(BlendEquationModeEXT modeRGB, BlendEquationModeEXT modeAlpha)
 		{
 			Debug.Assert(Delegates.pglBlendEquationSeparate != null, "pglBlendEquationSeparate not implemented");
-			Delegates.pglBlendEquationSeparate((int)modeRGB, (int)modeAlpha);
+			Delegates.pglBlendEquationSeparate((Int32)modeRGB, (Int32)modeAlpha);
 			CallLog("glBlendEquationSeparate({0}, {1})", modeRGB, modeAlpha);
 			DebugCheckErrors();
 		}
@@ -921,10 +921,10 @@ namespace OpenGL
 		/// <seealso cref="Gl.LogicOp"/>
 		/// <seealso cref="Gl.ReadBuffer"/>
 		[RequiredByFeature("GL_VERSION_2_0")]
-		public static void DrawBuffers(params int[] bufs)
+		public static void DrawBuffers(params Int32[] bufs)
 		{
 			unsafe {
-				fixed (int* p_bufs = bufs)
+				fixed (Int32* p_bufs = bufs)
 				{
 					Debug.Assert(Delegates.pglDrawBuffers != null, "pglDrawBuffers not implemented");
 					Delegates.pglDrawBuffers((Int32)bufs.Length, p_bufs);
@@ -976,7 +976,7 @@ namespace OpenGL
 		public static void StencilOpSeparate(StencilFaceDirection face, StencilOp sfail, StencilOp dpfail, StencilOp dppass)
 		{
 			Debug.Assert(Delegates.pglStencilOpSeparate != null, "pglStencilOpSeparate not implemented");
-			Delegates.pglStencilOpSeparate((int)face, (int)sfail, (int)dpfail, (int)dppass);
+			Delegates.pglStencilOpSeparate((Int32)face, (Int32)sfail, (Int32)dpfail, (Int32)dppass);
 			CallLog("glStencilOpSeparate({0}, {1}, {2}, {3})", face, sfail, dpfail, dppass);
 			DebugCheckErrors();
 		}
@@ -1018,7 +1018,7 @@ namespace OpenGL
 		public static void StencilFuncSeparate(StencilFaceDirection face, StencilFunction func, Int32 @ref, UInt32 mask)
 		{
 			Debug.Assert(Delegates.pglStencilFuncSeparate != null, "pglStencilFuncSeparate not implemented");
-			Delegates.pglStencilFuncSeparate((int)face, (int)func, @ref, mask);
+			Delegates.pglStencilFuncSeparate((Int32)face, (Int32)func, @ref, mask);
 			CallLog("glStencilFuncSeparate({0}, {1}, {2}, {3})", face, func, @ref, mask);
 			DebugCheckErrors();
 		}
@@ -1050,7 +1050,7 @@ namespace OpenGL
 		public static void StencilMaskSeparate(StencilFaceDirection face, UInt32 mask)
 		{
 			Debug.Assert(Delegates.pglStencilMaskSeparate != null, "pglStencilMaskSeparate not implemented");
-			Delegates.pglStencilMaskSeparate((int)face, mask);
+			Delegates.pglStencilMaskSeparate((Int32)face, mask);
 			CallLog("glStencilMaskSeparate({0}, {1})", face, mask);
 			DebugCheckErrors();
 		}
@@ -1212,7 +1212,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.DetachShader"/>
 		/// <seealso cref="Gl.ShaderSource"/>
 		[RequiredByFeature("GL_VERSION_2_0")]
-		public static UInt32 CreateShader(int shaderType)
+		public static UInt32 CreateShader(Int32 shaderType)
 		{
 			UInt32 retValue;
 
@@ -1421,12 +1421,12 @@ namespace OpenGL
 		/// <seealso cref="Gl.VertexAttrib"/>
 		/// <seealso cref="Gl.VertexAttribPointer"/>
 		[RequiredByFeature("GL_VERSION_2_0")]
-		public static void GetActiveAttrib(UInt32 program, UInt32 index, Int32 bufSize, out Int32 length, out Int32 size, out int type, [Out] StringBuilder name)
+		public static void GetActiveAttrib(UInt32 program, UInt32 index, Int32 bufSize, out Int32 length, out Int32 size, out Int32 type, [Out] StringBuilder name)
 		{
 			unsafe {
 				fixed (Int32* p_length = &length)
 				fixed (Int32* p_size = &size)
-				fixed (int* p_type = &type)
+				fixed (Int32* p_type = &type)
 				{
 					Debug.Assert(Delegates.pglGetActiveAttrib != null, "pglGetActiveAttrib not implemented");
 					Delegates.pglGetActiveAttrib(program, index, bufSize, p_length, p_size, p_type, name);
@@ -1483,12 +1483,12 @@ namespace OpenGL
 		/// <seealso cref="Gl.Uniform"/>
 		/// <seealso cref="Gl.UseProgram"/>
 		[RequiredByFeature("GL_VERSION_2_0")]
-		public static void GetActiveUniform(UInt32 program, UInt32 index, Int32 bufSize, out Int32 length, out Int32 size, out int type, [Out] StringBuilder name)
+		public static void GetActiveUniform(UInt32 program, UInt32 index, Int32 bufSize, out Int32 length, out Int32 size, out Int32 type, [Out] StringBuilder name)
 		{
 			unsafe {
 				fixed (Int32* p_length = &length)
 				fixed (Int32* p_size = &size)
-				fixed (int* p_type = &type)
+				fixed (Int32* p_type = &type)
 				{
 					Debug.Assert(Delegates.pglGetActiveUniform != null, "pglGetActiveUniform not implemented");
 					Delegates.pglGetActiveUniform(program, index, bufSize, p_length, p_size, p_type, name);
@@ -1621,7 +1621,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.LinkProgram"/>
 		/// <seealso cref="Gl.ValidateProgram"/>
 		[RequiredByFeature("GL_VERSION_2_0")]
-		public static void GetProgram(UInt32 program, int pname, [Out] Int32[] @params)
+		public static void GetProgram(UInt32 program, Int32 pname, [Out] Int32[] @params)
 		{
 			unsafe {
 				fixed (Int32* p_params = @params)
@@ -1677,7 +1677,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.LinkProgram"/>
 		/// <seealso cref="Gl.ValidateProgram"/>
 		[RequiredByFeature("GL_VERSION_2_0")]
-		public static void GetProgram(UInt32 program, int pname, out Int32 @params)
+		public static void GetProgram(UInt32 program, Int32 pname, out Int32 @params)
 		{
 			unsafe {
 				fixed (Int32* p_params = &@params)
@@ -1764,7 +1764,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.GetProgram"/>
 		/// <seealso cref="Gl.ShaderSource"/>
 		[RequiredByFeature("GL_VERSION_2_0")]
-		public static void GetShader(UInt32 shader, int pname, [Out] Int32[] @params)
+		public static void GetShader(UInt32 shader, Int32 pname, [Out] Int32[] @params)
 		{
 			unsafe {
 				fixed (Int32* p_params = @params)
@@ -1807,7 +1807,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.GetProgram"/>
 		/// <seealso cref="Gl.ShaderSource"/>
 		[RequiredByFeature("GL_VERSION_2_0")]
-		public static void GetShader(UInt32 shader, int pname, out Int32 @params)
+		public static void GetShader(UInt32 shader, Int32 pname, out Int32 @params)
 		{
 			unsafe {
 				fixed (Int32* p_params = &@params)
@@ -2076,7 +2076,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.VertexAttribDivisor"/>
 		/// <seealso cref="Gl.VertexAttribPointer"/>
 		[RequiredByFeature("GL_VERSION_2_0")]
-		public static void GetVertexAttrib(UInt32 index, int pname, [Out] double[] @params)
+		public static void GetVertexAttrib(UInt32 index, Int32 pname, [Out] double[] @params)
 		{
 			unsafe {
 				fixed (double* p_params = @params)
@@ -2128,7 +2128,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.VertexAttribDivisor"/>
 		/// <seealso cref="Gl.VertexAttribPointer"/>
 		[RequiredByFeature("GL_VERSION_2_0")]
-		public static void GetVertexAttrib(UInt32 index, int pname, [Out] float[] @params)
+		public static void GetVertexAttrib(UInt32 index, Int32 pname, [Out] float[] @params)
 		{
 			unsafe {
 				fixed (float* p_params = @params)
@@ -2180,7 +2180,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.VertexAttribDivisor"/>
 		/// <seealso cref="Gl.VertexAttribPointer"/>
 		[RequiredByFeature("GL_VERSION_2_0")]
-		public static void GetVertexAttrib(UInt32 index, int pname, [Out] Int32[] @params)
+		public static void GetVertexAttrib(UInt32 index, Int32 pname, [Out] Int32[] @params)
 		{
 			unsafe {
 				fixed (Int32* p_params = @params)
@@ -2232,7 +2232,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.VertexAttribDivisor"/>
 		/// <seealso cref="Gl.VertexAttribPointer"/>
 		[RequiredByFeature("GL_VERSION_2_0")]
-		public static void GetVertexAttrib(UInt32 index, int pname, out Int32 @params)
+		public static void GetVertexAttrib(UInt32 index, Int32 pname, out Int32 @params)
 		{
 			unsafe {
 				fixed (Int32* p_params = &@params)
@@ -2272,7 +2272,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.GetVertexAttrib"/>
 		/// <seealso cref="Gl.VertexAttribPointer"/>
 		[RequiredByFeature("GL_VERSION_2_0")]
-		public static void GetVertexAttribPointer(UInt32 index, int pname, out IntPtr pointer)
+		public static void GetVertexAttribPointer(UInt32 index, Int32 pname, out IntPtr pointer)
 		{
 			unsafe {
 				fixed (IntPtr* p_pointer = &pointer)
@@ -2312,7 +2312,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.GetVertexAttrib"/>
 		/// <seealso cref="Gl.VertexAttribPointer"/>
 		[RequiredByFeature("GL_VERSION_2_0")]
-		public static void GetVertexAttribPointer(UInt32 index, int pname, Object pointer)
+		public static void GetVertexAttribPointer(UInt32 index, Int32 pname, Object pointer)
 		{
 			GCHandle pin_pointer = GCHandle.Alloc(pointer, GCHandleType.Pinned);
 			try {
@@ -5185,7 +5185,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.MultiDrawElements"/>
 		/// <seealso cref="Gl.VertexAttrib"/>
 		[RequiredByFeature("GL_VERSION_2_0")]
-		public static void VertexAttribPointer(UInt32 index, Int32 size, int type, bool normalized, Int32 stride, IntPtr pointer)
+		public static void VertexAttribPointer(UInt32 index, Int32 size, Int32 type, bool normalized, Int32 stride, IntPtr pointer)
 		{
 			Debug.Assert(Delegates.pglVertexAttribPointer != null, "pglVertexAttribPointer not implemented");
 			Delegates.pglVertexAttribPointer(index, size, type, normalized, stride, pointer);
@@ -5268,7 +5268,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.MultiDrawElements"/>
 		/// <seealso cref="Gl.VertexAttrib"/>
 		[RequiredByFeature("GL_VERSION_2_0")]
-		public static void VertexAttribPointer(UInt32 index, Int32 size, int type, bool normalized, Int32 stride, Object pointer)
+		public static void VertexAttribPointer(UInt32 index, Int32 size, Int32 type, bool normalized, Int32 stride, Object pointer)
 		{
 			GCHandle pin_pointer = GCHandle.Alloc(pointer, GCHandleType.Pinned);
 			try {

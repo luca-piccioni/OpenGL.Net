@@ -41,10 +41,10 @@ namespace OpenGL
 		/// Binding for glTextureNormalEXT.
 		/// </summary>
 		/// <param name="mode">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_texture_perturb_normal")]
-		public static void TextureNormalEXT(int mode)
+		public static void TextureNormalEXT(Int32 mode)
 		{
 			Debug.Assert(Delegates.pglTextureNormalEXT != null, "pglTextureNormalEXT not implemented");
 			Delegates.pglTextureNormalEXT(mode);

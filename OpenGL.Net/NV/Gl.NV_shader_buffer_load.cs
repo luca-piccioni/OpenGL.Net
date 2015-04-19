@@ -47,13 +47,13 @@ namespace OpenGL
 		/// Binding for glMakeBufferResidentNV.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="access">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_shader_buffer_load")]
-		public static void MakeBufferResidentNV(int target, int access)
+		public static void MakeBufferResidentNV(Int32 target, Int32 access)
 		{
 			Debug.Assert(Delegates.pglMakeBufferResidentNV != null, "pglMakeBufferResidentNV not implemented");
 			Delegates.pglMakeBufferResidentNV(target, access);
@@ -65,10 +65,10 @@ namespace OpenGL
 		/// Binding for glMakeBufferNonResidentNV.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_shader_buffer_load")]
-		public static void MakeBufferNonResidentNV(int target)
+		public static void MakeBufferNonResidentNV(Int32 target)
 		{
 			Debug.Assert(Delegates.pglMakeBufferNonResidentNV != null, "pglMakeBufferNonResidentNV not implemented");
 			Delegates.pglMakeBufferNonResidentNV(target);
@@ -80,10 +80,10 @@ namespace OpenGL
 		/// Binding for glIsBufferResidentNV.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_shader_buffer_load")]
-		public static bool IsBufferResidentNV(int target)
+		public static bool IsBufferResidentNV(Int32 target)
 		{
 			bool retValue;
 
@@ -102,10 +102,10 @@ namespace OpenGL
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
 		/// <param name="access">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_shader_buffer_load")]
-		public static void MakeNamedBufferResidentNV(UInt32 buffer, int access)
+		public static void MakeNamedBufferResidentNV(UInt32 buffer, Int32 access)
 		{
 			Debug.Assert(Delegates.pglMakeNamedBufferResidentNV != null, "pglMakeNamedBufferResidentNV not implemented");
 			Delegates.pglMakeNamedBufferResidentNV(buffer, access);
@@ -151,16 +151,16 @@ namespace OpenGL
 		/// Binding for glGetBufferParameterui64vNV.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="pname">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="params">
 		/// A <see cref="T:UInt64[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_shader_buffer_load")]
-		public static void GetBufferParameterNV(int target, int pname, [Out] UInt64[] @params)
+		public static void GetBufferParameterNV(Int32 target, Int32 pname, [Out] UInt64[] @params)
 		{
 			unsafe {
 				fixed (UInt64* p_params = @params)
@@ -180,13 +180,13 @@ namespace OpenGL
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
 		/// <param name="pname">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="params">
 		/// A <see cref="T:UInt64[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_shader_buffer_load")]
-		public static void GetNamedBufferParameterNV(UInt32 buffer, int pname, [Out] UInt64[] @params)
+		public static void GetNamedBufferParameterNV(UInt32 buffer, Int32 pname, [Out] UInt64[] @params)
 		{
 			unsafe {
 				fixed (UInt64* p_params = @params)
@@ -203,13 +203,13 @@ namespace OpenGL
 		/// Binding for glGetIntegerui64vNV.
 		/// </summary>
 		/// <param name="value">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="result">
 		/// A <see cref="T:UInt64[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_shader_buffer_load")]
-		public static void GetIntegerNV(int value, [Out] UInt64[] result)
+		public static void GetIntegerNV(Int32 value, [Out] UInt64[] result)
 		{
 			unsafe {
 				fixed (UInt64* p_result = result)

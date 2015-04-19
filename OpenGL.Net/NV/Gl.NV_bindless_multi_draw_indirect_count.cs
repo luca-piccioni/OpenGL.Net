@@ -29,7 +29,7 @@ namespace OpenGL
 		/// Binding for glMultiDrawArraysIndirectBindlessCountNV.
 		/// </summary>
 		/// <param name="mode">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="indirect">
 		/// A <see cref="T:IntPtr"/>.
@@ -47,7 +47,7 @@ namespace OpenGL
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_bindless_multi_draw_indirect_count")]
-		public static void MultiDrawArraysIndirectBindNV(int mode, IntPtr indirect, Int32 drawCount, Int32 maxDrawCount, Int32 stride, Int32 vertexBufferCount)
+		public static void MultiDrawArraysIndirectBindNV(Int32 mode, IntPtr indirect, Int32 drawCount, Int32 maxDrawCount, Int32 stride, Int32 vertexBufferCount)
 		{
 			Debug.Assert(Delegates.pglMultiDrawArraysIndirectBindlessCountNV != null, "pglMultiDrawArraysIndirectBindlessCountNV not implemented");
 			Delegates.pglMultiDrawArraysIndirectBindlessCountNV(mode, indirect, drawCount, maxDrawCount, stride, vertexBufferCount);
@@ -59,7 +59,7 @@ namespace OpenGL
 		/// Binding for glMultiDrawArraysIndirectBindlessCountNV.
 		/// </summary>
 		/// <param name="mode">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="indirect">
 		/// A <see cref="T:Object"/>.
@@ -77,7 +77,7 @@ namespace OpenGL
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_bindless_multi_draw_indirect_count")]
-		public static void MultiDrawArraysIndirectBindNV(int mode, Object indirect, Int32 drawCount, Int32 maxDrawCount, Int32 stride, Int32 vertexBufferCount)
+		public static void MultiDrawArraysIndirectBindNV(Int32 mode, Object indirect, Int32 drawCount, Int32 maxDrawCount, Int32 stride, Int32 vertexBufferCount)
 		{
 			GCHandle pin_indirect = GCHandle.Alloc(indirect, GCHandleType.Pinned);
 			try {
@@ -91,10 +91,10 @@ namespace OpenGL
 		/// Binding for glMultiDrawElementsIndirectBindlessCountNV.
 		/// </summary>
 		/// <param name="mode">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="type">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="indirect">
 		/// A <see cref="T:IntPtr"/>.
@@ -112,7 +112,7 @@ namespace OpenGL
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_bindless_multi_draw_indirect_count")]
-		public static void MultiDrawElementsIndirectBindNV(int mode, int type, IntPtr indirect, Int32 drawCount, Int32 maxDrawCount, Int32 stride, Int32 vertexBufferCount)
+		public static void MultiDrawElementsIndirectBindNV(Int32 mode, Int32 type, IntPtr indirect, Int32 drawCount, Int32 maxDrawCount, Int32 stride, Int32 vertexBufferCount)
 		{
 			Debug.Assert(Delegates.pglMultiDrawElementsIndirectBindlessCountNV != null, "pglMultiDrawElementsIndirectBindlessCountNV not implemented");
 			Delegates.pglMultiDrawElementsIndirectBindlessCountNV(mode, type, indirect, drawCount, maxDrawCount, stride, vertexBufferCount);
@@ -124,10 +124,10 @@ namespace OpenGL
 		/// Binding for glMultiDrawElementsIndirectBindlessCountNV.
 		/// </summary>
 		/// <param name="mode">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="type">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="indirect">
 		/// A <see cref="T:Object"/>.
@@ -145,7 +145,7 @@ namespace OpenGL
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_bindless_multi_draw_indirect_count")]
-		public static void MultiDrawElementsIndirectBindNV(int mode, int type, Object indirect, Int32 drawCount, Int32 maxDrawCount, Int32 stride, Int32 vertexBufferCount)
+		public static void MultiDrawElementsIndirectBindNV(Int32 mode, Int32 type, Object indirect, Int32 drawCount, Int32 maxDrawCount, Int32 stride, Int32 vertexBufferCount)
 		{
 			GCHandle pin_indirect = GCHandle.Alloc(indirect, GCHandleType.Pinned);
 			try {

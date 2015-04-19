@@ -47,13 +47,13 @@ namespace OpenGL
 		/// Binding for glCullParameterdvEXT.
 		/// </summary>
 		/// <param name="pname">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="params">
 		/// A <see cref="T:double[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_cull_vertex")]
-		public static void CullParameterEXT(int pname, double[] @params)
+		public static void CullParameterEXT(Int32 pname, double[] @params)
 		{
 			unsafe {
 				fixed (double* p_params = @params)
@@ -70,13 +70,13 @@ namespace OpenGL
 		/// Binding for glCullParameterfvEXT.
 		/// </summary>
 		/// <param name="pname">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="params">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_cull_vertex")]
-		public static void CullParameterEXT(int pname, float[] @params)
+		public static void CullParameterEXT(Int32 pname, float[] @params)
 		{
 			unsafe {
 				fixed (float* p_params = @params)

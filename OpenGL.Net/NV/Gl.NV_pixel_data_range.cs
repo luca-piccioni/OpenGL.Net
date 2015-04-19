@@ -65,7 +65,7 @@ namespace OpenGL
 		/// Binding for glPixelDataRangeNV.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="length">
 		/// A <see cref="T:Int32"/>.
@@ -74,7 +74,7 @@ namespace OpenGL
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_pixel_data_range")]
-		public static void PixelDataRangeNV(int target, Int32 length, IntPtr pointer)
+		public static void PixelDataRangeNV(Int32 target, Int32 length, IntPtr pointer)
 		{
 			Debug.Assert(Delegates.pglPixelDataRangeNV != null, "pglPixelDataRangeNV not implemented");
 			Delegates.pglPixelDataRangeNV(target, length, pointer);
@@ -86,7 +86,7 @@ namespace OpenGL
 		/// Binding for glPixelDataRangeNV.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="length">
 		/// A <see cref="T:Int32"/>.
@@ -95,7 +95,7 @@ namespace OpenGL
 		/// A <see cref="T:Object"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_pixel_data_range")]
-		public static void PixelDataRangeNV(int target, Int32 length, Object pointer)
+		public static void PixelDataRangeNV(Int32 target, Int32 length, Object pointer)
 		{
 			GCHandle pin_pointer = GCHandle.Alloc(pointer, GCHandleType.Pinned);
 			try {
@@ -109,10 +109,10 @@ namespace OpenGL
 		/// Binding for glFlushPixelDataRangeNV.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_pixel_data_range")]
-		public static void FlushPixelDataRangeNV(int target)
+		public static void FlushPixelDataRangeNV(Int32 target)
 		{
 			Debug.Assert(Delegates.pglFlushPixelDataRangeNV != null, "pglFlushPixelDataRangeNV not implemented");
 			Delegates.pglFlushPixelDataRangeNV(target);

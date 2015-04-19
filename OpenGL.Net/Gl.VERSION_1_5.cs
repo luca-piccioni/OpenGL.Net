@@ -529,7 +529,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.GetQueryiv"/>
 		/// <seealso cref="Gl.IsQuery"/>
 		[RequiredByFeature("GL_VERSION_1_5")]
-		public static void BeginQuery(int target, UInt32 id)
+		public static void BeginQuery(Int32 target, UInt32 id)
 		{
 			Debug.Assert(Delegates.pglBeginQuery != null, "pglBeginQuery not implemented");
 			Delegates.pglBeginQuery(target, id);
@@ -576,7 +576,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.GetQueryiv"/>
 		/// <seealso cref="Gl.IsQuery"/>
 		[RequiredByFeature("GL_VERSION_1_5")]
-		public static void EndQuery(int target)
+		public static void EndQuery(Int32 target)
 		{
 			Debug.Assert(Delegates.pglEndQuery != null, "pglEndQuery not implemented");
 			Delegates.pglEndQuery(target);
@@ -607,7 +607,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.GetQueryObject"/>
 		/// <seealso cref="Gl.IsQuery"/>
 		[RequiredByFeature("GL_VERSION_1_5")]
-		public static void GetQuery(int target, int pname, [Out] Int32[] @params)
+		public static void GetQuery(Int32 target, Int32 pname, [Out] Int32[] @params)
 		{
 			unsafe {
 				fixed (Int32* p_params = @params)
@@ -643,7 +643,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.GetQueryObject"/>
 		/// <seealso cref="Gl.IsQuery"/>
 		[RequiredByFeature("GL_VERSION_1_5")]
-		public static void GetQuery(int target, int pname, out Int32 @params)
+		public static void GetQuery(Int32 target, Int32 pname, out Int32 @params)
 		{
 			unsafe {
 				fixed (Int32* p_params = &@params)
@@ -693,7 +693,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.IsQuery"/>
 		/// <seealso cref="Gl.QueryCounter"/>
 		[RequiredByFeature("GL_VERSION_1_5")]
-		public static void GetQueryObject(UInt32 id, int pname, [Out] Int32[] @params)
+		public static void GetQueryObject(UInt32 id, Int32 pname, [Out] Int32[] @params)
 		{
 			unsafe {
 				fixed (Int32* p_params = @params)
@@ -743,7 +743,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.IsQuery"/>
 		/// <seealso cref="Gl.QueryCounter"/>
 		[RequiredByFeature("GL_VERSION_1_5")]
-		public static void GetQueryObject(UInt32 id, int pname, out Int32 @params)
+		public static void GetQueryObject(UInt32 id, Int32 pname, out Int32 @params)
 		{
 			unsafe {
 				fixed (Int32* p_params = &@params)
@@ -793,7 +793,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.IsQuery"/>
 		/// <seealso cref="Gl.QueryCounter"/>
 		[RequiredByFeature("GL_VERSION_1_5")]
-		public static void GetQueryObjectui(UInt32 id, int pname, [Out] UInt32[] @params)
+		public static void GetQueryObjectui(UInt32 id, Int32 pname, [Out] UInt32[] @params)
 		{
 			unsafe {
 				fixed (UInt32* p_params = @params)
@@ -843,7 +843,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.IsQuery"/>
 		/// <seealso cref="Gl.QueryCounter"/>
 		[RequiredByFeature("GL_VERSION_1_5")]
-		public static void GetQueryObjectui(UInt32 id, int pname, out UInt32 @params)
+		public static void GetQueryObjectui(UInt32 id, Int32 pname, out UInt32 @params)
 		{
 			unsafe {
 				fixed (UInt32* p_params = &@params)
@@ -887,7 +887,7 @@ namespace OpenGL
 		public static void BindBuffer(BufferTargetARB target, UInt32 buffer)
 		{
 			Debug.Assert(Delegates.pglBindBuffer != null, "pglBindBuffer not implemented");
-			Delegates.pglBindBuffer((int)target, buffer);
+			Delegates.pglBindBuffer((Int32)target, buffer);
 			CallLog("glBindBuffer({0}, {1})", target, buffer);
 			DebugCheckErrors();
 		}
@@ -1045,7 +1045,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.MapBuffer"/>
 		/// <seealso cref="Gl.UnmapBuffer"/>
 		[RequiredByFeature("GL_VERSION_1_5")]
-		public static void BufferData(int target, UInt32 size, IntPtr data, int usage)
+		public static void BufferData(Int32 target, UInt32 size, IntPtr data, Int32 usage)
 		{
 			Debug.Assert(Delegates.pglBufferData != null, "pglBufferData not implemented");
 			Delegates.pglBufferData(target, size, data, usage);
@@ -1104,7 +1104,7 @@ namespace OpenGL
 		public static void BufferData(BufferTargetARB target, UInt32 size, IntPtr data, BufferUsageARB usage)
 		{
 			Debug.Assert(Delegates.pglBufferData != null, "pglBufferData not implemented");
-			Delegates.pglBufferData((int)target, size, data, (int)usage);
+			Delegates.pglBufferData((Int32)target, size, data, (Int32)usage);
 			CallLog("glBufferData({0}, {1}, {2}, {3})", target, size, data, usage);
 		}
 
@@ -1157,7 +1157,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.MapBuffer"/>
 		/// <seealso cref="Gl.UnmapBuffer"/>
 		[RequiredByFeature("GL_VERSION_1_5")]
-		public static void BufferData(int target, UInt32 size, Object data, int usage)
+		public static void BufferData(Int32 target, UInt32 size, Object data, Int32 usage)
 		{
 			GCHandle pin_data = GCHandle.Alloc(data, GCHandleType.Pinned);
 			try {
@@ -1276,7 +1276,7 @@ namespace OpenGL
 		public static void BufferSubData(BufferTargetARB target, IntPtr offset, UInt32 size, IntPtr data)
 		{
 			Debug.Assert(Delegates.pglBufferSubData != null, "pglBufferSubData not implemented");
-			Delegates.pglBufferSubData((int)target, offset, size, data);
+			Delegates.pglBufferSubData((Int32)target, offset, size, data);
 			CallLog("glBufferSubData({0}, {1}, {2}, {3})", target, offset, size, data);
 			DebugCheckErrors();
 		}
@@ -1384,7 +1384,7 @@ namespace OpenGL
 		public static void GetBufferSubData(BufferTargetARB target, IntPtr offset, UInt32 size, IntPtr data)
 		{
 			Debug.Assert(Delegates.pglGetBufferSubData != null, "pglGetBufferSubData not implemented");
-			Delegates.pglGetBufferSubData((int)target, offset, size, data);
+			Delegates.pglGetBufferSubData((Int32)target, offset, size, data);
 			CallLog("glGetBufferSubData({0}, {1}, {2}, {3})", target, offset, size, data);
 			DebugCheckErrors();
 		}
@@ -1491,7 +1491,7 @@ namespace OpenGL
 			IntPtr retValue;
 
 			Debug.Assert(Delegates.pglMapBuffer != null, "pglMapBuffer not implemented");
-			retValue = Delegates.pglMapBuffer((int)target, (int)access);
+			retValue = Delegates.pglMapBuffer((Int32)target, (Int32)access);
 			CallLog("glMapBuffer({0}, {1}) = {2}", target, access, retValue);
 			DebugCheckErrors();
 
@@ -1531,7 +1531,7 @@ namespace OpenGL
 			bool retValue;
 
 			Debug.Assert(Delegates.pglUnmapBuffer != null, "pglUnmapBuffer not implemented");
-			retValue = Delegates.pglUnmapBuffer((int)target);
+			retValue = Delegates.pglUnmapBuffer((Int32)target);
 			CallLog("glUnmapBuffer({0}) = {1}", target, retValue);
 			DebugCheckErrors();
 
@@ -1546,7 +1546,7 @@ namespace OpenGL
 		/// be one of the buffer binding targets in the following table:
 		/// </param>
 		/// <param name="pname">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="params">
 		/// A <see cref="T:Int32[]"/>.
@@ -1574,13 +1574,13 @@ namespace OpenGL
 		/// <seealso cref="Gl.MapBuffer"/>
 		/// <seealso cref="Gl.UnmapBuffer"/>
 		[RequiredByFeature("GL_VERSION_1_5")]
-		public static void GetBufferParameter(BufferTargetARB target, int pname, [Out] Int32[] @params)
+		public static void GetBufferParameter(BufferTargetARB target, Int32 pname, [Out] Int32[] @params)
 		{
 			unsafe {
 				fixed (Int32* p_params = @params)
 				{
 					Debug.Assert(Delegates.pglGetBufferParameteriv != null, "pglGetBufferParameteriv not implemented");
-					Delegates.pglGetBufferParameteriv((int)target, pname, p_params);
+					Delegates.pglGetBufferParameteriv((Int32)target, pname, p_params);
 					CallLog("glGetBufferParameteriv({0}, {1}, {2})", target, pname, @params);
 				}
 			}
@@ -1595,7 +1595,7 @@ namespace OpenGL
 		/// be one of the buffer binding targets in the following table:
 		/// </param>
 		/// <param name="pname">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="params">
 		/// A <see cref="T:Int32"/>.
@@ -1623,13 +1623,13 @@ namespace OpenGL
 		/// <seealso cref="Gl.MapBuffer"/>
 		/// <seealso cref="Gl.UnmapBuffer"/>
 		[RequiredByFeature("GL_VERSION_1_5")]
-		public static void GetBufferParameter(BufferTargetARB target, int pname, out Int32 @params)
+		public static void GetBufferParameter(BufferTargetARB target, Int32 pname, out Int32 @params)
 		{
 			unsafe {
 				fixed (Int32* p_params = &@params)
 				{
 					Debug.Assert(Delegates.pglGetBufferParameteriv != null, "pglGetBufferParameteriv not implemented");
-					Delegates.pglGetBufferParameteriv((int)target, pname, p_params);
+					Delegates.pglGetBufferParameteriv((Int32)target, pname, p_params);
 					CallLog("glGetBufferParameteriv({0}, {1}, {2})", target, pname, @params);
 				}
 			}
@@ -1665,13 +1665,13 @@ namespace OpenGL
 		/// <seealso cref="Gl.BindBuffer"/>
 		/// <seealso cref="Gl.MapBuffer"/>
 		[RequiredByFeature("GL_VERSION_1_5")]
-		public static void GetBufferPointer(BufferTargetARB target, int pname, out IntPtr @params)
+		public static void GetBufferPointer(BufferTargetARB target, Int32 pname, out IntPtr @params)
 		{
 			unsafe {
 				fixed (IntPtr* p_params = &@params)
 				{
 					Debug.Assert(Delegates.pglGetBufferPointerv != null, "pglGetBufferPointerv not implemented");
-					Delegates.pglGetBufferPointerv((int)target, pname, p_params);
+					Delegates.pglGetBufferPointerv((Int32)target, pname, p_params);
 					CallLog("glGetBufferPointerv({0}, {1}, {2})", target, pname, @params);
 				}
 			}
@@ -1707,7 +1707,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.BindBuffer"/>
 		/// <seealso cref="Gl.MapBuffer"/>
 		[RequiredByFeature("GL_VERSION_1_5")]
-		public static void GetBufferPointer(BufferTargetARB target, int pname, Object @params)
+		public static void GetBufferPointer(BufferTargetARB target, Int32 pname, Object @params)
 		{
 			GCHandle pin_params = GCHandle.Alloc(@params, GCHandleType.Pinned);
 			try {

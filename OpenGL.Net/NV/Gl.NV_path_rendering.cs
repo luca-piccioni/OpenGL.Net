@@ -1027,13 +1027,13 @@ namespace OpenGL
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="coordType">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="coords">
 		/// A <see cref="T:Object"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_path_rendering")]
-		public static void PathCommandsNV(UInt32 path, Int32 numCommands, byte[] commands, Int32 numCoords, int coordType, Object coords)
+		public static void PathCommandsNV(UInt32 path, Int32 numCommands, byte[] commands, Int32 numCoords, Int32 coordType, Object coords)
 		{
 			GCHandle pin_coords = GCHandle.Alloc(coords, GCHandleType.Pinned);
 			try {
@@ -1059,13 +1059,13 @@ namespace OpenGL
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="coordType">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="coords">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_path_rendering")]
-		public static void PathCommandsNV(UInt32 path, byte[] commands, Int32 numCoords, int coordType, IntPtr coords)
+		public static void PathCommandsNV(UInt32 path, byte[] commands, Int32 numCoords, Int32 coordType, IntPtr coords)
 		{
 			unsafe {
 				fixed (byte* p_commands = commands)
@@ -1088,13 +1088,13 @@ namespace OpenGL
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="coordType">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="coords">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_path_rendering")]
-		public static void PathCoordsNV(UInt32 path, Int32 numCoords, int coordType, IntPtr coords)
+		public static void PathCoordsNV(UInt32 path, Int32 numCoords, Int32 coordType, IntPtr coords)
 		{
 			Debug.Assert(Delegates.pglPathCoordsNV != null, "pglPathCoordsNV not implemented");
 			Delegates.pglPathCoordsNV(path, numCoords, coordType, coords);
@@ -1112,13 +1112,13 @@ namespace OpenGL
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="coordType">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="coords">
 		/// A <see cref="T:Object"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_path_rendering")]
-		public static void PathCoordsNV(UInt32 path, Int32 numCoords, int coordType, Object coords)
+		public static void PathCoordsNV(UInt32 path, Int32 numCoords, Int32 coordType, Object coords)
 		{
 			GCHandle pin_coords = GCHandle.Alloc(coords, GCHandleType.Pinned);
 			try {
@@ -1150,13 +1150,13 @@ namespace OpenGL
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="coordType">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="coords">
 		/// A <see cref="T:Object"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_path_rendering")]
-		public static void PathSubCommandsNV(UInt32 path, Int32 commandStart, Int32 commandsToDelete, Int32 numCommands, byte[] commands, Int32 numCoords, int coordType, Object coords)
+		public static void PathSubCommandsNV(UInt32 path, Int32 commandStart, Int32 commandsToDelete, Int32 numCommands, byte[] commands, Int32 numCoords, Int32 coordType, Object coords)
 		{
 			GCHandle pin_coords = GCHandle.Alloc(coords, GCHandleType.Pinned);
 			try {
@@ -1188,13 +1188,13 @@ namespace OpenGL
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="coordType">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="coords">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_path_rendering")]
-		public static void PathSubCommandsNV(UInt32 path, Int32 commandStart, Int32 commandsToDelete, byte[] commands, Int32 numCoords, int coordType, IntPtr coords)
+		public static void PathSubCommandsNV(UInt32 path, Int32 commandStart, Int32 commandsToDelete, byte[] commands, Int32 numCoords, Int32 coordType, IntPtr coords)
 		{
 			unsafe {
 				fixed (byte* p_commands = commands)
@@ -1220,13 +1220,13 @@ namespace OpenGL
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="coordType">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="coords">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_path_rendering")]
-		public static void PathSubCoordNV(UInt32 path, Int32 coordStart, Int32 numCoords, int coordType, IntPtr coords)
+		public static void PathSubCoordNV(UInt32 path, Int32 coordStart, Int32 numCoords, Int32 coordType, IntPtr coords)
 		{
 			Debug.Assert(Delegates.pglPathSubCoordsNV != null, "pglPathSubCoordsNV not implemented");
 			Delegates.pglPathSubCoordsNV(path, coordStart, numCoords, coordType, coords);
@@ -1247,13 +1247,13 @@ namespace OpenGL
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="coordType">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="coords">
 		/// A <see cref="T:Object"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_path_rendering")]
-		public static void PathSubCoordNV(UInt32 path, Int32 coordStart, Int32 numCoords, int coordType, Object coords)
+		public static void PathSubCoordNV(UInt32 path, Int32 coordStart, Int32 numCoords, Int32 coordType, Object coords)
 		{
 			GCHandle pin_coords = GCHandle.Alloc(coords, GCHandleType.Pinned);
 			try {
@@ -1270,7 +1270,7 @@ namespace OpenGL
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
 		/// <param name="format">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="length">
 		/// A <see cref="T:Int32"/>.
@@ -1279,7 +1279,7 @@ namespace OpenGL
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_path_rendering")]
-		public static void PathStringNV(UInt32 path, int format, Int32 length, IntPtr pathString)
+		public static void PathStringNV(UInt32 path, Int32 format, Int32 length, IntPtr pathString)
 		{
 			Debug.Assert(Delegates.pglPathStringNV != null, "pglPathStringNV not implemented");
 			Delegates.pglPathStringNV(path, format, length, pathString);
@@ -1294,7 +1294,7 @@ namespace OpenGL
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
 		/// <param name="format">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="length">
 		/// A <see cref="T:Int32"/>.
@@ -1303,7 +1303,7 @@ namespace OpenGL
 		/// A <see cref="T:Object"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_path_rendering")]
-		public static void PathStringNV(UInt32 path, int format, Int32 length, Object pathString)
+		public static void PathStringNV(UInt32 path, Int32 format, Int32 length, Object pathString)
 		{
 			GCHandle pin_pathString = GCHandle.Alloc(pathString, GCHandleType.Pinned);
 			try {
@@ -1320,25 +1320,25 @@ namespace OpenGL
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
 		/// <param name="fontTarget">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="fontName">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		/// <param name="fontStyle">
-		/// A <see cref="T:uint"/>.
+		/// A <see cref="T:UInt32"/>.
 		/// </param>
 		/// <param name="numGlyphs">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="type">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="charcodes">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		/// <param name="handleMissingGlyphs">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="pathParameterTemplate">
 		/// A <see cref="T:UInt32"/>.
@@ -1347,7 +1347,7 @@ namespace OpenGL
 		/// A <see cref="T:float"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_path_rendering")]
-		public static void PathGlyphsNV(UInt32 firstPathName, int fontTarget, IntPtr fontName, uint fontStyle, Int32 numGlyphs, int type, IntPtr charcodes, int handleMissingGlyphs, UInt32 pathParameterTemplate, float emScale)
+		public static void PathGlyphsNV(UInt32 firstPathName, Int32 fontTarget, IntPtr fontName, UInt32 fontStyle, Int32 numGlyphs, Int32 type, IntPtr charcodes, Int32 handleMissingGlyphs, UInt32 pathParameterTemplate, float emScale)
 		{
 			Debug.Assert(Delegates.pglPathGlyphsNV != null, "pglPathGlyphsNV not implemented");
 			Delegates.pglPathGlyphsNV(firstPathName, fontTarget, fontName, fontStyle, numGlyphs, type, charcodes, handleMissingGlyphs, pathParameterTemplate, emScale);
@@ -1362,25 +1362,25 @@ namespace OpenGL
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
 		/// <param name="fontTarget">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="fontName">
 		/// A <see cref="T:Object"/>.
 		/// </param>
 		/// <param name="fontStyle">
-		/// A <see cref="T:uint"/>.
+		/// A <see cref="T:UInt32"/>.
 		/// </param>
 		/// <param name="numGlyphs">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="type">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="charcodes">
 		/// A <see cref="T:Object"/>.
 		/// </param>
 		/// <param name="handleMissingGlyphs">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="pathParameterTemplate">
 		/// A <see cref="T:UInt32"/>.
@@ -1389,7 +1389,7 @@ namespace OpenGL
 		/// A <see cref="T:float"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_path_rendering")]
-		public static void PathGlyphsNV(UInt32 firstPathName, int fontTarget, Object fontName, uint fontStyle, Int32 numGlyphs, int type, Object charcodes, int handleMissingGlyphs, UInt32 pathParameterTemplate, float emScale)
+		public static void PathGlyphsNV(UInt32 firstPathName, Int32 fontTarget, Object fontName, UInt32 fontStyle, Int32 numGlyphs, Int32 type, Object charcodes, Int32 handleMissingGlyphs, UInt32 pathParameterTemplate, float emScale)
 		{
 			GCHandle pin_fontName = GCHandle.Alloc(fontName, GCHandleType.Pinned);
 			GCHandle pin_charcodes = GCHandle.Alloc(charcodes, GCHandleType.Pinned);
@@ -1408,13 +1408,13 @@ namespace OpenGL
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
 		/// <param name="fontTarget">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="fontName">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		/// <param name="fontStyle">
-		/// A <see cref="T:uint"/>.
+		/// A <see cref="T:UInt32"/>.
 		/// </param>
 		/// <param name="firstGlyph">
 		/// A <see cref="T:UInt32"/>.
@@ -1423,7 +1423,7 @@ namespace OpenGL
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="handleMissingGlyphs">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="pathParameterTemplate">
 		/// A <see cref="T:UInt32"/>.
@@ -1432,7 +1432,7 @@ namespace OpenGL
 		/// A <see cref="T:float"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_path_rendering")]
-		public static void PathGlyphRangeNV(UInt32 firstPathName, int fontTarget, IntPtr fontName, uint fontStyle, UInt32 firstGlyph, Int32 numGlyphs, int handleMissingGlyphs, UInt32 pathParameterTemplate, float emScale)
+		public static void PathGlyphRangeNV(UInt32 firstPathName, Int32 fontTarget, IntPtr fontName, UInt32 fontStyle, UInt32 firstGlyph, Int32 numGlyphs, Int32 handleMissingGlyphs, UInt32 pathParameterTemplate, float emScale)
 		{
 			Debug.Assert(Delegates.pglPathGlyphRangeNV != null, "pglPathGlyphRangeNV not implemented");
 			Delegates.pglPathGlyphRangeNV(firstPathName, fontTarget, fontName, fontStyle, firstGlyph, numGlyphs, handleMissingGlyphs, pathParameterTemplate, emScale);
@@ -1447,13 +1447,13 @@ namespace OpenGL
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
 		/// <param name="fontTarget">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="fontName">
 		/// A <see cref="T:Object"/>.
 		/// </param>
 		/// <param name="fontStyle">
-		/// A <see cref="T:uint"/>.
+		/// A <see cref="T:UInt32"/>.
 		/// </param>
 		/// <param name="firstGlyph">
 		/// A <see cref="T:UInt32"/>.
@@ -1462,7 +1462,7 @@ namespace OpenGL
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="handleMissingGlyphs">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="pathParameterTemplate">
 		/// A <see cref="T:UInt32"/>.
@@ -1471,7 +1471,7 @@ namespace OpenGL
 		/// A <see cref="T:float"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_path_rendering")]
-		public static void PathGlyphRangeNV(UInt32 firstPathName, int fontTarget, Object fontName, uint fontStyle, UInt32 firstGlyph, Int32 numGlyphs, int handleMissingGlyphs, UInt32 pathParameterTemplate, float emScale)
+		public static void PathGlyphRangeNV(UInt32 firstPathName, Int32 fontTarget, Object fontName, UInt32 fontStyle, UInt32 firstGlyph, Int32 numGlyphs, Int32 handleMissingGlyphs, UInt32 pathParameterTemplate, float emScale)
 		{
 			GCHandle pin_fontName = GCHandle.Alloc(fontName, GCHandleType.Pinned);
 			try {
@@ -1563,13 +1563,13 @@ namespace OpenGL
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
 		/// <param name="transformType">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="transformValues">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_path_rendering")]
-		public static void TransformPathNV(UInt32 resultPath, UInt32 srcPath, int transformType, float[] transformValues)
+		public static void TransformPathNV(UInt32 resultPath, UInt32 srcPath, Int32 transformType, float[] transformValues)
 		{
 			unsafe {
 				fixed (float* p_transformValues = transformValues)
@@ -1589,13 +1589,13 @@ namespace OpenGL
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
 		/// <param name="pname">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="value">
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_path_rendering")]
-		public static void PathParameterNV(UInt32 path, int pname, Int32[] value)
+		public static void PathParameterNV(UInt32 path, Int32 pname, Int32[] value)
 		{
 			unsafe {
 				fixed (Int32* p_value = value)
@@ -1615,13 +1615,13 @@ namespace OpenGL
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
 		/// <param name="pname">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="value">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_path_rendering")]
-		public static void PathParameterNV(UInt32 path, int pname, Int32 value)
+		public static void PathParameterNV(UInt32 path, Int32 pname, Int32 value)
 		{
 			Debug.Assert(Delegates.pglPathParameteriNV != null, "pglPathParameteriNV not implemented");
 			Delegates.pglPathParameteriNV(path, pname, value);
@@ -1636,13 +1636,13 @@ namespace OpenGL
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
 		/// <param name="pname">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="value">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_path_rendering")]
-		public static void PathParameterNV(UInt32 path, int pname, float[] value)
+		public static void PathParameterNV(UInt32 path, Int32 pname, float[] value)
 		{
 			unsafe {
 				fixed (float* p_value = value)
@@ -1662,13 +1662,13 @@ namespace OpenGL
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
 		/// <param name="pname">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="value">
 		/// A <see cref="T:float"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_path_rendering")]
-		public static void PathParameterNV(UInt32 path, int pname, float value)
+		public static void PathParameterNV(UInt32 path, Int32 pname, float value)
 		{
 			Debug.Assert(Delegates.pglPathParameterfNV != null, "pglPathParameterfNV not implemented");
 			Delegates.pglPathParameterfNV(path, pname, value);
@@ -1718,7 +1718,7 @@ namespace OpenGL
 		public static void PathStencilFuncNV(StencilFunction func, Int32 @ref, UInt32 mask)
 		{
 			Debug.Assert(Delegates.pglPathStencilFuncNV != null, "pglPathStencilFuncNV not implemented");
-			Delegates.pglPathStencilFuncNV((int)func, @ref, mask);
+			Delegates.pglPathStencilFuncNV((Int32)func, @ref, mask);
 			CallLog("glPathStencilFuncNV({0}, {1}, {2})", func, @ref, mask);
 			DebugCheckErrors();
 		}
@@ -1748,13 +1748,13 @@ namespace OpenGL
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
 		/// <param name="fillMode">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="mask">
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_path_rendering")]
-		public static void StencilFillPathNV(UInt32 path, int fillMode, UInt32 mask)
+		public static void StencilFillPathNV(UInt32 path, Int32 fillMode, UInt32 mask)
 		{
 			Debug.Assert(Delegates.pglStencilFillPathNV != null, "pglStencilFillPathNV not implemented");
 			Delegates.pglStencilFillPathNV(path, fillMode, mask);
@@ -1790,7 +1790,7 @@ namespace OpenGL
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="pathNameType">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="paths">
 		/// A <see cref="T:IntPtr"/>.
@@ -1799,19 +1799,19 @@ namespace OpenGL
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
 		/// <param name="fillMode">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="mask">
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
 		/// <param name="transformType">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="transformValues">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_path_rendering")]
-		public static void StencilFillPathInstancedNV(Int32 numPaths, int pathNameType, IntPtr paths, UInt32 pathBase, int fillMode, UInt32 mask, int transformType, float[] transformValues)
+		public static void StencilFillPathInstancedNV(Int32 numPaths, Int32 pathNameType, IntPtr paths, UInt32 pathBase, Int32 fillMode, UInt32 mask, Int32 transformType, float[] transformValues)
 		{
 			unsafe {
 				fixed (float* p_transformValues = transformValues)
@@ -1831,7 +1831,7 @@ namespace OpenGL
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="pathNameType">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="paths">
 		/// A <see cref="T:Object"/>.
@@ -1840,19 +1840,19 @@ namespace OpenGL
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
 		/// <param name="fillMode">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="mask">
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
 		/// <param name="transformType">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="transformValues">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_path_rendering")]
-		public static void StencilFillPathInstancedNV(Int32 numPaths, int pathNameType, Object paths, UInt32 pathBase, int fillMode, UInt32 mask, int transformType, float[] transformValues)
+		public static void StencilFillPathInstancedNV(Int32 numPaths, Int32 pathNameType, Object paths, UInt32 pathBase, Int32 fillMode, UInt32 mask, Int32 transformType, float[] transformValues)
 		{
 			GCHandle pin_paths = GCHandle.Alloc(paths, GCHandleType.Pinned);
 			try {
@@ -1869,7 +1869,7 @@ namespace OpenGL
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="pathNameType">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="paths">
 		/// A <see cref="T:IntPtr"/>.
@@ -1884,13 +1884,13 @@ namespace OpenGL
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
 		/// <param name="transformType">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="transformValues">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_path_rendering")]
-		public static void StencilStrokePathInstancedNV(Int32 numPaths, int pathNameType, IntPtr paths, UInt32 pathBase, Int32 reference, UInt32 mask, int transformType, float[] transformValues)
+		public static void StencilStrokePathInstancedNV(Int32 numPaths, Int32 pathNameType, IntPtr paths, UInt32 pathBase, Int32 reference, UInt32 mask, Int32 transformType, float[] transformValues)
 		{
 			unsafe {
 				fixed (float* p_transformValues = transformValues)
@@ -1910,7 +1910,7 @@ namespace OpenGL
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="pathNameType">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="paths">
 		/// A <see cref="T:Object"/>.
@@ -1925,13 +1925,13 @@ namespace OpenGL
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
 		/// <param name="transformType">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="transformValues">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_path_rendering")]
-		public static void StencilStrokePathInstancedNV(Int32 numPaths, int pathNameType, Object paths, UInt32 pathBase, Int32 reference, UInt32 mask, int transformType, float[] transformValues)
+		public static void StencilStrokePathInstancedNV(Int32 numPaths, Int32 pathNameType, Object paths, UInt32 pathBase, Int32 reference, UInt32 mask, Int32 transformType, float[] transformValues)
 		{
 			GCHandle pin_paths = GCHandle.Alloc(paths, GCHandleType.Pinned);
 			try {
@@ -1951,7 +1951,7 @@ namespace OpenGL
 		public static void PathCoverDepthFuncNV(DepthFunction func)
 		{
 			Debug.Assert(Delegates.pglPathCoverDepthFuncNV != null, "pglPathCoverDepthFuncNV not implemented");
-			Delegates.pglPathCoverDepthFuncNV((int)func);
+			Delegates.pglPathCoverDepthFuncNV((Int32)func);
 			CallLog("glPathCoverDepthFuncNV({0})", func);
 			DebugCheckErrors();
 		}
@@ -1963,10 +1963,10 @@ namespace OpenGL
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
 		/// <param name="coverMode">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_path_rendering")]
-		public static void CoverFillPathNV(UInt32 path, int coverMode)
+		public static void CoverFillPathNV(UInt32 path, Int32 coverMode)
 		{
 			Debug.Assert(Delegates.pglCoverFillPathNV != null, "pglCoverFillPathNV not implemented");
 			Delegates.pglCoverFillPathNV(path, coverMode);
@@ -1981,10 +1981,10 @@ namespace OpenGL
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
 		/// <param name="coverMode">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_path_rendering")]
-		public static void CoverStrokePathNV(UInt32 path, int coverMode)
+		public static void CoverStrokePathNV(UInt32 path, Int32 coverMode)
 		{
 			Debug.Assert(Delegates.pglCoverStrokePathNV != null, "pglCoverStrokePathNV not implemented");
 			Delegates.pglCoverStrokePathNV(path, coverMode);
@@ -1999,7 +1999,7 @@ namespace OpenGL
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="pathNameType">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="paths">
 		/// A <see cref="T:IntPtr"/>.
@@ -2008,16 +2008,16 @@ namespace OpenGL
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
 		/// <param name="coverMode">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="transformType">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="transformValues">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_path_rendering")]
-		public static void CoverFillPathInstancedNV(Int32 numPaths, int pathNameType, IntPtr paths, UInt32 pathBase, int coverMode, int transformType, float[] transformValues)
+		public static void CoverFillPathInstancedNV(Int32 numPaths, Int32 pathNameType, IntPtr paths, UInt32 pathBase, Int32 coverMode, Int32 transformType, float[] transformValues)
 		{
 			unsafe {
 				fixed (float* p_transformValues = transformValues)
@@ -2037,7 +2037,7 @@ namespace OpenGL
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="pathNameType">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="paths">
 		/// A <see cref="T:Object"/>.
@@ -2046,16 +2046,16 @@ namespace OpenGL
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
 		/// <param name="coverMode">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="transformType">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="transformValues">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_path_rendering")]
-		public static void CoverFillPathInstancedNV(Int32 numPaths, int pathNameType, Object paths, UInt32 pathBase, int coverMode, int transformType, float[] transformValues)
+		public static void CoverFillPathInstancedNV(Int32 numPaths, Int32 pathNameType, Object paths, UInt32 pathBase, Int32 coverMode, Int32 transformType, float[] transformValues)
 		{
 			GCHandle pin_paths = GCHandle.Alloc(paths, GCHandleType.Pinned);
 			try {
@@ -2072,7 +2072,7 @@ namespace OpenGL
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="pathNameType">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="paths">
 		/// A <see cref="T:IntPtr"/>.
@@ -2081,16 +2081,16 @@ namespace OpenGL
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
 		/// <param name="coverMode">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="transformType">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="transformValues">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_path_rendering")]
-		public static void CoverStrokePathInstancedNV(Int32 numPaths, int pathNameType, IntPtr paths, UInt32 pathBase, int coverMode, int transformType, float[] transformValues)
+		public static void CoverStrokePathInstancedNV(Int32 numPaths, Int32 pathNameType, IntPtr paths, UInt32 pathBase, Int32 coverMode, Int32 transformType, float[] transformValues)
 		{
 			unsafe {
 				fixed (float* p_transformValues = transformValues)
@@ -2110,7 +2110,7 @@ namespace OpenGL
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="pathNameType">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="paths">
 		/// A <see cref="T:Object"/>.
@@ -2119,16 +2119,16 @@ namespace OpenGL
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
 		/// <param name="coverMode">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="transformType">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="transformValues">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_path_rendering")]
-		public static void CoverStrokePathInstancedNV(Int32 numPaths, int pathNameType, Object paths, UInt32 pathBase, int coverMode, int transformType, float[] transformValues)
+		public static void CoverStrokePathInstancedNV(Int32 numPaths, Int32 pathNameType, Object paths, UInt32 pathBase, Int32 coverMode, Int32 transformType, float[] transformValues)
 		{
 			GCHandle pin_paths = GCHandle.Alloc(paths, GCHandleType.Pinned);
 			try {
@@ -2145,13 +2145,13 @@ namespace OpenGL
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
 		/// <param name="pname">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="value">
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_path_rendering")]
-		public static void GetPathParameterNV(UInt32 path, int pname, [Out] Int32[] value)
+		public static void GetPathParameterNV(UInt32 path, Int32 pname, [Out] Int32[] value)
 		{
 			unsafe {
 				fixed (Int32* p_value = value)
@@ -2171,13 +2171,13 @@ namespace OpenGL
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
 		/// <param name="pname">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="value">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_path_rendering")]
-		public static void GetPathParameterNV(UInt32 path, int pname, [Out] float[] value)
+		public static void GetPathParameterNV(UInt32 path, Int32 pname, [Out] float[] value)
 		{
 			unsafe {
 				fixed (float* p_value = value)
@@ -2263,13 +2263,13 @@ namespace OpenGL
 		/// Binding for glGetPathMetricsNV.
 		/// </summary>
 		/// <param name="metricQueryMask">
-		/// A <see cref="T:uint"/>.
+		/// A <see cref="T:UInt32"/>.
 		/// </param>
 		/// <param name="numPaths">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="pathNameType">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="paths">
 		/// A <see cref="T:IntPtr"/>.
@@ -2284,7 +2284,7 @@ namespace OpenGL
 		/// A <see cref="T:float[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_path_rendering")]
-		public static void GetPathMetricsNV(uint metricQueryMask, Int32 numPaths, int pathNameType, IntPtr paths, UInt32 pathBase, Int32 stride, [Out] float[] metrics)
+		public static void GetPathMetricsNV(UInt32 metricQueryMask, Int32 numPaths, Int32 pathNameType, IntPtr paths, UInt32 pathBase, Int32 stride, [Out] float[] metrics)
 		{
 			unsafe {
 				fixed (float* p_metrics = metrics)
@@ -2301,13 +2301,13 @@ namespace OpenGL
 		/// Binding for glGetPathMetricsNV.
 		/// </summary>
 		/// <param name="metricQueryMask">
-		/// A <see cref="T:uint"/>.
+		/// A <see cref="T:UInt32"/>.
 		/// </param>
 		/// <param name="numPaths">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="pathNameType">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="paths">
 		/// A <see cref="T:Object"/>.
@@ -2322,7 +2322,7 @@ namespace OpenGL
 		/// A <see cref="T:float[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_path_rendering")]
-		public static void GetPathMetricsNV(uint metricQueryMask, Int32 numPaths, int pathNameType, Object paths, UInt32 pathBase, Int32 stride, [Out] float[] metrics)
+		public static void GetPathMetricsNV(UInt32 metricQueryMask, Int32 numPaths, Int32 pathNameType, Object paths, UInt32 pathBase, Int32 stride, [Out] float[] metrics)
 		{
 			GCHandle pin_paths = GCHandle.Alloc(paths, GCHandleType.Pinned);
 			try {
@@ -2336,7 +2336,7 @@ namespace OpenGL
 		/// Binding for glGetPathMetricRangeNV.
 		/// </summary>
 		/// <param name="metricQueryMask">
-		/// A <see cref="T:uint"/>.
+		/// A <see cref="T:UInt32"/>.
 		/// </param>
 		/// <param name="firstPathName">
 		/// A <see cref="T:UInt32"/>.
@@ -2351,7 +2351,7 @@ namespace OpenGL
 		/// A <see cref="T:float[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_path_rendering")]
-		public static void GetPathMetricRangeNV(uint metricQueryMask, UInt32 firstPathName, Int32 numPaths, Int32 stride, [Out] float[] metrics)
+		public static void GetPathMetricRangeNV(UInt32 metricQueryMask, UInt32 firstPathName, Int32 numPaths, Int32 stride, [Out] float[] metrics)
 		{
 			unsafe {
 				fixed (float* p_metrics = metrics)
@@ -2368,13 +2368,13 @@ namespace OpenGL
 		/// Binding for glGetPathSpacingNV.
 		/// </summary>
 		/// <param name="pathListMode">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="numPaths">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="pathNameType">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="paths">
 		/// A <see cref="T:IntPtr"/>.
@@ -2389,13 +2389,13 @@ namespace OpenGL
 		/// A <see cref="T:float"/>.
 		/// </param>
 		/// <param name="transformType">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="returnedSpacing">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_path_rendering")]
-		public static void GetPathSpacingNV(int pathListMode, Int32 numPaths, int pathNameType, IntPtr paths, UInt32 pathBase, float advanceScale, float kerningScale, int transformType, [Out] float[] returnedSpacing)
+		public static void GetPathSpacingNV(Int32 pathListMode, Int32 numPaths, Int32 pathNameType, IntPtr paths, UInt32 pathBase, float advanceScale, float kerningScale, Int32 transformType, [Out] float[] returnedSpacing)
 		{
 			unsafe {
 				fixed (float* p_returnedSpacing = returnedSpacing)
@@ -2412,13 +2412,13 @@ namespace OpenGL
 		/// Binding for glGetPathSpacingNV.
 		/// </summary>
 		/// <param name="pathListMode">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="numPaths">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="pathNameType">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="paths">
 		/// A <see cref="T:Object"/>.
@@ -2433,13 +2433,13 @@ namespace OpenGL
 		/// A <see cref="T:float"/>.
 		/// </param>
 		/// <param name="transformType">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="returnedSpacing">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_path_rendering")]
-		public static void GetPathSpacingNV(int pathListMode, Int32 numPaths, int pathNameType, Object paths, UInt32 pathBase, float advanceScale, float kerningScale, int transformType, [Out] float[] returnedSpacing)
+		public static void GetPathSpacingNV(Int32 pathListMode, Int32 numPaths, Int32 pathNameType, Object paths, UInt32 pathBase, float advanceScale, float kerningScale, Int32 transformType, [Out] float[] returnedSpacing)
 		{
 			GCHandle pin_paths = GCHandle.Alloc(paths, GCHandleType.Pinned);
 			try {
@@ -2579,13 +2579,13 @@ namespace OpenGL
 		/// Binding for glMatrixLoad3x2fNV.
 		/// </summary>
 		/// <param name="matrixMode">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="m">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_path_rendering")]
-		public static void MatrixLoad3x2NV(int matrixMode, float[] m)
+		public static void MatrixLoad3x2NV(Int32 matrixMode, float[] m)
 		{
 			unsafe {
 				fixed (float* p_m = m)
@@ -2602,13 +2602,13 @@ namespace OpenGL
 		/// Binding for glMatrixLoad3x3fNV.
 		/// </summary>
 		/// <param name="matrixMode">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="m">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_path_rendering")]
-		public static void MatrixLoad3NV(int matrixMode, float[] m)
+		public static void MatrixLoad3NV(Int32 matrixMode, float[] m)
 		{
 			unsafe {
 				fixed (float* p_m = m)
@@ -2625,13 +2625,13 @@ namespace OpenGL
 		/// Binding for glMatrixLoadTranspose3x3fNV.
 		/// </summary>
 		/// <param name="matrixMode">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="m">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_path_rendering")]
-		public static void MatrixLoadTransposeNV(int matrixMode, float[] m)
+		public static void MatrixLoadTransposeNV(Int32 matrixMode, float[] m)
 		{
 			unsafe {
 				fixed (float* p_m = m)
@@ -2648,13 +2648,13 @@ namespace OpenGL
 		/// Binding for glMatrixMult3x2fNV.
 		/// </summary>
 		/// <param name="matrixMode">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="m">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_path_rendering")]
-		public static void MatrixMult3x2NV(int matrixMode, float[] m)
+		public static void MatrixMult3x2NV(Int32 matrixMode, float[] m)
 		{
 			unsafe {
 				fixed (float* p_m = m)
@@ -2671,13 +2671,13 @@ namespace OpenGL
 		/// Binding for glMatrixMult3x3fNV.
 		/// </summary>
 		/// <param name="matrixMode">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="m">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_path_rendering")]
-		public static void MatrixMult3x3NV(int matrixMode, float[] m)
+		public static void MatrixMult3x3NV(Int32 matrixMode, float[] m)
 		{
 			unsafe {
 				fixed (float* p_m = m)
@@ -2694,13 +2694,13 @@ namespace OpenGL
 		/// Binding for glMatrixMultTranspose3x3fNV.
 		/// </summary>
 		/// <param name="matrixMode">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="m">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_path_rendering")]
-		public static void MatrixMultTransposeNV(int matrixMode, float[] m)
+		public static void MatrixMultTransposeNV(Int32 matrixMode, float[] m)
 		{
 			unsafe {
 				fixed (float* p_m = m)
@@ -2720,16 +2720,16 @@ namespace OpenGL
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
 		/// <param name="fillMode">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="mask">
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
 		/// <param name="coverMode">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_path_rendering")]
-		public static void StencilThenCoverFillPathNV(UInt32 path, int fillMode, UInt32 mask, int coverMode)
+		public static void StencilThenCoverFillPathNV(UInt32 path, Int32 fillMode, UInt32 mask, Int32 coverMode)
 		{
 			Debug.Assert(Delegates.pglStencilThenCoverFillPathNV != null, "pglStencilThenCoverFillPathNV not implemented");
 			Delegates.pglStencilThenCoverFillPathNV(path, fillMode, mask, coverMode);
@@ -2750,10 +2750,10 @@ namespace OpenGL
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
 		/// <param name="coverMode">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_path_rendering")]
-		public static void StencilThenCoverStrokePathNV(UInt32 path, Int32 reference, UInt32 mask, int coverMode)
+		public static void StencilThenCoverStrokePathNV(UInt32 path, Int32 reference, UInt32 mask, Int32 coverMode)
 		{
 			Debug.Assert(Delegates.pglStencilThenCoverStrokePathNV != null, "pglStencilThenCoverStrokePathNV not implemented");
 			Delegates.pglStencilThenCoverStrokePathNV(path, reference, mask, coverMode);
@@ -2768,7 +2768,7 @@ namespace OpenGL
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="pathNameType">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="paths">
 		/// A <see cref="T:IntPtr"/>.
@@ -2777,22 +2777,22 @@ namespace OpenGL
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
 		/// <param name="fillMode">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="mask">
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
 		/// <param name="coverMode">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="transformType">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="transformValues">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_path_rendering")]
-		public static void StencilThenCoverFillPathInstancedNV(Int32 numPaths, int pathNameType, IntPtr paths, UInt32 pathBase, int fillMode, UInt32 mask, int coverMode, int transformType, float[] transformValues)
+		public static void StencilThenCoverFillPathInstancedNV(Int32 numPaths, Int32 pathNameType, IntPtr paths, UInt32 pathBase, Int32 fillMode, UInt32 mask, Int32 coverMode, Int32 transformType, float[] transformValues)
 		{
 			unsafe {
 				fixed (float* p_transformValues = transformValues)
@@ -2812,7 +2812,7 @@ namespace OpenGL
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="pathNameType">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="paths">
 		/// A <see cref="T:Object"/>.
@@ -2821,22 +2821,22 @@ namespace OpenGL
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
 		/// <param name="fillMode">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="mask">
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
 		/// <param name="coverMode">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="transformType">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="transformValues">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_path_rendering")]
-		public static void StencilThenCoverFillPathInstancedNV(Int32 numPaths, int pathNameType, Object paths, UInt32 pathBase, int fillMode, UInt32 mask, int coverMode, int transformType, float[] transformValues)
+		public static void StencilThenCoverFillPathInstancedNV(Int32 numPaths, Int32 pathNameType, Object paths, UInt32 pathBase, Int32 fillMode, UInt32 mask, Int32 coverMode, Int32 transformType, float[] transformValues)
 		{
 			GCHandle pin_paths = GCHandle.Alloc(paths, GCHandleType.Pinned);
 			try {
@@ -2853,7 +2853,7 @@ namespace OpenGL
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="pathNameType">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="paths">
 		/// A <see cref="T:IntPtr"/>.
@@ -2868,16 +2868,16 @@ namespace OpenGL
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
 		/// <param name="coverMode">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="transformType">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="transformValues">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_path_rendering")]
-		public static void StencilThenCoverStrokePathInstancedNV(Int32 numPaths, int pathNameType, IntPtr paths, UInt32 pathBase, Int32 reference, UInt32 mask, int coverMode, int transformType, float[] transformValues)
+		public static void StencilThenCoverStrokePathInstancedNV(Int32 numPaths, Int32 pathNameType, IntPtr paths, UInt32 pathBase, Int32 reference, UInt32 mask, Int32 coverMode, Int32 transformType, float[] transformValues)
 		{
 			unsafe {
 				fixed (float* p_transformValues = transformValues)
@@ -2897,7 +2897,7 @@ namespace OpenGL
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="pathNameType">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="paths">
 		/// A <see cref="T:Object"/>.
@@ -2912,16 +2912,16 @@ namespace OpenGL
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
 		/// <param name="coverMode">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="transformType">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="transformValues">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_path_rendering")]
-		public static void StencilThenCoverStrokePathInstancedNV(Int32 numPaths, int pathNameType, Object paths, UInt32 pathBase, Int32 reference, UInt32 mask, int coverMode, int transformType, float[] transformValues)
+		public static void StencilThenCoverStrokePathInstancedNV(Int32 numPaths, Int32 pathNameType, Object paths, UInt32 pathBase, Int32 reference, UInt32 mask, Int32 coverMode, Int32 transformType, float[] transformValues)
 		{
 			GCHandle pin_paths = GCHandle.Alloc(paths, GCHandleType.Pinned);
 			try {
@@ -2935,13 +2935,13 @@ namespace OpenGL
 		/// Binding for glPathGlyphIndexRangeNV.
 		/// </summary>
 		/// <param name="fontTarget">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="fontName">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		/// <param name="fontStyle">
-		/// A <see cref="T:uint"/>.
+		/// A <see cref="T:UInt32"/>.
 		/// </param>
 		/// <param name="pathParameterTemplate">
 		/// A <see cref="T:UInt32"/>.
@@ -2953,9 +2953,9 @@ namespace OpenGL
 		/// A <see cref="T:UInt32[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_path_rendering")]
-		public static int PathGlyphIndexRangeNV(int fontTarget, IntPtr fontName, uint fontStyle, UInt32 pathParameterTemplate, float emScale, UInt32[] baseAndCount)
+		public static Int32 PathGlyphIndexRangeNV(Int32 fontTarget, IntPtr fontName, UInt32 fontStyle, UInt32 pathParameterTemplate, float emScale, UInt32[] baseAndCount)
 		{
-			int retValue;
+			Int32 retValue;
 
 			unsafe {
 				fixed (UInt32* p_baseAndCount = baseAndCount)
@@ -2974,13 +2974,13 @@ namespace OpenGL
 		/// Binding for glPathGlyphIndexRangeNV.
 		/// </summary>
 		/// <param name="fontTarget">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="fontName">
 		/// A <see cref="T:Object"/>.
 		/// </param>
 		/// <param name="fontStyle">
-		/// A <see cref="T:uint"/>.
+		/// A <see cref="T:UInt32"/>.
 		/// </param>
 		/// <param name="pathParameterTemplate">
 		/// A <see cref="T:UInt32"/>.
@@ -2992,7 +2992,7 @@ namespace OpenGL
 		/// A <see cref="T:UInt32[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_path_rendering")]
-		public static int PathGlyphIndexRangeNV(int fontTarget, Object fontName, uint fontStyle, UInt32 pathParameterTemplate, float emScale, UInt32[] baseAndCount)
+		public static Int32 PathGlyphIndexRangeNV(Int32 fontTarget, Object fontName, UInt32 fontStyle, UInt32 pathParameterTemplate, float emScale, UInt32[] baseAndCount)
 		{
 			GCHandle pin_fontName = GCHandle.Alloc(fontName, GCHandleType.Pinned);
 			try {
@@ -3009,13 +3009,13 @@ namespace OpenGL
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
 		/// <param name="fontTarget">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="fontName">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		/// <param name="fontStyle">
-		/// A <see cref="T:uint"/>.
+		/// A <see cref="T:UInt32"/>.
 		/// </param>
 		/// <param name="firstGlyphIndex">
 		/// A <see cref="T:UInt32"/>.
@@ -3030,9 +3030,9 @@ namespace OpenGL
 		/// A <see cref="T:float"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_path_rendering")]
-		public static int PathGlyphIndexArrayNV(UInt32 firstPathName, int fontTarget, IntPtr fontName, uint fontStyle, UInt32 firstGlyphIndex, Int32 numGlyphs, UInt32 pathParameterTemplate, float emScale)
+		public static Int32 PathGlyphIndexArrayNV(UInt32 firstPathName, Int32 fontTarget, IntPtr fontName, UInt32 fontStyle, UInt32 firstGlyphIndex, Int32 numGlyphs, UInt32 pathParameterTemplate, float emScale)
 		{
-			int retValue;
+			Int32 retValue;
 
 			Debug.Assert(Delegates.pglPathGlyphIndexArrayNV != null, "pglPathGlyphIndexArrayNV not implemented");
 			retValue = Delegates.pglPathGlyphIndexArrayNV(firstPathName, fontTarget, fontName, fontStyle, firstGlyphIndex, numGlyphs, pathParameterTemplate, emScale);
@@ -3049,13 +3049,13 @@ namespace OpenGL
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
 		/// <param name="fontTarget">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="fontName">
 		/// A <see cref="T:Object"/>.
 		/// </param>
 		/// <param name="fontStyle">
-		/// A <see cref="T:uint"/>.
+		/// A <see cref="T:UInt32"/>.
 		/// </param>
 		/// <param name="firstGlyphIndex">
 		/// A <see cref="T:UInt32"/>.
@@ -3070,7 +3070,7 @@ namespace OpenGL
 		/// A <see cref="T:float"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_path_rendering")]
-		public static int PathGlyphIndexArrayNV(UInt32 firstPathName, int fontTarget, Object fontName, uint fontStyle, UInt32 firstGlyphIndex, Int32 numGlyphs, UInt32 pathParameterTemplate, float emScale)
+		public static Int32 PathGlyphIndexArrayNV(UInt32 firstPathName, Int32 fontTarget, Object fontName, UInt32 fontStyle, UInt32 firstGlyphIndex, Int32 numGlyphs, UInt32 pathParameterTemplate, float emScale)
 		{
 			GCHandle pin_fontName = GCHandle.Alloc(fontName, GCHandleType.Pinned);
 			try {
@@ -3087,7 +3087,7 @@ namespace OpenGL
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
 		/// <param name="fontTarget">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="fontSize">
 		/// A <see cref="T:UInt32"/>.
@@ -3111,9 +3111,9 @@ namespace OpenGL
 		/// A <see cref="T:float"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_path_rendering")]
-		public static int PathMemoryGlyphIndexArrayNV(UInt32 firstPathName, int fontTarget, UInt32 fontSize, IntPtr fontData, Int32 faceIndex, UInt32 firstGlyphIndex, Int32 numGlyphs, UInt32 pathParameterTemplate, float emScale)
+		public static Int32 PathMemoryGlyphIndexArrayNV(UInt32 firstPathName, Int32 fontTarget, UInt32 fontSize, IntPtr fontData, Int32 faceIndex, UInt32 firstGlyphIndex, Int32 numGlyphs, UInt32 pathParameterTemplate, float emScale)
 		{
-			int retValue;
+			Int32 retValue;
 
 			Debug.Assert(Delegates.pglPathMemoryGlyphIndexArrayNV != null, "pglPathMemoryGlyphIndexArrayNV not implemented");
 			retValue = Delegates.pglPathMemoryGlyphIndexArrayNV(firstPathName, fontTarget, fontSize, fontData, faceIndex, firstGlyphIndex, numGlyphs, pathParameterTemplate, emScale);
@@ -3130,7 +3130,7 @@ namespace OpenGL
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
 		/// <param name="fontTarget">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="fontSize">
 		/// A <see cref="T:UInt32"/>.
@@ -3154,7 +3154,7 @@ namespace OpenGL
 		/// A <see cref="T:float"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_path_rendering")]
-		public static int PathMemoryGlyphIndexArrayNV(UInt32 firstPathName, int fontTarget, UInt32 fontSize, Object fontData, Int32 faceIndex, UInt32 firstGlyphIndex, Int32 numGlyphs, UInt32 pathParameterTemplate, float emScale)
+		public static Int32 PathMemoryGlyphIndexArrayNV(UInt32 firstPathName, Int32 fontTarget, UInt32 fontSize, Object fontData, Int32 faceIndex, UInt32 firstGlyphIndex, Int32 numGlyphs, UInt32 pathParameterTemplate, float emScale)
 		{
 			GCHandle pin_fontData = GCHandle.Alloc(fontData, GCHandleType.Pinned);
 			try {
@@ -3174,7 +3174,7 @@ namespace OpenGL
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="genMode">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="components">
 		/// A <see cref="T:Int32"/>.
@@ -3183,7 +3183,7 @@ namespace OpenGL
 		/// A <see cref="T:float[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_path_rendering")]
-		public static void ProgramPathFragmentInputGenNV(UInt32 program, Int32 location, int genMode, Int32 components, float[] coeffs)
+		public static void ProgramPathFragmentInputGenNV(UInt32 program, Int32 location, Int32 genMode, Int32 components, float[] coeffs)
 		{
 			unsafe {
 				fixed (float* p_coeffs = coeffs)
@@ -3203,7 +3203,7 @@ namespace OpenGL
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
 		/// <param name="programInterface">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="index">
 		/// A <see cref="T:UInt32"/>.
@@ -3212,7 +3212,7 @@ namespace OpenGL
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="props">
-		/// A <see cref="T:int[]"/>.
+		/// A <see cref="T:Int32[]"/>.
 		/// </param>
 		/// <param name="bufSize">
 		/// A <see cref="T:Int32"/>.
@@ -3224,10 +3224,10 @@ namespace OpenGL
 		/// A <see cref="T:float[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_path_rendering")]
-		public static void GetProgramResourceNV(UInt32 program, int programInterface, UInt32 index, Int32 propCount, int[] props, Int32 bufSize, [Out] Int32[] length, [Out] float[] @params)
+		public static void GetProgramResourceNV(UInt32 program, Int32 programInterface, UInt32 index, Int32 propCount, Int32[] props, Int32 bufSize, [Out] Int32[] length, [Out] float[] @params)
 		{
 			unsafe {
-				fixed (int* p_props = props)
+				fixed (Int32* p_props = props)
 				fixed (Int32* p_length = length)
 				fixed (float* p_params = @params)
 				{
@@ -3243,19 +3243,19 @@ namespace OpenGL
 		/// Binding for glPathColorGenNV.
 		/// </summary>
 		/// <param name="color">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="genMode">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="colorFormat">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="coeffs">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_path_rendering")]
-		public static void PathColorGenNV(int color, int genMode, int colorFormat, float[] coeffs)
+		public static void PathColorGenNV(Int32 color, Int32 genMode, Int32 colorFormat, float[] coeffs)
 		{
 			unsafe {
 				fixed (float* p_coeffs = coeffs)
@@ -3272,10 +3272,10 @@ namespace OpenGL
 		/// Binding for glPathTexGenNV.
 		/// </summary>
 		/// <param name="texCoordSet">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="genMode">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="components">
 		/// A <see cref="T:Int32"/>.
@@ -3284,7 +3284,7 @@ namespace OpenGL
 		/// A <see cref="T:float[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_path_rendering")]
-		public static void PathTexGenNV(int texCoordSet, int genMode, Int32 components, float[] coeffs)
+		public static void PathTexGenNV(Int32 texCoordSet, Int32 genMode, Int32 components, float[] coeffs)
 		{
 			unsafe {
 				fixed (float* p_coeffs = coeffs)
@@ -3301,10 +3301,10 @@ namespace OpenGL
 		/// Binding for glPathFogGenNV.
 		/// </summary>
 		/// <param name="genMode">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_path_rendering")]
-		public static void PathFogGenNV(int genMode)
+		public static void PathFogGenNV(Int32 genMode)
 		{
 			Debug.Assert(Delegates.pglPathFogGenNV != null, "pglPathFogGenNV not implemented");
 			Delegates.pglPathFogGenNV(genMode);
@@ -3316,16 +3316,16 @@ namespace OpenGL
 		/// Binding for glGetPathColorGenivNV.
 		/// </summary>
 		/// <param name="color">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="pname">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="value">
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_path_rendering")]
-		public static void GetPathColorGenNV(int color, int pname, [Out] Int32[] value)
+		public static void GetPathColorGenNV(Int32 color, Int32 pname, [Out] Int32[] value)
 		{
 			unsafe {
 				fixed (Int32* p_value = value)
@@ -3342,16 +3342,16 @@ namespace OpenGL
 		/// Binding for glGetPathColorGenfvNV.
 		/// </summary>
 		/// <param name="color">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="pname">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="value">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_path_rendering")]
-		public static void GetPathColorGenNV(int color, int pname, [Out] float[] value)
+		public static void GetPathColorGenNV(Int32 color, Int32 pname, [Out] float[] value)
 		{
 			unsafe {
 				fixed (float* p_value = value)
@@ -3368,16 +3368,16 @@ namespace OpenGL
 		/// Binding for glGetPathTexGenivNV.
 		/// </summary>
 		/// <param name="texCoordSet">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="pname">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="value">
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_path_rendering")]
-		public static void GetPathTexGenNV(int texCoordSet, int pname, [Out] Int32[] value)
+		public static void GetPathTexGenNV(Int32 texCoordSet, Int32 pname, [Out] Int32[] value)
 		{
 			unsafe {
 				fixed (Int32* p_value = value)
@@ -3394,16 +3394,16 @@ namespace OpenGL
 		/// Binding for glGetPathTexGenfvNV.
 		/// </summary>
 		/// <param name="texCoordSet">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="pname">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="value">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_path_rendering")]
-		public static void GetPathTexGenNV(int texCoordSet, int pname, [Out] float[] value)
+		public static void GetPathTexGenNV(Int32 texCoordSet, Int32 pname, [Out] float[] value)
 		{
 			unsafe {
 				fixed (float* p_value = value)

@@ -945,7 +945,7 @@ namespace OpenGL
 		public static void DrawArraysInstancedBaseInstance(PrimitiveType mode, Int32 first, Int32 count, Int32 instancecount, UInt32 baseinstance)
 		{
 			Debug.Assert(Delegates.pglDrawArraysInstancedBaseInstance != null, "pglDrawArraysInstancedBaseInstance not implemented");
-			Delegates.pglDrawArraysInstancedBaseInstance((int)mode, first, count, instancecount, baseinstance);
+			Delegates.pglDrawArraysInstancedBaseInstance((Int32)mode, first, count, instancecount, baseinstance);
 			CallLog("glDrawArraysInstancedBaseInstance({0}, {1}, {2}, {3}, {4})", mode, first, count, instancecount, baseinstance);
 			DebugCheckErrors();
 		}
@@ -995,10 +995,10 @@ namespace OpenGL
 		/// <seealso cref="Gl.DrawArraysInstanced"/>
 		[RequiredByFeature("GL_VERSION_4_2")]
 		[RequiredByFeature("GL_ARB_base_instance")]
-		public static void DrawElementsInstancedBaseInstance(PrimitiveType mode, Int32 count, int type, IntPtr indices, Int32 instancecount, UInt32 baseinstance)
+		public static void DrawElementsInstancedBaseInstance(PrimitiveType mode, Int32 count, Int32 type, IntPtr indices, Int32 instancecount, UInt32 baseinstance)
 		{
 			Debug.Assert(Delegates.pglDrawElementsInstancedBaseInstance != null, "pglDrawElementsInstancedBaseInstance not implemented");
-			Delegates.pglDrawElementsInstancedBaseInstance((int)mode, count, type, indices, instancecount, baseinstance);
+			Delegates.pglDrawElementsInstancedBaseInstance((Int32)mode, count, type, indices, instancecount, baseinstance);
 			CallLog("glDrawElementsInstancedBaseInstance({0}, {1}, {2}, {3}, {4}, {5})", mode, count, type, indices, instancecount, baseinstance);
 			DebugCheckErrors();
 		}
@@ -1048,7 +1048,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.DrawArraysInstanced"/>
 		[RequiredByFeature("GL_VERSION_4_2")]
 		[RequiredByFeature("GL_ARB_base_instance")]
-		public static void DrawElementsInstancedBaseInstance(PrimitiveType mode, Int32 count, int type, Object indices, Int32 instancecount, UInt32 baseinstance)
+		public static void DrawElementsInstancedBaseInstance(PrimitiveType mode, Int32 count, Int32 type, Object indices, Int32 instancecount, UInt32 baseinstance)
 		{
 			GCHandle pin_indices = GCHandle.Alloc(indices, GCHandleType.Pinned);
 			try {
@@ -1108,10 +1108,10 @@ namespace OpenGL
 		/// <seealso cref="Gl.DrawElementsInstancedBaseVertex"/>
 		[RequiredByFeature("GL_VERSION_4_2")]
 		[RequiredByFeature("GL_ARB_base_instance")]
-		public static void DrawElementsInstancedBaseVertexBaseInstance(PrimitiveType mode, Int32 count, int type, IntPtr indices, Int32 instancecount, Int32 basevertex, UInt32 baseinstance)
+		public static void DrawElementsInstancedBaseVertexBaseInstance(PrimitiveType mode, Int32 count, Int32 type, IntPtr indices, Int32 instancecount, Int32 basevertex, UInt32 baseinstance)
 		{
 			Debug.Assert(Delegates.pglDrawElementsInstancedBaseVertexBaseInstance != null, "pglDrawElementsInstancedBaseVertexBaseInstance not implemented");
-			Delegates.pglDrawElementsInstancedBaseVertexBaseInstance((int)mode, count, type, indices, instancecount, basevertex, baseinstance);
+			Delegates.pglDrawElementsInstancedBaseVertexBaseInstance((Int32)mode, count, type, indices, instancecount, basevertex, baseinstance);
 			CallLog("glDrawElementsInstancedBaseVertexBaseInstance({0}, {1}, {2}, {3}, {4}, {5}, {6})", mode, count, type, indices, instancecount, basevertex, baseinstance);
 			DebugCheckErrors();
 		}
@@ -1166,7 +1166,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.DrawElementsInstancedBaseVertex"/>
 		[RequiredByFeature("GL_VERSION_4_2")]
 		[RequiredByFeature("GL_ARB_base_instance")]
-		public static void DrawElementsInstancedBaseVertexBaseInstance(PrimitiveType mode, Int32 count, int type, Object indices, Int32 instancecount, Int32 basevertex, UInt32 baseinstance)
+		public static void DrawElementsInstancedBaseVertexBaseInstance(PrimitiveType mode, Int32 count, Int32 type, Object indices, Int32 instancecount, Int32 basevertex, UInt32 baseinstance)
 		{
 			GCHandle pin_indices = GCHandle.Alloc(indices, GCHandleType.Pinned);
 			try {
@@ -1214,7 +1214,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.Get"/>
 		[RequiredByFeature("GL_VERSION_4_2")]
 		[RequiredByFeature("GL_ARB_internalformat_query")]
-		public static void GetInternalformat(int target, int internalformat, int pname, [Out] Int32[] @params)
+		public static void GetInternalformat(Int32 target, Int32 internalformat, Int32 pname, [Out] Int32[] @params)
 		{
 			unsafe {
 				fixed (Int32* p_params = @params)
@@ -1261,7 +1261,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.GetUniformLocation"/>
 		[RequiredByFeature("GL_VERSION_4_2")]
 		[RequiredByFeature("GL_ARB_shader_atomic_counters")]
-		public static void GetActiveAtomicCounterBuffer(UInt32 program, UInt32 bufferIndex, int pname, [Out] Int32[] @params)
+		public static void GetActiveAtomicCounterBuffer(UInt32 program, UInt32 bufferIndex, Int32 pname, [Out] Int32[] @params)
 		{
 			unsafe {
 				fixed (Int32* p_params = @params)
@@ -1324,7 +1324,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.BindTexture"/>
 		[RequiredByFeature("GL_VERSION_4_2")]
 		[RequiredByFeature("GL_ARB_shader_image_load_store")]
-		public static void BindImageTexture(UInt32 unit, UInt32 texture, Int32 level, bool layered, Int32 layer, int access, int format)
+		public static void BindImageTexture(UInt32 unit, UInt32 texture, Int32 level, bool layered, Int32 layer, Int32 access, Int32 format)
 		{
 			Debug.Assert(Delegates.pglBindImageTexture != null, "pglBindImageTexture not implemented");
 			Delegates.pglBindImageTexture(unit, texture, level, layered, layer, access, format);
@@ -1352,7 +1352,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.moryBarrier"/>
 		[RequiredByFeature("GL_VERSION_4_2")]
 		[RequiredByFeature("GL_ARB_shader_image_load_store")]
-		public static void MemoryBarrier(uint barriers)
+		public static void MemoryBarrier(UInt32 barriers)
 		{
 			Debug.Assert(Delegates.pglMemoryBarrier != null, "pglMemoryBarrier not implemented");
 			Delegates.pglMemoryBarrier(barriers);
@@ -1403,7 +1403,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexStorage3D"/>
 		[RequiredByFeature("GL_VERSION_4_2")]
 		[RequiredByFeature("GL_ARB_texture_storage")]
-		public static void TexStorage1D(int target, Int32 levels, int internalformat, Int32 width)
+		public static void TexStorage1D(Int32 target, Int32 levels, Int32 internalformat, Int32 width)
 		{
 			Debug.Assert(Delegates.pglTexStorage1D != null, "pglTexStorage1D not implemented");
 			Delegates.pglTexStorage1D(target, levels, internalformat, width);
@@ -1464,7 +1464,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexStorage3D"/>
 		[RequiredByFeature("GL_VERSION_4_2")]
 		[RequiredByFeature("GL_ARB_texture_storage")]
-		public static void TexStorage2D(int target, Int32 levels, int internalformat, Int32 width, Int32 height)
+		public static void TexStorage2D(Int32 target, Int32 levels, Int32 internalformat, Int32 width, Int32 height)
 		{
 			Debug.Assert(Delegates.pglTexStorage2D != null, "pglTexStorage2D not implemented");
 			Delegates.pglTexStorage2D(target, levels, internalformat, width, height);
@@ -1529,7 +1529,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexStorage2D"/>
 		[RequiredByFeature("GL_VERSION_4_2")]
 		[RequiredByFeature("GL_ARB_texture_storage")]
-		public static void TexStorage3D(int target, Int32 levels, int internalformat, Int32 width, Int32 height, Int32 depth)
+		public static void TexStorage3D(Int32 target, Int32 levels, Int32 internalformat, Int32 width, Int32 height, Int32 depth)
 		{
 			Debug.Assert(Delegates.pglTexStorage3D != null, "pglTexStorage3D not implemented");
 			Delegates.pglTexStorage3D(target, levels, internalformat, width, height, depth);
@@ -1589,7 +1589,7 @@ namespace OpenGL
 		public static void DrawTransformFeedbackInstanced(PrimitiveType mode, UInt32 id, Int32 instancecount)
 		{
 			Debug.Assert(Delegates.pglDrawTransformFeedbackInstanced != null, "pglDrawTransformFeedbackInstanced not implemented");
-			Delegates.pglDrawTransformFeedbackInstanced((int)mode, id, instancecount);
+			Delegates.pglDrawTransformFeedbackInstanced((Int32)mode, id, instancecount);
 			CallLog("glDrawTransformFeedbackInstanced({0}, {1}, {2})", mode, id, instancecount);
 			DebugCheckErrors();
 		}
@@ -1649,7 +1649,7 @@ namespace OpenGL
 		public static void DrawTransformFeedbackStreamInstanced(PrimitiveType mode, UInt32 id, UInt32 stream, Int32 instancecount)
 		{
 			Debug.Assert(Delegates.pglDrawTransformFeedbackStreamInstanced != null, "pglDrawTransformFeedbackStreamInstanced not implemented");
-			Delegates.pglDrawTransformFeedbackStreamInstanced((int)mode, id, stream, instancecount);
+			Delegates.pglDrawTransformFeedbackStreamInstanced((Int32)mode, id, stream, instancecount);
 			CallLog("glDrawTransformFeedbackStreamInstanced({0}, {1}, {2}, {3})", mode, id, stream, instancecount);
 			DebugCheckErrors();
 		}

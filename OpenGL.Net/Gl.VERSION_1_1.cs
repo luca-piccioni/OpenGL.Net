@@ -4211,12 +4211,12 @@ namespace OpenGL
 		/// Gl.FALSE. See Gl.Map1.
 		/// </para>
 		/// <para>
+		/// Gl.Enable: if enabled, calls to Gl.EvalCoord1, Gl.EvalMesh1, and Gl.EvalPoint1 generate RGBA values. See Gl.Map1.
+		/// </para>
+		/// <para>
 		/// Gl.Map1: each control point is four floating-point values representing red, green, blue, and alpha. Internal Gl.Color4 
 		/// commands are generated when the map is evaluated but the current color is not updated with the value of these Gl.Color4 
 		/// commands.
-		/// </para>
-		/// <para>
-		/// Gl.Enable: if enabled, calls to Gl.EvalCoord1, Gl.EvalMesh1, and Gl.EvalPoint1 generate RGBA values. See Gl.Map1.
 		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
@@ -4232,11 +4232,11 @@ namespace OpenGL
 		/// value is Gl.FALSE. See Gl.Map1.
 		/// </para>
 		/// <para>
-		/// Gl.Map1: each control point is a single floating-point value representing a color index. Internal Gl.Index commands are 
-		/// generated when the map is evaluated but the current index is not updated with the value of these Gl.Index commands.
+		/// Gl.Enable: if enabled, calls to Gl.EvalCoord1, Gl.EvalMesh1, and Gl.EvalPoint1 generate color indices. See Gl.Map1.
 		/// </para>
 		/// <para>
-		/// Gl.Enable: if enabled, calls to Gl.EvalCoord1, Gl.EvalMesh1, and Gl.EvalPoint1 generate color indices. See Gl.Map1.
+		/// Gl.Map1: each control point is a single floating-point value representing a color index. Internal Gl.Index commands are 
+		/// generated when the map is evaluated but the current index is not updated with the value of these Gl.Index commands.
 		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
@@ -4252,12 +4252,12 @@ namespace OpenGL
 		/// Gl.FALSE. See Gl.Map1.
 		/// </para>
 		/// <para>
+		/// Gl.Enable: if enabled, calls to Gl.EvalCoord1, Gl.EvalMesh1, and Gl.EvalPoint1 generate normals. See Gl.Map1.
+		/// </para>
+		/// <para>
 		/// Gl.Map1: each control point is three floating-point values representing the x, y, and z components of a normal vector. 
 		/// Internal Gl.Normal commands are generated when the map is evaluated but the current normal is not updated with the value 
 		/// of these Gl.Normal commands.
-		/// </para>
-		/// <para>
-		/// Gl.Enable: if enabled, calls to Gl.EvalCoord1, Gl.EvalMesh1, and Gl.EvalPoint1 generate normals. See Gl.Map1.
 		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
@@ -4273,13 +4273,13 @@ namespace OpenGL
 		/// initial value is Gl.FALSE. See Gl.Map1.
 		/// </para>
 		/// <para>
+		/// Gl.Enable: if enabled, calls to Gl.EvalCoord1, Gl.EvalMesh1, and Gl.EvalPoint1 generate s texture coordinates. See 
+		/// Gl.Map1.
+		/// </para>
+		/// <para>
 		/// Gl.Map1: each control point is a single floating-point value representing the s texture coordinate. Internal 
 		/// Gl.TexCoord1 commands are generated when the map is evaluated but the current texture coordinates are not updated with 
 		/// the value of these Gl.TexCoord commands.
-		/// </para>
-		/// <para>
-		/// Gl.Enable: if enabled, calls to Gl.EvalCoord1, Gl.EvalMesh1, and Gl.EvalPoint1 generate s texture coordinates. See 
-		/// Gl.Map1.
 		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
@@ -4295,13 +4295,13 @@ namespace OpenGL
 		/// initial value is Gl.FALSE. See Gl.Map1.
 		/// </para>
 		/// <para>
+		/// Gl.Enable: if enabled, calls to Gl.EvalCoord1, Gl.EvalMesh1, and Gl.EvalPoint1 generate s and t texture coordinates. See 
+		/// Gl.Map1.
+		/// </para>
+		/// <para>
 		/// Gl.Map1: each control point is two floating-point values representing the s and t texture coordinates. Internal 
 		/// Gl.TexCoord2 commands are generated when the map is evaluated but the current texture coordinates are not updated with 
 		/// the value of these Gl.TexCoord commands.
-		/// </para>
-		/// <para>
-		/// Gl.Enable: if enabled, calls to Gl.EvalCoord1, Gl.EvalMesh1, and Gl.EvalPoint1 generate s and t texture coordinates. See 
-		/// Gl.Map1.
 		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
@@ -4317,13 +4317,13 @@ namespace OpenGL
 		/// initial value is Gl.FALSE. See Gl.Map1.
 		/// </para>
 		/// <para>
+		/// Gl.Enable: if enabled, calls to Gl.EvalCoord1, Gl.EvalMesh1, and Gl.EvalPoint1 generate s, t, and r texture coordinates. 
+		/// See Gl.Map1.
+		/// </para>
+		/// <para>
 		/// Gl.Map1: each control point is three floating-point values representing the s, t, and r texture coordinates. Internal 
 		/// Gl.TexCoord3 commands are generated when the map is evaluated but the current texture coordinates are not updated with 
 		/// the value of these Gl.TexCoord commands.
-		/// </para>
-		/// <para>
-		/// Gl.Enable: if enabled, calls to Gl.EvalCoord1, Gl.EvalMesh1, and Gl.EvalPoint1 generate s, t, and r texture coordinates. 
-		/// See Gl.Map1.
 		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
@@ -4339,13 +4339,13 @@ namespace OpenGL
 		/// initial value is Gl.FALSE. See Gl.Map1.
 		/// </para>
 		/// <para>
+		/// Gl.Enable: if enabled, calls to Gl.EvalCoord1, Gl.EvalMesh1, and Gl.EvalPoint1 generate s, t, r, and q texture 
+		/// coordinates. See Gl.Map1.
+		/// </para>
+		/// <para>
 		/// Gl.Map1: each control point is four floating-point values representing the s, t, r, and q texture coordinates. Internal 
 		/// Gl.TexCoord4 commands are generated when the map is evaluated but the current texture coordinates are not updated with 
 		/// the value of these Gl.TexCoord commands.
-		/// </para>
-		/// <para>
-		/// Gl.Enable: if enabled, calls to Gl.EvalCoord1, Gl.EvalMesh1, and Gl.EvalPoint1 generate s, t, r, and q texture 
-		/// coordinates. See Gl.Map1.
 		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
@@ -4361,12 +4361,12 @@ namespace OpenGL
 		/// initial value is Gl.FALSE. See Gl.Map1.
 		/// </para>
 		/// <para>
-		/// Gl.Map1: each control point is three floating-point values representing x, y, and z. Internal Gl.Vertex3 commands are 
-		/// generated when the map is evaluated.
-		/// </para>
-		/// <para>
 		/// Gl.Enable: if enabled, calls to Gl.EvalCoord1, Gl.EvalMesh1, and Gl.EvalPoint1 generate x, y, and z vertex coordinates. 
 		/// See Gl.Map1.
+		/// </para>
+		/// <para>
+		/// Gl.Map1: each control point is three floating-point values representing x, y, and z. Internal Gl.Vertex3 commands are 
+		/// generated when the map is evaluated.
 		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
@@ -4382,12 +4382,12 @@ namespace OpenGL
 		/// initial value is Gl.FALSE. See Gl.Map1.
 		/// </para>
 		/// <para>
-		/// Gl.Map1: each control point is four floating-point values representing x, y, z, and w. Internal Gl.Vertex4 commands are 
-		/// generated when the map is evaluated.
-		/// </para>
-		/// <para>
 		/// Gl.Enable: if enabled, calls to Gl.EvalCoord1, Gl.EvalMesh1, and Gl.EvalPoint1 generate homogeneous x, y, z, and w 
 		/// vertex coordinates. See Gl.Map1.
+		/// </para>
+		/// <para>
+		/// Gl.Map1: each control point is four floating-point values representing x, y, z, and w. Internal Gl.Vertex4 commands are 
+		/// generated when the map is evaluated.
 		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
@@ -4403,12 +4403,12 @@ namespace OpenGL
 		/// Gl.FALSE. See Gl.Map2.
 		/// </para>
 		/// <para>
+		/// Gl.Enable: if enabled, calls to Gl.EvalCoord2, Gl.EvalMesh2, and Gl.EvalPoint2 generate RGBA values. See Gl.Map2.
+		/// </para>
+		/// <para>
 		/// Gl.Map2: each control point is four floating-point values representing red, green, blue, and alpha. Internal Gl.Color4 
 		/// commands are generated when the map is evaluated but the current color is not updated with the value of these Gl.Color4 
 		/// commands.
-		/// </para>
-		/// <para>
-		/// Gl.Enable: if enabled, calls to Gl.EvalCoord2, Gl.EvalMesh2, and Gl.EvalPoint2 generate RGBA values. See Gl.Map2.
 		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
@@ -4424,11 +4424,11 @@ namespace OpenGL
 		/// value is Gl.FALSE. See Gl.Map2.
 		/// </para>
 		/// <para>
-		/// Gl.Map2: each control point is a single floating-point value representing a color index. Internal Gl.Index commands are 
-		/// generated when the map is evaluated but the current index is not updated with the value of these Gl.Index commands.
+		/// Gl.Enable: if enabled, calls to Gl.EvalCoord2, Gl.EvalMesh2, and Gl.EvalPoint2 generate color indices. See Gl.Map2.
 		/// </para>
 		/// <para>
-		/// Gl.Enable: if enabled, calls to Gl.EvalCoord2, Gl.EvalMesh2, and Gl.EvalPoint2 generate color indices. See Gl.Map2.
+		/// Gl.Map2: each control point is a single floating-point value representing a color index. Internal Gl.Index commands are 
+		/// generated when the map is evaluated but the current index is not updated with the value of these Gl.Index commands.
 		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
@@ -4444,12 +4444,12 @@ namespace OpenGL
 		/// Gl.FALSE. See Gl.Map2.
 		/// </para>
 		/// <para>
+		/// Gl.Enable: if enabled, calls to Gl.EvalCoord2, Gl.EvalMesh2, and Gl.EvalPoint2 generate normals. See Gl.Map2.
+		/// </para>
+		/// <para>
 		/// Gl.Map2: each control point is three floating-point values representing the x, y, and z components of a normal vector. 
 		/// Internal Gl.Normal commands are generated when the map is evaluated but the current normal is not updated with the value 
 		/// of these Gl.Normal commands.
-		/// </para>
-		/// <para>
-		/// Gl.Enable: if enabled, calls to Gl.EvalCoord2, Gl.EvalMesh2, and Gl.EvalPoint2 generate normals. See Gl.Map2.
 		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
@@ -4465,13 +4465,13 @@ namespace OpenGL
 		/// initial value is Gl.FALSE. See Gl.Map2.
 		/// </para>
 		/// <para>
+		/// Gl.Enable: if enabled, calls to Gl.EvalCoord2, Gl.EvalMesh2, and Gl.EvalPoint2 generate s texture coordinates. See 
+		/// Gl.Map2.
+		/// </para>
+		/// <para>
 		/// Gl.Map2: each control point is a single floating-point value representing the s texture coordinate. Internal 
 		/// Gl.TexCoord1 commands are generated when the map is evaluated but the current texture coordinates are not updated with 
 		/// the value of these Gl.TexCoord commands.
-		/// </para>
-		/// <para>
-		/// Gl.Enable: if enabled, calls to Gl.EvalCoord2, Gl.EvalMesh2, and Gl.EvalPoint2 generate s texture coordinates. See 
-		/// Gl.Map2.
 		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
@@ -4487,13 +4487,13 @@ namespace OpenGL
 		/// initial value is Gl.FALSE. See Gl.Map2.
 		/// </para>
 		/// <para>
+		/// Gl.Enable: if enabled, calls to Gl.EvalCoord2, Gl.EvalMesh2, and Gl.EvalPoint2 generate s and t texture coordinates. See 
+		/// Gl.Map2.
+		/// </para>
+		/// <para>
 		/// Gl.Map2: each control point is two floating-point values representing the s and t texture coordinates. Internal 
 		/// Gl.TexCoord2 commands are generated when the map is evaluated but the current texture coordinates are not updated with 
 		/// the value of these Gl.TexCoord commands.
-		/// </para>
-		/// <para>
-		/// Gl.Enable: if enabled, calls to Gl.EvalCoord2, Gl.EvalMesh2, and Gl.EvalPoint2 generate s and t texture coordinates. See 
-		/// Gl.Map2.
 		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
@@ -4509,13 +4509,13 @@ namespace OpenGL
 		/// initial value is Gl.FALSE. See Gl.Map2.
 		/// </para>
 		/// <para>
+		/// Gl.Enable: if enabled, calls to Gl.EvalCoord2, Gl.EvalMesh2, and Gl.EvalPoint2 generate s, t, and r texture coordinates. 
+		/// See Gl.Map2.
+		/// </para>
+		/// <para>
 		/// Gl.Map2: each control point is three floating-point values representing the s, t, and r texture coordinates. Internal 
 		/// Gl.TexCoord3 commands are generated when the map is evaluated but the current texture coordinates are not updated with 
 		/// the value of these Gl.TexCoord commands.
-		/// </para>
-		/// <para>
-		/// Gl.Enable: if enabled, calls to Gl.EvalCoord2, Gl.EvalMesh2, and Gl.EvalPoint2 generate s, t, and r texture coordinates. 
-		/// See Gl.Map2.
 		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
@@ -4531,13 +4531,13 @@ namespace OpenGL
 		/// initial value is Gl.FALSE. See Gl.Map2.
 		/// </para>
 		/// <para>
+		/// Gl.Enable: if enabled, calls to Gl.EvalCoord2, Gl.EvalMesh2, and Gl.EvalPoint2 generate s, t, r, and q texture 
+		/// coordinates. See Gl.Map2.
+		/// </para>
+		/// <para>
 		/// Gl.Map2: each control point is four floating-point values representing the s, t, r, and q texture coordinates. Internal 
 		/// Gl.TexCoord4 commands are generated when the map is evaluated but the current texture coordinates are not updated with 
 		/// the value of these Gl.TexCoord commands.
-		/// </para>
-		/// <para>
-		/// Gl.Enable: if enabled, calls to Gl.EvalCoord2, Gl.EvalMesh2, and Gl.EvalPoint2 generate s, t, r, and q texture 
-		/// coordinates. See Gl.Map2.
 		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
@@ -4553,12 +4553,12 @@ namespace OpenGL
 		/// initial value is Gl.FALSE. See Gl.Map2.
 		/// </para>
 		/// <para>
-		/// Gl.Map2: each control point is three floating-point values representing x, y, and z. Internal Gl.Vertex3 commands are 
-		/// generated when the map is evaluated.
-		/// </para>
-		/// <para>
 		/// Gl.Enable: if enabled, calls to Gl.EvalCoord2, Gl.EvalMesh2, and Gl.EvalPoint2 generate x, y, and z vertex coordinates. 
 		/// See Gl.Map2.
+		/// </para>
+		/// <para>
+		/// Gl.Map2: each control point is three floating-point values representing x, y, and z. Internal Gl.Vertex3 commands are 
+		/// generated when the map is evaluated.
 		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
@@ -4574,12 +4574,12 @@ namespace OpenGL
 		/// initial value is Gl.FALSE. See Gl.Map2.
 		/// </para>
 		/// <para>
-		/// Gl.Map2: each control point is four floating-point values representing x, y, z, and w. Internal Gl.Vertex4 commands are 
-		/// generated when the map is evaluated.
-		/// </para>
-		/// <para>
 		/// Gl.Enable: if enabled, calls to Gl.EvalCoord2, Gl.EvalMesh2, and Gl.EvalPoint2 generate homogeneous x, y, z, and w 
 		/// vertex coordinates. See Gl.Map2.
+		/// </para>
+		/// <para>
+		/// Gl.Map2: each control point is four floating-point values representing x, y, z, and w. Internal Gl.Vertex4 commands are 
+		/// generated when the map is evaluated.
 		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
@@ -6404,7 +6404,7 @@ namespace OpenGL
 		public static void DrawArrays(PrimitiveType mode, Int32 first, Int32 count)
 		{
 			Debug.Assert(Delegates.pglDrawArrays != null, "pglDrawArrays not implemented");
-			Delegates.pglDrawArrays((int)mode, first, count);
+			Delegates.pglDrawArrays((Int32)mode, first, count);
 			CallLog("glDrawArrays({0}, {1}, {2})", mode, first, count);
 			DebugCheckErrors();
 		}
@@ -6451,7 +6451,7 @@ namespace OpenGL
 		public static void DrawElements(PrimitiveType mode, Int32 count, DrawElementsType type, IntPtr indices)
 		{
 			Debug.Assert(Delegates.pglDrawElements != null, "pglDrawElements not implemented");
-			Delegates.pglDrawElements((int)mode, count, (int)type, indices);
+			Delegates.pglDrawElements((Int32)mode, count, (Int32)type, indices);
 			CallLog("glDrawElements({0}, {1}, {2}, {3})", mode, count, type, indices);
 			DebugCheckErrors();
 		}
@@ -6530,7 +6530,7 @@ namespace OpenGL
 				fixed (IntPtr* p_params = &@params)
 				{
 					Debug.Assert(Delegates.pglGetPointerv != null, "pglGetPointerv not implemented");
-					Delegates.pglGetPointerv((int)pname, p_params);
+					Delegates.pglGetPointerv((Int32)pname, p_params);
 					CallLog("glGetPointerv({0}, {1})", pname, @params);
 				}
 			}
@@ -6651,10 +6651,10 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexSubImage2D"/>
 		/// <seealso cref="Gl.TexParameter"/>
 		[RequiredByFeature("GL_VERSION_1_1")]
-		public static void CopyTexImage1D(TextureTarget target, Int32 level, int internalformat, Int32 x, Int32 y, Int32 width, Int32 border)
+		public static void CopyTexImage1D(TextureTarget target, Int32 level, Int32 internalformat, Int32 x, Int32 y, Int32 width, Int32 border)
 		{
 			Debug.Assert(Delegates.pglCopyTexImage1D != null, "pglCopyTexImage1D not implemented");
-			Delegates.pglCopyTexImage1D((int)target, level, internalformat, x, y, width, border);
+			Delegates.pglCopyTexImage1D((Int32)target, level, internalformat, x, y, width, border);
 			CallLog("glCopyTexImage1D({0}, {1}, {2}, {3}, {4}, {5}, {6})", target, level, internalformat, x, y, width, border);
 			DebugCheckErrors();
 		}
@@ -6729,10 +6729,10 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexSubImage2D"/>
 		/// <seealso cref="Gl.TexParameter"/>
 		[RequiredByFeature("GL_VERSION_1_1")]
-		public static void CopyTexImage2D(TextureTarget target, Int32 level, int internalformat, Int32 x, Int32 y, Int32 width, Int32 height, Int32 border)
+		public static void CopyTexImage2D(TextureTarget target, Int32 level, Int32 internalformat, Int32 x, Int32 y, Int32 width, Int32 height, Int32 border)
 		{
 			Debug.Assert(Delegates.pglCopyTexImage2D != null, "pglCopyTexImage2D not implemented");
-			Delegates.pglCopyTexImage2D((int)target, level, internalformat, x, y, width, height, border);
+			Delegates.pglCopyTexImage2D((Int32)target, level, internalformat, x, y, width, height, border);
 			CallLog("glCopyTexImage2D({0}, {1}, {2}, {3}, {4}, {5}, {6}, {7})", target, level, internalformat, x, y, width, height, border);
 			DebugCheckErrors();
 		}
@@ -6811,7 +6811,7 @@ namespace OpenGL
 		public static void CopyTexSubImage1D(TextureTarget target, Int32 level, Int32 xoffset, Int32 x, Int32 y, Int32 width)
 		{
 			Debug.Assert(Delegates.pglCopyTexSubImage1D != null, "pglCopyTexSubImage1D not implemented");
-			Delegates.pglCopyTexSubImage1D((int)target, level, xoffset, x, y, width);
+			Delegates.pglCopyTexSubImage1D((Int32)target, level, xoffset, x, y, width);
 			CallLog("glCopyTexSubImage1D({0}, {1}, {2}, {3}, {4}, {5})", target, level, xoffset, x, y, width);
 			DebugCheckErrors();
 		}
@@ -6906,7 +6906,7 @@ namespace OpenGL
 		public static void CopyTexSubImage2D(TextureTarget target, Int32 level, Int32 xoffset, Int32 yoffset, Int32 x, Int32 y, Int32 width, Int32 height)
 		{
 			Debug.Assert(Delegates.pglCopyTexSubImage2D != null, "pglCopyTexSubImage2D not implemented");
-			Delegates.pglCopyTexSubImage2D((int)target, level, xoffset, yoffset, x, y, width, height);
+			Delegates.pglCopyTexSubImage2D((Int32)target, level, xoffset, yoffset, x, y, width, height);
 			CallLog("glCopyTexSubImage2D({0}, {1}, {2}, {3}, {4}, {5}, {6}, {7})", target, level, xoffset, yoffset, x, y, width, height);
 			DebugCheckErrors();
 		}
@@ -7018,7 +7018,7 @@ namespace OpenGL
 		public static void TexSubImage1D(TextureTarget target, Int32 level, Int32 xoffset, Int32 width, PixelFormat format, PixelType type, IntPtr pixels)
 		{
 			Debug.Assert(Delegates.pglTexSubImage1D != null, "pglTexSubImage1D not implemented");
-			Delegates.pglTexSubImage1D((int)target, level, xoffset, width, (int)format, (int)type, pixels);
+			Delegates.pglTexSubImage1D((Int32)target, level, xoffset, width, (Int32)format, (Int32)type, pixels);
 			CallLog("glTexSubImage1D({0}, {1}, {2}, {3}, {4}, {5}, {6})", target, level, xoffset, width, format, type, pixels);
 			DebugCheckErrors();
 		}
@@ -7254,7 +7254,7 @@ namespace OpenGL
 		public static void TexSubImage2D(TextureTarget target, Int32 level, Int32 xoffset, Int32 yoffset, Int32 width, Int32 height, PixelFormat format, PixelType type, IntPtr pixels)
 		{
 			Debug.Assert(Delegates.pglTexSubImage2D != null, "pglTexSubImage2D not implemented");
-			Delegates.pglTexSubImage2D((int)target, level, xoffset, yoffset, width, height, (int)format, (int)type, pixels);
+			Delegates.pglTexSubImage2D((Int32)target, level, xoffset, yoffset, width, height, (Int32)format, (Int32)type, pixels);
 			CallLog("glTexSubImage2D({0}, {1}, {2}, {3}, {4}, {5}, {6}, {7}, {8})", target, level, xoffset, yoffset, width, height, format, type, pixels);
 			DebugCheckErrors();
 		}
@@ -7422,7 +7422,7 @@ namespace OpenGL
 		public static void BindTexture(TextureTarget target, UInt32 texture)
 		{
 			Debug.Assert(Delegates.pglBindTexture != null, "pglBindTexture not implemented");
-			Delegates.pglBindTexture((int)target, texture);
+			Delegates.pglBindTexture((Int32)target, texture);
 			CallLog("glBindTexture({0}, {1})", target, texture);
 			DebugCheckErrors();
 		}
@@ -7649,7 +7649,7 @@ namespace OpenGL
 		public static void ColorPointer(Int32 size, ColorPointerType type, Int32 stride, IntPtr pointer)
 		{
 			Debug.Assert(Delegates.pglColorPointer != null, "pglColorPointer not implemented");
-			Delegates.pglColorPointer(size, (int)type, stride, pointer);
+			Delegates.pglColorPointer(size, (Int32)type, stride, pointer);
 			CallLog("glColorPointer({0}, {1}, {2}, {3})", size, type, stride, pointer);
 			DebugCheckErrors();
 		}
@@ -7750,7 +7750,7 @@ namespace OpenGL
 		public static void DisableClientState(EnableCap array)
 		{
 			Debug.Assert(Delegates.pglDisableClientState != null, "pglDisableClientState not implemented");
-			Delegates.pglDisableClientState((int)array);
+			Delegates.pglDisableClientState((Int32)array);
 			CallLog("glDisableClientState({0})", array);
 			DebugCheckErrors();
 		}
@@ -7884,7 +7884,7 @@ namespace OpenGL
 		public static void EnableClientState(EnableCap array)
 		{
 			Debug.Assert(Delegates.pglEnableClientState != null, "pglEnableClientState not implemented");
-			Delegates.pglEnableClientState((int)array);
+			Delegates.pglEnableClientState((Int32)array);
 			CallLog("glEnableClientState({0})", array);
 			DebugCheckErrors();
 		}
@@ -7937,7 +7937,7 @@ namespace OpenGL
 		public static void IndexPointer(IndexPointerType type, Int32 stride, IntPtr pointer)
 		{
 			Debug.Assert(Delegates.pglIndexPointer != null, "pglIndexPointer not implemented");
-			Delegates.pglIndexPointer((int)type, stride, pointer);
+			Delegates.pglIndexPointer((Int32)type, stride, pointer);
 			CallLog("glIndexPointer({0}, {1}, {2})", type, stride, pointer);
 			DebugCheckErrors();
 		}
@@ -8037,7 +8037,7 @@ namespace OpenGL
 		public static void InterleavedArrays(InterleavedArrayFormat format, Int32 stride, IntPtr pointer)
 		{
 			Debug.Assert(Delegates.pglInterleavedArrays != null, "pglInterleavedArrays not implemented");
-			Delegates.pglInterleavedArrays((int)format, stride, pointer);
+			Delegates.pglInterleavedArrays((Int32)format, stride, pointer);
 			CallLog("glInterleavedArrays({0}, {1}, {2})", format, stride, pointer);
 			DebugCheckErrors();
 		}
@@ -8137,7 +8137,7 @@ namespace OpenGL
 		public static void NormalPointer(NormalPointerType type, Int32 stride, IntPtr pointer)
 		{
 			Debug.Assert(Delegates.pglNormalPointer != null, "pglNormalPointer not implemented");
-			Delegates.pglNormalPointer((int)type, stride, pointer);
+			Delegates.pglNormalPointer((Int32)type, stride, pointer);
 			CallLog("glNormalPointer({0}, {1}, {2})", type, stride, pointer);
 			DebugCheckErrors();
 		}
@@ -8253,7 +8253,7 @@ namespace OpenGL
 		public static void TexCoordPointer(Int32 size, TexCoordPointerType type, Int32 stride, IntPtr pointer)
 		{
 			Debug.Assert(Delegates.pglTexCoordPointer != null, "pglTexCoordPointer not implemented");
-			Delegates.pglTexCoordPointer(size, (int)type, stride, pointer);
+			Delegates.pglTexCoordPointer(size, (Int32)type, stride, pointer);
 			CallLog("glTexCoordPointer({0}, {1}, {2}, {3})", size, type, stride, pointer);
 			DebugCheckErrors();
 		}
@@ -8375,7 +8375,7 @@ namespace OpenGL
 		public static void VertexPointer(Int32 size, VertexPointerType type, Int32 stride, IntPtr pointer)
 		{
 			Debug.Assert(Delegates.pglVertexPointer != null, "pglVertexPointer not implemented");
-			Delegates.pglVertexPointer(size, (int)type, stride, pointer);
+			Delegates.pglVertexPointer(size, (Int32)type, stride, pointer);
 			CallLog("glVertexPointer({0}, {1}, {2}, {3})", size, type, stride, pointer);
 			DebugCheckErrors();
 		}
@@ -8649,7 +8649,7 @@ namespace OpenGL
 		public static void PushClientAttrib(ClientAttribMask mask)
 		{
 			Debug.Assert(Delegates.pglPushClientAttrib != null, "pglPushClientAttrib not implemented");
-			Delegates.pglPushClientAttrib((uint)mask);
+			Delegates.pglPushClientAttrib((UInt32)mask);
 			CallLog("glPushClientAttrib({0})", mask);
 			DebugCheckErrors();
 		}

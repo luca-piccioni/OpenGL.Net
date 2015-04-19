@@ -29,13 +29,13 @@ namespace OpenGL
 		/// Binding for glIglooInterfaceSGIX.
 		/// </summary>
 		/// <param name="pname">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="params">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		[RequiredByFeature("GL_SGIX_igloo_interface")]
-		public static void IglooInterfaceSGIX(int pname, IntPtr @params)
+		public static void IglooInterfaceSGIX(Int32 pname, IntPtr @params)
 		{
 			Debug.Assert(Delegates.pglIglooInterfaceSGIX != null, "pglIglooInterfaceSGIX not implemented");
 			Delegates.pglIglooInterfaceSGIX(pname, @params);
@@ -47,13 +47,13 @@ namespace OpenGL
 		/// Binding for glIglooInterfaceSGIX.
 		/// </summary>
 		/// <param name="pname">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="params">
 		/// A <see cref="T:Object"/>.
 		/// </param>
 		[RequiredByFeature("GL_SGIX_igloo_interface")]
-		public static void IglooInterfaceSGIX(int pname, Object @params)
+		public static void IglooInterfaceSGIX(Int32 pname, Object @params)
 		{
 			GCHandle pin_params = GCHandle.Alloc(@params, GCHandleType.Pinned);
 			try {

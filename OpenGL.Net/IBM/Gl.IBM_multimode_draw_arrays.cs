@@ -29,7 +29,7 @@ namespace OpenGL
 		/// Binding for glMultiModeDrawArraysIBM.
 		/// </summary>
 		/// <param name="mode">
-		/// A <see cref="T:int[]"/>.
+		/// A <see cref="T:Int32[]"/>.
 		/// </param>
 		/// <param name="first">
 		/// A <see cref="T:Int32[]"/>.
@@ -44,10 +44,10 @@ namespace OpenGL
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		[RequiredByFeature("GL_IBM_multimode_draw_arrays")]
-		public static void MultiModeDrawArraysIBM(int[] mode, Int32[] first, Int32[] count, Int32 primcount, Int32 modestride)
+		public static void MultiModeDrawArraysIBM(Int32[] mode, Int32[] first, Int32[] count, Int32 primcount, Int32 modestride)
 		{
 			unsafe {
-				fixed (int* p_mode = mode)
+				fixed (Int32* p_mode = mode)
 				fixed (Int32* p_first = first)
 				fixed (Int32* p_count = count)
 				{
@@ -63,7 +63,7 @@ namespace OpenGL
 		/// Binding for glMultiModeDrawElementsIBM.
 		/// </summary>
 		/// <param name="mode">
-		/// A <see cref="T:int[]"/>.
+		/// A <see cref="T:Int32[]"/>.
 		/// </param>
 		/// <param name="count">
 		/// A <see cref="T:Int32[]"/>.
@@ -81,15 +81,15 @@ namespace OpenGL
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		[RequiredByFeature("GL_IBM_multimode_draw_arrays")]
-		public static void MultiModeDrawElementsIBM(int[] mode, Int32[] count, DrawElementsType type, IntPtr[] indices, Int32 primcount, Int32 modestride)
+		public static void MultiModeDrawElementsIBM(Int32[] mode, Int32[] count, DrawElementsType type, IntPtr[] indices, Int32 primcount, Int32 modestride)
 		{
 			unsafe {
-				fixed (int* p_mode = mode)
+				fixed (Int32* p_mode = mode)
 				fixed (Int32* p_count = count)
 				fixed (IntPtr* p_indices = indices)
 				{
 					Debug.Assert(Delegates.pglMultiModeDrawElementsIBM != null, "pglMultiModeDrawElementsIBM not implemented");
-					Delegates.pglMultiModeDrawElementsIBM(p_mode, p_count, (int)type, p_indices, primcount, modestride);
+					Delegates.pglMultiModeDrawElementsIBM(p_mode, p_count, (Int32)type, p_indices, primcount, modestride);
 					CallLog("glMultiModeDrawElementsIBM({0}, {1}, {2}, {3}, {4}, {5})", mode, count, type, indices, primcount, modestride);
 				}
 			}

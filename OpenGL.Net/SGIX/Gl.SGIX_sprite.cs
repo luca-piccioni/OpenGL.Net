@@ -71,13 +71,13 @@ namespace OpenGL
 		/// Binding for glSpriteParameterfSGIX.
 		/// </summary>
 		/// <param name="pname">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="param">
 		/// A <see cref="T:float"/>.
 		/// </param>
 		[RequiredByFeature("GL_SGIX_sprite")]
-		public static void SpriteParameterSGIX(int pname, float param)
+		public static void SpriteParameterSGIX(Int32 pname, float param)
 		{
 			Debug.Assert(Delegates.pglSpriteParameterfSGIX != null, "pglSpriteParameterfSGIX not implemented");
 			Delegates.pglSpriteParameterfSGIX(pname, param);
@@ -89,13 +89,13 @@ namespace OpenGL
 		/// Binding for glSpriteParameterfvSGIX.
 		/// </summary>
 		/// <param name="pname">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="params">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_SGIX_sprite")]
-		public static void SpriteParameterSGIX(int pname, float[] @params)
+		public static void SpriteParameterSGIX(Int32 pname, float[] @params)
 		{
 			unsafe {
 				fixed (float* p_params = @params)
@@ -112,13 +112,13 @@ namespace OpenGL
 		/// Binding for glSpriteParameteriSGIX.
 		/// </summary>
 		/// <param name="pname">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="param">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		[RequiredByFeature("GL_SGIX_sprite")]
-		public static void SpriteParameterSGIX(int pname, Int32 param)
+		public static void SpriteParameterSGIX(Int32 pname, Int32 param)
 		{
 			Debug.Assert(Delegates.pglSpriteParameteriSGIX != null, "pglSpriteParameteriSGIX not implemented");
 			Delegates.pglSpriteParameteriSGIX(pname, param);
@@ -130,13 +130,13 @@ namespace OpenGL
 		/// Binding for glSpriteParameterivSGIX.
 		/// </summary>
 		/// <param name="pname">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="params">
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_SGIX_sprite")]
-		public static void SpriteParameterSGIX(int pname, Int32[] @params)
+		public static void SpriteParameterSGIX(Int32 pname, Int32[] @params)
 		{
 			unsafe {
 				fixed (Int32* p_params = @params)

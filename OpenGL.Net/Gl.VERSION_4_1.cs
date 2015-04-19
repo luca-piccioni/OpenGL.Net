@@ -341,7 +341,7 @@ namespace OpenGL
 		/// Specifies the address of an array of shader handles into which to load pre-compiled shader binaries.
 		/// </param>
 		/// <param name="binaryformat">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="binary">
 		/// Specifies the address of an array of bytes containing pre-compiled binary shader code.
@@ -367,7 +367,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.ProgramBinary"/>
 		[RequiredByFeature("GL_VERSION_4_1")]
 		[RequiredByFeature("GL_ARB_ES2_compatibility")]
-		public static void ShaderBinary(Int32 count, UInt32[] shaders, int binaryformat, Object binary, Int32 length)
+		public static void ShaderBinary(Int32 count, UInt32[] shaders, Int32 binaryformat, Object binary, Int32 length)
 		{
 			GCHandle pin_binary = GCHandle.Alloc(binary, GCHandleType.Pinned);
 			try {
@@ -387,7 +387,7 @@ namespace OpenGL
 		/// Specifies the address of an array of shader handles into which to load pre-compiled shader binaries.
 		/// </param>
 		/// <param name="binaryformat">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="binary">
 		/// Specifies the address of an array of bytes containing pre-compiled binary shader code.
@@ -413,7 +413,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.ProgramBinary"/>
 		[RequiredByFeature("GL_VERSION_4_1")]
 		[RequiredByFeature("GL_ARB_ES2_compatibility")]
-		public static void ShaderBinary(UInt32[] shaders, int binaryformat, IntPtr binary, Int32 length)
+		public static void ShaderBinary(UInt32[] shaders, Int32 binaryformat, IntPtr binary, Int32 length)
 		{
 			unsafe {
 				fixed (UInt32* p_shaders = shaders)
@@ -430,10 +430,10 @@ namespace OpenGL
 		/// retrieve the range and precision for numeric formats supported by the shader compiler
 		/// </summary>
 		/// <param name="shadertype">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="precisiontype">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="range">
 		/// Specifies the address of array of two integers into which encodings of the implementation's numeric range are returned.
@@ -449,7 +449,7 @@ namespace OpenGL
 		/// </exception>
 		[RequiredByFeature("GL_VERSION_4_1")]
 		[RequiredByFeature("GL_ARB_ES2_compatibility")]
-		public static void GetShaderPrecisionFormat(int shadertype, int precisiontype, [Out] Int32[] range, [Out] Int32[] precision)
+		public static void GetShaderPrecisionFormat(Int32 shadertype, Int32 precisiontype, [Out] Int32[] range, [Out] Int32[] precision)
 		{
 			unsafe {
 				fixed (Int32* p_range = range)
@@ -467,10 +467,10 @@ namespace OpenGL
 		/// retrieve the range and precision for numeric formats supported by the shader compiler
 		/// </summary>
 		/// <param name="shadertype">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="precisiontype">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="range">
 		/// Specifies the address of array of two integers into which encodings of the implementation's numeric range are returned.
@@ -486,7 +486,7 @@ namespace OpenGL
 		/// </exception>
 		[RequiredByFeature("GL_VERSION_4_1")]
 		[RequiredByFeature("GL_ARB_ES2_compatibility")]
-		public static void GetShaderPrecisionFormat(int shadertype, int precisiontype, out Int32 range, out Int32 precision)
+		public static void GetShaderPrecisionFormat(Int32 shadertype, Int32 precisiontype, out Int32 range, out Int32 precision)
 		{
 			unsafe {
 				fixed (Int32* p_range = &range)
@@ -572,11 +572,11 @@ namespace OpenGL
 		/// <seealso cref="Gl.ProgramBinary"/>
 		[RequiredByFeature("GL_VERSION_4_1")]
 		[RequiredByFeature("GL_ARB_get_program_binary")]
-		public static void GetProgramBinary(UInt32 program, Int32 bufSize, out Int32 length, out int binaryFormat, IntPtr binary)
+		public static void GetProgramBinary(UInt32 program, Int32 bufSize, out Int32 length, out Int32 binaryFormat, IntPtr binary)
 		{
 			unsafe {
 				fixed (Int32* p_length = &length)
-				fixed (int* p_binaryFormat = &binaryFormat)
+				fixed (Int32* p_binaryFormat = &binaryFormat)
 				{
 					Debug.Assert(Delegates.pglGetProgramBinary != null, "pglGetProgramBinary not implemented");
 					Delegates.pglGetProgramBinary(program, bufSize, p_length, p_binaryFormat, binary);
@@ -617,7 +617,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.ProgramBinary"/>
 		[RequiredByFeature("GL_VERSION_4_1")]
 		[RequiredByFeature("GL_ARB_get_program_binary")]
-		public static void GetProgramBinary(UInt32 program, Int32 bufSize, out Int32 length, out int binaryFormat, Object binary)
+		public static void GetProgramBinary(UInt32 program, Int32 bufSize, out Int32 length, out Int32 binaryFormat, Object binary)
 		{
 			GCHandle pin_binary = GCHandle.Alloc(binary, GCHandleType.Pinned);
 			try {
@@ -654,7 +654,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.GetProgramBinary"/>
 		[RequiredByFeature("GL_VERSION_4_1")]
 		[RequiredByFeature("GL_ARB_get_program_binary")]
-		public static void ProgramBinary(UInt32 program, int binaryFormat, IntPtr binary, Int32 length)
+		public static void ProgramBinary(UInt32 program, Int32 binaryFormat, IntPtr binary, Int32 length)
 		{
 			Debug.Assert(Delegates.pglProgramBinary != null, "pglProgramBinary not implemented");
 			Delegates.pglProgramBinary(program, binaryFormat, binary, length);
@@ -689,7 +689,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.GetProgramBinary"/>
 		[RequiredByFeature("GL_VERSION_4_1")]
 		[RequiredByFeature("GL_ARB_get_program_binary")]
-		public static void ProgramBinary(UInt32 program, int binaryFormat, Object binary, Int32 length)
+		public static void ProgramBinary(UInt32 program, Int32 binaryFormat, Object binary, Int32 length)
 		{
 			GCHandle pin_binary = GCHandle.Alloc(binary, GCHandleType.Pinned);
 			try {
@@ -728,7 +728,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.ProgramBinary"/>
 		[RequiredByFeature("GL_VERSION_4_1")]
 		[RequiredByFeature("GL_ARB_get_program_binary")]
-		public static void ProgramParameter(UInt32 program, int pname, Int32 value)
+		public static void ProgramParameter(UInt32 program, Int32 pname, Int32 value)
 		{
 			Debug.Assert(Delegates.pglProgramParameteri != null, "pglProgramParameteri not implemented");
 			Delegates.pglProgramParameteri(program, pname, value);
@@ -771,7 +771,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.IsProgramPipeline"/>
 		[RequiredByFeature("GL_VERSION_4_1")]
 		[RequiredByFeature("GL_ARB_separate_shader_objects")]
-		public static void UseProgramStage(UInt32 pipeline, uint stages, UInt32 program)
+		public static void UseProgramStage(UInt32 pipeline, UInt32 stages, UInt32 program)
 		{
 			Debug.Assert(Delegates.pglUseProgramStages != null, "pglUseProgramStages not implemented");
 			Delegates.pglUseProgramStages(pipeline, stages, program);
@@ -843,7 +843,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.LinkProgram"/>
 		[RequiredByFeature("GL_VERSION_4_1")]
 		[RequiredByFeature("GL_ARB_separate_shader_objects")]
-		public static UInt32 CreateShaderProgram(int type, params String[] strings)
+		public static UInt32 CreateShaderProgram(Int32 type, params String[] strings)
 		{
 			UInt32 retValue;
 
@@ -1009,7 +1009,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.DeleteProgramPipelines"/>
 		[RequiredByFeature("GL_VERSION_4_1")]
 		[RequiredByFeature("GL_ARB_separate_shader_objects")]
-		public static void GetProgramPipeline(UInt32 pipeline, int pname, [Out] Int32[] @params)
+		public static void GetProgramPipeline(UInt32 pipeline, Int32 pname, [Out] Int32[] @params)
 		{
 			unsafe {
 				fixed (Int32* p_params = @params)
@@ -4327,7 +4327,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.VertexAttrib"/>
 		[RequiredByFeature("GL_VERSION_4_1")]
 		[RequiredByFeature("GL_ARB_vertex_attrib_64bit")]
-		public static void VertexAttribLPointer(UInt32 index, Int32 size, int type, Int32 stride, IntPtr pointer)
+		public static void VertexAttribLPointer(UInt32 index, Int32 size, Int32 type, Int32 stride, IntPtr pointer)
 		{
 			Debug.Assert(Delegates.pglVertexAttribLPointer != null, "pglVertexAttribLPointer not implemented");
 			Delegates.pglVertexAttribLPointer(index, size, type, stride, pointer);
@@ -4407,7 +4407,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.VertexAttrib"/>
 		[RequiredByFeature("GL_VERSION_4_1")]
 		[RequiredByFeature("GL_ARB_vertex_attrib_64bit")]
-		public static void VertexAttribLPointer(UInt32 index, Int32 size, int type, Int32 stride, Object pointer)
+		public static void VertexAttribLPointer(UInt32 index, Int32 size, Int32 type, Int32 stride, Object pointer)
 		{
 			GCHandle pin_pointer = GCHandle.Alloc(pointer, GCHandleType.Pinned);
 			try {
@@ -4457,7 +4457,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.VertexAttribPointer"/>
 		[RequiredByFeature("GL_VERSION_4_1")]
 		[RequiredByFeature("GL_ARB_vertex_attrib_64bit")]
-		public static void GetVertexAttribL(UInt32 index, int pname, [Out] double[] @params)
+		public static void GetVertexAttribL(UInt32 index, Int32 pname, [Out] double[] @params)
 		{
 			unsafe {
 				fixed (double* p_params = @params)
@@ -4831,7 +4831,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.IsEnabled"/>
 		[RequiredByFeature("GL_VERSION_4_1")]
 		[RequiredByFeature("GL_ARB_viewport_array")]
-		public static void Get(int target, UInt32 index, [Out] float[] data)
+		public static void Get(Int32 target, UInt32 index, [Out] float[] data)
 		{
 			unsafe {
 				fixed (float* p_data = data)
@@ -4892,7 +4892,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.IsEnabled"/>
 		[RequiredByFeature("GL_VERSION_4_1")]
 		[RequiredByFeature("GL_ARB_viewport_array")]
-		public static void Get(int target, UInt32 index, out float data)
+		public static void Get(Int32 target, UInt32 index, out float data)
 		{
 			unsafe {
 				fixed (float* p_data = &data)
@@ -4953,7 +4953,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.IsEnabled"/>
 		[RequiredByFeature("GL_VERSION_4_1")]
 		[RequiredByFeature("GL_ARB_viewport_array")]
-		public static void Get(int target, UInt32 index, [Out] double[] data)
+		public static void Get(Int32 target, UInt32 index, [Out] double[] data)
 		{
 			unsafe {
 				fixed (double* p_data = data)
@@ -5014,7 +5014,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.IsEnabled"/>
 		[RequiredByFeature("GL_VERSION_4_1")]
 		[RequiredByFeature("GL_ARB_viewport_array")]
-		public static void Get(int target, UInt32 index, out double data)
+		public static void Get(Int32 target, UInt32 index, out double data)
 		{
 			unsafe {
 				fixed (double* p_data = &data)

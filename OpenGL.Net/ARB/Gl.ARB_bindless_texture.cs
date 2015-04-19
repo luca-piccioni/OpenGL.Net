@@ -122,10 +122,10 @@ namespace OpenGL
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="format">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		[RequiredByFeature("GL_ARB_bindless_texture")]
-		public static UInt64 GetImageHandleARB(UInt32 texture, Int32 level, bool layered, Int32 layer, int format)
+		public static UInt64 GetImageHandleARB(UInt32 texture, Int32 level, bool layered, Int32 layer, Int32 format)
 		{
 			UInt64 retValue;
 
@@ -144,10 +144,10 @@ namespace OpenGL
 		/// A <see cref="T:UInt64"/>.
 		/// </param>
 		/// <param name="access">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		[RequiredByFeature("GL_ARB_bindless_texture")]
-		public static void MakeImageHandleResidentARB(UInt64 handle, int access)
+		public static void MakeImageHandleResidentARB(UInt64 handle, Int32 access)
 		{
 			Debug.Assert(Delegates.pglMakeImageHandleResidentARB != null, "pglMakeImageHandleResidentARB not implemented");
 			Delegates.pglMakeImageHandleResidentARB(handle, access);
@@ -350,13 +350,13 @@ namespace OpenGL
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
 		/// <param name="pname">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="params">
 		/// A <see cref="T:UInt64[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_ARB_bindless_texture")]
-		public static void GetVertexAttribLARB(UInt32 index, int pname, [Out] UInt64[] @params)
+		public static void GetVertexAttribLARB(UInt32 index, Int32 pname, [Out] UInt64[] @params)
 		{
 			unsafe {
 				fixed (UInt64* p_params = @params)

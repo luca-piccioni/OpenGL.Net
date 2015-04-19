@@ -201,10 +201,10 @@ namespace OpenGL
 		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="synctype">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		[RequiredByFeature("GLX_SGIX_video_resize")]
-		public static int ChannelRectSyncSGIX(IntPtr display, int screen, int channel, int synctype)
+		public static int ChannelRectSyncSGIX(IntPtr display, int screen, int channel, Int32 synctype)
 		{
 			int retValue;
 

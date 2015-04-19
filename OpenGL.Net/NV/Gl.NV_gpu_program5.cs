@@ -53,7 +53,7 @@ namespace OpenGL
 		/// Binding for glProgramSubroutineParametersuivNV.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="count">
 		/// A <see cref="T:Int32"/>.
@@ -62,7 +62,7 @@ namespace OpenGL
 		/// A <see cref="T:UInt32[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_gpu_program5")]
-		public static void ProgramSubroutineParametersNV(int target, UInt32[] @params)
+		public static void ProgramSubroutineParametersNV(Int32 target, UInt32[] @params)
 		{
 			unsafe {
 				fixed (UInt32* p_params = @params)
@@ -79,7 +79,7 @@ namespace OpenGL
 		/// Binding for glGetProgramSubroutineParameteruivNV.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="index">
 		/// A <see cref="T:UInt32"/>.
@@ -88,7 +88,7 @@ namespace OpenGL
 		/// A <see cref="T:UInt32[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_gpu_program5")]
-		public static void GetProgramSubroutineParameterNV(int target, UInt32 index, [Out] UInt32[] param)
+		public static void GetProgramSubroutineParameterNV(Int32 target, UInt32 index, [Out] UInt32[] param)
 		{
 			unsafe {
 				fixed (UInt32* p_param = param)

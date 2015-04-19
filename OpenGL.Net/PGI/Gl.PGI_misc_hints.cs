@@ -149,13 +149,13 @@ namespace OpenGL
 		/// Binding for glHintPGI.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="mode">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		[RequiredByFeature("GL_PGI_misc_hints")]
-		public static void HintPGI(int target, Int32 mode)
+		public static void HintPGI(Int32 target, Int32 mode)
 		{
 			Debug.Assert(Delegates.pglHintPGI != null, "pglHintPGI not implemented");
 			Delegates.pglHintPGI(target, mode);

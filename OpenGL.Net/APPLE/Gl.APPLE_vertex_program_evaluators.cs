@@ -92,10 +92,10 @@ namespace OpenGL
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
 		/// <param name="pname">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		[RequiredByFeature("GL_APPLE_vertex_program_evaluators")]
-		public static void EnableVertexAttribAPPLE(UInt32 index, int pname)
+		public static void EnableVertexAttribAPPLE(UInt32 index, Int32 pname)
 		{
 			Debug.Assert(Delegates.pglEnableVertexAttribAPPLE != null, "pglEnableVertexAttribAPPLE not implemented");
 			Delegates.pglEnableVertexAttribAPPLE(index, pname);
@@ -110,10 +110,10 @@ namespace OpenGL
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
 		/// <param name="pname">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		[RequiredByFeature("GL_APPLE_vertex_program_evaluators")]
-		public static void DisableVertexAttribAPPLE(UInt32 index, int pname)
+		public static void DisableVertexAttribAPPLE(UInt32 index, Int32 pname)
 		{
 			Debug.Assert(Delegates.pglDisableVertexAttribAPPLE != null, "pglDisableVertexAttribAPPLE not implemented");
 			Delegates.pglDisableVertexAttribAPPLE(index, pname);
@@ -128,10 +128,10 @@ namespace OpenGL
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
 		/// <param name="pname">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		[RequiredByFeature("GL_APPLE_vertex_program_evaluators")]
-		public static bool IsVertexAttribEnabledAPPLE(UInt32 index, int pname)
+		public static bool IsVertexAttribEnabledAPPLE(UInt32 index, Int32 pname)
 		{
 			bool retValue;
 

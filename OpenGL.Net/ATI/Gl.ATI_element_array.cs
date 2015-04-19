@@ -47,13 +47,13 @@ namespace OpenGL
 		/// Binding for glElementPointerATI.
 		/// </summary>
 		/// <param name="type">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="pointer">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		[RequiredByFeature("GL_ATI_element_array")]
-		public static void ElementPointerATI(int type, IntPtr pointer)
+		public static void ElementPointerATI(Int32 type, IntPtr pointer)
 		{
 			Debug.Assert(Delegates.pglElementPointerATI != null, "pglElementPointerATI not implemented");
 			Delegates.pglElementPointerATI(type, pointer);
@@ -65,13 +65,13 @@ namespace OpenGL
 		/// Binding for glElementPointerATI.
 		/// </summary>
 		/// <param name="type">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="pointer">
 		/// A <see cref="T:Object"/>.
 		/// </param>
 		[RequiredByFeature("GL_ATI_element_array")]
-		public static void ElementPointerATI(int type, Object pointer)
+		public static void ElementPointerATI(Int32 type, Object pointer)
 		{
 			GCHandle pin_pointer = GCHandle.Alloc(pointer, GCHandleType.Pinned);
 			try {
@@ -94,7 +94,7 @@ namespace OpenGL
 		public static void DrawElementArrayATI(PrimitiveType mode, Int32 count)
 		{
 			Debug.Assert(Delegates.pglDrawElementArrayATI != null, "pglDrawElementArrayATI not implemented");
-			Delegates.pglDrawElementArrayATI((int)mode, count);
+			Delegates.pglDrawElementArrayATI((Int32)mode, count);
 			CallLog("glDrawElementArrayATI({0}, {1})", mode, count);
 			DebugCheckErrors();
 		}
@@ -118,7 +118,7 @@ namespace OpenGL
 		public static void DrawRangeElementArrayATI(PrimitiveType mode, UInt32 start, UInt32 end, Int32 count)
 		{
 			Debug.Assert(Delegates.pglDrawRangeElementArrayATI != null, "pglDrawRangeElementArrayATI not implemented");
-			Delegates.pglDrawRangeElementArrayATI((int)mode, start, end, count);
+			Delegates.pglDrawRangeElementArrayATI((Int32)mode, start, end, count);
 			CallLog("glDrawRangeElementArrayATI({0}, {1}, {2}, {3})", mode, start, end, count);
 			DebugCheckErrors();
 		}

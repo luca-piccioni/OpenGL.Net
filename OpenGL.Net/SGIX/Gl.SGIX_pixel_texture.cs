@@ -41,10 +41,10 @@ namespace OpenGL
 		/// Binding for glPixelTexGenSGIX.
 		/// </summary>
 		/// <param name="mode">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		[RequiredByFeature("GL_SGIX_pixel_texture")]
-		public static void PixelTexGenSGIX(int mode)
+		public static void PixelTexGenSGIX(Int32 mode)
 		{
 			Debug.Assert(Delegates.pglPixelTexGenSGIX != null, "pglPixelTexGenSGIX not implemented");
 			Delegates.pglPixelTexGenSGIX(mode);

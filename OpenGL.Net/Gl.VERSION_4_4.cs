@@ -230,7 +230,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.UnmapBuffer"/>
 		[RequiredByFeature("GL_VERSION_4_4")]
 		[RequiredByFeature("GL_ARB_buffer_storage")]
-		public static void BufferStorage(int target, UInt32 size, IntPtr data, uint flags)
+		public static void BufferStorage(Int32 target, UInt32 size, IntPtr data, UInt32 flags)
 		{
 			Debug.Assert(Delegates.pglBufferStorage != null, "pglBufferStorage not implemented");
 			Delegates.pglBufferStorage(target, size, data, flags);
@@ -297,7 +297,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.UnmapBuffer"/>
 		[RequiredByFeature("GL_VERSION_4_4")]
 		[RequiredByFeature("GL_ARB_buffer_storage")]
-		public static void BufferStorage(int target, UInt32 size, Object data, uint flags)
+		public static void BufferStorage(Int32 target, UInt32 size, Object data, UInt32 flags)
 		{
 			GCHandle pin_data = GCHandle.Alloc(data, GCHandleType.Pinned);
 			try {
@@ -373,7 +373,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexImage3D"/>
 		[RequiredByFeature("GL_VERSION_4_4")]
 		[RequiredByFeature("GL_ARB_clear_texture")]
-		public static void ClearTexImage(UInt32 texture, Int32 level, int format, int type, IntPtr data)
+		public static void ClearTexImage(UInt32 texture, Int32 level, Int32 format, Int32 type, IntPtr data)
 		{
 			Debug.Assert(Delegates.pglClearTexImage != null, "pglClearTexImage not implemented");
 			Delegates.pglClearTexImage(texture, level, format, type, data);
@@ -447,7 +447,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexImage3D"/>
 		[RequiredByFeature("GL_VERSION_4_4")]
 		[RequiredByFeature("GL_ARB_clear_texture")]
-		public static void ClearTexImage(UInt32 texture, Int32 level, int format, int type, Object data)
+		public static void ClearTexImage(UInt32 texture, Int32 level, Int32 format, Int32 type, Object data)
 		{
 			GCHandle pin_data = GCHandle.Alloc(data, GCHandleType.Pinned);
 			try {
@@ -542,7 +542,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexImage3D"/>
 		[RequiredByFeature("GL_VERSION_4_4")]
 		[RequiredByFeature("GL_ARB_clear_texture")]
-		public static void ClearTexSubImage(UInt32 texture, Int32 level, Int32 xoffset, Int32 yoffset, Int32 zoffset, Int32 width, Int32 height, Int32 depth, int format, int type, IntPtr data)
+		public static void ClearTexSubImage(UInt32 texture, Int32 level, Int32 xoffset, Int32 yoffset, Int32 zoffset, Int32 width, Int32 height, Int32 depth, Int32 format, Int32 type, IntPtr data)
 		{
 			Debug.Assert(Delegates.pglClearTexSubImage != null, "pglClearTexSubImage not implemented");
 			Delegates.pglClearTexSubImage(texture, level, xoffset, yoffset, zoffset, width, height, depth, format, type, data);
@@ -635,7 +635,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexImage3D"/>
 		[RequiredByFeature("GL_VERSION_4_4")]
 		[RequiredByFeature("GL_ARB_clear_texture")]
-		public static void ClearTexSubImage(UInt32 texture, Int32 level, Int32 xoffset, Int32 yoffset, Int32 zoffset, Int32 width, Int32 height, Int32 depth, int format, int type, Object data)
+		public static void ClearTexSubImage(UInt32 texture, Int32 level, Int32 xoffset, Int32 yoffset, Int32 zoffset, Int32 width, Int32 height, Int32 depth, Int32 format, Int32 type, Object data)
 		{
 			GCHandle pin_data = GCHandle.Alloc(data, GCHandleType.Pinned);
 			try {
@@ -685,7 +685,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.UnmapBuffer"/>
 		[RequiredByFeature("GL_VERSION_4_4")]
 		[RequiredByFeature("GL_ARB_multi_bind")]
-		public static void BindBuffersBase(int target, UInt32 first, UInt32[] buffers)
+		public static void BindBuffersBase(Int32 target, UInt32 first, UInt32[] buffers)
 		{
 			unsafe {
 				fixed (UInt32* p_buffers = buffers)
@@ -752,7 +752,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.UnmapBuffer"/>
 		[RequiredByFeature("GL_VERSION_4_4")]
 		[RequiredByFeature("GL_ARB_multi_bind")]
-		public static void BindBuffersRange(int target, UInt32 first, UInt32[] buffers, IntPtr[] offsets, UInt32[] sizes)
+		public static void BindBuffersRange(Int32 target, UInt32 first, UInt32[] buffers, IntPtr[] offsets, UInt32[] sizes)
 		{
 			unsafe {
 				fixed (UInt32* p_buffers = buffers)
