@@ -341,7 +341,7 @@ namespace OpenGL
 		/// Specifies the address of an array of shader handles into which to load pre-compiled shader binaries.
 		/// </param>
 		/// <param name="binaryformat">
-		/// A <see cref="T:Int32"/>.
+		/// Specifies the format of the shader binaries contained in <paramref name="binary"/>.
 		/// </param>
 		/// <param name="binary">
 		/// Specifies the address of an array of bytes containing pre-compiled binary shader code.
@@ -387,7 +387,7 @@ namespace OpenGL
 		/// Specifies the address of an array of shader handles into which to load pre-compiled shader binaries.
 		/// </param>
 		/// <param name="binaryformat">
-		/// A <see cref="T:Int32"/>.
+		/// Specifies the format of the shader binaries contained in <paramref name="binary"/>.
 		/// </param>
 		/// <param name="binary">
 		/// Specifies the address of an array of bytes containing pre-compiled binary shader code.
@@ -430,10 +430,11 @@ namespace OpenGL
 		/// retrieve the range and precision for numeric formats supported by the shader compiler
 		/// </summary>
 		/// <param name="shadertype">
-		/// A <see cref="T:Int32"/>.
+		/// Specifies the type of shader whose precision to query. <paramref name="shaderType"/> must be Gl.VERTEX_SHADER or 
+		/// Gl.FRAGMENT_SHADER.
 		/// </param>
 		/// <param name="precisiontype">
-		/// A <see cref="T:Int32"/>.
+		/// Specifies the numeric format whose precision and range to query.
 		/// </param>
 		/// <param name="range">
 		/// Specifies the address of array of two integers into which encodings of the implementation's numeric range are returned.
@@ -467,10 +468,11 @@ namespace OpenGL
 		/// retrieve the range and precision for numeric formats supported by the shader compiler
 		/// </summary>
 		/// <param name="shadertype">
-		/// A <see cref="T:Int32"/>.
+		/// Specifies the type of shader whose precision to query. <paramref name="shaderType"/> must be Gl.VERTEX_SHADER or 
+		/// Gl.FRAGMENT_SHADER.
 		/// </param>
 		/// <param name="precisiontype">
-		/// A <see cref="T:Int32"/>.
+		/// Specifies the numeric format whose precision and range to query.
 		/// </param>
 		/// <param name="range">
 		/// Specifies the address of array of two integers into which encodings of the implementation's numeric range are returned.
@@ -1489,7 +1491,7 @@ namespace OpenGL
 		/// For the scalar commands, specifies the new values to be used for the specified uniform variable.
 		/// </param>
 		/// <param name="v1">
-		/// For the scalar commands, specifies the new values to be used for the specified uniform variable.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <remarks>
 		/// </remarks>
@@ -1626,7 +1628,7 @@ namespace OpenGL
 		/// For the scalar commands, specifies the new values to be used for the specified uniform variable.
 		/// </param>
 		/// <param name="v1">
-		/// For the scalar commands, specifies the new values to be used for the specified uniform variable.
+		/// A <see cref="T:float"/>.
 		/// </param>
 		/// <remarks>
 		/// </remarks>
@@ -1818,7 +1820,7 @@ namespace OpenGL
 		/// For the scalar commands, specifies the new values to be used for the specified uniform variable.
 		/// </param>
 		/// <param name="v1">
-		/// For the scalar commands, specifies the new values to be used for the specified uniform variable.
+		/// A <see cref="T:UInt32"/>.
 		/// </param>
 		/// <remarks>
 		/// </remarks>
@@ -1955,10 +1957,10 @@ namespace OpenGL
 		/// For the scalar commands, specifies the new values to be used for the specified uniform variable.
 		/// </param>
 		/// <param name="v1">
-		/// For the scalar commands, specifies the new values to be used for the specified uniform variable.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="v2">
-		/// For the scalar commands, specifies the new values to be used for the specified uniform variable.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <remarks>
 		/// </remarks>
@@ -2095,10 +2097,10 @@ namespace OpenGL
 		/// For the scalar commands, specifies the new values to be used for the specified uniform variable.
 		/// </param>
 		/// <param name="v1">
-		/// For the scalar commands, specifies the new values to be used for the specified uniform variable.
+		/// A <see cref="T:float"/>.
 		/// </param>
 		/// <param name="v2">
-		/// For the scalar commands, specifies the new values to be used for the specified uniform variable.
+		/// A <see cref="T:float"/>.
 		/// </param>
 		/// <remarks>
 		/// </remarks>
@@ -2293,10 +2295,10 @@ namespace OpenGL
 		/// For the scalar commands, specifies the new values to be used for the specified uniform variable.
 		/// </param>
 		/// <param name="v1">
-		/// For the scalar commands, specifies the new values to be used for the specified uniform variable.
+		/// A <see cref="T:UInt32"/>.
 		/// </param>
 		/// <param name="v2">
-		/// For the scalar commands, specifies the new values to be used for the specified uniform variable.
+		/// A <see cref="T:UInt32"/>.
 		/// </param>
 		/// <remarks>
 		/// </remarks>
@@ -2433,13 +2435,13 @@ namespace OpenGL
 		/// For the scalar commands, specifies the new values to be used for the specified uniform variable.
 		/// </param>
 		/// <param name="v1">
-		/// For the scalar commands, specifies the new values to be used for the specified uniform variable.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="v2">
-		/// For the scalar commands, specifies the new values to be used for the specified uniform variable.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="v3">
-		/// For the scalar commands, specifies the new values to be used for the specified uniform variable.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <remarks>
 		/// </remarks>
@@ -2576,13 +2578,13 @@ namespace OpenGL
 		/// For the scalar commands, specifies the new values to be used for the specified uniform variable.
 		/// </param>
 		/// <param name="v1">
-		/// For the scalar commands, specifies the new values to be used for the specified uniform variable.
+		/// A <see cref="T:float"/>.
 		/// </param>
 		/// <param name="v2">
-		/// For the scalar commands, specifies the new values to be used for the specified uniform variable.
+		/// A <see cref="T:float"/>.
 		/// </param>
 		/// <param name="v3">
-		/// For the scalar commands, specifies the new values to be used for the specified uniform variable.
+		/// A <see cref="T:float"/>.
 		/// </param>
 		/// <remarks>
 		/// </remarks>
@@ -2780,13 +2782,13 @@ namespace OpenGL
 		/// For the scalar commands, specifies the new values to be used for the specified uniform variable.
 		/// </param>
 		/// <param name="v1">
-		/// For the scalar commands, specifies the new values to be used for the specified uniform variable.
+		/// A <see cref="T:UInt32"/>.
 		/// </param>
 		/// <param name="v2">
-		/// For the scalar commands, specifies the new values to be used for the specified uniform variable.
+		/// A <see cref="T:UInt32"/>.
 		/// </param>
 		/// <param name="v3">
-		/// For the scalar commands, specifies the new values to be used for the specified uniform variable.
+		/// A <see cref="T:UInt32"/>.
 		/// </param>
 		/// <remarks>
 		/// </remarks>
@@ -4523,8 +4525,7 @@ namespace OpenGL
 		/// (0,0).
 		/// </param>
 		/// <param name="y">
-		/// For Gl.ViewportIndexedf, specifies the lower left corner of the viewport rectangle, in pixels. The initial value is 
-		/// (0,0).
+		/// A <see cref="T:float"/>.
 		/// </param>
 		/// <param name="w">
 		/// A <see cref="T:float"/>.
@@ -4641,13 +4642,13 @@ namespace OpenGL
 		/// Specify the coordinate of the bottom left corner of the scissor box, in pixels.
 		/// </param>
 		/// <param name="bottom">
-		/// Specify the coordinate of the bottom left corner of the scissor box, in pixels.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="width">
 		/// Specify ths dimensions of the scissor box, in pixels.
 		/// </param>
 		/// <param name="height">
-		/// Specify ths dimensions of the scissor box, in pixels.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <remarks>
 		/// </remarks>

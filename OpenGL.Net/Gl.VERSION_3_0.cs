@@ -3839,7 +3839,7 @@ namespace OpenGL
 		/// For the scalar commands, specifies the new values to be used for the specified uniform variable.
 		/// </param>
 		/// <param name="v1">
-		/// For the scalar commands, specifies the new values to be used for the specified uniform variable.
+		/// A <see cref="T:UInt32"/>.
 		/// </param>
 		/// <remarks>
 		/// </remarks>
@@ -3899,10 +3899,10 @@ namespace OpenGL
 		/// For the scalar commands, specifies the new values to be used for the specified uniform variable.
 		/// </param>
 		/// <param name="v1">
-		/// For the scalar commands, specifies the new values to be used for the specified uniform variable.
+		/// A <see cref="T:UInt32"/>.
 		/// </param>
 		/// <param name="v2">
-		/// For the scalar commands, specifies the new values to be used for the specified uniform variable.
+		/// A <see cref="T:UInt32"/>.
 		/// </param>
 		/// <remarks>
 		/// </remarks>
@@ -3962,13 +3962,13 @@ namespace OpenGL
 		/// For the scalar commands, specifies the new values to be used for the specified uniform variable.
 		/// </param>
 		/// <param name="v1">
-		/// For the scalar commands, specifies the new values to be used for the specified uniform variable.
+		/// A <see cref="T:UInt32"/>.
 		/// </param>
 		/// <param name="v2">
-		/// For the scalar commands, specifies the new values to be used for the specified uniform variable.
+		/// A <see cref="T:UInt32"/>.
 		/// </param>
 		/// <param name="v3">
-		/// For the scalar commands, specifies the new values to be used for the specified uniform variable.
+		/// A <see cref="T:UInt32"/>.
 		/// </param>
 		/// <remarks>
 		/// </remarks>
@@ -5652,25 +5652,25 @@ namespace OpenGL
 		/// Specify the bounds of the source rectangle within the read buffer of the read framebuffer.
 		/// </param>
 		/// <param name="srcY0">
-		/// Specify the bounds of the source rectangle within the read buffer of the read framebuffer.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="srcX1">
-		/// Specify the bounds of the source rectangle within the read buffer of the read framebuffer.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="srcY1">
-		/// Specify the bounds of the source rectangle within the read buffer of the read framebuffer.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="dstX0">
 		/// Specify the bounds of the destination rectangle within the write buffer of the write framebuffer.
 		/// </param>
 		/// <param name="dstY0">
-		/// Specify the bounds of the destination rectangle within the write buffer of the write framebuffer.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="dstX1">
-		/// Specify the bounds of the destination rectangle within the write buffer of the write framebuffer.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="dstY1">
-		/// Specify the bounds of the destination rectangle within the write buffer of the write framebuffer.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="mask">
 		/// The bitwise OR of the flags indicating which buffers are to be copied. The allowed flags are Gl.COLOR_BUFFER_BIT, 

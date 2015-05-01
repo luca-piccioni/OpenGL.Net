@@ -159,7 +159,7 @@
             </listitem>
         </varlistentry>
         <varlistentry>
-            <term><parameter>data</parameter></term>
+            <term><parameter>pixels</parameter></term>
             <listitem>
                 <para>
                     Specifies a pointer to the image data in memory.

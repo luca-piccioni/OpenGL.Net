@@ -170,15 +170,14 @@ namespace OpenGL
 		/// Specify the lower left corner of the scissor box. Initially (0, 0).
 		/// </param>
 		/// <param name="y">
-		/// Specify the lower left corner of the scissor box. Initially (0, 0).
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="width">
 		/// Specify the width and height of the scissor box. When a GL context is first attached to a window, <paramref 
 		/// name="width"/> and <paramref name="height"/> are set to the dimensions of that window.
 		/// </param>
 		/// <param name="height">
-		/// Specify the width and height of the scissor box. When a GL context is first attached to a window, <paramref 
-		/// name="width"/> and <paramref name="height"/> are set to the dimensions of that window.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <remarks>
 		/// </remarks>
@@ -566,7 +565,8 @@ namespace OpenGL
 		/// Specifies the level-of-detail number. Level 0 is the base image level. Level n is the nth mipmap reduction image.
 		/// </param>
 		/// <param name="internalformat">
-		/// A <see cref="T:Int32"/>.
+		/// Specifies the number of color components in the texture. Must be one of base internal formats given in Table 1, one of 
+		/// the sized internal formats given in Table 2, or one of the compressed internal formats given in Table 3, below.
 		/// </param>
 		/// <param name="width">
 		/// Specifies the width of the texture image. All implementations support texture images that are at least 1024 texels wide. 
@@ -588,7 +588,7 @@ namespace OpenGL
 		/// Gl.UNSIGNED_INT_10_10_10_2, and Gl.UNSIGNED_INT_2_10_10_10_REV.
 		/// </param>
 		/// <param name="pixels">
-		/// A <see cref="T:IntPtr"/>.
+		/// Specifies a pointer to the image data in memory.
 		/// </param>
 		/// <remarks>
 		/// </remarks>
@@ -683,7 +683,8 @@ namespace OpenGL
 		/// Specifies the level-of-detail number. Level 0 is the base image level. Level n is the nth mipmap reduction image.
 		/// </param>
 		/// <param name="internalformat">
-		/// A <see cref="T:Int32"/>.
+		/// Specifies the number of color components in the texture. Must be one of base internal formats given in Table 1, one of 
+		/// the sized internal formats given in Table 2, or one of the compressed internal formats given in Table 3, below.
 		/// </param>
 		/// <param name="width">
 		/// Specifies the width of the texture image. All implementations support texture images that are at least 1024 texels wide. 
@@ -705,7 +706,7 @@ namespace OpenGL
 		/// Gl.UNSIGNED_INT_10_10_10_2, and Gl.UNSIGNED_INT_2_10_10_10_REV.
 		/// </param>
 		/// <param name="pixels">
-		/// A <see cref="T:Object"/>.
+		/// Specifies a pointer to the image data in memory.
 		/// </param>
 		/// <remarks>
 		/// </remarks>
@@ -806,7 +807,8 @@ namespace OpenGL
 		/// <paramref name="target"/> is Gl.TEXTURE_RECTANGLE or Gl.PROXY_TEXTURE_RECTANGLE, <paramref name="level"/> must be 0.
 		/// </param>
 		/// <param name="internalformat">
-		/// A <see cref="T:Int32"/>.
+		/// Specifies the number of color components in the texture. Must be one of base internal formats given in Table 1, one of 
+		/// the sized internal formats given in Table 2, or one of the compressed internal formats given in Table 3, below.
 		/// </param>
 		/// <param name="width">
 		/// Specifies the width of the texture image. All implementations support texture images that are at least 1024 texels wide.
@@ -832,7 +834,7 @@ namespace OpenGL
 		/// Gl.UNSIGNED_INT_10_10_10_2, and Gl.UNSIGNED_INT_2_10_10_10_REV.
 		/// </param>
 		/// <param name="pixels">
-		/// A <see cref="T:IntPtr"/>.
+		/// Specifies a pointer to the image data in memory.
 		/// </param>
 		/// <remarks>
 		/// </remarks>
@@ -956,7 +958,8 @@ namespace OpenGL
 		/// <paramref name="target"/> is Gl.TEXTURE_RECTANGLE or Gl.PROXY_TEXTURE_RECTANGLE, <paramref name="level"/> must be 0.
 		/// </param>
 		/// <param name="internalformat">
-		/// A <see cref="T:Int32"/>.
+		/// Specifies the number of color components in the texture. Must be one of base internal formats given in Table 1, one of 
+		/// the sized internal formats given in Table 2, or one of the compressed internal formats given in Table 3, below.
 		/// </param>
 		/// <param name="width">
 		/// Specifies the width of the texture image. All implementations support texture images that are at least 1024 texels wide.
@@ -982,7 +985,7 @@ namespace OpenGL
 		/// Gl.UNSIGNED_INT_10_10_10_2, and Gl.UNSIGNED_INT_2_10_10_10_REV.
 		/// </param>
 		/// <param name="pixels">
-		/// A <see cref="T:Object"/>.
+		/// Specifies a pointer to the image data in memory.
 		/// </param>
 		/// <remarks>
 		/// </remarks>
@@ -1168,13 +1171,13 @@ namespace OpenGL
 		/// Specify the red, green, blue, and alpha values used when the color buffers are cleared. The initial values are all 0.
 		/// </param>
 		/// <param name="green">
-		/// Specify the red, green, blue, and alpha values used when the color buffers are cleared. The initial values are all 0.
+		/// A <see cref="T:float"/>.
 		/// </param>
 		/// <param name="blue">
-		/// Specify the red, green, blue, and alpha values used when the color buffers are cleared. The initial values are all 0.
+		/// A <see cref="T:float"/>.
 		/// </param>
 		/// <param name="alpha">
-		/// Specify the red, green, blue, and alpha values used when the color buffers are cleared. The initial values are all 0.
+		/// A <see cref="T:float"/>.
 		/// </param>
 		/// <seealso cref="Gl.Clear"/>
 		/// <seealso cref="Gl.removedTypes"/>
@@ -1257,16 +1260,13 @@ namespace OpenGL
 		/// indicating that the color components are written.
 		/// </param>
 		/// <param name="green">
-		/// Specify whether red, green, blue, and alpha are to be written into the frame buffer. The initial values are all Gl.TRUE, 
-		/// indicating that the color components are written.
+		/// A <see cref="T:bool"/>.
 		/// </param>
 		/// <param name="blue">
-		/// Specify whether red, green, blue, and alpha are to be written into the frame buffer. The initial values are all Gl.TRUE, 
-		/// indicating that the color components are written.
+		/// A <see cref="T:bool"/>.
 		/// </param>
 		/// <param name="alpha">
-		/// Specify whether red, green, blue, and alpha are to be written into the frame buffer. The initial values are all Gl.TRUE, 
-		/// indicating that the color components are written.
+		/// A <see cref="T:bool"/>.
 		/// </param>
 		/// <seealso cref="Gl.Clear"/>
 		/// <seealso cref="Gl.DepthMask"/>
@@ -1709,16 +1709,14 @@ namespace OpenGL
 		/// corner of a rectangular block of pixels.
 		/// </param>
 		/// <param name="y">
-		/// Specify the window coordinates of the first pixel that is read from the frame buffer. This location is the lower left 
-		/// corner of a rectangular block of pixels.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="width">
 		/// Specify the dimensions of the pixel rectangle. <paramref name="width"/> and <paramref name="height"/> of one correspond 
 		/// to a single pixel.
 		/// </param>
 		/// <param name="height">
-		/// Specify the dimensions of the pixel rectangle. <paramref name="width"/> and <paramref name="height"/> of one correspond 
-		/// to a single pixel.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="format">
 		/// Specifies the format of the pixel data. The following symbolic values are accepted: Gl.STENCIL_INDEX, 
@@ -3310,15 +3308,14 @@ namespace OpenGL
 		/// Specify the lower left corner of the viewport rectangle, in pixels. The initial value is (0,0).
 		/// </param>
 		/// <param name="y">
-		/// Specify the lower left corner of the viewport rectangle, in pixels. The initial value is (0,0).
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="width">
 		/// Specify the width and height of the viewport. When a GL context is first attached to a window, <paramref name="width"/> 
 		/// and <paramref name="height"/> are set to the dimensions of that window.
 		/// </param>
 		/// <param name="height">
-		/// Specify the width and height of the viewport. When a GL context is first attached to a window, <paramref name="width"/> 
-		/// and <paramref name="height"/> are set to the dimensions of that window.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <remarks>
 		/// </remarks>

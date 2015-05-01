@@ -6608,7 +6608,7 @@ namespace OpenGL
 		/// Specify the window coordinates of the left corner of the row of pixels to be copied.
 		/// </param>
 		/// <param name="y">
-		/// Specify the window coordinates of the left corner of the row of pixels to be copied.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="width">
 		/// Specifies the width of the texture image. The height of the texture image is 1.
@@ -6681,7 +6681,7 @@ namespace OpenGL
 		/// Specify the window coordinates of the lower left corner of the rectangular region of pixels to be copied.
 		/// </param>
 		/// <param name="y">
-		/// Specify the window coordinates of the lower left corner of the rectangular region of pixels to be copied.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="width">
 		/// Specifies the width of the texture image.
@@ -6753,7 +6753,7 @@ namespace OpenGL
 		/// Specify the window coordinates of the left corner of the row of pixels to be copied.
 		/// </param>
 		/// <param name="y">
-		/// Specify the window coordinates of the left corner of the row of pixels to be copied.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="width">
 		/// Specifies the width of the texture subimage.
@@ -6838,7 +6838,7 @@ namespace OpenGL
 		/// Specify the window coordinates of the lower left corner of the rectangular region of pixels to be copied.
 		/// </param>
 		/// <param name="y">
-		/// Specify the window coordinates of the lower left corner of the rectangular region of pixels to be copied.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="width">
 		/// Specifies the width of the texture subimage.

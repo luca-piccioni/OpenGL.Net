@@ -2561,7 +2561,7 @@ namespace OpenGL
 		/// For the scalar commands, specifies the new values to be used for the specified uniform variable.
 		/// </param>
 		/// <param name="v1">
-		/// For the scalar commands, specifies the new values to be used for the specified uniform variable.
+		/// A <see cref="T:float"/>.
 		/// </param>
 		/// <remarks>
 		/// </remarks>
@@ -2621,10 +2621,10 @@ namespace OpenGL
 		/// For the scalar commands, specifies the new values to be used for the specified uniform variable.
 		/// </param>
 		/// <param name="v1">
-		/// For the scalar commands, specifies the new values to be used for the specified uniform variable.
+		/// A <see cref="T:float"/>.
 		/// </param>
 		/// <param name="v2">
-		/// For the scalar commands, specifies the new values to be used for the specified uniform variable.
+		/// A <see cref="T:float"/>.
 		/// </param>
 		/// <remarks>
 		/// </remarks>
@@ -2684,13 +2684,13 @@ namespace OpenGL
 		/// For the scalar commands, specifies the new values to be used for the specified uniform variable.
 		/// </param>
 		/// <param name="v1">
-		/// For the scalar commands, specifies the new values to be used for the specified uniform variable.
+		/// A <see cref="T:float"/>.
 		/// </param>
 		/// <param name="v2">
-		/// For the scalar commands, specifies the new values to be used for the specified uniform variable.
+		/// A <see cref="T:float"/>.
 		/// </param>
 		/// <param name="v3">
-		/// For the scalar commands, specifies the new values to be used for the specified uniform variable.
+		/// A <see cref="T:float"/>.
 		/// </param>
 		/// <remarks>
 		/// </remarks>
@@ -2807,7 +2807,7 @@ namespace OpenGL
 		/// For the scalar commands, specifies the new values to be used for the specified uniform variable.
 		/// </param>
 		/// <param name="v1">
-		/// For the scalar commands, specifies the new values to be used for the specified uniform variable.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <remarks>
 		/// </remarks>
@@ -2867,10 +2867,10 @@ namespace OpenGL
 		/// For the scalar commands, specifies the new values to be used for the specified uniform variable.
 		/// </param>
 		/// <param name="v1">
-		/// For the scalar commands, specifies the new values to be used for the specified uniform variable.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="v2">
-		/// For the scalar commands, specifies the new values to be used for the specified uniform variable.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <remarks>
 		/// </remarks>
@@ -2930,13 +2930,13 @@ namespace OpenGL
 		/// For the scalar commands, specifies the new values to be used for the specified uniform variable.
 		/// </param>
 		/// <param name="v1">
-		/// For the scalar commands, specifies the new values to be used for the specified uniform variable.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="v2">
-		/// For the scalar commands, specifies the new values to be used for the specified uniform variable.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="v3">
-		/// For the scalar commands, specifies the new values to be used for the specified uniform variable.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <remarks>
 		/// </remarks>

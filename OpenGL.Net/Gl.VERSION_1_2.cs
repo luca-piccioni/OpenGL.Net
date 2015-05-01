@@ -625,7 +625,8 @@ namespace OpenGL
 		/// Specifies the level-of-detail number. Level 0 is the base image level. Level n is the nth mipmap reduction image.
 		/// </param>
 		/// <param name="internalformat">
-		/// A <see cref="T:Int32"/>.
+		/// Specifies the number of color components in the texture. Must be one of base internal formats given in Table 1, one of 
+		/// the sized internal formats given in Table 2, or one of the compressed internal formats given in Table 3, below.
 		/// </param>
 		/// <param name="width">
 		/// Specifies the width of the texture image. All implementations support 3D texture images that are at least 16 texels 
@@ -755,7 +756,8 @@ namespace OpenGL
 		/// Specifies the level-of-detail number. Level 0 is the base image level. Level n is the nth mipmap reduction image.
 		/// </param>
 		/// <param name="internalformat">
-		/// A <see cref="T:Int32"/>.
+		/// Specifies the number of color components in the texture. Must be one of base internal formats given in Table 1, one of 
+		/// the sized internal formats given in Table 2, or one of the compressed internal formats given in Table 3, below.
 		/// </param>
 		/// <param name="width">
 		/// Specifies the width of the texture image. All implementations support 3D texture images that are at least 16 texels 
@@ -1157,7 +1159,7 @@ namespace OpenGL
 		/// Specify the window coordinates of the lower left corner of the rectangular region of pixels to be copied.
 		/// </param>
 		/// <param name="y">
-		/// Specify the window coordinates of the lower left corner of the rectangular region of pixels to be copied.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="width">
 		/// Specifies the width of the texture subimage.

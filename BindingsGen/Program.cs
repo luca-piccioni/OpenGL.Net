@@ -41,6 +41,8 @@ namespace BindingsGen
 			RegistryContext ctx;
 			RegistryProcessor glRegistryProcessor;
 
+			RegistryDocumentation.CreateLog();
+
 			// OpenGL
 			if ((args.Length == 0) || (Array.FindIndex(args, delegate(string item) { return (item == "--gl"); }) >= 0)) {
 				ctx = new RegistryContext("Gl", Path.Combine(BasePath, "GLSpecs/gl.xml"));
@@ -81,6 +83,8 @@ namespace BindingsGen
 				GenerateCommandsAndEnums(glRegistryProcessor, ctx);
 				GenerateExtensionsSupportClass(glRegistryProcessor, ctx);
 			}
+
+			RegistryDocumentation.CloseLog();
 		}
 
 		/// <summary>

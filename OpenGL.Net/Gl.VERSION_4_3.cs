@@ -3526,7 +3526,7 @@ namespace OpenGL
 		/// Specifies the target to which the texture object is bound for Gl.TexBufferRange. Must be Gl.TEXTURE_BUFFER.
 		/// </param>
 		/// <param name="internalformat">
-		/// A <see cref="T:Int32"/>.
+		/// Specifies the internal format of the data in the store belonging to <paramref name="buffer"/>.
 		/// </param>
 		/// <param name="buffer">
 		/// Specifies the name of the buffer object whose storage to attach to the active buffer texture.
@@ -3735,7 +3735,7 @@ namespace OpenGL
 		/// Specifies the name of a texture object of which to make a view.
 		/// </param>
 		/// <param name="internalformat">
-		/// A <see cref="T:Int32"/>.
+		/// Specifies the internal format for the newly created view.
 		/// </param>
 		/// <param name="minlevel">
 		/// Specifies lowest level of detail of the view.

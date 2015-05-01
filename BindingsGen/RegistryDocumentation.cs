@@ -512,13 +512,37 @@ namespace BindingsGen
 				paramDoc.Add(String.Format("A <see cref=\"T:{0}\"/>.", param.GetImplementationType(ctx, command)));
 
 				if (root != null) {
-					string xpath = String.Format("/x:refentry/x:refsect1[@xml:id='parameters']/x:variablelist/x:varlistentry[x:term/x:parameter/text() = '{0}']/x:listitem/x:para", param.Name);
+					XmlNode xmlIdentifier = null;
+					List<string> paramAliases = new List<string>();
 
-					XmlNode xmlIdentifier = root.SelectSingleNode(xpath, nsmgr);
+					paramAliases.Add(param.Name.ToLowerInvariant());
+					if (param.Name == "x") paramAliases.Add("v0");
+					if (param.Name == "y") paramAliases.Add("v1");
+					if (param.Name == "z") paramAliases.Add("v2");
+					if (param.Name == "w") paramAliases.Add("v3");
+
+					foreach (string paramAlias in paramAliases) {
+						string xpath = String.Format(
+							"/x:refentry/x:refsect1["+
+								"translate(@xml:id,'ABCDEFGHIJKLMNOPQRSTUVWXYZ123456790','abcdefghijklmnopqrstuvwxyz123456790')='parameters'" +
+							"]/x:variablelist/x:varlistentry[" +
+								"translate(x:term/x:parameter/text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZ123456790','abcdefghijklmnopqrstuvwxyz123456790')='{0}'" +
+							"]/x:listitem/x:para",
+
+							param.Name.ToLowerInvariant()
+						);
+
+						if ((xmlIdentifier = root.SelectSingleNode(xpath, nsmgr)) != null)
+							break;
+					}
+					
 					if (xmlIdentifier != null)
 						paramDoc = GetDocumentationLines(xmlIdentifier.InnerXml, TranformCommandMan4, ctx);
-					else
+					else {
+						if (mWarningLog != null)
+							mWarningLog.WriteLine("Missing documentation: {0}.{1}.{2}", ctx.Class, command.GetImplementationName(ctx), param.Name);
 						Console.WriteLine("Unable to to document {0}.{1}.{2}", ctx.Class, command.GetImplementationName(ctx), param.Name);
+					}
 				}
 
 				sw.WriteLine("/// <param name=\"{0}\">", param.Name);
@@ -1420,6 +1444,26 @@ namespace BindingsGen
 
 			private static readonly object sSyncObject = new object();
 		}
+
+		#endregion
+
+		#region Logging
+
+		public static void CreateLog()
+		{
+			mWarningLog = new StreamWriter("../../DocWarnings.txt");
+		}
+
+		public static void CloseLog()
+		{
+			mWarningLog.Close();
+			mWarningLog = null;
+		}
+
+		/// <summary>
+		/// Stream used for logging documentation warnings.
+		/// </summary>
+		private static StreamWriter mWarningLog;
 
 		#endregion
 	}

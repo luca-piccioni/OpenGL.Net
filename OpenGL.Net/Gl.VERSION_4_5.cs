@@ -2522,25 +2522,25 @@ namespace OpenGL
 		/// Specify the bounds of the source rectangle within the read buffer of the read framebuffer.
 		/// </param>
 		/// <param name="srcY0">
-		/// Specify the bounds of the source rectangle within the read buffer of the read framebuffer.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="srcX1">
-		/// Specify the bounds of the source rectangle within the read buffer of the read framebuffer.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="srcY1">
-		/// Specify the bounds of the source rectangle within the read buffer of the read framebuffer.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="dstX0">
 		/// Specify the bounds of the destination rectangle within the write buffer of the write framebuffer.
 		/// </param>
 		/// <param name="dstY0">
-		/// Specify the bounds of the destination rectangle within the write buffer of the write framebuffer.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="dstX1">
-		/// Specify the bounds of the destination rectangle within the write buffer of the write framebuffer.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="dstY1">
-		/// Specify the bounds of the destination rectangle within the write buffer of the write framebuffer.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="mask">
 		/// The bitwise OR of the flags indicating which buffers are to be copied. The allowed flags are Gl.COLOR_BUFFER_BIT, 
@@ -2996,7 +2996,7 @@ namespace OpenGL
 		/// Specifies the texture object name for Gl.TextureBuffer.
 		/// </param>
 		/// <param name="internalformat">
-		/// A <see cref="T:Int32"/>.
+		/// Specifies the internal format of the data in the store belonging to <paramref name="buffer"/>.
 		/// </param>
 		/// <param name="buffer">
 		/// Specifies the name of the buffer object whose storage to attach to the active buffer texture.
@@ -3046,7 +3046,7 @@ namespace OpenGL
 		/// Specifies the texture object name for Gl.TextureBufferRange.
 		/// </param>
 		/// <param name="internalformat">
-		/// A <see cref="T:Int32"/>.
+		/// Specifies the internal format of the data in the store belonging to <paramref name="buffer"/>.
 		/// </param>
 		/// <param name="buffer">
 		/// Specifies the name of the buffer object whose storage to attach to the active buffer texture.
@@ -4733,7 +4733,7 @@ namespace OpenGL
 		/// Specify the window coordinates of the left corner of the row of pixels to be copied.
 		/// </param>
 		/// <param name="y">
-		/// Specify the window coordinates of the left corner of the row of pixels to be copied.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="width">
 		/// Specifies the width of the texture subimage.
@@ -4816,7 +4816,7 @@ namespace OpenGL
 		/// Specify the window coordinates of the lower left corner of the rectangular region of pixels to be copied.
 		/// </param>
 		/// <param name="y">
-		/// Specify the window coordinates of the lower left corner of the rectangular region of pixels to be copied.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="width">
 		/// Specifies the width of the texture subimage.
@@ -4912,7 +4912,7 @@ namespace OpenGL
 		/// Specify the window coordinates of the lower left corner of the rectangular region of pixels to be copied.
 		/// </param>
 		/// <param name="y">
-		/// Specify the window coordinates of the lower left corner of the rectangular region of pixels to be copied.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="width">
 		/// Specifies the width of the texture subimage.
@@ -8231,16 +8231,14 @@ namespace OpenGL
 		/// corner of a rectangular block of pixels.
 		/// </param>
 		/// <param name="y">
-		/// Specify the window coordinates of the first pixel that is read from the frame buffer. This location is the lower left 
-		/// corner of a rectangular block of pixels.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="width">
 		/// Specify the dimensions of the pixel rectangle. <paramref name="width"/> and <paramref name="height"/> of one correspond 
 		/// to a single pixel.
 		/// </param>
 		/// <param name="height">
-		/// Specify the dimensions of the pixel rectangle. <paramref name="width"/> and <paramref name="height"/> of one correspond 
-		/// to a single pixel.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="format">
 		/// Specifies the format of the pixel data. The following symbolic values are accepted: Gl.STENCIL_INDEX, 
