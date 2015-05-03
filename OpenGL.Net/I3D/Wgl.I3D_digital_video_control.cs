@@ -71,7 +71,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pwglGetDigitalVideoParametersI3D != null, "pwglGetDigitalVideoParametersI3D not implemented");
 					retValue = Delegates.pwglGetDigitalVideoParametersI3D(hDC, iAttribute, p_piValue);
-					CallLog("wglGetDigitalVideoParametersI3D({0}, {1}, {2}) = {3}", hDC, iAttribute, piValue, retValue);
+					CallLog("wglGetDigitalVideoParametersI3D(0x{0}, {1}, {2}) = {3}", hDC.ToString("X8"), iAttribute, piValue, retValue);
 				}
 			}
 
@@ -100,7 +100,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pwglSetDigitalVideoParametersI3D != null, "pwglSetDigitalVideoParametersI3D not implemented");
 					retValue = Delegates.pwglSetDigitalVideoParametersI3D(hDC, iAttribute, p_piValue);
-					CallLog("wglSetDigitalVideoParametersI3D({0}, {1}, {2}) = {3}", hDC, iAttribute, piValue, retValue);
+					CallLog("wglSetDigitalVideoParametersI3D(0x{0}, {1}, {2}) = {3}", hDC.ToString("X8"), iAttribute, piValue, retValue);
 				}
 			}
 

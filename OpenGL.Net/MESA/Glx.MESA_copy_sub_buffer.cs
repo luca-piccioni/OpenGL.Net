@@ -51,7 +51,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglXCopySubBufferMESA != null, "pglXCopySubBufferMESA not implemented");
 			Delegates.pglXCopySubBufferMESA(dpy, drawable, x, y, width, height);
-			CallLog("glXCopySubBufferMESA({0}, {1}, {2}, {3}, {4}, {5})", dpy, drawable, x, y, width, height);
+			CallLog("glXCopySubBufferMESA(0x{0}, 0x{1}, {2}, {3}, {4}, {5})", dpy.ToString("X8"), drawable.ToString("X8"), x, y, width, height);
 		}
 
 	}

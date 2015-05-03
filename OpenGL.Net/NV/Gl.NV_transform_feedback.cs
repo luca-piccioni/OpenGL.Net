@@ -159,9 +159,6 @@ namespace OpenGL
 		/// <param name="program">
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
-		/// <param name="count">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
 		/// <param name="locations">
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
@@ -291,14 +288,8 @@ namespace OpenGL
 		/// <summary>
 		/// Binding for glTransformFeedbackStreamAttribsNV.
 		/// </summary>
-		/// <param name="count">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
 		/// <param name="attribs">
 		/// A <see cref="T:Int32[]"/>.
-		/// </param>
-		/// <param name="nbuffers">
-		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="bufstreams">
 		/// A <see cref="T:Int32[]"/>.

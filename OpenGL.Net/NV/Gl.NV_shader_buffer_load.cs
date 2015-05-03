@@ -323,9 +323,6 @@ namespace OpenGL
 		/// <param name="location">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
-		/// <param name="count">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
 		/// <param name="value">
 		/// A <see cref="T:UInt64[]"/>.
 		/// </param>

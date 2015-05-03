@@ -56,9 +56,6 @@ namespace OpenGL
 		/// <summary>
 		/// Binding for glInstrumentsBufferSGIX.
 		/// </summary>
-		/// <param name="size">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
 		/// <param name="buffer">
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>

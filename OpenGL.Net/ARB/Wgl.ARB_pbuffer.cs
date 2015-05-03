@@ -115,7 +115,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pwglCreatePbufferARB != null, "pwglCreatePbufferARB not implemented");
 					retValue = Delegates.pwglCreatePbufferARB(hDC, iPixelFormat, iWidth, iHeight, p_piAttribList);
-					CallLog("wglCreatePbufferARB({0}, {1}, {2}, {3}, {4}) = {5}", hDC, iPixelFormat, iWidth, iHeight, piAttribList, retValue);
+					CallLog("wglCreatePbufferARB(0x{0}, {1}, {2}, {3}, {4}) = {5}", hDC.ToString("X8"), iPixelFormat, iWidth, iHeight, piAttribList, retValue.ToString("X8"));
 				}
 			}
 
@@ -135,7 +135,7 @@ namespace OpenGL
 
 			Debug.Assert(Delegates.pwglGetPbufferDCARB != null, "pwglGetPbufferDCARB not implemented");
 			retValue = Delegates.pwglGetPbufferDCARB(hPbuffer);
-			CallLog("wglGetPbufferDCARB({0}) = {1}", hPbuffer, retValue);
+			CallLog("wglGetPbufferDCARB(0x{0}) = {1}", hPbuffer.ToString("X8"), retValue.ToString("X8"));
 
 			return (retValue);
 		}
@@ -156,7 +156,7 @@ namespace OpenGL
 
 			Debug.Assert(Delegates.pwglReleasePbufferDCARB != null, "pwglReleasePbufferDCARB not implemented");
 			retValue = Delegates.pwglReleasePbufferDCARB(hPbuffer, hDC);
-			CallLog("wglReleasePbufferDCARB({0}, {1}) = {2}", hPbuffer, hDC, retValue);
+			CallLog("wglReleasePbufferDCARB(0x{0}, 0x{1}) = {2}", hPbuffer.ToString("X8"), hDC.ToString("X8"), retValue);
 
 			return (retValue);
 		}
@@ -174,7 +174,7 @@ namespace OpenGL
 
 			Debug.Assert(Delegates.pwglDestroyPbufferARB != null, "pwglDestroyPbufferARB not implemented");
 			retValue = Delegates.pwglDestroyPbufferARB(hPbuffer);
-			CallLog("wglDestroyPbufferARB({0}) = {1}", hPbuffer, retValue);
+			CallLog("wglDestroyPbufferARB(0x{0}) = {1}", hPbuffer.ToString("X8"), retValue);
 
 			return (retValue);
 		}
@@ -201,7 +201,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pwglQueryPbufferARB != null, "pwglQueryPbufferARB not implemented");
 					retValue = Delegates.pwglQueryPbufferARB(hPbuffer, iAttribute, p_piValue);
-					CallLog("wglQueryPbufferARB({0}, {1}, {2}) = {3}", hPbuffer, iAttribute, piValue, retValue);
+					CallLog("wglQueryPbufferARB(0x{0}, {1}, {2}) = {3}", hPbuffer.ToString("X8"), iAttribute, piValue, retValue);
 				}
 			}
 

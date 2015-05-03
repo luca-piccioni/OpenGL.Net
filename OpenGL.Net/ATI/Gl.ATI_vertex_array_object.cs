@@ -92,7 +92,7 @@ namespace OpenGL
 
 			Debug.Assert(Delegates.pglNewObjectBufferATI != null, "pglNewObjectBufferATI not implemented");
 			retValue = Delegates.pglNewObjectBufferATI(size, pointer, usage);
-			CallLog("glNewObjectBufferATI({0}, {1}, {2}) = {3}", size, pointer, usage, retValue);
+			CallLog("glNewObjectBufferATI({0}, 0x{1}, {2}) = {3}", size, pointer.ToString("X8"), usage, retValue);
 			DebugCheckErrors();
 
 			return (retValue);
@@ -163,7 +163,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglUpdateObjectBufferATI != null, "pglUpdateObjectBufferATI not implemented");
 			Delegates.pglUpdateObjectBufferATI(buffer, offset, size, pointer, preserve);
-			CallLog("glUpdateObjectBufferATI({0}, {1}, {2}, {3}, {4})", buffer, offset, size, pointer, preserve);
+			CallLog("glUpdateObjectBufferATI({0}, {1}, {2}, 0x{3}, {4})", buffer, offset, size, pointer.ToString("X8"), preserve);
 			DebugCheckErrors();
 		}
 

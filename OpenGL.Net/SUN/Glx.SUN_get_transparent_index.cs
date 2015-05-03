@@ -50,7 +50,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglXGetTransparentIndexSUN != null, "pglXGetTransparentIndexSUN not implemented");
 					retValue = Delegates.pglXGetTransparentIndexSUN(dpy, overlay, underlay, p_pTransparentIndex);
-					CallLog("glXGetTransparentIndexSUN({0}, {1}, {2}, {3}) = {4}", dpy, overlay, underlay, pTransparentIndex, retValue);
+					CallLog("glXGetTransparentIndexSUN(0x{0}, 0x{1}, 0x{2}, {3}) = {4}", dpy.ToString("X8"), overlay.ToString("X8"), underlay.ToString("X8"), pTransparentIndex, retValue);
 				}
 			}
 

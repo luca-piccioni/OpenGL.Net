@@ -847,7 +847,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglDrawArraysIndirect != null, "pglDrawArraysIndirect not implemented");
 			Delegates.pglDrawArraysIndirect((Int32)mode, indirect);
-			CallLog("glDrawArraysIndirect({0}, {1})", mode, indirect);
+			CallLog("glDrawArraysIndirect({0}, 0x{1})", mode, indirect.ToString("X8"));
 			DebugCheckErrors();
 		}
 
@@ -939,7 +939,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglDrawElementsIndirect != null, "pglDrawElementsIndirect not implemented");
 			Delegates.pglDrawElementsIndirect((Int32)mode, type, indirect);
-			CallLog("glDrawElementsIndirect({0}, {1}, {2})", mode, type, indirect);
+			CallLog("glDrawElementsIndirect({0}, {1}, 0x{2})", mode, type, indirect.ToString("X8"));
 			DebugCheckErrors();
 		}
 
@@ -1753,9 +1753,6 @@ namespace OpenGL
 		/// Specifies the shader stage from which to query for subroutine uniform index. <paramref name="shadertype"/> must be one 
 		/// of Gl.VERTEX_SHADER, Gl.TESS_CONTROL_SHADER, Gl.TESS_EVALUATION_SHADER, Gl.GEOMETRY_SHADER or Gl.FRAGMENT_SHADER.
 		/// </param>
-		/// <param name="count">
-		/// Specifies the number of uniform indices stored in <paramref name="indices"/>.
-		/// </param>
 		/// <param name="indices">
 		/// Specifies the address of an array holding the indices to load into the shader subroutine variables.
 		/// </param>
@@ -1996,9 +1993,6 @@ namespace OpenGL
 		/// <summary>
 		/// delete transform feedback objects
 		/// </summary>
-		/// <param name="n">
-		/// Specifies the number of transform feedback objects to delete.
-		/// </param>
 		/// <param name="ids">
 		/// Specifies an array of names of transform feedback objects to delete.
 		/// </param>
@@ -2027,9 +2021,6 @@ namespace OpenGL
 		/// <summary>
 		/// reserve transform feedback object names
 		/// </summary>
-		/// <param name="n">
-		/// Specifies the number of transform feedback object names to reserve.
-		/// </param>
 		/// <param name="ids">
 		/// Specifies an array of into which the reserved names will be written.
 		/// </param>

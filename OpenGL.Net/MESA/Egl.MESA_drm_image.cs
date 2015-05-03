@@ -86,7 +86,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.peglCreateDRMImageMESA != null, "peglCreateDRMImageMESA not implemented");
 					retValue = Delegates.peglCreateDRMImageMESA(dpy, p_attrib_list);
-					CallLog("eglCreateDRMImageMESA({0}, {1}) = {2}", dpy, attrib_list, retValue);
+					CallLog("eglCreateDRMImageMESA(0x{0}, {1}) = {2}", dpy.ToString("X8"), attrib_list, retValue.ToString("X8"));
 				}
 			}
 			DebugCheckErrors();
@@ -124,7 +124,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.peglExportDRMImageMESA != null, "peglExportDRMImageMESA not implemented");
 					retValue = Delegates.peglExportDRMImageMESA(dpy, image, p_name, p_handle, p_stride);
-					CallLog("eglExportDRMImageMESA({0}, {1}, {2}, {3}, {4}) = {5}", dpy, image, name, handle, stride, retValue);
+					CallLog("eglExportDRMImageMESA(0x{0}, 0x{1}, {2}, {3}, {4}) = {5}", dpy.ToString("X8"), image.ToString("X8"), name, handle, stride, retValue.ToString("X8"));
 				}
 			}
 			DebugCheckErrors();

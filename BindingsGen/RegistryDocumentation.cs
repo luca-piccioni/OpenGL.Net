@@ -340,6 +340,10 @@ namespace BindingsGen
 			foreach (CommandParameter param in commandParams) {
 				List<string> paramDoc = new List<string>();
 
+				// Note: in the case of overloaded methods, some parameters are implicit. Skip the documentation for those parameters.
+				if (param.IsImplicit(ctx, command))
+					continue;
+
 				// Default
 				paramDoc.Add(String.Format("A <see cref=\"T:{0}\"/>.", param.GetImplementationType(ctx, command)));
 
@@ -507,6 +511,10 @@ namespace BindingsGen
 
 			foreach (CommandParameter param in commandParams) {
 				List<string> paramDoc = new List<string>();
+
+				// Note: in the case of overloaded methods, some parameters are implicit. Skip the documentation for those parameters.
+				if (param.IsImplicit(ctx, command))
+					continue;
 
 				// Default
 				paramDoc.Add(String.Format("A <see cref=\"T:{0}\"/>.", param.GetImplementationType(ctx, command)));
@@ -704,6 +712,10 @@ namespace BindingsGen
 
 			foreach (CommandParameter param in commandParams) {
 				List<string> paramDoc = new List<string>();
+
+				// Note: in the case of overloaded methods, some parameters are implicit. Skip the documentation for those parameters.
+				if (param.IsImplicit(ctx, command))
+					continue;
 
 				// Default
 				paramDoc.Add(String.Format("A <see cref=\"T:{0}\"/>.", param.GetImplementationType(ctx, command)));

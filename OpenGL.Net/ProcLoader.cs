@@ -166,9 +166,8 @@ namespace OpenGL
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="pImports"></param>
-		/// <param name="name"></param>
-		/// <param name="signature"></param>
+		/// <param name="imports"></param>
+		/// <param name="delegateField"></param>
 		/// <returns></returns>
 		private static Delegate GetDelegate(ImportMap imports, FieldInfo delegateField)
 		{

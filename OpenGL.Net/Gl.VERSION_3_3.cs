@@ -278,9 +278,6 @@ namespace OpenGL
 		/// <summary>
 		/// generate sampler object names
 		/// </summary>
-		/// <param name="count">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
 		/// <param name="samplers">
 		/// Specifies an array in which the generated sampler object names are stored.
 		/// </param>
@@ -330,9 +327,6 @@ namespace OpenGL
 		/// <summary>
 		/// delete named sampler objects
 		/// </summary>
-		/// <param name="count">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
 		/// <param name="samplers">
 		/// Specifies an array of sampler objects to be deleted.
 		/// </param>

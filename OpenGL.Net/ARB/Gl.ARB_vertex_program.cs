@@ -531,7 +531,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglProgramStringARB != null, "pglProgramStringARB not implemented");
 			Delegates.pglProgramStringARB(target, format, len, @string);
-			CallLog("glProgramStringARB({0}, {1}, {2}, {3})", target, format, len, @string);
+			CallLog("glProgramStringARB({0}, {1}, {2}, 0x{3})", target, format, len, @string.ToString("X8"));
 			DebugCheckErrors();
 		}
 
@@ -584,9 +584,6 @@ namespace OpenGL
 		/// <summary>
 		/// Binding for glDeleteProgramsARB.
 		/// </summary>
-		/// <param name="n">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
 		/// <param name="programs">
 		/// A <see cref="T:UInt32[]"/>.
 		/// </param>
@@ -608,9 +605,6 @@ namespace OpenGL
 		/// <summary>
 		/// Binding for glGenProgramsARB.
 		/// </summary>
-		/// <param name="n">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
 		/// <param name="programs">
 		/// A <see cref="T:UInt32[]"/>.
 		/// </param>
@@ -1026,7 +1020,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglGetProgramStringARB != null, "pglGetProgramStringARB not implemented");
 			Delegates.pglGetProgramStringARB(target, pname, @string);
-			CallLog("glGetProgramStringARB({0}, {1}, {2})", target, pname, @string);
+			CallLog("glGetProgramStringARB({0}, {1}, 0x{2})", target, pname, @string.ToString("X8"));
 			DebugCheckErrors();
 		}
 

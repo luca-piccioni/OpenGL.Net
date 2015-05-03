@@ -712,7 +712,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglColorTable != null, "pglColorTable not implemented");
 			Delegates.pglColorTable(target, internalformat, width, (Int32)format, (Int32)type, table);
-			CallLog("glColorTable({0}, {1}, {2}, {3}, {4}, {5})", target, internalformat, width, format, type, table);
+			CallLog("glColorTable({0}, {1}, {2}, {3}, {4}, 0x{5})", target, internalformat, width, format, type, table.ToString("X8"));
 			DebugCheckErrors();
 		}
 
@@ -994,7 +994,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglGetColorTable != null, "pglGetColorTable not implemented");
 			Delegates.pglGetColorTable(target, (Int32)format, (Int32)type, table);
-			CallLog("glGetColorTable({0}, {1}, {2}, {3})", target, format, type, table);
+			CallLog("glGetColorTable({0}, {1}, {2}, 0x{3})", target, format, type, table.ToString("X8"));
 			DebugCheckErrors();
 		}
 
@@ -1219,7 +1219,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglColorSubTable != null, "pglColorSubTable not implemented");
 			Delegates.pglColorSubTable(target, start, count, (Int32)format, (Int32)type, data);
-			CallLog("glColorSubTable({0}, {1}, {2}, {3}, {4}, {5})", target, start, count, format, type, data);
+			CallLog("glColorSubTable({0}, {1}, {2}, {3}, {4}, 0x{5})", target, start, count, format, type, data.ToString("X8"));
 			DebugCheckErrors();
 		}
 
@@ -1429,7 +1429,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglConvolutionFilter1D != null, "pglConvolutionFilter1D not implemented");
 			Delegates.pglConvolutionFilter1D(target, internalformat, width, (Int32)format, (Int32)type, image);
-			CallLog("glConvolutionFilter1D({0}, {1}, {2}, {3}, {4}, {5})", target, internalformat, width, format, type, image);
+			CallLog("glConvolutionFilter1D({0}, {1}, {2}, {3}, {4}, 0x{5})", target, internalformat, width, format, type, image.ToString("X8"));
 			DebugCheckErrors();
 		}
 
@@ -1621,7 +1621,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglConvolutionFilter2D != null, "pglConvolutionFilter2D not implemented");
 			Delegates.pglConvolutionFilter2D(target, internalformat, width, height, (Int32)format, (Int32)type, image);
-			CallLog("glConvolutionFilter2D({0}, {1}, {2}, {3}, {4}, {5}, {6})", target, internalformat, width, height, format, type, image);
+			CallLog("glConvolutionFilter2D({0}, {1}, {2}, {3}, {4}, {5}, 0x{6})", target, internalformat, width, height, format, type, image.ToString("X8"));
 			DebugCheckErrors();
 		}
 
@@ -2080,7 +2080,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglGetConvolutionFilter != null, "pglGetConvolutionFilter not implemented");
 			Delegates.pglGetConvolutionFilter(target, (Int32)format, (Int32)type, image);
-			CallLog("glGetConvolutionFilter({0}, {1}, {2}, {3})", target, format, type, image);
+			CallLog("glGetConvolutionFilter({0}, {1}, {2}, 0x{3})", target, format, type, image.ToString("X8"));
 			DebugCheckErrors();
 		}
 
@@ -2327,7 +2327,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglGetSeparableFilter != null, "pglGetSeparableFilter not implemented");
 			Delegates.pglGetSeparableFilter(target, (Int32)format, (Int32)type, row, column, span);
-			CallLog("glGetSeparableFilter({0}, {1}, {2}, {3}, {4}, {5})", target, format, type, row, column, span);
+			CallLog("glGetSeparableFilter({0}, {1}, {2}, 0x{3}, 0x{4}, 0x{5})", target, format, type, row.ToString("X8"), column.ToString("X8"), span.ToString("X8"));
 			DebugCheckErrors();
 		}
 
@@ -2514,7 +2514,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglSeparableFilter2D != null, "pglSeparableFilter2D not implemented");
 			Delegates.pglSeparableFilter2D(target, internalformat, width, height, (Int32)format, (Int32)type, row, column);
-			CallLog("glSeparableFilter2D({0}, {1}, {2}, {3}, {4}, {5}, {6}, {7})", target, internalformat, width, height, format, type, row, column);
+			CallLog("glSeparableFilter2D({0}, {1}, {2}, {3}, {4}, {5}, 0x{6}, 0x{7})", target, internalformat, width, height, format, type, row.ToString("X8"), column.ToString("X8"));
 			DebugCheckErrors();
 		}
 
@@ -2696,7 +2696,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglGetHistogram != null, "pglGetHistogram not implemented");
 			Delegates.pglGetHistogram(target, reset, (Int32)format, (Int32)type, values);
-			CallLog("glGetHistogram({0}, {1}, {2}, {3}, {4})", target, reset, format, type, values);
+			CallLog("glGetHistogram({0}, {1}, {2}, {3}, 0x{4})", target, reset, format, type, values.ToString("X8"));
 			DebugCheckErrors();
 		}
 
@@ -2926,7 +2926,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglGetMinmax != null, "pglGetMinmax not implemented");
 			Delegates.pglGetMinmax(target, reset, (Int32)format, (Int32)type, values);
-			CallLog("glGetMinmax({0}, {1}, {2}, {3}, {4})", target, reset, format, type, values);
+			CallLog("glGetMinmax({0}, {1}, {2}, {3}, 0x{4})", target, reset, format, type, values.ToString("X8"));
 			DebugCheckErrors();
 		}
 

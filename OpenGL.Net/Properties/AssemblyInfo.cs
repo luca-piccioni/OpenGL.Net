@@ -6,11 +6,11 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("OpenGL.Net")]
-[assembly: AssemblyDescription("Modern C# binding for OpenGL.")]
+[assembly: AssemblyDescription("Modern C# bindings for OpenGL.")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("OpenGL.Net")]
-[assembly: AssemblyCopyright("Copyright (C) 2015 Luca Piccioni")]
+[assembly: AssemblyCopyright("Copyright (C) Luca Piccioni 2015")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

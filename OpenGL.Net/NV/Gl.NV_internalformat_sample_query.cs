@@ -64,9 +64,6 @@ namespace OpenGL
 		/// <param name="pname">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
-		/// <param name="bufSize">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
 		/// <param name="params">
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>

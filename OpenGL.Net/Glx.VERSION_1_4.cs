@@ -61,7 +61,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglXGetProcAddress != null, "pglXGetProcAddress not implemented");
 					retValue = Delegates.pglXGetProcAddress(p_procName);
-					CallLog("glXGetProcAddress({0}) = {1}", procName, retValue);
+					CallLog("glXGetProcAddress({0}) = {1}", procName, retValue.ToString("X8"));
 				}
 			}
 

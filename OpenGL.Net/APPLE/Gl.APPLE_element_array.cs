@@ -57,7 +57,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglElementPointerAPPLE != null, "pglElementPointerAPPLE not implemented");
 			Delegates.pglElementPointerAPPLE(type, pointer);
-			CallLog("glElementPointerAPPLE({0}, {1})", type, pointer);
+			CallLog("glElementPointerAPPLE({0}, 0x{1})", type, pointer.ToString("X8"));
 			DebugCheckErrors();
 		}
 
@@ -173,9 +173,6 @@ namespace OpenGL
 		/// <param name="count">
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
-		/// <param name="primcount">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
 		[RequiredByFeature("GL_APPLE_element_array")]
 		public static void MultiDrawElementArrayAPPLE(PrimitiveType mode, Int32[] first, Int32[] count)
 		{
@@ -246,9 +243,6 @@ namespace OpenGL
 		/// </param>
 		/// <param name="count">
 		/// A <see cref="T:Int32[]"/>.
-		/// </param>
-		/// <param name="primcount">
-		/// A <see cref="T:Int32"/>.
 		/// </param>
 		[RequiredByFeature("GL_APPLE_element_array")]
 		public static void MultiDrawRangeElementArrayAPPLE(PrimitiveType mode, UInt32 start, UInt32 end, Int32[] first, Int32[] count)

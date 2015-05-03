@@ -146,7 +146,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglVertexWeightPointerEXT != null, "pglVertexWeightPointerEXT not implemented");
 			Delegates.pglVertexWeightPointerEXT(size, type, stride, pointer);
-			CallLog("glVertexWeightPointerEXT({0}, {1}, {2}, {3})", size, type, stride, pointer);
+			CallLog("glVertexWeightPointerEXT({0}, {1}, {2}, 0x{3})", size, type, stride, pointer.ToString("X8"));
 			DebugCheckErrors();
 		}
 

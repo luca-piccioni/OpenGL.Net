@@ -999,7 +999,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglDrawElementsInstancedBaseInstance != null, "pglDrawElementsInstancedBaseInstance not implemented");
 			Delegates.pglDrawElementsInstancedBaseInstance((Int32)mode, count, type, indices, instancecount, baseinstance);
-			CallLog("glDrawElementsInstancedBaseInstance({0}, {1}, {2}, {3}, {4}, {5})", mode, count, type, indices, instancecount, baseinstance);
+			CallLog("glDrawElementsInstancedBaseInstance({0}, {1}, {2}, 0x{3}, {4}, {5})", mode, count, type, indices.ToString("X8"), instancecount, baseinstance);
 			DebugCheckErrors();
 		}
 
@@ -1112,7 +1112,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglDrawElementsInstancedBaseVertexBaseInstance != null, "pglDrawElementsInstancedBaseVertexBaseInstance not implemented");
 			Delegates.pglDrawElementsInstancedBaseVertexBaseInstance((Int32)mode, count, type, indices, instancecount, basevertex, baseinstance);
-			CallLog("glDrawElementsInstancedBaseVertexBaseInstance({0}, {1}, {2}, {3}, {4}, {5}, {6})", mode, count, type, indices, instancecount, basevertex, baseinstance);
+			CallLog("glDrawElementsInstancedBaseVertexBaseInstance({0}, {1}, {2}, 0x{3}, {4}, {5}, {6})", mode, count, type, indices.ToString("X8"), instancecount, basevertex, baseinstance);
 			DebugCheckErrors();
 		}
 
@@ -1189,9 +1189,6 @@ namespace OpenGL
 		/// </param>
 		/// <param name="pname">
 		/// Specifies the type of information to query.
-		/// </param>
-		/// <param name="bufSize">
-		/// Specifies the maximum number of basic machine units that may be written to <paramref name="params"/> by the function.
 		/// </param>
 		/// <param name="params">
 		/// Specifies the address of a variable into which to write the retrieved information.

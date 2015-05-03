@@ -1065,7 +1065,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglFogCoordPointer != null, "pglFogCoordPointer not implemented");
 			Delegates.pglFogCoordPointer((Int32)type, stride, pointer);
-			CallLog("glFogCoordPointer({0}, {1}, {2})", type, stride, pointer);
+			CallLog("glFogCoordPointer({0}, {1}, 0x{2})", type, stride, pointer.ToString("X8"));
 			DebugCheckErrors();
 		}
 
@@ -1587,7 +1587,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglSecondaryColorPointer != null, "pglSecondaryColorPointer not implemented");
 			Delegates.pglSecondaryColorPointer(size, (Int32)type, stride, pointer);
-			CallLog("glSecondaryColorPointer({0}, {1}, {2}, {3})", size, type, stride, pointer);
+			CallLog("glSecondaryColorPointer({0}, {1}, {2}, 0x{3})", size, type, stride, pointer.ToString("X8"));
 			DebugCheckErrors();
 		}
 

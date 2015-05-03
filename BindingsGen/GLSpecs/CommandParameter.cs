@@ -425,24 +425,40 @@ namespace BindingsGen.GLSpecs
 				sw.Write(FixedLocalVarName);
 		}
 
-		public virtual void WriteCallLogFormatParam(SourceStreamWriter sw, RegistryContext ctx, Command parentCommand)
+		public virtual void WriteCallLogFormatParam(SourceStreamWriter sw, RegistryContext ctx, Command parentCommand, int paramIndex)
 		{
-			// No code for commong parameter
+			string implementationType = GetImplementationType(ctx, parentCommand);
+			bool safeImplementationType = !implementationType.EndsWith("*") && implementationType != "IntPtr";
+
+			if (safeImplementationType == false)
+				sw.Write("0x{{{0}}}", paramIndex);
+			else
+				sw.Write("{{{0}}}", paramIndex);
 		}
 
 		public virtual void WriteCallLogArgParam(SourceStreamWriter sw, RegistryContext ctx, Command parentCommand)
 		{
-			sw.Write("{0}", ImplementationName);
+			WriteCallLogArgParam(sw, ImplementationName, GetImplementationType(ctx, parentCommand));
+		}
+
+		public static void WriteCallLogArgParam(SourceStreamWriter sw, string implementationName, string implementationType)
+		{
+			if (implementationType.EndsWith("*"))
+				sw.Write("{0} != null ? {0}->ToString() : \"(null)\"", implementationName);
+			else if (implementationType == "IntPtr")
+				sw.Write("{0}.ToString(\"X8\")", implementationName);
+			else
+				sw.Write("{0}", implementationName);
 		}
 
 		public virtual void WritePinnedVariable(SourceStreamWriter sw, RegistryContext ctx, Command parentCommand)
 		{
-			// No code for commong parameter
+			// No code for common parameter
 		}
 
 		public virtual void WriteUnpinCommand(SourceStreamWriter sw, RegistryContext ctx, Command parentCommand)
 		{
-			// No code for commong parameter
+			// No code for common parameter
 		}
 
 		#endregion

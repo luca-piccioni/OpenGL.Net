@@ -63,7 +63,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglVDPAUInitNV != null, "pglVDPAUInitNV not implemented");
 			Delegates.pglVDPAUInitNV(vdpDevice, getProcAddress);
-			CallLog("glVDPAUInitNV({0}, {1})", vdpDevice, getProcAddress);
+			CallLog("glVDPAUInitNV(0x{0}, 0x{1})", vdpDevice.ToString("X8"), getProcAddress.ToString("X8"));
 			DebugCheckErrors();
 		}
 
@@ -136,9 +136,6 @@ namespace OpenGL
 		/// <param name="target">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
-		/// <param name="numTextureNames">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
 		/// <param name="textureNames">
 		/// A <see cref="T:UInt32[]"/>.
 		/// </param>
@@ -152,7 +149,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglVDPAURegisterVideoSurfaceNV != null, "pglVDPAURegisterVideoSurfaceNV not implemented");
 					retValue = Delegates.pglVDPAURegisterVideoSurfaceNV(vdpSurface, target, (Int32)textureNames.Length, p_textureNames);
-					CallLog("glVDPAURegisterVideoSurfaceNV({0}, {1}, {2}, {3}) = {4}", vdpSurface, target, textureNames.Length, textureNames, retValue);
+					CallLog("glVDPAURegisterVideoSurfaceNV(0x{0}, {1}, {2}, {3}) = {4}", vdpSurface.ToString("X8"), target, textureNames.Length, textureNames, retValue.ToString("X8"));
 				}
 			}
 			DebugCheckErrors();
@@ -195,9 +192,6 @@ namespace OpenGL
 		/// <param name="target">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
-		/// <param name="numTextureNames">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
 		/// <param name="textureNames">
 		/// A <see cref="T:UInt32[]"/>.
 		/// </param>
@@ -211,7 +205,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglVDPAURegisterOutputSurfaceNV != null, "pglVDPAURegisterOutputSurfaceNV not implemented");
 					retValue = Delegates.pglVDPAURegisterOutputSurfaceNV(vdpSurface, target, (Int32)textureNames.Length, p_textureNames);
-					CallLog("glVDPAURegisterOutputSurfaceNV({0}, {1}, {2}, {3}) = {4}", vdpSurface, target, textureNames.Length, textureNames, retValue);
+					CallLog("glVDPAURegisterOutputSurfaceNV(0x{0}, {1}, {2}, {3}) = {4}", vdpSurface.ToString("X8"), target, textureNames.Length, textureNames, retValue.ToString("X8"));
 				}
 			}
 			DebugCheckErrors();
@@ -232,7 +226,7 @@ namespace OpenGL
 
 			Debug.Assert(Delegates.pglVDPAUIsSurfaceNV != null, "pglVDPAUIsSurfaceNV not implemented");
 			retValue = Delegates.pglVDPAUIsSurfaceNV(surface);
-			CallLog("glVDPAUIsSurfaceNV({0}) = {1}", surface, retValue);
+			CallLog("glVDPAUIsSurfaceNV(0x{0}) = {1}", surface.ToString("X8"), retValue);
 			DebugCheckErrors();
 
 			return (retValue);
@@ -249,7 +243,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglVDPAUUnregisterSurfaceNV != null, "pglVDPAUUnregisterSurfaceNV not implemented");
 			Delegates.pglVDPAUUnregisterSurfaceNV(surface);
-			CallLog("glVDPAUUnregisterSurfaceNV({0})", surface);
+			CallLog("glVDPAUUnregisterSurfaceNV(0x{0})", surface.ToString("X8"));
 			DebugCheckErrors();
 		}
 
@@ -260,9 +254,6 @@ namespace OpenGL
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		/// <param name="pname">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="bufSize">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="length">
@@ -280,7 +271,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglVDPAUGetSurfaceivNV != null, "pglVDPAUGetSurfaceivNV not implemented");
 					Delegates.pglVDPAUGetSurfaceivNV(surface, pname, (Int32)values.Length, p_length, p_values);
-					CallLog("glVDPAUGetSurfaceivNV({0}, {1}, {2}, {3}, {4})", surface, pname, values.Length, length, values);
+					CallLog("glVDPAUGetSurfaceivNV(0x{0}, {1}, {2}, {3}, {4})", surface.ToString("X8"), pname, values.Length, length, values);
 				}
 			}
 			DebugCheckErrors();
@@ -300,16 +291,13 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglVDPAUSurfaceAccessNV != null, "pglVDPAUSurfaceAccessNV not implemented");
 			Delegates.pglVDPAUSurfaceAccessNV(surface, access);
-			CallLog("glVDPAUSurfaceAccessNV({0}, {1})", surface, access);
+			CallLog("glVDPAUSurfaceAccessNV(0x{0}, {1})", surface.ToString("X8"), access);
 			DebugCheckErrors();
 		}
 
 		/// <summary>
 		/// Binding for glVDPAUMapSurfacesNV.
 		/// </summary>
-		/// <param name="numSurfaces">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
 		/// <param name="surfaces">
 		/// A <see cref="T:IntPtr[]"/>.
 		/// </param>
@@ -330,9 +318,6 @@ namespace OpenGL
 		/// <summary>
 		/// Binding for glVDPAUUnmapSurfacesNV.
 		/// </summary>
-		/// <param name="numSurface">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
 		/// <param name="surfaces">
 		/// A <see cref="T:IntPtr[]"/>.
 		/// </param>

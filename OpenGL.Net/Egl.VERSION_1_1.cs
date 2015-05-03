@@ -196,7 +196,7 @@ namespace OpenGL
 
 			Debug.Assert(Delegates.peglBindTexImage != null, "peglBindTexImage not implemented");
 			retValue = Delegates.peglBindTexImage(dpy, surface, buffer);
-			CallLog("eglBindTexImage({0}, {1}, {2}) = {3}", dpy, surface, buffer, retValue);
+			CallLog("eglBindTexImage(0x{0}, 0x{1}, {2}) = {3}", dpy.ToString("X8"), surface.ToString("X8"), buffer, retValue.ToString("X8"));
 			DebugCheckErrors();
 
 			return (retValue);
@@ -221,7 +221,7 @@ namespace OpenGL
 
 			Debug.Assert(Delegates.peglReleaseTexImage != null, "peglReleaseTexImage not implemented");
 			retValue = Delegates.peglReleaseTexImage(dpy, surface, buffer);
-			CallLog("eglReleaseTexImage({0}, {1}, {2}) = {3}", dpy, surface, buffer, retValue);
+			CallLog("eglReleaseTexImage(0x{0}, 0x{1}, {2}) = {3}", dpy.ToString("X8"), surface.ToString("X8"), buffer, retValue.ToString("X8"));
 			DebugCheckErrors();
 
 			return (retValue);
@@ -249,7 +249,7 @@ namespace OpenGL
 
 			Debug.Assert(Delegates.peglSurfaceAttrib != null, "peglSurfaceAttrib not implemented");
 			retValue = Delegates.peglSurfaceAttrib(dpy, surface, attribute, value);
-			CallLog("eglSurfaceAttrib({0}, {1}, {2}, {3}) = {4}", dpy, surface, attribute, value, retValue);
+			CallLog("eglSurfaceAttrib(0x{0}, 0x{1}, {2}, {3}) = {4}", dpy.ToString("X8"), surface.ToString("X8"), attribute, value, retValue.ToString("X8"));
 			DebugCheckErrors();
 
 			return (retValue);
@@ -271,7 +271,7 @@ namespace OpenGL
 
 			Debug.Assert(Delegates.peglSwapInterval != null, "peglSwapInterval not implemented");
 			retValue = Delegates.peglSwapInterval(dpy, interval);
-			CallLog("eglSwapInterval({0}, {1}) = {2}", dpy, interval, retValue);
+			CallLog("eglSwapInterval(0x{0}, {1}) = {2}", dpy.ToString("X8"), interval, retValue.ToString("X8"));
 			DebugCheckErrors();
 
 			return (retValue);

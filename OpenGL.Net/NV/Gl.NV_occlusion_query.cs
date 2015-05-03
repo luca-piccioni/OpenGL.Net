@@ -52,9 +52,6 @@ namespace OpenGL
 		/// <summary>
 		/// Binding for glGenOcclusionQueriesNV.
 		/// </summary>
-		/// <param name="n">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
 		/// <param name="ids">
 		/// A <see cref="T:UInt32[]"/>.
 		/// </param>
@@ -86,9 +83,6 @@ namespace OpenGL
 		/// <summary>
 		/// Binding for glDeleteOcclusionQueriesNV.
 		/// </summary>
-		/// <param name="n">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
 		/// <param name="ids">
 		/// A <see cref="T:UInt32[]"/>.
 		/// </param>

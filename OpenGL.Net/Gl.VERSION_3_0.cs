@@ -2405,7 +2405,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglBindBufferRange != null, "pglBindBufferRange not implemented");
 			Delegates.pglBindBufferRange(target, index, buffer, offset, size);
-			CallLog("glBindBufferRange({0}, {1}, {2}, {3}, {4})", target, index, buffer, offset, size);
+			CallLog("glBindBufferRange({0}, {1}, {2}, 0x{3}, {4})", target, index, buffer, offset.ToString("X8"), size);
 			DebugCheckErrors();
 		}
 
@@ -2458,9 +2458,6 @@ namespace OpenGL
 		/// </summary>
 		/// <param name="program">
 		/// The name of the target program object.
-		/// </param>
-		/// <param name="count">
-		/// The number of varying variables used for transform feedback.
 		/// </param>
 		/// <param name="varyings">
 		/// An array of <paramref name="count"/> zero-terminated strings specifying the names of the varying variables to use for 
@@ -2724,7 +2721,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglVertexAttribIPointer != null, "pglVertexAttribIPointer not implemented");
 			Delegates.pglVertexAttribIPointer(index, size, type, stride, pointer);
-			CallLog("glVertexAttribIPointer({0}, {1}, {2}, {3}, {4})", index, size, type, stride, pointer);
+			CallLog("glVertexAttribIPointer({0}, {1}, {2}, {3}, 0x{4})", index, size, type, stride, pointer.ToString("X8"));
 			DebugCheckErrors();
 		}
 
@@ -4916,9 +4913,6 @@ namespace OpenGL
 		/// <summary>
 		/// delete renderbuffer objects
 		/// </summary>
-		/// <param name="n">
-		/// Specifies the number of renderbuffer objects to be deleted.
-		/// </param>
 		/// <param name="renderbuffers">
 		/// A pointer to an array containing <paramref name="n"/> renderbuffer objects to be deleted.
 		/// </param>
@@ -4949,9 +4943,6 @@ namespace OpenGL
 		/// <summary>
 		/// generate renderbuffer object names
 		/// </summary>
-		/// <param name="n">
-		/// Specifies the number of renderbuffer object names to generate.
-		/// </param>
 		/// <param name="renderbuffers">
 		/// Specifies an array in which the generated renderbuffer object names are stored.
 		/// </param>
@@ -5160,9 +5151,6 @@ namespace OpenGL
 		/// <summary>
 		/// delete framebuffer objects
 		/// </summary>
-		/// <param name="n">
-		/// Specifies the number of framebuffer objects to be deleted.
-		/// </param>
 		/// <param name="framebuffers">
 		/// A pointer to an array containing <paramref name="n"/> framebuffer objects to be deleted.
 		/// </param>
@@ -5192,9 +5180,6 @@ namespace OpenGL
 		/// <summary>
 		/// generate framebuffer object names
 		/// </summary>
-		/// <param name="n">
-		/// Specifies the number of framebuffer object names to generate.
-		/// </param>
 		/// <param name="framebuffers">
 		/// A <see cref="T:UInt32[]"/>.
 		/// </param>
@@ -5918,7 +5903,7 @@ namespace OpenGL
 
 			Debug.Assert(Delegates.pglMapBufferRange != null, "pglMapBufferRange not implemented");
 			retValue = Delegates.pglMapBufferRange((Int32)target, offset, length, access);
-			CallLog("glMapBufferRange({0}, {1}, {2}, {3}) = {4}", target, offset, length, access, retValue);
+			CallLog("glMapBufferRange({0}, 0x{1}, {2}, {3}) = {4}", target, offset.ToString("X8"), length, access, retValue.ToString("X8"));
 			DebugCheckErrors();
 
 			return (retValue);
@@ -5967,7 +5952,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglFlushMappedBufferRange != null, "pglFlushMappedBufferRange not implemented");
 			Delegates.pglFlushMappedBufferRange((Int32)target, offset, length);
-			CallLog("glFlushMappedBufferRange({0}, {1}, {2})", target, offset, length);
+			CallLog("glFlushMappedBufferRange({0}, 0x{1}, {2})", target, offset.ToString("X8"), length);
 			DebugCheckErrors();
 		}
 
@@ -6001,9 +5986,6 @@ namespace OpenGL
 		/// <summary>
 		/// delete vertex array objects
 		/// </summary>
-		/// <param name="n">
-		/// Specifies the number of vertex array objects to be deleted.
-		/// </param>
 		/// <param name="arrays">
 		/// Specifies the address of an array containing the <paramref name="n"/> names of the objects to be deleted.
 		/// </param>
@@ -6033,9 +6015,6 @@ namespace OpenGL
 		/// <summary>
 		/// generate vertex array object names
 		/// </summary>
-		/// <param name="n">
-		/// Specifies the number of vertex array object names to generate.
-		/// </param>
 		/// <param name="arrays">
 		/// Specifies an array in which the generated vertex array object names are stored.
 		/// </param>

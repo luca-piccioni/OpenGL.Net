@@ -977,7 +977,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglSetInvariantEXT != null, "pglSetInvariantEXT not implemented");
 			Delegates.pglSetInvariantEXT(id, type, addr);
-			CallLog("glSetInvariantEXT({0}, {1}, {2})", id, type, addr);
+			CallLog("glSetInvariantEXT({0}, {1}, 0x{2})", id, type, addr.ToString("X8"));
 			DebugCheckErrors();
 		}
 
@@ -1021,7 +1021,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglSetLocalConstantEXT != null, "pglSetLocalConstantEXT not implemented");
 			Delegates.pglSetLocalConstantEXT(id, type, addr);
-			CallLog("glSetLocalConstantEXT({0}, {1}, {2})", id, type, addr);
+			CallLog("glSetLocalConstantEXT({0}, {1}, 0x{2})", id, type, addr.ToString("X8"));
 			DebugCheckErrors();
 		}
 
@@ -1252,7 +1252,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglVariantPointerEXT != null, "pglVariantPointerEXT not implemented");
 			Delegates.pglVariantPointerEXT(id, type, stride, addr);
-			CallLog("glVariantPointerEXT({0}, {1}, {2}, {3})", id, type, stride, addr);
+			CallLog("glVariantPointerEXT({0}, {1}, {2}, 0x{3})", id, type, stride, addr.ToString("X8"));
 			DebugCheckErrors();
 		}
 

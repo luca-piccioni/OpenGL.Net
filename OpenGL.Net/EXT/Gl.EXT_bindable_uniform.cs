@@ -120,7 +120,7 @@ namespace OpenGL
 
 			Debug.Assert(Delegates.pglGetUniformOffsetEXT != null, "pglGetUniformOffsetEXT not implemented");
 			retValue = Delegates.pglGetUniformOffsetEXT(program, location);
-			CallLog("glGetUniformOffsetEXT({0}, {1}) = {2}", program, location, retValue);
+			CallLog("glGetUniformOffsetEXT({0}, {1}) = {2}", program, location, retValue.ToString("X8"));
 			DebugCheckErrors();
 
 			return (retValue);

@@ -50,7 +50,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.peglQuerySurfacePointerANGLE != null, "peglQuerySurfacePointerANGLE not implemented");
 					retValue = Delegates.peglQuerySurfacePointerANGLE(dpy, surface, attribute, p_value);
-					CallLog("eglQuerySurfacePointerANGLE({0}, {1}, {2}, {3}) = {4}", dpy, surface, attribute, value, retValue);
+					CallLog("eglQuerySurfacePointerANGLE(0x{0}, 0x{1}, {2}, {3}) = {4}", dpy.ToString("X8"), surface.ToString("X8"), attribute, value, retValue.ToString("X8"));
 				}
 			}
 			DebugCheckErrors();

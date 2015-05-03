@@ -36,7 +36,7 @@
     <WarningLevel>4</WarningLevel>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <DocumentationFile>bin\Release\OpenGL.Net.xml</DocumentationFile>
-    <NoWarn>419,1570,1574</NoWarn>
+    <NoWarn>419,1570,1574,1591</NoWarn>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />

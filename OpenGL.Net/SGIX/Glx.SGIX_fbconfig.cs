@@ -50,7 +50,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglXGetFBConfigAttribSGIX != null, "pglXGetFBConfigAttribSGIX not implemented");
 					retValue = Delegates.pglXGetFBConfigAttribSGIX(dpy, config, attribute, p_value);
-					CallLog("glXGetFBConfigAttribSGIX({0}, {1}, {2}, {3}) = {4}", dpy, config, attribute, value, retValue);
+					CallLog("glXGetFBConfigAttribSGIX(0x{0}, 0x{1}, {2}, {3}) = {4}", dpy.ToString("X8"), config.ToString("X8"), attribute, value, retValue);
 				}
 			}
 
@@ -73,9 +73,9 @@ namespace OpenGL
 		/// A <see cref="T:int[]"/>.
 		/// </param>
 		[RequiredByFeature("GLX_SGIX_fbconfig")]
-		public static IntPtr ChooseFBConfigSGIX(IntPtr dpy, int screen, int[] attrib_list, int[] nelements)
+		public static unsafe IntPtr* ChooseFBConfigSGIX(IntPtr dpy, int screen, int[] attrib_list, int[] nelements)
 		{
-			IntPtr retValue;
+			IntPtr* retValue;
 
 			unsafe {
 				fixed (int* p_attrib_list = attrib_list)
@@ -83,7 +83,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglXChooseFBConfigSGIX != null, "pglXChooseFBConfigSGIX not implemented");
 					retValue = Delegates.pglXChooseFBConfigSGIX(dpy, screen, p_attrib_list, p_nelements);
-					CallLog("glXChooseFBConfigSGIX({0}, {1}, {2}, {3}) = {4}", dpy, screen, attrib_list, nelements, retValue);
+					CallLog("glXChooseFBConfigSGIX(0x{0}, {1}, {2}, {3}) = {4}", dpy.ToString("X8"), screen, attrib_list, nelements, retValue != null ? retValue->ToString() : "(null)");
 				}
 			}
 
@@ -109,7 +109,7 @@ namespace OpenGL
 
 			Debug.Assert(Delegates.pglXCreateGLXPixmapWithConfigSGIX != null, "pglXCreateGLXPixmapWithConfigSGIX not implemented");
 			retValue = Delegates.pglXCreateGLXPixmapWithConfigSGIX(dpy, config, pixmap);
-			CallLog("glXCreateGLXPixmapWithConfigSGIX({0}, {1}, {2}) = {3}", dpy, config, pixmap, retValue);
+			CallLog("glXCreateGLXPixmapWithConfigSGIX(0x{0}, 0x{1}, 0x{2}) = {3}", dpy.ToString("X8"), config.ToString("X8"), pixmap.ToString("X8"), retValue.ToString("X8"));
 
 			return (retValue);
 		}
@@ -139,7 +139,7 @@ namespace OpenGL
 
 			Debug.Assert(Delegates.pglXCreateContextWithConfigSGIX != null, "pglXCreateContextWithConfigSGIX not implemented");
 			retValue = Delegates.pglXCreateContextWithConfigSGIX(dpy, config, render_type, share_list, direct);
-			CallLog("glXCreateContextWithConfigSGIX({0}, {1}, {2}, {3}, {4}) = {5}", dpy, config, render_type, share_list, direct, retValue);
+			CallLog("glXCreateContextWithConfigSGIX(0x{0}, 0x{1}, {2}, 0x{3}, {4}) = {5}", dpy.ToString("X8"), config.ToString("X8"), render_type, share_list.ToString("X8"), direct, retValue.ToString("X8"));
 
 			return (retValue);
 		}
@@ -160,7 +160,7 @@ namespace OpenGL
 
 			Debug.Assert(Delegates.pglXGetVisualFromFBConfigSGIX != null, "pglXGetVisualFromFBConfigSGIX not implemented");
 			retValue = Delegates.pglXGetVisualFromFBConfigSGIX(dpy, config);
-			CallLog("glXGetVisualFromFBConfigSGIX({0}, {1}) = {2}", dpy, config, retValue);
+			CallLog("glXGetVisualFromFBConfigSGIX(0x{0}, 0x{1}) = {2}", dpy.ToString("X8"), config.ToString("X8"), retValue);
 
 			return (retValue);
 		}
@@ -181,7 +181,7 @@ namespace OpenGL
 
 			Debug.Assert(Delegates.pglXGetFBConfigFromVisualSGIX != null, "pglXGetFBConfigFromVisualSGIX not implemented");
 			retValue = Delegates.pglXGetFBConfigFromVisualSGIX(dpy, vis);
-			CallLog("glXGetFBConfigFromVisualSGIX({0}, {1}) = {2}", dpy, vis, retValue);
+			CallLog("glXGetFBConfigFromVisualSGIX(0x{0}, {1}) = {2}", dpy.ToString("X8"), vis, retValue.ToString("X8"));
 
 			return (retValue);
 		}

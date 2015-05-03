@@ -1836,6 +1836,7 @@ typedef unsigned int GLhandleARB;
             <enum name="GL_RENDERER"/>
             <enum name="GL_VENDOR"/>
             <enum name="GL_VERSION"/>
+						<enum name="GL_SHADING_LANGUAGE_VERSION"/>
         </group>
 
         <group name="TexCoordPointerType">

@@ -478,9 +478,6 @@ namespace OpenGL
 		/// <summary>
 		/// Binding for glAreProgramsResidentNV.
 		/// </summary>
-		/// <param name="n">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
 		/// <param name="programs">
 		/// A <see cref="T:UInt32[]"/>.
 		/// </param>
@@ -680,9 +677,6 @@ namespace OpenGL
 		/// <param name="id">
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
-		/// <param name="len">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
 		/// <param name="program">
 		/// A <see cref="T:byte[]"/>.
 		/// </param>
@@ -873,9 +867,6 @@ namespace OpenGL
 		/// <summary>
 		/// Binding for glRequestResidentProgramsNV.
 		/// </summary>
-		/// <param name="n">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
 		/// <param name="programs">
 		/// A <see cref="T:UInt32[]"/>.
 		/// </param>
@@ -940,7 +931,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglVertexAttribPointerNV != null, "pglVertexAttribPointerNV not implemented");
 			Delegates.pglVertexAttribPointerNV(index, fsize, type, stride, pointer);
-			CallLog("glVertexAttribPointerNV({0}, {1}, {2}, {3}, {4})", index, fsize, type, stride, pointer);
+			CallLog("glVertexAttribPointerNV({0}, {1}, {2}, {3}, 0x{4})", index, fsize, type, stride, pointer.ToString("X8"));
 			DebugCheckErrors();
 		}
 
@@ -979,9 +970,6 @@ namespace OpenGL
 		/// <param name="index">
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
-		/// <param name="count">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
 		/// <param name="v">
 		/// A <see cref="T:double[]"/>.
 		/// </param>
@@ -1005,9 +993,6 @@ namespace OpenGL
 		/// <param name="index">
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
-		/// <param name="count">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
 		/// <param name="v">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
@@ -1030,9 +1015,6 @@ namespace OpenGL
 		/// </summary>
 		/// <param name="index">
 		/// A <see cref="T:UInt32"/>.
-		/// </param>
-		/// <param name="count">
-		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="v">
 		/// A <see cref="T:Int16[]"/>.

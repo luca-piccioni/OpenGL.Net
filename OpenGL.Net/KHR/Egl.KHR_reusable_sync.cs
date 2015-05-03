@@ -54,7 +54,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.peglCreateSyncKHR != null, "peglCreateSyncKHR not implemented");
 					retValue = Delegates.peglCreateSyncKHR(dpy, type, p_attrib_list);
-					CallLog("eglCreateSyncKHR({0}, {1}, {2}) = {3}", dpy, type, attrib_list, retValue);
+					CallLog("eglCreateSyncKHR(0x{0}, {1}, {2}) = {3}", dpy.ToString("X8"), type, attrib_list, retValue.ToString("X8"));
 				}
 			}
 			DebugCheckErrors();
@@ -81,7 +81,7 @@ namespace OpenGL
 
 			Debug.Assert(Delegates.peglSignalSyncKHR != null, "peglSignalSyncKHR not implemented");
 			retValue = Delegates.peglSignalSyncKHR(dpy, sync, mode);
-			CallLog("eglSignalSyncKHR({0}, {1}, {2}) = {3}", dpy, sync, mode, retValue);
+			CallLog("eglSignalSyncKHR(0x{0}, 0x{1}, {2}) = {3}", dpy.ToString("X8"), sync.ToString("X8"), mode, retValue.ToString("X8"));
 			DebugCheckErrors();
 
 			return (retValue);
@@ -113,7 +113,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.peglGetSyncAttribKHR != null, "peglGetSyncAttribKHR not implemented");
 					retValue = Delegates.peglGetSyncAttribKHR(dpy, sync, attribute, p_value);
-					CallLog("eglGetSyncAttribKHR({0}, {1}, {2}, {3}) = {4}", dpy, sync, attribute, value, retValue);
+					CallLog("eglGetSyncAttribKHR(0x{0}, 0x{1}, {2}, {3}) = {4}", dpy.ToString("X8"), sync.ToString("X8"), attribute, value, retValue.ToString("X8"));
 				}
 			}
 			DebugCheckErrors();

@@ -81,7 +81,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglVertexArrayRangeNV != null, "pglVertexArrayRangeNV not implemented");
 			Delegates.pglVertexArrayRangeNV(length, pointer);
-			CallLog("glVertexArrayRangeNV({0}, {1})", length, pointer);
+			CallLog("glVertexArrayRangeNV({0}, 0x{1})", length, pointer.ToString("X8"));
 			DebugCheckErrors();
 		}
 

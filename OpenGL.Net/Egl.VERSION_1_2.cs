@@ -257,7 +257,7 @@ namespace OpenGL
 
 			Debug.Assert(Delegates.peglBindAPI != null, "peglBindAPI not implemented");
 			retValue = Delegates.peglBindAPI(api);
-			CallLog("eglBindAPI({0}) = {1}", api, retValue);
+			CallLog("eglBindAPI({0}) = {1}", api, retValue.ToString("X8"));
 			DebugCheckErrors();
 
 			return (retValue);
@@ -308,7 +308,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.peglCreatePbufferFromClientBuffer != null, "peglCreatePbufferFromClientBuffer not implemented");
 					retValue = Delegates.peglCreatePbufferFromClientBuffer(dpy, buftype, buffer, config, p_attrib_list);
-					CallLog("eglCreatePbufferFromClientBuffer({0}, {1}, {2}, {3}, {4}) = {5}", dpy, buftype, buffer, config, attrib_list, retValue);
+					CallLog("eglCreatePbufferFromClientBuffer(0x{0}, {1}, 0x{2}, 0x{3}, {4}) = {5}", dpy.ToString("X8"), buftype, buffer.ToString("X8"), config.ToString("X8"), attrib_list, retValue.ToString("X8"));
 				}
 			}
 			DebugCheckErrors();
@@ -326,7 +326,7 @@ namespace OpenGL
 
 			Debug.Assert(Delegates.peglReleaseThread != null, "peglReleaseThread not implemented");
 			retValue = Delegates.peglReleaseThread();
-			CallLog("eglReleaseThread() = {0}", retValue);
+			CallLog("eglReleaseThread() = {0}", retValue.ToString("X8"));
 			DebugCheckErrors();
 
 			return (retValue);
@@ -342,7 +342,7 @@ namespace OpenGL
 
 			Debug.Assert(Delegates.peglWaitClient != null, "peglWaitClient not implemented");
 			retValue = Delegates.peglWaitClient();
-			CallLog("eglWaitClient() = {0}", retValue);
+			CallLog("eglWaitClient() = {0}", retValue.ToString("X8"));
 			DebugCheckErrors();
 
 			return (retValue);

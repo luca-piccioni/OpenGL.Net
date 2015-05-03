@@ -101,7 +101,7 @@ namespace OpenGL
 
 			Debug.Assert(Delegates.pglXGetGPUIDsAMD != null, "pglXGetGPUIDsAMD not implemented");
 			retValue = Delegates.pglXGetGPUIDsAMD(maxCount, ids);
-			CallLog("glXGetGPUIDsAMD({0}, {1}) = {2}", maxCount, ids, retValue);
+			CallLog("glXGetGPUIDsAMD({0}, 0x{1}) = {2}", maxCount, ids.ToString("X8"), retValue);
 
 			return (retValue);
 		}
@@ -131,7 +131,7 @@ namespace OpenGL
 
 			Debug.Assert(Delegates.pglXGetGPUInfoAMD != null, "pglXGetGPUInfoAMD not implemented");
 			retValue = Delegates.pglXGetGPUInfoAMD(id, property, dataType, size, data);
-			CallLog("glXGetGPUInfoAMD({0}, {1}, {2}, {3}, {4}) = {5}", id, property, dataType, size, data, retValue);
+			CallLog("glXGetGPUInfoAMD({0}, {1}, {2}, {3}, 0x{4}) = {5}", id, property, dataType, size, data.ToString("X8"), retValue);
 
 			return (retValue);
 		}
@@ -149,7 +149,7 @@ namespace OpenGL
 
 			Debug.Assert(Delegates.pglXGetContextGPUIDAMD != null, "pglXGetContextGPUIDAMD not implemented");
 			retValue = Delegates.pglXGetContextGPUIDAMD(ctx);
-			CallLog("glXGetContextGPUIDAMD({0}) = {1}", ctx, retValue);
+			CallLog("glXGetContextGPUIDAMD(0x{0}) = {1}", ctx.ToString("X8"), retValue);
 
 			return (retValue);
 		}
@@ -170,7 +170,7 @@ namespace OpenGL
 
 			Debug.Assert(Delegates.pglXCreateAssociatedContextAMD != null, "pglXCreateAssociatedContextAMD not implemented");
 			retValue = Delegates.pglXCreateAssociatedContextAMD(id, share_list);
-			CallLog("glXCreateAssociatedContextAMD({0}, {1}) = {2}", id, share_list, retValue);
+			CallLog("glXCreateAssociatedContextAMD({0}, 0x{1}) = {2}", id, share_list.ToString("X8"), retValue.ToString("X8"));
 
 			return (retValue);
 		}
@@ -197,7 +197,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglXCreateAssociatedContextAttribsAMD != null, "pglXCreateAssociatedContextAttribsAMD not implemented");
 					retValue = Delegates.pglXCreateAssociatedContextAttribsAMD(id, share_context, p_attribList);
-					CallLog("glXCreateAssociatedContextAttribsAMD({0}, {1}, {2}) = {3}", id, share_context, attribList, retValue);
+					CallLog("glXCreateAssociatedContextAttribsAMD({0}, 0x{1}, {2}) = {3}", id, share_context.ToString("X8"), attribList, retValue.ToString("X8"));
 				}
 			}
 
@@ -217,7 +217,7 @@ namespace OpenGL
 
 			Debug.Assert(Delegates.pglXDeleteAssociatedContextAMD != null, "pglXDeleteAssociatedContextAMD not implemented");
 			retValue = Delegates.pglXDeleteAssociatedContextAMD(ctx);
-			CallLog("glXDeleteAssociatedContextAMD({0}) = {1}", ctx, retValue);
+			CallLog("glXDeleteAssociatedContextAMD(0x{0}) = {1}", ctx.ToString("X8"), retValue);
 
 			return (retValue);
 		}
@@ -235,7 +235,7 @@ namespace OpenGL
 
 			Debug.Assert(Delegates.pglXMakeAssociatedContextCurrentAMD != null, "pglXMakeAssociatedContextCurrentAMD not implemented");
 			retValue = Delegates.pglXMakeAssociatedContextCurrentAMD(ctx);
-			CallLog("glXMakeAssociatedContextCurrentAMD({0}) = {1}", ctx, retValue);
+			CallLog("glXMakeAssociatedContextCurrentAMD(0x{0}) = {1}", ctx.ToString("X8"), retValue);
 
 			return (retValue);
 		}
@@ -250,7 +250,7 @@ namespace OpenGL
 
 			Debug.Assert(Delegates.pglXGetCurrentAssociatedContextAMD != null, "pglXGetCurrentAssociatedContextAMD not implemented");
 			retValue = Delegates.pglXGetCurrentAssociatedContextAMD();
-			CallLog("glXGetCurrentAssociatedContextAMD() = {0}", retValue);
+			CallLog("glXGetCurrentAssociatedContextAMD() = {0}", retValue.ToString("X8"));
 
 			return (retValue);
 		}
@@ -296,7 +296,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglXBlitContextFramebufferAMD != null, "pglXBlitContextFramebufferAMD not implemented");
 			Delegates.pglXBlitContextFramebufferAMD(dstCtx, srcX0, srcY0, srcX1, srcY1, dstX0, dstY0, dstX1, dstY1, mask, filter);
-			CallLog("glXBlitContextFramebufferAMD({0}, {1}, {2}, {3}, {4}, {5}, {6}, {7}, {8}, {9}, {10})", dstCtx, srcX0, srcY0, srcX1, srcY1, dstX0, dstY0, dstX1, dstY1, mask, filter);
+			CallLog("glXBlitContextFramebufferAMD(0x{0}, {1}, {2}, {3}, {4}, {5}, {6}, {7}, {8}, {9}, {10})", dstCtx.ToString("X8"), srcX0, srcY0, srcX1, srcY1, dstX0, dstY0, dstX1, dstY1, mask, filter);
 		}
 
 	}

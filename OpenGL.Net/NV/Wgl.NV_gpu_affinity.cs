@@ -82,7 +82,7 @@ namespace OpenGL
 
 			Debug.Assert(Delegates.pwglEnumGpuDevicesNV != null, "pwglEnumGpuDevicesNV not implemented");
 			retValue = Delegates.pwglEnumGpuDevicesNV(hGpu, iDeviceIndex, lpGpuDevice);
-			CallLog("wglEnumGpuDevicesNV({0}, {1}, {2}) = {3}", hGpu, iDeviceIndex, lpGpuDevice, retValue);
+			CallLog("wglEnumGpuDevicesNV(0x{0}, {1}, 0x{2}) = {3}", hGpu.ToString("X8"), iDeviceIndex, lpGpuDevice.ToString("X8"), retValue);
 
 			return (retValue);
 		}
@@ -103,7 +103,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pwglCreateAffinityDCNV != null, "pwglCreateAffinityDCNV not implemented");
 					retValue = Delegates.pwglCreateAffinityDCNV(p_phGpuList);
-					CallLog("wglCreateAffinityDCNV({0}) = {1}", phGpuList, retValue);
+					CallLog("wglCreateAffinityDCNV({0}) = {1}", phGpuList, retValue.ToString("X8"));
 				}
 			}
 
@@ -132,7 +132,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pwglEnumGpusFromAffinityDCNV != null, "pwglEnumGpusFromAffinityDCNV not implemented");
 					retValue = Delegates.pwglEnumGpusFromAffinityDCNV(hAffinityDC, iGpuIndex, p_hGpu);
-					CallLog("wglEnumGpusFromAffinityDCNV({0}, {1}, {2}) = {3}", hAffinityDC, iGpuIndex, hGpu, retValue);
+					CallLog("wglEnumGpusFromAffinityDCNV(0x{0}, {1}, {2}) = {3}", hAffinityDC.ToString("X8"), iGpuIndex, hGpu, retValue);
 				}
 			}
 
@@ -152,7 +152,7 @@ namespace OpenGL
 
 			Debug.Assert(Delegates.pwglDeleteDCNV != null, "pwglDeleteDCNV not implemented");
 			retValue = Delegates.pwglDeleteDCNV(hdc);
-			CallLog("wglDeleteDCNV({0}) = {1}", hdc, retValue);
+			CallLog("wglDeleteDCNV(0x{0}) = {1}", hdc.ToString("X8"), retValue);
 
 			return (retValue);
 		}

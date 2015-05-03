@@ -73,9 +73,6 @@ namespace OpenGL
 		/// <param name="numGroups">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
-		/// <param name="groupsSize">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
 		/// <param name="groups">
 		/// A <see cref="T:UInt32[]"/>.
 		/// </param>
@@ -104,9 +101,6 @@ namespace OpenGL
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="maxActiveCounters">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="counterSize">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="counters">
@@ -209,7 +203,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglGetPerfMonitorCounterInfoAMD != null, "pglGetPerfMonitorCounterInfoAMD not implemented");
 			Delegates.pglGetPerfMonitorCounterInfoAMD(group, counter, pname, data);
-			CallLog("glGetPerfMonitorCounterInfoAMD({0}, {1}, {2}, {3})", group, counter, pname, data);
+			CallLog("glGetPerfMonitorCounterInfoAMD({0}, {1}, {2}, 0x{3})", group, counter, pname, data.ToString("X8"));
 			DebugCheckErrors();
 		}
 
@@ -242,9 +236,6 @@ namespace OpenGL
 		/// <summary>
 		/// Binding for glGenPerfMonitorsAMD.
 		/// </summary>
-		/// <param name="n">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
 		/// <param name="monitors">
 		/// A <see cref="T:UInt32[]"/>.
 		/// </param>
@@ -276,9 +267,6 @@ namespace OpenGL
 		/// <summary>
 		/// Binding for glDeletePerfMonitorsAMD.
 		/// </summary>
-		/// <param name="n">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
 		/// <param name="monitors">
 		/// A <see cref="T:UInt32[]"/>.
 		/// </param>
@@ -307,9 +295,6 @@ namespace OpenGL
 		/// </param>
 		/// <param name="group">
 		/// A <see cref="T:UInt32"/>.
-		/// </param>
-		/// <param name="numCounters">
-		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="counterList">
 		/// A <see cref="T:UInt32[]"/>.
@@ -365,9 +350,6 @@ namespace OpenGL
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
 		/// <param name="pname">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="dataSize">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="data">

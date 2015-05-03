@@ -873,9 +873,6 @@ namespace OpenGL
 		/// <summary>
 		/// Specifies a list of color buffers to be drawn into
 		/// </summary>
-		/// <param name="n">
-		/// Specifies the number of buffers in <paramref name="bufs"/>.
-		/// </param>
 		/// <param name="bufs">
 		/// Points to an array of symbolic constants specifying the buffers into which fragment colors or data values will be 
 		/// written.
@@ -1503,9 +1500,6 @@ namespace OpenGL
 		/// </summary>
 		/// <param name="program">
 		/// Specifies the program object to be queried.
-		/// </param>
-		/// <param name="maxCount">
-		/// Specifies the size of the array for storing the returned object names.
 		/// </param>
 		/// <param name="count">
 		/// Returns the number of names actually returned in <paramref name="shaders"/>.
@@ -2279,7 +2273,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetVertexAttribPointerv != null, "pglGetVertexAttribPointerv not implemented");
 					Delegates.pglGetVertexAttribPointerv(index, pname, p_pointer);
-					CallLog("glGetVertexAttribPointerv({0}, {1}, {2})", index, pname, pointer);
+					CallLog("glGetVertexAttribPointerv({0}, {1}, 0x{2})", index, pname, pointer.ToString("X8"));
 				}
 			}
 			DebugCheckErrors();
@@ -2417,9 +2411,6 @@ namespace OpenGL
 		/// </summary>
 		/// <param name="shader">
 		/// Specifies the handle of the shader object whose source code is to be replaced.
-		/// </param>
-		/// <param name="count">
-		/// Specifies the number of elements in the <paramref name="string"/> and <paramref name="length"/> arrays.
 		/// </param>
 		/// <param name="string">
 		/// Specifies an array of pointers to strings containing the source code to be loaded into the shader.
@@ -5189,7 +5180,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglVertexAttribPointer != null, "pglVertexAttribPointer not implemented");
 			Delegates.pglVertexAttribPointer(index, size, type, normalized, stride, pointer);
-			CallLog("glVertexAttribPointer({0}, {1}, {2}, {3}, {4}, {5})", index, size, type, normalized, stride, pointer);
+			CallLog("glVertexAttribPointer({0}, {1}, {2}, {3}, {4}, 0x{5})", index, size, type, normalized, stride, pointer.ToString("X8"));
 			DebugCheckErrors();
 		}
 

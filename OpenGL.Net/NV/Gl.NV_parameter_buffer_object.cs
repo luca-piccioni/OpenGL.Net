@@ -67,9 +67,6 @@ namespace OpenGL
 		/// <param name="wordIndex">
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
-		/// <param name="count">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
 		/// <param name="params">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
@@ -99,9 +96,6 @@ namespace OpenGL
 		/// <param name="wordIndex">
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
-		/// <param name="count">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
 		/// <param name="params">
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
@@ -130,9 +124,6 @@ namespace OpenGL
 		/// </param>
 		/// <param name="wordIndex">
 		/// A <see cref="T:UInt32"/>.
-		/// </param>
-		/// <param name="count">
-		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="params">
 		/// A <see cref="T:UInt32[]"/>.

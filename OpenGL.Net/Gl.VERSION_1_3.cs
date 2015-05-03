@@ -1251,7 +1251,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglCompressedTexImage3D != null, "pglCompressedTexImage3D not implemented");
 			Delegates.pglCompressedTexImage3D((Int32)target, level, internalformat, width, height, depth, border, imageSize, data);
-			CallLog("glCompressedTexImage3D({0}, {1}, {2}, {3}, {4}, {5}, {6}, {7}, {8})", target, level, internalformat, width, height, depth, border, imageSize, data);
+			CallLog("glCompressedTexImage3D({0}, {1}, {2}, {3}, {4}, {5}, {6}, {7}, 0x{8})", target, level, internalformat, width, height, depth, border, imageSize, data.ToString("X8"));
 			DebugCheckErrors();
 		}
 
@@ -1435,7 +1435,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglCompressedTexImage2D != null, "pglCompressedTexImage2D not implemented");
 			Delegates.pglCompressedTexImage2D((Int32)target, level, internalformat, width, height, border, imageSize, data);
-			CallLog("glCompressedTexImage2D({0}, {1}, {2}, {3}, {4}, {5}, {6}, {7})", target, level, internalformat, width, height, border, imageSize, data);
+			CallLog("glCompressedTexImage2D({0}, {1}, {2}, {3}, {4}, {5}, {6}, 0x{7})", target, level, internalformat, width, height, border, imageSize, data.ToString("X8"));
 			DebugCheckErrors();
 		}
 
@@ -1611,7 +1611,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglCompressedTexImage1D != null, "pglCompressedTexImage1D not implemented");
 			Delegates.pglCompressedTexImage1D((Int32)target, level, internalformat, width, border, imageSize, data);
-			CallLog("glCompressedTexImage1D({0}, {1}, {2}, {3}, {4}, {5}, {6})", target, level, internalformat, width, border, imageSize, data);
+			CallLog("glCompressedTexImage1D({0}, {1}, {2}, {3}, {4}, {5}, 0x{6})", target, level, internalformat, width, border, imageSize, data.ToString("X8"));
 			DebugCheckErrors();
 		}
 
@@ -1794,7 +1794,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglCompressedTexSubImage3D != null, "pglCompressedTexSubImage3D not implemented");
 			Delegates.pglCompressedTexSubImage3D((Int32)target, level, xoffset, yoffset, zoffset, width, height, depth, (Int32)format, imageSize, data);
-			CallLog("glCompressedTexSubImage3D({0}, {1}, {2}, {3}, {4}, {5}, {6}, {7}, {8}, {9}, {10})", target, level, xoffset, yoffset, zoffset, width, height, depth, format, imageSize, data);
+			CallLog("glCompressedTexSubImage3D({0}, {1}, {2}, {3}, {4}, {5}, {6}, {7}, {8}, {9}, 0x{10})", target, level, xoffset, yoffset, zoffset, width, height, depth, format, imageSize, data.ToString("X8"));
 			DebugCheckErrors();
 		}
 
@@ -1992,7 +1992,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglCompressedTexSubImage2D != null, "pglCompressedTexSubImage2D not implemented");
 			Delegates.pglCompressedTexSubImage2D((Int32)target, level, xoffset, yoffset, width, height, (Int32)format, imageSize, data);
-			CallLog("glCompressedTexSubImage2D({0}, {1}, {2}, {3}, {4}, {5}, {6}, {7}, {8})", target, level, xoffset, yoffset, width, height, format, imageSize, data);
+			CallLog("glCompressedTexSubImage2D({0}, {1}, {2}, {3}, {4}, {5}, {6}, {7}, 0x{8})", target, level, xoffset, yoffset, width, height, format, imageSize, data.ToString("X8"));
 			DebugCheckErrors();
 		}
 
@@ -2173,7 +2173,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglCompressedTexSubImage1D != null, "pglCompressedTexSubImage1D not implemented");
 			Delegates.pglCompressedTexSubImage1D((Int32)target, level, xoffset, width, (Int32)format, imageSize, data);
-			CallLog("glCompressedTexSubImage1D({0}, {1}, {2}, {3}, {4}, {5}, {6})", target, level, xoffset, width, format, imageSize, data);
+			CallLog("glCompressedTexSubImage1D({0}, {1}, {2}, {3}, {4}, {5}, 0x{6})", target, level, xoffset, width, format, imageSize, data.ToString("X8"));
 			DebugCheckErrors();
 		}
 
@@ -2321,7 +2321,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglGetCompressedTexImage != null, "pglGetCompressedTexImage not implemented");
 			Delegates.pglGetCompressedTexImage((Int32)target, level, img);
-			CallLog("glGetCompressedTexImage({0}, {1}, {2})", target, level, img);
+			CallLog("glGetCompressedTexImage({0}, {1}, 0x{2})", target, level, img.ToString("X8"));
 			DebugCheckErrors();
 		}
 

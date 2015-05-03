@@ -48,7 +48,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglGetHistogramEXT != null, "pglGetHistogramEXT not implemented");
 			Delegates.pglGetHistogramEXT((Int32)target, reset, (Int32)format, (Int32)type, values);
-			CallLog("glGetHistogramEXT({0}, {1}, {2}, {3}, {4})", target, reset, format, type, values);
+			CallLog("glGetHistogramEXT({0}, {1}, {2}, {3}, 0x{4})", target, reset, format, type, values.ToString("X8"));
 			DebugCheckErrors();
 		}
 
@@ -156,7 +156,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglGetMinmaxEXT != null, "pglGetMinmaxEXT not implemented");
 			Delegates.pglGetMinmaxEXT((Int32)target, reset, (Int32)format, (Int32)type, values);
-			CallLog("glGetMinmaxEXT({0}, {1}, {2}, {3}, {4})", target, reset, format, type, values);
+			CallLog("glGetMinmaxEXT({0}, {1}, {2}, {3}, 0x{4})", target, reset, format, type, values.ToString("X8"));
 			DebugCheckErrors();
 		}
 

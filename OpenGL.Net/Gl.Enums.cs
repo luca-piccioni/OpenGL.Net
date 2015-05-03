@@ -6881,6 +6881,11 @@ namespace OpenGL
 		/// </summary>
 		Version = Gl.VERSION,
 
+		/// <summary>
+		/// Strongly typed for value GL_SHADING_LANGUAGE_VERSION.
+		/// </summary>
+		ShadingLanguageVersion = Gl.SHADING_LANGUAGE_VERSION,
+
 	}
 
 	/// <summary>

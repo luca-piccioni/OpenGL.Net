@@ -67,7 +67,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglGetnTexImageARB != null, "pglGetnTexImageARB not implemented");
 			Delegates.pglGetnTexImageARB(target, level, format, type, bufSize, img);
-			CallLog("glGetnTexImageARB({0}, {1}, {2}, {3}, {4}, {5})", target, level, format, type, bufSize, img);
+			CallLog("glGetnTexImageARB({0}, {1}, {2}, {3}, {4}, 0x{5})", target, level, format, type, bufSize, img.ToString("X8"));
 			DebugCheckErrors();
 		}
 
@@ -123,7 +123,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglGetnCompressedTexImageARB != null, "pglGetnCompressedTexImageARB not implemented");
 			Delegates.pglGetnCompressedTexImageARB(target, lod, bufSize, img);
-			CallLog("glGetnCompressedTexImageARB({0}, {1}, {2}, {3})", target, lod, bufSize, img);
+			CallLog("glGetnCompressedTexImageARB({0}, {1}, {2}, 0x{3})", target, lod, bufSize, img.ToString("X8"));
 			DebugCheckErrors();
 		}
 
@@ -162,9 +162,6 @@ namespace OpenGL
 		/// <param name="location">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
-		/// <param name="bufSize">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
 		/// <param name="params">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
@@ -189,9 +186,6 @@ namespace OpenGL
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
 		/// <param name="location">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="bufSize">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="params">
@@ -220,9 +214,6 @@ namespace OpenGL
 		/// <param name="location">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
-		/// <param name="bufSize">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
 		/// <param name="params">
 		/// A <see cref="T:UInt32[]"/>.
 		/// </param>
@@ -247,9 +238,6 @@ namespace OpenGL
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
 		/// <param name="location">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="bufSize">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="params">
@@ -278,9 +266,6 @@ namespace OpenGL
 		/// <param name="query">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
-		/// <param name="bufSize">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
 		/// <param name="v">
 		/// A <see cref="T:double[]"/>.
 		/// </param>
@@ -305,9 +290,6 @@ namespace OpenGL
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="query">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="bufSize">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="v">
@@ -336,9 +318,6 @@ namespace OpenGL
 		/// <param name="query">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
-		/// <param name="bufSize">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
 		/// <param name="v">
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
@@ -360,9 +339,6 @@ namespace OpenGL
 		/// Binding for glGetnPixelMapfvARB.
 		/// </summary>
 		/// <param name="map">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="bufSize">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="values">
@@ -388,9 +364,6 @@ namespace OpenGL
 		/// <param name="map">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
-		/// <param name="bufSize">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
 		/// <param name="values">
 		/// A <see cref="T:UInt32[]"/>.
 		/// </param>
@@ -414,9 +387,6 @@ namespace OpenGL
 		/// <param name="map">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
-		/// <param name="bufSize">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
 		/// <param name="values">
 		/// A <see cref="T:UInt16[]"/>.
 		/// </param>
@@ -437,9 +407,6 @@ namespace OpenGL
 		/// <summary>
 		/// Binding for glGetnPolygonStippleARB.
 		/// </summary>
-		/// <param name="bufSize">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
 		/// <param name="pattern">
 		/// A <see cref="T:byte[]"/>.
 		/// </param>
@@ -480,7 +447,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglGetnColorTableARB != null, "pglGetnColorTableARB not implemented");
 			Delegates.pglGetnColorTableARB(target, format, type, bufSize, table);
-			CallLog("glGetnColorTableARB({0}, {1}, {2}, {3}, {4})", target, format, type, bufSize, table);
+			CallLog("glGetnColorTableARB({0}, {1}, {2}, {3}, 0x{4})", target, format, type, bufSize, table.ToString("X8"));
 			DebugCheckErrors();
 		}
 
@@ -536,7 +503,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglGetnConvolutionFilterARB != null, "pglGetnConvolutionFilterARB not implemented");
 			Delegates.pglGetnConvolutionFilterARB(target, format, type, bufSize, image);
-			CallLog("glGetnConvolutionFilterARB({0}, {1}, {2}, {3}, {4})", target, format, type, bufSize, image);
+			CallLog("glGetnConvolutionFilterARB({0}, {1}, {2}, {3}, 0x{4})", target, format, type, bufSize, image.ToString("X8"));
 			DebugCheckErrors();
 		}
 
@@ -601,7 +568,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglGetnSeparableFilterARB != null, "pglGetnSeparableFilterARB not implemented");
 			Delegates.pglGetnSeparableFilterARB(target, format, type, rowBufSize, row, columnBufSize, column, span);
-			CallLog("glGetnSeparableFilterARB({0}, {1}, {2}, {3}, {4}, {5}, {6}, {7})", target, format, type, rowBufSize, row, columnBufSize, column, span);
+			CallLog("glGetnSeparableFilterARB({0}, {1}, {2}, {3}, 0x{4}, {5}, 0x{6}, 0x{7})", target, format, type, rowBufSize, row.ToString("X8"), columnBufSize, column.ToString("X8"), span.ToString("X8"));
 			DebugCheckErrors();
 		}
 
@@ -673,7 +640,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglGetnHistogramARB != null, "pglGetnHistogramARB not implemented");
 			Delegates.pglGetnHistogramARB(target, reset, format, type, bufSize, values);
-			CallLog("glGetnHistogramARB({0}, {1}, {2}, {3}, {4}, {5})", target, reset, format, type, bufSize, values);
+			CallLog("glGetnHistogramARB({0}, {1}, {2}, {3}, {4}, 0x{5})", target, reset, format, type, bufSize, values.ToString("X8"));
 			DebugCheckErrors();
 		}
 
@@ -735,7 +702,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglGetnMinmaxARB != null, "pglGetnMinmaxARB not implemented");
 			Delegates.pglGetnMinmaxARB(target, reset, format, type, bufSize, values);
-			CallLog("glGetnMinmaxARB({0}, {1}, {2}, {3}, {4}, {5})", target, reset, format, type, bufSize, values);
+			CallLog("glGetnMinmaxARB({0}, {1}, {2}, {3}, {4}, 0x{5})", target, reset, format, type, bufSize, values.ToString("X8"));
 			DebugCheckErrors();
 		}
 

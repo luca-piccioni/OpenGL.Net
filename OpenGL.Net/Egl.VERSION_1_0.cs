@@ -597,7 +597,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.peglChooseConfig != null, "peglChooseConfig not implemented");
 					retValue = Delegates.peglChooseConfig(dpy, p_attrib_list, p_configs, config_size, p_num_config);
-					CallLog("eglChooseConfig({0}, {1}, {2}, {3}, {4}) = {5}", dpy, attrib_list, configs, config_size, num_config, retValue);
+					CallLog("eglChooseConfig(0x{0}, {1}, {2}, {3}, {4}) = {5}", dpy.ToString("X8"), attrib_list, configs, config_size, num_config, retValue.ToString("X8"));
 				}
 			}
 			DebugCheckErrors();
@@ -624,7 +624,7 @@ namespace OpenGL
 
 			Debug.Assert(Delegates.peglCopyBuffers != null, "peglCopyBuffers not implemented");
 			retValue = Delegates.peglCopyBuffers(dpy, surface, target);
-			CallLog("eglCopyBuffers({0}, {1}, {2}) = {3}", dpy, surface, target, retValue);
+			CallLog("eglCopyBuffers(0x{0}, 0x{1}, 0x{2}) = {3}", dpy.ToString("X8"), surface.ToString("X8"), target.ToString("X8"), retValue.ToString("X8"));
 			DebugCheckErrors();
 
 			return (retValue);
@@ -658,7 +658,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.peglCreateContext != null, "peglCreateContext not implemented");
 					retValue = Delegates.peglCreateContext(dpy, config, share_context, p_attrib_list);
-					CallLog("eglCreateContext({0}, {1}, {2}, {3}) = {4}", dpy, config, share_context, attrib_list, retValue);
+					CallLog("eglCreateContext(0x{0}, 0x{1}, 0x{2}, {3}) = {4}", dpy.ToString("X8"), config.ToString("X8"), share_context.ToString("X8"), attrib_list, retValue.ToString("X8"));
 				}
 			}
 			DebugCheckErrors();
@@ -688,7 +688,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.peglCreatePbufferSurface != null, "peglCreatePbufferSurface not implemented");
 					retValue = Delegates.peglCreatePbufferSurface(dpy, config, p_attrib_list);
-					CallLog("eglCreatePbufferSurface({0}, {1}, {2}) = {3}", dpy, config, attrib_list, retValue);
+					CallLog("eglCreatePbufferSurface(0x{0}, 0x{1}, {2}) = {3}", dpy.ToString("X8"), config.ToString("X8"), attrib_list, retValue.ToString("X8"));
 				}
 			}
 			DebugCheckErrors();
@@ -721,7 +721,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.peglCreatePixmapSurface != null, "peglCreatePixmapSurface not implemented");
 					retValue = Delegates.peglCreatePixmapSurface(dpy, config, pixmap, p_attrib_list);
-					CallLog("eglCreatePixmapSurface({0}, {1}, {2}, {3}) = {4}", dpy, config, pixmap, attrib_list, retValue);
+					CallLog("eglCreatePixmapSurface(0x{0}, 0x{1}, 0x{2}, {3}) = {4}", dpy.ToString("X8"), config.ToString("X8"), pixmap.ToString("X8"), attrib_list, retValue.ToString("X8"));
 				}
 			}
 			DebugCheckErrors();
@@ -754,7 +754,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.peglCreateWindowSurface != null, "peglCreateWindowSurface not implemented");
 					retValue = Delegates.peglCreateWindowSurface(dpy, config, win, p_attrib_list);
-					CallLog("eglCreateWindowSurface({0}, {1}, {2}, {3}) = {4}", dpy, config, win, attrib_list, retValue);
+					CallLog("eglCreateWindowSurface(0x{0}, 0x{1}, 0x{2}, {3}) = {4}", dpy.ToString("X8"), config.ToString("X8"), win.ToString("X8"), attrib_list, retValue.ToString("X8"));
 				}
 			}
 			DebugCheckErrors();
@@ -778,7 +778,7 @@ namespace OpenGL
 
 			Debug.Assert(Delegates.peglDestroyContext != null, "peglDestroyContext not implemented");
 			retValue = Delegates.peglDestroyContext(dpy, ctx);
-			CallLog("eglDestroyContext({0}, {1}) = {2}", dpy, ctx, retValue);
+			CallLog("eglDestroyContext(0x{0}, 0x{1}) = {2}", dpy.ToString("X8"), ctx.ToString("X8"), retValue.ToString("X8"));
 			DebugCheckErrors();
 
 			return (retValue);
@@ -800,7 +800,7 @@ namespace OpenGL
 
 			Debug.Assert(Delegates.peglDestroySurface != null, "peglDestroySurface not implemented");
 			retValue = Delegates.peglDestroySurface(dpy, surface);
-			CallLog("eglDestroySurface({0}, {1}) = {2}", dpy, surface, retValue);
+			CallLog("eglDestroySurface(0x{0}, 0x{1}) = {2}", dpy.ToString("X8"), surface.ToString("X8"), retValue.ToString("X8"));
 			DebugCheckErrors();
 
 			return (retValue);
@@ -831,7 +831,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.peglGetConfigAttrib != null, "peglGetConfigAttrib not implemented");
 					retValue = Delegates.peglGetConfigAttrib(dpy, config, attribute, p_value);
-					CallLog("eglGetConfigAttrib({0}, {1}, {2}, {3}) = {4}", dpy, config, attribute, value, retValue);
+					CallLog("eglGetConfigAttrib(0x{0}, 0x{1}, {2}, {3}) = {4}", dpy.ToString("X8"), config.ToString("X8"), attribute, value, retValue.ToString("X8"));
 				}
 			}
 			DebugCheckErrors();
@@ -865,7 +865,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.peglGetConfigs != null, "peglGetConfigs not implemented");
 					retValue = Delegates.peglGetConfigs(dpy, p_configs, config_size, p_num_config);
-					CallLog("eglGetConfigs({0}, {1}, {2}, {3}) = {4}", dpy, configs, config_size, num_config, retValue);
+					CallLog("eglGetConfigs(0x{0}, {1}, {2}, {3}) = {4}", dpy.ToString("X8"), configs, config_size, num_config, retValue.ToString("X8"));
 				}
 			}
 			DebugCheckErrors();
@@ -883,7 +883,7 @@ namespace OpenGL
 
 			Debug.Assert(Delegates.peglGetCurrentDisplay != null, "peglGetCurrentDisplay not implemented");
 			retValue = Delegates.peglGetCurrentDisplay();
-			CallLog("eglGetCurrentDisplay() = {0}", retValue);
+			CallLog("eglGetCurrentDisplay() = {0}", retValue.ToString("X8"));
 			DebugCheckErrors();
 
 			return (retValue);
@@ -902,7 +902,7 @@ namespace OpenGL
 
 			Debug.Assert(Delegates.peglGetCurrentSurface != null, "peglGetCurrentSurface not implemented");
 			retValue = Delegates.peglGetCurrentSurface(readdraw);
-			CallLog("eglGetCurrentSurface({0}) = {1}", readdraw, retValue);
+			CallLog("eglGetCurrentSurface({0}) = {1}", readdraw, retValue.ToString("X8"));
 			DebugCheckErrors();
 
 			return (retValue);
@@ -921,7 +921,7 @@ namespace OpenGL
 
 			Debug.Assert(Delegates.peglGetDisplay != null, "peglGetDisplay not implemented");
 			retValue = Delegates.peglGetDisplay(display_id);
-			CallLog("eglGetDisplay({0}) = {1}", display_id, retValue);
+			CallLog("eglGetDisplay(0x{0}) = {1}", display_id.ToString("X8"), retValue.ToString("X8"));
 			DebugCheckErrors();
 
 			return (retValue);
@@ -955,7 +955,7 @@ namespace OpenGL
 
 			Debug.Assert(Delegates.peglGetProcAddress != null, "peglGetProcAddress not implemented");
 			retValue = Delegates.peglGetProcAddress(procname);
-			CallLog("eglGetProcAddress({0}) = {1}", procname, retValue);
+			CallLog("eglGetProcAddress({0}) = {1}", procname, retValue.ToString("X8"));
 			DebugCheckErrors();
 
 			return (retValue);
@@ -984,7 +984,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.peglInitialize != null, "peglInitialize not implemented");
 					retValue = Delegates.peglInitialize(dpy, p_major, p_minor);
-					CallLog("eglInitialize({0}, {1}, {2}) = {3}", dpy, major, minor, retValue);
+					CallLog("eglInitialize(0x{0}, {1}, {2}) = {3}", dpy.ToString("X8"), major, minor, retValue.ToString("X8"));
 				}
 			}
 			DebugCheckErrors();
@@ -1014,7 +1014,7 @@ namespace OpenGL
 
 			Debug.Assert(Delegates.peglMakeCurrent != null, "peglMakeCurrent not implemented");
 			retValue = Delegates.peglMakeCurrent(dpy, draw, read, ctx);
-			CallLog("eglMakeCurrent({0}, {1}, {2}, {3}) = {4}", dpy, draw, read, ctx, retValue);
+			CallLog("eglMakeCurrent(0x{0}, 0x{1}, 0x{2}, 0x{3}) = {4}", dpy.ToString("X8"), draw.ToString("X8"), read.ToString("X8"), ctx.ToString("X8"), retValue.ToString("X8"));
 			DebugCheckErrors();
 
 			return (retValue);
@@ -1045,7 +1045,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.peglQueryContext != null, "peglQueryContext not implemented");
 					retValue = Delegates.peglQueryContext(dpy, ctx, attribute, p_value);
-					CallLog("eglQueryContext({0}, {1}, {2}, {3}) = {4}", dpy, ctx, attribute, value, retValue);
+					CallLog("eglQueryContext(0x{0}, 0x{1}, {2}, {3}) = {4}", dpy.ToString("X8"), ctx.ToString("X8"), attribute, value, retValue.ToString("X8"));
 				}
 			}
 			DebugCheckErrors();
@@ -1069,7 +1069,7 @@ namespace OpenGL
 
 			Debug.Assert(Delegates.peglQueryString != null, "peglQueryString not implemented");
 			retValue = Delegates.peglQueryString(dpy, name);
-			CallLog("eglQueryString({0}, {1}) = {2}", dpy, name, retValue);
+			CallLog("eglQueryString(0x{0}, {1}) = {2}", dpy.ToString("X8"), name, retValue);
 			DebugCheckErrors();
 
 			return (retValue);
@@ -1100,7 +1100,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.peglQuerySurface != null, "peglQuerySurface not implemented");
 					retValue = Delegates.peglQuerySurface(dpy, surface, attribute, p_value);
-					CallLog("eglQuerySurface({0}, {1}, {2}, {3}) = {4}", dpy, surface, attribute, value, retValue);
+					CallLog("eglQuerySurface(0x{0}, 0x{1}, {2}, {3}) = {4}", dpy.ToString("X8"), surface.ToString("X8"), attribute, value, retValue.ToString("X8"));
 				}
 			}
 			DebugCheckErrors();
@@ -1121,7 +1121,7 @@ namespace OpenGL
 
 			Debug.Assert(Delegates.peglTerminate != null, "peglTerminate not implemented");
 			retValue = Delegates.peglTerminate(dpy);
-			CallLog("eglTerminate({0}) = {1}", dpy, retValue);
+			CallLog("eglTerminate(0x{0}) = {1}", dpy.ToString("X8"), retValue.ToString("X8"));
 			DebugCheckErrors();
 
 			return (retValue);
@@ -1137,7 +1137,7 @@ namespace OpenGL
 
 			Debug.Assert(Delegates.peglWaitGL != null, "peglWaitGL not implemented");
 			retValue = Delegates.peglWaitGL();
-			CallLog("eglWaitGL() = {0}", retValue);
+			CallLog("eglWaitGL() = {0}", retValue.ToString("X8"));
 			DebugCheckErrors();
 
 			return (retValue);
@@ -1156,7 +1156,7 @@ namespace OpenGL
 
 			Debug.Assert(Delegates.peglWaitNative != null, "peglWaitNative not implemented");
 			retValue = Delegates.peglWaitNative(engine);
-			CallLog("eglWaitNative({0}) = {1}", engine, retValue);
+			CallLog("eglWaitNative({0}) = {1}", engine, retValue.ToString("X8"));
 			DebugCheckErrors();
 
 			return (retValue);

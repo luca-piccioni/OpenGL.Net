@@ -94,9 +94,6 @@ namespace OpenGL
 		/// <param name="shader">
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
-		/// <param name="count">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
 		/// <param name="path">
 		/// A <see cref="T:String[]"/>.
 		/// </param>

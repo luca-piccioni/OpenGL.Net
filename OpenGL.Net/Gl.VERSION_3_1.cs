@@ -610,7 +610,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglDrawElementsInstanced != null, "pglDrawElementsInstanced not implemented");
 			Delegates.pglDrawElementsInstanced((Int32)mode, count, (Int32)type, indices, instancecount);
-			CallLog("glDrawElementsInstanced({0}, {1}, {2}, {3}, {4})", mode, count, type, indices, instancecount);
+			CallLog("glDrawElementsInstanced({0}, {1}, {2}, 0x{3}, {4})", mode, count, type, indices.ToString("X8"), instancecount);
 			DebugCheckErrors();
 		}
 
@@ -795,7 +795,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglCopyBufferSubData != null, "pglCopyBufferSubData not implemented");
 			Delegates.pglCopyBufferSubData(readTarget, writeTarget, readOffset, writeOffset, size);
-			CallLog("glCopyBufferSubData({0}, {1}, {2}, {3}, {4})", readTarget, writeTarget, readOffset, writeOffset, size);
+			CallLog("glCopyBufferSubData({0}, {1}, 0x{2}, 0x{3}, {4})", readTarget, writeTarget, readOffset.ToString("X8"), writeOffset.ToString("X8"), size);
 			DebugCheckErrors();
 		}
 
@@ -843,10 +843,6 @@ namespace OpenGL
 		/// </summary>
 		/// <param name="program">
 		/// Specifies the program object to be queried.
-		/// </param>
-		/// <param name="uniformCount">
-		/// Specifies both the number of elements in the array of indices <paramref name="uniformIndices"/> and the number of 
-		/// parameters written to <paramref name="params"/> upon successful return.
 		/// </param>
 		/// <param name="uniformIndices">
 		/// Specifies the address of an array of <paramref name="uniformCount"/> integers containing the indices of uniforms within 

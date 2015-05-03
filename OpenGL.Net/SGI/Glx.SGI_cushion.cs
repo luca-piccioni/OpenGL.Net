@@ -42,7 +42,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglXCushionSGI != null, "pglXCushionSGI not implemented");
 			Delegates.pglXCushionSGI(dpy, window, cushion);
-			CallLog("glXCushionSGI({0}, {1}, {2})", dpy, window, cushion);
+			CallLog("glXCushionSGI(0x{0}, 0x{1}, {2})", dpy.ToString("X8"), window.ToString("X8"), cushion);
 		}
 
 	}

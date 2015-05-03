@@ -330,6 +330,27 @@ namespace BindingsGen.GLSpecs
 		}
 
 		/// <summary>
+		/// Determine whether the command implementation requires unsafe signature.
+		/// </summary>
+		/// <param name="ctx">
+		/// The <see cref="RegistryContext"/> defining the OpenGL registry information.
+		/// </param>
+		/// <param name="commandParams">
+		/// A <see cref="T:List{CommandParameter}"/> determining the method overload.
+		/// </param>
+		/// <returns>
+		/// It returns a boolean value indicating whether the method implementation parameters requires
+		/// a fixed statement.
+		/// </returns>
+		private bool IsUnsafeImplementationSignature(RegistryContext ctx, List<CommandParameter> commandParams)
+		{
+			if (GetImplementationReturnType(ctx).EndsWith("*"))
+				return (true);
+
+			return (false);
+		}
+
+		/// <summary>
 		/// Determine whether the command implementation requires fixed statement(s).
 		/// </summary>
 		/// <param name="ctx">
@@ -553,8 +574,13 @@ namespace BindingsGen.GLSpecs
 
 			#region Signature
 
+			sw.WriteIdentation();
+
 			// Signature
-			sw.WriteIdentation(); sw.Write("{0} static {1} {2}(", CommandFlagsDatabase.GetCommandVisibility(this), returnType, implementationName);
+			sw.Write("{0} static ", CommandFlagsDatabase.GetCommandVisibility(this));
+			if (IsUnsafeImplementationSignature(ctx, commandParams))
+				sw.Write("unsafe ");
+			sw.Write("{0} {1}(", returnType, implementationName);
 			// Signature - Parameters
 			int paramCount = commandParams.FindAll(delegate(CommandParameter item) { return (!item.IsImplicit(ctx, this)); }).Count;
 
@@ -731,7 +757,7 @@ namespace BindingsGen.GLSpecs
 				sw.Write("\"{0}(", aliasCommand.ImportName);
 				for (int i = 0; i < commandParams.Count; i++)
 				{
-					sw.Write("{{{0}}}", i);
+					commandParams[i].WriteCallLogFormatParam(sw, ctx, this, i);
 					if (i < commandParams.Count - 1)
 						sw.Write(", ");
 				}
@@ -761,7 +787,7 @@ namespace BindingsGen.GLSpecs
 				{
 					if (commandParams.Count > 0)
 						sw.Write(", ");
-					sw.Write("{0}", ReturnVariableName);
+					CommandParameter.WriteCallLogArgParam(sw, ReturnVariableName, returnType);
 				}
 
 				#endregion

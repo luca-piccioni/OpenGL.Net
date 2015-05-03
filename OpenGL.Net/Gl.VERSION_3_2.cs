@@ -590,7 +590,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglDrawElementsBaseVertex != null, "pglDrawElementsBaseVertex not implemented");
 			Delegates.pglDrawElementsBaseVertex((Int32)mode, count, (Int32)type, indices, basevertex);
-			CallLog("glDrawElementsBaseVertex({0}, {1}, {2}, {3}, {4})", mode, count, type, indices, basevertex);
+			CallLog("glDrawElementsBaseVertex({0}, {1}, {2}, 0x{3}, {4})", mode, count, type, indices.ToString("X8"), basevertex);
 			DebugCheckErrors();
 		}
 
@@ -705,7 +705,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglDrawRangeElementsBaseVertex != null, "pglDrawRangeElementsBaseVertex not implemented");
 			Delegates.pglDrawRangeElementsBaseVertex((Int32)mode, start, end, count, (Int32)type, indices, basevertex);
-			CallLog("glDrawRangeElementsBaseVertex({0}, {1}, {2}, {3}, {4}, {5}, {6})", mode, start, end, count, type, indices, basevertex);
+			CallLog("glDrawRangeElementsBaseVertex({0}, {1}, {2}, {3}, {4}, 0x{5}, {6})", mode, start, end, count, type, indices.ToString("X8"), basevertex);
 			DebugCheckErrors();
 		}
 
@@ -823,7 +823,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglDrawElementsInstancedBaseVertex != null, "pglDrawElementsInstancedBaseVertex not implemented");
 			Delegates.pglDrawElementsInstancedBaseVertex((Int32)mode, count, (Int32)type, indices, instancecount, basevertex);
-			CallLog("glDrawElementsInstancedBaseVertex({0}, {1}, {2}, {3}, {4}, {5})", mode, count, type, indices, instancecount, basevertex);
+			CallLog("glDrawElementsInstancedBaseVertex({0}, {1}, {2}, 0x{3}, {4}, {5})", mode, count, type, indices.ToString("X8"), instancecount, basevertex);
 			DebugCheckErrors();
 		}
 
@@ -1249,9 +1249,6 @@ namespace OpenGL
 		/// </param>
 		/// <param name="pname">
 		/// Specifies the parameter whose value to retrieve from the sync object specified in <paramref name="sync"/>.
-		/// </param>
-		/// <param name="bufSize">
-		/// Specifies the size of the buffer whose address is given in <paramref name="values"/>.
 		/// </param>
 		/// <param name="length">
 		/// Specifies the address of an variable to receive the number of integers placed in <paramref name="values"/>.

@@ -913,9 +913,6 @@ namespace OpenGL
 		/// <param name="index">
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
-		/// <param name="n">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
 		/// <param name="v">
 		/// A <see cref="T:UInt16[]"/>.
 		/// </param>
@@ -938,9 +935,6 @@ namespace OpenGL
 		/// </summary>
 		/// <param name="index">
 		/// A <see cref="T:UInt32"/>.
-		/// </param>
-		/// <param name="n">
-		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="v">
 		/// A <see cref="T:UInt16[]"/>.
@@ -965,9 +959,6 @@ namespace OpenGL
 		/// <param name="index">
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
-		/// <param name="n">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
 		/// <param name="v">
 		/// A <see cref="T:UInt16[]"/>.
 		/// </param>
@@ -990,9 +981,6 @@ namespace OpenGL
 		/// </summary>
 		/// <param name="index">
 		/// A <see cref="T:UInt32"/>.
-		/// </param>
-		/// <param name="n">
-		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="v">
 		/// A <see cref="T:UInt16[]"/>.

@@ -30,7 +30,7 @@ namespace OpenGL
 		internal unsafe static partial class Delegates
 		{
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate bool glXAssociateDMPbufferSGIX(IntPtr dpy, IntPtr pbuffer, IntPtr @params, IntPtr dmbuffer);
+			internal unsafe delegate bool glXAssociateDMPbufferSGIX(IntPtr dpy, IntPtr pbuffer, IntPtr* @params, IntPtr dmbuffer);
 			[ThreadStatic]
 			internal static glXAssociateDMPbufferSGIX pglXAssociateDMPbufferSGIX;
 
@@ -90,12 +90,12 @@ namespace OpenGL
 			internal static glXChannelRectSyncSGIX pglXChannelRectSyncSGIX;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate IntPtr glXChooseFBConfig(IntPtr dpy, int screen, int* attrib_list, int* nelements);
+			internal unsafe delegate IntPtr* glXChooseFBConfig(IntPtr dpy, int screen, int* attrib_list, int* nelements);
 			[ThreadStatic]
 			internal static glXChooseFBConfig pglXChooseFBConfig;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate IntPtr glXChooseFBConfigSGIX(IntPtr dpy, int screen, int* attrib_list, int* nelements);
+			internal unsafe delegate IntPtr* glXChooseFBConfigSGIX(IntPtr dpy, int screen, int* attrib_list, int* nelements);
 			[ThreadStatic]
 			internal static glXChooseFBConfigSGIX pglXChooseFBConfigSGIX;
 
@@ -345,7 +345,7 @@ namespace OpenGL
 			internal static glXGetFBConfigFromVisualSGIX pglXGetFBConfigFromVisualSGIX;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate IntPtr glXGetFBConfigs(IntPtr dpy, int screen, int* nelements);
+			internal unsafe delegate IntPtr* glXGetFBConfigs(IntPtr dpy, int screen, int* nelements);
 			[ThreadStatic]
 			internal static glXGetFBConfigs pglXGetFBConfigs;
 
@@ -545,7 +545,7 @@ namespace OpenGL
 			internal static glXQueryHyperpipeConfigSGIX pglXQueryHyperpipeConfigSGIX;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate IntPtr glXQueryHyperpipeNetworkSGIX(IntPtr dpy, int* npipes);
+			internal unsafe delegate IntPtr* glXQueryHyperpipeNetworkSGIX(IntPtr dpy, int* npipes);
 			[ThreadStatic]
 			internal static glXQueryHyperpipeNetworkSGIX pglXQueryHyperpipeNetworkSGIX;
 

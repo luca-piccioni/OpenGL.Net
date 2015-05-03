@@ -284,9 +284,6 @@ namespace OpenGL
 		/// <summary>
 		/// Binding for glWeightbvARB.
 		/// </summary>
-		/// <param name="size">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
 		/// <param name="weights">
 		/// A <see cref="T:sbyte[]"/>.
 		/// </param>
@@ -307,9 +304,6 @@ namespace OpenGL
 		/// <summary>
 		/// Binding for glWeightsvARB.
 		/// </summary>
-		/// <param name="size">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
 		/// <param name="weights">
 		/// A <see cref="T:Int16[]"/>.
 		/// </param>
@@ -330,9 +324,6 @@ namespace OpenGL
 		/// <summary>
 		/// Binding for glWeightivARB.
 		/// </summary>
-		/// <param name="size">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
 		/// <param name="weights">
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
@@ -353,9 +344,6 @@ namespace OpenGL
 		/// <summary>
 		/// Binding for glWeightfvARB.
 		/// </summary>
-		/// <param name="size">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
 		/// <param name="weights">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
@@ -376,9 +364,6 @@ namespace OpenGL
 		/// <summary>
 		/// Binding for glWeightdvARB.
 		/// </summary>
-		/// <param name="size">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
 		/// <param name="weights">
 		/// A <see cref="T:double[]"/>.
 		/// </param>
@@ -399,9 +384,6 @@ namespace OpenGL
 		/// <summary>
 		/// Binding for glWeightubvARB.
 		/// </summary>
-		/// <param name="size">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
 		/// <param name="weights">
 		/// A <see cref="T:byte[]"/>.
 		/// </param>
@@ -422,9 +404,6 @@ namespace OpenGL
 		/// <summary>
 		/// Binding for glWeightusvARB.
 		/// </summary>
-		/// <param name="size">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
 		/// <param name="weights">
 		/// A <see cref="T:UInt16[]"/>.
 		/// </param>
@@ -445,9 +424,6 @@ namespace OpenGL
 		/// <summary>
 		/// Binding for glWeightuivARB.
 		/// </summary>
-		/// <param name="size">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
 		/// <param name="weights">
 		/// A <see cref="T:UInt32[]"/>.
 		/// </param>
@@ -485,7 +461,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglWeightPointerARB != null, "pglWeightPointerARB not implemented");
 			Delegates.pglWeightPointerARB(size, type, stride, pointer);
-			CallLog("glWeightPointerARB({0}, {1}, {2}, {3})", size, type, stride, pointer);
+			CallLog("glWeightPointerARB({0}, {1}, {2}, 0x{3})", size, type, stride, pointer.ToString("X8"));
 			DebugCheckErrors();
 		}
 

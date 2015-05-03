@@ -53,7 +53,7 @@ namespace OpenGL
 
 			Debug.Assert(Delegates.pwglBindVideoCaptureDeviceNV != null, "pwglBindVideoCaptureDeviceNV not implemented");
 			retValue = Delegates.pwglBindVideoCaptureDeviceNV(uVideoSlot, hDevice);
-			CallLog("wglBindVideoCaptureDeviceNV({0}, {1}) = {2}", uVideoSlot, hDevice, retValue);
+			CallLog("wglBindVideoCaptureDeviceNV({0}, 0x{1}) = {2}", uVideoSlot, hDevice.ToString("X8"), retValue);
 
 			return (retValue);
 		}
@@ -77,7 +77,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pwglEnumerateVideoCaptureDevicesNV != null, "pwglEnumerateVideoCaptureDevicesNV not implemented");
 					retValue = Delegates.pwglEnumerateVideoCaptureDevicesNV(hDc, p_phDeviceList);
-					CallLog("wglEnumerateVideoCaptureDevicesNV({0}, {1}) = {2}", hDc, phDeviceList, retValue);
+					CallLog("wglEnumerateVideoCaptureDevicesNV(0x{0}, {1}) = {2}", hDc.ToString("X8"), phDeviceList, retValue);
 				}
 			}
 
@@ -100,7 +100,7 @@ namespace OpenGL
 
 			Debug.Assert(Delegates.pwglLockVideoCaptureDeviceNV != null, "pwglLockVideoCaptureDeviceNV not implemented");
 			retValue = Delegates.pwglLockVideoCaptureDeviceNV(hDc, hDevice);
-			CallLog("wglLockVideoCaptureDeviceNV({0}, {1}) = {2}", hDc, hDevice, retValue);
+			CallLog("wglLockVideoCaptureDeviceNV(0x{0}, 0x{1}) = {2}", hDc.ToString("X8"), hDevice.ToString("X8"), retValue);
 
 			return (retValue);
 		}
@@ -130,7 +130,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pwglQueryVideoCaptureDeviceNV != null, "pwglQueryVideoCaptureDeviceNV not implemented");
 					retValue = Delegates.pwglQueryVideoCaptureDeviceNV(hDc, hDevice, iAttribute, p_piValue);
-					CallLog("wglQueryVideoCaptureDeviceNV({0}, {1}, {2}, {3}) = {4}", hDc, hDevice, iAttribute, piValue, retValue);
+					CallLog("wglQueryVideoCaptureDeviceNV(0x{0}, 0x{1}, {2}, {3}) = {4}", hDc.ToString("X8"), hDevice.ToString("X8"), iAttribute, piValue, retValue);
 				}
 			}
 
@@ -153,7 +153,7 @@ namespace OpenGL
 
 			Debug.Assert(Delegates.pwglReleaseVideoCaptureDeviceNV != null, "pwglReleaseVideoCaptureDeviceNV not implemented");
 			retValue = Delegates.pwglReleaseVideoCaptureDeviceNV(hDc, hDevice);
-			CallLog("wglReleaseVideoCaptureDeviceNV({0}, {1}) = {2}", hDc, hDevice, retValue);
+			CallLog("wglReleaseVideoCaptureDeviceNV(0x{0}, 0x{1}) = {2}", hDc.ToString("X8"), hDevice.ToString("X8"), retValue);
 
 			return (retValue);
 		}

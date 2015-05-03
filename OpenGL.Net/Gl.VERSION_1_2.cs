@@ -549,7 +549,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglDrawRangeElements != null, "pglDrawRangeElements not implemented");
 			Delegates.pglDrawRangeElements((Int32)mode, start, end, count, (Int32)type, indices);
-			CallLog("glDrawRangeElements({0}, {1}, {2}, {3}, {4}, {5})", mode, start, end, count, type, indices);
+			CallLog("glDrawRangeElements({0}, {1}, {2}, {3}, {4}, 0x{5})", mode, start, end, count, type, indices.ToString("X8"));
 			DebugCheckErrors();
 		}
 
@@ -741,7 +741,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglTexImage3D != null, "pglTexImage3D not implemented");
 			Delegates.pglTexImage3D((Int32)target, level, internalformat, width, height, depth, border, (Int32)format, (Int32)type, pixels);
-			CallLog("glTexImage3D({0}, {1}, {2}, {3}, {4}, {5}, {6}, {7}, {8}, {9})", target, level, internalformat, width, height, depth, border, format, type, pixels);
+			CallLog("glTexImage3D({0}, {1}, {2}, {3}, {4}, {5}, {6}, {7}, {8}, 0x{9})", target, level, internalformat, width, height, depth, border, format, type, pixels.ToString("X8"));
 			DebugCheckErrors();
 		}
 
@@ -1002,7 +1002,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglTexSubImage3D != null, "pglTexSubImage3D not implemented");
 			Delegates.pglTexSubImage3D((Int32)target, level, xoffset, yoffset, zoffset, width, height, depth, (Int32)format, (Int32)type, pixels);
-			CallLog("glTexSubImage3D({0}, {1}, {2}, {3}, {4}, {5}, {6}, {7}, {8}, {9}, {10})", target, level, xoffset, yoffset, zoffset, width, height, depth, format, type, pixels);
+			CallLog("glTexSubImage3D({0}, {1}, {2}, {3}, {4}, {5}, {6}, {7}, {8}, {9}, 0x{10})", target, level, xoffset, yoffset, zoffset, width, height, depth, format, type, pixels.ToString("X8"));
 			DebugCheckErrors();
 		}
 

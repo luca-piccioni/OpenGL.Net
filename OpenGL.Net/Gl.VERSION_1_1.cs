@@ -6452,7 +6452,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglDrawElements != null, "pglDrawElements not implemented");
 			Delegates.pglDrawElements((Int32)mode, count, (Int32)type, indices);
-			CallLog("glDrawElements({0}, {1}, {2}, {3})", mode, count, type, indices);
+			CallLog("glDrawElements({0}, {1}, {2}, 0x{3})", mode, count, type, indices.ToString("X8"));
 			DebugCheckErrors();
 		}
 
@@ -6531,7 +6531,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetPointerv != null, "pglGetPointerv not implemented");
 					Delegates.pglGetPointerv((Int32)pname, p_params);
-					CallLog("glGetPointerv({0}, {1})", pname, @params);
+					CallLog("glGetPointerv({0}, 0x{1})", pname, @params.ToString("X8"));
 				}
 			}
 			DebugCheckErrors();
@@ -7019,7 +7019,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglTexSubImage1D != null, "pglTexSubImage1D not implemented");
 			Delegates.pglTexSubImage1D((Int32)target, level, xoffset, width, (Int32)format, (Int32)type, pixels);
-			CallLog("glTexSubImage1D({0}, {1}, {2}, {3}, {4}, {5}, {6})", target, level, xoffset, width, format, type, pixels);
+			CallLog("glTexSubImage1D({0}, {1}, {2}, {3}, {4}, {5}, 0x{6})", target, level, xoffset, width, format, type, pixels.ToString("X8"));
 			DebugCheckErrors();
 		}
 
@@ -7255,7 +7255,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglTexSubImage2D != null, "pglTexSubImage2D not implemented");
 			Delegates.pglTexSubImage2D((Int32)target, level, xoffset, yoffset, width, height, (Int32)format, (Int32)type, pixels);
-			CallLog("glTexSubImage2D({0}, {1}, {2}, {3}, {4}, {5}, {6}, {7}, {8})", target, level, xoffset, yoffset, width, height, format, type, pixels);
+			CallLog("glTexSubImage2D({0}, {1}, {2}, {3}, {4}, {5}, {6}, {7}, 0x{8})", target, level, xoffset, yoffset, width, height, format, type, pixels.ToString("X8"));
 			DebugCheckErrors();
 		}
 
@@ -7430,9 +7430,6 @@ namespace OpenGL
 		/// <summary>
 		/// delete named textures
 		/// </summary>
-		/// <param name="n">
-		/// Specifies the number of textures to be deleted.
-		/// </param>
 		/// <param name="textures">
 		/// Specifies an array of textures to be deleted.
 		/// </param>
@@ -7467,9 +7464,6 @@ namespace OpenGL
 		/// <summary>
 		/// generate texture names
 		/// </summary>
-		/// <param name="n">
-		/// Specifies the number of texture names to be generated.
-		/// </param>
 		/// <param name="textures">
 		/// Specifies an array in which the generated texture names are stored.
 		/// </param>
@@ -7650,7 +7644,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglColorPointer != null, "pglColorPointer not implemented");
 			Delegates.pglColorPointer(size, (Int32)type, stride, pointer);
-			CallLog("glColorPointer({0}, {1}, {2}, {3})", size, type, stride, pointer);
+			CallLog("glColorPointer({0}, {1}, {2}, 0x{3})", size, type, stride, pointer.ToString("X8"));
 			DebugCheckErrors();
 		}
 
@@ -7797,7 +7791,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglEdgeFlagPointer != null, "pglEdgeFlagPointer not implemented");
 			Delegates.pglEdgeFlagPointer(stride, pointer);
-			CallLog("glEdgeFlagPointer({0}, {1})", stride, pointer);
+			CallLog("glEdgeFlagPointer({0}, 0x{1})", stride, pointer.ToString("X8"));
 			DebugCheckErrors();
 		}
 
@@ -7938,7 +7932,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglIndexPointer != null, "pglIndexPointer not implemented");
 			Delegates.pglIndexPointer((Int32)type, stride, pointer);
-			CallLog("glIndexPointer({0}, {1}, {2})", type, stride, pointer);
+			CallLog("glIndexPointer({0}, {1}, 0x{2})", type, stride, pointer.ToString("X8"));
 			DebugCheckErrors();
 		}
 
@@ -8038,7 +8032,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglInterleavedArrays != null, "pglInterleavedArrays not implemented");
 			Delegates.pglInterleavedArrays((Int32)format, stride, pointer);
-			CallLog("glInterleavedArrays({0}, {1}, {2})", format, stride, pointer);
+			CallLog("glInterleavedArrays({0}, {1}, 0x{2})", format, stride, pointer.ToString("X8"));
 			DebugCheckErrors();
 		}
 
@@ -8138,7 +8132,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglNormalPointer != null, "pglNormalPointer not implemented");
 			Delegates.pglNormalPointer((Int32)type, stride, pointer);
-			CallLog("glNormalPointer({0}, {1}, {2})", type, stride, pointer);
+			CallLog("glNormalPointer({0}, {1}, 0x{2})", type, stride, pointer.ToString("X8"));
 			DebugCheckErrors();
 		}
 
@@ -8254,7 +8248,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglTexCoordPointer != null, "pglTexCoordPointer not implemented");
 			Delegates.pglTexCoordPointer(size, (Int32)type, stride, pointer);
-			CallLog("glTexCoordPointer({0}, {1}, {2}, {3})", size, type, stride, pointer);
+			CallLog("glTexCoordPointer({0}, {1}, {2}, 0x{3})", size, type, stride, pointer.ToString("X8"));
 			DebugCheckErrors();
 		}
 
@@ -8376,7 +8370,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglVertexPointer != null, "pglVertexPointer not implemented");
 			Delegates.pglVertexPointer(size, (Int32)type, stride, pointer);
-			CallLog("glVertexPointer({0}, {1}, {2}, {3})", size, type, stride, pointer);
+			CallLog("glVertexPointer({0}, {1}, {2}, 0x{3})", size, type, stride, pointer.ToString("X8"));
 			DebugCheckErrors();
 		}
 
@@ -8444,9 +8438,6 @@ namespace OpenGL
 		/// <summary>
 		/// determine if textures are loaded in texture memory
 		/// </summary>
-		/// <param name="n">
-		/// Specifies the number of textures to be queried.
-		/// </param>
 		/// <param name="textures">
 		/// Specifies an array containing the names of the textures to be queried.
 		/// </param>
@@ -8497,9 +8488,6 @@ namespace OpenGL
 		/// <summary>
 		/// set texture residence priority
 		/// </summary>
-		/// <param name="n">
-		/// Specifies the number of textures to be prioritized.
-		/// </param>
 		/// <param name="textures">
 		/// Specifies an array containing the names of the textures to be prioritized.
 		/// </param>

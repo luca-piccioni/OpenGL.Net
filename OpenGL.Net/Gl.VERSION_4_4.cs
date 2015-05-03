@@ -234,7 +234,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglBufferStorage != null, "pglBufferStorage not implemented");
 			Delegates.pglBufferStorage(target, size, data, flags);
-			CallLog("glBufferStorage({0}, {1}, {2}, {3})", target, size, data, flags);
+			CallLog("glBufferStorage({0}, {1}, 0x{2}, {3})", target, size, data.ToString("X8"), flags);
 			DebugCheckErrors();
 		}
 
@@ -377,7 +377,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglClearTexImage != null, "pglClearTexImage not implemented");
 			Delegates.pglClearTexImage(texture, level, format, type, data);
-			CallLog("glClearTexImage({0}, {1}, {2}, {3}, {4})", texture, level, format, type, data);
+			CallLog("glClearTexImage({0}, {1}, {2}, {3}, 0x{4})", texture, level, format, type, data.ToString("X8"));
 			DebugCheckErrors();
 		}
 
@@ -546,7 +546,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglClearTexSubImage != null, "pglClearTexSubImage not implemented");
 			Delegates.pglClearTexSubImage(texture, level, xoffset, yoffset, zoffset, width, height, depth, format, type, data);
-			CallLog("glClearTexSubImage({0}, {1}, {2}, {3}, {4}, {5}, {6}, {7}, {8}, {9}, {10})", texture, level, xoffset, yoffset, zoffset, width, height, depth, format, type, data);
+			CallLog("glClearTexSubImage({0}, {1}, {2}, {3}, {4}, {5}, {6}, {7}, {8}, {9}, 0x{10})", texture, level, xoffset, yoffset, zoffset, width, height, depth, format, type, data.ToString("X8"));
 			DebugCheckErrors();
 		}
 
@@ -655,9 +655,6 @@ namespace OpenGL
 		/// <param name="first">
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
-		/// <param name="count">
-		/// Specify the number of contiguous binding points to which to bind buffers.
-		/// </param>
 		/// <param name="buffers">
 		/// A pointer to an array of names of buffer objects to bind to the targets on the specified binding point, or Gl.L.
 		/// </param>
@@ -707,9 +704,6 @@ namespace OpenGL
 		/// </param>
 		/// <param name="first">
 		/// A <see cref="T:UInt32"/>.
-		/// </param>
-		/// <param name="count">
-		/// Specify the number of contiguous binding points to which to bind buffers.
 		/// </param>
 		/// <param name="buffers">
 		/// A pointer to an array of names of buffer objects to bind to the targets on the specified binding point, or Gl.L.
@@ -773,9 +767,6 @@ namespace OpenGL
 		/// <param name="first">
 		/// Specifies the first texture unit to which a texture is to be bound.
 		/// </param>
-		/// <param name="count">
-		/// Specifies the number of textures to bind.
-		/// </param>
 		/// <param name="textures">
 		/// Specifies the address of an array of names of existing texture objects.
 		/// </param>
@@ -822,9 +813,6 @@ namespace OpenGL
 		/// <param name="first">
 		/// Specifies the first sampler unit to which a sampler object is to be bound.
 		/// </param>
-		/// <param name="count">
-		/// Specifies the number of samplers to bind.
-		/// </param>
 		/// <param name="samplers">
 		/// Specifies the address of an array of names of existing sampler objects.
 		/// </param>
@@ -867,9 +855,6 @@ namespace OpenGL
 		/// </summary>
 		/// <param name="first">
 		/// Specifies the first image unit to which a texture is to be bound.
-		/// </param>
-		/// <param name="count">
-		/// Specifies the number of textures to bind.
 		/// </param>
 		/// <param name="textures">
 		/// Specifies the address of an array of names of existing texture objects.
@@ -926,9 +911,6 @@ namespace OpenGL
 		/// </summary>
 		/// <param name="first">
 		/// Specifies the first vertex buffer binding point to which a buffer object is to be bound.
-		/// </param>
-		/// <param name="count">
-		/// Specifies the number of buffers to bind.
 		/// </param>
 		/// <param name="buffers">
 		/// Specifies the address of an array of names of existing buffer objects.

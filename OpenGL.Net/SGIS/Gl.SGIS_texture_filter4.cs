@@ -102,9 +102,6 @@ namespace OpenGL
 		/// <param name="filter">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
-		/// <param name="n">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
 		/// <param name="weights">
 		/// A <see cref="T:float[]"/>.
 		/// </param>

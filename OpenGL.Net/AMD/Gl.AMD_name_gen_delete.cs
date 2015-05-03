@@ -49,9 +49,6 @@ namespace OpenGL
 		/// <param name="identifier">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
-		/// <param name="num">
-		/// A <see cref="T:UInt32"/>.
-		/// </param>
 		/// <param name="names">
 		/// A <see cref="T:UInt32[]"/>.
 		/// </param>
@@ -88,9 +85,6 @@ namespace OpenGL
 		/// </summary>
 		/// <param name="identifier">
 		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="num">
-		/// A <see cref="T:UInt32"/>.
 		/// </param>
 		/// <param name="names">
 		/// A <see cref="T:UInt32[]"/>.

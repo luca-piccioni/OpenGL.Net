@@ -204,7 +204,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglMapControlPointsNV != null, "pglMapControlPointsNV not implemented");
 			Delegates.pglMapControlPointsNV(target, index, type, ustride, vstride, uorder, vorder, packed, points);
-			CallLog("glMapControlPointsNV({0}, {1}, {2}, {3}, {4}, {5}, {6}, {7}, {8})", target, index, type, ustride, vstride, uorder, vorder, packed, points);
+			CallLog("glMapControlPointsNV({0}, {1}, {2}, {3}, {4}, {5}, {6}, {7}, 0x{8})", target, index, type, ustride, vstride, uorder, vorder, packed, points.ToString("X8"));
 			DebugCheckErrors();
 		}
 
@@ -330,7 +330,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglGetMapControlPointsNV != null, "pglGetMapControlPointsNV not implemented");
 			Delegates.pglGetMapControlPointsNV(target, index, type, ustride, vstride, packed, points);
-			CallLog("glGetMapControlPointsNV({0}, {1}, {2}, {3}, {4}, {5}, {6})", target, index, type, ustride, vstride, packed, points);
+			CallLog("glGetMapControlPointsNV({0}, {1}, {2}, {3}, {4}, {5}, 0x{6})", target, index, type, ustride, vstride, packed, points.ToString("X8"));
 			DebugCheckErrors();
 		}
 

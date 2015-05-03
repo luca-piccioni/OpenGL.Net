@@ -82,9 +82,6 @@ namespace OpenGL
 		/// <param name="severity">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
-		/// <param name="count">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
 		/// <param name="ids">
 		/// A <see cref="T:UInt32[]"/>.
 		/// </param>
@@ -146,16 +143,13 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglDebugMessageCallbackAMD != null, "pglDebugMessageCallbackAMD not implemented");
 			Delegates.pglDebugMessageCallbackAMD(callback, userParam);
-			CallLog("glDebugMessageCallbackAMD({0}, {1})", callback, userParam);
+			CallLog("glDebugMessageCallbackAMD(0x{0}, 0x{1})", callback.ToString("X8"), userParam.ToString("X8"));
 			DebugCheckErrors();
 		}
 
 		/// <summary>
 		/// Binding for glGetDebugMessageLogAMD.
 		/// </summary>
-		/// <param name="count">
-		/// A <see cref="T:UInt32"/>.
-		/// </param>
 		/// <param name="bufsize">
 		/// A <see cref="T:Int32"/>.
 		/// </param>

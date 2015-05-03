@@ -74,7 +74,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.peglQueryStreamTimeKHR != null, "peglQueryStreamTimeKHR not implemented");
 					retValue = Delegates.peglQueryStreamTimeKHR(dpy, stream, attribute, p_value);
-					CallLog("eglQueryStreamTimeKHR({0}, {1}, {2}, {3}) = {4}", dpy, stream, attribute, value, retValue);
+					CallLog("eglQueryStreamTimeKHR(0x{0}, 0x{1}, {2}, {3}) = {4}", dpy.ToString("X8"), stream.ToString("X8"), attribute, value, retValue.ToString("X8"));
 				}
 			}
 			DebugCheckErrors();

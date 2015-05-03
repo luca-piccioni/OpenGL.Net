@@ -59,7 +59,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pwglGetGammaTableParametersI3D != null, "pwglGetGammaTableParametersI3D not implemented");
 					retValue = Delegates.pwglGetGammaTableParametersI3D(hDC, iAttribute, p_piValue);
-					CallLog("wglGetGammaTableParametersI3D({0}, {1}, {2}) = {3}", hDC, iAttribute, piValue, retValue);
+					CallLog("wglGetGammaTableParametersI3D(0x{0}, {1}, {2}) = {3}", hDC.ToString("X8"), iAttribute, piValue, retValue);
 				}
 			}
 
@@ -88,7 +88,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pwglSetGammaTableParametersI3D != null, "pwglSetGammaTableParametersI3D not implemented");
 					retValue = Delegates.pwglSetGammaTableParametersI3D(hDC, iAttribute, p_piValue);
-					CallLog("wglSetGammaTableParametersI3D({0}, {1}, {2}) = {3}", hDC, iAttribute, piValue, retValue);
+					CallLog("wglSetGammaTableParametersI3D(0x{0}, {1}, {2}) = {3}", hDC.ToString("X8"), iAttribute, piValue, retValue);
 				}
 			}
 
@@ -125,7 +125,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pwglGetGammaTableI3D != null, "pwglGetGammaTableI3D not implemented");
 					retValue = Delegates.pwglGetGammaTableI3D(hDC, iEntries, p_puRed, p_puGreen, p_puBlue);
-					CallLog("wglGetGammaTableI3D({0}, {1}, {2}, {3}, {4}) = {5}", hDC, iEntries, puRed, puGreen, puBlue, retValue);
+					CallLog("wglGetGammaTableI3D(0x{0}, {1}, {2}, {3}, {4}) = {5}", hDC.ToString("X8"), iEntries, puRed, puGreen, puBlue, retValue);
 				}
 			}
 
@@ -162,7 +162,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pwglSetGammaTableI3D != null, "pwglSetGammaTableI3D not implemented");
 					retValue = Delegates.pwglSetGammaTableI3D(hDC, iEntries, p_puRed, p_puGreen, p_puBlue);
-					CallLog("wglSetGammaTableI3D({0}, {1}, {2}, {3}, {4}) = {5}", hDC, iEntries, puRed, puGreen, puBlue, retValue);
+					CallLog("wglSetGammaTableI3D(0x{0}, {1}, {2}, {3}, {4}) = {5}", hDC.ToString("X8"), iEntries, puRed, puGreen, puBlue, retValue);
 				}
 			}
 

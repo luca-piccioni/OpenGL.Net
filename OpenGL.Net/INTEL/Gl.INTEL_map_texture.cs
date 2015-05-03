@@ -111,7 +111,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglMapTexture2DINTEL != null, "pglMapTexture2DINTEL not implemented");
 					retValue = Delegates.pglMapTexture2DINTEL(texture, level, access, p_stride, p_layout);
-					CallLog("glMapTexture2DINTEL({0}, {1}, {2}, {3}, {4}) = {5}", texture, level, access, stride, layout, retValue);
+					CallLog("glMapTexture2DINTEL({0}, {1}, {2}, {3}, {4}) = {5}", texture, level, access, stride, layout, retValue.ToString("X8"));
 				}
 			}
 			DebugCheckErrors();

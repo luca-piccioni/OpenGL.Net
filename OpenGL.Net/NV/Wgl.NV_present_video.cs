@@ -50,7 +50,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pwglEnumerateVideoDevicesNV != null, "pwglEnumerateVideoDevicesNV not implemented");
 					retValue = Delegates.pwglEnumerateVideoDevicesNV(hDC, p_phDeviceList);
-					CallLog("wglEnumerateVideoDevicesNV({0}, {1}) = {2}", hDC, phDeviceList, retValue);
+					CallLog("wglEnumerateVideoDevicesNV(0x{0}, {1}) = {2}", hDC.ToString("X8"), phDeviceList, retValue);
 				}
 			}
 
@@ -82,7 +82,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pwglBindVideoDeviceNV != null, "pwglBindVideoDeviceNV not implemented");
 					retValue = Delegates.pwglBindVideoDeviceNV(hDC, uVideoSlot, hVideoDevice, p_piAttribList);
-					CallLog("wglBindVideoDeviceNV({0}, {1}, {2}, {3}) = {4}", hDC, uVideoSlot, hVideoDevice, piAttribList, retValue);
+					CallLog("wglBindVideoDeviceNV(0x{0}, {1}, 0x{2}, {3}) = {4}", hDC.ToString("X8"), uVideoSlot, hVideoDevice.ToString("X8"), piAttribList, retValue);
 				}
 			}
 

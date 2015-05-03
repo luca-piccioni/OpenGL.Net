@@ -234,7 +234,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglBindVideoCaptureStreamBufferNV != null, "pglBindVideoCaptureStreamBufferNV not implemented");
 			Delegates.pglBindVideoCaptureStreamBufferNV(video_capture_slot, stream, frame_region, offset);
-			CallLog("glBindVideoCaptureStreamBufferNV({0}, {1}, {2}, {3})", video_capture_slot, stream, frame_region, offset);
+			CallLog("glBindVideoCaptureStreamBufferNV({0}, {1}, {2}, 0x{3})", video_capture_slot, stream, frame_region, offset.ToString("X8"));
 			DebugCheckErrors();
 		}
 

@@ -103,9 +103,6 @@ namespace OpenGL
 		/// <summary>
 		/// Binding for glMatrixIndexubvARB.
 		/// </summary>
-		/// <param name="size">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
 		/// <param name="indices">
 		/// A <see cref="T:byte[]"/>.
 		/// </param>
@@ -126,9 +123,6 @@ namespace OpenGL
 		/// <summary>
 		/// Binding for glMatrixIndexusvARB.
 		/// </summary>
-		/// <param name="size">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
 		/// <param name="indices">
 		/// A <see cref="T:UInt16[]"/>.
 		/// </param>
@@ -149,9 +143,6 @@ namespace OpenGL
 		/// <summary>
 		/// Binding for glMatrixIndexuivARB.
 		/// </summary>
-		/// <param name="size">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
 		/// <param name="indices">
 		/// A <see cref="T:UInt32[]"/>.
 		/// </param>
@@ -189,7 +180,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglMatrixIndexPointerARB != null, "pglMatrixIndexPointerARB not implemented");
 			Delegates.pglMatrixIndexPointerARB(size, type, stride, pointer);
-			CallLog("glMatrixIndexPointerARB({0}, {1}, {2}, {3})", size, type, stride, pointer);
+			CallLog("glMatrixIndexPointerARB({0}, {1}, {2}, 0x{3})", size, type, stride, pointer.ToString("X8"));
 			DebugCheckErrors();
 		}
 

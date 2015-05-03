@@ -54,7 +54,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglXSwapIntervalEXT != null, "pglXSwapIntervalEXT not implemented");
 			Delegates.pglXSwapIntervalEXT(dpy, drawable, interval);
-			CallLog("glXSwapIntervalEXT({0}, {1}, {2})", dpy, drawable, interval);
+			CallLog("glXSwapIntervalEXT(0x{0}, 0x{1}, {2})", dpy.ToString("X8"), drawable.ToString("X8"), interval);
 		}
 
 	}

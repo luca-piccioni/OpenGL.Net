@@ -78,7 +78,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglPixelDataRangeNV != null, "pglPixelDataRangeNV not implemented");
 			Delegates.pglPixelDataRangeNV(target, length, pointer);
-			CallLog("glPixelDataRangeNV({0}, {1}, {2})", target, length, pointer);
+			CallLog("glPixelDataRangeNV({0}, {1}, 0x{2})", target, length, pointer.ToString("X8"));
 			DebugCheckErrors();
 		}
 

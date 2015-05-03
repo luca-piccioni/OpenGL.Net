@@ -55,9 +55,6 @@ namespace OpenGL
 		/// <param name="target">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
-		/// <param name="count">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
 		/// <param name="params">
 		/// A <see cref="T:UInt32[]"/>.
 		/// </param>

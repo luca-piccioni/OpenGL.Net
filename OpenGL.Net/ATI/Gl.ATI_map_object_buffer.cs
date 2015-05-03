@@ -38,7 +38,7 @@ namespace OpenGL
 
 			Debug.Assert(Delegates.pglMapObjectBufferATI != null, "pglMapObjectBufferATI not implemented");
 			retValue = Delegates.pglMapObjectBufferATI(buffer);
-			CallLog("glMapObjectBufferATI({0}) = {1}", buffer, retValue);
+			CallLog("glMapObjectBufferATI({0}) = {1}", buffer, retValue.ToString("X8"));
 			DebugCheckErrors();
 
 			return (retValue);

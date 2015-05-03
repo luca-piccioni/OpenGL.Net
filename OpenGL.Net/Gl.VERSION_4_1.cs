@@ -380,9 +380,6 @@ namespace OpenGL
 		/// <summary>
 		/// load pre-compiled shader binaries
 		/// </summary>
-		/// <param name="count">
-		/// Specifies the number of shader object handles contained in <paramref name="shaders"/>.
-		/// </param>
 		/// <param name="shaders">
 		/// Specifies the address of an array of shader handles into which to load pre-compiled shader binaries.
 		/// </param>
@@ -420,7 +417,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglShaderBinary != null, "pglShaderBinary not implemented");
 					Delegates.pglShaderBinary((Int32)shaders.Length, p_shaders, binaryformat, binary, length);
-					CallLog("glShaderBinary({0}, {1}, {2}, {3}, {4})", shaders.Length, shaders, binaryformat, binary, length);
+					CallLog("glShaderBinary({0}, {1}, {2}, 0x{3}, {4})", shaders.Length, shaders, binaryformat, binary.ToString("X8"), length);
 				}
 			}
 			DebugCheckErrors();
@@ -582,7 +579,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetProgramBinary != null, "pglGetProgramBinary not implemented");
 					Delegates.pglGetProgramBinary(program, bufSize, p_length, p_binaryFormat, binary);
-					CallLog("glGetProgramBinary({0}, {1}, {2}, {3}, {4})", program, bufSize, length, binaryFormat, binary);
+					CallLog("glGetProgramBinary({0}, {1}, {2}, {3}, 0x{4})", program, bufSize, length, binaryFormat, binary.ToString("X8"));
 				}
 			}
 			DebugCheckErrors();
@@ -660,7 +657,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglProgramBinary != null, "pglProgramBinary not implemented");
 			Delegates.pglProgramBinary(program, binaryFormat, binary, length);
-			CallLog("glProgramBinary({0}, {1}, {2}, {3})", program, binaryFormat, binary, length);
+			CallLog("glProgramBinary({0}, {1}, 0x{2}, {3})", program, binaryFormat, binary.ToString("X8"), length);
 			DebugCheckErrors();
 		}
 
@@ -821,9 +818,6 @@ namespace OpenGL
 		/// <param name="type">
 		/// Specifies the type of shader to create.
 		/// </param>
-		/// <param name="count">
-		/// Specifies the number of source code strings in the array <paramref name="strings"/>.
-		/// </param>
 		/// <param name="strings">
 		/// Specifies the address of an array of pointers to source code strings from which to create the program object.
 		/// </param>
@@ -889,9 +883,6 @@ namespace OpenGL
 		/// <summary>
 		/// delete program pipeline objects
 		/// </summary>
-		/// <param name="n">
-		/// Specifies the number of program pipeline objects to delete.
-		/// </param>
 		/// <param name="pipelines">
 		/// Specifies an array of names of program pipeline objects to delete.
 		/// </param>
@@ -918,9 +909,6 @@ namespace OpenGL
 		/// <summary>
 		/// reserve program pipeline object names
 		/// </summary>
-		/// <param name="n">
-		/// Specifies the number of program pipeline object names to reserve.
-		/// </param>
 		/// <param name="pipelines">
 		/// Specifies an array of into which the reserved names will be written.
 		/// </param>
@@ -3245,10 +3233,6 @@ namespace OpenGL
 		/// <param name="location">
 		/// Specifies the location of the uniform variable to be modified.
 		/// </param>
-		/// <param name="count">
-		/// For the vector commands (Gl.ProgramUniform*v), specifies the number of elements that are to be modified. This should be 
-		/// 1 if the targeted uniform variable is not an array, and 1 or more if it is an array.
-		/// </param>
 		/// <param name="transpose">
 		/// For the matrix commands, specifies whether to transpose the matrix as the values are loaded into the uniform variable.
 		/// </param>
@@ -3319,10 +3303,6 @@ namespace OpenGL
 		/// </param>
 		/// <param name="location">
 		/// Specifies the location of the uniform variable to be modified.
-		/// </param>
-		/// <param name="count">
-		/// For the vector commands (Gl.ProgramUniform*v), specifies the number of elements that are to be modified. This should be 
-		/// 1 if the targeted uniform variable is not an array, and 1 or more if it is an array.
 		/// </param>
 		/// <param name="transpose">
 		/// For the matrix commands, specifies whether to transpose the matrix as the values are loaded into the uniform variable.
@@ -3395,10 +3375,6 @@ namespace OpenGL
 		/// <param name="location">
 		/// Specifies the location of the uniform variable to be modified.
 		/// </param>
-		/// <param name="count">
-		/// For the vector commands (Gl.ProgramUniform*v), specifies the number of elements that are to be modified. This should be 
-		/// 1 if the targeted uniform variable is not an array, and 1 or more if it is an array.
-		/// </param>
 		/// <param name="transpose">
 		/// For the matrix commands, specifies whether to transpose the matrix as the values are loaded into the uniform variable.
 		/// </param>
@@ -3469,10 +3445,6 @@ namespace OpenGL
 		/// </param>
 		/// <param name="location">
 		/// Specifies the location of the uniform variable to be modified.
-		/// </param>
-		/// <param name="count">
-		/// For the vector commands (Gl.ProgramUniform*v), specifies the number of elements that are to be modified. This should be 
-		/// 1 if the targeted uniform variable is not an array, and 1 or more if it is an array.
 		/// </param>
 		/// <param name="transpose">
 		/// For the matrix commands, specifies whether to transpose the matrix as the values are loaded into the uniform variable.
@@ -3545,10 +3517,6 @@ namespace OpenGL
 		/// <param name="location">
 		/// Specifies the location of the uniform variable to be modified.
 		/// </param>
-		/// <param name="count">
-		/// For the vector commands (Gl.ProgramUniform*v), specifies the number of elements that are to be modified. This should be 
-		/// 1 if the targeted uniform variable is not an array, and 1 or more if it is an array.
-		/// </param>
 		/// <param name="transpose">
 		/// For the matrix commands, specifies whether to transpose the matrix as the values are loaded into the uniform variable.
 		/// </param>
@@ -3619,10 +3587,6 @@ namespace OpenGL
 		/// </param>
 		/// <param name="location">
 		/// Specifies the location of the uniform variable to be modified.
-		/// </param>
-		/// <param name="count">
-		/// For the vector commands (Gl.ProgramUniform*v), specifies the number of elements that are to be modified. This should be 
-		/// 1 if the targeted uniform variable is not an array, and 1 or more if it is an array.
 		/// </param>
 		/// <param name="transpose">
 		/// For the matrix commands, specifies whether to transpose the matrix as the values are loaded into the uniform variable.
@@ -3695,9 +3659,6 @@ namespace OpenGL
 		/// <param name="location">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
-		/// <param name="count">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
 		/// <param name="transpose">
 		/// A <see cref="T:bool"/>.
 		/// </param>
@@ -3726,9 +3687,6 @@ namespace OpenGL
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
 		/// <param name="location">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="count">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="transpose">
@@ -3761,9 +3719,6 @@ namespace OpenGL
 		/// <param name="location">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
-		/// <param name="count">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
 		/// <param name="transpose">
 		/// A <see cref="T:bool"/>.
 		/// </param>
@@ -3792,9 +3747,6 @@ namespace OpenGL
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
 		/// <param name="location">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="count">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="transpose">
@@ -3827,9 +3779,6 @@ namespace OpenGL
 		/// <param name="location">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
-		/// <param name="count">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
 		/// <param name="transpose">
 		/// A <see cref="T:bool"/>.
 		/// </param>
@@ -3858,9 +3807,6 @@ namespace OpenGL
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
 		/// <param name="location">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
-		/// <param name="count">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="transpose">
@@ -4333,7 +4279,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglVertexAttribLPointer != null, "pglVertexAttribLPointer not implemented");
 			Delegates.pglVertexAttribLPointer(index, size, type, stride, pointer);
-			CallLog("glVertexAttribLPointer({0}, {1}, {2}, {3}, {4})", index, size, type, stride, pointer);
+			CallLog("glVertexAttribLPointer({0}, {1}, {2}, {3}, 0x{4})", index, size, type, stride, pointer.ToString("X8"));
 			DebugCheckErrors();
 		}
 

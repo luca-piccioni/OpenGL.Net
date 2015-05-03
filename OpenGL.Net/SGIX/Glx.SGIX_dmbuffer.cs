@@ -41,19 +41,24 @@ namespace OpenGL
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		/// <param name="params">
-		/// A <see cref="T:IntPtr"/>.
+		/// A <see cref="T:IntPtr[]"/>.
 		/// </param>
 		/// <param name="dmbuffer">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		[RequiredByFeature("GLX_SGIX_dmbuffer")]
-		public static bool AssociateDMPbufferSGIX(IntPtr dpy, IntPtr pbuffer, IntPtr @params, IntPtr dmbuffer)
+		public static bool AssociateDMPbufferSGIX(IntPtr dpy, IntPtr pbuffer, IntPtr[] @params, IntPtr dmbuffer)
 		{
 			bool retValue;
 
-			Debug.Assert(Delegates.pglXAssociateDMPbufferSGIX != null, "pglXAssociateDMPbufferSGIX not implemented");
-			retValue = Delegates.pglXAssociateDMPbufferSGIX(dpy, pbuffer, @params, dmbuffer);
-			CallLog("glXAssociateDMPbufferSGIX({0}, {1}, {2}, {3}) = {4}", dpy, pbuffer, @params, dmbuffer, retValue);
+			unsafe {
+				fixed (IntPtr* p_params = @params)
+				{
+					Debug.Assert(Delegates.pglXAssociateDMPbufferSGIX != null, "pglXAssociateDMPbufferSGIX not implemented");
+					retValue = Delegates.pglXAssociateDMPbufferSGIX(dpy, pbuffer, p_params, dmbuffer);
+					CallLog("glXAssociateDMPbufferSGIX(0x{0}, 0x{1}, {2}, 0x{3}) = {4}", dpy.ToString("X8"), pbuffer.ToString("X8"), @params, dmbuffer.ToString("X8"), retValue);
+				}
+			}
 
 			return (retValue);
 		}

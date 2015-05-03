@@ -50,7 +50,7 @@ namespace OpenGL
 
 			Debug.Assert(Delegates.pglImportSyncEXT != null, "pglImportSyncEXT not implemented");
 			retValue = Delegates.pglImportSyncEXT(external_sync_type, external_sync, flags);
-			CallLog("glImportSyncEXT({0}, {1}, {2}) = {3}", external_sync_type, external_sync, flags, retValue);
+			CallLog("glImportSyncEXT({0}, 0x{1}, {2}) = {3}", external_sync_type, external_sync.ToString("X8"), flags, retValue);
 			DebugCheckErrors();
 
 			return (retValue);

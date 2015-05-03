@@ -40,9 +40,6 @@ namespace OpenGL
 		/// <summary>
 		/// Binding for glGenFencesAPPLE.
 		/// </summary>
-		/// <param name="n">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
 		/// <param name="fences">
 		/// A <see cref="T:UInt32[]"/>.
 		/// </param>
@@ -74,9 +71,6 @@ namespace OpenGL
 		/// <summary>
 		/// Binding for glDeleteFencesAPPLE.
 		/// </summary>
-		/// <param name="n">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
 		/// <param name="fences">
 		/// A <see cref="T:UInt32[]"/>.
 		/// </param>

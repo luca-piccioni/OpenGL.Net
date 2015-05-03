@@ -336,7 +336,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetPerfQueryDataINTEL != null, "pglGetPerfQueryDataINTEL not implemented");
 					Delegates.pglGetPerfQueryDataINTEL(queryHandle, flags, dataSize, data.ToPointer(), p_bytesWritten);
-					CallLog("glGetPerfQueryDataINTEL({0}, {1}, {2}, {3}, {4})", queryHandle, flags, dataSize, data, bytesWritten);
+					CallLog("glGetPerfQueryDataINTEL({0}, {1}, {2}, 0x{3}, {4})", queryHandle, flags, dataSize, data.ToString("X8"), bytesWritten);
 				}
 			}
 			DebugCheckErrors();

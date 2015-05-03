@@ -86,7 +86,7 @@ namespace OpenGL
 
 			Debug.Assert(Delegates.pwglCopyImageSubDataNV != null, "pwglCopyImageSubDataNV not implemented");
 			retValue = Delegates.pwglCopyImageSubDataNV(hSrcRC, srcName, srcTarget, srcLevel, srcX, srcY, srcZ, hDstRC, dstName, dstTarget, dstLevel, dstX, dstY, dstZ, width, height, depth);
-			CallLog("wglCopyImageSubDataNV({0}, {1}, {2}, {3}, {4}, {5}, {6}, {7}, {8}, {9}, {10}, {11}, {12}, {13}, {14}, {15}, {16}) = {17}", hSrcRC, srcName, srcTarget, srcLevel, srcX, srcY, srcZ, hDstRC, dstName, dstTarget, dstLevel, dstX, dstY, dstZ, width, height, depth, retValue);
+			CallLog("wglCopyImageSubDataNV(0x{0}, {1}, {2}, {3}, {4}, {5}, {6}, 0x{7}, {8}, {9}, {10}, {11}, {12}, {13}, {14}, {15}, {16}) = {17}", hSrcRC.ToString("X8"), srcName, srcTarget, srcLevel, srcX, srcY, srcZ, hDstRC.ToString("X8"), dstName, dstTarget, dstLevel, dstX, dstY, dstZ, width, height, depth, retValue);
 
 			return (retValue);
 		}

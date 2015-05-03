@@ -28,7 +28,7 @@ namespace OpenGL
 		{
 			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glXAssociateDMPbufferSGIX", ExactSpelling = true)]
-			internal extern static unsafe bool glXAssociateDMPbufferSGIX(IntPtr dpy, IntPtr pbuffer, IntPtr @params, IntPtr dmbuffer);
+			internal extern static unsafe bool glXAssociateDMPbufferSGIX(IntPtr dpy, IntPtr pbuffer, IntPtr* @params, IntPtr dmbuffer);
 
 			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glXBindChannelToWindowSGIX", ExactSpelling = true)]
@@ -76,11 +76,11 @@ namespace OpenGL
 
 			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glXChooseFBConfig", ExactSpelling = true)]
-			internal extern static unsafe IntPtr glXChooseFBConfig(IntPtr dpy, int screen, int* attrib_list, int* nelements);
+			internal extern static unsafe IntPtr* glXChooseFBConfig(IntPtr dpy, int screen, int* attrib_list, int* nelements);
 
 			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glXChooseFBConfigSGIX", ExactSpelling = true)]
-			internal extern static unsafe IntPtr glXChooseFBConfigSGIX(IntPtr dpy, int screen, int* attrib_list, int* nelements);
+			internal extern static unsafe IntPtr* glXChooseFBConfigSGIX(IntPtr dpy, int screen, int* attrib_list, int* nelements);
 
 			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glXChooseVisual", ExactSpelling = true)]
@@ -280,7 +280,7 @@ namespace OpenGL
 
 			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glXGetFBConfigs", ExactSpelling = true)]
-			internal extern static unsafe IntPtr glXGetFBConfigs(IntPtr dpy, int screen, int* nelements);
+			internal extern static unsafe IntPtr* glXGetFBConfigs(IntPtr dpy, int screen, int* nelements);
 
 			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glXGetGPUIDsAMD", ExactSpelling = true)]
@@ -440,7 +440,7 @@ namespace OpenGL
 
 			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glXQueryHyperpipeNetworkSGIX", ExactSpelling = true)]
-			internal extern static unsafe IntPtr glXQueryHyperpipeNetworkSGIX(IntPtr dpy, int* npipes);
+			internal extern static unsafe IntPtr* glXQueryHyperpipeNetworkSGIX(IntPtr dpy, int* npipes);
 
 			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glXQueryMaxSwapBarriersSGIX", ExactSpelling = true)]

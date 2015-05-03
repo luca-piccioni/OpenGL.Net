@@ -110,6 +110,7 @@ namespace OpenGL
 		[StructLayout(LayoutKind.Sequential)]
 		public struct XAnyEvent
 		{
+
 			public XEventName type;
 			public IntPtr serial;
 			public bool send_event;
@@ -712,9 +713,6 @@ namespace OpenGL
 			}
 		}
 
-		/// <summary>
-		/// 
-		/// </summary>
 		[StructLayout(LayoutKind.Sequential)]
 		public class XVisualInfo
 		{
@@ -773,34 +771,13 @@ namespace OpenGL
 			}
 		}
 
-		/// <summary>
-		/// 
-		/// </summary>
 		public enum XVisualClass : int
 		{
-			/// <summary>
-			/// 
-			/// </summary>
 			StaticGray = 0,
-			/// <summary>
-			/// 
-			/// </summary>
 			GrayScale = 1,
-			/// <summary>
-			/// 
-			/// </summary>
 			StaticColor = 2,
-			/// <summary>
-			/// 
-			/// </summary>
 			PseudoColor = 3,
-			/// <summary>
-			/// 
-			/// </summary>
 			TrueColor = 4,
-			/// <summary>
-			/// 
-			/// </summary>
 			DirectColor = 5
 		}
 

@@ -46,9 +46,6 @@ namespace OpenGL
 		/// <summary>
 		/// Binding for glAreTexturesResidentEXT.
 		/// </summary>
-		/// <param name="n">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
 		/// <param name="textures">
 		/// A <see cref="T:UInt32[]"/>.
 		/// </param>
@@ -77,9 +74,6 @@ namespace OpenGL
 		/// <summary>
 		/// Binding for glDeleteTexturesEXT.
 		/// </summary>
-		/// <param name="n">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
 		/// <param name="textures">
 		/// A <see cref="T:UInt32[]"/>.
 		/// </param>
@@ -100,9 +94,6 @@ namespace OpenGL
 		/// <summary>
 		/// Binding for glGenTexturesEXT.
 		/// </summary>
-		/// <param name="n">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
 		/// <param name="textures">
 		/// A <see cref="T:UInt32[]"/>.
 		/// </param>

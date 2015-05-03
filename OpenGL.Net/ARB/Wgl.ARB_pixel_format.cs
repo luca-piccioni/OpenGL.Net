@@ -439,7 +439,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pwglGetPixelFormatAttribivARB != null, "pwglGetPixelFormatAttribivARB not implemented");
 					retValue = Delegates.pwglGetPixelFormatAttribivARB(hdc, iPixelFormat, iLayerPlane, nAttributes, p_piAttributes, p_piValues);
-					CallLog("wglGetPixelFormatAttribivARB({0}, {1}, {2}, {3}, {4}, {5}) = {6}", hdc, iPixelFormat, iLayerPlane, nAttributes, piAttributes, piValues, retValue);
+					CallLog("wglGetPixelFormatAttribivARB(0x{0}, {1}, {2}, {3}, {4}, {5}) = {6}", hdc.ToString("X8"), iPixelFormat, iLayerPlane, nAttributes, piAttributes, piValues, retValue);
 				}
 			}
 
@@ -478,7 +478,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pwglGetPixelFormatAttribfvARB != null, "pwglGetPixelFormatAttribfvARB not implemented");
 					retValue = Delegates.pwglGetPixelFormatAttribfvARB(hdc, iPixelFormat, iLayerPlane, nAttributes, p_piAttributes, p_pfValues);
-					CallLog("wglGetPixelFormatAttribfvARB({0}, {1}, {2}, {3}, {4}, {5}) = {6}", hdc, iPixelFormat, iLayerPlane, nAttributes, piAttributes, pfValues, retValue);
+					CallLog("wglGetPixelFormatAttribfvARB(0x{0}, {1}, {2}, {3}, {4}, {5}) = {6}", hdc.ToString("X8"), iPixelFormat, iLayerPlane, nAttributes, piAttributes, pfValues, retValue);
 				}
 			}
 
@@ -519,7 +519,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pwglChoosePixelFormatARB != null, "pwglChoosePixelFormatARB not implemented");
 					retValue = Delegates.pwglChoosePixelFormatARB(hdc, p_piAttribIList, p_pfAttribFList, nMaxFormats, p_piFormats, p_nNumFormats);
-					CallLog("wglChoosePixelFormatARB({0}, {1}, {2}, {3}, {4}, {5}) = {6}", hdc, piAttribIList, pfAttribFList, nMaxFormats, piFormats, nNumFormats, retValue);
+					CallLog("wglChoosePixelFormatARB(0x{0}, {1}, {2}, {3}, {4}, {5}) = {6}", hdc.ToString("X8"), piAttribIList, pfAttribFList, nMaxFormats, piFormats, nNumFormats, retValue);
 				}
 			}
 

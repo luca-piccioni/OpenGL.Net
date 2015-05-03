@@ -669,7 +669,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglTexImage1D != null, "pglTexImage1D not implemented");
 			Delegates.pglTexImage1D((Int32)target, level, internalformat, width, border, (Int32)format, (Int32)type, pixels);
-			CallLog("glTexImage1D({0}, {1}, {2}, {3}, {4}, {5}, {6}, {7})", target, level, internalformat, width, border, format, type, pixels);
+			CallLog("glTexImage1D({0}, {1}, {2}, {3}, {4}, {5}, {6}, 0x{7})", target, level, internalformat, width, border, format, type, pixels.ToString("X8"));
 			DebugCheckErrors();
 		}
 
@@ -940,7 +940,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglTexImage2D != null, "pglTexImage2D not implemented");
 			Delegates.pglTexImage2D((Int32)target, level, internalformat, width, height, border, (Int32)format, (Int32)type, pixels);
-			CallLog("glTexImage2D({0}, {1}, {2}, {3}, {4}, {5}, {6}, {7}, {8})", target, level, internalformat, width, height, border, format, type, pixels);
+			CallLog("glTexImage2D({0}, {1}, {2}, {3}, {4}, {5}, {6}, {7}, 0x{8})", target, level, internalformat, width, height, border, format, type, pixels.ToString("X8"));
 			DebugCheckErrors();
 		}
 
@@ -1794,7 +1794,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglReadPixels != null, "pglReadPixels not implemented");
 			Delegates.pglReadPixels(x, y, width, height, (Int32)format, (Int32)type, pixels);
-			CallLog("glReadPixels({0}, {1}, {2}, {3}, {4}, {5}, {6})", x, y, width, height, format, type, pixels);
+			CallLog("glReadPixels({0}, {1}, {2}, {3}, {4}, {5}, 0x{6})", x, y, width, height, format, type, pixels.ToString("X8"));
 			DebugCheckErrors();
 		}
 
@@ -2860,7 +2860,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglGetTexImage != null, "pglGetTexImage not implemented");
 			Delegates.pglGetTexImage((Int32)target, level, (Int32)format, (Int32)type, pixels);
-			CallLog("glGetTexImage({0}, {1}, {2}, {3}, {4})", target, level, format, type, pixels);
+			CallLog("glGetTexImage({0}, {1}, {2}, {3}, 0x{4})", target, level, format, type, pixels.ToString("X8"));
 			DebugCheckErrors();
 		}
 
@@ -3471,7 +3471,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglCallLists != null, "pglCallLists not implemented");
 			Delegates.pglCallLists(n, (Int32)type, lists);
-			CallLog("glCallLists({0}, {1}, {2})", n, type, lists);
+			CallLog("glCallLists({0}, {1}, 0x{2})", n, type, lists.ToString("X8"));
 			DebugCheckErrors();
 		}
 
@@ -9193,9 +9193,6 @@ namespace OpenGL
 		/// <summary>
 		/// controls feedback mode
 		/// </summary>
-		/// <param name="size">
-		/// Specifies the maximum number of values that can be written into <paramref name="buffer"/>.
-		/// </param>
 		/// <param name="type">
 		/// Specifies a symbolic constant that describes the information that will be returned for each vertex. Gl.2D, Gl.3D, 
 		/// Gl.3D_COLOR, Gl.3D_COLOR_TEXTURE, and Gl.4D_COLOR_TEXTURE are accepted.
@@ -9243,9 +9240,6 @@ namespace OpenGL
 		/// <summary>
 		/// establish a buffer for selection mode values
 		/// </summary>
-		/// <param name="size">
-		/// Specifies the size of <paramref name="buffer"/>.
-		/// </param>
 		/// <param name="buffer">
 		/// Returns the selection data.
 		/// </param>
@@ -10844,9 +10838,6 @@ namespace OpenGL
 		/// Gl.PIXEL_MAP_I_TO_R, Gl.PIXEL_MAP_I_TO_G, Gl.PIXEL_MAP_I_TO_B, Gl.PIXEL_MAP_I_TO_A, Gl.PIXEL_MAP_R_TO_R, 
 		/// Gl.PIXEL_MAP_G_TO_G, Gl.PIXEL_MAP_B_TO_B, or Gl.PIXEL_MAP_A_TO_A.
 		/// </param>
-		/// <param name="mapsize">
-		/// Specifies the size of the map being defined.
-		/// </param>
 		/// <param name="values">
 		/// Specifies an array of <paramref name="mapsize"/> values.
 		/// </param>
@@ -11027,9 +11018,6 @@ namespace OpenGL
 		/// Gl.PIXEL_MAP_I_TO_R, Gl.PIXEL_MAP_I_TO_G, Gl.PIXEL_MAP_I_TO_B, Gl.PIXEL_MAP_I_TO_A, Gl.PIXEL_MAP_R_TO_R, 
 		/// Gl.PIXEL_MAP_G_TO_G, Gl.PIXEL_MAP_B_TO_B, or Gl.PIXEL_MAP_A_TO_A.
 		/// </param>
-		/// <param name="mapsize">
-		/// Specifies the size of the map being defined.
-		/// </param>
 		/// <param name="values">
 		/// Specifies an array of <paramref name="mapsize"/> values.
 		/// </param>
@@ -11209,9 +11197,6 @@ namespace OpenGL
 		/// Specifies a symbolic map name. Must be one of the following: Gl.PIXEL_MAP_I_TO_I, Gl.PIXEL_MAP_S_TO_S, 
 		/// Gl.PIXEL_MAP_I_TO_R, Gl.PIXEL_MAP_I_TO_G, Gl.PIXEL_MAP_I_TO_B, Gl.PIXEL_MAP_I_TO_A, Gl.PIXEL_MAP_R_TO_R, 
 		/// Gl.PIXEL_MAP_G_TO_G, Gl.PIXEL_MAP_B_TO_B, or Gl.PIXEL_MAP_A_TO_A.
-		/// </param>
-		/// <param name="mapsize">
-		/// Specifies the size of the map being defined.
 		/// </param>
 		/// <param name="values">
 		/// Specifies an array of <paramref name="mapsize"/> values.
@@ -11446,7 +11431,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglDrawPixels != null, "pglDrawPixels not implemented");
 			Delegates.pglDrawPixels(width, height, (Int32)format, (Int32)type, pixels);
-			CallLog("glDrawPixels({0}, {1}, {2}, {3}, {4})", width, height, format, type, pixels);
+			CallLog("glDrawPixels({0}, {1}, {2}, {3}, 0x{4})", width, height, format, type, pixels.ToString("X8"));
 			DebugCheckErrors();
 		}
 

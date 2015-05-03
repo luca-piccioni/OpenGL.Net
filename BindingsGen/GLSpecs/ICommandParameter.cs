@@ -96,7 +96,10 @@ namespace BindingsGen.GLSpecs
 		/// <param name="parentCommand">
 		/// The <see cref="Command"/> which the parameter belongs to.
 		/// </param>
-		void WriteCallLogFormatParam(SourceStreamWriter sw, RegistryContext ctx, Command parentCommand);
+		/// <param name="paramIndex">
+		/// A <see cref="Int32"/> that specifies the sequential index of the parameter.
+		/// </param>
+		void WriteCallLogFormatParam(SourceStreamWriter sw, RegistryContext ctx, Command parentCommand, int paramIndex);
 
 		/// <summary>
 		/// Writes the corresponding command parameter log format argument.

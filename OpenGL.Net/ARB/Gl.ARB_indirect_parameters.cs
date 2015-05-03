@@ -60,7 +60,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglMultiDrawArraysIndirectCountARB != null, "pglMultiDrawArraysIndirectCountARB not implemented");
 			Delegates.pglMultiDrawArraysIndirectCountARB(mode, indirect, drawcount, maxdrawcount, stride);
-			CallLog("glMultiDrawArraysIndirectCountARB({0}, {1}, {2}, {3}, {4})", mode, indirect, drawcount, maxdrawcount, stride);
+			CallLog("glMultiDrawArraysIndirectCountARB({0}, 0x{1}, 0x{2}, {3}, {4})", mode, indirect.ToString("X8"), drawcount.ToString("X8"), maxdrawcount, stride);
 			DebugCheckErrors();
 		}
 
@@ -90,7 +90,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglMultiDrawElementsIndirectCountARB != null, "pglMultiDrawElementsIndirectCountARB not implemented");
 			Delegates.pglMultiDrawElementsIndirectCountARB(mode, type, indirect, drawcount, maxdrawcount, stride);
-			CallLog("glMultiDrawElementsIndirectCountARB({0}, {1}, {2}, {3}, {4}, {5})", mode, type, indirect, drawcount, maxdrawcount, stride);
+			CallLog("glMultiDrawElementsIndirectCountARB({0}, {1}, 0x{2}, 0x{3}, {4}, {5})", mode, type, indirect.ToString("X8"), drawcount.ToString("X8"), maxdrawcount, stride);
 			DebugCheckErrors();
 		}
 

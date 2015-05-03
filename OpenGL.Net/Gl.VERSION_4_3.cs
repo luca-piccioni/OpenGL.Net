@@ -2132,7 +2132,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglClearBufferData != null, "pglClearBufferData not implemented");
 			Delegates.pglClearBufferData(target, internalformat, format, type, data);
-			CallLog("glClearBufferData({0}, {1}, {2}, {3}, {4})", target, internalformat, format, type, data);
+			CallLog("glClearBufferData({0}, {1}, {2}, {3}, 0x{4})", target, internalformat, format, type, data.ToString("X8"));
 			DebugCheckErrors();
 		}
 
@@ -2262,7 +2262,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglClearBufferSubData != null, "pglClearBufferSubData not implemented");
 			Delegates.pglClearBufferSubData(target, internalformat, offset, size, format, type, data);
-			CallLog("glClearBufferSubData({0}, {1}, {2}, {3}, {4}, {5}, {6})", target, internalformat, offset, size, format, type, data);
+			CallLog("glClearBufferSubData({0}, {1}, 0x{2}, {3}, {4}, {5}, 0x{6})", target, internalformat, offset.ToString("X8"), size, format, type, data.ToString("X8"));
 			DebugCheckErrors();
 		}
 
@@ -2398,7 +2398,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglDispatchComputeIndirect != null, "pglDispatchComputeIndirect not implemented");
 			Delegates.pglDispatchComputeIndirect(indirect);
-			CallLog("glDispatchComputeIndirect({0})", indirect);
+			CallLog("glDispatchComputeIndirect(0x{0})", indirect.ToString("X8"));
 			DebugCheckErrors();
 		}
 
@@ -2613,9 +2613,6 @@ namespace OpenGL
 		/// <param name="pname">
 		/// Specifies the type of information to query.
 		/// </param>
-		/// <param name="bufSize">
-		/// Specifies the maximum number of basic machine units that may be written to <paramref name="params"/> by the function.
-		/// </param>
 		/// <param name="params">
 		/// Specifies the address of a variable into which to write the retrieved information.
 		/// </param>
@@ -2783,7 +2780,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglInvalidateBufferSubData != null, "pglInvalidateBufferSubData not implemented");
 			Delegates.pglInvalidateBufferSubData(buffer, offset, length);
-			CallLog("glInvalidateBufferSubData({0}, {1}, {2})", buffer, offset, length);
+			CallLog("glInvalidateBufferSubData({0}, 0x{1}, {2})", buffer, offset.ToString("X8"), length);
 			DebugCheckErrors();
 		}
 
@@ -2821,9 +2818,6 @@ namespace OpenGL
 		/// </summary>
 		/// <param name="target">
 		/// Specifies the target to which the framebuffer object is attached for Gl.InvalidateFramebuffer.
-		/// </param>
-		/// <param name="numAttachments">
-		/// Specifies the number of entries in the <paramref name="attachments"/> array.
 		/// </param>
 		/// <param name="attachments">
 		/// Specifies a pointer to an array identifying the attachments to be invalidated.
@@ -2874,9 +2868,6 @@ namespace OpenGL
 		/// </summary>
 		/// <param name="target">
 		/// Specifies the target to which the framebuffer object is attached for Gl.InvalidateSubFramebuffer.
-		/// </param>
-		/// <param name="numAttachments">
-		/// Specifies the number of entries in the <paramref name="attachments"/> array.
 		/// </param>
 		/// <param name="attachments">
 		/// Specifies a pointer to an array identifying the attachments to be invalidated.
@@ -2986,7 +2977,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglMultiDrawArraysIndirect != null, "pglMultiDrawArraysIndirect not implemented");
 			Delegates.pglMultiDrawArraysIndirect(mode, indirect, drawcount, stride);
-			CallLog("glMultiDrawArraysIndirect({0}, {1}, {2}, {3})", mode, indirect, drawcount, stride);
+			CallLog("glMultiDrawArraysIndirect({0}, 0x{1}, {2}, {3})", mode, indirect.ToString("X8"), drawcount, stride);
 			DebugCheckErrors();
 		}
 
@@ -3106,7 +3097,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglMultiDrawElementsIndirect != null, "pglMultiDrawElementsIndirect not implemented");
 			Delegates.pglMultiDrawElementsIndirect(mode, type, indirect, drawcount, stride);
-			CallLog("glMultiDrawElementsIndirect({0}, {1}, {2}, {3}, {4})", mode, type, indirect, drawcount, stride);
+			CallLog("glMultiDrawElementsIndirect({0}, {1}, 0x{2}, {3}, {4})", mode, type, indirect.ToString("X8"), drawcount, stride);
 			DebugCheckErrors();
 		}
 
@@ -3349,14 +3340,8 @@ namespace OpenGL
 		/// <param name="index">
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
-		/// <param name="propCount">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
 		/// <param name="props">
 		/// A <see cref="T:Int32[]"/>.
-		/// </param>
-		/// <param name="bufSize">
-		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="length">
 		/// A <see cref="T:Int32"/>.
@@ -3574,7 +3559,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglTexBufferRange != null, "pglTexBufferRange not implemented");
 			Delegates.pglTexBufferRange(target, internalformat, buffer, offset, size);
-			CallLog("glTexBufferRange({0}, {1}, {2}, {3}, {4})", target, internalformat, buffer, offset, size);
+			CallLog("glTexBufferRange({0}, {1}, {2}, 0x{3}, {4})", target, internalformat, buffer, offset.ToString("X8"), size);
 			DebugCheckErrors();
 		}
 
@@ -3850,7 +3835,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglBindVertexBuffer != null, "pglBindVertexBuffer not implemented");
 			Delegates.pglBindVertexBuffer(bindingindex, buffer, offset, stride);
-			CallLog("glBindVertexBuffer({0}, {1}, {2}, {3})", bindingindex, buffer, offset, stride);
+			CallLog("glBindVertexBuffer({0}, {1}, 0x{2}, {3})", bindingindex, buffer, offset.ToString("X8"), stride);
 			DebugCheckErrors();
 		}
 
@@ -4147,9 +4132,6 @@ namespace OpenGL
 		/// <param name="severity">
 		/// The severity of debug messages to enable or disable.
 		/// </param>
-		/// <param name="count">
-		/// The length of the array <paramref name="ids"/>.
-		/// </param>
 		/// <param name="ids">
 		/// The address of an array of unsigned integers contianing the ids of the messages to enable or disable.
 		/// </param>
@@ -4248,7 +4230,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglDebugMessageCallback != null, "pglDebugMessageCallback not implemented");
 			Delegates.pglDebugMessageCallback(callback, userParam);
-			CallLog("glDebugMessageCallback({0}, {1})", callback, userParam);
+			CallLog("glDebugMessageCallback(0x{0}, 0x{1})", callback.ToString("X8"), userParam.ToString("X8"));
 			DebugCheckErrors();
 		}
 
@@ -4279,9 +4261,6 @@ namespace OpenGL
 		/// <summary>
 		/// retrieve messages from the debug message log
 		/// </summary>
-		/// <param name="count">
-		/// The number of debug messages to retrieve from the log.
-		/// </param>
 		/// <param name="bufSize">
 		/// The size of the buffer whose address is given by <paramref name="messageLog"/>.
 		/// </param>
@@ -4517,7 +4496,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglObjectPtrLabel != null, "pglObjectPtrLabel not implemented");
 			Delegates.pglObjectPtrLabel(ptr, length, label);
-			CallLog("glObjectPtrLabel({0}, {1}, {2})", ptr, length, label);
+			CallLog("glObjectPtrLabel(0x{0}, {1}, {2})", ptr.ToString("X8"), length, label);
 			DebugCheckErrors();
 		}
 
@@ -4600,7 +4579,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetObjectPtrLabel != null, "pglGetObjectPtrLabel not implemented");
 					Delegates.pglGetObjectPtrLabel(ptr, bufSize, p_length, label);
-					CallLog("glGetObjectPtrLabel({0}, {1}, {2}, {3})", ptr, bufSize, length, label);
+					CallLog("glGetObjectPtrLabel(0x{0}, {1}, {2}, {3})", ptr.ToString("X8"), bufSize, length, label);
 				}
 			}
 			DebugCheckErrors();

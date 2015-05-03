@@ -224,6 +224,9 @@ namespace OpenGL
 		/// A <see cref="System.IntPtr"/> that specify a context that will share objects with the returned one. If
 		/// it is IntPtr.Zero, no sharing is performed.
 		/// </param>
+		/// <param name="attribsList">
+		/// A <see cref="T:Int32[]"/> that specifies the attributes list.
+		/// </param>
 		/// <returns>
 		/// A <see cref="System.IntPtr"/> that represents the handle of the created context. If the context cannot be
 		/// created, it returns IntPtr.Zero; if this is the case, query the exception by calling <see cref="GetPlatformException"/>.

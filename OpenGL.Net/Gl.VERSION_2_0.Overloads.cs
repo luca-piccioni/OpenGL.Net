@@ -28,9 +28,6 @@ namespace OpenGL
 		/// <param name="shader">
 		/// Specifies the handle of the shader object whose source code is to be replaced.
 		/// </param>
-		/// <param name="count">
-		/// Specifies the number of elements in the <paramref name="string"/> and <paramref name="length"/> arrays.
-		/// </param>
 		/// <param name="string">
 		/// Specifies an array of pointers to strings containing the source code to be loaded into the shader.
 		/// </param>
