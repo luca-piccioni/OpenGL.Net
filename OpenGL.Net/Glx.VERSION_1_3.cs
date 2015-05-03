@@ -746,13 +746,13 @@ namespace OpenGL
 		[RequiredByFeature("GLX_VERSION_1_3")]
 		public static Glx.XVisualInfo GetVisualFromFBConfig(IntPtr dpy, IntPtr config)
 		{
-			Glx.XVisualInfo retValue;
+			IntPtr retValue;
 
 			Debug.Assert(Delegates.pglXGetVisualFromFBConfig != null, "pglXGetVisualFromFBConfig not implemented");
 			retValue = Delegates.pglXGetVisualFromFBConfig(dpy, config);
 			CallLog("glXGetVisualFromFBConfig(0x{0}, 0x{1}) = {2}", dpy.ToString("X8"), config.ToString("X8"), retValue);
 
-			return (retValue);
+			return ((Glx.XVisualInfo)Marshal.PtrToStructure(retValue, typeof(Glx.XVisualInfo)));
 		}
 
 		/// <summary>

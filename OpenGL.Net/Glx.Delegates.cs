@@ -100,7 +100,7 @@ namespace OpenGL
 			internal static glXChooseFBConfigSGIX pglXChooseFBConfigSGIX;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate Glx.XVisualInfo glXChooseVisual(IntPtr dpy, int screen, int* attribList);
+			internal unsafe delegate IntPtr glXChooseVisual(IntPtr dpy, int screen, int* attribList);
 			[ThreadStatic]
 			internal static glXChooseVisual pglXChooseVisual;
 
@@ -410,12 +410,12 @@ namespace OpenGL
 			internal static glXGetVideoSyncSGI pglXGetVideoSyncSGI;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate Glx.XVisualInfo glXGetVisualFromFBConfig(IntPtr dpy, IntPtr config);
+			internal unsafe delegate IntPtr glXGetVisualFromFBConfig(IntPtr dpy, IntPtr config);
 			[ThreadStatic]
 			internal static glXGetVisualFromFBConfig pglXGetVisualFromFBConfig;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate Glx.XVisualInfo glXGetVisualFromFBConfigSGIX(IntPtr dpy, IntPtr config);
+			internal unsafe delegate IntPtr glXGetVisualFromFBConfigSGIX(IntPtr dpy, IntPtr config);
 			[ThreadStatic]
 			internal static glXGetVisualFromFBConfigSGIX pglXGetVisualFromFBConfigSGIX;
 

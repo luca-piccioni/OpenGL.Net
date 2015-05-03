@@ -208,7 +208,13 @@ namespace BindingsGen.GLSpecs
 		/// </summary>
 		private string DelegateReturnType
 		{
-			get { return (Prototype.DelegateReturnType); }
+			get
+			{
+				if (Regex.IsMatch(Prototype.DelegateReturnType, @"(Gl|Glx|Wgl)\.\w+") == true)
+					return ("IntPtr");
+				else
+					return (Prototype.DelegateReturnType);
+			}
 		}
 
 		/// <summary>
@@ -626,11 +632,21 @@ namespace BindingsGen.GLSpecs
 		private void GenerateImplementation_Default(SourceStreamWriter sw, RegistryContext ctx, List<CommandParameter> commandParams)
 		{
 			List<Command> aliases = new List<Command>();
+			Command aliasCommand = this;
+
+			// The implementation returned type
+			string returnType = aliasCommand.GetImplementationReturnType(ctx);
+			// The delegate returned type
+			string delegateReturnType = aliasCommand.DelegateReturnType;
 
 			bool fixedImplementation = IsFixedImplementation(ctx, commandParams);
 			// At least one parameter is an array with length correlated with another parameter
 			bool isArrayImplementation = commandParams.FindIndex(delegate(CommandParameter item) { return (item is CommandParameterArray); }) >= 0;
-			
+			// Returned value must be marshalled as string
+			bool marshalReturnedString = aliasCommand.HasReturnValue && (returnType.ToLower() == "string") && (delegateReturnType.ToLower() != "string");
+			// Returned value must be marshalled as structure
+			bool marshalReturnedStruct = aliasCommand.HasReturnValue && (DelegateReturnType == "IntPtr") && (GetImplementationReturnType(ctx) != "IntPtr");
+
 			aliases.Add(this);
 			aliases.AddRange(Aliases);
 
@@ -653,7 +669,7 @@ namespace BindingsGen.GLSpecs
 
 			// Local variable: returned value
 			if (HasReturnValue) {
-				sw.WriteLine("{0} {1};", GetImplementationReturnType(ctx), ReturnVariableName);
+				sw.WriteLine("{0} {1};", DelegateReturnType, ReturnVariableName);
 				sw.WriteLine();
 			}
 
@@ -674,145 +690,84 @@ namespace BindingsGen.GLSpecs
 
 			#endregion
 
-			for (int aliasIndex = 0; aliasIndex < aliases.Count; aliasIndex++) {
-				Command aliasCommand = aliases[aliasIndex];
+			sw.WriteLine("Debug.Assert(Delegates.{0} != null, \"{0} not implemented\");", aliasCommand.DelegateName);
 
-				#region Dynamic Delegate Selector (Open/Close)
+			#region Delegate Call
 
-#if false
-				if (aliases.Count > 1) {
-					if (aliasIndex == 0) {
-						sw.WriteLine( "if        (Delegates.{0} != null) {{", aliasCommand.DelegateName);
-						sw.Indent();
-					} else {
-						sw.Unindent();
-						sw.WriteLine("}} else if (Delegates.{0} != null) {{", aliasCommand.DelegateName);
-						sw.Indent();
-					}
-				} else
-#endif
-					sw.WriteLine("Debug.Assert(Delegates.{0} != null, \"{0} not implemented\");", aliasCommand.DelegateName);
+			sw.WriteIdentation();
 
-				#endregion
+			// Local return value
+			if (HasReturnValue) 
+				sw.Write("{0} = ", ReturnVariableName);
 
-				#region Delegate Call
+			sw.Write("Delegates.{0}(", aliasCommand.DelegateName);
 
-				string returnType = aliasCommand.GetImplementationReturnType(ctx), delegateReturnType = aliasCommand.DelegateReturnType;
-				bool marshalReturnedString = aliasCommand.HasReturnValue && (returnType.ToLower() == "string") && (delegateReturnType.ToLower() != "string");
+			#region Parameters
 
-				sw.WriteIdentation();
+			for (int i = 0; i < commandParams.Count; i++) {
+				CommandParameter param = commandParams[i];
 
-				#region Return Value Management (Open)
+				param.WriteDelegateParam(sw, ctx, this);
 
-				if (HasReturnValue)
-				{
-					// Local return value || Inlined return
-					sw.Write("{0} = ", ReturnVariableName);
-					// Stronly typed returns need a cast
-					if (returnType != delegateReturnType)
-						sw.Write("({0})", returnType);
+				if (i != Parameters.Count - 1)
+					sw.Write(", ");
+			}
 
-					// To String type conversion?
-					if (marshalReturnedString)
-						sw.Write("Marshal.PtrToStringAnsi(");
-				}
+			#endregion
 
-				#endregion
+			sw.Write(")");
 
-				sw.Write("Delegates.{0}(", aliasCommand.DelegateName);
+			sw.Write(";");
+			sw.WriteLine();
 
-				#region Parameters
+			#endregion
+
+			#region Call Log
+
+			sw.WriteIdentation(); sw.Write("CallLog(");
+
+			#region Call Log - Format String
+
+			sw.Write("\"{0}(", aliasCommand.ImportName);
+			for (int i = 0; i < commandParams.Count; i++)
+			{
+				commandParams[i].WriteCallLogFormatParam(sw, ctx, this, i);
+				if (i < commandParams.Count - 1)
+					sw.Write(", ");
+			}
+			sw.Write(")");
+
+			if (HasReturnValue)
+				sw.Write(" = {{{0}}}", commandParams.Count);
+
+			sw.Write("\"");
+
+			#endregion
+
+			#region Call Log - Format Arguments
+
+			if ((commandParams.Count > 0) || HasReturnValue) {
+				sw.Write(", ");
 
 				for (int i = 0; i < commandParams.Count; i++) {
-					CommandParameter param = commandParams[i];
-
-					param.WriteDelegateParam(sw, ctx, this);
-
-					if (i != Parameters.Count - 1)
-						sw.Write(", ");
-				}
-
-				#endregion
-
-				sw.Write(")");
-
-				#region Return Value Management (Close)
-
-				if (marshalReturnedString)
-					sw.Write(")");
-
-				#endregion
-
-				sw.Write(";");
-				sw.WriteLine();
-
-				#endregion
-
-				#region Call Log
-
-				sw.WriteIdentation(); sw.Write("CallLog(");
-
-				#region Call Log - Format String
-
-				sw.Write("\"{0}(", aliasCommand.ImportName);
-				for (int i = 0; i < commandParams.Count; i++)
-				{
-					commandParams[i].WriteCallLogFormatParam(sw, ctx, this, i);
+					commandParams[i].WriteCallLogArgParam(sw, ctx, this);
 					if (i < commandParams.Count - 1)
 						sw.Write(", ");
 				}
-				sw.Write(")");
-
-				if (HasReturnValue)
-					sw.Write(" = {{{0}}}", commandParams.Count);
-
-				sw.Write("\"");
-
-				#endregion
-
-				#region Call Log - Format Arguments
-
-				if ((commandParams.Count > 0) || HasReturnValue) {
-					sw.Write(", ");
-
-					for (int i = 0; i < commandParams.Count; i++) {
-						commandParams[i].WriteCallLogArgParam(sw, ctx, this);
-						if (i < commandParams.Count - 1)
-							sw.Write(", ");
-					}
-				}
-
-				// Return value
-				if (HasReturnValue)
-				{
-					if (commandParams.Count > 0)
-						sw.Write(", ");
-					CommandParameter.WriteCallLogArgParam(sw, ReturnVariableName, returnType);
-				}
-
-				#endregion
-
-				sw.Write(");");
-				sw.WriteLine();
-
-				#endregion
-
-				// !!! Other aliases are now managed using a single delegate!
-				break;
 			}
 
-			#region Dynamic Delegate Selector (Close - Last)
-
-#if false
-			if (aliases.Count > 1)
+			// Return value
+			if (HasReturnValue)
 			{
-				sw.Unindent();
-				sw.WriteLine("} else");
-				sw.Indent();
-				sw.WriteLine("throw new NotImplementedException(\"{0} (and other aliases) are not implemented\");", ImportName);
-				sw.Unindent();
+				if (commandParams.Count > 0)
+					sw.Write(", ");
+				CommandParameter.WriteCallLogArgParam(sw, ReturnVariableName, returnType);
 			}
-#endif
+
+			#endregion
+
+			sw.Write(");");
+			sw.WriteLine();
 
 			#endregion
 
@@ -835,7 +790,15 @@ namespace BindingsGen.GLSpecs
 			// Returns value
 			if (HasReturnValue) {
 				sw.WriteLine();
-				sw.WriteLine("return ({0});", ReturnVariableName);
+
+				if      (marshalReturnedString)
+					sw.WriteLine("return (Marshal.PtrToStringAnsi({0}));", ReturnVariableName);
+				else if (marshalReturnedStruct)
+					sw.WriteLine("return (({1})Marshal.PtrToStructure({0}, typeof({1})));", ReturnVariableName, GetImplementationReturnType(ctx));
+				else if (returnType != delegateReturnType)
+					sw.WriteLine("return (({1}){0});", ReturnVariableName, GetImplementationReturnType(ctx));
+				else
+					sw.WriteLine("return ({0});", ReturnVariableName);
 			}
 
 			sw.Unindent();

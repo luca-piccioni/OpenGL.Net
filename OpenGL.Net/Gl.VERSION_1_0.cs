@@ -2260,13 +2260,13 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_1_0")]
 		public static ErrorCode GetError()
 		{
-			ErrorCode retValue;
+			Int32 retValue;
 
 			Debug.Assert(Delegates.pglGetError != null, "pglGetError not implemented");
-			retValue = (ErrorCode)Delegates.pglGetError();
+			retValue = Delegates.pglGetError();
 			CallLog("glGetError() = {0}", retValue);
 
-			return (retValue);
+			return ((ErrorCode)retValue);
 		}
 
 		/// <summary>
@@ -2744,14 +2744,14 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_1_0")]
 		public static String GetString(StringName name)
 		{
-			String retValue;
+			IntPtr retValue;
 
 			Debug.Assert(Delegates.pglGetString != null, "pglGetString not implemented");
-			retValue = (String)Marshal.PtrToStringAnsi(Delegates.pglGetString((Int32)name));
+			retValue = Delegates.pglGetString((Int32)name);
 			CallLog("glGetString({0}) = {1}", name, retValue);
 			DebugCheckErrors();
 
-			return (retValue);
+			return (Marshal.PtrToStringAnsi(retValue));
 		}
 
 		/// <summary>

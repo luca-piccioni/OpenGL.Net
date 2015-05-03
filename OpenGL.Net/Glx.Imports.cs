@@ -84,7 +84,7 @@ namespace OpenGL
 
 			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glXChooseVisual", ExactSpelling = true)]
-			internal extern static unsafe Glx.XVisualInfo glXChooseVisual(IntPtr dpy, int screen, int* attribList);
+			internal extern static unsafe IntPtr glXChooseVisual(IntPtr dpy, int screen, int* attribList);
 
 			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glXCopyBufferSubDataNV", ExactSpelling = true)]
@@ -332,11 +332,11 @@ namespace OpenGL
 
 			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glXGetVisualFromFBConfig", ExactSpelling = true)]
-			internal extern static unsafe Glx.XVisualInfo glXGetVisualFromFBConfig(IntPtr dpy, IntPtr config);
+			internal extern static unsafe IntPtr glXGetVisualFromFBConfig(IntPtr dpy, IntPtr config);
 
 			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glXGetVisualFromFBConfigSGIX", ExactSpelling = true)]
-			internal extern static unsafe Glx.XVisualInfo glXGetVisualFromFBConfigSGIX(IntPtr dpy, IntPtr config);
+			internal extern static unsafe IntPtr glXGetVisualFromFBConfigSGIX(IntPtr dpy, IntPtr config);
 
 			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glXHyperpipeAttribSGIX", ExactSpelling = true)]

@@ -449,7 +449,7 @@ namespace OpenGL
 		[RequiredByFeature("GLX_VERSION_1_0")]
 		public static Glx.XVisualInfo ChooseVisual(IntPtr dpy, int screen, int[] attribList)
 		{
-			Glx.XVisualInfo retValue;
+			IntPtr retValue;
 
 			unsafe {
 				fixed (int* p_attribList = attribList)
@@ -460,7 +460,7 @@ namespace OpenGL
 				}
 			}
 
-			return (retValue);
+			return ((Glx.XVisualInfo)Marshal.PtrToStructure(retValue, typeof(Glx.XVisualInfo)));
 		}
 
 		/// <summary>

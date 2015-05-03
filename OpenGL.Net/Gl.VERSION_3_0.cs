@@ -4843,14 +4843,14 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_3_0")]
 		public static String GetString(Int32 name, UInt32 index)
 		{
-			String retValue;
+			IntPtr retValue;
 
 			Debug.Assert(Delegates.pglGetStringi != null, "pglGetStringi not implemented");
-			retValue = (String)Marshal.PtrToStringAnsi(Delegates.pglGetStringi(name, index));
+			retValue = Delegates.pglGetStringi(name, index);
 			CallLog("glGetStringi({0}, {1}) = {2}", name, index, retValue);
 			DebugCheckErrors();
 
-			return (retValue);
+			return (Marshal.PtrToStringAnsi(retValue));
 		}
 
 		/// <summary>
