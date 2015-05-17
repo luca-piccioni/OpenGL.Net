@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenGL.Net", "OpenGL.Net\Op
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenGL.Net.Test", "OpenGL.Net.Test\OpenGL.Net.Test.csproj", "{861A0458-2848-4585-B844-8945E4B61B5C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenGL.Hal", "OpenGL.Hal\OpenGL.Hal.csproj", "{B1656959-9AEE-45F3-A382-1BD0EAC86918}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -25,6 +27,10 @@ Global
 		{861A0458-2848-4585-B844-8945E4B61B5C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{861A0458-2848-4585-B844-8945E4B61B5C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{861A0458-2848-4585-B844-8945E4B61B5C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B1656959-9AEE-45F3-A382-1BD0EAC86918}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B1656959-9AEE-45F3-A382-1BD0EAC86918}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B1656959-9AEE-45F3-A382-1BD0EAC86918}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B1656959-9AEE-45F3-A382-1BD0EAC86918}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
