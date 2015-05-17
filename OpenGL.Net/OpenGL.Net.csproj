@@ -296,6 +296,7 @@
     <Compile Include="Glx.VERSION_1_4.cs" />
     <Compile Include="GREMEDY\Gl.GREMEDY_frame_terminator.cs" />
     <Compile Include="GREMEDY\Gl.GREMEDY_string_marker.cs" />
+    <Compile Include="HalfFloat.cs" />
     <Compile Include="HI\Egl.HI_clientpixmap.cs" />
     <Compile Include="HI\Egl.HI_colorformats.cs" />
     <Compile Include="HP\Gl.HP_convolution_border_modes.cs" />
