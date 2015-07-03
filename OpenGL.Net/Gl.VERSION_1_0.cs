@@ -3432,7 +3432,6 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglCallList != null, "pglCallList not implemented");
 			Delegates.pglCallList(list);
 			CallLog("glCallList({0})", list);
-			DebugCheckErrors();
 		}
 
 		/// <summary>
@@ -3450,6 +3449,7 @@ namespace OpenGL
 		/// be bytes, shorts, ints, or floats, depending on the value of <paramref name="type"/>.
 		/// </param>
 		/// <remarks>
+		/// <para>The exceptions below won't be thrown; caller must check result manually.</para>
 		/// </remarks>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_VALUE is generated if <paramref name="n"/> is negative.
@@ -3472,7 +3472,6 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglCallLists != null, "pglCallLists not implemented");
 			Delegates.pglCallLists(n, (Int32)type, lists);
 			CallLog("glCallLists({0}, {1}, 0x{2})", n, type, lists.ToString("X8"));
-			DebugCheckErrors();
 		}
 
 		/// <summary>
@@ -3490,6 +3489,7 @@ namespace OpenGL
 		/// be bytes, shorts, ints, or floats, depending on the value of <paramref name="type"/>.
 		/// </param>
 		/// <remarks>
+		/// <para>The exceptions below won't be thrown; caller must check result manually.</para>
 		/// </remarks>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_VALUE is generated if <paramref name="n"/> is negative.
@@ -3749,7 +3749,6 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglColor3b != null, "pglColor3b not implemented");
 			Delegates.pglColor3b(red, green, blue);
 			CallLog("glColor3b({0}, {1}, {2})", red, green, blue);
-			DebugCheckErrors();
 		}
 
 		/// <summary>
@@ -3796,7 +3795,6 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglColor3d != null, "pglColor3d not implemented");
 			Delegates.pglColor3d(red, green, blue);
 			CallLog("glColor3d({0}, {1}, {2})", red, green, blue);
-			DebugCheckErrors();
 		}
 
 		/// <summary>
@@ -3843,7 +3841,6 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglColor3f != null, "pglColor3f not implemented");
 			Delegates.pglColor3f(red, green, blue);
 			CallLog("glColor3f({0}, {1}, {2})", red, green, blue);
-			DebugCheckErrors();
 		}
 
 		/// <summary>
@@ -3890,7 +3887,6 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglColor3i != null, "pglColor3i not implemented");
 			Delegates.pglColor3i(red, green, blue);
 			CallLog("glColor3i({0}, {1}, {2})", red, green, blue);
-			DebugCheckErrors();
 		}
 
 		/// <summary>
@@ -3937,7 +3933,6 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglColor3s != null, "pglColor3s not implemented");
 			Delegates.pglColor3s(red, green, blue);
 			CallLog("glColor3s({0}, {1}, {2})", red, green, blue);
-			DebugCheckErrors();
 		}
 
 		/// <summary>
@@ -3984,7 +3979,6 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglColor3ub != null, "pglColor3ub not implemented");
 			Delegates.pglColor3ub(red, green, blue);
 			CallLog("glColor3ub({0}, {1}, {2})", red, green, blue);
-			DebugCheckErrors();
 		}
 
 		/// <summary>
@@ -4031,7 +4025,6 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglColor3ui != null, "pglColor3ui not implemented");
 			Delegates.pglColor3ui(red, green, blue);
 			CallLog("glColor3ui({0}, {1}, {2})", red, green, blue);
-			DebugCheckErrors();
 		}
 
 		/// <summary>
@@ -4078,7 +4071,6 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglColor3us != null, "pglColor3us not implemented");
 			Delegates.pglColor3us(red, green, blue);
 			CallLog("glColor3us({0}, {1}, {2})", red, green, blue);
-			DebugCheckErrors();
 		}
 
 		/// <summary>
@@ -4128,7 +4120,6 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglColor4b != null, "pglColor4b not implemented");
 			Delegates.pglColor4b(red, green, blue, alpha);
 			CallLog("glColor4b({0}, {1}, {2}, {3})", red, green, blue, alpha);
-			DebugCheckErrors();
 		}
 
 		/// <summary>
@@ -4178,7 +4169,6 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglColor4d != null, "pglColor4d not implemented");
 			Delegates.pglColor4d(red, green, blue, alpha);
 			CallLog("glColor4d({0}, {1}, {2}, {3})", red, green, blue, alpha);
-			DebugCheckErrors();
 		}
 
 		/// <summary>
@@ -4228,7 +4218,6 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglColor4f != null, "pglColor4f not implemented");
 			Delegates.pglColor4f(red, green, blue, alpha);
 			CallLog("glColor4f({0}, {1}, {2}, {3})", red, green, blue, alpha);
-			DebugCheckErrors();
 		}
 
 		/// <summary>
@@ -4278,7 +4267,6 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglColor4i != null, "pglColor4i not implemented");
 			Delegates.pglColor4i(red, green, blue, alpha);
 			CallLog("glColor4i({0}, {1}, {2}, {3})", red, green, blue, alpha);
-			DebugCheckErrors();
 		}
 
 		/// <summary>
@@ -4328,7 +4316,6 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglColor4s != null, "pglColor4s not implemented");
 			Delegates.pglColor4s(red, green, blue, alpha);
 			CallLog("glColor4s({0}, {1}, {2}, {3})", red, green, blue, alpha);
-			DebugCheckErrors();
 		}
 
 		/// <summary>
@@ -4378,7 +4365,6 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglColor4ub != null, "pglColor4ub not implemented");
 			Delegates.pglColor4ub(red, green, blue, alpha);
 			CallLog("glColor4ub({0}, {1}, {2}, {3})", red, green, blue, alpha);
-			DebugCheckErrors();
 		}
 
 		/// <summary>
@@ -4428,7 +4414,6 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglColor4ui != null, "pglColor4ui not implemented");
 			Delegates.pglColor4ui(red, green, blue, alpha);
 			CallLog("glColor4ui({0}, {1}, {2}, {3})", red, green, blue, alpha);
-			DebugCheckErrors();
 		}
 
 		/// <summary>
@@ -4478,7 +4463,6 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglColor4us != null, "pglColor4us not implemented");
 			Delegates.pglColor4us(red, green, blue, alpha);
 			CallLog("glColor4us({0}, {1}, {2}, {3})", red, green, blue, alpha);
-			DebugCheckErrors();
 		}
 
 		/// <summary>
@@ -4519,7 +4503,6 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglEdgeFlag != null, "pglEdgeFlag not implemented");
 			Delegates.pglEdgeFlag(flag);
 			CallLog("glEdgeFlag({0})", flag);
-			DebugCheckErrors();
 		}
 
 		/// <summary>
@@ -4612,7 +4595,6 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglIndexd != null, "pglIndexd not implemented");
 			Delegates.pglIndexd(c);
 			CallLog("glIndexd({0})", c);
-			DebugCheckErrors();
 		}
 
 		/// <summary>
@@ -4653,7 +4635,6 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglIndexf != null, "pglIndexf not implemented");
 			Delegates.pglIndexf(c);
 			CallLog("glIndexf({0})", c);
-			DebugCheckErrors();
 		}
 
 		/// <summary>
@@ -4694,7 +4675,6 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglIndexi != null, "pglIndexi not implemented");
 			Delegates.pglIndexi(c);
 			CallLog("glIndexi({0})", c);
-			DebugCheckErrors();
 		}
 
 		/// <summary>
@@ -4735,7 +4715,6 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglIndexs != null, "pglIndexs not implemented");
 			Delegates.pglIndexs(c);
 			CallLog("glIndexs({0})", c);
-			DebugCheckErrors();
 		}
 
 		/// <summary>
@@ -4790,7 +4769,6 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglNormal3b != null, "pglNormal3b not implemented");
 			Delegates.pglNormal3b(nx, ny, nz);
 			CallLog("glNormal3b({0}, {1}, {2})", nx, ny, nz);
-			DebugCheckErrors();
 		}
 
 		/// <summary>
@@ -4850,7 +4828,6 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglNormal3d != null, "pglNormal3d not implemented");
 			Delegates.pglNormal3d(nx, ny, nz);
 			CallLog("glNormal3d({0}, {1}, {2})", nx, ny, nz);
-			DebugCheckErrors();
 		}
 
 		/// <summary>
@@ -4910,7 +4887,6 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglNormal3f != null, "pglNormal3f not implemented");
 			Delegates.pglNormal3f(nx, ny, nz);
 			CallLog("glNormal3f({0}, {1}, {2})", nx, ny, nz);
-			DebugCheckErrors();
 		}
 
 		/// <summary>
@@ -4970,7 +4946,6 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglNormal3i != null, "pglNormal3i not implemented");
 			Delegates.pglNormal3i(nx, ny, nz);
 			CallLog("glNormal3i({0}, {1}, {2})", nx, ny, nz);
-			DebugCheckErrors();
 		}
 
 		/// <summary>
@@ -5030,7 +5005,6 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglNormal3s != null, "pglNormal3s not implemented");
 			Delegates.pglNormal3s(nx, ny, nz);
 			CallLog("glNormal3s({0}, {1}, {2})", nx, ny, nz);
-			DebugCheckErrors();
 		}
 
 		/// <summary>
@@ -6264,7 +6238,6 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglTexCoord1d != null, "pglTexCoord1d not implemented");
 			Delegates.pglTexCoord1d(s);
 			CallLog("glTexCoord1d({0})", s);
-			DebugCheckErrors();
 		}
 
 		/// <summary>
@@ -6305,7 +6278,6 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglTexCoord1f != null, "pglTexCoord1f not implemented");
 			Delegates.pglTexCoord1f(s);
 			CallLog("glTexCoord1f({0})", s);
-			DebugCheckErrors();
 		}
 
 		/// <summary>
@@ -6346,7 +6318,6 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglTexCoord1i != null, "pglTexCoord1i not implemented");
 			Delegates.pglTexCoord1i(s);
 			CallLog("glTexCoord1i({0})", s);
-			DebugCheckErrors();
 		}
 
 		/// <summary>
@@ -6387,7 +6358,6 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglTexCoord1s != null, "pglTexCoord1s not implemented");
 			Delegates.pglTexCoord1s(s);
 			CallLog("glTexCoord1s({0})", s);
-			DebugCheckErrors();
 		}
 
 		/// <summary>
@@ -6431,7 +6401,6 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglTexCoord2d != null, "pglTexCoord2d not implemented");
 			Delegates.pglTexCoord2d(s, t);
 			CallLog("glTexCoord2d({0}, {1})", s, t);
-			DebugCheckErrors();
 		}
 
 		/// <summary>
@@ -6475,7 +6444,6 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglTexCoord2f != null, "pglTexCoord2f not implemented");
 			Delegates.pglTexCoord2f(s, t);
 			CallLog("glTexCoord2f({0}, {1})", s, t);
-			DebugCheckErrors();
 		}
 
 		/// <summary>
@@ -6519,7 +6487,6 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglTexCoord2i != null, "pglTexCoord2i not implemented");
 			Delegates.pglTexCoord2i(s, t);
 			CallLog("glTexCoord2i({0}, {1})", s, t);
-			DebugCheckErrors();
 		}
 
 		/// <summary>
@@ -6563,7 +6530,6 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglTexCoord2s != null, "pglTexCoord2s not implemented");
 			Delegates.pglTexCoord2s(s, t);
 			CallLog("glTexCoord2s({0}, {1})", s, t);
-			DebugCheckErrors();
 		}
 
 		/// <summary>
@@ -6610,7 +6576,6 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglTexCoord3d != null, "pglTexCoord3d not implemented");
 			Delegates.pglTexCoord3d(s, t, r);
 			CallLog("glTexCoord3d({0}, {1}, {2})", s, t, r);
-			DebugCheckErrors();
 		}
 
 		/// <summary>
@@ -6657,7 +6622,6 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglTexCoord3f != null, "pglTexCoord3f not implemented");
 			Delegates.pglTexCoord3f(s, t, r);
 			CallLog("glTexCoord3f({0}, {1}, {2})", s, t, r);
-			DebugCheckErrors();
 		}
 
 		/// <summary>
@@ -6704,7 +6668,6 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglTexCoord3i != null, "pglTexCoord3i not implemented");
 			Delegates.pglTexCoord3i(s, t, r);
 			CallLog("glTexCoord3i({0}, {1}, {2})", s, t, r);
-			DebugCheckErrors();
 		}
 
 		/// <summary>
@@ -6751,7 +6714,6 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglTexCoord3s != null, "pglTexCoord3s not implemented");
 			Delegates.pglTexCoord3s(s, t, r);
 			CallLog("glTexCoord3s({0}, {1}, {2})", s, t, r);
-			DebugCheckErrors();
 		}
 
 		/// <summary>
@@ -6801,7 +6763,6 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglTexCoord4d != null, "pglTexCoord4d not implemented");
 			Delegates.pglTexCoord4d(s, t, r, q);
 			CallLog("glTexCoord4d({0}, {1}, {2}, {3})", s, t, r, q);
-			DebugCheckErrors();
 		}
 
 		/// <summary>
@@ -6851,7 +6812,6 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglTexCoord4f != null, "pglTexCoord4f not implemented");
 			Delegates.pglTexCoord4f(s, t, r, q);
 			CallLog("glTexCoord4f({0}, {1}, {2}, {3})", s, t, r, q);
-			DebugCheckErrors();
 		}
 
 		/// <summary>
@@ -6901,7 +6861,6 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglTexCoord4i != null, "pglTexCoord4i not implemented");
 			Delegates.pglTexCoord4i(s, t, r, q);
 			CallLog("glTexCoord4i({0}, {1}, {2}, {3})", s, t, r, q);
-			DebugCheckErrors();
 		}
 
 		/// <summary>
@@ -6951,7 +6910,6 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglTexCoord4s != null, "pglTexCoord4s not implemented");
 			Delegates.pglTexCoord4s(s, t, r, q);
 			CallLog("glTexCoord4s({0}, {1}, {2}, {3})", s, t, r, q);
-			DebugCheckErrors();
 		}
 
 		/// <summary>
@@ -7006,7 +6964,6 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglVertex2d != null, "pglVertex2d not implemented");
 			Delegates.pglVertex2d(x, y);
 			CallLog("glVertex2d({0}, {1})", x, y);
-			DebugCheckErrors();
 		}
 
 		/// <summary>
@@ -7072,7 +7029,6 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglVertex2f != null, "pglVertex2f not implemented");
 			Delegates.pglVertex2f(x, y);
 			CallLog("glVertex2f({0}, {1})", x, y);
-			DebugCheckErrors();
 		}
 
 		/// <summary>
@@ -7138,7 +7094,6 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglVertex2i != null, "pglVertex2i not implemented");
 			Delegates.pglVertex2i(x, y);
 			CallLog("glVertex2i({0}, {1})", x, y);
-			DebugCheckErrors();
 		}
 
 		/// <summary>
@@ -7204,7 +7159,6 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglVertex2s != null, "pglVertex2s not implemented");
 			Delegates.pglVertex2s(x, y);
 			CallLog("glVertex2s({0}, {1})", x, y);
-			DebugCheckErrors();
 		}
 
 		/// <summary>
@@ -7273,7 +7227,6 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglVertex3d != null, "pglVertex3d not implemented");
 			Delegates.pglVertex3d(x, y, z);
 			CallLog("glVertex3d({0}, {1}, {2})", x, y, z);
-			DebugCheckErrors();
 		}
 
 		/// <summary>
@@ -7342,7 +7295,6 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglVertex3f != null, "pglVertex3f not implemented");
 			Delegates.pglVertex3f(x, y, z);
 			CallLog("glVertex3f({0}, {1}, {2})", x, y, z);
-			DebugCheckErrors();
 		}
 
 		/// <summary>
@@ -7411,7 +7363,6 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglVertex3i != null, "pglVertex3i not implemented");
 			Delegates.pglVertex3i(x, y, z);
 			CallLog("glVertex3i({0}, {1}, {2})", x, y, z);
-			DebugCheckErrors();
 		}
 
 		/// <summary>
@@ -7480,7 +7431,6 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglVertex3s != null, "pglVertex3s not implemented");
 			Delegates.pglVertex3s(x, y, z);
 			CallLog("glVertex3s({0}, {1}, {2})", x, y, z);
-			DebugCheckErrors();
 		}
 
 		/// <summary>
@@ -7552,7 +7502,6 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglVertex4d != null, "pglVertex4d not implemented");
 			Delegates.pglVertex4d(x, y, z, w);
 			CallLog("glVertex4d({0}, {1}, {2}, {3})", x, y, z, w);
-			DebugCheckErrors();
 		}
 
 		/// <summary>
@@ -7624,7 +7573,6 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglVertex4f != null, "pglVertex4f not implemented");
 			Delegates.pglVertex4f(x, y, z, w);
 			CallLog("glVertex4f({0}, {1}, {2}, {3})", x, y, z, w);
-			DebugCheckErrors();
 		}
 
 		/// <summary>
@@ -7696,7 +7644,6 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglVertex4i != null, "pglVertex4i not implemented");
 			Delegates.pglVertex4i(x, y, z, w);
 			CallLog("glVertex4i({0}, {1}, {2}, {3})", x, y, z, w);
-			DebugCheckErrors();
 		}
 
 		/// <summary>
@@ -7768,7 +7715,6 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglVertex4s != null, "pglVertex4s not implemented");
 			Delegates.pglVertex4s(x, y, z, w);
 			CallLog("glVertex4s({0}, {1}, {2}, {3})", x, y, z, w);
-			DebugCheckErrors();
 		}
 
 		/// <summary>
@@ -8389,6 +8335,7 @@ namespace OpenGL
 		/// Specifies the value that parameter Gl.SHININESS will be set to.
 		/// </param>
 		/// <remarks>
+		/// <para>The exceptions below won't be thrown; caller must check result manually.</para>
 		/// </remarks>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_ENUM is generated if either <paramref name="face"/> or <paramref name="pname"/> is not an accepted value.
@@ -8406,7 +8353,6 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglMaterialf != null, "pglMaterialf not implemented");
 			Delegates.pglMaterialf((Int32)face, (Int32)pname, param);
 			CallLog("glMaterialf({0}, {1}, {2})", face, pname, param);
-			DebugCheckErrors();
 		}
 
 		/// <summary>
@@ -8460,6 +8406,7 @@ namespace OpenGL
 		/// Specifies the value that parameter Gl.SHININESS will be set to.
 		/// </param>
 		/// <remarks>
+		/// <para>The exceptions below won't be thrown; caller must check result manually.</para>
 		/// </remarks>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_ENUM is generated if either <paramref name="face"/> or <paramref name="pname"/> is not an accepted value.
@@ -8477,7 +8424,6 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglMateriali != null, "pglMateriali not implemented");
 			Delegates.pglMateriali((Int32)face, (Int32)pname, param);
 			CallLog("glMateriali({0}, {1}, {2})", face, pname, param);
-			DebugCheckErrors();
 		}
 
 		/// <summary>
@@ -10209,7 +10155,6 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglEvalCoord1d != null, "pglEvalCoord1d not implemented");
 			Delegates.pglEvalCoord1d(u);
 			CallLog("glEvalCoord1d({0})", u);
-			DebugCheckErrors();
 		}
 
 		/// <summary>
@@ -10272,7 +10217,6 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglEvalCoord1f != null, "pglEvalCoord1f not implemented");
 			Delegates.pglEvalCoord1f(u);
 			CallLog("glEvalCoord1f({0})", u);
-			DebugCheckErrors();
 		}
 
 		/// <summary>
@@ -10339,7 +10283,6 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglEvalCoord2d != null, "pglEvalCoord2d not implemented");
 			Delegates.pglEvalCoord2d(u, v);
 			CallLog("glEvalCoord2d({0}, {1})", u, v);
-			DebugCheckErrors();
 		}
 
 		/// <summary>
@@ -10406,7 +10349,6 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglEvalCoord2f != null, "pglEvalCoord2f not implemented");
 			Delegates.pglEvalCoord2f(u, v);
 			CallLog("glEvalCoord2f({0}, {1})", u, v);
-			DebugCheckErrors();
 		}
 
 		/// <summary>
@@ -10499,7 +10441,6 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglEvalPoint1 != null, "pglEvalPoint1 not implemented");
 			Delegates.pglEvalPoint1(i);
 			CallLog("glEvalPoint1({0})", i);
-			DebugCheckErrors();
 		}
 
 		/// <summary>
@@ -10567,7 +10508,6 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglEvalPoint2 != null, "pglEvalPoint2 not implemented");
 			Delegates.pglEvalPoint2(i, j);
 			CallLog("glEvalPoint2({0}, {1})", i, j);
-			DebugCheckErrors();
 		}
 
 		/// <summary>

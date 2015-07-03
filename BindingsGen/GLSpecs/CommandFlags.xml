@@ -2,6 +2,11 @@
 <command_overrides>
 	
 	<!-- GL - Special Cases -->
+
+	<command name="^gl(Vertex(Attrib)?|(Secondary)?Color|Index|Normal|(Fog|Tex|MultiTex|Eval)Coord|EvalPoint|ArrayElement|Material|EdgeFlag|CallList(s)?)[1-4]?N?u?(b|s|i|f|d)?$">
+		<!-- Commands allowed between glBegin and glEnd cannot be checked for errors -->
+		<flags>NoGetError</flags>
+	</command>
 	
 	<command name="(e)?glGetError$">
 		<!-- Avoid stack overflow -->

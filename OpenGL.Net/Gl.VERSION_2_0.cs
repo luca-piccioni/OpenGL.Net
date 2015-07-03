@@ -3758,6 +3758,7 @@ namespace OpenGL
 		/// A <see cref="T:double"/>.
 		/// </param>
 		/// <remarks>
+		/// <para>The exceptions below won't be thrown; caller must check result manually.</para>
 		/// </remarks>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_VALUE is generated if <paramref name="index"/> is greater than or equal to Gl.MAX_VERTEX_ATTRIBS.
@@ -3777,7 +3778,6 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglVertexAttrib1d != null, "pglVertexAttrib1d not implemented");
 			Delegates.pglVertexAttrib1d(index, x);
 			CallLog("glVertexAttrib1d({0}, {1})", index, x);
-			DebugCheckErrors();
 		}
 
 		/// <summary>
@@ -3828,6 +3828,7 @@ namespace OpenGL
 		/// A <see cref="T:float"/>.
 		/// </param>
 		/// <remarks>
+		/// <para>The exceptions below won't be thrown; caller must check result manually.</para>
 		/// </remarks>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_VALUE is generated if <paramref name="index"/> is greater than or equal to Gl.MAX_VERTEX_ATTRIBS.
@@ -3847,7 +3848,6 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglVertexAttrib1f != null, "pglVertexAttrib1f not implemented");
 			Delegates.pglVertexAttrib1f(index, x);
 			CallLog("glVertexAttrib1f({0}, {1})", index, x);
-			DebugCheckErrors();
 		}
 
 		/// <summary>
@@ -3898,6 +3898,7 @@ namespace OpenGL
 		/// A <see cref="T:Int16"/>.
 		/// </param>
 		/// <remarks>
+		/// <para>The exceptions below won't be thrown; caller must check result manually.</para>
 		/// </remarks>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_VALUE is generated if <paramref name="index"/> is greater than or equal to Gl.MAX_VERTEX_ATTRIBS.
@@ -3917,7 +3918,6 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglVertexAttrib1s != null, "pglVertexAttrib1s not implemented");
 			Delegates.pglVertexAttrib1s(index, x);
 			CallLog("glVertexAttrib1s({0}, {1})", index, x);
-			DebugCheckErrors();
 		}
 
 		/// <summary>
@@ -3971,6 +3971,7 @@ namespace OpenGL
 		/// A <see cref="T:double"/>.
 		/// </param>
 		/// <remarks>
+		/// <para>The exceptions below won't be thrown; caller must check result manually.</para>
 		/// </remarks>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_VALUE is generated if <paramref name="index"/> is greater than or equal to Gl.MAX_VERTEX_ATTRIBS.
@@ -3990,7 +3991,6 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglVertexAttrib2d != null, "pglVertexAttrib2d not implemented");
 			Delegates.pglVertexAttrib2d(index, x, y);
 			CallLog("glVertexAttrib2d({0}, {1}, {2})", index, x, y);
-			DebugCheckErrors();
 		}
 
 		/// <summary>
@@ -4044,6 +4044,7 @@ namespace OpenGL
 		/// A <see cref="T:float"/>.
 		/// </param>
 		/// <remarks>
+		/// <para>The exceptions below won't be thrown; caller must check result manually.</para>
 		/// </remarks>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_VALUE is generated if <paramref name="index"/> is greater than or equal to Gl.MAX_VERTEX_ATTRIBS.
@@ -4063,7 +4064,6 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglVertexAttrib2f != null, "pglVertexAttrib2f not implemented");
 			Delegates.pglVertexAttrib2f(index, x, y);
 			CallLog("glVertexAttrib2f({0}, {1}, {2})", index, x, y);
-			DebugCheckErrors();
 		}
 
 		/// <summary>
@@ -4117,6 +4117,7 @@ namespace OpenGL
 		/// A <see cref="T:Int16"/>.
 		/// </param>
 		/// <remarks>
+		/// <para>The exceptions below won't be thrown; caller must check result manually.</para>
 		/// </remarks>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_VALUE is generated if <paramref name="index"/> is greater than or equal to Gl.MAX_VERTEX_ATTRIBS.
@@ -4136,7 +4137,6 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglVertexAttrib2s != null, "pglVertexAttrib2s not implemented");
 			Delegates.pglVertexAttrib2s(index, x, y);
 			CallLog("glVertexAttrib2s({0}, {1}, {2})", index, x, y);
-			DebugCheckErrors();
 		}
 
 		/// <summary>
@@ -4193,6 +4193,7 @@ namespace OpenGL
 		/// A <see cref="T:double"/>.
 		/// </param>
 		/// <remarks>
+		/// <para>The exceptions below won't be thrown; caller must check result manually.</para>
 		/// </remarks>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_VALUE is generated if <paramref name="index"/> is greater than or equal to Gl.MAX_VERTEX_ATTRIBS.
@@ -4212,7 +4213,6 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglVertexAttrib3d != null, "pglVertexAttrib3d not implemented");
 			Delegates.pglVertexAttrib3d(index, x, y, z);
 			CallLog("glVertexAttrib3d({0}, {1}, {2}, {3})", index, x, y, z);
-			DebugCheckErrors();
 		}
 
 		/// <summary>
@@ -4269,6 +4269,7 @@ namespace OpenGL
 		/// A <see cref="T:float"/>.
 		/// </param>
 		/// <remarks>
+		/// <para>The exceptions below won't be thrown; caller must check result manually.</para>
 		/// </remarks>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_VALUE is generated if <paramref name="index"/> is greater than or equal to Gl.MAX_VERTEX_ATTRIBS.
@@ -4288,7 +4289,6 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglVertexAttrib3f != null, "pglVertexAttrib3f not implemented");
 			Delegates.pglVertexAttrib3f(index, x, y, z);
 			CallLog("glVertexAttrib3f({0}, {1}, {2}, {3})", index, x, y, z);
-			DebugCheckErrors();
 		}
 
 		/// <summary>
@@ -4345,6 +4345,7 @@ namespace OpenGL
 		/// A <see cref="T:Int16"/>.
 		/// </param>
 		/// <remarks>
+		/// <para>The exceptions below won't be thrown; caller must check result manually.</para>
 		/// </remarks>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_VALUE is generated if <paramref name="index"/> is greater than or equal to Gl.MAX_VERTEX_ATTRIBS.
@@ -4364,7 +4365,6 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglVertexAttrib3s != null, "pglVertexAttrib3s not implemented");
 			Delegates.pglVertexAttrib3s(index, x, y, z);
 			CallLog("glVertexAttrib3s({0}, {1}, {2}, {3})", index, x, y, z);
-			DebugCheckErrors();
 		}
 
 		/// <summary>
@@ -4538,6 +4538,7 @@ namespace OpenGL
 		/// A <see cref="T:byte"/>.
 		/// </param>
 		/// <remarks>
+		/// <para>The exceptions below won't be thrown; caller must check result manually.</para>
 		/// </remarks>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_VALUE is generated if <paramref name="index"/> is greater than or equal to Gl.MAX_VERTEX_ATTRIBS.
@@ -4557,7 +4558,6 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglVertexAttrib4Nub != null, "pglVertexAttrib4Nub not implemented");
 			Delegates.pglVertexAttrib4Nub(index, x, y, z, w);
 			CallLog("glVertexAttrib4Nub({0}, {1}, {2}, {3}, {4})", index, x, y, z, w);
-			DebugCheckErrors();
 		}
 
 		/// <summary>
@@ -4731,6 +4731,7 @@ namespace OpenGL
 		/// A <see cref="T:double"/>.
 		/// </param>
 		/// <remarks>
+		/// <para>The exceptions below won't be thrown; caller must check result manually.</para>
 		/// </remarks>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_VALUE is generated if <paramref name="index"/> is greater than or equal to Gl.MAX_VERTEX_ATTRIBS.
@@ -4750,7 +4751,6 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglVertexAttrib4d != null, "pglVertexAttrib4d not implemented");
 			Delegates.pglVertexAttrib4d(index, x, y, z, w);
 			CallLog("glVertexAttrib4d({0}, {1}, {2}, {3}, {4})", index, x, y, z, w);
-			DebugCheckErrors();
 		}
 
 		/// <summary>
@@ -4810,6 +4810,7 @@ namespace OpenGL
 		/// A <see cref="T:float"/>.
 		/// </param>
 		/// <remarks>
+		/// <para>The exceptions below won't be thrown; caller must check result manually.</para>
 		/// </remarks>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_VALUE is generated if <paramref name="index"/> is greater than or equal to Gl.MAX_VERTEX_ATTRIBS.
@@ -4829,7 +4830,6 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglVertexAttrib4f != null, "pglVertexAttrib4f not implemented");
 			Delegates.pglVertexAttrib4f(index, x, y, z, w);
 			CallLog("glVertexAttrib4f({0}, {1}, {2}, {3}, {4})", index, x, y, z, w);
-			DebugCheckErrors();
 		}
 
 		/// <summary>
@@ -4927,6 +4927,7 @@ namespace OpenGL
 		/// A <see cref="T:Int16"/>.
 		/// </param>
 		/// <remarks>
+		/// <para>The exceptions below won't be thrown; caller must check result manually.</para>
 		/// </remarks>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_VALUE is generated if <paramref name="index"/> is greater than or equal to Gl.MAX_VERTEX_ATTRIBS.
@@ -4946,7 +4947,6 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglVertexAttrib4s != null, "pglVertexAttrib4s not implemented");
 			Delegates.pglVertexAttrib4s(index, x, y, z, w);
 			CallLog("glVertexAttrib4s({0}, {1}, {2}, {3}, {4})", index, x, y, z, w);
-			DebugCheckErrors();
 		}
 
 		/// <summary>

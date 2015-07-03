@@ -7559,6 +7559,7 @@ namespace OpenGL
 		/// Specifies an index into the enabled vertex data arrays.
 		/// </param>
 		/// <remarks>
+		/// <para>The exceptions below won't be thrown; caller must check result manually.</para>
 		/// </remarks>
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_VALUE may be generated if <paramref name="i"/> is negative.
@@ -7586,7 +7587,6 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglArrayElement != null, "pglArrayElement not implemented");
 			Delegates.pglArrayElement(i);
 			CallLog("glArrayElement({0})", i);
-			DebugCheckErrors();
 		}
 
 		/// <summary>
@@ -8543,7 +8543,6 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglIndexub != null, "pglIndexub not implemented");
 			Delegates.pglIndexub(c);
 			CallLog("glIndexub({0})", c);
-			DebugCheckErrors();
 		}
 
 		/// <summary>

@@ -946,7 +946,6 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglFogCoordf != null, "pglFogCoordf not implemented");
 			Delegates.pglFogCoordf(coord);
 			CallLog("glFogCoordf({0})", coord);
-			DebugCheckErrors();
 		}
 
 		/// <summary>
@@ -989,7 +988,6 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglFogCoordd != null, "pglFogCoordd not implemented");
 			Delegates.pglFogCoordd(coord);
 			CallLog("glFogCoordd({0})", coord);
-			DebugCheckErrors();
 		}
 
 		/// <summary>
@@ -1147,7 +1145,6 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglSecondaryColor3b != null, "pglSecondaryColor3b not implemented");
 			Delegates.pglSecondaryColor3b(red, green, blue);
 			CallLog("glSecondaryColor3b({0}, {1}, {2})", red, green, blue);
-			DebugCheckErrors();
 		}
 
 		/// <summary>
@@ -1198,7 +1195,6 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglSecondaryColor3d != null, "pglSecondaryColor3d not implemented");
 			Delegates.pglSecondaryColor3d(red, green, blue);
 			CallLog("glSecondaryColor3d({0}, {1}, {2})", red, green, blue);
-			DebugCheckErrors();
 		}
 
 		/// <summary>
@@ -1249,7 +1245,6 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglSecondaryColor3f != null, "pglSecondaryColor3f not implemented");
 			Delegates.pglSecondaryColor3f(red, green, blue);
 			CallLog("glSecondaryColor3f({0}, {1}, {2})", red, green, blue);
-			DebugCheckErrors();
 		}
 
 		/// <summary>
@@ -1300,7 +1295,6 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglSecondaryColor3i != null, "pglSecondaryColor3i not implemented");
 			Delegates.pglSecondaryColor3i(red, green, blue);
 			CallLog("glSecondaryColor3i({0}, {1}, {2})", red, green, blue);
-			DebugCheckErrors();
 		}
 
 		/// <summary>
@@ -1351,7 +1345,6 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglSecondaryColor3s != null, "pglSecondaryColor3s not implemented");
 			Delegates.pglSecondaryColor3s(red, green, blue);
 			CallLog("glSecondaryColor3s({0}, {1}, {2})", red, green, blue);
-			DebugCheckErrors();
 		}
 
 		/// <summary>
@@ -1402,7 +1395,6 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglSecondaryColor3ub != null, "pglSecondaryColor3ub not implemented");
 			Delegates.pglSecondaryColor3ub(red, green, blue);
 			CallLog("glSecondaryColor3ub({0}, {1}, {2})", red, green, blue);
-			DebugCheckErrors();
 		}
 
 		/// <summary>
@@ -1453,7 +1445,6 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglSecondaryColor3ui != null, "pglSecondaryColor3ui not implemented");
 			Delegates.pglSecondaryColor3ui(red, green, blue);
 			CallLog("glSecondaryColor3ui({0}, {1}, {2})", red, green, blue);
-			DebugCheckErrors();
 		}
 
 		/// <summary>
@@ -1504,7 +1495,6 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglSecondaryColor3us != null, "pglSecondaryColor3us not implemented");
 			Delegates.pglSecondaryColor3us(red, green, blue);
 			CallLog("glSecondaryColor3us({0}, {1}, {2})", red, green, blue);
-			DebugCheckErrors();
 		}
 
 		/// <summary>

@@ -2444,7 +2444,6 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglMultiTexCoord1d != null, "pglMultiTexCoord1d not implemented");
 			Delegates.pglMultiTexCoord1d(target, s);
 			CallLog("glMultiTexCoord1d({0}, {1})", target, s);
-			DebugCheckErrors();
 		}
 
 		/// <summary>
@@ -2502,7 +2501,6 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglMultiTexCoord1f != null, "pglMultiTexCoord1f not implemented");
 			Delegates.pglMultiTexCoord1f(target, s);
 			CallLog("glMultiTexCoord1f({0}, {1})", target, s);
-			DebugCheckErrors();
 		}
 
 		/// <summary>
@@ -2560,7 +2558,6 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglMultiTexCoord1i != null, "pglMultiTexCoord1i not implemented");
 			Delegates.pglMultiTexCoord1i(target, s);
 			CallLog("glMultiTexCoord1i({0}, {1})", target, s);
-			DebugCheckErrors();
 		}
 
 		/// <summary>
@@ -2618,7 +2615,6 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglMultiTexCoord1s != null, "pglMultiTexCoord1s not implemented");
 			Delegates.pglMultiTexCoord1s(target, s);
 			CallLog("glMultiTexCoord1s({0}, {1})", target, s);
-			DebugCheckErrors();
 		}
 
 		/// <summary>
@@ -2680,7 +2676,6 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglMultiTexCoord2d != null, "pglMultiTexCoord2d not implemented");
 			Delegates.pglMultiTexCoord2d(target, s, t);
 			CallLog("glMultiTexCoord2d({0}, {1}, {2})", target, s, t);
-			DebugCheckErrors();
 		}
 
 		/// <summary>
@@ -2742,7 +2737,6 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglMultiTexCoord2f != null, "pglMultiTexCoord2f not implemented");
 			Delegates.pglMultiTexCoord2f(target, s, t);
 			CallLog("glMultiTexCoord2f({0}, {1}, {2})", target, s, t);
-			DebugCheckErrors();
 		}
 
 		/// <summary>
@@ -2804,7 +2798,6 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglMultiTexCoord2i != null, "pglMultiTexCoord2i not implemented");
 			Delegates.pglMultiTexCoord2i(target, s, t);
 			CallLog("glMultiTexCoord2i({0}, {1}, {2})", target, s, t);
-			DebugCheckErrors();
 		}
 
 		/// <summary>
@@ -2866,7 +2859,6 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglMultiTexCoord2s != null, "pglMultiTexCoord2s not implemented");
 			Delegates.pglMultiTexCoord2s(target, s, t);
 			CallLog("glMultiTexCoord2s({0}, {1}, {2})", target, s, t);
-			DebugCheckErrors();
 		}
 
 		/// <summary>
@@ -2932,7 +2924,6 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglMultiTexCoord3d != null, "pglMultiTexCoord3d not implemented");
 			Delegates.pglMultiTexCoord3d(target, s, t, r);
 			CallLog("glMultiTexCoord3d({0}, {1}, {2}, {3})", target, s, t, r);
-			DebugCheckErrors();
 		}
 
 		/// <summary>
@@ -2998,7 +2989,6 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglMultiTexCoord3f != null, "pglMultiTexCoord3f not implemented");
 			Delegates.pglMultiTexCoord3f(target, s, t, r);
 			CallLog("glMultiTexCoord3f({0}, {1}, {2}, {3})", target, s, t, r);
-			DebugCheckErrors();
 		}
 
 		/// <summary>
@@ -3064,7 +3054,6 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglMultiTexCoord3i != null, "pglMultiTexCoord3i not implemented");
 			Delegates.pglMultiTexCoord3i(target, s, t, r);
 			CallLog("glMultiTexCoord3i({0}, {1}, {2}, {3})", target, s, t, r);
-			DebugCheckErrors();
 		}
 
 		/// <summary>
@@ -3130,7 +3119,6 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglMultiTexCoord3s != null, "pglMultiTexCoord3s not implemented");
 			Delegates.pglMultiTexCoord3s(target, s, t, r);
 			CallLog("glMultiTexCoord3s({0}, {1}, {2}, {3})", target, s, t, r);
-			DebugCheckErrors();
 		}
 
 		/// <summary>
@@ -3200,7 +3188,6 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglMultiTexCoord4d != null, "pglMultiTexCoord4d not implemented");
 			Delegates.pglMultiTexCoord4d(target, s, t, r, q);
 			CallLog("glMultiTexCoord4d({0}, {1}, {2}, {3}, {4})", target, s, t, r, q);
-			DebugCheckErrors();
 		}
 
 		/// <summary>
@@ -3270,7 +3257,6 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglMultiTexCoord4f != null, "pglMultiTexCoord4f not implemented");
 			Delegates.pglMultiTexCoord4f(target, s, t, r, q);
 			CallLog("glMultiTexCoord4f({0}, {1}, {2}, {3}, {4})", target, s, t, r, q);
-			DebugCheckErrors();
 		}
 
 		/// <summary>
@@ -3340,7 +3326,6 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglMultiTexCoord4i != null, "pglMultiTexCoord4i not implemented");
 			Delegates.pglMultiTexCoord4i(target, s, t, r, q);
 			CallLog("glMultiTexCoord4i({0}, {1}, {2}, {3}, {4})", target, s, t, r, q);
-			DebugCheckErrors();
 		}
 
 		/// <summary>
@@ -3410,7 +3395,6 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglMultiTexCoord4s != null, "pglMultiTexCoord4s not implemented");
 			Delegates.pglMultiTexCoord4s(target, s, t, r, q);
 			CallLog("glMultiTexCoord4s({0}, {1}, {2}, {3}, {4})", target, s, t, r, q);
-			DebugCheckErrors();
 		}
 
 		/// <summary>
