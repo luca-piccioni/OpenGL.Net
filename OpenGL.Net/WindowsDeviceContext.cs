@@ -46,7 +46,7 @@ namespace OpenGL
 				throw new ArgumentNullException("window");
 			
 			mWindowHandle = window.Handle;
-			mDeviceContext = Wgl.GdiGetDC(window.Handle);
+			mDeviceContext = Wgl.UnsafeNativeMethods.GdiGetDC(window.Handle);
 
 			if (DeviceContext == IntPtr.Zero)
 				throw new InvalidOperationException("unable to get any video device context");
@@ -105,7 +105,7 @@ namespace OpenGL
 		protected override void Dispose(bool disposing)
 		{
 			if (disposing) {
-				Wgl.GdiReleaseDC(WindowHandle, DeviceContext);
+				Wgl.UnsafeNativeMethods.GdiReleaseDC(WindowHandle, DeviceContext);
 			}
 		}
 

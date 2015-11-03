@@ -17,7 +17,6 @@
 // USA
 
 using System;
-using System.Collections.Generic;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
 
@@ -43,7 +42,7 @@ namespace OpenGL.Test
 				// Create window
 				Form = new TestForm(this);
 				// Create device context
-				mDeviceContext = DeviceContextFactory.Create(Form);
+				_DeviceContext = DeviceContextFactory.Create(Form);
 				// Set pixel format
 				SetPixelFormatWgl();
 				// Synch delegates
@@ -74,9 +73,9 @@ namespace OpenGL.Test
 		public void FixtureTearDown()
 		{
 			// Dispose device context
-			if (mDeviceContext != null)
-				mDeviceContext.Dispose();
-			mDeviceContext = null;
+			if (_DeviceContext != null)
+				_DeviceContext.Dispose();
+			_DeviceContext = null;
 			// Dispose window
 			if (Form != null)
 				Form.Dispose();
@@ -88,7 +87,7 @@ namespace OpenGL.Test
 		/// </summary>
 		private void SetPixelFormatWgl()
 		{
-			WindowsDeviceContext winDeviceContext = (WindowsDeviceContext)mDeviceContext;
+			WindowsDeviceContext winDeviceContext = (WindowsDeviceContext)_DeviceContext;
 
 			// Define most compatible pixel format
 			Wgl.PIXELFORMATDESCRIPTOR pfd;
@@ -113,13 +112,13 @@ namespace OpenGL.Test
 			pfd.cAccumRedBits = 0; pfd.cAccumGreenBits = 0; pfd.cAccumBlueBits = 0; pfd.cAccumAlphaBits = 0;
 
 			// Find pixel format match
-			if ((pFormat = Wgl.GdiChoosePixelFormat(winDeviceContext.DeviceContext, out pfd)) == 0)
+			if ((pFormat = Wgl.UnsafeNativeMethods.GdiChoosePixelFormat(winDeviceContext.DeviceContext, out pfd)) == 0)
 				throw new NotSupportedException("unable to choose basic pixel format, error code " + Marshal.GetLastWin32Error());
 
 			if (pfd.cColorBits == 0)
 				throw new InvalidOperationException("unable to select valid pixel format");
 			// Set pixel format before creating OpenGL context
-            if (Wgl.GdiSetPixelFormat(winDeviceContext.DeviceContext, pFormat, out pfd) == false)
+            if (Wgl.UnsafeNativeMethods.GdiSetPixelFormat(winDeviceContext.DeviceContext, pFormat, out pfd) == false)
 				throw new InvalidOperationException("unable to set valid pixel format");
 		}
 
@@ -131,7 +130,7 @@ namespace OpenGL.Test
 		/// <summary>
 		/// The device context.
 		/// </summary>
-		protected IDeviceContext mDeviceContext;
+		protected IDeviceContext _DeviceContext;
 
 		#endregion
 

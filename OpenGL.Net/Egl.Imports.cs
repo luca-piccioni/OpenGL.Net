@@ -24,7 +24,7 @@ namespace OpenGL
 {
 	public unsafe partial class Egl
 	{
-		internal unsafe static partial class Imports
+		internal unsafe static partial class UnsafeNativeMethods
 		{
 			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "eglBindAPI", ExactSpelling = true)]

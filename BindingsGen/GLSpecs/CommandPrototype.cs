@@ -91,5 +91,20 @@ namespace BindingsGen.GLSpecs
 		}
 
 		#endregion
+
+		#region Object Overrides
+
+		/// <summary>
+		/// Get the string representation of this CommandPrototype.
+		/// </summary>
+		/// <returns>
+		/// It returns the string representation of this CommandPrototype.
+		/// </returns>
+		public override string ToString()
+		{
+			return (Name);
+		}
+
+		#endregion
 	}
 }

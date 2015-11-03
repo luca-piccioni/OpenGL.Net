@@ -182,82 +182,85 @@ namespace OpenGL
 
 		#region Required External Declarations
 
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="deviceContext"></param>
-		/// <param name="pixelFormatDescriptor"></param>
-		/// <returns></returns>
-		[DllImport("gdi32.dll", EntryPoint = "ChoosePixelFormat", ExactSpelling = true, SetLastError = true)]
-		public static extern int GdiChoosePixelFormat(IntPtr deviceContext, out PIXELFORMATDESCRIPTOR pixelFormatDescriptor);
+		public unsafe static partial class UnsafeNativeMethods
+		{
+			/// <summary>
+			/// 
+			/// </summary>
+			/// <param name="deviceContext"></param>
+			/// <param name="pixelFormatDescriptor"></param>
+			/// <returns></returns>
+			[DllImport("gdi32.dll", EntryPoint = "ChoosePixelFormat", ExactSpelling = true, SetLastError = true)]
+			public static extern int GdiChoosePixelFormat(IntPtr deviceContext, out PIXELFORMATDESCRIPTOR pixelFormatDescriptor);
 
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="deviceContext"></param>
-		/// <param name="pixelFormat"></param>
-		/// <param name="pixelFormatDescriptor"></param>
-		/// <returns></returns>
-		[DllImport("gdi32.dll", EntryPoint = "SetPixelFormat", ExactSpelling = true, SetLastError = true)]
-		public static extern bool GdiSetPixelFormat(IntPtr deviceContext, int pixelFormat, out PIXELFORMATDESCRIPTOR pixelFormatDescriptor);
+			/// <summary>
+			/// 
+			/// </summary>
+			/// <param name="deviceContext"></param>
+			/// <param name="pixelFormat"></param>
+			/// <param name="pixelFormatDescriptor"></param>
+			/// <returns></returns>
+			[DllImport("gdi32.dll", EntryPoint = "SetPixelFormat", ExactSpelling = true, SetLastError = true)]
+			public static extern bool GdiSetPixelFormat(IntPtr deviceContext, int pixelFormat, out PIXELFORMATDESCRIPTOR pixelFormatDescriptor);
 
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="deviceContext"></param>
-		/// <returns></returns>
-		[DllImport("gdi32.dll", CallingConvention = CallingConvention.StdCall, EntryPoint = "SwapBuffers")]
-		public static extern int GdiSwapBuffersFast([In] IntPtr deviceContext);
+			/// <summary>
+			/// 
+			/// </summary>
+			/// <param name="deviceContext"></param>
+			/// <returns></returns>
+			[DllImport("gdi32.dll", CallingConvention = CallingConvention.StdCall, EntryPoint = "SwapBuffers")]
+			public static extern int GdiSwapBuffersFast([In] IntPtr deviceContext);
 
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="lpszDriver"></param>
-		/// <param name="lpszDevice"></param>
-		/// <param name="lpszOutput"></param>
-		/// <param name="lpInitData"></param>
-		/// <returns></returns>
-		[DllImport("gdi32.dll", CallingConvention = CallingConvention.StdCall, EntryPoint = "CreateDC")]
-		public static extern IntPtr GdiCreateDC(string lpszDriver, string lpszDevice, string lpszOutput, IntPtr lpInitData);
+			/// <summary>
+			/// 
+			/// </summary>
+			/// <param name="lpszDriver"></param>
+			/// <param name="lpszDevice"></param>
+			/// <param name="lpszOutput"></param>
+			/// <param name="lpInitData"></param>
+			/// <returns></returns>
+			[DllImport("gdi32.dll", CallingConvention = CallingConvention.StdCall, EntryPoint = "CreateDC")]
+			public static extern IntPtr GdiCreateDC(string lpszDriver, string lpszDevice, string lpszOutput, IntPtr lpInitData);
 
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="hdc"></param>
-		/// <returns></returns>
-		[DllImport("gdi32.dll", CallingConvention = CallingConvention.StdCall, EntryPoint = "DeleteDC")]
-		static extern bool GdiDeleteDC(IntPtr hdc);
+			/// <summary>
+			/// 
+			/// </summary>
+			/// <param name="hdc"></param>
+			/// <returns></returns>
+			[DllImport("gdi32.dll", CallingConvention = CallingConvention.StdCall, EntryPoint = "DeleteDC")]
+			static extern bool GdiDeleteDC(IntPtr hdc);
 
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="windowHandle"></param>
-		/// <returns></returns>
-		[DllImport("user32.dll", CallingConvention = CallingConvention.StdCall, EntryPoint = "GetDC")]
-		public static extern IntPtr GdiGetDC(IntPtr windowHandle);
+			/// <summary>
+			/// 
+			/// </summary>
+			/// <param name="windowHandle"></param>
+			/// <returns></returns>
+			[DllImport("user32.dll", CallingConvention = CallingConvention.StdCall, EntryPoint = "GetDC")]
+			public static extern IntPtr GdiGetDC(IntPtr windowHandle);
 
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="windowHandle"></param>
-		/// <param name="deviceContext"></param>
-		/// <returns></returns>
-		[DllImport("user32.dll", CallingConvention = CallingConvention.StdCall, EntryPoint = "ReleaseDC")]
-		public static extern bool GdiReleaseDC(IntPtr windowHandle, IntPtr deviceContext);
+			/// <summary>
+			/// 
+			/// </summary>
+			/// <param name="windowHandle"></param>
+			/// <param name="deviceContext"></param>
+			/// <returns></returns>
+			[DllImport("user32.dll", CallingConvention = CallingConvention.StdCall, EntryPoint = "ReleaseDC")]
+			public static extern bool GdiReleaseDC(IntPtr windowHandle, IntPtr deviceContext);
 
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="lpDevice"></param>
-		/// <param name="iDevNum"></param>
-		/// <param name="lpDisplayDevice"></param>
-		/// <param name="dwFlags"></param>
-		/// <returns></returns>
-		/// <remarks>
-		/// Thanks to www.pinvoke.net.
-		/// </remarks>
-		[DllImport("user32.dll", CallingConvention = CallingConvention.StdCall)]
-		public static extern bool EnumDisplayDevices(string lpDevice, uint iDevNum, ref DISPLAY_DEVICE lpDisplayDevice, uint dwFlags);
+			/// <summary>
+			/// 
+			/// </summary>
+			/// <param name="lpDevice"></param>
+			/// <param name="iDevNum"></param>
+			/// <param name="lpDisplayDevice"></param>
+			/// <param name="dwFlags"></param>
+			/// <returns></returns>
+			/// <remarks>
+			/// Thanks to www.pinvoke.net.
+			/// </remarks>
+			[DllImport("user32.dll", CallingConvention = CallingConvention.StdCall)]
+			public static extern bool EnumDisplayDevices(string lpDevice, uint iDevNum, ref DISPLAY_DEVICE lpDisplayDevice, uint dwFlags);
+		}
 
 		/// <summary>
 		/// Structure to describe the display device.

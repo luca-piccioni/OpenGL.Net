@@ -273,8 +273,6 @@ namespace BindingsGen
 			using (SourceStreamWriter sw = new SourceStreamWriter(Path.Combine(BasePath, path), false)) {
 				RegistryProcessor.GenerateLicensePreamble(sw);
 
-				sw.WriteLine();
-
 				sw.WriteLine("using System;");
 				sw.WriteLine();
 

@@ -39,9 +39,6 @@ namespace OpenGL
 		/// <exception cref="InvalidOperationException">
 		/// Gl.INVALID_OPERATION is generated if <paramref name="shader"/> is not a shader object.
 		/// </exception>
-		/// <exception cref="InvalidOperationException">
-		/// Gl.INVALID_VALUE is generated if <paramref name="count"/> is less than 0.
-		/// </exception>
 		/// <seealso cref="Gl.CompileShader"/>
 		/// <seealso cref="Gl.CreateShader"/>
 		/// <seealso cref="Gl.DeleteShader"/>

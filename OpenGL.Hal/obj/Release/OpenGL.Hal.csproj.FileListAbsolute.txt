@@ -1,1 +1,0 @@
-C:\Users\Luca\Documents\OpenGL.Net - GitHub\OpenGL.Hal\obj\Release\ResolveAssemblyReference.cache

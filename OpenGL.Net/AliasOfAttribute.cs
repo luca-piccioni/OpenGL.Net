@@ -33,7 +33,7 @@ namespace OpenGL
 		/// A <see cref="String"/> that specifies the name of the symbol that is aliased by the underlying member.
 		/// </param>
 		/// <exception cref="ArgumentException">
-		/// Exception thrown if <paramref name="featureName"/> is null or empty.
+		/// Exception thrown if <paramref name="symbolName"/> is null or empty.
 		/// </exception>
 		public AliasOfAttribute(string symbolName)
 		{

@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="3.5" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
@@ -12,6 +12,11 @@
     <AssemblyName>OpenGL.Hal</AssemblyName>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>3.5</OldToolsVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -60,11 +65,13 @@
     <Compile Include="Color.cs" />
     <Compile Include="GraphicsCapabilities.cs" />
     <Compile Include="GraphicsContext.cs" />
+    <Compile Include="GraphicsException.cs" />
     <Compile Include="GraphicsExtensionAttribute.cs" />
     <Compile Include="GraphicsExtensionDisabledAttribute.cs" />
     <Compile Include="GraphicsInfoAttribute.cs" />
     <Compile Include="GraphicsLimitAttribute.cs" />
     <Compile Include="GraphicsLimits.cs" />
+    <Compile Include="GraphicsResource.cs" />
     <Compile Include="IColor.cs" />
     <Compile Include="ICopiable.cs" />
     <Compile Include="IDisposableResource.cs" />
@@ -75,6 +82,7 @@
     <Compile Include="IMatrix4x4.cs" />
     <Compile Include="IModelMatrix.cs" />
     <Compile Include="IReferenceable.cs" />
+    <Compile Include="IResource.cs" />
     <Compile Include="IVertex.cs" />
     <Compile Include="IVertex2.cs" />
     <Compile Include="IVertex3.cs" />
@@ -88,11 +96,26 @@
     <Compile Include="ModelMatrix.cs" />
     <Compile Include="ModelMatrixDouble.cs" />
     <Compile Include="Pixel.cs" />
+    <Compile Include="PixelColorspaceAttribute.cs" />
+    <Compile Include="PixelComponentsAttribute.cs" />
     <Compile Include="PixelLayout.cs" />
     <Compile Include="PixelLayoutInfo.cs" />
+    <Compile Include="PixelNonLinearAttribute.cs" />
+    <Compile Include="PixelPlanesAttribute.cs" />
+    <Compile Include="PixelPrecisionAttribute.cs" />
+    <Compile Include="PixelSizeAttribute.cs" />
     <Compile Include="PixelSpace.cs" />
+    <Compile Include="PixelStructureAttribute.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Quaternion.cs" />
+    <Compile Include="Resource.cs" />
+    <Compile Include="ResourceCollection.cs" />
+    <Compile Include="Texture.cs" />
+    <Compile Include="Texture1d.cs" />
+    <Compile Include="Texture2d.cs" />
+    <Compile Include="Texture3d.cs" />
+    <Compile Include="TextureCube.cs" />
+    <Compile Include="TextureRectangle.cs" />
     <Compile Include="Vertex.cs" />
     <Compile Include="Vertex2.cs" />
     <Compile Include="Vertex3.cs" />
@@ -104,6 +127,9 @@
       <Project>{ABB8DFA8-473A-4FC1-85C0-E21680772A58}</Project>
       <Name>OpenGL.Net</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

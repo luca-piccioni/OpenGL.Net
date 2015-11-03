@@ -24,7 +24,7 @@ namespace OpenGL
 {
 	public unsafe partial class Wgl
 	{
-		internal unsafe static partial class Imports
+		public unsafe static partial class UnsafeNativeMethods
 		{
 			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "wglAllocateMemoryNV", ExactSpelling = true)]

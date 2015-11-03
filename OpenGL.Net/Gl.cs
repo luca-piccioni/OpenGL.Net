@@ -111,8 +111,6 @@ namespace OpenGL
 		{
 			if (sCallLogEnabled == false)
 				return;
-
-
 		}
 
 		/// <summary>
@@ -388,9 +386,6 @@ namespace OpenGL
 		/// It returns a boolean value indicating whether the operation was successful. If it returns false,
 		/// query the exception by calling <see cref="GetPlatformException"/>.
 		/// </returns>
-		/// <remarks>
-		/// <para>The context <paramref name="ctx"/> must not be current on any thread.</para>
-		/// </remarks>
 		/// <exception cref="ArgumentNullException">
 		/// Exception thrown if <paramref name="deviceContext"/> is null.
 		/// </exception>
@@ -408,7 +403,7 @@ namespace OpenGL
 				case PlatformID.Win32NT: {
 						WindowsDeviceContext winDeviceContext = (WindowsDeviceContext)deviceContext;
 
-						Wgl.GdiSwapBuffersFast(winDeviceContext.DeviceContext);
+						Wgl.UnsafeNativeMethods.GdiSwapBuffersFast(winDeviceContext.DeviceContext);
 					}
 					break;
 #endif
@@ -495,6 +490,7 @@ namespace OpenGL
 		/// <exception cref="NotSupportedException">
 		/// Exception thrown if the current platform is not supported.
 		/// </exception>
+		[System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Interoperability", "CA1404:CallGetLastErrorImmediatelyAfterPInvoke")]
 		public static Exception GetPlatformException(IDeviceContext deviceContext)
 		{
 			Exception platformException = null;
@@ -546,7 +542,7 @@ namespace OpenGL
 		{
 			lock (mDisplayErrorsLock) {
 				StringBuilder sb = new StringBuilder(1024);
-				Glx.XGetErrorText(DisplayHandle, error_event.error_code, sb, 1024);
+				Glx.UnsafeNativeMethods.XGetErrorText(DisplayHandle, error_event.error_code, sb, 1024);
 
 				string eventName = Enum.GetName(typeof(Glx.XEventName), error_event.type);
 				string requestName = Enum.GetName(typeof(Glx.XRequest), error_event.request_code);

@@ -45,21 +45,21 @@ namespace OpenGL.Test
 				mContext = CreateContext();
 
 				// Make OpenGL context current
-				if (Gl.MakeContextCurrent(mDeviceContext, mContext) == false)
+				if (Gl.MakeContextCurrent(_DeviceContext, mContext) == false)
 					throw new InvalidOperationException("unable to make current the OpenGL context");
 
 				// Get OpenGL version
-				if ((mVersion = Gl.GetString(StringName.Version)) == null)
+				if ((_Version = Gl.GetString(StringName.Version)) == null)
 					throw new InvalidOperationException("unable to get the OpenGL version");
 				
 				// Extract OpenGL version numbers
 				Match versionMatch;
 
-				if ((versionMatch = Regex.Match(mVersion, @"(?<Major>\d+)\.(?<Minor>\d+)(\.(?<Rev>\d+))?(.*)?")).Success == false)
+				if ((versionMatch = Regex.Match(_Version, @"(?<Major>\d+)\.(?<Minor>\d+)(\.(?<Rev>\d+))?(.*)?")).Success == false)
 					throw new InvalidOperationException("unable to parse the OpenGL version");
-				mVersionMajor = Int32.Parse(versionMatch.Groups["Major"].Value);
-				mVersionMinor = Int32.Parse(versionMatch.Groups["Minor"].Value);
-				mVersionRevision = versionMatch.Groups["Rev"].Success ? Int32.Parse(versionMatch.Groups["Rev"].Value) : 0;
+				_VersionMajor = Int32.Parse(versionMatch.Groups["Major"].Value);
+				_VersionMinor = Int32.Parse(versionMatch.Groups["Minor"].Value);
+				_VersionRevision = versionMatch.Groups["Rev"].Success ? Int32.Parse(versionMatch.Groups["Rev"].Value) : 0;
 
 				// Get OpenGL extensions
 				string extensions;
@@ -67,16 +67,16 @@ namespace OpenGL.Test
 				extensions = Gl.GetString(StringName.Extensions);
 				if (extensions == null)
 					throw new InvalidOperationException("unable to get the OpenGL extensions");
-				ParseExtensionString(mGlSupportedExtensions, extensions);
+				ParseExtensionString(_GlSupportedExtensions, extensions);
 
 				// Get OpenGL window system extensions
 				switch (Environment.OSVersion.Platform) {
 					case PlatformID.Win32Windows:
 					case PlatformID.Win32NT:
-						extensions = Wgl.GetExtensionsStringARB(((WindowsDeviceContext)mDeviceContext).DeviceContext);
+						extensions = Wgl.GetExtensionsStringARB(((WindowsDeviceContext)_DeviceContext).DeviceContext);
 						if (extensions == null)
 							throw new InvalidOperationException("unable to get the OpenGL for Windows extensions");
-						ParseExtensionString(mWglSupportedExtensions, extensions);
+						ParseExtensionString(_WglSupportedExtensions, extensions);
 						break;
 					case PlatformID.Unix:
 						break;
@@ -97,7 +97,7 @@ namespace OpenGL.Test
 		public new void FixtureTearDown()
 		{
 			// Detroy context
-			WindowsDeviceContext winDeviceContext = mDeviceContext as WindowsDeviceContext;
+			WindowsDeviceContext winDeviceContext = _DeviceContext as WindowsDeviceContext;
 			if ((winDeviceContext != null) && (Wgl.DeleteContext(mContext) == false))
 				throw new InvalidOperationException("unable to delete OpenGL context");
 			mContext = IntPtr.Zero;
@@ -120,12 +120,12 @@ namespace OpenGL.Test
 
 			if (contextAttribute == null) {
 				// Create compatibility profile context
-				if ((context = Gl.CreateContext(mDeviceContext)) == IntPtr.Zero)
+				if ((context = Gl.CreateContext(_DeviceContext)) == IntPtr.Zero)
 					throw new InvalidOperationException("unable to create compatibility profile OpenGL context");
 			} else {
 				List<int> contextAttribs = new List<int>();
 
-				if ((context = Gl.CreateContextAttrib(mDeviceContext, IntPtr.Zero, contextAttribs.ToArray())) == IntPtr.Zero)
+				if ((context = Gl.CreateContextAttrib(_DeviceContext, IntPtr.Zero, contextAttribs.ToArray())) == IntPtr.Zero)
 					throw new InvalidOperationException("unable to create core profile OpenGL context");
 			}
 
@@ -139,7 +139,7 @@ namespace OpenGL.Test
 		/// <summary>
 		/// Get the OpenGL version of the OpenGL context.
 		/// </summary>
-		protected string Version { get { return (mVersion); } }
+		protected string Version { get { return (_Version); } }
 
 		protected bool HasVersion(int major, int minor)
 		{
@@ -148,14 +148,14 @@ namespace OpenGL.Test
 
 		protected bool HasVersion(int major, int minor, int revision)
 		{
-			if (mVersionMajor < major)
-				return (false);
-			if (mVersionMinor < minor)
-				return (false);
-			if (mVersionRevision < revision)
-				return (false);
+			if (_VersionMajor > major)
+				return (true);
+			if ((_VersionMajor == major) && (_VersionMinor > minor))
+				return (true);
+			if ((_VersionMajor == major) && (_VersionMinor > minor) && (_VersionRevision >= revision))
+				return (true);
 
-			return (true);
+			return (false);
 		}
 
 		/// <summary>
@@ -178,7 +178,7 @@ namespace OpenGL.Test
 
 			bool support;
 
-			if (mGlSupportedExtensions.TryGetValue(extension, out support))
+			if (_GlSupportedExtensions.TryGetValue(extension, out support))
 				return (support);
 
 			return (false);
@@ -204,7 +204,7 @@ namespace OpenGL.Test
 
 			bool support;
 
-			if (mWglSupportedExtensions.TryGetValue(extension, out support))
+			if (_WglSupportedExtensions.TryGetValue(extension, out support))
 				return (support);
 
 			return (false);
@@ -230,7 +230,7 @@ namespace OpenGL.Test
 
 			bool support;
 
-			if (mGlxSupportedExtensions.TryGetValue(extension, out support))
+			if (_GlxSupportedExtensions.TryGetValue(extension, out support))
 				return (support);
 
 			return (false);
@@ -258,37 +258,37 @@ namespace OpenGL.Test
 		/// <summary>
 		/// The OpenGL version of the OpenGL context.
 		/// </summary>
-		private string mVersion;
+		private string _Version;
 
 		/// <summary>
 		/// The OpenGL version of the OpenGL context: major number.
 		/// </summary>
-		private int mVersionMajor;
+		private int _VersionMajor;
 
 		/// <summary>
 		/// The OpenGL version of the OpenGL context: minor number.
 		/// </summary>
-		private int mVersionMinor;
+		private int _VersionMinor;
 
 		/// <summary>
 		/// The OpenGL version of the OpenGL context: revision number.
 		/// </summary>
-		private int mVersionRevision;
+		private int _VersionRevision;
 
 		/// <summary>
 		/// Extension supported by GL.
 		/// </summary>
-		private readonly Dictionary<string, bool> mGlSupportedExtensions = new Dictionary<string,bool>();
+		private readonly Dictionary<string, bool> _GlSupportedExtensions = new Dictionary<string,bool>();
 
 		/// <summary>
 		/// Extension supported by WGL.
 		/// </summary>
-		private readonly Dictionary<string, bool> mWglSupportedExtensions = new Dictionary<string,bool>();
+		private readonly Dictionary<string, bool> _WglSupportedExtensions = new Dictionary<string,bool>();
 
 		/// <summary>
 		/// Extension supported by GLX.
 		/// </summary>
-		private readonly Dictionary<string, bool> mGlxSupportedExtensions = new Dictionary<string,bool>();
+		private readonly Dictionary<string, bool> _GlxSupportedExtensions = new Dictionary<string,bool>();
 
 		#endregion
 	}

@@ -40,7 +40,7 @@ namespace OpenGL
 
 			// Determine GetOpenGLProcAddress implementation
 			if ((pId == PlatformID.Win32NT) || (pId == PlatformID.Win32S) || (pId == PlatformID.Win32Windows) || (pId == PlatformID.WinCE)) {
-				sGetProcAddress = new GetProcAddressWindows();
+				_GetProcAddress = new GetProcAddressWindows();
 			} else if ((pId == PlatformID.Unix) || (pId == (PlatformID)4)) {
 				string pIdString = DetectUnixKernel();
 
@@ -48,16 +48,12 @@ namespace OpenGL
 				switch (pIdString) {
 				case "Unix":
 				case "Linux":
-					sGetProcAddress = new GetProcAddressX11();
+					_GetProcAddress = new GetProcAddressX11();
 					break;
 				case "Darwin":
-					sGetProcAddress = new GetProcAddressOSX();
+					_GetProcAddress = new GetProcAddressOSX();
 					break;
-				default:
-					throw new PlatformNotSupportedException(pIdString + ": unknown Unix platform - cannot load extensions");
 				}
-			} else {
-				throw new PlatformNotSupportedException("extension loading is only supported under Mac OS X, Unix/X11 and Windows");
 			}
 		}
 
@@ -80,7 +76,9 @@ namespace OpenGL
 		/// </returns>
 		public static IntPtr GetAddress(string path, string function)
 		{
-			return (sGetProcAddress.GetProcAddress(path, function));
+            if (_GetProcAddress == null)
+                throw new PlatformNotSupportedException();
+            return (_GetProcAddress.GetProcAddress(path, function));
 		}
 
 
@@ -94,7 +92,9 @@ namespace OpenGL
 		/// </returns>
 		public static IntPtr GetOpenGLAddress(string function)
 		{
-			return (sGetProcAddress.GetOpenGLProcAddress(function));
+            if (_GetProcAddress == null)
+                throw new PlatformNotSupportedException();
+            return (_GetProcAddress.GetOpenGLProcAddress(function));
 		}
 
 		/// <summary>
@@ -116,13 +116,14 @@ namespace OpenGL
 			startInfo.RedirectStandardError = true;
 			startInfo.UseShellExecute = false;
 
-			foreach (string unameprog in new string[] { "/usr/bin/uname", "/bin/uname", "uname" })
-			{
+			foreach (string unameprog in new string[] { "/usr/bin/uname", "/bin/uname", "uname" }) {
 				try {
+
 					startInfo.FileName = unameprog;
-					Process uname = Process.Start(startInfo);
-					StreamReader stdout = uname.StandardOutput;
-					return stdout.ReadLine().Trim();
+
+					using (Process uname = Process.Start(startInfo)) {
+						return uname.StandardOutput.ReadLine().Trim();
+					}
 				} catch (System.IO.FileNotFoundException) {
 					// The requested executable doesn't exist, try next one.
 					continue;
@@ -140,7 +141,7 @@ namespace OpenGL
 		/// <remarks>
 		/// 
 		/// </remarks>
-		private static IGetProcAddress sGetProcAddress;
+		private static IGetProcAddress _GetProcAddress;
 
 		#endregion
 	}
@@ -197,17 +198,20 @@ namespace OpenGL
 	{
 		#region Windows Platform Imports
 
-		[DllImport("Kernel32.dll", SetLastError=true)]
-		private static extern IntPtr LoadLibrary(String lpFileName);
+		unsafe static class UnsafeNativeMethods
+		{
+			[DllImport("Kernel32.dll", SetLastError = true)]
+			public static extern IntPtr LoadLibrary(String lpFileName);
 
-		[DllImport("Kernel32.dll", SetLastError=true)]
-		private static extern void FreeLibrary(IntPtr hModule);
+			[DllImport("Kernel32.dll", SetLastError = true)]
+			public static extern void FreeLibrary(IntPtr hModule);
 
-		[DllImport("Kernel32.dll", EntryPoint="GetProcAddress", CharSet=CharSet.Ansi, ExactSpelling=true, SetLastError=true)]
-		private static extern IntPtr Win32GetProcAddress(IntPtr hModule, String lpProcName);
+			[DllImport("Kernel32.dll", EntryPoint = "GetProcAddress", CharSet = CharSet.Ansi, ExactSpelling = true, SetLastError = true)]
+			public static extern IntPtr Win32GetProcAddress(IntPtr hModule, String lpProcName);
 
-		[DllImport(Library, EntryPoint = "wglGetProcAddress", ExactSpelling = true)]
-		private static extern IntPtr wglGetProcAddress(String lpszProc);
+			[DllImport(Library, EntryPoint = "wglGetProcAddress", ExactSpelling = true)]
+			public static extern IntPtr wglGetProcAddress(String lpszProc);
+		}
 
 		#endregion
 
@@ -251,7 +255,7 @@ namespace OpenGL
 			if (function == null)
 				throw new ArgumentNullException("function");
 
-			return (Win32GetProcAddress(library, function));
+			return (UnsafeNativeMethods.Win32GetProcAddress(library, function));
 		}
 
 		/// <summary>
@@ -267,10 +271,10 @@ namespace OpenGL
 		{
 			IntPtr libraryFunct;
 
-			if ((libraryFunct = wglGetProcAddress(function)) == IntPtr.Zero) {
+			if ((libraryFunct = UnsafeNativeMethods.wglGetProcAddress(function)) == IntPtr.Zero) {
 				IntPtr libraryHandle = GetLibraryHandle(Library);
 
-				return (Win32GetProcAddress(libraryHandle, function));
+				return (UnsafeNativeMethods.Win32GetProcAddress(libraryHandle, function));
 			} else
 				return (libraryFunct);
 		}
@@ -280,7 +284,7 @@ namespace OpenGL
 			IntPtr libraryHandle;
 
 			if (sLibraryHandles.TryGetValue(libraryPath, out libraryHandle) == false) {
-				libraryHandle = LoadLibrary(libraryPath);
+				libraryHandle = UnsafeNativeMethods.LoadLibrary(libraryPath);
 				sLibraryHandles.Add(libraryPath, libraryHandle);
 			}
 
@@ -318,16 +322,19 @@ namespace OpenGL
 	{
 		#region X11 Platform Imports
 
-		const int RTLD_NOW = 2;
+		unsafe static class UnsafeNativeMethods
+		{
+			public const int RTLD_NOW = 2;
 
-		[DllImport("dl")]
-		static extern IntPtr dlopen([MarshalAs(UnmanagedType.LPTStr)] string filename, int flags);
+			[DllImport("dl")]
+			public static extern IntPtr dlopen([MarshalAs(UnmanagedType.LPTStr)] string filename, int flags);
 
-		[DllImport("dl")]
-		static extern IntPtr dlsym(IntPtr handle, [MarshalAs(UnmanagedType.LPTStr)] string symbol);
+			[DllImport("dl")]
+			public static extern IntPtr dlsym(IntPtr handle, [MarshalAs(UnmanagedType.LPTStr)] string symbol);
 
-		[DllImport(Library, EntryPoint = "glXGetProcAddress")]
-		private static extern IntPtr glxGetProcAddress([MarshalAs(UnmanagedType.LPTStr)] string procName);
+			[DllImport(Library, EntryPoint = "glXGetProcAddress")]
+			public static extern IntPtr glxGetProcAddress([MarshalAs(UnmanagedType.LPTStr)] string procName);
+		}
 
 		#endregion
 
@@ -371,7 +378,7 @@ namespace OpenGL
 			if (function == null)
 				throw new ArgumentNullException("function");
 
-			return (dlsym(library, function));
+			return (UnsafeNativeMethods.dlsym(library, function));
 		}
 
 		/// <summary>
@@ -385,7 +392,7 @@ namespace OpenGL
 		/// </returns>
 		public IntPtr GetOpenGLProcAddress(string function)
 		{
-			return (glxGetProcAddress(function));
+			return (UnsafeNativeMethods.glxGetProcAddress(function));
 		}
 
 		private IntPtr GetLibraryHandle(string libraryPath)
@@ -393,7 +400,7 @@ namespace OpenGL
 			IntPtr libraryHandle;
 
 			if (sLibraryHandles.TryGetValue(libraryPath, out libraryHandle) == false) {
-				libraryHandle = dlopen(libraryPath, RTLD_NOW);
+				libraryHandle = UnsafeNativeMethods.dlopen(libraryPath, UnsafeNativeMethods.RTLD_NOW);
 				sLibraryHandles.Add(libraryPath, libraryHandle);
 			}
 
@@ -423,14 +430,17 @@ namespace OpenGL
 	{
 		#region OSX Platform Imports
 
-		[DllImport(Library, EntryPoint = "NSIsSymbolNameDefined")]
-		private static extern bool NSIsSymbolNameDefined(string s);
+		unsafe static class UnsafeNativeMethods
+		{
+			[DllImport(Library, EntryPoint = "NSIsSymbolNameDefined")]
+			public static extern bool NSIsSymbolNameDefined(string s);
 
-		[DllImport(Library, EntryPoint = "NSLookupAndBindSymbol")]
-		private static extern IntPtr NSLookupAndBindSymbol(string s);
+			[DllImport(Library, EntryPoint = "NSLookupAndBindSymbol")]
+			public static extern IntPtr NSLookupAndBindSymbol(string s);
 
-		[DllImport(Library, EntryPoint = "NSAddressOfSymbol")]
-		private static extern IntPtr NSAddressOfSymbol(IntPtr symbol);
+			[DllImport(Library, EntryPoint = "NSAddressOfSymbol")]
+			public static extern IntPtr NSAddressOfSymbol(IntPtr symbol);
+		}
 
 		#endregion
 
@@ -482,12 +492,12 @@ namespace OpenGL
 		public IntPtr GetOpenGLProcAddress(string function)
 		{
 			string fname = "_" + function;
-			if (!NSIsSymbolNameDefined(fname))
+			if (!UnsafeNativeMethods.NSIsSymbolNameDefined(fname))
 				return IntPtr.Zero;
 
-			IntPtr symbol = NSLookupAndBindSymbol(fname);
+			IntPtr symbol = UnsafeNativeMethods.NSLookupAndBindSymbol(fname);
 			if (symbol != IntPtr.Zero)
-				symbol = NSAddressOfSymbol(symbol);
+				symbol = UnsafeNativeMethods.NSAddressOfSymbol(symbol);
 
 			return (symbol);
 		}

@@ -22,6 +22,7 @@
 using System;
 using System.Runtime.InteropServices;
 using System.Runtime.Serialization;
+using System.Security.Permissions;
 
 namespace OpenGL
 {
@@ -505,7 +506,7 @@ namespace OpenGL
 		/// </param>
 		/// <param name="context">
 		/// </param>
-		public HalfFloat(SerializationInfo info, StreamingContext context)
+		private HalfFloat(SerializationInfo info, StreamingContext context)
 		{
 			mBits = (ushort)info.GetValue("HalfFloat.mBits", typeof(ushort));
 		}
@@ -517,6 +518,7 @@ namespace OpenGL
 		/// </param>
 		/// <param name="context">
 		/// </param>
+		[SecurityPermission(SecurityAction.LinkDemand, Flags = SecurityPermissionFlag.SerializationFormatter)]
 		public void GetObjectData(SerializationInfo info, StreamingContext context)
 		{
 			info.AddValue("HalfFloat.mBits", mBits);

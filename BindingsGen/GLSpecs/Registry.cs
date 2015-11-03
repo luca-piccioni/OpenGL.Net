@@ -187,7 +187,11 @@ namespace BindingsGen.GLSpecs
 				if (command.Alias == null)
 					continue;
 				Command aliasCommand = GetCommand(command.Alias.Name);
-				aliasCommand.Aliases.Add(command);
+
+				if (aliasCommand != null)
+					aliasCommand.Aliases.Add(command);
+				else
+					Console.WriteLine("Command {0} has an undefined alias {1}.", command.Prototype.Name, command.Alias.Name);
 			}
 
 			// Index required enumerants

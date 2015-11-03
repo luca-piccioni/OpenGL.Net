@@ -40,7 +40,7 @@ namespace OpenGL.Test
 			uint arrayBuffer = Gl.GenBuffer();
 			try {
 				Assert.AreNotEqual(0, arrayBuffer, "Gl.GenBuffer failure");
-				Assert.IsTrue(Gl.IsBuffer(arrayBuffer));
+				Assert.IsFalse(Gl.IsBuffer(arrayBuffer));
 			} finally {
 				if (arrayBuffer != 0) {
 					Gl.DeleteBuffers(arrayBuffer);
@@ -63,9 +63,11 @@ namespace OpenGL.Test
 			uint arrayBuffer = Gl.GenBuffer();
 			try {
 				Assert.AreNotEqual(0, arrayBuffer, "Gl.GenBuffer failure");
-				Assert.IsTrue(Gl.IsBuffer(arrayBuffer));
+				Assert.IsFalse(Gl.IsBuffer(arrayBuffer));
 
 				Gl.BindBuffer(BufferTargetARB.ArrayBuffer, arrayBuffer);
+				Assert.IsTrue(Gl.IsBuffer(arrayBuffer));
+
 				Gl.Get(Gl.ARRAY_BUFFER_BINDING, out arrayBufferGet);
 				Assert.AreEqual((int)arrayBuffer, arrayBufferGet);
 
@@ -107,9 +109,11 @@ namespace OpenGL.Test
 			Assert.AreNotEqual(0, arrayBuffer, "Gl.GenBuffer failure");
 
 			try {
-				Assert.IsTrue(Gl.IsBuffer(arrayBuffer));
+				Assert.IsFalse(Gl.IsBuffer(arrayBuffer));
 
 				Gl.BindBuffer(BufferTargetARB.ArrayBuffer, arrayBuffer);
+				Assert.IsTrue(Gl.IsBuffer(arrayBuffer));
+
 				Gl.Get(Gl.ARRAY_BUFFER_BINDING, out arrayBufferGet);
 				Assert.AreEqual((int)arrayBuffer, arrayBufferGet);
 

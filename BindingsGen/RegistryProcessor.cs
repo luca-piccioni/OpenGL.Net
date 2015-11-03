@@ -60,8 +60,6 @@ namespace BindingsGen
 			using (SourceStreamWriter sw = new SourceStreamWriter(path, false)) {
 				GenerateLicensePreamble(sw);
 
-				sw.WriteLine();
-
 				sw.WriteLine("using System;");
 				sw.WriteLine();
 
@@ -102,8 +100,6 @@ namespace BindingsGen
 
 			using (SourceStreamWriter sw = new SourceStreamWriter(path, false)) {
 				GenerateLicensePreamble(sw);
-
-				sw.WriteLine();
 
 				sw.WriteLine("// Disable \"'token' is obsolete\" warnings");
 				sw.WriteLine("#pragma warning disable 618");
@@ -160,6 +156,8 @@ namespace BindingsGen
 			using (SourceStreamWriter sw = new SourceStreamWriter(path, false)) {
 				GenerateLicensePreamble(sw);
 
+				// Warning CS1734  XML comment on 'method' has a paramref tag for 'param', but there is no parameter by that name
+				sw.WriteLine("#pragma warning disable 1734");
 				sw.WriteLine();
 
 				sw.WriteLine("using System;");
@@ -196,8 +194,6 @@ namespace BindingsGen
 			using (SourceStreamWriter sw = new SourceStreamWriter(path, false)) {
 				GenerateLicensePreamble(sw);
 
-				sw.WriteLine();
-
 				sw.WriteLine("using System;");
 				sw.WriteLine("using System.Security;");
 				sw.WriteLine("using System.Runtime.InteropServices;");
@@ -214,7 +210,18 @@ namespace BindingsGen
 				#region Function Imports
 
 				// Write delegates
-				sw.WriteLine("internal unsafe static partial class Imports");
+				switch (ctx.Class) {
+					// Glx and Wgl classes exposes public unsafe native methods: let UnsafeNativeMethods be public (note: automatically
+					// generated members have internal scope)
+					case "Glx":
+					case "Wgl":
+						sw.WriteLine("public unsafe static partial class UnsafeNativeMethods");
+						break;
+					default:
+						sw.WriteLine("internal unsafe static partial class UnsafeNativeMethods");
+						break;
+				}
+				
 				sw.WriteLine("{");
 				sw.Indent();
 
@@ -249,8 +256,6 @@ namespace BindingsGen
 
 			using (SourceStreamWriter sw = new SourceStreamWriter(path, false)) {
 				GenerateLicensePreamble(sw);
-
-				sw.WriteLine();
 
 				sw.WriteLine("#pragma warning disable 649, 1572, 1573");
 				sw.WriteLine();
@@ -308,6 +313,7 @@ namespace BindingsGen
 				sw.WriteLine();
 				while ((line = sr.ReadLine()) != null)
 					sw.WriteLine("// {0}", line);
+				sw.WriteLine();
 			}
 		}
 

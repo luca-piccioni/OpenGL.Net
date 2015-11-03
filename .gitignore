@@ -9,3 +9,4 @@
 /OpenGL.Net.Test/NUnit
 /OpenGL.Net.Test/*.xml
 /BindingsGen/*.user
+/OpenGL.Hal/obj

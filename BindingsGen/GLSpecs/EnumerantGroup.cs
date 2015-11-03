@@ -81,19 +81,19 @@ namespace BindingsGen.GLSpecs
 				}
 			}
 
-			// Make enumerants distinct (discard duplicated enumerants, mainly from extensions)
+			// Make enumerants distinct (discard duplicated enumerants, mainly from extensions _ARB, _EXT, ...)
 			List<Enumerant> uniqueEnums = new List<Enumerant>();
 
 			foreach (KeyValuePair<string, List<Enumerant>> pair in groupEnums) {
 				if (pair.Value.Count > 1) {
-					Enumerant shortedNameEnum = null;
+					Enumerant shorterNameEnum = null;
 
 					foreach (Enumerant item in pair.Value) {
-						if ((shortedNameEnum == null) || (shortedNameEnum.Name.Length > item.Name.Length))
-							shortedNameEnum = item;
+						if ((shorterNameEnum == null) || (shorterNameEnum.Name.Length > item.Name.Length))
+							shorterNameEnum = item;
 					}
 
-					uniqueEnums.Add(shortedNameEnum);
+					uniqueEnums.Add(shorterNameEnum);
 				} else
 					uniqueEnums.Add(pair.Value[0]);
 			}

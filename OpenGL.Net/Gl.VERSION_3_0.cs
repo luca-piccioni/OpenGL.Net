@@ -16,6 +16,8 @@
 // Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301
 // USA
 
+#pragma warning disable 1734
+
 using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
@@ -4927,7 +4929,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.RenderbufferStorageMultisample"/>
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ARB_framebuffer_object")]
-		public static void DeleteRenderbuffers(UInt32[] renderbuffers)
+		public static void DeleteRenderbuffers(params UInt32[] renderbuffers)
 		{
 			unsafe {
 				fixed (UInt32* p_renderbuffers = renderbuffers)

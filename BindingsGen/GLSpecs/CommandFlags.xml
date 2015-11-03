@@ -56,7 +56,7 @@
 		<flags>VariadicParams</flags>
 	</command>
 
-	<command name="^glDelete(Buffers|Queries|Textures|Renderbuffer|Framebuffers|VertexArrays|Samplers|TransformFeedback|ProgramPipelines)(ARB|EXT)?$">
+	<command name="^glDelete(Buffers|Queries|Textures|Renderbuffers|Framebuffers|VertexArrays|Samplers|TransformFeedback|ProgramPipelines)(ARB|EXT)?$">
 		<flags>VariadicParams</flags>
 	</command>
 

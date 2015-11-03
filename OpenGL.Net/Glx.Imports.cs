@@ -24,7 +24,7 @@ namespace OpenGL
 {
 	public unsafe partial class Glx
 	{
-		internal unsafe static partial class Imports
+		public unsafe static partial class UnsafeNativeMethods
 		{
 			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glXAssociateDMPbufferSGIX", ExactSpelling = true)]

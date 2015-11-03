@@ -35,7 +35,7 @@ namespace OpenGL
 		static XServerDeviceContext()
 		{
 			// Be notified about XServer errors
-			Glx.XSetErrorHandler(Gl.XServerErrorHandler);
+			Glx.UnsafeNativeMethods.XSetErrorHandler(Gl.XServerErrorHandler);
 		}
 		
 		/// <summary>
@@ -71,7 +71,7 @@ namespace OpenGL
 		public XServerDeviceContext(IntPtr display)
 		{
 			// Open display (follows DISPLAY environment variable)
-			mDisplay = Glx.XOpenDisplay(display);
+			mDisplay = Glx.UnsafeNativeMethods.XOpenDisplay(display);
 			ProcLoader.LogProc("XOpenDisplay(0x0) = 0x{0}", mDisplay.ToString("X"));
 			if (mDisplay == IntPtr.Zero)
 				throw new InvalidOperationException(String.Format("unable to connect to X server display {0}", display.ToInt32()));
@@ -79,7 +79,7 @@ namespace OpenGL
 			mOwnDisplay = true;
 
 			// Screen
-			mScreen = Glx.XDefaultScreen(mDisplay);
+			mScreen = Glx.UnsafeNativeMethods.XDefaultScreen(mDisplay);
 			
 			// Query GLX extensions
 			QueryExtensions();
@@ -263,7 +263,7 @@ namespace OpenGL
 		public static void InitializeMultithreading()
 		{
 			// Ensure to have X11 thread system initialized
-			int initialized = Glx.XInitThreads();
+			int initialized = Glx.UnsafeNativeMethods.XInitThreads();
 			ProcLoader.LogProc("XInitThreads() = {0}", initialized);
 			
 			if (initialized == 0)
@@ -367,7 +367,7 @@ namespace OpenGL
 		{
 			if (disposing) {
 				if ((mOwnDisplay == true) && (Display != IntPtr.Zero)) {
-					Glx.XCloseDisplay(Display);
+					Glx.UnsafeNativeMethods.XCloseDisplay(Display);
 					ProcLoader.LogProc("XCloseDisplay({0})", Display.ToString("X"));
 				}
 			}

@@ -113,9 +113,9 @@ namespace OpenGL
 		static GraphicsContext()
 		{
 			// Create common hidden window/device
-			HiddenWindow = new System.Windows.Forms.Form();
-			mHiddenWindowDevice = DeviceContextFactory.Create(HiddenWindow);
-			mHiddenWindowDevice.IncRef();
+			_HiddenWindow = new System.Windows.Forms.Form();
+			_HiddenWindowDevice = DeviceContextFactory.Create(_HiddenWindow);
+			_HiddenWindowDevice.IncRef();
 
 			// Create basic context
 			IntPtr rContext;
@@ -125,17 +125,17 @@ namespace OpenGL
 				case PlatformID.Win32S:
 				case PlatformID.Win32Windows:
 				case PlatformID.WinCE:
-					rContext = CreateWinSimpleContext(mHiddenWindowDevice);
+					rContext = CreateWinSimpleContext(_HiddenWindowDevice);
 					break;
 				case PlatformID.Unix:
-					rContext = CreateX11SimpleContext(mHiddenWindowDevice);
+					rContext = CreateX11SimpleContext(_HiddenWindowDevice);
 					break;
 				default:
 					throw new NotSupportedException("unable to create OpenGL context on platform " + Environment.OSVersion.ToString());
 			}
 
 			// Query OpenGL informations
-			bool current = Gl.MakeContextCurrent(mHiddenWindowDevice, rContext);
+			bool current = Gl.MakeContextCurrent(_HiddenWindowDevice, rContext);
 			if (current == false)
 				throw new Exception("unable to make current");
 
@@ -151,12 +151,12 @@ namespace OpenGL
 			sCurrentShadingGLVersion = ParseGLSLVersion(glslVersion);
 
 			// Query OpenGL extensions (current OpenGL implementation, CurrentCaps)
-			// sRenderCaps = GraphicsCapabilities.Query(this, mHiddenWindowDevice);
+			// sRenderCaps = GraphicsCapabilities.Query(this, _HiddenWindowDevice);
 			// Cache current OpenGL capabilities
-			sRenderCapsDb[sCurrentGLVersion] = sRenderCaps;
+			_RenderCapsDb[sCurrentGLVersion] = _RenderCaps;
 
 			// Detroy context
-			if (Gl.DeleteContext(mHiddenWindowDevice, rContext) == false)
+			if (Gl.DeleteContext(_HiddenWindowDevice, rContext) == false)
 				throw new InvalidOperationException("unable to delete OpenGL context");
 		}
 
@@ -194,13 +194,13 @@ namespace OpenGL
 			pfd.cAccumRedBits = 0; pfd.cAccumGreenBits = 0; pfd.cAccumBlueBits = 0; pfd.cAccumAlphaBits = 0;
 
 			// Find pixel format match
-			if ((pFormat = Wgl.GdiChoosePixelFormat(winDeviceContext.DeviceContext, out pfd)) == 0)
+			if ((pFormat = Wgl.UnsafeNativeMethods.GdiChoosePixelFormat(winDeviceContext.DeviceContext, out pfd)) == 0)
 				throw new NotSupportedException("unable to choose basic pixel format, error code " + Marshal.GetLastWin32Error());
 
 			if (pfd.cColorBits == 0)
 				throw new Exception("unable to select valid pixel format");
 			// Set pixel format before creating OpenGL context
-			if (Wgl.GdiSetPixelFormat(winDeviceContext.DeviceContext, pFormat, out pfd) == false)
+			if (Wgl.UnsafeNativeMethods.GdiSetPixelFormat(winDeviceContext.DeviceContext, pFormat, out pfd) == false)
 				throw new Exception("unable to set valid pixel format");
 
 			// Create a dummy OpenGL context to retrieve initial informations.
@@ -240,7 +240,7 @@ namespace OpenGL
 					x11DeviceCtx.XVisualInfo = Glx.GetVisualFromFBConfig(x11DeviceCtx.Display, choosenConfig);
 					x11DeviceCtx.FBConfig = choosenConfig;
 
-					Glx.XFree((IntPtr)choosenConfigs);
+					Glx.UnsafeNativeMethods.XFree((IntPtr)choosenConfigs);
 				}
 
 				// Create direct context
@@ -260,7 +260,7 @@ namespace OpenGL
 		/// <summary>
 		/// Force execution of static constructor.
 		/// </summary>
-		internal static void Touch() { sRenderCaps.GetHashCode(); }
+		internal static void Touch() { _RenderCaps.GetHashCode(); }
 
 		/// <summary>
 		/// GraphicsContext constructor.
@@ -271,9 +271,9 @@ namespace OpenGL
 		public GraphicsContext()
 		{
 			// Release device context on dispose
-			mCommonDeviceContext = true;
+			_CommonDeviceContext = true;
 			// Create render context
-			CreateRenderContext(mHiddenWindowDevice, null, GLVersion.Current);
+			CreateRenderContext(_HiddenWindowDevice, null, GLVersion.Current);
 		}
 
 		/// <summary>
@@ -311,9 +311,9 @@ namespace OpenGL
 		public GraphicsContext(GraphicsContext hSharedContext)
 		{
 			// Release device context on dispose
-			mCommonDeviceContext = true;
+			_CommonDeviceContext = true;
 			// Create render context
-			CreateRenderContext(mHiddenWindowDevice, hSharedContext, GLVersion.Current);
+			CreateRenderContext(_HiddenWindowDevice, hSharedContext, GLVersion.Current);
 		}
 
 		/// <summary>
@@ -373,9 +373,9 @@ namespace OpenGL
 		public GraphicsContext(GLVersion version, GraphicsContext hSharedContext)
 		{
 			// Release device context on dispose
-			mCommonDeviceContext = true;
+			_CommonDeviceContext = true;
 			// Create render context
-			CreateRenderContext(mHiddenWindowDevice, hSharedContext, version);
+			CreateRenderContext(_HiddenWindowDevice, hSharedContext, version);
 		}
 
 		/// <summary>
@@ -456,7 +456,7 @@ namespace OpenGL
 		private void CreateRenderContext(IDeviceContext deviceContext, GraphicsContext hSharedContext, GLVersion version)
 		{
 			try {
-				IntPtr pSharedContext = (hSharedContext != null) ? hSharedContext.mRenderContext : IntPtr.Zero;
+				IntPtr pSharedContext = (hSharedContext != null) ? hSharedContext._RenderContext : IntPtr.Zero;
 
 #if DEBUG
 				mConstructorStackTrace = Environment.StackTrace;
@@ -467,15 +467,15 @@ namespace OpenGL
 					version = sCurrentGLVersion;
 
 				// Store thread ID of the render context
-				mRenderContextThreadId = System.Threading.Thread.CurrentThread.ManagedThreadId;
+				_RenderContextThreadId = System.Threading.Thread.CurrentThread.ManagedThreadId;
 				// Store thread ID of the device context
-				mDeviceContextThreadId = System.Threading.Thread.CurrentThread.ManagedThreadId;
+				_DeviceContextThreadId = System.Threading.Thread.CurrentThread.ManagedThreadId;
 
 				if (deviceContext == null)
 					throw new ArgumentNullException("devctx");
-				if ((hSharedContext != null) && (hSharedContext.mDeviceContext == null))
+				if ((hSharedContext != null) && (hSharedContext._DeviceContext == null))
 					throw new ArgumentException("shared context disposed", "hSharedContext");
-				if ((hSharedContext != null) && (hSharedContext.mRenderContextThreadId != mRenderContextThreadId))
+				if ((hSharedContext != null) && (hSharedContext._RenderContextThreadId != _RenderContextThreadId))
 					throw new ArgumentException("shared context created from another thread", "hSharedContext");
 				if ((version != sCurrentGLVersion) && ((CurrentCaps.CreateContext == false) && (CurrentCaps.CreateContextProfile == false)))
 					throw new ArgumentException("unable to specify OpenGL version when GL_ARB_create_context[_profile] is not supported");
@@ -483,12 +483,11 @@ namespace OpenGL
 					throw new ArgumentException("unable to specify forward-compatible OpenGL version when GL_ARB_create_context[_profile] is not supported");
 
 				// Store device context handle
-				mDeviceContext = deviceContext;
-				mDeviceContext.Ref();
+				_DeviceContext = deviceContext;
+                _DeviceContext.IncRef();
 
 				if ((CurrentCaps.CreateContext || CurrentCaps.CreateContextProfile) && (version >= GLVersion.Version_3_0)) {
 					List<int> cAttributes = new List<int>();
-					int rContextProfileBits = 0;
 					int rContextFlags = 0;
 
 					// Requires a specific version
@@ -512,33 +511,20 @@ namespace OpenGL
 						Wgl.CONTEXT_FLAGS_ARB, rContextFlags
 					});
 
-#if false
-					// Context profile flags
-					Debug.Assert(Wgl.CONTEXT_PROFILE_MASK_ARB == Glx.CONTEXT_PROFILE_MASK_ARB);
-					Debug.Assert(Wgl.CONTEXT_CORE_PROFILE_BIT_ARB == Glx.CONTEXT_CORE_PROFILE_BIT_ARB);
-					Debug.Assert(Wgl.CONTEXT_COMPATIBILITY_PROFILE_BIT_ARB == Glx.CONTEXT_COMPATIBILITY_PROFILE_BIT_ARB);
-					// Context profile flags: core profile
-
-					// Context profile flags: compatibility profile
-					cAttributes.AddRange(new int[] {
-						Wgl.CONTEXT_PROFILE_MASK_ARB, rContextProfileBits
-					});
-#endif
-
-					// End of attributes
-					cAttributes.Add(0);
+                    // End of attributes
+                    cAttributes.Add(0);
 
 					// Create rendering context
 					int[] contextAttributes = cAttributes.ToArray();
 
-					if ((mRenderContext = Gl.CreateContextAttrib(mDeviceContext, pSharedContext, contextAttributes)) == IntPtr.Zero) {
-						Exception platformException = RenderException.CheckPlatformErrors(mDeviceContext, false);
+					if ((_RenderContext = Gl.CreateContextAttrib(_DeviceContext, pSharedContext, contextAttributes)) == IntPtr.Zero) {
+						Exception platformException = GraphicsException.CheckPlatformErrors(_DeviceContext, false);
 
 						throw new InvalidOperationException("unable to create context " + sVersionDb[version].GLMajor + "." + sVersionDb[version].GLMinor, platformException);
 					}
 				} else {
 					// Create rendering context
-					if ((mRenderContext = Gl.CreateContext(mDeviceContext, pSharedContext)) == IntPtr.Zero)
+					if ((_RenderContext = Gl.CreateContext(_DeviceContext, pSharedContext)) == IntPtr.Zero)
 						throw new InvalidOperationException("unable to create context " + sVersionDb[version].GLMajor + "." + sVersionDb[version].GLMinor);
 				}
 
@@ -556,29 +542,22 @@ namespace OpenGL
 				mCompatibilityProfile = (version < GLVersion.Version_3_1) && (mVersion >= GLVersion.Version_3_1);
 
 				// Cache context capabilities for this version
-				if (sRenderCapsDb.ContainsKey(mVersion) == false)
-					sRenderCapsDb[mVersion] = QueryOpenGLInfo(deviceContext, this);
+				if (_RenderCapsDb.ContainsKey(mVersion) == false)
+					_RenderCapsDb[mVersion] = GraphicsCapabilities.Query(this, deviceContext);
 
 				// Determine this GraphicsContext object name space and garbage service
 				if (hSharedContext != null) {
 					// Sharing same object name space
 					mObjectNameSpace = hSharedContext.mObjectNameSpace;
-					// Garbage service is the same (object name space is shared)
-					mGarbageService = hSharedContext.mGarbageService;
 
 					// Test for effective sharing
 					TestSharingObjects(hSharedContext);
 				} else {
 					// Reserved object name space
 					mObjectNameSpace = Guid.NewGuid();
-					// Reserved garbage service
-					mGarbageService = new RenderGarbageService();
 
 					// Effective sharing false by default
 				}
-
-				// Bind this garbage service (also reference it since it is potentially shared across contextes)
-				mGarbageService.BindObjectNameSpace(this);
 
 				// Restore previous current context, if any
 				if (rContextCurrent != null)
@@ -977,7 +956,6 @@ namespace OpenGL
 		{
 			GLSLVersion version = GLSLVersion.None;
 			Match versionMatch;
-			string[] vTokens;
 			int major, minor, glslVersion;
 
 			if (glslVersionString == null)
@@ -1051,7 +1029,7 @@ namespace OpenGL
 		{
 			get
 			{
-				return (sRenderCapsDb[Version]);
+				return (_RenderCapsDb[Version]);
 			}
 		}
 
@@ -1068,83 +1046,8 @@ namespace OpenGL
 		{
 			get
 			{
-				return (sRenderCaps);
+				return (_RenderCaps);
 			}
-		}
-
-		/// <summary>
-		/// Check required OpenGL extension availability.
-		/// </summary>
-		/// <param name="ext">
-		/// A <see cref="System.String"/> which specify the extension string to test for availability.
-		/// </param>
-		/// <exception cref="System.Exception">
-		/// In the case the extension specified with <paramref name="ext"/> is not available,
-		/// it throws the exception.
-		/// </exception>
-		private static void CheckRequiredGlExtension(string ext)
-		{
-			bool oglRequiredExt = (Gl.HasExtension(ext) == true);
-			if (oglRequiredExt == false)
-				throw new Exception("current OpenGL implementation doesn't provide " + ext + " extension");
-		}
-
-		/// <summary>
-		/// Check required OpenGL extension availability.
-		/// </summary>
-		/// <param name="ext">
-		/// A <see cref="System.String"/> which specify the extension string to test for availability.
-		/// </param>
-		/// <param name="alternatives">
-		/// A <see cref="T:System.String[]"/> that specifies a set of OpenGL extension alternatives which
-		/// offer the same functionalities of the extension specified with the parameter <paramref name="ext"/>.
-		/// </param>
-		/// <exception cref="System.Exception">
-		/// In the case the extension specified with <paramref name="ext"/> is not available, and none of
-		/// the extension specified with <paramref name="alternatives"/>, it throws the exception.
-		/// </exception>
-		private static void CheckRequiredGlExtension(string ext, params string[] alternatives)
-		{
-			bool oglRequiredExt = Gl.HasExtension(ext);
-
-			// Check alternatives
-			if (oglRequiredExt == false) {
-				foreach (string alt in alternatives) {
-					if ((oglRequiredExt = Gl.HasExtension(alt)) == true)
-						break;
-				}
-			}
-			if (oglRequiredExt == false)
-				throw new Exception("current OpenGL implementation doesn't provide " + ext + " extension");
-		}
-
-		/// <summary>
-		/// Check required OpenGL platform extension availability.
-		/// </summary>
-		/// <param name="ext">
-		/// A <see cref="System.String"/> which specify the extension string to test for availability.
-		/// </param>
-		/// <exception cref="System.Exception">
-		/// In the case the extension specified with <paramref name="ext"/> is not available,
-		/// it throws the exception.
-		/// </exception>
-		private static void CheckRequiredPlatformExtension(IDeviceContext deviceContext, string ext)
-		{
-			bool oglRequiredExt;
-
-			switch (Environment.OSVersion.Platform) {
-				case PlatformID.Win32Windows:
-				case PlatformID.Win32NT:
-					oglRequiredExt = Wgl.HasExtension(deviceContext, "WGL_" + ext);
-					break;
-				case PlatformID.Unix:
-					oglRequiredExt = Glx.HasExtension(deviceContext, "GLX_" + ext);
-					break;
-				default:
-					throw new NotSupportedException();
-			}
-			if (oglRequiredExt == false)
-				throw new Exception("current OpenGL implementation doesn't provide " + ext + " extension");
 		}
 
 		/// <summary>
@@ -1154,7 +1057,7 @@ namespace OpenGL
 		/// The <see cref="Capabilities"/> class is meant to represent a set of extensions and limits for a particoular OpenGL implementation. This
 		/// means also that the render capabilities are dependent on the current context on the executing thread.
 		/// </remarks>
-		private static readonly GraphicsCapabilities sRenderCaps = new GraphicsCapabilities();
+		private static readonly GraphicsCapabilities _RenderCaps = new GraphicsCapabilities();
 
 		/// <summary>
 		/// Map OpenGL capabilities to a specific OpenGL version.
@@ -1163,7 +1066,7 @@ namespace OpenGL
 		/// The use of this map suppose that the capabilities doesn't change between context having the same OpenGL version. At this
 		/// moment is not clear if it really is.
 		/// </remarks>
-		private static readonly Dictionary<GLVersion, GraphicsCapabilities> sRenderCapsDb = new Dictionary<GLVersion, GraphicsCapabilities>();
+		private static readonly Dictionary<GLVersion, GraphicsCapabilities> _RenderCapsDb = new Dictionary<GLVersion, GraphicsCapabilities>();
 
 		#endregion
 
@@ -2061,12 +1964,7 @@ namespace OpenGL
 
 						pixelFormat.XFbConfig = configId;
 
-						IntPtr visual = Glx.GetVisualFromFBConfig(x11DeviceContext.Display, configId);
-						if (visual != IntPtr.Zero)
-							pixelFormat.XVisualInfo = (Glx.XVisualInfo)Marshal.PtrToStructure(visual, typeof(Glx.XVisualInfo));
-						else
-							pixelFormat.XVisualInfo = new Glx.XVisualInfo();
-
+                        pixelFormat.XVisualInfo = Glx.GetVisualFromFBConfig(x11DeviceContext.Display, configId);
 						pixelFormat.RgbaUnsigned = (renderType & Glx.RGBA_FLOAT_BIT_ARB) == 0; ;
 						pixelFormat.RgbaFloat = (renderType & Glx.RGBA_FLOAT_BIT_ARB) != 0;
 
@@ -2204,7 +2102,7 @@ namespace OpenGL
 		{
 			if (rContextShare == null)
 				throw new ArgumentNullException("rContextShare");
-			if (IsCurrent() == false)
+			if (IsCurrent == false)
 				throw new InvalidOperationException("not current");
 
 			#region Create Objects
@@ -2221,11 +2119,11 @@ namespace OpenGL
 			#region Textures
 
 			if (Caps.TextureObject == true) {
-				// Generate texture name
-				Gl.GenTextures(1, out texture);
+                // Generate texture name
+                texture = Gl.GenTexture();
 				// Ensure existing texture object
-				Gl.BindTexture(Gl.TEXTURE_2D, texture);
-				Gl.BindTexture(Gl.TEXTURE_2D, 0);
+				Gl.BindTexture(TextureTarget.Texture2d, texture);
+				Gl.BindTexture(TextureTarget.Texture2d, 0);
 				// Self test
 				if (Gl.IsTexture(texture) == false)
 					throw new NotSupportedException();
@@ -2260,8 +2158,8 @@ namespace OpenGL
 			#region Render Buffer
 
 			if (Caps.FrambufferObject == true) {
-				// Generate shader program object name
-				Gl.GenRenderbuffer(1, out renderBuffer);
+                // Generate shader program object name
+                renderBuffer = Gl.GenRenderbuffer();
 				// Ensure existing render buffer
 				Gl.BindRenderbuffer(Gl.RENDERBUFFER, renderBuffer);
 				Gl.BindRenderbuffer(Gl.RENDERBUFFER, 0);
@@ -2275,8 +2173,8 @@ namespace OpenGL
 			#region Framebuffer
 
 			if (Caps.FrambufferObject == true) {
-				// Generate framebuffer name
-				Gl.GenFramebuffer(1, out framebuffer);
+                // Generate framebuffer name
+                framebuffer = Gl.GenFramebuffer();
 				// Ensure existing object
 				Gl.BindFramebuffer(Gl.FRAMEBUFFER, framebuffer);
 				Gl.BindFramebuffer(Gl.FRAMEBUFFER, 0);
@@ -2290,11 +2188,11 @@ namespace OpenGL
 			#region Vertex Buffer
 
 			if (Caps.VertexBufferObject == true) {
-				// Generate buffer name
-				Gl.GenBuffers(1, out vertexBuffer);
+                // Generate buffer name
+                vertexBuffer = Gl.GenBuffer();
 				// Ensure existing object
-				Gl.BindBuffer(Gl.ARRAY_BUFFER, vertexBuffer);
-				Gl.BindBuffer(Gl.ARRAY_BUFFER, 0);
+				Gl.BindBuffer(BufferTargetARB.ArrayBuffer, vertexBuffer);
+				Gl.BindBuffer(BufferTargetARB.ArrayBuffer, 0);
 				// Self test
 				if (Gl.IsBuffer(vertexBuffer) == false)
 					throw new NotSupportedException();
@@ -2305,8 +2203,8 @@ namespace OpenGL
 			#region Vertex Array
 
 			if (Caps.VertexArrayObject == true) {
-				// Generate buffer name
-				Gl.GenVertexArrays(1, out vertexArray);
+                // Generate buffer name
+                vertexArray = Gl.GenVertexArray();
 				// Ensure existing object
 				Gl.BindVertexArray(vertexArray);
 				Gl.BindVertexArray(0);
@@ -2363,7 +2261,7 @@ namespace OpenGL
 
 			// Texture
 			if (texture != 0)
-				Gl.DeleteTextures(1, new uint[] { texture });
+				Gl.DeleteTextures(texture);
 			// Shader
 			if (shader != 0)
 				Gl.DeleteShader(shader);
@@ -2372,16 +2270,16 @@ namespace OpenGL
 				Gl.DeleteProgram(shaderProgram);
 			// Render buffer
 			if (renderBuffer != 0)
-				Gl.DeleteRenderbuffer(1, new uint[] { renderBuffer });
+				Gl.DeleteRenderbuffers(renderBuffer);
 			// Framebuffer
 			if (framebuffer != 0)
-				Gl.DeleteFramebuffers(1, new uint[] { framebuffer });
+				Gl.DeleteFramebuffers(framebuffer);
 			// Vertex buffer
 			if (vertexBuffer != 0)
-				Gl.DeleteBuffers(1, new uint[] { vertexBuffer });
+				Gl.DeleteBuffers(vertexBuffer);
 			// Vertex array
 			if (vertexArray != 0)
-				Gl.DeleteVertexArrays(1, new uint[] { vertexArray });
+				Gl.DeleteVertexArrays(vertexArray);
 
 			#endregion
 
@@ -2438,7 +2336,7 @@ namespace OpenGL
 				throw new ObjectDisposedException("no context associated with this GraphicsContext");
 
 			// Already current?
-			if (IsCurrent())
+			if (IsCurrent)
 				return;
 
 			MakeCurrent(mCurrentDeviceContext, flag);
@@ -2467,21 +2365,21 @@ namespace OpenGL
 		{
 			if (deviceContext == null)
 				throw new ArgumentNullException("deviceContext");
-			if (mDeviceContext == null)
+			if (_DeviceContext == null)
 				throw new ObjectDisposedException("no context associated with this GraphicsContext");
 
 			int threadId = System.Threading.Thread.CurrentThread.ManagedThreadId;
 
 			if (flag) {
 				// Make this context current on device
-				if (Gl.MakeContextCurrent(deviceContext, mRenderContext) == false)
+				if (Gl.MakeContextCurrent(deviceContext, _RenderContext) == false)
 					throw new InvalidOperationException("context cannot be current because error " + Marshal.GetLastWin32Error());
 
 				// Cache current device context
 				mCurrentDeviceContext = deviceContext;
 				// Set current context on this thread (only on success)
-				lock (sRenderThreadsLock) {
-					sRenderThreads[threadId] = this;
+				lock (_RenderThreadsLock) {
+					_RenderThreads[threadId] = this;
 				}
 
 				switch (Environment.OSVersion.Platform) {
@@ -2498,11 +2396,11 @@ namespace OpenGL
 
 			} else {
 				// Make this context uncurrent on device
-				bool res = Gl.MakeContextCurrent(deviceContext, mRenderContext);
+				bool res = Gl.MakeContextCurrent(deviceContext, _RenderContext);
 
 				// Reset current context on this thread (even on error)
-				lock (sRenderThreadsLock) {
-					sRenderThreads[threadId] = null;
+				lock (_RenderThreadsLock) {
+					_RenderThreads[threadId] = null;
 				}
 
 				if (res == false)
@@ -2522,15 +2420,15 @@ namespace OpenGL
 			{
 				int threadId = System.Threading.Thread.CurrentThread.ManagedThreadId;
 
-				lock (sRenderThreadsLock) {
+				lock (_RenderThreadsLock) {
 					GraphicsContext currentThreadContext;
 
 					// Get context registered as current to the current thread
-					if (sRenderThreads.TryGetValue(threadId, out currentThreadContext) == false)
+					if (_RenderThreads.TryGetValue(threadId, out currentThreadContext) == false)
 						return (false);
 					// Test identification corrispodence
 					if (currentThreadContext != null)
-						return (currentThreadContext.mRenderContextId == mRenderContextId);
+						return (currentThreadContext._RenderContextId == _RenderContextId);
 					else
 						return (false);
 				}
@@ -2547,10 +2445,10 @@ namespace OpenGL
 		{
 			int threadId = System.Threading.Thread.CurrentThread.ManagedThreadId;
 
-			lock (sRenderThreadsLock) {
+			lock (_RenderThreadsLock) {
 				GraphicsContext currentThreadContext;
 
-				if (sRenderThreads.TryGetValue(threadId, out currentThreadContext) == false)
+				if (_RenderThreads.TryGetValue(threadId, out currentThreadContext) == false)
 					return (null);
 
 				return (currentThreadContext);
@@ -2572,24 +2470,24 @@ namespace OpenGL
 		/// <summary>
 		/// Common (hidden) window used for getting device context without creating a new window.
 		/// </summary>
-		private static System.Windows.Forms.Form HiddenWindow;
+		private static System.Windows.Forms.Form _HiddenWindow;
 
-		/// <summary>
-		/// Device context handle created from <see cref="HiddenWindow"/>.
-		/// </summary>
-		private static IDeviceContext mHiddenWindowDevice;
+        /// <summary>
+        /// Device context handle created from <see cref="_HiddenWindow"/>.
+        /// </summary>
+        private static IDeviceContext _HiddenWindowDevice;
 
 		/// <summary>
 		/// Device context handle referred by GraphicsContext at construction time.
 		/// </summary>
-		private IDeviceContext mDeviceContext;
+		private IDeviceContext _DeviceContext;
 
 		/// <summary>
 		/// Device context handle referred by GraphicsContext when has became current.
 		/// </summary>
 		/// <remarks>
 		/// <para>
-		/// It could be different from <see cref="mDeviceContext"/>. It will be used internally to make current this GraphicsContext
+		/// It could be different from <see cref="_DeviceContext"/>. It will be used internally to make current this GraphicsContext
 		/// on the correct device context.
 		/// </para>
 		/// <para>
@@ -2603,10 +2501,10 @@ namespace OpenGL
 		/// no <see cref="RenderWindow"/> instance will release the device context, so this GraphicsContext instance will
 		/// take care of releasing it.
 		/// </summary>
-		private readonly bool mCommonDeviceContext;
+		private readonly bool _CommonDeviceContext;
 
 		/// <summary>
-		/// Thread identifier which has created the device context. This field is meaninfull only in the case <see cref="mCommonDeviceContext"/> is
+		/// Thread identifier which has created the device context. This field is meaninfull only in the case <see cref="_CommonDeviceContext"/> is
 		/// true.
 		/// </summary>
 		/// <remarks>
@@ -2614,7 +2512,7 @@ namespace OpenGL
 		/// identifier is not the same of the value of this field, an exception will be thrown becuase device context shall be released by the same
 		/// thread which has allocated it.
 		/// </remarks>
-		private int mDeviceContextThreadId;
+		private int _DeviceContextThreadId;
 
 		/// <summary>
 		/// Thread identifier which has created this GraphicsContext.
@@ -2623,27 +2521,27 @@ namespace OpenGL
 		/// This information is used for checking whether a context can be shared with another one: contextes must be created
 		/// by the same thread. This would avoid an InvalidOperationException caused by constructors.
 		/// </remarks>
-		private int mRenderContextThreadId;
+		private int _RenderContextThreadId;
 
 		/// <summary>
 		/// Rendering context handle.
 		/// </summary>
-		private IntPtr mRenderContext = IntPtr.Zero;
+		private IntPtr _RenderContext = IntPtr.Zero;
 
 		/// <summary>
 		/// Unique identifier of this GraphicsContext.
 		/// </summary>
-		private Guid mRenderContextId = Guid.NewGuid();
+		private Guid _RenderContextId = Guid.NewGuid();
 
 		/// <summary>
 		/// Map between process threads and current render context.
 		/// </summary>
-		private static readonly Dictionary<int, GraphicsContext> sRenderThreads = new Dictionary<int, GraphicsContext>();
+		private static readonly Dictionary<int, GraphicsContext> _RenderThreads = new Dictionary<int, GraphicsContext>();
 
 		/// <summary>
-		/// Object used for synchronizing <see cref="sRenderThreads"/> accesses.
+		/// Object used for synchronizing <see cref="_RenderThreads"/> accesses.
 		/// </summary>
-		private static readonly object sRenderThreadsLock = new object();
+		private static readonly object _RenderThreadsLock = new object();
 
 		#endregion
 
@@ -2681,34 +2579,28 @@ namespace OpenGL
 		/// </exception>
 		private void Dispose(bool disposing)
 		{
-			if ((disposing == false) && (mRenderContext != IntPtr.Zero))
+			if ((disposing == false) && (_RenderContext != IntPtr.Zero))
 				throw new InvalidOperationException("not disposed on finalization");
-
-			// Remove garbage service
-			if (mGarbageService != null) {
-				//mGarbageService.UnbindObjectNameSpace();
-				mGarbageService = null;
-			}
 
 			if (disposing == true) {
 				// Dispose unmanaged resources
-				if (mRenderContext != IntPtr.Zero) {
-					if (Gl.DeleteContext(mDeviceContext, mRenderContext) == false)
+				if (_RenderContext != IntPtr.Zero) {
+					if (Gl.DeleteContext(_DeviceContext, _RenderContext) == false)
 						throw new InvalidOperationException("unable to release OpenGL context");
-					mRenderContext = IntPtr.Zero;
+					_RenderContext = IntPtr.Zero;
 				}
 
-				if (mDeviceContextThreadId != System.Threading.Thread.CurrentThread.ManagedThreadId)
+				if (_DeviceContextThreadId != System.Threading.Thread.CurrentThread.ManagedThreadId)
 					throw new InvalidOperationException("disposing on a different thread context");
-				mDeviceContext.Unref();
-				mDeviceContext = null;
+                _DeviceContext.DecRef();
+				_DeviceContext = null;
 
 				// Remove context from the current ones
 				int threadId = 0;
 				bool threadCurrentFound = false;
 
-				lock (sRenderThreadsLock) {
-					foreach (KeyValuePair<int, GraphicsContext> pair in sRenderThreads) {
+				lock (_RenderThreadsLock) {
+					foreach (KeyValuePair<int, GraphicsContext> pair in _RenderThreads) {
 						if (Object.ReferenceEquals(pair.Value, this) == true) {
 							threadId = pair.Key;
 							threadCurrentFound = true;
@@ -2718,7 +2610,7 @@ namespace OpenGL
 				}
 
 				if (threadCurrentFound == true)
-					sRenderThreads[threadId] = null;
+					_RenderThreads[threadId] = null;
 			}
 		}
 

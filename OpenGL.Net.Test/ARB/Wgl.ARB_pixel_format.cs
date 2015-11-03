@@ -34,10 +34,10 @@ namespace OpenGL.Test
 		[Test]
 		public void TestGetPixelFormatAttribARB()
 		{
-			if (IsGlExtensionSupported("WGL_ARB_pixel_format") == false)
+			if (IsWglExtensionSupported("WGL_ARB_pixel_format") == false)
 				Assert.Inconclusive("OpenGL extension WGL_ARB_pixel_format not supported");
 
-			WindowsDeviceContext winDeviceContext = (WindowsDeviceContext)mDeviceContext;
+			WindowsDeviceContext winDeviceContext = (WindowsDeviceContext)_DeviceContext;
 
 			#region List the attributes to query
 

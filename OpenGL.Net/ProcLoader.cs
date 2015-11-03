@@ -102,14 +102,17 @@ namespace OpenGL
 		/// </param>
 		/// <remarks>
 		/// <para>
-		/// The type <paramref name="type"/> shall have defined a nested class named "Imports" specifying the import declarations and a nested
+		/// The type <paramref name="type"/> shall have defined a nested class named "UnsafeNativeMethods" specifying the import declarations and a nested
 		/// class named "Delagates" specifying the delegate fields.
 		/// </para>
 		/// </remarks>
 		private static void LinkProcAddressImports(string path, Type type, GetAddressDelegate getAddress, out SortedList<string, MethodInfo> sImportMap, out List<FieldInfo> sDelegates)
 		{
-			Type impClass = type.GetNestedType("Imports", BindingFlags.Static | BindingFlags.NonPublic);
+			Type impClass = type.GetNestedType("UnsafeNativeMethods", BindingFlags.Static | BindingFlags.NonPublic | BindingFlags.Public);
+			Debug.Assert(impClass != null);
+
 			Type delClass = type.GetNestedType("Delegates", BindingFlags.Static | BindingFlags.NonPublic);
+			Debug.Assert(delClass != null);
 
 			// Query imports declarations
 			MethodInfo[] iMethods = impClass.GetMethods(BindingFlags.Static | BindingFlags.NonPublic);
