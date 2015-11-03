@@ -76,14 +76,14 @@ namespace BindingsGen.GLSpecs
 			XmlSerializer serialize = new XmlSerializer(typeof(CommandFlagsDatabase));
 
 			using (Stream sr = Assembly.GetExecutingAssembly().GetManifestResourceStream("BindingsGen.GLSpecs.CommandFlags.xml")) {
-				sCommandFlagsDatabase = (CommandFlagsDatabase)serialize.Deserialize(sr);
+				_CommandFlagsDatabase = (CommandFlagsDatabase)serialize.Deserialize(sr);
 			}
 		}
 
 		/// <summary>
 		/// The only instance of CommandFlagsDatabase.
 		/// </summary>
-		private static readonly CommandFlagsDatabase sCommandFlagsDatabase;
+		private static readonly CommandFlagsDatabase _CommandFlagsDatabase;
 
 		#endregion
 
@@ -108,10 +108,80 @@ namespace BindingsGen.GLSpecs
 		}
 
 		/// <summary>
+		/// Enumerant extentension.
+		/// </summary>
+		public class EnumerantItem
+		{
+			/// <summary>
+			/// Regular expression used to match a set of OpenGL registry enumerant groups.
+			/// </summary>
+			[XmlAttribute("name")]
+			public string Name;
+
+			/// <summary>
+			/// Enumerants to be implictly added to the enumerant group.
+			/// </summary>
+			[XmlElement("add_enum")]
+			public readonly List<string> AddEnumerants = new List<string>();
+
+			/// <summary>
+			/// Custom enumerant value.
+			/// </summary>
+			public class Value
+			{
+				/// <summary>
+				/// Name (unprocessed) of the enumeration.
+				/// </summary>
+				[XmlText()]
+				public string Name;
+
+				/// <summary>
+				/// Value (raw, not proceesable) of the enumeration value.
+				/// </summary>
+				[XmlAttribute("value")]
+				public string Definition;
+			}
+
+			// <summary>
+			/// Enumerants to be implictly added to the enumerant group.
+			/// </summary>
+			[XmlElement("add_enum_value")]
+			public readonly List<Value> AddEnumerantValues = new List<Value>();
+		}
+
+		/// <summary>
+		/// Get the <see cref="EnumerantItem"/> matching with an enumerant group name.
+		/// </summary>
+		/// <param name="enumName">
+		/// 
+		/// </param>
+		/// <returns>
+		/// 
+		/// </returns>
+		public static EnumerantItem FindEnumerant(string enumName)
+		{
+			if (enumName == null)
+				throw new ArgumentNullException("enumName");
+
+			return (_CommandFlagsDatabase.Enumerants.Find(delegate(EnumerantItem item) {
+				return (Regex.IsMatch(enumName, item.Name));
+			}));
+		}
+
+		/// <summary>
+		/// Enumerants items.
+		/// </summary>
+		[XmlElement("enumerant")]
+		public readonly List<EnumerantItem> Enumerants = new List<EnumerantItem>();
+
+		/// <summary>
 		/// Command specific flags.
 		/// </summary>
 		public class CommandItem
 		{
+			/// <summary>
+			/// Regular expression used to match a set of OpenGL registry commands.
+			/// </summary>
 			[XmlAttribute("name")]
 			public string Name;
 
@@ -133,7 +203,7 @@ namespace BindingsGen.GLSpecs
 
 		public static CommandFlags GetCommandFlags(Command command)
 		{
-			foreach (CommandItem commandItem in sCommandFlagsDatabase.Commands) {
+			foreach (CommandItem commandItem in _CommandFlagsDatabase.Commands) {
 				if (Regex.IsMatch(command.Prototype.Name, commandItem.Name))
 					return (commandItem.Flags);
 			}
@@ -143,7 +213,7 @@ namespace BindingsGen.GLSpecs
 
 		public static string GetCommandImplementationName(Command command)
 		{
-			foreach (CommandItem commandItem in sCommandFlagsDatabase.Commands) {
+			foreach (CommandItem commandItem in _CommandFlagsDatabase.Commands) {
 				if (Regex.IsMatch(command.Prototype.Name, commandItem.Name))
 					return (commandItem.Rename ?? null);
 			}
@@ -153,7 +223,7 @@ namespace BindingsGen.GLSpecs
 
 		public static string GetCommandVisibility(Command command)
 		{
-			foreach (CommandItem commandItem in sCommandFlagsDatabase.Commands) {
+			foreach (CommandItem commandItem in _CommandFlagsDatabase.Commands) {
 				if (Regex.IsMatch(command.Prototype.Name, commandItem.Name)) {
 					switch (commandItem.Visibility) {
 						case Visibility.Public:

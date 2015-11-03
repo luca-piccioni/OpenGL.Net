@@ -21,7 +21,7 @@ namespace OpenGL
 	/// <summary>
 	/// One dimensional texture.
 	/// </summary>
-	public class Texture1d : TextureBase
+	public class Texture1d : Texture
 	{
 		#region Constructors
 

@@ -5584,6 +5584,46 @@ namespace OpenGL
 		/// </summary>
 		Ycrcb444Sgix = Gl.YCRCB_444_SGIX,
 
+		/// <summary>
+		/// Strongly typed for value GL_BGR.
+		/// </summary>
+		Bgr = Gl.BGR,
+
+		/// <summary>
+		/// Strongly typed for value GL_BGRA.
+		/// </summary>
+		Bgra = Gl.BGRA,
+
+		/// <summary>
+		/// Strongly typed for value GL_RG.
+		/// </summary>
+		Rg = Gl.RG,
+
+		/// <summary>
+		/// Strongly typed for value GL_DEPTH_STENCIL.
+		/// </summary>
+		DepthStencil = Gl.DEPTH_STENCIL,
+
+		/// <summary>
+		/// Strongly typed for value GL_RED_INTEGER.
+		/// </summary>
+		RedInteger = Gl.RED_INTEGER,
+
+		/// <summary>
+		/// Strongly typed for value GL_RG_INTEGER.
+		/// </summary>
+		RgInteger = Gl.RG_INTEGER,
+
+		/// <summary>
+		/// Strongly typed for value GL_RGB_INTEGER.
+		/// </summary>
+		RgbInteger = Gl.RGB_INTEGER,
+
+		/// <summary>
+		/// Strongly typed for value GL_RGBA_INTEGER.
+		/// </summary>
+		RgbaInteger = Gl.RGBA_INTEGER,
+
 	}
 
 	/// <summary>
@@ -6398,12 +6438,12 @@ namespace OpenGL
 		UnsignedInt = Gl.UNSIGNED_INT,
 
 		/// <summary>
-		/// Strongly typed for value GL_UNSIGNED_INT_10_10_10_2, GL_UNSIGNED_INT_10_10_10_2_EXT.
+		/// Strongly typed for value GL_UNSIGNED_INT_10_10_10_2, GL_UNSIGNED_INT_10_10_10_2_EXT, GL_UNSIGNED_INT_10_10_10_2.
 		/// </summary>
 		UnsignedInt1010102 = Gl.UNSIGNED_INT_10_10_10_2,
 
 		/// <summary>
-		/// Strongly typed for value GL_UNSIGNED_INT_8_8_8_8, GL_UNSIGNED_INT_8_8_8_8_EXT.
+		/// Strongly typed for value GL_UNSIGNED_INT_8_8_8_8, GL_UNSIGNED_INT_8_8_8_8_EXT, GL_UNSIGNED_INT_8_8_8_8.
 		/// </summary>
 		UnsignedInt8888 = Gl.UNSIGNED_INT_8_8_8_8,
 
@@ -6421,6 +6461,41 @@ namespace OpenGL
 		/// Strongly typed for value GL_UNSIGNED_SHORT_5_5_5_1, GL_UNSIGNED_SHORT_5_5_5_1_EXT.
 		/// </summary>
 		UnsignedShort5551 = Gl.UNSIGNED_SHORT_5_5_5_1,
+
+		/// <summary>
+		/// Strongly typed for value GL_DOUBLE.
+		/// </summary>
+		Double = Gl.DOUBLE,
+
+		/// <summary>
+		/// Strongly typed for value GL_HALF_FLOAT.
+		/// </summary>
+		HalfFloat = Gl.HALF_FLOAT,
+
+		/// <summary>
+		/// Strongly typed for value GL_UNSIGNED_BYTE_2_3_3_REV.
+		/// </summary>
+		UnsignedByte233Rev = Gl.UNSIGNED_BYTE_2_3_3_REV,
+
+		/// <summary>
+		/// Strongly typed for value GL_UNSIGNED_SHORT_5_6_5.
+		/// </summary>
+		UnsignedShort565 = Gl.UNSIGNED_SHORT_5_6_5,
+
+		/// <summary>
+		/// Strongly typed for value GL_UNSIGNED_SHORT_1_5_5_5_REV.
+		/// </summary>
+		UnsignedShort1555Rev = Gl.UNSIGNED_SHORT_1_5_5_5_REV,
+
+		/// <summary>
+		/// Strongly typed for value GL_UNSIGNED_SHORT_5_6_5_REV.
+		/// </summary>
+		UnsignedShort565Rev = Gl.UNSIGNED_SHORT_5_6_5_REV,
+
+		/// <summary>
+		/// Strongly typed for value GL_UNSIGNED_INT_2_10_10_10_REV.
+		/// </summary>
+		UnsignedInt2101010Rev = Gl.UNSIGNED_INT_2_10_10_10_REV,
 
 	}
 
@@ -7439,6 +7514,16 @@ namespace OpenGL
 		/// Strongly typed for value GL_TEXTURE_MIN_LOD, GL_TEXTURE_MIN_LOD_SGIS.
 		/// </summary>
 		TextureMinLod = Gl.TEXTURE_MIN_LOD,
+
+		/// <summary>
+		/// Strongly typed for value GL_TEXTURE_RECTANGLE.
+		/// </summary>
+		TextureRectangle = Gl.TEXTURE_RECTANGLE,
+
+		/// <summary>
+		/// Strongly typed for value GL_TEXTURE_CUBE_MAP.
+		/// </summary>
+		TextureCubeMap = Gl.TEXTURE_CUBE_MAP,
 
 	}
 

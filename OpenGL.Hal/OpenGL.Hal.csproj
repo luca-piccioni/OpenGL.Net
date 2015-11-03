@@ -54,6 +54,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AlignedMemoryBuffer.cs" />
     <Compile Include="Angle.cs" />
     <Compile Include="ArrayBufferItem.cs" />
     <Compile Include="ArrayBufferItemAttribute.cs" />
@@ -63,6 +64,8 @@
     <Compile Include="Collections\QuadTreeCoord.cs" />
     <Compile Include="Collections\QuadTreeArea.cs" />
     <Compile Include="Color.cs" />
+    <Compile Include="CoreImageCodecPlugin.cs" />
+    <Compile Include="CpuInformation.cs" />
     <Compile Include="GraphicsCapabilities.cs" />
     <Compile Include="GraphicsContext.cs" />
     <Compile Include="GraphicsException.cs" />
@@ -77,6 +80,13 @@
     <Compile Include="IDisposableResource.cs" />
     <Compile Include="IFragment.cs" />
     <Compile Include="IGraphicsResource.cs" />
+    <Compile Include="IImageCodecPlugin.cs" />
+    <Compile Include="Image.cs" />
+    <Compile Include="ImageCodec.cs" />
+    <Compile Include="ImageCodecCriteria.cs" />
+    <Compile Include="ImageFormat.cs" />
+    <Compile Include="ImageInfo.cs" />
+    <Compile Include="ImageSemantic.cs" />
     <Compile Include="IMatrix.cs" />
     <Compile Include="IMatrix3x3.cs" />
     <Compile Include="IMatrix4x4.cs" />
@@ -110,6 +120,7 @@
     <Compile Include="Quaternion.cs" />
     <Compile Include="Resource.cs" />
     <Compile Include="ResourceCollection.cs" />
+    <Compile Include="Memory.cs" />
     <Compile Include="Texture.cs" />
     <Compile Include="Texture1d.cs" />
     <Compile Include="Texture2d.cs" />

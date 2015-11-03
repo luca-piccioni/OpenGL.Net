@@ -18,7 +18,7 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 
-namespace Derm
+namespace OpenGL
 {
 	/// <summary>
 	/// Any resource that manage a considerable amount of resources.

@@ -19,7 +19,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
 
-namespace Derm
+namespace OpenGL
 {
 	/// <summary>
 	/// Generic collection for referencing <see cref="IResource"/> instances.

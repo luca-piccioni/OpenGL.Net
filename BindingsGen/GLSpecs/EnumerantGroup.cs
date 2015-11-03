@@ -70,14 +70,30 @@ namespace BindingsGen.GLSpecs
 			// Collect group enumerants by their value
 			Dictionary<string, List<Enumerant>> groupEnums = new Dictionary<string, List<Enumerant>>();
 
+			// ...include all enums defined in this group
 			foreach (Enumerant item in Enums) {
 				Enumerant itemValue = ctx.Registry.GetGlEnumerant(item.Name);
 
 				if (itemValue != null) {
 					if (!groupEnums.ContainsKey(itemValue.Value))
 						groupEnums.Add(itemValue.Value, new List<Enumerant>());
-
 					groupEnums[itemValue.Value].Add(itemValue);
+				}
+			}
+
+			// Modify canonical enumeration definition
+			CommandFlagsDatabase.EnumerantItem enumerantExtension = CommandFlagsDatabase.FindEnumerant(Name);
+
+			if (enumerantExtension != null) {
+				// ...include all enums to be added by additional configuration
+				foreach (string addedEnum in enumerantExtension.AddEnumerants) {
+					Enumerant addedEnumValue = ctx.Registry.GetGlEnumerant(addedEnum);
+
+					if (addedEnumValue != null) {
+						if (!groupEnums.ContainsKey(addedEnumValue.Value))
+							groupEnums.Add(addedEnumValue.Value, new List<Enumerant>());
+						groupEnums[addedEnumValue.Value].Add(addedEnumValue);
+					}
 				}
 			}
 

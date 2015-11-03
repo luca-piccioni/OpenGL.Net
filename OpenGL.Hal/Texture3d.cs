@@ -23,7 +23,7 @@ namespace OpenGL
 	/// Three dimensional texture.
 	/// </summary>
 	[DebuggerDisplay("Texture3d [ Pixel:{mPixelFormat} Width:{Width} Height:{Height} Depth:{Depth} ]")]
-	public class Texture3d : TextureBase
+	public class Texture3d : Texture
 	{
 		#region Constructors
 

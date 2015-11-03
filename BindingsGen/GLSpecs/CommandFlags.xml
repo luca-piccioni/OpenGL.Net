@@ -1,6 +1,43 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <command_overrides>
 	
+	<!-- GL - Missing enumerants -->
+	
+	<enumerant name="^ErrorCode">
+		<add_enum_value value="Wgl.ERROR_INVALID_PIXEL_TYPE_ARB">GL_ERROR_INVALID_PIXEL_TYPE_ARB</add_enum_value>
+		<add_enum_value value="Wgl.ERROR_INVALID_PROFILE_ARB">GL_ERROR_INVALID_PROFILE_ARB</add_enum_value>
+		<add_enum_value value="Wgl.ERROR_INVALID_VERSION_ARB">GL_ERROR_INVALID_VERSION_ARB</add_enum_value>
+		<add_enum_value value="Wgl.ERROR_INCOMPATIBLE_DEVICE_CONTEXTS_ARB">GL_ERROR_INCOMPATIBLE_DEVICE_CONTEXTS_ARB</add_enum_value>
+	</enumerant>
+	
+	<enumerant name="^PixelFormat$">
+		<add_enum>GL_BGR</add_enum>
+		<add_enum>GL_BGRA</add_enum>
+		<add_enum>GL_RG</add_enum>
+		<add_enum>GL_DEPTH_STENCIL</add_enum>
+		<add_enum>GL_RED_INTEGER</add_enum>
+		<add_enum>GL_RG_INTEGER</add_enum>
+		<add_enum>GL_RGB_INTEGER</add_enum>
+		<add_enum>GL_RGBA_INTEGER</add_enum>
+	</enumerant>
+	
+	<enumerant name="^PixelType$">
+		<add_enum>GL_DOUBLE</add_enum>
+		<add_enum>GL_HALF_FLOAT</add_enum>
+		<add_enum>GL_UNSIGNED_BYTE_2_3_3_REV</add_enum>
+		<add_enum>GL_UNSIGNED_SHORT_5_6_5</add_enum>
+		<add_enum>GL_UNSIGNED_SHORT_1_5_5_5_REV</add_enum>
+		<add_enum>GL_UNSIGNED_SHORT_5_6_5_REV</add_enum>
+		<add_enum>GL_UNSIGNED_INT_8_8_8_8</add_enum>
+		<add_enum>GL_UNSIGNED_INT_10_10_10_2</add_enum>
+		<add_enum>GL_UNSIGNED_INT_2_10_10_10_REV</add_enum>
+	</enumerant>
+
+	<enumerant name="^TextureTarget$">
+		<add_enum>GL_TEXTURE_RECTANGLE</add_enum>
+		<add_enum>GL_TEXTURE_CUBE_MAP</add_enum>
+	</enumerant>
+	
 	<!-- GL - Special Cases -->
 
 	<command name="^gl(Vertex(Attrib)?|(Secondary)?Color|Index|Normal|(Fog|Tex|MultiTex|Eval)Coord|EvalPoint|ArrayElement|Material|EdgeFlag|CallList(s)?)[1-4]?N?u?(b|s|i|f|d)?$">

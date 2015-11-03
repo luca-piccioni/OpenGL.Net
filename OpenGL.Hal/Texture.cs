@@ -33,7 +33,7 @@ namespace OpenGL
 	/// </para>
 	/// </remarks>
 	[DebuggerDisplay("Texture Pixel:{mPixelFormat}")]
-	public abstract class TextureBase : GraphicsResource
+	public abstract class Texture : GraphicsResource
 	{
 		#region Internal Format
 
@@ -43,12 +43,12 @@ namespace OpenGL
 		/// <remarks>
 		/// 
 		/// </remarks>
-		public PixelFormat PixelFormat
+		public PixelLayout PixelFormat
 		{
-			get { return (mPixelFormat); }
+			get { return (_PixelFormat); }
 			set {
 				// Store pixel format
-				mPixelFormat = value;
+				_PixelFormat = value;
 				// Check for swizzle
 				SetupTextelSwizzle();
 			}
@@ -60,11 +60,11 @@ namespace OpenGL
 		/// <remarks>
 		/// This member determine the texture internal format.
 		/// </remarks>
-		private PixelFormat mPixelFormat = PixelFormat.None;
+		private PixelLayout _PixelFormat = PixelLayout.None;
 
 		#endregion
 
-		#region Automatic Disposition
+		#region Texture Object
 
 		/// <summary>
 		/// Determine whether defined Texture data shall be released after having
@@ -77,16 +77,16 @@ namespace OpenGL
 		/// </remarks>
 		public bool AutoReleaseData
 		{
-			get { return (mAutoRelease); }
+			get { return (_AutoRelease); }
 			set {
-				mAutoRelease = value;
+				_AutoRelease = value;
 			}
 		}
 
 		/// <summary>
 		/// Flag for releasing data on upload.
 		/// </summary>
-		private bool mAutoRelease = true;
+		private bool _AutoRelease = true;
 
 		#endregion
 
@@ -130,7 +130,7 @@ namespace OpenGL
 		/// A <see cref="System.UInt32"/> that specifies the texture depth.
 		/// </param>
 		/// <param name="format">
-		/// A <see cref="PixelFormat"/> that specifies the texture internal format.
+		/// A <see cref="PixelLayout"/> that specifies the texture internal format.
 		/// </param>
 		/// <exception cref="ArgumentException">
 		/// Exception thrown if <paramref name="width"/>, <paramref name="height"/> or <paramref name="depth"/> is greater than
@@ -143,9 +143,9 @@ namespace OpenGL
 		/// <exception cref="ArgumentException">
 		/// Exception thrown if <paramref name="format"/> is not a supported internal format.
 		/// </exception>
-		protected void CheckCapabilities(uint width, uint height, uint depth, PixelFormat format)
+		protected void CheckCapabilities(uint width, uint height, uint depth, PixelLayout format)
 		{
-			CheckCapabilities(RenderCapabilities.CurrentCaps, width, height, depth, format);
+			CheckCapabilities(GraphicsContext.CurrentCaps, width, height, depth, format);
 		}
 
 		/// <summary>
@@ -164,7 +164,7 @@ namespace OpenGL
 		/// A <see cref="System.UInt32"/> that specifies the texture depth.
 		/// </param>
 		/// <param name="format">
-		/// A <see cref="PixelFormat"/> that specifies the texture internal format.
+		/// A <see cref="PixelLayout"/> that specifies the texture internal format.
 		/// </param>
 		/// <exception cref="ArgumentNullException">
 		/// Exception throw if <paramref name="ctx"/> is null.
@@ -180,7 +180,7 @@ namespace OpenGL
 		/// <exception cref="ArgumentException">
 		/// Exception thrown if <paramref name="format"/> is not a supported internal format.
 		/// </exception>
-		protected void CheckCapabilities(GraphicsContext ctx, uint width, uint height, uint depth, PixelFormat format)
+		protected void CheckCapabilities(GraphicsContext ctx, uint width, uint height, uint depth, PixelLayout format)
 		{
 			CheckCapabilities(ctx.Caps, width, height, depth, format);
 		}
@@ -189,7 +189,7 @@ namespace OpenGL
 		/// Check whether the texture extents are compatible with context capabilities.
 		/// </summary>
 		/// <param name="caps">
-		/// A <see cref="RenderCapabilities"/> determining the underlying texture capabilities.
+		/// A <see cref="GraphicsCapabilities"/> determining the underlying texture capabilities.
 		/// </param>
 		/// <param name="width">
 		/// A <see cref="System.UInt32"/> that specifies the texture width.
@@ -201,7 +201,7 @@ namespace OpenGL
 		/// A <see cref="System.UInt32"/> that specifies the texture depth.
 		/// </param>
 		/// <param name="format">
-		/// A <see cref="PixelFormat"/> that specifies the texture internal format.
+		/// A <see cref="PixelLayout"/> that specifies the texture internal format.
 		/// </param>
 		/// <exception cref="ArgumentNullException">
 		/// Exception throw if <paramref name="caps"/> is null.
@@ -217,48 +217,48 @@ namespace OpenGL
 		/// <exception cref="ArgumentException">
 		/// Exception thrown if <paramref name="format"/> is not a supported internal format.
 		/// </exception>
-		private void CheckCapabilities(RenderCapabilities caps, uint width, uint height, uint depth, PixelFormat format)
+		private void CheckCapabilities(GraphicsCapabilities caps, uint width, uint height, uint depth, PixelLayout format)
 		{
 			if (caps == null)
 				throw new ArgumentNullException("caps");
 		
 			// Texture maximum size
 			switch (TextureTarget) {
-				case Gl.TEXTURE_1D:
-					if (width > caps.MaxTexture2DSize)
-						throw new ArgumentException(String.Format("width greater than maximum allowed ({0})", caps.MaxTexture2DSize));
+				case TextureTarget.Texture1d:
+					if (width > caps.Limits.MaxTexture2DSize)
+						throw new ArgumentException(String.Format("width greater than maximum allowed ({0})", caps.Limits.MaxTexture2DSize));
 					break;
-				case Gl.TEXTURE_2D:
-					if (width > caps.MaxTexture2DSize)
-						throw new ArgumentException(String.Format("width greater than maximum allowed ({0})", caps.MaxTexture2DSize));
-					if (height > caps.MaxTexture2DSize)
-						throw new ArgumentException(String.Format("height greater than maximum allowed ({0})", caps.MaxTexture2DSize));
+				case TextureTarget.Texture2d:
+					if (width > caps.Limits.MaxTexture2DSize)
+						throw new ArgumentException(String.Format("width greater than maximum allowed ({0})", caps.Limits.MaxTexture2DSize));
+					if (height > caps.Limits.MaxTexture2DSize)
+						throw new ArgumentException(String.Format("height greater than maximum allowed ({0})", caps.Limits.MaxTexture2DSize));
 					break;
-				case Gl.TEXTURE_RECTANGLE:
-					if (width > caps.MaxTextureRectSize)
-						throw new ArgumentException(String.Format("width greater than maximum allowed ({0})", caps.MaxTextureRectSize));
-					if (height > caps.MaxTextureRectSize)
-						throw new ArgumentException(String.Format("height greater than maximum allowed ({0})", caps.MaxTextureRectSize));
+				case TextureTarget.TextureRectangle:
+					if (width > caps.Limits.MaxTextureRectSize)
+						throw new ArgumentException(String.Format("width greater than maximum allowed ({0})", caps.Limits.MaxTextureRectSize));
+					if (height > caps.Limits.MaxTextureRectSize)
+						throw new ArgumentException(String.Format("height greater than maximum allowed ({0})", caps.Limits.MaxTextureRectSize));
 					break;
-				case Gl.TEXTURE_3D:
-					if (width > caps.MaxTexture3DSize)
-						throw new ArgumentException(String.Format("width greater than maximum allowed ({0})", caps.MaxTexture3DSize));
-					if (height > caps.MaxTexture3DSize)
-						throw new ArgumentException(String.Format("height greater than maximum allowed ({0})", caps.MaxTexture3DSize));
-					if (depth > caps.MaxTexture3DSize)
-						throw new ArgumentException(String.Format("depth greater than maximum allowed ({0})", caps.MaxTexture3DSize));
+				case TextureTarget.Texture3d:
+					if (width > caps.Limits.MaxTexture3DSize)
+						throw new ArgumentException(String.Format("width greater than maximum allowed ({0})", caps.Limits.MaxTexture3DSize));
+					if (height > caps.Limits.MaxTexture3DSize)
+						throw new ArgumentException(String.Format("height greater than maximum allowed ({0})", caps.Limits.MaxTexture3DSize));
+					if (depth > caps.Limits.MaxTexture3DSize)
+						throw new ArgumentException(String.Format("depth greater than maximum allowed ({0})", caps.Limits.MaxTexture3DSize));
 					break;
-				case Gl.TEXTURE_CUBE_MAP:
-					if (width > caps.MaxTextureCubeSize)
-						throw new ArgumentException(String.Format("width greater than maximum allowed ({0})", caps.MaxTextureCubeSize));
-					if (height > caps.MaxTextureCubeSize)
-						throw new ArgumentException(String.Format("height greater than maximum allowed ({0})", caps.MaxTextureCubeSize));
+				case TextureTarget.TextureCubeMap:
+					if (width > caps.Limits.MaxTextureCubeSize)
+						throw new ArgumentException(String.Format("width greater than maximum allowed ({0})", caps.Limits.MaxTextureCubeSize));
+					if (height > caps.Limits.MaxTextureCubeSize)
+						throw new ArgumentException(String.Format("height greater than maximum allowed ({0})", caps.Limits.MaxTextureCubeSize));
 					break;
 				default:
 					throw new NotImplementedException("not implemented checks on texture " + GetType());
 			}
 			// Texture not-power-of-two
-			if (caps.TextureNPOT.Supported == false) {
+			if (caps.TextureNPOT == false) {
 				if (IsPowerOfTwo(width) == false)
 					throw new ArgumentException(String.Format("NPOT texture width not supported (width is {0})", width));
 				if (IsPowerOfTwo(height) == false)
@@ -267,7 +267,7 @@ namespace OpenGL
 					throw new ArgumentException(String.Format("NPOT texture depth not supported (height is {0})", height));
 			}
 			// Texture internal format
-			if (Pixel.IsSupportedInternalFormat(format, caps) == false)
+			if (Pixel.IsSupportedInternalFormat(format) == false)
 				throw new ArgumentException(String.Format("not supported texture internal format {0}", format), "format");
 		}
 
@@ -292,27 +292,25 @@ namespace OpenGL
 		/// A <see cref="GraphicsContext"/> used for downloading texture data.
 		/// </param>
 		/// <param name="pType">
-		/// A <see cref="PixelFormat"/> determining the pixel format of the downloaded data.
+		/// A <see cref="PixelLayout"/> determining the pixel format of the downloaded data.
 		/// </param>
 		/// <param name="target">
-		/// A <see cref="System.Int32"/> that specifies the texture target.
+		/// A <see cref="TextureTarget"/> that specifies the texture target.
 		/// </param>
 		/// <returns>
 		/// 
 		/// </returns>
-		protected Image[] Get(GraphicsContext ctx, PixelFormat pType, int target)
+		protected Image[] Get(GraphicsContext ctx, PixelLayout pType, TextureTarget target)
 		{
-			int format = Pixel.GetGlFormat(pType);
-			int type = Pixel.GetGlDataFormat(pType);
-			int width, height;
-
 			// Bind this Texture
 			Bind(ctx);
 
 			// Get texture extents
-			Gl.GetTexLevelParameter(TextureTarget, 0, Gl.TEXTURE_WIDTH, out width);
+			int width, height;
+
+			Gl.GetTexLevelParameter(TextureTarget, 0, GetTextureParameter.TextureWidth, out width);
 			GraphicsException.DebugCheckErrors();
-			Gl.GetTexLevelParameter(TextureTarget, 0, Gl.TEXTURE_HEIGHT, out height);
+			Gl.GetTexLevelParameter(TextureTarget, 0, GetTextureParameter.TextureHeight, out height);
 			GraphicsException.DebugCheckErrors();
 			if ((width <= 0) || (height <= 0))
 				throw new InvalidOperationException(String.Format("invalid texture extents {0}x{1}", width, height));
@@ -323,14 +321,14 @@ namespace OpenGL
 			// Set pixel transfer
 			foreach (int alignment in new int[] { 8, 4, 2, 1 }) {
 				if (image.Stride % alignment == 0) {
-					Gl.PixelStore(Gl.PACK_ALIGNMENT, alignment);
+					Gl.PixelStore(PixelStoreParameter.PackAlignment, alignment);
 					GraphicsException.DebugCheckErrors();
 					break;
 				}
 			}
 
 			// Download texture contents
-			Gl.GetTexImage(target, 0, format, type, image.ImageBuffer);
+			Gl.GetTexImage(target, 0, Pixel.GetGlFormat(pType), Pixel.GetPixelType(pType), image.ImageBuffer);
 			GraphicsException.DebugCheckErrors();
 
 			// Unbind this texture
@@ -373,15 +371,15 @@ namespace OpenGL
 		/// A <see cref="GraphicsContext"/> used for mipmapping definition.
 		/// </param>
 		/// <param name="target">
-		/// A <see cref="System.Int32"/> indicating the target for generating
+		/// A <see cref="TextureTarget"/> indicating the target for generating
 		/// bitmaps.
 		/// </param>
-		protected void GenerateMipmaps(GraphicsContext ctx, int target)
+		protected void GenerateMipmaps(GraphicsContext ctx, TextureTarget target)
 		{
 			// Bind this Texture
 			Bind(ctx);
 			// Generate mipmaps
-			Gl.GenerateMipmap(target);
+			Gl.GenerateMipmap((int)target);
 			GraphicsException.DebugCheckErrors();
 			// Unbind this texture
 			Unbind(ctx);
@@ -711,12 +709,11 @@ namespace OpenGL
 		private void SetupTextelSwizzle()
 		{
 			if (GraphicsContext.CurrentCaps.TextureSwizzle) {
-				switch (mPixelFormat) {
+				switch (_PixelFormat) {
 
 					#region GRAY Internal Formats
 
 					case PixelLayout.GRAY8:
-					case PixelLayout.GRAY16S:
 					case PixelLayout.GRAY16:
 					case PixelLayout.GRAYF:
 					case PixelLayout.GRAYHF:
@@ -782,9 +779,9 @@ namespace OpenGL
 		/// A <see cref="GraphicsContext"/> used for setting texture parameter.
 		/// </param>
 		/// <param name="target">
-		/// A <see cref="System.Int32"/> that specifies the Texture target.
+		/// A <see cref="TextureTarget"/> that specifies the Texture target.
 		/// </param>
-		protected void ApplyParameters(GraphicsContext ctx, int target)
+		protected void ApplyParameters(GraphicsContext ctx, TextureTarget target)
 		{
 			int iParam;
 
@@ -821,7 +818,7 @@ namespace OpenGL
 				}
 
 				// Set minification filter (with mipmaps)
-				Gl.TexParameter(target, Gl.TEXTURE_MIN_FILTER, iParam);
+				Gl.TexParameter(target, TextureParameterName.TextureMinFilter, iParam);
 				GraphicsException.DebugCheckErrors();
 			} else {
 				switch (MinFilter) {
@@ -835,7 +832,7 @@ namespace OpenGL
 						throw new NotSupportedException(String.Format("unknown minification filter {0}", MinFilter));
 				}
 				// Set minification filter (without mipmaps)
-				Gl.TexParameter(target, Gl.TEXTURE_MIN_FILTER, iParam);
+				Gl.TexParameter(target, TextureParameterName.TextureMinFilter, iParam);
 				GraphicsException.DebugCheckErrors();
 			}
 
@@ -855,22 +852,22 @@ namespace OpenGL
 			}
 
 			// Set minification filter (without mipmaps)
-			Gl.TexParameter(target, Gl.TEXTURE_MAG_FILTER, iParam);
+			Gl.TexParameter(target, TextureParameterName.TextureMagFilter, iParam);
 			GraphicsException.DebugCheckErrors();
 
 			#endregion
 
 			#region Wrapping
 
-			if (target != Gl.TEXTURE_RECTANGLE) {
+			if (target != (TextureTarget)Gl.TEXTURE_RECTANGLE) {
 				// Wrap S coordinate
-				Gl.TexParameter(target, Gl.TEXTURE_WRAP_S, GetWrapParameter(WrapCoordS));
+				Gl.TexParameter(target, TextureParameterName.TextureWrapS, GetWrapParameter(WrapCoordS));
 				GraphicsException.DebugCheckErrors();
 				// Wrap T coordinate
-				Gl.TexParameter(target, Gl.TEXTURE_WRAP_T, GetWrapParameter(WrapCoordT));
+				Gl.TexParameter(target, TextureParameterName.TextureWrapT, GetWrapParameter(WrapCoordT));
 				GraphicsException.DebugCheckErrors();
 				// Wrap R coordinate
-				Gl.TexParameter(target, Gl.TEXTURE_WRAP_R, GetWrapParameter(WrapCoordR));
+				Gl.TexParameter(target, TextureParameterName.TextureWrapR, GetWrapParameter(WrapCoordR));
 				GraphicsException.DebugCheckErrors();
 			}
 
@@ -880,7 +877,7 @@ namespace OpenGL
 
 			if ((mTextelSwizzleRGBA != null) && (ctx.Caps.TextureSwizzle)) {
 				// Set components swizzle setup
-				Gl.TexParameter(target, Gl.TEXTURE_SWIZZLE_RGBA, mTextelSwizzleRGBA);
+				Gl.TexParameter(target, (TextureParameterName)Gl.TEXTURE_SWIZZLE_RGBA, mTextelSwizzleRGBA);
 				GraphicsException.DebugCheckErrors();
 			}
 
@@ -898,7 +895,7 @@ namespace OpenGL
 		/// In the case a this Texture is defined by multiple targets (i.e. cube map textures), this property
 		/// shall returns always 0.
 		/// </remarks>
-		public abstract int TextureTarget { get; }
+		public abstract OpenGL.TextureTarget TextureTarget { get; }
 
 		/// <summary>
 		/// Determine whether this Texture has a valid target.
@@ -940,14 +937,9 @@ namespace OpenGL
 		/// A <see cref="GraphicsContext"/> used for binding this Texture.
 		/// </param>
 		/// <param name="target">
-		/// A <see cref="System.Int32"/> that specifies the texture target. It could be one of the following:
-		/// - Gl.TEXTURE_1D
-		/// - Gl.TEXTURE_2D
-		/// - Gl.TEXTURE_RECTANGLE
-		/// - Gl.TEXTURE_3D
-		/// - Gl.TEXTURE_CUBE_MAP
+		/// A <see cref="TextureTarget"/> that specifies the texture target.
 		/// </param>
-		protected void Bind(GraphicsContext ctx, int target)
+		protected void Bind(GraphicsContext ctx, TextureTarget target)
 		{
 			// Bind this Texture on specified target
 			Gl.BindTexture(target, ObjectName);
@@ -961,14 +953,9 @@ namespace OpenGL
 		/// A <see cref="GraphicsContext"/> used for binding this Texture.
 		/// </param>
 		/// <param name="target">
-		/// A <see cref="System.Int32"/> that specifies the texture target. It could be one of the following:
-		/// - Gl.TEXTURE_1D
-		/// - Gl.TEXTURE_2D
-		/// - Gl.TEXTURE_RECTANGLE
-		/// - Gl.TEXTURE_3D
-		/// - Gl.TEXTURE_CUBE_MAP
+		/// A <see cref="TextureTarget"/> that specifies the texture target.
 		/// </param>
-		protected void Unbind(GraphicsContext ctx, int target)
+		protected void Unbind(GraphicsContext ctx, TextureTarget target)
 		{
 			// Unbind this Texture on specified target
 			Gl.BindTexture(target, 0);
@@ -1070,7 +1057,7 @@ namespace OpenGL
 		{
 			if (ctx == null)
 				throw new ArgumentNullException("ctx");
-			if (ctx.IsCurrent() == false)
+			if (ctx.IsCurrent == false)
 				throw new ArgumentException("not current", "ctx");
 		
 			// Object name space test (and 'ctx' sanity checks)
@@ -1116,10 +1103,8 @@ namespace OpenGL
 		/// </returns>
 		protected override uint CreateName(GraphicsContext ctx)
 		{
-			uint name;
-
 			// Generate texture name
-			Gl.GenTextures(1, out name);
+			uint name = Gl.GenTexture();
 			GraphicsException.CheckErrors();
 			
 			return (name);
@@ -1137,7 +1122,7 @@ namespace OpenGL
 		protected override void DeleteName(GraphicsContext ctx, uint name)
 		{
 			// Delete texture name
-			Gl.DeleteTextures(1, new uint[] { name });
+			Gl.DeleteTextures(name);
 			GraphicsException.CheckErrors();
 		}
 

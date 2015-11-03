@@ -18,7 +18,7 @@ using System;
 using System.Diagnostics;
 using System.Drawing;
 
-using Image = Derm.Raster.Image;
+using Image = OpenGL.Image;
 
 namespace OpenGL
 {
@@ -34,7 +34,7 @@ namespace OpenGL
 	/// </para>
 	/// </remarks>
 	[DebuggerDisplay("Texture2d [ Pixel:{mPixelFormat} Width:{Width} Height:{Height} ]")]
-	public class Texture2d : TextureBase
+	public class Texture2d : Texture
 	{
 		#region Constructors
 
@@ -372,7 +372,7 @@ namespace OpenGL
 		/// Create Texture2d data from a Image instance.
 		/// </summary>
 		/// <param name="image">
-		/// An <see cref="Derm.Raster.Image"/> holding the texture data.
+		/// An <see cref="OpenGL.Image"/> holding the texture data.
 		/// </param>
 		/// <exception cref="ArgumentNullException">
 		/// Exception throw if <paramref name="image"/> is null.
@@ -418,7 +418,7 @@ namespace OpenGL
 		/// will be used.
 		/// </param>
 		/// <param name="image">
-		/// An <see cref="Derm.Raster.Image"/> holding the texture data.
+		/// An <see cref="OpenGL.Image"/> holding the texture data.
 		/// </param>
 		/// <exception cref="ArgumentNullException">
 		/// Exception throw if <paramref name="image"/> is null.
@@ -480,11 +480,11 @@ namespace OpenGL
 		/// A <see cref="GraphicsContext"/> used for downloading texture data.
 		/// </param>
 		/// <param name="pType">
-		/// A <see cref="PixelFormat"/> determining the pixel format of the downloaded data.
+		/// A <see cref="PixelLayout"/> determining the pixel format of the downloaded data.
 		/// </param>
 		/// <returns>
 		/// </returns>
-		public Image Get(GraphicsContext ctx, PixelFormat pType)
+		public Image Get(GraphicsContext ctx, PixelLayout pType)
 		{
 			return (Get(ctx, pType, TextureTarget)[0]);
 		}
@@ -518,7 +518,7 @@ namespace OpenGL
 		/// In the case a this Texture is defined by multiple targets (i.e. cube map textures), this property
 		/// shall returns always 0.
 		/// </remarks>
-		public override int TextureTarget { get { return (Gl.TEXTURE_2D); } }
+		public override TextureTarget TextureTarget { get { return (TextureTarget.Texture2d); } }
 
 		/// <summary>
 		/// Uniform sampler type for managing this texture.

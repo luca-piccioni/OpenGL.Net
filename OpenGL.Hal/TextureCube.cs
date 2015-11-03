@@ -23,7 +23,7 @@ namespace OpenGL
 	/// Cube texture.
 	/// </summary>
 	[DebuggerDisplay("TextureCube [ Pixel:{mPixelFormat} Size:{Width} ]")]
-	public class TextureCube : TextureBase
+	public class TextureCube : Texture
 	{
 		#region Constructors
 		

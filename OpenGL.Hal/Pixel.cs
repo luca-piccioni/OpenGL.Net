@@ -1944,7 +1944,7 @@ namespace OpenGL
 		/// It returns a <see cref="System.Int32"/> corresponding to the OpenGL enumeration value
 		/// for the pixel/textel format.
 		/// </returns>
-		public static int GetGlFormat(PixelLayout type)
+		public static PixelFormat GetGlFormat(PixelLayout type)
 		{
 			switch (type) {
 
@@ -1957,18 +1957,18 @@ namespace OpenGL
 				case PixelLayout.RGBF:
 				case PixelLayout.RGBD:
 				case PixelLayout.RGBHF:
-					return (Gl.RGB);
+					return (PixelFormat.Rgb);
 				case PixelLayout.RGB15:
-					return (Gl.RGBA);
+					return (PixelFormat.Rgba);
 
 				#endregion
 
 				#region sRGB Formats
 
 				case PixelLayout.SRGB24:
-					return (Gl.RGB);
+					return (PixelFormat.Rgb);
 				case PixelLayout.SBGR24:
-					return (Gl.BGR);
+					return (PixelFormat.Bgr);
 
 				#endregion
 
@@ -1979,34 +1979,34 @@ namespace OpenGL
 				case PixelLayout.RGBA64:
 				case PixelLayout.RGBAF:
 				case PixelLayout.RGBAHF:
-					return (Gl.RGBA);
+					return (PixelFormat.Rgba);
 
 				#endregion
 
 				#region BGR Internal Formats
 
 				case PixelLayout.BGR8:				// Uses Gl.UNSIGNED_BYTE_2_3_3_REV as data type
-				case PixelLayout.BGR16:			// Uses Gl.UNSIGNED_SHORT_5_6_5_REV as data type
-					return (Gl.RGB);
+				case PixelLayout.BGR16:             // Uses Gl.UNSIGNED_SHORT_5_6_5_REV as data type
+					return (PixelFormat.Rgb);
 				case PixelLayout.BGR24:
 				case PixelLayout.BGR48:
 				case PixelLayout.BGRF:
 				case PixelLayout.BGRHF:
-					return (Gl.BGR);
+					return (PixelFormat.Bgr);
 				case PixelLayout.BGR15:
-					return (Gl.RGBA);		// Uses texture swizzle A = NONE and Gl.UNSIGNED_SHORT_5_5_5_1_REV as data type
+					return (PixelFormat.Rgba);		// Uses texture swizzle A = NONE and Gl.UNSIGNED_SHORT_5_5_5_1_REV as data type
 
 				#endregion
 
 				#region BGRA
 
-				case PixelLayout.BGR30A2:			// Uses Gl.UNSIGNED_INT_2_10_10_10_REV as data type
-					return (Gl.RGBA);
+				case PixelLayout.BGR30A2:           // Uses Gl.UNSIGNED_INT_2_10_10_10_REV as data type
+					return (PixelFormat.Rgba);
 				case PixelLayout.BGRA32:
 				case PixelLayout.BGRA64:
 				case PixelLayout.BGRAF:
 				case PixelLayout.BGRAHF:
-					return (Gl.BGRA);
+					return (PixelFormat.Bgra);
 
 				#endregion
 
@@ -2016,14 +2016,14 @@ namespace OpenGL
 				case PixelLayout.GRAY16:
 				case PixelLayout.GRAYF:
 				case PixelLayout.GRAYHF:
-					return (Gl.RED);
+					return (PixelFormat.Red);
 
 				#endregion
 
 				#region GRAYA Formats
 
 				case PixelLayout.GRAYAF:
-					return (Gl.RG);
+					return (PixelFormat.Rg);
 
 				#endregion
 
@@ -2033,7 +2033,7 @@ namespace OpenGL
 				case PixelLayout.Depth24:
 				case PixelLayout.Depth32:
 				case PixelLayout.DepthF:
-					return (Gl.DEPTH_COMPONENT);
+					return (PixelFormat.DepthComponent);
 
 				#endregion
 
@@ -2041,7 +2041,7 @@ namespace OpenGL
 
 				case PixelLayout.Depth24Stencil8:
 				case PixelLayout.Depth32FStencil8:
-					return (Gl.DEPTH_STENCIL);
+					return (PixelFormat.DepthStencil);
 
 				#endregion
 
@@ -2049,16 +2049,16 @@ namespace OpenGL
 
 				case PixelLayout.Integer1:
 				case PixelLayout.UInteger1:
-					return (Gl.RED_INTEGER);
+					return (PixelFormat.RedInteger);
 				case PixelLayout.Integer2:
 				case PixelLayout.UInteger2:
-					return (Gl.RG_INTEGER);
+					return (PixelFormat.RgInteger);
 				case PixelLayout.Integer3:
 				case PixelLayout.UInteger3:
-					return (Gl.RGB_INTEGER);
+					return (PixelFormat.RgbInteger);
 				case PixelLayout.Integer4:
 				case PixelLayout.UInteger4:
-					return (Gl.RGBA_INTEGER);
+					return (PixelFormat.RgbaInteger);
 
 				#endregion
 
@@ -2077,28 +2077,28 @@ namespace OpenGL
 		/// It returns a <see cref="System.Int32"/> corresponding to the OpenGL enumeration value
 		/// for the pixel/textel data format.
 		/// </returns>
-		public static int GetGlDataFormat(PixelLayout type)
+		public static PixelType GetPixelType(PixelLayout type)
 		{
 			switch (type) {
 
 				#region RGB Data Types
 
 				case PixelLayout.RGB8:
-					return (Gl.UNSIGNED_BYTE_3_3_2);
+					return (PixelType.UnsignedByte332);
 				case PixelLayout.RGB15:
-					return (Gl.UNSIGNED_SHORT_5_5_5_1);
+					return (PixelType.UnsignedShort5551);
 				case PixelLayout.RGB16:
-					return (Gl.UNSIGNED_SHORT_5_6_5);
+					return (PixelType.UnsignedShort565);
 				case PixelLayout.RGB24:
-					return (Gl.UNSIGNED_BYTE);
+					return (PixelType.UnsignedByte);
 				case PixelLayout.RGB48:
-					return (Gl.UNSIGNED_SHORT);
+					return (PixelType.UnsignedShort);
 				case PixelLayout.RGBF:
-					return (Gl.FLOAT);
+					return (PixelType.Float);
 				case PixelLayout.RGBD:
-					return (Gl.DOUBLE);
+					return (PixelType.Double);
 				case PixelLayout.RGBHF:
-					return (Gl.HALF_FLOAT);
+					return (PixelType.HalfFloat);
 
 				#endregion
 
@@ -2106,92 +2106,92 @@ namespace OpenGL
 
 				case PixelLayout.SRGB24:
 				case PixelLayout.SBGR24:
-					return (Gl.UNSIGNED_BYTE);
+					return (PixelType.UnsignedByte);
 
 				#endregion
 
 				#region RGBA Data Types
 
 				case PixelLayout.RGB30A2:
-					return (Gl.UNSIGNED_INT_10_10_10_2);
+					return (PixelType.UnsignedInt1010102);
 				case PixelLayout.RGBA32:
-					return (Gl.UNSIGNED_INT_8_8_8_8);
+					return (PixelType.UnsignedInt8888);
 				case PixelLayout.RGBA64:
-					return (Gl.UNSIGNED_SHORT);
+					return (PixelType.UnsignedShort);
 				case PixelLayout.RGBAF:
-					return (Gl.FLOAT);
+					return (PixelType.Float);
 				case PixelLayout.RGBAHF:
-					return (Gl.HALF_FLOAT);
+					return (PixelType.HalfFloat);
 
 				#endregion
 
 				#region BGR Data Types
 
 				case PixelLayout.BGR8:
-					return (Gl.UNSIGNED_BYTE_2_3_3_REV);
+					return (PixelType.UnsignedByte233Rev);
 				case PixelLayout.BGR15:
-					return (Gl.UNSIGNED_SHORT_1_5_5_5_REV);
+					return (PixelType.UnsignedShort1555Rev);
 				case PixelLayout.BGR16:
-					return (Gl.UNSIGNED_SHORT_5_6_5_REV);
+					return (PixelType.UnsignedShort565Rev);
 				case PixelLayout.BGR24:
-					return (Gl.UNSIGNED_BYTE);
+					return (PixelType.UnsignedByte);
 				case PixelLayout.BGR48:
-					return (Gl.UNSIGNED_SHORT);
+					return (PixelType.UnsignedShort);
 				case PixelLayout.BGRF:
-					return (Gl.FLOAT);
+					return (PixelType.Float);
 				case PixelLayout.BGRHF:
-					return (Gl.HALF_FLOAT);
+					return (PixelType.HalfFloat);
 
 				#endregion
 
 				#region BGRA Data Types
 
 				case PixelLayout.BGR30A2:
-					return (Gl.UNSIGNED_INT_2_10_10_10_REV);
+					return (PixelType.UnsignedInt2101010Rev);
 				case PixelLayout.BGRA32:
-					return (Gl.UNSIGNED_BYTE);
+					return (PixelType.UnsignedByte);
 				case PixelLayout.BGRA64:
-					return (Gl.UNSIGNED_SHORT);;
+					return (PixelType.UnsignedShort);
 				case PixelLayout.BGRAF:
-					return (Gl.FLOAT);
+					return (PixelType.Float);
 				case PixelLayout.BGRAHF:
-					return (Gl.HALF_FLOAT);
+					return (PixelType.HalfFloat);
 
 				#endregion
 
 				#region GRAY Data Types
 
 				case PixelLayout.GRAY8:
-					return (Gl.UNSIGNED_BYTE);
+					return (PixelType.UnsignedByte);
 				case PixelLayout.GRAY16:
-					return (Gl.UNSIGNED_SHORT);
+					return (PixelType.UnsignedShort);
 				case PixelLayout.GRAYF:
-					return (Gl.FLOAT);
+					return (PixelType.Float);
 				case PixelLayout.GRAYHF:
-					return (Gl.HALF_FLOAT);
+					return (PixelType.HalfFloat);
 
 				#endregion
 
 				#region GRAYA Data Types
 
 				case PixelLayout.GRAYAF:
-					return (Gl.FLOAT);
+					return (PixelType.Float);
 
 				#endregion
 
 				#region Depth/Stencil Data Types
 
 				case PixelLayout.Depth16:
-					return (Gl.UNSIGNED_SHORT);
+					return (PixelType.UnsignedShort);
 				case PixelLayout.Depth24:
-					return (Gl.UNSIGNED_INT);
+					return (PixelType.UnsignedInt);
 				case PixelLayout.Depth32:
-					return (Gl.UNSIGNED_INT);
+					return (PixelType.UnsignedInt);
 				case PixelLayout.Depth24Stencil8:
-					return (Gl.UNSIGNED_INT);
+					return (PixelType.UnsignedInt);
 				case PixelLayout.Depth32FStencil8:
 				case PixelLayout.DepthF:
-					return (Gl.FLOAT);
+					return (PixelType.Float);
 
 				#endregion
 
@@ -2201,18 +2201,33 @@ namespace OpenGL
 				case PixelLayout.Integer2:
 				case PixelLayout.Integer3:
 				case PixelLayout.Integer4:
-					return (Gl.INT);
+					return (PixelType.Int);
 				case PixelLayout.UInteger1:
 				case PixelLayout.UInteger2:
 				case PixelLayout.UInteger3:
 				case PixelLayout.UInteger4:
-					return (Gl.UNSIGNED_INT);
+					return (PixelType.UnsignedInt);
 
 				#endregion
 
 				default:
 					throw new Exception(String.Format("unsupported textel data type {0}", type));
 			}
+		}
+
+		/// <summary>
+		/// Determine the OpenGL data format corresponding to a <see cref="PixelLayout"/>.
+		/// </summary>
+		/// <param name="type">
+		/// A <see cref="PixelLayout"/> to determine the OpenGL data format.
+		/// </param>
+		/// <returns>
+		/// It returns a <see cref="System.Int32"/> corresponding to the OpenGL enumeration value
+		/// for the pixel/textel data format.
+		/// </returns>
+		public static int GetPixelTypeCore(PixelLayout type)
+		{
+			return ((int)GetPixelType(type));
 		}
 
 		/// <summary>

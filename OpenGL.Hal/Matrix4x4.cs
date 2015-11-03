@@ -299,7 +299,7 @@ namespace OpenGL
 			m.SetIdentity();
 
 			unsafe {
-				if (SimdLibrary.Matrix4x4_Concatenate != null) {
+				if (Memory.Matrix4x4_Concatenate != null) {
 					List<GCHandle> gcHandles = new List<GCHandle>();
 
 					try {
@@ -316,7 +316,7 @@ namespace OpenGL
 							matrixChain[i + 1] = (float*)matrixData.AddrOfPinnedObject().ToPointer();
 						}
 
-						SimdLibrary.Matrix4x4_Concatenate(matrixChain, (uint)matrixChain.Length);
+						Memory.Matrix4x4_Concatenate(matrixChain, (uint)matrixChain.Length);
 
 					} finally {
 						foreach (GCHandle gcHandle in gcHandles)

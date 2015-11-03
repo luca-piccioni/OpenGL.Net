@@ -608,5 +608,19 @@ namespace OpenGL
 		public bool CreateContextProfile;
 
 		#endregion
+
+		#region OpenGL Implementation Limits
+
+		/// <summary>
+		/// Get the OpenGL implementation limits.
+		/// </summary>
+		public GraphicsLimits Limits { get { return (_GraphicsLimits); } }
+
+		/// <summary>
+		/// OpenGL implementation limits.
+		/// </summary>
+		private GraphicsLimits _GraphicsLimits;
+
+		#endregion
 	}
 }
