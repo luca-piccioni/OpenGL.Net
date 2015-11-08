@@ -24,7 +24,7 @@ using System.Xml.Serialization;
 namespace BindingsGen.GLSpecs
 {
 	[DebuggerDisplay("CommandParameterArray: Name={Name} Group={Group} Length={Length} Type={Type}")]
-	class CommandParameterArray : CommandParameterStrong
+	class CommandParameterArrayLength : CommandParameterStrong
 	{
 		#region Constructors
 
@@ -34,7 +34,7 @@ namespace BindingsGen.GLSpecs
 		/// <param name="otherParam"></param>
 		/// <param name="ctx"></param>
 		/// <param name="parentCommand"></param>
-		public CommandParameterArray(CommandParameter otherParam, RegistryContext ctx, Command parentCommand)
+		public CommandParameterArrayLength(CommandParameter otherParam, RegistryContext ctx, Command parentCommand)
 			: base(otherParam, ctx, parentCommand)
 		{
 			if (otherParam == null)
@@ -47,22 +47,27 @@ namespace BindingsGen.GLSpecs
 
 		#region Utility
 
-		internal static bool IsCompatible(CommandParameter param, RegistryContext ctx, Command parentCommand)
+		internal static bool IsCompatible(RegistryContext ctx, Command command)
+		{
+			return (IsCompatible(ctx, command, command.Parameters));
+		}
+
+		internal static bool IsCompatible(RegistryContext ctx, Command command, List<CommandParameter> parameters)
+		{
+			return (parameters.FindIndex(delegate (CommandParameter item) { return (IsCompatible(ctx, command, item)); }) >= 0);
+		}
+
+		internal static new bool IsCompatible(RegistryContext ctx, Command parentCommand, CommandParameter param)
 		{
 			if (!param.IsManagedArray || param.Length == null)
 				return (false);
 
-			int sizeParamIndex = parentCommand.Parameters.FindIndex(delegate(CommandParameter item) { return (item.Name == param.Length); });
+			int sizeParamIndex = parentCommand.Parameters.FindIndex(delegate (CommandParameter item) { return (item.Name == param.Length); });
 
 			if (sizeParamIndex < 0)
 				return (false);
 
 			return (true);
-		}
-
-		internal static bool IsCompatible(Command command, RegistryContext ctx)
-		{
-			return (command.Parameters.FindIndex(delegate(CommandParameter item) { return (IsCompatible(item, ctx, command)); }) >= 0);
 		}
 
 		internal static bool IsArrayLengthParameter(CommandParameter param, RegistryContext ctx, Command parentCommand)

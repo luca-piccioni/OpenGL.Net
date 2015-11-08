@@ -80,7 +80,7 @@
 		<flags>OutParam</flags>
 	</command>
 	
-	<command name="(gl\w+TexImage(1-4)|glBufferData)">
+	<command name="^(gl\w+TexImage(1-4)|glBufferData)$">
 		<!-- Let the application handles the *TexImage* and glBufferData errors (proxy texture targets, out of memory) -->
 		<flags>NoGetError ForcePlainParams</flags>
 	</command>
@@ -121,7 +121,7 @@
 	
 	<!-- WGL -->
 	
-	<command name="wglMakeCurrent">
+	<command name="^wglMakeCurrent$">
 		<!-- Overrides implementation name since it's manually implemented in Wgl.cs -->
 		<rename>MakeCurrentCore</rename>
 		<visibility>private</visibility>
@@ -129,21 +129,21 @@
 		<flags>NoGetError</flags>
 	</command>
 	
-	<command name="wgl.+|glX.+">
+	<command name="^(wgl.+|glX.+)">
 		<!-- WGL commands errors won't be automatically checked by bindings -->
 		<flags>NoGetError</flags>
 	</command>
 	
-	<command name="ChoosePixelFormat|DescribePixelFormat|GetEnhMetaFilePixelFormat|GetPixelFormat|SetPixelFormat|SwapBuffers">
+	<command name="^(ChoosePixelFormat|DescribePixelFormat|GetEnhMetaFilePixelFormat|GetPixelFormat|SetPixelFormat|SwapBuffers)$">
 		<!-- GDI functions are implemented manually -->
 		<flags>Disable</flags>
 	</command>
 
 	<!-- GLX -->
 
-	<command name="^glxGet(GetFBConfigs|GetFBConfigAttrib)$">
+	<command name="^glXGet(FBConfigs|FBConfigAttrib)$">
 		<!-- Generate "out" overloads -->
-		<flags>OutParam</flags>
+		<flags>OutParamLast</flags>
 	</command>
 	
 </command_overrides>

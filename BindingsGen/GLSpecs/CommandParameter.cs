@@ -17,7 +17,6 @@
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
-using System.Text;
 using System.Text.RegularExpressions;
 using System.Xml.Serialization;
 
@@ -45,7 +44,7 @@ namespace BindingsGen.GLSpecs
 		/// <param name="otherParam">
 		/// Another CommandParameter to be copied.
 		/// </param>
-		protected CommandParameter(CommandParameter otherParam)
+		public CommandParameter(CommandParameter otherParam)
 		{
 			if (otherParam == null)
 				throw new ArgumentNullException("otherParam");
@@ -392,7 +391,7 @@ namespace BindingsGen.GLSpecs
 			if (Length == null)
 				return;
 
-			if (CommandParameterArray.IsCompatible(this, ctx, parentCommand))
+			if (CommandParameterArrayLength.IsCompatible(ctx, parentCommand, this))
 				sw.WriteLine("Debug.Assert({0}.Length >= {1});", ImplementationName, Length);
 #if false
 			if (Regex.IsMatch(Length, @"[0-9]+"))

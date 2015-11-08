@@ -43,7 +43,7 @@ namespace BindingsGen.GLSpecs
 			if (otherParam == null)
 				throw new ArgumentNullException("otherParam");
 
-			if (IsCompatible(otherParam, ctx, parentCommand)) {
+			if (IsCompatible(ctx, parentCommand, otherParam)) {
 				Type = otherParam.Group;
 				mIsStrong = true;
 			}
@@ -53,10 +53,20 @@ namespace BindingsGen.GLSpecs
 
 		#region Utility
 
-		internal static bool IsCompatible(CommandParameter param, RegistryContext ctx, Command parentCommand)
+		internal static bool IsCompatible(RegistryContext ctx, Command command)
+		{
+			return (IsCompatible(ctx, command, command.Parameters));
+		}
+
+		internal static bool IsCompatible(RegistryContext ctx, Command command, List<CommandParameter> parameters)
+		{
+			return (parameters.FindIndex(delegate (CommandParameter item) { return (IsCompatible(ctx, command, item)); }) >= 0);
+		}
+
+		internal static bool IsCompatible(RegistryContext ctx, Command command, CommandParameter param)
 		{
 			// 'bool' parameters are in Boolean group: conditions below will pass
-			if (param.GetImplementationType(ctx, parentCommand) == "bool")
+			if (param.GetImplementationType(ctx, command) == "bool")
 				return (false);
 
 			// Unsafe parameters are not allowed, Group is a requirement
@@ -64,12 +74,7 @@ namespace BindingsGen.GLSpecs
 				return (false);
 
 			// Check actual existence of strongly typed enum
-			return (ctx.Registry.Groups.FindIndex(delegate(EnumerantGroup item) { return (item.Name == param.Group); }) >= 0);
-		}
-
-		internal static bool IsCompatible(Command command, RegistryContext ctx)
-		{
-			return (command.Parameters.FindIndex(delegate(CommandParameter item) { return (IsCompatible(item, ctx, command)); }) >= 0);
+			return (ctx.Registry.Groups.FindIndex(delegate (EnumerantGroup item) { return (item.Name == param.Group); }) >= 0);
 		}
 
 		#endregion

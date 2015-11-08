@@ -110,6 +110,66 @@ namespace BindingsGen.GLSpecs
 		[XmlElement("param")]
 		public readonly List<CommandParameter> Parameters = new List<CommandParameter>();
 
+		private List<CommandParameter> GetDefaultParameters(RegistryContext ctx)
+		{
+			List<CommandParameter> parameters = new List<CommandParameter>();
+
+			foreach (CommandParameter commandParameter in Parameters)
+				parameters.Add(new CommandParameter(commandParameter));
+
+			return (parameters);
+		}
+
+		private List<CommandParameter> GetStrongParameters(RegistryContext ctx)
+		{
+			List<CommandParameter> parameters = new List<CommandParameter>();
+
+			foreach (CommandParameter commandParameter in Parameters)
+				parameters.Add(new CommandParameterStrong(commandParameter, ctx, this));
+
+			return (parameters);
+		}
+
+		private List<CommandParameter> GetPinnedParameters(RegistryContext ctx, bool strong)
+		{
+			List<CommandParameter> parameters = new List<CommandParameter>();
+
+			foreach (CommandParameter commandParameter in Parameters)
+				parameters.Add(new CommandParameterPinned(commandParameter, ctx, this, strong));
+
+			return (parameters);
+		}
+
+		private List<CommandParameter> GetOutParameters(RegistryContext ctx, bool strong)
+		{
+			List<CommandParameter> parameters = new List<CommandParameter>();
+
+			foreach (CommandParameter commandParameter in Parameters)
+				parameters.Add(new CommandParameterOut(commandParameter, ctx, this, strong));
+
+			return (parameters);
+		}
+
+		private List<CommandParameter> GetOutLastParameters(RegistryContext ctx)
+		{
+			List<CommandParameter> parameters = GetDefaultParameters(ctx);
+
+			parameters.RemoveAt(parameters.Count - 1);
+			parameters.Add(new CommandParameterOut(Parameters[Parameters.Count - 1], ctx, this, false));
+
+			return (parameters);
+		}
+
+		private List<CommandParameter> GetArrayLengthParameters(RegistryContext ctx)
+		{
+			List<CommandParameter> parameters = new List<CommandParameter>();
+
+			foreach (CommandParameter commandParameter in Parameters)
+				parameters.Add(new CommandParameterArrayLength(commandParameter, ctx, this));
+
+			return (parameters);
+		}
+
 		/// <summary>
 		/// Command alias.
 		/// </summary>
@@ -410,80 +470,49 @@ namespace BindingsGen.GLSpecs
 		private List<CommandParameter>[] GetOverridenImplementations(RegistryContext ctx)
 		{
 			List<List<CommandParameter>> overridenParameters = new List<List<CommandParameter>>();
-			List<CommandParameter> parameters;
 
 			// Force plain parameters
 			bool plainParams = (Flags & CommandFlags.ForcePlainParams) != 0;
 			// At least an array parameter that can out 1 element only
-			bool outParamCompatible = CommandParameterOut.IsCompatible(this, ctx);
+			bool outParamCompatible = CommandParameterOut.IsCompatible(ctx, this);
+			// The last parameter is 'out-compatible', and flags allow to generate the override
+			bool outLastParamCompatible = ((Flags & CommandFlags.OutParamLast) != 0) && CommandParameterOut.IsCompatible(ctx, this, Parameters[Parameters.Count - 1]);
 			// At least a parameter that have a strongly typed representation
-			bool isStrongCompatible = CommandParameterStrong.IsCompatible(this, ctx);
+			bool isStrongCompatible = CommandParameterStrong.IsCompatible(ctx, this);
 			// At least a parameter in meant as pointer/array, that can be represented using structs
-			bool isPinnedObjCompatible = CommandParameterPinned.IsCompatible(this, ctx);
+			bool isPinnedObjCompatible = CommandParameterPinned.IsCompatible(ctx, this);
 			// At least one parameter is an array with length correlated with another parameter
-			bool isArrayLengthCompatible = CommandParameterArray.IsCompatible(this, ctx);
+			bool isArrayLengthCompatible = CommandParameterArrayLength.IsCompatible(ctx, this);
 
 			// Standard implementation - default
 			if (plainParams || (!isArrayLengthCompatible && !isStrongCompatible))
 				overridenParameters.Add(Parameters);
 
 			// Strongly typed implementation
-			if (isStrongCompatible) {
-				parameters = new List<CommandParameter>();
-
-				foreach (CommandParameter commandParameter in Parameters)
-					parameters.Add(new CommandParameterStrong(commandParameter, ctx, this));
-
-				overridenParameters.Add(parameters);
-			}
+			if (isStrongCompatible)
+				overridenParameters.Add(GetStrongParameters(ctx));
 
 			// Pinned object implementation
 			if (isPinnedObjCompatible) {
-				if (plainParams && isStrongCompatible) {
-					parameters = new List<CommandParameter>();
-
-					foreach (CommandParameter commandParameter in Parameters)
-						parameters.Add(new CommandParameterPinned(commandParameter, ctx, this, false));
-
-					overridenParameters.Add(parameters);
-				}
-
-				parameters = new List<CommandParameter>();
-
-				foreach (CommandParameter commandParameter in Parameters)
-					parameters.Add(new CommandParameterPinned(commandParameter, ctx, this, true));
-
-				overridenParameters.Add(parameters);
+				if (plainParams && isStrongCompatible)
+					overridenParameters.Add(GetPinnedParameters(ctx, false));
+				overridenParameters.Add(GetPinnedParameters(ctx, true));
 			}
 
 			// Out modifier implementation
-			if (outParamCompatible) {
-				if (plainParams && isStrongCompatible) {
-					parameters = new List<CommandParameter>();
-
-					foreach (CommandParameter commandParameter in Parameters)
-						parameters.Add(new CommandParameterOut(commandParameter, ctx, this, false));
-
-					overridenParameters.Add(parameters);
-				}
-
-				parameters = new List<CommandParameter>();
-
-				foreach (CommandParameter commandParameter in Parameters)
-					parameters.Add(new CommandParameterOut(commandParameter, ctx, this, true));
-
-				overridenParameters.Add(parameters);
+			if (outParamCompatible && !outLastParamCompatible) {
+				if (plainParams && isStrongCompatible)
+					overridenParameters.Add(GetOutParameters(ctx, false));
+				overridenParameters.Add(GetOutParameters(ctx, true));
 			}
+
+			// Out modifier implementation (last parameter only)
+			if (outLastParamCompatible)
+				overridenParameters.Add(GetOutLastParameters(ctx));
 
 			// Array Length overrides
-			if (isArrayLengthCompatible) {
-				parameters = new List<CommandParameter>();
-
-				foreach (CommandParameter commandParameter in Parameters)
-					parameters.Add(new CommandParameterArray(commandParameter, ctx, this));
-
-				overridenParameters.Add(parameters);
-			}
+			if (isArrayLengthCompatible)
+				overridenParameters.Add(GetArrayLengthParameters(ctx));
 
 			return (overridenParameters.ToArray());
 		}
@@ -641,7 +670,7 @@ namespace BindingsGen.GLSpecs
 
 			bool fixedImplementation = IsFixedImplementation(ctx, commandParams);
 			// At least one parameter is an array with length correlated with another parameter
-			bool isArrayImplementation = commandParams.FindIndex(delegate(CommandParameter item) { return (item is CommandParameterArray); }) >= 0;
+			bool isArrayImplementation = commandParams.FindIndex(delegate(CommandParameter item) { return (item is CommandParameterArrayLength); }) >= 0;
 			// Returned value must be marshalled as string
 			bool marshalReturnedString = aliasCommand.HasReturnValue && (returnType.ToLower() == "string") && (delegateReturnType.ToLower() != "string");
 			// Returned value must be marshalled as structure
@@ -907,21 +936,21 @@ namespace BindingsGen.GLSpecs
 				implementationName = implementationName.Substring(0, implementationName.Length - 1);
 
 			foreach (CommandParameter commandParameter in Parameters)
-				commandParams.Add(new CommandParameterArray(commandParameter, ctx, this));
+				commandParams.Add(new CommandParameterArrayLength(commandParameter, ctx, this));
 
-			List<CommandParameterArray> arrayParameters = new List<CommandParameterArray>();
+			List<CommandParameterArrayLength> arrayParameters = new List<CommandParameterArrayLength>();
 			List<CommandParameter> signatureParams = commandParams.FindAll(delegate(CommandParameter item) {
-				bool compatible = CommandParameterArray.IsCompatible(item, ctx, this);
-				bool arrayLengthParam = CommandParameterArray.IsArrayLengthParameter(item, ctx, this);
+				bool compatible = CommandParameterArrayLength.IsCompatible(ctx, this, item);
+				bool arrayLengthParam = CommandParameterArrayLength.IsArrayLengthParameter(item, ctx, this);
 
 				if (compatible)
-					arrayParameters.Add((CommandParameterArray)item);
+					arrayParameters.Add((CommandParameterArrayLength)item);
 
 				return (!compatible && !arrayLengthParam);
 			});
 
 			Debug.Assert(arrayParameters.Count == 1);
-			CommandParameterArray returnParameter = arrayParameters[0];
+			CommandParameterArrayLength returnParameter = arrayParameters[0];
 			string returnParameterType = returnParameter.GetImplementationType(ctx, this);
 
 			// Remove []
@@ -950,9 +979,9 @@ namespace BindingsGen.GLSpecs
 			for (int i = 0; i < commandParams.Count; i++) {
 				CommandParameter param = commandParams[i];
 
-				if        (CommandParameterArray.IsArrayLengthParameter(param, ctx, this)) {
+				if        (CommandParameterArrayLength.IsArrayLengthParameter(param, ctx, this)) {
 					continue;
-				} else if (CommandParameterArray.IsCompatible(param, ctx, this))
+				} else if (CommandParameterArrayLength.IsCompatible(ctx, this, param))
 					sw.Write(ReturnVariableName);
 				else
 					param.WriteDelegateParam(sw, ctx, this);
@@ -1035,7 +1064,7 @@ namespace BindingsGen.GLSpecs
 		{
 			if (GetImplementationReturnType(ctx) != "void")
 				return (false);
-			if (!CommandParameterArray.IsCompatible(this, ctx))
+			if (!CommandParameterArrayLength.IsCompatible(ctx, this))
 				return (false);
 
 			string implementationName = GetImplementationNameBase(ctx);

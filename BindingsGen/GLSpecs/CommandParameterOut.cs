@@ -40,9 +40,9 @@ namespace BindingsGen.GLSpecs
 			if (otherParam == null)
 				throw new ArgumentNullException("otherParam");
 
-			if (IsCompatible(otherParam, ctx, parentCommand))
+			if (IsCompatible(ctx, parentCommand, otherParam))
 				Length = "1";
-			else if (strong && CommandParameterStrong.IsCompatible(otherParam, ctx, parentCommand)) {
+			else if (strong && CommandParameterStrong.IsCompatible(ctx, parentCommand, otherParam)) {
 				Type = otherParam.Group;
 				mIsStrong = true;
 			}
@@ -52,25 +52,31 @@ namespace BindingsGen.GLSpecs
 
 		#region Utility
 
-		internal static bool IsCompatible(CommandParameter param, RegistryContext ctx, Command parentCommand)
+		internal static bool IsCompatible(RegistryContext ctx, Command command)
+		{
+			return (IsCompatible(ctx, command, command.Parameters));
+		}
+
+		internal static bool IsCompatible(RegistryContext ctx, Command command, List<CommandParameter> parameters)
+		{
+			return (parameters.FindIndex(delegate (CommandParameter item) { return (IsCompatible(ctx, command, item)); }) >= 0);
+		}
+
+		internal static bool IsCompatible(RegistryContext ctx, Command command, CommandParameter param)
 		{
 			// Already "out" param?
-			if (param.GetImplementationTypeModifier(ctx, parentCommand) == "out")
+			if (param.GetImplementationTypeModifier(ctx, command) == "out")
 				return (false);
 
 			string implementationType = param.ManagedImplementationType;
 
 			// Type[] + IsGetImplementation -> out Type
 			// Type[] + OutParam -> out Type
-			if ((param.IsConstant == false) && implementationType.EndsWith("[]") && (param.Length != "1") && ((parentCommand.Flags & CommandFlags.OutParam) != 0))
+			// Type[] + OutParamLast -> out Type
+			if ((param.IsConstant == false) && implementationType.EndsWith("[]") && (param.Length != "1") && ((command.Flags & (CommandFlags.OutParam | CommandFlags.OutParamLast)) != 0))
 				return (true);
 
 			return (false);
-		}
-
-		internal static bool IsCompatible(Command command, RegistryContext ctx)
-		{
-			return (command.Parameters.FindIndex(delegate(CommandParameter item) { return (IsCompatible(item, ctx, command)); }) >= 0);
 		}
 
 		#endregion

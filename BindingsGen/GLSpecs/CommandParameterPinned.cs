@@ -40,11 +40,11 @@ namespace BindingsGen.GLSpecs
 			if (otherParam == null)
 				throw new ArgumentNullException("otherParam");
 
-			if (IsCompatible(otherParam, ctx, parentCommand)) {
+			if (IsCompatible(ctx, parentCommand, otherParam)) {
 				Type = "Object";
 				TypeDecorators.Clear();
 				mIsPinned = true;
-			} else if (strong && CommandParameterStrong.IsCompatible(otherParam, ctx, parentCommand)) {
+			} else if (strong && CommandParameterStrong.IsCompatible(ctx, parentCommand, otherParam)) {
 				Type = otherParam.Group;
 			}
 		}
@@ -52,6 +52,39 @@ namespace BindingsGen.GLSpecs
 		#endregion
 
 		#region Utility
+
+		internal static bool IsCompatible(RegistryContext ctx, Command command)
+		{
+			return (IsCompatible(ctx, command, command.Parameters));
+		}
+
+		internal static bool IsCompatible(RegistryContext ctx, Command command, List<CommandParameter> parameters)
+		{
+			return (parameters.FindIndex(delegate (CommandParameter item) { return (IsCompatible(ctx, command, item)); }) >= 0);
+		}
+
+		internal static bool IsCompatible(RegistryContext ctx, Command command, CommandParameter param)
+		{
+			switch (ctx.Class.ToLower()) {
+				case "gl":
+					break;
+				default:
+					return (false);
+			}
+
+			if (param.GetImplementationType(ctx, command) != "IntPtr")
+				return (false);
+			if (Regex.IsMatch(param.Name, "offset"))
+				return (false);
+			if (param.IsConstant || command.IsGetImplementation(ctx))
+				return (true);
+
+			return (false);
+		}
+
+		#endregion
+
+		#region CommandParameter Overrides
 
 		private string PinnedLocalVarName
 		{
@@ -62,34 +95,6 @@ namespace BindingsGen.GLSpecs
 				return (TypeMap.IsCsKeyword(pinnedName) ? "@" + pinnedName : pinnedName);
 			}
 		}
-
-		internal static bool IsCompatible(CommandParameter param, RegistryContext ctx, Command parentCommand)
-		{
-			switch (ctx.Class.ToLower()) {
-				case "gl":
-					break;
-				default:
-					return (false);
-			}
-
-			if (param.GetImplementationType(ctx, parentCommand) != "IntPtr")
-				return (false);
-			if (Regex.IsMatch(param.Name, "offset"))
-				return (false);
-			if (param.IsConstant || parentCommand.IsGetImplementation(ctx))
-				return (true);
-
-			return (false);
-		}
-
-		internal static bool IsCompatible(Command command, RegistryContext ctx)
-		{
-			return (command.Parameters.FindIndex(delegate(CommandParameter item) { return (IsCompatible(item, ctx, command)); }) >= 0);
-		}
-
-		#endregion
-
-		#region CommandParameter Overrides
 
 		public override void WriteDelegateParam(SourceStreamWriter sw, RegistryContext ctx, Command parentCommand)
 		{

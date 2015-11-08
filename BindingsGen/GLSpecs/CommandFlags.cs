@@ -45,19 +45,24 @@ namespace BindingsGen.GLSpecs
 		NoGetError =		0x02,
 
 		/// <summary>
-		/// Generate an "out" parameter even if the declared array length is not 1.
+		/// Generate an "out" parameter, but only if it can be safely determined by the parameter specification.
 		/// </summary>
 		OutParam =			0x04,
 
 		/// <summary>
+		/// Generate command with an "out" parameter, in the case the last parameter is a non-constant array.
+		/// </summary>
+		OutParamLast =	0x08,
+
+		/// <summary>
 		/// Generate the method overload with plain parameters even if parameters are stringly typed.
 		/// </summary>
-		ForcePlainParams =	0x08,
+		ForcePlainParams =	0x10,
 
 		/// <summary>
 		/// Variable arguments.
 		/// </summary>
-		VariadicParams =	0x10,
+		VariadicParams =	0x20,
 	}
 
 	/// <summary>
@@ -203,12 +208,14 @@ namespace BindingsGen.GLSpecs
 
 		public static CommandFlags GetCommandFlags(Command command)
 		{
+			CommandFlags commandFlags = CommandFlags.None;
+
 			foreach (CommandItem commandItem in _CommandFlagsDatabase.Commands) {
 				if (Regex.IsMatch(command.Prototype.Name, commandItem.Name))
-					return (commandItem.Flags);
+					commandFlags |= commandItem.Flags;
 			}
 
-			return (CommandFlags.None);
+			return (commandFlags);
 		}
 
 		public static string GetCommandImplementationName(Command command)
