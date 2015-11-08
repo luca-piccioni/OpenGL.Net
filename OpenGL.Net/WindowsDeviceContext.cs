@@ -45,8 +45,8 @@ namespace OpenGL
 			if (window == null)
 				throw new ArgumentNullException("window");
 			
-			mWindowHandle = window.Handle;
-			mDeviceContext = Wgl.UnsafeNativeMethods.GdiGetDC(window.Handle);
+			_WindowHandle = window.Handle;
+			_DeviceContext = Wgl.UnsafeNativeMethods.GdiGetDC(window.Handle);
 
 			if (DeviceContext == IntPtr.Zero)
 				throw new InvalidOperationException("unable to get any video device context");
@@ -65,7 +65,7 @@ namespace OpenGL
 			{
 				if (IsDisposed)
 					throw new ObjectDisposedException("WindowsDeviceContext");
-				return (mWindowHandle);
+				return (_WindowHandle);
 			}
 		}
 
@@ -78,19 +78,19 @@ namespace OpenGL
 			{
 				if (IsDisposed)
 					throw new ObjectDisposedException("WindowsDeviceContext");
-				return (mDeviceContext);
+				return (_DeviceContext);
 			}
 		}
 
 		/// <summary>
 		/// The window handle.
 		/// </summary>
-		private readonly IntPtr mWindowHandle;
+		private readonly IntPtr _WindowHandle;
 
 		/// <summary>
 		/// The device context of the control.
 		/// </summary>
-		private readonly IntPtr mDeviceContext;
+		private readonly IntPtr _DeviceContext;
 		
 		#endregion
 

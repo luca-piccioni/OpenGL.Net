@@ -283,20 +283,26 @@ namespace OpenGL
 		/// </summary>
 		public delegate void ApplicationLogDelegate(string format, params object[] args);
 
+		/// <summary>
+		/// Register a callback used to notify the application about a procedure log.
+		/// </summary>
+		/// <param name="callback">
+		/// The <see cref="ApplicationLogDelegate"/> used to notify application about a procedure log event.
+		/// </param>
 		public static void RegisterApplicationLogDelegate(ApplicationLogDelegate callback)
 		{
-			sAppProcLog = callback;
+			_ProcLogCallback = callback;
 		}
 		
 		/// <summary>
 		/// Flag used for enabling/disabling procedure logging.
 		/// </summary>
-		public static bool LogEnabled { get { return (sProcEnabled); } set { sProcEnabled = value; } }
+		public static bool LogEnabled { get { return (_ProcLogEnabled); } set { _ProcLogEnabled = value; } }
 		
 		/// <summary>
 		/// 
 		/// </summary>
-		public static ProcLogFlags LogFlags { get { return (sProcLogFlags); } set { sProcLogFlags = value; } }
+		public static ProcLogFlags LogFlags { get { return (_ProcLogFlags); } set { _ProcLogFlags = value; } }
 		
 		/// <summary>
 		/// Initializes the procedure log.
@@ -327,7 +333,7 @@ namespace OpenGL
 			InitializeLog();
 			
 			// Create log file
-			sProcLog = new StreamWriter(path);
+			_ProcLogStream = new StreamWriter(path);
 			// Enable by default
 			LogEnabled = true;
 		}
@@ -401,22 +407,22 @@ namespace OpenGL
 				throw new ArgumentNullException("format");
 
 			// Write a line on separate file
-			if ((sProcLog != null) && ((sProcLogFlags & ProcLogFlags.LogOnSeparateFile) != 0)) {
+			if ((_ProcLogStream != null) && ((_ProcLogFlags & ProcLogFlags.LogOnSeparateFile) != 0)) {
 				// Write on stream
 				try {
-					sProcLog.WriteLine(format, args);
+					_ProcLogStream.WriteLine(format, args);
 				} catch {
 					// Ignore exceptions
 				}
 				// Optionally flush
-				if ((sProcLogFlags & ProcLogFlags.LogFlush) != 0)
-					sProcLog.Flush();
+				if ((_ProcLogFlags & ProcLogFlags.LogFlush) != 0)
+					_ProcLogStream.Flush();
 			}
 			
 			// Write on app
-			if ((sAppProcLog != null) && ((sProcLogFlags & ProcLogFlags.LogOnApp) != 0)) {
+			if ((_ProcLogCallback != null) && ((_ProcLogFlags & ProcLogFlags.LogOnApp) != 0)) {
 				try {
-					sAppProcLog(format, args);
+					_ProcLogCallback(format, args);
 				} catch {
 					// Ignore exceptions
 				}
@@ -428,31 +434,31 @@ namespace OpenGL
 		/// </summary>
 		public static void CloseLog()
 		{
-			if (sProcLog != null) {
-				sProcLog.Close();
-				sProcLog = null;
+			if (_ProcLogStream != null) {
+				_ProcLogStream.Close();
+				_ProcLogStream = null;
 			}
 		}
 		
 		/// <summary>
 		/// Procedure log file.
 		/// </summary>
-		private static StreamWriter sProcLog;
+		private static StreamWriter _ProcLogStream;
 		
 		/// <summary>
 		/// Flag used for enabling/disabling procedure logging.
 		/// </summary>
-		protected static bool sProcEnabled;
+		protected static bool _ProcLogEnabled;
 		
 		/// <summary>
 		/// Delegate for logging using application framework.
 		/// </summary>
-		private static ApplicationLogDelegate sAppProcLog;
+		private static ApplicationLogDelegate _ProcLogCallback;
 		
 		/// <summary>
 		/// Flags controlling procedure logging.
 		/// </summary>
-		private static ProcLogFlags sProcLogFlags = ProcLogFlags.All;
+		private static ProcLogFlags _ProcLogFlags = ProcLogFlags.All;
 		
 		#endregion
 	}

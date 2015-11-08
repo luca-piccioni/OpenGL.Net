@@ -36,6 +36,12 @@
 	<enumerant name="^TextureTarget$">
 		<add_enum>GL_TEXTURE_RECTANGLE</add_enum>
 		<add_enum>GL_TEXTURE_CUBE_MAP</add_enum>
+		<add_enum>GL_TEXTURE_CUBE_MAP_POSITIVE_X</add_enum>
+		<add_enum>GL_TEXTURE_CUBE_MAP_NEGATIVE_X</add_enum>
+		<add_enum>GL_TEXTURE_CUBE_MAP_POSITIVE_Y</add_enum>
+		<add_enum>GL_TEXTURE_CUBE_MAP_NEGATIVE_Y</add_enum>
+		<add_enum>GL_TEXTURE_CUBE_MAP_POSITIVE_Z</add_enum>
+		<add_enum>GL_TEXTURE_CUBE_MAP_NEGATIVE_Z</add_enum>
 	</enumerant>
 	
 	<!-- GL - Special Cases -->
@@ -59,7 +65,7 @@
 
 	<!-- GL - Out Parameter -->
 
-	<command name="^glGet(Query(Object)?|Shader|Program|VertexAttrib)iv$">
+	<command name="^glGet(Query(Object)?|Shader|Program|VertexAttrib|TexLevelParameter)iv$">
 		<!-- Generate "out" overloads -->
 		<flags>OutParam</flags>
 	</command>
@@ -132,4 +138,12 @@
 		<!-- GDI functions are implemented manually -->
 		<flags>Disable</flags>
 	</command>
+
+	<!-- GLX -->
+
+	<command name="^glxGet(GetFBConfigs|GetFBConfigAttrib)$">
+		<!-- Generate "out" overloads -->
+		<flags>OutParam</flags>
+	</command>
+	
 </command_overrides>

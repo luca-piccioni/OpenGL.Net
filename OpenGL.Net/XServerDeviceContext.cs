@@ -71,15 +71,15 @@ namespace OpenGL
 		public XServerDeviceContext(IntPtr display)
 		{
 			// Open display (follows DISPLAY environment variable)
-			mDisplay = Glx.UnsafeNativeMethods.XOpenDisplay(display);
-			ProcLoader.LogProc("XOpenDisplay(0x0) = 0x{0}", mDisplay.ToString("X"));
-			if (mDisplay == IntPtr.Zero)
+			_Display = Glx.UnsafeNativeMethods.XOpenDisplay(display);
+			ProcLoader.LogProc("XOpenDisplay(0x0) = 0x{0}", _Display.ToString("X"));
+			if (_Display == IntPtr.Zero)
 				throw new InvalidOperationException(String.Format("unable to connect to X server display {0}", display.ToInt32()));
 			// Need to close display
-			mOwnDisplay = true;
+			_OwnDisplay = true;
 
 			// Screen
-			mScreen = Glx.UnsafeNativeMethods.XDefaultScreen(mDisplay);
+			_Screen = Glx.UnsafeNativeMethods.XDefaultScreen(_Display);
 			
 			// Query GLX extensions
 			QueryExtensions();
@@ -118,17 +118,17 @@ namespace OpenGL
 				throw new PlatformNotSupportedException("mono runtime version no supported");
 			
 			// Get System.Windows.Forms display
-			mDisplay = (IntPtr)xplatui.GetField("DisplayHandle", System.Reflection.BindingFlags.Static | System.Reflection.BindingFlags.NonPublic).GetValue(null);
-			ProcLoader.LogComment("System.Windows.Forms.XplatUIX11.DisplayHandle is 0x{0}", mDisplay.ToString("X"));
-			if (mDisplay == IntPtr.Zero)
+			_Display = (IntPtr)xplatui.GetField("DisplayHandle", System.Reflection.BindingFlags.Static | System.Reflection.BindingFlags.NonPublic).GetValue(null);
+			ProcLoader.LogComment("System.Windows.Forms.XplatUIX11.DisplayHandle is 0x{0}", _Display.ToString("X"));
+			if (_Display == IntPtr.Zero)
 				throw new InvalidOperationException("unable to connect to X server using XPlatUI");
 			
 			// Screen
-			mScreen = (int)xplatui.GetField("ScreenNo", System.Reflection.BindingFlags.Static | System.Reflection.BindingFlags.NonPublic).GetValue(null);
-			ProcLoader.LogComment("System.Windows.Forms.XplatUIX11.ScreenNo is {0}", mScreen);
+			_Screen = (int)xplatui.GetField("ScreenNo", System.Reflection.BindingFlags.Static | System.Reflection.BindingFlags.NonPublic).GetValue(null);
+			ProcLoader.LogComment("System.Windows.Forms.XplatUIX11.ScreenNo is {0}", _Screen);
 
 			// Window handle
-			mWindowHandle = controlHandle;
+			_WindowHandle = controlHandle;
 			
 			// Query GLX extensions
 			QueryExtensions();
@@ -147,7 +147,7 @@ namespace OpenGL
 			{
 				if (IsDisposed)
 					throw new ObjectDisposedException("XServerDeviceContext");
-				return (mDisplay);
+				return (_Display);
 			}
 		}
 
@@ -160,7 +160,7 @@ namespace OpenGL
 			{
 				if (IsDisposed)
 					throw new ObjectDisposedException("XServerDeviceContext");
-				return (mScreen);
+				return (_Screen);
 			}
 		}
 
@@ -173,15 +173,15 @@ namespace OpenGL
 			{
 				if (IsDisposed)
 					throw new ObjectDisposedException("XServerDeviceContext");
-				return (mWindowHandle);
+				return (_WindowHandle);
 			}
 			set
 			{
 				if (IsDisposed)
 					throw new ObjectDisposedException("XServerDeviceContext");
-				if (mOwnDisplay == false)
+				if (_OwnDisplay == false)
 					throw new InvalidOperationException("display not owned");
-				mWindowHandle = value;
+				_WindowHandle = value;
 			}
 		}
 
@@ -194,13 +194,13 @@ namespace OpenGL
 			{
 				if (IsDisposed)
 					throw new ObjectDisposedException("XServerDeviceContext");
-				return (mFBConfig);
+				return (_FBConfig);
 			}
 			set
 			{
 				if (IsDisposed)
 					throw new ObjectDisposedException("XServerDeviceContext");
-				mFBConfig = value;
+				_FBConfig = value;
 			}
 		}
 
@@ -215,40 +215,40 @@ namespace OpenGL
 			{
 				if (IsDisposed)
 					throw new ObjectDisposedException("XServerDeviceContext");
-				return (mVisualInfo);
+				return (_VisualInfo);
 			}
 			set
 			{
 				if (IsDisposed)
 					throw new ObjectDisposedException("XServerDeviceContext");
-				mVisualInfo = value;
+				_VisualInfo = value;
 			}
 		}
 
 		/// <summary>
 		/// The opened display.
 		/// </summary>
-		private readonly IntPtr mDisplay;
+		private readonly IntPtr _Display;
 
 		/// <summary>
 		/// The screen.
 		/// </summary>
-		private readonly int mScreen;
+		private readonly int _Screen;
 
 		/// <summary>
 		/// The window handle.
 		/// </summary>
-		private IntPtr mWindowHandle;
+		private IntPtr _WindowHandle;
 
 		/// <summary>
 		/// The frame buffer configuration.
 		/// </summary>
-		private IntPtr mFBConfig;
+		private IntPtr _FBConfig;
 
 		/// <summary>
 		/// The visual information.
 		/// </summary>
-		private Glx.XVisualInfo mVisualInfo;
+		private Glx.XVisualInfo _VisualInfo;
 		
 		#endregion
 		
@@ -269,7 +269,7 @@ namespace OpenGL
 			if (initialized == 0)
 				throw new InvalidOperationException("platform does not support multithreading");
 			
-			mMultithreadingInitialized = true;
+			_MultithreadingInitialized = true;
 		}
 		
 		/// <summary>
@@ -278,12 +278,12 @@ namespace OpenGL
 		/// <value>
 		/// It returns <c>true</c> if this instance is X11 multithreading is initialized; otherwise, <c>false</c>.
 		/// </value>
-		internal static bool IsMultithreadingInitialized { get { return (mMultithreadingInitialized); } }
+		internal static bool IsMultithreadingInitialized { get { return (_MultithreadingInitialized); } }
 		
 		/// <summary>
 		/// Flag indicating whether X11 multithreading is initialized.
 		/// </summary>
-		private static bool mMultithreadingInitialized;
+		private static bool _MultithreadingInitialized;
 		
 		#endregion
 		
@@ -292,12 +292,12 @@ namespace OpenGL
 		/// <summary>
 		/// The GLX major version.
 		/// </summary>
-		public int GlxMajor { get { return (mGlxMajor); } }
+		public int GlxMajor { get { return (_GlxMajor); } }
 		
 		/// <summary>
 		/// The GLX minor version.
 		/// </summary>
-		public int GlxMinor { get { return (mGlxMinor); } }
+		public int GlxMinor { get { return (_GlxMinor); } }
 		
 		/// <summary>
 		/// Check whether current X11 implementation supports the extension.
@@ -310,7 +310,7 @@ namespace OpenGL
 		/// </returns>
 		public bool HasExtension(string eName)
 		{
-			return (mExtensions.ContainsKey(eName));
+			return (_Extensions.ContainsKey(eName));
 		}
 		
 		/// <summary>
@@ -324,15 +324,15 @@ namespace OpenGL
 	
 				Glx.QueryVersion(Display, majorArg, minorArg);
 	
-				mGlxMajor = majorArg[0];
-				mGlxMinor = minorArg[0];
+				_GlxMajor = majorArg[0];
+				_GlxMinor = minorArg[0];
 	
-				if ((mGlxMajor >= 1) && (mGlxMinor >= 1)) {
+				if ((_GlxMajor >= 1) && (_GlxMinor >= 1)) {
 					extString = Glx.QueryExtensionsString(Display, 0);
 					if (!String.IsNullOrEmpty(extString)) {
 						string[] extTokens = extString.Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
 						foreach (string e in extTokens)
-							mExtensions.Add(e, true);
+							_Extensions.Add(e, true);
 					}
 				}
 			}
@@ -341,17 +341,17 @@ namespace OpenGL
 		/// <summary>
 		/// The GLX major version.
 		/// </summary>
-		private int mGlxMajor;
+		private int _GlxMajor;
 		
 		/// <summary>
 		/// The GLX minor version.
 		/// </summary>
-		private int mGlxMinor;
+		private int _GlxMinor;
 		
 		/// <summary>
 		/// Available extensions.
 		/// </summary>
-		private readonly Dictionary<string, bool> mExtensions = new Dictionary<string, bool>();
+		private readonly Dictionary<string, bool> _Extensions = new Dictionary<string, bool>();
 		
 		#endregion
 
@@ -366,7 +366,7 @@ namespace OpenGL
 		protected override void Dispose(bool disposing)
 		{
 			if (disposing) {
-				if ((mOwnDisplay == true) && (Display != IntPtr.Zero)) {
+				if ((_OwnDisplay == true) && (Display != IntPtr.Zero)) {
 					Glx.UnsafeNativeMethods.XCloseDisplay(Display);
 					ProcLoader.LogProc("XCloseDisplay({0})", Display.ToString("X"));
 				}
@@ -376,7 +376,7 @@ namespace OpenGL
 		/// <summary>
 		/// Flag indicating whether the display has been opened with XOpenDisplay.
 		/// </summary>
-		private bool mOwnDisplay;
+		private bool _OwnDisplay;
 
 		#endregion
 	}

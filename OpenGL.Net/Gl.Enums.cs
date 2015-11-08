@@ -7525,6 +7525,36 @@ namespace OpenGL
 		/// </summary>
 		TextureCubeMap = Gl.TEXTURE_CUBE_MAP,
 
+		/// <summary>
+		/// Strongly typed for value GL_TEXTURE_CUBE_MAP_POSITIVE_X.
+		/// </summary>
+		TextureCubeMapPositiveX = Gl.TEXTURE_CUBE_MAP_POSITIVE_X,
+
+		/// <summary>
+		/// Strongly typed for value GL_TEXTURE_CUBE_MAP_NEGATIVE_X.
+		/// </summary>
+		TextureCubeMapNegativeX = Gl.TEXTURE_CUBE_MAP_NEGATIVE_X,
+
+		/// <summary>
+		/// Strongly typed for value GL_TEXTURE_CUBE_MAP_POSITIVE_Y.
+		/// </summary>
+		TextureCubeMapPositiveY = Gl.TEXTURE_CUBE_MAP_POSITIVE_Y,
+
+		/// <summary>
+		/// Strongly typed for value GL_TEXTURE_CUBE_MAP_NEGATIVE_Y.
+		/// </summary>
+		TextureCubeMapNegativeY = Gl.TEXTURE_CUBE_MAP_NEGATIVE_Y,
+
+		/// <summary>
+		/// Strongly typed for value GL_TEXTURE_CUBE_MAP_POSITIVE_Z.
+		/// </summary>
+		TextureCubeMapPositiveZ = Gl.TEXTURE_CUBE_MAP_POSITIVE_Z,
+
+		/// <summary>
+		/// Strongly typed for value GL_TEXTURE_CUBE_MAP_NEGATIVE_Z.
+		/// </summary>
+		TextureCubeMapNegativeZ = Gl.TEXTURE_CUBE_MAP_NEGATIVE_Z,
+
 	}
 
 	/// <summary>
