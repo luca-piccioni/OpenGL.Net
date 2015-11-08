@@ -2007,7 +2007,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.EndTransformFeedback"/>
 		[RequiredByFeature("GL_VERSION_4_0")]
 		[RequiredByFeature("GL_ARB_transform_feedback2")]
-		public static void DeleteTransformFeedback(UInt32[] ids)
+		public static void DeleteTransformFeedbacks(params UInt32[] ids)
 		{
 			unsafe {
 				fixed (UInt32* p_ids = ids)
@@ -2035,7 +2035,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.EndTransformFeedback"/>
 		[RequiredByFeature("GL_VERSION_4_0")]
 		[RequiredByFeature("GL_ARB_transform_feedback2")]
-		public static void GenTransformFeedback(UInt32[] ids)
+		public static void GenTransformFeedbacks(UInt32[] ids)
 		{
 			unsafe {
 				fixed (UInt32* p_ids = ids)
@@ -2063,7 +2063,7 @@ namespace OpenGL
 		public static UInt32 GenTransformFeedback()
 		{
 			UInt32[] retValue = new UInt32[1];
-			GenTransformFeedback(retValue);
+			GenTransformFeedbacks(retValue);
 			return (retValue[0]);
 		}
 

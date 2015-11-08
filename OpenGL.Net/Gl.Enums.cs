@@ -1488,6 +1488,21 @@ namespace OpenGL
 		/// </summary>
 		VertexArray = Gl.VERTEX_ARRAY,
 
+		/// <summary>
+		/// Strongly typed for value GL_PRIMITIVE_RESTART.
+		/// </summary>
+		PrimitiveRestart = Gl.PRIMITIVE_RESTART,
+
+		/// <summary>
+		/// Strongly typed for value GL_PRIMITIVE_RESTART_NV.
+		/// </summary>
+		PrimitiveRestartNv = Gl.PRIMITIVE_RESTART_NV,
+
+		/// <summary>
+		/// Strongly typed for value GL_RASTERIZER_DISCARD.
+		/// </summary>
+		RasterizerDiscard = Gl.RASTERIZER_DISCARD,
+
 	}
 
 	/// <summary>

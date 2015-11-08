@@ -170,6 +170,32 @@ namespace OpenGL
 		}
 
 		/// <summary>
+		/// Binding for glGetObjectParameterfvARB.
+		/// </summary>
+		/// <param name="obj">
+		/// A <see cref="T:UInt32"/>.
+		/// </param>
+		/// <param name="pname">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="params">
+		/// A <see cref="T:float"/>.
+		/// </param>
+		[RequiredByFeature("GL_ARB_shader_objects")]
+		public static void GetObjectParameterARB(UInt32 obj, Int32 pname, out float @params)
+		{
+			unsafe {
+				fixed (float* p_params = &@params)
+				{
+					Debug.Assert(Delegates.pglGetObjectParameterfvARB != null, "pglGetObjectParameterfvARB not implemented");
+					Delegates.pglGetObjectParameterfvARB(obj, pname, p_params);
+					CallLog("glGetObjectParameterfvARB({0}, {1}, {2})", obj, pname, @params);
+				}
+			}
+			DebugCheckErrors();
+		}
+
+		/// <summary>
 		/// Binding for glGetObjectParameterivARB.
 		/// </summary>
 		/// <param name="obj">
@@ -186,6 +212,32 @@ namespace OpenGL
 		{
 			unsafe {
 				fixed (Int32* p_params = @params)
+				{
+					Debug.Assert(Delegates.pglGetObjectParameterivARB != null, "pglGetObjectParameterivARB not implemented");
+					Delegates.pglGetObjectParameterivARB(obj, pname, p_params);
+					CallLog("glGetObjectParameterivARB({0}, {1}, {2})", obj, pname, @params);
+				}
+			}
+			DebugCheckErrors();
+		}
+
+		/// <summary>
+		/// Binding for glGetObjectParameterivARB.
+		/// </summary>
+		/// <param name="obj">
+		/// A <see cref="T:UInt32"/>.
+		/// </param>
+		/// <param name="pname">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="params">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		[RequiredByFeature("GL_ARB_shader_objects")]
+		public static void GetObjectParameterARB(UInt32 obj, Int32 pname, out Int32 @params)
+		{
+			unsafe {
+				fixed (Int32* p_params = &@params)
 				{
 					Debug.Assert(Delegates.pglGetObjectParameterivARB != null, "pglGetObjectParameterivARB not implemented");
 					Delegates.pglGetObjectParameterivARB(obj, pname, p_params);

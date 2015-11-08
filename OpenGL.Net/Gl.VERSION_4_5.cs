@@ -251,7 +251,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.ResumeTransformFeedback"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_direct_state_access")]
-		public static void CreateTransformFeedback(Int32 n, UInt32[] ids)
+		public static void CreateTransformFeedbacks(Int32 n, UInt32[] ids)
 		{
 			unsafe {
 				fixed (UInt32* p_ids = ids)
