@@ -1111,6 +1111,28 @@ namespace OpenGL
 		}
 
 		/// <summary>
+		/// post EGL surface color buffer to a native window
+		/// </summary>
+		/// <param name="dpy">
+		/// A <see cref="T:IntPtr"/>.
+		/// </param>
+		/// <param name="surface">
+		/// Specifies the EGL drawing surface whose buffers are to be swapped.
+		/// </param>
+		[RequiredByFeature("EGL_VERSION_1_0")]
+		public static IntPtr SwapBuffers(IntPtr dpy, IntPtr surface)
+		{
+			IntPtr retValue;
+
+			Debug.Assert(Delegates.peglSwapBuffers != null, "peglSwapBuffers not implemented");
+			retValue = Delegates.peglSwapBuffers(dpy, surface);
+			CallLog("eglSwapBuffers(0x{0}, 0x{1}) = {2}", dpy.ToString("X8"), surface.ToString("X8"), retValue.ToString("X8"));
+			DebugCheckErrors();
+
+			return (retValue);
+		}
+
+		/// <summary>
 		/// terminate an EGL display connection
 		/// </summary>
 		/// <param name="dpy">

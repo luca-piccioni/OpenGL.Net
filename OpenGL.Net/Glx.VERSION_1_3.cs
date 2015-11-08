@@ -641,6 +641,38 @@ namespace OpenGL
 		}
 
 		/// <summary>
+		/// list all GLX frame buffer configurations for a given screen
+		/// </summary>
+		/// <param name="dpy">
+		/// Specifies the connection to the X server.
+		/// </param>
+		/// <param name="screen">
+		/// Specifies the screen number.
+		/// </param>
+		/// <param name="nelements">
+		/// Returns the number of GLXFBConfigs returned.
+		/// </param>
+		/// <seealso cref="Glx.GetFBConfigAttrib"/>
+		/// <seealso cref="Glx.GetVisualFromFBConfig"/>
+		/// <seealso cref="Glx.ChooseFBConfig"/>
+		[RequiredByFeature("GLX_VERSION_1_3")]
+		public static unsafe IntPtr* GetFBConfigs(IntPtr dpy, int screen, out int nelements)
+		{
+			IntPtr* retValue;
+
+			unsafe {
+				fixed (int* p_nelements = &nelements)
+				{
+					Debug.Assert(Delegates.pglXGetFBConfigs != null, "pglXGetFBConfigs not implemented");
+					retValue = Delegates.pglXGetFBConfigs(dpy, screen, p_nelements);
+					CallLog("glXGetFBConfigs(0x{0}, {1}, {2}) = {3}", dpy.ToString("X8"), screen, nelements, retValue != null ? retValue->ToString() : "(null)");
+				}
+			}
+
+			return (retValue);
+		}
+
+		/// <summary>
 		/// return a list of GLX frame buffer configurations that match the specified attributes
 		/// </summary>
 		/// <param name="dpy">
@@ -716,6 +748,49 @@ namespace OpenGL
 
 			unsafe {
 				fixed (int* p_value = value)
+				{
+					Debug.Assert(Delegates.pglXGetFBConfigAttrib != null, "pglXGetFBConfigAttrib not implemented");
+					retValue = Delegates.pglXGetFBConfigAttrib(dpy, config, attribute, p_value);
+					CallLog("glXGetFBConfigAttrib(0x{0}, 0x{1}, {2}, {3}) = {4}", dpy.ToString("X8"), config.ToString("X8"), attribute, value, retValue);
+				}
+			}
+
+			return (retValue);
+		}
+
+		/// <summary>
+		/// return information about a GLX frame buffer configuration
+		/// </summary>
+		/// <param name="dpy">
+		/// Specifies the connection to the X server.
+		/// </param>
+		/// <param name="config">
+		/// Specifies the GLX frame buffer configuration to be queried.
+		/// </param>
+		/// <param name="attribute">
+		/// Specifies the attribute to be returned.
+		/// </param>
+		/// <param name="value">
+		/// Returns the requested value.
+		/// </param>
+		/// <remarks>
+		/// <para>The exception below won't be thrown; caller must check result manually.</para>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Glx.NO_EXTENSION is returned if <paramref name="dpy"/> does not support the GLX extension. Glx.BAD_ATTRIBUTE is returned 
+		/// if <paramref name="attribute"/> is not a valid GLX attribute.
+		/// </exception>
+		/// <seealso cref="Glx.GetFBConfigs"/>
+		/// <seealso cref="Glx.ChooseFBConfig"/>
+		/// <seealso cref="Glx.GetVisualFromFBConfig"/>
+		/// <seealso cref="Glx.GetConfig"/>
+		[RequiredByFeature("GLX_VERSION_1_3")]
+		public static int GetFBConfigAttrib(IntPtr dpy, IntPtr config, int attribute, out int value)
+		{
+			int retValue;
+
+			unsafe {
+				fixed (int* p_value = &value)
 				{
 					Debug.Assert(Delegates.pglXGetFBConfigAttrib != null, "pglXGetFBConfigAttrib not implemented");
 					retValue = Delegates.pglXGetFBConfigAttrib(dpy, config, attribute, p_value);

@@ -493,6 +493,31 @@ namespace OpenGL
 			internal static eglSurfaceAttrib peglSurfaceAttrib;
 
 			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate IntPtr eglSwapBuffers(IntPtr dpy, IntPtr surface);
+			[ThreadStatic]
+			internal static eglSwapBuffers peglSwapBuffers;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate IntPtr eglSwapBuffersWithDamageEXT(IntPtr dpy, IntPtr surface, int* rects, int n_rects);
+			[ThreadStatic]
+			internal static eglSwapBuffersWithDamageEXT peglSwapBuffersWithDamageEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate IntPtr eglSwapBuffersWithDamageKHR(IntPtr dpy, IntPtr surface, int* rects, int n_rects);
+			[ThreadStatic]
+			internal static eglSwapBuffersWithDamageKHR peglSwapBuffersWithDamageKHR;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate IntPtr eglSwapBuffersRegionNOK(IntPtr dpy, IntPtr surface, int numRects, int* rects);
+			[ThreadStatic]
+			internal static eglSwapBuffersRegionNOK peglSwapBuffersRegionNOK;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate IntPtr eglSwapBuffersRegion2NOK(IntPtr dpy, IntPtr surface, int numRects, int* rects);
+			[ThreadStatic]
+			internal static eglSwapBuffersRegion2NOK peglSwapBuffersRegion2NOK;
+
+			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate IntPtr eglSwapInterval(IntPtr dpy, int interval);
 			[ThreadStatic]
 			internal static eglSwapInterval peglSwapInterval;

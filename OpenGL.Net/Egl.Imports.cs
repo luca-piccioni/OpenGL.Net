@@ -407,6 +407,26 @@ namespace OpenGL
 			internal extern static unsafe IntPtr eglSurfaceAttrib(IntPtr dpy, IntPtr surface, int attribute, int value);
 
 			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "eglSwapBuffers", ExactSpelling = true)]
+			internal extern static unsafe IntPtr eglSwapBuffers(IntPtr dpy, IntPtr surface);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "eglSwapBuffersWithDamageEXT", ExactSpelling = true)]
+			internal extern static unsafe IntPtr eglSwapBuffersWithDamageEXT(IntPtr dpy, IntPtr surface, int* rects, int n_rects);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "eglSwapBuffersWithDamageKHR", ExactSpelling = true)]
+			internal extern static unsafe IntPtr eglSwapBuffersWithDamageKHR(IntPtr dpy, IntPtr surface, int* rects, int n_rects);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "eglSwapBuffersRegionNOK", ExactSpelling = true)]
+			internal extern static unsafe IntPtr eglSwapBuffersRegionNOK(IntPtr dpy, IntPtr surface, int numRects, int* rects);
+
+			[SuppressUnmanagedCodeSecurity()]
+			[DllImport(Library, EntryPoint = "eglSwapBuffersRegion2NOK", ExactSpelling = true)]
+			internal extern static unsafe IntPtr eglSwapBuffersRegion2NOK(IntPtr dpy, IntPtr surface, int numRects, int* rects);
+
+			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "eglSwapInterval", ExactSpelling = true)]
 			internal extern static unsafe IntPtr eglSwapInterval(IntPtr dpy, int interval);
 
