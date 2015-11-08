@@ -46,7 +46,7 @@ namespace OpenGL
 		/// <summary>
 		/// The type which following plugin factory conventions.
 		/// </summary>
-		private const string PluginFactoryType = "Derm.ImageCodecFactory";
+		private const string PluginFactoryType = "OpenGL.ImageCodecFactory";
 		
 		#endregion
 

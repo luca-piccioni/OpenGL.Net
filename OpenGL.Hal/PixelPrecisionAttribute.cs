@@ -27,7 +27,7 @@ namespace OpenGL
 	class PixelPrecisionAttribute : Attribute
 	{
 		/// <summary>
-		/// Construct <see cref="Derm.PixelPrecisionAttribute"/> class.
+		/// Construct <see cref="OpenGL.PixelPrecisionAttribute"/> class.
 		/// </summary>
 		/// <param name='componentBits'>
 		/// The number of bits assigned to each pixel components.
@@ -48,7 +48,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Construct <see cref="Derm.PixelPrecisionAttribute"/> class.
+		/// Construct <see cref="OpenGL.PixelPrecisionAttribute"/> class.
 		/// </summary>
 		/// <param name='componentBits'>
 		/// The number of bits assigned to each pixel components.

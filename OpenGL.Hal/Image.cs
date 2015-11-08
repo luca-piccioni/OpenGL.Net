@@ -155,9 +155,9 @@ namespace OpenGL
 				case PixelLayout.UInteger2:
 				case PixelLayout.UInteger3:
 				case PixelLayout.UInteger4:
-					mPixelBuffers = new AlignedMemoryBuffer(w * h * formatInfo.PixelBytes, 16);
+					_PixelBuffers = new AlignedMemoryBuffer(w * h * formatInfo.PixelBytes, 16);
 					// Define planes
-					mPixelPlanes = new IntPtr[] { mPixelBuffers.AlignedBuffer };
+					_PixelPlanes = new IntPtr[] { _PixelBuffers.AlignedBuffer };
 					break; 
 				case PixelLayout.YUYV:
 				case PixelLayout.YYUV:
@@ -167,74 +167,74 @@ namespace OpenGL
 					if (((w % 2) != 0) || ((h % 2) != 0))
 						throw new InvalidOperationException(String.Format("invalid image extents for pixel format {0}", format));
 					// Define planes
-					mPixelBuffers = new AlignedMemoryBuffer(w * h * formatInfo.PixelBytes, 16);
-					mPixelPlanes = new IntPtr[] { mPixelBuffers.AlignedBuffer };
+					_PixelBuffers = new AlignedMemoryBuffer(w * h * formatInfo.PixelBytes, 16);
+					_PixelPlanes = new IntPtr[] { _PixelBuffers.AlignedBuffer };
 					break;
 				case PixelLayout.YVU410:
 				case PixelLayout.YUV410:
 					if (((w % 16) != 0) || ((h % 16) != 0))
 						throw new InvalidOperationException(String.Format("invalid image extents for pixel format {0}", format));
-					mPixelBuffers = new AlignedMemoryBuffer(w * h + (w * h / 16) * 2, 16);
+					_PixelBuffers = new AlignedMemoryBuffer(w * h + (w * h / 16) * 2, 16);
 					// Define planes
-					mPixelPlanes = new IntPtr[3];
-					mPixelPlanes[0] = mPixelBuffers.AlignedBuffer;
-					mPixelPlanes[1] = new IntPtr(mPixelBuffers.AlignedBuffer.ToInt64() + w * h);
-					mPixelPlanes[2] = new IntPtr(mPixelBuffers.AlignedBuffer.ToInt64() + w * h + (w * h / 16));
+					_PixelPlanes = new IntPtr[3];
+					_PixelPlanes[0] = _PixelBuffers.AlignedBuffer;
+					_PixelPlanes[1] = new IntPtr(_PixelBuffers.AlignedBuffer.ToInt64() + w * h);
+					_PixelPlanes[2] = new IntPtr(_PixelBuffers.AlignedBuffer.ToInt64() + w * h + (w * h / 16));
 					break;
 				case PixelLayout.YVU420:
 				case PixelLayout.YUV420:
 					if (((w % 4) != 0) || ((h % 4) != 0))
 						throw new InvalidOperationException(String.Format("invalid image extents for pixel format {0}", format));
-					mPixelBuffers = new AlignedMemoryBuffer(w * h + (w * h / 4), 16);
+					_PixelBuffers = new AlignedMemoryBuffer(w * h + (w * h / 4), 16);
 					// Define planes
-					mPixelPlanes = new IntPtr[3];
-					mPixelPlanes[0] = mPixelBuffers.AlignedBuffer;
-					mPixelPlanes[1] = new IntPtr(mPixelBuffers.AlignedBuffer.ToInt64() + w * h);
-					mPixelPlanes[2] = new IntPtr(mPixelBuffers.AlignedBuffer.ToInt64() + w * h + (w * h / 4));
+					_PixelPlanes = new IntPtr[3];
+					_PixelPlanes[0] = _PixelBuffers.AlignedBuffer;
+					_PixelPlanes[1] = new IntPtr(_PixelBuffers.AlignedBuffer.ToInt64() + w * h);
+					_PixelPlanes[2] = new IntPtr(_PixelBuffers.AlignedBuffer.ToInt64() + w * h + (w * h / 4));
 					break;
 				case PixelLayout.YUV422P:
 					if ((w % 2) != 0)
 						throw new InvalidOperationException(String.Format("invalid image extents for pixel format {0}", format));
-					mPixelBuffers = new AlignedMemoryBuffer(w * h + (w * h / 2), 16);
+					_PixelBuffers = new AlignedMemoryBuffer(w * h + (w * h / 2), 16);
 					// Define planes
-					mPixelPlanes = new IntPtr[3];
-					mPixelPlanes[0] = mPixelBuffers.AlignedBuffer;
-					mPixelPlanes[1] = new IntPtr(mPixelBuffers.AlignedBuffer.ToInt64() + w * h);
-					mPixelPlanes[2] = new IntPtr(mPixelBuffers.AlignedBuffer.ToInt64() + w * h + (w * h / 2));
+					_PixelPlanes = new IntPtr[3];
+					_PixelPlanes[0] = _PixelBuffers.AlignedBuffer;
+					_PixelPlanes[1] = new IntPtr(_PixelBuffers.AlignedBuffer.ToInt64() + w * h);
+					_PixelPlanes[2] = new IntPtr(_PixelBuffers.AlignedBuffer.ToInt64() + w * h + (w * h / 2));
 					break;
 				case PixelLayout.YUV411P:
 					if ((w % 4) != 0)
 						throw new InvalidOperationException(String.Format("invalid image extents for pixel format {0}", format));
-					mPixelBuffers = new AlignedMemoryBuffer(w * h + (w * h / 4), 16);
+					_PixelBuffers = new AlignedMemoryBuffer(w * h + (w * h / 4), 16);
 					// Define planes
-					mPixelPlanes = new IntPtr[3];
-					mPixelPlanes[0] = mPixelBuffers.AlignedBuffer;
-					mPixelPlanes[1] = new IntPtr(mPixelBuffers.AlignedBuffer.ToInt64() + w * h);
-					mPixelPlanes[2] = new IntPtr(mPixelBuffers.AlignedBuffer.ToInt64() + w * h + (w * h / 4));
+					_PixelPlanes = new IntPtr[3];
+					_PixelPlanes[0] = _PixelBuffers.AlignedBuffer;
+					_PixelPlanes[1] = new IntPtr(_PixelBuffers.AlignedBuffer.ToInt64() + w * h);
+					_PixelPlanes[2] = new IntPtr(_PixelBuffers.AlignedBuffer.ToInt64() + w * h + (w * h / 4));
 					break;
 				case PixelLayout.Y41P:
 					if ((w % 8) != 0)
 						throw new InvalidOperationException(String.Format("invalid image extents for pixel format {0}", format));
-					mPixelBuffers = new AlignedMemoryBuffer(w * h * 12 / 8, 16);
+					_PixelBuffers = new AlignedMemoryBuffer(w * h * 12 / 8, 16);
 					// Define planes
-					mPixelPlanes = new IntPtr[3];
-					mPixelPlanes[0] = mPixelBuffers.AlignedBuffer;
-					mPixelPlanes[1] = new IntPtr(mPixelBuffers.AlignedBuffer.ToInt64() + w * h);
-					mPixelPlanes[2] = new IntPtr(mPixelBuffers.AlignedBuffer.ToInt64() + w * h + (w * h / 4));
+					_PixelPlanes = new IntPtr[3];
+					_PixelPlanes[0] = _PixelBuffers.AlignedBuffer;
+					_PixelPlanes[1] = new IntPtr(_PixelBuffers.AlignedBuffer.ToInt64() + w * h);
+					_PixelPlanes[2] = new IntPtr(_PixelBuffers.AlignedBuffer.ToInt64() + w * h + (w * h / 4));
 					break;
 				default:
 					throw new NotSupportedException(String.Format("pixel format {0} is not supported", format));
 			}
 			// Set image information
-			mImageInfo.PixelType = formatInfo.DataFormat;
-			mImageInfo.Width = w;
-			mImageInfo.Height = h;
+			_ImageInfo.PixelType = formatInfo.DataFormat;
+			_ImageInfo.Width = w;
+			_ImageInfo.Height = h;
 			// Store pixel format
-			mPixelFormat = formatInfo;
+			_PixelFormat = formatInfo;
 
-			Debug.Assert(mPixelPlanes != null);
-			Debug.Assert(mPixelPlanes.Length != 0);
-			Debug.Assert(Array.TrueForAll(mPixelPlanes, delegate(IntPtr pixelPlane) { return (pixelPlane != IntPtr.Zero); }));
+			Debug.Assert(_PixelPlanes != null);
+			Debug.Assert(_PixelPlanes.Length != 0);
+			Debug.Assert(Array.TrueForAll(_PixelPlanes, delegate(IntPtr pixelPlane) { return (pixelPlane != IntPtr.Zero); }));
 		}
 
 		/// <summary>
@@ -242,8 +242,8 @@ namespace OpenGL
 		/// </summary>
 		public uint Width
 		{
-			get { return (mImageInfo.Width); }
-			protected set { mImageInfo.Width = value; }
+			get { return (_ImageInfo.Width); }
+			protected set { _ImageInfo.Width = value; }
 		}
 
 		/// <summary>
@@ -251,30 +251,30 @@ namespace OpenGL
 		/// </summary>
 		public uint Height
 		{
-			get { return (mImageInfo.Height); }
-			protected set { mImageInfo.Height = value; }
+			get { return (_ImageInfo.Height); }
+			protected set { _ImageInfo.Height = value; }
 		}
 
 		/// <summary>
 		/// Gets the image buffer for every image plane scanlines. Image planes are allocated contiguosly, as defined
 		/// by the specific pixel format, if planar.
 		/// </summary>
-		public IntPtr ImageBuffer { get { return (mPixelBuffers.AlignedBuffer); } }
+		public IntPtr ImageBuffer { get { return (_PixelBuffers.AlignedBuffer); } }
 
 		/// <summary>
 		/// Gets the image planes scan-lines.
 		/// </summary>
-		public IntPtr[] ImagePlanes { get { return (mPixelPlanes); } }
+		public IntPtr[] ImagePlanes { get { return (_PixelPlanes); } }
 
 		/// <summary>
 		/// Image line width, in bytes
 		/// </summary>
-		public uint Stride { get { return (mImageInfo.Width * mPixelFormat.PixelBytes); } }
+		public uint Stride { get { return (_ImageInfo.Width * _PixelFormat.PixelBytes); } }
 
 		/// <summary>
 		/// Image size, in bytes.
 		/// </summary>
-		public uint Size { get { return (mPixelBuffers.Size); } }
+		public uint Size { get { return (_PixelBuffers.Size); } }
 
 		/// <summary>
 		/// Image pixel format.
@@ -282,22 +282,22 @@ namespace OpenGL
 		/// <returns>
 		/// It returns a <see cref="PixelLayout"/> that specifies the image color resolution.
 		/// </returns>
-		public PixelLayout PixelLayout { get { return (mPixelFormat.DataFormat); } }
+		public PixelLayout PixelLayout { get { return (_PixelFormat.DataFormat); } }
 
 		/// <summary>
 		/// The actual pixel format.
 		/// </summary>
-		private PixelLayoutInfo mPixelFormat;
+		private PixelLayoutInfo _PixelFormat;
 
 		/// <summary>
 		/// Pixel arrays defining image layers.
 		/// </summary>
-		private AlignedMemoryBuffer mPixelBuffers;
+		private AlignedMemoryBuffer _PixelBuffers;
 
 		/// <summary>
 		/// Pixel arrays pointers mapped onto pixel planes.
 		/// </summary>
-		private IntPtr[] mPixelPlanes;
+		private IntPtr[] _PixelPlanes;
 
 		#endregion
 
@@ -340,7 +340,7 @@ namespace OpenGL
 				//object pixelStruct = mPixelFormat.CreatePixelStruct();
 				//Marshal.PtrToStructure(pixelData, pixelStruct);
 				
-				object pixelStruct = Marshal.PtrToStructure(pixelData, mPixelFormat.PixelStructType);
+				object pixelStruct = Marshal.PtrToStructure(pixelData, _PixelFormat.PixelStructType);
 
 				return ((IColor)pixelStruct);
 			}
@@ -414,7 +414,7 @@ namespace OpenGL
 				case PixelLayout.UInteger2:
 				case PixelLayout.UInteger3:
 				case PixelLayout.UInteger4:
-					return new IntPtr(mPixelBuffers.AlignedBuffer.ToInt64() + (w * mPixelFormat.PixelBytes) + (h * Width * mPixelFormat.PixelBytes));
+					return new IntPtr(_PixelBuffers.AlignedBuffer.ToInt64() + (w * _PixelFormat.PixelBytes) + (h * Width * _PixelFormat.PixelBytes));
 				default:
 					throw new NotSupportedException(String.Format("pixel format {0} is not supported", PixelLayout));
 			}
@@ -547,7 +547,7 @@ namespace OpenGL
 					// Copy to temporary scaline
 					Marshal.Copy(new IntPtr(hImageDataPtrTop), tmpScanline, 0, (int)Stride);
 					// Swap scan lines
-					Simd.SimdLibrary.MemoryCopy(hImageDataPtrTop, hImageDataPtrBottom, Stride);
+					Memory.MemoryCopy(hImageDataPtrTop, hImageDataPtrBottom, Stride);
 					Marshal.Copy(tmpScanline, 0, new IntPtr(hImageDataPtrBottom), (int)Stride);
 
 					hImageDataPtrBottom += Stride;
@@ -570,9 +570,9 @@ namespace OpenGL
 		protected override void Dispose(bool disposing)
 		{
 			if (disposing) {
-				if (mPixelBuffers != null) {
+				if (_PixelBuffers != null) {
 					// Release the buffer buffer
-					mPixelBuffers.Dispose();
+					_PixelBuffers.Dispose();
 				}
 			}
 		}
@@ -589,20 +589,20 @@ namespace OpenGL
 			get
 			{
 				// Ensure updated information
-				mImageInfo.PixelType = this.PixelLayout;
-				mImageInfo.Width = Width;
-				mImageInfo.Height = Height;
+				_ImageInfo.PixelType = this.PixelLayout;
+				_ImageInfo.Width = Width;
+				_ImageInfo.Height = Height;
 
 				// Other information may be modified by external code
 
-				return (mImageInfo);
+				return (_ImageInfo);
 			}
 		}
 
 		/// <summary>
 		/// Media information.
 		/// </summary>
-		private readonly ImageInfo mImageInfo = new ImageInfo();
+		private readonly ImageInfo _ImageInfo = new ImageInfo();
 
 		#endregion
 	}

@@ -62,7 +62,7 @@ namespace OpenGL
 		/// A <see cref="UInt32"/> that specifies the texture height.
 		/// </param>
 		/// <param name="format">
-		/// A <see cref="PixelFormat"/> determining the texture internal format.
+		/// A <see cref="PixelLayout"/> determining the texture internal format.
 		/// </param>
 		/// <exception cref="ArgumentException">
 		/// Exception thrown if <paramref name="width"/> or <paramref name="height"/> is zero.
@@ -81,7 +81,7 @@ namespace OpenGL
 		/// <exception cref="ArgumentException">
 		/// Exception thrown if <paramref name="format"/> is not a supported internal format.
 		/// </exception>
-		public Texture2d(uint width, uint height, PixelFormat format)
+		public Texture2d(uint width, uint height, PixelLayout format)
 		{
 			Create(width, height, format);
 		}
@@ -100,7 +100,7 @@ namespace OpenGL
 		/// A <see cref="UInt32"/> that specifies the texture height.
 		/// </param>
 		/// <param name="format">
-		/// A <see cref="PixelFormat"/> determining the texture internal format.
+		/// A <see cref="PixelLayout"/> determining the texture internal format.
 		/// </param>
 		/// <exception cref="ArgumentException">
 		/// Exception thrown if <paramref name="width"/> or <paramref name="height"/> is zero.
@@ -122,7 +122,7 @@ namespace OpenGL
 		/// <exception cref="ArgumentException">
 		/// Exception thrown if <paramref name="format"/> is not a supported internal format.
 		/// </exception>
-		public Texture2d(GraphicsContext ctx, uint width, uint height, PixelFormat format)
+		public Texture2d(GraphicsContext ctx, uint width, uint height, PixelLayout format)
 		{
 			Create(ctx, width, height, format);
 		}
@@ -140,7 +140,7 @@ namespace OpenGL
 			/// Construct a EmptyTechnique.
 			/// </summary>
 			/// <param name="target">
-			/// A <see cref="System.Int32"/> that specify the texture target.
+			/// A <see cref="TextureTarget"/> that specify the texture target.
 			/// </param>
 			/// <param name="pixelFormat">
 			/// The texture pixel format.
@@ -151,7 +151,7 @@ namespace OpenGL
 			/// <param name="height">
 			/// The height of the texture.
 			/// </param>
-			public EmptyTechnique(int target, PixelFormat pixelFormat, uint width, uint height)
+			public EmptyTechnique(TextureTarget target, PixelLayout pixelFormat, uint width, uint height)
 			{
 				Target = target;
 				PixelFormat = pixelFormat;
@@ -162,12 +162,12 @@ namespace OpenGL
 			/// <summary>
 			/// The texture target to use for creating the empty texture.
 			/// </summary>
-			private readonly int Target;
+			private readonly TextureTarget Target;
 
 			/// <summary>
 			/// The internal pixel format of textel.
 			/// </summary>
-			readonly PixelFormat PixelFormat;
+			readonly PixelLayout PixelFormat;
 
 			/// <summary>
 			/// Texture width.
@@ -187,11 +187,11 @@ namespace OpenGL
 			/// </param>
 			public override void Create(GraphicsContext ctx)
 			{
-				int format = Pixel.GetGlFormat(PixelFormat);
+				PixelFormat format = Pixel.GetGlFormat(PixelFormat);
 				int internalFormat = Pixel.GetGlInternalFormat(PixelFormat, ctx);
 
 				// Define empty texture
-				Gl.TexImage2D(Target, 0, internalFormat, (int)Width, (int)Height, 0, format, /* Unused */ Gl.UNSIGNED_BYTE, null);
+				Gl.TexImage2D(Target, 0, internalFormat, (int)Width, (int)Height, 0, format, /* Unused */ PixelType.UnsignedByte, null);
 				GraphicsException.CheckErrors();
 			}
 		}
@@ -205,7 +205,7 @@ namespace OpenGL
 			/// Construct a EmptyTechnique.
 			/// </summary>
 			/// <param name="target">
-			/// A <see cref="System.Int32"/> that specify the texture target.
+			/// A <see cref="TextureTarget"/> that specify the texture target.
 			/// </param>
 			/// <param name="pixelFormat">
 			/// The texture pixel format.
@@ -213,7 +213,7 @@ namespace OpenGL
 			/// <param name="image">
 			/// The width of the texture.
 			/// </param>
-			public ImageTechnique(int target, PixelFormat pixelFormat, Image image)
+			public ImageTechnique(TextureTarget target, PixelLayout pixelFormat, Image image)
 			{
 				if (image == null)
 					throw new ArgumentNullException("image");
@@ -227,12 +227,12 @@ namespace OpenGL
 			/// <summary>
 			/// The texture target to use for creating the empty texture.
 			/// </summary>
-			private readonly int Target;
+			private readonly TextureTarget Target;
 
 			/// <summary>
 			/// The internal pixel format of textel.
 			/// </summary>
-			private readonly PixelFormat PixelFormat;
+			private readonly PixelLayout PixelFormat;
 
 			/// <summary>
 			/// The image that represents the texture data.
@@ -248,15 +248,15 @@ namespace OpenGL
 			public override void Create(GraphicsContext ctx)
 			{
 				int internalFormat = Pixel.GetGlInternalFormat(PixelFormat, ctx);
-
-				int type = Pixel.GetGlDataFormat(Image.PixelFormat);
-				int format = Pixel.GetGlFormat(Image.PixelFormat);
+				PixelFormat format = Pixel.GetGlFormat(Image.PixelLayout);
+				PixelType type = Pixel.GetPixelType(Image.PixelLayout);
+				
 
 				// Set pixel transfer
 				foreach (int alignment in new int[] { 8, 4, 2, 1 }) {
 					if ((Image.Stride % alignment) != 0)
 						continue;
-					Gl.PixelStore(Gl.UNPACK_ALIGNMENT, alignment);
+					Gl.PixelStore(PixelStoreParameter.UnpackAlignment, alignment);
 					GraphicsException.DebugCheckErrors();
 					break;
 				}
@@ -286,13 +286,13 @@ namespace OpenGL
 		/// A <see cref="UInt32"/> that specifies the texture height.
 		/// </param>
 		/// <param name="format">
-		/// A <see cref="PixelFormat"/> determining the texture internal format.
+		/// A <see cref="PixelLayout"/> determining the texture internal format.
 		/// </param>
 		/// <exception cref="ArgumentException">
 		/// Exception thrown if <paramref name="width"/> or <paramref name="height"/> is zero.
 		/// </exception>
 		/// <exception cref="ArgumentException">
-		/// Exception thrown if <paramref name="format"/> equals to <see cref="PixelFormat.None"/>.
+		/// Exception thrown if <paramref name="format"/> equals to <see cref="PixelLayout.None"/>.
 		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Exception thrown if no context is current to the calling thread.
@@ -308,13 +308,13 @@ namespace OpenGL
 		/// <exception cref="ArgumentException">
 		/// Exception thrown if <paramref name="format"/> is not a supported internal format.
 		/// </exception>
-		public void Create(uint width, uint height, PixelFormat format)
+		public void Create(uint width, uint height, PixelLayout format)
 		{
 			// Check context compatibility
 			CheckCapabilities(width, height, Depth, format);
 
 			// Setup texture information
-			PixelFormat = format;
+			PixelLayout = format;
 			mWidth = width;
 			mHeight = height;
 
@@ -335,13 +335,13 @@ namespace OpenGL
 		/// A <see cref="UInt32"/> that specifies the texture height.
 		/// </param>
 		/// <param name="format">
-		/// A <see cref="PixelFormat"/> determining the texture internal format.
+		/// A <see cref="PixelLayout"/> determining the texture internal format.
 		/// </param>
 		/// <exception cref="ArgumentException">
 		/// Exception thrown if <paramref name="width"/> or <paramref name="height"/> is zero.
 		/// </exception>
 		/// <exception cref="ArgumentException">
-		/// Exception thrown if <paramref name="format"/> equals to <see cref="PixelFormat.None"/>.
+		/// Exception thrown if <paramref name="format"/> equals to <see cref="PixelLayout.None"/>.
 		/// </exception>
 		/// <exception cref="InvalidOperationException">
 		/// Exception thrown if <paramref name="ctx"/> is null and no context is current to the calling thread.
@@ -357,7 +357,7 @@ namespace OpenGL
 		/// <exception cref="ArgumentException">
 		/// Exception thrown if <paramref name="format"/> is not a supported internal format.
 		/// </exception>
-		public void Create(GraphicsContext ctx, uint width, uint height, PixelFormat format)
+		public void Create(GraphicsContext ctx, uint width, uint height, PixelLayout format)
 		{
 			if (ctx == null)
 				throw new ArgumentNullException("ctx");
@@ -399,15 +399,15 @@ namespace OpenGL
 				throw new ArgumentNullException("image");
 
 			// Check context compatibility
-			CheckCapabilities(image.Width, image.Height, 1, image.PixelFormat);
+			CheckCapabilities(image.Width, image.Height, 1, image.PixelLayout);
 
 			// Setup texture information
-			PixelFormat = image.PixelFormat;
+			PixelLayout = image.PixelLayout;
 			mWidth = image.Width;
 			mHeight = image.Height;
 
 			// Setup technique for creation
-			SetTechnique(new ImageTechnique(TextureTarget, image.PixelFormat, image));
+			SetTechnique(new ImageTechnique(TextureTarget, image.PixelLayout, image));
 		}
 
 		/// <summary>
@@ -526,13 +526,13 @@ namespace OpenGL
 		internal override int SamplerType
 		{
 			get {
-				if (Pixel.IsGlIntegerPixel(PixelFormat)) {
-					if (Pixel.IsGlSignedIntegerPixel(PixelFormat))
+				if (Pixel.IsGlIntegerPixel(PixelLayout)) {
+					if (Pixel.IsGlSignedIntegerPixel(PixelLayout))
 						return (Gl.INT_SAMPLER_2D);
-					if (Pixel.IsGlUnsignedIntegerPixel(PixelFormat))
+					if (Pixel.IsGlUnsignedIntegerPixel(PixelLayout))
 						return (Gl.UNSIGNED_INT_SAMPLER_2D);
 
-					throw new NotSupportedException(String.Format("integer pixel format {0} not correctly supported", PixelFormat));
+					throw new NotSupportedException(String.Format("integer pixel format {0} not correctly supported", PixelLayout));
 				} else
 					return (Gl.SAMPLER_2D);
 			}

@@ -46,7 +46,7 @@ namespace OpenGL
 		{
 			if (ctx == null)
 				throw new ArgumentNullException("ctx");
-			if (ctx.IsCurrent() == false)
+			if (ctx.IsCurrent == false)
 				throw new ArgumentException("ctx.IsCurrent() == false");
 			if (image == null)
 				throw new ArgumentNullException("image");
@@ -58,15 +58,15 @@ namespace OpenGL
 			// Reference pixel data
 			mTextureData = image;
 			// Derive texture pixel format from 'image' if it is not defined yet
-			if (PixelFormat != PixelFormat.None) {
+			if (PixelLayout != PixelLayout.None) {
 				// Check whether texture pixel format is compatible with the image pixel format
-				if (Pixel.IsSupportedSetDataFormat(image.PixelFormat, PixelFormat, ctx) == false)
-					throw new InvalidOperationException(String.Format("textel format {0} incompatible with data pixel format {1}", image.PixelFormat, PixelFormat));
+				if (Pixel.IsSupportedSetDataFormat(image.PixelLayout, PixelLayout, ctx) == false)
+					throw new InvalidOperationException(String.Format("textel format {0} incompatible with data pixel format {1}", image.PixelLayout, PixelLayout));
 			} else {
 				// Check whether texture pixel format is compatible with the image pixel format
-				if (Pixel.IsSupportedDataFormat(image.PixelFormat, ctx) == false)
-					throw new InvalidOperationException(String.Format("not supported data pixel format {1}", image.PixelFormat));
-				PixelFormat = image.PixelFormat;
+				if (Pixel.IsSupportedDataFormat(image.PixelLayout, ctx) == false)
+					throw new InvalidOperationException(String.Format("not supported data pixel format {1}", image.PixelLayout));
+				PixelLayout = image.PixelLayout;
 			}
 			// Texture extents
 			mWidth  = image.Width;
@@ -89,21 +89,21 @@ namespace OpenGL
 			// Bind this Texture
 			Bind(ctx);
 			// Upload texture data
-			int internalFormat = Pixel.GetGlInternalFormat(PixelFormat, ctx);
-			int type = Pixel.GetGlDataFormat(mTextureData.PixelFormat);
-			int format = Pixel.GetGlFormat(mTextureData.PixelFormat);
+			int internalFormat = Pixel.GetGlInternalFormat(PixelLayout, ctx);
+			PixelFormat format = Pixel.GetGlFormat(mTextureData.PixelLayout);
+			PixelType type = Pixel.GetPixelType(mTextureData.PixelLayout);
 
 			// Set pixel transfer
 			foreach (int alignment in new int[] { 8, 4, 2, 1 }) {
 				if (mTextureData.Stride % alignment == 0) {
-					Gl.PixelStore(Gl.UNPACK_ALIGNMENT, alignment);
+					Gl.PixelStore(PixelStoreParameter.UnpackAlignment, alignment);
 					GraphicsException.DebugCheckErrors();
 					break;
 				}
 			}
 
 			// Upload texture contents
-			Gl.TexImage1D(Gl.TEXTURE_1D, 0, internalFormat, (int)Width, 0, format, type, mTextureData.ImageBuffer);
+			Gl.TexImage1D(OpenGL.TextureTarget.Texture1d, 0, internalFormat, (int)Width, 0, format, type, mTextureData.ImageBuffer);
 			GraphicsException.DebugCheckErrors();
 			// Unbind this texture
 			Unbind(ctx);
@@ -146,7 +146,7 @@ namespace OpenGL
 		/// In the case a this Texture is defined by multiple targets (i.e. cube map textures), this property
 		/// shall returns always 0.
 		/// </remarks>
-		public override int TextureTarget { get { return (Gl.TEXTURE_1D); } }
+		public override TextureTarget TextureTarget { get { return (TextureTarget.Texture1d); } }
 
 		/// <summary>
 		/// Uniform sampler type for managing this Texture.

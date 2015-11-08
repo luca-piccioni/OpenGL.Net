@@ -39,27 +39,27 @@ namespace OpenGL
 			/// <summary>
 			/// Positive X-axis face.
 			/// </summary>
-			XPositive = Gl.TEXTURE_CUBE_MAP_POSITIVE_X,
+			XPositive = 0,
 			/// <summary>
 			/// Negative X-axis face.
 			/// </summary>s
-			XNegative = Gl.TEXTURE_CUBE_MAP_NEGATIVE_X,
+			XNegative,
 			/// <summary>
 			/// Positive Y-axis face.
 			/// </summary>
-			YPositive = Gl.TEXTURE_CUBE_MAP_POSITIVE_Y,
+			YPositive,
 			/// <summary>
 			/// Negative Y-axis face.
 			/// </summary>
-			YNegative = Gl.TEXTURE_CUBE_MAP_NEGATIVE_Y,
+			YNegative,
 			/// <summary>
 			/// Positive Z-axis face.
 			/// </summary>
-			ZPositive = Gl.TEXTURE_CUBE_MAP_POSITIVE_Z,
+			ZPositive,
 			/// <summary>
 			/// Negative Z-axis face.
 			/// </summary>
-			ZNegative = Gl.TEXTURE_CUBE_MAP_NEGATIVE_Z,
+			ZNegative,
 		}
 
 		/// <summary>
@@ -76,16 +76,16 @@ namespace OpenGL
 			/// <param name="size">
 			/// The size of the texture.
 			/// </param>
-			public EmptyTechnique(PixelFormat pixelFormat, uint size)
+			public EmptyTechnique(PixelLayout pixelFormat, uint size)
 			{
-				PixelFormat = pixelFormat;
+				PixelLayout = pixelFormat;
 				Size = size;
 			}
 
 			/// <summary>
 			/// The internal pixel format of textel.
 			/// </summary>
-			readonly PixelFormat PixelFormat;
+			readonly PixelLayout PixelLayout;
 
 			/// <summary>
 			/// Texture size.
@@ -100,11 +100,11 @@ namespace OpenGL
 			/// </param>
 			public override void Create(GraphicsContext ctx)
 			{
-				int internalFormat = Pixel.GetGlInternalFormat(PixelFormat, ctx);
+				int internalFormat = Pixel.GetGlInternalFormat(PixelLayout, ctx);
 
 				// Define empty texture
 				for (int i = 0; i < 6; i++) {
-					Gl.TexImage2D(sCubeTargets[i], 0, internalFormat, (int)Size, (int)Size, 0, /* Unused */ Gl.RGB, /* Unused */ Gl.UNSIGNED_BYTE, null);
+					Gl.TexImage2D(_CubeTargets[i], 0, internalFormat, (int)Size, (int)Size, 0, /* Unused */ PixelFormat.Rgb, /* Unused */ PixelType.UnsignedByte, null);
 					GraphicsException.CheckErrors();
 				}
 			}
@@ -124,7 +124,7 @@ namespace OpenGL
 			/// <param name="images">
 			/// The texture data.
 			/// </param>
-			public ImageTechnique(PixelFormat pixelFormat, Image[] images)
+			public ImageTechnique(PixelLayout pixelFormat, Image[] images)
 			{
 				if (images == null)
 					throw new ArgumentNullException("images");
@@ -135,7 +135,7 @@ namespace OpenGL
 				if (Array.TrueForAll(images, delegate(Image image) { return (image.Width == images[0].Width); }) == false)
 					throw new ArgumentException("images size mismatch", "images");
 
-				PixelFormat = pixelFormat;
+				PixelLayout = pixelFormat;
 				Images = new Image[6];
 				Array.Copy(images, Images, 6);
 			}
@@ -143,7 +143,7 @@ namespace OpenGL
 			/// <summary>
 			/// The internal pixel format of textel.
 			/// </summary>
-			readonly PixelFormat PixelFormat;
+			readonly PixelLayout PixelLayout;
 
 			/// <summary>
 			/// The images that represents the texture data.
@@ -158,10 +158,9 @@ namespace OpenGL
 			/// </param>
 			public override void Create(GraphicsContext ctx)
 			{
-				int internalFormat = Pixel.GetGlInternalFormat(PixelFormat, ctx);
-
-				int type = Pixel.GetGlDataFormat(PixelFormat);
-				int format = Pixel.GetGlFormat(PixelFormat);
+				int internalFormat = Pixel.GetGlInternalFormat(PixelLayout, ctx);
+				PixelFormat format = Pixel.GetGlFormat(PixelLayout);
+				PixelType type = Pixel.GetPixelType(PixelLayout);
 
 				for (int i = 0; i < 6; i++) {
 					Image image = Images[i];
@@ -170,19 +169,19 @@ namespace OpenGL
 					foreach (int alignment in new int[] { 8, 4, 2, 1 }) {
 						if ((image.Stride % alignment) != 0)
 							continue;
-						Gl.PixelStore(Gl.UNPACK_ALIGNMENT, alignment);
+						Gl.PixelStore(PixelStoreParameter.UnpackAlignment, alignment);
 						GraphicsException.DebugCheckErrors();
 						break;
 					}
 
 					// Upload texture contents
-					Gl.TexImage2D(sCubeTargets[i], 0, internalFormat, (int)image.Width, (int)image.Height, 0, format, type, image.ImageBuffer);
+					Gl.TexImage2D(_CubeTargets[i], 0, internalFormat, (int)image.Width, (int)image.Height, 0, format, type, image.ImageBuffer);
 					GraphicsException.CheckErrors();
 				}
 			}
 		}
 
-		public void Create(PixelFormat internalFormat, uint size)
+		public void Create(PixelLayout internalFormat, uint size)
 		{
 			// Check context compatibility
 			CheckCapabilities(size, size, Depth, internalFormat);
@@ -194,7 +193,7 @@ namespace OpenGL
 			SetTechnique(new EmptyTechnique(internalFormat, size));
 		}
 
-		public void Create(GraphicsContext ctx, PixelFormat internalFormat, uint size)
+		public void Create(GraphicsContext ctx, PixelLayout internalFormat, uint size)
 		{
 			// Check context compatibility
 			CheckCapabilities(size, size, Depth, internalFormat);
@@ -208,7 +207,7 @@ namespace OpenGL
 			Create(ctx);
 		}
 
-		public void Create(PixelFormat internalFormat, Image[] images)
+		public void Create(PixelLayout internalFormat, Image[] images)
 		{
 			if (images == null)
 				throw new ArgumentNullException("images");
@@ -228,7 +227,7 @@ namespace OpenGL
 			SetTechnique(new ImageTechnique(internalFormat, images));
 		}
 
-		public void Create(GraphicsContext ctx, PixelFormat internalFormat, Image[] images)
+		public void Create(GraphicsContext ctx, PixelLayout internalFormat, Image[] images)
 		{
 			if (images == null)
 				throw new ArgumentNullException("images");
@@ -256,13 +255,13 @@ namespace OpenGL
 		/// <remarks>
 		/// It must following <see cref="CubeFace"/>.
 		/// </remarks>
-		private static readonly int[] sCubeTargets = new int[] {
-			Gl.TEXTURE_CUBE_MAP_POSITIVE_X,
-			Gl.TEXTURE_CUBE_MAP_NEGATIVE_X,
-			Gl.TEXTURE_CUBE_MAP_POSITIVE_Y,
-			Gl.TEXTURE_CUBE_MAP_NEGATIVE_Y,
-			Gl.TEXTURE_CUBE_MAP_POSITIVE_Z,
-			Gl.TEXTURE_CUBE_MAP_NEGATIVE_Z
+		private static readonly TextureTarget[] _CubeTargets = new TextureTarget[] {
+			TextureTarget.TextureCubeMapPositiveX,
+			TextureTarget.TextureCubeMapNegativeX,
+			TextureTarget.TextureCubeMapPositiveY,
+			TextureTarget.TextureCubeMapNegativeY,
+			TextureTarget.TextureCubeMapPositiveZ,
+			TextureTarget.TextureCubeMapNegativeZ
 		};
 
 		#endregion
@@ -299,7 +298,7 @@ namespace OpenGL
 		/// In the case a this Texture is defined by multiple targets (i.e. cube map textures), this property
 		/// shall returns always 0.
 		/// </remarks>
-		public override int TextureTarget { get { return (Gl.TEXTURE_CUBE_MAP); } }
+		public override TextureTarget TextureTarget { get { return (TextureTarget.TextureCubeMap); } }
 
 		/// <summary>
 		/// Uniform sampler type for managing this Texture.

@@ -26,7 +26,7 @@ namespace OpenGL
 	/// </summary>
 	public class CoreImagingImageCodecPlugin : IImageCodecPlugin
 	{
-		#region Derm Interoperability
+		#region OpenGL Interoperability
 
 		static void ConvertImageFormat(System.Drawing.Imaging.ImageFormat from, out string to)
 		{
@@ -158,7 +158,7 @@ namespace OpenGL
 					to = PixelLayout.BGR15;
 					break;
 				case System.Drawing.Imaging.PixelFormat.Format16bppRgb565:
-					to = PixelFormat.BGR16;
+					to = PixelLayout.BGR16;
 					break;
 				case System.Drawing.Imaging.PixelFormat.Format24bppRgb:
 					to = sRGB ? PixelLayout.SBGR24 : PixelLayout.BGR24;
@@ -448,17 +448,17 @@ namespace OpenGL
 
 			using (System.Drawing.Bitmap iBitmap = new System.Drawing.Bitmap(stream)) {
 				Image image;
-				PixelFormat pType, pConvType;
+				PixelLayout pType, pConvType;
 
 				// Allocate image raster
 				ConvertPixelFormat(iBitmap, out pType);
 
 				// Check for hardware/software support
 				if (Pixel.IsSupportedInternalFormat(pType) == false) {
-					if (criteria.IsDefined(ImageCodecCriteria.SoftwareSupport) && (Boolean)criteria[ImageCodecCriteria.SoftwareSupport]) {
+					if (criteria.IsDefined(ImageCodecCriteria.SoftwareSupport) && (bool)criteria[ImageCodecCriteria.SoftwareSupport]) {
 						// Pixel type not directly supported by hardware... try to guess suitable software conversion
 						pConvType = Pixel.GuessBestSupportedConvertion(pType);
-						if (pConvType == PixelFormat.None)
+						if (pConvType == PixelLayout.None)
 							throw new InvalidOperationException("pixel type " + pType.ToString() + " is not supported by hardware neither software");
 					} else
 						throw new InvalidOperationException("pixel type " + pType.ToString() + " is not supported by hardware");
@@ -489,7 +489,7 @@ namespace OpenGL
 				}
 
 				// ConvertItemType image to supported format, if necessary
-				if ((pConvType != PixelFormat.None) && (pConvType != pType))
+				if ((pConvType != PixelLayout.None) && (pConvType != pType))
 					image = image.Convert(pConvType);
 				
 				return (image);
@@ -518,17 +518,17 @@ namespace OpenGL
 			if (criteria == null)
 				throw new ArgumentNullException("criteria");
 
-			PixelFormat pType, pConvType;
+			PixelLayout pType, pConvType;
 
 			// Allocate image raster
 			ConvertPixelFormat(bitmap, out pType);
 
 			// Check for hardware/software support
 			if (Pixel.IsSupportedInternalFormat(pType) == false) {
-				if (criteria.IsDefined(ImageCodecCriteria.SoftwareSupport) && ((Boolean)criteria[ImageCodecCriteria.SoftwareSupport])) {
+				if (criteria.IsDefined(ImageCodecCriteria.SoftwareSupport) && ((bool)criteria[ImageCodecCriteria.SoftwareSupport])) {
 					// Pixel type not directly supported by hardware... try to guess suitable software conversion
 					pConvType = Pixel.GuessBestSupportedConvertion(pType);
-					if (pConvType == PixelFormat.None)
+					if (pConvType == PixelLayout.None)
 						throw new InvalidOperationException(String.Format("pixel type {0} is not supported by hardware neither software", pType));
 				} else
 					throw new InvalidOperationException(String.Format("pixel type {0} is not supported by hardware", pType));
@@ -558,7 +558,7 @@ namespace OpenGL
 			}
 
 			// ConvertItemType image to supported format, if necessary
-			if ((pConvType != PixelFormat.None) && (pConvType != pType))
+			if ((pConvType != PixelLayout.None) && (pConvType != pType))
 				image = image.Convert(pConvType);
 			
 			return (image);
@@ -650,7 +650,7 @@ namespace OpenGL
 				for (uint x = 0; x < image.Width; x++) {
 					System.Drawing.Color bitmapColor = bitmap.GetPixel((int)x, (int)y);
 					
-					image[x, y] = Pixel.GetNativeIColor(new ColorRGBA32(bitmapColor.R, bitmapColor.G, bitmapColor.B, bitmapColor.A), image.PixelFormat);
+					image[x, y] = Pixel.GetNativeIColor(new ColorRGBA32(bitmapColor.R, bitmapColor.G, bitmapColor.B, bitmapColor.A), image.PixelLayout);
 					//image[x, y] = new ColorBGR24(bitmapColor.R, bitmapColor.G, bitmapColor.B);
 				}
 			}
@@ -688,7 +688,7 @@ namespace OpenGL
 			int iBitmapFlags;
 
 			// Determine the clone bitmap pixel format
-			ConvertPixelFormat(image.PixelFormat, out iBitmapFormat, out iBitmapFlags);
+			ConvertPixelFormat(image.PixelLayout, out iBitmapFormat, out iBitmapFlags);
 			// Clone image converting the pixel format
 			using (System.Drawing.Bitmap clonedBitmap = bitmap.Clone(new System.Drawing.Rectangle(0, 0, bitmap.Width, bitmap.Height), iBitmapFormat)) {
 				LoadBitmapByLockBits(clonedBitmap, image);
@@ -721,7 +721,7 @@ namespace OpenGL
 			int iBitmapFlags;
 
 			ConvertImageFormat(format, out iBitmapFormat);
-			ConvertPixelFormat(image.PixelFormat, out iBitmapPixelFormat, out iBitmapFlags);
+			ConvertPixelFormat(image.PixelLayout, out iBitmapPixelFormat, out iBitmapFlags);
 
 			// Obtain source and destination data pointers
 			using (iBitmap = new System.Drawing.Bitmap((int)image.Width, (int)image.Height, iBitmapPixelFormat)) {

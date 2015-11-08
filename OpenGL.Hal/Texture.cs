@@ -43,7 +43,7 @@ namespace OpenGL
 		/// <remarks>
 		/// 
 		/// </remarks>
-		public PixelLayout PixelFormat
+		public PixelLayout PixelLayout
 		{
 			get { return (_PixelFormat); }
 			set {
@@ -130,7 +130,7 @@ namespace OpenGL
 		/// A <see cref="System.UInt32"/> that specifies the texture depth.
 		/// </param>
 		/// <param name="format">
-		/// A <see cref="PixelLayout"/> that specifies the texture internal format.
+		/// A <see cref="OpenGL.PixelLayout"/> that specifies the texture internal format.
 		/// </param>
 		/// <exception cref="ArgumentException">
 		/// Exception thrown if <paramref name="width"/>, <paramref name="height"/> or <paramref name="depth"/> is greater than
@@ -164,7 +164,7 @@ namespace OpenGL
 		/// A <see cref="System.UInt32"/> that specifies the texture depth.
 		/// </param>
 		/// <param name="format">
-		/// A <see cref="PixelLayout"/> that specifies the texture internal format.
+		/// A <see cref="OpenGL.PixelLayout"/> that specifies the texture internal format.
 		/// </param>
 		/// <exception cref="ArgumentNullException">
 		/// Exception throw if <paramref name="ctx"/> is null.
@@ -201,7 +201,7 @@ namespace OpenGL
 		/// A <see cref="System.UInt32"/> that specifies the texture depth.
 		/// </param>
 		/// <param name="format">
-		/// A <see cref="PixelLayout"/> that specifies the texture internal format.
+		/// A <see cref="OpenGL.PixelLayout"/> that specifies the texture internal format.
 		/// </param>
 		/// <exception cref="ArgumentNullException">
 		/// Exception throw if <paramref name="caps"/> is null.
@@ -292,7 +292,7 @@ namespace OpenGL
 		/// A <see cref="GraphicsContext"/> used for downloading texture data.
 		/// </param>
 		/// <param name="pType">
-		/// A <see cref="PixelLayout"/> determining the pixel format of the downloaded data.
+		/// A <see cref="OpenGL.PixelLayout"/> determining the pixel format of the downloaded data.
 		/// </param>
 		/// <param name="target">
 		/// A <see cref="TextureTarget"/> that specifies the texture target.

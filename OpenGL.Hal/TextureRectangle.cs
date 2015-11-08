@@ -50,7 +50,7 @@ namespace OpenGL
 		/// A <see cref="UInt32"/> that specifies the texture height.
 		/// </param>
 		/// <param name="format">
-		/// A <see cref="PixelFormat"/> determining the texture internal format.
+		/// A <see cref="PixelLayout"/> determining the texture internal format.
 		/// </param>
 		/// <exception cref="ArgumentException">
 		/// Exception thrown if <paramref name="width"/> or <paramref name="height"/> is zero.
@@ -72,7 +72,7 @@ namespace OpenGL
 		/// <exception cref="ArgumentException">
 		/// Exception thrown if <paramref name="format"/> is not a supported internal format.
 		/// </exception>
-		public TextureRectangle(uint width, uint height, PixelFormat format) : base(width, height, format)
+		public TextureRectangle(uint width, uint height, PixelLayout format) : base(width, height, format)
 		{
 			
 		}
@@ -91,7 +91,7 @@ namespace OpenGL
 		/// A <see cref="UInt32"/> that specifies the texture height.
 		/// </param>
 		/// <param name="format">
-		/// A <see cref="PixelFormat"/> determining the texture internal format.
+		/// A <see cref="PixelLayout"/> determining the texture internal format.
 		/// </param>
 		/// <exception cref="ArgumentException">
 		/// Exception thrown if <paramref name="width"/> or <paramref name="height"/> is zero.
@@ -113,7 +113,7 @@ namespace OpenGL
 		/// <exception cref="ArgumentException">
 		/// Exception thrown if <paramref name="format"/> is not a supported internal format.
 		/// </exception>
-		public TextureRectangle(GraphicsContext ctx, uint width, uint height, PixelFormat format) : base(ctx, width, height, format)
+		public TextureRectangle(GraphicsContext ctx, uint width, uint height, PixelLayout format) : base(ctx, width, height, format)
 		{
 			
 		}
@@ -140,7 +140,7 @@ namespace OpenGL
 		/// In the case a this Texture is defined by multiple targets (i.e. cube map textures), this property
 		/// shall returns always 0.
 		/// </remarks>
-		public override int TextureTarget { get { return (Gl.TEXTURE_RECTANGLE); } }
+		public override TextureTarget TextureTarget { get { return (TextureTarget.TextureRectangle); } }
 
 
 		/// <summary>

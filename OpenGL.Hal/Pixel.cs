@@ -328,8 +328,8 @@ namespace OpenGL
 		/// pixel representation.
 		/// 
 		/// Suitable converted pixel types depends on the real support on the current host and on the current implementation.
-		/// Hardware support is determined by calling <see cref="Derm.Pixel.IsSupportedInternalFormat"/>, while software support is determined
-		/// by calling <see cref="Derm.Pixel.IsConvertionSupported"/>.
+		/// Hardware support is determined by calling <see cref="OpenGL.Pixel.IsSupportedInternalFormat"/>, while software support is determined
+		/// by calling <see cref="OpenGL.Pixel.IsConvertionSupported"/>.
 		/// 
 		/// Source pixels having a color space <see cref="Pixel.Space.Rgb"/> or <see cref="Pixel.Space.Bgr"/> can be converted
 		/// with each other since these two color spaces are equivalent.

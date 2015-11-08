@@ -270,7 +270,7 @@ namespace OpenGL
 		/// </summary>
 		public static void LoadSimdExtensions()
 		{
-			const string AssemblyPath = "Derm.Simd.dll";
+			const string AssemblyPath = "OpenGL.Simd.dll";
 
 			IntPtr getCpuInformationPtr = IntPtr.Zero;
 

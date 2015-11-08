@@ -44,9 +44,9 @@ namespace OpenGL
 				throw new ArgumentException("invalid extension string", "extension");
 
 			// Store main extention string
-			mExtensionString = extension;
+			_ExtensionString = extension;
 			// Store alternative extension strings
-			mExtensionAlternatives = extensionAltenative;
+			_ExtensionAlternatives = extensionAltenative;
 		}
 
 		#endregion
@@ -60,10 +60,10 @@ namespace OpenGL
 		/// </param>
 		public bool IsSupported(GraphicsContext ctx, IDeviceContext deviceContext)
 		{
-			if (IsSupportedExtension(ctx, deviceContext, mExtensionString) == true)
+			if (IsSupportedExtension(ctx, deviceContext, _ExtensionString) == true)
 				return (true);
-			if (mExtensionAlternatives != null) {
-				foreach (string ext in mExtensionAlternatives)
+			if (_ExtensionAlternatives != null) {
+				foreach (string ext in _ExtensionAlternatives)
 					if (IsSupportedExtension(ctx, deviceContext, ext) == true)
 						return (true);
 			}
@@ -78,37 +78,44 @@ namespace OpenGL
 		/// A <see cref="GraphicsContext"/> that specifies the current OpenGL version to test for extension support. In the case this
 		/// parameter is null, the test fallback to the current OpenGL version.
 		/// </param>
-		/// <param name="ext">
+		/// <param name="extension">
 		/// A <see cref="System.String"/> that specifies the OpenGL extension for support.
 		/// </param>
 		/// <returns>
 		/// It returns a boolean value indicating whether the OpenGL extension is supported by a specific OpenGL version.
 		/// </returns>
-		private bool IsSupportedExtension(GraphicsContext ctx, IDeviceContext deviceContext, string ext)
+		private bool IsSupportedExtension(GraphicsContext ctx, IDeviceContext deviceContext, string extension)
 		{
-			if (ext.StartsWith("GL_")) {
+			if (ctx == null)
+				throw new ArgumentNullException("ctx");
+			if (deviceContext == null)
+				throw new ArgumentNullException("deviceContext");
+			if (extension == null)
+				throw new ArgumentNullException("ext");
+
+			if (extension.StartsWith("GL_")) {
 				if (ctx == null)
-					return (Gl.HasExtension(ext));
+					return (Gl.HasExtension(extension));
 				else
-					return (Gl.HasExtension(GraphicsContext.GetGLVersionId(ctx.Version), ext));
-			} else if (ext.StartsWith("GLX_")) {
+					return (Gl.HasExtension(GraphicsContext.GetGLVersionId(ctx.Version), extension));
+			} else if (extension.StartsWith("GLX_")) {
 				switch (Environment.OSVersion.Platform) {
 					case PlatformID.Unix:
-						return (Glx.HasExtension(deviceContext, ext));
+						return (Glx.HasExtension(deviceContext, extension));
 					default:
 						return (false);
 				}
-			} else if (ext.StartsWith("WGL_")) {
+			} else if (extension.StartsWith("WGL_")) {
 				switch (Environment.OSVersion.Platform) {
 					case PlatformID.Win32Windows:
 					case PlatformID.Win32NT:
 					case PlatformID.WinCE:
-						return (Wgl.HasExtension(deviceContext, ext));
+						return (Wgl.HasExtension(deviceContext, extension));
 					default:
 						return (false);
 				}
 			} else
-				throw new ArgumentException(ext + "is not a recognized GL extension", "ext");
+				throw new ArgumentException(extension + "is not a recognized GL extension", "ext");
 		}
 
 		/// <summary>
@@ -118,10 +125,10 @@ namespace OpenGL
 		{
 			get
 			{
-				string[] extensionStrings = new string[1 + mExtensionAlternatives.Length];
+				string[] extensionStrings = new string[1 + _ExtensionAlternatives.Length];
 
-				extensionStrings[0] = mExtensionString;
-				Array.Copy(mExtensionAlternatives, 0, extensionStrings, 1, mExtensionAlternatives.Length);
+				extensionStrings[0] = _ExtensionString;
+				Array.Copy(_ExtensionAlternatives, 0, extensionStrings, 1, _ExtensionAlternatives.Length);
 
 				return (extensionStrings);
 			}
@@ -130,11 +137,11 @@ namespace OpenGL
 		/// <summary>
 		/// Main extension string.
 		/// </summary>
-		private string mExtensionString;
+		private string _ExtensionString;
 
 		/// <summary>
-		/// Extension strings alternative to <see cref="mExtensionString"/>.
+		/// Extension strings alternative to <see cref="_ExtensionString"/>.
 		/// </summary>
-		private string[] mExtensionAlternatives;
+		private string[] _ExtensionAlternatives;
 	}
 }

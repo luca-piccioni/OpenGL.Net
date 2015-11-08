@@ -27,7 +27,7 @@ namespace OpenGL
 	class PixelComponentsAttribute : Attribute
 	{
 		/// <summary>
-		/// Construct <see cref="Derm.PixelComponentsAttribute"/> class.
+		/// Construct <see cref="OpenGL.PixelComponentsAttribute"/> class.
 		/// </summary>
 		/// <param name='pixelSpace'>
 		/// The pixel color component count.

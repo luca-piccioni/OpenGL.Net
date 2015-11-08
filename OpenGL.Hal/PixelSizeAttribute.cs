@@ -27,7 +27,7 @@ namespace OpenGL
 	class PixelSizeAttribute : Attribute
 	{
 		/// <summary>
-		/// Construct <see cref="Derm.PixelSizeAttribute"/> class.
+		/// Construct <see cref="OpenGL.PixelSizeAttribute"/> class.
 		/// </summary>
 		/// <param name="size">
 		/// The number of bytes used by a single pixel.

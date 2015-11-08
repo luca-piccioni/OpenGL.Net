@@ -73,7 +73,7 @@ namespace OpenGL
 					throw new ArgumentNullException("identifier");
 
 				// Store identifier
-				mIdentifier = identifier;
+				_Identifier = identifier;
 			} catch {
 				// Avoid finalizer assertion failure (don't call dispose since it's virtual)
 				GC.SuppressFinalize(this);
@@ -215,13 +215,13 @@ namespace OpenGL
 				if (ObjectName != InvalidObjectName) {
 					GraphicsContext currentContext = GraphicsContext.GetCurrentContext();
 
-					if ((currentContext == null) || (currentContext.ObjectNameSpace != mObjectNameSpace)) {
+					if ((currentContext == null) || (currentContext.ObjectNameSpace != _ObjectNameSpace)) {
 
 						// No current context, or current context not managing this resource. Indeed, use
 						// the RenderGarbageService to collect this resource
 
-						if (mObjectNameSpace != Guid.Empty) {
-							RenderGarbageService rGarbageService = RenderGarbageService.GetService(mObjectNameSpace);
+						if (_ObjectNameSpace != Guid.Empty) {
+							RenderGarbageService rGarbageService = RenderGarbageService.GetService(_ObjectNameSpace);
 							if (rGarbageService == null)
 								throw new InvalidOperationException("no garbage service");
 							rGarbageService.CollectGarbage(this);
@@ -236,7 +236,7 @@ namespace OpenGL
 
 		#endregion
 
-		#region IRenderResource Implementation
+		#region IGraphicResource Implementation
 
 		/// <summary>
 		/// Resource identifier.
@@ -245,7 +245,7 @@ namespace OpenGL
 		/// This string is used to identify this RenderResource among a collection. This identifier has to be
 		/// unique in order to be collected by <see cref="RenderResourceDb"/>.
 		/// </remarks>
-		public string Identifier { get { return (mIdentifier); } }
+		public string Identifier { get { return (_Identifier); } }
 
 		/// <summary>
 		/// Object class.
@@ -264,8 +264,8 @@ namespace OpenGL
 		/// </summary>
 		public uint ObjectName
 		{
-			get { return (mObject); }
-			protected set { mObject = value; }
+			get { return (_Object); }
+			protected set { _Object = value; }
 		}
 
 		/// <summary>
@@ -275,7 +275,7 @@ namespace OpenGL
 		/// This property determine the correct association between this object and the render contextes used
 		/// for drawing.
 		/// </remarks>
-		public Guid ObjectNamespace { get { return (mObjectNameSpace); } }
+		public Guid ObjectNamespace { get { return (_ObjectNameSpace); } }
 
 		/// <summary>
 		/// Determine whether this RenderResource really exists.
@@ -311,7 +311,7 @@ namespace OpenGL
 				return (false);
 
 			// Test only name space... specific test shall be executed by derived classes
-			return (ctx.ObjectNameSpace == mObjectNameSpace);
+			return (ctx.ObjectNameSpace == _ObjectNameSpace);
 		}
 
 		/// <summary>
@@ -359,32 +359,32 @@ namespace OpenGL
 		/// </exception>
 		public virtual void Create(GraphicsContext ctx)
 		{
-			if (mObject != InvalidObjectName && mObjectNameSpace != ctx.ObjectNameSpace)
+			if (_Object != InvalidObjectName && _ObjectNameSpace != ctx.ObjectNameSpace)
 				throw new InvalidOperationException("cross-context resource leak");
 
 			// Create object name
 			if (RequiresName(ctx) == false) {
 				// The a fake name for this object
-				if (mObject == InvalidObjectName)
-					mObject = GetFakeObjectName(ObjectClass);
-				if (mObject == InvalidObjectName)
+				if (_Object == InvalidObjectName)
+					_Object = GetFakeObjectName(ObjectClass);
+				if (_Object == InvalidObjectName)
 					throw new InvalidOperationException("unable to create name for " + GetType().Name);
 				// Store object name space to check on deletion
 				if (ctx != null)
-					mObjectNameSpace = ctx.ObjectNameSpace;
+					_ObjectNameSpace = ctx.ObjectNameSpace;
 			} else {
 				if (ctx == null)
 					throw new ArgumentNullException("ctx");
-				if (ctx.IsCurrent() == false)
+				if (ctx.IsCurrent == false)
 					throw new ArgumentException("not current to this thread", "ctx");
 
 				// Create a name for this resource
 				if (ObjectName == InvalidObjectName)
-					mObject = CreateName(ctx);
-				if (mObject == InvalidObjectName)
+					_Object = CreateName(ctx);
+				if (_Object == InvalidObjectName)
 					throw new InvalidOperationException("unable to create name for " + GetType().Name);
 				// Store object name space to check on deletion
-				mObjectNameSpace = ctx.ObjectNameSpace;
+				_ObjectNameSpace = ctx.ObjectNameSpace;
 			}
 			// Create object
 			CreateObject(ctx);
@@ -429,7 +429,7 @@ namespace OpenGL
 		{
 			if (ctx == null)
 				throw new ArgumentNullException("ctx");
-			if (ctx.IsCurrent() == false)
+			if (ctx.IsCurrent == false)
 				throw new ArgumentException("not current to this thread", "ctx");
 			if (Exists(ctx) == false)
 				throw new ArgumentException("object namespace mismatch", "ctx");
@@ -438,17 +438,38 @@ namespace OpenGL
 
 			// Delete object name
 			if (RequiresName(ctx))
-				DeleteName(ctx, mObject);
+				DeleteName(ctx, _Object);
 			// Reset object name space
-			mObjectNameSpace = Guid.Empty;
+			_ObjectNameSpace = Guid.Empty;
 			// Ensure non valid object name
-			mObject = InvalidObjectName;
+			_Object = InvalidObjectName;
+		}
+
+		/// <summary>
+		/// Dispose graphics resources using the underlying <see cref="GraphicsContext"/>.
+		/// </summary>
+		/// <param name='ctx'>
+		/// A <see cref="GraphicsContext"/> which have access to the <see cref="IRenderDisposable"/> graphics resources.
+		/// </param>
+		/// <remarks>
+		/// <para>
+		/// The instance shall be considered disposed as it were called <see cref="IDisposable.Dispose"/>, but in addition
+		/// this method will release this instance resources.
+		/// </para>
+		/// <para>
+		/// The <see cref="Dispose()"/> method should try to release the underlying resources by getting the optional graphics
+		/// context current on the calling thread.
+		/// </para>
+		/// </remarks>
+		public virtual void Dispose(GraphicsContext ctx)
+		{
+
 		}
 
 		/// <summary>
 		/// RenderResource identifier.
 		/// </summary>
-		private readonly string mIdentifier;
+		private readonly string _Identifier;
 
 		/// <summary>
 		/// RenderResource name.
@@ -456,7 +477,7 @@ namespace OpenGL
 		/// <remarks>
 		/// A value of <see cref="InvalidObjectName"/> indicates that this RenderResource name is not yet created.
 		/// </remarks>
-		private uint mObject = InvalidObjectName;
+		private uint _Object = InvalidObjectName;
 
 		/// <summary>
 		/// RenderResource name space.
@@ -465,7 +486,7 @@ namespace OpenGL
 		/// A value of <see cref="System.Guid.Empty"/> indicates that this RenderResource doesn't belong to
 		/// any context name space (i.e. its name is not yet created).
 		/// </remarks>
-		private Guid mObjectNameSpace = Guid.Empty;
+		private Guid _ObjectNameSpace = Guid.Empty;
 
 		#endregion
 	}

@@ -135,8 +135,7 @@ namespace OpenGL
 			}
 
 			// Query OpenGL informations
-			bool current = Gl.MakeContextCurrent(_HiddenWindowDevice, rContext);
-			if (current == false)
+			if (Gl.MakeContextCurrent(_HiddenWindowDevice, rContext) == false)
 				throw new Exception("unable to make current");
 
 			// Initialize OpenGL implementations descriptions
@@ -151,7 +150,7 @@ namespace OpenGL
 			sCurrentShadingGLVersion = ParseGLSLVersion(glslVersion);
 
 			// Query OpenGL extensions (current OpenGL implementation, CurrentCaps)
-			// sRenderCaps = GraphicsCapabilities.Query(this, _HiddenWindowDevice);
+			_RenderCaps = GraphicsCapabilities.Query(null, _HiddenWindowDevice);
 			// Cache current OpenGL capabilities
 			_RenderCapsDb[sCurrentGLVersion] = _RenderCaps;
 
@@ -297,7 +296,7 @@ namespace OpenGL
 		/// </summary>
 		/// <param name="hSharedContext">
 		/// A <see cref="GraphicsContext"/> that specifies the render context which has to be linked this this Render context (to share resource with it).
-		/// In the case this parameter is null, this is equivalent to <see cref="Derm.Render.GraphicsContext.ctor"/>
+		/// In the case this parameter is null, this is equivalent to <see cref="OpenGL.Render.GraphicsContext.ctor"/>
 		/// </param>
 		/// <exception cref="InvalidOperationException">
 		/// This exception is throw in the case it's not possible to create a valid OpenGL context.
@@ -1057,7 +1056,7 @@ namespace OpenGL
 		/// The <see cref="Capabilities"/> class is meant to represent a set of extensions and limits for a particoular OpenGL implementation. This
 		/// means also that the render capabilities are dependent on the current context on the executing thread.
 		/// </remarks>
-		private static readonly GraphicsCapabilities _RenderCaps = new GraphicsCapabilities();
+		private static readonly GraphicsCapabilities _RenderCaps;
 
 		/// <summary>
 		/// Map OpenGL capabilities to a specific OpenGL version.
@@ -1784,7 +1783,7 @@ namespace OpenGL
 			if (caps == null)
 				throw new ArgumentNullException("caps");
 
-			sLog.Debug("Query available device pixel formats:");
+			_Log.Debug("Query available device pixel formats:");
 
 			switch (Environment.OSVersion.Platform) {
 				case PlatformID.Win32NT:
@@ -1839,8 +1838,8 @@ namespace OpenGL
 			}
 #endif
 
-			sLog.Debug("ID |Unsigned|Float|Window|Buffer|PBuffer| C | D | S |MS| DB  | SWP        | ST  ");
-			sLog.Debug("--------------------------------------------------------------------------------");
+			_Log.Debug("ID |Unsigned|Float|Window|Buffer|PBuffer| C | D | S |MS| DB  | SWP        | ST  ");
+			_Log.Debug("--------------------------------------------------------------------------------");
 
 			pfAttributesValue = new int[pfAttributesCodes.Count];
 			for (int pFormatIndex = 1; ; pFormatIndex++) {
@@ -1902,7 +1901,7 @@ namespace OpenGL
 				if (pFormat.SwapMethod == Wgl.SWAP_COPY_ARB)
 					swapMethodString = "Copy ";
 
-				sLog.Debug("{0,3}|{1,8}|{2,5}|{3,6}|{4,6}|{5,7}|{6,3}|{7,3}|{8,3}|{9,2}|{10,5}|{11,9}|{12,5}",
+				_Log.Debug("{0,3}|{1,8}|{2,5}|{3,6}|{4,6}|{5,7}|{6,3}|{7,3}|{8,3}|{9,2}|{10,5}|{11,9}|{12,5}",
 					pFormatIndex,
 					pFormat.RgbaUnsigned,
 					pFormat.RgbaFloat,
@@ -1919,7 +1918,7 @@ namespace OpenGL
 				);
 			}
 
-			sLog.Debug("--------------------------------------------------------------------------------");
+			_Log.Debug("--------------------------------------------------------------------------------");
 
 			return (pFormats);
 		}
@@ -2227,32 +2226,32 @@ namespace OpenGL
 
 			if ((texture != 0) && (Gl.IsTexture(texture) == true)) {
 				mSharedObjectClasses.Add(Texture.TextureObjectClass, Texture.TextureObjectClass);
-				sLog.Debug("- Texture objects are shared.");
+				_Log.Debug("- Texture objects are shared.");
 			}
 
 			if ((shader != 0) && (Gl.IsShader(shader) == true)) {
 				mSharedObjectClasses.Add(ShaderObject.ShaderObjectClass, ShaderObject.ShaderObjectClass);
-				sLog.Debug("- Shader objects are shared.");
+				_Log.Debug("- Shader objects are shared.");
 			}
 
 			if ((shaderProgram != 0) && (Gl.IsProgram(shaderProgram) == true)) {
 				mSharedObjectClasses.Add(ShaderProgram.ShaderProgramObjectClass, ShaderProgram.ShaderProgramObjectClass);
-				sLog.Debug("- Shader programs are shared.");
+				_Log.Debug("- Shader programs are shared.");
 			}
 
 			if ((renderBuffer != 0) && (Gl.IsRenderbuffer(renderBuffer) == true)) {
 				mSharedObjectClasses.Add(RenderBuffer.RenderBufferObjectClass, RenderBuffer.RenderBufferObjectClass);
-				sLog.Debug("- Render buffer objects are shared.");
+				_Log.Debug("- Render buffer objects are shared.");
 			}
 
 			if ((vertexBuffer != 0) && (Gl.IsBuffer(vertexBuffer) == true)) {
 				mSharedObjectClasses.Add(BufferObject.BufferObjectClass, BufferObject.BufferObjectClass);
-				sLog.Debug("- Vertex buffer objects are shared.");
+				_Log.Debug("- Vertex buffer objects are shared.");
 			}
 
 			if ((vertexArray != 0) && (Gl.IsVertexArray(vertexArray) == true)) {
 				mSharedObjectClasses.Add(VertexArrayObject.VertexArrayObjectClass, VertexArrayObject.VertexArrayObjectClass);
-				sLog.Debug("- Vertex array objects are shared.");
+				_Log.Debug("- Vertex array objects are shared.");
 			}
 
 			#endregion
@@ -2542,6 +2541,15 @@ namespace OpenGL
 		/// Object used for synchronizing <see cref="_RenderThreads"/> accesses.
 		/// </summary>
 		private static readonly object _RenderThreadsLock = new object();
+
+		#endregion
+
+		#region Logging
+
+		/// <summary>
+		/// Logger of this class.
+		/// </summary>
+		private static readonly ILogger _Log = Log.GetLogger(MethodBase.GetCurrentMethod().DeclaringType);
 
 		#endregion
 

@@ -24,7 +24,7 @@ namespace OpenGL
 	class PixelStructureAttribute : Attribute
 	{
 		/// <summary>
-		/// Construct <see cref="Derm.PixelStructureAttribute"/> class.
+		/// Construct <see cref="OpenGL.PixelStructureAttribute"/> class.
 		/// </summary>
 		/// <param name="type">
 		/// The structure type able to represent the pixel.

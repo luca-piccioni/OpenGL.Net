@@ -93,7 +93,7 @@ namespace OpenGL
 
 			Linear = colorNonLinearAttribute == null;
 
-			mPixelStructType = (structAttribute != null) ? structAttribute.PixelStructureType : null;
+			_PixelStructType = (structAttribute != null) ? structAttribute.PixelStructureType : null;
 		}
 
 		#endregion
@@ -146,16 +146,21 @@ namespace OpenGL
 		/// <returns></returns>
 		public object CreatePixelStruct()
 		{
-			if (mPixelStructType == null)
+			if (_PixelStructType == null)
 				throw new InvalidOperationException("no pixel structure for pixel format");
 
-			return (Activator.CreateInstance(mPixelStructType));
+			return (Activator.CreateInstance(_PixelStructType));
 		}
+
+		/// <summary>
+		/// Get the type of the structure of the pixel format.
+		/// </summary>
+		public Type PixelStructType { get { return (_PixelStructType); } }
 
 		/// <summary>
 		/// Structure of the pixel format.
 		/// </summary>
-		private readonly Type mPixelStructType;
+		private readonly Type _PixelStructType;
 
 		#endregion
 	}

@@ -27,7 +27,7 @@ namespace OpenGL
 	class PixelColorspaceAttribute : Attribute
 	{
 		/// <summary>
-		/// Construct <see cref="Derm.PixelColorspaceAttribute"/> class.
+		/// Construct <see cref="OpenGL.PixelColorspaceAttribute"/> class.
 		/// </summary>
 		/// <param name='pixelSpace'>
 		/// The pixel color space.

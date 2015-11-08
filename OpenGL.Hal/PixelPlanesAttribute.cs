@@ -27,7 +27,7 @@ namespace OpenGL
 	class PixelPlanesAttribute : Attribute
 	{
 		/// <summary>
-		/// Construct <see cref="Derm.PixelPlanesAttribute"/> class.
+		/// Construct <see cref="OpenGL.PixelPlanesAttribute"/> class.
 		/// </summary>
 		/// <param name='planeCount'>
 		/// The number of separate planes defining the pixel color.
