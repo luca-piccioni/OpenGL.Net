@@ -2,8 +2,14 @@
 <command_overrides>
 	
 	<!-- GL - Missing enumerants -->
+
+	<enumerant name="^EnableCap$">
+		<add_enum>GL_PRIMITIVE_RESTART</add_enum>
+		<add_enum>GL_PRIMITIVE_RESTART_NV</add_enum>
+		<add_enum>GL_RASTERIZER_DISCARD</add_enum>
+	</enumerant>
 	
-	<enumerant name="^ErrorCode">
+	<enumerant name="^ErrorCode$">
 		<add_enum_value value="Wgl.ERROR_INVALID_PIXEL_TYPE_ARB">GL_ERROR_INVALID_PIXEL_TYPE_ARB</add_enum_value>
 		<add_enum_value value="Wgl.ERROR_INVALID_PROFILE_ARB">GL_ERROR_INVALID_PROFILE_ARB</add_enum_value>
 		<add_enum_value value="Wgl.ERROR_INVALID_VERSION_ARB">GL_ERROR_INVALID_VERSION_ARB</add_enum_value>
@@ -79,6 +85,11 @@
 		<!-- Generate "out" overloads -->
 		<flags>OutParam</flags>
 	</command>
+
+	<command name="^glGetObjectParameter(fv|iv)ARB$">
+		<!-- Generate "out" overloads -->
+		<flags>OutParam</flags>
+	</command>
 	
 	<command name="^(gl\w+TexImage(1-4)|glBufferData)$">
 		<!-- Let the application handles the *TexImage* and glBufferData errors (proxy texture targets, out of memory) -->
@@ -99,7 +110,7 @@
 		<flags>VariadicParams</flags>
 	</command>
 
-	<command name="^glDelete(Buffers|Queries|Textures|Renderbuffers|Framebuffers|VertexArrays|Samplers|TransformFeedback|ProgramPipelines)(ARB|EXT)?$">
+	<command name="^glDelete(Buffers|Queries|Textures|Renderbuffers|Framebuffers|VertexArrays|Samplers|TransformFeedbacks|ProgramPipelines)(ARB|EXT)?$">
 		<flags>VariadicParams</flags>
 	</command>
 
