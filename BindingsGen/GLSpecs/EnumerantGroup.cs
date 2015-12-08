@@ -62,7 +62,7 @@ namespace BindingsGen.GLSpecs
 				throw new ArgumentNullException("ctx");
 
 			bool bitmask = Enums.TrueForAll(delegate(Enumerant item) {
-				Enumerant actualEnumerant = ctx.Registry.GetGlEnumerant(item.Name);
+				Enumerant actualEnumerant = ctx.Registry.GetEnumerant(item.Name);
 
 				return (actualEnumerant == null || actualEnumerant.ParentEnumerantBlock.Type == "bitmask");
 			});
@@ -72,7 +72,7 @@ namespace BindingsGen.GLSpecs
 
 			// ...include all enums defined in this group
 			foreach (Enumerant item in Enums) {
-				Enumerant itemValue = ctx.Registry.GetGlEnumerant(item.Name);
+				Enumerant itemValue = ctx.Registry.GetEnumerant(item.Name);
 
 				if (itemValue != null) {
 					if (!groupEnums.ContainsKey(itemValue.Value))
@@ -81,18 +81,31 @@ namespace BindingsGen.GLSpecs
 				}
 			}
 
-			// Modify canonical enumeration definition
+			// Modify canonical enumeration (value/block/group) definition
 			CommandFlagsDatabase.EnumerantItem enumerantExtension = CommandFlagsDatabase.FindEnumerant(Name);
 
 			if (enumerantExtension != null) {
+				// ...override group information
+				if (enumerantExtension.Type != null) {
+					switch (enumerantExtension.Type) {
+						case "bitmask":
+							bitmask = true;
+							break;
+					}
+				}
+
 				// ...include all enums to be added by additional configuration
 				foreach (string addedEnum in enumerantExtension.AddEnumerants) {
-					Enumerant addedEnumValue = ctx.Registry.GetGlEnumerant(addedEnum);
+					Enumerant addedEnumValue = ctx.Registry.GetEnumerant(addedEnum);
 
 					if (addedEnumValue != null) {
 						if (!groupEnums.ContainsKey(addedEnumValue.Value))
 							groupEnums.Add(addedEnumValue.Value, new List<Enumerant>());
-						groupEnums[addedEnumValue.Value].Add(addedEnumValue);
+
+						// Note: since specification can be updated while the CommandFlags.xml is not in synch, the specification
+						// may defined missed enumerant values. In this case do not add enumerant value
+						if (groupEnums[addedEnumValue.Value].Contains(addedEnumValue) == false)
+							groupEnums[addedEnumValue.Value].Add(addedEnumValue);
 					}
 				}
 			}

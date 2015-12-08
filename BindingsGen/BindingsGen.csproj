@@ -58,6 +58,7 @@
     <Compile Include="GLSpecs\Command.cs" />
     <Compile Include="GLSpecs\CommandBlock.cs" />
     <Compile Include="GLSpecs\CommandFlags.cs" />
+    <Compile Include="GLSpecs\CommandFlagsDatabase.cs" />
     <Compile Include="GLSpecs\CommandParameter.cs" />
     <Compile Include="GLSpecs\CommandParameterArray.cs" />
     <Compile Include="GLSpecs\CommandParameterOut.cs" />

@@ -4,6 +4,7 @@
 	<!-- GL - Missing enumerants -->
 
 	<enumerant name="^EnableCap$">
+		<add_enum>GL_FRAMEBUFFER_SRGB</add_enum>
 		<add_enum>GL_PRIMITIVE_RESTART</add_enum>
 		<add_enum>GL_PRIMITIVE_RESTART_NV</add_enum>
 		<add_enum>GL_RASTERIZER_DISCARD</add_enum>
@@ -14,6 +15,29 @@
 		<add_enum_value value="Wgl.ERROR_INVALID_PROFILE_ARB">GL_ERROR_INVALID_PROFILE_ARB</add_enum_value>
 		<add_enum_value value="Wgl.ERROR_INVALID_VERSION_ARB">GL_ERROR_INVALID_VERSION_ARB</add_enum_value>
 		<add_enum_value value="Wgl.ERROR_INCOMPATIBLE_DEVICE_CONTEXTS_ARB">GL_ERROR_INCOMPATIBLE_DEVICE_CONTEXTS_ARB</add_enum_value>
+	</enumerant>
+
+	<enumerant name="^OcclusionQueryEventMaskAMD$" type="bitmask">
+		
+	</enumerant>
+
+	<enumerant name="ReadBufferMode">
+		<add_enum>GL_COLOR_ATTACHMENT0</add_enum>
+		<add_enum>GL_COLOR_ATTACHMENT1</add_enum>
+		<add_enum>GL_COLOR_ATTACHMENT2</add_enum>
+		<add_enum>GL_COLOR_ATTACHMENT3</add_enum>
+		<add_enum>GL_COLOR_ATTACHMENT4</add_enum>
+		<add_enum>GL_COLOR_ATTACHMENT5</add_enum>
+		<add_enum>GL_COLOR_ATTACHMENT6</add_enum>
+		<add_enum>GL_COLOR_ATTACHMENT7</add_enum>
+		<add_enum>GL_COLOR_ATTACHMENT8</add_enum>
+		<add_enum>GL_COLOR_ATTACHMENT9</add_enum>
+		<add_enum>GL_COLOR_ATTACHMENT10</add_enum>
+		<add_enum>GL_COLOR_ATTACHMENT11</add_enum>
+		<add_enum>GL_COLOR_ATTACHMENT12</add_enum>
+		<add_enum>GL_COLOR_ATTACHMENT13</add_enum>
+		<add_enum>GL_COLOR_ATTACHMENT14</add_enum>
+		<add_enum>GL_COLOR_ATTACHMENT15</add_enum>
 	</enumerant>
 	
 	<enumerant name="^PixelFormat$">
@@ -128,6 +152,13 @@
 
 	<command name="^gl(DrawBuffers|UniformSubroutines|CreateShaderProgramv|InvalidateFramebuffer)$">
 		<flags>VariadicParams</flags>
+	</command>
+
+	<!-- Argument renaming for better documentation -->
+
+	<command name="^glStencilOp$">
+		<rename_arg id="zfail">dpfail</rename_arg>
+		<rename_arg id="zpass">dppass</rename_arg>
 	</command>
 	
 	<!-- WGL -->

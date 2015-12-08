@@ -42,7 +42,7 @@ namespace BindingsGen.GLSpecs
 
 		#endregion
 
-		#region Enumerants
+		#region Enumerant Groups
 
 		/// <summary>
 		/// The <see cref="Groups"/> contains individual <see cref="EnumerantGroup"/> describing some of the group
@@ -52,11 +52,31 @@ namespace BindingsGen.GLSpecs
 		[XmlArrayItem("group")]
 		public readonly List<EnumerantGroup> Groups = new List<EnumerantGroup>();
 
+		public EnumerantGroup GetEnumerantGroup(string name)
+		{
+			EnumerantGroup enumerantGroup;
+
+			if (mEnumerantGroupRegistry.TryGetValue(name, out enumerantGroup) == false)
+				return (null);
+
+			return (enumerantGroup);
+		}
+
+		private readonly Dictionary<string, EnumerantGroup> mEnumerantGroupRegistry = new Dictionary<string, EnumerantGroup>();
+
+		#endregion
+
+		#region Enumerant Blocks
+
 		/// <summary>
 		/// 
 		/// </summary>
 		[XmlElement("enums")]
 		public readonly List<EnumerantBlock> Enums = new List<EnumerantBlock>();
+
+		#endregion
+
+		#region Enumerants
 
 		/// <summary>
 		/// Enumerants in this Registry.
@@ -74,17 +94,17 @@ namespace BindingsGen.GLSpecs
 			}
 		}
 
-		public Enumerant GetGlEnumerant(string name)
+		public Enumerant GetEnumerant(string name)
 		{
 			Enumerant enumerant;
 
-			if (mGlEnumerants.TryGetValue(name, out enumerant))
+			if (mEnumerantRegistry.TryGetValue(name, out enumerant))
 				return (enumerant);
 
 			return (null);
 		}
 
-		private readonly Dictionary<string, Enumerant> mGlEnumerants = new Dictionary<string, Enumerant>();
+		private readonly Dictionary<string, Enumerant> mEnumerantRegistry = new Dictionary<string, Enumerant>();
 
 		#endregion
 
@@ -179,6 +199,9 @@ namespace BindingsGen.GLSpecs
 			foreach (CommandBlock commandBlock in CommandBlocks)
 				commandBlock.Link(ctx);
 
+			// Index enumeration groups
+			foreach (EnumerantGroup enumerantGroup in Groups)
+				mEnumerantGroupRegistry.Add(enumerantGroup.Name, enumerantGroup);
 			// Index commands
 			foreach (Command command in Commands)
 				mCommandRegistry.Add(command.Prototype.Name, command);
@@ -197,12 +220,12 @@ namespace BindingsGen.GLSpecs
 			// Index required enumerants
 			foreach (Enumerant enumerant in Enumerants) {
 				if ((enumerant.Api == null) || (Regex.IsMatch(ctx.Class.ToUpperInvariant(), enumerant.Api)))
-					mGlEnumerants[enumerant.Name] = enumerant;
+					mEnumerantRegistry[enumerant.Name] = enumerant;
 			}
 			// Link enumerant aliases
 			foreach (Enumerant enumerant in Enumerants) {
 				if (enumerant.Alias != null)
-					enumerant.EnumAlias = GetGlEnumerant(enumerant.Alias);
+					enumerant.EnumAlias = GetEnumerant(enumerant.Alias);
 
 				if (enumerant.EnumAlias == null) {
 					foreach (string extensionPostfix in ctx.ExtensionsDictionary.Words) {
@@ -215,22 +238,22 @@ namespace BindingsGen.GLSpecs
 
 						if (!isArb && !isExt) {
 							// Core enumerant
-							enumerantAlias = GetGlEnumerant(aliasName);
+							enumerantAlias = GetEnumerant(aliasName);
 							// ARB enumerant
 							if (enumerantAlias == null)
-								enumerantAlias = GetGlEnumerant(aliasName + "_ARB");
+								enumerantAlias = GetEnumerant(aliasName + "_ARB");
 							// EXT enumerant
 							if (enumerantAlias == null)
-								enumerantAlias = GetGlEnumerant(aliasName + "_EXT");
+								enumerantAlias = GetEnumerant(aliasName + "_EXT");
 						} else if (isExt) {
 							// Core enumerant
-							enumerantAlias = GetGlEnumerant(aliasName);
+							enumerantAlias = GetEnumerant(aliasName);
 							// ARB enumerant
 							if (enumerantAlias == null)
-								enumerantAlias = GetGlEnumerant(aliasName + "_ARB");
+								enumerantAlias = GetEnumerant(aliasName + "_ARB");
 						} else if (isArb) {
 							// Core enumerant
-							enumerantAlias = GetGlEnumerant(aliasName);
+							enumerantAlias = GetEnumerant(aliasName);
 						}
 
 						if (enumerantAlias != null) {

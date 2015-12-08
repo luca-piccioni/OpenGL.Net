@@ -54,6 +54,8 @@ namespace BindingsGen.GLSpecs
 			Type = otherParam.Type;
 			TypeDecorators = new List<string>(otherParam.TypeDecorators);
 			Name = otherParam.Name;
+			ParentCommand = otherParam.ParentCommand;
+
 			OverridenParameter = otherParam;
 		}
 
@@ -256,9 +258,24 @@ namespace BindingsGen.GLSpecs
 			}
 		}
 
+		public string ImplementationNameRaw
+		{
+			get
+			{
+				string alternativeName = CommandFlagsDatabase.GetCommandArgumentAlternativeName(ParentCommand, this);
+
+				return (alternativeName ?? Name);
+			}
+		}
+
 		public string ImplementationName
 		{
-			get { return (ImportName); }
+			get
+			{
+				string rawName = ImplementationNameRaw;
+
+				return (TypeMap.IsCsKeyword(rawName) ? "@" + rawName : rawName);
+			}
 		}
 
 		public string FixedLocalVarName
@@ -379,6 +396,16 @@ namespace BindingsGen.GLSpecs
 				return (false);
 			}
 		}
+
+		#endregion
+
+		#region Information Linkage
+
+		/// <summary>
+		/// The parent command which this command parameter belongs to.
+		/// </summary>
+		[XmlIgnore()]
+		public Command ParentCommand;
 
 		#endregion
 

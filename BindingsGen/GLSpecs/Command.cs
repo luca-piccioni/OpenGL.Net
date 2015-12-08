@@ -1113,6 +1113,9 @@ namespace BindingsGen.GLSpecs
 
 			RemovedBy.Clear();
 			RemovedBy.AddRange(GetFeaturesRemovingCommand(ctx));
+
+			foreach (CommandParameter commandParameter in Parameters)
+				commandParameter.ParentCommand = this;
 		}
 
 		/// <summary>

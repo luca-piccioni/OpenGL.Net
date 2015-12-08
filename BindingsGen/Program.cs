@@ -144,7 +144,7 @@ namespace BindingsGen
 					}
 
 					foreach (FeatureCommand.Item featureEnumItem in featureCommand.Enums) {
-						Enumerant enumerant = ctx.Registry.GetGlEnumerant(featureEnumItem.Name);
+						Enumerant enumerant = ctx.Registry.GetEnumerant(featureEnumItem.Name);
 
 						if (enumerant == null)
 							continue;

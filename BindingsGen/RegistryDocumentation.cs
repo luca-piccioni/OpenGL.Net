@@ -348,7 +348,7 @@ namespace BindingsGen
 				paramDoc.Add(String.Format("A <see cref=\"T:{0}\"/>.", param.GetImplementationType(ctx, command)));
 
 				if (root != null) {
-					string xpath = String.Format("/refentry/refsect1[@id='parameters']/variablelist/varlistentry[term/parameter/text() = '{0}']/listitem/para", param.Name);
+					string xpath = String.Format("/refentry/refsect1[@id='parameters']/variablelist/varlistentry[term/parameter/text() = '{0}']/listitem/para", param.ImplementationNameRaw);
 
 					XmlNode xmlIdentifier = root.SelectSingleNode(xpath, nsmgr);
 					if (xmlIdentifier != null)
