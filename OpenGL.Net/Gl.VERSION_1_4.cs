@@ -2255,13 +2255,13 @@ namespace OpenGL
 		/// specify the components of Gl.BLEND_COLOR
 		/// </param>
 		/// <param name="green">
-		/// A <see cref="T:float"/>.
+		/// specify the components of Gl.BLEND_COLOR
 		/// </param>
 		/// <param name="blue">
-		/// A <see cref="T:float"/>.
+		/// specify the components of Gl.BLEND_COLOR
 		/// </param>
 		/// <param name="alpha">
-		/// A <see cref="T:float"/>.
+		/// specify the components of Gl.BLEND_COLOR
 		/// </param>
 		/// <seealso cref="Gl.BlendEquation"/>
 		/// <seealso cref="Gl.BlendFunc"/>

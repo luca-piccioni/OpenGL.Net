@@ -28,48 +28,6 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Value of GL_SAMPLE_LOCATION_SUBPIXEL_BITS_NV symbol.
-		/// </summary>
-		[RequiredByFeature("GL_NV_sample_locations")]
-		public const int SAMPLE_LOCATION_SUBPIXEL_BITS_NV = 0x933D;
-
-		/// <summary>
-		/// Value of GL_SAMPLE_LOCATION_PIXEL_GRID_WIDTH_NV symbol.
-		/// </summary>
-		[RequiredByFeature("GL_NV_sample_locations")]
-		public const int SAMPLE_LOCATION_PIXEL_GRID_WIDTH_NV = 0x933E;
-
-		/// <summary>
-		/// Value of GL_SAMPLE_LOCATION_PIXEL_GRID_HEIGHT_NV symbol.
-		/// </summary>
-		[RequiredByFeature("GL_NV_sample_locations")]
-		public const int SAMPLE_LOCATION_PIXEL_GRID_HEIGHT_NV = 0x933F;
-
-		/// <summary>
-		/// Value of GL_PROGRAMMABLE_SAMPLE_LOCATION_TABLE_SIZE_NV symbol.
-		/// </summary>
-		[RequiredByFeature("GL_NV_sample_locations")]
-		public const int PROGRAMMABLE_SAMPLE_LOCATION_TABLE_SIZE_NV = 0x9340;
-
-		/// <summary>
-		/// Value of GL_PROGRAMMABLE_SAMPLE_LOCATION_NV symbol.
-		/// </summary>
-		[RequiredByFeature("GL_NV_sample_locations")]
-		public const int PROGRAMMABLE_SAMPLE_LOCATION_NV = 0x9341;
-
-		/// <summary>
-		/// Value of GL_FRAMEBUFFER_PROGRAMMABLE_SAMPLE_LOCATIONS_NV symbol.
-		/// </summary>
-		[RequiredByFeature("GL_NV_sample_locations")]
-		public const int FRAMEBUFFER_PROGRAMMABLE_SAMPLE_LOCATIONS_NV = 0x9342;
-
-		/// <summary>
-		/// Value of GL_FRAMEBUFFER_SAMPLE_LOCATION_PIXEL_GRID_NV symbol.
-		/// </summary>
-		[RequiredByFeature("GL_NV_sample_locations")]
-		public const int FRAMEBUFFER_SAMPLE_LOCATION_PIXEL_GRID_NV = 0x9343;
-
-		/// <summary>
 		/// Binding for glFramebufferSampleLocationsfvNV.
 		/// </summary>
 		/// <param name="target">

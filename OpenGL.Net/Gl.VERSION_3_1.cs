@@ -537,8 +537,8 @@ namespace OpenGL
 		/// <param name="count">
 		/// Specifies the number of indices to be rendered.
 		/// </param>
-		/// <param name="instancecount">
-		/// A <see cref="T:Int32"/>.
+		/// <param name="primcount">
+		/// Specifies the number of instances of the specified range of indices to be rendered.
 		/// </param>
 		/// <remarks>
 		/// </remarks>
@@ -559,11 +559,11 @@ namespace OpenGL
 		/// <seealso cref="Gl.DrawArrays"/>
 		/// <seealso cref="Gl.DrawElementsInstanced"/>
 		[RequiredByFeature("GL_VERSION_3_1")]
-		public static void DrawArraysInstanced(PrimitiveType mode, Int32 first, Int32 count, Int32 instancecount)
+		public static void DrawArraysInstanced(PrimitiveType mode, Int32 first, Int32 count, Int32 primcount)
 		{
 			Debug.Assert(Delegates.pglDrawArraysInstanced != null, "pglDrawArraysInstanced not implemented");
-			Delegates.pglDrawArraysInstanced((Int32)mode, first, count, instancecount);
-			CallLog("glDrawArraysInstanced({0}, {1}, {2}, {3})", mode, first, count, instancecount);
+			Delegates.pglDrawArraysInstanced((Int32)mode, first, count, primcount);
+			CallLog("glDrawArraysInstanced({0}, {1}, {2}, {3})", mode, first, count, primcount);
 			DebugCheckErrors();
 		}
 
@@ -585,8 +585,8 @@ namespace OpenGL
 		/// <param name="indices">
 		/// Specifies a pointer to the location where the indices are stored.
 		/// </param>
-		/// <param name="instancecount">
-		/// A <see cref="T:Int32"/>.
+		/// <param name="primcount">
+		/// Specifies the number of instances of the specified range of indices to be rendered.
 		/// </param>
 		/// <remarks>
 		/// </remarks>
@@ -608,11 +608,11 @@ namespace OpenGL
 		/// <seealso cref="Gl.DrawElements"/>
 		/// <seealso cref="Gl.DrawArraysInstanced"/>
 		[RequiredByFeature("GL_VERSION_3_1")]
-		public static void DrawElementsInstanced(PrimitiveType mode, Int32 count, DrawElementsType type, IntPtr indices, Int32 instancecount)
+		public static void DrawElementsInstanced(PrimitiveType mode, Int32 count, DrawElementsType type, IntPtr indices, Int32 primcount)
 		{
 			Debug.Assert(Delegates.pglDrawElementsInstanced != null, "pglDrawElementsInstanced not implemented");
-			Delegates.pglDrawElementsInstanced((Int32)mode, count, (Int32)type, indices, instancecount);
-			CallLog("glDrawElementsInstanced({0}, {1}, {2}, 0x{3}, {4})", mode, count, type, indices.ToString("X8"), instancecount);
+			Delegates.pglDrawElementsInstanced((Int32)mode, count, (Int32)type, indices, primcount);
+			CallLog("glDrawElementsInstanced({0}, {1}, {2}, 0x{3}, {4})", mode, count, type, indices.ToString("X8"), primcount);
 			DebugCheckErrors();
 		}
 
@@ -634,8 +634,8 @@ namespace OpenGL
 		/// <param name="indices">
 		/// Specifies a pointer to the location where the indices are stored.
 		/// </param>
-		/// <param name="instancecount">
-		/// A <see cref="T:Int32"/>.
+		/// <param name="primcount">
+		/// Specifies the number of instances of the specified range of indices to be rendered.
 		/// </param>
 		/// <remarks>
 		/// </remarks>
@@ -657,11 +657,11 @@ namespace OpenGL
 		/// <seealso cref="Gl.DrawElements"/>
 		/// <seealso cref="Gl.DrawArraysInstanced"/>
 		[RequiredByFeature("GL_VERSION_3_1")]
-		public static void DrawElementsInstanced(PrimitiveType mode, Int32 count, DrawElementsType type, Object indices, Int32 instancecount)
+		public static void DrawElementsInstanced(PrimitiveType mode, Int32 count, DrawElementsType type, Object indices, Int32 primcount)
 		{
 			GCHandle pin_indices = GCHandle.Alloc(indices, GCHandleType.Pinned);
 			try {
-				DrawElementsInstanced(mode, count, type, pin_indices.AddrOfPinnedObject(), instancecount);
+				DrawElementsInstanced(mode, count, type, pin_indices.AddrOfPinnedObject(), primcount);
 			} finally {
 				pin_indices.Free();
 			}

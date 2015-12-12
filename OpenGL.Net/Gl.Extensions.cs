@@ -984,10 +984,100 @@ namespace OpenGL
 			public bool BlendEquationAdvanced_KHR;
 
 			/// <summary>
+			/// Support for extension GL_KHR_texture_compression_astc_sliced_3d.
+			/// </summary>
+			[Extension("GL_KHR_texture_compression_astc_sliced_3d")]
+			public bool TextureCompressionAstcSliced3d_KHR;
+
+			/// <summary>
+			/// Support for extension GL_KHR_no_error.
+			/// </summary>
+			[Extension("GL_KHR_no_error")]
+			public bool NoError_KHR;
+
+			/// <summary>
+			/// Support for extension GL_ARB_ES3_2_compatibility.
+			/// </summary>
+			[Extension("GL_ARB_ES3_2_compatibility")]
+			public bool ES32Compatibility_ARB;
+
+			/// <summary>
+			/// Support for extension GL_ARB_fragment_shader_interlock.
+			/// </summary>
+			[Extension("GL_ARB_fragment_shader_interlock")]
+			public bool FragmentShaderInterlock_ARB;
+
+			/// <summary>
+			/// Support for extension GL_ARB_gpu_shader_int64.
+			/// </summary>
+			[Extension("GL_ARB_gpu_shader_int64")]
+			public bool GpuShaderInt64_ARB;
+
+			/// <summary>
 			/// Support for extension GL_ARB_imaging.
 			/// </summary>
 			[Extension("GL_ARB_imaging")]
 			public bool Imaging_ARB;
+
+			/// <summary>
+			/// Support for extension GL_ARB_parallel_shader_compile.
+			/// </summary>
+			[Extension("GL_ARB_parallel_shader_compile")]
+			public bool ParallelShaderCompile_ARB;
+
+			/// <summary>
+			/// Support for extension GL_ARB_post_depth_coverage.
+			/// </summary>
+			[Extension("GL_ARB_post_depth_coverage")]
+			public bool PostDepthCoverage_ARB;
+
+			/// <summary>
+			/// Support for extension GL_ARB_sample_locations.
+			/// </summary>
+			[Extension("GL_ARB_sample_locations")]
+			public bool SampleLocations_ARB;
+
+			/// <summary>
+			/// Support for extension GL_ARB_shader_atomic_counter_ops.
+			/// </summary>
+			[Extension("GL_ARB_shader_atomic_counter_ops")]
+			public bool ShaderAtomicCounterOps_ARB;
+
+			/// <summary>
+			/// Support for extension GL_ARB_shader_ballot.
+			/// </summary>
+			[Extension("GL_ARB_shader_ballot")]
+			public bool ShaderBallot_ARB;
+
+			/// <summary>
+			/// Support for extension GL_ARB_shader_clock.
+			/// </summary>
+			[Extension("GL_ARB_shader_clock")]
+			public bool ShaderClock_ARB;
+
+			/// <summary>
+			/// Support for extension GL_ARB_shader_viewport_layer_array.
+			/// </summary>
+			[Extension("GL_ARB_shader_viewport_layer_array")]
+			public bool ShaderViewportLayerArray_ARB;
+
+			/// <summary>
+			/// Support for extension GL_ARB_sparse_texture2.
+			/// </summary>
+			[Extension("GL_ARB_sparse_texture2")]
+			public bool SparseTexture2_ARB;
+
+			/// <summary>
+			/// Support for extension GL_ARB_sparse_texture_clamp.
+			/// </summary>
+			[Extension("GL_ARB_sparse_texture_clamp")]
+			public bool SparseTextureClamp_ARB;
+
+			/// <summary>
+			/// Support for extension GL_ARB_texture_filter_minmax.
+			/// </summary>
+			[Extension("GL_ARB_texture_filter_minmax")]
+			public bool TextureFilterMinmax_ARB;
 
 			/// <summary>
 			/// Support for extension GL_EXT_abgr.
@@ -3122,16 +3212,34 @@ namespace OpenGL
 			public bool PointParameters_SGIS;
 
 			/// <summary>
-			/// Support for extension GL_ATI_pixel_format_float.
+			/// Support for extension GL_OVR_multiview2.
 			/// </summary>
-			[Extension("GL_ATI_pixel_format_float")]
-			public bool PixelFormatFloat_ATI;
+			[Extension("GL_OVR_multiview2")]
+			public bool Multiview2_OVR;
+
+			/// <summary>
+			/// Support for extension GL_OVR_multiview.
+			/// </summary>
+			[Extension("GL_OVR_multiview")]
+			public bool Multiview_OVR;
+
+			/// <summary>
+			/// Support for extension GL_NV_conservative_raster_dilate.
+			/// </summary>
+			[Extension("GL_NV_conservative_raster_dilate")]
+			public bool ConservativeRasterDilate_NV;
 
 			/// <summary>
 			/// Support for extension GL_NV_command_list.
 			/// </summary>
 			[Extension("GL_NV_command_list")]
 			public bool CommandList_NV;
+
+			/// <summary>
+			/// Support for extension GL_INTEL_framebuffer_CMAA.
+			/// </summary>
+			[Extension("GL_INTEL_framebuffer_CMAA")]
+			public bool FramebufferCMAA_INTEL;
 
 			/// <summary>
 			/// Support for extension GL_INGR_blend_func_separate.
@@ -3144,6 +3252,12 @@ namespace OpenGL
 			/// </summary>
 			[Extension("GL_EXT_texture_cube_map")]
 			public bool TextureCubeMap_EXT;
+
+			/// <summary>
+			/// Support for extension GL_ATI_pixel_format_float.
+			/// </summary>
+			[Extension("GL_ATI_pixel_format_float")]
+			public bool PixelFormatFloat_ATI;
 
 			/// <summary>
 			/// Support for extension GL_AMD_compressed_3DC_texture.
@@ -3326,16 +3440,34 @@ namespace OpenGL
 			public bool ShaderBinary_DMP;
 
 			/// <summary>
+			/// Support for extension GL_EXT_YUV_target.
+			/// </summary>
+			[Extension("GL_EXT_YUV_target")]
+			public bool YUVTarget_EXT;
+
+			/// <summary>
 			/// Support for extension GL_EXT_base_instance.
 			/// </summary>
 			[Extension("GL_EXT_base_instance")]
 			public bool BaseInstance_EXT;
 
 			/// <summary>
+			/// Support for extension GL_EXT_blend_func_extended.
+			/// </summary>
+			[Extension("GL_EXT_blend_func_extended")]
+			public bool BlendFuncExtended_EXT;
+
+			/// <summary>
 			/// Support for extension GL_EXT_buffer_storage.
 			/// </summary>
 			[Extension("GL_EXT_buffer_storage")]
 			public bool BufferStorage_EXT;
+
+			/// <summary>
+			/// Support for extension GL_EXT_color_buffer_float.
+			/// </summary>
+			[Extension("GL_EXT_color_buffer_float")]
+			public bool ColorBufferFloat_EXT;
 
 			/// <summary>
 			/// Support for extension GL_EXT_color_buffer_half_float.
@@ -3420,6 +3552,12 @@ namespace OpenGL
 			/// </summary>
 			[Extension("GL_EXT_multi_draw_indirect")]
 			public bool MultiDrawIndirect_EXT;
+
+			/// <summary>
+			/// Support for extension GL_EXT_multisampled_compatibility.
+			/// </summary>
+			[Extension("GL_EXT_multisampled_compatibility")]
+			public bool MultisampledCompatibility_EXT;
 
 			/// <summary>
 			/// Support for extension GL_EXT_multisampled_render_to_texture.
@@ -3608,12 +3746,6 @@ namespace OpenGL
 			public bool UnpackSubimage_EXT;
 
 			/// <summary>
-			/// Support for extension GL_EXT_YUV_target.
-			/// </summary>
-			[Extension("GL_EXT_YUV_target")]
-			public bool YUVTarget_EXT;
-
-			/// <summary>
 			/// Support for extension GL_FJ_shader_binary_GCCSO.
 			/// </summary>
 			[Extension("GL_FJ_shader_binary_GCCSO")]
@@ -3660,6 +3792,12 @@ namespace OpenGL
 			/// </summary>
 			[Extension("GL_IMG_texture_env_enhanced_fixed_function")]
 			public bool TextureEnvEnhancedFixedFunction_IMG;
+
+			/// <summary>
+			/// Support for extension GL_IMG_texture_filter_cubic.
+			/// </summary>
+			[Extension("GL_IMG_texture_filter_cubic")]
+			public bool TextureFilterCubic_IMG;
 
 			/// <summary>
 			/// Support for extension GL_IMG_user_clip_plane.
@@ -3950,16 +4088,16 @@ namespace OpenGL
 			public bool FramebufferObject_OES;
 
 			/// <summary>
-			/// Support for extension GL_OES_geometry_shader.
-			/// </summary>
-			[Extension("GL_OES_geometry_shader")]
-			public bool GeometryShader_OES;
-
-			/// <summary>
 			/// Support for extension GL_OES_geometry_point_size.
 			/// </summary>
 			[Extension("GL_OES_geometry_point_size")]
 			public bool GeometryPointSize_OES;
+
+			/// <summary>
+			/// Support for extension GL_OES_geometry_shader.
+			/// </summary>
+			[Extension("GL_OES_geometry_shader")]
+			public bool GeometryShader_OES;
 
 			/// <summary>
 			/// Support for extension GL_OES_get_program_binary.
@@ -4094,16 +4232,16 @@ namespace OpenGL
 			public bool SurfacelessContext_OES;
 
 			/// <summary>
-			/// Support for extension GL_OES_tessellation_shader.
-			/// </summary>
-			[Extension("GL_OES_tessellation_shader")]
-			public bool TessellationShader_OES;
-
-			/// <summary>
 			/// Support for extension GL_OES_tessellation_point_size.
 			/// </summary>
 			[Extension("GL_OES_tessellation_point_size")]
 			public bool TessellationPointSize_OES;
+
+			/// <summary>
+			/// Support for extension GL_OES_tessellation_shader.
+			/// </summary>
+			[Extension("GL_OES_tessellation_shader")]
+			public bool TessellationShader_OES;
 
 			/// <summary>
 			/// Support for extension GL_OES_texture_3D.
@@ -4218,6 +4356,12 @@ namespace OpenGL
 			/// </summary>
 			[Extension("GL_OES_vertex_type_10_10_10_2")]
 			public bool VertexType1010102_OES;
+
+			/// <summary>
+			/// Support for extension GL_OVR_multiview_multisampled_render_to_texture.
+			/// </summary>
+			[Extension("GL_OVR_multiview_multisampled_render_to_texture")]
+			public bool MultiviewMultisampledRenderToTexture_OVR;
 
 			/// <summary>
 			/// Support for extension GL_QCOM_alpha_test.

@@ -1535,11 +1535,11 @@ namespace OpenGL
 		/// Specifies the target to which the buffer object is bound for Gl.GetBufferParameteriv and Gl.GetBufferParameteri64v. Must 
 		/// be one of the buffer binding targets in the following table:
 		/// </param>
-		/// <param name="pname">
-		/// A <see cref="T:Int32"/>.
+		/// <param name="value">
+		/// Specifies the name of the buffer object parameter to query.
 		/// </param>
-		/// <param name="params">
-		/// A <see cref="T:Int32[]"/>.
+		/// <param name="data">
+		/// Returns the requested parameter.
 		/// </param>
 		/// <remarks>
 		/// </remarks>
@@ -1564,14 +1564,14 @@ namespace OpenGL
 		/// <seealso cref="Gl.MapBuffer"/>
 		/// <seealso cref="Gl.UnmapBuffer"/>
 		[RequiredByFeature("GL_VERSION_1_5")]
-		public static void GetBufferParameter(BufferTargetARB target, Int32 pname, [Out] Int32[] @params)
+		public static void GetBufferParameter(BufferTargetARB target, Int32 value, [Out] Int32[] data)
 		{
 			unsafe {
-				fixed (Int32* p_params = @params)
+				fixed (Int32* p_params = data)
 				{
 					Debug.Assert(Delegates.pglGetBufferParameteriv != null, "pglGetBufferParameteriv not implemented");
-					Delegates.pglGetBufferParameteriv((Int32)target, pname, p_params);
-					CallLog("glGetBufferParameteriv({0}, {1}, {2})", target, pname, @params);
+					Delegates.pglGetBufferParameteriv((Int32)target, value, p_params);
+					CallLog("glGetBufferParameteriv({0}, {1}, {2})", target, value, data);
 				}
 			}
 			DebugCheckErrors();
@@ -1584,11 +1584,11 @@ namespace OpenGL
 		/// Specifies the target to which the buffer object is bound for Gl.GetBufferParameteriv and Gl.GetBufferParameteri64v. Must 
 		/// be one of the buffer binding targets in the following table:
 		/// </param>
-		/// <param name="pname">
-		/// A <see cref="T:Int32"/>.
+		/// <param name="value">
+		/// Specifies the name of the buffer object parameter to query.
 		/// </param>
-		/// <param name="params">
-		/// A <see cref="T:Int32"/>.
+		/// <param name="data">
+		/// Returns the requested parameter.
 		/// </param>
 		/// <remarks>
 		/// </remarks>
@@ -1613,14 +1613,14 @@ namespace OpenGL
 		/// <seealso cref="Gl.MapBuffer"/>
 		/// <seealso cref="Gl.UnmapBuffer"/>
 		[RequiredByFeature("GL_VERSION_1_5")]
-		public static void GetBufferParameter(BufferTargetARB target, Int32 pname, out Int32 @params)
+		public static void GetBufferParameter(BufferTargetARB target, Int32 value, out Int32 data)
 		{
 			unsafe {
-				fixed (Int32* p_params = &@params)
+				fixed (Int32* p_params = &data)
 				{
 					Debug.Assert(Delegates.pglGetBufferParameteriv != null, "pglGetBufferParameteriv not implemented");
-					Delegates.pglGetBufferParameteriv((Int32)target, pname, p_params);
-					CallLog("glGetBufferParameteriv({0}, {1}, {2})", target, pname, @params);
+					Delegates.pglGetBufferParameteriv((Int32)target, value, p_params);
+					CallLog("glGetBufferParameteriv({0}, {1}, {2})", target, value, data);
 				}
 			}
 			DebugCheckErrors();

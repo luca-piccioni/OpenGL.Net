@@ -1692,8 +1692,8 @@ namespace OpenGL
 		/// <param name="program">
 		/// Specifies the program object whose information log is to be queried.
 		/// </param>
-		/// <param name="bufSize">
-		/// A <see cref="T:Int32"/>.
+		/// <param name="maxLength">
+		/// Specifies the size of the character buffer for storing the returned information log.
 		/// </param>
 		/// <param name="length">
 		/// Returns the length of the string returned in <paramref name="infoLog"/> (excluding the null terminator).
@@ -1717,14 +1717,14 @@ namespace OpenGL
 		/// <seealso cref="Gl.LinkProgram"/>
 		/// <seealso cref="Gl.ValidateProgram"/>
 		[RequiredByFeature("GL_VERSION_2_0")]
-		public static void GetProgramInfoLog(UInt32 program, Int32 bufSize, out Int32 length, [Out] StringBuilder infoLog)
+		public static void GetProgramInfoLog(UInt32 program, Int32 maxLength, out Int32 length, [Out] StringBuilder infoLog)
 		{
 			unsafe {
 				fixed (Int32* p_length = &length)
 				{
 					Debug.Assert(Delegates.pglGetProgramInfoLog != null, "pglGetProgramInfoLog not implemented");
-					Delegates.pglGetProgramInfoLog(program, bufSize, p_length, infoLog);
-					CallLog("glGetProgramInfoLog({0}, {1}, {2}, {3})", program, bufSize, length, infoLog);
+					Delegates.pglGetProgramInfoLog(program, maxLength, p_length, infoLog);
+					CallLog("glGetProgramInfoLog({0}, {1}, {2}, {3})", program, maxLength, length, infoLog);
 				}
 			}
 			DebugCheckErrors();
@@ -1822,8 +1822,8 @@ namespace OpenGL
 		/// <param name="shader">
 		/// Specifies the shader object whose information log is to be queried.
 		/// </param>
-		/// <param name="bufSize">
-		/// A <see cref="T:Int32"/>.
+		/// <param name="maxLength">
+		/// Specifies the size of the character buffer for storing the returned information log.
 		/// </param>
 		/// <param name="length">
 		/// Returns the length of the string returned in <paramref name="infoLog"/> (excluding the null terminator).
@@ -1847,14 +1847,14 @@ namespace OpenGL
 		/// <seealso cref="Gl.LinkProgram"/>
 		/// <seealso cref="Gl.ValidateProgram"/>
 		[RequiredByFeature("GL_VERSION_2_0")]
-		public static void GetShaderInfoLog(UInt32 shader, Int32 bufSize, out Int32 length, [Out] StringBuilder infoLog)
+		public static void GetShaderInfoLog(UInt32 shader, Int32 maxLength, out Int32 length, [Out] StringBuilder infoLog)
 		{
 			unsafe {
 				fixed (Int32* p_length = &length)
 				{
 					Debug.Assert(Delegates.pglGetShaderInfoLog != null, "pglGetShaderInfoLog not implemented");
-					Delegates.pglGetShaderInfoLog(shader, bufSize, p_length, infoLog);
-					CallLog("glGetShaderInfoLog({0}, {1}, {2}, {3})", shader, bufSize, length, infoLog);
+					Delegates.pglGetShaderInfoLog(shader, maxLength, p_length, infoLog);
+					CallLog("glGetShaderInfoLog({0}, {1}, {2}, {3})", shader, maxLength, length, infoLog);
 				}
 			}
 			DebugCheckErrors();
@@ -2554,7 +2554,7 @@ namespace OpenGL
 		/// For the scalar commands, specifies the new values to be used for the specified uniform variable.
 		/// </param>
 		/// <param name="v1">
-		/// A <see cref="T:float"/>.
+		/// For the scalar commands, specifies the new values to be used for the specified uniform variable.
 		/// </param>
 		/// <remarks>
 		/// </remarks>
@@ -2614,10 +2614,10 @@ namespace OpenGL
 		/// For the scalar commands, specifies the new values to be used for the specified uniform variable.
 		/// </param>
 		/// <param name="v1">
-		/// A <see cref="T:float"/>.
+		/// For the scalar commands, specifies the new values to be used for the specified uniform variable.
 		/// </param>
 		/// <param name="v2">
-		/// A <see cref="T:float"/>.
+		/// For the scalar commands, specifies the new values to be used for the specified uniform variable.
 		/// </param>
 		/// <remarks>
 		/// </remarks>
@@ -2677,13 +2677,13 @@ namespace OpenGL
 		/// For the scalar commands, specifies the new values to be used for the specified uniform variable.
 		/// </param>
 		/// <param name="v1">
-		/// A <see cref="T:float"/>.
+		/// For the scalar commands, specifies the new values to be used for the specified uniform variable.
 		/// </param>
 		/// <param name="v2">
-		/// A <see cref="T:float"/>.
+		/// For the scalar commands, specifies the new values to be used for the specified uniform variable.
 		/// </param>
 		/// <param name="v3">
-		/// A <see cref="T:float"/>.
+		/// For the scalar commands, specifies the new values to be used for the specified uniform variable.
 		/// </param>
 		/// <remarks>
 		/// </remarks>
@@ -2800,7 +2800,7 @@ namespace OpenGL
 		/// For the scalar commands, specifies the new values to be used for the specified uniform variable.
 		/// </param>
 		/// <param name="v1">
-		/// A <see cref="T:Int32"/>.
+		/// For the scalar commands, specifies the new values to be used for the specified uniform variable.
 		/// </param>
 		/// <remarks>
 		/// </remarks>
@@ -2860,10 +2860,10 @@ namespace OpenGL
 		/// For the scalar commands, specifies the new values to be used for the specified uniform variable.
 		/// </param>
 		/// <param name="v1">
-		/// A <see cref="T:Int32"/>.
+		/// For the scalar commands, specifies the new values to be used for the specified uniform variable.
 		/// </param>
 		/// <param name="v2">
-		/// A <see cref="T:Int32"/>.
+		/// For the scalar commands, specifies the new values to be used for the specified uniform variable.
 		/// </param>
 		/// <remarks>
 		/// </remarks>
@@ -2923,13 +2923,13 @@ namespace OpenGL
 		/// For the scalar commands, specifies the new values to be used for the specified uniform variable.
 		/// </param>
 		/// <param name="v1">
-		/// A <see cref="T:Int32"/>.
+		/// For the scalar commands, specifies the new values to be used for the specified uniform variable.
 		/// </param>
 		/// <param name="v2">
-		/// A <see cref="T:Int32"/>.
+		/// For the scalar commands, specifies the new values to be used for the specified uniform variable.
 		/// </param>
 		/// <param name="v3">
-		/// A <see cref="T:Int32"/>.
+		/// For the scalar commands, specifies the new values to be used for the specified uniform variable.
 		/// </param>
 		/// <remarks>
 		/// </remarks>
@@ -3757,7 +3757,7 @@ namespace OpenGL
 		/// Specifies the index of the generic vertex attribute to be modified.
 		/// </param>
 		/// <param name="x">
-		/// A <see cref="T:double"/>.
+		/// For the scalar commands, specifies the new values to be used for the specified vertex attribute.
 		/// </param>
 		/// <remarks>
 		/// <para>The exceptions below won't be thrown; caller must check result manually.</para>
@@ -3827,7 +3827,7 @@ namespace OpenGL
 		/// Specifies the index of the generic vertex attribute to be modified.
 		/// </param>
 		/// <param name="x">
-		/// A <see cref="T:float"/>.
+		/// For the scalar commands, specifies the new values to be used for the specified vertex attribute.
 		/// </param>
 		/// <remarks>
 		/// <para>The exceptions below won't be thrown; caller must check result manually.</para>
@@ -3897,7 +3897,7 @@ namespace OpenGL
 		/// Specifies the index of the generic vertex attribute to be modified.
 		/// </param>
 		/// <param name="x">
-		/// A <see cref="T:Int16"/>.
+		/// For the scalar commands, specifies the new values to be used for the specified vertex attribute.
 		/// </param>
 		/// <remarks>
 		/// <para>The exceptions below won't be thrown; caller must check result manually.</para>
@@ -3967,10 +3967,10 @@ namespace OpenGL
 		/// Specifies the index of the generic vertex attribute to be modified.
 		/// </param>
 		/// <param name="x">
-		/// A <see cref="T:double"/>.
+		/// For the scalar commands, specifies the new values to be used for the specified vertex attribute.
 		/// </param>
 		/// <param name="y">
-		/// A <see cref="T:double"/>.
+		/// For the scalar commands, specifies the new values to be used for the specified vertex attribute.
 		/// </param>
 		/// <remarks>
 		/// <para>The exceptions below won't be thrown; caller must check result manually.</para>
@@ -4040,10 +4040,10 @@ namespace OpenGL
 		/// Specifies the index of the generic vertex attribute to be modified.
 		/// </param>
 		/// <param name="x">
-		/// A <see cref="T:float"/>.
+		/// For the scalar commands, specifies the new values to be used for the specified vertex attribute.
 		/// </param>
 		/// <param name="y">
-		/// A <see cref="T:float"/>.
+		/// For the scalar commands, specifies the new values to be used for the specified vertex attribute.
 		/// </param>
 		/// <remarks>
 		/// <para>The exceptions below won't be thrown; caller must check result manually.</para>
@@ -4113,10 +4113,10 @@ namespace OpenGL
 		/// Specifies the index of the generic vertex attribute to be modified.
 		/// </param>
 		/// <param name="x">
-		/// A <see cref="T:Int16"/>.
+		/// For the scalar commands, specifies the new values to be used for the specified vertex attribute.
 		/// </param>
 		/// <param name="y">
-		/// A <see cref="T:Int16"/>.
+		/// For the scalar commands, specifies the new values to be used for the specified vertex attribute.
 		/// </param>
 		/// <remarks>
 		/// <para>The exceptions below won't be thrown; caller must check result manually.</para>
@@ -4186,13 +4186,13 @@ namespace OpenGL
 		/// Specifies the index of the generic vertex attribute to be modified.
 		/// </param>
 		/// <param name="x">
-		/// A <see cref="T:double"/>.
+		/// For the scalar commands, specifies the new values to be used for the specified vertex attribute.
 		/// </param>
 		/// <param name="y">
-		/// A <see cref="T:double"/>.
+		/// For the scalar commands, specifies the new values to be used for the specified vertex attribute.
 		/// </param>
 		/// <param name="z">
-		/// A <see cref="T:double"/>.
+		/// For the scalar commands, specifies the new values to be used for the specified vertex attribute.
 		/// </param>
 		/// <remarks>
 		/// <para>The exceptions below won't be thrown; caller must check result manually.</para>
@@ -4262,13 +4262,13 @@ namespace OpenGL
 		/// Specifies the index of the generic vertex attribute to be modified.
 		/// </param>
 		/// <param name="x">
-		/// A <see cref="T:float"/>.
+		/// For the scalar commands, specifies the new values to be used for the specified vertex attribute.
 		/// </param>
 		/// <param name="y">
-		/// A <see cref="T:float"/>.
+		/// For the scalar commands, specifies the new values to be used for the specified vertex attribute.
 		/// </param>
 		/// <param name="z">
-		/// A <see cref="T:float"/>.
+		/// For the scalar commands, specifies the new values to be used for the specified vertex attribute.
 		/// </param>
 		/// <remarks>
 		/// <para>The exceptions below won't be thrown; caller must check result manually.</para>
@@ -4338,13 +4338,13 @@ namespace OpenGL
 		/// Specifies the index of the generic vertex attribute to be modified.
 		/// </param>
 		/// <param name="x">
-		/// A <see cref="T:Int16"/>.
+		/// For the scalar commands, specifies the new values to be used for the specified vertex attribute.
 		/// </param>
 		/// <param name="y">
-		/// A <see cref="T:Int16"/>.
+		/// For the scalar commands, specifies the new values to be used for the specified vertex attribute.
 		/// </param>
 		/// <param name="z">
-		/// A <see cref="T:Int16"/>.
+		/// For the scalar commands, specifies the new values to be used for the specified vertex attribute.
 		/// </param>
 		/// <remarks>
 		/// <para>The exceptions below won't be thrown; caller must check result manually.</para>
@@ -4528,16 +4528,16 @@ namespace OpenGL
 		/// Specifies the index of the generic vertex attribute to be modified.
 		/// </param>
 		/// <param name="x">
-		/// A <see cref="T:byte"/>.
+		/// For the scalar commands, specifies the new values to be used for the specified vertex attribute.
 		/// </param>
 		/// <param name="y">
-		/// A <see cref="T:byte"/>.
+		/// For the scalar commands, specifies the new values to be used for the specified vertex attribute.
 		/// </param>
 		/// <param name="z">
-		/// A <see cref="T:byte"/>.
+		/// For the scalar commands, specifies the new values to be used for the specified vertex attribute.
 		/// </param>
 		/// <param name="w">
-		/// A <see cref="T:byte"/>.
+		/// For the scalar commands, specifies the new values to be used for the specified vertex attribute.
 		/// </param>
 		/// <remarks>
 		/// <para>The exceptions below won't be thrown; caller must check result manually.</para>
@@ -4721,16 +4721,16 @@ namespace OpenGL
 		/// Specifies the index of the generic vertex attribute to be modified.
 		/// </param>
 		/// <param name="x">
-		/// A <see cref="T:double"/>.
+		/// For the scalar commands, specifies the new values to be used for the specified vertex attribute.
 		/// </param>
 		/// <param name="y">
-		/// A <see cref="T:double"/>.
+		/// For the scalar commands, specifies the new values to be used for the specified vertex attribute.
 		/// </param>
 		/// <param name="z">
-		/// A <see cref="T:double"/>.
+		/// For the scalar commands, specifies the new values to be used for the specified vertex attribute.
 		/// </param>
 		/// <param name="w">
-		/// A <see cref="T:double"/>.
+		/// For the scalar commands, specifies the new values to be used for the specified vertex attribute.
 		/// </param>
 		/// <remarks>
 		/// <para>The exceptions below won't be thrown; caller must check result manually.</para>
@@ -4800,16 +4800,16 @@ namespace OpenGL
 		/// Specifies the index of the generic vertex attribute to be modified.
 		/// </param>
 		/// <param name="x">
-		/// A <see cref="T:float"/>.
+		/// For the scalar commands, specifies the new values to be used for the specified vertex attribute.
 		/// </param>
 		/// <param name="y">
-		/// A <see cref="T:float"/>.
+		/// For the scalar commands, specifies the new values to be used for the specified vertex attribute.
 		/// </param>
 		/// <param name="z">
-		/// A <see cref="T:float"/>.
+		/// For the scalar commands, specifies the new values to be used for the specified vertex attribute.
 		/// </param>
 		/// <param name="w">
-		/// A <see cref="T:float"/>.
+		/// For the scalar commands, specifies the new values to be used for the specified vertex attribute.
 		/// </param>
 		/// <remarks>
 		/// <para>The exceptions below won't be thrown; caller must check result manually.</para>
@@ -4917,16 +4917,16 @@ namespace OpenGL
 		/// Specifies the index of the generic vertex attribute to be modified.
 		/// </param>
 		/// <param name="x">
-		/// A <see cref="T:Int16"/>.
+		/// For the scalar commands, specifies the new values to be used for the specified vertex attribute.
 		/// </param>
 		/// <param name="y">
-		/// A <see cref="T:Int16"/>.
+		/// For the scalar commands, specifies the new values to be used for the specified vertex attribute.
 		/// </param>
 		/// <param name="z">
-		/// A <see cref="T:Int16"/>.
+		/// For the scalar commands, specifies the new values to be used for the specified vertex attribute.
 		/// </param>
 		/// <param name="w">
-		/// A <see cref="T:Int16"/>.
+		/// For the scalar commands, specifies the new values to be used for the specified vertex attribute.
 		/// </param>
 		/// <remarks>
 		/// <para>The exceptions below won't be thrown; caller must check result manually.</para>

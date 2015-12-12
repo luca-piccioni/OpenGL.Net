@@ -1489,6 +1489,11 @@ namespace OpenGL
 		VertexArray = Gl.VERTEX_ARRAY,
 
 		/// <summary>
+		/// Strongly typed for value GL_FRAMEBUFFER_SRGB.
+		/// </summary>
+		FramebufferSrgb = Gl.FRAMEBUFFER_SRGB,
+
+		/// <summary>
 		/// Strongly typed for value GL_PRIMITIVE_RESTART.
 		/// </summary>
 		PrimitiveRestart = Gl.PRIMITIVE_RESTART,
@@ -6453,12 +6458,12 @@ namespace OpenGL
 		UnsignedInt = Gl.UNSIGNED_INT,
 
 		/// <summary>
-		/// Strongly typed for value GL_UNSIGNED_INT_10_10_10_2, GL_UNSIGNED_INT_10_10_10_2_EXT, GL_UNSIGNED_INT_10_10_10_2.
+		/// Strongly typed for value GL_UNSIGNED_INT_10_10_10_2, GL_UNSIGNED_INT_10_10_10_2_EXT.
 		/// </summary>
 		UnsignedInt1010102 = Gl.UNSIGNED_INT_10_10_10_2,
 
 		/// <summary>
-		/// Strongly typed for value GL_UNSIGNED_INT_8_8_8_8, GL_UNSIGNED_INT_8_8_8_8_EXT, GL_UNSIGNED_INT_8_8_8_8.
+		/// Strongly typed for value GL_UNSIGNED_INT_8_8_8_8, GL_UNSIGNED_INT_8_8_8_8_EXT.
 		/// </summary>
 		UnsignedInt8888 = Gl.UNSIGNED_INT_8_8_8_8,
 
@@ -6744,6 +6749,166 @@ namespace OpenGL
 		/// Strongly typed for value GL_RIGHT.
 		/// </summary>
 		Right = Gl.RIGHT,
+
+		/// <summary>
+		/// Strongly typed for value GL_COLOR_ATTACHMENT0.
+		/// </summary>
+		ColorAttachment0 = Gl.COLOR_ATTACHMENT0,
+
+		/// <summary>
+		/// Strongly typed for value GL_COLOR_ATTACHMENT1.
+		/// </summary>
+		ColorAttachment1 = Gl.COLOR_ATTACHMENT1,
+
+		/// <summary>
+		/// Strongly typed for value GL_COLOR_ATTACHMENT2.
+		/// </summary>
+		ColorAttachment2 = Gl.COLOR_ATTACHMENT2,
+
+		/// <summary>
+		/// Strongly typed for value GL_COLOR_ATTACHMENT3.
+		/// </summary>
+		ColorAttachment3 = Gl.COLOR_ATTACHMENT3,
+
+		/// <summary>
+		/// Strongly typed for value GL_COLOR_ATTACHMENT4.
+		/// </summary>
+		ColorAttachment4 = Gl.COLOR_ATTACHMENT4,
+
+		/// <summary>
+		/// Strongly typed for value GL_COLOR_ATTACHMENT5.
+		/// </summary>
+		ColorAttachment5 = Gl.COLOR_ATTACHMENT5,
+
+		/// <summary>
+		/// Strongly typed for value GL_COLOR_ATTACHMENT6.
+		/// </summary>
+		ColorAttachment6 = Gl.COLOR_ATTACHMENT6,
+
+		/// <summary>
+		/// Strongly typed for value GL_COLOR_ATTACHMENT7.
+		/// </summary>
+		ColorAttachment7 = Gl.COLOR_ATTACHMENT7,
+
+		/// <summary>
+		/// Strongly typed for value GL_COLOR_ATTACHMENT8.
+		/// </summary>
+		ColorAttachment8 = Gl.COLOR_ATTACHMENT8,
+
+		/// <summary>
+		/// Strongly typed for value GL_COLOR_ATTACHMENT9.
+		/// </summary>
+		ColorAttachment9 = Gl.COLOR_ATTACHMENT9,
+
+		/// <summary>
+		/// Strongly typed for value GL_COLOR_ATTACHMENT10.
+		/// </summary>
+		ColorAttachment10 = Gl.COLOR_ATTACHMENT10,
+
+		/// <summary>
+		/// Strongly typed for value GL_COLOR_ATTACHMENT11.
+		/// </summary>
+		ColorAttachment11 = Gl.COLOR_ATTACHMENT11,
+
+		/// <summary>
+		/// Strongly typed for value GL_COLOR_ATTACHMENT12.
+		/// </summary>
+		ColorAttachment12 = Gl.COLOR_ATTACHMENT12,
+
+		/// <summary>
+		/// Strongly typed for value GL_COLOR_ATTACHMENT13.
+		/// </summary>
+		ColorAttachment13 = Gl.COLOR_ATTACHMENT13,
+
+		/// <summary>
+		/// Strongly typed for value GL_COLOR_ATTACHMENT14.
+		/// </summary>
+		ColorAttachment14 = Gl.COLOR_ATTACHMENT14,
+
+		/// <summary>
+		/// Strongly typed for value GL_COLOR_ATTACHMENT15.
+		/// </summary>
+		ColorAttachment15 = Gl.COLOR_ATTACHMENT15,
+
+		/// <summary>
+		/// Strongly typed for value GL_COLOR_ATTACHMENT16.
+		/// </summary>
+		ColorAttachment16 = Gl.COLOR_ATTACHMENT16,
+
+		/// <summary>
+		/// Strongly typed for value GL_COLOR_ATTACHMENT17.
+		/// </summary>
+		ColorAttachment17 = Gl.COLOR_ATTACHMENT17,
+
+		/// <summary>
+		/// Strongly typed for value GL_COLOR_ATTACHMENT18.
+		/// </summary>
+		ColorAttachment18 = Gl.COLOR_ATTACHMENT18,
+
+		/// <summary>
+		/// Strongly typed for value GL_COLOR_ATTACHMENT19.
+		/// </summary>
+		ColorAttachment19 = Gl.COLOR_ATTACHMENT19,
+
+		/// <summary>
+		/// Strongly typed for value GL_COLOR_ATTACHMENT20.
+		/// </summary>
+		ColorAttachment20 = Gl.COLOR_ATTACHMENT20,
+
+		/// <summary>
+		/// Strongly typed for value GL_COLOR_ATTACHMENT21.
+		/// </summary>
+		ColorAttachment21 = Gl.COLOR_ATTACHMENT21,
+
+		/// <summary>
+		/// Strongly typed for value GL_COLOR_ATTACHMENT22.
+		/// </summary>
+		ColorAttachment22 = Gl.COLOR_ATTACHMENT22,
+
+		/// <summary>
+		/// Strongly typed for value GL_COLOR_ATTACHMENT23.
+		/// </summary>
+		ColorAttachment23 = Gl.COLOR_ATTACHMENT23,
+
+		/// <summary>
+		/// Strongly typed for value GL_COLOR_ATTACHMENT24.
+		/// </summary>
+		ColorAttachment24 = Gl.COLOR_ATTACHMENT24,
+
+		/// <summary>
+		/// Strongly typed for value GL_COLOR_ATTACHMENT25.
+		/// </summary>
+		ColorAttachment25 = Gl.COLOR_ATTACHMENT25,
+
+		/// <summary>
+		/// Strongly typed for value GL_COLOR_ATTACHMENT26.
+		/// </summary>
+		ColorAttachment26 = Gl.COLOR_ATTACHMENT26,
+
+		/// <summary>
+		/// Strongly typed for value GL_COLOR_ATTACHMENT27.
+		/// </summary>
+		ColorAttachment27 = Gl.COLOR_ATTACHMENT27,
+
+		/// <summary>
+		/// Strongly typed for value GL_COLOR_ATTACHMENT28.
+		/// </summary>
+		ColorAttachment28 = Gl.COLOR_ATTACHMENT28,
+
+		/// <summary>
+		/// Strongly typed for value GL_COLOR_ATTACHMENT29.
+		/// </summary>
+		ColorAttachment29 = Gl.COLOR_ATTACHMENT29,
+
+		/// <summary>
+		/// Strongly typed for value GL_COLOR_ATTACHMENT30.
+		/// </summary>
+		ColorAttachment30 = Gl.COLOR_ATTACHMENT30,
+
+		/// <summary>
+		/// Strongly typed for value GL_COLOR_ATTACHMENT31.
+		/// </summary>
+		ColorAttachment31 = Gl.COLOR_ATTACHMENT31,
 
 	}
 

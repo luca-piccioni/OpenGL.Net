@@ -479,7 +479,7 @@ namespace OpenGL
 		/// A <see cref="T:IntPtr[]"/>.
 		/// </param>
 		/// <param name="sizes">
-		/// A <see cref="T:UInt32[]"/>.
+		/// A <see cref="T:Int32[]"/>.
 		/// </param>
 		/// <param name="states">
 		/// A <see cref="T:UInt32[]"/>.
@@ -491,11 +491,11 @@ namespace OpenGL
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_command_list")]
-		public static void ListDrawCommandsStatesClientNV(UInt32 list, UInt32 segment, IntPtr[] indirects, UInt32[] sizes, UInt32[] states, UInt32[] fbos, UInt32 count)
+		public static void ListDrawCommandsStatesClientNV(UInt32 list, UInt32 segment, IntPtr[] indirects, Int32[] sizes, UInt32[] states, UInt32[] fbos, UInt32 count)
 		{
 			unsafe {
 				fixed (IntPtr* p_indirects = indirects)
-				fixed (UInt32* p_sizes = sizes)
+				fixed (Int32* p_sizes = sizes)
 				fixed (UInt32* p_states = states)
 				fixed (UInt32* p_fbos = fbos)
 				{

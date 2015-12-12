@@ -667,24 +667,6 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glSampleCoverageOES.
-		/// </summary>
-		/// <param name="value">
-		/// A <see cref="T:IntPtr"/>.
-		/// </param>
-		/// <param name="invert">
-		/// A <see cref="T:bool"/>.
-		/// </param>
-		[RequiredByFeature("GL_OES_fixed_point")]
-		public static void SampleCoverageOES(IntPtr value, bool invert)
-		{
-			Debug.Assert(Delegates.pglSampleCoverageOES != null, "pglSampleCoverageOES not implemented");
-			Delegates.pglSampleCoverageOES(value, invert);
-			CallLog("glSampleCoverageOES(0x{0}, {1})", value.ToString("X8"), invert);
-			DebugCheckErrors();
-		}
-
-		/// <summary>
 		/// Binding for glScalexOES.
 		/// </summary>
 		/// <param name="x">

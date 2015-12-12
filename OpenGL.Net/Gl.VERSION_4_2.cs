@@ -918,8 +918,8 @@ namespace OpenGL
 		/// <param name="count">
 		/// Specifies the number of indices to be rendered.
 		/// </param>
-		/// <param name="instancecount">
-		/// A <see cref="T:Int32"/>.
+		/// <param name="primcount">
+		/// Specifies the number of instances of the specified range of indices to be rendered.
 		/// </param>
 		/// <param name="baseinstance">
 		/// Specifies the base instance for use in fetching instanced vertex attributes.
@@ -944,11 +944,11 @@ namespace OpenGL
 		/// <seealso cref="Gl.DrawElementsInstanced"/>
 		[RequiredByFeature("GL_VERSION_4_2")]
 		[RequiredByFeature("GL_ARB_base_instance")]
-		public static void DrawArraysInstancedBaseInstance(PrimitiveType mode, Int32 first, Int32 count, Int32 instancecount, UInt32 baseinstance)
+		public static void DrawArraysInstancedBaseInstance(PrimitiveType mode, Int32 first, Int32 count, Int32 primcount, UInt32 baseinstance)
 		{
 			Debug.Assert(Delegates.pglDrawArraysInstancedBaseInstance != null, "pglDrawArraysInstancedBaseInstance not implemented");
-			Delegates.pglDrawArraysInstancedBaseInstance((Int32)mode, first, count, instancecount, baseinstance);
-			CallLog("glDrawArraysInstancedBaseInstance({0}, {1}, {2}, {3}, {4})", mode, first, count, instancecount, baseinstance);
+			Delegates.pglDrawArraysInstancedBaseInstance((Int32)mode, first, count, primcount, baseinstance);
+			CallLog("glDrawArraysInstancedBaseInstance({0}, {1}, {2}, {3}, {4})", mode, first, count, primcount, baseinstance);
 			DebugCheckErrors();
 		}
 
@@ -970,8 +970,8 @@ namespace OpenGL
 		/// <param name="indices">
 		/// Specifies a pointer to the location where the indices are stored.
 		/// </param>
-		/// <param name="instancecount">
-		/// A <see cref="T:Int32"/>.
+		/// <param name="primcount">
+		/// Specifies the number of instances of the specified range of indices to be rendered.
 		/// </param>
 		/// <param name="baseinstance">
 		/// Specifies the base instance for use in fetching instanced vertex attributes.
@@ -997,11 +997,11 @@ namespace OpenGL
 		/// <seealso cref="Gl.DrawArraysInstanced"/>
 		[RequiredByFeature("GL_VERSION_4_2")]
 		[RequiredByFeature("GL_ARB_base_instance")]
-		public static void DrawElementsInstancedBaseInstance(PrimitiveType mode, Int32 count, Int32 type, IntPtr indices, Int32 instancecount, UInt32 baseinstance)
+		public static void DrawElementsInstancedBaseInstance(PrimitiveType mode, Int32 count, Int32 type, IntPtr indices, Int32 primcount, UInt32 baseinstance)
 		{
 			Debug.Assert(Delegates.pglDrawElementsInstancedBaseInstance != null, "pglDrawElementsInstancedBaseInstance not implemented");
-			Delegates.pglDrawElementsInstancedBaseInstance((Int32)mode, count, type, indices, instancecount, baseinstance);
-			CallLog("glDrawElementsInstancedBaseInstance({0}, {1}, {2}, 0x{3}, {4}, {5})", mode, count, type, indices.ToString("X8"), instancecount, baseinstance);
+			Delegates.pglDrawElementsInstancedBaseInstance((Int32)mode, count, type, indices, primcount, baseinstance);
+			CallLog("glDrawElementsInstancedBaseInstance({0}, {1}, {2}, 0x{3}, {4}, {5})", mode, count, type, indices.ToString("X8"), primcount, baseinstance);
 			DebugCheckErrors();
 		}
 
@@ -1023,8 +1023,8 @@ namespace OpenGL
 		/// <param name="indices">
 		/// Specifies a pointer to the location where the indices are stored.
 		/// </param>
-		/// <param name="instancecount">
-		/// A <see cref="T:Int32"/>.
+		/// <param name="primcount">
+		/// Specifies the number of instances of the specified range of indices to be rendered.
 		/// </param>
 		/// <param name="baseinstance">
 		/// Specifies the base instance for use in fetching instanced vertex attributes.
@@ -1050,11 +1050,11 @@ namespace OpenGL
 		/// <seealso cref="Gl.DrawArraysInstanced"/>
 		[RequiredByFeature("GL_VERSION_4_2")]
 		[RequiredByFeature("GL_ARB_base_instance")]
-		public static void DrawElementsInstancedBaseInstance(PrimitiveType mode, Int32 count, Int32 type, Object indices, Int32 instancecount, UInt32 baseinstance)
+		public static void DrawElementsInstancedBaseInstance(PrimitiveType mode, Int32 count, Int32 type, Object indices, Int32 primcount, UInt32 baseinstance)
 		{
 			GCHandle pin_indices = GCHandle.Alloc(indices, GCHandleType.Pinned);
 			try {
-				DrawElementsInstancedBaseInstance(mode, count, type, pin_indices.AddrOfPinnedObject(), instancecount, baseinstance);
+				DrawElementsInstancedBaseInstance(mode, count, type, pin_indices.AddrOfPinnedObject(), primcount, baseinstance);
 			} finally {
 				pin_indices.Free();
 			}
@@ -1077,8 +1077,8 @@ namespace OpenGL
 		/// <param name="indices">
 		/// Specifies a pointer to the location where the indices are stored.
 		/// </param>
-		/// <param name="instancecount">
-		/// A <see cref="T:Int32"/>.
+		/// <param name="primcount">
+		/// Specifies the number of instances of the indexed geometry that should be drawn.
 		/// </param>
 		/// <param name="basevertex">
 		/// Specifies a constant that should be added to each element of <paramref name="indices"/> when chosing elements from the 
@@ -1110,11 +1110,11 @@ namespace OpenGL
 		/// <seealso cref="Gl.DrawElementsInstancedBaseVertex"/>
 		[RequiredByFeature("GL_VERSION_4_2")]
 		[RequiredByFeature("GL_ARB_base_instance")]
-		public static void DrawElementsInstancedBaseVertexBaseInstance(PrimitiveType mode, Int32 count, Int32 type, IntPtr indices, Int32 instancecount, Int32 basevertex, UInt32 baseinstance)
+		public static void DrawElementsInstancedBaseVertexBaseInstance(PrimitiveType mode, Int32 count, Int32 type, IntPtr indices, Int32 primcount, Int32 basevertex, UInt32 baseinstance)
 		{
 			Debug.Assert(Delegates.pglDrawElementsInstancedBaseVertexBaseInstance != null, "pglDrawElementsInstancedBaseVertexBaseInstance not implemented");
-			Delegates.pglDrawElementsInstancedBaseVertexBaseInstance((Int32)mode, count, type, indices, instancecount, basevertex, baseinstance);
-			CallLog("glDrawElementsInstancedBaseVertexBaseInstance({0}, {1}, {2}, 0x{3}, {4}, {5}, {6})", mode, count, type, indices.ToString("X8"), instancecount, basevertex, baseinstance);
+			Delegates.pglDrawElementsInstancedBaseVertexBaseInstance((Int32)mode, count, type, indices, primcount, basevertex, baseinstance);
+			CallLog("glDrawElementsInstancedBaseVertexBaseInstance({0}, {1}, {2}, 0x{3}, {4}, {5}, {6})", mode, count, type, indices.ToString("X8"), primcount, basevertex, baseinstance);
 			DebugCheckErrors();
 		}
 
@@ -1135,8 +1135,8 @@ namespace OpenGL
 		/// <param name="indices">
 		/// Specifies a pointer to the location where the indices are stored.
 		/// </param>
-		/// <param name="instancecount">
-		/// A <see cref="T:Int32"/>.
+		/// <param name="primcount">
+		/// Specifies the number of instances of the indexed geometry that should be drawn.
 		/// </param>
 		/// <param name="basevertex">
 		/// Specifies a constant that should be added to each element of <paramref name="indices"/> when chosing elements from the 
@@ -1168,11 +1168,11 @@ namespace OpenGL
 		/// <seealso cref="Gl.DrawElementsInstancedBaseVertex"/>
 		[RequiredByFeature("GL_VERSION_4_2")]
 		[RequiredByFeature("GL_ARB_base_instance")]
-		public static void DrawElementsInstancedBaseVertexBaseInstance(PrimitiveType mode, Int32 count, Int32 type, Object indices, Int32 instancecount, Int32 basevertex, UInt32 baseinstance)
+		public static void DrawElementsInstancedBaseVertexBaseInstance(PrimitiveType mode, Int32 count, Int32 type, Object indices, Int32 primcount, Int32 basevertex, UInt32 baseinstance)
 		{
 			GCHandle pin_indices = GCHandle.Alloc(indices, GCHandleType.Pinned);
 			try {
-				DrawElementsInstancedBaseVertexBaseInstance(mode, count, type, pin_indices.AddrOfPinnedObject(), instancecount, basevertex, baseinstance);
+				DrawElementsInstancedBaseVertexBaseInstance(mode, count, type, pin_indices.AddrOfPinnedObject(), primcount, basevertex, baseinstance);
 			} finally {
 				pin_indices.Free();
 			}
@@ -1547,8 +1547,8 @@ namespace OpenGL
 		/// <param name="id">
 		/// Specifies the name of a transform feedback object from which to retrieve a primitive count.
 		/// </param>
-		/// <param name="instancecount">
-		/// A <see cref="T:Int32"/>.
+		/// <param name="primcount">
+		/// Specifies the number of instances of the geometry to render.
 		/// </param>
 		/// <remarks>
 		/// </remarks>
@@ -1585,11 +1585,11 @@ namespace OpenGL
 		/// <seealso cref="Gl.DrawTransformFeedbackStreamInstanced"/>
 		[RequiredByFeature("GL_VERSION_4_2")]
 		[RequiredByFeature("GL_ARB_transform_feedback_instanced")]
-		public static void DrawTransformFeedbackInstanced(PrimitiveType mode, UInt32 id, Int32 instancecount)
+		public static void DrawTransformFeedbackInstanced(PrimitiveType mode, UInt32 id, Int32 primcount)
 		{
 			Debug.Assert(Delegates.pglDrawTransformFeedbackInstanced != null, "pglDrawTransformFeedbackInstanced not implemented");
-			Delegates.pglDrawTransformFeedbackInstanced((Int32)mode, id, instancecount);
-			CallLog("glDrawTransformFeedbackInstanced({0}, {1}, {2})", mode, id, instancecount);
+			Delegates.pglDrawTransformFeedbackInstanced((Int32)mode, id, primcount);
+			CallLog("glDrawTransformFeedbackInstanced({0}, {1}, {2})", mode, id, primcount);
 			DebugCheckErrors();
 		}
 
@@ -1607,8 +1607,8 @@ namespace OpenGL
 		/// <param name="stream">
 		/// Specifies the index of the transform feedback stream from which to retrieve a primitive count.
 		/// </param>
-		/// <param name="instancecount">
-		/// A <see cref="T:Int32"/>.
+		/// <param name="primcount">
+		/// Specifies the number of instances of the geometry to render.
 		/// </param>
 		/// <remarks>
 		/// </remarks>
@@ -1645,11 +1645,11 @@ namespace OpenGL
 		/// <seealso cref="Gl.DrawTransformFeedbackStream"/>
 		[RequiredByFeature("GL_VERSION_4_2")]
 		[RequiredByFeature("GL_ARB_transform_feedback_instanced")]
-		public static void DrawTransformFeedbackStreamInstanced(PrimitiveType mode, UInt32 id, UInt32 stream, Int32 instancecount)
+		public static void DrawTransformFeedbackStreamInstanced(PrimitiveType mode, UInt32 id, UInt32 stream, Int32 primcount)
 		{
 			Debug.Assert(Delegates.pglDrawTransformFeedbackStreamInstanced != null, "pglDrawTransformFeedbackStreamInstanced not implemented");
-			Delegates.pglDrawTransformFeedbackStreamInstanced((Int32)mode, id, stream, instancecount);
-			CallLog("glDrawTransformFeedbackStreamInstanced({0}, {1}, {2}, {3})", mode, id, stream, instancecount);
+			Delegates.pglDrawTransformFeedbackStreamInstanced((Int32)mode, id, stream, primcount);
+			CallLog("glDrawTransformFeedbackStreamInstanced({0}, {1}, {2}, {3})", mode, id, stream, primcount);
 			DebugCheckErrors();
 		}
 

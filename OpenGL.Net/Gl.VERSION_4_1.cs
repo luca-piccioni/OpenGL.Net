@@ -1481,7 +1481,7 @@ namespace OpenGL
 		/// For the scalar commands, specifies the new values to be used for the specified uniform variable.
 		/// </param>
 		/// <param name="v1">
-		/// A <see cref="T:Int32"/>.
+		/// For the scalar commands, specifies the new values to be used for the specified uniform variable.
 		/// </param>
 		/// <remarks>
 		/// </remarks>
@@ -1618,7 +1618,7 @@ namespace OpenGL
 		/// For the scalar commands, specifies the new values to be used for the specified uniform variable.
 		/// </param>
 		/// <param name="v1">
-		/// A <see cref="T:float"/>.
+		/// For the scalar commands, specifies the new values to be used for the specified uniform variable.
 		/// </param>
 		/// <remarks>
 		/// </remarks>
@@ -1810,7 +1810,7 @@ namespace OpenGL
 		/// For the scalar commands, specifies the new values to be used for the specified uniform variable.
 		/// </param>
 		/// <param name="v1">
-		/// A <see cref="T:UInt32"/>.
+		/// For the scalar commands, specifies the new values to be used for the specified uniform variable.
 		/// </param>
 		/// <remarks>
 		/// </remarks>
@@ -1947,10 +1947,10 @@ namespace OpenGL
 		/// For the scalar commands, specifies the new values to be used for the specified uniform variable.
 		/// </param>
 		/// <param name="v1">
-		/// A <see cref="T:Int32"/>.
+		/// For the scalar commands, specifies the new values to be used for the specified uniform variable.
 		/// </param>
 		/// <param name="v2">
-		/// A <see cref="T:Int32"/>.
+		/// For the scalar commands, specifies the new values to be used for the specified uniform variable.
 		/// </param>
 		/// <remarks>
 		/// </remarks>
@@ -2087,10 +2087,10 @@ namespace OpenGL
 		/// For the scalar commands, specifies the new values to be used for the specified uniform variable.
 		/// </param>
 		/// <param name="v1">
-		/// A <see cref="T:float"/>.
+		/// For the scalar commands, specifies the new values to be used for the specified uniform variable.
 		/// </param>
 		/// <param name="v2">
-		/// A <see cref="T:float"/>.
+		/// For the scalar commands, specifies the new values to be used for the specified uniform variable.
 		/// </param>
 		/// <remarks>
 		/// </remarks>
@@ -2285,10 +2285,10 @@ namespace OpenGL
 		/// For the scalar commands, specifies the new values to be used for the specified uniform variable.
 		/// </param>
 		/// <param name="v1">
-		/// A <see cref="T:UInt32"/>.
+		/// For the scalar commands, specifies the new values to be used for the specified uniform variable.
 		/// </param>
 		/// <param name="v2">
-		/// A <see cref="T:UInt32"/>.
+		/// For the scalar commands, specifies the new values to be used for the specified uniform variable.
 		/// </param>
 		/// <remarks>
 		/// </remarks>
@@ -2425,13 +2425,13 @@ namespace OpenGL
 		/// For the scalar commands, specifies the new values to be used for the specified uniform variable.
 		/// </param>
 		/// <param name="v1">
-		/// A <see cref="T:Int32"/>.
+		/// For the scalar commands, specifies the new values to be used for the specified uniform variable.
 		/// </param>
 		/// <param name="v2">
-		/// A <see cref="T:Int32"/>.
+		/// For the scalar commands, specifies the new values to be used for the specified uniform variable.
 		/// </param>
 		/// <param name="v3">
-		/// A <see cref="T:Int32"/>.
+		/// For the scalar commands, specifies the new values to be used for the specified uniform variable.
 		/// </param>
 		/// <remarks>
 		/// </remarks>
@@ -2568,13 +2568,13 @@ namespace OpenGL
 		/// For the scalar commands, specifies the new values to be used for the specified uniform variable.
 		/// </param>
 		/// <param name="v1">
-		/// A <see cref="T:float"/>.
+		/// For the scalar commands, specifies the new values to be used for the specified uniform variable.
 		/// </param>
 		/// <param name="v2">
-		/// A <see cref="T:float"/>.
+		/// For the scalar commands, specifies the new values to be used for the specified uniform variable.
 		/// </param>
 		/// <param name="v3">
-		/// A <see cref="T:float"/>.
+		/// For the scalar commands, specifies the new values to be used for the specified uniform variable.
 		/// </param>
 		/// <remarks>
 		/// </remarks>
@@ -2772,13 +2772,13 @@ namespace OpenGL
 		/// For the scalar commands, specifies the new values to be used for the specified uniform variable.
 		/// </param>
 		/// <param name="v1">
-		/// A <see cref="T:UInt32"/>.
+		/// For the scalar commands, specifies the new values to be used for the specified uniform variable.
 		/// </param>
 		/// <param name="v2">
-		/// A <see cref="T:UInt32"/>.
+		/// For the scalar commands, specifies the new values to be used for the specified uniform variable.
 		/// </param>
 		/// <param name="v3">
-		/// A <see cref="T:UInt32"/>.
+		/// For the scalar commands, specifies the new values to be used for the specified uniform variable.
 		/// </param>
 		/// <remarks>
 		/// </remarks>
@@ -3906,7 +3906,7 @@ namespace OpenGL
 		/// Specifies the index of the generic vertex attribute to be modified.
 		/// </param>
 		/// <param name="x">
-		/// A <see cref="T:double"/>.
+		/// For the scalar commands, specifies the new values to be used for the specified vertex attribute.
 		/// </param>
 		/// <remarks>
 		/// </remarks>
@@ -3939,10 +3939,10 @@ namespace OpenGL
 		/// Specifies the index of the generic vertex attribute to be modified.
 		/// </param>
 		/// <param name="x">
-		/// A <see cref="T:double"/>.
+		/// For the scalar commands, specifies the new values to be used for the specified vertex attribute.
 		/// </param>
 		/// <param name="y">
-		/// A <see cref="T:double"/>.
+		/// For the scalar commands, specifies the new values to be used for the specified vertex attribute.
 		/// </param>
 		/// <remarks>
 		/// </remarks>
@@ -3975,13 +3975,13 @@ namespace OpenGL
 		/// Specifies the index of the generic vertex attribute to be modified.
 		/// </param>
 		/// <param name="x">
-		/// A <see cref="T:double"/>.
+		/// For the scalar commands, specifies the new values to be used for the specified vertex attribute.
 		/// </param>
 		/// <param name="y">
-		/// A <see cref="T:double"/>.
+		/// For the scalar commands, specifies the new values to be used for the specified vertex attribute.
 		/// </param>
 		/// <param name="z">
-		/// A <see cref="T:double"/>.
+		/// For the scalar commands, specifies the new values to be used for the specified vertex attribute.
 		/// </param>
 		/// <remarks>
 		/// </remarks>
@@ -4014,16 +4014,16 @@ namespace OpenGL
 		/// Specifies the index of the generic vertex attribute to be modified.
 		/// </param>
 		/// <param name="x">
-		/// A <see cref="T:double"/>.
+		/// For the scalar commands, specifies the new values to be used for the specified vertex attribute.
 		/// </param>
 		/// <param name="y">
-		/// A <see cref="T:double"/>.
+		/// For the scalar commands, specifies the new values to be used for the specified vertex attribute.
 		/// </param>
 		/// <param name="z">
-		/// A <see cref="T:double"/>.
+		/// For the scalar commands, specifies the new values to be used for the specified vertex attribute.
 		/// </param>
 		/// <param name="w">
-		/// A <see cref="T:double"/>.
+		/// For the scalar commands, specifies the new values to be used for the specified vertex attribute.
 		/// </param>
 		/// <remarks>
 		/// </remarks>
@@ -4473,7 +4473,8 @@ namespace OpenGL
 		/// (0,0).
 		/// </param>
 		/// <param name="y">
-		/// A <see cref="T:float"/>.
+		/// For Gl.ViewportIndexedf, specifies the lower left corner of the viewport rectangle, in pixels. The initial value is 
+		/// (0,0).
 		/// </param>
 		/// <param name="w">
 		/// A <see cref="T:float"/>.
@@ -4590,13 +4591,13 @@ namespace OpenGL
 		/// Specify the coordinate of the bottom left corner of the scissor box, in pixels.
 		/// </param>
 		/// <param name="bottom">
-		/// A <see cref="T:Int32"/>.
+		/// Specify the coordinate of the bottom left corner of the scissor box, in pixels.
 		/// </param>
 		/// <param name="width">
 		/// Specify ths dimensions of the scissor box, in pixels.
 		/// </param>
 		/// <param name="height">
-		/// A <see cref="T:Int32"/>.
+		/// Specify ths dimensions of the scissor box, in pixels.
 		/// </param>
 		/// <remarks>
 		/// </remarks>

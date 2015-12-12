@@ -791,8 +791,8 @@ namespace OpenGL
 		/// <param name="indices">
 		/// Specifies a pointer to the location where the indices are stored.
 		/// </param>
-		/// <param name="instancecount">
-		/// A <see cref="T:Int32"/>.
+		/// <param name="primcount">
+		/// Specifies the number of instances of the indexed geometry that should be drawn.
 		/// </param>
 		/// <param name="basevertex">
 		/// Specifies a constant that should be added to each element of <paramref name="indices"/> when chosing elements from the 
@@ -821,11 +821,11 @@ namespace OpenGL
 		/// <seealso cref="Gl.DrawElementsInstancedBaseVertex"/>
 		[RequiredByFeature("GL_VERSION_3_2")]
 		[RequiredByFeature("GL_ARB_draw_elements_base_vertex")]
-		public static void DrawElementsInstancedBaseVertex(PrimitiveType mode, Int32 count, DrawElementsType type, IntPtr indices, Int32 instancecount, Int32 basevertex)
+		public static void DrawElementsInstancedBaseVertex(PrimitiveType mode, Int32 count, DrawElementsType type, IntPtr indices, Int32 primcount, Int32 basevertex)
 		{
 			Debug.Assert(Delegates.pglDrawElementsInstancedBaseVertex != null, "pglDrawElementsInstancedBaseVertex not implemented");
-			Delegates.pglDrawElementsInstancedBaseVertex((Int32)mode, count, (Int32)type, indices, instancecount, basevertex);
-			CallLog("glDrawElementsInstancedBaseVertex({0}, {1}, {2}, 0x{3}, {4}, {5})", mode, count, type, indices.ToString("X8"), instancecount, basevertex);
+			Delegates.pglDrawElementsInstancedBaseVertex((Int32)mode, count, (Int32)type, indices, primcount, basevertex);
+			CallLog("glDrawElementsInstancedBaseVertex({0}, {1}, {2}, 0x{3}, {4}, {5})", mode, count, type, indices.ToString("X8"), primcount, basevertex);
 			DebugCheckErrors();
 		}
 
@@ -846,8 +846,8 @@ namespace OpenGL
 		/// <param name="indices">
 		/// Specifies a pointer to the location where the indices are stored.
 		/// </param>
-		/// <param name="instancecount">
-		/// A <see cref="T:Int32"/>.
+		/// <param name="primcount">
+		/// Specifies the number of instances of the indexed geometry that should be drawn.
 		/// </param>
 		/// <param name="basevertex">
 		/// Specifies a constant that should be added to each element of <paramref name="indices"/> when chosing elements from the 
@@ -876,11 +876,11 @@ namespace OpenGL
 		/// <seealso cref="Gl.DrawElementsInstancedBaseVertex"/>
 		[RequiredByFeature("GL_VERSION_3_2")]
 		[RequiredByFeature("GL_ARB_draw_elements_base_vertex")]
-		public static void DrawElementsInstancedBaseVertex(PrimitiveType mode, Int32 count, DrawElementsType type, Object indices, Int32 instancecount, Int32 basevertex)
+		public static void DrawElementsInstancedBaseVertex(PrimitiveType mode, Int32 count, DrawElementsType type, Object indices, Int32 primcount, Int32 basevertex)
 		{
 			GCHandle pin_indices = GCHandle.Alloc(indices, GCHandleType.Pinned);
 			try {
-				DrawElementsInstancedBaseVertex(mode, count, type, pin_indices.AddrOfPinnedObject(), instancecount, basevertex);
+				DrawElementsInstancedBaseVertex(mode, count, type, pin_indices.AddrOfPinnedObject(), primcount, basevertex);
 			} finally {
 				pin_indices.Free();
 			}
@@ -928,7 +928,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.VertexAttribPointer"/>
 		[RequiredByFeature("GL_VERSION_3_2")]
 		[RequiredByFeature("GL_ARB_draw_elements_base_vertex")]
-		public static void MultiDrawElementsBaseVertex(PrimitiveType mode, Int32[] count, DrawElementsType type, IntPtr[] indices, Int32 drawcount, Int32[] basevertex)
+		public static void MultiDrawElementsBaseVertex(Int32 mode, Int32[] count, DrawElementsType type, IntPtr[] indices, Int32 drawcount, Int32[] basevertex)
 		{
 			unsafe {
 				fixed (Int32* p_count = count)
@@ -936,7 +936,7 @@ namespace OpenGL
 				fixed (Int32* p_basevertex = basevertex)
 				{
 					Debug.Assert(Delegates.pglMultiDrawElementsBaseVertex != null, "pglMultiDrawElementsBaseVertex not implemented");
-					Delegates.pglMultiDrawElementsBaseVertex((Int32)mode, p_count, (Int32)type, p_indices, drawcount, p_basevertex);
+					Delegates.pglMultiDrawElementsBaseVertex(mode, p_count, (Int32)type, p_indices, drawcount, p_basevertex);
 					CallLog("glMultiDrawElementsBaseVertex({0}, {1}, {2}, {3}, {4}, {5})", mode, count, type, indices, drawcount, basevertex);
 				}
 			}
@@ -1412,11 +1412,11 @@ namespace OpenGL
 		/// Specifies the target to which the buffer object is bound for Gl.GetBufferParameteriv and Gl.GetBufferParameteri64v. Must 
 		/// be one of the buffer binding targets in the following table:
 		/// </param>
-		/// <param name="pname">
-		/// A <see cref="T:Int32"/>.
+		/// <param name="value">
+		/// Specifies the name of the buffer object parameter to query.
 		/// </param>
-		/// <param name="params">
-		/// A <see cref="T:Int64[]"/>.
+		/// <param name="data">
+		/// Returns the requested parameter.
 		/// </param>
 		/// <remarks>
 		/// </remarks>
@@ -1441,14 +1441,14 @@ namespace OpenGL
 		/// <seealso cref="Gl.MapBuffer"/>
 		/// <seealso cref="Gl.UnmapBuffer"/>
 		[RequiredByFeature("GL_VERSION_3_2")]
-		public static void GetBufferParameter(BufferTargetARB target, Int32 pname, [Out] Int64[] @params)
+		public static void GetBufferParameter(BufferTargetARB target, Int32 value, [Out] Int64[] data)
 		{
 			unsafe {
-				fixed (Int64* p_params = @params)
+				fixed (Int64* p_params = data)
 				{
 					Debug.Assert(Delegates.pglGetBufferParameteri64v != null, "pglGetBufferParameteri64v not implemented");
-					Delegates.pglGetBufferParameteri64v((Int32)target, pname, p_params);
-					CallLog("glGetBufferParameteri64v({0}, {1}, {2})", target, pname, @params);
+					Delegates.pglGetBufferParameteri64v((Int32)target, value, p_params);
+					CallLog("glGetBufferParameteri64v({0}, {1}, {2})", target, value, data);
 				}
 			}
 			DebugCheckErrors();

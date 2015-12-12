@@ -315,18 +315,6 @@ namespace OpenGL
 			DebugCheckErrors();
 		}
 
-		/// <summary>
-		/// Binding for glBlendBarrierNV.
-		/// </summary>
-		[RequiredByFeature("GL_NV_blend_equation_advanced")]
-		public static void BlendBarrierNV()
-		{
-			Debug.Assert(Delegates.pglBlendBarrierNV != null, "pglBlendBarrierNV not implemented");
-			Delegates.pglBlendBarrierNV();
-			CallLog("glBlendBarrierNV()");
-			DebugCheckErrors();
-		}
-
 	}
 
 }

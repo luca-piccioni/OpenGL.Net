@@ -657,8 +657,8 @@ namespace OpenGL
 		/// Gl.UNSIGNED_SHORT_5_5_5_1, Gl.UNSIGNED_SHORT_1_5_5_5_REV, Gl.UNSIGNED_INT_8_8_8_8, Gl.UNSIGNED_INT_8_8_8_8_REV, 
 		/// Gl.UNSIGNED_INT_10_10_10_2, and Gl.UNSIGNED_INT_2_10_10_10_REV.
 		/// </param>
-		/// <param name="pixels">
-		/// A <see cref="T:IntPtr"/>.
+		/// <param name="data">
+		/// Specifies a pointer to the image data in memory.
 		/// </param>
 		/// <remarks>
 		/// </remarks>
@@ -739,11 +739,11 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexSubImage3D"/>
 		/// <seealso cref="Gl.TexParameter"/>
 		[RequiredByFeature("GL_VERSION_1_2")]
-		public static void TexImage3D(TextureTarget target, Int32 level, Int32 internalformat, Int32 width, Int32 height, Int32 depth, Int32 border, PixelFormat format, PixelType type, IntPtr pixels)
+		public static void TexImage3D(TextureTarget target, Int32 level, Int32 internalformat, Int32 width, Int32 height, Int32 depth, Int32 border, PixelFormat format, PixelType type, IntPtr data)
 		{
 			Debug.Assert(Delegates.pglTexImage3D != null, "pglTexImage3D not implemented");
-			Delegates.pglTexImage3D((Int32)target, level, internalformat, width, height, depth, border, (Int32)format, (Int32)type, pixels);
-			CallLog("glTexImage3D({0}, {1}, {2}, {3}, {4}, {5}, {6}, {7}, {8}, 0x{9})", target, level, internalformat, width, height, depth, border, format, type, pixels.ToString("X8"));
+			Delegates.pglTexImage3D((Int32)target, level, internalformat, width, height, depth, border, (Int32)format, (Int32)type, data);
+			CallLog("glTexImage3D({0}, {1}, {2}, {3}, {4}, {5}, {6}, {7}, {8}, 0x{9})", target, level, internalformat, width, height, depth, border, format, type, data.ToString("X8"));
 			DebugCheckErrors();
 		}
 
@@ -788,8 +788,8 @@ namespace OpenGL
 		/// Gl.UNSIGNED_SHORT_5_5_5_1, Gl.UNSIGNED_SHORT_1_5_5_5_REV, Gl.UNSIGNED_INT_8_8_8_8, Gl.UNSIGNED_INT_8_8_8_8_REV, 
 		/// Gl.UNSIGNED_INT_10_10_10_2, and Gl.UNSIGNED_INT_2_10_10_10_REV.
 		/// </param>
-		/// <param name="pixels">
-		/// A <see cref="T:Object"/>.
+		/// <param name="data">
+		/// Specifies a pointer to the image data in memory.
 		/// </param>
 		/// <remarks>
 		/// </remarks>
@@ -870,9 +870,9 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexSubImage3D"/>
 		/// <seealso cref="Gl.TexParameter"/>
 		[RequiredByFeature("GL_VERSION_1_2")]
-		public static void TexImage3D(TextureTarget target, Int32 level, Int32 internalformat, Int32 width, Int32 height, Int32 depth, Int32 border, PixelFormat format, PixelType type, Object pixels)
+		public static void TexImage3D(TextureTarget target, Int32 level, Int32 internalformat, Int32 width, Int32 height, Int32 depth, Int32 border, PixelFormat format, PixelType type, Object data)
 		{
-			GCHandle pin_pixels = GCHandle.Alloc(pixels, GCHandleType.Pinned);
+			GCHandle pin_pixels = GCHandle.Alloc(data, GCHandleType.Pinned);
 			try {
 				TexImage3D(target, level, internalformat, width, height, depth, border, format, type, pin_pixels.AddrOfPinnedObject());
 			} finally {
@@ -1161,7 +1161,7 @@ namespace OpenGL
 		/// Specify the window coordinates of the lower left corner of the rectangular region of pixels to be copied.
 		/// </param>
 		/// <param name="y">
-		/// A <see cref="T:Int32"/>.
+		/// Specify the window coordinates of the lower left corner of the rectangular region of pixels to be copied.
 		/// </param>
 		/// <param name="width">
 		/// Specifies the width of the texture subimage.

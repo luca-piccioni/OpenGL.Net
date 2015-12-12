@@ -92,6 +92,11 @@ namespace OpenGL
 			internal static glAlphaFuncxOES pglAlphaFuncxOES;
 
 			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glApplyFramebufferAttachmentCMAAINTEL();
+			[ThreadStatic]
+			internal static glApplyFramebufferAttachmentCMAAINTEL pglApplyFramebufferAttachmentCMAAINTEL;
+
+			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glApplyTextureEXT(Int32 mode);
 			[ThreadStatic]
 			internal static glApplyTextureEXT pglApplyTextureEXT;
@@ -480,16 +485,6 @@ namespace OpenGL
 			[ThreadStatic]
 			internal static glBitmapxOES pglBitmapxOES;
 
-			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glBlendBarrierKHR();
-			[ThreadStatic]
-			internal static glBlendBarrierKHR pglBlendBarrierKHR;
-
-			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glBlendBarrierNV();
-			[ThreadStatic]
-			internal static glBlendBarrierNV pglBlendBarrierNV;
-
 			[AliasOf("glBlendColor")]
 			[AliasOf("glBlendColorEXT")]
 			[SuppressUnmanagedCodeSecurity()]
@@ -764,7 +759,7 @@ namespace OpenGL
 			internal static glClearNamedBufferSubDataEXT pglClearNamedBufferSubDataEXT;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glClearNamedFramebufferfi(UInt32 framebuffer, Int32 buffer, float depth, Int32 stencil);
+			internal delegate void glClearNamedFramebufferfi(UInt32 framebuffer, Int32 buffer, Int32 drawbuffer, float depth, Int32 stencil);
 			[ThreadStatic]
 			internal static glClearNamedFramebufferfi pglClearNamedFramebufferfi;
 
@@ -1360,6 +1355,11 @@ namespace OpenGL
 			[ThreadStatic]
 			internal static glCompressedTextureSubImage3DEXT pglCompressedTextureSubImage3DEXT;
 
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glConservativeRasterParameterfNV(Int32 pname, float value);
+			[ThreadStatic]
+			internal static glConservativeRasterParameterfNV pglConservativeRasterParameterfNV;
+
 			[AliasOf("glConvolutionFilter1D")]
 			[AliasOf("glConvolutionFilter1DEXT")]
 			[SuppressUnmanagedCodeSecurity()]
@@ -1591,6 +1591,16 @@ namespace OpenGL
 			internal static glCoverStrokePathNV pglCoverStrokePathNV;
 
 			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glCoverageModulationNV(Int32 components);
+			[ThreadStatic]
+			internal static glCoverageModulationNV pglCoverageModulationNV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glCoverageModulationTableNV(Int32 n, float* v);
+			[ThreadStatic]
+			internal static glCoverageModulationTableNV pglCoverageModulationTableNV;
+
+			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glCreateBuffers(Int32 n, UInt32* buffers);
 			[ThreadStatic]
 			internal static glCreateBuffers pglCreateBuffers;
@@ -1599,11 +1609,6 @@ namespace OpenGL
 			internal unsafe delegate void glCreateCommandListsNV(Int32 n, UInt32* lists);
 			[ThreadStatic]
 			internal static glCreateCommandListsNV pglCreateCommandListsNV;
-
-			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glCreateStatesNV(Int32 n, UInt32* states);
-			[ThreadStatic]
-			internal static glCreateStatesNV pglCreateStatesNV;
 
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glCreateFramebuffers(Int32 n, UInt32* framebuffers);
@@ -1658,6 +1663,11 @@ namespace OpenGL
 			internal delegate UInt32 glCreateShaderProgramv(Int32 type, Int32 count, String[] strings);
 			[ThreadStatic]
 			internal static glCreateShaderProgramv pglCreateShaderProgramv;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glCreateStatesNV(Int32 n, UInt32* states);
+			[ThreadStatic]
+			internal static glCreateStatesNV pglCreateStatesNV;
 
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate Int32 glCreateSyncFromCLeventARB(IntPtr context, IntPtr @event, UInt32 flags);
@@ -1768,11 +1778,6 @@ namespace OpenGL
 			internal static glDeleteCommandListsNV pglDeleteCommandListsNV;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glDeleteStatesNV(Int32 n, UInt32* states);
-			[ThreadStatic]
-			internal static glDeleteStatesNV pglDeleteStatesNV;
-
-			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glDeleteFencesAPPLE(Int32 n, UInt32* fences);
 			[ThreadStatic]
 			internal static glDeleteFencesAPPLE pglDeleteFencesAPPLE;
@@ -1874,6 +1879,11 @@ namespace OpenGL
 			internal delegate void glDeleteShader(UInt32 shader);
 			[ThreadStatic]
 			internal static glDeleteShader pglDeleteShader;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glDeleteStatesNV(Int32 n, UInt32* states);
+			[ThreadStatic]
+			internal static glDeleteStatesNV pglDeleteStatesNV;
 
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glDeleteSync(Int32 sync);
@@ -2086,24 +2096,24 @@ namespace OpenGL
 			internal static glDrawBuffers pglDrawBuffers;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glDrawCommandsNV(Int32 primitiveMode, UInt32 buffer, IntPtr* indirects, Int32* sizes, UInt32 count);
-			[ThreadStatic]
-			internal static glDrawCommandsNV pglDrawCommandsNV;
-
-			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glDrawCommandsAddressNV(Int32 primitiveMode, UInt64* indirects, Int32* sizes, UInt32 count);
 			[ThreadStatic]
 			internal static glDrawCommandsAddressNV pglDrawCommandsAddressNV;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glDrawCommandsStatesNV(UInt32 buffer, IntPtr* indirects, Int32* sizes, UInt32* states, UInt32* fbos, UInt32 count);
+			internal unsafe delegate void glDrawCommandsNV(Int32 primitiveMode, UInt32 buffer, IntPtr* indirects, Int32* sizes, UInt32 count);
 			[ThreadStatic]
-			internal static glDrawCommandsStatesNV pglDrawCommandsStatesNV;
+			internal static glDrawCommandsNV pglDrawCommandsNV;
 
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glDrawCommandsStatesAddressNV(UInt64* indirects, Int32* sizes, UInt32* states, UInt32* fbos, UInt32 count);
 			[ThreadStatic]
 			internal static glDrawCommandsStatesAddressNV pglDrawCommandsStatesAddressNV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glDrawCommandsStatesNV(UInt32 buffer, IntPtr* indirects, Int32* sizes, UInt32* states, UInt32* fbos, UInt32 count);
+			[ThreadStatic]
+			internal static glDrawCommandsStatesNV pglDrawCommandsStatesNV;
 
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glDrawElementArrayAPPLE(Int32 mode, Int32 first, Int32 count);
@@ -2465,6 +2475,11 @@ namespace OpenGL
 			internal static glEvalPoint2 pglEvalPoint2;
 
 			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glEvaluateDepthValuesARB();
+			[ThreadStatic]
+			internal static glEvaluateDepthValuesARB pglEvaluateDepthValuesARB;
+
+			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glExecuteProgramNV(Int32 target, UInt32 id, float* @params);
 			[ThreadStatic]
 			internal static glExecuteProgramNV pglExecuteProgramNV;
@@ -2667,6 +2682,11 @@ namespace OpenGL
 			internal static glFragmentColorMaterialSGIX pglFragmentColorMaterialSGIX;
 
 			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glFragmentCoverageColorNV(UInt32 color);
+			[ThreadStatic]
+			internal static glFragmentCoverageColorNV pglFragmentCoverageColorNV;
+
+			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glFragmentLightModelfSGIX(Int32 pname, float param);
 			[ThreadStatic]
 			internal static glFragmentLightModelfSGIX pglFragmentLightModelfSGIX;
@@ -2763,6 +2783,16 @@ namespace OpenGL
 			[ThreadStatic]
 			internal static glFramebufferRenderbuffer pglFramebufferRenderbuffer;
 
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glFramebufferSampleLocationsfvARB(Int32 target, UInt32 start, Int32 count, float* v);
+			[ThreadStatic]
+			internal static glFramebufferSampleLocationsfvARB pglFramebufferSampleLocationsfvARB;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glFramebufferSampleLocationsfvNV(Int32 target, UInt32 start, Int32 count, float* v);
+			[ThreadStatic]
+			internal static glFramebufferSampleLocationsfvNV pglFramebufferSampleLocationsfvNV;
+
 			[AliasOf("glFramebufferTexture")]
 			[AliasOf("glFramebufferTextureARB")]
 			[AliasOf("glFramebufferTextureEXT")]
@@ -2806,6 +2836,11 @@ namespace OpenGL
 			internal delegate void glFramebufferTextureLayer(Int32 target, Int32 attachment, UInt32 texture, Int32 level, Int32 layer);
 			[ThreadStatic]
 			internal static glFramebufferTextureLayer pglFramebufferTextureLayer;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glFramebufferTextureMultiviewOVR(Int32 target, Int32 attachment, UInt32 texture, Int32 level, Int32 baseViewIndex, Int32 numViews);
+			[ThreadStatic]
+			internal static glFramebufferTextureMultiviewOVR pglFramebufferTextureMultiviewOVR;
 
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glFreeObjectBufferATI(UInt32 buffer);
@@ -3250,6 +3285,11 @@ namespace OpenGL
 			[ThreadStatic]
 			internal static glGetConvolutionParameterxvOES pglGetConvolutionParameterxvOES;
 
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glGetCoverageModulationTableNV(Int32 bufsize, float* v);
+			[ThreadStatic]
+			internal static glGetCoverageModulationTableNV pglGetCoverageModulationTableNV;
+
 			[AliasOf("glGetDebugMessageLog")]
 			[AliasOf("glGetDebugMessageLogARB")]
 			[SuppressUnmanagedCodeSecurity()]
@@ -3490,6 +3530,11 @@ namespace OpenGL
 			internal static glGetIntegerv pglGetIntegerv;
 
 			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glGetInternalformatSampleivNV(Int32 target, Int32 internalformat, Int32 samples, Int32 pname, Int32 bufSize, Int32* @params);
+			[ThreadStatic]
+			internal static glGetInternalformatSampleivNV pglGetInternalformatSampleivNV;
+
+			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetInternalformati64v(Int32 target, Int32 internalformat, Int32 pname, Int32 bufSize, Int64* @params);
 			[ThreadStatic]
 			internal static glGetInternalformati64v pglGetInternalformati64v;
@@ -3498,11 +3543,6 @@ namespace OpenGL
 			internal unsafe delegate void glGetInternalformativ(Int32 target, Int32 internalformat, Int32 pname, Int32 bufSize, Int32* @params);
 			[ThreadStatic]
 			internal static glGetInternalformativ pglGetInternalformativ;
-
-			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetInternalformatSampleivNV(Int32 target, Int32 internalformat, Int32 samples, Int32 pname, Int32 bufSize, Int32* @params);
-			[ThreadStatic]
-			internal static glGetInternalformatSampleivNV pglGetInternalformatSampleivNV;
 
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetInvariantBooleanvEXT(UInt32 id, Int32 value, bool* data);
@@ -4638,6 +4678,11 @@ namespace OpenGL
 			internal static glGetUniformfv pglGetUniformfv;
 
 			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glGetUniformi64vARB(UInt32 program, Int32 location, Int64* @params);
+			[ThreadStatic]
+			internal static glGetUniformi64vARB pglGetUniformi64vARB;
+
+			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetUniformi64vNV(UInt32 program, Int32 location, Int64* @params);
 			[ThreadStatic]
 			internal static glGetUniformi64vNV pglGetUniformi64vNV;
@@ -4648,6 +4693,11 @@ namespace OpenGL
 			internal unsafe delegate void glGetUniformiv(UInt32 program, Int32 location, Int32* @params);
 			[ThreadStatic]
 			internal static glGetUniformiv pglGetUniformiv;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glGetUniformui64vARB(UInt32 program, Int32 location, UInt64* @params);
+			[ThreadStatic]
+			internal static glGetUniformui64vARB pglGetUniformui64vARB;
 
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetUniformui64vNV(UInt32 program, Int32 location, UInt64* @params);
@@ -5010,6 +5060,11 @@ namespace OpenGL
 			internal static glGetnUniformfvARB pglGetnUniformfvARB;
 
 			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glGetnUniformi64vARB(UInt32 program, Int32 location, Int32 bufSize, Int64* @params);
+			[ThreadStatic]
+			internal static glGetnUniformi64vARB pglGetnUniformi64vARB;
+
+			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetnUniformiv(UInt32 program, Int32 location, Int32 bufSize, Int32* @params);
 			[ThreadStatic]
 			internal static glGetnUniformiv pglGetnUniformiv;
@@ -5018,6 +5073,11 @@ namespace OpenGL
 			internal unsafe delegate void glGetnUniformivARB(UInt32 program, Int32 location, Int32 bufSize, Int32* @params);
 			[ThreadStatic]
 			internal static glGetnUniformivARB pglGetnUniformivARB;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glGetnUniformui64vARB(UInt32 program, Int32 location, Int32 bufSize, UInt64* @params);
+			[ThreadStatic]
+			internal static glGetnUniformui64vARB pglGetnUniformui64vARB;
 
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetnUniformuiv(UInt32 program, Int32 location, Int32 bufSize, UInt32* @params);
@@ -5580,7 +5640,7 @@ namespace OpenGL
 			internal static glListBase pglListBase;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glListDrawCommandsStatesClientNV(UInt32 list, UInt32 segment, IntPtr* indirects, UInt32* sizes, UInt32* states, UInt32* fbos, UInt32 count);
+			internal unsafe delegate void glListDrawCommandsStatesClientNV(UInt32 list, UInt32 segment, IntPtr* indirects, Int32* sizes, UInt32* states, UInt32* fbos, UInt32 count);
 			[ThreadStatic]
 			internal static glListDrawCommandsStatesClientNV pglListDrawCommandsStatesClientNV;
 
@@ -6044,6 +6104,11 @@ namespace OpenGL
 			internal delegate void glMatrixTranslatefEXT(Int32 mode, float x, float y, float z);
 			[ThreadStatic]
 			internal static glMatrixTranslatefEXT pglMatrixTranslatefEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glMaxShaderCompilerThreadsARB(UInt32 count);
+			[ThreadStatic]
+			internal static glMaxShaderCompilerThreadsARB pglMaxShaderCompilerThreadsARB;
 
 			[AliasOf("glMemoryBarrier")]
 			[AliasOf("glMemoryBarrierEXT")]
@@ -6757,7 +6822,7 @@ namespace OpenGL
 			internal static glNamedFramebufferParameteriEXT pglNamedFramebufferParameteriEXT;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glNamedFramebufferReadBuffer(UInt32 framebuffer, Int32 mode);
+			internal delegate void glNamedFramebufferReadBuffer(UInt32 framebuffer, Int32 src);
 			[ThreadStatic]
 			internal static glNamedFramebufferReadBuffer pglNamedFramebufferReadBuffer;
 
@@ -6770,6 +6835,16 @@ namespace OpenGL
 			internal delegate void glNamedFramebufferRenderbufferEXT(UInt32 framebuffer, Int32 attachment, Int32 renderbuffertarget, UInt32 renderbuffer);
 			[ThreadStatic]
 			internal static glNamedFramebufferRenderbufferEXT pglNamedFramebufferRenderbufferEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glNamedFramebufferSampleLocationsfvARB(UInt32 framebuffer, UInt32 start, Int32 count, float* v);
+			[ThreadStatic]
+			internal static glNamedFramebufferSampleLocationsfvARB pglNamedFramebufferSampleLocationsfvARB;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glNamedFramebufferSampleLocationsfvNV(UInt32 framebuffer, UInt32 start, Int32 count, float* v);
+			[ThreadStatic]
+			internal static glNamedFramebufferSampleLocationsfvNV pglNamedFramebufferSampleLocationsfvNV;
 
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glNamedFramebufferTexture(UInt32 framebuffer, Int32 attachment, UInt32 texture, Int32 level);
@@ -7441,6 +7516,11 @@ namespace OpenGL
 			internal static glPolygonOffset pglPolygonOffset;
 
 			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glPolygonOffsetClampEXT(float factor, float units, float clamp);
+			[ThreadStatic]
+			internal static glPolygonOffsetClampEXT pglPolygonOffsetClampEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glPolygonOffsetEXT(float factor, float bias);
 			[ThreadStatic]
 			internal static glPolygonOffsetEXT pglPolygonOffsetEXT;
@@ -7449,11 +7529,6 @@ namespace OpenGL
 			internal unsafe delegate void glPolygonOffsetxOES(IntPtr factor, IntPtr units);
 			[ThreadStatic]
 			internal static glPolygonOffsetxOES pglPolygonOffsetxOES;
-
-			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glPolygonOffsetClampEXT(float factor, float units, float clamp);
-			[ThreadStatic]
-			internal static glPolygonOffsetClampEXT pglPolygonOffsetClampEXT;
 
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glPolygonStipple(byte* mask);
@@ -7772,9 +7847,19 @@ namespace OpenGL
 			internal static glProgramUniform1i pglProgramUniform1i;
 
 			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glProgramUniform1i64ARB(UInt32 program, Int32 location, Int64 x);
+			[ThreadStatic]
+			internal static glProgramUniform1i64ARB pglProgramUniform1i64ARB;
+
+			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glProgramUniform1i64NV(UInt32 program, Int32 location, Int64 x);
 			[ThreadStatic]
 			internal static glProgramUniform1i64NV pglProgramUniform1i64NV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glProgramUniform1i64vARB(UInt32 program, Int32 location, Int32 count, Int64* value);
+			[ThreadStatic]
+			internal static glProgramUniform1i64vARB pglProgramUniform1i64vARB;
 
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glProgramUniform1i64vNV(UInt32 program, Int32 location, Int32 count, Int64* value);
@@ -7796,9 +7881,19 @@ namespace OpenGL
 			internal static glProgramUniform1ui pglProgramUniform1ui;
 
 			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glProgramUniform1ui64ARB(UInt32 program, Int32 location, UInt64 x);
+			[ThreadStatic]
+			internal static glProgramUniform1ui64ARB pglProgramUniform1ui64ARB;
+
+			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glProgramUniform1ui64NV(UInt32 program, Int32 location, UInt64 x);
 			[ThreadStatic]
 			internal static glProgramUniform1ui64NV pglProgramUniform1ui64NV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glProgramUniform1ui64vARB(UInt32 program, Int32 location, Int32 count, UInt64* value);
+			[ThreadStatic]
+			internal static glProgramUniform1ui64vARB pglProgramUniform1ui64vARB;
 
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glProgramUniform1ui64vNV(UInt32 program, Int32 location, Int32 count, UInt64* value);
@@ -7854,9 +7949,19 @@ namespace OpenGL
 			internal static glProgramUniform2i pglProgramUniform2i;
 
 			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glProgramUniform2i64ARB(UInt32 program, Int32 location, Int64 x, Int64 y);
+			[ThreadStatic]
+			internal static glProgramUniform2i64ARB pglProgramUniform2i64ARB;
+
+			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glProgramUniform2i64NV(UInt32 program, Int32 location, Int64 x, Int64 y);
 			[ThreadStatic]
 			internal static glProgramUniform2i64NV pglProgramUniform2i64NV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glProgramUniform2i64vARB(UInt32 program, Int32 location, Int32 count, Int64* value);
+			[ThreadStatic]
+			internal static glProgramUniform2i64vARB pglProgramUniform2i64vARB;
 
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glProgramUniform2i64vNV(UInt32 program, Int32 location, Int32 count, Int64* value);
@@ -7878,9 +7983,19 @@ namespace OpenGL
 			internal static glProgramUniform2ui pglProgramUniform2ui;
 
 			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glProgramUniform2ui64ARB(UInt32 program, Int32 location, UInt64 x, UInt64 y);
+			[ThreadStatic]
+			internal static glProgramUniform2ui64ARB pglProgramUniform2ui64ARB;
+
+			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glProgramUniform2ui64NV(UInt32 program, Int32 location, UInt64 x, UInt64 y);
 			[ThreadStatic]
 			internal static glProgramUniform2ui64NV pglProgramUniform2ui64NV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glProgramUniform2ui64vARB(UInt32 program, Int32 location, Int32 count, UInt64* value);
+			[ThreadStatic]
+			internal static glProgramUniform2ui64vARB pglProgramUniform2ui64vARB;
 
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glProgramUniform2ui64vNV(UInt32 program, Int32 location, Int32 count, UInt64* value);
@@ -7936,9 +8051,19 @@ namespace OpenGL
 			internal static glProgramUniform3i pglProgramUniform3i;
 
 			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glProgramUniform3i64ARB(UInt32 program, Int32 location, Int64 x, Int64 y, Int64 z);
+			[ThreadStatic]
+			internal static glProgramUniform3i64ARB pglProgramUniform3i64ARB;
+
+			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glProgramUniform3i64NV(UInt32 program, Int32 location, Int64 x, Int64 y, Int64 z);
 			[ThreadStatic]
 			internal static glProgramUniform3i64NV pglProgramUniform3i64NV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glProgramUniform3i64vARB(UInt32 program, Int32 location, Int32 count, Int64* value);
+			[ThreadStatic]
+			internal static glProgramUniform3i64vARB pglProgramUniform3i64vARB;
 
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glProgramUniform3i64vNV(UInt32 program, Int32 location, Int32 count, Int64* value);
@@ -7960,9 +8085,19 @@ namespace OpenGL
 			internal static glProgramUniform3ui pglProgramUniform3ui;
 
 			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glProgramUniform3ui64ARB(UInt32 program, Int32 location, UInt64 x, UInt64 y, UInt64 z);
+			[ThreadStatic]
+			internal static glProgramUniform3ui64ARB pglProgramUniform3ui64ARB;
+
+			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glProgramUniform3ui64NV(UInt32 program, Int32 location, UInt64 x, UInt64 y, UInt64 z);
 			[ThreadStatic]
 			internal static glProgramUniform3ui64NV pglProgramUniform3ui64NV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glProgramUniform3ui64vARB(UInt32 program, Int32 location, Int32 count, UInt64* value);
+			[ThreadStatic]
+			internal static glProgramUniform3ui64vARB pglProgramUniform3ui64vARB;
 
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glProgramUniform3ui64vNV(UInt32 program, Int32 location, Int32 count, UInt64* value);
@@ -8018,9 +8153,19 @@ namespace OpenGL
 			internal static glProgramUniform4i pglProgramUniform4i;
 
 			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glProgramUniform4i64ARB(UInt32 program, Int32 location, Int64 x, Int64 y, Int64 z, Int64 w);
+			[ThreadStatic]
+			internal static glProgramUniform4i64ARB pglProgramUniform4i64ARB;
+
+			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glProgramUniform4i64NV(UInt32 program, Int32 location, Int64 x, Int64 y, Int64 z, Int64 w);
 			[ThreadStatic]
 			internal static glProgramUniform4i64NV pglProgramUniform4i64NV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glProgramUniform4i64vARB(UInt32 program, Int32 location, Int32 count, Int64* value);
+			[ThreadStatic]
+			internal static glProgramUniform4i64vARB pglProgramUniform4i64vARB;
 
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glProgramUniform4i64vNV(UInt32 program, Int32 location, Int32 count, Int64* value);
@@ -8042,9 +8187,19 @@ namespace OpenGL
 			internal static glProgramUniform4ui pglProgramUniform4ui;
 
 			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glProgramUniform4ui64ARB(UInt32 program, Int32 location, UInt64 x, UInt64 y, UInt64 z, UInt64 w);
+			[ThreadStatic]
+			internal static glProgramUniform4ui64ARB pglProgramUniform4ui64ARB;
+
+			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glProgramUniform4ui64NV(UInt32 program, Int32 location, UInt64 x, UInt64 y, UInt64 z, UInt64 w);
 			[ThreadStatic]
 			internal static glProgramUniform4ui64NV pglProgramUniform4ui64NV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glProgramUniform4ui64vARB(UInt32 program, Int32 location, Int32 count, UInt64* value);
+			[ThreadStatic]
+			internal static glProgramUniform4ui64vARB pglProgramUniform4ui64vARB;
 
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glProgramUniform4ui64vNV(UInt32 program, Int32 location, Int32 count, UInt64* value);
@@ -8249,7 +8404,7 @@ namespace OpenGL
 			[AliasOf("glProvokingVertex")]
 			[AliasOf("glProvokingVertexEXT")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glProvokingVertex(Int32 provokeMode);
+			internal delegate void glProvokingVertex(Int32 mode);
 			[ThreadStatic]
 			internal static glProvokingVertex pglProvokingVertex;
 
@@ -8454,7 +8609,12 @@ namespace OpenGL
 			internal static glRasterPos4xvOES pglRasterPos4xvOES;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glReadBuffer(Int32 mode);
+			internal delegate void glRasterSamplesEXT(UInt32 samples, bool fixedsamplelocations);
+			[ThreadStatic]
+			internal static glRasterSamplesEXT pglRasterSamplesEXT;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glReadBuffer(Int32 src);
 			[ThreadStatic]
 			internal static glReadBuffer pglReadBuffer;
 
@@ -8698,6 +8858,11 @@ namespace OpenGL
 			[ThreadStatic]
 			internal static glResizeBuffersMESA pglResizeBuffersMESA;
 
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glResolveDepthValuesNV();
+			[ThreadStatic]
+			internal static glResolveDepthValuesNV pglResolveDepthValuesNV;
+
 			[AliasOf("glResumeTransformFeedback")]
 			[AliasOf("glResumeTransformFeedbackNV")]
 			[SuppressUnmanagedCodeSecurity()]
@@ -8726,11 +8891,6 @@ namespace OpenGL
 			internal delegate void glSampleCoverage(float value, bool invert);
 			[ThreadStatic]
 			internal static glSampleCoverage pglSampleCoverage;
-
-			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glSampleCoverageOES(IntPtr value, bool invert);
-			[ThreadStatic]
-			internal static glSampleCoverageOES pglSampleCoverageOES;
 
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glSampleMapATI(UInt32 dst, UInt32 interp, Int32 swizzle);
@@ -9135,7 +9295,7 @@ namespace OpenGL
 			internal static glStencilMaskSeparate pglStencilMaskSeparate;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glStencilOp(Int32 fail, Int32 dpfail, Int32 dppass);
+			internal delegate void glStencilOp(Int32 fail, Int32 zfail, Int32 zpass);
 			[ThreadStatic]
 			internal static glStencilOp pglStencilOp;
 
@@ -9190,6 +9350,11 @@ namespace OpenGL
 			internal unsafe delegate void glStringMarkerGREMEDY(Int32 len, IntPtr @string);
 			[ThreadStatic]
 			internal static glStringMarkerGREMEDY pglStringMarkerGREMEDY;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glSubpixelPrecisionBiasNV(UInt32 xbits, UInt32 ybits);
+			[ThreadStatic]
+			internal static glSubpixelPrecisionBiasNV pglSubpixelPrecisionBiasNV;
 
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glSwizzleEXT(UInt32 res, UInt32 @in, Int32 outX, Int32 outY, Int32 outZ, Int32 outW);
@@ -10295,9 +10460,19 @@ namespace OpenGL
 			internal static glUniform1i pglUniform1i;
 
 			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glUniform1i64ARB(Int32 location, Int64 x);
+			[ThreadStatic]
+			internal static glUniform1i64ARB pglUniform1i64ARB;
+
+			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glUniform1i64NV(Int32 location, Int64 x);
 			[ThreadStatic]
 			internal static glUniform1i64NV pglUniform1i64NV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glUniform1i64vARB(Int32 location, Int32 count, Int64* value);
+			[ThreadStatic]
+			internal static glUniform1i64vARB pglUniform1i64vARB;
 
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glUniform1i64vNV(Int32 location, Int32 count, Int64* value);
@@ -10319,9 +10494,19 @@ namespace OpenGL
 			internal static glUniform1ui pglUniform1ui;
 
 			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glUniform1ui64ARB(Int32 location, UInt64 x);
+			[ThreadStatic]
+			internal static glUniform1ui64ARB pglUniform1ui64ARB;
+
+			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glUniform1ui64NV(Int32 location, UInt64 x);
 			[ThreadStatic]
 			internal static glUniform1ui64NV pglUniform1ui64NV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glUniform1ui64vARB(Int32 location, Int32 count, UInt64* value);
+			[ThreadStatic]
+			internal static glUniform1ui64vARB pglUniform1ui64vARB;
 
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glUniform1ui64vNV(Int32 location, Int32 count, UInt64* value);
@@ -10367,9 +10552,19 @@ namespace OpenGL
 			internal static glUniform2i pglUniform2i;
 
 			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glUniform2i64ARB(Int32 location, Int64 x, Int64 y);
+			[ThreadStatic]
+			internal static glUniform2i64ARB pglUniform2i64ARB;
+
+			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glUniform2i64NV(Int32 location, Int64 x, Int64 y);
 			[ThreadStatic]
 			internal static glUniform2i64NV pglUniform2i64NV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glUniform2i64vARB(Int32 location, Int32 count, Int64* value);
+			[ThreadStatic]
+			internal static glUniform2i64vARB pglUniform2i64vARB;
 
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glUniform2i64vNV(Int32 location, Int32 count, Int64* value);
@@ -10391,9 +10586,19 @@ namespace OpenGL
 			internal static glUniform2ui pglUniform2ui;
 
 			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glUniform2ui64ARB(Int32 location, UInt64 x, UInt64 y);
+			[ThreadStatic]
+			internal static glUniform2ui64ARB pglUniform2ui64ARB;
+
+			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glUniform2ui64NV(Int32 location, UInt64 x, UInt64 y);
 			[ThreadStatic]
 			internal static glUniform2ui64NV pglUniform2ui64NV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glUniform2ui64vARB(Int32 location, Int32 count, UInt64* value);
+			[ThreadStatic]
+			internal static glUniform2ui64vARB pglUniform2ui64vARB;
 
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glUniform2ui64vNV(Int32 location, Int32 count, UInt64* value);
@@ -10439,9 +10644,19 @@ namespace OpenGL
 			internal static glUniform3i pglUniform3i;
 
 			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glUniform3i64ARB(Int32 location, Int64 x, Int64 y, Int64 z);
+			[ThreadStatic]
+			internal static glUniform3i64ARB pglUniform3i64ARB;
+
+			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glUniform3i64NV(Int32 location, Int64 x, Int64 y, Int64 z);
 			[ThreadStatic]
 			internal static glUniform3i64NV pglUniform3i64NV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glUniform3i64vARB(Int32 location, Int32 count, Int64* value);
+			[ThreadStatic]
+			internal static glUniform3i64vARB pglUniform3i64vARB;
 
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glUniform3i64vNV(Int32 location, Int32 count, Int64* value);
@@ -10463,9 +10678,19 @@ namespace OpenGL
 			internal static glUniform3ui pglUniform3ui;
 
 			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glUniform3ui64ARB(Int32 location, UInt64 x, UInt64 y, UInt64 z);
+			[ThreadStatic]
+			internal static glUniform3ui64ARB pglUniform3ui64ARB;
+
+			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glUniform3ui64NV(Int32 location, UInt64 x, UInt64 y, UInt64 z);
 			[ThreadStatic]
 			internal static glUniform3ui64NV pglUniform3ui64NV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glUniform3ui64vARB(Int32 location, Int32 count, UInt64* value);
+			[ThreadStatic]
+			internal static glUniform3ui64vARB pglUniform3ui64vARB;
 
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glUniform3ui64vNV(Int32 location, Int32 count, UInt64* value);
@@ -10511,9 +10736,19 @@ namespace OpenGL
 			internal static glUniform4i pglUniform4i;
 
 			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glUniform4i64ARB(Int32 location, Int64 x, Int64 y, Int64 z, Int64 w);
+			[ThreadStatic]
+			internal static glUniform4i64ARB pglUniform4i64ARB;
+
+			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glUniform4i64NV(Int32 location, Int64 x, Int64 y, Int64 z, Int64 w);
 			[ThreadStatic]
 			internal static glUniform4i64NV pglUniform4i64NV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glUniform4i64vARB(Int32 location, Int32 count, Int64* value);
+			[ThreadStatic]
+			internal static glUniform4i64vARB pglUniform4i64vARB;
 
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glUniform4i64vNV(Int32 location, Int32 count, Int64* value);
@@ -10535,9 +10770,19 @@ namespace OpenGL
 			internal static glUniform4ui pglUniform4ui;
 
 			[SuppressUnmanagedCodeSecurity()]
+			internal delegate void glUniform4ui64ARB(Int32 location, UInt64 x, UInt64 y, UInt64 z, UInt64 w);
+			[ThreadStatic]
+			internal static glUniform4ui64ARB pglUniform4ui64ARB;
+
+			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glUniform4ui64NV(Int32 location, UInt64 x, UInt64 y, UInt64 z, UInt64 w);
 			[ThreadStatic]
 			internal static glUniform4ui64NV pglUniform4ui64NV;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate void glUniform4ui64vARB(Int32 location, Int32 count, UInt64* value);
+			[ThreadStatic]
+			internal static glUniform4ui64vARB pglUniform4ui64vARB;
 
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glUniform4ui64vNV(Int32 location, Int32 count, UInt64* value);
@@ -12552,51 +12797,6 @@ namespace OpenGL
 			internal delegate void glWriteMaskEXT(UInt32 res, UInt32 @in, Int32 outX, Int32 outY, Int32 outZ, Int32 outW);
 			[ThreadStatic]
 			internal static glWriteMaskEXT pglWriteMaskEXT;
-
-			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glCoverageModulationNV(Int32 components);
-			[ThreadStatic]
-			internal static glCoverageModulationNV pglCoverageModulationNV;
-
-			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glCoverageModulationTableNV(Int32 n, float* v);
-			[ThreadStatic]
-			internal static glCoverageModulationTableNV pglCoverageModulationTableNV;
-
-			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glFragmentCoverageColorNV(UInt32 color);
-			[ThreadStatic]
-			internal static glFragmentCoverageColorNV pglFragmentCoverageColorNV;
-
-			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glFramebufferSampleLocationsfvNV(Int32 target, UInt32 start, Int32 count, float* v);
-			[ThreadStatic]
-			internal static glFramebufferSampleLocationsfvNV pglFramebufferSampleLocationsfvNV;
-
-			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetCoverageModulationTableNV(Int32 bufsize, float* v);
-			[ThreadStatic]
-			internal static glGetCoverageModulationTableNV pglGetCoverageModulationTableNV;
-
-			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glNamedFramebufferSampleLocationsfvNV(UInt32 framebuffer, UInt32 start, Int32 count, float* v);
-			[ThreadStatic]
-			internal static glNamedFramebufferSampleLocationsfvNV pglNamedFramebufferSampleLocationsfvNV;
-
-			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glRasterSamplesEXT(UInt32 samples, bool fixedsamplelocations);
-			[ThreadStatic]
-			internal static glRasterSamplesEXT pglRasterSamplesEXT;
-
-			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glResolveDepthValuesNV();
-			[ThreadStatic]
-			internal static glResolveDepthValuesNV pglResolveDepthValuesNV;
-
-			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glSubpixelPrecisionBiasNV(UInt32 xbits, UInt32 ybits);
-			[ThreadStatic]
-			internal static glSubpixelPrecisionBiasNV pglSubpixelPrecisionBiasNV;
 
 		}
 	}

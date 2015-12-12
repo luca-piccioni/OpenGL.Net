@@ -172,14 +172,15 @@ namespace OpenGL
 		/// Specify the lower left corner of the scissor box. Initially (0, 0).
 		/// </param>
 		/// <param name="y">
-		/// A <see cref="T:Int32"/>.
+		/// Specify the lower left corner of the scissor box. Initially (0, 0).
 		/// </param>
 		/// <param name="width">
 		/// Specify the width and height of the scissor box. When a GL context is first attached to a window, <paramref 
 		/// name="width"/> and <paramref name="height"/> are set to the dimensions of that window.
 		/// </param>
 		/// <param name="height">
-		/// A <see cref="T:Int32"/>.
+		/// Specify the width and height of the scissor box. When a GL context is first attached to a window, <paramref 
+		/// name="width"/> and <paramref name="height"/> are set to the dimensions of that window.
 		/// </param>
 		/// <remarks>
 		/// </remarks>
@@ -1173,13 +1174,13 @@ namespace OpenGL
 		/// Specify the red, green, blue, and alpha values used when the color buffers are cleared. The initial values are all 0.
 		/// </param>
 		/// <param name="green">
-		/// A <see cref="T:float"/>.
+		/// Specify the red, green, blue, and alpha values used when the color buffers are cleared. The initial values are all 0.
 		/// </param>
 		/// <param name="blue">
-		/// A <see cref="T:float"/>.
+		/// Specify the red, green, blue, and alpha values used when the color buffers are cleared. The initial values are all 0.
 		/// </param>
 		/// <param name="alpha">
-		/// A <see cref="T:float"/>.
+		/// Specify the red, green, blue, and alpha values used when the color buffers are cleared. The initial values are all 0.
 		/// </param>
 		/// <seealso cref="Gl.Clear"/>
 		/// <seealso cref="Gl.removedTypes"/>
@@ -1262,13 +1263,16 @@ namespace OpenGL
 		/// indicating that the color components are written.
 		/// </param>
 		/// <param name="green">
-		/// A <see cref="T:bool"/>.
+		/// Specify whether red, green, blue, and alpha are to be written into the frame buffer. The initial values are all Gl.TRUE, 
+		/// indicating that the color components are written.
 		/// </param>
 		/// <param name="blue">
-		/// A <see cref="T:bool"/>.
+		/// Specify whether red, green, blue, and alpha are to be written into the frame buffer. The initial values are all Gl.TRUE, 
+		/// indicating that the color components are written.
 		/// </param>
 		/// <param name="alpha">
-		/// A <see cref="T:bool"/>.
+		/// Specify whether red, green, blue, and alpha are to be written into the frame buffer. The initial values are all Gl.TRUE, 
+		/// indicating that the color components are written.
 		/// </param>
 		/// <seealso cref="Gl.Clear"/>
 		/// <seealso cref="Gl.DepthMask"/>
@@ -1520,8 +1524,9 @@ namespace OpenGL
 		/// <summary>
 		/// set front and back stencil test actions
 		/// </summary>
-		/// <param name="fail">
-		/// A <see cref="T:StencilOp"/>.
+		/// <param name="sfail">
+		/// Specifies the action to take when the stencil test fails. Eight symbolic constants are accepted: Gl.KEEP, Gl.ZERO, 
+		/// Gl.REPLACE, Gl.INCR, Gl.INCR_WRAP, Gl.DECR, Gl.DECR_WRAP, and Gl.INVERT. The initial value is Gl.KEEP.
 		/// </param>
 		/// <param name="dpfail">
 		/// Specifies the stencil action when the stencil test passes, but the depth test fails. <paramref name="dpfail"/> accepts 
@@ -1548,11 +1553,11 @@ namespace OpenGL
 		/// <seealso cref="Gl.StencilMaskSeparate"/>
 		/// <seealso cref="Gl.StencilOpSeparate"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
-		public static void StencilOp(StencilOp fail, StencilOp dpfail, StencilOp dppass)
+		public static void StencilOp(StencilOp sfail, StencilOp dpfail, StencilOp dppass)
 		{
 			Debug.Assert(Delegates.pglStencilOp != null, "pglStencilOp not implemented");
-			Delegates.pglStencilOp((Int32)fail, (Int32)dpfail, (Int32)dppass);
-			CallLog("glStencilOp({0}, {1}, {2})", fail, dpfail, dppass);
+			Delegates.pglStencilOp((Int32)sfail, (Int32)dpfail, (Int32)dppass);
+			CallLog("glStencilOp({0}, {1}, {2})", sfail, dpfail, dppass);
 			DebugCheckErrors();
 		}
 
@@ -1711,14 +1716,16 @@ namespace OpenGL
 		/// corner of a rectangular block of pixels.
 		/// </param>
 		/// <param name="y">
-		/// A <see cref="T:Int32"/>.
+		/// Specify the window coordinates of the first pixel that is read from the frame buffer. This location is the lower left 
+		/// corner of a rectangular block of pixels.
 		/// </param>
 		/// <param name="width">
 		/// Specify the dimensions of the pixel rectangle. <paramref name="width"/> and <paramref name="height"/> of one correspond 
 		/// to a single pixel.
 		/// </param>
 		/// <param name="height">
-		/// A <see cref="T:Int32"/>.
+		/// Specify the dimensions of the pixel rectangle. <paramref name="width"/> and <paramref name="height"/> of one correspond 
+		/// to a single pixel.
 		/// </param>
 		/// <param name="format">
 		/// Specifies the format of the pixel data. The following symbolic values are accepted: Gl.STENCIL_INDEX, 
@@ -1732,8 +1739,8 @@ namespace OpenGL
 		/// Gl.UNSIGNED_INT_10_10_10_2, Gl.UNSIGNED_INT_2_10_10_10_REV, Gl.UNSIGNED_INT_24_8, Gl.UNSIGNED_INT_10F_11F_11F_REV, 
 		/// Gl.UNSIGNED_INT_5_9_9_9_REV, or Gl.FLOAT_32_UNSIGNED_INT_24_8_REV.
 		/// </param>
-		/// <param name="pixels">
-		/// A <see cref="T:IntPtr"/>.
+		/// <param name="data">
+		/// Returns the pixel data.
 		/// </param>
 		/// <remarks>
 		/// </remarks>
@@ -1792,11 +1799,11 @@ namespace OpenGL
 		/// <seealso cref="Gl.PixelStore"/>
 		/// <seealso cref="Gl.ReadBuffer"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
-		public static void ReadPixels(Int32 x, Int32 y, Int32 width, Int32 height, PixelFormat format, PixelType type, IntPtr pixels)
+		public static void ReadPixels(Int32 x, Int32 y, Int32 width, Int32 height, PixelFormat format, PixelType type, IntPtr data)
 		{
 			Debug.Assert(Delegates.pglReadPixels != null, "pglReadPixels not implemented");
-			Delegates.pglReadPixels(x, y, width, height, (Int32)format, (Int32)type, pixels);
-			CallLog("glReadPixels({0}, {1}, {2}, {3}, {4}, {5}, 0x{6})", x, y, width, height, format, type, pixels.ToString("X8"));
+			Delegates.pglReadPixels(x, y, width, height, (Int32)format, (Int32)type, data);
+			CallLog("glReadPixels({0}, {1}, {2}, {3}, {4}, {5}, 0x{6})", x, y, width, height, format, type, data.ToString("X8"));
 			DebugCheckErrors();
 		}
 
@@ -3363,22 +3370,22 @@ namespace OpenGL
 		/// <summary>
 		/// specify mapping of depth values from normalized device coordinates to window coordinates
 		/// </summary>
-		/// <param name="near">
-		/// A <see cref="T:double"/>.
+		/// <param name="nearVal">
+		/// Specifies the mapping of the near clipping plane to window coordinates. The initial value is 0.
 		/// </param>
-		/// <param name="far">
-		/// A <see cref="T:double"/>.
+		/// <param name="farVal">
+		/// Specifies the mapping of the far clipping plane to window coordinates. The initial value is 1.
 		/// </param>
 		/// <seealso cref="Gl.DepthFunc"/>
 		/// <seealso cref="Gl.PolygonOffset"/>
 		/// <seealso cref="Gl.Viewport"/>
 		/// <seealso cref="Gl.removedTypes"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
-		public static void DepthRange(double near, double far)
+		public static void DepthRange(double nearVal, double farVal)
 		{
 			Debug.Assert(Delegates.pglDepthRange != null, "pglDepthRange not implemented");
-			Delegates.pglDepthRange(near, far);
-			CallLog("glDepthRange({0}, {1})", near, far);
+			Delegates.pglDepthRange(nearVal, farVal);
+			CallLog("glDepthRange({0}, {1})", nearVal, farVal);
 			DebugCheckErrors();
 		}
 
@@ -3389,14 +3396,15 @@ namespace OpenGL
 		/// Specify the lower left corner of the viewport rectangle, in pixels. The initial value is (0,0).
 		/// </param>
 		/// <param name="y">
-		/// A <see cref="T:Int32"/>.
+		/// Specify the lower left corner of the viewport rectangle, in pixels. The initial value is (0,0).
 		/// </param>
 		/// <param name="width">
 		/// Specify the width and height of the viewport. When a GL context is first attached to a window, <paramref name="width"/> 
 		/// and <paramref name="height"/> are set to the dimensions of that window.
 		/// </param>
 		/// <param name="height">
-		/// A <see cref="T:Int32"/>.
+		/// Specify the width and height of the viewport. When a GL context is first attached to a window, <paramref name="width"/> 
+		/// and <paramref name="height"/> are set to the dimensions of that window.
 		/// </param>
 		/// <remarks>
 		/// </remarks>

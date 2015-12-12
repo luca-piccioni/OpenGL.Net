@@ -32,6 +32,7 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_UNSIGNED_INT64_NV")]
 		[RequiredByFeature("GL_ARB_bindless_texture")]
+		[RequiredByFeature("GL_ARB_gpu_shader_int64")]
 		[RequiredByFeature("GL_AMD_gpu_shader_int64")]
 		[RequiredByFeature("GL_NV_gpu_shader5")]
 		[RequiredByFeature("GL_NV_vertex_attrib_integer_64bit")]

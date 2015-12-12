@@ -112,20 +112,25 @@
     <Compile Include="ARB\Gl.ARB_cl_event.cs" />
     <Compile Include="ARB\Gl.ARB_color_buffer_float.cs" />
     <Compile Include="ARB\Gl.ARB_compute_variable_group_size.cs" />
+    <Compile Include="ARB\Gl.ARB_ES3_2_compatibility.cs" />
     <Compile Include="ARB\Gl.ARB_fragment_program.cs" />
     <Compile Include="ARB\Gl.ARB_geometry_shader4.cs" />
+    <Compile Include="ARB\Gl.ARB_gpu_shader_int64.cs" />
     <Compile Include="ARB\Gl.ARB_imaging.cs" />
     <Compile Include="ARB\Gl.ARB_indirect_parameters.cs" />
     <Compile Include="ARB\Gl.ARB_internalformat_query2.cs" />
     <Compile Include="ARB\Gl.ARB_matrix_palette.cs" />
+    <Compile Include="ARB\Gl.ARB_parallel_shader_compile.cs" />
     <Compile Include="ARB\Gl.ARB_pipeline_statistics_query.cs" />
     <Compile Include="ARB\Gl.ARB_robustness.cs" />
+    <Compile Include="ARB\Gl.ARB_sample_locations.cs" />
     <Compile Include="ARB\Gl.ARB_shader_objects.cs" />
     <Compile Include="ARB\Gl.ARB_shading_language_include.cs" />
     <Compile Include="ARB\Gl.ARB_shadow_ambient.cs" />
     <Compile Include="ARB\Gl.ARB_sparse_buffer.cs" />
     <Compile Include="ARB\Gl.ARB_sparse_texture.cs" />
     <Compile Include="ARB\Gl.ARB_texture_buffer_object.cs" />
+    <Compile Include="ARB\Gl.ARB_texture_filter_minmax.cs" />
     <Compile Include="ARB\Gl.ARB_texture_float.cs" />
     <Compile Include="ARB\Gl.ARB_texture_gather.cs" />
     <Compile Include="ARB\Gl.ARB_transform_feedback_overflow_query.cs" />
@@ -335,6 +340,7 @@
     <Compile Include="IMG\Egl.IMG_context_priority.cs" />
     <Compile Include="INGR\Gl.INGR_color_clamp.cs" />
     <Compile Include="INGR\Gl.INGR_interlace_read.cs" />
+    <Compile Include="INTEL\Gl.INTEL_framebuffer_CMAA.cs" />
     <Compile Include="INTEL\Gl.INTEL_map_texture.cs" />
     <Compile Include="INTEL\Gl.INTEL_parallel_arrays.cs" />
     <Compile Include="INTEL\Gl.INTEL_performance_query.cs" />
@@ -356,6 +362,7 @@
     <Compile Include="KHR\Egl.KHR_wait_sync.cs" />
     <Compile Include="KHR\Gl.KHR_blend_equation_advanced.cs" />
     <Compile Include="KHR\Gl.KHR_blend_equation_advanced_coherent.cs" />
+    <Compile Include="KHR\Gl.KHR_no_error.cs" />
     <Compile Include="KHR\Gl.KHR_robustness.cs" />
     <Compile Include="KHR\Gl.KHR_texture_compression_astc_hdr.cs" />
     <Compile Include="MESAX\Gl.MESAX_texture_stack.cs" />
@@ -392,6 +399,7 @@
     <Compile Include="NV\Gl.NV_command_list.cs" />
     <Compile Include="NV\Gl.NV_compute_program5.cs" />
     <Compile Include="NV\Gl.NV_conservative_raster.cs" />
+    <Compile Include="NV\Gl.NV_conservative_raster_dilate.cs" />
     <Compile Include="NV\Gl.NV_copy_depth_to_color.cs" />
     <Compile Include="NV\Gl.NV_copy_image.cs" />
     <Compile Include="NV\Gl.NV_deep_texture3D.cs" />
@@ -481,6 +489,7 @@
     <Compile Include="OML\Glx.OML_swap_method.cs" />
     <Compile Include="OML\Glx.OML_sync_control.cs" />
     <Compile Include="OML\Wgl.OML_sync_control.cs" />
+    <Compile Include="OVR\Gl.OVR_multiview.cs" />
     <Compile Include="PGI\Gl.PGI_misc_hints.cs" />
     <Compile Include="PGI\Gl.PGI_vertex_hints.cs" />
     <Compile Include="ProcLoader.cs" />

@@ -1460,11 +1460,11 @@ namespace OpenGL
 		/// <param name="buffer">
 		/// Specifies the name of the buffer object for Gl.GetNamedBufferParameteriv and Gl.GetNamedBufferParameteri64v.
 		/// </param>
-		/// <param name="pname">
-		/// A <see cref="T:Int32"/>.
+		/// <param name="value">
+		/// Specifies the name of the buffer object parameter to query.
 		/// </param>
-		/// <param name="params">
-		/// A <see cref="T:Int32[]"/>.
+		/// <param name="data">
+		/// Returns the requested parameter.
 		/// </param>
 		/// <remarks>
 		/// </remarks>
@@ -1490,14 +1490,14 @@ namespace OpenGL
 		/// <seealso cref="Gl.UnmapBuffer"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_direct_state_access")]
-		public static void GetNamedBufferParameter(UInt32 buffer, Int32 pname, [Out] Int32[] @params)
+		public static void GetNamedBufferParameter(UInt32 buffer, Int32 value, [Out] Int32[] data)
 		{
 			unsafe {
-				fixed (Int32* p_params = @params)
+				fixed (Int32* p_params = data)
 				{
 					Debug.Assert(Delegates.pglGetNamedBufferParameteriv != null, "pglGetNamedBufferParameteriv not implemented");
-					Delegates.pglGetNamedBufferParameteriv(buffer, pname, p_params);
-					CallLog("glGetNamedBufferParameteriv({0}, {1}, {2})", buffer, pname, @params);
+					Delegates.pglGetNamedBufferParameteriv(buffer, value, p_params);
+					CallLog("glGetNamedBufferParameteriv({0}, {1}, {2})", buffer, value, data);
 				}
 			}
 			DebugCheckErrors();
@@ -1509,11 +1509,11 @@ namespace OpenGL
 		/// <param name="buffer">
 		/// Specifies the name of the buffer object for Gl.GetNamedBufferParameteriv and Gl.GetNamedBufferParameteri64v.
 		/// </param>
-		/// <param name="pname">
-		/// A <see cref="T:Int32"/>.
+		/// <param name="value">
+		/// Specifies the name of the buffer object parameter to query.
 		/// </param>
-		/// <param name="params">
-		/// A <see cref="T:Int64[]"/>.
+		/// <param name="data">
+		/// Returns the requested parameter.
 		/// </param>
 		/// <remarks>
 		/// </remarks>
@@ -1539,14 +1539,14 @@ namespace OpenGL
 		/// <seealso cref="Gl.UnmapBuffer"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_direct_state_access")]
-		public static void GetNamedBufferParameter(UInt32 buffer, Int32 pname, [Out] Int64[] @params)
+		public static void GetNamedBufferParameter(UInt32 buffer, Int32 value, [Out] Int64[] data)
 		{
 			unsafe {
-				fixed (Int64* p_params = @params)
+				fixed (Int64* p_params = data)
 				{
 					Debug.Assert(Delegates.pglGetNamedBufferParameteri64v != null, "pglGetNamedBufferParameteri64v not implemented");
-					Delegates.pglGetNamedBufferParameteri64v(buffer, pname, p_params);
-					CallLog("glGetNamedBufferParameteri64v({0}, {1}, {2})", buffer, pname, @params);
+					Delegates.pglGetNamedBufferParameteri64v(buffer, value, p_params);
+					CallLog("glGetNamedBufferParameteri64v({0}, {1}, {2})", buffer, value, data);
 				}
 			}
 			DebugCheckErrors();
@@ -2461,6 +2461,9 @@ namespace OpenGL
 		/// <param name="buffer">
 		/// Specify the buffer to clear.
 		/// </param>
+		/// <param name="drawbuffer">
+		/// Specify a particular draw buffer to clear.
+		/// </param>
 		/// <param name="depth">
 		/// The value to clear the depth buffer to.
 		/// </param>
@@ -2503,11 +2506,11 @@ namespace OpenGL
 		/// <seealso cref="Gl.Clear"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_direct_state_access")]
-		public static void ClearNamedFramebuffer(UInt32 framebuffer, Int32 buffer, float depth, Int32 stencil)
+		public static void ClearNamedFramebuffer(UInt32 framebuffer, Int32 buffer, Int32 drawbuffer, float depth, Int32 stencil)
 		{
 			Debug.Assert(Delegates.pglClearNamedFramebufferfi != null, "pglClearNamedFramebufferfi not implemented");
-			Delegates.pglClearNamedFramebufferfi(framebuffer, buffer, depth, stencil);
-			CallLog("glClearNamedFramebufferfi({0}, {1}, {2}, {3})", framebuffer, buffer, depth, stencil);
+			Delegates.pglClearNamedFramebufferfi(framebuffer, buffer, drawbuffer, depth, stencil);
+			CallLog("glClearNamedFramebufferfi({0}, {1}, {2}, {3}, {4})", framebuffer, buffer, drawbuffer, depth, stencil);
 			DebugCheckErrors();
 		}
 
@@ -4735,7 +4738,7 @@ namespace OpenGL
 		/// Specify the window coordinates of the left corner of the row of pixels to be copied.
 		/// </param>
 		/// <param name="y">
-		/// A <see cref="T:Int32"/>.
+		/// Specify the window coordinates of the left corner of the row of pixels to be copied.
 		/// </param>
 		/// <param name="width">
 		/// Specifies the width of the texture subimage.
@@ -4818,7 +4821,7 @@ namespace OpenGL
 		/// Specify the window coordinates of the lower left corner of the rectangular region of pixels to be copied.
 		/// </param>
 		/// <param name="y">
-		/// A <see cref="T:Int32"/>.
+		/// Specify the window coordinates of the lower left corner of the rectangular region of pixels to be copied.
 		/// </param>
 		/// <param name="width">
 		/// Specifies the width of the texture subimage.
@@ -4914,7 +4917,7 @@ namespace OpenGL
 		/// Specify the window coordinates of the lower left corner of the rectangular region of pixels to be copied.
 		/// </param>
 		/// <param name="y">
-		/// A <see cref="T:Int32"/>.
+		/// Specify the window coordinates of the lower left corner of the rectangular region of pixels to be copied.
 		/// </param>
 		/// <param name="width">
 		/// Specifies the width of the texture subimage.
@@ -8233,14 +8236,16 @@ namespace OpenGL
 		/// corner of a rectangular block of pixels.
 		/// </param>
 		/// <param name="y">
-		/// A <see cref="T:Int32"/>.
+		/// Specify the window coordinates of the first pixel that is read from the frame buffer. This location is the lower left 
+		/// corner of a rectangular block of pixels.
 		/// </param>
 		/// <param name="width">
 		/// Specify the dimensions of the pixel rectangle. <paramref name="width"/> and <paramref name="height"/> of one correspond 
 		/// to a single pixel.
 		/// </param>
 		/// <param name="height">
-		/// A <see cref="T:Int32"/>.
+		/// Specify the dimensions of the pixel rectangle. <paramref name="width"/> and <paramref name="height"/> of one correspond 
+		/// to a single pixel.
 		/// </param>
 		/// <param name="format">
 		/// Specifies the format of the pixel data. The following symbolic values are accepted: Gl.STENCIL_INDEX, 

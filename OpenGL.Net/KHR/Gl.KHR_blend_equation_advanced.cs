@@ -117,18 +117,6 @@ namespace OpenGL
 		[RequiredByFeature("GL_KHR_blend_equation_advanced")]
 		public const int HSL_LUMINOSITY_KHR = 0x92B0;
 
-		/// <summary>
-		/// Binding for glBlendBarrierKHR.
-		/// </summary>
-		[RequiredByFeature("GL_KHR_blend_equation_advanced")]
-		public static void BlendBarrierKHR()
-		{
-			Debug.Assert(Delegates.pglBlendBarrierKHR != null, "pglBlendBarrierKHR not implemented");
-			Delegates.pglBlendBarrierKHR();
-			CallLog("glBlendBarrierKHR()");
-			DebugCheckErrors();
-		}
-
 	}
 
 }

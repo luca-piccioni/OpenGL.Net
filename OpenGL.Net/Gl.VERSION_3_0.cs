@@ -1359,6 +1359,102 @@ namespace OpenGL
 		public const int COLOR_ATTACHMENT15 = 0x8CEF;
 
 		/// <summary>
+		/// Value of GL_COLOR_ATTACHMENT16 symbol.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_3_0")]
+		public const int COLOR_ATTACHMENT16 = 0x8CF0;
+
+		/// <summary>
+		/// Value of GL_COLOR_ATTACHMENT17 symbol.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_3_0")]
+		public const int COLOR_ATTACHMENT17 = 0x8CF1;
+
+		/// <summary>
+		/// Value of GL_COLOR_ATTACHMENT18 symbol.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_3_0")]
+		public const int COLOR_ATTACHMENT18 = 0x8CF2;
+
+		/// <summary>
+		/// Value of GL_COLOR_ATTACHMENT19 symbol.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_3_0")]
+		public const int COLOR_ATTACHMENT19 = 0x8CF3;
+
+		/// <summary>
+		/// Value of GL_COLOR_ATTACHMENT20 symbol.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_3_0")]
+		public const int COLOR_ATTACHMENT20 = 0x8CF4;
+
+		/// <summary>
+		/// Value of GL_COLOR_ATTACHMENT21 symbol.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_3_0")]
+		public const int COLOR_ATTACHMENT21 = 0x8CF5;
+
+		/// <summary>
+		/// Value of GL_COLOR_ATTACHMENT22 symbol.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_3_0")]
+		public const int COLOR_ATTACHMENT22 = 0x8CF6;
+
+		/// <summary>
+		/// Value of GL_COLOR_ATTACHMENT23 symbol.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_3_0")]
+		public const int COLOR_ATTACHMENT23 = 0x8CF7;
+
+		/// <summary>
+		/// Value of GL_COLOR_ATTACHMENT24 symbol.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_3_0")]
+		public const int COLOR_ATTACHMENT24 = 0x8CF8;
+
+		/// <summary>
+		/// Value of GL_COLOR_ATTACHMENT25 symbol.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_3_0")]
+		public const int COLOR_ATTACHMENT25 = 0x8CF9;
+
+		/// <summary>
+		/// Value of GL_COLOR_ATTACHMENT26 symbol.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_3_0")]
+		public const int COLOR_ATTACHMENT26 = 0x8CFA;
+
+		/// <summary>
+		/// Value of GL_COLOR_ATTACHMENT27 symbol.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_3_0")]
+		public const int COLOR_ATTACHMENT27 = 0x8CFB;
+
+		/// <summary>
+		/// Value of GL_COLOR_ATTACHMENT28 symbol.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_3_0")]
+		public const int COLOR_ATTACHMENT28 = 0x8CFC;
+
+		/// <summary>
+		/// Value of GL_COLOR_ATTACHMENT29 symbol.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_3_0")]
+		public const int COLOR_ATTACHMENT29 = 0x8CFD;
+
+		/// <summary>
+		/// Value of GL_COLOR_ATTACHMENT30 symbol.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_3_0")]
+		public const int COLOR_ATTACHMENT30 = 0x8CFE;
+
+		/// <summary>
+		/// Value of GL_COLOR_ATTACHMENT31 symbol.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_3_0")]
+		public const int COLOR_ATTACHMENT31 = 0x8CFF;
+
+		/// <summary>
 		/// Value of GL_DEPTH_ATTACHMENT symbol.
 		/// </summary>
 		[AliasOf("GL_DEPTH_ATTACHMENT_EXT")]
@@ -1884,30 +1980,34 @@ namespace OpenGL
 		/// <summary>
 		/// enable and disable writing of frame buffer color components
 		/// </summary>
-		/// <param name="index">
-		/// A <see cref="T:UInt32"/>.
+		/// <param name="buf">
+		/// For Gl.ColorMaski, specifies the index of the draw buffer whose color mask to set.
 		/// </param>
-		/// <param name="r">
-		/// A <see cref="T:bool"/>.
+		/// <param name="red">
+		/// Specify whether red, green, blue, and alpha are to be written into the frame buffer. The initial values are all Gl.TRUE, 
+		/// indicating that the color components are written.
 		/// </param>
-		/// <param name="g">
-		/// A <see cref="T:bool"/>.
+		/// <param name="green">
+		/// Specify whether red, green, blue, and alpha are to be written into the frame buffer. The initial values are all Gl.TRUE, 
+		/// indicating that the color components are written.
 		/// </param>
-		/// <param name="b">
-		/// A <see cref="T:bool"/>.
+		/// <param name="blue">
+		/// Specify whether red, green, blue, and alpha are to be written into the frame buffer. The initial values are all Gl.TRUE, 
+		/// indicating that the color components are written.
 		/// </param>
-		/// <param name="a">
-		/// A <see cref="T:bool"/>.
+		/// <param name="alpha">
+		/// Specify whether red, green, blue, and alpha are to be written into the frame buffer. The initial values are all Gl.TRUE, 
+		/// indicating that the color components are written.
 		/// </param>
 		/// <seealso cref="Gl.Clear"/>
 		/// <seealso cref="Gl.DepthMask"/>
 		/// <seealso cref="Gl.StencilMask"/>
 		[RequiredByFeature("GL_VERSION_3_0")]
-		public static void ColorMask(UInt32 index, bool r, bool g, bool b, bool a)
+		public static void ColorMask(UInt32 buf, bool red, bool green, bool blue, bool alpha)
 		{
 			Debug.Assert(Delegates.pglColorMaski != null, "pglColorMaski not implemented");
-			Delegates.pglColorMaski(index, r, g, b, a);
-			CallLog("glColorMaski({0}, {1}, {2}, {3}, {4})", index, r, g, b, a);
+			Delegates.pglColorMaski(buf, red, green, blue, alpha);
+			CallLog("glColorMaski({0}, {1}, {2}, {3}, {4})", buf, red, green, blue, alpha);
 			DebugCheckErrors();
 		}
 
@@ -2158,8 +2258,8 @@ namespace OpenGL
 		/// <summary>
 		/// enable or disable server-side GL capabilities
 		/// </summary>
-		/// <param name="target">
-		/// A <see cref="T:Int32"/>.
+		/// <param name="cap">
+		/// Specifies a symbolic constant indicating a GL capability.
 		/// </param>
 		/// <param name="index">
 		/// Specifies the index of the switch to disable (for Gl.Enablei and Gl.Disablei only).
@@ -2193,19 +2293,19 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexImage2D"/>
 		/// <seealso cref="Gl.TexImage3D"/>
 		[RequiredByFeature("GL_VERSION_3_0")]
-		public static void Enable(Int32 target, UInt32 index)
+		public static void Enable(Int32 cap, UInt32 index)
 		{
 			Debug.Assert(Delegates.pglEnablei != null, "pglEnablei not implemented");
-			Delegates.pglEnablei(target, index);
-			CallLog("glEnablei({0}, {1})", target, index);
+			Delegates.pglEnablei(cap, index);
+			CallLog("glEnablei({0}, {1})", cap, index);
 			DebugCheckErrors();
 		}
 
 		/// <summary>
 		/// enable or disable server-side GL capabilities
 		/// </summary>
-		/// <param name="target">
-		/// A <see cref="T:Int32"/>.
+		/// <param name="cap">
+		/// Specifies a symbolic constant indicating a GL capability.
 		/// </param>
 		/// <param name="index">
 		/// Specifies the index of the switch to disable (for Gl.Enablei and Gl.Disablei only).
@@ -2239,19 +2339,19 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexImage2D"/>
 		/// <seealso cref="Gl.TexImage3D"/>
 		[RequiredByFeature("GL_VERSION_3_0")]
-		public static void Disable(Int32 target, UInt32 index)
+		public static void Disable(Int32 cap, UInt32 index)
 		{
 			Debug.Assert(Delegates.pglDisablei != null, "pglDisablei not implemented");
-			Delegates.pglDisablei(target, index);
-			CallLog("glDisablei({0}, {1})", target, index);
+			Delegates.pglDisablei(cap, index);
+			CallLog("glDisablei({0}, {1})", cap, index);
 			DebugCheckErrors();
 		}
 
 		/// <summary>
 		/// test whether a capability is enabled
 		/// </summary>
-		/// <param name="target">
-		/// A <see cref="T:Int32"/>.
+		/// <param name="cap">
+		/// Specifies a symbolic constant indicating a GL capability.
 		/// </param>
 		/// <param name="index">
 		/// Specifies the index of the capability.
@@ -2269,13 +2369,13 @@ namespace OpenGL
 		/// <seealso cref="Gl.Disable"/>
 		/// <seealso cref="Gl.Get"/>
 		[RequiredByFeature("GL_VERSION_3_0")]
-		public static bool IsEnabled(Int32 target, UInt32 index)
+		public static bool IsEnabled(Int32 cap, UInt32 index)
 		{
 			bool retValue;
 
 			Debug.Assert(Delegates.pglIsEnabledi != null, "pglIsEnabledi not implemented");
-			retValue = Delegates.pglIsEnabledi(target, index);
-			CallLog("glIsEnabledi({0}, {1}) = {2}", target, index, retValue);
+			retValue = Delegates.pglIsEnabledi(cap, index);
+			CallLog("glIsEnabledi({0}, {1}) = {2}", cap, index, retValue);
 			DebugCheckErrors();
 
 			return (retValue);
@@ -2919,7 +3019,7 @@ namespace OpenGL
 		/// Specifies the index of the generic vertex attribute to be modified.
 		/// </param>
 		/// <param name="x">
-		/// A <see cref="T:Int32"/>.
+		/// For the scalar commands, specifies the new values to be used for the specified vertex attribute.
 		/// </param>
 		/// <remarks>
 		/// </remarks>
@@ -2951,10 +3051,10 @@ namespace OpenGL
 		/// Specifies the index of the generic vertex attribute to be modified.
 		/// </param>
 		/// <param name="x">
-		/// A <see cref="T:Int32"/>.
+		/// For the scalar commands, specifies the new values to be used for the specified vertex attribute.
 		/// </param>
 		/// <param name="y">
-		/// A <see cref="T:Int32"/>.
+		/// For the scalar commands, specifies the new values to be used for the specified vertex attribute.
 		/// </param>
 		/// <remarks>
 		/// </remarks>
@@ -2986,13 +3086,13 @@ namespace OpenGL
 		/// Specifies the index of the generic vertex attribute to be modified.
 		/// </param>
 		/// <param name="x">
-		/// A <see cref="T:Int32"/>.
+		/// For the scalar commands, specifies the new values to be used for the specified vertex attribute.
 		/// </param>
 		/// <param name="y">
-		/// A <see cref="T:Int32"/>.
+		/// For the scalar commands, specifies the new values to be used for the specified vertex attribute.
 		/// </param>
 		/// <param name="z">
-		/// A <see cref="T:Int32"/>.
+		/// For the scalar commands, specifies the new values to be used for the specified vertex attribute.
 		/// </param>
 		/// <remarks>
 		/// </remarks>
@@ -3024,16 +3124,16 @@ namespace OpenGL
 		/// Specifies the index of the generic vertex attribute to be modified.
 		/// </param>
 		/// <param name="x">
-		/// A <see cref="T:Int32"/>.
+		/// For the scalar commands, specifies the new values to be used for the specified vertex attribute.
 		/// </param>
 		/// <param name="y">
-		/// A <see cref="T:Int32"/>.
+		/// For the scalar commands, specifies the new values to be used for the specified vertex attribute.
 		/// </param>
 		/// <param name="z">
-		/// A <see cref="T:Int32"/>.
+		/// For the scalar commands, specifies the new values to be used for the specified vertex attribute.
 		/// </param>
 		/// <param name="w">
-		/// A <see cref="T:Int32"/>.
+		/// For the scalar commands, specifies the new values to be used for the specified vertex attribute.
 		/// </param>
 		/// <remarks>
 		/// </remarks>
@@ -3065,7 +3165,7 @@ namespace OpenGL
 		/// Specifies the index of the generic vertex attribute to be modified.
 		/// </param>
 		/// <param name="x">
-		/// A <see cref="T:UInt32"/>.
+		/// For the scalar commands, specifies the new values to be used for the specified vertex attribute.
 		/// </param>
 		/// <remarks>
 		/// </remarks>
@@ -3097,10 +3197,10 @@ namespace OpenGL
 		/// Specifies the index of the generic vertex attribute to be modified.
 		/// </param>
 		/// <param name="x">
-		/// A <see cref="T:UInt32"/>.
+		/// For the scalar commands, specifies the new values to be used for the specified vertex attribute.
 		/// </param>
 		/// <param name="y">
-		/// A <see cref="T:UInt32"/>.
+		/// For the scalar commands, specifies the new values to be used for the specified vertex attribute.
 		/// </param>
 		/// <remarks>
 		/// </remarks>
@@ -3132,13 +3232,13 @@ namespace OpenGL
 		/// Specifies the index of the generic vertex attribute to be modified.
 		/// </param>
 		/// <param name="x">
-		/// A <see cref="T:UInt32"/>.
+		/// For the scalar commands, specifies the new values to be used for the specified vertex attribute.
 		/// </param>
 		/// <param name="y">
-		/// A <see cref="T:UInt32"/>.
+		/// For the scalar commands, specifies the new values to be used for the specified vertex attribute.
 		/// </param>
 		/// <param name="z">
-		/// A <see cref="T:UInt32"/>.
+		/// For the scalar commands, specifies the new values to be used for the specified vertex attribute.
 		/// </param>
 		/// <remarks>
 		/// </remarks>
@@ -3170,16 +3270,16 @@ namespace OpenGL
 		/// Specifies the index of the generic vertex attribute to be modified.
 		/// </param>
 		/// <param name="x">
-		/// A <see cref="T:UInt32"/>.
+		/// For the scalar commands, specifies the new values to be used for the specified vertex attribute.
 		/// </param>
 		/// <param name="y">
-		/// A <see cref="T:UInt32"/>.
+		/// For the scalar commands, specifies the new values to be used for the specified vertex attribute.
 		/// </param>
 		/// <param name="z">
-		/// A <see cref="T:UInt32"/>.
+		/// For the scalar commands, specifies the new values to be used for the specified vertex attribute.
 		/// </param>
 		/// <param name="w">
-		/// A <see cref="T:UInt32"/>.
+		/// For the scalar commands, specifies the new values to be used for the specified vertex attribute.
 		/// </param>
 		/// <remarks>
 		/// </remarks>
@@ -3838,7 +3938,7 @@ namespace OpenGL
 		/// For the scalar commands, specifies the new values to be used for the specified uniform variable.
 		/// </param>
 		/// <param name="v1">
-		/// A <see cref="T:UInt32"/>.
+		/// For the scalar commands, specifies the new values to be used for the specified uniform variable.
 		/// </param>
 		/// <remarks>
 		/// </remarks>
@@ -3898,10 +3998,10 @@ namespace OpenGL
 		/// For the scalar commands, specifies the new values to be used for the specified uniform variable.
 		/// </param>
 		/// <param name="v1">
-		/// A <see cref="T:UInt32"/>.
+		/// For the scalar commands, specifies the new values to be used for the specified uniform variable.
 		/// </param>
 		/// <param name="v2">
-		/// A <see cref="T:UInt32"/>.
+		/// For the scalar commands, specifies the new values to be used for the specified uniform variable.
 		/// </param>
 		/// <remarks>
 		/// </remarks>
@@ -3961,13 +4061,13 @@ namespace OpenGL
 		/// For the scalar commands, specifies the new values to be used for the specified uniform variable.
 		/// </param>
 		/// <param name="v1">
-		/// A <see cref="T:UInt32"/>.
+		/// For the scalar commands, specifies the new values to be used for the specified uniform variable.
 		/// </param>
 		/// <param name="v2">
-		/// A <see cref="T:UInt32"/>.
+		/// For the scalar commands, specifies the new values to be used for the specified uniform variable.
 		/// </param>
 		/// <param name="v3">
-		/// A <see cref="T:UInt32"/>.
+		/// For the scalar commands, specifies the new values to be used for the specified uniform variable.
 		/// </param>
 		/// <remarks>
 		/// </remarks>
@@ -5423,7 +5523,7 @@ namespace OpenGL
 		/// <param name="level">
 		/// Specifies the mipmap level of the texture object to attach.
 		/// </param>
-		/// <param name="zoffset">
+		/// <param name="layer">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <remarks>
@@ -5471,11 +5571,11 @@ namespace OpenGL
 		/// <seealso cref="Gl.FramebufferTexture3D"/>
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ARB_framebuffer_object")]
-		public static void FramebufferTexture3D(Int32 target, Int32 attachment, Int32 textarget, UInt32 texture, Int32 level, Int32 zoffset)
+		public static void FramebufferTexture3D(Int32 target, Int32 attachment, Int32 textarget, UInt32 texture, Int32 level, Int32 layer)
 		{
 			Debug.Assert(Delegates.pglFramebufferTexture3D != null, "pglFramebufferTexture3D not implemented");
-			Delegates.pglFramebufferTexture3D(target, attachment, textarget, texture, level, zoffset);
-			CallLog("glFramebufferTexture3D({0}, {1}, {2}, {3}, {4}, {5})", target, attachment, textarget, texture, level, zoffset);
+			Delegates.pglFramebufferTexture3D(target, attachment, textarget, texture, level, layer);
+			CallLog("glFramebufferTexture3D({0}, {1}, {2}, {3}, {4}, {5})", target, attachment, textarget, texture, level, layer);
 			DebugCheckErrors();
 		}
 

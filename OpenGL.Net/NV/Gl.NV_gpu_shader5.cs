@@ -28,14 +28,6 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Value of GL_INT64_NV symbol.
-		/// </summary>
-		[RequiredByFeature("GL_AMD_gpu_shader_int64")]
-		[RequiredByFeature("GL_NV_gpu_shader5")]
-		[RequiredByFeature("GL_NV_vertex_attrib_integer_64bit")]
-		public const int INT64_NV = 0x140E;
-
-		/// <summary>
 		/// Value of GL_INT8_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_AMD_gpu_shader_int64")]
@@ -92,27 +84,6 @@ namespace OpenGL
 		public const int INT16_VEC4_NV = 0x8FE7;
 
 		/// <summary>
-		/// Value of GL_INT64_VEC2_NV symbol.
-		/// </summary>
-		[RequiredByFeature("GL_AMD_gpu_shader_int64")]
-		[RequiredByFeature("GL_NV_gpu_shader5")]
-		public const int INT64_VEC2_NV = 0x8FE9;
-
-		/// <summary>
-		/// Value of GL_INT64_VEC3_NV symbol.
-		/// </summary>
-		[RequiredByFeature("GL_AMD_gpu_shader_int64")]
-		[RequiredByFeature("GL_NV_gpu_shader5")]
-		public const int INT64_VEC3_NV = 0x8FEA;
-
-		/// <summary>
-		/// Value of GL_INT64_VEC4_NV symbol.
-		/// </summary>
-		[RequiredByFeature("GL_AMD_gpu_shader_int64")]
-		[RequiredByFeature("GL_NV_gpu_shader5")]
-		public const int INT64_VEC4_NV = 0x8FEB;
-
-		/// <summary>
 		/// Value of GL_UNSIGNED_INT8_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GL_AMD_gpu_shader_int64")]
@@ -167,27 +138,6 @@ namespace OpenGL
 		[RequiredByFeature("GL_AMD_gpu_shader_int64")]
 		[RequiredByFeature("GL_NV_gpu_shader5")]
 		public const int UNSIGNED_INT16_VEC4_NV = 0x8FF3;
-
-		/// <summary>
-		/// Value of GL_UNSIGNED_INT64_VEC2_NV symbol.
-		/// </summary>
-		[RequiredByFeature("GL_AMD_gpu_shader_int64")]
-		[RequiredByFeature("GL_NV_gpu_shader5")]
-		public const int UNSIGNED_INT64_VEC2_NV = 0x8FF5;
-
-		/// <summary>
-		/// Value of GL_UNSIGNED_INT64_VEC3_NV symbol.
-		/// </summary>
-		[RequiredByFeature("GL_AMD_gpu_shader_int64")]
-		[RequiredByFeature("GL_NV_gpu_shader5")]
-		public const int UNSIGNED_INT64_VEC3_NV = 0x8FF6;
-
-		/// <summary>
-		/// Value of GL_UNSIGNED_INT64_VEC4_NV symbol.
-		/// </summary>
-		[RequiredByFeature("GL_AMD_gpu_shader_int64")]
-		[RequiredByFeature("GL_NV_gpu_shader5")]
-		public const int UNSIGNED_INT64_VEC4_NV = 0x8FF7;
 
 		/// <summary>
 		/// Value of GL_FLOAT16_NV symbol.
