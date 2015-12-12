@@ -523,21 +523,32 @@ namespace BindingsGen
 					XmlNode xmlIdentifier = null;
 					List<string> paramAliases = new List<string>();
 
-					paramAliases.Add(param.Name.ToLowerInvariant());
+					paramAliases.Add(param.ImplementationNameRaw.ToLowerInvariant());
 					if (param.Name == "x") paramAliases.Add("v0");
 					if (param.Name == "y") paramAliases.Add("v1");
 					if (param.Name == "z") paramAliases.Add("v2");
 					if (param.Name == "w") paramAliases.Add("v3");
 
 					foreach (string paramAlias in paramAliases) {
-						string xpath = String.Format(
-							"/x:refentry/x:refsect1["+
-								"translate(@xml:id,'ABCDEFGHIJKLMNOPQRSTUVWXYZ123456790','abcdefghijklmnopqrstuvwxyz123456790')='parameters'" +
-							"]/x:variablelist/x:varlistentry[" +
-								"translate(x:term/x:parameter/text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZ123456790','abcdefghijklmnopqrstuvwxyz123456790')='{0}'" +
-							"]/x:listitem/x:para",
+						string xpathbase = String.Format(
+							"/x:refentry/x:refsect1[@xml:id='parameters']/x:variablelist/x:varlistentry[x:term/x:parameter/text()='{2}']",
 
-							param.Name.ToLowerInvariant()
+							"translate(@xml:id,'ABCDEFGHIJKLMNOPQRSTUVWXYZ123456790','abcdefghijklmnopqrstuvwxyz123456790')",						// @xml:id
+							"translate(x:term/x:parameter/text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZ123456790','abcdefghijklmnopqrstuvwxyz123456790')",		// x:term/x:parameter/text()
+							paramAlias.ToLowerInvariant()
+						);
+
+						if ((xmlIdentifier = root.SelectSingleNode(xpathbase, nsmgr)) != null) {
+							if ((xmlIdentifier = xmlIdentifier.SelectSingleNode("x:listitem/x:para", nsmgr)) != null)
+								break;
+						}
+
+						string xpath = String.Format(
+							"/x:refentry/x:refsect1[{0}='parameters']/x:variablelist/x:varlistentry[{1}='{2}']/x:listitem/x:para",
+
+							"translate(@xml:id,'ABCDEFGHIJKLMNOPQRSTUVWXYZ123456790','abcdefghijklmnopqrstuvwxyz123456790')",						// @xml:id
+							"translate(x:term/x:parameter/text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZ123456790','abcdefghijklmnopqrstuvwxyz123456790')",		// x:term/x:parameter/text()
+							paramAlias.ToLowerInvariant()
 						);
 
 						if ((xmlIdentifier = root.SelectSingleNode(xpath, nsmgr)) != null)
@@ -553,7 +564,7 @@ namespace BindingsGen
 					}
 				}
 
-				sw.WriteLine("/// <param name=\"{0}\">", param.Name);
+				sw.WriteLine("/// <param name=\"{0}\">", param.ImplementationNameRaw);
 				foreach (string line in paramDoc)
 					sw.WriteLine("/// {0}", line);
 				sw.WriteLine("/// </param>");
@@ -728,7 +739,7 @@ namespace BindingsGen
 						paramDoc = GetDocumentationLines(xmlIdentifier.InnerXml, TranformCommandMan4, ctx);
 				}
 
-				sw.WriteLine("/// <param name=\"{0}\">", param.Name);
+				sw.WriteLine("/// <param name=\"{0}\">", param.ImplementationNameRaw);
 				foreach (string line in paramDoc)
 					sw.WriteLine("/// {0}", line);
 				sw.WriteLine("/// </param>");

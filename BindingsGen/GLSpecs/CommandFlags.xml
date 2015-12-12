@@ -38,6 +38,22 @@
 		<add_enum>GL_COLOR_ATTACHMENT13</add_enum>
 		<add_enum>GL_COLOR_ATTACHMENT14</add_enum>
 		<add_enum>GL_COLOR_ATTACHMENT15</add_enum>
+		<add_enum>GL_COLOR_ATTACHMENT16</add_enum>
+		<add_enum>GL_COLOR_ATTACHMENT17</add_enum>
+		<add_enum>GL_COLOR_ATTACHMENT18</add_enum>
+		<add_enum>GL_COLOR_ATTACHMENT19</add_enum>
+		<add_enum>GL_COLOR_ATTACHMENT20</add_enum>
+		<add_enum>GL_COLOR_ATTACHMENT21</add_enum>
+		<add_enum>GL_COLOR_ATTACHMENT22</add_enum>
+		<add_enum>GL_COLOR_ATTACHMENT23</add_enum>
+		<add_enum>GL_COLOR_ATTACHMENT24</add_enum>
+		<add_enum>GL_COLOR_ATTACHMENT25</add_enum>
+		<add_enum>GL_COLOR_ATTACHMENT26</add_enum>
+		<add_enum>GL_COLOR_ATTACHMENT27</add_enum>
+		<add_enum>GL_COLOR_ATTACHMENT28</add_enum>
+		<add_enum>GL_COLOR_ATTACHMENT29</add_enum>
+		<add_enum>GL_COLOR_ATTACHMENT30</add_enum>
+		<add_enum>GL_COLOR_ATTACHMENT31</add_enum>
 	</enumerant>
 	
 	<enumerant name="^PixelFormat$">
@@ -155,10 +171,61 @@
 	</command>
 
 	<!-- Argument renaming for better documentation -->
+	
+	<command name="^glColorMaski$">
+		<param id="index"><rename>buf</rename></param>
+		<param id="r"><rename>red</rename></param>
+		<param id="g"><rename>green</rename></param>
+		<param id="b"><rename>blue</rename></param>
+		<param id="a"><rename>alpha</rename></param>
+	</command>
+
+	<command name="^glDepthRange$">
+		<param id="near"><rename>nearVal</rename></param>
+		<param id="far"><rename>farVal</rename></param>
+	</command>
+	
+	<command name="^glDraw(Arrays|Elements)Instanced(BaseVertex|BaseInstance|BaseVertexBaseInstance)?$">
+		<param id="instancecount"><rename>primcount</rename></param>
+	</command>
+	
+	<command name="^glDrawTransformFeedback(Stream)?Instanced$">
+		<param id="instancecount"><rename>primcount</rename></param>
+	</command>
+	
+	<command name="^gl(Enable|Disable|IsEnabled)i$">
+		<param id="target"><rename>cap</rename></param>
+	</command>
+	
+	<command name="^glFramebufferTexture3D$">
+		<param id="zoffset"><rename>layer</rename></param>
+	</command>
+	
+	<command name="^glGet(Program|Shader)InfoLog$">
+		<param id="bufSize"><rename>maxLength</rename></param>
+	</command>
+	
+	<command name="^glGet(Named)?BufferParameter(iv|i64v)$">
+		<param id="pname"><rename>value</rename></param>
+		<param id="params"><rename>data</rename></param>
+	</command>
+	
+	<command name="^gl(NamedFramebuffer)?ReadBuffer$">
+		<param id="src"><rename>mode</rename></param>
+	</command>
+
+	<command name="^glProvokingVertex$">
+		<param id="mode"><rename>provokeMode</rename></param>
+	</command>
+
+	<command name="^gl(Read(n)?Pixels|TexImage3D)$">
+		<param id="pixels"><rename>data</rename></param>
+	</command>
 
 	<command name="^glStencilOp$">
-		<rename_arg id="zfail">dpfail</rename_arg>
-		<rename_arg id="zpass">dppass</rename_arg>
+		<param id="fail"><rename>sfail</rename></param>
+		<param id="zfail"><rename>dpfail</rename></param>
+		<param id="zpass"><rename>dppass</rename></param>
 	</command>
 	
 	<!-- WGL -->

@@ -258,6 +258,9 @@ namespace BindingsGen.GLSpecs
 			}
 		}
 
+		/// <summary>
+		/// Get the command parameter name, without altering it for language conformance (i.e. the '@' escaping character).
+		/// </summary>
 		public string ImplementationNameRaw
 		{
 			get
@@ -268,6 +271,9 @@ namespace BindingsGen.GLSpecs
 			}
 		}
 
+		/// <summary>
+		/// Get the command parameter name.
+		/// </summary>
 		public string ImplementationName
 		{
 			get
