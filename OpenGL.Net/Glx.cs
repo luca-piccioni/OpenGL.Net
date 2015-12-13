@@ -69,28 +69,6 @@ namespace OpenGL
 
 		#endregion
 
-		#region Extensions Management
-
-		/// <summary>
-		/// Check whether current Windows GL implementation supports the extension.
-		/// </summary>
-		/// <param name="deviceContext">
-		/// 
-		/// </param>
-		/// <param name="extension">
-		/// A <see cref="System.String"/> that specifies the name of the OpenGL extension.
-		/// </param>
-		/// <returns>
-		/// Returns a boolean value that indicates support for the OpenGL extension.
-		/// </returns>
-		public static bool HasExtension(IDeviceContext deviceContext, string extension)
-		{
-			// Extensions are queried on a context basis...
-			return (((XServerDeviceContext)deviceContext).HasExtension(extension));
-		}
-
-		#endregion
-
 		#region Debugging
 
 		/// <summary>

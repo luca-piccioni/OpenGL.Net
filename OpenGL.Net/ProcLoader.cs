@@ -23,6 +23,7 @@ using System.IO;
 using System.Reflection;
 using System.Runtime.InteropServices;
 using System.Text;
+using System.Text.RegularExpressions;
 
 using ImportMap = System.Collections.Generic.SortedList<string, System.Reflection.MethodInfo>;
 using DelegateList = System.Collections.Generic.List<System.Reflection.FieldInfo>;
@@ -248,6 +249,155 @@ namespace OpenGL
 			/// The name of the extension.
 			/// </summary>
 			public readonly string ExtensionName;
+		}
+
+		/// <summary>
+		/// Attribute asserting the support of the extension of the underlying member.
+		/// </summary>
+		[AttributeUsage(AttributeTargets.Field, AllowMultiple = false)]
+		public sealed class ExtensionSupportAttribute : Attribute
+		{
+			/// <summary>
+			/// Construct a ExtensionAttribute, specifying the extension name.
+			/// </summary>
+			/// <param name="support">
+			/// A <see cref="String"/> that specifies the name of the platforms that support the extension.
+			/// </param>
+			/// <exception cref="ArgumentException">
+			/// Exception thrown if <paramref name="support"/> is null or empty.
+			/// </exception>
+			public ExtensionSupportAttribute(string support)
+			{
+				if (String.IsNullOrEmpty(support))
+					throw new ArgumentException("null or empty feature not allowed", "support");
+				Support = support;
+			}
+
+			/// <summary>
+			/// The support of the extension.
+			/// </summary>
+			public readonly string Support;
+		}
+
+		/// <summary>
+		/// Base class for managing OpenGL extensions.
+		/// </summary>
+		public abstract class ExtensionsCollection
+		{
+			/// <summary>
+			/// Check whether the specified extension is supported by current platform.
+			/// </summary>
+			/// <param name="extensionName">
+			/// A <see cref="String"/> that specifies the extension name.
+			/// </param>
+			/// <returns>
+			/// It returns a boolean value indicating whether the extension identified with <paramref name="extensionName"/>
+			/// is supported or not by the current platform.
+			/// </returns>
+			public bool HasExtensions(string extensionName)
+			{
+				if (extensionName == null)
+					throw new ArgumentNullException("extensionName");
+
+				return (_ExtensionsRegistry.ContainsKey(extensionName));
+			}
+
+			/// <summary>
+			/// Query the supported extensions.
+			/// </summary>
+			/// <param name="extensionsString">
+			/// A string that specifies the supported extensions, those names are separated by spaces.
+			/// </param>
+			/// <exception cref="ArgumentNullException">
+			/// Exception thrown if <paramref name="extensionsString"/> is null.
+			/// </exception>
+			protected void Query(string extensionsString)
+			{
+				if (extensionsString == null)
+					throw new ArgumentNullException("extensionsString");
+
+				Query(extensionsString.Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries));
+			}
+
+			/// <summary>
+			/// Query the supported extensions.
+			/// </summary>
+			/// <param name="extensions">
+			/// An array of strings that specifies the supported extensions.
+			/// </param>
+			/// <exception cref="ArgumentNullException">
+			/// Exception thrown if <paramref name="extensions"/> is null.
+			/// </exception>
+			protected void Query(string[] extensions)
+			{
+				if (extensions == null)
+					throw new ArgumentNullException("extensions");
+
+				// Cache extension names in registry
+				_ExtensionsRegistry.Clear();
+				foreach (string extension in extensions)
+					_ExtensionsRegistry.Add(extension, true);
+
+				// Set all extension fields
+				Type thisType = GetType();
+
+				foreach (FieldInfo fieldInfo in thisType.GetFields(BindingFlags.Instance | BindingFlags.Public)) {
+					// Check boolean field (defensive)
+					Debug.Assert(fieldInfo.FieldType == typeof(bool));
+					if (fieldInfo.FieldType != typeof(bool))
+						continue;
+
+					// Get extensions
+					Attribute[] extensionAttributes = Attribute.GetCustomAttributes(fieldInfo, typeof(ExtensionAttribute));
+					if ((extensionAttributes == null) || (extensionAttributes.Length == 0))
+						continue;
+
+					// Check extension support
+					bool support = false;
+
+					foreach (ExtensionAttribute extensionAttribute in extensionAttributes) {
+						if (_ExtensionsRegistry.ContainsKey(extensionAttribute.ExtensionName)) {
+							support = true;
+							break;
+						}
+					}
+
+					fieldInfo.SetValue(this, support);
+				}
+			}
+
+			/// <summary>
+			/// Get the vendor of the extension.
+			/// </summary>
+			/// <param name="extensionName">
+			/// A <see cref="String"/> that specifies the extension name.
+			/// </param>
+			/// <returns>
+			/// It returns the substring that identifies the vendor of the extension.
+			/// </returns>
+			/// <exception cref="ArgumentNullException">
+			/// Exception thrown if <paramref name="extensionName"/> is null.
+			/// </exception>
+			/// <exception cref="ArgumentException">
+			/// Exception thrown if <paramref name="extensionName"/> cannot be recognized as conformant extension name.
+			/// </exception>
+			protected static string GetVendor(string extensionName)
+			{
+				if (extensionName == null)
+					throw new ArgumentNullException("extensionName");
+
+				Match vendorMatch = Regex.Match(extensionName, @"^(GL|WGL|GLX|GLU|EGL)_(?<Vendor>[^_]+).*");
+
+				if (vendorMatch.Success == false)
+					throw new ArgumentException("non conformant extension name", "extensionName");
+
+				return (vendorMatch.Groups["Vendor"].Value);
+			}
+
+			/// <summary>
+			/// Registry of supported extensions.
+			/// </summary>
+			private readonly Dictionary<string, bool> _ExtensionsRegistry = new Dictionary<string, bool>();
 		}
 
 		#endregion

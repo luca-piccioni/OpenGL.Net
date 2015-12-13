@@ -3947,6 +3947,16 @@ namespace OpenGL
 		/// </summary>
 		ZoomY = Gl.ZOOM_Y,
 
+		/// <summary>
+		/// Strongly typed for value GL_NUM_EXTENSIONS.
+		/// </summary>
+		NumExtensions = Gl.NUM_EXTENSIONS,
+
+		/// <summary>
+		/// Strongly typed for value GL_NUM_SHADING_LANGUAGE_VERSIONS.
+		/// </summary>
+		NumShadingLanguageVersions = Gl.NUM_SHADING_LANGUAGE_VERSIONS,
+
 	}
 
 	/// <summary>

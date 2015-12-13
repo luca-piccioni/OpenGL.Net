@@ -182,6 +182,7 @@
     <Compile Include="Egl.cs" />
     <Compile Include="Egl.Delegates.cs" />
     <Compile Include="Egl.Extensions.cs" />
+    <Compile Include="Egl.Extensions.Query.cs" />
     <Compile Include="Egl.Imports.cs" />
     <Compile Include="Egl.VERSION_1_0.cs" />
     <Compile Include="Egl.VERSION_1_1.cs" />
@@ -285,6 +286,7 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Gl.Extensions.cs" />
+    <Compile Include="Gl.Extensions.Query.cs" />
     <Compile Include="Gl.Imports.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -310,6 +312,7 @@
     <Compile Include="Glx.cs" />
     <Compile Include="Glx.Delegates.cs" />
     <Compile Include="Glx.Extensions.cs" />
+    <Compile Include="Glx.Extensions.Query.cs" />
     <Compile Include="Glx.Imports.cs" />
     <Compile Include="Glx.VERSION_1_0.cs" />
     <Compile Include="Glx.VERSION_1_1.cs" />
@@ -581,6 +584,7 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Wgl.Extensions.cs" />
+    <Compile Include="Wgl.Extensions.Query.cs" />
     <Compile Include="Wgl.Imports.cs">
       <SubType>Code</SubType>
     </Compile>

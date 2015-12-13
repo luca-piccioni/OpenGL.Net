@@ -17,7 +17,6 @@
 // USA
 
 using System;
-using System.Collections.Generic;
 using System.Windows.Forms;
 
 namespace OpenGL
@@ -82,7 +81,7 @@ namespace OpenGL
 			_Screen = Glx.UnsafeNativeMethods.XDefaultScreen(_Display);
 			
 			// Query GLX extensions
-			QueryExtensions();
+			QueryVersion();
 		}
 
 		/// <summary>
@@ -131,7 +130,7 @@ namespace OpenGL
 			_WindowHandle = controlHandle;
 			
 			// Query GLX extensions
-			QueryExtensions();
+			QueryVersion();
 		}
 
 		#endregion
@@ -287,7 +286,7 @@ namespace OpenGL
 		
 		#endregion
 		
-		#region Extension Support
+		#region GLX Version
 		
 		/// <summary>
 		/// The GLX major version.
@@ -300,41 +299,17 @@ namespace OpenGL
 		public int GlxMinor { get { return (_GlxMinor); } }
 		
 		/// <summary>
-		/// Check whether current X11 implementation supports the extension.
+		/// Query the GLX version supported by current implementation.
 		/// </summary>
-		/// <param name="eName">
-		/// A <see cref="System.String"/> that specifies the name of the X11 extension.
-		/// </param>
-		/// <returns>
-		/// Returns a boolean value that indicates support for the X11 extension.
-		/// </returns>
-		public bool HasExtension(string eName)
-		{
-			return (_Extensions.ContainsKey(eName));
-		}
-		
-		/// <summary>
-		/// Query all X11 extensions supported by current implementation.
-		/// </summary>
-		private void QueryExtensions()
+		private void QueryVersion()
 		{
 			using (Glx.XLock xLock = new Glx.XLock(Display)) {
-				string extString;
 				int[] majorArg = new int[1], minorArg = new int[1];
 	
 				Glx.QueryVersion(Display, majorArg, minorArg);
 	
 				_GlxMajor = majorArg[0];
 				_GlxMinor = minorArg[0];
-	
-				if ((_GlxMajor >= 1) && (_GlxMinor >= 1)) {
-					extString = Glx.QueryExtensionsString(Display, 0);
-					if (!String.IsNullOrEmpty(extString)) {
-						string[] extTokens = extString.Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
-						foreach (string e in extTokens)
-							_Extensions.Add(e, true);
-					}
-				}
 			}
 		}
 		
@@ -347,11 +322,6 @@ namespace OpenGL
 		/// The GLX minor version.
 		/// </summary>
 		private int _GlxMinor;
-		
-		/// <summary>
-		/// Available extensions.
-		/// </summary>
-		private readonly Dictionary<string, bool> _Extensions = new Dictionary<string, bool>();
 		
 		#endregion
 

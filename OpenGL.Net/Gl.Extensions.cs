@@ -25,630 +25,734 @@ namespace OpenGL
 		/// <summary>
 		/// Extension support listing.
 		/// </summary>
-		public class Extensions
+		public partial class Extensions : ExtensionsCollection
 		{
 			/// <summary>
 			/// Support for extension GL_ARB_multitexture.
 			/// </summary>
 			[Extension("GL_ARB_multitexture")]
+			[ExtensionSupport("gl")]
 			public bool Multitexture_ARB;
 
 			/// <summary>
 			/// Support for extension GL_ARB_transpose_matrix.
 			/// </summary>
 			[Extension("GL_ARB_transpose_matrix")]
+			[ExtensionSupport("gl")]
 			public bool TransposeMatrix_ARB;
 
 			/// <summary>
 			/// Support for extension GL_ARB_multisample.
 			/// </summary>
 			[Extension("GL_ARB_multisample")]
+			[ExtensionSupport("gl")]
 			public bool Multisample_ARB;
 
 			/// <summary>
 			/// Support for extension GL_ARB_texture_env_add.
 			/// </summary>
 			[Extension("GL_ARB_texture_env_add")]
+			[ExtensionSupport("gl")]
 			public bool TextureEnvAdd_ARB;
 
 			/// <summary>
 			/// Support for extension GL_ARB_texture_cube_map.
 			/// </summary>
 			[Extension("GL_ARB_texture_cube_map")]
+			[ExtensionSupport("gl")]
 			public bool TextureCubeMap_ARB;
 
 			/// <summary>
 			/// Support for extension GL_ARB_texture_compression.
 			/// </summary>
 			[Extension("GL_ARB_texture_compression")]
+			[ExtensionSupport("gl")]
 			public bool TextureCompression_ARB;
 
 			/// <summary>
 			/// Support for extension GL_ARB_texture_border_clamp.
 			/// </summary>
 			[Extension("GL_ARB_texture_border_clamp")]
+			[ExtensionSupport("gl")]
 			public bool TextureBorderClamp_ARB;
 
 			/// <summary>
 			/// Support for extension GL_ARB_point_parameters.
 			/// </summary>
 			[Extension("GL_ARB_point_parameters")]
+			[ExtensionSupport("gl")]
 			public bool PointParameters_ARB;
 
 			/// <summary>
 			/// Support for extension GL_ARB_vertex_blend.
 			/// </summary>
 			[Extension("GL_ARB_vertex_blend")]
+			[ExtensionSupport("gl")]
 			public bool VertexBlend_ARB;
 
 			/// <summary>
 			/// Support for extension GL_ARB_matrix_palette.
 			/// </summary>
 			[Extension("GL_ARB_matrix_palette")]
+			[ExtensionSupport("gl")]
 			public bool MatrixPalette_ARB;
 
 			/// <summary>
 			/// Support for extension GL_ARB_texture_env_combine.
 			/// </summary>
 			[Extension("GL_ARB_texture_env_combine")]
+			[ExtensionSupport("gl")]
 			public bool TextureEnvCombine_ARB;
 
 			/// <summary>
 			/// Support for extension GL_ARB_texture_env_crossbar.
 			/// </summary>
 			[Extension("GL_ARB_texture_env_crossbar")]
+			[ExtensionSupport("gl")]
 			public bool TextureEnvCrossbar_ARB;
 
 			/// <summary>
 			/// Support for extension GL_ARB_texture_env_dot3.
 			/// </summary>
 			[Extension("GL_ARB_texture_env_dot3")]
+			[ExtensionSupport("gl")]
 			public bool TextureEnvDot3_ARB;
 
 			/// <summary>
 			/// Support for extension GL_ARB_texture_mirrored_repeat.
 			/// </summary>
 			[Extension("GL_ARB_texture_mirrored_repeat")]
+			[ExtensionSupport("gl")]
 			public bool TextureMirroredRepeat_ARB;
 
 			/// <summary>
 			/// Support for extension GL_ARB_depth_texture.
 			/// </summary>
 			[Extension("GL_ARB_depth_texture")]
+			[ExtensionSupport("gl")]
 			public bool DepthTexture_ARB;
 
 			/// <summary>
 			/// Support for extension GL_ARB_shadow.
 			/// </summary>
 			[Extension("GL_ARB_shadow")]
+			[ExtensionSupport("gl")]
 			public bool Shadow_ARB;
 
 			/// <summary>
 			/// Support for extension GL_ARB_shadow_ambient.
 			/// </summary>
 			[Extension("GL_ARB_shadow_ambient")]
+			[ExtensionSupport("gl")]
 			public bool ShadowAmbient_ARB;
 
 			/// <summary>
 			/// Support for extension GL_ARB_window_pos.
 			/// </summary>
 			[Extension("GL_ARB_window_pos")]
+			[ExtensionSupport("gl")]
 			public bool WindowPos_ARB;
 
 			/// <summary>
 			/// Support for extension GL_ARB_vertex_program.
 			/// </summary>
 			[Extension("GL_ARB_vertex_program")]
+			[ExtensionSupport("gl")]
 			public bool VertexProgram_ARB;
 
 			/// <summary>
 			/// Support for extension GL_ARB_fragment_program.
 			/// </summary>
 			[Extension("GL_ARB_fragment_program")]
+			[ExtensionSupport("gl")]
 			public bool FragmentProgram_ARB;
 
 			/// <summary>
 			/// Support for extension GL_ARB_vertex_buffer_object.
 			/// </summary>
 			[Extension("GL_ARB_vertex_buffer_object")]
+			[ExtensionSupport("gl")]
 			public bool VertexBufferObject_ARB;
 
 			/// <summary>
 			/// Support for extension GL_ARB_occlusion_query.
 			/// </summary>
 			[Extension("GL_ARB_occlusion_query")]
+			[ExtensionSupport("gl")]
 			public bool OcclusionQuery_ARB;
 
 			/// <summary>
 			/// Support for extension GL_ARB_shader_objects.
 			/// </summary>
 			[Extension("GL_ARB_shader_objects")]
+			[ExtensionSupport("gl")]
 			public bool ShaderObjects_ARB;
 
 			/// <summary>
 			/// Support for extension GL_ARB_vertex_shader.
 			/// </summary>
 			[Extension("GL_ARB_vertex_shader")]
+			[ExtensionSupport("gl")]
 			public bool VertexShader_ARB;
 
 			/// <summary>
 			/// Support for extension GL_ARB_fragment_shader.
 			/// </summary>
 			[Extension("GL_ARB_fragment_shader")]
+			[ExtensionSupport("gl")]
 			public bool FragmentShader_ARB;
 
 			/// <summary>
 			/// Support for extension GL_ARB_shading_language_100.
 			/// </summary>
 			[Extension("GL_ARB_shading_language_100")]
+			[ExtensionSupport("gl")]
 			public bool ShadingLanguage100_ARB;
 
 			/// <summary>
 			/// Support for extension GL_ARB_texture_non_power_of_two.
 			/// </summary>
 			[Extension("GL_ARB_texture_non_power_of_two")]
+			[ExtensionSupport("gl")]
 			public bool TextureNonPowerOfTwo_ARB;
 
 			/// <summary>
 			/// Support for extension GL_ARB_point_sprite.
 			/// </summary>
 			[Extension("GL_ARB_point_sprite")]
+			[ExtensionSupport("gl")]
 			public bool PointSprite_ARB;
 
 			/// <summary>
 			/// Support for extension GL_ARB_fragment_program_shadow.
 			/// </summary>
 			[Extension("GL_ARB_fragment_program_shadow")]
+			[ExtensionSupport("gl")]
 			public bool FragmentProgramShadow_ARB;
 
 			/// <summary>
 			/// Support for extension GL_ARB_draw_buffers.
 			/// </summary>
 			[Extension("GL_ARB_draw_buffers")]
+			[ExtensionSupport("gl")]
 			public bool DrawBuffers_ARB;
 
 			/// <summary>
 			/// Support for extension GL_ARB_texture_rectangle.
 			/// </summary>
 			[Extension("GL_ARB_texture_rectangle")]
+			[ExtensionSupport("gl")]
 			public bool TextureRectangle_ARB;
 
 			/// <summary>
 			/// Support for extension GL_ARB_color_buffer_float.
 			/// </summary>
 			[Extension("GL_ARB_color_buffer_float")]
+			[ExtensionSupport("gl")]
 			public bool ColorBufferFloat_ARB;
 
 			/// <summary>
 			/// Support for extension GL_ARB_half_float_pixel.
 			/// </summary>
 			[Extension("GL_ARB_half_float_pixel")]
+			[ExtensionSupport("gl")]
 			public bool HalfFloatPixel_ARB;
 
 			/// <summary>
 			/// Support for extension GL_ARB_texture_float.
 			/// </summary>
 			[Extension("GL_ARB_texture_float")]
+			[ExtensionSupport("gl")]
 			public bool TextureFloat_ARB;
 
 			/// <summary>
 			/// Support for extension GL_ARB_pixel_buffer_object.
 			/// </summary>
 			[Extension("GL_ARB_pixel_buffer_object")]
+			[ExtensionSupport("gl")]
 			public bool PixelBufferObject_ARB;
 
 			/// <summary>
 			/// Support for extension GL_ARB_depth_buffer_float.
 			/// </summary>
 			[Extension("GL_ARB_depth_buffer_float")]
+			[ExtensionSupport("gl|glcore")]
 			public bool DepthBufferFloat_ARB;
 
 			/// <summary>
 			/// Support for extension GL_ARB_draw_instanced.
 			/// </summary>
 			[Extension("GL_ARB_draw_instanced")]
+			[ExtensionSupport("gl")]
 			public bool DrawInstanced_ARB;
 
 			/// <summary>
 			/// Support for extension GL_ARB_framebuffer_object.
 			/// </summary>
 			[Extension("GL_ARB_framebuffer_object")]
+			[ExtensionSupport("gl|glcore")]
 			public bool FramebufferObject_ARB;
 
 			/// <summary>
 			/// Support for extension GL_ARB_framebuffer_sRGB.
 			/// </summary>
 			[Extension("GL_ARB_framebuffer_sRGB")]
+			[ExtensionSupport("gl|glcore")]
 			public bool FramebufferSRGB_ARB;
 
 			/// <summary>
 			/// Support for extension GL_ARB_geometry_shader4.
 			/// </summary>
 			[Extension("GL_ARB_geometry_shader4")]
+			[ExtensionSupport("gl")]
 			public bool GeometryShader4_ARB;
 
 			/// <summary>
 			/// Support for extension GL_ARB_half_float_vertex.
 			/// </summary>
 			[Extension("GL_ARB_half_float_vertex")]
+			[ExtensionSupport("gl|glcore")]
 			public bool HalfFloatVertex_ARB;
 
 			/// <summary>
 			/// Support for extension GL_ARB_instanced_arrays.
 			/// </summary>
 			[Extension("GL_ARB_instanced_arrays")]
+			[ExtensionSupport("gl")]
 			public bool InstancedArrays_ARB;
 
 			/// <summary>
 			/// Support for extension GL_ARB_map_buffer_range.
 			/// </summary>
 			[Extension("GL_ARB_map_buffer_range")]
+			[ExtensionSupport("gl|glcore")]
 			public bool MapBufferRange_ARB;
 
 			/// <summary>
 			/// Support for extension GL_ARB_texture_buffer_object.
 			/// </summary>
 			[Extension("GL_ARB_texture_buffer_object")]
+			[ExtensionSupport("gl")]
 			public bool TextureBufferObject_ARB;
 
 			/// <summary>
 			/// Support for extension GL_ARB_texture_compression_rgtc.
 			/// </summary>
 			[Extension("GL_ARB_texture_compression_rgtc")]
+			[ExtensionSupport("gl|glcore")]
 			public bool TextureCompressionRgtc_ARB;
 
 			/// <summary>
 			/// Support for extension GL_ARB_texture_rg.
 			/// </summary>
 			[Extension("GL_ARB_texture_rg")]
+			[ExtensionSupport("gl|glcore")]
 			public bool TextureRg_ARB;
 
 			/// <summary>
 			/// Support for extension GL_ARB_vertex_array_object.
 			/// </summary>
 			[Extension("GL_ARB_vertex_array_object")]
+			[ExtensionSupport("gl|glcore")]
 			public bool VertexArrayObject_ARB;
 
 			/// <summary>
 			/// Support for extension GL_ARB_uniform_buffer_object.
 			/// </summary>
 			[Extension("GL_ARB_uniform_buffer_object")]
+			[ExtensionSupport("gl|glcore")]
 			public bool UniformBufferObject_ARB;
 
 			/// <summary>
 			/// Support for extension GL_ARB_compatibility.
 			/// </summary>
 			[Extension("GL_ARB_compatibility")]
+			[ExtensionSupport("gl")]
 			public bool Compatibility_ARB;
 
 			/// <summary>
 			/// Support for extension GL_ARB_copy_buffer.
 			/// </summary>
 			[Extension("GL_ARB_copy_buffer")]
+			[ExtensionSupport("gl|glcore")]
 			public bool CopyBuffer_ARB;
 
 			/// <summary>
 			/// Support for extension GL_ARB_shader_texture_lod.
 			/// </summary>
 			[Extension("GL_ARB_shader_texture_lod")]
+			[ExtensionSupport("gl")]
 			public bool ShaderTextureLod_ARB;
 
 			/// <summary>
 			/// Support for extension GL_ARB_depth_clamp.
 			/// </summary>
 			[Extension("GL_ARB_depth_clamp")]
+			[ExtensionSupport("gl|glcore")]
 			public bool DepthClamp_ARB;
 
 			/// <summary>
 			/// Support for extension GL_ARB_draw_elements_base_vertex.
 			/// </summary>
 			[Extension("GL_ARB_draw_elements_base_vertex")]
+			[ExtensionSupport("gl|glcore")]
 			public bool DrawElementsBaseVertex_ARB;
 
 			/// <summary>
 			/// Support for extension GL_ARB_fragment_coord_conventions.
 			/// </summary>
 			[Extension("GL_ARB_fragment_coord_conventions")]
+			[ExtensionSupport("gl|glcore")]
 			public bool FragmentCoordConventions_ARB;
 
 			/// <summary>
 			/// Support for extension GL_ARB_provoking_vertex.
 			/// </summary>
 			[Extension("GL_ARB_provoking_vertex")]
+			[ExtensionSupport("gl|glcore")]
 			public bool ProvokingVertex_ARB;
 
 			/// <summary>
 			/// Support for extension GL_ARB_seamless_cube_map.
 			/// </summary>
 			[Extension("GL_ARB_seamless_cube_map")]
+			[ExtensionSupport("gl|glcore")]
 			public bool SeamlessCubeMap_ARB;
 
 			/// <summary>
 			/// Support for extension GL_ARB_sync.
 			/// </summary>
 			[Extension("GL_ARB_sync")]
+			[ExtensionSupport("gl|glcore")]
 			public bool Sync_ARB;
 
 			/// <summary>
 			/// Support for extension GL_ARB_texture_multisample.
 			/// </summary>
 			[Extension("GL_ARB_texture_multisample")]
+			[ExtensionSupport("gl|glcore")]
 			public bool TextureMultisample_ARB;
 
 			/// <summary>
 			/// Support for extension GL_ARB_vertex_array_bgra.
 			/// </summary>
 			[Extension("GL_ARB_vertex_array_bgra")]
+			[ExtensionSupport("gl|glcore")]
 			public bool VertexArrayBgra_ARB;
 
 			/// <summary>
 			/// Support for extension GL_ARB_draw_buffers_blend.
 			/// </summary>
 			[Extension("GL_ARB_draw_buffers_blend")]
+			[ExtensionSupport("gl|glcore")]
 			public bool DrawBuffersBlend_ARB;
 
 			/// <summary>
 			/// Support for extension GL_ARB_sample_shading.
 			/// </summary>
 			[Extension("GL_ARB_sample_shading")]
+			[ExtensionSupport("gl|glcore")]
 			public bool SampleShading_ARB;
 
 			/// <summary>
 			/// Support for extension GL_ARB_texture_cube_map_array.
 			/// </summary>
 			[Extension("GL_ARB_texture_cube_map_array")]
+			[ExtensionSupport("gl|glcore")]
 			public bool TextureCubeMapArray_ARB;
 
 			/// <summary>
 			/// Support for extension GL_ARB_texture_gather.
 			/// </summary>
 			[Extension("GL_ARB_texture_gather")]
+			[ExtensionSupport("gl|glcore")]
 			public bool TextureGather_ARB;
 
 			/// <summary>
 			/// Support for extension GL_ARB_texture_query_lod.
 			/// </summary>
 			[Extension("GL_ARB_texture_query_lod")]
+			[ExtensionSupport("gl|glcore")]
 			public bool TextureQueryLod_ARB;
 
 			/// <summary>
 			/// Support for extension GL_ARB_shading_language_include.
 			/// </summary>
 			[Extension("GL_ARB_shading_language_include")]
+			[ExtensionSupport("gl|glcore")]
 			public bool ShadingLanguageInclude_ARB;
 
 			/// <summary>
 			/// Support for extension GL_ARB_texture_compression_bptc.
 			/// </summary>
 			[Extension("GL_ARB_texture_compression_bptc")]
+			[ExtensionSupport("gl|glcore")]
 			public bool TextureCompressionBptc_ARB;
 
 			/// <summary>
 			/// Support for extension GL_ARB_blend_func_extended.
 			/// </summary>
 			[Extension("GL_ARB_blend_func_extended")]
+			[ExtensionSupport("gl|glcore")]
 			public bool BlendFuncExtended_ARB;
 
 			/// <summary>
 			/// Support for extension GL_ARB_explicit_attrib_location.
 			/// </summary>
 			[Extension("GL_ARB_explicit_attrib_location")]
+			[ExtensionSupport("gl|glcore")]
 			public bool ExplicitAttribLocation_ARB;
 
 			/// <summary>
 			/// Support for extension GL_ARB_occlusion_query2.
 			/// </summary>
 			[Extension("GL_ARB_occlusion_query2")]
+			[ExtensionSupport("gl|glcore")]
 			public bool OcclusionQuery2_ARB;
 
 			/// <summary>
 			/// Support for extension GL_ARB_sampler_objects.
 			/// </summary>
 			[Extension("GL_ARB_sampler_objects")]
+			[ExtensionSupport("gl|glcore")]
 			public bool SamplerObjects_ARB;
 
 			/// <summary>
 			/// Support for extension GL_ARB_shader_bit_encoding.
 			/// </summary>
 			[Extension("GL_ARB_shader_bit_encoding")]
+			[ExtensionSupport("gl|glcore")]
 			public bool ShaderBitEncoding_ARB;
 
 			/// <summary>
 			/// Support for extension GL_ARB_texture_rgb10_a2ui.
 			/// </summary>
 			[Extension("GL_ARB_texture_rgb10_a2ui")]
+			[ExtensionSupport("gl|glcore")]
 			public bool TextureRgb10A2ui_ARB;
 
 			/// <summary>
 			/// Support for extension GL_ARB_texture_swizzle.
 			/// </summary>
 			[Extension("GL_ARB_texture_swizzle")]
+			[ExtensionSupport("gl|glcore")]
 			public bool TextureSwizzle_ARB;
 
 			/// <summary>
 			/// Support for extension GL_ARB_timer_query.
 			/// </summary>
 			[Extension("GL_ARB_timer_query")]
+			[ExtensionSupport("gl|glcore")]
 			public bool TimerQuery_ARB;
 
 			/// <summary>
 			/// Support for extension GL_ARB_vertex_type_2_10_10_10_rev.
 			/// </summary>
 			[Extension("GL_ARB_vertex_type_2_10_10_10_rev")]
+			[ExtensionSupport("gl|glcore")]
 			public bool VertexType2101010Rev_ARB;
 
 			/// <summary>
 			/// Support for extension GL_ARB_draw_indirect.
 			/// </summary>
 			[Extension("GL_ARB_draw_indirect")]
+			[ExtensionSupport("gl|glcore")]
 			public bool DrawIndirect_ARB;
 
 			/// <summary>
 			/// Support for extension GL_ARB_gpu_shader5.
 			/// </summary>
 			[Extension("GL_ARB_gpu_shader5")]
+			[ExtensionSupport("gl|glcore")]
 			public bool GpuShader5_ARB;
 
 			/// <summary>
 			/// Support for extension GL_ARB_gpu_shader_fp64.
 			/// </summary>
 			[Extension("GL_ARB_gpu_shader_fp64")]
+			[ExtensionSupport("gl|glcore")]
 			public bool GpuShaderFp64_ARB;
 
 			/// <summary>
 			/// Support for extension GL_ARB_shader_subroutine.
 			/// </summary>
 			[Extension("GL_ARB_shader_subroutine")]
+			[ExtensionSupport("gl|glcore")]
 			public bool ShaderSubroutine_ARB;
 
 			/// <summary>
 			/// Support for extension GL_ARB_tessellation_shader.
 			/// </summary>
 			[Extension("GL_ARB_tessellation_shader")]
+			[ExtensionSupport("gl|glcore")]
 			public bool TessellationShader_ARB;
 
 			/// <summary>
 			/// Support for extension GL_ARB_texture_buffer_object_rgb32.
 			/// </summary>
 			[Extension("GL_ARB_texture_buffer_object_rgb32")]
+			[ExtensionSupport("gl|glcore")]
 			public bool TextureBufferObjectRgb32_ARB;
 
 			/// <summary>
 			/// Support for extension GL_ARB_transform_feedback2.
 			/// </summary>
 			[Extension("GL_ARB_transform_feedback2")]
+			[ExtensionSupport("gl|glcore")]
 			public bool TransformFeedback2_ARB;
 
 			/// <summary>
 			/// Support for extension GL_ARB_transform_feedback3.
 			/// </summary>
 			[Extension("GL_ARB_transform_feedback3")]
+			[ExtensionSupport("gl|glcore")]
 			public bool TransformFeedback3_ARB;
 
 			/// <summary>
 			/// Support for extension GL_ARB_ES2_compatibility.
 			/// </summary>
 			[Extension("GL_ARB_ES2_compatibility")]
+			[ExtensionSupport("gl|glcore")]
 			public bool ES2Compatibility_ARB;
 
 			/// <summary>
 			/// Support for extension GL_ARB_get_program_binary.
 			/// </summary>
 			[Extension("GL_ARB_get_program_binary")]
+			[ExtensionSupport("gl|glcore")]
 			public bool GetProgramBinary_ARB;
 
 			/// <summary>
 			/// Support for extension GL_ARB_separate_shader_objects.
 			/// </summary>
 			[Extension("GL_ARB_separate_shader_objects")]
+			[ExtensionSupport("gl|glcore")]
 			public bool SeparateShaderObjects_ARB;
 
 			/// <summary>
 			/// Support for extension GL_ARB_shader_precision.
 			/// </summary>
 			[Extension("GL_ARB_shader_precision")]
+			[ExtensionSupport("gl|glcore")]
 			public bool ShaderPrecision_ARB;
 
 			/// <summary>
 			/// Support for extension GL_ARB_vertex_attrib_64bit.
 			/// </summary>
 			[Extension("GL_ARB_vertex_attrib_64bit")]
+			[ExtensionSupport("gl|glcore")]
 			public bool VertexAttrib64bit_ARB;
 
 			/// <summary>
 			/// Support for extension GL_ARB_viewport_array.
 			/// </summary>
 			[Extension("GL_ARB_viewport_array")]
+			[ExtensionSupport("gl|glcore")]
 			public bool ViewportArray_ARB;
 
 			/// <summary>
 			/// Support for extension GL_ARB_cl_event.
 			/// </summary>
 			[Extension("GL_ARB_cl_event")]
+			[ExtensionSupport("gl|glcore")]
 			public bool ClEvent_ARB;
 
 			/// <summary>
 			/// Support for extension GL_ARB_debug_output.
 			/// </summary>
 			[Extension("GL_ARB_debug_output")]
+			[ExtensionSupport("gl|glcore")]
 			public bool DebugOutput_ARB;
 
 			/// <summary>
 			/// Support for extension GL_ARB_robustness.
 			/// </summary>
 			[Extension("GL_ARB_robustness")]
+			[ExtensionSupport("gl|glcore")]
 			public bool Robustness_ARB;
 
 			/// <summary>
 			/// Support for extension GL_ARB_shader_stencil_export.
 			/// </summary>
 			[Extension("GL_ARB_shader_stencil_export")]
+			[ExtensionSupport("gl|glcore")]
 			public bool ShaderStencilExport_ARB;
 
 			/// <summary>
 			/// Support for extension GL_ARB_base_instance.
 			/// </summary>
 			[Extension("GL_ARB_base_instance")]
+			[ExtensionSupport("gl|glcore")]
 			public bool BaseInstance_ARB;
 
 			/// <summary>
 			/// Support for extension GL_ARB_shading_language_420pack.
 			/// </summary>
 			[Extension("GL_ARB_shading_language_420pack")]
+			[ExtensionSupport("gl|glcore")]
 			public bool ShadingLanguage420pack_ARB;
 
 			/// <summary>
 			/// Support for extension GL_ARB_transform_feedback_instanced.
 			/// </summary>
 			[Extension("GL_ARB_transform_feedback_instanced")]
+			[ExtensionSupport("gl|glcore")]
 			public bool TransformFeedbackInstanced_ARB;
 
 			/// <summary>
 			/// Support for extension GL_ARB_compressed_texture_pixel_storage.
 			/// </summary>
 			[Extension("GL_ARB_compressed_texture_pixel_storage")]
+			[ExtensionSupport("gl|glcore")]
 			public bool CompressedTexturePixelStorage_ARB;
 
 			/// <summary>
 			/// Support for extension GL_ARB_conservative_depth.
 			/// </summary>
 			[Extension("GL_ARB_conservative_depth")]
+			[ExtensionSupport("gl|glcore")]
 			public bool ConservativeDepth_ARB;
 
 			/// <summary>
 			/// Support for extension GL_ARB_internalformat_query.
 			/// </summary>
 			[Extension("GL_ARB_internalformat_query")]
+			[ExtensionSupport("gl|glcore")]
 			public bool InternalformatQuery_ARB;
 
 			/// <summary>
 			/// Support for extension GL_ARB_map_buffer_alignment.
 			/// </summary>
 			[Extension("GL_ARB_map_buffer_alignment")]
+			[ExtensionSupport("gl|glcore")]
 			public bool MapBufferAlignment_ARB;
 
 			/// <summary>
 			/// Support for extension GL_ARB_shader_atomic_counters.
 			/// </summary>
 			[Extension("GL_ARB_shader_atomic_counters")]
+			[ExtensionSupport("gl|glcore")]
 			public bool ShaderAtomicCounters_ARB;
 
 			/// <summary>
 			/// Support for extension GL_ARB_shader_image_load_store.
 			/// </summary>
 			[Extension("GL_ARB_shader_image_load_store")]
+			[ExtensionSupport("gl|glcore")]
 			public bool ShaderImageLoadStore_ARB;
 
 			/// <summary>
 			/// Support for extension GL_ARB_shading_language_packing.
 			/// </summary>
 			[Extension("GL_ARB_shading_language_packing")]
+			[ExtensionSupport("gl|glcore")]
 			public bool ShadingLanguagePacking_ARB;
 
 			/// <summary>
 			/// Support for extension GL_ARB_texture_storage.
 			/// </summary>
 			[Extension("GL_ARB_texture_storage")]
+			[ExtensionSupport("gl|glcore")]
 			public bool TextureStorage_ARB;
 
 			/// <summary>
@@ -656,324 +760,378 @@ namespace OpenGL
 			/// </summary>
 			[Extension("GL_KHR_texture_compression_astc_hdr")]
 			[Extension("GL_KHR_texture_compression_astc_ldr")]
+			[ExtensionSupport("gl|glcore|gles2")]
 			public bool TextureCompressionAstcHdr_KHR;
 
 			/// <summary>
 			/// Support for extension GL_KHR_debug.
 			/// </summary>
 			[Extension("GL_KHR_debug")]
+			[ExtensionSupport("gl|glcore|gles2")]
 			public bool Debug_KHR;
 
 			/// <summary>
 			/// Support for extension GL_ARB_arrays_of_arrays.
 			/// </summary>
 			[Extension("GL_ARB_arrays_of_arrays")]
+			[ExtensionSupport("gl|glcore")]
 			public bool ArraysOfArrays_ARB;
 
 			/// <summary>
 			/// Support for extension GL_ARB_clear_buffer_object.
 			/// </summary>
 			[Extension("GL_ARB_clear_buffer_object")]
+			[ExtensionSupport("gl|glcore")]
 			public bool ClearBufferObject_ARB;
 
 			/// <summary>
 			/// Support for extension GL_ARB_compute_shader.
 			/// </summary>
 			[Extension("GL_ARB_compute_shader")]
+			[ExtensionSupport("gl|glcore")]
 			public bool ComputeShader_ARB;
 
 			/// <summary>
 			/// Support for extension GL_ARB_copy_image.
 			/// </summary>
 			[Extension("GL_ARB_copy_image")]
+			[ExtensionSupport("gl|glcore")]
 			public bool CopyImage_ARB;
 
 			/// <summary>
 			/// Support for extension GL_ARB_texture_view.
 			/// </summary>
 			[Extension("GL_ARB_texture_view")]
+			[ExtensionSupport("gl|glcore")]
 			public bool TextureView_ARB;
 
 			/// <summary>
 			/// Support for extension GL_ARB_vertex_attrib_binding.
 			/// </summary>
 			[Extension("GL_ARB_vertex_attrib_binding")]
+			[ExtensionSupport("gl|glcore")]
 			public bool VertexAttribBinding_ARB;
 
 			/// <summary>
 			/// Support for extension GL_ARB_robustness_isolation.
 			/// </summary>
 			[Extension("GL_ARB_robustness_isolation")]
+			[ExtensionSupport("gl|glcore")]
 			public bool RobustnessIsolation_ARB;
 
 			/// <summary>
 			/// Support for extension GL_ARB_ES3_compatibility.
 			/// </summary>
 			[Extension("GL_ARB_ES3_compatibility")]
+			[ExtensionSupport("gl|glcore")]
 			public bool ES3Compatibility_ARB;
 
 			/// <summary>
 			/// Support for extension GL_ARB_explicit_uniform_location.
 			/// </summary>
 			[Extension("GL_ARB_explicit_uniform_location")]
+			[ExtensionSupport("gl|glcore")]
 			public bool ExplicitUniformLocation_ARB;
 
 			/// <summary>
 			/// Support for extension GL_ARB_fragment_layer_viewport.
 			/// </summary>
 			[Extension("GL_ARB_fragment_layer_viewport")]
+			[ExtensionSupport("gl|glcore")]
 			public bool FragmentLayerViewport_ARB;
 
 			/// <summary>
 			/// Support for extension GL_ARB_framebuffer_no_attachments.
 			/// </summary>
 			[Extension("GL_ARB_framebuffer_no_attachments")]
+			[ExtensionSupport("gl|glcore")]
 			public bool FramebufferNoAttachments_ARB;
 
 			/// <summary>
 			/// Support for extension GL_ARB_internalformat_query2.
 			/// </summary>
 			[Extension("GL_ARB_internalformat_query2")]
+			[ExtensionSupport("gl|glcore")]
 			public bool InternalformatQuery2_ARB;
 
 			/// <summary>
 			/// Support for extension GL_ARB_invalidate_subdata.
 			/// </summary>
 			[Extension("GL_ARB_invalidate_subdata")]
+			[ExtensionSupport("gl|glcore")]
 			public bool InvalidateSubdata_ARB;
 
 			/// <summary>
 			/// Support for extension GL_ARB_multi_draw_indirect.
 			/// </summary>
 			[Extension("GL_ARB_multi_draw_indirect")]
+			[ExtensionSupport("gl|glcore")]
 			public bool MultiDrawIndirect_ARB;
 
 			/// <summary>
 			/// Support for extension GL_ARB_program_interface_query.
 			/// </summary>
 			[Extension("GL_ARB_program_interface_query")]
+			[ExtensionSupport("gl|glcore")]
 			public bool ProgramInterfaceQuery_ARB;
 
 			/// <summary>
 			/// Support for extension GL_ARB_robust_buffer_access_behavior.
 			/// </summary>
 			[Extension("GL_ARB_robust_buffer_access_behavior")]
+			[ExtensionSupport("gl|glcore")]
 			public bool RobustBufferAccessBehavior_ARB;
 
 			/// <summary>
 			/// Support for extension GL_ARB_shader_image_size.
 			/// </summary>
 			[Extension("GL_ARB_shader_image_size")]
+			[ExtensionSupport("gl|glcore")]
 			public bool ShaderImageSize_ARB;
 
 			/// <summary>
 			/// Support for extension GL_ARB_shader_storage_buffer_object.
 			/// </summary>
 			[Extension("GL_ARB_shader_storage_buffer_object")]
+			[ExtensionSupport("gl|glcore")]
 			public bool ShaderStorageBufferObject_ARB;
 
 			/// <summary>
 			/// Support for extension GL_ARB_stencil_texturing.
 			/// </summary>
 			[Extension("GL_ARB_stencil_texturing")]
+			[ExtensionSupport("gl|glcore")]
 			public bool StencilTexturing_ARB;
 
 			/// <summary>
 			/// Support for extension GL_ARB_texture_buffer_range.
 			/// </summary>
 			[Extension("GL_ARB_texture_buffer_range")]
+			[ExtensionSupport("gl|glcore")]
 			public bool TextureBufferRange_ARB;
 
 			/// <summary>
 			/// Support for extension GL_ARB_texture_query_levels.
 			/// </summary>
 			[Extension("GL_ARB_texture_query_levels")]
+			[ExtensionSupport("gl|glcore")]
 			public bool TextureQueryLevels_ARB;
 
 			/// <summary>
 			/// Support for extension GL_ARB_texture_storage_multisample.
 			/// </summary>
 			[Extension("GL_ARB_texture_storage_multisample")]
+			[ExtensionSupport("gl|glcore")]
 			public bool TextureStorageMultisample_ARB;
 
 			/// <summary>
 			/// Support for extension GL_ARB_buffer_storage.
 			/// </summary>
 			[Extension("GL_ARB_buffer_storage")]
+			[ExtensionSupport("gl|glcore")]
 			public bool BufferStorage_ARB;
 
 			/// <summary>
 			/// Support for extension GL_ARB_clear_texture.
 			/// </summary>
 			[Extension("GL_ARB_clear_texture")]
+			[ExtensionSupport("gl|glcore")]
 			public bool ClearTexture_ARB;
 
 			/// <summary>
 			/// Support for extension GL_ARB_enhanced_layouts.
 			/// </summary>
 			[Extension("GL_ARB_enhanced_layouts")]
+			[ExtensionSupport("gl|glcore")]
 			public bool EnhancedLayouts_ARB;
 
 			/// <summary>
 			/// Support for extension GL_ARB_multi_bind.
 			/// </summary>
 			[Extension("GL_ARB_multi_bind")]
+			[ExtensionSupport("gl|glcore")]
 			public bool MultiBind_ARB;
 
 			/// <summary>
 			/// Support for extension GL_ARB_query_buffer_object.
 			/// </summary>
 			[Extension("GL_ARB_query_buffer_object")]
+			[ExtensionSupport("gl|glcore")]
 			public bool QueryBufferObject_ARB;
 
 			/// <summary>
 			/// Support for extension GL_ARB_texture_mirror_clamp_to_edge.
 			/// </summary>
 			[Extension("GL_ARB_texture_mirror_clamp_to_edge")]
+			[ExtensionSupport("gl|glcore")]
 			public bool TextureMirrorClampToEdge_ARB;
 
 			/// <summary>
 			/// Support for extension GL_ARB_texture_stencil8.
 			/// </summary>
 			[Extension("GL_ARB_texture_stencil8")]
+			[ExtensionSupport("gl|glcore")]
 			public bool TextureStencil8_ARB;
 
 			/// <summary>
 			/// Support for extension GL_ARB_vertex_type_10f_11f_11f_rev.
 			/// </summary>
 			[Extension("GL_ARB_vertex_type_10f_11f_11f_rev")]
+			[ExtensionSupport("gl|glcore")]
 			public bool VertexType10f11f11fRev_ARB;
 
 			/// <summary>
 			/// Support for extension GL_ARB_bindless_texture.
 			/// </summary>
 			[Extension("GL_ARB_bindless_texture")]
+			[ExtensionSupport("gl|glcore")]
 			public bool BindlessTexture_ARB;
 
 			/// <summary>
 			/// Support for extension GL_ARB_compute_variable_group_size.
 			/// </summary>
 			[Extension("GL_ARB_compute_variable_group_size")]
+			[ExtensionSupport("gl|glcore")]
 			public bool ComputeVariableGroupSize_ARB;
 
 			/// <summary>
 			/// Support for extension GL_ARB_indirect_parameters.
 			/// </summary>
 			[Extension("GL_ARB_indirect_parameters")]
+			[ExtensionSupport("gl|glcore")]
 			public bool IndirectParameters_ARB;
 
 			/// <summary>
 			/// Support for extension GL_ARB_seamless_cubemap_per_texture.
 			/// </summary>
 			[Extension("GL_ARB_seamless_cubemap_per_texture")]
+			[ExtensionSupport("gl|glcore")]
 			public bool SeamlessCubemapPerTexture_ARB;
 
 			/// <summary>
 			/// Support for extension GL_ARB_shader_draw_parameters.
 			/// </summary>
 			[Extension("GL_ARB_shader_draw_parameters")]
+			[ExtensionSupport("gl|glcore")]
 			public bool ShaderDrawParameters_ARB;
 
 			/// <summary>
 			/// Support for extension GL_ARB_shader_group_vote.
 			/// </summary>
 			[Extension("GL_ARB_shader_group_vote")]
+			[ExtensionSupport("gl|glcore")]
 			public bool ShaderGroupVote_ARB;
 
 			/// <summary>
 			/// Support for extension GL_ARB_sparse_texture.
 			/// </summary>
 			[Extension("GL_ARB_sparse_texture")]
+			[ExtensionSupport("gl|glcore")]
 			public bool SparseTexture_ARB;
 
 			/// <summary>
 			/// Support for extension GL_ARB_ES3_1_compatibility.
 			/// </summary>
 			[Extension("GL_ARB_ES3_1_compatibility")]
+			[ExtensionSupport("gl|glcore")]
 			public bool ES31Compatibility_ARB;
 
 			/// <summary>
 			/// Support for extension GL_ARB_clip_control.
 			/// </summary>
 			[Extension("GL_ARB_clip_control")]
+			[ExtensionSupport("gl|glcore")]
 			public bool ClipControl_ARB;
 
 			/// <summary>
 			/// Support for extension GL_ARB_conditional_render_inverted.
 			/// </summary>
 			[Extension("GL_ARB_conditional_render_inverted")]
+			[ExtensionSupport("gl|glcore")]
 			public bool ConditionalRenderInverted_ARB;
 
 			/// <summary>
 			/// Support for extension GL_ARB_cull_distance.
 			/// </summary>
 			[Extension("GL_ARB_cull_distance")]
+			[ExtensionSupport("gl|glcore")]
 			public bool CullDistance_ARB;
 
 			/// <summary>
 			/// Support for extension GL_ARB_derivative_control.
 			/// </summary>
 			[Extension("GL_ARB_derivative_control")]
+			[ExtensionSupport("gl|glcore")]
 			public bool DerivativeControl_ARB;
 
 			/// <summary>
 			/// Support for extension GL_ARB_direct_state_access.
 			/// </summary>
 			[Extension("GL_ARB_direct_state_access")]
+			[ExtensionSupport("gl|glcore")]
 			public bool DirectStateAccess_ARB;
 
 			/// <summary>
 			/// Support for extension GL_ARB_get_texture_sub_image.
 			/// </summary>
 			[Extension("GL_ARB_get_texture_sub_image")]
+			[ExtensionSupport("gl|glcore")]
 			public bool GetTextureSubImage_ARB;
 
 			/// <summary>
 			/// Support for extension GL_ARB_shader_texture_image_samples.
 			/// </summary>
 			[Extension("GL_ARB_shader_texture_image_samples")]
+			[ExtensionSupport("gl|glcore")]
 			public bool ShaderTextureImageSamples_ARB;
 
 			/// <summary>
 			/// Support for extension GL_ARB_texture_barrier.
 			/// </summary>
 			[Extension("GL_ARB_texture_barrier")]
+			[ExtensionSupport("gl|glcore")]
 			public bool TextureBarrier_ARB;
 
 			/// <summary>
 			/// Support for extension GL_KHR_context_flush_control.
 			/// </summary>
 			[Extension("GL_KHR_context_flush_control")]
+			[ExtensionSupport("gl|glcore|gles2")]
 			public bool ContextFlushControl_KHR;
 
 			/// <summary>
 			/// Support for extension GL_KHR_robust_buffer_access_behavior.
 			/// </summary>
 			[Extension("GL_KHR_robust_buffer_access_behavior")]
+			[ExtensionSupport("gl|glcore|gles2")]
 			public bool RobustBufferAccessBehavior_KHR;
 
 			/// <summary>
 			/// Support for extension GL_KHR_robustness.
 			/// </summary>
 			[Extension("GL_KHR_robustness")]
+			[ExtensionSupport("gl|glcore|gles2")]
 			public bool Robustness_KHR;
 
 			/// <summary>
 			/// Support for extension GL_ARB_pipeline_statistics_query.
 			/// </summary>
 			[Extension("GL_ARB_pipeline_statistics_query")]
+			[ExtensionSupport("gl|glcore")]
 			public bool PipelineStatisticsQuery_ARB;
 
 			/// <summary>
 			/// Support for extension GL_ARB_sparse_buffer.
 			/// </summary>
 			[Extension("GL_ARB_sparse_buffer")]
+			[ExtensionSupport("gl|glcore")]
 			public bool SparseBuffer_ARB;
 
 			/// <summary>
 			/// Support for extension GL_ARB_transform_feedback_overflow_query.
 			/// </summary>
 			[Extension("GL_ARB_transform_feedback_overflow_query")]
+			[ExtensionSupport("gl|glcore")]
 			public bool TransformFeedbackOverflowQuery_ARB;
 
 			/// <summary>
@@ -981,102 +1139,119 @@ namespace OpenGL
 			/// </summary>
 			[Extension("GL_KHR_blend_equation_advanced")]
 			[Extension("GL_KHR_blend_equation_advanced_coherent")]
+			[ExtensionSupport("gl|gles2")]
 			public bool BlendEquationAdvanced_KHR;
 
 			/// <summary>
 			/// Support for extension GL_KHR_texture_compression_astc_sliced_3d.
 			/// </summary>
 			[Extension("GL_KHR_texture_compression_astc_sliced_3d")]
+			[ExtensionSupport("gl|glcore|gles2")]
 			public bool TextureCompressionAstcSliced3d_KHR;
 
 			/// <summary>
 			/// Support for extension GL_KHR_no_error.
 			/// </summary>
 			[Extension("GL_KHR_no_error")]
+			[ExtensionSupport("gl|glcore|gles2")]
 			public bool NoError_KHR;
 
 			/// <summary>
 			/// Support for extension GL_ARB_ES3_2_compatibility.
 			/// </summary>
 			[Extension("GL_ARB_ES3_2_compatibility")]
+			[ExtensionSupport("gl")]
 			public bool ES32Compatibility_ARB;
 
 			/// <summary>
 			/// Support for extension GL_ARB_fragment_shader_interlock.
 			/// </summary>
 			[Extension("GL_ARB_fragment_shader_interlock")]
+			[ExtensionSupport("gl")]
 			public bool FragmentShaderInterlock_ARB;
 
 			/// <summary>
 			/// Support for extension GL_ARB_gpu_shader_int64.
 			/// </summary>
 			[Extension("GL_ARB_gpu_shader_int64")]
+			[ExtensionSupport("gl")]
 			public bool GpuShaderInt64_ARB;
 
 			/// <summary>
 			/// Support for extension GL_ARB_imaging.
 			/// </summary>
 			[Extension("GL_ARB_imaging")]
+			[ExtensionSupport("gl|glcore")]
 			public bool Imaging_ARB;
 
 			/// <summary>
 			/// Support for extension GL_ARB_parallel_shader_compile.
 			/// </summary>
 			[Extension("GL_ARB_parallel_shader_compile")]
+			[ExtensionSupport("gl")]
 			public bool ParallelShaderCompile_ARB;
 
 			/// <summary>
 			/// Support for extension GL_ARB_post_depth_coverage.
 			/// </summary>
 			[Extension("GL_ARB_post_depth_coverage")]
+			[ExtensionSupport("gl")]
 			public bool PostDepthCoverage_ARB;
 
 			/// <summary>
 			/// Support for extension GL_ARB_sample_locations.
 			/// </summary>
 			[Extension("GL_ARB_sample_locations")]
+			[ExtensionSupport("gl")]
 			public bool SampleLocations_ARB;
 
 			/// <summary>
 			/// Support for extension GL_ARB_shader_atomic_counter_ops.
 			/// </summary>
 			[Extension("GL_ARB_shader_atomic_counter_ops")]
+			[ExtensionSupport("gl")]
 			public bool ShaderAtomicCounterOps_ARB;
 
 			/// <summary>
 			/// Support for extension GL_ARB_shader_ballot.
 			/// </summary>
 			[Extension("GL_ARB_shader_ballot")]
+			[ExtensionSupport("gl")]
 			public bool ShaderBallot_ARB;
 
 			/// <summary>
 			/// Support for extension GL_ARB_shader_clock.
 			/// </summary>
 			[Extension("GL_ARB_shader_clock")]
+			[ExtensionSupport("gl")]
 			public bool ShaderClock_ARB;
 
 			/// <summary>
 			/// Support for extension GL_ARB_shader_viewport_layer_array.
 			/// </summary>
 			[Extension("GL_ARB_shader_viewport_layer_array")]
+			[ExtensionSupport("gl")]
 			public bool ShaderViewportLayerArray_ARB;
 
 			/// <summary>
 			/// Support for extension GL_ARB_sparse_texture2.
 			/// </summary>
 			[Extension("GL_ARB_sparse_texture2")]
+			[ExtensionSupport("gl")]
 			public bool SparseTexture2_ARB;
 
 			/// <summary>
 			/// Support for extension GL_ARB_sparse_texture_clamp.
 			/// </summary>
 			[Extension("GL_ARB_sparse_texture_clamp")]
+			[ExtensionSupport("gl")]
 			public bool SparseTextureClamp_ARB;
 
 			/// <summary>
 			/// Support for extension GL_ARB_texture_filter_minmax.
 			/// </summary>
 			[Extension("GL_ARB_texture_filter_minmax")]
+			[ExtensionSupport("gl")]
 			public bool TextureFilterMinmax_ARB;
 
 			/// <summary>

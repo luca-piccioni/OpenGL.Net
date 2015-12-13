@@ -25,78 +25,90 @@ namespace OpenGL
 		/// <summary>
 		/// Extension support listing.
 		/// </summary>
-		public class Extensions
+		public partial class Extensions : ExtensionsCollection
 		{
 			/// <summary>
 			/// Support for extension WGL_ARB_buffer_region.
 			/// </summary>
 			[Extension("WGL_ARB_buffer_region")]
+			[ExtensionSupport("wgl")]
 			public bool BufferRegion_ARB;
 
 			/// <summary>
 			/// Support for extension WGL_ARB_multisample.
 			/// </summary>
 			[Extension("WGL_ARB_multisample")]
+			[ExtensionSupport("wgl")]
 			public bool Multisample_ARB;
 
 			/// <summary>
 			/// Support for extension WGL_ARB_extensions_string.
 			/// </summary>
 			[Extension("WGL_ARB_extensions_string")]
+			[ExtensionSupport("wgl")]
 			public bool ExtensionsString_ARB;
 
 			/// <summary>
 			/// Support for extension WGL_ARB_pixel_format.
 			/// </summary>
 			[Extension("WGL_ARB_pixel_format")]
+			[ExtensionSupport("wgl")]
 			public bool PixelFormat_ARB;
 
 			/// <summary>
 			/// Support for extension WGL_ARB_make_current_read.
 			/// </summary>
 			[Extension("WGL_ARB_make_current_read")]
+			[ExtensionSupport("wgl")]
 			public bool MakeCurrentRead_ARB;
 
 			/// <summary>
 			/// Support for extension WGL_ARB_pbuffer.
 			/// </summary>
 			[Extension("WGL_ARB_pbuffer")]
+			[ExtensionSupport("wgl")]
 			public bool Pbuffer_ARB;
 
 			/// <summary>
 			/// Support for extension WGL_ARB_render_texture.
 			/// </summary>
 			[Extension("WGL_ARB_render_texture")]
+			[ExtensionSupport("wgl")]
 			public bool RenderTexture_ARB;
 
 			/// <summary>
 			/// Support for extension WGL_ARB_pixel_format_float.
 			/// </summary>
 			[Extension("WGL_ARB_pixel_format_float")]
+			[ExtensionSupport("wgl")]
 			public bool PixelFormatFloat_ARB;
 
 			/// <summary>
 			/// Support for extension WGL_ARB_framebuffer_sRGB.
 			/// </summary>
 			[Extension("WGL_ARB_framebuffer_sRGB")]
+			[ExtensionSupport("wgl")]
 			public bool FramebufferSRGB_ARB;
 
 			/// <summary>
 			/// Support for extension WGL_ARB_create_context.
 			/// </summary>
 			[Extension("WGL_ARB_create_context")]
+			[ExtensionSupport("wgl")]
 			public bool CreateContext_ARB;
 
 			/// <summary>
 			/// Support for extension WGL_ARB_create_context_profile.
 			/// </summary>
 			[Extension("WGL_ARB_create_context_profile")]
+			[ExtensionSupport("wgl")]
 			public bool CreateContextProfile_ARB;
 
 			/// <summary>
 			/// Support for extension WGL_ARB_create_context_robustness.
 			/// </summary>
 			[Extension("WGL_ARB_create_context_robustness")]
+			[ExtensionSupport("wgl")]
 			public bool CreateContextRobustness_ARB;
 
 			/// <summary>
@@ -104,12 +116,14 @@ namespace OpenGL
 			/// </summary>
 			[Extension("WGL_ARB_robustness_application_isolation")]
 			[Extension("WGL_ARB_robustness_share_group_isolation")]
+			[ExtensionSupport("wgl")]
 			public bool RobustnessApplicationIsolation_ARB;
 
 			/// <summary>
 			/// Support for extension WGL_ARB_context_flush_control.
 			/// </summary>
 			[Extension("WGL_ARB_context_flush_control")]
+			[ExtensionSupport("wgl")]
 			public bool ContextFlushControl_ARB;
 
 			/// <summary>
