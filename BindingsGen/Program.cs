@@ -287,7 +287,7 @@ namespace BindingsGen
 				sw.WriteLine("/// <summary>");
 				sw.WriteLine("/// Extension support listing.");
 				sw.WriteLine("/// </summary>");
-				sw.WriteLine("public class Extensions");
+				sw.WriteLine("public partial class Extensions : ExtensionsCollection");
 				sw.WriteLine("{");
 				sw.Indent();
 
@@ -300,6 +300,10 @@ namespace BindingsGen
 					sw.WriteLine("/// </summary>");
 					foreach (IFeature feature in pair.Value)
 						sw.WriteLine("[Extension(\"{0}\")]", feature.Name);
+
+					Extension mainExtension = (Extension)mainFeature;
+					if (String.IsNullOrEmpty(mainExtension.Supported) == false)
+						sw.WriteLine("[ExtensionSupport(\"{0}\")]", mainExtension.Supported);
 
 					sw.WriteLine("public bool {0};", extensionFieldName);
 					sw.WriteLine();

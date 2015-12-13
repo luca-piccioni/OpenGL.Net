@@ -17,6 +17,11 @@
 		<add_enum_value value="Wgl.ERROR_INCOMPATIBLE_DEVICE_CONTEXTS_ARB">GL_ERROR_INCOMPATIBLE_DEVICE_CONTEXTS_ARB</add_enum_value>
 	</enumerant>
 
+	<enumerant name="^GetPName$">
+		<add_enum>GL_NUM_EXTENSIONS</add_enum>
+		<add_enum>GL_NUM_SHADING_LANGUAGE_VERSIONS</add_enum>
+	</enumerant>
+
 	<enumerant name="^OcclusionQueryEventMaskAMD$" type="bitmask">
 		
 	</enumerant>
