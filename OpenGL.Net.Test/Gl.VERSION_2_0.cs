@@ -29,6 +29,21 @@ namespace OpenGL.Test
 	class Gl_VERSION_2_0 : GlTestBase
 	{
 		/// <summary>
+		/// Test Gl.GetString.
+		/// </summary>
+		[Test]
+		public void TestGetString()
+		{
+			#region Gl.SHADING_LANGUAGE_VERSION
+
+			string shadingLanguageVersion = Gl.GetString(StringName.ShadingLanguageVersion);
+
+			Console.WriteLine("Shading Language version: {0}", shadingLanguageVersion);
+
+			#endregion
+		}
+
+		/// <summary>
 		/// Test Gl.CreateProgram.
 		/// </summary>
 		[Test]

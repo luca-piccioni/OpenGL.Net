@@ -49,7 +49,7 @@ namespace OpenGL.Test
 			string rendered = Gl.GetString(StringName.Renderer);
 
 			Assert.IsNotNull(vendor);
-			Console.WriteLine("Rendered: {0}", rendered);
+			Console.WriteLine("Renderer: {0}", rendered);
 
 			#endregion
 

@@ -62,23 +62,15 @@ namespace OpenGL.Test
 				_VersionRevision = versionMatch.Groups["Rev"].Success ? Int32.Parse(versionMatch.Groups["Rev"].Value) : 0;
 
 				// Get OpenGL extensions
-				string extensions;
-
-				extensions = Gl.GetString(StringName.Extensions);
-				if (extensions == null)
-					throw new InvalidOperationException("unable to get the OpenGL extensions");
-				ParseExtensionString(_GlSupportedExtensions, extensions);
-
+				_GlExtensions.Query();
 				// Get OpenGL window system extensions
 				switch (Environment.OSVersion.Platform) {
 					case PlatformID.Win32Windows:
 					case PlatformID.Win32NT:
-						extensions = Wgl.GetExtensionsStringARB(((WindowsDeviceContext)_DeviceContext).DeviceContext);
-						if (extensions == null)
-							throw new InvalidOperationException("unable to get the OpenGL for Windows extensions");
-						ParseExtensionString(_WglSupportedExtensions, extensions);
+						_WglExtensions.Query((WindowsDeviceContext)_DeviceContext);
 						break;
 					case PlatformID.Unix:
+						_GlxExtensions.Query((XServerDeviceContext)_DeviceContext);
 						break;
 				}
 				
@@ -134,18 +126,45 @@ namespace OpenGL.Test
 
 		#endregion
 
-		#region Extension Support
+		#region Version/Extension Support
 
 		/// <summary>
 		/// Get the OpenGL version of the OpenGL context.
 		/// </summary>
 		protected string Version { get { return (_Version); } }
 
+		/// <summary>
+		/// Check whether a specific OpenGL version is supported.
+		/// </summary>
+		/// <param name="major">
+		/// A <see cref="Int32"/> that specifies the major OpenGL version to test for support.
+		/// </param>
+		/// <param name="minor">
+		/// A <see cref="Int32"/> that specifies the minor OpenGL version to test for support.
+		/// </param>
+		/// <returns>
+		/// It returns a boolean value indicating whether the specified OpenGL version is supported.
+		/// </returns>
 		protected bool HasVersion(int major, int minor)
 		{
 			return (HasVersion(major, minor, 0));
 		}
 
+		/// <summary>
+		/// Check whether a specific OpenGL version is supported.
+		/// </summary>
+		/// <param name="major">
+		/// A <see cref="Int32"/> that specifies the major OpenGL version to test for support.
+		/// </param>
+		/// <param name="minor">
+		/// A <see cref="Int32"/> that specifies the minor OpenGL version to test for support.
+		/// </param>
+		/// <param name="revision">
+		/// A <see cref="Int32"/> that specifies the revision OpenGL version to test for support.
+		/// </param>
+		/// <returns>
+		/// It returns a boolean value indicating whether the specified OpenGL version is supported.
+		/// </returns>
 		protected bool HasVersion(int major, int minor, int revision)
 		{
 			if (_VersionMajor > major)
@@ -173,15 +192,7 @@ namespace OpenGL.Test
 		/// </exception>
 		protected bool IsGlExtensionSupported(string extension)
 		{
-			if (extension == null)
-				throw new ArgumentNullException("extension");
-
-			bool support;
-
-			if (_GlSupportedExtensions.TryGetValue(extension, out support))
-				return (support);
-
-			return (false);
+			return (_GlExtensions.HasExtensions(extension));
 		}
 
 		/// <summary>
@@ -199,15 +210,7 @@ namespace OpenGL.Test
 		/// </exception>
 		protected bool IsWglExtensionSupported(string extension)
 		{
-			if (extension == null)
-				throw new ArgumentNullException("extension");
-
-			bool support;
-
-			if (_WglSupportedExtensions.TryGetValue(extension, out support))
-				return (support);
-
-			return (false);
+			return (_WglExtensions.HasExtensions(extension));
 		}
 
 		/// <summary>
@@ -225,34 +228,7 @@ namespace OpenGL.Test
 		/// </exception>
 		protected bool IsGlxExtensionSupported(string extension)
 		{
-			if (extension == null)
-				throw new ArgumentNullException("extension");
-
-			bool support;
-
-			if (_GlxSupportedExtensions.TryGetValue(extension, out support))
-				return (support);
-
-			return (false);
-		}
-
-		/// <summary>
-		/// Parse the extensions string.
-		/// </summary>
-		/// <param name="extensionRegistry"></param>
-		/// <param name="extensions"></param>
-		private void ParseExtensionString(Dictionary<string, bool> extensionRegistry, string extensions)
-		{
-			if (extensionRegistry == null)
-				throw new ArgumentNullException("extensionRegistry");
-			if (extensions == null)
-				throw new ArgumentNullException("extensions");
-
-			foreach (string extension in Regex.Split(extensions, " +")) {
-				if (extension.Trim().Length == 0)
-					continue;
-				extensionRegistry.Add(extension, true);
-			}
+			return (_GlxExtensions.HasExtensions(extension));
 		}
 
 		/// <summary>
@@ -276,19 +252,19 @@ namespace OpenGL.Test
 		private int _VersionRevision;
 
 		/// <summary>
-		/// Extension supported by GL.
+		/// OpenGL extensions support.
 		/// </summary>
-		private readonly Dictionary<string, bool> _GlSupportedExtensions = new Dictionary<string,bool>();
+		private readonly Gl.Extensions _GlExtensions = new Gl.Extensions();
 
 		/// <summary>
-		/// Extension supported by WGL.
+		/// Windows OpenGL extensions support.
 		/// </summary>
-		private readonly Dictionary<string, bool> _WglSupportedExtensions = new Dictionary<string,bool>();
+		private readonly Wgl.Extensions _WglExtensions = new Wgl.Extensions();
 
 		/// <summary>
-		/// Extension supported by GLX.
+		/// Windows OpenGL extensions support.
 		/// </summary>
-		private readonly Dictionary<string, bool> _GlxSupportedExtensions = new Dictionary<string,bool>();
+		private readonly Glx.Extensions _GlxExtensions = new Glx.Extensions();
 
 		#endregion
 	}
