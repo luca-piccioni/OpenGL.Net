@@ -15,7 +15,7 @@
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 // Field is never assigned to, and will always have its default value null
-// Note: fields in SimdLibrary class will be assigned by means of reflections, indeed disable the warning on this module
+// Note: fields in Memory class will be assigned by means of reflections, indeed disable the warning on this module
 
 #pragma warning disable 649
 

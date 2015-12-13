@@ -1019,7 +1019,7 @@ namespace OpenGL
 
 		#endregion
 
-		#region RenderResource Overrides
+		#region GraphicsResource Overrides
 
 		/// <summary>
 		/// Texture object class.
@@ -1072,7 +1072,7 @@ namespace OpenGL
 		/// </summary>
 		/// <param name="ctx">
 		/// A <see cref="GraphicsContext"/> used for creating this object. The object space of this <see cref="GraphicsContext"/> is used
-		/// to generate <see cref="RenderResource.ObjectName"/>, and all contextes sharing lists with this parameter can handle this IRenderResource.
+		/// to generate <see cref="GraphicsResource.ObjectName"/>, and all contextes sharing lists with this parameter can handle this IRenderResource.
 		/// The <see cref="GraphicsContext"/> shall be current to the calling thread.
 		/// </param>
 		/// <exception cref="ArgumentNullException">
@@ -1127,7 +1127,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Actually create this RenderResource resources.
+		/// Actually create this GraphicsResource resources.
 		/// </summary>
 		/// <param name="ctx">
 		/// A <see cref="GraphicsContext"/> used for allocating resources.

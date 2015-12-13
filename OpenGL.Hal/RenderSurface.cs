@@ -1,0 +1,510 @@
+
+// Copyright (C) 2009-2012 Luca Piccioni
+//
+// This program is free software: you can redistribute it and/or modify
+// it under the terms of the GNU General Public License as published by
+// the Free Software Foundation, either version 3 of the License, or
+// (at your option) any later version.
+//  
+// This program is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU General Public License for more details.
+//  
+// You should have received a copy of the GNU General Public License
+// along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+using System;
+
+namespace OpenGL
+{
+	/// <summary>
+	/// Render surface interface. 
+	/// </summary>
+	/// <remarks>
+	/// <para>
+	/// A RenderSurface is able to store the result of a rendering operation. This class
+	/// represents the final component of a RenderPipeline, but it could be used as data
+	/// source for another RenderPipeline.
+	/// </para>
+	/// <para>
+	/// A RenderSurface is defined by a set of buffers; each buffer is defined by a type,
+	/// which specify the how use the buffer contents. Each buffer type defines the available
+	/// formats for data storage. 
+	/// </para>
+	/// </remarks>
+	public abstract class RenderSurface : GraphicsResource
+	{
+		#region Constructors
+		
+		/// <summary>
+		/// Render surface static constructor.
+		/// </summary>
+		static RenderSurface()
+		{
+			// This (internal) routine is used to force the execution of the GraphicsContext
+			// static constructor. Once accessing to RenderSurface instances, the GraphicsContext
+			// capabilities shall be known.
+			GraphicsContext.Touch();
+		}
+
+		/// <summary>
+		/// RenderSurface constructor (zero size).
+		/// </summary>
+		protected RenderSurface() { }
+
+		/// <summary>
+		/// RenderSurface constructor specifying extents. 
+		/// </summary>
+		/// <param name="w">
+		/// A <see cref="System.Int32"/> that specifies the surface width.
+		/// </param>
+		/// <param name="h">
+		/// A <see cref="System.Int32"/> that specifies the surface height.
+		/// </param>
+		protected RenderSurface(uint w, uint h)
+		{
+			// Store extents
+			mWidth = w;
+			mHeight = h;
+		}
+		
+		#endregion
+		
+		#region Device Context Management
+		
+		/// <summary>
+		/// Obtain device context associated with this RenderSurface. 
+		/// </summary>
+		/// <returns>
+		/// A <see cref="IDeviceContext"/>
+		/// </returns>
+		public abstract IDeviceContext GetDeviceContext();
+		
+		#endregion
+		
+		#region Extents Management
+		
+		/// <summary>
+		/// RenderSurface width property. 
+		/// </summary>
+		public virtual uint Width
+		{
+			get { return (mWidth); }
+			protected internal set {
+				// Store surface width
+				mWidth = value;
+				// Notify extents changes
+				mSizeChanged = true;
+			}
+		}
+		
+		/// <summary>
+		/// RenderSurface height property. 
+		/// </summary>
+		public virtual uint Height
+		{
+			get { return (mHeight); }
+			protected internal set {
+				// Store surface height
+				mHeight = value;
+				// Notify extents changes
+				mSizeChanged = true;
+			}
+		}
+		
+		/// <summary>
+		/// RenderSurface aspect ratio property.  
+		/// </summary>
+		public float AspectRatio
+		{
+			get { return ((float)Width / (float)Height); }
+		}
+		
+		/// <summary>
+		/// Property for checking extents changes. 
+		/// </summary>
+		public bool ExtentsChanged
+		{
+			get { return (mSizeChanged); }
+			internal set {
+				mSizeChanged = value;
+			}
+		}
+		
+		/// <summary>
+		/// RenderSurface height. 
+		/// </summary>
+		private uint mWidth;
+
+		/// <summary>
+		/// RenderSurface width. 
+		/// </summary>
+		private uint mHeight;
+
+		/// <summary>
+		/// Flag indicating whether surface extents are changed. 
+		/// </summary>
+		protected bool mSizeChanged = true;
+		
+		#endregion
+		
+		#region Runtime Surface Buffers Management
+
+		/// <summary>
+		/// Current surface configuration.
+		/// </summary>
+		/// <remarks>
+		/// <para>
+		/// This read-only property shall return a <see cref="RenderSurfaceFormat"/> indicating the current
+		/// buffer configuration. The object returned shall not be used to modify this RenderSurface buffers,
+		/// but it shall be used to know which is the buffer configuration.
+		/// </para>
+		/// </remarks>
+		public abstract RenderSurfaceFormat BufferFormat { get; }
+
+		#region Surface Clearing
+
+		/// <summary>
+		/// Clear all Surface buffers.
+		/// </summary>
+		/// <param name="ctx">
+		/// A <see cref="GraphicsContext"/> used for clearing buffers.
+		/// </param>
+		public void Clear(GraphicsContext ctx)
+		{
+			Clear(ctx, BufferFormat.BuffersMask);
+		}
+
+		/// <summary>
+		/// Clear surface buffers.
+		/// </summary>
+		/// <param name="ctx">
+		/// A <see cref="GraphicsContext"/> used for clearing buffers.
+		/// </param>
+		/// <param name="bufferMask">
+		/// A <see cref="RenderSurfaceFormat.BufferType"/> indicating which buffers to clear.
+		/// </param>
+		public void Clear(GraphicsContext ctx, RenderSurfaceFormat.BufferType bufferMask)
+		{
+			// Update clear values (only what is necessary)
+			if ((bufferMask & RenderSurfaceFormat.BufferType.Color) != 0)
+				Gl.ClearColor(mClearColor.Red, mClearColor.Green, mClearColor.Blue, mClearColor.Alpha);
+			if ((bufferMask & RenderSurfaceFormat.BufferType.Depth) != 0)
+				Gl.ClearDepth(mClearDepth);
+			if ((bufferMask & RenderSurfaceFormat.BufferType.Stencil) != 0)
+				Gl.ClearStencil(mClearStencil);
+			
+			// Clear
+			Gl.Clear(GetClearFlags(bufferMask));
+		}
+
+		/// <summary>
+		/// Set the color used for clearing this RenderSurface color buffer.
+		/// </summary>
+		/// <param name="color">
+		/// A <see cref="ColorRGBAF"/> which holds the RGBA values used for clearing
+		/// this RenderSurface color buffer.
+		/// </param>
+		public void SetClearColor(ColorRGBAF color)
+		{
+			// Store clear color
+			mClearColor = color;
+		}
+
+		/// <summary>
+		/// Set the depth used for clearing this RenderSurface depth buffer.
+		/// </summary>
+		/// <param name="depth">
+		/// A <see cref="Double"/> which holds the depth value used for clearing
+		/// this RenderSurface depth buffer.
+		/// </param>
+		public void SetClearDepth(Double depth)
+		{
+			// Store clear depth
+			mClearDepth = depth;
+		}
+
+		/// <summary>
+		/// Set the value used for clearing this RenderSurface stencil buffer.
+		/// </summary>
+		/// <param name="stencil">
+		/// A <see cref="Int32"/> which holds the stencil value used for clearing
+		/// this RenderSurface stencil buffer.
+		/// </param>
+		public void SetClearStencil(Int32 stencil)
+		{
+			// Store clear stencil
+			mClearStencil = stencil;
+		}
+
+		private static ClearBufferMask GetClearFlags(RenderSurfaceFormat.BufferType bufferMask)
+		{
+			ClearBufferMask clearFlags = 0;
+
+			if ((bufferMask & RenderSurfaceFormat.BufferType.Color) != 0)
+				clearFlags |= ClearBufferMask.ColorBufferBit;
+			if ((bufferMask & RenderSurfaceFormat.BufferType.Depth) != 0)
+				clearFlags |= ClearBufferMask.DepthBufferBit;
+			if ((bufferMask & RenderSurfaceFormat.BufferType.Stencil) != 0)
+				clearFlags |= ClearBufferMask.StencilBufferBit;
+
+			return (clearFlags);
+		}
+
+		/// <summary>
+		/// Clear color used for clearing the RenderSurface color buffer.
+		/// </summary>
+		private ColorRGBAF mClearColor = new ColorRGBAF(0.0f, 0.0f, 0.0f);
+
+		/// <summary>
+		/// Clear color used for clearing the RenderSurface depth buffer.
+		/// </summary>
+		private Double mClearDepth = 1.0;
+
+		/// <summary>
+		/// Clear value used for clearing the RenderSurface stencil buffer.
+		/// </summary>
+		private Int32 mClearStencil;
+		
+		#endregion
+
+		#region sRGB Support
+
+		/// <summary>
+		/// Enable sRGB color correction on this RenderSurface.
+		/// </summary>
+		/// <param name="ctx">
+		/// A <see cref="GraphicsContext"/>.
+		/// </param>
+		/// <param name="surfaceFormat">
+		/// A <see cref="RenderSurfaceFormat"/> that specify this RenderSurface format.
+		/// </param>
+		/// <remarks>
+		/// This routine can be called only in the case GraphicsContext.Caps.FramebufferSRGB is supported.
+		/// </remarks>
+		protected void EnableSRGB(GraphicsContext ctx, RenderSurfaceFormat surfaceFormat)
+		{
+			if (surfaceFormat.HasBuffer(RenderSurfaceFormat.BufferType.ColorSRGB) == false)
+				throw new InvalidOperationException("surface has no sRGB buffer");
+			if ((ctx.Caps.FramebufferSRGB == false) && (ctx.Caps.FramebufferSRGB_EXT == false))
+				throw new InvalidOperationException("no framebuffer sRGB extension supported");
+
+			Gl.Enable(EnableCap.FramebufferSrgb);
+		}
+
+		/// <summary>
+		/// Disable sRGB color correction on this RenderSurface.
+		/// </summary>
+		/// <param name="ctx">
+		/// A <see cref="GraphicsContext"/>.
+		/// </param>
+		/// <param name="surfaceFormat">
+		/// A <see cref="RenderSurfaceFormat"/> that specify this RenderSurface format.
+		/// </param>
+		protected void DisableSRGB(GraphicsContext ctx, RenderSurfaceFormat surfaceFormat)
+		{
+			if (surfaceFormat.HasBuffer(RenderSurfaceFormat.BufferType.ColorSRGB) == false)
+				throw new InvalidOperationException("surface has no sRGB buffer");
+			if ((ctx.Caps.FramebufferSRGB == false) && (ctx.Caps.FramebufferSRGB_EXT == false))
+				throw new InvalidOperationException("no framebuffer sRGB extension supported");
+
+			Gl.Disable(EnableCap.FramebufferSrgb);
+		}
+
+		/// <summary>
+		/// Check whether sRGB color correction on this RenderSurface is enabled.
+		/// </summary>
+		/// <param name="ctx">
+		/// A <see cref="GraphicsContext"/>.
+		/// </param>
+		/// <param name="surfaceFormat">
+		/// 
+		/// </param>
+		/// <returns>
+		/// Is returns a boolean value indicating whether sRGB color correction on this RenderSurface is enabled.
+		/// </returns>
+		protected bool IsEnabledSRGB(GraphicsContext ctx, RenderSurfaceFormat surfaceFormat)
+		{
+			if (surfaceFormat.HasBuffer(RenderSurfaceFormat.BufferType.ColorSRGB) == false)
+				throw new InvalidOperationException("surface has no sRGB buffer");
+			if ((ctx.Caps.FramebufferSRGB == false) && (ctx.Caps.FramebufferSRGB_EXT == false))
+				throw new InvalidOperationException("no framebuffer sRGB extension supported");
+
+			return (Gl.IsEnabled(EnableCap.FramebufferSrgb));
+		}
+
+		#endregion
+
+		#endregion
+
+		#region Surface Buffers Swapping
+
+		/// <summary>
+		/// Determine whether this surface has to be swapped.
+		/// </summary>
+		public abstract bool Swappable { get; }
+		
+		/// <summary>
+		/// Gets or sets the buffer swap interval desired on this surface.
+		/// </summary>
+		public abstract int SwapInterval { get; set; }
+		
+		/// <summary>
+		/// Swap render surface. 
+		/// </summary>
+		public abstract void SwapSurface();
+
+		#endregion
+
+		#region Surface Bindings
+
+		/// <summary>
+		/// Bind this RenderSurface for drawing.
+		/// </summary>
+		/// <param name="ctx">
+		/// A <see cref="GraphicsContext"/> to wich associate its rendering result to this RenderSurface.
+		/// </param>
+		public virtual void BindDraw(GraphicsContext ctx) { }
+
+		/// <summary>
+		/// Unbind this RenderSurface for drawing.
+		/// </summary>
+		/// <param name="ctx">
+		/// A <see cref="GraphicsContext"/> to wich disassociate its rendering result from this RenderSurface.
+		/// </param>
+		public virtual void UnbindDraw(GraphicsContext ctx) { }
+
+		/// <summary>
+		/// Bind this RenderSurface for reading.
+		/// </summary>
+		/// <param name="ctx">
+		/// A <see cref="GraphicsContext"/> to wich associate its read result to this RenderSurface.
+		/// </param>
+		public virtual void BindRead(GraphicsContext ctx) { }
+
+		/// <summary>
+		/// Unbind this RenderSurface for reading.
+		/// </summary>
+		/// <param name="ctx">
+		/// A <see cref="GraphicsContext"/> to wich disassociate its read result from this RenderSurface.
+		/// </param>
+		public virtual void UnbindRead(GraphicsContext ctx) { }
+
+		#endregion
+
+		#region Surface Reading & Copying
+
+		/// <summary>
+		/// Read this RenderSurface color buffer.
+		/// </summary>
+		/// <param name="ctx">
+		/// A <see cref="GraphicsContext"/>
+		/// </param>
+		/// <param name="rBuffer">
+		/// A <see cref="ReadBufferMode"/> that specifies the read buffer where the colors are read from.
+		/// </param>
+		/// <param name="x">
+		/// A <see cref="System.Int32"/> that specifies the x coordinate of the lower left corder of the rectangle area to read.
+		/// </param>
+		/// <param name="y">
+		/// A <see cref="System.Int32"/> that specifies the y coordinate of the lower left corder of the rectangle area to read.
+		/// </param>
+		/// <param name="width">
+		/// A <see cref="System.Int32"/> that specifies the width of the rectangle area to read.
+		/// </param>
+		/// <param name="height">
+		/// A <see cref="System.Int32"/> that specifies the height of the rectangle area to read.
+		/// </param>
+		/// <param name="pType">
+		/// A <see cref="PixelLayout"/> which determine the pixel storage of the returned image.
+		/// </param>
+		/// <returns>
+		/// It returns an <see cref="Image"/> representing the current read buffer <paramref name="rBuffer"/>.
+		/// </returns>
+		protected Image ReadBuffer(GraphicsContext ctx, ReadBufferMode rBuffer, uint x, uint y, uint width, uint height, PixelLayout pType)
+		{
+			Image image = null;
+
+			if ((x + width > Width) || (y + height > Height))
+				throw new ArgumentException("specified region lies outside the RenderSurface");
+
+			// Bind for reading
+			BindRead(ctx);
+			// Set for reading
+			Gl.ReadBuffer(rBuffer);
+
+			// Allocate image holding data read
+			image = new Image();
+			image.Create(pType, width, height);
+
+			// Set pixel transfer
+			foreach (int alignment in new int[] { 8, 4, 2, 1 }) {
+				if (image.Stride % alignment == 0) {
+					Gl.PixelStore(PixelStoreParameter.PackAlignment, alignment);
+					break;
+				}
+			}
+
+			// Grab frame buffer pixels
+			PixelFormat rFormat = Pixel.GetGlFormat(pType);
+			PixelType rType = Pixel.GetPixelType(pType);
+
+			Gl.ReadPixels((int)x, (int)y, (int)width, (int)height, rFormat, rType, image.ImageBuffer);
+
+			// Unbind from reading
+			UnbindRead(ctx);
+
+			return (image);
+		}
+
+		/// <summary>
+		/// Copy this RenderSurface color buffer into a buffer.
+		/// </summary>
+		/// <param name="ctx">
+		/// A <see cref="GraphicsContext"/> which is bound to this RenderSurface.
+		/// </param>
+		/// <param name="rBuffer">
+		/// A <see cref="ReadBufferMode"/> that specifies the read buffer where the colors are read from.
+		/// </param>
+		/// <param name="x">
+		/// A <see cref="System.Int32"/> that specifies the x coordinate of the lower left corder of the rectangle area to read.
+		/// </param>
+		/// <param name="y">
+		/// A <see cref="System.Int32"/> that specifies the y coordinate of the lower left corder of the rectangle area to read.
+		/// </param>
+		/// <param name="texture">
+		/// A <see cref="Texture"/> that will hold the buffer data.
+		/// </param>
+		/// <param name="level">
+		/// The level of the texture <paramref name="texture"/> to be written.
+		/// </param>
+		/// <returns>
+		/// It returns an <see cref="Image"/> representing the current read buffer <paramref name="rBuffer"/>.
+		/// </returns>
+		protected void CopyBuffer(GraphicsContext ctx, ReadBufferMode rBuffer, uint x, uint y, ref Texture texture, uint level)
+		{
+			if (texture == null)
+				throw new ArgumentNullException("texture");
+			if (texture.Exists(ctx) == false)
+				throw new ArgumentException("not exists", "texture");
+			if ((x + texture.Width > Width) || (y + texture.Height > Height))
+				throw new ArgumentException("specified region lies outside the RenderSurface");
+
+			// Bind for reading
+			BindRead(ctx);
+			// Set for reading
+			Gl.ReadBuffer(rBuffer);
+
+			// Copy pixels from read buffer to texture
+			Gl.CopyTexImage2D(texture.TextureTarget, (int)level, Pixel.GetGlInternalFormat(texture.PixelLayout, ctx), (int)x, (int)y, (int)texture.Width, (int)texture.Height, 0);
+
+			// Unbind from reading
+			UnbindRead(ctx);
+			// Reset read configuration
+			Gl.ReadBuffer(Gl.NONE);
+		}
+
+		#endregion
+	}
+}

@@ -72,7 +72,7 @@ namespace OpenGL
 	/// since it cannot be sure what (and if a) <see cref="GraphicsContext"/> is current on the calling thread.
 	/// </para>
 	/// <para>
-	/// A direct implementation of this interface is the <see cref="RenderResource"/> class, which it can be inherited. This class implements most of
+	/// A direct implementation of this interface is the <see cref="GraphicsResource"/> class, which it can be inherited. This class implements most of
 	/// IGraphicsResource interface, leaving to the inheritor a few ones to overrides. This is the suggested way to implement the IGraphicsResource interface,
 	/// but there can be some special cases which is necessary the interface inherition; in the case implements the interface following the interface
 	/// guidelines.

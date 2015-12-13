@@ -1269,7 +1269,7 @@ namespace OpenGL
 				case PixelLayout.RGB16:
 				case PixelLayout.RGB30A2:
 				case PixelLayout.RGB15:
-					return (caps.PackedFormats);
+					return (caps.PackedFormatsEXT);
 				case PixelLayout.RGB24:
 				case PixelLayout.RGB48:
 				case PixelLayout.RGBA32:
@@ -1291,7 +1291,7 @@ namespace OpenGL
 
 				case PixelLayout.SRGB24:
 				case PixelLayout.SBGR24:
-					return (caps.TextureSRGB);
+					return (caps.TextureSRgbEXT);
 
 				#endregion
 
@@ -1300,20 +1300,20 @@ namespace OpenGL
 				case PixelLayout.BGR8:
 				case PixelLayout.BGR16:
 				case PixelLayout.BGR30A2:
-					return (caps.PackedFormats);
+					return (caps.PackedFormatsEXT);
 				case PixelLayout.BGR15:
-					return (caps.PackedFormats && caps.TextureSwizzle);
+					return (caps.PackedFormatsEXT && caps.TextureSwizzle);
 				case PixelLayout.BGR24:
 				case PixelLayout.BGR48:
 				case PixelLayout.BGRA32:
 				case PixelLayout.BGRA64:
-					return (caps.BgraFormat);
+					return (caps.BgraFormatEXT);
 				case PixelLayout.BGRAF:
 				case PixelLayout.BGRF:
-					return (caps.BgraFormat && caps.TextureFloat);
+					return (caps.BgraFormatEXT && caps.TextureFloat);
 				case PixelLayout.BGRHF:
 				case PixelLayout.BGRAHF:
-					return (caps.BgraFormat && caps.TextureFloat && caps.HalfFloatPixel);
+					return (caps.BgraFormatEXT && caps.TextureFloat && caps.HalfFloatPixel);
 
 				#endregion
 
@@ -1376,7 +1376,7 @@ namespace OpenGL
 				case PixelLayout.UInteger2:
 				case PixelLayout.UInteger3:
 				case PixelLayout.UInteger4:
-					return (caps.TextureInteger);
+					return (caps.TextureIntegerEXT);
 
 				#endregion
 
@@ -1468,7 +1468,7 @@ namespace OpenGL
 				case PixelLayout.RGB16:
 				case PixelLayout.RGB30A2:
 				case PixelLayout.RGB15:
-					return (caps.PackedFormats);
+					return (caps.PackedFormatsEXT);
 				case PixelLayout.RGB24:
 				case PixelLayout.RGB48:
 				case PixelLayout.RGBA32:
@@ -1489,7 +1489,7 @@ namespace OpenGL
 
 				case PixelLayout.SRGB24:
 				case PixelLayout.SBGR24:
-					return (caps.TextureSRGB);
+					return (caps.TextureSRgbEXT);
 
 				#endregion
 
@@ -1498,20 +1498,20 @@ namespace OpenGL
 				case PixelLayout.BGR8:
 				case PixelLayout.BGR16:
 				case PixelLayout.BGR30A2:
-					return (caps.PackedFormats);
+					return (caps.PackedFormatsEXT);
 				case PixelLayout.BGR15:
-					return (caps.PackedFormats && caps.TextureSwizzle);
+					return (caps.PackedFormatsEXT && caps.TextureSwizzle);
 				case PixelLayout.BGR24:
 				case PixelLayout.BGR48:
 				case PixelLayout.BGRA32:
 				case PixelLayout.BGRA64:
-					return (caps.BgraFormat);
+					return (caps.BgraFormatEXT);
 				case PixelLayout.BGRAF:
 				case PixelLayout.BGRF:
-					return (caps.BgraFormat);
+					return (caps.BgraFormatEXT);
 				case PixelLayout.BGRHF:
 				case PixelLayout.BGRAHF:
-					return (caps.BgraFormat && caps.HalfFloatPixel);
+					return (caps.BgraFormatEXT && caps.HalfFloatPixel);
 
 				#endregion
 
@@ -1572,7 +1572,7 @@ namespace OpenGL
 				case PixelLayout.UInteger2:
 				case PixelLayout.UInteger3:
 				case PixelLayout.UInteger4:
-					return (caps.TextureInteger);
+					return (caps.TextureIntegerEXT);
 
 				#endregion
 

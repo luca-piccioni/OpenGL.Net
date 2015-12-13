@@ -29,12 +29,12 @@ namespace OpenGL
 	/// <see cref="IRenderResource"/>.
 	/// </para>
 	/// <para>
-	/// Most of the IRenderResource interface is implemented. The RenderResource inheritor shall implement the following methods:
+	/// Most of the IRenderResource interface is implemented. The GraphicsResource inheritor shall implement the following methods:
 	/// - <see cref="CreateName"/>: this method is virtual and it always throw a <see cref="NotImplementedException"/>. It shall generate an
 	///   object name of a specific object class (determined by inheritor). It is called in the <see cref="IRenderResource.Create"/> implementation.
 	/// - <see cref="CreateObject"/>: this method is virtual, and it can be overriden to actually create an useful object. Base implementation
 	///   is empty. It is called in the <see cref="IRenderResource.Create"/> implementation, after <see cref="CreateName"/>.
-	/// - <see cref="Delete"/>: this method is abstract, and it shall delete the object name and resources of this RenderResource instance.
+	/// - <see cref="Delete"/>: this method is abstract, and it shall delete the object name and resources of this GraphicsResource instance.
 	///   The implementation is dependent on the specific object class (determined by inheritor).
 	/// - <see cref="Exists"/>: this method is virtual, but throw always <see cref="NotImplementedException"/>. Inheritor shall override this
 	///   method since the implementation is dependent on the specific object class (determined by inheritor).
@@ -52,7 +52,7 @@ namespace OpenGL
 		#region Constructors
 
 		/// <summary>
-		/// Construct a RenderResource.
+		/// Construct a GraphicsResource.
 		/// </summary>
 		protected GraphicsResource()
 			: this(String.Empty)
@@ -61,10 +61,10 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Construct a RenderResource, specifying its identifier.
+		/// Construct a GraphicsResource, specifying its identifier.
 		/// </summary>
 		/// <param name="identifier">
-		/// A <see cref="System.String"/> that identifies this RenderResource.
+		/// A <see cref="System.String"/> that identifies this GraphicsResource.
 		/// </param>
 		protected GraphicsResource(string identifier)
 		{
@@ -98,7 +98,7 @@ namespace OpenGL
 		/// </param>
 		/// <returns>
 		/// <para>
-		/// It returns a boolean value indicating whether this RenderResource implementation requires a name
+		/// It returns a boolean value indicating whether this GraphicsResource implementation requires a name
 		/// generation on creation. In the case this routine returns true, the routine <see cref="CreateName"/>
 		/// will be called (and it must be overriden). In  the case this routine returns false, the routine
 		/// <see cref="CreateName"/> won't be called (and indeed it is not necessary to override it) and a
@@ -114,13 +114,13 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Create a RenderResource name.
+		/// Create a GraphicsResource name.
 		/// </summary>
 		/// <param name="ctx">
 		/// A <see cref="GraphicsContext"/> used for creating this object name.
 		/// </param>
 		/// <returns>
-		/// It returns a valid object name for this RenderResource.
+		/// It returns a valid object name for this GraphicsResource.
 		/// </returns>
 		/// <exception cref="NotImplementedException">
 		/// Exception always thrown.
@@ -131,7 +131,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Delete a RenderResource name.
+		/// Delete a GraphicsResource name.
 		/// </summary>
 		/// <param name="ctx">
 		/// A <see cref="GraphicsContext"/> used for deleting this object name.
@@ -190,7 +190,7 @@ namespace OpenGL
 		#region Resource Management
 
 		/// <summary>
-		/// Actually create this RenderResource resources.
+		/// Actually create this GraphicsResource resources.
 		/// </summary>
 		/// <param name="ctx">
 		/// A <see cref="GraphicsContext"/> used for allocating resources.
@@ -211,22 +211,21 @@ namespace OpenGL
 		protected override void Dispose(bool disposing)
 		{
 			if (disposing) {
-				// Release resources allocated by this RenderResource
+				// Release resources allocated by this GraphicsResource
 				if (ObjectName != InvalidObjectName) {
 					GraphicsContext currentContext = GraphicsContext.GetCurrentContext();
 
 					if ((currentContext == null) || (currentContext.ObjectNameSpace != _ObjectNameSpace)) {
 
 						// No current context, or current context not managing this resource. Indeed, use
-						// the RenderGarbageService to collect this resource
+						// the GraphicsGarbageService to collect this resource
 
 						if (_ObjectNameSpace != Guid.Empty) {
-							RenderGarbageService rGarbageService = RenderGarbageService.GetService(_ObjectNameSpace);
-							if (rGarbageService == null)
+							GraphicsGarbageService garbageService = GraphicsGarbageService.GetService(_ObjectNameSpace);
+							if (garbageService == null)
 								throw new InvalidOperationException("no garbage service");
-							rGarbageService.CollectGarbage(this);
+							garbageService.CollectGarbage(this);
 						}
-
 					} else {
 						Delete(currentContext);
 					}
@@ -242,7 +241,7 @@ namespace OpenGL
 		/// Resource identifier.
 		/// </summary>
 		/// <remarks>
-		/// This string is used to identify this RenderResource among a collection. This identifier has to be
+		/// This string is used to identify this GraphicsResource among a collection. This identifier has to be
 		/// unique in order to be collected by <see cref="RenderResourceDb"/>.
 		/// </remarks>
 		public string Identifier { get { return (_Identifier); } }
@@ -260,7 +259,7 @@ namespace OpenGL
 		public abstract Guid ObjectClass { get; }
 
 		/// <summary>
-		/// Get the OpenGL object name generated for this RenderResource.
+		/// Get the OpenGL object name generated for this GraphicsResource.
 		/// </summary>
 		public uint ObjectName
 		{
@@ -269,7 +268,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// OpenGL object namespace used for creating this RenderResource.
+		/// OpenGL object namespace used for creating this GraphicsResource.
 		/// </summary>
 		/// <remarks>
 		/// This property determine the correct association between this object and the render contextes used
@@ -278,7 +277,7 @@ namespace OpenGL
 		public Guid ObjectNamespace { get { return (_ObjectNameSpace); } }
 
 		/// <summary>
-		/// Determine whether this RenderResource really exists.
+		/// Determine whether this GraphicsResource really exists.
 		/// </summary>
 		/// <param name="ctx">
 		/// A <see cref="GraphicsContext"/> that would have created (or a sharing one) the object. This context shall be current.
@@ -289,12 +288,12 @@ namespace OpenGL
 		/// <remarks>
 		/// <para>
 		/// The current implementation actually does not test for object existence, but it tests for object name space
-		/// correspondence, indicating a relationship between this RenderResource and the GraphicsContext used for creating
+		/// correspondence, indicating a relationship between this GraphicsResource and the GraphicsContext used for creating
 		/// this resource.
 		/// </para>
 		/// <para>
 		/// Inheritors that managed an OpenGL resource shall override this method in order to check the effective existence of
-		/// this RenderResource agains <paramref name="ctx"/>. In counterpart, if the resource is not managed directly by
+		/// this GraphicsResource agains <paramref name="ctx"/>. In counterpart, if the resource is not managed directly by
 		/// OpenGL, this routine could be leaved as is.
 		/// </para>
 		/// </remarks>
@@ -315,7 +314,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Create this RenderResource.
+		/// Create this GraphicsResource.
 		/// </summary>
 		/// <param name="ctx">
 		/// A <see cref="GraphicsContext"/> used for creating this object. The object space of this <see cref="GraphicsContext"/> is used
@@ -344,7 +343,7 @@ namespace OpenGL
 		/// - Create the object. The actual implementation of the object creation is defined by <see cref="CreateObject"/> method.
 		/// </para>
 		/// <para>
-		/// In some RenderResource implementation is allowed to have null context resources (i.e. <see cref="RenderWindow"/>).
+		/// In some GraphicsResource implementation is allowed to have null context resources (i.e. <see cref="RenderWindow"/>).
 		/// </para>
 		/// </remarks>
 		/// <seealso cref="Delete"/>
@@ -391,7 +390,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Delete this RenderResource.
+		/// Delete this GraphicsResource.
 		/// </summary>
 		/// <param name="ctx">
 		/// A <see cref="GraphicsContext"/> used for deleting this object. The IRenderResource shall belong to the object space to this
@@ -467,23 +466,23 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// RenderResource identifier.
+		/// GraphicsResource identifier.
 		/// </summary>
 		private readonly string _Identifier;
 
 		/// <summary>
-		/// RenderResource name.
+		/// GraphicsResource name.
 		/// </summary>
 		/// <remarks>
-		/// A value of <see cref="InvalidObjectName"/> indicates that this RenderResource name is not yet created.
+		/// A value of <see cref="InvalidObjectName"/> indicates that this GraphicsResource name is not yet created.
 		/// </remarks>
 		private uint _Object = InvalidObjectName;
 
 		/// <summary>
-		/// RenderResource name space.
+		/// GraphicsResource name space.
 		/// </summary>
 		/// <remarks>
-		/// A value of <see cref="System.Guid.Empty"/> indicates that this RenderResource doesn't belong to
+		/// A value of <see cref="System.Guid.Empty"/> indicates that this GraphicsResource doesn't belong to
 		/// any context name space (i.e. its name is not yet created).
 		/// </remarks>
 		private Guid _ObjectNameSpace = Guid.Empty;

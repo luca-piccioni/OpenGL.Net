@@ -59,16 +59,16 @@ namespace OpenGL
 		private void TrackResourceLifetime()
 		{
 			// Store stack trace
-			//mConstructorStackTrace = GetResourceConstructorStackTrace();
+			mConstructorStackTrace = GetResourceConstructorStackTrace();
 			// Collect this ResourceResource for lifetime tracking
 			mLivingResources.Add(this);
 		}
 
 		/// <summary>
-		/// Determine the RenderResource constructor stack trace.
+		/// Determine the GraphicsResource constructor stack trace.
 		/// </summary>
 		/// <returns>
-		/// It returns the stack trace wat the moment of construction of thsi RenderResource.
+		/// It returns the stack trace wat the moment of construction of thsi GraphicsResource.
 		/// </returns>
 		private static string GetResourceConstructorStackTrace()
 		{
@@ -151,7 +151,7 @@ namespace OpenGL
 		protected void ResetRefCount() { mRefCount = 0; }
 
 		/// <summary>
-		/// The count of references for this RenderResource.
+		/// The count of references for this GraphicsResource.
 		/// </summary>
 		private uint mRefCount;
 
@@ -196,7 +196,7 @@ namespace OpenGL
 		public virtual void Dispose()
 		{
 			// Dispose is equivalent to DecRef()...
-			// This allow using{} even on referenced variables, as long the RenderResource is referenced in the using block
+			// This allow using{} even on referenced variables, as long the GraphicsResource is referenced in the using block
 			if (mRefCount > 0)
 				mRefCount--;
 			if (mRefCount > 0)
@@ -209,7 +209,7 @@ namespace OpenGL
 			// Mark as disposed
 			mDisposed = true;
 
-			// Remove this RenderResource from the living ones
+			// Remove this GraphicsResource from the living ones
 			mLivingResources.RemoveAll(delegate(Resource resource) { return ReferenceEquals(resource, this); });
 		}
 

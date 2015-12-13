@@ -126,13 +126,13 @@ namespace OpenGL
 		/// definition of the extension was changed slightly to support both multisampling and
 		/// supersampling implementations.
 		/// </remarks>
-		[GraphicsExtensionAttribute("GL_ARB_multisample", "WGL_ARB_multisample", "GLX_ARB_multisample")]
+		[GraphicsExtension("GL_ARB_multisample", "WGL_ARB_multisample", "GLX_ARB_multisample")]
 		public bool Multisample;
 
 		/// <summary>
 		/// Depth texture format available (22. GL_ARB_depth_texture).
 		/// </summary>
-		[GraphicsExtensionAttribute("GL_ARB_depth_texture")]
+		[GraphicsExtension("GL_ARB_depth_texture")]
 		public bool DepthTexture;
 
 		/// <summary>
@@ -148,7 +148,7 @@ namespace OpenGL
 		/// Buffer objects were promoted from the GL ARB vertex buffer object extension.
 		/// </para>
 		/// </remarks>
-		[GraphicsExtensionAttribute("GL_ARB_vertex_buffer_object", "GLX_ARB_vertex_buffer_object")]
+		[GraphicsExtension("GL_ARB_vertex_buffer_object", "GLX_ARB_vertex_buffer_object")]
 		public bool VertexBufferObject;
 
 		/// <summary>
@@ -159,7 +159,7 @@ namespace OpenGL
 		/// Core implementation has no differences.
 		/// </para>
 		/// </remarks>
-		[GraphicsExtensionAttribute("GL_ARB_occlusion_query")]
+		[GraphicsExtension("GL_ARB_occlusion_query")]
 		public bool OcclusionQuery;
 
 		/// <summary>
@@ -173,7 +173,7 @@ namespace OpenGL
 		/// Shader objects were promoted from the GL ARB shader objects extension.
 		/// </para>
 		/// </remarks>
-		[GraphicsExtensionAttribute("GL_ARB_shader_objects")]
+		[GraphicsExtension("GL_ARB_shader_objects")]
 		public bool ShaderObjects;
 
 		/// <summary>
@@ -191,7 +191,7 @@ namespace OpenGL
 		/// function CreateShaderObjectARB into the core function CreateShader.
 		/// </para>
 		/// </remarks>
-		[GraphicsExtensionAttribute("GL_ARB_vertex_shader")]
+		[GraphicsExtension("GL_ARB_vertex_shader")]
 		public bool VertexShader;
 
 		/// <summary>
@@ -209,103 +209,109 @@ namespace OpenGL
 		/// function CreateShaderObjectARB into the core function CreateShader.
 		/// </para>
 		/// </remarks>
-		[GraphicsExtensionAttribute("GL_ARB_fragment_shader")]
+		[GraphicsExtension("GL_ARB_fragment_shader")]
 		public bool FragmentShader;
 
 		/// <summary>
 		/// Shading language version support (33. GL_ARB_shading_language_100).
 		/// </summary>
-		[GraphicsExtensionAttribute("GL_ARB_shading_language_100")]
+		[GraphicsExtension("GL_ARB_shading_language_100")]
 		public bool ShadingLanguage100;
 
 		/// <summary>
 		/// Texture Non Power Of Two extension (34. GL_ARB_texture_non_power_of_two).
 		/// </summary>
-		[GraphicsExtensionAttribute("GL_ARB_texture_non_power_of_two")]
+		[GraphicsExtension("GL_ARB_texture_non_power_of_two")]
 		public bool TextureNPOT;
 
 		/// <summary>
 		/// Rectangle texture extension (38. GL_ARB_texture_rectangle).
 		/// </summary>
-		[GraphicsExtensionAttribute("GL_ARB_texture_rectangle")]
+		[GraphicsExtension("GL_ARB_texture_rectangle")]
 		public bool TextureRectangle;
 
 		/// <summary>
 		/// Half float pixel extension (40. GL_ARB_half_float_pixel).
 		/// </summary>
-		[GraphicsExtensionAttribute("GL_ARB_half_float_pixel")]
+		[GraphicsExtension("GL_ARB_half_float_pixel")]
 		public bool HalfFloatPixel;
 
 		/// <summary>
 		/// Floating point texture extention (41. GL_ARB_texture_float).
 		/// </summary>
-		[GraphicsExtensionAttribute("GL_ARB_texture_float")]
+		[GraphicsExtension("GL_ARB_texture_float")]
 		public bool TextureFloat;
 
 		/// <summary>
 		/// Floating-point depth texture extension (43. GL_ARB_depth_buffer_float).
 		/// </summary>
-		[GraphicsExtensionAttribute("GL_ARB_depth_buffer_float")]
+		[GraphicsExtension("GL_ARB_depth_buffer_float")]
 		public bool DepthTextureFloat;
 
 		/// <summary>
 		/// Framebuffer object (45. GL_ARB_framebuffer_object).
 		/// </summary>
-		[GraphicsExtensionAttribute("GL_ARB_framebuffer_object")]
+		[GraphicsExtension("GL_ARB_framebuffer_object")]
 		public bool FrambufferObject;
 
 		/// <summary>
 		/// sRGB framebuffer extension (46. GL_ARB_framebuffer_sRGB).
 		/// </summary>
-		[GraphicsExtensionAttribute("GL_ARB_framebuffer_sRGB", "WGL_ARB_framebuffer_sRGB", "GLX_ARB_framebuffer_sRGB")]
+		[GraphicsExtension("GL_ARB_framebuffer_sRGB", "WGL_ARB_framebuffer_sRGB", "GLX_ARB_framebuffer_sRGB")]
 		public bool FramebufferSRGB;
 
 		/// <summary>
 		/// Geometry shader extension (47. GL_ARB_geometry_shader4).
 		/// </summary>
-		[GraphicsExtensionAttribute("GL_ARB_geometry_shader4")]
+		[GraphicsExtension("GL_ARB_geometry_shader4")]
 		public bool GeometryShader;
+
+		/// <summary>
+		/// Half-precision vertex (48. GL_ARB_half_float_vertex).
+		/// </summary>
+		[GraphicsExtension("GL_ARB_half_float_vertex")]
+		public bool HalfFloatVertex;
 
 		/// <summary>
 		/// Vertex array (54. GL_ARB_vertex_array_object).
 		/// </summary>
-		[GraphicsExtensionAttribute("GL_ARB_vertex_array_object")]
+		[GraphicsExtension("GL_ARB_vertex_array_object")]
 		public bool VertexArrayObject;
 
 		/// <summary>
 		/// Texture RG format available (53. GL_ARB_texture_rg).
 		/// </summary>
-		[GraphicsExtensionAttribute("GL_ARB_texture_rg")]
+		[GraphicsExtension("GL_ARB_texture_rg")]
 		public bool TextureRg;
 
 		/// <summary>
 		/// Uniform buffer object extension (57. GL_ARB_uniform_buffer_object);
 		/// </summary>
-		[GraphicsExtensionAttribute("GL_ARB_uniform_buffer_object")]
+		[GraphicsExtension("GL_ARB_uniform_buffer_object")]
 		public bool UniformBufferObject;
 
 		/// <summary>
 		/// Compatibility extension (58. GL_ARB_compatibility).
 		/// </summary>
-		[GraphicsExtensionAttribute("GL_ARB_compatibility")]
+		[GraphicsExtension("GL_ARB_compatibility")]
 		public bool Compatibility;
 
 		/// <summary>
 		/// Cube map texture extension (65. GL_ARB_texture_cube_map).
 		/// </summary>
-		[GraphicsExtensionAttribute("GL_ARB_texture_cube_map")]
+		[GraphicsExtension("GL_ARB_texture_cube_map")]
 		public bool TextureCubeMap;
 
 		/// <summary>
 		/// Shading language include preprocessor directive (76. GL_ARB_shading_language_include).
 		/// </summary>
-		[GraphicsExtensionAttribute("GL_ARB_shading_language_include")]
+		[GraphicsExtension("GL_ARB_shading_language_include")]
 		public bool ShaderInclude;
 
 		/// <summary>
 		/// Occlusion query (2th version) available (80. GL_ARB_occlusion_query2).
 		/// </summary>
-		[GraphicsExtensionAttribute("GL_ARB_occlusion_query2")]
+		[GraphicsExtension("GL_ARB_occlusion_query2")]
 		public bool OcclusionQuery2;
 
 		/// <summary>
@@ -315,32 +321,44 @@ namespace OpenGL
 		/// The GL_ARB_texture_swizzle and GL_EXT_texture_swizzle are exactly the same extention, having the same functionalities, declarations and
 		/// specification. Indeed, they share also the minimum version and the core version.
 		/// </remarks>
-		[GraphicsExtensionAttribute("GL_ARB_texture_swizzle", "GL_EXT_texture_swizzle")]
+		[GraphicsExtension("GL_ARB_texture_swizzle", "GL_EXT_texture_swizzle")]
 		public bool TextureSwizzle;
 
 		/// <summary>
 		/// Timer query available (85. GL_ARB_timer_query).
 		/// </summary>
-		[GraphicsExtensionAttribute("GL_ARB_timer_query")]
+		[GraphicsExtension("GL_ARB_timer_query")]
 		public bool TimerQuery;
 
 		/// <summary>
 		/// 5th generation shader available (88. GL_ARB_gpu_shader5).
 		/// </summary>
-		[GraphicsExtensionAttribute("GL_ARB_gpu_shader5")]
+		[GraphicsExtension("GL_ARB_gpu_shader5")]
 		public bool GpuShader5;
 
 		/// <summary>
 		/// Double precision floating-point shader uniform/input/instructions available (89. GL_ARB_gpu_shader_fp64).
 		/// </summary>
-		[GraphicsExtensionAttribute("GL_ARB_gpu_shader_fp64")]
+		[GraphicsExtension("GL_ARB_gpu_shader_fp64")]
 		public bool GpuShaderFp64;
 
 		/// <summary>
 		/// Texture buffer object available (92. GL_ARB_texture_buffer_object_rgb32).
 		/// </summary>
-		[GraphicsExtensionAttribute("GL_ARB_texture_buffer_object_rgb32")]
+		[GraphicsExtension("GL_ARB_texture_buffer_object_rgb32")]
 		public bool TextureBufferObjectRgb32;
+
+		/// <summary>
+		/// Tranform feedback (2) (93. GL_ARB_transform_feedback2).
+		/// </summary>
+		[GraphicsExtension("GL_ARB_transform_feedback2")]
+		public bool TransformFeedback2;
+
+		/// <summary>
+		/// Get program binary (96. GL_ARB_get_program_binary).
+		/// </summary>
+		[GraphicsExtension("GL_ARB_get_program_binary")]
+        public bool GetProgramBinary;
 
 		#endregion
 
@@ -349,8 +367,8 @@ namespace OpenGL
 		/// <summary>
 		/// Constant color blending functions (2. GL_EXT_blend_color).
 		/// </summary>
-		[GraphicsExtensionAttribute("GL_EXT_blend_color")]
-		public bool BlendColor;
+		[GraphicsExtension("GL_EXT_blend_color")]
+		public bool BlendColorEXT;
 
 		/// <summary>
 		/// Texture internal formats (4. GL_EXT_texture).
@@ -390,14 +408,14 @@ namespace OpenGL
 		/// return allocation information consistent with support for complete mipmap arrays.
 		/// </para>
 		/// </remarks>
-		[GraphicsExtensionAttribute("GL_EXT_texture")]
-		public bool Texture;
+		[GraphicsExtension("GL_EXT_texture")]
+		public bool TextureEXT;
 
 		/// <summary>
 		/// Texture 3D extension (6. EXT_texture3D).
 		/// </summary>
-		[GraphicsExtensionAttribute("GL_EXT_texture3D")]
-		public bool Texture3D;
+		[GraphicsExtension("GL_EXT_texture3D")]
+		public bool Texture3DEXT;
 
 		/// <summary>
 		/// Sub-texture specification (9. GL_EXT_subtexture).
@@ -410,9 +428,9 @@ namespace OpenGL
 		/// from client or framebuffer memory. These additions match those defined by the
 		/// GL EXT copy texture and GL EXT subtexture extensions.
 		/// </remarks>
-		[GraphicsExtensionAttribute("GL_EXT_subtexture")]
-		[GraphicsExtensionAttribute("GL_EXT_texture")]
-		public bool SubTexture;
+		[GraphicsExtension("GL_EXT_subtexture")]
+		[GraphicsExtension("GL_EXT_texture")]
+		public bool SubTextureEXT;
 
 		/// <summary>
 		/// Texture copy (10. GL_EXT_texture_object).
@@ -425,15 +443,15 @@ namespace OpenGL
 		/// from client or framebuffer memory. These additions match those defined by the
 		/// GL EXT copy texture and GL EXT subtexture extensions.
 		/// </remarks>
-		[GraphicsExtensionAttribute("GL_EXT_copy_texture")]
-		[GraphicsExtensionAttribute("GL_EXT_texture")]
-		public bool CopyTexture;
+		[GraphicsExtension("GL_EXT_copy_texture")]
+		[GraphicsExtension("GL_EXT_texture")]
+		public bool CopyTextureEXT;
 
 		/// <summary>
 		/// CMYKA pixel format (18. EXT_cmyka).
 		/// </summary>
-		[GraphicsExtensionAttribute("GL_EXT_cmyka")]
-		public bool CmykaFormat;
+		[GraphicsExtension("GL_EXT_cmyka")]
+		public bool CmykaFormatEXT;
 
 		/// <summary>
 		/// Texture object (20. GL_EXT_texture_object).
@@ -450,8 +468,8 @@ namespace OpenGL
 		/// extension, with slight additions to the texture residency semantics.
 		/// </para>
 		/// </remarks>
-		[GraphicsExtensionAttribute("GL_EXT_texture_object")]
-		public bool TextureObject;
+		[GraphicsExtension("GL_EXT_texture_object")]
+		public bool TextureObjectEXT;
 
 		/// <summary>
 		/// RGB(A)/BGR(A) packed pixel internal formats (23. Gl_EXT_packed_pixels).
@@ -468,20 +486,20 @@ namespace OpenGL
 		/// further addition of reversed component order packed formats
 		/// </para>
 		/// </remarks>
-		[GraphicsExtensionAttribute("GL_EXT_packed_pixels")]
-		public bool PackedFormats;
+		[GraphicsExtension("GL_EXT_packed_pixels")]
+		public bool PackedFormatsEXT;
 
 		/// <summary>
 		/// Blending separate function (37. GL_EXT_blend_minmax)
 		/// </summary>
-		[GraphicsExtensionAttribute("GL_EXT_blend_minmax")]
-		public bool BlendMinMax;
+		[GraphicsExtension("GL_EXT_blend_minmax")]
+		public bool BlendMinMaxEXT;
 
 		/// <summary>
 		/// Blending subtract equations (38. GL_EXT_blend_subtract)
 		/// </summary>
-		[GraphicsExtensionAttribute("GL_EXT_blend_subtract")]
-		public bool BlendSubtract;
+		[GraphicsExtension("GL_EXT_blend_subtract")]
+		public bool BlendSubtractEXT;
 
 		/// <summary>
 		/// BGRA pixel format (128. GL_EXT_bgra).
@@ -495,26 +513,32 @@ namespace OpenGL
 		/// platforms. The additions match those of the GL EXT bgra extension.
 		/// </para>
 		/// </remarks>
-		[GraphicsExtensionAttribute("GL_EXT_bgra")]
-		public bool BgraFormat;
+		[GraphicsExtension("GL_EXT_bgra")]
+		public bool BgraFormatEXT;
 
 		/// <summary>
 		/// Blending separate function (173. GL_EXT_blend_func_separate)
 		/// </summary>
-		[GraphicsExtensionAttribute("GL_EXT_blend_func_separate")]
-		public bool BlendFuncSeparate;
+		[GraphicsExtension("GL_EXT_blend_func_separate")]
+		public bool BlendFuncSeparateEXT;
 
 		/// <summary>
 		/// Yuv 422 pixel format (178. GL_EXT_422_pixels).
 		/// </summary>
-		[GraphicsExtensionAttribute("GL_EXT_422_pixels")]
-		public bool Yuv422Format;
+		[GraphicsExtension("GL_EXT_422_pixels")]
+		public bool Yuv422FormatEXT;
+
+		/// <summary>
+		/// Primitive restart (285. GL_NV_primitive_restart).
+		/// </summary>
+		[GraphicsExtension("GL_NV_primitive_restart")]
+		public bool PrimitiveRestartNV;
 
 		/// <summary>
 		/// Blending separate equation (299. GL_EXT_blend_equation_separate)
 		/// </summary>
-		[GraphicsExtensionAttribute("GL_EXT_blend_equation_separate")]
-		public bool BlendEquationSeparate;
+		[GraphicsExtension("GL_EXT_blend_equation_separate")]
+		public bool BlendEquationSeparateEXT;
 
 		/// <summary>
 		/// Texture sRGB internal format (315. GL_EXT_texture_sRGB).
@@ -534,20 +558,20 @@ namespace OpenGL
 		/// were retained
 		/// </para>
 		/// </remarks>
-		[GraphicsExtensionAttribute("GL_EXT_texture_sRGB")]
-		public bool TextureSRGB;
+		[GraphicsExtension("GL_EXT_texture_sRGB")]
+		public bool TextureSRgbEXT;
 
 		/// <summary>
 		/// Framebuffer object (310. GL_EXT_framebuffer_object).
 		/// </summary>
-		[GraphicsExtensionAttribute("GL_EXT_framebuffer_object")]
-		public bool FrambufferObject_EXT;
+		[GraphicsExtension("GL_EXT_framebuffer_object")]
+		public bool FrambufferObjectEXT;
 
 		/// <summary>
 		/// 4th shader generation available (326. GL_EXT_gpu_shader4).
 		/// </summary>
-		[GraphicsExtensionAttribute("GL_EXT_gpu_shader4")]
-		public bool GpuShader4;
+		[GraphicsExtension("GL_EXT_gpu_shader4")]
+		public bool GpuShader4EXT;
 
 		/// <summary>
 		/// sRGB framebuffer extension (337. GL_EXT_framebuffer_sRGB).
@@ -561,20 +585,26 @@ namespace OpenGL
 		///			FRAMEBUFFER_SRGB_CAPABLE_EXT                 0x8DBA
 		/// </para>
 		/// </remarks>
-		[GraphicsExtensionAttribute("GL_EXT_framebuffer_sRGB", "GLX_EXT_framebuffer_sRGB", "WGL_EXT_framebuffer_sRGB")]
+		[GraphicsExtension("GL_EXT_framebuffer_sRGB", "GLX_EXT_framebuffer_sRGB", "WGL_EXT_framebuffer_sRGB")]
 		public bool FramebufferSRGB_EXT;
+
+		/// <summary>
+		/// Transform feedback (341. GL_NV_transform_feedback).
+		/// </summary>
+		[GraphicsExtension("GL_NV_transform_feedback")]
+        public bool TransformFeedbackNV;
 
 		/// <summary>
 		/// Texture integer extension (343. GL_EXT_texture_integer).
 		/// </summary>
-		[GraphicsExtensionAttribute("GL_EXT_texture_integer")]
-		public bool TextureInteger;
+		[GraphicsExtension("GL_EXT_texture_integer")]
+		public bool TextureIntegerEXT;
 
 		/// <summary>
 		/// Transform feedback extension (343. GL_EXT_transform_feedback).
 		/// </summary>
-		[GraphicsExtensionAttribute("GL_EXT_transform_feedback")]
-		public bool FeedbackBuffer;
+		[GraphicsExtension("GL_EXT_transform_feedback")]
+		public bool TransformFeedbackEXT;
 
 		#endregion
 
@@ -583,28 +613,28 @@ namespace OpenGL
 		/// <summary>
 		/// Fundation for querying OpenGL extension using WGL.
 		/// </summary>
-		[GraphicsExtensionAttribute("WGL_ARB_extensions_string")]
+		[GraphicsExtension("WGL_ARB_extensions_string")]
 		public bool ExtensionString;
 
 		/// <summary>
 		/// Choose a window pixel format (9. WGL_ARB_pixel_format).
 		/// </summary>
-		[GraphicsExtensionAttribute("WGL_ARB_pixel_format")]
-		[GraphicsExtensionAttribute("WGL_ARB_extensions_string")]
+		[GraphicsExtension("WGL_ARB_pixel_format")]
+		[GraphicsExtension("WGL_ARB_extensions_string")]
 		public bool ExtendedPixelFormat;
 
 		/// <summary>
 		/// Create a compatible context (55. WGL_ARB_create_context, 56. GLX_ARB_create_context).
 		/// </summary>
-		[GraphicsExtensionAttribute("WGL_ARB_create_context", "GLX_ARB_create_context")]
-		[GraphicsExtensionAttribute("WGL_ARB_extensions_string")]
+		[GraphicsExtension("WGL_ARB_create_context", "GLX_ARB_create_context")]
+		[GraphicsExtension("WGL_ARB_extensions_string")]
 		public bool CreateContext;
 
 		/// <summary>
 		/// Create a forward compatible context (74. WGL_ARB_create_context_profile, 75. GLX_ARB_create_context_profile).
 		/// </summary>
-		[GraphicsExtensionAttribute("WGL_ARB_create_context_profile", "GLX_ARB_create_context_profile")]
-		[GraphicsExtensionAttribute("WGL_ARB_extensions_string")]
+		[GraphicsExtension("WGL_ARB_create_context_profile", "GLX_ARB_create_context_profile")]
+		[GraphicsExtension("WGL_ARB_extensions_string")]
 		public bool CreateContextProfile;
 
 		#endregion

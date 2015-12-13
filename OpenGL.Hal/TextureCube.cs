@@ -34,7 +34,7 @@ namespace OpenGL
 		/// <summary>
 		/// Enuemartion defining cube texture faces.
 		/// </summary>
-		public enum CubeFace
+		public enum CubeFace : int
 		{
 			/// <summary>
 			/// Positive X-axis face.
@@ -247,6 +247,13 @@ namespace OpenGL
 			SetTechnique(new ImageTechnique(internalFormat, images));
 			// Actually create texture
 			Create(ctx);
+		}
+
+		public static TextureTarget GetTextureCubeTarget(CubeFace cubeFace)
+		{
+			if ((int)cubeFace < 0 || (int)cubeFace >= _CubeTargets.Length)
+				throw new ArgumentOutOfRangeException("cubeFace");
+			return (_CubeTargets[(int)cubeFace]);
 		}
 
 		/// <summary>

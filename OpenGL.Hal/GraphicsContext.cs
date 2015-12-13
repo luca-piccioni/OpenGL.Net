@@ -19,16 +19,11 @@
 using System;
 using System.Collections.Generic;
 using System.Collections.Specialized;
-using System.ComponentModel;
 using System.Diagnostics;
 using System.Globalization;
-using System.IO;
 using System.Reflection;
 using System.Runtime.InteropServices;
-using System.Text;
 using System.Text.RegularExpressions;
-using System.Xml.Serialization;
-using System.Windows.Forms;
 
 namespace OpenGL
 {
@@ -200,11 +195,11 @@ namespace OpenGL
 				throw new Exception("unable to select valid pixel format");
 			// Set pixel format before creating OpenGL context
 			if (Wgl.UnsafeNativeMethods.GdiSetPixelFormat(winDeviceContext.DeviceContext, pFormat, out pfd) == false)
-				throw new Exception("unable to set valid pixel format");
+				throw new InvalidOperationException("unable to set valid pixel format");
 
 			// Create a dummy OpenGL context to retrieve initial informations.
 			if ((rContext = Wgl.CreateContext(winDeviceContext.DeviceContext)) == IntPtr.Zero)
-				throw new Exception("unable to create OpenGL context");
+				throw new InvalidOperationException("unable to create OpenGL context");
 
 			return (rContext);
 		}
@@ -483,7 +478,7 @@ namespace OpenGL
 
 				// Store device context handle
 				_DeviceContext = deviceContext;
-                _DeviceContext.IncRef();
+				_DeviceContext.IncRef();
 
 				if ((CurrentCaps.CreateContext || CurrentCaps.CreateContextProfile) && (version >= GLVersion.Version_3_0)) {
 					List<int> cAttributes = new List<int>();
@@ -510,8 +505,8 @@ namespace OpenGL
 						Wgl.CONTEXT_FLAGS_ARB, rContextFlags
 					});
 
-                    // End of attributes
-                    cAttributes.Add(0);
+					// End of attributes
+					cAttributes.Add(0);
 
 					// Create rendering context
 					int[] contextAttributes = cAttributes.ToArray();
@@ -1072,656 +1067,6 @@ namespace OpenGL
 		#region Device Pixel Formats
 
 		/// <summary>
-		/// Pixel format description.
-		/// </summary>
-		[DebuggerDisplay("Window: {RenderWindow}, Buffer: {RenderBuffer}, Color: {ColorBits}, Depth: {DepthBits}, Stencil: {StencilBits}, Multisample: {MultisampleBits}, DoubleBuffer: {DoubleBuffer}")]
-		public struct PixelLayout
-		{
-			/// <summary>
-			/// Pixel format index.
-			/// </summary>
-			public int FormatIndex;
-
-			/// <summary>
-			/// Flag indicating whether this pixel format provide canonical (normalized) unsigned integer RGBA color.
-			/// </summary>
-			public bool RgbaUnsigned;
-			/// <summary>
-			/// Flag indicating whether this pixel format provide RGBA color composed by single-precision floating-point.
-			/// </summary>
-			public bool RgbaFloat;
-
-			/// <summary>
-			/// Pixel format can be used for rendering on windows.
-			/// </summary>
-			public bool RenderWindow;
-			/// <summary>
-			/// Pixel format can be used for rendering on memory buffers.
-			/// </summary>
-			public bool RenderBuffer;
-			/// <summary>
-			/// Pixel format can be used for rendering on pixel buffer objects.
-			/// </summary>
-			public bool RenderPBuffer;
-
-			/// <summary>
-			/// Pixel format support double buffering.
-			/// </summary>
-			public bool DoubleBuffer;
-			/// <summary>
-			/// Method used for swapping back buffers.
-			/// </summary>
-			/// <remarks>
-			/// It can assume the values Wgl.SWAP_EXCHANGE, SWAP_COPY, or 
-			/// SWAP_UNDEFINED in the case DoubleBuffer is false.
-			/// </remarks>
-			public int SwapMethod;
-			/// <summary>
-			/// Pixel format support stereo buffering.
-			/// </summary>
-			public bool StereoBuffer;
-
-			/// <summary>
-			/// Color bits (without alpha).
-			/// </summary>
-			public int ColorBits;
-			/// <summary>
-			/// Depth buffer bits.
-			/// </summary>
-			public int DepthBits;
-			/// <summary>
-			/// Stencil buffer bits.
-			/// </summary>
-			public int StencilBits;
-			/// <summary>
-			/// Multisample bits.
-			/// </summary>
-			public int MultisampleBits;
-
-			/// <summary>
-			/// sRGB conversion capability.
-			/// </summary>
-			public bool SRGBCapable;
-
-			/// <summary>
-			/// GLX framebuffer configuration (valid only for X11).
-			/// </summary>
-			public IntPtr XFbConfig;
-
-			/// <summary>
-			/// GLX visual information (valid only for X11).
-			/// </summary>
-			public Glx.XVisualInfo XVisualInfo;
-		}
-
-		/// <summary>
-		/// List of pixel format descriptions.
-		/// </summary>
-		[DebuggerDisplay("PixelFormatCollection({Count} Pixel Formats)")]
-		public class PixelFormatCollection : List<PixelLayout>
-		{
-			#region Render Window Format Filtering
-
-			#region Window Color Bits
-
-			/// <summary>
-			/// Get all possible color bit values for rendering on visibile windows.
-			/// </summary>
-			/// <returns>
-			/// It returns a list of integer values suitable for requesting color buffer bits.
-			/// </returns>
-			public IEnumerable<int> GetWindowColorBits()
-			{
-				return (GetWindowColorBits(-1, -1, -1));
-			}
-
-			/// <summary>
-			/// Get all possible color bit values for rendering on visibile windows.
-			/// </summary>
-			/// <param name="bitsMultisample">
-			/// A <see cref="System.Int32"/> that specifies the required multisample buffer bits. This parameter is ignored in the case is
-			/// less or equals to 0.
-			/// </param>
-			/// <returns>
-			/// It returns a list of integer values suitable for requesting color buffer bits.
-			/// </returns>
-			public IEnumerable<int> GetWindowColorBits(int bitsMultisample)
-			{
-				return (GetWindowColorBits(-1, -1, bitsMultisample));
-			}
-
-			/// <summary>
-			/// Get all possible color bit values for rendering on visibile windows.
-			/// </summary>
-			/// <param name="bitsDepth">
-			/// A <see cref="System.Int32"/> that specifies the required depth buffer bits. This parameter is ignored in the case is
-			/// less or equals to 0.
-			/// </param>
-			/// <param name="bitsMultisample">
-			/// A <see cref="System.Int32"/> that specifies the required multisample buffer bits. This parameter is ignored in the case is
-			/// less or equals to 0.
-			/// </param>
-			/// <returns>
-			/// It returns a list of integer values suitable for requesting color buffer bits.
-			/// </returns>
-			public IEnumerable<int> GetWindowColorBits(int bitsDepth, int bitsMultisample)
-			{
-				return (GetWindowColorBits(bitsDepth, -1, bitsMultisample));
-			}
-
-			/// <summary>
-			/// Get all possible color bit values for rendering on visibile windows.
-			/// </summary>
-			/// <param name="bitsDepth">
-			/// A <see cref="System.Int32"/> that specifies the required depth buffer bits. This parameter is ignored in the case is
-			/// less or equals to 0.
-			/// </param>
-			/// <param name="bitsStencil">
-			/// A <see cref="System.Int32"/> that specifies the required stencil buffer bits. This parameter is ignored in the case is
-			/// less or equals to 0.
-			/// </param>
-			/// <param name="bitsMultisample">
-			/// A <see cref="System.Int32"/> that specifies the required multisample buffer bits. This parameter is ignored in the case is
-			/// less or equals to 0.
-			/// </param>
-			/// <returns>
-			/// It returns a list of integer values suitable for requesting color buffer bits.
-			/// </returns>
-			public IEnumerable<int> GetWindowColorBits(int bitsDepth, int bitsStencil, int bitsMultisample)
-			{
-				List<PixelLayout> windowPixelFormats = this;
-
-				// Filter for window rendering type
-				windowPixelFormats = FilterPixelFormatByWindow(windowPixelFormats);
-				// Filter for buffer bits
-				return (GetFormatColorBits(windowPixelFormats, bitsDepth, bitsStencil, bitsMultisample));
-			}
-
-			#endregion
-
-			#region Window Depth Bits
-
-			/// <summary>
-			/// Get all possible depth bit values for rendering on visibile windows.
-			/// </summary>
-			/// <returns>
-			/// It returns a list of integer values suitable for requesting depth buffer bits.
-			/// </returns>
-			public IEnumerable<int> GetWindowDepthBits()
-			{
-				return (GetWindowDepthBits(-1, -1, -1));
-			}
-
-			/// <summary>
-			/// Get all possible depth bit values for rendering on visibile windows.
-			/// </summary>
-			/// <param name="bitsColor">
-			/// A <see cref="System.Int32"/> that specifies the required color buffer bits. This parameter is ignored in the case is
-			/// less or equals to 0.
-			/// </param>
-			/// <returns>
-			/// It returns a list of integer values suitable for requesting depth buffer bits.
-			/// </returns>
-			public IEnumerable<int> GetWindowDepthBits(int bitsColor)
-			{
-				return (GetWindowDepthBits(bitsColor, -1, -1));
-			}
-
-			/// <summary>
-			/// Get all possible depth bit values for rendering on visibile windows.
-			/// </summary>
-			/// <param name="bitsColor">
-			/// A <see cref="System.Int32"/> that specifies the required color buffer bits. This parameter is ignored in the case is
-			/// less or equals to 0.
-			/// </param>
-			/// <param name="bitsMultisample">
-			/// A <see cref="System.Int32"/> that specifies the required multisample buffer bits. This parameter is ignored in the case is
-			/// less or equals to 0.
-			/// </param>
-			/// <returns>
-			/// It returns a list of integer values suitable for requesting depth buffer bits.
-			/// </returns>
-			public IEnumerable<int> GetWindowDepthBits(int bitsColor, int bitsMultisample)
-			{
-				return (GetWindowDepthBits(bitsColor, -1, bitsMultisample));
-			}
-
-			/// <summary>
-			/// Get all possible depth bit values for rendering on visibile windows.
-			/// </summary>
-			/// <param name="colorBits">
-			/// A <see cref="System.Int32"/> that specifies the required color buffer bits. This parameter is ignored in the case is
-			/// less or equals to 0.
-			/// </param>
-			/// <param name="bitsStencil">
-			/// A <see cref="System.Int32"/> that specifies the required stencil buffer bits. This parameter is ignored in the case is
-			/// less or equals to 0.
-			/// </param>
-			/// <param name="bitsMultisample">
-			/// A <see cref="System.Int32"/> that specifies the required multisample buffer bits. This parameter is ignored in the case is
-			/// less or equals to 0.
-			/// </param>
-			/// <returns>
-			/// It returns a list of integer values suitable for requesting depth buffer bits.
-			/// </returns>
-			public IEnumerable<int> GetWindowDepthBits(int colorBits, int bitsStencil, int bitsMultisample)
-			{
-				List<PixelLayout> windowPixelFormats = this;
-
-				// Filter for window rendering type
-				windowPixelFormats = FilterPixelFormatByWindow(windowPixelFormats);
-				// Filter for buffer bits
-				return (GetFormatDepthBits(windowPixelFormats, colorBits, bitsStencil, bitsMultisample));
-			}
-
-			#endregion
-
-			#region Window Stencil Bits
-
-			/// <summary>
-			/// Get all possible multisample bit values for rendering on visibile windows.
-			/// </summary>
-			/// <returns>
-			/// It returns a list of integer values suitable for requesting depth buffer bits.
-			/// </returns>
-			public IEnumerable<int> GetWindowStencilBits()
-			{
-				return (GetWindowStencilBits(-1, -1, -1));
-			}
-
-			/// <summary>
-			/// Get all possible multisample bit values for rendering on visibile windows.
-			/// </summary>
-			/// <param name="bitsColor">
-			/// A <see cref="System.Int32"/> that specifies the required color buffer bits. This parameter is ignored in the case is
-			/// less or equals to 0.
-			/// </param>
-			/// <returns>
-			/// It returns a list of integer values suitable for requesting depth buffer bits.
-			/// </returns>
-			public IEnumerable<int> GetWindowStencilBits(int bitsColor)
-			{
-				return (GetWindowStencilBits(bitsColor, -1, -1));
-			}
-
-			/// <summary>
-			/// Get all possible multisample bit values for rendering on visibile windows.
-			/// </summary>
-			/// <param name="bitsColor">
-			/// A <see cref="System.Int32"/> that specifies the required color buffer bits. This parameter is ignored in the case is
-			/// less or equals to 0.
-			/// </param>
-			/// <param name="bitsDepth">
-			/// A <see cref="System.Int32"/> that specifies the required depth buffer bits. This parameter is ignored in the case is
-			/// less or equals to 0.
-			/// </param>
-			/// <returns>
-			/// It returns a list of integer values suitable for requesting depth buffer bits.
-			/// </returns>
-			public IEnumerable<int> GetWindowStencilBits(int bitsColor, int bitsDepth)
-			{
-				return (GetWindowStencilBits(bitsColor, bitsDepth, -1));
-			}
-
-			/// <summary>
-			/// Get all possible multisample bit values for rendering on visibile windows.
-			/// </summary>
-			/// <param name="bitsColor">
-			/// A <see cref="System.Int32"/> that specifies the required color buffer bits. This parameter is ignored in the case is
-			/// less or equals to 0.
-			/// </param>
-			/// <param name="bitsDepth">
-			/// A <see cref="System.Int32"/> that specifies the required depth buffer bits. This parameter is ignored in the case is
-			/// less or equals to 0.
-			/// </param>
-			/// <param name="bitsMultisample">
-			/// A <see cref="System.Int32"/> that specifies the required multisample buffer bits. This parameter is ignored in the case is
-			/// less or equals to 0.
-			/// </param>
-			/// <returns>
-			/// It returns a list of integer values suitable for requesting depth buffer bits.
-			/// </returns>
-			public IEnumerable<int> GetWindowStencilBits(int bitsColor, int bitsDepth, int bitsMultisample)
-			{
-				List<PixelLayout> windowPixelFormats = this;
-
-				// Filter for window rendering type
-				windowPixelFormats = FilterPixelFormatByWindow(windowPixelFormats);
-				// Filter for buffer bits
-				return (GetFormatStencilBits(windowPixelFormats, bitsColor, bitsDepth, bitsMultisample));
-			}
-
-			#endregion
-
-			#region Window Multisample Bits
-
-			/// <summary>
-			/// Get all possible multisample bit values for rendering on visibile windows.
-			/// </summary>
-			/// <returns>
-			/// It returns a list of integer values suitable for requesting depth buffer bits.
-			/// </returns>
-			public IEnumerable<int> GetWindowMultisampleBits()
-			{
-				return (GetWindowMultisampleBits(-1, -1, -1));
-			}
-
-			/// <summary>
-			/// Get all possible multisample bit values for rendering on visibile windows.
-			/// </summary>
-			/// <param name="bitsColor">
-			/// A <see cref="System.Int32"/> that specifies the required color buffer bits. This parameter is ignored in the case is
-			/// less or equals to 0.
-			/// </param>
-			/// <returns>
-			/// It returns a list of integer values suitable for requesting depth buffer bits.
-			/// </returns>
-			public IEnumerable<int> GetWindowMultisampleBits(int bitsColor)
-			{
-				return (GetWindowMultisampleBits(bitsColor, -1, -1));
-			}
-
-			/// <summary>
-			/// Get all possible multisample bit values for rendering on visibile windows.
-			/// </summary>
-			/// <param name="bitsColor">
-			/// A <see cref="System.Int32"/> that specifies the required color buffer bits. This parameter is ignored in the case is
-			/// less or equals to 0.
-			/// </param>
-			/// <param name="bitsDepth">
-			/// A <see cref="System.Int32"/> that specifies the required depth buffer bits. This parameter is ignored in the case is
-			/// less or equals to 0.
-			/// </param>
-			/// <returns>
-			/// It returns a list of integer values suitable for requesting depth buffer bits.
-			/// </returns>
-			public IEnumerable<int> GetWindowMultisampleBits(int bitsColor, int bitsDepth)
-			{
-				return (GetWindowMultisampleBits(bitsColor, bitsDepth, -1));
-			}
-
-			/// <summary>
-			/// Get all possible multisample bit values for rendering on visibile windows.
-			/// </summary>
-			/// <param name="bitsColor">
-			/// A <see cref="System.Int32"/> that specifies the required color buffer bits. This parameter is ignored in the case is
-			/// less or equals to 0.
-			/// </param>
-			/// <param name="bitsDepth">
-			/// A <see cref="System.Int32"/> that specifies the required depth buffer bits. This parameter is ignored in the case is
-			/// less or equals to 0.
-			/// </param>
-			/// <param name="bitsStencil">
-			/// A <see cref="System.Int32"/> that specifies the required stencil buffer bits. This parameter is ignored in the case is
-			/// less or equals to 0.
-			/// </param>
-			/// <returns>
-			/// It returns a list of integer values suitable for requesting depth buffer bits.
-			/// </returns>
-			public IEnumerable<int> GetWindowMultisampleBits(int bitsColor, int bitsDepth, int bitsStencil)
-			{
-				List<PixelLayout> windowPixelFormats = this;
-
-				// Filter for window rendering type
-				windowPixelFormats = FilterPixelFormatByWindow(windowPixelFormats);
-				// Filter for buffer bits
-				return (GetFormatMultisampleBits(windowPixelFormats, bitsColor, bitsStencil, bitsStencil));
-			}
-
-			#endregion
-
-			#endregion
-
-			#region Render Buffer Format Filtering
-
-
-
-			#endregion
-
-			#region Render PBuffer Format Filtering
-
-
-
-			#endregion
-
-			#region Pixel Format Filtering
-
-			#region Combined Bits Filter
-
-			/// <summary>
-			/// Get all possible color bit values for rendering on a certain pixel format list.
-			/// </summary>
-			/// <param name="pFormats">
-			/// A <see cref="System.Int32"/> that specifies the initially available pixel formats.
-			/// </param>
-			/// <param name="bitsDepth">
-			/// A <see cref="System.Int32"/> that specifies the required depth buffer bits. This parameter is ignored in the case is
-			/// less or equals to 0.
-			/// </param>
-			/// <param name="bitsStencil">
-			/// A <see cref="System.Int32"/> that specifies the required stencil buffer bits. This parameter is ignored in the case is
-			/// less or equals to 0.
-			/// </param>
-			/// <param name="bitsMultisample">
-			/// A <see cref="System.Int32"/> that specifies the required multisample buffer bits. This parameter is ignored in the case is
-			/// less or equals to 0.
-			/// </param>
-			/// <returns>
-			/// It returns a list of integer values suitable for requesting color buffer bits.
-			/// </returns>
-			public IEnumerable<int> GetFormatColorBits(List<PixelLayout> pFormats, int bitsDepth, int bitsStencil, int bitsMultisample)
-			{
-				List<PixelLayout> windowPixelFormats = this;
-				SortedDictionary<int, int> windowColorBits = new SortedDictionary<int, int>();
-
-				// Filter for buffer bits
-				if (bitsDepth > 0)
-					pFormats = FilterPixelFormatByDepthBits(pFormats, bitsDepth);
-				if (bitsStencil > 0)
-					pFormats = FilterPixelFormatByDepthBits(pFormats, bitsStencil);
-				if (bitsMultisample > 0)
-					pFormats = FilterPixelFormatByMultisampleBits(pFormats, bitsMultisample);
-				// Find all unique color bits combinations
-				foreach (PixelLayout pFormat in windowPixelFormats)
-					if (windowColorBits.ContainsKey(pFormat.ColorBits) == false)
-						windowColorBits.Add(pFormat.ColorBits, pFormat.ColorBits);
-
-				return (windowColorBits.Keys);
-			}
-
-			/// <summary>
-			/// Get all possible depth bit values for rendering on a certain pixel format list.
-			/// </summary>
-			/// <param name="pFormats">
-			/// A <see cref="System.Int32"/> that specifies the initially available pixel formats.
-			/// </param>
-			/// <param name="bitsColor">
-			/// A <see cref="System.Int32"/> that specifies the required color buffer bits. This parameter is ignored in the case is
-			/// less or equals to 0.
-			/// </param>
-			/// <param name="bitsStencil">
-			/// A <see cref="System.Int32"/> that specifies the required stencil buffer bits. This parameter is ignored in the case is
-			/// less or equals to 0.
-			/// </param>
-			/// <param name="bitsMultisample">
-			/// A <see cref="System.Int32"/> that specifies the required multisample buffer bits. This parameter is ignored in the case is
-			/// less or equals to 0.
-			/// </param>
-			/// <returns>
-			/// It returns a list of integer values suitable for requesting color buffer bits.
-			/// </returns>
-			public IEnumerable<int> GetFormatDepthBits(List<PixelLayout> pFormats, int bitsColor, int bitsStencil, int bitsMultisample)
-			{
-				List<PixelLayout> windowPixelFormats = this;
-				SortedDictionary<int, int> windowColorBits = new SortedDictionary<int, int>();
-
-				// Filter for buffer bits
-				if (bitsColor > 0)
-					pFormats = FilterPixelFormatByColorBits(pFormats, bitsColor);
-				if (bitsStencil > 0)
-					pFormats = FilterPixelFormatByStencilBits(pFormats, bitsStencil);
-				if (bitsMultisample > 0)
-					pFormats = FilterPixelFormatByMultisampleBits(pFormats, bitsMultisample);
-				// Find all unique color bits combinations
-				foreach (PixelLayout pFormat in windowPixelFormats)
-					if (windowColorBits.ContainsKey(pFormat.DepthBits) == false)
-						windowColorBits.Add(pFormat.DepthBits, pFormat.ColorBits);
-
-				return (windowColorBits.Keys);
-			}
-
-			/// <summary>
-			/// Get all possible stencil bit values for rendering on a certain pixel format list.
-			/// </summary>
-			/// <param name="pFormats">
-			/// A <see cref="System.Int32"/> that specifies the initially available pixel formats.
-			/// </param>
-			/// <param name="bitsColor">
-			/// A <see cref="System.Int32"/> that specifies the required color buffer bits. This parameter is ignored in the case is
-			/// less or equals to 0.
-			/// </param>
-			/// <param name="bitsDepth">
-			/// A <see cref="System.Int32"/> that specifies the required depth buffer bits. This parameter is ignored in the case is
-			/// less or equals to 0.
-			/// </param>
-			/// <param name="bitsMultisample">
-			/// A <see cref="System.Int32"/> that specifies the required multisample buffer bits. This parameter is ignored in the case is
-			/// less or equals to 0.
-			/// </param>
-			/// <returns>
-			/// It returns a list of integer values suitable for requesting depth buffer bits.
-			/// </returns>
-			public IEnumerable<int> GetFormatStencilBits(List<PixelLayout> pFormats, int bitsColor, int bitsDepth, int bitsMultisample)
-			{
-				List<PixelLayout> windowPixelFormats = this;
-				SortedDictionary<int, int> windowColorBits = new SortedDictionary<int, int>();
-
-				// Filter for buffer bits
-				if (bitsColor > 0)
-					pFormats = FilterPixelFormatByColorBits(pFormats, bitsColor);
-				if (bitsDepth > 0)
-					pFormats = FilterPixelFormatByDepthBits(pFormats, bitsDepth);
-				if (bitsMultisample > 0)
-					pFormats = FilterPixelFormatByMultisampleBits(pFormats, bitsMultisample);
-				// Find all unique color bits combinations
-				foreach (PixelLayout pFormat in windowPixelFormats)
-					if (windowColorBits.ContainsKey(pFormat.StencilBits) == false)
-						windowColorBits.Add(pFormat.StencilBits, pFormat.ColorBits);
-
-				return (windowColorBits.Keys);
-			}
-
-			/// <summary>
-			/// Get all possible multisample bit values for rendering on a certain pixel format list.
-			/// </summary>
-			/// <param name="pFormats">
-			/// A <see cref="System.Int32"/> that specifies the initially available pixel formats.
-			/// </param>
-			/// <param name="bitsColor">
-			/// A <see cref="System.Int32"/> that specifies the required color buffer bits. This parameter is ignored in the case is
-			/// less or equals to 0.
-			/// </param>
-			/// <param name="bitsDepth">
-			/// A <see cref="System.Int32"/> that specifies the required depth buffer bits. This parameter is ignored in the case is
-			/// less or equals to 0.
-			/// </param>
-			/// <param name="bitsStencil">
-			/// A <see cref="System.Int32"/> that specifies the required stencil buffer bits. This parameter is ignored in the case is
-			/// less or equals to 0.
-			/// </param>
-			/// <returns>
-			/// It returns a list of integer values suitable for requesting multisample buffer bits.
-			/// </returns>
-			public IEnumerable<int> GetFormatMultisampleBits(List<PixelLayout> pFormats, int bitsColor, int bitsDepth, int bitsStencil)
-			{
-				List<PixelLayout> windowPixelFormats = this;
-				SortedDictionary<int, int> windowColorBits = new SortedDictionary<int, int>();
-
-				// Filter for buffer bits
-				if (bitsColor > 0)
-					pFormats = FilterPixelFormatByColorBits(pFormats, bitsColor);
-				if (bitsDepth > 0)
-					pFormats = FilterPixelFormatByDepthBits(pFormats, bitsDepth);
-				if (bitsStencil > 0)
-					pFormats = FilterPixelFormatByStencilBits(pFormats, bitsStencil);
-				// Find all unique color bits combinations
-				foreach (PixelLayout pFormat in windowPixelFormats)
-					if (windowColorBits.ContainsKey(pFormat.MultisampleBits) == false)
-						windowColorBits.Add(pFormat.MultisampleBits, pFormat.ColorBits);
-
-				return (windowColorBits.Keys);
-			}
-
-			#endregion
-
-			#region Render Mode Filter
-
-			private List<PixelLayout> FilterPixelFormatByWindow(List<PixelLayout> formats)
-			{
-				if (formats == null)
-					throw new ArgumentNullException("formats");
-
-				return (formats.FindAll(delegate(PixelLayout pFormat) { return (pFormat.RenderWindow == true); }));
-			}
-
-			private List<PixelLayout> FilterPixelFormatByBuffer(List<PixelLayout> formats)
-			{
-				if (formats == null)
-					throw new ArgumentNullException("formats");
-
-				return (formats.FindAll(delegate(PixelLayout pFormat) { return (pFormat.RenderBuffer == true); }));
-			}
-
-			private List<PixelLayout> FilterPixelFormatByPBuffer(List<PixelLayout> formats)
-			{
-				if (formats == null)
-					throw new ArgumentNullException("formats");
-
-				return (formats.FindAll(delegate(PixelLayout pFormat) { return (pFormat.RenderPBuffer == true); }));
-			}
-
-			#endregion
-
-			#region Color/Depth/Stencil/Multisample Bits Filter
-
-			private List<PixelLayout> FilterPixelFormatByColorBits(List<PixelLayout> formats, int bits)
-			{
-				if (formats == null)
-					throw new ArgumentNullException("formats");
-
-				return (formats.FindAll(delegate(PixelLayout pFormat) { return (pFormat.ColorBits == bits); }));
-			}
-
-			private List<PixelLayout> FilterPixelFormatByDepthBits(List<PixelLayout> formats, int bits)
-			{
-				if (formats == null)
-					throw new ArgumentNullException("formats");
-
-				return (formats.FindAll(delegate(PixelLayout pFormat) { return (pFormat.DepthBits == bits); }));
-			}
-
-			private List<PixelLayout> FilterPixelFormatByStencilBits(List<PixelLayout> formats, int bits)
-			{
-				if (formats == null)
-					throw new ArgumentNullException("formats");
-
-				return (formats.FindAll(delegate(PixelLayout pFormat) { return (pFormat.StencilBits == bits); }));
-			}
-
-			private List<PixelLayout> FilterPixelFormatByMultisampleBits(List<PixelLayout> formats, int bits)
-			{
-				if (formats == null)
-					throw new ArgumentNullException("formats");
-
-				return (formats.FindAll(delegate(PixelLayout pFormat) { return (pFormat.MultisampleBits == bits); }));
-			}
-
-			#endregion
-
-			#endregion
-		}
-
-		/// <summary>
 		/// Query available pixel format of a device.
 		/// </summary>
 		/// <param name="rDevice">
@@ -1730,7 +1075,7 @@ namespace OpenGL
 		/// </param>
 		/// <returns>
 		/// </returns>
-		public static PixelFormatCollection QueryPixelFormats(IDeviceContext deviceContext)
+		public static DevicePixelFormatCollection QueryPixelFormats(IDeviceContext deviceContext)
 		{
 			return (QueryPixelFormats(deviceContext, CurrentCaps));
 		}
@@ -1750,7 +1095,7 @@ namespace OpenGL
 		/// <exception cref="ArgumentNullException">
 		/// Exception throw if <paramref name="ctx"/> is null.
 		/// </exception>
-		public static PixelFormatCollection QueryPixelFormats(IDeviceContext deviceContext, GraphicsContext ctx)
+		public static DevicePixelFormatCollection QueryPixelFormats(IDeviceContext deviceContext, GraphicsContext ctx)
 		{
 			if (ctx == null)
 				throw new ArgumentNullException("ctx");
@@ -1776,7 +1121,7 @@ namespace OpenGL
 		/// <exception cref="ArgumentNullException">
 		/// Exception throw if <paramref name="caps"/> is null.
 		/// </exception>
-		public static PixelFormatCollection QueryPixelFormats(IDeviceContext deviceContext, GraphicsCapabilities caps)
+		public static DevicePixelFormatCollection QueryPixelFormats(IDeviceContext deviceContext, GraphicsCapabilities caps)
 		{
 			if (deviceContext == null)
 				throw new ArgumentNullException("deviceContext");
@@ -1798,7 +1143,7 @@ namespace OpenGL
 			}
 		}
 
-		private static PixelFormatCollection QueryPixelFormatsWgl(IDeviceContext deviceContext, GraphicsCapabilities caps)
+		private static DevicePixelFormatCollection QueryPixelFormatsWgl(IDeviceContext deviceContext, GraphicsCapabilities caps)
 		{
 			if (deviceContext == null)
 				throw new ArgumentNullException("deviceContext");
@@ -1806,7 +1151,7 @@ namespace OpenGL
 				throw new ArgumentNullException("caps");
 
 			WindowsDeviceContext winDeviceContext = (WindowsDeviceContext)deviceContext;
-			PixelFormatCollection pFormats = new PixelFormatCollection();
+			DevicePixelFormatCollection pFormats = new DevicePixelFormatCollection();
 			List<int> pfAttributesCodes = new List<int>(12);
 			int[] pfAttributesValue;
 
@@ -1843,7 +1188,7 @@ namespace OpenGL
 
 			pfAttributesValue = new int[pfAttributesCodes.Count];
 			for (int pFormatIndex = 1; ; pFormatIndex++) {
-				PixelLayout pFormat;
+				DevicePixelFormat pFormat = new DevicePixelFormat();
 
 				if (Wgl.GetPixelFormatAttribARB(winDeviceContext.DeviceContext, pFormatIndex, 0, (uint)pfAttributesCodes.Count, pfAttributesCodes.ToArray(), pfAttributesValue) == false) {
 					Debug.Assert(pFormats.Count > 0, "wrong pixel format attribute list");
@@ -1923,7 +1268,7 @@ namespace OpenGL
 			return (pFormats);
 		}
 
-		private static PixelFormatCollection QueryPixelFormatsGlx(IDeviceContext deviceContext, GraphicsCapabilities caps)
+		private static DevicePixelFormatCollection QueryPixelFormatsGlx(IDeviceContext deviceContext, GraphicsCapabilities caps)
 		{
 			if (deviceContext == null)
 				throw new ArgumentNullException("deviceContext");
@@ -1931,7 +1276,7 @@ namespace OpenGL
 				throw new ArgumentNullException("caps");
 
 			XServerDeviceContext x11DeviceContext = (XServerDeviceContext)deviceContext;
-			PixelFormatCollection pFormats = new PixelFormatCollection();
+			DevicePixelFormatCollection pFormats = new DevicePixelFormatCollection();
 
 			using (Glx.XLock xLock = new Glx.XLock(x11DeviceContext.Display)) {
 				int configsCount = 0;
@@ -1959,7 +1304,7 @@ namespace OpenGL
 
 						#endregion
 
-						PixelLayout pixelFormat = new PixelLayout();
+						DevicePixelFormat pixelFormat = new DevicePixelFormat();
 
 						pixelFormat.XFbConfig = configId;
 
@@ -2117,7 +1462,7 @@ namespace OpenGL
 
 			#region Textures
 
-			if (Caps.TextureObject == true) {
+			if (Caps.TextureObjectEXT == true) {
                 // Generate texture name
                 texture = Gl.GenTexture();
 				// Ensure existing texture object
