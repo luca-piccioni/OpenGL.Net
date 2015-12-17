@@ -71,6 +71,21 @@ namespace OpenGL
 
 		#endregion
 
+		#region Availability
+
+		/// <summary>
+		/// Determine whether EGL layer is avaialble.
+		/// </summary>
+		public static bool IsAvailable
+		{
+			get
+			{
+				return (Delegates.peglInitialize != null);
+			}
+		}
+
+		#endregion
+
 		#region Debugging
 
 		/// <summary>
