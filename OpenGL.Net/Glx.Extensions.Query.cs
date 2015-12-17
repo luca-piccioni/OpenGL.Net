@@ -39,17 +39,16 @@ namespace OpenGL
 					throw new ArgumentNullException("deviceContext");
 
 				string glxExtensions = null;
+				int[] majorArg = new int[1], minorArg = new int[1];
 
 				using (Glx.XLock xLock = new Glx.XLock(deviceContext.Display)) {
-					int[] majorArg = new int[1], minorArg = new int[1];
-
 					Glx.QueryVersion(deviceContext.Display, majorArg, minorArg);
 
 					if ((majorArg[0] >= 1) && (minorArg[0] >= 1))
 						glxExtensions = Glx.QueryExtensionsString(deviceContext.Display, 0);
 				}
 
-				Query(glxExtensions ?? String.Empty);
+				Query(new KhronosVersion(majorArg[0], minorArg[1]), glxExtensions ?? String.Empty);
 			}
 		}
 	}

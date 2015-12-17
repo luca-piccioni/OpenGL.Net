@@ -18,7 +18,6 @@
 
 using System;
 using System.Collections.Generic;
-using System.Text.RegularExpressions;
 
 namespace OpenGL
 {
@@ -37,16 +36,12 @@ namespace OpenGL
 			/// </remarks>
 			public void Query()
 			{
-				string glVersion = GetString(StringName.Version);
-				if (glVersion == null)
+				string glVersionString = GetString(StringName.Version);
+				if (glVersionString == null)
 					throw new InvalidOperationException("unable to determine OpenGL version");
 
-				Match glVersionMatch = Regex.Match(glVersion, @"(?<Major>\d+)\..*");
-				if (glVersionMatch.Success == false)
-					throw new InvalidOperationException("unable to match OpenGL version pattern");
-
-				int glVersionMajor = Int32.Parse(glVersionMatch.Groups["Major"].Value, System.Globalization.NumberFormatInfo.InvariantInfo);
-				bool indexedExtensions = (glVersionMajor >= 3) && (Delegates.pglGetStringi != null);
+				KhronosVersion glVersion = KhronosVersion.Parse(glVersionString);
+				bool indexedExtensions = (glVersion.Major >= 3) && (Delegates.pglGetStringi != null);
 
 				if (indexedExtensions) {
 					int extensionCount;
@@ -57,9 +52,9 @@ namespace OpenGL
 					for (uint i = 0; i < (uint)extensionCount; i++)
 						extensions.Add(GetString((int)StringName.Extensions, i));
 
-					Query(extensions.ToArray());
+					Query(glVersion, extensions.ToArray());
 				} else {
-					Query(GetString(StringName.Extensions));
+					Query(glVersion, GetString(StringName.Extensions));
 				}
 			}
 		}

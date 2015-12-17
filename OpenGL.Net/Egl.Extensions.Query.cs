@@ -30,11 +30,11 @@ namespace OpenGL
 			/// <summary>
 			/// Query the extensions supported by current platform.
 			/// </summary>
-			public void Query(IntPtr display)
+			public void Query(KhronosVersion version, IntPtr display)
 			{
 				string eglExtensions = QueryString(display, Egl.EXTENSIONS);
 
-				Query(eglExtensions ?? String.Empty);
+				Query(version, eglExtensions ?? String.Empty);
 			}
 
 		}

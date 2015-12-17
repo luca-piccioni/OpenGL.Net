@@ -49,18 +49,10 @@ namespace OpenGL.Test
 					throw new InvalidOperationException("unable to make current the OpenGL context");
 
 				// Get OpenGL version
-				if ((_Version = Gl.GetString(StringName.Version)) == null)
+				if ((_VersionString = Gl.GetString(StringName.Version)) == null)
 					throw new InvalidOperationException("unable to get the OpenGL version");
-				
 				// Extract OpenGL version numbers
-				Match versionMatch;
-
-				if ((versionMatch = Regex.Match(_Version, @"(?<Major>\d+)\.(?<Minor>\d+)(\.(?<Rev>\d+))?(.*)?")).Success == false)
-					throw new InvalidOperationException("unable to parse the OpenGL version");
-				_VersionMajor = Int32.Parse(versionMatch.Groups["Major"].Value);
-				_VersionMinor = Int32.Parse(versionMatch.Groups["Minor"].Value);
-				_VersionRevision = versionMatch.Groups["Rev"].Success ? Int32.Parse(versionMatch.Groups["Rev"].Value) : 0;
-
+				_Version = KhronosVersion.Parse(_VersionString);
 				// Get OpenGL extensions
 				_GlExtensions.Query();
 				// Get OpenGL window system extensions
@@ -131,7 +123,7 @@ namespace OpenGL.Test
 		/// <summary>
 		/// Get the OpenGL version of the OpenGL context.
 		/// </summary>
-		protected string Version { get { return (_Version); } }
+		protected string Version { get { return (_VersionString); } }
 
 		/// <summary>
 		/// Check whether a specific OpenGL version is supported.
@@ -167,14 +159,7 @@ namespace OpenGL.Test
 		/// </returns>
 		protected bool HasVersion(int major, int minor, int revision)
 		{
-			if (_VersionMajor > major)
-				return (true);
-			if ((_VersionMajor == major) && (_VersionMinor > minor))
-				return (true);
-			if ((_VersionMajor == major) && (_VersionMinor > minor) && (_VersionRevision >= revision))
-				return (true);
-
-			return (false);
+			return (_Version >= new KhronosVersion(major, minor, revision));
 		}
 
 		/// <summary>
@@ -234,22 +219,12 @@ namespace OpenGL.Test
 		/// <summary>
 		/// The OpenGL version of the OpenGL context.
 		/// </summary>
-		private string _Version;
+		private string _VersionString;
 
 		/// <summary>
-		/// The OpenGL version of the OpenGL context: major number.
+		/// The OpenGL version of the OpenGL context.
 		/// </summary>
-		private int _VersionMajor;
-
-		/// <summary>
-		/// The OpenGL version of the OpenGL context: minor number.
-		/// </summary>
-		private int _VersionMinor;
-
-		/// <summary>
-		/// The OpenGL version of the OpenGL context: revision number.
-		/// </summary>
-		private int _VersionRevision;
+		private KhronosVersion _Version;
 
 		/// <summary>
 		/// OpenGL extensions support.

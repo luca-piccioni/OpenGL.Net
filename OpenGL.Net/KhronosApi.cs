@@ -254,57 +254,115 @@ namespace OpenGL
 		/// <summary>
 		/// Attribute asserting the extension requiring the underlying member.
 		/// </summary>
-		[AttributeUsage(AttributeTargets.Field, AllowMultiple = false)]
+		[AttributeUsage(AttributeTargets.Field, AllowMultiple = true)]
 		public sealed class CoreExtensionAttribute : Attribute
 		{
+			#region Constructors
+
 			/// <summary>
-			/// Construct a CoreExtensionAttribute, specifying the required OpenGL version.
+			/// Construct a CoreExtensionAttribute specifying the version numbers.
 			/// </summary>
 			/// <param name="major">
-			/// A <see cref="Int32"/> that specifies the required major of the OpenGL version.
+			/// A <see cref="Int32"/> that specifies that major version number.
 			/// </param>
 			/// <param name="minor">
-			/// A <see cref="Int32"/> that specifies the required minor of the OpenGL version.
+			/// A <see cref="Int32"/> that specifies that minor version number.
 			/// </param>
-			public CoreExtensionAttribute(int major, int minor) :
-				this(major, minor, 0)
+			/// <param name="api">
+			/// A <see cref="String"/> that specifies the API name.
+			/// </param>
+			/// <exception cref="ArgumentException">
+			/// Exception thrown if <paramref name="major"/> is less or equals to 0, or if <paramref name="minor"/> is less than 0.
+			/// </exception>
+			/// <exception cref="ArgumentNullException">
+			/// Exception thrown if <paramref name="api"/> is null.
+			/// </exception>
+			public CoreExtensionAttribute(int major, int minor, string api) :
+				this(major, minor, 0, api)
 			{
 
 			}
 
 			/// <summary>
-			/// Construct a CoreExtensionAttribute, specifying the required OpenGL version.
+			/// Construct a CoreExtensionAttribute specifying the version numbers.
 			/// </summary>
 			/// <param name="major">
-			/// A <see cref="Int32"/> that specifies the required major of the OpenGL version.
+			/// A <see cref="Int32"/> that specifies that major version number.
 			/// </param>
 			/// <param name="minor">
-			/// A <see cref="Int32"/> that specifies the required minor of the OpenGL version.
+			/// A <see cref="Int32"/> that specifies that minor version number.
+			/// </param>
+			/// <exception cref="ArgumentException">
+			/// Exception thrown if <paramref name="major"/> is less or equals to 0, or if <paramref name="minor"/> is less than 0.
+			/// </exception>
+			public CoreExtensionAttribute(int major, int minor) :
+				this(major, minor, 0, String.Empty)
+			{
+
+			}
+
+			/// <summary>
+			/// Construct a CoreExtensionAttribute specifying the version numbers.
+			/// </summary>
+			/// <param name="major">
+			/// A <see cref="Int32"/> that specifies that major version number.
+			/// </param>
+			/// <param name="minor">
+			/// A <see cref="Int32"/> that specifies that minor version number.
 			/// </param>
 			/// <param name="revision">
-			/// A <see cref="Int32"/> that specifies the required revision of the OpenGL version.
+			/// A <see cref="Int32"/> that specifies that revision version number.
 			/// </param>
-			public CoreExtensionAttribute(int major, int minor, int revision)
+			/// <param name="api">
+			/// A <see cref="String"/> that specifies the API name.
+			/// </param>
+			/// <exception cref="ArgumentException">
+			/// Exception thrown if <paramref name="major"/> is less or equals to 0, or if <paramref name="minor"/> or
+			/// <paramref name="revision"/> are less than 0.
+			/// </exception>
+			public CoreExtensionAttribute(int major, int minor, int revision) :
+				this(major, minor, revision, String.Empty)
 			{
-				VersionMajor = major;
-				VersionMinor = minor;
-				VersionRevision = revision;
+
 			}
+
+			/// <summary>
+			/// Construct a CoreExtensionAttribute specifying the version numbers.
+			/// </summary>
+			/// <param name="major">
+			/// A <see cref="Int32"/> that specifies that major version number.
+			/// </param>
+			/// <param name="minor">
+			/// A <see cref="Int32"/> that specifies that minor version number.
+			/// </param>
+			/// <param name="revision">
+			/// A <see cref="Int32"/> that specifies that revision version number.
+			/// </param>
+			/// <param name="api">
+			/// A <see cref="String"/> that specifies the API name.
+			/// </param>
+			/// <exception cref="ArgumentException">
+			/// Exception thrown if <paramref name="major"/> is less or equals to 0, or if <paramref name="minor"/> or
+			/// <paramref name="revision"/> are less than 0.
+			/// </exception>
+			/// <exception cref="ArgumentNullException">
+			/// Exception thrown if <paramref name="api"/> is null.
+			/// </exception>
+			public CoreExtensionAttribute(int major, int minor, int revision, string api)
+			{
+				Version = new KhronosVersion(major, minor, revision, api);
+			}
+
+			#endregion
+
+			#region Required API Version
 
 			/// <summary>
 			/// The required major OpenGL version for supporting the extension.
 			/// </summary>
-			public readonly int VersionMajor;
+			public readonly KhronosVersion Version;
 
-			/// <summary>
-			/// The required minor OpenGL version for supporting the extension.
-			/// </summary>
-			public readonly int VersionMinor;
-
-			/// <summary>
-			/// The required minor OpenGL version for supporting the extension.
-			/// </summary>
-			public readonly int VersionRevision;
+			#endregion
 		}
 
 		/// <summary>
@@ -361,31 +419,39 @@ namespace OpenGL
 			/// <summary>
 			/// Query the supported extensions.
 			/// </summary>
+			/// <param name="version">
+			/// The <see cref="KhronosVersion"/> that specifies the version of the API context.
+			/// </param>
 			/// <param name="extensionsString">
 			/// A string that specifies the supported extensions, those names are separated by spaces.
 			/// </param>
 			/// <exception cref="ArgumentNullException">
 			/// Exception thrown if <paramref name="extensionsString"/> is null.
 			/// </exception>
-			protected void Query(string extensionsString)
+			protected void Query(KhronosVersion version, string extensionsString)
 			{
 				if (extensionsString == null)
 					throw new ArgumentNullException("extensionsString");
 
-				Query(extensionsString.Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries));
+				Query(version, extensionsString.Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries));
 			}
 
 			/// <summary>
 			/// Query the supported extensions.
 			/// </summary>
+			/// <param name="version">
+			/// The <see cref="KhronosVersion"/> that specifies the version of the API context.
+			/// </param>
 			/// <param name="extensions">
 			/// An array of strings that specifies the supported extensions.
 			/// </param>
 			/// <exception cref="ArgumentNullException">
 			/// Exception thrown if <paramref name="extensions"/> is null.
 			/// </exception>
-			protected void Query(string[] extensions)
+			protected void Query(KhronosVersion version, string[] extensions)
 			{
+				if (version == null)
+					throw new ArgumentNullException("version");
 				if (extensions == null)
 					throw new ArgumentNullException("extensions");
 
@@ -403,18 +469,27 @@ namespace OpenGL
 					if (fieldInfo.FieldType != typeof(bool))
 						continue;
 
-					// Get extensions
-					Attribute[] extensionAttributes = Attribute.GetCustomAttributes(fieldInfo, typeof(ExtensionAttribute));
-					if ((extensionAttributes == null) || (extensionAttributes.Length == 0))
-						continue;
-
-					// Check extension support
 					bool support = false;
 
-					foreach (ExtensionAttribute extensionAttribute in extensionAttributes) {
-						if (_ExtensionsRegistry.ContainsKey(extensionAttribute.ExtensionName)) {
-							support = true;
-							break;
+					// Support by extension
+					Attribute[] coreAttributes = Attribute.GetCustomAttributes(fieldInfo, typeof(CoreExtensionAttribute));
+					if ((coreAttributes != null) && (coreAttributes.Length > 0)) {
+						foreach (CoreExtensionAttribute coreAttribute in coreAttributes) {
+							if (version >= coreAttribute.Version) {
+								support |= true;
+								break;
+							}
+						}
+					}
+
+					// Support by extension
+					Attribute[] extensionAttributes = Attribute.GetCustomAttributes(fieldInfo, typeof(ExtensionAttribute));
+					if ((extensionAttributes != null) && (extensionAttributes.Length > 0)) {
+						foreach (ExtensionAttribute extensionAttribute in extensionAttributes) {
+							if (_ExtensionsRegistry.ContainsKey(extensionAttribute.ExtensionName)) {
+								support |= true;
+								break;
+							}
 						}
 					}
 
