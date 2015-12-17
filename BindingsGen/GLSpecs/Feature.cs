@@ -17,6 +17,7 @@
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Text.RegularExpressions;
 using System.Xml.Serialization;
 
 namespace BindingsGen.GLSpecs
@@ -74,6 +75,21 @@ namespace BindingsGen.GLSpecs
 		/// </summary>
 		[XmlElement("remove")]
 		public readonly List<FeatureCommand> Removals = new List<FeatureCommand>();
+
+		#endregion
+
+		#region Version Support
+
+		/// <summary>
+		/// Determine whether the version of this feature relates to OpenGL ES.
+		/// </summary>
+		public bool IsEsVersion
+		{
+			get
+			{
+				return (Name != null && Regex.IsMatch(Name, "GL_(VERSION_)?ES_.*"));
+			}
+		}
 
 		#endregion
 

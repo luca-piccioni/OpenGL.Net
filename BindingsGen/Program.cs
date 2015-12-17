@@ -19,7 +19,6 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Text.RegularExpressions;
-using System.Xml.Serialization;
 
 using BindingsGen.GLSpecs;
 
@@ -49,6 +48,7 @@ namespace BindingsGen
 				glRegistryProcessor = new RegistryProcessor(ctx.Registry);
 				GenerateCommandsAndEnums(glRegistryProcessor, ctx);
 				GenerateExtensionsSupportClass(glRegistryProcessor, ctx);
+				GenerateVersionsSupportClass(glRegistryProcessor, ctx);
 			}
 
 #if false
@@ -66,6 +66,7 @@ namespace BindingsGen
 				glRegistryProcessor = new RegistryProcessor(ctx.Registry);
 				GenerateCommandsAndEnums(glRegistryProcessor, ctx);
 				GenerateExtensionsSupportClass(glRegistryProcessor, ctx);
+				GenerateVersionsSupportClass(glRegistryProcessor, ctx);
 			}
 
 			// OpenGL for Unix
@@ -74,6 +75,7 @@ namespace BindingsGen
 				glRegistryProcessor = new RegistryProcessor(ctx.Registry);
 				GenerateCommandsAndEnums(glRegistryProcessor, ctx);
 				GenerateExtensionsSupportClass(glRegistryProcessor, ctx);
+				GenerateVersionsSupportClass(glRegistryProcessor, ctx);
 			}
 
 			// EGL
@@ -82,6 +84,7 @@ namespace BindingsGen
 				glRegistryProcessor = new RegistryProcessor(ctx.Registry);
 				GenerateCommandsAndEnums(glRegistryProcessor, ctx);
 				GenerateExtensionsSupportClass(glRegistryProcessor, ctx);
+				GenerateVersionsSupportClass(glRegistryProcessor, ctx);
 			}
 
 			RegistryDocumentation.CloseLog();
@@ -326,6 +329,65 @@ namespace BindingsGen
 				sw.Unindent();
 				sw.WriteLine("}");
 				sw.Unindent();
+
+				sw.Unindent();
+				sw.WriteLine("}");
+				sw.Unindent();
+
+				sw.WriteLine();
+				sw.WriteLine("}");
+			}
+		}
+
+		private static void GenerateVersionsSupportClass(RegistryProcessor glRegistryProcessor, RegistryContext ctx)
+		{
+			string path = String.Format("OpenGL.NET/{0}.Versions.cs", ctx.Class);
+
+			Console.WriteLine("Generate version support class to {0}.", path);
+
+			using (SourceStreamWriter sw = new SourceStreamWriter(Path.Combine(BasePath, path), false)) {
+				RegistryProcessor.GenerateLicensePreamble(sw);
+
+				sw.WriteLine("namespace OpenGL");
+				sw.WriteLine("{");
+				sw.Indent();
+
+				sw.WriteLine("public partial class {0}", ctx.Class);
+				sw.WriteLine("{");
+				sw.Indent();
+
+				sw.WriteLine("#region Known Versions Constants");
+				sw.WriteLine();
+
+				foreach (Feature featureVersion in ctx.Registry.Features) {
+					if (featureVersion.Number == null)
+						continue;
+
+					// Determine version value (support up to 3 version numbers)
+					Match versionMatch = Regex.Match(featureVersion.Number, @"(?<Major>\d+)\.(?<Minor>\d+)(\.(?<Rev>\d+))?");
+					if (versionMatch.Success == false)
+						continue;
+
+					int versionMajor = Int32.Parse(versionMatch.Groups["Major"].Value);
+					int versionMinor = Int32.Parse(versionMatch.Groups["Minor"].Value);
+					int versionRev = versionMatch.Groups["Rev"].Success ? Int32.Parse(versionMatch.Groups["Rev"].Value) : 0;
+
+					int versionValue = versionMajor * 100 + versionMinor * 10 + versionRev;
+
+					// Determine version name
+					string versionName = String.Format("Version_{0}", versionValue);
+					if (featureVersion.IsEsVersion)
+						versionName = String.Format("Version_{0}ES", versionValue);
+
+					sw.WriteLine("/// <summary>");
+					sw.WriteLine("/// Version for {0} API.", SpecificationStyle.GetKhronosVersionHumanReadable(featureVersion.Name));
+					sw.WriteLine("/// </summary>");
+					sw.WriteLine("public const int {0} = {1};", versionName, versionValue);
+					sw.WriteLine();
+				}
+
+				sw.WriteLine("#endregion");
+				sw.WriteLine();
 
 				sw.Unindent();
 				sw.WriteLine("}");

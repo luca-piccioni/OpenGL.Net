@@ -126,7 +126,7 @@ namespace BindingsGen
 		/// It returns the human-readable version of <paramref name="token"/> if a known pattern is detected, otherwise
 		/// it returns <paramref name="token"/>.
 		/// </returns>
-		public static string GetHumanToken(string token)
+		public static string GetKhronosVersionHumanReadable(string token)
 		{
 			if (token == null)
 				throw new ArgumentNullException("token");
