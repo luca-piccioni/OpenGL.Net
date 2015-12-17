@@ -30,7 +30,7 @@ namespace OpenGL
 	/// <summary>
 	/// Modern OpenGL bindings: EGL, Native Platform Interface.
 	/// </summary>
-	public partial class Egl : ProcLoader
+	public partial class Egl : KhronosApi
 	{
 		#region Constructors
 

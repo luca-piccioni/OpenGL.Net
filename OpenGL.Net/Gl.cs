@@ -33,7 +33,7 @@ namespace OpenGL
 	/// <summary>
 	/// Modern OpenGL bindings.
 	/// </summary>
-	public partial class Gl : ProcLoader
+	public partial class Gl : KhronosApi
 	{
 		#region Constructors
 

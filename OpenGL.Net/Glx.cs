@@ -28,7 +28,7 @@ namespace OpenGL
 	/// <summary>
 	/// Modern OpenGL bindings.
 	/// </summary>
-	public partial class Glx : ProcLoader
+	public partial class Glx : KhronosApi
 	{
 		#region Constructors
 

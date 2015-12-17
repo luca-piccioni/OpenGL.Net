@@ -41,7 +41,7 @@ namespace OpenGL
 	/// - To query delegate functions using reflection
 	/// - To link imported functions into delegates functions.
 	/// </remarks>
-	public class ProcLoader
+	public class KhronosApi
 	{
 		#region Import Function Linkage
 
@@ -249,6 +249,62 @@ namespace OpenGL
 			/// The name of the extension.
 			/// </summary>
 			public readonly string ExtensionName;
+		}
+
+		/// <summary>
+		/// Attribute asserting the extension requiring the underlying member.
+		/// </summary>
+		[AttributeUsage(AttributeTargets.Field, AllowMultiple = false)]
+		public sealed class CoreExtensionAttribute : Attribute
+		{
+			/// <summary>
+			/// Construct a CoreExtensionAttribute, specifying the required OpenGL version.
+			/// </summary>
+			/// <param name="major">
+			/// A <see cref="Int32"/> that specifies the required major of the OpenGL version.
+			/// </param>
+			/// <param name="minor">
+			/// A <see cref="Int32"/> that specifies the required minor of the OpenGL version.
+			/// </param>
+			public CoreExtensionAttribute(int major, int minor) :
+				this(major, minor, 0)
+			{
+
+			}
+
+			/// <summary>
+			/// Construct a CoreExtensionAttribute, specifying the required OpenGL version.
+			/// </summary>
+			/// <param name="major">
+			/// A <see cref="Int32"/> that specifies the required major of the OpenGL version.
+			/// </param>
+			/// <param name="minor">
+			/// A <see cref="Int32"/> that specifies the required minor of the OpenGL version.
+			/// </param>
+			/// <param name="revision">
+			/// A <see cref="Int32"/> that specifies the required revision of the OpenGL version.
+			/// </param>
+			public CoreExtensionAttribute(int major, int minor, int revision)
+			{
+				VersionMajor = major;
+				VersionMinor = minor;
+				VersionRevision = revision;
+			}
+
+			/// <summary>
+			/// The required major OpenGL version for supporting the extension.
+			/// </summary>
+			public readonly int VersionMajor;
+
+			/// <summary>
+			/// The required minor OpenGL version for supporting the extension.
+			/// </summary>
+			public readonly int VersionMinor;
+
+			/// <summary>
+			/// The required minor OpenGL version for supporting the extension.
+			/// </summary>
+			public readonly int VersionRevision;
 		}
 
 		/// <summary>

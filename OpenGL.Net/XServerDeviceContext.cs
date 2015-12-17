@@ -71,7 +71,7 @@ namespace OpenGL
 		{
 			// Open display (follows DISPLAY environment variable)
 			_Display = Glx.UnsafeNativeMethods.XOpenDisplay(display);
-			ProcLoader.LogProc("XOpenDisplay(0x0) = 0x{0}", _Display.ToString("X"));
+			KhronosApi.LogProc("XOpenDisplay(0x0) = 0x{0}", _Display.ToString("X"));
 			if (_Display == IntPtr.Zero)
 				throw new InvalidOperationException(String.Format("unable to connect to X server display {0}", display.ToInt32()));
 			// Need to close display
@@ -118,13 +118,13 @@ namespace OpenGL
 			
 			// Get System.Windows.Forms display
 			_Display = (IntPtr)xplatui.GetField("DisplayHandle", System.Reflection.BindingFlags.Static | System.Reflection.BindingFlags.NonPublic).GetValue(null);
-			ProcLoader.LogComment("System.Windows.Forms.XplatUIX11.DisplayHandle is 0x{0}", _Display.ToString("X"));
+			KhronosApi.LogComment("System.Windows.Forms.XplatUIX11.DisplayHandle is 0x{0}", _Display.ToString("X"));
 			if (_Display == IntPtr.Zero)
 				throw new InvalidOperationException("unable to connect to X server using XPlatUI");
 			
 			// Screen
 			_Screen = (int)xplatui.GetField("ScreenNo", System.Reflection.BindingFlags.Static | System.Reflection.BindingFlags.NonPublic).GetValue(null);
-			ProcLoader.LogComment("System.Windows.Forms.XplatUIX11.ScreenNo is {0}", _Screen);
+			KhronosApi.LogComment("System.Windows.Forms.XplatUIX11.ScreenNo is {0}", _Screen);
 
 			// Window handle
 			_WindowHandle = controlHandle;
@@ -263,7 +263,7 @@ namespace OpenGL
 		{
 			// Ensure to have X11 thread system initialized
 			int initialized = Glx.UnsafeNativeMethods.XInitThreads();
-			ProcLoader.LogProc("XInitThreads() = {0}", initialized);
+			KhronosApi.LogProc("XInitThreads() = {0}", initialized);
 			
 			if (initialized == 0)
 				throw new InvalidOperationException("platform does not support multithreading");
@@ -338,7 +338,7 @@ namespace OpenGL
 			if (disposing) {
 				if ((_OwnDisplay == true) && (Display != IntPtr.Zero)) {
 					Glx.UnsafeNativeMethods.XCloseDisplay(Display);
-					ProcLoader.LogProc("XCloseDisplay({0})", Display.ToString("X"));
+					KhronosApi.LogProc("XCloseDisplay({0})", Display.ToString("X"));
 				}
 			}
 		}

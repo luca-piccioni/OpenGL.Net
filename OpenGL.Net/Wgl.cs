@@ -29,7 +29,7 @@ namespace OpenGL
 	/// <summary>
 	/// Modern OpenGL bindings.
 	/// </summary>
-	public partial class Wgl : ProcLoader
+	public partial class Wgl : KhronosApi
 	{
 		#region Constructors
 
