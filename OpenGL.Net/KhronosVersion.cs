@@ -160,6 +160,8 @@ namespace OpenGL
 		/// </remarks>
 		public readonly string Api;
 
+		#endregion
+
 		#region Version Numbers
 
 		/// <summary>
@@ -178,6 +180,16 @@ namespace OpenGL
 		public readonly int Revision;
 
 		#endregion
+
+		#region Version Identifier
+
+		/// <summary>
+		/// Get the version identifier of this KhronosVersion.
+		/// </summary>
+		public int VersionId
+		{
+			get { return (Major * 100 + Minor * 10 + Revision); }
+		}
 
 		#endregion
 
