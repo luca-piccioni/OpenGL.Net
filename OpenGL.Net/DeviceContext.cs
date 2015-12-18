@@ -84,6 +84,11 @@ namespace OpenGL
 		/// </summary>
 		private uint mRefCount;
 
+		/// <summary>
+		/// Get the pixel formats supported by this device.
+		/// </summary>
+		public virtual DevicePixelFormatCollection PixelsFormats { get { return (null); } }
+
 		#endregion
 
 		#region IDisposable Implementation

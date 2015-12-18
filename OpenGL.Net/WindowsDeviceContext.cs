@@ -17,6 +17,8 @@
 // USA
 
 using System;
+using System.Collections.Generic;
+using System.Diagnostics;
 using System.Windows.Forms;
 
 namespace OpenGL
@@ -91,11 +93,114 @@ namespace OpenGL
 		/// The device context of the control.
 		/// </summary>
 		private readonly IntPtr _DeviceContext;
-		
+
 		#endregion
 
 		#region DeviceContext Overrides
-		
+
+		/// <summary>
+		/// Get the pixel formats supported by this device.
+		/// </summary>
+		public override DevicePixelFormatCollection PixelsFormats
+		{
+			get
+			{
+				// Query WGL extensions
+				Wgl.Extensions wglExtensions = new Wgl.Extensions();
+
+				wglExtensions.Query(this);
+
+				// Request configurations
+				DevicePixelFormatCollection pFormats = new DevicePixelFormatCollection();
+				List<int> pfAttributesCodes = new List<int>(12);
+				int[] pfAttributesValue;
+
+				// Minimum requirements
+				pfAttributesCodes.Add(Wgl.SUPPORT_OPENGL_ARB);      // Required to be Gl.TRUE
+				pfAttributesCodes.Add(Wgl.ACCELERATION_ARB);        // Required to be Wgl.FULL_ACCELERATION or Wgl.ACCELERATION_ARB
+				pfAttributesCodes.Add(Wgl.PIXEL_TYPE_ARB);
+				// Buffer destination
+				pfAttributesCodes.Add(Wgl.DRAW_TO_WINDOW_ARB);
+				pfAttributesCodes.Add(Wgl.DRAW_TO_BITMAP_ARB);
+				pfAttributesCodes.Add(Wgl.DRAW_TO_PBUFFER_ARB);
+				// Multiple buffers
+				pfAttributesCodes.Add(Wgl.DOUBLE_BUFFER_ARB);
+				pfAttributesCodes.Add(Wgl.SWAP_METHOD_ARB);
+				pfAttributesCodes.Add(Wgl.STEREO_ARB);
+				// Pixel description
+				pfAttributesCodes.Add(Wgl.COLOR_BITS_ARB);
+				pfAttributesCodes.Add(Wgl.DEPTH_BITS_ARB);
+				pfAttributesCodes.Add(Wgl.STENCIL_BITS_ARB);
+				// Multisample extension
+				if (wglExtensions.Multisample_ARB) {
+					pfAttributesCodes.Add(Wgl.SAMPLE_BUFFERS_ARB);
+					pfAttributesCodes.Add(Wgl.SAMPLES_ARB);
+				}
+#if false
+				// Framebuffer sRGB extension
+				if ((caps.FramebufferSRGB == true) || (caps.FramebufferSRGB_EXT == true)) {
+					pfAttributesCodes.Add(Wgl.FRAMEBUFFER_SRGB_CAPABLE_ARB);
+				}
+#endif
+
+				pfAttributesValue = new int[pfAttributesCodes.Count];
+				for (int pFormatIndex = 1; ; pFormatIndex++) {
+					DevicePixelFormat pFormat = new DevicePixelFormat();
+
+					if (Wgl.GetPixelFormatAttribARB(DeviceContext, pFormatIndex, 0, (uint)pfAttributesCodes.Count, pfAttributesCodes.ToArray(), pfAttributesValue) == false) {
+						Debug.Assert(pFormats.Count > 0, "wrong pixel format attribute list");
+						break;  // All pixel format are queried
+					}
+
+					// Check minimum requirements
+					if (pfAttributesValue[0] != Gl.TRUE)
+						continue;       // No OpenGL support
+					if (pfAttributesValue[1] != Wgl.FULL_ACCELERATION_ARB)
+						continue;       // No hardware acceleration
+					if (pfAttributesValue[2] != Wgl.TYPE_RGBA_ARB)
+						continue;       // Ignored pixel type
+
+					// Collect pixel format attributes
+					pFormat.FormatIndex = pFormatIndex;
+
+					pFormat.RgbaUnsigned = pfAttributesValue[2] == Wgl.TYPE_RGBA_ARB;
+					pFormat.RgbaFloat = pfAttributesValue[2] == Wgl.TYPE_RGBA_FLOAT_ARB;
+
+					pFormat.RenderWindow = pfAttributesValue[3] == Gl.TRUE;
+					pFormat.RenderBuffer = pfAttributesValue[4] == Gl.TRUE;
+					pFormat.RenderPBuffer = pfAttributesValue[5] == Gl.TRUE;
+
+					pFormat.DoubleBuffer = pfAttributesValue[6] == Gl.TRUE;
+					pFormat.SwapMethod = pfAttributesValue[7];
+					pFormat.StereoBuffer = pfAttributesValue[8] == Gl.TRUE;
+
+					pFormat.ColorBits = pfAttributesValue[9];
+					pFormat.DepthBits = pfAttributesValue[10];
+					pFormat.StencilBits = pfAttributesValue[11];
+
+					if (wglExtensions.Multisample_ARB) {
+						// pfAttributesValue[12] ? What about multiple sample buffers?
+						pFormat.MultisampleBits = pfAttributesValue[13];
+					} else
+						pFormat.MultisampleBits = 0;
+
+#if false
+					XXX Problems with 2.1 contextes
+					if ((caps.FramebufferSRGB == true) || (caps.FramebufferSRGB_EXT == true)) {
+						pFormat.SRGBCapable = pfAttributesValue[13] != 0;
+					} else
+#endif
+					pFormat.SRGBCapable = false;
+					pFormat.XFbConfig = IntPtr.Zero;
+					pFormat.XVisualInfo = new Glx.XVisualInfo();
+
+					pFormats.Add(pFormat);
+				}
+
+				return (pFormats);
+			}
+		}
+
 		/// <summary>
 		/// Performs application-defined tasks associated with freeing, releasing, or resetting managed/unmanaged resources.
 		/// </summary>

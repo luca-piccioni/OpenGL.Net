@@ -322,15 +322,133 @@ namespace OpenGL
 		/// The GLX minor version.
 		/// </summary>
 		private int _GlxMinor;
-		
+
 		#endregion
 
 		#region DeviceContext Overrides
-		
+
+		/// <summary>
+		/// Get the pixel formats supported by this device.
+		/// </summary>
+		public override DevicePixelFormatCollection PixelsFormats
+		{
+			get
+			{
+				// Query GLX extensions
+				Glx.Extensions glxExtensions = new Glx.Extensions();
+
+				glxExtensions.Query(this);
+
+				// Request configurations
+				DevicePixelFormatCollection pFormats = new DevicePixelFormatCollection();
+
+				using (Glx.XLock xLock = new Glx.XLock(Display)) {
+					int configsCount = 0;
+
+					unsafe
+					{
+						IntPtr* configs = Glx.GetFBConfigs(Display, Screen, out configsCount);
+
+						for (int i = 0; i < configsCount; i++) {
+							IntPtr configId = configs[i];
+							int err, renderType, attribValue;
+
+							#region Satisfy minimum requirements
+
+							// Requires RGBA configuration
+							err = Glx.GetFBConfigAttrib(Display, configId, Glx.RENDER_TYPE, out renderType);
+							if (err != 0)
+								throw new InvalidOperationException();
+							if ((renderType & Glx.RGBA_BIT) == 0)
+								continue;       // Ignore indexed visuals
+
+							// Do not choose configurations with some caveat
+							err = Glx.GetFBConfigAttrib(Display, configId, Glx.CONFIG_CAVEAT, out attribValue);
+							if (attribValue == Glx.SLOW_CONFIG)
+								continue;
+
+							#endregion
+
+							DevicePixelFormat pixelFormat = new DevicePixelFormat();
+
+							pixelFormat.XFbConfig = configId;
+
+							pixelFormat.XVisualInfo = Glx.GetVisualFromFBConfig(Display, configId);
+							pixelFormat.RgbaUnsigned = (renderType & Glx.RGBA_FLOAT_BIT_ARB) == 0; ;
+							pixelFormat.RgbaFloat = (renderType & Glx.RGBA_FLOAT_BIT_ARB) != 0;
+
+							err = Glx.GetFBConfigAttrib(Display, configId, Glx.DRAWABLE_TYPE, out attribValue);
+							if (err != 0)
+								throw new InvalidOperationException("unable to get DRAWABLE_TYPE from framebuffer configuration");
+
+							pixelFormat.RenderWindow = (attribValue & Glx.WINDOW_BIT) != 0;
+							pixelFormat.RenderBuffer = false;
+							pixelFormat.RenderPBuffer = (attribValue & Glx.PBUFFER_BIT) != 0;
+
+							err = Glx.GetFBConfigAttrib(Display, configId, Glx.FBCONFIG_ID, out pixelFormat.FormatIndex);
+							if (err != 0)
+								throw new InvalidOperationException("unable to get FBCONFIG_ID from framebuffer configuration");
+
+							err = Glx.GetFBConfigAttrib(Display, configId, Glx.BUFFER_SIZE, out pixelFormat.ColorBits);
+							if (err != 0)
+								throw new InvalidOperationException("unable to get BUFFER_SIZE from framebuffer configuration");
+
+							err = Glx.GetFBConfigAttrib(Display, configId, Glx.DEPTH_SIZE, out pixelFormat.DepthBits);
+							if (err != 0)
+								throw new InvalidOperationException("unable to get DEPTH_SIZE from framebuffer configuration");
+
+							err = Glx.GetFBConfigAttrib(Display, configId, Glx.STENCIL_SIZE, out pixelFormat.StencilBits);
+							if (err != 0)
+								throw new InvalidOperationException("unable to get STENCIL_SIZE from framebuffer configuration");
+
+							if (glxExtensions.Multisample_ARB) {
+								int hasMultisample = 0;
+
+								err = Glx.GetFBConfigAttrib(Display, configId, Glx.SAMPLE_BUFFERS, out hasMultisample);
+								if (err != 0)
+									throw new InvalidOperationException("unable to get SAMPLE_BUFFERS from framebuffer configuration");
+
+								if (hasMultisample != 0) {
+									pixelFormat.MultisampleBits = 0;
+									err = Glx.GetFBConfigAttrib(Display, configId, Glx.SAMPLES, out pixelFormat.MultisampleBits);
+									if (err != 0)
+										throw new InvalidOperationException("unable to get SAMPLES from framebuffer configuration");
+								} else
+									pixelFormat.MultisampleBits = 0;
+							}
+
+							err = Glx.GetFBConfigAttrib(Display, configId, Glx.DOUBLEBUFFER, out attribValue);
+							if (err != 0)
+								throw new InvalidOperationException("unable to get DOUBLEBUFFER from framebuffer configuration");
+							pixelFormat.DoubleBuffer = attribValue != 0;
+
+							err = Glx.GetFBConfigAttrib(Display, configId, Glx.STEREO, out attribValue);
+							if (err != 0)
+								throw new InvalidOperationException("unable to get STEREO from framebuffer configuration");
+							pixelFormat.StereoBuffer = attribValue != 0;
+
+							if (glxExtensions.FramebufferSRGB_ARB) {
+								err = Glx.GetFBConfigAttrib(Display, configId, Glx.FRAMEBUFFER_SRGB_CAPABLE_ARB, out attribValue);
+								if (err != 0)
+									throw new InvalidOperationException("unable to get FRAMEBUFFER_SRGB_CAPABLE_ARB from framebuffer configuration");
+								pixelFormat.SRGBCapable = attribValue != 0;
+							} else
+								pixelFormat.SRGBCapable = false;
+
+							pFormats.Add(pixelFormat);
+						}
+					}
+				}
+
+				return (pFormats);
+			}
+		}
+
 		/// <summary>
 		/// Performs application-defined tasks associated with freeing, releasing, or resetting managed/unmanaged resources.
 		/// </summary>
 		/// <param name="disposing">
+		/// 
 		/// A <see cref="System.Boolean"/> indicating whether the disposition is requested explictly.
 		/// </param>
 		protected override void Dispose(bool disposing)

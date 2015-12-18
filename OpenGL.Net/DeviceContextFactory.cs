@@ -55,7 +55,7 @@ namespace OpenGL
 				case PlatformID.WinCE:
 					return (new WindowsDeviceContext(window));
 				case PlatformID.Unix:
-					// return (new XServerDeviceContext(window));
+					return (new XServerDeviceContext(window));
 				default:
 					throw new NotSupportedException(String.Format("platform {0} not supported", Environment.OSVersion));
 			}

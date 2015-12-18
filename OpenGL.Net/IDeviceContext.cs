@@ -51,7 +51,16 @@ namespace OpenGL
 		/// the reference count equals 0 (with or without decrementing it), this instance will be disposed.
 		/// </remarks>
 		void DecRef();
-		
+
+		#endregion
+
+		#region Pixel Formats
+
+		/// <summary>
+		/// Get the pixel formats supported by this device.
+		/// </summary>
+		DevicePixelFormatCollection PixelsFormats { get; }
+
 		#endregion
 	}
 }
