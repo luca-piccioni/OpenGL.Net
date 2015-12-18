@@ -263,7 +263,7 @@ namespace OpenGL
 				// Skip 
 				switch (programObject.Stage) {
 					case ShaderObject.Stage.Geometry:
-						if (!ctx.Caps.GeometryShader) {
+						if (!ctx.Caps.GlExtensions.GeometryShader_EXT) {
 							sLog.Warn("Do not link object: geometry shaders are not supported.");
 							continue;
 						}
@@ -285,7 +285,7 @@ namespace OpenGL
 			#region Transform Feedback Definition
 
 			if ((FeedbackVaryings != null) && (FeedbackVaryings.Count > 0)) {
-				if (!ctx.Caps.TransformFeedbackEXT)
+				if (!ctx.Caps.GlExtensions.TransformFeedback_EXT)
 					throw new InvalidOperationException("transform feedback not supported");
 
 				sLog.Debug("Feedback varyings ({0}):", cctx.FeedbackVaryingsFormat);
@@ -302,7 +302,7 @@ namespace OpenGL
 
 			#region Bind Fragment Locations
 
-			if (ctx.Caps.GpuShader4EXT) {
+			if (ctx.Caps.GlExtensions.GpuShader4_EXT) {
 				// Setup fragment locations, where defined
 				foreach (KeyValuePair<string, int> pair in mFragLocations) {
 					if (pair.Value >= 0)
@@ -445,7 +445,7 @@ namespace OpenGL
 
 			#region Collect Fragment Locations
 
-			if (ctx.Caps.GpuShader4EXT) {
+			if (ctx.Caps.GlExtensions.GpuShader4_EXT) {
 				// Get fragment locations, just in the case automatically assigned
 				foreach (string fragOutputName in new List<string>(mFragLocations.Keys))
 					mFragLocations[fragOutputName] = Gl.GetFragDataLocation(ObjectName, fragOutputName);
@@ -919,7 +919,7 @@ namespace OpenGL
 		{
 			if (ctx == null)
 				throw new ArgumentNullException("ctx");
-			if (!ctx.Caps.GetProgramBinary)
+			if (!ctx.Caps.GlExtensions.GetProgramBinary_ARB)
 				throw new NotSupportedException("get_program_binary not supported");
 
 			string cachePath = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
@@ -940,7 +940,7 @@ namespace OpenGL
 		{
 			if (ctx == null)
 				throw new ArgumentNullException("ctx");
-			if (!ctx.Caps.GetProgramBinary)
+			if (!ctx.Caps.GlExtensions.GetProgramBinary_ARB)
 				throw new NotSupportedException("get_program_binary not supported");
 			if (!IsLinked)
 				throw new InvalidOperationException("not linked");

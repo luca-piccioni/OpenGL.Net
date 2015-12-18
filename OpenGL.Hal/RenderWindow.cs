@@ -318,10 +318,8 @@ namespace OpenGL
 		/// </remarks>
 		private void FormClosed(object sender, EventArgs e)
 		{
-			if (MainWindow) {
-				RenderKernel.StopKernels();
+			if (MainWindow)
 				Application.Exit();
-			}
 		}
 
 		#endregion
@@ -439,7 +437,7 @@ namespace OpenGL
 		/// Create this RenderWindow.
 		/// </summary>
 		/// <param name="surfaceFormat"></param>
-		public void Create(RenderSurfaceFormat surfaceFormat)
+		public void Create(GraphicsBuffersFormat surfaceFormat)
 		{
 			if ((surfaceFormat == null) && (mSurfaceFormat == null))
 				throw new ArgumentNullException("surfaceFormat");
@@ -577,12 +575,12 @@ namespace OpenGL
 		/// </summary>
 		/// <remarks>
 		/// <para>
-		/// This read-only property shall return a <see cref="RenderSurfaceFormat"/> indicating the current
+		/// This read-only property shall return a <see cref="GraphicsBuffersFormat"/> indicating the current
 		/// buffer configuration. The object returned shall not be used to modify this RenderSurface buffers,
 		/// but it shall be used to know which is the buffer configuration.
 		/// </para>
 		/// </remarks>
-		public override RenderSurfaceFormat BufferFormat { get { return (mSurfaceFormat.Copy()); } }
+		public override GraphicsBuffersFormat BufferFormat { get { return (mSurfaceFormat.Copy()); } }
 
 		/// <summary>
 		/// Bind this RenderSurface for drawing.
@@ -593,7 +591,7 @@ namespace OpenGL
 		public override void BindDraw(GraphicsContext ctx)
 		{
 			// Eventually unbind a framebuffer
-			if (ctx.Caps.FrambufferObject) {
+			if (ctx.Caps.GlExtensions.FramebufferObject_ARB) {
 				Gl.BindFramebuffer(Gl.DRAW_FRAMEBUFFER, InvalidObjectName);
 			}
 		}
@@ -607,7 +605,7 @@ namespace OpenGL
 		public override void BindRead(GraphicsContext ctx)
 		{
 			// Eventually unbind a framebuffer
-			if (ctx.Caps.FrambufferObject) {
+			if (ctx.Caps.GlExtensions.FramebufferObject_ARB) {
 				Gl.BindFramebuffer(Gl.READ_FRAMEBUFFER, InvalidObjectName);
 			}
 		}
@@ -617,7 +615,7 @@ namespace OpenGL
 		/// </summary>
 		public override bool Swappable
 		{
-			get { return (mSurfaceFormat.HasBuffer(RenderSurfaceFormat.BufferType.Double)); }
+			get { return (mSurfaceFormat.HasBuffer(GraphicsBuffersFormat.BufferType.Double)); }
 		}
 		
 		/// <summary>
@@ -643,7 +641,7 @@ namespace OpenGL
 			if (mDeviceContext == null)
 				throw new InvalidOperationException();
 			
-			if (mSurfaceFormat.HasBuffer(RenderSurfaceFormat.BufferType.Double))
+			if (mSurfaceFormat.HasBuffer(GraphicsBuffersFormat.BufferType.Double))
 				Gl.SwapBuffers(mDeviceContext);
 		}
 
@@ -733,9 +731,9 @@ namespace OpenGL
 			int swapInterval = SwapInterval;
 			
 			if (swapInterval != 1) {
-				if (GraphicsContext.CurrentCaps.SwapInterval == true) {
+				if (GraphicsContext.CurrentCaps.WglExtensions.SwapControl_EXT == true) {
 					if (swapInterval < 0) {
-						if (GraphicsContext.CurrentCaps.SwapIntervalTear == false) {
+						if (GraphicsContext.CurrentCaps.WglExtensions.SwapControlTear_EXT == false) {
 							sLog.Warn("Ignoring tearing swap interval ({0}) because is not supported.", swapInterval);
 							swapInterval = -swapInterval;
 						}
@@ -755,9 +753,9 @@ namespace OpenGL
 		/// Actually create this RenderWindow resources in Windows platform.
 		/// </summary>
 		/// <param name="surfaceFormat">
-		/// A <see cref="RenderSurfaceFormat"/> used for selecting the most appropriate visual.
+		/// A <see cref="GraphicsBuffersFormat"/> used for selecting the most appropriate visual.
 		/// </param>
-		internal void PreCreateObjectWgl(RenderSurfaceFormat surfaceFormat)
+		internal void PreCreateObjectWgl(GraphicsBuffersFormat surfaceFormat)
 		{
 			if (surfaceFormat == null)
 				throw new ArgumentNullException("surfaceFormat");
@@ -797,15 +795,15 @@ namespace OpenGL
 		/// Actually create this RenderWindow resources in Unix platform.
 		/// </summary>
 		/// <param name="surfaceFormat">
-		/// A <see cref="RenderSurfaceFormat"/> used for selecting the most appropriate visual.
+		/// A <see cref="GraphicsBuffersFormat"/> used for selecting the most appropriate visual.
 		/// </param>
-		internal void PreCreateObjectX11(RenderSurfaceFormat surfaceFormat)
+		internal void PreCreateObjectX11(GraphicsBuffersFormat surfaceFormat)
 		{
 			if (surfaceFormat == null)
 				throw new ArgumentNullException("surfaceFormat");
 			
 			// Choose "best" pixel format matching with surface configuration
-			mDeviceFormat = surfaceFormat.ChoosePixelFormat(ValidPixelFormat);
+			mDeviceFormat = surfaceFormat.ChoosePixelFormat(mDeviceContext, ValidPixelFormat);
 			
 			sLog.Debug("Choosen frame buffer configuration: 0x{0} (visual 0x{1}).", mDeviceFormat.XFbConfig.ToString("X3"), mDeviceFormat.XVisualInfo.visualid.ToString("X3"));
 
@@ -817,15 +815,15 @@ namespace OpenGL
 			IntPtr display = (IntPtr)xplatui.GetField("DisplayHandle", System.Reflection.BindingFlags.Static | System.Reflection.BindingFlags.NonPublic).GetValue(null);
 			IntPtr rootWindow = (IntPtr)xplatui.GetField("RootWindow", System.Reflection.BindingFlags.Static | System.Reflection.BindingFlags.NonPublic).GetValue(null);
 			IntPtr colorMap = Glx.UnsafeNativeMethods.XCreateColormap(display, rootWindow, mDeviceFormat.XVisualInfo.visual, 0);
-			ProcLoader.LogProc("XCreateColormap(0x{0}, {1}, {2}. 0) = {0}", display.ToString("X"), rootWindow.ToString("X"), mDeviceFormat.XVisualInfo.visual.ToString());
+			KhronosApi.LogProc("XCreateColormap(0x{0}, {1}, {2}. 0) = {0}", display.ToString("X"), rootWindow.ToString("X"), mDeviceFormat.XVisualInfo.visual.ToString());
 
 			IntPtr customVisual = mDeviceFormat.XVisualInfo.visual;
 			IntPtr origCustomVisual = (IntPtr)xplatui.GetField("CustomVisual", System.Reflection.BindingFlags.Static | System.Reflection.BindingFlags.NonPublic).GetValue(null);
 
-			ProcLoader.LogComment("Set System.Windows.Forms.XplatUIX11.CustomVisual change from {0} to {1}", origCustomVisual.ToString("X"), customVisual.ToString("X"));
+			KhronosApi.LogComment("Set System.Windows.Forms.XplatUIX11.CustomVisual change from {0} to {1}", origCustomVisual.ToString("X"), customVisual.ToString("X"));
 			xplatui.GetField("CustomVisual", System.Reflection.BindingFlags.Static | System.Reflection.BindingFlags.NonPublic).SetValue(null, customVisual);
 			
-			ProcLoader.LogComment("Create System.Windows.Forms.XplatUIX11.CustomColormap ({0})", colorMap.ToString("X"));
+			KhronosApi.LogComment("Create System.Windows.Forms.XplatUIX11.CustomColormap ({0})", colorMap.ToString("X"));
 			xplatui.GetField("CustomColormap", System.Reflection.BindingFlags.Static | System.Reflection.BindingFlags.NonPublic).SetValue(null, colorMap);
 		}
 
@@ -884,7 +882,7 @@ namespace OpenGL
 		/// <summary>
 		/// Window surface format.
 		/// </summary>
-		private RenderSurfaceFormat mSurfaceFormat = new RenderSurfaceFormat(PixelLayout.RGB24);
+		private GraphicsBuffersFormat mSurfaceFormat = new GraphicsBuffersFormat(PixelLayout.RGB24);
 
 		#endregion
 	}

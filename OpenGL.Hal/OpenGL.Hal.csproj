@@ -80,8 +80,6 @@
     <Compile Include="GraphicsContext.cs" />
     <Compile Include="GraphicsContextFlags.cs" />
     <Compile Include="GraphicsException.cs" />
-    <Compile Include="GraphicsExtensionAttribute.cs" />
-    <Compile Include="GraphicsExtensionDisabledAttribute.cs" />
     <Compile Include="GraphicsGarbageService.cs" />
     <Compile Include="GraphicsInfoAttribute.cs" />
     <Compile Include="GraphicsKernelService.cs" />
@@ -158,7 +156,7 @@
     <Compile Include="RenderFramebuffer.cs" />
     <Compile Include="RenderScreen.cs" />
     <Compile Include="RenderSurface.cs" />
-    <Compile Include="RenderSurfaceFormat.cs" />
+    <Compile Include="GraphicsBuffersFormat.cs" />
     <Compile Include="RenderWindow.cs" />
     <Compile Include="Resource.cs" />
     <Compile Include="ResourceCollection.cs" />

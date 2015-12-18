@@ -193,15 +193,15 @@ namespace OpenGL
 			// Log OpenGL method calls
 			if ((flags & LogFlags.LogGl) != 0) {
 				// Ensure to have procedure logging initialized
-				OpenGL.ProcLoader.InitializeLog();
+				OpenGL.KhronosApi.InitializeLog();
 				// Register delegate
-				OpenGL.ProcLoader.RegisterApplicationLogDelegate(delegate(string format, object[] args) {
+				OpenGL.KhronosApi.RegisterApplicationLogDelegate(delegate(string format, object[] args) {
 					sOpenGlLogger.Debug(format, args);
 				});
 				// Setup procedure logging flags
-				OpenGL.ProcLoader.LogFlags |= OpenGL.ProcLoader.ProcLogFlags.LogOnApp;
+				OpenGL.KhronosApi.LogFlags |= OpenGL.KhronosApi.ProcLogFlags.LogOnApp;
 				// Enabe procedure logging
-				OpenGL.ProcLoader.LogEnabled = true;
+				OpenGL.KhronosApi.LogEnabled = true;
 			}
 		}
 
@@ -233,15 +233,15 @@ namespace OpenGL
 			// Log OpenGL method calls
 			if ((flags & LogFlags.LogGl) != 0) {
 				// Ensure to have procedure logging initialized
-				OpenGL.ProcLoader.InitializeLog();
+				OpenGL.KhronosApi.InitializeLog();
 				// Register delegate
-				OpenGL.ProcLoader.RegisterApplicationLogDelegate(delegate(string format, object[] args) {
+				OpenGL.KhronosApi.RegisterApplicationLogDelegate(delegate(string format, object[] args) {
 					sOpenGlLogger.Debug(format, args);
 				});
 				// Setup procedure logging flags
-				OpenGL.ProcLoader.LogFlags |= OpenGL.ProcLoader.ProcLogFlags.LogOnApp;
+				OpenGL.KhronosApi.LogFlags |= OpenGL.KhronosApi.ProcLogFlags.LogOnApp;
 				// Enabe procedure logging
-				OpenGL.ProcLoader.LogEnabled = true;
+				OpenGL.KhronosApi.LogEnabled = true;
 			}
 		}
 

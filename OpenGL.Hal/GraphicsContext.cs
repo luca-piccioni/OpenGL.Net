@@ -20,10 +20,8 @@ using System;
 using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.Diagnostics;
-using System.Globalization;
 using System.Reflection;
 using System.Runtime.InteropServices;
-using System.Text.RegularExpressions;
 
 namespace OpenGL
 {
@@ -133,21 +131,15 @@ namespace OpenGL
 			if (Gl.MakeContextCurrent(_HiddenWindowDevice, rContext) == false)
 				throw new Exception("unable to make current");
 
-			// Initialize OpenGL implementations descriptions
-			RegisterSupportedOpenGLVersions();
-
 			// Obtain current OpenGL implementation
 			string glVersion = Gl.GetString(StringName.Vendor);
-			sCurrentGLVersion = ParseGLVersion(glVersion);
+			_CurrentVersion = KhronosVersion.Parse(glVersion);
 
 			// Obtain current OpenGL Shading Language version
 			string glslVersion = Gl.GetString(StringName.ShadingLanguageVersion);
-			sCurrentShadingGLVersion = ParseGLSLVersion(glslVersion);
-
+			_CurrentShadingVersion = KhronosVersion.Parse(glslVersion);
 			// Query OpenGL extensions (current OpenGL implementation, CurrentCaps)
-			_RenderCaps = GraphicsCapabilities.Query(null, _HiddenWindowDevice);
-			// Cache current OpenGL capabilities
-			_RenderCapsDb[sCurrentGLVersion] = _RenderCaps;
+			_CurrentCaps = GraphicsCapabilities.Query(null, _HiddenWindowDevice);
 
 			// Detroy context
 			if (Gl.DeleteContext(_HiddenWindowDevice, rContext) == false)
@@ -254,7 +246,7 @@ namespace OpenGL
 		/// <summary>
 		/// Force execution of static constructor.
 		/// </summary>
-		internal static void Touch() { _RenderCaps.GetHashCode(); }
+		internal static void Touch() { _CurrentCaps.GetHashCode(); }
 
 		/// <summary>
 		/// GraphicsContext constructor.
@@ -267,7 +259,7 @@ namespace OpenGL
 			// Release device context on dispose
 			_CommonDeviceContext = true;
 			// Create render context
-			CreateRenderContext(_HiddenWindowDevice, null, GLVersion.Current);
+			CreateRenderContext(_HiddenWindowDevice, null, _CurrentVersion);
 		}
 
 		/// <summary>
@@ -283,7 +275,7 @@ namespace OpenGL
 		public GraphicsContext(IDeviceContext deviceContext)
 		{
 			// Create render context
-			CreateRenderContext(deviceContext, null, GLVersion.Current);
+			CreateRenderContext(deviceContext, null, _CurrentVersion);
 		}
 
 		/// <summary>
@@ -307,7 +299,7 @@ namespace OpenGL
 			// Release device context on dispose
 			_CommonDeviceContext = true;
 			// Create render context
-			CreateRenderContext(_HiddenWindowDevice, hSharedContext, GLVersion.Current);
+			CreateRenderContext(_HiddenWindowDevice, hSharedContext, _CurrentVersion);
 		}
 
 		/// <summary>
@@ -330,14 +322,14 @@ namespace OpenGL
 		public GraphicsContext(IDeviceContext deviceContext, GraphicsContext hSharedContext)
 		{
 			// Create render context
-			CreateRenderContext(deviceContext, hSharedContext, GLVersion.Current);
+			CreateRenderContext(deviceContext, hSharedContext, _CurrentVersion);
 		}
 
 		/// <summary>
 		/// Construct a GraphicsContext specifying the implemented OpenGL version.
 		/// </summary>
 		/// <param name="version">
-		/// A <see cref="GLVersion"/> that specifies the minimum OpenGL version required to implement.
+		/// A <see cref="KhronosVersion"/> that specifies the minimum OpenGL version required to implement.
 		/// </param>
 		/// <param name="hSharedContext">
 		/// A <see cref="GraphicsContext"/> that specifies the render context which has to be linked this
@@ -364,7 +356,7 @@ namespace OpenGL
 		/// <exception cref="ArgumentException">
 		/// This exception is thrown if <paramref name="hSharedContext"/> is not null and it is disposed.
 		/// </exception>
-		public GraphicsContext(GLVersion version, GraphicsContext hSharedContext)
+		public GraphicsContext(KhronosVersion version, GraphicsContext hSharedContext)
 		{
 			// Release device context on dispose
 			_CommonDeviceContext = true;
@@ -376,7 +368,7 @@ namespace OpenGL
 		/// Construct a GraphicsContext specifying the implemented OpenGL version.
 		/// </summary>
 		/// <param name="version">
-		/// A <see cref="GLVersion"/> that specifies the minimum OpenGL version required to implement.
+		/// A <see cref="KhronosVersion"/> that specifies the minimum OpenGL version required to implement.
 		/// </param>
 		/// <param name="deviceContext">
 		/// A <see cref="IDeviceContext"/> that specifies the device context which has to be linked this
@@ -407,7 +399,7 @@ namespace OpenGL
 		/// <exception cref="ArgumentException">
 		/// This exception is thrown if <paramref name="hSharedContext"/> is not null and it is disposed.
 		/// </exception>
-		public GraphicsContext(GLVersion version, IDeviceContext deviceContext, GraphicsContext hSharedContext)
+		public GraphicsContext(KhronosVersion version, IDeviceContext deviceContext, GraphicsContext hSharedContext)
 		{
 			// Create render context
 			CreateRenderContext(deviceContext, hSharedContext, version);
@@ -424,7 +416,7 @@ namespace OpenGL
 		/// this Render context (to share resource with it).
 		/// </param>
 		/// <param name="version">
-		/// A <see cref="GLVersion"/> that specifies the minimum OpenGL version required to implement.
+		/// A <see cref="KhronosVersion"/> that specifies the minimum OpenGL version required to implement.
 		/// </param>
 		/// <exception cref="ArgumentException">
 		/// This exception is thrown in the case <paramref name="devctx"/> is <see cref="System.IntPtr.Zero"/>.
@@ -447,7 +439,7 @@ namespace OpenGL
 		/// <exception cref="InvalidOperationException">
 		/// This exception is thrown in the case it's not possible to create a valid OpenGL context.
 		/// </exception>
-		private void CreateRenderContext(IDeviceContext deviceContext, GraphicsContext hSharedContext, GLVersion version)
+		private void CreateRenderContext(IDeviceContext deviceContext, GraphicsContext hSharedContext, KhronosVersion version)
 		{
 			try {
 				IntPtr pSharedContext = (hSharedContext != null) ? hSharedContext._RenderContext : IntPtr.Zero;
@@ -455,10 +447,6 @@ namespace OpenGL
 #if DEBUG
 				mConstructorStackTrace = Environment.StackTrace;
 #endif
-
-				// Defaulting OpenGL version
-				if (version == GLVersion.Current)
-					version = sCurrentGLVersion;
 
 				// Store thread ID of the render context
 				_RenderContextThreadId = System.Threading.Thread.CurrentThread.ManagedThreadId;
@@ -471,16 +459,19 @@ namespace OpenGL
 					throw new ArgumentException("shared context disposed", "hSharedContext");
 				if ((hSharedContext != null) && (hSharedContext._RenderContextThreadId != _RenderContextThreadId))
 					throw new ArgumentException("shared context created from another thread", "hSharedContext");
-				if ((version != sCurrentGLVersion) && ((CurrentCaps.CreateContext == false) && (CurrentCaps.CreateContextProfile == false)))
+				if ((version != _CurrentVersion) && ((CurrentCaps.PlatformExtensions.CreateContext_ARB == false) && (CurrentCaps.PlatformExtensions.CreateContextProfile_ARB == false)))
 					throw new ArgumentException("unable to specify OpenGL version when GL_ARB_create_context[_profile] is not supported");
-				if ((sVersionDb[version].ForwardCompatible == true) && ((CurrentCaps.CreateContext == false) && (CurrentCaps.CreateContextProfile == false)))
+
+#if false
+				if ((sVersionDb[version].ForwardCompatible == true) && ((CurrentCaps.PlatformExtensions.CreateContext_ARB == false) && (CurrentCaps.PlatformExtensions.CreateContextProfile_ARB == false)))
 					throw new ArgumentException("unable to specify forward-compatible OpenGL version when GL_ARB_create_context[_profile] is not supported");
+#endif
 
 				// Store device context handle
 				_DeviceContext = deviceContext;
 				_DeviceContext.IncRef();
 
-				if ((CurrentCaps.CreateContext || CurrentCaps.CreateContextProfile) && (version >= GLVersion.Version_3_0)) {
+				if ((CurrentCaps.PlatformExtensions.CreateContext_ARB || CurrentCaps.PlatformExtensions.CreateContextProfile_ARB) && (version.Major >= 3)) {
 					List<int> cAttributes = new List<int>();
 					int rContextFlags = 0;
 
@@ -488,17 +479,19 @@ namespace OpenGL
 					Debug.Assert(Wgl.CONTEXT_MAJOR_VERSION_ARB == Glx.CONTEXT_MAJOR_VERSION_ARB);
 					Debug.Assert(Wgl.CONTEXT_MINOR_VERSION_ARB == Glx.CONTEXT_MINOR_VERSION_ARB);
 					cAttributes.AddRange(new int[] {
-						Wgl.CONTEXT_MAJOR_VERSION_ARB, sVersionDb[version].GLMajor,
-						Wgl.CONTEXT_MINOR_VERSION_ARB, sVersionDb[version].GLMinor
+						Wgl.CONTEXT_MAJOR_VERSION_ARB, version.Major,
+						Wgl.CONTEXT_MINOR_VERSION_ARB, version.Minor
 					});
 
 					// Context flags
 					Debug.Assert(Wgl.CONTEXT_FLAGS_ARB == Glx.CONTEXT_FLAGS_ARB);
 					Debug.Assert(Wgl.CONTEXT_DEBUG_BIT_ARB == Glx.CONTEXT_DEBUG_BIT_ARB);
 					Debug.Assert(Wgl.CONTEXT_FORWARD_COMPATIBLE_BIT_ARB == Glx.CONTEXT_FORWARD_COMPATIBLE_BIT_ARB);
+#if false
 					// Context flags: forward compatible context
 					if (sVersionDb[version].ForwardCompatible == true)
 						rContextFlags |= (int)(Wgl.CONTEXT_FORWARD_COMPATIBLE_BIT_ARB);
+#endif
 					// Context flags: debug context
 					rContextFlags |= (int)(Wgl.CONTEXT_DEBUG_BIT_ARB);
 					cAttributes.AddRange(new int[] {
@@ -514,12 +507,12 @@ namespace OpenGL
 					if ((_RenderContext = Gl.CreateContextAttrib(_DeviceContext, pSharedContext, contextAttributes)) == IntPtr.Zero) {
 						Exception platformException = GraphicsException.CheckPlatformErrors(_DeviceContext, false);
 
-						throw new InvalidOperationException("unable to create context " + sVersionDb[version].GLMajor + "." + sVersionDb[version].GLMinor, platformException);
+						throw new InvalidOperationException("unable to create context " + version.Major + "." + version.Minor, platformException);
 					}
 				} else {
 					// Create rendering context
 					if ((_RenderContext = Gl.CreateContext(_DeviceContext, pSharedContext)) == IntPtr.Zero)
-						throw new InvalidOperationException("unable to create context " + sVersionDb[version].GLMajor + "." + sVersionDb[version].GLMinor);
+						throw new InvalidOperationException("unable to create context " + version.Major + "." + version.Minor);
 				}
 
 				GraphicsContext rContextCurrent = GetCurrentContext();		// Back current context, if any
@@ -529,15 +522,17 @@ namespace OpenGL
 				MakeCurrent(deviceContext, true);
 
 				// Get the current OpenGL implementation supported by this GraphicsContext
-				mVersion = ParseGLVersion(Gl.GetString(StringName.Version));
+				_Version = KhronosVersion.Parse(Gl.GetString(StringName.Version));
 				// Get the current OpenGL Shading Language implementation supported by this GraphicsContext
-				mShadingVersion = ParseGLSLVersion(Gl.GetString(StringName.ShadingLanguageVersion));
+				_ShadingVersion = KhronosVersion.Parse(Gl.GetString(StringName.ShadingLanguageVersion));
 				// Determine the compatibility profile
-				mCompatibilityProfile = (version < GLVersion.Version_3_1) && (mVersion >= GLVersion.Version_3_1);
+				KhronosVersion compatibilityVersion = new KhronosVersion(3, 1);
+
+				mCompatibilityProfile = (version < compatibilityVersion) && (_Version >= compatibilityVersion);
 
 				// Cache context capabilities for this version
-				if (_RenderCapsDb.ContainsKey(mVersion) == false)
-					_RenderCapsDb[mVersion] = GraphicsCapabilities.Query(this, deviceContext);
+				if (_GraphicsCapsDb.ContainsKey(_Version) == false)
+					_GraphicsCapsDb[_Version] = GraphicsCapabilities.Query(this, deviceContext);
 
 				// Determine this GraphicsContext object name space and garbage service
 				if (hSharedContext != null) {
@@ -576,227 +571,14 @@ namespace OpenGL
 		#region OpenGL Versioning
 
 		/// <summary>
-		/// Supported OpenGL implementations.
+		/// Get the OpenGL version currently implemented.
 		/// </summary>
-		public enum GLVersion
-		{
-			/// <summary>
-			/// OpenGL 1.0.
-			/// </summary>
-			Version_1_0 = 0,
-			/// <summary>
-			/// OpenGL 1.1.
-			/// </summary>
-			Version_1_1,
-			/// <summary>
-			/// OpenGL 1.2.
-			/// </summary>
-			Version_1_2,
-			/// <summary>
-			/// OpenGL 1.2.1.
-			/// </summary>
-			Version_1_2_1,
-			/// <summary>
-			/// OpenGL 1.3.
-			/// </summary>
-			Version_1_3,
-			/// <summary>
-			/// OpenGL 1.1.
-			/// </summary>
-			Version_1_4,
-			/// <summary>
-			/// OpenGL 1.5.
-			/// </summary>
-			Version_1_5,
-
-			/// <summary>
-			/// OpenGL 2.0.
-			/// </summary>
-			Version_2_0,
-			/// <summary>
-			/// OpenGL 2.1.
-			/// </summary>
-			Version_2_1,
-
-			/// <summary>
-			/// OpenGL 3.0.
-			/// </summary>
-			Version_3_0,
-			/// <summary>
-			/// OpenGL 3.1.
-			/// </summary>
-			Version_3_1,
-			/// <summary>
-			/// OpenGL 3.2.
-			/// </summary>
-			Version_3_2,
-			/// <summary>
-			/// OpenGL 3.3.
-			/// </summary>
-			Version_3_3,
-
-			/// <summary>
-			/// OpenGL 4.0.
-			/// </summary>
-			Version_4_0,
-			/// <summary>
-			/// OpenGL 4.1.
-			/// </summary>
-			Version_4_1,
-			/// <summary>
-			/// OpenGL 4.2.
-			/// </summary>
-			Version_4_2,
-			/// <summary>
-			/// OpenGL 4.3.
-			/// </summary>
-			Version_4_3,
-			/// <summary>
-			/// OpenGL 4.4.
-			/// </summary>
-			Version_4_4,
-			/// <summary>
-			/// OpenGL 4.5.
-			/// </summary>
-			Version_4_5,
-
-			/// <summary>
-			/// Current OpenGL implementation.
-			/// </summary>
-			Current
-		}
-
-		/// <summary>
-		/// Supported OpenGL Shading Language implementations.
-		/// </summary>
-		public enum GLSLVersion
-		{
-			/// <summary>
-			/// No OpenGL Shading Language implementation
-			/// </summary>
-			None = 0,
-			/// <summary>
-			/// OpenGL Shading Language 1.1.0.
-			/// </summary>
-			Version_1_1 = 110,
-			/// <summary>
-			/// OpenGL Shading Language 1.2.0.
-			/// </summary>
-			Version_1_2 = 120,
-			/// <summary>
-			/// OpenGL Shading Language 1.3.0.
-			/// </summary>
-			Version_1_3 = 130,
-			/// <summary>
-			/// OpenGL Shading Language 1.4.0.
-			/// </summary>
-			Version_1_4 = 140,
-			/// <summary>
-			/// OpenGL Shading Language 1.5.0.
-			/// </summary>
-			Version_1_5 = 150,
-			/// <summary>
-			/// Current OpenGL Shading Language implementation.
-			/// </summary>
-			Current = 65536,
-		}
+		public static KhronosVersion CurrentVersion { get { return (_CurrentVersion); } }
 
 		/// <summary>
 		/// The OpenGL version implemented by this GraphicsContext.
 		/// </summary>
-		public GLVersion Version { get { return (mVersion); } }
-
-		/// <summary>
-		/// The OpenGL Shading Language version implemented by this GraphicsContext.
-		/// </summary>
-		public GLSLVersion ShadingVersion { get { return (mShadingVersion); } }
-
-		/// <summary>
-		/// The compatibility profile presence implemented by this GraphicsContext.
-		/// </summary>
-		public bool CompatibilityProfile { get { return (mCompatibilityProfile); } }
-
-		/// <summary>
-		/// The OpenGL version implemented by this GraphicsContext.
-		/// </summary>
-		private GLVersion mVersion = GLVersion.Current;
-
-		/// <summary>
-		/// The OpenGL Shading Language version implemented by this GraphicsContext.
-		/// </summary>
-		private GLSLVersion mShadingVersion = GLSLVersion.Current;
-
-		/// <summary>
-		/// Compatibility profile enabled (only for versions greater than OpenGL 3.0).
-		/// </summary>
-		private bool mCompatibilityProfile = false;
-
-		#region Version Database & Utilities
-
-		/// <summary>
-		/// Get the number representation of a <see cref="GLVersion"/>.
-		/// </summary>
-		/// <param name="version">
-		/// A <see cref="GLVersion"/> which has to be represented by an integer.
-		/// </param>
-		/// <returns>
-		/// It returns a <see cref="System.Int32"/> representing <paramref name="version"/>.
-		/// </returns>
-		internal static int GetGLVersionId(GLVersion version)
-		{
-			return (sVersionDb[version].GLVersionID);
-		}
-
-		/// <summary>
-		/// Get the number representation of a <see cref="GLSLVersion"/>.
-		/// </summary>
-		/// <param name="version">
-		/// A <see cref="GLSLVersion"/> which has to be represented by an integer.
-		/// </param>
-		/// <returns>
-		/// It returns a <see cref="System.Int32"/> representing <paramref name="version"/>.
-		/// </returns>
-		internal static int GetGLSLVersionId(GLSLVersion version)
-		{
-			return (sShadingVersionDb[version].GLSLVersionID);
-		}
-
-		/// <summary>
-		/// OpenGL standard implementation.
-		/// </summary>
-		internal struct GLVersionDescr
-		{
-			/// <summary>
-			/// Major version for this OpenGL version.
-			/// </summary>
-			public int GLMajor { get { return (GLVersionID / 100); } }
-
-			/// <summary>
-			/// Minor version for this OpenGL version.
-			/// </summary>
-			public int GLMinor { get { return ((GLVersionID % 100) / 10); } }
-
-			/// <summary>
-			/// OpenGL version.
-			/// </summary>
-			public GLVersion GLVersion;
-			/// <summary>
-			/// OpenGL version identifier.
-			/// </summary>
-			public int GLVersionID;
-			/// <summary>
-			/// OpenGL Shading Language version.
-			/// </summary>
-			public GLSLVersion GLSLVersion;
-			/// <summary>
-			/// OpenGL Shading Language version identifier.
-			/// </summary>
-			public int GLSLVersionID;
-			/// <summary>
-			/// Implementation forward compatibility flag.
-			/// </summary>
-			public bool ForwardCompatible { get { return (GLVersion >= GraphicsContext.GLVersion.Version_3_0); } }
-		}
+		public KhronosVersion Version { get { return (_Version); } }
 
 		/// <summary>
 		/// OpenGL version currently implemented.
@@ -804,7 +586,22 @@ namespace OpenGL
 		/// <remarks>
 		/// Higher OpenGL versions versions cannot be requested to be implemented.
 		/// </remarks>
-		internal static GLVersion sCurrentGLVersion;
+		private static KhronosVersion _CurrentVersion;
+
+		/// <summary>
+		/// The OpenGL version implemented by this GraphicsContext.
+		/// </summary>
+		private KhronosVersion _Version;
+
+		/// <summary>
+		/// Get the OpenGL Shading Language version currently implemented.
+		/// </summary>
+		public static KhronosVersion CurrentShadingVersion { get { return (_CurrentShadingVersion); } }
+
+		/// <summary>
+		/// The OpenGL Shading Language version implemented by this GraphicsContext.
+		/// </summary>
+		public KhronosVersion ShadingVersion { get { return (_ShadingVersion); } }
 
 		/// <summary>
 		/// OpenGL Shading Language version currently implemented.
@@ -812,199 +609,22 @@ namespace OpenGL
 		/// <remarks>
 		/// Higher OpenGL Shading Language versions cannot be requested to be implemented.
 		/// </remarks>
-		internal static GLSLVersion sCurrentShadingGLVersion;
+		private static KhronosVersion _CurrentShadingVersion;
 
 		/// <summary>
-		/// Register supported OpenGL versions.
+		/// The OpenGL Shading Language version implemented by this GraphicsContext.
 		/// </summary>
-		private static void RegisterSupportedOpenGLVersions()
-		{
-			GLVersionDescr glVersionItem;
-
-			// OpenGL 1.0
-			glVersionItem.GLVersion = GLVersion.Version_1_0;
-			glVersionItem.GLVersionID = 100;
-			glVersionItem.GLSLVersion = GLSLVersion.None;
-			glVersionItem.GLSLVersionID = 0;
-			sVersionDb[GLVersion.Version_1_0] = glVersionItem;
-			// OpenGL 1.1
-			glVersionItem.GLVersion = GLVersion.Version_1_1;
-			glVersionItem.GLVersionID = 110;
-			glVersionItem.GLSLVersion = GLSLVersion.None;
-			glVersionItem.GLSLVersionID = 0;
-			sVersionDb[GLVersion.Version_1_1] = glVersionItem;
-			// OpenGL 1.2
-			glVersionItem.GLVersion = GLVersion.Version_1_2;
-			glVersionItem.GLVersionID = 120;
-			glVersionItem.GLSLVersion = GLSLVersion.None;
-			glVersionItem.GLSLVersionID = 0;
-			sVersionDb[GLVersion.Version_1_2] = glVersionItem;
-			// OpenGL 1.2.1
-			glVersionItem.GLVersion = GLVersion.Version_1_2_1;
-			glVersionItem.GLVersionID = 121;
-			glVersionItem.GLSLVersion = GLSLVersion.None;
-			glVersionItem.GLSLVersionID = 0;
-			sVersionDb[GLVersion.Version_1_2_1] = glVersionItem;
-			// OpenGL 1.3
-			glVersionItem.GLVersion = GLVersion.Version_1_3;
-			glVersionItem.GLVersionID = 130;
-			glVersionItem.GLSLVersion = GLSLVersion.None;
-			glVersionItem.GLSLVersionID = 0;
-			sVersionDb[GLVersion.Version_1_3] = glVersionItem;
-			// OpenGL 1.4
-			glVersionItem.GLVersion = GLVersion.Version_1_4;
-			glVersionItem.GLVersionID = 140;
-			glVersionItem.GLSLVersion = GLSLVersion.None;
-			glVersionItem.GLSLVersionID = 0;
-			sVersionDb[GLVersion.Version_1_4] = glVersionItem;
-			// OpenGL 1.5
-			glVersionItem.GLVersion = GLVersion.Version_1_5;
-			glVersionItem.GLVersionID = 150;
-			glVersionItem.GLSLVersion = GLSLVersion.None;
-			glVersionItem.GLSLVersionID = 0;
-			sVersionDb[GLVersion.Version_1_5] = glVersionItem;
-
-			// OpenGL 2.0
-			glVersionItem.GLVersion = GLVersion.Version_2_0;
-			glVersionItem.GLVersionID = 200;
-			glVersionItem.GLSLVersion = GLSLVersion.Version_1_2;
-			glVersionItem.GLSLVersionID = 120;
-			sVersionDb[GLVersion.Version_2_0] = glVersionItem;
-			sShadingVersionDb[GLSLVersion.Version_1_2] = glVersionItem;
-			// OpenGL 2.1
-			glVersionItem.GLVersion = GLVersion.Version_2_1;
-			glVersionItem.GLVersionID = 210;
-			glVersionItem.GLSLVersion = GLSLVersion.Version_1_2;
-			glVersionItem.GLSLVersionID = 120;
-			sVersionDb[GLVersion.Version_2_1] = glVersionItem;
-			sShadingVersionDb[GLSLVersion.Version_1_2] = glVersionItem;
-
-			// OpenGL 3.0
-			glVersionItem.GLVersion = GLVersion.Version_3_0;
-			glVersionItem.GLVersionID = 300;
-			glVersionItem.GLSLVersion = GLSLVersion.Version_1_3;
-			glVersionItem.GLSLVersionID = 130;
-			sVersionDb[GLVersion.Version_3_0] = glVersionItem;
-			sShadingVersionDb[GLSLVersion.Version_1_3] = glVersionItem;
-			// OpenGL 3.1
-			glVersionItem.GLVersion = GLVersion.Version_3_1;
-			glVersionItem.GLVersionID = 310;
-			glVersionItem.GLSLVersion = GLSLVersion.Version_1_4;
-			glVersionItem.GLSLVersionID = 140;
-			sVersionDb[GLVersion.Version_3_1] = glVersionItem;
-			sShadingVersionDb[GLSLVersion.Version_1_4] = glVersionItem;
-			// OpenGL 3.2
-			glVersionItem.GLVersion = GLVersion.Version_3_2;
-			glVersionItem.GLVersionID = 320;
-			glVersionItem.GLSLVersion = GLSLVersion.Version_1_5;
-			glVersionItem.GLSLVersionID = 150;
-			sVersionDb[GLVersion.Version_3_2] = glVersionItem;
-			sShadingVersionDb[GLSLVersion.Version_1_5] = glVersionItem;
-			// OpenGL 3.3
-			glVersionItem.GLVersion = GLVersion.Version_3_3;
-			glVersionItem.GLVersionID = 330;
-			glVersionItem.GLSLVersion = GLSLVersion.Version_1_5;
-			glVersionItem.GLSLVersionID = 150;
-			sVersionDb[GLVersion.Version_3_3] = glVersionItem;
-			sShadingVersionDb[GLSLVersion.Version_1_5] = glVersionItem;
-		}
+		private KhronosVersion _ShadingVersion;
 
 		/// <summary>
-		/// Parse OpenGL version string.
+		/// The compatibility profile presence implemented by this GraphicsContext.
 		/// </summary>
-		private static GLVersion ParseGLVersion(string glVersionString)
-		{
-			if (glVersionString == null)
-				throw new ArgumentNullException("glVersionString");
-
-			Regex glVersionRegex = new Regex(@"(?<Major>\d)\.(?<Minor>\d)(\.(?<Revision>\d) *.*)?");
-			Match glVersionMatch = glVersionRegex.Match(glVersionString);
-
-			if (glVersionMatch.Success == false)
-				throw new ArithmeticException(String.Format("{0} is not a valid OpenGL version string", glVersionString));
-
-			GLVersion version = GLVersion.Version_1_0;
-			int major, minor, rev = 0, glVersion;
-
-			major = Int32.Parse(glVersionMatch.Groups["Major"].Value);
-			minor = Int32.Parse(glVersionMatch.Groups["Minor"].Value);
-			if (glVersionMatch.Groups["Revision"].Length > 0)
-				rev = Int32.Parse(glVersionMatch.Groups["Revision"].Value);
-
-			// Compose ID corresponding to this version
-			glVersion = major * 100 + minor * 10 + rev;
-
-			// Get the highest OpenGL version desciption
-			foreach (GLVersionDescr vDescr in sVersionDb.Values) {
-				if (vDescr.GLVersionID <= glVersion)
-					version = vDescr.GLVersion;
-			}
-
-			return (version);
-		}
+		public bool CompatibilityProfile { get { return (mCompatibilityProfile); } }
 
 		/// <summary>
-		/// Parse OpenGL version string.
+		/// Compatibility profile enabled (only for versions greater than OpenGL 3.0).
 		/// </summary>
-		private static GLSLVersion ParseGLSLVersion(string glslVersionString)
-		{
-			GLSLVersion version = GLSLVersion.None;
-			Match versionMatch;
-			int major, minor, glslVersion;
-
-			if (glslVersionString == null)
-				throw new ArgumentNullException("glVersionString");
-
-			versionMatch = sGlslVersionRegex.Match(glslVersionString);
-
-			if (versionMatch.Success == false)
-				throw new ArgumentException(String.Format("version '{0}' not recognized", glslVersionString), "glslVersionString");
-
-			// Parse OpenGL Shading Language version string
-			major = Int32.Parse(versionMatch.Groups["Major"].Value, NumberFormatInfo.InvariantInfo);
-			minor = Int32.Parse(versionMatch.Groups["Minor"].Value, NumberFormatInfo.InvariantInfo);
-
-			// Cover version paterns like 1.20
-			if (minor >= 10) minor /= 10;
-
-			// Compose ID corresponding to this version
-			glslVersion = major * 100 + minor * 10;
-
-			// Get the highest OpenGL SL version desciption
-			foreach (GLVersionDescr vDescr in sVersionDb.Values) {
-				if ((int)vDescr.GLSLVersionID <= glslVersion) {
-					version = vDescr.GLSLVersion;
-				}
-			}
-
-			return (version);
-		}
-
-		/// <summary>
-		/// Supported OpenGL implementations (indexed by OpenGL version).
-		/// </summary>
-		private static readonly Dictionary<GLVersion, GLVersionDescr> sVersionDb = new Dictionary<GLVersion, GLVersionDescr>();
-
-		/// <summary>
-		/// Supported OpenGL implementations (indexed by OpenGL Shading Language version, the default one).
-		/// </summary>
-		/// <remarks>
-		/// Other implementation could implement lower OpenGL Shading Language version respect the default supported by
-		/// the current OpenGL version.
-		/// </remarks>
-		private static readonly Dictionary<GLSLVersion, GLVersionDescr> sShadingVersionDb = new Dictionary<GLSLVersion, GLVersionDescr>();
-
-		/// <summary>
-		/// Regular expression for parsing OpenGL version string.
-		/// </summary>
-		private static Regex sGlVersionRegex = new Regex(@"^(?<Major>\d)\.(?<Minor>\d)(\.(?<Rev>\d))?");
-
-		/// <summary>
-		/// Regular expression for parsing OpenGL Shading Language version string.
-		/// </summary>/
-		private static Regex sGlslVersionRegex = new Regex(@"^(?<Major>\d)\.(?<Minor>\d{1,}).*");
-
-		#endregion
+		private bool mCompatibilityProfile;
 
 		#endregion
 
@@ -1023,7 +643,7 @@ namespace OpenGL
 		{
 			get
 			{
-				return (_RenderCapsDb[Version]);
+				return (_GraphicsCapsDb[Version]);
 			}
 		}
 
@@ -1040,7 +660,7 @@ namespace OpenGL
 		{
 			get
 			{
-				return (_RenderCaps);
+				return (_CurrentCaps);
 			}
 		}
 
@@ -1051,7 +671,7 @@ namespace OpenGL
 		/// The <see cref="Capabilities"/> class is meant to represent a set of extensions and limits for a particoular OpenGL implementation. This
 		/// means also that the render capabilities are dependent on the current context on the executing thread.
 		/// </remarks>
-		private static readonly GraphicsCapabilities _RenderCaps;
+		private static readonly GraphicsCapabilities _CurrentCaps;
 
 		/// <summary>
 		/// Map OpenGL capabilities to a specific OpenGL version.
@@ -1060,323 +680,7 @@ namespace OpenGL
 		/// The use of this map suppose that the capabilities doesn't change between context having the same OpenGL version. At this
 		/// moment is not clear if it really is.
 		/// </remarks>
-		private static readonly Dictionary<GLVersion, GraphicsCapabilities> _RenderCapsDb = new Dictionary<GLVersion, GraphicsCapabilities>();
-
-		#endregion
-
-		#region Device Pixel Formats
-
-		/// <summary>
-		/// Query available pixel format of a device.
-		/// </summary>
-		/// <param name="rDevice">
-		/// A <see cref="IntPtr"/> representing the device context which defined
-		/// the available pixel formats.
-		/// </param>
-		/// <returns>
-		/// </returns>
-		public static DevicePixelFormatCollection QueryPixelFormats(IDeviceContext deviceContext)
-		{
-			return (QueryPixelFormats(deviceContext, CurrentCaps));
-		}
-
-		/// <summary>
-		/// Query available pixel format of a device.
-		/// </summary>
-		/// <param name="rDevice">
-		/// A <see cref="IntPtr"/> representing the device context which defined
-		/// the available pixel formats.
-		/// </param>
-		/// <param name="ctx">
-		/// A <see cref="GraphicsContext"/> used for querying available pixel formats.
-		/// </param>
-		/// <returns>
-		/// </returns>
-		/// <exception cref="ArgumentNullException">
-		/// Exception throw if <paramref name="ctx"/> is null.
-		/// </exception>
-		public static DevicePixelFormatCollection QueryPixelFormats(IDeviceContext deviceContext, GraphicsContext ctx)
-		{
-			if (ctx == null)
-				throw new ArgumentNullException("ctx");
-
-			return (QueryPixelFormats(deviceContext, ctx.Caps));
-		}
-
-		/// <summary>
-		/// Query available pixel format of a device.
-		/// </summary>
-		/// <param name="rDevice">
-		/// A <see cref="IntPtr"/> representing the device context which defined
-		/// the available pixel formats.
-		/// </param>
-		/// <param name="caps">
-		/// A <see cref="GraphicsContext.Capabilities"/> that declares which extension are supported by a particoular OpenGL version.
-		/// </param>
-		/// <returns>
-		/// </returns>
-		/// <exception cref="ArgumentException">
-		/// Exception thrown if <paramref name="rDevice"/> is <see cref="System.IntPtr.Zero"/>.
-		/// </exception>
-		/// <exception cref="ArgumentNullException">
-		/// Exception throw if <paramref name="caps"/> is null.
-		/// </exception>
-		public static DevicePixelFormatCollection QueryPixelFormats(IDeviceContext deviceContext, GraphicsCapabilities caps)
-		{
-			if (deviceContext == null)
-				throw new ArgumentNullException("deviceContext");
-			if (caps == null)
-				throw new ArgumentNullException("caps");
-
-			_Log.Debug("Query available device pixel formats:");
-
-			switch (Environment.OSVersion.Platform) {
-				case PlatformID.Win32NT:
-				case PlatformID.Win32Windows:
-				case PlatformID.Win32S:
-				case PlatformID.WinCE:
-					return (QueryPixelFormatsWgl(deviceContext, caps));
-				case PlatformID.Unix:
-					return (QueryPixelFormatsGlx(deviceContext, caps));
-				default:
-					throw new NotSupportedException();
-			}
-		}
-
-		private static DevicePixelFormatCollection QueryPixelFormatsWgl(IDeviceContext deviceContext, GraphicsCapabilities caps)
-		{
-			if (deviceContext == null)
-				throw new ArgumentNullException("deviceContext");
-			if (caps == null)
-				throw new ArgumentNullException("caps");
-
-			WindowsDeviceContext winDeviceContext = (WindowsDeviceContext)deviceContext;
-			DevicePixelFormatCollection pFormats = new DevicePixelFormatCollection();
-			List<int> pfAttributesCodes = new List<int>(12);
-			int[] pfAttributesValue;
-
-			// Minimum requirements
-			pfAttributesCodes.Add(Wgl.SUPPORT_OPENGL_ARB);		// Required to be Gl.TRUE
-			pfAttributesCodes.Add(Wgl.ACCELERATION_ARB);		// Required to be Wgl.FULL_ACCELERATION or Wgl.ACCELERATION_ARB
-			pfAttributesCodes.Add(Wgl.PIXEL_TYPE_ARB);
-			// Buffer destination
-			pfAttributesCodes.Add(Wgl.DRAW_TO_WINDOW_ARB);
-			pfAttributesCodes.Add(Wgl.DRAW_TO_BITMAP_ARB);
-			pfAttributesCodes.Add(Wgl.DRAW_TO_PBUFFER_ARB);
-			// Multiple buffers
-			pfAttributesCodes.Add(Wgl.DOUBLE_BUFFER_ARB);
-			pfAttributesCodes.Add(Wgl.SWAP_METHOD_ARB);
-			pfAttributesCodes.Add(Wgl.STEREO_ARB);
-			// Pixel description
-			pfAttributesCodes.Add(Wgl.COLOR_BITS_ARB);
-			pfAttributesCodes.Add(Wgl.DEPTH_BITS_ARB);
-			pfAttributesCodes.Add(Wgl.STENCIL_BITS_ARB);
-			// Multisample extension
-			if (caps.Multisample == true) {
-				pfAttributesCodes.Add(Wgl.SAMPLE_BUFFERS_ARB);
-				pfAttributesCodes.Add(Wgl.SAMPLES_ARB);
-			}
-#if false
-			// Framebuffer sRGB extension
-			if ((caps.FramebufferSRGB == true) || (caps.FramebufferSRGB_EXT == true)) {
-				pfAttributesCodes.Add(Wgl.FRAMEBUFFER_SRGB_CAPABLE_ARB);
-			}
-#endif
-
-			_Log.Debug("ID |Unsigned|Float|Window|Buffer|PBuffer| C | D | S |MS| DB  | SWP        | ST  ");
-			_Log.Debug("--------------------------------------------------------------------------------");
-
-			pfAttributesValue = new int[pfAttributesCodes.Count];
-			for (int pFormatIndex = 1; ; pFormatIndex++) {
-				DevicePixelFormat pFormat = new DevicePixelFormat();
-
-				if (Wgl.GetPixelFormatAttribARB(winDeviceContext.DeviceContext, pFormatIndex, 0, (uint)pfAttributesCodes.Count, pfAttributesCodes.ToArray(), pfAttributesValue) == false) {
-					Debug.Assert(pFormats.Count > 0, "wrong pixel format attribute list");
-					break;	// All pixel format are queried
-				}
-
-				// Check minimum requirements
-				if (pfAttributesValue[0] != Gl.TRUE)
-					continue;		// No OpenGL support
-				if (pfAttributesValue[1] != Wgl.FULL_ACCELERATION_ARB)
-					continue;		// No hardware acceleration
-				if (pfAttributesValue[2] != Wgl.TYPE_RGBA_ARB)
-					continue;		// Ignored pixel type
-
-				// Collect pixel format attributes
-				pFormat.FormatIndex = pFormatIndex;
-
-				pFormat.RgbaUnsigned = pfAttributesValue[2] == Wgl.TYPE_RGBA_ARB;
-				pFormat.RgbaFloat = pfAttributesValue[2] == Wgl.TYPE_RGBA_FLOAT_ARB;
-
-				pFormat.RenderWindow = pfAttributesValue[3] == Gl.TRUE;
-				pFormat.RenderBuffer = pfAttributesValue[4] == Gl.TRUE;
-				pFormat.RenderPBuffer = pfAttributesValue[5] == Gl.TRUE;
-
-				pFormat.DoubleBuffer = pfAttributesValue[6] == Gl.TRUE;
-				pFormat.SwapMethod = pfAttributesValue[7];
-				pFormat.StereoBuffer = pfAttributesValue[8] == Gl.TRUE;
-
-				pFormat.ColorBits = pfAttributesValue[9];
-				pFormat.DepthBits = pfAttributesValue[10];
-				pFormat.StencilBits = pfAttributesValue[11];
-
-				if (caps.Multisample == true) {
-					// pfAttributesValue[12] ? What about multiple sample buffers?
-					pFormat.MultisampleBits = pfAttributesValue[13];
-				} else
-					pFormat.MultisampleBits = 0;
-
-#if false
-                XXX Problems with 2.1 contextes
-				if ((caps.FramebufferSRGB == true) || (caps.FramebufferSRGB_EXT == true)) {
-					pFormat.SRGBCapable = pfAttributesValue[13] != 0;
-				} else
-#endif
-				pFormat.SRGBCapable = false;
-				pFormat.XFbConfig = IntPtr.Zero;
-				pFormat.XVisualInfo = new Glx.XVisualInfo();
-
-				pFormats.Add(pFormat);
-
-				string swapMethodString = "Undefined";
-
-				if (pFormat.SwapMethod == Wgl.SWAP_EXCHANGE_ARB)
-					swapMethodString = "Swap ";
-				if (pFormat.SwapMethod == Wgl.SWAP_COPY_ARB)
-					swapMethodString = "Copy ";
-
-				_Log.Debug("{0,3}|{1,8}|{2,5}|{3,6}|{4,6}|{5,7}|{6,3}|{7,3}|{8,3}|{9,2}|{10,5}|{11,9}|{12,5}",
-					pFormatIndex,
-					pFormat.RgbaUnsigned,
-					pFormat.RgbaFloat,
-					pFormat.RenderWindow,
-					pFormat.RenderBuffer,
-					pFormat.RenderPBuffer,
-					pFormat.ColorBits,
-					pFormat.DepthBits,
-					pFormat.StencilBits,
-					pFormat.MultisampleBits,
-					pFormat.DoubleBuffer,
-					swapMethodString,
-					pFormat.StereoBuffer
-				);
-			}
-
-			_Log.Debug("--------------------------------------------------------------------------------");
-
-			return (pFormats);
-		}
-
-		private static DevicePixelFormatCollection QueryPixelFormatsGlx(IDeviceContext deviceContext, GraphicsCapabilities caps)
-		{
-			if (deviceContext == null)
-				throw new ArgumentNullException("deviceContext");
-			if (caps == null)
-				throw new ArgumentNullException("caps");
-
-			XServerDeviceContext x11DeviceContext = (XServerDeviceContext)deviceContext;
-			DevicePixelFormatCollection pFormats = new DevicePixelFormatCollection();
-
-			using (Glx.XLock xLock = new Glx.XLock(x11DeviceContext.Display)) {
-				int configsCount = 0;
-
-				unsafe {
-					IntPtr* configs = Glx.GetFBConfigs(x11DeviceContext.Display, x11DeviceContext.Screen, out configsCount);
-
-					for (int i = 0; i < configsCount; i++) {
-						IntPtr configId = configs[i];
-						int err, renderType, attribValue;
-
-						#region Satisfy minimum requirements
-
-						// Requires RGBA configuration
-						err = Glx.GetFBConfigAttrib(x11DeviceContext.Display, configId, Glx.RENDER_TYPE, out renderType);
-						if (err != 0)
-							throw new InvalidOperationException();
-						if ((renderType & Glx.RGBA_BIT) == 0)
-							continue;		// Ignore indexed visuals
-
-						// Do not choose configurations with some caveat
-						err = Glx.GetFBConfigAttrib(x11DeviceContext.Display, configId, Glx.CONFIG_CAVEAT, out attribValue);
-						if (attribValue == Glx.SLOW_CONFIG)
-							continue;
-
-						#endregion
-
-						DevicePixelFormat pixelFormat = new DevicePixelFormat();
-
-						pixelFormat.XFbConfig = configId;
-
-                        pixelFormat.XVisualInfo = Glx.GetVisualFromFBConfig(x11DeviceContext.Display, configId);
-						pixelFormat.RgbaUnsigned = (renderType & Glx.RGBA_FLOAT_BIT_ARB) == 0; ;
-						pixelFormat.RgbaFloat = (renderType & Glx.RGBA_FLOAT_BIT_ARB) != 0;
-
-						err = Glx.GetFBConfigAttrib(x11DeviceContext.Display, configId, Glx.DRAWABLE_TYPE, out attribValue);
-						if (err != 0)
-							throw new InvalidOperationException("unable to get DRAWABLE_TYPE from framebuffer configuration");
-
-						pixelFormat.RenderWindow = (attribValue & Glx.WINDOW_BIT) != 0;
-						pixelFormat.RenderBuffer = false;
-						pixelFormat.RenderPBuffer = (attribValue & Glx.PBUFFER_BIT) != 0;
-
-						err = Glx.GetFBConfigAttrib(x11DeviceContext.Display, configId, Glx.FBCONFIG_ID, out pixelFormat.FormatIndex);
-						if (err != 0)
-							throw new InvalidOperationException("unable to get FBCONFIG_ID from framebuffer configuration");
-
-						err = Glx.GetFBConfigAttrib(x11DeviceContext.Display, configId, Glx.BUFFER_SIZE, out pixelFormat.ColorBits);
-						if (err != 0)
-							throw new InvalidOperationException("unable to get BUFFER_SIZE from framebuffer configuration");
-
-						err = Glx.GetFBConfigAttrib(x11DeviceContext.Display, configId, Glx.DEPTH_SIZE, out pixelFormat.DepthBits);
-						if (err != 0)
-							throw new InvalidOperationException("unable to get DEPTH_SIZE from framebuffer configuration");
-
-						err = Glx.GetFBConfigAttrib(x11DeviceContext.Display, configId, Glx.STENCIL_SIZE, out pixelFormat.StencilBits);
-						if (err != 0)
-							throw new InvalidOperationException("unable to get STENCIL_SIZE from framebuffer configuration");
-
-						if (caps.Multisample) {
-							int hasMultisample = 0;
-
-							err = Glx.GetFBConfigAttrib(x11DeviceContext.Display, configId, Glx.SAMPLE_BUFFERS, out hasMultisample);
-							if (err != 0)
-								throw new InvalidOperationException("unable to get SAMPLE_BUFFERS from framebuffer configuration");
-
-							if (hasMultisample != 0) {
-								pixelFormat.MultisampleBits = 0;
-								err = Glx.GetFBConfigAttrib(x11DeviceContext.Display, configId, Glx.SAMPLES, out pixelFormat.MultisampleBits);
-								if (err != 0)
-									throw new InvalidOperationException("unable to get SAMPLES from framebuffer configuration");
-							} else
-								pixelFormat.MultisampleBits = 0;
-						}
-
-						err = Glx.GetFBConfigAttrib(x11DeviceContext.Display, configId, Glx.DOUBLEBUFFER, out attribValue);
-						if (err != 0)
-							throw new InvalidOperationException("unable to get DOUBLEBUFFER from framebuffer configuration");
-						pixelFormat.DoubleBuffer = attribValue != 0;
-
-						err = Glx.GetFBConfigAttrib(x11DeviceContext.Display, configId, Glx.STEREO, out attribValue);
-						if (err != 0)
-							throw new InvalidOperationException("unable to get STEREO from framebuffer configuration");
-						pixelFormat.StereoBuffer = attribValue != 0;
-
-						if (caps.FramebufferSRGB) {
-							err = Glx.GetFBConfigAttrib(x11DeviceContext.Display, configId, Glx.FRAMEBUFFER_SRGB_CAPABLE_ARB, out attribValue);
-							if (err != 0)
-								throw new InvalidOperationException("unable to get FRAMEBUFFER_SRGB_CAPABLE_ARB from framebuffer configuration");
-							pixelFormat.SRGBCapable = attribValue != 0;
-						} else
-							pixelFormat.SRGBCapable = false;
-
-						pFormats.Add(pixelFormat);
-					}
-				}
-			}
-
-			return (pFormats);
-		}
+		private static readonly Dictionary<KhronosVersion, GraphicsCapabilities> _GraphicsCapsDb = new Dictionary<KhronosVersion, GraphicsCapabilities>();
 
 		#endregion
 
@@ -1462,9 +766,9 @@ namespace OpenGL
 
 			#region Textures
 
-			if (Caps.TextureObjectEXT == true) {
-                // Generate texture name
-                texture = Gl.GenTexture();
+			if (Caps.GlExtensions.TextureObject_EXT) {
+				// Generate texture name
+				texture = Gl.GenTexture();
 				// Ensure existing texture object
 				Gl.BindTexture(TextureTarget.Texture2d, texture);
 				Gl.BindTexture(TextureTarget.Texture2d, 0);
@@ -1477,7 +781,7 @@ namespace OpenGL
 
 			#region Shader
 
-			if (Caps.ShaderObjects == true) {
+			if (Caps.GlExtensions.ShaderObjects_ARB) {
 				// Generate shader object name
 				shader = Gl.CreateShader(Gl.VERTEX_SHADER);
 				// Self test
@@ -1489,7 +793,7 @@ namespace OpenGL
 
 			#region Shader Program
 
-			if (Caps.VertexShader == true) {
+			if (Caps.GlExtensions.VertexShader_ARB) {
 				// Generate shader program object name
 				shaderProgram = Gl.CreateProgram();
 				// Self test
@@ -1501,9 +805,9 @@ namespace OpenGL
 
 			#region Render Buffer
 
-			if (Caps.FrambufferObject == true) {
-                // Generate shader program object name
-                renderBuffer = Gl.GenRenderbuffer();
+			if (Caps.GlExtensions.FramebufferObject_ARB) {
+				// Generate shader program object name
+				renderBuffer = Gl.GenRenderbuffer();
 				// Ensure existing render buffer
 				Gl.BindRenderbuffer(Gl.RENDERBUFFER, renderBuffer);
 				Gl.BindRenderbuffer(Gl.RENDERBUFFER, 0);
@@ -1516,9 +820,9 @@ namespace OpenGL
 
 			#region Framebuffer
 
-			if (Caps.FrambufferObject == true) {
-                // Generate framebuffer name
-                framebuffer = Gl.GenFramebuffer();
+			if (Caps.GlExtensions.FramebufferObject_ARB) {
+				// Generate framebuffer name
+				framebuffer = Gl.GenFramebuffer();
 				// Ensure existing object
 				Gl.BindFramebuffer(Gl.FRAMEBUFFER, framebuffer);
 				Gl.BindFramebuffer(Gl.FRAMEBUFFER, 0);
@@ -1527,13 +831,13 @@ namespace OpenGL
 					throw new NotSupportedException();
 			}
 
-			#endregion
+#endregion
 
-			#region Vertex Buffer
+#region Vertex Buffer
 
-			if (Caps.VertexBufferObject == true) {
-                // Generate buffer name
-                vertexBuffer = Gl.GenBuffer();
+			if (Caps.GlExtensions.VertexBufferObject_ARB) {
+				// Generate buffer name
+				vertexBuffer = Gl.GenBuffer();
 				// Ensure existing object
 				Gl.BindBuffer(BufferTargetARB.ArrayBuffer, vertexBuffer);
 				Gl.BindBuffer(BufferTargetARB.ArrayBuffer, 0);
@@ -1542,13 +846,13 @@ namespace OpenGL
 					throw new NotSupportedException();
 			}
 
-			#endregion
+#endregion
 
-			#region Vertex Array
+#region Vertex Array
 
-			if (Caps.VertexArrayObject == true) {
-                // Generate buffer name
-                vertexArray = Gl.GenVertexArray();
+			if (Caps.GlExtensions.VertexArrayObject_ARB) {
+				// Generate buffer name
+				vertexArray = Gl.GenVertexArray();
 				// Ensure existing object
 				Gl.BindVertexArray(vertexArray);
 				Gl.BindVertexArray(0);
@@ -1557,14 +861,14 @@ namespace OpenGL
 					throw new NotSupportedException();
 			}
 
-			#endregion
+#endregion
 
-			#endregion
+#endregion
 
 			// Make current sharing context
 			rContextShare.MakeCurrent(true);
 
-			#region Test Object Sharing
+#region Test Object Sharing
 
 			// Create dictionary
 			mSharedObjectClasses = new ListDictionary();
@@ -1599,9 +903,9 @@ namespace OpenGL
 				_Log.Debug("- Vertex array objects are shared.");
 			}
 
-			#endregion
+#endregion
 
-			#region Delete Objects
+#region Delete Objects
 
 			// Texture
 			if (texture != 0)
@@ -1625,7 +929,7 @@ namespace OpenGL
 			if (vertexArray != 0)
 				Gl.DeleteVertexArrays(vertexArray);
 
-			#endregion
+#endregion
 
 			// Because sharing is transitive, the tested object sharing is managed also by the sharing context
 			rContextShare.mSharedObjectClasses = mSharedObjectClasses;

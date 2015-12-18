@@ -77,7 +77,7 @@ namespace OpenGL
 			if (sSource == null)
 				throw new ArgumentNullException("sSource");
 
-			if (ctx.Caps.ShaderInclude == false) {
+			if (ctx.Caps.GlExtensions.ShadingLanguageInclude_ARB == false) {
 				IncludeProcessorContext ictx = new IncludeProcessorContext();
 
 				return (ProcessIncludeDirectives(ctx, cctx, ictx, sSource));

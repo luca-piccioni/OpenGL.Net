@@ -111,54 +111,54 @@ namespace OpenGL
 				
 				switch (err) {
 					case ErrorCode.InvalidEnum:
-						ProcLoader.LogComment("glGetError() = INVALID_ENUM (!)");
+						KhronosApi.LogComment("glGetError() = INVALID_ENUM (!)");
 						if (throwOnErrors)
 							throw new GraphicsException(err, "invalid enumeration on OpenGL call argument");
 						return (true);
 					case ErrorCode.InvalidValue:
-						ProcLoader.LogComment("glGetError() = INVALID_VALUE (!)");
+						KhronosApi.LogComment("glGetError() = INVALID_VALUE (!)");
 						if (throwOnErrors)
 							throw new GraphicsException(err, "invalid value on OpenGL call argument");
 						return (true);
 					case ErrorCode.InvalidOperation:
-						ProcLoader.LogComment("glGetError() = INVALID_OPERATION (!)");
+						KhronosApi.LogComment("glGetError() = INVALID_OPERATION (!)");
 						if (throwOnErrors)
 							throw new GraphicsException(err, "invalid operation on OpenGL call");
 						return (true);
 					case ErrorCode.OutOfMemory:
-						ProcLoader.LogComment("glGetError() = OUT_OF_MEMORY (!)");
+						KhronosApi.LogComment("glGetError() = OUT_OF_MEMORY (!)");
 						if (throwOnErrors)
 							throw new GraphicsException(err, "out of memory on OpenGL call");
 						return (true);
 					case ErrorCode.InvalidFramebufferOperation:
-						ProcLoader.LogComment("glGetError() = INVALID_FRAMEBUFFER_OPERATION (!)");
+						KhronosApi.LogComment("glGetError() = INVALID_FRAMEBUFFER_OPERATION (!)");
 						if (throwOnErrors)
 							throw new GraphicsException(err, "invalid framebuffer operation OpenGL  call");
 						return (true);
 					
 					case (ErrorCode)Wgl.ERROR_INVALID_PIXEL_TYPE_ARB:
-						ProcLoader.LogComment("glGetError() = ERROR_INVALID_PIXEL_TYPE_ARB (!)");
+						KhronosApi.LogComment("glGetError() = ERROR_INVALID_PIXEL_TYPE_ARB (!)");
 						if (throwOnErrors)
 							throw new GraphicsException(err, "invalid pixel type");
 						return (true);
 					case (ErrorCode)Wgl.ERROR_INVALID_PROFILE_ARB:
-						ProcLoader.LogComment("glGetError() = ERROR_INVALID_PROFILE_ARB (!)");
+						KhronosApi.LogComment("glGetError() = ERROR_INVALID_PROFILE_ARB (!)");
 						if (throwOnErrors)
 							throw new GraphicsException(err, "invalid profile");
 						return (true);
 					case (ErrorCode)Wgl.ERROR_INVALID_VERSION_ARB:
-						ProcLoader.LogComment("glGetError() = ERROR_INVALID_VERSION_ARB (!)");
+						KhronosApi.LogComment("glGetError() = ERROR_INVALID_VERSION_ARB (!)");
 						if (throwOnErrors)
 							throw new GraphicsException(err, "invalid version");
 						return (true);
 					case (ErrorCode)Wgl.ERROR_INCOMPATIBLE_DEVICE_CONTEXTS_ARB:
-						ProcLoader.LogComment("glGetError() = ERROR_INCOMPATIBLE_DEVICE_CONTEXTS_ARB (!)");
+						KhronosApi.LogComment("glGetError() = ERROR_INCOMPATIBLE_DEVICE_CONTEXTS_ARB (!)");
 						if (throwOnErrors)
 							throw new GraphicsException(err, "incompatible device contexts");
 						return (true);
 	
 					default:
-						ProcLoader.LogComment("glGetError() = 0x{0} (!)", err.ToString("X"));
+						KhronosApi.LogComment("glGetError() = 0x{0} (!)", err.ToString("X"));
 						throw new GraphicsException(err, "unknown error 0x"+err.ToString("X"));
 						return (true);
 				}

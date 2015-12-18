@@ -18,22 +18,21 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Text;
-using System.Xml;
 
 namespace OpenGL
 {
 	/// <summary>
 	/// Surface pixel format configuration.
 	/// </summary>
-	[DebuggerDisplay("RenderSurfaceFormat Color={ColorType} Depth={DepthBits} Stencil={StencilBits} MS={MultisampleBits} DB={DoubleBuffers}")]
-	public sealed class RenderSurfaceFormat
+	[DebuggerDisplay("GraphicsBuffersFormat Color={ColorType} Depth={DepthBits} Stencil={StencilBits} MS={MultisampleBits} DB={DoubleBuffers}")]
+	public sealed class GraphicsBuffersFormat
 	{
 		#region Constructors
 
 		/// <summary>
 		/// Default surface format (8 bit RGB color, no depth, no stencil, no multisample, no double/stereo buffering).
 		/// </summary>
-		public RenderSurfaceFormat()
+		public GraphicsBuffersFormat()
 			: this(PixelLayout.RGB24)	// Most commonly supported format
 		{
 
@@ -51,7 +50,7 @@ namespace OpenGL
 		/// define those configurations using the related <i>Define*</i> routine.
 		/// </para>
 		/// </remarks>
-		public RenderSurfaceFormat(PixelLayout color)
+		public GraphicsBuffersFormat(PixelLayout color)
 		{
 			DefineColorBuffer(color);
 		}
@@ -71,7 +70,7 @@ namespace OpenGL
 		/// define those configurations using the related <i>Define*</i> routine.
 		/// </para>
 		/// </remarks>
-		public RenderSurfaceFormat(PixelLayout color, uint depth)
+		public GraphicsBuffersFormat(PixelLayout color, uint depth)
 		{
 			DefineColorBuffer(color);
 			DefineDepthBuffer(depth);
@@ -747,56 +746,7 @@ namespace OpenGL
 		/// </summary>
 		/// <param name="pFormat"></param>
 		/// <returns></returns>
-		public delegate bool ValidatePixelFormatDelegate(DevicePixelFormat pFormat);
-		
-		/// <summary>
-		/// Obtain best macthing surface configuration supported by actual implementation.
-		/// </summary>
-		/// <returns>
-		/// <para>
-		/// It returns the closest macthing pixel format to this Surface configuration.
-		/// </para>
-		/// </returns>
-		/// <exception cref="System.Exception">
-		/// This exception is thrown when no pixel format was found for matching surface buffer
-		/// configuration using the specified buffer policy.
-		/// </exception>
-		/// <remarks>
-		/// Each system offer a limited number of possible configuration, which has to be choosen to
-		/// allocated correctly a system Surface.
-		/// These pixel formats are fetched during the static constructor of <see cref="GraphicsContext"/>,
-		/// and this routine selects one of the available pixel format.
-		/// </remarks>
-		public DevicePixelFormat ChoosePixelFormat()
-		{
-			return (ChoosePixelFormat((ValidatePixelFormatDelegate)null));
-		}
-		
-		/// <summary>
-		/// Obtain best macthing surface configuration supported by actual implementation, but not requiring a device context.
-		/// </summary>
-		/// <param name="formatFilter">
-		/// Delegate used for filtering pixel formats.
-		/// </param>
-		/// <returns>
-		/// <para>
-		/// It returns the closest macthing pixel format to this Surface configuration.
-		/// </para>
-		/// </returns>
-		/// <exception cref="System.Exception">
-		/// This exception is thrown when no pixel format was found for matching surface buffer
-		/// configuration using the specified buffer policy.
-		/// </exception>
-		/// <remarks>
-		/// Each system offer a limited number of possible configuration, which has to be choosen to
-		/// allocated correctly a system Surface.
-		/// These pixel formats are fetched during the static constructor of <see cref="GraphicsContext"/>,
-		/// and this routine selects one of the available pixel format.
-		/// </remarks>
-		public DevicePixelFormat ChoosePixelFormat(ValidatePixelFormatDelegate formatFilter)
-		{
-			return (ChoosePixelFormat(GraphicsContext.CurrentCaps.WindowPixelFormats, formatFilter));
-		}
+		public delegate bool ValidBuffersFormatDelegate(DevicePixelFormat pFormat);
 		
 		/// <summary>
 		/// Obtain best macthing surface configuration supported by actual implementation.
@@ -848,21 +798,9 @@ namespace OpenGL
 		/// These pixel formats are fetched during the static constructor of <see cref="GraphicsContext"/>,
 		/// and this routine selects one of the available pixel format.
 		/// </remarks>
-		public DevicePixelFormat ChoosePixelFormat(IDeviceContext deviceContext, ValidatePixelFormatDelegate formatFilter)
+		public DevicePixelFormat ChoosePixelFormat(IDeviceContext deviceContext, ValidBuffersFormatDelegate formatFilter)
 		{
-			List<DevicePixelFormat> pFormats;
-
-			try {
-				// Logging in this case is not required (pixel formats 
-				Logger.Enabled = false;
-				// Request pixel formats for this device context
-				pFormats = GraphicsContext.QueryPixelFormats(deviceContext);
-			} finally {
-				// Enable logging (even on exceptions)
-				Logger.Enabled = true;
-			}
-
-			return (ChoosePixelFormat(pFormats, formatFilter));
+			return (ChoosePixelFormat(deviceContext.PixelsFormats, formatFilter));
 		}
 		
 		/// <summary>
@@ -889,7 +827,7 @@ namespace OpenGL
 		/// These pixel formats are fetched during the static constructor of <see cref="GraphicsContext"/>,
 		/// and this routine selects one of the available pixel format.
 		/// </remarks>
-		private DevicePixelFormat ChoosePixelFormat(List<DevicePixelFormat> pFormats, ValidatePixelFormatDelegate formatFilter)
+		private DevicePixelFormat ChoosePixelFormat(List<DevicePixelFormat> pFormats, ValidBuffersFormatDelegate formatFilter)
 		{
 			// Custom filtering
 			if (formatFilter != null)
@@ -1139,9 +1077,9 @@ namespace OpenGL
 		/// <returns>
 		/// It returns a deep copy of this RenderSurfaceFormat.
 		/// </returns>
-		public RenderSurfaceFormat Copy()
+		public GraphicsBuffersFormat Copy()
 		{
-			return ((RenderSurfaceFormat)MemberwiseClone());
+			return ((GraphicsBuffersFormat)MemberwiseClone());
 		}
 
 		#endregion

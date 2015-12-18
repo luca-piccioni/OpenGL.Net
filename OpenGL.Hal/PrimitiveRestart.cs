@@ -27,20 +27,19 @@ namespace OpenGL
 		{
 			if (ctx == null)
 				throw new ArgumentNullException("ctx");
-			if (!ctx.Caps.PrimitiveRestart)
-				throw new InvalidOperationException("primitive restart not supported");
 			
-			if (ctx.Caps.PrimitiveRestart) {
+			if (ctx.Caps.GlExtensions.PrimitiveRestart) {
 				// Enable primitive restart (server state)
 				Gl.Enable(EnableCap.PrimitiveRestart);
 				// Specify restart index
 				Gl.PrimitiveRestartIndex(index);
-			} else if(ctx.Caps.PrimitiveRestartNV) {
+			} else if(ctx.Caps.GlExtensions.PrimitiveRestart_NV) {
 				// Enable primitive restart (client state)
 				Gl.EnableClientState(EnableCap.PrimitiveRestartNv);
 				// Specify restart index
 				Gl.PrimitiveRestartIndexNV(index);
-			}
+			} else
+				throw new InvalidOperationException("primitive restart not supported");
 		}
 		
 		public static void EnablePrimitiveRestart(GraphicsContext ctx, ushort index)
@@ -74,16 +73,15 @@ namespace OpenGL
 		{
 			if (ctx == null)
 				throw new ArgumentNullException("ctx");
-			if (!ctx.Caps.PrimitiveRestart)
-				throw new InvalidOperationException("primitive restart not supported");
 			
-			if (ctx.Caps.PrimitiveRestart) {
+			if (ctx.Caps.GlExtensions.PrimitiveRestart) {
 				// Enable primitive restart (server state)
 				Gl.Disable(EnableCap.PrimitiveRestart);
-			} else if (ctx.Caps.PrimitiveRestartNV) {
+			} else if (ctx.Caps.GlExtensions.PrimitiveRestart_NV) {
 				// Enable primitive restart (client state)
 				Gl.DisableClientState(EnableCap.PrimitiveRestartNv);
-			}
+			} else
+				throw new InvalidOperationException("primitive restart not supported");
 		}
 	}
 }

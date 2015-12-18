@@ -106,8 +106,8 @@ namespace OpenGL
 		/// is included). If this attribute is not specified, or it equals to <see cref="GraphicsContext.Version.Current"/>,
 		/// it means that the shader program can run with any OpenGL version.
 		/// </remarks>
-		[XmlAttribute("GLVersion")]
-		public GraphicsContext.GLVersion GLVersion = GraphicsContext.GLVersion.Current;
+		[XmlElement("GLVersion")]
+		public KhronosVersion GLVersion;
 
 		/// <summary>
 		/// Shader program GLSL version requirement.
@@ -117,8 +117,8 @@ namespace OpenGL
 		/// version is included). If this attribute if not specified, or it rquals to <see cref="GraphicsContext.GLSLVersion.Current"/>,
 		/// it means that the shader program can run with any OpenGL Shading Language version.
 		/// </remarks>
-		[XmlAttribute("GLSLVersion")]
-		public GraphicsContext.GLSLVersion GLSLVersion = GraphicsContext.GLSLVersion.Current;
+		[XmlElement("GLSLVersion")]
+		public KhronosVersion GLSLVersion;
 
 		/// <summary>
 		/// Alternative programs to instantiate in the case the requirements are not satisfied.

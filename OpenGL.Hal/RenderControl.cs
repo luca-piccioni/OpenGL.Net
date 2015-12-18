@@ -62,7 +62,7 @@ namespace OpenGL
 			get { return (SurfaceFormat.ColorType); }
 			set
 			{
-				SurfaceFormat.DefineColorBuffer(value, RenderSurfaceFormat.BufferPolicy.RequiredAndDegradable);
+				SurfaceFormat.DefineColorBuffer(value, GraphicsBuffersFormat.BufferPolicy.RequiredAndDegradable);
 			}
 		}
 
@@ -78,7 +78,7 @@ namespace OpenGL
 			set
 			{
 				if (value > 0)
-					SurfaceFormat.DefineDepthBuffer(value, RenderSurfaceFormat.BufferPolicy.RequiredAndDegradable);
+					SurfaceFormat.DefineDepthBuffer(value, GraphicsBuffersFormat.BufferPolicy.RequiredAndDegradable);
 				else
 					SurfaceFormat.UndefineDepthBuffer();
 			}
@@ -96,7 +96,7 @@ namespace OpenGL
 			set
 			{
 				if (value > 0)
-					SurfaceFormat.DefineStencilBuffer(value, RenderSurfaceFormat.BufferPolicy.RequiredAndDegradable);
+					SurfaceFormat.DefineStencilBuffer(value, GraphicsBuffersFormat.BufferPolicy.RequiredAndDegradable);
 				else
 					SurfaceFormat.UndefineStencilBuffer();
 			}
@@ -114,7 +114,7 @@ namespace OpenGL
 			set
 			{
 				if (value > 0)
-					SurfaceFormat.DefineMultisampleBuffer(value, RenderSurfaceFormat.BufferPolicy.RequiredAndDegradable);
+					SurfaceFormat.DefineMultisampleBuffer(value, GraphicsBuffersFormat.BufferPolicy.RequiredAndDegradable);
 				else
 					SurfaceFormat.UndefineMultisampleBuffer();
 			}
@@ -132,7 +132,7 @@ namespace OpenGL
 			set
 			{
 				if (value)
-					SurfaceFormat.DefineDoubleBuffers(RenderSurfaceFormat.BufferPolicy.RequiredAndDegradable);
+					SurfaceFormat.DefineDoubleBuffers(GraphicsBuffersFormat.BufferPolicy.RequiredAndDegradable);
 				else
 					SurfaceFormat.UndefineDoubleBuffers();
 			}
@@ -158,7 +158,7 @@ namespace OpenGL
 		/// <summary>
 		/// The surface format used for creating OpenGL visual.
 		/// </summary>
-		public readonly RenderSurfaceFormat SurfaceFormat = new RenderSurfaceFormat();
+		public readonly GraphicsBuffersFormat SurfaceFormat = new GraphicsBuffersFormat();
 		
 		/// <summary>
 		/// A RenderWindow (bound to this UserControl) used for instancing a render context.

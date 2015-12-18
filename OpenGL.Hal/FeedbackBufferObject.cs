@@ -206,7 +206,7 @@ namespace OpenGL
 			if (ctx == null)
 				throw new ArgumentNullException("ctx");
 			
-			if (ctx.Caps.TransformFeedback2) {
+			if (ctx.Caps.GlExtensions.TransformFeedback2_ARB) {
 				// Bind this  feedback buffer
 				Gl.BindTransformFeedback(Gl.TRANSFORM_FEEDBACK, ObjectName);
 			} else {
@@ -223,7 +223,7 @@ namespace OpenGL
 			if (ctx == null)
 				throw new ArgumentNullException("ctx");
 			
-			if (ctx.Caps.TransformFeedback2) {
+			if (ctx.Caps.GlExtensions.TransformFeedback2_ARB) {
 				// Bind this  feedback buffer
 				Gl.BindTransformFeedback(Gl.TRANSFORM_FEEDBACK, 0);
 			}
@@ -285,7 +285,7 @@ namespace OpenGL
 			if (base.Exists(ctx) == false)
 				return (false);
 
-			return (!ctx.Caps.TransformFeedback2 || Gl.IsTransformFeedback(ObjectName));
+			return (!ctx.Caps.GlExtensions.TransformFeedback2_ARB || Gl.IsTransformFeedback(ObjectName));
 		}
 		
 		/// <summary>
@@ -304,7 +304,7 @@ namespace OpenGL
 			if (ctx == null)
 				throw new ArgumentNullException("ctx");
 			
-			return (ctx.Caps.TransformFeedback2 || ctx.Caps.TransformFeedbackEXT);
+			return (ctx.Caps.GlExtensions.TransformFeedback2_ARB || ctx.Caps.GlExtensions.TransformFeedback_EXT);
 		}
 
 		/// <summary>
@@ -323,7 +323,7 @@ namespace OpenGL
 			
 			uint name;
 			
-			if (ctx.Caps.TransformFeedback2) {
+			if (ctx.Caps.GlExtensions.TransformFeedback2_ARB) {
 				// Create buffer object
 				name = Gl.GenTransformFeedback();
 			} else
@@ -346,7 +346,7 @@ namespace OpenGL
 			if (ctx == null)
 				throw new ArgumentNullException("ctx");
 			
-			if (ctx.Caps.TransformFeedback2) {
+			if (ctx.Caps.GlExtensions.TransformFeedback2_ARB) {
 				// Delete buffer object
 				Gl.DeleteTransformFeedbacks(name);
 			} else
@@ -366,7 +366,7 @@ namespace OpenGL
 			if (mAttachedArrays.Count == 0)
 				throw new InvalidOperationException("no feedback attachments");
 			
-			if (ctx.Caps.TransformFeedback2) {
+			if (ctx.Caps.GlExtensions.TransformFeedback2_ARB) {
 				// Bind/create feedback buffer
 				Gl.BindTransformFeedback(Gl.TRANSFORM_FEEDBACK, ObjectName);
 				

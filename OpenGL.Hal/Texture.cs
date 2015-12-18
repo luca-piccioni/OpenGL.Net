@@ -258,7 +258,7 @@ namespace OpenGL
 					throw new NotImplementedException("not implemented checks on texture " + GetType());
 			}
 			// Texture not-power-of-two
-			if (caps.TextureNPOT == false) {
+			if (caps.GlExtensions.TextureNonPowerOfTwo_ARB == false) {
 				if (IsPowerOfTwo(width) == false)
 					throw new ArgumentException(String.Format("NPOT texture width not supported (width is {0})", width));
 				if (IsPowerOfTwo(height) == false)
@@ -708,7 +708,7 @@ namespace OpenGL
 		/// </remarks>
 		private void SetupTextelSwizzle()
 		{
-			if (GraphicsContext.CurrentCaps.TextureSwizzle) {
+			if (GraphicsContext.CurrentCaps.GlExtensions.TextureSwizzle_ARB) {
 				switch (_PixelFormat) {
 
 					#region GRAY Internal Formats
@@ -875,7 +875,7 @@ namespace OpenGL
 
 			#region Textel Components Swizzle
 
-			if ((mTextelSwizzleRGBA != null) && (ctx.Caps.TextureSwizzle)) {
+			if ((mTextelSwizzleRGBA != null) && (ctx.Caps.GlExtensions.TextureSwizzle_ARB)) {
 				// Set components swizzle setup
 				Gl.TexParameter(target, (TextureParameterName)Gl.TEXTURE_SWIZZLE_RGBA, mTextelSwizzleRGBA);
 				GraphicsException.DebugCheckErrors();

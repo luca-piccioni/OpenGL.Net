@@ -136,7 +136,7 @@ namespace OpenGL
 		/// </para>
 		/// </remarks>
 		[XmlElement("RequiredMinVersion")]
-		public GraphicsContext.GLSLVersion RequiredMinimumVersion = GraphicsContext.GLSLVersion.None;
+		public KhronosVersion RequiredMinimumVersion;
 		
 		/// <summary>
 		/// Shader program GL extension requirement.
@@ -193,7 +193,7 @@ namespace OpenGL
 				
 			}
 			sw.WriteLine("		{");
-			if ((RequiredMinimumVersion != GraphicsContext.GLSLVersion.None) && (RequiredMinimumVersion != GraphicsContext.GLSLVersion.Current))
+			if (RequiredMinimumVersion != null)
 				sw.WriteLine("			RequiredMinVersion = GraphicsContext.GLSLVersion.{0};", RequiredMinimumVersion);
 			foreach (ShaderExtension shaderExtension in Extensions)
 				sw.WriteLine("			Extensions.Add(new ShaderExtension(\"{0}\", ShaderExtensionBehavior.{1}));", shaderExtension.Name, shaderExtension.Behavior);

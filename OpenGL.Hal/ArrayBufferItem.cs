@@ -164,7 +164,7 @@ namespace OpenGL
 
 			switch (baseType) {
 				case VertexBaseType.Half:
-					return (ctx.Caps.HalfFloatVertex);
+					return (ctx.Caps.GlExtensions.HalfFloatVertex_ARB);
 				default:
 					return (true);
 			}

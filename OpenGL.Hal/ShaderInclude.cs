@@ -166,7 +166,7 @@ namespace OpenGL
 			if (!base.Exists(ctx))
 				return (false);
 			
-			if (ctx.Caps.ShaderInclude == true)
+			if (ctx.Caps.GlExtensions.ShadingLanguageInclude_ARB == true)
 				return (Gl.IsNamedStringARB(IncludePath.Length, IncludePath));
 
 			return (true);
@@ -188,7 +188,7 @@ namespace OpenGL
 			if (ctx == null)
 				throw new ArgumentNullException("ctx");
 
-			if (ctx.Caps.ShaderInclude) {
+			if (ctx.Caps.GlExtensions.ShadingLanguageInclude_ARB) {
 				StringBuilder sb = new StringBuilder();
 
 				// Build include source string
@@ -211,7 +211,7 @@ namespace OpenGL
 			if (ctx == null)
 				throw new ArgumentNullException("ctx");
 			
-			if (ctx.Caps.ShaderInclude)
+			if (ctx.Caps.GlExtensions.ShadingLanguageInclude_ARB)
 				Gl.DeleteNamedStringARB(-1, IncludePath);
 		}
 

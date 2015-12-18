@@ -346,7 +346,7 @@ namespace OpenGL
 
 			if (shaderSourceStrings != null) {
 				// Append imposed header - Every source shall compile with this header
-				AppendHeader(ctx, cctx, shaderSource, GraphicsContext.GetGLSLVersionId(cctx.ShaderVersion));
+				AppendHeader(ctx, cctx, shaderSource, cctx.ShaderVersion.VersionId);
 
 				// Append required #define statments
 				string[] knownSymbols = GetKnownPreprocessorSymbol(GetType());
@@ -439,10 +439,11 @@ namespace OpenGL
 				if (!shaderExtensions.Exists(delegate(ShaderExtension item) { return (item.Name == contextShaderExtension.Name); }))
 					shaderExtensions.Add(contextShaderExtension);
 			}
-			
+
+#if false
 			// #extension GL_ARB_shading_language_include (required by framework)
 			shaderExtensions.RemoveAll(delegate(ShaderExtension item) { return (item.Name == "GL_ARB_shading_language_include"); });
-			if (ctx.Caps.ShaderInclude) {
+			if (ctx.Caps.GlExtensions.ShadingLanguageInclude_ARB) {
 				RenderCapabilities.ShadingExtSupport shaderExtension = ctx.Caps.GetShadingExtensionSupport("GL_ARB_shading_language_include");
 				
 				// ARB_shading_language_include may become a core feature? Who knows...
@@ -471,6 +472,7 @@ namespace OpenGL
 						break;
 				}
 			}
+#endif
 
 			// #pragma
 #if DEBUG
@@ -481,8 +483,6 @@ namespace OpenGL
 			sLines.Add("#pragma optimization(on)\n");
 			sLines.Add("#pragma debug(off)\n");
 #endif
-			// Framework symbols
-			sLines.Add(String.Format("#define DS_VENDOR {0} // Vendor: {1}\n", (int)ctx.Vendor, ctx.Vendor));
 		}
 
 		/// <summary>
@@ -563,14 +563,14 @@ namespace OpenGL
 		/// </summary>
 		private readonly Dictionary<string, ShaderExtension> mExtensions = new Dictionary<string, ShaderExtension>();
 
-		#endregion
+#endregion
 
-		#region Source Code Compilation
+#region Source Code Compilation
 		
 		/// <summary>
 		/// The required minimum version for compiling this shader object.
 		/// </summary>
-		public GraphicsContext.GLSLVersion RequiredMinVersion
+		public KhronosVersion RequiredMinVersion
 		{
 			get { return (mRequiredMinVersion); }
 			set {
@@ -616,7 +616,7 @@ namespace OpenGL
 			for (int i = 0; i < source.Count; i++)
 				mSourceLengths[i] = source[i].Length;
 			Gl.ShaderSource(ObjectName, source.ToArray(), mSourceLengths);
-			if (ctx.Caps.ShaderInclude) {
+			if (ctx.Caps.GlExtensions.ShadingLanguageInclude_ARB) {
 				string[] includePaths = new string[cctx.Includes.Count];
 
 				cctx.Includes.CopyTo(includePaths, 0);
@@ -691,11 +691,11 @@ namespace OpenGL
 		/// <summary>
 		/// The required minimum version for compiling this shader object.
 		/// </summary>
-		private GraphicsContext.GLSLVersion mRequiredMinVersion;
+		private KhronosVersion mRequiredMinVersion;
 		
-		#endregion
+#endregion
 
-		#region Shader Object Creation
+#region Shader Object Creation
 
 		/// <summary>
 		/// Create this ShaderObject.
@@ -723,9 +723,9 @@ namespace OpenGL
 			base.Create(ctx);
 		}
 
-		#endregion
+#endregion
 
-		#region Shader Objects Library Support
+#region Shader Objects Library Support
 
 		/// <summary>
 		/// Get the known preprocessor symbol to be effective on shader object compilation.
@@ -966,18 +966,18 @@ namespace OpenGL
 		/// </summary>
 		internal string CompiledHash = String.Empty;
 
-		#endregion
+#endregion
 
-		#region Logging
+#region Logging
 		
 		/// <summary>
 		/// Logger of this class.
 		/// </summary>
 		private static readonly ILogger sLog = Log.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 
-		#endregion
+#endregion
 
-		#region GraphicsResource Overrides
+#region GraphicsResource Overrides
 
 		/// <summary>
 		/// Shader object class.
@@ -1084,6 +1084,6 @@ namespace OpenGL
 		/// </summary>
 		private ShaderCompilerContext mCompilationParams;
 
-		#endregion
+#endregion
 	}
 }

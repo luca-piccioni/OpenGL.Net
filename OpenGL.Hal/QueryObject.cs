@@ -71,7 +71,7 @@ namespace OpenGL
 			if (ctx == null)
 				throw new ArgumentNullException("ctx");
 
-			Gl.GetQueryObjectuiv(ObjectName, Gl.QUERY_RESULT, out result);
+			Gl.GetQueryObject(ObjectName, Gl.QUERY_RESULT, out result);
 		}
 
 		public void GetResult(GraphicsContext ctx, out long result)
@@ -79,8 +79,8 @@ namespace OpenGL
 			if (ctx == null)
 				throw new ArgumentNullException("ctx");
 
-			if (ctx.Caps.TimerQuery) {
-				Gl.GetQueryObjecti64v(ObjectName, Gl.QUERY_RESULT, out result);
+			if (ctx.Caps.GlExtensions.TimerQuery_ARB) {
+				Gl.GetQueryObject(ObjectName, Gl.QUERY_RESULT, out result);
 			} else {
 				int intResult;
 
@@ -95,8 +95,8 @@ namespace OpenGL
 			if (ctx == null)
 				throw new ArgumentNullException("ctx");
 
-			if (ctx.Caps.TimerQuery) {
-				Gl.GetQueryObjectui64v(ObjectName, Gl.QUERY_RESULT, out result);
+			if (ctx.Caps.GlExtensions.TimerQuery_ARB) {
+				Gl.GetQueryObject(ObjectName, Gl.QUERY_RESULT, out result);
 			} else {
 				uint uintResult;
 
@@ -173,20 +173,20 @@ namespace OpenGL
 
 			switch (mTarget) {
 				case QueryTarget.SamplesPassed:
-					if (!ctx.Caps.OcclusionQuery)
+					if (!ctx.Caps.GlExtensions.OcclusionQuery_ARB)
 						throw new InvalidOperationException("occlusion query not available");
 					break;
 				case QueryTarget.TimeElapsed:
-					if (!ctx.Caps.TimerQuery)
+					if (!ctx.Caps.GlExtensions.TimerQuery_ARB)
 						throw new InvalidOperationException("timer query not available");
 					break;
 				case QueryTarget.PrimitivesGenerated:
 				case QueryTarget.TransformFeedbackPrimitivesGenerated:
-					if (!ctx.Caps.TransformFeedbackEXT && !ctx.Caps.TransformFeedbackNV)
+					if (!ctx.Caps.GlExtensions.TransformFeedback_EXT && !ctx.Caps.GlExtensions.TransformFeedback_NV)
 						throw new InvalidOperationException("timer query not available");
 					break;
 				case QueryTarget.AnySamplesPassed:
-					if (!ctx.Caps.OcclusionQuery2)
+					if (!ctx.Caps.GlExtensions.OcclusionQuery2_ARB)
 						throw new InvalidOperationException("(any) occlusion query not available");
 					break;
 				default:

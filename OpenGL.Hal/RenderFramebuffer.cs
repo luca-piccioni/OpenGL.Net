@@ -648,16 +648,16 @@ namespace OpenGL
 		/// </summary>
 		/// <remarks>
 		/// <para>
-		/// This read-only property shall return a <see cref="RenderSurfaceFormat"/> indicating the current
+		/// This read-only property shall return a <see cref="GraphicsBuffersFormat"/> indicating the current
 		/// buffer configuration. The object returned shall not be used to modify this RenderSurface buffers,
 		/// but it shall be used to know which is the buffer configuration.
 		/// </para>
 		/// </remarks>
-		public override RenderSurfaceFormat BufferFormat
+		public override GraphicsBuffersFormat BufferFormat
 		{
 			get
 			{
-				RenderSurfaceFormat bufferFormat = new RenderSurfaceFormat();
+				GraphicsBuffersFormat bufferFormat = new GraphicsBuffersFormat();
 
 				// It has a color buffer?
 

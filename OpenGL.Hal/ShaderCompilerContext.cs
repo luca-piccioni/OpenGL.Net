@@ -36,7 +36,7 @@ namespace OpenGL
 		/// Default compilation context.
 		/// </summary>
 		public ShaderCompilerContext()
-			: this(GraphicsContext.sCurrentShadingGLVersion, null)
+			: this(GraphicsContext.CurrentShadingVersion, null)
 		{
 
 		}
@@ -48,7 +48,7 @@ namespace OpenGL
 		/// The list of preprocessor definitions included in each shader source.
 		/// </param>
 		public ShaderCompilerContext(params string[] defines)
-			: this(GraphicsContext.sCurrentShadingGLVersion, defines)
+			: this(GraphicsContext.CurrentShadingVersion, defines)
 		{
 
 		}
@@ -57,12 +57,12 @@ namespace OpenGL
 		/// Compilation context that specify GLSL version and preprocessor definitions.
 		/// </summary>
 		/// <param name="version">
-		/// The <see cref="GraphicsContext.GLSLVersion"/> used for shader object compilation.
+		/// The <see cref="KhronosVersion"/> used for shader object compilation.
 		/// </param>
 		/// <param name="defines">
 		/// The list of preprocessor definitions included in each shader source.
 		/// </param>
-		public ShaderCompilerContext(GraphicsContext.GLSLVersion version, params string[] defines)
+		public ShaderCompilerContext(KhronosVersion version, params string[] defines)
 		{
 			mShaderVersion = version;
 
@@ -98,30 +98,26 @@ namespace OpenGL
 		/// The shading language version used by compiler.
 		/// </summary>
 		/// <remarks>
-		/// If the property is set to the special value <see cref="GraphicsContext.GLSLVersion.Current"/>, the
-		/// property will be defined as <see cref="GraphicsContext.CurrentGLSLVersion"/>. In this way the
+		/// If the property is set to null, the property will be defined as <see cref="GraphicsContext.CurrentGLSLVersion"/>. In this way the
 		/// value of this property will always specify a concrete GLSL version value.
 		/// </remarks>
 		/// <exception cref="InvalidOperationException">
 		/// Exception thrown if the value specified at setter is <see cref="GraphicsContext.GLSLVersion.None"/>.
 		/// </exception>
 		[XmlElement("ShaderVersion")]
-		public GraphicsContext.GLSLVersion ShaderVersion
+		public KhronosVersion ShaderVersion
 		{
 			get { return (mShaderVersion); }
 			set
 			{
-				if (value == GraphicsContext.GLSLVersion.None)
-					throw new InvalidOperationException("invalid version");
-				
-				mShaderVersion = value == GraphicsContext.GLSLVersion.Current ? GraphicsContext.CurrentGLSLVersion : value;
+				mShaderVersion = value == null ? GraphicsContext.CurrentShadingVersion : value;
 			}
 		}
 
 		/// <summary>
 		/// The shading language version used by compiler.
 		/// </summary>
-		private GraphicsContext.GLSLVersion mShaderVersion = GraphicsContext.sCurrentShadingGLVersion;
+		private KhronosVersion mShaderVersion;
 
 		#endregion
 

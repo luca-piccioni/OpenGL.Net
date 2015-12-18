@@ -1201,8 +1201,8 @@ namespace OpenGL
 		/// capabilities are tested:
 		/// - <see cref="GraphicsContext.Capabilities.BgraFormat"/>
 		/// - <see cref="GraphicsContext.Capabilities.PackedFormats"/>
-		/// - <see cref="GraphicsContext.Capabilities.TextureSwizzle"/>
-		/// - <see cref="GraphicsContext.Capabilities.HalfFloatPixel"/>
+		/// - <see cref="GraphicsContext.Capabilities.GlExtensions.TextureSwizzle_ARB"/>
+		/// - <see cref="GraphicsContext.Capabilities.GlExtensions.HalfFloatPixel_ARB"/>
 		/// - <see cref="GraphicsContext.Capabilities.TextureFloat"/>
 		/// The above extension are widely supported, even by old entry-level graphic chipset; but for having a robust
 		/// support, those extentions are always checked when dialing with pixel types, in order to avoid errors on
@@ -1227,7 +1227,7 @@ namespace OpenGL
 		/// - <see cref="Type.BGR16"/>
 		/// - <see cref="Type.BGR30A2"/>
 		/// 
-		/// The following pixel formats are dependent on the <see cref="GraphicsContext.Capabilities.TextureSwizzle"/> OpenGL
+		/// The following pixel formats are dependent on the <see cref="GraphicsContext.Capabilities.GlExtensions.TextureSwizzle_ARB"/> OpenGL
 		/// extension:
 		/// - <see cref="Type.RGB15"/>
 		/// - <see cref="Type.BGR15"/>
@@ -1238,7 +1238,7 @@ namespace OpenGL
 		/// - <see cref="Type.GRAYAF"/>
 		/// - <see cref="Type.GRAYHF"/>
 		/// 
-		/// The following pixel formats are dependent on the <see cref="GraphicsContext.Capabilities.HalfFloatPixel"/> and on
+		/// The following pixel formats are dependent on the <see cref="GraphicsContext.Capabilities.GlExtensions.HalfFloatPixel_ARB"/> and on
 		/// <see cref="GraphicsContext.Capabilities.TextureFloat"/> OpenGL extensions:
 		/// - <see cref="Type.RGBHF"/>
 		/// - <see cref="Type.RGBAHF"/>
@@ -1249,11 +1249,11 @@ namespace OpenGL
 		/// In the case only <see cref="GraphicsContext.Capabilities.TextureFloat"/> is supported, half floating-point formats are "hopefully"
 		/// converted in float as internal format.
 		/// 
-		/// The following pixel formats are dependent on the <see cref="GraphicsContext.Capabilities.TextureRg"/> OpenGL
+		/// The following pixel formats are dependent on the <see cref="GraphicsContext.Capabilities.GlExtensions.TextureRg_ARB"/> OpenGL
 		/// extension:
 		/// - <see cref="Type.GRAYAF"/>
 		/// 
-		/// The following pixel formats are dependent on the <see cref="GraphicsContext.Capabilities.DepthTexture"/> OpenGL extension:
+		/// The following pixel formats are dependent on the <see cref="GraphicsContext.Capabilities.GlExtensions.DepthTexture_ARB"/> OpenGL extension:
 		/// - <see cref="Type.Depth16"/>
 		/// - <see cref="Type.Depth24"/>
 		/// - <see cref="Type.Depth32"/>
@@ -1269,7 +1269,7 @@ namespace OpenGL
 				case PixelLayout.RGB16:
 				case PixelLayout.RGB30A2:
 				case PixelLayout.RGB15:
-					return (caps.PackedFormatsEXT);
+					return (caps.GlExtensions.PackedPixels_EXT);
 				case PixelLayout.RGB24:
 				case PixelLayout.RGB48:
 				case PixelLayout.RGBA32:
@@ -1277,13 +1277,13 @@ namespace OpenGL
 					return (true);
 				case PixelLayout.RGBF:
 				case PixelLayout.RGBAF:
-					return (caps.TextureFloat);
+					return (caps.GlExtensions.TextureFloat_ARB);
 				case PixelLayout.RGBD:
 					return (false);
 
 				case PixelLayout.RGBHF:
 				case PixelLayout.RGBAHF:
-					return (caps.TextureFloat && caps.HalfFloatPixel);
+					return (caps.GlExtensions.TextureFloat_ARB && caps.GlExtensions.HalfFloatPixel_ARB);
 
 				#endregion
 
@@ -1291,7 +1291,7 @@ namespace OpenGL
 
 				case PixelLayout.SRGB24:
 				case PixelLayout.SBGR24:
-					return (caps.TextureSRgbEXT);
+					return (caps.GlExtensions.TextureSRGB_EXT);
 
 				#endregion
 
@@ -1300,20 +1300,20 @@ namespace OpenGL
 				case PixelLayout.BGR8:
 				case PixelLayout.BGR16:
 				case PixelLayout.BGR30A2:
-					return (caps.PackedFormatsEXT);
+					return (caps.GlExtensions.PackedPixels_EXT);
 				case PixelLayout.BGR15:
-					return (caps.PackedFormatsEXT && caps.TextureSwizzle);
+					return (caps.GlExtensions.PackedPixels_EXT && caps.GlExtensions.TextureSwizzle_ARB);
 				case PixelLayout.BGR24:
 				case PixelLayout.BGR48:
 				case PixelLayout.BGRA32:
 				case PixelLayout.BGRA64:
-					return (caps.BgraFormatEXT);
+					return (caps.GlExtensions.Bgra_EXT);
 				case PixelLayout.BGRAF:
 				case PixelLayout.BGRF:
-					return (caps.BgraFormatEXT && caps.TextureFloat);
+					return (caps.GlExtensions.Bgra_EXT && caps.GlExtensions.TextureFloat_ARB);
 				case PixelLayout.BGRHF:
 				case PixelLayout.BGRAHF:
-					return (caps.BgraFormatEXT && caps.TextureFloat && caps.HalfFloatPixel);
+					return (caps.GlExtensions.Bgra_EXT && caps.GlExtensions.TextureFloat_ARB && caps.GlExtensions.HalfFloatPixel_ARB);
 
 				#endregion
 
@@ -1321,18 +1321,18 @@ namespace OpenGL
 
 				case PixelLayout.GRAY8:
 				case PixelLayout.GRAY16:
-					return (caps.TextureSwizzle);
+					return (caps.GlExtensions.TextureSwizzle_ARB);
 				case PixelLayout.GRAYF:
-					return (caps.TextureSwizzle && caps.TextureFloat);
+					return (caps.GlExtensions.TextureSwizzle_ARB && caps.GlExtensions.TextureFloat_ARB);
 				case PixelLayout.GRAYHF:
-					return (caps.TextureSwizzle && caps.TextureFloat && caps.HalfFloatPixel);
+					return (caps.GlExtensions.TextureSwizzle_ARB && caps.GlExtensions.TextureFloat_ARB && caps.GlExtensions.HalfFloatPixel_ARB);
 
 				#endregion
 
 				#region GRAY Formats
 
 				case PixelLayout.GRAYAF:
-					return (caps.TextureRg && caps.TextureSwizzle && caps.TextureFloat);
+					return (caps.GlExtensions.TextureRg_ARB && caps.GlExtensions.TextureSwizzle_ARB && caps.GlExtensions.TextureFloat_ARB);
 
 				#endregion
 
@@ -1351,18 +1351,18 @@ namespace OpenGL
 				case PixelLayout.Depth16:
 				case PixelLayout.Depth24:
 				case PixelLayout.Depth32:
-					return (caps.DepthTexture);
+					return (caps.GlExtensions.DepthTexture_ARB);
 				case PixelLayout.DepthF:
-					return (caps.DepthTextureFloat);
+					return (caps.GlExtensions.DepthBufferFloat_ARB);
 
 				#endregion
 
 				#region Depth/Stencil Formats
 
 				case PixelLayout.Depth24Stencil8:
-					return (caps.DepthTexture);
+					return (caps.GlExtensions.DepthTexture_ARB);
 				case PixelLayout.Depth32FStencil8:
-					return (caps.DepthTextureFloat);
+					return (caps.GlExtensions.DepthBufferFloat_ARB);
 
 				#endregion
 
@@ -1376,7 +1376,7 @@ namespace OpenGL
 				case PixelLayout.UInteger2:
 				case PixelLayout.UInteger3:
 				case PixelLayout.UInteger4:
-					return (caps.TextureIntegerEXT);
+					return (caps.GlExtensions.TextureInteger_EXT);
 
 				#endregion
 
@@ -1448,8 +1448,8 @@ namespace OpenGL
 		/// capabilities are tested:
 		/// - <see cref="GraphicsContext.Capabilities.BgraFormat"/>
 		/// - <see cref="GraphicsContext.Capabilities.PackedFormats"/>
-		/// - <see cref="GraphicsContext.Capabilities.TextureSwizzle"/>
-		/// - <see cref="GraphicsContext.Capabilities.HalfFloatPixel"/>
+		/// - <see cref="GraphicsContext.Capabilities.GlExtensions.TextureSwizzle_ARB"/>
+		/// - <see cref="GraphicsContext.Capabilities.GlExtensions.HalfFloatPixel_ARB"/>
 		/// 
 		/// The main difference from <see cref="IsSupportedInternalFormat"/> is that the texture data submission could be specified using a pixel
 		/// type <paramref name="type"/>, but OpenGL driver stores texture data internally using a different pixel format. This could lead to
@@ -1468,7 +1468,7 @@ namespace OpenGL
 				case PixelLayout.RGB16:
 				case PixelLayout.RGB30A2:
 				case PixelLayout.RGB15:
-					return (caps.PackedFormatsEXT);
+					return (caps.GlExtensions.PackedPixels_EXT);
 				case PixelLayout.RGB24:
 				case PixelLayout.RGB48:
 				case PixelLayout.RGBA32:
@@ -1481,7 +1481,7 @@ namespace OpenGL
 
 				case PixelLayout.RGBHF:
 				case PixelLayout.RGBAHF:
-					return (caps.HalfFloatPixel);
+					return (caps.GlExtensions.HalfFloatPixel_ARB);
 
 				#endregion
 
@@ -1489,7 +1489,7 @@ namespace OpenGL
 
 				case PixelLayout.SRGB24:
 				case PixelLayout.SBGR24:
-					return (caps.TextureSRgbEXT);
+					return (caps.GlExtensions.TextureSRGB_EXT);
 
 				#endregion
 
@@ -1498,20 +1498,20 @@ namespace OpenGL
 				case PixelLayout.BGR8:
 				case PixelLayout.BGR16:
 				case PixelLayout.BGR30A2:
-					return (caps.PackedFormatsEXT);
+					return (caps.GlExtensions.PackedPixels_EXT);
 				case PixelLayout.BGR15:
-					return (caps.PackedFormatsEXT && caps.TextureSwizzle);
+					return (caps.GlExtensions.PackedPixels_EXT && caps.GlExtensions.TextureSwizzle_ARB);
 				case PixelLayout.BGR24:
 				case PixelLayout.BGR48:
 				case PixelLayout.BGRA32:
 				case PixelLayout.BGRA64:
-					return (caps.BgraFormatEXT);
+					return (caps.GlExtensions.Bgra_EXT);
 				case PixelLayout.BGRAF:
 				case PixelLayout.BGRF:
-					return (caps.BgraFormatEXT);
+					return (caps.GlExtensions.Bgra_EXT);
 				case PixelLayout.BGRHF:
 				case PixelLayout.BGRAHF:
-					return (caps.BgraFormatEXT && caps.HalfFloatPixel);
+					return (caps.GlExtensions.Bgra_EXT && caps.GlExtensions.HalfFloatPixel_ARB);
 
 				#endregion
 
@@ -1523,14 +1523,14 @@ namespace OpenGL
 					return (true);
 				
 				case PixelLayout.GRAYHF:
-					return (caps.HalfFloatPixel);
+					return (caps.GlExtensions.HalfFloatPixel_ARB);
 
 				#endregion
 
 				#region GRAYA Formats
 
 				case PixelLayout.GRAYAF:
-					return (caps.TextureRg);
+					return (caps.GlExtensions.TextureRg_ARB);
 
 				#endregion
 
@@ -1572,7 +1572,7 @@ namespace OpenGL
 				case PixelLayout.UInteger2:
 				case PixelLayout.UInteger3:
 				case PixelLayout.UInteger4:
-					return (caps.TextureIntegerEXT);
+					return (caps.GlExtensions.TextureInteger_EXT);
 
 				#endregion
 
@@ -1814,13 +1814,13 @@ namespace OpenGL
 				case PixelLayout.RGBF:
 				case PixelLayout.RGBD:
 				case PixelLayout.BGRF:
-					if (caps.TextureFloat == true)
+					if (caps.GlExtensions.TextureFloat_ARB == true)
 						return (Gl.RGB32F);
 					else
 						return (Gl.RGB);
 				case PixelLayout.RGBHF:
 				case PixelLayout.BGRHF:
-					if (caps.TextureFloat == true)
+					if (caps.GlExtensions.TextureFloat_ARB == true)
 						return (Gl.RGB16F);
 					else
 						return (Gl.RGB);
@@ -1847,13 +1847,13 @@ namespace OpenGL
 					return (Gl.RGBA16);
 				case PixelLayout.RGBAF:
 				case PixelLayout.BGRAF:
-					if (caps.TextureFloat == true)
+					if (caps.GlExtensions.TextureFloat_ARB == true)
 						return (Gl.RGBA32F);
 					else
 						return (Gl.RGBA);
 				case PixelLayout.RGBAHF:
 				case PixelLayout.BGRAHF:
-					if (caps.TextureFloat == true)
+					if (caps.GlExtensions.TextureFloat_ARB == true)
 						return (Gl.RGBA16F);
 					else
 						return (Gl.RGBA);
@@ -1867,12 +1867,12 @@ namespace OpenGL
 				case PixelLayout.GRAY16:
 					return (Gl.R16);
 				case PixelLayout.GRAYF:
-					if (caps.TextureFloat == true)
+					if (caps.GlExtensions.TextureFloat_ARB == true)
 						return (Gl.R32F);
 					else
 						return (Gl.RED);
 				case PixelLayout.GRAYHF:
-					if (caps.TextureFloat == true)
+					if (caps.GlExtensions.TextureFloat_ARB == true)
 						return (Gl.R16F);
 					else
 						return (Gl.RED);

@@ -1155,7 +1155,7 @@ namespace OpenGL
 		/// </returns>
 		protected override bool RequiresName(GraphicsContext ctx)
 		{
-			return (ctx.Caps.VertexArrayObject);
+			return (ctx.Caps.GlExtensions.VertexArrayObject_ARB);
 		}
 
 		/// <summary>
