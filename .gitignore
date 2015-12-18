@@ -12,3 +12,6 @@
 /OpenGL.Hal/obj
 /packages/NUnit.2.6.4
 packages
+/OpenGL.Hal/bin
+/BindingsGen.userprefs
+/BindingsGen/DocWarnings.txt

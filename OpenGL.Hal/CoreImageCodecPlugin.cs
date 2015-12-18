@@ -645,12 +645,15 @@ namespace OpenGL
 				throw new ArgumentNullException("bitmap");
 			if (image == null)
 				throw new ArgumentNullException("image");
-			
+
+			// FIXME Maybe this method is no more necessary
+			throw new NotImplementedException();
+
 			for (uint y = 0; y < image.Height; y++) {
 				for (uint x = 0; x < image.Width; x++) {
 					System.Drawing.Color bitmapColor = bitmap.GetPixel((int)x, (int)y);
 					
-					image[x, y] = Pixel.GetNativeIColor(new ColorRGBA32(bitmapColor.R, bitmapColor.G, bitmapColor.B, bitmapColor.A), image.PixelLayout);
+					//image[x, y] = Pixel.GetNativeIColor(new ColorRGBA32(bitmapColor.R, bitmapColor.G, bitmapColor.B, bitmapColor.A), image.PixelLayout);
 					//image[x, y] = new ColorBGR24(bitmapColor.R, bitmapColor.G, bitmapColor.B);
 				}
 			}

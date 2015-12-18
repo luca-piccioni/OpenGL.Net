@@ -1193,6 +1193,20 @@ namespace OpenGL
 
 		#endregion
 
+		#region Shader Include Library
+
+		/// <summary>
+		/// 
+		/// </summary>
+		internal ShaderIncludeLibrary IncludeLibrary { get { return (_ShaderIncludeLibrary); } }
+
+		/// <summary>
+		/// The shader include library used for compiling shaders.
+		/// </summary>
+		private ShaderIncludeLibrary _ShaderIncludeLibrary = new ShaderIncludeLibrary();
+
+		#endregion
+
 		#region Logging
 
 		/// <summary>
