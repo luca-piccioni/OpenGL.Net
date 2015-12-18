@@ -113,10 +113,29 @@
 		<!-- Generate "out" overloads -->
 		<flags>OutParam ForcePlainParams</flags>
 	</command>
+	
+	<!-- Don't collaps automatically... -->
+	<command name="^glGetQueryObjectu?iv$">
+		<rename>GetQueryObject</rename>
+	</command>
+
+	<!-- GetQueryBufferObject signature collides with each other -->
+	<command name="^glGetQueryBufferObjectiv$">
+		<rename>GetQueryBufferObject32i</rename>
+	</command>
+	<command name="^glGetQueryBufferObjectuiv$">
+		<rename>GetQueryBufferObject32ui</rename>
+	</command>
+	<command name="^glGetQueryBufferObjecti64v$">
+		<rename>GetQueryBufferObject64i</rename>
+	</command>
+	<command name="^glGetQueryBufferObjectui64v$">
+		<rename>GetQueryBufferObject64ui</rename>
+	</command>
 
 	<!-- GL - Out Parameter -->
 
-	<command name="^glGet(Query(Object)?|Shader|Program|VertexAttrib|TexLevelParameter)iv$">
+	<command name="^glGet(Query(Object)?|Shader|Program|VertexAttrib|TexLevelParameter)u?i(64)?v$">
 		<!-- Generate "out" overloads -->
 		<flags>OutParam</flags>
 	</command>
