@@ -927,7 +927,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.QueryCounter"/>
 		[RequiredByFeature("GL_VERSION_3_3")]
 		[RequiredByFeature("GL_ARB_timer_query")]
-		public static void GetQueryObjecti64(UInt32 id, Int32 pname, [Out] Int64[] @params)
+		public static void GetQueryObject(UInt32 id, Int32 pname, [Out] Int64[] @params)
 		{
 			unsafe {
 				fixed (Int64* p_params = @params)
@@ -978,10 +978,112 @@ namespace OpenGL
 		/// <seealso cref="Gl.QueryCounter"/>
 		[RequiredByFeature("GL_VERSION_3_3")]
 		[RequiredByFeature("GL_ARB_timer_query")]
-		public static void GetQueryObjectui64(UInt32 id, Int32 pname, [Out] UInt64[] @params)
+		public static void GetQueryObject(UInt32 id, Int32 pname, out Int64 @params)
+		{
+			unsafe {
+				fixed (Int64* p_params = &@params)
+				{
+					Debug.Assert(Delegates.pglGetQueryObjecti64v != null, "pglGetQueryObjecti64v not implemented");
+					Delegates.pglGetQueryObjecti64v(id, pname, p_params);
+					CallLog("glGetQueryObjecti64v({0}, {1}, {2})", id, pname, @params);
+				}
+			}
+			DebugCheckErrors();
+		}
+
+		/// <summary>
+		/// return parameters of a query object
+		/// </summary>
+		/// <param name="id">
+		/// Specifies the name of a query object.
+		/// </param>
+		/// <param name="pname">
+		/// Specifies the symbolic name of a query object parameter. Accepted values are Gl.QUERY_RESULT or 
+		/// Gl.QUERY_RESULT_AVAILABLE.
+		/// </param>
+		/// <param name="params">
+		/// If a buffer is bound to the Gl.QUERY_RESULT_BUFFER target, then <paramref name="params"/> is treated as an offset to a 
+		/// location within that buffer's data store to receive the result of the query. If no buffer is bound to 
+		/// Gl.QUERY_RESULT_BUFFER, then <paramref name="params"/> is treated as an address in client memory of a variable to 
+		/// receive the resulting data.
+		/// </param>
+		/// <remarks>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated if <paramref name="pname"/> is not an accepted value.
+		/// </exception>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if <paramref name="id"/> is not the name of a query object.
+		/// </exception>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if <paramref name="id"/> is the name of a currently active query object.
+		/// </exception>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if a buffer is currently bound to the Gl.QUERY_RESULT_BUFFER target and the command 
+		/// would cause data to be written beyond the bounds of that buffer's data store.
+		/// </exception>
+		/// <seealso cref="Gl.BeginQuery"/>
+		/// <seealso cref="Gl.EndQuery"/>
+		/// <seealso cref="Gl.GetQueryiv"/>
+		/// <seealso cref="Gl.IsQuery"/>
+		/// <seealso cref="Gl.QueryCounter"/>
+		[RequiredByFeature("GL_VERSION_3_3")]
+		[RequiredByFeature("GL_ARB_timer_query")]
+		public static void GetQueryObject(UInt32 id, Int32 pname, [Out] UInt64[] @params)
 		{
 			unsafe {
 				fixed (UInt64* p_params = @params)
+				{
+					Debug.Assert(Delegates.pglGetQueryObjectui64v != null, "pglGetQueryObjectui64v not implemented");
+					Delegates.pglGetQueryObjectui64v(id, pname, p_params);
+					CallLog("glGetQueryObjectui64v({0}, {1}, {2})", id, pname, @params);
+				}
+			}
+			DebugCheckErrors();
+		}
+
+		/// <summary>
+		/// return parameters of a query object
+		/// </summary>
+		/// <param name="id">
+		/// Specifies the name of a query object.
+		/// </param>
+		/// <param name="pname">
+		/// Specifies the symbolic name of a query object parameter. Accepted values are Gl.QUERY_RESULT or 
+		/// Gl.QUERY_RESULT_AVAILABLE.
+		/// </param>
+		/// <param name="params">
+		/// If a buffer is bound to the Gl.QUERY_RESULT_BUFFER target, then <paramref name="params"/> is treated as an offset to a 
+		/// location within that buffer's data store to receive the result of the query. If no buffer is bound to 
+		/// Gl.QUERY_RESULT_BUFFER, then <paramref name="params"/> is treated as an address in client memory of a variable to 
+		/// receive the resulting data.
+		/// </param>
+		/// <remarks>
+		/// </remarks>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_ENUM is generated if <paramref name="pname"/> is not an accepted value.
+		/// </exception>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if <paramref name="id"/> is not the name of a query object.
+		/// </exception>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if <paramref name="id"/> is the name of a currently active query object.
+		/// </exception>
+		/// <exception cref="InvalidOperationException">
+		/// Gl.INVALID_OPERATION is generated if a buffer is currently bound to the Gl.QUERY_RESULT_BUFFER target and the command 
+		/// would cause data to be written beyond the bounds of that buffer's data store.
+		/// </exception>
+		/// <seealso cref="Gl.BeginQuery"/>
+		/// <seealso cref="Gl.EndQuery"/>
+		/// <seealso cref="Gl.GetQueryiv"/>
+		/// <seealso cref="Gl.IsQuery"/>
+		/// <seealso cref="Gl.QueryCounter"/>
+		[RequiredByFeature("GL_VERSION_3_3")]
+		[RequiredByFeature("GL_ARB_timer_query")]
+		public static void GetQueryObject(UInt32 id, Int32 pname, out UInt64 @params)
+		{
+			unsafe {
+				fixed (UInt64* p_params = &@params)
 				{
 					Debug.Assert(Delegates.pglGetQueryObjectui64v != null, "pglGetQueryObjectui64v not implemented");
 					Delegates.pglGetQueryObjectui64v(id, pname, p_params);

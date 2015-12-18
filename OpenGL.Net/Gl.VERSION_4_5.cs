@@ -7137,7 +7137,7 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_direct_state_access")]
-		public static void GetQueryBufferObjecti64(UInt32 id, UInt32 buffer, Int32 pname, IntPtr offset)
+		public static void GetQueryBufferObject64i(UInt32 id, UInt32 buffer, Int32 pname, IntPtr offset)
 		{
 			Debug.Assert(Delegates.pglGetQueryBufferObjecti64v != null, "pglGetQueryBufferObjecti64v not implemented");
 			Delegates.pglGetQueryBufferObjecti64v(id, buffer, pname, offset);
@@ -7162,7 +7162,7 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_direct_state_access")]
-		public static void GetQueryBufferObject(UInt32 id, UInt32 buffer, Int32 pname, IntPtr offset)
+		public static void GetQueryBufferObject32i(UInt32 id, UInt32 buffer, Int32 pname, IntPtr offset)
 		{
 			Debug.Assert(Delegates.pglGetQueryBufferObjectiv != null, "pglGetQueryBufferObjectiv not implemented");
 			Delegates.pglGetQueryBufferObjectiv(id, buffer, pname, offset);
@@ -7187,7 +7187,7 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_direct_state_access")]
-		public static void GetQueryBufferObjectui64(UInt32 id, UInt32 buffer, Int32 pname, IntPtr offset)
+		public static void GetQueryBufferObject64ui(UInt32 id, UInt32 buffer, Int32 pname, IntPtr offset)
 		{
 			Debug.Assert(Delegates.pglGetQueryBufferObjectui64v != null, "pglGetQueryBufferObjectui64v not implemented");
 			Delegates.pglGetQueryBufferObjectui64v(id, buffer, pname, offset);
@@ -7212,7 +7212,7 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_direct_state_access")]
-		public static void GetQueryBufferObjectui(UInt32 id, UInt32 buffer, Int32 pname, IntPtr offset)
+		public static void GetQueryBufferObject32ui(UInt32 id, UInt32 buffer, Int32 pname, IntPtr offset)
 		{
 			Debug.Assert(Delegates.pglGetQueryBufferObjectuiv != null, "pglGetQueryBufferObjectuiv not implemented");
 			Delegates.pglGetQueryBufferObjectuiv(id, buffer, pname, offset);
