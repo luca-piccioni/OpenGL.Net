@@ -1,18 +1,20 @@
 
-// Copyright (C) 2009-2012 Luca Piccioni
+// Copyright (C) 2009-2015 Luca Piccioni
 // 
-// This program is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//   
-// This program is distributed in the hope that it will be useful,
+// This library is free software; you can redistribute it and/or
+// modify it under the terms of the GNU Lesser General Public
+// License as published by the Free Software Foundation; either
+// version 2.1 of the License, or (at your option) any later version.
+// 
+// This library is distributed in the hope that it will be useful,
 // but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+// Lesser General Public License for more details.
 // 
-// You should have received a copy of the GNU General Public License
-// along with this program.  If not, see <http://www.gnu.org/licenses/>.
+// You should have received a copy of the GNU Lesser General Public
+// License along with this library; if not, write to the Free Software
+// Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301
+// USA
 
 using System;
 using System.Diagnostics;
@@ -183,9 +185,6 @@ namespace OpenGL
 
 		public void Create(PixelLayout internalFormat, uint size)
 		{
-			// Check context compatibility
-			CheckCapabilities(size, size, Depth, internalFormat);
-
 			// Setup texture information
 			mSize = size;
 
@@ -195,9 +194,6 @@ namespace OpenGL
 
 		public void Create(GraphicsContext ctx, PixelLayout internalFormat, uint size)
 		{
-			// Check context compatibility
-			CheckCapabilities(size, size, Depth, internalFormat);
-
 			// Setup texture information
 			mSize = size;
 
@@ -217,9 +213,6 @@ namespace OpenGL
 			// Trust about size (full checks will be done in SetTechnique)
 			uint size = images[0].Width;
 
-			// Check context compatibility
-			CheckCapabilities(size, size, Depth, internalFormat);
-
 			// Setup texture information
 			mSize = size;
 
@@ -236,9 +229,6 @@ namespace OpenGL
 
 			// Trust about size (full checks will be done in SetTechnique)
 			uint size = images[0].Width;
-
-			// Check context compatibility
-			CheckCapabilities(size, size, Depth, internalFormat);
 
 			// Setup texture information
 			mSize = size;

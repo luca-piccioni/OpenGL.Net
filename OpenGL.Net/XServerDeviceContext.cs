@@ -76,7 +76,6 @@ namespace OpenGL
 				throw new InvalidOperationException(String.Format("unable to connect to X server display {0}", display.ToInt32()));
 			// Need to close display
 			_OwnDisplay = true;
-
 			// Screen
 			_Screen = Glx.UnsafeNativeMethods.XDefaultScreen(_Display);
 			
@@ -203,8 +202,6 @@ namespace OpenGL
 			}
 		}
 
-
-
 		/// <summary>
 		/// The visual information (related with <see cref="FBConfig"/>.
 		/// </summary>
@@ -289,14 +286,9 @@ namespace OpenGL
 		#region GLX Version
 		
 		/// <summary>
-		/// The GLX major version.
+		/// Get the GLX version.
 		/// </summary>
-		public int GlxMajor { get { return (_GlxMajor); } }
-		
-		/// <summary>
-		/// The GLX minor version.
-		/// </summary>
-		public int GlxMinor { get { return (_GlxMinor); } }
+		public KhronosVersion Version { get { return (_GlxVersion); } }
 		
 		/// <summary>
 		/// Query the GLX version supported by current implementation.
@@ -307,21 +299,15 @@ namespace OpenGL
 				int[] majorArg = new int[1], minorArg = new int[1];
 	
 				Glx.QueryVersion(Display, majorArg, minorArg);
-	
-				_GlxMajor = majorArg[0];
-				_GlxMinor = minorArg[0];
+
+				_GlxVersion = new KhronosVersion(majorArg[0], minorArg[0]);
 			}
 		}
 		
 		/// <summary>
 		/// The GLX major version.
 		/// </summary>
-		private int _GlxMajor;
-		
-		/// <summary>
-		/// The GLX minor version.
-		/// </summary>
-		private int _GlxMinor;
+		private KhronosVersion _GlxVersion;
 
 		#endregion
 
@@ -442,6 +428,28 @@ namespace OpenGL
 
 				return (pFormats);
 			}
+		}
+
+		/// <summary>
+		/// Set the device pixel format.
+		/// </summary>
+		/// <param name="pixelFormat">
+		/// A <see cref="DevicePixelFormat"/> that specifies the pixel format to set.
+		/// </param>
+		/// <exception cref="ArgumentNullException">
+		/// Exception thrown if <paramref name="pixelFormat"/> is null.
+		/// </exception>
+		public override void SetPixelFormat(DevicePixelFormat pixelFormat)
+		{
+			if (pixelFormat == null)
+				throw new ArgumentNullException("pixelFormat");
+
+			// Note: GLX does not really need a SetPixelFormat operation
+
+			// Framebuffer configuration
+			FBConfig = pixelFormat.XFbConfig;
+			// X Visual Information
+			XVisualInfo = pixelFormat.XVisualInfo;
 		}
 
 		/// <summary>

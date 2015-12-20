@@ -15,3 +15,5 @@ packages
 /OpenGL.Hal/bin
 /BindingsGen.userprefs
 /BindingsGen/DocWarnings.txt
+/OpenGL.Hal.Test/obj
+/OpenGL.Hal.Test/bin

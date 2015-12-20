@@ -1,18 +1,20 @@
 
-// Copyright (C) 2009-2012 Luca Piccioni
-//
-// This program is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//  
-// This program is distributed in the hope that it will be useful,
+// Copyright (C) 2009-2015 Luca Piccioni
+// 
+// This library is free software; you can redistribute it and/or
+// modify it under the terms of the GNU Lesser General Public
+// License as published by the Free Software Foundation; either
+// version 2.1 of the License, or (at your option) any later version.
+// 
+// This library is distributed in the hope that it will be useful,
 // but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//  
-// You should have received a copy of the GNU General Public License
-// along with this program.  If not, see <http://www.gnu.org/licenses/>.
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+// Lesser General Public License for more details.
+// 
+// You should have received a copy of the GNU Lesser General Public
+// License along with this library; if not, write to the Free Software
+// Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301
+// USA
 
 using System;
 
@@ -23,38 +25,38 @@ namespace OpenGL
 	/// </summary>
 	/// <remarks>
 	/// <para>
-	/// A RenderSurface is able to store the result of a rendering operation. This class
+	/// A GraphicsSurface is able to store the result of a rendering operation. This class
 	/// represents the final component of a RenderPipeline, but it could be used as data
 	/// source for another RenderPipeline.
 	/// </para>
 	/// <para>
-	/// A RenderSurface is defined by a set of buffers; each buffer is defined by a type,
+	/// A GraphicsSurface is defined by a set of buffers; each buffer is defined by a type,
 	/// which specify the how use the buffer contents. Each buffer type defines the available
 	/// formats for data storage. 
 	/// </para>
 	/// </remarks>
-	public abstract class RenderSurface : GraphicsResource
+	public abstract class GraphicsSurface : GraphicsResource
 	{
 		#region Constructors
 		
 		/// <summary>
 		/// Render surface static constructor.
 		/// </summary>
-		static RenderSurface()
+		static GraphicsSurface()
 		{
 			// This (internal) routine is used to force the execution of the GraphicsContext
-			// static constructor. Once accessing to RenderSurface instances, the GraphicsContext
+			// static constructor. Once accessing to GraphicsSurface instances, the GraphicsContext
 			// capabilities shall be known.
 			GraphicsContext.Touch();
 		}
 
 		/// <summary>
-		/// RenderSurface constructor (zero size).
+		/// GraphicsSurface constructor (zero size).
 		/// </summary>
-		protected RenderSurface() { }
+		protected GraphicsSurface() { }
 
 		/// <summary>
-		/// RenderSurface constructor specifying extents. 
+		/// GraphicsSurface constructor specifying extents. 
 		/// </summary>
 		/// <param name="w">
 		/// A <see cref="System.Int32"/> that specifies the surface width.
@@ -62,7 +64,7 @@ namespace OpenGL
 		/// <param name="h">
 		/// A <see cref="System.Int32"/> that specifies the surface height.
 		/// </param>
-		protected RenderSurface(uint w, uint h)
+		protected GraphicsSurface(uint w, uint h)
 		{
 			// Store extents
 			mWidth = w;
@@ -74,7 +76,7 @@ namespace OpenGL
 		#region Device Context Management
 		
 		/// <summary>
-		/// Obtain device context associated with this RenderSurface. 
+		/// Obtain device context associated with this GraphicsSurface. 
 		/// </summary>
 		/// <returns>
 		/// A <see cref="IDeviceContext"/>
@@ -86,7 +88,7 @@ namespace OpenGL
 		#region Extents Management
 		
 		/// <summary>
-		/// RenderSurface width property. 
+		/// GraphicsSurface width property. 
 		/// </summary>
 		public virtual uint Width
 		{
@@ -100,7 +102,7 @@ namespace OpenGL
 		}
 		
 		/// <summary>
-		/// RenderSurface height property. 
+		/// GraphicsSurface height property. 
 		/// </summary>
 		public virtual uint Height
 		{
@@ -114,7 +116,7 @@ namespace OpenGL
 		}
 		
 		/// <summary>
-		/// RenderSurface aspect ratio property.  
+		/// GraphicsSurface aspect ratio property.  
 		/// </summary>
 		public float AspectRatio
 		{
@@ -122,23 +124,12 @@ namespace OpenGL
 		}
 		
 		/// <summary>
-		/// Property for checking extents changes. 
-		/// </summary>
-		public bool ExtentsChanged
-		{
-			get { return (mSizeChanged); }
-			internal set {
-				mSizeChanged = value;
-			}
-		}
-		
-		/// <summary>
-		/// RenderSurface height. 
+		/// GraphicsSurface height. 
 		/// </summary>
 		private uint mWidth;
 
 		/// <summary>
-		/// RenderSurface width. 
+		/// GraphicsSurface width. 
 		/// </summary>
 		private uint mHeight;
 
@@ -157,7 +148,7 @@ namespace OpenGL
 		/// <remarks>
 		/// <para>
 		/// This read-only property shall return a <see cref="GraphicsBuffersFormat"/> indicating the current
-		/// buffer configuration. The object returned shall not be used to modify this RenderSurface buffers,
+		/// buffer configuration. The object returned shall not be used to modify this GraphicsSurface buffers,
 		/// but it shall be used to know which is the buffer configuration.
 		/// </para>
 		/// </remarks>
@@ -200,11 +191,11 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Set the color used for clearing this RenderSurface color buffer.
+		/// Set the color used for clearing this GraphicsSurface color buffer.
 		/// </summary>
 		/// <param name="color">
 		/// A <see cref="ColorRGBAF"/> which holds the RGBA values used for clearing
-		/// this RenderSurface color buffer.
+		/// this GraphicsSurface color buffer.
 		/// </param>
 		public void SetClearColor(ColorRGBAF color)
 		{
@@ -213,11 +204,11 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Set the depth used for clearing this RenderSurface depth buffer.
+		/// Set the depth used for clearing this GraphicsSurface depth buffer.
 		/// </summary>
 		/// <param name="depth">
 		/// A <see cref="Double"/> which holds the depth value used for clearing
-		/// this RenderSurface depth buffer.
+		/// this GraphicsSurface depth buffer.
 		/// </param>
 		public void SetClearDepth(Double depth)
 		{
@@ -226,11 +217,11 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Set the value used for clearing this RenderSurface stencil buffer.
+		/// Set the value used for clearing this GraphicsSurface stencil buffer.
 		/// </summary>
 		/// <param name="stencil">
 		/// A <see cref="Int32"/> which holds the stencil value used for clearing
-		/// this RenderSurface stencil buffer.
+		/// this GraphicsSurface stencil buffer.
 		/// </param>
 		public void SetClearStencil(Int32 stencil)
 		{
@@ -253,17 +244,17 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Clear color used for clearing the RenderSurface color buffer.
+		/// Clear color used for clearing the GraphicsSurface color buffer.
 		/// </summary>
 		private ColorRGBAF mClearColor = new ColorRGBAF(0.0f, 0.0f, 0.0f);
 
 		/// <summary>
-		/// Clear color used for clearing the RenderSurface depth buffer.
+		/// Clear color used for clearing the GraphicsSurface depth buffer.
 		/// </summary>
 		private Double mClearDepth = 1.0;
 
 		/// <summary>
-		/// Clear value used for clearing the RenderSurface stencil buffer.
+		/// Clear value used for clearing the GraphicsSurface stencil buffer.
 		/// </summary>
 		private Int32 mClearStencil;
 		
@@ -272,13 +263,13 @@ namespace OpenGL
 		#region sRGB Support
 
 		/// <summary>
-		/// Enable sRGB color correction on this RenderSurface.
+		/// Enable sRGB color correction on this GraphicsSurface.
 		/// </summary>
 		/// <param name="ctx">
 		/// A <see cref="GraphicsContext"/>.
 		/// </param>
 		/// <param name="surfaceFormat">
-		/// A <see cref="GraphicsBuffersFormat"/> that specify this RenderSurface format.
+		/// A <see cref="GraphicsBuffersFormat"/> that specify this GraphicsSurface format.
 		/// </param>
 		/// <remarks>
 		/// This routine can be called only in the case GraphicsContext.Caps.GlExtensions.FramebufferSRGB_ARB is supported.
@@ -294,13 +285,13 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Disable sRGB color correction on this RenderSurface.
+		/// Disable sRGB color correction on this GraphicsSurface.
 		/// </summary>
 		/// <param name="ctx">
 		/// A <see cref="GraphicsContext"/>.
 		/// </param>
 		/// <param name="surfaceFormat">
-		/// A <see cref="GraphicsBuffersFormat"/> that specify this RenderSurface format.
+		/// A <see cref="GraphicsBuffersFormat"/> that specify this GraphicsSurface format.
 		/// </param>
 		protected void DisableSRGB(GraphicsContext ctx, GraphicsBuffersFormat surfaceFormat)
 		{
@@ -313,7 +304,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Check whether sRGB color correction on this RenderSurface is enabled.
+		/// Check whether sRGB color correction on this GraphicsSurface is enabled.
 		/// </summary>
 		/// <param name="ctx">
 		/// A <see cref="GraphicsContext"/>.
@@ -322,7 +313,7 @@ namespace OpenGL
 		/// 
 		/// </param>
 		/// <returns>
-		/// Is returns a boolean value indicating whether sRGB color correction on this RenderSurface is enabled.
+		/// Is returns a boolean value indicating whether sRGB color correction on this GraphicsSurface is enabled.
 		/// </returns>
 		protected bool IsEnabledSRGB(GraphicsContext ctx, GraphicsBuffersFormat surfaceFormat)
 		{
@@ -360,34 +351,34 @@ namespace OpenGL
 		#region Surface Bindings
 
 		/// <summary>
-		/// Bind this RenderSurface for drawing.
+		/// Bind this GraphicsSurface for drawing.
 		/// </summary>
 		/// <param name="ctx">
-		/// A <see cref="GraphicsContext"/> to wich associate its rendering result to this RenderSurface.
+		/// A <see cref="GraphicsContext"/> to wich associate its rendering result to this GraphicsSurface.
 		/// </param>
 		public virtual void BindDraw(GraphicsContext ctx) { }
 
 		/// <summary>
-		/// Unbind this RenderSurface for drawing.
+		/// Unbind this GraphicsSurface for drawing.
 		/// </summary>
 		/// <param name="ctx">
-		/// A <see cref="GraphicsContext"/> to wich disassociate its rendering result from this RenderSurface.
+		/// A <see cref="GraphicsContext"/> to wich disassociate its rendering result from this GraphicsSurface.
 		/// </param>
 		public virtual void UnbindDraw(GraphicsContext ctx) { }
 
 		/// <summary>
-		/// Bind this RenderSurface for reading.
+		/// Bind this GraphicsSurface for reading.
 		/// </summary>
 		/// <param name="ctx">
-		/// A <see cref="GraphicsContext"/> to wich associate its read result to this RenderSurface.
+		/// A <see cref="GraphicsContext"/> to wich associate its read result to this GraphicsSurface.
 		/// </param>
 		public virtual void BindRead(GraphicsContext ctx) { }
 
 		/// <summary>
-		/// Unbind this RenderSurface for reading.
+		/// Unbind this GraphicsSurface for reading.
 		/// </summary>
 		/// <param name="ctx">
-		/// A <see cref="GraphicsContext"/> to wich disassociate its read result from this RenderSurface.
+		/// A <see cref="GraphicsContext"/> to wich disassociate its read result from this GraphicsSurface.
 		/// </param>
 		public virtual void UnbindRead(GraphicsContext ctx) { }
 
@@ -396,7 +387,7 @@ namespace OpenGL
 		#region Surface Reading & Copying
 
 		/// <summary>
-		/// Read this RenderSurface color buffer.
+		/// Read this GraphicsSurface color buffer.
 		/// </summary>
 		/// <param name="ctx">
 		/// A <see cref="GraphicsContext"/>
@@ -427,7 +418,7 @@ namespace OpenGL
 			Image image = null;
 
 			if ((x + width > Width) || (y + height > Height))
-				throw new ArgumentException("specified region lies outside the RenderSurface");
+				throw new ArgumentException("specified region lies outside the GraphicsSurface");
 
 			// Bind for reading
 			BindRead(ctx);
@@ -459,10 +450,10 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Copy this RenderSurface color buffer into a buffer.
+		/// Copy this GraphicsSurface color buffer into a buffer.
 		/// </summary>
 		/// <param name="ctx">
-		/// A <see cref="GraphicsContext"/> which is bound to this RenderSurface.
+		/// A <see cref="GraphicsContext"/> which is bound to this GraphicsSurface.
 		/// </param>
 		/// <param name="rBuffer">
 		/// A <see cref="ReadBufferMode"/> that specifies the read buffer where the colors are read from.
@@ -489,7 +480,7 @@ namespace OpenGL
 			if (texture.Exists(ctx) == false)
 				throw new ArgumentException("not exists", "texture");
 			if ((x + texture.Width > Width) || (y + texture.Height > Height))
-				throw new ArgumentException("specified region lies outside the RenderSurface");
+				throw new ArgumentException("specified region lies outside the GraphicsSurface");
 
 			// Bind for reading
 			BindRead(ctx);

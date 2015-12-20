@@ -1,18 +1,20 @@
 
-// Copyright (C) 2009-2012 Luca Piccioni
-//
-// This program is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//  
-// This program is distributed in the hope that it will be useful,
+// Copyright (C) 2009-2015 Luca Piccioni
+// 
+// This library is free software; you can redistribute it and/or
+// modify it under the terms of the GNU Lesser General Public
+// License as published by the Free Software Foundation; either
+// version 2.1 of the License, or (at your option) any later version.
+// 
+// This library is distributed in the hope that it will be useful,
 // but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//  
-// You should have received a copy of the GNU General Public License
-// along with this program.  If not, see <http://www.gnu.org/licenses/>.
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+// Lesser General Public License for more details.
+// 
+// You should have received a copy of the GNU Lesser General Public
+// License along with this library; if not, write to the Free Software
+// Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301
+// USA
 
 using System;
 using System.Collections.Generic;
@@ -20,11 +22,9 @@ using System.Collections.Generic;
 namespace OpenGL
 {
 	/// <summary>
-	/// Rendering framebuffer.
+	/// OpenGL framebuffer.
 	/// </summary>
-	/// <remarks>
-	/// </remarks>
-	public sealed class RenderFramebuffer : RenderSurface
+	public sealed class Framebuffer : GraphicsSurface
 	{
 		#region Framebuffer Attachments
 
@@ -852,15 +852,15 @@ namespace OpenGL
 
 		#endregion
 
-		#region RenderResource Overrides
+		#region GraphicsResource Overrides
 
 		/// <summary>
-		/// RenderResource object class.
+		/// GraphicsResource object class.
 		/// </summary>
 		internal static readonly Guid FramebufferObjectClass = new Guid("7A8F2D14-9A8D-4CD9-BFAD-5E10CA1C33CE");
 
 		/// <summary>
-		/// RenderResource object class.
+		/// GraphicsResource object class.
 		/// </summary>
 		public override Guid ObjectClass { get { return (FramebufferObjectClass); } }
 
@@ -907,7 +907,7 @@ namespace OpenGL
 		/// A <see cref="GraphicsContext"/> used for creating this object name.
 		/// </param>
 		/// <returns>
-		/// It returns a valid object name for this RenderResource.
+		/// It returns a valid object name for this GraphicsResource.
 		/// </returns>
 		/// <exception cref="NotImplementedException">
 		/// Exception always thrown.

@@ -202,6 +202,27 @@ namespace OpenGL
 		}
 
 		/// <summary>
+		/// Set the device pixel format.
+		/// </summary>
+		/// <param name="pixelFormat">
+		/// A <see cref="DevicePixelFormat"/> that specifies the pixel format to set.
+		/// </param>
+		/// <exception cref="ArgumentNullException">
+		/// Exception thrown if <paramref name="pixelFormat"/> is null.
+		/// </exception>
+		public override void SetPixelFormat(DevicePixelFormat pixelFormat)
+		{
+			if (pixelFormat == null)
+				throw new ArgumentNullException("pixelFormat");
+
+			Wgl.PIXELFORMATDESCRIPTOR pDescriptor = new Wgl.PIXELFORMATDESCRIPTOR();
+
+			// Set choosen pixel format
+			if (Wgl.UnsafeNativeMethods.GdiSetPixelFormat(DeviceContext, pixelFormat.FormatIndex, ref pDescriptor) == false)
+				throw new InvalidOperationException("unable to select surface pixel format");
+		}
+
+		/// <summary>
 		/// Performs application-defined tasks associated with freeing, releasing, or resetting managed/unmanaged resources.
 		/// </summary>
 		/// <param name="disposing">

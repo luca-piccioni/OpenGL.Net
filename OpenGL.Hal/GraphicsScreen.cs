@@ -22,7 +22,7 @@ namespace OpenGL
 	/// <summary>
 	/// Screen abstraction.
 	/// </summary>
-	public class RenderScreen
+	public static class RenderScreen
 	{
 		#region Gamma Function Control
 

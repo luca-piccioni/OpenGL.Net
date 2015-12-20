@@ -549,7 +549,7 @@ namespace OpenGL
 
 		#endregion
 
-		#region RenderResource Overrides
+		#region GraphicsResource Overrides
 
 		/// <summary>
 		/// Shader include object class.
@@ -569,10 +569,10 @@ namespace OpenGL
 		/// </param>
 		/// <returns>
 		/// <para>
-		/// It returns a boolean value indicating whether this RenderResource implementation requires a name
-		/// generation on creation. In the case this routine returns true, the routine <see cref="RenderResource.CreateName"/>
+		/// It returns a boolean value indicating whether this GraphicsResource implementation requires a name
+		/// generation on creation. In the case this routine returns true, the routine <see cref="GraphicsResource.CreateName"/>
 		/// will be called (and it must be overriden). In  the case this routine returns false, the routine
-		/// <see cref="RenderResource.CreateName"/> won't be called (and indeed it is not necessary to override it) and a
+		/// <see cref="GraphicsResource.CreateName"/> won't be called (and indeed it is not necessary to override it) and a
 		/// name is generated automatically in a context-independent manner.
 		/// </para>
 		/// <para>

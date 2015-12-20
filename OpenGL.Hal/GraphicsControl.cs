@@ -1,18 +1,20 @@
 
-// Copyright (C) 2011-2013 Luca Piccioni
-//
-// This program is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//  
-// This program is distributed in the hope that it will be useful,
+// Copyright (C) 2011-2015 Luca Piccioni
+// 
+// This library is free software; you can redistribute it and/or
+// modify it under the terms of the GNU Lesser General Public
+// License as published by the Free Software Foundation; either
+// version 2.1 of the License, or (at your option) any later version.
+// 
+// This library is distributed in the hope that it will be useful,
 // but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//  
-// You should have received a copy of the GNU General Public License
-// along with this program.  If not, see <http://www.gnu.org/licenses/>.
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+// Lesser General Public License for more details.
+// 
+// You should have received a copy of the GNU Lesser General Public
+// License along with this library; if not, write to the Free Software
+// Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301
+// USA
 
 using System;
 using System.ComponentModel;
@@ -24,14 +26,14 @@ namespace OpenGL
 	/// <summary>
 	/// Control able to render using OpenGL.
 	/// </summary>
-	public partial class RenderControl : UserControl
+	public partial class GraphicsControl : UserControl
 	{
 		#region Constructors
 
 		/// <summary>
 		/// Construct a RenderControl.
 		/// </summary>
-		public RenderControl()
+		public GraphicsControl()
 		{
 			// No need to draw window background
 			SetStyle(ControlStyles.Opaque, true);
@@ -146,14 +148,14 @@ namespace OpenGL
 		[DefaultValue(1)]
 		public int SwapInterval
 		{
-			get { return (mSwapInterval); }
-			set { mSwapInterval = value; }
+			get { return (_SwapInterval); }
+			set { _SwapInterval = value; }
 		}
 
 		/// <summary>
 		/// The actual surface implementation used for rendering.
 		/// </summary>
-		public RenderSurface Surface { get { return (mRenderWindow); } }
+		public GraphicsSurface Surface { get { return (_RenderWindow); } }
 
 		/// <summary>
 		/// The surface format used for creating OpenGL visual.
@@ -163,12 +165,12 @@ namespace OpenGL
 		/// <summary>
 		/// A RenderWindow (bound to this UserControl) used for instancing a render context.
 		/// </summary>
-		private RenderWindow mRenderWindow;
+		private GraphicsWindow _RenderWindow;
 		
 		/// <summary>
 		/// The swap interval.
 		/// </summary>
-		private int mSwapInterval = 1;
+		private int _SwapInterval = 1;
 
 		#endregion
 
@@ -185,16 +187,16 @@ namespace OpenGL
 			if (resource == null)
 				throw new ArgumentNullException("resource");
 
-			if (!mRenderContext.IsCurrent)
-				mRenderContext.MakeCurrent(true);
+			if (!_RenderContext.IsCurrent)
+				_RenderContext.MakeCurrent(true);
 
-			resource.Create(mRenderContext);
+			resource.Create(_RenderContext);
 		}
 
 		/// <summary>
 		/// The render context used for rendering on this UserControl.
 		/// </summary>
-		public GraphicsContext Context { get { return (mRenderContext); } }
+		public GraphicsContext Context { get { return (_RenderContext); } }
 		
 		/// <summary>
 		/// Event raised on control paint time, when a <see cref="GraphicsContext"/> is current.
@@ -223,7 +225,7 @@ namespace OpenGL
 		/// <summary>
 		/// The render context used for rendering on this UserControl.
 		/// </summary>
-		private GraphicsContext mRenderContext;
+		private GraphicsContext _RenderContext;
 
 		#endregion
 
@@ -274,23 +276,19 @@ namespace OpenGL
 		protected override void CreateHandle()
 		{
 			// Create the render window
-			mRenderWindow = new RenderWindow(this);
-			mRenderWindow.Width = (uint)base.ClientSize.Width;
-			mRenderWindow.Height = (uint)base.ClientSize.Height;
+			_RenderWindow = new GraphicsWindow(this);
+			_RenderWindow.Width = (uint)base.ClientSize.Width;
+			_RenderWindow.Height = (uint)base.ClientSize.Height;
 			
 			// "Select" device pixel format before creating control handle
 			switch (Environment.OSVersion.Platform) {
-				case PlatformID.Win32Windows:
-				case PlatformID.Win32NT:
-					mRenderWindow.PreCreateObjectWgl(SurfaceFormat);
-					break;
 				case PlatformID.Unix:
-					mRenderWindow.PreCreateObjectX11(SurfaceFormat);
+					_RenderWindow.PreCreateObjectX11(SurfaceFormat);
 					break;
 			}
 			
 			// OVerride default swap interval
-			mRenderWindow.SwapInterval = SwapInterval;
+			_RenderWindow.SwapInterval = SwapInterval;
 			
 			// Base implementation
 			base.CreateHandle();
@@ -310,17 +308,17 @@ namespace OpenGL
 				// - GLX: store FBConfig and XVisualInfo selected in CreateHandle()
 				// ...
 				// - Setup swap interval, if supported
-				mRenderWindow.Create((GraphicsContext)null);
+				_RenderWindow.Create((GraphicsContext)null);
 				// Create the render context (before event handling)
-				mRenderContext = new GraphicsContext(mRenderWindow.GetDeviceContext());
+				_RenderContext = new GraphicsContext(_RenderWindow.GetDeviceContext());
 			}
 			// Base implementation
 			base.OnHandleCreated(e);
 			// Raise CreateContext event
 			if (DesignMode == false) {
-				mRenderContext.MakeCurrent(true);
-				RaiseCreateContextEvent(new RenderEventArgs(mRenderContext, mRenderWindow));
-				mRenderContext.MakeCurrent(false);
+				_RenderContext.MakeCurrent(true);
+				RaiseCreateContextEvent(new RenderEventArgs(_RenderContext, _RenderWindow));
+				_RenderContext.MakeCurrent(false);
 			}
 		}
 
@@ -331,19 +329,19 @@ namespace OpenGL
 		protected override void OnHandleDestroyed(EventArgs e)
 		{
 			if (DesignMode == false) {
-				if (mRenderContext != null) {
+				if (_RenderContext != null) {
 					// Raise DestroyContext event
-					mRenderContext.MakeCurrent(true);
-					RaiseDestroyContextEvent(new RenderEventArgs(mRenderContext, mRenderWindow));
-					mRenderContext.MakeCurrent(false);
+					_RenderContext.MakeCurrent(true);
+					RaiseDestroyContextEvent(new RenderEventArgs(_RenderContext, _RenderWindow));
+					_RenderContext.MakeCurrent(false);
 					// Dispose the renderer context
-					mRenderContext.Dispose();
-					mRenderContext = null;
+					_RenderContext.Dispose();
+					_RenderContext = null;
 				}
 				// Dispose the renderer window
-				if (mRenderWindow != null) {
-					mRenderWindow.Dispose();
-					mRenderWindow = null;
+				if (_RenderWindow != null) {
+					_RenderWindow.Dispose();
+					_RenderWindow = null;
 				}
 			}
 			// Base implementation
@@ -357,17 +355,17 @@ namespace OpenGL
 		protected override void OnPaint(PaintEventArgs e)
 		{
 			if (DesignMode == false) {
-				if (mRenderContext != null) {
+				if (_RenderContext != null) {
 					// Render the UserControl
-					mRenderContext.MakeCurrent(true);
+					_RenderContext.MakeCurrent(true);
 					// Define viewport
 					Gl.Viewport(0, 0, ClientSize.Width, ClientSize.Height);
 
 					// Derived class implementation
-					RenderThis(mRenderContext);
+					RenderThis(_RenderContext);
 					
 					// Render event
-					RaiseRenderEvent(new RenderEventArgs(mRenderContext, mRenderWindow));
+					RaiseRenderEvent(new RenderEventArgs(_RenderContext, _RenderWindow));
 
 					// Swap buffers if double-buffering
 					Surface.SwapSurface();
@@ -375,7 +373,7 @@ namespace OpenGL
 					// Base implementation
 					base.OnPaint(e);
 
-					mRenderContext.MakeCurrent(false);
+					_RenderContext.MakeCurrent(false);
 				} else {
 					e.Graphics.DrawLines(mFailurePen, new Point[] {
 						new Point(e.ClipRectangle.Left, e.ClipRectangle.Bottom), new Point(e.ClipRectangle.Right, e.ClipRectangle.Top),
@@ -399,9 +397,9 @@ namespace OpenGL
 		
 		protected override void OnClientSizeChanged(EventArgs e)
 		{
-			if (mRenderWindow != null) {
-				mRenderWindow.Width = (uint)base.ClientSize.Width;
-				mRenderWindow.Height = (uint)base.ClientSize.Height;
+			if (_RenderWindow != null) {
+				_RenderWindow.Width = (uint)base.ClientSize.Width;
+				_RenderWindow.Height = (uint)base.ClientSize.Height;
 			}
 			
 			// Base implementation
@@ -427,9 +425,9 @@ namespace OpenGL
 		/// The <see cref="GraphicsContext"/> used for rendering.
 		/// </param>
 		/// <param name="window">
-		/// The <see cref="RenderWindow"/> displaying the rendering result.
+		/// The <see cref="GraphicsWindow"/> displaying the rendering result.
 		/// </param>
-		public RenderEventArgs(GraphicsContext ctx, RenderWindow window)
+		public RenderEventArgs(GraphicsContext ctx, GraphicsWindow window)
 		{
 			Context = ctx;
 			Window = window;
@@ -443,11 +441,11 @@ namespace OpenGL
 		/// <summary>
 		/// The surface displaying the rendering result.
 		/// </summary>
-		public readonly RenderWindow Window;
+		public readonly GraphicsWindow Window;
 	}
 
 	/// <summary>
-	/// Delegate for handling <see cref="RenderControl.Render"/> event.
+	/// Delegate for handling <see cref="GraphicsControl.Render"/> event.
 	/// </summary>
 	public delegate void RenderEventHandler(object sender, RenderEventArgs args);
 }

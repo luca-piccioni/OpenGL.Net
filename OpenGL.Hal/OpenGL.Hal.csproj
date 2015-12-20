@@ -76,9 +76,14 @@
     <Compile Include="ElementBufferObject.cs" />
     <Compile Include="FeedbackBufferFormat.cs" />
     <Compile Include="FeedbackBufferObject.cs" />
+    <Compile Include="Framebuffer.cs" />
     <Compile Include="GraphicsCapabilities.cs" />
     <Compile Include="GraphicsContext.cs" />
     <Compile Include="GraphicsContextFlags.cs" />
+    <Compile Include="GraphicsControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GraphicsControl.Designer.cs" />
     <Compile Include="GraphicsException.cs" />
     <Compile Include="GraphicsGarbageService.cs" />
     <Compile Include="GraphicsInfoAttribute.cs" />
@@ -86,6 +91,9 @@
     <Compile Include="GraphicsLimitAttribute.cs" />
     <Compile Include="GraphicsLimits.cs" />
     <Compile Include="GraphicsResource.cs" />
+    <Compile Include="GraphicsScreen.cs" />
+    <Compile Include="GraphicsSurface.cs" />
+    <Compile Include="GraphicsWindow.cs" />
     <Compile Include="IColor.cs" />
     <Compile Include="ICopiable.cs" />
     <Compile Include="IDisposableResource.cs" />
@@ -149,15 +157,7 @@
     <Compile Include="QueryObject.cs" />
     <Compile Include="QueryTarget.cs" />
     <Compile Include="RenderBuffer.cs" />
-    <Compile Include="RenderControl.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="RenderControl.Designer.cs" />
-    <Compile Include="RenderFramebuffer.cs" />
-    <Compile Include="RenderScreen.cs" />
-    <Compile Include="RenderSurface.cs" />
     <Compile Include="GraphicsBuffersFormat.cs" />
-    <Compile Include="RenderWindow.cs" />
     <Compile Include="Resource.cs" />
     <Compile Include="ResourceCollection.cs" />
     <Compile Include="Memory.cs" />

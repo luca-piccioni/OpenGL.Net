@@ -1,18 +1,20 @@
 
-// Copyright (C) 2009-2013 Luca Piccioni
+// Copyright (C) 2009-2015 Luca Piccioni
 // 
-// This program is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//   
-// This program is distributed in the hope that it will be useful,
+// This library is free software; you can redistribute it and/or
+// modify it under the terms of the GNU Lesser General Public
+// License as published by the Free Software Foundation; either
+// version 2.1 of the License, or (at your option) any later version.
+// 
+// This library is distributed in the hope that it will be useful,
 // but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+// Lesser General Public License for more details.
 // 
-// You should have received a copy of the GNU General Public License
-// along with this program.  If not, see <http://www.gnu.org/licenses/>.
+// You should have received a copy of the GNU Lesser General Public
+// License along with this library; if not, write to the Free Software
+// Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301
+// USA
 
 using System;
 using System.Diagnostics;
@@ -332,14 +334,11 @@ namespace OpenGL
 		/// </exception>
 		public void Create(uint width, uint height, uint depth, PixelLayout format)
 		{
-			// Check context compatibility
-			CheckCapabilities(width, height, Depth, format);
-
 			// Setup texture information
 			PixelLayout = format;
-			mWidth = width;
-			mHeight = height;
-			mDepth = depth;
+			_Width = width;
+			_Height = height;
+			_Depth = depth;
 
 			// Setup technique for creation
 			SetTechnique(new EmptyTechnique(TextureTarget, format, width, height, depth));
@@ -432,14 +431,11 @@ namespace OpenGL
 
 			uint width = images[0].Width, height = images[0].Height;
 
-			// Check context compatibility
-			CheckCapabilities(width, height, (uint)images.Length, format);
-
 			// Setup texture information
 			PixelLayout = format;
-			mWidth = width;
-			mHeight = height;
-			mDepth = (uint)images.Length;
+			_Width = width;
+			_Height = height;
+			_Depth = (uint)images.Length;
 
 			// Setup technique for creation
 			SetTechnique(new ImageTechnique(TextureTarget, format, images));
@@ -491,12 +487,12 @@ namespace OpenGL
 		/// <summary>
 		/// Texture width.
 		/// </summary>
-		public override uint Width { get { return (mWidth); } }
+		public override uint Width { get { return (_Width); } }
 
 		/// <summary>
 		/// Texture height.
 		/// </summary>
-		public override uint Height { get { return (mHeight); } }
+		public override uint Height { get { return (_Height); } }
 
 		/// <summary>
 		/// Texture depth.
@@ -504,7 +500,7 @@ namespace OpenGL
 		/// <remarks>
 		/// Only Texture3d target has a depth. For every else texture target, it is set to 1.
 		/// </remarks>
-		public override uint Depth { get { return (mDepth); } }
+		public override uint Depth { get { return (_Depth); } }
 
 		/// <summary>
 		/// Determine the derived Texture target.
@@ -523,17 +519,17 @@ namespace OpenGL
 		/// <summary>
 		/// Texture width.
 		/// </summary>
-		private uint mWidth;
+		private uint _Width;
 
 		/// <summary>
 		/// Texture height.
 		/// </summary>
-		private uint mHeight;
+		private uint _Height;
 
 		/// <summary>
 		/// Texture layers.
 		/// </summary>
-		private uint mDepth;
+		private uint _Depth;
 
 		#endregion
 	}

@@ -34,7 +34,7 @@ namespace OpenGL
 	/// - Shader program (<see cref="ShaderProgram"/>)
 	/// - Shader program pipeline (actually not supported)
 	/// - Render buffer object (<see cref="RenderBuffer"/>)
-	/// - Framebuffer object (<see cref="RenderFramebuffer"/>)
+	/// - Framebuffer object (<see cref="Framebuffer"/>)
 	/// - Query object (actually not supported)
 	/// - Sync object (actually not supported)
 	/// - Transform feedback object (actually not supported)

@@ -132,12 +132,12 @@ namespace OpenGL
 				throw new Exception("unable to make current");
 
 			// Obtain current OpenGL implementation
-			string glVersion = Gl.GetString(StringName.Vendor);
+			string glVersion = Gl.GetString(StringName.Version);
 			_CurrentVersion = KhronosVersion.Parse(glVersion);
 
 			// Obtain current OpenGL Shading Language version
 			string glslVersion = Gl.GetString(StringName.ShadingLanguageVersion);
-			_CurrentShadingVersion = KhronosVersion.Parse(glslVersion);
+			_CurrentShadingVersion = GlslVersion.Parse(glslVersion);
 			// Query OpenGL extensions (current OpenGL implementation, CurrentCaps)
 			_CurrentCaps = GraphicsCapabilities.Query(null, _HiddenWindowDevice);
 
@@ -164,12 +164,12 @@ namespace OpenGL
 			// Describe the pixel format fundamentals
 			pfd.nVersion = 1; pfd.nSize = (short)Marshal.SizeOf(typeof(Wgl.PIXELFORMATDESCRIPTOR));
 			pfd.iLayerType = Wgl.PFD_MAIN_PLANE;
-			pfd.dwFlags = (Wgl.PFD_SUPPORT_OPENGL | Wgl.PFD_DOUBLEBUFFER | Wgl.PFD_DRAW_TO_WINDOW);
+			pfd.dwFlags = (Wgl.PFD_SUPPORT_OPENGL | Wgl.PFD_DRAW_TO_WINDOW);
 			pfd.iPixelType = Wgl.PFD_TYPE_RGBA;
 			pfd.dwLayerMask = 0; pfd.dwVisibleMask = 0; pfd.dwDamageMask = 0;
 			pfd.cAuxBuffers = 0;
 			pfd.bReserved = 0;
-			pfd.cColorBits = 32;
+			pfd.cColorBits = 24;
 			pfd.cRedBits = 0; pfd.cRedShift = 0;
 			pfd.cGreenBits = 0; pfd.cGreenShift = 0;
 			pfd.cBlueBits = 0; pfd.cBlueShift = 0;
@@ -180,18 +180,28 @@ namespace OpenGL
 			pfd.cAccumRedBits = 0; pfd.cAccumGreenBits = 0; pfd.cAccumBlueBits = 0; pfd.cAccumAlphaBits = 0;
 
 			// Find pixel format match
-			if ((pFormat = Wgl.UnsafeNativeMethods.GdiChoosePixelFormat(winDeviceContext.DeviceContext, out pfd)) == 0)
+			if ((pFormat = Wgl.UnsafeNativeMethods.GdiChoosePixelFormat(winDeviceContext.DeviceContext, ref pfd)) == 0)
 				throw new NotSupportedException("unable to choose basic pixel format, error code " + Marshal.GetLastWin32Error());
 
 			if (pfd.cColorBits == 0)
 				throw new Exception("unable to select valid pixel format");
 			// Set pixel format before creating OpenGL context
-			if (Wgl.UnsafeNativeMethods.GdiSetPixelFormat(winDeviceContext.DeviceContext, pFormat, out pfd) == false)
+			if (Wgl.UnsafeNativeMethods.GdiSetPixelFormat(winDeviceContext.DeviceContext, pFormat, ref pfd) == false)
 				throw new InvalidOperationException("unable to set valid pixel format");
 
 			// Create a dummy OpenGL context to retrieve initial informations.
-			if ((rContext = Wgl.CreateContext(winDeviceContext.DeviceContext)) == IntPtr.Zero)
-				throw new InvalidOperationException("unable to create OpenGL context");
+			if ((rContext = Wgl.CreateContext(winDeviceContext.DeviceContext)) == IntPtr.Zero) {
+
+				// On some platforms, the very first wglCreateContext fails, but it is able to run correctly after having called
+				// SetPixelFormat again after a wglCreateContext failure.
+				if (Wgl.UnsafeNativeMethods.GdiSetPixelFormat(winDeviceContext.DeviceContext, pFormat, ref pfd) == false)
+					throw new InvalidOperationException("unable to set valid pixel format");
+
+				// Retry: we will be more lucky
+				if ((rContext = Wgl.CreateContext(winDeviceContext.DeviceContext)) == IntPtr.Zero)
+					Wgl.CheckErrors();
+			}
+				//throw new InvalidOperationException("unable to create OpenGL context");
 
 			return (rContext);
 		}
@@ -537,13 +547,13 @@ namespace OpenGL
 				// Determine this GraphicsContext object name space and garbage service
 				if (hSharedContext != null) {
 					// Sharing same object name space
-					mObjectNameSpace = hSharedContext.mObjectNameSpace;
+					_ObjectNameSpace = hSharedContext._ObjectNameSpace;
 
 					// Test for effective sharing
 					TestSharingObjects(hSharedContext);
 				} else {
 					// Reserved object name space
-					mObjectNameSpace = Guid.NewGuid();
+					_ObjectNameSpace = Guid.NewGuid();
 
 					// Effective sharing false by default
 				}
@@ -609,7 +619,7 @@ namespace OpenGL
 		/// <remarks>
 		/// Higher OpenGL Shading Language versions cannot be requested to be implemented.
 		/// </remarks>
-		private static KhronosVersion _CurrentShadingVersion;
+		private static GlslVersion _CurrentShadingVersion;
 
 		/// <summary>
 		/// The OpenGL Shading Language version implemented by this GraphicsContext.
@@ -684,7 +694,17 @@ namespace OpenGL
 
 		#endregion
 
-		#region Object Name Space Sharing
+		#region Object Namespace
+
+		/// <summary>
+		/// GraphicsContext object namespace.
+		/// </summary>
+		public Guid ObjectNameSpace { get { return (_ObjectNameSpace); } }
+
+		/// <summary>
+		/// Object namespace identifier.
+		/// </summary>
+		private Guid _ObjectNameSpace = Guid.Empty;
 
 		#region Object Class Sharing
 
@@ -724,11 +744,6 @@ namespace OpenGL
 		public bool ShareVertexArrayObjects { get { return (IsSharedObjectClass(VertexArrayObject.VertexArrayObjectClass)); } }
 
 		#endregion
-
-		/// <summary>
-		/// GraphicsContext object name space.
-		/// </summary>
-		internal Guid ObjectNameSpace { get { return (mObjectNameSpace); } }
 
 		/// <summary>
 		/// Property that specify whether this GraphicsContext is sharing a specific object class.
@@ -939,11 +954,6 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Object name space identifier.
-		/// </summary>
-		private Guid mObjectNameSpace = Guid.Empty;
-
-		/// <summary>
 		/// Sharing object classes.
 		/// </summary>
 		/// <remarks>
@@ -982,11 +992,6 @@ namespace OpenGL
 		{
 			if (mCurrentDeviceContext == null)
 				throw new ObjectDisposedException("no context associated with this GraphicsContext");
-
-			// Already current?
-			if (IsCurrent)
-				return;
-
 			MakeCurrent(mCurrentDeviceContext, flag);
 		}
 
@@ -1145,8 +1150,8 @@ namespace OpenGL
 		private IDeviceContext mCurrentDeviceContext;
 
 		/// <summary>
-		/// Flag indicating whether <see cref="mDeviceContext"/> is a device context for the entire screen. This means that
-		/// no <see cref="RenderWindow"/> instance will release the device context, so this GraphicsContext instance will
+		/// Flag indicating whether <see cref="_DeviceContext"/> is a device context for the entire screen. This means that
+		/// no <see cref="GraphicsWindow"/> instance will release the device context, so this GraphicsContext instance will
 		/// take care of releasing it.
 		/// </summary>
 		private readonly bool _CommonDeviceContext;

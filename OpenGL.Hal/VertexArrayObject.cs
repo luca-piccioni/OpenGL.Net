@@ -1092,7 +1092,7 @@ namespace OpenGL
 		
 		#endregion
 
-		#region RenderResource Overrides
+		#region GraphicsResource Overrides
 
 		/// <summary>
 		/// Vertex array object class.
@@ -1147,7 +1147,7 @@ namespace OpenGL
 		/// A <see cref="GraphicsContext"/> used for creating this object name.
 		/// </param>
 		/// <returns>
-		/// It returns a boolean value indicating whether this RenderResource implementation requires a name
+		/// It returns a boolean value indicating whether this GraphicsResource implementation requires a name
 		/// generation on creation. In the case this routine returns true, the routine <see cref="CreateName"/>
 		/// will be called (and it must be overriden). In  the case this routine returns false, the routine
 		/// <see cref="CreateName"/> won't be called (and indeed it is not necessary to override it) and a
@@ -1193,7 +1193,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Actually create this RenderResource resources.
+		/// Actually create this GraphicsResource resources.
 		/// </summary>
 		/// <param name="ctx">
 		/// A <see cref="GraphicsContext"/> used for allocating resources.

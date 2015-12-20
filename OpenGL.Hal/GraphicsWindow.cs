@@ -1,18 +1,20 @@
 
-// Copyright (C) 2009-2013 Luca Piccioni
-//
-// This program is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//  
-// This program is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
+// Copyright (C) 2009-2015 Luca Piccioni
 // 
-// You should have received a copy of the GNU General Public License
-// along with this program.  If not, see <http://www.gnu.org/licenses/>.
+// This library is free software; you can redistribute it and/or
+// modify it under the terms of the GNU Lesser General Public
+// License as published by the Free Software Foundation; either
+// version 2.1 of the License, or (at your option) any later version.
+// 
+// This library is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+// Lesser General Public License for more details.
+// 
+// You should have received a copy of the GNU Lesser General Public
+// License along with this library; if not, write to the Free Software
+// Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301
+// USA
 
 using System;
 using System.Drawing;
@@ -26,22 +28,26 @@ namespace OpenGL
 	/// </summary>
 	/// <remarks>
 	/// <para>
-	/// A RenderWindow shall be considered an object able to output the graphical result
-	/// of some rendering operation. A RenderWindow instance must have associated a GraphicsContext
+	/// A GraphicsWindow shall be considered an object able to output the graphical result
+	/// of some rendering operation. A GraphicsWindow instance must have associated a GraphicsContext
 	/// instance.
 	/// </para>
 	/// </remarks>
-	public class RenderWindow : RenderSurface
+	public class GraphicsWindow : GraphicsSurface
 	{
 		#region Constructors
 
 		/// <summary>
-		/// Construct a RenderWindow.
+		/// Construct a GraphicsWindow.
 		/// </summary>
-		public RenderWindow() : this(0, 0) { }
+		public GraphicsWindow() :
+			this(0, 0)
+		{
+
+		}
 
 		/// <summary>
-		/// Construct a RenderWindow specifying its extents.
+		/// Construct a GraphicsWindow specifying its extents.
 		/// </summary>
 		/// <param name="w">
 		/// A <see cref="System.Int32"/> specifing window width (in pixels).
@@ -49,30 +55,34 @@ namespace OpenGL
 		/// <param name="h">
 		/// A <see cref="System.Int32"/> specifing window height (in pixels).
 		/// </param>
-		public RenderWindow(uint w, uint h) : base(w, h)
+		public GraphicsWindow(uint w, uint h) :
+			base(w, h)
 		{
-			// Create Form linked with this RenderWindow
-			mRenderControl = mRenderForm = new RenderForm(this);
+			// Create Form linked with this GraphicsWindow
+			_RenderControl = _RenderForm = new RenderForm(this);
 			// Obtain device context (relative to window)
-			mDeviceContext = DeviceContextFactory.Create(mRenderForm);
+			_DeviceContext = DeviceContextFactory.Create(_RenderForm);
 		}
 
 		/// <summary>
-		/// Construct a RenderWindow bound to a Control.
+		/// Construct a GraphicsWindow bound to a Control.
 		/// </summary>
 		/// <param name="control">
 		/// A <see cref="Control"/> which is used for creating a OpenGL surface.
 		/// </param>
-		public RenderWindow(Control control)
+		/// <exception cref="ArgumentNullException">
+		/// Exception thrown if <paramref name="control"/> is null.
+		/// </exception>
+		public GraphicsWindow(Control control)
 		{
 			if (control == null)
 				throw new ArgumentNullException("control");
 
 			// No form: using directly the handle passed as argument
-			mRenderControl = control;
+			_RenderControl = control;
 			// Constructor used for rendering on any Control but not Form instances, indeed it cannot break
-			// the RenderKernel since probably there's not RenderKernel instance
-			mMainWindow = false;
+			// the main application window
+			_MainWindow = false;
 		}
 		
 		#endregion
@@ -84,34 +94,34 @@ namespace OpenGL
 		/// </summary>
 		public bool MainWindow
 		{
-			get { return (mMainWindow); }
-			set { mMainWindow = value; }
+			get { return (_MainWindow); }
+			set { _MainWindow = value; }
 		}
 
 		/// <summary>
-		/// Make this RenderWindow visible.
+		/// Make this GraphicsWindow visible.
 		/// </summary>
 		public void ShowWindow()
 		{
-			mRenderControl.Show();
+			_RenderControl.Show();
 		}
 
 		/// <summary>
-		/// Make this RenderWindow invisible.
+		/// Make this GraphicsWindow invisible.
 		/// </summary>
 		public void HideWindow()
 		{
-			mRenderControl.Hide();
+			_RenderControl.Hide();
 		}
 
 		/// <summary>
-		/// Check whether this RenderWindow is visible.
+		/// Check whether this GraphicsWindow is visible.
 		/// </summary>
 		public bool Visible
 		{
 			get
 			{
-				return (mRenderControl.Visible);
+				return (_RenderControl.Visible);
 			}
 		}
 
@@ -120,17 +130,17 @@ namespace OpenGL
 		/// </summary>
 		public void Invalidate()
 		{
-			mRenderControl.Invalidate();
+			_RenderControl.Invalidate();
 		}
 
 		/// <summary>
 		/// Main window flag. 
 		/// </summary>
-		private bool mMainWindow = true;
+		private bool _MainWindow = true;
 		
 		#endregion
 		
-		#region Nested Form Management
+		#region Nested Form/Control Management
 		
 		/// <summary>
 		/// Form used for rendering. 
@@ -140,13 +150,13 @@ namespace OpenGL
 			/// <summary>
 			/// RenderForm constructor. 
 			/// </summary>
-			public RenderForm(RenderWindow win)
+			public RenderForm(GraphicsWindow win)
 			{
 				if (win == null)
 					throw new ArgumentNullException("win");
 
-				// Store RenderWindow reference
-				mWindow = win;
+				// Store GraphicsWindow reference
+				_Window = win;
 				// Initialize Form extents
 				//SetClientSizeCore((int)win.Width, (int)win.Height);
 				ClientSize = new Size((int)win.Width, (int)win.Height);
@@ -163,21 +173,17 @@ namespace OpenGL
 				SetStyle(ControlStyles.UserPaint, true);
 				
 				// React on window resize event
-				Resize += mWindow.FormResize;
+				Resize += _Window.FormResize;
 				// React on window closed event
-				FormClosed += mWindow.FormClosed;
+				FormClosed += _Window.FormClosed;
 			}
 			
 			protected override void CreateHandle()
 			{
 				// "Select" device pixel format before creating control handle
 				switch (Environment.OSVersion.Platform) {
-					case PlatformID.Win32Windows:
-					case PlatformID.Win32NT:
-						mWindow.PreCreateObjectWgl(mWindow.mSurfaceFormat);
-						break;
 					case PlatformID.Unix:
-						mWindow.PreCreateObjectX11(mWindow.mSurfaceFormat);
+						_Window.PreCreateObjectX11(_Window._SurfaceFormat);
 						break;
 				}
 				
@@ -186,81 +192,9 @@ namespace OpenGL
 			}
 			
 			/// <summary>
-			/// RenderWindow linked with this Form. 
+			/// GraphicsWindow linked with this Form. 
 			/// </summary>
-			private readonly RenderWindow mWindow;
-		}
-
-		/// <summary>
-		/// Set this RenderWindow position.
-		/// </summary>
-		/// <param name="x">
-		/// A <see cref="System.Int32"/> that specifies the X coordinate.
-		/// </param>
-		/// <param name="y">
-		/// A <see cref="System.Int32"/> that specifies the Y coordinate.
-		/// </param>
-		public void SetPosition(int x, int y)
-		{
-			mRenderControl.Location = new Point(x, y);
-		}
-
-		/// <summary>
-		/// Get this RenderWindow position.
-		/// </summary>
-		/// <param name="x">
-		/// A <see cref="System.Int32"/> returning the X coordinate.
-		/// </param>
-		/// <param name="y">
-		/// A <see cref="System.Int32"/> returning the Y coordinate.
-		/// </param>
-		public void GetPosition(out int x, out int y)
-		{
-			x = mRenderControl.Location.X;
-			y = mRenderControl.Location.Y;
-		}
-
-		/// <summary>
-		/// Set this RenderWindow size.
-		/// </summary>
-		/// <param name="w">
-		/// A <see cref="System.Int32"/> that specifies the RenderWindow width.
-		/// </param>
-		/// <param name="h">
-		/// A <see cref="System.Int32"/> that specifies the RenderWindow height.
-		/// </param>
-		public void SetSize(uint w, uint h)
-		{
-			mRenderControl.Size = new Size((int)w, (int)h);
-		}
-
-		/// <summary>
-		/// Set this RenderWindow client size.
-		/// </summary>
-		/// <param name="w">
-		/// A <see cref="System.Int32"/> that specifies the RenderWindow width.
-		/// </param>
-		/// <param name="h">
-		/// A <see cref="System.Int32"/> that specifies the RenderWindow height.
-		/// </param>
-		public void SetClientSize(uint w, uint h)
-		{
-			mRenderControl.ClientSize = new Size((int)w, (int)h);
-		}
-
-		/// <summary>
-		/// Get this RenderWindow extents.
-		/// </summary>
-		/// <param name="w">
-		/// A <see cref="System.Int32"/> returning the RenderWindow width.
-		/// </param>
-		/// <param name="h">
-		/// A <see cref="System.Int32"/> returning the RenderWindow height.
-		/// </param>
-		public void GetExtents(out uint w, out uint h)
-		{
-			w = (uint)mRenderControl.ClientSize.Width;
-			h = (uint)mRenderControl.ClientSize.Height;
+			private readonly GraphicsWindow _Window;
 		}
 
 		/// <summary>
@@ -268,18 +202,18 @@ namespace OpenGL
 		/// </summary>
 		public Form NestedForm
 		{
-			get { return (mRenderForm); }
+			get { return (_RenderForm); }
 		}
 
 		/// <summary>
 		/// Form where rendering results are drawn. 
 		/// </summary>
-		private readonly RenderForm mRenderForm;
+		private readonly RenderForm _RenderForm;
 
 		/// <summary>
 		/// Control where rendering result are drawn.
 		/// </summary>
-		private readonly Control mRenderControl;
+		private readonly Control _RenderControl;
 		
 		#endregion
 		
@@ -313,7 +247,7 @@ namespace OpenGL
 		/// A <see cref="EventArgs"/> that specifies the event parameters.
 		/// </param>
 		/// <remarks>
-		/// In the case this RenderWindow has the property MainWindow as true, it closes
+		/// In the case this GraphicsWindow has the property MainWindow as true, it closes
 		/// the RenderKernel main thread and exit from the application.
 		/// </remarks>
 		private void FormClosed(object sender, EventArgs e)
@@ -344,7 +278,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Set this RenderWindow fullscreen, bounds to the primary screen position and size.
+		/// Set this GraphicsWindow fullscreen, bounds to the primary screen position and size.
 		/// </summary>
 		public void SetFullscreen()
 		{
@@ -355,7 +289,7 @@ namespace OpenGL
 		/// Set the window into fullscreen mode, bounds to a screen position and size.
 		/// </summary>
 		/// <param name="screen">
-		/// A <see cref="Screen"/> that specifies the position and dimension of the RenderWindow.
+		/// A <see cref="Screen"/> that specifies the position and dimension of the GraphicsWindow.
 		/// </param>
 		public void SetFullscreen(Screen screen)
 		{
@@ -365,7 +299,7 @@ namespace OpenGL
 			// The window is fullscren
 			SetFullscreenCore();
 			// The window is bound to a screen
-			mRenderForm.Bounds = screen.Bounds;
+			_RenderForm.Bounds = screen.Bounds;
 		}
 
 		/// <summary>
@@ -374,9 +308,9 @@ namespace OpenGL
 		private void SetFullscreenCore()
 		{
 			// Windows state
-			mRenderForm.WindowState = FormWindowState.Normal;
+			_RenderForm.WindowState = FormWindowState.Normal;
 			// No border
-			mRenderForm.FormBorderStyle = FormBorderStyle.None;
+			_RenderForm.FormBorderStyle = FormBorderStyle.None;
 
 			bool raiseEvent = mFullscreen == false;
 
@@ -388,16 +322,16 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Reset this RenderWindow fullscreen state.
+		/// Reset this GraphicsWindow fullscreen state.
 		/// </summary>
 		public void ResetFullscreen()
 		{
 			// With border
-			mRenderForm.FormBorderStyle = FormBorderStyle.Sizable;
+			_RenderForm.FormBorderStyle = FormBorderStyle.Sizable;
 			// Normal
-			mRenderForm.WindowState = FormWindowState.Normal;
+			_RenderForm.WindowState = FormWindowState.Normal;
 			// Not top most
-			mRenderForm.TopMost = false;
+			_RenderForm.TopMost = false;
 			// Cursor visible
 			Cursor.Show();
 
@@ -411,7 +345,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Event raised whenever the RenderWindow fullscreen state changes.
+		/// Event raised whenever the GraphicsWindow fullscreen state changes.
 		/// </summary>
 		public event EventHandler FullscreenChanged;
 
@@ -425,27 +359,27 @@ namespace OpenGL
 		}
 		
 		/// <summary>
-		/// RenderWindow fullscreen flag.
+		/// GraphicsWindow fullscreen flag.
 		/// </summary>
 		private bool mFullscreen;
 		
 		#endregion
 
-		#region RenderWindow Creation
+		#region GraphicsWindow Creation
 
 		/// <summary>
-		/// Create this RenderWindow.
+		/// Create this GraphicsWindow.
 		/// </summary>
 		/// <param name="surfaceFormat"></param>
 		public void Create(GraphicsBuffersFormat surfaceFormat)
 		{
-			if ((surfaceFormat == null) && (mSurfaceFormat == null))
+			if ((surfaceFormat == null) && (_SurfaceFormat == null))
 				throw new ArgumentNullException("surfaceFormat");
 
 			// Store surface format
 			if (surfaceFormat != null)
-				mSurfaceFormat = surfaceFormat;
-			// Actually create this RenderWindow
+				_SurfaceFormat = surfaceFormat;
+			// Actually create this GraphicsWindow
 			Create((GraphicsContext)null);
 		}
 
@@ -557,17 +491,17 @@ namespace OpenGL
 
 		#endregion
 
-		#region RenderSurface Overrides
+		#region GraphicsSurface Overrides
 
 		/// <summary>
-		/// Get the device context associated to this RenderWindow. 
+		/// Get the device context associated to this GraphicsWindow. 
 		/// </summary>
 		/// <returns>
-		/// A <see cref="OpenGL.IDeviceContext"/> representing the device context related to this RenderWindow.
+		/// A <see cref="OpenGL.IDeviceContext"/> representing the device context related to this GraphicsWindow.
 		/// </returns>
 		public override IDeviceContext GetDeviceContext()
 		{
-			return (mDeviceContext);
+			return (_DeviceContext);
 		}
 
 		/// <summary>
@@ -576,11 +510,11 @@ namespace OpenGL
 		/// <remarks>
 		/// <para>
 		/// This read-only property shall return a <see cref="GraphicsBuffersFormat"/> indicating the current
-		/// buffer configuration. The object returned shall not be used to modify this RenderSurface buffers,
+		/// buffer configuration. The object returned shall not be used to modify this GraphicsBuffersFormat buffers,
 		/// but it shall be used to know which is the buffer configuration.
 		/// </para>
 		/// </remarks>
-		public override GraphicsBuffersFormat BufferFormat { get { return (mSurfaceFormat.Copy()); } }
+		public override GraphicsBuffersFormat BufferFormat { get { return (_SurfaceFormat.Copy()); } }
 
 		/// <summary>
 		/// Bind this RenderSurface for drawing.
@@ -591,9 +525,8 @@ namespace OpenGL
 		public override void BindDraw(GraphicsContext ctx)
 		{
 			// Eventually unbind a framebuffer
-			if (ctx.Caps.GlExtensions.FramebufferObject_ARB) {
+			if (ctx.Caps.GlExtensions.FramebufferObject_ARB)
 				Gl.BindFramebuffer(Gl.DRAW_FRAMEBUFFER, InvalidObjectName);
-			}
 		}
 
 		/// <summary>
@@ -605,9 +538,8 @@ namespace OpenGL
 		public override void BindRead(GraphicsContext ctx)
 		{
 			// Eventually unbind a framebuffer
-			if (ctx.Caps.GlExtensions.FramebufferObject_ARB) {
+			if (ctx.Caps.GlExtensions.FramebufferObject_ARB)
 				Gl.BindFramebuffer(Gl.READ_FRAMEBUFFER, InvalidObjectName);
-			}
 		}
 
 		/// <summary>
@@ -615,7 +547,7 @@ namespace OpenGL
 		/// </summary>
 		public override bool Swappable
 		{
-			get { return (mSurfaceFormat.HasBuffer(GraphicsBuffersFormat.BufferType.Double)); }
+			get { return (_SurfaceFormat.HasBuffer(GraphicsBuffersFormat.BufferType.Double)); }
 		}
 		
 		/// <summary>
@@ -629,8 +561,8 @@ namespace OpenGL
 		/// </exception>
 		public override int SwapInterval
 		{
-			get { return (mSwapInterval); }
-			set { mSwapInterval = value; }
+			get { return (_SwapInterval); }
+			set { _SwapInterval = value; }
 		}
 
 		/// <summary>
@@ -638,11 +570,11 @@ namespace OpenGL
 		/// </summary>
 		public override void SwapSurface()
 		{
-			if (mDeviceContext == null)
+			if (_DeviceContext == null)
 				throw new InvalidOperationException();
 			
-			if (mSurfaceFormat.HasBuffer(GraphicsBuffersFormat.BufferType.Double))
-				Gl.SwapBuffers(mDeviceContext);
+			if (_SurfaceFormat.HasBuffer(GraphicsBuffersFormat.BufferType.Double))
+				Gl.SwapBuffers(_DeviceContext);
 		}
 
 		/// <summary>
@@ -656,9 +588,9 @@ namespace OpenGL
 				// Base implementation
 				base.Dispose(true);
 				// Dispose unmanaged resources
-				if (mDeviceContext != null) {
-					mDeviceContext.Dispose();
-					mDeviceContext = null;
+				if (_DeviceContext != null) {
+					_DeviceContext.Dispose();
+					_DeviceContext = null;
 				}
 			}
 
@@ -669,26 +601,26 @@ namespace OpenGL
 		/// <summary>
 		/// Device context associated to mRenderWindow. 
 		/// </summary>
-		private IDeviceContext mDeviceContext;
+		private IDeviceContext _DeviceContext;
 		
 		/// <summary>
 		/// The swap interval.
 		/// </summary>
-		private int mSwapInterval = 1;
+		private int _SwapInterval = 1;
 		
 		#endregion
 
-		#region RenderResource Overrides
+		#region GraphicsResource Overrides
 
 		/// <summary>
-		/// RenderResource object class.
+		/// GraphicsResource object class.
 		/// </summary>
-		internal static readonly Guid RenderWindowObjectClass = new Guid("DE73B51E-2932-436C-BEC4-FD77203012F6");
+		internal static readonly Guid ObjectClassId = new Guid("DE73B51E-2932-436C-BEC4-FD77203012F6");
 
 		/// <summary>
-		/// RenderResource object class.
+		/// GraphicsResource object class.
 		/// </summary>
-		public override Guid ObjectClass { get { return (RenderWindowObjectClass); } }
+		public override Guid ObjectClass { get { return (ObjectClassId); } }
 
 		/// <summary>
 		/// Determine whether this object requires a name bound to a context or not.
@@ -705,7 +637,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Actually create this RenderWindow resources.
+		/// Actually create this GraphicsWindow resources.
 		/// </summary>
 		/// <param name="ctx">
 		/// A <see cref="GraphicsContext"/> used for allocating resources.
@@ -715,18 +647,16 @@ namespace OpenGL
 			if (ctx != null)
 				throw new ArgumentException("context not required", "ctx");
 
-			switch (Environment.OSVersion.Platform) {
-				case PlatformID.Win32Windows:
-				case PlatformID.Win32NT:
-					CreateObjectWgl((GraphicsContext)null);
-					break;
-				case PlatformID.Unix:
-					CreateObjectX11((GraphicsContext)null);
-					break;
-				default:
-					throw new NotSupportedException(String.Format("platform {0} not supported", Environment.OSVersion.Platform));
-			}
-			
+			sLog.Info("Create rendering window '{0}'.", NestedForm != null ? NestedForm.Text : "untitled");
+
+			// Choose "best" pixel format matching with surface configuration
+			if (_DeviceFormat == null)
+				_DeviceFormat = _SurfaceFormat.ChoosePixelFormat(_DeviceContext, ValidPixelFormat);
+			// Set device pixel format
+			_DeviceContext.SetPixelFormat(_DeviceFormat);
+			// Confirm surface configuration
+			_SurfaceFormat.SetBufferConfiguration(_DeviceFormat);
+
 			// Set swap interval
 			int swapInterval = SwapInterval;
 			
@@ -739,8 +669,8 @@ namespace OpenGL
 						}
 					}
 					if (swapInterval != 1) {
-						if (Gl.SwapInterval(mDeviceContext, swapInterval) == false) {
-							Exception platformException = Gl.GetPlatformException(mDeviceContext);
+						if (Gl.SwapInterval(_DeviceContext, swapInterval) == false) {
+							Exception platformException = Gl.GetPlatformException(_DeviceContext);
 							sLog.Warn("Unable to set swap interval to {0}: {1}.", swapInterval, platformException != null ? platformException.ToString() : "null");
 						}
 					}
@@ -750,49 +680,7 @@ namespace OpenGL
 		}
 		
 		/// <summary>
-		/// Actually create this RenderWindow resources in Windows platform.
-		/// </summary>
-		/// <param name="surfaceFormat">
-		/// A <see cref="GraphicsBuffersFormat"/> used for selecting the most appropriate visual.
-		/// </param>
-		internal void PreCreateObjectWgl(GraphicsBuffersFormat surfaceFormat)
-		{
-			if (surfaceFormat == null)
-				throw new ArgumentNullException("surfaceFormat");
-			
-			// Store pixel format, without formally setup the pixel format)
-			mSurfaceFormat = surfaceFormat;
-		}
-		
-		/// <summary>
-		/// Actually create this RenderWindow resources in Windows platform.
-		/// </summary>
-		/// <param name="ctx">
-		/// A <see cref="GraphicsContext"/> used for allocating resources.
-		/// </param>
-		private void CreateObjectWgl(GraphicsContext ctx)
-		{
-			// Obtain device context (relative to control)
-			if (mRenderForm == null)
-				mDeviceContext = DeviceContextFactory.Create(mRenderControl);
-			
-			WindowsDeviceContext winDeviceContext = (WindowsDeviceContext)mDeviceContext;
-			Wgl.PIXELFORMATDESCRIPTOR pDescriptor;
-			
-			sLog.Info("Create rendering window '{0}'.", NestedForm != null ? NestedForm.Text : "untitled");
-
-			// Choose "best" pixel format matching with surface configuration
-			DevicePixelFormat pFormat = mSurfaceFormat.ChoosePixelFormat(mDeviceContext, ValidPixelFormat);
-
-			// Set choosen pixel format
-			if (Wgl.UnsafeNativeMethods.GdiSetPixelFormat(winDeviceContext.DeviceContext, pFormat.FormatIndex, out pDescriptor) == false)
-				throw new InvalidOperationException("unable to select surface pixel format");
-			// Confirm surface configuration
-			mSurfaceFormat.SetBufferConfiguration(pFormat);
-		}
-		
-		/// <summary>
-		/// Actually create this RenderWindow resources in Unix platform.
+		/// Actually create this GraphicsWindow resources in Unix platform.
 		/// </summary>
 		/// <param name="surfaceFormat">
 		/// A <see cref="GraphicsBuffersFormat"/> used for selecting the most appropriate visual.
@@ -803,69 +691,32 @@ namespace OpenGL
 				throw new ArgumentNullException("surfaceFormat");
 			
 			// Choose "best" pixel format matching with surface configuration
-			mDeviceFormat = surfaceFormat.ChoosePixelFormat(mDeviceContext, ValidPixelFormat);
+			_DeviceFormat = surfaceFormat.ChoosePixelFormat(_DeviceContext, ValidPixelFormat);
 			
-			sLog.Debug("Choosen frame buffer configuration: 0x{0} (visual 0x{1}).", mDeviceFormat.XFbConfig.ToString("X3"), mDeviceFormat.XVisualInfo.visualid.ToString("X3"));
+			sLog.Debug("Choosen frame buffer configuration: 0x{0} (visual 0x{1}).", _DeviceFormat.XFbConfig.ToString("X3"), _DeviceFormat.XVisualInfo.visualid.ToString("X3"));
 
 			Type xplatui = Type.GetType("System.Windows.Forms.XplatUIX11, System.Windows.Forms");
 
 			if (xplatui == null)
 				throw new PlatformNotSupportedException("mono runtime version no supported");
 			
-			IntPtr display = (IntPtr)xplatui.GetField("DisplayHandle", System.Reflection.BindingFlags.Static | System.Reflection.BindingFlags.NonPublic).GetValue(null);
-			IntPtr rootWindow = (IntPtr)xplatui.GetField("RootWindow", System.Reflection.BindingFlags.Static | System.Reflection.BindingFlags.NonPublic).GetValue(null);
-			IntPtr colorMap = Glx.UnsafeNativeMethods.XCreateColormap(display, rootWindow, mDeviceFormat.XVisualInfo.visual, 0);
-			KhronosApi.LogProc("XCreateColormap(0x{0}, {1}, {2}. 0) = {0}", display.ToString("X"), rootWindow.ToString("X"), mDeviceFormat.XVisualInfo.visual.ToString());
+			IntPtr display = (IntPtr)xplatui.GetField("DisplayHandle", BindingFlags.Static | BindingFlags.NonPublic).GetValue(null);
+			IntPtr rootWindow = (IntPtr)xplatui.GetField("RootWindow", BindingFlags.Static | BindingFlags.NonPublic).GetValue(null);
+			IntPtr colorMap = Glx.UnsafeNativeMethods.XCreateColormap(display, rootWindow, _DeviceFormat.XVisualInfo.visual, 0);
+			KhronosApi.LogProc("XCreateColormap(0x{0}, {1}, {2}. 0) = {0}", display.ToString("X"), rootWindow.ToString("X"), _DeviceFormat.XVisualInfo.visual.ToString());
 
-			IntPtr customVisual = mDeviceFormat.XVisualInfo.visual;
-			IntPtr origCustomVisual = (IntPtr)xplatui.GetField("CustomVisual", System.Reflection.BindingFlags.Static | System.Reflection.BindingFlags.NonPublic).GetValue(null);
+			IntPtr customVisual = _DeviceFormat.XVisualInfo.visual;
+			IntPtr origCustomVisual = (IntPtr)xplatui.GetField("CustomVisual", BindingFlags.Static | BindingFlags.NonPublic).GetValue(null);
 
 			KhronosApi.LogComment("Set System.Windows.Forms.XplatUIX11.CustomVisual change from {0} to {1}", origCustomVisual.ToString("X"), customVisual.ToString("X"));
-			xplatui.GetField("CustomVisual", System.Reflection.BindingFlags.Static | System.Reflection.BindingFlags.NonPublic).SetValue(null, customVisual);
+			xplatui.GetField("CustomVisual", BindingFlags.Static | BindingFlags.NonPublic).SetValue(null, customVisual);
 			
 			KhronosApi.LogComment("Create System.Windows.Forms.XplatUIX11.CustomColormap ({0})", colorMap.ToString("X"));
-			xplatui.GetField("CustomColormap", System.Reflection.BindingFlags.Static | System.Reflection.BindingFlags.NonPublic).SetValue(null, colorMap);
+			xplatui.GetField("CustomColormap", BindingFlags.Static | BindingFlags.NonPublic).SetValue(null, colorMap);
 		}
 
 		/// <summary>
-		/// Actually create this RenderWindow resources in Unix platform.
-		/// </summary>
-		/// <param name="ctx">
-		/// A <see cref="GraphicsContext"/> used for allocating resources.
-		/// </param>
-		private void CreateObjectX11(GraphicsContext ctx)
-		{
-			// Obtain device context (relative to control)
-			if (mRenderForm == null)
-				mDeviceContext = DeviceContextFactory.Create(mRenderControl);
-			
-			XServerDeviceContext x11DeviceContext = (XServerDeviceContext)mDeviceContext;
-			
-			if (mDeviceFormat == null)
-				throw new InvalidOperationException("no device format selected");
-			mSurfaceFormat.SetBufferConfiguration(mDeviceFormat);
-			
-			sLog.Debug("Choosen frame buffer configuration: 0x{0} (visual 0x{1}).", mDeviceFormat.XFbConfig.ToString("X3"), mDeviceFormat.XVisualInfo.visualid.ToString("X3"));
-
-			x11DeviceContext.FBConfig = mDeviceFormat.XFbConfig;
-			x11DeviceContext.XVisualInfo = mDeviceFormat.XVisualInfo;
-		}
-		
-		/// <summary>
-		/// The device format.
-		/// </summary>
-		private DevicePixelFormat mDeviceFormat;
-		
-		[System.Runtime.InteropServices.DllImport("libX11", EntryPoint = "XGetVisualInfo")]
-        private static extern IntPtr XGetVisualInfoInternal(IntPtr display, IntPtr vinfo_mask, ref Glx.XVisualInfo template, out int nitems);
-
-        private static IntPtr XGetVisualInfo(IntPtr display, int vinfo_mask, ref Glx.XVisualInfo template, out int nitems)
-        {
-            return XGetVisualInfoInternal(display, (IntPtr)vinfo_mask, ref template, out nitems);
-        }
-
-		/// <summary>
-		/// Derived implementation status for passing surface pixel format.
+		/// Callback method for filtering valid pixel formats for this GraphicsSurface.
 		/// </summary>
 		/// <param name="pFormat">
 		/// A <see cref="DevicePixelFormat"/> to be validated by derived implementation.
@@ -876,13 +727,19 @@ namespace OpenGL
 		/// </returns>
 		private static bool ValidPixelFormat(DevicePixelFormat pFormat)
 		{
+			// The pixel format must be able to render on a window
 			return (pFormat.RenderWindow);
 		}
 		
 		/// <summary>
-		/// Window surface format.
+		/// Window surface buffers format.
 		/// </summary>
-		private GraphicsBuffersFormat mSurfaceFormat = new GraphicsBuffersFormat(PixelLayout.RGB24);
+		private GraphicsBuffersFormat _SurfaceFormat = new GraphicsBuffersFormat(PixelLayout.RGB24);
+
+		/// <summary>
+		/// The device format.
+		/// </summary>
+		private DevicePixelFormat _DeviceFormat;
 
 		#endregion
 	}

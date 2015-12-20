@@ -240,7 +240,7 @@ namespace OpenGL
 		
 		#endregion
 
-		#region RenderResource Overrides
+		#region GraphicsResource Overrides
 
 		/// <summary>
 		/// Feedback buffer object class.
@@ -354,7 +354,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Actually create this RenderResource resources.
+		/// Actually create this GraphicsResource resources.
 		/// </summary>
 		/// <param name="ctx">
 		/// A <see cref="GraphicsContext"/> used for allocating resources.
@@ -392,7 +392,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Delete this RenderResource.
+		/// Delete this GraphicsResource.
 		/// </summary>
 		/// <param name="ctx">
 		/// A <see cref="GraphicsContext"/> used for deleting this object. The IRenderResource shall belong to the object space to this
@@ -401,21 +401,21 @@ namespace OpenGL
 		/// <remarks>
 		/// <para>
 		/// After this method, the resource must have deallocated every graphic resource associated with it. Normally it should be possible
-		/// to create again the resources by calling <see cref="RenderResource.Create"/>.
+		/// to create again the resources by calling <see cref="GraphicsResource.Create"/>.
 		/// </para>
 		/// <para>
 		/// This methods shall be the preferred way to deallocate graphic resources.
 		/// </para>
 		/// <para>
-		/// After a successfull call to Create, <see cref="RenderResource.Exists"/> shall return true.
+		/// After a successfull call to Create, <see cref="GraphicsResource.Exists"/> shall return true.
 		/// </para>
 		/// <para>
-		/// The actual implementation deletes the name (<see cref="RenderResource.DeleteName"/>) only if the implementation requires a context related name
-		/// (<see cref="RenderResource.RequiresName"/>). In the case derived classes requires more complex resource deletion pattern, this method could
+		/// The actual implementation deletes the name (<see cref="GraphicsResource.DeleteName"/>) only if the implementation requires a context related name
+		/// (<see cref="GraphicsResource.RequiresName"/>). In the case derived classes requires more complex resource deletion pattern, this method could
 		/// be overriden for that purpose, paying attention to call the base implementation.
 		/// </para>
 		/// </remarks>
-		/// <seealso cref="RenderResource.Create"/>
+		/// <seealso cref="GraphicsResource.Create"/>
 		/// <exception cref="ArgumentNullException">
 		/// Exception thrown if <paramref name="ctx"/> is null.
 		/// </exception>
@@ -423,7 +423,7 @@ namespace OpenGL
 		/// Exception thrown if <paramref name="ctx"/> is not current to the calling thread.
 		/// </exception>
 		/// <exception cref="ArgumentException">
-		/// Exception thrown if this object doesn't exists for <paramref name="ctx"/> (this is determined by calling <see cref="RenderResource.Exists"/>
+		/// Exception thrown if this object doesn't exists for <paramref name="ctx"/> (this is determined by calling <see cref="GraphicsResource.Exists"/>
 		/// method), or this resource has a name and <paramref name="ctx"/> is not current to the calling thread.
 		/// </exception>
 		public override void Delete(GraphicsContext ctx)

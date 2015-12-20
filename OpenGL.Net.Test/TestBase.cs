@@ -112,13 +112,13 @@ namespace OpenGL.Test
 			pfd.cAccumRedBits = 0; pfd.cAccumGreenBits = 0; pfd.cAccumBlueBits = 0; pfd.cAccumAlphaBits = 0;
 
 			// Find pixel format match
-			if ((pFormat = Wgl.UnsafeNativeMethods.GdiChoosePixelFormat(winDeviceContext.DeviceContext, out pfd)) == 0)
+			if ((pFormat = Wgl.UnsafeNativeMethods.GdiChoosePixelFormat(winDeviceContext.DeviceContext, ref pfd)) == 0)
 				throw new NotSupportedException("unable to choose basic pixel format, error code " + Marshal.GetLastWin32Error());
 
 			if (pfd.cColorBits == 0)
 				throw new InvalidOperationException("unable to select valid pixel format");
 			// Set pixel format before creating OpenGL context
-            if (Wgl.UnsafeNativeMethods.GdiSetPixelFormat(winDeviceContext.DeviceContext, pFormat, out pfd) == false)
+			if (Wgl.UnsafeNativeMethods.GdiSetPixelFormat(winDeviceContext.DeviceContext, pFormat, ref pfd) == false)
 				throw new InvalidOperationException("unable to set valid pixel format");
 		}
 

@@ -1,6 +1,6 @@
 namespace OpenGL
 {
-	partial class RenderControl
+	partial class GraphicsControl
 	{
 		/// <summary> 
 		/// Required designer variable.

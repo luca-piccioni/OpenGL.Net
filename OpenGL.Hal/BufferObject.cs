@@ -352,7 +352,7 @@ namespace OpenGL
 		
 		#endregion
 
-		#region RenderResource Overrides
+		#region GraphicsResource Overrides
 
 		/// <summary>
 		/// Buffer object class.
@@ -456,7 +456,7 @@ namespace OpenGL
 		/// Performs application-defined tasks associated with freeing, releasing, or resetting managed/unmanaged resources.
 		/// </summary>
 		/// <exception cref="InvalidOperationException">
-		/// Exception thrown in the case <see cref="RenderResource.RefCount"/> is greater than zero. This means that the method is trying to dispose
+		/// Exception thrown in the case <see cref="GraphicsResource.RefCount"/> is greater than zero. This means that the method is trying to dispose
 		/// an object that is actually referenced by something else.
 		/// </exception>
 		protected override void Dispose(bool disposing)

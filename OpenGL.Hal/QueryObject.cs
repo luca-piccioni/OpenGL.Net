@@ -110,7 +110,7 @@ namespace OpenGL
 
 		#endregion
 
-		#region RenderResource Overrides
+		#region GraphicsResource Overrides
 
 		/// <summary>
 		/// Buffer object class.

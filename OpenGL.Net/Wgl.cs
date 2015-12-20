@@ -20,6 +20,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Diagnostics;
 using System.Reflection;
 using System.Runtime.InteropServices;
@@ -72,77 +73,6 @@ namespace OpenGL
 		/// Imported functions delegates.
 		/// </summary>
 		private static List<FieldInfo> sDelegates = null;
-
-		#endregion
-
-		#region Extensions Management
-
-		/// <summary>
-		/// Check whether current Windows GL implementation supports the extension.
-		/// </summary>
-		/// <param name="deviceContext">
-		/// 
-		/// </param>
-		/// <param name="extension">
-		/// A <see cref="System.String"/> that specifies the name of the OpenGL extension.
-		/// </param>
-		/// <returns>
-		/// Returns a boolean value that indicates support for the OpenGL extension.
-		/// </returns>
-		public static bool HasExtension(IDeviceContext deviceContext, string extension)
-		{
-			if (_Extensions == null)
-				QueryExtensions(deviceContext);
-			if (_Extensions != null)
-				return (_Extensions.ContainsKey(extension));
-			else
-				return (false);
-		}
-
-		/// <summary>
-		/// Query all Windows GL extensions supported by current implementation.
-		/// </summary>
-		private static void QueryExtensions(IDeviceContext deviceContext)
-		{
-			if (Delegates.pwglGetExtensionsStringARB != null)
-				_Extensions = ParseExtensionString(GetExtensionsStringARB(GetCurrentDC()));
-			else if (Delegates.pwglGetExtensionsStringEXT != null)
-				_Extensions = ParseExtensionString(GetExtensionsStringEXT());
-			else
-				throw new InvalidOperationException("unable to get extensions");
-		}
-
-		/// <summary>
-		/// Parse an extension string.
-		/// </summary>
-		/// <param name="exts">
-		/// A <see cref="string"/> representing a list of extensions deperated by spaces. This
-		/// string is generated using OpenGL routine glGetString or platform specific routines.
-		/// </param>
-		/// <returns>
-		/// It returns a dictionary which maps the extension name with a boolean value indicating
-		/// whether an extension is supported or not.
-		/// </returns>
-		protected static Dictionary<string, bool> ParseExtensionString(string exts)
-		{
-			Dictionary<string, bool> eDict = new Dictionary<string, bool>();
-			string[] extTokens;
-
-			if (String.IsNullOrEmpty(exts))
-				return (eDict);     // Empty dictionary
-
-			// Parse available extension
-			extTokens = exts.Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
-			foreach (string e in extTokens)
-				eDict.Add(e, true);
-
-			return (eDict);
-		}
-
-		/// <summary>
-		/// Available extensions.
-		/// </summary>
-		private static Dictionary<string, bool> _Extensions = null;
 
 		#endregion
 
@@ -207,7 +137,7 @@ namespace OpenGL
 				Gl.SyncDelegates();
 				// Since we have a current context on the caller thread, the API wglGetProcAddress is available; indeed
 				// synchronize Wgl.Delegates as well
-				Wgl.SyncDelegates();
+				SyncDelegates();
 			}
 
 			return (retvalue);
@@ -224,6 +154,17 @@ namespace OpenGL
 		{
 			get { return (sCallLogEnabled); }
 			set { sCallLogEnabled = value; }
+		}
+
+		/// <summary>
+		/// OpenGL error checking.
+		/// </summary>
+		public static void CheckErrors()
+		{
+			int errorCode = Marshal.GetLastWin32Error();
+
+			if (errorCode != 0)
+				throw new Win32Exception(errorCode);
 		}
 
 		/// <summary>
@@ -262,7 +203,7 @@ namespace OpenGL
 			/// <param name="pixelFormatDescriptor"></param>
 			/// <returns></returns>
 			[DllImport("gdi32.dll", EntryPoint = "ChoosePixelFormat", ExactSpelling = true, SetLastError = true)]
-			public static extern int GdiChoosePixelFormat(IntPtr deviceContext, out PIXELFORMATDESCRIPTOR pixelFormatDescriptor);
+			public static extern int GdiChoosePixelFormat(IntPtr deviceContext, [In] ref PIXELFORMATDESCRIPTOR pixelFormatDescriptor);
 
 			/// <summary>
 			/// 
@@ -272,7 +213,7 @@ namespace OpenGL
 			/// <param name="pixelFormatDescriptor"></param>
 			/// <returns></returns>
 			[DllImport("gdi32.dll", EntryPoint = "SetPixelFormat", ExactSpelling = true, SetLastError = true)]
-			public static extern bool GdiSetPixelFormat(IntPtr deviceContext, int pixelFormat, out PIXELFORMATDESCRIPTOR pixelFormatDescriptor);
+			public static extern bool GdiSetPixelFormat(IntPtr deviceContext, int pixelFormat, ref PIXELFORMATDESCRIPTOR pixelFormatDescriptor);
 
 			/// <summary>
 			/// 

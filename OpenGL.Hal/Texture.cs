@@ -1,18 +1,20 @@
 
 // Copyright (C) 2009-2015 Luca Piccioni
 // 
-// This program is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//   
-// This program is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
+// This library is free software; you can redistribute it and/or
+// modify it under the terms of the GNU Lesser General Public
+// License as published by the Free Software Foundation; either
+// version 2.1 of the License, or (at your option) any later version.
 // 
-// You should have received a copy of the GNU General Public License
-// along with this program.  If not, see <http://www.gnu.org/licenses/>.
+// This library is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+// Lesser General Public License for more details.
+// 
+// You should have received a copy of the GNU Lesser General Public
+// License along with this library; if not, write to the Free Software
+// Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301
+// USA
 
 using System;
 using System.Diagnostics;
@@ -32,7 +34,7 @@ namespace OpenGL
 	/// (<see cref="Texture3d"/>), cube mapped (<see cref="TextureCube"/>).
 	/// </para>
 	/// </remarks>
-	[DebuggerDisplay("Texture Pixel:{mPixelFormat}")]
+	[DebuggerDisplay("Texture Pixel:{PixelLayout}")]
 	public abstract class Texture : GraphicsResource
 	{
 		#region Internal Format
@@ -72,7 +74,7 @@ namespace OpenGL
 		/// </summary>
 		/// <remarks>
 		/// <para>
-		/// By default, this property is set to false.
+		/// By default, this property is set to true. It is considered only in the case the GL_EXT_texture_object is supported.
 		/// </para>
 		/// </remarks>
 		public bool AutoReleaseData
@@ -90,7 +92,7 @@ namespace OpenGL
 
 		#endregion
 
-		#region Textel Management
+		#region Texture Extents
 
 		/// <summary>
 		/// Texture width.
@@ -117,73 +119,9 @@ namespace OpenGL
 		/// </remarks>
 		public abstract uint Depth { get; }
 
-		/// <summary>
-		/// Check whether the texture extents are compatible with context capabilities.
-		/// </summary>
-		/// <param name="width">
-		/// A <see cref="System.UInt32"/> that specifies the texture width.
-		/// </param>
-		/// <param name="height">
-		/// A <see cref="System.UInt32"/> that specifies the texture height.
-		/// </param>
-		/// <param name="depth">
-		/// A <see cref="System.UInt32"/> that specifies the texture depth.
-		/// </param>
-		/// <param name="format">
-		/// A <see cref="OpenGL.PixelLayout"/> that specifies the texture internal format.
-		/// </param>
-		/// <exception cref="ArgumentException">
-		/// Exception thrown if <paramref name="width"/>, <paramref name="height"/> or <paramref name="depth"/> is greater than
-		/// the maximum allowed for the specific texture target.
-		/// </exception>
-		/// <exception cref="ArgumentException">
-		/// Exception thrown if NPOT texture are not supported, and <paramref name="width"/>, <paramref name="height"/>
-		/// or <paramref name="depth"/> is not a power-of-two value.
-		/// </exception>
-		/// <exception cref="ArgumentException">
-		/// Exception thrown if <paramref name="format"/> is not a supported internal format.
-		/// </exception>
-		protected void CheckCapabilities(uint width, uint height, uint depth, PixelLayout format)
-		{
-			CheckCapabilities(GraphicsContext.CurrentCaps, width, height, depth, format);
-		}
+		#endregion
 
-		/// <summary>
-		/// Check whether the texture extents are compatible with context capabilities.
-		/// </summary>
-		/// <param name="ctx">
-		/// A <see cref="GraphicsContext"/> determining the underlying texture capabilities.
-		/// </param>
-		/// <param name="width">
-		/// A <see cref="System.UInt32"/> that specifies the texture width.
-		/// </param>
-		/// <param name="height">
-		/// A <see cref="System.UInt32"/> that specifies the texture height.
-		/// </param>
-		/// <param name="depth">
-		/// A <see cref="System.UInt32"/> that specifies the texture depth.
-		/// </param>
-		/// <param name="format">
-		/// A <see cref="OpenGL.PixelLayout"/> that specifies the texture internal format.
-		/// </param>
-		/// <exception cref="ArgumentNullException">
-		/// Exception throw if <paramref name="ctx"/> is null.
-		/// </exception>
-		/// <exception cref="ArgumentException">
-		/// Exception thrown if <paramref name="width"/>, <paramref name="height"/> or <paramref name="depth"/> is greater than
-		/// the maximum allowed for the specific texture target.
-		/// </exception>
-		/// <exception cref="ArgumentException">
-		/// Exception thrown if NPOT texture are not supported by <paramref name="ctx"/>, and <paramref name="width"/>, <paramref name="height"/>
-		/// or <paramref name="depth"/> is not a power-of-two value.
-		/// </exception>
-		/// <exception cref="ArgumentException">
-		/// Exception thrown if <paramref name="format"/> is not a supported internal format.
-		/// </exception>
-		protected void CheckCapabilities(GraphicsContext ctx, uint width, uint height, uint depth, PixelLayout format)
-		{
-			CheckCapabilities(ctx.Caps, width, height, depth, format);
-		}
+		#region Capability Support
 
 		/// <summary>
 		/// Check whether the texture extents are compatible with context capabilities.
@@ -221,6 +159,10 @@ namespace OpenGL
 		{
 			if (caps == null)
 				throw new ArgumentNullException("caps");
+			if (caps.GlExtensions == null)
+				throw new ArgumentException("caps GL extensions not queried", "caps");
+			if (caps.Limits == null)
+				throw new ArgumentException("caps Limits not queried", "caps");
 		
 			// Texture maximum size
 			switch (TextureTarget) {
@@ -309,9 +251,7 @@ namespace OpenGL
 			int width, height;
 
 			Gl.GetTexLevelParameter(TextureTarget, 0, GetTextureParameter.TextureWidth, out width);
-			GraphicsException.DebugCheckErrors();
 			Gl.GetTexLevelParameter(TextureTarget, 0, GetTextureParameter.TextureHeight, out height);
-			GraphicsException.DebugCheckErrors();
 			if ((width <= 0) || (height <= 0))
 				throw new InvalidOperationException(String.Format("invalid texture extents {0}x{1}", width, height));
 
@@ -322,14 +262,12 @@ namespace OpenGL
 			foreach (int alignment in new int[] { 8, 4, 2, 1 }) {
 				if (image.Stride % alignment == 0) {
 					Gl.PixelStore(PixelStoreParameter.PackAlignment, alignment);
-					GraphicsException.DebugCheckErrors();
 					break;
 				}
 			}
 
 			// Download texture contents
 			Gl.GetTexImage(target, 0, Pixel.GetGlFormat(pType), Pixel.GetPixelType(pType), image.ImageBuffer);
-			GraphicsException.DebugCheckErrors();
 
 			// Unbind this texture
 			Unbind(ctx);
@@ -350,7 +288,7 @@ namespace OpenGL
 		/// </remarks>
 		public void RequestMipmapsCreation()
 		{
-			mRequiresMipMaps = true;
+			_RequiresMipMaps = true;
 		}
 
 		/// <summary>
@@ -380,12 +318,11 @@ namespace OpenGL
 			Bind(ctx);
 			// Generate mipmaps
 			Gl.GenerateMipmap((int)target);
-			GraphicsException.DebugCheckErrors();
 			// Unbind this texture
 			Unbind(ctx);
 
 			// Now texture has mipmaps
-			mHasMipMaps = true;
+			_HasMipMaps = true;
 		}
 
 		/// <summary>
@@ -396,8 +333,8 @@ namespace OpenGL
 		/// </remarks>
 		public bool HasMipmaps
 		{
-			get { return (mHasMipMaps); }
-			protected set { mHasMipMaps = value; }
+			get { return (_HasMipMaps); }
+			protected set { _HasMipMaps = value; }
 		}
 
 		/// <summary>
@@ -471,12 +408,12 @@ namespace OpenGL
 		/// <summary>
 		/// Flag indicating whether this Texture shall ghave mipmaps created automatically at creationg time.
 		/// </summary>
-		private bool mRequiresMipMaps;
+		private bool _RequiresMipMaps;
 
 		/// <summary>
 		/// Flag indicating whether this Texture has mipmaps defined (actually).
 		/// </summary>
-		private bool mHasMipMaps;
+		private bool _HasMipMaps;
 
 		#endregion
 
@@ -502,10 +439,8 @@ namespace OpenGL
 		/// </summary>
 		public Filter MinFilter
 		{
-			get { return (mMinFilter); }
-			set {
-				mMinFilter = value;
-			}
+			get { return (_MinFilter); }
+			set { _MinFilter = value; }
 		}
 
 		/// <summary>
@@ -513,11 +448,8 @@ namespace OpenGL
 		/// </summary>
 		public Filter MipFilter
 		{
-			get { return (mMipFilter); }
-			set
-			{
-				mMipFilter = value;
-			}
+			get { return (_MipFilter); }
+			set { _MipFilter = value; }
 		}
 		
 		/// <summary>
@@ -525,26 +457,24 @@ namespace OpenGL
 		/// </summary>
 		public Filter MagFilter
 		{
-			get { return (mMagFilter); }
-			set {
-				mMagFilter = value;
-			}
+			get { return (_MagFilter); }
+			set { _MagFilter = value; }
 		}
 
 		/// <summary>
 		/// Minification filter.
 		/// </summary>
-		protected Filter mMinFilter = Filter.Linear;
+		protected Filter _MinFilter = Filter.Linear;
 
 		/// <summary>
 		/// Minification filter consider mipmaps (relevant only when texture has mipmaps).
 		/// </summary>
-		protected Filter mMipFilter = Filter.Nearest;
+		protected Filter _MipFilter = Filter.Nearest;
 
 		/// <summary>
 		/// Magnification filter.
 		/// </summary>
-		protected Filter mMagFilter = Filter.Nearest;
+		protected Filter _MagFilter = Filter.Nearest;
 		
 		#endregion
 
@@ -558,15 +488,15 @@ namespace OpenGL
 			/// <summary>
 			/// Texture coordinates are clamped to the valid range.
 			/// </summary>
-			Clamp,
+			Clamp = Gl.CLAMP_TO_EDGE,
 			/// <summary>
 			/// Texture coordinates are wrapped around the valid range.
 			/// </summary>
-			Repeat,
+			Repeat = Gl.REPEAT,
 			/// <summary>
 			/// Texture coordinates are wrapped around the valid range, but mirrored.
 			/// </summary>
-			MirroredRepeat
+			MirroredRepeat = Gl.MIRRORED_REPEAT
 		}
 
 		/// <summary>
@@ -574,11 +504,8 @@ namespace OpenGL
 		/// </summary>
 		public Wrap WrapCoordS
 		{
-			get { return (mWrapS); }
-			set
-			{
-				mWrapS = value;
-			}
+			get { return (_WrapS); }
+			set { _WrapS = value; }
 		}
 
 		/// <summary>
@@ -586,11 +513,8 @@ namespace OpenGL
 		/// </summary>
 		public Wrap WrapCoordT
 		{
-			get { return (mWrapT); }
-			set
-			{
-				mWrapT = value;
-			}
+			get { return (_WrapT); }
+			set { _WrapT = value; }
 		}
 
 		/// <summary>
@@ -598,50 +522,24 @@ namespace OpenGL
 		/// </summary>
 		public Wrap WrapCoordR
 		{
-			get { return (mWrapR); }
-			set
-			{
-				mWrapR = value;
-			}
-		}
-
-		/// <summary>
-		/// Get wrap paremeter from Wrap.
-		/// </summary>
-		/// <param name="param">
-		/// A <see cref="Wrap"/> indicating the wrap mode.
-		/// </param>
-		/// <returns>
-		/// It returns an integer representing the OpenGL enumeration value
-		/// corresponding to the texture wrap mode <paramref name="param"/>.
-		/// </returns>
-		private static int GetWrapParameter(Wrap param)
-		{
-			switch (param) {
-				case Wrap.Clamp:
-					return (Gl.CLAMP_TO_EDGE);
-				case Wrap.Repeat:
-				default:
-					return (Gl.REPEAT);
-				case Wrap.MirroredRepeat:
-					return (Gl.MIRRORED_REPEAT);
-			}
+			get { return (_WrapR); }
+			set { _WrapR = value; }
 		}
 
 		/// <summary>
 		/// Wrapping on S coordinate.
 		/// </summary>
-		protected Wrap mWrapS = Wrap.Repeat;
+		protected Wrap _WrapS = Wrap.Repeat;
 
 		/// <summary>
 		/// Wrapping on T coordinate.
 		/// </summary>
-		protected Wrap mWrapT = Wrap.Repeat;
+		protected Wrap _WrapT = Wrap.Repeat;
 
 		/// <summary>
 		/// Wrapping on R coordinate.
 		/// </summary>
-		protected Wrap mWrapR = Wrap.Repeat;
+		protected Wrap _WrapR = Wrap.Repeat;
 
 		#endregion
 
@@ -681,22 +579,22 @@ namespace OpenGL
 		/// <summary>
 		/// Get or set the swizzle map for red component.
 		/// </summary>
-		public Swizzle SizzleRed { get { return (mTextelSwizzle[0]); } set { mTextelSwizzle[0] = value; } }
+		public Swizzle SizzleRed { get { return (_TextelSwizzle[0]); } set { _TextelSwizzle[0] = value; } }
 
 		/// <summary>
 		/// Get or set the swizzle map for green component.
 		/// </summary>
-		public Swizzle SizzleGreen { get { return (mTextelSwizzle[1]); } set { mTextelSwizzle[1] = value; } }
+		public Swizzle SizzleGreen { get { return (_TextelSwizzle[1]); } set { _TextelSwizzle[1] = value; } }
 
 		/// <summary>
 		/// Get or set the swizzle map for blue component.
 		/// </summary>
-		public Swizzle SizzleBlue { get { return (mTextelSwizzle[2]); } set { mTextelSwizzle[2] = value; } }
+		public Swizzle SizzleBlue { get { return (_TextelSwizzle[2]); } set { _TextelSwizzle[2] = value; } }
 
 		/// <summary>
 		/// Get or set the swizzle map for alpha component.
 		/// </summary>
-		public Swizzle SizzleAlpha { get { return (mTextelSwizzle[3]); } set { mTextelSwizzle[3] = value; } }
+		public Swizzle SizzleAlpha { get { return (_TextelSwizzle[3]); } set { _TextelSwizzle[3] = value; } }
 
 		/// <summary>
 		/// Setup texture textel components swizzle.
@@ -718,7 +616,7 @@ namespace OpenGL
 					case PixelLayout.GRAYF:
 					case PixelLayout.GRAYHF:
 						// Emulated Gl.LUMINANCE textel format
-						mTextelSwizzleRGBA = new int[] {
+						_TextelSwizzleRGBA = new int[] {
 							Gl.RED,
 							Gl.RED,
 							Gl.RED,
@@ -730,7 +628,7 @@ namespace OpenGL
 
 					default:
 						// By default, no swizzle is required
-						mTextelSwizzleRGBA = null;
+						_TextelSwizzleRGBA = null;
 						break;
 				}
 			}
@@ -742,7 +640,7 @@ namespace OpenGL
 		/// <remarks>
 		/// When this member is set to null, no textel components swizzle is required.
 		/// </remarks>
-		private int[] mTextelSwizzleRGBA;
+		private int[] _TextelSwizzleRGBA;
 
 		/// <summary>
 		/// Texture textel swizzle setup.
@@ -751,7 +649,7 @@ namespace OpenGL
 		/// When this member is set to null, not textel components swizzle
 		/// is required.
 		/// </remarks>
-		private readonly Swizzle[] mTextelSwizzle = new Swizzle[] { Swizzle.Red, Swizzle.Green, Swizzle.Blue, Swizzle.Alpha };
+		private readonly Swizzle[] _TextelSwizzle = new Swizzle[] { Swizzle.Red, Swizzle.Green, Swizzle.Blue, Swizzle.Alpha };
 
 		#endregion
 
@@ -787,7 +685,7 @@ namespace OpenGL
 
 			#region Minification Filter
 
-			if (mHasMipMaps) {
+			if (_HasMipMaps) {
 				switch (MinFilter) {
 					case Filter.Nearest:
 						switch (MipFilter) {
@@ -819,7 +717,6 @@ namespace OpenGL
 
 				// Set minification filter (with mipmaps)
 				Gl.TexParameter(target, TextureParameterName.TextureMinFilter, iParam);
-				GraphicsException.DebugCheckErrors();
 			} else {
 				switch (MinFilter) {
 					case Filter.Nearest:
@@ -833,7 +730,6 @@ namespace OpenGL
 				}
 				// Set minification filter (without mipmaps)
 				Gl.TexParameter(target, TextureParameterName.TextureMinFilter, iParam);
-				GraphicsException.DebugCheckErrors();
 			}
 
 			#endregion
@@ -853,32 +749,27 @@ namespace OpenGL
 
 			// Set minification filter (without mipmaps)
 			Gl.TexParameter(target, TextureParameterName.TextureMagFilter, iParam);
-			GraphicsException.DebugCheckErrors();
 
 			#endregion
 
 			#region Wrapping
 
-			if (target != (TextureTarget)Gl.TEXTURE_RECTANGLE) {
+			if (target != TextureTarget.TextureRectangle) {
 				// Wrap S coordinate
-				Gl.TexParameter(target, TextureParameterName.TextureWrapS, GetWrapParameter(WrapCoordS));
-				GraphicsException.DebugCheckErrors();
+				Gl.TexParameter(target, TextureParameterName.TextureWrapS, (int)WrapCoordS);
 				// Wrap T coordinate
-				Gl.TexParameter(target, TextureParameterName.TextureWrapT, GetWrapParameter(WrapCoordT));
-				GraphicsException.DebugCheckErrors();
+				Gl.TexParameter(target, TextureParameterName.TextureWrapT, (int)WrapCoordT);
 				// Wrap R coordinate
-				Gl.TexParameter(target, TextureParameterName.TextureWrapR, GetWrapParameter(WrapCoordR));
-				GraphicsException.DebugCheckErrors();
+				Gl.TexParameter(target, TextureParameterName.TextureWrapR, (int)WrapCoordR);
 			}
 
 			#endregion
 
 			#region Textel Components Swizzle
 
-			if ((mTextelSwizzleRGBA != null) && (ctx.Caps.GlExtensions.TextureSwizzle_ARB)) {
+			if ((_TextelSwizzleRGBA != null) && (ctx.Caps.GlExtensions.TextureSwizzle_ARB)) {
 				// Set components swizzle setup
-				Gl.TexParameter(target, (TextureParameterName)Gl.TEXTURE_SWIZZLE_RGBA, mTextelSwizzleRGBA);
-				GraphicsException.DebugCheckErrors();
+				Gl.TexParameter(target, (TextureParameterName)Gl.TEXTURE_SWIZZLE_RGBA, _TextelSwizzleRGBA);
 			}
 
 			#endregion
@@ -895,7 +786,7 @@ namespace OpenGL
 		/// In the case a this Texture is defined by multiple targets (i.e. cube map textures), this property
 		/// shall returns always 0.
 		/// </remarks>
-		public abstract OpenGL.TextureTarget TextureTarget { get; }
+		public abstract TextureTarget TextureTarget { get; }
 
 		/// <summary>
 		/// Determine whether this Texture has a valid target.
@@ -943,7 +834,6 @@ namespace OpenGL
 		{
 			// Bind this Texture on specified target
 			Gl.BindTexture(target, ObjectName);
-			GraphicsException.DebugCheckErrors();
 		}
 
 		/// <summary>
@@ -959,7 +849,6 @@ namespace OpenGL
 		{
 			// Unbind this Texture on specified target
 			Gl.BindTexture(target, 0);
-			GraphicsException.DebugCheckErrors();
 		}
 
 		#endregion
@@ -1006,16 +895,16 @@ namespace OpenGL
 				throw new ArgumentNullException("technique");
 
 			// Dispose previous technique, if any
-			if (mTechnique != null)
-				mTechnique.Dispose();
+			if (_Technique != null)
+				_Technique.Dispose();
 			// Replace technique
-			mTechnique = technique;
+			_Technique = technique;
 		}
 
 		/// <summary>
 		/// Technique used for creating this texture.
 		/// </summary>
-		private Technique mTechnique;
+		private Technique _Technique;
 
 		#endregion
 
@@ -1086,10 +975,10 @@ namespace OpenGL
 		/// </exception>
 		public override void Create(GraphicsContext ctx)
 		{
-			if (Exists(ctx))
-				CreateObject(ctx);
+			if (Exists(ctx) == false)
+				base.Create(ctx);			// Create and update texture
 			else
-				base.Create(ctx);
+				CreateObject(ctx);			// Update texture
 		}
 
 		/// <summary>
@@ -1104,10 +993,7 @@ namespace OpenGL
 		protected override uint CreateName(GraphicsContext ctx)
 		{
 			// Generate texture name
-			uint name = Gl.GenTexture();
-			GraphicsException.CheckErrors();
-			
-			return (name);
+			return (Gl.GenTexture());
 		}
 
 		/// <summary>
@@ -1123,7 +1009,6 @@ namespace OpenGL
 		{
 			// Delete texture name
 			Gl.DeleteTextures(name);
-			GraphicsException.CheckErrors();
 		}
 
 		/// <summary>
@@ -1142,15 +1027,15 @@ namespace OpenGL
 
 			// In the case of no technique, texture will exists but it will be undefined
 
-			if (mTechnique != null) {
+			if (_Technique != null) {
 				// Create texture using technique
-				mTechnique.Create(ctx);
+				_Technique.Create(ctx);
 				// Technique no more useful: dispose it
-				mTechnique.Dispose();
-				mTechnique = null;
+				_Technique.Dispose();
+				_Technique = null;
 			
 				// Generate mipmaps, if requested
-				if (mRequiresMipMaps)
+				if (_RequiresMipMaps)
 					GenerateMipmaps(ctx);
 			}
 

@@ -1,24 +1,24 @@
 
-// Copyright (C) 2009-2012 Luca Piccioni
+// Copyright (C) 2009-2015 Luca Piccioni
 // 
-// This program is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//   
-// This program is distributed in the hope that it will be useful,
+// This library is free software; you can redistribute it and/or
+// modify it under the terms of the GNU Lesser General Public
+// License as published by the Free Software Foundation; either
+// version 2.1 of the License, or (at your option) any later version.
+// 
+// This library is distributed in the hope that it will be useful,
 // but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+// Lesser General Public License for more details.
 // 
-// You should have received a copy of the GNU General Public License
-// along with this program.  If not, see <http://www.gnu.org/licenses/>.
+// You should have received a copy of the GNU Lesser General Public
+// License along with this library; if not, write to the Free Software
+// Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301
+// USA
 
 using System;
 using System.Diagnostics;
 using System.Drawing;
-
-using Image = OpenGL.Image;
 
 namespace OpenGL
 {
@@ -191,8 +191,7 @@ namespace OpenGL
 				int internalFormat = Pixel.GetGlInternalFormat(PixelFormat, ctx);
 
 				// Define empty texture
-				Gl.TexImage2D(Target, 0, internalFormat, (int)Width, (int)Height, 0, format, /* Unused */ PixelType.UnsignedByte, null);
-				GraphicsException.CheckErrors();
+				Gl.TexImage2D(Target, 0, internalFormat, (int)Width, (int)Height, 0, format, /* Unused */ PixelType.UnsignedByte, IntPtr.Zero);
 			}
 		}
 
@@ -250,20 +249,17 @@ namespace OpenGL
 				int internalFormat = Pixel.GetGlInternalFormat(PixelFormat, ctx);
 				PixelFormat format = Pixel.GetGlFormat(Image.PixelLayout);
 				PixelType type = Pixel.GetPixelType(Image.PixelLayout);
-				
 
 				// Set pixel transfer
 				foreach (int alignment in new int[] { 8, 4, 2, 1 }) {
 					if ((Image.Stride % alignment) != 0)
 						continue;
 					Gl.PixelStore(PixelStoreParameter.UnpackAlignment, alignment);
-					GraphicsException.DebugCheckErrors();
 					break;
 				}
 
 				// Upload texture contents
 				Gl.TexImage2D(Target, 0, internalFormat, (int)Image.Width, (int)Image.Height, 0, format, type, Image.ImageBuffer);
-				GraphicsException.CheckErrors();
 			}
 
 			/// <summary>
@@ -310,13 +306,10 @@ namespace OpenGL
 		/// </exception>
 		public void Create(uint width, uint height, PixelLayout format)
 		{
-			// Check context compatibility
-			CheckCapabilities(width, height, Depth, format);
-
 			// Setup texture information
 			PixelLayout = format;
-			mWidth = width;
-			mHeight = height;
+			_Width = width;
+			_Height = height;
 
 			// Setup technique for creation
 			SetTechnique(new EmptyTechnique(TextureTarget, format, width, height));
@@ -398,13 +391,10 @@ namespace OpenGL
 			if (image == null)
 				throw new ArgumentNullException("image");
 
-			// Check context compatibility
-			CheckCapabilities(image.Width, image.Height, 1, image.PixelLayout);
-
 			// Setup texture information
 			PixelLayout = image.PixelLayout;
-			mWidth = image.Width;
-			mHeight = image.Height;
+			_Width = image.Width;
+			_Height = image.Height;
 
 			// Setup technique for creation
 			SetTechnique(new ImageTechnique(TextureTarget, image.PixelLayout, image));
@@ -496,12 +486,12 @@ namespace OpenGL
 		/// <summary>
 		/// Texture width.
 		/// </summary>
-		public override uint Width { get { return (mWidth); } }
+		public override uint Width { get { return (_Width); } }
 
 		/// <summary>
 		/// Texture height.
 		/// </summary>
-		public override uint Height { get { return (mHeight); } }
+		public override uint Height { get { return (_Height); } }
 
 		/// <summary>
 		/// Texture depth.
@@ -541,12 +531,12 @@ namespace OpenGL
 		/// <summary>
 		/// Texture width.
 		/// </summary>
-		private uint mWidth;
+		private uint _Width;
 
 		/// <summary>
 		/// Texture height.
 		/// </summary>
-		private uint mHeight;
+		private uint _Height;
 
 		#endregion
 	}
