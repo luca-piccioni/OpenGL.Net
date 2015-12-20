@@ -17,6 +17,7 @@
 // USA
 
 using System;
+using System.Windows.Forms;
 
 namespace OpenGL
 {
@@ -60,6 +61,14 @@ namespace OpenGL
 		/// Get the pixel formats supported by this device.
 		/// </summary>
 		DevicePixelFormatCollection PixelsFormats { get; }
+
+		/// <summary>
+		/// Set the device pixel format.
+		/// </summary>
+		/// <param name="pixelFormat">
+		/// A <see cref="DevicePixelFormat"/> that specifies the pixel format to set.
+		/// </param>
+		void SetPixelFormat(DevicePixelFormat pixelFormat);
 
 		#endregion
 	}

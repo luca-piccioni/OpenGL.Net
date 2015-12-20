@@ -224,7 +224,12 @@ namespace BindingsGen.GLSpecs
 			// The SuppressUnmanagedCodeSecurity attribute is used to increase P/Invoke performance
 			sw.WriteLine("[SuppressUnmanagedCodeSecurity()]");
 			// Import definition
-			sw.WriteLine("[DllImport(Library, EntryPoint = \"{0}\", ExactSpelling = true)]", ImportName);
+			CommandFlags commandFlags = CommandFlagsDatabase.GetCommandFlags(this);
+			
+			if ((commandFlags & CommandFlags.SetLastError) != 0)
+				sw.WriteLine("[DllImport(Library, EntryPoint = \"{0}\", ExactSpelling = true, SetLastError = true)]", ImportName);
+			else
+				sw.WriteLine("[DllImport(Library, EntryPoint = \"{0}\", ExactSpelling = true)]", ImportName);
 
 			// GLboolean is mapped to 'unsigned char': instruct to marshal return value as 1 byte boolean
 			if (Prototype.Type == "GLboolean")

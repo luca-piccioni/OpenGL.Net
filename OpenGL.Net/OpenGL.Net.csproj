@@ -312,6 +312,7 @@
     <Compile Include="Gl.VERSION_4_3.cs" />
     <Compile Include="Gl.VERSION_4_4.cs" />
     <Compile Include="Gl.VERSION_4_5.cs" />
+    <Compile Include="GlslVersion.cs" />
     <Compile Include="Glx.cs" />
     <Compile Include="Glx.Delegates.cs" />
     <Compile Include="Glx.Extensions.cs" />
@@ -385,6 +386,7 @@
     <Compile Include="MESA\Glx.MESA_query_renderer.cs" />
     <Compile Include="MESA\Glx.MESA_release_buffers.cs" />
     <Compile Include="MESA\Glx.MESA_set_3dfx_mode.cs" />
+    <Compile Include="NativeDeviceContext.cs" />
     <Compile Include="NOK\Egl.NOK_texture_from_pixmap.cs" />
     <Compile Include="NVX\Gl.NVX_conditional_render.cs" />
     <Compile Include="NVX\Gl.NVX_gpu_memory_info.cs" />

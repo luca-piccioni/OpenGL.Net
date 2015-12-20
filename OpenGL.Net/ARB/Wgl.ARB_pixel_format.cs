@@ -444,6 +444,7 @@ namespace OpenGL
 					CallLog("wglGetPixelFormatAttribivARB(0x{0}, {1}, {2}, {3}, {4}, {5}) = {6}", hdc.ToString("X8"), iPixelFormat, iLayerPlane, nAttributes, piAttributes, piValues, retValue);
 				}
 			}
+			DebugCheckErrors();
 
 			return (retValue);
 		}
@@ -483,6 +484,7 @@ namespace OpenGL
 					CallLog("wglGetPixelFormatAttribfvARB(0x{0}, {1}, {2}, {3}, {4}, {5}) = {6}", hdc.ToString("X8"), iPixelFormat, iLayerPlane, nAttributes, piAttributes, pfValues, retValue);
 				}
 			}
+			DebugCheckErrors();
 
 			return (retValue);
 		}
@@ -524,6 +526,7 @@ namespace OpenGL
 					CallLog("wglChoosePixelFormatARB(0x{0}, {1}, {2}, {3}, {4}, {5}) = {6}", hdc.ToString("X8"), piAttribIList, pfAttribFList, nMaxFormats, piFormats, nNumFormats, retValue);
 				}
 			}
+			DebugCheckErrors();
 
 			return (retValue);
 		}

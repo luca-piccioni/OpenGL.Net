@@ -87,7 +87,15 @@ namespace OpenGL
 		/// <summary>
 		/// Get the pixel formats supported by this device.
 		/// </summary>
-		public virtual DevicePixelFormatCollection PixelsFormats { get { return (null); } }
+		public abstract DevicePixelFormatCollection PixelsFormats { get; }
+
+		/// <summary>
+		/// Set the device pixel format.
+		/// </summary>
+		/// <param name="pixelFormat">
+		/// A <see cref="DevicePixelFormat"/> that specifies the pixel format to set.
+		/// </param>
+		public abstract void SetPixelFormat(DevicePixelFormat pixelFormat);
 
 		#endregion
 

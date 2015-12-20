@@ -186,7 +186,7 @@ namespace OpenGL
 		/// <summary>
 		/// Get the version identifier of this KhronosVersion.
 		/// </summary>
-		public int VersionId
+		public virtual int VersionId
 		{
 			get { return (Major * 100 + Minor * 10 + Revision); }
 		}

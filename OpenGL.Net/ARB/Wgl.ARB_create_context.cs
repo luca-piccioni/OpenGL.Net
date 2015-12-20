@@ -94,6 +94,7 @@ namespace OpenGL
 					CallLog("wglCreateContextAttribsARB(0x{0}, 0x{1}, {2}) = {3}", hDC.ToString("X8"), hShareContext.ToString("X8"), attribList, retValue.ToString("X8"));
 				}
 			}
+			DebugCheckErrors();
 
 			return (retValue);
 		}

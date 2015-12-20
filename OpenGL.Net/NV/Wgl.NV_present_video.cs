@@ -55,6 +55,7 @@ namespace OpenGL
 					CallLog("wglEnumerateVideoDevicesNV(0x{0}, {1}) = {2}", hDC.ToString("X8"), phDeviceList, retValue);
 				}
 			}
+			DebugCheckErrors();
 
 			return (retValue);
 		}
@@ -87,6 +88,7 @@ namespace OpenGL
 					CallLog("wglBindVideoDeviceNV(0x{0}, {1}, 0x{2}, {3}) = {4}", hDC.ToString("X8"), uVideoSlot, hVideoDevice.ToString("X8"), piAttribList, retValue);
 				}
 			}
+			DebugCheckErrors();
 
 			return (retValue);
 		}
@@ -113,6 +115,7 @@ namespace OpenGL
 					CallLog("wglQueryCurrentContextNV({0}, {1}) = {2}", iAttribute, piValue, retValue);
 				}
 			}
+			DebugCheckErrors();
 
 			return (retValue);
 		}

@@ -38,6 +38,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pwglEnableFrameLockI3D != null, "pwglEnableFrameLockI3D not implemented");
 			retValue = Delegates.pwglEnableFrameLockI3D();
 			CallLog("wglEnableFrameLockI3D() = {0}", retValue);
+			DebugCheckErrors();
 
 			return (retValue);
 		}
@@ -53,6 +54,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pwglDisableFrameLockI3D != null, "pwglDisableFrameLockI3D not implemented");
 			retValue = Delegates.pwglDisableFrameLockI3D();
 			CallLog("wglDisableFrameLockI3D() = {0}", retValue);
+			DebugCheckErrors();
 
 			return (retValue);
 		}
@@ -76,6 +78,7 @@ namespace OpenGL
 					CallLog("wglIsEnabledFrameLockI3D({0}) = {1}", pFlag, retValue);
 				}
 			}
+			DebugCheckErrors();
 
 			return (retValue);
 		}
@@ -99,6 +102,7 @@ namespace OpenGL
 					CallLog("wglQueryFrameLockMasterI3D({0}) = {1}", pFlag, retValue);
 				}
 			}
+			DebugCheckErrors();
 
 			return (retValue);
 		}

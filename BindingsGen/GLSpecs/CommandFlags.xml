@@ -261,8 +261,13 @@
 		<!-- WGL commands errors won't be automatically checked by bindings -->
 		<flags>NoGetError</flags>
 	</command>
+
+	<command name="^wgl.+">
+		<!-- WGL commands errors won't be automatically checked by bindings -->
+		<flags>SetLastError</flags>
+	</command>
 	
-	<command name="^(wgl.+|glX.+)">
+	<command name="^glX.+">
 		<!-- WGL commands errors won't be automatically checked by bindings -->
 		<flags>NoGetError</flags>
 	</command>

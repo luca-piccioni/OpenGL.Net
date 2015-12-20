@@ -41,6 +41,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pwglCreateDisplayColorTableEXT != null, "pwglCreateDisplayColorTableEXT not implemented");
 			retValue = Delegates.pwglCreateDisplayColorTableEXT(id);
 			CallLog("wglCreateDisplayColorTableEXT({0}) = {1}", id, retValue);
+			DebugCheckErrors();
 
 			return (retValue);
 		}
@@ -67,6 +68,7 @@ namespace OpenGL
 					CallLog("wglLoadDisplayColorTableEXT({0}, {1}) = {2}", table, length, retValue);
 				}
 			}
+			DebugCheckErrors();
 
 			return (retValue);
 		}
@@ -85,6 +87,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pwglBindDisplayColorTableEXT != null, "pwglBindDisplayColorTableEXT not implemented");
 			retValue = Delegates.pwglBindDisplayColorTableEXT(id);
 			CallLog("wglBindDisplayColorTableEXT({0}) = {1}", id, retValue);
+			DebugCheckErrors();
 
 			return (retValue);
 		}
@@ -101,6 +104,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pwglDestroyDisplayColorTableEXT != null, "pwglDestroyDisplayColorTableEXT not implemented");
 			Delegates.pwglDestroyDisplayColorTableEXT(id);
 			CallLog("wglDestroyDisplayColorTableEXT({0})", id);
+			DebugCheckErrors();
 		}
 
 	}

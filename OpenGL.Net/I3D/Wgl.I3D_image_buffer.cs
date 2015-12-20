@@ -59,6 +59,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pwglCreateImageBufferI3D != null, "pwglCreateImageBufferI3D not implemented");
 			retValue = Delegates.pwglCreateImageBufferI3D(hDC, dwSize, uFlags);
 			CallLog("wglCreateImageBufferI3D(0x{0}, {1}, {2}) = {3}", hDC.ToString("X8"), dwSize, uFlags, retValue.ToString("X8"));
+			DebugCheckErrors();
 
 			return (retValue);
 		}
@@ -80,6 +81,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pwglDestroyImageBufferI3D != null, "pwglDestroyImageBufferI3D not implemented");
 			retValue = Delegates.pwglDestroyImageBufferI3D(hDC, pAddress);
 			CallLog("wglDestroyImageBufferI3D(0x{0}, 0x{1}) = {2}", hDC.ToString("X8"), pAddress.ToString("X8"), retValue);
+			DebugCheckErrors();
 
 			return (retValue);
 		}
@@ -117,6 +119,7 @@ namespace OpenGL
 					CallLog("wglAssociateImageBufferEventsI3D(0x{0}, {1}, {2}, {3}, {4}) = {5}", hDC.ToString("X8"), pEvent, pAddress, pSize, count, retValue);
 				}
 			}
+			DebugCheckErrors();
 
 			return (retValue);
 		}
@@ -146,6 +149,7 @@ namespace OpenGL
 					CallLog("wglReleaseImageBufferEventsI3D(0x{0}, {1}, {2}) = {3}", hDC.ToString("X8"), pAddress, count, retValue);
 				}
 			}
+			DebugCheckErrors();
 
 			return (retValue);
 		}

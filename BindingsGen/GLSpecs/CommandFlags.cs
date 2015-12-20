@@ -58,5 +58,10 @@ namespace BindingsGen.GLSpecs
 		/// Variable arguments.
 		/// </summary>
 		VariadicParams =	0x20,
+
+		/// <summary>
+		/// DllImport definition includes the property SetLastError set to true (by default is it false).
+		/// </summary>
+		SetLastError =		0x40,
 	}
 }

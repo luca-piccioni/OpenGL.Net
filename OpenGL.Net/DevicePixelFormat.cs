@@ -25,7 +25,7 @@ namespace OpenGL
 	/// <summary>
 	/// Pixel format description.
 	/// </summary>
-	public class DevicePixelFormat
+	public sealed class DevicePixelFormat
 	{
 		#region Pixel Format Information
 
