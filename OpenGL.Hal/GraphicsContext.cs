@@ -119,9 +119,6 @@ namespace OpenGL
 				case PlatformID.Win32S:
 				case PlatformID.Win32Windows:
 				case PlatformID.WinCE:
-					// Synchronize WGL entry points
-					Wgl.SyncDelegates();
-
 					rContext = CreateWinSimpleContext(_HiddenWindowDevice);
 					break;
 				case PlatformID.Unix:
@@ -134,6 +131,16 @@ namespace OpenGL
 			// Query OpenGL informations
 			if (Gl.MakeContextCurrent(_HiddenWindowDevice, rContext) == false)
 				throw new Exception("unable to make current");
+
+			switch (Environment.OSVersion.Platform) {
+				case PlatformID.Win32NT:
+				case PlatformID.Win32S:
+				case PlatformID.Win32Windows:
+				case PlatformID.WinCE:
+					// Synchronize WGL entry points (now that we have a render context)
+					Wgl.SyncDelegates();
+					break;
+			}
 
 			// Obtain current OpenGL implementation
 			string glVersion = Gl.GetString(StringName.Version);
@@ -167,15 +174,15 @@ namespace OpenGL
 			bool res;
 
 			// Find pixel format match
-			pFormat = Wgl.UnsafeNativeMethods.GdiChoosePixelFormat(winDeviceContext.DeviceContext, ref pfd);
+			pFormat = Wgl.ChoosePixelFormat(winDeviceContext.DeviceContext, ref pfd);
 			Debug.Assert(pFormat != 0);
 
 			// Get exact description of the pixel format
-			res = Wgl.UnsafeNativeMethods.DescribePixelFormat(winDeviceContext.DeviceContext, pFormat, (uint)pfd.nSize, ref pfd);
+			res = Wgl.DescribePixelFormat(winDeviceContext.DeviceContext, pFormat, (uint)pfd.nSize, ref pfd);
 			Debug.Assert(res);
 
 			// Set pixel format before creating OpenGL context
-			res = Wgl.UnsafeNativeMethods.GdiSetPixelFormat(winDeviceContext.DeviceContext, pFormat, ref pfd);
+			res = Wgl.SetPixelFormat(winDeviceContext.DeviceContext, pFormat, ref pfd);
 			Debug.Assert(res);
 
 			// Create a dummy OpenGL context to retrieve initial informations.

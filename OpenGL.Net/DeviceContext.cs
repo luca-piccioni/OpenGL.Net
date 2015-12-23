@@ -17,7 +17,6 @@
 // USA
 
 using System;
-using System.Diagnostics;
 
 namespace OpenGL
 {

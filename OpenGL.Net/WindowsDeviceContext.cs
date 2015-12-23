@@ -62,7 +62,7 @@ namespace OpenGL
 				throw new InvalidOperationException("invalid handle");
 
 			_WindowHandle = window.Handle;
-			_DeviceContext = Wgl.UnsafeNativeMethods.GdiGetDC(window.Handle);
+			_DeviceContext = Wgl.GetDC(window.Handle);
 
 			if (DeviceContext == IntPtr.Zero)
 				throw new InvalidOperationException("unable to get any video device context");
@@ -119,6 +119,10 @@ namespace OpenGL
 		{
 			get
 			{
+				// Use cached pixel formats
+				if (_PixelFormatCache != null)
+					return (_PixelFormatCache);
+
 				// Query WGL extensions
 				Wgl.Extensions wglExtensions = new Wgl.Extensions();
 
@@ -131,7 +135,6 @@ namespace OpenGL
 				Wgl.GetPixelFormatAttribARB(DeviceContext, 1, 0, (uint)countFormatAttribsCodes.Length, countFormatAttribsCodes, countFormatAttribsValues);
 
 				// Request configurations
-				DevicePixelFormatCollection pixelFormats = new DevicePixelFormatCollection();
 				List<int> pixelFormatAttribsCodes = new List<int>(12);
 
 				// Minimum requirements
@@ -173,6 +176,10 @@ namespace OpenGL
 				int pixelFormatAttribFramebufferSrgbIndex = pixelFormatAttribsCodes.Count - 1;
 #endif
 
+				// Create pixel format collection (cached)
+				_PixelFormatCache = new DevicePixelFormatCollection();
+
+				// Retrieve information about available pixel formats
 				int[] pixelFormatAttribValues = new int[pixelFormatAttribsCodes.Count];
 
 				for (int pixelFormatIndex = 1; pixelFormatIndex < countFormatAttribsValues[0]; pixelFormatIndex++) {
@@ -249,10 +256,10 @@ namespace OpenGL
 					pixelFormat.XFbConfig = IntPtr.Zero;
 					pixelFormat.XVisualInfo = new Glx.XVisualInfo();
 
-					pixelFormats.Add(pixelFormat);
+					_PixelFormatCache.Add(pixelFormat);
 				}
 
-				return (pixelFormats);
+				return (_PixelFormatCache);
 			}
 		}
 
@@ -269,12 +276,19 @@ namespace OpenGL
 		{
 			if (pixelFormat == null)
 				throw new ArgumentNullException("pixelFormat");
+			if (_PixelFormatSet == true)
+				throw new InvalidOperationException("pixel format already set");
 
 			Wgl.PIXELFORMATDESCRIPTOR pDescriptor = new Wgl.PIXELFORMATDESCRIPTOR();
 
+			// Note (from MSDN): Setting the pixel format of a window more than once can lead to significant complications for the Window Manager
+			// and for multithread applications, so it is not allowed. An application can only set the pixel format of a window one time. Once a
+			// window's pixel format is set, it cannot be changed.
+
 			// Set choosen pixel format
-			if (Wgl.UnsafeNativeMethods.GdiSetPixelFormat(DeviceContext, pixelFormat.FormatIndex, ref pDescriptor) == false)
+			if (Wgl.SetPixelFormat(DeviceContext, pixelFormat.FormatIndex, ref pDescriptor) == false)
 				throw new InvalidOperationException("unable to select surface pixel format");
+			_PixelFormatSet = true;
 		}
 
 		/// <summary>
@@ -286,9 +300,20 @@ namespace OpenGL
 		protected override void Dispose(bool disposing)
 		{
 			if (disposing) {
-				Wgl.UnsafeNativeMethods.GdiReleaseDC(WindowHandle, DeviceContext);
+				bool res = Wgl.ReleaseDC(WindowHandle, DeviceContext);
+				Debug.Assert(res);
 			}
 		}
+
+		/// <summary>
+		/// Pixel formats available on this DeviceContext (cache).
+		/// </summary>
+		private DevicePixelFormatCollection _PixelFormatCache;
+
+		/// <summary>
+		/// Flag for checking whether the pixel format is set only once.
+		/// </summary>
+		private bool _PixelFormatSet;
 
 		#endregion
 	}

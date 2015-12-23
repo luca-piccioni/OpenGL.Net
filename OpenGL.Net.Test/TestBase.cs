@@ -90,36 +90,15 @@ namespace OpenGL.Test
 			WindowsDeviceContext winDeviceContext = (WindowsDeviceContext)_DeviceContext;
 
 			// Define most compatible pixel format
-			Wgl.PIXELFORMATDESCRIPTOR pfd;
+			Wgl.PIXELFORMATDESCRIPTOR pfd = new Wgl.PIXELFORMATDESCRIPTOR(24);
 			int pFormat;
 
-			// Describe the pixel format fundamentals
-			pfd.nVersion = 1; pfd.nSize = (short)Marshal.SizeOf(typeof(Wgl.PIXELFORMATDESCRIPTOR));
-			pfd.iLayerType = Wgl.PFD_MAIN_PLANE;
-			pfd.dwFlags = (Wgl.PFD_SUPPORT_OPENGL|Wgl.PFD_DOUBLEBUFFER|Wgl.PFD_DRAW_TO_WINDOW);
-			pfd.iPixelType = Wgl.PFD_TYPE_RGBA;
-			pfd.dwLayerMask = 0; pfd.dwVisibleMask = 0; pfd.dwDamageMask = 0;
-			pfd.cAuxBuffers = 0;
-			pfd.bReserved = 0;
-			pfd.cColorBits = 32;
-			pfd.cRedBits = 0; pfd.cRedShift = 0;
-			pfd.cGreenBits = 0; pfd.cGreenShift = 0;
-			pfd.cBlueBits = 0; pfd.cBlueShift = 0;
-			pfd.cAlphaBits = 0; pfd.cAlphaShift = 0;
-			pfd.cDepthBits = 0;
-			pfd.cStencilBits = 0;
-			pfd.cAccumBits = 0;
-			pfd.cAccumRedBits = 0; pfd.cAccumGreenBits = 0; pfd.cAccumBlueBits = 0; pfd.cAccumAlphaBits = 0;
-
 			// Find pixel format match
-			if ((pFormat = Wgl.UnsafeNativeMethods.GdiChoosePixelFormat(winDeviceContext.DeviceContext, ref pfd)) == 0)
-				throw new NotSupportedException("unable to choose basic pixel format, error code " + Marshal.GetLastWin32Error());
-
-			if (pfd.cColorBits == 0)
-				throw new InvalidOperationException("unable to select valid pixel format");
+			pFormat = Wgl.ChoosePixelFormat(winDeviceContext.DeviceContext, ref pfd);
+			// Get exact description of the pixel format
+			Wgl.DescribePixelFormat(winDeviceContext.DeviceContext, pFormat, (uint)pfd.nSize, ref pfd);
 			// Set pixel format before creating OpenGL context
-			if (Wgl.UnsafeNativeMethods.GdiSetPixelFormat(winDeviceContext.DeviceContext, pFormat, ref pfd) == false)
-				throw new InvalidOperationException("unable to set valid pixel format");
+			Wgl.SetPixelFormat(winDeviceContext.DeviceContext, pFormat, ref pfd);
 		}
 
 		/// <summary>

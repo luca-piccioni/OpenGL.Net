@@ -62,6 +62,7 @@ namespace OpenGL
 			_RenderControl = _RenderForm = new RenderForm(this);
 			// Obtain device context (relative to window)
 			_DeviceContext = DeviceContextFactory.Create(_RenderForm);
+			_DeviceContext.IncRef();
 		}
 
 		/// <summary>
@@ -589,7 +590,7 @@ namespace OpenGL
 				base.Dispose(true);
 				// Dispose unmanaged resources
 				if (_DeviceContext != null) {
-					_DeviceContext.Dispose();
+					_DeviceContext.DecRef();
 					_DeviceContext = null;
 				}
 			}

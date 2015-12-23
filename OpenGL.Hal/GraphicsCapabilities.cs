@@ -59,7 +59,7 @@ namespace OpenGL
 				case PlatformID.Win32Windows:
 				case PlatformID.Win32S:
 				case PlatformID.WinCE:
-					Wgl.SyncDelegates();
+					// Wgl.SyncDelegates();
 					break;
 			}
 

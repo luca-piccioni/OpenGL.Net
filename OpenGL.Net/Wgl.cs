@@ -250,6 +250,89 @@ namespace OpenGL
 
 		#region Required External Declarations
 
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="deviceContext"></param>
+		/// <param name="pixelFormatDescriptor"></param>
+		/// <returns></returns>
+		public static int ChoosePixelFormat(IntPtr deviceContext, [In] ref PIXELFORMATDESCRIPTOR pixelFormatDescriptor)
+		{
+			int retValue = UnsafeNativeMethods.ChoosePixelFormat(deviceContext, ref pixelFormatDescriptor);
+
+			CallLog("ChoosePixelFormat(0x{0}, {1}) = {2}", deviceContext.ToString("X8"), "pixelFormatDescriptor", retValue);
+			DebugCheckErrors(null);
+
+			return (retValue);
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="hdc"></param>
+		/// <param name="iPixelFormat"></param>
+		/// <param name="nBytes"></param>
+		/// <param name="ppfd"></param>
+		/// <returns></returns>
+		public static bool DescribePixelFormat(IntPtr hdc, int iPixelFormat, UInt32 nBytes, [In, Out] ref PIXELFORMATDESCRIPTOR ppfd)
+		{
+			bool retValue = UnsafeNativeMethods.DescribePixelFormat(hdc, iPixelFormat, nBytes, ref ppfd);
+
+			CallLog("DescribePixelFormat(0x{0}, {1}, {2}, {3}) = {4}", hdc.ToString("X8"), iPixelFormat, nBytes, "pixelFormatDescriptor", retValue);
+			DebugCheckErrors(null);
+
+			return (retValue);
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="hdc"></param>
+		/// <param name="iPixelFormat"></param>
+		/// <param name="nBytes"></param>
+		/// <param name="ppfd"></param>
+		/// <returns></returns>
+		public static bool SetPixelFormat(IntPtr deviceContext, int pixelFormat, ref PIXELFORMATDESCRIPTOR pixelFormatDescriptor)
+		{
+			bool retValue = UnsafeNativeMethods.SetPixelFormat(deviceContext, pixelFormat, ref pixelFormatDescriptor);
+
+			CallLog("SetPixelFormat(0x{0}, {1}, {2}) = {3}", deviceContext.ToString("X8"), pixelFormat, "pixelFormatDescriptor", retValue);
+			DebugCheckErrors(null);
+
+			return (retValue);
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="windowHandle"></param>
+		/// <returns></returns>
+		public static IntPtr GetDC(IntPtr windowHandle)
+		{
+			IntPtr retValue = UnsafeNativeMethods.GetDC(windowHandle);
+
+			CallLog("GetDC(0x{0}) = 0x{1}", windowHandle.ToString("X8"), retValue.ToString("X8"));
+			DebugCheckErrors(null);
+
+			return (retValue);
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="windowHandle"></param>
+		/// <param name="deviceContext"></param>
+		/// <returns></returns>
+		public static bool ReleaseDC(IntPtr windowHandle, IntPtr deviceContext)
+		{
+			bool retValue = UnsafeNativeMethods.ReleaseDC(windowHandle, deviceContext);
+
+			CallLog("ReleaseDC(0x{0}, 0x{1}) = {2}", windowHandle.ToString("X8"), deviceContext.ToString("X8"), retValue);
+			DebugCheckErrors(null);
+
+			return (retValue);
+		}
+
 		public unsafe static partial class UnsafeNativeMethods
 		{
 			/// <summary>
@@ -259,7 +342,7 @@ namespace OpenGL
 			/// <param name="pixelFormatDescriptor"></param>
 			/// <returns></returns>
 			[DllImport("gdi32.dll", EntryPoint = "ChoosePixelFormat", ExactSpelling = true, SetLastError = true)]
-			public static extern int GdiChoosePixelFormat(IntPtr deviceContext, [In] ref PIXELFORMATDESCRIPTOR pixelFormatDescriptor);
+			public static extern int ChoosePixelFormat(IntPtr deviceContext, [In] ref PIXELFORMATDESCRIPTOR pixelFormatDescriptor);
 
 			/// <summary>
 			/// 
@@ -281,7 +364,7 @@ namespace OpenGL
 			/// <param name="pixelFormatDescriptor"></param>
 			/// <returns></returns>
 			[DllImport("gdi32.dll", EntryPoint = "SetPixelFormat", ExactSpelling = true, SetLastError = true)]
-			public static extern bool GdiSetPixelFormat(IntPtr deviceContext, int pixelFormat, ref PIXELFORMATDESCRIPTOR pixelFormatDescriptor);
+			public static extern bool SetPixelFormat(IntPtr deviceContext, int pixelFormat, ref PIXELFORMATDESCRIPTOR pixelFormatDescriptor);
 
 			/// <summary>
 			/// 
@@ -294,29 +377,10 @@ namespace OpenGL
 			/// <summary>
 			/// 
 			/// </summary>
-			/// <param name="lpszDriver"></param>
-			/// <param name="lpszDevice"></param>
-			/// <param name="lpszOutput"></param>
-			/// <param name="lpInitData"></param>
-			/// <returns></returns>
-			[DllImport("gdi32.dll", CallingConvention = CallingConvention.StdCall, EntryPoint = "CreateDC")]
-			public static extern IntPtr GdiCreateDC(string lpszDriver, string lpszDevice, string lpszOutput, IntPtr lpInitData);
-
-			/// <summary>
-			/// 
-			/// </summary>
-			/// <param name="hdc"></param>
-			/// <returns></returns>
-			[DllImport("gdi32.dll", CallingConvention = CallingConvention.StdCall, EntryPoint = "DeleteDC")]
-			static extern bool GdiDeleteDC(IntPtr hdc);
-
-			/// <summary>
-			/// 
-			/// </summary>
 			/// <param name="windowHandle"></param>
 			/// <returns></returns>
 			[DllImport("user32.dll", CallingConvention = CallingConvention.StdCall, EntryPoint = "GetDC")]
-			public static extern IntPtr GdiGetDC(IntPtr windowHandle);
+			public static extern IntPtr GetDC(IntPtr windowHandle);
 
 			/// <summary>
 			/// 
@@ -325,21 +389,7 @@ namespace OpenGL
 			/// <param name="deviceContext"></param>
 			/// <returns></returns>
 			[DllImport("user32.dll", CallingConvention = CallingConvention.StdCall, EntryPoint = "ReleaseDC")]
-			public static extern bool GdiReleaseDC(IntPtr windowHandle, IntPtr deviceContext);
-
-			/// <summary>
-			/// 
-			/// </summary>
-			/// <param name="lpDevice"></param>
-			/// <param name="iDevNum"></param>
-			/// <param name="lpDisplayDevice"></param>
-			/// <param name="dwFlags"></param>
-			/// <returns></returns>
-			/// <remarks>
-			/// Thanks to www.pinvoke.net.
-			/// </remarks>
-			[DllImport("user32.dll", CallingConvention = CallingConvention.StdCall)]
-			public static extern bool EnumDisplayDevices(string lpDevice, uint iDevNum, ref DISPLAY_DEVICE lpDisplayDevice, uint dwFlags);
+			public static extern bool ReleaseDC(IntPtr windowHandle, IntPtr deviceContext);
 		}
 
 		/// <summary>
@@ -592,6 +642,7 @@ namespace OpenGL
 		/// and alpha.
 		/// </remarks>
 		public const int PFD_TYPE_RGBA = 0;
+
 		/// <summary>
 		///	 The layer is the main plane.
 		/// </summary>
@@ -601,23 +652,28 @@ namespace OpenGL
 		/// The buffer is double-buffered.
 		/// </summary>
 		public const int PFD_DOUBLEBUFFER = 0x00000001;
+
 		/// <summary>
 		/// The buffer is stereoscopic.
 		/// </summary>
 		public const int PFD_STEREO = 0x00000002;
 
+
 		/// <summary>
 		/// The buffer can draw to a window or device surface.
 		/// </summary>
 		public const int PFD_DRAW_TO_WINDOW = 0x00000004;
+
 		/// <summary>
 		/// The buffer can draw to a memory bitmap.
 		/// </summary>
 		public const int PFD_DRAW_TO_BITMAP = 0x00000008;
+
 		/// <summary>
 		/// The buffer supports OpenGL drawing.
 		/// </summary>
 		public const int PFD_SUPPORT_OPENGL = 0x00000020;
+
 		/// <summary>
 		/// 
 		/// </summary>
@@ -630,6 +686,7 @@ namespace OpenGL
 		/// not be provided by a driver.
 		/// </remarks>
 		public const int PFD_SWAP_EXCHANGE = 0x00000200;
+
 		/// <summary>
 		/// 
 		/// </summary>

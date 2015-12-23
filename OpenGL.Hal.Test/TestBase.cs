@@ -38,15 +38,15 @@ namespace OpenGL.Hal.Test
 				_Window = new GraphicsWindow(800, 600);
 				_Window.ShowWindow();
 
-				_Window.Create(new GraphicsBuffersFormat(PixelLayout.RGB24));
+				// Define window buffers
+				GraphicsBuffersFormat graphicsBuffersFormat = new GraphicsBuffersFormat(PixelLayout.RGB24);
+
+				graphicsBuffersFormat.DefineDepthBuffer(24, GraphicsBuffersFormat.BufferPolicy.RequiredAndDegradable);
+				graphicsBuffersFormat.DefineDoubleBuffers(GraphicsBuffersFormat.BufferPolicy.RequiredAndDegradable);
+
+				_Window.Create(graphicsBuffersFormat);
 				// Create graphics context
 				_Context = new GraphicsContext(_Window.GetDeviceContext());
-				// Show window
-				_Window.Clear(_Context);
-
-				Application.DoEvents();
-
-				_Window.SwapSurface();
 			} catch {
 				// Release resources manually
 				FixtureTearDown();
