@@ -209,7 +209,7 @@ namespace OpenGL
 			[DllImport("Kernel32.dll", EntryPoint = "GetProcAddress", CharSet = CharSet.Ansi, ExactSpelling = true, SetLastError = true)]
 			public static extern IntPtr Win32GetProcAddress(IntPtr hModule, String lpProcName);
 
-			[DllImport(Library, EntryPoint = "wglGetProcAddress", ExactSpelling = true)]
+			[DllImport(Library, EntryPoint = "wglGetProcAddress", ExactSpelling = true, SetLastError = true)]
 			public static extern IntPtr wglGetProcAddress(String lpszProc);
 		}
 

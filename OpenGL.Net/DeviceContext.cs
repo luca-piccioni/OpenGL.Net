@@ -106,14 +106,13 @@ namespace OpenGL
 		/// </summary>
 		~DeviceContext()
 		{
-			Debug.Assert(IsDisposed);
 			Dispose(false);
 		}
 
 		/// <summary>
 		/// Get whether this instance has been disposed.
 		/// </summary>
-		public bool IsDisposed { get { return (mDisposed); } }
+		public bool IsDisposed { get { return (_Disposed); } }
 
 		/// <summary>
 		/// Performs application-defined tasks associated with freeing, releasing, or resetting managed/unmanaged resources.
@@ -124,7 +123,7 @@ namespace OpenGL
 		{
 			if (disposing) {
 				// Mark as disposed
-				mDisposed = true;
+				_Disposed = true;
 			}
 		}
 
@@ -140,7 +139,7 @@ namespace OpenGL
 		/// <summary>
 		/// Flag indicating that this instance has been disposed.
 		/// </summary>
-		private bool mDisposed;
+		private bool _Disposed;
 
 		#endregion
 	}

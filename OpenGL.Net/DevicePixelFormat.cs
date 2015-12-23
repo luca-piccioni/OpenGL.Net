@@ -25,7 +25,8 @@ namespace OpenGL
 	/// <summary>
 	/// Pixel format description.
 	/// </summary>
-	public sealed class DevicePixelFormat
+	[DebuggerDisplay("DevicePixelFormat: Idx={FormatIndex} Color={ColorBits} Depth={DepthBits} Stencil={StencilBits} Ms={MultisampleBits} sRGB={SRGBCapable} DB={DoubleBuffer}")]
+    public sealed class DevicePixelFormat
 	{
 		#region Pixel Format Information
 

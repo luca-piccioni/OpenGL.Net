@@ -16,6 +16,17 @@
 // Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301
 // USA
 
+// Support for WGL_ARB_multisample or WGL_EXT_multisample
+#define SUPPORT_MULTISAMPLE
+// Support for WGL_ARB_pbuffer
+#define SUPPORT_PBUFFER
+// Support WGL_ARB_framebuffer_sRGB or WGL_EXT_framebuffer_sRGB
+#define SUPPORT_FRAMEBUFFER_SRGB
+// Support WGL_ARB_pixel_format_float || WGL_ATI_pixel_format_float
+#define SUPPORT_PIXEL_FORMAT_FLOAT
+// Support WGL_EXT_pixel_format_packed_float
+#define SUPPORT_PIXEL_FORMAT_PACKED_FLOAT
+
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -46,7 +57,10 @@ namespace OpenGL
 		{
 			if (window == null)
 				throw new ArgumentNullException("window");
-			
+
+			if (!window.IsHandleCreated && window.Handle != IntPtr.Zero)
+				throw new InvalidOperationException("invalid handle");
+
 			_WindowHandle = window.Handle;
 			_DeviceContext = Wgl.UnsafeNativeMethods.GdiGetDC(window.Handle);
 
@@ -110,94 +124,135 @@ namespace OpenGL
 
 				wglExtensions.Query(this);
 
+				// Get the number of pixel formats
+				int[] countFormatAttribsCodes = new int[] { Wgl.NUMBER_PIXEL_FORMATS_ARB };
+				int[] countFormatAttribsValues = new int[countFormatAttribsCodes.Length];
+
+				Wgl.GetPixelFormatAttribARB(DeviceContext, 1, 0, (uint)countFormatAttribsCodes.Length, countFormatAttribsCodes, countFormatAttribsValues);
+
 				// Request configurations
-				DevicePixelFormatCollection pFormats = new DevicePixelFormatCollection();
-				List<int> pfAttributesCodes = new List<int>(12);
-				int[] pfAttributesValue;
+				DevicePixelFormatCollection pixelFormats = new DevicePixelFormatCollection();
+				List<int> pixelFormatAttribsCodes = new List<int>(12);
 
 				// Minimum requirements
-				pfAttributesCodes.Add(Wgl.SUPPORT_OPENGL_ARB);      // Required to be Gl.TRUE
-				pfAttributesCodes.Add(Wgl.ACCELERATION_ARB);        // Required to be Wgl.FULL_ACCELERATION or Wgl.ACCELERATION_ARB
-				pfAttributesCodes.Add(Wgl.PIXEL_TYPE_ARB);
+				pixelFormatAttribsCodes.Add(Wgl.SUPPORT_OPENGL_ARB);      // Required to be Gl.TRUE
+				pixelFormatAttribsCodes.Add(Wgl.ACCELERATION_ARB);        // Required to be Wgl.FULL_ACCELERATION or Wgl.ACCELERATION_ARB
+				pixelFormatAttribsCodes.Add(Wgl.PIXEL_TYPE_ARB);
 				// Buffer destination
-				pfAttributesCodes.Add(Wgl.DRAW_TO_WINDOW_ARB);
-				pfAttributesCodes.Add(Wgl.DRAW_TO_BITMAP_ARB);
-				pfAttributesCodes.Add(Wgl.DRAW_TO_PBUFFER_ARB);
+				pixelFormatAttribsCodes.Add(Wgl.DRAW_TO_WINDOW_ARB);
+				pixelFormatAttribsCodes.Add(Wgl.DRAW_TO_BITMAP_ARB);
 				// Multiple buffers
-				pfAttributesCodes.Add(Wgl.DOUBLE_BUFFER_ARB);
-				pfAttributesCodes.Add(Wgl.SWAP_METHOD_ARB);
-				pfAttributesCodes.Add(Wgl.STEREO_ARB);
+				pixelFormatAttribsCodes.Add(Wgl.DOUBLE_BUFFER_ARB);
+				pixelFormatAttribsCodes.Add(Wgl.SWAP_METHOD_ARB);
+				pixelFormatAttribsCodes.Add(Wgl.STEREO_ARB);
 				// Pixel description
-				pfAttributesCodes.Add(Wgl.COLOR_BITS_ARB);
-				pfAttributesCodes.Add(Wgl.DEPTH_BITS_ARB);
-				pfAttributesCodes.Add(Wgl.STENCIL_BITS_ARB);
+				pixelFormatAttribsCodes.Add(Wgl.COLOR_BITS_ARB);
+				pixelFormatAttribsCodes.Add(Wgl.DEPTH_BITS_ARB);
+				pixelFormatAttribsCodes.Add(Wgl.STENCIL_BITS_ARB);
+
+#if SUPPORT_MULTISAMPLE
 				// Multisample extension
-				if (wglExtensions.Multisample_ARB) {
-					pfAttributesCodes.Add(Wgl.SAMPLE_BUFFERS_ARB);
-					pfAttributesCodes.Add(Wgl.SAMPLES_ARB);
+				if (wglExtensions.Multisample_ARB || wglExtensions.Multisample_EXT) {
+					pixelFormatAttribsCodes.Add(Wgl.SAMPLE_BUFFERS_ARB);
+					pixelFormatAttribsCodes.Add(Wgl.SAMPLES_ARB);
 				}
-#if false
-				// Framebuffer sRGB extension
-				if ((caps.FramebufferSRGB == true) || (caps.FramebufferSRGB_EXT == true)) {
-					pfAttributesCodes.Add(Wgl.FRAMEBUFFER_SRGB_CAPABLE_ARB);
-				}
+				int pixelFormatAttribMultisampleIndex = pixelFormatAttribsCodes.Count - 1;
 #endif
 
-				pfAttributesValue = new int[pfAttributesCodes.Count];
-				for (int pFormatIndex = 1; ; pFormatIndex++) {
-					DevicePixelFormat pFormat = new DevicePixelFormat();
+#if SUPPORT_PBUFFER
+				if (wglExtensions.Pbuffer_ARB || wglExtensions.Pbuffer_EXT) {
+					pixelFormatAttribsCodes.Add(Wgl.DRAW_TO_PBUFFER_ARB);
+				}
+				int pixelFormatAttribPBufferIndex = pixelFormatAttribsCodes.Count - 1;
+#endif
 
-					if (Wgl.GetPixelFormatAttribARB(DeviceContext, pFormatIndex, 0, (uint)pfAttributesCodes.Count, pfAttributesCodes.ToArray(), pfAttributesValue) == false) {
-						Debug.Assert(pFormats.Count > 0, "wrong pixel format attribute list");
-						break;  // All pixel format are queried
-					}
+#if SUPPORT_FRAMEBUFFER_SRGB
+				// Framebuffer sRGB extension
+				if (wglExtensions.FramebufferSRGB_ARB || wglExtensions.FramebufferSRGB_EXT)
+					pixelFormatAttribsCodes.Add(Wgl.FRAMEBUFFER_SRGB_CAPABLE_ARB);
+				int pixelFormatAttribFramebufferSrgbIndex = pixelFormatAttribsCodes.Count - 1;
+#endif
+
+				int[] pixelFormatAttribValues = new int[pixelFormatAttribsCodes.Count];
+
+				for (int pixelFormatIndex = 1; pixelFormatIndex < countFormatAttribsValues[0]; pixelFormatIndex++) {
+					DevicePixelFormat pixelFormat = new DevicePixelFormat();
+
+					Wgl.GetPixelFormatAttribARB(DeviceContext, pixelFormatIndex, 0, (uint)pixelFormatAttribsCodes.Count, pixelFormatAttribsCodes.ToArray(), pixelFormatAttribValues);
 
 					// Check minimum requirements
-					if (pfAttributesValue[0] != Gl.TRUE)
+					if (pixelFormatAttribValues[0] != Gl.TRUE)
 						continue;       // No OpenGL support
-					if (pfAttributesValue[1] != Wgl.FULL_ACCELERATION_ARB)
+					if (pixelFormatAttribValues[1] != Wgl.FULL_ACCELERATION_ARB)
 						continue;       // No hardware acceleration
-					if (pfAttributesValue[2] != Wgl.TYPE_RGBA_ARB)
-						continue;       // Ignored pixel type
+
+					switch (pixelFormatAttribValues[2]) {
+						case Wgl.TYPE_RGBA_ARB:
+#if SUPPORT_PIXEL_FORMAT_FLOAT
+						case Wgl.TYPE_RGBA_FLOAT_ARB:
+#endif
+#if SUPPORT_PIXEL_FORMAT_PACKED_FLOAT
+						case Wgl.TYPE_RGBA_UNSIGNED_FLOAT_EXT:
+#endif
+							break;
+						default:
+							continue;       // Ignored pixel type
+					}
 
 					// Collect pixel format attributes
-					pFormat.FormatIndex = pFormatIndex;
+					pixelFormat.FormatIndex = pixelFormatIndex;
 
-					pFormat.RgbaUnsigned = pfAttributesValue[2] == Wgl.TYPE_RGBA_ARB;
-					pFormat.RgbaFloat = pfAttributesValue[2] == Wgl.TYPE_RGBA_FLOAT_ARB;
+					switch (pixelFormatAttribValues[2]) {
+						case Wgl.TYPE_RGBA_ARB:
+							pixelFormat.RgbaUnsigned = true;
+							break;
+						case Wgl.TYPE_RGBA_FLOAT_ARB:
+							pixelFormat.RgbaFloat = true;
+							break;
+						case Wgl.TYPE_RGBA_UNSIGNED_FLOAT_EXT:
+							pixelFormat.RgbaFloat = pixelFormat.RgbaUnsigned = true;
+							break;
+					}
 
-					pFormat.RenderWindow = pfAttributesValue[3] == Gl.TRUE;
-					pFormat.RenderBuffer = pfAttributesValue[4] == Gl.TRUE;
-					pFormat.RenderPBuffer = pfAttributesValue[5] == Gl.TRUE;
+					pixelFormat.RenderWindow = pixelFormatAttribValues[3] == Gl.TRUE;
+					pixelFormat.RenderBuffer = pixelFormatAttribValues[4] == Gl.TRUE;
 
-					pFormat.DoubleBuffer = pfAttributesValue[6] == Gl.TRUE;
-					pFormat.SwapMethod = pfAttributesValue[7];
-					pFormat.StereoBuffer = pfAttributesValue[8] == Gl.TRUE;
+					pixelFormat.DoubleBuffer = pixelFormatAttribValues[5] == Gl.TRUE;
+					pixelFormat.SwapMethod = pixelFormatAttribValues[6];
+					pixelFormat.StereoBuffer = pixelFormatAttribValues[7] == Gl.TRUE;
 
-					pFormat.ColorBits = pfAttributesValue[9];
-					pFormat.DepthBits = pfAttributesValue[10];
-					pFormat.StencilBits = pfAttributesValue[11];
+					pixelFormat.ColorBits = pixelFormatAttribValues[8];
+					pixelFormat.DepthBits = pixelFormatAttribValues[9];
+					pixelFormat.StencilBits = pixelFormatAttribValues[10];
 
-					if (wglExtensions.Multisample_ARB) {
-						// pfAttributesValue[12] ? What about multiple sample buffers?
-						pFormat.MultisampleBits = pfAttributesValue[13];
-					} else
-						pFormat.MultisampleBits = 0;
-
-#if false
-					XXX Problems with 2.1 contextes
-					if ((caps.FramebufferSRGB == true) || (caps.FramebufferSRGB_EXT == true)) {
-						pFormat.SRGBCapable = pfAttributesValue[13] != 0;
-					} else
+#if SUPPORT_MULTISAMPLE
+					if (wglExtensions.Multisample_ARB || wglExtensions.Multisample_EXT) {
+						Debug.Assert(pixelFormatAttribMultisampleIndex >= 0);
+						pixelFormat.MultisampleBits = pixelFormatAttribValues[pixelFormatAttribMultisampleIndex];
+					}
 #endif
-					pFormat.SRGBCapable = false;
-					pFormat.XFbConfig = IntPtr.Zero;
-					pFormat.XVisualInfo = new Glx.XVisualInfo();
 
-					pFormats.Add(pFormat);
+#if SUPPORT_PBUFFER
+					if (wglExtensions.Pbuffer_ARB || wglExtensions.Pbuffer_EXT) {
+						Debug.Assert(pixelFormatAttribPBufferIndex >= 0);
+						pixelFormat.RenderPBuffer = pixelFormatAttribValues[pixelFormatAttribPBufferIndex] == Gl.TRUE;
+					}
+#endif
+
+#if SUPPORT_FRAMEBUFFER_SRGB
+					if (wglExtensions.FramebufferSRGB_ARB || wglExtensions.FramebufferSRGB_EXT) {
+						Debug.Assert(pixelFormatAttribFramebufferSrgbIndex >= 0);
+						pixelFormat.SRGBCapable = pixelFormatAttribValues[pixelFormatAttribFramebufferSrgbIndex] != 0;
+					}
+#endif
+
+					pixelFormat.XFbConfig = IntPtr.Zero;
+					pixelFormat.XVisualInfo = new Glx.XVisualInfo();
+
+					pixelFormats.Add(pixelFormat);
 				}
 
-				return (pFormats);
+				return (pixelFormats);
 			}
 		}
 

@@ -51,6 +51,7 @@ namespace OpenGL
 		/// </summary>
 		public static void SyncDelegates()
 		{
+			Trace.TraceInformation("Synchronize WGL delegates.");
 			SynchDelegates(_ImportMap, _Delegates);
 		}
 
@@ -127,10 +128,6 @@ namespace OpenGL
 			bool retvalue = MakeCurrentCore(hDc, newContext);
 
 			if ((retvalue == true) && (newContext != IntPtr.Zero)) {
-				// Since we have a current context on the caller thread, the API wglGetProcAddress is available; indeed
-				// synchronize Wgl.Delegates as well
-				SyncDelegates();
-
 				// After having a current context on the caller thread, synchronize Gl.Delegates pointers to the
 				// actual implementation
 				Gl.SyncDelegates();
@@ -178,6 +175,13 @@ namespace OpenGL
 		/// </param>
 		public static void DebugCheckErrors(object returnValue)
 		{
+			// Note (from MSDN): The Return Value section of the documentation for each function that sets the last-error code notes the conditions
+			// under which the function sets the last-error code. Most functions that set the thread's last-error code set it when they fail. However,
+			// some functions also set the last-error code when they succeed. If the function is not documented to set the last-error code, the value
+			// returned by this function is simply the most recent last-error code to have been set; some functions set the last-error code to 0 on
+			// success and others do not.
+
+			// Log errors returned (instead of throwing exception) in the case of successfull cases
 			ErrorHandlingMode methodErrorHandling = ErrorHandling;
 
 			if ((methodErrorHandling == ErrorHandlingMode.Normal) && (returnValue != null)) {
@@ -186,10 +190,14 @@ namespace OpenGL
 						if ((bool)returnValue == true)
 							methodErrorHandling = ErrorHandlingMode.LogOnly;
 						break;
+					case TypeCode.String:
+						if ((string)returnValue != null)
+							methodErrorHandling = ErrorHandlingMode.LogOnly;
+						break;
 				}
 			}
 
-			// All WGl routines set error using SetLastError routine
+			// All WGl routines set error using SetLastError routine (*)
 			int errorCode = Marshal.GetLastWin32Error();
 
 			switch (errorCode) {
