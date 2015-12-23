@@ -4949,7 +4949,7 @@ namespace OpenGL
 
 			Debug.Assert(Delegates.pglGetStringi != null, "pglGetStringi not implemented");
 			retValue = Delegates.pglGetStringi(name, index);
-			CallLog("glGetStringi({0}, {1}) = {2}", name, index, retValue);
+			CallLog("glGetStringi({0}, {1}) = {2}", name, index, Marshal.PtrToStringAnsi(retValue));
 			DebugCheckErrors(retValue);
 
 			return (Marshal.PtrToStringAnsi(retValue));

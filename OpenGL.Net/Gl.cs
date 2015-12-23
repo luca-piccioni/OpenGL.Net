@@ -98,11 +98,7 @@ namespace OpenGL
 		/// <summary>
 		/// Get or set the enable flag for the OpenGL call log.
 		/// </summary>
-		public static bool CallLogEnabled
-		{
-			get { return (sCallLogEnabled); }
-			set { sCallLogEnabled = value; }
-		}
+		public static bool CallLogEnabled = true;
 
 		/// <summary>
 		/// OpenGL logging utility.
@@ -116,14 +112,11 @@ namespace OpenGL
 		[Conditional("OPENGL_NET_CALL_LOG_ENABLED")]
 		private static void CallLog(string format, params object[] args)
 		{
-			if (sCallLogEnabled == false)
+			if (CallLogEnabled == false)
 				return;
-		}
 
-		/// <summary>
-		/// The enable flag for the OpenGL call log.
-		/// </summary>
-		private static bool sCallLogEnabled;
+			Trace.TraceInformation(format, args);
+		}
 
 		#endregion
 

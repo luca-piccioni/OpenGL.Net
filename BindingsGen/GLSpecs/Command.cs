@@ -670,16 +670,8 @@ namespace BindingsGen.GLSpecs
 
 			// The implementation returned type
 			string returnType = aliasCommand.GetImplementationReturnType(ctx);
-			// The delegate returned type
-			string delegateReturnType = aliasCommand.DelegateReturnType;
-
+			// Is fixed implementation
 			bool fixedImplementation = IsFixedImplementation(ctx, commandParams);
-			// At least one parameter is an array with length correlated with another parameter
-			bool isArrayImplementation = commandParams.FindIndex(delegate(CommandParameter item) { return (item is CommandParameterArrayLength); }) >= 0;
-			// Returned value must be marshalled as string
-			bool marshalReturnedString = aliasCommand.HasReturnValue && (returnType.ToLower() == "string") && (delegateReturnType.ToLower() != "string");
-			// Returned value must be marshalled as structure
-			bool marshalReturnedStruct = aliasCommand.HasReturnValue && (DelegateReturnType == "IntPtr") && (GetImplementationReturnType(ctx) != "IntPtr");
 
 			aliases.Add(this);
 			aliases.AddRange(Aliases);
@@ -795,7 +787,7 @@ namespace BindingsGen.GLSpecs
 			{
 				if (commandParams.Count > 0)
 					sw.Write(", ");
-				CommandParameter.WriteCallLogArgParam(sw, ReturnVariableName, returnType);
+				CommandParameter.WriteCallLogArgParam(sw, GetReturnValueExpression(ctx), returnType);
 			}
 
 			#endregion
@@ -831,15 +823,7 @@ namespace BindingsGen.GLSpecs
 			// Returns value
 			if (HasReturnValue) {
 				sw.WriteLine();
-
-				if      (marshalReturnedString)
-					sw.WriteLine("return (Marshal.PtrToStringAnsi({0}));", ReturnVariableName);
-				else if (marshalReturnedStruct)
-					sw.WriteLine("return (({1})Marshal.PtrToStructure({0}, typeof({1})));", ReturnVariableName, GetImplementationReturnType(ctx));
-				else if (returnType != delegateReturnType)
-					sw.WriteLine("return (({1}){0});", ReturnVariableName, GetImplementationReturnType(ctx));
-				else
-					sw.WriteLine("return ({0});", ReturnVariableName);
+				sw.WriteLine("return ({0});", GetReturnValueExpression(ctx));
 			}
 
 			sw.Unindent();
@@ -1030,6 +1014,27 @@ namespace BindingsGen.GLSpecs
 		private bool HasReturnValue
 		{
 			get { return (Prototype.ImplementationReturnType != "void"); }
+		}
+
+		private string GetReturnValueExpression(RegistryContext ctx)
+		{
+			// The implementation returned type
+			string returnType = GetImplementationReturnType(ctx);
+			// The delegate returned type
+			string delegateReturnType = DelegateReturnType;
+			// Returned value must be marshalled as string
+			bool marshalReturnedString = HasReturnValue && (returnType.ToLower() == "string") && (delegateReturnType.ToLower() != "string");
+			// Returned value must be marshalled as structure
+			bool marshalReturnedStruct = HasReturnValue && (DelegateReturnType == "IntPtr") && (GetImplementationReturnType(ctx) != "IntPtr");
+
+			if (marshalReturnedString)
+				return (String.Format("Marshal.PtrToStringAnsi({0})", ReturnVariableName));
+			else if (marshalReturnedStruct)
+				return (String.Format("({1})Marshal.PtrToStructure({0}, typeof({1}))", ReturnVariableName, GetImplementationReturnType(ctx)));
+			else if (returnType != delegateReturnType)
+				return (String.Format("({1}){0}", ReturnVariableName, GetImplementationReturnType(ctx)));
+			else
+				return (String.Format("{0}", ReturnVariableName));
 		}
 
 		/// <summary>

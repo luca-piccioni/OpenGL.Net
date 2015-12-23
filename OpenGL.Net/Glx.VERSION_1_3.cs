@@ -827,7 +827,7 @@ namespace OpenGL
 
 			Debug.Assert(Delegates.pglXGetVisualFromFBConfig != null, "pglXGetVisualFromFBConfig not implemented");
 			retValue = Delegates.pglXGetVisualFromFBConfig(dpy, config);
-			CallLog("glXGetVisualFromFBConfig(0x{0}, 0x{1}) = {2}", dpy.ToString("X8"), config.ToString("X8"), retValue);
+			CallLog("glXGetVisualFromFBConfig(0x{0}, 0x{1}) = {2}", dpy.ToString("X8"), config.ToString("X8"), (Glx.XVisualInfo)Marshal.PtrToStructure(retValue, typeof(Glx.XVisualInfo)));
 
 			return ((Glx.XVisualInfo)Marshal.PtrToStructure(retValue, typeof(Glx.XVisualInfo)));
 		}

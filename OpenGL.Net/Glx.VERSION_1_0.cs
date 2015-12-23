@@ -458,7 +458,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglXChooseVisual != null, "pglXChooseVisual not implemented");
 					retValue = Delegates.pglXChooseVisual(dpy, screen, p_attribList);
-					CallLog("glXChooseVisual(0x{0}, {1}, {2}) = {3}", dpy.ToString("X8"), screen, attribList, retValue);
+					CallLog("glXChooseVisual(0x{0}, {1}, {2}) = {3}", dpy.ToString("X8"), screen, attribList, (Glx.XVisualInfo)Marshal.PtrToStructure(retValue, typeof(Glx.XVisualInfo)));
 				}
 			}
 

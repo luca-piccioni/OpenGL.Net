@@ -2273,7 +2273,7 @@ namespace OpenGL
 
 			Debug.Assert(Delegates.pglGetError != null, "pglGetError not implemented");
 			retValue = Delegates.pglGetError();
-			CallLog("glGetError() = {0}", retValue);
+			CallLog("glGetError() = {0}", (ErrorCode)retValue);
 
 			return ((ErrorCode)retValue);
 		}
@@ -2757,7 +2757,7 @@ namespace OpenGL
 
 			Debug.Assert(Delegates.pglGetString != null, "pglGetString not implemented");
 			retValue = Delegates.pglGetString((Int32)name);
-			CallLog("glGetString({0}) = {1}", name, retValue);
+			CallLog("glGetString({0}) = {1}", name, Marshal.PtrToStringAnsi(retValue));
 			DebugCheckErrors(retValue);
 
 			return (Marshal.PtrToStringAnsi(retValue));
