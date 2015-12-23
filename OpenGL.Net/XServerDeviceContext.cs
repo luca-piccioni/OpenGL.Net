@@ -17,6 +17,8 @@
 // USA
 
 using System;
+using System.Collections.Generic;
+using System.Text;
 using System.Windows.Forms;
 
 namespace OpenGL
@@ -34,7 +36,7 @@ namespace OpenGL
 		static XServerDeviceContext()
 		{
 			// Be notified about XServer errors
-			Glx.UnsafeNativeMethods.XSetErrorHandler(Gl.XServerErrorHandler);
+			Glx.UnsafeNativeMethods.XSetErrorHandler(XServerErrorHandler);
 		}
 		
 		/// <summary>
@@ -312,6 +314,229 @@ namespace OpenGL
 		#endregion
 
 		#region DeviceContext Overrides
+
+		/// <summary>
+		/// Creates a context.
+		/// </summary>
+		/// <param name="sharedContext">
+		/// A <see cref="IntPtr"/> that specify a context that will share objects with the returned one. If
+		/// it is IntPtr.Zero, no sharing is performed.
+		/// </param>
+		/// <returns>
+		/// A <see cref="IntPtr"/> that represents the handle of the created context. If the context cannot be
+		/// created, it returns IntPtr.Zero.
+		/// </returns>
+		/// <exception cref="InvalidOperationException">
+		/// Exception thrown in the case <paramref name="sharedContext"/> is different from IntPtr.Zero, and the objects
+		/// cannot be shared with it.
+		/// </exception>
+		public override IntPtr CreateContext(IntPtr sharedContext)
+		{
+			if (XVisualInfo == null)
+				throw new InvalidOperationException("no visual information");
+
+			using (Glx.XLock displayLock = new Glx.XLock(Display)) {
+				return (Glx.CreateContext(Display, XVisualInfo, sharedContext, true));
+			}
+		}
+
+		/// <summary>
+		/// Creates a context, specifying attributes.
+		/// </summary>
+		/// <param name="sharedContext">
+		/// A <see cref="IntPtr"/> that specify a context that will share objects with the returned one. If
+		/// it is IntPtr.Zero, no sharing is performed.
+		/// </param>
+		/// <param name="attribsList">
+		/// A <see cref="T:Int32[]"/> that specifies the attributes list.
+		/// </param>
+		/// <returns>
+		/// A <see cref="IntPtr"/> that represents the handle of the created context. If the context cannot be
+		/// created, it returns IntPtr.Zero.
+		/// </returns>
+		/// <exception cref="ArgumentNullException">
+		/// Exception thrown if <see cref="attribsList"/> is null.
+		/// </exception>
+		/// <exception cref="ArgumentException">
+		/// Exception thrown if <paramref name="attribsList"/> length is zero or if the last item of <paramref name="attribsList"/>
+		/// is not zero.
+		/// </exception>
+		public override IntPtr CreateContextAttrib(IntPtr sharedContext, int[] attribsList)
+		{
+			if (attribsList == null)
+				throw new ArgumentNullException("attribsList");
+			if (attribsList.Length == 0)
+				throw new ArgumentException("zero length array", "attribsList");
+			if (attribsList[attribsList.Length - 1] != 0)
+				throw new ArgumentException("not zero-terminated array", "attribsList");
+
+			using (Glx.XLock displayLock = new Glx.XLock(Display)) {
+				return (Glx.CreateContextAttribsARB(Display, FBConfig, sharedContext, true, attribsList));
+			}
+		}
+
+		/// <summary>
+		/// Makes the context current on the calling thread.
+		/// </summary>
+		/// <param name="ctx">
+		/// A <see cref="IntPtr"/> that specify the context to be current on the calling thread, bound to
+		/// thise device context. It can be IntPtr.Zero indicating that no context will be current.
+		/// </param>
+		/// <returns>
+		/// It returns a boolean value indicating whether the operation was successful.
+		/// </returns>
+		/// <exception cref="ArgumentNullException">
+		/// Exception thrown if <paramref name="deviceContext"/> is null.
+		/// </exception>
+		/// <exception cref="NotSupportedException">
+		/// Exception thrown if the current platform is not supported.
+		/// </exception>
+		public override bool MakeCurrent(IntPtr ctx)
+		{
+			using (Glx.XLock displayLock = new Glx.XLock(Display)) {
+				return (Glx.MakeCurrent(Display, ctx != IntPtr.Zero ? WindowHandle : IntPtr.Zero, ctx));
+			}
+		}
+
+		/// <summary>
+		/// Deletes a context.
+		/// </summary>
+		/// <param name="ctx">
+		/// A <see cref="IntPtr"/> that specify the context to be deleted.
+		/// </param>
+		/// <returns>
+		/// It returns a boolean value indicating whether the operation was successful. If it returns false,
+		/// query the exception by calling <see cref="GetPlatformException"/>.
+		/// </returns>
+		/// <remarks>
+		/// <para>The context <paramref name="ctx"/> must not be current on any thread.</para>
+		/// </remarks>
+		/// <exception cref="ArgumentException">
+		/// Exception thrown if <paramref name="ctx"/> is IntPtr.Zero.
+		/// </exception>
+		public override bool DeleteContext(IntPtr ctx)
+		{
+			if (ctx == IntPtr.Zero)
+				throw new ArgumentException("ctx");
+
+			using (Glx.XLock displayLock = new Glx.XLock(Display)) {
+				Glx.DestroyContext(Display, ctx);
+			}
+
+			return (true);
+		}
+
+		/// <summary>
+		/// Swap the buffers of a device.
+		/// </summary>
+		public override void SwapBuffers()
+		{
+			using (Glx.XLock displayLock = new Glx.XLock(Display)) {
+				Glx.SwapBuffers(Display, WindowHandle);
+			}
+		}
+
+		/// <summary>
+		/// Control the the buffers swap of a device.
+		/// </summary>
+		/// <param name="interval">
+		/// A <see cref="System.Int32"/> that specifies the minimum number of video frames that are displayed
+		/// before a buffer swap will occur.
+		/// </param>
+		/// <returns>
+		/// It returns a boolean value indicating whether the operation was successful.
+		/// </returns>
+		public override bool SwapInterval(int interval)
+		{
+			// Keep into account the SwapIntervalEXT and SwapIntervalSGI entry points, relative to
+			// two equivalent GLX extensions
+
+			using (Glx.XLock displayLock = new Glx.XLock(Display)) {
+				if (Glx.Delegates.pglXSwapIntervalEXT != null) {
+					Glx.SwapIntervalEXT(Display, WindowHandle, interval);
+					return (true);
+				} else if (Glx.Delegates.pglXSwapIntervalSGI != null)
+					return (Glx.SwapIntervalSGI(interval) == 0);
+				else
+					throw new InvalidOperationException("binding point SwapInterval{EXT|SGI} cannot be found");
+			}
+		}
+
+		/// <summary>
+		/// Gets the platform exception relative to the last operation performed.
+		/// </summary>
+		/// <param name="deviceContext">
+		/// A <see cref="IDeviceContext"/> that specifies the device context on which an error occurred.
+		/// </param>
+		/// <returns>
+		/// The platform exception relative to the last operation performed.
+		/// </returns>
+		/// <exception cref="NotSupportedException">
+		/// Exception thrown if the current platform is not supported.
+		/// </exception>
+		[System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Interoperability", "CA1404:CallGetLastErrorImmediatelyAfterPInvoke")]
+		public override Exception GetPlatformException()
+		{
+			Exception platformException = null;
+
+			lock (_DisplayErrorsLock) {
+				if ((platformException = _DisplayErrors[Display]) != null)
+					_DisplayErrors[Display] = null;
+			}
+
+			return (platformException);
+		}
+
+		/// <summary>
+		/// The XServer error handler, invoked each time a X/GLX routine raise an error.
+		/// </summary>
+		/// <param name="DisplayHandle">
+		/// A <see cref="IntPtr"/> that specifies the handle of the display on which the error occurred.
+		/// </param>
+		/// <param name="error_event">
+		/// A <see cref="Glx.XErrorEvent"/> that describe the error.
+		/// </param>
+		/// <returns>
+		/// It returns always 0.
+		/// </returns>
+		private static int XServerErrorHandler(IntPtr DisplayHandle, ref Glx.XErrorEvent error_event)
+		{
+			lock (_DisplayErrorsLock) {
+				StringBuilder sb = new StringBuilder(1024);
+				Glx.UnsafeNativeMethods.XGetErrorText(DisplayHandle, error_event.error_code, sb, 1024);
+
+				string eventName = Enum.GetName(typeof(Glx.XEventName), error_event.type);
+				string requestName = Enum.GetName(typeof(Glx.XRequest), error_event.request_code);
+
+				if (String.IsNullOrEmpty(eventName))
+					eventName = "Unknown";
+				if (String.IsNullOrEmpty(requestName))
+					requestName = "Unknown";
+
+				// Additional details
+				sb.AppendLine("\nX error details:");
+				sb.AppendFormat("	X event name: '{0}' ({1})\n", eventName, error_event.type);
+				sb.AppendFormat("	Display: 0x{0}\n", error_event.display.ToInt64().ToString("x"));
+				sb.AppendFormat("	Resource ID: {0}\n", error_event.resourceid.ToInt64().ToString("x"));
+				sb.AppendFormat("	Error code: {0}\n", error_event.error_code);
+				sb.AppendFormat("	Major code: '{0}' ({1})\n", requestName, error_event.request_code);
+				sb.AppendFormat("	Minor code: {0}", error_event.minor_code);
+
+				_DisplayErrors[DisplayHandle] = new System.ComponentModel.Win32Exception(error_event.error_code, sb.ToString());
+			}
+
+			return (0);
+		}
+
+		/// <summary>
+		/// The display errors list lock.
+		/// </summary>
+		private static readonly object _DisplayErrorsLock = new object();
+
+		/// <summary>
+		/// The display errors.
+		/// </summary>
+		private static readonly Dictionary<IntPtr, Exception> _DisplayErrors = new Dictionary<IntPtr, Exception>();
 
 		/// <summary>
 		/// Get the pixel formats supported by this device.

@@ -573,10 +573,10 @@ namespace OpenGL
 		{
 			if (_DeviceContext == null)
 				throw new InvalidOperationException();
-			
+
 			if (_SurfaceFormat.HasBuffer(GraphicsBuffersFormat.BufferType.Double))
-				Gl.SwapBuffers(_DeviceContext);
-		}
+				_DeviceContext.SwapBuffers();
+        }
 
 		/// <summary>
 		/// Performs application-defined tasks associated with freeing, releasing, or resetting managed/unmanaged resources.
@@ -670,8 +670,8 @@ namespace OpenGL
 						}
 					}
 					if (swapInterval != 1) {
-						if (Gl.SwapInterval(_DeviceContext, swapInterval) == false) {
-							Exception platformException = Gl.GetPlatformException(_DeviceContext);
+						if (_DeviceContext.SwapInterval(swapInterval) == false) {
+							Exception platformException = _DeviceContext.GetPlatformException();
 							sLog.Warn("Unable to set swap interval to {0}: {1}.", swapInterval, platformException != null ? platformException.ToString() : "null");
 						}
 					}

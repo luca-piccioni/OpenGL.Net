@@ -129,8 +129,8 @@ namespace OpenGL
 			}
 
 			// Query OpenGL informations
-			if (Gl.MakeContextCurrent(_HiddenWindowDevice, rContext) == false)
-				throw new Exception("unable to make current");
+			if (_HiddenWindowDevice.MakeCurrent(rContext) == false)
+				throw new InvalidOperationException("unable to make current");
 
 			switch (Environment.OSVersion.Platform) {
 				case PlatformID.Win32NT:
@@ -153,7 +153,7 @@ namespace OpenGL
 			_CurrentCaps = GraphicsCapabilities.Query(null, _HiddenWindowDevice);
 
 			// Detroy context
-			if (Gl.DeleteContext(_HiddenWindowDevice, rContext) == false)
+			if (_HiddenWindowDevice.DeleteContext(rContext) == false)
 				throw new InvalidOperationException("unable to delete OpenGL context");
 		}
 
@@ -186,7 +186,7 @@ namespace OpenGL
 			Debug.Assert(res);
 
 			// Create a dummy OpenGL context to retrieve initial informations.
-			rContext = Wgl.CreateContext(winDeviceContext.DeviceContext);
+			rContext = winDeviceContext.CreateContext(IntPtr.Zero);
 			Debug.Assert(rContext != IntPtr.Zero);
 
 			return (rContext);
@@ -226,7 +226,7 @@ namespace OpenGL
 				}
 
 				// Create direct context
-				rContext = Glx.CreateContext(x11DeviceCtx.Display, x11DeviceCtx.XVisualInfo, IntPtr.Zero, true);
+				rContext = x11DeviceCtx.CreateContext(IntPtr.Zero);
 				if (rContext == IntPtr.Zero) {
 					// Fallback to not direct context
 					rContext = Glx.CreateContext(x11DeviceCtx.Display, x11DeviceCtx.XVisualInfo, IntPtr.Zero, false);
@@ -500,14 +500,14 @@ namespace OpenGL
 					// Create rendering context
 					int[] contextAttributes = cAttributes.ToArray();
 
-					if ((_RenderContext = Gl.CreateContextAttrib(_DeviceContext, pSharedContext, contextAttributes)) == IntPtr.Zero) {
+					if ((_RenderContext = _DeviceContext.CreateContextAttrib(pSharedContext, contextAttributes)) == IntPtr.Zero) {
 						Exception platformException = GraphicsException.CheckPlatformErrors(_DeviceContext, false);
 
 						throw new InvalidOperationException("unable to create context " + version.Major + "." + version.Minor, platformException);
 					}
 				} else {
 					// Create rendering context
-					if ((_RenderContext = Gl.CreateContext(_DeviceContext, pSharedContext)) == IntPtr.Zero)
+					if ((_RenderContext = _DeviceContext.CreateContext(pSharedContext)) == IntPtr.Zero)
 						throw new InvalidOperationException("unable to create context " + version.Major + "." + version.Minor);
 				}
 
@@ -1011,7 +1011,7 @@ namespace OpenGL
 
 			if (flag) {
 				// Make this context current on device
-				if (Gl.MakeContextCurrent(deviceContext, _RenderContext) == false)
+				if (deviceContext.MakeCurrent(_RenderContext) == false)
 					throw new InvalidOperationException("context cannot be current because error " + Marshal.GetLastWin32Error());
 
 				// Cache current device context
@@ -1035,7 +1035,7 @@ namespace OpenGL
 
 			} else {
 				// Make this context uncurrent on device
-				bool res = Gl.MakeContextCurrent(deviceContext, _RenderContext);
+				bool res = deviceContext.MakeCurrent(IntPtr.Zero);
 
 				// Reset current context on this thread (even on error)
 				lock (_RenderThreadsLock) {
@@ -1247,7 +1247,7 @@ namespace OpenGL
 			if (disposing == true) {
 				// Dispose unmanaged resources
 				if (_RenderContext != IntPtr.Zero) {
-					if (Gl.DeleteContext(_DeviceContext, _RenderContext) == false)
+					if (_DeviceContext.DeleteContext(_RenderContext) == false)
 						throw new InvalidOperationException("unable to release OpenGL context");
 					_RenderContext = IntPtr.Zero;
 				}

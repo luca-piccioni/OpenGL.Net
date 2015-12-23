@@ -42,7 +42,7 @@ namespace OpenGL.Test
 				mContext = CreateContext();
 
 				// Make OpenGL context current
-				if (Gl.MakeContextCurrent(_DeviceContext, mContext) == false)
+				if (_DeviceContext.MakeCurrent(mContext) == false)
 					throw new InvalidOperationException("unable to make current the OpenGL context");
 
 				// Get OpenGL version
@@ -101,12 +101,12 @@ namespace OpenGL.Test
 
 			if (contextAttribute == null) {
 				// Create compatibility profile context
-				if ((context = Gl.CreateContext(_DeviceContext)) == IntPtr.Zero)
+				if ((context = _DeviceContext.CreateContext(IntPtr.Zero)) == IntPtr.Zero)
 					throw new InvalidOperationException("unable to create compatibility profile OpenGL context");
 			} else {
 				List<int> contextAttribs = new List<int>();
 
-				if ((context = Gl.CreateContextAttrib(_DeviceContext, IntPtr.Zero, contextAttribs.ToArray())) == IntPtr.Zero)
+				if ((context = _DeviceContext.CreateContextAttrib(IntPtr.Zero, contextAttribs.ToArray())) == IntPtr.Zero)
 					throw new InvalidOperationException("unable to create core profile OpenGL context");
 			}
 

@@ -179,7 +179,7 @@ namespace OpenGL
 		/// </summary>
 		public static Win32Exception CheckPlatformErrors(IDeviceContext deviceContext, bool throwOnError)
 		{
-			Win32Exception platformException = (Win32Exception)Gl.GetPlatformException(deviceContext);
+			Win32Exception platformException = (Win32Exception)deviceContext.GetPlatformException();
 
 			if ((platformException != null) && (throwOnError == true))
 				throw platformException;

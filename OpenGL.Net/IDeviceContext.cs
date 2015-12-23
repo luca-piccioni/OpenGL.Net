@@ -55,6 +55,118 @@ namespace OpenGL
 
 		#endregion
 
+		#region Platform Methods
+
+		/// <summary>
+		/// Creates a context.
+		/// </summary>
+		/// <param name="sharedContext">
+		/// A <see cref="IntPtr"/> that specify a context that will share objects with the returned one. If
+		/// it is IntPtr.Zero, no sharing is performed.
+		/// </param>
+		/// <returns>
+		/// A <see cref="IntPtr"/> that represents the handle of the created context. If the context cannot be
+		/// created, it returns IntPtr.Zero.
+		/// </returns>
+		/// <exception cref="InvalidOperationException">
+		/// Exception thrown in the case <paramref name="sharedContext"/> is different from IntPtr.Zero, and the objects
+		/// cannot be shared with it.
+		/// </exception>>
+		IntPtr CreateContext(IntPtr sharedContext);
+
+		/// <summary>
+		/// Creates a context, specifying attributes.
+		/// </summary>
+		/// <param name="sharedContext">
+		/// A <see cref="IntPtr"/> that specify a context that will share objects with the returned one. If
+		/// it is IntPtr.Zero, no sharing is performed.
+		/// </param>
+		/// <param name="attribsList">
+		/// A <see cref="T:Int32[]"/> that specifies the attributes list.
+		/// </param>
+		/// <returns>
+		/// A <see cref="IntPtr"/> that represents the handle of the created context. If the context cannot be
+		/// created, it returns IntPtr.Zero.
+		/// </returns>
+		/// <exception cref="ArgumentNullException">
+		/// Exception thrown if <see cref="attribsList"/> is null.
+		/// </exception>
+		/// <exception cref="ArgumentException">
+		/// Exception thrown if <paramref name="attribsList"/> length is zero or if the last item of <paramref name="attribsList"/>
+		/// is not zero.
+		/// </exception>
+		IntPtr CreateContextAttrib(IntPtr sharedContext, int[] attribsList);
+
+		/// <summary>
+		/// Makes the context current on the calling thread.
+		/// </summary>
+		/// <param name="ctx">
+		/// A <see cref="IntPtr"/> that specify the context to be current on the calling thread, bound to
+		/// thise device context. It can be IntPtr.Zero indicating that no context will be current.
+		/// </param>
+		/// <returns>
+		/// It returns a boolean value indicating whether the operation was successful.
+		/// </returns>
+		/// <exception cref="ArgumentNullException">
+		/// Exception thrown if <paramref name="deviceContext"/> is null.
+		/// </exception>
+		/// <exception cref="NotSupportedException">
+		/// Exception thrown if the current platform is not supported.
+		/// </exception>
+		bool MakeCurrent(IntPtr ctx);
+
+		/// <summary>
+		/// Deletes a context.
+		/// </summary>
+		/// <param name="ctx">
+		/// A <see cref="IntPtr"/> that specify the context to be deleted.
+		/// </param>
+		/// <returns>
+		/// It returns a boolean value indicating whether the operation was successful. If it returns false,
+		/// query the exception by calling <see cref="GetPlatformException"/>.
+		/// </returns>
+		/// <remarks>
+		/// <para>The context <paramref name="ctx"/> must not be current on any thread.</para>
+		/// </remarks>
+		/// <exception cref="ArgumentException">
+		/// Exception thrown if <paramref name="ctx"/> is IntPtr.Zero.
+		/// </exception>
+		bool DeleteContext(IntPtr ctx);
+
+		/// <summary>
+		/// Swap the buffers of a device.
+		/// </summary>
+		void SwapBuffers();
+
+		/// <summary>
+		/// Control the the buffers swap of a device.
+		/// </summary>
+		/// <param name="interval">
+		/// A <see cref="System.Int32"/> that specifies the minimum number of video frames that are displayed
+		/// before a buffer swap will occur.
+		/// </param>
+		/// <returns>
+		/// It returns a boolean value indicating whether the operation was successful.
+		/// </returns>
+		bool SwapInterval(int interval);
+
+		/// <summary>
+		/// Gets the platform exception relative to the last operation performed.
+		/// </summary>
+		/// <param name="deviceContext">
+		/// A <see cref="IDeviceContext"/> that specifies the device context on which an error occurred.
+		/// </param>
+		/// <returns>
+		/// The platform exception relative to the last operation performed.
+		/// </returns>
+		/// <exception cref="NotSupportedException">
+		/// Exception thrown if the current platform is not supported.
+		/// </exception>
+		[System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Interoperability", "CA1404:CallGetLastErrorImmediatelyAfterPInvoke")]
+		Exception GetPlatformException();
+
+		#endregion
+
 		#region Pixel Formats
 
 		/// <summary>

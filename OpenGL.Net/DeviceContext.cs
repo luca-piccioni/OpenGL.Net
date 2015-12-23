@@ -33,7 +33,7 @@ namespace OpenGL
 		/// <remarks>
 		/// The reference count shall be initially 0 on new instances.
 		/// </remarks>
-		public uint RefCount { get { return (mRefCount); } }
+		public uint RefCount { get { return (_RefCount); } }
 
 		/// <summary>
 		/// Increment the shared IRenderResource reference count.
@@ -43,7 +43,7 @@ namespace OpenGL
 		/// </remarks>
 		public void IncRef()
 		{
-			mRefCount++;
+			_RefCount++;
 		}
 
 		/// <summary>
@@ -56,11 +56,11 @@ namespace OpenGL
 		public void DecRef()
 		{
 			// Instance could be never referenced with IncRef
-			if (mRefCount > 0)
-				mRefCount--;
+			if (_RefCount > 0)
+				_RefCount--;
 
 			// Automatically dispose when no references are available
-			if (mRefCount == 0)
+			if (_RefCount == 0)
 				Dispose();
 		}
 
@@ -76,13 +76,121 @@ namespace OpenGL
 		/// indeed copying the reference count.
 		/// </para>
 		/// </remarks>
-		protected void ResetRefCount() { mRefCount = 0; }
+		protected void ResetRefCount() { _RefCount = 0; }
 
 		/// <summary>
 		/// The count of references for this RenderResource.
 		/// </summary>
-		private uint mRefCount;
+		private uint _RefCount;
 
+		/// <summary>
+		/// Creates a context.
+		/// </summary>
+		/// <param name="sharedContext">
+		/// A <see cref="IntPtr"/> that specify a context that will share objects with the returned one. If
+		/// it is IntPtr.Zero, no sharing is performed.
+		/// </param>
+		/// <returns>
+		/// A <see cref="IntPtr"/> that represents the handle of the created context. If the context cannot be
+		/// created, it returns IntPtr.Zero.
+		/// </returns>
+		/// <exception cref="InvalidOperationException">
+		/// Exception thrown in the case <paramref name="sharedContext"/> is different from IntPtr.Zero, and the objects
+		/// cannot be shared with it.
+		/// </exception>>
+		public abstract IntPtr CreateContext(IntPtr sharedContext);
+
+		/// <summary>
+		/// Creates a context, specifying attributes.
+		/// </summary>
+		/// <param name="sharedContext">
+		/// A <see cref="IntPtr"/> that specify a context that will share objects with the returned one. If
+		/// it is IntPtr.Zero, no sharing is performed.
+		/// </param>
+		/// <param name="attribsList">
+		/// A <see cref="T:Int32[]"/> that specifies the attributes list.
+		/// </param>
+		/// <returns>
+		/// A <see cref="IntPtr"/> that represents the handle of the created context. If the context cannot be
+		/// created, it returns IntPtr.Zero.
+		/// </returns>
+		/// <exception cref="ArgumentNullException">
+		/// Exception thrown if <see cref="attribsList"/> is null.
+		/// </exception>
+		/// <exception cref="ArgumentException">
+		/// Exception thrown if <paramref name="attribsList"/> length is zero or if the last item of <paramref name="attribsList"/>
+		/// is not zero.
+		/// </exception>
+		public abstract IntPtr CreateContextAttrib(IntPtr sharedContext, int[] attribsList);
+
+		/// <summary>
+		/// Makes the context current on the calling thread.
+		/// </summary>
+		/// <param name="ctx">
+		/// A <see cref="IntPtr"/> that specify the context to be current on the calling thread, bound to
+		/// thise device context. It can be IntPtr.Zero indicating that no context will be current.
+		/// </param>
+		/// <returns>
+		/// It returns a boolean value indicating whether the operation was successful.
+		/// </returns>
+		/// <exception cref="ArgumentNullException">
+		/// Exception thrown if <paramref name="deviceContext"/> is null.
+		/// </exception>
+		/// <exception cref="NotSupportedException">
+		/// Exception thrown if the current platform is not supported.
+		/// </exception>
+		public abstract bool MakeCurrent(IntPtr ctx);
+
+		/// <summary>
+		/// Deletes a context.
+		/// </summary>
+		/// <param name="ctx">
+		/// A <see cref="IntPtr"/> that specify the context to be deleted.
+		/// </param>
+		/// <returns>
+		/// It returns a boolean value indicating whether the operation was successful. If it returns false,
+		/// query the exception by calling <see cref="GetPlatformException"/>.
+		/// </returns>
+		/// <remarks>
+		/// <para>The context <paramref name="ctx"/> must not be current on any thread.</para>
+		/// </remarks>
+		/// <exception cref="ArgumentException">
+		/// Exception thrown if <paramref name="ctx"/> is IntPtr.Zero.
+		/// </exception>
+		public abstract bool DeleteContext(IntPtr ctx);
+
+		/// <summary>
+		/// Swap the buffers of a device.
+		/// </summary>
+		public abstract void SwapBuffers();
+
+		/// <summary>
+		/// Control the the buffers swap of a device.
+		/// </summary>
+		/// <param name="interval">
+		/// A <see cref="System.Int32"/> that specifies the minimum number of video frames that are displayed
+		/// before a buffer swap will occur.
+		/// </param>
+		/// <returns>
+		/// It returns a boolean value indicating whether the operation was successful.
+		/// </returns>
+		public abstract bool SwapInterval(int interval);
+
+		/// <summary>
+		/// Gets the platform exception relative to the last operation performed.
+		/// </summary>
+		/// <param name="deviceContext">
+		/// A <see cref="IDeviceContext"/> that specifies the device context on which an error occurred.
+		/// </param>
+		/// <returns>
+		/// The platform exception relative to the last operation performed.
+		/// </returns>
+		/// <exception cref="NotSupportedException">
+		/// Exception thrown if the current platform is not supported.
+		/// </exception>
+		[System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Interoperability", "CA1404:CallGetLastErrorImmediatelyAfterPInvoke")]
+		public abstract Exception GetPlatformException();
+		
 		/// <summary>
 		/// Get the pixel formats supported by this device.
 		/// </summary>

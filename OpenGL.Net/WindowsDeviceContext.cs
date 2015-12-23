@@ -29,7 +29,9 @@
 
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Diagnostics;
+using System.Runtime.InteropServices;
 using System.Windows.Forms;
 
 namespace OpenGL
@@ -111,6 +113,168 @@ namespace OpenGL
 		#endregion
 
 		#region DeviceContext Overrides
+
+		/// <summary>
+		/// Creates a context.
+		/// </summary>
+		/// <param name="sharedContext">
+		/// A <see cref="IntPtr"/> that specify a context that will share objects with the returned one. If
+		/// it is IntPtr.Zero, no sharing is performed.
+		/// </param>
+		/// <returns>
+		/// A <see cref="IntPtr"/> that represents the handle of the created context. If the context cannot be
+		/// created, it returns IntPtr.Zero.
+		/// </returns>
+		/// <exception cref="InvalidOperationException">
+		/// Exception thrown in the case <paramref name="sharedContext"/> is different from IntPtr.Zero, and the objects
+		/// cannot be shared with it.
+		/// </exception>
+		public override IntPtr CreateContext(IntPtr sharedContext)
+		{
+			IntPtr renderContext = IntPtr.Zero;
+
+			try {
+				renderContext = Wgl.CreateContext(DeviceContext);
+				if ((renderContext != IntPtr.Zero) && (sharedContext != IntPtr.Zero)) {
+					bool res = Wgl.ShareLists(renderContext, sharedContext);
+					Debug.Assert(res);
+				}
+
+				return (renderContext);
+			} catch {
+				if (renderContext != IntPtr.Zero) {
+					bool res = Wgl.DeleteContext(renderContext);
+					Debug.Assert(res);
+				}
+
+				throw;
+			}
+		}
+
+		/// <summary>
+		/// Creates a context, specifying attributes.
+		/// </summary>
+		/// <param name="sharedContext">
+		/// A <see cref="IntPtr"/> that specify a context that will share objects with the returned one. If
+		/// it is IntPtr.Zero, no sharing is performed.
+		/// </param>
+		/// <param name="attribsList">
+		/// A <see cref="T:Int32[]"/> that specifies the attributes list.
+		/// </param>
+		/// <returns>
+		/// A <see cref="IntPtr"/> that represents the handle of the created context. If the context cannot be
+		/// created, it returns IntPtr.Zero.
+		/// </returns>
+		/// <exception cref="ArgumentNullException">
+		/// Exception thrown if <see cref="attribsList"/> is null.
+		/// </exception>
+		/// <exception cref="ArgumentException">
+		/// Exception thrown if <paramref name="attribsList"/> length is zero or if the last item of <paramref name="attribsList"/>
+		/// is not zero.
+		/// </exception>
+		public override IntPtr CreateContextAttrib(IntPtr sharedContext, int[] attribsList)
+		{
+			if (attribsList == null)
+				throw new ArgumentNullException("attribsList");
+			if (attribsList.Length == 0)
+				throw new ArgumentException("zero length array", "attribsList");
+			if (attribsList[attribsList.Length - 1] != 0)
+				throw new ArgumentException("not zero-terminated array", "attribsList");
+
+			return (Wgl.CreateContextAttribsARB(DeviceContext, sharedContext, attribsList));
+		}
+
+		/// <summary>
+		/// Makes the context current on the calling thread.
+		/// </summary>
+		/// <param name="ctx">
+		/// A <see cref="IntPtr"/> that specify the context to be current on the calling thread, bound to
+		/// thise device context. It can be IntPtr.Zero indicating that no context will be current.
+		/// </param>
+		/// <returns>
+		/// It returns a boolean value indicating whether the operation was successful.
+		/// </returns>
+		/// <exception cref="ArgumentNullException">
+		/// Exception thrown if <paramref name="deviceContext"/> is null.
+		/// </exception>
+		/// <exception cref="NotSupportedException">
+		/// Exception thrown if the current platform is not supported.
+		/// </exception>
+		public override bool MakeCurrent(IntPtr ctx)
+		{
+			return (Wgl.MakeCurrent(DeviceContext, ctx));
+		}
+
+		/// <summary>
+		/// Deletes a context.
+		/// </summary>
+		/// <param name="ctx">
+		/// A <see cref="IntPtr"/> that specify the context to be deleted.
+		/// </param>
+		/// <returns>
+		/// It returns a boolean value indicating whether the operation was successful. If it returns false,
+		/// query the exception by calling <see cref="GetPlatformException"/>.
+		/// </returns>
+		/// <remarks>
+		/// <para>The context <paramref name="ctx"/> must not be current on any thread.</para>
+		/// </remarks>
+		/// <exception cref="ArgumentException">
+		/// Exception thrown if <paramref name="ctx"/> is IntPtr.Zero.
+		/// </exception>
+		public override bool DeleteContext(IntPtr ctx)
+		{
+			if (ctx == IntPtr.Zero)
+				throw new ArgumentException("ctx");
+
+			return (Wgl.DeleteContext(ctx));
+		}
+
+		/// <summary>
+		/// Swap the buffers of a device.
+		/// </summary>
+		public override void SwapBuffers()
+		{
+			Wgl.UnsafeNativeMethods.GdiSwapBuffersFast(DeviceContext);
+		}
+
+		/// <summary>
+		/// Control the the buffers swap of a device.
+		/// </summary>
+		/// <param name="interval">
+		/// A <see cref="System.Int32"/> that specifies the minimum number of video frames that are displayed
+		/// before a buffer swap will occur.
+		/// </param>
+		/// <returns>
+		/// It returns a boolean value indicating whether the operation was successful.
+		/// </returns>
+		public override bool SwapInterval(int interval)
+		{
+			return (Wgl.SwapIntervalEXT(interval));
+		}
+
+		/// <summary>
+		/// Gets the platform exception relative to the last operation performed.
+		/// </summary>
+		/// <param name="deviceContext">
+		/// A <see cref="IDeviceContext"/> that specifies the device context on which an error occurred.
+		/// </param>
+		/// <returns>
+		/// The platform exception relative to the last operation performed.
+		/// </returns>
+		/// <exception cref="NotSupportedException">
+		/// Exception thrown if the current platform is not supported.
+		/// </exception>
+		[System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Interoperability", "CA1404:CallGetLastErrorImmediatelyAfterPInvoke")]
+		public override Exception GetPlatformException()
+		{
+			Exception platformException = null;
+
+			int win32Error = Marshal.GetLastWin32Error();
+			if (win32Error != 0)
+				platformException = new Win32Exception(win32Error);
+
+			return (platformException);
+		}
 
 		/// <summary>
 		/// Get the pixel formats supported by this device.
@@ -315,6 +479,6 @@ namespace OpenGL
 		/// </summary>
 		private bool _PixelFormatSet;
 
-		#endregion
+#endregion
 	}
 }
