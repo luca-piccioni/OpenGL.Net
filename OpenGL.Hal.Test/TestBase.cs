@@ -16,6 +16,8 @@
 // Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301
 // USA
 
+using System.Windows.Forms;
+
 using NUnit.Framework;
 
 namespace OpenGL.Hal.Test
@@ -34,12 +36,17 @@ namespace OpenGL.Hal.Test
 			try {
 				// Create window on which tests are run
 				_Window = new GraphicsWindow(800, 600);
+				_Window.ShowWindow();
+
 				_Window.Create(new GraphicsBuffersFormat(PixelLayout.RGB24));
 				// Create graphics context
 				_Context = new GraphicsContext(_Window.GetDeviceContext());
 				// Show window
-				_Window.ShowWindow();
 				_Window.Clear(_Context);
+
+				Application.DoEvents();
+
+				_Window.SwapSurface();
 			} catch {
 				// Release resources manually
 				FixtureTearDown();
@@ -51,7 +58,7 @@ namespace OpenGL.Hal.Test
 		public void SetUp()
 		{
 			_Context.MakeCurrent(true);
-        }
+		}
 
 		/// <summary>
 		/// Release resources allocated by <see cref="FixtureSetUp"/>.
