@@ -78,7 +78,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglSampleMaskIndexedNV != null, "pglSampleMaskIndexedNV not implemented");
 			Delegates.pglSampleMaskIndexedNV(index, mask);
 			CallLog("glSampleMaskIndexedNV({0}, {1})", index, mask);
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -96,7 +96,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglTexRenderbufferNV != null, "pglTexRenderbufferNV not implemented");
 			Delegates.pglTexRenderbufferNV((Int32)target, renderbuffer);
 			CallLog("glTexRenderbufferNV({0}, {1})", target, renderbuffer);
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 	}

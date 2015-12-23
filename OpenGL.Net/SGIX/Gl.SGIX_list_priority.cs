@@ -56,7 +56,7 @@ namespace OpenGL
 					CallLog("glGetListParameterfvSGIX({0}, {1}, {2})", list, pname, @params);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -82,7 +82,7 @@ namespace OpenGL
 					CallLog("glGetListParameterivSGIX({0}, {1}, {2})", list, pname, @params);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -103,7 +103,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglListParameterfSGIX != null, "pglListParameterfSGIX not implemented");
 			Delegates.pglListParameterfSGIX(list, (Int32)pname, param);
 			CallLog("glListParameterfSGIX({0}, {1}, {2})", list, pname, param);
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -129,7 +129,7 @@ namespace OpenGL
 					CallLog("glListParameterfvSGIX({0}, {1}, {2})", list, pname, @params);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -150,7 +150,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglListParameteriSGIX != null, "pglListParameteriSGIX not implemented");
 			Delegates.pglListParameteriSGIX(list, (Int32)pname, param);
 			CallLog("glListParameteriSGIX({0}, {1}, {2})", list, pname, param);
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -176,7 +176,7 @@ namespace OpenGL
 					CallLog("glListParameterivSGIX({0}, {1}, {2})", list, pname, @params);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 	}

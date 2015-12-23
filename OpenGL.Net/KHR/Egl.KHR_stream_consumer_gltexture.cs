@@ -50,7 +50,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.peglStreamConsumerGLTextureExternalKHR != null, "peglStreamConsumerGLTextureExternalKHR not implemented");
 			retValue = Delegates.peglStreamConsumerGLTextureExternalKHR(dpy, stream);
 			CallLog("eglStreamConsumerGLTextureExternalKHR(0x{0}, 0x{1}) = {2}", dpy.ToString("X8"), stream.ToString("X8"), retValue.ToString("X8"));
-			DebugCheckErrors();
+			DebugCheckErrors(retValue);
 
 			return (retValue);
 		}
@@ -72,7 +72,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.peglStreamConsumerAcquireKHR != null, "peglStreamConsumerAcquireKHR not implemented");
 			retValue = Delegates.peglStreamConsumerAcquireKHR(dpy, stream);
 			CallLog("eglStreamConsumerAcquireKHR(0x{0}, 0x{1}) = {2}", dpy.ToString("X8"), stream.ToString("X8"), retValue.ToString("X8"));
-			DebugCheckErrors();
+			DebugCheckErrors(retValue);
 
 			return (retValue);
 		}
@@ -94,7 +94,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.peglStreamConsumerReleaseKHR != null, "peglStreamConsumerReleaseKHR not implemented");
 			retValue = Delegates.peglStreamConsumerReleaseKHR(dpy, stream);
 			CallLog("eglStreamConsumerReleaseKHR(0x{0}, 0x{1}) = {2}", dpy.ToString("X8"), stream.ToString("X8"), retValue.ToString("X8"));
-			DebugCheckErrors();
+			DebugCheckErrors(retValue);
 
 			return (retValue);
 		}

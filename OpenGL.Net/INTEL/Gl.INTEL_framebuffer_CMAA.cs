@@ -36,7 +36,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglApplyFramebufferAttachmentCMAAINTEL != null, "pglApplyFramebufferAttachmentCMAAINTEL not implemented");
 			Delegates.pglApplyFramebufferAttachmentCMAAINTEL();
 			CallLog("glApplyFramebufferAttachmentCMAAINTEL()");
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 	}

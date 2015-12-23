@@ -68,7 +68,7 @@ namespace OpenGL
 					CallLog("glAreTexturesResidentEXT({0}, {1}, {2}) = {3}", textures.Length, textures, residences, retValue);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(retValue);
 
 			return (retValue);
 		}
@@ -90,7 +90,7 @@ namespace OpenGL
 					CallLog("glDeleteTexturesEXT({0}, {1})", textures.Length, textures);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -110,7 +110,7 @@ namespace OpenGL
 					CallLog("glGenTexturesEXT({0}, {1})", textures.Length, textures);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -138,7 +138,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglIsTextureEXT != null, "pglIsTextureEXT not implemented");
 			retValue = Delegates.pglIsTextureEXT(texture);
 			CallLog("glIsTextureEXT({0}) = {1}", texture, retValue);
-			DebugCheckErrors();
+			DebugCheckErrors(retValue);
 
 			return (retValue);
 		}

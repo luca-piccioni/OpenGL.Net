@@ -60,7 +60,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglDrawMeshArraysSUN != null, "pglDrawMeshArraysSUN not implemented");
 			Delegates.pglDrawMeshArraysSUN((Int32)mode, first, count, width);
 			CallLog("glDrawMeshArraysSUN({0}, {1}, {2}, {3})", mode, first, count, width);
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 	}

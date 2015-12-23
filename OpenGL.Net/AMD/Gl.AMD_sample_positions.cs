@@ -56,7 +56,7 @@ namespace OpenGL
 					CallLog("glSetMultisamplefvAMD({0}, {1}, {2})", pname, index, val);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 	}

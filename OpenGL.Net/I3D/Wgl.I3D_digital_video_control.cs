@@ -76,7 +76,7 @@ namespace OpenGL
 					CallLog("wglGetDigitalVideoParametersI3D(0x{0}, {1}, {2}) = {3}", hDC.ToString("X8"), iAttribute, piValue, retValue);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(retValue);
 
 			return (retValue);
 		}
@@ -106,7 +106,7 @@ namespace OpenGL
 					CallLog("wglSetDigitalVideoParametersI3D(0x{0}, {1}, {2}) = {3}", hDC.ToString("X8"), iAttribute, piValue, retValue);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(retValue);
 
 			return (retValue);
 		}

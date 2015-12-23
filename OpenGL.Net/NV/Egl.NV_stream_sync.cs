@@ -61,7 +61,7 @@ namespace OpenGL
 					CallLog("eglCreateStreamSyncNV(0x{0}, 0x{1}, {2}, {3}) = {4}", dpy.ToString("X8"), stream.ToString("X8"), type, attrib_list, retValue.ToString("X8"));
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(retValue);
 
 			return (retValue);
 		}

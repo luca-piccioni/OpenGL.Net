@@ -60,7 +60,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglBufferPageCommitmentARB != null, "pglBufferPageCommitmentARB not implemented");
 			Delegates.pglBufferPageCommitmentARB(target, offset, size, commit);
 			CallLog("glBufferPageCommitmentARB({0}, 0x{1}, {2}, {3})", target, offset.ToString("X8"), size, commit);
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -84,7 +84,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglNamedBufferPageCommitmentEXT != null, "pglNamedBufferPageCommitmentEXT not implemented");
 			Delegates.pglNamedBufferPageCommitmentEXT(buffer, offset, size, commit);
 			CallLog("glNamedBufferPageCommitmentEXT({0}, 0x{1}, {2}, {3})", buffer, offset.ToString("X8"), size, commit);
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -108,7 +108,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglNamedBufferPageCommitmentARB != null, "pglNamedBufferPageCommitmentARB not implemented");
 			Delegates.pglNamedBufferPageCommitmentARB(buffer, offset, size, commit);
 			CallLog("glNamedBufferPageCommitmentARB({0}, 0x{1}, {2}, {3})", buffer, offset.ToString("X8"), size, commit);
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 	}

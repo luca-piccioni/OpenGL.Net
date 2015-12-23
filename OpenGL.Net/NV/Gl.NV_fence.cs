@@ -62,7 +62,7 @@ namespace OpenGL
 					CallLog("glDeleteFencesNV({0}, {1})", fences.Length, fences);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -82,7 +82,7 @@ namespace OpenGL
 					CallLog("glGenFencesNV({0}, {1})", fences.Length, fences);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -110,7 +110,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglIsFenceNV != null, "pglIsFenceNV not implemented");
 			retValue = Delegates.pglIsFenceNV(fence);
 			CallLog("glIsFenceNV({0}) = {1}", fence, retValue);
-			DebugCheckErrors();
+			DebugCheckErrors(retValue);
 
 			return (retValue);
 		}
@@ -129,7 +129,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglTestFenceNV != null, "pglTestFenceNV not implemented");
 			retValue = Delegates.pglTestFenceNV(fence);
 			CallLog("glTestFenceNV({0}) = {1}", fence, retValue);
-			DebugCheckErrors();
+			DebugCheckErrors(retValue);
 
 			return (retValue);
 		}
@@ -157,7 +157,7 @@ namespace OpenGL
 					CallLog("glGetFenceivNV({0}, {1}, {2})", fence, pname, @params);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -172,7 +172,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglFinishFenceNV != null, "pglFinishFenceNV not implemented");
 			Delegates.pglFinishFenceNV(fence);
 			CallLog("glFinishFenceNV({0})", fence);
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -190,7 +190,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglSetFenceNV != null, "pglSetFenceNV not implemented");
 			Delegates.pglSetFenceNV(fence, condition);
 			CallLog("glSetFenceNV({0}, {1})", fence, condition);
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 	}

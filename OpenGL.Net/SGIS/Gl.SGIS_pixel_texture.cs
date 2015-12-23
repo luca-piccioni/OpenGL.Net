@@ -66,7 +66,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglPixelTexGenParameteriSGIS != null, "pglPixelTexGenParameteriSGIS not implemented");
 			Delegates.pglPixelTexGenParameteriSGIS((Int32)pname, param);
 			CallLog("glPixelTexGenParameteriSGIS({0}, {1})", pname, param);
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -89,7 +89,7 @@ namespace OpenGL
 					CallLog("glPixelTexGenParameterivSGIS({0}, {1})", pname, @params);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -107,7 +107,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglPixelTexGenParameterfSGIS != null, "pglPixelTexGenParameterfSGIS not implemented");
 			Delegates.pglPixelTexGenParameterfSGIS((Int32)pname, param);
 			CallLog("glPixelTexGenParameterfSGIS({0}, {1})", pname, param);
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -130,7 +130,7 @@ namespace OpenGL
 					CallLog("glPixelTexGenParameterfvSGIS({0}, {1})", pname, @params);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -153,7 +153,7 @@ namespace OpenGL
 					CallLog("glGetPixelTexGenParameterivSGIS({0}, {1})", pname, @params);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -176,7 +176,7 @@ namespace OpenGL
 					CallLog("glGetPixelTexGenParameterfvSGIS({0}, {1})", pname, @params);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 	}

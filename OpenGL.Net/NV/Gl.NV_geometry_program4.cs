@@ -81,7 +81,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglProgramVertexLimitNV != null, "pglProgramVertexLimitNV not implemented");
 			Delegates.pglProgramVertexLimitNV(target, limit);
 			CallLog("glProgramVertexLimitNV({0}, {1})", target, limit);
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 	}

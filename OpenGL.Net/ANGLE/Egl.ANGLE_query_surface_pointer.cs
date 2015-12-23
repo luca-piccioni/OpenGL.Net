@@ -55,7 +55,7 @@ namespace OpenGL
 					CallLog("eglQuerySurfacePointerANGLE(0x{0}, 0x{1}, {2}, {3}) = {4}", dpy.ToString("X8"), surface.ToString("X8"), attribute, value, retValue.ToString("X8"));
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(retValue);
 
 			return (retValue);
 		}

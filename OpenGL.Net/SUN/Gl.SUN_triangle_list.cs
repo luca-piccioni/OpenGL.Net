@@ -141,7 +141,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglReplacementCodeuiSUN != null, "pglReplacementCodeuiSUN not implemented");
 			Delegates.pglReplacementCodeuiSUN(code);
 			CallLog("glReplacementCodeuiSUN({0})", code);
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -156,7 +156,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglReplacementCodeusSUN != null, "pglReplacementCodeusSUN not implemented");
 			Delegates.pglReplacementCodeusSUN(code);
 			CallLog("glReplacementCodeusSUN({0})", code);
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -171,7 +171,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglReplacementCodeubSUN != null, "pglReplacementCodeubSUN not implemented");
 			Delegates.pglReplacementCodeubSUN(code);
 			CallLog("glReplacementCodeubSUN({0})", code);
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -191,7 +191,7 @@ namespace OpenGL
 					CallLog("glReplacementCodeuivSUN({0})", code);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -211,7 +211,7 @@ namespace OpenGL
 					CallLog("glReplacementCodeusvSUN({0})", code);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -231,7 +231,7 @@ namespace OpenGL
 					CallLog("glReplacementCodeubvSUN({0})", code);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -257,7 +257,7 @@ namespace OpenGL
 					CallLog("glReplacementCodePointerSUN({0}, {1}, {2})", type, stride, pointer);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 	}

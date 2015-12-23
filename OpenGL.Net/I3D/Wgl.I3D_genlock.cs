@@ -95,7 +95,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pwglEnableGenlockI3D != null, "pwglEnableGenlockI3D not implemented");
 			retValue = Delegates.pwglEnableGenlockI3D(hDC);
 			CallLog("wglEnableGenlockI3D(0x{0}) = {1}", hDC.ToString("X8"), retValue);
-			DebugCheckErrors();
+			DebugCheckErrors(retValue);
 
 			return (retValue);
 		}
@@ -114,7 +114,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pwglDisableGenlockI3D != null, "pwglDisableGenlockI3D not implemented");
 			retValue = Delegates.pwglDisableGenlockI3D(hDC);
 			CallLog("wglDisableGenlockI3D(0x{0}) = {1}", hDC.ToString("X8"), retValue);
-			DebugCheckErrors();
+			DebugCheckErrors(retValue);
 
 			return (retValue);
 		}
@@ -141,7 +141,7 @@ namespace OpenGL
 					CallLog("wglIsEnabledGenlockI3D(0x{0}, {1}) = {2}", hDC.ToString("X8"), pFlag, retValue);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(retValue);
 
 			return (retValue);
 		}
@@ -163,7 +163,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pwglGenlockSourceI3D != null, "pwglGenlockSourceI3D not implemented");
 			retValue = Delegates.pwglGenlockSourceI3D(hDC, uSource);
 			CallLog("wglGenlockSourceI3D(0x{0}, {1}) = {2}", hDC.ToString("X8"), uSource, retValue);
-			DebugCheckErrors();
+			DebugCheckErrors(retValue);
 
 			return (retValue);
 		}
@@ -190,7 +190,7 @@ namespace OpenGL
 					CallLog("wglGetGenlockSourceI3D(0x{0}, {1}) = {2}", hDC.ToString("X8"), uSource, retValue);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(retValue);
 
 			return (retValue);
 		}
@@ -212,7 +212,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pwglGenlockSourceEdgeI3D != null, "pwglGenlockSourceEdgeI3D not implemented");
 			retValue = Delegates.pwglGenlockSourceEdgeI3D(hDC, uEdge);
 			CallLog("wglGenlockSourceEdgeI3D(0x{0}, {1}) = {2}", hDC.ToString("X8"), uEdge, retValue);
-			DebugCheckErrors();
+			DebugCheckErrors(retValue);
 
 			return (retValue);
 		}
@@ -239,7 +239,7 @@ namespace OpenGL
 					CallLog("wglGetGenlockSourceEdgeI3D(0x{0}, {1}) = {2}", hDC.ToString("X8"), uEdge, retValue);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(retValue);
 
 			return (retValue);
 		}
@@ -261,7 +261,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pwglGenlockSampleRateI3D != null, "pwglGenlockSampleRateI3D not implemented");
 			retValue = Delegates.pwglGenlockSampleRateI3D(hDC, uRate);
 			CallLog("wglGenlockSampleRateI3D(0x{0}, {1}) = {2}", hDC.ToString("X8"), uRate, retValue);
-			DebugCheckErrors();
+			DebugCheckErrors(retValue);
 
 			return (retValue);
 		}
@@ -288,7 +288,7 @@ namespace OpenGL
 					CallLog("wglGetGenlockSampleRateI3D(0x{0}, {1}) = {2}", hDC.ToString("X8"), uRate, retValue);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(retValue);
 
 			return (retValue);
 		}
@@ -310,7 +310,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pwglGenlockSourceDelayI3D != null, "pwglGenlockSourceDelayI3D not implemented");
 			retValue = Delegates.pwglGenlockSourceDelayI3D(hDC, uDelay);
 			CallLog("wglGenlockSourceDelayI3D(0x{0}, {1}) = {2}", hDC.ToString("X8"), uDelay, retValue);
-			DebugCheckErrors();
+			DebugCheckErrors(retValue);
 
 			return (retValue);
 		}
@@ -337,7 +337,7 @@ namespace OpenGL
 					CallLog("wglGetGenlockSourceDelayI3D(0x{0}, {1}) = {2}", hDC.ToString("X8"), uDelay, retValue);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(retValue);
 
 			return (retValue);
 		}
@@ -368,7 +368,7 @@ namespace OpenGL
 					CallLog("wglQueryGenlockMaxSourceDelayI3D(0x{0}, {1}, {2}) = {3}", hDC.ToString("X8"), uMaxLineDelay, uMaxPixelDelay, retValue);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(retValue);
 
 			return (retValue);
 		}

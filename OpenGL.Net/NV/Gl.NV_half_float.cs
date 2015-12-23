@@ -42,7 +42,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglVertex2hNV != null, "pglVertex2hNV not implemented");
 			Delegates.pglVertex2hNV(x, y);
 			CallLog("glVertex2hNV({0}, {1})", x, y);
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -62,7 +62,7 @@ namespace OpenGL
 					CallLog("glVertex2hvNV({0})", v);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -83,7 +83,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglVertex3hNV != null, "pglVertex3hNV not implemented");
 			Delegates.pglVertex3hNV(x, y, z);
 			CallLog("glVertex3hNV({0}, {1}, {2})", x, y, z);
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -103,7 +103,7 @@ namespace OpenGL
 					CallLog("glVertex3hvNV({0})", v);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -127,7 +127,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglVertex4hNV != null, "pglVertex4hNV not implemented");
 			Delegates.pglVertex4hNV(x, y, z, w);
 			CallLog("glVertex4hNV({0}, {1}, {2}, {3})", x, y, z, w);
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -147,7 +147,7 @@ namespace OpenGL
 					CallLog("glVertex4hvNV({0})", v);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -168,7 +168,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglNormal3hNV != null, "pglNormal3hNV not implemented");
 			Delegates.pglNormal3hNV(nx, ny, nz);
 			CallLog("glNormal3hNV({0}, {1}, {2})", nx, ny, nz);
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -188,7 +188,7 @@ namespace OpenGL
 					CallLog("glNormal3hvNV({0})", v);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -209,7 +209,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglColor3hNV != null, "pglColor3hNV not implemented");
 			Delegates.pglColor3hNV(red, green, blue);
 			CallLog("glColor3hNV({0}, {1}, {2})", red, green, blue);
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -229,7 +229,7 @@ namespace OpenGL
 					CallLog("glColor3hvNV({0})", v);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -253,7 +253,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglColor4hNV != null, "pglColor4hNV not implemented");
 			Delegates.pglColor4hNV(red, green, blue, alpha);
 			CallLog("glColor4hNV({0}, {1}, {2}, {3})", red, green, blue, alpha);
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -273,7 +273,7 @@ namespace OpenGL
 					CallLog("glColor4hvNV({0})", v);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -288,7 +288,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglTexCoord1hNV != null, "pglTexCoord1hNV not implemented");
 			Delegates.pglTexCoord1hNV(s);
 			CallLog("glTexCoord1hNV({0})", s);
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -308,7 +308,7 @@ namespace OpenGL
 					CallLog("glTexCoord1hvNV({0})", v);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -326,7 +326,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglTexCoord2hNV != null, "pglTexCoord2hNV not implemented");
 			Delegates.pglTexCoord2hNV(s, t);
 			CallLog("glTexCoord2hNV({0}, {1})", s, t);
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -346,7 +346,7 @@ namespace OpenGL
 					CallLog("glTexCoord2hvNV({0})", v);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -367,7 +367,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglTexCoord3hNV != null, "pglTexCoord3hNV not implemented");
 			Delegates.pglTexCoord3hNV(s, t, r);
 			CallLog("glTexCoord3hNV({0}, {1}, {2})", s, t, r);
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -387,7 +387,7 @@ namespace OpenGL
 					CallLog("glTexCoord3hvNV({0})", v);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -411,7 +411,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglTexCoord4hNV != null, "pglTexCoord4hNV not implemented");
 			Delegates.pglTexCoord4hNV(s, t, r, q);
 			CallLog("glTexCoord4hNV({0}, {1}, {2}, {3})", s, t, r, q);
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -431,7 +431,7 @@ namespace OpenGL
 					CallLog("glTexCoord4hvNV({0})", v);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -449,7 +449,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglMultiTexCoord1hNV != null, "pglMultiTexCoord1hNV not implemented");
 			Delegates.pglMultiTexCoord1hNV(target, s);
 			CallLog("glMultiTexCoord1hNV({0}, {1})", target, s);
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -472,7 +472,7 @@ namespace OpenGL
 					CallLog("glMultiTexCoord1hvNV({0}, {1})", target, v);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -493,7 +493,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglMultiTexCoord2hNV != null, "pglMultiTexCoord2hNV not implemented");
 			Delegates.pglMultiTexCoord2hNV(target, s, t);
 			CallLog("glMultiTexCoord2hNV({0}, {1}, {2})", target, s, t);
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -516,7 +516,7 @@ namespace OpenGL
 					CallLog("glMultiTexCoord2hvNV({0}, {1})", target, v);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -540,7 +540,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglMultiTexCoord3hNV != null, "pglMultiTexCoord3hNV not implemented");
 			Delegates.pglMultiTexCoord3hNV(target, s, t, r);
 			CallLog("glMultiTexCoord3hNV({0}, {1}, {2}, {3})", target, s, t, r);
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -563,7 +563,7 @@ namespace OpenGL
 					CallLog("glMultiTexCoord3hvNV({0}, {1})", target, v);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -590,7 +590,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglMultiTexCoord4hNV != null, "pglMultiTexCoord4hNV not implemented");
 			Delegates.pglMultiTexCoord4hNV(target, s, t, r, q);
 			CallLog("glMultiTexCoord4hNV({0}, {1}, {2}, {3}, {4})", target, s, t, r, q);
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -613,7 +613,7 @@ namespace OpenGL
 					CallLog("glMultiTexCoord4hvNV({0}, {1})", target, v);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -628,7 +628,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglFogCoordhNV != null, "pglFogCoordhNV not implemented");
 			Delegates.pglFogCoordhNV(fog);
 			CallLog("glFogCoordhNV({0})", fog);
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -648,7 +648,7 @@ namespace OpenGL
 					CallLog("glFogCoordhvNV({0})", fog);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -669,7 +669,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglSecondaryColor3hNV != null, "pglSecondaryColor3hNV not implemented");
 			Delegates.pglSecondaryColor3hNV(red, green, blue);
 			CallLog("glSecondaryColor3hNV({0}, {1}, {2})", red, green, blue);
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -689,7 +689,7 @@ namespace OpenGL
 					CallLog("glSecondaryColor3hvNV({0})", v);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -704,7 +704,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglVertexWeighthNV != null, "pglVertexWeighthNV not implemented");
 			Delegates.pglVertexWeighthNV(weight);
 			CallLog("glVertexWeighthNV({0})", weight);
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -724,7 +724,7 @@ namespace OpenGL
 					CallLog("glVertexWeighthvNV({0})", weight);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -742,7 +742,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglVertexAttrib1hNV != null, "pglVertexAttrib1hNV not implemented");
 			Delegates.pglVertexAttrib1hNV(index, x);
 			CallLog("glVertexAttrib1hNV({0}, {1})", index, x);
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -765,7 +765,7 @@ namespace OpenGL
 					CallLog("glVertexAttrib1hvNV({0}, {1})", index, v);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -786,7 +786,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglVertexAttrib2hNV != null, "pglVertexAttrib2hNV not implemented");
 			Delegates.pglVertexAttrib2hNV(index, x, y);
 			CallLog("glVertexAttrib2hNV({0}, {1}, {2})", index, x, y);
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -809,7 +809,7 @@ namespace OpenGL
 					CallLog("glVertexAttrib2hvNV({0}, {1})", index, v);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -833,7 +833,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglVertexAttrib3hNV != null, "pglVertexAttrib3hNV not implemented");
 			Delegates.pglVertexAttrib3hNV(index, x, y, z);
 			CallLog("glVertexAttrib3hNV({0}, {1}, {2}, {3})", index, x, y, z);
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -856,7 +856,7 @@ namespace OpenGL
 					CallLog("glVertexAttrib3hvNV({0}, {1})", index, v);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -883,7 +883,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglVertexAttrib4hNV != null, "pglVertexAttrib4hNV not implemented");
 			Delegates.pglVertexAttrib4hNV(index, x, y, z, w);
 			CallLog("glVertexAttrib4hNV({0}, {1}, {2}, {3}, {4})", index, x, y, z, w);
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -906,7 +906,7 @@ namespace OpenGL
 					CallLog("glVertexAttrib4hvNV({0}, {1})", index, v);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -929,7 +929,7 @@ namespace OpenGL
 					CallLog("glVertexAttribs1hvNV({0}, {1}, {2})", index, v.Length, v);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -952,7 +952,7 @@ namespace OpenGL
 					CallLog("glVertexAttribs2hvNV({0}, {1}, {2})", index, v.Length, v);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -975,7 +975,7 @@ namespace OpenGL
 					CallLog("glVertexAttribs3hvNV({0}, {1}, {2})", index, v.Length, v);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -998,7 +998,7 @@ namespace OpenGL
 					CallLog("glVertexAttribs4hvNV({0}, {1}, {2})", index, v.Length, v);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 	}

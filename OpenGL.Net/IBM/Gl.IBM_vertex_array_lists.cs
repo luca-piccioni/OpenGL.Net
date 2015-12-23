@@ -152,7 +152,7 @@ namespace OpenGL
 					CallLog("glColorPointerListIBM({0}, {1}, {2}, {3}, {4})", size, type, stride, pointer, ptrstride);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -184,7 +184,7 @@ namespace OpenGL
 					CallLog("glSecondaryColorPointerListIBM({0}, {1}, {2}, {3}, {4})", size, type, stride, pointer, ptrstride);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -205,7 +205,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglEdgeFlagPointerListIBM != null, "pglEdgeFlagPointerListIBM not implemented");
 			Delegates.pglEdgeFlagPointerListIBM(stride, pointer, ptrstride);
 			CallLog("glEdgeFlagPointerListIBM({0}, {1}, {2})", stride, pointer, ptrstride);
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -234,7 +234,7 @@ namespace OpenGL
 					CallLog("glFogCoordPointerListIBM({0}, {1}, {2}, {3})", type, stride, pointer, ptrstride);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -263,7 +263,7 @@ namespace OpenGL
 					CallLog("glIndexPointerListIBM({0}, {1}, {2}, {3})", type, stride, pointer, ptrstride);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -292,7 +292,7 @@ namespace OpenGL
 					CallLog("glNormalPointerListIBM({0}, {1}, {2}, {3})", type, stride, pointer, ptrstride);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -324,7 +324,7 @@ namespace OpenGL
 					CallLog("glTexCoordPointerListIBM({0}, {1}, {2}, {3}, {4})", size, type, stride, pointer, ptrstride);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -356,7 +356,7 @@ namespace OpenGL
 					CallLog("glVertexPointerListIBM({0}, {1}, {2}, {3}, {4})", size, type, stride, pointer, ptrstride);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 	}

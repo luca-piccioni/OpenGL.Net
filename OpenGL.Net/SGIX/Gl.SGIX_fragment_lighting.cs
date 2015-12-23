@@ -162,7 +162,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglFragmentColorMaterialSGIX != null, "pglFragmentColorMaterialSGIX not implemented");
 			Delegates.pglFragmentColorMaterialSGIX((Int32)face, (Int32)mode);
 			CallLog("glFragmentColorMaterialSGIX({0}, {1})", face, mode);
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -183,7 +183,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglFragmentLightfSGIX != null, "pglFragmentLightfSGIX not implemented");
 			Delegates.pglFragmentLightfSGIX(light, pname, param);
 			CallLog("glFragmentLightfSGIX({0}, {1}, {2})", light, pname, param);
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -209,7 +209,7 @@ namespace OpenGL
 					CallLog("glFragmentLightfvSGIX({0}, {1}, {2})", light, pname, @params);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -230,7 +230,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglFragmentLightiSGIX != null, "pglFragmentLightiSGIX not implemented");
 			Delegates.pglFragmentLightiSGIX(light, pname, param);
 			CallLog("glFragmentLightiSGIX({0}, {1}, {2})", light, pname, param);
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -256,7 +256,7 @@ namespace OpenGL
 					CallLog("glFragmentLightivSGIX({0}, {1}, {2})", light, pname, @params);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -274,7 +274,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglFragmentLightModelfSGIX != null, "pglFragmentLightModelfSGIX not implemented");
 			Delegates.pglFragmentLightModelfSGIX((Int32)pname, param);
 			CallLog("glFragmentLightModelfSGIX({0}, {1})", pname, param);
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -297,7 +297,7 @@ namespace OpenGL
 					CallLog("glFragmentLightModelfvSGIX({0}, {1})", pname, @params);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -315,7 +315,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglFragmentLightModeliSGIX != null, "pglFragmentLightModeliSGIX not implemented");
 			Delegates.pglFragmentLightModeliSGIX((Int32)pname, param);
 			CallLog("glFragmentLightModeliSGIX({0}, {1})", pname, param);
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -338,7 +338,7 @@ namespace OpenGL
 					CallLog("glFragmentLightModelivSGIX({0}, {1})", pname, @params);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -359,7 +359,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglFragmentMaterialfSGIX != null, "pglFragmentMaterialfSGIX not implemented");
 			Delegates.pglFragmentMaterialfSGIX((Int32)face, (Int32)pname, param);
 			CallLog("glFragmentMaterialfSGIX({0}, {1}, {2})", face, pname, param);
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -385,7 +385,7 @@ namespace OpenGL
 					CallLog("glFragmentMaterialfvSGIX({0}, {1}, {2})", face, pname, @params);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -406,7 +406,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglFragmentMaterialiSGIX != null, "pglFragmentMaterialiSGIX not implemented");
 			Delegates.pglFragmentMaterialiSGIX((Int32)face, (Int32)pname, param);
 			CallLog("glFragmentMaterialiSGIX({0}, {1}, {2})", face, pname, param);
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -432,7 +432,7 @@ namespace OpenGL
 					CallLog("glFragmentMaterialivSGIX({0}, {1}, {2})", face, pname, @params);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -458,7 +458,7 @@ namespace OpenGL
 					CallLog("glGetFragmentLightfvSGIX({0}, {1}, {2})", light, pname, @params);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -484,7 +484,7 @@ namespace OpenGL
 					CallLog("glGetFragmentLightivSGIX({0}, {1}, {2})", light, pname, @params);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -510,7 +510,7 @@ namespace OpenGL
 					CallLog("glGetFragmentMaterialfvSGIX({0}, {1}, {2})", face, pname, @params);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -536,7 +536,7 @@ namespace OpenGL
 					CallLog("glGetFragmentMaterialivSGIX({0}, {1}, {2})", face, pname, @params);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -554,7 +554,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglLightEnviSGIX != null, "pglLightEnviSGIX not implemented");
 			Delegates.pglLightEnviSGIX((Int32)pname, param);
 			CallLog("glLightEnviSGIX({0}, {1})", pname, param);
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 	}

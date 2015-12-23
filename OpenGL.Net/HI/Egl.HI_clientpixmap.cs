@@ -58,7 +58,7 @@ namespace OpenGL
 					CallLog("eglCreatePixmapSurfaceHI(0x{0}, 0x{1}, {2}) = {3}", dpy.ToString("X8"), config.ToString("X8"), pixmap, retValue.ToString("X8"));
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(retValue);
 
 			return (retValue);
 		}

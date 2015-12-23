@@ -53,7 +53,7 @@ namespace OpenGL
 					CallLog("glProgramEnvParameters4fvEXT({0}, {1}, {2}, {3})", target, index, count, @params);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -82,7 +82,7 @@ namespace OpenGL
 					CallLog("glProgramLocalParameters4fvEXT({0}, {1}, {2}, {3})", target, index, count, @params);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 	}

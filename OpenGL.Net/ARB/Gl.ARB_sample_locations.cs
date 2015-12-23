@@ -109,7 +109,7 @@ namespace OpenGL
 					CallLog("glFramebufferSampleLocationsfvARB({0}, {1}, {2}, {3})", target, start, count, v);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -138,7 +138,7 @@ namespace OpenGL
 					CallLog("glNamedFramebufferSampleLocationsfvARB({0}, {1}, {2}, {3})", framebuffer, start, count, v);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -150,7 +150,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglEvaluateDepthValuesARB != null, "pglEvaluateDepthValuesARB not implemented");
 			Delegates.pglEvaluateDepthValuesARB();
 			CallLog("glEvaluateDepthValuesARB()");
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 	}

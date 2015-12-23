@@ -65,7 +65,7 @@ namespace OpenGL
 					CallLog("glFogFuncSGIS({0}, {1})", n, points);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -85,7 +85,7 @@ namespace OpenGL
 					CallLog("glGetFogFuncSGIS({0})", points);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 	}

@@ -70,7 +70,7 @@ namespace OpenGL
 					CallLog("wglCreatePbufferEXT(0x{0}, {1}, {2}, {3}, {4}) = {5}", hDC.ToString("X8"), iPixelFormat, iWidth, iHeight, piAttribList, retValue.ToString("X8"));
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(retValue);
 
 			return (retValue);
 		}
@@ -89,7 +89,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pwglGetPbufferDCEXT != null, "pwglGetPbufferDCEXT not implemented");
 			retValue = Delegates.pwglGetPbufferDCEXT(hPbuffer);
 			CallLog("wglGetPbufferDCEXT(0x{0}) = {1}", hPbuffer.ToString("X8"), retValue.ToString("X8"));
-			DebugCheckErrors();
+			DebugCheckErrors(retValue);
 
 			return (retValue);
 		}
@@ -111,7 +111,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pwglReleasePbufferDCEXT != null, "pwglReleasePbufferDCEXT not implemented");
 			retValue = Delegates.pwglReleasePbufferDCEXT(hPbuffer, hDC);
 			CallLog("wglReleasePbufferDCEXT(0x{0}, 0x{1}) = {2}", hPbuffer.ToString("X8"), hDC.ToString("X8"), retValue);
-			DebugCheckErrors();
+			DebugCheckErrors(retValue);
 
 			return (retValue);
 		}
@@ -130,7 +130,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pwglDestroyPbufferEXT != null, "pwglDestroyPbufferEXT not implemented");
 			retValue = Delegates.pwglDestroyPbufferEXT(hPbuffer);
 			CallLog("wglDestroyPbufferEXT(0x{0}) = {1}", hPbuffer.ToString("X8"), retValue);
-			DebugCheckErrors();
+			DebugCheckErrors(retValue);
 
 			return (retValue);
 		}
@@ -160,7 +160,7 @@ namespace OpenGL
 					CallLog("wglQueryPbufferEXT(0x{0}, {1}, {2}) = {3}", hPbuffer.ToString("X8"), iAttribute, piValue, retValue);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(retValue);
 
 			return (retValue);
 		}

@@ -65,7 +65,7 @@ namespace OpenGL
 					CallLog("glCullParameterdvEXT({0}, {1})", pname, @params);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -88,7 +88,7 @@ namespace OpenGL
 					CallLog("glCullParameterfvEXT({0}, {1})", pname, @params);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 	}

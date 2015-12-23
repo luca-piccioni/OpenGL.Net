@@ -49,7 +49,7 @@ namespace OpenGL
 					CallLog("eglQueryNativeDisplayNV(0x{0}, {1}) = {2}", dpy.ToString("X8"), display_id, retValue.ToString("X8"));
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(retValue);
 
 			return (retValue);
 		}
@@ -79,7 +79,7 @@ namespace OpenGL
 					CallLog("eglQueryNativeWindowNV(0x{0}, 0x{1}, {2}) = {3}", dpy.ToString("X8"), surf.ToString("X8"), window, retValue.ToString("X8"));
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(retValue);
 
 			return (retValue);
 		}
@@ -109,7 +109,7 @@ namespace OpenGL
 					CallLog("eglQueryNativePixmapNV(0x{0}, 0x{1}, {2}) = {3}", dpy.ToString("X8"), surf.ToString("X8"), pixmap, retValue.ToString("X8"));
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(retValue);
 
 			return (retValue);
 		}

@@ -47,7 +47,7 @@ namespace OpenGL
 					CallLog("glClipPlanefOES({0}, {1})", plane, equation);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -77,7 +77,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglFrustumfOES != null, "pglFrustumfOES not implemented");
 			Delegates.pglFrustumfOES(l, r, b, t, n, f);
 			CallLog("glFrustumfOES({0}, {1}, {2}, {3}, {4}, {5})", l, r, b, t, n, f);
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -100,7 +100,7 @@ namespace OpenGL
 					CallLog("glGetClipPlanefOES({0}, {1})", plane, equation);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -130,7 +130,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglOrthofOES != null, "pglOrthofOES not implemented");
 			Delegates.pglOrthofOES(l, r, b, t, n, f);
 			CallLog("glOrthofOES({0}, {1}, {2}, {3}, {4}, {5})", l, r, b, t, n, f);
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 	}

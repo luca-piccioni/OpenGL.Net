@@ -709,7 +709,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglBlendFuncSeparate != null, "pglBlendFuncSeparate not implemented");
 			Delegates.pglBlendFuncSeparate(sfactorRGB, dfactorRGB, sfactorAlpha, dfactorAlpha);
 			CallLog("glBlendFuncSeparate({0}, {1}, {2}, {3})", sfactorRGB, dfactorRGB, sfactorAlpha, dfactorAlpha);
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -755,7 +755,7 @@ namespace OpenGL
 					CallLog("glMultiDrawArrays({0}, {1}, {2}, {3})", mode, first, count, drawcount);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -805,7 +805,7 @@ namespace OpenGL
 					CallLog("glMultiDrawElements({0}, {1}, {2}, {3}, {4})", mode, count, type, indices, drawcount);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -833,7 +833,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglPointParameterf != null, "pglPointParameterf not implemented");
 			Delegates.pglPointParameterf(pname, param);
 			CallLog("glPointParameterf({0}, {1})", pname, param);
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -867,7 +867,7 @@ namespace OpenGL
 					CallLog("glPointParameterfv({0}, {1})", pname, @params);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -895,7 +895,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglPointParameteri != null, "pglPointParameteri not implemented");
 			Delegates.pglPointParameteri(pname, param);
 			CallLog("glPointParameteri({0}, {1})", pname, param);
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -929,7 +929,7 @@ namespace OpenGL
 					CallLog("glPointParameteriv({0}, {1})", pname, @params);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -971,7 +971,7 @@ namespace OpenGL
 					CallLog("glFogCoordfv({0})", coord);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -1013,7 +1013,7 @@ namespace OpenGL
 					CallLog("glFogCoorddv({0})", coord);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -1066,7 +1066,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglFogCoordPointer != null, "pglFogCoordPointer not implemented");
 			Delegates.pglFogCoordPointer((Int32)type, stride, pointer);
 			CallLog("glFogCoordPointer({0}, {1}, 0x{2})", type, stride, pointer.ToString("X8"));
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -1171,7 +1171,7 @@ namespace OpenGL
 					CallLog("glSecondaryColor3bv({0})", v);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -1221,7 +1221,7 @@ namespace OpenGL
 					CallLog("glSecondaryColor3dv({0})", v);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -1271,7 +1271,7 @@ namespace OpenGL
 					CallLog("glSecondaryColor3fv({0})", v);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -1321,7 +1321,7 @@ namespace OpenGL
 					CallLog("glSecondaryColor3iv({0})", v);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -1371,7 +1371,7 @@ namespace OpenGL
 					CallLog("glSecondaryColor3sv({0})", v);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -1421,7 +1421,7 @@ namespace OpenGL
 					CallLog("glSecondaryColor3ubv({0})", v);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -1471,7 +1471,7 @@ namespace OpenGL
 					CallLog("glSecondaryColor3uiv({0})", v);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -1521,7 +1521,7 @@ namespace OpenGL
 					CallLog("glSecondaryColor3usv({0})", v);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -1580,7 +1580,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglSecondaryColorPointer != null, "pglSecondaryColorPointer not implemented");
 			Delegates.pglSecondaryColorPointer(size, (Int32)type, stride, pointer);
 			CallLog("glSecondaryColorPointer({0}, {1}, {2}, 0x{3})", size, type, stride, pointer.ToString("X8"));
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -1677,7 +1677,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglWindowPos2d != null, "pglWindowPos2d not implemented");
 			Delegates.pglWindowPos2d(x, y);
 			CallLog("glWindowPos2d({0}, {1})", x, y);
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -1715,7 +1715,7 @@ namespace OpenGL
 					CallLog("glWindowPos2dv({0})", v);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -1751,7 +1751,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglWindowPos2f != null, "pglWindowPos2f not implemented");
 			Delegates.pglWindowPos2f(x, y);
 			CallLog("glWindowPos2f({0}, {1})", x, y);
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -1789,7 +1789,7 @@ namespace OpenGL
 					CallLog("glWindowPos2fv({0})", v);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -1825,7 +1825,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglWindowPos2i != null, "pglWindowPos2i not implemented");
 			Delegates.pglWindowPos2i(x, y);
 			CallLog("glWindowPos2i({0}, {1})", x, y);
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -1863,7 +1863,7 @@ namespace OpenGL
 					CallLog("glWindowPos2iv({0})", v);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -1899,7 +1899,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglWindowPos2s != null, "pglWindowPos2s not implemented");
 			Delegates.pglWindowPos2s(x, y);
 			CallLog("glWindowPos2s({0}, {1})", x, y);
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -1937,7 +1937,7 @@ namespace OpenGL
 					CallLog("glWindowPos2sv({0})", v);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -1976,7 +1976,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglWindowPos3d != null, "pglWindowPos3d not implemented");
 			Delegates.pglWindowPos3d(x, y, z);
 			CallLog("glWindowPos3d({0}, {1}, {2})", x, y, z);
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -2014,7 +2014,7 @@ namespace OpenGL
 					CallLog("glWindowPos3dv({0})", v);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -2053,7 +2053,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglWindowPos3f != null, "pglWindowPos3f not implemented");
 			Delegates.pglWindowPos3f(x, y, z);
 			CallLog("glWindowPos3f({0}, {1}, {2})", x, y, z);
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -2091,7 +2091,7 @@ namespace OpenGL
 					CallLog("glWindowPos3fv({0})", v);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -2130,7 +2130,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglWindowPos3i != null, "pglWindowPos3i not implemented");
 			Delegates.pglWindowPos3i(x, y, z);
 			CallLog("glWindowPos3i({0}, {1}, {2})", x, y, z);
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -2168,7 +2168,7 @@ namespace OpenGL
 					CallLog("glWindowPos3iv({0})", v);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -2207,7 +2207,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglWindowPos3s != null, "pglWindowPos3s not implemented");
 			Delegates.pglWindowPos3s(x, y, z);
 			CallLog("glWindowPos3s({0}, {1}, {2})", x, y, z);
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -2245,7 +2245,7 @@ namespace OpenGL
 					CallLog("glWindowPos3sv({0})", v);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -2274,7 +2274,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglBlendColor != null, "pglBlendColor not implemented");
 			Delegates.pglBlendColor(red, green, blue, alpha);
 			CallLog("glBlendColor({0}, {1}, {2}, {3})", red, green, blue, alpha);
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -2304,7 +2304,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglBlendEquation != null, "pglBlendEquation not implemented");
 			Delegates.pglBlendEquation(mode);
 			CallLog("glBlendEquation({0})", mode);
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 	}

@@ -90,7 +90,7 @@ namespace OpenGL
 					CallLog("glGetPerfMonitorGroupsAMD({0}, {1}, {2})", numGroups, groups.Length, groups);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -121,7 +121,7 @@ namespace OpenGL
 					CallLog("glGetPerfMonitorCountersAMD({0}, {1}, {2}, {3}, {4})", group, numCounters, maxActiveCounters, counters.Length, counters);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -150,7 +150,7 @@ namespace OpenGL
 					CallLog("glGetPerfMonitorGroupStringAMD({0}, {1}, {2}, {3})", group, bufSize, length, groupString);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -182,7 +182,7 @@ namespace OpenGL
 					CallLog("glGetPerfMonitorCounterStringAMD({0}, {1}, {2}, {3}, {4})", group, counter, bufSize, length, counterString);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -206,7 +206,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglGetPerfMonitorCounterInfoAMD != null, "pglGetPerfMonitorCounterInfoAMD not implemented");
 			Delegates.pglGetPerfMonitorCounterInfoAMD(group, counter, pname, data);
 			CallLog("glGetPerfMonitorCounterInfoAMD({0}, {1}, {2}, 0x{3})", group, counter, pname, data.ToString("X8"));
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -252,7 +252,7 @@ namespace OpenGL
 					CallLog("glGenPerfMonitorsAMD({0}, {1})", monitors.Length, monitors);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -283,7 +283,7 @@ namespace OpenGL
 					CallLog("glDeletePerfMonitorsAMD({0}, {1})", monitors.Length, monitors);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -312,7 +312,7 @@ namespace OpenGL
 					CallLog("glSelectPerfMonitorCountersAMD({0}, {1}, {2}, {3}, {4})", monitor, enable, group, counterList.Length, counterList);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -327,7 +327,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglBeginPerfMonitorAMD != null, "pglBeginPerfMonitorAMD not implemented");
 			Delegates.pglBeginPerfMonitorAMD(monitor);
 			CallLog("glBeginPerfMonitorAMD({0})", monitor);
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -342,7 +342,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglEndPerfMonitorAMD != null, "pglEndPerfMonitorAMD not implemented");
 			Delegates.pglEndPerfMonitorAMD(monitor);
 			CallLog("glEndPerfMonitorAMD({0})", monitor);
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -372,7 +372,7 @@ namespace OpenGL
 					CallLog("glGetPerfMonitorCounterDataAMD({0}, {1}, {2}, {3}, {4})", monitor, pname, data.Length, data, bytesWritten);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 	}

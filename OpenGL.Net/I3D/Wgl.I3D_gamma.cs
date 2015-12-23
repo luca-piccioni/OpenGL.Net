@@ -64,7 +64,7 @@ namespace OpenGL
 					CallLog("wglGetGammaTableParametersI3D(0x{0}, {1}, {2}) = {3}", hDC.ToString("X8"), iAttribute, piValue, retValue);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(retValue);
 
 			return (retValue);
 		}
@@ -94,7 +94,7 @@ namespace OpenGL
 					CallLog("wglSetGammaTableParametersI3D(0x{0}, {1}, {2}) = {3}", hDC.ToString("X8"), iAttribute, piValue, retValue);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(retValue);
 
 			return (retValue);
 		}
@@ -132,7 +132,7 @@ namespace OpenGL
 					CallLog("wglGetGammaTableI3D(0x{0}, {1}, {2}, {3}, {4}) = {5}", hDC.ToString("X8"), iEntries, puRed, puGreen, puBlue, retValue);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(retValue);
 
 			return (retValue);
 		}
@@ -170,7 +170,7 @@ namespace OpenGL
 					CallLog("wglSetGammaTableI3D(0x{0}, {1}, {2}, {3}, {4}) = {5}", hDC.ToString("X8"), iEntries, puRed, puGreen, puBlue, retValue);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(retValue);
 
 			return (retValue);
 		}

@@ -62,7 +62,7 @@ namespace OpenGL
 					CallLog("glGetTexFilterFuncSGIS({0}, {1}, {2})", target, filter, weights);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -92,7 +92,7 @@ namespace OpenGL
 					CallLog("glTexFilterFuncSGIS({0}, {1}, {2}, {3})", target, filter, n, weights);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -118,7 +118,7 @@ namespace OpenGL
 					CallLog("glTexFilterFuncSGIS({0}, {1}, {2}, {3})", target, filter, weights.Length, weights);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 	}

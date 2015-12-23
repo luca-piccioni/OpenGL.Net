@@ -105,7 +105,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglPresentFrameKeyedNV != null, "pglPresentFrameKeyedNV not implemented");
 			Delegates.pglPresentFrameKeyedNV(video_slot, minPresentTime, beginPresentTimeId, presentDurationId, type, target0, fill0, key0, target1, fill1, key1);
 			CallLog("glPresentFrameKeyedNV({0}, {1}, {2}, {3}, {4}, {5}, {6}, {7}, {8}, {9}, {10})", video_slot, minPresentTime, beginPresentTimeId, presentDurationId, type, target0, fill0, key0, target1, fill1, key1);
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -156,7 +156,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglPresentFrameDualFillNV != null, "pglPresentFrameDualFillNV not implemented");
 			Delegates.pglPresentFrameDualFillNV(video_slot, minPresentTime, beginPresentTimeId, presentDurationId, type, target0, fill0, target1, fill1, target2, fill2, target3, fill3);
 			CallLog("glPresentFrameDualFillNV({0}, {1}, {2}, {3}, {4}, {5}, {6}, {7}, {8}, {9}, {10}, {11}, {12})", video_slot, minPresentTime, beginPresentTimeId, presentDurationId, type, target0, fill0, target1, fill1, target2, fill2, target3, fill3);
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -182,7 +182,7 @@ namespace OpenGL
 					CallLog("glGetVideoivNV({0}, {1}, {2})", video_slot, pname, @params);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -208,7 +208,7 @@ namespace OpenGL
 					CallLog("glGetVideouivNV({0}, {1}, {2})", video_slot, pname, @params);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -234,7 +234,7 @@ namespace OpenGL
 					CallLog("glGetVideoi64vNV({0}, {1}, {2})", video_slot, pname, @params);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -260,7 +260,7 @@ namespace OpenGL
 					CallLog("glGetVideoui64vNV({0}, {1}, {2})", video_slot, pname, @params);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 	}

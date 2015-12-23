@@ -102,7 +102,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglEnableVertexAttribAPPLE != null, "pglEnableVertexAttribAPPLE not implemented");
 			Delegates.pglEnableVertexAttribAPPLE(index, pname);
 			CallLog("glEnableVertexAttribAPPLE({0}, {1})", index, pname);
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -120,7 +120,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglDisableVertexAttribAPPLE != null, "pglDisableVertexAttribAPPLE not implemented");
 			Delegates.pglDisableVertexAttribAPPLE(index, pname);
 			CallLog("glDisableVertexAttribAPPLE({0}, {1})", index, pname);
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -140,7 +140,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglIsVertexAttribEnabledAPPLE != null, "pglIsVertexAttribEnabledAPPLE not implemented");
 			retValue = Delegates.pglIsVertexAttribEnabledAPPLE(index, pname);
 			CallLog("glIsVertexAttribEnabledAPPLE({0}, {1}) = {2}", index, pname, retValue);
-			DebugCheckErrors();
+			DebugCheckErrors(retValue);
 
 			return (retValue);
 		}
@@ -180,7 +180,7 @@ namespace OpenGL
 					CallLog("glMapVertexAttrib1dAPPLE({0}, {1}, {2}, {3}, {4}, {5}, {6})", index, size, u1, u2, stride, order, points);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -218,7 +218,7 @@ namespace OpenGL
 					CallLog("glMapVertexAttrib1fAPPLE({0}, {1}, {2}, {3}, {4}, {5}, {6})", index, size, u1, u2, stride, order, points);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -268,7 +268,7 @@ namespace OpenGL
 					CallLog("glMapVertexAttrib2dAPPLE({0}, {1}, {2}, {3}, {4}, {5}, {6}, {7}, {8}, {9}, {10})", index, size, u1, u2, ustride, uorder, v1, v2, vstride, vorder, points);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -318,7 +318,7 @@ namespace OpenGL
 					CallLog("glMapVertexAttrib2fAPPLE({0}, {1}, {2}, {3}, {4}, {5}, {6}, {7}, {8}, {9}, {10})", index, size, u1, u2, ustride, uorder, v1, v2, vstride, vorder, points);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 	}

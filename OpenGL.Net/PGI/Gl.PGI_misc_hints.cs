@@ -162,7 +162,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglHintPGI != null, "pglHintPGI not implemented");
 			Delegates.pglHintPGI(target, mode);
 			CallLog("glHintPGI({0}, {1})", target, mode);
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 	}

@@ -1143,7 +1143,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglActiveTexture != null, "pglActiveTexture not implemented");
 			Delegates.pglActiveTexture(texture);
 			CallLog("glActiveTexture({0})", texture);
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -1164,7 +1164,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglSampleCoverage != null, "pglSampleCoverage not implemented");
 			Delegates.pglSampleCoverage(value, invert);
 			CallLog("glSampleCoverage({0}, {1})", value, invert);
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -1254,7 +1254,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglCompressedTexImage3D != null, "pglCompressedTexImage3D not implemented");
 			Delegates.pglCompressedTexImage3D((Int32)target, level, internalformat, width, height, depth, border, imageSize, data);
 			CallLog("glCompressedTexImage3D({0}, {1}, {2}, {3}, {4}, {5}, {6}, {7}, 0x{8})", target, level, internalformat, width, height, depth, border, imageSize, data.ToString("X8"));
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -1438,7 +1438,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglCompressedTexImage2D != null, "pglCompressedTexImage2D not implemented");
 			Delegates.pglCompressedTexImage2D((Int32)target, level, internalformat, width, height, border, imageSize, data);
 			CallLog("glCompressedTexImage2D({0}, {1}, {2}, {3}, {4}, {5}, {6}, 0x{7})", target, level, internalformat, width, height, border, imageSize, data.ToString("X8"));
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -1614,7 +1614,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglCompressedTexImage1D != null, "pglCompressedTexImage1D not implemented");
 			Delegates.pglCompressedTexImage1D((Int32)target, level, internalformat, width, border, imageSize, data);
 			CallLog("glCompressedTexImage1D({0}, {1}, {2}, {3}, {4}, {5}, 0x{6})", target, level, internalformat, width, border, imageSize, data.ToString("X8"));
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -1797,7 +1797,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglCompressedTexSubImage3D != null, "pglCompressedTexSubImage3D not implemented");
 			Delegates.pglCompressedTexSubImage3D((Int32)target, level, xoffset, yoffset, zoffset, width, height, depth, (Int32)format, imageSize, data);
 			CallLog("glCompressedTexSubImage3D({0}, {1}, {2}, {3}, {4}, {5}, {6}, {7}, {8}, {9}, 0x{10})", target, level, xoffset, yoffset, zoffset, width, height, depth, format, imageSize, data.ToString("X8"));
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -1995,7 +1995,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglCompressedTexSubImage2D != null, "pglCompressedTexSubImage2D not implemented");
 			Delegates.pglCompressedTexSubImage2D((Int32)target, level, xoffset, yoffset, width, height, (Int32)format, imageSize, data);
 			CallLog("glCompressedTexSubImage2D({0}, {1}, {2}, {3}, {4}, {5}, {6}, {7}, 0x{8})", target, level, xoffset, yoffset, width, height, format, imageSize, data.ToString("X8"));
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -2176,7 +2176,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglCompressedTexSubImage1D != null, "pglCompressedTexSubImage1D not implemented");
 			Delegates.pglCompressedTexSubImage1D((Int32)target, level, xoffset, width, (Int32)format, imageSize, data);
 			CallLog("glCompressedTexSubImage1D({0}, {1}, {2}, {3}, {4}, {5}, 0x{6})", target, level, xoffset, width, format, imageSize, data.ToString("X8"));
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -2324,7 +2324,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglGetCompressedTexImage != null, "pglGetCompressedTexImage not implemented");
 			Delegates.pglGetCompressedTexImage((Int32)target, level, img);
 			CallLog("glGetCompressedTexImage({0}, {1}, 0x{2})", target, level, img.ToString("X8"));
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -2419,7 +2419,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglClientActiveTexture != null, "pglClientActiveTexture not implemented");
 			Delegates.pglClientActiveTexture(texture);
 			CallLog("glClientActiveTexture({0})", texture);
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -2476,7 +2476,7 @@ namespace OpenGL
 					CallLog("glMultiTexCoord1dv({0}, {1})", target, v);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -2533,7 +2533,7 @@ namespace OpenGL
 					CallLog("glMultiTexCoord1fv({0}, {1})", target, v);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -2590,7 +2590,7 @@ namespace OpenGL
 					CallLog("glMultiTexCoord1iv({0}, {1})", target, v);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -2647,7 +2647,7 @@ namespace OpenGL
 					CallLog("glMultiTexCoord1sv({0}, {1})", target, v);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -2708,7 +2708,7 @@ namespace OpenGL
 					CallLog("glMultiTexCoord2dv({0}, {1})", target, v);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -2769,7 +2769,7 @@ namespace OpenGL
 					CallLog("glMultiTexCoord2fv({0}, {1})", target, v);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -2830,7 +2830,7 @@ namespace OpenGL
 					CallLog("glMultiTexCoord2iv({0}, {1})", target, v);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -2891,7 +2891,7 @@ namespace OpenGL
 					CallLog("glMultiTexCoord2sv({0}, {1})", target, v);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -2956,7 +2956,7 @@ namespace OpenGL
 					CallLog("glMultiTexCoord3dv({0}, {1})", target, v);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -3021,7 +3021,7 @@ namespace OpenGL
 					CallLog("glMultiTexCoord3fv({0}, {1})", target, v);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -3086,7 +3086,7 @@ namespace OpenGL
 					CallLog("glMultiTexCoord3iv({0}, {1})", target, v);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -3151,7 +3151,7 @@ namespace OpenGL
 					CallLog("glMultiTexCoord3sv({0}, {1})", target, v);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -3220,7 +3220,7 @@ namespace OpenGL
 					CallLog("glMultiTexCoord4dv({0}, {1})", target, v);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -3289,7 +3289,7 @@ namespace OpenGL
 					CallLog("glMultiTexCoord4fv({0}, {1})", target, v);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -3358,7 +3358,7 @@ namespace OpenGL
 					CallLog("glMultiTexCoord4iv({0}, {1})", target, v);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -3427,7 +3427,7 @@ namespace OpenGL
 					CallLog("glMultiTexCoord4sv({0}, {1})", target, v);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -3460,7 +3460,7 @@ namespace OpenGL
 					CallLog("glLoadTransposeMatrixf({0})", m);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -3493,7 +3493,7 @@ namespace OpenGL
 					CallLog("glLoadTransposeMatrixd({0})", m);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -3525,7 +3525,7 @@ namespace OpenGL
 					CallLog("glMultTransposeMatrixf({0})", m);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -3557,7 +3557,7 @@ namespace OpenGL
 					CallLog("glMultTransposeMatrixd({0})", m);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 	}

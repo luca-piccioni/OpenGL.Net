@@ -135,7 +135,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglImageTransformParameteriHP != null, "pglImageTransformParameteriHP not implemented");
 			Delegates.pglImageTransformParameteriHP(target, pname, param);
 			CallLog("glImageTransformParameteriHP({0}, {1}, {2})", target, pname, param);
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -156,7 +156,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglImageTransformParameterfHP != null, "pglImageTransformParameterfHP not implemented");
 			Delegates.pglImageTransformParameterfHP(target, pname, param);
 			CallLog("glImageTransformParameterfHP({0}, {1}, {2})", target, pname, param);
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -182,7 +182,7 @@ namespace OpenGL
 					CallLog("glImageTransformParameterivHP({0}, {1}, {2})", target, pname, @params);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -208,7 +208,7 @@ namespace OpenGL
 					CallLog("glImageTransformParameterfvHP({0}, {1}, {2})", target, pname, @params);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -234,7 +234,7 @@ namespace OpenGL
 					CallLog("glGetImageTransformParameterivHP({0}, {1}, {2})", target, pname, @params);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -260,7 +260,7 @@ namespace OpenGL
 					CallLog("glGetImageTransformParameterfvHP({0}, {1}, {2})", target, pname, @params);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 	}

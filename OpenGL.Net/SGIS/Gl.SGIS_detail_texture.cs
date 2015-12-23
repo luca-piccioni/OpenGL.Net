@@ -98,7 +98,7 @@ namespace OpenGL
 					CallLog("glDetailTexFuncSGIS({0}, {1}, {2})", target, n, points);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -121,7 +121,7 @@ namespace OpenGL
 					CallLog("glGetDetailTexFuncSGIS({0}, {1})", target, points);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 	}

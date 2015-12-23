@@ -54,7 +54,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglDepthBoundsEXT != null, "pglDepthBoundsEXT not implemented");
 			Delegates.pglDepthBoundsEXT(zmin, zmax);
 			CallLog("glDepthBoundsEXT({0}, {1})", zmin, zmax);
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 	}

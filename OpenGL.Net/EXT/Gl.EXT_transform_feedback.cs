@@ -48,7 +48,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglBindBufferOffsetEXT != null, "pglBindBufferOffsetEXT not implemented");
 			Delegates.pglBindBufferOffsetEXT(target, index, buffer, offset);
 			CallLog("glBindBufferOffsetEXT({0}, {1}, {2}, 0x{3})", target, index, buffer, offset.ToString("X8"));
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 	}

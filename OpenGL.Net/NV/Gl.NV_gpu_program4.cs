@@ -90,7 +90,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglProgramLocalParameterI4iNV != null, "pglProgramLocalParameterI4iNV not implemented");
 			Delegates.pglProgramLocalParameterI4iNV(target, index, x, y, z, w);
 			CallLog("glProgramLocalParameterI4iNV({0}, {1}, {2}, {3}, {4}, {5})", target, index, x, y, z, w);
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -116,7 +116,7 @@ namespace OpenGL
 					CallLog("glProgramLocalParameterI4ivNV({0}, {1}, {2})", target, index, @params);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -145,7 +145,7 @@ namespace OpenGL
 					CallLog("glProgramLocalParametersI4ivNV({0}, {1}, {2}, {3})", target, index, count, @params);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -175,7 +175,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglProgramLocalParameterI4uiNV != null, "pglProgramLocalParameterI4uiNV not implemented");
 			Delegates.pglProgramLocalParameterI4uiNV(target, index, x, y, z, w);
 			CallLog("glProgramLocalParameterI4uiNV({0}, {1}, {2}, {3}, {4}, {5})", target, index, x, y, z, w);
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -201,7 +201,7 @@ namespace OpenGL
 					CallLog("glProgramLocalParameterI4uivNV({0}, {1}, {2})", target, index, @params);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -230,7 +230,7 @@ namespace OpenGL
 					CallLog("glProgramLocalParametersI4uivNV({0}, {1}, {2}, {3})", target, index, count, @params);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -260,7 +260,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglProgramEnvParameterI4iNV != null, "pglProgramEnvParameterI4iNV not implemented");
 			Delegates.pglProgramEnvParameterI4iNV(target, index, x, y, z, w);
 			CallLog("glProgramEnvParameterI4iNV({0}, {1}, {2}, {3}, {4}, {5})", target, index, x, y, z, w);
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -286,7 +286,7 @@ namespace OpenGL
 					CallLog("glProgramEnvParameterI4ivNV({0}, {1}, {2})", target, index, @params);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -315,7 +315,7 @@ namespace OpenGL
 					CallLog("glProgramEnvParametersI4ivNV({0}, {1}, {2}, {3})", target, index, count, @params);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -345,7 +345,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglProgramEnvParameterI4uiNV != null, "pglProgramEnvParameterI4uiNV not implemented");
 			Delegates.pglProgramEnvParameterI4uiNV(target, index, x, y, z, w);
 			CallLog("glProgramEnvParameterI4uiNV({0}, {1}, {2}, {3}, {4}, {5})", target, index, x, y, z, w);
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -371,7 +371,7 @@ namespace OpenGL
 					CallLog("glProgramEnvParameterI4uivNV({0}, {1}, {2})", target, index, @params);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -400,7 +400,7 @@ namespace OpenGL
 					CallLog("glProgramEnvParametersI4uivNV({0}, {1}, {2}, {3})", target, index, count, @params);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -426,7 +426,7 @@ namespace OpenGL
 					CallLog("glGetProgramLocalParameterIivNV({0}, {1}, {2})", target, index, @params);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -452,7 +452,7 @@ namespace OpenGL
 					CallLog("glGetProgramLocalParameterIuivNV({0}, {1}, {2})", target, index, @params);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -478,7 +478,7 @@ namespace OpenGL
 					CallLog("glGetProgramEnvParameterIivNV({0}, {1}, {2})", target, index, @params);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -504,7 +504,7 @@ namespace OpenGL
 					CallLog("glGetProgramEnvParameterIuivNV({0}, {1}, {2})", target, index, @params);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 	}

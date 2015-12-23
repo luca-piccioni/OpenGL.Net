@@ -869,7 +869,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglBlendEquationSeparate != null, "pglBlendEquationSeparate not implemented");
 			Delegates.pglBlendEquationSeparate((Int32)modeRGB, (Int32)modeAlpha);
 			CallLog("glBlendEquationSeparate({0}, {1})", modeRGB, modeAlpha);
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -930,7 +930,7 @@ namespace OpenGL
 					CallLog("glDrawBuffers({0}, {1})", bufs.Length, bufs);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -977,7 +977,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglStencilOpSeparate != null, "pglStencilOpSeparate not implemented");
 			Delegates.pglStencilOpSeparate((Int32)face, (Int32)sfail, (Int32)dpfail, (Int32)dppass);
 			CallLog("glStencilOpSeparate({0}, {1}, {2}, {3})", face, sfail, dpfail, dppass);
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -1019,7 +1019,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglStencilFuncSeparate != null, "pglStencilFuncSeparate not implemented");
 			Delegates.pglStencilFuncSeparate((Int32)face, (Int32)func, @ref, mask);
 			CallLog("glStencilFuncSeparate({0}, {1}, {2}, {3})", face, func, @ref, mask);
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -1051,7 +1051,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglStencilMaskSeparate != null, "pglStencilMaskSeparate not implemented");
 			Delegates.pglStencilMaskSeparate((Int32)face, mask);
 			CallLog("glStencilMaskSeparate({0}, {1})", face, mask);
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -1090,7 +1090,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglAttachShader != null, "pglAttachShader not implemented");
 			Delegates.pglAttachShader(program, shader);
 			CallLog("glAttachShader({0}, {1})", program, shader);
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -1131,7 +1131,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglBindAttribLocation != null, "pglBindAttribLocation not implemented");
 			Delegates.pglBindAttribLocation(program, index, name);
 			CallLog("glBindAttribLocation({0}, {1}, {2})", program, index, name);
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -1157,7 +1157,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglCompileShader != null, "pglCompileShader not implemented");
 			Delegates.pglCompileShader(shader);
 			CallLog("glCompileShader({0})", shader);
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -1185,7 +1185,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglCreateProgram != null, "pglCreateProgram not implemented");
 			retValue = Delegates.pglCreateProgram();
 			CallLog("glCreateProgram() = {0}", retValue);
-			DebugCheckErrors();
+			DebugCheckErrors(retValue);
 
 			return (retValue);
 		}
@@ -1218,7 +1218,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglCreateShader != null, "pglCreateShader not implemented");
 			retValue = Delegates.pglCreateShader(shaderType);
 			CallLog("glCreateShader({0}) = {1}", shaderType, retValue);
-			DebugCheckErrors();
+			DebugCheckErrors(retValue);
 
 			return (retValue);
 		}
@@ -1243,7 +1243,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglDeleteProgram != null, "pglDeleteProgram not implemented");
 			Delegates.pglDeleteProgram(program);
 			CallLog("glDeleteProgram({0})", program);
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -1267,7 +1267,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglDeleteShader != null, "pglDeleteShader not implemented");
 			Delegates.pglDeleteShader(shader);
 			CallLog("glDeleteShader({0})", shader);
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -1301,7 +1301,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglDetachShader != null, "pglDetachShader not implemented");
 			Delegates.pglDetachShader(program, shader);
 			CallLog("glDetachShader({0}, {1})", program, shader);
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -1336,7 +1336,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglDisableVertexAttribArray != null, "pglDisableVertexAttribArray not implemented");
 			Delegates.pglDisableVertexAttribArray(index);
 			CallLog("glDisableVertexAttribArray({0})", index);
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -1371,7 +1371,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglEnableVertexAttribArray != null, "pglEnableVertexAttribArray not implemented");
 			Delegates.pglEnableVertexAttribArray(index);
 			CallLog("glEnableVertexAttribArray({0})", index);
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -1432,7 +1432,7 @@ namespace OpenGL
 					CallLog("glGetActiveAttrib({0}, {1}, {2}, {3}, {4}, {5}, {6})", program, index, bufSize, length, size, type, name);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -1494,7 +1494,7 @@ namespace OpenGL
 					CallLog("glGetActiveUniform({0}, {1}, {2}, {3}, {4}, {5}, {6})", program, index, bufSize, length, size, type, name);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -1534,7 +1534,7 @@ namespace OpenGL
 					CallLog("glGetAttachedShaders({0}, {1}, {2}, {3})", program, shaders.Length, count, shaders);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -1569,7 +1569,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglGetAttribLocation != null, "pglGetAttribLocation not implemented");
 			retValue = Delegates.pglGetAttribLocation(program, name);
 			CallLog("glGetAttribLocation({0}, {1}) = {2}", program, name, retValue);
-			DebugCheckErrors();
+			DebugCheckErrors(retValue);
 
 			return (retValue);
 		}
@@ -1627,7 +1627,7 @@ namespace OpenGL
 					CallLog("glGetProgramiv({0}, {1}, {2})", program, pname, @params);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -1683,7 +1683,7 @@ namespace OpenGL
 					CallLog("glGetProgramiv({0}, {1}, {2})", program, pname, @params);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -1727,7 +1727,7 @@ namespace OpenGL
 					CallLog("glGetProgramInfoLog({0}, {1}, {2}, {3})", program, maxLength, length, infoLog);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -1770,7 +1770,7 @@ namespace OpenGL
 					CallLog("glGetShaderiv({0}, {1}, {2})", shader, pname, @params);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -1813,7 +1813,7 @@ namespace OpenGL
 					CallLog("glGetShaderiv({0}, {1}, {2})", shader, pname, @params);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -1857,7 +1857,7 @@ namespace OpenGL
 					CallLog("glGetShaderInfoLog({0}, {1}, {2}, {3})", shader, maxLength, length, infoLog);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -1899,7 +1899,7 @@ namespace OpenGL
 					CallLog("glGetShaderSource({0}, {1}, {2}, {3})", shader, bufSize, length, source);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -1932,7 +1932,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglGetUniformLocation != null, "pglGetUniformLocation not implemented");
 			retValue = Delegates.pglGetUniformLocation(program, name);
 			CallLog("glGetUniformLocation({0}, {1}) = {2}", program, name, retValue);
-			DebugCheckErrors();
+			DebugCheckErrors(retValue);
 
 			return (retValue);
 		}
@@ -1982,7 +1982,7 @@ namespace OpenGL
 					CallLog("glGetUniformfv({0}, {1}, {2})", program, location, @params);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -2030,7 +2030,7 @@ namespace OpenGL
 					CallLog("glGetUniformiv({0}, {1}, {2})", program, location, @params);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -2082,7 +2082,7 @@ namespace OpenGL
 					CallLog("glGetVertexAttribdv({0}, {1}, {2})", index, pname, @params);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -2134,7 +2134,7 @@ namespace OpenGL
 					CallLog("glGetVertexAttribfv({0}, {1}, {2})", index, pname, @params);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -2186,7 +2186,7 @@ namespace OpenGL
 					CallLog("glGetVertexAttribiv({0}, {1}, {2})", index, pname, @params);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -2238,7 +2238,7 @@ namespace OpenGL
 					CallLog("glGetVertexAttribiv({0}, {1}, {2})", index, pname, @params);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -2278,7 +2278,7 @@ namespace OpenGL
 					CallLog("glGetVertexAttribPointerv({0}, {1}, 0x{2})", index, pname, pointer.ToString("X8"));
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -2341,7 +2341,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglIsProgram != null, "pglIsProgram not implemented");
 			retValue = Delegates.pglIsProgram(program);
 			CallLog("glIsProgram({0}) = {1}", program, retValue);
-			DebugCheckErrors();
+			DebugCheckErrors(retValue);
 
 			return (retValue);
 		}
@@ -2367,7 +2367,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglIsShader != null, "pglIsShader not implemented");
 			retValue = Delegates.pglIsShader(shader);
 			CallLog("glIsShader({0}) = {1}", shader, retValue);
-			DebugCheckErrors();
+			DebugCheckErrors(retValue);
 
 			return (retValue);
 		}
@@ -2405,7 +2405,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglLinkProgram != null, "pglLinkProgram not implemented");
 			Delegates.pglLinkProgram(program);
 			CallLog("glLinkProgram({0})", program);
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -2445,7 +2445,7 @@ namespace OpenGL
 					CallLog("glShaderSource({0}, {1}, {2}, {3})", shader, @string.Length, @string, length);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -2484,7 +2484,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglUseProgram != null, "pglUseProgram not implemented");
 			Delegates.pglUseProgram(program);
 			CallLog("glUseProgram({0})", program);
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -2541,7 +2541,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglUniform1f != null, "pglUniform1f not implemented");
 			Delegates.pglUniform1f(location, v0);
 			CallLog("glUniform1f({0}, {1})", location, v0);
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -2601,7 +2601,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglUniform2f != null, "pglUniform2f not implemented");
 			Delegates.pglUniform2f(location, v0, v1);
 			CallLog("glUniform2f({0}, {1}, {2})", location, v0, v1);
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -2664,7 +2664,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglUniform3f != null, "pglUniform3f not implemented");
 			Delegates.pglUniform3f(location, v0, v1, v2);
 			CallLog("glUniform3f({0}, {1}, {2}, {3})", location, v0, v1, v2);
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -2730,7 +2730,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglUniform4f != null, "pglUniform4f not implemented");
 			Delegates.pglUniform4f(location, v0, v1, v2, v3);
 			CallLog("glUniform4f({0}, {1}, {2}, {3}, {4})", location, v0, v1, v2, v3);
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -2787,7 +2787,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglUniform1i != null, "pglUniform1i not implemented");
 			Delegates.pglUniform1i(location, v0);
 			CallLog("glUniform1i({0}, {1})", location, v0);
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -2847,7 +2847,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglUniform2i != null, "pglUniform2i not implemented");
 			Delegates.pglUniform2i(location, v0, v1);
 			CallLog("glUniform2i({0}, {1}, {2})", location, v0, v1);
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -2910,7 +2910,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglUniform3i != null, "pglUniform3i not implemented");
 			Delegates.pglUniform3i(location, v0, v1, v2);
 			CallLog("glUniform3i({0}, {1}, {2}, {3})", location, v0, v1, v2);
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -2976,7 +2976,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglUniform4i != null, "pglUniform4i not implemented");
 			Delegates.pglUniform4i(location, v0, v1, v2, v3);
 			CallLog("glUniform4i({0}, {1}, {2}, {3}, {4})", location, v0, v1, v2, v3);
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -3043,7 +3043,7 @@ namespace OpenGL
 					CallLog("glUniform1fv({0}, {1}, {2})", location, count, value);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -3110,7 +3110,7 @@ namespace OpenGL
 					CallLog("glUniform2fv({0}, {1}, {2})", location, count, value);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -3177,7 +3177,7 @@ namespace OpenGL
 					CallLog("glUniform3fv({0}, {1}, {2})", location, count, value);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -3244,7 +3244,7 @@ namespace OpenGL
 					CallLog("glUniform4fv({0}, {1}, {2})", location, count, value);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -3311,7 +3311,7 @@ namespace OpenGL
 					CallLog("glUniform1iv({0}, {1}, {2})", location, count, value);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -3378,7 +3378,7 @@ namespace OpenGL
 					CallLog("glUniform2iv({0}, {1}, {2})", location, count, value);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -3445,7 +3445,7 @@ namespace OpenGL
 					CallLog("glUniform3iv({0}, {1}, {2})", location, count, value);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -3512,7 +3512,7 @@ namespace OpenGL
 					CallLog("glUniform4iv({0}, {1}, {2})", location, count, value);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -3582,7 +3582,7 @@ namespace OpenGL
 					CallLog("glUniformMatrix2fv({0}, {1}, {2}, {3})", location, count, transpose, value);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -3652,7 +3652,7 @@ namespace OpenGL
 					CallLog("glUniformMatrix3fv({0}, {1}, {2}, {3})", location, count, transpose, value);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -3722,7 +3722,7 @@ namespace OpenGL
 					CallLog("glUniformMatrix4fv({0}, {1}, {2}, {3})", location, count, transpose, value);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -3747,7 +3747,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglValidateProgram != null, "pglValidateProgram not implemented");
 			Delegates.pglValidateProgram(program);
 			CallLog("glValidateProgram({0})", program);
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -3817,7 +3817,7 @@ namespace OpenGL
 					CallLog("glVertexAttrib1dv({0}, {1})", index, v);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -3887,7 +3887,7 @@ namespace OpenGL
 					CallLog("glVertexAttrib1fv({0}, {1})", index, v);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -3957,7 +3957,7 @@ namespace OpenGL
 					CallLog("glVertexAttrib1sv({0}, {1})", index, v);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -4030,7 +4030,7 @@ namespace OpenGL
 					CallLog("glVertexAttrib2dv({0}, {1})", index, v);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -4103,7 +4103,7 @@ namespace OpenGL
 					CallLog("glVertexAttrib2fv({0}, {1})", index, v);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -4176,7 +4176,7 @@ namespace OpenGL
 					CallLog("glVertexAttrib2sv({0}, {1})", index, v);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -4252,7 +4252,7 @@ namespace OpenGL
 					CallLog("glVertexAttrib3dv({0}, {1})", index, v);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -4328,7 +4328,7 @@ namespace OpenGL
 					CallLog("glVertexAttrib3fv({0}, {1})", index, v);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -4404,7 +4404,7 @@ namespace OpenGL
 					CallLog("glVertexAttrib3sv({0}, {1})", index, v);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -4442,7 +4442,7 @@ namespace OpenGL
 					CallLog("glVertexAttrib4Nbv({0}, {1})", index, v);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -4480,7 +4480,7 @@ namespace OpenGL
 					CallLog("glVertexAttrib4Niv({0}, {1})", index, v);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -4518,7 +4518,7 @@ namespace OpenGL
 					CallLog("glVertexAttrib4Nsv({0}, {1})", index, v);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -4597,7 +4597,7 @@ namespace OpenGL
 					CallLog("glVertexAttrib4Nubv({0}, {1})", index, v);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -4635,7 +4635,7 @@ namespace OpenGL
 					CallLog("glVertexAttrib4Nuiv({0}, {1})", index, v);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -4673,7 +4673,7 @@ namespace OpenGL
 					CallLog("glVertexAttrib4Nusv({0}, {1})", index, v);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -4711,7 +4711,7 @@ namespace OpenGL
 					CallLog("glVertexAttrib4bv({0}, {1})", index, v);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -4790,7 +4790,7 @@ namespace OpenGL
 					CallLog("glVertexAttrib4dv({0}, {1})", index, v);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -4869,7 +4869,7 @@ namespace OpenGL
 					CallLog("glVertexAttrib4fv({0}, {1})", index, v);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -4907,7 +4907,7 @@ namespace OpenGL
 					CallLog("glVertexAttrib4iv({0}, {1})", index, v);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -4986,7 +4986,7 @@ namespace OpenGL
 					CallLog("glVertexAttrib4sv({0}, {1})", index, v);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -5024,7 +5024,7 @@ namespace OpenGL
 					CallLog("glVertexAttrib4ubv({0}, {1})", index, v);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -5062,7 +5062,7 @@ namespace OpenGL
 					CallLog("glVertexAttrib4uiv({0}, {1})", index, v);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -5100,7 +5100,7 @@ namespace OpenGL
 					CallLog("glVertexAttrib4usv({0}, {1})", index, v);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -5183,7 +5183,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglVertexAttribPointer != null, "pglVertexAttribPointer not implemented");
 			Delegates.pglVertexAttribPointer(index, size, type, normalized, stride, pointer);
 			CallLog("glVertexAttribPointer({0}, {1}, {2}, {3}, {4}, 0x{5})", index, size, type, normalized, stride, pointer.ToString("X8"));
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>

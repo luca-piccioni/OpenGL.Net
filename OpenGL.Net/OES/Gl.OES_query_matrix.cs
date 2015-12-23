@@ -50,7 +50,7 @@ namespace OpenGL
 					CallLog("glQueryMatrixxOES({0}, {1}) = {2}", mantissa, exponent, retValue);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(retValue);
 
 			return (retValue);
 		}

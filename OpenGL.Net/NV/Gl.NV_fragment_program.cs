@@ -80,7 +80,7 @@ namespace OpenGL
 					CallLog("glProgramNamedParameter4fNV({0}, {1}, {2}, {3}, {4}, {5}, {6})", id, len, name, x, y, z, w);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -110,7 +110,7 @@ namespace OpenGL
 					CallLog("glProgramNamedParameter4fvNV({0}, {1}, {2}, {3})", id, len, name, v);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -148,7 +148,7 @@ namespace OpenGL
 					CallLog("glProgramNamedParameter4dNV({0}, {1}, {2}, {3}, {4}, {5}, {6})", id, len, name, x, y, z, w);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -178,7 +178,7 @@ namespace OpenGL
 					CallLog("glProgramNamedParameter4dvNV({0}, {1}, {2}, {3})", id, len, name, v);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -208,7 +208,7 @@ namespace OpenGL
 					CallLog("glGetProgramNamedParameterfvNV({0}, {1}, {2}, {3})", id, len, name, @params);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -238,7 +238,7 @@ namespace OpenGL
 					CallLog("glGetProgramNamedParameterdvNV({0}, {1}, {2}, {3})", id, len, name, @params);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 	}

@@ -69,7 +69,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglDrawTextureNV != null, "pglDrawTextureNV not implemented");
 			Delegates.pglDrawTextureNV(texture, sampler, x0, y0, x1, y1, z, s0, t0, s1, t1);
 			CallLog("glDrawTextureNV({0}, {1}, {2}, {3}, {4}, {5}, {6}, {7}, {8}, {9}, {10})", texture, sampler, x0, y0, x1, y1, z, s0, t0, s1, t1);
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 	}

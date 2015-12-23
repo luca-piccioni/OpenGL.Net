@@ -47,7 +47,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pwglMakeContextCurrentEXT != null, "pwglMakeContextCurrentEXT not implemented");
 			retValue = Delegates.pwglMakeContextCurrentEXT(hDrawDC, hReadDC, hglrc);
 			CallLog("wglMakeContextCurrentEXT(0x{0}, 0x{1}, 0x{2}) = {3}", hDrawDC.ToString("X8"), hReadDC.ToString("X8"), hglrc.ToString("X8"), retValue);
-			DebugCheckErrors();
+			DebugCheckErrors(retValue);
 
 			return (retValue);
 		}
@@ -63,7 +63,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pwglGetCurrentReadDCEXT != null, "pwglGetCurrentReadDCEXT not implemented");
 			retValue = Delegates.pwglGetCurrentReadDCEXT();
 			CallLog("wglGetCurrentReadDCEXT() = {0}", retValue.ToString("X8"));
-			DebugCheckErrors();
+			DebugCheckErrors(retValue);
 
 			return (retValue);
 		}

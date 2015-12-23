@@ -83,7 +83,7 @@ namespace OpenGL
 					CallLog("glProgramBufferParametersfvNV({0}, {1}, {2}, {3}, {4})", target, bindingIndex, wordIndex, @params.Length, @params);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -112,7 +112,7 @@ namespace OpenGL
 					CallLog("glProgramBufferParametersIivNV({0}, {1}, {2}, {3}, {4})", target, bindingIndex, wordIndex, @params.Length, @params);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -141,7 +141,7 @@ namespace OpenGL
 					CallLog("glProgramBufferParametersIuivNV({0}, {1}, {2}, {3}, {4})", target, bindingIndex, wordIndex, @params.Length, @params);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 	}

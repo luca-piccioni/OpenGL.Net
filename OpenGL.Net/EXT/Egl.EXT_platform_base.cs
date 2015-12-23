@@ -52,7 +52,7 @@ namespace OpenGL
 					CallLog("eglGetPlatformDisplayEXT({0}, 0x{1}, {2}) = {3}", platform, native_display.ToString("X8"), attrib_list, retValue.ToString("X8"));
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(retValue);
 
 			return (retValue);
 		}
@@ -85,7 +85,7 @@ namespace OpenGL
 					CallLog("eglCreatePlatformWindowSurfaceEXT(0x{0}, 0x{1}, 0x{2}, {3}) = {4}", dpy.ToString("X8"), config.ToString("X8"), native_window.ToString("X8"), attrib_list, retValue.ToString("X8"));
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(retValue);
 
 			return (retValue);
 		}
@@ -118,7 +118,7 @@ namespace OpenGL
 					CallLog("eglCreatePlatformPixmapSurfaceEXT(0x{0}, 0x{1}, 0x{2}, {3}) = {4}", dpy.ToString("X8"), config.ToString("X8"), native_pixmap.ToString("X8"), attrib_list, retValue.ToString("X8"));
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(retValue);
 
 			return (retValue);
 		}

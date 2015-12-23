@@ -44,7 +44,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pwglDelayBeforeSwapNV != null, "pwglDelayBeforeSwapNV not implemented");
 			retValue = Delegates.pwglDelayBeforeSwapNV(hDC, seconds);
 			CallLog("wglDelayBeforeSwapNV(0x{0}, {1}) = {2}", hDC.ToString("X8"), seconds, retValue);
-			DebugCheckErrors();
+			DebugCheckErrors(retValue);
 
 			return (retValue);
 		}

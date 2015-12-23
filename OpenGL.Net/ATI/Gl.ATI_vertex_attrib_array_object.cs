@@ -57,7 +57,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglVertexAttribArrayObjectATI != null, "pglVertexAttribArrayObjectATI not implemented");
 			Delegates.pglVertexAttribArrayObjectATI(index, size, type, normalized, stride, buffer, offset);
 			CallLog("glVertexAttribArrayObjectATI({0}, {1}, {2}, {3}, {4}, {5}, {6})", index, size, type, normalized, stride, buffer, offset);
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -83,7 +83,7 @@ namespace OpenGL
 					CallLog("glGetVertexAttribArrayObjectfvATI({0}, {1}, {2})", index, pname, @params);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -109,7 +109,7 @@ namespace OpenGL
 					CallLog("glGetVertexAttribArrayObjectivATI({0}, {1}, {2})", index, pname, @params);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 	}

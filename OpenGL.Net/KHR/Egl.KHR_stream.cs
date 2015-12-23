@@ -127,7 +127,7 @@ namespace OpenGL
 					CallLog("eglCreateStreamKHR(0x{0}, {1}) = {2}", dpy.ToString("X8"), attrib_list, retValue.ToString("X8"));
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(retValue);
 
 			return (retValue);
 		}
@@ -149,7 +149,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.peglDestroyStreamKHR != null, "peglDestroyStreamKHR not implemented");
 			retValue = Delegates.peglDestroyStreamKHR(dpy, stream);
 			CallLog("eglDestroyStreamKHR(0x{0}, 0x{1}) = {2}", dpy.ToString("X8"), stream.ToString("X8"), retValue.ToString("X8"));
-			DebugCheckErrors();
+			DebugCheckErrors(retValue);
 
 			return (retValue);
 		}
@@ -177,7 +177,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.peglStreamAttribKHR != null, "peglStreamAttribKHR not implemented");
 			retValue = Delegates.peglStreamAttribKHR(dpy, stream, attribute, value);
 			CallLog("eglStreamAttribKHR(0x{0}, 0x{1}, {2}, {3}) = {4}", dpy.ToString("X8"), stream.ToString("X8"), attribute, value, retValue.ToString("X8"));
-			DebugCheckErrors();
+			DebugCheckErrors(retValue);
 
 			return (retValue);
 		}
@@ -210,7 +210,7 @@ namespace OpenGL
 					CallLog("eglQueryStreamKHR(0x{0}, 0x{1}, {2}, {3}) = {4}", dpy.ToString("X8"), stream.ToString("X8"), attribute, value, retValue.ToString("X8"));
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(retValue);
 
 			return (retValue);
 		}
@@ -243,7 +243,7 @@ namespace OpenGL
 					CallLog("eglQueryStreamu64KHR(0x{0}, 0x{1}, {2}, {3}) = {4}", dpy.ToString("X8"), stream.ToString("X8"), attribute, value, retValue.ToString("X8"));
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(retValue);
 
 			return (retValue);
 		}

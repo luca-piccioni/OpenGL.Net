@@ -99,7 +99,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglPixelTransformParameteriEXT != null, "pglPixelTransformParameteriEXT not implemented");
 			Delegates.pglPixelTransformParameteriEXT(target, pname, param);
 			CallLog("glPixelTransformParameteriEXT({0}, {1}, {2})", target, pname, param);
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -120,7 +120,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglPixelTransformParameterfEXT != null, "pglPixelTransformParameterfEXT not implemented");
 			Delegates.pglPixelTransformParameterfEXT(target, pname, param);
 			CallLog("glPixelTransformParameterfEXT({0}, {1}, {2})", target, pname, param);
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -146,7 +146,7 @@ namespace OpenGL
 					CallLog("glPixelTransformParameterivEXT({0}, {1}, {2})", target, pname, @params);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -172,7 +172,7 @@ namespace OpenGL
 					CallLog("glPixelTransformParameterfvEXT({0}, {1}, {2})", target, pname, @params);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -198,7 +198,7 @@ namespace OpenGL
 					CallLog("glGetPixelTransformParameterivEXT({0}, {1}, {2})", target, pname, @params);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -224,7 +224,7 @@ namespace OpenGL
 					CallLog("glGetPixelTransformParameterfvEXT({0}, {1}, {2})", target, pname, @params);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 	}

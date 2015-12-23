@@ -39,7 +39,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglBindVertexArrayAPPLE != null, "pglBindVertexArrayAPPLE not implemented");
 			Delegates.pglBindVertexArrayAPPLE(array);
 			CallLog("glBindVertexArrayAPPLE({0})", array);
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 	}

@@ -300,7 +300,7 @@ namespace OpenGL
 					CallLog("glWeightbvARB({0}, {1})", weights.Length, weights);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -320,7 +320,7 @@ namespace OpenGL
 					CallLog("glWeightsvARB({0}, {1})", weights.Length, weights);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -340,7 +340,7 @@ namespace OpenGL
 					CallLog("glWeightivARB({0}, {1})", weights.Length, weights);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -360,7 +360,7 @@ namespace OpenGL
 					CallLog("glWeightfvARB({0}, {1})", weights.Length, weights);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -380,7 +380,7 @@ namespace OpenGL
 					CallLog("glWeightdvARB({0}, {1})", weights.Length, weights);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -400,7 +400,7 @@ namespace OpenGL
 					CallLog("glWeightubvARB({0}, {1})", weights.Length, weights);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -420,7 +420,7 @@ namespace OpenGL
 					CallLog("glWeightusvARB({0}, {1})", weights.Length, weights);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -440,7 +440,7 @@ namespace OpenGL
 					CallLog("glWeightuivARB({0}, {1})", weights.Length, weights);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -464,7 +464,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglWeightPointerARB != null, "pglWeightPointerARB not implemented");
 			Delegates.pglWeightPointerARB(size, type, stride, pointer);
 			CallLog("glWeightPointerARB({0}, {1}, {2}, 0x{3})", size, type, stride, pointer.ToString("X8"));
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -505,7 +505,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglVertexBlendARB != null, "pglVertexBlendARB not implemented");
 			Delegates.pglVertexBlendARB(count);
 			CallLog("glVertexBlendARB({0})", count);
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 	}

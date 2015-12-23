@@ -564,7 +564,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglDrawArraysInstanced != null, "pglDrawArraysInstanced not implemented");
 			Delegates.pglDrawArraysInstanced((Int32)mode, first, count, primcount);
 			CallLog("glDrawArraysInstanced({0}, {1}, {2}, {3})", mode, first, count, primcount);
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -613,7 +613,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglDrawElementsInstanced != null, "pglDrawElementsInstanced not implemented");
 			Delegates.pglDrawElementsInstanced((Int32)mode, count, (Int32)type, indices, primcount);
 			CallLog("glDrawElementsInstanced({0}, {1}, {2}, 0x{3}, {4})", mode, count, type, indices.ToString("X8"), primcount);
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -713,7 +713,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglTexBuffer != null, "pglTexBuffer not implemented");
 			Delegates.pglTexBuffer((Int32)target, internalformat, buffer);
 			CallLog("glTexBuffer({0}, {1}, {2})", target, internalformat, buffer);
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -732,7 +732,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglPrimitiveRestartIndex != null, "pglPrimitiveRestartIndex not implemented");
 			Delegates.pglPrimitiveRestartIndex(index);
 			CallLog("glPrimitiveRestartIndex({0})", index);
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -798,7 +798,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglCopyBufferSubData != null, "pglCopyBufferSubData not implemented");
 			Delegates.pglCopyBufferSubData(readTarget, writeTarget, readOffset, writeOffset, size);
 			CallLog("glCopyBufferSubData({0}, {1}, 0x{2}, 0x{3}, {4})", readTarget, writeTarget, readOffset.ToString("X8"), writeOffset.ToString("X8"), size);
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -837,7 +837,7 @@ namespace OpenGL
 					CallLog("glGetUniformIndices({0}, {1}, {2}, {3})", program, uniformCount, uniformNames, uniformIndices);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -892,7 +892,7 @@ namespace OpenGL
 					CallLog("glGetActiveUniformsiv({0}, {1}, {2}, {3}, {4})", program, uniformIndices.Length, uniformIndices, pname, @params);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -945,7 +945,7 @@ namespace OpenGL
 					CallLog("glGetActiveUniformName({0}, {1}, {2}, {3}, {4})", program, uniformIndex, bufSize, length, uniformName);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -975,7 +975,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglGetUniformBlockIndex != null, "pglGetUniformBlockIndex not implemented");
 			retValue = Delegates.pglGetUniformBlockIndex(program, uniformBlockName);
 			CallLog("glGetUniformBlockIndex({0}, {1}) = {2}", program, uniformBlockName, retValue);
-			DebugCheckErrors();
+			DebugCheckErrors(retValue);
 
 			return (retValue);
 		}
@@ -1023,7 +1023,7 @@ namespace OpenGL
 					CallLog("glGetActiveUniformBlockiv({0}, {1}, {2}, {3})", program, uniformBlockIndex, pname, @params);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -1070,7 +1070,7 @@ namespace OpenGL
 					CallLog("glGetActiveUniformBlockName({0}, {1}, {2}, {3}, {4})", program, uniformBlockIndex, bufSize, length, uniformBlockName);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -1110,7 +1110,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglUniformBlockBinding != null, "pglUniformBlockBinding not implemented");
 			Delegates.pglUniformBlockBinding(program, uniformBlockIndex, uniformBlockBinding);
 			CallLog("glUniformBlockBinding({0}, {1}, {2})", program, uniformBlockIndex, uniformBlockBinding);
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 	}

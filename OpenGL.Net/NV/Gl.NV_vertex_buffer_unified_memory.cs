@@ -198,7 +198,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglBufferAddressRangeNV != null, "pglBufferAddressRangeNV not implemented");
 			Delegates.pglBufferAddressRangeNV(pname, index, address, length);
 			CallLog("glBufferAddressRangeNV({0}, {1}, {2}, {3})", pname, index, address, length);
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -219,7 +219,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglVertexFormatNV != null, "pglVertexFormatNV not implemented");
 			Delegates.pglVertexFormatNV(size, type, stride);
 			CallLog("glVertexFormatNV({0}, {1}, {2})", size, type, stride);
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -237,7 +237,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglNormalFormatNV != null, "pglNormalFormatNV not implemented");
 			Delegates.pglNormalFormatNV(type, stride);
 			CallLog("glNormalFormatNV({0}, {1})", type, stride);
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -258,7 +258,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglColorFormatNV != null, "pglColorFormatNV not implemented");
 			Delegates.pglColorFormatNV(size, type, stride);
 			CallLog("glColorFormatNV({0}, {1}, {2})", size, type, stride);
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -276,7 +276,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglIndexFormatNV != null, "pglIndexFormatNV not implemented");
 			Delegates.pglIndexFormatNV(type, stride);
 			CallLog("glIndexFormatNV({0}, {1})", type, stride);
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -297,7 +297,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglTexCoordFormatNV != null, "pglTexCoordFormatNV not implemented");
 			Delegates.pglTexCoordFormatNV(size, type, stride);
 			CallLog("glTexCoordFormatNV({0}, {1}, {2})", size, type, stride);
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -312,7 +312,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglEdgeFlagFormatNV != null, "pglEdgeFlagFormatNV not implemented");
 			Delegates.pglEdgeFlagFormatNV(stride);
 			CallLog("glEdgeFlagFormatNV({0})", stride);
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -333,7 +333,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglSecondaryColorFormatNV != null, "pglSecondaryColorFormatNV not implemented");
 			Delegates.pglSecondaryColorFormatNV(size, type, stride);
 			CallLog("glSecondaryColorFormatNV({0}, {1}, {2})", size, type, stride);
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -351,7 +351,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglFogCoordFormatNV != null, "pglFogCoordFormatNV not implemented");
 			Delegates.pglFogCoordFormatNV(type, stride);
 			CallLog("glFogCoordFormatNV({0}, {1})", type, stride);
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -378,7 +378,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglVertexAttribFormatNV != null, "pglVertexAttribFormatNV not implemented");
 			Delegates.pglVertexAttribFormatNV(index, size, type, normalized, stride);
 			CallLog("glVertexAttribFormatNV({0}, {1}, {2}, {3}, {4})", index, size, type, normalized, stride);
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -402,7 +402,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglVertexAttribIFormatNV != null, "pglVertexAttribIFormatNV not implemented");
 			Delegates.pglVertexAttribIFormatNV(index, size, type, stride);
 			CallLog("glVertexAttribIFormatNV({0}, {1}, {2}, {3})", index, size, type, stride);
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -428,7 +428,7 @@ namespace OpenGL
 					CallLog("glGetIntegerui64i_vNV({0}, {1}, {2})", value, index, result);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 	}

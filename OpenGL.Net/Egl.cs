@@ -86,7 +86,23 @@ namespace OpenGL
 
 		#endregion
 
-		#region Debugging
+		#region Error Handling
+
+		/// <summary>
+		/// OpenGL error checking.
+		/// </summary>
+		[Conditional("DEBUG")]
+		private static void DebugCheckErrors(object returnValue)
+		{
+			int error = GetError();
+
+			if (error != 0)
+				throw new InvalidOperationException(String.Format("EGL error {0}", error));
+		}
+
+		#endregion
+
+		#region Call Log
 
 		/// <summary>
 		/// Get or set the enable flag for the OpenGL call log.
@@ -95,18 +111,6 @@ namespace OpenGL
 		{
 			get { return (sCallLogEnabled); }
 			set { sCallLogEnabled = value; }
-		}
-
-		/// <summary>
-		/// OpenGL error checking.
-		/// </summary>
-		[Conditional("DEBUG")]
-		private static void DebugCheckErrors()
-		{
-			int error = GetError();
-
-			if (error != 0)
-				throw new InvalidOperationException(String.Format("EGL error {0}", error));
 		}
 
 		/// <summary>

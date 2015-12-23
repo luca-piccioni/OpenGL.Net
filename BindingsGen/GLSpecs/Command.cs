@@ -818,8 +818,15 @@ namespace BindingsGen.GLSpecs
 			#endregion
 
 			// Check call errors
-			if ((Flags & CommandFlags.NoGetError) == 0)
-				sw.WriteLine("DebugCheckErrors();");
+			if ((Flags & CommandFlags.NoGetError) == 0) {
+				string returnValue = "null";
+
+				// Optionally pass the returned value to error checking method
+				if (HasReturnValue)
+					returnValue = ReturnVariableName;
+
+				sw.WriteLine("DebugCheckErrors({0});", returnValue);
+			}
 
 			// Returns value
 			if (HasReturnValue) {

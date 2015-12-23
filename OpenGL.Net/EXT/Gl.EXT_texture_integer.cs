@@ -210,7 +210,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglClearColorIiEXT != null, "pglClearColorIiEXT not implemented");
 			Delegates.pglClearColorIiEXT(red, green, blue, alpha);
 			CallLog("glClearColorIiEXT({0}, {1}, {2}, {3})", red, green, blue, alpha);
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -234,7 +234,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglClearColorIuiEXT != null, "pglClearColorIuiEXT not implemented");
 			Delegates.pglClearColorIuiEXT(red, green, blue, alpha);
 			CallLog("glClearColorIuiEXT({0}, {1}, {2}, {3})", red, green, blue, alpha);
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 	}

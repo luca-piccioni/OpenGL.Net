@@ -42,7 +42,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglIglooInterfaceSGIX != null, "pglIglooInterfaceSGIX not implemented");
 			Delegates.pglIglooInterfaceSGIX(pname, @params);
 			CallLog("glIglooInterfaceSGIX({0}, 0x{1})", pname, @params.ToString("X8"));
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>

@@ -715,7 +715,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglColorTable != null, "pglColorTable not implemented");
 			Delegates.pglColorTable(target, internalformat, width, (Int32)format, (Int32)type, table);
 			CallLog("glColorTable({0}, {1}, {2}, {3}, {4}, 0x{5})", target, internalformat, width, format, type, table.ToString("X8"));
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -837,7 +837,7 @@ namespace OpenGL
 					CallLog("glColorTableParameterfv({0}, {1}, {2})", target, pname, @params);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -874,7 +874,7 @@ namespace OpenGL
 					CallLog("glColorTableParameteriv({0}, {1}, {2})", target, pname, @params);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -927,7 +927,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglCopyColorTable != null, "pglCopyColorTable not implemented");
 			Delegates.pglCopyColorTable(target, internalformat, x, y, width);
 			CallLog("glCopyColorTable({0}, {1}, {2}, {3}, {4})", target, internalformat, x, y, width);
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -997,7 +997,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglGetColorTable != null, "pglGetColorTable not implemented");
 			Delegates.pglGetColorTable(target, (Int32)format, (Int32)type, table);
 			CallLog("glGetColorTable({0}, {1}, {2}, 0x{3})", target, format, type, table.ToString("X8"));
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -1110,7 +1110,7 @@ namespace OpenGL
 					CallLog("glGetColorTableParameterfv({0}, {1}, {2})", target, pname, @params);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -1151,7 +1151,7 @@ namespace OpenGL
 					CallLog("glGetColorTableParameteriv({0}, {1}, {2})", target, pname, @params);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -1222,7 +1222,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglColorSubTable != null, "pglColorSubTable not implemented");
 			Delegates.pglColorSubTable(target, start, count, (Int32)format, (Int32)type, data);
 			CallLog("glColorSubTable({0}, {1}, {2}, {3}, {4}, 0x{5})", target, start, count, format, type, data.ToString("X8"));
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -1341,7 +1341,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglCopyColorSubTable != null, "pglCopyColorSubTable not implemented");
 			Delegates.pglCopyColorSubTable(target, start, x, y, width);
 			CallLog("glCopyColorSubTable({0}, {1}, {2}, {3}, {4})", target, start, x, y, width);
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -1432,7 +1432,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglConvolutionFilter1D != null, "pglConvolutionFilter1D not implemented");
 			Delegates.pglConvolutionFilter1D(target, internalformat, width, (Int32)format, (Int32)type, image);
 			CallLog("glConvolutionFilter1D({0}, {1}, {2}, {3}, {4}, 0x{5})", target, internalformat, width, format, type, image.ToString("X8"));
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -1624,7 +1624,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglConvolutionFilter2D != null, "pglConvolutionFilter2D not implemented");
 			Delegates.pglConvolutionFilter2D(target, internalformat, width, height, (Int32)format, (Int32)type, image);
 			CallLog("glConvolutionFilter2D({0}, {1}, {2}, {3}, {4}, {5}, 0x{6})", target, internalformat, width, height, format, type, image.ToString("X8"));
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -1766,7 +1766,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglConvolutionParameterf != null, "pglConvolutionParameterf not implemented");
 			Delegates.pglConvolutionParameterf(target, pname, @params);
 			CallLog("glConvolutionParameterf({0}, {1}, {2})", target, pname, @params);
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -1812,7 +1812,7 @@ namespace OpenGL
 					CallLog("glConvolutionParameterfv({0}, {1}, {2})", target, pname, @params);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -1853,7 +1853,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglConvolutionParameteri != null, "pglConvolutionParameteri not implemented");
 			Delegates.pglConvolutionParameteri(target, pname, @params);
 			CallLog("glConvolutionParameteri({0}, {1}, {2})", target, pname, @params);
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -1899,7 +1899,7 @@ namespace OpenGL
 					CallLog("glConvolutionParameteriv({0}, {1}, {2})", target, pname, @params);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -1951,7 +1951,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglCopyConvolutionFilter1D != null, "pglCopyConvolutionFilter1D not implemented");
 			Delegates.pglCopyConvolutionFilter1D(target, internalformat, x, y, width);
 			CallLog("glCopyConvolutionFilter1D({0}, {1}, {2}, {3}, {4})", target, internalformat, x, y, width);
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -2011,7 +2011,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglCopyConvolutionFilter2D != null, "pglCopyConvolutionFilter2D not implemented");
 			Delegates.pglCopyConvolutionFilter2D(target, internalformat, x, y, width, height);
 			CallLog("glCopyConvolutionFilter2D({0}, {1}, {2}, {3}, {4}, {5})", target, internalformat, x, y, width, height);
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -2083,7 +2083,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglGetConvolutionFilter != null, "pglGetConvolutionFilter not implemented");
 			Delegates.pglGetConvolutionFilter(target, (Int32)format, (Int32)type, image);
 			CallLog("glGetConvolutionFilter({0}, {1}, {2}, 0x{3})", target, format, type, image.ToString("X8"));
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -2205,7 +2205,7 @@ namespace OpenGL
 					CallLog("glGetConvolutionParameterfv({0}, {1}, {2})", target, pname, @params);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -2253,7 +2253,7 @@ namespace OpenGL
 					CallLog("glGetConvolutionParameteriv({0}, {1}, {2})", target, pname, @params);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -2330,7 +2330,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglGetSeparableFilter != null, "pglGetSeparableFilter not implemented");
 			Delegates.pglGetSeparableFilter(target, (Int32)format, (Int32)type, row, column, span);
 			CallLog("glGetSeparableFilter({0}, {1}, {2}, 0x{3}, 0x{4}, 0x{5})", target, format, type, row.ToString("X8"), column.ToString("X8"), span.ToString("X8"));
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -2517,7 +2517,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglSeparableFilter2D != null, "pglSeparableFilter2D not implemented");
 			Delegates.pglSeparableFilter2D(target, internalformat, width, height, (Int32)format, (Int32)type, row, column);
 			CallLog("glSeparableFilter2D({0}, {1}, {2}, {3}, {4}, {5}, 0x{6}, 0x{7})", target, internalformat, width, height, format, type, row.ToString("X8"), column.ToString("X8"));
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -2699,7 +2699,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglGetHistogram != null, "pglGetHistogram not implemented");
 			Delegates.pglGetHistogram(target, reset, (Int32)format, (Int32)type, values);
 			CallLog("glGetHistogram({0}, {1}, {2}, {3}, 0x{4})", target, reset, format, type, values.ToString("X8"));
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -2817,7 +2817,7 @@ namespace OpenGL
 					CallLog("glGetHistogramParameterfv({0}, {1}, {2})", target, pname, @params);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -2859,7 +2859,7 @@ namespace OpenGL
 					CallLog("glGetHistogramParameteriv({0}, {1}, {2})", target, pname, @params);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -2929,7 +2929,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglGetMinmax != null, "pglGetMinmax not implemented");
 			Delegates.pglGetMinmax(target, reset, (Int32)format, (Int32)type, values);
 			CallLog("glGetMinmax({0}, {1}, {2}, {3}, 0x{4})", target, reset, format, type, values.ToString("X8"));
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -3041,7 +3041,7 @@ namespace OpenGL
 					CallLog("glGetMinmaxParameterfv({0}, {1}, {2})", target, pname, @params);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -3081,7 +3081,7 @@ namespace OpenGL
 					CallLog("glGetMinmaxParameteriv({0}, {1}, {2})", target, pname, @params);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -3131,7 +3131,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglHistogram != null, "pglHistogram not implemented");
 			Delegates.pglHistogram(target, width, internalformat, sink);
 			CallLog("glHistogram({0}, {1}, {2}, {3})", target, width, internalformat, sink);
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -3171,7 +3171,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglMinmax != null, "pglMinmax not implemented");
 			Delegates.pglMinmax(target, internalformat, sink);
 			CallLog("glMinmax({0}, {1}, {2})", target, internalformat, sink);
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -3196,7 +3196,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglResetHistogram != null, "pglResetHistogram not implemented");
 			Delegates.pglResetHistogram(target);
 			CallLog("glResetHistogram({0})", target);
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -3221,7 +3221,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglResetMinmax != null, "pglResetMinmax not implemented");
 			Delegates.pglResetMinmax(target);
 			CallLog("glResetMinmax({0})", target);
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 	}

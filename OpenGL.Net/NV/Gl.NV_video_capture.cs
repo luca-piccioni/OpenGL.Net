@@ -213,7 +213,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglBeginVideoCaptureNV != null, "pglBeginVideoCaptureNV not implemented");
 			Delegates.pglBeginVideoCaptureNV(video_capture_slot);
 			CallLog("glBeginVideoCaptureNV({0})", video_capture_slot);
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -237,7 +237,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglBindVideoCaptureStreamBufferNV != null, "pglBindVideoCaptureStreamBufferNV not implemented");
 			Delegates.pglBindVideoCaptureStreamBufferNV(video_capture_slot, stream, frame_region, offset);
 			CallLog("glBindVideoCaptureStreamBufferNV({0}, {1}, {2}, 0x{3})", video_capture_slot, stream, frame_region, offset.ToString("X8"));
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -264,7 +264,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglBindVideoCaptureStreamTextureNV != null, "pglBindVideoCaptureStreamTextureNV not implemented");
 			Delegates.pglBindVideoCaptureStreamTextureNV(video_capture_slot, stream, frame_region, target, texture);
 			CallLog("glBindVideoCaptureStreamTextureNV({0}, {1}, {2}, {3}, {4})", video_capture_slot, stream, frame_region, target, texture);
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -279,7 +279,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglEndVideoCaptureNV != null, "pglEndVideoCaptureNV not implemented");
 			Delegates.pglEndVideoCaptureNV(video_capture_slot);
 			CallLog("glEndVideoCaptureNV({0})", video_capture_slot);
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -305,7 +305,7 @@ namespace OpenGL
 					CallLog("glGetVideoCaptureivNV({0}, {1}, {2})", video_capture_slot, pname, @params);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -334,7 +334,7 @@ namespace OpenGL
 					CallLog("glGetVideoCaptureStreamivNV({0}, {1}, {2}, {3})", video_capture_slot, stream, pname, @params);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -363,7 +363,7 @@ namespace OpenGL
 					CallLog("glGetVideoCaptureStreamfvNV({0}, {1}, {2}, {3})", video_capture_slot, stream, pname, @params);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -392,7 +392,7 @@ namespace OpenGL
 					CallLog("glGetVideoCaptureStreamdvNV({0}, {1}, {2}, {3})", video_capture_slot, stream, pname, @params);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -421,7 +421,7 @@ namespace OpenGL
 					CallLog("glVideoCaptureNV({0}, {1}, {2}) = {3}", video_capture_slot, sequence_num, capture_time, retValue);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(retValue);
 
 			return (retValue);
 		}
@@ -452,7 +452,7 @@ namespace OpenGL
 					CallLog("glVideoCaptureStreamParameterivNV({0}, {1}, {2}, {3})", video_capture_slot, stream, pname, @params);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -481,7 +481,7 @@ namespace OpenGL
 					CallLog("glVideoCaptureStreamParameterfvNV({0}, {1}, {2}, {3})", video_capture_slot, stream, pname, @params);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -510,7 +510,7 @@ namespace OpenGL
 					CallLog("glVideoCaptureStreamParameterdvNV({0}, {1}, {2}, {3})", video_capture_slot, stream, pname, @params);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 	}

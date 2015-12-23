@@ -45,7 +45,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglAsyncMarkerSGIX != null, "pglAsyncMarkerSGIX not implemented");
 			Delegates.pglAsyncMarkerSGIX(marker);
 			CallLog("glAsyncMarkerSGIX({0})", marker);
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -67,7 +67,7 @@ namespace OpenGL
 					CallLog("glFinishAsyncSGIX({0}) = {1}", markerp, retValue);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(retValue);
 
 			return (retValue);
 		}
@@ -91,7 +91,7 @@ namespace OpenGL
 					CallLog("glPollAsyncSGIX({0}) = {1}", markerp, retValue);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(retValue);
 
 			return (retValue);
 		}
@@ -110,7 +110,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglGenAsyncMarkersSGIX != null, "pglGenAsyncMarkersSGIX not implemented");
 			retValue = Delegates.pglGenAsyncMarkersSGIX(range);
 			CallLog("glGenAsyncMarkersSGIX({0}) = {1}", range, retValue);
-			DebugCheckErrors();
+			DebugCheckErrors(retValue);
 
 			return (retValue);
 		}
@@ -130,7 +130,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglDeleteAsyncMarkersSGIX != null, "pglDeleteAsyncMarkersSGIX not implemented");
 			Delegates.pglDeleteAsyncMarkersSGIX(marker, range);
 			CallLog("glDeleteAsyncMarkersSGIX({0}, {1})", marker, range);
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -147,7 +147,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglIsAsyncMarkerSGIX != null, "pglIsAsyncMarkerSGIX not implemented");
 			retValue = Delegates.pglIsAsyncMarkerSGIX(marker);
 			CallLog("glIsAsyncMarkerSGIX({0}) = {1}", marker, retValue);
-			DebugCheckErrors();
+			DebugCheckErrors(retValue);
 
 			return (retValue);
 		}

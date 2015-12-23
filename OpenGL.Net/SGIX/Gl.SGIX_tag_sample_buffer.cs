@@ -36,7 +36,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglTagSampleBufferSGIX != null, "pglTagSampleBufferSGIX not implemented");
 			Delegates.pglTagSampleBufferSGIX();
 			CallLog("glTagSampleBufferSGIX()");
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 	}

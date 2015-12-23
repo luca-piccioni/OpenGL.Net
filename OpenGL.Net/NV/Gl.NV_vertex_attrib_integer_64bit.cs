@@ -42,7 +42,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglVertexAttribL1i64NV != null, "pglVertexAttribL1i64NV not implemented");
 			Delegates.pglVertexAttribL1i64NV(index, x);
 			CallLog("glVertexAttribL1i64NV({0}, {1})", index, x);
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -63,7 +63,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglVertexAttribL2i64NV != null, "pglVertexAttribL2i64NV not implemented");
 			Delegates.pglVertexAttribL2i64NV(index, x, y);
 			CallLog("glVertexAttribL2i64NV({0}, {1}, {2})", index, x, y);
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -87,7 +87,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglVertexAttribL3i64NV != null, "pglVertexAttribL3i64NV not implemented");
 			Delegates.pglVertexAttribL3i64NV(index, x, y, z);
 			CallLog("glVertexAttribL3i64NV({0}, {1}, {2}, {3})", index, x, y, z);
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -114,7 +114,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglVertexAttribL4i64NV != null, "pglVertexAttribL4i64NV not implemented");
 			Delegates.pglVertexAttribL4i64NV(index, x, y, z, w);
 			CallLog("glVertexAttribL4i64NV({0}, {1}, {2}, {3}, {4})", index, x, y, z, w);
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -137,7 +137,7 @@ namespace OpenGL
 					CallLog("glVertexAttribL1i64vNV({0}, {1})", index, v);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -160,7 +160,7 @@ namespace OpenGL
 					CallLog("glVertexAttribL2i64vNV({0}, {1})", index, v);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -183,7 +183,7 @@ namespace OpenGL
 					CallLog("glVertexAttribL3i64vNV({0}, {1})", index, v);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -206,7 +206,7 @@ namespace OpenGL
 					CallLog("glVertexAttribL4i64vNV({0}, {1})", index, v);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -224,7 +224,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglVertexAttribL1ui64NV != null, "pglVertexAttribL1ui64NV not implemented");
 			Delegates.pglVertexAttribL1ui64NV(index, x);
 			CallLog("glVertexAttribL1ui64NV({0}, {1})", index, x);
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -245,7 +245,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglVertexAttribL2ui64NV != null, "pglVertexAttribL2ui64NV not implemented");
 			Delegates.pglVertexAttribL2ui64NV(index, x, y);
 			CallLog("glVertexAttribL2ui64NV({0}, {1}, {2})", index, x, y);
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -269,7 +269,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglVertexAttribL3ui64NV != null, "pglVertexAttribL3ui64NV not implemented");
 			Delegates.pglVertexAttribL3ui64NV(index, x, y, z);
 			CallLog("glVertexAttribL3ui64NV({0}, {1}, {2}, {3})", index, x, y, z);
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -296,7 +296,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglVertexAttribL4ui64NV != null, "pglVertexAttribL4ui64NV not implemented");
 			Delegates.pglVertexAttribL4ui64NV(index, x, y, z, w);
 			CallLog("glVertexAttribL4ui64NV({0}, {1}, {2}, {3}, {4})", index, x, y, z, w);
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -319,7 +319,7 @@ namespace OpenGL
 					CallLog("glVertexAttribL1ui64vNV({0}, {1})", index, v);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -342,7 +342,7 @@ namespace OpenGL
 					CallLog("glVertexAttribL2ui64vNV({0}, {1})", index, v);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -365,7 +365,7 @@ namespace OpenGL
 					CallLog("glVertexAttribL3ui64vNV({0}, {1})", index, v);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -388,7 +388,7 @@ namespace OpenGL
 					CallLog("glVertexAttribL4ui64vNV({0}, {1})", index, v);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -414,7 +414,7 @@ namespace OpenGL
 					CallLog("glGetVertexAttribLi64vNV({0}, {1}, {2})", index, pname, @params);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -440,7 +440,7 @@ namespace OpenGL
 					CallLog("glGetVertexAttribLui64vNV({0}, {1}, {2})", index, pname, @params);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -464,7 +464,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglVertexAttribLFormatNV != null, "pglVertexAttribLFormatNV not implemented");
 			Delegates.pglVertexAttribLFormatNV(index, size, type, stride);
 			CallLog("glVertexAttribLFormatNV({0}, {1}, {2}, {3})", index, size, type, stride);
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 	}

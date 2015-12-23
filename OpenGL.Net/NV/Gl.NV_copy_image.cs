@@ -81,7 +81,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglCopyImageSubDataNV != null, "pglCopyImageSubDataNV not implemented");
 			Delegates.pglCopyImageSubDataNV(srcName, srcTarget, srcLevel, srcX, srcY, srcZ, dstName, dstTarget, dstLevel, dstX, dstY, dstZ, width, height, depth);
 			CallLog("glCopyImageSubDataNV({0}, {1}, {2}, {3}, {4}, {5}, {6}, {7}, {8}, {9}, {10}, {11}, {12}, {13}, {14})", srcName, srcTarget, srcLevel, srcX, srcY, srcZ, dstName, dstTarget, dstLevel, dstX, dstY, dstZ, width, height, depth);
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 	}

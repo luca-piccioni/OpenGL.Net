@@ -93,7 +93,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglApplyTextureEXT != null, "pglApplyTextureEXT not implemented");
 			Delegates.pglApplyTextureEXT(mode);
 			CallLog("glApplyTextureEXT({0})", mode);
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -108,7 +108,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglTextureLightEXT != null, "pglTextureLightEXT not implemented");
 			Delegates.pglTextureLightEXT(pname);
 			CallLog("glTextureLightEXT({0})", pname);
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -126,7 +126,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglTextureMaterialEXT != null, "pglTextureMaterialEXT not implemented");
 			Delegates.pglTextureMaterialEXT((Int32)face, (Int32)mode);
 			CallLog("glTextureMaterialEXT({0}, {1})", face, mode);
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 	}

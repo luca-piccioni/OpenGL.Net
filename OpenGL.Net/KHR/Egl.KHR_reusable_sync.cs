@@ -59,7 +59,7 @@ namespace OpenGL
 					CallLog("eglCreateSyncKHR(0x{0}, {1}, {2}) = {3}", dpy.ToString("X8"), type, attrib_list, retValue.ToString("X8"));
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(retValue);
 
 			return (retValue);
 		}
@@ -84,7 +84,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.peglSignalSyncKHR != null, "peglSignalSyncKHR not implemented");
 			retValue = Delegates.peglSignalSyncKHR(dpy, sync, mode);
 			CallLog("eglSignalSyncKHR(0x{0}, 0x{1}, {2}) = {3}", dpy.ToString("X8"), sync.ToString("X8"), mode, retValue.ToString("X8"));
-			DebugCheckErrors();
+			DebugCheckErrors(retValue);
 
 			return (retValue);
 		}
@@ -118,7 +118,7 @@ namespace OpenGL
 					CallLog("eglGetSyncAttribKHR(0x{0}, 0x{1}, {2}, {3}) = {4}", dpy.ToString("X8"), sync.ToString("X8"), attribute, value, retValue.ToString("X8"));
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(retValue);
 
 			return (retValue);
 		}

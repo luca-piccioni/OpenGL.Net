@@ -60,7 +60,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglMakeBufferResidentNV != null, "pglMakeBufferResidentNV not implemented");
 			Delegates.pglMakeBufferResidentNV(target, access);
 			CallLog("glMakeBufferResidentNV({0}, {1})", target, access);
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -75,7 +75,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglMakeBufferNonResidentNV != null, "pglMakeBufferNonResidentNV not implemented");
 			Delegates.pglMakeBufferNonResidentNV(target);
 			CallLog("glMakeBufferNonResidentNV({0})", target);
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -92,7 +92,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglIsBufferResidentNV != null, "pglIsBufferResidentNV not implemented");
 			retValue = Delegates.pglIsBufferResidentNV(target);
 			CallLog("glIsBufferResidentNV({0}) = {1}", target, retValue);
-			DebugCheckErrors();
+			DebugCheckErrors(retValue);
 
 			return (retValue);
 		}
@@ -112,7 +112,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglMakeNamedBufferResidentNV != null, "pglMakeNamedBufferResidentNV not implemented");
 			Delegates.pglMakeNamedBufferResidentNV(buffer, access);
 			CallLog("glMakeNamedBufferResidentNV({0}, {1})", buffer, access);
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -127,7 +127,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglMakeNamedBufferNonResidentNV != null, "pglMakeNamedBufferNonResidentNV not implemented");
 			Delegates.pglMakeNamedBufferNonResidentNV(buffer);
 			CallLog("glMakeNamedBufferNonResidentNV({0})", buffer);
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -144,7 +144,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglIsNamedBufferResidentNV != null, "pglIsNamedBufferResidentNV not implemented");
 			retValue = Delegates.pglIsNamedBufferResidentNV(buffer);
 			CallLog("glIsNamedBufferResidentNV({0}) = {1}", buffer, retValue);
-			DebugCheckErrors();
+			DebugCheckErrors(retValue);
 
 			return (retValue);
 		}
@@ -172,7 +172,7 @@ namespace OpenGL
 					CallLog("glGetBufferParameterui64vNV({0}, {1}, {2})", target, pname, @params);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -198,7 +198,7 @@ namespace OpenGL
 					CallLog("glGetNamedBufferParameterui64vNV({0}, {1}, {2})", buffer, pname, @params);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -221,7 +221,7 @@ namespace OpenGL
 					CallLog("glGetIntegerui64vNV({0}, {1})", value, result);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -239,7 +239,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglUniformui64NV != null, "pglUniformui64NV not implemented");
 			Delegates.pglUniformui64NV(location, value);
 			CallLog("glUniformui64NV({0}, {1})", location, value);
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -265,7 +265,7 @@ namespace OpenGL
 					CallLog("glUniformui64vNV({0}, {1}, {2})", location, count, value);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -292,7 +292,7 @@ namespace OpenGL
 					CallLog("glGetUniformui64vNV({0}, {1}, {2})", program, location, @params);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -313,7 +313,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglProgramUniformui64NV != null, "pglProgramUniformui64NV not implemented");
 			Delegates.pglProgramUniformui64NV(program, location, value);
 			CallLog("glProgramUniformui64NV({0}, {1}, {2})", program, location, value);
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -339,7 +339,7 @@ namespace OpenGL
 					CallLog("glProgramUniformui64vNV({0}, {1}, {2}, {3})", program, location, value.Length, value);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 	}

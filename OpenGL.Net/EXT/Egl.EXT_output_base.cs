@@ -90,7 +90,7 @@ namespace OpenGL
 					CallLog("eglGetOutputLayersEXT(0x{0}, {1}, {2}, {3}, {4}) = {5}", dpy.ToString("X8"), attrib_list, layers, max_layers, num_layers, retValue.ToString("X8"));
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(retValue);
 
 			return (retValue);
 		}
@@ -128,7 +128,7 @@ namespace OpenGL
 					CallLog("eglGetOutputPortsEXT(0x{0}, {1}, {2}, {3}, {4}) = {5}", dpy.ToString("X8"), attrib_list, ports, max_ports, num_ports, retValue.ToString("X8"));
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(retValue);
 
 			return (retValue);
 		}
@@ -156,7 +156,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.peglOutputLayerAttribEXT != null, "peglOutputLayerAttribEXT not implemented");
 			retValue = Delegates.peglOutputLayerAttribEXT(dpy, layer, attribute, value);
 			CallLog("eglOutputLayerAttribEXT(0x{0}, 0x{1}, {2}, 0x{3}) = {4}", dpy.ToString("X8"), layer.ToString("X8"), attribute, value.ToString("X8"), retValue.ToString("X8"));
-			DebugCheckErrors();
+			DebugCheckErrors(retValue);
 
 			return (retValue);
 		}
@@ -189,7 +189,7 @@ namespace OpenGL
 					CallLog("eglQueryOutputLayerAttribEXT(0x{0}, 0x{1}, {2}, {3}) = {4}", dpy.ToString("X8"), layer.ToString("X8"), attribute, value, retValue.ToString("X8"));
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(retValue);
 
 			return (retValue);
 		}
@@ -214,7 +214,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.peglQueryOutputLayerStringEXT != null, "peglQueryOutputLayerStringEXT not implemented");
 			retValue = Delegates.peglQueryOutputLayerStringEXT(dpy, layer, name);
 			CallLog("eglQueryOutputLayerStringEXT(0x{0}, 0x{1}, {2}) = {3}", dpy.ToString("X8"), layer.ToString("X8"), name, retValue);
-			DebugCheckErrors();
+			DebugCheckErrors(retValue);
 
 			return (retValue);
 		}
@@ -242,7 +242,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.peglOutputPortAttribEXT != null, "peglOutputPortAttribEXT not implemented");
 			retValue = Delegates.peglOutputPortAttribEXT(dpy, port, attribute, value);
 			CallLog("eglOutputPortAttribEXT(0x{0}, 0x{1}, {2}, 0x{3}) = {4}", dpy.ToString("X8"), port.ToString("X8"), attribute, value.ToString("X8"), retValue.ToString("X8"));
-			DebugCheckErrors();
+			DebugCheckErrors(retValue);
 
 			return (retValue);
 		}
@@ -275,7 +275,7 @@ namespace OpenGL
 					CallLog("eglQueryOutputPortAttribEXT(0x{0}, 0x{1}, {2}, {3}) = {4}", dpy.ToString("X8"), port.ToString("X8"), attribute, value, retValue.ToString("X8"));
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(retValue);
 
 			return (retValue);
 		}
@@ -300,7 +300,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.peglQueryOutputPortStringEXT != null, "peglQueryOutputPortStringEXT not implemented");
 			retValue = Delegates.peglQueryOutputPortStringEXT(dpy, port, name);
 			CallLog("eglQueryOutputPortStringEXT(0x{0}, 0x{1}, {2}) = {3}", dpy.ToString("X8"), port.ToString("X8"), name, retValue);
-			DebugCheckErrors();
+			DebugCheckErrors(retValue);
 
 			return (retValue);
 		}

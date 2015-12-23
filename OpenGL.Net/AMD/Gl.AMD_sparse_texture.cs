@@ -83,7 +83,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglTexStorageSparseAMD != null, "pglTexStorageSparseAMD not implemented");
 			Delegates.pglTexStorageSparseAMD(target, internalFormat, width, height, depth, layers, flags);
 			CallLog("glTexStorageSparseAMD({0}, {1}, {2}, {3}, {4}, {5}, {6})", target, internalFormat, width, height, depth, layers, flags);
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -119,7 +119,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglTextureStorageSparseAMD != null, "pglTextureStorageSparseAMD not implemented");
 			Delegates.pglTextureStorageSparseAMD(texture, target, internalFormat, width, height, depth, layers, flags);
 			CallLog("glTextureStorageSparseAMD({0}, {1}, {2}, {3}, {4}, {5}, {6}, {7})", texture, target, internalFormat, width, height, depth, layers, flags);
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 	}

@@ -71,7 +71,7 @@ namespace OpenGL
 					CallLog("glProgramSubroutineParametersuivNV({0}, {1}, {2})", target, @params.Length, @params);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -97,7 +97,7 @@ namespace OpenGL
 					CallLog("glGetProgramSubroutineParameteruivNV({0}, {1}, {2})", target, index, param);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 	}

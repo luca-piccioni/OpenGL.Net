@@ -60,7 +60,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglElementPointerAPPLE != null, "pglElementPointerAPPLE not implemented");
 			Delegates.pglElementPointerAPPLE(type, pointer);
 			CallLog("glElementPointerAPPLE({0}, 0x{1})", type, pointer.ToString("X8"));
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -101,7 +101,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglDrawElementArrayAPPLE != null, "pglDrawElementArrayAPPLE not implemented");
 			Delegates.pglDrawElementArrayAPPLE((Int32)mode, first, count);
 			CallLog("glDrawElementArrayAPPLE({0}, {1}, {2})", mode, first, count);
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -128,7 +128,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglDrawRangeElementArrayAPPLE != null, "pglDrawRangeElementArrayAPPLE not implemented");
 			Delegates.pglDrawRangeElementArrayAPPLE((Int32)mode, start, end, first, count);
 			CallLog("glDrawRangeElementArrayAPPLE({0}, {1}, {2}, {3}, {4})", mode, start, end, first, count);
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -160,7 +160,7 @@ namespace OpenGL
 					CallLog("glMultiDrawElementArrayAPPLE({0}, {1}, {2}, {3})", mode, first, count, primcount);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -187,7 +187,7 @@ namespace OpenGL
 					CallLog("glMultiDrawElementArrayAPPLE({0}, {1}, {2}, {3})", mode, first, count, first.Length);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -225,7 +225,7 @@ namespace OpenGL
 					CallLog("glMultiDrawRangeElementArrayAPPLE({0}, {1}, {2}, {3}, {4}, {5})", mode, start, end, first, count, primcount);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -258,7 +258,7 @@ namespace OpenGL
 					CallLog("glMultiDrawRangeElementArrayAPPLE({0}, {1}, {2}, {3}, {4}, {5})", mode, start, end, first, count, first.Length);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 	}

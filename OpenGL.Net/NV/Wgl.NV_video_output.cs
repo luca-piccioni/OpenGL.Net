@@ -130,7 +130,7 @@ namespace OpenGL
 					CallLog("wglGetVideoDeviceNV(0x{0}, {1}, {2}) = {3}", hDC.ToString("X8"), numDevices, hVideoDevice, retValue);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(retValue);
 
 			return (retValue);
 		}
@@ -149,7 +149,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pwglReleaseVideoDeviceNV != null, "pwglReleaseVideoDeviceNV not implemented");
 			retValue = Delegates.pwglReleaseVideoDeviceNV(hVideoDevice);
 			CallLog("wglReleaseVideoDeviceNV(0x{0}) = {1}", hVideoDevice.ToString("X8"), retValue);
-			DebugCheckErrors();
+			DebugCheckErrors(retValue);
 
 			return (retValue);
 		}
@@ -174,7 +174,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pwglBindVideoImageNV != null, "pwglBindVideoImageNV not implemented");
 			retValue = Delegates.pwglBindVideoImageNV(hVideoDevice, hPbuffer, iVideoBuffer);
 			CallLog("wglBindVideoImageNV(0x{0}, 0x{1}, {2}) = {3}", hVideoDevice.ToString("X8"), hPbuffer.ToString("X8"), iVideoBuffer, retValue);
-			DebugCheckErrors();
+			DebugCheckErrors(retValue);
 
 			return (retValue);
 		}
@@ -196,7 +196,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pwglReleaseVideoImageNV != null, "pwglReleaseVideoImageNV not implemented");
 			retValue = Delegates.pwglReleaseVideoImageNV(hPbuffer, iVideoBuffer);
 			CallLog("wglReleaseVideoImageNV(0x{0}, {1}) = {2}", hPbuffer.ToString("X8"), iVideoBuffer, retValue);
-			DebugCheckErrors();
+			DebugCheckErrors(retValue);
 
 			return (retValue);
 		}
@@ -229,7 +229,7 @@ namespace OpenGL
 					CallLog("wglSendPbufferToVideoNV(0x{0}, {1}, {2}, {3}) = {4}", hPbuffer.ToString("X8"), iBufferType, pulCounterPbuffer, bBlock, retValue);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(retValue);
 
 			return (retValue);
 		}
@@ -260,7 +260,7 @@ namespace OpenGL
 					CallLog("wglGetVideoInfoNV(0x{0}, {1}, {2}) = {3}", hpVideoDevice.ToString("X8"), pulCounterOutputPbuffer, pulCounterOutputVideo, retValue);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(retValue);
 
 			return (retValue);
 		}

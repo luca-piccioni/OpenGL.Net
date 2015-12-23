@@ -971,7 +971,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglGenPathsNV != null, "pglGenPathsNV not implemented");
 			retValue = Delegates.pglGenPathsNV(range);
 			CallLog("glGenPathsNV({0}) = {1}", range, retValue);
-			DebugCheckErrors();
+			DebugCheckErrors(retValue);
 
 			return (retValue);
 		}
@@ -991,7 +991,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglDeletePathsNV != null, "pglDeletePathsNV not implemented");
 			Delegates.pglDeletePathsNV(path, range);
 			CallLog("glDeletePathsNV({0}, {1})", path, range);
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -1008,7 +1008,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglIsPathNV != null, "pglIsPathNV not implemented");
 			retValue = Delegates.pglIsPathNV(path);
 			CallLog("glIsPathNV({0}) = {1}", path, retValue);
-			DebugCheckErrors();
+			DebugCheckErrors(retValue);
 
 			return (retValue);
 		}
@@ -1074,7 +1074,7 @@ namespace OpenGL
 					CallLog("glPathCommandsNV({0}, {1}, {2}, {3}, {4}, 0x{5})", path, commands.Length, commands, numCoords, coordType, coords.ToString("X8"));
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -1098,7 +1098,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglPathCoordsNV != null, "pglPathCoordsNV not implemented");
 			Delegates.pglPathCoordsNV(path, numCoords, coordType, coords);
 			CallLog("glPathCoordsNV({0}, {1}, {2}, 0x{3})", path, numCoords, coordType, coords.ToString("X8"));
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -1200,7 +1200,7 @@ namespace OpenGL
 					CallLog("glPathSubCommandsNV({0}, {1}, {2}, {3}, {4}, {5}, {6}, 0x{7})", path, commandStart, commandsToDelete, commands.Length, commands, numCoords, coordType, coords.ToString("X8"));
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -1227,7 +1227,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglPathSubCoordsNV != null, "pglPathSubCoordsNV not implemented");
 			Delegates.pglPathSubCoordsNV(path, coordStart, numCoords, coordType, coords);
 			CallLog("glPathSubCoordsNV({0}, {1}, {2}, {3}, 0x{4})", path, coordStart, numCoords, coordType, coords.ToString("X8"));
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -1280,7 +1280,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglPathStringNV != null, "pglPathStringNV not implemented");
 			Delegates.pglPathStringNV(path, format, length, pathString);
 			CallLog("glPathStringNV({0}, {1}, {2}, 0x{3})", path, format, length, pathString.ToString("X8"));
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -1348,7 +1348,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglPathGlyphsNV != null, "pglPathGlyphsNV not implemented");
 			Delegates.pglPathGlyphsNV(firstPathName, fontTarget, fontName, fontStyle, numGlyphs, type, charcodes, handleMissingGlyphs, pathParameterTemplate, emScale);
 			CallLog("glPathGlyphsNV({0}, {1}, 0x{2}, {3}, {4}, {5}, 0x{6}, {7}, {8}, {9})", firstPathName, fontTarget, fontName.ToString("X8"), fontStyle, numGlyphs, type, charcodes.ToString("X8"), handleMissingGlyphs, pathParameterTemplate, emScale);
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -1433,7 +1433,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglPathGlyphRangeNV != null, "pglPathGlyphRangeNV not implemented");
 			Delegates.pglPathGlyphRangeNV(firstPathName, fontTarget, fontName, fontStyle, firstGlyph, numGlyphs, handleMissingGlyphs, pathParameterTemplate, emScale);
 			CallLog("glPathGlyphRangeNV({0}, {1}, 0x{2}, {3}, {4}, {5}, {6}, {7}, {8})", firstPathName, fontTarget, fontName.ToString("X8"), fontStyle, firstGlyph, numGlyphs, handleMissingGlyphs, pathParameterTemplate, emScale);
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -1501,7 +1501,7 @@ namespace OpenGL
 					CallLog("glWeightPathsNV({0}, {1}, {2}, {3})", resultPath, paths.Length, paths, weights);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -1519,7 +1519,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglCopyPathNV != null, "pglCopyPathNV not implemented");
 			Delegates.pglCopyPathNV(resultPath, srcPath);
 			CallLog("glCopyPathNV({0}, {1})", resultPath, srcPath);
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -1543,7 +1543,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglInterpolatePathsNV != null, "pglInterpolatePathsNV not implemented");
 			Delegates.pglInterpolatePathsNV(resultPath, pathA, pathB, weight);
 			CallLog("glInterpolatePathsNV({0}, {1}, {2}, {3})", resultPath, pathA, pathB, weight);
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -1572,7 +1572,7 @@ namespace OpenGL
 					CallLog("glTransformPathNV({0}, {1}, {2}, {3})", resultPath, srcPath, transformType, transformValues);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -1598,7 +1598,7 @@ namespace OpenGL
 					CallLog("glPathParameterivNV({0}, {1}, {2})", path, pname, value);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -1619,7 +1619,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglPathParameteriNV != null, "pglPathParameteriNV not implemented");
 			Delegates.pglPathParameteriNV(path, pname, value);
 			CallLog("glPathParameteriNV({0}, {1}, {2})", path, pname, value);
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -1645,7 +1645,7 @@ namespace OpenGL
 					CallLog("glPathParameterfvNV({0}, {1}, {2})", path, pname, value);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -1666,7 +1666,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglPathParameterfNV != null, "pglPathParameterfNV not implemented");
 			Delegates.pglPathParameterfNV(path, pname, value);
 			CallLog("glPathParameterfNV({0}, {1}, {2})", path, pname, value);
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -1689,7 +1689,7 @@ namespace OpenGL
 					CallLog("glPathDashArrayNV({0}, {1}, {2})", path, dashArray.Length, dashArray);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -1710,7 +1710,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglPathStencilFuncNV != null, "pglPathStencilFuncNV not implemented");
 			Delegates.pglPathStencilFuncNV((Int32)func, @ref, mask);
 			CallLog("glPathStencilFuncNV({0}, {1}, {2})", func, @ref, mask);
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -1728,7 +1728,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglPathStencilDepthOffsetNV != null, "pglPathStencilDepthOffsetNV not implemented");
 			Delegates.pglPathStencilDepthOffsetNV(factor, units);
 			CallLog("glPathStencilDepthOffsetNV({0}, {1})", factor, units);
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -1749,7 +1749,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglStencilFillPathNV != null, "pglStencilFillPathNV not implemented");
 			Delegates.pglStencilFillPathNV(path, fillMode, mask);
 			CallLog("glStencilFillPathNV({0}, {1}, {2})", path, fillMode, mask);
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -1770,7 +1770,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglStencilStrokePathNV != null, "pglStencilStrokePathNV not implemented");
 			Delegates.pglStencilStrokePathNV(path, reference, mask);
 			CallLog("glStencilStrokePathNV({0}, {1}, {2})", path, reference, mask);
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -1811,7 +1811,7 @@ namespace OpenGL
 					CallLog("glStencilFillPathInstancedNV({0}, {1}, 0x{2}, {3}, {4}, {5}, {6}, {7})", numPaths, pathNameType, paths.ToString("X8"), pathBase, fillMode, mask, transformType, transformValues);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -1890,7 +1890,7 @@ namespace OpenGL
 					CallLog("glStencilStrokePathInstancedNV({0}, {1}, 0x{2}, {3}, {4}, {5}, {6}, {7})", numPaths, pathNameType, paths.ToString("X8"), pathBase, reference, mask, transformType, transformValues);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -1943,7 +1943,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglPathCoverDepthFuncNV != null, "pglPathCoverDepthFuncNV not implemented");
 			Delegates.pglPathCoverDepthFuncNV((Int32)func);
 			CallLog("glPathCoverDepthFuncNV({0})", func);
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -1961,7 +1961,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglCoverFillPathNV != null, "pglCoverFillPathNV not implemented");
 			Delegates.pglCoverFillPathNV(path, coverMode);
 			CallLog("glCoverFillPathNV({0}, {1})", path, coverMode);
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -1979,7 +1979,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglCoverStrokePathNV != null, "pglCoverStrokePathNV not implemented");
 			Delegates.pglCoverStrokePathNV(path, coverMode);
 			CallLog("glCoverStrokePathNV({0}, {1})", path, coverMode);
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -2017,7 +2017,7 @@ namespace OpenGL
 					CallLog("glCoverFillPathInstancedNV({0}, {1}, 0x{2}, {3}, {4}, {5}, {6})", numPaths, pathNameType, paths.ToString("X8"), pathBase, coverMode, transformType, transformValues);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -2090,7 +2090,7 @@ namespace OpenGL
 					CallLog("glCoverStrokePathInstancedNV({0}, {1}, 0x{2}, {3}, {4}, {5}, {6})", numPaths, pathNameType, paths.ToString("X8"), pathBase, coverMode, transformType, transformValues);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -2151,7 +2151,7 @@ namespace OpenGL
 					CallLog("glGetPathParameterivNV({0}, {1}, {2})", path, pname, value);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -2177,7 +2177,7 @@ namespace OpenGL
 					CallLog("glGetPathParameterfvNV({0}, {1}, {2})", path, pname, value);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -2200,7 +2200,7 @@ namespace OpenGL
 					CallLog("glGetPathCommandsNV({0}, {1})", path, commands);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -2223,7 +2223,7 @@ namespace OpenGL
 					CallLog("glGetPathCoordsNV({0}, {1})", path, coords);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -2246,7 +2246,7 @@ namespace OpenGL
 					CallLog("glGetPathDashArrayNV({0}, {1})", path, dashArray);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -2284,7 +2284,7 @@ namespace OpenGL
 					CallLog("glGetPathMetricsNV({0}, {1}, {2}, 0x{3}, {4}, {5}, {6})", metricQueryMask, numPaths, pathNameType, paths.ToString("X8"), pathBase, stride, metrics);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -2351,7 +2351,7 @@ namespace OpenGL
 					CallLog("glGetPathMetricRangeNV({0}, {1}, {2}, {3}, {4})", metricQueryMask, firstPathName, numPaths, stride, metrics);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -2395,7 +2395,7 @@ namespace OpenGL
 					CallLog("glGetPathSpacingNV({0}, {1}, {2}, 0x{3}, {4}, {5}, {6}, {7}, {8})", pathListMode, numPaths, pathNameType, paths.ToString("X8"), pathBase, advanceScale, kerningScale, transformType, returnedSpacing);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -2462,7 +2462,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglIsPointInFillPathNV != null, "pglIsPointInFillPathNV not implemented");
 			retValue = Delegates.pglIsPointInFillPathNV(path, mask, x, y);
 			CallLog("glIsPointInFillPathNV({0}, {1}, {2}, {3}) = {4}", path, mask, x, y, retValue);
-			DebugCheckErrors();
+			DebugCheckErrors(retValue);
 
 			return (retValue);
 		}
@@ -2487,7 +2487,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglIsPointInStrokePathNV != null, "pglIsPointInStrokePathNV not implemented");
 			retValue = Delegates.pglIsPointInStrokePathNV(path, x, y);
 			CallLog("glIsPointInStrokePathNV({0}, {1}, {2}) = {3}", path, x, y, retValue);
-			DebugCheckErrors();
+			DebugCheckErrors(retValue);
 
 			return (retValue);
 		}
@@ -2512,7 +2512,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglGetPathLengthNV != null, "pglGetPathLengthNV not implemented");
 			retValue = Delegates.pglGetPathLengthNV(path, startSegment, numSegments);
 			CallLog("glGetPathLengthNV({0}, {1}, {2}) = {3}", path, startSegment, numSegments, retValue);
-			DebugCheckErrors();
+			DebugCheckErrors(retValue);
 
 			return (retValue);
 		}
@@ -2560,7 +2560,7 @@ namespace OpenGL
 					CallLog("glPointAlongPathNV({0}, {1}, {2}, {3}, {4}, {5}, {6}, {7}) = {8}", path, startSegment, numSegments, distance, x, y, tangentX, tangentY, retValue);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(retValue);
 
 			return (retValue);
 		}
@@ -2585,7 +2585,7 @@ namespace OpenGL
 					CallLog("glMatrixLoad3x2fNV({0}, {1})", matrixMode, m);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -2608,7 +2608,7 @@ namespace OpenGL
 					CallLog("glMatrixLoad3x3fNV({0}, {1})", matrixMode, m);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -2631,7 +2631,7 @@ namespace OpenGL
 					CallLog("glMatrixLoadTranspose3x3fNV({0}, {1})", matrixMode, m);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -2654,7 +2654,7 @@ namespace OpenGL
 					CallLog("glMatrixMult3x2fNV({0}, {1})", matrixMode, m);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -2677,7 +2677,7 @@ namespace OpenGL
 					CallLog("glMatrixMult3x3fNV({0}, {1})", matrixMode, m);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -2700,7 +2700,7 @@ namespace OpenGL
 					CallLog("glMatrixMultTranspose3x3fNV({0}, {1})", matrixMode, m);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -2724,7 +2724,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglStencilThenCoverFillPathNV != null, "pglStencilThenCoverFillPathNV not implemented");
 			Delegates.pglStencilThenCoverFillPathNV(path, fillMode, mask, coverMode);
 			CallLog("glStencilThenCoverFillPathNV({0}, {1}, {2}, {3})", path, fillMode, mask, coverMode);
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -2748,7 +2748,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglStencilThenCoverStrokePathNV != null, "pglStencilThenCoverStrokePathNV not implemented");
 			Delegates.pglStencilThenCoverStrokePathNV(path, reference, mask, coverMode);
 			CallLog("glStencilThenCoverStrokePathNV({0}, {1}, {2}, {3})", path, reference, mask, coverMode);
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -2792,7 +2792,7 @@ namespace OpenGL
 					CallLog("glStencilThenCoverFillPathInstancedNV({0}, {1}, 0x{2}, {3}, {4}, {5}, {6}, {7}, {8})", numPaths, pathNameType, paths.ToString("X8"), pathBase, fillMode, mask, coverMode, transformType, transformValues);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -2877,7 +2877,7 @@ namespace OpenGL
 					CallLog("glStencilThenCoverStrokePathInstancedNV({0}, {1}, 0x{2}, {3}, {4}, {5}, {6}, {7}, {8})", numPaths, pathNameType, paths.ToString("X8"), pathBase, reference, mask, coverMode, transformType, transformValues);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -2955,7 +2955,7 @@ namespace OpenGL
 					CallLog("glPathGlyphIndexRangeNV({0}, 0x{1}, {2}, {3}, {4}, {5}) = {6}", fontTarget, fontName.ToString("X8"), fontStyle, pathParameterTemplate, emScale, baseAndCount, retValue);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(retValue);
 
 			return (retValue);
 		}
@@ -3027,7 +3027,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglPathGlyphIndexArrayNV != null, "pglPathGlyphIndexArrayNV not implemented");
 			retValue = Delegates.pglPathGlyphIndexArrayNV(firstPathName, fontTarget, fontName, fontStyle, firstGlyphIndex, numGlyphs, pathParameterTemplate, emScale);
 			CallLog("glPathGlyphIndexArrayNV({0}, {1}, 0x{2}, {3}, {4}, {5}, {6}, {7}) = {8}", firstPathName, fontTarget, fontName.ToString("X8"), fontStyle, firstGlyphIndex, numGlyphs, pathParameterTemplate, emScale, retValue);
-			DebugCheckErrors();
+			DebugCheckErrors(retValue);
 
 			return (retValue);
 		}
@@ -3108,7 +3108,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglPathMemoryGlyphIndexArrayNV != null, "pglPathMemoryGlyphIndexArrayNV not implemented");
 			retValue = Delegates.pglPathMemoryGlyphIndexArrayNV(firstPathName, fontTarget, fontSize, fontData, faceIndex, firstGlyphIndex, numGlyphs, pathParameterTemplate, emScale);
 			CallLog("glPathMemoryGlyphIndexArrayNV({0}, {1}, {2}, 0x{3}, {4}, {5}, {6}, {7}, {8}) = {9}", firstPathName, fontTarget, fontSize, fontData.ToString("X8"), faceIndex, firstGlyphIndex, numGlyphs, pathParameterTemplate, emScale, retValue);
-			DebugCheckErrors();
+			DebugCheckErrors(retValue);
 
 			return (retValue);
 		}
@@ -3183,7 +3183,7 @@ namespace OpenGL
 					CallLog("glProgramPathFragmentInputGenNV({0}, {1}, {2}, {3}, {4})", program, location, genMode, components, coeffs);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -3226,7 +3226,7 @@ namespace OpenGL
 					CallLog("glGetProgramResourcefvNV({0}, {1}, {2}, {3}, {4}, {5}, {6}, {7})", program, programInterface, index, propCount, props, bufSize, length, @params);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -3255,7 +3255,7 @@ namespace OpenGL
 					CallLog("glPathColorGenNV({0}, {1}, {2}, {3})", color, genMode, colorFormat, coeffs);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -3284,7 +3284,7 @@ namespace OpenGL
 					CallLog("glPathTexGenNV({0}, {1}, {2}, {3})", texCoordSet, genMode, components, coeffs);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -3299,7 +3299,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglPathFogGenNV != null, "pglPathFogGenNV not implemented");
 			Delegates.pglPathFogGenNV(genMode);
 			CallLog("glPathFogGenNV({0})", genMode);
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -3325,7 +3325,7 @@ namespace OpenGL
 					CallLog("glGetPathColorGenivNV({0}, {1}, {2})", color, pname, value);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -3351,7 +3351,7 @@ namespace OpenGL
 					CallLog("glGetPathColorGenfvNV({0}, {1}, {2})", color, pname, value);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -3377,7 +3377,7 @@ namespace OpenGL
 					CallLog("glGetPathTexGenivNV({0}, {1}, {2})", texCoordSet, pname, value);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -3403,7 +3403,7 @@ namespace OpenGL
 					CallLog("glGetPathTexGenfvNV({0}, {1}, {2})", texCoordSet, pname, value);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 	}

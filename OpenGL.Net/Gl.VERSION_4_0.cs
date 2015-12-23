@@ -657,7 +657,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglMinSampleShading != null, "pglMinSampleShading not implemented");
 			Delegates.pglMinSampleShading(value);
 			CallLog("glMinSampleShading({0})", value);
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -689,7 +689,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglBlendEquationi != null, "pglBlendEquationi not implemented");
 			Delegates.pglBlendEquationi(buf, mode);
 			CallLog("glBlendEquationi({0}, {1})", buf, mode);
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -726,7 +726,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglBlendEquationSeparatei != null, "pglBlendEquationSeparatei not implemented");
 			Delegates.pglBlendEquationSeparatei(buf, modeRGB, modeAlpha);
 			CallLog("glBlendEquationSeparatei({0}, {1}, {2})", buf, modeRGB, modeAlpha);
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -765,7 +765,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglBlendFunci != null, "pglBlendFunci not implemented");
 			Delegates.pglBlendFunci(buf, src, dst);
 			CallLog("glBlendFunci({0}, {1}, {2})", buf, src, dst);
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -809,7 +809,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglBlendFuncSeparatei != null, "pglBlendFuncSeparatei not implemented");
 			Delegates.pglBlendFuncSeparatei(buf, srcRGB, dstRGB, srcAlpha, dstAlpha);
 			CallLog("glBlendFuncSeparatei({0}, {1}, {2}, {3}, {4})", buf, srcRGB, dstRGB, srcAlpha, dstAlpha);
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -850,7 +850,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglDrawArraysIndirect != null, "pglDrawArraysIndirect not implemented");
 			Delegates.pglDrawArraysIndirect((Int32)mode, indirect);
 			CallLog("glDrawArraysIndirect({0}, 0x{1})", mode, indirect.ToString("X8"));
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -942,7 +942,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglDrawElementsIndirect != null, "pglDrawElementsIndirect not implemented");
 			Delegates.pglDrawElementsIndirect((Int32)mode, type, indirect);
 			CallLog("glDrawElementsIndirect({0}, {1}, 0x{2})", mode, type, indirect.ToString("X8"));
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -1012,7 +1012,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglUniform1d != null, "pglUniform1d not implemented");
 			Delegates.pglUniform1d(location, x);
 			CallLog("glUniform1d({0}, {1})", location, x);
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -1034,7 +1034,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglUniform2d != null, "pglUniform2d not implemented");
 			Delegates.pglUniform2d(location, x, y);
 			CallLog("glUniform2d({0}, {1}, {2})", location, x, y);
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -1059,7 +1059,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglUniform3d != null, "pglUniform3d not implemented");
 			Delegates.pglUniform3d(location, x, y, z);
 			CallLog("glUniform3d({0}, {1}, {2}, {3})", location, x, y, z);
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -1087,7 +1087,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglUniform4d != null, "pglUniform4d not implemented");
 			Delegates.pglUniform4d(location, x, y, z, w);
 			CallLog("glUniform4d({0}, {1}, {2}, {3}, {4})", location, x, y, z, w);
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -1114,7 +1114,7 @@ namespace OpenGL
 					CallLog("glUniform1dv({0}, {1}, {2})", location, count, value);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -1141,7 +1141,7 @@ namespace OpenGL
 					CallLog("glUniform2dv({0}, {1}, {2})", location, count, value);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -1168,7 +1168,7 @@ namespace OpenGL
 					CallLog("glUniform3dv({0}, {1}, {2})", location, count, value);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -1195,7 +1195,7 @@ namespace OpenGL
 					CallLog("glUniform4dv({0}, {1}, {2})", location, count, value);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -1225,7 +1225,7 @@ namespace OpenGL
 					CallLog("glUniformMatrix2dv({0}, {1}, {2}, {3})", location, count, transpose, value);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -1255,7 +1255,7 @@ namespace OpenGL
 					CallLog("glUniformMatrix3dv({0}, {1}, {2}, {3})", location, count, transpose, value);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -1285,7 +1285,7 @@ namespace OpenGL
 					CallLog("glUniformMatrix4dv({0}, {1}, {2}, {3})", location, count, transpose, value);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -1315,7 +1315,7 @@ namespace OpenGL
 					CallLog("glUniformMatrix2x3dv({0}, {1}, {2}, {3})", location, count, transpose, value);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -1345,7 +1345,7 @@ namespace OpenGL
 					CallLog("glUniformMatrix2x4dv({0}, {1}, {2}, {3})", location, count, transpose, value);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -1375,7 +1375,7 @@ namespace OpenGL
 					CallLog("glUniformMatrix3x2dv({0}, {1}, {2}, {3})", location, count, transpose, value);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -1405,7 +1405,7 @@ namespace OpenGL
 					CallLog("glUniformMatrix3x4dv({0}, {1}, {2}, {3})", location, count, transpose, value);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -1435,7 +1435,7 @@ namespace OpenGL
 					CallLog("glUniformMatrix4x2dv({0}, {1}, {2}, {3})", location, count, transpose, value);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -1465,7 +1465,7 @@ namespace OpenGL
 					CallLog("glUniformMatrix4x3dv({0}, {1}, {2}, {3})", location, count, transpose, value);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -1514,7 +1514,7 @@ namespace OpenGL
 					CallLog("glGetUniformdv({0}, {1}, {2})", program, location, @params);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -1552,7 +1552,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglGetSubroutineUniformLocation != null, "pglGetSubroutineUniformLocation not implemented");
 			retValue = Delegates.pglGetSubroutineUniformLocation(program, shadertype, name);
 			CallLog("glGetSubroutineUniformLocation({0}, {1}, {2}) = {3}", program, shadertype, name, retValue);
-			DebugCheckErrors();
+			DebugCheckErrors(retValue);
 
 			return (retValue);
 		}
@@ -1591,7 +1591,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglGetSubroutineIndex != null, "pglGetSubroutineIndex not implemented");
 			retValue = Delegates.pglGetSubroutineIndex(program, shadertype, name);
 			CallLog("glGetSubroutineIndex({0}, {1}, {2}) = {3}", program, shadertype, name, retValue);
-			DebugCheckErrors();
+			DebugCheckErrors(retValue);
 
 			return (retValue);
 		}
@@ -1644,7 +1644,7 @@ namespace OpenGL
 					CallLog("glGetActiveSubroutineUniformiv({0}, {1}, {2}, {3}, {4})", program, shadertype, index, pname, values);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -1697,7 +1697,7 @@ namespace OpenGL
 					CallLog("glGetActiveSubroutineUniformName({0}, {1}, {2}, {3}, {4}, {5})", program, shadertype, index, bufsize, length, name);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -1745,7 +1745,7 @@ namespace OpenGL
 					CallLog("glGetActiveSubroutineName({0}, {1}, {2}, {3}, {4}, {5})", program, shadertype, index, bufsize, length, name);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -1790,7 +1790,7 @@ namespace OpenGL
 					CallLog("glUniformSubroutinesuiv({0}, {1}, {2})", shadertype, indices.Length, indices);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -1834,7 +1834,7 @@ namespace OpenGL
 					CallLog("glGetUniformSubroutineuiv({0}, {1}, {2})", shadertype, location, @params);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -1877,7 +1877,7 @@ namespace OpenGL
 					CallLog("glGetProgramStageiv({0}, {1}, {2}, {3})", program, shadertype, pname, values);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -1910,7 +1910,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglPatchParameteri != null, "pglPatchParameteri not implemented");
 			Delegates.pglPatchParameteri(pname, value);
 			CallLog("glPatchParameteri({0}, {1})", pname, value);
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -1948,7 +1948,7 @@ namespace OpenGL
 					CallLog("glPatchParameterfv({0}, {1})", pname, values);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -1989,7 +1989,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglBindTransformFeedback != null, "pglBindTransformFeedback not implemented");
 			Delegates.pglBindTransformFeedback(target, id);
 			CallLog("glBindTransformFeedback({0}, {1})", target, id);
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -2017,7 +2017,7 @@ namespace OpenGL
 					CallLog("glDeleteTransformFeedbacks({0}, {1})", ids.Length, ids);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -2045,7 +2045,7 @@ namespace OpenGL
 					CallLog("glGenTransformFeedbacks({0}, {1})", ids.Length, ids);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -2085,7 +2085,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglIsTransformFeedback != null, "pglIsTransformFeedback not implemented");
 			retValue = Delegates.pglIsTransformFeedback(id);
 			CallLog("glIsTransformFeedback({0}) = {1}", id, retValue);
-			DebugCheckErrors();
+			DebugCheckErrors(retValue);
 
 			return (retValue);
 		}
@@ -2111,7 +2111,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglPauseTransformFeedback != null, "pglPauseTransformFeedback not implemented");
 			Delegates.pglPauseTransformFeedback();
 			CallLog("glPauseTransformFeedback()");
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -2135,7 +2135,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglResumeTransformFeedback != null, "pglResumeTransformFeedback not implemented");
 			Delegates.pglResumeTransformFeedback();
 			CallLog("glResumeTransformFeedback()");
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -2184,7 +2184,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglDrawTransformFeedback != null, "pglDrawTransformFeedback not implemented");
 			Delegates.pglDrawTransformFeedback((Int32)mode, id);
 			CallLog("glDrawTransformFeedback({0}, {1})", mode, id);
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -2240,7 +2240,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglDrawTransformFeedbackStream != null, "pglDrawTransformFeedbackStream not implemented");
 			Delegates.pglDrawTransformFeedbackStream((Int32)mode, id, stream);
 			CallLog("glDrawTransformFeedbackStream({0}, {1}, {2})", mode, id, stream);
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -2297,7 +2297,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglBeginQueryIndexed != null, "pglBeginQueryIndexed not implemented");
 			Delegates.pglBeginQueryIndexed(target, index, id);
 			CallLog("glBeginQueryIndexed({0}, {1}, {2})", target, index, id);
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -2351,7 +2351,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglEndQueryIndexed != null, "pglEndQueryIndexed not implemented");
 			Delegates.pglEndQueryIndexed(target, index);
 			CallLog("glEndQueryIndexed({0}, {1})", target, index);
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -2395,7 +2395,7 @@ namespace OpenGL
 					CallLog("glGetQueryIndexediv({0}, {1}, {2}, {3})", target, index, pname, @params);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 	}

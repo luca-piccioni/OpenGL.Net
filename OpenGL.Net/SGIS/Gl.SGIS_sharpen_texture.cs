@@ -74,7 +74,7 @@ namespace OpenGL
 					CallLog("glSharpenTexFuncSGIS({0}, {1}, {2})", target, n, points);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -97,7 +97,7 @@ namespace OpenGL
 					CallLog("glGetSharpenTexFuncSGIS({0}, {1})", target, points);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 	}

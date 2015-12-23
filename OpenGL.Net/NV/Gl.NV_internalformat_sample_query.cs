@@ -80,7 +80,7 @@ namespace OpenGL
 					CallLog("glGetInternalformatSampleivNV({0}, {1}, {2}, {3}, {4}, {5})", target, internalformat, samples, pname, @params.Length, @params);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 	}

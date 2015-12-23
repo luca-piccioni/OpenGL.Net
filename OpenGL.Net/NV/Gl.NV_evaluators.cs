@@ -207,7 +207,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglMapControlPointsNV != null, "pglMapControlPointsNV not implemented");
 			Delegates.pglMapControlPointsNV(target, index, type, ustride, vstride, uorder, vorder, packed, points);
 			CallLog("glMapControlPointsNV({0}, {1}, {2}, {3}, {4}, {5}, {6}, {7}, 0x{8})", target, index, type, ustride, vstride, uorder, vorder, packed, points.ToString("X8"));
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -274,7 +274,7 @@ namespace OpenGL
 					CallLog("glMapParameterivNV({0}, {1}, {2})", target, pname, @params);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -300,7 +300,7 @@ namespace OpenGL
 					CallLog("glMapParameterfvNV({0}, {1}, {2})", target, pname, @params);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -333,7 +333,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglGetMapControlPointsNV != null, "pglGetMapControlPointsNV not implemented");
 			Delegates.pglGetMapControlPointsNV(target, index, type, ustride, vstride, packed, points);
 			CallLog("glGetMapControlPointsNV({0}, {1}, {2}, {3}, {4}, {5}, 0x{6})", target, index, type, ustride, vstride, packed, points.ToString("X8"));
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -394,7 +394,7 @@ namespace OpenGL
 					CallLog("glGetMapParameterivNV({0}, {1}, {2})", target, pname, @params);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -420,7 +420,7 @@ namespace OpenGL
 					CallLog("glGetMapParameterfvNV({0}, {1}, {2})", target, pname, @params);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -449,7 +449,7 @@ namespace OpenGL
 					CallLog("glGetMapAttribParameterivNV({0}, {1}, {2}, {3})", target, index, pname, @params);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -478,7 +478,7 @@ namespace OpenGL
 					CallLog("glGetMapAttribParameterfvNV({0}, {1}, {2}, {3})", target, index, pname, @params);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -496,7 +496,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglEvalMapsNV != null, "pglEvalMapsNV not implemented");
 			Delegates.pglEvalMapsNV(target, mode);
 			CallLog("glEvalMapsNV({0}, {1})", target, mode);
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 	}

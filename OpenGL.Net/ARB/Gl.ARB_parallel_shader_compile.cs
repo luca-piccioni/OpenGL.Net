@@ -51,7 +51,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglMaxShaderCompilerThreadsARB != null, "pglMaxShaderCompilerThreadsARB not implemented");
 			Delegates.pglMaxShaderCompilerThreadsARB(count);
 			CallLog("glMaxShaderCompilerThreadsARB({0})", count);
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 	}

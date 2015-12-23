@@ -58,7 +58,7 @@ namespace OpenGL
 					CallLog("glMultiModeDrawArraysIBM({0}, {1}, {2}, {3}, {4})", mode, first, count, primcount, modestride);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -95,7 +95,7 @@ namespace OpenGL
 					CallLog("glMultiModeDrawElementsIBM({0}, {1}, {2}, {3}, {4}, {5})", mode, count, type, indices, primcount, modestride);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 	}

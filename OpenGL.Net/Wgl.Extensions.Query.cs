@@ -33,6 +33,9 @@ namespace OpenGL
 			/// <param name="deviceContext">
 			/// A <see cref="WindowsDeviceContext"/> that specifies the device context to query extensions for.
 			/// </param>
+			/// <exception cref="ArgumentNullException">
+			/// Exception thrown if <paramref name="deviceContext"/> is null.
+			/// </exception>
 			public void Query(WindowsDeviceContext deviceContext)
 			{
 				if (deviceContext == null)

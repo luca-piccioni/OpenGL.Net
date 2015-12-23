@@ -74,7 +74,26 @@ namespace OpenGL
 
 		#endregion
 
-		#region Debugging
+		#region Error Handling
+
+		/// <summary>
+		/// OpenGL error checking.
+		/// </summary>
+		/// <param name="returnValue">
+		/// A <see cref="Object"/> that specifies the function returned value, if any.
+		/// </param>
+		[Conditional("DEBUG")]
+		private static void DebugCheckErrors(object returnValue)
+		{
+			ErrorCode error = GetError();
+
+			if (error != ErrorCode.NoError)
+				throw new InvalidOperationException(error.ToString());
+		}
+
+		#endregion
+
+		#region Call Log
 
 		/// <summary>
 		/// Get or set the enable flag for the OpenGL call log.
@@ -83,18 +102,6 @@ namespace OpenGL
 		{
 			get { return (sCallLogEnabled); }
 			set { sCallLogEnabled = value; }
-		}
-
-		/// <summary>
-		/// OpenGL error checking.
-		/// </summary>
-		[Conditional("DEBUG")]
-		private static void DebugCheckErrors()
-		{
-			ErrorCode error = GetError();
-
-			if (error != ErrorCode.NoError)
-				throw new InvalidOperationException(error.ToString());
 		}
 
 		/// <summary>

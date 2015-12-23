@@ -109,7 +109,7 @@ namespace OpenGL
 					CallLog("wglGetGPUIDsAMD({0}, {1}) = {2}", maxCount, ids, retValue);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(retValue);
 
 			return (retValue);
 		}
@@ -140,7 +140,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pwglGetGPUInfoAMD != null, "pwglGetGPUInfoAMD not implemented");
 			retValue = Delegates.pwglGetGPUInfoAMD(id, property, dataType, size, data);
 			CallLog("wglGetGPUInfoAMD({0}, {1}, {2}, {3}, 0x{4}) = {5}", id, property, dataType, size, data.ToString("X8"), retValue);
-			DebugCheckErrors();
+			DebugCheckErrors(retValue);
 
 			return (retValue);
 		}
@@ -159,7 +159,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pwglGetContextGPUIDAMD != null, "pwglGetContextGPUIDAMD not implemented");
 			retValue = Delegates.pwglGetContextGPUIDAMD(hglrc);
 			CallLog("wglGetContextGPUIDAMD(0x{0}) = {1}", hglrc.ToString("X8"), retValue);
-			DebugCheckErrors();
+			DebugCheckErrors(retValue);
 
 			return (retValue);
 		}
@@ -178,7 +178,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pwglCreateAssociatedContextAMD != null, "pwglCreateAssociatedContextAMD not implemented");
 			retValue = Delegates.pwglCreateAssociatedContextAMD(id);
 			CallLog("wglCreateAssociatedContextAMD({0}) = {1}", id, retValue.ToString("X8"));
-			DebugCheckErrors();
+			DebugCheckErrors(retValue);
 
 			return (retValue);
 		}
@@ -208,7 +208,7 @@ namespace OpenGL
 					CallLog("wglCreateAssociatedContextAttribsAMD({0}, 0x{1}, {2}) = {3}", id, hShareContext.ToString("X8"), attribList, retValue.ToString("X8"));
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(retValue);
 
 			return (retValue);
 		}
@@ -227,7 +227,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pwglDeleteAssociatedContextAMD != null, "pwglDeleteAssociatedContextAMD not implemented");
 			retValue = Delegates.pwglDeleteAssociatedContextAMD(hglrc);
 			CallLog("wglDeleteAssociatedContextAMD(0x{0}) = {1}", hglrc.ToString("X8"), retValue);
-			DebugCheckErrors();
+			DebugCheckErrors(retValue);
 
 			return (retValue);
 		}
@@ -246,7 +246,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pwglMakeAssociatedContextCurrentAMD != null, "pwglMakeAssociatedContextCurrentAMD not implemented");
 			retValue = Delegates.pwglMakeAssociatedContextCurrentAMD(hglrc);
 			CallLog("wglMakeAssociatedContextCurrentAMD(0x{0}) = {1}", hglrc.ToString("X8"), retValue);
-			DebugCheckErrors();
+			DebugCheckErrors(retValue);
 
 			return (retValue);
 		}
@@ -262,7 +262,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pwglGetCurrentAssociatedContextAMD != null, "pwglGetCurrentAssociatedContextAMD not implemented");
 			retValue = Delegates.pwglGetCurrentAssociatedContextAMD();
 			CallLog("wglGetCurrentAssociatedContextAMD() = {0}", retValue.ToString("X8"));
-			DebugCheckErrors();
+			DebugCheckErrors(retValue);
 
 			return (retValue);
 		}
@@ -309,7 +309,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pwglBlitContextFramebufferAMD != null, "pwglBlitContextFramebufferAMD not implemented");
 			Delegates.pwglBlitContextFramebufferAMD(dstCtx, srcX0, srcY0, srcX1, srcY1, dstX0, dstY0, dstX1, dstY1, mask, filter);
 			CallLog("wglBlitContextFramebufferAMD(0x{0}, {1}, {2}, {3}, {4}, {5}, {6}, {7}, {8}, {9}, {10})", dstCtx.ToString("X8"), srcX0, srcY0, srcX1, srcY1, dstX0, dstY0, dstX1, dstY1, mask, filter);
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 	}

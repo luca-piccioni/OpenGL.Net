@@ -80,7 +80,7 @@ namespace OpenGL
 					CallLog("glVertexPointervINTEL({0}, {1}, {2})", size, type, pointer);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -103,7 +103,7 @@ namespace OpenGL
 					CallLog("glNormalPointervINTEL({0}, {1})", type, pointer);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -129,7 +129,7 @@ namespace OpenGL
 					CallLog("glColorPointervINTEL({0}, {1}, {2})", size, type, pointer);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -155,7 +155,7 @@ namespace OpenGL
 					CallLog("glTexCoordPointervINTEL({0}, {1}, {2})", size, type, pointer);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 	}

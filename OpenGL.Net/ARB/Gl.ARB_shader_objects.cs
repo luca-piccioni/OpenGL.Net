@@ -121,7 +121,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglDeleteObjectARB != null, "pglDeleteObjectARB not implemented");
 			Delegates.pglDeleteObjectARB(obj);
 			CallLog("glDeleteObjectARB({0})", obj);
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -138,7 +138,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglGetHandleARB != null, "pglGetHandleARB not implemented");
 			retValue = Delegates.pglGetHandleARB(pname);
 			CallLog("glGetHandleARB({0}) = {1}", pname, retValue);
-			DebugCheckErrors();
+			DebugCheckErrors(retValue);
 
 			return (retValue);
 		}
@@ -166,7 +166,7 @@ namespace OpenGL
 					CallLog("glGetObjectParameterfvARB({0}, {1}, {2})", obj, pname, @params);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -192,7 +192,7 @@ namespace OpenGL
 					CallLog("glGetObjectParameterfvARB({0}, {1}, {2})", obj, pname, @params);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -218,7 +218,7 @@ namespace OpenGL
 					CallLog("glGetObjectParameterivARB({0}, {1}, {2})", obj, pname, @params);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -244,7 +244,7 @@ namespace OpenGL
 					CallLog("glGetObjectParameterivARB({0}, {1}, {2})", obj, pname, @params);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -273,7 +273,7 @@ namespace OpenGL
 					CallLog("glGetInfoLogARB({0}, {1}, {2}, {3})", obj, maxLength, length, infoLog);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -300,7 +300,7 @@ namespace OpenGL
 					CallLog("glGetAttachedObjectsARB({0}, {1}, {2}, {3})", containerObj, obj.Length, count, obj);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 	}

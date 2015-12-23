@@ -101,7 +101,7 @@ namespace OpenGL
 					CallLog("glDebugMessageEnableAMD({0}, {1}, {2}, {3}, {4})", category, severity, ids.Length, ids, enabled);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -128,7 +128,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglDebugMessageInsertAMD != null, "pglDebugMessageInsertAMD not implemented");
 			Delegates.pglDebugMessageInsertAMD(category, severity, id, length, buf);
 			CallLog("glDebugMessageInsertAMD({0}, {1}, {2}, {3}, {4})", category, severity, id, length, buf);
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -146,7 +146,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglDebugMessageCallbackAMD != null, "pglDebugMessageCallbackAMD not implemented");
 			Delegates.pglDebugMessageCallbackAMD(callback, userParam);
 			CallLog("glDebugMessageCallbackAMD(0x{0}, 0x{1})", callback.ToString("X8"), userParam.ToString("X8"));
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -186,7 +186,7 @@ namespace OpenGL
 					CallLog("glGetDebugMessageLogAMD({0}, {1}, {2}, {3}, {4}, {5}, {6}) = {7}", categories.Length, bufsize, categories, severities, ids, lengths, message, retValue);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(retValue);
 
 			return (retValue);
 		}

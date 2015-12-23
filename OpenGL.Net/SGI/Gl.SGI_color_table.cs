@@ -48,7 +48,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglGetColorTableSGI != null, "pglGetColorTableSGI not implemented");
 			Delegates.pglGetColorTableSGI((Int32)target, (Int32)format, (Int32)type, table);
 			CallLog("glGetColorTableSGI({0}, {1}, {2}, 0x{3})", target, format, type, table.ToString("X8"));
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -100,7 +100,7 @@ namespace OpenGL
 					CallLog("glGetColorTableParameterfvSGI({0}, {1}, {2})", target, pname, @params);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -126,7 +126,7 @@ namespace OpenGL
 					CallLog("glGetColorTableParameterivSGI({0}, {1}, {2})", target, pname, @params);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 	}

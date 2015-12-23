@@ -50,7 +50,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglGetInstrumentsSGIX != null, "pglGetInstrumentsSGIX not implemented");
 			retValue = Delegates.pglGetInstrumentsSGIX();
 			CallLog("glGetInstrumentsSGIX() = {0}", retValue);
-			DebugCheckErrors();
+			DebugCheckErrors(retValue);
 
 			return (retValue);
 		}
@@ -72,7 +72,7 @@ namespace OpenGL
 					CallLog("glInstrumentsBufferSGIX({0}, {1})", buffer.Length, buffer);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -94,7 +94,7 @@ namespace OpenGL
 					CallLog("glPollInstrumentsSGIX({0}) = {1}", marker_p, retValue);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(retValue);
 
 			return (retValue);
 		}
@@ -111,7 +111,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglReadInstrumentsSGIX != null, "pglReadInstrumentsSGIX not implemented");
 			Delegates.pglReadInstrumentsSGIX(marker);
 			CallLog("glReadInstrumentsSGIX({0})", marker);
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -123,7 +123,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglStartInstrumentsSGIX != null, "pglStartInstrumentsSGIX not implemented");
 			Delegates.pglStartInstrumentsSGIX();
 			CallLog("glStartInstrumentsSGIX()");
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -138,7 +138,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglStopInstrumentsSGIX != null, "pglStopInstrumentsSGIX not implemented");
 			Delegates.pglStopInstrumentsSGIX(marker);
 			CallLog("glStopInstrumentsSGIX({0})", marker);
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 	}

@@ -183,7 +183,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglUniform1i64NV != null, "pglUniform1i64NV not implemented");
 			Delegates.pglUniform1i64NV(location, x);
 			CallLog("glUniform1i64NV({0}, {1})", location, x);
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -205,7 +205,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglUniform2i64NV != null, "pglUniform2i64NV not implemented");
 			Delegates.pglUniform2i64NV(location, x, y);
 			CallLog("glUniform2i64NV({0}, {1}, {2})", location, x, y);
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -230,7 +230,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglUniform3i64NV != null, "pglUniform3i64NV not implemented");
 			Delegates.pglUniform3i64NV(location, x, y, z);
 			CallLog("glUniform3i64NV({0}, {1}, {2}, {3})", location, x, y, z);
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -258,7 +258,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglUniform4i64NV != null, "pglUniform4i64NV not implemented");
 			Delegates.pglUniform4i64NV(location, x, y, z, w);
 			CallLog("glUniform4i64NV({0}, {1}, {2}, {3}, {4})", location, x, y, z, w);
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -285,7 +285,7 @@ namespace OpenGL
 					CallLog("glUniform1i64vNV({0}, {1}, {2})", location, count, value);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -312,7 +312,7 @@ namespace OpenGL
 					CallLog("glUniform2i64vNV({0}, {1}, {2})", location, count, value);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -339,7 +339,7 @@ namespace OpenGL
 					CallLog("glUniform3i64vNV({0}, {1}, {2})", location, count, value);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -366,7 +366,7 @@ namespace OpenGL
 					CallLog("glUniform4i64vNV({0}, {1}, {2})", location, count, value);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -385,7 +385,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglUniform1ui64NV != null, "pglUniform1ui64NV not implemented");
 			Delegates.pglUniform1ui64NV(location, x);
 			CallLog("glUniform1ui64NV({0}, {1})", location, x);
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -407,7 +407,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglUniform2ui64NV != null, "pglUniform2ui64NV not implemented");
 			Delegates.pglUniform2ui64NV(location, x, y);
 			CallLog("glUniform2ui64NV({0}, {1}, {2})", location, x, y);
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -432,7 +432,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglUniform3ui64NV != null, "pglUniform3ui64NV not implemented");
 			Delegates.pglUniform3ui64NV(location, x, y, z);
 			CallLog("glUniform3ui64NV({0}, {1}, {2}, {3})", location, x, y, z);
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -460,7 +460,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglUniform4ui64NV != null, "pglUniform4ui64NV not implemented");
 			Delegates.pglUniform4ui64NV(location, x, y, z, w);
 			CallLog("glUniform4ui64NV({0}, {1}, {2}, {3}, {4})", location, x, y, z, w);
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -487,7 +487,7 @@ namespace OpenGL
 					CallLog("glUniform1ui64vNV({0}, {1}, {2})", location, count, value);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -514,7 +514,7 @@ namespace OpenGL
 					CallLog("glUniform2ui64vNV({0}, {1}, {2})", location, count, value);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -541,7 +541,7 @@ namespace OpenGL
 					CallLog("glUniform3ui64vNV({0}, {1}, {2})", location, count, value);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -568,7 +568,7 @@ namespace OpenGL
 					CallLog("glUniform4ui64vNV({0}, {1}, {2})", location, count, value);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -595,7 +595,7 @@ namespace OpenGL
 					CallLog("glGetUniformi64vNV({0}, {1}, {2})", program, location, @params);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -617,7 +617,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglProgramUniform1i64NV != null, "pglProgramUniform1i64NV not implemented");
 			Delegates.pglProgramUniform1i64NV(program, location, x);
 			CallLog("glProgramUniform1i64NV({0}, {1}, {2})", program, location, x);
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -642,7 +642,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglProgramUniform2i64NV != null, "pglProgramUniform2i64NV not implemented");
 			Delegates.pglProgramUniform2i64NV(program, location, x, y);
 			CallLog("glProgramUniform2i64NV({0}, {1}, {2}, {3})", program, location, x, y);
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -670,7 +670,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglProgramUniform3i64NV != null, "pglProgramUniform3i64NV not implemented");
 			Delegates.pglProgramUniform3i64NV(program, location, x, y, z);
 			CallLog("glProgramUniform3i64NV({0}, {1}, {2}, {3}, {4})", program, location, x, y, z);
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -701,7 +701,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglProgramUniform4i64NV != null, "pglProgramUniform4i64NV not implemented");
 			Delegates.pglProgramUniform4i64NV(program, location, x, y, z, w);
 			CallLog("glProgramUniform4i64NV({0}, {1}, {2}, {3}, {4}, {5})", program, location, x, y, z, w);
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -728,7 +728,7 @@ namespace OpenGL
 					CallLog("glProgramUniform1i64vNV({0}, {1}, {2}, {3})", program, location, value.Length, value);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -758,7 +758,7 @@ namespace OpenGL
 					CallLog("glProgramUniform2i64vNV({0}, {1}, {2}, {3})", program, location, count, value);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -788,7 +788,7 @@ namespace OpenGL
 					CallLog("glProgramUniform3i64vNV({0}, {1}, {2}, {3})", program, location, count, value);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -818,7 +818,7 @@ namespace OpenGL
 					CallLog("glProgramUniform4i64vNV({0}, {1}, {2}, {3})", program, location, count, value);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -840,7 +840,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglProgramUniform1ui64NV != null, "pglProgramUniform1ui64NV not implemented");
 			Delegates.pglProgramUniform1ui64NV(program, location, x);
 			CallLog("glProgramUniform1ui64NV({0}, {1}, {2})", program, location, x);
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -865,7 +865,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglProgramUniform2ui64NV != null, "pglProgramUniform2ui64NV not implemented");
 			Delegates.pglProgramUniform2ui64NV(program, location, x, y);
 			CallLog("glProgramUniform2ui64NV({0}, {1}, {2}, {3})", program, location, x, y);
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -893,7 +893,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglProgramUniform3ui64NV != null, "pglProgramUniform3ui64NV not implemented");
 			Delegates.pglProgramUniform3ui64NV(program, location, x, y, z);
 			CallLog("glProgramUniform3ui64NV({0}, {1}, {2}, {3}, {4})", program, location, x, y, z);
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -924,7 +924,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglProgramUniform4ui64NV != null, "pglProgramUniform4ui64NV not implemented");
 			Delegates.pglProgramUniform4ui64NV(program, location, x, y, z, w);
 			CallLog("glProgramUniform4ui64NV({0}, {1}, {2}, {3}, {4}, {5})", program, location, x, y, z, w);
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -951,7 +951,7 @@ namespace OpenGL
 					CallLog("glProgramUniform1ui64vNV({0}, {1}, {2}, {3})", program, location, value.Length, value);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -981,7 +981,7 @@ namespace OpenGL
 					CallLog("glProgramUniform2ui64vNV({0}, {1}, {2}, {3})", program, location, count, value);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -1011,7 +1011,7 @@ namespace OpenGL
 					CallLog("glProgramUniform3ui64vNV({0}, {1}, {2}, {3})", program, location, count, value);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -1041,7 +1041,7 @@ namespace OpenGL
 					CallLog("glProgramUniform4ui64vNV({0}, {1}, {2}, {3})", program, location, count, value);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 	}

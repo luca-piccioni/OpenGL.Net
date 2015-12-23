@@ -56,7 +56,7 @@ namespace OpenGL
 					CallLog("glCombinerStageParameterfvNV({0}, {1}, {2})", stage, pname, @params);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -82,7 +82,7 @@ namespace OpenGL
 					CallLog("glGetCombinerStageParameterfvNV({0}, {1}, {2})", stage, pname, @params);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 	}

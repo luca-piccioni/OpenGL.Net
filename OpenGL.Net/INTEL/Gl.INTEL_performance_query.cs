@@ -159,7 +159,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglBeginPerfQueryINTEL != null, "pglBeginPerfQueryINTEL not implemented");
 			Delegates.pglBeginPerfQueryINTEL(queryHandle);
 			CallLog("glBeginPerfQueryINTEL({0})", queryHandle);
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -182,7 +182,7 @@ namespace OpenGL
 					CallLog("glCreatePerfQueryINTEL({0}, {1})", queryId, queryHandle);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -197,7 +197,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglDeletePerfQueryINTEL != null, "pglDeletePerfQueryINTEL not implemented");
 			Delegates.pglDeletePerfQueryINTEL(queryHandle);
 			CallLog("glDeletePerfQueryINTEL({0})", queryHandle);
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -212,7 +212,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglEndPerfQueryINTEL != null, "pglEndPerfQueryINTEL not implemented");
 			Delegates.pglEndPerfQueryINTEL(queryHandle);
 			CallLog("glEndPerfQueryINTEL({0})", queryHandle);
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -232,7 +232,7 @@ namespace OpenGL
 					CallLog("glGetFirstPerfQueryIdINTEL({0})", queryId);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -255,7 +255,7 @@ namespace OpenGL
 					CallLog("glGetNextPerfQueryIdINTEL({0}, {1})", queryId, nextQueryId);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -309,7 +309,7 @@ namespace OpenGL
 					CallLog("glGetPerfCounterInfoINTEL({0}, {1}, {2}, {3}, {4}, {5}, {6}, {7}, {8}, {9}, {10})", queryId, counterId, counterNameLength, counterName, counterDescLength, counterDesc, counterOffset, counterDataSize, counterTypeEnum, counterDataTypeEnum, rawCounterMaxValue);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -341,7 +341,7 @@ namespace OpenGL
 					CallLog("glGetPerfQueryDataINTEL({0}, {1}, {2}, 0x{3}, {4})", queryHandle, flags, dataSize, data.ToString("X8"), bytesWritten);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -393,7 +393,7 @@ namespace OpenGL
 					CallLog("glGetPerfQueryIdByNameINTEL({0}, {1})", queryName, queryId);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -434,7 +434,7 @@ namespace OpenGL
 					CallLog("glGetPerfQueryInfoINTEL({0}, {1}, {2}, {3}, {4}, {5}, {6})", queryId, queryNameLength, queryName, dataSize, noCounters, noInstances, capsMask);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 	}

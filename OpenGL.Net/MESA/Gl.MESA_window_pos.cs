@@ -48,7 +48,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglWindowPos4dMESA != null, "pglWindowPos4dMESA not implemented");
 			Delegates.pglWindowPos4dMESA(x, y, z, w);
 			CallLog("glWindowPos4dMESA({0}, {1}, {2}, {3})", x, y, z, w);
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -68,7 +68,7 @@ namespace OpenGL
 					CallLog("glWindowPos4dvMESA({0})", v);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -92,7 +92,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglWindowPos4fMESA != null, "pglWindowPos4fMESA not implemented");
 			Delegates.pglWindowPos4fMESA(x, y, z, w);
 			CallLog("glWindowPos4fMESA({0}, {1}, {2}, {3})", x, y, z, w);
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -112,7 +112,7 @@ namespace OpenGL
 					CallLog("glWindowPos4fvMESA({0})", v);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -136,7 +136,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglWindowPos4iMESA != null, "pglWindowPos4iMESA not implemented");
 			Delegates.pglWindowPos4iMESA(x, y, z, w);
 			CallLog("glWindowPos4iMESA({0}, {1}, {2}, {3})", x, y, z, w);
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -156,7 +156,7 @@ namespace OpenGL
 					CallLog("glWindowPos4ivMESA({0})", v);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -180,7 +180,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglWindowPos4sMESA != null, "pglWindowPos4sMESA not implemented");
 			Delegates.pglWindowPos4sMESA(x, y, z, w);
 			CallLog("glWindowPos4sMESA({0}, {1}, {2}, {3})", x, y, z, w);
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -200,7 +200,7 @@ namespace OpenGL
 					CallLog("glWindowPos4svMESA({0})", v);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 	}

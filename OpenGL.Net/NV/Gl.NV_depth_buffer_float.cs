@@ -60,7 +60,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglDepthRangedNV != null, "pglDepthRangedNV not implemented");
 			Delegates.pglDepthRangedNV(zNear, zFar);
 			CallLog("glDepthRangedNV({0}, {1})", zNear, zFar);
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -75,7 +75,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglClearDepthdNV != null, "pglClearDepthdNV not implemented");
 			Delegates.pglClearDepthdNV(depth);
 			CallLog("glClearDepthdNV({0})", depth);
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -93,7 +93,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglDepthBoundsdNV != null, "pglDepthBoundsdNV not implemented");
 			Delegates.pglDepthBoundsdNV(zmin, zmax);
 			CallLog("glDepthBoundsdNV({0}, {1})", zmin, zmax);
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 	}

@@ -39,12 +39,7 @@ namespace OpenGL
 		/// </summary>
 		static Wgl()
 		{
-			LinkOpenGLProcImports(typeof(Wgl), out sImportMap, out sDelegates);
-		}
-
-		public static void Link()
-		{
-			LinkOpenGLProcImports(typeof(Wgl), out sImportMap, out sDelegates);
+			LinkOpenGLProcImports(typeof(Wgl), out _ImportMap, out _Delegates);
 		}
 
 		#endregion
@@ -56,7 +51,7 @@ namespace OpenGL
 		/// </summary>
 		public static void SyncDelegates()
 		{
-			SynchDelegates(sImportMap, sDelegates);
+			SynchDelegates(_ImportMap, _Delegates);
 		}
 
 		/// <summary>
@@ -67,12 +62,12 @@ namespace OpenGL
 		/// <summary>
 		/// Build a string->MethodInfo map to speed up extension loading.
 		/// </summary>
-		internal static SortedList<string, MethodInfo> sImportMap = null;
+		internal static SortedList<string, MethodInfo> _ImportMap;
 
 		/// <summary>
 		/// Imported functions delegates.
 		/// </summary>
-		private static List<FieldInfo> sDelegates = null;
+		private static List<FieldInfo> _Delegates;
 
 		#endregion
 
@@ -132,12 +127,13 @@ namespace OpenGL
 			bool retvalue = MakeCurrentCore(hDc, newContext);
 
 			if ((retvalue == true) && (newContext != IntPtr.Zero)) {
-				// After having a current context on the caller thread, synchronize Gl.Delegates pointers to the
-				// actual implementation
-				Gl.SyncDelegates();
 				// Since we have a current context on the caller thread, the API wglGetProcAddress is available; indeed
 				// synchronize Wgl.Delegates as well
 				SyncDelegates();
+
+				// After having a current context on the caller thread, synchronize Gl.Delegates pointers to the
+				// actual implementation
+				Gl.SyncDelegates();
 			}
 
 			return (retvalue);
@@ -145,27 +141,84 @@ namespace OpenGL
 
 		#endregion
 
-		#region Debugging
+		#region Error Checking
 
 		/// <summary>
-		/// Get or set the enable flag for the OpenGL call log.
+		/// Error handling mode.
 		/// </summary>
-		public static bool CallLogEnabled
+		public enum ErrorHandlingMode
 		{
-			get { return (sCallLogEnabled); }
-			set { sCallLogEnabled = value; }
+			/// <summary>
+			/// Throw a <see cref="Win32Exception"/> when a WGL routine reports an error.
+			/// </summary>
+			Normal,
+
+			/// <summary>
+			/// Do not throw any exception when a WGL routine reports an error, but logs the error
+			/// description.
+			/// </summary>
+			LogOnly,
+
+			/// <summary>
+			/// Ignore all errors reported by WGL routines.
+			/// </summary>
+			Ignore,
 		}
 
 		/// <summary>
-		/// OpenGL error checking.
+		/// Current error handling mode.
 		/// </summary>
-		public static void CheckErrors()
+		public static ErrorHandlingMode ErrorHandling = ErrorHandlingMode.LogOnly;
+
+		/// <summary>
+		/// OpenGL on Windows error checking.
+		/// </summary>
+		/// <param name="returnValue">
+		/// A <see cref="Object"/> that specifies the function returned value, if any.
+		/// </param>
+		public static void DebugCheckErrors(object returnValue)
 		{
+			ErrorHandlingMode methodErrorHandling = ErrorHandling;
+
+			if ((methodErrorHandling == ErrorHandlingMode.Normal) && (returnValue != null)) {
+				switch (Type.GetTypeCode(returnValue.GetType())) {
+					case TypeCode.Boolean:
+						if ((bool)returnValue == true)
+							methodErrorHandling = ErrorHandlingMode.LogOnly;
+						break;
+				}
+			}
+
+			// All WGl routines set error using SetLastError routine
 			int errorCode = Marshal.GetLastWin32Error();
 
-			if (errorCode != 0)
-				throw new Win32Exception(errorCode);
+			switch (errorCode) {
+				case 0:
+					// Success
+					break;
+				default:
+					switch (ErrorHandling) {
+						case ErrorHandlingMode.Normal:
+						default:
+							throw new Win32Exception(errorCode);
+						case ErrorHandlingMode.LogOnly:
+							CallLog("GetLastError() = {0} [Error code {0}: {1}]", errorCode, new Win32Exception(errorCode).Message);
+							break;
+						case ErrorHandlingMode.Ignore:
+							break;
+					}
+					break;
+			}
 		}
+
+		#endregion
+
+		#region Call Log
+
+		/// <summary>
+		/// The flag for enabling/disabling call logs for the OpenGL on Windows call log.
+		/// </summary>
+		public static bool CallLogEnabled = true;
 
 		/// <summary>
 		/// OpenGL logging utility.
@@ -179,16 +232,11 @@ namespace OpenGL
 		[Conditional("OPENGL_NET_CALL_LOG_ENABLED")]
 		private static void CallLog(string format, params object[] args)
 		{
-			if (sCallLogEnabled == false)
+			if (CallLogEnabled == false)
 				return;
 
-
+			Trace.TraceInformation(format, args);
 		}
-
-		/// <summary>
-		/// The enable flag for the OpenGL call log.
-		/// </summary>
-		private static bool sCallLogEnabled;
 
 		#endregion
 
@@ -204,6 +252,18 @@ namespace OpenGL
 			/// <returns></returns>
 			[DllImport("gdi32.dll", EntryPoint = "ChoosePixelFormat", ExactSpelling = true, SetLastError = true)]
 			public static extern int GdiChoosePixelFormat(IntPtr deviceContext, [In] ref PIXELFORMATDESCRIPTOR pixelFormatDescriptor);
+
+			/// <summary>
+			/// 
+			/// </summary>
+			/// <param name="hdc"></param>
+			/// <param name="iPixelFormat"></param>
+			/// <param name="nBytes"></param>
+			/// <param name="ppfd"></param>
+			/// <returns></returns>
+			[DllImport("gdi32.dll", EntryPoint = "DescribePixelFormat", ExactSpelling = true, SetLastError = true)]
+			[return : MarshalAs(UnmanagedType.Bool)]
+			public static extern bool DescribePixelFormat(IntPtr hdc, int iPixelFormat, UInt32 nBytes, [In, Out] ref PIXELFORMATDESCRIPTOR ppfd);
 
 			/// <summary>
 			/// 
@@ -371,6 +431,39 @@ namespace OpenGL
 		[StructLayout(LayoutKind.Sequential)]
 		public struct PIXELFORMATDESCRIPTOR
 		{
+			/// <summary>
+			/// Construct a pixel format descriptor.
+			/// </summary>
+			/// <param name="colorBits">
+			/// Specifies the number of color bitplanes in each color buffer. For RGBA pixel types, it is the size
+			/// of the color buffer, excluding the alpha bitplanes. For color-index pixels, it is the size of the
+			/// color-index buffer.
+			/// </param>
+			public PIXELFORMATDESCRIPTOR(Byte colorBits)
+			{
+				nVersion = 1;
+				nSize = (short)Marshal.SizeOf(typeof(Wgl.PIXELFORMATDESCRIPTOR));
+
+				iLayerType = Wgl.PFD_MAIN_PLANE;
+				dwFlags = (Wgl.PFD_SUPPORT_OPENGL | Wgl.PFD_DRAW_TO_WINDOW | Wgl.PFD_DOUBLEBUFFER);
+				iPixelType = Wgl.PFD_TYPE_RGBA;
+
+				dwLayerMask = 0; dwVisibleMask = 0; dwDamageMask = 0;
+				cAuxBuffers = 0;
+				bReserved = 0;
+
+				cColorBits = colorBits;
+
+				cRedBits = 0; cRedShift = 0;
+				cGreenBits = 0; cGreenShift = 0;
+				cBlueBits = 0; cBlueShift = 0;
+				cAlphaBits = 0; cAlphaShift = 0;
+				cDepthBits = 0;
+				cStencilBits = 0;
+				cAccumBits = 0;
+				cAccumRedBits = 0; cAccumGreenBits = 0; cAccumBlueBits = 0; cAccumAlphaBits = 0;
+			}
+
 			/// <summary>
 			/// Specifies the size of this data structure. This value should be set to <c>sizeof(PIXELFORMATDESCRIPTOR)</c>.
 			/// </summary>

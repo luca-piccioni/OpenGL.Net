@@ -70,7 +70,7 @@ namespace OpenGL
 					CallLog("eglQueryDeviceAttribEXT(0x{0}, {1}, {2}) = {3}", device.ToString("X8"), attribute, value, retValue.ToString("X8"));
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(retValue);
 
 			return (retValue);
 		}
@@ -92,7 +92,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.peglQueryDeviceStringEXT != null, "peglQueryDeviceStringEXT not implemented");
 			retValue = Delegates.peglQueryDeviceStringEXT(device, name);
 			CallLog("eglQueryDeviceStringEXT(0x{0}, {1}) = {2}", device.ToString("X8"), name, retValue);
-			DebugCheckErrors();
+			DebugCheckErrors(retValue);
 
 			return (retValue);
 		}
@@ -123,7 +123,7 @@ namespace OpenGL
 					CallLog("eglQueryDevicesEXT({0}, {1}, {2}) = {3}", max_devices, devices, num_devices, retValue.ToString("X8"));
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(retValue);
 
 			return (retValue);
 		}
@@ -153,7 +153,7 @@ namespace OpenGL
 					CallLog("eglQueryDisplayAttribEXT(0x{0}, {1}, {2}) = {3}", dpy.ToString("X8"), attribute, value, retValue.ToString("X8"));
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(retValue);
 
 			return (retValue);
 		}

@@ -305,7 +305,7 @@ namespace OpenGL
 					CallLog("glUniformMatrix2x3fv({0}, {1}, {2}, {3})", location, count, transpose, value);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -375,7 +375,7 @@ namespace OpenGL
 					CallLog("glUniformMatrix3x2fv({0}, {1}, {2}, {3})", location, count, transpose, value);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -445,7 +445,7 @@ namespace OpenGL
 					CallLog("glUniformMatrix2x4fv({0}, {1}, {2}, {3})", location, count, transpose, value);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -515,7 +515,7 @@ namespace OpenGL
 					CallLog("glUniformMatrix4x2fv({0}, {1}, {2}, {3})", location, count, transpose, value);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -585,7 +585,7 @@ namespace OpenGL
 					CallLog("glUniformMatrix3x4fv({0}, {1}, {2}, {3})", location, count, transpose, value);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -655,7 +655,7 @@ namespace OpenGL
 					CallLog("glUniformMatrix4x3fv({0}, {1}, {2}, {3})", location, count, transpose, value);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 	}

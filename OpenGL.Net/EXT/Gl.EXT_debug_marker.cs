@@ -42,7 +42,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglInsertEventMarkerEXT != null, "pglInsertEventMarkerEXT not implemented");
 			Delegates.pglInsertEventMarkerEXT(length, marker);
 			CallLog("glInsertEventMarkerEXT({0}, {1})", length, marker);
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -60,7 +60,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglPushGroupMarkerEXT != null, "pglPushGroupMarkerEXT not implemented");
 			Delegates.pglPushGroupMarkerEXT(length, marker);
 			CallLog("glPushGroupMarkerEXT({0}, {1})", length, marker);
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -72,7 +72,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglPopGroupMarkerEXT != null, "pglPopGroupMarkerEXT not implemented");
 			Delegates.pglPopGroupMarkerEXT();
 			CallLog("glPopGroupMarkerEXT()");
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 	}

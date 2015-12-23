@@ -53,7 +53,7 @@ namespace OpenGL
 					CallLog("glFramebufferSampleLocationsfvNV({0}, {1}, {2}, {3})", target, start, count, v);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -82,7 +82,7 @@ namespace OpenGL
 					CallLog("glNamedFramebufferSampleLocationsfvNV({0}, {1}, {2}, {3})", framebuffer, start, count, v);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -94,7 +94,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglResolveDepthValuesNV != null, "pglResolveDepthValuesNV not implemented");
 			Delegates.pglResolveDepthValuesNV();
 			CallLog("glResolveDepthValuesNV()");
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 	}

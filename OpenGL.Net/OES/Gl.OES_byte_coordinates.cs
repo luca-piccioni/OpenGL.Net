@@ -42,7 +42,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglMultiTexCoord1bOES != null, "pglMultiTexCoord1bOES not implemented");
 			Delegates.pglMultiTexCoord1bOES(texture, s);
 			CallLog("glMultiTexCoord1bOES({0}, {1})", texture, s);
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -65,7 +65,7 @@ namespace OpenGL
 					CallLog("glMultiTexCoord1bvOES({0}, {1})", texture, coords);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -86,7 +86,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglMultiTexCoord2bOES != null, "pglMultiTexCoord2bOES not implemented");
 			Delegates.pglMultiTexCoord2bOES(texture, s, t);
 			CallLog("glMultiTexCoord2bOES({0}, {1}, {2})", texture, s, t);
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -109,7 +109,7 @@ namespace OpenGL
 					CallLog("glMultiTexCoord2bvOES({0}, {1})", texture, coords);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -133,7 +133,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglMultiTexCoord3bOES != null, "pglMultiTexCoord3bOES not implemented");
 			Delegates.pglMultiTexCoord3bOES(texture, s, t, r);
 			CallLog("glMultiTexCoord3bOES({0}, {1}, {2}, {3})", texture, s, t, r);
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -156,7 +156,7 @@ namespace OpenGL
 					CallLog("glMultiTexCoord3bvOES({0}, {1})", texture, coords);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -183,7 +183,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglMultiTexCoord4bOES != null, "pglMultiTexCoord4bOES not implemented");
 			Delegates.pglMultiTexCoord4bOES(texture, s, t, r, q);
 			CallLog("glMultiTexCoord4bOES({0}, {1}, {2}, {3}, {4})", texture, s, t, r, q);
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -206,7 +206,7 @@ namespace OpenGL
 					CallLog("glMultiTexCoord4bvOES({0}, {1})", texture, coords);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -221,7 +221,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglTexCoord1bOES != null, "pglTexCoord1bOES not implemented");
 			Delegates.pglTexCoord1bOES(s);
 			CallLog("glTexCoord1bOES({0})", s);
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -241,7 +241,7 @@ namespace OpenGL
 					CallLog("glTexCoord1bvOES({0})", coords);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -259,7 +259,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglTexCoord2bOES != null, "pglTexCoord2bOES not implemented");
 			Delegates.pglTexCoord2bOES(s, t);
 			CallLog("glTexCoord2bOES({0}, {1})", s, t);
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -279,7 +279,7 @@ namespace OpenGL
 					CallLog("glTexCoord2bvOES({0})", coords);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -300,7 +300,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglTexCoord3bOES != null, "pglTexCoord3bOES not implemented");
 			Delegates.pglTexCoord3bOES(s, t, r);
 			CallLog("glTexCoord3bOES({0}, {1}, {2})", s, t, r);
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -320,7 +320,7 @@ namespace OpenGL
 					CallLog("glTexCoord3bvOES({0})", coords);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -344,7 +344,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglTexCoord4bOES != null, "pglTexCoord4bOES not implemented");
 			Delegates.pglTexCoord4bOES(s, t, r, q);
 			CallLog("glTexCoord4bOES({0}, {1}, {2}, {3})", s, t, r, q);
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -364,7 +364,7 @@ namespace OpenGL
 					CallLog("glTexCoord4bvOES({0})", coords);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -382,7 +382,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglVertex2bOES != null, "pglVertex2bOES not implemented");
 			Delegates.pglVertex2bOES(x, y);
 			CallLog("glVertex2bOES({0}, {1})", x, y);
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -402,7 +402,7 @@ namespace OpenGL
 					CallLog("glVertex2bvOES({0})", coords);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -423,7 +423,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglVertex3bOES != null, "pglVertex3bOES not implemented");
 			Delegates.pglVertex3bOES(x, y, z);
 			CallLog("glVertex3bOES({0}, {1}, {2})", x, y, z);
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -443,7 +443,7 @@ namespace OpenGL
 					CallLog("glVertex3bvOES({0})", coords);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -467,7 +467,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglVertex4bOES != null, "pglVertex4bOES not implemented");
 			Delegates.pglVertex4bOES(x, y, z, w);
 			CallLog("glVertex4bOES({0}, {1}, {2}, {3})", x, y, z, w);
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -487,7 +487,7 @@ namespace OpenGL
 					CallLog("glVertex4bvOES({0})", coords);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 	}

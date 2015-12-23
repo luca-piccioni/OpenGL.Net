@@ -119,7 +119,7 @@ namespace OpenGL
 					CallLog("glDeformationMap3dSGIX({0}, {1}, {2}, {3}, {4}, {5}, {6}, {7}, {8}, {9}, {10}, {11}, {12}, {13})", target, u1, u2, ustride, uorder, v1, v2, vstride, vorder, w1, w2, wstride, worder, points);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -178,7 +178,7 @@ namespace OpenGL
 					CallLog("glDeformationMap3fSGIX({0}, {1}, {2}, {3}, {4}, {5}, {6}, {7}, {8}, {9}, {10}, {11}, {12}, {13})", target, u1, u2, ustride, uorder, v1, v2, vstride, vorder, w1, w2, wstride, worder, points);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -193,7 +193,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglDeformSGIX != null, "pglDeformSGIX not implemented");
 			Delegates.pglDeformSGIX((UInt32)mask);
 			CallLog("glDeformSGIX({0})", mask);
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -208,7 +208,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglLoadIdentityDeformationMapSGIX != null, "pglLoadIdentityDeformationMapSGIX not implemented");
 			Delegates.pglLoadIdentityDeformationMapSGIX((UInt32)mask);
 			CallLog("glLoadIdentityDeformationMapSGIX({0})", mask);
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 	}

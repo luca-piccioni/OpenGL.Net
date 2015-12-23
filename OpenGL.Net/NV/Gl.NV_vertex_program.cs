@@ -500,7 +500,7 @@ namespace OpenGL
 					CallLog("glAreProgramsResidentNV({0}, {1}, {2}) = {3}", programs.Length, programs, residences, retValue);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(retValue);
 
 			return (retValue);
 		}
@@ -528,7 +528,7 @@ namespace OpenGL
 					CallLog("glExecuteProgramNV({0}, {1}, {2})", target, id, @params);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -557,7 +557,7 @@ namespace OpenGL
 					CallLog("glGetProgramParameterdvNV({0}, {1}, {2}, {3})", target, index, pname, @params);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -586,7 +586,7 @@ namespace OpenGL
 					CallLog("glGetProgramParameterfvNV({0}, {1}, {2}, {3})", target, index, pname, @params);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -612,7 +612,7 @@ namespace OpenGL
 					CallLog("glGetProgramivNV({0}, {1}, {2})", id, pname, @params);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -638,7 +638,7 @@ namespace OpenGL
 					CallLog("glGetProgramStringNV({0}, {1}, {2})", id, pname, program);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -667,7 +667,7 @@ namespace OpenGL
 					CallLog("glGetTrackMatrixivNV({0}, {1}, {2}, {3})", target, address, pname, @params);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -693,7 +693,7 @@ namespace OpenGL
 					CallLog("glLoadProgramNV({0}, {1}, {2}, {3})", target, id, program.Length, program);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -723,7 +723,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglProgramParameter4dNV != null, "pglProgramParameter4dNV not implemented");
 			Delegates.pglProgramParameter4dNV(target, index, x, y, z, w);
 			CallLog("glProgramParameter4dNV({0}, {1}, {2}, {3}, {4}, {5})", target, index, x, y, z, w);
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -749,7 +749,7 @@ namespace OpenGL
 					CallLog("glProgramParameter4dvNV({0}, {1}, {2})", target, index, v);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -779,7 +779,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglProgramParameter4fNV != null, "pglProgramParameter4fNV not implemented");
 			Delegates.pglProgramParameter4fNV(target, index, x, y, z, w);
 			CallLog("glProgramParameter4fNV({0}, {1}, {2}, {3}, {4}, {5})", target, index, x, y, z, w);
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -805,7 +805,7 @@ namespace OpenGL
 					CallLog("glProgramParameter4fvNV({0}, {1}, {2})", target, index, v);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -834,7 +834,7 @@ namespace OpenGL
 					CallLog("glProgramParameters4dvNV({0}, {1}, {2}, {3})", target, index, count, v);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -863,7 +863,7 @@ namespace OpenGL
 					CallLog("glProgramParameters4fvNV({0}, {1}, {2}, {3})", target, index, count, v);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -883,7 +883,7 @@ namespace OpenGL
 					CallLog("glRequestResidentProgramsNV({0}, {1})", programs.Length, programs);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -907,7 +907,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglTrackMatrixNV != null, "pglTrackMatrixNV not implemented");
 			Delegates.pglTrackMatrixNV(target, address, matrix, transform);
 			CallLog("glTrackMatrixNV({0}, {1}, {2}, {3})", target, address, matrix, transform);
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -934,7 +934,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglVertexAttribPointerNV != null, "pglVertexAttribPointerNV not implemented");
 			Delegates.pglVertexAttribPointerNV(index, fsize, type, stride, pointer);
 			CallLog("glVertexAttribPointerNV({0}, {1}, {2}, {3}, 0x{4})", index, fsize, type, stride, pointer.ToString("X8"));
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -986,7 +986,7 @@ namespace OpenGL
 					CallLog("glVertexAttribs1dvNV({0}, {1}, {2})", index, v.Length, v);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -1009,7 +1009,7 @@ namespace OpenGL
 					CallLog("glVertexAttribs1fvNV({0}, {1}, {2})", index, v.Length, v);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -1032,7 +1032,7 @@ namespace OpenGL
 					CallLog("glVertexAttribs1svNV({0}, {1}, {2})", index, v.Length, v);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -1058,7 +1058,7 @@ namespace OpenGL
 					CallLog("glVertexAttribs2dvNV({0}, {1}, {2})", index, count, v);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -1084,7 +1084,7 @@ namespace OpenGL
 					CallLog("glVertexAttribs2fvNV({0}, {1}, {2})", index, count, v);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -1110,7 +1110,7 @@ namespace OpenGL
 					CallLog("glVertexAttribs2svNV({0}, {1}, {2})", index, count, v);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -1136,7 +1136,7 @@ namespace OpenGL
 					CallLog("glVertexAttribs3dvNV({0}, {1}, {2})", index, count, v);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -1162,7 +1162,7 @@ namespace OpenGL
 					CallLog("glVertexAttribs3fvNV({0}, {1}, {2})", index, count, v);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -1188,7 +1188,7 @@ namespace OpenGL
 					CallLog("glVertexAttribs3svNV({0}, {1}, {2})", index, count, v);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -1214,7 +1214,7 @@ namespace OpenGL
 					CallLog("glVertexAttribs4dvNV({0}, {1}, {2})", index, count, v);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -1240,7 +1240,7 @@ namespace OpenGL
 					CallLog("glVertexAttribs4fvNV({0}, {1}, {2})", index, count, v);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -1266,7 +1266,7 @@ namespace OpenGL
 					CallLog("glVertexAttribs4svNV({0}, {1}, {2})", index, count, v);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -1292,7 +1292,7 @@ namespace OpenGL
 					CallLog("glVertexAttribs4ubvNV({0}, {1}, {2})", index, count, v);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 	}

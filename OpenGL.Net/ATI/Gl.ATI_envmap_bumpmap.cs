@@ -95,7 +95,7 @@ namespace OpenGL
 					CallLog("glTexBumpParameterivATI({0}, {1})", pname, param);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -118,7 +118,7 @@ namespace OpenGL
 					CallLog("glTexBumpParameterfvATI({0}, {1})", pname, param);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -141,7 +141,7 @@ namespace OpenGL
 					CallLog("glGetTexBumpParameterivATI({0}, {1})", pname, param);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -164,7 +164,7 @@ namespace OpenGL
 					CallLog("glGetTexBumpParameterfvATI({0}, {1})", pname, param);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 	}

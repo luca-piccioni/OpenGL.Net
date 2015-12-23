@@ -237,7 +237,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglBufferStorage != null, "pglBufferStorage not implemented");
 			Delegates.pglBufferStorage(target, size, data, flags);
 			CallLog("glBufferStorage({0}, {1}, 0x{2}, {3})", target, size, data.ToString("X8"), flags);
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -380,7 +380,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglClearTexImage != null, "pglClearTexImage not implemented");
 			Delegates.pglClearTexImage(texture, level, format, type, data);
 			CallLog("glClearTexImage({0}, {1}, {2}, {3}, 0x{4})", texture, level, format, type, data.ToString("X8"));
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -549,7 +549,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglClearTexSubImage != null, "pglClearTexSubImage not implemented");
 			Delegates.pglClearTexSubImage(texture, level, xoffset, yoffset, zoffset, width, height, depth, format, type, data);
 			CallLog("glClearTexSubImage({0}, {1}, {2}, {3}, {4}, {5}, {6}, {7}, {8}, {9}, 0x{10})", texture, level, xoffset, yoffset, zoffset, width, height, depth, format, type, data.ToString("X8"));
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -694,7 +694,7 @@ namespace OpenGL
 					CallLog("glBindBuffersBase({0}, {1}, {2}, {3})", target, first, buffers.Length, buffers);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -760,7 +760,7 @@ namespace OpenGL
 					CallLog("glBindBuffersRange({0}, {1}, {2}, {3}, {4}, {5})", target, first, buffers.Length, buffers, offsets, sizes);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -806,7 +806,7 @@ namespace OpenGL
 					CallLog("glBindTextures({0}, {1}, {2})", first, textures.Length, textures);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -849,7 +849,7 @@ namespace OpenGL
 					CallLog("glBindSamplers({0}, {1}, {2})", first, samplers.Length, samplers);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -905,7 +905,7 @@ namespace OpenGL
 					CallLog("glBindImageTextures({0}, {1}, {2})", first, textures.Length, textures);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -960,7 +960,7 @@ namespace OpenGL
 					CallLog("glBindVertexBuffers({0}, {1}, {2}, {3}, {4})", first, buffers.Length, buffers, offsets, strides);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 	}

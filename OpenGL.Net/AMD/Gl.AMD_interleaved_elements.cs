@@ -57,7 +57,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglVertexAttribParameteriAMD != null, "pglVertexAttribParameteriAMD not implemented");
 			Delegates.pglVertexAttribParameteriAMD(index, pname, param);
 			CallLog("glVertexAttribParameteriAMD({0}, {1}, {2})", index, pname, param);
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 	}

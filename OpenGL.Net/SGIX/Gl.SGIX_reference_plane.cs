@@ -56,7 +56,7 @@ namespace OpenGL
 					CallLog("glReferencePlaneSGIX({0})", equation);
 				}
 			}
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 	}

@@ -66,7 +66,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglFlushVertexArrayRangeNV != null, "pglFlushVertexArrayRangeNV not implemented");
 			Delegates.pglFlushVertexArrayRangeNV();
 			CallLog("glFlushVertexArrayRangeNV()");
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -84,7 +84,7 @@ namespace OpenGL
 			Debug.Assert(Delegates.pglVertexArrayRangeNV != null, "pglVertexArrayRangeNV not implemented");
 			Delegates.pglVertexArrayRangeNV(length, pointer);
 			CallLog("glVertexArrayRangeNV({0}, 0x{1})", length, pointer.ToString("X8"));
-			DebugCheckErrors();
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
