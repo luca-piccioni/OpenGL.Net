@@ -105,12 +105,13 @@ namespace OpenGL
 		/// </exception>
 		static GraphicsContext()
 		{
-			// Create common hidden window/device
+			// Create common hidden window
 			_HiddenWindow = new System.Windows.Forms.Form();
+			// Create device context
 			_HiddenWindowDevice = DeviceContextFactory.Create(_HiddenWindow);
 			_HiddenWindowDevice.IncRef();
 
-			// Create basic context
+			// Create basic OpenGL context
 			IntPtr rContext;
 
 			switch (Environment.OSVersion.Platform) {
@@ -118,6 +119,9 @@ namespace OpenGL
 				case PlatformID.Win32S:
 				case PlatformID.Win32Windows:
 				case PlatformID.WinCE:
+					// Synchronize WGL entry points
+					Wgl.SyncDelegates();
+
 					rContext = CreateWinSimpleContext(_HiddenWindowDevice);
 					break;
 				case PlatformID.Unix:
@@ -158,50 +162,25 @@ namespace OpenGL
 			IntPtr rContext;
 
 			// Define most compatible pixel format
-			Wgl.PIXELFORMATDESCRIPTOR pfd;
+			Wgl.PIXELFORMATDESCRIPTOR pfd = new Wgl.PIXELFORMATDESCRIPTOR(24);
 			int pFormat;
-
-			// Describe the pixel format fundamentals
-			pfd.nVersion = 1; pfd.nSize = (short)Marshal.SizeOf(typeof(Wgl.PIXELFORMATDESCRIPTOR));
-			pfd.iLayerType = Wgl.PFD_MAIN_PLANE;
-			pfd.dwFlags = (Wgl.PFD_SUPPORT_OPENGL | Wgl.PFD_DRAW_TO_WINDOW);
-			pfd.iPixelType = Wgl.PFD_TYPE_RGBA;
-			pfd.dwLayerMask = 0; pfd.dwVisibleMask = 0; pfd.dwDamageMask = 0;
-			pfd.cAuxBuffers = 0;
-			pfd.bReserved = 0;
-			pfd.cColorBits = 24;
-			pfd.cRedBits = 0; pfd.cRedShift = 0;
-			pfd.cGreenBits = 0; pfd.cGreenShift = 0;
-			pfd.cBlueBits = 0; pfd.cBlueShift = 0;
-			pfd.cAlphaBits = 0; pfd.cAlphaShift = 0;
-			pfd.cDepthBits = 0;
-			pfd.cStencilBits = 0;
-			pfd.cAccumBits = 0;
-			pfd.cAccumRedBits = 0; pfd.cAccumGreenBits = 0; pfd.cAccumBlueBits = 0; pfd.cAccumAlphaBits = 0;
+			bool res;
 
 			// Find pixel format match
-			if ((pFormat = Wgl.UnsafeNativeMethods.GdiChoosePixelFormat(winDeviceContext.DeviceContext, ref pfd)) == 0)
-				throw new NotSupportedException("unable to choose basic pixel format, error code " + Marshal.GetLastWin32Error());
+			pFormat = Wgl.UnsafeNativeMethods.GdiChoosePixelFormat(winDeviceContext.DeviceContext, ref pfd);
+			Debug.Assert(pFormat != 0);
 
-			if (pfd.cColorBits == 0)
-				throw new Exception("unable to select valid pixel format");
+			// Get exact description of the pixel format
+			res = Wgl.UnsafeNativeMethods.DescribePixelFormat(winDeviceContext.DeviceContext, pFormat, (uint)pfd.nSize, ref pfd);
+			Debug.Assert(res);
+
 			// Set pixel format before creating OpenGL context
-			if (Wgl.UnsafeNativeMethods.GdiSetPixelFormat(winDeviceContext.DeviceContext, pFormat, ref pfd) == false)
-				throw new InvalidOperationException("unable to set valid pixel format");
+			res = Wgl.UnsafeNativeMethods.GdiSetPixelFormat(winDeviceContext.DeviceContext, pFormat, ref pfd);
+			Debug.Assert(res);
 
 			// Create a dummy OpenGL context to retrieve initial informations.
-			if ((rContext = Wgl.CreateContext(winDeviceContext.DeviceContext)) == IntPtr.Zero) {
-
-				// On some platforms, the very first wglCreateContext fails, but it is able to run correctly after having called
-				// SetPixelFormat again after a wglCreateContext failure.
-				if (Wgl.UnsafeNativeMethods.GdiSetPixelFormat(winDeviceContext.DeviceContext, pFormat, ref pfd) == false)
-					throw new InvalidOperationException("unable to set valid pixel format");
-
-				// Retry: we will be more lucky
-				if ((rContext = Wgl.CreateContext(winDeviceContext.DeviceContext)) == IntPtr.Zero)
-					Wgl.CheckErrors();
-			}
-				//throw new InvalidOperationException("unable to create OpenGL context");
+			rContext = Wgl.CreateContext(winDeviceContext.DeviceContext);
+			Debug.Assert(rContext != IntPtr.Zero);
 
 			return (rContext);
 		}
@@ -538,7 +517,7 @@ namespace OpenGL
 				// Determine the compatibility profile
 				KhronosVersion compatibilityVersion = new KhronosVersion(3, 1);
 
-				mCompatibilityProfile = (version < compatibilityVersion) && (_Version >= compatibilityVersion);
+				_CompatibilityProfile = (version < compatibilityVersion) && (_Version >= compatibilityVersion);
 
 				// Cache context capabilities for this version
 				if (_GraphicsCapsDb.ContainsKey(_Version) == false)
@@ -629,12 +608,12 @@ namespace OpenGL
 		/// <summary>
 		/// The compatibility profile presence implemented by this GraphicsContext.
 		/// </summary>
-		public bool CompatibilityProfile { get { return (mCompatibilityProfile); } }
+		public bool CompatibilityProfile { get { return (_CompatibilityProfile); } }
 
 		/// <summary>
 		/// Compatibility profile enabled (only for versions greater than OpenGL 3.0).
 		/// </summary>
-		private bool mCompatibilityProfile;
+		private bool _CompatibilityProfile;
 
 		#endregion
 
@@ -1268,7 +1247,7 @@ namespace OpenGL
 
 				if (_DeviceContextThreadId != System.Threading.Thread.CurrentThread.ManagedThreadId)
 					throw new InvalidOperationException("disposing on a different thread context");
-                _DeviceContext.DecRef();
+				_DeviceContext.DecRef();
 				_DeviceContext = null;
 
 				// Remove context from the current ones
@@ -1277,7 +1256,7 @@ namespace OpenGL
 
 				lock (_RenderThreadsLock) {
 					foreach (KeyValuePair<int, GraphicsContext> pair in _RenderThreads) {
-						if (Object.ReferenceEquals(pair.Value, this) == true) {
+						if (ReferenceEquals(pair.Value, this) == true) {
 							threadId = pair.Key;
 							threadCurrentFound = true;
 							break;
