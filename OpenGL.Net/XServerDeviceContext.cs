@@ -73,7 +73,7 @@ namespace OpenGL
 		{
 			// Open display (follows DISPLAY environment variable)
 			_Display = Glx.UnsafeNativeMethods.XOpenDisplay(display);
-			KhronosApi.LogProc("XOpenDisplay(0x0) = 0x{0}", _Display.ToString("X"));
+			KhronosApi.LogFunction("XOpenDisplay(0x0) = 0x{0}", _Display.ToString("X"));
 			if (_Display == IntPtr.Zero)
 				throw new InvalidOperationException(String.Format("unable to connect to X server display {0}", display.ToInt32()));
 			// Need to close display
@@ -262,7 +262,7 @@ namespace OpenGL
 		{
 			// Ensure to have X11 thread system initialized
 			int initialized = Glx.UnsafeNativeMethods.XInitThreads();
-			KhronosApi.LogProc("XInitThreads() = {0}", initialized);
+			KhronosApi.LogFunction("XInitThreads() = {0}", initialized);
 			
 			if (initialized == 0)
 				throw new InvalidOperationException("platform does not support multithreading");
@@ -689,7 +689,7 @@ namespace OpenGL
 			if (disposing) {
 				if ((_OwnDisplay == true) && (Display != IntPtr.Zero)) {
 					Glx.UnsafeNativeMethods.XCloseDisplay(Display);
-					KhronosApi.LogProc("XCloseDisplay({0})", Display.ToString("X"));
+					KhronosApi.LogFunction("XCloseDisplay({0})", Display.ToString("X"));
 				}
 			}
 		}

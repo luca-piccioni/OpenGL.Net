@@ -44,7 +44,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglXJoinSwapGroupSGIX != null, "pglXJoinSwapGroupSGIX not implemented");
 			Delegates.pglXJoinSwapGroupSGIX(dpy, drawable, member);
-			CallLog("glXJoinSwapGroupSGIX(0x{0}, 0x{1}, 0x{2})", dpy.ToString("X8"), drawable.ToString("X8"), member.ToString("X8"));
+			LogFunction("glXJoinSwapGroupSGIX(0x{0}, 0x{1}, 0x{2})", dpy.ToString("X8"), drawable.ToString("X8"), member.ToString("X8"));
 		}
 
 	}

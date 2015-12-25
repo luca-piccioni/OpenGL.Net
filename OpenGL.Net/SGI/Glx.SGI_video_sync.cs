@@ -40,7 +40,7 @@ namespace OpenGL
 
 			Debug.Assert(Delegates.pglXGetVideoSyncSGI != null, "pglXGetVideoSyncSGI not implemented");
 			retValue = Delegates.pglXGetVideoSyncSGI(count);
-			CallLog("glXGetVideoSyncSGI(0x{0}) = {1}", count.ToString("X8"), retValue);
+			LogFunction("glXGetVideoSyncSGI(0x{0}) = {1}", count.ToString("X8"), retValue);
 
 			return (retValue);
 		}
@@ -64,7 +64,7 @@ namespace OpenGL
 
 			Debug.Assert(Delegates.pglXWaitVideoSyncSGI != null, "pglXWaitVideoSyncSGI not implemented");
 			retValue = Delegates.pglXWaitVideoSyncSGI(divisor, remainder, count);
-			CallLog("glXWaitVideoSyncSGI({0}, {1}, 0x{2}) = {3}", divisor, remainder, count.ToString("X8"), retValue);
+			LogFunction("glXWaitVideoSyncSGI({0}, {1}, 0x{2}) = {3}", divisor, remainder, count.ToString("X8"), retValue);
 
 			return (retValue);
 		}

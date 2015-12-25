@@ -41,7 +41,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglBindTransformFeedbackNV != null, "pglBindTransformFeedbackNV not implemented");
 			Delegates.pglBindTransformFeedbackNV((Int32)target, id);
-			CallLog("glBindTransformFeedbackNV({0}, {1})", target, id);
+			LogFunction("glBindTransformFeedbackNV({0}, {1})", target, id);
 			DebugCheckErrors(null);
 		}
 

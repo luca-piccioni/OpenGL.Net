@@ -43,7 +43,7 @@ namespace OpenGL
 
 			Debug.Assert(Delegates.pwglJoinSwapGroupNV != null, "pwglJoinSwapGroupNV not implemented");
 			retValue = Delegates.pwglJoinSwapGroupNV(hDC, group);
-			CallLog("wglJoinSwapGroupNV(0x{0}, {1}) = {2}", hDC.ToString("X8"), group, retValue);
+			LogFunction("wglJoinSwapGroupNV(0x{0}, {1}) = {2}", hDC.ToString("X8"), group, retValue);
 			DebugCheckErrors(retValue);
 
 			return (retValue);
@@ -65,7 +65,7 @@ namespace OpenGL
 
 			Debug.Assert(Delegates.pwglBindSwapBarrierNV != null, "pwglBindSwapBarrierNV not implemented");
 			retValue = Delegates.pwglBindSwapBarrierNV(group, barrier);
-			CallLog("wglBindSwapBarrierNV({0}, {1}) = {2}", group, barrier, retValue);
+			LogFunction("wglBindSwapBarrierNV({0}, {1}) = {2}", group, barrier, retValue);
 			DebugCheckErrors(retValue);
 
 			return (retValue);
@@ -94,7 +94,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pwglQuerySwapGroupNV != null, "pwglQuerySwapGroupNV not implemented");
 					retValue = Delegates.pwglQuerySwapGroupNV(hDC, p_group, p_barrier);
-					CallLog("wglQuerySwapGroupNV(0x{0}, {1}, {2}) = {3}", hDC.ToString("X8"), group, barrier, retValue);
+					LogFunction("wglQuerySwapGroupNV(0x{0}, {1}, {2}) = {3}", hDC.ToString("X8"), group, barrier, retValue);
 				}
 			}
 			DebugCheckErrors(retValue);
@@ -125,7 +125,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pwglQueryMaxSwapGroupsNV != null, "pwglQueryMaxSwapGroupsNV not implemented");
 					retValue = Delegates.pwglQueryMaxSwapGroupsNV(hDC, p_maxGroups, p_maxBarriers);
-					CallLog("wglQueryMaxSwapGroupsNV(0x{0}, {1}, {2}) = {3}", hDC.ToString("X8"), maxGroups, maxBarriers, retValue);
+					LogFunction("wglQueryMaxSwapGroupsNV(0x{0}, {1}, {2}) = {3}", hDC.ToString("X8"), maxGroups, maxBarriers, retValue);
 				}
 			}
 			DebugCheckErrors(retValue);
@@ -152,7 +152,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pwglQueryFrameCountNV != null, "pwglQueryFrameCountNV not implemented");
 					retValue = Delegates.pwglQueryFrameCountNV(hDC, p_count);
-					CallLog("wglQueryFrameCountNV(0x{0}, {1}) = {2}", hDC.ToString("X8"), count, retValue);
+					LogFunction("wglQueryFrameCountNV(0x{0}, {1}) = {2}", hDC.ToString("X8"), count, retValue);
 				}
 			}
 			DebugCheckErrors(retValue);
@@ -173,7 +173,7 @@ namespace OpenGL
 
 			Debug.Assert(Delegates.pwglResetFrameCountNV != null, "pwglResetFrameCountNV not implemented");
 			retValue = Delegates.pwglResetFrameCountNV(hDC);
-			CallLog("wglResetFrameCountNV(0x{0}) = {1}", hDC.ToString("X8"), retValue);
+			LogFunction("wglResetFrameCountNV(0x{0}) = {1}", hDC.ToString("X8"), retValue);
 			DebugCheckErrors(retValue);
 
 			return (retValue);

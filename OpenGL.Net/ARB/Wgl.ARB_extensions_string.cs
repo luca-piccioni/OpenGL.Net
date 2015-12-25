@@ -40,7 +40,7 @@ namespace OpenGL
 
 			Debug.Assert(Delegates.pwglGetExtensionsStringARB != null, "pwglGetExtensionsStringARB not implemented");
 			retValue = Delegates.pwglGetExtensionsStringARB(hdc);
-			CallLog("wglGetExtensionsStringARB(0x{0}) = {1}", hdc.ToString("X8"), retValue);
+			LogFunction("wglGetExtensionsStringARB(0x{0}) = {1}", hdc.ToString("X8"), retValue);
 			DebugCheckErrors(retValue);
 
 			return (retValue);

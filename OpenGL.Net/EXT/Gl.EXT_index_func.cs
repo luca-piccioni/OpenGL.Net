@@ -59,7 +59,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglIndexFuncEXT != null, "pglIndexFuncEXT not implemented");
 			Delegates.pglIndexFuncEXT(func, @ref);
-			CallLog("glIndexFuncEXT({0}, {1})", func, @ref);
+			LogFunction("glIndexFuncEXT({0}, {1})", func, @ref);
 			DebugCheckErrors(null);
 		}
 

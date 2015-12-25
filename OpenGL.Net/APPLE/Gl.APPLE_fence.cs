@@ -53,7 +53,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGenFencesAPPLE != null, "pglGenFencesAPPLE not implemented");
 					Delegates.pglGenFencesAPPLE((Int32)fences.Length, p_fences);
-					CallLog("glGenFencesAPPLE({0}, {1})", fences.Length, fences);
+					LogFunction("glGenFencesAPPLE({0}, {1})", fences.Length, fences);
 				}
 			}
 			DebugCheckErrors(null);
@@ -84,7 +84,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglDeleteFencesAPPLE != null, "pglDeleteFencesAPPLE not implemented");
 					Delegates.pglDeleteFencesAPPLE((Int32)fences.Length, p_fences);
-					CallLog("glDeleteFencesAPPLE({0}, {1})", fences.Length, fences);
+					LogFunction("glDeleteFencesAPPLE({0}, {1})", fences.Length, fences);
 				}
 			}
 			DebugCheckErrors(null);
@@ -101,7 +101,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglSetFenceAPPLE != null, "pglSetFenceAPPLE not implemented");
 			Delegates.pglSetFenceAPPLE(fence);
-			CallLog("glSetFenceAPPLE({0})", fence);
+			LogFunction("glSetFenceAPPLE({0})", fence);
 			DebugCheckErrors(null);
 		}
 
@@ -118,7 +118,7 @@ namespace OpenGL
 
 			Debug.Assert(Delegates.pglIsFenceAPPLE != null, "pglIsFenceAPPLE not implemented");
 			retValue = Delegates.pglIsFenceAPPLE(fence);
-			CallLog("glIsFenceAPPLE({0}) = {1}", fence, retValue);
+			LogFunction("glIsFenceAPPLE({0}) = {1}", fence, retValue);
 			DebugCheckErrors(retValue);
 
 			return (retValue);
@@ -137,7 +137,7 @@ namespace OpenGL
 
 			Debug.Assert(Delegates.pglTestFenceAPPLE != null, "pglTestFenceAPPLE not implemented");
 			retValue = Delegates.pglTestFenceAPPLE(fence);
-			CallLog("glTestFenceAPPLE({0}) = {1}", fence, retValue);
+			LogFunction("glTestFenceAPPLE({0}) = {1}", fence, retValue);
 			DebugCheckErrors(retValue);
 
 			return (retValue);
@@ -154,7 +154,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglFinishFenceAPPLE != null, "pglFinishFenceAPPLE not implemented");
 			Delegates.pglFinishFenceAPPLE(fence);
-			CallLog("glFinishFenceAPPLE({0})", fence);
+			LogFunction("glFinishFenceAPPLE({0})", fence);
 			DebugCheckErrors(null);
 		}
 
@@ -174,7 +174,7 @@ namespace OpenGL
 
 			Debug.Assert(Delegates.pglTestObjectAPPLE != null, "pglTestObjectAPPLE not implemented");
 			retValue = Delegates.pglTestObjectAPPLE(@object, name);
-			CallLog("glTestObjectAPPLE({0}, {1}) = {2}", @object, name, retValue);
+			LogFunction("glTestObjectAPPLE({0}, {1}) = {2}", @object, name, retValue);
 			DebugCheckErrors(retValue);
 
 			return (retValue);
@@ -194,7 +194,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglFinishObjectAPPLE != null, "pglFinishObjectAPPLE not implemented");
 			Delegates.pglFinishObjectAPPLE(@object, name);
-			CallLog("glFinishObjectAPPLE({0}, {1})", @object, name);
+			LogFunction("glFinishObjectAPPLE({0}, {1})", @object, name);
 			DebugCheckErrors(null);
 		}
 

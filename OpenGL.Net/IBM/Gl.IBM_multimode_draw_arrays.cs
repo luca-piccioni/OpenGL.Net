@@ -55,7 +55,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglMultiModeDrawArraysIBM != null, "pglMultiModeDrawArraysIBM not implemented");
 					Delegates.pglMultiModeDrawArraysIBM(p_mode, p_first, p_count, primcount, modestride);
-					CallLog("glMultiModeDrawArraysIBM({0}, {1}, {2}, {3}, {4})", mode, first, count, primcount, modestride);
+					LogFunction("glMultiModeDrawArraysIBM({0}, {1}, {2}, {3}, {4})", mode, first, count, primcount, modestride);
 				}
 			}
 			DebugCheckErrors(null);
@@ -92,7 +92,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglMultiModeDrawElementsIBM != null, "pglMultiModeDrawElementsIBM not implemented");
 					Delegates.pglMultiModeDrawElementsIBM(p_mode, p_count, (Int32)type, p_indices, primcount, modestride);
-					CallLog("glMultiModeDrawElementsIBM({0}, {1}, {2}, {3}, {4}, {5})", mode, count, type, indices, primcount, modestride);
+					LogFunction("glMultiModeDrawElementsIBM({0}, {1}, {2}, {3}, {4}, {5})", mode, count, type, indices, primcount, modestride);
 				}
 			}
 			DebugCheckErrors(null);

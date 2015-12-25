@@ -53,7 +53,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetListParameterfvSGIX != null, "pglGetListParameterfvSGIX not implemented");
 					Delegates.pglGetListParameterfvSGIX(list, (Int32)pname, p_params);
-					CallLog("glGetListParameterfvSGIX({0}, {1}, {2})", list, pname, @params);
+					LogFunction("glGetListParameterfvSGIX({0}, {1}, {2})", list, pname, @params);
 				}
 			}
 			DebugCheckErrors(null);
@@ -79,7 +79,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetListParameterivSGIX != null, "pglGetListParameterivSGIX not implemented");
 					Delegates.pglGetListParameterivSGIX(list, (Int32)pname, p_params);
-					CallLog("glGetListParameterivSGIX({0}, {1}, {2})", list, pname, @params);
+					LogFunction("glGetListParameterivSGIX({0}, {1}, {2})", list, pname, @params);
 				}
 			}
 			DebugCheckErrors(null);
@@ -102,7 +102,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglListParameterfSGIX != null, "pglListParameterfSGIX not implemented");
 			Delegates.pglListParameterfSGIX(list, (Int32)pname, param);
-			CallLog("glListParameterfSGIX({0}, {1}, {2})", list, pname, param);
+			LogFunction("glListParameterfSGIX({0}, {1}, {2})", list, pname, param);
 			DebugCheckErrors(null);
 		}
 
@@ -126,7 +126,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglListParameterfvSGIX != null, "pglListParameterfvSGIX not implemented");
 					Delegates.pglListParameterfvSGIX(list, (Int32)pname, p_params);
-					CallLog("glListParameterfvSGIX({0}, {1}, {2})", list, pname, @params);
+					LogFunction("glListParameterfvSGIX({0}, {1}, {2})", list, pname, @params);
 				}
 			}
 			DebugCheckErrors(null);
@@ -149,7 +149,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglListParameteriSGIX != null, "pglListParameteriSGIX not implemented");
 			Delegates.pglListParameteriSGIX(list, (Int32)pname, param);
-			CallLog("glListParameteriSGIX({0}, {1}, {2})", list, pname, param);
+			LogFunction("glListParameteriSGIX({0}, {1}, {2})", list, pname, param);
 			DebugCheckErrors(null);
 		}
 
@@ -173,7 +173,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglListParameterivSGIX != null, "pglListParameterivSGIX not implemented");
 					Delegates.pglListParameterivSGIX(list, (Int32)pname, p_params);
-					CallLog("glListParameterivSGIX({0}, {1}, {2})", list, pname, @params);
+					LogFunction("glListParameterivSGIX({0}, {1}, {2})", list, pname, @params);
 				}
 			}
 			DebugCheckErrors(null);

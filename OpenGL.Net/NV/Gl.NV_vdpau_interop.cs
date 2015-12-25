@@ -65,7 +65,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglVDPAUInitNV != null, "pglVDPAUInitNV not implemented");
 			Delegates.pglVDPAUInitNV(vdpDevice, getProcAddress);
-			CallLog("glVDPAUInitNV(0x{0}, 0x{1})", vdpDevice.ToString("X8"), getProcAddress.ToString("X8"));
+			LogFunction("glVDPAUInitNV(0x{0}, 0x{1})", vdpDevice.ToString("X8"), getProcAddress.ToString("X8"));
 			DebugCheckErrors(null);
 		}
 
@@ -99,7 +99,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglVDPAUFiniNV != null, "pglVDPAUFiniNV not implemented");
 			Delegates.pglVDPAUFiniNV();
-			CallLog("glVDPAUFiniNV()");
+			LogFunction("glVDPAUFiniNV()");
 			DebugCheckErrors(null);
 		}
 
@@ -151,7 +151,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglVDPAURegisterVideoSurfaceNV != null, "pglVDPAURegisterVideoSurfaceNV not implemented");
 					retValue = Delegates.pglVDPAURegisterVideoSurfaceNV(vdpSurface, target, (Int32)textureNames.Length, p_textureNames);
-					CallLog("glVDPAURegisterVideoSurfaceNV(0x{0}, {1}, {2}, {3}) = {4}", vdpSurface.ToString("X8"), target, textureNames.Length, textureNames, retValue.ToString("X8"));
+					LogFunction("glVDPAURegisterVideoSurfaceNV(0x{0}, {1}, {2}, {3}) = {4}", vdpSurface.ToString("X8"), target, textureNames.Length, textureNames, retValue.ToString("X8"));
 				}
 			}
 			DebugCheckErrors(retValue);
@@ -207,7 +207,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglVDPAURegisterOutputSurfaceNV != null, "pglVDPAURegisterOutputSurfaceNV not implemented");
 					retValue = Delegates.pglVDPAURegisterOutputSurfaceNV(vdpSurface, target, (Int32)textureNames.Length, p_textureNames);
-					CallLog("glVDPAURegisterOutputSurfaceNV(0x{0}, {1}, {2}, {3}) = {4}", vdpSurface.ToString("X8"), target, textureNames.Length, textureNames, retValue.ToString("X8"));
+					LogFunction("glVDPAURegisterOutputSurfaceNV(0x{0}, {1}, {2}, {3}) = {4}", vdpSurface.ToString("X8"), target, textureNames.Length, textureNames, retValue.ToString("X8"));
 				}
 			}
 			DebugCheckErrors(retValue);
@@ -228,7 +228,7 @@ namespace OpenGL
 
 			Debug.Assert(Delegates.pglVDPAUIsSurfaceNV != null, "pglVDPAUIsSurfaceNV not implemented");
 			retValue = Delegates.pglVDPAUIsSurfaceNV(surface);
-			CallLog("glVDPAUIsSurfaceNV(0x{0}) = {1}", surface.ToString("X8"), retValue);
+			LogFunction("glVDPAUIsSurfaceNV(0x{0}) = {1}", surface.ToString("X8"), retValue);
 			DebugCheckErrors(retValue);
 
 			return (retValue);
@@ -245,7 +245,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglVDPAUUnregisterSurfaceNV != null, "pglVDPAUUnregisterSurfaceNV not implemented");
 			Delegates.pglVDPAUUnregisterSurfaceNV(surface);
-			CallLog("glVDPAUUnregisterSurfaceNV(0x{0})", surface.ToString("X8"));
+			LogFunction("glVDPAUUnregisterSurfaceNV(0x{0})", surface.ToString("X8"));
 			DebugCheckErrors(null);
 		}
 
@@ -273,7 +273,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglVDPAUGetSurfaceivNV != null, "pglVDPAUGetSurfaceivNV not implemented");
 					Delegates.pglVDPAUGetSurfaceivNV(surface, pname, (Int32)values.Length, p_length, p_values);
-					CallLog("glVDPAUGetSurfaceivNV(0x{0}, {1}, {2}, {3}, {4})", surface.ToString("X8"), pname, values.Length, length, values);
+					LogFunction("glVDPAUGetSurfaceivNV(0x{0}, {1}, {2}, {3}, {4})", surface.ToString("X8"), pname, values.Length, length, values);
 				}
 			}
 			DebugCheckErrors(null);
@@ -293,7 +293,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglVDPAUSurfaceAccessNV != null, "pglVDPAUSurfaceAccessNV not implemented");
 			Delegates.pglVDPAUSurfaceAccessNV(surface, access);
-			CallLog("glVDPAUSurfaceAccessNV(0x{0}, {1})", surface.ToString("X8"), access);
+			LogFunction("glVDPAUSurfaceAccessNV(0x{0}, {1})", surface.ToString("X8"), access);
 			DebugCheckErrors(null);
 		}
 
@@ -311,7 +311,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglVDPAUMapSurfacesNV != null, "pglVDPAUMapSurfacesNV not implemented");
 					Delegates.pglVDPAUMapSurfacesNV((Int32)surfaces.Length, p_surfaces);
-					CallLog("glVDPAUMapSurfacesNV({0}, {1})", surfaces.Length, surfaces);
+					LogFunction("glVDPAUMapSurfacesNV({0}, {1})", surfaces.Length, surfaces);
 				}
 			}
 			DebugCheckErrors(null);
@@ -331,7 +331,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglVDPAUUnmapSurfacesNV != null, "pglVDPAUUnmapSurfacesNV not implemented");
 					Delegates.pglVDPAUUnmapSurfacesNV((Int32)surfaces.Length, p_surfaces);
-					CallLog("glVDPAUUnmapSurfacesNV({0}, {1})", surfaces.Length, surfaces);
+					LogFunction("glVDPAUUnmapSurfacesNV({0}, {1})", surfaces.Length, surfaces);
 				}
 			}
 			DebugCheckErrors(null);

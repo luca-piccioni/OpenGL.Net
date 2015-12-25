@@ -77,7 +77,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglRenderbufferStorageMultisampleCoverageNV != null, "pglRenderbufferStorageMultisampleCoverageNV not implemented");
 			Delegates.pglRenderbufferStorageMultisampleCoverageNV(target, coverageSamples, colorSamples, internalformat, width, height);
-			CallLog("glRenderbufferStorageMultisampleCoverageNV({0}, {1}, {2}, {3}, {4}, {5})", target, coverageSamples, colorSamples, internalformat, width, height);
+			LogFunction("glRenderbufferStorageMultisampleCoverageNV({0}, {1}, {2}, {3}, {4}, {5})", target, coverageSamples, colorSamples, internalformat, width, height);
 			DebugCheckErrors(null);
 		}
 

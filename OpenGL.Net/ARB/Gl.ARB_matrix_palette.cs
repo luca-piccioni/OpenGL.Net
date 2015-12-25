@@ -98,7 +98,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglCurrentPaletteMatrixARB != null, "pglCurrentPaletteMatrixARB not implemented");
 			Delegates.pglCurrentPaletteMatrixARB(index);
-			CallLog("glCurrentPaletteMatrixARB({0})", index);
+			LogFunction("glCurrentPaletteMatrixARB({0})", index);
 			DebugCheckErrors(null);
 		}
 
@@ -116,7 +116,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglMatrixIndexubvARB != null, "pglMatrixIndexubvARB not implemented");
 					Delegates.pglMatrixIndexubvARB((Int32)indices.Length, p_indices);
-					CallLog("glMatrixIndexubvARB({0}, {1})", indices.Length, indices);
+					LogFunction("glMatrixIndexubvARB({0}, {1})", indices.Length, indices);
 				}
 			}
 			DebugCheckErrors(null);
@@ -136,7 +136,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglMatrixIndexusvARB != null, "pglMatrixIndexusvARB not implemented");
 					Delegates.pglMatrixIndexusvARB((Int32)indices.Length, p_indices);
-					CallLog("glMatrixIndexusvARB({0}, {1})", indices.Length, indices);
+					LogFunction("glMatrixIndexusvARB({0}, {1})", indices.Length, indices);
 				}
 			}
 			DebugCheckErrors(null);
@@ -156,7 +156,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglMatrixIndexuivARB != null, "pglMatrixIndexuivARB not implemented");
 					Delegates.pglMatrixIndexuivARB((Int32)indices.Length, p_indices);
-					CallLog("glMatrixIndexuivARB({0}, {1})", indices.Length, indices);
+					LogFunction("glMatrixIndexuivARB({0}, {1})", indices.Length, indices);
 				}
 			}
 			DebugCheckErrors(null);
@@ -182,7 +182,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglMatrixIndexPointerARB != null, "pglMatrixIndexPointerARB not implemented");
 			Delegates.pglMatrixIndexPointerARB(size, type, stride, pointer);
-			CallLog("glMatrixIndexPointerARB({0}, {1}, {2}, 0x{3})", size, type, stride, pointer.ToString("X8"));
+			LogFunction("glMatrixIndexPointerARB({0}, {1}, {2}, 0x{3})", size, type, stride, pointer.ToString("X8"));
 			DebugCheckErrors(null);
 		}
 

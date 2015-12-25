@@ -104,7 +104,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglVertexWeightfEXT != null, "pglVertexWeightfEXT not implemented");
 			Delegates.pglVertexWeightfEXT(weight);
-			CallLog("glVertexWeightfEXT({0})", weight);
+			LogFunction("glVertexWeightfEXT({0})", weight);
 			DebugCheckErrors(null);
 		}
 
@@ -122,7 +122,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglVertexWeightfvEXT != null, "pglVertexWeightfvEXT not implemented");
 					Delegates.pglVertexWeightfvEXT(p_weight);
-					CallLog("glVertexWeightfvEXT({0})", weight);
+					LogFunction("glVertexWeightfvEXT({0})", weight);
 				}
 			}
 			DebugCheckErrors(null);
@@ -148,7 +148,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglVertexWeightPointerEXT != null, "pglVertexWeightPointerEXT not implemented");
 			Delegates.pglVertexWeightPointerEXT(size, type, stride, pointer);
-			CallLog("glVertexWeightPointerEXT({0}, {1}, {2}, 0x{3})", size, type, stride, pointer.ToString("X8"));
+			LogFunction("glVertexWeightPointerEXT({0}, {1}, {2}, 0x{3})", size, type, stride, pointer.ToString("X8"));
 			DebugCheckErrors(null);
 		}
 

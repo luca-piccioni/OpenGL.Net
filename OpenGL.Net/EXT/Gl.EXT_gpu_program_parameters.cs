@@ -50,7 +50,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglProgramEnvParameters4fvEXT != null, "pglProgramEnvParameters4fvEXT not implemented");
 					Delegates.pglProgramEnvParameters4fvEXT(target, index, count, p_params);
-					CallLog("glProgramEnvParameters4fvEXT({0}, {1}, {2}, {3})", target, index, count, @params);
+					LogFunction("glProgramEnvParameters4fvEXT({0}, {1}, {2}, {3})", target, index, count, @params);
 				}
 			}
 			DebugCheckErrors(null);
@@ -79,7 +79,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglProgramLocalParameters4fvEXT != null, "pglProgramLocalParameters4fvEXT not implemented");
 					Delegates.pglProgramLocalParameters4fvEXT(target, index, count, p_params);
-					CallLog("glProgramLocalParameters4fvEXT({0}, {1}, {2}, {3})", target, index, count, @params);
+					LogFunction("glProgramLocalParameters4fvEXT({0}, {1}, {2}, {3})", target, index, count, @params);
 				}
 			}
 			DebugCheckErrors(null);

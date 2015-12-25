@@ -297,7 +297,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglWeightbvARB != null, "pglWeightbvARB not implemented");
 					Delegates.pglWeightbvARB((Int32)weights.Length, p_weights);
-					CallLog("glWeightbvARB({0}, {1})", weights.Length, weights);
+					LogFunction("glWeightbvARB({0}, {1})", weights.Length, weights);
 				}
 			}
 			DebugCheckErrors(null);
@@ -317,7 +317,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglWeightsvARB != null, "pglWeightsvARB not implemented");
 					Delegates.pglWeightsvARB((Int32)weights.Length, p_weights);
-					CallLog("glWeightsvARB({0}, {1})", weights.Length, weights);
+					LogFunction("glWeightsvARB({0}, {1})", weights.Length, weights);
 				}
 			}
 			DebugCheckErrors(null);
@@ -337,7 +337,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglWeightivARB != null, "pglWeightivARB not implemented");
 					Delegates.pglWeightivARB((Int32)weights.Length, p_weights);
-					CallLog("glWeightivARB({0}, {1})", weights.Length, weights);
+					LogFunction("glWeightivARB({0}, {1})", weights.Length, weights);
 				}
 			}
 			DebugCheckErrors(null);
@@ -357,7 +357,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglWeightfvARB != null, "pglWeightfvARB not implemented");
 					Delegates.pglWeightfvARB((Int32)weights.Length, p_weights);
-					CallLog("glWeightfvARB({0}, {1})", weights.Length, weights);
+					LogFunction("glWeightfvARB({0}, {1})", weights.Length, weights);
 				}
 			}
 			DebugCheckErrors(null);
@@ -377,7 +377,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglWeightdvARB != null, "pglWeightdvARB not implemented");
 					Delegates.pglWeightdvARB((Int32)weights.Length, p_weights);
-					CallLog("glWeightdvARB({0}, {1})", weights.Length, weights);
+					LogFunction("glWeightdvARB({0}, {1})", weights.Length, weights);
 				}
 			}
 			DebugCheckErrors(null);
@@ -397,7 +397,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglWeightubvARB != null, "pglWeightubvARB not implemented");
 					Delegates.pglWeightubvARB((Int32)weights.Length, p_weights);
-					CallLog("glWeightubvARB({0}, {1})", weights.Length, weights);
+					LogFunction("glWeightubvARB({0}, {1})", weights.Length, weights);
 				}
 			}
 			DebugCheckErrors(null);
@@ -417,7 +417,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglWeightusvARB != null, "pglWeightusvARB not implemented");
 					Delegates.pglWeightusvARB((Int32)weights.Length, p_weights);
-					CallLog("glWeightusvARB({0}, {1})", weights.Length, weights);
+					LogFunction("glWeightusvARB({0}, {1})", weights.Length, weights);
 				}
 			}
 			DebugCheckErrors(null);
@@ -437,7 +437,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglWeightuivARB != null, "pglWeightuivARB not implemented");
 					Delegates.pglWeightuivARB((Int32)weights.Length, p_weights);
-					CallLog("glWeightuivARB({0}, {1})", weights.Length, weights);
+					LogFunction("glWeightuivARB({0}, {1})", weights.Length, weights);
 				}
 			}
 			DebugCheckErrors(null);
@@ -463,7 +463,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglWeightPointerARB != null, "pglWeightPointerARB not implemented");
 			Delegates.pglWeightPointerARB(size, type, stride, pointer);
-			CallLog("glWeightPointerARB({0}, {1}, {2}, 0x{3})", size, type, stride, pointer.ToString("X8"));
+			LogFunction("glWeightPointerARB({0}, {1}, {2}, 0x{3})", size, type, stride, pointer.ToString("X8"));
 			DebugCheckErrors(null);
 		}
 
@@ -504,7 +504,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglVertexBlendARB != null, "pglVertexBlendARB not implemented");
 			Delegates.pglVertexBlendARB(count);
-			CallLog("glVertexBlendARB({0})", count);
+			LogFunction("glVertexBlendARB({0})", count);
 			DebugCheckErrors(null);
 		}
 

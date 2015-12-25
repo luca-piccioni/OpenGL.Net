@@ -83,7 +83,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglSpriteParameterfSGIX != null, "pglSpriteParameterfSGIX not implemented");
 			Delegates.pglSpriteParameterfSGIX(pname, param);
-			CallLog("glSpriteParameterfSGIX({0}, {1})", pname, param);
+			LogFunction("glSpriteParameterfSGIX({0}, {1})", pname, param);
 			DebugCheckErrors(null);
 		}
 
@@ -104,7 +104,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglSpriteParameterfvSGIX != null, "pglSpriteParameterfvSGIX not implemented");
 					Delegates.pglSpriteParameterfvSGIX(pname, p_params);
-					CallLog("glSpriteParameterfvSGIX({0}, {1})", pname, @params);
+					LogFunction("glSpriteParameterfvSGIX({0}, {1})", pname, @params);
 				}
 			}
 			DebugCheckErrors(null);
@@ -124,7 +124,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglSpriteParameteriSGIX != null, "pglSpriteParameteriSGIX not implemented");
 			Delegates.pglSpriteParameteriSGIX(pname, param);
-			CallLog("glSpriteParameteriSGIX({0}, {1})", pname, param);
+			LogFunction("glSpriteParameteriSGIX({0}, {1})", pname, param);
 			DebugCheckErrors(null);
 		}
 
@@ -145,7 +145,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglSpriteParameterivSGIX != null, "pglSpriteParameterivSGIX not implemented");
 					Delegates.pglSpriteParameterivSGIX(pname, p_params);
-					CallLog("glSpriteParameterivSGIX({0}, {1})", pname, @params);
+					LogFunction("glSpriteParameterivSGIX({0}, {1})", pname, @params);
 				}
 			}
 			DebugCheckErrors(null);

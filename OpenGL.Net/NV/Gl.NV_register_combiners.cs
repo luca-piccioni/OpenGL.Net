@@ -352,7 +352,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglCombinerParameterfvNV != null, "pglCombinerParameterfvNV not implemented");
 					Delegates.pglCombinerParameterfvNV(pname, p_params);
-					CallLog("glCombinerParameterfvNV({0}, {1})", pname, @params);
+					LogFunction("glCombinerParameterfvNV({0}, {1})", pname, @params);
 				}
 			}
 			DebugCheckErrors(null);
@@ -372,7 +372,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglCombinerParameterfNV != null, "pglCombinerParameterfNV not implemented");
 			Delegates.pglCombinerParameterfNV(pname, param);
-			CallLog("glCombinerParameterfNV({0}, {1})", pname, param);
+			LogFunction("glCombinerParameterfNV({0}, {1})", pname, param);
 			DebugCheckErrors(null);
 		}
 
@@ -393,7 +393,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglCombinerParameterivNV != null, "pglCombinerParameterivNV not implemented");
 					Delegates.pglCombinerParameterivNV(pname, p_params);
-					CallLog("glCombinerParameterivNV({0}, {1})", pname, @params);
+					LogFunction("glCombinerParameterivNV({0}, {1})", pname, @params);
 				}
 			}
 			DebugCheckErrors(null);
@@ -413,7 +413,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglCombinerParameteriNV != null, "pglCombinerParameteriNV not implemented");
 			Delegates.pglCombinerParameteriNV(pname, param);
-			CallLog("glCombinerParameteriNV({0}, {1})", pname, param);
+			LogFunction("glCombinerParameteriNV({0}, {1})", pname, param);
 			DebugCheckErrors(null);
 		}
 
@@ -443,7 +443,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglCombinerInputNV != null, "pglCombinerInputNV not implemented");
 			Delegates.pglCombinerInputNV(stage, portion, variable, input, mapping, componentUsage);
-			CallLog("glCombinerInputNV({0}, {1}, {2}, {3}, {4}, {5})", stage, portion, variable, input, mapping, componentUsage);
+			LogFunction("glCombinerInputNV({0}, {1}, {2}, {3}, {4}, {5})", stage, portion, variable, input, mapping, componentUsage);
 			DebugCheckErrors(null);
 		}
 
@@ -485,7 +485,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglCombinerOutputNV != null, "pglCombinerOutputNV not implemented");
 			Delegates.pglCombinerOutputNV(stage, portion, abOutput, cdOutput, sumOutput, scale, bias, abDotProduct, cdDotProduct, muxSum);
-			CallLog("glCombinerOutputNV({0}, {1}, {2}, {3}, {4}, {5}, {6}, {7}, {8}, {9})", stage, portion, abOutput, cdOutput, sumOutput, scale, bias, abDotProduct, cdDotProduct, muxSum);
+			LogFunction("glCombinerOutputNV({0}, {1}, {2}, {3}, {4}, {5}, {6}, {7}, {8}, {9})", stage, portion, abOutput, cdOutput, sumOutput, scale, bias, abDotProduct, cdDotProduct, muxSum);
 			DebugCheckErrors(null);
 		}
 
@@ -509,7 +509,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglFinalCombinerInputNV != null, "pglFinalCombinerInputNV not implemented");
 			Delegates.pglFinalCombinerInputNV(variable, input, mapping, componentUsage);
-			CallLog("glFinalCombinerInputNV({0}, {1}, {2}, {3})", variable, input, mapping, componentUsage);
+			LogFunction("glFinalCombinerInputNV({0}, {1}, {2}, {3})", variable, input, mapping, componentUsage);
 			DebugCheckErrors(null);
 		}
 
@@ -539,7 +539,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetCombinerInputParameterfvNV != null, "pglGetCombinerInputParameterfvNV not implemented");
 					Delegates.pglGetCombinerInputParameterfvNV(stage, portion, variable, pname, p_params);
-					CallLog("glGetCombinerInputParameterfvNV({0}, {1}, {2}, {3}, {4})", stage, portion, variable, pname, @params);
+					LogFunction("glGetCombinerInputParameterfvNV({0}, {1}, {2}, {3}, {4})", stage, portion, variable, pname, @params);
 				}
 			}
 			DebugCheckErrors(null);
@@ -571,7 +571,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetCombinerInputParameterivNV != null, "pglGetCombinerInputParameterivNV not implemented");
 					Delegates.pglGetCombinerInputParameterivNV(stage, portion, variable, pname, p_params);
-					CallLog("glGetCombinerInputParameterivNV({0}, {1}, {2}, {3}, {4})", stage, portion, variable, pname, @params);
+					LogFunction("glGetCombinerInputParameterivNV({0}, {1}, {2}, {3}, {4})", stage, portion, variable, pname, @params);
 				}
 			}
 			DebugCheckErrors(null);
@@ -600,7 +600,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetCombinerOutputParameterfvNV != null, "pglGetCombinerOutputParameterfvNV not implemented");
 					Delegates.pglGetCombinerOutputParameterfvNV(stage, portion, pname, p_params);
-					CallLog("glGetCombinerOutputParameterfvNV({0}, {1}, {2}, {3})", stage, portion, pname, @params);
+					LogFunction("glGetCombinerOutputParameterfvNV({0}, {1}, {2}, {3})", stage, portion, pname, @params);
 				}
 			}
 			DebugCheckErrors(null);
@@ -629,7 +629,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetCombinerOutputParameterivNV != null, "pglGetCombinerOutputParameterivNV not implemented");
 					Delegates.pglGetCombinerOutputParameterivNV(stage, portion, pname, p_params);
-					CallLog("glGetCombinerOutputParameterivNV({0}, {1}, {2}, {3})", stage, portion, pname, @params);
+					LogFunction("glGetCombinerOutputParameterivNV({0}, {1}, {2}, {3})", stage, portion, pname, @params);
 				}
 			}
 			DebugCheckErrors(null);
@@ -655,7 +655,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetFinalCombinerInputParameterfvNV != null, "pglGetFinalCombinerInputParameterfvNV not implemented");
 					Delegates.pglGetFinalCombinerInputParameterfvNV(variable, pname, p_params);
-					CallLog("glGetFinalCombinerInputParameterfvNV({0}, {1}, {2})", variable, pname, @params);
+					LogFunction("glGetFinalCombinerInputParameterfvNV({0}, {1}, {2})", variable, pname, @params);
 				}
 			}
 			DebugCheckErrors(null);
@@ -681,7 +681,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetFinalCombinerInputParameterivNV != null, "pglGetFinalCombinerInputParameterivNV not implemented");
 					Delegates.pglGetFinalCombinerInputParameterivNV(variable, pname, p_params);
-					CallLog("glGetFinalCombinerInputParameterivNV({0}, {1}, {2})", variable, pname, @params);
+					LogFunction("glGetFinalCombinerInputParameterivNV({0}, {1}, {2})", variable, pname, @params);
 				}
 			}
 			DebugCheckErrors(null);

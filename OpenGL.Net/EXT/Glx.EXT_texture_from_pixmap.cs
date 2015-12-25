@@ -236,7 +236,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglXBindTexImageEXT != null, "pglXBindTexImageEXT not implemented");
 					Delegates.pglXBindTexImageEXT(dpy, drawable, buffer, p_attrib_list);
-					CallLog("glXBindTexImageEXT(0x{0}, 0x{1}, {2}, {3})", dpy.ToString("X8"), drawable.ToString("X8"), buffer, attrib_list);
+					LogFunction("glXBindTexImageEXT(0x{0}, 0x{1}, {2}, {3})", dpy.ToString("X8"), drawable.ToString("X8"), buffer, attrib_list);
 				}
 			}
 		}
@@ -258,7 +258,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglXReleaseTexImageEXT != null, "pglXReleaseTexImageEXT not implemented");
 			Delegates.pglXReleaseTexImageEXT(dpy, drawable, buffer);
-			CallLog("glXReleaseTexImageEXT(0x{0}, 0x{1}, {2})", dpy.ToString("X8"), drawable.ToString("X8"), buffer);
+			LogFunction("glXReleaseTexImageEXT(0x{0}, 0x{1}, {2})", dpy.ToString("X8"), drawable.ToString("X8"), buffer);
 		}
 
 	}

@@ -57,7 +57,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglXGetSyncValuesOML != null, "pglXGetSyncValuesOML not implemented");
 					retValue = Delegates.pglXGetSyncValuesOML(dpy, drawable, p_ust, p_msc, p_sbc);
-					CallLog("glXGetSyncValuesOML(0x{0}, 0x{1}, {2}, {3}, {4}) = {5}", dpy.ToString("X8"), drawable.ToString("X8"), ust, msc, sbc, retValue);
+					LogFunction("glXGetSyncValuesOML(0x{0}, 0x{1}, {2}, {3}, {4}) = {5}", dpy.ToString("X8"), drawable.ToString("X8"), ust, msc, sbc, retValue);
 				}
 			}
 
@@ -90,7 +90,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglXGetMscRateOML != null, "pglXGetMscRateOML not implemented");
 					retValue = Delegates.pglXGetMscRateOML(dpy, drawable, p_numerator, p_denominator);
-					CallLog("glXGetMscRateOML(0x{0}, 0x{1}, {2}, {3}) = {4}", dpy.ToString("X8"), drawable.ToString("X8"), numerator, denominator, retValue);
+					LogFunction("glXGetMscRateOML(0x{0}, 0x{1}, {2}, {3}) = {4}", dpy.ToString("X8"), drawable.ToString("X8"), numerator, denominator, retValue);
 				}
 			}
 
@@ -122,7 +122,7 @@ namespace OpenGL
 
 			Debug.Assert(Delegates.pglXSwapBuffersMscOML != null, "pglXSwapBuffersMscOML not implemented");
 			retValue = Delegates.pglXSwapBuffersMscOML(dpy, drawable, target_msc, divisor, remainder);
-			CallLog("glXSwapBuffersMscOML(0x{0}, 0x{1}, {2}, {3}, {4}) = {5}", dpy.ToString("X8"), drawable.ToString("X8"), target_msc, divisor, remainder, retValue);
+			LogFunction("glXSwapBuffersMscOML(0x{0}, 0x{1}, {2}, {3}, {4}) = {5}", dpy.ToString("X8"), drawable.ToString("X8"), target_msc, divisor, remainder, retValue);
 
 			return (retValue);
 		}
@@ -166,7 +166,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglXWaitForMscOML != null, "pglXWaitForMscOML not implemented");
 					retValue = Delegates.pglXWaitForMscOML(dpy, drawable, target_msc, divisor, remainder, p_ust, p_msc, p_sbc);
-					CallLog("glXWaitForMscOML(0x{0}, 0x{1}, {2}, {3}, {4}, {5}, {6}, {7}) = {8}", dpy.ToString("X8"), drawable.ToString("X8"), target_msc, divisor, remainder, ust, msc, sbc, retValue);
+					LogFunction("glXWaitForMscOML(0x{0}, 0x{1}, {2}, {3}, {4}, {5}, {6}, {7}) = {8}", dpy.ToString("X8"), drawable.ToString("X8"), target_msc, divisor, remainder, ust, msc, sbc, retValue);
 				}
 			}
 
@@ -206,7 +206,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglXWaitForSbcOML != null, "pglXWaitForSbcOML not implemented");
 					retValue = Delegates.pglXWaitForSbcOML(dpy, drawable, target_sbc, p_ust, p_msc, p_sbc);
-					CallLog("glXWaitForSbcOML(0x{0}, 0x{1}, {2}, {3}, {4}, {5}) = {6}", dpy.ToString("X8"), drawable.ToString("X8"), target_sbc, ust, msc, sbc, retValue);
+					LogFunction("glXWaitForSbcOML(0x{0}, 0x{1}, {2}, {3}, {4}, {5}) = {6}", dpy.ToString("X8"), drawable.ToString("X8"), target_sbc, ust, msc, sbc, retValue);
 				}
 			}
 

@@ -67,7 +67,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.peglQueryDeviceAttribEXT != null, "peglQueryDeviceAttribEXT not implemented");
 					retValue = Delegates.peglQueryDeviceAttribEXT(device, attribute, p_value);
-					CallLog("eglQueryDeviceAttribEXT(0x{0}, {1}, {2}) = {3}", device.ToString("X8"), attribute, value, retValue.ToString("X8"));
+					LogFunction("eglQueryDeviceAttribEXT(0x{0}, {1}, {2}) = {3}", device.ToString("X8"), attribute, value, retValue.ToString("X8"));
 				}
 			}
 			DebugCheckErrors(retValue);
@@ -91,7 +91,7 @@ namespace OpenGL
 
 			Debug.Assert(Delegates.peglQueryDeviceStringEXT != null, "peglQueryDeviceStringEXT not implemented");
 			retValue = Delegates.peglQueryDeviceStringEXT(device, name);
-			CallLog("eglQueryDeviceStringEXT(0x{0}, {1}) = {2}", device.ToString("X8"), name, retValue);
+			LogFunction("eglQueryDeviceStringEXT(0x{0}, {1}) = {2}", device.ToString("X8"), name, retValue);
 			DebugCheckErrors(retValue);
 
 			return (retValue);
@@ -120,7 +120,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.peglQueryDevicesEXT != null, "peglQueryDevicesEXT not implemented");
 					retValue = Delegates.peglQueryDevicesEXT(max_devices, p_devices, p_num_devices);
-					CallLog("eglQueryDevicesEXT({0}, {1}, {2}) = {3}", max_devices, devices, num_devices, retValue.ToString("X8"));
+					LogFunction("eglQueryDevicesEXT({0}, {1}, {2}) = {3}", max_devices, devices, num_devices, retValue.ToString("X8"));
 				}
 			}
 			DebugCheckErrors(retValue);
@@ -150,7 +150,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.peglQueryDisplayAttribEXT != null, "peglQueryDisplayAttribEXT not implemented");
 					retValue = Delegates.peglQueryDisplayAttribEXT(dpy, attribute, p_value);
-					CallLog("eglQueryDisplayAttribEXT(0x{0}, {1}, {2}) = {3}", dpy.ToString("X8"), attribute, value, retValue.ToString("X8"));
+					LogFunction("eglQueryDisplayAttribEXT(0x{0}, {1}, {2}) = {3}", dpy.ToString("X8"), attribute, value, retValue.ToString("X8"));
 				}
 			}
 			DebugCheckErrors(retValue);

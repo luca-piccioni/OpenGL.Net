@@ -50,7 +50,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglActiveStencilFaceEXT != null, "pglActiveStencilFaceEXT not implemented");
 			Delegates.pglActiveStencilFaceEXT((Int32)face);
-			CallLog("glActiveStencilFaceEXT({0})", face);
+			LogFunction("glActiveStencilFaceEXT({0})", face);
 			DebugCheckErrors(null);
 		}
 

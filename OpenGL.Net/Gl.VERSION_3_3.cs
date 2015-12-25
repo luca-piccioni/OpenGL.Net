@@ -241,7 +241,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglBindFragDataLocationIndexed != null, "pglBindFragDataLocationIndexed not implemented");
 			Delegates.pglBindFragDataLocationIndexed(program, colorNumber, index, name);
-			CallLog("glBindFragDataLocationIndexed({0}, {1}, {2}, {3})", program, colorNumber, index, name);
+			LogFunction("glBindFragDataLocationIndexed({0}, {1}, {2}, {3})", program, colorNumber, index, name);
 			DebugCheckErrors(null);
 		}
 
@@ -271,7 +271,7 @@ namespace OpenGL
 
 			Debug.Assert(Delegates.pglGetFragDataIndex != null, "pglGetFragDataIndex not implemented");
 			retValue = Delegates.pglGetFragDataIndex(program, name);
-			CallLog("glGetFragDataIndex({0}, {1}) = {2}", program, name, retValue);
+			LogFunction("glGetFragDataIndex({0}, {1}) = {2}", program, name, retValue);
 			DebugCheckErrors(retValue);
 
 			return (retValue);
@@ -300,7 +300,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGenSamplers != null, "pglGenSamplers not implemented");
 					Delegates.pglGenSamplers((Int32)samplers.Length, p_samplers);
-					CallLog("glGenSamplers({0}, {1})", samplers.Length, samplers);
+					LogFunction("glGenSamplers({0}, {1})", samplers.Length, samplers);
 				}
 			}
 			DebugCheckErrors(null);
@@ -350,7 +350,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglDeleteSamplers != null, "pglDeleteSamplers not implemented");
 					Delegates.pglDeleteSamplers((Int32)samplers.Length, p_samplers);
-					CallLog("glDeleteSamplers({0}, {1})", samplers.Length, samplers);
+					LogFunction("glDeleteSamplers({0}, {1})", samplers.Length, samplers);
 				}
 			}
 			DebugCheckErrors(null);
@@ -373,7 +373,7 @@ namespace OpenGL
 
 			Debug.Assert(Delegates.pglIsSampler != null, "pglIsSampler not implemented");
 			retValue = Delegates.pglIsSampler(sampler);
-			CallLog("glIsSampler({0}) = {1}", sampler, retValue);
+			LogFunction("glIsSampler({0}) = {1}", sampler, retValue);
 			DebugCheckErrors(retValue);
 
 			return (retValue);
@@ -412,7 +412,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglBindSampler != null, "pglBindSampler not implemented");
 			Delegates.pglBindSampler(unit, sampler);
-			CallLog("glBindSampler({0}, {1})", unit, sampler);
+			LogFunction("glBindSampler({0}, {1})", unit, sampler);
 			DebugCheckErrors(null);
 		}
 
@@ -453,7 +453,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglSamplerParameteri != null, "pglSamplerParameteri not implemented");
 			Delegates.pglSamplerParameteri(sampler, pname, param);
-			CallLog("glSamplerParameteri({0}, {1}, {2})", sampler, pname, param);
+			LogFunction("glSamplerParameteri({0}, {1}, {2})", sampler, pname, param);
 			DebugCheckErrors(null);
 		}
 
@@ -497,7 +497,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglSamplerParameteriv != null, "pglSamplerParameteriv not implemented");
 					Delegates.pglSamplerParameteriv(sampler, pname, p_param);
-					CallLog("glSamplerParameteriv({0}, {1}, {2})", sampler, pname, param);
+					LogFunction("glSamplerParameteriv({0}, {1}, {2})", sampler, pname, param);
 				}
 			}
 			DebugCheckErrors(null);
@@ -540,7 +540,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglSamplerParameterf != null, "pglSamplerParameterf not implemented");
 			Delegates.pglSamplerParameterf(sampler, pname, param);
-			CallLog("glSamplerParameterf({0}, {1}, {2})", sampler, pname, param);
+			LogFunction("glSamplerParameterf({0}, {1}, {2})", sampler, pname, param);
 			DebugCheckErrors(null);
 		}
 
@@ -584,7 +584,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglSamplerParameterfv != null, "pglSamplerParameterfv not implemented");
 					Delegates.pglSamplerParameterfv(sampler, pname, p_param);
-					CallLog("glSamplerParameterfv({0}, {1}, {2})", sampler, pname, param);
+					LogFunction("glSamplerParameterfv({0}, {1}, {2})", sampler, pname, param);
 				}
 			}
 			DebugCheckErrors(null);
@@ -630,7 +630,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglSamplerParameterIiv != null, "pglSamplerParameterIiv not implemented");
 					Delegates.pglSamplerParameterIiv(sampler, pname, p_param);
-					CallLog("glSamplerParameterIiv({0}, {1}, {2})", sampler, pname, param);
+					LogFunction("glSamplerParameterIiv({0}, {1}, {2})", sampler, pname, param);
 				}
 			}
 			DebugCheckErrors(null);
@@ -676,7 +676,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglSamplerParameterIuiv != null, "pglSamplerParameterIuiv not implemented");
 					Delegates.pglSamplerParameterIuiv(sampler, pname, p_param);
-					CallLog("glSamplerParameterIuiv({0}, {1}, {2})", sampler, pname, param);
+					LogFunction("glSamplerParameterIuiv({0}, {1}, {2})", sampler, pname, param);
 				}
 			}
 			DebugCheckErrors(null);
@@ -718,7 +718,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetSamplerParameteriv != null, "pglGetSamplerParameteriv not implemented");
 					Delegates.pglGetSamplerParameteriv(sampler, pname, p_params);
-					CallLog("glGetSamplerParameteriv({0}, {1}, {2})", sampler, pname, @params);
+					LogFunction("glGetSamplerParameteriv({0}, {1}, {2})", sampler, pname, @params);
 				}
 			}
 			DebugCheckErrors(null);
@@ -760,7 +760,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetSamplerParameterIiv != null, "pglGetSamplerParameterIiv not implemented");
 					Delegates.pglGetSamplerParameterIiv(sampler, pname, p_params);
-					CallLog("glGetSamplerParameterIiv({0}, {1}, {2})", sampler, pname, @params);
+					LogFunction("glGetSamplerParameterIiv({0}, {1}, {2})", sampler, pname, @params);
 				}
 			}
 			DebugCheckErrors(null);
@@ -802,7 +802,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetSamplerParameterfv != null, "pglGetSamplerParameterfv not implemented");
 					Delegates.pglGetSamplerParameterfv(sampler, pname, p_params);
-					CallLog("glGetSamplerParameterfv({0}, {1}, {2})", sampler, pname, @params);
+					LogFunction("glGetSamplerParameterfv({0}, {1}, {2})", sampler, pname, @params);
 				}
 			}
 			DebugCheckErrors(null);
@@ -844,7 +844,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetSamplerParameterIuiv != null, "pglGetSamplerParameterIuiv not implemented");
 					Delegates.pglGetSamplerParameterIuiv(sampler, pname, p_params);
-					CallLog("glGetSamplerParameterIuiv({0}, {1}, {2})", sampler, pname, @params);
+					LogFunction("glGetSamplerParameterIuiv({0}, {1}, {2})", sampler, pname, @params);
 				}
 			}
 			DebugCheckErrors(null);
@@ -885,7 +885,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglQueryCounter != null, "pglQueryCounter not implemented");
 			Delegates.pglQueryCounter(id, target);
-			CallLog("glQueryCounter({0}, {1})", id, target);
+			LogFunction("glQueryCounter({0}, {1})", id, target);
 			DebugCheckErrors(null);
 		}
 
@@ -934,7 +934,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetQueryObjecti64v != null, "pglGetQueryObjecti64v not implemented");
 					Delegates.pglGetQueryObjecti64v(id, pname, p_params);
-					CallLog("glGetQueryObjecti64v({0}, {1}, {2})", id, pname, @params);
+					LogFunction("glGetQueryObjecti64v({0}, {1}, {2})", id, pname, @params);
 				}
 			}
 			DebugCheckErrors(null);
@@ -985,7 +985,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetQueryObjecti64v != null, "pglGetQueryObjecti64v not implemented");
 					Delegates.pglGetQueryObjecti64v(id, pname, p_params);
-					CallLog("glGetQueryObjecti64v({0}, {1}, {2})", id, pname, @params);
+					LogFunction("glGetQueryObjecti64v({0}, {1}, {2})", id, pname, @params);
 				}
 			}
 			DebugCheckErrors(null);
@@ -1036,7 +1036,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetQueryObjectui64v != null, "pglGetQueryObjectui64v not implemented");
 					Delegates.pglGetQueryObjectui64v(id, pname, p_params);
-					CallLog("glGetQueryObjectui64v({0}, {1}, {2})", id, pname, @params);
+					LogFunction("glGetQueryObjectui64v({0}, {1}, {2})", id, pname, @params);
 				}
 			}
 			DebugCheckErrors(null);
@@ -1087,7 +1087,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetQueryObjectui64v != null, "pglGetQueryObjectui64v not implemented");
 					Delegates.pglGetQueryObjectui64v(id, pname, p_params);
-					CallLog("glGetQueryObjectui64v({0}, {1}, {2})", id, pname, @params);
+					LogFunction("glGetQueryObjectui64v({0}, {1}, {2})", id, pname, @params);
 				}
 			}
 			DebugCheckErrors(null);
@@ -1117,7 +1117,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglVertexAttribDivisor != null, "pglVertexAttribDivisor not implemented");
 			Delegates.pglVertexAttribDivisor(index, divisor);
-			CallLog("glVertexAttribDivisor({0}, {1})", index, divisor);
+			LogFunction("glVertexAttribDivisor({0}, {1})", index, divisor);
 			DebugCheckErrors(null);
 		}
 
@@ -1160,7 +1160,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglVertexAttribP1ui != null, "pglVertexAttribP1ui not implemented");
 			Delegates.pglVertexAttribP1ui(index, type, normalized, value);
-			CallLog("glVertexAttribP1ui({0}, {1}, {2}, {3})", index, type, normalized, value);
+			LogFunction("glVertexAttribP1ui({0}, {1}, {2}, {3})", index, type, normalized, value);
 			DebugCheckErrors(null);
 		}
 
@@ -1188,7 +1188,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglVertexAttribP1uiv != null, "pglVertexAttribP1uiv not implemented");
 					Delegates.pglVertexAttribP1uiv(index, type, normalized, p_value);
-					CallLog("glVertexAttribP1uiv({0}, {1}, {2}, {3})", index, type, normalized, value);
+					LogFunction("glVertexAttribP1uiv({0}, {1}, {2}, {3})", index, type, normalized, value);
 				}
 			}
 			DebugCheckErrors(null);
@@ -1233,7 +1233,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglVertexAttribP2ui != null, "pglVertexAttribP2ui not implemented");
 			Delegates.pglVertexAttribP2ui(index, type, normalized, value);
-			CallLog("glVertexAttribP2ui({0}, {1}, {2}, {3})", index, type, normalized, value);
+			LogFunction("glVertexAttribP2ui({0}, {1}, {2}, {3})", index, type, normalized, value);
 			DebugCheckErrors(null);
 		}
 
@@ -1261,7 +1261,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglVertexAttribP2uiv != null, "pglVertexAttribP2uiv not implemented");
 					Delegates.pglVertexAttribP2uiv(index, type, normalized, p_value);
-					CallLog("glVertexAttribP2uiv({0}, {1}, {2}, {3})", index, type, normalized, value);
+					LogFunction("glVertexAttribP2uiv({0}, {1}, {2}, {3})", index, type, normalized, value);
 				}
 			}
 			DebugCheckErrors(null);
@@ -1306,7 +1306,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglVertexAttribP3ui != null, "pglVertexAttribP3ui not implemented");
 			Delegates.pglVertexAttribP3ui(index, type, normalized, value);
-			CallLog("glVertexAttribP3ui({0}, {1}, {2}, {3})", index, type, normalized, value);
+			LogFunction("glVertexAttribP3ui({0}, {1}, {2}, {3})", index, type, normalized, value);
 			DebugCheckErrors(null);
 		}
 
@@ -1334,7 +1334,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglVertexAttribP3uiv != null, "pglVertexAttribP3uiv not implemented");
 					Delegates.pglVertexAttribP3uiv(index, type, normalized, p_value);
-					CallLog("glVertexAttribP3uiv({0}, {1}, {2}, {3})", index, type, normalized, value);
+					LogFunction("glVertexAttribP3uiv({0}, {1}, {2}, {3})", index, type, normalized, value);
 				}
 			}
 			DebugCheckErrors(null);
@@ -1379,7 +1379,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglVertexAttribP4ui != null, "pglVertexAttribP4ui not implemented");
 			Delegates.pglVertexAttribP4ui(index, type, normalized, value);
-			CallLog("glVertexAttribP4ui({0}, {1}, {2}, {3})", index, type, normalized, value);
+			LogFunction("glVertexAttribP4ui({0}, {1}, {2}, {3})", index, type, normalized, value);
 			DebugCheckErrors(null);
 		}
 
@@ -1407,7 +1407,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglVertexAttribP4uiv != null, "pglVertexAttribP4uiv not implemented");
 					Delegates.pglVertexAttribP4uiv(index, type, normalized, p_value);
-					CallLog("glVertexAttribP4uiv({0}, {1}, {2}, {3})", index, type, normalized, value);
+					LogFunction("glVertexAttribP4uiv({0}, {1}, {2}, {3})", index, type, normalized, value);
 				}
 			}
 			DebugCheckErrors(null);
@@ -1428,7 +1428,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglVertexP2ui != null, "pglVertexP2ui not implemented");
 			Delegates.pglVertexP2ui(type, value);
-			CallLog("glVertexP2ui({0}, {1})", type, value);
+			LogFunction("glVertexP2ui({0}, {1})", type, value);
 			DebugCheckErrors(null);
 		}
 
@@ -1450,7 +1450,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglVertexP2uiv != null, "pglVertexP2uiv not implemented");
 					Delegates.pglVertexP2uiv(type, p_value);
-					CallLog("glVertexP2uiv({0}, {1})", type, value);
+					LogFunction("glVertexP2uiv({0}, {1})", type, value);
 				}
 			}
 			DebugCheckErrors(null);
@@ -1471,7 +1471,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglVertexP3ui != null, "pglVertexP3ui not implemented");
 			Delegates.pglVertexP3ui(type, value);
-			CallLog("glVertexP3ui({0}, {1})", type, value);
+			LogFunction("glVertexP3ui({0}, {1})", type, value);
 			DebugCheckErrors(null);
 		}
 
@@ -1493,7 +1493,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglVertexP3uiv != null, "pglVertexP3uiv not implemented");
 					Delegates.pglVertexP3uiv(type, p_value);
-					CallLog("glVertexP3uiv({0}, {1})", type, value);
+					LogFunction("glVertexP3uiv({0}, {1})", type, value);
 				}
 			}
 			DebugCheckErrors(null);
@@ -1514,7 +1514,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglVertexP4ui != null, "pglVertexP4ui not implemented");
 			Delegates.pglVertexP4ui(type, value);
-			CallLog("glVertexP4ui({0}, {1})", type, value);
+			LogFunction("glVertexP4ui({0}, {1})", type, value);
 			DebugCheckErrors(null);
 		}
 
@@ -1536,7 +1536,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglVertexP4uiv != null, "pglVertexP4uiv not implemented");
 					Delegates.pglVertexP4uiv(type, p_value);
-					CallLog("glVertexP4uiv({0}, {1})", type, value);
+					LogFunction("glVertexP4uiv({0}, {1})", type, value);
 				}
 			}
 			DebugCheckErrors(null);
@@ -1557,7 +1557,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglTexCoordP1ui != null, "pglTexCoordP1ui not implemented");
 			Delegates.pglTexCoordP1ui(type, coords);
-			CallLog("glTexCoordP1ui({0}, {1})", type, coords);
+			LogFunction("glTexCoordP1ui({0}, {1})", type, coords);
 			DebugCheckErrors(null);
 		}
 
@@ -1579,7 +1579,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglTexCoordP1uiv != null, "pglTexCoordP1uiv not implemented");
 					Delegates.pglTexCoordP1uiv(type, p_coords);
-					CallLog("glTexCoordP1uiv({0}, {1})", type, coords);
+					LogFunction("glTexCoordP1uiv({0}, {1})", type, coords);
 				}
 			}
 			DebugCheckErrors(null);
@@ -1600,7 +1600,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglTexCoordP2ui != null, "pglTexCoordP2ui not implemented");
 			Delegates.pglTexCoordP2ui(type, coords);
-			CallLog("glTexCoordP2ui({0}, {1})", type, coords);
+			LogFunction("glTexCoordP2ui({0}, {1})", type, coords);
 			DebugCheckErrors(null);
 		}
 
@@ -1622,7 +1622,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglTexCoordP2uiv != null, "pglTexCoordP2uiv not implemented");
 					Delegates.pglTexCoordP2uiv(type, p_coords);
-					CallLog("glTexCoordP2uiv({0}, {1})", type, coords);
+					LogFunction("glTexCoordP2uiv({0}, {1})", type, coords);
 				}
 			}
 			DebugCheckErrors(null);
@@ -1643,7 +1643,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglTexCoordP3ui != null, "pglTexCoordP3ui not implemented");
 			Delegates.pglTexCoordP3ui(type, coords);
-			CallLog("glTexCoordP3ui({0}, {1})", type, coords);
+			LogFunction("glTexCoordP3ui({0}, {1})", type, coords);
 			DebugCheckErrors(null);
 		}
 
@@ -1665,7 +1665,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglTexCoordP3uiv != null, "pglTexCoordP3uiv not implemented");
 					Delegates.pglTexCoordP3uiv(type, p_coords);
-					CallLog("glTexCoordP3uiv({0}, {1})", type, coords);
+					LogFunction("glTexCoordP3uiv({0}, {1})", type, coords);
 				}
 			}
 			DebugCheckErrors(null);
@@ -1686,7 +1686,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglTexCoordP4ui != null, "pglTexCoordP4ui not implemented");
 			Delegates.pglTexCoordP4ui(type, coords);
-			CallLog("glTexCoordP4ui({0}, {1})", type, coords);
+			LogFunction("glTexCoordP4ui({0}, {1})", type, coords);
 			DebugCheckErrors(null);
 		}
 
@@ -1708,7 +1708,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglTexCoordP4uiv != null, "pglTexCoordP4uiv not implemented");
 					Delegates.pglTexCoordP4uiv(type, p_coords);
-					CallLog("glTexCoordP4uiv({0}, {1})", type, coords);
+					LogFunction("glTexCoordP4uiv({0}, {1})", type, coords);
 				}
 			}
 			DebugCheckErrors(null);
@@ -1732,7 +1732,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglMultiTexCoordP1ui != null, "pglMultiTexCoordP1ui not implemented");
 			Delegates.pglMultiTexCoordP1ui(texture, type, coords);
-			CallLog("glMultiTexCoordP1ui({0}, {1}, {2})", texture, type, coords);
+			LogFunction("glMultiTexCoordP1ui({0}, {1}, {2})", texture, type, coords);
 			DebugCheckErrors(null);
 		}
 
@@ -1757,7 +1757,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglMultiTexCoordP1uiv != null, "pglMultiTexCoordP1uiv not implemented");
 					Delegates.pglMultiTexCoordP1uiv(texture, type, p_coords);
-					CallLog("glMultiTexCoordP1uiv({0}, {1}, {2})", texture, type, coords);
+					LogFunction("glMultiTexCoordP1uiv({0}, {1}, {2})", texture, type, coords);
 				}
 			}
 			DebugCheckErrors(null);
@@ -1781,7 +1781,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglMultiTexCoordP2ui != null, "pglMultiTexCoordP2ui not implemented");
 			Delegates.pglMultiTexCoordP2ui(texture, type, coords);
-			CallLog("glMultiTexCoordP2ui({0}, {1}, {2})", texture, type, coords);
+			LogFunction("glMultiTexCoordP2ui({0}, {1}, {2})", texture, type, coords);
 			DebugCheckErrors(null);
 		}
 
@@ -1806,7 +1806,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglMultiTexCoordP2uiv != null, "pglMultiTexCoordP2uiv not implemented");
 					Delegates.pglMultiTexCoordP2uiv(texture, type, p_coords);
-					CallLog("glMultiTexCoordP2uiv({0}, {1}, {2})", texture, type, coords);
+					LogFunction("glMultiTexCoordP2uiv({0}, {1}, {2})", texture, type, coords);
 				}
 			}
 			DebugCheckErrors(null);
@@ -1830,7 +1830,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglMultiTexCoordP3ui != null, "pglMultiTexCoordP3ui not implemented");
 			Delegates.pglMultiTexCoordP3ui(texture, type, coords);
-			CallLog("glMultiTexCoordP3ui({0}, {1}, {2})", texture, type, coords);
+			LogFunction("glMultiTexCoordP3ui({0}, {1}, {2})", texture, type, coords);
 			DebugCheckErrors(null);
 		}
 
@@ -1855,7 +1855,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglMultiTexCoordP3uiv != null, "pglMultiTexCoordP3uiv not implemented");
 					Delegates.pglMultiTexCoordP3uiv(texture, type, p_coords);
-					CallLog("glMultiTexCoordP3uiv({0}, {1}, {2})", texture, type, coords);
+					LogFunction("glMultiTexCoordP3uiv({0}, {1}, {2})", texture, type, coords);
 				}
 			}
 			DebugCheckErrors(null);
@@ -1879,7 +1879,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglMultiTexCoordP4ui != null, "pglMultiTexCoordP4ui not implemented");
 			Delegates.pglMultiTexCoordP4ui(texture, type, coords);
-			CallLog("glMultiTexCoordP4ui({0}, {1}, {2})", texture, type, coords);
+			LogFunction("glMultiTexCoordP4ui({0}, {1}, {2})", texture, type, coords);
 			DebugCheckErrors(null);
 		}
 
@@ -1904,7 +1904,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglMultiTexCoordP4uiv != null, "pglMultiTexCoordP4uiv not implemented");
 					Delegates.pglMultiTexCoordP4uiv(texture, type, p_coords);
-					CallLog("glMultiTexCoordP4uiv({0}, {1}, {2})", texture, type, coords);
+					LogFunction("glMultiTexCoordP4uiv({0}, {1}, {2})", texture, type, coords);
 				}
 			}
 			DebugCheckErrors(null);
@@ -1925,7 +1925,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglNormalP3ui != null, "pglNormalP3ui not implemented");
 			Delegates.pglNormalP3ui(type, coords);
-			CallLog("glNormalP3ui({0}, {1})", type, coords);
+			LogFunction("glNormalP3ui({0}, {1})", type, coords);
 			DebugCheckErrors(null);
 		}
 
@@ -1947,7 +1947,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglNormalP3uiv != null, "pglNormalP3uiv not implemented");
 					Delegates.pglNormalP3uiv(type, p_coords);
-					CallLog("glNormalP3uiv({0}, {1})", type, coords);
+					LogFunction("glNormalP3uiv({0}, {1})", type, coords);
 				}
 			}
 			DebugCheckErrors(null);
@@ -1968,7 +1968,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglColorP3ui != null, "pglColorP3ui not implemented");
 			Delegates.pglColorP3ui(type, color);
-			CallLog("glColorP3ui({0}, {1})", type, color);
+			LogFunction("glColorP3ui({0}, {1})", type, color);
 			DebugCheckErrors(null);
 		}
 
@@ -1990,7 +1990,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglColorP3uiv != null, "pglColorP3uiv not implemented");
 					Delegates.pglColorP3uiv(type, p_color);
-					CallLog("glColorP3uiv({0}, {1})", type, color);
+					LogFunction("glColorP3uiv({0}, {1})", type, color);
 				}
 			}
 			DebugCheckErrors(null);
@@ -2011,7 +2011,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglColorP4ui != null, "pglColorP4ui not implemented");
 			Delegates.pglColorP4ui(type, color);
-			CallLog("glColorP4ui({0}, {1})", type, color);
+			LogFunction("glColorP4ui({0}, {1})", type, color);
 			DebugCheckErrors(null);
 		}
 
@@ -2033,7 +2033,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglColorP4uiv != null, "pglColorP4uiv not implemented");
 					Delegates.pglColorP4uiv(type, p_color);
-					CallLog("glColorP4uiv({0}, {1})", type, color);
+					LogFunction("glColorP4uiv({0}, {1})", type, color);
 				}
 			}
 			DebugCheckErrors(null);
@@ -2054,7 +2054,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglSecondaryColorP3ui != null, "pglSecondaryColorP3ui not implemented");
 			Delegates.pglSecondaryColorP3ui(type, color);
-			CallLog("glSecondaryColorP3ui({0}, {1})", type, color);
+			LogFunction("glSecondaryColorP3ui({0}, {1})", type, color);
 			DebugCheckErrors(null);
 		}
 
@@ -2076,7 +2076,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglSecondaryColorP3uiv != null, "pglSecondaryColorP3uiv not implemented");
 					Delegates.pglSecondaryColorP3uiv(type, p_color);
-					CallLog("glSecondaryColorP3uiv({0}, {1})", type, color);
+					LogFunction("glSecondaryColorP3uiv({0}, {1})", type, color);
 				}
 			}
 			DebugCheckErrors(null);

@@ -67,7 +67,7 @@ namespace OpenGL
 
 			Debug.Assert(Delegates.peglDupNativeFenceFDANDROID != null, "peglDupNativeFenceFDANDROID not implemented");
 			retValue = Delegates.peglDupNativeFenceFDANDROID(dpy, sync);
-			CallLog("eglDupNativeFenceFDANDROID(0x{0}, 0x{1}) = {2}", dpy.ToString("X8"), sync.ToString("X8"), retValue);
+			LogFunction("eglDupNativeFenceFDANDROID(0x{0}, 0x{1}) = {2}", dpy.ToString("X8"), sync.ToString("X8"), retValue);
 			DebugCheckErrors(retValue);
 
 			return (retValue);

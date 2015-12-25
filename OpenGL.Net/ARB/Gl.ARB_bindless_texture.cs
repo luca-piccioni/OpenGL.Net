@@ -51,7 +51,7 @@ namespace OpenGL
 
 			Debug.Assert(Delegates.pglGetTextureHandleARB != null, "pglGetTextureHandleARB not implemented");
 			retValue = Delegates.pglGetTextureHandleARB(texture);
-			CallLog("glGetTextureHandleARB({0}) = {1}", texture, retValue);
+			LogFunction("glGetTextureHandleARB({0}) = {1}", texture, retValue);
 			DebugCheckErrors(retValue);
 
 			return (retValue);
@@ -73,7 +73,7 @@ namespace OpenGL
 
 			Debug.Assert(Delegates.pglGetTextureSamplerHandleARB != null, "pglGetTextureSamplerHandleARB not implemented");
 			retValue = Delegates.pglGetTextureSamplerHandleARB(texture, sampler);
-			CallLog("glGetTextureSamplerHandleARB({0}, {1}) = {2}", texture, sampler, retValue);
+			LogFunction("glGetTextureSamplerHandleARB({0}, {1}) = {2}", texture, sampler, retValue);
 			DebugCheckErrors(retValue);
 
 			return (retValue);
@@ -90,7 +90,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglMakeTextureHandleResidentARB != null, "pglMakeTextureHandleResidentARB not implemented");
 			Delegates.pglMakeTextureHandleResidentARB(handle);
-			CallLog("glMakeTextureHandleResidentARB({0})", handle);
+			LogFunction("glMakeTextureHandleResidentARB({0})", handle);
 			DebugCheckErrors(null);
 		}
 
@@ -105,7 +105,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglMakeTextureHandleNonResidentARB != null, "pglMakeTextureHandleNonResidentARB not implemented");
 			Delegates.pglMakeTextureHandleNonResidentARB(handle);
-			CallLog("glMakeTextureHandleNonResidentARB({0})", handle);
+			LogFunction("glMakeTextureHandleNonResidentARB({0})", handle);
 			DebugCheckErrors(null);
 		}
 
@@ -134,7 +134,7 @@ namespace OpenGL
 
 			Debug.Assert(Delegates.pglGetImageHandleARB != null, "pglGetImageHandleARB not implemented");
 			retValue = Delegates.pglGetImageHandleARB(texture, level, layered, layer, format);
-			CallLog("glGetImageHandleARB({0}, {1}, {2}, {3}, {4}) = {5}", texture, level, layered, layer, format, retValue);
+			LogFunction("glGetImageHandleARB({0}, {1}, {2}, {3}, {4}) = {5}", texture, level, layered, layer, format, retValue);
 			DebugCheckErrors(retValue);
 
 			return (retValue);
@@ -154,7 +154,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglMakeImageHandleResidentARB != null, "pglMakeImageHandleResidentARB not implemented");
 			Delegates.pglMakeImageHandleResidentARB(handle, access);
-			CallLog("glMakeImageHandleResidentARB({0}, {1})", handle, access);
+			LogFunction("glMakeImageHandleResidentARB({0}, {1})", handle, access);
 			DebugCheckErrors(null);
 		}
 
@@ -169,7 +169,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglMakeImageHandleNonResidentARB != null, "pglMakeImageHandleNonResidentARB not implemented");
 			Delegates.pglMakeImageHandleNonResidentARB(handle);
-			CallLog("glMakeImageHandleNonResidentARB({0})", handle);
+			LogFunction("glMakeImageHandleNonResidentARB({0})", handle);
 			DebugCheckErrors(null);
 		}
 
@@ -187,7 +187,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglUniformHandleui64ARB != null, "pglUniformHandleui64ARB not implemented");
 			Delegates.pglUniformHandleui64ARB(location, value);
-			CallLog("glUniformHandleui64ARB({0}, {1})", location, value);
+			LogFunction("glUniformHandleui64ARB({0}, {1})", location, value);
 			DebugCheckErrors(null);
 		}
 
@@ -208,7 +208,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglUniformHandleui64vARB != null, "pglUniformHandleui64vARB not implemented");
 					Delegates.pglUniformHandleui64vARB(location, (Int32)value.Length, p_value);
-					CallLog("glUniformHandleui64vARB({0}, {1}, {2})", location, value.Length, value);
+					LogFunction("glUniformHandleui64vARB({0}, {1}, {2})", location, value.Length, value);
 				}
 			}
 			DebugCheckErrors(null);
@@ -231,7 +231,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglProgramUniformHandleui64ARB != null, "pglProgramUniformHandleui64ARB not implemented");
 			Delegates.pglProgramUniformHandleui64ARB(program, location, value);
-			CallLog("glProgramUniformHandleui64ARB({0}, {1}, {2})", program, location, value);
+			LogFunction("glProgramUniformHandleui64ARB({0}, {1}, {2})", program, location, value);
 			DebugCheckErrors(null);
 		}
 
@@ -255,7 +255,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglProgramUniformHandleui64vARB != null, "pglProgramUniformHandleui64vARB not implemented");
 					Delegates.pglProgramUniformHandleui64vARB(program, location, (Int32)values.Length, p_values);
-					CallLog("glProgramUniformHandleui64vARB({0}, {1}, {2}, {3})", program, location, values.Length, values);
+					LogFunction("glProgramUniformHandleui64vARB({0}, {1}, {2}, {3})", program, location, values.Length, values);
 				}
 			}
 			DebugCheckErrors(null);
@@ -274,7 +274,7 @@ namespace OpenGL
 
 			Debug.Assert(Delegates.pglIsTextureHandleResidentARB != null, "pglIsTextureHandleResidentARB not implemented");
 			retValue = Delegates.pglIsTextureHandleResidentARB(handle);
-			CallLog("glIsTextureHandleResidentARB({0}) = {1}", handle, retValue);
+			LogFunction("glIsTextureHandleResidentARB({0}) = {1}", handle, retValue);
 			DebugCheckErrors(retValue);
 
 			return (retValue);
@@ -293,7 +293,7 @@ namespace OpenGL
 
 			Debug.Assert(Delegates.pglIsImageHandleResidentARB != null, "pglIsImageHandleResidentARB not implemented");
 			retValue = Delegates.pglIsImageHandleResidentARB(handle);
-			CallLog("glIsImageHandleResidentARB({0}) = {1}", handle, retValue);
+			LogFunction("glIsImageHandleResidentARB({0}) = {1}", handle, retValue);
 			DebugCheckErrors(retValue);
 
 			return (retValue);
@@ -313,7 +313,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglVertexAttribL1ui64ARB != null, "pglVertexAttribL1ui64ARB not implemented");
 			Delegates.pglVertexAttribL1ui64ARB(index, x);
-			CallLog("glVertexAttribL1ui64ARB({0}, {1})", index, x);
+			LogFunction("glVertexAttribL1ui64ARB({0}, {1})", index, x);
 			DebugCheckErrors(null);
 		}
 
@@ -334,7 +334,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglVertexAttribL1ui64vARB != null, "pglVertexAttribL1ui64vARB not implemented");
 					Delegates.pglVertexAttribL1ui64vARB(index, p_v);
-					CallLog("glVertexAttribL1ui64vARB({0}, {1})", index, v);
+					LogFunction("glVertexAttribL1ui64vARB({0}, {1})", index, v);
 				}
 			}
 			DebugCheckErrors(null);
@@ -360,7 +360,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetVertexAttribLui64vARB != null, "pglGetVertexAttribLui64vARB not implemented");
 					Delegates.pglGetVertexAttribLui64vARB(index, pname, p_params);
-					CallLog("glGetVertexAttribLui64vARB({0}, {1}, {2})", index, pname, @params);
+					LogFunction("glGetVertexAttribLui64vARB({0}, {1}, {2})", index, pname, @params);
 				}
 			}
 			DebugCheckErrors(null);

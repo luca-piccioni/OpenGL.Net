@@ -49,7 +49,7 @@ namespace OpenGL
 
 			Debug.Assert(Delegates.pglXCreateGLXPixmapMESA != null, "pglXCreateGLXPixmapMESA not implemented");
 			retValue = Delegates.pglXCreateGLXPixmapMESA(dpy, visual, pixmap, cmap);
-			CallLog("glXCreateGLXPixmapMESA(0x{0}, {1}, 0x{2}, 0x{3}) = {4}", dpy.ToString("X8"), visual, pixmap.ToString("X8"), cmap.ToString("X8"), retValue.ToString("X8"));
+			LogFunction("glXCreateGLXPixmapMESA(0x{0}, {1}, 0x{2}, 0x{3}) = {4}", dpy.ToString("X8"), visual, pixmap.ToString("X8"), cmap.ToString("X8"), retValue.ToString("X8"));
 
 			return (retValue);
 		}

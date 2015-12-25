@@ -158,7 +158,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglCreateStatesNV != null, "pglCreateStatesNV not implemented");
 					Delegates.pglCreateStatesNV(n, p_states);
-					CallLog("glCreateStatesNV({0}, {1})", n, states);
+					LogFunction("glCreateStatesNV({0}, {1})", n, states);
 				}
 			}
 			DebugCheckErrors(null);
@@ -181,7 +181,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglDeleteStatesNV != null, "pglDeleteStatesNV not implemented");
 					Delegates.pglDeleteStatesNV(n, p_states);
-					CallLog("glDeleteStatesNV({0}, {1})", n, states);
+					LogFunction("glDeleteStatesNV({0}, {1})", n, states);
 				}
 			}
 			DebugCheckErrors(null);
@@ -200,7 +200,7 @@ namespace OpenGL
 
 			Debug.Assert(Delegates.pglIsStateNV != null, "pglIsStateNV not implemented");
 			retValue = Delegates.pglIsStateNV(state);
-			CallLog("glIsStateNV({0}) = {1}", state, retValue);
+			LogFunction("glIsStateNV({0}) = {1}", state, retValue);
 			DebugCheckErrors(retValue);
 
 			return (retValue);
@@ -220,7 +220,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglStateCaptureNV != null, "pglStateCaptureNV not implemented");
 			Delegates.pglStateCaptureNV(state, mode);
-			CallLog("glStateCaptureNV({0}, {1})", state, mode);
+			LogFunction("glStateCaptureNV({0}, {1})", state, mode);
 			DebugCheckErrors(null);
 		}
 
@@ -240,7 +240,7 @@ namespace OpenGL
 
 			Debug.Assert(Delegates.pglGetCommandHeaderNV != null, "pglGetCommandHeaderNV not implemented");
 			retValue = Delegates.pglGetCommandHeaderNV(tokenID, size);
-			CallLog("glGetCommandHeaderNV({0}, {1}) = {2}", tokenID, size, retValue);
+			LogFunction("glGetCommandHeaderNV({0}, {1}) = {2}", tokenID, size, retValue);
 			DebugCheckErrors(retValue);
 
 			return (retValue);
@@ -259,7 +259,7 @@ namespace OpenGL
 
 			Debug.Assert(Delegates.pglGetStageIndexNV != null, "pglGetStageIndexNV not implemented");
 			retValue = Delegates.pglGetStageIndexNV(shadertype);
-			CallLog("glGetStageIndexNV({0}) = {1}", shadertype, retValue);
+			LogFunction("glGetStageIndexNV({0}) = {1}", shadertype, retValue);
 			DebugCheckErrors(retValue);
 
 			return (retValue);
@@ -292,7 +292,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglDrawCommandsNV != null, "pglDrawCommandsNV not implemented");
 					Delegates.pglDrawCommandsNV(primitiveMode, buffer, p_indirects, p_sizes, count);
-					CallLog("glDrawCommandsNV({0}, {1}, {2}, {3}, {4})", primitiveMode, buffer, indirects, sizes, count);
+					LogFunction("glDrawCommandsNV({0}, {1}, {2}, {3}, {4})", primitiveMode, buffer, indirects, sizes, count);
 				}
 			}
 			DebugCheckErrors(null);
@@ -322,7 +322,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglDrawCommandsAddressNV != null, "pglDrawCommandsAddressNV not implemented");
 					Delegates.pglDrawCommandsAddressNV(primitiveMode, p_indirects, p_sizes, count);
-					CallLog("glDrawCommandsAddressNV({0}, {1}, {2}, {3})", primitiveMode, indirects, sizes, count);
+					LogFunction("glDrawCommandsAddressNV({0}, {1}, {2}, {3})", primitiveMode, indirects, sizes, count);
 				}
 			}
 			DebugCheckErrors(null);
@@ -360,7 +360,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglDrawCommandsStatesNV != null, "pglDrawCommandsStatesNV not implemented");
 					Delegates.pglDrawCommandsStatesNV(buffer, p_indirects, p_sizes, p_states, p_fbos, count);
-					CallLog("glDrawCommandsStatesNV({0}, {1}, {2}, {3}, {4}, {5})", buffer, indirects, sizes, states, fbos, count);
+					LogFunction("glDrawCommandsStatesNV({0}, {1}, {2}, {3}, {4}, {5})", buffer, indirects, sizes, states, fbos, count);
 				}
 			}
 			DebugCheckErrors(null);
@@ -395,7 +395,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglDrawCommandsStatesAddressNV != null, "pglDrawCommandsStatesAddressNV not implemented");
 					Delegates.pglDrawCommandsStatesAddressNV(p_indirects, p_sizes, p_states, p_fbos, count);
-					CallLog("glDrawCommandsStatesAddressNV({0}, {1}, {2}, {3}, {4})", indirects, sizes, states, fbos, count);
+					LogFunction("glDrawCommandsStatesAddressNV({0}, {1}, {2}, {3}, {4})", indirects, sizes, states, fbos, count);
 				}
 			}
 			DebugCheckErrors(null);
@@ -418,7 +418,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglCreateCommandListsNV != null, "pglCreateCommandListsNV not implemented");
 					Delegates.pglCreateCommandListsNV(n, p_lists);
-					CallLog("glCreateCommandListsNV({0}, {1})", n, lists);
+					LogFunction("glCreateCommandListsNV({0}, {1})", n, lists);
 				}
 			}
 			DebugCheckErrors(null);
@@ -441,7 +441,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglDeleteCommandListsNV != null, "pglDeleteCommandListsNV not implemented");
 					Delegates.pglDeleteCommandListsNV(n, p_lists);
-					CallLog("glDeleteCommandListsNV({0}, {1})", n, lists);
+					LogFunction("glDeleteCommandListsNV({0}, {1})", n, lists);
 				}
 			}
 			DebugCheckErrors(null);
@@ -460,7 +460,7 @@ namespace OpenGL
 
 			Debug.Assert(Delegates.pglIsCommandListNV != null, "pglIsCommandListNV not implemented");
 			retValue = Delegates.pglIsCommandListNV(list);
-			CallLog("glIsCommandListNV({0}) = {1}", list, retValue);
+			LogFunction("glIsCommandListNV({0}) = {1}", list, retValue);
 			DebugCheckErrors(retValue);
 
 			return (retValue);
@@ -501,7 +501,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglListDrawCommandsStatesClientNV != null, "pglListDrawCommandsStatesClientNV not implemented");
 					Delegates.pglListDrawCommandsStatesClientNV(list, segment, p_indirects, p_sizes, p_states, p_fbos, count);
-					CallLog("glListDrawCommandsStatesClientNV({0}, {1}, {2}, {3}, {4}, {5}, {6})", list, segment, indirects, sizes, states, fbos, count);
+					LogFunction("glListDrawCommandsStatesClientNV({0}, {1}, {2}, {3}, {4}, {5}, {6})", list, segment, indirects, sizes, states, fbos, count);
 				}
 			}
 			DebugCheckErrors(null);
@@ -521,7 +521,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglCommandListSegmentsNV != null, "pglCommandListSegmentsNV not implemented");
 			Delegates.pglCommandListSegmentsNV(list, segments);
-			CallLog("glCommandListSegmentsNV({0}, {1})", list, segments);
+			LogFunction("glCommandListSegmentsNV({0}, {1})", list, segments);
 			DebugCheckErrors(null);
 		}
 
@@ -536,7 +536,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglCompileCommandListNV != null, "pglCompileCommandListNV not implemented");
 			Delegates.pglCompileCommandListNV(list);
-			CallLog("glCompileCommandListNV({0})", list);
+			LogFunction("glCompileCommandListNV({0})", list);
 			DebugCheckErrors(null);
 		}
 
@@ -551,7 +551,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglCallCommandListNV != null, "pglCallCommandListNV not implemented");
 			Delegates.pglCallCommandListNV(list);
-			CallLog("glCallCommandListNV({0})", list);
+			LogFunction("glCallCommandListNV({0})", list);
 			DebugCheckErrors(null);
 		}
 

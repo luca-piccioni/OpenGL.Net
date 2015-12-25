@@ -40,7 +40,7 @@ namespace OpenGL
 
 			Debug.Assert(Delegates.pglGetTextureHandleNV != null, "pglGetTextureHandleNV not implemented");
 			retValue = Delegates.pglGetTextureHandleNV(texture);
-			CallLog("glGetTextureHandleNV({0}) = {1}", texture, retValue);
+			LogFunction("glGetTextureHandleNV({0}) = {1}", texture, retValue);
 			DebugCheckErrors(retValue);
 
 			return (retValue);
@@ -62,7 +62,7 @@ namespace OpenGL
 
 			Debug.Assert(Delegates.pglGetTextureSamplerHandleNV != null, "pglGetTextureSamplerHandleNV not implemented");
 			retValue = Delegates.pglGetTextureSamplerHandleNV(texture, sampler);
-			CallLog("glGetTextureSamplerHandleNV({0}, {1}) = {2}", texture, sampler, retValue);
+			LogFunction("glGetTextureSamplerHandleNV({0}, {1}) = {2}", texture, sampler, retValue);
 			DebugCheckErrors(retValue);
 
 			return (retValue);
@@ -79,7 +79,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglMakeTextureHandleResidentNV != null, "pglMakeTextureHandleResidentNV not implemented");
 			Delegates.pglMakeTextureHandleResidentNV(handle);
-			CallLog("glMakeTextureHandleResidentNV({0})", handle);
+			LogFunction("glMakeTextureHandleResidentNV({0})", handle);
 			DebugCheckErrors(null);
 		}
 
@@ -94,7 +94,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglMakeTextureHandleNonResidentNV != null, "pglMakeTextureHandleNonResidentNV not implemented");
 			Delegates.pglMakeTextureHandleNonResidentNV(handle);
-			CallLog("glMakeTextureHandleNonResidentNV({0})", handle);
+			LogFunction("glMakeTextureHandleNonResidentNV({0})", handle);
 			DebugCheckErrors(null);
 		}
 
@@ -123,7 +123,7 @@ namespace OpenGL
 
 			Debug.Assert(Delegates.pglGetImageHandleNV != null, "pglGetImageHandleNV not implemented");
 			retValue = Delegates.pglGetImageHandleNV(texture, level, layered, layer, format);
-			CallLog("glGetImageHandleNV({0}, {1}, {2}, {3}, {4}) = {5}", texture, level, layered, layer, format, retValue);
+			LogFunction("glGetImageHandleNV({0}, {1}, {2}, {3}, {4}) = {5}", texture, level, layered, layer, format, retValue);
 			DebugCheckErrors(retValue);
 
 			return (retValue);
@@ -143,7 +143,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglMakeImageHandleResidentNV != null, "pglMakeImageHandleResidentNV not implemented");
 			Delegates.pglMakeImageHandleResidentNV(handle, access);
-			CallLog("glMakeImageHandleResidentNV({0}, {1})", handle, access);
+			LogFunction("glMakeImageHandleResidentNV({0}, {1})", handle, access);
 			DebugCheckErrors(null);
 		}
 
@@ -158,7 +158,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglMakeImageHandleNonResidentNV != null, "pglMakeImageHandleNonResidentNV not implemented");
 			Delegates.pglMakeImageHandleNonResidentNV(handle);
-			CallLog("glMakeImageHandleNonResidentNV({0})", handle);
+			LogFunction("glMakeImageHandleNonResidentNV({0})", handle);
 			DebugCheckErrors(null);
 		}
 
@@ -176,7 +176,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglUniformHandleui64NV != null, "pglUniformHandleui64NV not implemented");
 			Delegates.pglUniformHandleui64NV(location, value);
-			CallLog("glUniformHandleui64NV({0}, {1})", location, value);
+			LogFunction("glUniformHandleui64NV({0}, {1})", location, value);
 			DebugCheckErrors(null);
 		}
 
@@ -197,7 +197,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglUniformHandleui64vNV != null, "pglUniformHandleui64vNV not implemented");
 					Delegates.pglUniformHandleui64vNV(location, (Int32)value.Length, p_value);
-					CallLog("glUniformHandleui64vNV({0}, {1}, {2})", location, value.Length, value);
+					LogFunction("glUniformHandleui64vNV({0}, {1}, {2})", location, value.Length, value);
 				}
 			}
 			DebugCheckErrors(null);
@@ -220,7 +220,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglProgramUniformHandleui64NV != null, "pglProgramUniformHandleui64NV not implemented");
 			Delegates.pglProgramUniformHandleui64NV(program, location, value);
-			CallLog("glProgramUniformHandleui64NV({0}, {1}, {2})", program, location, value);
+			LogFunction("glProgramUniformHandleui64NV({0}, {1}, {2})", program, location, value);
 			DebugCheckErrors(null);
 		}
 
@@ -244,7 +244,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglProgramUniformHandleui64vNV != null, "pglProgramUniformHandleui64vNV not implemented");
 					Delegates.pglProgramUniformHandleui64vNV(program, location, (Int32)values.Length, p_values);
-					CallLog("glProgramUniformHandleui64vNV({0}, {1}, {2}, {3})", program, location, values.Length, values);
+					LogFunction("glProgramUniformHandleui64vNV({0}, {1}, {2}, {3})", program, location, values.Length, values);
 				}
 			}
 			DebugCheckErrors(null);
@@ -263,7 +263,7 @@ namespace OpenGL
 
 			Debug.Assert(Delegates.pglIsTextureHandleResidentNV != null, "pglIsTextureHandleResidentNV not implemented");
 			retValue = Delegates.pglIsTextureHandleResidentNV(handle);
-			CallLog("glIsTextureHandleResidentNV({0}) = {1}", handle, retValue);
+			LogFunction("glIsTextureHandleResidentNV({0}) = {1}", handle, retValue);
 			DebugCheckErrors(retValue);
 
 			return (retValue);
@@ -282,7 +282,7 @@ namespace OpenGL
 
 			Debug.Assert(Delegates.pglIsImageHandleResidentNV != null, "pglIsImageHandleResidentNV not implemented");
 			retValue = Delegates.pglIsImageHandleResidentNV(handle);
-			CallLog("glIsImageHandleResidentNV({0}) = {1}", handle, retValue);
+			LogFunction("glIsImageHandleResidentNV({0}) = {1}", handle, retValue);
 			DebugCheckErrors(retValue);
 
 			return (retValue);

@@ -59,7 +59,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglXCopyBufferSubDataNV != null, "pglXCopyBufferSubDataNV not implemented");
 			Delegates.pglXCopyBufferSubDataNV(dpy, readCtx, writeCtx, readTarget, writeTarget, readOffset, writeOffset, size);
-			CallLog("glXCopyBufferSubDataNV(0x{0}, 0x{1}, 0x{2}, {3}, {4}, 0x{5}, 0x{6}, {7})", dpy.ToString("X8"), readCtx.ToString("X8"), writeCtx.ToString("X8"), readTarget, writeTarget, readOffset.ToString("X8"), writeOffset.ToString("X8"), size);
+			LogFunction("glXCopyBufferSubDataNV(0x{0}, 0x{1}, 0x{2}, {3}, {4}, 0x{5}, 0x{6}, {7})", dpy.ToString("X8"), readCtx.ToString("X8"), writeCtx.ToString("X8"), readTarget, writeTarget, readOffset.ToString("X8"), writeOffset.ToString("X8"), size);
 		}
 
 		/// <summary>
@@ -94,7 +94,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglXNamedCopyBufferSubDataNV != null, "pglXNamedCopyBufferSubDataNV not implemented");
 			Delegates.pglXNamedCopyBufferSubDataNV(dpy, readCtx, writeCtx, readBuffer, writeBuffer, readOffset, writeOffset, size);
-			CallLog("glXNamedCopyBufferSubDataNV(0x{0}, 0x{1}, 0x{2}, {3}, {4}, 0x{5}, 0x{6}, {7})", dpy.ToString("X8"), readCtx.ToString("X8"), writeCtx.ToString("X8"), readBuffer, writeBuffer, readOffset.ToString("X8"), writeOffset.ToString("X8"), size);
+			LogFunction("glXNamedCopyBufferSubDataNV(0x{0}, 0x{1}, 0x{2}, {3}, {4}, 0x{5}, 0x{6}, {7})", dpy.ToString("X8"), readCtx.ToString("X8"), writeCtx.ToString("X8"), readBuffer, writeBuffer, readOffset.ToString("X8"), writeOffset.ToString("X8"), size);
 		}
 
 	}

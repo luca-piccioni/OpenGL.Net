@@ -92,7 +92,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglTexBumpParameterivATI != null, "pglTexBumpParameterivATI not implemented");
 					Delegates.pglTexBumpParameterivATI(pname, p_param);
-					CallLog("glTexBumpParameterivATI({0}, {1})", pname, param);
+					LogFunction("glTexBumpParameterivATI({0}, {1})", pname, param);
 				}
 			}
 			DebugCheckErrors(null);
@@ -115,7 +115,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglTexBumpParameterfvATI != null, "pglTexBumpParameterfvATI not implemented");
 					Delegates.pglTexBumpParameterfvATI(pname, p_param);
-					CallLog("glTexBumpParameterfvATI({0}, {1})", pname, param);
+					LogFunction("glTexBumpParameterfvATI({0}, {1})", pname, param);
 				}
 			}
 			DebugCheckErrors(null);
@@ -138,7 +138,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetTexBumpParameterivATI != null, "pglGetTexBumpParameterivATI not implemented");
 					Delegates.pglGetTexBumpParameterivATI(pname, p_param);
-					CallLog("glGetTexBumpParameterivATI({0}, {1})", pname, param);
+					LogFunction("glGetTexBumpParameterivATI({0}, {1})", pname, param);
 				}
 			}
 			DebugCheckErrors(null);
@@ -161,7 +161,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetTexBumpParameterfvATI != null, "pglGetTexBumpParameterfvATI not implemented");
 					Delegates.pglGetTexBumpParameterfvATI(pname, p_param);
-					CallLog("glGetTexBumpParameterfvATI({0}, {1})", pname, param);
+					LogFunction("glGetTexBumpParameterfvATI({0}, {1})", pname, param);
 				}
 			}
 			DebugCheckErrors(null);

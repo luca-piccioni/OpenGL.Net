@@ -109,7 +109,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.peglCreateFenceSyncNV != null, "peglCreateFenceSyncNV not implemented");
 					retValue = Delegates.peglCreateFenceSyncNV(dpy, condition, p_attrib_list);
-					CallLog("eglCreateFenceSyncNV(0x{0}, {1}, {2}) = {3}", dpy.ToString("X8"), condition, attrib_list, retValue.ToString("X8"));
+					LogFunction("eglCreateFenceSyncNV(0x{0}, {1}, {2}) = {3}", dpy.ToString("X8"), condition, attrib_list, retValue.ToString("X8"));
 				}
 			}
 			DebugCheckErrors(retValue);
@@ -130,7 +130,7 @@ namespace OpenGL
 
 			Debug.Assert(Delegates.peglDestroySyncNV != null, "peglDestroySyncNV not implemented");
 			retValue = Delegates.peglDestroySyncNV(sync);
-			CallLog("eglDestroySyncNV(0x{0}) = {1}", sync.ToString("X8"), retValue.ToString("X8"));
+			LogFunction("eglDestroySyncNV(0x{0}) = {1}", sync.ToString("X8"), retValue.ToString("X8"));
 			DebugCheckErrors(retValue);
 
 			return (retValue);
@@ -149,7 +149,7 @@ namespace OpenGL
 
 			Debug.Assert(Delegates.peglFenceNV != null, "peglFenceNV not implemented");
 			retValue = Delegates.peglFenceNV(sync);
-			CallLog("eglFenceNV(0x{0}) = {1}", sync.ToString("X8"), retValue.ToString("X8"));
+			LogFunction("eglFenceNV(0x{0}) = {1}", sync.ToString("X8"), retValue.ToString("X8"));
 			DebugCheckErrors(retValue);
 
 			return (retValue);
@@ -174,7 +174,7 @@ namespace OpenGL
 
 			Debug.Assert(Delegates.peglClientWaitSyncNV != null, "peglClientWaitSyncNV not implemented");
 			retValue = Delegates.peglClientWaitSyncNV(sync, flags, timeout);
-			CallLog("eglClientWaitSyncNV(0x{0}, {1}, {2}) = {3}", sync.ToString("X8"), flags, timeout, retValue);
+			LogFunction("eglClientWaitSyncNV(0x{0}, {1}, {2}) = {3}", sync.ToString("X8"), flags, timeout, retValue);
 			DebugCheckErrors(retValue);
 
 			return (retValue);
@@ -196,7 +196,7 @@ namespace OpenGL
 
 			Debug.Assert(Delegates.peglSignalSyncNV != null, "peglSignalSyncNV not implemented");
 			retValue = Delegates.peglSignalSyncNV(sync, mode);
-			CallLog("eglSignalSyncNV(0x{0}, {1}) = {2}", sync.ToString("X8"), mode, retValue.ToString("X8"));
+			LogFunction("eglSignalSyncNV(0x{0}, {1}) = {2}", sync.ToString("X8"), mode, retValue.ToString("X8"));
 			DebugCheckErrors(retValue);
 
 			return (retValue);
@@ -224,7 +224,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.peglGetSyncAttribNV != null, "peglGetSyncAttribNV not implemented");
 					retValue = Delegates.peglGetSyncAttribNV(sync, attribute, p_value);
-					CallLog("eglGetSyncAttribNV(0x{0}, {1}, {2}) = {3}", sync.ToString("X8"), attribute, value, retValue.ToString("X8"));
+					LogFunction("eglGetSyncAttribNV(0x{0}, {1}, {2}) = {3}", sync.ToString("X8"), attribute, value, retValue.ToString("X8"));
 				}
 			}
 			DebugCheckErrors(retValue);

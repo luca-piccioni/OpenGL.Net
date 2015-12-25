@@ -53,7 +53,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglTextureColorMaskSGIS != null, "pglTextureColorMaskSGIS not implemented");
 			Delegates.pglTextureColorMaskSGIS(red, green, blue, alpha);
-			CallLog("glTextureColorMaskSGIS({0}, {1}, {2}, {3})", red, green, blue, alpha);
+			LogFunction("glTextureColorMaskSGIS({0}, {1}, {2}, {3})", red, green, blue, alpha);
 			DebugCheckErrors(null);
 		}
 

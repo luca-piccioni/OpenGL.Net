@@ -47,7 +47,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglQueryMatrixxOES != null, "pglQueryMatrixxOES not implemented");
 					retValue = Delegates.pglQueryMatrixxOES(p_mantissa, p_exponent);
-					CallLog("glQueryMatrixxOES({0}, {1}) = {2}", mantissa, exponent, retValue);
+					LogFunction("glQueryMatrixxOES({0}, {1}) = {2}", mantissa, exponent, retValue);
 				}
 			}
 			DebugCheckErrors(retValue);

@@ -43,7 +43,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pwglGetFrameUsageI3D != null, "pwglGetFrameUsageI3D not implemented");
 					retValue = Delegates.pwglGetFrameUsageI3D(p_pUsage);
-					CallLog("wglGetFrameUsageI3D({0}) = {1}", pUsage, retValue);
+					LogFunction("wglGetFrameUsageI3D({0}) = {1}", pUsage, retValue);
 				}
 			}
 			DebugCheckErrors(retValue);
@@ -61,7 +61,7 @@ namespace OpenGL
 
 			Debug.Assert(Delegates.pwglBeginFrameTrackingI3D != null, "pwglBeginFrameTrackingI3D not implemented");
 			retValue = Delegates.pwglBeginFrameTrackingI3D();
-			CallLog("wglBeginFrameTrackingI3D() = {0}", retValue);
+			LogFunction("wglBeginFrameTrackingI3D() = {0}", retValue);
 			DebugCheckErrors(retValue);
 
 			return (retValue);
@@ -77,7 +77,7 @@ namespace OpenGL
 
 			Debug.Assert(Delegates.pwglEndFrameTrackingI3D != null, "pwglEndFrameTrackingI3D not implemented");
 			retValue = Delegates.pwglEndFrameTrackingI3D();
-			CallLog("wglEndFrameTrackingI3D() = {0}", retValue);
+			LogFunction("wglEndFrameTrackingI3D() = {0}", retValue);
 			DebugCheckErrors(retValue);
 
 			return (retValue);
@@ -107,7 +107,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pwglQueryFrameTrackingI3D != null, "pwglQueryFrameTrackingI3D not implemented");
 					retValue = Delegates.pwglQueryFrameTrackingI3D(p_pFrameCount, p_pMissedFrames, p_pLastMissedUsage);
-					CallLog("wglQueryFrameTrackingI3D({0}, {1}, {2}) = {3}", pFrameCount, pMissedFrames, pLastMissedUsage, retValue);
+					LogFunction("wglQueryFrameTrackingI3D({0}, {1}, {2}) = {3}", pFrameCount, pMissedFrames, pLastMissedUsage, retValue);
 				}
 			}
 			DebugCheckErrors(retValue);

@@ -53,7 +53,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglPolygonOffsetEXT != null, "pglPolygonOffsetEXT not implemented");
 			Delegates.pglPolygonOffsetEXT(factor, bias);
-			CallLog("glPolygonOffsetEXT({0}, {1})", factor, bias);
+			LogFunction("glPolygonOffsetEXT({0}, {1})", factor, bias);
 			DebugCheckErrors(null);
 		}
 

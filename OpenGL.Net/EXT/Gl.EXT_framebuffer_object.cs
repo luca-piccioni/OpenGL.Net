@@ -59,7 +59,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglBindRenderbufferEXT != null, "pglBindRenderbufferEXT not implemented");
 			Delegates.pglBindRenderbufferEXT(target, renderbuffer);
-			CallLog("glBindRenderbufferEXT({0}, {1})", target, renderbuffer);
+			LogFunction("glBindRenderbufferEXT({0}, {1})", target, renderbuffer);
 			DebugCheckErrors(null);
 		}
 
@@ -77,7 +77,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglBindFramebufferEXT != null, "pglBindFramebufferEXT not implemented");
 			Delegates.pglBindFramebufferEXT(target, framebuffer);
-			CallLog("glBindFramebufferEXT({0}, {1})", target, framebuffer);
+			LogFunction("glBindFramebufferEXT({0}, {1})", target, framebuffer);
 			DebugCheckErrors(null);
 		}
 

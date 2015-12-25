@@ -210,40 +210,13 @@ namespace OpenGL
 						default:
 							throw new Win32Exception(errorCode);
 						case ErrorHandlingMode.LogOnly:
-							CallLog("GetLastError() = {0} [Error code {0}: {1}]", errorCode, new Win32Exception(errorCode).Message);
+							LogFunction("GetLastError() = {0} [Error code {0}: {1}]", errorCode, new Win32Exception(errorCode).Message);
 							break;
 						case ErrorHandlingMode.Ignore:
 							break;
 					}
 					break;
 			}
-		}
-
-		#endregion
-
-		#region Call Log
-
-		/// <summary>
-		/// The flag for enabling/disabling call logs for the OpenGL on Windows call log.
-		/// </summary>
-		public static bool CallLogEnabled = true;
-
-		/// <summary>
-		/// OpenGL logging utility.
-		/// </summary>
-		/// <param name="format">
-		/// A <see cref="String"/> that speficies the format string.
-		/// </param>
-		/// <param name="args">
-		/// A variable arrays of objects used for rendering the <paramref name="format"/>.
-		/// </param>
-		[Conditional("OPENGL_NET_CALL_LOG_ENABLED")]
-		private static void CallLog(string format, params object[] args)
-		{
-			if (CallLogEnabled == false)
-				return;
-
-			Trace.TraceInformation(format, args);
 		}
 
 		#endregion
@@ -260,7 +233,7 @@ namespace OpenGL
 		{
 			int retValue = UnsafeNativeMethods.ChoosePixelFormat(deviceContext, ref pixelFormatDescriptor);
 
-			CallLog("ChoosePixelFormat(0x{0}, {1}) = {2}", deviceContext.ToString("X8"), "pixelFormatDescriptor", retValue);
+			LogFunction("ChoosePixelFormat(0x{0}, {1}) = {2}", deviceContext.ToString("X8"), "pixelFormatDescriptor", retValue);
 			DebugCheckErrors(null);
 
 			return (retValue);
@@ -278,7 +251,7 @@ namespace OpenGL
 		{
 			bool retValue = UnsafeNativeMethods.DescribePixelFormat(hdc, iPixelFormat, nBytes, ref ppfd);
 
-			CallLog("DescribePixelFormat(0x{0}, {1}, {2}, {3}) = {4}", hdc.ToString("X8"), iPixelFormat, nBytes, "pixelFormatDescriptor", retValue);
+			LogFunction("DescribePixelFormat(0x{0}, {1}, {2}, {3}) = {4}", hdc.ToString("X8"), iPixelFormat, nBytes, "pixelFormatDescriptor", retValue);
 			DebugCheckErrors(null);
 
 			return (retValue);
@@ -296,7 +269,7 @@ namespace OpenGL
 		{
 			bool retValue = UnsafeNativeMethods.SetPixelFormat(deviceContext, pixelFormat, ref pixelFormatDescriptor);
 
-			CallLog("SetPixelFormat(0x{0}, {1}, {2}) = {3}", deviceContext.ToString("X8"), pixelFormat, "pixelFormatDescriptor", retValue);
+			LogFunction("SetPixelFormat(0x{0}, {1}, {2}) = {3}", deviceContext.ToString("X8"), pixelFormat, "pixelFormatDescriptor", retValue);
 			DebugCheckErrors(null);
 
 			return (retValue);
@@ -311,7 +284,7 @@ namespace OpenGL
 		{
 			IntPtr retValue = UnsafeNativeMethods.GetDC(windowHandle);
 
-			CallLog("GetDC(0x{0}) = 0x{1}", windowHandle.ToString("X8"), retValue.ToString("X8"));
+			LogFunction("GetDC(0x{0}) = 0x{1}", windowHandle.ToString("X8"), retValue.ToString("X8"));
 			DebugCheckErrors(null);
 
 			return (retValue);
@@ -327,7 +300,7 @@ namespace OpenGL
 		{
 			bool retValue = UnsafeNativeMethods.ReleaseDC(windowHandle, deviceContext);
 
-			CallLog("ReleaseDC(0x{0}, 0x{1}) = {2}", windowHandle.ToString("X8"), deviceContext.ToString("X8"), retValue);
+			LogFunction("ReleaseDC(0x{0}, 0x{1}) = {2}", windowHandle.ToString("X8"), deviceContext.ToString("X8"), retValue);
 			DebugCheckErrors(null);
 
 			return (retValue);

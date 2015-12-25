@@ -133,7 +133,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglSampleMaskEXT != null, "pglSampleMaskEXT not implemented");
 			Delegates.pglSampleMaskEXT(value, invert);
-			CallLog("glSampleMaskEXT({0}, {1})", value, invert);
+			LogFunction("glSampleMaskEXT({0}, {1})", value, invert);
 			DebugCheckErrors(null);
 		}
 
@@ -148,7 +148,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglSamplePatternEXT != null, "pglSamplePatternEXT not implemented");
 			Delegates.pglSamplePatternEXT(pattern);
-			CallLog("glSamplePatternEXT({0})", pattern);
+			LogFunction("glSamplePatternEXT({0})", pattern);
 			DebugCheckErrors(null);
 		}
 

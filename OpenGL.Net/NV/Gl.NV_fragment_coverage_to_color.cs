@@ -50,7 +50,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglFragmentCoverageColorNV != null, "pglFragmentCoverageColorNV not implemented");
 			Delegates.pglFragmentCoverageColorNV(color);
-			CallLog("glFragmentCoverageColorNV({0})", color);
+			LogFunction("glFragmentCoverageColorNV({0})", color);
 			DebugCheckErrors(null);
 		}
 

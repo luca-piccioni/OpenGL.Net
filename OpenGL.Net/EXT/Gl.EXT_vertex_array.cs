@@ -86,7 +86,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglColorPointerEXT != null, "pglColorPointerEXT not implemented");
 			Delegates.pglColorPointerEXT(size, (Int32)type, stride, count, pointer);
-			CallLog("glColorPointerEXT({0}, {1}, {2}, {3}, 0x{4})", size, type, stride, count, pointer.ToString("X8"));
+			LogFunction("glColorPointerEXT({0}, {1}, {2}, {3}, 0x{4})", size, type, stride, count, pointer.ToString("X8"));
 			DebugCheckErrors(null);
 		}
 
@@ -139,7 +139,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglEdgeFlagPointerEXT != null, "pglEdgeFlagPointerEXT not implemented");
 					Delegates.pglEdgeFlagPointerEXT(stride, count, p_pointer);
-					CallLog("glEdgeFlagPointerEXT({0}, {1}, {2})", stride, count, pointer);
+					LogFunction("glEdgeFlagPointerEXT({0}, {1}, {2})", stride, count, pointer);
 				}
 			}
 			DebugCheckErrors(null);
@@ -165,7 +165,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglIndexPointerEXT != null, "pglIndexPointerEXT not implemented");
 			Delegates.pglIndexPointerEXT((Int32)type, stride, count, pointer);
-			CallLog("glIndexPointerEXT({0}, {1}, {2}, 0x{3})", type, stride, count, pointer.ToString("X8"));
+			LogFunction("glIndexPointerEXT({0}, {1}, {2}, 0x{3})", type, stride, count, pointer.ToString("X8"));
 			DebugCheckErrors(null);
 		}
 
@@ -215,7 +215,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglNormalPointerEXT != null, "pglNormalPointerEXT not implemented");
 			Delegates.pglNormalPointerEXT((Int32)type, stride, count, pointer);
-			CallLog("glNormalPointerEXT({0}, {1}, {2}, 0x{3})", type, stride, count, pointer.ToString("X8"));
+			LogFunction("glNormalPointerEXT({0}, {1}, {2}, 0x{3})", type, stride, count, pointer.ToString("X8"));
 			DebugCheckErrors(null);
 		}
 
@@ -268,7 +268,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglTexCoordPointerEXT != null, "pglTexCoordPointerEXT not implemented");
 			Delegates.pglTexCoordPointerEXT(size, (Int32)type, stride, count, pointer);
-			CallLog("glTexCoordPointerEXT({0}, {1}, {2}, {3}, 0x{4})", size, type, stride, count, pointer.ToString("X8"));
+			LogFunction("glTexCoordPointerEXT({0}, {1}, {2}, {3}, 0x{4})", size, type, stride, count, pointer.ToString("X8"));
 			DebugCheckErrors(null);
 		}
 
@@ -324,7 +324,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglVertexPointerEXT != null, "pglVertexPointerEXT not implemented");
 			Delegates.pglVertexPointerEXT(size, (Int32)type, stride, count, pointer);
-			CallLog("glVertexPointerEXT({0}, {1}, {2}, {3}, 0x{4})", size, type, stride, count, pointer.ToString("X8"));
+			LogFunction("glVertexPointerEXT({0}, {1}, {2}, {3}, 0x{4})", size, type, stride, count, pointer.ToString("X8"));
 			DebugCheckErrors(null);
 		}
 

@@ -91,7 +91,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglRasterSamplesEXT != null, "pglRasterSamplesEXT not implemented");
 			Delegates.pglRasterSamplesEXT(samples, fixedsamplelocations);
-			CallLog("glRasterSamplesEXT({0}, {1})", samples, fixedsamplelocations);
+			LogFunction("glRasterSamplesEXT({0}, {1})", samples, fixedsamplelocations);
 			DebugCheckErrors(null);
 		}
 

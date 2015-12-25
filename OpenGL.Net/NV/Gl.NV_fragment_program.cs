@@ -77,7 +77,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglProgramNamedParameter4fNV != null, "pglProgramNamedParameter4fNV not implemented");
 					Delegates.pglProgramNamedParameter4fNV(id, len, p_name, x, y, z, w);
-					CallLog("glProgramNamedParameter4fNV({0}, {1}, {2}, {3}, {4}, {5}, {6})", id, len, name, x, y, z, w);
+					LogFunction("glProgramNamedParameter4fNV({0}, {1}, {2}, {3}, {4}, {5}, {6})", id, len, name, x, y, z, w);
 				}
 			}
 			DebugCheckErrors(null);
@@ -107,7 +107,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglProgramNamedParameter4fvNV != null, "pglProgramNamedParameter4fvNV not implemented");
 					Delegates.pglProgramNamedParameter4fvNV(id, len, p_name, p_v);
-					CallLog("glProgramNamedParameter4fvNV({0}, {1}, {2}, {3})", id, len, name, v);
+					LogFunction("glProgramNamedParameter4fvNV({0}, {1}, {2}, {3})", id, len, name, v);
 				}
 			}
 			DebugCheckErrors(null);
@@ -145,7 +145,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglProgramNamedParameter4dNV != null, "pglProgramNamedParameter4dNV not implemented");
 					Delegates.pglProgramNamedParameter4dNV(id, len, p_name, x, y, z, w);
-					CallLog("glProgramNamedParameter4dNV({0}, {1}, {2}, {3}, {4}, {5}, {6})", id, len, name, x, y, z, w);
+					LogFunction("glProgramNamedParameter4dNV({0}, {1}, {2}, {3}, {4}, {5}, {6})", id, len, name, x, y, z, w);
 				}
 			}
 			DebugCheckErrors(null);
@@ -175,7 +175,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglProgramNamedParameter4dvNV != null, "pglProgramNamedParameter4dvNV not implemented");
 					Delegates.pglProgramNamedParameter4dvNV(id, len, p_name, p_v);
-					CallLog("glProgramNamedParameter4dvNV({0}, {1}, {2}, {3})", id, len, name, v);
+					LogFunction("glProgramNamedParameter4dvNV({0}, {1}, {2}, {3})", id, len, name, v);
 				}
 			}
 			DebugCheckErrors(null);
@@ -205,7 +205,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetProgramNamedParameterfvNV != null, "pglGetProgramNamedParameterfvNV not implemented");
 					Delegates.pglGetProgramNamedParameterfvNV(id, len, p_name, p_params);
-					CallLog("glGetProgramNamedParameterfvNV({0}, {1}, {2}, {3})", id, len, name, @params);
+					LogFunction("glGetProgramNamedParameterfvNV({0}, {1}, {2}, {3})", id, len, name, @params);
 				}
 			}
 			DebugCheckErrors(null);
@@ -235,7 +235,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetProgramNamedParameterdvNV != null, "pglGetProgramNamedParameterdvNV not implemented");
 					Delegates.pglGetProgramNamedParameterdvNV(id, len, p_name, p_params);
-					CallLog("glGetProgramNamedParameterdvNV({0}, {1}, {2}, {3})", id, len, name, @params);
+					LogFunction("glGetProgramNamedParameterdvNV({0}, {1}, {2}, {3})", id, len, name, @params);
 				}
 			}
 			DebugCheckErrors(null);

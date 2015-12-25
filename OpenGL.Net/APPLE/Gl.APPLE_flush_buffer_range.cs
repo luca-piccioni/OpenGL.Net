@@ -56,7 +56,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglBufferParameteriAPPLE != null, "pglBufferParameteriAPPLE not implemented");
 			Delegates.pglBufferParameteriAPPLE(target, pname, param);
-			CallLog("glBufferParameteriAPPLE({0}, {1}, {2})", target, pname, param);
+			LogFunction("glBufferParameteriAPPLE({0}, {1}, {2})", target, pname, param);
 			DebugCheckErrors(null);
 		}
 

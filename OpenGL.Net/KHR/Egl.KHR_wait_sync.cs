@@ -46,7 +46,7 @@ namespace OpenGL
 
 			Debug.Assert(Delegates.peglWaitSyncKHR != null, "peglWaitSyncKHR not implemented");
 			retValue = Delegates.peglWaitSyncKHR(dpy, sync, flags);
-			CallLog("eglWaitSyncKHR(0x{0}, 0x{1}, {2}) = {3}", dpy.ToString("X8"), sync.ToString("X8"), flags, retValue);
+			LogFunction("eglWaitSyncKHR(0x{0}, 0x{1}, {2}) = {3}", dpy.ToString("X8"), sync.ToString("X8"), flags, retValue);
 			DebugCheckErrors(retValue);
 
 			return (retValue);

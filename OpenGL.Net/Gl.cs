@@ -89,32 +89,5 @@ namespace OpenGL
 		}
 
 		#endregion
-
-		#region Call Log
-
-		/// <summary>
-		/// Get or set the enable flag for the OpenGL call log.
-		/// </summary>
-		public static bool CallLogEnabled = true;
-
-		/// <summary>
-		/// OpenGL logging utility.
-		/// </summary>
-		/// <param name="format">
-		/// A <see cref="String"/> that speficies the format string.
-		/// </param>
-		/// <param name="args">
-		/// A variable arrays of objects used for rendering the <paramref name="format"/>.
-		/// </param>
-		[Conditional("OPENGL_NET_CALL_LOG_ENABLED")]
-		private static void CallLog(string format, params object[] args)
-		{
-			if (CallLogEnabled == false)
-				return;
-
-			Trace.TraceInformation(format, args);
-		}
-
-		#endregion
 	}
 }

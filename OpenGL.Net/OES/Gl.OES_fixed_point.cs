@@ -41,7 +41,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglAlphaFuncxOES != null, "pglAlphaFuncxOES not implemented");
 			Delegates.pglAlphaFuncxOES(func, @ref);
-			CallLog("glAlphaFuncxOES({0}, 0x{1})", func, @ref.ToString("X8"));
+			LogFunction("glAlphaFuncxOES({0}, 0x{1})", func, @ref.ToString("X8"));
 			DebugCheckErrors(null);
 		}
 
@@ -65,7 +65,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglClearColorxOES != null, "pglClearColorxOES not implemented");
 			Delegates.pglClearColorxOES(red, green, blue, alpha);
-			CallLog("glClearColorxOES(0x{0}, 0x{1}, 0x{2}, 0x{3})", red.ToString("X8"), green.ToString("X8"), blue.ToString("X8"), alpha.ToString("X8"));
+			LogFunction("glClearColorxOES(0x{0}, 0x{1}, 0x{2}, 0x{3})", red.ToString("X8"), green.ToString("X8"), blue.ToString("X8"), alpha.ToString("X8"));
 			DebugCheckErrors(null);
 		}
 
@@ -80,7 +80,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglClearDepthxOES != null, "pglClearDepthxOES not implemented");
 			Delegates.pglClearDepthxOES(depth);
-			CallLog("glClearDepthxOES(0x{0})", depth.ToString("X8"));
+			LogFunction("glClearDepthxOES(0x{0})", depth.ToString("X8"));
 			DebugCheckErrors(null);
 		}
 
@@ -101,7 +101,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglClipPlanexOES != null, "pglClipPlanexOES not implemented");
 					Delegates.pglClipPlanexOES(plane, p_equation);
-					CallLog("glClipPlanexOES({0}, {1})", plane, equation);
+					LogFunction("glClipPlanexOES({0}, {1})", plane, equation);
 				}
 			}
 			DebugCheckErrors(null);
@@ -127,7 +127,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglColor4xOES != null, "pglColor4xOES not implemented");
 			Delegates.pglColor4xOES(red, green, blue, alpha);
-			CallLog("glColor4xOES(0x{0}, 0x{1}, 0x{2}, 0x{3})", red.ToString("X8"), green.ToString("X8"), blue.ToString("X8"), alpha.ToString("X8"));
+			LogFunction("glColor4xOES(0x{0}, 0x{1}, 0x{2}, 0x{3})", red.ToString("X8"), green.ToString("X8"), blue.ToString("X8"), alpha.ToString("X8"));
 			DebugCheckErrors(null);
 		}
 
@@ -145,7 +145,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglDepthRangexOES != null, "pglDepthRangexOES not implemented");
 			Delegates.pglDepthRangexOES(n, f);
-			CallLog("glDepthRangexOES(0x{0}, 0x{1})", n.ToString("X8"), f.ToString("X8"));
+			LogFunction("glDepthRangexOES(0x{0}, 0x{1})", n.ToString("X8"), f.ToString("X8"));
 			DebugCheckErrors(null);
 		}
 
@@ -163,7 +163,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglFogxOES != null, "pglFogxOES not implemented");
 			Delegates.pglFogxOES(pname, param);
-			CallLog("glFogxOES({0}, 0x{1})", pname, param.ToString("X8"));
+			LogFunction("glFogxOES({0}, 0x{1})", pname, param.ToString("X8"));
 			DebugCheckErrors(null);
 		}
 
@@ -184,7 +184,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglFogxvOES != null, "pglFogxvOES not implemented");
 					Delegates.pglFogxvOES(pname, p_param);
-					CallLog("glFogxvOES({0}, {1})", pname, param);
+					LogFunction("glFogxvOES({0}, {1})", pname, param);
 				}
 			}
 			DebugCheckErrors(null);
@@ -216,7 +216,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglFrustumxOES != null, "pglFrustumxOES not implemented");
 			Delegates.pglFrustumxOES(l, r, b, t, n, f);
-			CallLog("glFrustumxOES(0x{0}, 0x{1}, 0x{2}, 0x{3}, 0x{4}, 0x{5})", l.ToString("X8"), r.ToString("X8"), b.ToString("X8"), t.ToString("X8"), n.ToString("X8"), f.ToString("X8"));
+			LogFunction("glFrustumxOES(0x{0}, 0x{1}, 0x{2}, 0x{3}, 0x{4}, 0x{5})", l.ToString("X8"), r.ToString("X8"), b.ToString("X8"), t.ToString("X8"), n.ToString("X8"), f.ToString("X8"));
 			DebugCheckErrors(null);
 		}
 
@@ -237,7 +237,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetClipPlanexOES != null, "pglGetClipPlanexOES not implemented");
 					Delegates.pglGetClipPlanexOES(plane, p_equation);
-					CallLog("glGetClipPlanexOES({0}, {1})", plane, equation);
+					LogFunction("glGetClipPlanexOES({0}, {1})", plane, equation);
 				}
 			}
 			DebugCheckErrors(null);
@@ -260,7 +260,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetFixedvOES != null, "pglGetFixedvOES not implemented");
 					Delegates.pglGetFixedvOES(pname, p_params);
-					CallLog("glGetFixedvOES({0}, {1})", pname, @params);
+					LogFunction("glGetFixedvOES({0}, {1})", pname, @params);
 				}
 			}
 			DebugCheckErrors(null);
@@ -286,7 +286,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetTexEnvxvOES != null, "pglGetTexEnvxvOES not implemented");
 					Delegates.pglGetTexEnvxvOES(target, pname, p_params);
-					CallLog("glGetTexEnvxvOES({0}, {1}, {2})", target, pname, @params);
+					LogFunction("glGetTexEnvxvOES({0}, {1}, {2})", target, pname, @params);
 				}
 			}
 			DebugCheckErrors(null);
@@ -312,7 +312,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetTexParameterxvOES != null, "pglGetTexParameterxvOES not implemented");
 					Delegates.pglGetTexParameterxvOES(target, pname, p_params);
-					CallLog("glGetTexParameterxvOES({0}, {1}, {2})", target, pname, @params);
+					LogFunction("glGetTexParameterxvOES({0}, {1}, {2})", target, pname, @params);
 				}
 			}
 			DebugCheckErrors(null);
@@ -332,7 +332,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglLightModelxOES != null, "pglLightModelxOES not implemented");
 			Delegates.pglLightModelxOES(pname, param);
-			CallLog("glLightModelxOES({0}, 0x{1})", pname, param.ToString("X8"));
+			LogFunction("glLightModelxOES({0}, 0x{1})", pname, param.ToString("X8"));
 			DebugCheckErrors(null);
 		}
 
@@ -353,7 +353,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglLightModelxvOES != null, "pglLightModelxvOES not implemented");
 					Delegates.pglLightModelxvOES(pname, p_param);
-					CallLog("glLightModelxvOES({0}, {1})", pname, param);
+					LogFunction("glLightModelxvOES({0}, {1})", pname, param);
 				}
 			}
 			DebugCheckErrors(null);
@@ -376,7 +376,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglLightxOES != null, "pglLightxOES not implemented");
 			Delegates.pglLightxOES(light, pname, param);
-			CallLog("glLightxOES({0}, {1}, 0x{2})", light, pname, param.ToString("X8"));
+			LogFunction("glLightxOES({0}, {1}, 0x{2})", light, pname, param.ToString("X8"));
 			DebugCheckErrors(null);
 		}
 
@@ -400,7 +400,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglLightxvOES != null, "pglLightxvOES not implemented");
 					Delegates.pglLightxvOES(light, pname, p_params);
-					CallLog("glLightxvOES({0}, {1}, {2})", light, pname, @params);
+					LogFunction("glLightxvOES({0}, {1}, {2})", light, pname, @params);
 				}
 			}
 			DebugCheckErrors(null);
@@ -417,7 +417,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglLineWidthxOES != null, "pglLineWidthxOES not implemented");
 			Delegates.pglLineWidthxOES(width);
-			CallLog("glLineWidthxOES(0x{0})", width.ToString("X8"));
+			LogFunction("glLineWidthxOES(0x{0})", width.ToString("X8"));
 			DebugCheckErrors(null);
 		}
 
@@ -435,7 +435,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglLoadMatrixxOES != null, "pglLoadMatrixxOES not implemented");
 					Delegates.pglLoadMatrixxOES(p_m);
-					CallLog("glLoadMatrixxOES({0})", m);
+					LogFunction("glLoadMatrixxOES({0})", m);
 				}
 			}
 			DebugCheckErrors(null);
@@ -458,7 +458,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglMaterialxOES != null, "pglMaterialxOES not implemented");
 			Delegates.pglMaterialxOES(face, pname, param);
-			CallLog("glMaterialxOES({0}, {1}, 0x{2})", face, pname, param.ToString("X8"));
+			LogFunction("glMaterialxOES({0}, {1}, 0x{2})", face, pname, param.ToString("X8"));
 			DebugCheckErrors(null);
 		}
 
@@ -482,7 +482,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglMaterialxvOES != null, "pglMaterialxvOES not implemented");
 					Delegates.pglMaterialxvOES(face, pname, p_param);
-					CallLog("glMaterialxvOES({0}, {1}, {2})", face, pname, param);
+					LogFunction("glMaterialxvOES({0}, {1}, {2})", face, pname, param);
 				}
 			}
 			DebugCheckErrors(null);
@@ -502,7 +502,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglMultMatrixxOES != null, "pglMultMatrixxOES not implemented");
 					Delegates.pglMultMatrixxOES(p_m);
-					CallLog("glMultMatrixxOES({0})", m);
+					LogFunction("glMultMatrixxOES({0})", m);
 				}
 			}
 			DebugCheckErrors(null);
@@ -531,7 +531,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglMultiTexCoord4xOES != null, "pglMultiTexCoord4xOES not implemented");
 			Delegates.pglMultiTexCoord4xOES(texture, s, t, r, q);
-			CallLog("glMultiTexCoord4xOES({0}, 0x{1}, 0x{2}, 0x{3}, 0x{4})", texture, s.ToString("X8"), t.ToString("X8"), r.ToString("X8"), q.ToString("X8"));
+			LogFunction("glMultiTexCoord4xOES({0}, 0x{1}, 0x{2}, 0x{3}, 0x{4})", texture, s.ToString("X8"), t.ToString("X8"), r.ToString("X8"), q.ToString("X8"));
 			DebugCheckErrors(null);
 		}
 
@@ -552,7 +552,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglNormal3xOES != null, "pglNormal3xOES not implemented");
 			Delegates.pglNormal3xOES(nx, ny, nz);
-			CallLog("glNormal3xOES(0x{0}, 0x{1}, 0x{2})", nx.ToString("X8"), ny.ToString("X8"), nz.ToString("X8"));
+			LogFunction("glNormal3xOES(0x{0}, 0x{1}, 0x{2})", nx.ToString("X8"), ny.ToString("X8"), nz.ToString("X8"));
 			DebugCheckErrors(null);
 		}
 
@@ -582,7 +582,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglOrthoxOES != null, "pglOrthoxOES not implemented");
 			Delegates.pglOrthoxOES(l, r, b, t, n, f);
-			CallLog("glOrthoxOES(0x{0}, 0x{1}, 0x{2}, 0x{3}, 0x{4}, 0x{5})", l.ToString("X8"), r.ToString("X8"), b.ToString("X8"), t.ToString("X8"), n.ToString("X8"), f.ToString("X8"));
+			LogFunction("glOrthoxOES(0x{0}, 0x{1}, 0x{2}, 0x{3}, 0x{4}, 0x{5})", l.ToString("X8"), r.ToString("X8"), b.ToString("X8"), t.ToString("X8"), n.ToString("X8"), f.ToString("X8"));
 			DebugCheckErrors(null);
 		}
 
@@ -603,7 +603,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglPointParameterxvOES != null, "pglPointParameterxvOES not implemented");
 					Delegates.pglPointParameterxvOES(pname, p_params);
-					CallLog("glPointParameterxvOES({0}, {1})", pname, @params);
+					LogFunction("glPointParameterxvOES({0}, {1})", pname, @params);
 				}
 			}
 			DebugCheckErrors(null);
@@ -620,7 +620,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglPointSizexOES != null, "pglPointSizexOES not implemented");
 			Delegates.pglPointSizexOES(size);
-			CallLog("glPointSizexOES(0x{0})", size.ToString("X8"));
+			LogFunction("glPointSizexOES(0x{0})", size.ToString("X8"));
 			DebugCheckErrors(null);
 		}
 
@@ -638,7 +638,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglPolygonOffsetxOES != null, "pglPolygonOffsetxOES not implemented");
 			Delegates.pglPolygonOffsetxOES(factor, units);
-			CallLog("glPolygonOffsetxOES(0x{0}, 0x{1})", factor.ToString("X8"), units.ToString("X8"));
+			LogFunction("glPolygonOffsetxOES(0x{0}, 0x{1})", factor.ToString("X8"), units.ToString("X8"));
 			DebugCheckErrors(null);
 		}
 
@@ -662,7 +662,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglRotatexOES != null, "pglRotatexOES not implemented");
 			Delegates.pglRotatexOES(angle, x, y, z);
-			CallLog("glRotatexOES(0x{0}, 0x{1}, 0x{2}, 0x{3})", angle.ToString("X8"), x.ToString("X8"), y.ToString("X8"), z.ToString("X8"));
+			LogFunction("glRotatexOES(0x{0}, 0x{1}, 0x{2}, 0x{3})", angle.ToString("X8"), x.ToString("X8"), y.ToString("X8"), z.ToString("X8"));
 			DebugCheckErrors(null);
 		}
 
@@ -683,7 +683,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglScalexOES != null, "pglScalexOES not implemented");
 			Delegates.pglScalexOES(x, y, z);
-			CallLog("glScalexOES(0x{0}, 0x{1}, 0x{2})", x.ToString("X8"), y.ToString("X8"), z.ToString("X8"));
+			LogFunction("glScalexOES(0x{0}, 0x{1}, 0x{2})", x.ToString("X8"), y.ToString("X8"), z.ToString("X8"));
 			DebugCheckErrors(null);
 		}
 
@@ -704,7 +704,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglTexEnvxOES != null, "pglTexEnvxOES not implemented");
 			Delegates.pglTexEnvxOES(target, pname, param);
-			CallLog("glTexEnvxOES({0}, {1}, 0x{2})", target, pname, param.ToString("X8"));
+			LogFunction("glTexEnvxOES({0}, {1}, 0x{2})", target, pname, param.ToString("X8"));
 			DebugCheckErrors(null);
 		}
 
@@ -728,7 +728,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglTexEnvxvOES != null, "pglTexEnvxvOES not implemented");
 					Delegates.pglTexEnvxvOES(target, pname, p_params);
-					CallLog("glTexEnvxvOES({0}, {1}, {2})", target, pname, @params);
+					LogFunction("glTexEnvxvOES({0}, {1}, {2})", target, pname, @params);
 				}
 			}
 			DebugCheckErrors(null);
@@ -751,7 +751,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglTexParameterxOES != null, "pglTexParameterxOES not implemented");
 			Delegates.pglTexParameterxOES(target, pname, param);
-			CallLog("glTexParameterxOES({0}, {1}, 0x{2})", target, pname, param.ToString("X8"));
+			LogFunction("glTexParameterxOES({0}, {1}, 0x{2})", target, pname, param.ToString("X8"));
 			DebugCheckErrors(null);
 		}
 
@@ -775,7 +775,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglTexParameterxvOES != null, "pglTexParameterxvOES not implemented");
 					Delegates.pglTexParameterxvOES(target, pname, p_params);
-					CallLog("glTexParameterxvOES({0}, {1}, {2})", target, pname, @params);
+					LogFunction("glTexParameterxvOES({0}, {1}, {2})", target, pname, @params);
 				}
 			}
 			DebugCheckErrors(null);
@@ -798,7 +798,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglTranslatexOES != null, "pglTranslatexOES not implemented");
 			Delegates.pglTranslatexOES(x, y, z);
-			CallLog("glTranslatexOES(0x{0}, 0x{1}, 0x{2})", x.ToString("X8"), y.ToString("X8"), z.ToString("X8"));
+			LogFunction("glTranslatexOES(0x{0}, 0x{1}, 0x{2})", x.ToString("X8"), y.ToString("X8"), z.ToString("X8"));
 			DebugCheckErrors(null);
 		}
 
@@ -816,7 +816,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglAccumxOES != null, "pglAccumxOES not implemented");
 			Delegates.pglAccumxOES(op, value);
-			CallLog("glAccumxOES({0}, 0x{1})", op, value.ToString("X8"));
+			LogFunction("glAccumxOES({0}, 0x{1})", op, value.ToString("X8"));
 			DebugCheckErrors(null);
 		}
 
@@ -852,7 +852,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglBitmapxOES != null, "pglBitmapxOES not implemented");
 					Delegates.pglBitmapxOES(width, height, xorig, yorig, xmove, ymove, p_bitmap);
-					CallLog("glBitmapxOES({0}, {1}, 0x{2}, 0x{3}, 0x{4}, 0x{5}, {6})", width, height, xorig.ToString("X8"), yorig.ToString("X8"), xmove.ToString("X8"), ymove.ToString("X8"), bitmap);
+					LogFunction("glBitmapxOES({0}, {1}, 0x{2}, 0x{3}, 0x{4}, 0x{5}, {6})", width, height, xorig.ToString("X8"), yorig.ToString("X8"), xmove.ToString("X8"), ymove.ToString("X8"), bitmap);
 				}
 			}
 			DebugCheckErrors(null);
@@ -878,7 +878,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglBlendColorxOES != null, "pglBlendColorxOES not implemented");
 			Delegates.pglBlendColorxOES(red, green, blue, alpha);
-			CallLog("glBlendColorxOES(0x{0}, 0x{1}, 0x{2}, 0x{3})", red.ToString("X8"), green.ToString("X8"), blue.ToString("X8"), alpha.ToString("X8"));
+			LogFunction("glBlendColorxOES(0x{0}, 0x{1}, 0x{2}, 0x{3})", red.ToString("X8"), green.ToString("X8"), blue.ToString("X8"), alpha.ToString("X8"));
 			DebugCheckErrors(null);
 		}
 
@@ -902,7 +902,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglClearAccumxOES != null, "pglClearAccumxOES not implemented");
 			Delegates.pglClearAccumxOES(red, green, blue, alpha);
-			CallLog("glClearAccumxOES(0x{0}, 0x{1}, 0x{2}, 0x{3})", red.ToString("X8"), green.ToString("X8"), blue.ToString("X8"), alpha.ToString("X8"));
+			LogFunction("glClearAccumxOES(0x{0}, 0x{1}, 0x{2}, 0x{3})", red.ToString("X8"), green.ToString("X8"), blue.ToString("X8"), alpha.ToString("X8"));
 			DebugCheckErrors(null);
 		}
 
@@ -923,7 +923,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglColor3xOES != null, "pglColor3xOES not implemented");
 			Delegates.pglColor3xOES(red, green, blue);
-			CallLog("glColor3xOES(0x{0}, 0x{1}, 0x{2})", red.ToString("X8"), green.ToString("X8"), blue.ToString("X8"));
+			LogFunction("glColor3xOES(0x{0}, 0x{1}, 0x{2})", red.ToString("X8"), green.ToString("X8"), blue.ToString("X8"));
 			DebugCheckErrors(null);
 		}
 
@@ -941,7 +941,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglColor3xvOES != null, "pglColor3xvOES not implemented");
 					Delegates.pglColor3xvOES(p_components);
-					CallLog("glColor3xvOES({0})", components);
+					LogFunction("glColor3xvOES({0})", components);
 				}
 			}
 			DebugCheckErrors(null);
@@ -961,7 +961,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglColor4xvOES != null, "pglColor4xvOES not implemented");
 					Delegates.pglColor4xvOES(p_components);
-					CallLog("glColor4xvOES({0})", components);
+					LogFunction("glColor4xvOES({0})", components);
 				}
 			}
 			DebugCheckErrors(null);
@@ -984,7 +984,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglConvolutionParameterxOES != null, "pglConvolutionParameterxOES not implemented");
 			Delegates.pglConvolutionParameterxOES(target, pname, param);
-			CallLog("glConvolutionParameterxOES({0}, {1}, 0x{2})", target, pname, param.ToString("X8"));
+			LogFunction("glConvolutionParameterxOES({0}, {1}, 0x{2})", target, pname, param.ToString("X8"));
 			DebugCheckErrors(null);
 		}
 
@@ -1008,7 +1008,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglConvolutionParameterxvOES != null, "pglConvolutionParameterxvOES not implemented");
 					Delegates.pglConvolutionParameterxvOES(target, pname, p_params);
-					CallLog("glConvolutionParameterxvOES({0}, {1}, {2})", target, pname, @params);
+					LogFunction("glConvolutionParameterxvOES({0}, {1}, {2})", target, pname, @params);
 				}
 			}
 			DebugCheckErrors(null);
@@ -1025,7 +1025,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglEvalCoord1xOES != null, "pglEvalCoord1xOES not implemented");
 			Delegates.pglEvalCoord1xOES(u);
-			CallLog("glEvalCoord1xOES(0x{0})", u.ToString("X8"));
+			LogFunction("glEvalCoord1xOES(0x{0})", u.ToString("X8"));
 			DebugCheckErrors(null);
 		}
 
@@ -1043,7 +1043,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglEvalCoord1xvOES != null, "pglEvalCoord1xvOES not implemented");
 					Delegates.pglEvalCoord1xvOES(p_coords);
-					CallLog("glEvalCoord1xvOES({0})", coords);
+					LogFunction("glEvalCoord1xvOES({0})", coords);
 				}
 			}
 			DebugCheckErrors(null);
@@ -1063,7 +1063,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglEvalCoord2xOES != null, "pglEvalCoord2xOES not implemented");
 			Delegates.pglEvalCoord2xOES(u, v);
-			CallLog("glEvalCoord2xOES(0x{0}, 0x{1})", u.ToString("X8"), v.ToString("X8"));
+			LogFunction("glEvalCoord2xOES(0x{0}, 0x{1})", u.ToString("X8"), v.ToString("X8"));
 			DebugCheckErrors(null);
 		}
 
@@ -1081,7 +1081,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglEvalCoord2xvOES != null, "pglEvalCoord2xvOES not implemented");
 					Delegates.pglEvalCoord2xvOES(p_coords);
-					CallLog("glEvalCoord2xvOES({0})", coords);
+					LogFunction("glEvalCoord2xvOES({0})", coords);
 				}
 			}
 			DebugCheckErrors(null);
@@ -1104,7 +1104,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglFeedbackBufferxOES != null, "pglFeedbackBufferxOES not implemented");
 					Delegates.pglFeedbackBufferxOES((Int32)buffer.Length, type, p_buffer);
-					CallLog("glFeedbackBufferxOES({0}, {1}, {2})", buffer.Length, type, buffer);
+					LogFunction("glFeedbackBufferxOES({0}, {1}, {2})", buffer.Length, type, buffer);
 				}
 			}
 			DebugCheckErrors(null);
@@ -1130,7 +1130,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetConvolutionParameterxvOES != null, "pglGetConvolutionParameterxvOES not implemented");
 					Delegates.pglGetConvolutionParameterxvOES(target, pname, p_params);
-					CallLog("glGetConvolutionParameterxvOES({0}, {1}, {2})", target, pname, @params);
+					LogFunction("glGetConvolutionParameterxvOES({0}, {1}, {2})", target, pname, @params);
 				}
 			}
 			DebugCheckErrors(null);
@@ -1156,7 +1156,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetHistogramParameterxvOES != null, "pglGetHistogramParameterxvOES not implemented");
 					Delegates.pglGetHistogramParameterxvOES(target, pname, p_params);
-					CallLog("glGetHistogramParameterxvOES({0}, {1}, {2})", target, pname, @params);
+					LogFunction("glGetHistogramParameterxvOES({0}, {1}, {2})", target, pname, @params);
 				}
 			}
 			DebugCheckErrors(null);
@@ -1182,7 +1182,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetLightxOES != null, "pglGetLightxOES not implemented");
 					Delegates.pglGetLightxOES(light, pname, p_params);
-					CallLog("glGetLightxOES({0}, {1}, {2})", light, pname, @params);
+					LogFunction("glGetLightxOES({0}, {1}, {2})", light, pname, @params);
 				}
 			}
 			DebugCheckErrors(null);
@@ -1208,7 +1208,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetMapxvOES != null, "pglGetMapxvOES not implemented");
 					Delegates.pglGetMapxvOES(target, query, p_v);
-					CallLog("glGetMapxvOES({0}, {1}, {2})", target, query, v);
+					LogFunction("glGetMapxvOES({0}, {1}, {2})", target, query, v);
 				}
 			}
 			DebugCheckErrors(null);
@@ -1231,7 +1231,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglGetMaterialxOES != null, "pglGetMaterialxOES not implemented");
 			Delegates.pglGetMaterialxOES(face, pname, param);
-			CallLog("glGetMaterialxOES({0}, {1}, 0x{2})", face, pname, param.ToString("X8"));
+			LogFunction("glGetMaterialxOES({0}, {1}, 0x{2})", face, pname, param.ToString("X8"));
 			DebugCheckErrors(null);
 		}
 
@@ -1275,7 +1275,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetPixelMapxv != null, "pglGetPixelMapxv not implemented");
 					Delegates.pglGetPixelMapxv(map, (Int32)values.Length, p_values);
-					CallLog("glGetPixelMapxv({0}, {1}, {2})", map, values.Length, values);
+					LogFunction("glGetPixelMapxv({0}, {1}, {2})", map, values.Length, values);
 				}
 			}
 			DebugCheckErrors(null);
@@ -1301,7 +1301,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetTexGenxvOES != null, "pglGetTexGenxvOES not implemented");
 					Delegates.pglGetTexGenxvOES(coord, pname, p_params);
-					CallLog("glGetTexGenxvOES({0}, {1}, {2})", coord, pname, @params);
+					LogFunction("glGetTexGenxvOES({0}, {1}, {2})", coord, pname, @params);
 				}
 			}
 			DebugCheckErrors(null);
@@ -1330,7 +1330,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetTexLevelParameterxvOES != null, "pglGetTexLevelParameterxvOES not implemented");
 					Delegates.pglGetTexLevelParameterxvOES(target, level, pname, p_params);
-					CallLog("glGetTexLevelParameterxvOES({0}, {1}, {2}, {3})", target, level, pname, @params);
+					LogFunction("glGetTexLevelParameterxvOES({0}, {1}, {2}, {3})", target, level, pname, @params);
 				}
 			}
 			DebugCheckErrors(null);
@@ -1347,7 +1347,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglIndexxOES != null, "pglIndexxOES not implemented");
 			Delegates.pglIndexxOES(component);
-			CallLog("glIndexxOES(0x{0})", component.ToString("X8"));
+			LogFunction("glIndexxOES(0x{0})", component.ToString("X8"));
 			DebugCheckErrors(null);
 		}
 
@@ -1365,7 +1365,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglIndexxvOES != null, "pglIndexxvOES not implemented");
 					Delegates.pglIndexxvOES(p_component);
-					CallLog("glIndexxvOES({0})", component);
+					LogFunction("glIndexxvOES({0})", component);
 				}
 			}
 			DebugCheckErrors(null);
@@ -1385,7 +1385,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglLoadTransposeMatrixxOES != null, "pglLoadTransposeMatrixxOES not implemented");
 					Delegates.pglLoadTransposeMatrixxOES(p_m);
-					CallLog("glLoadTransposeMatrixxOES({0})", m);
+					LogFunction("glLoadTransposeMatrixxOES({0})", m);
 				}
 			}
 			DebugCheckErrors(null);
@@ -1417,7 +1417,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglMap1xOES != null, "pglMap1xOES not implemented");
 			Delegates.pglMap1xOES(target, u1, u2, stride, order, points);
-			CallLog("glMap1xOES({0}, 0x{1}, 0x{2}, {3}, {4}, 0x{5})", target, u1.ToString("X8"), u2.ToString("X8"), stride, order, points.ToString("X8"));
+			LogFunction("glMap1xOES({0}, 0x{1}, 0x{2}, {3}, {4}, 0x{5})", target, u1.ToString("X8"), u2.ToString("X8"), stride, order, points.ToString("X8"));
 			DebugCheckErrors(null);
 		}
 
@@ -1459,7 +1459,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglMap2xOES != null, "pglMap2xOES not implemented");
 			Delegates.pglMap2xOES(target, u1, u2, ustride, uorder, v1, v2, vstride, vorder, points);
-			CallLog("glMap2xOES({0}, 0x{1}, 0x{2}, {3}, {4}, 0x{5}, 0x{6}, {7}, {8}, 0x{9})", target, u1.ToString("X8"), u2.ToString("X8"), ustride, uorder, v1.ToString("X8"), v2.ToString("X8"), vstride, vorder, points.ToString("X8"));
+			LogFunction("glMap2xOES({0}, 0x{1}, 0x{2}, {3}, {4}, 0x{5}, 0x{6}, {7}, {8}, 0x{9})", target, u1.ToString("X8"), u2.ToString("X8"), ustride, uorder, v1.ToString("X8"), v2.ToString("X8"), vstride, vorder, points.ToString("X8"));
 			DebugCheckErrors(null);
 		}
 
@@ -1480,7 +1480,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglMapGrid1xOES != null, "pglMapGrid1xOES not implemented");
 			Delegates.pglMapGrid1xOES(n, u1, u2);
-			CallLog("glMapGrid1xOES({0}, 0x{1}, 0x{2})", n, u1.ToString("X8"), u2.ToString("X8"));
+			LogFunction("glMapGrid1xOES({0}, 0x{1}, 0x{2})", n, u1.ToString("X8"), u2.ToString("X8"));
 			DebugCheckErrors(null);
 		}
 
@@ -1507,7 +1507,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglMapGrid2xOES != null, "pglMapGrid2xOES not implemented");
 			Delegates.pglMapGrid2xOES(n, u1, u2, v1, v2);
-			CallLog("glMapGrid2xOES({0}, 0x{1}, 0x{2}, 0x{3}, 0x{4})", n, u1.ToString("X8"), u2.ToString("X8"), v1.ToString("X8"), v2.ToString("X8"));
+			LogFunction("glMapGrid2xOES({0}, 0x{1}, 0x{2}, 0x{3}, 0x{4})", n, u1.ToString("X8"), u2.ToString("X8"), v1.ToString("X8"), v2.ToString("X8"));
 			DebugCheckErrors(null);
 		}
 
@@ -1525,7 +1525,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglMultTransposeMatrixxOES != null, "pglMultTransposeMatrixxOES not implemented");
 					Delegates.pglMultTransposeMatrixxOES(p_m);
-					CallLog("glMultTransposeMatrixxOES({0})", m);
+					LogFunction("glMultTransposeMatrixxOES({0})", m);
 				}
 			}
 			DebugCheckErrors(null);
@@ -1545,7 +1545,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglMultiTexCoord1xOES != null, "pglMultiTexCoord1xOES not implemented");
 			Delegates.pglMultiTexCoord1xOES(texture, s);
-			CallLog("glMultiTexCoord1xOES({0}, 0x{1})", texture, s.ToString("X8"));
+			LogFunction("glMultiTexCoord1xOES({0}, 0x{1})", texture, s.ToString("X8"));
 			DebugCheckErrors(null);
 		}
 
@@ -1566,7 +1566,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglMultiTexCoord1xvOES != null, "pglMultiTexCoord1xvOES not implemented");
 					Delegates.pglMultiTexCoord1xvOES(texture, p_coords);
-					CallLog("glMultiTexCoord1xvOES({0}, {1})", texture, coords);
+					LogFunction("glMultiTexCoord1xvOES({0}, {1})", texture, coords);
 				}
 			}
 			DebugCheckErrors(null);
@@ -1589,7 +1589,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglMultiTexCoord2xOES != null, "pglMultiTexCoord2xOES not implemented");
 			Delegates.pglMultiTexCoord2xOES(texture, s, t);
-			CallLog("glMultiTexCoord2xOES({0}, 0x{1}, 0x{2})", texture, s.ToString("X8"), t.ToString("X8"));
+			LogFunction("glMultiTexCoord2xOES({0}, 0x{1}, 0x{2})", texture, s.ToString("X8"), t.ToString("X8"));
 			DebugCheckErrors(null);
 		}
 
@@ -1610,7 +1610,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglMultiTexCoord2xvOES != null, "pglMultiTexCoord2xvOES not implemented");
 					Delegates.pglMultiTexCoord2xvOES(texture, p_coords);
-					CallLog("glMultiTexCoord2xvOES({0}, {1})", texture, coords);
+					LogFunction("glMultiTexCoord2xvOES({0}, {1})", texture, coords);
 				}
 			}
 			DebugCheckErrors(null);
@@ -1636,7 +1636,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglMultiTexCoord3xOES != null, "pglMultiTexCoord3xOES not implemented");
 			Delegates.pglMultiTexCoord3xOES(texture, s, t, r);
-			CallLog("glMultiTexCoord3xOES({0}, 0x{1}, 0x{2}, 0x{3})", texture, s.ToString("X8"), t.ToString("X8"), r.ToString("X8"));
+			LogFunction("glMultiTexCoord3xOES({0}, 0x{1}, 0x{2}, 0x{3})", texture, s.ToString("X8"), t.ToString("X8"), r.ToString("X8"));
 			DebugCheckErrors(null);
 		}
 
@@ -1657,7 +1657,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglMultiTexCoord3xvOES != null, "pglMultiTexCoord3xvOES not implemented");
 					Delegates.pglMultiTexCoord3xvOES(texture, p_coords);
-					CallLog("glMultiTexCoord3xvOES({0}, {1})", texture, coords);
+					LogFunction("glMultiTexCoord3xvOES({0}, {1})", texture, coords);
 				}
 			}
 			DebugCheckErrors(null);
@@ -1680,7 +1680,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglMultiTexCoord4xvOES != null, "pglMultiTexCoord4xvOES not implemented");
 					Delegates.pglMultiTexCoord4xvOES(texture, p_coords);
-					CallLog("glMultiTexCoord4xvOES({0}, {1})", texture, coords);
+					LogFunction("glMultiTexCoord4xvOES({0}, {1})", texture, coords);
 				}
 			}
 			DebugCheckErrors(null);
@@ -1700,7 +1700,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglNormal3xvOES != null, "pglNormal3xvOES not implemented");
 					Delegates.pglNormal3xvOES(p_coords);
-					CallLog("glNormal3xvOES({0})", coords);
+					LogFunction("glNormal3xvOES({0})", coords);
 				}
 			}
 			DebugCheckErrors(null);
@@ -1717,7 +1717,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglPassThroughxOES != null, "pglPassThroughxOES not implemented");
 			Delegates.pglPassThroughxOES(token);
-			CallLog("glPassThroughxOES(0x{0})", token.ToString("X8"));
+			LogFunction("glPassThroughxOES(0x{0})", token.ToString("X8"));
 			DebugCheckErrors(null);
 		}
 
@@ -1738,7 +1738,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglPixelMapx != null, "pglPixelMapx not implemented");
 					Delegates.pglPixelMapx(map, (Int32)values.Length, p_values);
-					CallLog("glPixelMapx({0}, {1}, {2})", map, values.Length, values);
+					LogFunction("glPixelMapx({0}, {1}, {2})", map, values.Length, values);
 				}
 			}
 			DebugCheckErrors(null);
@@ -1758,7 +1758,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglPixelStorex != null, "pglPixelStorex not implemented");
 			Delegates.pglPixelStorex(pname, param);
-			CallLog("glPixelStorex({0}, 0x{1})", pname, param.ToString("X8"));
+			LogFunction("glPixelStorex({0}, 0x{1})", pname, param.ToString("X8"));
 			DebugCheckErrors(null);
 		}
 
@@ -1776,7 +1776,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglPixelTransferxOES != null, "pglPixelTransferxOES not implemented");
 			Delegates.pglPixelTransferxOES(pname, param);
-			CallLog("glPixelTransferxOES({0}, 0x{1})", pname, param.ToString("X8"));
+			LogFunction("glPixelTransferxOES({0}, 0x{1})", pname, param.ToString("X8"));
 			DebugCheckErrors(null);
 		}
 
@@ -1794,7 +1794,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglPixelZoomxOES != null, "pglPixelZoomxOES not implemented");
 			Delegates.pglPixelZoomxOES(xfactor, yfactor);
-			CallLog("glPixelZoomxOES(0x{0}, 0x{1})", xfactor.ToString("X8"), yfactor.ToString("X8"));
+			LogFunction("glPixelZoomxOES(0x{0}, 0x{1})", xfactor.ToString("X8"), yfactor.ToString("X8"));
 			DebugCheckErrors(null);
 		}
 
@@ -1816,7 +1816,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglPrioritizeTexturesxOES != null, "pglPrioritizeTexturesxOES not implemented");
 					Delegates.pglPrioritizeTexturesxOES((Int32)textures.Length, p_textures, p_priorities);
-					CallLog("glPrioritizeTexturesxOES({0}, {1}, {2})", textures.Length, textures, priorities);
+					LogFunction("glPrioritizeTexturesxOES({0}, {1}, {2})", textures.Length, textures, priorities);
 				}
 			}
 			DebugCheckErrors(null);
@@ -1836,7 +1836,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglRasterPos2xOES != null, "pglRasterPos2xOES not implemented");
 			Delegates.pglRasterPos2xOES(x, y);
-			CallLog("glRasterPos2xOES(0x{0}, 0x{1})", x.ToString("X8"), y.ToString("X8"));
+			LogFunction("glRasterPos2xOES(0x{0}, 0x{1})", x.ToString("X8"), y.ToString("X8"));
 			DebugCheckErrors(null);
 		}
 
@@ -1854,7 +1854,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglRasterPos2xvOES != null, "pglRasterPos2xvOES not implemented");
 					Delegates.pglRasterPos2xvOES(p_coords);
-					CallLog("glRasterPos2xvOES({0})", coords);
+					LogFunction("glRasterPos2xvOES({0})", coords);
 				}
 			}
 			DebugCheckErrors(null);
@@ -1877,7 +1877,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglRasterPos3xOES != null, "pglRasterPos3xOES not implemented");
 			Delegates.pglRasterPos3xOES(x, y, z);
-			CallLog("glRasterPos3xOES(0x{0}, 0x{1}, 0x{2})", x.ToString("X8"), y.ToString("X8"), z.ToString("X8"));
+			LogFunction("glRasterPos3xOES(0x{0}, 0x{1}, 0x{2})", x.ToString("X8"), y.ToString("X8"), z.ToString("X8"));
 			DebugCheckErrors(null);
 		}
 
@@ -1895,7 +1895,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglRasterPos3xvOES != null, "pglRasterPos3xvOES not implemented");
 					Delegates.pglRasterPos3xvOES(p_coords);
-					CallLog("glRasterPos3xvOES({0})", coords);
+					LogFunction("glRasterPos3xvOES({0})", coords);
 				}
 			}
 			DebugCheckErrors(null);
@@ -1921,7 +1921,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglRasterPos4xOES != null, "pglRasterPos4xOES not implemented");
 			Delegates.pglRasterPos4xOES(x, y, z, w);
-			CallLog("glRasterPos4xOES(0x{0}, 0x{1}, 0x{2}, 0x{3})", x.ToString("X8"), y.ToString("X8"), z.ToString("X8"), w.ToString("X8"));
+			LogFunction("glRasterPos4xOES(0x{0}, 0x{1}, 0x{2}, 0x{3})", x.ToString("X8"), y.ToString("X8"), z.ToString("X8"), w.ToString("X8"));
 			DebugCheckErrors(null);
 		}
 
@@ -1939,7 +1939,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglRasterPos4xvOES != null, "pglRasterPos4xvOES not implemented");
 					Delegates.pglRasterPos4xvOES(p_coords);
-					CallLog("glRasterPos4xvOES({0})", coords);
+					LogFunction("glRasterPos4xvOES({0})", coords);
 				}
 			}
 			DebugCheckErrors(null);
@@ -1965,7 +1965,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglRectxOES != null, "pglRectxOES not implemented");
 			Delegates.pglRectxOES(x1, y1, x2, y2);
-			CallLog("glRectxOES(0x{0}, 0x{1}, 0x{2}, 0x{3})", x1.ToString("X8"), y1.ToString("X8"), x2.ToString("X8"), y2.ToString("X8"));
+			LogFunction("glRectxOES(0x{0}, 0x{1}, 0x{2}, 0x{3})", x1.ToString("X8"), y1.ToString("X8"), x2.ToString("X8"), y2.ToString("X8"));
 			DebugCheckErrors(null);
 		}
 
@@ -1987,7 +1987,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglRectxvOES != null, "pglRectxvOES not implemented");
 					Delegates.pglRectxvOES(p_v1, p_v2);
-					CallLog("glRectxvOES({0}, {1})", v1, v2);
+					LogFunction("glRectxvOES({0}, {1})", v1, v2);
 				}
 			}
 			DebugCheckErrors(null);
@@ -2004,7 +2004,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglTexCoord1xOES != null, "pglTexCoord1xOES not implemented");
 			Delegates.pglTexCoord1xOES(s);
-			CallLog("glTexCoord1xOES(0x{0})", s.ToString("X8"));
+			LogFunction("glTexCoord1xOES(0x{0})", s.ToString("X8"));
 			DebugCheckErrors(null);
 		}
 
@@ -2022,7 +2022,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglTexCoord1xvOES != null, "pglTexCoord1xvOES not implemented");
 					Delegates.pglTexCoord1xvOES(p_coords);
-					CallLog("glTexCoord1xvOES({0})", coords);
+					LogFunction("glTexCoord1xvOES({0})", coords);
 				}
 			}
 			DebugCheckErrors(null);
@@ -2042,7 +2042,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglTexCoord2xOES != null, "pglTexCoord2xOES not implemented");
 			Delegates.pglTexCoord2xOES(s, t);
-			CallLog("glTexCoord2xOES(0x{0}, 0x{1})", s.ToString("X8"), t.ToString("X8"));
+			LogFunction("glTexCoord2xOES(0x{0}, 0x{1})", s.ToString("X8"), t.ToString("X8"));
 			DebugCheckErrors(null);
 		}
 
@@ -2060,7 +2060,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglTexCoord2xvOES != null, "pglTexCoord2xvOES not implemented");
 					Delegates.pglTexCoord2xvOES(p_coords);
-					CallLog("glTexCoord2xvOES({0})", coords);
+					LogFunction("glTexCoord2xvOES({0})", coords);
 				}
 			}
 			DebugCheckErrors(null);
@@ -2083,7 +2083,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglTexCoord3xOES != null, "pglTexCoord3xOES not implemented");
 			Delegates.pglTexCoord3xOES(s, t, r);
-			CallLog("glTexCoord3xOES(0x{0}, 0x{1}, 0x{2})", s.ToString("X8"), t.ToString("X8"), r.ToString("X8"));
+			LogFunction("glTexCoord3xOES(0x{0}, 0x{1}, 0x{2})", s.ToString("X8"), t.ToString("X8"), r.ToString("X8"));
 			DebugCheckErrors(null);
 		}
 
@@ -2101,7 +2101,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglTexCoord3xvOES != null, "pglTexCoord3xvOES not implemented");
 					Delegates.pglTexCoord3xvOES(p_coords);
-					CallLog("glTexCoord3xvOES({0})", coords);
+					LogFunction("glTexCoord3xvOES({0})", coords);
 				}
 			}
 			DebugCheckErrors(null);
@@ -2127,7 +2127,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglTexCoord4xOES != null, "pglTexCoord4xOES not implemented");
 			Delegates.pglTexCoord4xOES(s, t, r, q);
-			CallLog("glTexCoord4xOES(0x{0}, 0x{1}, 0x{2}, 0x{3})", s.ToString("X8"), t.ToString("X8"), r.ToString("X8"), q.ToString("X8"));
+			LogFunction("glTexCoord4xOES(0x{0}, 0x{1}, 0x{2}, 0x{3})", s.ToString("X8"), t.ToString("X8"), r.ToString("X8"), q.ToString("X8"));
 			DebugCheckErrors(null);
 		}
 
@@ -2145,7 +2145,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglTexCoord4xvOES != null, "pglTexCoord4xvOES not implemented");
 					Delegates.pglTexCoord4xvOES(p_coords);
-					CallLog("glTexCoord4xvOES({0})", coords);
+					LogFunction("glTexCoord4xvOES({0})", coords);
 				}
 			}
 			DebugCheckErrors(null);
@@ -2168,7 +2168,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglTexGenxOES != null, "pglTexGenxOES not implemented");
 			Delegates.pglTexGenxOES(coord, pname, param);
-			CallLog("glTexGenxOES({0}, {1}, 0x{2})", coord, pname, param.ToString("X8"));
+			LogFunction("glTexGenxOES({0}, {1}, 0x{2})", coord, pname, param.ToString("X8"));
 			DebugCheckErrors(null);
 		}
 
@@ -2192,7 +2192,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglTexGenxvOES != null, "pglTexGenxvOES not implemented");
 					Delegates.pglTexGenxvOES(coord, pname, p_params);
-					CallLog("glTexGenxvOES({0}, {1}, {2})", coord, pname, @params);
+					LogFunction("glTexGenxvOES({0}, {1}, {2})", coord, pname, @params);
 				}
 			}
 			DebugCheckErrors(null);
@@ -2209,7 +2209,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglVertex2xOES != null, "pglVertex2xOES not implemented");
 			Delegates.pglVertex2xOES(x);
-			CallLog("glVertex2xOES(0x{0})", x.ToString("X8"));
+			LogFunction("glVertex2xOES(0x{0})", x.ToString("X8"));
 			DebugCheckErrors(null);
 		}
 
@@ -2227,7 +2227,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglVertex2xvOES != null, "pglVertex2xvOES not implemented");
 					Delegates.pglVertex2xvOES(p_coords);
-					CallLog("glVertex2xvOES({0})", coords);
+					LogFunction("glVertex2xvOES({0})", coords);
 				}
 			}
 			DebugCheckErrors(null);
@@ -2247,7 +2247,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglVertex3xOES != null, "pglVertex3xOES not implemented");
 			Delegates.pglVertex3xOES(x, y);
-			CallLog("glVertex3xOES(0x{0}, 0x{1})", x.ToString("X8"), y.ToString("X8"));
+			LogFunction("glVertex3xOES(0x{0}, 0x{1})", x.ToString("X8"), y.ToString("X8"));
 			DebugCheckErrors(null);
 		}
 
@@ -2265,7 +2265,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglVertex3xvOES != null, "pglVertex3xvOES not implemented");
 					Delegates.pglVertex3xvOES(p_coords);
-					CallLog("glVertex3xvOES({0})", coords);
+					LogFunction("glVertex3xvOES({0})", coords);
 				}
 			}
 			DebugCheckErrors(null);
@@ -2288,7 +2288,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglVertex4xOES != null, "pglVertex4xOES not implemented");
 			Delegates.pglVertex4xOES(x, y, z);
-			CallLog("glVertex4xOES(0x{0}, 0x{1}, 0x{2})", x.ToString("X8"), y.ToString("X8"), z.ToString("X8"));
+			LogFunction("glVertex4xOES(0x{0}, 0x{1}, 0x{2})", x.ToString("X8"), y.ToString("X8"), z.ToString("X8"));
 			DebugCheckErrors(null);
 		}
 
@@ -2306,7 +2306,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglVertex4xvOES != null, "pglVertex4xvOES not implemented");
 					Delegates.pglVertex4xvOES(p_coords);
-					CallLog("glVertex4xvOES({0})", coords);
+					LogFunction("glVertex4xvOES({0})", coords);
 				}
 			}
 			DebugCheckErrors(null);

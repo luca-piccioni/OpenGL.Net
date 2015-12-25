@@ -458,7 +458,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglXChooseVisual != null, "pglXChooseVisual not implemented");
 					retValue = Delegates.pglXChooseVisual(dpy, screen, p_attribList);
-					CallLog("glXChooseVisual(0x{0}, {1}, {2}) = {3}", dpy.ToString("X8"), screen, attribList, (Glx.XVisualInfo)Marshal.PtrToStructure(retValue, typeof(Glx.XVisualInfo)));
+					LogFunction("glXChooseVisual(0x{0}, {1}, {2}) = {3}", dpy.ToString("X8"), screen, attribList, (Glx.XVisualInfo)Marshal.PtrToStructure(retValue, typeof(Glx.XVisualInfo)));
 				}
 			}
 
@@ -513,7 +513,7 @@ namespace OpenGL
 
 			Debug.Assert(Delegates.pglXCreateContext != null, "pglXCreateContext not implemented");
 			retValue = Delegates.pglXCreateContext(dpy, vis, shareList, direct);
-			CallLog("glXCreateContext(0x{0}, {1}, 0x{2}, {3}) = {4}", dpy.ToString("X8"), vis, shareList.ToString("X8"), direct, retValue.ToString("X8"));
+			LogFunction("glXCreateContext(0x{0}, {1}, 0x{2}, {3}) = {4}", dpy.ToString("X8"), vis, shareList.ToString("X8"), direct, retValue.ToString("X8"));
 
 			return (retValue);
 		}
@@ -541,7 +541,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglXDestroyContext != null, "pglXDestroyContext not implemented");
 			Delegates.pglXDestroyContext(dpy, ctx);
-			CallLog("glXDestroyContext(0x{0}, 0x{1})", dpy.ToString("X8"), ctx.ToString("X8"));
+			LogFunction("glXDestroyContext(0x{0}, 0x{1})", dpy.ToString("X8"), ctx.ToString("X8"));
 		}
 
 		/// <summary>
@@ -602,7 +602,7 @@ namespace OpenGL
 
 			Debug.Assert(Delegates.pglXMakeCurrent != null, "pglXMakeCurrent not implemented");
 			retValue = Delegates.pglXMakeCurrent(dpy, drawable, ctx);
-			CallLog("glXMakeCurrent(0x{0}, 0x{1}, 0x{2}) = {3}", dpy.ToString("X8"), drawable.ToString("X8"), ctx.ToString("X8"), retValue);
+			LogFunction("glXMakeCurrent(0x{0}, 0x{1}, 0x{2}) = {3}", dpy.ToString("X8"), drawable.ToString("X8"), ctx.ToString("X8"), retValue);
 
 			return (retValue);
 		}
@@ -648,7 +648,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglXCopyContext != null, "pglXCopyContext not implemented");
 			Delegates.pglXCopyContext(dpy, src, dst, mask);
-			CallLog("glXCopyContext(0x{0}, 0x{1}, 0x{2}, {3})", dpy.ToString("X8"), src.ToString("X8"), dst.ToString("X8"), mask);
+			LogFunction("glXCopyContext(0x{0}, 0x{1}, 0x{2}, {3})", dpy.ToString("X8"), src.ToString("X8"), dst.ToString("X8"), mask);
 		}
 
 		/// <summary>
@@ -677,7 +677,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglXSwapBuffers != null, "pglXSwapBuffers not implemented");
 			Delegates.pglXSwapBuffers(dpy, drawable);
-			CallLog("glXSwapBuffers(0x{0}, 0x{1})", dpy.ToString("X8"), drawable.ToString("X8"));
+			LogFunction("glXSwapBuffers(0x{0}, 0x{1})", dpy.ToString("X8"), drawable.ToString("X8"));
 		}
 
 		/// <summary>
@@ -722,7 +722,7 @@ namespace OpenGL
 
 			Debug.Assert(Delegates.pglXCreateGLXPixmap != null, "pglXCreateGLXPixmap not implemented");
 			retValue = Delegates.pglXCreateGLXPixmap(dpy, visual, pixmap);
-			CallLog("glXCreateGLXPixmap(0x{0}, {1}, 0x{2}) = {3}", dpy.ToString("X8"), visual, pixmap.ToString("X8"), retValue.ToString("X8"));
+			LogFunction("glXCreateGLXPixmap(0x{0}, {1}, 0x{2}) = {3}", dpy.ToString("X8"), visual, pixmap.ToString("X8"), retValue.ToString("X8"));
 
 			return (retValue);
 		}
@@ -750,7 +750,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglXDestroyGLXPixmap != null, "pglXDestroyGLXPixmap not implemented");
 			Delegates.pglXDestroyGLXPixmap(dpy, pixmap);
-			CallLog("glXDestroyGLXPixmap(0x{0}, 0x{1})", dpy.ToString("X8"), pixmap.ToString("X8"));
+			LogFunction("glXDestroyGLXPixmap(0x{0}, 0x{1})", dpy.ToString("X8"), pixmap.ToString("X8"));
 		}
 
 		/// <summary>
@@ -777,7 +777,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglXQueryExtension != null, "pglXQueryExtension not implemented");
 					retValue = Delegates.pglXQueryExtension(dpy, p_errorb, p_event);
-					CallLog("glXQueryExtension(0x{0}, {1}, {2}) = {3}", dpy.ToString("X8"), errorb, @event, retValue);
+					LogFunction("glXQueryExtension(0x{0}, {1}, {2}) = {3}", dpy.ToString("X8"), errorb, @event, retValue);
 				}
 			}
 
@@ -817,7 +817,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglXQueryVersion != null, "pglXQueryVersion not implemented");
 					retValue = Delegates.pglXQueryVersion(dpy, p_maj, p_min);
-					CallLog("glXQueryVersion(0x{0}, {1}, {2}) = {3}", dpy.ToString("X8"), maj, min, retValue);
+					LogFunction("glXQueryVersion(0x{0}, {1}, {2}) = {3}", dpy.ToString("X8"), maj, min, retValue);
 				}
 			}
 
@@ -848,7 +848,7 @@ namespace OpenGL
 
 			Debug.Assert(Delegates.pglXIsDirect != null, "pglXIsDirect not implemented");
 			retValue = Delegates.pglXIsDirect(dpy, ctx);
-			CallLog("glXIsDirect(0x{0}, 0x{1}) = {2}", dpy.ToString("X8"), ctx.ToString("X8"), retValue);
+			LogFunction("glXIsDirect(0x{0}, 0x{1}) = {2}", dpy.ToString("X8"), ctx.ToString("X8"), retValue);
 
 			return (retValue);
 		}
@@ -896,7 +896,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglXGetConfig != null, "pglXGetConfig not implemented");
 					retValue = Delegates.pglXGetConfig(dpy, visual, attrib, p_value);
-					CallLog("glXGetConfig(0x{0}, {1}, {2}, {3}) = {4}", dpy.ToString("X8"), visual, attrib, value, retValue);
+					LogFunction("glXGetConfig(0x{0}, {1}, {2}, {3}) = {4}", dpy.ToString("X8"), visual, attrib, value, retValue);
 				}
 			}
 
@@ -917,7 +917,7 @@ namespace OpenGL
 
 			Debug.Assert(Delegates.pglXGetCurrentContext != null, "pglXGetCurrentContext not implemented");
 			retValue = Delegates.pglXGetCurrentContext();
-			CallLog("glXGetCurrentContext() = {0}", retValue.ToString("X8"));
+			LogFunction("glXGetCurrentContext() = {0}", retValue.ToString("X8"));
 
 			return (retValue);
 		}
@@ -937,7 +937,7 @@ namespace OpenGL
 
 			Debug.Assert(Delegates.pglXGetCurrentDrawable != null, "pglXGetCurrentDrawable not implemented");
 			retValue = Delegates.pglXGetCurrentDrawable();
-			CallLog("glXGetCurrentDrawable() = {0}", retValue.ToString("X8"));
+			LogFunction("glXGetCurrentDrawable() = {0}", retValue.ToString("X8"));
 
 			return (retValue);
 		}
@@ -960,7 +960,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglXWaitGL != null, "pglXWaitGL not implemented");
 			Delegates.pglXWaitGL();
-			CallLog("glXWaitGL()");
+			LogFunction("glXWaitGL()");
 		}
 
 		/// <summary>
@@ -981,7 +981,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglXWaitX != null, "pglXWaitX not implemented");
 			Delegates.pglXWaitX();
-			CallLog("glXWaitX()");
+			LogFunction("glXWaitX()");
 		}
 
 		/// <summary>
@@ -1019,7 +1019,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglXUseXFont != null, "pglXUseXFont not implemented");
 			Delegates.pglXUseXFont(font, first, count, list);
-			CallLog("glXUseXFont({0}, {1}, {2}, {3})", font, first, count, list);
+			LogFunction("glXUseXFont({0}, {1}, {2}, {3})", font, first, count, list);
 		}
 
 	}

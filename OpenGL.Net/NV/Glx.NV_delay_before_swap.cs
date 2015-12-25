@@ -46,7 +46,7 @@ namespace OpenGL
 
 			Debug.Assert(Delegates.pglXDelayBeforeSwapNV != null, "pglXDelayBeforeSwapNV not implemented");
 			retValue = Delegates.pglXDelayBeforeSwapNV(dpy, drawable, seconds);
-			CallLog("glXDelayBeforeSwapNV(0x{0}, 0x{1}, {2}) = {3}", dpy.ToString("X8"), drawable.ToString("X8"), seconds, retValue);
+			LogFunction("glXDelayBeforeSwapNV(0x{0}, 0x{1}, {2}) = {3}", dpy.ToString("X8"), drawable.ToString("X8"), seconds, retValue);
 
 			return (retValue);
 		}

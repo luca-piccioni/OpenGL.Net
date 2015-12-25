@@ -43,7 +43,7 @@ namespace OpenGL
 
 			Debug.Assert(Delegates.pglXGetCurrentDisplayEXT != null, "pglXGetCurrentDisplayEXT not implemented");
 			retValue = Delegates.pglXGetCurrentDisplayEXT();
-			CallLog("glXGetCurrentDisplayEXT() = {0}", retValue.ToString("X8"));
+			LogFunction("glXGetCurrentDisplayEXT() = {0}", retValue.ToString("X8"));
 
 			return (retValue);
 		}
@@ -89,7 +89,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglXQueryContextInfoEXT != null, "pglXQueryContextInfoEXT not implemented");
 					retValue = Delegates.pglXQueryContextInfoEXT(dpy, context, attribute, p_value);
-					CallLog("glXQueryContextInfoEXT(0x{0}, 0x{1}, {2}, {3}) = {4}", dpy.ToString("X8"), context.ToString("X8"), attribute, value, retValue);
+					LogFunction("glXQueryContextInfoEXT(0x{0}, 0x{1}, {2}, {3}) = {4}", dpy.ToString("X8"), context.ToString("X8"), attribute, value, retValue);
 				}
 			}
 
@@ -118,7 +118,7 @@ namespace OpenGL
 
 			Debug.Assert(Delegates.pglXGetContextIDEXT != null, "pglXGetContextIDEXT not implemented");
 			retValue = Delegates.pglXGetContextIDEXT(context);
-			CallLog("glXGetContextIDEXT(0x{0}) = {1}", context.ToString("X8"), retValue.ToString("X8"));
+			LogFunction("glXGetContextIDEXT(0x{0}) = {1}", context.ToString("X8"), retValue.ToString("X8"));
 
 			return (retValue);
 		}
@@ -150,7 +150,7 @@ namespace OpenGL
 
 			Debug.Assert(Delegates.pglXImportContextEXT != null, "pglXImportContextEXT not implemented");
 			retValue = Delegates.pglXImportContextEXT(dpy, contextID);
-			CallLog("glXImportContextEXT(0x{0}, 0x{1}) = {2}", dpy.ToString("X8"), contextID.ToString("X8"), retValue.ToString("X8"));
+			LogFunction("glXImportContextEXT(0x{0}, 0x{1}) = {2}", dpy.ToString("X8"), contextID.ToString("X8"), retValue.ToString("X8"));
 
 			return (retValue);
 		}
@@ -179,7 +179,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglXFreeContextEXT != null, "pglXFreeContextEXT not implemented");
 			Delegates.pglXFreeContextEXT(dpy, context);
-			CallLog("glXFreeContextEXT(0x{0}, 0x{1})", dpy.ToString("X8"), context.ToString("X8"));
+			LogFunction("glXFreeContextEXT(0x{0}, 0x{1})", dpy.ToString("X8"), context.ToString("X8"));
 		}
 
 	}

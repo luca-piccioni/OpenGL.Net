@@ -140,7 +140,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglReplacementCodeuiSUN != null, "pglReplacementCodeuiSUN not implemented");
 			Delegates.pglReplacementCodeuiSUN(code);
-			CallLog("glReplacementCodeuiSUN({0})", code);
+			LogFunction("glReplacementCodeuiSUN({0})", code);
 			DebugCheckErrors(null);
 		}
 
@@ -155,7 +155,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglReplacementCodeusSUN != null, "pglReplacementCodeusSUN not implemented");
 			Delegates.pglReplacementCodeusSUN(code);
-			CallLog("glReplacementCodeusSUN({0})", code);
+			LogFunction("glReplacementCodeusSUN({0})", code);
 			DebugCheckErrors(null);
 		}
 
@@ -170,7 +170,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglReplacementCodeubSUN != null, "pglReplacementCodeubSUN not implemented");
 			Delegates.pglReplacementCodeubSUN(code);
-			CallLog("glReplacementCodeubSUN({0})", code);
+			LogFunction("glReplacementCodeubSUN({0})", code);
 			DebugCheckErrors(null);
 		}
 
@@ -188,7 +188,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglReplacementCodeuivSUN != null, "pglReplacementCodeuivSUN not implemented");
 					Delegates.pglReplacementCodeuivSUN(p_code);
-					CallLog("glReplacementCodeuivSUN({0})", code);
+					LogFunction("glReplacementCodeuivSUN({0})", code);
 				}
 			}
 			DebugCheckErrors(null);
@@ -208,7 +208,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglReplacementCodeusvSUN != null, "pglReplacementCodeusvSUN not implemented");
 					Delegates.pglReplacementCodeusvSUN(p_code);
-					CallLog("glReplacementCodeusvSUN({0})", code);
+					LogFunction("glReplacementCodeusvSUN({0})", code);
 				}
 			}
 			DebugCheckErrors(null);
@@ -228,7 +228,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglReplacementCodeubvSUN != null, "pglReplacementCodeubvSUN not implemented");
 					Delegates.pglReplacementCodeubvSUN(p_code);
-					CallLog("glReplacementCodeubvSUN({0})", code);
+					LogFunction("glReplacementCodeubvSUN({0})", code);
 				}
 			}
 			DebugCheckErrors(null);
@@ -254,7 +254,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglReplacementCodePointerSUN != null, "pglReplacementCodePointerSUN not implemented");
 					Delegates.pglReplacementCodePointerSUN(type, stride, p_pointer);
-					CallLog("glReplacementCodePointerSUN({0}, {1}, {2})", type, stride, pointer);
+					LogFunction("glReplacementCodePointerSUN({0}, {1}, {2})", type, stride, pointer);
 				}
 			}
 			DebugCheckErrors(null);

@@ -562,62 +562,43 @@ namespace OpenGL
 		/// <summary>
 		/// Delegate used for logging procedure using application procedures.
 		/// </summary>
-		public delegate void ApplicationLogDelegate(string format, params object[] args);
+		public delegate void ProcedureLogDelegate(string format, params object[] args);
 
 		/// <summary>
 		/// Register a callback used to notify the application about a procedure log.
 		/// </summary>
 		/// <param name="callback">
-		/// The <see cref="ApplicationLogDelegate"/> used to notify application about a procedure log event.
+		/// The <see cref="ProcedureLogDelegate"/> used to notify application about a procedure log event.
 		/// </param>
-		public static void RegisterApplicationLogDelegate(ApplicationLogDelegate callback)
+		public static void RegisterApplicationLogDelegate(ProcedureLogDelegate callback)
 		{
-			_ProcLogCallback = callback;
+			_ProcLogCallbacks.Add(callback);
 		}
-		
+
+		/// <summary>
+		/// Delegate for logging using application framework.
+		/// </summary>
+		private static readonly List<ProcedureLogDelegate> _ProcLogCallbacks = new List<ProcedureLogDelegate>();
+
 		/// <summary>
 		/// Flag used for enabling/disabling procedure logging.
 		/// </summary>
 		public static bool LogEnabled { get { return (_ProcLogEnabled); } set { _ProcLogEnabled = value; } }
-		
+
+		/// <summary>
+		/// Flag used for enabling/disabling procedure logging.
+		/// </summary>
+		protected static bool _ProcLogEnabled = true;
+
 		/// <summary>
 		/// 
 		/// </summary>
 		public static ProcLogFlags LogFlags { get { return (_ProcLogFlags); } set { _ProcLogFlags = value; } }
-		
+
 		/// <summary>
-		/// Initializes the procedure log.
+		/// Flags controlling procedure logging.
 		/// </summary>
-		public static void InitializeLog()
-		{
-			
-		}
-		
-		/// <summary>
-		/// Create a file for logging procedures.
-		/// </summary>
-		/// <param name="path">
-		/// A <see cref="System.String"/> that specifies the path of the log file.
-		/// </param>
-		/// <exception cref="ArgumentNullException">
-		/// Exception thrown if <paramref name="path"/> is null.
-		/// </exception>
-		/// <exception cref="System.IO.IOException">
-		/// Exception thrown in the case of errors for creating the local file.
-		/// </exception>
-		public static void CreateLog(string path)
-		{
-			if (path == null)
-				throw new ArgumentNullException("path");
-			
-			// Ensure log initialized
-			InitializeLog();
-			
-			// Create log file
-			_ProcLogStream = new StreamWriter(path);
-			// Enable by default
-			LogEnabled = true;
-		}
+		private static ProcLogFlags _ProcLogFlags = ProcLogFlags.All;
 
 		/// <summary>
 		/// Log a comment.
@@ -631,10 +612,11 @@ namespace OpenGL
 		/// </param>
 		public static void LogComment(string format, params object[] args)
 		{
-			Debug.Assert(String.IsNullOrEmpty(format) == false);
+			if (format == null)
+				throw new ArgumentNullException("format");
 
 			// Write a comment line
-			LogProc(String.Format("// "+format, args));
+			LogFunction(String.Format("// " + format, args));
 		}
 
 		/// <summary>
@@ -670,7 +652,7 @@ namespace OpenGL
 			}
 			sb.Append(")");
 
-			LogProc(sb.ToString());
+			LogFunction(sb.ToString());
 		}
 
 		/// <summary>
@@ -682,64 +664,22 @@ namespace OpenGL
 		/// <param name="args">
 		/// An array of objects that specifies the arguments of the <paramref name="format"/>.
 		/// </param>
-		public static void LogProc(string format, params object[] args)
+		public static void LogFunction(string format, params object[] args)
 		{
 			if (format == null)
 				throw new ArgumentNullException("format");
-
-			// Write a line on separate file
-			if ((_ProcLogStream != null) && ((_ProcLogFlags & ProcLogFlags.LogOnSeparateFile) != 0)) {
-				// Write on stream
-				try {
-					_ProcLogStream.WriteLine(format, args);
-				} catch {
-					// Ignore exceptions
-				}
-				// Optionally flush
-				if ((_ProcLogFlags & ProcLogFlags.LogFlush) != 0)
-					_ProcLogStream.Flush();
-			}
 			
 			// Write on app
-			if ((_ProcLogCallback != null) && ((_ProcLogFlags & ProcLogFlags.LogOnApp) != 0)) {
-				try {
-					_ProcLogCallback(format, args);
-				} catch {
-					// Ignore exceptions
+			if (_ProcLogCallbacks.Count > 0) {
+				foreach (ProcedureLogDelegate logDelegate in _ProcLogCallbacks) {
+					try {
+						logDelegate(format, args);
+					} catch {
+						// Ignore exceptions
+					}
 				}
 			}
 		}
-
-		/// <summary>
-		/// Close procedure log.
-		/// </summary>
-		public static void CloseLog()
-		{
-			if (_ProcLogStream != null) {
-				_ProcLogStream.Close();
-				_ProcLogStream = null;
-			}
-		}
-		
-		/// <summary>
-		/// Procedure log file.
-		/// </summary>
-		private static StreamWriter _ProcLogStream;
-		
-		/// <summary>
-		/// Flag used for enabling/disabling procedure logging.
-		/// </summary>
-		protected static bool _ProcLogEnabled;
-		
-		/// <summary>
-		/// Delegate for logging using application framework.
-		/// </summary>
-		private static ApplicationLogDelegate _ProcLogCallback;
-		
-		/// <summary>
-		/// Flags controlling procedure logging.
-		/// </summary>
-		private static ProcLogFlags _ProcLogFlags = ProcLogFlags.All;
 		
 		#endregion
 	}

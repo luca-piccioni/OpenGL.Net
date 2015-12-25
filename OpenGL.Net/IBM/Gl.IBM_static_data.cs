@@ -50,7 +50,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglFlushStaticDataIBM != null, "pglFlushStaticDataIBM not implemented");
 			Delegates.pglFlushStaticDataIBM(target);
-			CallLog("glFlushStaticDataIBM({0})", target);
+			LogFunction("glFlushStaticDataIBM({0})", target);
 			DebugCheckErrors(null);
 		}
 

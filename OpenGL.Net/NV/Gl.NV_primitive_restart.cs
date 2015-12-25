@@ -47,7 +47,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglPrimitiveRestartNV != null, "pglPrimitiveRestartNV not implemented");
 			Delegates.pglPrimitiveRestartNV();
-			CallLog("glPrimitiveRestartNV()");
+			LogFunction("glPrimitiveRestartNV()");
 			DebugCheckErrors(null);
 		}
 
@@ -62,7 +62,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglPrimitiveRestartIndexNV != null, "pglPrimitiveRestartIndexNV not implemented");
 			Delegates.pglPrimitiveRestartIndexNV(index);
-			CallLog("glPrimitiveRestartIndexNV({0})", index);
+			LogFunction("glPrimitiveRestartIndexNV({0})", index);
 			DebugCheckErrors(null);
 		}
 

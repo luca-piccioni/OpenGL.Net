@@ -116,7 +116,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglDeformationMap3dSGIX != null, "pglDeformationMap3dSGIX not implemented");
 					Delegates.pglDeformationMap3dSGIX((Int32)target, u1, u2, ustride, uorder, v1, v2, vstride, vorder, w1, w2, wstride, worder, p_points);
-					CallLog("glDeformationMap3dSGIX({0}, {1}, {2}, {3}, {4}, {5}, {6}, {7}, {8}, {9}, {10}, {11}, {12}, {13})", target, u1, u2, ustride, uorder, v1, v2, vstride, vorder, w1, w2, wstride, worder, points);
+					LogFunction("glDeformationMap3dSGIX({0}, {1}, {2}, {3}, {4}, {5}, {6}, {7}, {8}, {9}, {10}, {11}, {12}, {13})", target, u1, u2, ustride, uorder, v1, v2, vstride, vorder, w1, w2, wstride, worder, points);
 				}
 			}
 			DebugCheckErrors(null);
@@ -175,7 +175,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglDeformationMap3fSGIX != null, "pglDeformationMap3fSGIX not implemented");
 					Delegates.pglDeformationMap3fSGIX((Int32)target, u1, u2, ustride, uorder, v1, v2, vstride, vorder, w1, w2, wstride, worder, p_points);
-					CallLog("glDeformationMap3fSGIX({0}, {1}, {2}, {3}, {4}, {5}, {6}, {7}, {8}, {9}, {10}, {11}, {12}, {13})", target, u1, u2, ustride, uorder, v1, v2, vstride, vorder, w1, w2, wstride, worder, points);
+					LogFunction("glDeformationMap3fSGIX({0}, {1}, {2}, {3}, {4}, {5}, {6}, {7}, {8}, {9}, {10}, {11}, {12}, {13})", target, u1, u2, ustride, uorder, v1, v2, vstride, vorder, w1, w2, wstride, worder, points);
 				}
 			}
 			DebugCheckErrors(null);
@@ -192,7 +192,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglDeformSGIX != null, "pglDeformSGIX not implemented");
 			Delegates.pglDeformSGIX((UInt32)mask);
-			CallLog("glDeformSGIX({0})", mask);
+			LogFunction("glDeformSGIX({0})", mask);
 			DebugCheckErrors(null);
 		}
 
@@ -207,7 +207,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglLoadIdentityDeformationMapSGIX != null, "pglLoadIdentityDeformationMapSGIX not implemented");
 			Delegates.pglLoadIdentityDeformationMapSGIX((UInt32)mask);
-			CallLog("glLoadIdentityDeformationMapSGIX({0})", mask);
+			LogFunction("glLoadIdentityDeformationMapSGIX({0})", mask);
 			DebugCheckErrors(null);
 		}
 

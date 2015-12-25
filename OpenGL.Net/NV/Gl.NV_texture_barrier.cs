@@ -35,7 +35,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglTextureBarrierNV != null, "pglTextureBarrierNV not implemented");
 			Delegates.pglTextureBarrierNV();
-			CallLog("glTextureBarrierNV()");
+			LogFunction("glTextureBarrierNV()");
 			DebugCheckErrors(null);
 		}
 

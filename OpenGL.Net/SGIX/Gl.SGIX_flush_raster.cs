@@ -35,7 +35,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglFlushRasterSGIX != null, "pglFlushRasterSGIX not implemented");
 			Delegates.pglFlushRasterSGIX();
-			CallLog("glFlushRasterSGIX()");
+			LogFunction("glFlushRasterSGIX()");
 			DebugCheckErrors(null);
 		}
 

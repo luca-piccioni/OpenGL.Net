@@ -35,7 +35,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglResizeBuffersMESA != null, "pglResizeBuffersMESA not implemented");
 			Delegates.pglResizeBuffersMESA();
-			CallLog("glResizeBuffersMESA()");
+			LogFunction("glResizeBuffersMESA()");
 			DebugCheckErrors(null);
 		}
 

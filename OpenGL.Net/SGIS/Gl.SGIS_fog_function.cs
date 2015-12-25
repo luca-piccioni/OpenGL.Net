@@ -62,7 +62,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglFogFuncSGIS != null, "pglFogFuncSGIS not implemented");
 					Delegates.pglFogFuncSGIS(n, p_points);
-					CallLog("glFogFuncSGIS({0}, {1})", n, points);
+					LogFunction("glFogFuncSGIS({0}, {1})", n, points);
 				}
 			}
 			DebugCheckErrors(null);
@@ -82,7 +82,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetFogFuncSGIS != null, "pglGetFogFuncSGIS not implemented");
 					Delegates.pglGetFogFuncSGIS(p_points);
-					CallLog("glGetFogFuncSGIS({0})", points);
+					LogFunction("glGetFogFuncSGIS({0})", points);
 				}
 			}
 			DebugCheckErrors(null);

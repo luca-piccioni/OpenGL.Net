@@ -53,7 +53,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglStencilClearTagEXT != null, "pglStencilClearTagEXT not implemented");
 			Delegates.pglStencilClearTagEXT(stencilTagBits, stencilClearTag);
-			CallLog("glStencilClearTagEXT({0}, {1})", stencilTagBits, stencilClearTag);
+			LogFunction("glStencilClearTagEXT({0}, {1})", stencilTagBits, stencilClearTag);
 			DebugCheckErrors(null);
 		}
 

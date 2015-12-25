@@ -6407,7 +6407,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglDrawArrays != null, "pglDrawArrays not implemented");
 			Delegates.pglDrawArrays((Int32)mode, first, count);
-			CallLog("glDrawArrays({0}, {1}, {2})", mode, first, count);
+			LogFunction("glDrawArrays({0}, {1}, {2})", mode, first, count);
 			DebugCheckErrors(null);
 		}
 
@@ -6454,7 +6454,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglDrawElements != null, "pglDrawElements not implemented");
 			Delegates.pglDrawElements((Int32)mode, count, (Int32)type, indices);
-			CallLog("glDrawElements({0}, {1}, {2}, 0x{3})", mode, count, type, indices.ToString("X8"));
+			LogFunction("glDrawElements({0}, {1}, {2}, 0x{3})", mode, count, type, indices.ToString("X8"));
 			DebugCheckErrors(null);
 		}
 
@@ -6533,7 +6533,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetPointerv != null, "pglGetPointerv not implemented");
 					Delegates.pglGetPointerv((Int32)pname, p_params);
-					CallLog("glGetPointerv({0}, 0x{1})", pname, @params.ToString("X8"));
+					LogFunction("glGetPointerv({0}, 0x{1})", pname, @params.ToString("X8"));
 				}
 			}
 			DebugCheckErrors(null);
@@ -6586,7 +6586,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglPolygonOffset != null, "pglPolygonOffset not implemented");
 			Delegates.pglPolygonOffset(factor, units);
-			CallLog("glPolygonOffset({0}, {1})", factor, units);
+			LogFunction("glPolygonOffset({0}, {1})", factor, units);
 			DebugCheckErrors(null);
 		}
 
@@ -6657,7 +6657,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglCopyTexImage1D != null, "pglCopyTexImage1D not implemented");
 			Delegates.pglCopyTexImage1D((Int32)target, level, internalformat, x, y, width, border);
-			CallLog("glCopyTexImage1D({0}, {1}, {2}, {3}, {4}, {5}, {6})", target, level, internalformat, x, y, width, border);
+			LogFunction("glCopyTexImage1D({0}, {1}, {2}, {3}, {4}, {5}, {6})", target, level, internalformat, x, y, width, border);
 			DebugCheckErrors(null);
 		}
 
@@ -6735,7 +6735,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglCopyTexImage2D != null, "pglCopyTexImage2D not implemented");
 			Delegates.pglCopyTexImage2D((Int32)target, level, internalformat, x, y, width, height, border);
-			CallLog("glCopyTexImage2D({0}, {1}, {2}, {3}, {4}, {5}, {6}, {7})", target, level, internalformat, x, y, width, height, border);
+			LogFunction("glCopyTexImage2D({0}, {1}, {2}, {3}, {4}, {5}, {6}, {7})", target, level, internalformat, x, y, width, height, border);
 			DebugCheckErrors(null);
 		}
 
@@ -6814,7 +6814,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglCopyTexSubImage1D != null, "pglCopyTexSubImage1D not implemented");
 			Delegates.pglCopyTexSubImage1D((Int32)target, level, xoffset, x, y, width);
-			CallLog("glCopyTexSubImage1D({0}, {1}, {2}, {3}, {4}, {5})", target, level, xoffset, x, y, width);
+			LogFunction("glCopyTexSubImage1D({0}, {1}, {2}, {3}, {4}, {5})", target, level, xoffset, x, y, width);
 			DebugCheckErrors(null);
 		}
 
@@ -6909,7 +6909,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglCopyTexSubImage2D != null, "pglCopyTexSubImage2D not implemented");
 			Delegates.pglCopyTexSubImage2D((Int32)target, level, xoffset, yoffset, x, y, width, height);
-			CallLog("glCopyTexSubImage2D({0}, {1}, {2}, {3}, {4}, {5}, {6}, {7})", target, level, xoffset, yoffset, x, y, width, height);
+			LogFunction("glCopyTexSubImage2D({0}, {1}, {2}, {3}, {4}, {5}, {6}, {7})", target, level, xoffset, yoffset, x, y, width, height);
 			DebugCheckErrors(null);
 		}
 
@@ -7021,7 +7021,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglTexSubImage1D != null, "pglTexSubImage1D not implemented");
 			Delegates.pglTexSubImage1D((Int32)target, level, xoffset, width, (Int32)format, (Int32)type, pixels);
-			CallLog("glTexSubImage1D({0}, {1}, {2}, {3}, {4}, {5}, 0x{6})", target, level, xoffset, width, format, type, pixels.ToString("X8"));
+			LogFunction("glTexSubImage1D({0}, {1}, {2}, {3}, {4}, {5}, 0x{6})", target, level, xoffset, width, format, type, pixels.ToString("X8"));
 			DebugCheckErrors(null);
 		}
 
@@ -7257,7 +7257,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglTexSubImage2D != null, "pglTexSubImage2D not implemented");
 			Delegates.pglTexSubImage2D((Int32)target, level, xoffset, yoffset, width, height, (Int32)format, (Int32)type, pixels);
-			CallLog("glTexSubImage2D({0}, {1}, {2}, {3}, {4}, {5}, {6}, {7}, 0x{8})", target, level, xoffset, yoffset, width, height, format, type, pixels.ToString("X8"));
+			LogFunction("glTexSubImage2D({0}, {1}, {2}, {3}, {4}, {5}, {6}, {7}, 0x{8})", target, level, xoffset, yoffset, width, height, format, type, pixels.ToString("X8"));
 			DebugCheckErrors(null);
 		}
 
@@ -7425,7 +7425,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglBindTexture != null, "pglBindTexture not implemented");
 			Delegates.pglBindTexture((Int32)target, texture);
-			CallLog("glBindTexture({0}, {1})", target, texture);
+			LogFunction("glBindTexture({0}, {1})", target, texture);
 			DebugCheckErrors(null);
 		}
 
@@ -7457,7 +7457,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglDeleteTextures != null, "pglDeleteTextures not implemented");
 					Delegates.pglDeleteTextures((Int32)textures.Length, p_textures);
-					CallLog("glDeleteTextures({0}, {1})", textures.Length, textures);
+					LogFunction("glDeleteTextures({0}, {1})", textures.Length, textures);
 				}
 			}
 			DebugCheckErrors(null);
@@ -7492,7 +7492,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGenTextures != null, "pglGenTextures not implemented");
 					Delegates.pglGenTextures((Int32)textures.Length, p_textures);
-					CallLog("glGenTextures({0}, {1})", textures.Length, textures);
+					LogFunction("glGenTextures({0}, {1})", textures.Length, textures);
 				}
 			}
 			DebugCheckErrors(null);
@@ -7548,7 +7548,7 @@ namespace OpenGL
 
 			Debug.Assert(Delegates.pglIsTexture != null, "pglIsTexture not implemented");
 			retValue = Delegates.pglIsTexture(texture);
-			CallLog("glIsTexture({0}) = {1}", texture, retValue);
+			LogFunction("glIsTexture({0}) = {1}", texture, retValue);
 			DebugCheckErrors(retValue);
 
 			return (retValue);
@@ -7588,7 +7588,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglArrayElement != null, "pglArrayElement not implemented");
 			Delegates.pglArrayElement(i);
-			CallLog("glArrayElement({0})", i);
+			LogFunction("glArrayElement({0})", i);
 		}
 
 		/// <summary>
@@ -7646,7 +7646,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglColorPointer != null, "pglColorPointer not implemented");
 			Delegates.pglColorPointer(size, (Int32)type, stride, pointer);
-			CallLog("glColorPointer({0}, {1}, {2}, 0x{3})", size, type, stride, pointer.ToString("X8"));
+			LogFunction("glColorPointer({0}, {1}, {2}, 0x{3})", size, type, stride, pointer.ToString("X8"));
 			DebugCheckErrors(null);
 		}
 
@@ -7747,7 +7747,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglDisableClientState != null, "pglDisableClientState not implemented");
 			Delegates.pglDisableClientState((Int32)array);
-			CallLog("glDisableClientState({0})", array);
+			LogFunction("glDisableClientState({0})", array);
 			DebugCheckErrors(null);
 		}
 
@@ -7793,7 +7793,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglEdgeFlagPointer != null, "pglEdgeFlagPointer not implemented");
 			Delegates.pglEdgeFlagPointer(stride, pointer);
-			CallLog("glEdgeFlagPointer({0}, 0x{1})", stride, pointer.ToString("X8"));
+			LogFunction("glEdgeFlagPointer({0}, 0x{1})", stride, pointer.ToString("X8"));
 			DebugCheckErrors(null);
 		}
 
@@ -7881,7 +7881,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglEnableClientState != null, "pglEnableClientState not implemented");
 			Delegates.pglEnableClientState((Int32)array);
-			CallLog("glEnableClientState({0})", array);
+			LogFunction("glEnableClientState({0})", array);
 			DebugCheckErrors(null);
 		}
 
@@ -7934,7 +7934,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglIndexPointer != null, "pglIndexPointer not implemented");
 			Delegates.pglIndexPointer((Int32)type, stride, pointer);
-			CallLog("glIndexPointer({0}, {1}, 0x{2})", type, stride, pointer.ToString("X8"));
+			LogFunction("glIndexPointer({0}, {1}, 0x{2})", type, stride, pointer.ToString("X8"));
 			DebugCheckErrors(null);
 		}
 
@@ -8034,7 +8034,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglInterleavedArrays != null, "pglInterleavedArrays not implemented");
 			Delegates.pglInterleavedArrays((Int32)format, stride, pointer);
-			CallLog("glInterleavedArrays({0}, {1}, 0x{2})", format, stride, pointer.ToString("X8"));
+			LogFunction("glInterleavedArrays({0}, {1}, 0x{2})", format, stride, pointer.ToString("X8"));
 			DebugCheckErrors(null);
 		}
 
@@ -8134,7 +8134,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglNormalPointer != null, "pglNormalPointer not implemented");
 			Delegates.pglNormalPointer((Int32)type, stride, pointer);
-			CallLog("glNormalPointer({0}, {1}, 0x{2})", type, stride, pointer.ToString("X8"));
+			LogFunction("glNormalPointer({0}, {1}, 0x{2})", type, stride, pointer.ToString("X8"));
 			DebugCheckErrors(null);
 		}
 
@@ -8250,7 +8250,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglTexCoordPointer != null, "pglTexCoordPointer not implemented");
 			Delegates.pglTexCoordPointer(size, (Int32)type, stride, pointer);
-			CallLog("glTexCoordPointer({0}, {1}, {2}, 0x{3})", size, type, stride, pointer.ToString("X8"));
+			LogFunction("glTexCoordPointer({0}, {1}, {2}, 0x{3})", size, type, stride, pointer.ToString("X8"));
 			DebugCheckErrors(null);
 		}
 
@@ -8372,7 +8372,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglVertexPointer != null, "pglVertexPointer not implemented");
 			Delegates.pglVertexPointer(size, (Int32)type, stride, pointer);
-			CallLog("glVertexPointer({0}, {1}, {2}, 0x{3})", size, type, stride, pointer.ToString("X8"));
+			LogFunction("glVertexPointer({0}, {1}, {2}, 0x{3})", size, type, stride, pointer.ToString("X8"));
 			DebugCheckErrors(null);
 		}
 
@@ -8479,7 +8479,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglAreTexturesResident != null, "pglAreTexturesResident not implemented");
 					retValue = Delegates.pglAreTexturesResident((Int32)textures.Length, p_textures, p_residences);
-					CallLog("glAreTexturesResident({0}, {1}, {2}) = {3}", textures.Length, textures, residences, retValue);
+					LogFunction("glAreTexturesResident({0}, {1}, {2}) = {3}", textures.Length, textures, residences, retValue);
 				}
 			}
 			DebugCheckErrors(retValue);
@@ -8524,7 +8524,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglPrioritizeTextures != null, "pglPrioritizeTextures not implemented");
 					Delegates.pglPrioritizeTextures((Int32)textures.Length, p_textures, p_priorities);
-					CallLog("glPrioritizeTextures({0}, {1}, {2})", textures.Length, textures, priorities);
+					LogFunction("glPrioritizeTextures({0}, {1}, {2})", textures.Length, textures, priorities);
 				}
 			}
 			DebugCheckErrors(null);
@@ -8544,7 +8544,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglIndexub != null, "pglIndexub not implemented");
 			Delegates.pglIndexub(c);
-			CallLog("glIndexub({0})", c);
+			LogFunction("glIndexub({0})", c);
 		}
 
 		/// <summary>
@@ -8564,7 +8564,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglIndexubv != null, "pglIndexubv not implemented");
 					Delegates.pglIndexubv(p_c);
-					CallLog("glIndexubv({0})", c);
+					LogFunction("glIndexubv({0})", c);
 				}
 			}
 			DebugCheckErrors(null);
@@ -8601,7 +8601,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglPopClientAttrib != null, "pglPopClientAttrib not implemented");
 			Delegates.pglPopClientAttrib();
-			CallLog("glPopClientAttrib()");
+			LogFunction("glPopClientAttrib()");
 			DebugCheckErrors(null);
 		}
 
@@ -8639,7 +8639,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglPushClientAttrib != null, "pglPushClientAttrib not implemented");
 			Delegates.pglPushClientAttrib((UInt32)mask);
-			CallLog("glPushClientAttrib({0})", mask);
+			LogFunction("glPushClientAttrib({0})", mask);
 			DebugCheckErrors(null);
 		}
 

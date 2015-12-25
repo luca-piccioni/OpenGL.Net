@@ -533,7 +533,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglProgramStringARB != null, "pglProgramStringARB not implemented");
 			Delegates.pglProgramStringARB(target, format, len, @string);
-			CallLog("glProgramStringARB({0}, {1}, {2}, 0x{3})", target, format, len, @string.ToString("X8"));
+			LogFunction("glProgramStringARB({0}, {1}, {2}, 0x{3})", target, format, len, @string.ToString("X8"));
 			DebugCheckErrors(null);
 		}
 
@@ -579,7 +579,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglBindProgramARB != null, "pglBindProgramARB not implemented");
 			Delegates.pglBindProgramARB(target, program);
-			CallLog("glBindProgramARB({0}, {1})", target, program);
+			LogFunction("glBindProgramARB({0}, {1})", target, program);
 			DebugCheckErrors(null);
 		}
 
@@ -598,7 +598,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglDeleteProgramsARB != null, "pglDeleteProgramsARB not implemented");
 					Delegates.pglDeleteProgramsARB((Int32)programs.Length, p_programs);
-					CallLog("glDeleteProgramsARB({0}, {1})", programs.Length, programs);
+					LogFunction("glDeleteProgramsARB({0}, {1})", programs.Length, programs);
 				}
 			}
 			DebugCheckErrors(null);
@@ -619,7 +619,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGenProgramsARB != null, "pglGenProgramsARB not implemented");
 					Delegates.pglGenProgramsARB((Int32)programs.Length, p_programs);
-					CallLog("glGenProgramsARB({0}, {1})", programs.Length, programs);
+					LogFunction("glGenProgramsARB({0}, {1})", programs.Length, programs);
 				}
 			}
 			DebugCheckErrors(null);
@@ -664,7 +664,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglProgramEnvParameter4dARB != null, "pglProgramEnvParameter4dARB not implemented");
 			Delegates.pglProgramEnvParameter4dARB(target, index, x, y, z, w);
-			CallLog("glProgramEnvParameter4dARB({0}, {1}, {2}, {3}, {4}, {5})", target, index, x, y, z, w);
+			LogFunction("glProgramEnvParameter4dARB({0}, {1}, {2}, {3}, {4}, {5})", target, index, x, y, z, w);
 			DebugCheckErrors(null);
 		}
 
@@ -689,7 +689,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglProgramEnvParameter4dvARB != null, "pglProgramEnvParameter4dvARB not implemented");
 					Delegates.pglProgramEnvParameter4dvARB(target, index, p_params);
-					CallLog("glProgramEnvParameter4dvARB({0}, {1}, {2})", target, index, @params);
+					LogFunction("glProgramEnvParameter4dvARB({0}, {1}, {2})", target, index, @params);
 				}
 			}
 			DebugCheckErrors(null);
@@ -722,7 +722,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglProgramEnvParameter4fARB != null, "pglProgramEnvParameter4fARB not implemented");
 			Delegates.pglProgramEnvParameter4fARB(target, index, x, y, z, w);
-			CallLog("glProgramEnvParameter4fARB({0}, {1}, {2}, {3}, {4}, {5})", target, index, x, y, z, w);
+			LogFunction("glProgramEnvParameter4fARB({0}, {1}, {2}, {3}, {4}, {5})", target, index, x, y, z, w);
 			DebugCheckErrors(null);
 		}
 
@@ -747,7 +747,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglProgramEnvParameter4fvARB != null, "pglProgramEnvParameter4fvARB not implemented");
 					Delegates.pglProgramEnvParameter4fvARB(target, index, p_params);
-					CallLog("glProgramEnvParameter4fvARB({0}, {1}, {2})", target, index, @params);
+					LogFunction("glProgramEnvParameter4fvARB({0}, {1}, {2})", target, index, @params);
 				}
 			}
 			DebugCheckErrors(null);
@@ -780,7 +780,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglProgramLocalParameter4dARB != null, "pglProgramLocalParameter4dARB not implemented");
 			Delegates.pglProgramLocalParameter4dARB(target, index, x, y, z, w);
-			CallLog("glProgramLocalParameter4dARB({0}, {1}, {2}, {3}, {4}, {5})", target, index, x, y, z, w);
+			LogFunction("glProgramLocalParameter4dARB({0}, {1}, {2}, {3}, {4}, {5})", target, index, x, y, z, w);
 			DebugCheckErrors(null);
 		}
 
@@ -805,7 +805,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglProgramLocalParameter4dvARB != null, "pglProgramLocalParameter4dvARB not implemented");
 					Delegates.pglProgramLocalParameter4dvARB(target, index, p_params);
-					CallLog("glProgramLocalParameter4dvARB({0}, {1}, {2})", target, index, @params);
+					LogFunction("glProgramLocalParameter4dvARB({0}, {1}, {2})", target, index, @params);
 				}
 			}
 			DebugCheckErrors(null);
@@ -838,7 +838,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglProgramLocalParameter4fARB != null, "pglProgramLocalParameter4fARB not implemented");
 			Delegates.pglProgramLocalParameter4fARB(target, index, x, y, z, w);
-			CallLog("glProgramLocalParameter4fARB({0}, {1}, {2}, {3}, {4}, {5})", target, index, x, y, z, w);
+			LogFunction("glProgramLocalParameter4fARB({0}, {1}, {2}, {3}, {4}, {5})", target, index, x, y, z, w);
 			DebugCheckErrors(null);
 		}
 
@@ -863,7 +863,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglProgramLocalParameter4fvARB != null, "pglProgramLocalParameter4fvARB not implemented");
 					Delegates.pglProgramLocalParameter4fvARB(target, index, p_params);
-					CallLog("glProgramLocalParameter4fvARB({0}, {1}, {2})", target, index, @params);
+					LogFunction("glProgramLocalParameter4fvARB({0}, {1}, {2})", target, index, @params);
 				}
 			}
 			DebugCheckErrors(null);
@@ -890,7 +890,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetProgramEnvParameterdvARB != null, "pglGetProgramEnvParameterdvARB not implemented");
 					Delegates.pglGetProgramEnvParameterdvARB(target, index, p_params);
-					CallLog("glGetProgramEnvParameterdvARB({0}, {1}, {2})", target, index, @params);
+					LogFunction("glGetProgramEnvParameterdvARB({0}, {1}, {2})", target, index, @params);
 				}
 			}
 			DebugCheckErrors(null);
@@ -917,7 +917,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetProgramEnvParameterfvARB != null, "pglGetProgramEnvParameterfvARB not implemented");
 					Delegates.pglGetProgramEnvParameterfvARB(target, index, p_params);
-					CallLog("glGetProgramEnvParameterfvARB({0}, {1}, {2})", target, index, @params);
+					LogFunction("glGetProgramEnvParameterfvARB({0}, {1}, {2})", target, index, @params);
 				}
 			}
 			DebugCheckErrors(null);
@@ -944,7 +944,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetProgramLocalParameterdvARB != null, "pglGetProgramLocalParameterdvARB not implemented");
 					Delegates.pglGetProgramLocalParameterdvARB(target, index, p_params);
-					CallLog("glGetProgramLocalParameterdvARB({0}, {1}, {2})", target, index, @params);
+					LogFunction("glGetProgramLocalParameterdvARB({0}, {1}, {2})", target, index, @params);
 				}
 			}
 			DebugCheckErrors(null);
@@ -971,7 +971,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetProgramLocalParameterfvARB != null, "pglGetProgramLocalParameterfvARB not implemented");
 					Delegates.pglGetProgramLocalParameterfvARB(target, index, p_params);
-					CallLog("glGetProgramLocalParameterfvARB({0}, {1}, {2})", target, index, @params);
+					LogFunction("glGetProgramLocalParameterfvARB({0}, {1}, {2})", target, index, @params);
 				}
 			}
 			DebugCheckErrors(null);
@@ -998,7 +998,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetProgramivARB != null, "pglGetProgramivARB not implemented");
 					Delegates.pglGetProgramivARB(target, pname, p_params);
-					CallLog("glGetProgramivARB({0}, {1}, {2})", target, pname, @params);
+					LogFunction("glGetProgramivARB({0}, {1}, {2})", target, pname, @params);
 				}
 			}
 			DebugCheckErrors(null);
@@ -1022,7 +1022,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglGetProgramStringARB != null, "pglGetProgramStringARB not implemented");
 			Delegates.pglGetProgramStringARB(target, pname, @string);
-			CallLog("glGetProgramStringARB({0}, {1}, 0x{2})", target, pname, @string.ToString("X8"));
+			LogFunction("glGetProgramStringARB({0}, {1}, 0x{2})", target, pname, @string.ToString("X8"));
 			DebugCheckErrors(null);
 		}
 
@@ -1064,7 +1064,7 @@ namespace OpenGL
 
 			Debug.Assert(Delegates.pglIsProgramARB != null, "pglIsProgramARB not implemented");
 			retValue = Delegates.pglIsProgramARB(program);
-			CallLog("glIsProgramARB({0}) = {1}", program, retValue);
+			LogFunction("glIsProgramARB({0}) = {1}", program, retValue);
 			DebugCheckErrors(retValue);
 
 			return (retValue);

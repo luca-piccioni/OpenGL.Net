@@ -54,7 +54,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pwglGetSyncValuesOML != null, "pwglGetSyncValuesOML not implemented");
 					retValue = Delegates.pwglGetSyncValuesOML(hdc, p_ust, p_msc, p_sbc);
-					CallLog("wglGetSyncValuesOML(0x{0}, {1}, {2}, {3}) = {4}", hdc.ToString("X8"), ust, msc, sbc, retValue);
+					LogFunction("wglGetSyncValuesOML(0x{0}, {1}, {2}, {3}) = {4}", hdc.ToString("X8"), ust, msc, sbc, retValue);
 				}
 			}
 			DebugCheckErrors(retValue);
@@ -85,7 +85,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pwglGetMscRateOML != null, "pwglGetMscRateOML not implemented");
 					retValue = Delegates.pwglGetMscRateOML(hdc, p_numerator, p_denominator);
-					CallLog("wglGetMscRateOML(0x{0}, {1}, {2}) = {3}", hdc.ToString("X8"), numerator, denominator, retValue);
+					LogFunction("wglGetMscRateOML(0x{0}, {1}, {2}) = {3}", hdc.ToString("X8"), numerator, denominator, retValue);
 				}
 			}
 			DebugCheckErrors(retValue);
@@ -115,7 +115,7 @@ namespace OpenGL
 
 			Debug.Assert(Delegates.pwglSwapBuffersMscOML != null, "pwglSwapBuffersMscOML not implemented");
 			retValue = Delegates.pwglSwapBuffersMscOML(hdc, target_msc, divisor, remainder);
-			CallLog("wglSwapBuffersMscOML(0x{0}, {1}, {2}, {3}) = {4}", hdc.ToString("X8"), target_msc, divisor, remainder, retValue);
+			LogFunction("wglSwapBuffersMscOML(0x{0}, {1}, {2}, {3}) = {4}", hdc.ToString("X8"), target_msc, divisor, remainder, retValue);
 			DebugCheckErrors(retValue);
 
 			return (retValue);
@@ -146,7 +146,7 @@ namespace OpenGL
 
 			Debug.Assert(Delegates.pwglSwapLayerBuffersMscOML != null, "pwglSwapLayerBuffersMscOML not implemented");
 			retValue = Delegates.pwglSwapLayerBuffersMscOML(hdc, fuPlanes, target_msc, divisor, remainder);
-			CallLog("wglSwapLayerBuffersMscOML(0x{0}, {1}, {2}, {3}, {4}) = {5}", hdc.ToString("X8"), fuPlanes, target_msc, divisor, remainder, retValue);
+			LogFunction("wglSwapLayerBuffersMscOML(0x{0}, {1}, {2}, {3}, {4}) = {5}", hdc.ToString("X8"), fuPlanes, target_msc, divisor, remainder, retValue);
 			DebugCheckErrors(retValue);
 
 			return (retValue);
@@ -188,7 +188,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pwglWaitForMscOML != null, "pwglWaitForMscOML not implemented");
 					retValue = Delegates.pwglWaitForMscOML(hdc, target_msc, divisor, remainder, p_ust, p_msc, p_sbc);
-					CallLog("wglWaitForMscOML(0x{0}, {1}, {2}, {3}, {4}, {5}, {6}) = {7}", hdc.ToString("X8"), target_msc, divisor, remainder, ust, msc, sbc, retValue);
+					LogFunction("wglWaitForMscOML(0x{0}, {1}, {2}, {3}, {4}, {5}, {6}) = {7}", hdc.ToString("X8"), target_msc, divisor, remainder, ust, msc, sbc, retValue);
 				}
 			}
 			DebugCheckErrors(retValue);
@@ -226,7 +226,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pwglWaitForSbcOML != null, "pwglWaitForSbcOML not implemented");
 					retValue = Delegates.pwglWaitForSbcOML(hdc, target_sbc, p_ust, p_msc, p_sbc);
-					CallLog("wglWaitForSbcOML(0x{0}, {1}, {2}, {3}, {4}) = {5}", hdc.ToString("X8"), target_sbc, ust, msc, sbc, retValue);
+					LogFunction("wglWaitForSbcOML(0x{0}, {1}, {2}, {3}, {4}) = {5}", hdc.ToString("X8"), target_sbc, ust, msc, sbc, retValue);
 				}
 			}
 			DebugCheckErrors(retValue);

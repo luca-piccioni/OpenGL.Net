@@ -53,7 +53,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglColor4ubVertex2fSUN != null, "pglColor4ubVertex2fSUN not implemented");
 			Delegates.pglColor4ubVertex2fSUN(r, g, b, a, x, y);
-			CallLog("glColor4ubVertex2fSUN({0}, {1}, {2}, {3}, {4}, {5})", r, g, b, a, x, y);
+			LogFunction("glColor4ubVertex2fSUN({0}, {1}, {2}, {3}, {4}, {5})", r, g, b, a, x, y);
 			DebugCheckErrors(null);
 		}
 
@@ -75,7 +75,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglColor4ubVertex2fvSUN != null, "pglColor4ubVertex2fvSUN not implemented");
 					Delegates.pglColor4ubVertex2fvSUN(p_c, p_v);
-					CallLog("glColor4ubVertex2fvSUN({0}, {1})", c, v);
+					LogFunction("glColor4ubVertex2fvSUN({0}, {1})", c, v);
 				}
 			}
 			DebugCheckErrors(null);
@@ -110,7 +110,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglColor4ubVertex3fSUN != null, "pglColor4ubVertex3fSUN not implemented");
 			Delegates.pglColor4ubVertex3fSUN(r, g, b, a, x, y, z);
-			CallLog("glColor4ubVertex3fSUN({0}, {1}, {2}, {3}, {4}, {5}, {6})", r, g, b, a, x, y, z);
+			LogFunction("glColor4ubVertex3fSUN({0}, {1}, {2}, {3}, {4}, {5}, {6})", r, g, b, a, x, y, z);
 			DebugCheckErrors(null);
 		}
 
@@ -132,7 +132,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglColor4ubVertex3fvSUN != null, "pglColor4ubVertex3fvSUN not implemented");
 					Delegates.pglColor4ubVertex3fvSUN(p_c, p_v);
-					CallLog("glColor4ubVertex3fvSUN({0}, {1})", c, v);
+					LogFunction("glColor4ubVertex3fvSUN({0}, {1})", c, v);
 				}
 			}
 			DebugCheckErrors(null);
@@ -164,7 +164,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglColor3fVertex3fSUN != null, "pglColor3fVertex3fSUN not implemented");
 			Delegates.pglColor3fVertex3fSUN(r, g, b, x, y, z);
-			CallLog("glColor3fVertex3fSUN({0}, {1}, {2}, {3}, {4}, {5})", r, g, b, x, y, z);
+			LogFunction("glColor3fVertex3fSUN({0}, {1}, {2}, {3}, {4}, {5})", r, g, b, x, y, z);
 			DebugCheckErrors(null);
 		}
 
@@ -186,7 +186,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglColor3fVertex3fvSUN != null, "pglColor3fVertex3fvSUN not implemented");
 					Delegates.pglColor3fVertex3fvSUN(p_c, p_v);
-					CallLog("glColor3fVertex3fvSUN({0}, {1})", c, v);
+					LogFunction("glColor3fVertex3fvSUN({0}, {1})", c, v);
 				}
 			}
 			DebugCheckErrors(null);
@@ -218,7 +218,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglNormal3fVertex3fSUN != null, "pglNormal3fVertex3fSUN not implemented");
 			Delegates.pglNormal3fVertex3fSUN(nx, ny, nz, x, y, z);
-			CallLog("glNormal3fVertex3fSUN({0}, {1}, {2}, {3}, {4}, {5})", nx, ny, nz, x, y, z);
+			LogFunction("glNormal3fVertex3fSUN({0}, {1}, {2}, {3}, {4}, {5})", nx, ny, nz, x, y, z);
 			DebugCheckErrors(null);
 		}
 
@@ -240,7 +240,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglNormal3fVertex3fvSUN != null, "pglNormal3fVertex3fvSUN not implemented");
 					Delegates.pglNormal3fVertex3fvSUN(p_n, p_v);
-					CallLog("glNormal3fVertex3fvSUN({0}, {1})", n, v);
+					LogFunction("glNormal3fVertex3fvSUN({0}, {1})", n, v);
 				}
 			}
 			DebugCheckErrors(null);
@@ -284,7 +284,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglColor4fNormal3fVertex3fSUN != null, "pglColor4fNormal3fVertex3fSUN not implemented");
 			Delegates.pglColor4fNormal3fVertex3fSUN(r, g, b, a, nx, ny, nz, x, y, z);
-			CallLog("glColor4fNormal3fVertex3fSUN({0}, {1}, {2}, {3}, {4}, {5}, {6}, {7}, {8}, {9})", r, g, b, a, nx, ny, nz, x, y, z);
+			LogFunction("glColor4fNormal3fVertex3fSUN({0}, {1}, {2}, {3}, {4}, {5}, {6}, {7}, {8}, {9})", r, g, b, a, nx, ny, nz, x, y, z);
 			DebugCheckErrors(null);
 		}
 
@@ -310,7 +310,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglColor4fNormal3fVertex3fvSUN != null, "pglColor4fNormal3fVertex3fvSUN not implemented");
 					Delegates.pglColor4fNormal3fVertex3fvSUN(p_c, p_n, p_v);
-					CallLog("glColor4fNormal3fVertex3fvSUN({0}, {1}, {2})", c, n, v);
+					LogFunction("glColor4fNormal3fVertex3fvSUN({0}, {1}, {2})", c, n, v);
 				}
 			}
 			DebugCheckErrors(null);
@@ -339,7 +339,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglTexCoord2fVertex3fSUN != null, "pglTexCoord2fVertex3fSUN not implemented");
 			Delegates.pglTexCoord2fVertex3fSUN(s, t, x, y, z);
-			CallLog("glTexCoord2fVertex3fSUN({0}, {1}, {2}, {3}, {4})", s, t, x, y, z);
+			LogFunction("glTexCoord2fVertex3fSUN({0}, {1}, {2}, {3}, {4})", s, t, x, y, z);
 			DebugCheckErrors(null);
 		}
 
@@ -361,7 +361,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglTexCoord2fVertex3fvSUN != null, "pglTexCoord2fVertex3fvSUN not implemented");
 					Delegates.pglTexCoord2fVertex3fvSUN(p_tc, p_v);
-					CallLog("glTexCoord2fVertex3fvSUN({0}, {1})", tc, v);
+					LogFunction("glTexCoord2fVertex3fvSUN({0}, {1})", tc, v);
 				}
 			}
 			DebugCheckErrors(null);
@@ -399,7 +399,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglTexCoord4fVertex4fSUN != null, "pglTexCoord4fVertex4fSUN not implemented");
 			Delegates.pglTexCoord4fVertex4fSUN(s, t, p, q, x, y, z, w);
-			CallLog("glTexCoord4fVertex4fSUN({0}, {1}, {2}, {3}, {4}, {5}, {6}, {7})", s, t, p, q, x, y, z, w);
+			LogFunction("glTexCoord4fVertex4fSUN({0}, {1}, {2}, {3}, {4}, {5}, {6}, {7})", s, t, p, q, x, y, z, w);
 			DebugCheckErrors(null);
 		}
 
@@ -421,7 +421,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglTexCoord4fVertex4fvSUN != null, "pglTexCoord4fVertex4fvSUN not implemented");
 					Delegates.pglTexCoord4fVertex4fvSUN(p_tc, p_v);
-					CallLog("glTexCoord4fVertex4fvSUN({0}, {1})", tc, v);
+					LogFunction("glTexCoord4fVertex4fvSUN({0}, {1})", tc, v);
 				}
 			}
 			DebugCheckErrors(null);
@@ -462,7 +462,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglTexCoord2fColor4ubVertex3fSUN != null, "pglTexCoord2fColor4ubVertex3fSUN not implemented");
 			Delegates.pglTexCoord2fColor4ubVertex3fSUN(s, t, r, g, b, a, x, y, z);
-			CallLog("glTexCoord2fColor4ubVertex3fSUN({0}, {1}, {2}, {3}, {4}, {5}, {6}, {7}, {8})", s, t, r, g, b, a, x, y, z);
+			LogFunction("glTexCoord2fColor4ubVertex3fSUN({0}, {1}, {2}, {3}, {4}, {5}, {6}, {7}, {8})", s, t, r, g, b, a, x, y, z);
 			DebugCheckErrors(null);
 		}
 
@@ -488,7 +488,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglTexCoord2fColor4ubVertex3fvSUN != null, "pglTexCoord2fColor4ubVertex3fvSUN not implemented");
 					Delegates.pglTexCoord2fColor4ubVertex3fvSUN(p_tc, p_c, p_v);
-					CallLog("glTexCoord2fColor4ubVertex3fvSUN({0}, {1}, {2})", tc, c, v);
+					LogFunction("glTexCoord2fColor4ubVertex3fvSUN({0}, {1}, {2})", tc, c, v);
 				}
 			}
 			DebugCheckErrors(null);
@@ -526,7 +526,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglTexCoord2fColor3fVertex3fSUN != null, "pglTexCoord2fColor3fVertex3fSUN not implemented");
 			Delegates.pglTexCoord2fColor3fVertex3fSUN(s, t, r, g, b, x, y, z);
-			CallLog("glTexCoord2fColor3fVertex3fSUN({0}, {1}, {2}, {3}, {4}, {5}, {6}, {7})", s, t, r, g, b, x, y, z);
+			LogFunction("glTexCoord2fColor3fVertex3fSUN({0}, {1}, {2}, {3}, {4}, {5}, {6}, {7})", s, t, r, g, b, x, y, z);
 			DebugCheckErrors(null);
 		}
 
@@ -552,7 +552,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglTexCoord2fColor3fVertex3fvSUN != null, "pglTexCoord2fColor3fVertex3fvSUN not implemented");
 					Delegates.pglTexCoord2fColor3fVertex3fvSUN(p_tc, p_c, p_v);
-					CallLog("glTexCoord2fColor3fVertex3fvSUN({0}, {1}, {2})", tc, c, v);
+					LogFunction("glTexCoord2fColor3fVertex3fvSUN({0}, {1}, {2})", tc, c, v);
 				}
 			}
 			DebugCheckErrors(null);
@@ -590,7 +590,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglTexCoord2fNormal3fVertex3fSUN != null, "pglTexCoord2fNormal3fVertex3fSUN not implemented");
 			Delegates.pglTexCoord2fNormal3fVertex3fSUN(s, t, nx, ny, nz, x, y, z);
-			CallLog("glTexCoord2fNormal3fVertex3fSUN({0}, {1}, {2}, {3}, {4}, {5}, {6}, {7})", s, t, nx, ny, nz, x, y, z);
+			LogFunction("glTexCoord2fNormal3fVertex3fSUN({0}, {1}, {2}, {3}, {4}, {5}, {6}, {7})", s, t, nx, ny, nz, x, y, z);
 			DebugCheckErrors(null);
 		}
 
@@ -616,7 +616,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglTexCoord2fNormal3fVertex3fvSUN != null, "pglTexCoord2fNormal3fVertex3fvSUN not implemented");
 					Delegates.pglTexCoord2fNormal3fVertex3fvSUN(p_tc, p_n, p_v);
-					CallLog("glTexCoord2fNormal3fVertex3fvSUN({0}, {1}, {2})", tc, n, v);
+					LogFunction("glTexCoord2fNormal3fVertex3fvSUN({0}, {1}, {2})", tc, n, v);
 				}
 			}
 			DebugCheckErrors(null);
@@ -666,7 +666,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglTexCoord2fColor4fNormal3fVertex3fSUN != null, "pglTexCoord2fColor4fNormal3fVertex3fSUN not implemented");
 			Delegates.pglTexCoord2fColor4fNormal3fVertex3fSUN(s, t, r, g, b, a, nx, ny, nz, x, y, z);
-			CallLog("glTexCoord2fColor4fNormal3fVertex3fSUN({0}, {1}, {2}, {3}, {4}, {5}, {6}, {7}, {8}, {9}, {10}, {11})", s, t, r, g, b, a, nx, ny, nz, x, y, z);
+			LogFunction("glTexCoord2fColor4fNormal3fVertex3fSUN({0}, {1}, {2}, {3}, {4}, {5}, {6}, {7}, {8}, {9}, {10}, {11})", s, t, r, g, b, a, nx, ny, nz, x, y, z);
 			DebugCheckErrors(null);
 		}
 
@@ -696,7 +696,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglTexCoord2fColor4fNormal3fVertex3fvSUN != null, "pglTexCoord2fColor4fNormal3fVertex3fvSUN not implemented");
 					Delegates.pglTexCoord2fColor4fNormal3fVertex3fvSUN(p_tc, p_c, p_n, p_v);
-					CallLog("glTexCoord2fColor4fNormal3fVertex3fvSUN({0}, {1}, {2}, {3})", tc, c, n, v);
+					LogFunction("glTexCoord2fColor4fNormal3fVertex3fvSUN({0}, {1}, {2}, {3})", tc, c, n, v);
 				}
 			}
 			DebugCheckErrors(null);
@@ -755,7 +755,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglTexCoord4fColor4fNormal3fVertex4fSUN != null, "pglTexCoord4fColor4fNormal3fVertex4fSUN not implemented");
 			Delegates.pglTexCoord4fColor4fNormal3fVertex4fSUN(s, t, p, q, r, g, b, a, nx, ny, nz, x, y, z, w);
-			CallLog("glTexCoord4fColor4fNormal3fVertex4fSUN({0}, {1}, {2}, {3}, {4}, {5}, {6}, {7}, {8}, {9}, {10}, {11}, {12}, {13}, {14})", s, t, p, q, r, g, b, a, nx, ny, nz, x, y, z, w);
+			LogFunction("glTexCoord4fColor4fNormal3fVertex4fSUN({0}, {1}, {2}, {3}, {4}, {5}, {6}, {7}, {8}, {9}, {10}, {11}, {12}, {13}, {14})", s, t, p, q, r, g, b, a, nx, ny, nz, x, y, z, w);
 			DebugCheckErrors(null);
 		}
 
@@ -785,7 +785,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglTexCoord4fColor4fNormal3fVertex4fvSUN != null, "pglTexCoord4fColor4fNormal3fVertex4fvSUN not implemented");
 					Delegates.pglTexCoord4fColor4fNormal3fVertex4fvSUN(p_tc, p_c, p_n, p_v);
-					CallLog("glTexCoord4fColor4fNormal3fVertex4fvSUN({0}, {1}, {2}, {3})", tc, c, n, v);
+					LogFunction("glTexCoord4fColor4fNormal3fVertex4fvSUN({0}, {1}, {2}, {3})", tc, c, n, v);
 				}
 			}
 			DebugCheckErrors(null);
@@ -811,7 +811,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglReplacementCodeuiVertex3fSUN != null, "pglReplacementCodeuiVertex3fSUN not implemented");
 			Delegates.pglReplacementCodeuiVertex3fSUN(rc, x, y, z);
-			CallLog("glReplacementCodeuiVertex3fSUN({0}, {1}, {2}, {3})", rc, x, y, z);
+			LogFunction("glReplacementCodeuiVertex3fSUN({0}, {1}, {2}, {3})", rc, x, y, z);
 			DebugCheckErrors(null);
 		}
 
@@ -833,7 +833,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglReplacementCodeuiVertex3fvSUN != null, "pglReplacementCodeuiVertex3fvSUN not implemented");
 					Delegates.pglReplacementCodeuiVertex3fvSUN(p_rc, p_v);
-					CallLog("glReplacementCodeuiVertex3fvSUN({0}, {1})", rc, v);
+					LogFunction("glReplacementCodeuiVertex3fvSUN({0}, {1})", rc, v);
 				}
 			}
 			DebugCheckErrors(null);
@@ -871,7 +871,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglReplacementCodeuiColor4ubVertex3fSUN != null, "pglReplacementCodeuiColor4ubVertex3fSUN not implemented");
 			Delegates.pglReplacementCodeuiColor4ubVertex3fSUN(rc, r, g, b, a, x, y, z);
-			CallLog("glReplacementCodeuiColor4ubVertex3fSUN({0}, {1}, {2}, {3}, {4}, {5}, {6}, {7})", rc, r, g, b, a, x, y, z);
+			LogFunction("glReplacementCodeuiColor4ubVertex3fSUN({0}, {1}, {2}, {3}, {4}, {5}, {6}, {7})", rc, r, g, b, a, x, y, z);
 			DebugCheckErrors(null);
 		}
 
@@ -897,7 +897,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglReplacementCodeuiColor4ubVertex3fvSUN != null, "pglReplacementCodeuiColor4ubVertex3fvSUN not implemented");
 					Delegates.pglReplacementCodeuiColor4ubVertex3fvSUN(p_rc, p_c, p_v);
-					CallLog("glReplacementCodeuiColor4ubVertex3fvSUN({0}, {1}, {2})", rc, c, v);
+					LogFunction("glReplacementCodeuiColor4ubVertex3fvSUN({0}, {1}, {2})", rc, c, v);
 				}
 			}
 			DebugCheckErrors(null);
@@ -932,7 +932,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglReplacementCodeuiColor3fVertex3fSUN != null, "pglReplacementCodeuiColor3fVertex3fSUN not implemented");
 			Delegates.pglReplacementCodeuiColor3fVertex3fSUN(rc, r, g, b, x, y, z);
-			CallLog("glReplacementCodeuiColor3fVertex3fSUN({0}, {1}, {2}, {3}, {4}, {5}, {6})", rc, r, g, b, x, y, z);
+			LogFunction("glReplacementCodeuiColor3fVertex3fSUN({0}, {1}, {2}, {3}, {4}, {5}, {6})", rc, r, g, b, x, y, z);
 			DebugCheckErrors(null);
 		}
 
@@ -958,7 +958,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglReplacementCodeuiColor3fVertex3fvSUN != null, "pglReplacementCodeuiColor3fVertex3fvSUN not implemented");
 					Delegates.pglReplacementCodeuiColor3fVertex3fvSUN(p_rc, p_c, p_v);
-					CallLog("glReplacementCodeuiColor3fVertex3fvSUN({0}, {1}, {2})", rc, c, v);
+					LogFunction("glReplacementCodeuiColor3fVertex3fvSUN({0}, {1}, {2})", rc, c, v);
 				}
 			}
 			DebugCheckErrors(null);
@@ -993,7 +993,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglReplacementCodeuiNormal3fVertex3fSUN != null, "pglReplacementCodeuiNormal3fVertex3fSUN not implemented");
 			Delegates.pglReplacementCodeuiNormal3fVertex3fSUN(rc, nx, ny, nz, x, y, z);
-			CallLog("glReplacementCodeuiNormal3fVertex3fSUN({0}, {1}, {2}, {3}, {4}, {5}, {6})", rc, nx, ny, nz, x, y, z);
+			LogFunction("glReplacementCodeuiNormal3fVertex3fSUN({0}, {1}, {2}, {3}, {4}, {5}, {6})", rc, nx, ny, nz, x, y, z);
 			DebugCheckErrors(null);
 		}
 
@@ -1019,7 +1019,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglReplacementCodeuiNormal3fVertex3fvSUN != null, "pglReplacementCodeuiNormal3fVertex3fvSUN not implemented");
 					Delegates.pglReplacementCodeuiNormal3fVertex3fvSUN(p_rc, p_n, p_v);
-					CallLog("glReplacementCodeuiNormal3fVertex3fvSUN({0}, {1}, {2})", rc, n, v);
+					LogFunction("glReplacementCodeuiNormal3fVertex3fvSUN({0}, {1}, {2})", rc, n, v);
 				}
 			}
 			DebugCheckErrors(null);
@@ -1066,7 +1066,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglReplacementCodeuiColor4fNormal3fVertex3fSUN != null, "pglReplacementCodeuiColor4fNormal3fVertex3fSUN not implemented");
 			Delegates.pglReplacementCodeuiColor4fNormal3fVertex3fSUN(rc, r, g, b, a, nx, ny, nz, x, y, z);
-			CallLog("glReplacementCodeuiColor4fNormal3fVertex3fSUN({0}, {1}, {2}, {3}, {4}, {5}, {6}, {7}, {8}, {9}, {10})", rc, r, g, b, a, nx, ny, nz, x, y, z);
+			LogFunction("glReplacementCodeuiColor4fNormal3fVertex3fSUN({0}, {1}, {2}, {3}, {4}, {5}, {6}, {7}, {8}, {9}, {10})", rc, r, g, b, a, nx, ny, nz, x, y, z);
 			DebugCheckErrors(null);
 		}
 
@@ -1096,7 +1096,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglReplacementCodeuiColor4fNormal3fVertex3fvSUN != null, "pglReplacementCodeuiColor4fNormal3fVertex3fvSUN not implemented");
 					Delegates.pglReplacementCodeuiColor4fNormal3fVertex3fvSUN(p_rc, p_c, p_n, p_v);
-					CallLog("glReplacementCodeuiColor4fNormal3fVertex3fvSUN({0}, {1}, {2}, {3})", rc, c, n, v);
+					LogFunction("glReplacementCodeuiColor4fNormal3fVertex3fvSUN({0}, {1}, {2}, {3})", rc, c, n, v);
 				}
 			}
 			DebugCheckErrors(null);
@@ -1128,7 +1128,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglReplacementCodeuiTexCoord2fVertex3fSUN != null, "pglReplacementCodeuiTexCoord2fVertex3fSUN not implemented");
 			Delegates.pglReplacementCodeuiTexCoord2fVertex3fSUN(rc, s, t, x, y, z);
-			CallLog("glReplacementCodeuiTexCoord2fVertex3fSUN({0}, {1}, {2}, {3}, {4}, {5})", rc, s, t, x, y, z);
+			LogFunction("glReplacementCodeuiTexCoord2fVertex3fSUN({0}, {1}, {2}, {3}, {4}, {5})", rc, s, t, x, y, z);
 			DebugCheckErrors(null);
 		}
 
@@ -1154,7 +1154,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglReplacementCodeuiTexCoord2fVertex3fvSUN != null, "pglReplacementCodeuiTexCoord2fVertex3fvSUN not implemented");
 					Delegates.pglReplacementCodeuiTexCoord2fVertex3fvSUN(p_rc, p_tc, p_v);
-					CallLog("glReplacementCodeuiTexCoord2fVertex3fvSUN({0}, {1}, {2})", rc, tc, v);
+					LogFunction("glReplacementCodeuiTexCoord2fVertex3fvSUN({0}, {1}, {2})", rc, tc, v);
 				}
 			}
 			DebugCheckErrors(null);
@@ -1195,7 +1195,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglReplacementCodeuiTexCoord2fNormal3fVertex3fSUN != null, "pglReplacementCodeuiTexCoord2fNormal3fVertex3fSUN not implemented");
 			Delegates.pglReplacementCodeuiTexCoord2fNormal3fVertex3fSUN(rc, s, t, nx, ny, nz, x, y, z);
-			CallLog("glReplacementCodeuiTexCoord2fNormal3fVertex3fSUN({0}, {1}, {2}, {3}, {4}, {5}, {6}, {7}, {8})", rc, s, t, nx, ny, nz, x, y, z);
+			LogFunction("glReplacementCodeuiTexCoord2fNormal3fVertex3fSUN({0}, {1}, {2}, {3}, {4}, {5}, {6}, {7}, {8})", rc, s, t, nx, ny, nz, x, y, z);
 			DebugCheckErrors(null);
 		}
 
@@ -1225,7 +1225,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglReplacementCodeuiTexCoord2fNormal3fVertex3fvSUN != null, "pglReplacementCodeuiTexCoord2fNormal3fVertex3fvSUN not implemented");
 					Delegates.pglReplacementCodeuiTexCoord2fNormal3fVertex3fvSUN(p_rc, p_tc, p_n, p_v);
-					CallLog("glReplacementCodeuiTexCoord2fNormal3fVertex3fvSUN({0}, {1}, {2}, {3})", rc, tc, n, v);
+					LogFunction("glReplacementCodeuiTexCoord2fNormal3fVertex3fvSUN({0}, {1}, {2}, {3})", rc, tc, n, v);
 				}
 			}
 			DebugCheckErrors(null);
@@ -1278,7 +1278,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglReplacementCodeuiTexCoord2fColor4fNormal3fVertex3fSUN != null, "pglReplacementCodeuiTexCoord2fColor4fNormal3fVertex3fSUN not implemented");
 			Delegates.pglReplacementCodeuiTexCoord2fColor4fNormal3fVertex3fSUN(rc, s, t, r, g, b, a, nx, ny, nz, x, y, z);
-			CallLog("glReplacementCodeuiTexCoord2fColor4fNormal3fVertex3fSUN({0}, {1}, {2}, {3}, {4}, {5}, {6}, {7}, {8}, {9}, {10}, {11}, {12})", rc, s, t, r, g, b, a, nx, ny, nz, x, y, z);
+			LogFunction("glReplacementCodeuiTexCoord2fColor4fNormal3fVertex3fSUN({0}, {1}, {2}, {3}, {4}, {5}, {6}, {7}, {8}, {9}, {10}, {11}, {12})", rc, s, t, r, g, b, a, nx, ny, nz, x, y, z);
 			DebugCheckErrors(null);
 		}
 
@@ -1312,7 +1312,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglReplacementCodeuiTexCoord2fColor4fNormal3fVertex3fvSUN != null, "pglReplacementCodeuiTexCoord2fColor4fNormal3fVertex3fvSUN not implemented");
 					Delegates.pglReplacementCodeuiTexCoord2fColor4fNormal3fVertex3fvSUN(p_rc, p_tc, p_c, p_n, p_v);
-					CallLog("glReplacementCodeuiTexCoord2fColor4fNormal3fVertex3fvSUN({0}, {1}, {2}, {3}, {4})", rc, tc, c, n, v);
+					LogFunction("glReplacementCodeuiTexCoord2fColor4fNormal3fVertex3fvSUN({0}, {1}, {2}, {3}, {4})", rc, tc, c, n, v);
 				}
 			}
 			DebugCheckErrors(null);

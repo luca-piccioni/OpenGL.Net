@@ -52,7 +52,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pwglEnumerateVideoDevicesNV != null, "pwglEnumerateVideoDevicesNV not implemented");
 					retValue = Delegates.pwglEnumerateVideoDevicesNV(hDC, p_phDeviceList);
-					CallLog("wglEnumerateVideoDevicesNV(0x{0}, {1}) = {2}", hDC.ToString("X8"), phDeviceList, retValue);
+					LogFunction("wglEnumerateVideoDevicesNV(0x{0}, {1}) = {2}", hDC.ToString("X8"), phDeviceList, retValue);
 				}
 			}
 			DebugCheckErrors(retValue);
@@ -85,7 +85,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pwglBindVideoDeviceNV != null, "pwglBindVideoDeviceNV not implemented");
 					retValue = Delegates.pwglBindVideoDeviceNV(hDC, uVideoSlot, hVideoDevice, p_piAttribList);
-					CallLog("wglBindVideoDeviceNV(0x{0}, {1}, 0x{2}, {3}) = {4}", hDC.ToString("X8"), uVideoSlot, hVideoDevice.ToString("X8"), piAttribList, retValue);
+					LogFunction("wglBindVideoDeviceNV(0x{0}, {1}, 0x{2}, {3}) = {4}", hDC.ToString("X8"), uVideoSlot, hVideoDevice.ToString("X8"), piAttribList, retValue);
 				}
 			}
 			DebugCheckErrors(retValue);
@@ -112,7 +112,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pwglQueryCurrentContextNV != null, "pwglQueryCurrentContextNV not implemented");
 					retValue = Delegates.pwglQueryCurrentContextNV(iAttribute, p_piValue);
-					CallLog("wglQueryCurrentContextNV({0}, {1}) = {2}", iAttribute, piValue, retValue);
+					LogFunction("wglQueryCurrentContextNV({0}, {1}) = {2}", iAttribute, piValue, retValue);
 				}
 			}
 			DebugCheckErrors(retValue);

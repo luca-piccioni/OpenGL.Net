@@ -95,7 +95,7 @@ namespace OpenGL
 
 			Debug.Assert(Delegates.peglGetCurrentContext != null, "peglGetCurrentContext not implemented");
 			retValue = Delegates.peglGetCurrentContext();
-			CallLog("eglGetCurrentContext() = {0}", retValue.ToString("X8"));
+			LogFunction("eglGetCurrentContext() = {0}", retValue.ToString("X8"));
 			DebugCheckErrors(retValue);
 
 			return (retValue);

@@ -241,7 +241,7 @@ namespace OpenGL
 
 			Debug.Assert(Delegates.pwglBindTexImageARB != null, "pwglBindTexImageARB not implemented");
 			retValue = Delegates.pwglBindTexImageARB(hPbuffer, iBuffer);
-			CallLog("wglBindTexImageARB(0x{0}, {1}) = {2}", hPbuffer.ToString("X8"), iBuffer, retValue);
+			LogFunction("wglBindTexImageARB(0x{0}, {1}) = {2}", hPbuffer.ToString("X8"), iBuffer, retValue);
 			DebugCheckErrors(retValue);
 
 			return (retValue);
@@ -263,7 +263,7 @@ namespace OpenGL
 
 			Debug.Assert(Delegates.pwglReleaseTexImageARB != null, "pwglReleaseTexImageARB not implemented");
 			retValue = Delegates.pwglReleaseTexImageARB(hPbuffer, iBuffer);
-			CallLog("wglReleaseTexImageARB(0x{0}, {1}) = {2}", hPbuffer.ToString("X8"), iBuffer, retValue);
+			LogFunction("wglReleaseTexImageARB(0x{0}, {1}) = {2}", hPbuffer.ToString("X8"), iBuffer, retValue);
 			DebugCheckErrors(retValue);
 
 			return (retValue);
@@ -288,7 +288,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pwglSetPbufferAttribARB != null, "pwglSetPbufferAttribARB not implemented");
 					retValue = Delegates.pwglSetPbufferAttribARB(hPbuffer, p_piAttribList);
-					CallLog("wglSetPbufferAttribARB(0x{0}, {1}) = {2}", hPbuffer.ToString("X8"), piAttribList, retValue);
+					LogFunction("wglSetPbufferAttribARB(0x{0}, {1}) = {2}", hPbuffer.ToString("X8"), piAttribList, retValue);
 				}
 			}
 			DebugCheckErrors(retValue);

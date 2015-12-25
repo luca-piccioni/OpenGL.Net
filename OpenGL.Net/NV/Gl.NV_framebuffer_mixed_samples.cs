@@ -86,7 +86,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglCoverageModulationTableNV != null, "pglCoverageModulationTableNV not implemented");
 					Delegates.pglCoverageModulationTableNV(n, p_v);
-					CallLog("glCoverageModulationTableNV({0}, {1})", n, v);
+					LogFunction("glCoverageModulationTableNV({0}, {1})", n, v);
 				}
 			}
 			DebugCheckErrors(null);
@@ -109,7 +109,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetCoverageModulationTableNV != null, "pglGetCoverageModulationTableNV not implemented");
 					Delegates.pglGetCoverageModulationTableNV(bufsize, p_v);
-					CallLog("glGetCoverageModulationTableNV({0}, {1})", bufsize, v);
+					LogFunction("glGetCoverageModulationTableNV({0}, {1})", bufsize, v);
 				}
 			}
 			DebugCheckErrors(null);
@@ -126,7 +126,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglCoverageModulationNV != null, "pglCoverageModulationNV not implemented");
 			Delegates.pglCoverageModulationNV(components);
-			CallLog("glCoverageModulationNV({0})", components);
+			LogFunction("glCoverageModulationNV({0})", components);
 			DebugCheckErrors(null);
 		}
 
