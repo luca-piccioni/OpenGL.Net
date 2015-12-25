@@ -750,7 +750,7 @@ namespace BindingsGen.GLSpecs
 
 			#region Call Log
 
-			sw.WriteIdentation(); sw.Write("CallLog(");
+			sw.WriteIdentation(); sw.Write("LogFunction(");
 
 			#region Call Log - Format String
 
