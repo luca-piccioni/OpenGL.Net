@@ -484,7 +484,7 @@ namespace OpenGL
 		/// <summary>
 		/// The XServer error handler, invoked each time a X/GLX routine raise an error.
 		/// </summary>
-		/// <param name="DisplayHandle">
+		/// <param name="displayHandle">
 		/// A <see cref="IntPtr"/> that specifies the handle of the display on which the error occurred.
 		/// </param>
 		/// <param name="error_event">
@@ -493,30 +493,10 @@ namespace OpenGL
 		/// <returns>
 		/// It returns always 0.
 		/// </returns>
-		private static int XServerErrorHandler(IntPtr DisplayHandle, ref Glx.XErrorEvent error_event)
+		private static int XServerErrorHandler(IntPtr displayHandle, ref Glx.XErrorEvent error_event)
 		{
 			lock (_DisplayErrorsLock) {
-				StringBuilder sb = new StringBuilder(1024);
-				Glx.UnsafeNativeMethods.XGetErrorText(DisplayHandle, error_event.error_code, sb, 1024);
-
-				string eventName = Enum.GetName(typeof(Glx.XEventName), error_event.type);
-				string requestName = Enum.GetName(typeof(Glx.XRequest), error_event.request_code);
-
-				if (String.IsNullOrEmpty(eventName))
-					eventName = "Unknown";
-				if (String.IsNullOrEmpty(requestName))
-					requestName = "Unknown";
-
-				// Additional details
-				sb.AppendLine("\nX error details:");
-				sb.AppendFormat("	X event name: '{0}' ({1})\n", eventName, error_event.type);
-				sb.AppendFormat("	Display: 0x{0}\n", error_event.display.ToInt64().ToString("x"));
-				sb.AppendFormat("	Resource ID: {0}\n", error_event.resourceid.ToInt64().ToString("x"));
-				sb.AppendFormat("	Error code: {0}\n", error_event.error_code);
-				sb.AppendFormat("	Major code: '{0}' ({1})\n", requestName, error_event.request_code);
-				sb.AppendFormat("	Minor code: {0}", error_event.minor_code);
-
-				_DisplayErrors[DisplayHandle] = new System.ComponentModel.Win32Exception(error_event.error_code, sb.ToString());
+				_DisplayErrors[displayHandle] = new GlxException(displayHandle, ref error_event);
 			}
 
 			return (0);

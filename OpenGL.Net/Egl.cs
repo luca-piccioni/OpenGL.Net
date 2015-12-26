@@ -96,8 +96,8 @@ namespace OpenGL
 		{
 			int error = GetError();
 
-			if (error != 0)
-				throw new InvalidOperationException(String.Format("EGL error {0}", error));
+			if (error != SUCCESS)
+				throw new EglException(error);
 		}
 
 		#endregion

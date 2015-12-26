@@ -17,13 +17,14 @@
 // USA
 
 using System;
+using System.ComponentModel;
 
 namespace OpenGL
 {
 	/// <summary>
-	/// Exception thrown by Gl class.
+	/// Exception thrown by Wgl class.
 	/// </summary>
-	public class GlException : KhronosException
+	class WglException : KhronosException
 	{
 		#region Constructors
 
@@ -33,8 +34,8 @@ namespace OpenGL
 		/// <param name="errorCode">
 		/// A <see cref="ErrorCode"/> that specifies the error code.
 		/// </param>
-		public GlException(ErrorCode errorCode) :
-			base((int)errorCode, GetErrorMessage((int)errorCode))
+		public WglException(int errorCode) :
+			base(errorCode, GetErrorMessage(errorCode), new Win32Exception(errorCode))
 		{
 
 		}
@@ -48,8 +49,8 @@ namespace OpenGL
 		/// <param name="message">
 		/// A <see cref="String"/> that specifies the exception message.
 		/// </param>
-		public GlException(ErrorCode errorCode, String message) :
-			base((int)errorCode, message)
+		public WglException(int errorCode, String message) :
+			base(errorCode, message, new Win32Exception(errorCode))
 		{
 
 		}
@@ -66,8 +67,8 @@ namespace OpenGL
 		/// <param name="innerException">
 		/// The <see cref="Exception"/> wrapped by this Exception.
 		/// </param>
-		public GlException(ErrorCode errorCode, String message, Exception innerException) :
-			base((int)errorCode, message, innerException)
+		public WglException(int errorCode, String message, Exception innerException) :
+			base(errorCode, message, innerException)
 		{
 
 		}
@@ -79,12 +80,10 @@ namespace OpenGL
 		/// <summary>
 		/// Returns a description of the error code.
 		/// </summary>
-		/// <param name="errorCode">
-		/// A <see cref="ErrorCode"/> that specifies the error code.
-		/// </param>
+		/// <param name="errorCode"></param>
 		/// <returns>
 		/// It returns a description of <paramref name="errorCode"/>, asssuming that is a value returned
-		/// by <see cref="Egl.GetError"/>.
+		/// by <see cref="Gl.GetError"/>.
 		/// </returns>
 		private static string GetErrorMessage(int errorCode)
 		{
@@ -94,27 +93,23 @@ namespace OpenGL
 					return (String.Format("unknown error code 0x{0}", errorCode.ToString("X8")));
 				case Gl.NO_ERROR:
 					return ("no error");
-				case Gl.INVALID_ENUM:
-					return ("invalid enumeration");
-				case Gl.INVALID_FRAMEBUFFER_OPERATION:
-					return ("invalid framebuffer operation");
-				case Gl.INVALID_OPERATION:
-					return ("invalid operation");
-				case Gl.INVALID_VALUE:
-					return ("invalid value");
-				case Gl.OUT_OF_MEMORY:
-					return ("out of memory");
-				case Gl.STACK_OVERFLOW:
-					return ("stack overflow");
-				case Gl.STACK_UNDERFLOW:
-					return ("stack underflow");
 
-				// GL_ARB_imaging
-				case Gl.TABLE_TOO_LARGE:
-					return ("table too large");
-				// GL_EXT_texture
-				case Gl.TEXTURE_TOO_LARGE_EXT:
-					return ("texture too large");
+				// WGL_ARB_create_context
+				case Wgl.ERROR_INVALID_VERSION_ARB:
+					return ("invalid version");
+				// WGL_ARB_create_context_profile
+				case Wgl.ERROR_INVALID_PROFILE_ARB:
+					return ("invalid profile");
+				// WGL_ARB_make_current_read
+				case Wgl.ERROR_INVALID_PIXEL_TYPE_ARB:
+					return ("invalid pixel type");
+				case Wgl.ERROR_INCOMPATIBLE_DEVICE_CONTEXTS_ARB:
+					return ("incompatible device contexts");
+				// WGL_NV_gpu_affinity
+				case Wgl.ERROR_INCOMPATIBLE_AFFINITY_MASKS_NV:
+					return ("incompatible affinity mask");
+				case Wgl.ERROR_MISSING_AFFINITY_MASK_NV:
+					return ("missing affinity mask");
 			}
 		}
 

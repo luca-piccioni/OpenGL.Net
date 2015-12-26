@@ -208,7 +208,7 @@ namespace OpenGL
 					switch (ErrorHandling) {
 						case ErrorHandlingMode.Normal:
 						default:
-							throw new Win32Exception(errorCode);
+							throw new WglException(errorCode);
 						case ErrorHandlingMode.LogOnly:
 							LogFunction("GetLastError() = {0} [Error code {0}: {1}]", errorCode, new Win32Exception(errorCode).Message);
 							break;

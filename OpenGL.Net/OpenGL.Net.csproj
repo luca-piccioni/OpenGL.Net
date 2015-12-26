@@ -191,6 +191,7 @@
     <Compile Include="Egl.VERSION_1_3.cs" />
     <Compile Include="Egl.VERSION_1_4.cs" />
     <Compile Include="Egl.VERSION_1_5.cs" />
+    <Compile Include="EglException.cs" />
     <Compile Include="EXT\Egl.EXT_create_context_robustness.cs" />
     <Compile Include="EXT\Egl.EXT_device_base.cs" />
     <Compile Include="EXT\Egl.EXT_device_drm.cs" />
@@ -325,6 +326,7 @@
     <Compile Include="Glx.VERSION_1_2.cs" />
     <Compile Include="Glx.VERSION_1_3.cs" />
     <Compile Include="Glx.VERSION_1_4.cs" />
+    <Compile Include="GlxException.cs" />
     <Compile Include="GREMEDY\Gl.GREMEDY_frame_terminator.cs" />
     <Compile Include="GREMEDY\Gl.GREMEDY_string_marker.cs" />
     <Compile Include="HalfFloat.cs" />
@@ -599,6 +601,7 @@
     </Compile>
     <Compile Include="Wgl.Versions.cs" />
     <Compile Include="Wgl.VERSION_1_0.cs" />
+    <Compile Include="WglException.cs" />
     <Compile Include="WindowsDeviceContext.cs" />
     <Compile Include="WIN\Gl.WIN_phong_shading.cs" />
     <Compile Include="WIN\Gl.WIN_specular_fog.cs" />
