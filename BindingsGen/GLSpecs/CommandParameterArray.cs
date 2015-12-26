@@ -46,13 +46,13 @@ namespace BindingsGen.GLSpecs
 		#endregion
 
 		#region Utility
-
-		internal static bool IsCompatible(RegistryContext ctx, Command command)
+		
+		internal static new bool IsCompatible(RegistryContext ctx, Command command)
 		{
 			return (IsCompatible(ctx, command, command.Parameters));
 		}
 
-		internal static bool IsCompatible(RegistryContext ctx, Command command, List<CommandParameter> parameters)
+		internal static new bool IsCompatible(RegistryContext ctx, Command command, List<CommandParameter> parameters)
 		{
 			return (parameters.FindIndex(delegate (CommandParameter item) { return (IsCompatible(ctx, command, item)); }) >= 0);
 		}
@@ -117,9 +117,6 @@ namespace BindingsGen.GLSpecs
 					sw.Write("({0})", OverridenParameter.ImportType);
 
 				sw.Write("{0}.Length", parentCommand.Parameters[arrayLengthParamIndex].DelegateCallVarName);
-			} else if (mIsStrong) {
-				// Strongly typed enum must be casted to delegate call type (int or uint)
-				sw.Write("({0}){1}", OverridenParameter.ImportType, DelegateCallVarName);
 			} else
 				base.WriteDelegateParam(sw, ctx, parentCommand);
 		}
@@ -135,8 +132,6 @@ namespace BindingsGen.GLSpecs
 			} else
 				base.WriteCallLogArgParam(sw, ctx, parentCommand);
 		}
-
-		private bool mIsStrong;
 
 		#endregion
 	}

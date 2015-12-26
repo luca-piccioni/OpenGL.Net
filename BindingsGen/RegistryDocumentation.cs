@@ -224,8 +224,7 @@ namespace BindingsGen
 
 		public static void GenerateDocumentation_Remarks(SourceStreamWriter sw, RegistryContext ctx, Enumerant enumerant)
 		{
-			return;
-
+#if false
 			bool requireRemarks = (enumerant.AliasOf.Count > 0);
 
 			if (requireRemarks) {
@@ -241,11 +240,12 @@ namespace BindingsGen
 
 				sw.WriteLine("/// </remarks>");
 			}
+#endif
 		}
 
-		#endregion
+#endregion
 
-		#region Command Documentation
+#region Command Documentation
 
 		/// <summary>
 		/// Generate a <see cref="Command"/> documentation, sourced from OpenGL 2 manual, OpenGL 4 manual or a generic one.
@@ -319,7 +319,7 @@ namespace BindingsGen
 			if (fail && (root == null))
 				return (false);
 
-			#region Summary
+#region Summary
 
 			string purpose = String.Format("Binding for {0}.", command.Prototype.Name);
 
@@ -333,9 +333,9 @@ namespace BindingsGen
 			sw.WriteLine("/// {0}", purpose);
 			sw.WriteLine("/// </summary>");
 
-			#endregion
+#endregion
 
-			#region Parameters
+#region Parameters
 
 			foreach (CommandParameter param in commandParams) {
 				List<string> paramDoc = new List<string>();
@@ -361,9 +361,9 @@ namespace BindingsGen
 				sw.WriteLine("/// </param>");
 			}
 
-			#endregion
+#endregion
 
-			#region Remarks
+#region Remarks
 
 			xmlNodes = root.SelectNodes("/refentry/refsect1[@id='errors']/para", nsmgr);
 			int errorsCount = xmlNodes.Count == 0 ? 0 : xmlNodes.Count;
@@ -372,7 +372,7 @@ namespace BindingsGen
 			if (requiresRemarks) {
 				sw.WriteLine("/// <remarks>");
 
-				#region Description & Associated Gets
+#region Description & Associated Gets
 
 				if (root != null && DocumentationLevel == 0) {
 					xmlNodes = root.SelectNodes("/refentry/refsect1[@id='description']/para", nsmgr);
@@ -403,7 +403,7 @@ namespace BindingsGen
 
 				}
 
-				#endregion
+#endregion
 
 				if (errorsCount > 0) {
 					if ((command.Flags & CommandFlags.NoGetError) != 0) {
@@ -416,15 +416,15 @@ namespace BindingsGen
 				sw.WriteLine("/// </remarks>");
 			}
 
-			#endregion
+#endregion
 
-			#region Errors
+#region Errors
 
 			if (root != null) {
 				xmlNodes = root.SelectNodes("/refentry/refsect1[@id='errors']/para", nsmgr);
 				if ((xmlNodes != null) && (xmlNodes.Count > 0)) {
 					foreach (XmlNode node in xmlNodes) {
-						sw.WriteLine("/// <exception cref=\"InvalidOperationException\">");
+						sw.WriteLine("/// <exception cref=\"KhronosException\">");
 
 						StringBuilder sb = new StringBuilder();
 
@@ -440,9 +440,9 @@ namespace BindingsGen
 				}
 			}
 
-			#endregion
+#endregion
 
-			#region See Also
+#region See Also
 
 			if (root != null) {
 				xmlNodes = root.SelectNodes("/refentry/refsect1[@id='seealso']/para/citerefentry/refentrytitle", nsmgr);
@@ -457,7 +457,7 @@ namespace BindingsGen
 				}
 			}
 
-			#endregion
+#endregion
 
 			return (true);
 		}
@@ -491,7 +491,7 @@ namespace BindingsGen
 			if (fail && (root == null))
 				return (false);
 
-			#region Summary
+#region Summary
 
 			string purpose = String.Format("Binding for {0}.", command.Prototype.Name);
 
@@ -505,9 +505,9 @@ namespace BindingsGen
 			sw.WriteLine("/// {0}", purpose);
 			sw.WriteLine("/// </summary>");
 
-			#endregion
+#endregion
 
-			#region Parameters
+#region Parameters
 
 			foreach (CommandParameter param in commandParams) {
 				List<string> paramDoc = new List<string>();
@@ -570,9 +570,9 @@ namespace BindingsGen
 				sw.WriteLine("/// </param>");
 			}
 
-			#endregion
+#endregion
 
-			#region Remarks
+#region Remarks
 
 			xmlNodes = null;
 			if (root != null)
@@ -587,7 +587,7 @@ namespace BindingsGen
 			if (requiresRemarks) {
 				sw.WriteLine("/// <remarks>");
 
-				#region Description & Associated Gets
+#region Description & Associated Gets
 
 				if (root != null && DocumentationLevel == 0) {
 					xmlNodes = root.SelectNodes("/x:refentry/x:refsect1[@xml:id='description']/x:para", nsmgr);
@@ -616,7 +616,7 @@ namespace BindingsGen
 					}
 				}
 
-				#endregion
+#endregion
 
 				if (errorsCount > 0) {
 					if ((command.Flags & CommandFlags.NoGetError) != 0) {
@@ -629,9 +629,9 @@ namespace BindingsGen
 				sw.WriteLine("/// </remarks>");
 			}
 
-			#endregion
+#endregion
 
-			#region Errors
+#region Errors
 
 			if (root != null) {
 				xmlNodes = root.SelectNodes("/x:refentry/x:refsect1[@xml:id='errors']/x:para", nsmgr);
@@ -653,9 +653,9 @@ namespace BindingsGen
 				}
 			}
 
-			#endregion
+#endregion
 
-			#region See Also
+#region See Also
 
 			if (root != null) {
 				xmlNodes = root.SelectNodes("/x:refentry/x:refsect1[@xml:id='seealso']/x:para/x:citerefentry/x:refentrytitle", nsmgr);
@@ -670,7 +670,7 @@ namespace BindingsGen
 				}
 			}
 
-			#endregion
+#endregion
 
 			return (true);
 		}
@@ -703,7 +703,7 @@ namespace BindingsGen
 			if (fail && (root == null))
 				return (false);
 
-			#region Summary
+#region Summary
 
 			string purpose = String.Format("Binding for {0}.", command.Prototype.Name);
 
@@ -717,9 +717,9 @@ namespace BindingsGen
 			sw.WriteLine("/// {0}", purpose);
 			sw.WriteLine("/// </summary>");
 
-			#endregion
+#endregion
 
-			#region Parameters
+#region Parameters
 
 			foreach (CommandParameter param in commandParams) {
 				List<string> paramDoc = new List<string>();
@@ -745,14 +745,14 @@ namespace BindingsGen
 				sw.WriteLine("/// </param>");
 			}
 
-			#endregion
+#endregion
 
 			return (true);
 		}
 
-		#endregion
+#endregion
 
-		#region Text Processing
+#region Text Processing
 
 		/// <summary>
 		/// Translate the XHTML documentation using a <see cref="XslCompiledTransform"/>.
@@ -926,9 +926,9 @@ namespace BindingsGen
 			return (new List<string>(periods));
 		}
 
-		#endregion
+#endregion
 
-		#region Documentation Scanning
+#region Documentation Scanning
 
 		/// <summary>
 		/// Index all documented OpenGL commands the the OpenGL 2 manual.
@@ -1133,7 +1133,7 @@ namespace BindingsGen
 						}
 #endif
 					}
-				} catch (Exception exception) {
+				} catch (Exception) {
 					continue;
 				}
 			}
@@ -1211,7 +1211,7 @@ namespace BindingsGen
 							sDocumentationEnumMapE[enumerantId.InnerText].Add(new EnumerationDocumentationGetParam(xml, xmlIdentifiers[0].InnerText, enumerantDoc));
 						}
 					}
-				} catch (Exception exception) {
+				} catch (Exception) {
 					continue;
 				}
 			}
@@ -1468,9 +1468,9 @@ namespace BindingsGen
 			private static readonly object sSyncObject = new object();
 		}
 
-		#endregion
+#endregion
 
-		#region Logging
+#region Logging
 
 		public static void CreateLog()
 		{
@@ -1488,6 +1488,6 @@ namespace BindingsGen
 		/// </summary>
 		private static StreamWriter mWarningLog;
 
-		#endregion
+#endregion
 	}
 }
