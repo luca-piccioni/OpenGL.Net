@@ -174,6 +174,8 @@ namespace OpenGL
 			bool res;
 
 			// Find pixel format match
+			pfd.dwFlags |= Wgl.PixelFormatDescriptorFlags.DepthDontCare | Wgl.PixelFormatDescriptorFlags.DoublebufferDontCare | Wgl.PixelFormatDescriptorFlags.StereoDontCare;
+
 			pFormat = Wgl.ChoosePixelFormat(winDeviceContext.DeviceContext, ref pfd);
 			Debug.Assert(pFormat != 0);
 

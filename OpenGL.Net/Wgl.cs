@@ -21,9 +21,9 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Diagnostics;
 using System.Reflection;
 using System.Runtime.InteropServices;
+using System.Text;
 
 namespace OpenGL
 {
@@ -234,7 +234,7 @@ namespace OpenGL
 		{
 			int retValue = UnsafeNativeMethods.ChoosePixelFormat(deviceContext, ref pixelFormatDescriptor);
 
-			LogFunction("ChoosePixelFormat(0x{0}, {1}) = {2}", deviceContext.ToString("X8"), "pixelFormatDescriptor", retValue);
+			LogFunction("ChoosePixelFormat(0x{0}, {1}) = {2}", deviceContext.ToString("X8"), pixelFormatDescriptor, retValue);
 			DebugCheckErrors(null);
 
 			return (retValue);
@@ -246,13 +246,13 @@ namespace OpenGL
 		/// <param name="hdc"></param>
 		/// <param name="iPixelFormat"></param>
 		/// <param name="nBytes"></param>
-		/// <param name="ppfd"></param>
+		/// <param name="pixelFormatDescriptor"></param>
 		/// <returns></returns>
-		public static bool DescribePixelFormat(IntPtr hdc, int iPixelFormat, UInt32 nBytes, [In, Out] ref PIXELFORMATDESCRIPTOR ppfd)
+		public static bool DescribePixelFormat(IntPtr hdc, int iPixelFormat, UInt32 nBytes, [In, Out] ref PIXELFORMATDESCRIPTOR pixelFormatDescriptor)
 		{
-			bool retValue = UnsafeNativeMethods.DescribePixelFormat(hdc, iPixelFormat, nBytes, ref ppfd);
+			bool retValue = UnsafeNativeMethods.DescribePixelFormat(hdc, iPixelFormat, nBytes, ref pixelFormatDescriptor);
 
-			LogFunction("DescribePixelFormat(0x{0}, {1}, {2}, {3}) = {4}", hdc.ToString("X8"), iPixelFormat, nBytes, "pixelFormatDescriptor", retValue);
+			LogFunction("DescribePixelFormat(0x{0}, {1}, {2}, {3}) = {4}", hdc.ToString("X8"), iPixelFormat, nBytes, pixelFormatDescriptor, retValue);
 			DebugCheckErrors(null);
 
 			return (retValue);
@@ -269,7 +269,7 @@ namespace OpenGL
 		{
 			bool retValue = UnsafeNativeMethods.SetPixelFormat(deviceContext, pixelFormat, ref pixelFormatDescriptor);
 
-			LogFunction("SetPixelFormat(0x{0}, {1}, {2}) = {3}", deviceContext.ToString("X8"), pixelFormat, "pixelFormatDescriptor", retValue);
+			LogFunction("SetPixelFormat(0x{0}, {1}, {2}) = {3}", deviceContext.ToString("X8"), pixelFormat, pixelFormatDescriptor, retValue);
 			DebugCheckErrors(null);
 
 			return (retValue);
@@ -454,6 +454,191 @@ namespace OpenGL
 		}
 
 		/// <summary>
+		/// Specifies the type of layer.
+		/// </summary>
+		public enum PixelFormatDescriptorLayerType : byte
+		{
+			/// <summary>
+			/// Main plane.
+			/// </summary>
+			Main = PFD_MAIN_PLANE,
+
+			/// <summary>
+			/// Overlay plane.
+			/// </summary>
+			Overlay = PFD_OVERLAY_PLANE,
+
+			/// <summary>
+			/// Underlay plane.
+			/// </summary>
+			Underlay = unchecked((byte)PFD_UNDERLAY_PLANE),
+		}
+
+		/// <summary>
+		/// Flags for the pixel format of a drawing surface.
+		/// </summary>
+		[Flags]
+		public enum PixelFormatDescriptorFlags : int
+		{
+			/// <summary>
+			/// No flags.
+			/// </summary>
+			None = 0,
+
+			/// <summary>
+			/// The buffer is double-buffered. This flag and PFD_SUPPORT_GDI are mutually exclusive in the current generic implementation.
+			/// </summary>
+			Doublebuffer = Wgl.PFD_DOUBLEBUFFER,
+
+			/// <summary>
+			/// The buffer is stereoscopic. This flag is not supported in the current generic implementation.
+			/// </summary>
+			Stereo = Wgl.PFD_STEREO,
+
+			/// <summary>
+			/// The buffer can draw to a window or device surface.
+			/// </summary>
+			DrawToWindow = Wgl.PFD_DRAW_TO_WINDOW,
+
+			/// <summary>
+			/// The buffer can draw to a memory bitmap.
+			/// </summary>
+			DrawToBitmap = Wgl.PFD_DRAW_TO_BITMAP,
+
+			/// <summary>
+			/// The buffer supports GDI drawing. This flag and PFD_DOUBLEBUFFER are mutually exclusive in the current generic implementation.
+			/// </summary>
+			SupportGdi = Wgl.PFD_SUPPORT_GDI,
+
+			/// <summary>
+			/// The buffer supports OpenGL drawing.
+			/// </summary>
+			SupportOpenGL = Wgl.PFD_SUPPORT_OPENGL,
+
+			/// <summary>
+			/// The pixel format is supported by the GDI software implementation, which is also known as the generic implementation.
+			/// If this bit is clear, the pixel format is supported by a device driver or hardware.
+			/// </summary>
+			GenericFormat = Wgl.PFD_GENERIC_FORMAT,
+
+			/// <summary>
+			/// The buffer uses RGBA pixels on a palette-managed device. A logical palette is required to achieve the best results for
+			/// this pixel type. Colors in the palette should be specified according to the values of the cRedBits, cRedShift, cGreenBits,
+			/// cGreenShift, cBluebits, and cBlueShift members. The palette should be created and realized in the device context before
+			/// calling wglMakeCurrent.
+			/// </summary>
+			NeedPalette = Wgl.PFD_NEED_PALETTE,
+
+			/// <summary>
+			/// Defined in the pixel format descriptors of hardware that supports one hardware palette in 256-color mode only. For such
+			/// systems to use hardware acceleration, the hardware palette must be in a fixed order (for example, 3-3-2) when in RGBA
+			/// mode or must match the logical palette when in color-index mode.
+			/// When this flag is set, you must call SetSystemPaletteUse in your program to force a one-to-one mapping of the logical
+			/// palette and the system palette. If your OpenGL hardware supports multiple hardware palettes and the device driver can
+			/// allocate spare hardware palettes for OpenGL, this flag is typically clear.
+			/// </summary>
+			/// <remarks>
+			/// This flag is not set in the generic pixel formats.
+			/// </remarks>
+			NeedSystemPalette = Wgl.PFD_NEED_SYSTEM_PALETTE,
+
+			/// <summary>
+			/// 
+			/// </summary>
+			/// <remarks>
+			/// Specifies the content of the back buffer in the double-buffered main color
+			/// plane following a buffer swap.  Swapping the color buffers causes the
+			/// exchange of the back buffer's content with the front buffer's content.
+			/// Following the swap, the back buffer's content contains the front buffer's
+			/// content before the swap. <b>PFD_SWAP_EXCHANGE</b> is a hint only and might
+			/// not be provided by a driver.
+			/// </remarks>
+			SwapExchange = Wgl.PFD_SWAP_EXCHANGE,
+
+			/// <summary>
+			/// 
+			/// </summary>
+			/// <remarks>
+			/// Specifies the content of the back buffer in the double-buffered main color
+			/// plane following a buffer swap.  Swapping the color buffers causes the content
+			/// of the back buffer to be copied to the front buffer.  The content of the back
+			/// buffer is not affected by the swap.  <b>PFD_SWAP_COPY</b> is a hint only and
+			/// might not be provided by a driver.
+			/// </remarks>
+			SwapCopy = Wgl.PFD_SWAP_COPY,
+
+			/// <summary>
+			/// Indicates whether a device can swap individual layer planes with pixel formats that include double-buffered
+			/// overlay or underlay planes. Otherwise all layer planes are swapped together as a group. When this flag is set,
+			/// wglSwapLayerBuffers is supported.
+			/// </summary>
+			SwapLayerBuffers = Wgl.PFD_SWAP_LAYER_BUFFERS,
+
+			/// <summary>
+			/// The pixel format is supported by a device driver that accelerates the generic implementation. If this flag is clear
+			/// and the PFD_GENERIC_FORMAT flag is set, the pixel format is supported by the generic implementation only.
+			/// </summary>
+			GenericAccelerated = Wgl.PFD_GENERIC_ACCELERATED,
+
+			/// <summary>
+			/// Undocumented.
+			/// </summary>
+			SupportDirectDraw = Wgl.PFD_SUPPORT_DIRECTDRAW,
+
+			/// <summary>
+			/// Undocumented.
+			/// </summary>
+			Direct3dAccelerated = Wgl.PFD_DIRECT3D_ACCELERATED,
+
+			/// <summary>
+			/// Undocumented.
+			/// </summary>
+			SupportComposition = Wgl.PFD_SUPPORT_COMPOSITION,
+
+			/// <summary>
+			/// The requested pixel format can either have or not have a depth buffer. To select a pixel format without
+			/// a depth buffer, you must specify this flag. The requested pixel format can be with or without a depth
+			/// buffer. Otherwise, only pixel formats with a depth buffer are considered.
+			/// </summary>
+			/// <remarks>
+			/// This value can be used only with <see cref="ChoosePixelFormat(IntPtr, ref PIXELFORMATDESCRIPTOR)"/>.
+			/// </remarks>
+			DepthDontCare = Wgl.PFD_DEPTH_DONTCARE,
+
+			/// <summary>
+			/// The requested pixel format can be either single- or double-buffered.
+			/// </summary>
+			/// <remarks>
+			/// This value can be used only with <see cref="ChoosePixelFormat(IntPtr, ref PIXELFORMATDESCRIPTOR)"/>.
+			/// </remarks>
+			DoublebufferDontCare = Wgl.PFD_DOUBLEBUFFER_DONTCARE,
+
+			/// <summary>
+			/// The requested pixel format can be either monoscopic or stereoscopic.
+			/// </summary>
+			/// <remarks>
+			/// This value can be used only with <see cref="ChoosePixelFormat(IntPtr, ref PIXELFORMATDESCRIPTOR)"/>.
+			/// </remarks>
+			StereoDontCare = Wgl.PFD_STEREO_DONTCARE,
+		}
+
+		/// <summary>
+		/// Specifies the type of pixel data.
+		/// </summary>
+		public enum PixelFormatDescriptorPixelType : byte
+		{
+			/// <summary>
+			/// RGBA pixels. Each pixel has four components in this order: red, green, blue, and alpha.
+			/// </summary>
+			Rgba = PFD_TYPE_RGBA,
+
+			/// <summary>
+			/// 
+			/// </summary>
+			ColorIndexed = PFD_TYPE_COLORINDEX,
+		}
+
+		/// <summary>
 		/// Structure to describe the pixel format of a drawing surface.
 		/// </summary>
 		/// <remarks>
@@ -462,6 +647,8 @@ namespace OpenGL
 		[StructLayout(LayoutKind.Sequential)]
 		public struct PIXELFORMATDESCRIPTOR
 		{
+			#region Constructors
+
 			/// <summary>
 			/// Construct a pixel format descriptor.
 			/// </summary>
@@ -475,9 +662,9 @@ namespace OpenGL
 				nVersion = 1;
 				nSize = (short)Marshal.SizeOf(typeof(Wgl.PIXELFORMATDESCRIPTOR));
 
-				iLayerType = Wgl.PFD_MAIN_PLANE;
-				dwFlags = (Wgl.PFD_SUPPORT_OPENGL | Wgl.PFD_DRAW_TO_WINDOW | Wgl.PFD_DOUBLEBUFFER);
-				iPixelType = Wgl.PFD_TYPE_RGBA;
+				iLayerType = PixelFormatDescriptorLayerType.Main;
+				dwFlags = PixelFormatDescriptorFlags.SupportOpenGL | PixelFormatDescriptorFlags.DrawToWindow | PixelFormatDescriptorFlags.Doublebuffer;
+				iPixelType = PixelFormatDescriptorPixelType.Rgba;
 
 				dwLayerMask = 0; dwVisibleMask = 0; dwDamageMask = 0;
 				cAuxBuffers = 0;
@@ -495,117 +682,179 @@ namespace OpenGL
 				cAccumRedBits = 0; cAccumGreenBits = 0; cAccumBlueBits = 0; cAccumAlphaBits = 0;
 			}
 
+			#endregion
+
+			#region Structure
+
 			/// <summary>
 			/// Specifies the size of this data structure. This value should be set to <c>sizeof(PIXELFORMATDESCRIPTOR)</c>.
 			/// </summary>
 			public Int16 nSize;
+
 			/// <summary>
 			/// Specifies the version of this data structure. This value should be set to 1.
 			/// </summary>
 			public Int16 nVersion;
+
 			/// <summary>
 			/// A set of bit flags that specify properties of the pixel buffer. The properties are generally not mutually exclusive;
 			/// you can set any combination of bit flags, with the exceptions noted.
 			/// </summary>
-			public Int32 dwFlags;
+			public PixelFormatDescriptorFlags dwFlags;
+
 			/// <summary>
 			/// Specifies the type of pixel data. The following types are defined.
 			/// </summary>
-			public Byte iPixelType;
+			public PixelFormatDescriptorPixelType iPixelType;
+
 			/// <summary>
 			/// Specifies the number of color bitplanes in each color buffer. For RGBA pixel types, it is the size
 			/// of the color buffer, excluding the alpha bitplanes. For color-index pixels, it is the size of the
 			/// color-index buffer.
 			/// </summary>
 			public Byte cColorBits;
+
 			/// <summary>
 			/// Specifies the number of red bitplanes in each RGBA color buffer.
 			/// </summary>
 			public Byte cRedBits;
+
 			/// <summary>
 			/// Specifies the shift count for red bitplanes in each RGBA color buffer.
 			/// </summary>
 			public Byte cRedShift;
+
 			/// <summary>
 			/// Specifies the number of green bitplanes in each RGBA color buffer.
 			/// </summary>
 			public Byte cGreenBits;
+
 			/// <summary>
 			/// Specifies the shift count for green bitplanes in each RGBA color buffer.
 			/// </summary>
 			public Byte cGreenShift;
+
 			/// <summary>
 			/// Specifies the number of blue bitplanes in each RGBA color buffer.
 			/// </summary>
 			public Byte cBlueBits;
+
 			/// <summary>
 			/// Specifies the shift count for blue bitplanes in each RGBA color buffer.
 			/// </summary>
 			public Byte cBlueShift;
+
 			/// <summary>
 			/// Specifies the number of alpha bitplanes in each RGBA color buffer. Alpha bitplanes are not supported.
 			/// </summary>
 			public Byte cAlphaBits;
+
 			/// <summary>
 			/// Specifies the shift count for alpha bitplanes in each RGBA color buffer. Alpha bitplanes are not supported.
 			/// </summary>
 			public Byte cAlphaShift;
+
 			/// <summary>
 			/// Specifies the total number of bitplanes in the accumulation buffer.
 			/// </summary>
 			public Byte cAccumBits;
+
 			/// <summary>
 			/// Specifies the number of red bitplanes in the accumulation buffer.
 			/// </summary>
 			public Byte cAccumRedBits;
+
 			/// <summary>
 			/// Specifies the number of green bitplanes in the accumulation buffer.
 			/// </summary>
 			public Byte cAccumGreenBits;
+
 			/// <summary>
 			/// Specifies the number of blue bitplanes in the accumulation buffer.
 			/// </summary>
 			public Byte cAccumBlueBits;
+
 			/// <summary>
 			/// Specifies the number of alpha bitplanes in the accumulation buffer.
 			/// </summary>
 			public Byte cAccumAlphaBits;
+
 			/// <summary>
 			/// Specifies the depth of the depth (z-axis) buffer.
 			/// </summary>
 			public Byte cDepthBits;
+
 			/// <summary>
 			/// Specifies the depth of the stencil buffer.
 			/// </summary>
 			public Byte cStencilBits;
+
 			/// <summary>
 			/// Specifies the number of auxiliary buffers. Auxiliary buffers are not supported.
 			/// </summary>
 			public Byte cAuxBuffers;
+
 			/// <summary>
 			/// Ignored. Earlier implementations of OpenGL used this member, but it is no longer used.
 			/// </summary>
 			/// <remarks>Specifies the type of layer.</remarks>
-			public Byte iLayerType;
+			public PixelFormatDescriptorLayerType iLayerType;
+
 			/// <summary>
 			/// Specifies the number of overlay and underlay planes. Bits 0 through 3 specify up to 15 overlay planes and
 			/// bits 4 through 7 specify up to 15 underlay planes.
 			/// </summary>
 			public Byte bReserved;
+
 			/// <summary>
 			/// Ignored. Earlier implementations of OpenGL used this member, but it is no longer used.
 			/// </summary>
 			public Int32 dwLayerMask;
+
 			/// <summary>
 			/// Specifies the transparent color or index of an underlay plane. When the pixel type is RGBA, <b>dwVisibleMask</b>
 			/// is a transparent RGB color value. When the pixel type is color index, it is a transparent index value.
 			/// </summary>
 			public Int32 dwVisibleMask;
+
 			/// <summary>
 			/// Ignored. Earlier implementations of OpenGL used this member, but it is no longer used.
 			/// </summary>
 			public Int32 dwDamageMask;
+
+			#endregion
+
+			#region Object Overrides
+
+			///<summary>
+			/// Converts this PIXELFORMATDESCRIPTOR into a human-legible string representation.
+			///</summary>
+			///<returns>
+			/// The string representation of this instance.
+			///</returns>
+			public override string ToString()
+			{
+				StringBuilder sb = new StringBuilder();
+
+				sb.Append("PIXELFORMATDESCRIPTOR={");
+				sb.AppendFormat("PixelType={0},", iPixelType);
+				if (cColorBits != 0)
+					sb.AppendFormat("ColorBits={0},", cColorBits);
+				if (cDepthBits != 0)
+					sb.AppendFormat("DepthBits={0},", cDepthBits);
+				if (cStencilBits != 0)
+					sb.AppendFormat("StencilBits={0},", cStencilBits);
+				sb.AppendFormat("Flags={0},", dwFlags);
+				sb.Remove(sb.Length - 1, 1);
+				sb.Append("}");
+
+				return (sb.ToString());
+			}
+
+			#endregion
 		};
+
+		#region Pixel Type Enumeration
 
 		/// <summary>
 		/// RGBA pixels.
@@ -617,20 +866,45 @@ namespace OpenGL
 		public const int PFD_TYPE_RGBA = 0;
 
 		/// <summary>
-		///	 The layer is the main plane.
+		/// Color-index pixels.
+		/// </summary>
+		/// <remarks>
+		/// Each pixel uses a color-index value.
+		/// </remarks>
+		public const int PFD_TYPE_COLORINDEX = 1;
+
+		#endregion
+
+		#region Layer Type Enumeration
+
+		/// <summary>
+		/// The layer is the main plane.
 		/// </summary>
 		public const int PFD_MAIN_PLANE = 0;
 
 		/// <summary>
-		/// The buffer is double-buffered.
+		/// The layer is the overlay plane
+		/// </summary>
+		public const int PFD_OVERLAY_PLANE = 1;
+
+		/// <summary>
+		/// The layer is the underlay plane.
+		/// </summary>
+		public const int PFD_UNDERLAY_PLANE = -1;
+
+		#endregion
+
+		#region PIXELFORMATDESCRIPTOR flags
+
+		/// <summary>
+		/// The buffer is double-buffered. This flag and PFD_SUPPORT_GDI are mutually exclusive in the current generic implementation.
 		/// </summary>
 		public const int PFD_DOUBLEBUFFER = 0x00000001;
 
 		/// <summary>
-		/// The buffer is stereoscopic.
+		/// The buffer is stereoscopic. This flag is not supported in the current generic implementation.
 		/// </summary>
 		public const int PFD_STEREO = 0x00000002;
-
 
 		/// <summary>
 		/// The buffer can draw to a window or device surface.
@@ -643,9 +917,41 @@ namespace OpenGL
 		public const int PFD_DRAW_TO_BITMAP = 0x00000008;
 
 		/// <summary>
+		/// The buffer supports GDI drawing. This flag and PFD_DOUBLEBUFFER are mutually exclusive in the current generic implementation.
+		/// </summary>
+		public const int PFD_SUPPORT_GDI = 0x00000010;
+
+		/// <summary>
 		/// The buffer supports OpenGL drawing.
 		/// </summary>
 		public const int PFD_SUPPORT_OPENGL = 0x00000020;
+
+		/// <summary>
+		/// The pixel format is supported by the GDI software implementation, which is also known as the generic implementation.
+		/// If this bit is clear, the pixel format is supported by a device driver or hardware.
+		/// </summary>
+		public const int PFD_GENERIC_FORMAT = 0x00000040;
+
+		/// <summary>
+		/// The buffer uses RGBA pixels on a palette-managed device. A logical palette is required to achieve the best results for
+		/// this pixel type. Colors in the palette should be specified according to the values of the cRedBits, cRedShift, cGreenBits,
+		/// cGreenShift, cBluebits, and cBlueShift members. The palette should be created and realized in the device context before
+		/// calling wglMakeCurrent.
+		/// </summary>
+		public const int PFD_NEED_PALETTE = 0x00000080;
+
+		/// <summary>
+		/// Defined in the pixel format descriptors of hardware that supports one hardware palette in 256-color mode only. For such
+		/// systems to use hardware acceleration, the hardware palette must be in a fixed order (for example, 3-3-2) when in RGBA
+		/// mode or must match the logical palette when in color-index mode.
+		/// When this flag is set, you must call SetSystemPaletteUse in your program to force a one-to-one mapping of the logical
+		/// palette and the system palette. If your OpenGL hardware supports multiple hardware palettes and the device driver can
+		/// allocate spare hardware palettes for OpenGL, this flag is typically clear.
+		/// </summary>
+		/// <remarks>
+		/// This flag is not set in the generic pixel formats.
+		/// </remarks>
+		public const int PFD_NEED_SYSTEM_PALETTE =		0x00000100;
 
 		/// <summary>
 		/// 
@@ -658,7 +964,7 @@ namespace OpenGL
 		/// content before the swap. <b>PFD_SWAP_EXCHANGE</b> is a hint only and might
 		/// not be provided by a driver.
 		/// </remarks>
-		public const int PFD_SWAP_EXCHANGE = 0x00000200;
+		public const int PFD_SWAP_EXCHANGE =			0x00000200;
 
 		/// <summary>
 		/// 
@@ -670,7 +976,63 @@ namespace OpenGL
 		/// buffer is not affected by the swap.  <b>PFD_SWAP_COPY</b> is a hint only and
 		/// might not be provided by a driver.
 		/// </remarks>
-		public const int PFD_SWAP_COPY = 0x00000400;
+		public const int PFD_SWAP_COPY =				0x00000400;
+
+		/// <summary>
+		/// Indicates whether a device can swap individual layer planes with pixel formats that include double-buffered
+		/// overlay or underlay planes. Otherwise all layer planes are swapped together as a group. When this flag is set,
+		/// wglSwapLayerBuffers is supported.
+		/// </summary>
+		public const int PFD_SWAP_LAYER_BUFFERS =		0x00000800;
+
+		/// <summary>
+		/// The pixel format is supported by a device driver that accelerates the generic implementation. If this flag is clear
+		/// and the PFD_GENERIC_FORMAT flag is set, the pixel format is supported by the generic implementation only.
+		/// </summary>
+		public const int PFD_GENERIC_ACCELERATED =		0x00001000;
+
+		/// <summary>
+		/// Undocumented.
+		/// </summary>
+		public const int PFD_SUPPORT_DIRECTDRAW =		0x00002000;
+
+		/// <summary>
+		/// Undocumented.
+		/// </summary>
+		public const int PFD_DIRECT3D_ACCELERATED =		0x00004000;
+
+		/// <summary>
+		/// Undocumented.
+		/// </summary>
+		public const int PFD_SUPPORT_COMPOSITION =		0x00008000;
+
+		/// <summary>
+		/// The requested pixel format can either have or not have a depth buffer. To select a pixel format without
+		/// a depth buffer, you must specify this flag. The requested pixel format can be with or without a depth
+		/// buffer. Otherwise, only pixel formats with a depth buffer are considered.
+		/// </summary>
+		/// <remarks>
+		/// This value can be used only with <see cref="ChoosePixelFormat(IntPtr, ref PIXELFORMATDESCRIPTOR)"/>.
+		/// </remarks>
+		public const int PFD_DEPTH_DONTCARE =			0x20000000;
+
+		/// <summary>
+		/// The requested pixel format can be either single- or double-buffered.
+		/// </summary>
+		/// <remarks>
+		/// This value can be used only with <see cref="ChoosePixelFormat(IntPtr, ref PIXELFORMATDESCRIPTOR)"/>.
+		/// </remarks>
+		public const int PFD_DOUBLEBUFFER_DONTCARE =	0x40000000;
+
+		/// <summary>
+		/// The requested pixel format can be either monoscopic or stereoscopic.
+		/// </summary>
+		/// <remarks>
+		/// This value can be used only with <see cref="ChoosePixelFormat(IntPtr, ref PIXELFORMATDESCRIPTOR)"/>.
+		/// </remarks>
+		public const int PFD_STEREO_DONTCARE =			unchecked((int)0x80000000);
+
+		#endregion
 
 		#endregion
 	}
