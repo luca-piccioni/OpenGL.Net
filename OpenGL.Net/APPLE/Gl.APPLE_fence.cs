@@ -174,7 +174,7 @@ namespace OpenGL
 
 			Debug.Assert(Delegates.pglTestObjectAPPLE != null, "pglTestObjectAPPLE not implemented");
 			retValue = Delegates.pglTestObjectAPPLE(@object, name);
-			LogFunction("glTestObjectAPPLE({0}, {1}) = {2}", @object, name, retValue);
+			LogFunction("glTestObjectAPPLE({0}, {1}) = {2}", LogEnumName(@object), name, retValue);
 			DebugCheckErrors(retValue);
 
 			return (retValue);
@@ -194,7 +194,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglFinishObjectAPPLE != null, "pglFinishObjectAPPLE not implemented");
 			Delegates.pglFinishObjectAPPLE(@object, name);
-			LogFunction("glFinishObjectAPPLE({0}, {1})", @object, name);
+			LogFunction("glFinishObjectAPPLE({0}, {1})", LogEnumName(@object), name);
 			DebugCheckErrors(null);
 		}
 

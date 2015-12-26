@@ -71,7 +71,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglFramebufferTextureMultiviewOVR != null, "pglFramebufferTextureMultiviewOVR not implemented");
 			Delegates.pglFramebufferTextureMultiviewOVR(target, attachment, texture, level, baseViewIndex, numViews);
-			LogFunction("glFramebufferTextureMultiviewOVR({0}, {1}, {2}, {3}, {4}, {5})", target, attachment, texture, level, baseViewIndex, numViews);
+			LogFunction("glFramebufferTextureMultiviewOVR({0}, {1}, {2}, {3}, {4}, {5})", LogEnumName(target), LogEnumName(attachment), texture, level, baseViewIndex, numViews);
 			DebugCheckErrors(null);
 		}
 

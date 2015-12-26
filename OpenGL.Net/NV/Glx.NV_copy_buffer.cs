@@ -59,7 +59,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglXCopyBufferSubDataNV != null, "pglXCopyBufferSubDataNV not implemented");
 			Delegates.pglXCopyBufferSubDataNV(dpy, readCtx, writeCtx, readTarget, writeTarget, readOffset, writeOffset, size);
-			LogFunction("glXCopyBufferSubDataNV(0x{0}, 0x{1}, 0x{2}, {3}, {4}, 0x{5}, 0x{6}, {7})", dpy.ToString("X8"), readCtx.ToString("X8"), writeCtx.ToString("X8"), readTarget, writeTarget, readOffset.ToString("X8"), writeOffset.ToString("X8"), size);
+			LogFunction("glXCopyBufferSubDataNV(0x{0}, 0x{1}, 0x{2}, {3}, {4}, 0x{5}, 0x{6}, {7})", dpy.ToString("X8"), readCtx.ToString("X8"), writeCtx.ToString("X8"), LogEnumName(readTarget), LogEnumName(writeTarget), readOffset.ToString("X8"), writeOffset.ToString("X8"), size);
 		}
 
 		/// <summary>

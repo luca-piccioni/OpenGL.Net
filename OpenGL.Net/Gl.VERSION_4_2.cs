@@ -1001,7 +1001,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglDrawElementsInstancedBaseInstance != null, "pglDrawElementsInstancedBaseInstance not implemented");
 			Delegates.pglDrawElementsInstancedBaseInstance((Int32)mode, count, type, indices, primcount, baseinstance);
-			LogFunction("glDrawElementsInstancedBaseInstance({0}, {1}, {2}, 0x{3}, {4}, {5})", mode, count, type, indices.ToString("X8"), primcount, baseinstance);
+			LogFunction("glDrawElementsInstancedBaseInstance({0}, {1}, {2}, 0x{3}, {4}, {5})", mode, count, LogEnumName(type), indices.ToString("X8"), primcount, baseinstance);
 			DebugCheckErrors(null);
 		}
 
@@ -1114,7 +1114,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglDrawElementsInstancedBaseVertexBaseInstance != null, "pglDrawElementsInstancedBaseVertexBaseInstance not implemented");
 			Delegates.pglDrawElementsInstancedBaseVertexBaseInstance((Int32)mode, count, type, indices, primcount, basevertex, baseinstance);
-			LogFunction("glDrawElementsInstancedBaseVertexBaseInstance({0}, {1}, {2}, 0x{3}, {4}, {5}, {6})", mode, count, type, indices.ToString("X8"), primcount, basevertex, baseinstance);
+			LogFunction("glDrawElementsInstancedBaseVertexBaseInstance({0}, {1}, {2}, 0x{3}, {4}, {5}, {6})", mode, count, LogEnumName(type), indices.ToString("X8"), primcount, basevertex, baseinstance);
 			DebugCheckErrors(null);
 		}
 
@@ -1220,7 +1220,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetInternalformativ != null, "pglGetInternalformativ not implemented");
 					Delegates.pglGetInternalformativ(target, internalformat, pname, (Int32)@params.Length, p_params);
-					LogFunction("glGetInternalformativ({0}, {1}, {2}, {3}, {4})", target, internalformat, pname, @params.Length, @params);
+					LogFunction("glGetInternalformativ({0}, {1}, {2}, {3}, {4})", LogEnumName(target), LogEnumName(internalformat), LogEnumName(pname), @params.Length, @params);
 				}
 			}
 			DebugCheckErrors(null);
@@ -1267,7 +1267,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetActiveAtomicCounterBufferiv != null, "pglGetActiveAtomicCounterBufferiv not implemented");
 					Delegates.pglGetActiveAtomicCounterBufferiv(program, bufferIndex, pname, p_params);
-					LogFunction("glGetActiveAtomicCounterBufferiv({0}, {1}, {2}, {3})", program, bufferIndex, pname, @params);
+					LogFunction("glGetActiveAtomicCounterBufferiv({0}, {1}, {2}, {3})", program, bufferIndex, LogEnumName(pname), @params);
 				}
 			}
 			DebugCheckErrors(null);
@@ -1327,7 +1327,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglBindImageTexture != null, "pglBindImageTexture not implemented");
 			Delegates.pglBindImageTexture(unit, texture, level, layered, layer, access, format);
-			LogFunction("glBindImageTexture({0}, {1}, {2}, {3}, {4}, {5}, {6})", unit, texture, level, layered, layer, access, format);
+			LogFunction("glBindImageTexture({0}, {1}, {2}, {3}, {4}, {5}, {6})", unit, texture, level, layered, layer, LogEnumName(access), LogEnumName(format));
 			DebugCheckErrors(null);
 		}
 
@@ -1406,7 +1406,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglTexStorage1D != null, "pglTexStorage1D not implemented");
 			Delegates.pglTexStorage1D(target, levels, internalformat, width);
-			LogFunction("glTexStorage1D({0}, {1}, {2}, {3})", target, levels, internalformat, width);
+			LogFunction("glTexStorage1D({0}, {1}, {2}, {3})", LogEnumName(target), levels, LogEnumName(internalformat), width);
 			DebugCheckErrors(null);
 		}
 
@@ -1467,7 +1467,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglTexStorage2D != null, "pglTexStorage2D not implemented");
 			Delegates.pglTexStorage2D(target, levels, internalformat, width, height);
-			LogFunction("glTexStorage2D({0}, {1}, {2}, {3}, {4})", target, levels, internalformat, width, height);
+			LogFunction("glTexStorage2D({0}, {1}, {2}, {3}, {4})", LogEnumName(target), levels, LogEnumName(internalformat), width, height);
 			DebugCheckErrors(null);
 		}
 
@@ -1532,7 +1532,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglTexStorage3D != null, "pglTexStorage3D not implemented");
 			Delegates.pglTexStorage3D(target, levels, internalformat, width, height, depth);
-			LogFunction("glTexStorage3D({0}, {1}, {2}, {3}, {4}, {5})", target, levels, internalformat, width, height, depth);
+			LogFunction("glTexStorage3D({0}, {1}, {2}, {3}, {4}, {5})", LogEnumName(target), levels, LogEnumName(internalformat), width, height, depth);
 			DebugCheckErrors(null);
 		}
 

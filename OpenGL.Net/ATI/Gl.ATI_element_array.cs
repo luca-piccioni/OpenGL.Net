@@ -59,7 +59,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglElementPointerATI != null, "pglElementPointerATI not implemented");
 			Delegates.pglElementPointerATI(type, pointer);
-			LogFunction("glElementPointerATI({0}, 0x{1})", type, pointer.ToString("X8"));
+			LogFunction("glElementPointerATI({0}, 0x{1})", LogEnumName(type), pointer.ToString("X8"));
 			DebugCheckErrors(null);
 		}
 

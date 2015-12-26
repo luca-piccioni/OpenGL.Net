@@ -95,7 +95,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglTessellationModeAMD != null, "pglTessellationModeAMD not implemented");
 			Delegates.pglTessellationModeAMD(mode);
-			LogFunction("glTessellationModeAMD({0})", mode);
+			LogFunction("glTessellationModeAMD({0})", LogEnumName(mode));
 			DebugCheckErrors(null);
 		}
 

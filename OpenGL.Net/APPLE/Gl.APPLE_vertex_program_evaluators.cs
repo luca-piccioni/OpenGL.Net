@@ -101,7 +101,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglEnableVertexAttribAPPLE != null, "pglEnableVertexAttribAPPLE not implemented");
 			Delegates.pglEnableVertexAttribAPPLE(index, pname);
-			LogFunction("glEnableVertexAttribAPPLE({0}, {1})", index, pname);
+			LogFunction("glEnableVertexAttribAPPLE({0}, {1})", index, LogEnumName(pname));
 			DebugCheckErrors(null);
 		}
 
@@ -119,7 +119,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglDisableVertexAttribAPPLE != null, "pglDisableVertexAttribAPPLE not implemented");
 			Delegates.pglDisableVertexAttribAPPLE(index, pname);
-			LogFunction("glDisableVertexAttribAPPLE({0}, {1})", index, pname);
+			LogFunction("glDisableVertexAttribAPPLE({0}, {1})", index, LogEnumName(pname));
 			DebugCheckErrors(null);
 		}
 
@@ -139,7 +139,7 @@ namespace OpenGL
 
 			Debug.Assert(Delegates.pglIsVertexAttribEnabledAPPLE != null, "pglIsVertexAttribEnabledAPPLE not implemented");
 			retValue = Delegates.pglIsVertexAttribEnabledAPPLE(index, pname);
-			LogFunction("glIsVertexAttribEnabledAPPLE({0}, {1}) = {2}", index, pname, retValue);
+			LogFunction("glIsVertexAttribEnabledAPPLE({0}, {1}) = {2}", index, LogEnumName(pname), retValue);
 			DebugCheckErrors(retValue);
 
 			return (retValue);

@@ -525,7 +525,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglExecuteProgramNV != null, "pglExecuteProgramNV not implemented");
 					Delegates.pglExecuteProgramNV(target, id, p_params);
-					LogFunction("glExecuteProgramNV({0}, {1}, {2})", target, id, @params);
+					LogFunction("glExecuteProgramNV({0}, {1}, {2})", LogEnumName(target), id, @params);
 				}
 			}
 			DebugCheckErrors(null);
@@ -554,7 +554,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetProgramParameterdvNV != null, "pglGetProgramParameterdvNV not implemented");
 					Delegates.pglGetProgramParameterdvNV(target, index, pname, p_params);
-					LogFunction("glGetProgramParameterdvNV({0}, {1}, {2}, {3})", target, index, pname, @params);
+					LogFunction("glGetProgramParameterdvNV({0}, {1}, {2}, {3})", LogEnumName(target), index, LogEnumName(pname), @params);
 				}
 			}
 			DebugCheckErrors(null);
@@ -583,7 +583,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetProgramParameterfvNV != null, "pglGetProgramParameterfvNV not implemented");
 					Delegates.pglGetProgramParameterfvNV(target, index, pname, p_params);
-					LogFunction("glGetProgramParameterfvNV({0}, {1}, {2}, {3})", target, index, pname, @params);
+					LogFunction("glGetProgramParameterfvNV({0}, {1}, {2}, {3})", LogEnumName(target), index, LogEnumName(pname), @params);
 				}
 			}
 			DebugCheckErrors(null);
@@ -609,7 +609,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetProgramivNV != null, "pglGetProgramivNV not implemented");
 					Delegates.pglGetProgramivNV(id, pname, p_params);
-					LogFunction("glGetProgramivNV({0}, {1}, {2})", id, pname, @params);
+					LogFunction("glGetProgramivNV({0}, {1}, {2})", id, LogEnumName(pname), @params);
 				}
 			}
 			DebugCheckErrors(null);
@@ -635,7 +635,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetProgramStringNV != null, "pglGetProgramStringNV not implemented");
 					Delegates.pglGetProgramStringNV(id, pname, p_program);
-					LogFunction("glGetProgramStringNV({0}, {1}, {2})", id, pname, program);
+					LogFunction("glGetProgramStringNV({0}, {1}, {2})", id, LogEnumName(pname), program);
 				}
 			}
 			DebugCheckErrors(null);
@@ -664,7 +664,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetTrackMatrixivNV != null, "pglGetTrackMatrixivNV not implemented");
 					Delegates.pglGetTrackMatrixivNV(target, address, pname, p_params);
-					LogFunction("glGetTrackMatrixivNV({0}, {1}, {2}, {3})", target, address, pname, @params);
+					LogFunction("glGetTrackMatrixivNV({0}, {1}, {2}, {3})", LogEnumName(target), address, LogEnumName(pname), @params);
 				}
 			}
 			DebugCheckErrors(null);
@@ -690,7 +690,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglLoadProgramNV != null, "pglLoadProgramNV not implemented");
 					Delegates.pglLoadProgramNV(target, id, (Int32)program.Length, p_program);
-					LogFunction("glLoadProgramNV({0}, {1}, {2}, {3})", target, id, program.Length, program);
+					LogFunction("glLoadProgramNV({0}, {1}, {2}, {3})", LogEnumName(target), id, program.Length, program);
 				}
 			}
 			DebugCheckErrors(null);
@@ -722,7 +722,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglProgramParameter4dNV != null, "pglProgramParameter4dNV not implemented");
 			Delegates.pglProgramParameter4dNV(target, index, x, y, z, w);
-			LogFunction("glProgramParameter4dNV({0}, {1}, {2}, {3}, {4}, {5})", target, index, x, y, z, w);
+			LogFunction("glProgramParameter4dNV({0}, {1}, {2}, {3}, {4}, {5})", LogEnumName(target), index, x, y, z, w);
 			DebugCheckErrors(null);
 		}
 
@@ -746,7 +746,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglProgramParameter4dvNV != null, "pglProgramParameter4dvNV not implemented");
 					Delegates.pglProgramParameter4dvNV(target, index, p_v);
-					LogFunction("glProgramParameter4dvNV({0}, {1}, {2})", target, index, v);
+					LogFunction("glProgramParameter4dvNV({0}, {1}, {2})", LogEnumName(target), index, v);
 				}
 			}
 			DebugCheckErrors(null);
@@ -778,7 +778,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglProgramParameter4fNV != null, "pglProgramParameter4fNV not implemented");
 			Delegates.pglProgramParameter4fNV(target, index, x, y, z, w);
-			LogFunction("glProgramParameter4fNV({0}, {1}, {2}, {3}, {4}, {5})", target, index, x, y, z, w);
+			LogFunction("glProgramParameter4fNV({0}, {1}, {2}, {3}, {4}, {5})", LogEnumName(target), index, x, y, z, w);
 			DebugCheckErrors(null);
 		}
 
@@ -802,7 +802,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglProgramParameter4fvNV != null, "pglProgramParameter4fvNV not implemented");
 					Delegates.pglProgramParameter4fvNV(target, index, p_v);
-					LogFunction("glProgramParameter4fvNV({0}, {1}, {2})", target, index, v);
+					LogFunction("glProgramParameter4fvNV({0}, {1}, {2})", LogEnumName(target), index, v);
 				}
 			}
 			DebugCheckErrors(null);
@@ -831,7 +831,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglProgramParameters4dvNV != null, "pglProgramParameters4dvNV not implemented");
 					Delegates.pglProgramParameters4dvNV(target, index, count, p_v);
-					LogFunction("glProgramParameters4dvNV({0}, {1}, {2}, {3})", target, index, count, v);
+					LogFunction("glProgramParameters4dvNV({0}, {1}, {2}, {3})", LogEnumName(target), index, count, v);
 				}
 			}
 			DebugCheckErrors(null);
@@ -860,7 +860,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglProgramParameters4fvNV != null, "pglProgramParameters4fvNV not implemented");
 					Delegates.pglProgramParameters4fvNV(target, index, count, p_v);
-					LogFunction("glProgramParameters4fvNV({0}, {1}, {2}, {3})", target, index, count, v);
+					LogFunction("glProgramParameters4fvNV({0}, {1}, {2}, {3})", LogEnumName(target), index, count, v);
 				}
 			}
 			DebugCheckErrors(null);
@@ -906,7 +906,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglTrackMatrixNV != null, "pglTrackMatrixNV not implemented");
 			Delegates.pglTrackMatrixNV(target, address, matrix, transform);
-			LogFunction("glTrackMatrixNV({0}, {1}, {2}, {3})", target, address, matrix, transform);
+			LogFunction("glTrackMatrixNV({0}, {1}, {2}, {3})", LogEnumName(target), address, LogEnumName(matrix), LogEnumName(transform));
 			DebugCheckErrors(null);
 		}
 
@@ -933,7 +933,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglVertexAttribPointerNV != null, "pglVertexAttribPointerNV not implemented");
 			Delegates.pglVertexAttribPointerNV(index, fsize, type, stride, pointer);
-			LogFunction("glVertexAttribPointerNV({0}, {1}, {2}, {3}, 0x{4})", index, fsize, type, stride, pointer.ToString("X8"));
+			LogFunction("glVertexAttribPointerNV({0}, {1}, {2}, {3}, 0x{4})", index, fsize, LogEnumName(type), stride, pointer.ToString("X8"));
 			DebugCheckErrors(null);
 		}
 

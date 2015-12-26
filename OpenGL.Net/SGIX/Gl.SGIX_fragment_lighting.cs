@@ -182,7 +182,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglFragmentLightfSGIX != null, "pglFragmentLightfSGIX not implemented");
 			Delegates.pglFragmentLightfSGIX(light, pname, param);
-			LogFunction("glFragmentLightfSGIX({0}, {1}, {2})", light, pname, param);
+			LogFunction("glFragmentLightfSGIX({0}, {1}, {2})", LogEnumName(light), LogEnumName(pname), param);
 			DebugCheckErrors(null);
 		}
 
@@ -206,7 +206,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglFragmentLightfvSGIX != null, "pglFragmentLightfvSGIX not implemented");
 					Delegates.pglFragmentLightfvSGIX(light, pname, p_params);
-					LogFunction("glFragmentLightfvSGIX({0}, {1}, {2})", light, pname, @params);
+					LogFunction("glFragmentLightfvSGIX({0}, {1}, {2})", LogEnumName(light), LogEnumName(pname), @params);
 				}
 			}
 			DebugCheckErrors(null);
@@ -229,7 +229,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglFragmentLightiSGIX != null, "pglFragmentLightiSGIX not implemented");
 			Delegates.pglFragmentLightiSGIX(light, pname, param);
-			LogFunction("glFragmentLightiSGIX({0}, {1}, {2})", light, pname, param);
+			LogFunction("glFragmentLightiSGIX({0}, {1}, {2})", LogEnumName(light), LogEnumName(pname), param);
 			DebugCheckErrors(null);
 		}
 
@@ -253,7 +253,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglFragmentLightivSGIX != null, "pglFragmentLightivSGIX not implemented");
 					Delegates.pglFragmentLightivSGIX(light, pname, p_params);
-					LogFunction("glFragmentLightivSGIX({0}, {1}, {2})", light, pname, @params);
+					LogFunction("glFragmentLightivSGIX({0}, {1}, {2})", LogEnumName(light), LogEnumName(pname), @params);
 				}
 			}
 			DebugCheckErrors(null);
@@ -455,7 +455,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetFragmentLightfvSGIX != null, "pglGetFragmentLightfvSGIX not implemented");
 					Delegates.pglGetFragmentLightfvSGIX(light, pname, p_params);
-					LogFunction("glGetFragmentLightfvSGIX({0}, {1}, {2})", light, pname, @params);
+					LogFunction("glGetFragmentLightfvSGIX({0}, {1}, {2})", LogEnumName(light), LogEnumName(pname), @params);
 				}
 			}
 			DebugCheckErrors(null);
@@ -481,7 +481,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetFragmentLightivSGIX != null, "pglGetFragmentLightivSGIX not implemented");
 					Delegates.pglGetFragmentLightivSGIX(light, pname, p_params);
-					LogFunction("glGetFragmentLightivSGIX({0}, {1}, {2})", light, pname, @params);
+					LogFunction("glGetFragmentLightivSGIX({0}, {1}, {2})", LogEnumName(light), LogEnumName(pname), @params);
 				}
 			}
 			DebugCheckErrors(null);

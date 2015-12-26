@@ -59,7 +59,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglElementPointerAPPLE != null, "pglElementPointerAPPLE not implemented");
 			Delegates.pglElementPointerAPPLE(type, pointer);
-			LogFunction("glElementPointerAPPLE({0}, 0x{1})", type, pointer.ToString("X8"));
+			LogFunction("glElementPointerAPPLE({0}, 0x{1})", LogEnumName(type), pointer.ToString("X8"));
 			DebugCheckErrors(null);
 		}
 

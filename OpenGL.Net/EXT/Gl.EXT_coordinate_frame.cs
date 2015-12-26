@@ -538,7 +538,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglTangentPointerEXT != null, "pglTangentPointerEXT not implemented");
 			Delegates.pglTangentPointerEXT(type, stride, pointer);
-			LogFunction("glTangentPointerEXT({0}, {1}, 0x{2})", type, stride, pointer.ToString("X8"));
+			LogFunction("glTangentPointerEXT({0}, {1}, 0x{2})", LogEnumName(type), stride, pointer.ToString("X8"));
 			DebugCheckErrors(null);
 		}
 
@@ -582,7 +582,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglBinormalPointerEXT != null, "pglBinormalPointerEXT not implemented");
 			Delegates.pglBinormalPointerEXT(type, stride, pointer);
-			LogFunction("glBinormalPointerEXT({0}, {1}, 0x{2})", type, stride, pointer.ToString("X8"));
+			LogFunction("glBinormalPointerEXT({0}, {1}, 0x{2})", LogEnumName(type), stride, pointer.ToString("X8"));
 			DebugCheckErrors(null);
 		}
 

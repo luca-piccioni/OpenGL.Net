@@ -236,7 +236,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglBufferStorage != null, "pglBufferStorage not implemented");
 			Delegates.pglBufferStorage(target, size, data, flags);
-			LogFunction("glBufferStorage({0}, {1}, 0x{2}, {3})", target, size, data.ToString("X8"), flags);
+			LogFunction("glBufferStorage({0}, {1}, 0x{2}, {3})", LogEnumName(target), size, data.ToString("X8"), flags);
 			DebugCheckErrors(null);
 		}
 
@@ -379,7 +379,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglClearTexImage != null, "pglClearTexImage not implemented");
 			Delegates.pglClearTexImage(texture, level, format, type, data);
-			LogFunction("glClearTexImage({0}, {1}, {2}, {3}, 0x{4})", texture, level, format, type, data.ToString("X8"));
+			LogFunction("glClearTexImage({0}, {1}, {2}, {3}, 0x{4})", texture, level, LogEnumName(format), LogEnumName(type), data.ToString("X8"));
 			DebugCheckErrors(null);
 		}
 
@@ -548,7 +548,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglClearTexSubImage != null, "pglClearTexSubImage not implemented");
 			Delegates.pglClearTexSubImage(texture, level, xoffset, yoffset, zoffset, width, height, depth, format, type, data);
-			LogFunction("glClearTexSubImage({0}, {1}, {2}, {3}, {4}, {5}, {6}, {7}, {8}, {9}, 0x{10})", texture, level, xoffset, yoffset, zoffset, width, height, depth, format, type, data.ToString("X8"));
+			LogFunction("glClearTexSubImage({0}, {1}, {2}, {3}, {4}, {5}, {6}, {7}, {8}, {9}, 0x{10})", texture, level, xoffset, yoffset, zoffset, width, height, depth, LogEnumName(format), LogEnumName(type), data.ToString("X8"));
 			DebugCheckErrors(null);
 		}
 
@@ -691,7 +691,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglBindBuffersBase != null, "pglBindBuffersBase not implemented");
 					Delegates.pglBindBuffersBase(target, first, (Int32)buffers.Length, p_buffers);
-					LogFunction("glBindBuffersBase({0}, {1}, {2}, {3})", target, first, buffers.Length, buffers);
+					LogFunction("glBindBuffersBase({0}, {1}, {2}, {3})", LogEnumName(target), first, buffers.Length, buffers);
 				}
 			}
 			DebugCheckErrors(null);
@@ -757,7 +757,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglBindBuffersRange != null, "pglBindBuffersRange not implemented");
 					Delegates.pglBindBuffersRange(target, first, (Int32)buffers.Length, p_buffers, p_offsets, p_sizes);
-					LogFunction("glBindBuffersRange({0}, {1}, {2}, {3}, {4}, {5})", target, first, buffers.Length, buffers, offsets, sizes);
+					LogFunction("glBindBuffersRange({0}, {1}, {2}, {3}, {4}, {5})", LogEnumName(target), first, buffers.Length, buffers, offsets, sizes);
 				}
 			}
 			DebugCheckErrors(null);

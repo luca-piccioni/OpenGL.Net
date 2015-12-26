@@ -89,7 +89,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglXCopyImageSubDataNV != null, "pglXCopyImageSubDataNV not implemented");
 			Delegates.pglXCopyImageSubDataNV(dpy, srcCtx, srcName, srcTarget, srcLevel, srcX, srcY, srcZ, dstCtx, dstName, dstTarget, dstLevel, dstX, dstY, dstZ, width, height, depth);
-			LogFunction("glXCopyImageSubDataNV(0x{0}, 0x{1}, {2}, {3}, {4}, {5}, {6}, {7}, 0x{8}, {9}, {10}, {11}, {12}, {13}, {14}, {15}, {16}, {17})", dpy.ToString("X8"), srcCtx.ToString("X8"), srcName, srcTarget, srcLevel, srcX, srcY, srcZ, dstCtx.ToString("X8"), dstName, dstTarget, dstLevel, dstX, dstY, dstZ, width, height, depth);
+			LogFunction("glXCopyImageSubDataNV(0x{0}, 0x{1}, {2}, {3}, {4}, {5}, {6}, {7}, 0x{8}, {9}, {10}, {11}, {12}, {13}, {14}, {15}, {16}, {17})", dpy.ToString("X8"), srcCtx.ToString("X8"), srcName, LogEnumName(srcTarget), srcLevel, srcX, srcY, srcZ, dstCtx.ToString("X8"), dstName, LogEnumName(dstTarget), dstLevel, dstX, dstY, dstZ, width, height, depth);
 		}
 
 	}

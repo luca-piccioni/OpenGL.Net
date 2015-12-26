@@ -708,7 +708,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglBlendFuncSeparate != null, "pglBlendFuncSeparate not implemented");
 			Delegates.pglBlendFuncSeparate(sfactorRGB, dfactorRGB, sfactorAlpha, dfactorAlpha);
-			LogFunction("glBlendFuncSeparate({0}, {1}, {2}, {3})", sfactorRGB, dfactorRGB, sfactorAlpha, dfactorAlpha);
+			LogFunction("glBlendFuncSeparate({0}, {1}, {2}, {3})", LogEnumName(sfactorRGB), LogEnumName(dfactorRGB), LogEnumName(sfactorAlpha), LogEnumName(dfactorAlpha));
 			DebugCheckErrors(null);
 		}
 
@@ -832,7 +832,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglPointParameterf != null, "pglPointParameterf not implemented");
 			Delegates.pglPointParameterf(pname, param);
-			LogFunction("glPointParameterf({0}, {1})", pname, param);
+			LogFunction("glPointParameterf({0}, {1})", LogEnumName(pname), param);
 			DebugCheckErrors(null);
 		}
 
@@ -864,7 +864,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglPointParameterfv != null, "pglPointParameterfv not implemented");
 					Delegates.pglPointParameterfv(pname, p_params);
-					LogFunction("glPointParameterfv({0}, {1})", pname, @params);
+					LogFunction("glPointParameterfv({0}, {1})", LogEnumName(pname), @params);
 				}
 			}
 			DebugCheckErrors(null);
@@ -894,7 +894,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglPointParameteri != null, "pglPointParameteri not implemented");
 			Delegates.pglPointParameteri(pname, param);
-			LogFunction("glPointParameteri({0}, {1})", pname, param);
+			LogFunction("glPointParameteri({0}, {1})", LogEnumName(pname), param);
 			DebugCheckErrors(null);
 		}
 
@@ -926,7 +926,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglPointParameteriv != null, "pglPointParameteriv not implemented");
 					Delegates.pglPointParameteriv(pname, p_params);
-					LogFunction("glPointParameteriv({0}, {1})", pname, @params);
+					LogFunction("glPointParameteriv({0}, {1})", LogEnumName(pname), @params);
 				}
 			}
 			DebugCheckErrors(null);
@@ -2303,7 +2303,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglBlendEquation != null, "pglBlendEquation not implemented");
 			Delegates.pglBlendEquation(mode);
-			LogFunction("glBlendEquation({0})", mode);
+			LogFunction("glBlendEquation({0})", LogEnumName(mode));
 			DebugCheckErrors(null);
 		}
 

@@ -220,7 +220,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglStateCaptureNV != null, "pglStateCaptureNV not implemented");
 			Delegates.pglStateCaptureNV(state, mode);
-			LogFunction("glStateCaptureNV({0}, {1})", state, mode);
+			LogFunction("glStateCaptureNV({0}, {1})", state, LogEnumName(mode));
 			DebugCheckErrors(null);
 		}
 
@@ -240,7 +240,7 @@ namespace OpenGL
 
 			Debug.Assert(Delegates.pglGetCommandHeaderNV != null, "pglGetCommandHeaderNV not implemented");
 			retValue = Delegates.pglGetCommandHeaderNV(tokenID, size);
-			LogFunction("glGetCommandHeaderNV({0}, {1}) = {2}", tokenID, size, retValue);
+			LogFunction("glGetCommandHeaderNV({0}, {1}) = {2}", LogEnumName(tokenID), size, retValue);
 			DebugCheckErrors(retValue);
 
 			return (retValue);
@@ -259,7 +259,7 @@ namespace OpenGL
 
 			Debug.Assert(Delegates.pglGetStageIndexNV != null, "pglGetStageIndexNV not implemented");
 			retValue = Delegates.pglGetStageIndexNV(shadertype);
-			LogFunction("glGetStageIndexNV({0}) = {1}", shadertype, retValue);
+			LogFunction("glGetStageIndexNV({0}) = {1}", LogEnumName(shadertype), retValue);
 			DebugCheckErrors(retValue);
 
 			return (retValue);
@@ -292,7 +292,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglDrawCommandsNV != null, "pglDrawCommandsNV not implemented");
 					Delegates.pglDrawCommandsNV(primitiveMode, buffer, p_indirects, p_sizes, count);
-					LogFunction("glDrawCommandsNV({0}, {1}, {2}, {3}, {4})", primitiveMode, buffer, indirects, sizes, count);
+					LogFunction("glDrawCommandsNV({0}, {1}, {2}, {3}, {4})", LogEnumName(primitiveMode), buffer, indirects, sizes, count);
 				}
 			}
 			DebugCheckErrors(null);
@@ -322,7 +322,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglDrawCommandsAddressNV != null, "pglDrawCommandsAddressNV not implemented");
 					Delegates.pglDrawCommandsAddressNV(primitiveMode, p_indirects, p_sizes, count);
-					LogFunction("glDrawCommandsAddressNV({0}, {1}, {2}, {3})", primitiveMode, indirects, sizes, count);
+					LogFunction("glDrawCommandsAddressNV({0}, {1}, {2}, {3})", LogEnumName(primitiveMode), indirects, sizes, count);
 				}
 			}
 			DebugCheckErrors(null);

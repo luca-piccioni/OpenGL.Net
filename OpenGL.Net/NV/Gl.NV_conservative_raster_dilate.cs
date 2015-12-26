@@ -59,7 +59,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglConservativeRasterParameterfNV != null, "pglConservativeRasterParameterfNV not implemented");
 			Delegates.pglConservativeRasterParameterfNV(pname, value);
-			LogFunction("glConservativeRasterParameterfNV({0}, {1})", pname, value);
+			LogFunction("glConservativeRasterParameterfNV({0}, {1})", LogEnumName(pname), value);
 			DebugCheckErrors(null);
 		}
 

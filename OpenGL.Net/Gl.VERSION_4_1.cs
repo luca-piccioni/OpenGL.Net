@@ -419,7 +419,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglShaderBinary != null, "pglShaderBinary not implemented");
 					Delegates.pglShaderBinary((Int32)shaders.Length, p_shaders, binaryformat, binary, length);
-					LogFunction("glShaderBinary({0}, {1}, {2}, 0x{3}, {4})", shaders.Length, shaders, binaryformat, binary.ToString("X8"), length);
+					LogFunction("glShaderBinary({0}, {1}, {2}, 0x{3}, {4})", shaders.Length, shaders, LogEnumName(binaryformat), binary.ToString("X8"), length);
 				}
 			}
 			DebugCheckErrors(null);
@@ -457,7 +457,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetShaderPrecisionFormat != null, "pglGetShaderPrecisionFormat not implemented");
 					Delegates.pglGetShaderPrecisionFormat(shadertype, precisiontype, p_range, p_precision);
-					LogFunction("glGetShaderPrecisionFormat({0}, {1}, {2}, {3})", shadertype, precisiontype, range, precision);
+					LogFunction("glGetShaderPrecisionFormat({0}, {1}, {2}, {3})", LogEnumName(shadertype), LogEnumName(precisiontype), range, precision);
 				}
 			}
 			DebugCheckErrors(null);
@@ -495,7 +495,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetShaderPrecisionFormat != null, "pglGetShaderPrecisionFormat not implemented");
 					Delegates.pglGetShaderPrecisionFormat(shadertype, precisiontype, p_range, p_precision);
-					LogFunction("glGetShaderPrecisionFormat({0}, {1}, {2}, {3})", shadertype, precisiontype, range, precision);
+					LogFunction("glGetShaderPrecisionFormat({0}, {1}, {2}, {3})", LogEnumName(shadertype), LogEnumName(precisiontype), range, precision);
 				}
 			}
 			DebugCheckErrors(null);
@@ -581,7 +581,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetProgramBinary != null, "pglGetProgramBinary not implemented");
 					Delegates.pglGetProgramBinary(program, bufSize, p_length, p_binaryFormat, binary);
-					LogFunction("glGetProgramBinary({0}, {1}, {2}, {3}, 0x{4})", program, bufSize, length, binaryFormat, binary.ToString("X8"));
+					LogFunction("glGetProgramBinary({0}, {1}, {2}, {3}, 0x{4})", program, bufSize, length, LogEnumName(binaryFormat), binary.ToString("X8"));
 				}
 			}
 			DebugCheckErrors(null);
@@ -659,7 +659,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglProgramBinary != null, "pglProgramBinary not implemented");
 			Delegates.pglProgramBinary(program, binaryFormat, binary, length);
-			LogFunction("glProgramBinary({0}, {1}, 0x{2}, {3})", program, binaryFormat, binary.ToString("X8"), length);
+			LogFunction("glProgramBinary({0}, {1}, 0x{2}, {3})", program, LogEnumName(binaryFormat), binary.ToString("X8"), length);
 			DebugCheckErrors(null);
 		}
 
@@ -733,7 +733,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglProgramParameteri != null, "pglProgramParameteri not implemented");
 			Delegates.pglProgramParameteri(program, pname, value);
-			LogFunction("glProgramParameteri({0}, {1}, {2})", program, pname, value);
+			LogFunction("glProgramParameteri({0}, {1}, {2})", program, LogEnumName(pname), value);
 			DebugCheckErrors(null);
 		}
 
@@ -847,7 +847,7 @@ namespace OpenGL
 
 			Debug.Assert(Delegates.pglCreateShaderProgramv != null, "pglCreateShaderProgramv not implemented");
 			retValue = Delegates.pglCreateShaderProgramv(type, (Int32)strings.Length, strings);
-			LogFunction("glCreateShaderProgramv({0}, {1}, {2}) = {3}", type, strings.Length, strings, retValue);
+			LogFunction("glCreateShaderProgramv({0}, {1}, {2}) = {3}", LogEnumName(type), strings.Length, strings, retValue);
 			DebugCheckErrors(retValue);
 
 			return (retValue);
@@ -1008,7 +1008,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetProgramPipelineiv != null, "pglGetProgramPipelineiv not implemented");
 					Delegates.pglGetProgramPipelineiv(pipeline, pname, p_params);
-					LogFunction("glGetProgramPipelineiv({0}, {1}, {2})", pipeline, pname, @params);
+					LogFunction("glGetProgramPipelineiv({0}, {1}, {2})", pipeline, LogEnumName(pname), @params);
 				}
 			}
 			DebugCheckErrors(null);
@@ -4281,7 +4281,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglVertexAttribLPointer != null, "pglVertexAttribLPointer not implemented");
 			Delegates.pglVertexAttribLPointer(index, size, type, stride, pointer);
-			LogFunction("glVertexAttribLPointer({0}, {1}, {2}, {3}, 0x{4})", index, size, type, stride, pointer.ToString("X8"));
+			LogFunction("glVertexAttribLPointer({0}, {1}, {2}, {3}, 0x{4})", index, size, LogEnumName(type), stride, pointer.ToString("X8"));
 			DebugCheckErrors(null);
 		}
 
@@ -4414,7 +4414,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetVertexAttribLdv != null, "pglGetVertexAttribLdv not implemented");
 					Delegates.pglGetVertexAttribLdv(index, pname, p_params);
-					LogFunction("glGetVertexAttribLdv({0}, {1}, {2})", index, pname, @params);
+					LogFunction("glGetVertexAttribLdv({0}, {1}, {2})", index, LogEnumName(pname), @params);
 				}
 			}
 			DebugCheckErrors(null);
@@ -4788,7 +4788,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetFloati_v != null, "pglGetFloati_v not implemented");
 					Delegates.pglGetFloati_v(target, index, p_data);
-					LogFunction("glGetFloati_v({0}, {1}, {2})", target, index, data);
+					LogFunction("glGetFloati_v({0}, {1}, {2})", LogEnumName(target), index, data);
 				}
 			}
 			DebugCheckErrors(null);
@@ -4849,7 +4849,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetFloati_v != null, "pglGetFloati_v not implemented");
 					Delegates.pglGetFloati_v(target, index, p_data);
-					LogFunction("glGetFloati_v({0}, {1}, {2})", target, index, data);
+					LogFunction("glGetFloati_v({0}, {1}, {2})", LogEnumName(target), index, data);
 				}
 			}
 			DebugCheckErrors(null);
@@ -4910,7 +4910,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetDoublei_v != null, "pglGetDoublei_v not implemented");
 					Delegates.pglGetDoublei_v(target, index, p_data);
-					LogFunction("glGetDoublei_v({0}, {1}, {2})", target, index, data);
+					LogFunction("glGetDoublei_v({0}, {1}, {2})", LogEnumName(target), index, data);
 				}
 			}
 			DebugCheckErrors(null);
@@ -4971,7 +4971,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetDoublei_v != null, "pglGetDoublei_v not implemented");
 					Delegates.pglGetDoublei_v(target, index, p_data);
-					LogFunction("glGetDoublei_v({0}, {1}, {2})", target, index, data);
+					LogFunction("glGetDoublei_v({0}, {1}, {2})", LogEnumName(target), index, data);
 				}
 			}
 			DebugCheckErrors(null);

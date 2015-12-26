@@ -50,7 +50,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglFramebufferSampleLocationsfvNV != null, "pglFramebufferSampleLocationsfvNV not implemented");
 					Delegates.pglFramebufferSampleLocationsfvNV(target, start, count, p_v);
-					LogFunction("glFramebufferSampleLocationsfvNV({0}, {1}, {2}, {3})", target, start, count, v);
+					LogFunction("glFramebufferSampleLocationsfvNV({0}, {1}, {2}, {3})", LogEnumName(target), start, count, v);
 				}
 			}
 			DebugCheckErrors(null);

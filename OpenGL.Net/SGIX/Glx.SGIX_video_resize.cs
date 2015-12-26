@@ -212,7 +212,7 @@ namespace OpenGL
 
 			Debug.Assert(Delegates.pglXChannelRectSyncSGIX != null, "pglXChannelRectSyncSGIX not implemented");
 			retValue = Delegates.pglXChannelRectSyncSGIX(display, screen, channel, synctype);
-			LogFunction("glXChannelRectSyncSGIX(0x{0}, {1}, {2}, {3}) = {4}", display.ToString("X8"), screen, channel, synctype, retValue);
+			LogFunction("glXChannelRectSyncSGIX(0x{0}, {1}, {2}, {3}) = {4}", display.ToString("X8"), screen, channel, LogEnumName(synctype), retValue);
 
 			return (retValue);
 		}

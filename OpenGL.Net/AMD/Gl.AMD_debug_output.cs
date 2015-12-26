@@ -98,7 +98,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglDebugMessageEnableAMD != null, "pglDebugMessageEnableAMD not implemented");
 					Delegates.pglDebugMessageEnableAMD(category, severity, (Int32)ids.Length, p_ids, enabled);
-					LogFunction("glDebugMessageEnableAMD({0}, {1}, {2}, {3}, {4})", category, severity, ids.Length, ids, enabled);
+					LogFunction("glDebugMessageEnableAMD({0}, {1}, {2}, {3}, {4})", LogEnumName(category), LogEnumName(severity), ids.Length, ids, enabled);
 				}
 			}
 			DebugCheckErrors(null);
@@ -127,7 +127,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglDebugMessageInsertAMD != null, "pglDebugMessageInsertAMD not implemented");
 			Delegates.pglDebugMessageInsertAMD(category, severity, id, length, buf);
-			LogFunction("glDebugMessageInsertAMD({0}, {1}, {2}, {3}, {4})", category, severity, id, length, buf);
+			LogFunction("glDebugMessageInsertAMD({0}, {1}, {2}, {3}, {4})", LogEnumName(category), LogEnumName(severity), id, length, buf);
 			DebugCheckErrors(null);
 		}
 
@@ -183,7 +183,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetDebugMessageLogAMD != null, "pglGetDebugMessageLogAMD not implemented");
 					retValue = Delegates.pglGetDebugMessageLogAMD((UInt32)categories.Length, bufsize, p_categories, p_severities, p_ids, p_lengths, message);
-					LogFunction("glGetDebugMessageLogAMD({0}, {1}, {2}, {3}, {4}, {5}, {6}) = {7}", categories.Length, bufsize, categories, severities, ids, lengths, message, retValue);
+					LogFunction("glGetDebugMessageLogAMD({0}, {1}, {2}, {3}, {4}, {5}, {6}) = {7}", categories.Length, bufsize, LogEnumName(categories), severities, ids, lengths, message, retValue);
 				}
 			}
 			DebugCheckErrors(retValue);

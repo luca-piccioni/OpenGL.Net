@@ -134,7 +134,7 @@ namespace OpenGL
 
 			Debug.Assert(Delegates.pglGetImageHandleARB != null, "pglGetImageHandleARB not implemented");
 			retValue = Delegates.pglGetImageHandleARB(texture, level, layered, layer, format);
-			LogFunction("glGetImageHandleARB({0}, {1}, {2}, {3}, {4}) = {5}", texture, level, layered, layer, format, retValue);
+			LogFunction("glGetImageHandleARB({0}, {1}, {2}, {3}, {4}) = {5}", texture, level, layered, layer, LogEnumName(format), retValue);
 			DebugCheckErrors(retValue);
 
 			return (retValue);
@@ -154,7 +154,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglMakeImageHandleResidentARB != null, "pglMakeImageHandleResidentARB not implemented");
 			Delegates.pglMakeImageHandleResidentARB(handle, access);
-			LogFunction("glMakeImageHandleResidentARB({0}, {1})", handle, access);
+			LogFunction("glMakeImageHandleResidentARB({0}, {1})", handle, LogEnumName(access));
 			DebugCheckErrors(null);
 		}
 
@@ -360,7 +360,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetVertexAttribLui64vARB != null, "pglGetVertexAttribLui64vARB not implemented");
 					Delegates.pglGetVertexAttribLui64vARB(index, pname, p_params);
-					LogFunction("glGetVertexAttribLui64vARB({0}, {1}, {2})", index, pname, @params);
+					LogFunction("glGetVertexAttribLui64vARB({0}, {1}, {2})", index, LogEnumName(pname), @params);
 				}
 			}
 			DebugCheckErrors(null);

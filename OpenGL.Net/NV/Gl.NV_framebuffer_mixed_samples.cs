@@ -126,7 +126,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglCoverageModulationNV != null, "pglCoverageModulationNV not implemented");
 			Delegates.pglCoverageModulationNV(components);
-			LogFunction("glCoverageModulationNV({0})", components);
+			LogFunction("glCoverageModulationNV({0})", LogEnumName(components));
 			DebugCheckErrors(null);
 		}
 

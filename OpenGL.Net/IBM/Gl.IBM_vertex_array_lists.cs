@@ -181,7 +181,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglSecondaryColorPointerListIBM != null, "pglSecondaryColorPointerListIBM not implemented");
 					Delegates.pglSecondaryColorPointerListIBM(size, type, stride, p_pointer, ptrstride);
-					LogFunction("glSecondaryColorPointerListIBM({0}, {1}, {2}, {3}, {4})", size, type, stride, pointer, ptrstride);
+					LogFunction("glSecondaryColorPointerListIBM({0}, {1}, {2}, {3}, {4})", size, LogEnumName(type), stride, pointer, ptrstride);
 				}
 			}
 			DebugCheckErrors(null);

@@ -205,7 +205,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglGetPerfMonitorCounterInfoAMD != null, "pglGetPerfMonitorCounterInfoAMD not implemented");
 			Delegates.pglGetPerfMonitorCounterInfoAMD(group, counter, pname, data);
-			LogFunction("glGetPerfMonitorCounterInfoAMD({0}, {1}, {2}, 0x{3})", group, counter, pname, data.ToString("X8"));
+			LogFunction("glGetPerfMonitorCounterInfoAMD({0}, {1}, {2}, 0x{3})", group, counter, LogEnumName(pname), data.ToString("X8"));
 			DebugCheckErrors(null);
 		}
 
@@ -369,7 +369,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetPerfMonitorCounterDataAMD != null, "pglGetPerfMonitorCounterDataAMD not implemented");
 					Delegates.pglGetPerfMonitorCounterDataAMD(monitor, pname, (Int32)data.Length, p_data, p_bytesWritten);
-					LogFunction("glGetPerfMonitorCounterDataAMD({0}, {1}, {2}, {3}, {4})", monitor, pname, data.Length, data, bytesWritten);
+					LogFunction("glGetPerfMonitorCounterDataAMD({0}, {1}, {2}, {3}, {4})", monitor, LogEnumName(pname), data.Length, data, bytesWritten);
 				}
 			}
 			DebugCheckErrors(null);

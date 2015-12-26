@@ -148,7 +148,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglSamplePatternEXT != null, "pglSamplePatternEXT not implemented");
 			Delegates.pglSamplePatternEXT(pattern);
-			LogFunction("glSamplePatternEXT({0})", pattern);
+			LogFunction("glSamplePatternEXT({0})", LogEnumName(pattern));
 			DebugCheckErrors(null);
 		}
 

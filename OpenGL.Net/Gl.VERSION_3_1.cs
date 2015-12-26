@@ -712,7 +712,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglTexBuffer != null, "pglTexBuffer not implemented");
 			Delegates.pglTexBuffer((Int32)target, internalformat, buffer);
-			LogFunction("glTexBuffer({0}, {1}, {2})", target, internalformat, buffer);
+			LogFunction("glTexBuffer({0}, {1}, {2})", target, LogEnumName(internalformat), buffer);
 			DebugCheckErrors(null);
 		}
 
@@ -797,7 +797,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglCopyBufferSubData != null, "pglCopyBufferSubData not implemented");
 			Delegates.pglCopyBufferSubData(readTarget, writeTarget, readOffset, writeOffset, size);
-			LogFunction("glCopyBufferSubData({0}, {1}, 0x{2}, 0x{3}, {4})", readTarget, writeTarget, readOffset.ToString("X8"), writeOffset.ToString("X8"), size);
+			LogFunction("glCopyBufferSubData({0}, {1}, 0x{2}, 0x{3}, {4})", LogEnumName(readTarget), LogEnumName(writeTarget), readOffset.ToString("X8"), writeOffset.ToString("X8"), size);
 			DebugCheckErrors(null);
 		}
 
@@ -889,7 +889,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetActiveUniformsiv != null, "pglGetActiveUniformsiv not implemented");
 					Delegates.pglGetActiveUniformsiv(program, (Int32)uniformIndices.Length, p_uniformIndices, pname, p_params);
-					LogFunction("glGetActiveUniformsiv({0}, {1}, {2}, {3}, {4})", program, uniformIndices.Length, uniformIndices, pname, @params);
+					LogFunction("glGetActiveUniformsiv({0}, {1}, {2}, {3}, {4})", program, uniformIndices.Length, uniformIndices, LogEnumName(pname), @params);
 				}
 			}
 			DebugCheckErrors(null);
@@ -1020,7 +1020,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetActiveUniformBlockiv != null, "pglGetActiveUniformBlockiv not implemented");
 					Delegates.pglGetActiveUniformBlockiv(program, uniformBlockIndex, pname, p_params);
-					LogFunction("glGetActiveUniformBlockiv({0}, {1}, {2}, {3})", program, uniformBlockIndex, pname, @params);
+					LogFunction("glGetActiveUniformBlockiv({0}, {1}, {2}, {3})", program, uniformBlockIndex, LogEnumName(pname), @params);
 				}
 			}
 			DebugCheckErrors(null);

@@ -133,7 +133,7 @@ namespace OpenGL
 
 			Debug.Assert(Delegates.pglXGetGPUInfoAMD != null, "pglXGetGPUInfoAMD not implemented");
 			retValue = Delegates.pglXGetGPUInfoAMD(id, property, dataType, size, data);
-			LogFunction("glXGetGPUInfoAMD({0}, {1}, {2}, {3}, 0x{4}) = {5}", id, property, dataType, size, data.ToString("X8"), retValue);
+			LogFunction("glXGetGPUInfoAMD({0}, {1}, {2}, {3}, 0x{4}) = {5}", id, property, LogEnumName(dataType), size, data.ToString("X8"), retValue);
 
 			return (retValue);
 		}
@@ -298,7 +298,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglXBlitContextFramebufferAMD != null, "pglXBlitContextFramebufferAMD not implemented");
 			Delegates.pglXBlitContextFramebufferAMD(dstCtx, srcX0, srcY0, srcX1, srcY1, dstX0, dstY0, dstX1, dstY1, mask, filter);
-			LogFunction("glXBlitContextFramebufferAMD(0x{0}, {1}, {2}, {3}, {4}, {5}, {6}, {7}, {8}, {9}, {10})", dstCtx.ToString("X8"), srcX0, srcY0, srcX1, srcY1, dstX0, dstY0, dstX1, dstY1, mask, filter);
+			LogFunction("glXBlitContextFramebufferAMD(0x{0}, {1}, {2}, {3}, {4}, {5}, {6}, {7}, {8}, {9}, {10})", dstCtx.ToString("X8"), srcX0, srcY0, srcX1, srcY1, dstX0, dstY0, dstX1, dstY1, mask, LogEnumName(filter));
 		}
 
 	}

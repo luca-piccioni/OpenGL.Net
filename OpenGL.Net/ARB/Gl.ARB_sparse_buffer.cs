@@ -59,7 +59,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglBufferPageCommitmentARB != null, "pglBufferPageCommitmentARB not implemented");
 			Delegates.pglBufferPageCommitmentARB(target, offset, size, commit);
-			LogFunction("glBufferPageCommitmentARB({0}, 0x{1}, {2}, {3})", target, offset.ToString("X8"), size, commit);
+			LogFunction("glBufferPageCommitmentARB({0}, 0x{1}, {2}, {3})", LogEnumName(target), offset.ToString("X8"), size, commit);
 			DebugCheckErrors(null);
 		}
 

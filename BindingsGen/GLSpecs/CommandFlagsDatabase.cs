@@ -16,6 +16,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.IO;
 using System.Reflection;
 using System.Text.RegularExpressions;
@@ -165,6 +166,23 @@ namespace BindingsGen.GLSpecs
 			public string Rename;
 
 			/// <summary>
+			/// Flags applied to <see cref="ParameterItem"/>
+			/// </summary>
+			[Flags]
+			public enum ParameterItemFlags
+			{
+				/// <summary>
+				/// No flags
+				/// </summary>
+				None =				0x0000,
+
+				/// <summary>
+				/// The procedure logging format argument will call KhronoApi.LogEnumName method.
+				/// </summary>
+				LogAsEnum =			0x0001,
+			}
+
+			/// <summary>
 			/// Command item argment.
 			/// </summary>
 			public class ParameterItem
@@ -176,10 +194,17 @@ namespace BindingsGen.GLSpecs
 				public string Id;
 
 				/// <summary>
-				///  Force a specific name for command argument (as specification name).
+				/// Force a specific name for command argument (as specification name).
 				/// </summary>
 				[XmlElement("rename")]
 				public string Rename;
+
+				/// <summary>
+				/// Parameter flags.
+				/// </summary>
+				[XmlElement("flags")]
+				[DefaultValue(ParameterItemFlags.None)]
+				public ParameterItemFlags Flags = ParameterItemFlags.None;
 			}
 
 			/// <summary>
@@ -258,6 +283,27 @@ namespace BindingsGen.GLSpecs
 
 			// arg.Name
 			return (null);
+		}
+
+		public static CommandItem.ParameterItemFlags GetCommandParameterFlags(Command command, CommandParameter arg)
+		{
+			if (command == null)
+				throw new ArgumentNullException("command");
+			if (arg == null)
+				throw new ArgumentNullException("arg");
+
+			CommandItem.ParameterItemFlags parameterFlags = CommandItem.ParameterItemFlags.None;
+
+			foreach (CommandItem commandItem in _CommandFlagsDatabase.Commands) {
+				if (Regex.IsMatch(command.Prototype.Name, commandItem.Name)) {
+					foreach (CommandItem.ParameterItem parameterItem in commandItem.Parameters) {
+						if (parameterItem.Id == arg.Name)
+							parameterFlags |= parameterItem.Flags;
+					}
+				}
+			}
+
+			return (parameterFlags);
 		}
 
 		/// <summary>

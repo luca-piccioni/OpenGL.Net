@@ -41,7 +41,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglUseShaderProgramEXT != null, "pglUseShaderProgramEXT not implemented");
 			Delegates.pglUseShaderProgramEXT(type, program);
-			LogFunction("glUseShaderProgramEXT({0}, {1})", type, program);
+			LogFunction("glUseShaderProgramEXT({0}, {1})", LogEnumName(type), program);
 			DebugCheckErrors(null);
 		}
 
@@ -76,7 +76,7 @@ namespace OpenGL
 
 			Debug.Assert(Delegates.pglCreateShaderProgramEXT != null, "pglCreateShaderProgramEXT not implemented");
 			retValue = Delegates.pglCreateShaderProgramEXT(type, @string);
-			LogFunction("glCreateShaderProgramEXT({0}, {1}) = {2}", type, @string, retValue);
+			LogFunction("glCreateShaderProgramEXT({0}, {1}) = {2}", LogEnumName(type), @string, retValue);
 			DebugCheckErrors(retValue);
 
 			return (retValue);

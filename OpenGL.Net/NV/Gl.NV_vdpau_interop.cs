@@ -151,7 +151,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglVDPAURegisterVideoSurfaceNV != null, "pglVDPAURegisterVideoSurfaceNV not implemented");
 					retValue = Delegates.pglVDPAURegisterVideoSurfaceNV(vdpSurface, target, (Int32)textureNames.Length, p_textureNames);
-					LogFunction("glVDPAURegisterVideoSurfaceNV(0x{0}, {1}, {2}, {3}) = {4}", vdpSurface.ToString("X8"), target, textureNames.Length, textureNames, retValue.ToString("X8"));
+					LogFunction("glVDPAURegisterVideoSurfaceNV(0x{0}, {1}, {2}, {3}) = {4}", vdpSurface.ToString("X8"), LogEnumName(target), textureNames.Length, textureNames, retValue.ToString("X8"));
 				}
 			}
 			DebugCheckErrors(retValue);
@@ -207,7 +207,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglVDPAURegisterOutputSurfaceNV != null, "pglVDPAURegisterOutputSurfaceNV not implemented");
 					retValue = Delegates.pglVDPAURegisterOutputSurfaceNV(vdpSurface, target, (Int32)textureNames.Length, p_textureNames);
-					LogFunction("glVDPAURegisterOutputSurfaceNV(0x{0}, {1}, {2}, {3}) = {4}", vdpSurface.ToString("X8"), target, textureNames.Length, textureNames, retValue.ToString("X8"));
+					LogFunction("glVDPAURegisterOutputSurfaceNV(0x{0}, {1}, {2}, {3}) = {4}", vdpSurface.ToString("X8"), LogEnumName(target), textureNames.Length, textureNames, retValue.ToString("X8"));
 				}
 			}
 			DebugCheckErrors(retValue);
@@ -273,7 +273,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglVDPAUGetSurfaceivNV != null, "pglVDPAUGetSurfaceivNV not implemented");
 					Delegates.pglVDPAUGetSurfaceivNV(surface, pname, (Int32)values.Length, p_length, p_values);
-					LogFunction("glVDPAUGetSurfaceivNV(0x{0}, {1}, {2}, {3}, {4})", surface.ToString("X8"), pname, values.Length, length, values);
+					LogFunction("glVDPAUGetSurfaceivNV(0x{0}, {1}, {2}, {3}, {4})", surface.ToString("X8"), LogEnumName(pname), values.Length, length, values);
 				}
 			}
 			DebugCheckErrors(null);
@@ -293,7 +293,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglVDPAUSurfaceAccessNV != null, "pglVDPAUSurfaceAccessNV not implemented");
 			Delegates.pglVDPAUSurfaceAccessNV(surface, access);
-			LogFunction("glVDPAUSurfaceAccessNV(0x{0}, {1})", surface.ToString("X8"), access);
+			LogFunction("glVDPAUSurfaceAccessNV(0x{0}, {1})", surface.ToString("X8"), LogEnumName(access));
 			DebugCheckErrors(null);
 		}
 

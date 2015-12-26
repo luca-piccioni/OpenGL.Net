@@ -68,7 +68,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglTexImage2DMultisampleCoverageNV != null, "pglTexImage2DMultisampleCoverageNV not implemented");
 			Delegates.pglTexImage2DMultisampleCoverageNV(target, coverageSamples, colorSamples, internalFormat, width, height, fixedSampleLocations);
-			LogFunction("glTexImage2DMultisampleCoverageNV({0}, {1}, {2}, {3}, {4}, {5}, {6})", target, coverageSamples, colorSamples, internalFormat, width, height, fixedSampleLocations);
+			LogFunction("glTexImage2DMultisampleCoverageNV({0}, {1}, {2}, {3}, {4}, {5}, {6})", LogEnumName(target), coverageSamples, colorSamples, internalFormat, width, height, fixedSampleLocations);
 			DebugCheckErrors(null);
 		}
 
@@ -104,7 +104,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglTexImage3DMultisampleCoverageNV != null, "pglTexImage3DMultisampleCoverageNV not implemented");
 			Delegates.pglTexImage3DMultisampleCoverageNV(target, coverageSamples, colorSamples, internalFormat, width, height, depth, fixedSampleLocations);
-			LogFunction("glTexImage3DMultisampleCoverageNV({0}, {1}, {2}, {3}, {4}, {5}, {6}, {7})", target, coverageSamples, colorSamples, internalFormat, width, height, depth, fixedSampleLocations);
+			LogFunction("glTexImage3DMultisampleCoverageNV({0}, {1}, {2}, {3}, {4}, {5}, {6}, {7})", LogEnumName(target), coverageSamples, colorSamples, internalFormat, width, height, depth, fixedSampleLocations);
 			DebugCheckErrors(null);
 		}
 
@@ -137,7 +137,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglTextureImage2DMultisampleNV != null, "pglTextureImage2DMultisampleNV not implemented");
 			Delegates.pglTextureImage2DMultisampleNV(texture, target, samples, internalFormat, width, height, fixedSampleLocations);
-			LogFunction("glTextureImage2DMultisampleNV({0}, {1}, {2}, {3}, {4}, {5}, {6})", texture, target, samples, internalFormat, width, height, fixedSampleLocations);
+			LogFunction("glTextureImage2DMultisampleNV({0}, {1}, {2}, {3}, {4}, {5}, {6})", texture, LogEnumName(target), samples, internalFormat, width, height, fixedSampleLocations);
 			DebugCheckErrors(null);
 		}
 
@@ -173,7 +173,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglTextureImage3DMultisampleNV != null, "pglTextureImage3DMultisampleNV not implemented");
 			Delegates.pglTextureImage3DMultisampleNV(texture, target, samples, internalFormat, width, height, depth, fixedSampleLocations);
-			LogFunction("glTextureImage3DMultisampleNV({0}, {1}, {2}, {3}, {4}, {5}, {6}, {7})", texture, target, samples, internalFormat, width, height, depth, fixedSampleLocations);
+			LogFunction("glTextureImage3DMultisampleNV({0}, {1}, {2}, {3}, {4}, {5}, {6}, {7})", texture, LogEnumName(target), samples, internalFormat, width, height, depth, fixedSampleLocations);
 			DebugCheckErrors(null);
 		}
 
@@ -209,7 +209,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglTextureImage2DMultisampleCoverageNV != null, "pglTextureImage2DMultisampleCoverageNV not implemented");
 			Delegates.pglTextureImage2DMultisampleCoverageNV(texture, target, coverageSamples, colorSamples, internalFormat, width, height, fixedSampleLocations);
-			LogFunction("glTextureImage2DMultisampleCoverageNV({0}, {1}, {2}, {3}, {4}, {5}, {6}, {7})", texture, target, coverageSamples, colorSamples, internalFormat, width, height, fixedSampleLocations);
+			LogFunction("glTextureImage2DMultisampleCoverageNV({0}, {1}, {2}, {3}, {4}, {5}, {6}, {7})", texture, LogEnumName(target), coverageSamples, colorSamples, internalFormat, width, height, fixedSampleLocations);
 			DebugCheckErrors(null);
 		}
 
@@ -248,7 +248,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglTextureImage3DMultisampleCoverageNV != null, "pglTextureImage3DMultisampleCoverageNV not implemented");
 			Delegates.pglTextureImage3DMultisampleCoverageNV(texture, target, coverageSamples, colorSamples, internalFormat, width, height, depth, fixedSampleLocations);
-			LogFunction("glTextureImage3DMultisampleCoverageNV({0}, {1}, {2}, {3}, {4}, {5}, {6}, {7}, {8})", texture, target, coverageSamples, colorSamples, internalFormat, width, height, depth, fixedSampleLocations);
+			LogFunction("glTextureImage3DMultisampleCoverageNV({0}, {1}, {2}, {3}, {4}, {5}, {6}, {7}, {8})", texture, LogEnumName(target), coverageSamples, colorSamples, internalFormat, width, height, depth, fixedSampleLocations);
 			DebugCheckErrors(null);
 		}
 

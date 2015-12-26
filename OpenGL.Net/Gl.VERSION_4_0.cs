@@ -688,7 +688,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglBlendEquationi != null, "pglBlendEquationi not implemented");
 			Delegates.pglBlendEquationi(buf, mode);
-			LogFunction("glBlendEquationi({0}, {1})", buf, mode);
+			LogFunction("glBlendEquationi({0}, {1})", buf, LogEnumName(mode));
 			DebugCheckErrors(null);
 		}
 
@@ -725,7 +725,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglBlendEquationSeparatei != null, "pglBlendEquationSeparatei not implemented");
 			Delegates.pglBlendEquationSeparatei(buf, modeRGB, modeAlpha);
-			LogFunction("glBlendEquationSeparatei({0}, {1}, {2})", buf, modeRGB, modeAlpha);
+			LogFunction("glBlendEquationSeparatei({0}, {1}, {2})", buf, LogEnumName(modeRGB), LogEnumName(modeAlpha));
 			DebugCheckErrors(null);
 		}
 
@@ -764,7 +764,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglBlendFunci != null, "pglBlendFunci not implemented");
 			Delegates.pglBlendFunci(buf, src, dst);
-			LogFunction("glBlendFunci({0}, {1}, {2})", buf, src, dst);
+			LogFunction("glBlendFunci({0}, {1}, {2})", buf, LogEnumName(src), LogEnumName(dst));
 			DebugCheckErrors(null);
 		}
 
@@ -808,7 +808,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglBlendFuncSeparatei != null, "pglBlendFuncSeparatei not implemented");
 			Delegates.pglBlendFuncSeparatei(buf, srcRGB, dstRGB, srcAlpha, dstAlpha);
-			LogFunction("glBlendFuncSeparatei({0}, {1}, {2}, {3}, {4})", buf, srcRGB, dstRGB, srcAlpha, dstAlpha);
+			LogFunction("glBlendFuncSeparatei({0}, {1}, {2}, {3}, {4})", buf, LogEnumName(srcRGB), LogEnumName(dstRGB), LogEnumName(srcAlpha), LogEnumName(dstAlpha));
 			DebugCheckErrors(null);
 		}
 
@@ -941,7 +941,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglDrawElementsIndirect != null, "pglDrawElementsIndirect not implemented");
 			Delegates.pglDrawElementsIndirect((Int32)mode, type, indirect);
-			LogFunction("glDrawElementsIndirect({0}, {1}, 0x{2})", mode, type, indirect.ToString("X8"));
+			LogFunction("glDrawElementsIndirect({0}, {1}, 0x{2})", mode, LogEnumName(type), indirect.ToString("X8"));
 			DebugCheckErrors(null);
 		}
 
@@ -1551,7 +1551,7 @@ namespace OpenGL
 
 			Debug.Assert(Delegates.pglGetSubroutineUniformLocation != null, "pglGetSubroutineUniformLocation not implemented");
 			retValue = Delegates.pglGetSubroutineUniformLocation(program, shadertype, name);
-			LogFunction("glGetSubroutineUniformLocation({0}, {1}, {2}) = {3}", program, shadertype, name, retValue);
+			LogFunction("glGetSubroutineUniformLocation({0}, {1}, {2}) = {3}", program, LogEnumName(shadertype), name, retValue);
 			DebugCheckErrors(retValue);
 
 			return (retValue);
@@ -1590,7 +1590,7 @@ namespace OpenGL
 
 			Debug.Assert(Delegates.pglGetSubroutineIndex != null, "pglGetSubroutineIndex not implemented");
 			retValue = Delegates.pglGetSubroutineIndex(program, shadertype, name);
-			LogFunction("glGetSubroutineIndex({0}, {1}, {2}) = {3}", program, shadertype, name, retValue);
+			LogFunction("glGetSubroutineIndex({0}, {1}, {2}) = {3}", program, LogEnumName(shadertype), name, retValue);
 			DebugCheckErrors(retValue);
 
 			return (retValue);
@@ -1641,7 +1641,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetActiveSubroutineUniformiv != null, "pglGetActiveSubroutineUniformiv not implemented");
 					Delegates.pglGetActiveSubroutineUniformiv(program, shadertype, index, pname, p_values);
-					LogFunction("glGetActiveSubroutineUniformiv({0}, {1}, {2}, {3}, {4})", program, shadertype, index, pname, values);
+					LogFunction("glGetActiveSubroutineUniformiv({0}, {1}, {2}, {3}, {4})", program, LogEnumName(shadertype), index, LogEnumName(pname), values);
 				}
 			}
 			DebugCheckErrors(null);
@@ -1694,7 +1694,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetActiveSubroutineUniformName != null, "pglGetActiveSubroutineUniformName not implemented");
 					Delegates.pglGetActiveSubroutineUniformName(program, shadertype, index, bufsize, p_length, name);
-					LogFunction("glGetActiveSubroutineUniformName({0}, {1}, {2}, {3}, {4}, {5})", program, shadertype, index, bufsize, length, name);
+					LogFunction("glGetActiveSubroutineUniformName({0}, {1}, {2}, {3}, {4}, {5})", program, LogEnumName(shadertype), index, bufsize, length, name);
 				}
 			}
 			DebugCheckErrors(null);
@@ -1742,7 +1742,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetActiveSubroutineName != null, "pglGetActiveSubroutineName not implemented");
 					Delegates.pglGetActiveSubroutineName(program, shadertype, index, bufsize, p_length, name);
-					LogFunction("glGetActiveSubroutineName({0}, {1}, {2}, {3}, {4}, {5})", program, shadertype, index, bufsize, length, name);
+					LogFunction("glGetActiveSubroutineName({0}, {1}, {2}, {3}, {4}, {5})", program, LogEnumName(shadertype), index, bufsize, length, name);
 				}
 			}
 			DebugCheckErrors(null);
@@ -1787,7 +1787,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglUniformSubroutinesuiv != null, "pglUniformSubroutinesuiv not implemented");
 					Delegates.pglUniformSubroutinesuiv(shadertype, (Int32)indices.Length, p_indices);
-					LogFunction("glUniformSubroutinesuiv({0}, {1}, {2})", shadertype, indices.Length, indices);
+					LogFunction("glUniformSubroutinesuiv({0}, {1}, {2})", LogEnumName(shadertype), indices.Length, indices);
 				}
 			}
 			DebugCheckErrors(null);
@@ -1831,7 +1831,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetUniformSubroutineuiv != null, "pglGetUniformSubroutineuiv not implemented");
 					Delegates.pglGetUniformSubroutineuiv(shadertype, location, p_params);
-					LogFunction("glGetUniformSubroutineuiv({0}, {1}, {2})", shadertype, location, @params);
+					LogFunction("glGetUniformSubroutineuiv({0}, {1}, {2})", LogEnumName(shadertype), location, @params);
 				}
 			}
 			DebugCheckErrors(null);
@@ -1874,7 +1874,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetProgramStageiv != null, "pglGetProgramStageiv not implemented");
 					Delegates.pglGetProgramStageiv(program, shadertype, pname, p_values);
-					LogFunction("glGetProgramStageiv({0}, {1}, {2}, {3})", program, shadertype, pname, values);
+					LogFunction("glGetProgramStageiv({0}, {1}, {2}, {3})", program, LogEnumName(shadertype), LogEnumName(pname), values);
 				}
 			}
 			DebugCheckErrors(null);
@@ -1909,7 +1909,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglPatchParameteri != null, "pglPatchParameteri not implemented");
 			Delegates.pglPatchParameteri(pname, value);
-			LogFunction("glPatchParameteri({0}, {1})", pname, value);
+			LogFunction("glPatchParameteri({0}, {1})", LogEnumName(pname), value);
 			DebugCheckErrors(null);
 		}
 
@@ -1945,7 +1945,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglPatchParameterfv != null, "pglPatchParameterfv not implemented");
 					Delegates.pglPatchParameterfv(pname, p_values);
-					LogFunction("glPatchParameterfv({0}, {1})", pname, values);
+					LogFunction("glPatchParameterfv({0}, {1})", LogEnumName(pname), values);
 				}
 			}
 			DebugCheckErrors(null);
@@ -1988,7 +1988,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglBindTransformFeedback != null, "pglBindTransformFeedback not implemented");
 			Delegates.pglBindTransformFeedback(target, id);
-			LogFunction("glBindTransformFeedback({0}, {1})", target, id);
+			LogFunction("glBindTransformFeedback({0}, {1})", LogEnumName(target), id);
 			DebugCheckErrors(null);
 		}
 
@@ -2296,7 +2296,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglBeginQueryIndexed != null, "pglBeginQueryIndexed not implemented");
 			Delegates.pglBeginQueryIndexed(target, index, id);
-			LogFunction("glBeginQueryIndexed({0}, {1}, {2})", target, index, id);
+			LogFunction("glBeginQueryIndexed({0}, {1}, {2})", LogEnumName(target), index, id);
 			DebugCheckErrors(null);
 		}
 
@@ -2350,7 +2350,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglEndQueryIndexed != null, "pglEndQueryIndexed not implemented");
 			Delegates.pglEndQueryIndexed(target, index);
-			LogFunction("glEndQueryIndexed({0}, {1})", target, index);
+			LogFunction("glEndQueryIndexed({0}, {1})", LogEnumName(target), index);
 			DebugCheckErrors(null);
 		}
 
@@ -2392,7 +2392,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetQueryIndexediv != null, "pglGetQueryIndexediv not implemented");
 					Delegates.pglGetQueryIndexediv(target, index, pname, p_params);
-					LogFunction("glGetQueryIndexediv({0}, {1}, {2}, {3})", target, index, pname, @params);
+					LogFunction("glGetQueryIndexediv({0}, {1}, {2}, {3})", LogEnumName(target), index, LogEnumName(pname), @params);
 				}
 			}
 			DebugCheckErrors(null);

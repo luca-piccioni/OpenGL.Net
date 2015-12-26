@@ -411,7 +411,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetVertexAttribLi64vNV != null, "pglGetVertexAttribLi64vNV not implemented");
 					Delegates.pglGetVertexAttribLi64vNV(index, pname, p_params);
-					LogFunction("glGetVertexAttribLi64vNV({0}, {1}, {2})", index, pname, @params);
+					LogFunction("glGetVertexAttribLi64vNV({0}, {1}, {2})", index, LogEnumName(pname), @params);
 				}
 			}
 			DebugCheckErrors(null);
@@ -437,7 +437,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetVertexAttribLui64vNV != null, "pglGetVertexAttribLui64vNV not implemented");
 					Delegates.pglGetVertexAttribLui64vNV(index, pname, p_params);
-					LogFunction("glGetVertexAttribLui64vNV({0}, {1}, {2})", index, pname, @params);
+					LogFunction("glGetVertexAttribLui64vNV({0}, {1}, {2})", index, LogEnumName(pname), @params);
 				}
 			}
 			DebugCheckErrors(null);
@@ -463,7 +463,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglVertexAttribLFormatNV != null, "pglVertexAttribLFormatNV not implemented");
 			Delegates.pglVertexAttribLFormatNV(index, size, type, stride);
-			LogFunction("glVertexAttribLFormatNV({0}, {1}, {2}, {3})", index, size, type, stride);
+			LogFunction("glVertexAttribLFormatNV({0}, {1}, {2}, {3})", index, size, LogEnumName(type), stride);
 			DebugCheckErrors(null);
 		}
 

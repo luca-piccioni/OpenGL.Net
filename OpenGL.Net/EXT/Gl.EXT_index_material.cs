@@ -59,7 +59,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglIndexMaterialEXT != null, "pglIndexMaterialEXT not implemented");
 			Delegates.pglIndexMaterialEXT((Int32)face, mode);
-			LogFunction("glIndexMaterialEXT({0}, {1})", face, mode);
+			LogFunction("glIndexMaterialEXT({0}, {1})", face, LogEnumName(mode));
 			DebugCheckErrors(null);
 		}
 

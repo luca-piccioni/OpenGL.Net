@@ -154,7 +154,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetFenceivNV != null, "pglGetFenceivNV not implemented");
 					Delegates.pglGetFenceivNV(fence, pname, p_params);
-					LogFunction("glGetFenceivNV({0}, {1}, {2})", fence, pname, @params);
+					LogFunction("glGetFenceivNV({0}, {1}, {2})", fence, LogEnumName(pname), @params);
 				}
 			}
 			DebugCheckErrors(null);
@@ -189,7 +189,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglSetFenceNV != null, "pglSetFenceNV not implemented");
 			Delegates.pglSetFenceNV(fence, condition);
-			LogFunction("glSetFenceNV({0}, {1})", fence, condition);
+			LogFunction("glSetFenceNV({0}, {1})", fence, LogEnumName(condition));
 			DebugCheckErrors(null);
 		}
 

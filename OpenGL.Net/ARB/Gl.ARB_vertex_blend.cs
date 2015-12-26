@@ -463,7 +463,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglWeightPointerARB != null, "pglWeightPointerARB not implemented");
 			Delegates.pglWeightPointerARB(size, type, stride, pointer);
-			LogFunction("glWeightPointerARB({0}, {1}, {2}, 0x{3})", size, type, stride, pointer.ToString("X8"));
+			LogFunction("glWeightPointerARB({0}, {1}, {2}, 0x{3})", size, LogEnumName(type), stride, pointer.ToString("X8"));
 			DebugCheckErrors(null);
 		}
 

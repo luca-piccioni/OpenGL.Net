@@ -1142,7 +1142,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglActiveTexture != null, "pglActiveTexture not implemented");
 			Delegates.pglActiveTexture(texture);
-			LogFunction("glActiveTexture({0})", texture);
+			LogFunction("glActiveTexture({0})", LogEnumName(texture));
 			DebugCheckErrors(null);
 		}
 
@@ -1253,7 +1253,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglCompressedTexImage3D != null, "pglCompressedTexImage3D not implemented");
 			Delegates.pglCompressedTexImage3D((Int32)target, level, internalformat, width, height, depth, border, imageSize, data);
-			LogFunction("glCompressedTexImage3D({0}, {1}, {2}, {3}, {4}, {5}, {6}, {7}, 0x{8})", target, level, internalformat, width, height, depth, border, imageSize, data.ToString("X8"));
+			LogFunction("glCompressedTexImage3D({0}, {1}, {2}, {3}, {4}, {5}, {6}, {7}, 0x{8})", target, level, LogEnumName(internalformat), width, height, depth, border, imageSize, data.ToString("X8"));
 			DebugCheckErrors(null);
 		}
 
@@ -1437,7 +1437,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglCompressedTexImage2D != null, "pglCompressedTexImage2D not implemented");
 			Delegates.pglCompressedTexImage2D((Int32)target, level, internalformat, width, height, border, imageSize, data);
-			LogFunction("glCompressedTexImage2D({0}, {1}, {2}, {3}, {4}, {5}, {6}, 0x{7})", target, level, internalformat, width, height, border, imageSize, data.ToString("X8"));
+			LogFunction("glCompressedTexImage2D({0}, {1}, {2}, {3}, {4}, {5}, {6}, 0x{7})", target, level, LogEnumName(internalformat), width, height, border, imageSize, data.ToString("X8"));
 			DebugCheckErrors(null);
 		}
 
@@ -1613,7 +1613,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglCompressedTexImage1D != null, "pglCompressedTexImage1D not implemented");
 			Delegates.pglCompressedTexImage1D((Int32)target, level, internalformat, width, border, imageSize, data);
-			LogFunction("glCompressedTexImage1D({0}, {1}, {2}, {3}, {4}, {5}, 0x{6})", target, level, internalformat, width, border, imageSize, data.ToString("X8"));
+			LogFunction("glCompressedTexImage1D({0}, {1}, {2}, {3}, {4}, {5}, 0x{6})", target, level, LogEnumName(internalformat), width, border, imageSize, data.ToString("X8"));
 			DebugCheckErrors(null);
 		}
 
@@ -2418,7 +2418,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglClientActiveTexture != null, "pglClientActiveTexture not implemented");
 			Delegates.pglClientActiveTexture(texture);
-			LogFunction("glClientActiveTexture({0})", texture);
+			LogFunction("glClientActiveTexture({0})", LogEnumName(texture));
 			DebugCheckErrors(null);
 		}
 
@@ -2445,7 +2445,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglMultiTexCoord1d != null, "pglMultiTexCoord1d not implemented");
 			Delegates.pglMultiTexCoord1d(target, s);
-			LogFunction("glMultiTexCoord1d({0}, {1})", target, s);
+			LogFunction("glMultiTexCoord1d({0}, {1})", LogEnumName(target), s);
 		}
 
 		/// <summary>
@@ -2473,7 +2473,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglMultiTexCoord1dv != null, "pglMultiTexCoord1dv not implemented");
 					Delegates.pglMultiTexCoord1dv(target, p_v);
-					LogFunction("glMultiTexCoord1dv({0}, {1})", target, v);
+					LogFunction("glMultiTexCoord1dv({0}, {1})", LogEnumName(target), v);
 				}
 			}
 			DebugCheckErrors(null);
@@ -2502,7 +2502,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglMultiTexCoord1f != null, "pglMultiTexCoord1f not implemented");
 			Delegates.pglMultiTexCoord1f(target, s);
-			LogFunction("glMultiTexCoord1f({0}, {1})", target, s);
+			LogFunction("glMultiTexCoord1f({0}, {1})", LogEnumName(target), s);
 		}
 
 		/// <summary>
@@ -2530,7 +2530,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglMultiTexCoord1fv != null, "pglMultiTexCoord1fv not implemented");
 					Delegates.pglMultiTexCoord1fv(target, p_v);
-					LogFunction("glMultiTexCoord1fv({0}, {1})", target, v);
+					LogFunction("glMultiTexCoord1fv({0}, {1})", LogEnumName(target), v);
 				}
 			}
 			DebugCheckErrors(null);
@@ -2559,7 +2559,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglMultiTexCoord1i != null, "pglMultiTexCoord1i not implemented");
 			Delegates.pglMultiTexCoord1i(target, s);
-			LogFunction("glMultiTexCoord1i({0}, {1})", target, s);
+			LogFunction("glMultiTexCoord1i({0}, {1})", LogEnumName(target), s);
 		}
 
 		/// <summary>
@@ -2587,7 +2587,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglMultiTexCoord1iv != null, "pglMultiTexCoord1iv not implemented");
 					Delegates.pglMultiTexCoord1iv(target, p_v);
-					LogFunction("glMultiTexCoord1iv({0}, {1})", target, v);
+					LogFunction("glMultiTexCoord1iv({0}, {1})", LogEnumName(target), v);
 				}
 			}
 			DebugCheckErrors(null);
@@ -2616,7 +2616,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglMultiTexCoord1s != null, "pglMultiTexCoord1s not implemented");
 			Delegates.pglMultiTexCoord1s(target, s);
-			LogFunction("glMultiTexCoord1s({0}, {1})", target, s);
+			LogFunction("glMultiTexCoord1s({0}, {1})", LogEnumName(target), s);
 		}
 
 		/// <summary>
@@ -2644,7 +2644,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglMultiTexCoord1sv != null, "pglMultiTexCoord1sv not implemented");
 					Delegates.pglMultiTexCoord1sv(target, p_v);
-					LogFunction("glMultiTexCoord1sv({0}, {1})", target, v);
+					LogFunction("glMultiTexCoord1sv({0}, {1})", LogEnumName(target), v);
 				}
 			}
 			DebugCheckErrors(null);
@@ -2677,7 +2677,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglMultiTexCoord2d != null, "pglMultiTexCoord2d not implemented");
 			Delegates.pglMultiTexCoord2d(target, s, t);
-			LogFunction("glMultiTexCoord2d({0}, {1}, {2})", target, s, t);
+			LogFunction("glMultiTexCoord2d({0}, {1}, {2})", LogEnumName(target), s, t);
 		}
 
 		/// <summary>
@@ -2705,7 +2705,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglMultiTexCoord2dv != null, "pglMultiTexCoord2dv not implemented");
 					Delegates.pglMultiTexCoord2dv(target, p_v);
-					LogFunction("glMultiTexCoord2dv({0}, {1})", target, v);
+					LogFunction("glMultiTexCoord2dv({0}, {1})", LogEnumName(target), v);
 				}
 			}
 			DebugCheckErrors(null);
@@ -2738,7 +2738,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglMultiTexCoord2f != null, "pglMultiTexCoord2f not implemented");
 			Delegates.pglMultiTexCoord2f(target, s, t);
-			LogFunction("glMultiTexCoord2f({0}, {1}, {2})", target, s, t);
+			LogFunction("glMultiTexCoord2f({0}, {1}, {2})", LogEnumName(target), s, t);
 		}
 
 		/// <summary>
@@ -2766,7 +2766,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglMultiTexCoord2fv != null, "pglMultiTexCoord2fv not implemented");
 					Delegates.pglMultiTexCoord2fv(target, p_v);
-					LogFunction("glMultiTexCoord2fv({0}, {1})", target, v);
+					LogFunction("glMultiTexCoord2fv({0}, {1})", LogEnumName(target), v);
 				}
 			}
 			DebugCheckErrors(null);
@@ -2799,7 +2799,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglMultiTexCoord2i != null, "pglMultiTexCoord2i not implemented");
 			Delegates.pglMultiTexCoord2i(target, s, t);
-			LogFunction("glMultiTexCoord2i({0}, {1}, {2})", target, s, t);
+			LogFunction("glMultiTexCoord2i({0}, {1}, {2})", LogEnumName(target), s, t);
 		}
 
 		/// <summary>
@@ -2827,7 +2827,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglMultiTexCoord2iv != null, "pglMultiTexCoord2iv not implemented");
 					Delegates.pglMultiTexCoord2iv(target, p_v);
-					LogFunction("glMultiTexCoord2iv({0}, {1})", target, v);
+					LogFunction("glMultiTexCoord2iv({0}, {1})", LogEnumName(target), v);
 				}
 			}
 			DebugCheckErrors(null);
@@ -2860,7 +2860,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglMultiTexCoord2s != null, "pglMultiTexCoord2s not implemented");
 			Delegates.pglMultiTexCoord2s(target, s, t);
-			LogFunction("glMultiTexCoord2s({0}, {1}, {2})", target, s, t);
+			LogFunction("glMultiTexCoord2s({0}, {1}, {2})", LogEnumName(target), s, t);
 		}
 
 		/// <summary>
@@ -2888,7 +2888,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglMultiTexCoord2sv != null, "pglMultiTexCoord2sv not implemented");
 					Delegates.pglMultiTexCoord2sv(target, p_v);
-					LogFunction("glMultiTexCoord2sv({0}, {1})", target, v);
+					LogFunction("glMultiTexCoord2sv({0}, {1})", LogEnumName(target), v);
 				}
 			}
 			DebugCheckErrors(null);
@@ -2925,7 +2925,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglMultiTexCoord3d != null, "pglMultiTexCoord3d not implemented");
 			Delegates.pglMultiTexCoord3d(target, s, t, r);
-			LogFunction("glMultiTexCoord3d({0}, {1}, {2}, {3})", target, s, t, r);
+			LogFunction("glMultiTexCoord3d({0}, {1}, {2}, {3})", LogEnumName(target), s, t, r);
 		}
 
 		/// <summary>
@@ -2953,7 +2953,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglMultiTexCoord3dv != null, "pglMultiTexCoord3dv not implemented");
 					Delegates.pglMultiTexCoord3dv(target, p_v);
-					LogFunction("glMultiTexCoord3dv({0}, {1})", target, v);
+					LogFunction("glMultiTexCoord3dv({0}, {1})", LogEnumName(target), v);
 				}
 			}
 			DebugCheckErrors(null);
@@ -2990,7 +2990,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglMultiTexCoord3f != null, "pglMultiTexCoord3f not implemented");
 			Delegates.pglMultiTexCoord3f(target, s, t, r);
-			LogFunction("glMultiTexCoord3f({0}, {1}, {2}, {3})", target, s, t, r);
+			LogFunction("glMultiTexCoord3f({0}, {1}, {2}, {3})", LogEnumName(target), s, t, r);
 		}
 
 		/// <summary>
@@ -3018,7 +3018,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglMultiTexCoord3fv != null, "pglMultiTexCoord3fv not implemented");
 					Delegates.pglMultiTexCoord3fv(target, p_v);
-					LogFunction("glMultiTexCoord3fv({0}, {1})", target, v);
+					LogFunction("glMultiTexCoord3fv({0}, {1})", LogEnumName(target), v);
 				}
 			}
 			DebugCheckErrors(null);
@@ -3055,7 +3055,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglMultiTexCoord3i != null, "pglMultiTexCoord3i not implemented");
 			Delegates.pglMultiTexCoord3i(target, s, t, r);
-			LogFunction("glMultiTexCoord3i({0}, {1}, {2}, {3})", target, s, t, r);
+			LogFunction("glMultiTexCoord3i({0}, {1}, {2}, {3})", LogEnumName(target), s, t, r);
 		}
 
 		/// <summary>
@@ -3083,7 +3083,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglMultiTexCoord3iv != null, "pglMultiTexCoord3iv not implemented");
 					Delegates.pglMultiTexCoord3iv(target, p_v);
-					LogFunction("glMultiTexCoord3iv({0}, {1})", target, v);
+					LogFunction("glMultiTexCoord3iv({0}, {1})", LogEnumName(target), v);
 				}
 			}
 			DebugCheckErrors(null);
@@ -3120,7 +3120,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglMultiTexCoord3s != null, "pglMultiTexCoord3s not implemented");
 			Delegates.pglMultiTexCoord3s(target, s, t, r);
-			LogFunction("glMultiTexCoord3s({0}, {1}, {2}, {3})", target, s, t, r);
+			LogFunction("glMultiTexCoord3s({0}, {1}, {2}, {3})", LogEnumName(target), s, t, r);
 		}
 
 		/// <summary>
@@ -3148,7 +3148,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglMultiTexCoord3sv != null, "pglMultiTexCoord3sv not implemented");
 					Delegates.pglMultiTexCoord3sv(target, p_v);
-					LogFunction("glMultiTexCoord3sv({0}, {1})", target, v);
+					LogFunction("glMultiTexCoord3sv({0}, {1})", LogEnumName(target), v);
 				}
 			}
 			DebugCheckErrors(null);
@@ -3189,7 +3189,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglMultiTexCoord4d != null, "pglMultiTexCoord4d not implemented");
 			Delegates.pglMultiTexCoord4d(target, s, t, r, q);
-			LogFunction("glMultiTexCoord4d({0}, {1}, {2}, {3}, {4})", target, s, t, r, q);
+			LogFunction("glMultiTexCoord4d({0}, {1}, {2}, {3}, {4})", LogEnumName(target), s, t, r, q);
 		}
 
 		/// <summary>
@@ -3217,7 +3217,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglMultiTexCoord4dv != null, "pglMultiTexCoord4dv not implemented");
 					Delegates.pglMultiTexCoord4dv(target, p_v);
-					LogFunction("glMultiTexCoord4dv({0}, {1})", target, v);
+					LogFunction("glMultiTexCoord4dv({0}, {1})", LogEnumName(target), v);
 				}
 			}
 			DebugCheckErrors(null);
@@ -3258,7 +3258,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglMultiTexCoord4f != null, "pglMultiTexCoord4f not implemented");
 			Delegates.pglMultiTexCoord4f(target, s, t, r, q);
-			LogFunction("glMultiTexCoord4f({0}, {1}, {2}, {3}, {4})", target, s, t, r, q);
+			LogFunction("glMultiTexCoord4f({0}, {1}, {2}, {3}, {4})", LogEnumName(target), s, t, r, q);
 		}
 
 		/// <summary>
@@ -3286,7 +3286,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglMultiTexCoord4fv != null, "pglMultiTexCoord4fv not implemented");
 					Delegates.pglMultiTexCoord4fv(target, p_v);
-					LogFunction("glMultiTexCoord4fv({0}, {1})", target, v);
+					LogFunction("glMultiTexCoord4fv({0}, {1})", LogEnumName(target), v);
 				}
 			}
 			DebugCheckErrors(null);
@@ -3327,7 +3327,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglMultiTexCoord4i != null, "pglMultiTexCoord4i not implemented");
 			Delegates.pglMultiTexCoord4i(target, s, t, r, q);
-			LogFunction("glMultiTexCoord4i({0}, {1}, {2}, {3}, {4})", target, s, t, r, q);
+			LogFunction("glMultiTexCoord4i({0}, {1}, {2}, {3}, {4})", LogEnumName(target), s, t, r, q);
 		}
 
 		/// <summary>
@@ -3355,7 +3355,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglMultiTexCoord4iv != null, "pglMultiTexCoord4iv not implemented");
 					Delegates.pglMultiTexCoord4iv(target, p_v);
-					LogFunction("glMultiTexCoord4iv({0}, {1})", target, v);
+					LogFunction("glMultiTexCoord4iv({0}, {1})", LogEnumName(target), v);
 				}
 			}
 			DebugCheckErrors(null);
@@ -3396,7 +3396,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglMultiTexCoord4s != null, "pglMultiTexCoord4s not implemented");
 			Delegates.pglMultiTexCoord4s(target, s, t, r, q);
-			LogFunction("glMultiTexCoord4s({0}, {1}, {2}, {3}, {4})", target, s, t, r, q);
+			LogFunction("glMultiTexCoord4s({0}, {1}, {2}, {3}, {4})", LogEnumName(target), s, t, r, q);
 		}
 
 		/// <summary>
@@ -3424,7 +3424,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglMultiTexCoord4sv != null, "pglMultiTexCoord4sv not implemented");
 					Delegates.pglMultiTexCoord4sv(target, p_v);
-					LogFunction("glMultiTexCoord4sv({0}, {1})", target, v);
+					LogFunction("glMultiTexCoord4sv({0}, {1})", LogEnumName(target), v);
 				}
 			}
 			DebugCheckErrors(null);

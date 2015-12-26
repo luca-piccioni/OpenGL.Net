@@ -106,7 +106,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglFramebufferSampleLocationsfvARB != null, "pglFramebufferSampleLocationsfvARB not implemented");
 					Delegates.pglFramebufferSampleLocationsfvARB(target, start, count, p_v);
-					LogFunction("glFramebufferSampleLocationsfvARB({0}, {1}, {2}, {3})", target, start, count, v);
+					LogFunction("glFramebufferSampleLocationsfvARB({0}, {1}, {2}, {3})", LogEnumName(target), start, count, v);
 				}
 			}
 			DebugCheckErrors(null);

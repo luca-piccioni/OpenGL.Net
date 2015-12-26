@@ -134,7 +134,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglImageTransformParameteriHP != null, "pglImageTransformParameteriHP not implemented");
 			Delegates.pglImageTransformParameteriHP(target, pname, param);
-			LogFunction("glImageTransformParameteriHP({0}, {1}, {2})", target, pname, param);
+			LogFunction("glImageTransformParameteriHP({0}, {1}, {2})", LogEnumName(target), LogEnumName(pname), param);
 			DebugCheckErrors(null);
 		}
 
@@ -155,7 +155,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglImageTransformParameterfHP != null, "pglImageTransformParameterfHP not implemented");
 			Delegates.pglImageTransformParameterfHP(target, pname, param);
-			LogFunction("glImageTransformParameterfHP({0}, {1}, {2})", target, pname, param);
+			LogFunction("glImageTransformParameterfHP({0}, {1}, {2})", LogEnumName(target), LogEnumName(pname), param);
 			DebugCheckErrors(null);
 		}
 
@@ -179,7 +179,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglImageTransformParameterivHP != null, "pglImageTransformParameterivHP not implemented");
 					Delegates.pglImageTransformParameterivHP(target, pname, p_params);
-					LogFunction("glImageTransformParameterivHP({0}, {1}, {2})", target, pname, @params);
+					LogFunction("glImageTransformParameterivHP({0}, {1}, {2})", LogEnumName(target), LogEnumName(pname), @params);
 				}
 			}
 			DebugCheckErrors(null);
@@ -205,7 +205,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglImageTransformParameterfvHP != null, "pglImageTransformParameterfvHP not implemented");
 					Delegates.pglImageTransformParameterfvHP(target, pname, p_params);
-					LogFunction("glImageTransformParameterfvHP({0}, {1}, {2})", target, pname, @params);
+					LogFunction("glImageTransformParameterfvHP({0}, {1}, {2})", LogEnumName(target), LogEnumName(pname), @params);
 				}
 			}
 			DebugCheckErrors(null);
@@ -231,7 +231,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetImageTransformParameterivHP != null, "pglGetImageTransformParameterivHP not implemented");
 					Delegates.pglGetImageTransformParameterivHP(target, pname, p_params);
-					LogFunction("glGetImageTransformParameterivHP({0}, {1}, {2})", target, pname, @params);
+					LogFunction("glGetImageTransformParameterivHP({0}, {1}, {2})", LogEnumName(target), LogEnumName(pname), @params);
 				}
 			}
 			DebugCheckErrors(null);
@@ -257,7 +257,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetImageTransformParameterfvHP != null, "pglGetImageTransformParameterfvHP not implemented");
 					Delegates.pglGetImageTransformParameterfvHP(target, pname, p_params);
-					LogFunction("glGetImageTransformParameterfvHP({0}, {1}, {2})", target, pname, @params);
+					LogFunction("glGetImageTransformParameterfvHP({0}, {1}, {2})", LogEnumName(target), LogEnumName(pname), @params);
 				}
 			}
 			DebugCheckErrors(null);

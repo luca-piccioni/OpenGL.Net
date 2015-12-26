@@ -22,6 +22,7 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Reflection;
+using System.Text;
 
 namespace OpenGL
 {
@@ -93,19 +94,14 @@ namespace OpenGL
 		/// <summary>
 		/// Query <see cref="Gl"/> enumeration names, for logging purposes.
 		/// </summary>
+		/// <remarks>
+		/// After having called this method, the method <see cref="LogFunction"/> will output known enumeration
+		/// names instead of the numerical value.
+		/// </remarks>
 		public static void QueryEnumNames()
 		{
 			_EnumNames = QueryEnumNames(typeof(Gl));
 		}
-
-		/// <summary>
-		/// Enumeration names indexed by their value.
-		/// </summary>
-		private static Dictionary<Int64, string> _EnumNames;
-
-		#endregion
-
-		#region KhronosApi Overrides
 
 		/// <summary>
 		/// Log an enumeration value.
@@ -117,15 +113,43 @@ namespace OpenGL
 		/// It returns a <see cref="String"/> that represents <paramref name="enumValue"/> as hexadecimal value. If the
 		/// name of the enumeration value is detected, it returns the relative OpenGL specification name.
 		/// </returns>
-		protected override string LogEnumName(int enumValue)
+		protected static new string LogEnumName(int enumValue)
 		{
 			string enumName;
 
 			if (_EnumNames != null && _EnumNames.TryGetValue(enumValue, out enumName))
 				return (enumName);
 			else
-				return (base.LogEnumName(enumValue));
+				return (KhronosApi.LogEnumName(enumValue));
 		}
+
+		/// <summary>
+		/// Log an enumeration value.
+		/// </summary>
+		/// <param name="enumValues">
+		/// An array of <see cref="Int32"/> that specifies the enumeration values.
+		/// </param>
+		/// <returns>
+		/// It returns a <see cref="String"/> that represents <paramref name="enumValues"/> as hexadecimal value.
+		/// </returns>
+		protected static new string LogEnumName(int[] enumValues)
+		{
+			StringBuilder sb = new StringBuilder();
+
+			sb.Append("{");
+			foreach (int enumValue in enumValues)
+				sb.AppendFormat("{0},", LogEnumName(enumValue));
+			if (enumValues.Length > 0)
+				sb.Remove(sb.Length - 1, 1);
+			sb.Append("}");
+
+			return (sb.ToString());
+		}
+
+		/// <summary>
+		/// Enumeration names indexed by their value.
+		/// </summary>
+		private static Dictionary<Int64, string> _EnumNames;
 
 		#endregion
 	}

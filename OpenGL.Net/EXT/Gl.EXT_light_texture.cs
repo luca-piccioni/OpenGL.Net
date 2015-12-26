@@ -92,7 +92,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglApplyTextureEXT != null, "pglApplyTextureEXT not implemented");
 			Delegates.pglApplyTextureEXT(mode);
-			LogFunction("glApplyTextureEXT({0})", mode);
+			LogFunction("glApplyTextureEXT({0})", LogEnumName(mode));
 			DebugCheckErrors(null);
 		}
 
@@ -107,7 +107,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglTextureLightEXT != null, "pglTextureLightEXT not implemented");
 			Delegates.pglTextureLightEXT(pname);
-			LogFunction("glTextureLightEXT({0})", pname);
+			LogFunction("glTextureLightEXT({0})", LogEnumName(pname));
 			DebugCheckErrors(null);
 		}
 

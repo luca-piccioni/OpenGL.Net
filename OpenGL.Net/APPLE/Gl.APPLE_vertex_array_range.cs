@@ -121,7 +121,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglVertexArrayParameteriAPPLE != null, "pglVertexArrayParameteriAPPLE not implemented");
 			Delegates.pglVertexArrayParameteriAPPLE(pname, param);
-			LogFunction("glVertexArrayParameteriAPPLE({0}, {1})", pname, param);
+			LogFunction("glVertexArrayParameteriAPPLE({0}, {1})", LogEnumName(pname), param);
 			DebugCheckErrors(null);
 		}
 

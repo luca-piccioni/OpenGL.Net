@@ -927,7 +927,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglDrawBuffers != null, "pglDrawBuffers not implemented");
 					Delegates.pglDrawBuffers((Int32)bufs.Length, p_bufs);
-					LogFunction("glDrawBuffers({0}, {1})", bufs.Length, bufs);
+					LogFunction("glDrawBuffers({0}, {1})", bufs.Length, LogEnumName(bufs));
 				}
 			}
 			DebugCheckErrors(null);
@@ -1217,7 +1217,7 @@ namespace OpenGL
 
 			Debug.Assert(Delegates.pglCreateShader != null, "pglCreateShader not implemented");
 			retValue = Delegates.pglCreateShader(shaderType);
-			LogFunction("glCreateShader({0}) = {1}", shaderType, retValue);
+			LogFunction("glCreateShader({0}) = {1}", LogEnumName(shaderType), retValue);
 			DebugCheckErrors(retValue);
 
 			return (retValue);
@@ -1429,7 +1429,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetActiveAttrib != null, "pglGetActiveAttrib not implemented");
 					Delegates.pglGetActiveAttrib(program, index, bufSize, p_length, p_size, p_type, name);
-					LogFunction("glGetActiveAttrib({0}, {1}, {2}, {3}, {4}, {5}, {6})", program, index, bufSize, length, size, type, name);
+					LogFunction("glGetActiveAttrib({0}, {1}, {2}, {3}, {4}, {5}, {6})", program, index, bufSize, length, size, LogEnumName(type), name);
 				}
 			}
 			DebugCheckErrors(null);
@@ -1491,7 +1491,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetActiveUniform != null, "pglGetActiveUniform not implemented");
 					Delegates.pglGetActiveUniform(program, index, bufSize, p_length, p_size, p_type, name);
-					LogFunction("glGetActiveUniform({0}, {1}, {2}, {3}, {4}, {5}, {6})", program, index, bufSize, length, size, type, name);
+					LogFunction("glGetActiveUniform({0}, {1}, {2}, {3}, {4}, {5}, {6})", program, index, bufSize, length, size, LogEnumName(type), name);
 				}
 			}
 			DebugCheckErrors(null);
@@ -1624,7 +1624,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetProgramiv != null, "pglGetProgramiv not implemented");
 					Delegates.pglGetProgramiv(program, pname, p_params);
-					LogFunction("glGetProgramiv({0}, {1}, {2})", program, pname, @params);
+					LogFunction("glGetProgramiv({0}, {1}, {2})", program, LogEnumName(pname), @params);
 				}
 			}
 			DebugCheckErrors(null);
@@ -1680,7 +1680,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetProgramiv != null, "pglGetProgramiv not implemented");
 					Delegates.pglGetProgramiv(program, pname, p_params);
-					LogFunction("glGetProgramiv({0}, {1}, {2})", program, pname, @params);
+					LogFunction("glGetProgramiv({0}, {1}, {2})", program, LogEnumName(pname), @params);
 				}
 			}
 			DebugCheckErrors(null);
@@ -1767,7 +1767,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetShaderiv != null, "pglGetShaderiv not implemented");
 					Delegates.pglGetShaderiv(shader, pname, p_params);
-					LogFunction("glGetShaderiv({0}, {1}, {2})", shader, pname, @params);
+					LogFunction("glGetShaderiv({0}, {1}, {2})", shader, LogEnumName(pname), @params);
 				}
 			}
 			DebugCheckErrors(null);
@@ -1810,7 +1810,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetShaderiv != null, "pglGetShaderiv not implemented");
 					Delegates.pglGetShaderiv(shader, pname, p_params);
-					LogFunction("glGetShaderiv({0}, {1}, {2})", shader, pname, @params);
+					LogFunction("glGetShaderiv({0}, {1}, {2})", shader, LogEnumName(pname), @params);
 				}
 			}
 			DebugCheckErrors(null);
@@ -2079,7 +2079,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetVertexAttribdv != null, "pglGetVertexAttribdv not implemented");
 					Delegates.pglGetVertexAttribdv(index, pname, p_params);
-					LogFunction("glGetVertexAttribdv({0}, {1}, {2})", index, pname, @params);
+					LogFunction("glGetVertexAttribdv({0}, {1}, {2})", index, LogEnumName(pname), @params);
 				}
 			}
 			DebugCheckErrors(null);
@@ -2131,7 +2131,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetVertexAttribfv != null, "pglGetVertexAttribfv not implemented");
 					Delegates.pglGetVertexAttribfv(index, pname, p_params);
-					LogFunction("glGetVertexAttribfv({0}, {1}, {2})", index, pname, @params);
+					LogFunction("glGetVertexAttribfv({0}, {1}, {2})", index, LogEnumName(pname), @params);
 				}
 			}
 			DebugCheckErrors(null);
@@ -2183,7 +2183,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetVertexAttribiv != null, "pglGetVertexAttribiv not implemented");
 					Delegates.pglGetVertexAttribiv(index, pname, p_params);
-					LogFunction("glGetVertexAttribiv({0}, {1}, {2})", index, pname, @params);
+					LogFunction("glGetVertexAttribiv({0}, {1}, {2})", index, LogEnumName(pname), @params);
 				}
 			}
 			DebugCheckErrors(null);
@@ -2235,7 +2235,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetVertexAttribiv != null, "pglGetVertexAttribiv not implemented");
 					Delegates.pglGetVertexAttribiv(index, pname, p_params);
-					LogFunction("glGetVertexAttribiv({0}, {1}, {2})", index, pname, @params);
+					LogFunction("glGetVertexAttribiv({0}, {1}, {2})", index, LogEnumName(pname), @params);
 				}
 			}
 			DebugCheckErrors(null);
@@ -2275,7 +2275,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetVertexAttribPointerv != null, "pglGetVertexAttribPointerv not implemented");
 					Delegates.pglGetVertexAttribPointerv(index, pname, p_pointer);
-					LogFunction("glGetVertexAttribPointerv({0}, {1}, 0x{2})", index, pname, pointer.ToString("X8"));
+					LogFunction("glGetVertexAttribPointerv({0}, {1}, 0x{2})", index, LogEnumName(pname), pointer.ToString("X8"));
 				}
 			}
 			DebugCheckErrors(null);
@@ -5182,7 +5182,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglVertexAttribPointer != null, "pglVertexAttribPointer not implemented");
 			Delegates.pglVertexAttribPointer(index, size, type, normalized, stride, pointer);
-			LogFunction("glVertexAttribPointer({0}, {1}, {2}, {3}, {4}, 0x{5})", index, size, type, normalized, stride, pointer.ToString("X8"));
+			LogFunction("glVertexAttribPointer({0}, {1}, {2}, {3}, {4}, 0x{5})", index, size, LogEnumName(type), normalized, stride, pointer.ToString("X8"));
 			DebugCheckErrors(null);
 		}
 

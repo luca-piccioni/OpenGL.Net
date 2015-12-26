@@ -1858,7 +1858,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetBooleanv != null, "pglGetBooleanv not implemented");
 					Delegates.pglGetBooleanv(pname, p_data);
-					LogFunction("glGetBooleanv({0}, {1})", pname, data);
+					LogFunction("glGetBooleanv({0}, {1})", LogEnumName(pname), data);
 				}
 			}
 			DebugCheckErrors(null);
@@ -1972,7 +1972,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetBooleanv != null, "pglGetBooleanv not implemented");
 					Delegates.pglGetBooleanv(pname, p_data);
-					LogFunction("glGetBooleanv({0}, {1})", pname, data);
+					LogFunction("glGetBooleanv({0}, {1})", LogEnumName(pname), data);
 				}
 			}
 			DebugCheckErrors(null);
@@ -2086,7 +2086,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetDoublev != null, "pglGetDoublev not implemented");
 					Delegates.pglGetDoublev(pname, p_data);
-					LogFunction("glGetDoublev({0}, {1})", pname, data);
+					LogFunction("glGetDoublev({0}, {1})", LogEnumName(pname), data);
 				}
 			}
 			DebugCheckErrors(null);
@@ -2200,7 +2200,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetDoublev != null, "pglGetDoublev not implemented");
 					Delegates.pglGetDoublev(pname, p_data);
-					LogFunction("glGetDoublev({0}, {1})", pname, data);
+					LogFunction("glGetDoublev({0}, {1})", LogEnumName(pname), data);
 				}
 			}
 			DebugCheckErrors(null);
@@ -2329,7 +2329,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetFloatv != null, "pglGetFloatv not implemented");
 					Delegates.pglGetFloatv(pname, p_data);
-					LogFunction("glGetFloatv({0}, {1})", pname, data);
+					LogFunction("glGetFloatv({0}, {1})", LogEnumName(pname), data);
 				}
 			}
 			DebugCheckErrors(null);
@@ -2443,7 +2443,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetFloatv != null, "pglGetFloatv not implemented");
 					Delegates.pglGetFloatv(pname, p_data);
-					LogFunction("glGetFloatv({0}, {1})", pname, data);
+					LogFunction("glGetFloatv({0}, {1})", LogEnumName(pname), data);
 				}
 			}
 			DebugCheckErrors(null);
@@ -2557,7 +2557,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetIntegerv != null, "pglGetIntegerv not implemented");
 					Delegates.pglGetIntegerv(pname, p_data);
-					LogFunction("glGetIntegerv({0}, {1})", pname, data);
+					LogFunction("glGetIntegerv({0}, {1})", LogEnumName(pname), data);
 				}
 			}
 			DebugCheckErrors(null);
@@ -2671,7 +2671,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetIntegerv != null, "pglGetIntegerv not implemented");
 					Delegates.pglGetIntegerv(pname, p_data);
-					LogFunction("glGetIntegerv({0}, {1})", pname, data);
+					LogFunction("glGetIntegerv({0}, {1})", LogEnumName(pname), data);
 				}
 			}
 			DebugCheckErrors(null);

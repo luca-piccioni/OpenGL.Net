@@ -93,7 +93,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglFramebufferTextureFaceARB != null, "pglFramebufferTextureFaceARB not implemented");
 			Delegates.pglFramebufferTextureFaceARB(target, attachment, texture, level, (Int32)face);
-			LogFunction("glFramebufferTextureFaceARB({0}, {1}, {2}, {3}, {4})", target, attachment, texture, level, face);
+			LogFunction("glFramebufferTextureFaceARB({0}, {1}, {2}, {3}, {4})", LogEnumName(target), LogEnumName(attachment), texture, level, face);
 			DebugCheckErrors(null);
 		}
 

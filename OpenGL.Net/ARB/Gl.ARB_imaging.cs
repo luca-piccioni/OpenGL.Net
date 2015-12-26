@@ -714,7 +714,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglColorTable != null, "pglColorTable not implemented");
 			Delegates.pglColorTable(target, internalformat, width, (Int32)format, (Int32)type, table);
-			LogFunction("glColorTable({0}, {1}, {2}, {3}, {4}, 0x{5})", target, internalformat, width, format, type, table.ToString("X8"));
+			LogFunction("glColorTable({0}, {1}, {2}, {3}, {4}, 0x{5})", LogEnumName(target), LogEnumName(internalformat), width, format, type, table.ToString("X8"));
 			DebugCheckErrors(null);
 		}
 
@@ -834,7 +834,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglColorTableParameterfv != null, "pglColorTableParameterfv not implemented");
 					Delegates.pglColorTableParameterfv(target, pname, p_params);
-					LogFunction("glColorTableParameterfv({0}, {1}, {2})", target, pname, @params);
+					LogFunction("glColorTableParameterfv({0}, {1}, {2})", LogEnumName(target), LogEnumName(pname), @params);
 				}
 			}
 			DebugCheckErrors(null);
@@ -871,7 +871,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglColorTableParameteriv != null, "pglColorTableParameteriv not implemented");
 					Delegates.pglColorTableParameteriv(target, pname, p_params);
-					LogFunction("glColorTableParameteriv({0}, {1}, {2})", target, pname, @params);
+					LogFunction("glColorTableParameteriv({0}, {1}, {2})", LogEnumName(target), LogEnumName(pname), @params);
 				}
 			}
 			DebugCheckErrors(null);
@@ -926,7 +926,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglCopyColorTable != null, "pglCopyColorTable not implemented");
 			Delegates.pglCopyColorTable(target, internalformat, x, y, width);
-			LogFunction("glCopyColorTable({0}, {1}, {2}, {3}, {4})", target, internalformat, x, y, width);
+			LogFunction("glCopyColorTable({0}, {1}, {2}, {3}, {4})", LogEnumName(target), LogEnumName(internalformat), x, y, width);
 			DebugCheckErrors(null);
 		}
 
@@ -996,7 +996,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglGetColorTable != null, "pglGetColorTable not implemented");
 			Delegates.pglGetColorTable(target, (Int32)format, (Int32)type, table);
-			LogFunction("glGetColorTable({0}, {1}, {2}, 0x{3})", target, format, type, table.ToString("X8"));
+			LogFunction("glGetColorTable({0}, {1}, {2}, 0x{3})", LogEnumName(target), format, type, table.ToString("X8"));
 			DebugCheckErrors(null);
 		}
 
@@ -1107,7 +1107,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetColorTableParameterfv != null, "pglGetColorTableParameterfv not implemented");
 					Delegates.pglGetColorTableParameterfv(target, pname, p_params);
-					LogFunction("glGetColorTableParameterfv({0}, {1}, {2})", target, pname, @params);
+					LogFunction("glGetColorTableParameterfv({0}, {1}, {2})", LogEnumName(target), LogEnumName(pname), @params);
 				}
 			}
 			DebugCheckErrors(null);
@@ -1148,7 +1148,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetColorTableParameteriv != null, "pglGetColorTableParameteriv not implemented");
 					Delegates.pglGetColorTableParameteriv(target, pname, p_params);
-					LogFunction("glGetColorTableParameteriv({0}, {1}, {2})", target, pname, @params);
+					LogFunction("glGetColorTableParameteriv({0}, {1}, {2})", LogEnumName(target), LogEnumName(pname), @params);
 				}
 			}
 			DebugCheckErrors(null);
@@ -1221,7 +1221,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglColorSubTable != null, "pglColorSubTable not implemented");
 			Delegates.pglColorSubTable(target, start, count, (Int32)format, (Int32)type, data);
-			LogFunction("glColorSubTable({0}, {1}, {2}, {3}, {4}, 0x{5})", target, start, count, format, type, data.ToString("X8"));
+			LogFunction("glColorSubTable({0}, {1}, {2}, {3}, {4}, 0x{5})", LogEnumName(target), start, count, format, type, data.ToString("X8"));
 			DebugCheckErrors(null);
 		}
 
@@ -1340,7 +1340,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglCopyColorSubTable != null, "pglCopyColorSubTable not implemented");
 			Delegates.pglCopyColorSubTable(target, start, x, y, width);
-			LogFunction("glCopyColorSubTable({0}, {1}, {2}, {3}, {4})", target, start, x, y, width);
+			LogFunction("glCopyColorSubTable({0}, {1}, {2}, {3}, {4})", LogEnumName(target), start, x, y, width);
 			DebugCheckErrors(null);
 		}
 
@@ -1431,7 +1431,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglConvolutionFilter1D != null, "pglConvolutionFilter1D not implemented");
 			Delegates.pglConvolutionFilter1D(target, internalformat, width, (Int32)format, (Int32)type, image);
-			LogFunction("glConvolutionFilter1D({0}, {1}, {2}, {3}, {4}, 0x{5})", target, internalformat, width, format, type, image.ToString("X8"));
+			LogFunction("glConvolutionFilter1D({0}, {1}, {2}, {3}, {4}, 0x{5})", LogEnumName(target), LogEnumName(internalformat), width, format, type, image.ToString("X8"));
 			DebugCheckErrors(null);
 		}
 
@@ -1623,7 +1623,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglConvolutionFilter2D != null, "pglConvolutionFilter2D not implemented");
 			Delegates.pglConvolutionFilter2D(target, internalformat, width, height, (Int32)format, (Int32)type, image);
-			LogFunction("glConvolutionFilter2D({0}, {1}, {2}, {3}, {4}, {5}, 0x{6})", target, internalformat, width, height, format, type, image.ToString("X8"));
+			LogFunction("glConvolutionFilter2D({0}, {1}, {2}, {3}, {4}, {5}, 0x{6})", LogEnumName(target), LogEnumName(internalformat), width, height, format, type, image.ToString("X8"));
 			DebugCheckErrors(null);
 		}
 
@@ -1765,7 +1765,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglConvolutionParameterf != null, "pglConvolutionParameterf not implemented");
 			Delegates.pglConvolutionParameterf(target, pname, @params);
-			LogFunction("glConvolutionParameterf({0}, {1}, {2})", target, pname, @params);
+			LogFunction("glConvolutionParameterf({0}, {1}, {2})", LogEnumName(target), LogEnumName(pname), @params);
 			DebugCheckErrors(null);
 		}
 
@@ -1809,7 +1809,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglConvolutionParameterfv != null, "pglConvolutionParameterfv not implemented");
 					Delegates.pglConvolutionParameterfv(target, pname, p_params);
-					LogFunction("glConvolutionParameterfv({0}, {1}, {2})", target, pname, @params);
+					LogFunction("glConvolutionParameterfv({0}, {1}, {2})", LogEnumName(target), LogEnumName(pname), @params);
 				}
 			}
 			DebugCheckErrors(null);
@@ -1852,7 +1852,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglConvolutionParameteri != null, "pglConvolutionParameteri not implemented");
 			Delegates.pglConvolutionParameteri(target, pname, @params);
-			LogFunction("glConvolutionParameteri({0}, {1}, {2})", target, pname, @params);
+			LogFunction("glConvolutionParameteri({0}, {1}, {2})", LogEnumName(target), LogEnumName(pname), @params);
 			DebugCheckErrors(null);
 		}
 
@@ -1896,7 +1896,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglConvolutionParameteriv != null, "pglConvolutionParameteriv not implemented");
 					Delegates.pglConvolutionParameteriv(target, pname, p_params);
-					LogFunction("glConvolutionParameteriv({0}, {1}, {2})", target, pname, @params);
+					LogFunction("glConvolutionParameteriv({0}, {1}, {2})", LogEnumName(target), LogEnumName(pname), @params);
 				}
 			}
 			DebugCheckErrors(null);
@@ -1950,7 +1950,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglCopyConvolutionFilter1D != null, "pglCopyConvolutionFilter1D not implemented");
 			Delegates.pglCopyConvolutionFilter1D(target, internalformat, x, y, width);
-			LogFunction("glCopyConvolutionFilter1D({0}, {1}, {2}, {3}, {4})", target, internalformat, x, y, width);
+			LogFunction("glCopyConvolutionFilter1D({0}, {1}, {2}, {3}, {4})", LogEnumName(target), LogEnumName(internalformat), x, y, width);
 			DebugCheckErrors(null);
 		}
 
@@ -2010,7 +2010,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglCopyConvolutionFilter2D != null, "pglCopyConvolutionFilter2D not implemented");
 			Delegates.pglCopyConvolutionFilter2D(target, internalformat, x, y, width, height);
-			LogFunction("glCopyConvolutionFilter2D({0}, {1}, {2}, {3}, {4}, {5})", target, internalformat, x, y, width, height);
+			LogFunction("glCopyConvolutionFilter2D({0}, {1}, {2}, {3}, {4}, {5})", LogEnumName(target), LogEnumName(internalformat), x, y, width, height);
 			DebugCheckErrors(null);
 		}
 
@@ -2082,7 +2082,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglGetConvolutionFilter != null, "pglGetConvolutionFilter not implemented");
 			Delegates.pglGetConvolutionFilter(target, (Int32)format, (Int32)type, image);
-			LogFunction("glGetConvolutionFilter({0}, {1}, {2}, 0x{3})", target, format, type, image.ToString("X8"));
+			LogFunction("glGetConvolutionFilter({0}, {1}, {2}, 0x{3})", LogEnumName(target), format, type, image.ToString("X8"));
 			DebugCheckErrors(null);
 		}
 
@@ -2202,7 +2202,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetConvolutionParameterfv != null, "pglGetConvolutionParameterfv not implemented");
 					Delegates.pglGetConvolutionParameterfv(target, pname, p_params);
-					LogFunction("glGetConvolutionParameterfv({0}, {1}, {2})", target, pname, @params);
+					LogFunction("glGetConvolutionParameterfv({0}, {1}, {2})", LogEnumName(target), LogEnumName(pname), @params);
 				}
 			}
 			DebugCheckErrors(null);
@@ -2250,7 +2250,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetConvolutionParameteriv != null, "pglGetConvolutionParameteriv not implemented");
 					Delegates.pglGetConvolutionParameteriv(target, pname, p_params);
-					LogFunction("glGetConvolutionParameteriv({0}, {1}, {2})", target, pname, @params);
+					LogFunction("glGetConvolutionParameteriv({0}, {1}, {2})", LogEnumName(target), LogEnumName(pname), @params);
 				}
 			}
 			DebugCheckErrors(null);
@@ -2329,7 +2329,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglGetSeparableFilter != null, "pglGetSeparableFilter not implemented");
 			Delegates.pglGetSeparableFilter(target, (Int32)format, (Int32)type, row, column, span);
-			LogFunction("glGetSeparableFilter({0}, {1}, {2}, 0x{3}, 0x{4}, 0x{5})", target, format, type, row.ToString("X8"), column.ToString("X8"), span.ToString("X8"));
+			LogFunction("glGetSeparableFilter({0}, {1}, {2}, 0x{3}, 0x{4}, 0x{5})", LogEnumName(target), format, type, row.ToString("X8"), column.ToString("X8"), span.ToString("X8"));
 			DebugCheckErrors(null);
 		}
 
@@ -2516,7 +2516,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglSeparableFilter2D != null, "pglSeparableFilter2D not implemented");
 			Delegates.pglSeparableFilter2D(target, internalformat, width, height, (Int32)format, (Int32)type, row, column);
-			LogFunction("glSeparableFilter2D({0}, {1}, {2}, {3}, {4}, {5}, 0x{6}, 0x{7})", target, internalformat, width, height, format, type, row.ToString("X8"), column.ToString("X8"));
+			LogFunction("glSeparableFilter2D({0}, {1}, {2}, {3}, {4}, {5}, 0x{6}, 0x{7})", LogEnumName(target), LogEnumName(internalformat), width, height, format, type, row.ToString("X8"), column.ToString("X8"));
 			DebugCheckErrors(null);
 		}
 
@@ -2698,7 +2698,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglGetHistogram != null, "pglGetHistogram not implemented");
 			Delegates.pglGetHistogram(target, reset, (Int32)format, (Int32)type, values);
-			LogFunction("glGetHistogram({0}, {1}, {2}, {3}, 0x{4})", target, reset, format, type, values.ToString("X8"));
+			LogFunction("glGetHistogram({0}, {1}, {2}, {3}, 0x{4})", LogEnumName(target), reset, format, type, values.ToString("X8"));
 			DebugCheckErrors(null);
 		}
 
@@ -2814,7 +2814,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetHistogramParameterfv != null, "pglGetHistogramParameterfv not implemented");
 					Delegates.pglGetHistogramParameterfv(target, pname, p_params);
-					LogFunction("glGetHistogramParameterfv({0}, {1}, {2})", target, pname, @params);
+					LogFunction("glGetHistogramParameterfv({0}, {1}, {2})", LogEnumName(target), LogEnumName(pname), @params);
 				}
 			}
 			DebugCheckErrors(null);
@@ -2856,7 +2856,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetHistogramParameteriv != null, "pglGetHistogramParameteriv not implemented");
 					Delegates.pglGetHistogramParameteriv(target, pname, p_params);
-					LogFunction("glGetHistogramParameteriv({0}, {1}, {2})", target, pname, @params);
+					LogFunction("glGetHistogramParameteriv({0}, {1}, {2})", LogEnumName(target), LogEnumName(pname), @params);
 				}
 			}
 			DebugCheckErrors(null);
@@ -2928,7 +2928,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglGetMinmax != null, "pglGetMinmax not implemented");
 			Delegates.pglGetMinmax(target, reset, (Int32)format, (Int32)type, values);
-			LogFunction("glGetMinmax({0}, {1}, {2}, {3}, 0x{4})", target, reset, format, type, values.ToString("X8"));
+			LogFunction("glGetMinmax({0}, {1}, {2}, {3}, 0x{4})", LogEnumName(target), reset, format, type, values.ToString("X8"));
 			DebugCheckErrors(null);
 		}
 
@@ -3038,7 +3038,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetMinmaxParameterfv != null, "pglGetMinmaxParameterfv not implemented");
 					Delegates.pglGetMinmaxParameterfv(target, pname, p_params);
-					LogFunction("glGetMinmaxParameterfv({0}, {1}, {2})", target, pname, @params);
+					LogFunction("glGetMinmaxParameterfv({0}, {1}, {2})", LogEnumName(target), LogEnumName(pname), @params);
 				}
 			}
 			DebugCheckErrors(null);
@@ -3078,7 +3078,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetMinmaxParameteriv != null, "pglGetMinmaxParameteriv not implemented");
 					Delegates.pglGetMinmaxParameteriv(target, pname, p_params);
-					LogFunction("glGetMinmaxParameteriv({0}, {1}, {2})", target, pname, @params);
+					LogFunction("glGetMinmaxParameteriv({0}, {1}, {2})", LogEnumName(target), LogEnumName(pname), @params);
 				}
 			}
 			DebugCheckErrors(null);
@@ -3130,7 +3130,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglHistogram != null, "pglHistogram not implemented");
 			Delegates.pglHistogram(target, width, internalformat, sink);
-			LogFunction("glHistogram({0}, {1}, {2}, {3})", target, width, internalformat, sink);
+			LogFunction("glHistogram({0}, {1}, {2}, {3})", LogEnumName(target), width, LogEnumName(internalformat), sink);
 			DebugCheckErrors(null);
 		}
 
@@ -3170,7 +3170,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglMinmax != null, "pglMinmax not implemented");
 			Delegates.pglMinmax(target, internalformat, sink);
-			LogFunction("glMinmax({0}, {1}, {2})", target, internalformat, sink);
+			LogFunction("glMinmax({0}, {1}, {2})", LogEnumName(target), LogEnumName(internalformat), sink);
 			DebugCheckErrors(null);
 		}
 
@@ -3195,7 +3195,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglResetHistogram != null, "pglResetHistogram not implemented");
 			Delegates.pglResetHistogram(target);
-			LogFunction("glResetHistogram({0})", target);
+			LogFunction("glResetHistogram({0})", LogEnumName(target));
 			DebugCheckErrors(null);
 		}
 
@@ -3220,7 +3220,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglResetMinmax != null, "pglResetMinmax not implemented");
 			Delegates.pglResetMinmax(target);
-			LogFunction("glResetMinmax({0})", target);
+			LogFunction("glResetMinmax({0})", LogEnumName(target));
 			DebugCheckErrors(null);
 		}
 

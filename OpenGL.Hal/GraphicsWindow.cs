@@ -704,7 +704,7 @@ namespace OpenGL
 			IntPtr display = (IntPtr)xplatui.GetField("DisplayHandle", BindingFlags.Static | BindingFlags.NonPublic).GetValue(null);
 			IntPtr rootWindow = (IntPtr)xplatui.GetField("RootWindow", BindingFlags.Static | BindingFlags.NonPublic).GetValue(null);
 			IntPtr colorMap = Glx.UnsafeNativeMethods.XCreateColormap(display, rootWindow, _DeviceFormat.XVisualInfo.visual, 0);
-			KhronosApi.LogFunction("XCreateColormap(0x{0}, {1}, {2}. 0) = {0}", display.ToString("X"), rootWindow.ToString("X"), _DeviceFormat.XVisualInfo.visual.ToString());
+			// KhronosApi.LogFunction("XCreateColormap(0x{0}, {1}, {2}. 0) = {0}", display.ToString("X"), rootWindow.ToString("X"), _DeviceFormat.XVisualInfo.visual.ToString());
 
 			IntPtr customVisual = _DeviceFormat.XVisualInfo.visual;
 			IntPtr origCustomVisual = (IntPtr)xplatui.GetField("CustomVisual", BindingFlags.Static | BindingFlags.NonPublic).GetValue(null);

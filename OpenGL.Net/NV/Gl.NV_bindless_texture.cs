@@ -123,7 +123,7 @@ namespace OpenGL
 
 			Debug.Assert(Delegates.pglGetImageHandleNV != null, "pglGetImageHandleNV not implemented");
 			retValue = Delegates.pglGetImageHandleNV(texture, level, layered, layer, format);
-			LogFunction("glGetImageHandleNV({0}, {1}, {2}, {3}, {4}) = {5}", texture, level, layered, layer, format, retValue);
+			LogFunction("glGetImageHandleNV({0}, {1}, {2}, {3}, {4}) = {5}", texture, level, layered, layer, LogEnumName(format), retValue);
 			DebugCheckErrors(retValue);
 
 			return (retValue);
@@ -143,7 +143,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglMakeImageHandleResidentNV != null, "pglMakeImageHandleResidentNV not implemented");
 			Delegates.pglMakeImageHandleResidentNV(handle, access);
-			LogFunction("glMakeImageHandleResidentNV({0}, {1})", handle, access);
+			LogFunction("glMakeImageHandleResidentNV({0}, {1})", handle, LogEnumName(access));
 			DebugCheckErrors(null);
 		}
 

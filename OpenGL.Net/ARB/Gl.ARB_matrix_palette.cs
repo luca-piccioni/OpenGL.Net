@@ -182,7 +182,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglMatrixIndexPointerARB != null, "pglMatrixIndexPointerARB not implemented");
 			Delegates.pglMatrixIndexPointerARB(size, type, stride, pointer);
-			LogFunction("glMatrixIndexPointerARB({0}, {1}, {2}, 0x{3})", size, type, stride, pointer.ToString("X8"));
+			LogFunction("glMatrixIndexPointerARB({0}, {1}, {2}, 0x{3})", size, LogEnumName(type), stride, pointer.ToString("X8"));
 			DebugCheckErrors(null);
 		}
 

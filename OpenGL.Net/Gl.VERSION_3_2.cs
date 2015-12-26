@@ -937,7 +937,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglMultiDrawElementsBaseVertex != null, "pglMultiDrawElementsBaseVertex not implemented");
 					Delegates.pglMultiDrawElementsBaseVertex(mode, p_count, (Int32)type, p_indices, drawcount, p_basevertex);
-					LogFunction("glMultiDrawElementsBaseVertex({0}, {1}, {2}, {3}, {4}, {5})", mode, count, type, indices, drawcount, basevertex);
+					LogFunction("glMultiDrawElementsBaseVertex({0}, {1}, {2}, {3}, {4}, {5})", LogEnumName(mode), count, type, indices, drawcount, basevertex);
 				}
 			}
 			DebugCheckErrors(null);
@@ -960,7 +960,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglProvokingVertex != null, "pglProvokingVertex not implemented");
 			Delegates.pglProvokingVertex(provokeMode);
-			LogFunction("glProvokingVertex({0})", provokeMode);
+			LogFunction("glProvokingVertex({0})", LogEnumName(provokeMode));
 			DebugCheckErrors(null);
 		}
 
@@ -999,7 +999,7 @@ namespace OpenGL
 
 			Debug.Assert(Delegates.pglFenceSync != null, "pglFenceSync not implemented");
 			retValue = Delegates.pglFenceSync(condition, flags);
-			LogFunction("glFenceSync({0}, {1}) = {2}", condition, flags, retValue);
+			LogFunction("glFenceSync({0}, {1}) = {2}", LogEnumName(condition), flags, retValue);
 			DebugCheckErrors(retValue);
 
 			return (retValue);
@@ -1179,7 +1179,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetInteger64v != null, "pglGetInteger64v not implemented");
 					Delegates.pglGetInteger64v(pname, p_data);
-					LogFunction("glGetInteger64v({0}, {1})", pname, data);
+					LogFunction("glGetInteger64v({0}, {1})", LogEnumName(pname), data);
 				}
 			}
 			DebugCheckErrors(null);
@@ -1237,7 +1237,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetInteger64v != null, "pglGetInteger64v not implemented");
 					Delegates.pglGetInteger64v(pname, p_data);
-					LogFunction("glGetInteger64v({0}, {1})", pname, data);
+					LogFunction("glGetInteger64v({0}, {1})", LogEnumName(pname), data);
 				}
 			}
 			DebugCheckErrors(null);
@@ -1279,7 +1279,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetSynciv != null, "pglGetSynciv not implemented");
 					Delegates.pglGetSynciv(sync, pname, (Int32)values.Length, p_length, p_values);
-					LogFunction("glGetSynciv({0}, {1}, {2}, {3}, {4})", sync, pname, values.Length, length, values);
+					LogFunction("glGetSynciv({0}, {1}, {2}, {3}, {4})", sync, LogEnumName(pname), values.Length, length, values);
 				}
 			}
 			DebugCheckErrors(null);
@@ -1339,7 +1339,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetInteger64i_v != null, "pglGetInteger64i_v not implemented");
 					Delegates.pglGetInteger64i_v(target, index, p_data);
-					LogFunction("glGetInteger64i_v({0}, {1}, {2})", target, index, data);
+					LogFunction("glGetInteger64i_v({0}, {1}, {2})", LogEnumName(target), index, data);
 				}
 			}
 			DebugCheckErrors(null);
@@ -1399,7 +1399,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetInteger64i_v != null, "pglGetInteger64i_v not implemented");
 					Delegates.pglGetInteger64i_v(target, index, p_data);
-					LogFunction("glGetInteger64i_v({0}, {1}, {2})", target, index, data);
+					LogFunction("glGetInteger64i_v({0}, {1}, {2})", LogEnumName(target), index, data);
 				}
 			}
 			DebugCheckErrors(null);
@@ -1448,7 +1448,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetBufferParameteri64v != null, "pglGetBufferParameteri64v not implemented");
 					Delegates.pglGetBufferParameteri64v((Int32)target, value, p_params);
-					LogFunction("glGetBufferParameteri64v({0}, {1}, {2})", target, value, data);
+					LogFunction("glGetBufferParameteri64v({0}, {1}, {2})", target, LogEnumName(value), data);
 				}
 			}
 			DebugCheckErrors(null);
@@ -1517,7 +1517,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglFramebufferTexture != null, "pglFramebufferTexture not implemented");
 			Delegates.pglFramebufferTexture(target, attachment, texture, level);
-			LogFunction("glFramebufferTexture({0}, {1}, {2}, {3})", target, attachment, texture, level);
+			LogFunction("glFramebufferTexture({0}, {1}, {2}, {3})", LogEnumName(target), LogEnumName(attachment), texture, level);
 			DebugCheckErrors(null);
 		}
 
@@ -1574,7 +1574,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglTexImage2DMultisample != null, "pglTexImage2DMultisample not implemented");
 			Delegates.pglTexImage2DMultisample(target, samples, internalformat, width, height, fixedsamplelocations);
-			LogFunction("glTexImage2DMultisample({0}, {1}, {2}, {3}, {4}, {5})", target, samples, internalformat, width, height, fixedsamplelocations);
+			LogFunction("glTexImage2DMultisample({0}, {1}, {2}, {3}, {4}, {5})", LogEnumName(target), samples, LogEnumName(internalformat), width, height, fixedsamplelocations);
 			DebugCheckErrors(null);
 		}
 
@@ -1637,7 +1637,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglTexImage3DMultisample != null, "pglTexImage3DMultisample not implemented");
 			Delegates.pglTexImage3DMultisample(target, samples, internalformat, width, height, depth, fixedsamplelocations);
-			LogFunction("glTexImage3DMultisample({0}, {1}, {2}, {3}, {4}, {5}, {6})", target, samples, internalformat, width, height, depth, fixedsamplelocations);
+			LogFunction("glTexImage3DMultisample({0}, {1}, {2}, {3}, {4}, {5}, {6})", LogEnumName(target), samples, LogEnumName(internalformat), width, height, depth, fixedsamplelocations);
 			DebugCheckErrors(null);
 		}
 
@@ -1672,7 +1672,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetMultisamplefv != null, "pglGetMultisamplefv not implemented");
 					Delegates.pglGetMultisamplefv(pname, index, p_val);
-					LogFunction("glGetMultisamplefv({0}, {1}, {2})", pname, index, val);
+					LogFunction("glGetMultisamplefv({0}, {1}, {2})", LogEnumName(pname), index, val);
 				}
 			}
 			DebugCheckErrors(null);

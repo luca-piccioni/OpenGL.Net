@@ -75,7 +75,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglLabelObjectEXT != null, "pglLabelObjectEXT not implemented");
 			Delegates.pglLabelObjectEXT(type, @object, length, label);
-			LogFunction("glLabelObjectEXT({0}, {1}, {2}, {3})", type, @object, length, label);
+			LogFunction("glLabelObjectEXT({0}, {1}, {2}, {3})", LogEnumName(type), @object, length, label);
 			DebugCheckErrors(null);
 		}
 
@@ -105,7 +105,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetObjectLabelEXT != null, "pglGetObjectLabelEXT not implemented");
 					Delegates.pglGetObjectLabelEXT(type, @object, bufSize, p_length, label);
-					LogFunction("glGetObjectLabelEXT({0}, {1}, {2}, {3}, {4})", type, @object, bufSize, length, label);
+					LogFunction("glGetObjectLabelEXT({0}, {1}, {2}, {3}, {4})", LogEnumName(type), @object, bufSize, length, label);
 				}
 			}
 			DebugCheckErrors(null);

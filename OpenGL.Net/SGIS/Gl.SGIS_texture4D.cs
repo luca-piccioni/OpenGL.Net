@@ -128,7 +128,7 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglTexImage4DSGIS != null, "pglTexImage4DSGIS not implemented");
 			Delegates.pglTexImage4DSGIS((Int32)target, level, internalformat, width, height, depth, size4d, border, (Int32)format, (Int32)type, pixels);
-			LogFunction("glTexImage4DSGIS({0}, {1}, {2}, {3}, {4}, {5}, {6}, {7}, {8}, {9}, 0x{10})", target, level, internalformat, width, height, depth, size4d, border, format, type, pixels.ToString("X8"));
+			LogFunction("glTexImage4DSGIS({0}, {1}, {2}, {3}, {4}, {5}, {6}, {7}, {8}, {9}, 0x{10})", target, level, LogEnumName(internalformat), width, height, depth, size4d, border, format, type, pixels.ToString("X8"));
 			DebugCheckErrors(null);
 		}
 

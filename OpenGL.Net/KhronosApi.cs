@@ -21,6 +21,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Reflection;
 using System.Runtime.InteropServices;
+using System.Text;
 using System.Text.RegularExpressions;
 
 using ImportMap = System.Collections.Generic.SortedList<string, System.Reflection.MethodInfo>;
@@ -589,7 +590,7 @@ namespace OpenGL
 		/// <param name="args">
 		/// An array of objects that specifies the arguments of the <paramref name="format"/>.
 		/// </param>
-		public static void LogFunction(string format, params object[] args)
+		protected internal static void LogFunction(string format, params object[] args)
 		{
 			if (format == null)
 				throw new ArgumentNullException("format");
@@ -609,15 +610,61 @@ namespace OpenGL
 		/// <summary>
 		/// Log an enumeration value.
 		/// </summary>
+		/// <param name="array">
+		/// A <see cref="Array"/> that specifies the set of values.
+		/// </param>
+		/// <returns>
+		/// It returns a <see cref="String"/> that represents <paramref name="array"/>.
+		/// </returns>
+		protected static string LogValue(Array array)
+		{
+			StringBuilder sb = new StringBuilder();
+
+			sb.Append("{");
+			foreach (object arrayItem in array)
+				sb.AppendFormat("{0},", arrayItem.ToString());
+			if (array.Length > 0)
+				sb.Remove(sb.Length - 1, 1);
+			sb.Append("}");
+
+			return (sb.ToString());
+		}
+
+		/// <summary>
+		/// Log an enumeration value.
+		/// </summary>
 		/// <param name="enumValue">
 		/// A <see cref="Int32"/> that specifies the enumeration value.
 		/// </param>
 		/// <returns>
-		/// It returns a <see cref="String"/> that represents <paramref name="enumValue"/> as hexadecimal value.
+		/// It returns a <see cref="String"/> that represents <paramref name="enumValue"/>.
 		/// </returns>
-		protected virtual string LogEnumName(int enumValue)
+		protected static string LogEnumName(int enumValue)
 		{
 			return (String.Format("0x{0}", enumValue.ToString("X4")));
+		}
+
+		/// <summary>
+		/// Log an enumeration value.
+		/// </summary>
+		/// <param name="enumValues">
+		/// An array of <see cref="Int32"/> that specifies the enumeration values.
+		/// </param>
+		/// <returns>
+		/// It returns a <see cref="String"/> that represents <paramref name="enumValues"/>.
+		/// </returns>
+		protected static string LogEnumName(int[] enumValues)
+		{
+			StringBuilder sb = new StringBuilder();
+
+			sb.Append("{");
+			foreach (int enumValue in enumValues)
+				sb.AppendFormat("{0},", LogEnumName(enumValue));
+			if (enumValues.Length > 0)
+				sb.Remove(sb.Length - 1, 1);
+			sb.Append("}");
+
+			return (sb.ToString());
 		}
 
 		/// <summary>

@@ -254,7 +254,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglReplacementCodePointerSUN != null, "pglReplacementCodePointerSUN not implemented");
 					Delegates.pglReplacementCodePointerSUN(type, stride, p_pointer);
-					LogFunction("glReplacementCodePointerSUN({0}, {1}, {2})", type, stride, pointer);
+					LogFunction("glReplacementCodePointerSUN({0}, {1}, {2})", LogEnumName(type), stride, pointer);
 				}
 			}
 			DebugCheckErrors(null);

@@ -137,7 +137,7 @@ namespace OpenGL
 
 			Debug.Assert(Delegates.pglGetHandleARB != null, "pglGetHandleARB not implemented");
 			retValue = Delegates.pglGetHandleARB(pname);
-			LogFunction("glGetHandleARB({0}) = {1}", pname, retValue);
+			LogFunction("glGetHandleARB({0}) = {1}", LogEnumName(pname), retValue);
 			DebugCheckErrors(retValue);
 
 			return (retValue);
@@ -163,7 +163,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetObjectParameterfvARB != null, "pglGetObjectParameterfvARB not implemented");
 					Delegates.pglGetObjectParameterfvARB(obj, pname, p_params);
-					LogFunction("glGetObjectParameterfvARB({0}, {1}, {2})", obj, pname, @params);
+					LogFunction("glGetObjectParameterfvARB({0}, {1}, {2})", obj, LogEnumName(pname), @params);
 				}
 			}
 			DebugCheckErrors(null);
@@ -189,7 +189,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetObjectParameterfvARB != null, "pglGetObjectParameterfvARB not implemented");
 					Delegates.pglGetObjectParameterfvARB(obj, pname, p_params);
-					LogFunction("glGetObjectParameterfvARB({0}, {1}, {2})", obj, pname, @params);
+					LogFunction("glGetObjectParameterfvARB({0}, {1}, {2})", obj, LogEnumName(pname), @params);
 				}
 			}
 			DebugCheckErrors(null);
@@ -215,7 +215,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetObjectParameterivARB != null, "pglGetObjectParameterivARB not implemented");
 					Delegates.pglGetObjectParameterivARB(obj, pname, p_params);
-					LogFunction("glGetObjectParameterivARB({0}, {1}, {2})", obj, pname, @params);
+					LogFunction("glGetObjectParameterivARB({0}, {1}, {2})", obj, LogEnumName(pname), @params);
 				}
 			}
 			DebugCheckErrors(null);
@@ -241,7 +241,7 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetObjectParameterivARB != null, "pglGetObjectParameterivARB not implemented");
 					Delegates.pglGetObjectParameterivARB(obj, pname, p_params);
-					LogFunction("glGetObjectParameterivARB({0}, {1}, {2})", obj, pname, @params);
+					LogFunction("glGetObjectParameterivARB({0}, {1}, {2})", obj, LogEnumName(pname), @params);
 				}
 			}
 			DebugCheckErrors(null);
